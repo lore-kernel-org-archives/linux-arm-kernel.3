@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95333C87FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 216D8C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:50:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h4kTFQ10TAoSPe9XHlqm6WMAg7BxfdrKwRLPI663Cpc=; b=3lMkaHl2U79edf3XuAylcQNUVF
-	cXT7bKRuNm8kRKjBM9xZOP+nQwbwrPcdISAYi8CcW12aVUHnVzFM+yYvTkivsD6CdFqPienY3cveL
-	Zo0z8FmIzAABeJPc0kFhMPfSRbQ3P3NWRGCUF+8bGtBIpjAaeyF2wEfbuWs6KVzjXv4uuKueOgy2X
-	56QycBEvsEpcK79LkqFfJLKEfMUE1g8Mws8oTQuNQku402x3W4Ibx7TtXzQJYThtfC0GTBEEKbVH0
-	iC9fpY4RGQnp3iBWZAxaO5TBAX0sBa8PO6ANYJMRJZ8sSEK3Ync7FJw11QqUE/eK/Gnc+syMl78yH
-	WUH3rqtw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zNH/CsduUWCvM5gELuAgq3p7E4AdZC3XhwuB0cWgsv0=; b=zdsYKKl0OCrBn2YVSo2vUJo7KD
+	VHPDQVxeg3FCvUsujYHniH3t1090bQ8O9HLfin/jqJEdjib1G3K6qJR8DJ8RgSev532lcshLZwvQX
+	V8X96uTYClQ0kDPoIZhJKW17ZXaEjzOz0LFxCyLgVSVEDkj4kX1WxWrOxO9Sfpb0vlS5k5suNCOc8
+	k33GQsg1SywMTGfJX2NR7DNG70/9420DVv80LWIhss7ZLHOQPdR1rJbp3yb9rg886NN9nLdFEGDNK
+	OVJidJotOGlMYgQoSwOrWGBghnVZ5U63/v7vXu2Pa1THzsepKdCTZk6i0FjAKYaxZ9ChR8WLSbzuL
+	sk9C7o/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufDAA-00000009I2K-1DDv;
-	Fri, 25 Jul 2025 07:48:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ufDCb-00000009IG0-0Tob;
+	Fri, 25 Jul 2025 07:50:49 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCzU-00000009Gw1-0cla
+	id 1ufD2M-00000009HB4-2H31
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 07:37:17 +0000
+	Fri, 25 Jul 2025 07:40:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C84246680;
-	Fri, 25 Jul 2025 07:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE810C4CEE7;
-	Fri, 25 Jul 2025 07:37:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9C968A56052;
+	Fri, 25 Jul 2025 07:40:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5CAC4CEE7;
+	Fri, 25 Jul 2025 07:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753429035;
-	bh=Y6cUVQBCiqpdUy+2d+nrCzSPiT4iFPP1LHs4gH+8b2A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VfTMcTxSTHLvRE5/d4HaOZmH1wCbDKhKYll15hsCH1t7w2kp/bu32kOYvpZ1nn33v
-	 MFneGjHKkJTgxwnMEmmS3vLQkXU3BwbvC6II7CLHH2eqkde9zbzSbJtf+5IwpipL5n
-	 IMnIg3Ap5YGLUMEhg/gbBRJ0/xMSVxaaoLVXJ8JvEoyo5InQxz9l9J5kLAF9eO1NuS
-	 w0s/GRVLCHu5jUqpfYIZT5R9iFNJ3tNBY2ExIqo7/qPq+xtEBwoOSGFjil91hOHukc
-	 3V2K4EJT6PHt2XaHUUkdIRkCS0BYH8waTW5ckseSnhge2GWTml9Z9+I7xtcVblfz1W
-	 YMATHmMNeFe1w==
-Message-ID: <f1ace942-620e-43fe-93bd-aac184aa7970@kernel.org>
-Date: Fri, 25 Jul 2025 09:37:11 +0200
+	s=k20201202; t=1753429213;
+	bh=7VzQscuh58heLqHgPQucnd5aA5ZutPjS50+G0o0BO0Y=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=fvLj/ANpkT2bNwQYRbeyhJMU70oyrqXfxsFj7Mou4iNQBHzz21IOMS24MZA4v65qm
+	 wMw8+QYyzq3avcoG94kfAnX2OHP6TVXc+UneLCbFDyPMVI5fR8AV7vjz59D6zatuJc
+	 7lTgFRvqsfeGAwzue0TY86lPQ4rtXGE6Zyed2I43w/fQvUTNMXAezuXx/HyXlFbKX+
+	 TjhEHkoRzVeSfT0e8RqofNNKSc8KvuQCUyZxSSBO7C2WMCKAtW0ZHkEocRTNSRS6jF
+	 FltryL1O+/oslxIaenw3ZSkLhBuSAvznsXbb2x0eQzaXtv3y41z6MAF4s2CphYvGmb
+	 oAvjrcKKlIeig==
+Message-ID: <384635a3-c6ed-44f8-a54a-2b20e20694cd@kernel.org>
+Date: Fri, 25 Jul 2025 09:40:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/2] dt-bindings: soc: samsung: usi: allow 64-bit
- address space
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250722121037.443385-1-ivo.ivanov.ivanov1@gmail.com>
- <20250723-hypnotic-malkoha-of-trust-9efdb6@kuoka>
- <3e1d7be9-e99f-41c3-8b0d-aaa426aa9de8@gmail.com>
- <fbe025c9-2688-49f1-bd94-2cb0a1bbc8d2@kernel.org>
- <cf7030d4-a686-4edd-9698-1a9c301d1dd0@gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
+ parent node compatibles and refine documentation
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Kevin Chen <kevin_chen@aspeedtech.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
+References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
+ <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
+ <001d37c7-f704-4554-a4db-0cc130e07dd6@kernel.org>
+ <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <cf7030d4-a686-4edd-9698-1a9c301d1dd0@gmail.com>
+In-Reply-To: <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_003716_233073_9DC321EB 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250725_004014_728554_341B331D 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +128,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2025 09:02, Ivaylo Ivanov wrote:
-> On 7/24/25 09:56, Krzysztof Kozlowski wrote:
->> On 23/07/2025 10:21, Ivaylo Ivanov wrote:
->>> On 7/23/25 11:15, Krzysztof Kozlowski wrote:
->>>> On Tue, Jul 22, 2025 at 03:10:36PM +0300, Ivaylo Ivanov wrote:
->>>>> Some device trees, like the exynos2200 one, configure the root node
->>>>> with #address-cells and #size-cells set to 2. However, the usi binding
->>>>> expects 32 bit address space only. Allow these determining properties to
->>>> So if USI expects 32 bit, then why do we allow 64?
->>>>
->>>> Switching this to 2 means you use 64-bit addressing for children
->>> I don't, but the main point was to avoid defining ranges for every single usi
->> I do not understand your "I don't", because you do.
+On 23/07/2025 10:08, Ryan Chen wrote:
+>> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
+>> parent node compatibles and refine documentation
+>>
+>> On 22/07/2025 11:51, Ryan Chen wrote:
+>>> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+>>> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
+>>> +  +-----+   +---------+
+>>> +  | GIC |---|  INTC0  |
+>>> +  +-----+   +---------+
+>>> +            +---------+
+>>> +            |         |---module0
+>>> +            | INTC0_0 |---module1
+>>> +            |         |---...
+>>> +            +---------+---module31
+>>> +            |---....  |
+>>> +            +---------+
+>>> +            |         |     +---------+
+>>> +            | INTC0_11| +---| INTC1   |
+>>> +            |         |     +---------+
+>>> +            +---------+     +---------+---module0
+>>> +                            | INTC1_0 |---module1
+>>> +                            |         |---...
+>>> +                            +---------+---module31
+>>> +                            ...
+>>> +                            +---------+---module0
+>>> +                            | INTC1_5 |---module1
+>>> +                            |         |---...
+>>> +                            +---------+---module31
+>>
+>> You binding also said intc1 is the parent of intc-ic, so where is here intc-ic?
+>>
+>> This diagram and new binding do not match at all.
 > 
-> I meant it in the "I don't _need_ to explicitly use that, but it's _nice_ to have"
-> way, so I don't have to clutter the nodes with address translations in ranges.
+> The corresponded compatible is following.
+> 
+>   +-----+   +---------+
+>   | GIC |---|  INTC0  | -> (parent : aspeed,ast2700-intc0)
+>   +-----+   +---------+
+>             +---------+
+>             |        |---module0
+>             | INTC0_0 |---module1
+> 			(child : aspeed,ast2700-intc-ic)
+>             |        |---...
+>             +---------+---module31
+>             |---....  |
+>             +---------+
+>             |         |    					 +---------+
+>             | INTC0_11 | +----------------------------	| INTC1   |  -> -> (parent : aspeed,ast2700-intc1)
 
-It is not nice to have. The address space should not grow above the
-device limits or even above the needs (sometime ago Rob explicitly asked
-for that). Changing to 64-bit just because you do not want to add ranges
-property is not correct, because it misses the main point: what is the
-address space?
+AGAIN (second time): that's not what your binding said.
 
-Changing to 64-bit because that's the address space would be fine, but
-that was not argued here.
+Your binding is explicit here, which is what we want in general. It says
+that inct1 is one of the parents of intc-ic.
 
-I did not check in the datasheets, but I assume these devices want
-32-bit address space and that's how it should stay.
+Let me be clear, because you will be dragging this talk with irrelevant
+arguments forever - changing this binding is close to no. If you come
+with correct arguments, maybe would work. But the main point is that you
+probably do not have to even change the binding to achieve proper
+hardware description. Work on that.
 
 Best regards,
 Krzysztof
