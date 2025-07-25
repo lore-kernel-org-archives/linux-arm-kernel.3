@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E362C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 10:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2F6AC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 10:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMZCUSvts68iCk1RBUo7wm42UGnUcBwInw/trKgvtPs=; b=YQvxW1dKA7eFXIM8xgaNjBUvOW
-	QDWw8D39QGV5OC1OxhQqjoO7fLy5KKxrHtvDBE1FKZQG+CnMlakg8abTvWlz5RftQaeKNaWN6P3Fq
-	nIxFw6pDY1Pur0zrhG+uCZ+oGvyUXnPDIoKtJuJUKqPS3Unu9HBvoCTB5/ETcsmOufECp2ud2w+6h
-	74t2IvHtdg7EtJ5WiiElUWrgCxLiHOqHi8mUoibTNY6/iPKx846URipZ7QPjPb+YlJp/D6+RIYgUw
-	GmPGtfXcREFg9rYSQl2lEprIGZxn2SLR52WOLLVVkRdVOMqQpXGOxO9r8irWFfiKs+Tg8sh6uKa9M
-	NqXJ7HSQ==;
+	bh=FvbrwR+qUAKSQYDJ+cBq6248WP5QVfvk1CnmBQagecY=; b=XSfNAqJRaou6P+O9x9t2drm4Px
+	BzLaEt70wmd8K5t3jMOPKXIwsgnP7KItG1cH3v6YbaE1FQz+MbCetyqxybbZcDI5lU8yoVrNMzAQC
+	uX291wvrayulqVhmLEIw6V68QKWUk/yQwVx6Z3bnlQ7hOOgywWE5f99o4iv08tBZa0RmyVyPG/DB2
+	7g/J2FGwIg/GzOSwI1waFgRvCiRMy8WCnCmaQzj/JlbIXTivhH+vogXfrzOc8sPRfwKuh3kK6o7oR
+	WjP77kysbH5YVAmgyp7WKdbR3W+FdFCWNtDkF8M/8TPAZP0awjfeOyY2t6fbhoa72Ic6//Wef/Hqj
+	fiPzlMxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufFbb-00000009aGh-0HF1;
-	Fri, 25 Jul 2025 10:24:47 +0000
+	id 1ufFe2-00000009aUL-3Tmq;
+	Fri, 25 Jul 2025 10:27:18 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufFKY-00000009Wjv-0Om5
+	id 1ufFKZ-00000009WkX-0hJ9
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Jul 2025 10:07:12 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56P9eWnr023360;
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56PA5GIj005160;
 	Fri, 25 Jul 2025 12:06:56 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	YMZCUSvts68iCk1RBUo7wm42UGnUcBwInw/trKgvtPs=; b=tbxW4u/r3d3CG3yV
-	9+ZoZQbdbq9V4RiwjGPfVQInz6CtuVUkBOuA3e+ihzsAph0/BODhjgblJNrEV84q
-	ubyh14eTAYRs+C5dTdpS7NjzLk5dy0Om44tgGVj7UBOJg0c737O7V+6hCds+xeio
-	7PHOUQEn/cXq3aJx+DfNhiM5Ep9WxThek5gPOMk8jg6mtnvP2SUbv99lSQLatFV7
-	4irAiA1x4iFpmrgl80fk9T57ZN/gSrKXbCH2lE158K96tFT6LNuncJrkWhoX5UbA
-	wGcmBmU2ia+GtVn0iKdlYQ/Nrr9ZSBsTWLIklTzEyZpUH2lQcM0+wYRsmdviH5pR
-	D/YkkA==
+	FvbrwR+qUAKSQYDJ+cBq6248WP5QVfvk1CnmBQagecY=; b=jypV/fam1otMl+BW
+	ILIgsoIlZLsM4f9Wvty7uRFSRCwS7T2HPg95bzt9/k0UFCpCPq2y7ckxc8lHx+vn
+	JinZ0rP34cwbEwC0rRQ/UElbDPbrXBfa82b/rP62SrHY4sTMNLPMYr0Edz3WDyQB
+	X58qCMnHD0H9nTJAz6w2PjhrjuBM+4Rpkz94XzmBeDnvr/dkDNyjTQbdwSAoF78F
+	7kDXXuofTBwZjVmqstAYqNZQzY3Qre4lykD7NYhvCOmAVYFa8W+X65xU58n8KWdQ
+	FkXDq90A9cNLDG2hYgQTFe75RGYCwDOJ6ah6WXAJpcU2/3mygZfIO2NoW/Q2bLbb
+	F9RWAA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3ethj6-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3kjhh6-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 25 Jul 2025 12:06:56 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A175D40053;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5354F40051;
 	Fri, 25 Jul 2025 12:05:33 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CE4B97A19C5;
-	Fri, 25 Jul 2025 12:04:30 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CEA1076972A;
+	Fri, 25 Jul 2025 12:04:29 +0200 (CEST)
 Received: from localhost (10.252.19.90) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Jul
- 2025 12:04:30 +0200
+ 2025 12:04:29 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Fri, 25 Jul 2025 12:03:57 +0200
-Subject: [PATCH 05/12] dt-bindings: arm: stm32: add required #clock-cells
- property
+Date: Fri, 25 Jul 2025 12:03:56 +0200
+Subject: [PATCH 04/12] dt-bindings: display: st,stm32mp25-lvds: add
+ power-domains property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250725-drm-misc-next-v1-5-a59848e62cf9@foss.st.com>
+Message-ID: <20250725-drm-misc-next-v1-4-a59848e62cf9@foss.st.com>
 References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
 In-Reply-To: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,8 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-25_02,2025-07-24_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_030710_436773_8EF0C243 
-X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-CacheID: sfid-20250725_030711_505489_3F6672E7 
+X-CRM114-Status: UNSURE (   9.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,63 +112,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On STM32MP25 SoC, the syscfg peripheral provides a clock to the display
-subsystem through a multiplexer.  Since it only provides a single clock,
-the cell value is 0.
-
-Doing so allows the clock consumers to reach the peripheral and gate the
-clock accordingly.
+STM32 LVDS peripheral may be in a power domain.  Allow an optional
+single 'power-domains' entry for STM32 LVDS devices.
 
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- .../bindings/arm/stm32/st,stm32-syscon.yaml        | 31 +++++++++++++++-------
- 1 file changed, 21 insertions(+), 10 deletions(-)
+ Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-index ed97652c84922813e94b1818c07fe8714891c089..95d2319afe235fa86974d80f89c9deeae2275232 100644
---- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
-@@ -36,20 +36,31 @@ properties:
-   clocks:
+diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+index e046c0a4fdb7f13ca5a31b14ae0ab19f2bc486fa..0bd8e9bcd92672a996ae2f6ae17fa6179ffca615 100644
+--- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+@@ -57,6 +57,9 @@ properties:
+   access-controllers:
      maxItems: 1
  
-+  "#clock-cells":
-+    const: 0
++  power-domains:
++    maxItems: 1
 +
- required:
-   - compatible
-   - reg
- 
--if:
--  properties:
--    compatible:
--      contains:
--        enum:
--          - st,stm32mp157-syscfg
--          - st,stm32f4-gcan
--then:
--  required:
--    - clocks
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - st,stm32mp157-syscfg
-+              - st,stm32f4-gcan
-+    then:
-+      required:
-+        - clocks
-+  - if:
-+      properties:
-+        compatible:
-+          const: st,stm32mp25-syscfg
-+    then:
-+      required:
-+        - "#clock-cells"
- 
- additionalProperties: false
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
  
 
 -- 
