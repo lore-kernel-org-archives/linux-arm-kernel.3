@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E5DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:19:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95480C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7d/+iASQMybHR/tMX/RIRDRqSIKIWpUdei5sXq19BN0=; b=dNJiuAa4SeSiAj1nu3Habvzxnx
-	s2uR40W3c3B4sOq8eB4Sh0OPBLgDKqydL65PBx8pv26Zi5D8ZcndBFoiCfDoUq/Bo885Bsx6ROI25
-	gdZO49P2ozgYEDBB6ka0mXHzvNW7WcsRd37fhCzgnWS3uwWPU86I2/QPsW2t45TgeFhE54KB1Gmzy
-	eAdt0al1gskEBsyZYqdEaKn+i85GrHLPMq1fzimpkEbVfKcnHXgX5NcVXv94IxrNIPASPjrueDERG
-	sltXyqJAG6Bdqhuz9Niyw/0X5OxhI9Cws643tIQ8z0O367SjA7T2SvZueDKxTQr/jUKziPepPfmtp
-	Io+X0D6A==;
+	bh=+i0wtQ07nL3ZqfsyJmSHDju1V+eOBxLhbkZYzY60Gu8=; b=gFDSaTe+ccTBR6ElXq+sKF8Bym
+	QXBNwc34w6GSGf8yZYkpVVHXQQkwyGzb1+9nzc8bcPmdnEnSy+UsNoat7VJwwnSBbiwo+IA0A4oF/
+	YTKAOPMaz1ohL3HgVkKrBijuxVZEHKASUAVHA4hQ1vERCBMpVKloIwciMFHwDXHmNgp3XOa3nuuv9
+	kkD7JXsP9K6j9xPCgk10zorbVebpeeNkaqdPl8ETBgWM3O1InzNipA5g4sU+XMah+WrahKhwgT/LL
+	gsEbIUEHaZc/ttRFIdd5Pi4yCa4IlJfFjkEjnjPxXYBoDUz6jBYqbWkywZsd25mM1YgAUwsncS3MG
+	zNJUIDhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufN1F-0000000AQCU-1Mp6;
-	Fri, 25 Jul 2025 18:19:45 +0000
+	id 1ufNFk-0000000ASLO-3tAh;
+	Fri, 25 Jul 2025 18:34:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufLrs-0000000AIBw-0pai
+	id 1ufLuO-0000000AIY6-08eM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 17:06:01 +0000
+	Fri, 25 Jul 2025 17:08:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD78C176C;
-	Fri, 25 Jul 2025 10:05:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2A30176C;
+	Fri, 25 Jul 2025 10:08:28 -0700 (PDT)
 Received: from [10.1.197.43] (eglon.cambridge.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4E763F66E;
-	Fri, 25 Jul 2025 10:05:51 -0700 (PDT)
-Message-ID: <3fe6b4a6-d27b-4530-9f76-eb6c0daabbde@arm.com>
-Date: Fri, 25 Jul 2025 18:05:48 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B17A3F66E;
+	Fri, 25 Jul 2025 10:08:32 -0700 (PDT)
+Message-ID: <ccbf2f40-7e69-4b51-953f-113695b8c16e@arm.com>
+Date: Fri, 25 Jul 2025 18:08:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 05/36] ACPI / PPTT: Add a helper to fill a cpumask
- from a processor container
+Subject: Re: [RFC PATCH 04/36] cacheinfo: Expose the code to generate a
+ cache-id from a device_node
 To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
@@ -52,19 +52,18 @@ Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
  Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
- Sudeep Holla <sudeep.holla@arm.com>
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
 References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-6-james.morse@arm.com>
- <46e3ead8-411d-4e51-b38b-da791e568b94@arm.com>
+ <20250711183648.30766-5-james.morse@arm.com>
+ <bfc4d1b5-c8c4-45de-b52a-833486368336@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <46e3ead8-411d-4e51-b38b-da791e568b94@arm.com>
+In-Reply-To: <bfc4d1b5-c8c4-45de-b52a-833486368336@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_100600_311976_4ABA6546 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250725_100836_113950_DFDD5344 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +80,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Ben,
 
-On 23/07/2025 15:42, Ben Horgan wrote:
+On 14/07/2025 12:40, Ben Horgan wrote:
 > On 7/11/25 19:36, James Morse wrote:
->> The PPTT describes CPUs and caches, as well as processor containers.
->> The ACPI table for MPAM describes the set of CPUs that can access an MSC
->> with the UID of a processor container.
+>> The MPAM driver identifies caches by id for use with resctrl. It
+>> needs to know the cache-id when probe-ing, but the value isn't set
+>> in cacheinfo until device_initcall().
 >>
->> Add a helper to find the processor container by its id, then walk
->> the possible CPUs to fill a cpumask with the CPUs that have this
->> processor container as a parent.
+>> Expose the code that generates the cache-id. The parts of the MPAM
+>> driver that run early can use this to set up the resctrl structures
+>> before cacheinfo is ready in device_initcall().
 
->> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
->> index 54676e3d82dd..13619b1b821b 100644
->> --- a/drivers/acpi/pptt.c
->> +++ b/drivers/acpi/pptt.c
->> @@ -298,6 +298,99 @@ static struct acpi_pptt_processor *acpi_find_processor_node(struct
->> +/**
->> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
->> + *                                       processor containers
->> + * @acpi_cpu_id:    The UID of the processor container.
->> + * @cpus        The resulting CPU mask.
->> + *
->> + * Find the specified Processor Container, and fill @cpus with all the cpus
->> + * below it.
->> + *
->> + * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
->> + * Container, they may exist purely to describe a Private resource. CPUs
->> + * have to be leaves, so a Processor Container is a non-leaf that has the
->> + * 'ACPI Processor ID valid' flag set.
->> + *
->> + * Return: 0 for a complete walk, or an error if the mask is incomplete.
->> + */
->> +int acpi_pptt_get_cpus_from_container(u32 acpi_cpu_id, cpumask_t *cpus)
->> +{
->> +    struct acpi_pptt_processor *cpu_node;
->> +    struct acpi_table_header *table_hdr;
->> +    struct acpi_subtable_header *entry;
->> +    bool leaf_flag, has_leaf_flag = false;
->> +    unsigned long table_end;
->> +    acpi_status status;
->> +    u32 proc_sz;
->> +    int ret = 0;
->> +
->> +    cpumask_clear(cpus);
->> +
->> +    status = acpi_get_table(ACPI_SIG_PPTT, 0, &table_hdr);
->> +    if (ACPI_FAILURE(status))
->> +        return 0;
->> +
->> +    if (table_hdr->revision > 1)
->> +        has_leaf_flag = true;
->> +
->> +    table_end = (unsigned long)table_hdr + table_hdr->length;
->> +    entry = ACPI_ADD_PTR(struct acpi_subtable_header, table_hdr,
->> +                 sizeof(struct acpi_table_pptt));
->> +    proc_sz = sizeof(struct acpi_pptt_processor);
->> +    while ((unsigned long)entry + proc_sz <= table_end) {
->> +        cpu_node = (struct acpi_pptt_processor *)entry;
->> +        if (entry->type == ACPI_PPTT_TYPE_PROCESSOR &&
->> +            cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID) {
->> +            leaf_flag = cpu_node->flags & ACPI_PPTT_ACPI_LEAF_NODE;
->> +            if ((has_leaf_flag && !leaf_flag) ||
->> +                (!has_leaf_flag && !acpi_pptt_leaf_node(table_hdr, cpu_node))) {
->> +                if (cpu_node->acpi_processor_id == acpi_cpu_id)
->> +                    acpi_pptt_get_child_cpus(table_hdr, cpu_node, cpus);
->> +            }
+>> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+>> index 613410705a47..0fdd6358ee73 100644
+>> --- a/drivers/base/cacheinfo.c
+>> +++ b/drivers/base/cacheinfo.c
+>> @@ -207,8 +207,7 @@ static bool match_cache_node(struct device_node *cpu,
+>>   #define arch_compact_of_hwid(_x)    (_x)
+>>   #endif
+>>   -static void cache_of_set_id(struct cacheinfo *this_leaf,
+>> -                struct device_node *cache_node)
+>> +unsigned long cache_of_calculate_id(struct device_node *cache_node)
+>>   {
+>>       struct device_node *cpu;
+>>       u32 min_id = ~0;
+>> @@ -219,15 +218,23 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
+>>           id = arch_compact_of_hwid(id);
+>>           if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
+>>               of_node_put(cpu);
+>> -            return;
+>> +            return ~0UL;
+>>           }
+>>             if (match_cache_node(cpu, cache_node))
+>>               min_id = min(min_id, id);
+>>       }
+>>   -    if (min_id != ~0) {
+>> -        this_leaf->id = min_id;
+>> +    return min_id;
 
-> acpi_pptt_leaf_node() returns early based on the leaf flag so you can just rely on that
-> here; remove has_leaf_flag and the corresponding extra logic.
+> Looks like some 32bit/64bit confusion. Don't we want to return ~0UL if min_id == ~0?
 
-Aha! I was only doing this to try and avoid that extra descent of the tree. I missed that
-its already taken into account.
+Certainly some confusion - yup, because cache_of_calculate_id() needs to return something
+that is out of range and (u32)-1 might be valid...
+
+I think changing min_id to be defined as:
+|	unsigned long min_id = ~0UL;
+
+fixes this - any trip round the loop that doesn't match anything will eventually return ~0UL.
 
 
-Thanks,
+Thanks! - I always get the 'UL' suffixes wrong.
 
 James
 
