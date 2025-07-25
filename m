@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0A8C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B32C83F27
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLFW2Etg7f00kiQg1GB1r0zuU1sWnFWDprHgwFRfFp4=; b=TPczeVZjCDkpqbgwHWPKpz9wdk
-	UoqNChbl2oCV0JA2ioQcg/ohXORaucMEauJs4TDRv6EVuhwG2Sp+2Cvcev/WJDh3TN8XK1YmRJNA6
-	/DxU14khFgzUPvNAYwM/cqkNx+GkeHBtacOUl/rX7slycRSD52sbmKhAI4WnIzGD1KBEIfs31sDMU
-	fJlGBMVELP/N+UB2fwYYr5sbTuqvWUQB3xcLkh5cPwKPaNalqX6o9xs9YTvL0jG/e/zvbN37uz3BI
-	sxQVYPdGqNnUiTvCHiVh+827WhKQ3eMxNQqCktD6Ms0ajwulf+ooabT1NIiFMZsbpCCDnf1EbhDUk
-	Ff+LTUtA==;
+	bh=y4ldkYpDBhe6MUIxmYmjLmmqHNKj9PN8JQgOOK2ZTr4=; b=HezotfhYSweACJOqAlddqM61Ov
+	QpwpQqkojbeA6+VBv2vhKiS1BL9nEUOf06PgQgUfvl/V+b0CAowl++6EcnbsAJl90j6uF0Jm7TaBt
+	L8FrnI0scRPJ3xBOM05BBdLuXHLucbVdOGcQ3yoKvBEDHiwOAD3+zIaMVIE3jI3jCFN4pa6ogfFXT
+	Q10KPs4GcFDL6UcozejVvpQbQFrMnRm2ecb8gIBKOa03pmuNuIS047K8Q+v+dDCmYjGqeVIDK4BzI
+	3ZDX+zcIeuIsXOHsPqmdLxRxMf406TUPYMNqDeCL1tYMC0JSiSZF5RQfAH/CtwoSqMBziA+FTCfKd
+	IoCmh8Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAup-000000095Mt-0Vbw;
-	Fri, 25 Jul 2025 05:24:19 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1ufAxW-000000095Y2-3eZw;
+	Fri, 25 Jul 2025 05:27:06 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAr0-00000009505-1MNb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 05:20:23 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3134c67a173so1738931a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 22:20:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753420821; x=1754025621; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nLFW2Etg7f00kiQg1GB1r0zuU1sWnFWDprHgwFRfFp4=;
-        b=NXEvQNCUTDHdMEwppAxRLaiRpJ6f7wxU7068snn/hc9ay3FQhXuoZMQJxym8/eBBwD
-         FHLXCYSb45tVwhl8kq2hq07Nje8l1wfPNkwfB2iQz6Cbeb+V6+GppicVsoarT9LS559z
-         sgv4jd+sAojckNZiqgNv2yNn5ZosGknOzeBCGZUp1IBwHRqEPbOJTQRwQQelVPQzTBGX
-         byP/TvOOiVIRTgOa60GXMddCFygaMIGb7riSBQz/g6SnIuDrP4hH7OQ2YTyFHmwjg2I8
-         zE7wGLxWx5nSchdBTBx6fXGWVTge+xFx9DKG8HfYehhcwgG/T49aAeAxzFDoCxipM8py
-         R4Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753420821; x=1754025621;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nLFW2Etg7f00kiQg1GB1r0zuU1sWnFWDprHgwFRfFp4=;
-        b=vddkObqUUaWC53FXgxKbQxVKlBazZznoaomp22hSRWWkUfa8mdrrxTL7NngIhKMrZC
-         YV0BJB97HVNPOj4fy7+ss+X4ad7B8zkXlwcE3YJ755kX1EQmVL8TkMQ+BxNnFH/bgna9
-         sn2DTewvDBZcDrSqocSaTFONDPXRfwLoeTgH1XyKiKfRgZxU99K7VCRFW1sjglY5tcK1
-         ODIQptMhXHGFntj+sySHxN09EN+0HCS1tm0TZQHkWuQkgENBs54q9XOtl8xjB3v0N2qv
-         y3njsi3yUaOpBdzGfkcHVHRUHtat6yHkMneXVi6vzXGW2TxMoit9IoP4X4h2ye2bifuQ
-         VasQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVi3xf9UTDrGtEICzxTgffXJK8BU+bl93Je34nSvfnFw9EOkTKoUrzXFNsoGhxJM27P5yXOteIonXJuYhjj0fCw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQnVyAxaWNoci+n/2gx+JZhLPO55/QN5B39uBELIdmIJCuYkRV
-	v3z6vauPbHaP5OjzYZavZsZydy73TO8tVhuD1bX7onNtMtMrr2QjsjyqjgjCRV8G
-X-Gm-Gg: ASbGncvt23D03nZXcRG0wxQ0C768CkNmrBhLXlymAOqZkbsIrn48Ec27EVPYe9JEtRX
-	yqYnPPzGvpxtkAHTWGon6d0y2kHY9RhJX2EvrvghOqK7b5BsWjvDY5G57sumfgzQM4rVZC4+/Sr
-	ghIpkd1zwUnADE53V7wP4C+Q65oXZ1szYHUov6+mXE+KCzTT7AFxDIk7ANXlNMlVL6CowvNI645
-	nDFixm+Xy146OJJi0CGbUd0aYRus/pIwwubnaYDDqibOhzlty7zuaxsO2lzJ1dLxjPAc0nNTP7m
-	e9SqciRRellFQ0rom2zbJ+DEVtEIFwEdvz3vj5l+Z107RxhGlbDtwls+8WzgQTzHxixAghIpQJr
-	3FmhsZEOdm2Jy61m0WgE2fcGEHC9253b8ib9e5EYJqgHaXFgPUv5eWqrgg6zvMJCVpemGkREWEo
-	Y=
-X-Google-Smtp-Source: AGHT+IGYNEkx+OPyKPH2NYgCMOjXtnrPHP45w1/H3ht6Anh5i8C5DhT9XfjH7TYWya6okH861qSVtA==
-X-Received: by 2002:a17:90b:2cc4:b0:312:25dd:1c99 with SMTP id 98e67ed59e1d1-31e779fd277mr795087a91.19.1753420821482;
-        Thu, 24 Jul 2025 22:20:21 -0700 (PDT)
-Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e609617aasm2308647a91.0.2025.07.24.22.20.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 22:20:21 -0700 (PDT)
-Date: Thu, 24 Jul 2025 22:20:18 -0700
-From: Tao Ren <rentao.bupt@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Tao Ren <taoren@meta.com>
-Subject: Re: [PATCH v3 07/13] ARM: dts: aspeed: Add Facebook Wedge400-data64
- (AST2500) BMC
-Message-ID: <aIMUEhoCXU1C8em4@localhost.localdomain>
-References: <20250723233013.142337-1-rentao.bupt@gmail.com>
- <20250723233013.142337-8-rentao.bupt@gmail.com>
- <20250724-overjoyed-panther-from-camelot-f2ff4f@kuoka>
+	id 1ufAut-000000095No-3HKj;
+	Fri, 25 Jul 2025 05:24:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753421048; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NsjT7+WyV/RRNWTCvMJ8Qpu2MdfXsJDsFfmjL2wTNSEI1mCDkSyjB0IT4a8jKa6n5z3VJ6VZa1705fql5CkKJsS0OPP5FJ5AbXkUlmuyjuJ6BfGQZR/xz+RvILylpiINR1RT9rzLf5iHI6h8audGDpe1CNTyJPmpfG1eXLunIxQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753421048; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=y4ldkYpDBhe6MUIxmYmjLmmqHNKj9PN8JQgOOK2ZTr4=; 
+	b=NCuYY47R5Mz5/snraIWehHM+mW3mCkPDjC4nSyxWwmbYl9izIkm5bFj73PH28VKENXbe16r+z4RpOW1PRF0oxy/++ysxC5+xKVYzm0CPBIJiSAWRBsk6Ol98AhdXUqhksbiOjdipj+chedHKBKYTxV1HeSk6XCHiDSkWSm3O8HM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753421048;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=y4ldkYpDBhe6MUIxmYmjLmmqHNKj9PN8JQgOOK2ZTr4=;
+	b=e1L/4KHBQPvUM5BedDKyxbfKjxEZGHnyyCPgf5MMX4m1R71qRhOPgWKzSATlVJHV
+	/nJP05RXDTW5rMq4feV4ZXR8vXBouEQuvidaNPphnqO+fAWxQ9jGkJDBSISmRgysc3L
+	PR7UrRahCBwx5iSiZKO4WUgMzveXbP/sWiHo1yJs=
+Received: by mx.zohomail.com with SMTPS id 1753421046615566.1010844319203;
+	Thu, 24 Jul 2025 22:24:06 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id CE23A180761; Fri, 25 Jul 2025 07:24:01 +0200 (CEST)
+Date: Fri, 25 Jul 2025 07:24:01 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
+Message-ID: <mqoyjn7mnq6tmt6n6oev4wa3herjaxlupml2fmcampwiajvj4a@r5zs4d3jdm5p>
+References: <20250724-rk3576-rock4d-phy-timings-v1-1-1cdce2b4aca4@kernel.org>
+ <f22243f5-759a-4ff2-8d14-6edb49d87c52@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lntxnw2zm2xvrrvo"
 Content-Disposition: inline
-In-Reply-To: <20250724-overjoyed-panther-from-camelot-f2ff4f@kuoka>
+In-Reply-To: <f22243f5-759a-4ff2-8d14-6edb49d87c52@lunn.ch>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/253.413.66
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_222022_380593_CA213CE6 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250724_222423_871055_0AC69F28 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +85,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 10:05:40AM +0200, Krzysztof Kozlowski wrote:
-> On Wed, Jul 23, 2025 at 04:30:03PM -0700, rentao.bupt@gmail.com wrote:
-> > +		/*
-> > +		 * PCA9548 (11-0076) provides 8 channels connecting to
-> > +		 * FCM (Fan Controller Module).
-> > +		 */
-> > +		i2c32 = &imux32;
-> > +		i2c33 = &imux33;
-> > +		i2c34 = &imux34;
-> > +		i2c35 = &imux35;
-> > +		i2c36 = &imux36;
-> > +		i2c37 = &imux37;
-> > +		i2c38 = &imux38;
-> > +		i2c39 = &imux39;
-> > +
-> > +		spi2 = &spi_gpio;
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path = &uart1;
-> > +		bootargs = "console=ttyS0,9600n8 root=/dev/ram rw";
-> 
-> Drop bootargs. You are duplicating stdout path and choice of root is
-> definitely not a mainline user friendly.
-> 
-> Best regards,
-> Krzysztof
 
-Got it. I will drop bootargs in v4.
+--lntxnw2zm2xvrrvo
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
+MIME-Version: 1.0
 
-Thanks,
+Hi,
 
-Tao
+On Thu, Jul 24, 2025 at 05:51:16PM +0200, Andrew Lunn wrote:
+> >  &gmac0 {
+> >  	clock_in_out =3D "output";
+> >  	phy-handle =3D <&rgmii_phy0>;
+> > -	phy-mode =3D "rgmii-id";
+> > +	phy-mode =3D "rgmii-rxid";
+> >  	pinctrl-names =3D "default";
+> >  	pinctrl-0 =3D <&eth0m0_miim
+> >  		     &eth0m0_tx_bus2
+> > @@ -246,6 +246,8 @@ &eth0m0_rgmii_clk
+> >  		     &eth0m0_rgmii_bus
+> >  		     &ethm0_clk0_25m_out>;
+> >  	status =3D "okay";
+> > +	tx_delay =3D <0x20>;
+> > +	rx_delay =3D <0x00>;
+>=20
+> What does 0x20 mean? Is it less than 2ns, or greater than 2ns?
+
+Unfortunately I don't know. This part is not documented in the TRM I
+have access to. Also my scope is not good enough for measuring
+delays in the pico-second range. Previous measurements for RK3588
+(RK3576 uses most of its IP and probably shared most of its quirks)
+suggested, that mapping this to the standard properties may not
+easily be possible:
+
+https://lore.kernel.org/all/bb3486c6-93df-4453-acc6-deba3c8f7f0e@lunn.ch/
+
+> Have you tried "rgmii-id" and small values for tx_delay? If the
+> hardware needs 2.1ns, for example, the MAC could add 0.1ns and the PHY
+> adds the default 2ns. That would allow you to conform to the DT
+> binding.
+
+The MAC code (drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c) looks
+like this, so "rgmii-id" results in no MAC delays being applied:
+
+	case PHY_INTERFACE_MODE_RGMII:
+		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay,
+					    bsp_priv->rx_delay);
+		break;
+	case PHY_INTERFACE_MODE_RGMII_ID:
+		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, 0);
+		break;
+	case PHY_INTERFACE_MODE_RGMII_RXID:
+		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay, 0);
+		break;
+	case PHY_INTERFACE_MODE_RGMII_TXID:
+		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, bsp_priv->rx_delay);
+		break;
+    ...
+
+Also the default values (if properties are missing in DT) are
+rx_delay=3D0x10 and tx_delay=3D0x30, so changing this logic risks
+breaking some boards :(
+
+> What PHY is this? Have you looked it you can control the delays the
+> PHY adds? If you actually need a delay of 1.9ns, maybe the PHY can be
+> configured to do this? That would also allow you to conform to the DT
+> binding.
+
+The Rock 4D uses a RTL8211F. As far as I can see that just offers
+one delay control knob.
+
+Greetings,
+
+-- Sebastian
+
+--lntxnw2zm2xvrrvo
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmiDFOkACgkQ2O7X88g7
++pocqRAAmG8r6935rknghxbjS85/wcBLgwi1SELzeDaLTBoAT+ib7M19APbWAXm1
+GOmjHBN09+TXbygKfHNoch5ot3dcMOBkhWaody16bZHFf9ViNkYwSIccs4BeVNEO
+l6EONSCdAjDt1LRB3AFPR9fG3bcaXvzpcLq9rHaBZ5keaEESGQpw5ACAcoJFGVYh
+gvwWya6PHgMol5zGWIkn7IYucKPTKWPmsp4NfyznEhe11UGW43uok9CisTN1SD0t
+JmWpg7WL4xhJ9Pno+gG+Bw70p5ZXZAeS+37dSj5HtL0+jn4KG53KEx2pNon9Bwcy
+C+I/IxAfL5xm8T4oxOO7eHCg/+GoMPSBqtsb0dEI7iwzMgA0Nxo1bFHvV337U9ma
+6CNa2abaZWRtp6qEEP1PP4bfFV5fSxK5bP5q/6OYYGa4vASAKUhfTxiJt41G0hXv
+1SrkEl36Ln/XponneBBiBT7LzGFE72UdHiKhD5O4wqWkRJm/vPRg0J93J89zqeu7
+B4MvRFXyUe8Roid2T+WFL2/+OZeWpmiGiwtPrNjbs7EKLRUb1jnUvsxUo+pMSp3q
+BCmQeUGNxYpI1i4JYD3CzHjHbbgSYT26C4nkgowTCSmY3O1Db2k0PqHl7xCmKVw7
+RCGSAhGauMbV28A50kgORuQXD/UiUqdl4QU6K5aA6EWFxuGWYSg=
+=XuMz
+-----END PGP SIGNATURE-----
+
+--lntxnw2zm2xvrrvo--
 
