@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D330C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19004C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3eYsDk8pu6SR1Cnt13efDyi3HIRyBbspXwtf/n8uEOw=; b=ZIyivYGdUGXLxHJsMXkUY+D4hs
-	yFdJfSs8Fj5fkIbKBEzUoG6GFUhEPejMYyR/p0yzO2SFrMIwpIAvmhAe7Rrfz6ejwO0ScIOe1/5+D
-	i9uU9RDP+ErttRVyayDAj7KGaRie9hrkRYppzMNTEqzRxS8xwucyPzq9Ij7z5n8vvOOb57E7urXFp
-	sn+ux2vO7gF1nZeP+SAXKxxTHswAS0pD8wxAmiMt0DcgfFPjJqTo+nDqJ2T/jZu2KHfK4TtW3Asc0
-	mZqyFg4RzvvFIBP0aAK+Ny/vjUE2sxJx1ETRJBmGC/qePxXJUeYEMLLAcWsnYhD9LwP1pNf0fpLSB
-	1/NXAAFg==;
+	bh=PiUW6IKELWOMYDlTOgeuRwLBVLSH4/0LDp7MyDMND9E=; b=ZNdWPCIE6zpL6sCQL1ITGuD3Xk
+	ORBwfzNF7XD5yro6SaRLejbfSIfLsPZAIcYLQNtbjNT2FBE0ix/NZEXLcLrA+0LdSsvWyE88UPOPI
+	/jEbMrP+ftAYyu95KMqmHtYysZf3JW8Yzj6BVK+Mo+0LPOHBrBXYtMJdaiFIN3WqfcaLYqGgcsdla
+	KAgVsX1vfjxg3Tp5iIX2VKWEam0sKsFBtU2GbatjxnCd4qMNncQGnWGgarkjTiTFThs/somcAc495
+	Ae5Kb+jkG37jzic242/Z/a/f8H+VIVXFafAORc9uFM89btAeGzyMfijukvt2Ycv5X3ezH8eDLj4tW
+	orQEnwpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufLJe-0000000AELq-2YHI;
-	Fri, 25 Jul 2025 16:30:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ufLUB-0000000AFGN-2FN7;
+	Fri, 25 Jul 2025 16:41:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufLG9-0000000AE0u-1ac9
+	id 1ufLRi-0000000AEzd-1jO3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 16:27:02 +0000
+	Fri, 25 Jul 2025 16:38:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 673EE5C6B4E;
-	Fri, 25 Jul 2025 16:27:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C5AEC4CEE7;
-	Fri, 25 Jul 2025 16:26:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E66525C6322;
+	Fri, 25 Jul 2025 16:38:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 292A6C4CEE7;
+	Fri, 25 Jul 2025 16:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753460820;
-	bh=3eYsDk8pu6SR1Cnt13efDyi3HIRyBbspXwtf/n8uEOw=;
+	s=k20201202; t=1753461537;
+	bh=ph09R88EGj0H43KIRGl9OnKpp1uyR+qA9PEna2s/QNo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bpIORBJMxAPx1S1E3OMZq/aNbSK5qd+hauvg1UdVYAJ3pJ7GXuIjpzY3tn6d0Me+c
-	 6M1QecyL3T49tOAOIoUBdVEz2n9ejlO7TjUhAyqWHSIOvPGWqnEjZluqe7XzJYTmY3
-	 KE3yz3KeGHH7lmeaM9EB02ae0zkYjl8CBq1OV9rgSL/LdbyO1ORf5h3Vldy+swdY7P
-	 jtlDnR+/uWF6u/EfvZnLRYskPiWW6Pql3Y69o9CdR7LThdkiWrnSsExaP6kAxgK7s0
-	 hPnoGiQH/pF3e2ItgDWWX1zRKjsZVuW6BIZPZu4z/4KpI9x+BAb0lFX+njywTN51zS
-	 jYJIhA2JyG7sA==
-Date: Fri, 25 Jul 2025 09:26:54 -0700
+	b=r/3owUOetdGfJ7NIolrwZMMOxRlDHBwquuCvs3fYNgdlE2+s8SrMe8N7hMu5JJ0ow
+	 /ZSz+d6zYcTZgVq3fXq12zRN68fSteTIG+YZuZgHFb1Y2NZwlTz0aXkGzTnLzICNZz
+	 agu2z5TUwRfLzLCs2DoHCEbueY0ip/cwCXEUqR1LOUOd7aHYtd7nfm0H1i5Lr1OR2+
+	 fHQ+sfSBfvmQld5NyMrp8iwsHrEFcEOCRDX13kdNHhj8c+tZJFNyGTE0a/Eta35aPU
+	 ioYtyNmXsuDO+cSmQVU54BwWFBJllFSsUzsc1PrAwLU4ia/+Lk8ST893Eqh525HBxB
+	 phA7AsoV+ZP8w==
+Date: Fri, 25 Jul 2025 09:38:51 -0700
 From: Nathan Chancellor <nathan@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Justin Stitt <justinstitt@google.com>,
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Justin Stitt <justinstitt@google.com>, Marc Zyngier <maz@kernel.org>,
 	James Morse <james.morse@arm.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Tom Rix <trix@redhat.com>,
+	Christopher Covington <cov@codeaurora.org>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	stable@vger.kernel.org
+	kvmarm@lists.cs.columbia.edu, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
 Subject: Re: [PATCH 6.1.y] KVM: arm64: silence -Wuninitialized-const-pointer
  warning
-Message-ID: <20250725162654.GA684490@ax162>
+Message-ID: <20250725163851.GB684490@ax162>
 References: <20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com>
- <86frek9182.wl-maz@kernel.org>
+ <2025072553-chevy-starter-565e@gregkh>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86frek9182.wl-maz@kernel.org>
+In-Reply-To: <2025072553-chevy-starter-565e@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_092701_455898_22C0FE3F 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250725_093858_496155_A4D804EA 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,23 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 08:30:21AM +0100, Marc Zyngier wrote:
-> The correct fix would be to backport the series described in
-> e8789ab7047a8, which should be easy enough to apply. it would also
-> make 6.1 less of a terrible kernel.
+On Fri, Jul 25, 2025 at 10:58:05AM +0200, Greg KH wrote:
+> On Thu, Jul 24, 2025 at 06:15:28PM -0700, Justin Stitt wrote:
+> > A new warning in Clang 22 [1] complains that @clidr passed to
+> > get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
+> > doesn't really care since it casts away the const-ness anyways.
+> 
+> Is clang-22 somehow now a supported kernel for the 6.1.y tree?  Last I
+> looked, Linus's tree doesn't even build properly for it, so why worry
+> about this one just yet?
 
-If doing that is reasonable to clear this up, I think that would be fine
-to do. This is the only stable-only instance of that warning that I have
-seen in the build logs, I have sent patches to deal with all the other
-instances upstream. We would need this in 5.15 to avoid failures from
--Werror as well but if it is too hard to backport that series there, we
-could just disable this warning for this file since we know it is a
-false positive.
+Our goal is to have tip of tree LLVM / clang be able to build any
+supported branch of the kernel so that whenever it branches and
+releases, the fixes for it are already present in released kernel
+versions so users can just pick them up and go. We are going to have to
+worry about this at some point since it is a stable-only issue so why
+not tackle it now?
 
-The whole reason the warning occurs is due to the constness of the
-sys_reg_desc parameter in the function created by FUNCTION_INVARIANT(),
-which I am guessing cannot be removed because it is present in
-->access() and it proliferates out from there?
+> > Silence the warning by initializing the struct.
+> 
+> Why not fix the compiler not to do this instead?  We hate doing foolish
+> work-arounds for broken compilers.
+
+While casting away the const from the pointer in this case is "fine"
+because the object it pointed to was not const, I am fairly certain it
+is undefined behavior to cast away the const from a pointer to a const
+object, see commit 12051b318bc3 ("mips: avoid explicit UB in assignment
+of mips_io_port_base") for an exampile, so I am not sure the warning is
+entirely unreasonable.
 
 Cheers,
 Nathan
