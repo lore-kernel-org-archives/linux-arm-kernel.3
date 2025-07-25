@@ -4,124 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4129C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1787BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTjMO6ThCzwsibq1lFHZiZoZcoN7Cs449c4GQQHgyao=; b=jayU02+gTs3jf48zLEMN8uSaJz
-	+B3y8KP0qG9Gf8vRiuUh4FBBLCLlgtrmJdFipoAPQHbx7MLtvvwk8iq33JIT5GRh+QIndMvFYXvo0
-	7n8s43/4HqVlEe8FVWHMBHMjVZWAkZyWpMxtpdO3gGGiEh3LGv99uiILO0NbBdtfeQLc5qmk4WcCg
-	irkRS9H9AE9hctUjimL7EoLYmB7Bv00Jwl4aEQQF5H8gsyUcMcyaxUxBf1GcqzDFFIhj9VO7mPy+l
-	Gnnz4OBWPha2NQvMTHb+QAVKi9S3VbK7C05fXFwAtgXTA3W3UWLNEFqGwm4GGNnbUX8/Yv7omyjj1
-	Z5VnPHsA==;
+	bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=; b=nACTd2ouoL3ydSQ6b3Cy5ykUMH
+	r+QxI1Xj7eTBWt1ls80OQhTf9pU30VXhjddihp5hqQPAPazGk1ZofU+C+ixpG4RLmNiY8hmjvheGa
+	JVRso8Rrf9YHXEFBJSAeCaSlndOrUA15ET37N6EvKBDqc3DHEy3O0Jsbgj5Em+0RMFFGnMs5Y/7/h
+	/iwtZ5QMKxT1VBgp7IurEhgurNpOt+jznqZuRgn1+tvmnx4yDa168oBwAui8RGpiIR07Ojf4oXWER
+	1ymUA3qQu6g+2kX3Hj+4vgfWFkhPUviYGhBTFvrLpfLzrtNlM0se2kEW4cEEpW6VrOQDDHdqDqE+e
+	YF2F3w8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKIl-0000000A64U-1aaR;
-	Fri, 25 Jul 2025 15:25:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ufKUx-0000000A7Wh-2paZ;
+	Fri, 25 Jul 2025 15:38:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKGG-0000000A5pC-2BiY
+	id 1ufKSU-0000000A7Ob-258g
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Jul 2025 15:35:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=; b=eSt3q5Utb2ZxmuGyNE6ozAlAdA
+	y8PL2mpJRxbGVqGYbqEzrdj55fvPMmfbnO8UyVg+1Bt0k7esfJofS3z2aKwcbrTnDuUKOLXarqjvA
+	bel+waJeYtQdEfaG0FtAMBgyZ2nni1Gy+mKvxc/ljHT2QGJY3lQ6m+gIwd2YWL+r3msAvgKt+Bbzm
+	yFiSDVKTKbm1pTfFeOXeLlPrdMIW/WE6pbuB7GEAo5gzufBkdvu9WXN3YUNpm+h7NgxcxmvniqysP
+	TsM3Dx7x+vfsUPRKDdRsqDcQ6RG97jA+RC6aabU2LB1P8EeNFyn2lwItzyB3epDB+53XlsuQyWPe4
+	Eku8+CfQ==;
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ufKSR-0000000BrD1-22eX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 15:23:05 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56P9Y8BR025897
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 15:23:02 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=eTjMO6ThCzwsibq1lFHZiZoZ
-	coN7Cs449c4GQQHgyao=; b=ATzB3/mcmVV/zkia8P/vSXPv93q3nC5wTBFv+1r/
-	5uWPW6GrxvL87y7HUByOa2Ttbk4hL7YBaSfy+DxR6b6lUfj0hX5m1kZvmc5AvxO0
-	AMpk2yriLI+GTqVwMWwKvaLrL9SlYgnNF8fnqP85/fwYXqQM2c9y+m0xSD27g1mf
-	qn4ZuW6BvJd25PDtjqTvkXpYWx1twdBna5bVHpx/j7zs+shz3AksF8RMdWsOFnFS
-	YA5sstgBn4/XGQR4x7ZwuLRDg/bKcxtdrpcybdIgzboAZ3w17aki59yy5mP/qni2
-	EalIrVPMU2SqA1ni43Fo7HJRtYrOo/20XSu3gg/hmb1jNw==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 483w30tg32-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 15:23:02 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4ab44642abeso42894191cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:23:02 -0700 (PDT)
+	Fri, 25 Jul 2025 15:35:41 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-313bb9b2f5bso2045883a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:35:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753457737; x=1754062537; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=;
+        b=fvZaxdMBfwemaGbpcLkG55WjJITihq2mSS/dV14UiDd0K14ExhEVU3BR82NZJaOpsq
+         qbODmkYK9carbb4meGIDt3st9Y72F0+2Sr5ODksq9tGuuA3upH17NjVOeNAE+6JA8TOt
+         rmNCAUhv2FUtApOwOvmaI2J6h/BIhP7v4lBbwjIBOGk6w/2Xt7Ns/uzw0ls4XSLqb25A
+         gU6QD0xUCTYALp7mKYYVg/ckgtS9h01rVOfOYHhT5JC4Uaf2sYMqJ7PfpnnJaaTn8p/z
+         sN4jQpGf/BlOxC2p6cGregUpv3SHR0M1c5Gyn8gFn+W9lAJv/g+UtjFJxb7s2pKF+zMx
+         MMUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753456982; x=1754061782;
+        d=1e100.net; s=20230601; t=1753457737; x=1754062537;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eTjMO6ThCzwsibq1lFHZiZoZcoN7Cs449c4GQQHgyao=;
-        b=uFa2g58JhbIZaGyZj3Gd/xXgzT5yFVwXR8uANHwcg1Feq0gty8wp4WdL89tBL/APdE
-         K5QXrA9MQsIQHE2Fq+9cjrVkTOhVlrjf/c8a5Kk6lCHLUVhbOqV6Pf1VNDEda7SgfhK4
-         Goc07kaear8XH9VWunVNknfgjTAO0z/HH+YZ0RHHhd8Udd/j/rEohdIxZ3P8YAIzdssE
-         OpxTZ3WvVsUysGMHwb0iBmgnN99ljU/v7IWU6FT/tpo1dl1zkDRNdZ1MWpMGIza+th33
-         +VAtvhu73aeK2CTwTq7/+3t2GTyeAYIabpnhxOpbpSnyD0+WIaKLmXqu/G92NV/SbWkF
-         ruAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXf5jtXna5CbeN7Pjmtoe53CVJMnPpvcO7cA6qUv++ZDp9UbCvTAHJsWVr2vLB+w3KeXTkVOihRiW+RBLoTsrrP@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOFmEu0ycVIJaZpEA6blev0kbDn+emnku3YYB3+BVFw6GX4YL1
-	JCWCQbKys1Ewa/T/n4FTr3ZOKEkxMN9KAl0d3QC6cbO6hVHoAfyHa3bSLUj3WQZ96ZCjg+WRgJ8
-	FG1kaIe23bEVud3hvJaV78omfva2rsHO7V3Ajgj/VJxzYMvZKEU3N9C1gHOxNdRj0c5jC8n1dYA
-	CR9g==
-X-Gm-Gg: ASbGncsdGlSqBkyg2OeFIQtea9F1wya+oSpb3HDu6muZcBcTchYuhD+FBRXYAy/6X75
-	KZMvQhgfTL5+wf0BePC1Q8dZJ/Tp4qEnr9h1iNzTt0CCBvlM3DewaYQGqeQf9dlnv9smfMc/aRX
-	NY/qe54iZJ2mxJKzYvjil0UoNoG1RWr8HAV/KZ8sarLMua15qCWeYabm1ana9HxXGG70YAp+cGt
-	1F+CP2vR9V19JVtxdtzAXOUtB4+wLoUx2r4g0rr7ihh7mVj3sVl2Jdbk4nggQklzIIJZ9lavbAW
-	ZHLToF5816SrX5cI+VEKuY5kzjVgASPNZbJWMTAYeB9vBsPjL7StpLBkSA4oWnYUDjBV5hMhjft
-	WNPYcpi7w0tFGgKLoirWTsKrDlV7/OLpfSHWHMrU6oIRfwE8kAXNH
-X-Received: by 2002:a05:6214:1cc9:b0:705:538:65ab with SMTP id 6a1803df08f44-707205ea86cmr34752226d6.39.1753456980780;
-        Fri, 25 Jul 2025 08:23:00 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHK5LDQ3JiR87dSBEdbMLaQa7N1rf2mWwVfPEnOCbZ2F/UBqPcJrWvG8vZus18ZIxSK6RRVlQ==
-X-Received: by 2002:a05:6214:1cc9:b0:705:538:65ab with SMTP id 6a1803df08f44-707205ea86cmr34751036d6.39.1753456979758;
-        Fri, 25 Jul 2025 08:22:59 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b6336355dsm8672e87.86.2025.07.25.08.22.57
+        bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=;
+        b=UtWfN6RtZnDLsYn47kxAEqxujgkzvguQ0vTr0UM9dRhI5FnUOdVpyAD/05sxaEWKeI
+         c+ArV6P0tXVYU9drwq2iQyS+4SzfK4Wnc4yElYkWv+Z+7CYYND6VFijQSB/0aWioYrsM
+         rlKVvpIzG1rYBQon8feQJy/FE/20bogpXjJ0a98kCv4FxheIRTnBW3oWbVdHX6PBg484
+         HVPRx9qhdZJaE9tb5VIWkCHHQobT7KZuKhzERJ/rvrWEjCaU1yg64BZxt4lmpQYULncn
+         Zb0Kfm9W1q4dYDNCmB69KSpQ+I2IBw8CfA7hSLjmGdbUmSNNKew8e0HllpnQ0b9Q1lF0
+         cZVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVHCKhma753AHisw0mauH3acZmj3P1cvvK8IUsLwnrZ/LuS38diu7gEqHsUS1C3CeSgfdqbkCwFt77/S7PQeaLS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4CG30KwR44iVdBr2ek80jHJWW7l/fmNnJ6d74/5QcS8/V3Gfq
+	YIfYlJXqi6LgDzLsEaHB9XOG17r2a9nF0iLCaKLWwIk0RZDwLigQ4II/
+X-Gm-Gg: ASbGnct/Y1aFmQlQTx6Pzs9rrpMRBhK+93zkXxLFAimZg1SHw4UmnGbV6F8LydLM/xX
+	j1Dv8HPVzuCSEaNWTGGbbPGtTucyMdJhnkp+GxROO6bs9laROjzqVKCy82W8YOM9oQigONXs219
+	7sr8jD0mDFnaTVcG0B10SLbXV3CLLbqX2Kca4SS3W85VuhEtr4a2tyEIrQadGmxH4eHreOgroba
+	2rrfK9w+RXXH2pl864ouURgtok9RV6oHT0LznGXUycZc2TKVJ0yTaiiW6mpTIZIoQSDp0Pqg6Po
+	q6DltOD4mtfuCsuPQSgUplSf/JaasNCFS5Gb3Yx0dyfD7s3NBhNm8OOzrlxUzyW0u78+oqCnGI/
+	7DSpbpkUVV9WEQ85LdFUpEA==
+X-Google-Smtp-Source: AGHT+IGA0cG23R/PV0mw3LDx6GRbWc3e50pWW1kDUupFgJn9GdN+u8pGDk/hv6p6XEa1GLMUY2uYUg==
+X-Received: by 2002:a17:90b:3d4e:b0:311:ff18:b83e with SMTP id 98e67ed59e1d1-31e77857876mr3896921a91.9.1753457736696;
+        Fri, 25 Jul 2025 08:35:36 -0700 (PDT)
+Received: from localhost ([216.228.127.131])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e6e3b7e0dsm2400980a91.12.2025.07.25.08.35.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 08:22:57 -0700 (PDT)
-Date: Fri, 25 Jul 2025 18:22:55 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
-        stephen@radxa.com, cristian.ciocaltea@collabora.com,
-        neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
-        yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, robh@kernel.org,
-        sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v5 02/10] drm/bridge: synopsys: Add DW DPTX Controller
- support library
-Message-ID: <svn2p46qguxrpn6fhqnjffqpgv7keabwgld53uw6ckkn4piu47@gedy4t22cqfx>
-References: <20250716100440.816351-1-andyshrk@163.com>
- <20250716100440.816351-3-andyshrk@163.com>
+        Fri, 25 Jul 2025 08:35:35 -0700 (PDT)
+Date: Fri, 25 Jul 2025 11:35:32 -0400
+From: Yury Norov <yury.norov@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ste_dma40: simplify d40_handle_interrupt()
+Message-ID: <aIOkRHs2bCVk28V0@yury>
+References: <20250720022129.437094-1-yury.norov@gmail.com>
+ <aIDRpSN0z3Ri1Fkh@vaman>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250716100440.816351-3-andyshrk@163.com>
-X-Authority-Analysis: v=2.4 cv=WtArMcfv c=1 sm=1 tr=0 ts=6883a156 cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=w3-XvOWwJNVOjCSRI-QA:9 a=CjuIK1q_8ugA:10
- a=kacYvNCVWA4VmyqE58fU:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-GUID: Ej9Z3E_yBLzL1a18I-w9pJYN3wpYczq5
-X-Proofpoint-ORIG-GUID: Ej9Z3E_yBLzL1a18I-w9pJYN3wpYczq5
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI1MDEzMiBTYWx0ZWRfXzDQftH1YxEvm
- rsQn6ohErwjklYlbqu1joaFeubuFVwZbqPV5n6uC1IvHYpgKJ3+6RCn9ep78n0i4Wkr5dBHBJ/M
- 7SDqffW7FVeetd4jzNcfajBNlQyDgiciE11V89WFgOsTZKr3QuECcOpsRluoEIQFc4nC8PQRdew
- BVKuzqLi8nmY6q9ZxB8eAv/4jb7NdvwN6QDDvXsLmo+hNsDLNtxWrxa2+2HmJrlhj3PGHgBa/Vr
- P3A/OOZoPWUobovHOKmw6SbMvH7JcFZQy9VnvO5pDIl+St2UIiw9G5z8txJTLdXyUlU6m0DUvR7
- 2hNj4OgAJ4/CdVQMKeKpkzcJN+9R1ETDaXTOb+LaiorFoBPhKZkygjQGqgdnOB813lClPYT6n36
- S5g8tgaUl14zUBj8DnfZU9ahVNH3vaZajfXeo1Ol16ijbcjsMDZl8u4knR9s9cXAhPxSlJ5w
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-25_04,2025-07-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 bulkscore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0
- mlxscore=0 clxscore=1015 mlxlogscore=999 suspectscore=0 malwarescore=0
- spamscore=0 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507250132
+In-Reply-To: <aIDRpSN0z3Ri1Fkh@vaman>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_082304_672882_240E3632 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20250725_163539_730330_4B433A1D 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,118 +115,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 06:04:29PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
+On Wed, Jul 23, 2025 at 05:42:21PM +0530, Vinod Koul wrote:
+> On 19-07-25, 22:21, Yury Norov wrote:
+> > From: Yury Norov (NVIDIA) <yury.norov@gmail.com>
 > 
-> The DW DP TX Controller is compliant with the DisplayPort Specification
-> Version 1.4 with the following features:
-> 
-> * DisplayPort 1.4a
-> * Main Link: 1/2/4 lanes
-> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> * AUX channel 1Mbps
-> * Single Stream Transport(SST)
-> * Multistream Transport (MST)
-> * Type-C support (alternate mode)
-> * HDCP 2.2, HDCP 1.3
-> * Supports up to 8/10 bits per color component
-> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-> * Pixel clock up to 594MHz
-> * I2S, SPDIF audio interface
-> 
-> Add library with common helpers to make it can be shared with
-> other SoC.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
-> Changes in v5:
-> - Use drm_dp_read_sink_count_cap instead of the private implementation.
-> 
-> Changes in v4:
-> - Drop unnecessary header files
-> - Switch to devm_drm_bridge_alloc
-> 
-> Changes in v3:
-> - Rebase on drm-misc-next
-> - Switch to common helpers to power up/down dp link
-> - Only pass parameters to phy that should be set
-> 
-> Changes in v2:
-> - Fix compile error when build as module
-> - Add phy init
-> - Only use one dw_dp_link_train_set
-> - inline dw_dp_phy_update_vs_emph
-> - Use dp_sdp
-> - Check return value of drm_modeset_lock
-> - Merge code in atomic_pre_enable/mode_fixup to atomic_check
-> - Return NULL if can't find a supported output format
-> - Fix max_link_rate from plat_data
-> 
->  drivers/gpu/drm/bridge/synopsys/Kconfig  |    7 +
->  drivers/gpu/drm/bridge/synopsys/Makefile |    1 +
->  drivers/gpu/drm/bridge/synopsys/dw-dp.c  | 2044 ++++++++++++++++++++++
->  include/drm/bridge/dw_dp.h               |   20 +
->  4 files changed, 2072 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-dp.c
->  create mode 100644 include/drm/bridge/dw_dp.h
-> +
-> +static int dw_dp_link_parse(struct dw_dp *dp, struct drm_connector *connector)
-> +{
-> +	struct dw_dp_link *link = &dp->link;
-> +	u8 dpcd;
-> +	int ret;
-> +
-> +	dw_dp_link_reset(link);
-> +
-> +	ret = drm_dp_read_dpcd_caps(&dp->aux, link->dpcd);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	drm_dp_read_desc(&dp->aux, &link->desc, drm_dp_is_branch(link->dpcd));
-> +
-> +	if (drm_dp_read_sink_count_cap(connector, link->dpcd, &link->desc)) {
-> +		ret = drm_dp_read_sink_count(&dp->aux);
-> +		if (ret < 0)
-> +			return ret;
-> +
-> +		link->sink_count = ret;
-> +
-> +		/* Dongle connected, but no display */
-> +		if (!link->sink_count)
-> +			return -ENODEV;
-> +	}
-> +
-> +	ret = drm_dp_dpcd_readb(&dp->aux, DP_DPRX_FEATURE_ENUMERATION_LIST, &dpcd);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	link->vsc_sdp_supported = !!(dpcd & DP_VSC_SDP_EXT_FOR_COLORIMETRY_SUPPORTED);
+> What is the meaning of NVIDIA in your name?
 
+My employer.
+ 
+> Pls add the subsystem name to the patch as well (this and others you
+> sent)
 
-drm_dp_vsc_sdp_supported()
-
-> +
-> +	link->revision = link->dpcd[DP_DPCD_REV];
-> +	link->rate = min_t(u32, min(dp->plat_data.max_link_rate,
-> +				    dp->phy->attrs.max_link_rate * 100),
-> +			   drm_dp_max_link_rate(link->dpcd));
-> +	link->lanes = min_t(u8, phy_get_bus_width(dp->phy),
-> +			    drm_dp_max_lane_count(link->dpcd));
-> +
-> +	link->caps.enhanced_framing = drm_dp_enhanced_frame_cap(link->dpcd);
-> +	link->caps.tps3_supported = drm_dp_tps3_supported(link->dpcd);
-> +	link->caps.tps4_supported = drm_dp_tps4_supported(link->dpcd);
-> +	link->caps.fast_training = drm_dp_fast_training_cap(link->dpcd);
-> +	link->caps.channel_coding = drm_dp_channel_coding_supported(link->dpcd);
-> +	link->caps.ssc = !!(link->dpcd[DP_MAX_DOWNSPREAD] & DP_MAX_DOWNSPREAD_0_5);
-> +
-> +	return 0;
-> +}
-> +
-
--- 
-With best wishes
-Dmitry
+OK
 
