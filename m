@@ -4,149 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04842C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 19:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A043EC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 19:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EAlaGzg9pR4wFhSSDNUIYM/LMo1Uo9g/S2AJCwAPYMo=; b=uVMsd7CTIh5hSGXKTy1sg3qAwQ
-	eF370WV6uA/uJ8/X9ORsYvFbN3Raed37mgO4yuZpLS5dRVroMD3cl92eHC4ihZ1vX5OfBRm4zfBpg
-	9GEyYvqbHPH/6oIC5EqUZ3vmv8C0CohYhlgZfVyehpO+xDIdzmoZ9zKfRxfSzGs4V/E7MrcL647kC
-	kL+fqaMHaH6uj/m+fUdcEznaeY8IKTPOqK/IX41twG51m2jFyg5xOjypeO0vdVFq3+rqS2tI67GuG
-	lv1bNCF8tsBBO1E+G0se2I1iNIZwZJVU8hZwPfRGvb+bTSyGt1/5ciBCYjEyw0xhVv4azcEiMs+Dt
-	1OkcRQUg==;
+	bh=prxfnO3e15wcyBVTUn75ZWiKrjM1vcJUc4ZMMOjkQdc=; b=EwF7fQTx4oe/ExIi92+P7TvFSc
+	1OiN9Qzc9JYQxR1MgXAv5/wGpUi9NoTcYRrWoilrrO42Fn569dxfq2oJPrgITYktNN27c5J+03abF
+	FsbLJULASSezXGCE6cS7gNSbOoYobkoQpXXl/Vc15I5VJIVYkLzf6dTw7L05Vs4b512s49/8uDR8q
+	UDcy8U4Sx7BL6GJNU+re3ys3HYUX+sI4hJgqW8pbkxt1e6AJUMgAv3zF9Rw5vQasmV5KpAy45PtiC
+	5uAAfF6afVrECjF3q4osblYk6Ud/SOnQR+7Ps5Bkz8+iOkTl/pFZ/c1SkwNCNhHBvPc5/rbtWE/g5
+	9pw9Eddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufNj8-0000000AX8z-3W0D;
-	Fri, 25 Jul 2025 19:05:06 +0000
-Received: from mail-bn7nam10on20603.outbound.protection.outlook.com ([2a01:111:f403:2009::603] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1ufOPn-0000000AaOz-1LMM;
+	Fri, 25 Jul 2025 19:49:11 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufNg6-0000000AWrv-1TgF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 19:01:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dud1aaV4tdvZrgjL/BPVVVKthCsh8DyO8Lsk/36EhtJRIzL8ySdr3PF5IeQzNusNz639SkxFFhmZYryGlzb0Ab8q1GHEn0y4Xh0k27RM2wGm9rtqvy+vlqrWJ1F+8GjZQdZWo5LcdqXFfjvou9uRW/0ImwsdFZ1qfnMLyi0BhNaUuRHRpz+tKdIQC/ec8ZS6QVCUoyIAOxZPmmU0G4Hpk0Ai1emhmDRohYimQeGHiCBfOolNw0gbRvAp7PM/VUbAi8Eoz9l2sYMOunMEFBDi97sQPfxfWAo80zY751vORDYi3lAIkkq3HWvxIZ6N5Z9HcTnkNBr8XXaduF12oXBS1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EAlaGzg9pR4wFhSSDNUIYM/LMo1Uo9g/S2AJCwAPYMo=;
- b=vl9YnmSWTlmJeox6+nJuZQKNKWMj8xdiAUKXD8EXC5u3OlGNYi0BuQTqbBntG/767yI1PT5NSMdJOpPf+CMXqZLMSRW8nzvWM4ClP075nT94QDBcSKJzQVlWKDQJxqMMh6zmdk/hn4YTGz3a4jayVTwLuHgew/S5YPyQcXKJUDZ6mPiZYuweUKO8UBHe4d5qaIOx0ZUmmF/cIdA2l5e+uh5yABusky11vmVD5KkB1YtUxzx/3OzHZ4NRnOz8QOrz/9OkcydKZqinbju0mF93c+Tzdj0UGyrut7mM9nTBnaTzJRpzQqwDOhWUDDjL2h3ZBCqbc6FqWol1teP9NgB1kA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EAlaGzg9pR4wFhSSDNUIYM/LMo1Uo9g/S2AJCwAPYMo=;
- b=evKnbe1QwTWrpk1MClCFkwxKLgjgEv7kos3hUbRbiPSK9ctZDvGfaB6uiml9wkWNGcbge89dEU+dQ9sxTF8qZRHmZWcBbJTx8RkXJdPhC7agJKMGtHsCgcPf6ByS7UfuvwEJdvP9enD7cD4Bon9y1HgBh31iJpbL4y/1OvLFAxIX3FqRxjQvi2UkrRhrFsXOxWEPDC9iEPso8Li658EVpFM8a0nm0n6+r5lGBDdygA3IQryHze/arX2BJ1n0qP5bxKMP0lS7KizmgRBe9xiHwRyG2mxIDLx0tKnUYPO9HQIK4YciNKKdxgcumsP8vW9VOsz33FOCPfoHl3IEvbLNQw==
-Received: from SA1P222CA0107.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:3c5::28)
- by LV3PR12MB9439.namprd12.prod.outlook.com (2603:10b6:408:20e::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.22; Fri, 25 Jul
- 2025 19:01:52 +0000
-Received: from SA2PEPF00003F62.namprd04.prod.outlook.com
- (2603:10b6:806:3c5:cafe::bf) by SA1P222CA0107.outlook.office365.com
- (2603:10b6:806:3c5::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.24 via Frontend Transport; Fri,
- 25 Jul 2025 19:01:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SA2PEPF00003F62.mail.protection.outlook.com (10.167.248.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8964.20 via Frontend Transport; Fri, 25 Jul 2025 19:01:52 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 25 Jul
- 2025 12:01:41 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Fri, 25 Jul 2025 12:01:41 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Fri, 25 Jul 2025 12:01:40 -0700
-Date: Fri, 25 Jul 2025 12:01:39 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: Pranjal Shrivastava <praan@google.com>, <jgg@nvidia.com>,
-	<will@kernel.org>, <joro@8bytes.org>, <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH v3 2/2] iommu/arm-smmu-v3: Replace vsmmu_size/type with
- get_viommu_size
-Message-ID: <aIPUkzn3ZdgbKRzG@Asurada-Nvidia>
-References: <20250721200444.1740461-1-nicolinc@nvidia.com>
- <20250721200444.1740461-3-nicolinc@nvidia.com>
- <aIDlsUvF2Xbdelvx@google.com>
- <aIEkZoTOSlQ0nMKd@Asurada-Nvidia>
- <aIEwzM7mKUI8-h9U@google.com>
- <aIKd1owebUNQeN1-@google.com>
- <aIKqaGMMpsIuAVab@Asurada-Nvidia>
- <aINL66r_1NO3Nx-f@google.com>
- <aIOvt+atxTQp57R/@Asurada-Nvidia>
- <aIPI9xv-HxTPWMUp@google.com>
+	id 1ufONJ-0000000AaEI-1Xqd;
+	Fri, 25 Jul 2025 19:46:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=prxfnO3e15wcyBVTUn75ZWiKrjM1vcJUc4ZMMOjkQdc=; b=TUlGwI1/sAOve1BDnS40gn7kgs
+	kTW+CEJ/5ZrPFaJVsXvbKD96K4fVK4onh7mCY+W1QNyAmftuwaWuPSoz3fo4FssF2Yo5YDvNa3sJ8
+	2T7h6tf6sbj8PxVBU0/HCm67EbS3YYerMTSrkFlyoe2NPpTlzPo9Kq4cfiTP5ueIHK0P2Zepr/X5N
+	d1JXv3m2iXoyYs90+kaHRB/AKb4DpBWeKRjBeq7UyBVWSCYmid48/1zrPnctmacHOYJsTY5XzAU56
+	RLuyUrtES+2uzO5BGabOI/YdRhqjfAvbjG1FmBdvn1QJE2Wy6BgppPo3vRfoxsMiiQ0k9WYS5U9HU
+	aQ3tGI3Q==;
+Received: from i53875ba0.versanet.de ([83.135.91.160] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ufOMX-0000i6-FB; Fri, 25 Jul 2025 21:45:49 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge helper for
+ the Analogix DP driver
+Date: Fri, 25 Jul 2025 21:45:48 +0200
+Message-ID: <6070443.MhkbZ0Pkbq@diego>
+In-Reply-To: <b0ce0d8d-4ceb-419e-a892-d39b8633aa13@rock-chips.com>
+References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
+ <3890785.kQq0lBPeGt@diego>
+ <b0ce0d8d-4ceb-419e-a892-d39b8633aa13@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aIPI9xv-HxTPWMUp@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F62:EE_|LV3PR12MB9439:EE_
-X-MS-Office365-Filtering-Correlation-Id: d4f8ed26-28de-4aaa-cf76-08ddcbadb774
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4UlmwsR+x11PyrNqbwqXyER+o0AHs8aIJDxRJqJYwze1AodKZGCmJZU3E1SJ?=
- =?us-ascii?Q?YxfzlLTdTU5jKNLWioOxBc3gEZMLGgd6Lmzm9cKqLErjgSEYJAAWqtg9Qr9e?=
- =?us-ascii?Q?tQQd7kJiASS5P8fym28xo+XiFXcUhOWe8tMGT3hgs/QYSK4Bd1aLxyBDSYpa?=
- =?us-ascii?Q?J0dR1XerSdPiK+0hBYgaepju38bxPWI2sPNBUKZshrHNJkLPsl85t/ePMQi7?=
- =?us-ascii?Q?gD/z45syLxBeZQCWOVyteaLvtddG9dJtiViM8ztfM5R5Bb4sdyz8LxaFU/Bq?=
- =?us-ascii?Q?cN7ycxC0BIEuF52nrl8b3pDw4zuk21aWejuynBqywNvjtnVW0rNjeEDPYvSV?=
- =?us-ascii?Q?o05LwfY+EdXhkKofaBboS97nwqom2Rew5LoywPsj9LlSuqFfq6wboOIBpMLJ?=
- =?us-ascii?Q?3QKuJ41ORkgGwOFyzypFBRTAAG291d9DIh4AgHmRzthtSpiEnFtpH1djfSKo?=
- =?us-ascii?Q?1uiJGY7j0R+kcGmsV9jd0YXT4mVmZovz9GgQ832V/8RHHwf2UTOyBtydI6Fa?=
- =?us-ascii?Q?q08eXeJO29hgp6Pe43Me0TI7nLG1tGQANRces6p9QKikHiueDLz0x3DICdt0?=
- =?us-ascii?Q?+zn/jPOUx6XClB09LsmXfWwipG2tFDj+wk6iA4ec6OrsEotsWGspxRnMMMDC?=
- =?us-ascii?Q?Mz5Fa8h5ep35lniTKrXwvRj1p9caFWtcaehJzPa0chgUgi/18BDHAEImn63j?=
- =?us-ascii?Q?U6/iBvc15jMQzPwqBfPZ5sDWVodHalJKuBWdHfGmVT088mQZHKsB0xtytrW4?=
- =?us-ascii?Q?XQ4bo4vA5ELT1tvMpEYtCKmECrKh50Lp9fsCz9tewMcKq/SK4cF0L+ZyYEYM?=
- =?us-ascii?Q?IiJnSJslILhjwIvYVcUfU61O8uNkO8YVExQq9sr207F4L07P9nR7aOSnmpLk?=
- =?us-ascii?Q?iJnOUu5RXE1fbmoe6B9pIdfj63UUUZzpLQWzgmP7nnrueW2oLH92vuz0mnCZ?=
- =?us-ascii?Q?AJMpp4SluzYNVy4+nNC4uXKou5JY1lC9oa6RqyUy8EVARAQ4oWzCpyQO2T3R?=
- =?us-ascii?Q?53z4k3Tvu+XapWkN1xycLhFAqkbN1F36/dtIFBnzCz3uWVc6+hzlW5ZLN/ZN?=
- =?us-ascii?Q?7xh7C0Jz6RMNuYILYjKV6BnoSwkxeClAxXz2VwOKFVJgX+5Eo/yO268yfBrR?=
- =?us-ascii?Q?vgd+GTD6nMQYRIM5yh2q628QRJRRih36qKTvkmsCGP5dRWkmn7xEfs5NFNCd?=
- =?us-ascii?Q?GhafpGAQxqWBaFPo1H/iMZMdnt4a1xcBynZ1whTkpeQUAO8i7pieLkmaRXu6?=
- =?us-ascii?Q?SqYRzeGteL+eA/zaIJlY7bAuRBOYIsAQzBO9fd3rtHU2omjpHHq//cQ/Cj1r?=
- =?us-ascii?Q?3aKpM7BB75aONMAJbDhe6O2DDvqbqu5dslSxrE/vE1I21T6CLvKNQF9BwULQ?=
- =?us-ascii?Q?gS7H6XGz7B4TAYIS0Vkp76DytA+NfpI0TgAKfCwkaS43erlA4VALbusOQ4Mg?=
- =?us-ascii?Q?8BkIN0kJbj+BLs+kndMJuL1FFypHGrLiW5AOfJJacXFQH8c7QWo65y5pkgk1?=
- =?us-ascii?Q?Ub9QLpijM243c8HOwFlTyN2TKYmsvgZULN57?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jul 2025 19:01:52.2621
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4f8ed26-28de-4aaa-cf76-08ddcbadb774
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F62.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9439
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_120158_414822_DF60DD8F 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20250725_124637_580842_59B6990A 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,44 +81,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 06:12:07PM +0000, Mostafa Saleh wrote:
-> On Fri, Jul 25, 2025 at 09:24:23AM -0700, Nicolin Chen wrote:
-> > On Fri, Jul 25, 2025 at 09:18:35AM +0000, Mostafa Saleh wrote:
-> > > > > > > On Wed, Jul 23, 2025 at 01:37:53PM +0000, Pranjal Shrivastava wrote:
-> > > > > > > > On Mon, Jul 21, 2025 at 01:04:44PM -0700, Nicolin Chen wrote:
-> > > > > Had the
-> > > > > vintf_size rejected it, we wouldn't be calling the init op.
-> > > > 
-> > > > A data corruption could happen any time, not related to the
-> > > > init op. A concurrent buggy thread can overwrite the vIOMMU
-> > > > object when a write access to its adjacent memory overflows.
-> > > 
-> > > Can you please elaborate on that, as memory corruption can happen
-> > > any time event after the next check and there is no way to defend
-> > > against that?
-> > 
-> > That narrative is under a condition (in the context) "when there
-> > is a kernel bug corrupting data" :)
-> > 
-> > E.g. some new lines of code allocates a wrong size of memory and
-> > writes above the size. If that memory is near this vIOMMU object
-> > it might overwrite to this vIOMMU object that this function gets.
-> > 
-> > This certainly won't happen if everything is sane.
-> 
-> I see, but I don't think we should do anything about that, there are
-> 100s of structs in the kernel, we can't add checks everywhere, and I
-> don't see anything special about this path to add an assertion, this
-> kind of defensive programming isn't really helpful. We just need to
-> review any new code properly :)
+Hi Damon,
+Am Freitag, 25. Juli 2025, 04:15:06 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Damon Ding:
+> On 2025/7/24 21:10, Heiko St=C3=BCbner wrote:
+> > Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleurop=C3=A4ische Sommerzei=
+t schrieb Damon Ding:
+> >> PATCH 1 is a small format optimization for struct analogid_dp_device.
+> >> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
+> >> PATCH 3 is to apply a better API for the encoder initialization.
+> >> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
+> >> PATCH 8 is to apply the drm_bridge_connector helper.
+> >> PATCH 9-11 are to move the panel/bridge parsing to the Analogix side.
+> >> PATCH 12-13 are preparations for apply panel_bridge helper.
+> >> PATCH 14 is to apply the panel_bridge helper.
+> >=20
+> > for future revisions, please provide a changelog on what changed since
+> > the previous version, I guess ideally here in the cover-letter.
+> >=20
+> >=20
+> > On my rk3588-tiger-displayport-carrier this works like a charm
+> > Tested-by: Heiko Stuebner <heiko@sntech.de>
+> >=20
+> >=20
+> >=20
+> >=20
+>=20
+> Glad to see your review and test. :-)
+>=20
+> I will include the version-to-version changelogs (v2 -> v3 and v3 -> v4)=
+=20
+> in the next iteration.
 
-It could help for debugging purpose when writing new lines of code.
-Kernel has quite a lot of WARN_ONs fencing something that shouldn't
-happen.
+I have to amend that a bit, sadly. When doing a reboot with the edp
+running, I see logs like:
 
-With that being said, I admit that this particular line is a bit of
-overreacting. Removing it doesn't have too big impact, as something
-else would likely crash when such a corruption does happen.
+[...]
+[  139.614749] systemd-shutdown[1]: Syncing filesystems and block devices.
+[  139.622201] systemd-shutdown[1]: Rebooting.
+[  139.684845] ------------[ cut here ]------------
+[  139.690050] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-iommu.c:9=
+89 rk_iommu_identity_attach+0xac/0xbc
+[  139.701175] Modules linked in: panthor rockchip_vdec rocket drm_gpuvm v4=
+l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper v4l2_mem2mem gpu_sc=
+hed rng_core fuse
+[  139.717685] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Not tainted 6.16.0-r=
+c7-00183-gd436cbe8e4b3 #1541 PREEMPT=20
+[  139.728799] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger Disp=
+layport Carrier v1 (DT)
+[  139.738548] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=
+=3D--)
+[  139.746351] pc : rk_iommu_identity_attach+0xac/0xbc
+[  139.751821] lr : rk_iommu_identity_attach+0x70/0xbc
+[  139.757290] sp : ffff800080e4b7c0
+[  139.761001] x29: ffff800080e4b7c0 x28: ffff0001f6f98080 x27: ffff0001f0a=
+4b010
+[  139.769006] x26: ffff0001f6f98e58 x25: 0000000000000000 x24: 00000000000=
+00000
+[  139.777010] x23: 0000000000000000 x22: ffffdbf23c0485e0 x21: ffff0001f0e=
+9cc10
+[  139.785014] x20: ffff0001f0df17a0 x19: ffff0001f0e2cb80 x18: 00000000000=
+00038
+[  139.793018] x17: 0002550800000009 x16: 0000046c0446043e x15: 0438000008c=
+a080c
+[  139.801021] x14: 07d008ca07800780 x13: 0438000008ca080c x12: 07d00780000=
+25508
+[  139.809024] x11: 0002550800000009 x10: 0000046c0446043e x9 : ffffdbf23c1=
+37000
+[  139.817031] x8 : 0000000000000438 x7 : 0000000000000000 x6 : 00000000000=
+00000
+[  139.825034] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 : ffff0001f0d=
+f1780
+[  139.833038] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 : 00000000fff=
+fffea
+[  139.841042] Call trace:
+[  139.843780]  rk_iommu_identity_attach+0xac/0xbc (P)
+[  139.849252]  rk_iommu_attach_device+0x54/0x134
+[  139.854236]  __iommu_device_set_domain+0x7c/0x110
+[  139.859510]  __iommu_group_set_domain_internal+0x60/0x134
+[  139.865561]  __iommu_attach_group+0x88/0x9c
+[  139.870250]  iommu_attach_device+0x68/0xa0
+[  139.874841]  rockchip_drm_dma_attach_device+0x28/0x7c
+[  139.880508]  vop2_crtc_atomic_enable+0x620/0xaa0
+[  139.885678]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
+[  139.892413]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
+[  139.898369]  commit_tail+0xa0/0x1a0
+[  139.902279]  drm_atomic_helper_commit+0x17c/0x1b0
+[  139.907552]  drm_atomic_commit+0x8c/0xcc
+[  139.911951]  drm_client_modeset_commit_atomic+0x228/0x298
+[  139.918005]  drm_client_modeset_commit_locked+0x5c/0x188
+[  139.923960]  drm_client_modeset_commit+0x2c/0x58
+[  139.929137]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
+[  139.936164]  drm_fb_helper_hotplug_event+0xe8/0xf8
+[  139.941526]  drm_fbdev_client_hotplug+0x24/0xe0
+[  139.946605]  drm_client_hotplug+0x48/0xc4
+[  139.951100]  drm_client_dev_hotplug+0x9c/0xd4
+[  139.955984]  drm_kms_helper_connector_hotplug_event+0x20/0x30
+[  139.962426]  drm_bridge_connector_hpd_cb+0x88/0xa0
+[  139.967790]  drm_bridge_hpd_notify+0x3c/0x60
+[  139.972577]  display_connector_hpd_irq+0x30/0xa4
+[  139.978835]  irq_thread_fn+0x2c/0xb0
+[  139.983894]  irq_thread+0x170/0x304
+[  139.988833]  kthread+0x12c/0x204
+[  139.993468]  ret_from_fork+0x10/0x20
+[  139.998486] ---[ end trace 0000000000000000 ]---
+[  140.004737] ------------[ cut here ]------------
+[  140.010884] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-iommu.c:1=
+040 rk_iommu_attach_device+0x114/0x134
+[  140.023079] Modules linked in: panthor rockchip_vdec rocket drm_gpuvm v4=
+l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper v4l2_mem2mem gpu_sc=
+hed rng_core fuse
+[  140.040577] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Tainted: G        W =
+          6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT=20
+[  140.054457] Tainted: [W]=3DWARN
+[  140.058804] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger Disp=
+layport Carrier v1 (DT)
+[  140.069595] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=
+=3D--)
+[  140.078454] pc : rk_iommu_attach_device+0x114/0x134
+[  140.084989] lr : rk_iommu_attach_device+0x98/0x134
+[  140.091423] sp : ffff800080e4b7e0
+[  140.096197] x29: ffff800080e4b7e0 x28: ffff0001f6f98080 x27: ffff0001f0a=
+4b010
+[  140.105270] x26: ffff0001f6f98e58 x25: 0000000000000000 x24: 00000000000=
+00000
+[  140.114351] x23: ffff0001f6f843e0 x22: ffffdbf23c0485e0 x21: ffff0001f0e=
+9cc10
+[  140.123425] x20: ffff0001f0e2cb80 x19: ffff0001f6f843c0 x18: 00000000000=
+00038
+[  140.132489] x17: 0002550800000009 x16: 0000046c0446043e x15: 0438000008c=
+a080c
+[  140.141552] x14: 07d008ca07800780 x13: 0438000008ca080c x12: 07d00780000=
+25508
+[  140.150623] x11: 0002550800000009 x10: 0000046c0446043e x9 : ffffdbf23c1=
+37000
+[  140.159701] x8 : 0000000000000438 x7 : 0000000000000000 x6 : 00000000000=
+00000
+[  140.168772] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 : ffff0001f0e=
+2cbe0
+[  140.177825] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 : 00000000fff=
+fffea
+[  140.186858] Call trace:
+[  140.190627]  rk_iommu_attach_device+0x114/0x134 (P)
+[  140.197124]  __iommu_device_set_domain+0x7c/0x110
+[  140.203417]  __iommu_group_set_domain_internal+0x60/0x134
+[  140.210492]  __iommu_attach_group+0x88/0x9c
+[  140.216203]  iommu_attach_device+0x68/0xa0
+[  140.221802]  rockchip_drm_dma_attach_device+0x28/0x7c
+[  140.228479]  vop2_crtc_atomic_enable+0x620/0xaa0
+[  140.234664]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
+[  140.242400]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
+[  140.249349]  commit_tail+0xa0/0x1a0
+[  140.254246]  drm_atomic_helper_commit+0x17c/0x1b0
+[  140.260496]  drm_atomic_commit+0x8c/0xcc
+[  140.265866]  drm_client_modeset_commit_atomic+0x228/0x298
+[  140.272885]  drm_client_modeset_commit_locked+0x5c/0x188
+[  140.279791]  drm_client_modeset_commit+0x2c/0x58
+[  140.285914]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
+[  140.293889]  drm_fb_helper_hotplug_event+0xe8/0xf8
+[  140.300214]  drm_fbdev_client_hotplug+0x24/0xe0
+[  140.306248]  drm_client_hotplug+0x48/0xc4
+[  140.311695]  drm_client_dev_hotplug+0x9c/0xd4
+[  140.317531]  drm_kms_helper_connector_hotplug_event+0x20/0x30
+[  140.324930]  drm_bridge_connector_hpd_cb+0x88/0xa0
+[  140.331248]  drm_bridge_hpd_notify+0x3c/0x60
+[  140.336990]  display_connector_hpd_irq+0x30/0xa4
+[  140.343120]  irq_thread_fn+0x2c/0xb0
+[  140.348081]  irq_thread+0x170/0x304
+[  140.352937]  kthread+0x12c/0x204
+[  140.357501]  ret_from_fork+0x10/0x20
+[  140.362453] ---[ end trace 0000000000000000 ]---
 
-Nicolin
+
+After some minutes of hanging it does reboot afterall.
+
+Heiko
+
+
 
