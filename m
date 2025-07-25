@@ -4,105 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAFF2C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 12:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D78C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 12:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bvHvjwd6XOG8gaFWJcVrEpn5/3TbrGK3z3uZ5mkkCQ4=; b=Wdy03dT0xsmfxeHpNsYmUH1Bcn
-	fVNOfrrB6HGZ96BncBSQ6D/s6MFnqSIY4b1T7Pu5/3nuTtV6mmRCf2jcizNPUaC3cjPzldBjAJtS6
-	Q6ByH1AkouTjkFIVK2D6W8i8y67Iuq32pHx3zjqP/5uccSVG3CH18ngQmijfeIPmpBYbLdb3jFhC9
-	UILPToHOl30JyzHXPfwkctfBnzyMR+41Yjt4D87YIGX4RfVH+K18UhCbxleYgZnPv2hA7xggUT+U/
-	f9Q7Jd20caxeM5eNYvNsz3l8xfxod2igU28Hpa8NS2oB13mujZWOjFV3NtTf6Q08WYJVB0LgtCPUW
-	KiTYcqzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pyoo+o4+1Km4PDvgH1Rc3jgjtnw73S1JWJ+cbZvXrIg=; b=yhbs3WfSr1xgA8tWJOcCKCL262
+	hc7afExYKJFeebKEvOUvZ5QtsXVLUmgvRpb8Av7HcEV1h58465eW+SLvlv4OCqvLN2v+eW4fXRz6n
+	70X1l4uFL9bJ0qSse0LzU82uPw5XFF83rBleCuYMO9DIKVuOJrT1IODc+nhHajKFZr2XmRM9axTAN
+	96c0xTiUmsmvs3szgI2IA3vyDw5fyQsdxOeo6BPEpm0IvmGYq9hODlyOhpPIKIb1apkPtOzEpC/q7
+	jnmrk68e27rnteoq3yyE+7hUQBYIkBV8NPzduq6lT9tCqU3cnXUAk6MEpUqC+L3aokYxdFPtH8rO1
+	Qsaq7MUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufH6L-00000009ln4-20Hk;
-	Fri, 25 Jul 2025 12:00:37 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1ufH8m-00000009mIM-49Dq;
+	Fri, 25 Jul 2025 12:03:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGPL-00000009gzI-3aNl
+	id 1ufGiU-00000009jQ3-3ImF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 11:16:13 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56PAXQj6003648;
-	Fri, 25 Jul 2025 13:15:58 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	bvHvjwd6XOG8gaFWJcVrEpn5/3TbrGK3z3uZ5mkkCQ4=; b=KwR+EWxBDubt5KZK
-	KwTbP7hwmwQB918hKeREw1OoQlG78H3x+rh43s42Cjq4rbrZC2aVqeQ3H6cm2UAE
-	opBjmNl9Lz/uXptDv6+oPJy5zUhCAoQzU3hMzAvDRyi8BwfSV7K7tPsZAbPaSWaC
-	jc23JYGcJppcXjF4an+x9dqZ5eqShkjxIbB4sof2tZiqIgaNjv7PfkOz1afK8d5W
-	iRCoF6bzj6SWpGnHhnXe/zpXEmaFMlbf3aOumMNiUjT8XCntqQXgHkuaonTeqOhS
-	Rlq0blQ71ejJWutjyN9F5RvgR+qPbxDdXS0kJqCFBXqRgOGIiCNt9+ITfOSLKCOB
-	Y/8O1g==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3m2trd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Jul 2025 13:15:58 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DB8284004B;
-	Fri, 25 Jul 2025 13:14:29 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1D0D137A632;
-	Fri, 25 Jul 2025 13:13:24 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Jul
- 2025 13:13:23 +0200
-Message-ID: <a00bb4e2-b0e8-44ef-bf14-5e4f5e60f9d0@foss.st.com>
-Date: Fri, 25 Jul 2025 13:13:22 +0200
+	Fri, 25 Jul 2025 11:35:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1536F43F18;
+	Fri, 25 Jul 2025 11:35:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74337C4CEE7;
+	Fri, 25 Jul 2025 11:35:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753443357;
+	bh=+PL5Ce46pzzEvE5wbz43WCE0ZQpyW3u8CV4e5f9V7WU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LdCIUE603IEMZwVAMQub69g3JUAfY4Axyb5S53r0VqEjed8cHWrz77xcSZtk5Y+yE
+	 Z308hsoyDDs1Lox/W68/IMJAEeGVMzJf+9owAcUM60mlWLZh7ht/5LRxJSdkyyaskw
+	 KF15GAyt1hIi5XQjJRbP/DEFtY2fiEcSK2Ofj7lshn7rTbWvV6FRb6vFaMOSKMoFW+
+	 2B9fQfU24fjHM7sX5Mz+Gd2e8hI9bXD7y0fuBUZ4SfM1b8Ia4M1x+9ppdgrBSkO2ge
+	 YaCC4ZGUuOodeLqB2Yddm1H2RKT6A6uJxAWglP9bmO5jFK9/TsXV+zVu6BOnVeF8r+
+	 49U84M63+dciQ==
+Date: Fri, 25 Jul 2025 12:35:39 +0100
+From: Lee Jones <lee@kernel.org>
+To: Stephen Rothwell <sfr@canb.auug.org.au>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	ARM <linux-arm-kernel@lists.infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: Re: linux-next: duplicate patch in the mfd tree
+Message-ID: <20250725113539.GB11056@google.com>
+References: <20250725113657.039aa5ce@canb.auug.org.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH 09/12] arm64: dts: st: add lvds support on
- stm32mp255
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>,
-        Yannick Fertre
-	<yannick.fertre@foss.st.com>,
-        Philippe Cornu <philippe.cornu@foss.st.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
-References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
- <20250725-drm-misc-next-v1-9-a59848e62cf9@foss.st.com>
- <85673db7-d311-47cc-be52-291d94e136e4@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <85673db7-d311-47cc-be52-291d94e136e4@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-25_03,2025-07-24_01,2025-03-28_01
+In-Reply-To: <20250725113657.039aa5ce@canb.auug.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_041612_185037_014FBBDF 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20250725_043558_846777_3F82DC46 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,61 +74,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/25/25 13:08, Clement LE GOFFIC wrote:
-> Hi Raphael,
-> 
-> On 7/25/25 12:04, Raphael Gallais-Pou wrote:
->> The LVDS is used on STM32MP2 as a display interface.
->>
->> Add the LVDS node.
->>
->> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
->> ---
->>   arch/arm64/boot/dts/st/stm32mp255.dtsi | 12 ++++++++++++
->>   1 file changed, 12 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/ 
->> dts/st/stm32mp255.dtsi
->> index 
->> f689b47c5010033120146cf1954d6624c0270045..a4d965f785fa42c4597494010855aec7e1b9fdd1 100644
->> --- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
->> +++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
->> @@ -6,6 +6,18 @@
->>   #include "stm32mp253.dtsi"
->>   &rifsc {
->> +    lvds: lvds@48060000 {
->> +        compatible = "st,stm32mp25-lvds";
-> 
-> For the compatible you now need one comaptible per SoC.
-> It means your compatible should look like : "st,stm32mp251-lvds".
-> This way, if on the 253 or 255 there is an issue you are able to easily 
-> add match data in the driver with compatible "st,stm32mp253-lvds" or 
-> "st,stm32mp255-lvds".
-> A prior discussion on this subject has been raised on my V1 of HDP 
-> involving Krzysztof and Alexandre :
-> https://lore.kernel.org/all/418a80a9-8c08-4dd1- 
-> bf49-1bd7378321aa@kernel.org/
-Woops, this comment should target the add of the ltdc compatible as I 
-see that lvds one already exists and can't be changed.
-Though the main idea is here.
+On Fri, 25 Jul 2025, Stephen Rothwell wrote:
 
+> Hi all,
 > 
->> +        #clock-cells = <0>;
->> +        reg = <0x48060000 0x2000>;
->> +        clocks = <&rcc CK_BUS_LVDS>, <&rcc CK_KER_LVDSPHY>;
->> +        clock-names = "pclk", "ref";
->> +        resets = <&rcc LVDS_R>;
->> +        access-controllers = <&rifsc 84>;
->> +        power-domains = <&CLUSTER_PD>;
->> +        status = "disabled";
->> +    };
->> +
->>       vdec: vdec@480d0000 {
->>           compatible = "st,stm32mp25-vdec";
->>           reg = <0x480d0000 0x3c8>;
->>
+> The following commit is also in the arm-soc tree as a different commit
+> (but the same patch):
 > 
-> Best regards,
-> Clément
+>   ba9ae011e837 ("soc: apple: rtkit: Make shmem_destroy optional")
+> 
+> This is commit
+> 
+>   0445eee835d6 ("soc: apple: rtkit: Make shmem_destroy optional")
 
+Odd.  I don't see an applied email for this.
+
+This was applied to MFD and a pull-request was provided for the other subsystems:
+
+https://lore.kernel.org/all/20250724102529.GA11056@google.com/
+
+-- 
+Lee Jones [李琼斯]
 
