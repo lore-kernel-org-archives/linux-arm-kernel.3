@@ -4,103 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1787BC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F51C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=; b=nACTd2ouoL3ydSQ6b3Cy5ykUMH
-	r+QxI1Xj7eTBWt1ls80OQhTf9pU30VXhjddihp5hqQPAPazGk1ZofU+C+ixpG4RLmNiY8hmjvheGa
-	JVRso8Rrf9YHXEFBJSAeCaSlndOrUA15ET37N6EvKBDqc3DHEy3O0Jsbgj5Em+0RMFFGnMs5Y/7/h
-	/iwtZ5QMKxT1VBgp7IurEhgurNpOt+jznqZuRgn1+tvmnx4yDa168oBwAui8RGpiIR07Ojf4oXWER
-	1ymUA3qQu6g+2kX3Hj+4vgfWFkhPUviYGhBTFvrLpfLzrtNlM0se2kEW4cEEpW6VrOQDDHdqDqE+e
-	YF2F3w8A==;
+	bh=tffwFuBuwiNACFi+DFNKBu/FSc8NNY0p9Trxpd7Gli8=; b=ELk0P57KlAVM4s37WmJc4YWQ4c
+	4fXaOKNOCv0YvjDi9OKrXloabgb7PXagIa5AK2DCcx8R7iYQbHwDJlBLWlOacUDuNTMKgKekJJmaz
+	TFzEF0WwMjmSXdDZSECPAa/lo1pNFk7a0tpJsA4Yog+Ev22+Jmo87mkJ+7Pr6SywYdjix/HKfg3iW
+	HqzcgVmLxbt3bTzdznCMNjKsc69WA28CP7a2/rJlEDUBMACD02TS7tYc+Dlk6oYvKRP8kaoaigqff
+	kkq5VudaGtICn3RAwk74sr0lF4tLLqyhwBRLscvRUNnqABVZS4c8RHiD/rf9ZQdvVLgGxqR/ez+bR
+	wl5oDQ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKUx-0000000A7Wh-2paZ;
-	Fri, 25 Jul 2025 15:38:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ufKXv-0000000A7pZ-1u7P;
+	Fri, 25 Jul 2025 15:41:19 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKSU-0000000A7Ob-258g
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Jul 2025 15:35:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=; b=eSt3q5Utb2ZxmuGyNE6ozAlAdA
-	y8PL2mpJRxbGVqGYbqEzrdj55fvPMmfbnO8UyVg+1Bt0k7esfJofS3z2aKwcbrTnDuUKOLXarqjvA
-	bel+waJeYtQdEfaG0FtAMBgyZ2nni1Gy+mKvxc/ljHT2QGJY3lQ6m+gIwd2YWL+r3msAvgKt+Bbzm
-	yFiSDVKTKbm1pTfFeOXeLlPrdMIW/WE6pbuB7GEAo5gzufBkdvu9WXN3YUNpm+h7NgxcxmvniqysP
-	TsM3Dx7x+vfsUPRKDdRsqDcQ6RG97jA+RC6aabU2LB1P8EeNFyn2lwItzyB3epDB+53XlsuQyWPe4
-	Eku8+CfQ==;
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKSR-0000000BrD1-22eX
+	id 1ufKVQ-0000000A7ai-2Wkf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 15:35:41 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-313bb9b2f5bso2045883a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:35:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753457737; x=1754062537; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=;
-        b=fvZaxdMBfwemaGbpcLkG55WjJITihq2mSS/dV14UiDd0K14ExhEVU3BR82NZJaOpsq
-         qbODmkYK9carbb4meGIDt3st9Y72F0+2Sr5ODksq9tGuuA3upH17NjVOeNAE+6JA8TOt
-         rmNCAUhv2FUtApOwOvmaI2J6h/BIhP7v4lBbwjIBOGk6w/2Xt7Ns/uzw0ls4XSLqb25A
-         gU6QD0xUCTYALp7mKYYVg/ckgtS9h01rVOfOYHhT5JC4Uaf2sYMqJ7PfpnnJaaTn8p/z
-         sN4jQpGf/BlOxC2p6cGregUpv3SHR0M1c5Gyn8gFn+W9lAJv/g+UtjFJxb7s2pKF+zMx
-         MMUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753457737; x=1754062537;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Nk/4Kezo0VhjUc+1VwBBR6iAeqx6TFxLUBENU2vrQBA=;
-        b=UtWfN6RtZnDLsYn47kxAEqxujgkzvguQ0vTr0UM9dRhI5FnUOdVpyAD/05sxaEWKeI
-         c+ArV6P0tXVYU9drwq2iQyS+4SzfK4Wnc4yElYkWv+Z+7CYYND6VFijQSB/0aWioYrsM
-         rlKVvpIzG1rYBQon8feQJy/FE/20bogpXjJ0a98kCv4FxheIRTnBW3oWbVdHX6PBg484
-         HVPRx9qhdZJaE9tb5VIWkCHHQobT7KZuKhzERJ/rvrWEjCaU1yg64BZxt4lmpQYULncn
-         Zb0Kfm9W1q4dYDNCmB69KSpQ+I2IBw8CfA7hSLjmGdbUmSNNKew8e0HllpnQ0b9Q1lF0
-         cZVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHCKhma753AHisw0mauH3acZmj3P1cvvK8IUsLwnrZ/LuS38diu7gEqHsUS1C3CeSgfdqbkCwFt77/S7PQeaLS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4CG30KwR44iVdBr2ek80jHJWW7l/fmNnJ6d74/5QcS8/V3Gfq
-	YIfYlJXqi6LgDzLsEaHB9XOG17r2a9nF0iLCaKLWwIk0RZDwLigQ4II/
-X-Gm-Gg: ASbGnct/Y1aFmQlQTx6Pzs9rrpMRBhK+93zkXxLFAimZg1SHw4UmnGbV6F8LydLM/xX
-	j1Dv8HPVzuCSEaNWTGGbbPGtTucyMdJhnkp+GxROO6bs9laROjzqVKCy82W8YOM9oQigONXs219
-	7sr8jD0mDFnaTVcG0B10SLbXV3CLLbqX2Kca4SS3W85VuhEtr4a2tyEIrQadGmxH4eHreOgroba
-	2rrfK9w+RXXH2pl864ouURgtok9RV6oHT0LznGXUycZc2TKVJ0yTaiiW6mpTIZIoQSDp0Pqg6Po
-	q6DltOD4mtfuCsuPQSgUplSf/JaasNCFS5Gb3Yx0dyfD7s3NBhNm8OOzrlxUzyW0u78+oqCnGI/
-	7DSpbpkUVV9WEQ85LdFUpEA==
-X-Google-Smtp-Source: AGHT+IGA0cG23R/PV0mw3LDx6GRbWc3e50pWW1kDUupFgJn9GdN+u8pGDk/hv6p6XEa1GLMUY2uYUg==
-X-Received: by 2002:a17:90b:3d4e:b0:311:ff18:b83e with SMTP id 98e67ed59e1d1-31e77857876mr3896921a91.9.1753457736696;
-        Fri, 25 Jul 2025 08:35:36 -0700 (PDT)
-Received: from localhost ([216.228.127.131])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e6e3b7e0dsm2400980a91.12.2025.07.25.08.35.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 08:35:35 -0700 (PDT)
-Date: Fri, 25 Jul 2025 11:35:32 -0400
-From: Yury Norov <yury.norov@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ste_dma40: simplify d40_handle_interrupt()
-Message-ID: <aIOkRHs2bCVk28V0@yury>
-References: <20250720022129.437094-1-yury.norov@gmail.com>
- <aIDRpSN0z3Ri1Fkh@vaman>
-MIME-Version: 1.0
+	Fri, 25 Jul 2025 15:38:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bvkkEBGgPZny/hHjjGD32MxWfv8SrkcIx1Zc7q55kqrIwkld1+3cvFqoOarCht5rw5RdZIVF+6Sq0wnCbODuYLVwEg8j9S6wTpDoi99zGV9SyY/Y/joKxt3tHsZ6z+DlsL0g/HXIZLW1pb1HXgKBXVIgQLQloWAJmpIbifjTBGAzmSiS1MmT4L9nRD4fuLwnOcQJN9WltxbI1OfbalsjuFbTsfAaFK+uIo/erDRWbHrDXjqwPryRYxMO9tIJiDmVzrpkTTRhLRhESASuGgrnH0moO4bPyn867twwI6maRUiwY9+T0fC2jVxiEMnhDY8hte73rlxtaH5VfKmRFIN+rA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tffwFuBuwiNACFi+DFNKBu/FSc8NNY0p9Trxpd7Gli8=;
+ b=clyjxwi6plBDU51iOROddeg1SgGneJp7QuEX1rsIx2fO7PEj4jvhLjBJ5OCqxPKmlXrZR7bLh7pgtd02vM1QNe2zlqgpIXkusiOLEySVzPiv4KGFpBB0A8jx5SncERWPRmJ/EPOi/s+u4lIEnTGLStH+n1zf2T7YWgfPgdvt70DVskIsNm+wMMPMJP0eyflaxIspbU8jAe8eLvKawXILnpIG4XXecD9o02H2rRzts2Winlk48RqDVGjLXoH2N70d08oaT51CAxmh2kxr5d1plZjQaPNkDb2yr/dNq9hOmmeoeaHMxgtm1pT5BdWOfWd/MI0XbFnMRr3L3AlUF036NQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tffwFuBuwiNACFi+DFNKBu/FSc8NNY0p9Trxpd7Gli8=;
+ b=LnwMyhszNV4Hjk7ZRuSZYZIGwDuCU4tXfRFcCb34TZ3PEo3OeNn3RxDqcr7fwSiuxvuEkiX+ypfzAzka2AK6E0H34vBRCUK44XUA9klB1JsJcHufv919R7FXXTHgVRDDZVS43q0NNBxQf+iVA1wqJnykjkA8T3YTPhIMhKm40NQdNin5DvphuqgyLnh43s2Nzq5+JY7WQV5d2xdBxTFasvc/oPnj23onTeUUlySvmlbv6uFPkvXFfOpyx0QPZvjy0Ox4rDdhcdH1up/T7+w/tmX2hUHSKkETxpS58tXU0Xq6zFuJFP5G9U+0cAqjeUlFXZKMX2OnIGYqf2TrLeQWYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU2PR04MB9523.eurprd04.prod.outlook.com (2603:10a6:10:2f6::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.21; Fri, 25 Jul
+ 2025 15:38:39 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8964.023; Fri, 25 Jul 2025
+ 15:38:39 +0000
+Date: Fri, 25 Jul 2025 11:38:29 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Zhipeng Wang <zhipeng.wang_1@nxp.com>
+Subject: Re: [PATCH v3 2/4] media: nxp: add V4L2 subdev driver for camera
+ parallel interface (CPI)
+Message-ID: <aIOk9W/RBKmS8uVQ@lizhi-Precision-Tower-5810>
+References: <20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com>
+ <20250708-imx8qxp_pcam-v3-2-c8533e405df1@nxp.com>
+ <20250725000404.GW11202@pendragon.ideasonboard.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aIDRpSN0z3Ri1Fkh@vaman>
+In-Reply-To: <20250725000404.GW11202@pendragon.ideasonboard.com>
+X-ClientProxiedBy: SJ0PR03CA0361.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB9523:EE_
+X-MS-Office365-Filtering-Correlation-Id: a449b6b6-cc56-4d89-71a8-08ddcb9153ca
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|19092799006|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mFsdXBqP94b0D2i3YgcDwpO6ozDAyuc7mpYEbS4AwoHqj5OWu0DeP+QhGCyP?=
+ =?us-ascii?Q?WgPAVZ6sAaOf8BmaobGd0BRzzJ2hhvLs1eaZw8pIc/85UE9C4cuXYzx+JUJZ?=
+ =?us-ascii?Q?5h/AaLQ80F9l+8i2h9b4db3a0aMeid5v1LgKEegBRAFIMVULNesYRijVLt1m?=
+ =?us-ascii?Q?MQEmFdSfUQI/Yot3Uf3u8g/wyYb5RB8sgkej2qi40YeUABETT65wzNrdG34V?=
+ =?us-ascii?Q?DpdGsYJs7RrYM/38jdOG2x/+keFZNqJmVKtzJqIumq2obOsUnQsBOmPTOjJV?=
+ =?us-ascii?Q?9Q32BHVVjc8/3E9CqmKmaK+PRRRrwC02AXy2sOVEJ5p4xD6sxB0+JGrpetoR?=
+ =?us-ascii?Q?pJ6YUNJ1urZqQVIdTCJrdMIzvlVHhG4nKQRzflPawabxKw3lyTd9jZF0CbTJ?=
+ =?us-ascii?Q?GSp51NZOdmBGLtBQS+p/Et2dg61MKthIMnQzNOmAHG61CgA8tPguwU8S/Baj?=
+ =?us-ascii?Q?8h1XPtrV5DOlFw/Dy0e0HB0DQqmyjs25AtR3NQvT4FHWemXgf+kJ8pFgLvmD?=
+ =?us-ascii?Q?FwqDAiDCQhCGnfxSgD+16AEY6/Be0UoF3FkvNFsTg/ChHl8uaSgY9KLxa6Jn?=
+ =?us-ascii?Q?6eYZTGKaxCiAfTRVHCXlmRY8OXzQc2khuQh3SKpoCawbAdLn4LSlBhQMdTee?=
+ =?us-ascii?Q?J4Rsc01OSnBkblP4pusXX89VcRTLb4RtGBJkWGro59uMgjWjOVL8JrYHJhIC?=
+ =?us-ascii?Q?g9CTTVLWTs5S+VK5C9ViVJuVT3kOkCtKsv56OC1vqgeDAoWb7ufqnM1Nr/+n?=
+ =?us-ascii?Q?ELxQEtC5dfaBj3P7YIZf0GxP3uKw7sYA3+JmYu8vrNd7n2RsLMLpQ0QYlrGc?=
+ =?us-ascii?Q?LdDEl33dftrtFqE6i80qLAXChD9D0TeGqF/dH8ICEeQAUbsiZzrUVp3LU4Hu?=
+ =?us-ascii?Q?BwlbgwgsWDeC0fxQaoc7TIpF4UA44lCPkXjGva6vuE92FvnxwZr6OZhDcQ5L?=
+ =?us-ascii?Q?P+Pm6ctQ2bAiJfDbAQSRqGtCGJh27COnfmovzJAd8nbu7a6rcjOqdttK/+BY?=
+ =?us-ascii?Q?31rgYfELdn3gCnRsF5HSs7fCDCe1iV+6ohmYwDj6rIlXu5Hmw82SZ/KMEuct?=
+ =?us-ascii?Q?EIssKoBWhXHGfnnPwMoYECMMOkixgEhSaEucRjrV5QU6+i3acm9CG772wG8e?=
+ =?us-ascii?Q?kqy3HvK136PdoaWi0Xf8gPSRtTILxVmlkIUD2xwh91KIJ3/mb2BkGX0FGjR1?=
+ =?us-ascii?Q?nIdyX90WInKmK61NNR4Hcbx3wpWBq5vRD2l1rGPL7kz7EZF2vnOoLeamg7Oo?=
+ =?us-ascii?Q?U+HNxMzNDO/MzQrTPN/nXDn2DJO7AZYAnU1DCc4ps0xtn8+Td4vPEjRRg5Ys?=
+ =?us-ascii?Q?uR32BwbaVSpBXIBWo1MbNkE7oABPL/O6GvUM1oTkGdDpVGaq0/afYMjd8VHS?=
+ =?us-ascii?Q?czZ5CqGEKp8Po/z1xdSM3cMImQywPYt1dUwuw9F9zVC62mfQfocWALWlcXza?=
+ =?us-ascii?Q?Eh1IJ57GHLMM4xvS2eqzgJuyjgXaGxFHllkGxILZ9dhcKQAaWPbphQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(19092799006)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Hc8stD6NGZfjQHiXGzaVu5dHVrPh1jmwKE2xsQh0ikdh41kf27SCiNQHux4O?=
+ =?us-ascii?Q?IHeV+9mGQCu8GpKUY5DVM80aV89tjSnxpyO0oFCAjBCZs4E0Mg2cSgkkVffS?=
+ =?us-ascii?Q?UT8xYJNBWCh8ohmADFvjuNIpYwZrdJlieB64vN8BwPneFR2uBOU70MzCNh1E?=
+ =?us-ascii?Q?ZsgBF0IASNKHUlkJ1470nzNZnmCbzkpnb63fMsvRt88RrvNxhiulligt4/Yw?=
+ =?us-ascii?Q?hg/AXyd1bkZ5LbG2+Ru8cfxrhJwBHYfl3QKWPPUon2OcHtP42d+4bLRyNAkY?=
+ =?us-ascii?Q?6pJSpXKkJsxxJnx+KA1CLIdVOZkuC5IvOFkMm5Fq3jY1HQDJpyKDGEvW9KsH?=
+ =?us-ascii?Q?gyqkW877OhaEO/Sw19tNHkIrOJkXMW/LvllB+O427yI/2buZW38D/Q49NkNl?=
+ =?us-ascii?Q?6ukM7WCbwtyYQB+bk0kvgo6mWdjAYN2eZ3kBiU0ZSj+ANlTGkb+ufz7Rp0bX?=
+ =?us-ascii?Q?dZkSkiOo9yTi18PLuZCzYILXyZ1ZRsVpqJSfa55SKGTedKcdkctmc/AnH8Nr?=
+ =?us-ascii?Q?XYgstMlHOrDoqkscBe75gGaf2foJeca94CPL3esSvQJ6pujtyEx3zZvrfxoW?=
+ =?us-ascii?Q?UpyJkTGEWlbQNygpJWmCPoy7P174uYtfdNkhEGMQkP+jd/ymgTgvILG4sKnW?=
+ =?us-ascii?Q?0AWeNRm6wv0tpRJHU4UTQ9bmWG12C5saf4wErALlvLbjDejewufKeQjppU62?=
+ =?us-ascii?Q?rU4VQxwzBp3bc1QYpYlT5lwaun7FW5nvnc1GpHaiM1UONnGyjCigoJlbsJhI?=
+ =?us-ascii?Q?fK1nJ4J3PCtognZ2WZ2dnFlULnqryDYvzRkj1+Tci8vBxW+NTeKUjcklendr?=
+ =?us-ascii?Q?mhHGBKtQm+eAEWlaNhZyvszKNtz7j1DybmDb9jRDLSoVi6xCKb1vU+G+2xLj?=
+ =?us-ascii?Q?N+ECoFXuF02Io7rIvcljqag0O7bJK6L0+1h8BIZw5rMvMxkozHIYBEoeaimY?=
+ =?us-ascii?Q?bbZ6E1fD+iRzre0MoPkZhBhSHyF97aKrIIpUvQ5EhV4sMZB8EVgEJPHJWAgT?=
+ =?us-ascii?Q?v7ag6tKiCFknEF6rtxDIrjXZV4DMomzWTiq8WG+dOMzkwZY34BKhn7HgjFRs?=
+ =?us-ascii?Q?r3TndDAmHj5SHvjylYrOB83yNa3kIdx8paTyqqylDkXCU+NNLOL3d7rOZO2a?=
+ =?us-ascii?Q?yZiwLpVcvMzjRQ2NPyuhiPMjPu/jR9V45SjYNJXaHrJgjtYVTs4YeQO1Hj/u?=
+ =?us-ascii?Q?O91dNG7PEJNElX4MUQitrrZdJtl7l7zHWzREdbzPTTGGjtqNO37NSfkbd31/?=
+ =?us-ascii?Q?Z9/sLn4FQKurXpETsJotseKIDwaxewYL5KANuyijvLijEotby7pT6hwjdzEq?=
+ =?us-ascii?Q?Ogw/0vC5tEns99euzqtnAcIPo2POQGgfe/GA05gGlyQJbeYA6pFC2UsZMflm?=
+ =?us-ascii?Q?b3GzXQ8PIrHRsiemqqZ29dZzn5F9j0mx2LjaQyHt52UbUzTQT1Lu4/lAtntW?=
+ =?us-ascii?Q?BAjXgLiDXjiZkSGnqVQajST7dRIrgY/R951PeC3ViDoMvfMr/XbYWwM9jdvN?=
+ =?us-ascii?Q?AC4mgd5UZm5GaUmYd2jxAOhQ1IzQC9QQVarpzXfSqdAHRiZqdFwoZhHmvbNf?=
+ =?us-ascii?Q?qYaqiq1+U3KkvOgJLRUElQoEcsTait2Pglbce99M?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a449b6b6-cc56-4d89-71a8-08ddcb9153ca
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Jul 2025 15:38:39.6203
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cou3gvipT//1YAs+OclNTL+6CpHtfH9XFl/4z+i0LFUTF5d4ssxYHFUxvWuhpHufevfMogi7Bw6EctivQmd/bg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9523
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_163539_730330_4B433A1D 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250725_083844_793763_52DDB462 
+X-CRM114-Status: GOOD (  34.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,16 +173,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 23, 2025 at 05:42:21PM +0530, Vinod Koul wrote:
-> On 19-07-25, 22:21, Yury Norov wrote:
-> > From: Yury Norov (NVIDIA) <yury.norov@gmail.com>
-> 
-> What is the meaning of NVIDIA in your name?
+On Fri, Jul 25, 2025 at 03:04:04AM +0300, Laurent Pinchart wrote:
+> Hi Frank,
+>
+> Thank you for the patch.
+>
+> On Tue, Jul 08, 2025 at 01:48:43PM -0400, Frank Li via B4 Relay wrote:
+> > From: Alice Yuan <alice.yuan@nxp.com>
+> >
+> > Add a V4L2 sub-device driver for the CPI controller found on i.MX8QXP,
+> > i.MX8QM, and i.MX93 SoCs. This controller supports parallel camera sensors
+> > and enables image data capture through a parallel interface.
+> >
+> > Signed-off-by: Alice Yuan <alice.yuan@nxp.com>
+> > Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
+> > Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > change in v3
+> > - replace csi with cpi
+> > - use __free(fwnode_handle) to simpilfy code
+> > - remove imx91 driver data, which is the same as imx93
+> >
+> > change in v2
+> > - remove MODULE_ALIAS
+> > - use devm_pm_runtime_enable() and cleanup remove function
+> > - change output format to 1x16. controller convert 2x8 to 1x16 format
+> > ---
+> >  MAINTAINERS                                   |   1 +
+> >  drivers/media/platform/nxp/Kconfig            |  11 +
+> >  drivers/media/platform/nxp/Makefile           |   1 +
+> >  drivers/media/platform/nxp/imx-parallel-cpi.c | 920 ++++++++++++++++++++++++++
+> >  4 files changed, 933 insertions(+)
+> >
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 8ae0667d2bb41fb6a1549bd3b2b33f326cbd1303..14842a3b860a6f23846f12a684eedcbb9eb69e19 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -15112,6 +15112,7 @@ F:	Documentation/devicetree/bindings/media/nxp,imx-mipi-csi2.yaml
+> >  F:	Documentation/devicetree/bindings/media/nxp,imx7-csi.yaml
+> >  F:	Documentation/devicetree/bindings/media/nxp,imx8mq-mipi-csi2.yaml
+> >  F:	drivers/media/platform/nxp/imx-mipi-csis.c
+> > +F:	drivers/media/platform/nxp/imx-parallel-cpi.c
+> >  F:	drivers/media/platform/nxp/imx7-media-csi.c
+> >  F:	drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> >
+> > diff --git a/drivers/media/platform/nxp/Kconfig b/drivers/media/platform/nxp/Kconfig
+> > index 40e3436669e213fdc5da70821dc0b420e1821f4f..504ae1c6494f331c16124a224421ac7acd433ba5 100644
+> > --- a/drivers/media/platform/nxp/Kconfig
+> > +++ b/drivers/media/platform/nxp/Kconfig
+> > @@ -39,6 +39,17 @@ config VIDEO_IMX_MIPI_CSIS
+> >  	  Video4Linux2 sub-device driver for the MIPI CSI-2 CSIS receiver
+> >  	  v3.3/v3.6.3 found on some i.MX7 and i.MX8 SoCs.
+> >
+> > +config VIDEO_IMX_PARALLEL_CPI
+> > +	tristate "NXP i.MX9/i.MX8 Parallel CPI Driver"
+>
+> I'd write it in numerical order, "i.MX8/i.MX9"
+>
+> > +	depends on ARCH_MXC || COMPILE_TEST
+> > +	depends on VIDEO_DEV
+> > +	select MEDIA_CONTROLLER
+> > +	select V4L2_FWNODE
+> > +	select VIDEO_V4L2_SUBDEV_API
+> > +	help
+> > +	  Video4Linux2 sub-device driver for PARALLEL CPI receiver found
+> > +	  on some iMX8 and iMX9 SoCs.
+> > +
+> >  source "drivers/media/platform/nxp/imx8-isi/Kconfig"
+> >
+> >  # mem2mem drivers
+> > diff --git a/drivers/media/platform/nxp/Makefile b/drivers/media/platform/nxp/Makefile
+> > index 4d90eb71365259ebdda84ea58483e1c4131d3ac7..5346919d2f1083b51ec99b66981c5d38b3df960c 100644
+> > --- a/drivers/media/platform/nxp/Makefile
+> > +++ b/drivers/media/platform/nxp/Makefile
+> > @@ -7,5 +7,6 @@ obj-y += imx8-isi/
+> >  obj-$(CONFIG_VIDEO_IMX7_CSI) += imx7-media-csi.o
+> >  obj-$(CONFIG_VIDEO_IMX8MQ_MIPI_CSI2) += imx8mq-mipi-csi2.o
+> >  obj-$(CONFIG_VIDEO_IMX_MIPI_CSIS) += imx-mipi-csis.o
+> > +obj-$(CONFIG_VIDEO_IMX_PARALLEL_CPI) += imx-parallel-cpi.o
+> >  obj-$(CONFIG_VIDEO_IMX_PXP) += imx-pxp.o
+> >  obj-$(CONFIG_VIDEO_MX2_EMMAPRP) += mx2_emmaprp.o
+> > diff --git a/drivers/media/platform/nxp/imx-parallel-cpi.c b/drivers/media/platform/nxp/imx-parallel-cpi.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..718f02bf70c4d0ae74ecf842c1ecb1a1afbcdd45
+> > --- /dev/null
+> > +++ b/drivers/media/platform/nxp/imx-parallel-cpi.c
+> > @@ -0,0 +1,920 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * i.MX Parallel CPI receiver driver.
+> > + *
+> > + * Copyright 2019-2025 NXP
+> > + *
+> > + */
+> > +
+> > +#include <linux/bits.h>
+> > +#include <linux/clk.h>
+> > +#include <linux/debugfs.h>
+>
+> I don't think you use this.
+>
+> > +#include <linux/delay.h>
+> > +#include <linux/errno.h>
+> > +#include <linux/interrupt.h>
+>
+> I don't think you use this either.
+>
+> > +#include <linux/io.h>
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +#include <linux/mutex.h>
+> > +#include <linux/mfd/syscon.h>
+>
+> Alphabetical order please.
+>
+> > +#include <linux/of.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/pm_domain.h>
+>
+> This doesn't seem needed.
+>
+> > +#include <linux/pm_runtime.h>
+> > +#include <linux/regulator/consumer.h>
+> > +#include <linux/reset.h>
+>
+> Same here.
+>
+> > +#include <linux/spinlock.h>
+>
+> And here. Please verify all headers, drop the ones you don't need, and
+> add any you may have forgotten. That includes the media/ headers.
 
-My employer.
- 
-> Pls add the subsystem name to the patch as well (this and others you
-> sent)
+Do you have good method to check it?
 
-OK
+>
+> > +
+> > +#include <media/v4l2-common.h>
+> > +#include <media/v4l2-device.h>
+> > +#include <media/v4l2-event.h>
+> > +#include <media/v4l2-fwnode.h>
+> > +#include <media/v4l2-mc.h>
+> > +#include <media/v4l2-subdev.h>
+
+...
+
+> > +
+> > +	/* Software Reset */
+> > +	imx_cpi_sw_reset(pcpidev);
+> > +
+> > +	/* Config PL Data Type */
+> > +	val = readl(pcpidev->regs + pdata->if_ctrl_reg);
+> > +	val |= IF_CTRL_REG_DATA_TYPE(DATA_TYPE_OUT_YUV444);
+>
+> Don't you need to clear the field first ? Same everywhere else where
+> applicable.
+
+imx_cpi_sw_reset() clean all register.
+
+Frank
+
+>
+> > +	writel(val, pcpidev->regs + pdata->if_ctrl_reg);
+> > +
+> > +	/* Enable sync Force */
+> > +	val = readl(pcpidev->regs + pdata->interface_ctrl_reg);
+> > +	val |= (CPI_CTRL_REG_HSYNC_FORCE_EN | CPI_CTRL_REG_VSYNC_FORCE_EN);
+> > +	writel(val, pcpidev->regs + pdata->interface_ctrl_reg);
+
+....
+
+> --
+> Regards,
+>
+> Laurent Pinchart
 
