@@ -4,60 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25D8CC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D31C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 11:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xo68c13omOfuIIdqk2ZKUaLmkjN96nMkgNtfJaTQcUA=; b=af057OP+JaalVtw4VIFcIq6aHL
-	bHY6VYChhEy81oUQDKw7QEj3VoQ6WIwaQWOkCr3jq1ugi5Mw7s8HjnbB04YcrGWsZdgAmUk1ZBPdF
-	ygvKCTCS2fd/UA783qxkEnWLcvgONGvnP7Nkvdu5BUswy1vrmwM4a+cxEEM0A6jFKx8fkS41IhvLr
-	aLzfANFrLPp+7yBZJswnAtMOrvGMA94cFXZVsSlflpy4fFajW1zlyo2aJk2mtFuV+dQb6b+DWsp4e
-	/AwS9s/13s5KYu4Zw8ODKp/lxFr9nvbvlCq2gXUsIw8iYSYIJCNA46C+LYjo2GuTUaGsxXgJdBF2L
-	WmX1g/Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mrRSD3PbZTPAHVSh/yIWQ6kP6ELKmzfyM3fZUnn2niM=; b=wpYlAXvGtZ1PQuDAMgnDTfuvca
+	LkyiwIORlQaMmifD5S8IQKYtf4MdmSvRmT/A0JptPJXmXKuvpayqTr5kmSg/5QjB1/463TQ4poK1V
+	oaRQ9K2TAUfNMggpVOuSRy+CdjAQG71A+jWUnC7iycefVB7NUwctUIMkHyL2Aak75hTfQM+t9GQZg
+	Ovys0FnMw3UO6NvSPtJYQ0QdAPklel5CI9I2x8VGe1hZ8rHX2Z589V7FkZthE0JGqPl3vREMbi7EJ
+	MYy60BwkZZ+4YhzXRNPr+40xDts6JrRcBQBf6KO8uV8mEhi7JJLhAjXwK/93XQPl11HD7d8vx76mD
+	0XTRcCrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufGTL-00000009hEA-2F4P;
-	Fri, 25 Jul 2025 11:20:19 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1ufGVm-00000009hUi-3A4j;
+	Fri, 25 Jul 2025 11:22:50 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufFfP-00000009adO-2S5f
+	id 1ufFwc-00000009dA8-1U3X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 10:28:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bpPCf6HSQz1R8kY;
-	Fri, 25 Jul 2025 18:25:50 +0800 (CST)
-Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
-	by mail.maildlp.com (Postfix) with ESMTPS id 441321A016C;
-	Fri, 25 Jul 2025 18:28:32 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemh100008.china.huawei.com (7.202.181.93) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 25 Jul 2025 18:28:31 +0800
-From: Lifeng Zheng <zhenglifeng1@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <beata.michalska@arm.com>,
-	<sudeep.holla@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<viresh.kumar@linaro.org>, <vincent.guittot@linaro.org>,
-	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <linhongye@h-partners.com>, <zhenglifeng1@huawei.com>
-Subject: [PATCH v2] arm64: topology: Setup AMU FIE for online CPUs only
-Date: Fri, 25 Jul 2025 18:28:13 +0800
-Message-ID: <20250725102813.1404322-1-zhenglifeng1@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	Fri, 25 Jul 2025 10:46:31 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56PAkNbO2163931;
+	Fri, 25 Jul 2025 05:46:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1753440383;
+	bh=mrRSD3PbZTPAHVSh/yIWQ6kP6ELKmzfyM3fZUnn2niM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=X7fKBOwxApS4IoduzRVtbBYQu/sYtQFJLtz/Lq3y0UbRkIFschtdBwNGgzoztH4tj
+	 kGUivju/mcixXVJjJNuUCE4uphyZoX8GD3jNlJiglRVhuv1MqE/M3B9AmPvh7eg9R6
+	 OA+8ItOIqJWvFU8+RfY+RFuHrlNOGOJvc+yY7U48=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56PAkNG82237368
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 25 Jul 2025 05:46:23 -0500
+Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 25
+ Jul 2025 05:46:23 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 25 Jul 2025 05:46:23 -0500
+Received: from [172.24.18.25] (lt5cd2489kgj.dhcp.ti.com [172.24.18.25])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56PAkJ6l1924763;
+	Fri, 25 Jul 2025 05:46:19 -0500
+Message-ID: <d15078ef-9a3a-47f6-a1c8-b9eed911e945@ti.com>
+Date: Fri, 25 Jul 2025 16:16:18 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] arm64: dts: ti: k3-j721s2-main: Add interrupts
+ property
+To: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>, <nm@ti.com>,
+        <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+        <u-kumar1@ti.com>
+References: <20250714092708.3944641-1-y-abhilashchandra@ti.com>
+ <20250714092708.3944641-2-y-abhilashchandra@ti.com>
+ <72545187-4605-40bb-9c68-54670c2e5332@ti.com>
+ <05a07a03-3f59-489b-ae55-5f454266bafb@ti.com>
+ <457e2428-f766-4e8d-bfb0-32084de45b5a@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <457e2428-f766-4e8d-bfb0-32084de45b5a@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemh100008.china.huawei.com (7.202.181.93)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_032844_007750_C5A9FE78 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20250725_034630_579229_3B893EA8 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,109 +93,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
-only CPU0 will go online. The support AMU flag of CPU0 will be set but the
-flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
-when it shares a cpufreq policy with other CPU(s). After that, when other
-CPUs are finally online and the support AMU flags of them are set, they'll
-never have a chance to set up AMU FIE, even though they're eligible.
 
-To solve this problem, the process of setting up AMU FIE needs to be
-modified as follows:
+On 7/22/2025 11:20 AM, Yemike Abhilash Chandra wrote:
+> Hi Udit,
+>
+> Thanks for the review.
+>
+> On 21/07/25 19:40, Kumar, Udit wrote:
+>>
+>> On 7/21/2025 7:37 PM, Kumar, Udit wrote:
+>>>
+>>> On 7/14/2025 2:57 PM, Yemike Abhilash Chandra wrote:
+>>>> Add interrupts property for CDNS CSI2RX. Interrupt IDs are taken 
+>>>> from the
+>>>> J721S2 TRM [0].
+>>>>
+>>>> Interrupt Line      | Source Interrupt
+>>>> --------------------|----------------------------
+>>>> GIC500SS_SPI_IN_153 | CSI_RX_IF1_CSI_ERR_IRQ_0
+>>>> GIC500SS_SPI_IN_152 | CSI_RX_IF1_CSI_IRQ_0
+>>>> GIC500SS_SPI_IN_157 | CSI_RX_IF2_CSI_ERR_IRQ_0
+>>>> GIC500SS_SPI_IN_156 | CSI_RX_IF2_CSI_IRQ_0
+>>>>
+>>>> [0]: https://www.ti.com/lit/zip/spruj28
+>>>>
+>>>> Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+>>>> ---
+>>>>   arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 6 ++++++
+>>>>   1 file changed, 6 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi 
+>>>> b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+>>>> index 62f45377a2c9..6f32a2b0c40c 100644
+>>>> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+>>>> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+>>>> @@ -1248,6 +1248,9 @@ ti_csi2rx0: ticsi2rx@4500000 {
+>>>>           cdns_csi2rx0: csi-bridge@4504000 {
+>>>>               compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+>>>>               reg = <0x00 0x04504000 0x00 0x1000>;
+>>>> +            interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,
+>>>> +                     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
+>>>
+>>> Just cosmetic thing, if you are doing v2 then consider 152 first , 
+>>> followed by 153.
+>>>
+>>> Otherwise
+>>>
+>>> Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+>>
+>>
+>> Sorry, sent too fast, offset of 32 missing .
+>>
+>
+> From what I’ve seen, the SPI interrupt IDs on J721S2 start from 0,
+> so I don’t think we need to subtract the 32 offset.
+>
+>
+> Interrupt Input Line   Interrupt ID    Source Interrupt
+> -------------------------------------------------------------
+> GIC500SS_SPI_IN_00     0               ESM0_ESM_INT_CFG_LVL_0
+>
+> To confirm this, I’ve latched onto the correct interrupt line, and
+> my IRQ handler is getting triggered as expected. I’m also seeing the
+> desired output [0].
+>
+> Let me know if I might be missing anything.
+>
 
-1. Set up AMU FIE only for the online CPUs.
+Thanks for update and please retain Reviewed-by
 
-2. Try to set up AMU FIE each time a CPU goes online and do the
-freq_counters_valid() check for all the online CPUs share the same policy.
-If this check fails, clear scale freq source of these CPUs, in case they
-use different source of the freq scale.
 
-Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
----
- arch/arm64/kernel/topology.c | 49 ++++++++++++++++++++++++++++++++----
- 1 file changed, 44 insertions(+), 5 deletions(-)
-
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index 5d07ee85bdae..d578c496d457 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -357,12 +357,15 @@ static void amu_fie_setup(const struct cpumask *cpus)
- 
- 	/* We are already set since the last insmod of cpufreq driver */
- 	if (cpumask_available(amu_fie_cpus) &&
--	    unlikely(cpumask_subset(cpus, amu_fie_cpus)))
-+	    cpumask_subset(cpus, amu_fie_cpus))
- 		return;
- 
--	for_each_cpu(cpu, cpus)
--		if (!freq_counters_valid(cpu))
-+	for_each_cpu(cpu, cpus) {
-+		if (!freq_counters_valid(cpu)) {
-+			topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpus);
- 			return;
-+		}
-+	}
- 
- 	if (!cpumask_available(amu_fie_cpus) &&
- 	    !zalloc_cpumask_var(&amu_fie_cpus, GFP_KERNEL)) {
-@@ -385,7 +388,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
- 	struct cpufreq_policy *policy = data;
- 
- 	if (val == CPUFREQ_CREATE_POLICY)
--		amu_fie_setup(policy->related_cpus);
-+		amu_fie_setup(policy->cpus);
- 
- 	/*
- 	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
-@@ -404,10 +407,46 @@ static struct notifier_block init_amu_fie_notifier = {
- 	.notifier_call = init_amu_fie_callback,
- };
- 
-+static int cpuhp_topology_online(unsigned int cpu)
-+{
-+	struct cpufreq_policy *policy __free(put_cpufreq_policy);
-+	cpumask_var_t cpus_to_set;
-+
-+	if (!zalloc_cpumask_var(&cpus_to_set, GFP_KERNEL))
-+		return -ENOMEM;
-+
-+	cpumask_copy(cpus_to_set, cpumask_of(cpu));
-+
-+	policy = cpufreq_cpu_get(cpu);
-+	if (policy) {
-+		cpumask_or(cpus_to_set, cpus_to_set, policy->cpus);
-+		amu_fie_setup(cpus_to_set);
-+	}
-+
-+	free_cpumask_var(cpus_to_set);
-+	return 0;
-+}
-+
- static int __init init_amu_fie(void)
- {
--	return cpufreq_register_notifier(&init_amu_fie_notifier,
-+	int ret;
-+
-+	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
- 					CPUFREQ_POLICY_NOTIFIER);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
-+					"arm64/topology:online",
-+					cpuhp_topology_online,
-+					NULL);
-+	if (ret < 0) {
-+		cpufreq_unregister_notifier(&init_amu_fie_notifier,
-+					    CPUFREQ_POLICY_NOTIFIER);
-+		return ret;
-+	}
-+
-+	return 0;
- }
- core_initcall(init_amu_fie);
- 
--- 
-2.33.0
-
+> [0]: 
+> https://gist.github.com/Yemike-Abhilash-Chandra/f46587ec1ef72671ee31803dd93434b4
+>
+> Thanks and Regards
+> Yemike Abhilash Chandra
+>
+>>
+>>>
+>>>> +            interrupt-names = "error_irq", "irq";
+>>>>               clocks = <&k3_clks 38 3>, <&k3_clks 38 1>, <&k3_clks 
+>>>> 38 3>,
+>>>>                   <&k3_clks 38 3>, <&k3_clks 38 4>, <&k3_clks 38 4>;
+>>>>               clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
+>>>> @@ -1301,6 +1304,9 @@ ti_csi2rx1: ticsi2rx@4510000 {
+>>>>           cdns_csi2rx1: csi-bridge@4514000 {
+>>>>               compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+>>>>               reg = <0x00 0x04514000 0x00 0x1000>;
+>>>> +            interrupts = <GIC_SPI 157 IRQ_TYPE_LEVEL_HIGH>,
+>>>> +                     <GIC_SPI 156 IRQ_TYPE_LEVEL_HIGH>;
+>>>> +            interrupt-names = "error_irq", "irq";
+>>>>               clocks = <&k3_clks 39 3>, <&k3_clks 39 1>, <&k3_clks 
+>>>> 39 3>,
+>>>>                   <&k3_clks 39 3>, <&k3_clks 39 4>, <&k3_clks 39 4>;
+>>>>               clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
 
