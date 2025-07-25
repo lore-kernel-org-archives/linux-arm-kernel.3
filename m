@@ -4,153 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D3DC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 03:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24AD0C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 04:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TGAJHVkDaQILMrgf+9DsRvtoYw89TydpErL2J0/xE4=; b=2GydhLlSZbL9rtaFas5s1sy/jN
-	07iGe1LpiiwDIzBDPXwnLDq/MqMIVBkS5ouK6sFw6j9z3Y1bmWRa/lAcBaGp6MI2AUru+yjTNLtdp
-	pXhspOiwMZ5STe22WnVsbFEFQwesnyIZFmw4kxONc9sauit2LEZZYKcFdsREtp7JoFHHCbjM9Y3hp
-	xNSRMFH9/JCjpT1lpN+K4Z3aOWtWGejNvY88DMQdBPD22eWul4H18HE2gtsbvXFtQREaDvFu+Jjzz
-	a5lJsjeyzwZ9iBa5jQz+WnzQZlZf5h5lXC/kHd+LzfL5ZMlSuzTu5VeL3yGsLcBLGN5uASUHTAzOg
-	H99Y0TgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qS0Z7r3EX0ZcTNJZb2kibKrC2Xd/v6RxpcgDmAdFoZs=; b=4aBy/VHYMEmrqIQ6iOKxaep7aY
+	lEvsz9QA1zdZSRocJguIEcylN+/v/TWEAPyXiVj4LmqYj7gB3geQ/pLpgeoiKsMQzI4028Jjfq2qz
+	uIQa1HKGltXyiycw/xghX3LsseSNa6XX5GCCXHjF1yZ7iaGjnbGoQLxw4f4ofvARYgwX4bW6ckGNP
+	9UeB9XwCshzSsTHmXQBFpHs5k55cxCSDu9ve/iMt8yoiwoJkH6AcouKgrmISmxixIqtihEXgJXh8E
+	Mn4Tpuk+OiehUYj9QNE0Ouct2rHMkge5EAbIq8dq3tCdWB8K8etvKWqTNjawB5wDdsHJ9ZmVV3/no
+	C9m/EXwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf9Hc-00000008z0r-1BB4;
-	Fri, 25 Jul 2025 03:39:44 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uf9b5-000000090MA-1Dwm;
+	Fri, 25 Jul 2025 03:59:51 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf9Ch-00000008ye4-1dge
+	id 1uf9YW-0000000901s-0ob1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 03:34:40 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56OLmX7c015327
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 03:34:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2TGAJHVkDaQILMrgf+9DsRvtoYw89TydpErL2J0/xE4=; b=PcIdVf1s9lDk8cjm
-	V5/LNzY52BUGwXgLmmu+DhrVeFlqtIzVow5g/Y0QInr0aO/9tBPORLJMyOYE4pdu
-	HIndr3qsx5OcIU7xYdjkEDmcasHPHHDfwwfzAImjajH7aYAv7FESonfRUylz6sLW
-	yWRxypUYBqaLMhCNCOjk6C9BCK5Un34sR9i99Y1qsVwQozVHI8/7mUeIyMaQGuZh
-	CFduZqi65q7f9+4GA/F3ZacPzx+ILGDSLkyHMfFocJvkPjveY6IJmCxDlj4wl7db
-	SK4YKvlnYOQX3zCSfcujDwcVAJdH4Gb+iMMx8SG028DXEtwO5KBvZXIGHR/BwL7u
-	3XxvNA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 483w2qgpyk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 03:34:37 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2382607509fso12678745ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 20:34:37 -0700 (PDT)
+	Fri, 25 Jul 2025 03:57:13 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-6fa980d05a8so14891556d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 20:57:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753415831; x=1754020631; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qS0Z7r3EX0ZcTNJZb2kibKrC2Xd/v6RxpcgDmAdFoZs=;
+        b=a+zKAOT55FiPOd14lqMCHVmviXpHhWxYFkk4eanGl0FMDo+BkYWcDqC2aMzPN/ZwuG
+         j/mKEvPHFlxBeLv6No3z5L9Qmlk7YNGvnMILRs0WvZR8BbByLDKAt1HPtpdQaV4WxPXq
+         lM/bCGguANRMarjKrQdgXMe0giIB6yhJxO+JpFQkZXLK+4FrWZqhuIFQjrLnoUAvVyZc
+         uNcXXJGX9oIt2aWRg/l7PpIqLrESDt860tv7Ca8xa06WTiz9QNOAQ3mdomw9hULwhUfG
+         ahl5zrbSuXtILZ4eMPcoBpIScOdP5Rhdqtk/M2cAgj/Z3wOM26087dJLU8Q1GU3FvyKJ
+         e/5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753414477; x=1754019277;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2TGAJHVkDaQILMrgf+9DsRvtoYw89TydpErL2J0/xE4=;
-        b=btuwJIpefQrMOb+5vWshhbfFhqIAPcBNCujTQK74uAkplFGK4ouiYRZkcggGnI3k/u
-         iGHDzOhoaW8gdFRWRjTJBbYuGEpZy3wNvH3xIajnlRZ4VSSXQMWH9r8u9qWqYgoBwfS8
-         pjIqFHTibLmmQS7SP4NJcXeTrxVyWW90gXqEr5zFXm+s8RvEjDC4INul+Kf3KvKT+2Ek
-         KYlfJsCLhWb1vvwe8TM004oZabWIFyi6ablssdCCigObUub2VyTR98rZejNvJMzyzoNR
-         xTvZA4c+05N2OknNJ+LH+5LEwUtYtjJJPmhfO7tOL43FUchMvF4B9V/Ff0VIfRJ6/zJR
-         AQYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWwno7KV+OO+wCjUpBGGUGH5fUuWjVpTzNFjI8wDbecGVY7VlaQFwGFhLMSRXrTBjYGFySHKBds23bynw5xGXw7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGHzbekcjli7LyrUB+Oh23GkB3yERKRwHEosbODEqrtPDjG/f/
-	jk68oFsMqRj3Z/fvEUH/9z7eRZEYdDFngEeWpuZN8ECtac9F30hxd4a8EU2i6a/ukpyFpABE0+d
-	Fr+i7jG1a7xiw+KdH2FsnvyqU3nyblo8Sdj0Q1nCYs8m7ILwWFIGrwFFfgjIneTNlzG7vGR4g/Z
-	9LHw==
-X-Gm-Gg: ASbGncsBIs7e0D2kpEdy7opQNHO2vxK2lnDvNIF4YOrJ93Usl2iaLuu4MIyPszo72+t
-	RWX/jFZBrXOs3y/FxlP9Kw5EXYXALY6OJC7Z0oRCk1FLYaPoxwy+9sKoFdM5KYt6Ns9Q6g8l1/X
-	BljzU0by0ZCcXeXik6+j7JYOBqcl8gc0XAOIRKzeM0dZXe7S5vUOQ2mvyQD1CwawXw6DDFPJgoL
-	sIDF4hGSUE7oBYnKlfWhvHosdHicnbPWfwb5aHQiZAJ4OZVRNcIk0l3w4rI0SJDtqA4fIK/4cWA
-	IecKGMCPXM+W0v+QWaLaeCPCW5YCGqTP5DwAvnIrLdi7YWcscJbYV+1+UZWIfNHQUmv3YiW50CW
-	O
-X-Received: by 2002:a17:902:db0e:b0:235:c973:ba20 with SMTP id d9443c01a7336-23fb314746cmr6199825ad.49.1753414476840;
-        Thu, 24 Jul 2025 20:34:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFLeBuELUTdTQTY6HForrjFnof9GXWAfPhpnlGKHjmaYsVexcryNti/gt9bdOpBOUMNUqlyPA==
-X-Received: by 2002:a17:902:db0e:b0:235:c973:ba20 with SMTP id d9443c01a7336-23fb314746cmr6199525ad.49.1753414476389;
-        Thu, 24 Jul 2025 20:34:36 -0700 (PDT)
-Received: from [192.168.29.115] ([49.43.229.60])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fa48bc645sm26342695ad.90.2025.07.24.20.34.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Jul 2025 20:34:36 -0700 (PDT)
-Message-ID: <a096af62-526d-2982-af49-a2ef2f62817d@oss.qualcomm.com>
-Date: Fri, 25 Jul 2025 09:04:24 +0530
+        d=1e100.net; s=20230601; t=1753415831; x=1754020631;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=qS0Z7r3EX0ZcTNJZb2kibKrC2Xd/v6RxpcgDmAdFoZs=;
+        b=awV99mvq17TeQ/uZkuB7Hd5cmyLwh5+O7EWaFm4LVMar+jcBTEAP/b9jdl015Je39h
+         UBiOuAsP4b1YsbPKte9IFe8FOvZZHnzNVGy8CtN3L88mcgPbtfTo8MMDSzbcasxPIOks
+         4ccCTl4NoUgBPZL9e7GF9Ebs9fu2ET/SBJPR3v4UtOsdiR+X8y++AQMQG9VEycTyMG4T
+         1ToYeUf6/nKxHHK324PxyzkbURZUeMChlLWXWHxYWx/jJhmdvWBW0ph53T5AqIYkSdTr
+         NpFTdyEA9DJiJ4v8LHDjo3eelm/89rdc5tR7CCnCRzjmiPMvrK9E7i/4pTeP2LPBCBA4
+         aU8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUaJId/S1dy3SZGWIL2E5ApUEU8lqOKYWrcqo3P+6+/blZX7oBbaEx32wpIguocwUtA3qk4hJultbIf2LDMlcS6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQUo6z42UEGHOho/uX5R6h7kV1ocRLxQ1bYFe5cZAoYQV/NY8K
+	TAZRwICV1sYCOMAczn+gxBgVQ23+RKGkalTw+/CDnnavWqD/ab1QD3Wz
+X-Gm-Gg: ASbGncvYZdBXXWcM7O9GiKXWZdmuB0syPR1vrx56FWbFWlwelmW2pWtaMCfnNlRccwn
+	xbg/6mTMIPc/kED1jsSBff6aflfZcPPmhAHro7GzOg8EYXcQuwcG5hphDvvuYsmQCpS0iJk+aNq
+	rOlZNAesO/HbY0qJm/OyJRIzORZ7Z7wz1q5JW+Oz4KFSiIIMMADSo18ojfbRFzYi0+b1dPIcrAN
+	MoGW5ZfxWrZCgDKBMKBsnPwehAhcKmx9AZLxW8mAzMuh6ZcGAzxXdP3PjhXteepMM1u/GM6Qizy
+	jzZIlmaw7zHrSW7q/BoGmvhpwkb8M+cUbwnSfW8aLLn/tt/r4zuUsPJDNVE3HppU4NUpjJZPhb8
+	F8ZLB2lUplosVjw==
+X-Google-Smtp-Source: AGHT+IGkfDM6npOStCLeJgu/CWVD68Q0/nsCWaHQZboVHGGZgry/9g6hSgC9hYmtKfgz39J9kvADNQ==
+X-Received: by 2002:a05:6214:20e3:b0:704:f7d8:edfd with SMTP id 6a1803df08f44-70720602e3cmr5571786d6.50.1753415830648;
+        Thu, 24 Jul 2025 20:57:10 -0700 (PDT)
+Received: from pc ([196.235.221.178])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70714c88fa3sm16584396d6.91.2025.07.24.20.57.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 20:57:10 -0700 (PDT)
+Date: Fri, 25 Jul 2025 04:57:05 +0100
+From: Salah Triki <salah.triki@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: mvebu: Use devm_add_action_or_reset()
+Message-ID: <aIMAkbdOyHsiPeph@pc>
+References: <aHsgYALHfQbrgq0t@pc>
+ <20250724164217.GA2942464@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v12 0/8] Implement vendor resets for PSCI SYSTEM_RESET2
-Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        =?UTF-8?Q?Andr=c3=a9_Draszik?=
- <andre.draszik@linaro.org>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Elliot Berman <elliot.berman@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20250721-arm-psci-system_reset2-vendor-reboots-v12-0-87bac3ec422e@oss.qualcomm.com>
- <beb26682-d2e4-40e6-89ac-87f18c0401d0@broadcom.com>
- <56599da9-0200-72b5-012e-942a1fc954b2@oss.qualcomm.com>
- <a1d3264f-a46a-42c4-b518-a66c8e0b70b4@kernel.org>
- <f4725f3f-1b45-ebd2-aaf4-4f986a44eb8e@oss.qualcomm.com>
- <36f62026-9517-42bd-8f9a-92f39fcdc136@app.fastmail.com>
- <58eb8f0e-a029-cb7f-e63a-9eac6a6444df@oss.qualcomm.com>
- <fd153e95-b06d-47f9-b079-566908c20df2@app.fastmail.com>
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <fd153e95-b06d-47f9-b079-566908c20df2@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=RbqQC0tv c=1 sm=1 tr=0 ts=6882fb4d cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nZGjKI7HY8pVxP4eyoJ54Q==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=feOGgi2hklxqG8YMet8A:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI1MDAyNyBTYWx0ZWRfXxxSa639nbEVA
- ItEs6Ikf3DNJG9N1HSy/HmTSkVBMPdkK3eeYMWWuRcsZf3ClVeL70OBytklFHxL5H3QiV5VRT3V
- OahW+ZnEGF0X6FrwSFW61rli0jbwoZ+mefBzztOSho0vkispQNMBSTLt/qraUolz34Qe+sT/VwO
- eBjKf8EwzcvYWZFrzzzRnjtR4ybL0jbxoy57zdk+GVVoHcml4szVGvp8McVF5NbkE8IO7tfI+0f
- DPf7xWcIHRr1wEZV4LGV4USo0QoxnTIjgcGz2JT0mzB1fUVK99n7uExsUTqbrHnw/82Fiic+Snl
- ORoS/FqbN4OQsX3F7D1jC1jlE76yay8RovE6KABFNeA2SMf+7fVqs8cLrWVhT/o6MMWWPaGg0EV
- eWh4vOO9Meoy6ATb46oB3/sMC2LfwBsdKGJ0/LAZsgNDoopIdr/W/shyR/IqSFboMVaLasTD
-X-Proofpoint-GUID: eJvMm4k-Hw_DqyRckhbv8y2YxoeKpJOZ
-X-Proofpoint-ORIG-GUID: eJvMm4k-Hw_DqyRckhbv8y2YxoeKpJOZ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-25_01,2025-07-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 lowpriorityscore=0 spamscore=0 mlxlogscore=999
- priorityscore=1501 malwarescore=0 impostorscore=0 mlxscore=0 adultscore=0
- phishscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507250027
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250724164217.GA2942464@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_203439_438872_4D30EA36 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20250724_205712_253325_A4878487 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,72 +105,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 24, 2025 at 11:42:17AM -0500, Bjorn Helgaas wrote:
+> On Sat, Jul 19, 2025 at 05:34:40AM +0100, Salah Triki wrote:
+> 
+>   ret = devm_add_action_or_reset(dev, clk_put, port->clk)
+> 
+The second argument of devm_add_action_or_reset() is of type void (*)(void *)
+and the argument of clk_put() is of type struct clk *, so I think a cast is
+needed:
 
+ret = devm_add_action_or_reset(dev, (void (*)(void *)) clk_put, port->clk)
 
-On 7/25/2025 1:44 AM, Arnd Bergmann wrote:
-> On Thu, Jul 24, 2025, at 20:21, Shivendra Pratap wrote:
->> On 7/24/2025 8:13 PM, Arnd Bergmann wrote:
->>> On Thu, Jul 24, 2025, at 16:04, Shivendra Pratap wrote:
->>> How about using the reboot driver name as the identifier in sysfs
->>> instead of the compatible string? That would make it independent of
->>> devicetree.
->> In current patch, psci driver registers to reboot-mode using a device-tree
->> node. So reboot-mode does not has a driver name for psci's reboot registration.
->> its like -  reboot_mode_register(reboot, <struct device_node *np>)
->>
->> Now when we want to use the registering reboot driver's name for sysfs,
->> either we- 
->> 1, Pass an explicit name from psci driver(say "psci") while registering
->> to reboot-mode.
->> or
->> 2. Create a virtual device in psci driver with name say "psci" and then
->> register for reboot-mode.
->>
->> which one is preferred? suggestions? 
-> 
-> I would pick 1, to decouple the namespace from the device and to
-> keep it simpler.
-Ack. will update the patchset.
-> 
->>> I had a related idea to provide some namespacing on the actual
->>> reboot syscall parameter, as we have two (or more) orthogonal
->>> concepts here, when there is more than one reboot driver and
->>> drivers support multiple modes.
->>>
->>> E.g. you could use
->>>
->>>     syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
->>>             LINUX_REBOOT_CMD_RESTART2, "watchdog");
->>>
->>> vs
->>>
->>>     syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
->>>             LINUX_REBOOT_CMD_RESTART2, "psci");
->>>
->>> to pick one of the drivers, or
->>>
->>>     syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
->>>             LINUX_REBOOT_CMD_RESTART2, "bootloader");
->>>
->>>     syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
->>>             LINUX_REBOOT_CMD_RESTART2, "recovery");
->>>
->>> to ask for a reboot from any driver that supports a mode, or
->>> combine the two and ask a specific mode in a specific driver like
->>>
->>>     syscall(__NR_reboot, LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, 
->>>             LINUX_REBOOT_CMD_RESTART2, "psci:bootloader");
->> This will introduce an additional feature in the reboot-mode driver.
->> If a colon is present in the command like "<driver name>:bootloader",
->> Call the "<driver name>" specific writes only. 
->> We want to add this feature? 
-> 
-> I think this will require a little more rework in the reboot
-> infrastructure, and I did not mean for you to do it now, we
-> can always decide to do this as a follow-up, but I brought it
-> up because the way we pick the namespace will limit our options
-> later.
-sure, thanks.
-> 
->       Arnd
+Best regards,
+Salah Triki
 
