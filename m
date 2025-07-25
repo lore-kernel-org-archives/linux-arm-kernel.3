@@ -4,73 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B32C83F27
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4589C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 05:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y4ldkYpDBhe6MUIxmYmjLmmqHNKj9PN8JQgOOK2ZTr4=; b=HezotfhYSweACJOqAlddqM61Ov
-	QpwpQqkojbeA6+VBv2vhKiS1BL9nEUOf06PgQgUfvl/V+b0CAowl++6EcnbsAJl90j6uF0Jm7TaBt
-	L8FrnI0scRPJ3xBOM05BBdLuXHLucbVdOGcQ3yoKvBEDHiwOAD3+zIaMVIE3jI3jCFN4pa6ogfFXT
-	Q10KPs4GcFDL6UcozejVvpQbQFrMnRm2ecb8gIBKOa03pmuNuIS047K8Q+v+dDCmYjGqeVIDK4BzI
-	3ZDX+zcIeuIsXOHsPqmdLxRxMf406TUPYMNqDeCL1tYMC0JSiSZF5RQfAH/CtwoSqMBziA+FTCfKd
-	IoCmh8Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y83StdCRBIkhWWvHPMS1fL4rIfxU9RvYREFIW1CjG4A=; b=J5qcaERq5Bq11uxC8TEV2vJjVQ
+	50vr3CsJ9jBR47QwI3+BDo4NO7vyCtv1cMy3Rg5igP3Bs+QjnykXHi+fWtSvmqZFffeqgw8TBzoQe
+	y/qoX7ZENgLA0y6eat+VnIFLhO/HLu6T/4WsgTwRxcMp74r9vJkgcHSXX/MqW124JXLBXDTrd9Jds
+	W+4wRrInpSK1+fWG4Ip1C0jsPNwIFkoCuBsLkLtPO9UTqYUxBH6RO+hsR6sKDP4wSSW9WBdiwOCjj
+	F+JbvFXyQBA3+R2fSZBx3OmWt+K/K99LH2aDQx3wbc2/W/Wm2LZZQjEgvAgu8g141XRi0g8RfGY1O
+	u7dONsSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAxW-000000095Y2-3eZw;
-	Fri, 25 Jul 2025 05:27:06 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ufB9f-000000096Lh-3wvu;
+	Fri, 25 Jul 2025 05:39:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufAut-000000095No-3HKj;
-	Fri, 25 Jul 2025 05:24:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753421048; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NsjT7+WyV/RRNWTCvMJ8Qpu2MdfXsJDsFfmjL2wTNSEI1mCDkSyjB0IT4a8jKa6n5z3VJ6VZa1705fql5CkKJsS0OPP5FJ5AbXkUlmuyjuJ6BfGQZR/xz+RvILylpiINR1RT9rzLf5iHI6h8audGDpe1CNTyJPmpfG1eXLunIxQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753421048; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=y4ldkYpDBhe6MUIxmYmjLmmqHNKj9PN8JQgOOK2ZTr4=; 
-	b=NCuYY47R5Mz5/snraIWehHM+mW3mCkPDjC4nSyxWwmbYl9izIkm5bFj73PH28VKENXbe16r+z4RpOW1PRF0oxy/++ysxC5+xKVYzm0CPBIJiSAWRBsk6Ol98AhdXUqhksbiOjdipj+chedHKBKYTxV1HeSk6XCHiDSkWSm3O8HM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753421048;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=y4ldkYpDBhe6MUIxmYmjLmmqHNKj9PN8JQgOOK2ZTr4=;
-	b=e1L/4KHBQPvUM5BedDKyxbfKjxEZGHnyyCPgf5MMX4m1R71qRhOPgWKzSATlVJHV
-	/nJP05RXDTW5rMq4feV4ZXR8vXBouEQuvidaNPphnqO+fAWxQ9jGkJDBSISmRgysc3L
-	PR7UrRahCBwx5iSiZKO4WUgMzveXbP/sWiHo1yJs=
-Received: by mx.zohomail.com with SMTPS id 1753421046615566.1010844319203;
-	Thu, 24 Jul 2025 22:24:06 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id CE23A180761; Fri, 25 Jul 2025 07:24:01 +0200 (CEST)
-Date: Fri, 25 Jul 2025 07:24:01 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
-Message-ID: <mqoyjn7mnq6tmt6n6oev4wa3herjaxlupml2fmcampwiajvj4a@r5zs4d3jdm5p>
-References: <20250724-rk3576-rock4d-phy-timings-v1-1-1cdce2b4aca4@kernel.org>
- <f22243f5-759a-4ff2-8d14-6edb49d87c52@lunn.ch>
+	id 1ufB7G-000000096Cf-0MH9;
+	Fri, 25 Jul 2025 05:37:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1242B601E4;
+	Fri, 25 Jul 2025 05:37:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3E17C4CEE7;
+	Fri, 25 Jul 2025 05:37:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753421826;
+	bh=7z2tBnyb7/nOKECUtWjp4H4u0g7JztJBqSTatEKRjXA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dQjJwZkCdgSAaK8hBuXWtOkZrlE/wWT7+YRHMdiLwfHfrmVG0OuMOI0fpNPFMewQL
+	 sNaha2tLQAMMgFGCy8SDbub8G72g4aBH9sS7iLQPDKiV1RcX6yAMMtb0ZseDn36HbA
+	 43FJfSOrmPnTTxLJlI9Q5uM4zHN7cmXlCiQfWxBL5AcMYoymPsgqOhj+CfnB17czjS
+	 iH8PofFKsGD+9S+3mdnnD23Pnf3FsITOCPcvb+gCg1DpvXRbmYwXYXcuJv9/fFgT/w
+	 MgfVV8YCLeNwKZNTVsexyLEbQNyD9GFShOArj4IwUkKH0/lRVGSi5x3ooXY1FyKjPf
+	 i7C1COLJIPaQA==
+Message-ID: <1736b3c9-dd02-4014-b6d9-4897f4e97d64@kernel.org>
+Date: Fri, 25 Jul 2025 07:37:00 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lntxnw2zm2xvrrvo"
-Content-Disposition: inline
-In-Reply-To: <f22243f5-759a-4ff2-8d14-6edb49d87c52@lunn.ch>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.2/253.413.66
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_222423_871055_0AC69F28 
-X-CRM114-Status: GOOD (  20.24  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: controller: use dev_fwnode()
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: bhelgaas@google.com, tglx@linutronix.de, linux-kernel@vger.kernel.org,
+ Jingoo Han <jingoohan1@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+ Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Joyce Ooi <joyce.ooi@intel.com>,
+ Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang
+ <jianjun.wang@mediatek.com>, Michal Simek <michal.simek@amd.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>, linux-pci@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Arnd Bergmann <arnd@arndb.de>, Nam Cao <namcao@linutronix.de>
+References: <20250724231041.GA3079592@bhelgaas>
+Content-Language: en-US
+From: Jiri Slaby <jirislaby@kernel.org>
+Autocrypt: addr=jirislaby@kernel.org; keydata=
+ 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
+In-Reply-To: <20250724231041.GA3079592@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,101 +121,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 25. 07. 25, 1:10, Bjorn Helgaas wrote:
+> [+cc Arnd, Nam]
+> 
+> On Wed, Jul 23, 2025 at 08:59:07AM +0200, Jiri Slaby (SUSE) wrote:
+>> All irq_domain functions now accept fwnode instead of of_node. But many
+>> PCI controllers still extract dev to of_node and then of_node to fwnode.
+>>
+>> Instead, clean this up and simply use the dev_fwnode() helper to extract
+>> fwnode directly from dev. Internally, it still does dev => of_node =>
+>> fwnode steps, but it's now hidden from the users.
+>>
+>> Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+>> Link: https://lore.kernel.org/all/4ee9c7c0-4a3f-4afa-ae5a-7fd8a750c92b@kernel.org/
+>> Link: https://lore.kernel.org/all/4bc0e1ca-a523-424a-8759-59e353317fba@kernel.org/
+> 
+> Thanks, Jiri, I applied this on pci/controller/msi-parent for v6.17;
+> it's at
+> https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/msi-parent
+> 
+> The dev_fwnode() conversions touched the same places as Nam's changes
+> to use msi_create_parent_irq_domain().  The previous dev_fwnode()
+> conversions were *before* Nam's changes and these are *after*, and it
+> all ended up looking more complicated than I wanted, so I squashed all
+> the dev_fwnode() conversions together in
+> https://git.kernel.org/cgit/linux/kernel/git/pci/pci.git/commit/?id=a103d2dede56
+> ("PCI: controller: Use dev_fwnode() instead of of_fwnode_handle()")
+> and then added Nam's msi_create_parent_irq_domain() patches on top.
+> 
+> So a103d2dede56 ("PCI: controller: Use dev_fwnode() instead of
+> of_fwnode_handle()") ends up *looking* different from the patch below,
+> but I think having them all together makes it more obvious that
+> they're all making the same conversion, and I think the end result is
+> identical.
 
---lntxnw2zm2xvrrvo
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] arm64: dts: rockchip: use MAC TX delay for ROCK 4D
-MIME-Version: 1.0
+Makes sense to me.
 
-Hi,
+Thanks!
 
-On Thu, Jul 24, 2025 at 05:51:16PM +0200, Andrew Lunn wrote:
-> >  &gmac0 {
-> >  	clock_in_out =3D "output";
-> >  	phy-handle =3D <&rgmii_phy0>;
-> > -	phy-mode =3D "rgmii-id";
-> > +	phy-mode =3D "rgmii-rxid";
-> >  	pinctrl-names =3D "default";
-> >  	pinctrl-0 =3D <&eth0m0_miim
-> >  		     &eth0m0_tx_bus2
-> > @@ -246,6 +246,8 @@ &eth0m0_rgmii_clk
-> >  		     &eth0m0_rgmii_bus
-> >  		     &ethm0_clk0_25m_out>;
-> >  	status =3D "okay";
-> > +	tx_delay =3D <0x20>;
-> > +	rx_delay =3D <0x00>;
->=20
-> What does 0x20 mean? Is it less than 2ns, or greater than 2ns?
-
-Unfortunately I don't know. This part is not documented in the TRM I
-have access to. Also my scope is not good enough for measuring
-delays in the pico-second range. Previous measurements for RK3588
-(RK3576 uses most of its IP and probably shared most of its quirks)
-suggested, that mapping this to the standard properties may not
-easily be possible:
-
-https://lore.kernel.org/all/bb3486c6-93df-4453-acc6-deba3c8f7f0e@lunn.ch/
-
-> Have you tried "rgmii-id" and small values for tx_delay? If the
-> hardware needs 2.1ns, for example, the MAC could add 0.1ns and the PHY
-> adds the default 2ns. That would allow you to conform to the DT
-> binding.
-
-The MAC code (drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c) looks
-like this, so "rgmii-id" results in no MAC delays being applied:
-
-	case PHY_INTERFACE_MODE_RGMII:
-		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay,
-					    bsp_priv->rx_delay);
-		break;
-	case PHY_INTERFACE_MODE_RGMII_ID:
-		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, 0);
-		break;
-	case PHY_INTERFACE_MODE_RGMII_RXID:
-		bsp_priv->ops->set_to_rgmii(bsp_priv, bsp_priv->tx_delay, 0);
-		break;
-	case PHY_INTERFACE_MODE_RGMII_TXID:
-		bsp_priv->ops->set_to_rgmii(bsp_priv, 0, bsp_priv->rx_delay);
-		break;
-    ...
-
-Also the default values (if properties are missing in DT) are
-rx_delay=3D0x10 and tx_delay=3D0x30, so changing this logic risks
-breaking some boards :(
-
-> What PHY is this? Have you looked it you can control the delays the
-> PHY adds? If you actually need a delay of 1.9ns, maybe the PHY can be
-> configured to do this? That would also allow you to conform to the DT
-> binding.
-
-The Rock 4D uses a RTL8211F. As far as I can see that just offers
-one delay control knob.
-
-Greetings,
-
--- Sebastian
-
---lntxnw2zm2xvrrvo
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmiDFOkACgkQ2O7X88g7
-+pocqRAAmG8r6935rknghxbjS85/wcBLgwi1SELzeDaLTBoAT+ib7M19APbWAXm1
-GOmjHBN09+TXbygKfHNoch5ot3dcMOBkhWaody16bZHFf9ViNkYwSIccs4BeVNEO
-l6EONSCdAjDt1LRB3AFPR9fG3bcaXvzpcLq9rHaBZ5keaEESGQpw5ACAcoJFGVYh
-gvwWya6PHgMol5zGWIkn7IYucKPTKWPmsp4NfyznEhe11UGW43uok9CisTN1SD0t
-JmWpg7WL4xhJ9Pno+gG+Bw70p5ZXZAeS+37dSj5HtL0+jn4KG53KEx2pNon9Bwcy
-C+I/IxAfL5xm8T4oxOO7eHCg/+GoMPSBqtsb0dEI7iwzMgA0Nxo1bFHvV337U9ma
-6CNa2abaZWRtp6qEEP1PP4bfFV5fSxK5bP5q/6OYYGa4vASAKUhfTxiJt41G0hXv
-1SrkEl36Ln/XponneBBiBT7LzGFE72UdHiKhD5O4wqWkRJm/vPRg0J93J89zqeu7
-B4MvRFXyUe8Roid2T+WFL2/+OZeWpmiGiwtPrNjbs7EKLRUb1jnUvsxUo+pMSp3q
-BCmQeUGNxYpI1i4JYD3CzHjHbbgSYT26C4nkgowTCSmY3O1Db2k0PqHl7xCmKVw7
-RCGSAhGauMbV28A50kgORuQXD/UiUqdl4QU6K5aA6EWFxuGWYSg=
-=XuMz
------END PGP SIGNATURE-----
-
---lntxnw2zm2xvrrvo--
+-- 
+js
+suse labs
 
