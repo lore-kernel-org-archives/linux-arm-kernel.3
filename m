@@ -4,94 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7825EC87FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 08:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D792DC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 08:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fiOi7M9IeQ+/7DA3YnW9XKEAkbfV4pJGPhG8hDHADkI=; b=QepQyoGD1P4VHAG18+s68KCFJW
-	fwaroEj/8KKnzo+rH8F1FrJThtBMGD3fxJn+KurB3g3/0q2H2ICBkMEt+WolwHABsZwHJL/Lwbk+I
-	WvTsfJTOrCQD4UT8Bwc0SLpLUXVq/QAhK3/leP81oLmhMnfXh1o8w+Cd1pDnMtKFr5qWrWg03UObJ
-	uAyX5uDK9MysIK1Lw8gQPiJwSDGIojQ7TB6dn/vmAgXJrZS95XHJeyRYTCw9wDAKb/Hy5pe6v1bHa
-	tAmh5FSSOyxsbFBo2++5sFwPN0RuC7/UTJ9OuKBGLgDkaol1ljmS6vpSCbbPLn5RSGA+MTmkP6Vdm
-	2swL0wnQ==;
+	bh=yMKLr5uuxm4ompRvwBtIABxyW/McpLZrW9QwH3l9Hr4=; b=DRA+SdZn4NHag84h4nUoYdRLnI
+	JDoe0YlwrdJ17MNMqp9uGct7u4K0/LwftHwty1xrjN58Qh2XNUyvBJBaUihm+to7jBtc7ri2Nban4
+	TBgse2hZvraPtcc+uN4qmITFaZMl2U0fKyds92OnkScz7aEN8nxlzVd+vk5DAlzmKeoHNblWRSPSo
+	HmHO8viqIgo+OQEXqOwg+vqN1kBYJk2IaOxpkBuGaM8NhxGlfjMEDgDlntFQHRJD2JaVqKYkKiWaS
+	mq13ntODbjN5f8URv5XuQOZE5vqRThCIYZrcyB0cH+JNvVWZblgXweeRIekth6e2gkPHVyPUxasNO
+	fWEozvIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufE60-00000009O83-1RJy;
-	Fri, 25 Jul 2025 08:48:04 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1ufE8k-00000009OQj-0lXs;
+	Fri, 25 Jul 2025 08:50:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufE3X-00000009Ntx-2Ogk
+	id 1ufE6F-00000009OC8-3V6p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 08:45:32 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a4fd1ba177so1236025f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 01:45:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753433129; x=1754037929; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fiOi7M9IeQ+/7DA3YnW9XKEAkbfV4pJGPhG8hDHADkI=;
-        b=RhS+X/sh+OHNyW4FQIX0a39m2irKvRfuYfe1oP9hBehbS6a8IbIF2ZXmalLHbVC4mV
-         8SxQ+Wj81pDA6yg/zXJWHANC7o0aXOlivtLZjNm77JcJGBNDTSTlD/fPPtC5G+0ozDlK
-         LCj/Vg9MOS6fjY/OVhfO9+5mAu0j1O6OOHK4qweVIVPbnejhYHcz1EG9YbD+QruOTzLK
-         QHayL9H4SY8c8+tzjhLR5/9F0sQKj6KGk9NGgn6GyZoIuuI841V8ywEiLrhlS+k4cPtg
-         bVjscxWaX+tVxsaeTrFiL+E1kiy0XUUAoahw+7dgjbKAGu8jM6p0+75Ba1OuUIorVL5Z
-         tSBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753433129; x=1754037929;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fiOi7M9IeQ+/7DA3YnW9XKEAkbfV4pJGPhG8hDHADkI=;
-        b=RX8dmwf27Nwe/PL82wH4jfwJeN5dgAgk7RXYOQ0Pew4Y6zLuqZyNKngNwZye17uVrK
-         ueU+in/o6uwI1yI4vNYMw7TatXSzE590T6p5sjs+l7NiOMVrpt67ygLzzxn1Rvlonk2o
-         y8+bNoDeB4NTzOcwqV1+BvyLhLIr2Bz/1RmuBOnbpzlbbkjIn0o2eOm1Wos6TecyNry6
-         O+5E0VDxXnxTAtsKv1uMf22rReZspnpB9OsfcY+imAgcMhMXuWG9xw15WvIqFCi/z1eS
-         4e03JWFF4jtN7CLMhyVC59hLeSOEwpkwELJS7drpG+dIPg1huJzoDx9ZpDzBhuaX8rbr
-         jwjw==
-X-Forwarded-Encrypted: i=1; AJvYcCXa8jhwCTBUuE0Fm2nAHdvrbyhaGqpnIKZHOxUSuEJa00jNrzblQUYkz0D0N2OqZjxTCq1Z2mnDXihAeO3t8C0w@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMby0HLHzKy5/EohX9HbbJ8zNGrP6iSQSJ0tJFnnEWSsDK/pCM
-	YraymFaAl4HLxojQ96fhT56R9XWoIjqPNyy4tuvT+5iY17Yco1ynow2yao69gasUv8g/dIPxWS3
-	8XXZwMHc=
-X-Gm-Gg: ASbGncsg5hjTZXeE1JdGIqRetgOh6MONHXE+PMpT5YivomAI5Wc/EV3hagxCjGaiEUJ
-	h2rIJGaDb2NUlhIvBTkSM4jh+oz75tMubR4GSmOtUIcFxbL6wrdkscIFhBZxU9TRE1I6xNrDL8p
-	OjPx7ezeJAjVLLhJbExdelmIywITguhOE5ku3zb1Z3uMKkhfOf9lhFgWmDZmn4ENDG6qgiYRTnh
-	tuK1oi3nfWW1aJ/Zp04tug7GczA4kLr5AfXmYxepH/cFVgXPhkeevvajByGAqBo1JydHQotvmLx
-	DbC+P2kBTRhfulenia3Ub00kn3sfX1FJvYHZOnts7Wc81Rd+v2O1dE3aUqYcnZiOzsNgGE35JUm
-	9fp8gmXdjb9kmTpZ3UyY66bs9no0=
-X-Google-Smtp-Source: AGHT+IGr0PvB3BndUJjSS9kG3O/gNXghvVYeFYDKeqpUNDpaISXj6KCONZSa8uNvTsi4A58GUNun/w==
-X-Received: by 2002:a05:6000:4021:b0:3a5:8991:64b7 with SMTP id ffacd0b85a97d-3b77137beefmr3824470f8f.26.1753433129557;
-        Fri, 25 Jul 2025 01:45:29 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b773768440sm2731164f8f.24.2025.07.25.01.45.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Jul 2025 01:45:29 -0700 (PDT)
-Message-ID: <4c1161d3-fc7d-4b3c-8197-7b632e85280f@linaro.org>
-Date: Fri, 25 Jul 2025 09:45:27 +0100
+	Fri, 25 Jul 2025 08:48:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C42B2A55FA6;
+	Fri, 25 Jul 2025 08:48:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD714C4CEE7;
+	Fri, 25 Jul 2025 08:48:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753433298;
+	bh=EwAtmyR0kMv8l1AdAG5vtKyOKjmw06VLhEKfxX4RGTo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=miHprvFxB1dhNx7Nz1jlGp0x8mhCM6iRCsrt3AylbwU1UUvSubjMo55u3Rp7Hs6Lo
+	 RmpZHj2X/66IwdiWQgw9/uLJIMvdtpPvWI79bjqxSziNB4f5dkgDMaDOCr1xfnNX46
+	 pYm4U9vQW0C1ThFCoSbvC2TRdZ/3WNbTLv6EtluQP5az9X8gUXg03dL+5TIHM2DfeZ
+	 ofG/i4zJE0tYCxh+45puhjvKij8UPX8lSwhqFhrMaMn/gJzEHs9BXNmwTSA43Z9iGS
+	 o5qWTbZ+vR9InSC8E3Uv3fOOs/C8Eu3jP0j9ptw7ibd5zFaqH3IcvA9ezgYab08wy2
+	 J/ck/mO26/X9A==
+Message-ID: <1635e663-24b6-48f8-b781-67284d832db7@kernel.org>
+Date: Fri, 25 Jul 2025 10:48:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 00/10] coresight: Fix and improve clock usage
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
+Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Fix section mismatch from
+ the module conversion
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de,
+ willmcvicker@google.com
+Cc: linux-kernel@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-samsung-soc@vger.kernel.org>
+References: <20250620181719.1399856-6-willmcvicker@google.com>
+ <20250715121834.2059191-1-daniel.lezcano@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250715121834.2059191-1-daniel.lezcano@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_014531_620266_BBF0CB4D 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20250725_014820_011060_CD82B2FA 
+X-CRM114-Status: GOOD (  15.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,90 +122,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 24/07/2025 4:22 pm, Leo Yan wrote:
-> This series fixes and improves clock usage in the Arm CoreSight drivers.
+On 15/07/2025 14:18, Daniel Lezcano wrote:
+> The function register_current_timer_delay() when compiling on ARM32
+> fails with a section mismatch. That is resulting from the module
+> conversion where the function exynos4_clocksource_init() is called
+> from mct_init_dt(). This one had its __init annotation removed to for
+> the module loading.
 > 
-> Based on the DT binding documents, the trace clock (atclk) is defined in
-> some CoreSight modules, but support is absent. In most cases, the issue
-> is hidden because the atclk clock is shared by multiple CoreSight
-> modules and the clock is enabled anyway by other drivers. The first
-> three patches address this issue.
+> Fix this by adding the __init_or_module annotation for the functions:
+>  - mct_init_dt()
+>  - mct_init_spi()
+>  - mct_init_dt()
 > 
-> The programming clock (pclk) management in CoreSight drivers does not
-> use the devm_XXX() variant APIs, the drivers needs to manually disable
-> and release clocks for errors and for normal module exit.  However, the
-> drivers miss to disable clocks during module exit. The atclk may also
-> not be disabled in CoreSight drivers during module exit. By using devm
-> APIs, patches 04 and 05 fix clock disabling issues.
+> Compiled on ARM32 + MODULES=no, ARM64 + MODULES=yes, ARM64 +
+> MODULES=no
 > 
-> Another issue is pclk might be enabled twice in init phase - once by
-> AMBA bus driver, and again by CoreSight drivers. This is fixed in
-> patch 06.
-> 
-> Patches 07 to 10 refactor the clock related code. Patch 07 consolidates
-> the clock initialization into a central place. Patch 08 polishes driver
-> data allocation. Patch 09 makes the clock enabling sequence consistent.
-> Patch 09 removes redundant condition checks and adds error handling in
-> runtime PM.
-> 
-> This series has been verified on Arm64 Juno platform, for both DT and
-> ACPI modes.
-> 
-
-Tested on N1SDP with ACPI:
-
-Tested-by: James Clark <james.clark@linaro.org>
-
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
 > ---
-> Changes in v5:
-> - Skip clock management for ACPI devices (Suzuki).
-> - Link to v4: https://lore.kernel.org/r/20250627-arm_cs_fix_clock_v4-v4-0-0ce0009c38f8@arm.com
-> 
-> Changes in v4:
-> - Separated patch 07 into two patches, one is for clock consolidation
->    and another is for polishing driver data allocation (Anshuman).
-> 
-> Changes in v3:
-> - Updated subjects for patches 04 and 05 (Anshuman).
-> - Refined condition checking "if (dev_is_amba(dev))" in patch 07
->    (Anshuman).
-> 
-> ---
-> Leo Yan (10):
->        coresight: tmc: Support atclk
->        coresight: catu: Support atclk
->        coresight: etm4x: Support atclk
->        coresight: Appropriately disable programming clocks
->        coresight: Appropriately disable trace bus clocks
->        coresight: Avoid enable programming clock duplicately
->        coresight: Consolidate clock enabling
->        coresight: Refactor driver data allocation
->        coresight: Make clock sequence consistent
->        coresight: Refactor runtime PM
-> 
->   drivers/hwtracing/coresight/coresight-catu.c       | 53 ++++++++---------
->   drivers/hwtracing/coresight/coresight-catu.h       |  1 +
->   drivers/hwtracing/coresight/coresight-core.c       | 48 ++++++++++++++++
->   drivers/hwtracing/coresight/coresight-cpu-debug.c  | 41 +++++---------
->   drivers/hwtracing/coresight/coresight-ctcu-core.c  | 24 +++-----
->   drivers/hwtracing/coresight/coresight-etb10.c      | 18 ++----
->   drivers/hwtracing/coresight/coresight-etm3x-core.c | 17 ++----
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 32 ++++++-----
->   drivers/hwtracing/coresight/coresight-etm4x.h      |  4 +-
->   drivers/hwtracing/coresight/coresight-funnel.c     | 66 ++++++++--------------
->   drivers/hwtracing/coresight/coresight-replicator.c | 63 ++++++++-------------
->   drivers/hwtracing/coresight/coresight-stm.c        | 34 +++++------
->   drivers/hwtracing/coresight/coresight-tmc-core.c   | 48 ++++++++--------
->   drivers/hwtracing/coresight/coresight-tmc.h        |  2 +
->   drivers/hwtracing/coresight/coresight-tpiu.c       | 36 +++++-------
->   include/linux/coresight.h                          | 31 +---------
->   16 files changed, 228 insertions(+), 290 deletions(-)
-> ---
-> base-commit: a80198ba650f50d266d7fc4a6c5262df9970f9f2
-> change-id: 20250627-arm_cs_fix_clock_v4-e24b1e1f8920
-> 
-> Best regards,
+>  drivers/clocksource/exynos_mct.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 
+Did anyone applied this or any other fix?
+
+Next builds are still broken.
+https://krzk.eu/#/builders/12/builds/3365
+
+Please revert untested patches if there is no consensus for fixes
+
+It's really surprising that original patchset was not even built by
+defconfigs (and I assume it was not even asked to be built by LKP).
+
+Best regards,
+Krzysztof
 
