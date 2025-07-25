@@ -4,77 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3519AC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C2BC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRIpv6z9xuIyFwnKQ1z6FnAeGn2PYDaQhA6EKMmoaPM=; b=v+8z7k154u7uK7ivewZC62lF2D
-	nNizjQBN932eUFrQUnbD43DzpHeNdAEJ1zPFYn3Odh6RbpMcWpsANi6+3iLD7PbNLyASx/C0YDyP5
-	F8jRB+2qa+h8P7BAMyoGixH3NgVGixmOCFhCV1cWeXOJrNZ+QnddE/N+PqglfbHcsbzY91gQKGde3
-	IZTchEffN3+vA2+OfJOhYZwC5MR/pvC2Ob+o2lj6ust2awmlfhn3fh3Z6C624GOKk66MZN519694L
-	SOcKoHVNt3vo44q6AW/43HcQ9wQRtKJRlTgW/UsxXfGRm2j8IrorBHQV0XSoRRbStzElPoIrcSrUt
-	+dilgxgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4xNShpji0fsICCPvzG6Wl/tgjRIsSKcd2kf9KKN/dTk=; b=BsQwH7JwCG5lwLwZzlvKbNXadO
+	G9IKQglzZfoxlW/JrO8Swm7xLwqZ05ELFuoAIau8us7lCXRFydFLBiKJtFX4gzfO9z8p0nuYfmEbC
+	b9SBMYkMbcEEiufbxVZLlWTtJwJAXEeZP8zE5Vq2/xTX1j23leoRNwOVw0aOI6AO0oOK1m7RTO3bT
+	W9H59ow0mQpOnFsnTGrQEWVZJGp7Yy+UfK1lSAchbNcC1FayHcI87eKPByLLKxQ4jB+X8qh/QlRim
+	FZrU4oJ0yREfDL+3FqJIKqp9XfRKqCVjg4W2ndtX95n7XMVUYeHbFEVUZbGCdltewWt+5lttOoeSP
+	IGfXcXoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufJvq-0000000A3wF-2lGQ;
-	Fri, 25 Jul 2025 15:01:58 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1ufJyI-0000000A4A9-3zKV;
+	Fri, 25 Jul 2025 15:04:30 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufJtM-0000000A3Qd-1Qdh
+	id 1ufJuR-0000000A3jk-1N0I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 14:59:25 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-234b133b428so17782355ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 07:59:23 -0700 (PDT)
+	Fri, 25 Jul 2025 15:00:32 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-7115e32802bso18723607b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:00:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753455563; x=1754060363; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jRIpv6z9xuIyFwnKQ1z6FnAeGn2PYDaQhA6EKMmoaPM=;
-        b=fwhrBqpAOh7ZZl6iXZzd0ovtpJFsPq7H/hE+gtEfXNkx5GKAYBobklSjr8fk3EFMq8
-         skEqX+SuTQRugg1iPmW+bjidQG5lSnSASlh4WHzUc2ZrUQgSdTgefCPaVoK1ximWHovO
-         a+eSFdY3j1RtiqHjjhAYfg+VnjNCBPsatpR8lEIhfADJ8xtoLLsq1pYbdyoe+a26vsYE
-         bzzkTkTuDBTDBLEwntVMlEYjZmaBrl/JIxFaioRgF4tNKiFzeS4u3Yjc/Bq49woDZzVi
-         Ri5Bb0/NXkd2V6zdmmhWnnjMJ7Epf+dN//3Azz/lmBRPlTFs1MP/+O2ESz0SboDQnm0r
-         3Jug==
+        d=gmail.com; s=20230601; t=1753455630; x=1754060430; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4xNShpji0fsICCPvzG6Wl/tgjRIsSKcd2kf9KKN/dTk=;
+        b=A12vhFqbO4ehpf8VdcTrqtP5ZvsVJSMzu/FIv84To99KwOBlF0YUB678QsVb7eUwUc
+         VoouDAKxi7DRraCoOTJUXrYIn9eXBMQtC9ARvXtsxrPQeBATK9MBCLv+KQcDGW1m+dlu
+         CWmYmuj3QA+Be+MJAXFgMREMWof3F9t9T89WUmsuXq3NLN1JqUCYss3QKLdASKufmkx6
+         i4jyPMnmuCPHrejXTYXH7lUfIKDQQvu3r7l//VLB5UpeHz8odjdUmJPkjbluud3QtuMz
+         y5BH1EJ8B4vehKdSch24u1fw2uAEDBIynzHtN8mlTYt8OUZ2T6iYqbiHNGoW6pbV1kvL
+         Br7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753455563; x=1754060363;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jRIpv6z9xuIyFwnKQ1z6FnAeGn2PYDaQhA6EKMmoaPM=;
-        b=NnhNngIwji+YhlQX/fUxYr+0DfbuY9R6aZPeq1mvDTTzOJ+kTz8kZEkeaZkVNJYhOJ
-         K84bFsry18dBo+qkTEFrhncWLVHrMMinyLzuUWF144FmhzTmvXx7Zz+bvGy9N4KyeRN9
-         7FlhReOkiw859F7cyhfwsTaQeJ3kK28irroPTONTmAbbO/g1eJhcYVvhn3paMXncIguo
-         LRN43bxGMXdLdA4aqI2jHWDeU9hxaY90FifHwIQ5HtzcozfPqUxy/aCzu5Bqx7MbNbVR
-         hnMhQFX5SZaHYnzK6cXLpMMwF47sMwkiZ57xYtt7ViON+t/YQ9R1Z7nW3ynS2RNaEMNU
-         Kh8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVcLdhKcaQV+cYHJW14r0IUBDpcnXG0+zi/S/szGXRddR0f5UuaNMhMQa8SfxYIqsIN98q9kPb9jrujZadnEKd1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEAI7b1nAOMz7Z6dnOZVjdaxC1haz77styD9gBqU/ffpyORwXQ
-	tlnAhX4Tmj47L+NK0/4ThRH1nfoKzRgejaQRL4y9KacUqw7YZ5czxvGpe0mYMqSGGYIX4AGDFY6
-	xEuMxNA==
-X-Google-Smtp-Source: AGHT+IGcNpmnHIDt5vuDnKz4Z5PQxOcekjZoRgAfUDL4gv7HZdu2LOA9zo/e7zk1ZSljYpL2Zb35pa8dzKg=
-X-Received: from plbmf3.prod.google.com ([2002:a17:902:fc83:b0:235:160a:76e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:41c1:b0:235:e8da:8d6
- with SMTP id d9443c01a7336-23fb3050a7cmr38030205ad.2.1753455562745; Fri, 25
- Jul 2025 07:59:22 -0700 (PDT)
-Date: Fri, 25 Jul 2025 07:59:21 -0700
-In-Reply-To: <20250724235144.2428795-3-rananta@google.com>
-Mime-Version: 1.0
+        d=1e100.net; s=20230601; t=1753455630; x=1754060430;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4xNShpji0fsICCPvzG6Wl/tgjRIsSKcd2kf9KKN/dTk=;
+        b=KS7RN2blmDZdzYZ+9jldaR8KjMFWce3Lp3LcdoVPNTDz5szuBEXUTLMDfmYHlZ3KMP
+         A0jFkdIXZD5jUk4oE9NI8ku1Ilq+dcEgpt8zP9Hvjj9qO3M4wXNrS3+LxDFJ2FMaznhy
+         ExE3cmJ9NYQFENeIof1LixsH+alFeXjfpuZbstKF5Ta4nv+HC2F477YkI80tUGac4d1p
+         esx523Fn141XPtsT0WYJFHfNFX+qeQL3QkeOmd00hRrLtFfMkOxLOriHXSrRzZIbBJxB
+         MzjbUgW1AuhVlJoFKSc86CSavfHZXpzA2NPagRAcvZ8tCGOx4pBmgVRs5gjVMr3ONYV1
+         EWdw==
+X-Forwarded-Encrypted: i=1; AJvYcCVTagitj43rtHd7tpYTalo49td+3oCeXJXECpW9jIsCwt+H2nrL5nBTjFy/8xfhVJmX8PpNDIt2v+lSbzlYbs8l@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVWGHQevYcEjAeoYk4hapuESbmevzAJ1jUhBXJVq6wbTp8/xGG
+	Ui3VDxYQZsFpLyBF9d7esD6aybZQnV/SFncUbAFtfo5zvflaouo7wuzf+fHOIq0jrOy9U0pHa5n
+	wRimyvvZzJSYVjHMuIb/VMnd3/7P1MXY=
+X-Gm-Gg: ASbGncuZxG4k8ppA8/Ui4EvqKOyl8Tp5drkw4KjsArfza63D9An2tW2gU8aVTYaML9v
+	6VX5XFH+HR94VgM0EEYUtso9mhb/WTXiLZldVrmVefHxkQUulJllgmnWjtk5gYDIbUiZtWB7KAu
+	8tfmlVrDdPXN0TZ9Y5tZLVAIViv9nVGF7/05BS8FUTeBLuq4ljd9XFzCYvWNNYVkG7nA==
+X-Google-Smtp-Source: AGHT+IFFsgkwbTdDe+l+QHIu+9q/GM5qnM4JOIEx0sdA8nJsAiQgGxI6Fl1CGg8Cg/PU2qFUrAYIxSRmTXHe/tLW0Ww=
+X-Received: by 2002:a05:690c:25c6:b0:712:c14a:a37c with SMTP id
+ 00721157ae682-719e34035bcmr25041807b3.27.1753455629445; Fri, 25 Jul 2025
+ 08:00:29 -0700 (PDT)
+MIME-Version: 1.0
 References: <20250724235144.2428795-1-rananta@google.com> <20250724235144.2428795-3-rananta@google.com>
-Message-ID: <aIObyUg77Um6VB45@google.com>
+ <aIObyUg77Um6VB45@google.com>
+In-Reply-To: <aIObyUg77Um6VB45@google.com>
+From: ChaosEsque Team <chaosesqueteam@gmail.com>
+Date: Fri, 25 Jul 2025 11:04:57 -0400
+X-Gm-Features: Ac12FXz8NHnrVdzHNDcxhPTNsHLuOduCZf4Wyi1keCwnEJZCLAUhskItgcgvirI
+Message-ID: <CALC8CXdbcFrrTzuLtG_O0YH+JLugGwQNsv4DsMZah35XvvHcUw@mail.gmail.com>
 Subject: Re: [PATCH 2/2] KVM: arm64: Destroy the stage-2 page-table periodically
-From: Sean Christopherson <seanjc@google.com>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
-	Mingwei Zhang <mizhang@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+To: Sean Christopherson <seanjc@google.com>
+Cc: Raghavendra Rao Ananta <rananta@google.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Marc Zyngier <maz@kernel.org>, Mingwei Zhang <mizhang@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_075924_378263_033EC3C3 
-X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-CacheID: sfid-20250725_080031_366462_AC877CC3 
+X-CRM114-Status: UNSURE (   9.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,8 +98,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Heh, without full conext, the shortlog reads like "destroy stage-2 page tables
-from time to time".  Something like this would be more appropriate:
+Linux License of PaX/OpenSourceSecurity should be canceled
 
-  KVM: arm64: Reschedule as needed when destroying stage-2 page-tables
+Pax/OpenSourceSecurity(R)(C) has prevented redistribution of it's
+derivative work of the Linux(R) kernel successfully.
+There have been no leaks of this derivative work.
+
+They have also added a term to their derivative work of the Linux(R)
+kernel stating that any redistribution of the derivative work will
+incur a penalty: no more derivative work and withholding of paid funds.
+
+To avoid this penalty no one has leaked the proprietary work of
+PaX/OpenSourceSecurity which is a derivative work of the Linux Kernel.
+
+OpenSource licenses are now considered a joke, and opensource programmers
+who work for free as clowns.
+
+You can cancel the license PaX/OpenSourceSecurity has to the Linux Kernel c=
+ode.
+Any of you whom has contributed to the Linux Kernel own your code: you
+can cancle PaX/OpenSourceSecurity's license to your code.
+
+1) PaX/OpenSourceSecurity never paid you anything. (nor did you ask
+for anything)
+They cannot rely on contract law to enforce their license.
+2) Pax/OpenSourceSecurity is required to follow copyright law.
+They cannot claim following the terms of the license are "performance"
+under contract law: they have a duty to not violate Federal Copyright.
+3) Pax/OpenSourceSecurity is violating the copyright license (which they go=
+t
+for free) of your code. Your permission states that additional restrictive =
+terms
+are not permitted to be attached to the corpus of the copyrighted Work.
+Pax/OpenSourceSecurity have added additional restrictive terms: they have
+abrogated the "no additional restrictions" term by adding a new term:
+no redistribution of the derivative work.
+That new term has been successfully enforced by self-help by
+PaX/OpenSourceSecurity.
+
+
+You will laugh and claim that
+"THE GPL ALLOWS PEOPLE TO FORBID REDISTRIBUTION LOL!"
+and
+"THE GPL IS JUST TALKING ABOUT NOT CHANGING THE TEXT OF THE GPL ITSELF LOL!=
+"
+and
+"ITS A PATCH, SO THEY CAN PUT IT UNDER WHATEVER LICENSE THEY WANT SINCE THE=
+Y
+DONT INCLUDE LINUX WITH IT"
+
+And there is no way for anyone to convince you otherwise.
+But you are wrong.
+
+
+
+
+
+
+Dear Bruce Perens,
+    Please. Please sue Open Source Security.
+    Before it's too late.
+
+
+Dear RMS;
+    Open Source Security has defeated you.
+
+
+On Fri, Jul 25, 2025 at 10:59=E2=80=AFAM Sean Christopherson <seanjc@google=
+.com> wrote:
+>
+> Heh, without full conext, the shortlog reads like "destroy stage-2 page t=
+ables
+> from time to time".  Something like this would be more appropriate:
+>
+>   KVM: arm64: Reschedule as needed when destroying stage-2 page-tables
+>
 
