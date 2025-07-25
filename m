@@ -4,106 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E1DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 14:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3519AC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EXHaox/1NzXqFsnH0dWanvrMBp8w7U0rZ5dj8B4pNPs=; b=37js/CZTILDCyLj7vkW5jxWxEz
-	h2CtYpLX6uU5ff5SPbCBQsnppxPre49QmpBnf+e8/g90Z5L12Dwq1XaJgZvio4ShIy2rJlUq8V4qd
-	7BHy8R6PLYwNBPHSRNZSb6i0+WaguDAmiz0DWGKVEEk69CdR7b9oPWpahfkt2sD2UE7kOCafcgc7r
-	GshaZt5+Nn3TuLUhU1RpKpGtZL7vNS7B2Tqs37qkIIghZqrPpw7jk3Dl7uzPV1S5O3KnBv2e9UM4N
-	1ug6OVFdoUISF8Eg8SjqqFeaT8o4QNmEk6ZFnAsEzzzY4gUIaQMa1XNES1Sse3CMzztO/PeZfVbCS
-	VFuuA6JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRIpv6z9xuIyFwnKQ1z6FnAeGn2PYDaQhA6EKMmoaPM=; b=v+8z7k154u7uK7ivewZC62lF2D
+	nNizjQBN932eUFrQUnbD43DzpHeNdAEJ1zPFYn3Odh6RbpMcWpsANi6+3iLD7PbNLyASx/C0YDyP5
+	F8jRB+2qa+h8P7BAMyoGixH3NgVGixmOCFhCV1cWeXOJrNZ+QnddE/N+PqglfbHcsbzY91gQKGde3
+	IZTchEffN3+vA2+OfJOhYZwC5MR/pvC2Ob+o2lj6ust2awmlfhn3fh3Z6C624GOKk66MZN519694L
+	SOcKoHVNt3vo44q6AW/43HcQ9wQRtKJRlTgW/UsxXfGRm2j8IrorBHQV0XSoRRbStzElPoIrcSrUt
+	+dilgxgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufJrg-0000000A31h-3F6u;
-	Fri, 25 Jul 2025 14:57:40 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ufJvq-0000000A3wF-2lGQ;
+	Fri, 25 Jul 2025 15:01:58 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufJpD-0000000A2q2-07S4
+	id 1ufJtM-0000000A3Qd-1Qdh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 14:55:08 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56PCJhSE009250;
-	Fri, 25 Jul 2025 16:54:48 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	EXHaox/1NzXqFsnH0dWanvrMBp8w7U0rZ5dj8B4pNPs=; b=m0jj0ZKW2V09n25s
-	7B7U6M9MLZjvJcMWRYlZu2uFMoeeao9xbmKHMjp231wc1Gp9uJ4HcC8UklLPBTGC
-	HTWTXgbC6XqRFU8qn68Fxm/2C7mfOYEEjoH3L0nmPMqHWADv7AcbyNsZ/tX/SrEH
-	rQYs6bVDHl96QbwVaQLnkbATyLJrUKGt9anHUzsXgc2IeJzY+j7wo02hNDcoPKm3
-	DSB5xGyi/yp2TLyA1KfNMc05VQx0e+AlozREVTRbbUAGcAD0asReA0mUXre8LULM
-	XpTEtFaY8nJDqkhkeuyD2rbNFwh+uIwH1OJVtVHmyep5WVEsmMDd18//lFI0E8QJ
-	8Y4cGg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3j3kdk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Jul 2025 16:54:48 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D000040044;
-	Fri, 25 Jul 2025 16:53:23 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EC96979F3AB;
-	Fri, 25 Jul 2025 16:52:16 +0200 (CEST)
-Received: from [10.252.19.90] (10.252.19.90) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Jul
- 2025 16:52:15 +0200
-Message-ID: <51f9e2bd-1129-4a82-b12a-72663e57ebda@foss.st.com>
-Date: Fri, 25 Jul 2025 16:52:13 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH 09/12] arm64: dts: st: add lvds support on
- stm32mp255
-To: Clement LE GOFFIC <clement.legoffic@foss.st.com>,
-        Yannick Fertre
-	<yannick.fertre@foss.st.com>,
-        Philippe Cornu <philippe.cornu@foss.st.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard
-	<mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>
-References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
- <20250725-drm-misc-next-v1-9-a59848e62cf9@foss.st.com>
- <85673db7-d311-47cc-be52-291d94e136e4@foss.st.com>
- <a00bb4e2-b0e8-44ef-bf14-5e4f5e60f9d0@foss.st.com>
-Content-Language: en-US
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <a00bb4e2-b0e8-44ef-bf14-5e4f5e60f9d0@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.19.90]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-25_04,2025-07-24_01,2025-03-28_01
+	Fri, 25 Jul 2025 14:59:25 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-234b133b428so17782355ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 07:59:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753455563; x=1754060363; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jRIpv6z9xuIyFwnKQ1z6FnAeGn2PYDaQhA6EKMmoaPM=;
+        b=fwhrBqpAOh7ZZl6iXZzd0ovtpJFsPq7H/hE+gtEfXNkx5GKAYBobklSjr8fk3EFMq8
+         skEqX+SuTQRugg1iPmW+bjidQG5lSnSASlh4WHzUc2ZrUQgSdTgefCPaVoK1ximWHovO
+         a+eSFdY3j1RtiqHjjhAYfg+VnjNCBPsatpR8lEIhfADJ8xtoLLsq1pYbdyoe+a26vsYE
+         bzzkTkTuDBTDBLEwntVMlEYjZmaBrl/JIxFaioRgF4tNKiFzeS4u3Yjc/Bq49woDZzVi
+         Ri5Bb0/NXkd2V6zdmmhWnnjMJ7Epf+dN//3Azz/lmBRPlTFs1MP/+O2ESz0SboDQnm0r
+         3Jug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753455563; x=1754060363;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jRIpv6z9xuIyFwnKQ1z6FnAeGn2PYDaQhA6EKMmoaPM=;
+        b=NnhNngIwji+YhlQX/fUxYr+0DfbuY9R6aZPeq1mvDTTzOJ+kTz8kZEkeaZkVNJYhOJ
+         K84bFsry18dBo+qkTEFrhncWLVHrMMinyLzuUWF144FmhzTmvXx7Zz+bvGy9N4KyeRN9
+         7FlhReOkiw859F7cyhfwsTaQeJ3kK28irroPTONTmAbbO/g1eJhcYVvhn3paMXncIguo
+         LRN43bxGMXdLdA4aqI2jHWDeU9hxaY90FifHwIQ5HtzcozfPqUxy/aCzu5Bqx7MbNbVR
+         hnMhQFX5SZaHYnzK6cXLpMMwF47sMwkiZ57xYtt7ViON+t/YQ9R1Z7nW3ynS2RNaEMNU
+         Kh8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVcLdhKcaQV+cYHJW14r0IUBDpcnXG0+zi/S/szGXRddR0f5UuaNMhMQa8SfxYIqsIN98q9kPb9jrujZadnEKd1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEAI7b1nAOMz7Z6dnOZVjdaxC1haz77styD9gBqU/ffpyORwXQ
+	tlnAhX4Tmj47L+NK0/4ThRH1nfoKzRgejaQRL4y9KacUqw7YZ5czxvGpe0mYMqSGGYIX4AGDFY6
+	xEuMxNA==
+X-Google-Smtp-Source: AGHT+IGcNpmnHIDt5vuDnKz4Z5PQxOcekjZoRgAfUDL4gv7HZdu2LOA9zo/e7zk1ZSljYpL2Zb35pa8dzKg=
+X-Received: from plbmf3.prod.google.com ([2002:a17:902:fc83:b0:235:160a:76e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:41c1:b0:235:e8da:8d6
+ with SMTP id d9443c01a7336-23fb3050a7cmr38030205ad.2.1753455562745; Fri, 25
+ Jul 2025 07:59:22 -0700 (PDT)
+Date: Fri, 25 Jul 2025 07:59:21 -0700
+In-Reply-To: <20250724235144.2428795-3-rananta@google.com>
+Mime-Version: 1.0
+References: <20250724235144.2428795-1-rananta@google.com> <20250724235144.2428795-3-rananta@google.com>
+Message-ID: <aIObyUg77Um6VB45@google.com>
+Subject: Re: [PATCH 2/2] KVM: arm64: Destroy the stage-2 page-table periodically
+From: Sean Christopherson <seanjc@google.com>
+To: Raghavendra Rao Ananta <rananta@google.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>, 
+	Mingwei Zhang <mizhang@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_075507_436850_A3112758 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250725_075924_378263_033EC3C3 
+X-CRM114-Status: UNSURE (   5.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,80 +90,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Heh, without full conext, the shortlog reads like "destroy stage-2 page tables
+from time to time".  Something like this would be more appropriate:
 
-
-On 7/25/25 13:13, Clement LE GOFFIC wrote:
-> On 7/25/25 13:08, Clement LE GOFFIC wrote:
->> Hi Raphael,
->>
->> On 7/25/25 12:04, Raphael Gallais-Pou wrote:
->>> The LVDS is used on STM32MP2 as a display interface.
->>>
->>> Add the LVDS node.
->>>
->>> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
->>> ---
->>>   arch/arm64/boot/dts/st/stm32mp255.dtsi | 12 ++++++++++++
->>>   1 file changed, 12 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/st/stm32mp255.dtsi b/arch/arm64/boot/
->>> dts/st/stm32mp255.dtsi
->>> index
->>> f689b47c5010033120146cf1954d6624c0270045..a4d965f785fa42c4597494010855aec7e1b9fdd1
->>> 100644
->>> --- a/arch/arm64/boot/dts/st/stm32mp255.dtsi
->>> +++ b/arch/arm64/boot/dts/st/stm32mp255.dtsi
->>> @@ -6,6 +6,18 @@
->>>   #include "stm32mp253.dtsi"
->>>   &rifsc {
->>> +    lvds: lvds@48060000 {
->>> +        compatible = "st,stm32mp25-lvds";
->>
->> For the compatible you now need one comaptible per SoC.
->> It means your compatible should look like : "st,stm32mp251-lvds".
->> This way, if on the 253 or 255 there is an issue you are able to easily add
->> match data in the driver with compatible "st,stm32mp253-lvds" or
->> "st,stm32mp255-lvds".
->> A prior discussion on this subject has been raised on my V1 of HDP involving
->> Krzysztof and Alexandre :
->> https://lore.kernel.org/all/418a80a9-8c08-4dd1- bf49-1bd7378321aa@kernel.org/
-> Woops, this comment should target the add of the ltdc compatible as I see that
-> lvds one already exists and can't be changed.
-> Though the main idea is here.
-
-Indeed, the compatible is wrong.
-
-After carefully reading the thread you point to, I suggest the following:
-
-* Rename the new LTDC compatible to "st,stm32mp251-ltdc"
-* Add another compatible for the LVDS. So it would have "st,stm32mp255-lvds",
-and falls back to "st,stm32mp25-lvds".
-
-Like so the LVDS driver would not have to be modified.
-
-Alex, Krzysztof, does that seem good to you ?
-
-Best regards,
-Raphaël
->
->>
->>> +        #clock-cells = <0>;
->>> +        reg = <0x48060000 0x2000>;
->>> +        clocks = <&rcc CK_BUS_LVDS>, <&rcc CK_KER_LVDSPHY>;
->>> +        clock-names = "pclk", "ref";
->>> +        resets = <&rcc LVDS_R>;
->>> +        access-controllers = <&rifsc 84>;
->>> +        power-domains = <&CLUSTER_PD>;
->>> +        status = "disabled";
->>> +    };
->>> +
->>>       vdec: vdec@480d0000 {
->>>           compatible = "st,stm32mp25-vdec";
->>>           reg = <0x480d0000 0x3c8>;
->>>
->>
->> Best regards,
->> Clément
->
-
+  KVM: arm64: Reschedule as needed when destroying stage-2 page-tables
 
