@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3575FC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A2C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYlIflW5mvs0UFEIFJba2iAQLX3R1DBfhqm0wXgNnuQ=; b=DKp/CF8/QZdFDDcyYQE2sXvIXA
-	MJSz+niyZjtVNcR0lM8rz2Fk2wzoVav8NGzknMRayGUU9GFBVZ8BEJHi+x3iKZFN8aVzblkGH0FoF
-	XJXrPR3tAy3DN+lvq6nK8i5/XjFODPaRwzlhMMB9Wb41BkC1/gVMTql/SGn1x+fagR8yVwCTerA23
-	FimBVblqG43aexjdwR5JkK8V8/2VFql0Nevc1sHoYRM5OR6qyTGlxsSjQqXqvPB1o0lKCnYVt4NZY
-	shwD4ol50s994v4Z0XK8oTL0S83pH3czQcVtDekjGJ6Obu7GDz8q2/weZYpc3G2e5UT7du10hWfAo
-	ei4e3qRA==;
+	bh=Imtw8Gx4ry64i1JxbY02DQ6xhqBG4Z3YKMzGCpocp7k=; b=UXCsnCnf2ZUvqxyq2XYZ1NCad+
+	do0Qnvc5PJkTW8EoRlKrX581fftPxVzFmHBmvqZ/1Dw7BsaN8aiSE7gPM3oLSJR9nc9KYWyBBY5HB
+	76zSwqaXdavGrYcwkuqu5OLY/e3zN2sTIMwkV6cjLYPLkX1ZWAFYu0ZXtx9shbrq/jr6g+lIjbbCz
+	eBfF8dHuJGMOv+BqypZooa/fSbsWEhCbuwHBjJSUOx2bkTzSJgLGmIYI180CkhFik14qiMgSejEQc
+	R1t6zm616UeLPSrIv11K/GqQRl7Q7L8l8UPhokag993OHq7KLPfNq0ed4bQDaCg52jNOY0mEt5xBq
+	kdMunXCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKrb-0000000AAgI-0nIF;
-	Fri, 25 Jul 2025 16:01:39 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1ufKu1-0000000AAmc-3uTY;
+	Fri, 25 Jul 2025 16:04:09 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKcG-0000000A8Wz-1xBb
+	id 1ufKcH-0000000A8YB-3Mvk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 15:45:49 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a5257748e1so1644836f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:48 -0700 (PDT)
+	Fri, 25 Jul 2025 15:45:50 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4561607166aso17330425e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458347; x=1754063147; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458348; x=1754063148; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=RYlIflW5mvs0UFEIFJba2iAQLX3R1DBfhqm0wXgNnuQ=;
-        b=TQzM3g8/vsU+qLIlaLoZtvs8pEPQdJQpE6/7+QHP/ddDbLRHuOfftuB8WOOBcgESX1
-         1lIFz68tJniMYsZMd9oRxzM7neD4DdKuNSmx3+/fDpH9huRXjstG07jLkNLxrq7KdVdx
-         P38D3ci0ZIGnNLBVMpVKPpfJOgXj1cwuJtbQoF5XYWQI6IoE/VgcMgsIMiD7PdE1AsLp
-         MWW18c6+AHThm5/TQYZhDX4dGgi4DeAs9qncpp1nJ7eKVid3nNtOR9JaU8dpwDf8qkmm
-         U2G6Q3VP3pXzEprISi8LTzbwHTl/qVtXeWHvlfMKH+icQfgbB6zi3S4tkukc85KA151u
-         naiw==
+        bh=Imtw8Gx4ry64i1JxbY02DQ6xhqBG4Z3YKMzGCpocp7k=;
+        b=kMCGSy8g+CL2tHC6gz0kWeCqazNi3cXKZ06pWPf1ZY4uvEIenfHrNZTLX94lz57Lm/
+         GvfZrsvi/62kpk6GGebktVPwjwdj9goMWGIwTHpnEZYWyp51oDjPrJL9WPqAhifOLZTl
+         crgPHTVfbHsbi7RkNFxMahJlu+P9r2kaQNwv5N54VXeELyWsojK6tVcF8yf9AXKju2AJ
+         fO/e6Ktvx09ZFNEKTG6Jw6mdcu9+dD+N7uFm3+8lkluh2vGCRWhQL/J3GIZZ06PSFV/K
+         8X5WbPQH4pQTucDdpaejozqz7Sa2hR9XslKZJiAO5iLfTfTX+pxQI/5fo4mxzFu4JYpI
+         VqpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753458347; x=1754063147;
+        d=1e100.net; s=20230601; t=1753458348; x=1754063148;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=RYlIflW5mvs0UFEIFJba2iAQLX3R1DBfhqm0wXgNnuQ=;
-        b=rnXqU2+oexHGYVIr1GiL8R+A8ptI/7g1PctVATYzJqpjhSD1l9CFmbcTwWe14JmudN
-         6glkr5gbF17Fk69hObvVvd5Frer6UGfGxs/+rzzuOoIu2UXcRBN02ydLy8UDOekJX/Gl
-         bqM84SA6V9Qz0snEPvja/WhuHbdlorRnyR2/eaUIEawCoKpbkzTM5wS0/CoRfydbHrDs
-         G4bV+cSchtUJZfAmteOPJMlC/vt9lrcDaleAFQCRz17mPuPuezKkJXrj8bTh/jgXxMl8
-         v+BC3ALr0KdkU71KGWpWcsq3hcjdZtv/Z8G6x/0LY8y33iFJGk3OGV6j7bEa0ohMrHGG
-         ROiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVk+LUWq05Y6aq+LVUYiJyLYKTUS5UY+uC5DyMYh74l8gf/1/wuzzwX+sz1zMxkn5g6UUNcMFBf7qhCNjL1YwdC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1V4Fzxq7FUvTC0Maqwwjsk9oJjrwSRaSsIiF6HmuFpeYcsKfV
-	c5WY+eVJSjf3guxLdy2Rch9MhzqmnvVQ1yZYC3JMGb73XqctKyCw3yVJCEFyAzPa57w=
-X-Gm-Gg: ASbGnculdbwzd/rs26l2zCi/D973Xzz5DR7SJ2BCROhwyNNuarVm1YpTQJVEAk9/rJT
-	1ZycHce/Utl/sUwxN5QAXlKY/mbXOAuk7d/njBSvNqP2kaECNoQVeg3ZHJP9JkAbZAdUDzpPijz
-	0qggOtUgIjAK1S22wptm1treb2a4yOnEHLNuofFa2iN1HPZH6lG0IYOOzSUaP74RhiRnYaWQycR
-	GBNl9LI9f2fYvA9VKY9e2MTIPw8UeL1S/EF5osYU4yoaue4sLEqbWw1aWVNSdM7olmSu9CiGuXh
-	YDGQ9ZJdAVag5sAUT3DAQ1iUw4Wo85AacYuYonqk6C3gFGGlqn0zZ1SMRAa3QTs/hxSQEBwNG/I
-	QYiZJ3HC8RzHtGdsvvV2G37EyKXyugqIimOW5Epn8Yu31kfIdeQGeMStnEYczfppF
-X-Google-Smtp-Source: AGHT+IGowIlSkKw5ZzZZdWP+ydqqTiOhlwErsI/LyHjZ9eAmji8YiDyEbd4SmQnr4FCIgMmyEZUdfw==
-X-Received: by 2002:a05:6000:2013:b0:3a4:eef9:818a with SMTP id ffacd0b85a97d-3b776645908mr2258005f8f.27.1753458346798;
-        Fri, 25 Jul 2025 08:45:46 -0700 (PDT)
+        bh=Imtw8Gx4ry64i1JxbY02DQ6xhqBG4Z3YKMzGCpocp7k=;
+        b=R0q8chGj6k9lnvh3E5YovUT523U92Xc95NGpcyYUGOQGtpB5l1FuI6CngSeGwyt90/
+         KyiKWyv/ieaH5LWKrYnlXOiIaEmuQSJDH1BS0Qz2LxG9ikovYDZzrf6dhsHX8FJXGdpT
+         4XWKNxHfOMIyaCSuXtOlCDqI7uMT5Anz1H0YOd+Na+NrKVei1XNT7vyvKfdClTdkcNze
+         sBepgPi0mUP68pvG28xnq9MhZvs88YftGdxcOX4G8PaPqAFihz8X0p7dScDfyRlm6EHG
+         wLmxTSG5ptAi3ToklLmxwommVbYq4Di4eY8sXdIxoa0NfJ2duWT2ovcgwUij3BO2rywi
+         WHfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVjq/82RRZl4QsBlkguCfymt1lToDDzjnCDzPPX4oBY7gH3WtjLC8gpSwXHL8mzGasI/dIGS7SMRATSEeWGn6Kq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3Dk29yhwW3GYIzCxJmfuoqkKHsRvRLyMuo6hb+YitalY1D0Ox
+	8b2Gm5CCDoET000vIjqDQ93ZNADJoA99lU70O9OFEa+V0gS60ehLtGczT4036Gryb+k=
+X-Gm-Gg: ASbGncvWlY9EIvdZ2e6nKO+cVv6QDl3W5h+TEp9uaZXGj9cL0PiRLF/eVzH+suUqxXB
+	SH3uqAHjwR1YMsiPFA5v5xDfZ56iyASdXWY4c0Z0qG1ZDh7v1+sPlGy6Mew0HTv7w4Flwgi8/ix
+	SFS0rPpOWZV/M3HHJhI2ZryqfYdum7XVsrygUFlNx6unEU6mXeAP9FxAywjvcD67OUIFxVd9B4N
+	rEmjkT/GFFHEdFABifazdQaAbnDaVlRyRsRHeLAFmyYkhZ7Nrvw6nXdVwIjyT+PAnmx99P4wOdl
+	YLCRZnwUkNlKjGZ8sznpO0A4nhNMJ2bBPo/6UkvJeIXkzaPWvkY+tN5tFfxGccc7cHsXkmVjMdB
+	MiGKjlFBSMfPyLNn33CQuSjr1sc6wg+Y1heJ/rKtJDV7IWt18ghKI08zHsJ3q8Ur9
+X-Google-Smtp-Source: AGHT+IGU/MNEg3WQWls2DntpgirfB//jbj9l1ObldWRxzEwSfkXxYeLeZrDkB6W9KV/qLzu1Pm1RFA==
+X-Received: by 2002:a05:600c:3585:b0:456:24aa:958e with SMTP id 5b1f17b1804b1-4587b16ef91mr660575e9.0.1753458348394;
+        Fri, 25 Jul 2025 08:45:48 -0700 (PDT)
 Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b778eb2779sm249038f8f.15.2025.07.25.08.45.46
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4587ac58162sm1157495e9.18.2025.07.25.08.45.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 08:45:46 -0700 (PDT)
+        Fri, 25 Jul 2025 08:45:47 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-pwm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 5/8] pwm: mediatek: Implement .get_state() callback
-Date: Fri, 25 Jul 2025 17:45:09 +0200
-Message-ID: <20250725154506.2610172-15-u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 6/8] pwm: mediatek: Fix various issues in the .apply() callback
+Date: Fri, 25 Jul 2025 17:45:10 +0200
+Message-ID: <20250725154506.2610172-16-u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 References: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3468; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=CgxDKiGIOk5/DJiW6ZyvTBtPHuWR1BwYQvTWRkSTQw8=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aQ33zONElPxjZ4ALhMQd0DOuzGO2NKTOZXb mtJniR1ocaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmkAAKCRCPgPtYfRL+ TrpQB/9Ik6Qzx21eI6DYqkiOeUDeQuwH9crnOd10V0aDbGnzsezDdRP92c7DUMl4F7G8nNl+J8U 3Eq2uzAHL5uiyC6VZlJweJH2vqXiKuA32h05/qggi3tm48E7zchtLZkp6+xkRIo++5Duz6z8fuy Q9cIpGHRe3i1l7C0Nl3zgZOYwifAQhyIa0PzO2HjZ0yriOZduMuq3cmRYgx+44t3YTeW52Zmzs7 WXIZvGKALMpqd4gyXfJ8ctGCws6y0PHnOaPbFkeX8rU7dI1Cqo1p8ZpeUSXwnHghCp9ZB2GxAf2 93cjWMTr3NEPIYnJojwcjhSN824TxfNto0AZB95wRbrvX7mW
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4756; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=90XfpnWAvKrAD7iR4HpWYRpLi0zHbPGui3cdslYcXUo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aT3OoVnQuD9g/ceDdq/4tPDMudwzFZfPofd LeBmA30bhuJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmkwAKCRCPgPtYfRL+ TvGdCACmyBIsMq9Y9fW2D5e/i9qHdd9zN3CsSE4ORC6OwTZh6yXFBCu78dTIEhc+6gVtbvvBesr TXizV3MZc08MY7Z3Ep4BXQ24fyl1sEhmqRA2toImZj08PJrfjFqFLaKymM2KWeHP2j5WAHRcLr7 8a9gONV35IRJTL652Kxbp4ZnY+N7MmJnDtlwpFUreKNptSJ5KvDnxW3HfxmP05rLrOOqV1nPcgh jqoLWHCu6wRIEsmJbmhR2z/KUmRZW3gzCCOrjtpCp7bCnissukSKRl1UgzsmDM7MP7WzZD8tZTO wRFs7LcI+2gksawcw5VgMMexo8y40gp4lzH180habHpxIEub
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_084548_501984_8EF668B6 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250725_084549_855240_9121FE4B 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,113 +103,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The registers can be read out just fine on an MT8365. In the assumption
-that this works on all supported devices, a .get_state() callback can be
-implemented. This enables consumers to make use of pwm_get_state_hw() and
-improves the usefulness of /sys/kernel/debug/pwm.
+duty_cycle and period were silently cast from u64 to int losing
+relevant bits. Dividing by the result of a division (resolution) looses
+precision. clkdiv was determined using a loop while it can be done
+without one. Also too low period values were not catched.
+
+Improve all these issues. Handling period and duty_cycle being u64 now
+requires a bit more care to prevent overflows, so mul_u64_u64_div_u64()
+is used.
+
+The changes implemented in this change also align the chosen hardware
+settings to match the usual PWM rules (i.e. round down instead round
+nearest) and so .apply() also matches .get_state() silencing several
+warnings with PWM_DEBUG=y. While this probably doesn't result in
+problems, this aspect makes this change---though it might be considered
+a fix---unsuitable for backporting.
 
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/pwm/pwm-mediatek.c | 70 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 70 insertions(+)
+ drivers/pwm/pwm-mediatek.c | 71 +++++++++++++++++++++++---------------
+ 1 file changed, 43 insertions(+), 28 deletions(-)
 
 diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index 7d0a6f41d671..05263a17d55d 100644
+index 05263a17d55d..c0a97d18e673 100644
 --- a/drivers/pwm/pwm-mediatek.c
 +++ b/drivers/pwm/pwm-mediatek.c
-@@ -31,6 +31,7 @@
- #define PWMDWIDTH_PERIOD		GENMASK(12, 0)
- #define PWM45DWIDTH_FIXUP	0x30
- #define PWMTHRES		0x30
-+#define PWMTHRES_DUTY			GENMASK(12, 0)
- #define PWM45THRES_FIXUP	0x34
- #define PWM_CK_26M_SEL_V3	0x74
- #define PWM_CK_26M_SEL		0x210
-@@ -108,6 +109,13 @@ static inline void pwm_mediatek_writel(struct pwm_mediatek_chip *chip,
- 	       num * chip->soc->chanreg_width + offset);
+@@ -137,13 +137,13 @@ static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
  }
  
-+static inline u32 pwm_mediatek_readl(struct pwm_mediatek_chip *chip,
-+				     unsigned int num, unsigned int offset)
-+{
-+	return readl(chip->regs + chip->soc->chanreg_base +
-+		     num * chip->soc->chanreg_width + offset);
-+}
-+
- static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+-			       int duty_ns, int period_ns)
++			       u64 duty_ns, u64 period_ns)
  {
  	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
-@@ -231,8 +239,70 @@ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	return err;
- }
- 
-+static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
-+				  struct pwm_state *state)
-+{
-+	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
-+	int ret;
-+	u32 enable;
+-	u32 clkdiv = 0, cnt_period, cnt_duty, reg_width = PWMDWIDTH,
+-	    reg_thres = PWMTHRES;
++	u32 clkdiv, enable;
 +	u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
-+
-+	if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
-+		/*
-+		 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
-+		 * from the other PWMs on MT7623.
-+		 */
-+		reg_width = PWM45DWIDTH_FIXUP;
-+		reg_thres = PWM45THRES_FIXUP;
-+	}
-+
-+	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
-+	if (ret < 0)
-+		return ret;
-+
-+	enable = readl(pc->regs);
-+	if (enable & BIT(pwm->hwpwm)) {
-+		u32 clkdiv, cnt_period, cnt_duty;
-+		unsigned long clk_rate;
-+
-+		clk_rate = clk_get_rate(pc->clk_pwms[pwm->hwpwm]);
-+		if (!clk_rate) {
-+			ret = -EINVAL;
-+			goto out;
-+		}
-+
-+		state->enabled = true;
-+		state->polarity = PWM_POLARITY_NORMAL;
-+
-+		clkdiv = FIELD_GET(PWMCON_CLKDIV,
-+				   pwm_mediatek_readl(pc, pwm->hwpwm, PWMCON));
-+		cnt_period = FIELD_GET(PWMDWIDTH_PERIOD,
-+				       pwm_mediatek_readl(pc, pwm->hwpwm, reg_width));
-+		cnt_duty = FIELD_GET(PWMTHRES_DUTY,
-+				     pwm_mediatek_readl(pc, pwm->hwpwm, reg_thres));
-+
-+		/*
-+		 * cnt_period is a 13 bit value, NSEC_PER_SEC is 30 bits wide
-+		 * and clkdiv is less than 8, so the multiplication doesn't
-+		 * overflow an u64.
-+		 */
-+		state->period =
-+			DIV_ROUND_UP_ULL((u64)cnt_period * NSEC_PER_SEC << clkdiv, clk_rate);
-+		state->duty_cycle =
-+			DIV_ROUND_UP_ULL((u64)cnt_duty * NSEC_PER_SEC << clkdiv, clk_rate);
-+	} else {
-+		state->enabled = false;
-+	}
-+
-+out:
-+	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
-+
-+	return ret;
-+}
-+
- static const struct pwm_ops pwm_mediatek_ops = {
- 	.apply = pwm_mediatek_apply,
-+	.get_state = pwm_mediatek_get_state,
- };
++	u64 cnt_period, cnt_duty;
+ 	unsigned long clk_rate;
+-	u64 resolution;
+ 	int ret;
  
- static int pwm_mediatek_init_used_clks(struct pwm_mediatek_chip *pc)
+ 	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
+@@ -151,7 +151,11 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		return ret;
+ 
+ 	clk_rate = clk_get_rate(pc->clk_pwms[pwm->hwpwm]);
+-	if (!clk_rate) {
++	/*
++	 * With the clk running with not more than 1 GHz the calculations below
++	 * won't overflow
++	 */
++	if (!clk_rate || clk_rate > 1000000000) {
+ 		ret = -EINVAL;
+ 		goto out;
+ 	}
+@@ -160,27 +164,40 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	if (pc->soc->pwm_ck_26m_sel_reg)
+ 		writel(0, pc->regs + pc->soc->pwm_ck_26m_sel_reg);
+ 
+-	/* Using resolution in picosecond gets accuracy higher */
+-	resolution = (u64)NSEC_PER_SEC * 1000;
+-	do_div(resolution, clk_rate);
+-
+-	cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000, resolution);
+-	if (!cnt_period)
+-		return -EINVAL;
+-
+-	while (cnt_period - 1 > FIELD_MAX(PWMDWIDTH_PERIOD)) {
+-		resolution *= 2;
+-		clkdiv++;
+-		cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000,
+-						   resolution);
+-	}
+-
+-	if (clkdiv > FIELD_MAX(PWMCON_CLKDIV)) {
+-		dev_err(pwmchip_parent(chip), "period of %d ns not supported\n", period_ns);
+-		ret = -EINVAL;
++	cnt_period = mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC);
++	if (cnt_period == 0) {
++		ret = -ERANGE;
+ 		goto out;
+ 	}
+ 
++	if (cnt_period > FIELD_MAX(PWMDWIDTH_PERIOD) + 1) {
++		if (cnt_period >= ((FIELD_MAX(PWMDWIDTH_PERIOD) + 1) << FIELD_MAX(PWMCON_CLKDIV))) {
++			clkdiv = FIELD_MAX(PWMCON_CLKDIV);
++			cnt_period = FIELD_MAX(PWMDWIDTH_PERIOD) + 1;
++		} else {
++			clkdiv = ilog2(cnt_period) - ilog2(FIELD_MAX(PWMDWIDTH_PERIOD));
++			cnt_period >>= clkdiv;
++		}
++	} else {
++		clkdiv = 0;
++	}
++
++	cnt_duty = mul_u64_u64_div_u64(duty_ns, clk_rate, NSEC_PER_SEC) >> clkdiv;
++	if (cnt_duty > cnt_period)
++		cnt_duty = cnt_period;
++
++	if (cnt_duty) {
++		cnt_duty -= 1;
++		enable = BIT(pwm->hwpwm);
++	} else {
++		enable = 0;
++	}
++
++	cnt_period -= 1;
++
++	dev_dbg(&chip->dev, "pwm#%u: %lld/%lld @%lu -> CON: %x, PERIOD: %llx, DUTY: %llx\n",
++		pwm->hwpwm, duty_ns, period_ns, clk_rate, clkdiv, cnt_period, cnt_duty);
++
+ 	if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
+ 		/*
+ 		 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
+@@ -190,13 +207,11 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		reg_thres = PWM45THRES_FIXUP;
+ 	}
+ 
+-	cnt_duty = DIV_ROUND_CLOSEST_ULL((u64)duty_ns * 1000, resolution);
+-
+ 	pwm_mediatek_writel(pc, pwm->hwpwm, PWMCON, BIT(15) | clkdiv);
+-	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period - 1);
++	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period);
+ 
+-	if (cnt_duty) {
+-		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty - 1);
++	if (enable) {
++		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty);
+ 		pwm_mediatek_enable(chip, pwm);
+ 	} else {
+ 		pwm_mediatek_disable(chip, pwm);
 -- 
 2.50.0
 
