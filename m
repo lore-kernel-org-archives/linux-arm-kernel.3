@@ -4,60 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96DBC87FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1BBC87FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEBKrqUeEzwXrBEUWdwGDyrvG7xqwEQdSVNERLbH2iE=; b=JUXasH7BK5K7G7tqeNneO+MWYa
-	WPLlJKx0cVpFRJkepZ1mXu+isEPfgHLNX0xwWz6QjE7NxvkttAnYcvBbkTehfGozjBsTKszbrgS8T
-	nZulpogcc7K6Sovu7NhieA7afqkbLrLhQN1pnNkiDUp10ThcvqZIi/IcnXIrV8teaeDumryAI5OlI
-	B2MmrRE72bL0pS7kPKS0qvPxHiIh6MBmEdrzKS5xBHKsy1it/oyysdqvmpMYwNfd03UebuNCMxAeQ
-	Zd+2PrKrBe1Yft5RFeq66IvZjlZnLxrEL7F5VZj6vdKlQmO1Kb9TsCiHkChA7bSGZgmYE8Vw4hNZm
-	MRDt8Mqg==;
+	bh=IL4k9lr5ymW8k6HPReFxSXkSHaWWIeN0cVaRGWIrO5w=; b=sQGPkcjqEBaMmz7YeEyEO8uiq/
+	TgOB2fakLie51N7fTF2omGUATvzzifCgi84N0S57d1EdDN7dqMrOFLKl2xaR/7dCj4RWbRoXBwPWi
+	1ZB3JxBBbXrGqtDWrNOD3TaIZ0UIMh6Qo7pwwTeaVi0bl9mHVygez0lS0w8ID1g48oOPl/7CHoxRz
+	zOIRe3+20MaVyD/HPWQjyu85UVuPYjJ14k3BhOQV/aK1H8hN0zs17fJHqFjlQ6Wia16TA04dKTpN9
+	mk0kSnOSEZbl8JUGWUNWktz84Z8IdNtA+3deSGztp+fLQXCN5K/WYEbQr5f4OSXqAEBOza4cDw+Vf
+	3QKoFffg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufD0Q-00000009H00-0Jtx;
-	Fri, 25 Jul 2025 07:38:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ufD2r-00000009HEw-3r0o;
+	Fri, 25 Jul 2025 07:40:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCo2-00000009Fqq-3grL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 07:25:26 +0000
+	id 1ufCoA-00000009FrW-3ny8;
+	Fri, 25 Jul 2025 07:25:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 48344601DC;
-	Fri, 25 Jul 2025 07:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1828C4CEE7;
-	Fri, 25 Jul 2025 07:25:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A5A6439AB;
+	Fri, 25 Jul 2025 07:25:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31F6C4CEE7;
+	Fri, 25 Jul 2025 07:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753428326;
-	bh=t6yI9W9ga2d5U86MGT4GedWz3RS3zaMqTHg3mi5MJtU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=bx/k4h7/0kJYBlhEQVSht+043C0sEVgpEsRPYLKQWiLVmnTbJPWAr+KHTy/hYyJIi
-	 qwiyuB8Y8/BgU1AqVuBIphEyLZcydKUM+/R49ZoIWTUAEJAquXda+czLEwhpKF/wWh
-	 PA7Yu0pf6zA8QYTiYh8Lto9Gw6ZoUHBAHjv7AZwYJeYp3kpHjv7ktS02SshLBHZY74
-	 MFZqRt3mGlqiKWoOfcSOfa1lgGm/OzC4EBxt0v1TeREA0+lD0dy+F0V4IeyXTvzYkd
-	 00YIc+aln/jPDrvU08yJPBU1tIN2XFKojOL+7d1GUaiKIukguPsObThWPaUxT5P9M+
-	 1nJrcY9n/nTuA==
-Date: Fri, 25 Jul 2025 02:25:24 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1753428334;
+	bh=IL4k9lr5ymW8k6HPReFxSXkSHaWWIeN0cVaRGWIrO5w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=V2X567FRYew7yuyLM5tpJUYu6A/LkeoSQoMcXNE2a+TzV8HzG2ytg4bZ8GbeJX32t
+	 JKsfYdfAHOEMGQj14P4sv0DePfT2w6QCo6Kh33Y8TGPhFmMZmVDl1aYpNqtG5P/iku
+	 uIYDZ8m83y2d0MjNET5ySyjCSysQ1uEmYRzqRjfpYjJP8RX+2k3mLuwvBI2zswDIyL
+	 wFJOowj+jBUIw8xtv1Yr6hwcKPpEL7zbKlWCafgADWfo77fIvGSQm4o5nc/WTABOGH
+	 LtvnZUx+4j1kRpbmoR2+jGOPXKOwjGNiNN1eqozMKEe+BLm4FjGMtQWHD3hz2hcI6T
+	 vLhcjEn+DCDBA==
+Date: Fri, 25 Jul 2025 09:25:31 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Erik Beck <xunil@tahomasoft.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: rockchip: add
+ LinkStar-H68k-1432v1
+Message-ID: <20250725-nocturnal-messy-cicada-dbcc10@kuoka>
+References: <20250724-linkstar-h68k-patchv3-v3-0-b9f87b7306e5@tahomasoft.com>
+ <20250724-linkstar-h68k-patchv3-v3-1-b9f87b7306e5@tahomasoft.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- linuxppc-dev@lists.ozlabs.org, Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-In-Reply-To: <20250725055835.260930-1-alexander.stein@ew.tq-group.com>
-References: <20250725055835.260930-1-alexander.stein@ew.tq-group.com>
-Message-Id: <175342832496.81853.5141988537592299860.robh@kernel.org>
-Subject: Re: [PATCH 1/1] dt-bindings: fsl: fsl,rcpm: reference
- power-domains.yaml
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250724-linkstar-h68k-patchv3-v3-1-b9f87b7306e5@tahomasoft.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250725_002534_965559_1F37A2A2 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,50 +74,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 24, 2025 at 05:37:58PM -0400, Erik Beck wrote:
+> This patch adds a section for the LinkStar-H68K-1432v1 board to
+> dt-bindings.
 
-On Fri, 25 Jul 2025 07:58:34 +0200, Alexander Stein wrote:
-> dtbs_check for ls1021.dtsi warns about unsupported property:
->  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
-> 
-> But if removed the check warns about missing property:
->  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' is a required property
-> 
-> Given commit 8bcf67b8d893b ("ARM: dts: ls1021a: add #power-domain-cells
-> for power-controller node") explicitly added that property, add a
-> reference to the common bindings to fix the warning.
-> 
-> Fixes: ad21e3840a88 ("dt-bindings: soc: fsl: Convert rcpm to yaml format")
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
-> 
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Instead say for what hardware you are adding bindings.
 
-yamllint warnings/errors:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.example.dtb: global-utilities@e2000 (fsl,t4240-rcpm): $nodename:0: 'global-utilities@e2000' does not match '^(power-controller|power-domain|performance-domain)([@-].*)?$'
-	from schema $id: http://devicetree.org/schemas/soc/fsl/fsl,rcpm.yaml#
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.example.dtb: global-utilities@e2000 (fsl,t4240-rcpm): '#power-domain-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/soc/fsl/fsl,rcpm.yaml#
+<form letter>
+This is an automated instruction, just in case, because many review
+tags are being ignored. If you know the process, just skip it entirely
+(please do not feel offended by me posting it here - no bad intentions
+intended, no patronizing, I just want to avoid wasted efforts). If you
+do not know the process, here is a short explanation:
 
-doc reference errors (make refcheckdocs):
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here ('b4 trailers -u ...').
+However, there's no need to repost patches *only* to add the tags. The
+upstream maintainer will do that for tags received on the version they
+apply.
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250725055835.260930-1-alexander.stein@ew.tq-group.com
+https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
+</form letter>
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Best regards,
+Krzysztof
 
 
