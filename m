@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59DEC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 20:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D699C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 20:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9jZ2G/e8wSqV41hhV1gH+U23w75M5PlO/TOztPglGgY=; b=GHEEy6Nm5QJdKOHW4OahMc5L27
-	y78Y/kuR3wtUm6UxV8DAhJ9Gvm7+YNUi0OAeD707rKqyjCO9mX97IfciIyT8BdTTRL0VjfWP1LI4G
-	V5SXWJ+IjHyw0bfJFSCtrTWa8E/z9C69u64B+dk4kIPu0elKuF/jrM2i/QUmMEkFLrHJ4tdcpoCv3
-	b3eqi5jSqnmmky0EISC0+nxnxzw1Hmfuu18BM2qoL0vBbTdqkpYXDSHp1zBiuJ0jD+eY3R0uS3PzG
-	gYKEK042KECBxY5HKfIfy/91AXlSabNUhr/Y2LowZAcMWDDXxuKaqHai7dNQPFCptGKsTxcP8/1vx
-	yXuLZXiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XXKRhRbkPdtCnHz5AqzwvY5fPC+7Cnxs+88nTiPHBpE=; b=Q0s6nmljZdkPuI+cS60qTNC3HP
+	72h5jYcvF+A9W3FH5wFqKZbzWMe6Z0c6yxa736HeYhuyR/u6Zvbw9jeaXxlbxAHfP+SaTPo5Focvu
+	wjKuyy0WUwh9K0fCQUFH9IIC054ywcnNJ5/zPTMqcVXm2jx+E8UaW6yqfruXq3cQIwHI5vqRp8KNF
+	DjXBYwzkWVXgvWOIuSUelMxLLHANLmUNI8wbNYfibgbJtNW+BqSNJVw4tLyGlhicb5WXD8qqzQyHy
+	DWOCzGPZM/5COdR+SegXkfFmmUGIQPTeJoY2VgwM8XsCk7P3LytOreYbGWKPM38dCEi2XhDrmpOUK
+	oYrZGSmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufOc0-0000000Ac3K-2TSv;
-	Fri, 25 Jul 2025 20:01:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ufOhP-0000000AckB-2qct;
+	Fri, 25 Jul 2025 20:07:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufOWs-0000000AbAI-0bTz
+	id 1ufOeu-0000000AcID-24Te
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 19:56:30 +0000
+	Fri, 25 Jul 2025 20:04:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4EF83601F2;
-	Fri, 25 Jul 2025 19:56:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB8D6C4CEE7;
-	Fri, 25 Jul 2025 19:56:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6754B5C594A;
+	Fri, 25 Jul 2025 20:04:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D533C4CEE7;
+	Fri, 25 Jul 2025 20:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753473388;
-	bh=DTyhXDpELPxUegquRGP0YjMOW25NNz7AxUozPicBFOU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=frOkazwWgScxWj9Ie1H1vZoYNmsQNr7dVhn2BbXTTxPSWpKrvU/+y6O5X2wNDNWt4
-	 HEPwNTXUslgORw25Yq54t31DH2cIZoLD5jMTB4h9J0wyXOAKSZ+75gSBjY7xqtjrbM
-	 RnGiKmGjdjVb1gneLqyooYmr4G6dbx0MXZ7ArwpHI90VRqDQ/wP1CHa58laC3NtSPt
-	 licddS8nwRgwU/LmjH+ynwbYagi4Q2fdWiugV0OgCmJwUp5ksOJ3XwhiegE7wpEQZ1
-	 JFASNVwmPJCltQ61dJcQ9R+X7JjiJov9W3LdYi8UYoa9JHIm9lXa8i4hAlxIfmFtko
-	 SLYYm4CMU0FwQ==
-Date: Fri, 25 Jul 2025 14:56:28 -0500
-From: Rob Herring <robh@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Matthias Schiffer <matthias.schiffer@tq-group.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: add TQMLS1012AL
-Message-ID: <20250725195628.GA1747130-robh@kernel.org>
-References: <20250725062454.271191-1-alexander.stein@ew.tq-group.com>
+	s=k20201202; t=1753473887;
+	bh=XXKRhRbkPdtCnHz5AqzwvY5fPC+7Cnxs+88nTiPHBpE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Tc23PteexjiHb5GWF3qs9ivHEy+H5q1OPzvdp+dh44jd8vBm5+0bhm0wPPLVviUXE
+	 h0YSPNOB3hyIqIx/PCzzoOv/mR81NhtPsZLpMBvgtvplYOR6JxNRmua2hgOMzNWGIW
+	 HJq5u0pfTtT/aEUinWJeIBcsw3S1rRKrb8sarmtlkB51WR2vJa4YvJmE9JYC/2fld2
+	 +esltBUXb6HBDed/ccndqjCLbsZmRc8tuAC6Mo7tlwtl3UdGQYyAQBXvcJLBrpf2ZD
+	 GH2ibsBbo78pPXzBPImolt7SgxMAUO8LoRnHNrnnVkGvf2ZMP7hpk50IBI7iE5H+WW
+	 tmW2/vlOh+DXA==
+Date: Fri, 25 Jul 2025 13:04:45 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
+ <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Christophe
+ Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>, Heiner
+ Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
+ Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v10 00/15] net: phy: Introduce PHY ports
+ representation
+Message-ID: <20250725130445.32e0307f@kernel.org>
+In-Reply-To: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
+References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250725062454.271191-1-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250725_130448_568084_B5CCB104 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +88,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 08:24:50AM +0200, Alexander Stein wrote:
-> From: Matthias Schiffer <matthias.schiffer@tq-group.com>
-> 
+On Tue, 22 Jul 2025 14:16:05 +0200 Maxime Chevallier wrote:
+> Here's V10 of the phy_port series. This version doesn't contain any
+> significant change, it fixes the conflict on the qualcom PHY driver, as
+> well as aggregates the reviews from Rob, K=C3=B6ry and Christophe (thanks
+> again).
 
-The subject could use a 'fsl: '.
-
-> TQMLS1012AL is a SOM using NXP LS1012A CPU. MBLS1012AL is a carrier
-> reference design.
-> 
-> [1] https://www.tq-group.com/en/products/tq-embedded/qoriq-layerscape/tqmls1012al
-> 
-> Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Changes in v3:
-> * Fixed commit message subject
-> 
-> Changes in v3:
-> * None
-> 
-> Changes in v2:
-> * Collected Conor's A-b
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index f494ada0c1966..0beb0040a7d34 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1571,6 +1571,12 @@ properties:
->                - fsl,ls1012a-qds
->            - const: fsl,ls1012a
->  
-> +      - description: TQ Systems TQMLS12AL SoM on MBLS1012AL board
-> +        items:
-> +          - const: tq,ls1012a-tqmls1012al-mbls1012al
-> +          - const: tq,ls1012a-tqmls1012al
-> +          - const: fsl,ls1012a
-> +
->        - description: LS1021A based Boards
->          items:
->            - enum:
-> -- 
-> 2.43.0
-> 
+Looks like we gathered no reviews from PHY maintainers here.
+We'll need to Defer this series to 6.18. Perhaps we should
+have pinged PHY maintainers a bit more for their input, sorry :(
+--=20
+pw-bot: cr
 
