@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7373EC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 02:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07B1C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 02:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5eCnxZLukn/ubt05PykTo/YwwMpLSJ69OngbYE/cW4=; b=eymKgzozPqr5CxcHnySwJVKmny
-	gICdlRR0Jt6GSA+Hjv556+VX91ehZ38cgTMmOrhl0EebImSBFIVYmiHJ3suFO4Y04LQWWE8UvliN7
-	3ZhgN0HM/HBotfx6d4hUMrNGoO4Hz8GOM3HMO6Lg6cLb+k8mbikc0ATqjdPP1xnfhu4MebbHSpIkG
-	WXDass/J8CkPQtmsTDTs+0ubqOp2pcmxhnIMubPYLC5iLxZb0QlrzRWxZKpFTTQQ8jmFhKjViaunt
-	T2xmv/3nw1/AUKTuP6PK4fa6oNP+xoSGqb7hcN/dnBGe10yNxDAuPlJTJ1m5bCZyKJTXDyNnRNPyM
-	/lPCEbDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:Cc:
+	To:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IzNyT7kT6q5Wzdn0wleELhzEPkL/zGsA6KbUIEqQcqk=; b=BXuy0L2kR0ULabFqC4m29ufV4s
+	lxo2RRR6ldHwyEF//vPNwbCrxi8Y43JeaKhL5yoQt0yJhArBjbOZGF9MSu69AnQXkuUT06Hm7G9+4
+	qwDMdsDLM6aOWspEER2nxf/sm7yG2oiCTq1AxG2vpUPLIO1VwvlMTjEIe7P3RTQirRnJgmuFnAU3i
+	Fd/iP9fNYGkjVaFudYrlPOmXOYzcGWguQSpOAackWu6VPzKpDu+7Z3hifOc1URs7V5areo1Eq0UsR
+	kNEDvXiYDtJ3CCPmRRbWWx1ce1Ytic45aqhILWWtB10gbodcRb4NgFo57BMH5/EKLd+DkjCkozctA
+	iBAIHVGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf8CJ-00000008tw8-2fK3;
-	Fri, 25 Jul 2025 02:30:11 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1uf8Ez-00000008uAk-0W30;
+	Fri, 25 Jul 2025 02:32:57 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf89r-00000008tlV-3gPD;
-	Fri, 25 Jul 2025 02:27:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753410460; x=1784946460;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Khfr6GJFMEPyxoF5TtbNyRQfS0y6Twazz2yM+2molDY=;
-  b=SB5tsRuWT2P4eb2jQZqakjx3RMakfz0TfVF5fAfyPv9q0+e6YiMziF+h
-   O7krGDVhtrcTAcEZy1aQfNtYDIPM4gBKdMRwMBD0tLlhN5OwTuuCNqalB
-   jPJgtgljLqKlIP7vNwqmBfkd0fPOu4phgEoX0R/dlfqHLMGfSmdnf+0QP
-   oj6N4cft1zFWzSyMWw0n6rEXG6H8DbZ96Pr7KS2u0d1Bw+JWuJyWDAbu+
-   NE7eX78mHZn2x9STHS5C+jJiWhJaZU8Kzx2lCW4nviyRujFfHGsypHmZ/
-   g2DwYzuieKOCOuuLmbr4TWKMmUVOf4x5frUHEW8PdDQ42Rcq/2Ze1Yhkn
-   g==;
-X-CSE-ConnectionGUID: i1h/c+WhSTC5CSc+siQzfw==
-X-CSE-MsgGUID: GluG7s9qRkScEh+RIzAOKg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11501"; a="43352933"
-X-IronPort-AV: E=Sophos;i="6.16,338,1744095600"; 
-   d="scan'208";a="43352933"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Jul 2025 19:27:39 -0700
-X-CSE-ConnectionGUID: bLSRn50RQC6VQhsJrY0bkA==
-X-CSE-MsgGUID: qPdZrQ5FRW2cHtvxPARCvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,338,1744095600"; 
-   d="scan'208";a="164883627"
-Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 24 Jul 2025 19:27:33 -0700
-Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uf89i-000KzD-0K;
-	Fri, 25 Jul 2025 02:27:30 +0000
-Date: Fri, 25 Jul 2025 10:26:54 +0800
-From: kernel test robot <lkp@intel.com>
-To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, jingoohan1@gmail.com, inki.dae@samsung.com,
-	sw0312.kim@samsung.com, kyungmin.park@samsung.com, krzk@kernel.org,
-	alim.akhtar@samsung.com, hjc@rock-chips.com, heiko@sntech.de,
-	andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
-	l.stach@pengutronix.de, dianders@chromium.org,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v3 08/14] drm/bridge: analogix_dp: Apply
- drm_bridge_connector helper
-Message-ID: <202507251021.A6WmQ4di-lkp@intel.com>
-References: <20250724080304.3572457-9-damon.ding@rock-chips.com>
+	id 1uf8CW-00000008tyh-3Jwu
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 02:30:26 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3122a63201bso1234674a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 19:30:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernelci-org.20230601.gappssmtp.com; s=20230601; t=1753410623; x=1754015423; darn=lists.infradead.org;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IzNyT7kT6q5Wzdn0wleELhzEPkL/zGsA6KbUIEqQcqk=;
+        b=fWUDGW/pw2UhMEfwFjQHpJnKrcL1gZaMbcY6cVRdM4qeno5ZhAqOj2uWc86RJeaTn3
+         ePSS091Hs8K6oIegD/jkmkBV6QDJo+nIS0A7UUmU4LPB2E02zOzICvZHiQKUniGFz9EE
+         E37j3aQQ9vrWF5wBIW1lA46L/kuE27WN+ymVZaUPPrHbplEQ8jDlaH+ci88BEqYukOEA
+         68PbqwrFuimysw6YGs1ACUWul2lUi3aAotDQjIwu1nSyrJIJxNcZHhMnMh5Kv90nbVKF
+         /tVL3RxYKB7GFK/4fNeyDPBm5bWYwsrq8s1wdhc41a07gte/FIsknA3d5QZC0hcXyGMx
+         sgDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753410623; x=1754015423;
+        h=message-id:date:reply-to:cc:to:from:subject
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IzNyT7kT6q5Wzdn0wleELhzEPkL/zGsA6KbUIEqQcqk=;
+        b=SmZAtNSIyXwb+zhuNW5VaaR9pIT7bBq7cLcrIrzF/tsQ6jcdGF2USoPWTwM0kuxkpp
+         QIe9hE+1ibCJh0QdwYfq64nu3F7SK17FmB9pyLNOnxqUeBo2lVH8nYKFOYVzhB8N60f6
+         hztHIrKcb17fGbqm99HVps2uI944XIACbDncsgVr4Em6xemUUEiuJwNBdG6T2ADfXdCJ
+         pe+PMYmJbmu4xwTbohGd7Mfl1aGpSidf2dL5JZgxSHZE6ZHJnEX23HiI55Z092LtWXJj
+         TpIWe4sBv31QpVgqYwOiKIbo7K5If0NJVGNkTakLpCcIcmj8fP//3Mrmx4gZEqkN41rG
+         GANA==
+X-Forwarded-Encrypted: i=1; AJvYcCVqonXc5huXrnC4Ylf5qKY8SdwNGOCa5fcIz/VkCK/gvcDpciL1rTRUB7BkE2zhX7/TTpOkQxL5hEnFcpTHDHog@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSn/NPkJyz0zX6EIHbO+7FPjWrQ7StvjjeNXy/aHPmn6zsZZt8
+	etk+fq+eTi9Nld1F9y8vW7/Z425REAOcn81khTrt5fIcHV8Az+JBeq7xIkUZqPVd6hXIIzJKGhK
+	L0jEj
+X-Gm-Gg: ASbGncue3KQ2BPmO3n31UfMASTAv6k4c/55OrZEBkNmcJoQrGA1RTK1q4UnSp8WUQ6n
+	REad/IgqMmcRRvDsE13EZeIgLyMZ3fjS0bqD65ocXwBE15VXAABz5UOn4gI8VFKL2O34PbVlUPv
+	EYTK3Rw8Vr3M55iEDjbz/Maw5fCM6MESdeibBl1oYSnGW/HbgHIxvrUKkNAKiw9lUlWZNSaGlbU
+	OLQoXduEBetQLsVkKWJdTY8OesangCoUm96Sll0i7MxR/zq1pIlmm992n12B6cbT/NmZhG2newP
+	ROLUD2QqiBPRHpn9tD1TSNtpHXoGvdeGsjdxWuuz82xyQN/RSJlXAIu2EaoZIsr9UoOT3xc2/62
+	Iyd03Ynml6GrU9fwb
+X-Google-Smtp-Source: AGHT+IE/JQ17vraDGeJga3EwblYo5gMjHeSnZXLQ4fnuvAqQudx6Ma2rSGNGbR/4X7sMPO04Ptz7zg==
+X-Received: by 2002:a17:90b:4f4d:b0:311:c1ec:7cfb with SMTP id 98e67ed59e1d1-31e778f41e5mr224447a91.21.1753410623522;
+        Thu, 24 Jul 2025 19:30:23 -0700 (PDT)
+Received: from 508e4dbc6f9f ([20.38.40.137])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e66296420sm2377133a91.9.2025.07.24.19.30.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Jul 2025 19:30:22 -0700 (PDT)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250724080304.3572457-9-damon.ding@rock-chips.com>
+Content-Transfer-Encoding: 8bit
+Subject: [STATUS] arm64/for-kernelci -
+ 82af5ea7c611c80bc8811cd7ce2122cbdd3da134
+From: KernelCI bot <bot@kernelci.org>
+To: kernelci-results@groups.io
+Cc: gus@collabora.com, will@kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Fri, 25 Jul 2025 02:30:22 -0000
+Message-ID: <175341062209.108.2784464375053139378@508e4dbc6f9f>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_192739_985261_9F558B98 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250724_193025_070743_2E295D5E 
+X-CRM114-Status: UNSURE (   6.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,61 +95,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kernelci@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on drm-misc/drm-misc-next]
-[also build test ERROR on next-20250724]
-[cannot apply to drm-exynos/exynos-drm-next rockchip/for-next linus/master v6.16-rc7]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Damon-Ding/drm-bridge-analogix_dp-Formalize-the-struct-analogix_dp_device/20250724-160804
-base:   git://anongit.freedesktop.org/drm/drm-misc drm-misc-next
-patch link:    https://lore.kernel.org/r/20250724080304.3572457-9-damon.ding%40rock-chips.com
-patch subject: [PATCH v3 08/14] drm/bridge: analogix_dp: Apply drm_bridge_connector helper
-config: x86_64-buildonly-randconfig-003-20250725 (https://download.01.org/0day-ci/archive/20250725/202507251021.A6WmQ4di-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250725/202507251021.A6WmQ4di-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507251021.A6WmQ4di-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/gpu/drm/bridge/analogix/analogix_dp_core.c:1346:12: error: incompatible function pointer types initializing 'enum drm_connector_status (*)(struct drm_bridge *, struct drm_connector *)' with an expression of type 'enum drm_connector_status (struct drm_bridge *)' [-Wincompatible-function-pointer-types]
-    1346 |         .detect = analogix_dp_bridge_detect,
-         |                   ^~~~~~~~~~~~~~~~~~~~~~~~~
-   1 error generated.
 
 
-vim +1346 drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 
-  1333	
-  1334	static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
-  1335		.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-  1336		.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-  1337		.atomic_reset = drm_atomic_helper_bridge_reset,
-  1338		.atomic_pre_enable = analogix_dp_bridge_atomic_pre_enable,
-  1339		.atomic_enable = analogix_dp_bridge_atomic_enable,
-  1340		.atomic_disable = analogix_dp_bridge_atomic_disable,
-  1341		.atomic_post_disable = analogix_dp_bridge_atomic_post_disable,
-  1342		.atomic_check = analogix_dp_bridge_atomic_check,
-  1343		.attach = analogix_dp_bridge_attach,
-  1344		.get_modes = analogix_dp_bridge_get_modes,
-  1345		.edid_read = analogix_dp_bridge_edid_read,
-> 1346		.detect = analogix_dp_bridge_detect,
-  1347	};
-  1348	
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Hello,
+
+Status summary for arm64/for-kernelci
+
+Dashboard:
+https://d.kernelci.org/c/arm64/for-kernelci/82af5ea7c611c80bc8811cd7ce2122cbdd3da134/
+
+giturl: https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
+branch: for-kernelci
+commit hash: 82af5ea7c611c80bc8811cd7ce2122cbdd3da134
+origin: maestro
+test start time: 2025-07-24 15:31:07.365000+00:00
+
+Builds:	    9 ✅    0 ❌    0 ⚠️
+Boots: 	   19 ✅    0 ❌    7 ⚠️
+Tests: 	    1 ✅    0 ❌    1 ⚠️
+
+### POSSIBLE REGRESSIONS
+
+  No possible regressions observed.
+
+
+### FIXED REGRESSIONS
+
+  No fixed regressions observed.
+
+
+### UNSTABLE TESTS
+    
+Hardware: bcm2711-rpi-4-b
+- boot (defconfig+lab-setup+kselftest)
+  last run: https://d.kernelci.org/test/maestro:688264b52ce2c1874eec2c88
+  history:  > ✅  > ⚠️  > ✅  > ✅  > ⚠️  
+            
+Hardware: cd8180-orion-o6
+- boot (defconfig+lab-setup+kselftest)
+  last run: https://d.kernelci.org/test/maestro:6882649d2ce2c1874eec2c59
+  history:  > ⚠️  > ⚠️  
+            
+Hardware: meson-g12b-a311d-libretech-cc
+- boot (defconfig+lab-setup+kselftest)
+  last run: https://d.kernelci.org/test/maestro:688264a42ce2c1874eec2c68
+  history:  > ✅  > ⚠️  
+            
+Hardware: meson-sm1-s905d3-libretech-cc
+- boot (defconfig+lab-setup+kselftest)
+  last run: https://d.kernelci.org/test/maestro:688264a82ce2c1874eec2c72
+  history:  > ✅  > ⚠️  
+            
+Hardware: mt8395-genio-1200-evk
+- boot (defconfig+lab-setup+kselftest)
+  last run: https://d.kernelci.org/test/maestro:688264932ce2c1874eec2c3c
+  history:  > ⚠️  > ✅  
+            
+Hardware: rk3399-roc-pc
+- boot (defconfig+lab-setup+kselftest)
+  last run: https://d.kernelci.org/test/maestro:688264aa2ce2c1874eec2c75
+  history:  > ⚠️  > ✅  
+            
+
+
+Sent every day if there were changes in the past 24 hours.
+Legend: ✅ PASS   ❌ FAIL  ⚠️ INCONCLUSIVE
+
+--
+This is an experimental report format. Please send feedback in!
+Talk to us at kernelci@lists.linux.dev
+
+Made with love by the KernelCI team - https://kernelci.org
 
