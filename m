@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D6EC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 19:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64913C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 19:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=61XCRCfOhXsOpRvEnTwofG9n7532SZZSh5JywwwlCUo=; b=bxcebpW8kojZ1fhIvY/VjWVJa7
-	vTLLsf3hStc2rSL+cq0f3Lm4BUQUIYWMNxWCWr8I0lm5ANi6hemcCEv1suxia7fwaalOsROeG3B+q
-	GgXOf2rWZcsxdfixXb+C0SETBZdV2GhkpKEHPoE+4dbzMZNOoayX+uKfJTyORC1m/oCqf8svxEX1Y
-	8kth262S88QBWlK9BLKqItobXvzeY6Cg/LRlvwUZaRs/jnwuuiBAY0nZvAq4SKW5H8jgH70KZwMQD
-	F8F6NnGvbIL9z1YtK9lTyPtpkB1F7xSPHyrlhUTzaGgTMzaSEAtscbQYWVfZXSJY+lhKZXyaBfqwA
-	cniYcegg==;
+	bh=c3zdFfPleR9/NME5SnuvxwSdlOs1YNUyMXK+UnEoUgM=; b=NIukYlf1WEY81ctiNjmOAsRo6L
+	WE1K6kwjEuTIh8G27AKz+lBPKl86+6Mm1nZ3W7X299KoO99NGBQ8K7ei34lMb96xEcG24TskqEwk3
+	WNv6WhaIGGx4NaMx+bB3vwzaRYJo61sBADTrj8djmDhRNuKCpSmwRhvf91q9O7oQiS2rTXrRui2oD
+	jok2q0Hd5h9jCOBW3iVwtHcxnoG7d4SaQ1GGvxjaImzcyIP0MFNpebtrKNVKcp1inNufafZ4iHmlp
+	5xt1WAaqQ3YZeWYAxxONorDrNrqwgFrlV6KezL385+SQw6IXmPB5af1oCGMm+/wTL7RU5EZjPzj+l
+	uO/Aga2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufOSF-0000000AafY-1cMC;
-	Fri, 25 Jul 2025 19:51:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ufOUg-0000000Aast-0qnY;
+	Fri, 25 Jul 2025 19:54:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufOO0-0000000AaIZ-3ieO
+	id 1ufOQE-0000000AaTs-3QJC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 19:47:20 +0000
+	Fri, 25 Jul 2025 19:49:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 029A9601ED;
-	Fri, 25 Jul 2025 19:47:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B26C4CEE7;
-	Fri, 25 Jul 2025 19:47:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D0E36A566FB;
+	Fri, 25 Jul 2025 19:49:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F26AC4CEE7;
+	Fri, 25 Jul 2025 19:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753472839;
-	bh=mEjzP9TaXNL8JMZBOaOKVilLLRlX5WpZm35D+dYFv7g=;
+	s=k20201202; t=1753472977;
+	bh=iiaOefTh/5OENt0FAUBnlV/H3u7UFzargnPQcIltk/w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YIIqiaIOHmnOPsekUorf5BEBcRj+fEFfAZDMVt9C8ukV0wZbtK5MHMjSySX0M5YL1
-	 CKq170D/xgNjf1sSMPlJvD+ueVR1l99gaxpUEzhZZuRwM5fG7sV1/aIc3ySWRY9YAz
-	 PeLTRMVf3ehqQzneaddt/2l4JBJXP1PY/C8JBJIWIHDUph5Kf66sO9Ft2YpwA3gYRn
-	 mXPreQF4hIkv5GG87zPIDgRkH88e01KnB0KpYIf0S9vU58cn4UJE6ib2D9I5pZkVZs
-	 mo9vodS9M0ZQHeDN9Z8BCfqY/NxGLtFmsJ/C80+U/Xw4Zjn3J914HpEuFbNj4O43Ss
-	 8AWHBIN13FPYA==
-Date: Fri, 25 Jul 2025 14:47:18 -0500
+	b=eVbjN1qYQpdx3muILzzWjaJ8epF/zocVS+xHte3uc11rXp0UKOfQutx6pCwd6k2jI
+	 /ceFETJ6jinjHpzAxRShzd4C0pxj9cz0+JdBmf2iF40aVE00Y6uZZeOOxnXwE6qgEs
+	 ShCPUz35FvGv07QPUXcPPFdZrjMujnYb+oUK392w90+TIDy9S+Pw5IeDxDV1lo9Loc
+	 5FU/ZkWx7NaCjHsiDPK+Qy65LlLqzZPVf6QMNq4yh/+CV7d8F+AG5FTIdfmybeCxFd
+	 Q3A1VUbas9Jam1TmzFl1qbAH6vmdMDYSlNZJY8L/7JAgPyDDDPkp5U7/iSmNTn/XEt
+	 zMDmFpZeJ3WIA==
+Date: Fri, 25 Jul 2025 14:49:36 -0500
 From: Rob Herring <robh@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+To: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Cc: Yannick Fertre <yannick.fertre@foss.st.com>,
+	Philippe Cornu <philippe.cornu@foss.st.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] dt-bindings: fsl: fsl,rcpm: reference
- power-domains.yaml
-Message-ID: <20250725194718.GA1727841-robh@kernel.org>
-References: <20250725055835.260930-1-alexander.stein@ew.tq-group.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 01/12] dt-bindings: display: st: add new compatible to
+ LTDC device
+Message-ID: <20250725194936.GA1731993-robh@kernel.org>
+References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
+ <20250725-drm-misc-next-v1-1-a59848e62cf9@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250725055835.260930-1-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20250725-drm-misc-next-v1-1-a59848e62cf9@foss.st.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250725_124938_986817_3272187D 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +87,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 07:58:34AM +0200, Alexander Stein wrote:
-> dtbs_check for ls1021.dtsi warns about unsupported property:
->  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+On Fri, Jul 25, 2025 at 12:03:53PM +0200, Raphael Gallais-Pou wrote:
+> The new STMicroelectronics SoC features a display controller similar to
+> the one used in previous SoCs.  Because there is additional registers,
+> it is incompatible with existing IPs.
 > 
-> But if removed the check warns about missing property:
->  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' is a required property
+> Add the new name to the list of compatible string.
 > 
-> Given commit 8bcf67b8d893b ("ARM: dts: ls1021a: add #power-domain-cells
-> for power-controller node") explicitly added that property, add a
-> reference to the common bindings to fix the warning.
-> 
-> Fixes: ad21e3840a88 ("dt-bindings: soc: fsl: Convert rcpm to yaml format")
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 > ---
->  Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+>  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 37 +++++++++++++++++++---
+>  1 file changed, 33 insertions(+), 4 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml b/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml
-> index 03d71ab930d79..5b7c0a1905545 100644
-> --- a/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml
-> +++ b/Documentation/devicetree/bindings/soc/fsl/fsl,rcpm.yaml
-> @@ -13,6 +13,9 @@ description:
->  maintainers:
->    - Frank Li <Frank.Li@nxp.com>
+> diff --git a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
+> index d6ea4d62a2cfae26353c9f20a326a4329fed3a2f..546f57cb7a402b82e868aa05f874c65b8da19444 100644
+> --- a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
+> +++ b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
+> @@ -12,7 +12,9 @@ maintainers:
 >  
-> +allOf:
-> +  - $ref: /schemas/power/power-domain.yaml#
-
-This is not correct. The fix for the above warning is to add 
-'#power-domain-cells' to the properties list here. You can't just 
-reference the schema because you have to define the value of 
-'#power-domain-cells' for this provider.
-
-Generally, we only add a $ref to providers if they have child nodes 
-(e.g. are a bus).
-
-> +
 >  properties:
 >    compatible:
->      oneOf:
-> @@ -75,7 +78,7 @@ properties:
->        RCPM register block is Little Endian. Without it RCPM
->        will be Big Endian (default case).
+> -    const: st,stm32-ltdc
+> +    enum:
+> +      - st,stm32-ltdc
+> +      - st,stm32mp25-ltdc
 >  
-> -additionalProperties: false
-> +unevaluatedProperties: false
+>    reg:
+>      maxItems: 1
+> @@ -24,11 +26,12 @@ properties:
+>      minItems: 1
+>  
+>    clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 4
+>  
+>    clock-names:
+> -    items:
+> -      - const: lcd
+> +    minItems: 1
+> +    maxItems: 4
+>  
+>    resets:
+>      maxItems: 1
+> @@ -51,6 +54,32 @@ required:
+>    - resets
+>    - port
+>  
+> +if:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - st,stm32-ltdc
+> +then:
+> +  properties:
+> +    clocks:
+> +      maxItems: 1
+> +    clock-names:
+> +      maxItems: 1
+> +      items:
+> +        - const: lcd
+> +else:
+> +  properties:
+> +    clocks:
+> +      maxItems: 4
+> +    clock-names:
+> +      maxItems: 4
+> +      items:
+> +      - const: bus
+> +      - const: lcd
+
+Why can't 'lcd' be 1st so you aren't changing positions? Keep the items 
+list at the top level and just use minItems/maxItems in the if/then 
+schemas.
+
+> +      - const: ref
+> +      - const: lvds
+> +
+>  additionalProperties: false
 >  
 >  examples:
->    - |
+> 
 > -- 
-> 2.43.0
+> 2.25.1
 > 
 
