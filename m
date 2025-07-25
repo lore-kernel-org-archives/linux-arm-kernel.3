@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB60C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 10:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB68C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 10:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5aImXme3gOQU/pOSB7kqei5E9wyfdYQvACc7haullE=; b=rHB2T9V/UTc1U8O2biuhYc020y
-	Ny2oFqS06/phtUzRSEaHPbzHOHzEgw3eH6U7ihGnBacZKEMoHofu/05ibVvUgnRFP+drV6h+4XadU
-	dkTvPiu5TdZFazxwfnrF3BRAavqXEU4D2Yo2s+phARIzxF9xoxiatKd5LkKd3Zy6iRht+l89xA3fB
-	OcjB+TwsNDUL7rpUEpZt8rwm39k9b+63BGtoLZ0nmFNwOdW9hgI1Cb3tgnMNC3UzV5Iw/S4BAN6Uu
-	W14q1ZrZJdtaJ2CFA6Vh6NIAGI1dlufjMenBezvN176BvtPA3Q7V21w/jpxl5IPxqOlqIEdi3T/vP
-	si/RnEuA==;
+	bh=EX6rxtdAs/to6XTiWeXFKYzusiCnxWSZcT/XtlJzybk=; b=q1GBT4XVx/N8OJk+X2ud7aJSq+
+	/oqCgA7hq4KPhdCMZPbA5YN/VpHdj03sAugqxc99MftK5UpV9UCU2S2yrc7RIlkPSd/mxVMMjpitg
+	GEhjeeqKbH59ZXBkQBXJXhsK4rY0k3kD20RydZsu/HNz88giIK6cR5uP2eR1/Qf9/6UTHTJfK7UEk
+	50RbYGUfVT3Il4wBu3/KsJTT+lHqpWJaf1YdUog5lMlcGUsUHCKrIIvTPwFe45NhI/Lldz3dLU5NL
+	xF4R0lWs0MUxYCS9gbAiKeRI5EjBP+HmBU4pdcE9E7G+99EgYv3gcC/anlr6UbolfefVVXjQYL8mQ
+	EWJBSq4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufFUF-00000009Z1D-1VVq;
-	Fri, 25 Jul 2025 10:17:11 +0000
+	id 1ufFWh-00000009ZVv-20Ej;
+	Fri, 25 Jul 2025 10:19:43 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufFKX-00000009WjW-0Bg1
+	id 1ufFKX-00000009WjZ-1vlk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 10:07:10 +0000
+	Fri, 25 Jul 2025 10:07:11 +0000
 Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56P9SFdu023018;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56P8fPi4001331;
 	Fri, 25 Jul 2025 12:06:56 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	f5aImXme3gOQU/pOSB7kqei5E9wyfdYQvACc7haullE=; b=k4z1YSuJwnBkaaRf
-	5e9VqwahfNq2FQ18BP7SCTOfBYI9XIxroqtNMLVBTcV0+3BpgDboJENte2yy5TAE
-	EwfXciyS/CjAzBLmVx6yk0qTKFSxi+ycJn+5EOMkRRf3EY70BNMoXqsPTWnybtJE
-	39RkU6Wpz3K2B2q1lvwhMM0zyspkWlhA3OvMJGGTcHphIxB2JgwYILzuI49ayt68
-	Fd9eNSZDrBbPdVM10d1rpud7dEt9h7Oj0u6F4kj3E3gMNYxeMtg0uAN2kH/2gBWW
-	Tzg9M5rUHL7FJmAZpWcTdBAt7VX9s/ss++PHLlAXRYCV8ieC2lET/XlLysKnHWMy
-	+4FYwg==
+	EX6rxtdAs/to6XTiWeXFKYzusiCnxWSZcT/XtlJzybk=; b=udZY+Iv2Cvjzd8et
+	d4nRw5vI2Xa8F4oHabOI/wAuowvq/5lVlc+FsEs2YxfcoYsrrNrf0EPP+ZSx5Vj6
+	7YPXWzSZYlPYmbKeFYbtSQtfjUu1zZu21FOXLVZHJiq+ZMiaSU1PWK9E+eV2XY5H
+	m50jalfoHib2wvA80cuHG448Fiet8JouLaX5FYsQi1x7zrR+2n1xCVSllf6EJPSV
+	M8KwT2uEBMF1XJ4IlnZVJbZcc/Xfpn+ZLpcfgxBZRWDKBfSPvTLac5ZeiXW9WyXU
+	W22W0MpKDh9Qjqc+0XZNFfsq3KpKdK/DuRWA3vfL8kn3h+QDG8vs5pJUgpybNGuU
+	1JaxRw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3m2hcm-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w3m2hcp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 25 Jul 2025 12:06:56 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5B7464005D;
-	Fri, 25 Jul 2025 12:05:41 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8299640052;
+	Fri, 25 Jul 2025 12:05:33 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id CC12C7A19C2;
-	Fri, 25 Jul 2025 12:04:36 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BF6A57A19C4;
+	Fri, 25 Jul 2025 12:04:28 +0200 (CEST)
 Received: from localhost (10.252.19.90) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Jul
- 2025 12:04:36 +0200
+ 2025 12:04:28 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Fri, 25 Jul 2025 12:04:03 +0200
-Subject: [PATCH 11/12] arm64: dts: st: enable display support on
- stm32mp257f-ev1 board
+Date: Fri, 25 Jul 2025 12:03:55 +0200
+Subject: [PATCH 03/12] dt-bindings: display: st,stm32mp25-lvds: add
+ access-controllers property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250725-drm-misc-next-v1-11-a59848e62cf9@foss.st.com>
+Message-ID: <20250725-drm-misc-next-v1-3-a59848e62cf9@foss.st.com>
 References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
 In-Reply-To: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,8 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-25_02,2025-07-24_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_030709_381499_E33A4B17 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250725_030709_792178_B52AA756 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,122 +111,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the following IPs on stm32mp257f-ev1 in order to get display:
-   * LTDC
-   * LVDS
-   * WSVGA LVDS panel (1024x600)
-   * Panel LVDS backlight as GPIO backlight
-   * ILI2511 i2c touchscreen
+access-controllers is an optional property that allows a peripheral to
+refer to one or more domain access controller(s).
+
+This property is added when the peripheral is under the STM32 firewall
+controller.  It allows an accurate representation of the hardware, where
+the peripheral is connected to a firewall bus.  The firewall can then
+check the peripheral accesses before allowing its device to probe.
 
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 79 ++++++++++++++++++++++++++++++
- 1 file changed, 79 insertions(+)
+ Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 2f561ad4066544445e93db78557bc4be1c27095a..b324b0c226ddf043e62f01245240f3e8d2b0a53c 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -86,6 +86,43 @@ mm_ospi1: mm-ospi@60000000 {
- 			no-map;
- 		};
- 	};
-+
-+	panel_lvds: display {
-+		compatible = "edt,etml0700z9ndha", "panel-lvds";
-+		enable-gpios = <&gpiog 15 GPIO_ACTIVE_HIGH>;
-+		backlight = <&panel_lvds_backlight>;
-+		power-supply = <&scmi_v3v3>;
-+		status = "okay";
-+
-+		width-mm = <156>;
-+		height-mm = <92>;
-+		data-mapping = "vesa-24";
-+
-+		panel-timing {
-+			clock-frequency = <54000000>;
-+			hactive = <1024>;
-+			vactive = <600>;
-+			hfront-porch = <150>;
-+			hback-porch = <150>;
-+			hsync-len = <21>;
-+			vfront-porch = <24>;
-+			vback-porch = <24>;
-+			vsync-len = <21>;
-+		};
-+
-+		port {
-+			lvds_panel_in: endpoint {
-+				remote-endpoint = <&lvds_out0>;
-+			};
-+		};
-+	};
-+
-+	panel_lvds_backlight: backlight {
-+		compatible = "gpio-backlight";
-+		gpios = <&gpioi 5 GPIO_ACTIVE_HIGH>;
-+		default-on;
-+		status = "okay";
-+	};
- };
+diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+index 6736f93256b5cebb558cda5250369ec4b1b3033c..e046c0a4fdb7f13ca5a31b14ae0ab19f2bc486fa 100644
+--- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+@@ -54,6 +54,9 @@ properties:
+   resets:
+     maxItems: 1
  
- &arm_wdt {
-@@ -183,6 +220,15 @@ imx335_ep: endpoint {
- 			};
- 		};
- 	};
++  access-controllers:
++    maxItems: 1
 +
-+	ili2511: ili2511@41 {
-+		compatible = "ilitek,ili251x";
-+		reg = <0x41>;
-+		interrupt-parent = <&gpioi>;
-+		interrupts = <13 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpiog 14 GPIO_ACTIVE_LOW>;
-+		status = "okay";
-+	};
- };
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
  
- &i2c8 {
-@@ -230,6 +276,39 @@ timer {
- 	};
- };
- 
-+&ltdc {
-+	status = "okay";
-+
-+	port {
-+		ltdc_ep0_out: endpoint {
-+			remote-endpoint = <&lvds_in>;
-+		};
-+	};
-+};
-+
-+&lvds {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			lvds_in: endpoint {
-+				remote-endpoint = <&ltdc_ep0_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			lvds_out0: endpoint {
-+				remote-endpoint = <&lvds_panel_in>;
-+			};
-+		};
-+	};
-+};
-+
- &rtc {
- 	status = "okay";
- };
 
 -- 
 2.25.1
