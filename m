@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF489C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25F9C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:51:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mleQXqvIgmr7vuLRWiAVnrArCWUQGYeMAk8tu5qFi14=; b=ABLOsCVuYf/rUf8LDGkoeFzgqe
-	RBQOofB6RTrOEmb6xIZmJoUBWr6i+wjpppMgSKbXG7Rzab3CIKBJfgsWrVmr1qMc6q5l8HNNh5YeJ
-	P9CAjznI3r+wA1yd80vMF2L0zPhlRnxkyAG+Qcdbg3fAQOPaFBmhycEUOfOO4bScSsEMbhJIXMklo
-	NszLD6Ne2Tc+oRUR5U0RvGeIpoNNDURrRhFsAVSRCei060ezMsR2agrPqg4NOiBVpHld2qYPj+xk+
-	gk4dPlfHBJk+inKFTI6YyzLQUQ2U7+jjItKYpOuscKlPgFeRipTVF90cmsHgW3swGodXEGlA534f/
-	iHVXQDsw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rQhxUI8Fh9eyfgKmKjb+PifIaeiBh4I0FbzAiPRYf8Q=; b=ikLQSloVPKTYUuZKBck1sv2heI
+	z8i9a47etM//SrNvJnnYMF4WZbddNCMmXO1nMYpI1QLAAxxWWsRkCCuie+ju3sV6uNMcfdA0oNcmA
+	TcdqewLh2qf+FJgd2LrRdvs2/ayeb8b8ucW+l2R3U/1HS/cmCCUsBouBJfnWcc35jJP4jJbk0JKWj
+	4ioD+svDJIpTQlYij9XfPEDUGVPElIfcaSFpzYhX7AtmaW+NmUz7VICFNNdIH/5rGsBzw83U/1r7U
+	lSqLTeD3aIHDMAdacKaImSoijhFPly1ky8O14WUx/HVRPzt4OCfXwG58N1rtJh1uLGlvY2uRcgo9L
+	YH+gzM0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKfK-0000000A91z-0fln;
-	Fri, 25 Jul 2025 15:48:58 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1ufKhm-0000000A9Mp-4Aqj;
+	Fri, 25 Jul 2025 15:51:30 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKc7-0000000A8SJ-3KSD
+	id 1ufKc9-0000000A8TW-42xK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 15:45:42 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3b77683cc5bso557398f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:39 -0700 (PDT)
+	Fri, 25 Jul 2025 15:45:43 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4561607166aso17329595e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458338; x=1754063138; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mleQXqvIgmr7vuLRWiAVnrArCWUQGYeMAk8tu5qFi14=;
-        b=CI4JdYaQjkSSYQb7WcRhqGMnEyzPUQNHHkCkRcrrhfhZb4iOfVe2kUVN7+z6KBaUtl
-         3VGAV5pqIdKYfgpaDxAigfuQ9B5nvXhx73XW1YKjgmoAQT+/2lx9p8DpRihur9rmJcQV
-         8dCaDxUBpOyHJaBOu2KsM3uLSXew02sc9OVj+r/6MYILdUoThZvnX9vJJNJsBKWEuT5/
-         pI0Wccdb4AotVvfGqIPK6WLwbe/lqwAXsXW0wK2ZN7Pe54mBidmOJctvG8DMMJThMHyw
-         +uGuvvtNZopVvpf2kBboq3KYHbr/S2y6vD4wNAwE36CPrA8V5DfJNaccX9Yho9rs+re4
-         4hHQ==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458340; x=1754063140; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rQhxUI8Fh9eyfgKmKjb+PifIaeiBh4I0FbzAiPRYf8Q=;
+        b=yjvU9lwK/hM30j0uP4AyobEc4jKoKn50WyG+uM22z9Q2qh96veSdCjyTZjbty0wiPN
+         xdBDq7rhiFWTsNG3jdGQv5qkx5O00FgzJ2P6xoihusMUgQsQdwPtQKDUDhHWqZ5UtiO8
+         rdWou+YgYGPyPBw6nXXnbbVRAv+4vwTQbmokmRFHKczj2Y++2YsPapXCVrCeGinhCQ0G
+         wIvN7+0otOscR7rX8fjml/MZzyVMNaf6BClDqU0oVT+SvGzYY+lRLWSWZAHhc76x4GaY
+         hsMQUNWi5ERSeIhrNjK5DJpCQ3/y5yKc23TZD5vP3JDa7mWfYs2+6cL6tZ/pJd0kE+oN
+         PNjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753458338; x=1754063138;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mleQXqvIgmr7vuLRWiAVnrArCWUQGYeMAk8tu5qFi14=;
-        b=VS2lp107oNHCPVhEko9eTEYcVqsgUJDu24NS7vEwOGC0ei1CoDf9lwhgfQ5om0KGt+
-         jZPizYavFF4Kd6vCXJYsJHiDwEMQi6MU8mkhYVsmfEj7q1WAW4ZlvV2MUL8aqm179bCF
-         2cxgM0VXuErKyK1vTplA/py+lo+stZqIqX11VLe5/vOBAVx0FkYlahyRyO6GaFKW0AOt
-         y65xrKw45S+CUWU77TPuwqBrBEQInV77XVOI45lNtteAVdHDjTjmYBVcJK10UPkehW3l
-         Lb1IUs0mCPp/XGj4qkDfilKr9fO1qPqHr/rblhcvK/kNLzfCZH8xjLem+bfM8oRlNpdd
-         x1cw==
-X-Forwarded-Encrypted: i=1; AJvYcCXkvBsAEOd+Vm3P+Wat0BvMAfp5deCqPbuud8RkUttTrFpXHrtsDEnE26ojkHzU6HFJ8ZtO3e3Hey+b4EEva68i@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDwciwlkielXGwUU9XnCn99MU/OeFuWtbf5sKd1hs1d1e5EDOl
-	qKnKok6b1QI8ikEMzhK2d7ZDhWwzp+0hKYpq1yKML2O+2YSRIr24yObrIr4rYRg6hH4=
-X-Gm-Gg: ASbGncvfQwdTRv43AETppQk+8XJ9OBxqP5FTlD/BJGFEZedJxLfYRCvpnHvdWCryBYW
-	5hJZV8zCQGjvgEiBDR/RlSuMfoc/udXIhhM/6ttk77fuYYXlBJi/XKISeWJDREHgIS4G17cVY/F
-	f/qg/IoY4hKOhEMha1xl7i3RvBBv0N74W1D4/3Z6OZE+OFSv3RItCw+f15L4jVOP2nYK83slXX2
-	fIK1wyDZupMKksq3iHHIS70S3FOHbLenk+rA8Oqbr/gj3CNtC+2fLMtKgAnKnpitsG7hOYydRNl
-	XscwH9yI4zmIvYB4f7VybN7MxwWt0bPiIdRjyQU0Olc1dcffj2D2w9V9JDfZV4XMZvQCCCjcbQu
-	neq0eeZb/y3EFu/ocVY3IrUMPLP8weCa7po+y0vSid1NxNIhNnipCURypbbDmfYKl
-X-Google-Smtp-Source: AGHT+IF+Z8jEVkmX32G585PaBNthqQ5rTesPtNg3nHS9aHQXVJv4rFJcGdiunHYW1cmdEB9sybuEMQ==
-X-Received: by 2002:a05:6000:4282:b0:3b6:deb:1b43 with SMTP id ffacd0b85a97d-3b77666a7e6mr1833864f8f.41.1753458337861;
-        Fri, 25 Jul 2025 08:45:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1753458340; x=1754063140;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rQhxUI8Fh9eyfgKmKjb+PifIaeiBh4I0FbzAiPRYf8Q=;
+        b=pFzajhf0xaWShyAsApUgiVZ5nL86pY1p8Jv/7cN4SbC50sCROZVVZ387e4Bv7ViHyl
+         y99vdClqBps1HW90LFeNnRS5R7fjPhA11ebzgpTxgh907o5M2/pJMSOVtbhoOCDUcMWm
+         C7tkixKLF588p33W8li/5pqPUeRSt+Xu/TF796J2Wz/vDpNiMLixT7VQMeRVmK9Kdi+C
+         X96SoGyt48mw+0seuOYOqu83avataWDHijglAJSDjP/2XxoPzu/qjeiC6Cd89/uvqkNh
+         jT7bCpnG5aCyl1HHMhkMuETUUiqKAiGmTHSd49RDz6PnHauFBFJ0m8aZkhP2vpSCZ9CJ
+         D7dQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXGUqSbFSbTLBwx+wwR0rgWRf6TA8rs6muWudIHs9pHuM+BnWZLus4ce5qmBR54UK3JrF95GfqvpFOOYenIBWks@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxb9zKU7Yj2EkzSFLGTssgq2+39EHMfn3h/OVxLXWpoCPDVPlw+
+	shFq4RkV/kvzq3mMo9kCSi6hG0GiyDbvBQlCWiao+nBH2io2TKsCTv/2MRu3JE2McCE=
+X-Gm-Gg: ASbGnctTsJEfek9+59u4aNPw6oOlD5qOydV0/g27DqNNVk6HzMrEydA+whhPhQyN0i2
+	RpU5y1sJdrNE5/yi+OaSXN/oNWAg7rA4jbi5uCnomYMpKCaTWLYMQW4K9FV2YOFsPEyKfTy9Eek
+	ibEuyTiTAMSGZSUo+5sV9dEqcVHf22fL1AgkyqjE/UONg7Rgaxkl3tEoOu1wElzK/LWp7MItjRc
+	mcBwSRnbebiXMYiZ9XO8vrj616cPZNY7XP5/txd8wv4Fz0oPcXrtNWWy2eWX9LbBwHeU/f00gKs
+	BwfX4Hwmij910Ym+ouMSbaLMkMpQYPGE7OmKE3Ffrz1acq8+Ahw+UkpqNi/DNrsVNKUg9tCEsn5
+	hg4Lyd0D5JKPZXx9hlhWh+bLftk+ELe0pUOPszeL4i9K8FeyoCkt6F6/AF7gJiXw7
+X-Google-Smtp-Source: AGHT+IFvvuRO9E62crjoHjYDpYCmIkj1p8pP+WebWJSSnZvU75d1+OogkqpnJ1UX0x5ss6EP/V5dvQ==
+X-Received: by 2002:a05:600c:1d09:b0:453:84a:8cf1 with SMTP id 5b1f17b1804b1-4587667ade9mr19761815e9.33.1753458340292;
+        Fri, 25 Jul 2025 08:45:40 -0700 (PDT)
 Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b778f106e9sm216675f8f.65.2025.07.25.08.45.36
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-458705bcbfbsm60002095e9.16.2025.07.25.08.45.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 08:45:37 -0700 (PDT)
+        Fri, 25 Jul 2025 08:45:39 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-pwm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 0/8] pwm: mediatek: Convert to waveform API
-Date: Fri, 25 Jul 2025 17:45:04 +0200
-Message-ID: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 1/8] pwm: mediatek: Simplify representation of channel offsets
+Date: Fri, 25 Jul 2025 17:45:05 +0200
+Message-ID: <20250725154506.2610172-11-u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.50.0
+In-Reply-To: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
+References: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1697; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=i25yPyDYxImkVBf5DC1DPyGwN93bkwil5G8qHmo7mwM=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aCn7lXpMFpj4nJUtawseBPtyk1rpuckaGTy 8/ihh5ZIQaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmggAKCRCPgPtYfRL+ TohQB/0bOXtYPsC8OuS08IRX2/7IZcy11cYkRTXW/3eSRFYwZkytdgmFcQMW1o5axhen+jOLYL7 93VmEllRWyUILSC57dfXRC/5OJgKhYUmZbTPE/7rx8QT3DFm6MOoGVjqZBQve+r+rRzk8gRyazT On9W7L1gKeKboz6WooyBaMkO9YckNei3+HiGZf2mO80DnibZg/VL8+B2UBz/mBImPPdz2Eztj1t xiG2JkGbK4pcyJj3PqyZ+k/QZyCM/ENI4hy8KYTD9CWXH8DR/4PDjbUjN2IW7sRuDD6XKm3jzFG 46qZnZXzwJG29lxfKavjdY9g/P3BXCIVEWX8Q0IbUhQUr1Km
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5740; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=Vh5B9HqPrBhGUtVTYSV0ca1sCZJ/iXlXUjDWoHeJRpM=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aFx/HmfNW5zHZ9pAk6VHQWrh6vSIV//JANL AAboGD7UJ2JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmhQAKCRCPgPtYfRL+ TjouB/4hXsGYa61YVjD2g79g+p3dsacSCeoFj/4eZRcSqNVCH05EIO93oufe+Ag3PrqdpYtNSks RsqIY7QO5AHG62qn1/nIrFVDC6THaoxHdoLnTl1/LoA5kMoE9yZJnESBrtxYW1UtrUKD9SleUob hyPy47Kwo2GNf/NsVL8KwgaPPNmPpejr5zbt2kQPObbjz3wr3DYmuzO5sdFjUWUScfTF+oc0U4I gDzQZ9An+dNzKAti3e6OovpIWCHjbKPIjSdVVx1rfZLj6O4lM6eL5zlQ3KuVA7WTaAXSVfnfBPa 2xaFIo/cQ33tE81cATA8le4expd1I4ARHFzPrv56NCGhnTh7
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_084540_070594_ABD19C6B 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250725_084542_003574_A90D9445 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +103,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The general register layout contains some per-chip registers starting at
+offset 0 and then at a higher address there are n nearly identical and
+equidistant blocks for the registers of the n channels.
 
-here comes v2 of my effort to convert the pwm-mediatek driver to the new
-waveform API. Changes since (implicit) v1 (available at
-https://lore.kernel.org/linux-pwm/cover.1751994509.git.u.kleine-koenig@baylibre.com/):
+This allows to represent the offsets of per-channel registers as $base +
+i * $width instead of listing all (or too many) offsets explicitly in an
+array. So for a small additional effort in pwm_mediatek_writel() the
+three arrays with the channel offsets can be dropped.
 
- - Rebase on top of the latest fix for period and duty setting
-   (https://lore.kernel.org/linux-pwm/20250724210041.2513590-2-u.kleine-koenig@baylibre.com/)
+The size changes according to bloat-o-meter are:
 
- - Don't report a disabled PWM when the PWM is disabled. Though that
-   seems counter intuitive, this is the only way to allow the consumer
-   to query the minimal period. This wasn't necessary in v1 because back
-   then the driver claimed to provide a non-disabled setting for
-   duty_cycle=0 .
+	add/remove: 0/3 grow/shrink: 1/0 up/down: 12/-96 (-84)
+	Function                                     old     new   delta
+	pwm_mediatek_apply                           696     708     +12
+	mtk_pwm_reg_offset_v3                         32       -     -32
+	mtk_pwm_reg_offset_v2                         32       -     -32
+	mtk_pwm_reg_offset_v1                         32       -     -32
+	Total: Before=5347, After=5263, chg -1.57%
 
-As before the patches in the middle don't serve a functional purpose
-because the last patch removes the changes again. Still I consider it
-useful because it reduces the last patch to what is needed in such a
-conversion.
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ drivers/pwm/pwm-mediatek.c | 58 ++++++++++++++++++++------------------
+ 1 file changed, 30 insertions(+), 28 deletions(-)
 
-Best regards
-Uwe
-
-Uwe Kleine-König (8):
-  pwm: mediatek: Simplify representation of channel offsets
-  pwm: mediatek: Introduce and use a few more register defines
-  pwm: mediatek: Rework parameters for clk helper function
-  pwm: mediatek: Initialize clks when the hardware is enabled at probe
-    time
-  pwm: mediatek: Implement .get_state() callback
-  pwm: mediatek: Fix various issues in the .apply() callback
-  pwm: mediatek: Lock and cache clock rate
-  pwm: mediatek: Convert to waveform API
-
- drivers/pwm/pwm-mediatek.c | 454 ++++++++++++++++++++++++++-----------
- 1 file changed, 319 insertions(+), 135 deletions(-)
-
-
-base-commit: 68b9272ca7ac948b71aba482ef8244dee8032f46
-prerequisite-patch-id: ec97edc20a72c4e283e74cec97c8cc6036e2fd01
+diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
+index 4460bbca2582..4dfe657957bf 100644
+--- a/drivers/pwm/pwm-mediatek.c
++++ b/drivers/pwm/pwm-mediatek.c
+@@ -38,7 +38,8 @@ struct pwm_mediatek_of_data {
+ 	unsigned int num_pwms;
+ 	bool pwm45_fixup;
+ 	u16 pwm_ck_26m_sel_reg;
+-	const unsigned int *reg_offset;
++	unsigned int chanreg_base;
++	unsigned int chanreg_width;
+ };
+ 
+ /**
+@@ -57,19 +58,6 @@ struct pwm_mediatek_chip {
+ 	const struct pwm_mediatek_of_data *soc;
+ };
+ 
+-static const unsigned int mtk_pwm_reg_offset_v1[] = {
+-	0x0010, 0x0050, 0x0090, 0x00d0, 0x0110, 0x0150, 0x0190, 0x0220
+-};
+-
+-static const unsigned int mtk_pwm_reg_offset_v2[] = {
+-	0x0080, 0x00c0, 0x0100, 0x0140, 0x0180, 0x01c0, 0x0200, 0x0240
+-};
+-
+-/* PWM IP Version 3.0.2 */
+-static const unsigned int mtk_pwm_reg_offset_v3[] = {
+-	0x0100, 0x0200, 0x0300, 0x0400, 0x0500, 0x0600, 0x0700, 0x0800
+-};
+-
+ static inline struct pwm_mediatek_chip *
+ to_pwm_mediatek_chip(struct pwm_chip *chip)
+ {
+@@ -118,7 +106,8 @@ static inline void pwm_mediatek_writel(struct pwm_mediatek_chip *chip,
+ 				       unsigned int num, unsigned int offset,
+ 				       u32 value)
+ {
+-	writel(value, chip->regs + chip->soc->reg_offset[num] + offset);
++	writel(value, chip->regs + chip->soc->chanreg_base +
++	       num * chip->soc->chanreg_width + offset);
+ }
+ 
+ static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+@@ -306,86 +295,99 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
+ static const struct pwm_mediatek_of_data mt2712_pwm_data = {
+ 	.num_pwms = 8,
+ 	.pwm45_fixup = false,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt6795_pwm_data = {
+ 	.num_pwms = 7,
+ 	.pwm45_fixup = false,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7622_pwm_data = {
+ 	.num_pwms = 6,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7623_pwm_data = {
+ 	.num_pwms = 5,
+ 	.pwm45_fixup = true,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7628_pwm_data = {
+ 	.num_pwms = 4,
+ 	.pwm45_fixup = true,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7629_pwm_data = {
+ 	.num_pwms = 1,
+ 	.pwm45_fixup = false,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7981_pwm_data = {
+ 	.num_pwms = 3,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
+-	.reg_offset = mtk_pwm_reg_offset_v2,
++	.chanreg_base = 0x80,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7986_pwm_data = {
+ 	.num_pwms = 2,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt7988_pwm_data = {
+ 	.num_pwms = 8,
+ 	.pwm45_fixup = false,
+-	.reg_offset = mtk_pwm_reg_offset_v2,
++	.chanreg_base = 0x80,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt8183_pwm_data = {
+ 	.num_pwms = 4,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt8365_pwm_data = {
+ 	.num_pwms = 3,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt8516_pwm_data = {
+ 	.num_pwms = 5,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
+-	.reg_offset = mtk_pwm_reg_offset_v1,
++	.chanreg_base = 0x10,
++	.chanreg_width = 0x40,
+ };
+ 
+ static const struct pwm_mediatek_of_data mt6991_pwm_data = {
+ 	.num_pwms = 4,
+ 	.pwm45_fixup = false,
+ 	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL_V3,
+-	.reg_offset = mtk_pwm_reg_offset_v3,
++	.chanreg_base = 0x100,
++	.chanreg_width = 0x100,
+ };
+ 
+ static const struct of_device_id pwm_mediatek_of_match[] = {
 -- 
 2.50.0
 
