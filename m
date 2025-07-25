@@ -4,107 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6147C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5512C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 07:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzqH02+hJ/0E8n+RTM+yEwFitfKa/gSQdkGVRRTXJhc=; b=IMAXiL27N8SMrxR1+AdXRBlVkH
-	iwVFn0TwcpdFXxt5SBesU2/kLUd5XKsFmR7wuEjshmF/tr9mcuasFsQf/QhuAkXKzPEc6SF77J0wx
-	wePb6lwdTKMsIEPzrDyUXAI4pqo4CTt3fg/d0ZeC+e7TxAzMnAh1cErY3Tc91h335/WBmAnsOMVEQ
-	JpdFfcdtO9PytrbP6okx2i3DMoL9S1sgJae1h7b0pSTJHvfS6ZS1AyCOKSg2yDGOEq3e6P7wHQGBm
-	yoZr4jDfc1+hTGOX9sz8Q8SNl49ULaIY53n0l8Kj8tQYL7VTcOtis4VakjxthOuIR/yU9K1wM4j3y
-	e4Lki8XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XDvrRTEFuMCLtbPLEccOAzjUpJZIlgtMil5cTFgU7EA=; b=o846pI9UbzM23yAAvwaBV0bM0s
+	JiYhBm/lLDPuxsiHyB80pW7VJedH2HD9GdXG1v/Cx/QhiomzelwLVOMcqSFFlzpAiQXx5OY61vOoN
+	QbrVv6cuY3hjXEN+08dWjEu6u5VKpdZFmsWdEoBqQd+3rmM7AvcCPxsYwpl5PJPhUs8/gim6rPqIK
+	/a7cO7wvbOEotW30tW/6EaPgEGrODmmSYVvE2as5yaa9ce05qPvA/OeBb5QokwiB6VthxQNTnKnsa
+	GZ5TWafauq3bYkx5O1bIW9ggW+RHgLzef+av1l4z6SSAVtWpWzHYte1RdpH1v2SvJr1oaSStZ5JpM
+	CQKY1Nsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCgz-00000009FIV-0hQ9;
-	Fri, 25 Jul 2025 07:18:09 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ufCjO-00000009FWC-3ehL;
+	Fri, 25 Jul 2025 07:20:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufCYq-00000009ELm-2WZM
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 07:09:46 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56P61XZi009176;
-	Fri, 25 Jul 2025 09:09:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	LzqH02+hJ/0E8n+RTM+yEwFitfKa/gSQdkGVRRTXJhc=; b=vEY7oeG+pNnop6/X
-	Y9urlffHn9wPzkQ2Is/FDs6FmFPNXT3zTb3jyMz3lmY7QPMwpHHlMXBmXHaer/PU
-	0K0P0ulWgakiEqWGw1l11dPWR/0Is+mSEQnefGwkZ3l/7cXUl6SA3HJ2CRdoyG1I
-	FdmL8tUHYqCtB98XPDPWNBGYyLXEwDmWXM7P+PtbfkAkPayNHbYAgdZ3XfNJ2Zbc
-	CmgC/QaDxklOmCvKhJ7nMI4NpBlPKOB2X2y39VEgc7AEaz1kO+m3wWAhQP0OsPLr
-	FY38beWUv0pV94PWCAt8crCejpNCdBfw4cLvaHFaeaNLHLfxgTQP0XVsBJXJZTO6
-	L/feBQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 483w5rsn0e-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Jul 2025 09:09:24 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4812F40044;
-	Fri, 25 Jul 2025 09:07:57 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8B10578175F;
-	Fri, 25 Jul 2025 09:06:35 +0200 (CEST)
-Received: from [10.48.86.185] (10.48.86.185) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Jul
- 2025 09:06:34 +0200
-Message-ID: <ce0cb3ba-2373-479f-a8f3-3a89ffb0a1b1@foss.st.com>
-Date: Fri, 25 Jul 2025 09:06:33 +0200
+	id 1ufCb0-00000009EZE-2mHi;
+	Fri, 25 Jul 2025 07:11:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A7F39601DC;
+	Fri, 25 Jul 2025 07:11:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B42CC4CEE7;
+	Fri, 25 Jul 2025 07:11:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753427517;
+	bh=NIrSmkNaqlrDP1N8LHUNlwi4EoCzvpR2Fghdour3+lI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f5DjHfnLxJRHxrPjixKz9e3HA4B5jay/iIi78te15+dbbNIE0kXL8+FKl9usFF17H
+	 hAyffWg4KLQWOsMgfLORmx9/b7N2uUrlXzbivw7rMtDcUphHTjr9GvssiRqDWArnaZ
+	 +vgPEilcy1tEERdqMPT7SZlKBiJy/OuTEQmufjIJv+falGZ9toEzooVaRQALQs587P
+	 8OX7gJrzRuWL4bneig6TgESlt7wUYZ8El/1dMOhJUzD22CJ/Z+oHqxqj8umMYS5Nfn
+	 StEOFycqJoRP376PkhQ7dbRiTk9AluSEuQB+X1uR9qr7hNNDOX+oLX0+C2Vexiy8lE
+	 5UN6/xybxXzWw==
+Date: Fri, 25 Jul 2025 09:11:54 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Simon Horman <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH net-next v5 1/7] dt-bindings: net: airoha: npu: Add
+ memory regions used for wlan offload
+Message-ID: <20250725-amiable-strict-pudu-5cce71@kuoka>
+References: <20250723-airoha-en7581-wlan-offlaod-v5-0-da92e0f8c497@kernel.org>
+ <20250723-airoha-en7581-wlan-offlaod-v5-1-da92e0f8c497@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 05/20] dt-bindings: memory: factorise LPDDR props into
- SDRAM props
-To: Julius Werner <jwerner@chromium.org>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250723-ddrperfm-upstream-v4-0-1aa53ca319f4@foss.st.com>
- <20250723-ddrperfm-upstream-v4-5-1aa53ca319f4@foss.st.com>
- <CAODwPW_kex5Agqxg_i-XC308scEpUJU0me55G7iZ8nB9LC0acg@mail.gmail.com>
- <204401b4-b483-47e2-ae73-0994b39bd30c@foss.st.com>
- <CAODwPW9drKEAMfQvQHV8eMTyf5KCHB4SN400JiUs0pgjoXy=sw@mail.gmail.com>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <CAODwPW9drKEAMfQvQHV8eMTyf5KCHB4SN400JiUs0pgjoXy=sw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.185]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-25_02,2025-07-24_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_000945_220385_B77FDBF9 
-X-CRM114-Status: GOOD (  19.63  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250723-airoha-en7581-wlan-offlaod-v5-1-da92e0f8c497@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,39 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Julius,
-
-On 7/25/25 00:33, Julius Werner wrote:
->>> I don't think this will identify a part unambiguously, I would expect
->>> the DDR revision ID to be specific to the part number. (In fact, we're
->>> also not sure whether manufacturer+revision identifies LPDDR parts
->>> unambiguously for every vendor, we just didn't have anything more to
->>> work with there.) I would suggest to use either `ddrX-YYYY,AAA...,ZZ`
->>> or `ddrX-YYYY,ZZ,AAA...` (where AAA... is the part number string from
->>> SPD 329-348 without the trailing spaces). The first version looks a
->>> bit more natural but it might get confusing on the off chance that
->>> someone uses a comma in a part number string.
->>
->> The first one seems better indeed.
->> If the manufacturer put a comma in the part number we should handle it
->> at a software level to me and if it is a devicetree error it is up to
->> the devicetree writer to fix it.
->> What do you think ?
-
-I meant exactly what you are stating below :-)
-
+On Wed, Jul 23, 2025 at 07:19:50PM +0200, Lorenzo Bianconi wrote:
+> Document memory regions used by Airoha EN7581 NPU for wlan traffic
+> offloading. The brand new added memory regions do not introduce any
+> backward compatibility issues since they will be used just to offload
+> traffic to/from the MT76 wireless NIC and the MT76 probing will not fail
+> if these memory regions are not provide, it will just disable offloading
+> via the NPU module.
 > 
-> Not sure what you mean by "handle it at a software level"? Using comma
-> characters in the part number is not illegal according to the SPD
-> spec, as far as I can tell.
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  .../devicetree/bindings/net/airoha,en7581-npu.yaml    | 19 +++++++++++++++----
+>  1 file changed, 15 insertions(+), 4 deletions(-)
 > 
-> That said, it is still possible to disambiguate this as long as the
-> revision number is always there, you just have to look for the last
-> comma from the end (so e.g. the string `ddr4-1234,some,part,567,89`
-> could be unambiguously parsed as manufacturer ID 0x1234, part number
-> `some,part,567` and revision ID 0x89, the parsing code just needs to
-> be a bit careful). So maybe this is not actually a problem.
+> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+> index 76dd97c3fb4004674dc30a54c039c1cc19afedb3..f99d60f75bb03931a1c4f35066c72c709e337fd2 100644
+> --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+> @@ -41,9 +41,18 @@ properties:
+>        - description: wlan irq line5
+>  
+>    memory-region:
+> -    maxItems: 1
+> -    description:
+> -      Memory used to store NPU firmware binary.
+
+I still do not get why this cannot be kept backwards compatible. I
+looked at your driver code and NPU offload support RFC, and they look
+correct. Yet what stops any future developer from changing:
+
+	mt76_npu_init(mdev, pci_resource_start(pdev, 0),
+		pdev->bus && pci_domain_nr(pdev->bus) ? 3 : 2);
+
+into:
+
+	ret = mt76_npu_init(...)
+	if (ret)
+		goto err...;
+
+? Why would anyone NOT DO such change in the future?
+
+I think I asked about this last time as well - why you cannot keep new
+entries optional (minItems: 1)?
 
 Best regards,
-Clément
+Krzysztof
+
 
