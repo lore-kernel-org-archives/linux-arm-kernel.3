@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95480C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1139C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+i0wtQ07nL3ZqfsyJmSHDju1V+eOBxLhbkZYzY60Gu8=; b=gFDSaTe+ccTBR6ElXq+sKF8Bym
-	QXBNwc34w6GSGf8yZYkpVVHXQQkwyGzb1+9nzc8bcPmdnEnSy+UsNoat7VJwwnSBbiwo+IA0A4oF/
-	YTKAOPMaz1ohL3HgVkKrBijuxVZEHKASUAVHA4hQ1vERCBMpVKloIwciMFHwDXHmNgp3XOa3nuuv9
-	kkD7JXsP9K6j9xPCgk10zorbVebpeeNkaqdPl8ETBgWM3O1InzNipA5g4sU+XMah+WrahKhwgT/LL
-	gsEbIUEHaZc/ttRFIdd5Pi4yCa4IlJfFjkEjnjPxXYBoDUz6jBYqbWkywZsd25mM1YgAUwsncS3MG
-	zNJUIDhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3UlWs5l+oOrBrkVYNeILHZoYkNbA2xQARHEE4h2fbS8=; b=x/8ATE5jMWfnQNAD4S/rSgx5Vs
+	pXwhBG1PhAXhBukyX98CnorakJ6BHCahCuhHxnKsI6AiW7d6sJlJlxq3EbfcuKUloR5BIq+wbNSoc
+	LaRjbhZz2WHRzf74Ld/E0ieU0OPC1ne1TrTJ5LzRl2I059LuSv+5sJMhG+/mXoZT4M/qBqFTVnKfR
+	o07bnI8fl5gE1R2JpxeD34N68umrJImLRXAB1EzdqZmLtgvIvBUT+/L83LNwiLZ9v7KbirrnDwV/p
+	mPg4tQIkxnwm0bWQSdH34WJxulEhZvVC3YyK2ZvbfovVV0WedR6iod1SQUUdKAxHio5s2W+GV0eOO
+	Uu7eLzLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufNFk-0000000ASLO-3tAh;
-	Fri, 25 Jul 2025 18:34:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufLuO-0000000AIY6-08eM
+	id 1ufNFm-0000000ASMc-1jmE;
+	Fri, 25 Jul 2025 18:34:46 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ufMCx-0000000AKGm-3vgL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 17:08:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2A30176C;
-	Fri, 25 Jul 2025 10:08:28 -0700 (PDT)
-Received: from [10.1.197.43] (eglon.cambridge.arm.com [10.1.197.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B17A3F66E;
-	Fri, 25 Jul 2025 10:08:32 -0700 (PDT)
-Message-ID: <ccbf2f40-7e69-4b51-953f-113695b8c16e@arm.com>
-Date: Fri, 25 Jul 2025 18:08:31 +0100
+	Fri, 25 Jul 2025 17:27:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 246C610391E80;
+	Fri, 25 Jul 2025 19:27:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1753464464; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=3UlWs5l+oOrBrkVYNeILHZoYkNbA2xQARHEE4h2fbS8=;
+	b=TwR16l5ZRojyZ9aw5+k0dhQkwb/1kaLqVhqH2QvioVY0qVECNvy5CTzAUcBxLKHRlYRQjN
+	8e2RhplWmYn2pXCnyjXv7Xt3k2NXMrp+y6B/21scJzfPchyJEThoMSyNb5Byw5TBTTd9qs
+	arMXYG8ykNZshXDXwpwkvVIsVIxMQ3TWcnVc3IG4Fu3umERajzNZKMfX5tnSHAF0NK4Nos
+	nRDGiFbmSzKHPLjnfQ5gyVU6FL+LVM9nVhPcTs2idRcrmLtdmXN7aZqOTYnO5Yo5zGtAMj
+	I2rPEdrBela6GoksRl3a/KSW9EYXEeeKue53IHAWNyV11yRaOHXjsoLgjTDAaQ==
+Date: Fri, 25 Jul 2025 19:27:38 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Simon Horman <horms@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>
+Subject: Re: [net-next v16 06/12] net: mtip: Add net_device_ops functions to
+ the L2 switch driver
+Message-ID: <20250725192738.0fffece9@wsk>
+In-Reply-To: <20250725155440.GF1367887@horms.kernel.org>
+References: <20250724223318.3068984-1-lukma@denx.de>
+	<20250724223318.3068984-7-lukma@denx.de>
+	<20250725155440.GF1367887@horms.kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 04/36] cacheinfo: Expose the code to generate a
- cache-id from a device_node
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
- <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
- Carl Worth <carl@os.amperecomputing.com>,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-5-james.morse@arm.com>
- <bfc4d1b5-c8c4-45de-b52a-833486368336@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <bfc4d1b5-c8c4-45de-b52a-833486368336@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="Sig_/VpCMvLfcku4gQXj7ihFznS1";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_100836_113950_DFDD5344 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250725_102748_278771_F2CB91E5 
+X-CRM114-Status: GOOD (  34.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,57 +80,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+--Sig_/VpCMvLfcku4gQXj7ihFznS1
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-On 14/07/2025 12:40, Ben Horgan wrote:
-> On 7/11/25 19:36, James Morse wrote:
->> The MPAM driver identifies caches by id for use with resctrl. It
->> needs to know the cache-id when probe-ing, but the value isn't set
->> in cacheinfo until device_initcall().
->>
->> Expose the code that generates the cache-id. The parts of the MPAM
->> driver that run early can use this to set up the resctrl structures
->> before cacheinfo is ready in device_initcall().
+Hi Simon,
 
->> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
->> index 613410705a47..0fdd6358ee73 100644
->> --- a/drivers/base/cacheinfo.c
->> +++ b/drivers/base/cacheinfo.c
->> @@ -207,8 +207,7 @@ static bool match_cache_node(struct device_node *cpu,
->>   #define arch_compact_of_hwid(_x)    (_x)
->>   #endif
->>   -static void cache_of_set_id(struct cacheinfo *this_leaf,
->> -                struct device_node *cache_node)
->> +unsigned long cache_of_calculate_id(struct device_node *cache_node)
->>   {
->>       struct device_node *cpu;
->>       u32 min_id = ~0;
->> @@ -219,15 +218,23 @@ static void cache_of_set_id(struct cacheinfo *this_leaf,
->>           id = arch_compact_of_hwid(id);
->>           if (FIELD_GET(GENMASK_ULL(63, 32), id)) {
->>               of_node_put(cpu);
->> -            return;
->> +            return ~0UL;
->>           }
->>             if (match_cache_node(cpu, cache_node))
->>               min_id = min(min_id, id);
->>       }
->>   -    if (min_id != ~0) {
->> -        this_leaf->id = min_id;
->> +    return min_id;
+> On Fri, Jul 25, 2025 at 12:33:12AM +0200, Lukasz Majewski wrote:
+> > This patch provides callbacks for struct net_device_ops for MTIP
+> > L2 switch.
+> >=20
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de> =20
+>=20
+> ...
+>=20
+> > +static netdev_tx_t mtip_start_xmit_port(struct sk_buff *skb,
+> > +					struct net_device *dev,
+> > int port) +{
+> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
+> > +	struct switch_enet_private *fep =3D priv->fep;
+> > +	unsigned short status;
+> > +	struct cbd_t *bdp;
+> > +	void *bufaddr;
+> > +
+> > +	spin_lock_bh(&fep->hw_lock);
+> > +
+> > +	if (!fep->link[0] && !fep->link[1]) {
+> > +		/* Link is down or autonegotiation is in progress.
+> > */
+> > +		netif_stop_queue(dev);
+> > +		spin_unlock_bh(&fep->hw_lock);
+> > +		return NETDEV_TX_BUSY;
+> > +	}
+> > +
+> > +	/* Fill in a Tx ring entry */
+> > +	bdp =3D fep->cur_tx;
+> > +	status =3D bdp->cbd_sc;
+> > +
+> > +	if (status & BD_ENET_TX_READY) {
+> > +		/* All transmit buffers are full. Bail out.
+> > +		 * This should not happen, since dev->tbusy should
+> > be set.
+> > +		 */
+> > +		netif_stop_queue(dev);
+> > +		dev_err_ratelimited(&fep->pdev->dev, "%s: tx queue
+> > full!.\n",
+> > +				    dev->name);
+> > +		spin_unlock(&fep->hw_lock); =20
+>=20
+> Sorry be the one to point out this needle in a haystack,
+> but this should be spin_unlock_bh()
 
-> Looks like some 32bit/64bit confusion. Don't we want to return ~0UL if min_id == ~0?
+I must have overlooked it when working on the code.
 
-Certainly some confusion - yup, because cache_of_calculate_id() needs to return something
-that is out of range and (u32)-1 might be valid...
+Anyway, I need to wait if there are other comments from Jakub or Paolo
+- as they had some comments (addressed already by this patch set) for
+  previous version.
 
-I think changing min_id to be defined as:
-|	unsigned long min_id = ~0UL;
+>=20
+> Flagged by Smatch.
+>=20
+> > +		return NETDEV_TX_BUSY;
+> > +	}
+> > +
+> > +	/* Clear all of the status flags */
+> > +	status &=3D ~BD_ENET_TX_STATS;
+> > +
+> > +	/* Set buffer length and buffer pointer */
+> > +	bufaddr =3D skb->data;
+> > +	bdp->cbd_datlen =3D skb->len;
+> > +
+> > +	/* On some FEC implementations data must be aligned on
+> > +	 * 4-byte boundaries. Use bounce buffers to copy data
+> > +	 * and get it aligned.spin
+> > +	 */
+> > +	if ((unsigned long)bufaddr & MTIP_ALIGNMENT) {
+> > +		unsigned int index;
+> > +
+> > +		index =3D bdp - fep->tx_bd_base;
+> > +		memcpy(fep->tx_bounce[index], skb->data, skb->len);
+> > +		bufaddr =3D fep->tx_bounce[index];
+> > +	}
+> > +
+> > +	if (fep->quirks & FEC_QUIRK_SWAP_FRAME)
+> > +		swap_buffer(bufaddr, skb->len);
+> > +
+> > +	/* Push the data cache so the CPM does not get stale memory
+> > +	 * data.
+> > +	 */
+> > +	bdp->cbd_bufaddr =3D dma_map_single(&fep->pdev->dev, bufaddr,
+> > +					  MTIP_SWITCH_TX_FRSIZE,
+> > +					  DMA_TO_DEVICE);
+> > +	if (unlikely(dma_mapping_error(&fep->pdev->dev,
+> > bdp->cbd_bufaddr))) {
+> > +		dev_err(&fep->pdev->dev,
+> > +			"Failed to map descriptor tx buffer\n");
+> > +		dev->stats.tx_dropped++;
+> > +		dev_kfree_skb_any(skb);
+> > +		goto err;
+> > +	}
+> > +
+> > +	/* Save skb pointer. */
+> > +	fep->tx_skbuff[fep->skb_cur] =3D skb;
+> > +	fep->skb_cur =3D (fep->skb_cur + 1) & TX_RING_MOD_MASK;
+> > +
+> > +	/* Send it on its way.  Tell FEC it's ready, interrupt
+> > when done,
+> > +	 * it's the last BD of the frame, and to put the CRC on
+> > the end.
+> > +	 */
+> > +
+> > +	status |=3D (BD_ENET_TX_READY | BD_ENET_TX_INTR |
+> > BD_ENET_TX_LAST |
+> > +		   BD_ENET_TX_TC);
+> > +
+> > +	/* Synchronize all descriptor writes */
+> > +	wmb();
+> > +	bdp->cbd_sc =3D status;
+> > +
+> > +	skb_tx_timestamp(skb);
+> > +
+> > +	/* Trigger transmission start */
+> > +	writel(MCF_ESW_TDAR_X_DES_ACTIVE, fep->hwp + ESW_TDAR);
+> > +
+> > +	dev->stats.tx_bytes +=3D skb->len;
+> > +	/* If this was the last BD in the ring,
+> > +	 * start at the beginning again.
+> > +	 */
+> > +	if (status & BD_ENET_TX_WRAP)
+> > +		bdp =3D fep->tx_bd_base;
+> > +	else
+> > +		bdp++;
+> > +
+> > +	if (bdp =3D=3D fep->dirty_tx) {
+> > +		fep->tx_full =3D 1;
+> > +		netif_stop_queue(dev);
+> > +	}
+> > +
+> > +	fep->cur_tx =3D bdp;
+> > + err:
+> > +	spin_unlock_bh(&fep->hw_lock);
+> > +
+> > +	return NETDEV_TX_OK;
+> > +} =20
+>=20
+> ...
 
-fixes this - any trip round the loop that doesn't match anything will eventually return ~0UL.
 
 
-Thanks! - I always get the 'UL' suffixes wrong.
 
-James
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH, Managing Director: Johanna Denk,
+Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
+Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/VpCMvLfcku4gQXj7ihFznS1
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmiDvooACgkQAR8vZIA0
+zr1bvQgA44ZH/osB57cH3YVOvl8W4ulZu0p5blupZwTqPyhtEWfShe4Gefx2DbBt
+Qi87KMsl8a4Z6SIAcgfuGtn1dFzMua0tj/sJ8fY2oyUtexOv2y6tQGiDr1j8DO/k
+BSF/t0HZeHfT8iNCM2QHMc/6ffmXu1Db115OJaE8C5eJ8P/vl209TV/KjlLYxeeE
+t0k4PpCGy5ek0A1LveQLbn7PAHNDiy3sbSyadvrisQmHBpUcOjpbeIWzafC5KZXN
+3XWWzQYYw3s9sL2MMTa4zrEMqdUB3iX2jm09OQJkcI/tZi3PEWHQOIMws/5kr9yq
+b01X7Ygc7fueQ3yXYUE3WxIIPCQ8xw==
+=jTi0
+-----END PGP SIGNATURE-----
+
+--Sig_/VpCMvLfcku4gQXj7ihFznS1--
 
