@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D792DC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 08:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A41FC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 08:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMKLr5uuxm4ompRvwBtIABxyW/McpLZrW9QwH3l9Hr4=; b=DRA+SdZn4NHag84h4nUoYdRLnI
-	JDoe0YlwrdJ17MNMqp9uGct7u4K0/LwftHwty1xrjN58Qh2XNUyvBJBaUihm+to7jBtc7ri2Nban4
-	TBgse2hZvraPtcc+uN4qmITFaZMl2U0fKyds92OnkScz7aEN8nxlzVd+vk5DAlzmKeoHNblWRSPSo
-	HmHO8viqIgo+OQEXqOwg+vqN1kBYJk2IaOxpkBuGaM8NhxGlfjMEDgDlntFQHRJD2JaVqKYkKiWaS
-	mq13ntODbjN5f8URv5XuQOZE5vqRThCIYZrcyB0cH+JNvVWZblgXweeRIekth6e2gkPHVyPUxasNO
-	fWEozvIA==;
+	bh=ywDXj3OT/3CEcXGlhf+IK9/M29hNvJW80BD75CmUu3g=; b=I9UlFfGlF3FiWSglSUolu3XNpO
+	fFnlytH4cP0x1fve82rGMEVUwO3ucunw0sE5KvQ77F1WQZWSBXF9yLQCvk3sJSDCDN4QkKCvg/ABr
+	o5zqwlavzvOdGgOPGwiF5aFaYQxhymw4tmDWleZQKBYaUFRX3QpPx/YhBCC3Q0fFG8FqiXh5d1k4b
+	2Mcu4KtuXVzQRcf/oFWnsl8e8DDltfQnsAfkh8APSd8qvx2gCfbDQWIE300/zaZuFrpXUzDno6yt/
+	LGLHDsgkdhQlzCLg7pvOSwOMQBasPOoh4RCo+IwPWX237lLptiZQFijUIYyvwm3kDhueczAKinEzy
+	dns/bv2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufE8k-00000009OQj-0lXs;
-	Fri, 25 Jul 2025 08:50:54 +0000
+	id 1ufECg-00000009OnC-06bi;
+	Fri, 25 Jul 2025 08:54:58 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufE6F-00000009OC8-3V6p
+	id 1ufEAC-00000009OaK-3gvw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 08:48:22 +0000
+	Fri, 25 Jul 2025 08:52:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C42B2A55FA6;
-	Fri, 25 Jul 2025 08:48:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD714C4CEE7;
-	Fri, 25 Jul 2025 08:48:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31383A55DDA;
+	Fri, 25 Jul 2025 08:52:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 225ADC4CEE7;
+	Fri, 25 Jul 2025 08:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753433298;
-	bh=EwAtmyR0kMv8l1AdAG5vtKyOKjmw06VLhEKfxX4RGTo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=miHprvFxB1dhNx7Nz1jlGp0x8mhCM6iRCsrt3AylbwU1UUvSubjMo55u3Rp7Hs6Lo
-	 RmpZHj2X/66IwdiWQgw9/uLJIMvdtpPvWI79bjqxSziNB4f5dkgDMaDOCr1xfnNX46
-	 pYm4U9vQW0C1ThFCoSbvC2TRdZ/3WNbTLv6EtluQP5az9X8gUXg03dL+5TIHM2DfeZ
-	 ofG/i4zJE0tYCxh+45puhjvKij8UPX8lSwhqFhrMaMn/gJzEHs9BXNmwTSA43Z9iGS
-	 o5qWTbZ+vR9InSC8E3Uv3fOOs/C8Eu3jP0j9ptw7ibd5zFaqH3IcvA9ezgYab08wy2
-	 J/ck/mO26/X9A==
-Message-ID: <1635e663-24b6-48f8-b781-67284d832db7@kernel.org>
-Date: Fri, 25 Jul 2025 10:48:14 +0200
+	s=k20201202; t=1753433543;
+	bh=v460wegL41COGLMIC6tZ6p6QjPl0aFJj1BobsnJVX24=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=MBb2XtQI9g2edV9cjAUaicJfKBWi6GJmznWd+UsH+vsxfvtsfJrEf9v7CrerBVO5U
+	 pwXugUGCFzzQ9OhlfCbLOlc+u6uNchlXVn5DjgO3FSHmBp70Asd95zG0AsCYptqFqm
+	 N3bmZ0UPDTKjlFb+payOzJaAZ6Vle3bEMyej4NsBAb6A8W89fGYTcWT3VbcUiyjMeZ
+	 118Y9AwGpSEF2qUWUmjA+UaGT60XZw0W9GIXkXIZO97elHAjNdj3b0GldwI31rXD3i
+	 fpzTPoo2981M0EXnhu7DGFQr7X/TZ0cfS4vfrlDHU2vpxDIWT246t++hLMKK5brKaI
+	 ZwwGCNBKYXIGw==
+Message-ID: <e8f1d209-fb35-4a39-941f-c81807ae91ff@kernel.org>
+Date: Fri, 25 Jul 2025 10:52:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Fix section mismatch from
  the module conversion
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Daniel Lezcano <daniel.lezcano@linaro.org>, tglx@linutronix.de,
  willmcvicker@google.com
 Cc: linux-kernel@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
@@ -57,7 +58,7 @@ Cc: linux-kernel@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>,
  <linux-samsung-soc@vger.kernel.org>
 References: <20250620181719.1399856-6-willmcvicker@google.com>
  <20250715121834.2059191-1-daniel.lezcano@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <1635e663-24b6-48f8-b781-67284d832db7@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -102,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250715121834.2059191-1-daniel.lezcano@linaro.org>
+In-Reply-To: <1635e663-24b6-48f8-b781-67284d832db7@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_014820_011060_CD82B2FA 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20250725_015225_060825_3FF83975 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,35 +123,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/07/2025 14:18, Daniel Lezcano wrote:
-> The function register_current_timer_delay() when compiling on ARM32
-> fails with a section mismatch. That is resulting from the module
-> conversion where the function exynos4_clocksource_init() is called
-> from mct_init_dt(). This one had its __init annotation removed to for
-> the module loading.
+On 25/07/2025 10:48, Krzysztof Kozlowski wrote:
+> On 15/07/2025 14:18, Daniel Lezcano wrote:
+>> The function register_current_timer_delay() when compiling on ARM32
+>> fails with a section mismatch. That is resulting from the module
+>> conversion where the function exynos4_clocksource_init() is called
+>> from mct_init_dt(). This one had its __init annotation removed to for
+>> the module loading.
+>>
+>> Fix this by adding the __init_or_module annotation for the functions:
+>>  - mct_init_dt()
+>>  - mct_init_spi()
+>>  - mct_init_dt()
+>>
+>> Compiled on ARM32 + MODULES=no, ARM64 + MODULES=yes, ARM64 +
+>> MODULES=no
+>>
+>> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+>> ---
+>>  drivers/clocksource/exynos_mct.c | 6 +++---
+>>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> Fix this by adding the __init_or_module annotation for the functions:
->  - mct_init_dt()
->  - mct_init_spi()
->  - mct_init_dt()
+> Did anyone applied this or any other fix?
 > 
-> Compiled on ARM32 + MODULES=no, ARM64 + MODULES=yes, ARM64 +
-> MODULES=no
-> 
-> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-> ---
->  drivers/clocksource/exynos_mct.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> Next builds are still broken.
+> https://krzk.eu/#/builders/12/builds/3365
 
-Did anyone applied this or any other fix?
+... and first failure was 9 (!) days ago:
+https://krzk.eu/#/builders/12/builds/3350
 
-Next builds are still broken.
-https://krzk.eu/#/builders/12/builds/3365
-
-Please revert untested patches if there is no consensus for fixes
-
-It's really surprising that original patchset was not even built by
-defconfigs (and I assume it was not even asked to be built by LKP).
 
 Best regards,
 Krzysztof
