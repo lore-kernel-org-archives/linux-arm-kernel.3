@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A5BC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 23:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2DEC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 23:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GlkeWf2+O8Ox/jS4qOtOfWYFOcC7DcKeM7EHeI3Y0Hs=; b=QrivNPKcSQZSSZqyWrvb7SqaUp
-	MGBRnp3sBflQ1e4Z/P678Gl6WadRm8rE9AUov5d0M3y3pFC+moGsq0qCkVYR1SD5ls0bkEvNR2WL4
-	gzz8iAPorraNI9EXoYNn0t9SdB9Qm06dWqYwtIUXfKKcrpNJp/XZUPFlGq9N/1K1G6al1DBFzqrDP
-	LdQ8BZXhT6bNvPD2uMJ7/mtzwVGFeCbMP7U5jLpjK4kAFXT4GqsiJ/5ZUrWVDeTIHi8hCO27+Cdgs
-	AoKKbVL051v6Grv2uH4l5dGi8PxO/shY8IwMd0ESPuAOW6qnpOi8WVRUOCosmrPWx9xB+OD9BvBay
-	u9DkGhOQ==;
+	bh=tX75wxzoU5B+LtFYVhk4s+Fmn/17S7sVKi/GjMVUOmU=; b=e6XPefjBaKhao8My2bRG74YL3F
+	fXgI8wWQeP62Y6GLDD87iRuy9QlSFKc8IOeHgTM2S4TJJDh3W62r05PlJeEsab4J0lTEIw1sGRKx4
+	2cRKfoABy1yanUGyg1sHau1U5CE/FpKdOlr7JPILhsm7/bceEb7Uqh2GXJUtOxNj2lOh74+tMI9J7
+	7o5QsrFrdVph4gHQ8O1BG1cylQU8665Nk8eoWfrPWVWpOxZM88ixzVFhIC9vC5qycC4U63kFnXnr0
+	qBMd2rI9CyyyVR7NjwtyoJTaN3bFyGe2iuKehZzf/l/3fmAgUOt4XwaZxlQnC2NIB0YJGK8rowa4b
+	kBIMQmEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufReK-0000000AqVU-26ZP;
-	Fri, 25 Jul 2025 23:16:24 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ufRgk-0000000AqoF-3UJk;
+	Fri, 25 Jul 2025 23:18:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufRae-0000000ApxZ-1Wur;
-	Fri, 25 Jul 2025 23:12:37 +0000
+	id 1ufRcQ-0000000AqF0-0KBy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Jul 2025 23:14:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 73D78A56771;
-	Fri, 25 Jul 2025 23:12:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4F03C4CEE7;
-	Fri, 25 Jul 2025 23:12:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C12F045934;
+	Fri, 25 Jul 2025 23:14:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C3EDC4CEE7;
+	Fri, 25 Jul 2025 23:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753485155;
-	bh=lKPeV4dbiMZgeOgy5vCWxzKkrNkCOUiKusQlfwyyh4g=;
+	s=k20201202; t=1753485265;
+	bh=roilVrcSzwsI01XzOOpsXim3Xv2gE6Ixo5ZnYOtnZz0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eUO6gcNman3Vtu/exvEYRzEjR7cFwafa00xuS8x2urfr/gOW2Bj7tembJ35BQTYTM
-	 sg1PZAIPVXEHqG9QluUBkbzuEdOZRuljdC6ARmZ8pyWDWdeVH5i0aatgDw3RtEdxEg
-	 xpPlkVUvOHHg19vB7hidb0J5UytvvysKl/vIvKGSIUtThtJWJLydupBWpQiuEqjs+d
-	 EzUemwm89JaJBGb4llfCrohBuQSTN0iG/CNdVtQYdI5LqZlXNTaLvXEVJPyV5Ma7mP
-	 IiLffzZHtemi1ChCQZZQA3i9Qtc0PnkfDdorR1wTC+RJH5m1NC7GGDg4VXVy14umvk
-	 lCRTefb+Hgb5w==
-Date: Fri, 25 Jul 2025 18:12:34 -0500
+	b=qEueuhL6kYCL3Yz1JjWLfYuYvoNzMmNVJt/7eJV6SPfst67Ma33jlz8+HCoii/5KB
+	 iN2w4179PaGb4JtqRVyI+2DBaebIO9YetDoMn7rO0dkOPFrzgfbplCB7NumBk76Y3j
+	 EAeKUnD3GIYxANgbp4Xve3NQmDBhqIXZzkYTf0/69Eq+SUlxdktkX94nsMiJPn8Ijz
+	 ux51iwGDUXjKy7/vYi4QatVzfH6DhR4X0v+IUoLXWzn+jwem1uKvT20sYNHD1BsmFD
+	 hY6W7Gm2QdL10qPWF3ig+piHTBAcOxT+uyoS5UEPZ1LuM3XoKjM+9By2PC8jjqWCnt
+	 2g8Es33H/D7NQ==
+Date: Fri, 25 Jul 2025 18:14:24 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: u.kleine-koenig@baylibre.com, mturquette@baylibre.com,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	sboyd@kernel.org, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, geert+renesas@glider.be,
-	kernel@collabora.com, devicetree@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com
-Subject: Re: [PATCH 1/3] dt-bindings: clock: mt7622: Add AFE_MRGIF clock
-Message-ID: <175348515340.2008768.1491160057381781606.robh@kernel.org>
-References: <20250724083907.61313-1-angelogioacchino.delregno@collabora.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Ceclan Dumitru <dumitru.ceclan@analog.com>,
+	David Lechner <dlechner@baylibre.com>,
+	Stefan Popa <stefan.popa@analog.com>, linux-iio@vger.kernel.org,
+	Michael Hennerich <Michael.Hennerich@analog.com>,
+	David Heidelberg <david@ixit.cz>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andreas Klinger <ak@it-klinger.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	Lucas Stankus <lucas.p.stankus@gmail.com>,
+	Andy Gross <agross@kernel.org>,
+	Alexandru Lazar <alazar@startmail.com>,
+	Puranjay Mohan <puranjay@kernel.org>, devicetree@vger.kernel.org,
+	Stephan Gerhold <stephan@gerhold.net>,
+	Alexandru Tachici <alexandru.tachici@analog.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean-Baptiste Maneyrol <jean-baptiste.maneyrol@tdk.com>,
+	Mike Looijmans <mike.looijmans@topic.nl>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Marcelo Schmitt <marcelo.schmitt@analog.com>,
+	Angelo Compagnucci <angelo.compagnucci@gmail.com>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	linux-samsung-soc@vger.kernel.org,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Dragos Bogdan <dragos.bogdan@analog.com>,
+	linux-kernel@vger.kernel.org,
+	Peter Meerwald-Stadler <pmeerw@pmeerw.net>,
+	Dan Robertson <dan@dlrobertson.com>,
+	=?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>,
+	Andy Shevchenko <andy@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH 1/4] dt-bindings: iio: Drop unused header includes in
+ examples
+Message-ID: <175348526415.2011522.8662273220330760197.robh@kernel.org>
+References: <20250724111345.47889-5-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250724083907.61313-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250724111345.47889-5-krzysztof.kozlowski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_161236_477073_93F39891 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20250725_161426_152870_0E8AB9F0 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +106,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 24 Jul 2025 10:39:05 +0200, AngeloGioacchino Del Regno wrote:
-> Add the missing AFE Merge Interface clock to MT7622 to make use of
-> it in the audio subsystem.
+On Thu, 24 Jul 2025 13:13:46 +0200, Krzysztof Kozlowski wrote:
+> Drop includes of headers which example code does not use.  No functional
+> impact.
 > 
-> While at it, also remove the useless CLK_AUDIO_NR_CLK definition.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
->  include/dt-bindings/clock/mt7622-clk.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  Documentation/devicetree/bindings/iio/accel/adi,adis16240.yaml  | 1 -
+>  Documentation/devicetree/bindings/iio/accel/adi,adxl313.yaml    | 2 --
+>  Documentation/devicetree/bindings/iio/accel/adi,adxl345.yaml    | 2 --
+>  Documentation/devicetree/bindings/iio/accel/adi,adxl355.yaml    | 2 --
+>  Documentation/devicetree/bindings/iio/accel/adi,adxl372.yaml    | 2 --
+>  Documentation/devicetree/bindings/iio/accel/bosch,bma255.yaml   | 1 -
+>  Documentation/devicetree/bindings/iio/accel/bosch,bma400.yaml   | 1 -
+>  Documentation/devicetree/bindings/iio/accel/kionix,kxsd9.yaml   | 1 -
+>  Documentation/devicetree/bindings/iio/adc/adi,ad7091r5.yaml     | 1 -
+>  Documentation/devicetree/bindings/iio/adc/adi,ad7173.yaml       | 1 -
+>  Documentation/devicetree/bindings/iio/adc/qcom,spmi-vadc.yaml   | 1 -
+>  Documentation/devicetree/bindings/iio/adc/rohm,bd79104.yaml     | 1 -
+>  Documentation/devicetree/bindings/iio/adc/ti,adc128s052.yaml    | 1 -
+>  Documentation/devicetree/bindings/iio/adc/ti,ads1298.yaml       | 1 -
+>  Documentation/devicetree/bindings/iio/imu/adi,adis16460.yaml    | 1 -
+>  .../devicetree/bindings/iio/imu/invensense,icm42600.yaml        | 2 --
+>  Documentation/devicetree/bindings/iio/imu/nxp,fxos8700.yaml     | 2 --
+>  Documentation/devicetree/bindings/iio/light/st,vl6180.yaml      | 1 -
+>  .../bindings/iio/magnetometer/voltafield,af8133j.yaml           | 1 -
+>  Documentation/devicetree/bindings/iio/pressure/bmp085.yaml      | 1 -
+>  20 files changed, 26 deletions(-)
 > 
 
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
