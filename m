@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94412C87FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 01:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330F3C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 01:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XK/gYnhz8WxypxaXzlzjFNaBe5jgICo9avyYr9Xjlc8=; b=kRq51hoYMEtV8/H7aqvgXbIkVR
-	gnMIJB0jDaKaMBNKNMCLZ4BKuh3YkgsdysNuESqK5/591W9Fa27n4NRlhJGiRsVPNJIR0Zjzxq0Tt
-	mEH343cS6Vu4SsXjntpoN98D3Z9ILhQq0HXph/DGMc5fVFx+MhC2ReMmrKz1wts0mEVIVthhAdOk2
-	KQPquOi9czZx7fjv+Hwk+QxP2DKm/kI4qcZqLbZ2t+lNXKeOxLARop0/ACAL0hF7ayme3l70lSpAf
-	nuFy8iwM5XMN0x64Iy9afDREbMuEP1HpOiupQSc5sqfDiCd4f+yH7hRpgxGvGOt2Pju49n1h73CFR
-	BPcFnEwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ojy7Z+lLR7hRwVZk2Cp+j+5hEpXq9Z226hOQ2PKKQnI=; b=nSarRa39Vf+hg0xpphJxYZkn8n
+	hIcFFmsomXlnueshkQ9GigUZOzXIjicd1NgpJGe/fWLxuPwjlx0JxedS606tbxxlhl7/SNrib7sF+
+	L+Y37j76qGhaPXEFMM5dUHe5jgoJE44qnwrnpXhDFuemYc+7vED5W1MF9X6GEsXHADiAbmbadGm6O
+	FdWXlr+5/ObIf9D7cT77Cy5jKISuWT76eUUS9gBxXvXMmvv1PQ/ZCmqME8MUSoVouHPtfmBnxTR4B
+	eXC62GFftcU4YNfzDqQQQeXhv7t7BtbhPqxobUNdrZuCrJ2SIpt9+FfgZLhcBf2w0varZMf0wm0Ip
+	3IyDTfLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf78v-00000008orP-3Ym6;
-	Fri, 25 Jul 2025 01:22:37 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1uf7Iy-00000008pVE-0jsi;
+	Fri, 25 Jul 2025 01:33:00 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uf76P-00000008oTv-1QNv
+	id 1uf7GV-00000008pNw-09xS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 01:20:02 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-87653e3adc6so60906739f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Jul 2025 18:20:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753406400; x=1754011200; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XK/gYnhz8WxypxaXzlzjFNaBe5jgICo9avyYr9Xjlc8=;
-        b=Zu9J1cZP4eqKwDBew40FQwoPL0G/gIUHYSaThh2m1yH7vytA6oQi1y+7HFGcqnWvz/
-         4EeUNX2bwZM3KYS87+FF9CsvqpRl0Yr27rHm68XI/yqQwCnZtzSgl6Zck0GbA7sOZmGP
-         Ty6oqfs1K6m07Xdl89j61AWwnQnDEb12ZUP0XXQiVKwZ6X8wm7cB6Bt7IjzeuMLPPZvM
-         5bIPJRBz/bROuTsZNMk01qYTTzvi0DSJkR83ESbMG6+xWOVEmmAvL/zOXz7epZImvquf
-         li/6oQFgciCm49TBU8XhPHLPru+iV8tO6E+EDtHM1gh+BaPl8sDxDLYIOYWAJwOCUjNx
-         STRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753406400; x=1754011200;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XK/gYnhz8WxypxaXzlzjFNaBe5jgICo9avyYr9Xjlc8=;
-        b=BZJQ9HfxYT0d9Z/sBL13SKpDZRFPpsfZ5DzoizNDnMkxejsSEeuIzW8cNKoTPoL+b7
-         8pCC1Mn561W7uhexZsvgDoXrnV6qFZ3U0+kx5yh9mp+w22KgILeJmmPCr4BHANXX5+uy
-         NxVPoz5IZ5HqAo/G2ig+NvHMCheoRRVrHklPP4kWgDdQEBOuM3gqrIoKvovhHfFIGlj/
-         67T1bTTfpHZrk7FEs3cOasqIeO7zeMiI+qafkwRgpnN5TWT2o/YvbHucnFdrxhIExN/j
-         AJn0TBpbKep3VcdLjyUd5C6SEP+NsgsFB+78lG0vUbRDOgjFZhCUKHO8WayBgph0oE3h
-         yG9Q==
-X-Gm-Message-State: AOJu0Yy/DtbSlz4r3S+96eadaNfANtHF3+wVSuB1L97/FDpmTXGkfg3i
-	dKrWE3wePQkaaowM/cHwlHTWLsCk6uDcHoqCBkDxGoNwVLj4/mEYc/bjdT+coAe42g==
-X-Gm-Gg: ASbGnctTa/jiiDB6KQ+jK/KgnXhcOECtLaJhqjih/Te47yleBBUr2W0VTeiDMLt2khk
-	z3FsrTQDVr4daWvtpyNG9SUDO02NNROhNsz+apy1EjaqiGKEZc3yzBGVAtDcFiuCSlr4QgL47ue
-	AIqCY9bvoB0OeU6tn7HCsdU9UG0IpSaK6TzvJUAnSuhUcSB/KnSiJ4wRvKuoQVyX/NiUKaRpN0k
-	Eg98iFUBzOtHLtK9CEphlE18colmHiBbGvYjUUDSuim2ITwiq1ZSX/uX6S1NFM5fruX92Dk/ytj
-	CePM4crTW3/CHS75YLNLG806w9m1I1MJG4Lc5F4gZwTtf1+mhwmSZxw1j+sItSyBw2Ayh883rVF
-	TYd9xb50uoXWMrCkRTLT0Fs+NL0bDhQ8MpsQC+7OrzHpeRnVDzvwKYLEy+91avRYhXKc=
-X-Google-Smtp-Source: AGHT+IEmFccKRhDDkZ+Zb03HqYIMkjVZNy7vREse+9ncUz0sanXGTB21Co/1U2q+QuC2Ff0zX/sN0g==
-X-Received: by 2002:a05:6602:2cd5:b0:873:de29:612f with SMTP id ca18e2360f4ac-87c64f89e6cmr1623090439f.3.1753406399396;
-        Thu, 24 Jul 2025 18:19:59 -0700 (PDT)
-Received: from google.com (39.173.198.104.bc.googleusercontent.com. [104.198.173.39])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-87e201992fasm28737439f.28.2025.07.24.18.19.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Jul 2025 18:19:58 -0700 (PDT)
-Date: Thu, 24 Jul 2025 18:19:53 -0700
-From: Justin Stitt <justinstitt@google.com>
-To: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>, 
-	Christopher Covington <cov@codeaurora.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvmarm@lists.cs.columbia.edu, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH 6.1.y] KVM: arm64: silence -Wuninitialized-const-pointer
- warning
-Message-ID: <xcwmzitmc5igc3eplgr2uwviitdfmtdknth4a5zpaldamw7png@o22wb4ze3czd>
-References: <20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com>
+	Fri, 25 Jul 2025 01:30:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=202503; t=1753406844;
+	bh=ojy7Z+lLR7hRwVZk2Cp+j+5hEpXq9Z226hOQ2PKKQnI=;
+	h=Date:From:To:Cc:Subject:From;
+	b=qxfEcgXsdFsBF0v7jGYim8I4EA0sNe/0Covn16ifBQ44k8y5KW0wHdSSrP1TXhAq7
+	 mCATG/wQQWX30KfHKo/ZjVCOLX+noVrfpAlZB91XCEx8CqaaJL0SdJPf4wqYFg53hG
+	 tKev5U0HRu23MfK8cMswYuP7Tl91WOU5VRxokWSycU0xABO23SvUHk2mKSwzQcBMp5
+	 RoEev8xlvn8Qc3qVRKRnT8MWu8cZ6rovjNxrgEcAZRBiqoQ70WIGqSKUm3Xg1mg7zn
+	 y7dSISl8XSupWHjRNC75gdftg6qy9fI3P67Gk+qp35xA/kun+QtAnbD+bpckYCzatm
+	 ohL8yxw9aKzCw==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4bp9GL2CXlz4x11;
+	Fri, 25 Jul 2025 11:27:22 +1000 (AEST)
+Date: Fri, 25 Jul 2025 11:30:20 +1000
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Sasha Finkelstein
+ <fnkl.kernel@gmail.com>, Sven Peter <sven@kernel.org>, ARM
+ <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: manual merge of the mfd tree with the arm-soc tree
+Message-ID: <20250725113020.231954a2@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com>
+Content-Type: multipart/signed; boundary="Sig_/PPCg68xsEkplZTfNiQDEJpY";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250724_182001_387955_D254B888 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20250724_183027_221984_AD7C2CF9 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,51 +73,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 06:15:28PM -0700, Justin Stitt wrote:
-> A new warning in Clang 22 [1] complains that @clidr passed to
-> get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
-> doesn't really care since it casts away the const-ness anyways.
-> 
-> Silence the warning by initializing the struct.
+--Sig_/PPCg68xsEkplZTfNiQDEJpY
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-For posterity's sake, here's the warning message which I meant to
-include in the patch:
+Hi all,
 
-../arch/arm64/kvm/sys_regs.c:2978:23: warning: variable 'clidr' is uninitialized when passed as a const pointer argument here [-Wuninitialized-const-pointer]
- 2978 |         get_clidr_el1(NULL, &clidr); /* Ugly... */
+Today's linux-next merge of the mfd tree got a conflict in:
 
-> 
-> This patch won't apply to anything past v6.1 as this code section was
-> reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache configuration").
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
-> Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
-> Signed-off-by: Justin Stitt <justinstitt@google.com>
-> ---
->  arch/arm64/kvm/sys_regs.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index f4a7c5abcbca..d7ebd7387221 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2948,7 +2948,7 @@ int kvm_sys_reg_table_init(void)
->  {
->  	bool valid = true;
->  	unsigned int i;
-> -	struct sys_reg_desc clidr;
-> +	struct sys_reg_desc clidr = {0};
->  
->  	/* Make sure tables are unique and in order. */
->  	valid &= check_sysreg_table(sys_reg_descs, ARRAY_SIZE(sys_reg_descs), false);
-> 
-> ---
-> base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-> change-id: 20250724-b4-clidr-unint-const-ptr-7edb960bc3bd
-> 
-> Best regards,
-> --
-> Justin Stitt <justinstitt@google.com>
-> 
+  MAINTAINERS
+
+between commit:
+
+  f8c667edaf80 ("dt-bindings: gpu: Add Apple SoC GPU")
+
+from the arm-soc tree and commit:
+
+  0f0a7bd04e7e ("dt-bindings: gpio: Add Apple Mac SMC GPIO block")
+
+from the mfd tree.
+
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+--=20
+Cheers,
+Stephen Rothwell
+
+diff --cc MAINTAINERS
+index ca33ecd9b449,0f84051ef044..000000000000
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@@ -2331,7 -2332,7 +2332,8 @@@ F:	Documentation/devicetree/bindings/ar
+  F:	Documentation/devicetree/bindings/clock/apple,nco.yaml
+  F:	Documentation/devicetree/bindings/cpufreq/apple,cluster-cpufreq.yaml
+  F:	Documentation/devicetree/bindings/dma/apple,admac.yaml
++ F:	Documentation/devicetree/bindings/gpio/apple,smc-gpio.yaml
+ +F:	Documentation/devicetree/bindings/gpu/apple,agx.yaml
+  F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
+  F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouc=
+h.yaml
+  F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
+
+--Sig_/PPCg68xsEkplZTfNiQDEJpY
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmiC3iwACgkQAVBC80lX
+0Gyvdgf+IN5a6/6DPly7cbfpvieMMJOVMQZm3b3EEQDTS+HrXJElsRVzJdLpeHet
+l+ehTgzmbsylb7NeyD4VgWYYlvccRy9rtRfIV5s77CacR23FP12mZSm1qlwO6H0w
+VCIxD0SWK8yYoWFnfHYgxpcNmNO5iZagiwwbERYSDAKbY/+Z8arE/FPT892d3VPo
+cqtXQvxKahvJmPPwEdyGrMy68XzBqhvRCdmVD9pyFKa7EPJBnmmzxUcGlLiO1vJt
+tr+HxvzhlHtGXqREzgH96UCfw7sGAU+40HVo9QP1iQoyZZI6yZAxrjojlS538sjD
+YGkrC1+olDSPVXF5MBLTim6aP9RKjg==
+=IOB1
+-----END PGP SIGNATURE-----
+
+--Sig_/PPCg68xsEkplZTfNiQDEJpY--
 
