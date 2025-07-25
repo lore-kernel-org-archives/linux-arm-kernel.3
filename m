@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9018EC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 15:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3575FC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZpMv/YidPhET2ZnB4avevT5/yZnoFF98t+d9v4dctnU=; b=kqQUI4isB/2oLdRFEdE3Xdx9g+
-	xd3iaOzsldKLB11DwgR08FI1SuPXXVCqnf50vVTvU/mVDXf4a1FV8SdPI6OR04qBPyNtdDUzJ0AUh
-	NIZqy2055KXd8OSmdmWzfvTFoMHN6sW6KjAUShVyQXW1/te+rK9K5tkdTLG8gnj2z8gb9Mr5L9WhW
-	mZxqLe2TsqV75p1W/BQd1CWpcQRDIDUv7N6vojoxuwc4wzyJ9PZr3ISyQ2ulMsmt0RrVXy7qje6/s
-	l0kYu2RbSkdcuIi6ZWxfRRVVkus1KlNc6H1+5MDF2Ah1sBlh+blmnt4LgrijDFPJDRge4FDoipOQL
-	rMnEHspw==;
+	bh=RYlIflW5mvs0UFEIFJba2iAQLX3R1DBfhqm0wXgNnuQ=; b=DKp/CF8/QZdFDDcyYQE2sXvIXA
+	MJSz+niyZjtVNcR0lM8rz2Fk2wzoVav8NGzknMRayGUU9GFBVZ8BEJHi+x3iKZFN8aVzblkGH0FoF
+	XJXrPR3tAy3DN+lvq6nK8i5/XjFODPaRwzlhMMB9Wb41BkC1/gVMTql/SGn1x+fagR8yVwCTerA23
+	FimBVblqG43aexjdwR5JkK8V8/2VFql0Nevc1sHoYRM5OR6qyTGlxsSjQqXqvPB1o0lKCnYVt4NZY
+	shwD4ol50s994v4Z0XK8oTL0S83pH3czQcVtDekjGJ6Obu7GDz8q2/weZYpc3G2e5UT7du10hWfAo
+	ei4e3qRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKp8-0000000AAE2-2GER;
-	Fri, 25 Jul 2025 15:59:06 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1ufKrb-0000000AAgI-0nIF;
+	Fri, 25 Jul 2025 16:01:39 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKcE-0000000A8Vt-2a3O
+	id 1ufKcG-0000000A8Wz-1xBb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 15:45:47 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3a50956e5d3so1535207f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:46 -0700 (PDT)
+	Fri, 25 Jul 2025 15:45:49 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a5257748e1so1644836f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458345; x=1754063145; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458347; x=1754063147; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZpMv/YidPhET2ZnB4avevT5/yZnoFF98t+d9v4dctnU=;
-        b=izckWfKibwAv0DKXtTKSnNj08JEZzSr4PyzhjluPA1sg0lOm+8KUpyer1Hjy+5RTtj
-         7aD+5byujOaPgpv9hb7MNOlNmBkKK2ZNfKw6EM5WubkYwzpTqqVbVAt9h1wVpzMiBbCn
-         /JFEknkf54tURw7Zg1Aeu1Rd5k9N2WAc+5xFgw3Y4/PeEzt3jocFsMIAQu1vrSomp/4R
-         JdYW6kw7CMMvN9ZbwaUi4hnznU1ZXexzM7E5QL/6JSgF3ICXGWEHOzrGnTJTKHVAeIdx
-         7SL6PePkVmO4CMbztrvGWurzz3IEtEM1O6+BgjGac5aVfv3jKalM7oxpKPycUbFqhviH
-         HL7A==
+        bh=RYlIflW5mvs0UFEIFJba2iAQLX3R1DBfhqm0wXgNnuQ=;
+        b=TQzM3g8/vsU+qLIlaLoZtvs8pEPQdJQpE6/7+QHP/ddDbLRHuOfftuB8WOOBcgESX1
+         1lIFz68tJniMYsZMd9oRxzM7neD4DdKuNSmx3+/fDpH9huRXjstG07jLkNLxrq7KdVdx
+         P38D3ci0ZIGnNLBVMpVKPpfJOgXj1cwuJtbQoF5XYWQI6IoE/VgcMgsIMiD7PdE1AsLp
+         MWW18c6+AHThm5/TQYZhDX4dGgi4DeAs9qncpp1nJ7eKVid3nNtOR9JaU8dpwDf8qkmm
+         U2G6Q3VP3pXzEprISi8LTzbwHTl/qVtXeWHvlfMKH+icQfgbB6zi3S4tkukc85KA151u
+         naiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753458345; x=1754063145;
+        d=1e100.net; s=20230601; t=1753458347; x=1754063147;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZpMv/YidPhET2ZnB4avevT5/yZnoFF98t+d9v4dctnU=;
-        b=gEq9NsaiL8Y2vG+p1uv/JuE6gG7g4OFU+xkkGlMi8tP3ZF5aOyjFJflrt84VlPQLJu
-         DgFVar/KRr3MtytQWgjW4CkuDwmYd7JrK9DO3RdGY2SwyAnOP+GZEPIt6Gfb2ZNtocNZ
-         ap0BAPSv91z6mdikg4kBXIQbf0evtWIeZ1eil5+J1NPgi5HDCofaq5Awbr1M/7Za0aG0
-         r/U01hxf5rNiWaoDjsyS9Sxu/llvCLa7LUFOgBV2x3TYjbOrm5pEB7hv0xiV+b/hRQXx
-         8ov9Lqr4sUNxoXrULMeeVftlG4Wavt4A9QeniBmOn7LhM/crGLxYqIE70UT2RKH8AQ+M
-         PcGw==
-X-Forwarded-Encrypted: i=1; AJvYcCUDR2aVBGiXAA2iGNUBLWmurEw5EIBXo+VoBiLhsa+C5npyc0+fkjxuu+9iTwvuGpk4dBb9bAHMdW3IhX7yHwgX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRlyOAGz1CN3GA45nVwth9gqA2pLGJEXwmUiD/vVIkqX0eH3jb
-	pzoWiSVF0XLdj63e6YFEKVXxqWRdQ33FOX1xgNECYI6e0Xh5Fd+DUG9JIIhzSG8vqVc=
-X-Gm-Gg: ASbGnctZTixyL9oNbtxN00zGFIbtzN5Vf92EbxFhZmih/D+7g9iHnGGCagC2KBcAOje
-	3YJlzeGR2jMFCbH/t2RtK/HPKOxZyFaIcnW6YgB4gmDamiEcuYHtDcyN8rRaDH2W0IBQJX6bpXv
-	emkyDnwnAwlyvGRwXYbdPsQjM0N79JlsJ0cj7LACCIDVv5Z1Z1rHI1zahW55ZyDVYm1otkrwbY9
-	c7O1hCE6Z/mD937GdeJBB4rBnW3wWZEEVAO0ZwKVB9Gphksmw/aG0BCdGPHS4jKt/VxMzvKRNpz
-	PtCMf2y3PJ+f1TrF9d2PkeQJ1Bt3nZLb6O9Ejw+7GmkCPKFtoBarJlR4rkvale/RymjE4/8k5ng
-	c94DQiJuCd6Z9faZizy6HffpOcOF850/KQER14sRJYRdu/va7kzO3N+z4PTIhYAP/
-X-Google-Smtp-Source: AGHT+IGCVEfrJiPwphHDH1kVjEgnoFgj+gabfrl3qoD7SE6yk6VjRY5CANy9aiWHLYWruZAR8hkG9g==
-X-Received: by 2002:a05:6000:1448:b0:3b3:9c56:49bf with SMTP id ffacd0b85a97d-3b77668f23emr2158022f8f.56.1753458345142;
-        Fri, 25 Jul 2025 08:45:45 -0700 (PDT)
+        bh=RYlIflW5mvs0UFEIFJba2iAQLX3R1DBfhqm0wXgNnuQ=;
+        b=rnXqU2+oexHGYVIr1GiL8R+A8ptI/7g1PctVATYzJqpjhSD1l9CFmbcTwWe14JmudN
+         6glkr5gbF17Fk69hObvVvd5Frer6UGfGxs/+rzzuOoIu2UXcRBN02ydLy8UDOekJX/Gl
+         bqM84SA6V9Qz0snEPvja/WhuHbdlorRnyR2/eaUIEawCoKpbkzTM5wS0/CoRfydbHrDs
+         G4bV+cSchtUJZfAmteOPJMlC/vt9lrcDaleAFQCRz17mPuPuezKkJXrj8bTh/jgXxMl8
+         v+BC3ALr0KdkU71KGWpWcsq3hcjdZtv/Z8G6x/0LY8y33iFJGk3OGV6j7bEa0ohMrHGG
+         ROiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVk+LUWq05Y6aq+LVUYiJyLYKTUS5UY+uC5DyMYh74l8gf/1/wuzzwX+sz1zMxkn5g6UUNcMFBf7qhCNjL1YwdC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1V4Fzxq7FUvTC0Maqwwjsk9oJjrwSRaSsIiF6HmuFpeYcsKfV
+	c5WY+eVJSjf3guxLdy2Rch9MhzqmnvVQ1yZYC3JMGb73XqctKyCw3yVJCEFyAzPa57w=
+X-Gm-Gg: ASbGnculdbwzd/rs26l2zCi/D973Xzz5DR7SJ2BCROhwyNNuarVm1YpTQJVEAk9/rJT
+	1ZycHce/Utl/sUwxN5QAXlKY/mbXOAuk7d/njBSvNqP2kaECNoQVeg3ZHJP9JkAbZAdUDzpPijz
+	0qggOtUgIjAK1S22wptm1treb2a4yOnEHLNuofFa2iN1HPZH6lG0IYOOzSUaP74RhiRnYaWQycR
+	GBNl9LI9f2fYvA9VKY9e2MTIPw8UeL1S/EF5osYU4yoaue4sLEqbWw1aWVNSdM7olmSu9CiGuXh
+	YDGQ9ZJdAVag5sAUT3DAQ1iUw4Wo85AacYuYonqk6C3gFGGlqn0zZ1SMRAa3QTs/hxSQEBwNG/I
+	QYiZJ3HC8RzHtGdsvvV2G37EyKXyugqIimOW5Epn8Yu31kfIdeQGeMStnEYczfppF
+X-Google-Smtp-Source: AGHT+IGowIlSkKw5ZzZZdWP+ydqqTiOhlwErsI/LyHjZ9eAmji8YiDyEbd4SmQnr4FCIgMmyEZUdfw==
+X-Received: by 2002:a05:6000:2013:b0:3a4:eef9:818a with SMTP id ffacd0b85a97d-3b776645908mr2258005f8f.27.1753458346798;
+        Fri, 25 Jul 2025 08:45:46 -0700 (PDT)
 Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4587abc273asm1440555e9.4.2025.07.25.08.45.44
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b778eb2779sm249038f8f.15.2025.07.25.08.45.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 08:45:44 -0700 (PDT)
+        Fri, 25 Jul 2025 08:45:46 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-pwm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 4/8] pwm: mediatek: Initialize clks when the hardware is enabled at probe time
-Date: Fri, 25 Jul 2025 17:45:08 +0200
-Message-ID: <20250725154506.2610172-14-u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 5/8] pwm: mediatek: Implement .get_state() callback
+Date: Fri, 25 Jul 2025 17:45:09 +0200
+Message-ID: <20250725154506.2610172-15-u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 References: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2039; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=h4C6mJ+6piC2VWvbn8TbcJZ1IdLRPgjUr4EY1wWAjGg=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aOq0zddg0lRZ8kq4jJ4TGS7WGa6Vop+MNSf zuzJ7uKUSeJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmjgAKCRCPgPtYfRL+ Tk02B/9cdR2DsEiX1JpyqyVLI+PAHhGbf1/6BAPibHuJh7ncfqBV5Fy3KKtoV1ToHfCAKPZ8p95 uFZ8f60PEMgdNCQTvao4q5Pt5FQQtM6bnVdew5sgp3ywAa/FGTWtFIKNd4Fo1ECx8PMNeiSSbdC tt3KjRdJK71C9ZD4exwVBR1ZxkfFYpkN+to+QytRWrhVQkkeJpHNuYrijK7yWGAPkLsu+taI8IH laxCH0Nsa3N/zioCxU/EL5mNyFZMbW8Co9I7VQjQTd6Mvw8vLGKimQZzONDC+YCBtE1p+1lRZ4J Z5zs9y27kMvoVA19HLBRnVgij8VYHokLHjrblLXNH+1uz/3t
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3468; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=CgxDKiGIOk5/DJiW6ZyvTBtPHuWR1BwYQvTWRkSTQw8=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aQ33zONElPxjZ4ALhMQd0DOuzGO2NKTOZXb mtJniR1ocaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmkAAKCRCPgPtYfRL+ TrpQB/9Ik6Qzx21eI6DYqkiOeUDeQuwH9crnOd10V0aDbGnzsezDdRP92c7DUMl4F7G8nNl+J8U 3Eq2uzAHL5uiyC6VZlJweJH2vqXiKuA32h05/qggi3tm48E7zchtLZkp6+xkRIo++5Duz6z8fuy Q9cIpGHRe3i1l7C0Nl3zgZOYwifAQhyIa0PzO2HjZ0yriOZduMuq3cmRYgx+44t3YTeW52Zmzs7 WXIZvGKALMpqd4gyXfJ8ctGCws6y0PHnOaPbFkeX8rU7dI1Cqo1p8ZpeUSXwnHghCp9ZB2GxAf2 93cjWMTr3NEPIYnJojwcjhSN824TxfNto0AZB95wRbrvX7mW
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_084546_654132_A04ECC3C 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20250725_084548_501984_8EF668B6 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,81 +103,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a PWM is already configured by the bootloader (e.g. to power a
-backlight), the clk enable count must be increased to keep clock usage
-balanced. So check which PWMs are enabled during probe and enable the
-respective clocks.
+The registers can be read out just fine on an MT8365. In the assumption
+that this works on all supported devices, a .get_state() callback can be
+implemented. This enables consumers to make use of pwm_get_state_hw() and
+improves the usefulness of /sys/kernel/debug/pwm.
 
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/pwm/pwm-mediatek.c | 47 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ drivers/pwm/pwm-mediatek.c | 70 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
 
 diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index 16ea42be4c18..7d0a6f41d671 100644
+index 7d0a6f41d671..05263a17d55d 100644
 --- a/drivers/pwm/pwm-mediatek.c
 +++ b/drivers/pwm/pwm-mediatek.c
-@@ -235,6 +235,49 @@ static const struct pwm_ops pwm_mediatek_ops = {
- 	.apply = pwm_mediatek_apply,
- };
+@@ -31,6 +31,7 @@
+ #define PWMDWIDTH_PERIOD		GENMASK(12, 0)
+ #define PWM45DWIDTH_FIXUP	0x30
+ #define PWMTHRES		0x30
++#define PWMTHRES_DUTY			GENMASK(12, 0)
+ #define PWM45THRES_FIXUP	0x34
+ #define PWM_CK_26M_SEL_V3	0x74
+ #define PWM_CK_26M_SEL		0x210
+@@ -108,6 +109,13 @@ static inline void pwm_mediatek_writel(struct pwm_mediatek_chip *chip,
+ 	       num * chip->soc->chanreg_width + offset);
+ }
  
-+static int pwm_mediatek_init_used_clks(struct pwm_mediatek_chip *pc)
++static inline u32 pwm_mediatek_readl(struct pwm_mediatek_chip *chip,
++				     unsigned int num, unsigned int offset)
 +{
-+	const struct pwm_mediatek_of_data *soc = pc->soc;
-+	unsigned int hwpwm;
-+	u32 enabled, handled = 0;
++	return readl(chip->regs + chip->soc->chanreg_base +
++		     num * chip->soc->chanreg_width + offset);
++}
++
+ static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+ {
+ 	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+@@ -231,8 +239,70 @@ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	return err;
+ }
+ 
++static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
++				  struct pwm_state *state)
++{
++	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
 +	int ret;
++	u32 enable;
++	u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
 +
-+	ret = clk_prepare_enable(pc->clk_top);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(pc->clk_main);
-+	if (ret)
-+		goto err_enable_main;
-+
-+	enabled = readl(pc->regs) & GENMASK(soc->num_pwms - 1, 0);
-+
-+	while (enabled & ~handled) {
-+		hwpwm = ilog2(enabled & ~handled);
-+
-+		ret = pwm_mediatek_clk_enable(pc, hwpwm);
-+		if (ret) {
-+			while (handled) {
-+				hwpwm = ilog2(handled);
-+
-+				pwm_mediatek_clk_disable(pc, hwpwm);
-+				handled &= ~BIT(hwpwm);
-+			}
-+
-+			break;
-+		}
-+
-+		handled |= BIT(hwpwm);
++	if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
++		/*
++		 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
++		 * from the other PWMs on MT7623.
++		 */
++		reg_width = PWM45DWIDTH_FIXUP;
++		reg_thres = PWM45THRES_FIXUP;
 +	}
 +
-+	clk_disable_unprepare(pc->clk_main);
-+err_enable_main:
++	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
++	if (ret < 0)
++		return ret;
 +
-+	clk_disable_unprepare(pc->clk_top);
++	enable = readl(pc->regs);
++	if (enable & BIT(pwm->hwpwm)) {
++		u32 clkdiv, cnt_period, cnt_duty;
++		unsigned long clk_rate;
++
++		clk_rate = clk_get_rate(pc->clk_pwms[pwm->hwpwm]);
++		if (!clk_rate) {
++			ret = -EINVAL;
++			goto out;
++		}
++
++		state->enabled = true;
++		state->polarity = PWM_POLARITY_NORMAL;
++
++		clkdiv = FIELD_GET(PWMCON_CLKDIV,
++				   pwm_mediatek_readl(pc, pwm->hwpwm, PWMCON));
++		cnt_period = FIELD_GET(PWMDWIDTH_PERIOD,
++				       pwm_mediatek_readl(pc, pwm->hwpwm, reg_width));
++		cnt_duty = FIELD_GET(PWMTHRES_DUTY,
++				     pwm_mediatek_readl(pc, pwm->hwpwm, reg_thres));
++
++		/*
++		 * cnt_period is a 13 bit value, NSEC_PER_SEC is 30 bits wide
++		 * and clkdiv is less than 8, so the multiplication doesn't
++		 * overflow an u64.
++		 */
++		state->period =
++			DIV_ROUND_UP_ULL((u64)cnt_period * NSEC_PER_SEC << clkdiv, clk_rate);
++		state->duty_cycle =
++			DIV_ROUND_UP_ULL((u64)cnt_duty * NSEC_PER_SEC << clkdiv, clk_rate);
++	} else {
++		state->enabled = false;
++	}
++
++out:
++	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
 +
 +	return ret;
 +}
 +
- static int pwm_mediatek_probe(struct platform_device *pdev)
- {
- 	struct pwm_chip *chip;
-@@ -282,6 +325,10 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
- 					     "Failed to get %s clock\n", name);
- 	}
+ static const struct pwm_ops pwm_mediatek_ops = {
+ 	.apply = pwm_mediatek_apply,
++	.get_state = pwm_mediatek_get_state,
+ };
  
-+	ret = pwm_mediatek_init_used_clks(pc);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "Failed to initialize used clocks\n");
-+
- 	chip->ops = &pwm_mediatek_ops;
- 
- 	ret = devm_pwmchip_add(&pdev->dev, chip);
+ static int pwm_mediatek_init_used_clks(struct pwm_mediatek_chip *pc)
 -- 
 2.50.0
 
