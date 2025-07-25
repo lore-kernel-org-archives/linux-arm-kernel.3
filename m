@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A2C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3051C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 16:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Imtw8Gx4ry64i1JxbY02DQ6xhqBG4Z3YKMzGCpocp7k=; b=UXCsnCnf2ZUvqxyq2XYZ1NCad+
-	do0Qnvc5PJkTW8EoRlKrX581fftPxVzFmHBmvqZ/1Dw7BsaN8aiSE7gPM3oLSJR9nc9KYWyBBY5HB
-	76zSwqaXdavGrYcwkuqu5OLY/e3zN2sTIMwkV6cjLYPLkX1ZWAFYu0ZXtx9shbrq/jr6g+lIjbbCz
-	eBfF8dHuJGMOv+BqypZooa/fSbsWEhCbuwHBjJSUOx2bkTzSJgLGmIYI180CkhFik14qiMgSejEQc
-	R1t6zm616UeLPSrIv11K/GqQRl7Q7L8l8UPhokag993OHq7KLPfNq0ed4bQDaCg52jNOY0mEt5xBq
-	kdMunXCA==;
+	bh=QoJ4LgN2a4tZpj/ymfAQmbnXKEu39rNsuUXJ9Xuh1ro=; b=az7ItBRzqrNMbtSon/OHvPyU+m
+	Vb382AlMqKMb6xhi3h0v65PPY3CUyI/PjCPCPnxi9bX8lkQUtkO9TqHNXVWyblU4kZ+5mm4YVOGqt
+	NbyQRLCzuuNbChKBE6IkGIShpCeeZkMQlyhg9cWjmWIZHMVSHCiFjfpEZsQjgGyjrAKTvLIRaLhr8
+	IV3ep2NBYLI4CCguSjk9cuCMCIvJljO3NqxMMxB6bKdjWUZQK1OpiUmcJ2ImdwN9vfT5SJfFI5mR/
+	UjjENOczckiZxU30z9D40YPfz6yja10XYdDBYmsgNeO+FcDA5MoNyByjmxl/17yNlfcJSzZ44Ir+q
+	s8Rcyc8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKu1-0000000AAmc-3uTY;
-	Fri, 25 Jul 2025 16:04:09 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1ufKwU-0000000AB0e-1RNU;
+	Fri, 25 Jul 2025 16:06:42 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufKcH-0000000A8YB-3Mvk
+	id 1ufKcK-0000000A8ZJ-0bXl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 15:45:50 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4561607166aso17330425e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:49 -0700 (PDT)
+	Fri, 25 Jul 2025 15:45:53 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3b775b04b63so804976f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 08:45:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458348; x=1754063148; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753458351; x=1754063151; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Imtw8Gx4ry64i1JxbY02DQ6xhqBG4Z3YKMzGCpocp7k=;
-        b=kMCGSy8g+CL2tHC6gz0kWeCqazNi3cXKZ06pWPf1ZY4uvEIenfHrNZTLX94lz57Lm/
-         GvfZrsvi/62kpk6GGebktVPwjwdj9goMWGIwTHpnEZYWyp51oDjPrJL9WPqAhifOLZTl
-         crgPHTVfbHsbi7RkNFxMahJlu+P9r2kaQNwv5N54VXeELyWsojK6tVcF8yf9AXKju2AJ
-         fO/e6Ktvx09ZFNEKTG6Jw6mdcu9+dD+N7uFm3+8lkluh2vGCRWhQL/J3GIZZ06PSFV/K
-         8X5WbPQH4pQTucDdpaejozqz7Sa2hR9XslKZJiAO5iLfTfTX+pxQI/5fo4mxzFu4JYpI
-         VqpA==
+        bh=QoJ4LgN2a4tZpj/ymfAQmbnXKEu39rNsuUXJ9Xuh1ro=;
+        b=ZQ80yimxprcodlJnmlq9YZBuyx35EkAQHxAHdDoOdcrVA0Ztw/PHeiaTN/ZpyEOHbn
+         SRrS8jmmLaTJPHRaFjUkymYmBuiS4imUGAFeszNJgTbdWGgmYFqwJ8JNTRv3TdxdjMiK
+         YTZR0RzgTChiRnlLlFmMcz1CMemqGSALQHM0zcn7gD3fZKC/w3jm8nF3razX78Co4i0F
+         N1ctvCTXdyX7PM/rdqgCmGy0xJOhzOv8d/yZ+R8eyevhrTfkMlCL4rykqhRQEdkY3ccP
+         9ipZcrmWfLr7yxwR6gUledNbgsEnpTV8OCOzN75Yr6aGWDWml7Cw20epHfgDt00pWS0g
+         D6aQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753458348; x=1754063148;
+        d=1e100.net; s=20230601; t=1753458351; x=1754063151;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Imtw8Gx4ry64i1JxbY02DQ6xhqBG4Z3YKMzGCpocp7k=;
-        b=R0q8chGj6k9lnvh3E5YovUT523U92Xc95NGpcyYUGOQGtpB5l1FuI6CngSeGwyt90/
-         KyiKWyv/ieaH5LWKrYnlXOiIaEmuQSJDH1BS0Qz2LxG9ikovYDZzrf6dhsHX8FJXGdpT
-         4XWKNxHfOMIyaCSuXtOlCDqI7uMT5Anz1H0YOd+Na+NrKVei1XNT7vyvKfdClTdkcNze
-         sBepgPi0mUP68pvG28xnq9MhZvs88YftGdxcOX4G8PaPqAFihz8X0p7dScDfyRlm6EHG
-         wLmxTSG5ptAi3ToklLmxwommVbYq4Di4eY8sXdIxoa0NfJ2duWT2ovcgwUij3BO2rywi
-         WHfg==
-X-Forwarded-Encrypted: i=1; AJvYcCVjq/82RRZl4QsBlkguCfymt1lToDDzjnCDzPPX4oBY7gH3WtjLC8gpSwXHL8mzGasI/dIGS7SMRATSEeWGn6Kq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3Dk29yhwW3GYIzCxJmfuoqkKHsRvRLyMuo6hb+YitalY1D0Ox
-	8b2Gm5CCDoET000vIjqDQ93ZNADJoA99lU70O9OFEa+V0gS60ehLtGczT4036Gryb+k=
-X-Gm-Gg: ASbGncvWlY9EIvdZ2e6nKO+cVv6QDl3W5h+TEp9uaZXGj9cL0PiRLF/eVzH+suUqxXB
-	SH3uqAHjwR1YMsiPFA5v5xDfZ56iyASdXWY4c0Z0qG1ZDh7v1+sPlGy6Mew0HTv7w4Flwgi8/ix
-	SFS0rPpOWZV/M3HHJhI2ZryqfYdum7XVsrygUFlNx6unEU6mXeAP9FxAywjvcD67OUIFxVd9B4N
-	rEmjkT/GFFHEdFABifazdQaAbnDaVlRyRsRHeLAFmyYkhZ7Nrvw6nXdVwIjyT+PAnmx99P4wOdl
-	YLCRZnwUkNlKjGZ8sznpO0A4nhNMJ2bBPo/6UkvJeIXkzaPWvkY+tN5tFfxGccc7cHsXkmVjMdB
-	MiGKjlFBSMfPyLNn33CQuSjr1sc6wg+Y1heJ/rKtJDV7IWt18ghKI08zHsJ3q8Ur9
-X-Google-Smtp-Source: AGHT+IGU/MNEg3WQWls2DntpgirfB//jbj9l1ObldWRxzEwSfkXxYeLeZrDkB6W9KV/qLzu1Pm1RFA==
-X-Received: by 2002:a05:600c:3585:b0:456:24aa:958e with SMTP id 5b1f17b1804b1-4587b16ef91mr660575e9.0.1753458348394;
-        Fri, 25 Jul 2025 08:45:48 -0700 (PDT)
+        bh=QoJ4LgN2a4tZpj/ymfAQmbnXKEu39rNsuUXJ9Xuh1ro=;
+        b=mAYakjOucOvHGqJrhBwWmJLLGmsl9AunerNxIfMWVj4j9vrpRgy/d7dd6obip5GnZA
+         iaA7xX6snD/pDF0ShRSOJaCvqRa1qf8rIaI1YiAx5lK2Sld2kBO6CF4FskvkH+U3NTaC
+         EDSjwvJSDwvXKo/2ZZhqyKeqmaZxMt+KSyshlL3bUnfw7Z7kpjfB5wgENe+hDb192s0s
+         6Io+djc8RNXaRl7Pf355pJ5pkwVPK9SB/AlnBqxTViqVnsdafzpzXBbjcBxn9KztOSGn
+         BL0ae5AmwgFdcjufN4ecQgQnxrA0SItj3MTxl17zJpI7PPrxflV67YjgM0dpO0dbP0s/
+         Co/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXByMS8MeJGYHuFcplghxzfX0+h6hqahkjbL4bfKHaawhdGrcEoOglhRcqD8TbuVQlP9Rg7EQ8/cmsLnqpm5VD2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZanzzbBLXaPjjl4mAxeIxD78hqfQXaLsD5tLZeZf9NYyndBCS
+	ZAC5NnzKiyplm57atUCVwRY2APNSlUDe8MDmfZfiXkhasjasf1FqPtDYhCXAxY3pJIk=
+X-Gm-Gg: ASbGncsKpSQAstaQ95lq8WWmA0ixc8gvemBRO7uu4k09L4ZPDETByXc5bI87eLSiZpQ
+	vfBEovZUBBDbGKh6LhJT9c5citP2KE28PoCQyvOftlaoaXADYlfbbwZ6asXc/6wvXmH8O7Fo3R5
+	+RvzsDS9J0xqWAZuRqm1CT01/vluwStvq/oAq9KcAF4kSmjAVTrOkFejycq0vfu4bTru34BSchH
+	4/eIyBmmTbYvHoztrqGtfY9cS8b2h5++IUwrOqK7djukJCpDV0BqfmUQbDftGquWJqa7rutbH7r
+	UitUln4psRJ5Ncmyv1IuoKQYjQQDFeSpBRTp1Vy+ptuGsfXP8Eq6H40K+uXpd+YI6uIgM7LGNyB
+	PM6d8KmBpDWxvhHx0Uohkk6X4oqQr6RhJyFOHHlSHYeBG9qGvZGvl7ic4cye8F7cI
+X-Google-Smtp-Source: AGHT+IE9bNRiB3Qxy0KHeqE8qrwywnivjPUMoNFq3RkfbqAUqcT6tNnlxh22WNu3gjYRsqktjTx6xw==
+X-Received: by 2002:a5d:5d84:0:b0:3a0:b940:d479 with SMTP id ffacd0b85a97d-3b776799dfamr2803849f8f.53.1753458350705;
+        Fri, 25 Jul 2025 08:45:50 -0700 (PDT)
 Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4587ac58162sm1157495e9.18.2025.07.25.08.45.47
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-458705d42b0sm57302245e9.33.2025.07.25.08.45.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 08:45:47 -0700 (PDT)
+        Fri, 25 Jul 2025 08:45:49 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Cc: linux-pwm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 6/8] pwm: mediatek: Fix various issues in the .apply() callback
-Date: Fri, 25 Jul 2025 17:45:10 +0200
-Message-ID: <20250725154506.2610172-16-u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 7/8] pwm: mediatek: Lock and cache clock rate
+Date: Fri, 25 Jul 2025 17:45:11 +0200
+Message-ID: <20250725154506.2610172-17-u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 References: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4756; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=90XfpnWAvKrAD7iR4HpWYRpLi0zHbPGui3cdslYcXUo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aT3OoVnQuD9g/ceDdq/4tPDMudwzFZfPofd LeBmA30bhuJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmkwAKCRCPgPtYfRL+ TvGdCACmyBIsMq9Y9fW2D5e/i9qHdd9zN3CsSE4ORC6OwTZh6yXFBCu78dTIEhc+6gVtbvvBesr TXizV3MZc08MY7Z3Ep4BXQ24fyl1sEhmqRA2toImZj08PJrfjFqFLaKymM2KWeHP2j5WAHRcLr7 8a9gONV35IRJTL652Kxbp4ZnY+N7MmJnDtlwpFUreKNptSJ5KvDnxW3HfxmP05rLrOOqV1nPcgh jqoLWHCu6wRIEsmJbmhR2z/KUmRZW3gzCCOrjtpCp7bCnissukSKRl1UgzsmDM7MP7WzZD8tZTO wRFs7LcI+2gksawcw5VgMMexo8y40gp4lzH180habHpxIEub
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5399; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=VqojZhR/PzLVgvBcCgghwQQVCj6ocUYU241i7wcw1i4=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBog6aW7vIUc3dJRNMbN6JVqt2HKRuR0Bl64bZoB kVT2403OSWJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaIOmlgAKCRCPgPtYfRL+ TrrTB/0bKtUrqzjAmrjYN3up2a4GaQRAq8QAsWp17Ih+an/kOlLngokHze5TuTJMOk8jw0jgkoc X49aw7CWPSF0/BuhH6yt5PJ2D218i9GiAma9qENepszp59WPn5zx2OPZJ+YjrXVEEh5Rspbc5XX tt9fbRBwHvtcePKz0S4/pFFkWrbyGb4CmUpcdEIzw3YGsWDW8tt9DV7zQ0Jt1J6AvA1qbrE/Soo PzJ7efEG6mKEDsOT2bhIOqYWGvcwOFPt56R2ArY77crlHn4PtZ9+Tf9LlmXDcDbVBJS188CzzNK WHup8FXYxKmwhvYhuVca0aXqnYbxrDyBqi27M4+vJ8ldK/Eh
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_084549_855240_9121FE4B 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20250725_084552_216102_76FD4A84 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,138 +103,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-duty_cycle and period were silently cast from u64 to int losing
-relevant bits. Dividing by the result of a division (resolution) looses
-precision. clkdiv was determined using a loop while it can be done
-without one. Also too low period values were not catched.
+This simplifies error handling and reduces the amount of clk_get_rate()
+calls.
 
-Improve all these issues. Handling period and duty_cycle being u64 now
-requires a bit more care to prevent overflows, so mul_u64_u64_div_u64()
-is used.
-
-The changes implemented in this change also align the chosen hardware
-settings to match the usual PWM rules (i.e. round down instead round
-nearest) and so .apply() also matches .get_state() silencing several
-warnings with PWM_DEBUG=y. While this probably doesn't result in
-problems, this aspect makes this change---though it might be considered
-a fix---unsuitable for backporting.
+While touching the clk handling also allocate the clock array as part of
+driver data and lock the clock rate to ensure that the output doesn't
+change unexpectedly.
 
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/pwm/pwm-mediatek.c | 71 +++++++++++++++++++++++---------------
- 1 file changed, 43 insertions(+), 28 deletions(-)
+ drivers/pwm/pwm-mediatek.c | 64 +++++++++++++++++++++-----------------
+ 1 file changed, 35 insertions(+), 29 deletions(-)
 
 diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index 05263a17d55d..c0a97d18e673 100644
+index c0a97d18e673..e3db54995f7b 100644
 --- a/drivers/pwm/pwm-mediatek.c
 +++ b/drivers/pwm/pwm-mediatek.c
-@@ -137,13 +137,13 @@ static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
- }
+@@ -49,15 +49,18 @@ struct pwm_mediatek_of_data {
+  * @regs: base address of PWM chip
+  * @clk_top: the top clock generator
+  * @clk_main: the clock used by PWM core
+- * @clk_pwms: the clock used by each PWM channel
+  * @soc: pointer to chip's platform data
++ * @clk_pwms: the clock and clkrate used by each PWM channel
+  */
+ struct pwm_mediatek_chip {
+ 	void __iomem *regs;
+ 	struct clk *clk_top;
+ 	struct clk *clk_main;
+-	struct clk **clk_pwms;
+ 	const struct pwm_mediatek_of_data *soc;
++	struct {
++		struct clk *clk;
++		unsigned long rate;
++	} clk_pwms[];
+ };
  
- static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
--			       int duty_ns, int period_ns)
-+			       u64 duty_ns, u64 period_ns)
+ static inline struct pwm_mediatek_chip *
+@@ -79,12 +82,28 @@ static int pwm_mediatek_clk_enable(struct pwm_mediatek_chip *pc,
+ 	if (ret < 0)
+ 		goto disable_clk_top;
+ 
+-	ret = clk_prepare_enable(pc->clk_pwms[hwpwm]);
++	ret = clk_prepare_enable(pc->clk_pwms[hwpwm].clk);
+ 	if (ret < 0)
+ 		goto disable_clk_main;
+ 
++	if (!pc->clk_pwms[hwpwm].rate) {
++		pc->clk_pwms[hwpwm].rate = clk_get_rate(pc->clk_pwms[hwpwm].clk);
++
++		/*
++		 * With the clk running with not more than 1 GHz the
++		 * calculations in .apply() won't overflow.
++		 */
++		if (!pc->clk_pwms[hwpwm].rate ||
++		    pc->clk_pwms[hwpwm].rate > 1000000000) {
++			ret = -EINVAL;
++			goto disable_clk_hwpwm;
++		}
++	}
++
+ 	return 0;
+ 
++disable_clk_hwpwm:
++	clk_disable_unprepare(pc->clk_pwms[hwpwm].clk);
+ disable_clk_main:
+ 	clk_disable_unprepare(pc->clk_main);
+ disable_clk_top:
+@@ -96,7 +115,7 @@ static int pwm_mediatek_clk_enable(struct pwm_mediatek_chip *pc,
+ static void pwm_mediatek_clk_disable(struct pwm_mediatek_chip *pc,
+ 				     unsigned int hwpwm)
  {
- 	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
--	u32 clkdiv = 0, cnt_period, cnt_duty, reg_width = PWMDWIDTH,
--	    reg_thres = PWMTHRES;
-+	u32 clkdiv, enable;
-+	u32 reg_width = PWMDWIDTH, reg_thres = PWMTHRES;
-+	u64 cnt_period, cnt_duty;
- 	unsigned long clk_rate;
--	u64 resolution;
- 	int ret;
- 
- 	ret = pwm_mediatek_clk_enable(pc, pwm->hwpwm);
-@@ -151,7 +151,11 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+-	clk_disable_unprepare(pc->clk_pwms[hwpwm]);
++	clk_disable_unprepare(pc->clk_pwms[hwpwm].clk);
+ 	clk_disable_unprepare(pc->clk_main);
+ 	clk_disable_unprepare(pc->clk_top);
+ }
+@@ -150,15 +169,7 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	if (ret < 0)
  		return ret;
  
- 	clk_rate = clk_get_rate(pc->clk_pwms[pwm->hwpwm]);
--	if (!clk_rate) {
-+	/*
-+	 * With the clk running with not more than 1 GHz the calculations below
-+	 * won't overflow
-+	 */
-+	if (!clk_rate || clk_rate > 1000000000) {
- 		ret = -EINVAL;
- 		goto out;
- 	}
-@@ -160,27 +164,40 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
- 	if (pc->soc->pwm_ck_26m_sel_reg)
- 		writel(0, pc->regs + pc->soc->pwm_ck_26m_sel_reg);
- 
--	/* Using resolution in picosecond gets accuracy higher */
--	resolution = (u64)NSEC_PER_SEC * 1000;
--	do_div(resolution, clk_rate);
--
--	cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000, resolution);
--	if (!cnt_period)
--		return -EINVAL;
--
--	while (cnt_period - 1 > FIELD_MAX(PWMDWIDTH_PERIOD)) {
--		resolution *= 2;
--		clkdiv++;
--		cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000,
--						   resolution);
--	}
--
--	if (clkdiv > FIELD_MAX(PWMCON_CLKDIV)) {
--		dev_err(pwmchip_parent(chip), "period of %d ns not supported\n", period_ns);
+-	clk_rate = clk_get_rate(pc->clk_pwms[pwm->hwpwm]);
+-	/*
+-	 * With the clk running with not more than 1 GHz the calculations below
+-	 * won't overflow
+-	 */
+-	if (!clk_rate || clk_rate > 1000000000) {
 -		ret = -EINVAL;
-+	cnt_period = mul_u64_u64_div_u64(period_ns, clk_rate, NSEC_PER_SEC);
-+	if (cnt_period == 0) {
-+		ret = -ERANGE;
- 		goto out;
- 	}
+-		goto out;
+-	}
++	clk_rate = pc->clk_pwms[pwm->hwpwm].rate;
  
-+	if (cnt_period > FIELD_MAX(PWMDWIDTH_PERIOD) + 1) {
-+		if (cnt_period >= ((FIELD_MAX(PWMDWIDTH_PERIOD) + 1) << FIELD_MAX(PWMCON_CLKDIV))) {
-+			clkdiv = FIELD_MAX(PWMCON_CLKDIV);
-+			cnt_period = FIELD_MAX(PWMDWIDTH_PERIOD) + 1;
-+		} else {
-+			clkdiv = ilog2(cnt_period) - ilog2(FIELD_MAX(PWMDWIDTH_PERIOD));
-+			cnt_period >>= clkdiv;
-+		}
-+	} else {
-+		clkdiv = 0;
-+	}
-+
-+	cnt_duty = mul_u64_u64_div_u64(duty_ns, clk_rate, NSEC_PER_SEC) >> clkdiv;
-+	if (cnt_duty > cnt_period)
-+		cnt_duty = cnt_period;
-+
-+	if (cnt_duty) {
-+		cnt_duty -= 1;
-+		enable = BIT(pwm->hwpwm);
-+	} else {
-+		enable = 0;
-+	}
-+
-+	cnt_period -= 1;
-+
-+	dev_dbg(&chip->dev, "pwm#%u: %lld/%lld @%lu -> CON: %x, PERIOD: %llx, DUTY: %llx\n",
-+		pwm->hwpwm, duty_ns, period_ns, clk_rate, clkdiv, cnt_period, cnt_duty);
-+
- 	if (pc->soc->pwm45_fixup && pwm->hwpwm > 2) {
- 		/*
- 		 * PWM[4,5] has distinct offset for PWMDWIDTH and PWMTHRES
-@@ -190,13 +207,11 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
- 		reg_thres = PWM45THRES_FIXUP;
- 	}
- 
--	cnt_duty = DIV_ROUND_CLOSEST_ULL((u64)duty_ns * 1000, resolution);
--
- 	pwm_mediatek_writel(pc, pwm->hwpwm, PWMCON, BIT(15) | clkdiv);
--	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period - 1);
-+	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period);
- 
--	if (cnt_duty) {
--		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty - 1);
-+	if (enable) {
-+		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty);
- 		pwm_mediatek_enable(chip, pwm);
- 	} else {
+ 	/* Make sure we use the bus clock and not the 26MHz clock */
+ 	if (pc->soc->pwm_ck_26m_sel_reg)
+@@ -217,7 +228,6 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
  		pwm_mediatek_disable(chip, pwm);
+ 	}
+ 
+-out:
+ 	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
+ 
+ 	return ret;
+@@ -280,11 +290,7 @@ static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		u32 clkdiv, cnt_period, cnt_duty;
+ 		unsigned long clk_rate;
+ 
+-		clk_rate = clk_get_rate(pc->clk_pwms[pwm->hwpwm]);
+-		if (!clk_rate) {
+-			ret = -EINVAL;
+-			goto out;
+-		}
++		clk_rate = pc->clk_pwms[pwm->hwpwm].rate;
+ 
+ 		state->enabled = true;
+ 		state->polarity = PWM_POLARITY_NORMAL;
+@@ -309,7 +315,6 @@ static int pwm_mediatek_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		state->enabled = false;
+ 	}
+ 
+-out:
+ 	pwm_mediatek_clk_disable(pc, pwm->hwpwm);
+ 
+ 	return ret;
+@@ -373,7 +378,8 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
+ 
+ 	soc = of_device_get_match_data(&pdev->dev);
+ 
+-	chip = devm_pwmchip_alloc(&pdev->dev, soc->num_pwms, sizeof(*pc));
++	chip = devm_pwmchip_alloc(&pdev->dev, soc->num_pwms,
++				  sizeof(*pc) + soc->num_pwms * sizeof(*pc->clk_pwms));
+ 	if (IS_ERR(chip))
+ 		return PTR_ERR(chip);
+ 	pc = to_pwm_mediatek_chip(chip);
+@@ -384,11 +390,6 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
+ 	if (IS_ERR(pc->regs))
+ 		return PTR_ERR(pc->regs);
+ 
+-	pc->clk_pwms = devm_kmalloc_array(&pdev->dev, soc->num_pwms,
+-				    sizeof(*pc->clk_pwms), GFP_KERNEL);
+-	if (!pc->clk_pwms)
+-		return -ENOMEM;
+-
+ 	pc->clk_top = devm_clk_get(&pdev->dev, "top");
+ 	if (IS_ERR(pc->clk_top))
+ 		return dev_err_probe(&pdev->dev, PTR_ERR(pc->clk_top),
+@@ -404,10 +405,15 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
+ 
+ 		snprintf(name, sizeof(name), "pwm%d", i + 1);
+ 
+-		pc->clk_pwms[i] = devm_clk_get(&pdev->dev, name);
+-		if (IS_ERR(pc->clk_pwms[i]))
+-			return dev_err_probe(&pdev->dev, PTR_ERR(pc->clk_pwms[i]),
++		pc->clk_pwms[i].clk = devm_clk_get(&pdev->dev, name);
++		if (IS_ERR(pc->clk_pwms[i].clk))
++			return dev_err_probe(&pdev->dev, PTR_ERR(pc->clk_pwms[i].clk),
+ 					     "Failed to get %s clock\n", name);
++
++		ret = devm_clk_rate_exclusive_get(&pdev->dev, pc->clk_pwms[i].clk);
++		if (ret)
++			return dev_err_probe(&pdev->dev, ret,
++					     "Failed to lock clock rate for %s\n", name);
+ 	}
+ 
+ 	ret = pwm_mediatek_init_used_clks(pc);
 -- 
 2.50.0
 
