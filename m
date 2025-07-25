@@ -4,96 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C7FC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345E7C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 18:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lqZ8GbVGbsyusC/rotoXs+VvnR4ndEH+/csO6rB//g=; b=TzTYLAMQ+LDHFSbfOFieBfnCMI
-	O0Y8X1Iy304w5STWlc3qn3rYjpZOEQ4q17AeVjn8D8ZKKXLoM3+Z/VZ/eutLbwBZQDRnYtKOXxtgj
-	ry5sDCGXFZc5iew7lz11GrYn8pAT0OgMkHH+8lxazkZPrTx7dUdVKlXd8iNAdTAqdpzq9hiTJ2mT6
-	0i/OO3SnrLsKxf8iuAbJj4nfmdc46oGJz9/I5PsgmDldCrUv86A++EprIjQN3beY0WjjLOUqlIcZ6
-	kqkrIVPXzwlhupf7Kg0/E0Ll1D6+EEBGX41yAb0CjEv1bBT5TKOM8kb5qoqznul8L41SWZf5Hp9a5
-	J3ge4sqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LRXFP2r0GlUcI6Ig++XEulKc2yJ7Rt30f13aB2+dI+M=; b=OuGrNBci0zgS8wweOqSj1Vm3TE
+	aZlITLJ1Y1PAqXN5S8TXXO7TxAZPRU7IKrjcdqH9GuEkjBsFIiWqBNrI8QWiNz3tIDqbMvmh43e8e
+	FGPqEiE4zAhCGGLkLtvaVotiWhEEQItacUbRQ3aFpAw5FQYe+Y1j/D+8qkwynSt/sPkBtgVQ9Q7yG
+	ihNO9yHYIvZqCXvWbGuEJtEWXQ+BfJGwRtVT+141L6SIvSATiWyIR7vYC0/RrCOjLTrn3j7MC72Om
+	sJ6cDYXJAw/q7JvLyMXN1g/9SLqbjm5E0RGbgKi6RtvXxYnpuR26sJ74l1RFrgDUVVplT2PUPXjBX
+	UIAWzJAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufMwQ-0000000APiR-2273;
-	Fri, 25 Jul 2025 18:14:46 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufMtx-0000000APVC-1NG6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 18:12:14 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4561b43de62so10355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 11:12:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753467132; x=1754071932; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9lqZ8GbVGbsyusC/rotoXs+VvnR4ndEH+/csO6rB//g=;
-        b=d8BZv9B4SW6nbhfbNplLbqzDvv0TiecCGhvEEr7GJelXWdyakeBVjcRDWVmS8Nf431
-         3mhSITHiZujRmoFgvEY7ZvoOoNyLtR2/LzdmtUGLBZ0J8nQ4C+EJEYGiJYnauS8eP5Ht
-         uLQdepBcc61Qq7LDGZyVk/fsiawygr1xaI3OUMs9Pmzv0PzyFKr8mS6IA2ccoxzoh20U
-         Vo4eE4jvPneUm1NDpCie405tEyhXDS6K9QBxKITovpEc1i8pJBeG6QwTVqcffPXDboRj
-         2QnpC7h3B1C/yIx1dvpQQYZGYcQLNYlu3HDlqqpQpq/b/bFIY6TBIwXyIx4LG6Pz8GeD
-         JK9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753467132; x=1754071932;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9lqZ8GbVGbsyusC/rotoXs+VvnR4ndEH+/csO6rB//g=;
-        b=pRQPM4wrfTlx6uUg1my9wZFLo3hgSC5BzGQqNq4i55XbUkkTD3mqcVpGZVldoDb1p7
-         kV7tyOBTIvSAapixuSkrUfEiQWlK+3BF4a1052Yi99cTjvLSvlEohOBkA8QKtBFf0pEM
-         WsdD6JoxWohHbqOPQBjHKGbSV2grEz4eW4R6OfZGpYn+baGNH/ZwJSbCyf0TTKmqK7ri
-         rcsiqs8N9MjCQPnlgPZ2TkiqWHsdNNjSJLbHS5rFLJaNJGSQvONgfU1UURXHtZSYB4Mx
-         cTbSKOHqrIZR8xSDf1wQHZe4XQVyTMnvrECySv5bu74W3XRQXPa84l3RzgZajU8ufmYZ
-         5dpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVsnur5Ur9PLHB7dZn7u9w+2RJV2t2/3HzBRXDQcMrsN0/kGlkCc5ZYjlPYdMx8ERmtVt+Ily99+ArBPEVQgyI2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXyyhwvAaNwuxwI/I3ZQcDifuigQAekhf9XI247k7LwHHHpHD2
-	7Hp7vnlqZkLSatN50zvmxbSVnfsiZHhXuzknVf3ZeF1Z1w+NOtYWR7RbM+FotiLrpg==
-X-Gm-Gg: ASbGncswvrOR3mHyAd27V7pqoTVQ3lth4vdC0ibbbhms7lxq5ZNxyfHnhABgOTdqHKp
-	sJ1CtmznB4T3zxLswVP9Q2cMx7qXfGY6BeW5lmpMYzinpxbLx5EikPUZ3MAC7dOemMWERKnrIPK
-	mE3JlOAdcxTU14Btzn5v08MpBhRQx1wBF2JUaBa7LoWkJNfW2gDf/AZnlMdr3zHYUr9EOAvt5F7
-	7xuZeC630CyEwkq8T2tnnEHFchK9C8hj5Z4iAUZrG/JiYAUSsr0W0RFI7gFsqcISiIB5AZZNyiM
-	GJ01wz5HipnyPvnuP5huOZ62UjgpYcM4DG77hbD1A5bF/HwZBmAkqMOgQJ7y0x+kplTqwiDJutO
-	DTQKfNtzOcDDB9NJmXbq8moC8We9KoPq6GRYLhtruFPdBAspzCR8C+bm6gQ==
-X-Google-Smtp-Source: AGHT+IE7dLSNdxnS09UIaiZLtGTzBKRWFvjjxpSelV/vNcmga84rxmjNvK3BLMJqQyO32AXbSKfYAg==
-X-Received: by 2002:a05:600c:5289:b0:455:fb2e:95e9 with SMTP id 5b1f17b1804b1-4587c1f7c41mr47125e9.6.1753467131632;
-        Fri, 25 Jul 2025 11:12:11 -0700 (PDT)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458705377e5sm61620255e9.7.2025.07.25.11.12.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 11:12:11 -0700 (PDT)
-Date: Fri, 25 Jul 2025 18:12:07 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Pranjal Shrivastava <praan@google.com>, jgg@nvidia.com, will@kernel.org,
-	joro@8bytes.org, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iommu/arm-smmu-v3: Replace vsmmu_size/type with
- get_viommu_size
-Message-ID: <aIPI9xv-HxTPWMUp@google.com>
-References: <20250721200444.1740461-1-nicolinc@nvidia.com>
- <20250721200444.1740461-3-nicolinc@nvidia.com>
- <aIDlsUvF2Xbdelvx@google.com>
- <aIEkZoTOSlQ0nMKd@Asurada-Nvidia>
- <aIEwzM7mKUI8-h9U@google.com>
- <aIKd1owebUNQeN1-@google.com>
- <aIKqaGMMpsIuAVab@Asurada-Nvidia>
- <aINL66r_1NO3Nx-f@google.com>
- <aIOvt+atxTQp57R/@Asurada-Nvidia>
+	id 1ufMyt-0000000APyi-1FQF;
+	Fri, 25 Jul 2025 18:17:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ufMuh-0000000APa2-0aIe;
+	Fri, 25 Jul 2025 18:13:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4321E176C;
+	Fri, 25 Jul 2025 11:12:49 -0700 (PDT)
+Received: from [10.57.4.83] (unknown [10.57.4.83])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A29DE3F6A8;
+	Fri, 25 Jul 2025 11:12:53 -0700 (PDT)
+Message-ID: <6817efe1-f2c2-4686-bdf1-fca11f066e3a@arm.com>
+Date: Fri, 25 Jul 2025 19:12:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aIOvt+atxTQp57R/@Asurada-Nvidia>
+User-Agent: Mozilla Thunderbird
+Subject: Re: BUG: Circular locking dependency on netdev led trigger on NanoPi
+ R5S
+To: Diederik de Haas <didi.debian@cknow.org>, Lee Jones <lee@kernel.org>,
+ Pavel Machek <pavel@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-leds@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <DBLBPIBKFCJV.36AVW8JY88L7H@cknow.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <DBLBPIBKFCJV.36AVW8JY88L7H@cknow.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_111213_366657_D53E97BE 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20250725_111259_276125_51B75986 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +68,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 09:24:23AM -0700, Nicolin Chen wrote:
-> On Fri, Jul 25, 2025 at 09:18:35AM +0000, Mostafa Saleh wrote:
-> > > > > > On Wed, Jul 23, 2025 at 01:37:53PM +0000, Pranjal Shrivastava wrote:
-> > > > > > > On Mon, Jul 21, 2025 at 01:04:44PM -0700, Nicolin Chen wrote:
-> > > > Had the
-> > > > vintf_size rejected it, we wouldn't be calling the init op.
-> > > 
-> > > A data corruption could happen any time, not related to the
-> > > init op. A concurrent buggy thread can overwrite the vIOMMU
-> > > object when a write access to its adjacent memory overflows.
-> > 
-> > Can you please elaborate on that, as memory corruption can happen
-> > any time event after the next check and there is no way to defend
-> > against that?
+On 2025-07-25 6:48 pm, Diederik de Haas wrote:
+> Hi,
 > 
-> That narrative is under a condition (in the context) "when there
-> is a kernel bug corrupting data" :)
+> I have a FriendlyELEC NanoPi R5S (with rk3568 SoC) and in commit
+> 1631cbdb8089 ("arm64: dts: rockchip: Improve LED config for NanoPi R5S")
 > 
-> E.g. some new lines of code allocates a wrong size of memory and
-> writes above the size. If that memory is near this vIOMMU object
-> it might overwrite to this vIOMMU object that this function gets.
+> I tried to improve its LED configuration and that included
+> ``linux,default-trigger = "netdev"``
 > 
-> This certainly won't happen if everything is sane.
+> Problem: sometimes I got a 'hung task' error which resulted in the WAN
+> port not to come up (that's the only one I use) and logging in via
+> serial also didn't work, so pulling the plug was the only remedy.
+> 
+> Robin Murphy quickly identified that it likely had to do with led
+> triggers and removing those netdev triggers made the problem go away[1].
+> To find out what actually caused it, I built a kernel with PROOF_LOCKING
+> and PRINTK_CALLER enabled, which after adding a patch which fixed an
+> OOPS [2], showed the underlaying problem:
 
-I see, but I don't think we should do anything about that, there are
-100s of structs in the kernel, we can't add checks everywhere, and I
-don't see anything special about this path to add an assertion, this
-kind of defensive programming isn't really helpful. We just need to
-review any new code properly :)
+For the record, I think the actual deadlock condition Diederik's system 
+hits in practice is a shorter cycle, wherein immediately after acquiring 
+pernet_ops_rwsem, thread #0 then tries to take rtnl_mutex, which forms a 
+straight inversion against thread #2 (which holds rtnl_mutex from 
+devinet_ioctl()).
 
 Thanks,
-Mostafa
+Robin.
 
+>     ======================================================
+>     WARNING: possible circular locking dependency detected
+>     6.16-rc7+unreleased-arm64-cknow #1 Not tainted
+>     ------------------------------------------------------
+>     modprobe/936 is trying to acquire lock:
+>     ffffc943e0edc3b0 (pernet_ops_rwsem){++++}-{4:4}, at: register_netdevice_notifier+0x38/0x148
 > 
-> Nicolin
+>     but task is already holding lock:
+>     ffff0001f2762248 (&led_cdev->trigger_lock){+.+.}-{4:4}, at: led_trigger_register+0x14c/0x1e0
+> 
+>     which lock already depends on the new lock.
+> 
+> 
+>     the existing dependency chain (in reverse order) is:
+> 
+>     -> #3 (&led_cdev->trigger_lock){+.+.}-{4:4}:
+>            lock_acquire+0x1cc/0x348
+>            down_write+0x40/0xd8
+>            led_trigger_set_default+0x5c/0x170
+>            led_classdev_register_ext+0x340/0x488
+>            __sdhci_add_host+0x190/0x368 [sdhci]
+>            dwcmshc_probe+0x2b8/0x6b0 [sdhci_of_dwcmshc]
+>            platform_probe+0x70/0xe8
+>            really_probe+0xc8/0x3a0
+>            __driver_probe_device+0x84/0x160
+>            driver_probe_device+0x44/0x128
+>            __device_attach_driver+0xc4/0x170
+>            bus_for_each_drv+0x90/0xf8
+>            __device_attach_async_helper+0xc0/0x120
+>            async_run_entry_fn+0x40/0x180
+>            process_one_work+0x23c/0x640
+>            worker_thread+0x1b4/0x360
+>            kthread+0x150/0x250
+>            ret_from_fork+0x10/0x20
+> 
+>     -> #2 (triggers_list_lock){++++}-{4:4}:
+>            lock_acquire+0x1cc/0x348
+>            down_write+0x40/0xd8
+>            led_trigger_register+0x58/0x1e0
+>            phy_led_triggers_register+0xf4/0x258 [libphy]
+>            phy_attach_direct+0x328/0x3a8 [libphy]
+>            phylink_fwnode_phy_connect+0xb0/0x138 [phylink]
+>            __stmmac_open+0xec/0x520 [stmmac]
+>            stmmac_open+0x4c/0xe8 [stmmac]
+>            __dev_open+0x13c/0x310
+>            __dev_change_flags+0x1d4/0x260
+>            netif_change_flags+0x2c/0x80
+>            dev_change_flags+0x90/0xd0
+>            devinet_ioctl+0x55c/0x730
+>            inet_ioctl+0x1e4/0x200
+>            sock_do_ioctl+0x6c/0x140
+>            sock_ioctl+0x328/0x3c0
+>            __arm64_sys_ioctl+0xb4/0x118
+>            invoke_syscall+0x6c/0x100
+>            el0_svc_common.constprop.0+0x48/0xf0
+>            do_el0_svc+0x24/0x38
+>            el0_svc+0x54/0x1e0
+>            el0t_64_sync_handler+0x10c/0x140
+>            el0t_64_sync+0x198/0x1a0
+> 
+>     -> #1 (rtnl_mutex){+.+.}-{4:4}:
+>            lock_acquire+0x1cc/0x348
+>            __mutex_lock+0xac/0x590
+>            mutex_lock_nested+0x2c/0x40
+>            rtnl_lock+0x24/0x38
+>            register_netdevice_notifier+0x40/0x148
+>            rtnetlink_init+0x40/0x68
+>            netlink_proto_init+0x120/0x158
+>            do_one_initcall+0x88/0x3b8
+>            kernel_init_freeable+0x2d0/0x340
+>            kernel_init+0x28/0x160
+>            ret_from_fork+0x10/0x20
+> 
+>     -> #0 (pernet_ops_rwsem){++++}-{4:4}:
+>            check_prev_add+0x114/0xcb8
+>            __lock_acquire+0x12e8/0x15f0
+>            lock_acquire+0x1cc/0x348
+>            down_write+0x40/0xd8
+>            register_netdevice_notifier+0x38/0x148
+>            netdev_trig_activate+0x18c/0x1e8 [ledtrig_netdev]
+>            led_trigger_set+0x1d4/0x328
+>            led_trigger_register+0x194/0x1e0
+>            netdev_led_trigger_init+0x20/0xff8 [ledtrig_netdev]
+>            do_one_initcall+0x88/0x3b8
+>            do_init_module+0x5c/0x270
+>            load_module+0x1ed8/0x2608
+>            init_module_from_file+0x94/0x100
+>            idempotent_init_module+0x1e8/0x2f0
+>            __arm64_sys_finit_module+0x70/0xe8
+>            invoke_syscall+0x6c/0x100
+>            el0_svc_common.constprop.0+0x48/0xf0
+>            do_el0_svc+0x24/0x38
+>            el0_svc+0x54/0x1e0
+>            el0t_64_sync_handler+0x10c/0x140
+>            el0t_64_sync+0x198/0x1a0
+> 
+>     other info that might help us debug this:
+> 
+>     Chain exists of:
+>       pernet_ops_rwsem --> triggers_list_lock --> &led_cdev->trigger_lock
+> 
+>      Possible unsafe locking scenario:
+> 
+>            CPU0                    CPU1
+>            ----                    ----
+>       lock(&led_cdev->trigger_lock);
+>                                    lock(triggers_list_lock);
+>                                    lock(&led_cdev->trigger_lock);
+>       lock(pernet_ops_rwsem);
+> 
+>      *** DEADLOCK ***
+> 
+>     2 locks held by modprobe/936:
+>      #0: ffffc943e0d2baa8 (leds_list_lock){++++}-{4:4}, at: led_trigger_register+0x10c/0x1e0
+>      #1: ffff0001f2762248 (&led_cdev->trigger_lock){+.+.}-{4:4}, at: led_trigger_register+0x14c/0x1e0
+> 
+>     stack backtrace:
+>     CPU: 0 UID: 0 PID: 936 Comm: modprobe Not tainted 6.16-rc7+unreleased-arm64-cknow #1 PREEMPTLAZY  Debian 6.16~rc7-2~exp1
+>     Hardware name: FriendlyElec NanoPi R5S (DT)
+>     Call trace:
+>      show_stack+0x34/0xa0 (C)
+>      dump_stack_lvl+0x70/0x98
+>      dump_stack+0x18/0x24
+>      print_circular_bug+0x230/0x280
+>      check_noncircular+0x174/0x188
+>      check_prev_add+0x114/0xcb8
+>      __lock_acquire+0x12e8/0x15f0
+>      lock_acquire+0x1cc/0x348
+>      down_write+0x40/0xd8
+>      register_netdevice_notifier+0x38/0x148
+>      netdev_trig_activate+0x18c/0x1e8 [ledtrig_netdev]
+>      led_trigger_set+0x1d4/0x328
+>      led_trigger_register+0x194/0x1e0
+>      netdev_led_trigger_init+0x20/0xff8 [ledtrig_netdev]
+>      do_one_initcall+0x88/0x3b8
+>      do_init_module+0x5c/0x270
+>      load_module+0x1ed8/0x2608
+>      init_module_from_file+0x94/0x100
+>      idempotent_init_module+0x1e8/0x2f0
+>      __arm64_sys_finit_module+0x70/0xe8
+>      invoke_syscall+0x6c/0x100
+>      el0_svc_common.constprop.0+0x48/0xf0
+>      do_el0_svc+0x24/0x38
+>      el0_svc+0x54/0x1e0
+>      el0t_64_sync_handler+0x10c/0x140
+>      el0t_64_sync+0x198/0x1a0
+>     leds-gpio gpio-leds: bus: 'platform': really_probe: bound device to driver leds-gpio
+> 
+> Full serial log can be found at [3] which is quite verbose and the boot
+> took way longer then normal as the following was added to cmdline:
+> ``dyndbg="file dd.c func really_probe +p" maxcpus=1``
+> 
+> Free free to ask for additional info and/or to run tests.
+> 
+> Cheers,
+>    Diederik
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?h=arm/fixes&id=912b1f2a796ec73530a709b11821cb0c249fb23e
+> [2] https://lore.kernel.org/linux-rockchip/f81b88df-9959-4968-a60a-b7efd3d5ea24@arm.com/
+> [3] https://paste.sr.ht/~diederik/142e92bfb29bbb58bca18a74cdffc5e0ba79081c
+
 
