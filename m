@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D039C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 00:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FDC1C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 00:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f2j24uR53myLlOiaaOFp2jANncIBqbH1glkadxcFqx0=; b=TLzskNhECRT89kNuj02+3TTiSi
-	oKKJUYUzRtsvfLCO9ulbvISCzb+vQZ+n20ccu33yRaLPS29A3VFkkIyljkNMHual3PpJxbu/EHj6F
-	JDq2kSHqYVPTV1vMdXLMOyD7MuVttzsY/tqZhXIhGprNYXJUt7/hfMupJ5sQDX5CxmRHdrH8bY3ux
-	+64L1lBKxOX3nqYfSqLqrEdxhM6Rl80Fnf1Af35J6GPLi9zresI9PbuIm+h9yNKSmWkknXto6kf8x
-	31SsPgyImGA1RhgWS/CDOZ8TW2GONFCeHFXDeR9kEkegumMLRoOvWEJcH62dwFYN+XlsMPBIwEkvi
-	q1N2qp0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RWDCpZpUnOOPODd49L0ZnvYxwzJbgJ5GTXPjGdUOSII=; b=djvQa47b3nkzZhdWCuma67IbfB
+	gOoi7dxBELJzMegUa8EUBPWBIMRrd5huM6MONYcA9//TCvjvz6r9r4Vv4dVMLRdf/FgMhg0eQB0Wl
+	tYSHhQoQ3uLaAkB87KayplD+6pqCEI4cVPfMgJCvM9sJx1cUboXNAFMC4LI79yGABaZT4vL/5mf8U
+	nTs7Kfn2EHPXKNWU7Q9w4cquhFlhVwius3DYz8MnfAHM7bnslBnBlVwDQOX+TTs5i/iftADwcdVsh
+	l+r4IYHSyPay+tY9UHofa0U7UPHnlQElOKfamS1h5eIRdoVFmKtSoYTUVrn25+nW3uHlnZSxxBXdE
+	wG1lFF7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufSnE-0000000Axbv-3Out;
-	Sat, 26 Jul 2025 00:29:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ufSzr-0000000Ayct-16rS;
+	Sat, 26 Jul 2025 00:42:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufSjV-0000000AxOP-19VM
+	id 1ufSxP-0000000AySJ-2bN8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 00:25:50 +0000
+	Sat, 26 Jul 2025 00:40:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ABAF3418C0;
-	Sat, 26 Jul 2025 00:25:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D4FDC4CEE7;
-	Sat, 26 Jul 2025 00:25:48 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6F108A567CE;
+	Sat, 26 Jul 2025 00:40:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8FDC4CEE7;
+	Sat, 26 Jul 2025 00:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753489548;
-	bh=Dko3kWgCT0Ys++R7H9KuFtq5eskVkBM8MOSnrUZdmSM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Yexe2ilWaZpg4EONL/tBPagglcnpt1t2mC9YTEcUOirFA4Vjm4ooF6XzXKBMUZQy9
-	 e2gZLxn6Co3PeNaQ0UipNCoc2PI93Jj8A/gkcq7IQ6DMgssqfM6JIThKV52QPiU/Vd
-	 FgVV5nQVPFRRXoZEJw6rQFPy104fmqwxEdk+NKJcbAH6JbAC8gdpGrhzJCsaY08bUr
-	 l5njw75dvCUEP8KWSrqLiS60IJ2TxwiFhme/Zn+9uqm2mZ3q4sWr/InoxUxsXEdpzo
-	 geQAjruPoUDFOv+QCfwiC641tZFmFBgG9vj3uiRAWFna8d6J5vEedJkNhIRhsa6SJn
-	 ROuZXyfueL8Zg==
-Date: Fri, 25 Jul 2025 17:25:47 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>, Richard Cochran
- <richardcochran@gmail.com>, <netdev@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next 0/2] net: stmmac: allow generation of flexible
- PPS relative to MAC time
-Message-ID: <20250725172547.13d550a4@kernel.org>
-In-Reply-To: <20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com>
-References: <20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com>
+	s=k20201202; t=1753490410;
+	bh=0ljOxLf3asG8EXlvRRWHYhLY5dkENjRCIl0TEBmEpuQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qIAwoYcfsZX1JS5swQvuHh4YAx0Dnjek7XHbdZP95vmn5NhVaWu8fz5mXlu5BBIAC
+	 x6YOX8sgCFIcwnCJiFrMCZLDejXSr5vsm7Qe4GKcJlMH7O0ky8j3xOIizTdbLij8FA
+	 fqeMmkJgU9YDKqv2atpEgKynTwztATUXn+GiIk8Q2Ah/WppIH2agLqoMsvbdPbZwxG
+	 CsG0gH/hqJVWGMxmA+DwhKy/2mMFW4VSAwH8mxoJSjrMcDtc6gx50fEcIJbdxST+Hr
+	 /xYR7l1GHiIwy1yT/iT1EOHzrYB3/50GYc3b0mqdEu5mIY/9GWugfC635HDgQOBeXc
+	 arPS14ZlZY6Cw==
+Date: Fri, 25 Jul 2025 17:40:09 -0700
+From: Kees Cook <kees@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>,
+	lkft-triage@lists.linaro.org,
+	Linux Regressions <regressions@lists.linux.dev>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Ben Copeland <benjamin.copeland@linaro.org>
+Subject: Re: next-20250723 arm atags_to_fdt.c undefined reference to
+ `__sanitizer_cov_stack_depth'
+Message-ID: <202507251739.E62B1C95@keescook>
+References: <CA+G9fYtBk8qnpWvoaFwymCx5s5i-5KXtPGpmf=_+UKJddCOnLA@mail.gmail.com>
+ <aINJTDD3je4XJ6VO@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aINJTDD3je4XJ6VO@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_172549_340004_969617BB 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250725_174011_720312_68DCD804 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +80,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Jul 2025 14:31:17 +0200 Gatien Chevallier wrote:
-> When doing some testing on stm32mp2x platforms(MACv5), I noticed that
-> the command previously used with a MACv4 for genering a PPS signal:
-> echo "0 0 0 1 1" > /sys/class/ptp/ptp0/period
-> did not work.
+On Fri, Jul 25, 2025 at 10:07:24AM +0100, Russell King (Oracle) wrote:
+> On Fri, Jul 25, 2025 at 01:59:02PM +0530, Naresh Kamboju wrote:
+> > Regressions noticed while building arm builds with gcc-13 and gcc-8
+> > toolchains on the Linux next-20250723 to next-20250725 tags.
+> > 
+> > First seen on the Linux next-20250723
+> > Good: next-20250722
+> > Bad:  next-20250723 and next-20250725
+> > 
+> > Regression Analysis:
+> > - New regression? Yes
+> > - Reproducibility? Yes
+> > 
+> > ## Build regressions
+> > * arm, build
+> >   - gcc-13-lkftconfig-hardening
+> >   - gcc-8-lkftconfig-hardening
+> > 
+> > Build regression: next-20250723 arm atags_to_fdt.c undefined reference
+> > to `__sanitizer_cov_stack_depth'
 > 
-> This is because the arguments passed through this command must contain
-> the start time at which the PPS should be generated, relative to the
-> MAC system time. For some reason, a time set in the past seems to work
-> with a MACv4.
-> 
-> Because passing such an argument is tedious, introduce
-> STMMAC_RELATIVE_FLEX_PPS config switch so that the MAC system time
-> is added to the args to the stmmac_ptp driver.
-> 
-> Example to generate a flexible PPS signal that has a 1s period 3s
-> relative to when the command was entered before and after setting
-> STMMAC_RELATIVE_FLEX_PPS:
-> 
-> Before: echo "0 175xxxxxxx 0 1 1" > /sys/class/ptp/ptp0/period
-> 
-> After: echo "0 3 0 1 1" > /sys/class/ptp/ptp0/period
+> "cov" suggests "coverty", and that the symbol is not available in the
+> kernel suggests that coverty isn't supported.
 
-Kconfig doesn't seem like a great way of achieving the outcome.
-Some per-platform knob would be better.
-But ideally we wouldn't do either. Could we possibly guess which
-format user has chosen based on the values, at runtime?
+This is the coverage sanitizer and related to my changes. Sorry! This
+didn't show up in my build testing, I'll reproduce it and get it fixed.
+
+-- 
+Kees Cook
 
