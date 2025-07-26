@@ -4,66 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCE5C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 21:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D711C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 21:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WE5MdVlpsuM8Xoi4UCE5Cw+iR6DrWrv6Xdo1I7z5/90=; b=kPYBo5AhbxfaBmOEFpqjiWA5qw
-	++4N4KCXx5FC/iOo1GmnRghVHiVH/MVITDMpxaMfzjjqBzVH6dhcQA7yY4jyeVE8P9olWmsepIGp9
-	wDwHzo6jzORLuRpIdcL/gKTzbcLJM7ec11irmHgAMIeylo+rwJWMnAiQOruD6Ix4y0RMumO6fqc1r
-	UTRYVWQygnygWurYQDUTtu1i0xTA5ueMi9ZWOFLfL1G7VjCJONSvbgbjlnPtC3oBiMweJEf2D9Yl4
-	QCyGwHsPwXkUWy+c9VbAooWjs3SuW9N/cxYsYUJIJ90PMVP/SJ3TAFLbeQHcqX5syMYk9ivVTYEg7
-	BMM6eaiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vDRpf83Xlhsi3aKZyAzQYYjME+ytVK8EgjXOAcISP8=; b=kceZ7W/RXGOXdpMB7OIWV6kF08
+	rRgpKUuQK30urV4EAn8aOoMvphvwAx6fnJz+UXf2x/cUzkAKsDzSHaEY1GT3I2tCYiJkTaJ/QEX5Q
+	CGIiyEJyvAWpGrrpfjKcfUmhrokifCG5273FXbkIgugwqfZ9Rqnf8gIKLXyR6QwbRILSdNDdJ2WXa
+	caXlPgGmadmI4na5KZ0u0ITLXeVhOmmhtMhgSb9axHXv102OwNWbcMA/cf7Dl4n6lxIbOkz6k3xbM
+	J0gdhHgcmLQgs6OPRFu/N+8A4xJT8T9u76CbSXnLx8kyrHhaybTnAxt6led+hkzEJkGZx+k24GNKM
+	lpXqkVyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufmVI-0000000BwTo-0fla;
-	Sat, 26 Jul 2025 21:32:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ufmpN-0000000By35-1ZHy;
+	Sat, 26 Jul 2025 21:53:13 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufmSk-0000000BwLQ-0knH
+	id 1ufmmq-0000000Bxst-0HRq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 21:29:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0190FA53CEB;
-	Sat, 26 Jul 2025 21:29:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C6C7C4CEED;
-	Sat, 26 Jul 2025 21:29:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753565388;
-	bh=HSq9GVJebOQfQB9sT81R3PDtAZ/ze381+caKN1MH1OM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Uj2Xxygg6ssYQsxZ5CxC4TyGoFDgIJEJFPw5gPQIiKSgwcvSqDG9L2HF78J7DeG73
-	 2tDtC6VaTvX9N+K9ZFhrcUdUSSnbivKWxJYLlpPDhw1t11czrS3oDB/XBfAtG2R+VV
-	 TuspiNNBbE0AIN9OCJNKo6DbR2a0a3ZSV+30Hk7/x2LIdmKOzz3WKTZlDop6XuMVO4
-	 q8QWSW8wl/lTW/jrTqGPzsn3V+OMKmYzBbePZVQxov4CpZa3aSsVVxKZ0d65A9TH/5
-	 sFmm1ADshAGOYue6kWXL8ssA5wlvOARnrV7vydTx2az71RSEXtsXp3trJhAW+c8BmB
-	 vtXYdO1gpjT4Q==
-From: Kees Cook <kees@kernel.org>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Kees Cook <kees@kernel.org>,
-	Linux Kernel Functional Testing <lkft@linaro.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ingo Molnar <mingo@kernel.org>,
-	linux-kernel@vger.kernel.org,
+	Sat, 26 Jul 2025 21:50:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753566637; x=1785102637;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hSbqujNyJtfgoVzH7Vax+KT9pmAhM1E22Hv7yYf+bQ0=;
+  b=PpyA2QooPrGCTFCJd/WY6TU1tD1SG4C+qhpc+T8z0tY0cX3NNmpigMme
+   j3x9P1uAZY6M9R3k4eXA8sRBEfpmMUo91SEMTkD8huIbw0AaFJ1DtOAt8
+   FAMyX0wtUDn6SSPKvgYlyALDMIh8GIE3e7W3YzPLBu74kIW/1BDOX+qik
+   m//GsKhBDYoWFSg3Z/e8/uDczR8Czpd5/2fzy54fLTfmN4LjXky/r9oPG
+   haZsmbOjcB5Vjt1ztEWcP0+o0FibDyAKo+9tGy/bkOpDAdPVwlj1Mr3vd
+   /ms7MNSVzblMeoi0sjPJuCNkL09LDhsSbp2bC32e/HsVNsVa2bzVPy0vo
+   g==;
+X-CSE-ConnectionGUID: we5RCQ7UQQGhom8mGzlLMw==
+X-CSE-MsgGUID: hTB2aHwLSv21xJTp2gk3Vw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11504"; a="55721670"
+X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
+   d="scan'208";a="55721670"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Jul 2025 14:50:34 -0700
+X-CSE-ConnectionGUID: YUbCUJRlSDSYtBKh9alZxQ==
+X-CSE-MsgGUID: msO8MjvYQuO0CppyXIzicw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
+   d="scan'208";a="192644434"
+Received: from lkp-server01.sh.intel.com (HELO 9ee84586c615) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 26 Jul 2025 14:50:29 -0700
+Received: from kbuild by 9ee84586c615 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ufmmg-000MJH-2B;
+	Sat, 26 Jul 2025 21:50:26 +0000
+Date: Sun, 27 Jul 2025 05:50:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>,
+	Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH] kstack_erase: Disable kstack_erase for all of arm compressed boot code
-Date: Sat, 26 Jul 2025 14:29:45 -0700
-Message-Id: <20250726212945.work.975-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Maud Spierings <maudspierings@gocontroll.com>,
+	MaudSpieringsmaudspierings@gocontroll.com
+Subject: Re: [PATCH 2/4] backlight: add max25014atg backlight
+Message-ID: <202507270543.G0TT6f25-lkp@intel.com>
+References: <20250725-max25014-v1-2-0e8cce92078e@gocontroll.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2143; i=kees@kernel.org; h=from:subject:message-id; bh=HSq9GVJebOQfQB9sT81R3PDtAZ/ze381+caKN1MH1OM=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmtHiffaX4tSiqs9K65/7rYQtbQ4mFj+8e4R+pVZmtf3 is/ayjdUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJE1nxgZ5t1q1Dl54euh+Ojd xYevtGn/PjVj3pYgc6aPyxJmbZZW0WD4X5zKMVlatP39hnx3p9nLkzautbP3mf7DiWHBQu1ze8o ncQMA
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250725-max25014-v1-2-0e8cce92078e@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_142950_353860_1124F568 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250726_145036_146693_81FCD79D 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +101,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building with CONFIG_KSTACK_ERASE=y and CONFIG_ARM_ATAG_DTB_COMPAT=y,
-the compressed boot environment encounters an undefined symbol error:
+Hi Maud,
 
-    ld.lld: error: undefined symbol: __sanitizer_cov_stack_depth
-    >>> referenced by atags_to_fdt.c:135
+kernel test robot noticed the following build warnings:
 
-This occurs because the compiler instruments the atags_to_fdt() function
-with sanitizer coverage calls, but the minimal compressed boot environment
-lacks access to sanitizer runtime support.
+[auto build test WARNING on d7af19298454ed155f5cf67201a70f5cf836c842]
 
-The compressed boot environment already disables stack protector with
--fno-stack-protector. Similarly disable sanitizer coverage by adding
-$(DISABLE_KSTACK_ERASE) to the general compiler flags (and remove it
-from the one place it was noticed before), which contains the appropriate
-flags to prevent sanitizer instrumentation.
+url:    https://github.com/intel-lab-lkp/linux/commits/Maud-Spierings-via-B4-Relay/dt-bindings-backlight-Add-max25014-bindings/20250725-191221
+base:   d7af19298454ed155f5cf67201a70f5cf836c842
+patch link:    https://lore.kernel.org/r/20250725-max25014-v1-2-0e8cce92078e%40gocontroll.com
+patch subject: [PATCH 2/4] backlight: add max25014atg backlight
+config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20250727/202507270543.G0TT6f25-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250727/202507270543.G0TT6f25-lkp@intel.com/reproduce)
 
-This follows the same pattern used in other early boot contexts where
-sanitizer runtime support is unavailable.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507270543.G0TT6f25-lkp@intel.com/
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Closes: https://lore.kernel.org/all/CA+G9fYtBk8qnpWvoaFwymCx5s5i-5KXtPGpmf=_+UKJddCOnLA@mail.gmail.com
-Reported-by: Nathan Chancellor <nathan@kernel.org>
-Closes: https://lore.kernel.org/all/20250726004313.GA3650901@ax162
-Suggested-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Kees Cook <kees@kernel.org>
----
- arch/arm/boot/compressed/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+All warnings (new ones prefixed by >>):
 
-diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
-index f9075edfd773..a159120d1e42 100644
---- a/arch/arm/boot/compressed/Makefile
-+++ b/arch/arm/boot/compressed/Makefile
-@@ -9,7 +9,6 @@ OBJS		=
- 
- HEAD	= head.o
- OBJS	+= misc.o decompress.o
--CFLAGS_decompress.o += $(DISABLE_KSTACK_ERASE)
- ifeq ($(CONFIG_DEBUG_UNCOMPRESS),y)
- OBJS	+= debug.o
- AFLAGS_head.o += -DDEBUG
-@@ -96,6 +95,7 @@ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
- 
- ccflags-y := -fpic $(call cc-option,-mno-single-pic-base,) -fno-builtin \
- 	     -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
-+	     $(DISABLE_KSTACK_ERASE) \
- 	     -I$(obj)
- ccflags-remove-$(CONFIG_FUNCTION_TRACER) += -pg
- asflags-y := -DZIMAGE
+>> drivers/video/backlight/max25014.c:86:4: warning: variable 'res' is uninitialized when used here [-Wuninitialized]
+      86 |                         res |= 1 << i;
+         |                         ^~~
+   drivers/video/backlight/max25014.c:82:13: note: initialize the variable 'res' to silence this warning
+      82 |         uint8_t res, i;
+         |                    ^
+         |                     = '\0'
+   1 warning generated.
+
+
+vim +/res +86 drivers/video/backlight/max25014.c
+
+    73	
+    74	/**
+    75	 * @brief get the bit mask for the DISABLE register.
+    76	 *
+    77	 * @param strings the led string configuration array.
+    78	 * @return uint8_t bits to set in the register.
+    79	 */
+    80	static uint8_t strings_mask(struct max25014 *maxim)
+    81	{
+    82		uint8_t res, i;
+    83	
+    84		for (i = 0; i < 4; i++) {
+    85			if (maxim->pdata->strings[i] == 0)
+  > 86				res |= 1 << i;
+    87		}
+    88		return res;
+    89	}
+    90	
+
 -- 
-2.34.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
