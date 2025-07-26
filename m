@@ -4,124 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A33DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Jul 2025 23:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A23FC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 00:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXBSNgzMClCengYCrY3ivBRGUf8cHDHLLWL7h/aBi7U=; b=0DA+td8aE2eCJRjSsaI5ibAZjx
-	VeThugGF2+/IKQ1OTeFduVtA3bPCJc/Nt8dVNM8UXZ9FqGqUnEIJbHh+3Zy2K81O+L23PLyMoYESU
-	RMsCecy2UG9Y0BQiZpuzZGEumVu97tKcNDc6FE/emzwcALdpXI6/rFxxwEzccJK3Xm53ByVyLKhll
-	3GnddJTE+fmUOYwBipCrLbPkbJO1TIk7I/2RnMc2o+MGqXqg+TbyRXn9itfg4PSNmsWRkVEdn73pR
-	IYrwCRn/jWMGd99O7ZosG7km+9J9XWx+vJ1oZdp/cb5uI3FDrNHYcIx+oU6QIOqNapVIcalRslXZQ
-	XdmfMFcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NWPtqSAvUDq+Z90hPAae2yj5eqnyBWI/XNam5wEHclc=; b=QWWpqhNBRJQb0obzMAwwZ41r0r
+	nnpGzHNJMCcQnI24l3dk2sVrdKErd4kE7V7ZKNOjPuNNkyztUrzlwOfadkWXAEArmRIDbOwPx6q6P
+	sQh+Rvz6WYDP4A5/1HsYC2Eh3Jbbw17Da2UNt/lLBjkTEOpdJDQ6PvxFaWRx9/EpMPo2MyR7MbtgQ
+	R4Srthod8qmG/oXW3sc5Q7eax1cQW946pXGtJ7VpiICfR2eUXWi06gI3QbcuiOz4F0X8XiwQ9oSAy
+	se8rQVDFL1A1aGnHmcN9+xAsjrYENm3lp9Iyk/H8pX52rz6GllfrX5sPGOGABDFXrYpNLbVIR+p7m
+	i/I1HKfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufSC6-0000000Au2b-1BJZ;
-	Fri, 25 Jul 2025 23:51:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ufSN0-0000000AvLn-3xqv;
+	Sat, 26 Jul 2025 00:02:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufS7m-0000000AtVV-3w7r
+	id 1ufSKU-0000000Av2G-2VUT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Jul 2025 23:46:52 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56PL14w5000696
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 23:46:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=qXBSNgzMClCengYCrY3ivBRG
-	Uf8cHDHLLWL7h/aBi7U=; b=Hu5O37cKi+LOw4ou7TZht2o5Iti4N/xAEKBfdnri
-	rPJ0pSuvxhfWnZzJhgd8+BsqVUCmPp5FIo4HkakQ7uvvVy8QgTc3NC2eDCGbfTkT
-	OL2YhsX6sVT7pnuMTNIHT/qzvk5+vZCvWWeCiINhxYPOXHbFcplIT7T+wO9hRQG5
-	GfCHWtfw6H/EMYm7ZDrOiWaLut5DhotLT/hiHUO0h153pKmRzvP/Otr/h6uIWNdS
-	PPhUVTR4m9tlJPXCkv8+9x6fyyaL6ut1w7yKuN2byo/itXCPNxVK1fRfi+jkcPUC
-	1pc/lZRdOcyfLERglKA3u2n5TpXCOAIw7VpHy9uVC2vnPA==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48489720j2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 23:46:49 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ab401e333bso77544311cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 16:46:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753487209; x=1754092009;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qXBSNgzMClCengYCrY3ivBRGUf8cHDHLLWL7h/aBi7U=;
-        b=LG2nJTDPmtGmejUOXz+zbq06mmPjtTQ2n0pMv/RWWvJJIIEJb39PntBrBPeO292jm9
-         lO6xth0dHsk10VuejyKkLDPBHguD2odUIuU69GA9cCd8mTJPfCsIDNi0ZQAj6niyh8ex
-         GmWniC+0Tmob4Fii5TLC9MUbRfmw86UZb2ncXprNhR+AseB5s8xvrHrC3o9r7NRrHeTL
-         BKu1/87Gg840t7YZDANguz4gW90xZ70qdN5y9nRDibKbrTv6HCylQAVkG7W0rmAwtBzK
-         yIl6Ap4kOaFeDkUmJHt9MTaGiHJ+1cJlwYz3n95EYpfYpqJWGYsky1fb2TJqrPpcfvOj
-         1BNg==
-X-Forwarded-Encrypted: i=1; AJvYcCWy0apJpvcaSFGa0G9oPQxKt3s7MYcN+E3ZhCNckP7unTtYRPAarMYmQy/nBKynh+TqZxBIOfMoBzEUKumU8AMk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBpj9IklMGC/kJXO/0BKJuurYtriLyxJH5hDbKHwyFXn0xXy2E
-	+IbjddonwuHVZN5UEHWXru5TU/V7XkI0bn2aPPYbMOdIvqC3RRD5LGdIh0qoQZItVG8bUPmZ3p4
-	DrtVCF5dh3FrR3mM/J/VaBLf7FKfv23lZ6eCPpf2tEQQX4E7ZwEU18ri7tVkv4nPn5amsil9JkR
-	kMWA==
-X-Gm-Gg: ASbGncsN9aG7PyIYhzgnzIUL1/rpuG18OSXYZesEdyMBPGerlxNghKW90pjmGQalk6+
-	ic36dkL8rDpSePRlWl5g+zq0vTOIarWJa1wtehTyD5liqeuAiUIhijLRhx+yn2htsdrDbJ4FmK2
-	neZQiXyXw4ThVS3FCbbqE9vRt8E5jjIUXG0jkNnwNVPfo8NMLcnu3QRy1OJ+cfbttyfgmIw1pSe
-	nDaKjUja3wXohsHs9Hp+2yoEPcGRjvc8IdEQB5WmxBXHk7dUlFQimq/TAuzInIYf7qqxekcFSJK
-	4XBkWDFSX/qb+w5tGPQjSNSyPBaB3AR8spBrHBwPM2mFjc5ZC7Vaks+HXUKfu3Eh+CoqvI2xjqL
-	ievUMNGH81iSVoOjyHfR8dp1chqlcKihns1IS2Cei4M4+JwK0uDbx
-X-Received: by 2002:ad4:5963:0:b0:702:d60b:c048 with SMTP id 6a1803df08f44-7071ff0f2cbmr58647236d6.19.1753487209107;
-        Fri, 25 Jul 2025 16:46:49 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFy1NIdFUiy+LkfIlb0Nij2OXe6qkzDF3xYJLssxlfhKaFVl8cSqppGR61z2kIummysPqIbXA==
-X-Received: by 2002:ad4:5963:0:b0:702:d60b:c048 with SMTP id 6a1803df08f44-7071ff0f2cbmr58646876d6.19.1753487208652;
-        Fri, 25 Jul 2025 16:46:48 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-331f40b5323sm2034501fa.37.2025.07.25.16.46.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 16:46:46 -0700 (PDT)
-Date: Sat, 26 Jul 2025 02:46:43 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
-        stephen@radxa.com, cristian.ciocaltea@collabora.com,
-        neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
-        yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, robh@kernel.org,
-        sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v5 10/10] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5
- ITX
-Message-ID: <vncck2eqkvfr7tbnuffopc5pysdct3az744lnc4xesyublfwyr@jz3hyvz3kg7g>
-References: <20250716100440.816351-1-andyshrk@163.com>
- <20250716100440.816351-11-andyshrk@163.com>
+	Fri, 25 Jul 2025 23:59:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 74D0543C5B;
+	Fri, 25 Jul 2025 23:59:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D3EC4CEE7;
+	Fri, 25 Jul 2025 23:59:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753487997;
+	bh=aWagL43nzO3VnFNpASht2nxBuHJFMqurTi8Xfa3eL1Y=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=jesXExFDdeul9WCN5G39/ib4nkocPTDnI/yeEIpfsW8Lz+DJykYp2TOdeGmRjGptT
+	 x92BA46355IUA7dRi7Y8UMlSR36Pf2O0t1buP5Z9ZSRIea6lJu0LxYw0y8Tf4UDLEW
+	 FGMqBmM0WEu4R5RARdWHsW/B0kg9E1MxNu90rJ5XI4jFgmQWfCh3A+DSuwAizPP3zx
+	 tERKyuOmyQT6oOGb3dUneQaDjnjTWs7//Dmak4RGSTX3OGcV3PlqVreruRpxinVTrb
+	 okRPYR1MXiNUH18pMY5ZuKYOak2sSkk0apz9PeRdBXCCph5YfZlOE1Qy01gsYFRcUx
+	 +EhKf9EJ/C2jw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAC74383BF4E;
+	Sat, 26 Jul 2025 00:00:15 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250716100440.816351-11-andyshrk@163.com>
-X-Proofpoint-GUID: yhP7UwjhLKK1SqlIh9XBzZsAJ26xs9el
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI1MDIwNCBTYWx0ZWRfX6LPrl/JkW0cK
- pv/dhfIJp2O/R9QUKFcNh6Eerby+8AaXqJGDbwLH2yCGbLE+wB8UQDLFR/uJzoT5EN7R3OLpfaQ
- PSz4/jzr+hpWXq7QZ1cqaN8hzZ1mV4RdguS2WA1C8ecfYRUwZOmFulTAhRh1ozHQ+Du1A8Ks3ao
- n34lh4NaWC1MWnsJAFPPMab28QgX9dISlk0LmuPe4EDUbie2100VA4Fp5Sj2HWm72nhI9XI/ZiZ
- lp3HDiVcyADdRI3OiFydnRU1/3uBxbX7uYDumqHBOul7pSxXPr4giww/l5Cu4/xN53tu0D3PTFU
- sl/oWrgjCqEEi7IhNjqMb5KOaVXN39/DlLP0K/oskvi269WImFgsOo7FsT936ul/NhzqvqllZ1T
- MuImNbErTllHAfYRQRosxqe6g2/NmjwQnZYF9gMAdjoCwjgrqQ+7uqwuFbej1hoZh+5/43Sw
-X-Authority-Analysis: v=2.4 cv=VJjdn8PX c=1 sm=1 tr=0 ts=68841769 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=EUspDBNiAAAA:8 a=mMkY4CccI6nGLkDSWykA:9
- a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-ORIG-GUID: yhP7UwjhLKK1SqlIh9XBzZsAJ26xs9el
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-25_06,2025-07-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
- priorityscore=1501 spamscore=0 malwarescore=0 adultscore=0 mlxscore=0
- bulkscore=0 phishscore=0 mlxlogscore=750 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507250204
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 0/4] arm64: dts: socfpga: enable ethernet support for
+ Agilex5
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175348801475.3451765.4389353168084644772.git-patchwork-notify@kernel.org>
+Date: Sat, 26 Jul 2025 00:00:14 +0000
+References: <20250724154052.205706-1-matthew.gerlach@altera.com>
+In-Reply-To: <20250724154052.205706-1-matthew.gerlach@altera.com>
+To: Matthew Gerlach <matthew.gerlach@altera.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ dinguyen@kernel.org, maxime.chevallier@bootlin.com, richardcochran@gmail.com,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_164651_095672_0B40E020 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250725_165958_654975_68300084 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,30 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 16, 2025 at 06:04:37PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> The HDMI0(Port next to Headphone Jack) is drived by DP1 on rk3588
-> via RA620(a dp2hdmi converter).
-> 
-> Add related dt nodes to enable it.
-> 
-> Note: ROCKCHIP_VOP2_EP_DP1 is defined as 11 in dt-binding header,
-> but it will trigger a dtc warning like "graph node unit address
-> error, expected "b"" if we use it directly after endpoint, so we
-> use "b" instead here.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
-> (no changes since v3)
-> 
+Hello:
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
+On Thu, 24 Jul 2025 08:40:47 -0700 you wrote:
+> This patch set enables ethernet support for the Agilex5 family of SOCFPGAs,
+> and specifically enables gmac2 on the Agilex5 SOCFPGA Premium Development
+> Kit.
+> 
+> Patch 1 defines Agilex5 compatibility string in the device tree bindings.
+> 
+> Patch 2 defines the base gmac nodes it the Agilex5 DTSI.
+> 
+> [...]
 
+Here is the summary with links:
+  - [v2,1/4] dt-bindings: net: altr,socfpga-stmmac: Add compatible string for Agilex5
+    https://git.kernel.org/netdev/net-next/c/92068a32f978
+  - [v2,2/4] arm64: dts: Agilex5 Add gmac nodes to DTSI for Agilex5
+    (no matching commit)
+  - [v2,3/4] arm64: dts: socfpga: agilex5: enable gmac2 on the Agilex5 dev kit
+    (no matching commit)
+  - [v2,4/4] net: stmmac: dwmac-socfpga: Add xgmac support for Agilex5
+    https://git.kernel.org/netdev/net-next/c/a5e290aab8fc
+
+You are awesome, thank you!
 -- 
-With best wishes
-Dmitry
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
