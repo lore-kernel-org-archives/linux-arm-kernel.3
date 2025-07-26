@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0488FC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 21:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EEF8C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 21:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eNISZlrzl0Z3dZdoogVfl+lJdfeLWJhnuVzoA7+Ixkk=; b=bZE80C/t8ozn6emywSd4C3fk2R
-	LNgYiC5s0Ds9nLcK8aGvxeHTKbRm16EpXkyS2dCrMHmZJkaVGCFUvxRVHJWSr8eoRLmjlkAMMTSLh
-	LI64EZ8fN60M8brs92lIsKK5+Y1X7e6MJ95r/HVq606dP31Xq8jUAZBKIRpnHQBKBPvDrWds3M8Op
-	2/7Ww8e9K9plnSlzHKK8QCqpel3z5WAHIy4wPTA58DquG8ozfK33nn3t2LooXkt11BFEPeO70rfuV
-	1TTkP2PybjyFiTjeodmbWYuO415qdf51319csfmr1pBtGJloKadE7dzP7mtivUd+S8KKCEag6KGOL
-	qANcPBPQ==;
+	bh=oN1NrAW261b86ZUeNpGM6q+x3KcN+7d15I3+AJgrHOY=; b=D3x3WQgq/HHpi0Df4rCahQTTrm
+	7Nio4x5GSFufpu4w5F/xqLsLj1Zpm/MXcH5xDISvR5Y0nzlb/+BtrBir1gEUrimFzf1/UhrhD+RMg
+	XwAkubs+/3RpANuddyY57dXujb/KQRVd+1OyECZAKAMXsJeB9fuJJ3HguHa9dLvK/ej0rLJhuIiy9
+	Kq+Elbjy/6hCWXlXO649kT49Yq/B2s46fkCmXm8LRh/bNY3hYVc3Ft2jHN/sKb8mJPeY1/q8Nr8bw
+	8di/IAoLXnRbEVUohC4x4ycvWV/tSlZbOf3RB47MA6i+cmQQM4og+64/NYb7qW4YodrhyIUlT5FO7
+	2doUBJ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufmBO-0000000Buvt-0NP7;
-	Sat, 26 Jul 2025 21:11:54 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1ufmF9-0000000BvBz-021c;
+	Sat, 26 Jul 2025 21:15:47 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufm8q-0000000Bugq-0xAb
+	id 1ufmCa-0000000Bv2B-3ifP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 21:09:17 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2D2F10391E80;
-	Sat, 26 Jul 2025 23:09:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1753564152; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=eNISZlrzl0Z3dZdoogVfl+lJdfeLWJhnuVzoA7+Ixkk=;
-	b=c3NaRGG00BtAzqGFmo87hfj9z0wshVOQm8vOwNQFLymfIbbgscrohKzlZ0mF8STj2V0rSk
-	5b7Y3etuydPLum0x2qmSTy6tirEHVQHrIlOuxMFfkzF9sw3c3XkiHkit73qdLQvgaAvGeP
-	ID8cq003K+IVbx5VNFcQtZgJqHYYjeS/Rpsp+KRd+s3TFwtGXA/3cI1EgbR8/eJ/XmGFhM
-	3uugmBQRDBIPQQqgh+SniVBET/izCY4uTLQdnBbsB+VmhfVQTSEft7IGss/ySBolLM43ii
-	f2DGm7I6oLa2SQ7iTyEyEpP5T3W5ntH7nuIvrvq3vw1+sfBLhLVej9JgSJMspg==
-Date: Sat, 26 Jul 2025 23:09:08 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>
-Subject: Re: [net-next v16 06/12] net: mtip: Add net_device_ops functions to
- the L2 switch driver
-Message-ID: <20250726230908.3d1e4c87@wsk>
-In-Reply-To: <20250725151618.0bc84bdb@kernel.org>
-References: <20250724223318.3068984-1-lukma@denx.de>
-	<20250724223318.3068984-7-lukma@denx.de>
-	<20250725151618.0bc84bdb@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Sat, 26 Jul 2025 21:13:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=oN1NrAW261b86ZUeNpGM6q+x3KcN+7d15I3+AJgrHOY=; b=luNGpmioPBr0uMy4T/tCmgay6L
+	KqG3m7j58qZ9pvRfa1O3kjUxJZxO7UcnM1d+QxW7catY21Iq2A+31U+BolNxmDgSx1eN4fzPrrloR
+	Oyc8kmwomosJV6g8AQd2NmJ6vCAETRmHiHliWhQFjxnG6eRZpZMp2nzpJyg4zAXnpuB4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1ufmCU-002y47-Cy; Sat, 26 Jul 2025 23:13:02 +0200
+Date: Sat, 26 Jul 2025 23:13:02 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v10 09/15] net: phy: marvell: Support SFP
+ through phy_port interface
+Message-ID: <4be84db1-7999-46a2-8157-68b8039a31cd@lunn.ch>
+References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
+ <20250722121623.609732-10-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/IKCY4fFb7hT6jq/Pg_jxQM6";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250722121623.609732-10-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_140916_571800_BCDDB850 
-X-CRM114-Status: GOOD (  28.55  )
+X-CRM114-CacheID: sfid-20250726_141308_924009_9773BFBC 
+X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,163 +91,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/IKCY4fFb7hT6jq/Pg_jxQM6
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+> -static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
+> +static int mv88e1510_port_configure_serdes(struct phy_port *port, bool enable,
 
-Hi Jakub,
+The naming convention in this driver is to use m88, not mv88.
 
-> On Fri, 25 Jul 2025 00:33:12 +0200 Lukasz Majewski wrote:
-> > +static void swap_buffer(void *bufaddr, int len)
-> > +{
-> > +	int i;
-> > +	unsigned int *buf =3D bufaddr;
-> > + =20
->=20
-> nit: reverse xmas tree
-
-Ok.
-
->=20
-> > +	if (status & BD_ENET_TX_READY) {
-> > +		/* All transmit buffers are full. Bail out.
-> > +		 * This should not happen, since dev->tbusy should
-> > be set.
-> > +		 */
-> > +		netif_stop_queue(dev);
-> > +		dev_err_ratelimited(&fep->pdev->dev, "%s: tx queue
-> > full!.\n",
-> > +				    dev->name);
-> > +		spin_unlock(&fep->hw_lock); =20
->=20
-> As we discussed on previous revision you have many to one mapping
-> of netdevs to queues. I think the warning should only be printed
-> if the drivers is in "single netdev" mode. Otherwise it _will_
-> trigger.
-
-It will not trigger (as far as I understand the HW) because no matter
-which interface will call this function, there will be next, available
-descriptor provided to perform the transmission to switch port 0.
-
->=20
-> BTW you should put the print after the unlock, console writes are
-> slow.
-
-+1
-
->=20
-> > +static void mtip_timeout(struct net_device *dev, unsigned int
-> > txqueue) +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	struct cbd_t *bdp;
-> > +	int i;
-> > +
-> > +	dev->stats.tx_errors++;
-> > +
-> > +	if (IS_ENABLED(CONFIG_SWITCH_DEBUG)) { =20
->=20
-> why are you hiding the debug info under a CONFIG_ ?=20
-> (which BTW appears not to be defined at all)
-
-The CONFIG_SWITCH_DEBUG is rather a "local" variable.
-
-> Seems useful to know the state of the HW when the queue hung.
-> You can use a DO_ONCE() if you want to avoid spamming logs
-
-Hmmm.... Good point. I will rewrite it.
-
->=20
-> > +	/* Set buffer length and buffer pointer */
-> > +	bufaddr =3D skb->data; =20
->=20
-> You should call skb_cow_data() if you want to write to the skb data.
-
-This is the place where I do send data... (the *xmit_port function).
-
-For reading I do have pool of pages and then I do copy the data to skb.
-
->=20
-> > +static void mtip_timeout(struct net_device *dev, unsigned int
-> > txqueue) +{
-> > +	struct mtip_ndev_priv *priv =3D netdev_priv(dev);
-> > +	struct switch_enet_private *fep =3D priv->fep;
-> > +	struct cbd_t *bdp;
-> > +	int i;
-> > +
-> > +	dev->stats.tx_errors++; =20
->=20
-> timeouts are already counted by the stack, I think the statistic
-> is exposed per-queue in sysfs
-
-Ok. I will remove it.
-
->=20
-> > +		spin_lock_bh(&fep->hw_lock);
-> > +		dev_info(&dev->dev, "%s: transmit timed out.\n",
-> > dev->name);
-> > +		dev_info(&dev->dev,
-> > +			 "Ring data: cur_tx %lx%s, dirty_tx %lx
-> > cur_rx: %lx\n",
-> > +			 (unsigned long)fep->cur_tx,
-> > +			 fep->tx_full ? " (full)" : "",
-> > +			 (unsigned long)fep->dirty_tx,
-> > +			 (unsigned long)fep->cur_rx);
-> > +
-> > +		bdp =3D fep->tx_bd_base;
-> > +		dev_info(&dev->dev, " tx: %u buffers\n",
-> > TX_RING_SIZE);
-> > +		for (i =3D 0; i < TX_RING_SIZE; i++) {
-> > +			dev_info(&dev->dev, "  %08lx: %04x %04x
-> > %08x\n",
-> > +				 (kernel_ulong_t)bdp, bdp->cbd_sc,
-> > +				 bdp->cbd_datlen,
-> > (int)bdp->cbd_bufaddr);
-> > +			bdp++;
-> > +		}
-> > +
-> > +		bdp =3D fep->rx_bd_base;
-> > +		dev_info(&dev->dev, " rx: %lu buffers\n",
-> > +			 (unsigned long)RX_RING_SIZE);
-> > +		for (i =3D 0 ; i < RX_RING_SIZE; i++) {
-> > +			dev_info(&dev->dev, "  %08lx: %04x %04x
-> > %08x\n",
-> > +				 (kernel_ulong_t)bdp,
-> > +				 bdp->cbd_sc, bdp->cbd_datlen,
-> > +				 (int)bdp->cbd_bufaddr);
-> > +			bdp++;
-> > +		}
-> > +		spin_unlock_bh(&fep->hw_lock); =20
-
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH, Managing Director: Johanna Denk,
-Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
-Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/IKCY4fFb7hT6jq/Pg_jxQM6
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmiFQ/QACgkQAR8vZIA0
-zr01lwf9GsVk2YF8UuVzfEfWghkxAMjT42fDPAJABZxKQQiRLoDiTWsctU9lSOq3
-dDKZvdScv+0smZgfukCgwdUUdQV20xV4178yo7weQuSg1jPPLonTQ7sZTbV1Eg0p
-ayOpB7BPG1PBjqlVdvjGFu4sf/m6Mdwp5CQ4IAtQuY4PoTVqlIxfhRJ7Z7Vt/ZS3
-kOosem9z7v6OSTAo0vwfERyfgkXn0Z+S2rPrg1zzm8MsOETmqTnXRDDolN8bRycW
-oaFeF748G7QTVUlmE7Z3qnkFTDGm5DLCgF5AowfSCbbJFISfaOOvAb/IRTOJGYQQ
-jHXaWPJCKfknuPWzQ+hVId/6QyhUQA==
-=qmTS
------END PGP SIGNATURE-----
-
---Sig_/IKCY4fFb7hT6jq/Pg_jxQM6--
+	Andrew
 
