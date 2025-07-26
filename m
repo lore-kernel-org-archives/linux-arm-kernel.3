@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A984C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 00:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58A3C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 00:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fVtEWHvXvUc+qGfFc/OhqisrYtRe8clpA4PwpwpT79k=; b=1ZvaN7SLWN13GlnSi+AHqcn7Y/
-	sxDUGnWTW1M1ol4Mbg8IAkvjRLcWbe91g3FIWqnpz5cmnP/nb9zU3G7KEds10futjR4HKk1nTjdSg
-	qKF3P0+1LVyqI7/Bs+e+RSssfWKd8rwS5JDDrZ7RBRjDko48iD9cEQCOjzroQ5+4oeZOAOceUAvvi
-	ZSD4FHO1Y0hewluO4ILqPuDxTP29bhmXtObjOD1apSDt5EBDnim6BsADqhO2a5jyG8qbT1M9LtGU0
-	va9geLNXuJyEHkbty0GzhKUYKOV8XuqoyrpKfRt2CRHLlcameg4KpGam/qkuZo/TaY9pIotyJoeCA
-	2+7PIWyw==;
+	bh=CTGcg8JogZ8+3e2c1J28j27/pKoaqY9rvoZ/CTXAvIA=; b=0gCvY1tir2PrRM0YXRR8OnzGqP
+	Se5FzUabK8NnEb54+avVeE02tlWVcerj1hJ2HzaUu+RT+grbhhLdhY7BQDNmaBDb05rnsQt6S3dgt
+	+uB+VAWSHy6vbrVd06fHN6GEO/g9oaE+sfvXzY6eWSW6o1jzzRQqmjBZPicdwOAVaKR4Nb8ZNFwUW
+	mhK14mfSuybLAO2uIAhNe2e4rmscFnvFK2dYtp1xOMsnoUsoGCyTa1qQ41nMT1Qc+jU4Id5C3N/0J
+	xnAaDqo8HKuPXa1U4Uj9j/MwRLqmU4Tm5eY7DvTd1fQnuB2rxI6V2NwnrTtl0xGQKSEq1+QTg6fJW
+	thNyOJzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufSda-0000000Awrz-2JrA;
-	Sat, 26 Jul 2025 00:19:42 +0000
+	id 1ufSfz-0000000Ax2m-2Wlq;
+	Sat, 26 Jul 2025 00:22:11 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufSYV-0000000AwMf-0uBL
+	id 1ufSYm-0000000AwQC-1mx6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 00:14:28 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56Q09tuY011694
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Jul 2025 00:14:27 GMT
+	Sat, 26 Jul 2025 00:14:45 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56PId2EU026969
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Jul 2025 00:14:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=fVtEWHvXvUc+qGfFc/Ohqisr
-	YtRe8clpA4PwpwpT79k=; b=c/Pg0FhZcPNLb4l+6MQw3GZodRoQJwCs+p0WPYs3
-	E4EDW7a2S8tEI6QbhZK2/bP1jkrWrqQVZlxftkJ4GMKATN5tvnYAwM6GoWuhNcnz
-	Pe2cjgsabm/NCyhtILNPbSqnlsBkRvUD172jyVcdFOyQw91a5gDmbjYlRbeDzQiK
-	ZjunzAkUPbf3NVUlvbRY99+pn5IhRbCaAw6whsDUMAfsiM7nIT5hQ6VgC49Lw2fv
-	vP7Tn7l5As55LNfW7T60MNTesDn7ByXWuSvES6zKUW+z4o+7mlEn9H+uQwEc52sG
-	POS7p3tykbzveuFwypm8whHqLvxkRMAQIypWApAT34JXUg==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484m7wg07e-1
+	:references:subject:to; s=qcppdkim1; bh=CTGcg8JogZ8+3e2c1J28j27/
+	pKoaqY9rvoZ/CTXAvIA=; b=WQIrZPLebG37A2p/sAaV1c+nhCPLOEZ7dKd/z8Wc
+	1EWqTW2Dz1/JkNdJ/nCiPKnFh+PmSQpBnc1k8kRzygJXo7V8ICN5XTBWNsfXWlNM
+	+FVL5Exg4RjvNzbJGVJjC8pWr4B0KXC0bIJs8Xms3O1OBi3j/oh3PiKlnCaMwbaH
+	YTWlWvjdgaUtEWO8HHhmyMwsKcVPr+Ey8b4iyE7Z9/uffJa+F9TdUyhLRAfFgqHC
+	nZxLN8TKMrteknF+bwg2wtMg7kpADmN+c6doR8bKUja2yay1ysDov89fq2vJeE5X
+	mKhZ/Lz4qMRy99m+IS26LwS4s37nq+L04LIc3aOco0Gw7Q==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 483w2u3uw0-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Jul 2025 00:14:26 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-70708748fbaso41814836d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 17:14:26 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Jul 2025 00:14:43 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e350915d2aso877856985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Jul 2025 17:14:43 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753488865; x=1754093665;
+        d=1e100.net; s=20230601; t=1753488882; x=1754093682;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fVtEWHvXvUc+qGfFc/OhqisrYtRe8clpA4PwpwpT79k=;
-        b=lXOgZwYu6IT8wjXz6NtiR+HBnPr8NFgFyIsttIWK+KXQ7LiPEom8ih9QcUNegi6Z6t
-         jQJ2yJEyZdzz3H8OphQ5EcOhaB4fq1ghLv0f6qDobKKqpq3ii0QMLY3ef3XsAbIuSQK7
-         VwR/syU5naGm04r0o86+81xsXO+TJvEpkZsWP8B72lfkXQRMu4hBaROUy0bejEkwhvXB
-         W+OgV7b+MmZB8/SZgNF3nIDlKdGHJoOHPsh/39AE2Q9xMe1vUHeswoO9DSmwlyvCXj4Z
-         RG0X1sE5xSeyDoslUS7fqj4bY6Ayt6g2KNmtn/1xhmifLVIGO/P1VyZ1rkAOYQlpOku+
-         o/lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV9JYoyrc4YKilcwOgSMNiHLs9R+pRnmKtQzbD61rFpSSTzbaYk7PUxXvBf/wf1mDNyyQH6nf7/B3WWEOmKrCTV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTKxudUDXiaU5o8nUvYAZtUCNHLaoGZaFSsqs1KB1eVR4U6Il/
-	G33TdDeYOIG1KogIVxStYpsBB7PAE7lRNYM+puRCJk3kmFmxwiAaWTeDeCLS/MK9fCuWAi7jqe5
-	gol0oXCX9FFhkXAwliXCiuLIhrl/4Giz4fxnZQo1qofl8kyIgxcM6r/yEdDMPXzKeGeTb0qJAR3
-	AjXQ==
-X-Gm-Gg: ASbGncu6ipInW4BH72BueJio+h8uz7imBk4TCPr1akj5Z4Irgy3bV/Fyu9QJdGHwAAU
-	l3Z1mB87jD8M+jLoMH6dXngXs+4ClfuP1xhm21YF0K3hec/pqUKj42Y5h0hfC78pOlit3k9TLAO
-	GhQIqb37R4rTs2QI3z/b3zgtnCOVSM1nSo0PlWZsumLJMTYwCUdIhaveXMCFAYZb3Ag5JOCN268
-	8GpBtQtaSWHDP9eiOqyH1j1tzRcYUsNyTo5a0FCDc4PkFTtduK7ase6IFBSNIf4nkdSxpf+aLi/
-	5pGkknbyvRpF5ICgbx9dhaXhBgqUy+lLeh//4I9gzZJ7l3ajAEHzheoc2nrnuA93TyWJIAX/Q/v
-	vX6M8eTPsUaWDcg8U0a9bdNHLadKr4NA+G5Pa12WLJ3DMjWtQXFN/
-X-Received: by 2002:a05:6214:519a:b0:702:afa1:b2d2 with SMTP id 6a1803df08f44-70720519109mr48479066d6.4.1753488864850;
-        Fri, 25 Jul 2025 17:14:24 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH8LMLBA6RRSlqAfWuEkNfbGOnD0mlhKsga/BysfgtQevo2p5uY8FU1lkB1NoIIU1STSJSTJw==
-X-Received: by 2002:a05:6214:519a:b0:702:afa1:b2d2 with SMTP id 6a1803df08f44-70720519109mr48478786d6.4.1753488864339;
-        Fri, 25 Jul 2025 17:14:24 -0700 (PDT)
+        bh=CTGcg8JogZ8+3e2c1J28j27/pKoaqY9rvoZ/CTXAvIA=;
+        b=vFnU35bSAhgbQctWfKf/ayHZnGAMxAIjAGe74wplpNSvLaW+BhoxA3fP5TuZ3XDIxA
+         gq15blzjqpkJ1PziTb8sLD558gpuO/HcvBkCikRQJhY4svC+3VsGobuONwqEYGKVULXf
+         xMnE58gq4etKuEdk5XdnS9hibsTxoa0F3trpqXx+vRcEPtmzWNkRuA7NNeZQrW9ep5Zm
+         TayNuMALUGJwmRgrSwrMG0E5YiU1XnUMQMT0lyrkS1trw38uS71PbijJQTyDOI1/wAQn
+         cvrqAeUEZkixL9HfSRfKivlR25LIRy23wEYLHL5Ad1A/ZHxxbi/9mdJd+V3winDkPGdr
+         MvjA==
+X-Forwarded-Encrypted: i=1; AJvYcCU2bU/oyzXgYjAGCBIXE+gy1OLJTfwUOCDoVWjMFMglswHf11NDb1RTYN+GPYzYIR82kYGYsjHMBS7octGcYXJB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV6peWgthOU3yx1XmFK1f+jbLMJjNShkV7GYRwXc/ROr3frbre
+	nq1SM4satl8HxjoxQUWgsYd7PyKUMQlIw6Hn4LR3XD8bV3RSLZIQhmA/RyrPjhoFa0J2YfFZCVm
+	Twy4bb/7m5gkL6D1AVgaYD/hEOsI85nTiZ/XI9/Sie9NkoaqTTLBHIO6mVkqqJ8mSaxUFtufjoD
+	ZM6Q==
+X-Gm-Gg: ASbGncsKa45DvaYidcnKs5Lg6p5N1cLOgng5bf5pp/wK9bAbcqouAH9Og+kMdQFPxpH
+	BDi/qXw7+ST1o1xzBqDnhVWbz7KPtSthq3s4CxjxT/f3CV0ghmjWCO+5ztBbysTkY2061+urUoy
+	QW6KohFnGoeXpAf6Y3x1QjUKq0nFq7Sds3bnmLFSmRwIBc6JTmvuBh1v5juC52GGkftrFoaLyo4
+	Ibv3jXtAHQr+FvjeZRsj52q8situtuQ04a7i3CTbJBVTmjxUo1mf+ilzFjck2LhwWLRZGy4C6Vf
+	TlQw6LmuxL8iMc7tI0RyW60NcCIBdYT7PM6WOE1v7yxOIUF1aEkiatZps9IBmdEVzMv4CQgFpaA
+	0xBAjkO05rILcPUQNRwAUQixFtzj60Wea4NgRHMv++luumBM2CFS3
+X-Received: by 2002:a05:6214:1c41:b0:6fa:bd17:313 with SMTP id 6a1803df08f44-707205a701fmr50123186d6.30.1753488882394;
+        Fri, 25 Jul 2025 17:14:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGdQpwGUCkqR1lOUKTKaqZouyRm9icTapQyzE9JidQYLs6U2H/kr9H1AePaGwZvW49Mwo6Dww==
+X-Received: by 2002:a05:6214:1c41:b0:6fa:bd17:313 with SMTP id 6a1803df08f44-707205a701fmr50122636d6.30.1753488881831;
+        Fri, 25 Jul 2025 17:14:41 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b63391f37sm190687e87.170.2025.07.25.17.14.23
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b6337568csm188598e87.129.2025.07.25.17.14.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Jul 2025 17:14:23 -0700 (PDT)
-Date: Sat, 26 Jul 2025 03:14:21 +0300
+        Fri, 25 Jul 2025 17:14:39 -0700 (PDT)
+Date: Sat, 26 Jul 2025 03:14:36 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Damon Ding <damon.ding@rock-chips.com>
 Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
@@ -91,40 +91,40 @@ Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
         dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 07/14] drm/bridge: analogix_dp: Remove redundant
- &analogix_dp_plat_data.skip_connector
-Message-ID: <b7szam2wjxhbwnz2bpnejyppek5ag6vxibw7wmlwzdajc46dnv@xh5lc5bymg3d>
+Subject: Re: [PATCH v3 06/14] drm/bridge: exynos_dp: Remove unused
+ &exynos_dp_device.connector
+Message-ID: <ovlz5hotvqyn4gnrmidfq3aafq6tkjjpnpgt43yterf2cd73ys@dkarreyoctbh>
 References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <20250724080304.3572457-8-damon.ding@rock-chips.com>
+ <20250724080304.3572457-7-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250724080304.3572457-8-damon.ding@rock-chips.com>
-X-Proofpoint-ORIG-GUID: ANMCPjntpw4HWSBP7pyAZcBK9giqCPmq
-X-Proofpoint-GUID: ANMCPjntpw4HWSBP7pyAZcBK9giqCPmq
-X-Authority-Analysis: v=2.4 cv=F4tXdrhN c=1 sm=1 tr=0 ts=68841de2 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=EUspDBNiAAAA:8 a=r8lg0YXQRZsV-nIv6pAA:9
- a=CjuIK1q_8ugA:10 a=iYH6xdkBrDN1Jqds4HTS:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI1MDIwOCBTYWx0ZWRfX6y9n4A8m31jG
- 2+jDpIWk02AOpuuWJHlEngI6wiOC9itF70sL+CQsT/RQzqMR7X66xvC+nmI3z5eQryujYDDXTuW
- fWllEE7xrHNhnI2O0iHnk9OBPXQ7cIhAeBTkjLOBnrsM5hH+KSN1YVACZSR2w37dwRQ/mWKYoKN
- hn737apsofnw3Ma9Kv3WL/ChdnguDsealvz+V67ZnzROWrkxBQgmr7nI1RRyB5pkNIo4kRfobC2
- 82fx5nLOyxArnEQYEvseyE7xUpz0yKVZMVHXVjtxggMe3Vj/SlZYwiTWg0R2FmBaSx0NtAbemx6
- JUY+JatkoJdwjA2L2+SohecQKiOt/IMfInQVxqHuZxie2cLw9JCaM2OEI8nL6KfFACSbhnq6pA+
- ppuUz65NniV5URjScSDNRox9n9/mzj6rr7SesHk1bVAvbmkDtpSMm0HGDhX6Ky0RDTL5fotv
+In-Reply-To: <20250724080304.3572457-7-damon.ding@rock-chips.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI1MDIwOCBTYWx0ZWRfX91Gz5DW/dbyK
+ U4mosvS606M9ZMJ5fx4IE5uzt4wg6FW1XNH3lZQRslRLBA6k7fg9nCihu27txs3ovTmmcuWklWj
+ n0oVPPnZhohePaum3I4XsEtNIwtEo8nOksRkjL0AxOJrOo9t8jNvCyM9UUw/eNWQD8B2SZLa+8N
+ gUAfRVZ0cgGkYysfkpS9LnvR6J2UvKH2b4cCYqjYB8LY71zDpDDgHr464o3AifS39TvKK7lDV82
+ lcl2oOpk99JAD1ogh6uz4p3w9CA0tMoRl5Xi17x6SsB0CpG7ForWJvZnbkJ9zVAb1FJIbTrIbNQ
+ 66aU3Xo99oB870GkzlMcbKaz3QbnE5WNk6+qAWwpF9gyz/dQX2RhEBNOTKIYlYIgEa26gVKmEiE
+ xIDR2QT1bbatQxOzKRkITzTJDzNVbrUHS79AVB+YCt3fvWoEN8fVVhCXzwNjDuOVl3q9A53a
+X-Proofpoint-ORIG-GUID: eg8WEDiG60ihKs4rd5dIeSixnAGjCfCw
+X-Authority-Analysis: v=2.4 cv=FcA3xI+6 c=1 sm=1 tr=0 ts=68841df3 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=EUspDBNiAAAA:8 a=xX9fryL7oNgbU_NKkWoA:9
+ a=CjuIK1q_8ugA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-GUID: eg8WEDiG60ihKs4rd5dIeSixnAGjCfCw
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-25_07,2025-07-24_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 mlxlogscore=999 suspectscore=0 adultscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 priorityscore=1501 mlxscore=0 lowpriorityscore=0
- bulkscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507250208
+ phishscore=0 bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0
+ malwarescore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501
+ mlxlogscore=779 clxscore=1015 mlxscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507250208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250725_171427_262297_700EA74C 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250725_171444_462833_F787E6DA 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,21 +139,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 04:02:57PM +0800, Damon Ding wrote:
-> The &analogix_dp_plat_data.skip_connector related check can be replaced
-> by &analogix_dp_plat_data.bridge.
+On Thu, Jul 24, 2025 at 04:02:56PM +0800, Damon Ding wrote:
+> The &exynos_dp_device.connector is assigned in exynos_dp_bridge_attach()
+> but never used. It should make sense to remove it.
 > 
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> 
-> ------
-> 
-> Changes in v3:
-> - Squash the Exynos side commit and the Analogix side commit together.
 > ---
->  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 2 +-
->  drivers/gpu/drm/exynos/exynos_dp.c                 | 1 -
->  include/drm/bridge/analogix_dp.h                   | 1 -
->  3 files changed, 1 insertion(+), 3 deletions(-)
+>  drivers/gpu/drm/exynos/exynos_dp.c | 3 ---
+>  1 file changed, 3 deletions(-)
 > 
 
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
