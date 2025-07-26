@@ -4,96 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68C78C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 12:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19586C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 17:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oVd7AMali/jsi6H1hzbMRMOEHFNbKvjmSzlnGm24Ac0=; b=fMlOQBd+e556UZLsxX4ZfAKy8E
-	NSf/rdzsnzn9PgpHIaRQB9H33ZEznLhtoAJhTP5a0cLHkULc27CVon/bG5gGeKGS/hTBu/cSLbpbV
-	8AXyGSOjSFtPGal8P6xwD+KleYroYS31VBuBSp6y4iV4s5bl3CW4un2QpHHs+FYMq8s30bLZbpOUC
-	SOinCoUSw/UOQIbGLvRqrhIZ8/gBYeWcaED/hg7eBDuZ2Rd/FyIL/NitRa4jSC2Cx8CcW9GufcHFb
-	3T8lDnIctnvCvNtZCAKoR0Nrd++N82cwPP8lYDzsoAnX+WaDLx7dVAOCiTGwoyiA8laiBgIKl2oYP
-	vG9mq2WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2tjgC5Y43tq4P/PKgQHVO1dK+JtntZIGxLyaAIt9ELU=; b=okrGGM/XmVbdywshl2v4RP5vzP
+	Jr7Ei7486NqCrw3/TBWAnncYOT5mTC0xc6kuSMVEoIsid6RR45bWCPzQFv8SUVLRGVSjjRh+0wvFj
+	0f7A8KiZL291LoKHXwuYDMogZkhKo1TGyef0VfQaaLphnmyTMWeO/Op8zr8KpxMecHWIt9svxtbe9
+	nF9zzINvVFR7qb/BfwqUWEiJsNxLzVVWgNtvGbENv8C0htZ05vh3I7z6Rsbh4EpxzB3TY7iPviDpy
+	1AFoqhRAPX68FGb0aFbjbD3QWNjCuTtrK+RzV/i5YCEltCoKnkiRviN6caLl9By7JKjymUO5qD45K
+	8xerndgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufeUL-0000000BT0s-2mkv;
-	Sat, 26 Jul 2025 12:58:57 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1ufj91-0000000Bi9r-1DeC;
+	Sat, 26 Jul 2025 17:57:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufeRt-0000000BSrT-3H1b
+	id 1ufj6U-0000000Bi1Q-3AaF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 12:56:27 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3b77a4ad84cso285010f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Jul 2025 05:56:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1753534583; x=1754139383; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oVd7AMali/jsi6H1hzbMRMOEHFNbKvjmSzlnGm24Ac0=;
-        b=TjRju261boMClhWHBM42NTcIOl5/cHMWEBSE8pZMJjQWIViMUUgKGnZemmYLG/lwEn
-         glbg1HsGG1XUItmUM4TJDd72DsKvNGiA7PqIMXCpf7rwCBAYgZYzlSe7WCmB5mIM1iZo
-         gL8EO/TkBxlgjqBkS3VyZmtNNRa7H0Irn1uki705xGH3burrymPm/RjWQoT5DGFZ4Hdn
-         zGM/zzF21BmF1Kdh1MNSia3dFw8CHGOWp4w5n+0AvudUtI6I9ERQPiJYre55ALGwcQCV
-         0cex3JYK5yUblrL5Fs4oGtf7Q0Nz4EQZAuenmRnBTXgVMZrd5SUybvSaN9gJcsLIg0Bt
-         wa3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753534583; x=1754139383;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oVd7AMali/jsi6H1hzbMRMOEHFNbKvjmSzlnGm24Ac0=;
-        b=C6NJmEPWWeKoojDTCzqnfdUaWbdbWEQKB8V4myW1aaLWnrPOt2Dyg/+MMrEtZTvQDc
-         CYHATjApKV571x4Qohzl+B8wCnxwINKbJ2YtjplyH5DIySSiNlCn9FmJlQ36JifP+bYV
-         UStjZQdlquCPtV+X1mmSCz8WEeGtm3HaZIYRo9HQTM9g7ey9jaqOCi9J8332xdHyBted
-         D4ueanCNB7A28MbxUEK3VUo9ZIAlgkQo99j+DGIsZ345jRylgMlG1oyiuuzFwEKdE0W/
-         K4D9fkc3rT0LItV2BhTxhFZXm6eue6fNtU7NuCbnUjsQsHHwsY0KtrgbN3ZJjRuySCBu
-         6Cbg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqnXjZ8rPxI2JWre4iTGNe7HLIB+vcKcUBXlXkOItRNuYBtbrNKnmcCwPT45OZhb8s10ncPlPwSv6WX3iJQDGI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC3P9nxUqpFni+0sqo75ZYgAeApR7pGSZo7EY7O+I1BVNp4giJ
-	0jPhF06HCE1G2pmPnyYqELS3L5An6hZ9gj3SwA6EgHJXd2mWv4T9mFiIuUhs8DR9ZkU=
-X-Gm-Gg: ASbGncuzFcLUFUnl9jQb+SV1/XC8MsQfUcgLbFXWIecxDT3OyHC/dbjayuUymdXbQR9
-	FX51QfhPJsFjaUTnv9C93GbWhqVNLUbuwAYUMOL/Nqz9iQpbRQDHe6a3Y6kHa/WMyJjTlKw3FWw
-	GAq8AKT+5EGLp6YMCBoMTfqHUYytaCaPVXfxjVTwoWw99A7iV0gPvEJvPyed+6E+ujCgfSOC2lO
-	/nAs4ocw6zquP60fAKRzJPLTRnFRrMXVIzlNqMCYNp1cFiKHA+yrtWijbAl6a8JlRt1HTMt+qXr
-	btCM0kQBzbKM3KicHtT8mzrwqAgKekrJ+7b8vLNd2SCmaOZ6WZrZuUabIOT4l2YFqr4jOIXhyEg
-	SnlDrFauYxNo4uVo3khwPZr4aX+DgZEQs7lqIg0tdKB7mpz8RRp8GnZUyCzX+7AsO3Aziyl7XmF
-	N6hMcOs8i5rg==
-X-Google-Smtp-Source: AGHT+IHcdmZgE50L6D5Uo+PeD640vgCbTir0gSC0WUCoG2jj5zd6WbBnoWPwULzq1pOtJHDErCHGfw==
-X-Received: by 2002:a05:6000:1445:b0:3b7:7ceb:1428 with SMTP id ffacd0b85a97d-3b77ceb1730mr1042661f8f.8.1753534583420;
-        Sat, 26 Jul 2025 05:56:23 -0700 (PDT)
-Received: from ?IPV6:2a02:2f04:6206:d100:13e7:7f4:965e:e5b8? ([2a02:2f04:6206:d100:13e7:7f4:965e:e5b8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b778eb27besm2791649f8f.9.2025.07.26.05.56.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Jul 2025 05:56:22 -0700 (PDT)
-Message-ID: <681b063c-6eab-459b-a714-1967a735c37d@tuxon.dev>
-Date: Sat, 26 Jul 2025 15:56:20 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] net: cadence: macb: sama7g5_emac: Remove USARIO
- CLKEN flag
-To: Ryan.Wanner@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, Nicolas.Ferre@microchip.com,
- alexandre.belloni@bootlin.com
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <cover.1752510727.git.Ryan.Wanner@microchip.com>
- <1e7a8c324526f631f279925aa8a6aa937d55c796.1752510727.git.Ryan.Wanner@microchip.com>
- <fe20bc48-8532-441d-bc40-e80dd6d30ee0@tuxon.dev>
- <848529cc-0d01-4012-ae87-8a98b1307cbe@microchip.com>
-Content-Language: en-US
-From: claudiu beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <848529cc-0d01-4012-ae87-8a98b1307cbe@microchip.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Sat, 26 Jul 2025 17:54:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E7E8A43707;
+	Sat, 26 Jul 2025 17:54:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2661C4CEED;
+	Sat, 26 Jul 2025 17:54:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753552476;
+	bh=O8XDFXfBTuXvwGLH4OtMQytQ38kkabiKqv6gfOmh8Ho=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=AeVwA3der4qU1luIdSmKdWNi8DBP6jldHwxGX0f0t8Xn5q4lR8BYhCsjkSQLdudAM
+	 QQFfIqDuHnPX3V7kXRYO1Jw/YTuLJr6VzRpW6jbHCeYytGlh38rj/DXPGhrrtE7Fjq
+	 W83+ySkg8BAXz0Jo6pMhoa3BzIYlehPY7+/LrQKcH+Hdc3kI5C9v2TMX5N3crcgvyo
+	 irqupxkIrUNz29ygon7VRaaNmouhCO4Jj49Icox5iOdVph3bdMjCoC9g90x5YBOKos
+	 oWcoB8Au0/M+JHXPufqUN7JRCMCLf75LjJ1bG9s2ebyrYk87ZaQ0tkg+h74O5SfqbK
+	 XCPYh6o2zHnvw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33E3A383BF4E;
+	Sat, 26 Jul 2025 17:54:55 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 6.16, part 3
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <94f09700-cebd-4270-840f-219ef14bf2ee@app.fastmail.com>
+References: <94f09700-cebd-4270-840f-219ef14bf2ee@app.fastmail.com>
+X-PR-Tracked-List-Id: <soc.lists.linux.dev>
+X-PR-Tracked-Message-Id: <94f09700-cebd-4270-840f-219ef14bf2ee@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.16-3
+X-PR-Tracked-Commit-Id: 912b1f2a796ec73530a709b11821cb0c249fb23e
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 6121f69c36337076fb0ffaa23acee3cf8cc5c931
+Message-Id: <175355249373.3655743.9316066633007495504.pr-tracker-bot@kernel.org>
+Date: Sat, 26 Jul 2025 17:54:53 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_055625_827955_273FC983 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250726_105438_814056_8AEED09B 
+X-CRM114-Status: UNSURE (   4.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,64 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
+The pull request you sent on Sat, 26 Jul 2025 12:36:06 +0200:
 
-On 7/21/25 18:39, Ryan.Wanner@microchip.com wrote:
-> On 7/18/25 04:00, Claudiu Beznea wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> Hi, Ryan,
->>
->> On 14.07.2025 19:37, Ryan.Wanner@microchip.com wrote:
->>> From: Ryan Wanner <Ryan.Wanner@microchip.com>
->>>
->>> Remove USARIO_CLKEN flag since this is now a device tree argument and
->>
->> s/USARIO_CLKEN/USRIO_HAS_CLKEN here and in title as well.
->>
->>> not fixed to the SoC.
->>>
->>> This will instead be selected by the "cdns,refclk-ext"
->>> device tree property.
->>>
->>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
->>> ---
->>>   drivers/net/ethernet/cadence/macb_main.c | 3 +--
->>>   1 file changed, 1 insertion(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
->>> index 51667263c01d..cd54e4065690 100644
->>> --- a/drivers/net/ethernet/cadence/macb_main.c
->>> +++ b/drivers/net/ethernet/cadence/macb_main.c
->>> @@ -5113,8 +5113,7 @@ static const struct macb_config sama7g5_gem_config = {
->>>
->>>   static const struct macb_config sama7g5_emac_config = {
->>>        .caps = MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII |
->>> -             MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_MIIONRGMII |
->>
->> Will old DTBs still work with new kernels with this change?
-> 
-> That was my assumption, but it seems it would be safer to keep this
-> property for this IP and implement this dt flag property on IPs that do
-> not already have  MACB_CAPS_USRIO_HAS_CLKEN property.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.16-3
 
-So, this patch should be reverted, right?
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/6121f69c36337076fb0ffaa23acee3cf8cc5c931
 
-Thank you,
-Claudiu
+Thank you!
 
-> 
-> Ryan
->>
->> Thank you,
->> Claudiu
->>
->>> -             MACB_CAPS_GEM_HAS_PTP,
->>> +             MACB_CAPS_MIIONRGMII | MACB_CAPS_GEM_HAS_PTP,
->>>        .dma_burst_length = 16,
->>>        .clk_init = macb_clk_init,
->>>        .init = macb_init,
->>
-> 
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
