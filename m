@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744F8C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 21:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCE5C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 21:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqIsyHweDQuU/cfkFMj4zECHx2q4S7M+MS7iuNNPSZM=; b=0JWgdCeq0a5y69IA/9ZaoD/Gjk
-	4D+6XKV08VJnl3SCG39I2cIOxx9VyIvsrm2Yc76eTeNQ9i6ZtyVaOfR8fk5d5whIYp/YENmZmf5Iv
-	DmLxbseMLnmWz5lpdHYkLtDlryD9a6xiArLAbUizkSn27NjP943mpeyiI9igUZPsW8OtKsZWFnZX7
-	AuIabCHBYYi4fA1kG9pNGx4agdlJY9vB9tTHbrN5h9NA5IiIsPOT2VUjeAktbM1BRycNhlJDWGwKo
-	f+0jJAZA7DCQFL7LoDB6A69YbW07ofW5UtTA0YDajmEtQe9Z2eeT4cnaHkzJ2Kmnhdq0+Z+NnaYBG
-	NJglRvfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WE5MdVlpsuM8Xoi4UCE5Cw+iR6DrWrv6Xdo1I7z5/90=; b=kPYBo5AhbxfaBmOEFpqjiWA5qw
+	++4N4KCXx5FC/iOo1GmnRghVHiVH/MVITDMpxaMfzjjqBzVH6dhcQA7yY4jyeVE8P9olWmsepIGp9
+	wDwHzo6jzORLuRpIdcL/gKTzbcLJM7ec11irmHgAMIeylo+rwJWMnAiQOruD6Ix4y0RMumO6fqc1r
+	UTRYVWQygnygWurYQDUTtu1i0xTA5ueMi9ZWOFLfL1G7VjCJONSvbgbjlnPtC3oBiMweJEf2D9Yl4
+	QCyGwHsPwXkUWy+c9VbAooWjs3SuW9N/cxYsYUJIJ90PMVP/SJ3TAFLbeQHcqX5syMYk9ivVTYEg7
+	BMM6eaiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufmRI-0000000BwBl-1Iuw;
-	Sat, 26 Jul 2025 21:28:20 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ufmVI-0000000BwTo-0fla;
+	Sat, 26 Jul 2025 21:32:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufmNm-0000000BvpX-2ZKz
+	id 1ufmSk-0000000BwLQ-0knH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 21:24:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=uqIsyHweDQuU/cfkFMj4zECHx2q4S7M+MS7iuNNPSZM=; b=iZCBryENHxBWgI+GZsRBHrXiTy
-	eErR82jHlEPktXtCg+QSTH37YVCSi7sIlSpVqU0b2jGd0mWdtMisbLN/AXuztAPonw18G1bt5j6pZ
-	Tuh5vGWU0kSOU6K4XV8BCmikFpoqOA15XyIbDgJ94v/SUxNFZwnUhBz9kykBYmvtxfoM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ufmNg-002y6t-0q; Sat, 26 Jul 2025 23:24:36 +0200
-Date: Sat, 26 Jul 2025 23:24:36 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Sat, 26 Jul 2025 21:29:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0190FA53CEB;
+	Sat, 26 Jul 2025 21:29:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C6C7C4CEED;
+	Sat, 26 Jul 2025 21:29:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753565388;
+	bh=HSq9GVJebOQfQB9sT81R3PDtAZ/ze381+caKN1MH1OM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Uj2Xxygg6ssYQsxZ5CxC4TyGoFDgIJEJFPw5gPQIiKSgwcvSqDG9L2HF78J7DeG73
+	 2tDtC6VaTvX9N+K9ZFhrcUdUSSnbivKWxJYLlpPDhw1t11czrS3oDB/XBfAtG2R+VV
+	 TuspiNNBbE0AIN9OCJNKo6DbR2a0a3ZSV+30Hk7/x2LIdmKOzz3WKTZlDop6XuMVO4
+	 q8QWSW8wl/lTW/jrTqGPzsn3V+OMKmYzBbePZVQxov4CpZa3aSsVVxKZ0d65A9TH/5
+	 sFmm1ADshAGOYue6kWXL8ssA5wlvOARnrV7vydTx2az71RSEXtsXp3trJhAW+c8BmB
+	 vtXYdO1gpjT4Q==
+From: Kees Cook <kees@kernel.org>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Kees Cook <kees@kernel.org>,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
 	Russell King <linux@armlinux.org.uk>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ingo Molnar <mingo@kernel.org>,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v10 11/15] net: phy: at803x: Support SFP through
- phy_port interface
-Message-ID: <67dd0a3e-12ac-49ab-aec1-f238db7030e6@lunn.ch>
-References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
- <20250722121623.609732-12-maxime.chevallier@bootlin.com>
+	linux-hardening@vger.kernel.org
+Subject: [PATCH] kstack_erase: Disable kstack_erase for all of arm compressed boot code
+Date: Sat, 26 Jul 2025 14:29:45 -0700
+Message-Id: <20250726212945.work.975-kees@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250722121623.609732-12-maxime.chevallier@bootlin.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2143; i=kees@kernel.org; h=from:subject:message-id; bh=HSq9GVJebOQfQB9sT81R3PDtAZ/ze381+caKN1MH1OM=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmtHiffaX4tSiqs9K65/7rYQtbQ4mFj+8e4R+pVZmtf3 is/ayjdUcrCIMbFICumyBJk5x7n4vG2Pdx9riLMHFYmkCEMXJwCMJE1nxgZ5t1q1Dl54euh+Ojd xYevtGn/PjVj3pYgc6aPyxJmbZZW0WD4X5zKMVlatP39hnx3p9nLkzautbP3mf7DiWHBQu1ze8o ncQMA
+X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_142442_658829_C653FFC0 
-X-CRM114-Status: GOOD (  17.21  )
+X-CRM114-CacheID: sfid-20250726_142950_353860_1124F568 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +78,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 22, 2025 at 02:16:16PM +0200, Maxime Chevallier wrote:
-> Convert the at803x driver to use the generic phylib SFP handling, via a
-> dedicated .attach_port() callback, populating the supported interfaces.
-> 
-> As these devices are limited to 1000BaseX, a workaround is used to also
-> support, in a very limited way, copper modules. This is done by
-> supporting SGMII but limiting it to 1G full duplex (in which case it's
-> somwhat compatible with 1000BaseX).
+When building with CONFIG_KSTACK_ERASE=y and CONFIG_ARM_ATAG_DTB_COMPAT=y,
+the compressed boot environment encounters an undefined symbol error:
 
-Missing e
+    ld.lld: error: undefined symbol: __sanitizer_cov_stack_depth
+    >>> referenced by atags_to_fdt.c:135
 
-> +static int at8031_attach_port(struct phy_device *phydev, struct phy_port *port)
->  {
+This occurs because the compiler instruments the atags_to_fdt() function
+with sanitizer coverage calls, but the minimal compressed boot environment
+lacks access to sanitizer runtime support.
 
-...
+The compressed boot environment already disables stack protector with
+-fno-stack-protector. Similarly disable sanitizer coverage by adding
+$(DISABLE_KSTACK_ERASE) to the general compiler flags (and remove it
+from the one place it was noticed before), which contains the appropriate
+flags to prevent sanitizer instrumentation.
 
-> +	if (!port->is_mii)
-> +		return 0;
+This follows the same pattern used in other early boot contexts where
+sanitizer runtime support is unavailable.
 
-That seems common to all these drivers? Can it be pulled into the
-core?
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Closes: https://lore.kernel.org/all/CA+G9fYtBk8qnpWvoaFwymCx5s5i-5KXtPGpmf=_+UKJddCOnLA@mail.gmail.com
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Closes: https://lore.kernel.org/all/20250726004313.GA3650901@ax162
+Suggested-by: Nathan Chancellor <nathan@kernel.org>
+Signed-off-by: Kees Cook <kees@kernel.org>
+---
+ arch/arm/boot/compressed/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> -	if (iface == PHY_INTERFACE_MODE_SGMII)
-> -		dev_warn(&phydev->mdio.dev, "module may not function if 1000Base-X not supported\n");
+diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+index f9075edfd773..a159120d1e42 100644
+--- a/arch/arm/boot/compressed/Makefile
++++ b/arch/arm/boot/compressed/Makefile
+@@ -9,7 +9,6 @@ OBJS		=
+ 
+ HEAD	= head.o
+ OBJS	+= misc.o decompress.o
+-CFLAGS_decompress.o += $(DISABLE_KSTACK_ERASE)
+ ifeq ($(CONFIG_DEBUG_UNCOMPRESS),y)
+ OBJS	+= debug.o
+ AFLAGS_head.o += -DDEBUG
+@@ -96,6 +95,7 @@ KBUILD_CFLAGS += -DDISABLE_BRANCH_PROFILING
+ 
+ ccflags-y := -fpic $(call cc-option,-mno-single-pic-base,) -fno-builtin \
+ 	     -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
++	     $(DISABLE_KSTACK_ERASE) \
+ 	     -I$(obj)
+ ccflags-remove-$(CONFIG_FUNCTION_TRACER) += -pg
+ asflags-y := -DZIMAGE
+-- 
+2.34.1
 
-I think we need to keep this warning. I don't remember the details,
-but i think this is the kernel saying the hardware is broken, this
-might not work, we will give it a go, but don't blame me if it does
-not work. We need to keep this disclaimer.
-
-	Andrew
 
