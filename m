@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C46C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 10:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACA4C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Jul 2025 10:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qr1GGKTDdTKGBaAvNyyfU/BFtRzZ+TXSA4m4RaOlrTk=; b=E35lL8vUhahuxTeap32A7h/ygl
-	I2gDqOH6lduITGo2jPjvJiqY6y4GFPkZmlK2Cc1DVA9+J3ZNaCcX4j/79uSMJxLwDmvzI9IaD5JrO
-	WgY7BCmVk1cAgVTx8q3PuN5vp+QqLF0TVKl4bugHGK5krSSJXJabMLGvxExhNfck+MDIlxXJqTF5v
-	FEfgB4fkkRVR9laE8D/GK68r6RXm5toTwpHg9tpbVQ13p6K+WmG9RCUPTzSZyPqsoiKB1YHZIf5lB
-	CBVRu7HIWA4xtCe+g2s8M+K+/BBNoOxQtQpH+FTnl63+knsOWJ2UJcIMTICjBsajn6ndihqCfmfaz
-	NgHuBC0A==;
+	bh=5xE3kZFDNIi0jK+NzkWMjAQM6saxkvjdf1chQt0IQhg=; b=Mu40Gdd87rBSHkEABy5wcR6TiR
+	fjbMuShaxopsNKCgl3TV/DhboNF6xJv7t9wXUeScAPy2KBYURqP6ourlFJPXghPhvgZ4CNI9J4/Of
+	6qtBGKAyJa8qt1cQzi12bp9Tb7jwnyM9v9umWb48lsZ7zlvMBYh0ylE7BlrDbTMJC58ubdLm24kAP
+	IsWWYIC+2Vbzud59BBKTxgOz4Kn7vntkTNYyY1P/eIcjqRE/Bhj8nEIgRUbodJFpdGcFSZHM4onz7
+	cZa1+lZPf+S5SreHPxJ36YFDM/WNCoNtd2A1SHGGX90tBfOrnHCInXmeVVfZXHqAUDjp7JJn2whrB
+	C05sxs0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufcGV-0000000BMVL-3nuH;
-	Sat, 26 Jul 2025 10:36:31 +0000
+	id 1ufcIv-0000000BMlY-2eNC;
+	Sat, 26 Jul 2025 10:39:01 +0000
 Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufcAR-0000000BLvA-1Bcl
+	id 1ufcC9-0000000BM5n-0b3W
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Jul 2025 10:30:16 +0000
+	Sat, 26 Jul 2025 10:32:02 +0000
 Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id A2759EC02DC;
-	Sat, 26 Jul 2025 06:30:14 -0400 (EDT)
+	by mailfout.phl.internal (Postfix) with ESMTP id 6932BEC01AD;
+	Sat, 26 Jul 2025 06:32:00 -0400 (EDT)
 Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Sat, 26 Jul 2025 06:30:14 -0400
+  by phl-compute-05.internal (MEProxy); Sat, 26 Jul 2025 06:32:00 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1753525814;
-	 x=1753612214; bh=qr1GGKTDdTKGBaAvNyyfU/BFtRzZ+TXSA4m4RaOlrTk=; b=
-	iMwdA1BPi8y4toHkRBKY8Dni6IXLEPCpAsvVozLx0D0o+5uGikm0cLCAN/LG4OBm
-	C7qvc5T9Xrd6LH/zJ2pelpoX5M3D/CUZSXvExgvar8hy7UsGrbX9ie/RgvBP1fm3
-	cwIXDppVYg4oYkOUSk0Y+vb52G2XArKj/iwhqfJXdNiGhOf3QolJINpXDH/GSy2L
-	2aq+ap7bQRT6bleFNIhb2rhVfU5y7XwX1FX0Fh41xVrNzL7kflRMs6/HUy35tqe9
-	AYi0ygo7cWjI9J+YD/ToRzLboPlcUqQ+dWv/dv1b/GDBgDzsDPm0U7FnfjwEBUGm
-	M3AnQ5KyoZMdLb6yikvbTw==
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1753525920;
+	 x=1753612320; bh=5xE3kZFDNIi0jK+NzkWMjAQM6saxkvjdf1chQt0IQhg=; b=
+	HuIWqo6o3daGdPZO4LAuPo19CaGjvym7RLnyuBrFPHm8sB9WOdtQsc6kqpk5EaEw
+	eQVzjba5o3hCr0KgP8w/uwdSax94cjED7KmDSlF4UtOcsHe9PKGNOwt1wAjsgAg8
+	Q2tUVyzu97MPa49pV7kTQLa+pNvoMphTT72h1AbRhJjvYtQe06Oj42PNGdKeR/RV
+	CAhVQ8SSf51UiQrDsL/vJikMIiCb3Su6tjGH92gL4iV9GvTrPVysHALwg3uIIrIx
+	p5OZ0ri/ElSqJijPMEfU6nMW8M0tdWih1cHqUVXUjdS5Po1ZQempWfke9uvBNf3p
+	ehQ2J4mKIGd87Bz6Xn1FPg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1753525814; x=
-	1753612214; bh=qr1GGKTDdTKGBaAvNyyfU/BFtRzZ+TXSA4m4RaOlrTk=; b=a
-	QGsz256QbhPYpg8lSCy3qrcuw/y7i3cfVuqAGoZ/DI4paiyC31dIuChhoWFql4x8
-	Is+E7qJsq8lK7xGWAdKUcqwunXKBAAlK3tqqmYWDKbw532fQUA63qOGvIkiJKGdk
-	Dpu10srmMHHm8rMuhgCLDw7xgvZrXjA7TccVILqtDTJpJwITPuloNRcC8qYo1SOq
-	yBBZT5ndK4WVFIDAW44QGO+uH+srwJwIRbxowuULpH1ym19YTvZCv6DyFubNR5B5
-	aH2AIK2ZP8313CrIT9KQG9TTGFodVWdWc760JhPIRTs69YPhMd5rrPu7zcCVBQ/i
-	+XJnkBZd8dhdpgWqkZVww==
-X-ME-Sender: <xms:Nq6EaK-vWu5r1Oa6wMuvQCHPCyWJmZjr05M2jM9rHGTWVWct5g9Wuw>
-    <xme:Nq6EaKsjvvVWTsrFv2nJ5XkVBxtXt-GCuwG1rDPxy37mFTUJ0W0q-zrug_hOMTkmH
-    m3pErNyH56lHtYli-A>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1753525920; x=
+	1753612320; bh=5xE3kZFDNIi0jK+NzkWMjAQM6saxkvjdf1chQt0IQhg=; b=T
+	A+UnVW/tHK6qaYQmMPMqXfmX4djzgUrh2E3gHxTQbJqVUXmSn+hBUkWoZ67BeEB8
+	EekLrXbhjYT3uqajaJOmrhbS7vhfwhfE6MPf0h19PmoBOioNnmE1OetWoTJDcaWx
+	/2cToS4zeZlwLOJaWQ1AC/0n9388eJW+A/XmpHEwLIqBWdhHQMlJB1ImWHurjySi
+	nn7JFbKkfh97ye52UxNTigPucjtieK80X83KPRt2OggX4GAW0BlnFHoXLkNxrQrk
+	+uVKXBMP2xVmXypcSKtUdqOY1vCe3aZEBGAr4hms7PuQRMM2ph0uo/CKSU4Yu+fT
+	/JJJfM9ISPPWVj3Pq2jQA==
+X-ME-Sender: <xms:oK6EaA7UJ1odwnLrRLn30hdRv-SvENXtVFQ143_buXbYuaqEUrfgUg>
+    <xme:oK6EaB76VxSmIQu1U6tn2T9m1eOM0MTP5qPeekjfvh1tzhP4hn47c0ypCIzuVRjmr
+    OHCEHA2jvPANTSCMYo>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdekiedukecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
     uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhledtjefgiedtuefffeeilefgffdvjeeihfduvdffleffudduvdffveeuteeujeen
-    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhgihhthhhusgdrtghomhdpphgvnhhguh
-    htrhhonhhigidruggvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghi
-    lhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhoug
-    gvpehsmhhtphhouhhtpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhu
-    nhgurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlh
-    eslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhs
-    thhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvgh
-    gvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:Nq6EaG9NZHgLIN0FNNqsIo5YwHKpUXCpTZ4Rr75GNlFbnXz9gGtfXg>
-    <xmx:Nq6EaCNFraeiqg-BMri9dcFhnRc_oQQymyThkqCUjf3Zzy7biH9sjw>
-    <xmx:Nq6EaCcMyazhojraXG57dHpmZnej2eRXGnNS7ta653vIchbN7FyW0w>
-    <xmx:Nq6EaJXzjm3ephbuUvNoBgGVSrOxjIazVIGiiBDD8gi3i2x5DT16aQ>
-    <xmx:Nq6EaOc4EOJ-qlKCIS0s3mn7l2__FiXoF4rJVTeR8d1vO0-oE5f0KS20>
+    hnpeefueegkeffveeugeehieehiedukeegfefhffeutdettdffteeluefhheetkeekvden
+    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhgihhthhhusgdrtghomhenucevlhhush
+    htvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgu
+    sgdruggvpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtth
+    hopehtohhrvhgrlhgusheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghp
+    thhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrg
+    gurdhorhhgpdhrtghpthhtohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgt
+    phhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:oK6EaE4NjnP8RP89XXr5z0etVGs_ZC5G9jNkqn0PXQlLIRBKQY00KQ>
+    <xmx:oK6EaBZRal4rIaJAhZY6GMcz78k9fYYXnehJC_sRjogzJe4tq_RBGw>
+    <xmx:oK6EaJ50BxJ36p96Vfm6gGpoxp9cQTt8rpMZKi9oC70bPEYbgsnWCA>
+    <xmx:oK6EaEBYsBojBd1kcN_E9SyEMxUX7T6J7r1OybeSm5JEm3pNY37dig>
+    <xmx:oK6EaMqaqNgRVyWiBR1jepHPTd6laIlQEinJ0GLBMZ_DJqnZxRLcqlMd>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 691A1700065; Sat, 26 Jul 2025 06:30:14 -0400 (EDT)
+	id 1F80B700065; Sat, 26 Jul 2025 06:32:00 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Sat, 26 Jul 2025 12:29:44 +0200
+X-ThreadId: Td03a27401e83a0cb
+Date: Sat, 26 Jul 2025 12:31:12 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
 To: "Linus Torvalds" <torvalds@linux-foundation.org>
 Cc: linux-kernel@vger.kernel.org, soc@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org
-Message-Id: <60aec956-e650-43ab-ace2-52e21d7892f8@app.fastmail.com>
+Message-Id: <66ad07fe-3aa5-496c-8c5b-1b7ed18eb056@app.fastmail.com>
 In-Reply-To: <564b7ace-bb5f-430e-a7f1-9f6a41305e10@app.fastmail.com>
 References: <564b7ace-bb5f-430e-a7f1-9f6a41305e10@app.fastmail.com>
-Subject: [GIT PULL 2/5] soc: driver updates for 6.17
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Subject: [GIT PULL 0/5] soc: new SoC support for 6.17
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_033015_474624_A3D4B3D4 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250726_033201_259787_2C15BDFC 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,343 +111,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 56448e78a6bb4e1a8528a0e2efe94eff0400c247:
+The following changes since commit 86731a2a651e58953fc949573895f2fa6d456=
+841:
 
-  soc: aspeed: lpc-snoop: Don't disable channels that aren't enabled (2025-07-02 11:05:20 +0930)
+  Linux 6.16-rc3 (2025-06-22 13:30:08 -0700)
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-6.17
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-n=
+ewsoc-6.17
 
-for you to fetch changes up to 4507d205f10216d3a6b873f0a2e9c634e23f35ac:
+for you to fetch changes up to 05a623030b3cc2250755e4d4d6b1440a03aed674:
 
-  Merge tag 'hisi-drivers-for-6.17' of https://github.com/hisilicon/linux-hisi into soc/drivers (2025-07-25 23:54:40 +0200)
-
-----------------------------------------------------------------
-soc: driver updates for 6.17
-
-Changes are all over the place, but very little sticks out as
-noteworthy.
-
-There is a new misc driver for the Raspberry Pi 5's RP1 multifunction
-I/O chip, along with hooking it up to the pinctrl and clk frameworks.
-
-The reset controller and memory subsystems have mainly small updates,
-but there are two new reset drivers for the K230 and VC1800B SoCs,
-and new memory driver support for Tegra264.
-
-The ARM SMCCC and SCMI firmware drivers gain a few more features that
-should help them be supported across more environments. Similarly,
-the SoC specific firmware on Tegra and Qualcomm get minor enhancements
-and chip support.
-
-In the drivers/soc/ directory, the ASPEED LPC snoop driver gets an
-overhaul for code robustness, the Tegra and Qualcomm and NXP drivers
-grow to support more chips, while the Hisilicon, Mediatek and Renesas
-drivers see mostly janitorial fixes.
+  Merge tag 'arm-sophgo-dt-for-v6.17' of https://github.com/sophgo/linux=
+ into soc/newsoc (2025-07-23 22:19:15 +0200)
 
 ----------------------------------------------------------------
-Alexander Wilhelm (2):
-      soc: qcom: QMI encoding/decoding for big endian
-      soc: qcom: fix endianness for QMI header
+soc: new SoC support for 6.17
 
-Andrea della Porta (6):
-      MAINTAINERS: add Raspberry Pi RP1 section
-      dt-bindings: clock: Add RaspberryPi RP1 clock bindings
-      clk: rp1: Add support for clocks provided by RP1
-      pinctrl: rp1: Implement RaspberryPi RP1 gpio support
-      misc: rp1: RaspberryPi RP1 misc driver
-      pinctrl: rp1: Implement RaspberryPi RP1 pinmux/pinconf support
+These five newly supported chips come with both devicetree descriptions
+and the changes to wire them up to the build system for easier bisection.
 
-Andrew Jeffery (8):
-      soc: aspeed: lpc-snoop: Ensure model_data is valid
-      soc: aspeed: lpc-snoop: Constrain parameters in channel paths
-      soc: aspeed: lpc-snoop: Rename 'channel' to 'index' in channel paths
-      soc: aspeed: lpc-snoop: Rearrange channel paths
-      soc: aspeed: lpc-snoop: Switch to devm_clk_get_enabled()
-      soc: aspeed: lpc-snoop: Use dev_err_probe() where possible
-      soc: aspeed: lpc-snoop: Consolidate channel initialisation
-      soc: aspeed: lpc-snoop: Lift channel config to const structs
+The chips in question are:
 
-Anirudh Rayabharam (Microsoft) (1):
-      firmware: smccc: Support both smc and hvc conduits for getting hyp UUID
+ - Marvell PXA1908 was the first 64-bit mobile phone chip from Marvell
+   in the product line that started with the Digital StrongARM SA1100
+   based PDAs and continued with the Intel PXA2xx that dominated early
+   smartphones. This one only made it only into a few products before the
+   entire product line was cut in 2015.
 
-Arnd Bergmann (20):
-      Merge tag 'renesas-drivers-for-v6.17-tag1' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/drivers
-      firmware: arm_scmi: Convert to SYSTEM_SLEEP_PM_OPS
-      firmware: tegra: bpmp: Fix build failure for tegra264-only config
-      Merge tag 'smccc-updates-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into soc/drivers
-      Merge tag 'scmi-updates-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into soc/drivers
-      Merge tag 'renesas-drivers-for-v6.17-tag2' of https://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel into soc/drivers
-      Merge tag 'aspeed-6.17-drivers-1' of https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux into soc/drivers
-      Merge tag 'soc_fsl-6.17-1' of https://github.com/chleroy/linux into soc/drivers
-      Merge tag 'reset-for-v6.17' of https://git.pengutronix.de/git/pza/linux into soc/drivers
-      Merge tag 'mtk-soc-for-v6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux into soc/drivers
-      Merge tag 'arm-soc/for-6.17/maintainers' of https://github.com/Broadcom/stblinux into soc/drivers
-      Merge tag 'arm-soc/for-6.17/drivers' of https://github.com/Broadcom/stblinux into soc/drivers
-      Merge tag 'tegra-for-6.17-soc' of https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into soc/drivers
-      Merge tag 'tegra-for-6.17-firmware' of https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into soc/drivers
-      Merge tag 'tegra-for-6.17-memory' of https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into soc/drivers
-      Merge tag 'imx-drivers-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into soc/drivers
-      Merge tag 'memory-controller-drv-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux-mem-ctrl into soc/drivers
-      Merge tag 'qcom-drivers-for-6.17' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into soc/drivers
-      Merge tag 'qcom-drivers-for-6.17-2' of https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux into soc/drivers
-      Merge tag 'hisi-drivers-for-6.17' of https://github.com/hisilicon/linux-hisi into soc/drivers
+ - The QiLai SoC is made by RISC-V core designer Andes Technologies
+   and is in the 'Voyager' reference board in MicroATX form factor.
+   It uses four in-order AX45MP cores, which is the midrange product
+   from Andes.
 
-Bartosz Golaszewski (8):
-      soc: renesas: pwc-rzv2m: Use new GPIO line value setter callbacks
-      soc: fsl: qe: use new GPIO line value setter callbacks
-      firmware: qcom: scm: remove unused arguments from SHM bridge routines
-      firmware: qcom: scm: take struct device as argument in SHM bridge enable
-      firmware: qcom: scm: initialize tzmem before marking SCM as available
-      firmware: qcom: scm: request the waitqueue irq *after* initializing SCM
-      pinctrl: rp1: use new GPIO line value setter callbacks
-      soc: fsl: qe: convert set_multiple() to returning an integer
+ - CIX P1 is one of the few Arm chips designed for small workstations,
+   and this one uses 12 Cortex-A720/A520 cores, making it also one
+   of the only ARMv9.2 machines that one can but at the moment.
 
-Bjorn Andersson (3):
-      soc: qcom: mdt_loader: Ensure we don't read past the ELF header
-      soc: qcom: mdt_loader: Rename mdt_phdr_valid()
-      soc: qcom: mdt_loader: Actually use the e_phoff
+ - Axiado AX3000 is an embedded chip with relative small Cortex-A53
+   CPU cores described as a "Trusted Control/Compute Unit" that can
+   be used as a BMC in servers. In addition to the usual I/O, this one
+   comes with 10GBit ethernet and and a 4TOPS NPU.
 
-Ciprian Marian Costea (1):
-      MAINTAINERS: add NXP S32G RTC driver
+ - Sophgo SG2000 is an embedded chip that comes with both RISC-V
+   and Arm cores that can run Linux. This was already supported for
+   RISC-V but now it also works on Arm
 
-Cristian Marussi (1):
-      firmware: arm_scmi: Avoid notifier registration for unsupported events
+One more chip, the Black Sesame C1200 did not make it in tirm for the
+merge window.
 
-Dan Carpenter (1):
-      soc: qcom: mdt_loader: Fix error return values in mdt_header_valid()
+----------------------------------------------------------------
+Alexander Sverdlin (5):
+      arm64: dts: sophgo: Add initial SG2000 SoC device tree
+      arm64: dts: sophgo: Add Duo Module 01
+      arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+      arm64: Add SOPHGO SOC family Kconfig support
+      arm64: defconfig: Enable rudimentary Sophgo SG2000 support
 
-Danila Tikhonov (3):
-      dt-bindings: soc: qcom,dcc: Add the SM7150 compatible
-      dt-bindings: sram: qcom,imem: Add the SM7150 compatible
-      dt-bindings: arm: cpus: Add Kryo 470 CPUs
+Arnd Bergmann (5):
+      Merge branch 'newsoc/pxa1908' into soc/newsoc
+      Merge branch 'newsoc/andes' into soc/newsoc
+      Merge branch 'newsoc/cix-p1' into soc/newsoc
+      Merge branch 'newsoc/axiado' into soc/newsoc
+      Merge tag 'arm-sophgo-dt-for-v6.17' of https://github.com/sophgo/l=
+inux into soc/newsoc
 
-David Wronek (1):
-      dt-bindings: soc: qcom: aoss-qmp: Add the SM7150 compatible
+Ben Zong-You Xie (9):
+      riscv: add Andes SoC family Kconfig support
+      dt-bindings: riscv: add Andes QiLai SoC and the Voyager board bind=
+ings
+      dt-bindings: interrupt-controller: add Andes QiLai PLIC
+      dt-bindings: interrupt-controller: add Andes machine-level softwar=
+e interrupt controller
+      dt-bindings: timer: add Andes machine timer
+      riscv: dts: andes: add QiLai SoC device tree
+      riscv: dts: andes: add Voyager board device tree
+      riscv: defconfig: enable Andes SoC
+      MAINTAINERS: Add entry for Andes SoC
 
-Drew Fustini (1):
-      reset: thead: Fix TH1520 typo
+Duje Mihanovi=C4=87 (5):
+      dt-bindings: mmc: sdhci-pxa: restrict pinctrl to pxav1
+      dt-bindings: marvell: Document PXA1908 SoC and samsung,coreprimeve=
+lte
+      arm64: Kconfig.platforms: Add config for Marvell PXA1908 platform
+      arm64: dts: Add DTS for Marvell PXA1908 and samsung,coreprimevelte
+      MAINTAINERS: add myself as Marvell PXA1908 maintainer
 
-Florian Fainelli (2):
-      dt-bindings: memory-controller: Define fallback compatible
-      memory: brcmstb_memc: Simplify compatible matching
+Fugang Duan (1):
+      arm64: Kconfig: add ARCH_CIX for cix silicons
 
-Frank Li (2):
-      dt-bindings: memory-controllers: convert arm,pl172.txt to yaml format
-      dt-bindings: reset: convert nxp,lpc1850-rgu.txt to yaml format
+Gary Yang (1):
+      dt-bindings: clock: cix: Add CIX sky1 scmi clock id
 
-Friday Yang (1):
-      memory: mtk-smi: Add ostd setting for mt8186
+Guomin Chen (2):
+      dt-bindings: mailbox: add cix,sky1-mbox
+      mailbox: add CIX mailbox driver
 
-Huisong Li (1):
-      soc: hisilicon: kunpeng_hccs: Fix incorrect log information
+Harshit Shah (10):
+      dt-bindings: vendor-prefixes: Add Axiado Corporation
+      dt-bindings: arm: axiado: add AX3000 EVK compatible strings
+      dt-bindings: gpio: cdns: convert to YAML
+      dt-bindings: gpio: cdns: add Axiado AX3000 GPIO variant
+      dt-bindings: serial: cdns: add Axiado AX3000 UART controller
+      dt-bindings: i3c: cdns: add Axiado AX3000 I3C controller
+      arm64: add Axiado SoC family
+      arm64: dts: axiado: Add initial support for AX3000 SoC and eval bo=
+ard
+      arm64: defconfig: enable the Axiado family
+      MAINTAINERS: Add entry for Axiado
 
-Inochi Amaoto (2):
-      dt-bindings: reset: sophgo: Add CV1800B support
-      reset: simple: add support for Sophgo CV1800B
+Peter Chen (5):
+      dt-bindings: vendor-prefixes: Add CIX Technology Group Co., Ltd.
+      dt-bindings: arm: add CIX P1 (SKY1) SoC
+      arm64: defconfig: Enable CIX SoC
+      arm64: dts: cix: Add sky1 base dts initial support
+      MAINTAINERS: Add CIX SoC maintainer entry
 
-Jason-JH Lin (1):
-      soc: mediatek: mtk-mutex: Fix confusing usage of MUTEX_MOD2
-
-Jerome Brunet (1):
-      reset: mpfs: use the auxiliary device creation
-
-Jiri Slaby (SUSE) (2):
-      memory: omap-gpmx: Use dev_fwnode()
-      soc: Use dev_fwnode()
-
-Johan Hovold (1):
-      soc: qcom: pmic_glink: fix OF node leak
-
-Junhui Liu (2):
-      dt-bindings: reset: add support for canaan,k230-rst
-      reset: canaan: add reset driver for Kendryte K230
-
-Kathiravan Thirumoorthy (2):
-      soc: qcom: socinfo: Add support to retrieve TME build details
-      soc: qcom: socinfo: Add support to retrieve APPSBL build details
-
-Konrad Dybcio (1):
-      dt-bindings: sram: qcom,imem: Add a number of missing compatibles
-
-Krzysztof Kozlowski (2):
-      memory: emif: Add missing kerneldoc for lpmode
-      memory: stm32_omm: Use syscon_regmap_lookup_by_phandle_args
-
-Kuninori Morimoto (1):
-      soc: renesas: Sort Renesas Kconfig configs
-
-Lad Prabhakar (3):
-      soc: renesas: Add RZ/N2H (R9A09G087) config option
-      dt-bindings: reset: renesas,rzv2h-usb2phy: Document RZ/V2N SoC support
-      dt-bindings: memory: renesas,rzg3e-xspi: Document RZ/V2H(P) and RZ/V2N support
-
-Laurentiu Mihalcea (2):
-      bus: add driver for IMX AIPSTZ bridge
-      bus: imx-aipstz: allow creating pdevs for child buses
-
-Li Jun (1):
-      bus: del unnecessary init var
-
-Lijuan Gao (1):
-      dt-bindings: soc: qcom: add qcom,qcs615-imem compatible
-
-Luca Weiss (6):
-      dt-bindings: arm: qcom,ids: Add SoC IDs for SM7635 family
-      soc: qcom: socinfo: Add SoC IDs for SM7635 family
-      soc: qcom: socinfo: Add PM7550 & PMIV0108 PMICs
-      dt-bindings: firmware: qcom,scm: document Milos SCM Firmware Interface
-      dt-bindings: soc: qcom,aoss-qmp: document the Milos Always-On Subsystem side channel
-      dt-bindings: soc: qcom: qcom,pmic-glink: document Milos compatible
-
-Maulik Shah (3):
-      soc: qcom: qcom_stats: Add support to read DDR statistic
-      soc: qcom: qcom_stats: Add QMP support for syncing ddr stats
-      soc: qcom: rpmh-rsc: Add RSC version 4 support
-
-Peng Fan (3):
-      firmware: arm_scmi: Add power management operations to SCMI bus
-      firmware: arm_scmi: power_control: Ensure SCMI_SYSPOWER_IDLE is set early during resume
-      MAINTAINERS: Update i.MX entry
-
-Peter Robinson (1):
-      reset: brcmstb: Enable reset drivers for ARCH_BCM2835
-
-Philip Radford (3):
-      firmware: arm_scmi: Add support for debug counter decrement
-      firmware: arm_scmi: Track number of inflight SCMI transfers
-      include: trace:  Add tracepoint support for inflight xfer count
-
-Rakesh Kota (1):
-      soc: qcom: spmi-pmic: add more PMIC SUBTYPE IDs
-
-Rob Herring (Arm) (2):
-      dt-bindings: reset: Convert snps,dw-reset to DT schema
-      firmware: tegra: bpmp: Use of_reserved_mem_region_to_resource() for "memory-region"
-
-Sibi Sankar (1):
-      firmware: arm_scmi: Fix up turbo frequencies selection
-
-Sumit Gupta (9):
-      soc/tegra: cbb: Clear ERR_FORCE register with ERR_STATUS
-      soc/tegra: cbb: Change master/slave to initiator/target
-      soc/tegra: cbb: Make error interrupt enable and status per SoC
-      soc/tegra: cbb: Improve handling for per SoC fabric data
-      soc/tegra: cbb: Support HW lookup to get timed out target address
-      soc/tegra: cbb: Add support for CBB fabrics in Tegra264
-      soc/tegra: cbb: Add support for CBB fabrics in Tegra254
-      dt-bindings: memory: tegra: Add Tegra264 support
-      memory: tegra: Add Tegra264 MC and EMC support
-
-Thierry Bultel (1):
-      soc: renesas: Add RZ/T2H (R9A09G077) config option
-
-Thierry Reding (6):
-      soc/tegra: Enable support for Tegra264
-      soc/tegra: pmc: Add Tegra264 support
-      soc/tegra: Add Tegra264 APBMISC compatible string
-      firmware: tegra: Fix IVC dependency problems
-      firmware: tegra: bpmp: Add support on Tegra264
-      Merge branch 'for-6.17/dt-bindings' into for-6.17/memory
-
- Documentation/devicetree/bindings/arm/cpus.yaml    |    1 +
- .../bindings/clock/raspberrypi,rp1-clocks.yaml     |   58 +
- .../devicetree/bindings/firmware/qcom,scm.yaml     |    2 +
- .../bindings/memory-controllers/arm,pl172.txt      |  127 --
- .../bindings/memory-controllers/arm,pl172.yaml     |  222 +++
- .../memory-controllers/brcm,brcmstb-memc-ddr.yaml  |   54 +-
- .../memory-controllers/nvidia,tegra186-mc.yaml     |   84 +-
- .../memory-controllers/renesas,rzg3e-xspi.yaml     |    9 +-
- .../devicetree/bindings/reset/canaan,k230-rst.yaml |   39 +
- .../devicetree/bindings/reset/nxp,lpc1850-rgu.txt  |   83 -
- .../devicetree/bindings/reset/nxp,lpc1850-rgu.yaml |  101 ++
- .../reset/renesas,rzv2h-usb2phy-reset.yaml         |    7 +-
- .../devicetree/bindings/reset/snps,dw-reset.txt    |   30 -
- .../devicetree/bindings/reset/snps,dw-reset.yaml   |   39 +
- .../bindings/reset/sophgo,sg2042-reset.yaml        |    4 +-
- .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |    2 +
- .../devicetree/bindings/soc/qcom/qcom,dcc.yaml     |    1 +
- .../bindings/soc/qcom/qcom,pmic-glink.yaml         |    1 +
- .../devicetree/bindings/sram/qcom,imem.yaml        |   15 +
- MAINTAINERS                                        |   12 +
- drivers/bus/Kconfig                                |    6 +
- drivers/bus/Makefile                               |    1 +
- drivers/bus/imx-aipstz.c                           |  108 ++
- drivers/bus/ti-sysc.c                              |    3 +-
- drivers/clk/Kconfig                                |    9 +
- drivers/clk/Makefile                               |    1 +
- drivers/clk/clk-rp1.c                              | 1494 ++++++++++++++++
- drivers/firmware/arm_scmi/bus.c                    |   26 +
- drivers/firmware/arm_scmi/common.h                 |    8 +
- drivers/firmware/arm_scmi/driver.c                 |   28 +-
- drivers/firmware/arm_scmi/notify.c                 |   39 +-
- drivers/firmware/arm_scmi/perf.c                   |    2 +-
- drivers/firmware/arm_scmi/raw_mode.c               |    6 +-
- drivers/firmware/arm_scmi/scmi_power_control.c     |   22 +-
- drivers/firmware/qcom/qcom_scm.c                   |   95 +-
- drivers/firmware/qcom/qcom_scm.h                   |    1 +
- drivers/firmware/qcom/qcom_tzmem.c                 |   11 +-
- drivers/firmware/smccc/smccc.c                     |    5 +-
- drivers/firmware/tegra/Kconfig                     |    5 +-
- drivers/firmware/tegra/Makefile                    |    1 +
- drivers/firmware/tegra/bpmp-private.h              |    6 -
- drivers/firmware/tegra/bpmp-tegra186.c             |    9 +-
- drivers/firmware/tegra/bpmp.c                      |    6 +-
- drivers/memory/brcmstb_memc.c                      |   56 +-
- drivers/memory/emif.c                              |    1 +
- drivers/memory/mtk-smi.c                           |   33 +
- drivers/memory/omap-gpmc.c                         |    4 +-
- drivers/memory/stm32_omm.c                         |   21 +-
- drivers/memory/tegra/Makefile                      |    2 +
- drivers/memory/tegra/mc.c                          |    5 +-
- drivers/memory/tegra/mc.h                          |    9 +-
- drivers/memory/tegra/tegra186-emc.c                |    5 +-
- drivers/memory/tegra/tegra186.c                    |   17 +-
- drivers/memory/tegra/tegra264-bwmgr.h              |   50 +
- drivers/memory/tegra/tegra264.c                    |  313 ++++
- drivers/misc/Kconfig                               |    1 +
- drivers/misc/Makefile                              |    1 +
- drivers/misc/rp1/Kconfig                           |   20 +
- drivers/misc/rp1/Makefile                          |    3 +
- drivers/misc/rp1/rp1-pci.dtso                      |   25 +
- drivers/misc/rp1/rp1_pci.c                         |  333 ++++
- drivers/pci/quirks.c                               |    1 +
- drivers/pinctrl/Kconfig                            |   11 +
- drivers/pinctrl/Makefile                           |    1 +
- drivers/pinctrl/pinctrl-rp1.c                      | 1831 ++++++++++++++++++++
- drivers/reset/Kconfig                              |   21 +-
- drivers/reset/Makefile                             |    1 +
- drivers/reset/reset-k230.c                         |  371 ++++
- drivers/reset/reset-mpfs.c                         |   56 +-
- drivers/reset/reset-simple.c                       |    2 +
- drivers/soc/aspeed/aspeed-lpc-snoop.c              |  228 ++-
- drivers/soc/fsl/qe/gpio.c                          |   14 +-
- drivers/soc/fsl/qe/qe_ic.c                         |    3 +-
- drivers/soc/hisilicon/kunpeng_hccs.c               |    4 +-
- drivers/soc/mediatek/mtk-mutex.c                   |  109 +-
- drivers/soc/qcom/mdt_loader.c                      |   63 +-
- drivers/soc/qcom/pmic_glink.c                      |    9 +-
- drivers/soc/qcom/qcom_stats.c                      |  133 ++
- drivers/soc/qcom/qmi_encdec.c                      |   52 +-
- drivers/soc/qcom/qmi_interface.c                   |    6 +-
- drivers/soc/qcom/rpmh-rsc.c                        |    2 +-
- drivers/soc/qcom/socinfo.c                         |   13 +
- drivers/soc/renesas/Kconfig                        |  324 ++--
- drivers/soc/renesas/pwc-rzv2m.c                    |    8 +-
- drivers/soc/tegra/Kconfig                          |    8 +
- drivers/soc/tegra/cbb/tegra194-cbb.c               |   34 +-
- drivers/soc/tegra/cbb/tegra234-cbb.c               |  758 ++++++--
- drivers/soc/tegra/fuse/tegra-apbmisc.c             |    1 +
- drivers/soc/tegra/pmc.c                            |  124 +-
- include/dt-bindings/arm/qcom,ids.h                 |    5 +
- include/dt-bindings/clock/raspberrypi,rp1-clocks.h |   61 +
- include/dt-bindings/memory/nvidia,tegra264.h       |  136 ++
- include/dt-bindings/reset/canaan,k230-rst.h        |   90 +
- include/linux/firmware/qcom/qcom_scm.h             |    5 +-
- include/linux/pci_ids.h                            |    3 +
- include/linux/soc/qcom/qmi.h                       |    6 +-
- include/soc/qcom/qcom-spmi-pmic.h                  |    2 +
- include/trace/events/scmi.h                        |   24 +-
- 98 files changed, 7135 insertions(+), 1067 deletions(-)
+ Documentation/devicetree/bindings/arm/axiado.yaml  |  23 +
+ Documentation/devicetree/bindings/arm/cix.yaml     |  26 +
+ .../devicetree/bindings/arm/mrvl/mrvl.yaml         |   5 +
+ .../devicetree/bindings/gpio/cdns,gpio.txt         |  43 --
+ .../devicetree/bindings/gpio/cdns,gpio.yaml        |  84 +++
+ .../devicetree/bindings/i3c/cdns,i3c-master.yaml   |   7 +-
+ .../interrupt-controller/andestech,plicsw.yaml     |  54 ++
+ .../interrupt-controller/sifive,plic-1.0.0.yaml    |   1 +
+ .../devicetree/bindings/mailbox/cix,sky1-mbox.yaml |  77 +++
+ .../devicetree/bindings/mmc/sdhci-pxa.yaml         |  36 +-
+ Documentation/devicetree/bindings/riscv/andes.yaml |  25 +
+ .../devicetree/bindings/serial/cdns,uart.yaml      |   7 +-
+ .../devicetree/bindings/timer/andestech,plmt0.yaml |  53 ++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   4 +
+ MAINTAINERS                                        |  38 ++
+ arch/arm64/Kconfig.platforms                       |  26 +
+ arch/arm64/boot/dts/Makefile                       |   3 +
+ arch/arm64/boot/dts/axiado/Makefile                |   2 +
+ arch/arm64/boot/dts/axiado/ax3000-evk.dts          |  79 +++
+ arch/arm64/boot/dts/axiado/ax3000.dtsi             | 520 ++++++++++++++=
++++
+ arch/arm64/boot/dts/cix/Makefile                   |   2 +
+ arch/arm64/boot/dts/cix/sky1-orion-o6.dts          |  39 ++
+ arch/arm64/boot/dts/cix/sky1.dtsi                  | 330 +++++++++++
+ arch/arm64/boot/dts/marvell/Makefile               |   2 +
+ arch/arm64/boot/dts/marvell/mmp/Makefile           |   2 +
+ .../marvell/mmp/pxa1908-samsung-coreprimevelte.dts | 331 +++++++++++
+ arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi       | 300 ++++++++++
+ arch/arm64/boot/dts/sophgo/Makefile                |   2 +
+ .../dts/sophgo/sg2000-milkv-duo-module-01-evb.dts  |  76 +++
+ .../dts/sophgo/sg2000-milkv-duo-module-01.dtsi     |  40 ++
+ arch/arm64/boot/dts/sophgo/sg2000.dtsi             |  86 +++
+ arch/arm64/configs/defconfig                       |   7 +
+ arch/riscv/Kconfig.socs                            |   7 +
+ arch/riscv/boot/dts/Makefile                       |   1 +
+ arch/riscv/boot/dts/andes/Makefile                 |   2 +
+ arch/riscv/boot/dts/andes/qilai-voyager.dts        |  28 +
+ arch/riscv/boot/dts/andes/qilai.dtsi               | 186 ++++++
+ arch/riscv/configs/defconfig                       |   1 +
+ drivers/mailbox/Kconfig                            |  10 +
+ drivers/mailbox/Makefile                           |   2 +
+ drivers/mailbox/cix-mailbox.c                      | 645 ++++++++++++++=
++++++++
+ include/dt-bindings/clock/cix,sky1.h               | 279 +++++++++
+ 42 files changed, 3428 insertions(+), 63 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/axiado.yaml
+ create mode 100644 Documentation/devicetree/bindings/arm/cix.yaml
+ delete mode 100644 Documentation/devicetree/bindings/gpio/cdns,gpio.txt
+ create mode 100644 Documentation/devicetree/bindings/gpio/cdns,gpio.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controll=
+er/andestech,plicsw.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/cix,sky1-m=
+box.yaml
+ create mode 100644 Documentation/devicetree/bindings/riscv/andes.yaml
+ create mode 100644 Documentation/devicetree/bindings/timer/andestech,pl=
+mt0.yaml
+ create mode 100644 arch/arm64/boot/dts/axiado/Makefile
+ create mode 100644 arch/arm64/boot/dts/axiado/ax3000-evk.dts
+ create mode 100644 arch/arm64/boot/dts/axiado/ax3000.dtsi
+ create mode 100644 arch/arm64/boot/dts/cix/Makefile
+ create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+ create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
+ create mode 100644 arch/arm64/boot/dts/marvell/mmp/Makefile
+ create mode 100644 arch/arm64/boot/dts/marvell/mmp/pxa1908-samsung-core=
+primevelte.dts
+ create mode 100644 arch/arm64/boot/dts/marvell/mmp/pxa1908.dtsi
+ create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-0=
+1-evb.dts
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-0=
+1.dtsi
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+ create mode 100644 arch/riscv/boot/dts/andes/Makefile
+ create mode 100644 arch/riscv/boot/dts/andes/qilai-voyager.dts
+ create mode 100644 arch/riscv/boot/dts/andes/qilai.dtsi
+ create mode 100644 drivers/mailbox/cix-mailbox.c
+ create mode 100644 include/dt-bindings/clock/cix,sky1.h
 
