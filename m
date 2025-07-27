@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585C1C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 07:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7187C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 08:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/6Q7ujA0qP8HOsCdISb9GQQ5dFVRD6CG+119es1Sxg=; b=WN/zClOBuvc5APIAUDP/MWz4Co
-	6C6WNzkWwpSbZ31GxcVDjkcgz0uTApVjmjPB9GDLUsNaMsRoyUti1zUdPOGCJV/dNlfJJKZgT2vjZ
-	f6bBFHj9CRwP9BXLaC1zv4Ls7F+FpAnHws0qlhxpRDalbKWptuhSNYDdzaN2AzWhNmxZOVEGloiAz
-	BqQL9g/JTPwTFxrLwbbv7x4sYnweyjYwOTVKviUQxRABP0XxSulcWpuwNTWhhd5TUTYsy4JJwM/Ol
-	b0hsvZGsd2CX6rA9j7vo1EmfUY7O9wsmWztPwuGaNDujh2pLDbHaIVHGUwd6Hca8fm8olp3TDTUfi
-	K78WClfA==;
+	bh=RkBrq8EwJtKrLLyc89nHWZVNStBBKpPPsVnWhREsJ3M=; b=SOhm0NF4KtpZryjIKS2tVcrbHP
+	D7el7FC/hVhgPpxWkKVC8dXciwK4+ALx9OMUhPbNVq5GA0woQQNECQBHScuRI8PdzwuJ6IXAwCMQ0
+	94k9+E8B5RM80tlOjYbyHTb583FDQrX4ABMriEXIyPjIymbkEn3jnlGe3/xbVuFVBKJhGIk0WlL8k
+	Y+Z5lww9kX/an3VgHn/A4AszUKSWsKn8teM4EWqDab2nZVNjlOi+iOiv5VZmaqckP7hckFv/3BW2v
+	Zx73Gq9noucPzc9ag3gr1lw7lJFp/dLpZoGMzSatC7MHqo5qLLtWEmPEp/+jegU70UthkMaipCoql
+	Qnog39dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufvwS-0000000CRWS-2fi0;
-	Sun, 27 Jul 2025 07:37:08 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1ufwQj-0000000CTtc-0wkz;
+	Sun, 27 Jul 2025 08:08:25 +0000
+Received: from mx.denx.de ([89.58.32.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufvdB-0000000CPwg-11Xs;
-	Sun, 27 Jul 2025 07:17:14 +0000
-X-UUID: b608c2cc6ab911f09f706fa2197c6ceb-20250727
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=h/6Q7ujA0qP8HOsCdISb9GQQ5dFVRD6CG+119es1Sxg=;
-	b=NVDgzHjYAH4+bHaBnlYXs8pLfJMRz/WsyoqllVKHvCb/JaQUg6ctS2tNyoavejBbbp5DpHBipHMPWqGGRXW3ZJ9QVueTihP5rVpadZTUB1R3ZJp301Ep2OmhjoJFk5TncrikIp7bvJ4pX9a0PoG3fmdGNjfVTWtuDRcCn4oQUuM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:83fb91dc-192f-4b5d-b7a7-e659cac800b8,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:145ed208-aadc-4681-92d7-012627504691,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|15|50,EDM
-	:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: b608c2cc6ab911f09f706fa2197c6ceb-20250727
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <jay.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 258397551; Sun, 27 Jul 2025 00:17:10 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Sun, 27 Jul 2025 15:17:05 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Sun, 27 Jul 2025 15:17:04 +0800
-From: Jay Liu <jay.liu@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, Jay Liu <jay.liu@mediatek.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hsin-Yi
- Wang <hsinyi@chromium.org>, CK Hu <ck.hu@mediatek.com>, Yongqiang Niu
-	<yongqiang.niu@mediatek.com>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 7/7] dt-bindings: display: mediatek: gamma: Add support for MT8196
-Date: Sun, 27 Jul 2025 15:15:57 +0800
-Message-ID: <20250727071609.26037-8-jay.liu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250727071609.26037-1-jay.liu@mediatek.com>
-References: <20250727071609.26037-1-jay.liu@mediatek.com>
+	id 1ufwOC-0000000CTXq-0bOL
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Jul 2025 08:05:49 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 335AC1038C126;
+	Sun, 27 Jul 2025 10:05:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1753603545; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=RkBrq8EwJtKrLLyc89nHWZVNStBBKpPPsVnWhREsJ3M=;
+	b=QiNliuiOiHMjVLrreXLPVMtdb6modtyn9YS0LJimse60TjPW5KL5jdyhUQZDOY0BJv6vC1
+	QmtyZEOevEZTYA8m6jqbfaSVYXBgqvsZR5E2aR97uWQuTuifRl+698ko3S6iiGtHpKLFNe
+	yWEyEguBDDn1mGpPhlu9LbqolnulGLNkJiZNQrF8qGy6n+isjMCBKOxr62Ll1SUBoTHz4P
+	xkRalhn9K9xq/3l8AhS2ydZJsbY+TPWDUm6YcCY3nXF9/ilaZrewuDzrXnrMtfFD/G8MSS
+	2ZqOD584dzQgbM+HYAc1wjEuastuPoEVRDpORsPcjxGHBfbGC0svhTytmYE0XQ==
+Date: Sun, 27 Jul 2025 10:05:37 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v16 04/12] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250727100537.4abf90fd@wsk>
+In-Reply-To: <20250726133835.6e28a717@kernel.org>
+References: <20250724223318.3068984-1-lukma@denx.de>
+	<20250724223318.3068984-5-lukma@denx.de>
+	<20250725151829.40bd5f4e@kernel.org>
+	<20250726221323.0754f3cd@wsk>
+	<20250726133835.6e28a717@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: multipart/signed; boundary="Sig_/0V+L.IMPpnGggWz/bxwq32Y";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_001713_295200_844125B0 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250727_010548_335252_64D55E4C 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +82,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible string for the GAMMA IP found in the MT8196 SoC.
-Each GAMMA IP of this SoC is fully compatible with the ones found
-in MT8195.
+--Sig_/0V+L.IMPpnGggWz/bxwq32Y
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Jay Liu <jay.liu@mediatek.com>
-Signed-off-by: 20220315152503 created <jay.liu@mediatek.com>
----
- .../devicetree/bindings/display/mediatek/mediatek,gamma.yaml     | 1 +
- 1 file changed, 1 insertion(+)
+Hi Jakub,
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
-index 48542dc7e784..513e51c6d2b9 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
-@@ -40,6 +40,7 @@ properties:
-       - items:
-           - enum:
-               - mediatek,mt8188-disp-gamma
-+              - mediatek,mt8196-disp-gamma
-           - const: mediatek,mt8195-disp-gamma
- 
-   reg:
--- 
-2.46.0
+> On Sat, 26 Jul 2025 22:13:23 +0200 Lukasz Majewski wrote:
+> > > > +		ret =3D register_netdev(fep->ndev[i]);
+> > > > +		if (ret) {
+> > > > +			dev_err(&fep->ndev[i]->dev,
+> > > > +				"%s: ndev %s register err:
+> > > > %d\n", __func__,
+> > > > +				fep->ndev[i]->name, ret);
+> > > > +			break;
+> > > > +		}     =20
+> > >=20
+> > > Error handling in case of register_netdev() still buggy, AFAICT.
+> > >  =20
+> >=20
+> > I've added the code to set fep->ndev[i] =3D NULL to
+> > mtip_ndev_cleanup(). IMHO this is the correct place to add it. =20
+>=20
+> If register_netdev() fails you will try to unregister it and hit=20
+> a BUG_ON().
 
+Ach.... right. Thanks for explanation.
+
+
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH, Managing Director: Johanna Denk,
+Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
+Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/0V+L.IMPpnGggWz/bxwq32Y
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmiF3dEACgkQAR8vZIA0
+zr3XqAgA2sXocPAdmK/F5WB7kLsc6cqCUe6c3iGLjKWISsBkLMNQpfTzN8u3AMt+
+SE64cZAf1HmhN+dCrW+M+/xlKliLHwlkMF6E+Xpd+GhfIeNRijyPXBrcAB2c+Npd
+5yqu9q6rVYD+icUz8AuRiWJQQhKHxrj35cdP7rKD0iyL/NjetQJwRRnlBIF1Asb6
+Y8qLJY52pRfXxgr2pdlmkE2onr9sEnM4VsZrnWy0yuyb0ufMy8NEuRy+mh6TYeqk
+O1TmsdbbUMAcXaGk3XYR6btXXu5bkgn3hGdEJnORLtq1I+W9RH13kbHiKqm7w5Jb
+gZuhF67G07ueQCFJDxAjLMjVflKSOQ==
+=Tm9v
+-----END PGP SIGNATURE-----
+
+--Sig_/0V+L.IMPpnGggWz/bxwq32Y--
 
