@@ -4,118 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DE5C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 09:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B994C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 10:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXO7j/EW0YZHZmrgrDHnxMJbXeUhG4A5t7N4/mNJ/U0=; b=yLBf3NVGrpebILcpjCcvsBdiyf
-	Oc8WpyE23SujYJlg15iDr5qICL63uvOW9k1gAt0Kubd67y8/mhbdwrkA2Wux2a1XolGMMcgPysHl/
-	zd6BtU5k/iLaN5tBen7bb9E1DzJLIK6ng3EruLssz1s10rio/5MSo2qfKuO3SPohA8/uEGsBkXEvY
-	W6atVTCnCNNYDvXc3CVJTngmLf4/qvZcb3Dggp2qi+8TjdpEGUwnxHwWkWqWLUvdIUAkuoBGeaBUu
-	4q3OS7ktgmojPeQFjIEcIPvVr5R2fLO9pe7CDQjOkBslxNUTtNYWpuVd6TnZdz8QSi87dt8YTAmK2
-	ZkcKkT5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bgcaSBrVCciGkW/9wHNmmtdtZky2ZFmyIYefiynEDqc=; b=BflinUX+PkoEZmBfk8qF9Auc8r
+	2U1mbBYuFzJ9BMN5+BMYnK7VpEVE6Fn/rE2xKTxwH7BaJxS4qIAE6ZP6LTF6Wdtv6yI7YE4B9boAo
+	Zk0cGE7kLAA9UQlXlHaMp2lfVCgCT2S3vpMnlHmpUCGaM93drivilWkEdrSDceWGQzvmUlUsyCYEC
+	wiEIeFb8rTMiY8fsBkdagnMZObhkdZgS+uhBJgFShL3r40obHVFJNXCqbgKR6gLfBzZ6SIDpLdUCG
+	32eUgbKCImqqQ1AnvywF1LDFv830RUUKGY3gOosqXOayK5lI4avhYIGCKlrEobmwxRKBG51p8SmwD
+	SUsGckjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufxqV-0000000CYOi-28hX;
-	Sun, 27 Jul 2025 09:39:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ufyCd-0000000CZaX-2oTU;
+	Sun, 27 Jul 2025 10:01:59 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufxny-0000000CYDK-14hp
+	id 1ufyA6-0000000CZBP-1c7x
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 09:36:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3D3643F3D;
-	Sun, 27 Jul 2025 09:36:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6F0FC4CEEB;
-	Sun, 27 Jul 2025 09:36:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753608987;
-	bh=3KwHDBXWQOpr86hh/WgXBV9m9JGz7kpYAsJ27ibYkBc=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=CleSKY6oYIOqUNNodUPeJS3HEm1Cv7ET2XDHb9qBTv6RGO+5Yr8v4eGzHmMUbsQOv
-	 KnEG9Y+kBRcXsgUGzPbgazE/Ro7TV5N520M3eFXqib0dd/jbn3rfhclfK1VstmRkzn
-	 IC0BDYxMawwO/SREWuVmP5qmJzaUMoAvTDKXk+mfs7JdyKObpTG74RMqaVNPT1EKaO
-	 jMs/ZarvFq50IN5/GNPZYnMr8dkoL9RilmsfWBT4UBSddoFOK08SzZnj6Xxy+M+5hY
-	 8ez8LzAEeiAlsCk7b3CQjpLGijkqtTdtGWN/fDo4+6QcMCk1NY8lbDX62emxhIV9P0
-	 6hIRJVdwg+FPA==
-Message-ID: <b8e570ab-313f-4f20-bedb-a1191c672435@kernel.org>
-Date: Sun, 27 Jul 2025 11:36:23 +0200
+	Sun, 27 Jul 2025 09:59:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bgcaSBrVCciGkW/9wHNmmtdtZky2ZFmyIYefiynEDqc=; b=Rw9v4iQZI8V77POV1SbIpK9YhU
+	h+gtpTCZNqbgj5sZ3e/6KTwa4J1ulOO5aS1V0/lEnzKagZx7etOLTPnaiOu3RoOCnwPydslEz4pu0
+	H8GSE6ZGDN5AGlB6A0yxJ4Eh4L9/EQfck95HGdfCXdarQRqlyGfmq8k/VFLQco2EEg/5c0/Rf5EMz
+	kingW6H8tyaFUVBH98+Cag2A9EGkfQ+cibNdNgwdhwM5zCwpS749KowgdCDpi87btXj7zcyMAevOm
+	Z8heZ2JV6vSzXhYtTDCji9wcvOdD01tdck1+9t+PSpk8UqlXdd5dDW8MDOiv5Je+iKDBQkd6sxTw1
+	bYCYZkMQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47138)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ufy7o-00079q-34;
+	Sun, 27 Jul 2025 10:57:01 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ufy7g-0003fM-1B;
+	Sun, 27 Jul 2025 10:56:52 +0100
+Date: Sun, 27 Jul 2025 10:56:52 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: Re: [PATCH net-next v10 07/15] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <aIX35MUxx-OkvX4G@shell.armlinux.org.uk>
+References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
+ <20250722121623.609732-8-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
- parent node compatibles and refine documentation
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
- <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Kevin Chen <kevin_chen@aspeedtech.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
-References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
- <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
- <001d37c7-f704-4554-a4db-0cc130e07dd6@kernel.org>
- <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <384635a3-c6ed-44f8-a54a-2b20e20694cd@kernel.org>
- <OS8PR06MB75418BD29DCD6E93F2A44903F25BA@OS8PR06MB7541.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <OS8PR06MB75418BD29DCD6E93F2A44903F25BA@OS8PR06MB7541.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250722121623.609732-8-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_023630_350167_D64414C6 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20250727_025922_426542_586E7EDF 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,116 +101,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/07/2025 03:47, Ryan Chen wrote:
->> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add parent
->> node compatibles and refine documentation
->>
->> On 23/07/2025 10:08, Ryan Chen wrote:
->>>> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller:
->>>> aspeed: Add parent node compatibles and refine documentation
->>>>
->>>> On 22/07/2025 11:51, Ryan Chen wrote:
->>>>> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
->>>>> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
->>>>> +  +-----+   +---------+
->>>>> +  | GIC |---|  INTC0  |
->>>>> +  +-----+   +---------+
->>>>> +            +---------+
->>>>> +            |         |---module0
->>>>> +            | INTC0_0 |---module1
->>>>> +            |         |---...
->>>>> +            +---------+---module31
->>>>> +            |---....  |
->>>>> +            +---------+
->>>>> +            |         |     +---------+
->>>>> +            | INTC0_11| +---| INTC1   |
->>>>> +            |         |     +---------+
->>>>> +            +---------+     +---------+---module0
->>>>> +                            | INTC1_0 |---module1
->>>>> +                            |         |---...
->>>>> +                            +---------+---module31
->>>>> +                            ...
->>>>> +                            +---------+---module0
->>>>> +                            | INTC1_5 |---module1
->>>>> +                            |         |---...
->>>>> +                            +---------+---module31
->>>>
->>>> You binding also said intc1 is the parent of intc-ic, so where is here intc-ic?
->>>>
->>>> This diagram and new binding do not match at all.
->>>
->>> The corresponded compatible is following.
->>>
->>>   +-----+   +---------+
->>>   | GIC |---|  INTC0  | -> (parent : aspeed,ast2700-intc0)
->>>   +-----+   +---------+
->>>             +---------+
->>>             |        |---module0
->>>             | INTC0_0 |---module1
->>> 			(child : aspeed,ast2700-intc-ic)
->>>             |        |---...
->>>             +---------+---module31
->>>             |---....  |
->>>             +---------+
->>>             |         |    					 +---------+
->>>             | INTC0_11 | +----------------------------	| INTC1   |  -> ->
->> (parent : aspeed,ast2700-intc1)
->>
->> AGAIN (second time): that's not what your binding said.
->>
->> Your binding is explicit here, which is what we want in general. It says that inct1 is
->> one of the parents of intc-ic.
+On Tue, Jul 22, 2025 at 02:16:12PM +0200, Maxime Chevallier wrote:
+> +static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
+> +{
+> +	struct phy_device *phydev = upstream;
+> +	struct phy_port *port = phy_get_sfp_port(phydev);
+> +
+> +	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
+> +	DECLARE_PHY_INTERFACE_MASK(interfaces);
+> +	phy_interface_t iface;
+> +
+> +	linkmode_zero(sfp_support);
+> +
+> +	if (!port)
+> +		return -EINVAL;
+> +
+> +	sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
+> +
+> +	if (phydev->n_ports == 1)
+> +		phydev->port = sfp_parse_port(phydev->sfp_bus, id, sfp_support);
+> +
+> +	linkmode_and(sfp_support, port->supported, sfp_support);
+> +
+> +	if (linkmode_empty(sfp_support)) {
+> +		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
 
-... and you never addressed that. :/
+I've been moving phylink away from using sfp_select_interface() because
+it requires two stages of translation - one from the module capabilties
+to linkmodes, and then linkmodes to interfaces.
 
->>
->> Let me be clear, because you will be dragging this talk with irrelevant arguments
->> forever - changing this binding is close to no. If you come with correct arguments,
->> maybe would work. But the main point is that you probably do not have to even
->> change the binding to achieve proper hardware description. Work on that.
->>
-> 
-> If I do not change the binding, I think the yaml and dts can still fit the interrupt
-> nesting architecture by using both interrupts and interrupts-extended.
-> 
-> For first-level controllers, use the standard interrupts property
-> (e.g. with the GIC as the parent).
-> 
-> For second-level INTC-IC instances, use interrupts-extended to refer to the
-> first-level INTC-IC, following common Linux practice for stacked interrupt controllers.
-> For example:
-> dts
-> // First level
-> intc0_11: interrupt-controller@12101b00 {
->     compatible = "aspeed,ast2700-intc-ic";
->     reg = <...>;
->     interrupt-controller;
->     #interrupt-cells = <2>;
->     interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>, ...;
-> };
-> 
-> // Second level, cascaded
-> intc1_0: interrupt-controller@14c18100 {
->     compatible = "aspeed,ast2700-intc-ic";
->     reg = <...>;
->     interrupt-controller;
->     #interrupt-cells = <2>;
->     interrupts-extended = <&intc0_11 0 IRQ_TYPE_LEVEL_HIGH>;
+sfp_parse_support() now provides the interfaces that the optical module
+supports, and the possible interfaces that a copper module _might_
+support (but we don't know for certain about that until we discover a
+PHY.)
 
-This looks like changing the meaning of the interrupt. What was the
-interrupt here before? What interrupt is here now?
+The only place in phylink where this function continues to be used is
+when there's an optical module which supports multiple different
+speeds, and we need to select it based on the advertising mask provided
+by userspace. Everywhere else shouldn't use this function, but should
+instead use the interfaces returned from sfp_parse_support().
 
-> };
-> In yaml, I can use:
-> oneOf:
->   - required: [interrupts]
->   - required: [interrupts-extended]
-> This allows both cases to be valid.
-
-
-Hm? Since when you need both cases?
-
-
-Best regards,
-Krzysztof
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
