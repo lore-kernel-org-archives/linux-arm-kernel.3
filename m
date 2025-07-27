@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9480DC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 20:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E65EC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 20:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hEsloU/e5SnX4wmvFRSNKqlkwL0lNp6OodxTTFUtc0=; b=r3sCSM+dY22nI7LMC84pgA1C2i
-	1vsXxUkij1YG8AJeCZdRw9D6/mcCY1/1KQsRKuSIX2lsZl25g74085ExsmTtJ+DrhP7Qd8iGMB9Gq
-	8o1b18T4HB7MNTCxYcQDvfz9VsWiQSsj0DeRwi/oUZYXqRMIlT/hqWCctERHbP3ULrZ0MtgDC2ue1
-	3KqwbXtROurPsD7N3kmLADRR6Ut3DqXGEcs29ZuG6sqIE6uPwwFLsXFQ/OSfdeO+gwB8z0i+ze2x5
-	kAAFeXYWC9Up3VgmEM9vj4lP81G7eM9kDQF02AiFKsR5gUN0VjI2o3DbbqrGNF4EvcTWrwGb8YxqJ
-	2Rti+XRA==;
+	bh=dulwTxm3j7Kz1Mmz1g7RAdiq7A9X0Af5WCy5gWVyfDE=; b=GQKVKeJTSmfOUWW8XYWK0sk2oI
+	71aMl1RJDV/pjuKLlug290MkFmvdxMVf3EAyhoU9R06oJuyOaBvXMHU5cuZw3zt/JpKeTPloT7Vkn
+	+1wJUtzebdULm0Yt040k/CukD8T1ekxAgFGokdOGtlxb7qLnsEvaG9jYRNZd2rWDV5cQFzBS+vibB
+	p93Qk/CRWTgOXCsGG6Xt2NU3bD7iAR2OOYJoFx9tf8O84kw1rSV5Jgqm8w1Zw+COL5PQklsKqNQGY
+	XiuUIknxVllYKx5/RZGL24NTAkmPgJPpkwX/+No/fv3LfqY2KxMuEhwpERWDzyxL/uUIl4fHvtOUB
+	WIDXqGbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug7Xr-0000000DAvE-0w6r;
-	Sun, 27 Jul 2025 20:00:31 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1ug80j-0000000DCtX-3HUA;
+	Sun, 27 Jul 2025 20:30:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug7VJ-0000000DAIk-1A5S;
-	Sun, 27 Jul 2025 19:57:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8hEsloU/e5SnX4wmvFRSNKqlkwL0lNp6OodxTTFUtc0=; b=xg02+3ANIpeQD3xeG/u8lRQDRe
-	yuSKoIF78ltBcE7+xWkS+XUGpjsCBTSqeQa78LWnwjZuwk52634YJEra0hQAR/sotpxZtyczV8Krp
-	pN08ZsKToAcuyA3R+6qutEz/freUUTJEH53k8Qljib7q+oV+z+21zeya99W4XQU64mewL+z2QuZQ2
-	4HoMxaKXa0u5qXZQYmfHcgLzfJ2oJYfz4g5PhkWT6QeEGpCvhuw/INYmdhfSUcx/HZtjKUiVlpkjs
-	jdgFhGJQYUD2Xqx+yOIb/H9vC4CvnICBwCoxBPeDmsD7YT9xtvcnrgwkgWoTb5mYvJUvFnRbN21o6
-	P40lfMMQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34694)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ug7Uy-0007gA-2a;
-	Sun, 27 Jul 2025 20:57:33 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ug7Us-00042L-1o;
-	Sun, 27 Jul 2025 20:57:26 +0100
-Date: Sun, 27 Jul 2025 20:57:26 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Alvin =?utf-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
-	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
-	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
- Radxa E24C
-Message-ID: <aIaEpkZtPt6wqaiL@shell.armlinux.org.uk>
-References: <20250727180305.381483-1-jonas@kwiboo.se>
- <20250727180305.381483-4-jonas@kwiboo.se>
+	id 1ug7yB-0000000DCYH-2eBt;
+	Sun, 27 Jul 2025 20:27:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7022945ADF;
+	Sun, 27 Jul 2025 20:27:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21CA5C4CEEB;
+	Sun, 27 Jul 2025 20:27:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753648061;
+	bh=ZE7PSM2KnsublRw2gVAyFR2kIwpn1Ua6FQHLHsugA6U=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=LNVl+31E3NMJrHyQtuJYp4yaIK/rnBsBIB/Etng8qQXg+EGYcBdXWYXJUpcMyVFl+
+	 CeZ66Y6k2Hup+/keLrW4abFUgnBqilsT2rbdSRJyrcaVwO77N9awRNA3BWtwFcEUdO
+	 NzZZWNYsDWXqvPYHklCSFW5i4ty+PXVrVyxc0qDic3j7RPzdyOvjWiFqGUfc0kuCQO
+	 TbCcBz7brHiwZUkPcLGs7XMsnC0+pY9EXREJGlDwtDDpVoMcSPfNYsiFAZX7xDXreK
+	 pk8AwqliHmgHZjQb8uBptexbi7t1mpVcVtqKHVJw3CXXcrlD5/sLteJU3yMpLBoAZW
+	 hqEJi9V0Ij77w==
+Date: Sun, 27 Jul 2025 15:27:40 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250727180305.381483-4-jonas@kwiboo.se>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Yongqiang Niu <yongqiang.niu@mediatek.com>, devicetree@vger.kernel.org, 
+ CK Hu <ck.hu@mediatek.com>, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, linux-mediatek@lists.infradead.org, 
+ David Airlie <airlied@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Hsin-Yi Wang <hsinyi@chromium.org>, dri-devel@lists.freedesktop.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Simona Vetter <simona@ffwll.ch>
+To: Jay Liu <jay.liu@mediatek.com>
+In-Reply-To: <20250727071609.26037-5-jay.liu@mediatek.com>
+References: <20250727071609.26037-1-jay.liu@mediatek.com>
+ <20250727071609.26037-5-jay.liu@mediatek.com>
+Message-Id: <175364805648.3160.7761307037849167349.robh@kernel.org>
+Subject: Re: [PATCH v2 4/7] dt-bindings: display: mediatek: disp-tdshp: Add
+ support for MT8196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_125753_325077_4E354B71 
-X-CRM114-Status: GOOD (  34.05  )
+X-CRM114-CacheID: sfid-20250727_132743_710709_9EAD7F19 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,105 +84,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 27, 2025 at 06:03:00PM +0000, Jonas Karlman wrote:
-> The Radxa E24C has a Realtek RTL8367RB-VB switch with four usable ports
-> and is connected using a fixed-link to GMAC1 on the RK3528 SoC.
+
+On Sun, 27 Jul 2025 15:15:54 +0800, Jay Liu wrote:
+> Add disp-tdshp hardware description for MediaTek MT8196 SoC
 > 
-> Add an ethernet-switch node to describe the RTL8367RB-VB switch.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+> Signed-off-by: 20220315152503 created <jay.liu@mediatek.com>
 > ---
-> Initial testing with iperf3 showed ~930-940 Mbits/sec in one direction
-> and only around ~1-2 Mbits/sec in the other direction.
+>  .../display/mediatek/mediatek,disp-tdshp.yaml | 50 +++++++++++++++++++
+>  1 file changed, 50 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml
 > 
-> The RK3528 hardware design guide recommends that timing between TXCLK
-> and data is controlled by MAC, and timing between RXCLK and data is
-> controlled by PHY.
 
-Assuming RK3528 is the MAC side, then that makes sense - it's basically
-suggesting that the _producer_ of the signals should appropriately skew
-them.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> Any mix of MAC (rx/tx delay) and switch (rx/tx internal delay) did not
-> seem to resolve this speed issue, however dropping snps,tso seems to fix
-> that issue.
-> 
-> Unsure what is best here, should MAC or switch add the delays? Here I
-> just followed DT from vendor downstream tree and added rx/tx internal
-> delay to switch.
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:23:7: [warning] wrong indentation: expected 4 but found 6 (indentation)
+./Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:41:5: [warning] wrong indentation: expected 2 but found 4 (indentation)
+./Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:42:10: [error] missing starting space in comment (comments)
+./Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:43:10: [error] missing starting space in comment (comments)
+./Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:45:9: [error] syntax error: expected <block end>, but found '<scalar>' (syntax)
 
-Okay. Heres'a an in-depth explanation, because I think many people need
-this for MAC-to-MAC RGMII links. A MAC to PHY link:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml: ignoring, error parsing file
+./Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:45:9: did not find expected key
+make[2]: *** Deleting file 'Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.example.dts'
+Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.yaml:45:9: did not find expected key
+make[2]: *** [Documentation/devicetree/bindings/Makefile:26: Documentation/devicetree/bindings/display/mediatek/mediatek,disp-tdshp.example.dts] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1526: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-	MAC1 ------- PHY1
+doc reference errors (make refcheckdocs):
 
-The PHY mode in the MAC1 description controls the application of delays
-at PHY1. This is relatively well undersood. Now, for a MAC to MAC link:
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250727071609.26037-5-jay.liu@mediatek.com
 
-	MAC1 ------- MAC2 in a PHY
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Let's say MAC2 is part of a PHY. Okay, so this is quite simple because
-it's a PHY on the other end, and thus the situation above applies.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-In both these cases, the MAC driver will pass the PHY interface to
-phylib, which will in turn pass it to the PHY driver, which is expected
-to configure the PHY appropriately.
+pip3 install dtschema --upgrade
 
-There is a side-case, where a MAC driver is allowed to configure the
-delays at its end _provided_ it then passes PHY_INTERFACE_MODE_RGMII
-to phylib (telling the PHY not to add its own delays.)
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-Now let's look at something that isn't a PHY:
-
-	MAC1 ------- MAC2 in a switch
-
-In this case, MAC2 isn't in a PHY or part of a PHY that is driven by
-phylib, so we don't have a way in the kernel of passing the PHY mode
-from MAC1 to MAC2 in order for MAC2 to configure itself. It's tempting
-to say that which RGMII mode is used doesn't matter, but consider the
-side-case above - if we're talking about a MAC driver that interprets
-the PHY mode and adds its own delays, then it *does* very much matter.
-
-It also matters for MAC2. This could be a switch port that can be used
-as a CPU facing port, or a switch port that is used as a PHY. In the
-latter case, it becomes exactly as the first two cases above.
-
-Let's take a theoretical case of two ethernet MACs on the same system
-connected with a RGMII link:
-
-	MAC1 ------- MAC2
-
-They both use the same driver. What RGMII interface mode should be used
-for each? Would it be correct to state "rgmii-id" for both MACs?
-Or "rgmii" for one and "rgmii-id" for the other.
-
-You may notice I'm not providing a solution - this is a thought
-experiment, to provoke some thought into the proper use of the phy-mode
-property at each end of a MAC to MAC link, and hopefully gain some
-realisation that (probably) using "rgmii-id" for both MACs probably
-isn't correct given the model that phy-mode _generally_ states how the
-opposite end of the RGMII link to the MAC should be configured.
-
-However, currently it doesn't matter as long as we don't end up with
-two MACs that are back to back and the MAC drivers decide to insert
-the RGMII delay (the side-case I mention above.)
-
-Personally, I don't like that we have this side-case as a possibility
-because it causes problems (if you go through the thought experiment
-above, you'll trip over the problem if you consider the combinations
-of MAC1 and MAC2 that do/do not use the side-case!)
-
-So, I would expect a MAC to MAC link to have "rgmii" at one end, and
-"rgmii-id" at the other end, rather than both having the same RGMII
-mode.
-
-> Vendor downstream DT also adds 'pause' to the fixed-link nodes, and this
-> may be something that should be added here. However, during testing flow
-> control always ended up being disabled so I skipped 'pause' here.
-
-Does it get disabled at the switch, or the stmmac end?
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
