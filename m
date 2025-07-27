@@ -4,71 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE51C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 02:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01E5C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 06:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9F+KM1a1Ihps5ZaemdknahipWej3+/IidOctuLXhDGM=; b=JOEeZRQcEzyJ58goeCebs1gvRr
-	dn96tdT73dP/ULM5xtaJaWtp9gsGSwOVetwAXl9J7NlOJRjQiAoYkE3yG5R/bWR/XiAWe5sii5phD
-	SrwxDx2CszKjwUH387z/tRw711S64OnfAmDDXGdibaRrT/jS0vhe1hhSI9pwqjt+fxOH1njlaL2Jk
-	1SAXq4F17ojIGLmHr2TSGm66T+2qOfj2F9yKZt2fBZrRf2/c6buYZz/EGGDnlFG7SBdemxby1+5/X
-	ZIXjlboJD56OhI5pF2SbLqmKLa9HpnDyIpeHQRfjSjpFoNAHOHMlCVU4IM3DZgvLZVEcpHeueCXJY
-	lCIYJ+yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ouaLqm1R9pYu2kjb2/unKvQ+wVyFyZBELlahYoTUXkA=; b=laC70vide+CudoiGPBRd5267T2
+	scEuPHl8kwXpUZHoXcPz3nuEu3XfZQDYXzlibpod/aWuf9c1rDJHoz0q4MiL5Us1b/B90JeThiVv/
+	ISJL1GgC9sVXgw+UopJxXYQPzyBvb1ojkfnY1LZrbhOlPecx7n/ACSWDKqFhOGQVxQYFly9AIxmTU
+	nZCS34vLTllMTjwaXTZqkKyLrpUaEN9vKR0zByooZuNaLYAJtm2h4KyQyBI2R70xTwWl9DB3TfZgG
+	04gz7wiiHxoyJqb0adEGPWkvMGTQBw60x6oJ8RMnK4RQ8H0lC02vO4O3zoNhcyK48TMHuglZeiaVR
+	Co40d1Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufr0B-0000000CFK8-18GY;
-	Sun, 27 Jul 2025 02:20:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ufuQX-0000000CMnf-3sbH;
+	Sun, 27 Jul 2025 06:00:05 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufqxd-0000000CFAe-0Gl7
+	id 1ufuO1-0000000CMXz-0CAa
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 02:18:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7167FA53DA6;
-	Sun, 27 Jul 2025 02:17:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A014BC4CEED;
-	Sun, 27 Jul 2025 02:17:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753582678;
-	bh=Y5zHoODlzWxavxPuDfmCtM9nxpP4mAOVW9JeR00zZEo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=IDjwHbrvKloC3zEWfx12EI9BBU2IXr9TdPpwzU978h/DzlIyInfSxt9qoZXKwx6UL
-	 iBTFWP7xLNUd2qC/vrLwZ9WFkvl9lgb4JukRM5Tejcw0l4Xa6BPEWRc25v6BJv5jeI
-	 lpGuOjBjO4oBxWAKXPrHDmXB6Ujj0KZrtWuGtsXD0MhYo6UCmQa9N81/vNDGzBBfAH
-	 VVf0OuRYU2RNjNYmpna5GrCfin5O0wQvz8ZShBPOSvwcfOcI74A0jK94Tpgqysq85g
-	 AIVqHFDCQj80oWbv41eNOX4UPP7wZtVWjnBMq56xV6g8IPWOcvjd0FQtzqsxWCId5h
-	 a+HPZcc7imn5g==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	linux-clk@vger.kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Luca Weiss <luca.weiss@fairphone.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Jagadeesh Kona <quic_jkona@quicinc.com>,
-	Satya Priya Kakitapalli <quic_skakitap@quicinc.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Stephan Gerhold <stephan.gerhold@linaro.org>,
-	George Moussalem <george.moussalem@outlook.com>,
-	Luo Jie <quic_luoj@quicinc.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Subject: [GIT PULL] Qualcomm clock updated for v6.17
-Date: Sat, 26 Jul 2025 21:17:55 -0500
-Message-ID: <20250727021756.657115-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	Sun, 27 Jul 2025 05:57:30 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-235f9ea8d08so31956845ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Jul 2025 22:57:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753595848; x=1754200648; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ouaLqm1R9pYu2kjb2/unKvQ+wVyFyZBELlahYoTUXkA=;
+        b=QB65Z8PdQ7AobFFKlXKdkPgztYmn8C9rznxIqgpKBjgYYX2u2iWBBJvbyFjLgQ/ENP
+         JGobDz9yWkPP/7JdTFmysSqTjviJFAWCilMo9zDlwWNtPkrpDjpceeYA/AxY5cEmAjIq
+         0K9eRFPd+Li0pBBqIg8c8D6fEF03H33+3r2z/caKyuYIuUbLVEOxarRwbgI2zSTia8Df
+         629tHXZgOjqo5G8wGduuhxb4HF8pzq5H33WJkpd4Pk5Ulf4vZfOx2+bVi82YJFFL0Clu
+         1Xvzn+R+T8rNX2JzgDc7DGtEMOA9P9lYXOBwrK8lIeSkr+Ppm7CtKF2NW466HVukLRg3
+         hMZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753595848; x=1754200648;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ouaLqm1R9pYu2kjb2/unKvQ+wVyFyZBELlahYoTUXkA=;
+        b=dpBoLBbcz5mq1SwGWRjuqPCP5a1VhnWhHyzKlEJWq7jKlkmqiHEn5nz9CasUNFP1DD
+         dhSM0GUySs4SKRsaiLmld5um49/0wn03XZjuId8kGiuwit3fRCh7EeGPYu/x15CDnj8G
+         rD8Jpu6ztDrqKJeCQ5vJytkwG3o9/ryCLuG7+jkwlUYMWS/n2akvWThugi22/iSz/3d+
+         BplcTpLgrs7ulpbvLZK9tgo9HwMLvb2fS1V2pW1M5c82DHJkNdEO5f4JD0nwhr1RoeO/
+         BAikeJzS6zNlleN+Y0Pzua2kKwKWBOwHeePlMuLASgYRJAiAxfQfi5KqAVPO91mddfTu
+         ObuA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/XdGYkLXSxTSQmWE9secF75fONXLhlYVtdeQjcYjkeQq3JTBTpmRVRxFwf6/PHRPNDwBFEJaLDMz20JMHTupZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo2Z/m3BOzbALaepyFAosSDa18eGtl6uQ194nuNJCgcT7fGtJ4
+	HL8Q8eHpWQRDLz2A7g4AKh88PIcutM4SOFzCvU/sBhToFygBzKH4CjS5
+X-Gm-Gg: ASbGnctBVDMmk8O/AFApanybIyUNeItM+d0jhcC0atTNp9VdQfCSKmFRzGrTqqHBg+z
+	Jx/IjPuf11eSkyY37/1oKy+ADTN4sBoVxSh9C1T3TIqTMNWxBCZwvLM8RjVDAL8FTJiPP8VphNE
+	eLSR9NHjCdECqRJlvHTrytnTF/JxhwK5XCRN8WiI5DP9dFeNmriOd5bLGUJgbFzJ3ykB8FcHppn
+	cFgcilid67n9JIBLI6cBb2ysQ+r260xZ7s1jqBsp1HGQMNErN58KRr4by9DdAEOofZyFcArgBPE
+	gzQT7gRMJec+bVZSzyQBZUTAp83I1X4m3JsgA0yepL4LtjkCL0JlP60PWrCpN0SN2WJA+RLqvAC
+	e0X5KaFugZcak3++Lj04m3Toq4EOIzKso0HXf0iwCyljDHeUJb6mgZMatKwX+EATAo+4Bpqp2oo
+	0=
+X-Google-Smtp-Source: AGHT+IGq8V6jL0qsxc/xLYXjd9K12nmc3vEi5z4imGq1hQgK/s5MM/Z/wf4Ba/rfxpwQws59Tqe8tQ==
+X-Received: by 2002:a17:902:ce8e:b0:23f:6fa4:1567 with SMTP id d9443c01a7336-23fb2fefd31mr99604175ad.8.1753595847477;
+        Sat, 26 Jul 2025 22:57:27 -0700 (PDT)
+Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fbe30bce5sm28251825ad.27.2025.07.26.22.57.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 26 Jul 2025 22:57:26 -0700 (PDT)
+Date: Sat, 26 Jul 2025 22:57:24 -0700
+From: Tao Ren <rentao.bupt@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v3 10/13] ARM: dts: aspeed: Add Facebook Fuji-data64
+ (AST2600) Board
+Message-ID: <aIW/xEfJX/UD1kje@localhost.localdomain>
+References: <20250723233013.142337-1-rentao.bupt@gmail.com>
+ <20250723233013.142337-11-rentao.bupt@gmail.com>
+ <d09667e5-992e-4ced-ae30-7a4116a72c62@lunn.ch>
+ <aIGGdbIX9HaV4dB/@localhost.localdomain>
+ <769d6817-ee97-4a23-b013-29bc875a00cb@lunn.ch>
+ <aIMTvUyHGd/ikKY9@localhost.localdomain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aIMTvUyHGd/ikKY9@localhost.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_191801_242582_68CD2FDC 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250726_225729_090606_29A5E973 
+X-CRM114-Status: GOOD (  25.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,297 +108,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 24, 2025 at 10:18:57PM -0700, Tao Ren wrote:
+> On Thu, Jul 24, 2025 at 02:53:39PM +0200, Andrew Lunn wrote:
+> > On Wed, Jul 23, 2025 at 06:03:49PM -0700, Tao Ren wrote:
+> > > On Thu, Jul 24, 2025 at 02:03:20AM +0200, Andrew Lunn wrote:
+> > > > > +&mac3 {
+> > > > > +	status = "okay";
+> > > > > +	phy-mode = "rgmii";
+> > > > 
+> > > > Does the PCB have extra long clock lines to implement the 2ns delay?
+> > > > 
+> > > > 	Andrew
+> > > 
+> > > Hi Andrew,
+> > > 
+> > > Thank you for catching it. I didn't notice the settings because the file
+> > > is copied from the exiting fuji.dts with minor changes.
+> > > 
+> > > The delay is currently introduced on MAC side (by manually setting SCU
+> > > registers), but I guess I can update phy-mode to "rgmii-id" so the delay
+> > > can be handled by the PHY?
+> > 
+> > That would be good, if it works. The problem with the current code is
+> > that those SCU registers are not set as part of the MAC driver, so it
+> > is hard to know what value they have.
+> > 
+> > 	Andrew
+> 
+> Hi Andrew,
+> 
+> I set phy-mode to rgmii-id (letting BCM54616S handle RX/TX delay) and
+> cleared SCU350 (MAC3/4 RGMII delay) register, but somehow BMC is not
+> reachable over ethernet.
+> 
+> Let me see if I missed other settings. I will drop the mac entry from v4
+> if I cannot make it work by next Monday.
 
-The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+Hi Andrew,
 
-  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+I made it "work" by updating phy-mode to rgmii-txid, and it seems like
+AST2600 MAC introduces RX delay even though RXCLK delay setting is 0 in
+SCU350 register.
 
-are available in the Git repository at:
+As I'm not 100% sure where the RX clock delay is introduced, I will drop
+mac3 entry in v4.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-6.17
 
-for you to fetch changes up to 45dd59885ca8d283f365774a82b9b785b65c8d37:
+Thanks,
 
-  dt-bindings: clock: qcom,sm4450-dispcc: Reference qcom,gcc.yaml (2025-07-19 22:42:28 -0500)
-
-----------------------------------------------------------------
-Qualcomm clock updated for v6.17
-
-Add global, display, gpu, video, camera, tcsr, and rpmh clock controller
-for the Milos SoC.
-
-Add camera, display, GPU, and video clock controllers for QCS615, add
-the video clock controller for SM6350, and add a camera clock controller
-driver for SC8180X.
-
-Move PLL configuration to really probe across a variety of platforms, in
-order to handle the clock controllers powered by multiple power domains.
-
-Replace round_rate() with determine_rate() across the clock
-implementations.
-
-Enable GDSC hardware control for video clock controller GDSCs in a few
-platforms.
-
-Fix GE PHY reset on IPQ5018, broken NSS port6 frequency table on
-IPQ8074, add missing video resets on X1E80100 and keep the XO clock
-always on on IPQ5018.
-
-----------------------------------------------------------------
-Bjorn Andersson (3):
-      Merge branch '20250512-sc8180x-camcc-support-v4-2-8fb1d3265f52@quicinc.com' into clk-for-6.17
-      Merge branch '20250610-qcom_ipq5424_cmnpll-v3-1-ceada8165645@quicinc.com' into clk-for-6.17
-      Merge branch '20250516-ipq5018-cmn-pll-v4-2-389a6b30e504@outlook.com' into clk-for-6.17
-
-Brian Masney (5):
-      clk: qcom: gcc-ipq4019: convert from round_rate() to determine_rate()
-      clk: qcom: rpm: convert from round_rate() to determine_rate()
-      clk: qcom: rpmh: convert from round_rate() to determine_rate()
-      clk: qcom: smd-rpm: convert from round_rate() to determine_rate()
-      clk: qcom: spmi-pmic-div: convert from round_rate() to determine_rate()
-
-Christian Marangi (1):
-      clk: qcom: gcc-ipq8074: fix broken freq table for nss_port6_tx_clk_src
-
-George Moussalem (4):
-      dt-bindings: clock: qcom: Add CMN PLL support for IPQ5018 SoC
-      clk: qcom: ipq5018: keep XO clock always on
-      clk: qcom: ipq-cmn-pll: Add IPQ5018 SoC support
-      clk: qcom: gcc-ipq5018: fix GE PHY reset
-
-Jagadeesh Kona (10):
-      dt-bindings: clock: qcom,sm8450-videocc: Add MXC power domain
-      dt-bindings: clock: qcom,sm8450-camcc: Move sc8280xp camcc to sa8775p camcc
-      clk: qcom: common: Handle runtime power management in qcom_cc_really_probe
-      clk: qcom: common: Add support to configure clk regs in qcom_cc_really_probe
-      clk: qcom: videocc-sm8450: Move PLL & clk configuration to really probe
-      clk: qcom: videocc-sm8550: Move PLL & clk configuration to really probe
-      clk: qcom: camcc-sm8450: Move PLL & clk configuration to really probe
-      clk: qcom: camcc-sm8550: Move PLL & clk configuration to really probe
-      clk: qcom: camcc-sm8650: Move PLL & clk configuration to really probe
-      clk: qcom: camcc-x1e80100: Move PLL & clk configuration to really probe
-
-Konrad Dybcio (1):
-      clk: qcom: Add video clock controller driver for SM6350
-
-Krzysztof Kozlowski (1):
-      clk: qcom: dispcc-sm8750: Fix setting rate byte and pixel clocks
-
-Loic Poulain (1):
-      clk: qcom: gcc-qcm2290: Set HW_CTRL_TRIGGER for video GDSC
-
-Luca Weiss (16):
-      dt-bindings: clock: qcom: Document the Milos RPMH Clock Controller
-      clk: qcom: rpmh: Add support for RPMH clocks on Milos
-      dt-bindings: clock: qcom: document the Milos TCSR Clock Controller
-      clk: qcom: tcsrcc-sm8650: Add support for Milos SoC
-      clk: qcom: common: Add support to register rcg dfs in qcom_cc_really_probe
-      dt-bindings: clock: qcom: document the Milos Global Clock Controller
-      clk: qcom: Add Global Clock controller (GCC) driver for Milos
-      dt-bindings: clock: qcom: document the Milos Camera Clock Controller
-      clk: qcom: Add Camera Clock controller (CAMCC) driver for Milos
-      dt-bindings: clock: qcom: document the Milos Display Clock Controller
-      clk: qcom: Add Display Clock controller (DISPCC) driver for Milos
-      dt-bindings: clock: qcom: document the Milos GPU Clock Controller
-      clk: qcom: Add Graphics Clock controller (GPUCC) driver for Milos
-      dt-bindings: clock: qcom: document the Milos Video Clock Controller
-      clk: qcom: Add Video Clock controller (VIDEOCC) driver for Milos
-      dt-bindings: clock: qcom: Remove double colon from description
-
-Luo Jie (2):
-      dt-bindings: clock: qcom: Add CMN PLL support for IPQ5424 SoC
-      clk: qcom: cmnpll: Add IPQ5424 SoC support
-
-Satya Priya Kakitapalli (7):
-      dt-bindings: clock: qcom: Add missing bindings on gcc-sc8180x
-      dt-bindings: clock: Add Qualcomm SC8180X Camera clock controller
-      clk: qcom: camcc-sc8180x: Add SC8180X camera clock controller driver
-      dt-bindings: clock: qcom,sm8150-camcc: Reference qcom,gcc.yaml
-      dt-bindings: clock: qcom,mmcc: Reference qcom,gcc.yaml
-      dt-bindings: clock: qcom,sm4450-camcc: Reference qcom,gcc.yaml
-      dt-bindings: clock: qcom,sm4450-dispcc: Reference qcom,gcc.yaml
-
-Stephan Gerhold (5):
-      dt-bindings: clock: qcom,sm8450-videocc: Document X1E80100 compatible
-      clk: qcom: videocc-sm8550: Allow building without SM8550/SM8560 GCC
-      clk: qcom: videocc-sm8550: Add separate frequency tables for X1E80100
-      dt-bindings: clock: qcom,x1e80100-gcc: Add missing video resets
-      clk: qcom: gcc-x1e80100: Add missing video resets
-
-Taniya Das (11):
-      clk: qcom: clk-alpha-pll: Add support for common PLL configuration function
-      clk: qcom: videocc: Use HW_CTRL_TRIGGER flag for video GDSC's
-      clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
-      dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
-      clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
-      dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
-      clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
-      dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
-      clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
-      dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
-      clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
-
-Vladimir Zapolskiy (1):
-      dt-bindings: clock: qcom,sm8450-camcc: Allow to specify two power domains
-
- .../bindings/clock/qcom,camcc-sm8250.yaml          |    2 +-
- .../bindings/clock/qcom,dispcc-sm6125.yaml         |    2 +-
- .../bindings/clock/qcom,dispcc-sm6350.yaml         |    2 +-
- .../bindings/clock/qcom,gcc-ipq4019.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-ipq8074.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-msm8976.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-msm8994.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-msm8996.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-msm8998.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-qcm2290.yaml           |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-qcs404.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sc7180.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sc7280.yaml |    2 +-
- .../bindings/clock/qcom,gcc-sc8180x.yaml           |    2 +-
- .../bindings/clock/qcom,gcc-sc8280xp.yaml          |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sdm845.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sdx55.yaml  |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sdx65.yaml  |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm6115.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm6125.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm6350.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm8150.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm8250.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm8350.yaml |    2 +-
- .../devicetree/bindings/clock/qcom,gcc-sm8450.yaml |    2 +-
- .../bindings/clock/qcom,ipq9574-cmn-pll.yaml       |    2 +
- .../bindings/clock/qcom,milos-camcc.yaml           |   51 +
- .../bindings/clock/qcom,milos-dispcc.yaml          |   63 +
- .../devicetree/bindings/clock/qcom,milos-gcc.yaml  |   62 +
- .../bindings/clock/qcom,milos-videocc.yaml         |   53 +
- .../devicetree/bindings/clock/qcom,mmcc.yaml       |   24 +-
- .../bindings/clock/qcom,msm8998-gpucc.yaml         |    2 +-
- .../bindings/clock/qcom,qcm2290-dispcc.yaml        |    2 +-
- .../bindings/clock/qcom,qcs615-dispcc.yaml         |   55 +
- .../bindings/clock/qcom,qcs615-gpucc.yaml          |   49 +
- .../bindings/clock/qcom,qcs615-videocc.yaml        |   47 +
- .../bindings/clock/qcom,qdu1000-ecpricc.yaml       |    2 +-
- .../bindings/clock/qcom,qdu1000-gcc.yaml           |    2 +-
- .../devicetree/bindings/clock/qcom,rpmhcc.yaml     |    1 +
- .../bindings/clock/qcom,sa8775p-camcc.yaml         |   15 +
- .../bindings/clock/qcom,sa8775p-gcc.yaml           |    2 +-
- .../bindings/clock/qcom,sc7180-camcc.yaml          |    2 +-
- .../bindings/clock/qcom,sc7180-dispcc.yaml         |    2 +-
- .../bindings/clock/qcom,sc7180-lpasscorecc.yaml    |    2 +-
- .../bindings/clock/qcom,sc7280-camcc.yaml          |    2 +-
- .../bindings/clock/qcom,sc7280-dispcc.yaml         |    2 +-
- .../bindings/clock/qcom,sc7280-lpasscc.yaml        |    2 +-
- .../bindings/clock/qcom,sc8180x-camcc.yaml         |   67 +
- .../bindings/clock/qcom,sdm845-camcc.yaml          |    2 +-
- .../bindings/clock/qcom,sdm845-dispcc.yaml         |    2 +-
- .../bindings/clock/qcom,sdm845-lpasscc.yaml        |    2 +-
- .../devicetree/bindings/clock/qcom,sdx75-gcc.yaml  |    2 +-
- .../bindings/clock/qcom,sm4450-camcc.yaml          |   22 +-
- .../bindings/clock/qcom,sm4450-dispcc.yaml         |   22 +-
- .../devicetree/bindings/clock/qcom,sm4450-gcc.yaml |    2 +-
- .../bindings/clock/qcom,sm6115-dispcc.yaml         |    2 +-
- .../bindings/clock/qcom,sm6115-gpucc.yaml          |    2 +-
- .../bindings/clock/qcom,sm6125-gpucc.yaml          |    2 +-
- .../bindings/clock/qcom,sm6350-camcc.yaml          |   11 +-
- .../bindings/clock/qcom,sm6375-dispcc.yaml         |    2 +-
- .../devicetree/bindings/clock/qcom,sm6375-gcc.yaml |    2 +-
- .../bindings/clock/qcom,sm6375-gpucc.yaml          |    2 +-
- .../bindings/clock/qcom,sm7150-camcc.yaml          |    2 +-
- .../bindings/clock/qcom,sm7150-dispcc.yaml         |    2 +-
- .../devicetree/bindings/clock/qcom,sm7150-gcc.yaml |    2 +-
- .../bindings/clock/qcom,sm7150-videocc.yaml        |    2 +-
- .../bindings/clock/qcom,sm8150-camcc.yaml          |   22 +-
- .../bindings/clock/qcom,sm8450-camcc.yaml          |   20 +-
- .../bindings/clock/qcom,sm8450-dispcc.yaml         |    2 +-
- .../bindings/clock/qcom,sm8450-gpucc.yaml          |    2 +
- .../bindings/clock/qcom,sm8450-videocc.yaml        |   19 +-
- .../devicetree/bindings/clock/qcom,sm8550-gcc.yaml |    2 +-
- .../bindings/clock/qcom,sm8550-tcsr.yaml           |    1 +
- .../devicetree/bindings/clock/qcom,sm8650-gcc.yaml |    2 +-
- .../bindings/clock/qcom,x1e80100-gcc.yaml          |    2 +-
- drivers/clk/qcom/Kconfig                           |  104 +-
- drivers/clk/qcom/Makefile                          |   11 +
- drivers/clk/qcom/camcc-milos.c                     | 2161 +++++++++++++
- drivers/clk/qcom/camcc-qcs615.c                    | 1597 ++++++++++
- drivers/clk/qcom/camcc-sc8180x.c                   | 2889 ++++++++++++++++++
- drivers/clk/qcom/camcc-sm8450.c                    |   89 +-
- drivers/clk/qcom/camcc-sm8550.c                    |   85 +-
- drivers/clk/qcom/camcc-sm8650.c                    |   83 +-
- drivers/clk/qcom/camcc-x1e80100.c                  |   67 +-
- drivers/clk/qcom/clk-alpha-pll.c                   |  249 +-
- drivers/clk/qcom/clk-alpha-pll.h                   |    4 +
- drivers/clk/qcom/clk-rpm.c                         |   10 +-
- drivers/clk/qcom/clk-rpmh.c                        |   34 +-
- drivers/clk/qcom/clk-smd-rpm.c                     |    8 +-
- drivers/clk/qcom/clk-spmi-pmic-div.c               |   12 +-
- drivers/clk/qcom/common.c                          |   91 +-
- drivers/clk/qcom/common.h                          |   12 +
- drivers/clk/qcom/dispcc-milos.c                    |  974 ++++++
- drivers/clk/qcom/dispcc-qcs615.c                   |  792 +++++
- drivers/clk/qcom/dispcc-sm8750.c                   |   10 +-
- drivers/clk/qcom/gcc-ipq4019.c                     |   14 +-
- drivers/clk/qcom/gcc-ipq5018.c                     |    4 +-
- drivers/clk/qcom/gcc-ipq8074.c                     |    6 +-
- drivers/clk/qcom/gcc-milos.c                       | 3225 ++++++++++++++++++++
- drivers/clk/qcom/gcc-qcm2290.c                     |    1 +
- drivers/clk/qcom/gcc-x1e80100.c                    |    2 +
- drivers/clk/qcom/gpucc-milos.c                     |  562 ++++
- drivers/clk/qcom/gpucc-qcs615.c                    |  531 ++++
- drivers/clk/qcom/ipq-cmn-pll.c                     |   50 +-
- drivers/clk/qcom/tcsrcc-sm8650.c                   |    8 +
- drivers/clk/qcom/videocc-milos.c                   |  403 +++
- drivers/clk/qcom/videocc-qcs615.c                  |  338 ++
- drivers/clk/qcom/videocc-sc7180.c                  |    2 +-
- drivers/clk/qcom/videocc-sdm845.c                  |    4 +-
- drivers/clk/qcom/videocc-sm6350.c                  |  355 +++
- drivers/clk/qcom/videocc-sm7150.c                  |    4 +-
- drivers/clk/qcom/videocc-sm8150.c                  |    4 +-
- drivers/clk/qcom/videocc-sm8450.c                  |   62 +-
- drivers/clk/qcom/videocc-sm8550.c                  |   91 +-
- include/dt-bindings/clock/qcom,gcc-sc8180x.h       |   10 +
- include/dt-bindings/clock/qcom,ipq5018-cmn-pll.h   |   16 +
- include/dt-bindings/clock/qcom,ipq5424-cmn-pll.h   |   22 +
- include/dt-bindings/clock/qcom,milos-camcc.h       |  131 +
- include/dt-bindings/clock/qcom,milos-dispcc.h      |   61 +
- include/dt-bindings/clock/qcom,milos-gcc.h         |  210 ++
- include/dt-bindings/clock/qcom,milos-gpucc.h       |   56 +
- include/dt-bindings/clock/qcom,milos-videocc.h     |   36 +
- include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 +
- include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
- include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
- include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
- include/dt-bindings/clock/qcom,sc8180x-camcc.h     |  181 ++
- include/dt-bindings/clock/qcom,x1e80100-gcc.h      |    2 +
- 128 files changed, 16172 insertions(+), 450 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-camcc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-dispcc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-gcc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-videocc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,sc8180x-camcc.yaml
- create mode 100644 drivers/clk/qcom/camcc-milos.c
- create mode 100644 drivers/clk/qcom/camcc-qcs615.c
- create mode 100644 drivers/clk/qcom/camcc-sc8180x.c
- create mode 100644 drivers/clk/qcom/dispcc-milos.c
- create mode 100644 drivers/clk/qcom/dispcc-qcs615.c
- create mode 100644 drivers/clk/qcom/gcc-milos.c
- create mode 100644 drivers/clk/qcom/gpucc-milos.c
- create mode 100644 drivers/clk/qcom/gpucc-qcs615.c
- create mode 100644 drivers/clk/qcom/videocc-milos.c
- create mode 100644 drivers/clk/qcom/videocc-qcs615.c
- create mode 100644 drivers/clk/qcom/videocc-sm6350.c
- create mode 100644 include/dt-bindings/clock/qcom,ipq5018-cmn-pll.h
- create mode 100644 include/dt-bindings/clock/qcom,ipq5424-cmn-pll.h
- create mode 100644 include/dt-bindings/clock/qcom,milos-camcc.h
- create mode 100644 include/dt-bindings/clock/qcom,milos-dispcc.h
- create mode 100644 include/dt-bindings/clock/qcom,milos-gcc.h
- create mode 100644 include/dt-bindings/clock/qcom,milos-gpucc.h
- create mode 100644 include/dt-bindings/clock/qcom,milos-videocc.h
- create mode 100644 include/dt-bindings/clock/qcom,qcs615-camcc.h
- create mode 100644 include/dt-bindings/clock/qcom,qcs615-dispcc.h
- create mode 100644 include/dt-bindings/clock/qcom,qcs615-gpucc.h
- create mode 100644 include/dt-bindings/clock/qcom,qcs615-videocc.h
- create mode 100644 include/dt-bindings/clock/qcom,sc8180x-camcc.h
+Tao
 
