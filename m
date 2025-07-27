@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7187C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 08:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31109C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 08:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RkBrq8EwJtKrLLyc89nHWZVNStBBKpPPsVnWhREsJ3M=; b=SOhm0NF4KtpZryjIKS2tVcrbHP
-	D7el7FC/hVhgPpxWkKVC8dXciwK4+ALx9OMUhPbNVq5GA0woQQNECQBHScuRI8PdzwuJ6IXAwCMQ0
-	94k9+E8B5RM80tlOjYbyHTb583FDQrX4ABMriEXIyPjIymbkEn3jnlGe3/xbVuFVBKJhGIk0WlL8k
-	Y+Z5lww9kX/an3VgHn/A4AszUKSWsKn8teM4EWqDab2nZVNjlOi+iOiv5VZmaqckP7hckFv/3BW2v
-	Zx73Gq9noucPzc9ag3gr1lw7lJFp/dLpZoGMzSatC7MHqo5qLLtWEmPEp/+jegU70UthkMaipCoql
-	Qnog39dQ==;
+	bh=7pS3VPmAvPQpA3dr902454rl3bEiBYI5+GMWgPzYAYg=; b=ihgI1xakXZK4GFIYy/CiXswhJS
+	2GlfzK8NJIcCNJct8PHPTR6Q4iEdk4DeKi4GYpGk1TXzvwOoyhvQb8OFW3OXLRs2RIiDf6xompq+r
+	Z0MLwU0+loWf1pPEubr02DKoVA/bl3pYFSQyOqS+YnXltMPpszPqNy5w2X/QrPzf5TQcxuBXAFrIb
+	d0EzaWaGLdPdkViUdK00XCt6sjsurYlZjtGyvp76M9IdJCROhmPQDd0ITXogfvnulO+Ud8Kvzl24F
+	dkikC/WfP404Kok2j/V51SInlpCBpEbLHJq2Tx44dCTo6hbgKU4n4krIPiLiPuwfJxynWiN2SjgxU
+	3PbPcVAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufwQj-0000000CTtc-0wkz;
-	Sun, 27 Jul 2025 08:08:25 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1ufwTD-0000000CU4M-41sl;
+	Sun, 27 Jul 2025 08:10:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufwOC-0000000CTXq-0bOL
+	id 1ufwPY-0000000CTkk-2x0P
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 08:05:49 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 335AC1038C126;
-	Sun, 27 Jul 2025 10:05:40 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1753603545; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=RkBrq8EwJtKrLLyc89nHWZVNStBBKpPPsVnWhREsJ3M=;
-	b=QiNliuiOiHMjVLrreXLPVMtdb6modtyn9YS0LJimse60TjPW5KL5jdyhUQZDOY0BJv6vC1
-	QmtyZEOevEZTYA8m6jqbfaSVYXBgqvsZR5E2aR97uWQuTuifRl+698ko3S6iiGtHpKLFNe
-	yWEyEguBDDn1mGpPhlu9LbqolnulGLNkJiZNQrF8qGy6n+isjMCBKOxr62Ll1SUBoTHz4P
-	xkRalhn9K9xq/3l8AhS2ydZJsbY+TPWDUm6YcCY3nXF9/ilaZrewuDzrXnrMtfFD/G8MSS
-	2ZqOD584dzQgbM+HYAc1wjEuastuPoEVRDpORsPcjxGHBfbGC0svhTytmYE0XQ==
-Date: Sun, 27 Jul 2025 10:05:37 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
- <andrew@lunn.ch>
-Subject: Re: [net-next v16 04/12] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250727100537.4abf90fd@wsk>
-In-Reply-To: <20250726133835.6e28a717@kernel.org>
-References: <20250724223318.3068984-1-lukma@denx.de>
-	<20250724223318.3068984-5-lukma@denx.de>
-	<20250725151829.40bd5f4e@kernel.org>
-	<20250726221323.0754f3cd@wsk>
-	<20250726133835.6e28a717@kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Sun, 27 Jul 2025 08:07:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D227741AB1;
+	Sun, 27 Jul 2025 08:07:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCFBCC4CEEB;
+	Sun, 27 Jul 2025 08:07:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753603630;
+	bh=k35kSl4I6kHT6MK6xsLw0rGkngwOopaIhsVLUVNQIlk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cazQ9aYB4l8Cp8q+C9MRw5od/73YWSTWxPajqtUjUwGckAN6vlGKFM3GflZMo+ufo
+	 sCnw1+VPoy2ibkmy3qEjZeIZef7CD69POJg14bTgxeQY31Yf4ZQTWCbraJ6b9O8toh
+	 xsatNXka7b2V61FNM9FNLUgKmG8HJygFDFeCncLXLUL6uRcEaVX3I1/DW6lsSQVN0w
+	 eDZqk5zMI2eQehUeF23TCzMnZ/4pky8fD3tBnh/DZQnx8V5UyC6Cuu1VAgEZ/f64SC
+	 KUlucbbhx3RLpQg7c5eOTLedi8gacTmHrGcFDrZWVsip2e9VSZDP1NmRim68E8eUGt
+	 BaUJWDj2sWSOw==
+Date: Sun, 27 Jul 2025 11:07:05 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sean Anderson <sean.anderson@linux.dev>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
+	Saravana Kannan <saravanak@google.com>,
+	linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Ira Weiny <ira.weiny@intel.com>
+Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
+Message-ID: <20250727080705.GY402218@unreal>
+References: <5d8205e1-b384-446b-822a-b5737ea7bd6c@linux.dev>
+ <2025071736-viscous-entertain-ff6c@gregkh>
+ <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
+ <2025071726-ramp-friend-a3e5@gregkh>
+ <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
+ <20250720081705.GE402218@unreal>
+ <e4b5e4fa-45c4-4b67-b8f1-7d9ff9f8654f@linux.dev>
+ <20250723081356.GM402218@unreal>
+ <991cbb9a-a1b5-4ab8-9deb-9ecea203ce0f@linux.dev>
+ <2025072543-senate-hush-573d@gregkh>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/0V+L.IMPpnGggWz/bxwq32Y";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2025072543-senate-hush-573d@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_010548_335252_64D55E4C 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250727_010712_783257_D4EACBD6 
+X-CRM114-Status: GOOD (  26.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +89,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/0V+L.IMPpnGggWz/bxwq32Y
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Fri, Jul 25, 2025 at 07:02:24AM +0200, Greg Kroah-Hartman wrote:
+> On Thu, Jul 24, 2025 at 09:55:59AM -0400, Sean Anderson wrote:
+> > On 7/23/25 04:13, Leon Romanovsky wrote:
+> > > On Mon, Jul 21, 2025 at 10:29:32AM -0400, Sean Anderson wrote:
+> > >> On 7/20/25 04:17, Leon Romanovsky wrote:
+> > >> > On Thu, Jul 17, 2025 at 01:12:08PM -0400, Sean Anderson wrote:
+> > >> >> On 7/17/25 12:33, Greg Kroah-Hartman wrote:
+> > >> > 
+> > >> > <...>
+> > >> > 
+> > >> >> Anyway, if you really think ids should be random or whatever, why not
+> > >> >> just ida_alloc one in axiliary_device_init and ignore whatever's
+> > >> >> provided? I'd say around half the auxiliary drivers just use 0 (or some
+> > >> >> other constant), which is just as deterministic as using the device
+> > >> >> address.
+> > >> > 
+> > >> > I would say that auxiliary bus is not right fit for such devices. This
+> > >> > bus was introduced for more complex devices, like the one who has their
+> > >> > own ida_alloc logic.
+> > >> 
+> > >> I'd say that around 2/3 of the auxiliary drivers that have non-constant
+> > >> ids use ida_alloc solely for the auxiliary bus and for no other purpose.
+> > >> I don't think that's the kind of complexity you're referring to.
+> > >> 
+> > >> >> Another third use ida_alloc (or xa_alloc) so all that could be
+> > >> >> removed.
+> > >> > 
+> > >> > These ID numbers need to be per-device.
+> > >> 
+> > >> Why? They are arbitrary with no semantic meaning, right?
+> > > 
+> > > Yes, officially there is no meaning, and this is how we would like to
+> > > keep it.
+> > > 
+> > > Right now, they are very correlated with with their respective PCI function number.
+> > > Is it important? No, however it doesn't mean that we should proactively harm user
+> > > experience just because we can do it.
+> > > 
+> > > [leonro@c ~]$ l /sys/bus/auxiliary/devices/
+> > > ,,,
+> > > rwxrwxrwx 1 root root 0 Jul 21 15:25 mlx5_core.rdma.0 -> ../../../devices/pci0000:00/0000:00:02.7/0000:0
+> > > 8:00.0/mlx5_core.rdma.0
+> > > lrwxrwxrwx 1 root root 0 Jul 21 15:25 mlx5_core.rdma.1 -> ../../../devices/pci0000:00/0000:00:02.7/0000:0
+> > > 8:00.1/mlx5_core.rdma
+> > 
+> > Well, I would certainly like to have semantic meaning for ids. But apparently
+> > that is only allowed if you can sneak it past the review process.
+> 
+> Do I need to dust off my "make all ids random" patch again and actually
+> merge it just to prevent this from happening?
 
-Hi Jakub,
+After weekend thoughts on it. IDs need to be removed from the driver
+access. Let's make them global at least.
 
-> On Sat, 26 Jul 2025 22:13:23 +0200 Lukasz Majewski wrote:
-> > > > +		ret =3D register_netdev(fep->ndev[i]);
-> > > > +		if (ret) {
-> > > > +			dev_err(&fep->ndev[i]->dev,
-> > > > +				"%s: ndev %s register err:
-> > > > %d\n", __func__,
-> > > > +				fep->ndev[i]->name, ret);
-> > > > +			break;
-> > > > +		}     =20
-> > >=20
-> > > Error handling in case of register_netdev() still buggy, AFAICT.
-> > >  =20
-> >=20
-> > I've added the code to set fep->ndev[i] =3D NULL to
-> > mtip_ndev_cleanup(). IMHO this is the correct place to add it. =20
->=20
-> If register_netdev() fails you will try to unregister it and hit=20
-> a BUG_ON().
+Thanks
 
-Ach.... right. Thanks for explanation.
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH, Managing Director: Johanna Denk,
-Tabea Lutz HRB 165235 Munich, Office: Kirchenstr.5, D-82194
-Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/0V+L.IMPpnGggWz/bxwq32Y
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmiF3dEACgkQAR8vZIA0
-zr3XqAgA2sXocPAdmK/F5WB7kLsc6cqCUe6c3iGLjKWISsBkLMNQpfTzN8u3AMt+
-SE64cZAf1HmhN+dCrW+M+/xlKliLHwlkMF6E+Xpd+GhfIeNRijyPXBrcAB2c+Npd
-5yqu9q6rVYD+icUz8AuRiWJQQhKHxrj35cdP7rKD0iyL/NjetQJwRRnlBIF1Asb6
-Y8qLJY52pRfXxgr2pdlmkE2onr9sEnM4VsZrnWy0yuyb0ufMy8NEuRy+mh6TYeqk
-O1TmsdbbUMAcXaGk3XYR6btXXu5bkgn3hGdEJnORLtq1I+W9RH13kbHiKqm7w5Jb
-gZuhF67G07ueQCFJDxAjLMjVflKSOQ==
-=Tm9v
------END PGP SIGNATURE-----
-
---Sig_/0V+L.IMPpnGggWz/bxwq32Y--
+> 
+> greg k-h
+> 
 
