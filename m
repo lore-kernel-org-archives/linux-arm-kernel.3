@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0FBC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 10:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9A5C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 10:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ld6XcFo2nFClhnmI2e8dmSx4ODmTEkT33YgLtXkJqxQ=; b=vZ5fPvUOsW8/o/VDeO3hv0fg6O
-	Ud1Bf14UO61byqsCsxBFJMYnWodTqwCoD9Lu6vY5ROg75AL3Fdw5ylExh9KFvW0Vx6H4Xmbf1XHHL
-	ionGV29GOyq0v4P+DVCr+ZPRoMTAk49k17QmEtGSY3wc5jYoknqr/Pzy+J1CudK+vBg5+rMwTHb6O
-	RbNeJh7cEf9e4h/WVlywl9NKOdeUfL6toKt4zBwV818u7kFMyImOH7JQUmJVvBMhEqGulQ0aPlwuH
-	2pvYPFJfRes4NUym4uxCv3zhDNoRyWsRH/BQw7YvzQltyp9WHESZ+TragyDH75OFcAssAY4dQEPBo
-	Wr7yjIkg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ycw+FwEwMNFwepsTT4M/3aAYYVR3er1gB6c9vBitnyw=; b=ALo0AFOsw10DkdSkwpgt52uZ/x
+	kSho73+3xPHAkv0bdh4x2cAHszCjv5kEM3j5inXINSOl97Gtz7bkMWzuzP+7wSlCfq7fqHP2Re0ci
+	Y9boosWUumxEK0vPmU0TlDkNlz/R23m2njmwoa9NGv7vReHbTKllYHfoUgSs7dCnAj21BukFceR8o
+	3/TnIY7vJCxeKYGKJvktsf60ZFXqpIlDueuIvyb2+vA0uHIZtEbXId1EpHMJymRpZ63L3WM6+Gh80
+	8w3lT/PDAP/nE+8HxIi07bmCXqpz5zEszwo64yJPNTQbO/xNkEHfYfYNRHvZ0nKG3lPZ9NuwXs52X
+	mCDKF5WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufyj9-0000000CcP4-2WHH;
-	Sun, 27 Jul 2025 10:35:35 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1ufyle-0000000CcWM-1kUg;
+	Sun, 27 Jul 2025 10:38:10 +0000
+Received: from smtp-19.smtpout.orange.fr ([80.12.242.19] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufyCx-0000000CZhu-19wd
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 10:02:20 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 330EE1038C12B;
-	Sun, 27 Jul 2025 12:02:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1753610537; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Ld6XcFo2nFClhnmI2e8dmSx4ODmTEkT33YgLtXkJqxQ=;
-	b=E9VDOzStwgb7sWdjjQdQzC/V5MsiTTxYsz54RdAD+Nm33qiSgSSceX60eFYu0Bo/Zv08o8
-	F25QRq5w0DYgIpx8KSbnZr7u1N534AYsmC+Bl8k6Wu0Onj1ylwH0FgSVkkdYMTsILyj31H
-	XZoMKm+kv3HfG9Qfma5YrLlcuBCIxVnm9uOJYyVLEg+RiwnSJ5Npm3CN5JkxLrW73zRKr+
-	2zj4XaT4qBTVtV0b3eGkRriqtEYKG0+JdVlhKyqKi9BWbQopVLKb84OeOJjjd1f4QHIHbw
-	23ZvaUumYo/kQz0CGIUEEaM3+/0/OCz+J/lFS8z8nnSCCZkvU1Ee/7bkxp9V5A==
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v17 12/12] ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2 switch
-Date: Sun, 27 Jul 2025 12:01:28 +0200
-Message-Id: <20250727100128.1411514-13-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250727100128.1411514-1-lukma@denx.de>
-References: <20250727100128.1411514-1-lukma@denx.de>
+	id 1ufyDH-0000000CZlm-1oyV;
+	Sun, 27 Jul 2025 10:02:43 +0000
+Received: from fedora.home ([IPv6:2a01:cb10:785:b00:8347:f260:7456:7662])
+	by smtp.orange.fr with ESMTPA
+	id fyD9uBnh5hOKjfyD9uuogC; Sun, 27 Jul 2025 12:02:32 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1753610552;
+	bh=ycw+FwEwMNFwepsTT4M/3aAYYVR3er1gB6c9vBitnyw=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=lg1guOokmw5lhfHrRRpWCP0dJeZtL6mXaidGHd/V/nZamffVp842m+eWMZoh95c3w
+	 hs14scpjDjfaXy1sw5B1j61aojWkm0NpkQ1JpxWvYdZXBD+TklBedyxlXxHU8Y98Ll
+	 uunPw5SyFo+uBKaLmgJZIlwPvZ2jwUC/MvENklEdw0kYleHw5PL7N3ZhJ2lsSMT+CG
+	 EdYp5dJLOiBktvX1WextfW02JqoRp7vc4KHHJOS0H1jALq3gh5gmF+OZ7zzTIWfSIt
+	 NY7Y6FRdpYU9y34t4VDOkfrQ253gM42AZvCLAGHO0mcpZy3BuwGEESx/OgHqgmOmLi
+	 CbrpjNfY63IgA==
+X-ME-Helo: fedora.home
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Sun, 27 Jul 2025 12:02:32 +0200
+X-ME-IP: 2a01:cb10:785:b00:8347:f260:7456:7662
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] media: rkvdec: Fix an error handling path in rkvdec_probe()
+Date: Sun, 27 Jul 2025 12:02:21 +0200
+Message-ID: <b69c20783a7b6f7964ab636679d3da80fc48372e.1753610517.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_030219_457674_9697E6D9 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250727_030239_878919_C9378CBB 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,52 +78,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables support for More Than IP L2 switch available on some
-imx28[7] devices.
+If an error occurs after a successful iommu_paging_domain_alloc() call, it
+should be undone by a corresponding iommu_domain_free() call, as already
+done in the remove function.
 
-Moreover, it also enables CONFIG_SWITCHDEV and CONFIG_BRIDGE required
-by this driver for correct operation.
-
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+Fixes: ff8c5622f9f7 ("media: rkvdec: Restore iommu addresses on errors")
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
 ---
-Changes for v4:
-- New patch
-
-Changes for v5:
-- Apply this patch on top of patch, which updates mxs_defconfig to
-  v6.15-rc1
-- Add more verbose commit message with explanation why SWITCHDEV and
-  BRIDGE must be enabled as well
-
-Changes for v6 - v17:
-- None
+Compile tested only
 ---
- arch/arm/configs/mxs_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index b1a31cb914c8..ef4556222274 100644
---- a/arch/arm/configs/mxs_defconfig
-+++ b/arch/arm/configs/mxs_defconfig
-@@ -34,6 +34,8 @@ CONFIG_IP_PNP_DHCP=y
- CONFIG_SYN_COOKIES=y
- # CONFIG_INET_DIAG is not set
- # CONFIG_IPV6 is not set
-+CONFIG_BRIDGE=y
-+CONFIG_NET_SWITCHDEV=y
- CONFIG_CAN=m
- # CONFIG_WIRELESS is not set
- CONFIG_DEVTMPFS=y
-@@ -52,6 +54,7 @@ CONFIG_EEPROM_AT24=y
- CONFIG_SCSI=y
- CONFIG_BLK_DEV_SD=y
- CONFIG_NETDEVICES=y
-+CONFIG_FEC_MTIP_L2SW=y
- CONFIG_ENC28J60=y
- CONFIG_ICPLUS_PHY=y
- CONFIG_MICREL_PHY=y
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index d707088ec0dc..eb0d41f85d89 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -1169,15 +1169,17 @@ static int rkvdec_probe(struct platform_device *pdev)
+ 	vb2_dma_contig_set_max_seg_size(&pdev->dev, DMA_BIT_MASK(32));
+ 
+ 	irq = platform_get_irq(pdev, 0);
+-	if (irq <= 0)
+-		return -ENXIO;
++	if (irq <= 0) {
++		ret = -ENXIO;
++		goto err_free_domain;
++	}
+ 
+ 	ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
+ 					rkvdec_irq_handler, IRQF_ONESHOT,
+ 					dev_name(&pdev->dev), rkvdec);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "Could not request vdec IRQ\n");
+-		return ret;
++		goto err_free_domain;
+ 	}
+ 
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
+@@ -1193,6 +1195,9 @@ static int rkvdec_probe(struct platform_device *pdev)
+ err_disable_runtime_pm:
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 	pm_runtime_disable(&pdev->dev);
++err_free_domain:
++	if (rkvdec->empty_domain)
++		iommu_domain_free(rkvdec->empty_domain);
+ 	return ret;
+ }
+ 
 -- 
-2.39.5
+2.50.1
 
 
