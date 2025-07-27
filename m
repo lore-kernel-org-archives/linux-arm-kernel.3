@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB4EC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 15:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943DAC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 15:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cHbYnH0ztRM4vrUIrRVJUpu82xoEnhr6aNYoNap29Zs=; b=VGacqEMyB7YSj8R0cXDPdVNx4N
-	dgEuhftWbxlgqBkeeUhso+n9s1d+BuyN4jP0+BRrxHPyGxQUamTSehe7U/bW/nH+HLZsOqlyN2LdC
-	KuPXATBioyAZGoxuCIXy8GaJl4eg6G5t1Omotdef3/EoRZvTIR9V6zmdRf1+bRqdAj3oxwzxl7p7v
-	P4NONlwzop134RbthynzYBvj+Uf8sLzd49d67XGYl7+a+LG9YpTU6FE3ZXF1RDpky9dHKwl+FckmR
-	QdZEuxwJ65BDPDornhkma1bFEZ4dXY3+19dMro0XZdxp/yzMVTxHqwBOXsTpL/MQvqyIDpgaowF4S
-	KAKJ9yhw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zS1LMg1MuiPAHWkNDLYVGAjhbim5fU6nBarh+hnpDl0=; b=1YsdYAMmgXhGUJYCTJoJcYW2mQ
+	4t5JcfSkPIqCmK/NiaPNPTceI9Q2fsSXq0S3/N6TFVnb6zh72CTFvswfbfESIo7Yjmm2uPtrTkpFh
+	rbvwfUSx8lo/EquDLpfCF/PrgvGrsumFrqa8XTbsUMxf1LNyyXsR9Nrbwcq5gKWT3l/eCyiG4rhfl
+	fT8cPOwCuNkXG/4SWfqWmKy1alGUthHIjf1esBGZSZ4Knhtt73I3+KKTOQZo7vuvjBgVfC4IlLii5
+	wM5jyEnZ8XKilHxdKlQOVm7uDvlbWcV4mdp3f7BJmSGWUHUNNLEC2EbAd45y3ayph61oW1F8YtudG
+	DFFu+XkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug367-0000000Cqcl-2oIS;
-	Sun, 27 Jul 2025 15:15:35 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1ug3Zv-0000000CsOS-0k6h;
+	Sun, 27 Jul 2025 15:46:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug2bt-0000000Cn6t-22xD
+	id 1ug3XO-0000000CsCL-2UtG
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 14:44:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1753627459;
- bh=cHbYnH0ztRM4vrUIrRVJUpu82xoEnhr6aNYoNap29Zs=;
- b=gYXjzAoKEdGATAUVnUKfmGtN/6HPTqoPil1XJfL2LuFLSxYq0an+dK2+jyCkyEYxMnR+z6jDH
- 5DyqnPJ69GM8jyGisdunAhycK+0W/7YZQHfHtXw+QO6IKQlxw9dbAFL+8KqB2qoEtdcWjOLaVED
- 9ONArJuNZD5jgnQey8SJxxNbgcr7E1sps6HtejKG38dHoyQgex4USRGaFKN1q6JEsF93dMuXbzQ
- rNRdMI0sXsV6S7eiY/F+H3ynTJ6WOJd1WKRQK4ToFHOh63zebDFIWD+zdn8Z7QeItjcoSOoHCWR
- 0bOJkWoCPzamX0mBGkxr8vxmA5DQlg7OwpDpupVz15qg==
-X-Forward-Email-ID: 68863b3fc752737c6c097854
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.7
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Yao Zi <ziyao@disroot.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH 0/3] arm64: dts: rockchip: Add Radxa E24C
-Date: Sun, 27 Jul 2025 14:44:00 +0000
-Message-ID: <20250727144409.327740-1-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.50.1
+	Sun, 27 Jul 2025 15:43:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 01750600AE;
+	Sun, 27 Jul 2025 15:43:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AB12C4CEEB;
+	Sun, 27 Jul 2025 15:43:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753631025;
+	bh=zoz469+SQa2Dc1zsiysjdo7V3MLdODW25CN/F08aRPk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NNSDAQOKCwm/+WN0tGh0gq4l2b+lBKfp1MpmkK7LUJJ9K5gLUXVLUfex6A4F3bg0A
+	 BfaFyUWY75W7CMPyR8rSS0Ye5N2fOuDVJjFhmWiUQJVpCCgUsl7AMm8b5mjidc1qUK
+	 +qPF02BQFdjJ4wRK79Uk/xpkGzUKUovuu5k6JXc8bJW4Ydx+cbT/EScImRPcKoc2Qi
+	 V4HuZFeCTxJlMKjbrBXy2VRifrTGU4HfTe+aH+d5lrtc+eZ3znb28IFJugYNG5Our2
+	 Fa8gGY4QhltOQTYgSmudIC/r+JYKP/wW6KiiiAEfljSZkwQU3mYwJrYwvXLoUdUkpJ
+	 /bwdAykUXa1Hw==
+Date: Sun, 27 Jul 2025 16:43:36 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Michal Simek <michal.simek@amd.com>
+Cc: Sean Anderson <sean.anderson@linux.dev>, Salih Erim
+ <salih.erim@amd.com>, "O'Griofa, Conall" <conall.ogriofa@amd.com>, Anand
+ Ashok Dumbre <anand.ashok.dumbre@xilinx.com>, linux-iio@vger.kernel.org,
+ David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, linux-arm-kernel@lists.infradead.org, Andy Shevchenko
+ <andy@kernel.org>, Manish Narani <manish.narani@xilinx.com>,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: xilinx-ams: Unmask interrupts after updating
+ alarms
+Message-ID: <20250727164336.385dda93@jic23-huawei>
+In-Reply-To: <3a77d5db-eeb4-43df-9de0-e6bafea4d9ea@amd.com>
+References: <20250715002847.2035228-1-sean.anderson@linux.dev>
+	<20250724163219.0098ced6@jic23-huawei>
+	<3a77d5db-eeb4-43df-9de0-e6bafea4d9ea@amd.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_074421_926380_0642F9D3 
-X-CRM114-Status: GOOD (  14.03  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +77,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds dt-bindings and initial device tree for the Radxa E24C.
+On Fri, 25 Jul 2025 06:47:16 +0200
+Michal Simek <michal.simek@amd.com> wrote:
 
-The product page for E24C mentions that onboard eMMC is optional and the
-model I have come with SPI flash instead of eMMC.
+> On 7/24/25 17:32, Jonathan Cameron wrote:
+> > On Mon, 14 Jul 2025 20:28:47 -0400
+> > Sean Anderson <sean.anderson@linux.dev> wrote:
+> >   
+> >> To convert level-triggered alarms into edge-triggered IIO events, alarms
+> >> are masked when they are triggered. To ensure we catch subsequent
+> >> alarms, we then periodically poll to see if the alarm is still active.
+> >> If it isn't, we unmask it. Active but masked alarms are stored in
+> >> current_masked_alarm.
+> >>
+> >> If an active alarm is disabled, it will remain set in
+> >> current_masked_alarm until ams_unmask_worker clears it. If the alarm is
+> >> re-enabled before ams_unmask_worker runs, then it will never be cleared
+> >> from current_masked_alarm. This will prevent the alarm event from being
+> >> pushed even if the alarm is still active.
+> >>
+> >> Fix this by recalculating current_masked_alarm immediately when enabling
+> >> or disabling alarms.
+> >>
+> >> Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
+> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> >> ---  
+> > Anand?
+> > 
+> > This seems fine to me, but I'm not that familiar with the hardware or driver.  
+> 
+> Anand left some time ago. Salih or Conall should be able to provide some input.
+> 
+> Thanks,
+> Michal
+> 
 
-On RK3528 the eMMC and SPI flash is muxed so only one of them can work.
+Hi Michal,
 
-I have included both SPI flash and eMMC nodes in the device tree,
-however the sdhci node has been marked with status=fail. Something that
-possible could be enabled using a DTBO or FDT fixup by the bootloader.
-
-This also leaves out describing the RTL8367RB-VB switch as support for
-the switch requires dt-binding and/or driver changes to make it work,
-something that will be handled in a separate follow-up series.
-
-This board can be booted from SD-card using the U-Boot 2025.07
-generic-rk3528 target or preferably using work-in-progress patches [1].
-
-This series depends on following series for a clean apply:
-- arm64: dts: rockchip: Add ROCK 2A/2F, Sige1 and NanoPi Zero2 [2]
-- rockchip: Add power controller support for RK3528 [3]
-- rockchip: Add USB 2.0 support for RK3528 [4]
-
-A branch with all these (and some more) patches can be found at [5].
-
-[1] https://source.denx.de/u-boot/contributors/kwiboo/u-boot/-/commits/rk3528
-[2] https://lore.kernel.org/r/20250717103720.2853031-1-jonas@kwiboo.se
-[3] https://lore.kernel.org/r/20250723085654.2273324-1-jonas@kwiboo.se
-[4] https://lore.kernel.org/r/20250723122323.2344916-1-jonas@kwiboo.se
-[5] https://github.com/Kwiboo/linux-rockchip/commits/next-20250722-rk3528/
-
-Jonas Karlman (3):
-  arm64: dts: rockchip: Add SFC node for RK3528
-  dt-bindings: arm: rockchip: Add Radxa E24C
-  arm64: dts: rockchip: Add Radxa E24C
-
- .../devicetree/bindings/arm/rockchip.yaml     |   6 +-
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3528-radxa-e24c.dts   | 519 ++++++++++++++++++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi      |  12 +
- 4 files changed, 536 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-radxa-e24c.dts
-
--- 
-2.50.1
+Thanks for letting me know.  Would be good to have a MAINTAINERS update patch
+to remove Anand + ideally add someone else.  If not to mark it orphaned
+(will still be covered by the top level IIO entry).
 
 
