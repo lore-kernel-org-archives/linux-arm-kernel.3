@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 511A7C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 20:40:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C9AAC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 21:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gXcXnEEQKwt82BiQQRFOAUnBOg0OtnV4sbu1CPhfbtM=; b=KfK/cWuBlxngIv6g0boDph9Itv
-	sAkFJO3GckRePLlIE4uBtGvg7V825oLNP0n4c0eEsj4HqF0kYs7+7QKOlAE2frVFJTeWNE/y038Oi
-	adFvjIEJZq2MGl4ct2smIQKJikgjdKESVe2eyMLpHpkHFwYrtjPBoNFtabAPY+3IWHecmLRZ6+lL6
-	XgXacfDGT7JkY1eT5HtoCt3OJ7BHmjl4WEIJKUfIjTAPRvpoSBYy/WbkmvBS7mCENK5GMBoTydATs
-	eRKRRTcjUF6QjKYt1dqU+mZXL1OYsMtgqmn+yHjdCyQ9p2Ihy8i7GB7FeLGNY9elS+3Hegoe9uXls
-	yg3V3+Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gG+K+EvdGySBaqP3c+lFA0pUt8fKLg2/x4AVyg5jhrc=; b=DDS7oruxYJVEKrM8SawIWm8oaj
+	6kIdFLlYfAVRB505tC5xclruKK4S3ip0gUOY1Oaoj4U012d6LjqWybfRTT05arDG15Z5qE3r0tJTH
+	Uy/TwRNyZTjnT8Gi9NcHbzDtHDQy3hHkhV6xHCkfUsWu2M1PcI6nFrzbD2yakKLSRnTuQhybzoQDn
+	vayl4eVFdRN6qVxrRZOsSCIo+iZDGNRwQPIBkvveRutM46H/c52iOHUZloM2WQuICaTg2XamERWX0
+	ulhxRnORORWgP4FzgiBPN6ZSZSNsginril/Ng2NCA/GNid7Pogc1auEgH9XbfokpIugvuN5+1o1Pm
+	8h2xylSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug8Al-0000000DEOy-0noV;
-	Sun, 27 Jul 2025 20:40:43 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ug9Kl-0000000DHKn-42YG;
+	Sun, 27 Jul 2025 21:55:07 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug866-0000000DDMb-23R4;
-	Sun, 27 Jul 2025 20:35:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5BCD3A5473E;
-	Sun, 27 Jul 2025 20:35:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFB62C4CEEB;
-	Sun, 27 Jul 2025 20:35:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753648553;
-	bh=aToYMpoxnweoMVQRODB1CfY6b8LZU7AvPLEabYZkP0Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RGB7oZ2GguJv1ih1YwbsnR0rL0qWzypXINzoRKF3X/RHcmAvsd2h7MqRyHEpfcJ4S
-	 AVw3vtOJU6gM6CTSxyQrOo5l2k/Qk8rPGvZ9yJ4i7gMp/tLjFrHY/xtU/1J9ir/S4I
-	 tCSfHLPRtATZPvRrsRlQWfKnzNNte6ZLABbhbJ+G5BCUoGfFEVjTlHNI/rXI6FVCd0
-	 flh+PSNFRwsNlLuCVgt8NVaPvdVngVtlsx3gyfjdwWc1b61Kb4ELAc3Ht6PDXzAQ4q
-	 Sm7SHBMCOymbSD3JFHiXC+tv/FrOj8u/i5PQi9iYLvIfgeKupSxcw+Y3w3FCmPuqII
-	 UAV0bUVg0AMAQ==
-Date: Sun, 27 Jul 2025 15:35:52 -0500
-From: Rob Herring <robh@kernel.org>
-To: Jay Liu <jay.liu@mediatek.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hsin-Yi Wang <hsinyi@chromium.org>, CK Hu <ck.hu@mediatek.com>,
-	Yongqiang Niu <yongqiang.niu@mediatek.com>,
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 5/7] dt-bindings: display: mediatek: ccorr: Add
- support for MT8196
-Message-ID: <20250727203552.GA12324-robh@kernel.org>
-References: <20250727071609.26037-1-jay.liu@mediatek.com>
- <20250727071609.26037-6-jay.liu@mediatek.com>
+	id 1ug9IE-0000000DH8Z-2h6l
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Jul 2025 21:52:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1753653150;
+ bh=gG+K+EvdGySBaqP3c+lFA0pUt8fKLg2/x4AVyg5jhrc=;
+ b=VGmY9bjSXz+z8FoAhSCQBrKJ4iN4FLAst1KsF0F071Xs9v/0O4DM47GPb+gVBgQ0gdrihyxqr
+ M4HaBC2+1FxfjTgFWgunAn4Y4ThC786JpTbE9yO4gtnA8lIFkwLDaml+3dZ3kqiRhMAagfo4Cha
+ z4ChAe8zUFXP3pCk3L1LWubHAVYG1QoWn/bjU/Ej2Q/MjsnVc2W+RgHFmiI03FZJfx1b2HymIMm
+ z08yK5O9agUscRHNXHx+/H33BZGfwNEarlOwhdSp/mqZhqUWm2+uVbRfoniXyuhi/9kSWcbXBsr
+ /22P7JAmL8cDnQBXfn8lU0CRNQxrVUD5VuEUdD4TOjYA==
+X-Forward-Email-ID: 68869f8dc509b9ee169d35e6
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.1.7
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <badef015-22ff-4232-a4d0-80d2034113ca@kwiboo.se>
+Date: Sun, 27 Jul 2025 23:52:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250727071609.26037-6-jay.liu@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/3] net: dsa: realtek: Add support for use of an
+ optional mdio node
+To: Andrew Lunn <andrew@lunn.ch>, Linus Walleij <linus.walleij@linaro.org>
+Cc: =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+ Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250727180305.381483-1-jonas@kwiboo.se>
+ <20250727180305.381483-3-jonas@kwiboo.se>
+ <2504b605-24e7-4573-bec0-78f55688a482@lunn.ch>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <2504b605-24e7-4573-bec0-78f55688a482@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_133554_599389_3F3EBB7D 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250727_145230_719949_4C3FCCFE 
+X-CRM114-Status: GOOD (  20.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +85,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 27, 2025 at 03:15:55PM +0800, Jay Liu wrote:
-> Add a compatible string for the CCORR IP found in the MT8196 SoC.
-> Each CCORR IP of this SoC is fully compatible with the ones found
-> in MT8192.
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
-> Signed-off-by: 20220315152503 created <jay.liu@mediatek.com>
+Hi Andrew,
 
-????
-
-> ---
->  .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml     | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
-> index fca8e7bb0cbc..581003aa9b9c 100644
-> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
-> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
-> @@ -32,6 +32,7 @@ properties:
->                - mediatek,mt8186-disp-ccorr
->                - mediatek,mt8188-disp-ccorr
->                - mediatek,mt8195-disp-ccorr
-> +              - mediatek,mt8196-disp-ccorr
->            - const: mediatek,mt8192-disp-ccorr
+On 7/27/2025 9:09 PM, Andrew Lunn wrote:
+> On Sun, Jul 27, 2025 at 06:02:59PM +0000, Jonas Karlman wrote:
+>> The dt-bindings schema for Realtek switches for unmanaged switches
+>> contains a restriction on use of a mdio child OF node for MDIO-connected
+>> switches, i.e.:
+>>
+>>   if:
+>>     required:
+>>       - reg
+>>   then:
+>>     not:
+>>       required:
+>>         - mdio
+>>     properties:
+>>       mdio: false
+>>
+>> However, the driver currently requires the existence of a mdio child OF
+>> node to successfully probe and properly function.
+>>
+>> Relax the requirement of a mdio child OF node and assign the dsa_switch
+>> user_mii_bus to allow a MDIO-connected switch to probe and function
+>> when a mdio child OF node is missing.
 >  
->    reg:
-> -- 
-> 2.46.0
+> I could be getting this wrong.... Maybe Linus knows more.
 > 
+> It could be the switch does not have its own separate MDIO bus just
+> for its internal PHYs. They just appear on the parent mdio bus. So
+> you represent this with:
+> 
+> &mdio0 {
+> 	reset-delay-us = <25000>;
+> 	reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
+> 	reset-post-delay-us = <100000>;
+> 
+> 	phy0: ethernet-phy@0 {
+> 		reg = <0>;
+> 	};
+> 
+> 	phy1: ethernet-phy@1 {
+> 		reg = <0>;
+> 	};
+> 
+> 
+>         ethernet-switch@1d {
+>                compatible = "realtek,rtl8365mb";
+>                reg = <0x1d>;
+>                pinctrl-names = "default";
+>                pinctrl-0 = <&rtl8367rb_eint>;
+> 
+>                ethernet-ports {
+>                        #address-cells = <1>;
+>                        #size-cells = <0>;
+> 
+>                        ethernet-port@0 {
+>                                reg = <0>;
+>                                label = "wan";
+> 			       phy-handle = <phy0>;
+>                        };
+> 
+>                        ethernet-port@1 {
+>                                reg = <1>;
+>                                label = "lan1";
+> 			       phy-handle = <phy1>;
+>                        };
+> 
+> If this is correct, you should not need any driver or DT binding
+> changes.
+
+Something like above does not seem to work, I get following:
+
+  mdio_bus stmmac-0: MDIO device at address 0 is missing.
+  mdio_bus stmmac-0: MDIO device at address 1 is missing.
+  mdio_bus stmmac-0: MDIO device at address 2 is missing.
+  mdio_bus stmmac-0: MDIO device at address 3 is missing.
+
+  rtl8365mb-mdio stmmac-0:1d: found an RTL8367RB-VB switch
+  rtl8365mb-mdio stmmac-0:1d: configuring for fixed/rgmii link mode
+  rtl8365mb-mdio stmmac-0:1d wan (uninitialized): failed to connect to PHY: -ENODEV
+  rtl8365mb-mdio stmmac-0:1d: Link is Up - 1Gbps/Full - flow control off
+  rtl8365mb-mdio stmmac-0:1d wan (uninitialized): error -19 setting up PHY for tree 0, switch 0, port 0
+  rtl8365mb-mdio stmmac-0:1d lan1 (uninitialized): failed to connect to PHY: -ENODEV
+  rtl8365mb-mdio stmmac-0:1d lan1 (uninitialized): error -19 setting up PHY for tree 0, switch 0, port 1
+  rtl8365mb-mdio stmmac-0:1d lan2 (uninitialized): failed to connect to PHY: -ENODEV
+  rtl8365mb-mdio stmmac-0:1d lan2 (uninitialized): error -19 setting up PHY for tree 0, switch 0, port 2
+  rtl8365mb-mdio stmmac-0:1d lan3 (uninitialized): failed to connect to PHY: -ENODEV
+  rtl8365mb-mdio stmmac-0:1d lan3 (uninitialized): error -19 setting up PHY for tree 0, switch 0, port 3
+
+And without an explicit 'mdio' child node the driver currently fails to
+load and the switch is never registered:
+
+  rtl8365mb-mdio stmmac-0:1d: found an RTL8367RB-VB switch
+  rtl8365mb-mdio stmmac-0:1d: no MDIO bus node
+  rtl8365mb-mdio stmmac-0:1d: could not set up MDIO bus
+  rtl8365mb-mdio stmmac-0:1d: error -ENODEV: unable to register switch
+
+With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
+
+  rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
+        from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
+
+So something should probably be changed, the driver, dt-bindings or
+possible both.
+
+With this patch the last example in net/dsa/realtek.yaml can be made to
+work. The example the ethernet-switch node in next patch is based on,
+and something that closely matches how mediatek,mt7530 is described.
+
+Please let me know if you want me to drop this and instead try to update
+the dt-bindings and use a more verbose ethernet-switch node.
+
+Regards,
+Jonas
+
+> 
+> 	Andrew
+
 
