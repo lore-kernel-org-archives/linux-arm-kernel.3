@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A12C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 19:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9480DC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 20:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMaoBpGPZEHHjmwoUMsy/5mBTacSRCosM8VYO3Lr7hI=; b=h5aE0QsCDrVYzhi/WFq4+VRawD
-	pn9D7WjzIFVuZwnznN6JD2MPAuhqqr63SIM7ayFqVCt62QawVBLRmhvwXu0su9YmsBXHWzy7vyb4p
-	vxPGGEviHQ8IRCc++6VV3iagpkLiPrOr9jvqCEj+AnWiXINuF/2OsjGoHUMxw/PCk9EmuHfxEf/mi
-	tOkClzhjaUJvOkgR9aPkWZvQmujoqJ6ms5fEC3yJeuHEamFQJRNLMtJQQVb1N/WEk5uP335npnESA
-	MKfKk+uy91CxuIxfkvPUyl0vZO8qu4ESADJMpeUXuh5IGVD55HMlIGlDlpovpLJNhkN8jbml+JtdX
-	apX73TQg==;
+	bh=8hEsloU/e5SnX4wmvFRSNKqlkwL0lNp6OodxTTFUtc0=; b=r3sCSM+dY22nI7LMC84pgA1C2i
+	1vsXxUkij1YG8AJeCZdRw9D6/mcCY1/1KQsRKuSIX2lsZl25g74085ExsmTtJ+DrhP7Qd8iGMB9Gq
+	8o1b18T4HB7MNTCxYcQDvfz9VsWiQSsj0DeRwi/oUZYXqRMIlT/hqWCctERHbP3ULrZ0MtgDC2ue1
+	3KqwbXtROurPsD7N3kmLADRR6Ut3DqXGEcs29ZuG6sqIE6uPwwFLsXFQ/OSfdeO+gwB8z0i+ze2x5
+	kAAFeXYWC9Up3VgmEM9vj4lP81G7eM9kDQF02AiFKsR5gUN0VjI2o3DbbqrGNF4EvcTWrwGb8YxqJ
+	2Rti+XRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug6yV-0000000D9BZ-3V5w;
-	Sun, 27 Jul 2025 19:23:59 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1ug7Xr-0000000DAvE-0w6r;
+	Sun, 27 Jul 2025 20:00:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug6ub-0000000D8u6-1aXL
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 19:19:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753643997; x=1785179997;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ODQad/kLebqtWcgou3DFGpBib/gjsX4M3+AiroUgXOs=;
-  b=nZOfUyQbAv/hj1gCX82BfHBfGb0tBMU2sa5HfJtvUPt7eZpLguc4VA+/
-   ICGHuPR6kbA2WLnNyj8tuJ3JBv+S3RVGQODcjkgM4Qx2ENxo/lYt1m52E
-   EtlhMMTr33uD8YL/DCb2fAd4iJUW9JIFAODYMZI+gk0pAyTNajjXcvwnY
-   6BXt33z/vRQnZEAtTvkqvCYcekS1pEhAgmWMPc2CqQNrk76cUwESgNSyJ
-   RRI8xOc0u4sYocgr9wpP8vANv+OUfMw9PMAzVEFfhf/JiDQHSbESvVvAr
-   NzXggCOdKbwjHW3PSRio4hrQUPJbvN2Hbmy8H+4odz+WHMORKyvBvN8u1
-   A==;
-X-CSE-ConnectionGUID: 5NI2afIVSMibDmuxrNIGxQ==
-X-CSE-MsgGUID: Epcg8xf3Qk+sj+yY67+fNg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11504"; a="58518748"
-X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
-   d="scan'208";a="58518748"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2025 12:19:57 -0700
-X-CSE-ConnectionGUID: Wlqgd4GMRi2rWUo+AG9GTw==
-X-CSE-MsgGUID: ftSqS2g5RKOKTsUxssggWQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
-   d="scan'208";a="193215578"
-Received: from mjarzebo-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.124])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Jul 2025 12:19:53 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 821F111FAF5;
-	Sun, 27 Jul 2025 22:19:49 +0300 (EEST)
-Date: Sun, 27 Jul 2025 19:19:49 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Tomi Valkeinen <tomi.valkeinen+renesas@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	id 1ug7VJ-0000000DAIk-1A5S;
+	Sun, 27 Jul 2025 19:57:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8hEsloU/e5SnX4wmvFRSNKqlkwL0lNp6OodxTTFUtc0=; b=xg02+3ANIpeQD3xeG/u8lRQDRe
+	yuSKoIF78ltBcE7+xWkS+XUGpjsCBTSqeQa78LWnwjZuwk52634YJEra0hQAR/sotpxZtyczV8Krp
+	pN08ZsKToAcuyA3R+6qutEz/freUUTJEH53k8Qljib7q+oV+z+21zeya99W4XQU64mewL+z2QuZQ2
+	4HoMxaKXa0u5qXZQYmfHcgLzfJ2oJYfz4g5PhkWT6QeEGpCvhuw/INYmdhfSUcx/HZtjKUiVlpkjs
+	jdgFhGJQYUD2Xqx+yOIb/H9vC4CvnICBwCoxBPeDmsD7YT9xtvcnrgwkgWoTb5mYvJUvFnRbN21o6
+	P40lfMMQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34694)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ug7Uy-0007gA-2a;
+	Sun, 27 Jul 2025 20:57:33 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ug7Us-00042L-1o;
+	Sun, 27 Jul 2025 20:57:26 +0100
+Date: Sun, 27 Jul 2025 20:57:26 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Alvin =?utf-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+	Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
 	Rob Herring <robh@kernel.org>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v7 14/24] dt-bindings: media: i2c: add MAX9296A,
- MAX96716A, MAX96792A
-Message-ID: <aIZ71TZM9wUGlGoU@kekkonen.localdomain>
-References: <20250718152500.2656391-1-demonsingur@gmail.com>
- <20250718152500.2656391-15-demonsingur@gmail.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
+ Radxa E24C
+Message-ID: <aIaEpkZtPt6wqaiL@shell.armlinux.org.uk>
+References: <20250727180305.381483-1-jonas@kwiboo.se>
+ <20250727180305.381483-4-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250718152500.2656391-15-demonsingur@gmail.com>
+In-Reply-To: <20250727180305.381483-4-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_121957_434278_D2E1EA2D 
-X-CRM114-Status: GOOD (  23.14  )
+X-CRM114-CacheID: sfid-20250727_125753_325077_4E354B71 
+X-CRM114-Status: GOOD (  34.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,303 +91,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cosmin,
-
-On Fri, Jul 18, 2025 at 06:24:50PM +0300, Cosmin Tanislav wrote:
-> The MAX9296A deserializer converts single or dual serial inputs to MIPI
-> CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps or 6Gbps
-> in the forward direction and 187.5Mbps in the reverse direction.
-> In GMSL1 mode, each serial link can be paired with 3.12Gbps or 1.5Gbps
-> GMSL1 serializers or operate up to 4.5Gbps with GMSL2 serializers with
-> GMSL1 backward compatibility. The MAX9296A supports mixed GMSL2 and
-> GMSL1 links. The serial inputs operate independently, allowing videos
-> with different timings and resolutions to be received on each input.
-
-C-PHY or D-PHY? I'd assume the latter?
-
+On Sun, Jul 27, 2025 at 06:03:00PM +0000, Jonas Karlman wrote:
+> The Radxa E24C has a Realtek RTL8367RB-VB switch with four usable ports
+> and is connected using a fixed-link to GMAC1 on the RK3528 SoC.
 > 
-> MAX96716A supports both tunnel and pixel mode.
-> MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
+> Add an ethernet-switch node to describe the RTL8367RB-VB switch.
 > 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 > ---
->  .../bindings/media/i2c/maxim,max9296a.yaml    | 242 ++++++++++++++++++
->  MAINTAINERS                                   |   6 +
->  2 files changed, 248 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
+> Initial testing with iperf3 showed ~930-940 Mbits/sec in one direction
+> and only around ~1-2 Mbits/sec in the other direction.
 > 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> new file mode 100644
-> index 0000000000000..4f2b3b5b69cf4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> @@ -0,0 +1,242 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2024 Collabora Ltd.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/i2c/maxim,max9296a.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Maxim MAX9296A GMSL2 to CSI-2 Deserializer
-> +
-> +maintainers:
-> +  - Cosmin Tanislav <cosmin.tanislav@analog.com>
-> +
-> +description: >
-> +  The MAX9296A deserializer converts single or dual serial inputs to
-> +  MIPI CSI-2 outputs. The GMSL2 links operate at a fixed rate of 3Gbps
-> +  or 6Gbps in the forward direction and 187.5Mbps in the reverse
-> +  direction. In GMSL1 mode, each serial link can be paired with 3.12Gbps
-> +  or 1.5Gbps GMSL1 serializers or operate up to 4.5Gbps with GMSL2
-> +  serializers with GMSL1 backward compatibility. The MAX9296A supports
-> +  mixed GMSL2 and GMSL1 links. The serial inputs operate independently,
-> +  allowing videos with different timings and resolutions to be received
-> +  on each input.
-> +
-> +  MAX96716A supports both tunnel and pixel mode.
-> +
-> +  MAX96792A supports both tunnel and pixel mode, and has two GMSL3 links.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - maxim,max9296a
-> +      - maxim,max96716a
-> +      - maxim,max96792a
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  powerdown-gpios:
-> +    maxItems: 1
-> +    description: Specifier for the GPIO connected to the PWDNB pin.
-> +
-> +  port0-poc-supply:
-> +    description: Regulator providing Power over Coax for GMSL port 0
-> +
-> +  port1-poc-supply:
-> +    description: Regulator providing Power over Coax for GMSL port 1
-> +
-> +  i2c-alias-pool:
-> +    maxItems: 2
-> +
-> +  i2c-atr:
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      '#address-cells':
-> +        const: 1
-> +
-> +      '#size-cells':
-> +        const: 0
-> +
-> +    patternProperties:
-> +      '^i2c@[0-1]$':
-> +        $ref: /schemas/i2c/i2c-controller.yaml#
-> +        unevaluatedProperties: false
-> +        properties:
-> +          reg:
-> +            items:
-> +              minimum: 0
-> +              maximum: 1
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    patternProperties:
-> +      '^port@[0-1]$':
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: GMSL Input ports 0-1
-> +
-> +      '^port@[2-3]$':
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: CSI-2 Output ports 0-1
-> +        properties:
-> +          endpoint:
-> +            $ref: /schemas/media/video-interfaces.yaml#
-> +            unevaluatedProperties: false
-> +
-> +            properties:
-> +              data-lanes:
-> +                minItems: 1
-> +                maxItems: 4
-> +
-> +              lane-polarities:
-> +                minItems: 1
+> The RK3528 hardware design guide recommends that timing between TXCLK
+> and data is controlled by MAC, and timing between RXCLK and data is
+> controlled by PHY.
 
-With D-PHY, 2 is the minimum.
+Assuming RK3528 is the MAC side, then that makes sense - it's basically
+suggesting that the _producer_ of the signals should appropriately skew
+them.
 
-> +                maxItems: 5
-> +
-> +              link-frequencies:
-> +                maxItems: 1
-> +
-> +            required:
-> +              - data-lanes
-> +
-> +    anyOf:
-> +      - required:
-> +          - port@2
-> +      - required:
-> +          - port@3
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +allOf:
-> +  - $ref: /schemas/i2c/i2c-atr.yaml#
-> +
-> +dependentRequired:
-> +  i2c-atr: [i2c-alias-pool]
-> +  i2c-alias-pool: [i2c-atr]
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/media/video-interfaces.h>
-> +
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        deserializer@28 {
-> +            compatible = "maxim,max9296a";
-> +            reg = <0x28>;
-> +            powerdown-gpios = <&main_gpio0 37 GPIO_ACTIVE_LOW>;
-> +
-> +            i2c-alias-pool = <0x40 0x41>;
-> +
-> +            ports {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                port@0 {
-> +                    reg = <0>;
-> +                    des_gmsl_in_0: endpoint {
-> +                        remote-endpoint = <&ser_0_gmsl_out>;
-> +                    };
-> +                };
-> +
-> +                port@1 {
-> +                    reg = <1>;
-> +                    des_gmsl_in_1: endpoint {
-> +                        remote-endpoint = <&ser_1_gmsl_out>;
-> +                    };
-> +                };
-> +
-> +                port@2 {
-> +                    reg = <2>;
-> +                    des_csi_out: endpoint {
-> +                        data-lanes = <1 2 3 4>;
-> +                        link-frequencies = /bits/ 64 <400000000>;
-> +                        remote-endpoint = <&csi_in>;
-> +                    };
-> +                };
-> +            };
-> +
-> +            i2c-atr {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
-> +
-> +                i2c@0 {
-> +                    #address-cells = <1>;
-> +                    #size-cells = <0>;
-> +                    reg = <0>;
-> +
-> +                    serializer@40 {
-> +                        compatible = "maxim,max96717", "maxim,max96717f";
-> +                        reg = <0x40>;
-> +                        gpio-controller;
-> +                        #gpio-cells = <2>;
-> +                        #clock-cells = <0>;
-> +
-> +                        ports {
-> +                            #address-cells = <1>;
-> +                            #size-cells = <0>;
-> +
-> +                            port@0 {
-> +                                reg = <0>;
-> +                                ser_0_csi_in: endpoint {
-> +                                    data-lanes = <1 2>;
-> +                                    remote-endpoint = <&sensor_0_out>;
-> +                                };
-> +                            };
-> +
-> +                            port@1 {
-> +                                reg = <1>;
-> +                                ser_0_gmsl_out: endpoint {
-> +                                    remote-endpoint = <&des_gmsl_in_0>;
-> +                                };
-> +                            };
-> +                        };
-> +                    };
-> +                };
-> +
-> +                i2c@1 {
-> +                    #address-cells = <1>;
-> +                    #size-cells = <0>;
-> +                    reg = <1>;
-> +
-> +                    serializer@40 {
-> +                        compatible = "maxim,max96717", "maxim,max96717f";
-> +                        reg = <0x40>;
-> +                        gpio-controller;
-> +                        #gpio-cells = <2>;
-> +                        #clock-cells = <0>;
-> +
-> +                        ports {
-> +                            #address-cells = <1>;
-> +                            #size-cells = <0>;
-> +
-> +                            port@0 {
-> +                                reg = <0>;
-> +                                ser_1_csi_in: endpoint {
-> +                                    data-lanes = <1 2>;
-> +                                    remote-endpoint = <&sensor_1_out>;
-> +                                };
-> +                            };
-> +
-> +                            port@1 {
-> +                                reg = <1>;
-> +                                ser_1_gmsl_out: endpoint {
-> +                                    remote-endpoint = <&des_gmsl_in_1>;
-> +                                };
-> +                            };
-> +                        };
-> +                    };
-> +                };
-> +            };
-> +        };
-> +    };
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 93e22dfd61c17..0eb1729ae1647 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -14783,6 +14783,12 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/iio/proximity/maxbotix,mb1232.yaml
->  F:	drivers/iio/proximity/mb1232.c
->  
-> +MAXIM GMSL2/3 SERIALIZERS AND DESERIALIZERS
-> +M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/media/i2c/maxim,max9296a.yaml
-> +
->  MAXIM MAX11205 DRIVER
->  M:	Ramona Bolboaca <ramona.bolboaca@analog.com>
->  L:	linux-iio@vger.kernel.org
+> Any mix of MAC (rx/tx delay) and switch (rx/tx internal delay) did not
+> seem to resolve this speed issue, however dropping snps,tso seems to fix
+> that issue.
+> 
+> Unsure what is best here, should MAC or switch add the delays? Here I
+> just followed DT from vendor downstream tree and added rx/tx internal
+> delay to switch.
+
+Okay. Heres'a an in-depth explanation, because I think many people need
+this for MAC-to-MAC RGMII links. A MAC to PHY link:
+
+	MAC1 ------- PHY1
+
+The PHY mode in the MAC1 description controls the application of delays
+at PHY1. This is relatively well undersood. Now, for a MAC to MAC link:
+
+	MAC1 ------- MAC2 in a PHY
+
+Let's say MAC2 is part of a PHY. Okay, so this is quite simple because
+it's a PHY on the other end, and thus the situation above applies.
+
+In both these cases, the MAC driver will pass the PHY interface to
+phylib, which will in turn pass it to the PHY driver, which is expected
+to configure the PHY appropriately.
+
+There is a side-case, where a MAC driver is allowed to configure the
+delays at its end _provided_ it then passes PHY_INTERFACE_MODE_RGMII
+to phylib (telling the PHY not to add its own delays.)
+
+Now let's look at something that isn't a PHY:
+
+	MAC1 ------- MAC2 in a switch
+
+In this case, MAC2 isn't in a PHY or part of a PHY that is driven by
+phylib, so we don't have a way in the kernel of passing the PHY mode
+from MAC1 to MAC2 in order for MAC2 to configure itself. It's tempting
+to say that which RGMII mode is used doesn't matter, but consider the
+side-case above - if we're talking about a MAC driver that interprets
+the PHY mode and adds its own delays, then it *does* very much matter.
+
+It also matters for MAC2. This could be a switch port that can be used
+as a CPU facing port, or a switch port that is used as a PHY. In the
+latter case, it becomes exactly as the first two cases above.
+
+Let's take a theoretical case of two ethernet MACs on the same system
+connected with a RGMII link:
+
+	MAC1 ------- MAC2
+
+They both use the same driver. What RGMII interface mode should be used
+for each? Would it be correct to state "rgmii-id" for both MACs?
+Or "rgmii" for one and "rgmii-id" for the other.
+
+You may notice I'm not providing a solution - this is a thought
+experiment, to provoke some thought into the proper use of the phy-mode
+property at each end of a MAC to MAC link, and hopefully gain some
+realisation that (probably) using "rgmii-id" for both MACs probably
+isn't correct given the model that phy-mode _generally_ states how the
+opposite end of the RGMII link to the MAC should be configured.
+
+However, currently it doesn't matter as long as we don't end up with
+two MACs that are back to back and the MAC drivers decide to insert
+the RGMII delay (the side-case I mention above.)
+
+Personally, I don't like that we have this side-case as a possibility
+because it causes problems (if you go through the thought experiment
+above, you'll trip over the problem if you consider the combinations
+of MAC1 and MAC2 that do/do not use the side-case!)
+
+So, I would expect a MAC to MAC link to have "rgmii" at one end, and
+"rgmii-id" at the other end, rather than both having the same RGMII
+mode.
+
+> Vendor downstream DT also adds 'pause' to the fixed-link nodes, and this
+> may be something that should be added here. However, during testing flow
+> control always ended up being disabled so I skipped 'pause' here.
+
+Does it get disabled at the switch, or the stmmac end?
 
 -- 
-Kind regards,
-
-Sakari Ailus
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
