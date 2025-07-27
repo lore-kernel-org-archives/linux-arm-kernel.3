@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4EDC87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 22:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EECC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 00:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/jnNvXwMwP/wlxBr4uBLC+uY9MAFOThnol22yK/3c8=; b=M6btz4Jm/lt7QXyRKhrl+z2kEs
-	UCnPbXQN5EtNhMvMLJm/C7CNd0bAOJIg++tfe1paXi6AbYJLgqqwwNkHkI3QwrHr3WysXEMXwpTnr
-	K8x8YJGT19CzA6oxV2gWfRbWyeNRn98oDF2L2zLQgViceaCV6utBJUyked9FGs+imgrFmljwkWzDR
-	TIGDGXXq0bhuYcU0hLT0n6STTsonhm/V3yQpeEZw9WQRy/QEx5zJUpevJm1gsOX+fxFjySrx96DxQ
-	//bG1rkjiFEZaNe5b302HwcAkJcURVhlKaEoluwBuNaSB+OEOD/zxIV+vy4rkyMg3ss6MvURKeTy2
-	qiTGiWJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bwZHfv7bs22p4Cd8SYFjyk554kcj5vyp15h3G865eEE=; b=F+u9cvj0mTVRknXdUV0wYGC557
+	hDXUhbZaALCcNUfAbN0UuurIQ5LIP5jLq49MEG7GL59l2yxaLamMPewZO+GeozBQPpKwGmxrAocMt
+	GJKjIgoxaZd9ZDAbMJpihtOp0oMc0rvZQgi6/Ayc03/QsDF9p4zfr2rhyrQ43vQgkAmoPfc2enEQA
+	IHmzZzCnJ9BVvxdx1IeAeAoY0twFAU/x218aHqfzVrogb/s2DNs/3rFdjFWhQPKq0C98P5cH9+twS
+	2DF9evdBHACG6Mpa1Qw2mMgv1/PqRKX37lwF9B1r2nus7LcoV0z9sFUk2Q5J1wdYBHC1Ai38iMjio
+	S1L7C2og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug9bs-0000000DI8U-0gur;
-	Sun, 27 Jul 2025 22:12:48 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ugBJg-0000000DMXm-2jLU;
+	Mon, 28 Jul 2025 00:02:08 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug9ZK-0000000DHwq-21HH;
-	Sun, 27 Jul 2025 22:10:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=t/jnNvXwMwP/wlxBr4uBLC+uY9MAFOThnol22yK/3c8=; b=a3JWWBbg9YFowWswUBsk6pUvX3
-	Rh4dPuNeU9H5G40l+UPMxX00OBxVa3l9v4CiBzUGLb93SYCbfPUecKsarml8MMQT9W7QZxzC+KgCv
-	Ab9aWaBJCc8YLWUEXDhdfAIQuMwCNpV+U7Q/RvZ+q52cuWMKzmOFh9HsSZAG1JAUGlwk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ug9Yw-0031rJ-Aq; Mon, 28 Jul 2025 00:09:46 +0200
-Date: Mon, 28 Jul 2025 00:09:46 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Alvin =?utf-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 2/3] net: dsa: realtek: Add support for use of
- an optional mdio node
-Message-ID: <9702f3da-f755-4392-bf2b-28814ee0a8c7@lunn.ch>
-References: <20250727180305.381483-1-jonas@kwiboo.se>
- <20250727180305.381483-3-jonas@kwiboo.se>
- <2504b605-24e7-4573-bec0-78f55688a482@lunn.ch>
- <badef015-22ff-4232-a4d0-80d2034113ca@kwiboo.se>
+	id 1ugBH8-0000000DMOV-1oAn
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Jul 2025 23:59:31 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4bqz9Q4SzKz9ts4;
+	Mon, 28 Jul 2025 01:59:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1753660762;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bwZHfv7bs22p4Cd8SYFjyk554kcj5vyp15h3G865eEE=;
+	b=TKyVpY3e0Ezo05THuHsVjXU/1Au1XHtzYyy/wpZ0vjU5HHtZMPHsgcnRvTMGYUCvwMU9Vy
+	3Lodl3zuCTP7gZUlRX8hLhWBPpnIm1KRAhYKMjLJ01r0rJ1W/K8iyk3wZDPfnyLpuOoD0V
+	ruVZVwmEdKwoAmuPQ7wPuaayJciWv9SAgEtrAX4dLxpjLGqM/tmq3HGwwKEXSVO+2d5vQ2
+	fv/3cgxo/TJR+o36U0Kq/XqO+2Endcs6KECE8aVq+GIs/5gtu61qRb/mpF26+ChpnPtYtG
+	Kf5p0DoZTmmtyvCUUyyvH1RL1gtxQlSS8GsUp986ZrJKXY8LhaF1RHoxtlXXCA==
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1753660760;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bwZHfv7bs22p4Cd8SYFjyk554kcj5vyp15h3G865eEE=;
+	b=lAXQlp/wAco/VJfFAoj+xA+R2PIFhVSiVLS6QLzNGqTZ0k6bHhJJ4ckiBPB9EFuBnsHz4Z
+	VScNwsGsxNNspa1qFNve6jK1HJ+FzMXtWUq8d7GvSS+8d3WBzmerqo+8nixKATqVWuhe/Z
+	X6gdlU4JmHh3BivobECsCg2XS23EaIMfve8mBJqO3aU+X/mTaRVcUGHdt5xCIIoUxLJ+Xf
+	HFvHpZTcicSwLOj+yxT8jx4Dj+JKx3q2OHN0V+ebnDq0xHtP6/c0f8Oszg99L76jy6kSU3
+	hf3hasTzLOLKz/vChpcAZx6cTnjpnt8oXMczU+7TSZ0dKwO0xAz8aAGsltks8Q==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH] arm64: dts: renesas: r8a779g3: Invert microSD voltage selector on Retronix R-Car V4H Sparrow Hawk EVTB1
+Date: Mon, 28 Jul 2025 01:58:11 +0200
+Message-ID: <20250727235905.290427-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <badef015-22ff-4232-a4d0-80d2034113ca@kwiboo.se>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: c9c00573611d0c9b9cd
+X-MBO-RS-META: ks969f3mpqpgnwzwryfpo3os8kbkwktd
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_151010_523836_CCA8C867 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250727_165930_652380_E5B75223 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,40 +90,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Something like above does not seem to work, I get following:
-> 
->   mdio_bus stmmac-0: MDIO device at address 0 is missing.
->   mdio_bus stmmac-0: MDIO device at address 1 is missing.
->   mdio_bus stmmac-0: MDIO device at address 2 is missing.
->   mdio_bus stmmac-0: MDIO device at address 3 is missing.
+Invert the polarity of microSD voltage selector on Retronix R-Car V4H
+Sparrow Hawk board. The voltage selector was not populated on prototype
+EVTA1 boards, and is implemented slightly different on EVTB1 boards. As
+the EVTA1 boards are from a limited run and generally not available,
+update the DT to make it compatible with EVTB1 microSD voltage selector.
 
-O.K, So i was wrong.
+Fixes: a719915e76f2 ("arm64: dts: renesas: r8a779g3: Add Retronix R-Car V4H Sparrow Hawk board support")
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> And without an explicit 'mdio' child node the driver currently fails to
-> load and the switch is never registered:
-> 
->   rtl8365mb-mdio stmmac-0:1d: found an RTL8367RB-VB switch
->   rtl8365mb-mdio stmmac-0:1d: no MDIO bus node
->   rtl8365mb-mdio stmmac-0:1d: could not set up MDIO bus
->   rtl8365mb-mdio stmmac-0:1d: error -ENODEV: unable to register switch
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+index dfbf2ce7e23a..9d702b74c288 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
++++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+@@ -194,7 +194,7 @@ vcc_sdhi: regulator-vcc-sdhi {
+ 		regulator-max-microvolt = <3300000>;
+ 		gpios = <&gpio8 13 GPIO_ACTIVE_HIGH>;
+ 		gpios-states = <1>;
+-		states = <3300000 0>, <1800000 1>;
++		states = <1800000 0>, <3300000 1>;
+ 	};
+ };
+ 
+-- 
+2.47.2
 
-So, not having an MDIO node was a long time ago seen as a short cut
-for when there was a clear 1:1 mapping between port number and PHY bus
-address. It still works, but it is somewhat deprecated. It also seems
-like it is become more normal to need additional properties, like what
-interrupt the PHY is using, the LEDs it has, etc.
-
-> 
-> With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
-> 
->   rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
->         from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
-> 
-> So something should probably be changed, the driver, dt-bindings or
-> possible both.
-
-I think you should allow an MDIO node in DT. This is the only DSA
-driver that i know of which does not allow it.
-
-	Andrew
 
