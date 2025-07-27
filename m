@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103E8C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 12:58:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBE1C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 13:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jMxifAIqWO9udZ2NZ9E8Ene5GRXydyVi9Idk6pBIlxA=; b=GO/Z7OGxYZ3mUHfnS8hj5MpmVP
-	7LcUK6MgpuSLbg+EVUFlDG4QO+wrFH35fYWTnQQeIApYS1CQfSa+ufdZJ5n0Fam3fnFVSTNi5OB0g
-	YiG6XNkTotornOKXuql81NuCF3CkZqvmy1cdGbV1rJjaWVy+rNTRTX1wMPYC465ZV0zhaKclw+Q/D
-	vsr+4dvmGBZAJMMt6CK/hfRIoiawmxZQn7rAuSsvIFpeH6pO48Y/pdcNilQUGbJGJttINJ/R6/GIU
-	tO9raCy77tS+Uvb2TVHoO6zFS3Eb2sH8GFi0WYIIHu1I9Y7Ymtfss3/DsNVxTmBxO3OsYtjJSWgO1
-	IoJisRkA==;
+	bh=x6GEbE/qLybdXBADc8I0NACgbRc+yYy+1TEP72jbzlg=; b=bzeIfVkMZAbP+HucX6S4s4GItd
+	Lrglr4t5Plr4IncqXZR+loUCZaLe+/+OU9MOi959IyzeV/2pA/PG2JvY19P7CCO0kuLV+HzrEZp7i
+	dnTlgYwNR2Ij/5DDV/frOKvn6HM53i2geX6hJ7azSTCxkMtyXZp2cw6XUTYqE7nKqD/t3D+huTOQ9
+	1XNuShYdcqixkgifLHd6cELC/2fGzFS79m/njIT/MurQMHiNGmPFx3yivnJd3pzFtIvchjjEg5XU4
+	zPgJBf9wwVKTQwt+nmzZkGeKSgbvR7mFf6F8u2dTe9wFS0kC8M3sdxvaaBmSTLAoc/wb5r+Dr8mH6
+	YSwmDO+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug0x8-0000000CiWB-1fyF;
-	Sun, 27 Jul 2025 12:58:10 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1ug19t-0000000CjP0-1Q6N;
+	Sun, 27 Jul 2025 13:11:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug0ub-0000000CiMy-1gCD
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 12:55:34 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-607ec30df2bso6732192a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Jul 2025 05:55:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1753620931; x=1754225731; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jMxifAIqWO9udZ2NZ9E8Ene5GRXydyVi9Idk6pBIlxA=;
-        b=RGkW0Fj+nVD6vEUkCaNXo3bWFyD8LkOXe3VgfV5SkmGDMCCuAg7PTyXg/Hryd0JHzs
-         9wu7387oewnVjTw0R6I8m3vXcz264WjUySQ4IVk+SYOcr6gt1oeSP3NgCDnP1Sk7g6Mh
-         RM8qRvK1AHjTASn2kCjFVLPVa1Z+O5COGuH4hnnhGT7dqQ76uXAEmgQVlz9Kzok3jajk
-         fEp4t4pSZl80XDlWkztIeEKLTazk+84XY5Y1yMTCQouICU26e2DFRpUlMObzpCXGuGSb
-         VeDlE4PHez60AXDN29mcugeT1aQVun4QzBWZXEY/L0SK0jHTcafN4lznm5UGbGPpNl0U
-         TfNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753620931; x=1754225731;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jMxifAIqWO9udZ2NZ9E8Ene5GRXydyVi9Idk6pBIlxA=;
-        b=ZBeQd5ibG+GtQ+D6D2dpTkkAHn5KENhshr2Xs2y7cdyQww9ubkTJoFyxDyQ7mfMAUt
-         ExsRaGSmQzdy2etoWsOvAE2YMpltmry6OmEtOe6hv7M9ifqjI/AAqAKzek1mkwONzuVH
-         7MjLklk+9brtHG2bvCZFH6Bn1KiYU390s3XZAsVojK7TvI0i5qAl22pM4KEzndANUIXJ
-         Yl1n4yNjH7VTbJzVSWAx8R2SYc+UBVAP7KTGPNMyunZodmgbARvMGHoEH5S5XPsQX+ZN
-         u2JmOeGYLZiASfoE/+iqJkrCp4nodTOwgA/zOt0AVFdEI13mytwPy1amcV9t/3EsTWik
-         qHiw==
-X-Forwarded-Encrypted: i=1; AJvYcCXevhVIYFP/fOxrCMMiU+gD1XDbGxEXkMR1UDaDWVXQfSlDQB22+Wk16GO7zfj3areD9vcfzYbejjd8Zmd+Stxh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLMT4jd5bNRWNlVzdhy2icFgSW5R2W22FAQVDl8oKlGABWUQ5B
-	R5aYPgYdZRMSKIqNvXWieq+ziKTVT4a08XWZ+MtnTzsvgLmqOXQt7XRejnNx5ZVzUHFI7SpAcYy
-	M0bIcKCQ9+vjK0bhGvG68k5K/U93viX23CEHwkBdA+A==
-X-Gm-Gg: ASbGnctkduZnYoi9Ts5NW+Oy3zC9oxmdJhyP8EZIYpDJaKU8id7cxSLDpIH8XalucEK
-	94B1UfQpLC76fka8gKkTxFVlLY/OaQep8VqTa8Gl/RjEu36aXS7YSuQ2i07B5ArHeFEl8QNBU+J
-	RrPCYmabWv1sVji+EH0aj/kqr8HHrbohuf+AxvM6TujPE91K3oMsfRmPNiNX1YDnvFCMdilbh8j
-	elLUg==
-X-Google-Smtp-Source: AGHT+IFVYv/O72cHjaH5k5VUlfobYK4W+S80N+a/c4/0HwzwQr74guF3QvQjE4eDoMLi3m7pid4RHeYV0xM1EOGkTOc=
-X-Received: by 2002:a17:907:3d12:b0:ae6:eff6:165c with SMTP id
- a640c23a62f3a-af619601218mr939373066b.48.1753620930791; Sun, 27 Jul 2025
- 05:55:30 -0700 (PDT)
+	id 1ug17L-0000000Cj8g-1AS2;
+	Sun, 27 Jul 2025 13:08:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A928418C9;
+	Sun, 27 Jul 2025 13:08:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE4FBC4CEEB;
+	Sun, 27 Jul 2025 13:08:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753621722;
+	bh=hN9LDjd6CLq5G10VnQYY9Dgif1+I33fW6zwuL/KlJ70=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NXaDpZkGOTrdczLzZtFLw5a5TR8K0054fptr52ejiMIh1u4w9pSTseGI5EM4ABgBI
+	 KFEGCpfdanCIdw4ssb8+lXrAxDEZH6PMFvAyOo8d63kNZs0+YAnKq9LMdy4RrngvVI
+	 BWUiXIe9yz3irGRVtZiy2dzWcTogwYzAz+X3CraVX+FXuWBeMXnK8qtT+9cjkbvs8m
+	 sDkT32CjuFhHf4Ftpfk1qvX4vHGSy3R44Y3gmk21n/6zqAIMgygoGGfvZ5sqhlw1+i
+	 84Hx8Q54byOG/8Y97zfDS30QwogWcARAyel32hT+Rp/BGSN5r18AzUKP6JuDoDfnPq
+	 9cxXOLprtOFfA==
+Date: Sun, 27 Jul 2025 14:08:28 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Sanjay Suthar <sanjaysuthar661996@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-iio@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ ribalda@kernel.org, dlechner@baylibre.com, nuno.sa@analog.com,
+ andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com
+Subject: Re: [PATCH v3] dt-bindings: cleanup: fix duplicated 'is is' in YAML
+ docs
+Message-ID: <20250727140828.4893fc51@jic23-huawei>
+In-Reply-To: <8f4358e8-ecd6-4d86-8326-25d21c3a4ea2@gmail.com>
+References: <20250722170513.5854-1-sanjaysuthar661996@gmail.com>
+	<20250724111247.669d6955@jic23-huawei>
+	<8f4358e8-ecd6-4d86-8326-25d21c3a4ea2@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20250702183856.1727275-5-robert.marko@sartura.hr>
- <175325995961.1695705.8338983998485530536.b4-ty@kernel.org> <20250724100442.GX11056@google.com>
-In-Reply-To: <20250724100442.GX11056@google.com>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Sun, 27 Jul 2025 14:55:19 +0200
-X-Gm-Features: Ac12FXzmHtBtU7jmLL2NxVGb2Ntptau88LQnJUIPvAdvZ644oi9yAP7lpOAawqY
-Message-ID: <CA+HBbNGscSseYHT36FqazfH_BXZi9zKdbPkroJGby7Vd+=ZJSA@mail.gmail.com>
-Subject: Re: (subset) [PATCH v8 04/10] mfd: at91-usart: Make it selectable for ARCH_MICROCHIP
-To: Lee Jones <lee@kernel.org>
-Cc: linux@armlinux.org.uk, nicolas.ferre@microchip.com, 
-	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
-	catalin.marinas@arm.com, will@kernel.org, olivia@selenic.com, 
-	herbert@gondor.apana.org.au, davem@davemloft.net, vkoul@kernel.org, 
-	andi.shyti@kernel.org, broonie@kernel.org, gregkh@linuxfoundation.org, 
-	jirislaby@kernel.org, arnd@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-spi@vger.kernel.org, linux-serial@vger.kernel.org, 
-	o.rempel@pengutronix.de, daniel.machon@microchip.com, luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_055533_452769_C0C62944 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250727_060843_337561_67FBC9F1 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +81,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 12:04=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
->
-> On Wed, 23 Jul 2025, Lee Jones wrote:
->
-> > On Wed, 02 Jul 2025 20:36:02 +0200, Robert Marko wrote:
-> > > LAN969x uses the Atmel USART, so make it selectable for ARCH_MICROCHI=
-P to
-> > > avoid needing to update depends in future if other Microchip SoC-s us=
-e it
-> > > as well.
-> > >
-> > >
-> >
-> > Applied, thanks!
-> >
-> > [04/10] mfd: at91-usart: Make it selectable for ARCH_MICROCHIP
-> >         commit: ef37a1e2485724f5287db1584d8aba48e8ba3f41
->
-> Reverted as it caused issues in -next.
->
-> https://lore.kernel.org/all/20250724115409.030d0d08@canb.auug.org.au/
+On Thu, 24 Jul 2025 22:38:14 +0530
+Sanjay Suthar <sanjaysuthar661996@gmail.com> wrote:
 
-Hi Lee,
-This patch depends on the first 3 patches in the series, which have
-not yet been merged.
+> On 24/07/25 15:42, Jonathan Cameron wrote:
+> > On Tue, 22 Jul 2025 22:35:13 +0530
+> > Sanjay Suthar <sanjaysuthar661996@gmail.com> wrote:
+> > =20
+> >> Fix minor grammatical issues by removing duplicated "is" in two device=
+tree
+> >> binding documents:
+> >>
+> >> - net/amlogic,meson-dwmac.yaml
+> >> - iio/dac/ti,dac7612.yaml
+> >>
+> >> Signed-off-by: Sanjay Suthar <sanjaysuthar661996@gmail.com> =20
+> > I'd have no problem with the argument that this can go through either
+> > tree if there was any interaction between the files or the changes, but
+> > here there isn't. This is just causing potential mess if either tree en=
+ds
+> > up with other changes overlapping this for no benefit.  Please split in=
+to
+> > two patches, one for each subsystem.  You should be fine to keep the
+> > various tags given here for the new patches. =20
+>=20
+> Thanks for the review. I understand your concern regarding splitting the=
+=20
+> changes. My intention was that, since the fix is a trivial and identical=
+=20
+> grammatical correction across both subsystems, it didn=E2=80=99t seem nec=
+essary=20
+> to separate them.
+>=20
+> However, I=E2=80=99m open to either approach =E2=80=94 keeping it as a si=
+ngle patch or=20
+> splitting it if that's preferred. As I=E2=80=99m still new to this proces=
+s, I=E2=80=99ll=20
+> defer to @krzysztof and the DT maintainers for the final call on how=20
+> this should be handled.
+>=20
+> Please let me know the preferred direction, and I=E2=80=99ll be happy to =
+update=20
+> accordingly.
 
-Regards,
-Robert
->
-> --
-> Lee Jones [=E6=9D=8E=E7=90=BC=E6=96=AF]
+DT bindings ultimately go through the subsystem trees (in vast majority of
+cases) to avoid churn issues and keep them aligned with driver changes.
+So split it.
 
+Thanks
 
+Jonathan
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+>=20
+> Best regards,
+>=20
+> Sanjay Suthar
+>=20
+
 
