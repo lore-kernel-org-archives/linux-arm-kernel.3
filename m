@@ -4,177 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBB2C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 01:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE51C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 02:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LdBByXizILot5YxeFriofPLP8iYci3KQc2FFhlFKtI4=; b=jcLCacKpN1GthZPKGkR17Nd8Fr
-	VpGEQYrwM1urgC/DeEO4LeSt92wDCVbBhqir/kdu8R5pzmtYwdXqvcfxeGmgrDiuj9lxqorwL6EN3
-	+a3D0TJVpzcbLXuOapQSZKNk8enrW5kmupedzSH0VCjzk3B3ISwVVZzfx2zXHudCra0WPNMYiStUv
-	kJ5QNdCTsEAX2u7TCNqNnqpvCBIs0Ub47ZgdCYT6cyVTKXROd7Ui8RLCpPIoY4axEBkG57y+IiuPS
-	pe024G14lQIfBju5EbB4xUKBZ6B/NPqwV9o58c7goOmfBfnGno8D8jZNFnWN8SA+a4aUuPND5BRRz
-	bcUFybGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9F+KM1a1Ihps5ZaemdknahipWej3+/IidOctuLXhDGM=; b=JOEeZRQcEzyJ58goeCebs1gvRr
+	dn96tdT73dP/ULM5xtaJaWtp9gsGSwOVetwAXl9J7NlOJRjQiAoYkE3yG5R/bWR/XiAWe5sii5phD
+	SrwxDx2CszKjwUH387z/tRw711S64OnfAmDDXGdibaRrT/jS0vhe1hhSI9pwqjt+fxOH1njlaL2Jk
+	1SAXq4F17ojIGLmHr2TSGm66T+2qOfj2F9yKZt2fBZrRf2/c6buYZz/EGGDnlFG7SBdemxby1+5/X
+	ZIXjlboJD56OhI5pF2SbLqmKLa9HpnDyIpeHQRfjSjpFoNAHOHMlCVU4IM3DZgvLZVEcpHeueCXJY
+	lCIYJ+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufqXL-0000000CDtB-321J;
-	Sun, 27 Jul 2025 01:50:51 +0000
-Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1ufr0B-0000000CFK8-18GY;
+	Sun, 27 Jul 2025 02:20:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufqUl-0000000CDci-3nQr
+	id 1ufqxd-0000000CFAe-0Gl7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 01:48:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sf/iTt4YGzVShHxz2klEO3wV+iuKCSirh3oR5N7yCDCogPWFNup/ms8FBFkhm7tzhbEOmX3whyvxsMpMs0+xQE/JRESJzofGVpiZ2TkIVhpqydXKUOhCRWOgB9KYhERez6SWvpu+6fu/OoHpDk13YCLXKZMkVyD/IMfCjPV+mSC323v7mXVptSfNyKJYslWURAykJBFIgcLKvmxyyfYZD6J7vBhxhrA8ECJZ1NekDJDwB43jx+C/M1kkGA5Wgwhqk8IkscF66s2cNS3nzx24tWuM4KHGJDj8stlikepmNEv00kP2TgvsVoOvmKHCeuj9/eDLzhx8XWkB1Ugyeju91w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LdBByXizILot5YxeFriofPLP8iYci3KQc2FFhlFKtI4=;
- b=SxOM5bnzyfqDMmuLKhCJeC9KT8hFwqGjFkeQg8rrZ8FYCe09VkZqAVM4WUOy+lusMtS3rNbCLb0UVqgWD4aAQYel3E5S4sY2uZVYFlafw9O7Klho39bGPRY7V2DC9qSiWEuv8526oT0DpKd4HAKrUDhm4fughOdaqydxKHKULz0DNJQcmOyb8MXXHhfHxp+hpJ7gC4LAzBh5vMoAUUnWHjbOAc/v1zeEwcdnQkkwi9KIZz0qYSkTBVUEg20wt+Dwut0KwtIuCYnL0+fx6SdS1JCJOFZH5j6MVKiIctBCSNBkTzVluCC5hDJ/4uHEG9RoBE9Jr/NCjN802/cwwx+HMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LdBByXizILot5YxeFriofPLP8iYci3KQc2FFhlFKtI4=;
- b=XC0D9Z+Gcc0qB4NFO6yNbZvRgRCZbzKLlrq2EhCGOOhaRZtc+ol/cxNVmTIUPAn9+c+XiwEPDY5kqivLDQ7YHsSFIfXqx7xbzKgi/TI1xzYEtmKYwOFjNjTLoroWHa7Rxx82IDyM6LtA9MIb7xobK5Wl3Cbu9PGaJphy1bXLax0ctFrdNoKXsB1ChuGA47PSM5sKZEX8+pQE/26QgFThq/O+jDsBotfuDMqHPNfBuoD32NUXbEHr2/54eBqy+Oo4Zr4n7WewHpJAV03HhZA4cNxoVIeidDGrZWn9uEQPraGCutNqXXHanjk9Plm4Uq+R9S1ohS/YeTIl/etdrTwneA==
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com (2603:1096:604:2b1::11)
- by PUZPR06MB5723.apcprd06.prod.outlook.com (2603:1096:301:f5::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.25; Sun, 27 Jul
- 2025 01:47:35 +0000
-Received: from OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11]) by OS8PR06MB7541.apcprd06.prod.outlook.com
- ([fe80::9f51:f68d:b2db:da11%5]) with mapi id 15.20.8964.024; Sun, 27 Jul 2025
- 01:47:34 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Thomas Gleixner
-	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
-	<kevin_chen@aspeedtech.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>
-Subject: RE: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
- parent node compatibles and refine documentation
-Thread-Topic: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
- parent node compatibles and refine documentation
-Thread-Index: AQHb+u5GGJR1Lh1PR0C5h6er79qfsbQ/O9gAgAAebjCAAx6NAIACvGYQ
-Date: Sun, 27 Jul 2025 01:47:34 +0000
-Message-ID: <OS8PR06MB75418BD29DCD6E93F2A44903F25BA@OS8PR06MB7541.apcprd06.prod.outlook.com>
-References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
- <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
- <001d37c7-f704-4554-a4db-0cc130e07dd6@kernel.org>
- <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <384635a3-c6ed-44f8-a54a-2b20e20694cd@kernel.org>
-In-Reply-To: <384635a3-c6ed-44f8-a54a-2b20e20694cd@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS8PR06MB7541:EE_|PUZPR06MB5723:EE_
-x-ms-office365-filtering-correlation-id: e73d438e-169b-411d-a380-08ddccaf8ef6
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?SXMwSXZyenlVc09wOUJlV2pBRURPL2lrVDlwbXNTMWhvNnd2MTZLa01FbFJ2?=
- =?utf-8?B?bVVaR09vN2l6TFc5aW8ybkprRlNrd1hEUXRyVG5HalV2NG9RL2VVbElhbGNw?=
- =?utf-8?B?MGcwd01DbHhveEMxNjJrR1BvOGFsVnZtQU94U0NKWVVXQjE5cU9PMU15MWtF?=
- =?utf-8?B?cWlXOXlYY1R0UmE4SWdXRWQ0Y1BGZkpWRnkwTEhETEFYU01VUW1iYWRZWmJF?=
- =?utf-8?B?YVZ5bWpJaUM4blRqbldGcFlMOE1TbzRuV2FEdDUwaHpKMmtGNTdEU0Y2UlZy?=
- =?utf-8?B?a0o0bi9DNDJtcDludTNSVzZiSHVXYldaWHhTZ3AzNDVIUThJZFlmWVZpNnZD?=
- =?utf-8?B?ZXZLbllXNlFSOFVLMjYzaTlub093Wm5VWHBiS09LNVA0bitnR1lHa2xkcU14?=
- =?utf-8?B?Wmk5dlJCMnp0d0YxWlAreHZZL3NLcHBvOWk3Y2NkMEZvSVZidTNCUVlkakxn?=
- =?utf-8?B?YkJqZXBkaVdEem1EVWhjUWM0ZTgrTWxJVkdxNVh2eEpPQThuU2MzY1Q4OWln?=
- =?utf-8?B?WEFUaVhrYUhEVEs1citTOXh2cWxlTWZrTVBJWElhVXdXMzZXcGtJS0FDWUhH?=
- =?utf-8?B?N1dBb0JQTGw5cExHVjV4M3U3N2FjeGhpYVN5cFRLTUR1dk85Y2FWTkd4cHNJ?=
- =?utf-8?B?aXhSQXNwMmVlR3VhWGlaVThsZGs3NVBueHFFcE5wYjREL2xnM0d4N2c1T0Fj?=
- =?utf-8?B?NWdkUk9sbkVCWlV4UmZEemFBNDBFUGJSaHhiWVpyQWlJVU9ESm9sK0wvZ0RI?=
- =?utf-8?B?VTZvdEdVWTY2Rnd4WDU3OWxmRlF5bEdtTnhmMDdjS1hVejZOVlVUM2xXM0Nz?=
- =?utf-8?B?K0hmZkU4REw3UE00UTl1Q3VQZU1IVWQ0a1B1eUxzVHhLR05tclJDcjlFQ1g1?=
- =?utf-8?B?NXlCa04zYklhWjVWYk1UMUFrU3V5QkJ0RlUxOGJlekhlYWtTRDVuamwvQmhp?=
- =?utf-8?B?RmtiZTZnOTJWQVoxNUREMmRMditheDBuamJIaEtBa2FIVFUrbEZ4UlVkcmly?=
- =?utf-8?B?MGJRODVsYWQ3Y2hEdkloaFBMZVRIT3hzS21BZkdySHhPS0p3bzd5ajgzY2gr?=
- =?utf-8?B?V3JRaVFjZ2JpSHN6SmJ5MHhRQ0tWZnBWS0NvK2VhSERXck5OakFoTytuVWlz?=
- =?utf-8?B?bWVadFU3dlJjUUtPem1lODh2bXBKSFFpY3I3WllsaWlzNnBvYkNWaFZBWjFy?=
- =?utf-8?B?U2VDdVIzNU5LQWYxSndLK2c4a0E1RXRNMlVYNlJBdlZLemYxckNTQVpsU1Ar?=
- =?utf-8?B?UG12OWJNcFB3dnl1c2pMNjV4aDExQmczdjNRYkZEN25wN3JkKzUzbVkwMEVl?=
- =?utf-8?B?OVBkWSt6S09HNUNaMTZrMWs4UTc1aWFHV0FtQkdYZG1PQjhNUzVtbFFxYTdo?=
- =?utf-8?B?d25pcEFLN1ZETE5obmNFUzNCbmRvbUhCOWRxNjgrNEdrYXVzaDJLcllicEpp?=
- =?utf-8?B?UXRZcjBlMEZqcE9ZUXo3Q0tRY1ExUHJDQjEvWEN3WFZ3K1ZheGc4LytCR0tY?=
- =?utf-8?B?NXBDMnhWTmpXR2dURTNiZ3pPN1V5ZzlXUGRIRndESmg4N1J2cFVQWXIvQU5x?=
- =?utf-8?B?ejZlMlRGc2ZzRmlKcGJLa3dHKzBNNmxXc2NKM2pMUER6eVQ0eGRIUUhxRllv?=
- =?utf-8?B?eUZVU2E0THRpNVFEbmhKWTdSeWVmakVhbkU1TWlBSVlSSGova0dKMWtmbW5Y?=
- =?utf-8?B?ZldCMXhaT3Vpb2c5K1RHYkRxREM4eUNwZ2tyM2ErMlZtL1lPVUE0QzhhOGx2?=
- =?utf-8?B?dWZycXFYNmMraEhVQjRTbFNSWVN2cGZXSmpxT1A4TFBXYThmUU9CYXhEYW1Y?=
- =?utf-8?B?ZndodmNLaTBkNVpBNXMwd2ROWjQ3b2Zib1F5ZFdYZFFkNE8xNGlvbEp1NkVC?=
- =?utf-8?B?enhVUTVRZ2xzMzhBUWR2d0ozcy9HOGhrWk90bTZFTDZSYmFPbktZbGVNOHFI?=
- =?utf-8?B?alVKcWtKSzlpY3FQam5rRWM4NitlL2lEQjM3cUlVMjNXU3dVa3prUGw4NmFC?=
- =?utf-8?Q?JDOWo181BQPxVegDXfwoXIfezsOzH4=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS8PR06MB7541.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eVdleUNEdUJCa3ZPVXBHOUpYbks0cStjM0swd3FQQ1ZnZzNuK21Xbk9YOStw?=
- =?utf-8?B?aWZ4d1BjeW54elpQM1R6clJsYWVKWDNmTFI5WjRieGRMTmJ5SzN3TmFRTmZ5?=
- =?utf-8?B?aFVseVBhd0lnaDlPc2JnY1IzV1Zjc0lLWEkrZUgvQ1M0SDFvZTl3NE1VMGJK?=
- =?utf-8?B?dWFnR2k2QWtldW1Qa0xsVnhGaHdza3gwS1VPMnRjTlNuSHZtRnVGV3Zodnpr?=
- =?utf-8?B?Z21BNFlrVGVnbXV1eG1tbXgxNHhRUVlMcGpzdVhoWWRDWHBkWnluMlp1a3Za?=
- =?utf-8?B?d1VXK2RuUDMyS1lQYWFSdllsNHlESnh3S2t4RG1KSzZDb3YwSEdCWUhGVEZX?=
- =?utf-8?B?czF4UjcxK3FYMkRnK1JOM3IwL3pNbUcyRUhNQTlQVUhORXZpcklsRVhXeVps?=
- =?utf-8?B?VnVxZFBNZjFOY0x4cW85ZEd5N0Ivdzd6ME42YzFKUlVsME1tNGo1bCtLemdx?=
- =?utf-8?B?UWZ2RmJYclpmQ2xvaHRrVGNneWY5R3hZMUQrYTd2NlByVk5nTWFEMHNtdWxR?=
- =?utf-8?B?S2JlYU93eGlTWFU5ODBGRGlBZFhUWWprdnk2NGNqbWZROE13NUk2NVZoTGpM?=
- =?utf-8?B?RERRMDJnVUpqSjlVN1Zlc0xwOVFmWkp5UnRzaUUxZko5ejV4VWZZci9nOVRn?=
- =?utf-8?B?Q3l4Ykg0WmJJaE1WNmRtbjJoOE84NlRWTHBycGpva2syUFpPZkZ0KzlWTExa?=
- =?utf-8?B?WjdDSU84MVlDaENIdWpGUGNnbTBzWDltUk8zS1Qxc3lBY2ZHKzFmOWhWcVlT?=
- =?utf-8?B?bWVmMEd0U05LRGt4dFlFazVJLzlIb0NYVWZ3Yyt1dnNHdktuclZxejBIYUJN?=
- =?utf-8?B?MHk1eXFLQjNGWi9uZmMwL3RWQ21iQ2NpMU1kZ0EyZzJNdDdTT0R5ck9qVkhY?=
- =?utf-8?B?RGJCMFZGcHJsUVFNdTBzdGx4SVpvQzMwd01BWmRDa1QxdDJsTGJobno4am8y?=
- =?utf-8?B?VTJ3K3BlNnFPVUJRUmlYcHh3SjdzQWNpNGlqSmF5aUE1MjBDWTFqQzJQbGpJ?=
- =?utf-8?B?TGtjZnlXd3NrbHhDditVaTJKM2l0RXlCWGZGNUtOSEJJTyt4T3lNQUdBT00v?=
- =?utf-8?B?MnBodkUzay9xRDIzTlp5NGZJT1pRMmtSckt1TWNGaHJ4d1ZTNzVkSy9GcFdy?=
- =?utf-8?B?TFZIRFM0Z3BUTVhsMUxIeE55czYxYzdmeTA4dkJZd1lINXk3Y0xodnVoNVRh?=
- =?utf-8?B?OE84b1ppZXB0SlBrbWlDOUhENTFCMVlYaFdxT2JNQzBjWlJoTkc0dzY5L2l1?=
- =?utf-8?B?T2V6VTFIZFlZREZFYlMwS1JEMTcxeE0rNDBVTmJrTUhxbTNROE85cEs0d2Zt?=
- =?utf-8?B?S2QwTGlZREkwOWIyaS9DYzRDKzhQbGY1Zk03NDlmekt0Z1hEYzBsQlMzaWgr?=
- =?utf-8?B?TE8rRDFoK1MxUFVOMGFQZFdxQkRzQTZMMDRWcnBkdTBwTWh1NE5POWZLbkky?=
- =?utf-8?B?dmFneWh1UWpnVFFKVDNDdEdscE5MNkpySk5yUGFqakV5bUdLU2laV3gwdFdi?=
- =?utf-8?B?Szc0SjY3eWRPSkRFa3A1Ukhvci82MDkzdFJsR2RXK2NYRmdpOUdoNTh3Z1Zj?=
- =?utf-8?B?azZLdkRpVEFZOGtIK1R3OE1adUZwWVBrcUVDVWpJNE5LakJhemVQanprSDJX?=
- =?utf-8?B?aUs4cHprRjlid2ZUN2tsVnAxdjczaEVZeklhbTgrMndVaVM0ZWdMYndCS0tw?=
- =?utf-8?B?RWFYZHpzankyYXMvSmU4Zkxvbmc2UVFRcThjZk1NelZjMzMyQ3NXNnhpTm1O?=
- =?utf-8?B?dnAyQ0JlcU1FM2NqYUNmbjljSGJwbzVrR2dXTWQ0a0llVUZXSXBJQ210T29T?=
- =?utf-8?B?UnhsdHIwcU9ZMm5uOHJ1d29MZ2lra0R6ZGp0OFlSL0l5QXB2a0pWRTFLZi96?=
- =?utf-8?B?SkUzUjlrZkwzL1liOFNzUXczOFFXY1l2akk4Y25CbXp4OWFrcVVTMmhzNTFv?=
- =?utf-8?B?WlJzNzBVNHZIekx5anB3a09rWVB6QVFRY1pFeHM4RmV3T245V0R4aXNHaFhm?=
- =?utf-8?B?M20yY3lRbGpmRmpBY2x3bm1PbVVUQVdOVG1qU3U4aEF2WXZ5bktMREtpeWZB?=
- =?utf-8?B?a3E4ZUVicC95VUY2Y2NobVNoaWFLbkRGWFdnUnRINW52bWZWRWtDWUZDUlF4?=
- =?utf-8?Q?MUi/DWzIfeCVkvKdYE1gxUlQw?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Sun, 27 Jul 2025 02:18:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7167FA53DA6;
+	Sun, 27 Jul 2025 02:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A014BC4CEED;
+	Sun, 27 Jul 2025 02:17:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753582678;
+	bh=Y5zHoODlzWxavxPuDfmCtM9nxpP4mAOVW9JeR00zZEo=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IDjwHbrvKloC3zEWfx12EI9BBU2IXr9TdPpwzU978h/DzlIyInfSxt9qoZXKwx6UL
+	 iBTFWP7xLNUd2qC/vrLwZ9WFkvl9lgb4JukRM5Tejcw0l4Xa6BPEWRc25v6BJv5jeI
+	 lpGuOjBjO4oBxWAKXPrHDmXB6Ujj0KZrtWuGtsXD0MhYo6UCmQa9N81/vNDGzBBfAH
+	 VVf0OuRYU2RNjNYmpna5GrCfin5O0wQvz8ZShBPOSvwcfOcI74A0jK94Tpgqysq85g
+	 AIVqHFDCQj80oWbv41eNOX4UPP7wZtVWjnBMq56xV6g8IPWOcvjd0FQtzqsxWCId5h
+	 a+HPZcc7imn5g==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Jagadeesh Kona <quic_jkona@quicinc.com>,
+	Satya Priya Kakitapalli <quic_skakitap@quicinc.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Stephan Gerhold <stephan.gerhold@linaro.org>,
+	George Moussalem <george.moussalem@outlook.com>,
+	Luo Jie <quic_luoj@quicinc.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+Subject: [GIT PULL] Qualcomm clock updated for v6.17
+Date: Sat, 26 Jul 2025 21:17:55 -0500
+Message-ID: <20250727021756.657115-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS8PR06MB7541.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e73d438e-169b-411d-a380-08ddccaf8ef6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Jul 2025 01:47:34.5803
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BEmfySMrwjK9WVw+24pSo3PVVgY8cVhrisKTFSLeikYE+X9AfqyFrFOt10ypVjjTin5PNXgJCEmwEVV+VukTENivXpsg4UrAJP+WAZ5NCzc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5723
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250726_184812_068349_18CA0AF6 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250726_191801_242582_68CD2FDC 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,75 +83,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHYzIDEvMl0gZHQtYmluZGluZ3M6IGludGVycnVwdC1jb250
-cm9sbGVyOiBhc3BlZWQ6IEFkZCBwYXJlbnQNCj4gbm9kZSBjb21wYXRpYmxlcyBhbmQgcmVmaW5l
-IGRvY3VtZW50YXRpb24NCj4gDQo+IE9uIDIzLzA3LzIwMjUgMTA6MDgsIFJ5YW4gQ2hlbiB3cm90
-ZToNCj4gPj4gU3ViamVjdDogUmU6IFtQQVRDSCB2MyAxLzJdIGR0LWJpbmRpbmdzOiBpbnRlcnJ1
-cHQtY29udHJvbGxlcjoNCj4gPj4gYXNwZWVkOiBBZGQgcGFyZW50IG5vZGUgY29tcGF0aWJsZXMg
-YW5kIHJlZmluZSBkb2N1bWVudGF0aW9uDQo+ID4+DQo+ID4+IE9uIDIyLzA3LzIwMjUgMTE6NTEs
-IFJ5YW4gQ2hlbiB3cm90ZToNCj4gPj4+ICsgIElOVEMwIGlzIHVzZWQgdG8gYXNzZXJ0IEdJQyBp
-ZiBpbnRlcnJ1cHQgaW4gSU5UQzEgYXNzZXJ0ZWQuDQo+ID4+PiArICBJTlRDMSBpcyB1c2VkIHRv
-IGFzc2VydCBJTlRDMCBpZiBpbnRlcnJ1cHQgb2YgbW9kdWxlcyBhc3NlcnRlZC4NCj4gPj4+ICsg
-ICstLS0tLSsgICArLS0tLS0tLS0tKw0KPiA+Pj4gKyAgfCBHSUMgfC0tLXwgIElOVEMwICB8DQo+
-ID4+PiArICArLS0tLS0rICAgKy0tLS0tLS0tLSsNCj4gPj4+ICsgICAgICAgICAgICArLS0tLS0t
-LS0tKw0KPiA+Pj4gKyAgICAgICAgICAgIHwgICAgICAgICB8LS0tbW9kdWxlMA0KPiA+Pj4gKyAg
-ICAgICAgICAgIHwgSU5UQzBfMCB8LS0tbW9kdWxlMQ0KPiA+Pj4gKyAgICAgICAgICAgIHwgICAg
-ICAgICB8LS0tLi4uDQo+ID4+PiArICAgICAgICAgICAgKy0tLS0tLS0tLSstLS1tb2R1bGUzMQ0K
-PiA+Pj4gKyAgICAgICAgICAgIHwtLS0uLi4uICB8DQo+ID4+PiArICAgICAgICAgICAgKy0tLS0t
-LS0tLSsNCj4gPj4+ICsgICAgICAgICAgICB8ICAgICAgICAgfCAgICAgKy0tLS0tLS0tLSsNCj4g
-Pj4+ICsgICAgICAgICAgICB8IElOVEMwXzExfCArLS0tfCBJTlRDMSAgIHwNCj4gPj4+ICsgICAg
-ICAgICAgICB8ICAgICAgICAgfCAgICAgKy0tLS0tLS0tLSsNCj4gPj4+ICsgICAgICAgICAgICAr
-LS0tLS0tLS0tKyAgICAgKy0tLS0tLS0tLSstLS1tb2R1bGUwDQo+ID4+PiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIHwgSU5UQzFfMCB8LS0tbW9kdWxlMQ0KPiA+Pj4gKyAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICB8ICAgICAgICAgfC0tLS4uLg0KPiA+Pj4gKyAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICArLS0tLS0tLS0tKy0tLW1vZHVsZTMxDQo+ID4+PiArICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIC4uLg0KPiA+Pj4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAr
-LS0tLS0tLS0tKy0tLW1vZHVsZTANCj4gPj4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-fCBJTlRDMV81IHwtLS1tb2R1bGUxDQo+ID4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IHwgICAgICAgICB8LS0tLi4uDQo+ID4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICst
-LS0tLS0tLS0rLS0tbW9kdWxlMzENCj4gPj4NCj4gPj4gWW91IGJpbmRpbmcgYWxzbyBzYWlkIGlu
-dGMxIGlzIHRoZSBwYXJlbnQgb2YgaW50Yy1pYywgc28gd2hlcmUgaXMgaGVyZSBpbnRjLWljPw0K
-PiA+Pg0KPiA+PiBUaGlzIGRpYWdyYW0gYW5kIG5ldyBiaW5kaW5nIGRvIG5vdCBtYXRjaCBhdCBh
-bGwuDQo+ID4NCj4gPiBUaGUgY29ycmVzcG9uZGVkIGNvbXBhdGlibGUgaXMgZm9sbG93aW5nLg0K
-PiA+DQo+ID4gICArLS0tLS0rICAgKy0tLS0tLS0tLSsNCj4gPiAgIHwgR0lDIHwtLS18ICBJTlRD
-MCAgfCAtPiAocGFyZW50IDogYXNwZWVkLGFzdDI3MDAtaW50YzApDQo+ID4gICArLS0tLS0rICAg
-Ky0tLS0tLS0tLSsNCj4gPiAgICAgICAgICAgICArLS0tLS0tLS0tKw0KPiA+ICAgICAgICAgICAg
-IHwgICAgICAgIHwtLS1tb2R1bGUwDQo+ID4gICAgICAgICAgICAgfCBJTlRDMF8wIHwtLS1tb2R1
-bGUxDQo+ID4gCQkJKGNoaWxkIDogYXNwZWVkLGFzdDI3MDAtaW50Yy1pYykNCj4gPiAgICAgICAg
-ICAgICB8ICAgICAgICB8LS0tLi4uDQo+ID4gICAgICAgICAgICAgKy0tLS0tLS0tLSstLS1tb2R1
-bGUzMQ0KPiA+ICAgICAgICAgICAgIHwtLS0uLi4uICB8DQo+ID4gICAgICAgICAgICAgKy0tLS0t
-LS0tLSsNCj4gPiAgICAgICAgICAgICB8ICAgICAgICAgfCAgICAJCQkJCSArLS0tLS0tLS0tKw0K
-PiA+ICAgICAgICAgICAgIHwgSU5UQzBfMTEgfCArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LQl8IElOVEMxICAgfCAgLT4gLT4NCj4gKHBhcmVudCA6IGFzcGVlZCxhc3QyNzAwLWludGMxKQ0K
-PiANCj4gQUdBSU4gKHNlY29uZCB0aW1lKTogdGhhdCdzIG5vdCB3aGF0IHlvdXIgYmluZGluZyBz
-YWlkLg0KPiANCj4gWW91ciBiaW5kaW5nIGlzIGV4cGxpY2l0IGhlcmUsIHdoaWNoIGlzIHdoYXQg
-d2Ugd2FudCBpbiBnZW5lcmFsLiBJdCBzYXlzIHRoYXQgaW5jdDEgaXMNCj4gb25lIG9mIHRoZSBw
-YXJlbnRzIG9mIGludGMtaWMuDQo+IA0KPiBMZXQgbWUgYmUgY2xlYXIsIGJlY2F1c2UgeW91IHdp
-bGwgYmUgZHJhZ2dpbmcgdGhpcyB0YWxrIHdpdGggaXJyZWxldmFudCBhcmd1bWVudHMNCj4gZm9y
-ZXZlciAtIGNoYW5naW5nIHRoaXMgYmluZGluZyBpcyBjbG9zZSB0byBuby4gSWYgeW91IGNvbWUg
-d2l0aCBjb3JyZWN0IGFyZ3VtZW50cywNCj4gbWF5YmUgd291bGQgd29yay4gQnV0IHRoZSBtYWlu
-IHBvaW50IGlzIHRoYXQgeW91IHByb2JhYmx5IGRvIG5vdCBoYXZlIHRvIGV2ZW4NCj4gY2hhbmdl
-IHRoZSBiaW5kaW5nIHRvIGFjaGlldmUgcHJvcGVyIGhhcmR3YXJlIGRlc2NyaXB0aW9uLiBXb3Jr
-IG9uIHRoYXQuDQo+IA0KDQpJZiBJIGRvIG5vdCBjaGFuZ2UgdGhlIGJpbmRpbmcsIEkgdGhpbmsg
-dGhlIHlhbWwgYW5kIGR0cyBjYW4gc3RpbGwgZml0IHRoZSBpbnRlcnJ1cHQNCm5lc3RpbmcgYXJj
-aGl0ZWN0dXJlIGJ5IHVzaW5nIGJvdGggaW50ZXJydXB0cyBhbmQgaW50ZXJydXB0cy1leHRlbmRl
-ZC4NCg0KRm9yIGZpcnN0LWxldmVsIGNvbnRyb2xsZXJzLCB1c2UgdGhlIHN0YW5kYXJkIGludGVy
-cnVwdHMgcHJvcGVydHkNCihlLmcuIHdpdGggdGhlIEdJQyBhcyB0aGUgcGFyZW50KS4NCg0KRm9y
-IHNlY29uZC1sZXZlbCBJTlRDLUlDIGluc3RhbmNlcywgdXNlIGludGVycnVwdHMtZXh0ZW5kZWQg
-dG8gcmVmZXIgdG8gdGhlDQpmaXJzdC1sZXZlbCBJTlRDLUlDLCBmb2xsb3dpbmcgY29tbW9uIExp
-bnV4IHByYWN0aWNlIGZvciBzdGFja2VkIGludGVycnVwdCBjb250cm9sbGVycy4NCkZvciBleGFt
-cGxlOg0KZHRzDQovLyBGaXJzdCBsZXZlbA0KaW50YzBfMTE6IGludGVycnVwdC1jb250cm9sbGVy
-QDEyMTAxYjAwIHsNCiAgICBjb21wYXRpYmxlID0gImFzcGVlZCxhc3QyNzAwLWludGMtaWMiOw0K
-ICAgIHJlZyA9IDwuLi4+Ow0KICAgIGludGVycnVwdC1jb250cm9sbGVyOw0KICAgICNpbnRlcnJ1
-cHQtY2VsbHMgPSA8Mj47DQogICAgaW50ZXJydXB0cyA9IDxHSUNfU1BJIDE5MiBJUlFfVFlQRV9M
-RVZFTF9ISUdIPiwgLi4uOw0KfTsNCg0KLy8gU2Vjb25kIGxldmVsLCBjYXNjYWRlZA0KaW50YzFf
-MDogaW50ZXJydXB0LWNvbnRyb2xsZXJAMTRjMTgxMDAgew0KICAgIGNvbXBhdGlibGUgPSAiYXNw
-ZWVkLGFzdDI3MDAtaW50Yy1pYyI7DQogICAgcmVnID0gPC4uLj47DQogICAgaW50ZXJydXB0LWNv
-bnRyb2xsZXI7DQogICAgI2ludGVycnVwdC1jZWxscyA9IDwyPjsNCiAgICBpbnRlcnJ1cHRzLWV4
-dGVuZGVkID0gPCZpbnRjMF8xMSAwIElSUV9UWVBFX0xFVkVMX0hJR0g+Ow0KfTsNCkluIHlhbWws
-IEkgY2FuIHVzZToNCm9uZU9mOg0KICAtIHJlcXVpcmVkOiBbaW50ZXJydXB0c10NCiAgLSByZXF1
-aXJlZDogW2ludGVycnVwdHMtZXh0ZW5kZWRdDQpUaGlzIGFsbG93cyBib3RoIGNhc2VzIHRvIGJl
-IHZhbGlkLg0KDQpQbGVhc2UgbGV0IG1lIGtub3cgaWYgdGhpcyBpcyB0aGUgcmVjb21tZW5kZWQg
-YXBwcm9hY2gsDQpvciBpZiBmdXJ0aGVyIGNoYW5nZXMgYXJlIG5lZWRlZC4NCg0KPiBCZXN0IHJl
-Z2FyZHMsDQo+IEtyenlzenRvZg0K
+
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
+
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-6.17
+
+for you to fetch changes up to 45dd59885ca8d283f365774a82b9b785b65c8d37:
+
+  dt-bindings: clock: qcom,sm4450-dispcc: Reference qcom,gcc.yaml (2025-07-19 22:42:28 -0500)
+
+----------------------------------------------------------------
+Qualcomm clock updated for v6.17
+
+Add global, display, gpu, video, camera, tcsr, and rpmh clock controller
+for the Milos SoC.
+
+Add camera, display, GPU, and video clock controllers for QCS615, add
+the video clock controller for SM6350, and add a camera clock controller
+driver for SC8180X.
+
+Move PLL configuration to really probe across a variety of platforms, in
+order to handle the clock controllers powered by multiple power domains.
+
+Replace round_rate() with determine_rate() across the clock
+implementations.
+
+Enable GDSC hardware control for video clock controller GDSCs in a few
+platforms.
+
+Fix GE PHY reset on IPQ5018, broken NSS port6 frequency table on
+IPQ8074, add missing video resets on X1E80100 and keep the XO clock
+always on on IPQ5018.
+
+----------------------------------------------------------------
+Bjorn Andersson (3):
+      Merge branch '20250512-sc8180x-camcc-support-v4-2-8fb1d3265f52@quicinc.com' into clk-for-6.17
+      Merge branch '20250610-qcom_ipq5424_cmnpll-v3-1-ceada8165645@quicinc.com' into clk-for-6.17
+      Merge branch '20250516-ipq5018-cmn-pll-v4-2-389a6b30e504@outlook.com' into clk-for-6.17
+
+Brian Masney (5):
+      clk: qcom: gcc-ipq4019: convert from round_rate() to determine_rate()
+      clk: qcom: rpm: convert from round_rate() to determine_rate()
+      clk: qcom: rpmh: convert from round_rate() to determine_rate()
+      clk: qcom: smd-rpm: convert from round_rate() to determine_rate()
+      clk: qcom: spmi-pmic-div: convert from round_rate() to determine_rate()
+
+Christian Marangi (1):
+      clk: qcom: gcc-ipq8074: fix broken freq table for nss_port6_tx_clk_src
+
+George Moussalem (4):
+      dt-bindings: clock: qcom: Add CMN PLL support for IPQ5018 SoC
+      clk: qcom: ipq5018: keep XO clock always on
+      clk: qcom: ipq-cmn-pll: Add IPQ5018 SoC support
+      clk: qcom: gcc-ipq5018: fix GE PHY reset
+
+Jagadeesh Kona (10):
+      dt-bindings: clock: qcom,sm8450-videocc: Add MXC power domain
+      dt-bindings: clock: qcom,sm8450-camcc: Move sc8280xp camcc to sa8775p camcc
+      clk: qcom: common: Handle runtime power management in qcom_cc_really_probe
+      clk: qcom: common: Add support to configure clk regs in qcom_cc_really_probe
+      clk: qcom: videocc-sm8450: Move PLL & clk configuration to really probe
+      clk: qcom: videocc-sm8550: Move PLL & clk configuration to really probe
+      clk: qcom: camcc-sm8450: Move PLL & clk configuration to really probe
+      clk: qcom: camcc-sm8550: Move PLL & clk configuration to really probe
+      clk: qcom: camcc-sm8650: Move PLL & clk configuration to really probe
+      clk: qcom: camcc-x1e80100: Move PLL & clk configuration to really probe
+
+Konrad Dybcio (1):
+      clk: qcom: Add video clock controller driver for SM6350
+
+Krzysztof Kozlowski (1):
+      clk: qcom: dispcc-sm8750: Fix setting rate byte and pixel clocks
+
+Loic Poulain (1):
+      clk: qcom: gcc-qcm2290: Set HW_CTRL_TRIGGER for video GDSC
+
+Luca Weiss (16):
+      dt-bindings: clock: qcom: Document the Milos RPMH Clock Controller
+      clk: qcom: rpmh: Add support for RPMH clocks on Milos
+      dt-bindings: clock: qcom: document the Milos TCSR Clock Controller
+      clk: qcom: tcsrcc-sm8650: Add support for Milos SoC
+      clk: qcom: common: Add support to register rcg dfs in qcom_cc_really_probe
+      dt-bindings: clock: qcom: document the Milos Global Clock Controller
+      clk: qcom: Add Global Clock controller (GCC) driver for Milos
+      dt-bindings: clock: qcom: document the Milos Camera Clock Controller
+      clk: qcom: Add Camera Clock controller (CAMCC) driver for Milos
+      dt-bindings: clock: qcom: document the Milos Display Clock Controller
+      clk: qcom: Add Display Clock controller (DISPCC) driver for Milos
+      dt-bindings: clock: qcom: document the Milos GPU Clock Controller
+      clk: qcom: Add Graphics Clock controller (GPUCC) driver for Milos
+      dt-bindings: clock: qcom: document the Milos Video Clock Controller
+      clk: qcom: Add Video Clock controller (VIDEOCC) driver for Milos
+      dt-bindings: clock: qcom: Remove double colon from description
+
+Luo Jie (2):
+      dt-bindings: clock: qcom: Add CMN PLL support for IPQ5424 SoC
+      clk: qcom: cmnpll: Add IPQ5424 SoC support
+
+Satya Priya Kakitapalli (7):
+      dt-bindings: clock: qcom: Add missing bindings on gcc-sc8180x
+      dt-bindings: clock: Add Qualcomm SC8180X Camera clock controller
+      clk: qcom: camcc-sc8180x: Add SC8180X camera clock controller driver
+      dt-bindings: clock: qcom,sm8150-camcc: Reference qcom,gcc.yaml
+      dt-bindings: clock: qcom,mmcc: Reference qcom,gcc.yaml
+      dt-bindings: clock: qcom,sm4450-camcc: Reference qcom,gcc.yaml
+      dt-bindings: clock: qcom,sm4450-dispcc: Reference qcom,gcc.yaml
+
+Stephan Gerhold (5):
+      dt-bindings: clock: qcom,sm8450-videocc: Document X1E80100 compatible
+      clk: qcom: videocc-sm8550: Allow building without SM8550/SM8560 GCC
+      clk: qcom: videocc-sm8550: Add separate frequency tables for X1E80100
+      dt-bindings: clock: qcom,x1e80100-gcc: Add missing video resets
+      clk: qcom: gcc-x1e80100: Add missing video resets
+
+Taniya Das (11):
+      clk: qcom: clk-alpha-pll: Add support for common PLL configuration function
+      clk: qcom: videocc: Use HW_CTRL_TRIGGER flag for video GDSC's
+      clk: qcom: clk-alpha-pll: Add support for dynamic update for slewing PLLs
+      dt-bindings: clock: Add Qualcomm QCS615 Camera clock controller
+      clk: qcom: camcc-qcs615: Add QCS615 camera clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Display clock controller
+      clk: qcom: dispcc-qcs615: Add QCS615 display clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Graphics clock controller
+      clk: qcom: gpucc-qcs615: Add QCS615 graphics clock controller driver
+      dt-bindings: clock: Add Qualcomm QCS615 Video clock controller
+      clk: qcom: videocc-qcs615: Add QCS615 video clock controller driver
+
+Vladimir Zapolskiy (1):
+      dt-bindings: clock: qcom,sm8450-camcc: Allow to specify two power domains
+
+ .../bindings/clock/qcom,camcc-sm8250.yaml          |    2 +-
+ .../bindings/clock/qcom,dispcc-sm6125.yaml         |    2 +-
+ .../bindings/clock/qcom,dispcc-sm6350.yaml         |    2 +-
+ .../bindings/clock/qcom,gcc-ipq4019.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-ipq8074.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-msm8976.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-msm8994.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-msm8996.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-msm8998.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-qcm2290.yaml           |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-qcs404.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sc7180.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sc7280.yaml |    2 +-
+ .../bindings/clock/qcom,gcc-sc8180x.yaml           |    2 +-
+ .../bindings/clock/qcom,gcc-sc8280xp.yaml          |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sdm845.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sdx55.yaml  |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sdx65.yaml  |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm6115.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm6125.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm6350.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm8150.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm8250.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm8350.yaml |    2 +-
+ .../devicetree/bindings/clock/qcom,gcc-sm8450.yaml |    2 +-
+ .../bindings/clock/qcom,ipq9574-cmn-pll.yaml       |    2 +
+ .../bindings/clock/qcom,milos-camcc.yaml           |   51 +
+ .../bindings/clock/qcom,milos-dispcc.yaml          |   63 +
+ .../devicetree/bindings/clock/qcom,milos-gcc.yaml  |   62 +
+ .../bindings/clock/qcom,milos-videocc.yaml         |   53 +
+ .../devicetree/bindings/clock/qcom,mmcc.yaml       |   24 +-
+ .../bindings/clock/qcom,msm8998-gpucc.yaml         |    2 +-
+ .../bindings/clock/qcom,qcm2290-dispcc.yaml        |    2 +-
+ .../bindings/clock/qcom,qcs615-dispcc.yaml         |   55 +
+ .../bindings/clock/qcom,qcs615-gpucc.yaml          |   49 +
+ .../bindings/clock/qcom,qcs615-videocc.yaml        |   47 +
+ .../bindings/clock/qcom,qdu1000-ecpricc.yaml       |    2 +-
+ .../bindings/clock/qcom,qdu1000-gcc.yaml           |    2 +-
+ .../devicetree/bindings/clock/qcom,rpmhcc.yaml     |    1 +
+ .../bindings/clock/qcom,sa8775p-camcc.yaml         |   15 +
+ .../bindings/clock/qcom,sa8775p-gcc.yaml           |    2 +-
+ .../bindings/clock/qcom,sc7180-camcc.yaml          |    2 +-
+ .../bindings/clock/qcom,sc7180-dispcc.yaml         |    2 +-
+ .../bindings/clock/qcom,sc7180-lpasscorecc.yaml    |    2 +-
+ .../bindings/clock/qcom,sc7280-camcc.yaml          |    2 +-
+ .../bindings/clock/qcom,sc7280-dispcc.yaml         |    2 +-
+ .../bindings/clock/qcom,sc7280-lpasscc.yaml        |    2 +-
+ .../bindings/clock/qcom,sc8180x-camcc.yaml         |   67 +
+ .../bindings/clock/qcom,sdm845-camcc.yaml          |    2 +-
+ .../bindings/clock/qcom,sdm845-dispcc.yaml         |    2 +-
+ .../bindings/clock/qcom,sdm845-lpasscc.yaml        |    2 +-
+ .../devicetree/bindings/clock/qcom,sdx75-gcc.yaml  |    2 +-
+ .../bindings/clock/qcom,sm4450-camcc.yaml          |   22 +-
+ .../bindings/clock/qcom,sm4450-dispcc.yaml         |   22 +-
+ .../devicetree/bindings/clock/qcom,sm4450-gcc.yaml |    2 +-
+ .../bindings/clock/qcom,sm6115-dispcc.yaml         |    2 +-
+ .../bindings/clock/qcom,sm6115-gpucc.yaml          |    2 +-
+ .../bindings/clock/qcom,sm6125-gpucc.yaml          |    2 +-
+ .../bindings/clock/qcom,sm6350-camcc.yaml          |   11 +-
+ .../bindings/clock/qcom,sm6375-dispcc.yaml         |    2 +-
+ .../devicetree/bindings/clock/qcom,sm6375-gcc.yaml |    2 +-
+ .../bindings/clock/qcom,sm6375-gpucc.yaml          |    2 +-
+ .../bindings/clock/qcom,sm7150-camcc.yaml          |    2 +-
+ .../bindings/clock/qcom,sm7150-dispcc.yaml         |    2 +-
+ .../devicetree/bindings/clock/qcom,sm7150-gcc.yaml |    2 +-
+ .../bindings/clock/qcom,sm7150-videocc.yaml        |    2 +-
+ .../bindings/clock/qcom,sm8150-camcc.yaml          |   22 +-
+ .../bindings/clock/qcom,sm8450-camcc.yaml          |   20 +-
+ .../bindings/clock/qcom,sm8450-dispcc.yaml         |    2 +-
+ .../bindings/clock/qcom,sm8450-gpucc.yaml          |    2 +
+ .../bindings/clock/qcom,sm8450-videocc.yaml        |   19 +-
+ .../devicetree/bindings/clock/qcom,sm8550-gcc.yaml |    2 +-
+ .../bindings/clock/qcom,sm8550-tcsr.yaml           |    1 +
+ .../devicetree/bindings/clock/qcom,sm8650-gcc.yaml |    2 +-
+ .../bindings/clock/qcom,x1e80100-gcc.yaml          |    2 +-
+ drivers/clk/qcom/Kconfig                           |  104 +-
+ drivers/clk/qcom/Makefile                          |   11 +
+ drivers/clk/qcom/camcc-milos.c                     | 2161 +++++++++++++
+ drivers/clk/qcom/camcc-qcs615.c                    | 1597 ++++++++++
+ drivers/clk/qcom/camcc-sc8180x.c                   | 2889 ++++++++++++++++++
+ drivers/clk/qcom/camcc-sm8450.c                    |   89 +-
+ drivers/clk/qcom/camcc-sm8550.c                    |   85 +-
+ drivers/clk/qcom/camcc-sm8650.c                    |   83 +-
+ drivers/clk/qcom/camcc-x1e80100.c                  |   67 +-
+ drivers/clk/qcom/clk-alpha-pll.c                   |  249 +-
+ drivers/clk/qcom/clk-alpha-pll.h                   |    4 +
+ drivers/clk/qcom/clk-rpm.c                         |   10 +-
+ drivers/clk/qcom/clk-rpmh.c                        |   34 +-
+ drivers/clk/qcom/clk-smd-rpm.c                     |    8 +-
+ drivers/clk/qcom/clk-spmi-pmic-div.c               |   12 +-
+ drivers/clk/qcom/common.c                          |   91 +-
+ drivers/clk/qcom/common.h                          |   12 +
+ drivers/clk/qcom/dispcc-milos.c                    |  974 ++++++
+ drivers/clk/qcom/dispcc-qcs615.c                   |  792 +++++
+ drivers/clk/qcom/dispcc-sm8750.c                   |   10 +-
+ drivers/clk/qcom/gcc-ipq4019.c                     |   14 +-
+ drivers/clk/qcom/gcc-ipq5018.c                     |    4 +-
+ drivers/clk/qcom/gcc-ipq8074.c                     |    6 +-
+ drivers/clk/qcom/gcc-milos.c                       | 3225 ++++++++++++++++++++
+ drivers/clk/qcom/gcc-qcm2290.c                     |    1 +
+ drivers/clk/qcom/gcc-x1e80100.c                    |    2 +
+ drivers/clk/qcom/gpucc-milos.c                     |  562 ++++
+ drivers/clk/qcom/gpucc-qcs615.c                    |  531 ++++
+ drivers/clk/qcom/ipq-cmn-pll.c                     |   50 +-
+ drivers/clk/qcom/tcsrcc-sm8650.c                   |    8 +
+ drivers/clk/qcom/videocc-milos.c                   |  403 +++
+ drivers/clk/qcom/videocc-qcs615.c                  |  338 ++
+ drivers/clk/qcom/videocc-sc7180.c                  |    2 +-
+ drivers/clk/qcom/videocc-sdm845.c                  |    4 +-
+ drivers/clk/qcom/videocc-sm6350.c                  |  355 +++
+ drivers/clk/qcom/videocc-sm7150.c                  |    4 +-
+ drivers/clk/qcom/videocc-sm8150.c                  |    4 +-
+ drivers/clk/qcom/videocc-sm8450.c                  |   62 +-
+ drivers/clk/qcom/videocc-sm8550.c                  |   91 +-
+ include/dt-bindings/clock/qcom,gcc-sc8180x.h       |   10 +
+ include/dt-bindings/clock/qcom,ipq5018-cmn-pll.h   |   16 +
+ include/dt-bindings/clock/qcom,ipq5424-cmn-pll.h   |   22 +
+ include/dt-bindings/clock/qcom,milos-camcc.h       |  131 +
+ include/dt-bindings/clock/qcom,milos-dispcc.h      |   61 +
+ include/dt-bindings/clock/qcom,milos-gcc.h         |  210 ++
+ include/dt-bindings/clock/qcom,milos-gpucc.h       |   56 +
+ include/dt-bindings/clock/qcom,milos-videocc.h     |   36 +
+ include/dt-bindings/clock/qcom,qcs615-camcc.h      |  110 +
+ include/dt-bindings/clock/qcom,qcs615-dispcc.h     |   52 +
+ include/dt-bindings/clock/qcom,qcs615-gpucc.h      |   39 +
+ include/dt-bindings/clock/qcom,qcs615-videocc.h    |   30 +
+ include/dt-bindings/clock/qcom,sc8180x-camcc.h     |  181 ++
+ include/dt-bindings/clock/qcom,x1e80100-gcc.h      |    2 +
+ 128 files changed, 16172 insertions(+), 450 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-camcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-dispcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-gcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,milos-videocc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs615-dispcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs615-gpucc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,sc8180x-camcc.yaml
+ create mode 100644 drivers/clk/qcom/camcc-milos.c
+ create mode 100644 drivers/clk/qcom/camcc-qcs615.c
+ create mode 100644 drivers/clk/qcom/camcc-sc8180x.c
+ create mode 100644 drivers/clk/qcom/dispcc-milos.c
+ create mode 100644 drivers/clk/qcom/dispcc-qcs615.c
+ create mode 100644 drivers/clk/qcom/gcc-milos.c
+ create mode 100644 drivers/clk/qcom/gpucc-milos.c
+ create mode 100644 drivers/clk/qcom/gpucc-qcs615.c
+ create mode 100644 drivers/clk/qcom/videocc-milos.c
+ create mode 100644 drivers/clk/qcom/videocc-qcs615.c
+ create mode 100644 drivers/clk/qcom/videocc-sm6350.c
+ create mode 100644 include/dt-bindings/clock/qcom,ipq5018-cmn-pll.h
+ create mode 100644 include/dt-bindings/clock/qcom,ipq5424-cmn-pll.h
+ create mode 100644 include/dt-bindings/clock/qcom,milos-camcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,milos-dispcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,milos-gcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,milos-gpucc.h
+ create mode 100644 include/dt-bindings/clock/qcom,milos-videocc.h
+ create mode 100644 include/dt-bindings/clock/qcom,qcs615-camcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,qcs615-dispcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,qcs615-gpucc.h
+ create mode 100644 include/dt-bindings/clock/qcom,qcs615-videocc.h
+ create mode 100644 include/dt-bindings/clock/qcom,sc8180x-camcc.h
 
