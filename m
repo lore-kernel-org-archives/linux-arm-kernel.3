@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09933C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 17:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F73C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 18:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Db81rpauL3JtcAl9X3+rg1wKI9GgW8iU0AE2PBzJ88M=; b=47vGjMpHNHnH0eD8Nwpy2vQ6vx
-	B2jHi9qY08IvoG0yF3hxfNpNtqQjOoWZK4zzqW1cTKqT8i1baDwS+PC1FeMte2x0wsPXA+vl/qZsu
-	JorY4mWiida8meoqBVXeuTKTiVIf1KkMMhouwiEHP2jeUNa+tC2lbdv+wN2bMfixo6tJB/U6h1qdt
-	KHokqpTYRDE7iSLOMaVz33EmuJ1gfK+XOKYFnccJbPx8T32h3azAtnwqd6ZK8JDQ5nvoPSjFz/PjJ
-	ONqBwM0KUc4KyoaROoA9xt6MSBHw+Hy9sAenFB79/9BJivPdMeCDIylGDShf8UTosyd/wcMQyIHWl
-	QfzwircA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3C4qr/FhtbdmuHtZf4xYJuWPpDOV55jd2UZ3CTOGfBc=; b=UV99XRl5BeXxR2IoxKBr3/eJB2
+	NZjrXaVYOZMH5rnns8EpZxWhU1nE8NxYNwS+yVePoOU2XUo06X7SQr0s23G7ui55UUNgMjOrgcu4c
+	qP0EWsYbEI1meQNYT7adH8elO0azLl9hoVIbe8hz74Jfi9iMXy+XPEML8gZqNcnYPWSeBA2ySuVgW
+	d3rGT6J+FQ3Qdu6jXllxyzhogaIz1L/sHbNH6zcbulqvV3tvJN7oSn/i2vL1Zwp7FI28DMr6mB+Fd
+	B6pHR79EXVngsXIuHnwekOplIlBEu69k9SHk7UGfHj9gqn8OmQUTX6mc+4+GGn+78bas88NxdFqzf
+	Is7sToHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug4vb-0000000CzNA-0q9d;
-	Sun, 27 Jul 2025 17:12:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ug5l6-0000000D2ku-2acX;
+	Sun, 27 Jul 2025 18:06:04 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug4t5-0000000CzDj-3oCE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 27 Jul 2025 17:10:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Db81rpauL3JtcAl9X3+rg1wKI9GgW8iU0AE2PBzJ88M=; b=ghRnka8d90YNCdnAcU5reMFOl0
-	b5xMB4U+aOm7f2kXkabWYLybO874v5U8U1RARNJW0q7UvjujvdnqD7skrOqD+h6Sita1kV/SoxiJv
-	ZSjAWTpPteHawIvioi6goGS6RRjNGGrnJJpxQyQEj6sQRgJCe90i61fA42o24vpxWxyI4lfaGlp7h
-	FSBnkj1s772rS6u7oiARn/+cp1Us6xZwWVbuZ5EH5AsZYBWVwpr44hVX48PtGrUWRfPacnkNKWEn6
-	DEniEJFZQqTnxMxgpqmEq1EZrNyKI8Movw/kV4alRLbhZAKPG9TKAt0hP+8nddSq144brwXAJrmXx
-	E/FOcl+A==;
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ug4t1-0000000CJq5-2SkL
+	id 1ug5iY-0000000D2Pu-1PeE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 17:10:14 +0000
-Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 56RH9lBm018749;
-	Sun, 27 Jul 2025 19:09:47 +0200
-Date: Sun, 27 Jul 2025 19:09:47 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: alchark@gmail.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-        heiko@sntech.de, jonas@kwiboo.se, krzk+dt@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, ziyao@disroot.org
-Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
- scaling support
-Message-ID: <20250727170947.GA19379@1wt.eu>
-References: <CABjd4YzLaAgd-5Cg9fMSAgCS6Wt6=uC8K3WRhcAtnjjg1je87Q@mail.gmail.com>
- <20250720140010.218235-1-amadeus@jmu.edu.cn>
+	Sun, 27 Jul 2025 18:03:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1753639405;
+ bh=3C4qr/FhtbdmuHtZf4xYJuWPpDOV55jd2UZ3CTOGfBc=;
+ b=tPlwoUvEkcUYseKyG2xvdF020KyQtFVogedEq23KgflTbn0oDbKLcDx5PBmITEw8wE4vviyQG
+ lcHkvQCuh66r+ytZDCDRUHj/sdij2p2q0QzTLrnc7jd0BoJ8B/TukA9Mh2+EcMLFchtWP2VD4sb
+ OmiO40JnVErpFJyyztlnw8EVwUPAaVYlvpZxgzKN/s5WmX65t+wmKsMldWIpRzTa0gVQyhUFKkR
+ WsFNhHGv/m2Y2RxjUkkQj4JrPBhRv97bbIaoFfUWyAX1/wnrQ0E+mAFRGKWcpMuaD3XvenW7Ste
+ tbEZsYbki+bUQjeDrEGklS2A3AI5FTGU6hq6he2D4/5w==
+X-Forward-Email-ID: 688669dfc509b9ee169cf2fc
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.1.7
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	=?UTF-8?q?Alvin=20=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Heiko Stuebner <heiko@sntech.de>,
+	netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH net-next 0/3] net: dsa: realtek: Add support for use of an optional mdio node
+Date: Sun, 27 Jul 2025 18:02:57 +0000
+Message-ID: <20250727180305.381483-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250720140010.218235-1-amadeus@jmu.edu.cn>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_181012_712862_BF43E8A1 
-X-CRM114-Status: GOOD (  35.77  )
+X-CRM114-CacheID: sfid-20250727_110326_709615_35002516 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,143 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The Radxa E24C, a Rockchip RK3528A based device, uses a MDIO-connected
+RTL8367RB-VB switch to expose four Ethernet ports on the device.
 
-On Sun, Jul 20, 2025 at 10:00:10PM +0800, Chukun Pan wrote:
-> Hi,
-> 
-> > > Because the actual frequency generated by 850mV is closer to 1008MHz.
-> >
-> > Which likely means that you have an -L5 chip. It will be different on
-> > other chips - it's a lottery of silicon quality.
-> 
-> The rk3528 board I have has -L3 and -L5 levels.
-> -L3 level tested at 850mV (mainline kernel) actual frequency is 1055MHz.
-> 
-> Frankly speaking, I have always doubted whether the voltage value of BSP
-> is correct. The voltage of BSP kernel at 1800MHz and 2016MHz is too low,
-> and no board can reach the corresponding actual frequency.
-> For example, if we set the CPU frequency to 2016MHz when running the BSP
-> kernel, the actual frequency can only reach 1800MHz.
+Trying to describe this switch in the device tree in a way that makes
+it work for the driver results in dtschema complaining that use of an
+mdio child OF node is not allowed.
 
-I've tried the patch on my E20C and am seeing a frequency drop compared
-to cpufreq disabled (2016 MHz stock frequency). By default, without the
-OPP, my CPU cores are showing the following frequencies:
+This series relaxes the realtek dsa drivers requirement of having a mdio
+child OF node to probe and instead have it register a user_mii_bus to
+make it function when a mdio child OF node is missing.
 
-  # ncpu=$(nproc);for ((i=0; i<ncpu;i ++)); do echo -n "$(taskset -c $i ./mhz -c -i) " ;done;echo
-  2008 2011 2012 2010 
+Another option could also be to adjust the dt-bindings schema to allow
+use of a mdio child OF node for MDIO-connected switches.
 
-There's always the same distribution with core 0 being slightly lower,
-then core 3, then 1 and 2, very likely due to leakage and PVTM adjustments.
+With this series dtschema is happy and the switch can work:
 
-In idle it's consuming 906 mW. After enabling the OPP, I've tried again
-and this time I'm seeing this:
+  rtl8365mb-mdio stmmac-0:1d: found an RTL8367RB-VB switch
+  rtl8365mb-mdio stmmac-0:1d: configuring for fixed/rgmii-id link mode
+  rtl8365mb-mdio stmmac-0:1d: Link is Up - 1Gbps/Full - flow control off
+  rtl8365mb-mdio stmmac-0:1d wan (uninitialized): PHY [stmmac-0:1d:user_mii:00] driver [RTL8365MB-VC Gigabit Ethernet] (irq=74)
+  rtl8365mb-mdio stmmac-0:1d lan1 (uninitialized): PHY [stmmac-0:1d:user_mii:01] driver [RTL8365MB-VC Gigabit Ethernet] (irq=75)
+  rtl8365mb-mdio stmmac-0:1d lan2 (uninitialized): PHY [stmmac-0:1d:user_mii:02] driver [RTL8365MB-VC Gigabit Ethernet] (irq=76)
+  rtl8365mb-mdio stmmac-0:1d lan3 (uninitialized): PHY [stmmac-0:1d:user_mii:03] driver [RTL8365MB-VC Gigabit Ethernet] (irq=77)
+  rtl8365mb-mdio stmmac-0:1d wan: configuring for phy/gmii link mode
+  rtl8365mb-mdio stmmac-0:1d wan: Link is Up - 1Gbps/Full - flow control off
 
-  # ncpu=$(nproc);for ((i=0; i<ncpu;i ++)); do echo -n "$(taskset -c $i ./mhz -c -i) " ;done;echo
-  1891 1895 1894 1893 
+The device tree changes builds on top of the "arm64: dts: rockchip: Add
+Radxa E24C" series at [1].
 
-It's missing ~120 MHz as if we were not using the correct multiples. The
-power draw is also lower, at 864 mW.
+[1] https://lore.kernel.org/r/20250727144409.327740-1-jonas@kwiboo.se
 
-I've tested each of the OPP in turn and measured the idle power consumption
-and the effective frequency (measured on core 1):
+Jonas Karlman (3):
+  net: dsa: realtek: remove unused user_mii_bus from realtek_priv
+  net: dsa: realtek: Add support for use of an optional mdio node
+  arm64: dts: rockchip: Add RTL8367RB-VB switch to Radxa E24C
 
-    OPP     MHz    mW
-   408000   394   795
-   600000   593   797
-   816000   908   800
-  1008000  1100   801
-  1200000  1306   808
-  1416000  1372   812
-  1608000  1576   818
-  1800000  1744   836
-  2016000  1896   856
+ .../boot/dts/rockchip/rk3528-radxa-e24c.dts   | 55 +++++++++++++++++++
+ drivers/net/dsa/realtek/realtek.h             |  1 -
+ drivers/net/dsa/realtek/rtl83xx.c             | 28 ++++++++--
+ 3 files changed, 77 insertions(+), 7 deletions(-)
 
-It's interesting to note that 816, 1008 and 1200 MHz result in a higher
-frequency than configured, but upper ones result in slightly smaller
-frequencies (~2%, might just be a measurement error), particularly for
-the last one which is 6% lower.
+-- 
+2.50.1
 
-I noticed a missing entry for 2 GHz in clk-rk3528.c so I've added it,
-expecting that it would solve the problem:
-
---- a/drivers/clk/rockchip/clk-rk3528.c
-+++ b/drivers/clk/rockchip/clk-rk3528.c
-@@ -25,6 +25,7 @@ enum rk3528_plls {
- };
- 
- static struct rockchip_pll_rate_table rk3528_pll_rates[] = {
-+       RK3036_PLL_RATE(2016000000, 1, 84, 1, 1, 1, 0),
-        RK3036_PLL_RATE(1896000000, 1, 79, 1, 1, 1, 0),
-        RK3036_PLL_RATE(1800000000, 1, 75, 1, 1, 1, 0),
-        RK3036_PLL_RATE(1704000000, 1, 71, 1, 1, 1, 0),
-
-But it had no effect at all, the frequency remains limited to 1896 MHz.
-
-One thing I'm noticing is that with the OPP patches applied, my CPU
-voltage measures 1.094V. Without it, it's 100mV above, at 1.194V. So
-I tried to change the opp-microvolts in the DTS, setting them to 1.2V,
-and I reverted the change above since it had no effect.
-
-And indeed, this unlocked the upper OPP, but now the CPU is running at
-2.1 GHz, and at 900mW idle:
-
-  $ ncpu=$(nproc);for ((i=0; i<ncpu;i ++)); do echo -n "$(taskset -c $i ./mhz -c -i) " ;done;echo
-  2091 2094 2094 2092 
-
-So it's clear that something in the hardware is having fun with our
-settings, and adjusting the frequency also based on the delivered
-voltage.
-
-I tried other voltages without changing the frequency and here's what 
-I'm measuring (configured mhz, measured mhz, configured voltage,
-measured voltage):
-
-  Opp-MHz  MHz  Opp-mV  mV
-   stock  2012  stock  1194
-    2016  1896   1100  1094
-    2016  1944   1125  1117
-    2016  1998   1150  1144
-    2016  2040   1175  1167
-    2016  2094   1200  1194
-
-At least the configured voltage is always respected. So I'm wondering
-what's done in the stock settings. Maybe it's set to a higher voltage
-to ensure stability even on low-quality bins, and configures a lower
-frequency ? Applying a ratio above would indicate that the stock OPP at
-1194 mV above is in fact 2012*2016/2094=1944 MHz. It indeed corresponds
-to a multiple of 24 MHz.
-
-And bingo, trying to set it in opp-hz gives me the stock frequency and
-voltage on this device:
-
-  2009 2012 2013 2011
-
-So what should we conclude from this ? Is the 1.1V configured in the OPP
-the official maximum ? If so, given that the E20C runs at 1.2V stock, how
-can we be sure it will not fail on devices that work fine at 1.2V at stock
-frequency and are not necessarily well tested at 1.1 ? Shouldn't we raise
-the max voltage a little bit to match what vendors do ? Similarly, if we'd
-set 1.2V with the 2016MHz OPP, it would result in a higher frequency on
-some devices like mine, possibly resulting in instabilities on some
-devices. On the other hand, the trouble caused by that PVTM stuff is also
-the one that adjusts our frequency based on the voltage and requested one,
-presumably in order to work reliably at that voltage.
-
-Or maybe we could simply raise the voltage a little bit. The table above
-shows that at 1.15V we're close to the configured OPP and still below the
-stock voltage. This is not critical, but I find it a bit annoying that
-enabling cpufreq results in lower performance than without!
-
-Another observation is that I thought it was the boot loader that was
-presetting the voltage and frequency, and that's not even the case: under
-u-boot, I'm measuring 944mV. So it's just linux that sets it when booting.
-Maybe it instead indicates that one voltage regulator driver's default
-setting is a bit high for this chip and should not set the CPU voltage
-to 1.2V, hence not make the device run at this frequency to start with ?
-
-I can run more tests next weekend if needed.
-
-Cheers,
-Willy
 
