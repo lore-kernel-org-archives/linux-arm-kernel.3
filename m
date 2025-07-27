@@ -4,74 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86C8C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 08:59:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DE5C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Jul 2025 09:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N0gH2b5avjWH+bSpYF5rphLD8SQ/r0QaDAAy63rPRQ0=; b=gU3mCQ/dEtmzQSILbBc6jq2Uui
-	cSd4yUyPOlDDh03cqhiKpAE2y4jktyl6qenj0oSXLL0/jokhi1gHysP8LTVRr+CQN2oqamhICZhqE
-	eM22gRzH0A+3EajN6EDTGiz7ztVNP5QPYFIZs1j5Rq6jPce06+VFkBKNCTo4dl6OUpRD05V3mGq+8
-	7kjFwIkDuI0MOWBm2L0yMMtgRTtnx7yDZABN4q5FGY1wcxZ1UNMwH62q4woInUu55/eXze7dkOi4e
-	TpJl5/F0+jjIcvg/MBTSgqRLB+UXzKo1LbLEbgBwONPHEsBI5osxijiBiyS9KfKX4KzKbqZhTMhiQ
-	ykwNFaDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RXO7j/EW0YZHZmrgrDHnxMJbXeUhG4A5t7N4/mNJ/U0=; b=yLBf3NVGrpebILcpjCcvsBdiyf
+	Oc8WpyE23SujYJlg15iDr5qICL63uvOW9k1gAt0Kubd67y8/mhbdwrkA2Wux2a1XolGMMcgPysHl/
+	zd6BtU5k/iLaN5tBen7bb9E1DzJLIK6ng3EruLssz1s10rio/5MSo2qfKuO3SPohA8/uEGsBkXEvY
+	W6atVTCnCNNYDvXc3CVJTngmLf4/qvZcb3Dggp2qi+8TjdpEGUwnxHwWkWqWLUvdIUAkuoBGeaBUu
+	4q3OS7ktgmojPeQFjIEcIPvVr5R2fLO9pe7CDQjOkBslxNUTtNYWpuVd6TnZdz8QSi87dt8YTAmK2
+	ZkcKkT5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufxEV-0000000CWo0-31o0;
-	Sun, 27 Jul 2025 08:59:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ufxqV-0000000CYOi-28hX;
+	Sun, 27 Jul 2025 09:39:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ufxBy-0000000CWYB-0Dxn
+	id 1ufxny-0000000CYDK-14hp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Jul 2025 08:57:15 +0000
+	Sun, 27 Jul 2025 09:36:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 85370A5428E;
-	Sun, 27 Jul 2025 08:57:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D20FC4CEEB;
-	Sun, 27 Jul 2025 08:57:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1753606632;
-	bh=a4FwOdv2RcrEcz4bH44MhknPhjU1EIT8dbqsYLeIkNk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rm0eDErI49pWQSAo1miOA8ZTT0xrXss2ye7yhbph/BYkZWXXKlY1SAyDci9FLRImC
-	 kRlaogBQ88Ji0LFUVfiYFnJoJF0as8RbT0AG/vvT++X48xrvJKz4BIsssu5DSLyPwX
-	 XHf0YPZ4TKIH1CMSvQr/+HaoHufL5RBilzUfODow=
-Date: Sun, 27 Jul 2025 10:57:09 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Sean Anderson <sean.anderson@linux.dev>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, Dave Ertman <david.m.ertman@intel.com>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-kernel@vger.kernel.org, Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Ira Weiny <ira.weiny@intel.com>
-Subject: Re: [PATCH net v2 1/4] auxiliary: Support hexadecimal ids
-Message-ID: <2025072751-living-sheath-e601@gregkh>
-References: <2025071736-viscous-entertain-ff6c@gregkh>
- <03e04d98-e5eb-41c0-8407-23cccd578dbe@linux.dev>
- <2025071726-ramp-friend-a3e5@gregkh>
- <5ee4bac4-957b-481a-8608-15886da458c2@linux.dev>
- <20250720081705.GE402218@unreal>
- <e4b5e4fa-45c4-4b67-b8f1-7d9ff9f8654f@linux.dev>
- <20250723081356.GM402218@unreal>
- <991cbb9a-a1b5-4ab8-9deb-9ecea203ce0f@linux.dev>
- <2025072543-senate-hush-573d@gregkh>
- <20250727080705.GY402218@unreal>
+	by sea.source.kernel.org (Postfix) with ESMTP id B3D3643F3D;
+	Sun, 27 Jul 2025 09:36:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6F0FC4CEEB;
+	Sun, 27 Jul 2025 09:36:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753608987;
+	bh=3KwHDBXWQOpr86hh/WgXBV9m9JGz7kpYAsJ27ibYkBc=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=CleSKY6oYIOqUNNodUPeJS3HEm1Cv7ET2XDHb9qBTv6RGO+5Yr8v4eGzHmMUbsQOv
+	 KnEG9Y+kBRcXsgUGzPbgazE/Ro7TV5N520M3eFXqib0dd/jbn3rfhclfK1VstmRkzn
+	 IC0BDYxMawwO/SREWuVmP5qmJzaUMoAvTDKXk+mfs7JdyKObpTG74RMqaVNPT1EKaO
+	 jMs/ZarvFq50IN5/GNPZYnMr8dkoL9RilmsfWBT4UBSddoFOK08SzZnj6Xxy+M+5hY
+	 8ez8LzAEeiAlsCk7b3CQjpLGijkqtTdtGWN/fDo4+6QcMCk1NY8lbDX62emxhIV9P0
+	 6hIRJVdwg+FPA==
+Message-ID: <b8e570ab-313f-4f20-bedb-a1191c672435@kernel.org>
+Date: Sun, 27 Jul 2025 11:36:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250727080705.GY402218@unreal>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add
+ parent node compatibles and refine documentation
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Kevin Chen <kevin_chen@aspeedtech.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
+References: <20250722095156.1672873-1-ryan_chen@aspeedtech.com>
+ <20250722095156.1672873-2-ryan_chen@aspeedtech.com>
+ <001d37c7-f704-4554-a4db-0cc130e07dd6@kernel.org>
+ <OS8PR06MB7541F8D3AEE1A618DB31F07BF25FA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ <384635a3-c6ed-44f8-a54a-2b20e20694cd@kernel.org>
+ <OS8PR06MB75418BD29DCD6E93F2A44903F25BA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <OS8PR06MB75418BD29DCD6E93F2A44903F25BA@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_015714_362126_246F6E71 
-X-CRM114-Status: GOOD (  28.27  )
+X-CRM114-CacheID: sfid-20250727_023630_350167_D64414C6 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,61 +130,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 27, 2025 at 11:07:05AM +0300, Leon Romanovsky wrote:
-> On Fri, Jul 25, 2025 at 07:02:24AM +0200, Greg Kroah-Hartman wrote:
-> > On Thu, Jul 24, 2025 at 09:55:59AM -0400, Sean Anderson wrote:
-> > > On 7/23/25 04:13, Leon Romanovsky wrote:
-> > > > On Mon, Jul 21, 2025 at 10:29:32AM -0400, Sean Anderson wrote:
-> > > >> On 7/20/25 04:17, Leon Romanovsky wrote:
-> > > >> > On Thu, Jul 17, 2025 at 01:12:08PM -0400, Sean Anderson wrote:
-> > > >> >> On 7/17/25 12:33, Greg Kroah-Hartman wrote:
-> > > >> > 
-> > > >> > <...>
-> > > >> > 
-> > > >> >> Anyway, if you really think ids should be random or whatever, why not
-> > > >> >> just ida_alloc one in axiliary_device_init and ignore whatever's
-> > > >> >> provided? I'd say around half the auxiliary drivers just use 0 (or some
-> > > >> >> other constant), which is just as deterministic as using the device
-> > > >> >> address.
-> > > >> > 
-> > > >> > I would say that auxiliary bus is not right fit for such devices. This
-> > > >> > bus was introduced for more complex devices, like the one who has their
-> > > >> > own ida_alloc logic.
-> > > >> 
-> > > >> I'd say that around 2/3 of the auxiliary drivers that have non-constant
-> > > >> ids use ida_alloc solely for the auxiliary bus and for no other purpose.
-> > > >> I don't think that's the kind of complexity you're referring to.
-> > > >> 
-> > > >> >> Another third use ida_alloc (or xa_alloc) so all that could be
-> > > >> >> removed.
-> > > >> > 
-> > > >> > These ID numbers need to be per-device.
-> > > >> 
-> > > >> Why? They are arbitrary with no semantic meaning, right?
-> > > > 
-> > > > Yes, officially there is no meaning, and this is how we would like to
-> > > > keep it.
-> > > > 
-> > > > Right now, they are very correlated with with their respective PCI function number.
-> > > > Is it important? No, however it doesn't mean that we should proactively harm user
-> > > > experience just because we can do it.
-> > > > 
-> > > > [leonro@c ~]$ l /sys/bus/auxiliary/devices/
-> > > > ,,,
-> > > > rwxrwxrwx 1 root root 0 Jul 21 15:25 mlx5_core.rdma.0 -> ../../../devices/pci0000:00/0000:00:02.7/0000:0
-> > > > 8:00.0/mlx5_core.rdma.0
-> > > > lrwxrwxrwx 1 root root 0 Jul 21 15:25 mlx5_core.rdma.1 -> ../../../devices/pci0000:00/0000:00:02.7/0000:0
-> > > > 8:00.1/mlx5_core.rdma
-> > > 
-> > > Well, I would certainly like to have semantic meaning for ids. But apparently
-> > > that is only allowed if you can sneak it past the review process.
-> > 
-> > Do I need to dust off my "make all ids random" patch again and actually
-> > merge it just to prevent this from happening?
-> 
-> After weekend thoughts on it. IDs need to be removed from the driver
-> access. Let's make them global at least.
+On 27/07/2025 03:47, Ryan Chen wrote:
+>> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller: aspeed: Add parent
+>> node compatibles and refine documentation
+>>
+>> On 23/07/2025 10:08, Ryan Chen wrote:
+>>>> Subject: Re: [PATCH v3 1/2] dt-bindings: interrupt-controller:
+>>>> aspeed: Add parent node compatibles and refine documentation
+>>>>
+>>>> On 22/07/2025 11:51, Ryan Chen wrote:
+>>>>> +  INTC0 is used to assert GIC if interrupt in INTC1 asserted.
+>>>>> +  INTC1 is used to assert INTC0 if interrupt of modules asserted.
+>>>>> +  +-----+   +---------+
+>>>>> +  | GIC |---|  INTC0  |
+>>>>> +  +-----+   +---------+
+>>>>> +            +---------+
+>>>>> +            |         |---module0
+>>>>> +            | INTC0_0 |---module1
+>>>>> +            |         |---...
+>>>>> +            +---------+---module31
+>>>>> +            |---....  |
+>>>>> +            +---------+
+>>>>> +            |         |     +---------+
+>>>>> +            | INTC0_11| +---| INTC1   |
+>>>>> +            |         |     +---------+
+>>>>> +            +---------+     +---------+---module0
+>>>>> +                            | INTC1_0 |---module1
+>>>>> +                            |         |---...
+>>>>> +                            +---------+---module31
+>>>>> +                            ...
+>>>>> +                            +---------+---module0
+>>>>> +                            | INTC1_5 |---module1
+>>>>> +                            |         |---...
+>>>>> +                            +---------+---module31
+>>>>
+>>>> You binding also said intc1 is the parent of intc-ic, so where is here intc-ic?
+>>>>
+>>>> This diagram and new binding do not match at all.
+>>>
+>>> The corresponded compatible is following.
+>>>
+>>>   +-----+   +---------+
+>>>   | GIC |---|  INTC0  | -> (parent : aspeed,ast2700-intc0)
+>>>   +-----+   +---------+
+>>>             +---------+
+>>>             |        |---module0
+>>>             | INTC0_0 |---module1
+>>> 			(child : aspeed,ast2700-intc-ic)
+>>>             |        |---...
+>>>             +---------+---module31
+>>>             |---....  |
+>>>             +---------+
+>>>             |         |    					 +---------+
+>>>             | INTC0_11 | +----------------------------	| INTC1   |  -> ->
+>> (parent : aspeed,ast2700-intc1)
+>>
+>> AGAIN (second time): that's not what your binding said.
+>>
+>> Your binding is explicit here, which is what we want in general. It says that inct1 is
+>> one of the parents of intc-ic.
 
-Great, no objection from me, want to send a patch we can queue up for
-6.18-rc1?
+... and you never addressed that. :/
+
+>>
+>> Let me be clear, because you will be dragging this talk with irrelevant arguments
+>> forever - changing this binding is close to no. If you come with correct arguments,
+>> maybe would work. But the main point is that you probably do not have to even
+>> change the binding to achieve proper hardware description. Work on that.
+>>
+> 
+> If I do not change the binding, I think the yaml and dts can still fit the interrupt
+> nesting architecture by using both interrupts and interrupts-extended.
+> 
+> For first-level controllers, use the standard interrupts property
+> (e.g. with the GIC as the parent).
+> 
+> For second-level INTC-IC instances, use interrupts-extended to refer to the
+> first-level INTC-IC, following common Linux practice for stacked interrupt controllers.
+> For example:
+> dts
+> // First level
+> intc0_11: interrupt-controller@12101b00 {
+>     compatible = "aspeed,ast2700-intc-ic";
+>     reg = <...>;
+>     interrupt-controller;
+>     #interrupt-cells = <2>;
+>     interrupts = <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>, ...;
+> };
+> 
+> // Second level, cascaded
+> intc1_0: interrupt-controller@14c18100 {
+>     compatible = "aspeed,ast2700-intc-ic";
+>     reg = <...>;
+>     interrupt-controller;
+>     #interrupt-cells = <2>;
+>     interrupts-extended = <&intc0_11 0 IRQ_TYPE_LEVEL_HIGH>;
+
+This looks like changing the meaning of the interrupt. What was the
+interrupt here before? What interrupt is here now?
+
+> };
+> In yaml, I can use:
+> oneOf:
+>   - required: [interrupts]
+>   - required: [interrupts-extended]
+> This allows both cases to be valid.
+
+
+Hm? Since when you need both cases?
+
+
+Best regards,
+Krzysztof
 
