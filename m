@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEF3C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 17:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A56C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 17:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGhiWFQpDnDh5hIYzqZ65rI4dfzw9Vl7m4izlhQIr8Y=; b=KoQPda3884dnIWWoMOPiKOgpA6
-	Bo+7EtjktSel5Hk76NMsxkTHb/cfhHwjNK7vPdZyfnLOb5a4AozxC4IoOfUZN7mzunSYlze5/Oy6L
-	ALk/yBQX8uPqd/stLwxuk+pf2baj/Odb6tM3fcXTV8AkfBjceMVdnij6HKb1gMlj2qK9uYytW+HwU
-	IMxaRatbzDcP04sN1k6QW7hG+bHF5hh5NoXvdv+StenvEZAZ8bWwROOY0FsBvorJZ3csmZRG8Z34Q
-	41nuHV2i4V+IjRm7Ki0e2c9prJ2rBNpqSrmkpiJekKP0i35lBjQh9OnU6Wo248EY0szQgKaPKZHpz
-	tAxwGWRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OhwwnGaF8oEjcg00LdipcmVJCogFTYddUjPclmorEh8=; b=n/l+SbFMiahwV7kHd7BADOX8Pj
+	+MMvmMdkyStOYUsMz4x8e4vdPt+rfGZfzf38+ApJzzaurmlzxO+vZWQIHNprPr9cihU3OaI9XMOgb
+	hDZkei4azU2zpw2EjcgO60zR74AbMSCn6lPs2MupIoAQGW2cCLaHI9vjIZTm3JwSzqh7YiS8+oTnT
+	2Xr+rZhfzEzEuoL2tP6UuMdDcpZGNr9yScsM6HNcV5eVD6ccpjp2qGLPiMsQdkXzmSVuZKPy+bDwO
+	Y05SIwFiUNf5SHQof21ZmPaYzxdnacCr9uHveM4/g5vgFUsz0PNOOA3M7UBiN72Aismt4huFlmRQ0
+	RGoPxliw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRwo-0000000F8Eu-042p;
-	Mon, 28 Jul 2025 17:47:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ugRzE-0000000F8Rq-36Hw;
+	Mon, 28 Jul 2025 17:50:08 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQyH-0000000F10i-0WZK
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 16:45:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 615C1A54C00;
-	Mon, 28 Jul 2025 16:45:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2ED1C4CEE7;
-	Mon, 28 Jul 2025 16:45:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753721104;
-	bh=X4T3huFMENK/bbr2LynN8Axapfi9UhpKjcbblmGX5Bs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qWGGmqx66EfxCa8gov6J7bRBjwLBblLLX//wYzazzAxB4vrLuQSBOyZ7MbM8WLlZG
-	 ySStgBEYbgA7/x68MEgzeESnjy4Y3A6KhTb438ZqWedAiVzHKOeSrbeGmYUkFdHwKT
-	 K+7ql7zBFZn5c6dYKe59rYfyzi1ltec00QEx3UYUCjvkVf4a5LUYdeW3ncybTlRYEF
-	 CwyJ8Cs/ko7WrDx5ygDP/SwwcsInBxe+KnbIL4w614FELAzcl4SMBMUmzEcGcwzsBp
-	 JTFk+Pa3QaGB7R0bbzP9FRbViAFIgon2IpyinY6mfVRqal5mR+ocYCeUg+KlluOOBF
-	 C9/bu42paKwUg==
-Date: Mon, 28 Jul 2025 17:44:59 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 04/10] coresight: Appropriately disable programming
- clocks
-Message-ID: <b3782b8f-8c09-4fb8-bec6-186102cc66a8@sirena.org.uk>
-References: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
- <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
+	id 1ugR48-0000000F25E-05Xi;
+	Mon, 28 Jul 2025 16:51:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753721469; x=1785257469;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=/nGUWz/QI4oI9JaeM4nznpA3cGA5rFBBCsAtiIFIIQs=;
+  b=cP2LnrzhTwJdfq3YsQT2OEjZz9U0M8KwLc30dZrLl3SWkjMkQRKRt8Zq
+   Di5m7DVKCORjAeMGazs6nCm5PTL3SZaicHM8BP34h2jY4lUo7Mzracycq
+   Gtbq0syh0rA25BIxpyxo6WqddVFnSD79bIV8PMyTKxR9rqjW/tNjHAggQ
+   bB1PTnVjfYbyI1a+h1V56ZawtlOhW/VPRg1Mv2Q3zEZgrvpmPWfBHc+C8
+   xmbANi9taVrJF761bCKwLgU3Yg9ZPf1gCKwgwQpM+k/0IsvSGrshV2iQ6
+   ohzqU+fYNU89Fbz0XUtA85wWZx6eeA6ZMtzAwKrKY44Rz61ldiPRr8PIB
+   Q==;
+X-CSE-ConnectionGUID: 7P8lNp4sSM69SrZSs9aWng==
+X-CSE-MsgGUID: A3yh4WEsQNK0LPnNA7tb6g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11505"; a="55677205"
+X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
+   d="scan'208";a="55677205"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2025 09:51:04 -0700
+X-CSE-ConnectionGUID: ry8R4pN3S9ul7V1FyWdaJg==
+X-CSE-MsgGUID: agjBKv3LTLaQRocnjggyEw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
+   d="scan'208";a="193308480"
+Received: from hlagrand-mobl1.ger.corp.intel.com (HELO [10.245.102.40]) ([10.245.102.40])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2025 09:51:01 -0700
+Message-ID: <08e39788-8d1b-494d-87e3-e5b427875674@linux.intel.com>
+Date: Mon, 28 Jul 2025 18:50:56 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jva5e9nRu1WNTR+w"
-Content-Disposition: inline
-In-Reply-To: <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
-X-Cookie: Do not exceed recommended dosage.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: airoha: Fix PPE table access in
+ airoha_ppe_debugfs_foe_show()
+To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
+References: <20250728-airoha_ppe_foe_get_entry_locked-v1-1-8630ec73f3d1@kernel.org>
+Content-Language: pl, en-US
+From: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+In-Reply-To: <20250728-airoha_ppe_foe_get_entry_locked-v1-1-8630ec73f3d1@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_094505_237643_1B712095 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250728_095108_137978_0FD0F1E4 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,55 +88,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2025-07-28 1:58 PM, Lorenzo Bianconi wrote:
+> In order to avoid any possible race we need to hold the ppe_lock
+> spinlock accessing the hw PPE table. airoha_ppe_foe_get_entry routine is
+> always executed holding ppe_lock except in airoha_ppe_debugfs_foe_show
+> routine. Fix the problem introducing airoha_ppe_foe_get_entry_locked
+> routine.
+> 
+> Fixes: 3fe15c640f380 ("net: airoha: Introduce PPE debugfs support")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
---jva5e9nRu1WNTR+w
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
 
-On Thu, Jul 24, 2025 at 04:22:34PM +0100, Leo Yan wrote:
+Thanks,
+Dawid
 
->  static inline struct clk *coresight_get_enable_apb_pclk(struct device *d=
-ev)
->  {
->  	struct clk *pclk;
-> -	int ret;
-> =20
-> -	pclk =3D clk_get(dev, "apb_pclk");
-> -	if (IS_ERR(pclk)) {
-> -		pclk =3D clk_get(dev, "apb");
-> -		if (IS_ERR(pclk))
-> -			return NULL;
-> -	}
+> ---
+>   drivers/net/ethernet/airoha/airoha_eth.h         |  4 ++--
+>   drivers/net/ethernet/airoha/airoha_ppe.c         | 18 ++++++++++++++++--
+>   drivers/net/ethernet/airoha/airoha_ppe_debugfs.c |  2 +-
+>   3 files changed, 19 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> index a970b789cf232c316e5ea27b0146493bf91c3767..cf33d731ad0db43bca8463fde76673b39a4f6796 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -615,8 +615,8 @@ int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data);
+>   int airoha_ppe_init(struct airoha_eth *eth);
+>   void airoha_ppe_deinit(struct airoha_eth *eth);
+>   void airoha_ppe_init_upd_mem(struct airoha_gdm_port *port);
+> -struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+> -						  u32 hash);
+> +struct airoha_foe_entry *
+> +airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash);
+>   void airoha_ppe_foe_entry_get_stats(struct airoha_ppe *ppe, u32 hash,
+>   				    struct airoha_foe_stats64 *stats);
+>   
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index 0e217acfc5ef748453b020e5713ace1910abc4a8..4dbf2bf187d02e3e8b9d2b966036c3aa58c867b1 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -498,9 +498,11 @@ static void airoha_ppe_foe_flow_stats_update(struct airoha_ppe *ppe,
+>   		FIELD_PREP(AIROHA_FOE_IB2_NBQ, nbq);
+>   }
+>   
+> -struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+> -						  u32 hash)
+> +static struct airoha_foe_entry *
+> +airoha_ppe_foe_get_entry(struct airoha_ppe *ppe, u32 hash)
+>   {
+> +	lockdep_assert_held(&ppe_lock);
+> +
+>   	if (hash < PPE_SRAM_NUM_ENTRIES) {
+>   		u32 *hwe = ppe->foe + hash * sizeof(struct airoha_foe_entry);
+>   		struct airoha_eth *eth = ppe->eth;
+> @@ -527,6 +529,18 @@ struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+>   	return ppe->foe + hash * sizeof(struct airoha_foe_entry);
+>   }
+>   
+> +struct airoha_foe_entry *
+> +airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash)
+> +{
+> +	struct airoha_foe_entry *hwe;
+> +
+> +	spin_lock_bh(&ppe_lock);
+> +	hwe = airoha_ppe_foe_get_entry(ppe, hash);
+> +	spin_unlock_bh(&ppe_lock);
+> +
+> +	return hwe;
+> +}
+> +
+>   static bool airoha_ppe_foe_compare_entry(struct airoha_flow_table_entry *e,
+>   					 struct airoha_foe_entry *hwe)
+>   {
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
+> index 05a756233f6a44fa51d1c57dd39d89c8ea488054..992bf2e9598414ee3f1f126be3f451e486b26640 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
+> @@ -67,7 +67,7 @@ static int airoha_ppe_debugfs_foe_show(struct seq_file *m, void *private,
+>   		u32 type, state, ib2, data;
+>   		bool ipv6 = false;
+>   
+> -		hwe = airoha_ppe_foe_get_entry(ppe, i);
+> +		hwe = airoha_ppe_foe_get_entry_locked(ppe, i);
+>   		if (!hwe)
+>   			continue;
+>   
+> 
+> ---
+> base-commit: afd8c2c9e2e29c6c7705635bea2960593976dacc
+> change-id: 20250728-airoha_ppe_foe_get_entry_locked-70e4ebbee984
+> 
+> Best regards,
 
-Previously we would return NULL for any error (which isn't super great
-for deferred probe but never mind).
-
-> +	pclk =3D devm_clk_get_enabled(dev, "apb_pclk");
-> +	if (IS_ERR(pclk))
-> +		pclk =3D devm_clk_get_enabled(dev, "apb");
-
-=2E..
-
->  	return pclk;
->  }
-
-Now we pass errors back to the caller, making missing clocks fatal.
-
---jva5e9nRu1WNTR+w
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiHqQoACgkQJNaLcl1U
-h9AEugf/Q0rlo7qxVE/p7BjSpN/fElPo7fwtwPg2sDCGvqLKh0MlhHgi8Hi/Zcj4
-A/T+FYfF71i/5Np0lVNDNVXcv2g2ogF+jcS9N+KeAaG/5x58IbNe0s4USb/qt1BF
-vcCuZac0BR4hNQOJX1EOgZ/NgU611k7NRDJPUqXbaacM7on4h4BabU+QJYpUaZY5
-mUjSzh1USlrhb3lspn5CTKKMxtrtv65RuXzZvQpfpU4atL8N2akJtzElvks6xTDm
-j4TGsbkTbStSt3WVaEeZDNAlcxMMgjMbFRF3efxrokRBdMklJL6wIzHILgBCcsX4
-QDpPwEp1A8sKUIZ9BxwJbPVABY66GA==
-=gcbM
------END PGP SIGNATURE-----
-
---jva5e9nRu1WNTR+w--
 
