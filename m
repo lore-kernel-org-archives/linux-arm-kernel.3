@@ -4,81 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAC0C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E013C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmaCz/hZ0Y09KM1Z6dU4zeUMZqIx6D4vddfShUP8jOw=; b=I2viQUR7dnRH8wi0eIPiQAy1FI
-	0/+mA6wpAlOtNZoSKEN7udo6v++0EwrHa4csmVbYqBb0EyEwHAVR61mAUk7l4jU42eqijiH8ev4DE
-	fM4w9kCGJmJTP0YUAlG+ZRXN0/7awy6HEtHHZOhJ3aiEfeIRhk5JzYW6pugm05cMkzRmDtJVQUBdY
-	5mGSNF4unRe+nGGM2lDhOEboMUmms3jxY5bhS5wkK5pzk+1jRQ8jWv0UkU3XthvJkK30/x1/9Cx2T
-	k7PnsLghPVr59YsuZKGUtN5ukYQNEUAWqgysrovVvfYSuOrX6AEPCteuy4r5qS2aL5G164N2tE7wX
-	FL++kiEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uo+wi7F32b+OuCkEYGAkvcjZPWwzQp3pYwuNa/dSwo0=; b=h5Tbk0BRexQnTR78EUJYDc71v0
+	IkH7J8wKZ9LDwIAe8ZcUFwd0aQBN/L31vuZlPRGaw+kqha84shYWsS8eTt5KpdiJ91pa4d1Dwm1vO
+	7twiWBC/XpPM7Xss2yuFuBQFXA4+IRpmRTCT3j3bMl8s5Pvr9VrbvzbePHWsRkBh3cn6g0mswcEQg
+	vxXDXUrHYAQnFV3Knyy/FLbAb+NAztQ6T5R/EWWbwF0d28jJQnJxDqxGIAciK8MLDORKBQ7kBobK8
+	u0879qraKUsZCUthH9mfbPhed43Pmy99XCyp+2SiB5u4rtzazhzcwLbmoVMu18oXeIb3e8RPGGt1K
+	BpBUu1nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugTil-0000000FHw3-3yld;
-	Mon, 28 Jul 2025 19:41:15 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1ugTia-0000000FHlt-0mRZ;
+	Mon, 28 Jul 2025 19:41:04 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugS2p-0000000F8xz-0cDL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:53:52 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-456013b59c1so25260215e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753725230; x=1754330030; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nmaCz/hZ0Y09KM1Z6dU4zeUMZqIx6D4vddfShUP8jOw=;
-        b=zdU3zliyfy9DTmNYIgt7nd6Qs6c/VWWSHd1f+vW6yfZfrrrrrVD8DtUiNkagFocm2G
-         4FklHvfRpNqr4SkZDQGxtgFAE5YUnaKc8GsSFFNNOAodNwzAECC7HtxD6WtxIljJ4Do9
-         W0cH1uhyfy+rX3vdqCTOjJDrfsMG7Y8/+/pfRvQLh8vVjgaJi0kTihBKtUWGkq/Y+NHh
-         llc/aolf6ZOyvLkzRUIJQ0/LHMOWiF+ZjJ9w3hPSqZ+pgwBN7y9yQlj5T8GKQeIPJPnX
-         W3Zjwci3QZ5Dq2jOww28uS7Hwncq7Ma1R4cFuTrL1pR/QrhRzYFJNq2LzmPOlSwqFRYK
-         494A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753725230; x=1754330030;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nmaCz/hZ0Y09KM1Z6dU4zeUMZqIx6D4vddfShUP8jOw=;
-        b=u3A8TNrzHS9ZULXFXAgLUQ03+Kvtuh2ZXKiw0Bwn+E2pYp9Ez09rQEdJa8qLMTU7xT
-         L/kRQa4/MSj/YgSb50DY0Yr58n53GiUUvVIahYSD+Vp4aSn/iB7eQq65FSAPrp9DAtj7
-         lu8GavH3SXcknfnG6bq/uwjW+kxz1dik5NE7WrC+CnXb30QE3ajTDTvpYNKe8lDV7CsK
-         gXTikPJblFaK8gEMdO6SaL1OcBVZl+nuAGy7ZATzCr+JpR04cVvHu8MRz8gPK+j9iubj
-         LxWzHq/hvTtl0fXAivbeylKm0EuYxraknjjYbGr9+rX8To598KT/50bF4qMr5FrfqJUK
-         VGPw==
-X-Forwarded-Encrypted: i=1; AJvYcCWLznAACsYx4LktRkpxsNv0LeG+YNKCu/PIZ9p5sxoMHAPbUl2ZN9oh4LkM6W1GoBcAQTMK08gBQIJoE+/HWb9a@lists.infradead.org
-X-Gm-Message-State: AOJu0YycWKxfQ6lx0dKIY5SH5jp3en5ufG4lSQbUviR99Hqj8RPxBrWQ
-	L9FMjYsSTvgoiRncduA46Pcr64ask2N++obURHanWhkGCNZ2ToU4A6IJIS7iDXU0dasyFQGr1xU
-	4YGEoMXiob+f5xw==
-X-Google-Smtp-Source: AGHT+IGR+nDxQJC/TBVqY+VnaXcYcs4NqE/3pTQmZ3LkxhlmaQpfACsdvZZWOYaCQDE09t36WXjxu0J7xih9pA==
-X-Received: from wmbdw9.prod.google.com ([2002:a05:600c:6389:b0:451:4d6b:5b7e])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:6088:b0:456:e39:ec1a with SMTP id 5b1f17b1804b1-45883089729mr58139855e9.14.1753725229980;
- Mon, 28 Jul 2025 10:53:49 -0700 (PDT)
-Date: Mon, 28 Jul 2025 17:53:07 +0000
-In-Reply-To: <20250728175316.3706196-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20250728175316.3706196-1-smostafa@google.com>
-X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
-Message-ID: <20250728175316.3706196-21-smostafa@google.com>
-Subject: [PATCH v3 20/29] iommu/arm-smmu-v3-kvm: Setup command queue
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, robin.murphy@arm.com, jean-philippe@linaro.org, 
-	qperret@google.com, tabba@google.com, jgg@ziepe.ca, mark.rutland@arm.com, 
-	praan@google.com, Mostafa Saleh <smostafa@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1ugQnO-0000000EzQy-3v5w;
+	Mon, 28 Jul 2025 16:33:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1753720385; x=1754325185; i=wahrenst@gmx.net;
+	bh=Uo+wi7F32b+OuCkEYGAkvcjZPWwzQp3pYwuNa/dSwo0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=eW4PhNDduVgGlWPF63W3EygCvT8WiUB7XgEqZnBJdlLJr/1wHnFNQ+11bQQbljRc
+	 QmQJTRLmVETQfcwQgJV1uTHrKBhwS1vxH7HmC5W/hfpNuBoivOKUdavIurkeclRHp
+	 gaoAMkP06IVkEe2KPneK6IQ3TwaMQZKmmXYVVFyC4JIkF0wIZr7L95xIOOlSfB2nK
+	 vtqU3gYoK3ExLI5NBPGGnXNl00/NQsZH0ggtF1wnPnnjzWhH0PkMGS7zMiiNyHiBm
+	 zDfn9SRPE0/IQfSC6rVfo1k4VcLNDXz4NTqMqJ8g1NKf5G9PSHl1G4FH3Whq+WQKB
+	 QASPmhHmDMyahxfcUA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.105] ([79.235.143.227]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MacSY-1u8kjC4C1y-00fcOm; Mon, 28
+ Jul 2025 18:33:05 +0200
+Message-ID: <673f3f05-53f1-4eb4-ae65-a3cd9ccbd1bf@gmx.net>
+Date: Mon, 28 Jul 2025 18:33:03 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+ <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:CfHJDlPwu/n2c3qFUstxfBzfhZVf62Z+IUEFVR6d1N7F9sLtA0f
+ nh8QTIxw9nbPKc8d9e4ts3y5pNsswDtSbNiZaKhSaMqXHTRsUi8Y+8QG6UH4K1Uzp/PUZ2S
+ 2RxW80Yi1bu+98uVTxKVd+IHEkhSHLGj6gBt0G3q07X7n3NIliiUGcGmrcxxmph3T4lG70I
+ CoG841gVxNRdlLDHts0sA==
+UI-OutboundReport: notjunk:1;M01:P0:pZiR0tDOu9w=;5W7bpfT064OYWsPaFe2RVZv/FN7
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_105351_201896_7F622918 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20250728_093351_407965_0D9C372A 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,175 +150,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Map the command queue allocated by the host into the hypervisor address
-space. When the host mappings are finalized, the queue is unmapped from
-the host.
+Hi Ma=C3=ADra,
 
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
----
- .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 104 ++++++++++++++++++
- .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |   4 +
- 2 files changed, 108 insertions(+)
+thanks for working on this.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-index e9bc35e019b6..c3d67c603619 100644
---- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
-@@ -39,6 +39,15 @@ struct hyp_arm_smmu_v3_device *kvm_hyp_arm_smmu_v3_smmus;
- 	__ret;							\
- })
- 
-+#define smmu_wait_event(_smmu, _cond)				\
-+({								\
-+	if ((_smmu)->features & ARM_SMMU_FEAT_SEV) {		\
-+		while (!(_cond))				\
-+			wfe();					\
-+	}							\
-+	smmu_wait(_cond);					\
-+})
-+
- static int smmu_write_cr0(struct hyp_arm_smmu_v3_device *smmu, u32 val)
- {
- 	writel_relaxed(val, smmu->base + ARM_SMMU_CR0);
-@@ -58,6 +67,70 @@ static void smmu_reclaim_pages(u64 phys, size_t size)
- 	WARN_ON(__pkvm_hyp_donate_host(phys >> PAGE_SHIFT, size >> PAGE_SHIFT));
- }
- 
-+static bool smmu_cmdq_full(struct arm_smmu_queue *cmdq)
-+{
-+	struct arm_smmu_ll_queue *llq = &cmdq->llq;
-+
-+	WRITE_ONCE(llq->cons, readl_relaxed(cmdq->cons_reg));
-+	return queue_full(llq);
-+}
-+
-+static bool smmu_cmdq_empty(struct arm_smmu_queue *cmdq)
-+{
-+	struct arm_smmu_ll_queue *llq = &cmdq->llq;
-+
-+	WRITE_ONCE(llq->cons, readl_relaxed(cmdq->cons_reg));
-+	return queue_empty(llq);
-+}
-+
-+static int smmu_add_cmd(struct hyp_arm_smmu_v3_device *smmu,
-+			struct arm_smmu_cmdq_ent *ent)
-+{
-+	int ret;
-+	u64 cmd[CMDQ_ENT_DWORDS];
-+	struct arm_smmu_queue *q = &smmu->cmdq;
-+	struct arm_smmu_ll_queue *llq = &q->llq;
-+
-+	ret = smmu_wait_event(smmu, !smmu_cmdq_full(&smmu->cmdq));
-+	if (ret)
-+		return ret;
-+
-+	ret = arm_smmu_cmdq_build_cmd(cmd, ent);
-+	if (ret)
-+		return ret;
-+
-+	queue_write(Q_ENT(q, llq->prod), cmd,  CMDQ_ENT_DWORDS);
-+	llq->prod = queue_inc_prod_n(llq, 1);
-+	writel_relaxed(llq->prod, q->prod_reg);
-+	return 0;
-+}
-+
-+static int smmu_sync_cmd(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	int ret;
-+	struct arm_smmu_cmdq_ent cmd = {
-+		.opcode = CMDQ_OP_CMD_SYNC,
-+	};
-+
-+	ret = smmu_add_cmd(smmu, &cmd);
-+	if (ret)
-+		return ret;
-+
-+	return smmu_wait_event(smmu, smmu_cmdq_empty(&smmu->cmdq));
-+}
-+
-+__maybe_unused
-+static int smmu_send_cmd(struct hyp_arm_smmu_v3_device *smmu,
-+			 struct arm_smmu_cmdq_ent *cmd)
-+{
-+	int ret = smmu_add_cmd(smmu, cmd);
-+
-+	if (ret)
-+		return ret;
-+
-+	return smmu_sync_cmd(smmu);
-+}
-+
- static int smmu_init_registers(struct hyp_arm_smmu_v3_device *smmu)
- {
- 	u64 val, old;
-@@ -105,6 +178,33 @@ static void smmu_deinit_device(struct hyp_arm_smmu_v3_device *smmu)
- 	}
- }
- 
-+static int smmu_init_cmdq(struct hyp_arm_smmu_v3_device *smmu)
-+{
-+	size_t cmdq_size;
-+	int ret;
-+	enum kvm_pgtable_prot prot = PAGE_HYP;
-+
-+	cmdq_size = (1 << (smmu->cmdq.llq.max_n_shift)) *
-+		     CMDQ_ENT_DWORDS * 8;
-+
-+	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
-+		prot |= KVM_PGTABLE_PROT_NORMAL_NC;
-+
-+	ret = ___pkvm_host_donate_hyp(smmu->cmdq.base_dma >> PAGE_SHIFT,
-+				      PAGE_ALIGN(cmdq_size) >> PAGE_SHIFT, prot);
-+	if (ret)
-+		return ret;
-+
-+	smmu->cmdq.base = hyp_phys_to_virt(smmu->cmdq.base_dma);
-+	smmu->cmdq.prod_reg = smmu->base + ARM_SMMU_CMDQ_PROD;
-+	smmu->cmdq.cons_reg = smmu->base + ARM_SMMU_CMDQ_CONS;
-+	memset(smmu->cmdq.base, 0, cmdq_size);
-+	writel_relaxed(0, smmu->cmdq.prod_reg);
-+	writel_relaxed(0, smmu->cmdq.cons_reg);
-+
-+	return 0;
-+}
-+
- static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
- {
- 	int i;
-@@ -129,6 +229,10 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
- 	ret = smmu_init_registers(smmu);
- 	if (ret)
- 		goto out_err;
-+	ret = smmu_init_cmdq(smmu);
-+	if (ret)
-+		goto out_err;
-+
- 	return ret;
- 
- out_err:
-diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-index 9b1d021ada63..f639312cf295 100644
---- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
-@@ -11,12 +11,16 @@
-  * @mmio_addr		base address of the SMMU registers
-  * @mmio_size		size of the registers resource
-  * @base		Virtual address of SMMU registers
-+ * @features		SMMUv3 features as defined in arm-smmu-v3-common.h
-+ * @cmdq		CMDQ queue struct
-  * Other members are filled and used at runtime by the SMMU driver.
-  */
- struct hyp_arm_smmu_v3_device {
- 	phys_addr_t		mmio_addr;
- 	size_t			mmio_size;
- 	void __iomem		*base;
-+	unsigned long		features;
-+	struct arm_smmu_queue	cmdq;
- };
- 
- extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
--- 
-2.50.1.552.g942d659e1b-goog
+Am 28.07.25 um 14:35 schrieb Ma=C3=ADra Canal:
+> Currently, when we prepare or unprepare RPi's clocks, we don't actually
+> enable/disable the firmware clock. This means that
+> `clk_disable_unprepare()` doesn't actually change the clock state at
+> all, nor does it lowers the clock rate.
+>
+>  From the Mailbox Property Interface documentation [1], we can see that
+> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+> prepare and an unprepare hook for RPi's firmware clock.
+>
+> As now the clocks are actually turned off, some of them are now marked
+> with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are required since
+> early boot or are required during reboot.
+>
+> Link: https://github.com/raspberrypi/firmware/wiki/Mailbox-property-inte=
+rface [1]
+> Fixes: 93d2725affd6 ("clk: bcm: rpi: Discover the firmware clocks")
+could you please explain from user perspective, which issue is fixed by=20
+this patch?
+
+Why does this needs to be backported?
+> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+> ---
+>   drivers/clk/bcm/clk-raspberrypi.c | 41 +++++++++++++++++++++++++++++++=
++++++++-
+>   1 file changed, 40 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-ras=
+pberrypi.c
+> index 8e4fde03ed232b464165f524d27744b4ced93a60..a2bd5040283a2f456760bd68=
+5e696b423985cac0 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -68,6 +68,7 @@ struct raspberrypi_clk_variant {
+>   	char		*clkdev;
+>   	unsigned long	min_rate;
+>   	bool		minimize;
+> +	u32		flags;
+>   };
+>  =20
+>   static struct raspberrypi_clk_variant
+> @@ -75,6 +76,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =3D =
+{
+>   	[RPI_FIRMWARE_ARM_CLK_ID] =3D {
+>   		.export =3D true,
+>   		.clkdev =3D "cpu0",
+> +		.flags =3D CLK_IGNORE_UNUSED,
+>   	},
+>   	[RPI_FIRMWARE_CORE_CLK_ID] =3D {
+>   		.export =3D true,
+> @@ -90,6 +92,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =3D =
+{
+>   		 * always use the minimum the drivers will let us.
+>   		 */
+>   		.minimize =3D true,
+> +		.flags =3D CLK_IGNORE_UNUSED,
+>   	},
+>   	[RPI_FIRMWARE_M2MC_CLK_ID] =3D {
+>   		.export =3D true,
+> @@ -115,6 +118,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =
+=3D {
+>   		 * drivers will let us.
+>   		 */
+>   		.minimize =3D true,
+> +		.flags =3D CLK_IGNORE_UNUSED,
+>   	},
+>   	[RPI_FIRMWARE_V3D_CLK_ID] =3D {
+>   		.export =3D true,
+> @@ -127,6 +131,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =
+=3D {
+>   	[RPI_FIRMWARE_HEVC_CLK_ID] =3D {
+>   		.export =3D true,
+>   		.minimize =3D true,
+> +		.flags =3D CLK_IGNORE_UNUSED,
+>   	},
+>   	[RPI_FIRMWARE_ISP_CLK_ID] =3D {
+>   		.export =3D true,
+> @@ -135,6 +140,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] =
+=3D {
+>   	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID] =3D {
+>   		.export =3D true,
+>   		.minimize =3D true,
+> +		.flags =3D CLK_IS_CRITICAL,
+>   	},
+>   	[RPI_FIRMWARE_VEC_CLK_ID] =3D {
+>   		.export =3D true,
+> @@ -259,7 +265,40 @@ static int raspberrypi_fw_dumb_determine_rate(struc=
+t clk_hw *hw,
+>   	return 0;
+>   }
+>  =20
+> +static int raspberrypi_fw_prepare(struct clk_hw *hw)
+> +{
+> +	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
+> +	struct raspberrypi_clk *rpi =3D data->rpi;
+> +	u32 state =3D RPI_FIRMWARE_STATE_ENABLE_BIT;
+> +	int ret;
+> +
+> +	ret =3D raspberrypi_clock_property(rpi->firmware, data,
+> +					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+> +	if (ret)
+> +		dev_err(rpi->dev, "Failed to set clock %d state to on: %d",
+> +			data->id, ret);
+I suggest to use dev_err_ratelimited for prepare/unprepare, otherwise=20
+this could spam the kernel log.
+
+Furthermore i wouldn't recommend to log some magic clock id. How about=20
+using clk_hw_get_name(hw) instead?
+
+Don't we need a newline character at the end?
+
+> +
+> +	return ret;
+> +}
+> +
+> +static void raspberrypi_fw_unprepare(struct clk_hw *hw)
+> +{
+> +	const struct raspberrypi_clk_data *data =3D clk_hw_to_data(hw);
+> +	struct raspberrypi_clk *rpi =3D data->rpi;
+> +	u32 state =3D 0;
+> +	int ret;
+> +
+> +	ret =3D raspberrypi_clock_property(rpi->firmware, data,
+> +					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+> +	if (ret)
+> +		dev_err(rpi->dev, "Failed to set clock %d state to off: %d",
+> +			data->id, ret);
+see above
+
+Best regards
+> +}
+> +
+> +
+>   static const struct clk_ops raspberrypi_firmware_clk_ops =3D {
+> +	.prepare        =3D raspberrypi_fw_prepare,
+> +	.unprepare      =3D raspberrypi_fw_unprepare,
+>   	.is_prepared	=3D raspberrypi_fw_is_prepared,
+>   	.recalc_rate	=3D raspberrypi_fw_get_rate,
+>   	.determine_rate	=3D raspberrypi_fw_dumb_determine_rate,
+> @@ -289,7 +328,7 @@ static struct clk_hw *raspberrypi_clk_register(struc=
+t raspberrypi_clk *rpi,
+>   	if (!init.name)
+>   		return ERR_PTR(-ENOMEM);
+>   	init.ops =3D &raspberrypi_firmware_clk_ops;
+> -	init.flags =3D CLK_GET_RATE_NOCACHE;
+> +	init.flags =3D variant->flags | CLK_GET_RATE_NOCACHE;
+>  =20
+>   	data->hw.init =3D &init;
+>  =20
+>
 
 
