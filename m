@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F536C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38683C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jd6WXK9KVAKuAai0Rlvgq64nX1IBqeA40jOYWtgY/NM=; b=NGR+AWaA5XpTXjAQ9xi7/wQrdi
-	M7rboCr/732Z4v6/w4e7zbcCKT8peexXMzRxFWrovfiKAmOzqn1yE7736q447Oy9MIlSj1zB+Yrmd
-	H2fPF8m8bMR3+sPawGkf08tWjBACFLmZ+KcRAwgEKtcrI9vNolufU7tf5Q3MLDNJmuYv46DB6zyhU
-	xIqPcBv4I38OnJWW+rYWHl69YB675VbGnw4mow6F/J9OysnQKLiO5Jjk/QNlNNsfs4OlN3LEITk3p
-	KF0UMsNg3x1BINROzWdRX9hHK1c8+lFit+ALRuRbCv7h8Ozq0ItAxzqFA5bGp5Y+LPLcpeNvxd/7l
-	dxQtebkQ==;
+	bh=YKNSJTIOjXhOfJ46ixoQVwptbOq/eeiDwCfKsKuboXU=; b=mAWBn8Wqc0Itnp/+Yju4jmSh1J
+	lJKQxe00/h+NjCbTE8eHOaI+oPEBARihJY4NA+9y5F1NDq7UrdrsJuhVN7H9eKcO0vSvzBTWp2ITy
+	hygH0lfCIAa9a5jvbFUsRTDmk3Xzo9gT6na40aCZu8N86MnnA3yGIgI0jnw1mk2lOpV/ug7lmjfH0
+	Z1Ifqj+n9LrexbWPQ1895Qu8/mcm+5h+xWOTa73CFfyZn8Rqo/YwmHWcpBLIeDNemfusYv1klxsVF
+	Zou/V0dxC/YB76WraD8317qDzbFCg6wOIsCYDJbjcKcisZRixBCunAO9uFKJTu3XE0qFrR9VLW/uV
+	pqkhP7sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPlP-0000000EoEN-1x44;
-	Mon, 28 Jul 2025 15:27:43 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1ugPop-0000000Ep4G-2PJn;
+	Mon, 28 Jul 2025 15:31:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPiv-0000000Engp-3HzF
+	id 1ugPmL-0000000EoXm-3qWC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 15:25:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1753716308;
- bh=jd6WXK9KVAKuAai0Rlvgq64nX1IBqeA40jOYWtgY/NM=;
- b=Ht7kIXTrzAxJ2XqdF69wQwLZgJrBtlTk7yG8eIu3q5XwBmRbFwIkNNsjuqdiXpzFRALbsl06r
- 4yLLtXEzlevfBCzVIjm09v8JB2deuQQuvdqlT+mebKsMxWfJwPybzFY+jBa/1n2K3hGX7NjG9X8
- IiLjZbwEn2uZv/FldnlrIC6KrMeK/cdc+V166IM9kkzV5RbOc/tcyce4x/qNYKPzF0Ft9US4McL
- kN+1crFXN8NtCQe+6v6bkF6TlbWP6ae9aYd8Y/FYEt4tTiayST8h5W+TA4rDcczjyntmr3iZ9x7
- sQd3YVgZ3VJbqCX9hL6NJhVdwjV+AxLxxECrWhHU0soQ==
-X-Forward-Email-ID: 68879630351ec66b15a1c462
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.8
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <1c639c62-cc07-4b3d-a18b-77f93668b88f@kwiboo.se>
-Date: Mon, 28 Jul 2025 17:24:27 +0200
+	Mon, 28 Jul 2025 15:28:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2508245BB1;
+	Mon, 28 Jul 2025 15:28:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 477F7C4CEE7;
+	Mon, 28 Jul 2025 15:28:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753716521;
+	bh=nCCab6w8oj750hCuDA8aX5D8FTeBEr0NdwDFh06N7Cs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=T3ITj4GQGjkd+wYCvSJ0HMtHWPi1m06RcLiuvbw7nXi/pQuAhQ28BT3Ec7gjoKnp8
+	 dGJMxBtb4udF9q5Rb+uIGQ1bcb/GW1qh6BjRAk28QxnT7F/eelweZuaNfvQ1JI4ugu
+	 pGzGcdtLTJXW9h2qBWBx4QcTRqg/sQvQ536eGS7J4RA8Ox4fqQADMloDk5UEBhraC3
+	 xfBUAqVi4MiJzdLP0v/8/YVyv0p3BC6llc6VXGfHkkUI+x3JA3Y+oinG65E+dcPizm
+	 GiPKAtAMlHmhIPXu0kWnkwko59pkw/Hwzb0nivYlhSNAG99BJ5p6sS/OnsB9Rkh/qv
+	 o3yXNtCG9VQOA==
+Date: Mon, 28 Jul 2025 08:28:39 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Lukasz Majewski
+ <lukasz.majewski@mailbox.org>
+Subject: Re: [net-next v17 00/12] net: mtip: Add support for MTIP imx287 L2
+ switch driver
+Message-ID: <20250728082839.2ed8a067@kernel.org>
+In-Reply-To: <20250727100128.1411514-1-lukma@denx.de>
+References: <20250727100128.1411514-1-lukma@denx.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 2/3] net: dsa: realtek: Add support for use of an
- optional mdio node
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
- =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
- Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250727180305.381483-1-jonas@kwiboo.se>
- <20250727180305.381483-3-jonas@kwiboo.se>
- <2504b605-24e7-4573-bec0-78f55688a482@lunn.ch>
- <badef015-22ff-4232-a4d0-80d2034113ca@kwiboo.se>
- <9702f3da-f755-4392-bf2b-28814ee0a8c7@lunn.ch>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <9702f3da-f755-4392-bf2b-28814ee0a8c7@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_082509_906534_24B9A548 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20250728_082841_978110_BE4CCABE 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,63 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Sun, 27 Jul 2025 12:01:16 +0200 Lukasz Majewski wrote:
+> This patch series adds support for More Than IP's L2 switch driver embedded
+> in some NXP's SoCs. This one has been tested on imx287, but is also available
+> in the vf610.
 
-On 7/28/2025 12:09 AM, Andrew Lunn wrote:
->> Something like above does not seem to work, I get following:
->>
->>   mdio_bus stmmac-0: MDIO device at address 0 is missing.
->>   mdio_bus stmmac-0: MDIO device at address 1 is missing.
->>   mdio_bus stmmac-0: MDIO device at address 2 is missing.
->>   mdio_bus stmmac-0: MDIO device at address 3 is missing.
-> 
-> O.K, So i was wrong.
-> 
->> And without an explicit 'mdio' child node the driver currently fails to
->> load and the switch is never registered:
->>
->>   rtl8365mb-mdio stmmac-0:1d: found an RTL8367RB-VB switch
->>   rtl8365mb-mdio stmmac-0:1d: no MDIO bus node
->>   rtl8365mb-mdio stmmac-0:1d: could not set up MDIO bus
->>   rtl8365mb-mdio stmmac-0:1d: error -ENODEV: unable to register switch
-> 
-> So, not having an MDIO node was a long time ago seen as a short cut
-> for when there was a clear 1:1 mapping between port number and PHY bus
-> address. It still works, but it is somewhat deprecated. It also seems
-> like it is become more normal to need additional properties, like what
-> interrupt the PHY is using, the LEDs it has, etc.
+## Form letter - net-next-closed
 
-Sure, no problem to change to a more verbose DT even when there is a
-clear 1:1 mapping between port, phy and interrupt here.
+We have already submitted our pull request with net-next material for v6.17,
+and therefore net-next is closed for new drivers, features, code refactoring
+and optimizations. We are currently accepting bug fixes only.
 
-When it comes to having the switch being described as an interrupt
-controller in the DT is also very wrong, the switch only consume a
-single HW interrupt. The fact that the driver creates virtual irq for
-each port is purely a software construct and is not something that
-should be reflected in the DT.
+Please repost when net-next reopens after Aug 11th.
 
-Possible something for a future series to clean up.
+RFC patches sent for review only are obviously welcome at any time.
 
-> 
->>
->> With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
->>
->>   rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
->>         from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
->>
->> So something should probably be changed, the driver, dt-bindings or
->> possible both.
-> 
-> I think you should allow an MDIO node in DT. This is the only DSA
-> driver that i know of which does not allow it.
-
-Sure, I will drop this driver change and instead update the dt-binding
-to allow use of a mdio node when the reg prop is defined.
-
-Regards,
-Jonas
-
-> 
-> 	Andrew
-
+See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
+-- 
+pw-bot: defer
+pv-bot: closed
 
