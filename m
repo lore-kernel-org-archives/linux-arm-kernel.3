@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8C83C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D1DC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6Z+Z6Ihro2Vvf1ko6ncjYpOQCSv1nCFxoBgIgd+GJg=; b=I8twGb9shQV313oSbJu7r34qjb
-	rYzbwUGjJlzHfsJ5MQteB5AotgPxOn9rQMpYgdLMSnUYELPLiTs81OTHPRaDmH/tQDOdneq7xk1Yw
-	3ntx1OtcWnI4T3aNse2HCkggoloPLIwKEyM27FRxv8jGHCBYuFyC9nmMLVx4otDyPGmpL2X1QlRtU
-	Y0+IG2NcmBfUaC1wHykT7MlJda7L/i6+zWpL28rPiRZ9nlw6aRyr6XAFX7cifLkyLjb//2tIX1bCm
-	EkNzXLunzwhVg/jjBm64Rw8FJVTriRKxrrU1SGUmcltJBbkfF03tQdao90XwtA9+SzcgoOhPug3IA
-	SgtYFkzQ==;
+	bh=qHKUyEn30JFRHmi+ydY8WGA10PyE0rwHqa0xIh1iBFs=; b=oHWmv8vFqaMdkQwLEIvOQ/4GTw
+	aaFk/ki+JB5ezVKuNrUEV7Sof2gCIGJraaMsfdOpVGpSMfW+TPfZ7EVOpbDXLokHuCJuk0zK2YH2q
+	aGN50Tou3JQzix5JFH3IU8B+RHVRvXFaWUYxxu8SOFI9riinzay/JizeyTsd1+2uUMboDewg9BdSv
+	AhePib5na7JZI/Q5YQ/Ww/3DurLVgCMI4c6u7kTY0+OF+yB/ERYfwfoHXTUEIWwroYrVh+q/GubRU
+	RQdA5ok+VC63XxaLUommKlc/yjpdp9JPuh6lJY62fSt9tYcV+l83Rw/UGTq0WNQRsruJxAiTWb1/R
+	duLSIA8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL2I-0000000EDpc-0K1U;
-	Mon, 28 Jul 2025 10:24:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKv3-0000000ECXh-1g7s;
-	Mon, 28 Jul 2025 10:17:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=K6Z+Z6Ihro2Vvf1ko6ncjYpOQCSv1nCFxoBgIgd+GJg=; b=XvJx7fwtZcpKjjPLeIfIC2oP/G
-	N+1cEA1oUeHywxehBmK1cYgTWVQs6M4UkoQOlraTCv7s92W/68DW9OH9dXJOHZnNueLPkv3wbuQYx
-	ujVd3x8aYKZq3FIwMEVpg4p0OcmrAjM8fsCUqpWnr/FRWUge4YobYoleV7JtUa2IlNxRc80m8Ai9m
-	Y3H1JXeZ4LC4xf6Gm/naBhPBNUTX4zKRzF4qJAS2WElRaSzPlky7IAgyBQ5UJWBN30ususFk9EWgv
-	JYLO/xXD/7iFn/tSty4zCTSQSRJj2oOu7MIbTDuHEhp0HwYkMsWW7MaN4N+h02ILQh5xf6y67Ht6i
-	b5sQpolg==;
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKur-0000000CQx9-41UH;
-	Mon, 28 Jul 2025 10:17:17 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A7512431FF;
-	Mon, 28 Jul 2025 10:17:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753697826;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K6Z+Z6Ihro2Vvf1ko6ncjYpOQCSv1nCFxoBgIgd+GJg=;
-	b=R1m79JI1SGaeAfFCTyg4t8XnXnmjOiGBLC07lmLpS4FOrmIBZbqMtM6mYS9MuWPxOY4m6g
-	IqV1bimS1WcruMsW+8RkiU782hmnOHZFWNF7yT5FbHuClu/JseugmE6ifHFreU2dE/wWEg
-	wikesA4HWd723havLjdjgXEXU8BYJrmDGfWht+7ILF0G9hRg8GfDMoYSxgeY0PajDhEJn7
-	+dqp81tNRXfcLAqg/FSDa9A4mRkp4yrYnvMFbKk7/bdKrjjO2LAqfzXih9VUmAkfY3hmB1
-	iqTOsT4PKbIYA8KwvtKEpvXXbT1ZrCvZRXZOcykHvbflB5KKG4eePy8y1kXlPg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Thomas Fourier <fourier.thomas@gmail.com>
-Cc: stable@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
- Alexander Dahl <ada@thorsis.com>, Boris Brezillon <bbrezillon@kernel.org>, 
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250702064515.18145-2-fourier.thomas@gmail.com>
-References: <20250702064515.18145-2-fourier.thomas@gmail.com>
-Subject: Re: [PATCH v2] mtd: rawnand: atmel: Fix dma_mapping_error()
- address
-Message-Id: <175369782562.102528.1752000425924545922.b4-ty@bootlin.com>
-Date: Mon, 28 Jul 2025 12:17:05 +0200
+	id 1ugL4j-0000000EERn-3zoq;
+	Mon, 28 Jul 2025 10:27:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugL0U-0000000EDiP-1VXv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Jul 2025 10:22:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93294152B;
+	Mon, 28 Jul 2025 03:22:49 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 419383F673;
+	Mon, 28 Jul 2025 03:22:54 -0700 (PDT)
+Message-ID: <fcbe5517-0256-48ce-aa50-8017928737d7@arm.com>
+Date: Mon, 28 Jul 2025 11:22:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeludeludcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvegjfhfukfffgggtgffosehtkeertdertdejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheeifffhueelgfdtleetgfelvefggfehudelvdehuddulefgheelgfehieevvdegnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrgedvrdegiegnpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepsggsrhgviihilhhlohhnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehurdhklhgvihhnvgdqkhhovghnihhgsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtp
- hhtthhopehlihhnuhigqdhmthgusehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnihgtohhlrghsrdhfvghrrhgvsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtoheprhhitghhrghrugesnhhougdrrght
-X-GND-Sasl: miquel.raynal@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 24/36] arm_mpam: Extend reset logic to allow devices
+ to be reset any time
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-25-james.morse@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-25-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_111714_464771_4EA8BA6A 
-X-CRM114-Status: UNSURE (   6.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_032258_479060_EF5184F1 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,21 +77,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 02 Jul 2025 08:45:11 +0200, Thomas Fourier wrote:
-> It seems like what was intended is to test if the dma_map of the
-> previous line failed but the wrong dma address was passed.
+Hi James,
+
+On 7/11/25 19:36, James Morse wrote:
+> cpuhp callbacks aren't the only time the MSC configuration may need to
+> be reset. Resctrl has an API call to reset a class.
+> If an MPAM error interrupt arrives it indicates the driver has
+> misprogrammed an MSC. The safest thing to do is reset all the MSCs
+> and disable MPAM.
 > 
+> Add a helper to reset RIS via their class. Call this from mpam_disable(),
+> which can be scheduled from the error interrupt handler.
 > 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/platform/arm64/mpam/mpam_devices.c  | 62 ++++++++++++++++++++-
+>   drivers/platform/arm64/mpam/mpam_internal.h |  1 +
+>   2 files changed, 61 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+> index 2e32e54cc081..145535cd4732 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -916,8 +916,6 @@ static int mpam_reset_ris(void *arg)
+>   	u16 partid, partid_max;
+>   	struct mpam_msc_ris *ris = arg;
+>   
+> -	mpam_assert_srcu_read_lock_held();
+> -
+>   	if (ris->in_reset_state)
+>   		return 0;
+>   
+> @@ -1575,6 +1573,66 @@ static void mpam_enable_once(void)
+>   		READ_ONCE(mpam_partid_max) + 1, mpam_pmg_max + 1);
+>   }
+>   
+> +static void mpam_reset_component_locked(struct mpam_component *comp)
+> +{
+> +	int idx;
+> +	struct mpam_msc *msc;
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	might_sleep();
+> +	lockdep_assert_cpus_held();
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
+> +		msc = vmsc->msc;
+> +
+> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
+> +			if (!ris->in_reset_state)
+> +				mpam_touch_msc(msc, mpam_reset_ris, ris);
+> +			ris->in_reset_state = true;
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +}
+> +
+> +static void mpam_reset_class_locked(struct mpam_class *class)
+> +{
+> +	int idx;
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_rcu(comp, &class->components, class_list)
+> +		mpam_reset_component_locked(comp);
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +}
+> +
+> +static void mpam_reset_class(struct mpam_class *class)
+> +{
+> +	cpus_read_lock();
+> +	mpam_reset_class_locked(class);
+> +	cpus_read_unlock();
+> +}
+> +
+> +/*
+> + * Called in response to an error IRQ.
+> + * All of MPAMs errors indicate a software bug, restore any modified
+> + * controls to their reset values.
+> + */
+> +void mpam_disable(void)
+> +{
+> +	int idx;
+> +	struct mpam_class *class;
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+> +				 srcu_read_lock_held(&mpam_srcu))
+> +		mpam_reset_class(class);
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +}
+Consider moving to the next patch where you introduce interrupt support.
+> +
+>   /*
+>    * Enable mpam once all devices have been probed.
+>    * Scheduled by mpam_discovery_cpu_online() once all devices have been created.
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+> index f3cc88136524..de05eece0a31 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -280,6 +280,7 @@ extern u8 mpam_pmg_max;
+>   
+>   /* Scheduled work callback to enable mpam once all MSC have been probed */
+>   void mpam_enable(struct work_struct *work);
+> +void mpam_disable(void);
+>   
+>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>   				   cpumask_t *affinity);
 
-Applied to nand/next, thanks!
 
-[1/1] mtd: rawnand: atmel: Fix dma_mapping_error() address
-      commit: 9e2e2576bc49c3bc352d402963f7ba8774c3d95f
+Thanks,
 
-Patche(s) should be available on mtd/linux.git and will be
-part of the next PR (provided that no robot complains by then).
-
-Kind regards,
-Miquèl
+Ben
 
 
