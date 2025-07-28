@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC7AC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C652C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LTlCwgzIOF5QQeq25ycyuKVefVmukIB/XqIN+TFnUGg=; b=ANVa3owmUMApYbUj8HV/MU6UIu
-	PbDGC7zBtDrdiguHBr6Bx6n9e8V21j5ZhTAXkX3ujTc38kQ1xgJCZEPu6cgfSVu+wB46CJLlVkxm3
-	OF+uC7EiwayQD5x0+By0jGz16BtvCmPeOAwgpS3FKvz277aBTyAB4ZB0clPjL02C5ETCPMWT5xiop
-	6JK2Fnb7BdywiGdbgmlgPVL/a0kH1RM8ep5Jik+yhz8o7I1OF9+XYxNGLYpudtZl698j4Ra6WgEL9
-	CgAgV2u0UK2yBqLrQaBcgmXI3rPY5BsZvbnSfH8OTYCZL5PAyvNieXz3VC4HncUiIAP8Icu4Qj92e
-	WMT/9xpA==;
+	bh=VqHi92spgQQq7xJIa7m1bm1iGpbSgFZkVBRcVzoY6CI=; b=AfxOFdGQdswSo1qPckjXEaeQsB
+	HsJm2ajhY3tAmqvVTsAF2EvNuP0pmIoU073IP8t9sppdczT+2iMDOZ91tuIotiQbnXvtEkCndp8mC
+	JFMcXqSpUA0Id4RWyjc+KQcqQ0qdrMvDanFaDl6cA5kvq5/nNUmOCorakHeWsn6zoTh0WY1ECZh2H
+	QqW7OnYKy9ajUilvXAVVyCYwLIQ/IqnQ4npIbOtdFeuN+hSvmmHcmlJMCWb75zY7FZJ5+U2jV7W4F
+	N8nzK4GMYYTgMKEMwzJnw+AwVcjAxBJ520V/UP4gJPBS+COSeaa9RzhMpdOor3AKKe/yz1MCg84E7
+	SEzVb02Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugTic-0000000FHmd-1PLY;
-	Mon, 28 Jul 2025 19:41:06 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1ugTiq-0000000FI3i-0C6b;
+	Mon, 28 Jul 2025 19:41:20 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugS2Y-0000000F8q9-24cv
+	id 1ugS2t-0000000F905-1vOn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:53:35 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-456013b59c1so25259405e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:33 -0700 (PDT)
+	Mon, 28 Jul 2025 17:53:56 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-455f79a2a16so34729855e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753725212; x=1754330012; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LTlCwgzIOF5QQeq25ycyuKVefVmukIB/XqIN+TFnUGg=;
-        b=pluzwfyBUJkPBvGrT94OZJNROQvirmecs+36dCl0y536QYoldDXohAFgw2ILLWqLzl
-         WVz4ko/SRRmk+ULrb/Dm/jORBHdOTKhc3F0PiQM/La/UOSPVpFJFv/Axlvnzo0PLiMJK
-         +K0VsOQEdEq4weATWF4KXoxZRYDCfTOrPNYxi2d3270HS+p7BtwOTzm7XPRdV7N1eaPM
-         Mcb7FiLjf12CKEm0T8sD+I0yOQQbwEUlxKDnNQqgMC19qHnK82HjSbi9YtzQUqff0dHM
-         W7ohZvfp2tZt0Bd73kIkrZrxSYGl4e09cq5SdM+xgq0ifPkGwzZqRglcYskF5MN49yMG
-         c45A==
+        d=google.com; s=20230601; t=1753725234; x=1754330034; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VqHi92spgQQq7xJIa7m1bm1iGpbSgFZkVBRcVzoY6CI=;
+        b=zlUPJfv3gr1cEz/2Jfdd/AcaPKdXQSsehJPEeb6lg8vXzpNND0c8//xuMb03fYSQCi
+         wgELH0dZd8MEnO7mFSl86XmwSTkUSSZbVncdIl0AG6jG40rFiN8FarfzLlr1L+7rFl4G
+         oFysT+ddUPVtx3zHvaMuj5SUmDFuixyZVj22GaaHBxfWUETLeR+Lo0hGhPtiqyRB3AP5
+         c/+dYjqSXULvpLDsyJoFitFmRCuz68GbJcdKmEkJDeZNcNiurTw3NWa9/vKHVmwecAl1
+         e4yVH1EePxs3g+6cHI1hx9luCVVPM+/1K9xxy86sLeRo9T5g+gA4Mm3kg1+3XoiqnKbG
+         T0nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753725212; x=1754330012;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=LTlCwgzIOF5QQeq25ycyuKVefVmukIB/XqIN+TFnUGg=;
-        b=FiGr1vDp23CRlHftezQLk/drm9W3jhgVjOo2URts6zqOI8FBVMfWzokN+9WggcDCMl
-         YSCfvx9WE5Rociz5jbN6SX0AbEe1NSqzHihnr6epoOQ3m9pxtc/9FF036vc2lV6FDqkd
-         yHGX1iSDX7ngvZfXf2Zdf6gQzkG0mA+L3ywq7Q1T3bKALO+R3HxdL21FWb5suhBWvHuW
-         WLoSRyI5J1lpfUuTnlkpO0Q+m8CCp71jVgtyOdDSfK2E/cVYLPJw2vnCJuefAiNScAp4
-         TVSfoclDW5884C5GPJvp2SgN+CwkZiMIAF2z09gKOqMzUVo2vjXT4xxkZxbUDuDHlt8U
-         ftAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXHBFIJNEVkrg1Oa0jwZRNXSmVgS7NlCPIleUrX6CbFT4okCDDHiB2mEGGMJLxB3HFhYJa7FWNA0PjfjeKxG+P0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0KJPTHhKSKqJbWe4NfLXRTfZFVuXVywJ1lbbsPZjAd5c9yea3
-	QwTwRV90rXteevS8lUk9TEz0C0Z+Uzyj/2MWL/V2YaDJzVAnGdzb/YqhffpyoisXqCFdrquVZm3
-	7tg33W+8sOqOIoQ==
-X-Google-Smtp-Source: AGHT+IFCITa28zMUxk5yrbhT5rLbfbzrHT5VY8BBjpTdvUFIiWEDdOt68tV9XBv1JfmpoFATXqpljTOFgxfv6g==
-X-Received: from wmbhj25.prod.google.com ([2002:a05:600c:5299:b0:456:1824:5884])
+        d=1e100.net; s=20230601; t=1753725234; x=1754330034;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VqHi92spgQQq7xJIa7m1bm1iGpbSgFZkVBRcVzoY6CI=;
+        b=c2H06dHuEcjEcTESgJGP2fgBEa3UYszOFfVnAzY4NXEYNCqs+l9skcMcUy9q3zX8a5
+         0mFEZCfQmv+8ZzeD8Wt+kQjVKPDKEAUN0ktk067VYE0JxGagAZ/yor0IGeqajLyimWfH
+         j0hLArbeB/vXZ8O2WXVAGHhI1oriDP86Y7eV6YES0CUi6LV/blhiDxnr+mASkcWXhuUE
+         qUpSlErEfHgCQNXf40fn4ulzhkvLd6g7GeQDS8udxIDT8zGfZp/jJRbB5qoecxohVRn1
+         iUQm99zQ/e3YkauXkRPSctoVLMkE/rrc7MZj3bw59NBipUNfX6FPDoaNpBBLp8dnLPiG
+         9Jkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWQgVrFccUUqOP66wouTVL8CBqckLFGiNqB2xzLmTC25CnN+Nwqcm4cTh92qLDlxBDJnzN9MySQXt3/YlYidbmM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZRNQdCpP6Re/FUKMUIsswxMe7uLKbDnoTMI4P+efiFdc9HKTA
+	9Eo8iWHR9HO6eIePIOIl7YxLXo/Lj9WZzxAHP3HWx2UNJYf2vBbWVekxkGPGvS+Kty8yycIvUkU
+	TK70ZTiycs5wz3w==
+X-Google-Smtp-Source: AGHT+IHT79YZti6f2oD/dU8174eWV4cxRx+bo5QS0U+d88lWGOSu4bRkgBXGcKpAbcfb4esmAkOl21DA22Bq6g==
+X-Received: from wmrn36.prod.google.com ([2002:a05:600c:5024:b0:456:26d1:4451])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:8218:b0:456:10a8:ff7 with SMTP id 5b1f17b1804b1-4587655b79cmr98218285e9.28.1753725212532;
- Mon, 28 Jul 2025 10:53:32 -0700 (PDT)
-Date: Mon, 28 Jul 2025 17:52:49 +0000
+ 2002:a05:600c:4fd3:b0:455:ed0f:e8d4 with SMTP id 5b1f17b1804b1-4588cd731admr9962885e9.10.1753725233793;
+ Mon, 28 Jul 2025 10:53:53 -0700 (PDT)
+Date: Mon, 28 Jul 2025 17:53:12 +0000
 In-Reply-To: <20250728175316.3706196-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20250728175316.3706196-1-smostafa@google.com>
 X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
-Message-ID: <20250728175316.3706196-3-smostafa@google.com>
-Subject: [PATCH v3 02/29] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <20250728175316.3706196-26-smostafa@google.com>
+Subject: [PATCH v3 25/29] iommu/arm-smmu-v3-kvm: Add enable/disable device HVCs
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
@@ -78,10 +76,9 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	qperret@google.com, tabba@google.com, jgg@ziepe.ca, mark.rutland@arm.com, 
 	praan@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_105334_546703_DCE76D90 
-X-CRM114-Status: GOOD (  18.88  )
+X-CRM114-CacheID: sfid-20250728_105355_502345_E280BCF3 
+X-CRM114-Status: GOOD (  19.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,156 +93,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
-drivers can use that to protect the MMIO of IOMMU.
-The initial attempt to implement this was to have a new flag to
-"___pkvm_host_donate_hyp" to accept MMIO. However that had many problems,
-it was quite intrusive for host/hyp to check/set page state to make it
-aware of MMIO and to encode the state in the page table in that case.
-Which is called in paths that can be sensitive to performance (FFA, VMs..)
+Add implementation of enable/disable HVCs, for enable, the STE of
+the device would be configured to use the idmap page table, while
+for disable it would zero the STE.
 
-As donating MMIO is very rare, and we don=E2=80=99t need to encode the full=
- state,
-it=E2=80=99s reasonable to have a separate function to do this.
-It will init the host s2 page table with an invalid leaf with the owner ID
-to prevent the host from mapping the page on faults.
-
-Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
-stage-2 PTEs, as this can be triggered from recycle logic under memory
-pressure. There is no code relying on this, as all ownership changes is
-done via kvm_pgtable_stage2_set_owner()
-
-For error path in IOMMU drivers, add a function to donate MMIO back
-from hyp to host.
+As now STEs can be configured from kernel, add a lock to protect
+against concurrent access.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 64 +++++++++++++++++++
- arch/arm64/kvm/hyp/pgtable.c                  |  9 +--
- 3 files changed, 68 insertions(+), 7 deletions(-)
+ .../iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c  | 109 +++++++++++++++++-
+ .../iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h  |  11 ++
+ 2 files changed, 118 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm=
-/hyp/include/nvhe/mem_protect.h
-index 52d7ee91e18c..98e173da0f9b 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -37,6 +37,8 @@ int __pkvm_host_share_hyp(u64 pfn);
- int __pkvm_host_unshare_hyp(u64 pfn);
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
- int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot p=
-rot);
-+int __pkvm_host_donate_hyp_mmio(u64 pfn);
-+int __pkvm_hyp_donate_host_mmio(u64 pfn);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
- int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
- int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvh=
-e/mem_protect.c
-index 861e448183fd..c9a15ef6b18d 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -799,6 +799,70 @@ int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enu=
-m kvm_pgtable_prot prot)
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+index 38d81cd6d24a..85131962094f 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c
+@@ -143,10 +143,15 @@ static int smmu_tlb_inv_range_smmu(struct hyp_arm_smmu_v3_device *smmu,
+ 				   struct arm_smmu_cmdq_ent *cmd,
+ 				   unsigned long iova, size_t size, size_t granule)
+ {
++	int ret;
++
++	hyp_spin_lock(&smmu->lock);
+ 	arm_smmu_tlb_inv_build(cmd, iova, size, granule,
+ 			       idmap_pgtable->cfg.pgsize_bitmap, smmu,
+ 			       __smmu_add_cmd, NULL);
+-	return smmu_sync_cmd(smmu);
++	ret = smmu_sync_cmd(smmu);
++	hyp_spin_unlock(&smmu->lock);
++	return ret;
+ }
+ 
+ static void smmu_tlb_inv_range(unsigned long iova, size_t size, size_t granule,
+@@ -183,7 +188,6 @@ static const struct iommu_flush_ops smmu_tlb_ops = {
+ 	.tlb_add_page	= smmu_tlb_add_page,
+ };
+ 
+-__maybe_unused
+ static int smmu_sync_ste(struct hyp_arm_smmu_v3_device *smmu, u32 sid, unsigned long ste)
+ {
+ 	struct arm_smmu_cmdq_ent cmd = {
+@@ -409,6 +413,9 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
+ 	}
+ 	smmu->base = hyp_phys_to_virt(smmu->mmio_addr);
+ 
++	hyp_spin_lock_init(&smmu->lock);
++	BUILD_BUG_ON(sizeof(smmu->lock) != sizeof(hyp_spinlock_t));
++
+ 	ret = smmu_init_registers(smmu);
+ 	if (ret)
+ 		goto out_err;
+@@ -430,6 +437,102 @@ static int smmu_init_device(struct hyp_arm_smmu_v3_device *smmu)
  	return ret;
  }
-=20
-+int __pkvm_host_donate_hyp_mmio(u64 pfn)
+ 
++static struct hyp_arm_smmu_v3_device *smmu_id_to_ptr(pkvm_handle_t smmu_id)
 +{
-+	u64 phys =3D hyp_pfn_to_phys(pfn);
-+	void *virt =3D __hyp_va(phys);
++	if (smmu_id >= kvm_hyp_arm_smmu_v3_count)
++		return NULL;
++	smmu_id = array_index_nospec(smmu_id, kvm_hyp_arm_smmu_v3_count);
++
++	return &kvm_hyp_arm_smmu_v3_smmus[smmu_id];
++}
++
++static void smmu_init_s2_ste(struct arm_smmu_ste *ste)
++{
++	struct io_pgtable_cfg *cfg;
++	u64 ts, sl, ic, oc, sh, tg, ps;
++
++	cfg = &idmap_pgtable->cfg;
++	ps = cfg->arm_lpae_s2_cfg.vtcr.ps;
++	tg = cfg->arm_lpae_s2_cfg.vtcr.tg;
++	sh = cfg->arm_lpae_s2_cfg.vtcr.sh;
++	oc = cfg->arm_lpae_s2_cfg.vtcr.orgn;
++	ic = cfg->arm_lpae_s2_cfg.vtcr.irgn;
++	sl = cfg->arm_lpae_s2_cfg.vtcr.sl;
++	ts = cfg->arm_lpae_s2_cfg.vtcr.tsz;
++
++	ste->data[0] = STRTAB_STE_0_V |
++		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_S2_TRANS);
++	ste->data[1] = FIELD_PREP(STRTAB_STE_1_SHCFG, STRTAB_STE_1_SHCFG_INCOMING);
++	ste->data[2] = FIELD_PREP(STRTAB_STE_2_VTCR,
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2PS, ps) |
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2TG, tg) |
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2SH0, sh) |
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2OR0, oc) |
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2IR0, ic) |
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2SL0, sl) |
++				  FIELD_PREP(STRTAB_STE_2_VTCR_S2T0SZ, ts)) |
++		 FIELD_PREP(STRTAB_STE_2_S2VMID, 0) |
++		 STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2R;
++	ste->data[3] = cfg->arm_lpae_s2_cfg.vttbr & STRTAB_STE_3_S2TTB_MASK;
++}
++
++static int smmu_enable_dev(pkvm_handle_t iommu, pkvm_handle_t dev)
++{
++	static struct arm_smmu_ste *ste, target;
++	struct hyp_arm_smmu_v3_device *smmu = smmu_id_to_ptr(iommu);
 +	int ret;
-+	kvm_pte_t pte;
 +
-+	host_lock_component();
-+	hyp_lock_component();
++	if (!smmu)
++		return -ENODEV;
 +
-+	ret =3D kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
-+	if (ret)
-+		goto unlock;
-+
-+	if (pte && !kvm_pte_valid(pte)) {
-+		ret =3D -EPERM;
-+		goto unlock;
++	hyp_spin_lock(&smmu->lock);
++	ste = smmu_get_alloc_ste_ptr(smmu, dev);
++	if (!ste) {
++		ret = - EINVAL;
++		goto out_ret;
 +	}
 +
-+	ret =3D kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)virt, &pte, NULL);
-+	if (ret)
-+		goto unlock;
-+	if (pte) {
-+		ret =3D -EBUSY;
-+		goto unlock;
-+	}
++	smmu_init_s2_ste(&target);
++	WRITE_ONCE(ste->data[1], target.data[1]);
++	WRITE_ONCE(ste->data[2], target.data[2]);
++	WRITE_ONCE(ste->data[3], target.data[3]);
++	smmu_sync_ste(smmu, dev, (unsigned long)ste);
++	WRITE_ONCE(ste->data[0], target.data[0]);
++	ret = smmu_sync_ste(smmu, dev, (unsigned long)ste);
 +
-+	ret =3D pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVI=
-CE);
-+	if (ret)
-+		goto unlock;
-+	/*
-+	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
-+	 * - host aborts: host_stage2_adjust_range() would fail for invalid non z=
-ero PTEs.
-+	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would cal=
-l
-+	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid pte=
-s (counted).
-+	 * - other MMIO donation: Would fail as we check that the PTE is valid or=
- empty.
-+	 */
-+	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys=
-,
-+				PAGE_SIZE, &host_s2_pool, PKVM_ID_HYP));
-+unlock:
-+	hyp_unlock_component();
-+	host_unlock_component();
-+
++out_ret:
++	hyp_spin_unlock(&smmu->lock);
 +	return ret;
 +}
 +
-+int __pkvm_hyp_donate_host_mmio(u64 pfn)
++static int smmu_disable_dev(pkvm_handle_t iommu, pkvm_handle_t dev)
 +{
-+	u64 phys =3D hyp_pfn_to_phys(pfn);
-+	u64 virt =3D (u64)__hyp_va(phys);
-+	size_t size =3D PAGE_SIZE;
++	static struct arm_smmu_ste *ste;
++	struct hyp_arm_smmu_v3_device *smmu = smmu_id_to_ptr(iommu);
++	int ret;
 +
-+	host_lock_component();
-+	hyp_lock_component();
++	if (!smmu)
++		return -ENODEV;
 +
-+	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) !=3D size);
-+	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys=
-,
-+				PAGE_SIZE, &host_s2_pool, PKVM_ID_HOST));
-+	hyp_unlock_component();
-+	host_unlock_component();
++	hyp_spin_lock(&smmu->lock);
++	ste = smmu_get_alloc_ste_ptr(smmu, dev);
++	if (!ste) {
++		ret = -EINVAL;
++		goto out_ret;
++	}
 +
-+	return 0;
++	WRITE_ONCE(ste->data[0], 0);
++	smmu_sync_ste(smmu, dev, (unsigned long)ste);
++	WRITE_ONCE(ste->data[1], 0);
++	WRITE_ONCE(ste->data[2], 0);
++	WRITE_ONCE(ste->data[3], 0);
++	ret = smmu_sync_ste(smmu, dev, (unsigned long)ste);
++
++out_ret:
++	hyp_spin_unlock(&smmu->lock);
++	return ret;
 +}
 +
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+ static int smmu_init_pgt(void)
  {
- 	return ___pkvm_host_donate_hyp(pfn, nr_pages, PAGE_HYP);
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index c351b4abd5db..ba06b0c21d5a 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1095,13 +1095,8 @@ static int stage2_unmap_walker(const struct kvm_pgta=
-ble_visit_ctx *ctx,
- 	kvm_pte_t *childp =3D NULL;
- 	bool need_flush =3D false;
-=20
--	if (!kvm_pte_valid(ctx->old)) {
--		if (stage2_pte_is_counted(ctx->old)) {
--			kvm_clear_pte(ctx->ptep);
--			mm_ops->put_page(ctx->ptep);
--		}
--		return 0;
--	}
-+	if (!kvm_pte_valid(ctx->old))
-+		return stage2_pte_is_counted(ctx->old) ? -EPERM : 0;
-=20
- 	if (kvm_pte_table(ctx->old, ctx->level)) {
- 		childp =3D kvm_pte_follow(ctx->old, mm_ops);
---=20
+ 	/* Default values overridden based on SMMUs common features. */
+@@ -568,4 +671,6 @@ static void smmu_host_stage2_idmap(phys_addr_t start, phys_addr_t end, int prot)
+ struct kvm_iommu_ops smmu_ops = {
+ 	.init				= smmu_init,
+ 	.host_stage2_idmap		= smmu_host_stage2_idmap,
++	.enable_dev			= smmu_enable_dev,
++	.disable_dev			= smmu_disable_dev,
+ };
+diff --git a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+index 5c2f121837ad..89faa622af24 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/pkvm/arm_smmu_v3.h
+@@ -4,6 +4,10 @@
+ 
+ #include <asm/kvm_asm.h>
+ 
++#ifdef __KVM_NVHE_HYPERVISOR__
++#include <nvhe/spinlock.h>
++#endif
++
+ #include "../arm-smmu-v3-common.h"
+ 
+ /*
+@@ -18,6 +22,7 @@
+  * @oas			OAS of the SMMUv3
+  * @pgsize_bitmap	Pages sizes supported by the SMMUv3
+  * Other members are filled and used at runtime by the SMMU driver.
++ * @lock		Lock to protect the SMMU resources (STE/CMDQ)
+  */
+ struct hyp_arm_smmu_v3_device {
+ 	phys_addr_t		mmio_addr;
+@@ -29,6 +34,12 @@ struct hyp_arm_smmu_v3_device {
+ 	unsigned int            ias;
+ 	unsigned int            oas;
+ 	size_t                  pgsize_bitmap;
++	/* nvhe/spinlock.h not exposed to EL1. */
++#ifdef __KVM_NVHE_HYPERVISOR__
++	hyp_spinlock_t		lock;
++#else
++	u32			lock;
++#endif
+ };
+ 
+ extern size_t kvm_nvhe_sym(kvm_hyp_arm_smmu_v3_count);
+-- 
 2.50.1.552.g942d659e1b-goog
 
 
