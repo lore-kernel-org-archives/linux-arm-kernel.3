@@ -4,124 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 353D0C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:11:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A01C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:12:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MLMkHEXhcpE9zqxnDSOUT7LZJSw53zS0jCgPn9nQ6+g=; b=KYA/2abLmF2orp+oTE/MJPuFIL
-	MPx2U/MAOE+AzD3ju6h0Z8pr+Iga4uOe8VPq76TD0fvopdre9ewfSCCAzqJVxjCMY3dkh4e4wftIR
-	O5Co7qIsU8G38AWLaw1ak/yAJTW/YfbgCrSPRX9wJwp/OSlAywdQRq+JVjU3tL+G/0O5I5c3vTBQ+
-	19L+FYdyecVur/fnIqPyRx9yE3ei/XbbKyD6+WzgGQnDuZgS+tGzIRe1W0JcWcjc17RrOTTTTXsKR
-	Kn5Ww967LzMyS2kqGRqmyVD/S9GOsyzJ193GynHEF//kT1ACIPwiTTIaHTY8L/eB27aaG4a2pJimq
-	Re1VeYrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2TRBNRU0aazEaz412aN0yClz+07/RSAtN1hf3sqcbTY=; b=tw5wpV7JJ6bB1EDGxroOywDvCV
+	6nDHLlvpt8uYfPEIashxaeh69xaC7xdJEZxFAV86Etb4e9keElvQHD4+XlyRZIHnE+kjpsqorylU9
+	C5z/w7/+XLxf+sp37OlSMzrw6CIqKb2zVMiVEd2i2ZWGA9dqljBF6zA6hXHj+l8Wul6hW49i51WQa
+	1vEz5NPpX/F8ic4VxlAB6pS9zNhBK+XWdcFlGNHJdycxjzIdT7l3nXhXgUc1w9qCIn1xgy+W3Ryz1
+	R+I79KniwSYFhv5UYpVPKJ6bS8BRSKEIlRogG2h3rcjUCFGr0Wq/pLVUotglkNOOYkwsa8oiO5zDy
+	rElFU2xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMhr-0000000EP0g-33jF;
-	Mon, 28 Jul 2025 12:11:51 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ugMif-0000000EP6o-3lRg;
+	Mon, 28 Jul 2025 12:12:42 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMbX-0000000EOab-090O
+	id 1ugLG2-0000000EFfC-40V8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 12:05:20 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SAlJQB004997
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 12:05:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=MLMkHEXhcpE9zqxnDSOUT7LZ
-	JSw53zS0jCgPn9nQ6+g=; b=O/09t9ifQZ5pb1vgPcIgB4ft+YBrnr3NSj2lG8HH
-	POO+dTiTkFe87ThnmxxXAY/3hNC9AY/qkpFt9yOkTp9buD7tG5o4So5ilDJSiHcT
-	IbrApJia0nx3Yk0fh44+TzLDPGuUEXrNKW49zlTd0lh5kq1A1y7H9wekO+TdyKCw
-	gsdgObcQ0Khe1RgBrpY9SVIvkM+PpZOjdoX9noy6s5+Z9HqX5Q4VzEvm2G5ZQr0D
-	Qkc1zYcO329+XCB6xDLDLN+4gf3uAmFy1Ngz9e1WwyYl/e0z7Pxn2c+C4bTiZOk/
-	h5xJ6Tl/iUnBOO4Y2GtroCJiMPewTlVJ7tYkmCzsULqtww==
-Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484nytvp5v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 12:05:18 +0000 (GMT)
-Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-615b4e018dbso960817eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 05:05:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753704317; x=1754309117;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MLMkHEXhcpE9zqxnDSOUT7LZJSw53zS0jCgPn9nQ6+g=;
-        b=l6PJSCd8kZgZnc/JiZuuIFLfyZPyoh+oMsdqX08p7HiL6F3PotjFdUTIRPfMr7l3K6
-         Um+UE1wtmXkqu86OttCgq0QH0JmEIZSvL77SVNUUdV2wCEkXl6QFA5phpa+tnlKmTU9x
-         tcqBc1tFFfyMFyJiVCMD+TGy/wPQdh1SmcVS441gXISIqBCWHdbYP0gru8xl5d+vwIHl
-         7Ff2UnxCH8Wj/kt2HeckEYFYBUbYPmht8nbxNCVq8H9AXVihqdJEXL/UI1JVfdUmO0eU
-         MNrUm4xMOo+FJe7tt24Mil/txLlV+e28VE4mqmSVml+DRWbGkPOqd3a6OGq1e3GdY0KB
-         w80A==
-X-Forwarded-Encrypted: i=1; AJvYcCVSYBujre2AJrls2iA3XTzwnSm6hzzHc5IJ0SKeV4iplr9ueoP3ivJzYN1Og3cTdSDYUYLVBv63CCe1KBQcNNMJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtAkj5ye7Lw5r+L3rWO2kJaQbv7RvFpeyKdJZZ0HAxf9ylgeHm
-	tGEu5Dp/f7CLvsuJS3PeLgaWc4vgW+nW5ZNh4b2NOdfgR/AdHO/1ZMGYz6y+5vot5dfhePNR0wf
-	VBtU7e/9yBs9FFev9aqJooujbVFAHfdlnfg3gDnfqdUyvXR0naAaRsdTO2nMCUP4KeOCy8FJAVN
-	mj+w==
-X-Gm-Gg: ASbGncuNmTieJe2EAQw9je4hpcEL6qgLFzVUIBFNGE6iXTUnQAquBWcx1gkf2TRq2p2
-	ajPL8DlfCuzLrPloBGO3jl4DDfcPNtseGKytBSlJMOwqwsUmR3MEMqTqnDNlulTBkrtxSpWpJP9
-	xqaxUpnDX+YjyndF0r/9S3XX1c5IRhz9tVsLBA4DnMGGilKYv/ftSrb1elrwqAk9WSdE8aN6mF9
-	DVuOx06CPMRd6smWsr6UYF0FEahyJFiayuPaV5vn2rQ4TFJZEt997AZ1byVHCdtkfNY6RUzhzOS
-	do97TwvO91m7amCDN7zi5prHSvYuG78DkaAvB9Zr86oglrANmgVaPOuc+eRR9GprTYOzi5p0JHz
-	U6T+BdlVFkpXx1CFVZW3zLIO+bjw/gUDCn9HLxDMRgllPADBOmil1
-X-Received: by 2002:a05:6808:1511:b0:3f9:2fdc:ee93 with SMTP id 5614622812f47-42bba1f2b8amr5993482b6e.30.1753704317201;
-        Mon, 28 Jul 2025 05:05:17 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGHSfeWv4VHXW2+zlLwrnah8CuiseIJTrikxH8XMRdQkuCbQ7xwR1kFZq9NS64k4Bn807RS+w==
-X-Received: by 2002:a05:6808:1511:b0:3f9:2fdc:ee93 with SMTP id 5614622812f47-42bba1f2b8amr5993452b6e.30.1753704316668;
-        Mon, 28 Jul 2025 05:05:16 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b63375932sm1240730e87.152.2025.07.28.05.05.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 05:05:15 -0700 (PDT)
-Date: Mon, 28 Jul 2025 15:05:14 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, naoki@radxa.com,
-        stephen@radxa.com, cristian.ciocaltea@collabora.com,
-        neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com,
-        yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, robh@kernel.org,
-        sebastian.reichel@collabora.com, Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v6 02/10] drm/bridge: synopsys: Add DW DPTX Controller
- support library
-Message-ID: <soz3wrbwlogzv6pi7i2cf5iq5gxhspkrti3pcxn5cdhztghwww@xxcdbp2n5cvq>
-References: <20250728082846.3811429-1-andyshrk@163.com>
- <20250728082846.3811429-3-andyshrk@163.com>
+	Mon, 28 Jul 2025 10:39:04 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SAK6Pk031811;
+	Mon, 28 Jul 2025 12:38:38 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	2TRBNRU0aazEaz412aN0yClz+07/RSAtN1hf3sqcbTY=; b=3duh5Aotax1L6S6u
+	3Wfer4PGVcgXjO92s+e7kzK5anxAOga19rCv/l6vuBIvnnaHiWdWQR8La38yiVqY
+	oX2PooxgymVguBVZ3ZTrg9+bPNmJNeVn6frG+gj3Uo1QBLNOG1mM7ZYZ0tTuc+Ba
+	1Vp8TxeYiWzwSR5eNJIi7XnIp74HBDzr9bgBLmgQdCz7N0WVXrS5QZF4r4HUj7oB
+	9l9oCHDf0v0E6onuymUAmSy06IKGdqvwcbdoZSmTbZmRibUmGIhENqidnl5Gkc6i
+	OmEHzWNlh+Vg8iAYv04BiCvCvm1m+voNydrK4q8gqmY2uRo4WqzMfJjjPH0fyxKf
+	3vaWNA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484pc27rr4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Jul 2025 12:38:37 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B67FC4002D;
+	Mon, 28 Jul 2025 12:37:09 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4CFD6769726;
+	Mon, 28 Jul 2025 12:36:04 +0200 (CEST)
+Received: from [10.252.20.157] (10.252.20.157) by SHFDAG1NODE2.st.com
+ (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
+ 2025 12:36:03 +0200
+Message-ID: <58bcd0dc-9df0-461c-8e11-5e892bee2f34@foss.st.com>
+Date: Mon, 28 Jul 2025 12:35:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250728082846.3811429-3-andyshrk@163.com>
-X-Proofpoint-GUID: KVonVqDW2Npzal6avq-D3nd2jGrxjDpD
-X-Proofpoint-ORIG-GUID: KVonVqDW2Npzal6avq-D3nd2jGrxjDpD
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI4MDA4NyBTYWx0ZWRfX0C5euTjzQOqH
- Kr7UZ0tJKuvaadQwqY199D6QHYZNlOBsV/6FcIQu4HrVsarSLhHzwJAoqGUz841XR90cyDXTE3Y
- 8IletNNRU4VA/AV/PUDcTK3DQQtwE2Xmf/zOgrR5mpmKn0u/l5Wrv6ADKtv042ItGpZPPsIfmfP
- VuXWvyFREiLjnouoRgncjq/J6Lui1VnA7hvA9Ahs152h9Ft54m7hj3N1GX6mYO24l+pzzw2vdUV
- ZHcKbYdn2yb9/DkbphIFXqWpssWKxsvrip6nFxMyyyeINpJB9XGK0DmybXX3WUuvBxYtEF+J3vt
- P4PGkC41tKKNatRA7Xw1PQw25i80IDv1nKkOAlPyueP9xEOsrSqCDnrxHbAUVK8kjDeMNLAzxJZ
- CkkMRvi3MI4vvFztLQ2CDqaXHIzY1SO1B9S8yp1jOtffMlaUhetRAstR9mu+LQYXmm7dLD9c
-X-Authority-Analysis: v=2.4 cv=CLoqXQrD c=1 sm=1 tr=0 ts=6887677e cx=c_pps
- a=V4L7fE8DliODT/OoDI2WOg==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=s8YR1HE3AAAA:8 a=EUspDBNiAAAA:8 a=rZy2__OW2t70H_ViVZ0A:9
- a=CjuIK1q_8ugA:10 a=WZGXeFmKUf7gPmL3hEjn:22 a=jGH_LyMDp9YhSvY-UuyI:22
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/12] dt-bindings: display: st: add new compatible to
+ LTDC device
+To: Rob Herring <robh@kernel.org>
+CC: Yannick Fertre <yannick.fertre@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier <christophe.roullier@foss.st.com>,
+        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
+ <20250725-drm-misc-next-v1-1-a59848e62cf9@foss.st.com>
+ <20250725194936.GA1731993-robh@kernel.org>
+Content-Language: en-US
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+In-Reply-To: <20250725194936.GA1731993-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.252.20.157]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 adultscore=0 suspectscore=0 mlxlogscore=999 spamscore=0
- priorityscore=1501 phishscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507280087
+ definitions=2025-07-28_03,2025-07-24_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_050519_079849_9D25A737 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20250728_033903_280212_DBAEE4E3 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,72 +111,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 04:28:27PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
-> 
-> The DW DP TX Controller is compliant with the DisplayPort Specification
-> Version 1.4 with the following features:
-> 
-> * DisplayPort 1.4a
-> * Main Link: 1/2/4 lanes
-> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> * AUX channel 1Mbps
-> * Single Stream Transport(SST)
-> * Multistream Transport (MST)
-> * Type-C support (alternate mode)
-> * HDCP 2.2, HDCP 1.3
-> * Supports up to 8/10 bits per color component
-> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-> * Pixel clock up to 594MHz
-> * I2S, SPDIF audio interface
-> 
-> Add library with common helpers to make it can be shared with
-> other SoC.
-> 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> 
-> ---
-> 
-> Changes in v6:
-> - Use drm_dp_vsc_sdp_supported
-> - Store bpc/bpp/color format in dw_dp_bridge_state
-> 
-> Changes in v5:
-> - Use drm_dp_read_sink_count_cap instead of the private implementation.
-> 
-> Changes in v4:
-> - Drop unnecessary header files
-> - Switch to devm_drm_bridge_alloc
-> 
-> Changes in v3:
-> - Rebase on drm-misc-next
-> - Switch to common helpers to power up/down dp link
-> - Only pass parameters to phy that should be set
-> 
-> Changes in v2:
-> - Fix compile error when build as module
-> - Add phy init
-> - Only use one dw_dp_link_train_set
-> - inline dw_dp_phy_update_vs_emph
-> - Use dp_sdp
-> - Check return value of drm_modeset_lock
-> - Merge code in atomic_pre_enable/mode_fixup to atomic_check
-> - Return NULL if can't find a supported output format
-> - Fix max_link_rate from plat_data
-> 
->  drivers/gpu/drm/bridge/synopsys/Kconfig  |    7 +
->  drivers/gpu/drm/bridge/synopsys/Makefile |    1 +
->  drivers/gpu/drm/bridge/synopsys/dw-dp.c  | 2094 ++++++++++++++++++++++
->  include/drm/bridge/dw_dp.h               |   20 +
->  4 files changed, 2122 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-dp.c
->  create mode 100644 include/drm/bridge/dw_dp.h
-> 
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
 
--- 
-With best wishes
-Dmitry
+On 7/25/25 21:49, Rob Herring wrote:
+> On Fri, Jul 25, 2025 at 12:03:53PM +0200, Raphael Gallais-Pou wrote:
+>> The new STMicroelectronics SoC features a display controller similar to
+>> the one used in previous SoCs.  Because there is additional registers,
+>> it is incompatible with existing IPs.
+>>
+>> Add the new name to the list of compatible string.
+>>
+>> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+>> ---
+>>  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 37 +++++++++++++++++++---
+>>  1 file changed, 33 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
+>> index d6ea4d62a2cfae26353c9f20a326a4329fed3a2f..546f57cb7a402b82e868aa05f874c65b8da19444 100644
+>> --- a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
+>> +++ b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
+>> @@ -12,7 +12,9 @@ maintainers:
+>>  
+>>  properties:
+>>    compatible:
+>> -    const: st,stm32-ltdc
+>> +    enum:
+>> +      - st,stm32-ltdc
+>> +      - st,stm32mp25-ltdc
+>>  
+>>    reg:
+>>      maxItems: 1
+>> @@ -24,11 +26,12 @@ properties:
+>>      minItems: 1
+>>  
+>>    clocks:
+>> -    maxItems: 1
+>> +    minItems: 1
+>> +    maxItems: 4
+>>  
+>>    clock-names:
+>> -    items:
+>> -      - const: lcd
+>> +    minItems: 1
+>> +    maxItems: 4
+>>  
+>>    resets:
+>>      maxItems: 1
+>> @@ -51,6 +54,32 @@ required:
+>>    - resets
+>>    - port
+>>  
+>> +if:
+>> +  properties:
+>> +    compatible:
+>> +      contains:
+>> +        enum:
+>> +          - st,stm32-ltdc
+>> +then:
+>> +  properties:
+>> +    clocks:
+>> +      maxItems: 1
+>> +    clock-names:
+>> +      maxItems: 1
+>> +      items:
+>> +        - const: lcd
+>> +else:
+>> +  properties:
+>> +    clocks:
+>> +      maxItems: 4
+>> +    clock-names:
+>> +      maxItems: 4
+>> +      items:
+>> +      - const: bus
+>> +      - const: lcd
+> Why can't 'lcd' be 1st so you aren't changing positions? Keep the items 
+> list at the top level and just use minItems/maxItems in the if/then 
+> schemas.
+Hi Rob,
+
+I've set the name order to match the stm32mp255.dtsi device-tree, so that it
+does not confuse anybody regarding which clock goes with.
+
+Your comment is taken into account for the upcoming version.
+
+Thanks,
+Raphaël
+>
+>> +      - const: ref
+>> +      - const: lvds
+>> +
+>>  additionalProperties: false
+>>  
+>>  examples:
+>>
+>> -- 
+>> 2.25.1
+>>
+
 
