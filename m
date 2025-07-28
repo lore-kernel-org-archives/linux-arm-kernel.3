@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6841C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D60C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNqiciGNbDvOVxE+CtY3bj2b4l2gg16t6NtA8moWKCo=; b=wW6t/kpIQYaEvx22gBoEgyk467
-	nKzmUFtVVr23im2bPxk4C4s4QEpdo35INGcE3RQq4mcPhLlg+W51sowd5twUtApzZg8/JJqFcCdF3
-	EgGqSBU3YEoqYUfjsJHhu1zq9WOnM41u7pO5Yfwpe4mPofnkQiHBwWBt7y2jMOMAogO07HqrRgm45
-	LQXTh+JoaSEaeMNa/Bewj+wLwwqYAd2GDcBHjLGTeQdF5ilDVPAo+xI4qVhmtBh1Dizu1NV7wvVtg
-	Oh5z9iD//EKCQkdh+g3+fkisveMYyAlNLH7crsVU6EH6B8oFkEbXqQXYgm3zHxRBTtFpsixGJvm/C
-	CSLdZtVA==;
+	bh=w5NjQFK3LMXVck/2I61WHnYSFTQfZupDj7jJwxA50Fo=; b=U2VJ+aXinO+0ZCEFwRZI483Sy+
+	nKyLTFzgzJS3gsPXfUaAaP7Ai4eHtS0BNYa0etltri4pVoBuu0JgVMouq7EpbIvB6NfCe1HV2OOlM
+	l7oM19O88VAuzc30M3jTDAzUTIvi5dVU5YrNPdSA3sFe0EYJh3LEV+qjp7eWFInVthGALA2aIrJHz
+	88Xm3DL5dAgbAaQP7sUh8XeYeBLmwz2EwrVgRW9kOuklQogY8Ns1OOrN9aAFuD2qRuu1UhzISATbo
+	NkRwm67CRr9yGNK8Gbag3Sv3rvcs8VxqDXmQmOAs+8MyRjsMmaG0KPVSuHkRsN+5Cdd45YArXUCrx
+	QfSo0qIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugTij-0000000FHsc-0MBO;
+	id 1ugTij-0000000FHt8-2h8b;
 	Mon, 28 Jul 2025 19:41:13 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugS2k-0000000F8vG-0mdQ
+	id 1ugS2l-0000000F8vg-19p5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:53:47 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4538f375e86so36589395e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:45 -0700 (PDT)
+	Mon, 28 Jul 2025 17:53:48 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-4560f28b2b1so15170625e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753725224; x=1754330024; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1753725225; x=1754330025; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JNqiciGNbDvOVxE+CtY3bj2b4l2gg16t6NtA8moWKCo=;
-        b=J7pmGMV7Jmg12Quq491A1/47mMDBMDChtqIT9mfBE4VUJgEvfCfiNB4CdhEy2pMEdJ
-         Je7hBsynBwQtvVNjiAxoxLP343amKiFVdbWFIBflaoaybV1TMR5UGRt5NlvbCAC7HTWa
-         KmrLsncZJ23qNCd19XBH1q/Wdva0R5+ztJjWS6Vi2/FB24XxtuxDF+fVShtaykKxPGpW
-         UZDJp75KNkEmXg2Ak97FzCrbH10rdhiKdKwOzHNlQXIB7d14UB8E8cOx9ocptkxmzZhC
-         piaoD727HC6yoPIHKsWWB5GEyx2nZ8U3mtROzIZQ4j/qoqLaxzR2Nb9eS665XCcPNcJm
-         m91A==
+        bh=w5NjQFK3LMXVck/2I61WHnYSFTQfZupDj7jJwxA50Fo=;
+        b=kd2nqaS+yu8uVcOUISaq8htUgvkOtJM+mcwpE2CVASZD3DC3XDNwtOZPLp7SKdyvhZ
+         F92Gh7Hkx5xVDQB6d4NOgkENnKHi+kRHEUtMjlNb90CEC7zr7Vn10oU1qHvQD7lDz5c4
+         YYMLRGcdo3guvfw56LcdVAcsChYrCMk4RIznEQu7zspfwPMYN14tz/pT/LhBZVLauAtG
+         c0jMBKcYc85uRLuTwIA3WrVNiS9p7f8c99Zylz+U25GpLazSVLsCJ8jvUyWcqzW9eDtn
+         gTBszWbT1j9VVFuOrJk3xhEV3IKbbS2zyRmjdumB6JDOb4+xT8TerYf1spW9UBYy3DZJ
+         uXJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753725224; x=1754330024;
+        d=1e100.net; s=20230601; t=1753725225; x=1754330025;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JNqiciGNbDvOVxE+CtY3bj2b4l2gg16t6NtA8moWKCo=;
-        b=DGkP8mSghsvWGail7LfBRzi94d6ZThtguf0xNUtNcxUYUyGFnJ6qf1DCaeTQ8dYhMU
-         Rtv2PZorxVKirTLJTq9S9ZO7bjbYtNayOWp3QiCzoTSdpjutSANhhYWKpl+djo7sqiBs
-         1v4tmysLhug9Z+005UAknetJCObYTwScuDALGnv24hglan+91wqjnzPblyvLCGyUPg5K
-         /HJHOCR06RD6R0dmycG/nYi488pXUT3ACUyT3zynMhop81o0mxAjecXJiMcknBT9+4y6
-         uy/5EB4hwP+BwRvzd+CVxf6tb3bjWnPze7aWo1lNJm5J6lBM8pNrYPJUlpyhs6lI5GwM
-         UFZg==
-X-Forwarded-Encrypted: i=1; AJvYcCUgpmva7cc92HUOFlwHuPr7AOcD19XS3Jp7jmpsOUwTAUC+OgV7hmLrGH0rWy2BwzjhTlxLhZfrxv+dEstmNlbs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyse0PiocOOphp/BD0ystKrsPViz3q7GgbtZ64d3U8C3RTyJXT1
-	RQ6++ZhNiC5OTl62SHLQ9AOqGLHZgEpyugF2iglTjbvclJ5BkDClHS772MRW7FnikoRfcmD3pr8
-	uuG+kfJYe61eAwg==
-X-Google-Smtp-Source: AGHT+IEz09KUv2OxAPyDlzfr699/1qziOwALIawld3qpvPOE7K8k/mL0W2XcO/kW0IXD9mKeU33jEW1uY9lkQw==
-X-Received: from wmbei27.prod.google.com ([2002:a05:600c:3f1b:b0:456:1b6f:c878])
+        bh=w5NjQFK3LMXVck/2I61WHnYSFTQfZupDj7jJwxA50Fo=;
+        b=Y0tW5dKVtGQsibkFGSS3wmY8iWE7QiZYI8+eHtufNFMtffMHhlQDLFpWEUhu5FGgxp
+         812tdIQxM2g3eAZAXpQ8AcVa019D+QtrGxA3u7J1rD6QmHpaNAEAsBQORvmd87txO6cv
+         FKAFj+vesUpJeI3avvUeAMYDQk2icG2ttou7rkC83+sfe4W7osMZOoNGmBxqCbfvQDOv
+         L9cP8lYPRQVd2PFev2oEMl9bNitk8SjBx1GPEFcf1+m8VYXegVgDwnm84bnnxNPlAVj+
+         Tl1p81ytW0XrJ0dbMHWI2VCo6lUw+Q9siqHRtkBZFOCsva5KY7lG+C6vLHPtav54q2ju
+         e06Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVihLqn28qi0PFJSdF7SCzKSRGgmvF9ult7kh8smTtvUxA7yEP5WKkX1PNQH1YTjwJhcqDPzQAfjCMMfjdElAik@lists.infradead.org
+X-Gm-Message-State: AOJu0YywaRgjMROcBEOR+KnxyoqTNmaBa4NlzwdDMNObHXiHNRcq/q+V
+	RgBiWi3VIsdCtI20W0nI7ct3dDcs0uL6bzS5UKIZoAGeHqjxzxGdLwPAVAMz2zpkZnRqSvO4K4/
+	R4NjjLGv0OneqMQ==
+X-Google-Smtp-Source: AGHT+IHSNClQJxjKWyMtSeRnDi1Da1nWZxQp6Vl0HzgxR6hexmbhiCv9Lfo4JnhcLL7nQ3Uw/6o6Ifnro2r7Kg==
+X-Received: from wmsr20.prod.google.com ([2002:a05:600c:8b14:b0:454:d702:f3c2])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:6748:b0:456:eab:633e with SMTP id 5b1f17b1804b1-4587dd0db72mr87600635e9.17.1753725224509;
- Mon, 28 Jul 2025 10:53:44 -0700 (PDT)
-Date: Mon, 28 Jul 2025 17:53:01 +0000
+ 2002:a05:600c:4e0a:b0:456:fc1:c26d with SMTP id 5b1f17b1804b1-4587dae0f88mr78273155e9.2.1753725225522;
+ Mon, 28 Jul 2025 10:53:45 -0700 (PDT)
+Date: Mon, 28 Jul 2025 17:53:02 +0000
 In-Reply-To: <20250728175316.3706196-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20250728175316.3706196-1-smostafa@google.com>
 X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
-Message-ID: <20250728175316.3706196-15-smostafa@google.com>
-Subject: [PATCH v3 14/29] KVM: arm64: iommu: Introduce IOMMU driver infrastructure
+Message-ID: <20250728175316.3706196-16-smostafa@google.com>
+Subject: [PATCH v3 15/29] KVM: arm64: iommu: Shadow host stage-2 page table
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
@@ -77,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	praan@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_105346_226533_52507BEE 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20250728_105347_323917_2184760E 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,235 +93,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To establish DMA isolation, KVM needs an IOMMU driver which provide
-certain ops, these ops are defined outside of the iommu_ops,
-and has 2 components:
-- kvm_iommu_driver (kernel): Implements simple interaction with
-  the kernel (init, remove,...)
-- kvm_iommu_ops (hypervisor): Implements identity mapping for
-  the IOMMU page tables
+Create a shadow page table for the IOMMU that shadows the
+host CPU stage-2 into the IOMMUs to establish DMA isolation.
 
-Only one driver can be used and is registered with
-kvm_iommu_register_driver() by passing pointers to both ops.
+An initial snapshot is created after the driver init, then
+on every permission change a callback would be called for
+the IOMMU driver to update the page table.
 
-The flow of the KVM IOMMU drivers works as follows:
-- The KVM IOMMU driver in the kernel after being loaded using an
-  initcall (before module_init) it would register with KVM both
-  the kernel and hypervisor ops.
-- KVM will initialise the driver after it initialises and before the
-  de-privilege point, which is a suitable point to establish trusted
-  interaction between the host and the hypervisor.
-  In this call the IOMMU kernel driver typically starts probing
-  the IOMMUs, parsing firmware tables and initialising hardware.
-- Then the hypervisor init will be called, to take over the IOMMUs
-  and initialise its data structures.
+For some cases, an SMMUv3 may be able to share the same page
+table used with the host CPU stage-2 directly.
+However, this is too strict and requires changes to the core hypervisor
+page table code, plus it would require the hypervisor to handle IOMMU
+page faults. This can be added later as an optimization for SMMUV3.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 ---
- arch/arm64/include/asm/kvm_host.h       |  9 +++++
- arch/arm64/kvm/Makefile                 |  3 +-
- arch/arm64/kvm/arm.c                    |  8 +++-
- arch/arm64/kvm/hyp/include/nvhe/iommu.h | 13 +++++++
- arch/arm64/kvm/hyp/nvhe/Makefile        |  3 +-
- arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 18 +++++++++
- arch/arm64/kvm/hyp/nvhe/setup.c         |  5 +++
- arch/arm64/kvm/iommu.c                  | 49 +++++++++++++++++++++++++
- 8 files changed, 105 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/kvm/hyp/include/nvhe/iommu.h
- create mode 100644 arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
- create mode 100644 arch/arm64/kvm/iommu.c
+ arch/arm64/kvm/hyp/include/nvhe/iommu.h |  4 ++
+ arch/arm64/kvm/hyp/nvhe/iommu/iommu.c   | 83 ++++++++++++++++++++++++-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  5 ++
+ 3 files changed, 90 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 3e41a880b062..43f5a64bbd1d 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1674,5 +1674,14 @@ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
- void get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg, u64 *res0, u64 *res1);
- void check_feature_map(void);
- 
-+struct kvm_iommu_driver {
-+	int (*init_driver)(void);
-+	void (*remove_driver)(void);
-+};
-+
-+struct kvm_iommu_ops;
-+int kvm_iommu_register_driver(struct kvm_iommu_driver *kern_ops, struct kvm_iommu_ops *hyp_ops);
-+int kvm_iommu_init_driver(void);
-+void kvm_iommu_remove_driver(void);
- 
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 7c329e01c557..5528704bfd72 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -23,7 +23,8 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
- 	 vgic/vgic-v3.o vgic/vgic-v4.o \
- 	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
- 	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
--	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o
-+	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
-+	 iommu.o
- 
- kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
- kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 23dd3f3fc3eb..2f494f402c48 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2451,10 +2451,16 @@ static int __init kvm_hyp_init_protection(u32 hyp_va_bits)
- 	if (ret)
- 		return ret;
- 
--	ret = do_pkvm_init(hyp_va_bits);
-+	ret = kvm_iommu_init_driver();
- 	if (ret)
- 		return ret;
- 
-+	ret = do_pkvm_init(hyp_va_bits);
-+	if (ret) {
-+		kvm_iommu_remove_driver();
-+		return ret;
-+	}
-+
- 	free_hyp_pgds();
- 
- 	return 0;
 diff --git a/arch/arm64/kvm/hyp/include/nvhe/iommu.h b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-new file mode 100644
-index 000000000000..1ac70cc28a9e
---- /dev/null
+index 1ac70cc28a9e..219363045b1c 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/iommu.h
 +++ b/arch/arm64/kvm/hyp/include/nvhe/iommu.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ARM64_KVM_NVHE_IOMMU_H__
-+#define __ARM64_KVM_NVHE_IOMMU_H__
-+
-+#include <asm/kvm_host.h>
-+
-+struct kvm_iommu_ops {
-+	int (*init)(void);
-+};
-+
-+int kvm_iommu_init(void);
-+
-+#endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index a76522d63c3e..393ff143f0be 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -24,7 +24,8 @@ CFLAGS_switch.nvhe.o += -Wno-override-init
+@@ -3,11 +3,15 @@
+ #define __ARM64_KVM_NVHE_IOMMU_H__
  
- hyp-obj-y := timer-sr.o sysreg-sr.o debug-sr.o switch.o tlb.o hyp-init.o host.o \
- 	 hyp-main.o hyp-smp.o psci-relay.o early_alloc.o page_alloc.o \
--	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o
-+	 cache.o setup.o mm.o mem_protect.o sys_regs.o pkvm.o stacktrace.o ffa.o \
-+	 iommu/iommu.o
- hyp-obj-y += ../vgic-v3-sr.o ../aarch32.o ../vgic-v2-cpuif-proxy.o ../entry.o \
- 	 ../fpsimd.o ../hyp-entry.o ../exception.o ../pgtable.o
- hyp-obj-$(CONFIG_LIST_HARDENED) += list_debug.o
+ #include <asm/kvm_host.h>
++#include <asm/kvm_pgtable.h>
+ 
+ struct kvm_iommu_ops {
+ 	int (*init)(void);
++	void (*host_stage2_idmap)(phys_addr_t start, phys_addr_t end, int prot);
+ };
+ 
+ int kvm_iommu_init(void);
+ 
++void kvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
++				 enum kvm_pgtable_prot prot);
+ #endif /* __ARM64_KVM_NVHE_IOMMU_H__ */
 diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-new file mode 100644
-index 000000000000..a01c036c55be
---- /dev/null
+index a01c036c55be..f7d1c8feb358 100644
+--- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
 +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * IOMMU operations for pKVM
-+ *
-+ * Copyright (C) 2022 Linaro Ltd.
-+ */
-+#include <nvhe/iommu.h>
+@@ -4,15 +4,94 @@
+  *
+  * Copyright (C) 2022 Linaro Ltd.
+  */
++#include <linux/iommu.h>
 +
-+/* Only one set of ops supported */
-+struct kvm_iommu_ops *kvm_iommu_ops;
+ #include <nvhe/iommu.h>
++#include <nvhe/mem_protect.h>
++#include <nvhe/spinlock.h>
+ 
+ /* Only one set of ops supported */
+ struct kvm_iommu_ops *kvm_iommu_ops;
+ 
++/* Protected by host_mmu.lock */
++static bool kvm_idmap_initialized;
 +
-+int kvm_iommu_init(void)
++static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
 +{
-+	if (!kvm_iommu_ops || !kvm_iommu_ops->init)
-+		return -ENODEV;
++	int iommu_prot = 0;
 +
-+	return kvm_iommu_ops->init();
++	if (prot & KVM_PGTABLE_PROT_R)
++		iommu_prot |= IOMMU_READ;
++	if (prot & KVM_PGTABLE_PROT_W)
++		iommu_prot |= IOMMU_WRITE;
++	if (prot == PKVM_HOST_MMIO_PROT)
++		iommu_prot |= IOMMU_MMIO;
++
++	/* We don't understand that, might be dangerous. */
++	WARN_ON(prot & ~PKVM_HOST_MEM_PROT);
++	return iommu_prot;
 +}
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index ee6435473204..bdbc77395e03 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -13,6 +13,7 @@
- #include <nvhe/early_alloc.h>
- #include <nvhe/ffa.h>
++
++static int __snapshot_host_stage2(const struct kvm_pgtable_visit_ctx *ctx,
++				  enum kvm_pgtable_walk_flags visit)
++{
++	u64 start = ctx->addr;
++	kvm_pte_t pte = *ctx->ptep;
++	u32 level = ctx->level;
++	u64 end = start + kvm_granule_size(level);
++	int prot =  IOMMU_READ | IOMMU_WRITE;
++
++	/* Keep unmapped. */
++	if (pte && !kvm_pte_valid(pte))
++		return 0;
++
++	if (kvm_pte_valid(pte))
++		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
++	else if (!addr_is_memory(start))
++		prot |= IOMMU_MMIO;
++
++	kvm_iommu_ops->host_stage2_idmap(start, end, prot);
++	return 0;
++}
++
++static int kvm_iommu_snapshot_host_stage2(void)
++{
++	int ret;
++	struct kvm_pgtable_walker walker = {
++		.cb	= __snapshot_host_stage2,
++		.flags	= KVM_PGTABLE_WALK_LEAF,
++	};
++	struct kvm_pgtable *pgt = &host_mmu.pgt;
++
++	hyp_spin_lock(&host_mmu.lock);
++	ret = kvm_pgtable_walk(pgt, 0, BIT(pgt->ia_bits), &walker);
++	/* Start receiving calls to host_stage2_idmap. */
++	kvm_idmap_initialized = !!ret;
++	hyp_spin_unlock(&host_mmu.lock);
++
++	return ret;
++}
++
+ int kvm_iommu_init(void)
+ {
+-	if (!kvm_iommu_ops || !kvm_iommu_ops->init)
++	int ret;
++
++	if (!kvm_iommu_ops || !kvm_iommu_ops->init ||
++	    !kvm_iommu_ops->host_stage2_idmap)
+ 		return -ENODEV;
+ 
+-	return kvm_iommu_ops->init();
++	ret = kvm_iommu_ops->init();
++	if (ret)
++		return ret;
++	return kvm_iommu_snapshot_host_stage2();
++}
++
++void kvm_iommu_host_stage2_idmap(phys_addr_t start, phys_addr_t end,
++				 enum kvm_pgtable_prot prot)
++{
++	hyp_assert_lock_held(&host_mmu.lock);
++
++	if (!kvm_idmap_initialized)
++		return;
++	kvm_iommu_ops->host_stage2_idmap(start, end, pkvm_to_iommu_prot(prot));
+ }
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index c9a15ef6b18d..bce6690f29c0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -15,6 +15,7 @@
+ #include <hyp/fault.h>
+ 
  #include <nvhe/gfp.h>
 +#include <nvhe/iommu.h>
  #include <nvhe/memory.h>
  #include <nvhe/mem_protect.h>
  #include <nvhe/mm.h>
-@@ -320,6 +321,10 @@ void __noreturn __pkvm_init_finalise(void)
- 	if (ret)
- 		goto out;
+@@ -529,6 +530,7 @@ static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_
+ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+ {
+ 	int ret;
++	enum kvm_pgtable_prot prot;
  
-+	ret = kvm_iommu_init();
-+	if (ret)
-+		goto out;
-+
- 	ret = hyp_ffa_init(ffa_proxy_pages);
+ 	if (!range_is_memory(addr, addr + size))
+ 		return -EPERM;
+@@ -538,6 +540,9 @@ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
  	if (ret)
- 		goto out;
-diff --git a/arch/arm64/kvm/iommu.c b/arch/arm64/kvm/iommu.c
-new file mode 100644
-index 000000000000..39465101074a
---- /dev/null
-+++ b/arch/arm64/kvm/iommu.c
-@@ -0,0 +1,49 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2023 Google LLC
-+ * Author: Mostafa Saleh <smostafa@google.com>
-+ */
+ 		return ret;
+ 
++	prot = owner_id == PKVM_ID_HOST ? PKVM_HOST_MEM_PROT : 0;
++	kvm_iommu_host_stage2_idmap(addr, addr + size, prot);
 +
-+#include <asm/kvm_mmu.h>
-+#include <linux/kvm_host.h>
-+
-+struct kvm_iommu_driver *iommu_driver;
-+extern struct kvm_iommu_ops *kvm_nvhe_sym(kvm_iommu_ops);
-+
-+int kvm_iommu_register_driver(struct kvm_iommu_driver *kern_ops, struct kvm_iommu_ops *el2_ops)
-+{
-+	int ret;
-+
-+	if (WARN_ON(!kern_ops || !el2_ops))
-+		return -EINVAL;
-+
-+	/*
-+	 * Paired with smp_load_acquire(&iommu_driver)
-+	 * Ensure memory stores happening during a driver
-+	 * init are observed before executing kvm iommu callbacks.
-+	 */
-+	ret = cmpxchg_release(&iommu_driver, NULL, kern_ops) ? -EBUSY : 0;
-+	if (ret)
-+		return ret;
-+
-+	kvm_nvhe_sym(kvm_iommu_ops) = el2_ops;
-+	return 0;
-+}
-+
-+int kvm_iommu_init_driver(void)
-+{
-+	/* See kvm_iommu_register_driver() */
-+	if (WARN_ON(!smp_load_acquire(&iommu_driver))) {
-+		kvm_err("pKVM enabled without an IOMMU driver, do not run confidential workload in virtual machines\n");
-+		return -ENODEV;
-+	}
-+
-+	return iommu_driver->init_driver();
-+}
-+
-+void kvm_iommu_remove_driver(void)
-+{
-+	/* See kvm_iommu_register_driver() */
-+	if (smp_load_acquire(&iommu_driver))
-+		iommu_driver->remove_driver();
-+}
+ 	/* Don't forget to update the vmemmap tracking for the host */
+ 	if (owner_id == PKVM_ID_HOST)
+ 		__host_update_page_state(addr, size, PKVM_PAGE_OWNED);
 -- 
 2.50.1.552.g942d659e1b-goog
 
