@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A98EC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE3AC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y2pizfwQKoKGdOMNPF3BacZFLWH5qaDvaOE2TTeK/ok=; b=qJ+Moy8gWTQHuL
-	JkrQ7p2sLRE+WhlFkAybVp6EGST0Mos6QN4AP3tQoWY6PhrIFiQIGJOsbOBqb2Fi6LEuC0lF+Pvl/
-	C0zHI+mLZprqNQhpJ73SowGZ/p1tAmSmxQVtDZ2Khesj8iAzihnVq0HFY1EsIBnFqyQccO5eAY5gC
-	Fv7mcejCPmhtVXsFaZLtuEanT2ru+5N9GpDawDGsSZhI49e4SCV8vv6DUhJfAwqqVGXnxgXJlrNgh
-	ATDLHMDVpFsz4N/RdBUU27DSOzip4OO/HO/ej93qYNKJu6SinacN/Fg0aGDR3F9vYewwONSz02r/a
-	uIrO390eyxnuvxUErUUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ke/PcRqDTW/FMp/3ob8XCd3S2uQ0KPzfCYd8FTbMaV8=; b=fU8k9adOdyJ9Ib4kNX9Ug3zbo4
+	/JGpep35mduQp2qQ4qpGnn7pOiXMSaTfUPxmIWipAlVgI4vJZH1IXMB+RB7G19Vvx2w02e0cO2mAH
+	26IrptVrbbOQFjL5WzcwomBNvwtgePwFLY8gkzMaJm7F+FoXdNqz1AIP/wjPKFfYN+0hrQhfjVtPb
+	YjIm+bbb+iwTuX/gWIunLwltfHFuuZn1Z2jUc0sSVD6tdAkSJ6yHlMBMaHZBC0wkZvwVFFmQVjKWl
+	T3Df+fogAXiPhj2/XJz7Nk4J52dKrMuadX2xnHsa1rKn0x/bpe6wiUSdbQJQG1S2rlCNRPnk9mb0n
+	hzFcMChw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKxP-0000000ECtu-1KhT;
-	Mon, 28 Jul 2025 10:19:47 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1ugKzq-0000000EDZQ-3EoG;
+	Mon, 28 Jul 2025 10:22:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKut-0000000ECWJ-2snP;
-	Mon, 28 Jul 2025 10:17:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 533254329B;
-	Mon, 28 Jul 2025 10:17:09 +0000 (UTC)
+	id 1ugKv3-0000000ECXg-1XS0;
+	Mon, 28 Jul 2025 10:17:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ke/PcRqDTW/FMp/3ob8XCd3S2uQ0KPzfCYd8FTbMaV8=; b=UwYK0bVLPy1JGuvbQa8MY8igmE
+	tj0GERnptCfOFS4kjNGY4a90DEcJcrzuuX6JLQCv7Ox25iwndBBTva+q68TdtU4FDvg0XYmE/NTqo
+	M30uagWK59vvaRVz8Sp0xwjbFX6NEPVyRQRY+84HNGeS++iJoDi3nSYCD5+iSV/qzZrGW2/P5+vim
+	TBAUKfA9152xK/nXgS5WIyJ97Sf8s6yJVqI3bEVuaUqjnmLBoaHd6VLvo8Kcq+RT0SJld+hH37l+a
+	4BtEZPliVYjc+uyZG8uZD7zIa9XJIEL8gV2RPXE7vogU3dK1toYoxDisn739IqIg6L6/Cw5WtLQYb
+	BsoNTr6g==;
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugKus-0000000CQxC-00Wk;
+	Mon, 28 Jul 2025 10:17:17 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id CA56143292;
+	Mon, 28 Jul 2025 10:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753697830;
+	t=1753697827;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=y2pizfwQKoKGdOMNPF3BacZFLWH5qaDvaOE2TTeK/ok=;
-	b=Zkjm2shC8dNPGEV/0FDraPI/Gg1TM6vzU4y67mQAQKjGs7GIW7cMATKaDnPj+LMlVvAL5v
-	AnhlTFDspYEHISwt70asIz8Bb6M+QkY5nqza3mta+yabDsmRBIpV4GUUeUu5wty2XFvzKg
-	V+lNpJfKQwIPfp+QwGVBLhGf1EJ99eXxPTitG73IkgBtfPEnOAQgqYBViXdQDnagnJzkw9
-	lJ9BFClJWot2fPgP2LTnwTSf1c3JD9gLDrPuNDT7cGzVCUqlQ6/30uZtZPmFhSolXVugiB
-	exNfyxDXBiOPsSQW1YY7ulGIE0acjFwrsheLnC7oLFBSnndJrUhmfxFwYmXQvg==
+	bh=ke/PcRqDTW/FMp/3ob8XCd3S2uQ0KPzfCYd8FTbMaV8=;
+	b=DMrEeugyTNMXGKe1CzbreCKWjokenAc8UxJeIvfsxDVtEzNl5HnTdUD/B1HSBTdFQbfjPx
+	P54fmXSzxO9JNTSKsmBchXcE2W1TKHalp8XfoIdmP1VDl3p1xjT3LnC530DFefdYihPyxY
+	IQa2PJ7mH72uV6k2I7cjE5zjT6gXQlv4UexV94XQmbHuatogHWUtssVcsXMDCIo60ye4wZ
+	XPd4RuBLGVIOofanoAO+aajL+GCpNFnwbOQjPFg1Xdn45yBBgiD4QrtAu/NR8sN02G8Pfa
+	zXHcfOvGH+JuHOMZW5uvrKBz6fw2DA6M+0tPwdXSwu3zHjgwHB0/rn+oJATrXA==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: richard@nod.at, vigneshr@ti.com, nicolas.ferre@microchip.com, 
- alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
- dan.carpenter@linaro.org, bbrezillon@kernel.org, 
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-In-Reply-To: <20250721104340.113581-1-balamanikandan.gunasundar@microchip.com>
-References: <20250721104340.113581-1-balamanikandan.gunasundar@microchip.com>
-Subject: Re: [PATCH] mtd: rawnand: atmel: set pmecc data setup time
-Message-Id: <175369782927.102528.5580599335079355284.b4-ty@bootlin.com>
-Date: Mon, 28 Jul 2025 12:17:09 +0200
+To: Thomas Fourier <fourier.thomas@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Heiko Stuebner <heiko@sntech.de>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+ Jinjie Ruan <ruanjinjie@huawei.com>, 
+ Yifeng Zhao <yifeng.zhao@rock-chips.com>, linux-mtd@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250707071555.17704-2-fourier.thomas@gmail.com>
+References: <20250707071555.17704-2-fourier.thomas@gmail.com>
+Subject: Re: [PATCH] mtd: rawnand: rockchip: Add missing check after DMA
+ map
+Message-Id: <175369782677.102528.4677825344596689403.b4-ty@bootlin.com>
+Date: Mon, 28 Jul 2025 12:17:06 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeludeludcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvegjfhfukfffgggtgffosehtkeertdertdejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheeifffhueelgfdtleetgfelvefggfehudelvdehuddulefgheelgfehieevvdegnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrgedvrdegiegnpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepsggsrhgviihilhhlohhnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegsrghlrghmrghnihhkrghnuggrnhdrghhunhgrshhunhgurghrsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtu
- higohhnrdguvghvpdhrtghpthhtohepuggrnhdrtggrrhhpvghnthgvrheslhhinhgrrhhordhorhhgpdhrtghpthhtoheprggumhhinheshhhifhhiphhhihhlvgdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhhitgholhgrshdrfhgvrhhrvgesmhhitghrohgthhhiphdrtghomh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdeludeludcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvegjfhfukfffgggtgffosehtkeertdertdejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepheeifffhueelgfdtleetgfelvefggfehudelvdehuddulefgheelgfehieevvdegnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrgedvrdegiegnpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepuddupdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprhhurghnjhhinhhjihgvsehhuhgrfigvihdrtghomhdprhgtphhtthhopehurdhklhgvihhnvgdqkhhovghnihhgsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehhvghikhhosehsnhhtvggthhdruggvpdhrtghpthhtoheplhhinhhug
+ idqrhhotghktghhihhpsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprhhitghhrghrugesnhhougdrrghtpdhrtghpthhtohephihifhgvnhhgrdiihhgrohesrhhotghkqdgthhhiphhsrdgtohhmpdhrtghpthhtohepfhhouhhrihgvrhdrthhhohhmrghssehgmhgrihhlrdgtohhm
 X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_031711_858140_EDFC93AF 
-X-CRM114-Status: UNSURE (   4.46  )
+X-CRM114-CacheID: sfid-20250728_111714_383773_C8AAD837 
+X-CRM114-Status: UNSURE (   5.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,20 +93,18 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Zixun LI <admin@hifiphile.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Jul 2025 16:13:40 +0530, Balamanikandan Gunasundar wrote:
-> Setup the pmecc data setup time as 3 clock cycles for 133MHz as recommended
-> by the datasheet.
+On Mon, 07 Jul 2025 09:15:50 +0200, Thomas Fourier wrote:
+> The DMA map functions can fail and should be tested for errors.
 > 
 > 
 
 Applied to nand/next, thanks!
 
-[1/1] mtd: rawnand: atmel: set pmecc data setup time
-      commit: c115e7ed66f0dc6cf96f9bf3e3c46f6c44aa531b
+[1/1] mtd: rawnand: rockchip: Add missing check after DMA map
+      commit: fd277532a84f4c9d9129a87e73dde6a6d9f34200
 
 Patche(s) should be available on mtd/linux.git and will be
 part of the next PR (provided that no robot complains by then).
