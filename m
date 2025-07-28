@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3835C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 02:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00B4C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 03:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+LaZDA/FCK3jvCwMvQup/hbQjkRk3GDFDbtf0l3xKc4=; b=WXKs5Nhm0C/4C23r7OambzfzOP
-	aR9tf5jt7DCdFAbRkSpl3y7BmPW1pqCLXN0d7HBuI/LYW6FVF4ruLfwWgRPor0+fCjciyr6mPHgWG
-	o06pcKKK0BBlz1UIDdqCdLnTqTD27piyZIkCMah0C7Q2NHEUzMrN8CLGmfikC3m6ITbxidvVAir0k
-	azwEofFxcW1a0OpbKjjIIor0+Qqo960w9ZE7NFgld0w0gui/MjgZc/DZDjH1TemIrp5O6xqLQ315i
-	xHi6B6MasSGqHnPrAlyEhAWprtGfm80pjAWa+PdNBHqiFd7OKRcTukZ1zj0Kp7gFywfeCo4Iju+Kr
-	A0UNiPfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J+8jVmLQDoJcDfMjoTHzdrr2Z4GqC6Y4IqQQVKnjdyg=; b=sFz8aPifyBbfzc41N05JG5rYXt
+	pkqLKei+EcZQHdXL4i9Q5a53H+2baZ+0y0tvL2tqhhsulcgCp1sPFukCSbVfpiLZNiSx3eMBqNs7G
+	Owhm87rNRQX7ToLSluPAdrii+g347AuFot7QqDn+G2OtmZ662CGfN9Yl0TmjNteVMXz9Z+tGU9iyn
+	W3viibK3o4kBHrS8cbFzlogKttUjE03TmSyM0Jf/9S7LJo8Fx4k3ujXBCCc7950hl1K35AJiQdcr7
+	19Ydf/v4FKhVOa33If2kAts1jbO+oPi3kza6r5f7MN52MQsjJ8wLAy3YZiS8imv/WHwvWnj3FFZBg
+	prm34nSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugE3p-0000000DV69-3cKn;
-	Mon, 28 Jul 2025 02:57:58 +0000
-Received: from mta-64-227.siemens.flowmailer.net ([185.136.64.227])
+	id 1ugE6K-0000000DVRK-2Nwt;
+	Mon, 28 Jul 2025 03:00:32 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugDke-0000000DTAf-1Cpo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 02:38:09 +0000
-Received: by mta-64-227.siemens.flowmailer.net with ESMTPSA id 202507280238045093750fce9d22699b
-        for <linux-arm-kernel@lists.infradead.org>;
-        Mon, 28 Jul 2025 04:38:04 +0200
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
- d=siemens.com; i=huaqian.li@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc:References:In-Reply-To;
- bh=+LaZDA/FCK3jvCwMvQup/hbQjkRk3GDFDbtf0l3xKc4=;
- b=nf1Uw3Ncp9jtJY9loCfxU9bFqmLTMP12BmamCuGp878lDEQS3+iRkLECAjXXa+5Lv0gXII
- ImGEJ6vJ2pSXj5mgWY3YP29/R7Iu5PouNmN+QLjLgiihpS2OSOAGSI+WZf1O32Ld0WcrhFR2
- MTzKVvs/vnBoP79nd60eRlnluiDdr7v5pcRmOtuVXFlanWa91sG60CFFN4PNpYoVwMwGrEql
- 1IV4I21jWTWTe+rQuC/rWI58yR0YeWW/WjqR3SJY32jw9FE3Paey3EArjUx+cd3+1YTlj0HT
- QXkXZY/lsYNrrbunbji7GHz7r75OMVEpz7AohRJJwuBInzBC4xKsx6Rg==;
-From: huaqian.li@siemens.com
-To: lkp@intel.com
-Cc: baocheng.su@siemens.com,
-	bhelgaas@google.com,
-	christophe.jaillet@wanadoo.fr,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	diogo.ivo@siemens.com,
-	helgaas@kernel.org,
-	huaqian.li@siemens.com,
-	jan.kiszka@siemens.com,
-	kristo@kernel.org,
-	krzk+dt@kernel.org,
-	kw@linux.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	lpieralisi@kernel.org,
-	nm@ti.com,
-	oe-kbuild-all@lists.linux.dev,
-	robh@kernel.org,
-	s-vadapalli@ti.com,
-	ssantosh@kernel.org,
-	vigneshr@ti.com
-Subject: [PATCH v12 7/7] arm64: dts: ti: iot2050: Add overlay for DMA isolation for devices behind PCI RC
-Date: Mon, 28 Jul 2025 10:37:01 +0800
-Message-Id: <20250728023701.116963-8-huaqian.li@siemens.com>
-In-Reply-To: <20250728023701.116963-1-huaqian.li@siemens.com>
-References: <20250728023701.116963-1-huaqian.li@siemens.com>
+	id 1ugDtl-0000000DU5B-3gwH;
+	Mon, 28 Jul 2025 02:47:34 +0000
+X-UUID: 2f77871c6b5d11f09f706fa2197c6ceb-20250727
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=J+8jVmLQDoJcDfMjoTHzdrr2Z4GqC6Y4IqQQVKnjdyg=;
+	b=PP9rw5aaKbKhLeAGNtiC3kA6iHAdDIgQ5J5luRTiHUyJmZ4cvlTNF0dwux8TIJl01OUp/icQwYjB7S/QJ9fZssZ2ZKT+hPwlcXbbdsPaJ1FJL/DFHpUdkOpdka6h8rLfKRPrmoMZaY+FvTwn0mx424WarrT2zqEe8seI9P2RkAk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:64b4e7b8-2139-401e-8531-485efe38abaf,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:d5b53b0f-6968-429c-a74d-a1cce2b698bd,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|15|50,EDM:-3,IP
+	:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 2f77871c6b5d11f09f706fa2197c6ceb-20250727
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1254692392; Sun, 27 Jul 2025 19:47:22 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 28 Jul 2025 10:47:17 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 28 Jul 2025 10:47:17 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, David Airlie <airlied@gmail.com>
+CC: Philipp Zabel <p.zabel@pengutronix.de>, Daniel Vetter <daniel@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
+	<jason-jh.lin@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
+	<singo.chang@mediatek.com>, Paul-PL Chen <paul-pl.chen@mediatek.com>,
+	Yongqiang Niu <yongqiang.niu@mediatek.com>, Zhenxing Qin
+	<zhenxing.qin@mediatek.com>, Xiandong Wang <xiandong.wang@mediatek.com>,
+	Sirius Wang <sirius.wang@mediatek.com>, Xavier Chang
+	<xavier.chang@mediatek.com>, Jarried Lin <jarried.lin@mediatek.com>, Fei Shao
+	<fshao@chromium.org>, Chen-yu Tsai <wenst@chromium.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jason-jh Lin
+	<jason-jh.lin@mediatek.corp-partner.google.com>
+Subject: [PATCH] drm/mediatek: Add error handling for old state CRTC in atomic_disable
+Date: Mon, 28 Jul 2025 10:47:02 +0800
+Message-ID: <20250728024718.24725-1-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-959203:519-21489:flowmailer
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_193808_469103_C1258D9C 
-X-CRM114-Status: GOOD (  12.80  )
+X-CRM114-CacheID: sfid-20250727_194733_934361_1923BC04 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,93 +95,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jan Kiszka <jan.kiszka@siemens.com>
+From: Jason-jh Lin <jason-jh.lin@mediatek.corp-partner.google.com>
 
-Reserve a 64M memory region and ensure that all PCI devices do their DMA
-only inside that region. This is configured via a restricted-dma-pool
-and enforced with the help of the first PVU.
+Introduce error handling to address an issue where, after a hotplug
+event, the cursor continues to update. This situation can lead to a
+kernel panic due to accessing the NULL `old_state->crtc`.
 
-Applying this isolation is not totally free in terms of overhead and
-memory consumption. It  makes only sense for variants that support
-secure booting, and generally only when this is actually enable.
-Therefore model it as overlay that can be activated on demand. The
-firmware will take care of this via DT fixup during boot and will also
-provide a way to adjust the pool size.
+E,g.
+Unable to handle kernel NULL pointer dereference at virtual address
+Call trace:
+ mtk_crtc_plane_disable+0x24/0x140
+ mtk_plane_atomic_update+0x8c/0xa8
+ drm_atomic_helper_commit_planes+0x114/0x2c8
+ drm_atomic_helper_commit_tail_rpm+0x4c/0x158
+ commit_tail+0xa0/0x168
+ drm_atomic_helper_commit+0x110/0x120
+ drm_atomic_commit+0x8c/0xe0
+ drm_atomic_helper_update_plane+0xd4/0x128
+ __setplane_atomic+0xcc/0x110
+ drm_mode_cursor_common+0x250/0x440
+ drm_mode_cursor_ioctl+0x44/0x70
+ drm_ioctl+0x264/0x5d8
+ __arm64_sys_ioctl+0xd8/0x510
+ invoke_syscall+0x6c/0xe0
+ do_el0_svc+0x68/0xe8
+ el0_svc+0x34/0x60
+ el0t_64_sync_handler+0x1c/0xf8
+ el0t_64_sync+0x180/0x188
 
-Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
+Adding NULL pointer checks to ensure stability by preventing operations
+on an invalid CRTC state.
+
+Fixes: d208261e9f7c ("drm/mediatek: Add wait_event_timeout when disabling plane")
+Signed-off-by: Jason-jh Lin <jason-jh.lin@mediatek.corp-partner.google.com>
 ---
- arch/arm64/boot/dts/ti/Makefile               |  5 +++
- ...am6548-iot2050-advanced-dma-isolation.dtso | 33 +++++++++++++++++++
- 2 files changed, 38 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
+ drivers/gpu/drm/mediatek/mtk_plane.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index c6171de9fe88..66b1d8093fa2 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -84,8 +84,10 @@ k3-am654-gp-evm-dtbs := k3-am654-base-board.dtb \
- k3-am654-evm-dtbs := k3-am654-base-board.dtb k3-am654-icssg2.dtbo
- k3-am654-idk-dtbs := k3-am654-evm.dtb k3-am654-idk.dtbo k3-am654-pcie-usb2.dtbo
- k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
-+	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
- 	k3-am6548-iot2050-advanced-m2-bkey-ekey-pcie.dtbo
- k3-am6548-iot2050-advanced-m2-bkey-usb3-dtbs := k3-am6548-iot2050-advanced-m2.dtb \
-+	k3-am6548-iot2050-advanced-dma-isolation.dtbo \
- 	k3-am6548-iot2050-advanced-m2-bkey-usb3.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am6528-iot2050-basic-pg2.dtb
-@@ -288,7 +290,10 @@ DTC_FLAGS_k3-am62p5-sk += -@
- DTC_FLAGS_k3-am642-evm += -@
- DTC_FLAGS_k3-am642-phyboard-electra-rdk += -@
- DTC_FLAGS_k3-am642-tqma64xxl-mbax4xxl += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced += -@
- DTC_FLAGS_k3-am6548-iot2050-advanced-m2 += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced-pg2 += -@
-+DTC_FLAGS_k3-am6548-iot2050-advanced-sm += -@
- DTC_FLAGS_k3-am68-sk-base-board += -@
- DTC_FLAGS_k3-am69-sk += -@
- DTC_FLAGS_k3-j7200-common-proc-board += -@
-diff --git a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
-new file mode 100644
-index 000000000000..dfd75d2dc245
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-dma-isolation.dtso
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * IOT2050, overlay for isolating DMA requests via PVU
-+ * Copyright (c) Siemens AG, 2024
-+ *
-+ * Authors:
-+ *   Jan Kiszka <jan.kiszka@siemens.com>
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/reserved-memory} {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	pci_restricted_dma_region: restricted-dma@c0000000 {
-+		compatible = "restricted-dma-pool";
-+		reg = <0 0xc0000000 0 0x4000000>;
-+	};
-+};
-+
-+&pcie0_rc {
-+	memory-region = <&pci_restricted_dma_region>;
-+};
-+
-+&pcie1_rc {
-+	memory-region = <&pci_restricted_dma_region>;
-+};
-+
-+&ti_pvu0 {
-+	status = "okay";
-+};
+diff --git a/drivers/gpu/drm/mediatek/mtk_plane.c b/drivers/gpu/drm/mediatek/mtk_plane.c
+index cbc4f37da8ba..02349bd44001 100644
+--- a/drivers/gpu/drm/mediatek/mtk_plane.c
++++ b/drivers/gpu/drm/mediatek/mtk_plane.c
+@@ -292,7 +292,8 @@ static void mtk_plane_atomic_disable(struct drm_plane *plane,
+ 	wmb(); /* Make sure the above parameter is set before update */
+ 	mtk_plane_state->pending.dirty = true;
+ 
+-	mtk_crtc_plane_disable(old_state->crtc, plane);
++	if (old_state && old_state->crtc)
++		mtk_crtc_plane_disable(old_state->crtc, plane);
+ }
+ 
+ static void mtk_plane_atomic_update(struct drm_plane *plane,
 -- 
-2.34.1
+2.43.0
 
 
