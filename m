@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893F4C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 13:26:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 807B6C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 13:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rV+iMey5LSZL2gvznWqZKZOEISS8HPR8cxxiSSro7DU=; b=4O1M+DuGATgv6a4YNGyzJm2G5P
-	cOTmjvxyoQfy+XUn3j5iVqSG003/62vIkH2oC7U1gpVKJ0Niz/iQq9v3Ei4IuYjMmPxiQ+qD0q09/
-	bVhSXrhkwuYZxKPQ+5ALAWORb3xGf9Dt104adwM7krHDIRGAG9bvHTmLjbBkgSQbifcENm0VHoKU+
-	qSm+ThVWhU24bD+ZFmoBFFXwWcRcZbcpOyK50oZVjWZI+Ap0VZImio76LT0a+fwQaexedLi3DGYBB
-	iggD71MIe46rSmhqrOMYnq2Y/4vuKxQeq4h0TbxJu+fV+s4f+s4qY+XjOX9anu+rnSBajhFVnKtb+
-	q/C9lxlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OK5T6uLGwmqn3hf1RmQGBueNfkd9EIhFCH8Lf+T1dH4=; b=L113UY9l9PAW/XbK7I30rF0oX3
+	kfjM46ru+XhgBxrx+j2tArkgWfMCm5hLnPMACdnZ1VMwcV0F2qkboYT7ttupM8kzQvnuCTn+yFKBP
+	Q3ZaKs5weeeeBWBUnKlTEo3EGIcKSsVJVGAepYUIcgR1yhXjxr1jBNTHU574zr1UeXGSg6ZYYXWAB
+	HOZfKbvpaWuQMW9/rjew0UXL1A/iyCMSC08LJ2wMcTojvRgTdg2R2PQjk8wYqiVSuGTenURoLNiRL
+	sgN9nQa4lmyCPsGu++OOBN/OPfhU9jcz0BzVrjD3q+3AoSjbdKVk+SCP7TeOpZRRQ7Jiz6hhD4Ezt
+	/4xRkePA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNra-0000000EWqX-0t3n;
-	Mon, 28 Jul 2025 13:25:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNp8-0000000EWaR-2RfA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 13:23:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A3151516;
-	Mon, 28 Jul 2025 06:23:17 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54A813F66E;
-	Mon, 28 Jul 2025 06:23:20 -0700 (PDT)
-Date: Mon, 28 Jul 2025 14:23:17 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Stephen Boyd <swboyd@chromium.org>,
-	Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	Elliot Berman <quic_eberman@quicinc.com>,
-	Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Message-ID: <20250728-exotic-armadillo-of-upgrade-fbebc1@sudeepholla>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
- <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
- <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
- <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
- <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
+	id 1ugO7m-0000000EY8n-3uAr;
+	Mon, 28 Jul 2025 13:42:43 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugN5p-0000000ERPv-0lSx;
+	Mon, 28 Jul 2025 12:36:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=OK5T6uLGwmqn3hf1RmQGBueNfkd9EIhFCH8Lf+T1dH4=; b=kWLH9hHV9FwGnzuLVaUm5i56+P
+	EhJuA5KZLglaBdxkl1ID8nlApi5OYmtg9BZge0EDaWB1zPxfmE8WI1Ad0aJQVHErdnXPpFatCXhBj
+	hd7q18TiWktk1zeaB5fSJjCq5FkRTeI/qaWQtupQivld3BAovUg8M6nm+noyhyNkcFLt8mjLp2Qwc
+	pbauB3uwRLXwVJiJnAhdwuPKuQ5glF7Tfd+SXqw5X3E6drlo48NOMJ4lDhfAHlX80hscae1whydxJ
+	pEAWnRx8KRY4teQkLB/z5R7eON4allTr/Bxta4oP+cwEeVCF0pzJ7lyTupD671Bph2eO9546b9f56
+	h8io8efg==;
+Received: from [189.7.87.79] (helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1ugN5e-004u0J-9I; Mon, 28 Jul 2025 14:36:26 +0200
+From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Date: Mon, 28 Jul 2025 09:35:38 -0300
+Subject: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+In-Reply-To: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>, 
+ Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>, 
+ Dom Cobley <popcornmix@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4285; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=pZZomASi24vggMR8j71ADAoeO3BXAe5jDYmwLalGNxQ=;
+ b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBoh26+suwpumaA/wn+o2MjmzSVpSXOUkLEBC56k
+ q7kRLvz5BiJATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaIduvgAKCRA/8w6Kdoj6
+ qr/jCADgO02yc7qcjaMiFwUuEvy50CDhC+sepCAyp2+fSb4QTq5oj3h3Oc0Oq/VdPYslrovrVXI
+ 9Ol8N0vo7erv/C6qCjUu1pvBKoMQCI5jPTcqqO/K1mqwqyAyrUCH5eVMoTgFZiJ7wj2TKgb//ww
+ 99nhNkO0jfany3jhizw4XykRlMaH3q6RDuEExQuXHvEXlURYhXMLlU5jc4K7d+PEvjtyAl/+7+U
+ LZbIWJvQJPjB0nvftbyi90KQUvMc7f+w9nn01GxhbKSPx8J32llhOEEJIWEER8zxeQS1V8gw7gf
+ Z6koR4sDZkH4ykwgmOJiFTm81zHjUUesBEj3XbOgHbd4SDEo
+X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
+ fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_062326_656239_7CFC3397 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250728_053637_214896_4EBBC7FF 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,25 +93,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 02:23:14PM +0200, Krzysztof Kozlowski wrote:
-> On 28/07/2025 14:03, Dmitry Baryshkov wrote:
-> >>
-> >>> and the reboot-mode is defined in the
-> >>> previous patch. So, I'd assume, the path is defined.
-> >>
-> >> As I said, path is not. only psci/reboot-mode is.
-> > 
-> > Do we have an _actual_ use case where PSCI node is not at at root node? 
-> 
-> Yes, many cases, because it belongs as well to firmware node.
-> 
+Currently, when we prepare or unprepare RPi's clocks, we don't actually
+enable/disable the firmware clock. This means that
+`clk_disable_unprepare()` doesn't actually change the clock state at
+all, nor does it lowers the clock rate.
 
-+1, I was about to make similar comment. /psci predates the formal push
-to put all firmware related nodes under /firmware, so /firmware/psci is
-equally possible path and should be recommended one so that all such
-firmware related nodes are contained under /firmware.
+From the Mailbox Property Interface documentation [1], we can see that
+we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+prepare and an unprepare hook for RPi's firmware clock.
+
+As now the clocks are actually turned off, some of them are now marked
+with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are required since
+early boot or are required during reboot.
+
+Link: https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface [1]
+Fixes: 93d2725affd6 ("clk: bcm: rpi: Discover the firmware clocks")
+Signed-off-by: Maíra Canal <mcanal@igalia.com>
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 41 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 40 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
+index 8e4fde03ed232b464165f524d27744b4ced93a60..a2bd5040283a2f456760bd685e696b423985cac0 100644
+--- a/drivers/clk/bcm/clk-raspberrypi.c
++++ b/drivers/clk/bcm/clk-raspberrypi.c
+@@ -68,6 +68,7 @@ struct raspberrypi_clk_variant {
+ 	char		*clkdev;
+ 	unsigned long	min_rate;
+ 	bool		minimize;
++	u32		flags;
+ };
+ 
+ static struct raspberrypi_clk_variant
+@@ -75,6 +76,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_ARM_CLK_ID] = {
+ 		.export = true,
+ 		.clkdev = "cpu0",
++		.flags = CLK_IGNORE_UNUSED,
+ 	},
+ 	[RPI_FIRMWARE_CORE_CLK_ID] = {
+ 		.export = true,
+@@ -90,6 +92,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 		 * always use the minimum the drivers will let us.
+ 		 */
+ 		.minimize = true,
++		.flags = CLK_IGNORE_UNUSED,
+ 	},
+ 	[RPI_FIRMWARE_M2MC_CLK_ID] = {
+ 		.export = true,
+@@ -115,6 +118,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 		 * drivers will let us.
+ 		 */
+ 		.minimize = true,
++		.flags = CLK_IGNORE_UNUSED,
+ 	},
+ 	[RPI_FIRMWARE_V3D_CLK_ID] = {
+ 		.export = true,
+@@ -127,6 +131,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_HEVC_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
++		.flags = CLK_IGNORE_UNUSED,
+ 	},
+ 	[RPI_FIRMWARE_ISP_CLK_ID] = {
+ 		.export = true,
+@@ -135,6 +140,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
++		.flags = CLK_IS_CRITICAL,
+ 	},
+ 	[RPI_FIRMWARE_VEC_CLK_ID] = {
+ 		.export = true,
+@@ -259,7 +265,40 @@ static int raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
+ 	return 0;
+ }
+ 
++static int raspberrypi_fw_prepare(struct clk_hw *hw)
++{
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
++	struct raspberrypi_clk *rpi = data->rpi;
++	u32 state = RPI_FIRMWARE_STATE_ENABLE_BIT;
++	int ret;
++
++	ret = raspberrypi_clock_property(rpi->firmware, data,
++					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
++	if (ret)
++		dev_err(rpi->dev, "Failed to set clock %d state to on: %d",
++			data->id, ret);
++
++	return ret;
++}
++
++static void raspberrypi_fw_unprepare(struct clk_hw *hw)
++{
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
++	struct raspberrypi_clk *rpi = data->rpi;
++	u32 state = 0;
++	int ret;
++
++	ret = raspberrypi_clock_property(rpi->firmware, data,
++					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
++	if (ret)
++		dev_err(rpi->dev, "Failed to set clock %d state to off: %d",
++			data->id, ret);
++}
++
++
+ static const struct clk_ops raspberrypi_firmware_clk_ops = {
++	.prepare        = raspberrypi_fw_prepare,
++	.unprepare      = raspberrypi_fw_unprepare,
+ 	.is_prepared	= raspberrypi_fw_is_prepared,
+ 	.recalc_rate	= raspberrypi_fw_get_rate,
+ 	.determine_rate	= raspberrypi_fw_dumb_determine_rate,
+@@ -289,7 +328,7 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+ 	if (!init.name)
+ 		return ERR_PTR(-ENOMEM);
+ 	init.ops = &raspberrypi_firmware_clk_ops;
+-	init.flags = CLK_GET_RATE_NOCACHE;
++	init.flags = variant->flags | CLK_GET_RATE_NOCACHE;
+ 
+ 	data->hw.init = &init;
+ 
 
 -- 
-Regards,
-Sudeep
+2.50.0
+
 
