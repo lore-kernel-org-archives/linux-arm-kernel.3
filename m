@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27C0C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEBBC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4MeCrGZ4jM/mwWrVgLXe9zoaYmXCEGbQlg3VQ9zWfSU=; b=hXXtnI9n5zc3Ui4wsOzZuNOwzB
-	KRVh1jeGvwBur+t1gI9VdKtEloR9XoV1ANEsk/8fNntqPzyBt80JPnlx9xxTrCEpnQCi9uHES9abe
-	bJkD8w76FB18IOu6N2vghLjBC9bloUK8emrpbjX92Zm++AyRNybRvjtnUd/FqwmiO5gyfSLlLuEAa
-	WAO+0on6JCKDQIA7KCCZjIjiVDwVc3muDpFtoA+B/HqMmSqwB2SxEs64JRCTpX+uTqKYkU5DgR3fq
-	2Ew0LvXTmnMpsGqopW95qetlcQnRNZWlqPAQNee5HcH8FnCW1TcLh0itF+1eEd8InJNw38H6YHLha
-	6JkulEGw==;
+	bh=Vd4HwaQvojYM3Pl9uoqp0lfo6g48PNSGU+VNp9HzeL4=; b=smrSVJOKd5bCLJCkFxrfi8wbL/
+	2uumfnQDek+voP2nEaX+UskVd9FIO4yr1ypomeUopYvaOUE31TksE+nSXQ2XlvlHh0FcbmPfF62OL
+	yQUSUJ/MdkMTuWOXSfMlg/wafLIzpKp+tzDVeyYRwMnXpQLuDBaG8ctd38xQx3M2m+WVFkKN1WCqV
+	guTfXLICU0xWO7LjNuHa+Ww9rvbUs4fvgOrrOodkgF11ucL3xeb4NzEv7zTNJLTgMj4HIpqOab2s2
+	zxjtG788tCELNmOXrDtLMttZUl9U1K3SDUBT9f0NoMW1vwwry4xAZueBJ99FLQ6QjjXJjBpg6Zk52
+	VYUyBPOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKlG-0000000EBeo-3n2E;
-	Mon, 28 Jul 2025 10:07:14 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ugKrb-0000000EC7t-466r;
+	Mon, 28 Jul 2025 10:13:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKik-0000000EBTr-1EV3
+	id 1ugKp6-0000000EC18-3Zhk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 28 Jul 2025 10:11:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Vd4HwaQvojYM3Pl9uoqp0lfo6g48PNSGU+VNp9HzeL4=; b=KjqHr8cOiVIbpJ2sm8kRaQJIvn
+	3IdrKHhsOusl9+hWqh/FQpsIqzQqEBPJhtX73ILvsbkKHCPkjdZsmgkjnUvoKs79xcBaYrrJPDcqw
+	/YBVOf4Su2u+gXQw5DhYQxfLyhhEvQihfrd8Mst4idYI67V9oiGb3kG/X9OiNv2a2HYdhjsUpkvym
+	qgMGgAQ8pQq6wXmunnKmfIV0wX/YtEXld1pqtR2McNlpoOorfhXJyL5Wj2aKjTKWK8hW9Jg/TLH9c
+	cWwJeTFJN41DhChZ4zOGm9MTGSbKFHxK3pteWtgOYPIeoT2jFBeJQiWdI7uw3TUNUkLkil5qPjz0o
+	hCL0u4KA==;
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugKp3-0000000CQdD-03g3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 10:04:39 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56SA4Poj2280777;
-	Mon, 28 Jul 2025 05:04:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1753697065;
-	bh=4MeCrGZ4jM/mwWrVgLXe9zoaYmXCEGbQlg3VQ9zWfSU=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=YHE4xx0Kc2dPbn0pH/EfQnaq8+UU4zfyDALAB0pIR8bJOnLZBfsHAS3XwxKGzUcRs
-	 O2OnFBhkyL73APrxAKYDoCoDhwd1Ks99RWiQjmDemWqfZxOlOXtyAovG+YVUwFaq7q
-	 BbwCTbSoqY2AMK8lQ8XmM5Ub1B9pIFvNW9W8pZ5w=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56SA4Pn3212206
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 28 Jul 2025 05:04:25 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 28
- Jul 2025 05:04:25 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 28 Jul 2025 05:04:25 -0500
-Received: from [172.24.235.208] (hkshenoy.dhcp.ti.com [172.24.235.208])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56SA4LtQ1566557;
-	Mon, 28 Jul 2025 05:04:21 -0500
-Message-ID: <b9ae56bf-dd61-414d-9d52-30cd6e4642db@ti.com>
-Date: Mon, 28 Jul 2025 15:34:20 +0530
+	Mon, 28 Jul 2025 10:11:11 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4brDfb5q5Rz6L5fX;
+	Mon, 28 Jul 2025 18:07:03 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id C71F41402F3;
+	Mon, 28 Jul 2025 18:08:52 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Mon, 28 Jul
+ 2025 12:08:51 +0200
+Date: Mon, 28 Jul 2025 11:08:49 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>, "Rohit
+ Mathew" <rohit.mathew@arm.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	Zeng Heng <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>, Carl
+ Worth <carl@os.amperecomputing.com>, <shameerali.kolothum.thodi@huawei.com>,
+	D Scott Phillips OS <scott@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
+ Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
+	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
+	<david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>, Dave Martin
+	<dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+Subject: Re: [RFC PATCH 10/36] ACPI / MPAM: Parse the MPAM table
+Message-ID: <20250728110849.00004062@huawei.com>
+In-Reply-To: <20250716180725.0000452d@huawei.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+	<20250711183648.30766-11-james.morse@arm.com>
+	<20250716180725.0000452d@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/7] Add DSI display support for TI's Jacinto platforms
-To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <u-kumar1@ti.com>, <devarsht@ti.com>
-References: <20250716060114.52122-1-j-choudhary@ti.com>
-Content-Language: en-US
-From: Harikrishna Shenoy <a0512644@ti.com>
-In-Reply-To: <20250716060114.52122-1-j-choudhary@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_030438_473574_0458C4EE 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20250728_111109_193714_B2800109 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,60 +98,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 7/16/25 11:31, Jayesh Choudhary wrote:
-> Hello All,
->
-> This series adds the dts support to enable DSI on 3 platforms for TI SoCs:
-> - J784S4-EVM
-> - J721S2-EVM
-> - AM68-SK
->
-> SN65DSI86 driver fix that was essential for display is now merged.
->
-> There is one more series relevant for driver that makes CDNS-DSI driver
-> work better:
-> https://lore.kernel.org/all/20250618-cdns-dsi-impro-v4-0-862c841dbe02@ideasonboard.com/
->
-> I have locally tested using kmstest utility on all 3 platforms.
->
-> Changelog v2->v3:
-> - Cosmetic changes like adding padding and new line before child nodes
-> - Using standard node name for regulator and bridge
-> - Remove "regulator-always-on" for dp-regulator in am68 and j721s2 board
-> - Remove interrupt-parent from dsi nodes
->
-> v2 patch link:
-> https://lore.kernel.org/all/20250624082619.324851-1-j-choudhary@ti.com/
+> > +static struct acpi_table_header *get_table(void)
+> > +{
+> > +	struct acpi_table_header *table;
+> > +	acpi_status status;
+> > +
+> > +	if (acpi_disabled || !system_supports_mpam())
+> > +		return NULL;
+> > +
+> > +	status = acpi_get_table(ACPI_SIG_MPAM, 0, &table);
+> > +	if (ACPI_FAILURE(status))
+> > +		return NULL;
+> > +
+> > +	if (table->revision != 1)
 
-Reviewed-by: Harikrishna Shenoy <h-shenoy@ti.com>
+Missing an acpi_put_table()
 
-Tested-by: Harikrishna Shenoy <h-shenoy@ti.com>
+I'm messing around with ACQUIRE() that is queued in the CXL tree
+for the coming merge window and noticed this.
+https://git.kernel.org/pub/scm/linux/kernel/git/cxl/cxl.git/log/?h=for-6.17/cleanup-acquire
 
->
-> Changelog v1->v2:
-> - [4/7]: Add gpio-line-names
-> - [6/7]: Remove unnecessary clocks from TIDSS
->
-> v1 patch link:
-> https://lore.kernel.org/all/02f1912f-0a05-4446-923a-7935ed305cb3@ti.com/
->
-> Jayesh Choudhary (5):
->    arm64: dts: ti: k3-j784s4-j742s2-main-common: add DSI & DSI PHY
->    arm64: dts: ti: k3-j784s4-j742s2-evm-common: Enable DisplayPort-1
->    arm64: dts: ti: k3-j721s2-common-proc-board: Add main_i2c4 instance
->    arm64: dts: ti: k3-j721s2-common-proc-board: Enable DisplayPort-1
->    arm64: dts: ti: k3-am68-sk: Enable DSI on DisplayPort-0
->
-> Rahul T R (2):
->    arm64: dts: ti: k3-j721s2-main: add DSI & DSI PHY
->    arm64: dts: ti: k3-j721s2-som-p0: add DSI to eDP
->
->   .../boot/dts/ti/k3-am68-sk-base-board.dts     |  97 ++++++++++++++
->   .../dts/ti/k3-j721s2-common-proc-board.dts    | 117 +++++++++++++++++
->   arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi    |  39 ++++++
->   arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi  |  51 ++++++++
->   .../dts/ti/k3-j784s4-j742s2-evm-common.dtsi   | 121 +++++++++++++++++-
->   .../dts/ti/k3-j784s4-j742s2-main-common.dtsi  |  39 ++++++
->   6 files changed, 463 insertions(+), 1 deletion(-)
->
+Interestingly this is a new corner case where we want conditional locking
+style handling but with return_ptr() style handling. Maybe too much of a niche
+to bother with infrastructure.
+
+Worth noting though that one layer up it is probably worth something like:
+
+DEFINE_FREE(acpi_table_mpam, struct acpi_table_header *, if (_T) acpi_put_table(_T));
+
+That enables nice clean code like:
+
+
+static int __init acpi_mpam_parse(void)
+{
+	struct acpi_table_header *mpam = __free(acpi_table_mpam) = get_table();
+
+	if (!mpam)
+		return 0;
+
+	return _parse_table;
+}
+
+This series was big enough that I'm spinning a single 'suggested changes'
+patch on top of it that includes stuff like this.  Might take another day or so.
+
+Jonathan
+
+
+
+> > +		return NULL;
+> > +
+> > +	return table;
+> > +}
 
