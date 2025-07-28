@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF940C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD510C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8TbWEVDRePQ3AnKdtwVwl22ZdGy/aRprexuwiKErqQ=; b=3tuuOXnoWlAgXnQ1QQ+LTapM21
-	ffZIxFcuefj7cknvN64q0G+1Wb2qShzp2J3X9xXVCWiIhQ8Z+IrTFyF4q8EmUa1l+Sa0XR/DrYp3E
-	vbh5zD/JDPyxaeL0LQ/rGekbXAZE4TlJZJZMDWK/IudwWmVTxth1+ZpfYZ1YmzOb6xPLfFNpW43DZ
-	hbNmJpveCVHVDMNjBipfpSYDR3F1z/lpoEL1jeNzgso0jaF9BkIVB47pNrlpSNkW6/flBxqaRnuai
-	GTCgjXqr3uDpOesB9kdRqybXGzzJWz6qkYho+/vKkLq1nU2xmFhBVIoXfjEHTvLqmDt4wuA7gOAkk
-	GVp1G+Yg==;
+	bh=h88O4dZwxfFg63Pi6AQ85/YvjoNhwX4BJiQNP+yOVJw=; b=ikKc1KHZAY3GqmyCp2zeK+yQ+1
+	nShLhrG1coZpNSV2VjhwZgnw/qh3ERPUK+I9z4HrvRD/4H03jeSTpgRymTEABaGzpJ18a7jx/8tdz
+	LaEDPCXBwPDm7Lnv6p7GH170vqS6h/mGI7A+pRJ7UhJree97wLsTU3TFsGdhTLnMFIiThHqtR2du9
+	YS88fQKCc2lV5khXEa6Z8vy7tOeuSct9BwOdiLPr+5oHH0eTld0HV+1qrqharjZNQ9edCVwovu0Pa
+	mLN09u3jH7gRFl7nJw2s7WruelY1JHJ2HVSZ31vI3s3DGU3PJFXcgLnvpApFIxklrJ3iWu6x5ytDj
+	fxkkjNnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJld-0000000E36B-2SKE;
-	Mon, 28 Jul 2025 09:03:33 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1ugJlg-0000000E3A5-3MBD;
+	Mon, 28 Jul 2025 09:03:36 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJF0-0000000DzAI-1hxN;
-	Mon, 28 Jul 2025 08:29:54 +0000
+	id 1ugJF3-0000000DzEr-1koX;
+	Mon, 28 Jul 2025 08:29:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=c8
-	TbWEVDRePQ3AnKdtwVwl22ZdGy/aRprexuwiKErqQ=; b=lyvXZ+V/sPfHYSNTdh
-	SDDBlvMk2sBbWPh/jY5YGTc4zGxcOw9p9LnY9mou4arHoI35j+t3EHEMD4DhwIX4
-	JPQ1dreJcYz0zdltTMvQ7eHAyf00AY5E1YXfXCYQn0AkF+0/CTL+QI2dTwlmB4IJ
-	VTz3YGP2C0u78j2nL/sw2uFt4=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=h8
+	8O4dZwxfFg63Pi6AQ85/YvjoNhwX4BJiQNP+yOVJw=; b=S/8GCnmoj8Kfm9VupZ
+	dKSCGhnACu89x2h3z4niFY8fu3Pnkv+op9tmYteLfuW1pvm5F8mpsK5w8vNzBcDA
+	OCqG6cQeHqgrrolnkjPMTddhuV+XIhmLfNPM7Arp+M2+dThFz+AeOzpU9b+yjrOD
+	1tvZNBYa5qpdTwnLEtWnutZfs=
 Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBn0Oy_NIdoxboRIA--.27423S8;
-	Mon, 28 Jul 2025 16:29:03 +0800 (CST)
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wBn0Oy_NIdoxboRIA--.27423S12;
+	Mon, 28 Jul 2025 16:29:08 +0800 (CST)
 From: Andy Yan <andyshrk@163.com>
 To: dmitry.baryshkov@oss.qualcomm.com,
 	heiko@sntech.de
@@ -55,24 +55,25 @@ Cc: hjc@rock-chips.com,
 	robh@kernel.org,
 	sebastian.reichel@collabora.com,
 	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v6 06/10] drm/birdge: simple-bridge: Add support for radxa ra620
-Date: Mon, 28 Jul 2025 16:28:31 +0800
-Message-ID: <20250728082846.3811429-7-andyshrk@163.com>
+Subject: [PATCH v6 10/10] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
+Date: Mon, 28 Jul 2025 16:28:35 +0800
+Message-ID: <20250728082846.3811429-11-andyshrk@163.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250728082846.3811429-1-andyshrk@163.com>
 References: <20250728082846.3811429-1-andyshrk@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wBn0Oy_NIdoxboRIA--.27423S8
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Gw47tr48Jr4ftr4xKrWUtwb_yoWkZrg_uF
-	nayryUJr45XF9YgF43Zw43A34Iv3W8urZ7Wr1vgrZxAws3Zw47W39rur9xZ34fAF10yF9F
-	y3W3JFW7Ar17ujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUn0zuJUUUUU==
+X-CM-TRANSID: _____wBn0Oy_NIdoxboRIA--.27423S12
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CrykKw18Xw43uF4kCrWkXrb_yoW8KrWrpF
+	nF9rs5GryxuryYqw1FvF1kZFs8Krs5ua93Jr1aqry0yFW7Xas5K3WrWr9YqFyjvF1xXw4a
+	yr4kXa4j93WDXFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jcvtZUUUUU=
 X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiMw2YXmiHLt29IAAAs5
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0g2YXmiHMZxh5gAAsc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_012950_807106_2BCDCA8D 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250728_012953_913232_EEE9745F 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,10 +90,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Andy Yan <andy.yan@rock-chips.com>
 
-The RA620 is an active DP to HDMI converter chip, basically
-no software is involved to drive it.
+The HDMI0(Port next to Headphone Jack) is drived by DP1 on rk3588
+via RA620(a dp2hdmi converter).
 
-Add it to simple bridge to make it can be find by the drm bridge chain.
+Add related dt nodes to enable it.
+
+Note: ROCKCHIP_VOP2_EP_DP1 is defined as 11 in dt-binding header,
+but it will trigger a dtc warning like "graph node unit address
+error, expected "b"" if we use it directly after endpoint, so we
+use "b" instead here.
 
 Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
@@ -102,27 +108,99 @@ Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 (no changes since v3)
 
 Changes in v3:
-- First introduced in this version.
+- Add RA620 into bridge chain.
 
- drivers/gpu/drm/bridge/simple-bridge.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ .../boot/dts/rockchip/rk3588-rock-5-itx.dts   | 59 +++++++++++++++++++
+ 1 file changed, 59 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/simple-bridge.c b/drivers/gpu/drm/bridge/simple-bridge.c
-index 3d15ddd394703..1f16d568bcc4e 100644
---- a/drivers/gpu/drm/bridge/simple-bridge.c
-+++ b/drivers/gpu/drm/bridge/simple-bridge.c
-@@ -261,6 +261,11 @@ static const struct of_device_id simple_bridge_match[] = {
- 			.timings = &default_bridge_timings,
- 			.connector_type = DRM_MODE_CONNECTOR_VGA,
- 		},
-+	}, {
-+		.compatible = "radxa,ra620",
-+		.data = &(const struct simple_bridge_info) {
-+			.connector_type = DRM_MODE_CONNECTOR_HDMIA,
-+		},
- 	}, {
- 		.compatible = "ti,opa362",
- 		.data = &(const struct simple_bridge_info) {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+index 7de17117df7ae..903ad42f97177 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
+@@ -57,6 +57,29 @@ analog-sound {
+ 			  "Headphone", "Headphones";
+ 	};
+ 
++	bridge {
++		compatible = "radxa,ra620";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			port@0 {
++				reg = <0>;
++				hdmi_bridge_in: endpoint {
++					remote-endpoint = <&dp1_out_con>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++
++				hdmi_bridge_out: endpoint {
++					remote-endpoint = <&hdmi_con_in>;
++				};
++			};
++		};
++	};
++
+ 	gpio-leds {
+ 		compatible = "gpio-leds";
+ 		pinctrl-names = "default";
+@@ -73,6 +96,17 @@ hdd-led2 {
+ 		};
+ 	};
+ 
++	hdmi0-con {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_bridge_out>;
++			};
++		};
++	};
++
+ 	hdmi1-con {
+ 		compatible = "hdmi-connector";
+ 		type = "a";
+@@ -268,6 +302,24 @@ &cpu_l3 {
+ 	cpu-supply = <&vdd_cpu_lit_s0>;
+ };
+ 
++&dp1 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&dp1m0_pins>;
++};
++
++&dp1_in {
++	dp1_in_vp2: endpoint {
++		remote-endpoint = <&vp2_out_dp1>;
++	};
++};
++
++&dp1_out {
++	dp1_out_con: endpoint {
++		remote-endpoint = <&hdmi_bridge_in>;
++	};
++};
++
+ &gpu {
+ 	mali-supply = <&vdd_gpu_s0>;
+ 	status = "okay";
+@@ -1261,3 +1313,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
+ 		remote-endpoint = <&hdmi1_in_vp1>;
+ 	};
+ };
++
++&vp2 {
++	vp2_out_dp1: endpoint@b {
++		reg = <ROCKCHIP_VOP2_EP_DP1>;
++		remote-endpoint = <&dp1_in_vp2>;
++	};
++};
 -- 
 2.43.0
 
