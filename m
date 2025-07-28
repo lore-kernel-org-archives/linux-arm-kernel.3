@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23292C83F17
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C768C87FCE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6e/2TheqBDOEi4HSiBuM8XyP32c0aQfj3qnc6fRtrsM=; b=fNp8ZuPX4P663EdQE9oGEBq9oF
-	D32ziWzhHoUs/nDkvavjvIo9VSJKl/fOaXJYtjffwFtTSP3WbVMWKnnaKEiyzFNzMKGAenz77bP2j
-	7pGBVsakFiM2aN9xsomchV5WF5aRokdCpp9sHO75cN+MtPm53gzgPYXj6fsFALNVNGNFCOHGHxZhw
-	uxORRp2EoiLUgetUHtnNXcCz2xdcgOshsMc2XkCSyi8VZTjuzRqg1jqrQi/qwkZK0UV81eT4yhU5p
-	PINpJhR3hqSxNhq0ehl9eVcMBOzGH89UTFpA4he7jdGwa7/KiEZ3mPLleq6ThgWSdfZRdmkhUwgXq
-	yw2KD1wA==;
+	bh=evFXKgAxCDSoFJrfdZvMg8MZGEd3jtNNqfoUuy8K9/0=; b=cOThpFrGnejHFJc8f/dSnDwQ/c
+	nNaRL1iiKBj65ndXaGmrkSw37bgWNpjGe6PmvOpQvWZK5mDm4+6gyU82JdaNPL4jF8wumD/splXPo
+	ttoUWskOhO/tiVOGqWo/yNAjRy3iL8QaJpgI3iCKatPf0TyP6i9NCe3dVMm0jtoQNKqaq9QeFDbaL
+	LaQKuYpa6tdMR5Hyyjsi5tzefxl2+2pFl+kfJF1lVaRxXo3FnnTxviJ4fDZrF3k0ZSJspq1pxSOVC
+	JrM6ttVcnJHwfCw94WyVR+layHuDEpvCw1rpNkecsmpCX3llwCm9VYA9CGKIFn1hXKPGAizqJYj8T
+	4tQPlFRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugTii-0000000FHs6-230C;
-	Mon, 28 Jul 2025 19:41:12 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1ugTig-0000000FHqP-1AcG;
+	Mon, 28 Jul 2025 19:41:10 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugS2j-0000000F8ud-0xyr
+	id 1ugS2f-0000000F8t0-2QTW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:53:46 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3a4f6ff23ccso2760480f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:44 -0700 (PDT)
+	Mon, 28 Jul 2025 17:53:42 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-455e9daab1cso8119145e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753725223; x=1754330023; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1753725219; x=1754330019; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6e/2TheqBDOEi4HSiBuM8XyP32c0aQfj3qnc6fRtrsM=;
-        b=SCUe6Qtf0dXf0jwMFURrws6GgLCxB2iT7ndkzE7T61s1sFtbpHM7H6rQkN61wqHtwB
-         los3gM78iCFdXXtLgPRhspfPHaHTuGbtCV1Z8aKbE3c3ZAfSMD8faYwvGlu1drmC0a+O
-         j83fFKbS6dhgxFIeLuJXS45JNryPOPdJMsZ0/revDKXs6XmQ5drkSnv4+izmP2hphHI7
-         LiAV6g6zkgW06AtbKtzRrhNyha/jz4uNvu63EyzKraSYeKgGQ5bvanCRrqcb46Vb3yLG
-         QFwa30KwK7Aq87JGVH44WSt52+AUhND7JgkjyL04Ff1pegQ5YrtN+5FAK/FGV3QFuEeN
-         QyhQ==
+        bh=evFXKgAxCDSoFJrfdZvMg8MZGEd3jtNNqfoUuy8K9/0=;
+        b=wdKQlP+FK19g9S3WUZHj5/mGUSfR6I1rwFLSNIQZep8LkCYpFBwNJoymBke98PzKzr
+         CFODatpqNGeJkUnp+ExO4axqk4tfiWB2lAm12jk8PAm5eqY12ujHCjEtTDJl89VgJ7RH
+         P6LuwZsn2JNWUFIjnyNAccsri7G07uFvNfW3oypChnFpRLiWoCo1Ytddjr4jjnOC7RZc
+         3LmGJabvWmJGcm0ND40r+RU6Zo+OQQxb0br4sNmkYRg5Ki4Ui1FZDUEwHDFUR0SgS5Eh
+         GkWv/Y2yiCPWzAOVteKVCxF6fVGA2dNmZd9rnUWLXIyZFEtA3OpwjUgbx1hBDKBNQB7f
+         fqHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753725223; x=1754330023;
+        d=1e100.net; s=20230601; t=1753725219; x=1754330019;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=6e/2TheqBDOEi4HSiBuM8XyP32c0aQfj3qnc6fRtrsM=;
-        b=IAG6bQgRF6/XA0eix30PP4mLKvPkMn5WSyxiFDv4PA+jjyC+mp2lRVLPcU3Q2Pwi81
-         VTZ3c6BFqGnTdN/6UNnrHJv7iL09S73ocvoWbGs0OvmCeyb3Y2RaeTdoYiqiVtcVBHou
-         ZukiQ3G+ki76KI2/ETM2kfocugJ6tHPFdiei5iLSb9VrDzBK4xz2bgBkr195gLNzOvPA
-         Z57s/RRzSmGlTs6oiX+wHG4/Gew7bIavArYCgl1ug+t9OzrtLkUCK+4HGh4YYvn9bMhk
-         c1cWrypfAATxYiZBhvJViYHNtSHovLLT1O4yk5uB+2McJpr0anZ6uIgCVdkhMSFeiGsW
-         tl9Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVqMMgGI1PUseeecmFC6ZNClTaLY7QZdgaYZGuog5lAcqODPxLvRhbPyM3T+7kETSqLlI1f0nsCP27zm5hn5GCb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxO96feq8cXpidoIL+piJxsjhGh6Az1/wW0Fa0xyeCYE84lAxaV
-	7TDSzjPmWKqr7OoosfI1Bd0CijJ69vlNDWLmYyyxajjZpi15lUJcstqJ8svnsj3wJbPQ3MaSFiI
-	bTiBqW2Yu0cCuDg==
-X-Google-Smtp-Source: AGHT+IEDIjSlCUVUxCpo1rhb6F+umTy0J4Onr6Gk0yVTZfYuvmOMhy6s8JdN8rpuLmzFtQt/COWBfeqeFpc2iQ==
-X-Received: from wrbgv1.prod.google.com ([2002:a05:6000:4601:b0:3b7:8ac1:5f96])
+        bh=evFXKgAxCDSoFJrfdZvMg8MZGEd3jtNNqfoUuy8K9/0=;
+        b=TedbvbvjGjI3S4IcUVsRX10MURi23lLjyzRYUB7Nt8EQMevtX/tkHR1Kk1GL2eHxEm
+         7HqstAiC/e3uaj+pcI8Tdev8HgQ92zTHiqKFeP8PeupTV/MQFiaKVTUIyw3xO2MQrABK
+         d/DSvAl4cEsvFF95k9bESR/2l1kobDvzIlIns3KiN4vROoYqmXM/XPnRCE6ct+F/EuzI
+         wDtL7S8y5G/QQuHlsgwXKnxCvbeTTmj1MrsDTaE1LZ4mIbPcss7FT4aZuejWlc9sauvU
+         JXVxQe0J2gYVyPuoaZTSbC1vuZpDVDlkqHU7VpUX2T1CxdcU84pmDrnTf2SY7S/HjjEA
+         mdWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUSd2X54UWVw8tB8HYAi9i6F6H/lalYY66W2pR2cR3/69INOud/nc5eXSlQ2s6G7cHBv5lWTOXPW3pDSkRFrXiS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAjy/vEHTjuZsnUcK0ETh96PP4Zb0EO7BBN9IIp4Rp07odnBXk
+	yQQTjKvcK6jUatmKC+aDt7W/XS8bgmyOjeFrCLcER8sMZEMYWATWqaR7WfNggMGKApeDJ0R8Vwf
+	1ZrUKHqiGAM6S3w==
+X-Google-Smtp-Source: AGHT+IG+0YUT5evXVnzrsmZ/u5tA/GE8rdYTVIETUaQ+H7lNGrhgDPgErstj87+LdJlLnheF6/yjXPJPX/pn2Q==
+X-Received: from wmsp29.prod.google.com ([2002:a05:600c:1d9d:b0:456:3aa2:2152])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:4011:b0:3a5:243c:6042 with SMTP id ffacd0b85a97d-3b7765e58a1mr8332168f8f.2.1753725223461;
- Mon, 28 Jul 2025 10:53:43 -0700 (PDT)
-Date: Mon, 28 Jul 2025 17:53:00 +0000
+ 2002:a05:600c:3484:b0:43d:fa59:af97 with SMTP id 5b1f17b1804b1-4587666ae80mr93314205e9.32.1753725219574;
+ Mon, 28 Jul 2025 10:53:39 -0700 (PDT)
+Date: Mon, 28 Jul 2025 17:52:56 +0000
 In-Reply-To: <20250728175316.3706196-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20250728175316.3706196-1-smostafa@google.com>
 X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
-Message-ID: <20250728175316.3706196-14-smostafa@google.com>
-Subject: [PATCH v3 13/29] iommu/arm-smmu-v3: Move TLB range invalidation into
- a macro
+Message-ID: <20250728175316.3706196-10-smostafa@google.com>
+Subject: [PATCH v3 09/29] iommu/arm-smmu-v3: Move queue and table allocation
+ to arm-smmu-v3-common.c
 From: Mostafa Saleh <smostafa@google.com>
 To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
@@ -78,8 +78,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	praan@google.com, Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_105345_275469_FD02B884 
-X-CRM114-Status: GOOD (  21.01  )
+X-CRM114-CacheID: sfid-20250728_105341_620787_7F9E6B81 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,167 +94,461 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Range TLB invalidation has a very specific algorithm, instead of
-re-writing it for the hypervisor, put it in a macro so it can be
-re-used.
+Move more code to arm-smmu-v3-common.c, so that the KVM driver can reuse
+it.
 
+Also, make sure that allocated memory is aligned as it its going
+to protected by the hypervisor stage-2.
+
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-common.h      | 65 +++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 59 +----------------
- 2 files changed, 68 insertions(+), 56 deletions(-)
+ .../arm/arm-smmu-v3/arm-smmu-v3-common.c      | 160 ++++++++++++++++
+ .../arm/arm-smmu-v3/arm-smmu-v3-common.h      |  12 ++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 171 +-----------------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   8 +
+ 4 files changed, 181 insertions(+), 170 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h
-index f115ff9a547f..ab6db8b4b9f2 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h
-@@ -540,4 +540,69 @@ static inline void queue_write(__le64 *dst, u64 *src, size_t n_dwords)
- 	for (i = 0; i < n_dwords; ++i)
- 		*dst++ = cpu_to_le64(*src++);
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.c
+index c2b14b0c9f53..6cd5187d62a1 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.c
+@@ -3,6 +3,7 @@
+ #include <linux/iopoll.h>
+ #include <linux/pci.h>
+ #include <linux/string_choices.h>
++#include <kunit/visibility.h>
+ 
+ #include "arm-smmu-v3.h"
+ #include "../../dma-iommu.h"
+@@ -365,3 +366,162 @@ void arm_smmu_get_resv_regions(struct device *dev, struct list_head *head)
+ 
+ 	iommu_dma_get_resv_regions(dev, head);
  }
 +
-+/**
-+ * arm_smmu_tlb_inv_build - Create a range invalidation command
-+ * @cmd: Base command initialized with OPCODE (S1, S2..), vmid and asid.
-+ * @iova: Start IOVA to invalidate
-+ * @size: Size of range
-+ * @granule: Granule of invalidation
-+ * @pgsize_bitmap: Page size bit map of the page table.
-+ * @smmu: Struct for the smmu, must have ::features
-+ * @add_cmd: Function to send/batch the invalidation command
-+ * @cmds: Incase of batching, it includes the pointer to the batch
-+ */
-+#define arm_smmu_tlb_inv_build(cmd, iova, size, granule, pgsize_bitmap, smmu, add_cmd, cmds) \
-+{ \
-+	unsigned long _iova = (iova);						\
-+	size_t _size = (size);							\
-+	size_t _granule = (granule);						\
-+	unsigned long end = _iova + _size, num_pages = 0, tg = 0;		\
-+	size_t inv_range = _granule;						\
-+	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {				\
-+		/* Get the leaf page size */					\
-+		tg = __ffs(pgsize_bitmap);					\
-+		num_pages = _size >> tg;					\
-+		/* Convert page size of 12,14,16 (log2) to 1,2,3 */		\
-+		cmd->tlbi.tg = (tg - 10) / 2;					\
-+		/*
-+		 * Determine what level the granule is at. For non-leaf, both
-+		 * io-pgtable and SVA pass a nominal last-level granule because
-+		 * they don't know what level(s) actually apply, so ignore that
-+		 * and leave TTL=0. However for various errata reasons we still
-+		 * want to use a range command, so avoid the SVA corner case
-+		 * where both scale and num could be 0 as well.
-+		 */								\
-+		if (cmd->tlbi.leaf)						\
-+			cmd->tlbi.ttl = 4 - ((ilog2(_granule) - 3) / (tg - 3));	\
-+		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)		\
-+			num_pages++;						\
-+	}									\
-+	while (_iova < end) {							\
-+		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {			\
-+			/*
-+			 * On each iteration of the loop, the range is 5 bits
-+			 * worth of the aligned size remaining.
-+			 * The range in pages is:
-+			 *
-+			 * range = (num_pages & (0x1f << __ffs(num_pages)))
-+			 */							\
-+			unsigned long scale, num;				\
-+			/* Determine the power of 2 multiple number of pages */	\
-+			scale = __ffs(num_pages);				\
-+			cmd->tlbi.scale = scale;				\
-+			/* Determine how many chunks of 2^scale size we have */	\
-+			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;	\
-+			cmd->tlbi.num = num - 1;				\
-+			/* range is num * 2^scale * pgsize */			\
-+			inv_range = num << (scale + tg);			\
-+			/* Clear out the lower order bits for the next iteration */ \
-+			num_pages -= num << scale;				\
-+		}								\
-+		cmd->tlbi.addr = iova;						\
-+		add_cmd(smmu, cmds, cmd);					\
-+		_iova += inv_range;						\
-+	}									\
-+}										\
++int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
++			    struct arm_smmu_queue *q, void __iomem *page,
++			    unsigned long prod_off, unsigned long cons_off,
++			    size_t dwords, const char *name)
++{
++	size_t qsz;
 +
++	do {
++		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
++		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
++					      GFP_KERNEL);
++		if (q->base || qsz < PAGE_SIZE)
++			break;
++
++		q->llq.max_n_shift--;
++	} while (1);
++
++	if (!q->base) {
++		dev_err(smmu->dev,
++			"failed to allocate queue (0x%zx bytes) for %s\n",
++			qsz, name);
++		return -ENOMEM;
++	}
++
++	if (!WARN_ON(q->base_dma & (qsz - 1))) {
++		dev_info(smmu->dev, "allocated %u entries for %s\n",
++			 1 << q->llq.max_n_shift, name);
++	}
++
++	q->prod_reg	= page + prod_off;
++	q->cons_reg	= page + cons_off;
++	q->ent_dwords	= dwords;
++
++	q->q_base  = Q_BASE_RWA;
++	q->q_base |= q->base_dma & Q_BASE_ADDR_MASK;
++	q->q_base |= FIELD_PREP(Q_BASE_LOG2SIZE, q->llq.max_n_shift);
++
++	q->llq.prod = q->llq.cons = 0;
++	return 0;
++}
++
++/* Stream table manipulation functions */
++static int arm_smmu_init_strtab_2lvl(struct arm_smmu_device *smmu)
++{
++	u32 l1size;
++	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
++	unsigned int last_sid_idx =
++		arm_smmu_strtab_l1_idx((1ULL << smmu->sid_bits) - 1);
++
++	/* Calculate the L1 size, capped to the SIDSIZE. */
++	cfg->l2.num_l1_ents = min(last_sid_idx + 1, STRTAB_MAX_L1_ENTRIES);
++	if (cfg->l2.num_l1_ents <= last_sid_idx)
++		dev_warn(smmu->dev,
++			 "2-level strtab only covers %u/%u bits of SID\n",
++			 ilog2(cfg->l2.num_l1_ents * STRTAB_NUM_L2_STES),
++			 smmu->sid_bits);
++
++	l1size = cfg->l2.num_l1_ents * sizeof(struct arm_smmu_strtab_l1);
++	cfg->l2.l1tab = dmam_alloc_coherent(smmu->dev, l1size, &cfg->l2.l1_dma,
++					    GFP_KERNEL);
++	if (!cfg->l2.l1tab) {
++		dev_err(smmu->dev,
++			"failed to allocate l1 stream table (%u bytes)\n",
++			l1size);
++		return -ENOMEM;
++	}
++
++	cfg->l2.l2ptrs = devm_kcalloc(smmu->dev, cfg->l2.num_l1_ents,
++				      sizeof(*cfg->l2.l2ptrs), GFP_KERNEL);
++	if (!cfg->l2.l2ptrs)
++		return -ENOMEM;
++
++	return 0;
++}
++
++void arm_smmu_make_abort_ste(struct arm_smmu_ste *target)
++{
++	memset(target, 0, sizeof(*target));
++	target->data[0] = cpu_to_le64(
++		STRTAB_STE_0_V |
++		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_ABORT));
++}
++
++/*
++ * This can safely directly manipulate the STE memory without a sync sequence
++ * because the STE table has not been installed in the SMMU yet.
++ */
++void arm_smmu_init_initial_stes(struct arm_smmu_ste *strtab,
++				unsigned int nent)
++{
++	unsigned int i;
++
++	for (i = 0; i < nent; ++i) {
++		arm_smmu_make_abort_ste(strtab);
++		strtab++;
++	}
++}
++
++static int arm_smmu_init_strtab_linear(struct arm_smmu_device *smmu)
++{
++	u32 size;
++	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
++
++	size = (1 << smmu->sid_bits) * sizeof(struct arm_smmu_ste);
++	cfg->linear.table = dmam_alloc_coherent(smmu->dev, size,
++						&cfg->linear.ste_dma,
++						GFP_KERNEL);
++	if (!cfg->linear.table) {
++		dev_err(smmu->dev,
++			"failed to allocate linear stream table (%u bytes)\n",
++			size);
++		return -ENOMEM;
++	}
++	cfg->linear.num_ents = 1 << smmu->sid_bits;
++
++	arm_smmu_init_initial_stes(cfg->linear.table, cfg->linear.num_ents);
++	return 0;
++}
++
++int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
++{
++	int ret;
++
++	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
++		ret = arm_smmu_init_strtab_2lvl(smmu);
++	else
++		ret = arm_smmu_init_strtab_linear(smmu);
++	if (ret)
++		return ret;
++
++	ida_init(&smmu->vmid_map);
++
++	return 0;
++}
++
++void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
++{
++	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
++	dma_addr_t dma;
++	u32 reg;
++
++	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
++		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
++				 STRTAB_BASE_CFG_FMT_2LVL) |
++		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE,
++				 ilog2(cfg->l2.num_l1_ents) + STRTAB_SPLIT) |
++		      FIELD_PREP(STRTAB_BASE_CFG_SPLIT, STRTAB_SPLIT);
++		dma = cfg->l2.l1_dma;
++	} else {
++		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
++				 STRTAB_BASE_CFG_FMT_LINEAR) |
++		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE, smmu->sid_bits);
++		dma = cfg->linear.ste_dma;
++	}
++	writeq_relaxed((dma & STRTAB_BASE_ADDR_MASK) | STRTAB_BASE_RA,
++		       smmu->base + ARM_SMMU_STRTAB_BASE);
++	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
++}
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h
+index 0f9ae032680d..3bcb5d94f21a 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-common.h
+@@ -2,6 +2,7 @@
+ #ifndef _ARM_SMMU_V3_COMMON_H
+ #define _ARM_SMMU_V3_COMMON_H
+ 
++#include <linux/bits.h>
+ #include <linux/bitfield.h>
+ 
+ /* MMIO registers */
+@@ -459,4 +460,15 @@ struct arm_smmu_cmdq_ent {
+ #define ARM_SMMU_FEAT_HD		(1 << 22)
+ #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
+ 
++static inline void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
++						 dma_addr_t l2ptr_dma)
++{
++	u64 val = 0;
++
++	val |= FIELD_PREP(STRTAB_L1_DESC_SPAN, STRTAB_SPLIT + 1);
++	val |= l2ptr_dma & STRTAB_L1_DESC_L2PTR_MASK;
++
++	/* The HW has 64 bit atomicity with stores to the L2 STE table */
++	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
++}
  #endif /* _ARM_SMMU_V3_COMMON_H */
 \ No newline at end of file
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 066d9d9e8088..245b39ddef66 100644
+index fc4bf270c365..6e6ac64a5399 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2075,68 +2075,15 @@ static void __arm_smmu_tlb_inv_range(struct arm_smmu_cmdq_ent *cmd,
- 				     struct arm_smmu_domain *smmu_domain)
- {
- 	struct arm_smmu_device *smmu = smmu_domain->smmu;
--	unsigned long end = iova + size, num_pages = 0, tg = 0;
--	size_t inv_range = granule;
- 	struct arm_smmu_cmdq_batch cmds;
- 
- 	if (!size)
- 		return;
- 
--	if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--		/* Get the leaf page size */
--		tg = __ffs(smmu_domain->domain.pgsize_bitmap);
--
--		num_pages = size >> tg;
--
--		/* Convert page size of 12,14,16 (log2) to 1,2,3 */
--		cmd->tlbi.tg = (tg - 10) / 2;
--
--		/*
--		 * Determine what level the granule is at. For non-leaf, both
--		 * io-pgtable and SVA pass a nominal last-level granule because
--		 * they don't know what level(s) actually apply, so ignore that
--		 * and leave TTL=0. However for various errata reasons we still
--		 * want to use a range command, so avoid the SVA corner case
--		 * where both scale and num could be 0 as well.
--		 */
--		if (cmd->tlbi.leaf)
--			cmd->tlbi.ttl = 4 - ((ilog2(granule) - 3) / (tg - 3));
--		else if ((num_pages & CMDQ_TLBI_RANGE_NUM_MAX) == 1)
--			num_pages++;
--	}
--
- 	arm_smmu_cmdq_batch_init(smmu, &cmds, cmd);
--
--	while (iova < end) {
--		if (smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--			/*
--			 * On each iteration of the loop, the range is 5 bits
--			 * worth of the aligned size remaining.
--			 * The range in pages is:
--			 *
--			 * range = (num_pages & (0x1f << __ffs(num_pages)))
--			 */
--			unsigned long scale, num;
--
--			/* Determine the power of 2 multiple number of pages */
--			scale = __ffs(num_pages);
--			cmd->tlbi.scale = scale;
--
--			/* Determine how many chunks of 2^scale size we have */
--			num = (num_pages >> scale) & CMDQ_TLBI_RANGE_NUM_MAX;
--			cmd->tlbi.num = num - 1;
--
--			/* range is num * 2^scale * pgsize */
--			inv_range = num << (scale + tg);
--
--			/* Clear out the lower order bits for the next iteration */
--			num_pages -= num << scale;
--		}
--
--		cmd->tlbi.addr = iova;
--		arm_smmu_cmdq_batch_add(smmu, &cmds, cmd);
--		iova += inv_range;
--	}
-+	arm_smmu_tlb_inv_build(cmd, iova, size, granule,
-+			       smmu_domain->domain.pgsize_bitmap,
-+			       smmu, arm_smmu_cmdq_batch_add, &cmds);
- 	arm_smmu_cmdq_batch_submit(smmu, &cmds);
+@@ -1504,19 +1504,6 @@ static void arm_smmu_free_cd_tables(struct arm_smmu_master *master)
+ 	}
  }
  
+-/* Stream table manipulation functions */
+-static void arm_smmu_write_strtab_l1_desc(struct arm_smmu_strtab_l1 *dst,
+-					  dma_addr_t l2ptr_dma)
+-{
+-	u64 val = 0;
+-
+-	val |= FIELD_PREP(STRTAB_L1_DESC_SPAN, STRTAB_SPLIT + 1);
+-	val |= l2ptr_dma & STRTAB_L1_DESC_L2PTR_MASK;
+-
+-	/* The HW has 64 bit atomicity with stores to the L2 STE table */
+-	WRITE_ONCE(dst->l2ptr, cpu_to_le64(val));
+-}
+-
+ struct arm_smmu_ste_writer {
+ 	struct arm_smmu_entry_writer writer;
+ 	u32 sid;
+@@ -1569,13 +1556,7 @@ static void arm_smmu_write_ste(struct arm_smmu_master *master, u32 sid,
+ 	}
+ }
+ 
+-void arm_smmu_make_abort_ste(struct arm_smmu_ste *target)
+-{
+-	memset(target, 0, sizeof(*target));
+-	target->data[0] = cpu_to_le64(
+-		STRTAB_STE_0_V |
+-		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_ABORT));
+-}
++/* Defined in arm-smmu-v3-common.c */
+ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_make_abort_ste);
+ 
+ VISIBLE_IF_KUNIT
+@@ -1702,21 +1683,6 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
+ }
+ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_make_s2_domain_ste);
+ 
+-/*
+- * This can safely directly manipulate the STE memory without a sync sequence
+- * because the STE table has not been installed in the SMMU yet.
+- */
+-static void arm_smmu_init_initial_stes(struct arm_smmu_ste *strtab,
+-				       unsigned int nent)
+-{
+-	unsigned int i;
+-
+-	for (i = 0; i < nent; ++i) {
+-		arm_smmu_make_abort_ste(strtab);
+-		strtab++;
+-	}
+-}
+-
+ static int arm_smmu_init_l2_strtab(struct arm_smmu_device *smmu, u32 sid)
+ {
+ 	dma_addr_t l2ptr_dma;
+@@ -3667,47 +3633,6 @@ static struct iommu_dirty_ops arm_smmu_dirty_ops = {
+ };
+ 
+ /* Probing and initialisation functions */
+-int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+-			    struct arm_smmu_queue *q, void __iomem *page,
+-			    unsigned long prod_off, unsigned long cons_off,
+-			    size_t dwords, const char *name)
+-{
+-	size_t qsz;
+-
+-	do {
+-		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
+-		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
+-					      GFP_KERNEL);
+-		if (q->base || qsz < PAGE_SIZE)
+-			break;
+-
+-		q->llq.max_n_shift--;
+-	} while (1);
+-
+-	if (!q->base) {
+-		dev_err(smmu->dev,
+-			"failed to allocate queue (0x%zx bytes) for %s\n",
+-			qsz, name);
+-		return -ENOMEM;
+-	}
+-
+-	if (!WARN_ON(q->base_dma & (qsz - 1))) {
+-		dev_info(smmu->dev, "allocated %u entries for %s\n",
+-			 1 << q->llq.max_n_shift, name);
+-	}
+-
+-	q->prod_reg	= page + prod_off;
+-	q->cons_reg	= page + cons_off;
+-	q->ent_dwords	= dwords;
+-
+-	q->q_base  = Q_BASE_RWA;
+-	q->q_base |= q->base_dma & Q_BASE_ADDR_MASK;
+-	q->q_base |= FIELD_PREP(Q_BASE_LOG2SIZE, q->llq.max_n_shift);
+-
+-	q->llq.prod = q->llq.cons = 0;
+-	return 0;
+-}
+-
+ int arm_smmu_cmdq_init(struct arm_smmu_device *smmu,
+ 		       struct arm_smmu_cmdq *cmdq)
+ {
+@@ -3762,76 +3687,6 @@ static int arm_smmu_init_queues(struct arm_smmu_device *smmu)
+ 				       PRIQ_ENT_DWORDS, "priq");
+ }
+ 
+-static int arm_smmu_init_strtab_2lvl(struct arm_smmu_device *smmu)
+-{
+-	u32 l1size;
+-	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
+-	unsigned int last_sid_idx =
+-		arm_smmu_strtab_l1_idx((1ULL << smmu->sid_bits) - 1);
+-
+-	/* Calculate the L1 size, capped to the SIDSIZE. */
+-	cfg->l2.num_l1_ents = min(last_sid_idx + 1, STRTAB_MAX_L1_ENTRIES);
+-	if (cfg->l2.num_l1_ents <= last_sid_idx)
+-		dev_warn(smmu->dev,
+-			 "2-level strtab only covers %u/%u bits of SID\n",
+-			 ilog2(cfg->l2.num_l1_ents * STRTAB_NUM_L2_STES),
+-			 smmu->sid_bits);
+-
+-	l1size = cfg->l2.num_l1_ents * sizeof(struct arm_smmu_strtab_l1);
+-	cfg->l2.l1tab = dmam_alloc_coherent(smmu->dev, l1size, &cfg->l2.l1_dma,
+-					    GFP_KERNEL);
+-	if (!cfg->l2.l1tab) {
+-		dev_err(smmu->dev,
+-			"failed to allocate l1 stream table (%u bytes)\n",
+-			l1size);
+-		return -ENOMEM;
+-	}
+-
+-	cfg->l2.l2ptrs = devm_kcalloc(smmu->dev, cfg->l2.num_l1_ents,
+-				      sizeof(*cfg->l2.l2ptrs), GFP_KERNEL);
+-	if (!cfg->l2.l2ptrs)
+-		return -ENOMEM;
+-
+-	return 0;
+-}
+-
+-static int arm_smmu_init_strtab_linear(struct arm_smmu_device *smmu)
+-{
+-	u32 size;
+-	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
+-
+-	size = (1 << smmu->sid_bits) * sizeof(struct arm_smmu_ste);
+-	cfg->linear.table = dmam_alloc_coherent(smmu->dev, size,
+-						&cfg->linear.ste_dma,
+-						GFP_KERNEL);
+-	if (!cfg->linear.table) {
+-		dev_err(smmu->dev,
+-			"failed to allocate linear stream table (%u bytes)\n",
+-			size);
+-		return -ENOMEM;
+-	}
+-	cfg->linear.num_ents = 1 << smmu->sid_bits;
+-
+-	arm_smmu_init_initial_stes(cfg->linear.table, cfg->linear.num_ents);
+-	return 0;
+-}
+-
+-static int arm_smmu_init_strtab(struct arm_smmu_device *smmu)
+-{
+-	int ret;
+-
+-	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
+-		ret = arm_smmu_init_strtab_2lvl(smmu);
+-	else
+-		ret = arm_smmu_init_strtab_linear(smmu);
+-	if (ret)
+-		return ret;
+-
+-	ida_init(&smmu->vmid_map);
+-
+-	return 0;
+-}
+-
+ static int arm_smmu_init_structures(struct arm_smmu_device *smmu)
+ {
+ 	int ret;
+@@ -3999,30 +3854,6 @@ static int arm_smmu_setup_irqs(struct arm_smmu_device *smmu)
+ 	return 0;
+ }
+ 
+-static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
+-{
+-	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
+-	dma_addr_t dma;
+-	u32 reg;
+-
+-	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
+-		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
+-				 STRTAB_BASE_CFG_FMT_2LVL) |
+-		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE,
+-				 ilog2(cfg->l2.num_l1_ents) + STRTAB_SPLIT) |
+-		      FIELD_PREP(STRTAB_BASE_CFG_SPLIT, STRTAB_SPLIT);
+-		dma = cfg->l2.l1_dma;
+-	} else {
+-		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
+-				 STRTAB_BASE_CFG_FMT_LINEAR) |
+-		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE, smmu->sid_bits);
+-		dma = cfg->linear.ste_dma;
+-	}
+-	writeq_relaxed((dma & STRTAB_BASE_ADDR_MASK) | STRTAB_BASE_RA,
+-		       smmu->base + ARM_SMMU_STRTAB_BASE);
+-	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
+-}
+-
+ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
+ {
+ 	int ret;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 367529538eb8..09c1cf85cccc 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -553,6 +553,14 @@ int arm_smmu_device_disable(struct arm_smmu_device *smmu);
+ struct iommu_group *arm_smmu_device_group(struct device *dev);
+ int arm_smmu_of_xlate(struct device *dev, const struct of_phandle_args *args);
+ void arm_smmu_get_resv_regions(struct device *dev, struct list_head *head);
++int arm_smmu_init_strtab(struct arm_smmu_device *smmu);
++void arm_smmu_write_strtab(struct arm_smmu_device *smmu);
++void arm_smmu_init_initial_stes(struct arm_smmu_ste *strtab,
++				unsigned int nent);
++int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
++			    struct arm_smmu_queue *q, void __iomem *page,
++			    unsigned long prod_off, unsigned long cons_off,
++			    size_t dwords, const char *name);
+ 
+ #ifdef CONFIG_ARM_SMMU_V3_SVA
+ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu);
 -- 
 2.50.1.552.g942d659e1b-goog
 
