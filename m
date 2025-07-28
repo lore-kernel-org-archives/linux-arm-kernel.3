@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A104C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 00:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C8DC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 00:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXPp1VL7imfBgXdqZoWg78JDaW08QCMka2aPoKYmM/s=; b=QuazoSad37JjM0PHYVV5GI72yY
-	bBJJ5MemjLzGRImbIR/majJwMUAV2tvNs6Z/gaEd8Isz216KtePxQyEzYv3EjYsi8flYRpmaEHA39
-	QSsuaO37SxJFzHg0/LIGzwuWj5q+/V6JN3rvG+LbCPnn4wuV+w3d/czirshoqRgmPppSavtIDEm/+
-	4+uX0EBeCzME9zQb3nTo3n3lHz1puFHkWk5DZcyQ6leOpFLlEia7dcdpYpNPDJoZsttDFucI7xPv0
-	vkUpbVvzUw1GdpFZ1XQXtAPmkKyRIOnKh2MKK37TeCtfAVuStUzUqDD7LlfKi4ES6fai0XaEOmE/v
-	4lwyme0g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZUXMNcRaFccOHGXJAtzvOhY3KPfU9h03JHKSiT1W12E=; b=A81HODeKhZX8WY
+	SU+w9LtFmbHikay84Q7m0lY+PB12qw5124FTEVkmpQPaiDnnARouY1n5Ym96j6UX1Bze64SpwPWFC
+	bw+bxVjpD7XiSCOl9RyvuZ9WQpqUBYOy+jWmZGTgMIctlXeZr3xH8LeOztbxBz6THO083Bamm6yto
+	2v5udBtQZSO78JDbSvthSIIQqYgUZEIowHT/vE9PU7hZvpu72FOR5Df/HEpnP36bHKQzR1ZOqUilV
+	MiBGF46SZ4jEtW4AcZiz04AZR7M3l/Tzl0l8yq5cRdL5zOjxL24rTd5nEu25X6J2gN6+05LtWJ64n
+	7qPLMs9hiw+BaH1bxEyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugBNU-0000000DMqy-1up3;
-	Mon, 28 Jul 2025 00:06:04 +0000
-Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
+	id 1ugBPz-0000000DMzW-2mW7;
+	Mon, 28 Jul 2025 00:08:39 +0000
+Received: from chumsalmon.baetis.net ([209.222.21.150])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugBKx-0000000DMbj-2Xum;
-	Mon, 28 Jul 2025 00:03:29 +0000
+	id 1ugBKx-0000000DMbk-2TZg;
+	Mon, 28 Jul 2025 00:03:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
 	s=default; t=1753661002;
-	bh=oODfbwD2M9LRfRSx+G6gwNJz5Pq3D3zQJ6ch91Hwclo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gGpvm/7LrQ8RaFTeyu9E95mixZcVTrVDUye1AvXNwWR3cJ/S/ezgI/Yri0OsJDbZf
-	 gpvafuZKzfHNqq4q9pjSachzleCa6rygOr+k+fIXj/T7WNrM3veFKyw6S/zz6YVVqR
-	 r/jvQWlv5aiu6l+JdSSG5/m57/MwOFeq2vJ246t0Mc5DoFLzldKKJKmarOUvowDkLc
-	 GXrhfogXk8xb8jkSIPukK7pS53LNqqGVu2dIeTyhb545HRV4FwsUIOGfasLbwaqjNj
-	 biJivnQAv3UuQfnS0tJvkLwQTICVrs/uI1g6eJ7zPZ5YV1NoyxCncPzUNwkqAo+EvP
-	 nRfrCQLfWtQew==
+	bh=6vrdKbRCJyD0LWK2qqYSjBdh3A5KmFbKK1liI2Tilsg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=nF/faPlYmOW9P4rXXebpd4UiERUFYUKTcuMP20DkSADBd1mygtip0xkInPMNaEeee
+	 1k+RHG5LWt4AjSfA5GC7UFwBaM6sREQcmxLRT6HDrFWMadlc29A8/QqcA5K60QMmQH
+	 D8slGaMTDNg+K98EEshxgXaq8AmuEvgsoL56FKG+EdbdhbaDnkgQnqPda5ECXhHpqp
+	 9aJqRiZfpFSHV34B7PwcVyFQpWibx1egtsvdnCFMqBu0XroZAfPfxPpuDKCUPizeji
+	 6l7+UUiHINCv5/11YuCULFv69MjQgNH8rB9eTLqgji2sOQXsFBUSpcNPxRtkFqLqVi
+	 VO9EMh2Kqp+Dw==
 Received: from localhost (unknown [IPv6:2600:4040:50b7:b604:6c1:3a28:af02:372c])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by chumsalmon.baetis.net (Postfix) with ESMTPSA id B7CB627E83A;
+	by chumsalmon.baetis.net (Postfix) with ESMTPSA id 4D05827E434;
 	Mon, 28 Jul 2025 00:03:22 +0000 (UTC)
 From: Erik Beck <xunil@tahomasoft.com>
-Date: Sun, 27 Jul 2025 20:03:19 -0400
-Subject: [PATCH v4 1/2] dt-bindings: arm: rockchip: add
- LinkStar-H68k-1432v1
+Subject: [PATCH v4 0/2] Add Support for LinkStar H68K board: ARM64 and
+ RK3568: dts and dt-bindings.
+Date: Sun, 27 Jul 2025 20:03:18 -0400
+Message-Id: <20250727-linkstarpatch_v4_6-16-rc1-v4-0-0dfa7aa06ec9@tahomasoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250727-linkstarpatch_v4_6-16-rc1-v4-1-0dfa7aa06ec9@tahomasoft.com>
-References: <20250727-linkstarpatch_v4_6-16-rc1-v4-0-0dfa7aa06ec9@tahomasoft.com>
-In-Reply-To: <20250727-linkstarpatch_v4_6-16-rc1-v4-0-0dfa7aa06ec9@tahomasoft.com>
+X-B4-Tracking: v=1; b=H4sIAEa+hmgC/x3MQQqEMAxA0atI1hOIpVacq8ggtUYNDlVSEUG8u
+ 8XlW/x/QWIVTvAtLlA+JMkaM+yngDD7ODHKkA2GTEW1cfiXuKTd6+b3MHeH7RyWDjWUyLYnCr5
+ vBjKQ+015lPN9t7/7fgDAEerjawAAAA==
+X-Change-ID: 20250726-linkstarpatch_v4_6-16-rc1-e4b00cab9d02
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -59,17 +61,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Erik Beck <xunil@tahomasoft.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753661001; l=1378;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753661001; l=3848;
  i=xunil@tahomasoft.com; s=20250724; h=from:subject:message-id;
- bh=oODfbwD2M9LRfRSx+G6gwNJz5Pq3D3zQJ6ch91Hwclo=;
- b=NYgTz1WgCDVt8YO6RJjV7v/Sk8tQAajRAXFx9G5Z4PduehuDyW+obAO12lzrsx9CKYEvTziqf
- mTXlKnwdQxfAGLEOOjqKsmx/m1wuPP7neewknIfeFdKIGL5g2GY7RCc
+ bh=6vrdKbRCJyD0LWK2qqYSjBdh3A5KmFbKK1liI2Tilsg=;
+ b=K9rdSoH2lM/WDBF63+iwo/GNOV02v80drHgJXnKwGNTfndU8uB0Zx5Pb/uIPc222liiTcqwaN
+ 04bt8KnLApyCKWSSpa1IQKaF0wFWrnAoiHERkggzUT4fBtahoRYTO7o
 X-Developer-Key: i=xunil@tahomasoft.com; a=ed25519;
  pk=FTZVGUexvkWb4j8v0wbtm7CtJLijIAaa5x0XV72WWC0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_170327_852845_7A8A8BCC 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250727_170327_852593_EDA34F1E 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +85,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings.
+Provide support for the Seeed LinkStar H68K-1432v1, previously
+unsupported in mainline Linux kernel. It is a compact single board
+travel router with the following features:
 
-This device:
-  - Has not been supported previously in the mainline Linux kernel;
-  - Is a single board travel router made by Seeed, using an rk3568;
-  - Has four ethernet ports;
-  - Has four USB ports;
-  - Has WiFi (MediaTek MT7921e);
-  - Has a real-time clock (rk809)
+  - Rockchip rk3568 SoC;
+  - Four Gib RAM;
+  - Four ethernet ports:
+    -  Two 1 GigE ports;
+    -  Two 2.5 GigE ports (RTL8125);
+    
+  - Ethernet ports support Precision Time Protocol (PTP IEEE 1588);
+  
+  - Four USB ports:
+    - Three USB 3.0 ports;
+    - Two USB 2.0 ports;
+    
+  - Integrated WiFi:
+    - MediaTek MT7921e
+    
+  - Audio and video outputs:
+    - HDMI;
+    - Headphone;
+    
+  - eMMC (32 Gib) and microSD storage;
+  - Real-time clock (rk809)
+  - Powered by:
+    - USB Type-C;
+    - Barrel connector (DC 12-24v);
+    
+These patches:
+  - Create a devicetree for the board;
+  - Add a (dtb) Makefile entry for the board;
+  - Add the board to dt-bindings;
 
-Base commit:
-  - commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494 ("tag: v6.16-rc1");
+v4:
+  - Responsive to comments received from  Krzysztof Kozlowski <krzk+dt@kernel.org>
+    - https://lore.kernel.org/all/20250725-muskox-of-authentic-gaiety-b8eda4@kuoka/
+    - https://lore.kernel.org/all/20250725-nocturnal-messy-cicada-dbcc10@kuoka/
+    - /* (Thank you Krzysztof!) */
+    
+  - Changes made are:
+    - Clarified the base commit working from;
+    - Base patched against:
+      - Commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494 (tag: v6.16-rc1);
+	
+    - Revised commit message for devicetree to be clearer, contain
+      more details about the hardware, and be more succinct;
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+    - Revised commit message for devicetree binding to be clearer, contain
+      more details about the hardware, and be more succinct;
+  
+v3:
+  Responsive to comments received from:
+  - Chukun Pan <amadeus@jmu.edu.cn>
+  - Krzysztof Kozlowski <krzk+dt@kernel.org>
+  - Rob Herring <robh@kernel.org>
+  - Heiko Stuebner <heiko@sntech.de>
+
+   /* (Thank you all!) */
+
+  Those changes are:
+     - Removed copyright line of <amadeus@jmu.edu.cn> per their request;
+     - Fixed indentations;
+     - Replaced space indentations with tabs;
+     - Packaging this patch set together properly using b4, fixing the threading;
+     - Clarifying versioning and Changelog;
+
+v2: (https://lore.kernel.org/all/20250721201137.233166-1-xunil@tahomasoft.com/)
+  Responding to comments received from Heiko Stuebner <heiko@sntech.de> 
+
+  Those changes are:
+
+     - Splits the single commit into two, one for the yaml binding,
+       and the other for the board devicetree plus Makefile addition;
+
+     - Adds other recipients needed from get_maintainer.pl --nol and --nom;
+     
+     - Uses git send-email to send the patches, to avoid adding line
+       breaks from the MUA;
+
+     - Changes comment style to conform with style guide;
+     - Removes several unneeded comments from the devicetree;
+     - Changes LED naming scheme with more standard nomenclature;
+     - Changes naming of regulators, prepending 'regulator', such as:
+        ~ from: vcc12v_dcin: vcc12v-dcin {}
+        ~ to:   vcc12v_dcin: regulator-vcc12v-dcin {}
+
+     - Removes unneeded tx_delay/rx_delay from rgmii-id
+        
+v1: (https://lore.kernel.org/all/20250718075058.243a5619.xunil@tahomasoft.com/)
+  - Initial patch to provide support for Seeed LinkStar H68K
+
 Signed-off-by: Erik Beck <xunil@tahomasoft.com>
+
 ---
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+Erik Beck (2):
+      dt-bindings: arm: rockchip: add LinkStar-H68k-1432v1
+      arm64: dts: rockchip: add LinkStar-H68k-1432v1
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 5772d905f390e53b44f9093d32b869a7e0655db6..7f3904b69293f31fdd4f6080fab5ce054c1abee2 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -1109,6 +1109,11 @@ properties:
-           - const: rockchip,rk3588-toybrick-x0
-           - const: rockchip,rk3588
- 
-+      - description: Seeed LinkStar H68K-1432v1 RK3568
-+        items:
-+          - const: seeed,rk3568-linkstar-h68k-1432v1
-+          - const: rockchip,rk3568
-+
-       - description: Sinovoip RK3308 Banana Pi P2 Pro
-         items:
-           - const: sinovoip,rk3308-bpi-p2pro
+ .../devicetree/bindings/arm/rockchip.yaml          |   5 +
+ arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+ .../dts/rockchip/rk3568-linkstar-h68k-1432v1.dts   | 740 +++++++++++++++++++++
+ 3 files changed, 746 insertions(+)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250726-linkstarpatch_v4_6-16-rc1-e4b00cab9d02
 
+Best regards,
 -- 
-2.43.0
+Erik Beck <xunil@tahomasoft.com>
 
 
