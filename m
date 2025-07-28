@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D1DC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D97C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHKUyEn30JFRHmi+ydY8WGA10PyE0rwHqa0xIh1iBFs=; b=oHWmv8vFqaMdkQwLEIvOQ/4GTw
-	aaFk/ki+JB5ezVKuNrUEV7Sof2gCIGJraaMsfdOpVGpSMfW+TPfZ7EVOpbDXLokHuCJuk0zK2YH2q
-	aGN50Tou3JQzix5JFH3IU8B+RHVRvXFaWUYxxu8SOFI9riinzay/JizeyTsd1+2uUMboDewg9BdSv
-	AhePib5na7JZI/Q5YQ/Ww/3DurLVgCMI4c6u7kTY0+OF+yB/ERYfwfoHXTUEIWwroYrVh+q/GubRU
-	RQdA5ok+VC63XxaLUommKlc/yjpdp9JPuh6lJY62fSt9tYcV+l83Rw/UGTq0WNQRsruJxAiTWb1/R
-	duLSIA8Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PuVoTWTd3r7LQwVVdPYQ74KWuMSKnt8Y8azQG6SHq+o=; b=o8+wXp4O/6Ry3s6nijD2IpR8Jq
+	c/Ree7O+zYsvpHDPlNoTe2OQCiARFRnLHD34yYiTAjIBytfKQ/YU5PlkjW3PM11r3dP+MEnel4KIS
+	gAoOwVyoRgBzARywuhZmnRLFjETF4QBGkftOFC/2Jh/OGhMfhgerhhpDYR4JvanRz07DaEAxMLRll
+	3j7LnjMR3F5ZM6Q1g1MmUePGUOmlhuFX9/f5XSeG6UgD4v9ZdmQkQ0bMDVYKMvOGCENtAdymTplpi
+	g40UmOP23D7NfC6s4rNZ694CL3bEZ6eIa6NPm8vl3tdhbwpIvAbM1aq498KnNMeCjFAT2FputxpCJ
+	3o1X71tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL4j-0000000EERn-3zoq;
-	Mon, 28 Jul 2025 10:27:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL0U-0000000EDiP-1VXv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 10:22:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 93294152B;
-	Mon, 28 Jul 2025 03:22:49 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 419383F673;
-	Mon, 28 Jul 2025 03:22:54 -0700 (PDT)
-Message-ID: <fcbe5517-0256-48ce-aa50-8017928737d7@arm.com>
-Date: Mon, 28 Jul 2025 11:22:52 +0100
+	id 1ugLAL-0000000EF3C-0GSp;
+	Mon, 28 Jul 2025 10:33:09 +0000
+Received: from layka.disroot.org ([178.21.23.139])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugL7o-0000000EEh6-3Pk4;
+	Mon, 28 Jul 2025 10:30:34 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id D60E42072F;
+	Mon, 28 Jul 2025 12:30:29 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id hQED-crO9Jye; Mon, 28 Jul 2025 12:30:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1753698628; bh=jSpz3ZqNo1DKtrmKgUQO2U/uGqVFys+hvUVK/NIUdzI=;
+	h=From:To:Cc:Subject:Date;
+	b=dHDeHco/I06vbOKOHf9r4qBuYKA+HL6FmDa+OWPx+LnVskHS9RjpRbPO+GvM/aqOg
+	 Iz14cNCW/uyV3J0UDEsvnSCWyc5ee0YjrlmWCFADoyz66AiMFCwAT9iizw4/u1aZIz
+	 wdn1WgcEjZSp3qj2p8BGuyFu3Kxl6R26a57OtzkahrzTo+qt3BvR88Qk7sWRZ2Qd1K
+	 c88yC4OO0TtjIHPuiLIEtJsvWZOy7SyiwoP+y9pGE92FgJtWvvDXBhrwWMhRsdSKJo
+	 rEsRNYSom8RO+gaE8rHrCIgAWJrZpPc056xbwOg1jnP8KHSj0X2yTGj6s9zDMFzPO+
+	 m5Cc3kT/1DzWw==
+From: Yao Zi <ziyao@disroot.org>
+To: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Yao Zi <ziyao@disroot.org>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/6] Support RK3528 variant of Rockchip naneng-combphy
+Date: Mon, 28 Jul 2025 10:29:42 +0000
+Message-ID: <20250728102947.38984-2-ziyao@disroot.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 24/36] arm_mpam: Extend reset logic to allow devices
- to be reset any time
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
- <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
- Carl Worth <carl@os.amperecomputing.com>,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-25-james.morse@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20250711183648.30766-25-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_032258_479060_EF5184F1 
-X-CRM114-Status: GOOD (  22.95  )
+X-CRM114-CacheID: sfid-20250728_033033_280374_7CA0CF09 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,121 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+Rockchip RK3528 ships a naneng-combphy that operates in either PCIe or
+USB 3.0 mode. It has a similar control logic to previous generations of
+naneng-combphy but an apparently different register layout.
 
-On 7/11/25 19:36, James Morse wrote:
-> cpuhp callbacks aren't the only time the MSC configuration may need to
-> be reset. Resctrl has an API call to reset a class.
-> If an MPAM error interrupt arrives it indicates the driver has
-> misprogrammed an MSC. The safest thing to do is reset all the MSCs
-> and disable MPAM.
-> 
-> Add a helper to reset RIS via their class. Call this from mpam_disable(),
-> which can be scheduled from the error interrupt handler.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->   drivers/platform/arm64/mpam/mpam_devices.c  | 62 ++++++++++++++++++++-
->   drivers/platform/arm64/mpam/mpam_internal.h |  1 +
->   2 files changed, 61 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-> index 2e32e54cc081..145535cd4732 100644
-> --- a/drivers/platform/arm64/mpam/mpam_devices.c
-> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
-> @@ -916,8 +916,6 @@ static int mpam_reset_ris(void *arg)
->   	u16 partid, partid_max;
->   	struct mpam_msc_ris *ris = arg;
->   
-> -	mpam_assert_srcu_read_lock_held();
-> -
->   	if (ris->in_reset_state)
->   		return 0;
->   
-> @@ -1575,6 +1573,66 @@ static void mpam_enable_once(void)
->   		READ_ONCE(mpam_partid_max) + 1, mpam_pmg_max + 1);
->   }
->   
-> +static void mpam_reset_component_locked(struct mpam_component *comp)
-> +{
-> +	int idx;
-> +	struct mpam_msc *msc;
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +
-> +	might_sleep();
-> +	lockdep_assert_cpus_held();
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(vmsc, &comp->vmsc, comp_list) {
-> +		msc = vmsc->msc;
-> +
-> +		list_for_each_entry_rcu(ris, &vmsc->ris, vmsc_list) {
-> +			if (!ris->in_reset_state)
-> +				mpam_touch_msc(msc, mpam_reset_ris, ris);
-> +			ris->in_reset_state = true;
-> +		}
-> +	}
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +}
-> +
-> +static void mpam_reset_class_locked(struct mpam_class *class)
-> +{
-> +	int idx;
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_cpus_held();
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_rcu(comp, &class->components, class_list)
-> +		mpam_reset_component_locked(comp);
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +}
-> +
-> +static void mpam_reset_class(struct mpam_class *class)
-> +{
-> +	cpus_read_lock();
-> +	mpam_reset_class_locked(class);
-> +	cpus_read_unlock();
-> +}
-> +
-> +/*
-> + * Called in response to an error IRQ.
-> + * All of MPAMs errors indicate a software bug, restore any modified
-> + * controls to their reset values.
-> + */
-> +void mpam_disable(void)
-> +{
-> +	int idx;
-> +	struct mpam_class *class;
-> +
-> +	idx = srcu_read_lock(&mpam_srcu);
-> +	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
-> +				 srcu_read_lock_held(&mpam_srcu))
-> +		mpam_reset_class(class);
-> +	srcu_read_unlock(&mpam_srcu, idx);
-> +}
-Consider moving to the next patch where you introduce interrupt support.
-> +
->   /*
->    * Enable mpam once all devices have been probed.
->    * Scheduled by mpam_discovery_cpu_online() once all devices have been created.
-> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
-> index f3cc88136524..de05eece0a31 100644
-> --- a/drivers/platform/arm64/mpam/mpam_internal.h
-> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
-> @@ -280,6 +280,7 @@ extern u8 mpam_pmg_max;
->   
->   /* Scheduled work callback to enable mpam once all MSC have been probed */
->   void mpam_enable(struct work_struct *work);
-> +void mpam_disable(void);
->   
->   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
->   				   cpumask_t *affinity);
+This series prepares phy-rockchip-naneng-combphy.c for variants with a
+different register layout and add RK3528 support.
 
+Testing is done on both Radxa E20C and Radxa Rock 2A with downstream           devicetree changes, both USB 3 and PCIe modes are verified with mainline
+driver, and reach a reasonable speed.
 
-Thanks,
+This series depends on patch "phy: rockchip: naneng-combphy: Enable U3
+OTG port for RK3568"[1], and the dts patch depends on v2 of patch
+"arm64: dts: rockchip: convert rk3528 power-domains to dt-binding
+constants"[2] to build.
 
-Ben
+[1]: https://lore.kernel.org/all/20250723072324.2246498-1-jonas@kwiboo.se/
+[2]: https://lore.kernel.org/all/20250620201715.1572609-1-heiko@sntech.de/
+
+Changed from v4
+- Collect review tags
+- Add extra handling of USB3OTG_CON1 when operating in USB3 mode
+- Link to v4: https://lore.kernel.org/all/20250624033733.50197-1-ziyao@disroot.org/
+Changed from v3
+- Add a dt-binding patch to allow power-domains property when describing
+  Rockchip naneng combphys
+- devicetree patch
+  - Break down long lines
+  - Sort properties to keep the style consistent
+  - Add power-domains property to the combphy node
+- Link to v3: https://lore.kernel.org/linux-rockchip/20250519161612.14261-1-ziyao@disroot.org/
+Changed from v2
+- phy binding patch
+  - Fix format issue
+  - drop review tags
+- Link to v2: https://lore.kernel.org/all/20250509004121.36058-2-ziyao@disroot.
+org/
+Changed from v1
+- Collect review tags
+- Restyle RK3528 register definitions in the combphy driver
+- Drop unused include of phy.h in SoC devicetree
+- Link to v1: https://lore.kernel.org/all/20250508134332.14668-2-ziyao@disroo
+t.org/
+
+Yao Zi (6):
+  dt-bindings: soc: rockchip: Add RK3528 pipe-phy GRF syscon
+  dt-bindings: phy: rockchip: naneng-combphy: Add power-domains property
+  dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
+  phy: rockchip: naneng-combphy: Add SoC prefix to register definitions
+  phy: rockchip: naneng-combphy: Add RK3528 support
+  arm64: dts: rockchip: Add naneng-combphy for RK3528
+
+ .../phy/phy-rockchip-naneng-combphy.yaml      |   8 +-
+ .../devicetree/bindings/soc/rockchip/grf.yaml |   1 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      |  24 +
+ .../rockchip/phy-rockchip-naneng-combphy.c    | 749 +++++++++++-------
+ 4 files changed, 508 insertions(+), 274 deletions(-)
+
+-- 
+2.50.1
 
 
