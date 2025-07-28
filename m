@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C83C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 14:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 553CDC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 14:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEuv/0OvcRGSMGgwve29GQ++Tx/D6BPMSmiHsxXgsyA=; b=gN7hVe1dXdK/ZLhZWxCgncRrm2
-	0FDlhuPuQBa6OrZ7tSnpiRKJrbx5x+3NNhXSsVgXwSpQiyGxs/fsiC2T0zOZPjGvAQYOBxzXaBQh/
-	6KNpBWGhNh8gBJm0UNU1BsvgoAcj0hlpzqIVh2xQFfoWRmZXKDN/hzyRU3eu+OJH+9+ldRhwQjCdc
-	XJGxvQnKAcGwhjFMlEfzZH01Gwbf140Ca0p0unkCNKph+qLgUtCeaLs/xMmwjmRTOAgBETF6mneW3
-	glTqn6oPEmJ6hdrkPEwKzG8EYxLylz+9WwmhiluEXjcsfwE4hrEVQCLxraZuUMvTvqMOM5XD7SVnn
-	lcX+xdIw==;
+	bh=9zOZIuYmUiChxW6T4ALeyJXTvfsAOgbBQ0gteD/iBsA=; b=UX+i8xjJuXpDjI04/usw8/ucl+
+	/qr1TTMp+wzUKgxxC39/x5csFg6/4xS761nPs2eYBqZ/86T3hAmC6oPUCYYqypTi3oSKRYWzxAeu7
+	5mT1xIVFhDhXb8I+9L5FfIzLxlLD/JUF9ksfLZNWkm7Y8JPa9uoa5MwDdDqQzcRONfeQOMOQZzQCc
+	qvbv+mjX3OrQPsNbZ9IHkp+4yOapfez1AJyKuxxypRBHFB06qXVMeFfwCQW92FX33DwgueL0Ab8+q
+	apV9VxVkxjsOPcmm1zJiHZ5yr+mxBYHW0yEHsUyX9C7U1sjok4dTFJQlaIaXqvJ7hmpahQesz69Ad
+	AKTS3vdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOmz-0000000EfYD-10HT;
-	Mon, 28 Jul 2025 14:25:17 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1ugOpO-0000000EfrB-42oN;
+	Mon, 28 Jul 2025 14:27:46 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOdv-0000000Edzc-2Wtp
+	id 1ugOez-0000000EeDz-1GOi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 14:15:56 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-60cc11b34f6so9202179a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 07:15:55 -0700 (PDT)
+	Mon, 28 Jul 2025 14:17:02 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6088d856c6eso8680274a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 07:17:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753712154; x=1754316954; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753712220; x=1754317020; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=KEuv/0OvcRGSMGgwve29GQ++Tx/D6BPMSmiHsxXgsyA=;
-        b=fkg+cH9J2YXCqI4VPw8+M4Age/WkQZfM+FSD+vckY87OV4L2AucSrx0F9+SXbsk52y
-         YljQMj+HiAZ0nEN1twp7zcMVa9wrjV+FT1D5TVtywSZRmm9HVa+QRLjTluaL1HUsItaP
-         JUQiJc/jjjUrxU9/SemLZlSTEh1liY1TcrJvc0rOtxHU4KZD9cJSm+EbEuMey3L1kolD
-         dPFlCndhlzmdSK195F1F3HL3UtGKmgmurQhhZnBfrYHcHz0IUabacrz+I1u/Ysxftirs
-         ItB2uXw9RByG4Qih865pFOxLyUvHN5pKTHeQFkBrrUFWCfRRKucZEUb3OehlbzW8h/kq
-         lCIw==
+        bh=9zOZIuYmUiChxW6T4ALeyJXTvfsAOgbBQ0gteD/iBsA=;
+        b=Jaeud56vETGjh6fxszzKGuKOP0NzEn0Cn0gc37NfgRqbrZyQg7O0meRq85jsfB28TO
+         Rof8dwk496sl64Q3U5p90dLvY4esNtJweBus7LUFZwQHU/ZXqZt3LaBrww7mGXsxGYHQ
+         ylWhmMcLTl40IkIwSGOitVqkCTwjIZ6J/379mal2I2XpOxZFyKhfZh1AB0sNp/B/bJf6
+         zfDHaqvsScc9Fn5EN9YDFZDKd/48LFey6alQLb44W6MOUR/8PqBBCBpEN6WTA/WgQDP4
+         5f7uabsNvt8cbozMw18ULsMp/11KvJ/KdLn5kvyJ2sjujtemKOeMo11hqKmUsqnSjwsm
+         3tVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753712154; x=1754316954;
+        d=1e100.net; s=20230601; t=1753712220; x=1754317020;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KEuv/0OvcRGSMGgwve29GQ++Tx/D6BPMSmiHsxXgsyA=;
-        b=DwOHa9NcqsYBLwkZk6gb3vKlXSbK0bAwl4uo4EQGGCoPArAMvqAGKoRrkWBrwgkSIh
-         1Wa+9OnRderxJrMNHxw3nUj0R4lIBoKhyJWrbPh7z3f9rbNH1Br3n+MH/X4K4EBclssU
-         qTgTmu7nbWlsOzasygTi1NrCaXiNPM4Fjvga2GdM73rk3Ayw5G/lXNsdoTYzuMneuFbl
-         VW4nxNIw7qF08Lkt7Ip10spLNs8vr5tFBgT6Kacr5MAfVch7jAnBPHZfG8+x2g+coOvm
-         a/i9uTcuyBXgpMAXVbOAoib05vAQpeD9jX5X8WCcpAg0AaBMocozISs4nVJF5/pYNldF
-         J3DA==
-X-Gm-Message-State: AOJu0Yzd7s42W1GfvrLleMChbRaQDBeXtfWDRca4rR8xWGgYtaQCaN91
-	9VfqM9gAycWmaPa5B9yWR5ty9UF6nSqhSUG14bqPO7J8xT11YKc5UA1IZ0DMblaYhZA=
-X-Gm-Gg: ASbGncsVsfYAnuBJiw/7JGk4eKTPQHuAMfvA3nFvkMl6oXxKaYJsd7bk06RtKGoSwW+
-	It7HCpfiR2s7WKRRm+LXHXxTE/E0MKjN2OVeu6vGT/prxhGtG2gOqVkITmtBbAK6Q1pG1bnBzVP
-	GxSX5Eg/ZPvkEc0AlwbW3QzPCYKwCmN/HsZBV0e8iUuRQh/RbBsmpeJjvh6TcaLr/U/NIQk+ZE7
-	jgKvsmILlLRZJDC27AXRd6/3XF8c16GcGmHvg6Wkb8WXpkK/SMG/S+DKikdxDix5ymnWH6AdI+o
-	IkIpYP1qRzXcK4F5p2op3lFtoNzrGUPg8L6rGWhs5uJ7V0O9GKlMNhi2QQgTImdlelysF1dMrS6
-	KxNcQofKRqCY3q83rCVL2rmqlAb0Al2m8e8+WqmfjRmVQwGKy15G02QD4LSG5X7M1HcE3+0FHcg
-	==
-X-Google-Smtp-Source: AGHT+IEbup0WGzQKdd/SdReGqdXO/wPA2vfo/bvQOhQ0kc3j2Opi6K31loxxw0o1vQUzbFcAu0y+0A==
-X-Received: by 2002:a17:907:7216:b0:af4:20f2:2dcb with SMTP id a640c23a62f3a-af4c242b969mr1664623966b.9.1753712153796;
-        Mon, 28 Jul 2025 07:15:53 -0700 (PDT)
+        bh=9zOZIuYmUiChxW6T4ALeyJXTvfsAOgbBQ0gteD/iBsA=;
+        b=wn6qCHczE1+CYk9PEQzCIybGHG74q4QTlHTCOPlkC48znQ/qgixRlon5EKhYOVaZ4+
+         7mtGEQfpMjh9YXTxeLLlbcmo5+pWe7Zh0MCODB5U+Ip+6NaOwB5PkaycSGFPJ0sPGB5y
+         TyMORNCE8hhiZvmduxm1nNK5mD1YoitSDW4hS1sw0DFwvwuiSUi1nqeLUPiEtwBx3DJT
+         zgU4yF4IXOuIkZoX9u2qZvVrP4MbZPG/pEGQCAXVtRSm0OtZ9OdrujR6JQQhBNqEhgxM
+         zGXeik5MI2522E3cDxrCpC/DMtaB19Ap67MPKE6n56l9m9PC4Lh7wKLP6uzHiRxxvo+9
+         hJaw==
+X-Gm-Message-State: AOJu0YwE9ZYiFN5NC0KvouA59xMPu37mAJqm+Og5zNTzohr1Zwjtn4oI
+	qcG+R5vlOcKdLzBulSFFLqL5R3WrtH76pKs7cORuNlfUGkttDjFIE9CPZIa91waovbc=
+X-Gm-Gg: ASbGncvDZvMpzdM0i5D0lC9O+T1UQQlk68C7W0fae9rIdgdBz0Jz+ErutrELHAy2heT
+	qX7v+pYqREYCjKD61kYgeluRp063v18kXUvxksFN5AnvH0vAezh/hphH1dFqlE3U+tPW4nNs3YV
+	rnIG0PhWV+Y11xnfbY7HR1NAKX1m8z9zdUlP3ENusExb58eLTcBfz5Rcx8annOnM9gdb9QQmJC3
+	s/75yZ2RBThrpKT2n19d4vpyFmzIMbwV84sd2jSTYsQo8AOjkWbbbSi0Kk41nke5WD1LC4yPDir
+	QLfkPpZhRBxyHAvMgn6L4fT2kXAJZnNBEOdfrBy0AdmtajVC9LKYIlHvO42iynNNGLrSCydH78U
+	kAWhUuRNT06fcfDqoHOAaZrfA7/KdWrvAKDhnnRMuYy68Z04I2p6kQCGB520F83A=
+X-Google-Smtp-Source: AGHT+IFF2jy8/UAzO9xj1temCnYhXpEOaVAh+jtnHHRa4ju0zBuFE/o752WTnfDGbuMr36P63jZ5aw==
+X-Received: by 2002:a05:6402:42c8:b0:615:4227:3b2e with SMTP id 4fb4d7f45d1cf-61542273ce2mr3339176a12.23.1753712219586;
+        Mon, 28 Jul 2025 07:16:59 -0700 (PDT)
 Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af63589c8ffsm419726066b.34.2025.07.28.07.15.52
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6153055f5a8sm1894547a12.48.2025.07.28.07.16.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Jul 2025 07:15:53 -0700 (PDT)
-Message-ID: <48d78f51-c094-46b4-a9af-91a9d855e296@linaro.org>
-Date: Mon, 28 Jul 2025 15:15:52 +0100
+        Mon, 28 Jul 2025 07:16:59 -0700 (PDT)
+Message-ID: <4cb6fd0d-ae76-4a94-bbd1-ace79633c05e@linaro.org>
+Date: Mon, 28 Jul 2025 15:16:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/7] media: qcom: camss: Add support for CSIPHY QCS8300
+Subject: Re: [PATCH v2 7/7] media: qcom: camss: Enumerate resources for
+ QCS8300
 To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
  todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
@@ -83,16 +83,15 @@ Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
  linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20250711131134.215382-1-quic_vikramsa@quicinc.com>
- <20250711131134.215382-7-quic_vikramsa@quicinc.com>
+ <20250711131134.215382-8-quic_vikramsa@quicinc.com>
 From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Content-Language: en-US
-In-Reply-To: <20250711131134.215382-7-quic_vikramsa@quicinc.com>
+In-Reply-To: <20250711131134.215382-8-quic_vikramsa@quicinc.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_071555_649558_1E3B6C6F 
-X-CRM114-Status: UNSURE (   7.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_071701_345401_39B3AC68 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,14 +107,31 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/07/2025 14:11, Vikram Sharma wrote:
-> Add support for CSIPHY found on QCS8300.
+> Enumerate csiphy, csid and vfe resources for qcs8300.
 > 
 > Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-
-Give the commit log a bit of love here.
-
-Please add more text.
-
----
-bod
+> ---
+>   drivers/media/platform/qcom/camss/camss.c | 7 +++++++
+>   1 file changed, 7 insertions(+)
+> 
+> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+> index 124bb56167cd..6cd6a5116f5e 100644
+> --- a/drivers/media/platform/qcom/camss/camss.c
+> +++ b/drivers/media/platform/qcom/camss/camss.c
+> @@ -4569,7 +4569,14 @@ static const struct camss_resources msm8996_resources = {
+>   static const struct camss_resources qcs8300_resources = {
+>   	.version = CAMSS_8300,
+>   	.pd_name = "top",
+> +	.csiphy_res = csiphy_res_8300,
+> +	.csid_res = csid_res_8300,
+> +	.csid_wrapper_res = &csid_wrapper_res_qcs8300,
+> +	.vfe_res = vfe_res_8300,
+>   	.icc_res = icc_res_qcs8300,
+> +	.csiphy_num = ARRAY_SIZE(csiphy_res_8300),
+> +	.csid_num = ARRAY_SIZE(csid_res_8300),
+> +	.vfe_num = ARRAY_SIZE(vfe_res_8300),
+>   	.icc_path_num = ARRAY_SIZE(icc_res_qcs8300),
+>   	.link_entities = camss_link_entities
+>   };
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
