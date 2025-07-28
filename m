@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC5DC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5ACC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1hVHBbDX3BlaHVgJRplOYdatG8ss9CUAeyj8QfKlPA8=; b=t5/bFyahluET1OJ9Lh6DdMRCdT
-	8Jbuivz0l3hXJsNJdvDfLe5OtzPiSVmXmZZV7L7EL3wLj/+rW02usXJTvemS0aR6oJM3q5QOHMu25
-	eSTwWvSc2tM/QG3eZBDJSadJdNIdnUjlxIYgDLkjDW3g0hBLO/kl1XTAVFFAQNxf6OWXUrzHhvXhD
-	i7doYo77wAxgGTzuhzdOAtWX4Aez4LQBrbAXlRqKVIRwD4B8I+nhPYkETKTYgig69NRrA/cKX+LIN
-	ig4z+SOlGsVSY3/JVJ3oS0Ma7syJvJtmVnbt/x26ILiwIlquogxvM8hv4Xv+ck/lHBgwqbQRqjh7Y
-	Mnz37bdw==;
+	bh=fyMXOIyJ8DCt8MOsdGpDoZUUzokj+yPn7KEvKmjkmJg=; b=qdiWppiq/sFSCI+bRjo2fSFvb0
+	b5a2kxRe5mjkV+KF2Exmpo0Xbbvk0z5t1pSx+vG1yaA95RmoJliwapHRlbgOJhrNnOnvJ3mzQctM2
+	f5d8O8Y7exrl1rpt0P2UzOztdnMBZ/l9vEjUocdpZBTcVd8mlk8oTxh4UKeKN75a72mlQNsgi4hGN
+	/J3NNZ5Nk87dCnd5vwKjXxTuYrgJiF5WUAYT7quvcBULpYlljl+3Q1QKG7iO4ShXND70I0zHu+yoG
+	kd8WIwacOIaBM4K0ZbskoAFKpzrLg4kBXuoyylyzZax+fnGjGOk2D7oVGYH5tWQyaxrnmRcyuzdds
+	AR/x+DCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLJx-0000000EG7w-0mwa;
-	Mon, 28 Jul 2025 10:43:05 +0000
+	id 1ugLMN-0000000EGV0-2gMw;
+	Mon, 28 Jul 2025 10:45:35 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL8p-0000000EEoo-46Cj;
-	Mon, 28 Jul 2025 10:31:37 +0000
+	id 1ugL8z-0000000EEpM-2xF6;
+	Mon, 28 Jul 2025 10:31:47 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 94C6B20937;
-	Mon, 28 Jul 2025 12:31:34 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 658A720830;
+	Mon, 28 Jul 2025 12:31:44 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id oeKHiVJoWaZv; Mon, 28 Jul 2025 12:31:31 +0200 (CEST)
+ id phgxSNFa55pI; Mon, 28 Jul 2025 12:31:38 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753698691; bh=71Nflu6ZSpSla06ibWGymwe/vOoXdf0KH4ceGapV22M=;
+	t=1753698698; bh=ZtOV4IYs3bEs6SzNiKxxh8GuJNwLXHCTefRw/zC2Rzs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AN3F9qHU7kxzi0BCj8fvL5CbV0+7N/rLjp0497l7VSsSd1BUNN3/98Dd8nuCqww+K
-	 U3y4k5eW6XPqw9/yQfmuE0/Ql+eh1jvDm/DdbNMFruRn6bQvOU/yDLjFQHd+x0fsdO
-	 gTKkuop+/qpc2+aKlG3RZgxPwk85eoVcLwO4lZI48YnJyX71w1ijgkxfmRqP+hMUJI
-	 eWpK3DogH+Mi8dREBvX/z8VRt2IQsex1634ZRBKarCIW9O6ssmVlqP4w6z1cRM6kT0
-	 zBNof9+S1JJPJWpLLBrXrinAVDUAbZ2sE9QW1VSON28D4Yws4l+kDMfanZN7bLmLxh
-	 SuqvoEOEREcgQ==
+	b=QYdYEPqWpotsI0XmdQioIQ4ZqSosGJQ/20rPtT2b1nVcqVbxAyW05rLYlrhpEOapp
+	 8uMKhaMdVMjFXpm0fvEhSp4RyyP/zDuAjuK/2nXWxOlB+Qo74F8zvWV25ljeH3FKHH
+	 LKemO23Dfmggvpxt2AfiBiWcHl0JvbUwCF7qAW/ow5MpZjYHdSmjW4QrSPGG6rB72z
+	 XTe+/q5NdF87F2tfYv4YMt5zR5aTVFmTN5f7Fx3jgXV481CnEn8je7QGtplLpyQO0P
+	 kgfSIk6bnTGDnCqoeQwPJpl/JF7kMKQYCmoU/wONoeRing3oWua4liSrlfK9f4WNPr
+	 d3DiUBZSmDgCQ==
 From: Yao Zi <ziyao@disroot.org>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -62,18 +62,17 @@ Cc: linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v5 3/6] dt-bindings: phy: rockchip: naneng-combphy: Add RK3528 variant
-Date: Mon, 28 Jul 2025 10:29:45 +0000
-Message-ID: <20250728102947.38984-5-ziyao@disroot.org>
+	Neil Armstrong <neil.armstrong@linaro.org>
+Subject: [PATCH v5 4/6] phy: rockchip: naneng-combphy: Add SoC prefix to register definitions
+Date: Mon, 28 Jul 2025 10:29:46 +0000
+Message-ID: <20250728102947.38984-6-ziyao@disroot.org>
 In-Reply-To: <20250728102947.38984-2-ziyao@disroot.org>
 References: <20250728102947.38984-2-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_033136_156922_A8C3721A 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_033146_058941_4BBB19BE 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +87,889 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip RK3528 ships one naneng-combphy which operates in either PCIe
-or USB 3 mode. Document its compatible string.
+All supported variants of naneng-combphy follow a register layout
+similar to the RK3568 variant with some exceptions of SoC-specific
+registers.
+
+Add RK3568 prefix for the common set of registers and the corresponding
+SoC prefix for SoC-specific registers, making usage of definitions clear
+and preparing for future COMBPHY variants with a different register
+layout.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
- .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ .../rockchip/phy-rockchip-naneng-combphy.c    | 560 +++++++++---------
+ 1 file changed, 288 insertions(+), 272 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-index db293d2fbf1a..379b08bd9e97 100644
---- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-@@ -12,6 +12,7 @@ maintainers:
- properties:
-   compatible:
-     enum:
-+      - rockchip,rk3528-naneng-combphy
-       - rockchip,rk3562-naneng-combphy
-       - rockchip,rk3568-naneng-combphy
-       - rockchip,rk3576-naneng-combphy
-@@ -108,7 +109,9 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: rockchip,rk3588-naneng-combphy
-+            enum:
-+              - rockchip,rk3528-naneng-combphy
-+              - rockchip,rk3588-naneng-combphy
-     then:
-       properties:
-         resets:
+diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+index 17c6310f4b54..ce84166cd772 100644
+--- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
++++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
+@@ -21,78 +21,80 @@
+ #define REF_CLOCK_100MHz		(100 * HZ_PER_MHZ)
+ 
+ /* COMBO PHY REG */
+-#define PHYREG6				0x14
+-#define PHYREG6_PLL_DIV_MASK		GENMASK(7, 6)
+-#define PHYREG6_PLL_DIV_SHIFT		6
+-#define PHYREG6_PLL_DIV_2		1
+-
+-#define PHYREG7				0x18
+-#define PHYREG7_TX_RTERM_MASK		GENMASK(7, 4)
+-#define PHYREG7_TX_RTERM_SHIFT		4
+-#define PHYREG7_TX_RTERM_50OHM		8
+-#define PHYREG7_RX_RTERM_MASK		GENMASK(3, 0)
+-#define PHYREG7_RX_RTERM_SHIFT		0
+-#define PHYREG7_RX_RTERM_44OHM		15
+-
+-#define PHYREG8				0x1C
+-#define PHYREG8_SSC_EN			BIT(4)
+-
+-#define PHYREG10			0x24
+-#define PHYREG10_SSC_PCM_MASK		GENMASK(3, 0)
+-#define PHYREG10_SSC_PCM_3500PPM	7
+-
+-#define PHYREG11			0x28
+-#define PHYREG11_SU_TRIM_0_7		0xF0
+-
+-#define PHYREG12			0x2C
+-#define PHYREG12_PLL_LPF_ADJ_VALUE	4
+-
+-#define PHYREG13			0x30
+-#define PHYREG13_RESISTER_MASK		GENMASK(5, 4)
+-#define PHYREG13_RESISTER_SHIFT		0x4
+-#define PHYREG13_RESISTER_HIGH_Z	3
+-#define PHYREG13_CKRCV_AMP0		BIT(7)
+-
+-#define PHYREG14			0x34
+-#define PHYREG14_CKRCV_AMP1		BIT(0)
+-
+-#define PHYREG15			0x38
+-#define PHYREG15_CTLE_EN		BIT(0)
+-#define PHYREG15_SSC_CNT_MASK		GENMASK(7, 6)
+-#define PHYREG15_SSC_CNT_SHIFT		6
+-#define PHYREG15_SSC_CNT_VALUE		1
+-
+-#define PHYREG16			0x3C
+-#define PHYREG16_SSC_CNT_VALUE		0x5f
+-
+-#define PHYREG17			0x40
+-
+-#define PHYREG18			0x44
+-#define PHYREG18_PLL_LOOP		0x32
+-
+-#define PHYREG21			0x50
+-#define PHYREG21_RX_SQUELCH_VAL		0x0D
+-
+-#define PHYREG27			0x6C
+-#define PHYREG27_RX_TRIM_RK3588		0x4C
+-
+-#define PHYREG30			0x74
+-
+-#define PHYREG32			0x7C
+-#define PHYREG32_SSC_MASK		GENMASK(7, 4)
+-#define PHYREG32_SSC_DIR_MASK		GENMASK(5, 4)
+-#define PHYREG32_SSC_DIR_SHIFT		4
+-#define PHYREG32_SSC_UPWARD		0
+-#define PHYREG32_SSC_DOWNWARD		1
+-#define PHYREG32_SSC_OFFSET_MASK	GENMASK(7, 6)
+-#define PHYREG32_SSC_OFFSET_SHIFT	6
+-#define PHYREG32_SSC_OFFSET_500PPM	1
+-
+-#define PHYREG33			0x80
+-#define PHYREG33_PLL_KVCO_MASK		GENMASK(4, 2)
+-#define PHYREG33_PLL_KVCO_SHIFT		2
+-#define PHYREG33_PLL_KVCO_VALUE		2
+-#define PHYREG33_PLL_KVCO_VALUE_RK3576	4
++#define RK3568_PHYREG6				0x14
++#define RK3568_PHYREG6_PLL_DIV_MASK		GENMASK(7, 6)
++#define RK3568_PHYREG6_PLL_DIV_SHIFT		6
++#define RK3568_PHYREG6_PLL_DIV_2		1
++
++#define RK3568_PHYREG7				0x18
++#define RK3568_PHYREG7_TX_RTERM_MASK		GENMASK(7, 4)
++#define RK3568_PHYREG7_TX_RTERM_SHIFT		4
++#define RK3568_PHYREG7_TX_RTERM_50OHM		8
++#define RK3568_PHYREG7_RX_RTERM_MASK		GENMASK(3, 0)
++#define RK3568_PHYREG7_RX_RTERM_SHIFT		0
++#define RK3568_PHYREG7_RX_RTERM_44OHM		15
++
++#define RK3568_PHYREG8				0x1C
++#define RK3568_PHYREG8_SSC_EN			BIT(4)
++
++#define RK3568_PHYREG11				0x28
++#define RK3568_PHYREG11_SU_TRIM_0_7		0xF0
++
++#define RK3568_PHYREG12				0x2C
++#define RK3568_PHYREG12_PLL_LPF_ADJ_VALUE	4
++
++#define RK3568_PHYREG13				0x30
++#define RK3568_PHYREG13_RESISTER_MASK		GENMASK(5, 4)
++#define RK3568_PHYREG13_RESISTER_SHIFT		0x4
++#define RK3568_PHYREG13_RESISTER_HIGH_Z		3
++#define RK3568_PHYREG13_CKRCV_AMP0		BIT(7)
++
++#define RK3568_PHYREG14				0x34
++#define RK3568_PHYREG14_CKRCV_AMP1		BIT(0)
++
++#define RK3568_PHYREG15				0x38
++#define RK3568_PHYREG15_CTLE_EN			BIT(0)
++#define RK3568_PHYREG15_SSC_CNT_MASK		GENMASK(7, 6)
++#define RK3568_PHYREG15_SSC_CNT_SHIFT		6
++#define RK3568_PHYREG15_SSC_CNT_VALUE		1
++
++#define RK3568_PHYREG16				0x3C
++#define RK3568_PHYREG16_SSC_CNT_VALUE		0x5f
++
++#define RK3568_PHYREG18				0x44
++#define RK3568_PHYREG18_PLL_LOOP		0x32
++
++#define RK3568_PHYREG32				0x7C
++#define RK3568_PHYREG32_SSC_MASK		GENMASK(7, 4)
++#define RK3568_PHYREG32_SSC_DIR_MASK		GENMASK(5, 4)
++#define RK3568_PHYREG32_SSC_DIR_SHIFT		4
++#define RK3568_PHYREG32_SSC_UPWARD		0
++#define RK3568_PHYREG32_SSC_DOWNWARD		1
++#define RK3568_PHYREG32_SSC_OFFSET_MASK	GENMASK(7, 6)
++#define RK3568_PHYREG32_SSC_OFFSET_SHIFT	6
++#define RK3568_PHYREG32_SSC_OFFSET_500PPM	1
++
++#define RK3568_PHYREG33				0x80
++#define RK3568_PHYREG33_PLL_KVCO_MASK		GENMASK(4, 2)
++#define RK3568_PHYREG33_PLL_KVCO_SHIFT		2
++#define RK3568_PHYREG33_PLL_KVCO_VALUE		2
++#define RK3576_PHYREG33_PLL_KVCO_VALUE		4
++
++/* RK3588 COMBO PHY registers */
++#define RK3588_PHYREG27				0x6C
++#define RK3588_PHYREG27_RX_TRIM			0x4C
++
++/* RK3576 COMBO PHY registers */
++#define RK3576_PHYREG10				0x24
++#define RK3576_PHYREG10_SSC_PCM_MASK		GENMASK(3, 0)
++#define RK3576_PHYREG10_SSC_PCM_3500PPM		7
++
++#define RK3576_PHYREG17				0x40
++
++#define RK3576_PHYREG21				0x50
++#define RK3576_PHYREG21_RX_SQUELCH_VAL		0x0D
++
++#define RK3576_PHYREG30				0x74
+ 
+ struct rockchip_combphy_priv;
+ 
+@@ -407,9 +409,8 @@ static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	switch (priv->type) {
+ 	case PHY_TYPE_PCIE:
+ 		/* Set SSC downward spread spectrum */
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
+-					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
+-					 PHYREG32);
++		val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT;
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val, RK3568_PHYREG32);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
+@@ -418,29 +419,30 @@ static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		break;
+ 	case PHY_TYPE_USB3:
+ 		/* Set SSC downward spread spectrum */
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
+-					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
+-					 PHYREG32);
++		val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT;
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val,
++					 RK3568_PHYREG32);
+ 
+ 		/* Enable adaptive CTLE for USB3.0 Rx */
+-		rockchip_combphy_updatel(priv, PHYREG15_CTLE_EN,
+-					 PHYREG15_CTLE_EN, PHYREG15);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG15_CTLE_EN,
++					 RK3568_PHYREG15_CTLE_EN, RK3568_PHYREG15);
+ 
+ 		/* Set PLL KVCO fine tuning signals */
+-		rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK, BIT(3), PHYREG33);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++					 BIT(3), RK3568_PHYREG33);
+ 
+ 		/* Set PLL LPF R1 to su_trim[10:7]=1001 */
+-		writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
++		writel(RK3568_PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + RK3568_PHYREG12);
+ 
+ 		/* Set PLL input clock divider 1/2 */
+-		val = FIELD_PREP(PHYREG6_PLL_DIV_MASK, PHYREG6_PLL_DIV_2);
+-		rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK, val, PHYREG6);
++		val = FIELD_PREP(RK3568_PHYREG6_PLL_DIV_MASK, RK3568_PHYREG6_PLL_DIV_2);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG6_PLL_DIV_MASK, val, RK3568_PHYREG6);
+ 
+ 		/* Set PLL loop divider */
+-		writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
++		writel(RK3568_PHYREG18_PLL_LOOP, priv->mmio + RK3568_PHYREG18);
+ 
+ 		/* Set PLL KVCO to min and set PLL charge pump current to max */
+-		writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
++		writel(RK3568_PHYREG11_SU_TRIM_0_7, priv->mmio + RK3568_PHYREG11);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_usb, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
+@@ -458,11 +460,12 @@ static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	case REF_CLOCK_24MHz:
+ 		if (priv->type == PHY_TYPE_USB3) {
+ 			/* Set ssc_cnt[9:0]=0101111101 & 31.5KHz */
+-			val = FIELD_PREP(PHYREG15_SSC_CNT_MASK, PHYREG15_SSC_CNT_VALUE);
+-			rockchip_combphy_updatel(priv, PHYREG15_SSC_CNT_MASK,
+-						 val, PHYREG15);
++			val = FIELD_PREP(RK3568_PHYREG15_SSC_CNT_MASK,
++					 RK3568_PHYREG15_SSC_CNT_VALUE);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG15_SSC_CNT_MASK,
++						 val, RK3568_PHYREG15);
+ 
+-			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
++			writel(RK3568_PHYREG16_SSC_CNT_VALUE, priv->mmio + RK3568_PHYREG16);
+ 		}
+ 		break;
+ 	case REF_CLOCK_25MHz:
+@@ -472,19 +475,20 @@ static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
+ 		if (priv->type == PHY_TYPE_PCIE) {
+ 			/* PLL KVCO tuning fine */
+-			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE);
+-			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-						 val, PHYREG33);
++			val = FIELD_PREP(RK3568_PHYREG33_PLL_KVCO_MASK,
++					 RK3568_PHYREG33_PLL_KVCO_VALUE);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++						 val, RK3568_PHYREG33);
+ 
+ 			/* Enable controlling random jitter, aka RMJ */
+-			writel(0x4, priv->mmio + PHYREG12);
++			writel(0x4, priv->mmio + RK3568_PHYREG12);
+ 
+-			val = PHYREG6_PLL_DIV_2 << PHYREG6_PLL_DIV_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK,
+-						 val, PHYREG6);
++			val = RK3568_PHYREG6_PLL_DIV_2 << RK3568_PHYREG6_PLL_DIV_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG6_PLL_DIV_MASK,
++						 val, RK3568_PHYREG6);
+ 
+-			writel(0x32, priv->mmio + PHYREG18);
+-			writel(0xf0, priv->mmio + PHYREG11);
++			writel(0x32, priv->mmio + RK3568_PHYREG18);
++			writel(0xf0, priv->mmio + RK3568_PHYREG11);
+ 		}
+ 		break;
+ 	default:
+@@ -495,20 +499,21 @@ static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	if (priv->ext_refclk) {
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
+ 		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
+-			val = PHYREG13_RESISTER_HIGH_Z << PHYREG13_RESISTER_SHIFT;
+-			val |= PHYREG13_CKRCV_AMP0;
+-			rockchip_combphy_updatel(priv, PHYREG13_RESISTER_MASK, val, PHYREG13);
+-
+-			val = readl(priv->mmio + PHYREG14);
+-			val |= PHYREG14_CKRCV_AMP1;
+-			writel(val, priv->mmio + PHYREG14);
++			val = RK3568_PHYREG13_RESISTER_HIGH_Z << RK3568_PHYREG13_RESISTER_SHIFT;
++			val |= RK3568_PHYREG13_CKRCV_AMP0;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG13_RESISTER_MASK, val,
++						 RK3568_PHYREG13);
++
++			val = readl(priv->mmio + RK3568_PHYREG14);
++			val |= RK3568_PHYREG14_CKRCV_AMP1;
++			writel(val, priv->mmio + RK3568_PHYREG14);
+ 		}
+ 	}
+ 
+ 	if (priv->enable_ssc) {
+-		val = readl(priv->mmio + PHYREG8);
+-		val |= PHYREG8_SSC_EN;
+-		writel(val, priv->mmio + PHYREG8);
++		val = readl(priv->mmio + RK3568_PHYREG8);
++		val |= RK3568_PHYREG8_SSC_EN;
++		writel(val, priv->mmio + RK3568_PHYREG8);
+ 	}
+ 
+ 	return 0;
+@@ -555,9 +560,9 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	switch (priv->type) {
+ 	case PHY_TYPE_PCIE:
+ 		/* Set SSC downward spread spectrum. */
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
+-					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
+-					 PHYREG32);
++		val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT;
++
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val, RK3568_PHYREG32);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
+@@ -567,30 +572,28 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 
+ 	case PHY_TYPE_USB3:
+ 		/* Set SSC downward spread spectrum. */
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
+-					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
+-					 PHYREG32);
++		val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT,
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val, RK3568_PHYREG32);
+ 
+ 		/* Enable adaptive CTLE for USB3.0 Rx. */
+-		val = readl(priv->mmio + PHYREG15);
+-		val |= PHYREG15_CTLE_EN;
+-		writel(val, priv->mmio + PHYREG15);
++		val = readl(priv->mmio + RK3568_PHYREG15);
++		val |= RK3568_PHYREG15_CTLE_EN;
++		writel(val, priv->mmio + RK3568_PHYREG15);
+ 
+ 		/* Set PLL KVCO fine tuning signals. */
+-		rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-					 PHYREG33_PLL_KVCO_VALUE << PHYREG33_PLL_KVCO_SHIFT,
+-					 PHYREG33);
++		val = RK3568_PHYREG33_PLL_KVCO_VALUE << RK3568_PHYREG33_PLL_KVCO_SHIFT;
++		rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK, val, RK3568_PHYREG33);
+ 
+ 		/* Enable controlling random jitter. */
+-		writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
++		writel(RK3568_PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + RK3568_PHYREG12);
+ 
+ 		/* Set PLL input clock divider 1/2. */
+-		rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK,
+-					 PHYREG6_PLL_DIV_2 << PHYREG6_PLL_DIV_SHIFT,
+-					 PHYREG6);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG6_PLL_DIV_MASK,
++					 RK3568_PHYREG6_PLL_DIV_2 << RK3568_PHYREG6_PLL_DIV_SHIFT,
++					 RK3568_PHYREG6);
+ 
+-		writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
+-		writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
++		writel(RK3568_PHYREG18_PLL_LOOP, priv->mmio + RK3568_PHYREG18);
++		writel(RK3568_PHYREG11_SU_TRIM_0_7, priv->mmio + RK3568_PHYREG11);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_sel_usb, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
+@@ -608,16 +611,16 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 
+ 	case PHY_TYPE_SATA:
+ 		/* Enable adaptive CTLE for SATA Rx. */
+-		val = readl(priv->mmio + PHYREG15);
+-		val |= PHYREG15_CTLE_EN;
+-		writel(val, priv->mmio + PHYREG15);
++		val = readl(priv->mmio + RK3568_PHYREG15);
++		val |= RK3568_PHYREG15_CTLE_EN;
++		writel(val, priv->mmio + RK3568_PHYREG15);
+ 		/*
+ 		 * Set tx_rterm=50ohm and rx_rterm=44ohm for SATA.
+ 		 * 0: 60ohm, 8: 50ohm 15: 44ohm (by step abort 1ohm)
+ 		 */
+-		val = PHYREG7_TX_RTERM_50OHM << PHYREG7_TX_RTERM_SHIFT;
+-		val |= PHYREG7_RX_RTERM_44OHM << PHYREG7_RX_RTERM_SHIFT;
+-		writel(val, priv->mmio + PHYREG7);
++		val = RK3568_PHYREG7_TX_RTERM_50OHM << RK3568_PHYREG7_TX_RTERM_SHIFT;
++		val |= RK3568_PHYREG7_RX_RTERM_44OHM << RK3568_PHYREG7_RX_RTERM_SHIFT;
++		writel(val, priv->mmio + RK3568_PHYREG7);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_sata, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_sata, true);
+@@ -652,11 +655,11 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	case REF_CLOCK_24MHz:
+ 		if (priv->type == PHY_TYPE_USB3 || priv->type == PHY_TYPE_SATA) {
+ 			/* Set ssc_cnt[9:0]=0101111101 & 31.5KHz. */
+-			val = PHYREG15_SSC_CNT_VALUE << PHYREG15_SSC_CNT_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG15_SSC_CNT_MASK,
+-						 val, PHYREG15);
++			val = RK3568_PHYREG15_SSC_CNT_VALUE << RK3568_PHYREG15_SSC_CNT_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG15_SSC_CNT_MASK,
++						 val, RK3568_PHYREG15);
+ 
+-			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
++			writel(RK3568_PHYREG16_SSC_CNT_VALUE, priv->mmio + RK3568_PHYREG16);
+ 		}
+ 		break;
+ 
+@@ -668,24 +671,26 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
+ 		if (priv->type == PHY_TYPE_PCIE) {
+ 			/* PLL KVCO  fine tuning. */
+-			val = PHYREG33_PLL_KVCO_VALUE << PHYREG33_PLL_KVCO_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-						 val, PHYREG33);
++			val = RK3568_PHYREG33_PLL_KVCO_VALUE << RK3568_PHYREG33_PLL_KVCO_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++						 val, RK3568_PHYREG33);
+ 
+ 			/* Enable controlling random jitter. */
+-			writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
++			writel(RK3568_PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + RK3568_PHYREG12);
+ 
+-			val = PHYREG6_PLL_DIV_2 << PHYREG6_PLL_DIV_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK,
+-						 val, PHYREG6);
++			val = RK3568_PHYREG6_PLL_DIV_2 << RK3568_PHYREG6_PLL_DIV_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG6_PLL_DIV_MASK,
++						 val, RK3568_PHYREG6);
+ 
+-			writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
+-			writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
++			writel(RK3568_PHYREG18_PLL_LOOP, priv->mmio + RK3568_PHYREG18);
++			writel(RK3568_PHYREG11_SU_TRIM_0_7, priv->mmio + RK3568_PHYREG11);
+ 		} else if (priv->type == PHY_TYPE_SATA) {
+ 			/* downward spread spectrum +500ppm */
+-			val = PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT;
+-			val |= PHYREG32_SSC_OFFSET_500PPM << PHYREG32_SSC_OFFSET_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK, val, PHYREG32);
++			val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT;
++			val |= RK3568_PHYREG32_SSC_OFFSET_500PPM <<
++			       RK3568_PHYREG32_SSC_OFFSET_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val,
++						 RK3568_PHYREG32);
+ 		}
+ 		break;
+ 
+@@ -697,20 +702,21 @@ static int rk3568_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	if (priv->ext_refclk) {
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
+ 		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
+-			val = PHYREG13_RESISTER_HIGH_Z << PHYREG13_RESISTER_SHIFT;
+-			val |= PHYREG13_CKRCV_AMP0;
+-			rockchip_combphy_updatel(priv, PHYREG13_RESISTER_MASK, val, PHYREG13);
+-
+-			val = readl(priv->mmio + PHYREG14);
+-			val |= PHYREG14_CKRCV_AMP1;
+-			writel(val, priv->mmio + PHYREG14);
++			val = RK3568_PHYREG13_RESISTER_HIGH_Z << RK3568_PHYREG13_RESISTER_SHIFT;
++			val |= RK3568_PHYREG13_CKRCV_AMP0;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG13_RESISTER_MASK, val,
++						 RK3568_PHYREG13);
++
++			val = readl(priv->mmio + RK3568_PHYREG14);
++			val |= RK3568_PHYREG14_CKRCV_AMP1;
++			writel(val, priv->mmio + RK3568_PHYREG14);
+ 		}
+ 	}
+ 
+ 	if (priv->enable_ssc) {
+-		val = readl(priv->mmio + PHYREG8);
+-		val |= PHYREG8_SSC_EN;
+-		writel(val, priv->mmio + PHYREG8);
++		val = readl(priv->mmio + RK3568_PHYREG8);
++		val |= RK3568_PHYREG8_SSC_EN;
++		writel(val, priv->mmio + RK3568_PHYREG8);
+ 	}
+ 
+ 	return 0;
+@@ -771,8 +777,8 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	switch (priv->type) {
+ 	case PHY_TYPE_PCIE:
+ 		/* Set SSC downward spread spectrum */
+-		val = FIELD_PREP(PHYREG32_SSC_MASK, PHYREG32_SSC_DOWNWARD);
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK, val, PHYREG32);
++		val = FIELD_PREP(RK3568_PHYREG32_SSC_MASK, RK3568_PHYREG32_SSC_DOWNWARD);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val, RK3568_PHYREG32);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
+@@ -782,32 +788,33 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 
+ 	case PHY_TYPE_USB3:
+ 		/* Set SSC downward spread spectrum */
+-		val = FIELD_PREP(PHYREG32_SSC_MASK, PHYREG32_SSC_DOWNWARD);
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK, val, PHYREG32);
++		val = FIELD_PREP(RK3568_PHYREG32_SSC_MASK, RK3568_PHYREG32_SSC_DOWNWARD);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val, RK3568_PHYREG32);
+ 
+ 		/* Enable adaptive CTLE for USB3.0 Rx */
+-		val = readl(priv->mmio + PHYREG15);
+-		val |= PHYREG15_CTLE_EN;
+-		writel(val, priv->mmio + PHYREG15);
++		val = readl(priv->mmio + RK3568_PHYREG15);
++		val |= RK3568_PHYREG15_CTLE_EN;
++		writel(val, priv->mmio + RK3568_PHYREG15);
+ 
+ 		/* Set PLL KVCO fine tuning signals */
+-		rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK, BIT(3), PHYREG33);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK, BIT(3),
++					 RK3568_PHYREG33);
+ 
+ 		/* Set PLL LPF R1 to su_trim[10:7]=1001 */
+-		writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
++		writel(RK3568_PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + RK3568_PHYREG12);
+ 
+ 		/* Set PLL input clock divider 1/2 */
+-		val = FIELD_PREP(PHYREG6_PLL_DIV_MASK, PHYREG6_PLL_DIV_2);
+-		rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK, val, PHYREG6);
++		val = FIELD_PREP(RK3568_PHYREG6_PLL_DIV_MASK, RK3568_PHYREG6_PLL_DIV_2);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG6_PLL_DIV_MASK, val, RK3568_PHYREG6);
+ 
+ 		/* Set PLL loop divider */
+-		writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
++		writel(RK3568_PHYREG18_PLL_LOOP, priv->mmio + RK3568_PHYREG18);
+ 
+ 		/* Set PLL KVCO to min and set PLL charge pump current to max */
+-		writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
++		writel(RK3568_PHYREG11_SU_TRIM_0_7, priv->mmio + RK3568_PHYREG11);
+ 
+ 		/* Set Rx squelch input filler bandwidth */
+-		writel(PHYREG21_RX_SQUELCH_VAL, priv->mmio + PHYREG21);
++		writel(RK3576_PHYREG21_RX_SQUELCH_VAL, priv->mmio + RK3576_PHYREG21);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txelec_sel, false);
+@@ -816,14 +823,14 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 
+ 	case PHY_TYPE_SATA:
+ 		/* Enable adaptive CTLE for SATA Rx */
+-		val = readl(priv->mmio + PHYREG15);
+-		val |= PHYREG15_CTLE_EN;
+-		writel(val, priv->mmio + PHYREG15);
++		val = readl(priv->mmio + RK3568_PHYREG15);
++		val |= RK3568_PHYREG15_CTLE_EN;
++		writel(val, priv->mmio + RK3568_PHYREG15);
+ 
+ 		/* Set tx_rterm = 50 ohm and rx_rterm = 43.5 ohm */
+-		val = PHYREG7_TX_RTERM_50OHM << PHYREG7_TX_RTERM_SHIFT;
+-		val |= PHYREG7_RX_RTERM_44OHM << PHYREG7_RX_RTERM_SHIFT;
+-		writel(val, priv->mmio + PHYREG7);
++		val = RK3568_PHYREG7_TX_RTERM_50OHM << RK3568_PHYREG7_TX_RTERM_SHIFT;
++		val |= RK3568_PHYREG7_RX_RTERM_44OHM << RK3568_PHYREG7_RX_RTERM_SHIFT;
++		writel(val, priv->mmio + RK3568_PHYREG7);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_sata, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_sata, true);
+@@ -845,19 +852,21 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_24m, true);
+ 		if (priv->type == PHY_TYPE_USB3 || priv->type == PHY_TYPE_SATA) {
+ 			/* Set ssc_cnt[9:0]=0101111101 & 31.5KHz */
+-			val = FIELD_PREP(PHYREG15_SSC_CNT_MASK, PHYREG15_SSC_CNT_VALUE);
+-			rockchip_combphy_updatel(priv, PHYREG15_SSC_CNT_MASK,
+-						 val, PHYREG15);
++			val = FIELD_PREP(RK3568_PHYREG15_SSC_CNT_MASK,
++					 RK3568_PHYREG15_SSC_CNT_VALUE);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG15_SSC_CNT_MASK,
++						 val, RK3568_PHYREG15);
+ 
+-			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
++			writel(RK3568_PHYREG16_SSC_CNT_VALUE, priv->mmio + RK3568_PHYREG16);
+ 		} else if (priv->type == PHY_TYPE_PCIE) {
+ 			/* PLL KVCO tuning fine */
+-			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE_RK3576);
+-			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-						 val, PHYREG33);
++			val = FIELD_PREP(RK3568_PHYREG33_PLL_KVCO_MASK,
++					 RK3576_PHYREG33_PLL_KVCO_VALUE);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++						 val, RK3568_PHYREG33);
+ 
+ 			/* Set up rx_pck invert and rx msb to disable */
+-			writel(0x00, priv->mmio + PHYREG27);
++			writel(0x00, priv->mmio + RK3588_PHYREG27);
+ 
+ 			/*
+ 			 * Set up SU adjust signal:
+@@ -865,11 +874,11 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 			 * su_trim[15:8],  PLL LPF R1 adujst bits[9:7]=3'b011
+ 			 * su_trim[31:24], CKDRV adjust
+ 			 */
+-			writel(0x90, priv->mmio + PHYREG11);
+-			writel(0x02, priv->mmio + PHYREG12);
+-			writel(0x57, priv->mmio + PHYREG14);
++			writel(0x90, priv->mmio + RK3568_PHYREG11);
++			writel(0x02, priv->mmio + RK3568_PHYREG12);
++			writel(0x57, priv->mmio + RK3568_PHYREG14);
+ 
+-			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
++			writel(RK3568_PHYREG16_SSC_CNT_VALUE, priv->mmio + RK3568_PHYREG16);
+ 		}
+ 		break;
+ 
+@@ -881,15 +890,16 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
+ 		if (priv->type == PHY_TYPE_PCIE) {
+ 			/* gate_tx_pck_sel length select work for L1SS */
+-			writel(0xc0, priv->mmio + PHYREG30);
++			writel(0xc0, priv->mmio + RK3576_PHYREG30);
+ 
+ 			/* PLL KVCO tuning fine */
+-			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE_RK3576);
+-			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-						 val, PHYREG33);
++			val = FIELD_PREP(RK3568_PHYREG33_PLL_KVCO_MASK,
++					 RK3576_PHYREG33_PLL_KVCO_VALUE);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++						 val, RK3568_PHYREG33);
+ 
+ 			/* Set up rx_trim: PLL LPF C1 85pf R1 1.25kohm */
+-			writel(0x4c, priv->mmio + PHYREG27);
++			writel(0x4c, priv->mmio + RK3588_PHYREG27);
+ 
+ 			/*
+ 			 * Set up SU adjust signal:
+@@ -899,20 +909,23 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 			 * su_trim[23:16], CKRCV adjust
+ 			 * su_trim[31:24], CKDRV adjust
+ 			 */
+-			writel(0x90, priv->mmio + PHYREG11);
+-			writel(0x43, priv->mmio + PHYREG12);
+-			writel(0x88, priv->mmio + PHYREG13);
+-			writel(0x56, priv->mmio + PHYREG14);
++			writel(0x90, priv->mmio + RK3568_PHYREG11);
++			writel(0x43, priv->mmio + RK3568_PHYREG12);
++			writel(0x88, priv->mmio + RK3568_PHYREG13);
++			writel(0x56, priv->mmio + RK3568_PHYREG14);
+ 		} else if (priv->type == PHY_TYPE_SATA) {
+ 			/* downward spread spectrum +500ppm */
+-			val = FIELD_PREP(PHYREG32_SSC_DIR_MASK, PHYREG32_SSC_DOWNWARD);
+-			val |= FIELD_PREP(PHYREG32_SSC_OFFSET_MASK, PHYREG32_SSC_OFFSET_500PPM);
+-			rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK, val, PHYREG32);
++			val = FIELD_PREP(RK3568_PHYREG32_SSC_DIR_MASK,
++					 RK3568_PHYREG32_SSC_DOWNWARD);
++			val |= FIELD_PREP(RK3568_PHYREG32_SSC_OFFSET_MASK,
++					  RK3568_PHYREG32_SSC_OFFSET_500PPM);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val,
++						 RK3568_PHYREG32);
+ 
+ 			/* ssc ppm adjust to 3500ppm */
+-			rockchip_combphy_updatel(priv, PHYREG10_SSC_PCM_MASK,
+-						 PHYREG10_SSC_PCM_3500PPM,
+-						 PHYREG10);
++			rockchip_combphy_updatel(priv, RK3576_PHYREG10_SSC_PCM_MASK,
++						 RK3576_PHYREG10_SSC_PCM_3500PPM,
++						 RK3576_PHYREG10);
+ 		}
+ 		break;
+ 
+@@ -924,12 +937,13 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	if (priv->ext_refclk) {
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
+ 		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
+-			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE_RK3576);
+-			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-						 val, PHYREG33);
++			val = FIELD_PREP(RK3568_PHYREG33_PLL_KVCO_MASK,
++					 RK3576_PHYREG33_PLL_KVCO_VALUE);
++			rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++						 val, RK3568_PHYREG33);
+ 
+ 			/* Set up rx_trim: PLL LPF C1 85pf R1 2.5kohm */
+-			writel(0x0c, priv->mmio + PHYREG27);
++			writel(0x0c, priv->mmio + RK3588_PHYREG27);
+ 
+ 			/*
+ 			 * Set up SU adjust signal:
+@@ -939,25 +953,25 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 			 * su_trim[23:16], CKRCV adjust
+ 			 * su_trim[31:24], CKDRV adjust
+ 			 */
+-			writel(0x90, priv->mmio + PHYREG11);
+-			writel(0x43, priv->mmio + PHYREG12);
+-			writel(0x88, priv->mmio + PHYREG13);
+-			writel(0x56, priv->mmio + PHYREG14);
++			writel(0x90, priv->mmio + RK3568_PHYREG11);
++			writel(0x43, priv->mmio + RK3568_PHYREG12);
++			writel(0x88, priv->mmio + RK3568_PHYREG13);
++			writel(0x56, priv->mmio + RK3568_PHYREG14);
+ 		}
+ 	}
+ 
+ 	if (priv->enable_ssc) {
+-		val = readl(priv->mmio + PHYREG8);
+-		val |= PHYREG8_SSC_EN;
+-		writel(val, priv->mmio + PHYREG8);
++		val = readl(priv->mmio + RK3568_PHYREG8);
++		val |= RK3568_PHYREG8_SSC_EN;
++		writel(val, priv->mmio + RK3568_PHYREG8);
+ 
+ 		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_24MHz) {
+ 			/* Set PLL loop divider */
+-			writel(0x00, priv->mmio + PHYREG17);
+-			writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
++			writel(0x00, priv->mmio + RK3576_PHYREG17);
++			writel(RK3568_PHYREG18_PLL_LOOP, priv->mmio + RK3568_PHYREG18);
+ 
+ 			/* Set up rx_pck invert and rx msb to disable */
+-			writel(0x00, priv->mmio + PHYREG27);
++			writel(0x00, priv->mmio + RK3588_PHYREG27);
+ 
+ 			/*
+ 			 * Set up SU adjust signal:
+@@ -966,16 +980,17 @@ static int rk3576_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 			 * su_trim[23:16], CKRCV adjust
+ 			 * su_trim[31:24], CKDRV adjust
+ 			 */
+-			writel(0x90, priv->mmio + PHYREG11);
+-			writel(0x02, priv->mmio + PHYREG12);
+-			writel(0x08, priv->mmio + PHYREG13);
+-			writel(0x57, priv->mmio + PHYREG14);
+-			writel(0x40, priv->mmio + PHYREG15);
++			writel(0x90, priv->mmio + RK3568_PHYREG11);
++			writel(0x02, priv->mmio + RK3568_PHYREG12);
++			writel(0x08, priv->mmio + RK3568_PHYREG13);
++			writel(0x57, priv->mmio + RK3568_PHYREG14);
++			writel(0x40, priv->mmio + RK3568_PHYREG15);
+ 
+-			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
++			writel(RK3568_PHYREG16_SSC_CNT_VALUE, priv->mmio + RK3568_PHYREG16);
+ 
+-			val = FIELD_PREP(PHYREG33_PLL_KVCO_MASK, PHYREG33_PLL_KVCO_VALUE_RK3576);
+-			writel(val, priv->mmio + PHYREG33);
++			val = FIELD_PREP(RK3568_PHYREG33_PLL_KVCO_MASK,
++					 RK3576_PHYREG33_PLL_KVCO_VALUE);
++			writel(val, priv->mmio + RK3568_PHYREG33);
+ 		}
+ 	}
+ 
+@@ -1045,30 +1060,28 @@ static int rk3588_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		break;
+ 	case PHY_TYPE_USB3:
+ 		/* Set SSC downward spread spectrum */
+-		rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK,
+-					 PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT,
+-					 PHYREG32);
++		val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT;
++		rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val, RK3568_PHYREG32);
+ 
+ 		/* Enable adaptive CTLE for USB3.0 Rx. */
+-		val = readl(priv->mmio + PHYREG15);
+-		val |= PHYREG15_CTLE_EN;
+-		writel(val, priv->mmio + PHYREG15);
++		val = readl(priv->mmio + RK3568_PHYREG15);
++		val |= RK3568_PHYREG15_CTLE_EN;
++		writel(val, priv->mmio + RK3568_PHYREG15);
+ 
+ 		/* Set PLL KVCO fine tuning signals. */
+-		rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-					 PHYREG33_PLL_KVCO_VALUE << PHYREG33_PLL_KVCO_SHIFT,
+-					 PHYREG33);
++		val = RK3568_PHYREG33_PLL_KVCO_VALUE << RK3568_PHYREG33_PLL_KVCO_SHIFT,
++		rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK, val, RK3568_PHYREG33);
+ 
+ 		/* Enable controlling random jitter. */
+-		writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
++		writel(RK3568_PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + RK3568_PHYREG12);
+ 
+ 		/* Set PLL input clock divider 1/2. */
+-		rockchip_combphy_updatel(priv, PHYREG6_PLL_DIV_MASK,
+-					 PHYREG6_PLL_DIV_2 << PHYREG6_PLL_DIV_SHIFT,
+-					 PHYREG6);
++		rockchip_combphy_updatel(priv, RK3568_PHYREG6_PLL_DIV_MASK,
++					 RK3568_PHYREG6_PLL_DIV_2 << RK3568_PHYREG6_PLL_DIV_SHIFT,
++					 RK3568_PHYREG6);
+ 
+-		writel(PHYREG18_PLL_LOOP, priv->mmio + PHYREG18);
+-		writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
++		writel(RK3568_PHYREG18_PLL_LOOP, priv->mmio + RK3568_PHYREG18);
++		writel(RK3568_PHYREG11_SU_TRIM_0_7, priv->mmio + RK3568_PHYREG11);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txelec_sel, false);
+@@ -1076,16 +1089,16 @@ static int rk3588_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		break;
+ 	case PHY_TYPE_SATA:
+ 		/* Enable adaptive CTLE for SATA Rx. */
+-		val = readl(priv->mmio + PHYREG15);
+-		val |= PHYREG15_CTLE_EN;
+-		writel(val, priv->mmio + PHYREG15);
++		val = readl(priv->mmio + RK3568_PHYREG15);
++		val |= RK3568_PHYREG15_CTLE_EN;
++		writel(val, priv->mmio + RK3568_PHYREG15);
+ 		/*
+ 		 * Set tx_rterm=50ohm and rx_rterm=44ohm for SATA.
+ 		 * 0: 60ohm, 8: 50ohm 15: 44ohm (by step abort 1ohm)
+ 		 */
+-		val = PHYREG7_TX_RTERM_50OHM << PHYREG7_TX_RTERM_SHIFT;
+-		val |= PHYREG7_RX_RTERM_44OHM << PHYREG7_RX_RTERM_SHIFT;
+-		writel(val, priv->mmio + PHYREG7);
++		val = RK3568_PHYREG7_TX_RTERM_50OHM << RK3568_PHYREG7_TX_RTERM_SHIFT;
++		val |= RK3568_PHYREG7_RX_RTERM_44OHM << RK3568_PHYREG7_RX_RTERM_SHIFT;
++		writel(val, priv->mmio + RK3568_PHYREG7);
+ 
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_sata, true);
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_sata, true);
+@@ -1107,11 +1120,11 @@ static int rk3588_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	case REF_CLOCK_24MHz:
+ 		if (priv->type == PHY_TYPE_USB3 || priv->type == PHY_TYPE_SATA) {
+ 			/* Set ssc_cnt[9:0]=0101111101 & 31.5KHz. */
+-			val = PHYREG15_SSC_CNT_VALUE << PHYREG15_SSC_CNT_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG15_SSC_CNT_MASK,
+-						 val, PHYREG15);
++			val = RK3568_PHYREG15_SSC_CNT_VALUE << RK3568_PHYREG15_SSC_CNT_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG15_SSC_CNT_MASK,
++						 val, RK3568_PHYREG15);
+ 
+-			writel(PHYREG16_SSC_CNT_VALUE, priv->mmio + PHYREG16);
++			writel(RK3568_PHYREG16_SSC_CNT_VALUE, priv->mmio + RK3568_PHYREG16);
+ 		}
+ 		break;
+ 
+@@ -1122,23 +1135,25 @@ static int rk3588_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
+ 		if (priv->type == PHY_TYPE_PCIE) {
+ 			/* PLL KVCO fine tuning. */
+-			val = 4 << PHYREG33_PLL_KVCO_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG33_PLL_KVCO_MASK,
+-						 val, PHYREG33);
++			val = 4 << RK3568_PHYREG33_PLL_KVCO_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG33_PLL_KVCO_MASK,
++						 val, RK3568_PHYREG33);
+ 
+ 			/* Enable controlling random jitter. */
+-			writel(PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + PHYREG12);
++			writel(RK3568_PHYREG12_PLL_LPF_ADJ_VALUE, priv->mmio + RK3568_PHYREG12);
+ 
+ 			/* Set up rx_trim: PLL LPF C1 85pf R1 1.25kohm */
+-			writel(PHYREG27_RX_TRIM_RK3588, priv->mmio + PHYREG27);
++			writel(RK3588_PHYREG27_RX_TRIM, priv->mmio + RK3588_PHYREG27);
+ 
+ 			/* Set up su_trim:  */
+-			writel(PHYREG11_SU_TRIM_0_7, priv->mmio + PHYREG11);
++			writel(RK3568_PHYREG11_SU_TRIM_0_7, priv->mmio + RK3568_PHYREG11);
+ 		} else if (priv->type == PHY_TYPE_SATA) {
+ 			/* downward spread spectrum +500ppm */
+-			val = PHYREG32_SSC_DOWNWARD << PHYREG32_SSC_DIR_SHIFT;
+-			val |= PHYREG32_SSC_OFFSET_500PPM << PHYREG32_SSC_OFFSET_SHIFT;
+-			rockchip_combphy_updatel(priv, PHYREG32_SSC_MASK, val, PHYREG32);
++			val = RK3568_PHYREG32_SSC_DOWNWARD << RK3568_PHYREG32_SSC_DIR_SHIFT;
++			val |= RK3568_PHYREG32_SSC_OFFSET_500PPM <<
++			       RK3568_PHYREG32_SSC_OFFSET_SHIFT;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG32_SSC_MASK, val,
++						 RK3568_PHYREG32);
+ 		}
+ 		break;
+ 	default:
+@@ -1149,20 +1164,21 @@ static int rk3588_combphy_cfg(struct rockchip_combphy_priv *priv)
+ 	if (priv->ext_refclk) {
+ 		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
+ 		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
+-			val = PHYREG13_RESISTER_HIGH_Z << PHYREG13_RESISTER_SHIFT;
+-			val |= PHYREG13_CKRCV_AMP0;
+-			rockchip_combphy_updatel(priv, PHYREG13_RESISTER_MASK, val, PHYREG13);
+-
+-			val = readl(priv->mmio + PHYREG14);
+-			val |= PHYREG14_CKRCV_AMP1;
+-			writel(val, priv->mmio + PHYREG14);
++			val = RK3568_PHYREG13_RESISTER_HIGH_Z << RK3568_PHYREG13_RESISTER_SHIFT;
++			val |= RK3568_PHYREG13_CKRCV_AMP0;
++			rockchip_combphy_updatel(priv, RK3568_PHYREG13_RESISTER_MASK, val,
++						 RK3568_PHYREG13);
++
++			val = readl(priv->mmio + RK3568_PHYREG14);
++			val |= RK3568_PHYREG14_CKRCV_AMP1;
++			writel(val, priv->mmio + RK3568_PHYREG14);
+ 		}
+ 	}
+ 
+ 	if (priv->enable_ssc) {
+-		val = readl(priv->mmio + PHYREG8);
+-		val |= PHYREG8_SSC_EN;
+-		writel(val, priv->mmio + PHYREG8);
++		val = readl(priv->mmio + RK3568_PHYREG8);
++		val |= RK3568_PHYREG8_SSC_EN;
++		writel(val, priv->mmio + RK3568_PHYREG8);
+ 	}
+ 
+ 	return 0;
 -- 
 2.50.1
 
