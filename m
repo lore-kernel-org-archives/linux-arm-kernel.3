@@ -4,144 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C489CC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BD6C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:36:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SAVDu2CUO0GFbPnrkds994cc7fuJHUyL9s9URha4+gw=; b=qAm29hpQD3LAdxislFFKxOeAZx
-	a4OL3R5q1b5OSHljZSkGDzw0apsZ6Qfdqyxuv6ThHlrVlX8qenHBHA1KhwxQRg6+r69g/eMrtJUCM
-	BRMzthfdSARLnxsa1igCwN6gAgRIn7Me7Y6EAvlZb/46bqqN6BTjn+Ki0pgpOeXLTyENNxvnwUVpX
-	j2a4Bf32vDpyv2LvFdQG0rX6Su6NdPY3y6RRT1i25H7iAu1+VWqJDtSdqsNp3/PzjqnmN/wbNKY8O
-	kuEKWzhDsfL/8HPFoFlZhhL5LueFf5M9Kzp/YeC6XZ/4VyfbWCR3cDPZFrJehlfp9AWILANNRMEGz
-	Lu1X4fww==;
+	bh=rNLH1XGynTNpYBFmaK8XIye+5/rKMPGnnVK77mDGOUE=; b=i9emTDccJi0Cnlr3RoDwsSOiGX
+	CJNI7Y4DD/993f7K+wJQAq03XX93BjsOhDpoaiB7uGxEatDLAB6DoH5SsDakZjIM09pEnG0mL+8KW
+	2FWsYDdALvGnOG1ZYvXUH58Qi6UCM5cFoYkGK6edQD/Mk9vTwzZqhJUg467PLS34S2t3jsMGIqPSU
+	PzxCluDoapIsY9O+2IFkglEfTfLktyMxvUHqBRybkNrsLTlz4LouzAx3R5w8miBI/6mCazecwn91a
+	xx6DIYcGKDvz+nbaqTXB87Zrv0ZoHFc7peyYu2tvpRPZA6ZCiyeXnVjNBqJImCcTKQetWA+ysDqHm
+	TkzK6woQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQnb-0000000EzRX-0XGE;
-	Mon, 28 Jul 2025 16:34:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ugQq1-0000000EznL-40Ub;
+	Mon, 28 Jul 2025 16:36:33 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPui-0000000EqOW-24L2
+	id 1ugPw5-0000000Eqh6-3StM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 15:37:21 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SAlJCq004983
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 15:37:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=SAVDu2CUO0GFbPnrkds994cc
-	7fuJHUyL9s9URha4+gw=; b=Pb4XQpKeNIn4JwZo9QYgwyN8jt5WS7p27L9R+3Lv
-	sBtDiOW2Yj3IWvwog0YlaLitsHCvtEERjgFKUEmhcM2VYrShSsoXJxVs9Lyp/qNn
-	IQxNwn/xAdqBPLO8GpxMqliRmo/jkULpDDIACh9KEQSiD7oazMMV6NifxQTvnojz
-	/PKWqbcLiZlWdNJKuyZQQv48DZQ/PpVLP4c9cE3NGZcSSU/F1JL59EoW0p26G0ap
-	YCblv3wCsjP5zLhMFG1F0wPZfL/xiGBIXNxICmXZ0zayCQwUFW25an/BgEpyae56
-	CTXQILbgTgVRaiCSFpyVsGFpnU+2t26xuAejBlnG8B20CA==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484nytw8eh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 15:37:19 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-7073b4fb53eso24844926d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 08:37:19 -0700 (PDT)
+	Mon, 28 Jul 2025 15:38:47 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-5561ab55c4dso4779361e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 08:38:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753717123; x=1754321923; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rNLH1XGynTNpYBFmaK8XIye+5/rKMPGnnVK77mDGOUE=;
+        b=C51Y/hwQhWkuMFIiNg+joR36VOiPQQsnXDVmYfemyWRYHj4Z+B1pqL4iEkbvpwjWLN
+         +9SRSQCiZMk6Mv3YTcshOB/jCLIWPZU91SMl3+fLnWevtHan5fkeu3T0w3Yl4mVCQ4KR
+         dUnX1cL2todjN7PuUJa4/MP60RMI1LFu8gfZEcwnjfARm9M1LQPKalC3MFZoXBtwK7Gu
+         8RGjJsEQqcvOa1revzpBkDQQ94fLxSt6VphEbpgmsljEWUWTmMO8feD5cDOxouXq1qMz
+         fpX+8UFHt4IwICpVXJCFOtTfv4WPZ4ktPIXBO/kBfKK2HCRysBSiuO4RWmBAerA6f16B
+         y8Iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753717038; x=1754321838;
+        d=1e100.net; s=20230601; t=1753717123; x=1754321923;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SAVDu2CUO0GFbPnrkds994cc7fuJHUyL9s9URha4+gw=;
-        b=MmT0aWhjUh3kCCR1W4qj5egH15y8KiA1sJ0AQYlFnfJz/dzr3lvdQwVT1zXpOmHozc
-         D5utEBHPsbYNdbcxWXs8xV/x4MlN2NBL1jwQVGrKJp5m5NAGQWvXuwZIUaIDPtC+gLdY
-         +Ppyh8Rm7YiX0qCx48GxRqrD819oyNlVvNgwCKRuZw7MLORgpH3/jUGddQ7ce1HRbq9x
-         anrHQ0IjU12RpQ0w0Av7fB+eyE0cJlBSDP2NJwqBZgP1z6lg+NE6eOiD1OyFcIr/DYbJ
-         014h82qfLKXozPRJtfQLf6BGUUwc+zFcUfI7bHSvse4oJymEKTw8js62knfb6toTBjKR
-         U+Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCVZiCVbNTEJvgpFptqgSpLG4mTmWjjhIgO2U6B/nEczV/BNh//bSPRClZH53e1w5Bp5cPrpVX3ncrqCjq4HKeu4@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu7pkOStO7zZpiTDlA9NW873sUQ8hiTfuybqddvu43UMMmQLBf
-	jFvzMBLAHYcwjvkGhHe0kUuXf8681aZFyZtPrGSCCmY+M+fUha/X0HVj/1tVhJ43s7oFU0vMrDd
-	XSDVz6/kAtywEvWsfLwKlGls4+50pDWicWMpoYAOTJeFWAhX8ce6amcwEtXiLquRy0mHh2j/GkP
-	1Eig==
-X-Gm-Gg: ASbGnctPI1GhhIXj5VuHKbND67d/TvDteT+lTXxscu7SF33x7i7+roVj/Ir2CFZ8b0I
-	euPFvlKg2CShwVFU+0kRQUOim07pBUl92B2syn/aCvQS0DZLRxYO47WBhBpqeIIzKeG/czCLsZi
-	UZiIcQ6QniWzI4NSsEoJ40RrmNVcCh6e5g7u+YyJmQL5apfng/nHyjjQsuYqQIqH2+opbHl0Q3Y
-	JwJtWoPeb18Tra5KZD7sIoTI0bRMg33d8wtvbXRFJ8DM5N9Ok/5hk04v/jDYoj5Ar8OoSwhuR3v
-	XRc8ltNCtST57NYVDdPmFgZtKbM4MvG08IGhUqOkEsMGi4gXiHaC3+7aDPe3fvrCLy25MlIQObq
-	IJfCvQ0ek+X+Bqo2eUCZHZyef5DSRaJvedOiKlrQkspixhGXA87Lm
-X-Received: by 2002:a05:6214:768:b0:707:4aa0:30b with SMTP id 6a1803df08f44-7074aa00690mr43615696d6.42.1753717038016;
-        Mon, 28 Jul 2025 08:37:18 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF+BWhOHv+VJeM/lHL4P6XKb8rnJZC+uPnNDX7+Ov1b4lYzmfrK08Z/Q+Kn87HxQgfASQl2vQ==
-X-Received: by 2002:a05:6214:768:b0:707:4aa0:30b with SMTP id 6a1803df08f44-7074aa00690mr43615016d6.42.1753717037278;
-        Mon, 28 Jul 2025 08:37:17 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b73f140fasm21169e87.113.2025.07.28.08.37.14
+        bh=rNLH1XGynTNpYBFmaK8XIye+5/rKMPGnnVK77mDGOUE=;
+        b=wD7az0Dib261M+DktG1TjrhSEqUqTnGHkff6akFUVmBHx2p9V8krtlbmcH4yQIQ90c
+         IOKyjX9wzoVXvoJVN70/64i0Cmv2ntCAljEFLJe+DUnjCvR5ELteUMG8gSDM+KrgR52S
+         U7LHV4ribCblZaxhq+r6MaXNMWtZch2rooVKMQ5B/SpF2Y+F/bwI9essXxMLRazA7F+a
+         k3RxLxN5Cq18F5aYzNUIe+bR4adnKts7ziwqxLPt7Z7B6c9nvzywRRs5lAbehWW+nrKA
+         Uf25Qw/Cd65swguZEjSYATdw9aTl7Z720Q47XQtUqFILmF0fh/GezErUEYLQReeOaYmn
+         HN0g==
+X-Forwarded-Encrypted: i=1; AJvYcCX2NjH/5fz3Psi4QREwg5LhgPMmeAvIzmEsF/xFORygu2NM/eLoEge9Etcn8GwxpVShZUqcgjKYSVpmDzAfeQSm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXwKgovBF8gSFe918HSsdjyeCnzlQfSpSCIzCGE0aVWZXp+mOK
+	+rPRZ29jwmSGqkk64rMSlje/hnUokKHm83NWaN4JicFG5LiEh6U3/A7+Wn+c7ehdpQ==
+X-Gm-Gg: ASbGnctTw0HjZe2TJYlg6NANX4UhIk4hOhTAtBeZqCPSFPeyAfOk29XgbgkazNsAjDn
+	Vwb7qUn1QjxStz24PKHgauVBbbkU2bK4dBgiJyo2K+SclCobIeH3TAJIgIWBjcG4DOJqNALIZe5
+	jXop8nEgXuyT5RSiETGNs8BipDGBztgMlOgSCR2CKs3Zx4zCwcbcaol3c1N5ehvEGx7OUKmmLRz
+	It7bnsUY5CQmfu4hevTpb5Qqc88mJs06xqzPSzENrnHQMPB0nSx2QG1+L1DrogNYOGAv0/k70VS
+	NL9FxsnnMGo1ZM6xrNNUz5TqebArInEL4SyfFPfIiwwN0to4rJV09opZq3yL6/6Mlfb83H9v3eb
+	agaJisaJUU78sQf6Sfvho33BTGLHR9ILUxQ4b6y6jU8O+uSQ0nYCFYMmmElQJdQ==
+X-Google-Smtp-Source: AGHT+IH6F0Hy391rO/cn41nSe03RC63gIk43a9xDAqTl5D1CjpIWHOxWG5o4zt9CXrYkBVmu/NZp4Q==
+X-Received: by 2002:a05:6512:2242:b0:553:d9ba:a171 with SMTP id 2adb3069b0e04-55b5f4abb6dmr3149291e87.43.1753717122920;
+        Mon, 28 Jul 2025 08:38:42 -0700 (PDT)
+Received: from google.com (103.245.228.35.bc.googleusercontent.com. [35.228.245.103])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b63363a80sm1316646e87.85.2025.07.28.08.38.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 08:37:15 -0700 (PDT)
-Date: Mon, 28 Jul 2025 18:37:13 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Message-ID: <mfxfi3blmebuua4rwdppbaiyiyqh7apkh4xxlwqm6t2ishjqfa@i26nvsduy5wm>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
- <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
- <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
- <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
- <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
- <20250728-exotic-armadillo-of-upgrade-fbebc1@sudeepholla>
+        Mon, 28 Jul 2025 08:38:42 -0700 (PDT)
+Date: Mon, 28 Jul 2025 15:38:39 +0000
+From: Quentin Perret <qperret@google.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, "yuzenghui@huawei.com >> Zenghui Yu" <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, vdonnefort@google.com, 
+	Fuad Tabba <tabba@google.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	Ryan.Roberts@arm.com
+Subject: Re: [bug report] KVM: arm64: Add a range to
+ __pkvm_host_unshare_guest()
+Message-ID: <qos5jspmx6p7js3eflgrv62ocn5guhoaqoz7pnlsn5ylkjlusk@klq26b5l7wdz>
+References: <17b526ff-b824-4c24-8ac0-6821e5cc8900@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250728-exotic-armadillo-of-upgrade-fbebc1@sudeepholla>
-X-Proofpoint-GUID: iBus4qQTw_euKiLmx9UJ5hFhNlxzGG1Y
-X-Proofpoint-ORIG-GUID: iBus4qQTw_euKiLmx9UJ5hFhNlxzGG1Y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI4MDExMiBTYWx0ZWRfXzO7/pDnF1jvt
- IW312+T1gzW3NgeqlzZ/lANSu8m6Iv1khztT8EeuHfAanj9HYt8zn0ush6l3AU8gWAmgT/7Rs4K
- uk0EGDg94mFj6Bgzts+QBf9u6BOjVBKud1Qm6xkh/qOaNgQ/W7B5HZOl1svE+XlTTpxFm6hS86V
- mAbKscvRHfsSJ5M8zqHNflibmIitbCJpDebB4XHp4HQnl6U/jxMSxAoJNtVPoH7HAglo6Ll/Ove
- W+jSbeLU+cN4MNiSq/o6PJTVUbFR8QDxsxK2FW1/aFrcdNVsoeARkL/rqmCSK/sWeLrjv5Bo46z
- WrHZy1twhXxqof2B5a7JJ3VETSWOrSMo0z+SVWYdFNH3P5KFE4qKF0j5gB0ERvu3awK3fmSiJZk
- NADLmWmxxePnZdDxOdYaVtLTN6OePtWaYBNPwzmAMBk/QWCWLXXlka5Cl+KDXIv+R1HhAKX7
-X-Authority-Analysis: v=2.4 cv=CLoqXQrD c=1 sm=1 tr=0 ts=6887992f cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=-6XmDZydnhzWYMP6MwkA:9 a=CjuIK1q_8ugA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 adultscore=0 suspectscore=0 mlxlogscore=730 spamscore=0
- priorityscore=1501 phishscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- clxscore=1015 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507280112
+In-Reply-To: <17b526ff-b824-4c24-8ac0-6821e5cc8900@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_083720_542146_23D6E6AA 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250728_083845_873348_D3074F4B 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,28 +101,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 02:23:17PM +0100, Sudeep Holla wrote:
-> On Mon, Jul 28, 2025 at 02:23:14PM +0200, Krzysztof Kozlowski wrote:
-> > On 28/07/2025 14:03, Dmitry Baryshkov wrote:
-> > >>
-> > >>> and the reboot-mode is defined in the
-> > >>> previous patch. So, I'd assume, the path is defined.
-> > >>
-> > >> As I said, path is not. only psci/reboot-mode is.
-> > > 
-> > > Do we have an _actual_ use case where PSCI node is not at at root node? 
-> > 
-> > Yes, many cases, because it belongs as well to firmware node.
-> > 
+Hi Ben,
+
+On Tuesday 22 Jul 2025 at 13:59:06 (+0100), Ben Horgan wrote:
+> Hi,
 > 
-> +1, I was about to make similar comment. /psci predates the formal push
-> to put all firmware related nodes under /firmware, so /firmware/psci is
-> equally possible path and should be recommended one so that all such
-> firmware related nodes are contained under /firmware.
+> On trying to boot a pkvm guest when using transparent huge pages I see the
+> crash below. I'm using v6.6-rc7.
+>
+> kvm [141]: nVHE hyp BUG at: arch/arm64/kvm/hyp/nvhe/mem_protect.c:1088!
+> 
+> It looks pkvm_pgtable_stage_relax_perms() can be called with a block mapping
+> but in __pkvm_host_relax_perms_guest() it assumes page size for the
+> assert_host_shared_guest() check. With the following patch, I no longer see
+> the crash:
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 8957734d6183..52c802da4172 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -1010,9 +1010,12 @@ static int __check_host_shared_guest(struct
+> pkvm_hyp_vm *vm, u64 *__phys, u64 ip
+>                 return ret;
+>         if (!kvm_pte_valid(pte))
+>                 return -ENOENT;
+> -       if (kvm_granule_size(level) != size)
+> +       if (size && kvm_granule_size(level) != size)
+>                 return -E2BIG;
+> 
+> +       if (!size)
+> +               size = kvm_granule_size(level);
+> +
+>         state = guest_get_page_state(pte, ipa);
+>         if (state != PKVM_PAGE_SHARED_BORROWED)
+>                 return -EPERM;
+> @@ -1100,7 +1103,7 @@ int __pkvm_host_relax_perms_guest(u64 gfn, struct
+> pkvm_hyp_vcpu *vcpu, enum kvm_
+>         if (prot & ~KVM_PGTABLE_PROT_RWX)
+>                 return -EINVAL;
+> 
+> -       assert_host_shared_guest(vm, ipa, PAGE_SIZE);
+> +       assert_host_shared_guest(vm, ipa, 0);
+>         guest_lock_component(vm);
+>         ret = kvm_pgtable_stage2_relax_perms(&vm->pgt, ipa, prot, 0);
+>         guest_unlock_component(vm);
 
-Ack, thanks for the explanation.
+Aha, indeed, that looks broken with CONFIG_NVHE_EL2_DEBUG=y...
 
--- 
-With best wishes
-Dmitry
+Your patch has the correct approach, but we have the same issue in
+__pkvm_host_mkyoung_guest() which needs s/PAGE_SIZE/0 too I think.
+
+Thanks for the report!
+Quentin
 
