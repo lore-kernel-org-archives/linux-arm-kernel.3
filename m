@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1EFC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4297CC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oFosf+Y2aWw9hUSMPebh2RDsEkKVFT8bx1JKOIHJNs=; b=br1hzFqaPLMA2TAp6fcABD6yy/
-	kRIXYgluSN7RVTMDBCYmMDELExNTqmfA/YCyd/ns4J89NC7TEEo0FFxx2vm11tj42qTaCl/ALNJ9l
-	HDfFRMGlKb//TVk2Mdignx3oxU/UQ149iC9HHb+vDS0xFJBaz0CGOE73tONKtcdBsNE1XwoYLrd/f
-	PVE5nULfUCPaKDbOhNYq65/BQ+vYoSU6yOIeZh06XrcuNDqrDd5HqcAQRi3yzJsKWNI0o8swkZiL/
-	Zilmz+/ZZX1HRsTWBelHDXxxF70FR3zTlqHfez3xAdslh0cJaMD6PuRUP0hyPZ8VaZwl8X4ZLExcw
-	d8hpNvBg==;
+	bh=iltrvkkBDPNUkwWqDFThCKXQjo7LhI+eeBGbd3adnYk=; b=1L+0ZQTe9z6qpR86BVTK5N7FXZ
+	gJA2d+I2okKt6qY3CbCXKI3rlp4mHnRE+M/kGHuMa4pWBTEvNjrVgmvkinqOPcAo2BcG7wWYZmKX4
+	H/mwFhZ2sowQbycjDZSCGn7Wn4dQgxATdZztnxWwAyS2UtmbQoU5P93vE71jkmdcgiq4Mye8BZRk1
+	zB2ihfeMx2P0MiyIxd2u5EmB1da4rEjIcMqkxkOCZzC9PHpt6vtnH29mbiQEMpgdHKP6AOXtA8bXl
+	pa3jvLDO22yzHDhPxFkOGu6EHQgtBXg0HyhNs0Mz2Ngp3gpEtbUDP0Pr8bSGVl7hwiJIqQhPSK9SH
+	jYJss6Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQij-0000000Eywj-25Mm;
-	Mon, 28 Jul 2025 16:29:01 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ugQlA-0000000EzCa-1fvH;
+	Mon, 28 Jul 2025 16:31:32 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPst-0000000EpwU-1PX4
+	id 1ugPt7-0000000Epzq-3YLW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 15:35:28 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SFSBDQ025333;
+	Mon, 28 Jul 2025 15:35:43 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SEw402011575;
 	Mon, 28 Jul 2025 17:35:17 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	+oFosf+Y2aWw9hUSMPebh2RDsEkKVFT8bx1JKOIHJNs=; b=XvqiPzgaI7nYwWks
-	o9sIsJZDwVBJ8mZoWfH0fG9ajlDiMRBIL03AbuQUdVE5Atq3LnkqlB2t79LUl+S4
-	g4QXQvzVBKl3wa5ltaCTm4je/ev47rms4g+fFSRgLlQ4cYoChZq8ZtPse5+yfv6k
-	TaPqTmUweztgvxWq1FtfnOlcYcD9LjGEIVKl1hxBc3sagVNU0U3S4xcydEEV0gzi
-	pwMy6RJpD6FLLEQzStdaRqJoceN3GcoqZFFl4K1PI6dxwdzEE23iLWlt1oowsBJG
-	xOUl+O64tnlQqUb5SI+tm848wyvRWYjzErYo2NVwfvSgExijQFs7GX1dF4RcR8mH
-	XmX96A==
+	iltrvkkBDPNUkwWqDFThCKXQjo7LhI+eeBGbd3adnYk=; b=VbMn4Ot9NVluY1dW
+	xjK47cfKv+HqVRSupAxfUkS+Y8AxrPMzP69/5bWMOQm/UaWCK6oc5XUP5lDeEB0Z
+	N3v4XaJoOYgHgUXzvIBckbqQlAn3DD4igMRSmQKLRjmuZPZSHaLy3eKfoU4onK+7
+	czLXyAvpIKLsFkkTmMtvz/h6P2wQx64yO8zvSBOkxua6DnBVUkKICoCIBGNNCFqf
+	31q/LyEucApfB4hBVL9TjWevQMQghOeXkw5+PLQopnpZ2WApAIvlT+re18zXCEmv
+	YyqZrp8DwHAyYP3hoZFDjlgaycFYv0OXPOaybGB9ioiPok0KrAhyGP0fhr8BX6Up
+	yRJJkA==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484m590qjy-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484pc28wbb-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 28 Jul 2025 17:35:17 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 91ED240052;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1CD124004D;
 	Mon, 28 Jul 2025 17:33:49 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 15A3778C90F;
-	Mon, 28 Jul 2025 17:30:06 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 13B04787C39;
+	Mon, 28 Jul 2025 17:30:05 +0200 (CEST)
 Received: from localhost (10.252.23.100) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
- 2025 17:30:05 +0200
+ 2025 17:30:04 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Mon, 28 Jul 2025 17:29:47 +0200
-Subject: [PATCH v5 16/20] ARM: dts: stm32: add ddrperfm on stm32mp131
+Date: Mon, 28 Jul 2025 17:29:46 +0200
+Subject: [PATCH v5 15/20] MAINTAINERS: add myself as STM32 DDR PMU
+ maintainer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250728-ddrperfm-upstream-v5-16-03f1be8ad396@foss.st.com>
+Message-ID: <20250728-ddrperfm-upstream-v5-15-03f1be8ad396@foss.st.com>
 References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
 In-Reply-To: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -98,8 +99,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_083527_636240_3BC854CE 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20250728_083542_169892_FA392760 
+X-CRM114-Status: UNSURE (   8.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,31 +116,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DDRPERFM is the DDR Performance Monitor embedded in STM32MP131 SoC.
+Add Clément Le Goffic as STM32 DDR PMU maintainer.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp131.dtsi | 7 +++++++
+ MAINTAINERS | 7 +++++++
  1 file changed, 7 insertions(+)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index 492bcf586361..e097723789aa 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -998,6 +998,13 @@ iwdg2: watchdog@5a002000 {
- 			status = "disabled";
- 		};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 10850512c118..247f07ae4176 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23487,6 +23487,13 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/power/supply/st,stc3117.yaml
+ F:	drivers/power/supply/stc3117_fuel_gauge.c
  
-+		ddrperfm: perf@5a007000 {
-+			compatible = "st,stm32mp131-ddr-pmu";
-+			reg = <0x5a007000 0x400>;
-+			clocks = <&rcc DDRPERFM>;
-+			resets = <&rcc DDRPERFM_R>;
-+		};
++ST STM32 DDR PMU
++M:	Clément Le Goffic <legoffic.clement@gmail.com>
++S:	Maintained
++F:	Documentation/admin-guide/perf/stm32-ddr-pmu.rst
++F:	Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
++F:	drivers/perf/stm32_ddr-pmu.c
 +
- 		rtc: rtc@5c004000 {
- 			compatible = "st,stm32mp1-rtc";
- 			reg = <0x5c004000 0x400>;
+ ST STM32 FIREWALL
+ M:	Gatien Chevallier <gatien.chevallier@foss.st.com>
+ S:	Maintained
 
 -- 
 2.43.0
