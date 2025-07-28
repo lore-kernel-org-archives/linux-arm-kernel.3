@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0446C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 17:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32358C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 18:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FNke7P0p2MkmqnbIedx8TUmpEi+fJFfmn41mD4GRN0c=; b=AfPOJ3hNSx10zt9fJZdtJJhfbV
-	bfUYOgyDz50S72r7tiygJWpEn19cSf8mlys/iueAL5JYxIsx8h7QfQHwRhNKaYY+Mgjd4rDe7y2tv
-	rKa5tGKL3+LpkfkWuXtHbZG2mKd2HgHACgvOOrG+HjfvqFEJSgcXWVyXCfzPNtFXhcw9C5Z4sQROz
-	D1aujamY3WsqF+tU95iIxYcZTMIMb7/8sdqjcMuVWPrBDp9xQe7lvK+J1FMgk7RQefgNA9OrxsS0v
-	gUpQQNi4LccjL727DarIvggzvDsGf5jnDm/x3xN7j1D336f6F0Sh1TQ4DRQWX4LleKlpfJPFNHfUX
-	u3dDFBbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CoB5tasYH7GrZPehMHvuHgB7MplGLckmtYJLeYrDXq4=; b=Ptva7xeBxDK0I0QakiNLXtqHWj
+	Rk9KpwvgB7ifNOfLLlu1xVVao3RhHHxcbr4ZUj6tMsTC1USOPMuvFZvp5G5AvmGYI49SNY4OUsKY0
+	JwbJ81T28+jtVkROHhGDcGXWD1SoDdxJNzvDDjvaloyZhUzUz4pgThGGVxKViI1RO0SED7Al5Dlnk
+	NAVXZyJD7/wNM3VSzQd8oy8rpQlInC/il7mctTh5tv8QPdGpcPz6ItyECu+Xchl6b6GmnQ+V1bync
+	87qlYNvDjEzp3JKNApg1mOiyrN8icop4GXGOT9zn7qVWU1NRfDku3VXtONrAoeeO9d/gbTBMNuBGq
+	c9dzbbFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugS6X-0000000F9mi-1nxJ;
-	Mon, 28 Jul 2025 17:57:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ugS8y-0000000FAL1-0plo;
+	Mon, 28 Jul 2025 18:00:12 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRf7-0000000F6jS-2GJQ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Jul 2025 17:29:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=FNke7P0p2MkmqnbIedx8TUmpEi+fJFfmn41mD4GRN0c=; b=UG1YiZTSMt75ORDw7IvL051q+r
-	diP1xSOZXmKKkPVSv8XVg8+rnjJinl8wWGEZhh/F2v7rttFLlt+JDVu7wf0ZD/TCsExPHN+V+SQMM
-	OPPrBITpide3+w2l0m9klmslZ3H/42WiFxMAG2MtyNP2Mw1kyT8LoqjiMznvlTNOF/VkNkAUPFDrh
-	6pwwZOavwlIxL8OdY9ecUJK8mihoCx07R/ugVK0fWgpez1rT4wdO9i1yi1t/ztqaj29PVGG3S+bWg
-	ljQOTQ1bIyVuWYn2/fLeT/83OGP0aJLWiyyklYWHSnUXxMsDo4vLSYBx0g22xEUppMD3t4hFCJCq1
-	D+xRG4bA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRf4-0000000CVmG-3Gll
+	id 1ugRxR-0000000F8J5-2356
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:29:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=FNke7P0p2MkmqnbIedx8TUmpEi+fJFfmn41mD4GRN0c=; b=YuYfw3ryZeHrVLS46MwEIEeXRB
-	eGP0ZB10wUTlicKTx0DfFocl/rtx4e4M9HQwCozwkytb2fEU/Omk+u0bj2jZGnwlOl/ZOVac/VJLc
-	WwoIRheN+7Cw9GpQD+HJCcFEbqKlL+SD+UR18iY6U2i02wWRKoZJmCeAPVOvBbJjvbZ4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ugRev-0037SU-IO; Mon, 28 Jul 2025 19:29:09 +0200
-Date: Mon, 28 Jul 2025 19:29:09 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next 7/7] net: stmmac: explain the
- phylink_speed_down() call in stmmac_release()
-Message-ID: <b612eaee-17f2-4cab-bc37-a1cb9560ffe1@lunn.ch>
-References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
- <E1ugQ38-006KDX-RT@rmk-PC.armlinux.org.uk>
+	Mon, 28 Jul 2025 17:48:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1753724896;
+ bh=CoB5tasYH7GrZPehMHvuHgB7MplGLckmtYJLeYrDXq4=;
+ b=hkZLzsLqyazrdXtSVHlqKkgLlWIdgR6nPrJ7kBxwYa/shm7QqvReY5GwpSxmpK48jBZrj5rEK
+ WTQ5QVdBId2h9fVO7Gcn63pC75LKYe94cONB4FOdZ1Kh7SCaYWM1+HqLD0XtTHb2Xqt+6q6LUku
+ /Cv36s18Wszpl1oKgvm3zCBPfCnC72Atdw8jiPqAtvB0HNbkIT1jdT0WwfLPQMHtZeVoceUq5BK
+ XSISPv9/+0MFC9RHXGU3jocyDXazaJAtmttNWjvDvbLCkZBQyZ7y5a/NxSjX3Qjvmw2jNAGiv11
+ tGtK5wvj8HX69UIifr3xMAMp0V4SBx/Ds0Axywn+zXMA==
+X-Forward-Email-ID: 6887b7c8351ec66b15a2df24
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.1.8
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <5bdd0009-589f-49bc-914f-62e5dc4469e9@kwiboo.se>
+Date: Mon, 28 Jul 2025 19:47:44 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1ugQ38-006KDX-RT@rmk-PC.armlinux.org.uk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
+ Radxa E24C
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: alsi@bang-olufsen.dk, andrew@lunn.ch, conor+dt@kernel.org,
+ davem@davemloft.net, devicetree@vger.kernel.org, edumazet@google.com,
+ heiko@sntech.de, krzk+dt@kernel.org, kuba@kernel.org,
+ linus.walleij@linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ netdev@vger.kernel.org, olteanv@gmail.com, pabeni@redhat.com,
+ robh@kernel.org, ziyao@disroot.org
+References: <20250727180305.381483-4-jonas@kwiboo.se>
+ <20250728143020.1007374-1-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250728143020.1007374-1-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_182918_916562_3478A05A 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20250728_104817_573656_10E55B9C 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,33 +83,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 04:46:02PM +0100, Russell King (Oracle) wrote:
-> The call to phylink_speed_down() looks odd on the face of it. Add a
-> comment to explain why this call is there.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index f44f8b1b0efa..0da5c29b8cb0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4138,8 +4138,13 @@ static int stmmac_release(struct net_device *dev)
->  	struct stmmac_priv *priv = netdev_priv(dev);
->  	u32 chan;
->  
-> +	/* If the PHY or MAC has WoL enabled, then the PHY will not be
-> +	 * suspended when phylink_stop() is called below. Set the PHY
-> +	 * to its slowest speed to save power.
-> +	 */
->  	if (device_may_wakeup(priv->device))
->  		phylink_speed_down(priv->phylink, false);
-> +
+Hi Chukun,
 
-Is there a corresponding phylink_speed_up() somewhere else? Does that
-need a similar comment?
+On 7/28/2025 4:30 PM, Chukun Pan wrote:
+> Hi,
+> 
+>> Initial testing with iperf3 showed ~930-940 Mbits/sec in one direction
+>> and only around ~1-2 Mbits/sec in the other direction.
+> 
+>> Any mix of MAC (rx/tx delay) and switch (rx/tx internal delay) did not
+>> seem to resolve this speed issue, however dropping snps,tso seems to fix
+>> that issue.
+> 
+> Have you tried setting phy-mode to rgmii? (just for testing)
+> Usually this problem is caused by incorrect rx/tx delay.
 
-	Andrew
+The issue is with TSO and RX checksum offload, with those disabled on
+the conduit interface (gmac1/eth0) my issues disappeared.
+
+Use of rgmii-id "RX and TX delays are not provided by the PCB." as
+defined by the dt-bindings seem to most correctly describe the HW.
+
+Describing switches is new to me, so I could be wrong :-)
+
+> 
+>> +	ethernet-switch@1d {
+>> +		compatible = "realtek,rtl8365mb";
+>> +		reg = <0x1d>;
+>> +		pinctrl-names = "default";
+>> +		pinctrl-0 = <&rtl8367rb_eint>;
+> 
+> Shouldn't this pinctrl be written in interrupts?
+
+Not necessarily, in my mind the pinctrl is applied for the switch
+interface to the SoC, not the internal workings of the switch.
+
+> 
+>> +			ethernet-port@6 {
+>> +				reg = <6>;
+>> +				ethernet = <&gmac1>;
+>> +				label = "cpu";
+> 
+> No need for label = "cpu":
+> https://github.com/torvalds/linux/commit/567f38317054e66647fd59cfa4e261219a2a21db
+
+Thanks, will drop in v2.
+
+> 
+>> This series relaxes the realtek dsa drivers requirement of having a mdio
+>> child OF node to probe and instead have it register a user_mii_bus to
+>> make it function when a mdio child OF node is missing.
+> 
+> This is weird, the switch is connected to the gmac via mdio.
+> Can you try the following and see if it works? I tried it on
+> a rk3568 + rtl8367s board and it worked:
+
+With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
+
+   rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
+         from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
+
+With a mdio node the driver is happy and dtschema is sad, and without
+the mdio node it was the other way around.
+
+The plan is to drop this patch and instead modify the dt-binding to
+allow describing a mdio node when the switch node has a reg prop in v2.
+
+Regards,
+Jonas
+
+> 
+> ```
+> &mdio1 {
+> 	switch@29 {
+> 		compatible = "realtek,rtl8365mb";
+> 		reg = <29>;
+> 		reset-gpios = ...
+> 
+> 		switch_intc: interrupt-controller {
+> 			interrupt-parent = ...
+> 			interrupts = ...
+> 			interrupt-controller;
+> 			#address-cells = <0>;
+> 			#interrupt-cells = <1>;
+> 		};
+> 
+> 		mdio {
+> 			#address-cells = <1>;
+> 			#size-cells = <0>;
+> 
+> 			phy0: ethernet-phy@0 {
+> 				reg = <0>;
+> 				interrupt-parent = <&switch_intc>;
+> 				interrupts = <0>;
+> 			};
+> 
+> 			phy1: ethernet-phy@1 {
+> 				reg = <1>;
+> 				interrupt-parent = <&switch_intc>;
+> 				interrupts = <1>;
+> 			};
+> 
+> 			phy2: ethernet-phy@2 {
+> 				reg = <2>;
+> 				interrupt-parent = <&switch_intc>;
+> 				interrupts = <2>;
+> 			};
+> 
+> 			phy3: ethernet-phy@3 {
+> 				reg = <3>;
+> 				interrupt-parent = <&switch_intc>;
+> 				interrupts = <3>;
+> 			};
+> 		};
+> 
+> 		ports {
+> 			#address-cells = <1>;
+> 			#size-cells = <0>;
+> 
+> 			port@0 {
+> 				reg = <0>;
+> 				label = "wan";
+> 				phy-handle = <&phy0>;
+> 			};
+> 
+> 			port@1 {
+> 				reg = <1>;
+> 				label = "lan1";
+> 				phy-handle = <&phy1>;
+> 			};
+> 
+> 			port@2 {
+> 				reg = <2>;
+> 				label = "lan2";
+> 				phy-handle = <&phy2>;
+> 			};
+> 
+> 			port@3 {
+> 				reg = <3>;
+> 				label = "lan3";
+> 				phy-handle = <&phy3>;
+> 			};
+> 
+> 			port@x {
+> 				reg = <x>;
+> 				ethernet = <&gmac1>;
+> 				phy-mode = "rgmii";
+> 
+> 				fixed-link {
+> 					speed = <1000>;
+> 					full-duplex;
+> 				};
+> 			};
+> 		};
+> 	};
+> };
+> ```
+> 
+> Thanks,
+> Chukun
+> 
+> --
+> 2.25.1
+> 
+> 
+
 
