@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5C80C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D44C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q0NF0L3kcXAIrlIUaY/JZCJLHtTs0ZlzHcUdeIHuQes=; b=wY7DVYMpS3xuCc2i6P9ubptK/D
-	sEYe6c0hEaL7Wg7unhXzVMr0pQyl+SaM57jWipvdfBdMdFSED7Djhs+Bcvv217vFPx6EbesSORbQO
-	awVdyb/RV1XhGogphHNHQT+g3F2/cmP6dvMYx9ozRUp9kVVuUG7wrQCHFPIXhaORusLmmHHDZKpPw
-	RBC3G9crQ97/r7N2T60C3ZLSheg84jMTpTDrTW0vWZkJWvOWCW/HaAU0/28Mht9aIRnZk4PAPyKor
-	DVYvyqKZ06E/O1LuH/kc7P2PwmMvK1RwGTsP+SgFusyF9STTfaa1fhTsgch3O+tzdSKBveRHMozb4
-	dDO7e6Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g7Dd/VCgHGXa1ZZy0kScT3IdI9bOz/Ax0ajFta3++S4=; b=sBCyLo9qVTSW8TcJesba0c/xqy
+	hWOb5Puxn6D4rt/xlpx97lJdzMGTJz26Y9ayDS0Pnkgv+JDJPdf1rxzvjJeT2f2PVpj4jHiWCogvH
+	XToSMcrx2E+rxKcCwvYowlPE+AUwyqpAbRtcjCQdtlbw+Q6gErJUW6MyZACL9r50MZZh4QIWCLQrY
+	I3CXesRpyz4e9hBQRTDuKoontudcjuK+WIL6xYciQHUasTtysjxcrSdaLxdWdcHOMjPg4GKk2TY3g
+	EeiZXXsu2pyzU91rXESvJpyq/0npgloWFNjI7ckgVPebRKVoZrqo1KQvUjpkIJZ6gtVUbWpLiyzWw
+	51LeWzBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQsS-0000000F0AN-3cO8;
-	Mon, 28 Jul 2025 16:39:04 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ugQut-0000000F0YR-0IjU;
+	Mon, 28 Jul 2025 16:41:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPxc-0000000Er3Z-3Kaz;
-	Mon, 28 Jul 2025 15:40:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=q0NF0L3kcXAIrlIUaY/JZCJLHtTs0ZlzHcUdeIHuQes=; b=YFdULwoBKH8lALuAaM6Ubz8QzV
-	wjHrW0iCk5dDulWWurBeJg99G/q/tLpP0xi4V1TdN1kxGQPBiH6PR6QynS+fdE64dxYcbN7TwhsTR
-	4f6sktlQnJnkvbKz846r+1LMZsditTsUH3f7N9H6w1yeviP3WbpZBLT6jX1CZ9c27kSc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ugPxO-0036Tn-0m; Mon, 28 Jul 2025 17:40:06 +0200
-Date: Mon, 28 Jul 2025 17:40:06 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Linus Walleij <linus.walleij@linaro.org>,
-	Alvin =?utf-8?Q?=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
-	Vladimir Oltean <olteanv@gmail.com>,
+	id 1ugQ3D-0000000EsBi-01hn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Jul 2025 15:46:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=g7Dd/VCgHGXa1ZZy0kScT3IdI9bOz/Ax0ajFta3++S4=; b=XQyJE2LKFjRGg5l5bnJgrSVqLX
+	Bo99l4IkvV3otCd4Jl/PKZPafnFD8qX9Kd4M2Yr3TMQP8BLeRQSoTzCn5joFr61IUQWs4Tl4SIS9c
+	3NC+aWzHM3wRa1WNCeiP1t2QnQTUbhw7VdiizO1ULQJP83lx5kBABvzHWVrdNUyLrYtTimHzp1ZyS
+	02MbuvCyzVa2r554wFRjFr5EZ3pj7lKAUvbfejxSqC1xve3jB7r2Dsi4lMfwR5U6cns7plcLLW7NK
+	8q+MPgdTiCHmQOAQHR1M94RYki4cLzaNqu6wwz7E9hen1xgxITNHr883aiIvpwlZQGp+LnepJr3AU
+	p6wT1ZUg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43158)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ugQ32-0000TU-0S;
+	Mon, 28 Jul 2025 16:45:56 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ugQ2y-0004sJ-1s;
+	Mon, 28 Jul 2025 16:45:52 +0100
+Date: Mon, 28 Jul 2025 16:45:52 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>,
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 2/3] net: dsa: realtek: Add support for use of
- an optional mdio node
-Message-ID: <2f942223-8683-4808-8f7a-4f46e18f402d@lunn.ch>
-References: <20250727180305.381483-1-jonas@kwiboo.se>
- <20250727180305.381483-3-jonas@kwiboo.se>
- <2504b605-24e7-4573-bec0-78f55688a482@lunn.ch>
- <badef015-22ff-4232-a4d0-80d2034113ca@kwiboo.se>
- <9702f3da-f755-4392-bf2b-28814ee0a8c7@lunn.ch>
- <1c639c62-cc07-4b3d-a18b-77f93668b88f@kwiboo.se>
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next 0/7] net: stmmac: EEE and WoL cleanups
+Message-ID: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1c639c62-cc07-4b3d-a18b-77f93668b88f@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_084020_828564_39886910 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250728_084607_333051_E3A90C85 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,24 +84,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> When it comes to having the switch being described as an interrupt
-> controller in the DT is also very wrong, the switch only consume a
-> single HW interrupt. The fact that the driver creates virtual irq for
-> each port is purely a software construct and is not something that
-> should be reflected in the DT.
+Hi,
 
-I think that is not always clear cut. Switches can be considered SoC
-of their own. They have multiple hardware blocks, which can be
-described independent, just like a traditional SoC and its .dtsi
-file. The switch blocks can then be connected together in the same way
-SoCs are.
+This series contains a series of cleanup patches for the EEE and WoL
+code in stmmac, prompted by issues raised during the last three weeks.
 
-I've not looked at this particular switch driver, but the Marvell
-switches have a similar single interrupt output pin connected to the
-host SoC. Within the switch, there are at least two cascaded interrupt
-controllers. We implement standard Linux interrupt controllers for
-these. That allows us to use standard DT properties to link the
-internal PHY interrupts to these interrupt controllers.
+ drivers/net/ethernet/stmicro/stmmac/common.h       |  1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       | 11 +++++++-
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 31 +---------------------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 21 ++++++++-------
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  4 +--
+ 5 files changed, 25 insertions(+), 43 deletions(-)
 
-	 Andrew
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
