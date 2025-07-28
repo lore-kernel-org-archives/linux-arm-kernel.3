@@ -4,62 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D53C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 05:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26CFC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 05:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJyv4YqdVIVJ8Jq3SdPcfNp2zqx/xBHkBHbXovVJiFE=; b=IkvjLO3BHheYBs6c6CbO8pQPt8
-	eg3AB4IHmGoKlfhZWizXwg3xcc800fd6lzK5uB80YfuR7m/L+kc2NiC32VyoK/lsEBN52AKkPuSZ3
-	uCVzQtsN6ooHl0TbGhyf+gCKfRunC2TW1wamQSUkC+HPD40nj1ezsWqkx+QIk91BmUjsAd0zEoK3b
-	oY5sXg71LdAVJypYX3iPecpuU7BarvcwIjZcA6mf4EPKmE89XywlvY/QpLAQDsT3O8ekOKmEXfNb0
-	YPoxW941hnBXaXUMi+/b58U/Nkxv0JzXSb8yhF63YgupN5qb6jVrp5lc7fu63htaT6cmsfqZZRl2C
-	S0JVHRdQ==;
+	bh=k6qTA6cHT7QQtMvCxkLbKuRSVS9SJ8QTSZ6o1ZHsFO0=; b=oyghTRR1lE7niOkuL05MAuaxEu
+	7v76lHUOeNkJVlLY5NVAzVvbU/QsecrHu1IaHa4bQYrn8bnpndmsVMiHDjLsZ6bmbioKOZ/Tob5dY
+	A5R4Hft5/Cf7BXX0BooHrrCPNyStqsjmcz+D8QtPYivwUIk5Quunl87n2+89KkQy1vHYtqsOHOhjm
+	8PE22eYTUtkCnOobtfMPZGTBidI3Oyk95pw63XUr15tM4P3VWUi19pvJK1ZIij+6dvaclbDUc7J+n
+	NAs6ILmLyhmFmhAVRlhUhMiOitl21TB1kffbJFbXxjIayh9rPq6OdpC3JWMViBRlaBMcA2qM7aTOp
+	Kmv7IKjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugGKM-0000000Deso-0F8c;
-	Mon, 28 Jul 2025 05:23:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ugGY0-0000000Dfxc-3sIP;
+	Mon, 28 Jul 2025 05:37:16 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugGB2-0000000De07-1Xj0;
-	Mon, 28 Jul 2025 05:13:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E632601D6;
-	Mon, 28 Jul 2025 05:13:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF7FC4CEE7;
-	Mon, 28 Jul 2025 05:13:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753679611;
-	bh=SCnFBh2pOHaMVAfqrFukG2B0hL6vIjUPCh6ccF3qkK8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gN7Iq9NCeErSi0+I/651qC9gtqQbPYvfmJV/9O29RskqzV2JOSeMUnqJEZ8x5Hmfj
-	 UPXZkvom7b/Ucz+4yw0MAJLkNC0EKS5NRdGb2ZDBd4ke6nOXvxig9Ax55Qr1QSxIIF
-	 K4KfW4nkV0054baygkRJdm3iPcSJeO6UJxQPCi3lFfHmNuZPDHxxpZhG+cbzctyYpC
-	 gwwJBiixcOmqCGMu+ZIaxUB4M0b6n6zAT3mN9Z6UaR5TPGpKQwZdHU1/UkFonUkua0
-	 uqxhfMrnFUcE6Y0EJm6sMPgsXcYiL6vfHEElFG9NMVInU0jERzCxr3qqIlEJu8WxlR
-	 E0/RtxjrwuITA==
-Date: Mon, 28 Jul 2025 07:13:28 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Simon Horman <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v6 1/7] dt-bindings: net: airoha: npu: Add
- memory regions used for wlan offload
-Message-ID: <20250728-pompous-bull-of-argument-ddda6c@kuoka>
-References: <20250727-airoha-en7581-wlan-offlaod-v6-0-6afad96ac176@kernel.org>
- <20250727-airoha-en7581-wlan-offlaod-v6-1-6afad96ac176@kernel.org>
+	id 1ugGVT-0000000Dfll-4AVL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Jul 2025 05:34:41 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-3137c20213cso3858325a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Jul 2025 22:34:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753680879; x=1754285679; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=k6qTA6cHT7QQtMvCxkLbKuRSVS9SJ8QTSZ6o1ZHsFO0=;
+        b=lNL6CN7ogfhP9lAW3FWBVjiH7Mv+MPWfj71WRkZ0IGkG1WEdS8DInb67tPHU6tBXOz
+         IIVnb0jkO1Xlx7iSTDVrYdAkgBysriOjXiaNA+yJ8fGf/qaj0IbwcWexDbanIRQ+EatP
+         knyM0/3MboQM63GTRYeOaMQbvqC7MEBTX0sjVvTi+WyXDXDJUhxesVBGEQixRaEzRv9x
+         heV/W7lelF5lXcblNNq5PoneYizin0RGRzfRfYLfa6UOo9tqsTw9TMvr1mFQYnpd4jr0
+         C6qXwpH4Wq/YfhQheIC8LGMfd8b0ZqktLYC98XkRoSxXWX5E/b3w9W/P86NxhuFRXsuT
+         CiDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753680879; x=1754285679;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k6qTA6cHT7QQtMvCxkLbKuRSVS9SJ8QTSZ6o1ZHsFO0=;
+        b=i4vFf2EGzbyBDbHXvvOwb90vZX4+lrDwiWmP6x87lis8nsShBVbZdug3j4cl+DUIvb
+         hQtJeEDbmWEfPqEUyVzJ/OnNxR5eqR31YSOXvfEDVpORPlJ+wgNGPiqRFK5qLN0YQFXm
+         StYYbHCA4GL5eQVfNabQIbHzpBWpwOnie0i+UtkAvRFmVE5wDxfddJdE78Byua50NmlE
+         esNd5cgwYm9CI4sysfsHzZlsKxsyr1h43145atmdzYrq6x4lAn5sTk9WKrLhQhrohSW2
+         j/r+XC9t/EgDsStWxtCL/FpmsYS5YOnen9llm2HcfvTe6l8t+DQyKlpF2IggSkICef8T
+         VCOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUKHbtEkPHxdOsfLMSgCM1uCXaKvsLSjX4uC9bdjfpzRuO2KjsNamD7UEIIVFgLepr3/KC+5VnaQeUq4RRtRDWe@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCwu/3bemtig+pyzItUvrmG98u83Jwlp72xNGsGccP/FH78San
+	n9HrQV6Kmj1PldtOLoKE4e5cpmRRkBrHN3BqELBN2aqxwJsgFEXWQlI/
+X-Gm-Gg: ASbGncvgJmFRL7JC0LArhBg3AplQkx0SkMku0Z+N7WOUzIYrMfsCH0Tl/JGVgMtI9Ao
+	jAjXflX2Yi4uvjCqT1SiTznmQV1t3c4HmjljG2nBv5v9JqikFo51jJGAK0SmtOPsQVCRFDyODv2
+	fg872l9se5zQ+z21XX3tqgQnshOSQOWn7EeuHvT/H/GVPnjL5oXfhC93RAtZhwMXpEg5G36YtDI
+	JznJLvdk7Q+kU4EmAXd+Pfy0BqwxK1/aILC0TNSxMDIl61LLpJKWDYcfGyfxJ36Kkw/o5CnZMpM
+	qG2UPwzf5K5bVkWcJ0vQ/KLH0kHa4yzodNYYCF7ay4W0ztbP4k99TwaHxHeFhq9LsjhECezwMIh
+	LQLBhFQQ8Xd09xEaw5GBru8EAv4evvJOtuBJ45aK2w624oWISqccGHYZR4d34ZqPC6CA3GnPYrh
+	w=
+X-Google-Smtp-Source: AGHT+IHvKUeJgGPP2KuVZC7MV+slZ+Jy/0LanvshipPIkk1k/Fwjh/2vrhM3ta3T+sWIO3FTVGbo3g==
+X-Received: by 2002:a17:90b:57c5:b0:313:1e60:584e with SMTP id 98e67ed59e1d1-31e7788cef0mr14119890a91.9.1753680878918;
+        Sun, 27 Jul 2025 22:34:38 -0700 (PDT)
+Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31e663a71fbsm8559351a91.35.2025.07.27.22.34.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Jul 2025 22:34:38 -0700 (PDT)
+Date: Sun, 27 Jul 2025 22:34:35 -0700
+From: Tao Ren <rentao.bupt@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Tao Ren <taoren@meta.com>
+Subject: Re: [PATCH v3 10/13] ARM: dts: aspeed: Add Facebook Fuji-data64
+ (AST2600) Board
+Message-ID: <aIcL67c4VufhfVMY@localhost.localdomain>
+References: <20250723233013.142337-1-rentao.bupt@gmail.com>
+ <20250723233013.142337-11-rentao.bupt@gmail.com>
+ <d09667e5-992e-4ced-ae30-7a4116a72c62@lunn.ch>
+ <aIGGdbIX9HaV4dB/@localhost.localdomain>
+ <769d6817-ee97-4a23-b013-29bc875a00cb@lunn.ch>
+ <aIMTvUyHGd/ikKY9@localhost.localdomain>
+ <aIW/xEfJX/UD1kje@localhost.localdomain>
+ <9897e0a4-7c70-4e27-8591-09e9d6ef2263@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250727-airoha-en7581-wlan-offlaod-v6-1-6afad96ac176@kernel.org>
+In-Reply-To: <9897e0a4-7c70-4e27-8591-09e9d6ef2263@lunn.ch>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250727_223440_054409_6F5F151B 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +110,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 27, 2025 at 04:40:46PM +0200, Lorenzo Bianconi wrote:
-> Document memory regions used by Airoha EN7581 NPU for wlan traffic
-> offloading. The brand new added memory regions do not introduce any
-> backward compatibility issues since they will be used just to offload
-> traffic to/from the MT76 wireless NIC and the MT76 probing will not fail
-> if these memory regions are not provide, it will just disable offloading
-> via the NPU module.
+On Sun, Jul 27, 2025 at 05:45:51PM +0200, Andrew Lunn wrote:
+> > As I'm not 100% sure where the RX clock delay is introduced, I will drop
+> > mac3 entry in v4.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  .../devicetree/bindings/net/airoha,en7581-npu.yaml | 22 ++++++++++++++++++----
+> Many of the hyperscalers, or the supplies to the hyperscalers keep
+> hitting this. The standard policy at the moment seems to be to drop
+> Ethernet support. How useful is a BMC without Ethernet?
+> 
+> If you all got together and talked to aspeed, apply a bit of pressure,
+> it should be possible to get this mess fixed pretty quickly. And then
+> you could all have working Ethernet....
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Hi Andrew,
 
-Best regards,
-Krzysztof
+I've already reached out to Ryan and Jacky from ASPEED regarding the
+topic a few weeks ago. Originally I thought MAC-side clock delay was
+only needed for fixed-linked (for example, in darwin dts), but looks
+like it's also impacting platforms with PHY..
 
+Anyways I will follow up with Jacky/Ryan after addressing all the
+comments for this patch series.
+
+
+Thanks,
+
+Tao
 
