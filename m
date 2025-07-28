@@ -4,108 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48C9C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 14:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65307C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 14:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jk6mSRTMsB/OIBvGlw4Rzm6kh4ycxWxzbNU2i/NsHgM=; b=osBM63N8ezi5b+viORgos3YODd
-	1xH3qnRv5hmK2I2AP/82xm2McIXLdBXQi9/LaiEFohEpXRzMV6cfzhDLdKuwTRdZPv2dFQnTOVER+
-	RNqRECcXXrmQL6lePR7//W7fi7P778BCpz0mA4AKqQbgt+O85Zgf56dJgtr1zkqpc6E1gnh7XECD2
-	cj4YNDS8XVefB51y9S9kaJrsBBok99efM5mudXt9Hr74wDoG+IjXNITyJ2598XKHIIbFfzkaJ+b1L
-	PU3n82ka/PNqS9NJgvAs7CbLm9P53dgaZUkDjPGxIgQuEv5zIPIeNrK42VT63x3eIAFVe+RIIyu5O
-	9kMsKXAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VkRksZeZRdJUhfD+fysrVUZxN07ubnU6SAGQQ5LsnD4=; b=U8RSMFkZqXLYcYxEDElJgsQ1qH
+	I/e3eErVFMiWIpBzEoX8TbOPDKbRZBu8PXB0jVjDpWlX0Tv5bV1eI2MJmshVmuA0TWCv/6canbBER
+	x3Ra0TkLqO8rKc5OUXlqJDWjyG1YgMPRzf5t/mSZ34N5kzbkaLTZkZGgQzkNw5MvWTaqTcc0Q1l/W
+	a2UI1p1XQsdy2zTEgWmJupzaQSgfvbGEhzBoz3edSSTFl7YgsPm9olURKWYNSpy/vw3o5GcOpVRQC
+	99C1AjXaCzzxaAL83c1FMfnFpJYa27mwlsjDFivazLDOXmWENBzUfwmGYD3X0wI8M+rdceuxn86w/
+	TtYEsJpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOfh-0000000EeLR-3UK8;
-	Mon, 28 Jul 2025 14:17:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ugOi8-0000000EenA-2ieS;
+	Mon, 28 Jul 2025 14:20:16 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOas-0000000EdNZ-2sn1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Jul 2025 14:12:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=jk6mSRTMsB/OIBvGlw4Rzm6kh4ycxWxzbNU2i/NsHgM=; b=Ho1fcOVcLHJhCwmuXFAMlQXUvq
-	mS1qteCVA7BCWMH0/JR0042sUXMH4xkZBoPr8s6fPmXJtORjj6xAX9b69NZ5SVS1UlyX5KApBFKs7
-	nFEYUkKxeOvMwOW8M/WQvvoBbYwn0EV3WqfzeFAzj3wQzfiw68pY30bU8nNHYeTTZR/snZF+nGkbe
-	v94eOguuKSTsTlG7Caihuz4lGiKlRjTX5wUnBnOiLhg9ZY8jB7GbDjg6mrdRILEs3ZHWt1Sx6dEfd
-	8PlTKnjzhKRloBfCvuUdQFTJy7H4xvS7lE9Eay/R0iszxEkhb3k3AG3XIKHcdDE8Lx4d/lpEvZCUR
-	7ZgHQZjQ==;
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugOap-0000000CUeg-2Vbr
+	id 1ugOcA-0000000Edda-0HgK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 14:12:45 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ae6fa02d8feso680576366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 07:12:42 -0700 (PDT)
+	Mon, 28 Jul 2025 14:14:07 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-74b54af901bso2878390b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 07:14:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753711962; x=1754316762; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jk6mSRTMsB/OIBvGlw4Rzm6kh4ycxWxzbNU2i/NsHgM=;
-        b=obk27c2KQYul5K4Lqi7n9NGkfUNB59bK6kDli2UojtB+I7CbuwwErITIRsVhZhNS5F
-         tgIhiZE9OKx7gPxrInIxHLv/9APU5M2OkdpNako5wAT+By67gyO+ID7s0amGZ+n0v8xV
-         i7GxEG+yF8IeDwrZaKbFr7WbpXdxDC67pGKlFyDhhHD/0pVEEm50dy8m5LOeuKQ4wHRP
-         UvP+LcrhPQGdfaCCjMEDNGRsVXgFfZphOhGFfO19lO9OrzrCkHHSvfPoQ11WH21flfIZ
-         8FdYTg/8bAI1Q/m4snB4rQfkDo06tLyVIBNJPPbbZoZ8ebvujuwy0fvBTcu7tQzT3gKr
-         Haog==
+        d=linaro.org; s=google; t=1753712045; x=1754316845; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=VkRksZeZRdJUhfD+fysrVUZxN07ubnU6SAGQQ5LsnD4=;
+        b=PHyjBej/nY1pgv4vLgTXw0xKvpXaSZX3t5pRMXTGe62ieJ093AvgrjteC7uMe7nuUd
+         66OFq+sXOB6Pgsmk4AtHlMC/mEsxyT5lufIyjTioTvMR6XHg9AL9XCBTgjEUTI7954EC
+         oiY2ti3GbGMHxm7U2aMF2bblutzmEQf7B12p0lEtRnSyps+w/JdwjJf0jZZHDH6gTEqQ
+         Rds6ce8WP6HaDIqzqxmlzlaBqAXFYlN380uDGY90LYmSvHAtz+2LfvMXG7sr+9dEPdmd
+         U3ADfEbTkx8mBCrUwDAyxNQeMpaFqalYVfL00A95g/MN7tOQ8FSnjMcZ3QzfoLD5yZem
+         xuUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753711962; x=1754316762;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1753712045; x=1754316845;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jk6mSRTMsB/OIBvGlw4Rzm6kh4ycxWxzbNU2i/NsHgM=;
-        b=Ql+JV8NxEnuEt5HALAd9DQb3aJcPsV/lM/vJ9z1BEksSovVvCoMzh8WDCYy5wBHbGZ
-         TfBuqQuRSITuwrHgZQU6rO+JV0zAWzaqFWSeiK5vz3MTCRTcP+9W0nCRCzfLfXCzbcBB
-         6xn0K4nXNx90GisOrCb6IYgFTYgNr+8yCo5W4kNnPyx+3bjvSlCRT1wreUw42utszW4s
-         wDWrJ7NAcvUWqy5E9U3VyDs1kjVkqgwfPoc5vl9mCNi65C67EIec+nudPVaXZiZhGPw9
-         Y3njpLJ9ZiTvxIwmPobWgj/koq5g/Pg4iwWUgz1qMhfBWJRsGtt3311Xw+CO8/Nur46T
-         5HWg==
-X-Gm-Message-State: AOJu0Yzi5gQiYrNbb4AaJmOlOhYOUUV0nLNWDImt7m8FDE9Sat65uIVR
-	XNRsNtji6lijHoq23GsW961ujag+lYiFw5ptKZW4MkGsYeZjzsf257S2TsNJ7W4nPZg=
-X-Gm-Gg: ASbGncuWJLKq/6YO+iHYr9owxHrlsHO+dU1YugeRTq1QvNPqlHTyUrIdzme/DJwKgH1
-	unRwjtFPnc7Km5QtX+vrbthnqQOfMTWqBoJlhhETCjqGeaI82f0ZKmebI+QfNCQE1G46ojMDFKl
-	1qYkzshB4Mx2KCiB54tRL+KF96gWjmupOUtlXM3pOmV3ILmkCj4wUmn5mWwueu7/+AxBV2dAC25
-	OuID6Vu0DUSOLnXDsF0xFdSltVmQmq3xuisklMKB8iMmr6UqzQEB2Sl1qu8BWpD6gBDilAP7zT5
-	rT4/1frtZd08zfAVyK0Y+cUdKISg5Cy39Dqh0E68xeLlPMAWd4557fMCMiefyVEqkmZUu6MlTMj
-	OyITLZrBitM4rsyAfxm+uJkjUCRpOkTmCq2QEHs1Lftgw7GDXBJkk+TO1E4Kmpbk=
-X-Google-Smtp-Source: AGHT+IFqxJRE1QKHYBFZxQpyOgr6z9UdMOEOO88xTViMCt0rV+PU4AVbmvZ0211adT45N0kyk5+wKg==
-X-Received: by 2002:a17:907:96a0:b0:ae3:7058:7b48 with SMTP id a640c23a62f3a-af61ce932camr1392836266b.25.1753711961420;
-        Mon, 28 Jul 2025 07:12:41 -0700 (PDT)
-Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af6358a1858sm431613166b.45.2025.07.28.07.12.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Jul 2025 07:12:40 -0700 (PDT)
-Message-ID: <dca47ca3-d5f7-4b2e-9611-dd195ee149fc@linaro.org>
-Date: Mon, 28 Jul 2025 15:12:39 +0100
+        bh=VkRksZeZRdJUhfD+fysrVUZxN07ubnU6SAGQQ5LsnD4=;
+        b=Dwl2sYnW8vB+hDvSwgEc5caR6M4kjInbHlbRgXleDfGKIoSnQJimOlSuG2vpD8ss7f
+         Mny6CtH3wF9nQUSXMYRX0W+vdqjdCVHzvHSmQi5dRVDYzxaw4EqDNvOMlR7kdaNOWgjn
+         PZjgW9ebSEgeOCLq8Vo4SUqgn5QtIl+z7cRpAkc3+vhTl8KilEfdA+O4r3TinDpkvOa5
+         20ov+5RWRENVkrOzezdbxME/1NdGb/moiuQ+xVBtk6L6kkf2JstuxDu3Vw7VeRWfPGf5
+         J3M6Q1NO0i1QI3T7NS0MH1msEGUuKzRfQ4SlLvA05q4YkidWV6JbAgvgLyyrGbmZ5q/q
+         yqYA==
+X-Forwarded-Encrypted: i=1; AJvYcCUIM5/MZQycfo3Br4SsMUjc8+UyuvzER/ipKoyeP+SfST8KkkyWZBTuKJDwR8GndqXP43TNNiX3ZZurLC8fVU2v@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyo04MC75PFfkCt8jI0MNYoLZ4fvoBQO4YgtwzIgirlEKiVFq48
+	Q/2COZNcUfa9804P5C8aOYaXMbinkaEXVaZPD6kirBvzn+aDd5eoe4hgBbFLg1HLLiE=
+X-Gm-Gg: ASbGnct8AdceI4i9xIoZf6A7GkYAqghv/rijmBYPw4GDBExrKWBkx6v+xWY3MBcRaZE
+	HWCuoiKRxOI9VxioIAzY8BukkDCDXgda3Rrxtiv6MV+HkGsc3WKphhq0Zo+8D6gWJPpLr3vcGdl
+	oSvK0d8H9Oqo/dr2/7W0XuNptyg4tk3+kO8l60H/vVnSvOwSv8t6bjpK165IaezBC8ICK8/IrDC
+	F6MNG65tq8khRjN/D0nGtbFampmGQqcjU3pC+GEmWjw0lV5r9IA4joKgHS3o8HjMlUxKUCZMwCh
+	cB8JWiP3YtWAsECw1kx5lZQ59PtWHOQENVubZluPQM0+JL3YTdLQwsrvbiJabq7okjI9H+d4QDa
+	dDIORBnyUJapxArq7sFPckMtvOAZJtHIsRgav
+X-Google-Smtp-Source: AGHT+IEzYHk+WznmPpX9Fulm4uS2KRvmZT0lrK8OW5a60R5q4nnqwgfy/r5C+L542XQYKAZbclCwBg==
+X-Received: by 2002:a05:6a21:3d95:b0:23d:ac50:3342 with SMTP id adf61e73a8af0-23dac5033femr345980637.38.1753712044666;
+        Mon, 28 Jul 2025 07:14:04 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:82ce:5506:d365:5bcb])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76419d84234sm5604059b3a.57.2025.07.28.07.14.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Jul 2025 07:14:03 -0700 (PDT)
+Date: Mon, 28 Jul 2025 08:14:01 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andersson@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] remoteproc: imx_dsp_rproc: Add support of recovery
+ and coredump process
+Message-ID: <aIeFqVUp2C6fh4PT@p14s>
+References: <20250722075225.544319-1-shengjiu.wang@nxp.com>
+ <CAEnQRZBc2X6Yn0X+RbJ9-OSxovnHvoqJ3NXsJKBkuH82GNSAHA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] media: qcom: camss: Add qcs8300 compatible
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250711131134.215382-1-quic_vikramsa@quicinc.com>
- <20250711131134.215382-4-quic_vikramsa@quicinc.com>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20250711131134.215382-4-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEnQRZBc2X6Yn0X+RbJ9-OSxovnHvoqJ3NXsJKBkuH82GNSAHA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_151243_815711_36D0B447 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20250728_071406_103773_3B035358 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,75 +104,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/07/2025 14:11, Vikram Sharma wrote:
-> Add CAMSS_8300 enum, QCS8300 compatible and qcs8300 camss driver
-> private data, the private data just include some basic information
-> for now, later changes will enumerate with csiphy, tpg, csid and
-> vfe resources.
+On Mon, Jul 28, 2025 at 01:39:38PM +0300, Daniel Baluta wrote:
+> On Tue, Jul 22, 2025 at 11:16 AM Shengjiu Wang <shengjiu.wang@nxp.com> wrote:
+> >
+> > When enabled FW recovery, but is broken because software reset is missed
+> > in this recovery flow. So move software reset from
+> > imx_dsp_runtime_resume() to .load() and clear memory before loading
+> > firmware to make recovery work.
+> >
+> > Add call rproc_coredump_set_elf_info() to initialize the elf info for
+> > coredump, otherwise coredump will report error "ELF class is not set".
+> >
+> > Fixes: ec0e5549f358 ("remoteproc: imx_dsp_rproc: Add remoteproc driver for DSP on i.MX")
+> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 > 
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->   drivers/media/platform/qcom/camss/camss.c | 21 +++++++++++++++++++++
->   drivers/media/platform/qcom/camss/camss.h |  1 +
->   2 files changed, 22 insertions(+)
+> Changes looks good to me:
 > 
-> diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-> index 6f5b70bcf488..5211367b535d 100644
-> --- a/drivers/media/platform/qcom/camss/camss.c
-> +++ b/drivers/media/platform/qcom/camss/camss.c
-> @@ -2898,6 +2898,19 @@ static const struct camss_subdev_resources vfe_res_8775p[] = {
->   	},
->   };
->   
-> +static const struct resources_icc icc_res_qcs8300[] = {
-> +	{
-> +		.name = "ahb",
-> +		.icc_bw_tbl.avg = 38400,
-> +		.icc_bw_tbl.peak = 76800,
-> +	},
-> +	{
-> +		.name = "hf_0",
-> +		.icc_bw_tbl.avg = 2097152,
-> +		.icc_bw_tbl.peak = 2097152,
-> +	},
-> +};
-> +
->   static const struct resources_icc icc_res_sa8775p[] = {
->   	{
->   		.name = "ahb",
-> @@ -4180,6 +4193,13 @@ static const struct camss_resources msm8996_resources = {
->   	.link_entities = camss_link_entities
->   };
->   
-> +static const struct camss_resources qcs8300_resources = {
-> +	.version = CAMSS_8300,
-> +	.pd_name = "top",
-> +	.icc_res = icc_res_qcs8300,
-> +	.icc_path_num = ARRAY_SIZE(icc_res_qcs8300),
-> +	.link_entities = camss_link_entities
-> +};
->   
->   static const struct camss_resources sa8775p_resources = {
->   	.version = CAMSS_8775P,
-> @@ -4308,6 +4328,7 @@ static const struct of_device_id camss_dt_match[] = {
->   	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
->   	{ .compatible = "qcom,msm8953-camss", .data = &msm8953_resources },
->   	{ .compatible = "qcom,msm8996-camss", .data = &msm8996_resources },
-> +	{ .compatible = "qcom,qcs8300-camss", .data = &qcs8300_resources },
->   	{ .compatible = "qcom,sa8775p-camss", .data = &sa8775p_resources },
->   	{ .compatible = "qcom,sc7280-camss", .data = &sc7280_resources },
->   	{ .compatible = "qcom,sc8280xp-camss", .data = &sc8280xp_resources },
-> diff --git a/drivers/media/platform/qcom/camss/camss.h b/drivers/media/platform/qcom/camss/camss.h
-> index 345479f6feba..b5600a8b2c4b 100644
-> --- a/drivers/media/platform/qcom/camss/camss.h
-> +++ b/drivers/media/platform/qcom/camss/camss.h
-> @@ -84,6 +84,7 @@ enum camss_version {
->   	CAMSS_8x96,
->   	CAMSS_8250,
->   	CAMSS_8280XP,
-> +	CAMSS_8300,
->   	CAMSS_845,
->   	CAMSS_8550,
->   	CAMSS_8775P,
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> 
+> I've tested it with Zephyr synchronization samples inducing a crash
+> via debugfs interface. App
+> can recover correctly.
+
+Very good - I will merge this around 6.17-rc2 when I get back from vacation.
+
+Mathieu
 
