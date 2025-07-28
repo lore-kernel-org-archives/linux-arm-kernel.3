@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E0DAC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CA5C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bFS8WLhu5nncxHWvLqslWdzfrwNohIejybeTSzxXKkQ=; b=cIUINyAnHDSA8Gns2fGHXcBri2
-	tAjetI1TxQvv3hBLoY7KjYfe6DCdDFRtYBlntIyssFMjVSjX54m0Q0iJd64/AxykgRWfVq1eEzUZj
-	QtW1b9hZ7ffZGR3th5cMx6LfOhc50Vt/zZb52fxDsivy3rLo+uBMYhT6ttxEjMSx9xuCOKXv27F54
-	UeCL/Qp48TDvM65ZSxmelgLYwOQcDI9uxBdHr+xbrYXSqc2alvowvD22vh1ezhsO/U7sQPYeEbmRj
-	tgE+WBe7QP9nCiBe6XD8dkiLs9J6aMFbzf42zyLsfd1LW0yp5+71Ss1udf194U4HaAfRvsMBYaTEG
-	ydR2rFSw==;
+	bh=uRoodUQrGHcA3B0Yw4kL+QZUbnQIbcySG2CHZ5wmGVA=; b=I0Gwf+yU9rUcOrRQXzqkUb9ZYY
+	JquN1tUzNsPaV7ndF0iQlEukKwp2WZSoc6HLHfbZaS4o9aflnCdgM+dYOHDyOFB9QCoc3nBUjl3VL
+	Y73GdzYOCj5+aJhnkp+sgFgPgyig4gq4mQYMlCm799lWwMPQilVpeUfVlifJmIeJu0XZtwWWCfE4u
+	fAjwwh2ks3kUQ0oEA+gelPkzr14OayEIvp50utJ6+23s6FNVzWU72iLpsY6bWHyKjwfo22BwnC7Rx
+	W5FGKzSIwjpDdTM5cWvRa9fbYRU3FlGjtAI6nykPcFBci4CfgN90QP/qCD3mX+8r5xF1N5Y4I+ZL5
+	bLbVMtqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLF7-0000000EFWn-3VSW;
-	Mon, 28 Jul 2025 10:38:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ugLHX-0000000EFu7-2PMM;
+	Mon, 28 Jul 2025 10:40:35 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL86-0000000EEkI-09yR;
-	Mon, 28 Jul 2025 10:30:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=bFS8WLhu5nncxHWvLqslWdzfrwNohIejybeTSzxXKkQ=; b=JQzc0bFMOfnO6l1+CzHOC8xVRn
-	v+XSxrO9tDZ5uabEGqBBOIPRhTGqZ9PCYmSRXlySGGlzywLj/Ppx8uJ3prW6RhydUaHaPqw0B6f+x
-	pTC6s7zXitHftqVQK1pUvKTTlDqkFSitlYhFMNp29i66CVkcU8b1GCVsnF9PlP5d6F5Adk7/iiZsT
-	U2JybX1JT7c31A/3pY5hPy/iYU2iQU2Aw5xwWbOkLgm+7z2gIkE6aiPd76Luc4vWgl2Cmpx5SnmWt
-	tNyCKHzNLGNViYkE+nSPxJGZNX+RG1yLwLuvoSnoiC6FbYcTVYEhBw18S8lPREK6N3WCSMMhQPXdB
-	elVY0nvg==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL82-0000000CRUs-0iN6;
-	Mon, 28 Jul 2025 10:30:48 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 7F4A420543;
-	Mon, 28 Jul 2025 12:30:44 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id Gwt0ajRAJT6O; Mon, 28 Jul 2025 12:30:43 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753698643; bh=qBq1mAbqPGcYbgpJSKXM1JGiaWrzbRbM/TI0PBE0xY0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TUchOU/SQEB9L4HSGKdfTXHX2uvc99PVC0fxVj0a+JJIdSxcTldtffVCTJCs9RrDR
-	 mIajvxVZ9IRcn0Lwwle3hMQP0Vtc4Oo+Dpe4nAnunD8BKTV3Ekc6d6/Wl7uEwSdc0L
-	 Hzq9xapTQwd3XnVaHLtFWoPaW/dfVkaF5QZh4RDbkCVyJmssQCHpSzK2lzBBTWnR3w
-	 xMVTIFSmV3t3s+OXhASb1HDuEu1uI7bja8wX5Quq4nuqjcIwUF5x8zl9qPPxg4AnLQ
-	 /6eFhhX5rRbJgKsjtJkbvnQ6KuTjOlHb/4IiJvg5r1K9d0hRF5tutOWzWoMYKBjDOQ
-	 NWeh9mz4Rlw1A==
-From: Yao Zi <ziyao@disroot.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 2/6] dt-bindings: phy: rockchip: naneng-combphy: Add power-domains property
-Date: Mon, 28 Jul 2025 10:29:44 +0000
-Message-ID: <20250728102947.38984-4-ziyao@disroot.org>
-In-Reply-To: <20250728102947.38984-2-ziyao@disroot.org>
-References: <20250728102947.38984-2-ziyao@disroot.org>
+	id 1ugL8f-0000000EEnp-0tZK;
+	Mon, 28 Jul 2025 10:31:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753698682;
+	bh=fr2sMayk+dxmv8PYp2bPRYDp+i45PTMIsl+txmuuBxA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KLD00ixd1h76FA7vAK4g+5ZbjutxtwRH+azhwUNgHmFoXi7COHA0Y6NKxDDKDcxOI
+	 Cr2mn6GnWMQ6pcyye0AgJtp6E4/GdLRVmpm+3mdrS3Q+nbGi/qHrhHNBXpQ1FUXeiX
+	 cl9N2RqmSFcknA/vV/ftwjpRatRjdOnX9c34MrVBrpO/wtAII0fuHnyi92JAcHZq/+
+	 KuZT2c14PN3TNj3+0CKnz8FLgjQKYcfLcALiDQEIRZExMuCjTcVkFJQLwVt6jBhfh1
+	 ouOWZrXpbXbFd2VNdiNI+5Sb+F4HM8rYHlm/zf2Ib2g0POxBlKiWQaRXLPdKvADaEJ
+	 YBB3iUppD+qcQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CEA1A17E1439;
+	Mon, 28 Jul 2025 12:31:21 +0200 (CEST)
+Message-ID: <8ff50873-f6c5-4c83-bb65-0f234eaf8172@collabora.com>
+Date: Mon, 28 Jul 2025 12:31:20 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] pwm: mediatek: Fix duty and period setting
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, John Crispin <john@phrozen.org>
+Cc: linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250724210041.2513590-2-u.kleine-koenig@baylibre.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250724210041.2513590-2-u.kleine-koenig@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_113046_399355_732468FD 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_033125_476686_48BBD84D 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,33 +75,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Though isn't described in existing devicetrees, most Rockchip combphys
-belong to a specific power-domain of the SoC. Taking RK3588 as example,
-combphy 0 and combphy 2 belong to the PD_BUS domain. Document the
-power-domains property to allow describing the information correctly
-in devicetree.
+Il 24/07/25 23:00, Uwe Kleine-König ha scritto:
+> The period generated by the hardware is
+> 
+> 	(PWMDWIDTH + 1) << CLKDIV) / freq
+> 
+> according to my tests with a signal analyser and also the documentation.
+> 
+> The current algorithm doesn't consider the `+ 1` part and so configures
+> slightly too high periods. The same issue exists for the duty cycle
+> setting. So subtract 1 from both the register values for period and
+> duty cycle. If period is 0, bail out, if duty_cycle is 0, just disable
+> the PWM which results in a constant low output.
+> 
+> Note that clk handling is dropped from pwm_mediatek_{en,dis}able to
+> handle duty_cycle = 0, so the calls in pwm_mediatek_apply() have to be
+> modified to do clk handling, too.
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- .../devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml   | 3 +++
- 1 file changed, 3 insertions(+)
+The changes LGTM, but please split those in two commits, one that fixes the +1
+and one that changes the clock handling.
 
-diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-index 3e101c3c5ea9..db293d2fbf1a 100644
---- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
-@@ -45,6 +45,9 @@ properties:
-   phy-supply:
-     description: Single PHY regulator
- 
-+  power-domains:
-+    maxItems: 1
-+
-   rockchip,enable-ssc:
-     type: boolean
-     description:
--- 
-2.50.1
+After which:
+
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+Cheers,
+Angelo
+
+> 
+> Fixes: caf065f8fd58 ("pwm: Add MediaTek PWM support")
+> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> ---
+> Hello,
+> 
+> changes since (implicit) v1,
+> https://lore.kernel.org/linux-pwm/20250710163705.2095418-2-u.kleine-koenig@baylibre.com/:
+> 
+>   - Drop superflous parenthesis from commit log
+>   - To implement drop the enable register instead of bit 15 in the CON
+>     register, adapt commit log accordingly.
+> 
+> Best regards
+> Uwe
+> 
+>   drivers/pwm/pwm-mediatek.c | 76 ++++++++++++++++++++------------------
+>   1 file changed, 41 insertions(+), 35 deletions(-)
+> 
+> diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
+> index 6777c511622a..4460bbca2582 100644
+> --- a/drivers/pwm/pwm-mediatek.c
+> +++ b/drivers/pwm/pwm-mediatek.c
+> @@ -121,6 +121,26 @@ static inline void pwm_mediatek_writel(struct pwm_mediatek_chip *chip,
+>   	writel(value, chip->regs + chip->soc->reg_offset[num] + offset);
+>   }
+>   
+> +static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+> +{
+> +	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+> +	u32 value;
+> +
+> +	value = readl(pc->regs);
+> +	value |= BIT(pwm->hwpwm);
+> +	writel(value, pc->regs);
+> +}
+> +
+> +static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
+> +{
+> +	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+> +	u32 value;
+> +
+> +	value = readl(pc->regs);
+> +	value &= ~BIT(pwm->hwpwm);
+> +	writel(value, pc->regs);
+> +}
+> +
+>   static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+>   			       int duty_ns, int period_ns)
+>   {
+> @@ -150,7 +170,10 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+>   	do_div(resolution, clk_rate);
+>   
+>   	cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000, resolution);
+> -	while (cnt_period > 8191) {
+> +	if (!cnt_period)
+> +		return -EINVAL;
+> +
+> +	while (cnt_period > 8192) {
+>   		resolution *= 2;
+>   		clkdiv++;
+>   		cnt_period = DIV_ROUND_CLOSEST_ULL((u64)period_ns * 1000,
+> @@ -173,9 +196,16 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+>   	}
+>   
+>   	cnt_duty = DIV_ROUND_CLOSEST_ULL((u64)duty_ns * 1000, resolution);
+> +
+>   	pwm_mediatek_writel(pc, pwm->hwpwm, PWMCON, BIT(15) | clkdiv);
+> -	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period);
+> -	pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty);
+> +	pwm_mediatek_writel(pc, pwm->hwpwm, reg_width, cnt_period - 1);
+> +
+> +	if (cnt_duty) {
+> +		pwm_mediatek_writel(pc, pwm->hwpwm, reg_thres, cnt_duty - 1);
+> +		pwm_mediatek_enable(chip, pwm);
+> +	} else {
+> +		pwm_mediatek_disable(chip, pwm);
+> +	}
+>   
+>   out:
+>   	pwm_mediatek_clk_disable(chip, pwm);
+> @@ -183,35 +213,6 @@ static int pwm_mediatek_config(struct pwm_chip *chip, struct pwm_device *pwm,
+>   	return ret;
+>   }
+>   
+> -static int pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
+> -{
+> -	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+> -	u32 value;
+> -	int ret;
+> -
+> -	ret = pwm_mediatek_clk_enable(chip, pwm);
+> -	if (ret < 0)
+> -		return ret;
+> -
+> -	value = readl(pc->regs);
+> -	value |= BIT(pwm->hwpwm);
+> -	writel(value, pc->regs);
+> -
+> -	return 0;
+> -}
+> -
+> -static void pwm_mediatek_disable(struct pwm_chip *chip, struct pwm_device *pwm)
+> -{
+> -	struct pwm_mediatek_chip *pc = to_pwm_mediatek_chip(chip);
+> -	u32 value;
+> -
+> -	value = readl(pc->regs);
+> -	value &= ~BIT(pwm->hwpwm);
+> -	writel(value, pc->regs);
+> -
+> -	pwm_mediatek_clk_disable(chip, pwm);
+> -}
+> -
+>   static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>   			      const struct pwm_state *state)
+>   {
+> @@ -221,8 +222,10 @@ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>   		return -EINVAL;
+>   
+>   	if (!state->enabled) {
+> -		if (pwm->state.enabled)
+> +		if (pwm->state.enabled) {
+>   			pwm_mediatek_disable(chip, pwm);
+> +			pwm_mediatek_clk_disable(chip, pwm);
+> +		}
+>   
+>   		return 0;
+>   	}
+> @@ -231,8 +234,11 @@ static int pwm_mediatek_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>   	if (err)
+>   		return err;
+>   
+> -	if (!pwm->state.enabled)
+> -		err = pwm_mediatek_enable(chip, pwm);
+> +	if (!pwm->state.enabled) {
+> +		err = pwm_mediatek_clk_enable(chip, pwm);
+> +		if (err < 0)
+> +			return err;
+> +	}
+>   
+>   	return err;
+>   }
+> 
+> base-commit: a02b105fe9f2b82cbd13b13a98c2b9ffae4a7c27
+
 
 
