@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A777C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51BAC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 10:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOHhhMg6UxPRzqOh8yy8Bvj7cAWr71JCBNSFhAC7tak=; b=0XfYMolV4HBf+/EaeMMqjR2/jn
-	e+RWoBpUIX75KSLrWv+7IaYHotwZR/tZNfeizp+9DLVNwmXC1+LYtAC4orCH58IGAgl40AUkKtD7J
-	YWAsRSqX9lquasoatkgQ2jTvCsrjI8jzaMgUtOQOGnmQs14OOx4qkXyeVlCKigI/izBplhqFfW0ky
-	4DgaDoZ5Wz52ix0Nmp9Q3O4+xO4K1NeRZYo+xBqPT43s2AMaEI6qRjYw3nucO3NIk0IsuxUQAF7rZ
-	U/ReX7DeMQzsrr6jm7NoqiQh9zLNiaHneR1WhJOFAkQbbdcj1X8REzui4sLAeMyLVT2ojXFmlTBrW
-	TBnZRvJg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sDTDf0PasvV/gsj4jdFHmOJoMA6NfUxJmWnitgeaMts=; b=4FqjCdhHCYNi9RE43OMlbFoH5F
+	4/eB1qzaCmqk1O+mNJ4Tn05LadU3D/lrFTvtCYHxmu1O7206J7KIF6yljdTNVEobg3p3efI1Uk428
+	vzrEBZ4Tatw4uiSexF7Ydl47oTj5QfMJW/Q5Kzg9I/cuZpQF705zStB1X3g0YR/1edfn6FQOugfqo
+	5RhJD6M1/3FyJJsVRBJ700Sbj3kWatfWgzVpAZb7hqLCBA+/OVdxIGD6+CG1KnH/22iPOz7sfjrD3
+	mVvpgm8oDamrjq+FmAUeCQKqOF6dawqQIwlAPY8/79fv+XD8dkYQPw9PAxxTpm2INTrQi8i1vM3t1
+	9ibNmPfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLOn-0000000EGjl-2dKf;
-	Mon, 28 Jul 2025 10:48:05 +0000
-Received: from layka.disroot.org ([178.21.23.139])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugL92-0000000EEqK-45C2;
-	Mon, 28 Jul 2025 10:31:50 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id B18DD22B44;
-	Mon, 28 Jul 2025 12:31:47 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id xoEDLdzWHo2z; Mon, 28 Jul 2025 12:31:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1753698705; bh=IBUegwoSVCEGUi2guCueCTNaXBxw8yQDmiCjNYZTQWk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=l3t8VRwP249bW2pC63+lBTZGAuNj5FkZGl6ntP5AjpwBv68m0C4Z0cy1OBRYNFN0l
-	 TsUjgsx5BYEq1pDyX84ISJwZxKjdjHvihknfzZAtoPPWaqVZ/slz/PEZ4mdHSTq1p/
-	 N9bJP5cGc1sSP0faQ8x0R33Elcr1WOrhmwMQOL1wPdEXMkIz/c6WeD7v2ZPkhS9WeR
-	 bWtABWJKdYWg0CgnYT9ndRhOZ/Jg0PFmQ+V2RsGU5a20+ZgMgs4a3QpbY8kGQRybkB
-	 Hpc6fgSKKW6yNAekZ0r4pPryoZD26w+uPn1H1dd3pmkTrPe0biq+IlmkSWoSgZNAe2
-	 FdrKFe+vZTBxw==
-From: Yao Zi <ziyao@disroot.org>
-To: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	id 1ugLRE-0000000EH16-0AjJ;
+	Mon, 28 Jul 2025 10:50:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugL94-0000000EEqF-0e3T
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Jul 2025 10:31:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88D50153B;
+	Mon, 28 Jul 2025 03:31:39 -0700 (PDT)
+Received: from MacBook-Pro.blr.arm.com (unknown [10.164.18.47])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 073EB3F673;
+	Mon, 28 Jul 2025 03:31:42 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: anshuman.khandual@arm.com,
+	quic_zhenhuah@quicinc.com,
+	ryan.roberts@arm.com,
+	kevin.brodsky@arm.com,
+	yangyicong@hisilicon.com,
+	joey.gouly@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Neil Armstrong <neil.armstrong@linaro.org>
-Subject: [PATCH v5 5/6] phy: rockchip: naneng-combphy: Add RK3528 support
-Date: Mon, 28 Jul 2025 10:29:47 +0000
-Message-ID: <20250728102947.38984-7-ziyao@disroot.org>
-In-Reply-To: <20250728102947.38984-2-ziyao@disroot.org>
-References: <20250728102947.38984-2-ziyao@disroot.org>
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	Dev Jain <dev.jain@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64/mm: Fix use-after-free due to race between memory hotunplug and ptdump
+Date: Mon, 28 Jul 2025 16:01:37 +0530
+Message-Id: <20250728103137.94726-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_033149_302623_40318A29 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20250728_033150_294342_8DDA19A6 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,233 +71,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip RK3528 integrates one naneng-combphy that is able to operate in
-PCIe and USB3 mode. The control logic is similar to previous variants of
-naneng-combphy but the register layout is apperantly different from the
-RK3568 one.
+Memory hotunplug is done under the hotplug lock and ptdump walk is done
+under the init_mm.mmap_lock. Therefore, ptdump and hotunplug can run
+simultaneously without any synchronization. During hotunplug,
+free_empty_tables() is ultimately called to free up the pagetables.
+The following race can happen, where x denotes the level of the pagetable:
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+CPU1					CPU2
+free_empty_pxd_table
+					ptdump_walk_pgd()
+					Get p(x+1)d table from pxd entry
+pxd_clear
+free_hotplug_pgtable_page(p(x+1)dp)
+					Still using the p(x+1)d table
+
+which leads to a user-after-free.
+
+To solve this, we need to synchronize ptdump_walk_pgd() with
+free_hotplug_pgtable_page() in such a way that ptdump never takes a
+reference on a freed pagetable.
+
+Since this race is very unlikely to happen in practice, we do not want to
+penalize other code paths taking the init_mm mmap_lock. Therefore, we use
+static keys. ptdump will enable the static key - upon observing that,
+the free_empty_pxd_table() functions will get patched in with an
+mmap_read_lock/unlock sequence. A code comment explains in detail, how
+a combination of acquire semantics of static_branch_enable() and the
+barriers in __flush_tlb_kernel_pgtable() ensures that ptdump will never
+get a hold on the address of a freed pagetable - either ptdump will block
+the table freeing path due to write locking the mmap_lock, or, the nullity
+of the pxd entry will be observed by ptdump, therefore having no access to
+the isolated p(x+1)d pagetable.
+
+This bug was found by code inspection, as a result of working on [1].
+1. https://lore.kernel.org/all/20250723161827.15802-1-dev.jain@arm.com/
+
+Cc: <stable@vger.kernel.org>
+Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
+Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- .../rockchip/phy-rockchip-naneng-combphy.c    | 189 +++++++++++++++++-
- 1 file changed, 188 insertions(+), 1 deletion(-)
+Rebased on Linux 6.16.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-index ce84166cd772..0d25872e6712 100644
---- a/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-naneng-combphy.c
-@@ -20,7 +20,46 @@
- #define REF_CLOCK_25MHz			(25 * HZ_PER_MHZ)
- #define REF_CLOCK_100MHz		(100 * HZ_PER_MHZ)
+ arch/arm64/include/asm/ptdump.h |  2 ++
+ arch/arm64/mm/mmu.c             | 61 +++++++++++++++++++++++++++++++++
+ arch/arm64/mm/ptdump.c          | 11 ++++--
+ 3 files changed, 72 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+index fded5358641f..4760168cbd6e 100644
+--- a/arch/arm64/include/asm/ptdump.h
++++ b/arch/arm64/include/asm/ptdump.h
+@@ -7,6 +7,8 @@
  
--/* COMBO PHY REG */
-+/* RK3528 COMBO PHY REG */
-+#define RK3528_PHYREG6				0x18
-+#define RK3528_PHYREG6_PLL_KVCO			GENMASK(12, 10)
-+#define RK3528_PHYREG6_PLL_KVCO_VALUE		0x2
-+#define RK3528_PHYREG6_SSC_DIR			GENMASK(5, 4)
-+#define RK3528_PHYREG6_SSC_UPWARD		0
-+#define RK3528_PHYREG6_SSC_DOWNWARD		1
+ #include <linux/ptdump.h>
+ 
++DECLARE_STATIC_KEY_FALSE(arm64_ptdump_key);
 +
-+#define RK3528_PHYREG40				0x100
-+#define RK3528_PHYREG40_SSC_EN			BIT(20)
-+#define RK3528_PHYREG40_SSC_CNT			GENMASK(10, 0)
-+#define RK3528_PHYREG40_SSC_CNT_VALUE		0x17d
+ #ifdef CONFIG_PTDUMP
+ 
+ #include <linux/mm_types.h>
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 00ab1d648db6..d2feef270880 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -46,6 +46,8 @@
+ #define NO_CONT_MAPPINGS	BIT(1)
+ #define NO_EXEC_MAPPINGS	BIT(2)	/* assumes FEAT_HPDS is not used */
+ 
++DEFINE_STATIC_KEY_FALSE(arm64_ptdump_key);
 +
-+#define RK3528_PHYREG42				0x108
-+#define RK3528_PHYREG42_CKDRV_CLK_SEL		BIT(29)
-+#define RK3528_PHYREG42_CKDRV_CLK_PLL		0
-+#define RK3528_PHYREG42_CKDRV_CLK_CKRCV		1
-+#define RK3528_PHYREG42_PLL_LPF_R1_ADJ		GENMASK(10, 7)
-+#define RK3528_PHYREG42_PLL_LPF_R1_ADJ_VALUE	0x9
-+#define RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ	GENMASK(6, 4)
-+#define RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ_VALUE 0x7
-+#define RK3528_PHYREG42_PLL_KVCO_ADJ		GENMASK(2, 0)
-+#define RK3528_PHYREG42_PLL_KVCO_ADJ_VALUE	0x0
-+
-+#define RK3528_PHYREG80				0x200
-+#define RK3528_PHYREG80_CTLE_EN			BIT(17)
-+
-+#define RK3528_PHYREG81				0x204
-+#define RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X	BIT(5)
-+#define RK3528_PHYREG81_SLEW_RATE_CTRL		GENMASK(2, 0)
-+#define RK3528_PHYREG81_SLEW_RATE_CTRL_SLOW	0x7
-+
-+#define RK3528_PHYREG83				0x20c
-+#define RK3528_PHYREG83_RX_SQUELCH		GENMASK(2, 0)
-+#define RK3528_PHYREG83_RX_SQUELCH_VALUE	0x6
-+
-+#define RK3528_PHYREG86				0x218
-+#define RK3528_PHYREG86_RTERM_DET_CLK_EN	BIT(14)
-+
-+/* RK3568 COMBO PHY REG */
- #define RK3568_PHYREG6				0x14
- #define RK3568_PHYREG6_PLL_DIV_MASK		GENMASK(7, 6)
- #define RK3568_PHYREG6_PLL_DIV_SHIFT		6
-@@ -400,6 +439,150 @@ static int rockchip_combphy_probe(struct platform_device *pdev)
- 	return PTR_ERR_OR_ZERO(phy_provider);
+ enum pgtable_type {
+ 	TABLE_PTE,
+ 	TABLE_PMD,
+@@ -1002,6 +1004,61 @@ static void unmap_hotplug_range(unsigned long addr, unsigned long end,
+ 	} while (addr = next, addr < end);
  }
  
-+static int rk3528_combphy_cfg(struct rockchip_combphy_priv *priv)
++/*
++ * Our objective is to prevent ptdump from reading a pagetable which has
++ * been freed.  Assume that ptdump_walk_pgd() (call this thread T1)
++ * executes completely on CPU1 and free_hotplug_pgtable_page() (call this
++ * thread T2) executes completely on CPU2. Let the region sandwiched by the
++ * mmap_write_lock/unlock in T1 be called CS (the critical section).
++ *
++ * Claim: The CS of T1 will never operate on a freed pagetable.
++ *
++ * Proof:
++ *
++ * Case 1: The static branch is visible to T2.
++ *
++ * Case 1 (a): T1 acquires the lock before T2 can.
++ * T2 will block until T1 drops the lock, so free_hotplug_pgtable_page() will
++ * only be executed after T1 exits CS.
++ *
++ * Case 1 (b): T2 acquires the lock before T1 can.
++ * The acquire semantics of mmap_read_lock() ensure that an empty pagetable
++ * entry (via pxd_clear()) is visible to T1 before T1 can enter CS, therefore
++ * it is impossible for the CS to get hold of the isolated level + 1 pagetable.
++ *
++ * Case 2: The static branch is not visible to T2.
++ *
++ * Since static_branch_enable() and mmap_write_lock() (via smp_mb()) have
++ * acquire semantics, it implies that the static branch will be visible to
++ * all CPUs before T1 can enter CS. The static branch not being visible to
++ * T2 therefore implies that T1 has not yet entered CS .... (i)
++ *
++ * The sequence of barriers via __flush_tlb_kernel_pgtable() in T2
++ * implies that if the invisibility of the static branch has been
++ * observed by T2 (i.e static_branch_unlikely() is observed as false),
++ * then all CPUs will have observed an empty pagetable entry via
++ * pxd_clear() ... (ii)
++ *
++ * Combining (i) and (ii), we conclude that T1 observes an empty pagetable
++ * entry before entering CS => it is impossible for the CS to get hold of
++ * the isolated level + 1 pagetable. Q.E.D
++ *
++ * We have proven that the claim is true on the assumption that
++ * there is no context switch for T1 and T2. Note that the reasoning
++ * of the proof uses barriers operating on the inner shareable domain,
++ * which means that they will affect all CPUs, and also a context switch
++ * will insert extra barriers into the code paths => the claim will
++ * stand true even if we drop the assumption.
++ */
++static void synchronize_with_ptdump(void)
 +{
-+	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-+	unsigned long rate;
-+	u32 val;
++	if (!static_branch_unlikely(&arm64_ptdump_key))
++		return;
 +
-+	/* Set SSC downward spread spectrum */
-+	val = FIELD_PREP(RK3528_PHYREG6_SSC_DIR, RK3528_PHYREG6_SSC_DOWNWARD);
-+	rockchip_combphy_updatel(priv, RK3528_PHYREG6_SSC_DIR, val, RK3528_PHYREG6);
-+
-+	switch (priv->type) {
-+	case PHY_TYPE_PCIE:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con0_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con1_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con2_for_pcie, true);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->con3_for_pcie, true);
-+		break;
-+	case PHY_TYPE_USB3:
-+		/* Enable adaptive CTLE for USB3.0 Rx */
-+		rockchip_combphy_updatel(priv, RK3528_PHYREG80_CTLE_EN, RK3528_PHYREG80_CTLE_EN,
-+					 RK3528_PHYREG80);
-+
-+		/* Set slow slew rate control for PI */
-+		val = FIELD_PREP(RK3528_PHYREG81_SLEW_RATE_CTRL,
-+				 RK3528_PHYREG81_SLEW_RATE_CTRL_SLOW);
-+		rockchip_combphy_updatel(priv, RK3528_PHYREG81_SLEW_RATE_CTRL, val,
-+					 RK3528_PHYREG81);
-+
-+		/* Set CDR phase path with 2x gain */
-+		rockchip_combphy_updatel(priv, RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X,
-+					 RK3528_PHYREG81_CDR_PHASE_PATH_GAIN_2X, RK3528_PHYREG81);
-+
-+		/* Set Rx squelch input filler bandwidth */
-+		val = FIELD_PREP(RK3528_PHYREG83_RX_SQUELCH, RK3528_PHYREG83_RX_SQUELCH_VALUE);
-+		rockchip_combphy_updatel(priv, RK3528_PHYREG83_RX_SQUELCH, val, RK3528_PHYREG83);
-+
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txcomp_sel, false);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_txelec_sel, false);
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->usb_mode_set, true);
-+		rockchip_combphy_param_write(priv->pipe_grf, &cfg->u3otg0_port_en, true);
-+		break;
-+	default:
-+		dev_err(priv->dev, "incompatible PHY type\n");
-+		return -EINVAL;
-+	}
-+
-+	rate = clk_get_rate(priv->refclk);
-+
-+	switch (rate) {
-+	case REF_CLOCK_24MHz:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_24m, true);
-+		if (priv->type == PHY_TYPE_USB3) {
-+			/* Set ssc_cnt[10:0]=00101111101 & 31.5KHz */
-+			val = FIELD_PREP(RK3528_PHYREG40_SSC_CNT, RK3528_PHYREG40_SSC_CNT_VALUE);
-+			rockchip_combphy_updatel(priv, RK3528_PHYREG40_SSC_CNT, val,
-+						 RK3528_PHYREG40);
-+		} else if (priv->type == PHY_TYPE_PCIE) {
-+			/* tx_trim[14]=1, Enable the counting clock of the rterm detect */
-+			rockchip_combphy_updatel(priv, RK3528_PHYREG86_RTERM_DET_CLK_EN,
-+						 RK3528_PHYREG86_RTERM_DET_CLK_EN, RK3528_PHYREG86);
-+		}
-+		break;
-+	case REF_CLOCK_100MHz:
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_100m, true);
-+		if (priv->type == PHY_TYPE_PCIE) {
-+			/* PLL KVCO tuning fine */
-+			val = FIELD_PREP(RK3528_PHYREG6_PLL_KVCO, RK3528_PHYREG6_PLL_KVCO_VALUE);
-+			rockchip_combphy_updatel(priv, RK3528_PHYREG6_PLL_KVCO, val,
-+						 RK3528_PHYREG6);
-+
-+			/* su_trim[6:4]=111, [10:7]=1001, [2:0]=000, swing 650mv */
-+			writel(0x570804f0, priv->mmio + RK3528_PHYREG42);
-+		}
-+		break;
-+	default:
-+		dev_err(priv->dev, "Unsupported rate: %lu\n", rate);
-+		return -EINVAL;
-+	}
-+
-+	if (device_property_read_bool(priv->dev, "rockchip,ext-refclk")) {
-+		rockchip_combphy_param_write(priv->phy_grf, &cfg->pipe_clk_ext, true);
-+
-+		if (priv->type == PHY_TYPE_PCIE && rate == REF_CLOCK_100MHz) {
-+			val = FIELD_PREP(RK3528_PHYREG42_CKDRV_CLK_SEL,
-+					 RK3528_PHYREG42_CKDRV_CLK_CKRCV);
-+			val |= FIELD_PREP(RK3528_PHYREG42_PLL_LPF_R1_ADJ,
-+					  RK3528_PHYREG42_PLL_LPF_R1_ADJ_VALUE);
-+			val |= FIELD_PREP(RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ,
-+					  RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ_VALUE);
-+			val |= FIELD_PREP(RK3528_PHYREG42_PLL_KVCO_ADJ,
-+					  RK3528_PHYREG42_PLL_KVCO_ADJ_VALUE);
-+			rockchip_combphy_updatel(priv,
-+						 RK3528_PHYREG42_CKDRV_CLK_SEL		|
-+						 RK3528_PHYREG42_PLL_LPF_R1_ADJ		|
-+						 RK3528_PHYREG42_PLL_CHGPUMP_CUR_ADJ	|
-+						 RK3528_PHYREG42_PLL_KVCO_ADJ,
-+						 val, RK3528_PHYREG42);
-+
-+			val = FIELD_PREP(RK3528_PHYREG6_PLL_KVCO, RK3528_PHYREG6_PLL_KVCO_VALUE);
-+			rockchip_combphy_updatel(priv, RK3528_PHYREG6_PLL_KVCO, val,
-+						 RK3528_PHYREG6);
-+		}
-+	}
-+
-+	if (priv->type == PHY_TYPE_PCIE) {
-+		if (device_property_read_bool(priv->dev, "rockchip,enable-ssc"))
-+			rockchip_combphy_updatel(priv, RK3528_PHYREG40_SSC_EN,
-+						 RK3528_PHYREG40_SSC_EN, RK3528_PHYREG40);
-+	}
-+
-+	return 0;
++	mmap_read_lock(&init_mm);
++	mmap_read_unlock(&init_mm);
 +}
 +
-+static const struct rockchip_combphy_grfcfg rk3528_combphy_grfcfgs = {
-+	/* pipe-phy-grf */
-+	.pcie_mode_set		= { 0x0000, 5, 0, 0x00, 0x11 },
-+	.usb_mode_set		= { 0x0000, 5, 0, 0x00, 0x04 },
-+	.pipe_rxterm_set	= { 0x0000, 12, 12, 0x00, 0x01 },
-+	.pipe_txelec_set	= { 0x0004, 1, 1, 0x00, 0x01 },
-+	.pipe_txcomp_set	= { 0x0004, 4, 4, 0x00, 0x01 },
-+	.pipe_clk_24m		= { 0x0004, 14, 13, 0x00, 0x00 },
-+	.pipe_clk_100m		= { 0x0004, 14, 13, 0x00, 0x02 },
-+	.pipe_rxterm_sel	= { 0x0008, 8, 8, 0x00, 0x01 },
-+	.pipe_txelec_sel	= { 0x0008, 12, 12, 0x00, 0x01 },
-+	.pipe_txcomp_sel	= { 0x0008, 15, 15, 0x00, 0x01 },
-+	.pipe_clk_ext		= { 0x000c, 9, 8, 0x02, 0x01 },
-+	.pipe_phy_status	= { 0x0034, 6, 6, 0x01, 0x00 },
-+	.con0_for_pcie		= { 0x0000, 15, 0, 0x00, 0x110 },
-+	.con1_for_pcie		= { 0x0004, 15, 0, 0x00, 0x00 },
-+	.con2_for_pcie		= { 0x0008, 15, 0, 0x00, 0x101 },
-+	.con3_for_pcie		= { 0x000c, 15, 0, 0x00, 0x0200 },
-+	/* pipe-grf */
-+	.u3otg0_port_en         = { 0x0044, 15, 0, 0x0181, 0x1100 },
-+};
-+
-+static const struct rockchip_combphy_cfg rk3528_combphy_cfgs = {
-+	.num_phys	= 1,
-+	.phy_ids	= {
-+		0xffdc0000,
-+	},
-+	.grfcfg		= &rk3528_combphy_grfcfgs,
-+	.combphy_cfg	= rk3528_combphy_cfg,
-+};
-+
- static int rk3562_combphy_cfg(struct rockchip_combphy_priv *priv)
- {
- 	const struct rockchip_combphy_grfcfg *cfg = priv->cfg->grfcfg;
-@@ -1225,6 +1408,10 @@ static const struct rockchip_combphy_cfg rk3588_combphy_cfgs = {
- };
+ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
+ 				 unsigned long end, unsigned long floor,
+ 				 unsigned long ceiling)
+@@ -1036,6 +1093,7 @@ static void free_empty_pte_table(pmd_t *pmdp, unsigned long addr,
  
- static const struct of_device_id rockchip_combphy_of_match[] = {
-+	{
-+		.compatible = "rockchip,rk3528-naneng-combphy",
-+		.data = &rk3528_combphy_cfgs,
-+	},
- 	{
- 		.compatible = "rockchip,rk3562-naneng-combphy",
- 		.data = &rk3562_combphy_cfgs,
+ 	pmd_clear(pmdp);
+ 	__flush_tlb_kernel_pgtable(start);
++	synchronize_with_ptdump();
+ 	free_hotplug_pgtable_page(virt_to_page(ptep));
+ }
+ 
+@@ -1076,6 +1134,7 @@ static void free_empty_pmd_table(pud_t *pudp, unsigned long addr,
+ 
+ 	pud_clear(pudp);
+ 	__flush_tlb_kernel_pgtable(start);
++	synchronize_with_ptdump();
+ 	free_hotplug_pgtable_page(virt_to_page(pmdp));
+ }
+ 
+@@ -1116,6 +1175,7 @@ static void free_empty_pud_table(p4d_t *p4dp, unsigned long addr,
+ 
+ 	p4d_clear(p4dp);
+ 	__flush_tlb_kernel_pgtable(start);
++	synchronize_with_ptdump();
+ 	free_hotplug_pgtable_page(virt_to_page(pudp));
+ }
+ 
+@@ -1156,6 +1216,7 @@ static void free_empty_p4d_table(pgd_t *pgdp, unsigned long addr,
+ 
+ 	pgd_clear(pgdp);
+ 	__flush_tlb_kernel_pgtable(start);
++	synchronize_with_ptdump();
+ 	free_hotplug_pgtable_page(virt_to_page(p4dp));
+ }
+ 
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index 421a5de806c6..d543c9f8ffa8 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -283,6 +283,13 @@ void note_page_flush(struct ptdump_state *pt_st)
+ 	note_page(pt_st, 0, -1, pte_val(pte_zero));
+ }
+ 
++static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
++{
++	static_branch_enable(&arm64_ptdump_key);
++	ptdump_walk_pgd(st, mm, NULL);
++	static_branch_disable(&arm64_ptdump_key);
++}
++
+ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+ {
+ 	unsigned long end = ~0UL;
+@@ -311,7 +318,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+ 		}
+ 	};
+ 
+-	ptdump_walk_pgd(&st.ptdump, info->mm, NULL);
++	arm64_ptdump_walk_pgd(&st.ptdump, info->mm);
+ }
+ 
+ static void __init ptdump_initialize(void)
+@@ -353,7 +360,7 @@ bool ptdump_check_wx(void)
+ 		}
+ 	};
+ 
+-	ptdump_walk_pgd(&st.ptdump, &init_mm, NULL);
++	arm64_ptdump_walk_pgd(&st.ptdump, &init_mm);
+ 
+ 	if (st.wx_pages || st.uxn_pages) {
+ 		pr_warn("Checked W+X mappings: FAILED, %lu W+X pages found, %lu non-UXN pages found\n",
 -- 
-2.50.1
+2.30.2
 
 
