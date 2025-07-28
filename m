@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27804C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 753CAC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teGULzlLhQelXQxFvtnY0vIFSRRR6DL2DW3iUjOhfaI=; b=Fg99OwXjQazO6yGqEhfyH/KzJf
-	6xoCKUv7wXDx6iH+D7afJGD7tc43ch/Lx104WmiZwgfEPiP1tIH0jok0jjG8amC2fB0GKGQAUfGHQ
-	yJaUzLA7tWJrfBDcqbbcm62FKZVVKxTgv8vlGihjOASvsDFBJ7GqbvKIcOjAJNoFgfl+JVL3wGZUp
-	NSbCaHehrD1oi3/+HAU/GIMicAGlxjil0N+11a20QF8nb2wQMmTbRFH5p4IZCin8aJbuMExNdkGDo
-	FsbypnQgF9vh3+q3pHd9bXy5ph1I/Vq3PABYMZpPhsB3ao1WFQtKLcV2QkrGHF6+SafBVTeAusObd
-	YztGqS4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rYuD7fR6ip+mX8V23wp9elDHlgpDSMqOrMV6oJH+6ZI=; b=RkGvto3JRSGPjYnXqFWvJgtv/u
+	gSUte9rgF/aGr8vRc13eHaArwb951QvMeywE41qOfsvQMb5gR8bOWFDy60NcSifY3K6L6kUH/SSW6
+	ufrq8fSrH69VJU4nRYliiUGdp8khwg0ASs4J11xsnFy+2UDq0vlDTZCKc3eX/uE+y645yPGoLSx44
+	1s1M5WneiIBKho9nBZ7PaF7C8LI2545bL7OfGYdDZCaUS41t8zmpODeKefJIqGmUNOPvsmjnnb0zt
+	x3wc/s01zQkQpSwKRNnlhXmuQSvDT21swc2ZIGXwYVXSNQd3ZLeu6EWQjfozZ+RBjjOV2QoLYqTsk
+	kG+fiSTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPNO-0000000EkcP-06YW;
-	Mon, 28 Jul 2025 15:02:54 +0000
-Received: from mail-vs1-f47.google.com ([209.85.217.47])
+	id 1ugPPo-0000000EkpH-0iVO;
+	Mon, 28 Jul 2025 15:05:24 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPHk-0000000Ejrl-19hP
+	id 1ugPJZ-0000000Ek6u-0Jft
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 14:57:05 +0000
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-4f133d4c615so1498631137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 07:57:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753714622; x=1754319422;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=teGULzlLhQelXQxFvtnY0vIFSRRR6DL2DW3iUjOhfaI=;
-        b=V5fccOz7SSEZ3B5xdCD7VciuEtX7X6gut1DymW/moL2YTjHAfyYHM+uz6g7zOE2y3c
-         FSC3ROelUiJ8ZuKORiJGFe5OJziAKlLd875EthLOPqdxMG5bp7fjvtQymK21Gua7mAH2
-         63nPRMeU1yglUv4VHmAb+fSVZEBiso/wGXzupBg+yViT1npbWu1h5oekgs7poFbLeA2w
-         Iz3lg9JQedBRpI7UL3sfLIhEDwY6xCjKGhmtjbuZuazn31wk2++MQvI4ef0NFbYHSrBO
-         qKVYyUNIdxzRPh4xunl/ADIdYrCtx8LHkqesAj0Tw7UoA5WE3/IwnSUJRu2rliOtlmQC
-         PMXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUn6SIfwijEbcWzkfnWS5BThW5PGru6q4qpGACqn9MlsrQZQlhN2q/yR2UBQoGg86pp00zB4dI6UeopxXuKJxtC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOudB6ZP6zF85OqgqzqBdopzCUdB6pT96WCHCdFxVV929E76Tj
-	NbVM98CpJ8wav1KAncCVbtTAEXaR0S7np+LpqsztyQ8Zq33vXgyCyCeAVSVLAEbO
-X-Gm-Gg: ASbGncurwE8f+L9i6HLS77EJKwtdjDpVW6vKna8yCb/3g+TmAzGfqY/xmrqbsPZMdaQ
-	lbDhotX/lFybRgzvINKoBAdwzaiNsp8miKrhYhCbiIJK3QLoerPvobvDw+CungsPEUzjOJiEday
-	0uD3xp7H+UJEKIQF0WA3dKaveSZMciD+90Z4xlYeycjr2L2l2YdNQmmlsg1pgKGFKuUf2qJyL+k
-	zaxefYlnpO+AwhVah+Ar7ZM/xSZCKsv3qP1jX1eMUVl16q82jzE37SJubli7QrEpkn3CdXpLoHX
-	Bf4Pvvp3FV6mVSrsL08bYMLLXWmfl09pI5SuPDruUfvhig/u8ib1wq/1y+Fwa0CzVwy3Qyd7+1o
-	OPwP5Yrwlb1zMF/u09CdrT506pfj9EDR9d/bsS4qu6S+/fYsfuoiYbNZJ2Kkq
-X-Google-Smtp-Source: AGHT+IGhmt2qXRkHJujuzUNSWdF/PodmdVmpFbuYlDFJlB07ehe7BIANrnFlbHub8wjIOcoidr5TFQ==
-X-Received: by 2002:a05:6102:fa9:b0:4e5:9149:7cb3 with SMTP id ada2fe7eead31-4fa3ff441a2mr5033522137.13.1753714622338;
-        Mon, 28 Jul 2025 07:57:02 -0700 (PDT)
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-88b8dcd50cesm1310175241.15.2025.07.28.07.57.01
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Jul 2025 07:57:01 -0700 (PDT)
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-4e7949d9753so1503471137.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 07:57:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXCtQEcyF2Dc0XNcEAiC+eYvpfRfE/auFuQGYFtST8O7nrlf375X9upTCfnf/nOSQjPN9lt232dBibzH0KkfySR@lists.infradead.org
-X-Received: by 2002:a05:6102:3053:b0:4e9:add0:2816 with SMTP id
- ada2fe7eead31-4fa3fc4c5b4mr3860343137.5.1753714621079; Mon, 28 Jul 2025
- 07:57:01 -0700 (PDT)
+	Mon, 28 Jul 2025 14:58:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1753714735;
+ bh=rYuD7fR6ip+mX8V23wp9elDHlgpDSMqOrMV6oJH+6ZI=;
+ b=fytko3Au1iPKrJa9ybhA/1yYXfri10hF1BiU0QepODZbFXgnIjbt39eI+9jagHDWhaFdCorZD
+ Os4TjfSh04/ijVd7SESlxPJDI6TqX/WmtHW//p/5or07AmqOjfzD6R0Wj5edxuB+DqqXBS0o/MD
+ QrqNV0Rt1XrzpPYKVNTvRU1jeLCD2Rf9Atp2BgRepSlthRRv/nW65bLvXWbPWvgjy3ki1uHnuOK
+ erh7EMJ23nIgYp4lH6vcFdDR13u5KsBHbVxL2TT/v7jcQzcvRj0qXLLrt1ojUO2wBGmwCNDIlY5
+ 8pyToabcy4K7OfMxyBNs7fI5WC1jnoAaGl9Ac43qPsDA==
+X-Forward-Email-ID: 68878ff5351ec66b15a194ff
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.1.8
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <65023e38-0f90-4d12-8615-a595e399b516@kwiboo.se>
+Date: Mon, 28 Jul 2025 16:57:50 +0200
 MIME-Version: 1.0
-References: <87freu5jxf.wl-kuninori.morimoto.gx@renesas.com>
-In-Reply-To: <87freu5jxf.wl-kuninori.morimoto.gx@renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 28 Jul 2025 16:56:50 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV=60U2n7iK1rCX=MecLw9M+afN8cap5GUL-apF49i-rw@mail.gmail.com>
-X-Gm-Features: Ac12FXyEDH2NSp2bCLnd8Wr6kjCgr2iKQZxQ0eQ7QGuMAe4WKYn1g0GaAKVr-S8
-Message-ID: <CAMuHMdV=60U2n7iK1rCX=MecLw9M+afN8cap5GUL-apF49i-rw@mail.gmail.com>
-Subject: Re: [issue report] ARM: compile error of frame size
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Cc: rmk+kernel@armlinux.org.uk, Russell King <linux@armlinux.org.uk>, 
-	linux-arm-kernel@lists.infradead.org, Marek Vasut <marek.vasut@mailbox.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
+ Radxa E24C
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ =?UTF-8?Q?Alvin_=C5=A0ipraga?= <alsi@bang-olufsen.dk>,
+ Vladimir Oltean <olteanv@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Yao Zi <ziyao@disroot.org>,
+ Chukun Pan <amadeus@jmu.edu.cn>, netdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20250727180305.381483-1-jonas@kwiboo.se>
+ <20250727180305.381483-4-jonas@kwiboo.se>
+ <be508398-9188-4713-800a-4d2cd630d247@lunn.ch>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <be508398-9188-4713-800a-4d2cd630d247@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_075704_312030_5F9D9836 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20250728_075857_148325_16823E13 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +88,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Morimoto-san,
+Hi Andrew,
 
-On Fri, 18 Jul 2025 at 04:09, Kuninori Morimoto
-<kuninori.morimoto.gx@renesas.com> wrote:
-> In these days, I got a lot of compile error about frame size on ARM.
-> like below.
->
->     ${linux}/lib/maple_tree.c:3818:1: error: the frame size of 1304 bytes is\
->      larger than 1280 bytes [-Werror=frame-larger-than=]
->
-> I can avoid these errors by modifing like below
-> (The new size is unreliable)
->
->         > grep CONFIG_FRAME_WARN .config
->         CONFIG_FRAME_WARN=2040
->
->         > git diff
->         diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
->         index d61369b1eabe..c5173bd82380 100644
->         --- a/arch/arm/boot/compressed/Makefile
->         +++ b/arch/arm/boot/compressed/Makefile
->         @@ -80,7 +80,7 @@ libfdt_objs := fdt_rw.o fdt_ro.o fdt_wip.o fdt.o
->
->          ifeq ($(CONFIG_ARM_ATAG_DTB_COMPAT),y)
->          CFLAGS_REMOVE_atags_to_fdt.o += -Wframe-larger-than=${CONFIG_FRAME_WARN}
-> -        CFLAGS_atags_to_fdt.o += -Wframe-larger-than=1280
-> +        CFLAGS_atags_to_fdt.o += -Wframe-larger-than=2040
->          OBJS   += $(libfdt_objs) atags_to_fdt.o
->          endif
->          ifeq ($(CONFIG_USE_OF),y)
->
->
-> Is it known issue ?
+On 7/27/2025 9:16 PM, Andrew Lunn wrote:
+> On Sun, Jul 27, 2025 at 06:03:00PM +0000, Jonas Karlman wrote:
+>> The Radxa E24C has a Realtek RTL8367RB-VB switch with four usable ports
+>> and is connected using a fixed-link to GMAC1 on the RK3528 SoC.
+>>
+>> Add an ethernet-switch node to describe the RTL8367RB-VB switch.
+>>
+>> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+>> ---
+>> Initial testing with iperf3 showed ~930-940 Mbits/sec in one direction
+>> and only around ~1-2 Mbits/sec in the other direction.
+>>
+>> The RK3528 hardware design guide recommends that timing between TXCLK
+>> and data is controlled by MAC, and timing between RXCLK and data is
+>> controlled by PHY.
+>>
+>> Any mix of MAC (rx/tx delay) and switch (rx/tx internal delay) did not
+>> seem to resolve this speed issue, however dropping snps,tso seems to fix
+>> that issue.
+> 
+> It could well be that the Synopsis TSO code does not understand the
+> DSA headers. When it takes a big block to TCP data and segments it,
+> you need to have the DSA header on each segment. If it does not do
+> that, only the first segment has the DSA header, the switch is going
+> to be dropping all the other segments, causes TCP to do a lot of
+> retries.
 
-Yes it is.  And it is hard to fix, according to the maple_tree maintainer:
-https://lore.kernel.org/all/troejyyno7oiokx4njv7cbahwhkvkovlopj2igwlsexxqmrmaj@f3cjalwkpvf6
+Thanks for your insights!
 
-Gr{oetje,eeting}s,
+I can confirm that disable of TSO and RX checksum offload on the conduit
+interface help fix any TCP speed issue and reduced UDP packet loss to a
+minimum.
 
-                        Geert
+Regards,
+Jonas
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+>> Unsure what is best here, should MAC or switch add the delays?
+> 
+> It should not matter. 2ns is 2ns...
+> 
+> 	Andrew
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
