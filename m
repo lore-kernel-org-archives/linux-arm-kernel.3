@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B87C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 11:59:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE982C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r2s2W3CeV4JjRQGIPp5GnSKupi9TJaP80uGHLGW0NVo=; b=nneG+dLxlcIXFcVG/Wvr8SRbUj
-	gaH3rQAJ7SJ+ysmOGBoDrrR/dhD0grJqCOgbJAcuCrD9r9YDM2fxxVvCrbe1lDzYKqWpne72KCZ9/
-	PRgM/ao0lJ/x6DU+k98cSUNOM9B1wvwW/Ta/jZGbm/kSP83mb47DJQZzI5KK1U4DyQpR6b1qwDoim
-	EH+8HbFsQUAasO3hMMce2EEnYaZlompMQnjzWqohqp1RPgUMrJn0uKiuyrvqcFE38kuiGSI5qz5CR
-	xiPUEBHNly9dJoyRSAytGs73x1BLmD7xw+CzEVQv5+vWkGnVjRZrZOYOSvxKdaElNzVs6RJFusiTG
-	XRX3Uq/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J4R+3pU08OkX3gKtctWPVhTGZmgj7VlZ1diX4X8BMsk=; b=20OE8KiXmF4S9Iy/hlcgPrR4aw
+	kAcenuV/kdAohtc5vbVyBxiykVbnQ8r/OLNRCrYRdWUb2Eyysi5yJU5rBjX2g961ex8DNlD/6/BGH
+	T8UfScsaY99yK8ZmzHsI+fSxixjd4/9xrtBg7S8nQyI7YrjM1oQy/Rc3uy5A50Tx7nVTaWMq+4TzJ
+	VAw/6X6hfXkCbUtibJBotMw4dnnc6wzDJicKI2RlPwLcGPFDg6MiG1WM5q0Uk06L8yEWk34R+/Sku
+	pD0pAPs+vWSs0wGb+NgkbrCIFEcNEX7ZqJ8mPAt6VWdYKe9GuB6a5X3nMRZJ+9tJ+1sMKiSFx1cgZ
+	IYG+y6Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMVl-0000000ENvk-1QBd;
-	Mon, 28 Jul 2025 11:59:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMTJ-0000000ENXe-1qQq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 11:56:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B57CD152B;
-	Mon, 28 Jul 2025 04:56:40 -0700 (PDT)
-Received: from [10.57.87.40] (unknown [10.57.87.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 543033F673;
-	Mon, 28 Jul 2025 04:56:46 -0700 (PDT)
-Message-ID: <ad29f800-34e3-45c4-afd6-3661b9cfaec3@arm.com>
-Date: Mon, 28 Jul 2025 12:56:44 +0100
+	id 1ugMYB-0000000EOEm-2t3a;
+	Mon, 28 Jul 2025 12:01:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugMUw-0000000ENhv-17jL;
+	Mon, 28 Jul 2025 11:58:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 51984A54CC6;
+	Mon, 28 Jul 2025 11:58:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D697C4CEF8;
+	Mon, 28 Jul 2025 11:58:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753703908;
+	bh=i7aKOq5KQVfB2/q14tophkJxPE1KTHjxLov6PFKAuzw=;
+	h=From:Date:Subject:To:Cc:From;
+	b=UiGFFLRXph6DIdO80VKAEFr2r6lwmFgP4INSrr85ATz85g79zqF06Rx5g03sDaGVU
+	 L0Sqmb0Na8c0PN/ylDtMv7CEuixYli5AI70nU37zR0mneU4ZoxIvL/KbSddUBvKAo+
+	 nECOR9/VZf1Wr77gN7+KYaQxpcHA3vfqVh9MnO6XAMxBnKcb3cLgG9pjtQv3WiWimA
+	 NS+vhowSnmqMzmFYkMG4l7ZOcyNthPkXqLJgxaF9ZV7m2b07DezwEJKj52Mdj8BwJR
+	 x5jxgsme08NjPMBzs5cuV/muESj8VaPzUoWHnXKtF8hb/LLwJvFN966vXYXNC2U+O9
+	 FG2ierM9a/5AQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 28 Jul 2025 13:58:08 +0200
+Subject: [PATCH net] net: airoha: Fix PPE table access in
+ airoha_ppe_debugfs_foe_show()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Fix use-after-free due to race between memory
- hotunplug and ptdump
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- mark.rutland@arm.com, maz@kernel.org, stable@vger.kernel.org
-References: <20250728103137.94726-1-dev.jain@arm.com>
- <f0e12d1e-110d-4a56-9f77-8fe2d664b0d1@arm.com>
- <ebbd54a7-1d84-4a47-8a66-394bdcb53d65@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <ebbd54a7-1d84-4a47-8a66-394bdcb53d65@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250728-airoha_ppe_foe_get_entry_locked-v1-1-8630ec73f3d1@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAM9lh2gC/x3NQQqDMBBG4avIrA2kwaL1KkWGqL86VJIwkdIi3
+ r2hy2/z3kkZKsjUVycp3pIlhoJbXdG0+bDCyFxMzrq7bV1nvGjcPKcEXiJ4xcEIh355j9MLs2k
+ tGowj8OgaKpWkWOTzPzyH6/oBWBGJdXEAAAA=
+X-Change-ID: 20250728-airoha_ppe_foe_get_entry_locked-70e4ebbee984
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_045649_519822_AC1030A1 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20250728_045830_461901_06879D31 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2025 12:31, Dev Jain wrote:
-> 
-> On 28/07/25 4:43 pm, Ryan Roberts wrote:
->> On 28/07/2025 11:31, Dev Jain wrote:
->>> Memory hotunplug is done under the hotplug lock and ptdump walk is done
->>> under the init_mm.mmap_lock. Therefore, ptdump and hotunplug can run
->>> simultaneously without any synchronization. During hotunplug,
->>> free_empty_tables() is ultimately called to free up the pagetables.
->>> The following race can happen, where x denotes the level of the pagetable:
->>>
->>> CPU1                    CPU2
->>> free_empty_pxd_table
->>>                     ptdump_walk_pgd()
->>>                     Get p(x+1)d table from pxd entry
->>> pxd_clear
->>> free_hotplug_pgtable_page(p(x+1)dp)
->>>                     Still using the p(x+1)d table
->>>
->>> which leads to a user-after-free.
->> I'm not sure I understand this. ptdump_show() protects against this with
->> get_online_mems()/put_online_mems(), doesn't it? There are 2 paths that call
->> ptdump_walk_pgd(). This protects one of them. The other is ptdump_check_wx(); I
->> thought you (or Anshuman?) had a patch in flight to fix that with
->> [get|put]_online_mems() too?
->>
->> Sorry if my memory is failing me here...
-> 
-> Nope, I think I just had a use-after-free in my memory so I came up with this
-> patch :)
-> Because of the recent work with ptdump, I was so concentrated on
-> ptdump_walk_pgd() that I
-> didn't even bother looking up the call chain. And I even forgot we had these
-> [get|put]_online_mems()
-> patches recently.
+In order to avoid any possible race we need to hold the ppe_lock
+spinlock accessing the hw PPE table. airoha_ppe_foe_get_entry routine is
+always executed holding ppe_lock except in airoha_ppe_debugfs_foe_show
+routine. Fix the problem introducing airoha_ppe_foe_get_entry_locked
+routine.
 
-I just checked; Anshuman's fix is in mm-stable, so I guess it'll be in v6.17-rc1.
+Fixes: 3fe15c640f380 ("net: airoha: Introduce PPE debugfs support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.h         |  4 ++--
+ drivers/net/ethernet/airoha/airoha_ppe.c         | 18 ++++++++++++++++--
+ drivers/net/ethernet/airoha/airoha_ppe_debugfs.c |  2 +-
+ 3 files changed, 19 insertions(+), 5 deletions(-)
 
-That's the patch:
-https://lore.kernel.org/linux-arm-kernel/20250620052427.2092093-1-anshuman.khandual@arm.com/
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index a970b789cf232c316e5ea27b0146493bf91c3767..cf33d731ad0db43bca8463fde76673b39a4f6796 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -615,8 +615,8 @@ int airoha_ppe_setup_tc_block_cb(struct net_device *dev, void *type_data);
+ int airoha_ppe_init(struct airoha_eth *eth);
+ void airoha_ppe_deinit(struct airoha_eth *eth);
+ void airoha_ppe_init_upd_mem(struct airoha_gdm_port *port);
+-struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+-						  u32 hash);
++struct airoha_foe_entry *
++airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash);
+ void airoha_ppe_foe_entry_get_stats(struct airoha_ppe *ppe, u32 hash,
+ 				    struct airoha_foe_stats64 *stats);
+ 
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 0e217acfc5ef748453b020e5713ace1910abc4a8..4dbf2bf187d02e3e8b9d2b966036c3aa58c867b1 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -498,9 +498,11 @@ static void airoha_ppe_foe_flow_stats_update(struct airoha_ppe *ppe,
+ 		FIELD_PREP(AIROHA_FOE_IB2_NBQ, nbq);
+ }
+ 
+-struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+-						  u32 hash)
++static struct airoha_foe_entry *
++airoha_ppe_foe_get_entry(struct airoha_ppe *ppe, u32 hash)
+ {
++	lockdep_assert_held(&ppe_lock);
++
+ 	if (hash < PPE_SRAM_NUM_ENTRIES) {
+ 		u32 *hwe = ppe->foe + hash * sizeof(struct airoha_foe_entry);
+ 		struct airoha_eth *eth = ppe->eth;
+@@ -527,6 +529,18 @@ struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+ 	return ppe->foe + hash * sizeof(struct airoha_foe_entry);
+ }
+ 
++struct airoha_foe_entry *
++airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash)
++{
++	struct airoha_foe_entry *hwe;
++
++	spin_lock_bh(&ppe_lock);
++	hwe = airoha_ppe_foe_get_entry(ppe, hash);
++	spin_unlock_bh(&ppe_lock);
++
++	return hwe;
++}
++
+ static bool airoha_ppe_foe_compare_entry(struct airoha_flow_table_entry *e,
+ 					 struct airoha_foe_entry *hwe)
+ {
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
+index 05a756233f6a44fa51d1c57dd39d89c8ea488054..992bf2e9598414ee3f1f126be3f451e486b26640 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
+@@ -67,7 +67,7 @@ static int airoha_ppe_debugfs_foe_show(struct seq_file *m, void *private,
+ 		u32 type, state, ib2, data;
+ 		bool ipv6 = false;
+ 
+-		hwe = airoha_ppe_foe_get_entry(ppe, i);
++		hwe = airoha_ppe_foe_get_entry_locked(ppe, i);
+ 		if (!hwe)
+ 			continue;
+ 
 
-> 
-> Sorry for the noise, it must have been incredibly confusing to see this patch :(
-> 
+---
+base-commit: afd8c2c9e2e29c6c7705635bea2960593976dacc
+change-id: 20250728-airoha_ppe_foe_get_entry_locked-70e4ebbee984
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
