@@ -4,207 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08FDC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 11:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65309C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 11:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4++q4IBH/FYEU/5BRRmUPh446FoGjnVJzq0klnKyK0c=; b=otWKY/oKA97IexjWEdVG0DlW1i
-	1Xp7ahT8SKISB/glX+BJPIhi+LhBPBvSRFoHoepMwF2OhPWyJ2B+X8HcoamlILqzaaTlmMA5RDma9
-	3802zJT9OpqmIIwabbFxpPuaxYa2Si8iwlYaiksU+hL0PN4DC3IcALPrvwOAWWsZ+0G9NUnGd5Yd1
-	ZA0ygmeZ80zX6rh3toYiKRwe7dFz7vWcIgu73tP65O8UhsIlJ8q6oAYfzjdtU0FHRrHRC+dLQ5+NJ
-	x+UnSlFmANPztpFO31v7kKe1QSMm/pN03e2IS4hkpM7b3Z2tQx9L4jQjggtRyNTOSR8ePWhR4RT20
-	WqluMg8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y/1UGYhmqinY+xVO1aq8xhFg/G6ZxrNisBYwk8sUDLI=; b=c3ulx4jdCCR+96VbSslM1Jj3sh
+	BcDVtjpNaVVvYv1e86PI0wEnWpwlNPrvZ9iwrk2d0PpGTJ0DmqGv8NL3C8jMBzFsCnAqomrWTxyak
+	Nv1qUdun4LHOlOOKEC5XcNoI5Ck4JiBk3UNUVlesnj7QpsKslzCbe4C1hoD1VJG2PMWOuEMWpfFWm
+	U/x7xPd54moyZ+zvLM3tnkQ2ukjPNHiD4LKbPm3Xh2zcSjdheRjQjfnyXa3wYp/Bx1RgNYf9hE6We
+	NOqadpLqRkDHgH6AVAQ+sx1MhF6Ly9zoIcKoa9FBJZFsyH6so4RyT21bdDL2QPeeQdksAcMdTpNuo
+	DPLz708Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLau-0000000EItT-2Ta4;
-	Mon, 28 Jul 2025 11:00:36 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLJm-0000000EG6C-2zTc
+	id 1ugLdK-0000000EJ5t-0aGa;
+	Mon, 28 Jul 2025 11:03:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugLQ8-0000000EGwH-3RdR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 10:42:56 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=yjUuWb7NePMB/mQU7yvZPTzax9OG/VtidqHA1xspR4mvgyxK0GArSSu67wA7ZAImIrT9zk5uX/3fX2NTwNSQ4fO3tWZoyvb4oCcOIGfXpk7Ygd51ME5JF1mbBs3ocszgc5JR9COrPQHHIsTkbmT2MUseMpFHuplLlzXBAoCelYb0ozcjRV1ZOwG6jy2z/mn/xBfbOkk05Q4K7FVfgAWTmoIqPMW7afwDsIkuvVfLZTzz6blthNPGrEIQY4qCprVg0OJxvlijwc6sf15cuSfrPPr2WtgYD4bRWYWcC+eVBIiaNFnpdF3XyUGFdxFzKNTxfFDU+wZiaE4wzcbBD0hPTg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4++q4IBH/FYEU/5BRRmUPh446FoGjnVJzq0klnKyK0c=;
- b=QyO7ITs/6Xo7nTGbSMXlEwsagMOx68c6Erhm4zrLPxZ6LHn42DSJX6AfAIY0ohUSRVYLDjDofv9zRrojyLE61UYfBOEH9dx6sQQ7L7mcIQjzPEVUbpwVr0u1j+GYWSgeA3/ZCYj9k08kSNe0D63OTD0sHa63Y3k2ORYOp3iMGyIpHdvYPP503xsAk+yTHiEn/aGHe0wssS+4lwyyNOUZijaD7Nk5YjMqHShDFvCT96JPqfz3EAUO8J36Q7D2evE06e94Ct8NDFuPaALRIE2Gka8wX+mgaMUT89TcfelWLBFILaEWPu3IUYVXV5u6VpnIaSLrl0GGqTlHKImUOickhQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4++q4IBH/FYEU/5BRRmUPh446FoGjnVJzq0klnKyK0c=;
- b=YFkoFMOijxpwcGth6QPWu17G+PvxvZ4KFOiWI8VCQ9oYuIlGsNd2YNsBTbejnIL1qhh2SbAjp0SLd8pgvxoSRa9q4w/+Bd6d/s2kIdWCHqTLSEuXHeRZIV0mw3tfqz1el+3pd7uPe/RXsb1wnfUhOazudhP6HIbTCgbI01qAqbg=
-Received: from DU2PR04CA0166.eurprd04.prod.outlook.com (2603:10a6:10:2b0::21)
- by DU0PR08MB8253.eurprd08.prod.outlook.com (2603:10a6:10:413::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.26; Mon, 28 Jul
- 2025 10:42:48 +0000
-Received: from DB5PEPF00014B92.eurprd02.prod.outlook.com
- (2603:10a6:10:2b0:cafe::f3) by DU2PR04CA0166.outlook.office365.com
- (2603:10a6:10:2b0::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8964.27 via Frontend Transport; Mon,
- 28 Jul 2025 10:42:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB5PEPF00014B92.mail.protection.outlook.com (10.167.8.230) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.10
- via Frontend Transport; Mon, 28 Jul 2025 10:42:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J6ipnqFd3qAc1Z8bX91Q8c8c3mfPjit/4EfRfSMo9Z99LJ6DRx7Qgmu9xhMc5/anS3lv3H5FhBqa8XyI/S3M8CGrGPE1QUPMa30PYE5CxAUnleyavu98SQSS+EVYZGnXIIYSDli2kgwOOMcP01nnDbG11x+jVU8/zVqW2CiPOcZaDYk5D13mgrxV+ORXTUeQ1aA9N5GUHLzDZ5yyB53JaGhPfubyyE9TZRqR8sgolLFOd5Ve+mLkB+8XW530zLth6LZAGxlrAn4VH6KjNzkPCrp2a2UvGw5Eyc6NlT9vAVg9xOjETZ3bKOqa3rVrZlWL7IaJ37b3X3LKRuMUwgOoKQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4++q4IBH/FYEU/5BRRmUPh446FoGjnVJzq0klnKyK0c=;
- b=yTXPZ7aB+LiO0ctjun2lBriuxiR9zP76+h3yIUepXsoti21d6VqkmTebGL0RXR9wdsv65dsKggoa6qsk6pnrXw7VgsL8i1nYHmNgstD+KIQkb1RgBJZPN4P0RIErg0ebuxFaX5Uvjfars4Bmhsc0iHbMwGqVhh45IGfX+j0OjrEXKQGHgMfHecLxeTBWt2vg8Np2x5upeJ1i5WBijNiCWqwymodHEkVSjr4xjZn8yuBQxbsS4K0TPmURr8QpXeZiw5GAuedATM4p/v2Q/pKMfEwHYRx1vF4fV4qIijk78Wcc6RJ74pI3bQ4cW+7XWUBdOnqViM/4vPtqs0QnLDjgZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4++q4IBH/FYEU/5BRRmUPh446FoGjnVJzq0klnKyK0c=;
- b=YFkoFMOijxpwcGth6QPWu17G+PvxvZ4KFOiWI8VCQ9oYuIlGsNd2YNsBTbejnIL1qhh2SbAjp0SLd8pgvxoSRa9q4w/+Bd6d/s2kIdWCHqTLSEuXHeRZIV0mw3tfqz1el+3pd7uPe/RXsb1wnfUhOazudhP6HIbTCgbI01qAqbg=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by PAWPR08MB9966.eurprd08.prod.outlook.com (2603:10a6:102:35e::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.23; Mon, 28 Jul
- 2025 10:42:15 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8964.025; Mon, 28 Jul 2025
- 10:42:14 +0000
-Message-ID: <c1a9284b-972a-4474-9151-0a2ed8558b9e@arm.com>
-Date: Mon, 28 Jul 2025 16:12:08 +0530
+	Mon, 28 Jul 2025 10:49:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27264152B;
+	Mon, 28 Jul 2025 03:49:20 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 33D2E3F673;
+	Mon, 28 Jul 2025 03:49:24 -0700 (PDT)
+Message-ID: <a8dd0921-9d25-4f57-97ee-9b44b8ff5057@arm.com>
+Date: Mon, 28 Jul 2025 11:49:22 +0100
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Fix use-after-free due to race between memory
- hotunplug and ptdump
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
- ryan.roberts@arm.com, kevin.brodsky@arm.com, yangyicong@hisilicon.com,
- joey.gouly@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, mark.rutland@arm.com, maz@kernel.org,
- stable@vger.kernel.org
-References: <20250728103137.94726-1-dev.jain@arm.com>
+Subject: Re: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-26-james.morse@arm.com>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20250728103137.94726-1-dev.jain@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-26-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MAXPR01CA0108.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a00:5d::26) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|PAWPR08MB9966:EE_|DB5PEPF00014B92:EE_|DU0PR08MB8253:EE_
-X-MS-Office365-Filtering-Correlation-Id: af720604-01bf-4481-73b7-08ddcdc37e43
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?dElwUGJkWTRDT0V5cU1nY2pJZDdBWTkwK2ZPbW9hL21LN2w4Zmc0dDVJNEgr?=
- =?utf-8?B?MFlBRWQrZUR4c0IrTWQ5dk0zcXAvbmcxbFNsR2Z0b2pCSmtQYW1wWHc3bERo?=
- =?utf-8?B?YjA5QVNGUW5odTR5d3laNDlTSGQzQnBoWmhKRUwxVWk1cjRGeGk2V3lYRlNz?=
- =?utf-8?B?YmptUGhnUWQ3bVZBUWVpdFk2OXhnSGFKWW9RTmJoMHZXTlZHamg1M2VxcmpD?=
- =?utf-8?B?V0tFeUwwMEU2aUwySVZjTFVxRldYRU1nckFrNk1xNDJMZm50eHppU0djRTZo?=
- =?utf-8?B?c1pWRTU2enRRTDdScklLSSswNUN6K2NOS3N5MFNYcko1UW1IaTVyOWdMSk5t?=
- =?utf-8?B?aWpJeThRWE0vbllwNnJEODBNeDBJcEF4NkZIYjU5LzRpUUovWmorQVVZN1Qw?=
- =?utf-8?B?dzcyYWVyT016R3hPM3FuOUJFZXFJeUZPSzhHcjRUeXhIYlJnQjBCeW1PRjRz?=
- =?utf-8?B?VHdHRDEybzZVbDNCQVhEQU53dzRQRWVReHVMUFQ3UTJiMnV3U3hBY2sySVNM?=
- =?utf-8?B?SUNPUlVnaE1jMUE3Nm1JYzRaTkQ1SVA4NmVNNU9RTFpwTks5TWNnaGVGMW5u?=
- =?utf-8?B?N0ZIQnd0WU9VVjU3dlNKT2ZRWldkQlBWcW5KaENBT0N3V1VucStmTFQ0SUZJ?=
- =?utf-8?B?Q1gzaXVpNk4vRlJpSkxxR0pqekpGNVNoRUR5ZHJZdWlCWGlWMGFvMWtKcjFT?=
- =?utf-8?B?MjNLR3ZDdVNKclRlMkMwKzFJWjdXTWtRVldUdjBBMWJNUStCZFp4bWRsSWFo?=
- =?utf-8?B?dEdCU3pSQUFMSzJKaytZNlFBVExic3VxYnRGMVFiWjhTcVlmM3g1ZC9UbHJ5?=
- =?utf-8?B?MndLVzNnUEgxSEVlNHJ0NCsrdzloWm96bHpDL2JlOWxxUmV1U1ZIVlpyK2x6?=
- =?utf-8?B?ZnhiNHUwaGNFMm5ERUFXMWZsWktNbVZBM3orZG1lSEVPc2pTdm5DL3ZLMElv?=
- =?utf-8?B?VGtrdGJXcUxhN2tqREtGVDNSNXR3VG5XYmY4VXMzT3kvNDBrcjdZRDJSUUNp?=
- =?utf-8?B?M2pObW5kd1hhZ05wSnZQRi9NcXU2aEt0bXorOUtiVmFYZG5rK3ZIOUVweEVo?=
- =?utf-8?B?SVphTU9iWEE5SFNCY1lXZzFwVzJaUHNKSExGZFZHZFZOOFJGUm9WcGltbFlU?=
- =?utf-8?B?czJiTWlwY1ZHQUt5N2pDOStZcndkMm90a2sxTlR6cG45elU1YUloSFBzWEls?=
- =?utf-8?B?L01YREdYelE2YWZDcUVmcE5QNnlDcUY3aUFTODdZRHVwYVdMUjJQNXBhVTF1?=
- =?utf-8?B?U2kzU3A3SjB0cVIrZDNGTThseVcrSU1FeGJiT2FFaDFXRWs1MnVFaExaay8v?=
- =?utf-8?B?ZTlnQjlyZVluUkh1WUVlbW43KzM2Q2xsZGhTdlpBek1NOVdEdS90aVFheHBN?=
- =?utf-8?B?R1dWNkFmVEVWSk9jM3gwWjJxcjZFWS9GbjBDVmEyeE5XeXlOdmQ1UC9hL05K?=
- =?utf-8?B?RWhDV05hbDlERW8wWkpQVTNGZXRFVTM1TEZYWXlEVzhNSWxGTUQxbFZ4cGRh?=
- =?utf-8?B?QUFBMFdHM2J1STFITmNLbGdjVU9VTFdBUTNVV080S20zTGxFZzIrZEsza2pm?=
- =?utf-8?B?QU0wQVN2c2E5VE55eENmQXBsWW82SGs5Yi8zME9jMkphWFBRU0lWeTJrZ01a?=
- =?utf-8?B?cjFJWVlKMmsxMEtxOVJvMGVKSENYQUd2Qnc0ZnhwWCtOUTVwNFpMZDRRK0t6?=
- =?utf-8?B?azJqTW5ZdFJhK1IwK3lZTHJ6dGtiYVdKR29oYjhhaUlSSTZmOHpQZHFBQ2VC?=
- =?utf-8?B?NGgrOG15TjFkYkg4dHZUeWpWUG0xeE8rN0VtNnQ1REFFb1U1Zi9VSERDRCtO?=
- =?utf-8?B?OFN2Ynk5TncvN1NIbWVOYStlMWxMZnlxUnBGbDdvL2NzaDd3R0ZPaVFUUWpC?=
- =?utf-8?B?WEFqRk1QT1dDekhJaWt5dGlkWlZqMm9DdW5vVThiY3gwVnc9PQ==?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB9966
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B92.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 243745f7-a278-4f45-6ea6-08ddcdc36a45
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|82310400026|36860700013|376014|14060799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXNwcEFPUGRHbTVQU2ZkRWJkNnoxWGxlZDRzMVZnYnpwME45Nmtlb29WYnlj?=
- =?utf-8?B?aHl1K0ljNURGSFZHN2M3bmpPeTIxZ0ZYbDE4Q1FkYVI5MHpvWXMvYnM5WXNX?=
- =?utf-8?B?YjRpSC83MmhwK055ZnZxNlJCL2g5QVNla3Q4ZHFnQXJkVzJWUTFYOEtac0FP?=
- =?utf-8?B?TzhlcUdIOWhPai9na08vZThjaEpoZ2pvdEN5K0dBLzR6d1FHL3ZzektaVU1S?=
- =?utf-8?B?TVB6TU85VjFIZWxQbkEyWVdHenRIWkhvNjlFaFc3MVR0K2k2R0xHWjlZZElL?=
- =?utf-8?B?UzFtZUwwQVJGNE5Rd2NkNEp4REV1REtMQmlSTkpaUnRnOGhpQ1BaMFBWQ3lH?=
- =?utf-8?B?Vmh3MkZwV00yRDNER2ZOYVc5RFRlQXpOVG8zMFhKOGNiKzZ2VnRxR0wzQ3Ix?=
- =?utf-8?B?VVJBdkFKNEsxQXlPaTNVNVF6WFlNQVMvOFpwSmVXUzBqQkRnZWdPdkZTSGpj?=
- =?utf-8?B?cVdTOEF0eXNyQTBxUEdLbHRQMFpjMVVFM3dZVjJRRUVCY0pPVDczR0lrOGhI?=
- =?utf-8?B?N2ZJdk55aW9VRHVvejhNSEdLSEpRL2JycUs4S3lYZHhCeDNLZUxTUFFDN2FM?=
- =?utf-8?B?TjFhMUNQdTNNNmFZMlZ1Y0FzVE5UUko2dkI3OWVyK2JFL0lqclRQcGhxQ0Fr?=
- =?utf-8?B?ajA1Um5xT0trcjk4M2tEN2pxejBxZnNvV3VpNjJKVmROMFVMU2kxUWJLci8x?=
- =?utf-8?B?bFc0Vkd5akFTNGJ5SzRoL0o1aVQybjZ4b2p1aUg2NjV1UThTZWcrWDFRL3JD?=
- =?utf-8?B?bE1TRkRybUxrZjJRYXFJamlMYTgyWE1YTWtjS3hRZ1k0dEJQZ2tINUdZS1JG?=
- =?utf-8?B?LzFZVWRSTTRXRzNJbVV4SXc5SW9GUEdHQVIxSFp5UDdyc3ZLakJFZ3dmeTZ0?=
- =?utf-8?B?M2hzeVFzMVlTLzhVOG03V2xHRXZxck1sRXJLWHlhU2Q1UFhSa0VzNzdqWHJt?=
- =?utf-8?B?b3d1MS9WcUNzbVJOVkgrcGpuZFBpaGpqK0Z5ejN5RXdaMGVtV1p2K0FxaVBj?=
- =?utf-8?B?MzZsRG4rNlVrYkVmS1ZqbTdlYUhHcklXRWgybnZBYUxZWVAwbVZyWmhrMjZx?=
- =?utf-8?B?cTdsdHBacGRENHdFTlg5Y3ExRmQ5c0Fpb3N0MzFpZlhyT2cyMVRhWmViMEhC?=
- =?utf-8?B?OE5xdStkZWgzSHY1VFVQNmdEYnZtcVQvU01JMzF3K1krdXZFeXZNT2h3d1NL?=
- =?utf-8?B?NjI0WGEwMnpQK09zSllRaGF6WEk0V0ZmODBLRVI4WGtGQWcvT0E0UUxSbGZS?=
- =?utf-8?B?dzdiQVh2eEtPMFNlSmFIZjBpZE9qQytWSDBBMEpReDFWQy9zZlFxRlpoSnRK?=
- =?utf-8?B?RzJLbWVUV01vV2RWbHVPdDNjZkVxQTFEVjFxR2EvdEVyT21IRXdnVGZlS1dm?=
- =?utf-8?B?Vk1Keit3aGJzUjB5QldQelRqaWgvUUZPRkJGQ1FpTE5sOWFTdXpqeXVraXFq?=
- =?utf-8?B?SjJrbGcwa3FqSllKVVkvN0FoZit4dVZoeHBBb0kxUUg1VDZlbFAzRDF6djZH?=
- =?utf-8?B?QzFJcnNoQlRNRWo3S1c3UFEyMjB6TTZWQmNFYjB2MEQ3OEZKdDJVN3NVcWJu?=
- =?utf-8?B?SndiTjk4dEpQQ2lQOFpLRHVkUmkzNWlxeS9YckdIRlN4Nnk0N2djbVRRejZk?=
- =?utf-8?B?Yk40Q3IzVGRxeksxczhmaVY5T29xczhiaTErMkVhSm41T2plMUY3b2tVYnpU?=
- =?utf-8?B?d2M3dDlVaWZsa2M1YkdmV2Q0ZFUyZjZNcU1jZDVhUk5ZK3hFZ1U2OGs4eis4?=
- =?utf-8?B?UEQyT3ZvV1FZNnFUNUVwWTduUW1EcXYxeTFGVi9lbE9LSmRuUklDOWlWQnlQ?=
- =?utf-8?B?VzFmaWNLbU1qOHRRK0RHN3o3bG0zM3ZsS2hMVjR0WlUzaTdxVTNMNjd5ZXNw?=
- =?utf-8?B?RXZxaXVtN0sxaUVmcEhpcnZVOXZSc2lkanQzL1ZJS28xVGRMQnZMWEFNOXFk?=
- =?utf-8?B?TTIvdGNTODl0OFFtWEx1eG9BZEo5bWZ3cC95SEsvSERWcnJzb2dyR0dMUll1?=
- =?utf-8?B?dytVTHhuVWQ5VDU3a2l3Tm1FeW94cjZmekpnQkFwZ01RaldleXdaRlZmYmlV?=
- =?utf-8?Q?C4UR8o?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(82310400026)(36860700013)(376014)(14060799003);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2025 10:42:47.6089
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: af720604-01bf-4481-73b7-08ddcdc37e43
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B92.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_034254_966730_8C1205B5 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20250728_034928_948957_85C8001D 
+X-CRM114-Status: GOOD (  36.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -219,51 +76,487 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James,
 
-On 28/07/25 4:01 pm, Dev Jain wrote:
-> Memory hotunplug is done under the hotplug lock and ptdump walk is done
-> under the init_mm.mmap_lock. Therefore, ptdump and hotunplug can run
-> simultaneously without any synchronization. During hotunplug,
-> free_empty_tables() is ultimately called to free up the pagetables.
-> The following race can happen, where x denotes the level of the pagetable:
->
-> CPU1					CPU2
-> free_empty_pxd_table
-> 					ptdump_walk_pgd()
-> 					Get p(x+1)d table from pxd entry
-> pxd_clear
-> free_hotplug_pgtable_page(p(x+1)dp)
-> 					Still using the p(x+1)d table
->
-> which leads to a user-after-free.
->
-> To solve this, we need to synchronize ptdump_walk_pgd() with
-> free_hotplug_pgtable_page() in such a way that ptdump never takes a
-> reference on a freed pagetable.
->
-> Since this race is very unlikely to happen in practice, we do not want to
-> penalize other code paths taking the init_mm mmap_lock. Therefore, we use
-> static keys. ptdump will enable the static key - upon observing that,
-> the free_empty_pxd_table() functions will get patched in with an
-> mmap_read_lock/unlock sequence. A code comment explains in detail, how
-> a combination of acquire semantics of static_branch_enable() and the
-> barriers in __flush_tlb_kernel_pgtable() ensures that ptdump will never
-> get a hold on the address of a freed pagetable - either ptdump will block
-> the table freeing path due to write locking the mmap_lock, or, the nullity
-> of the pxd entry will be observed by ptdump, therefore having no access to
-> the isolated p(x+1)d pagetable.
->
-> This bug was found by code inspection, as a result of working on [1].
-> 1. https://lore.kernel.org/all/20250723161827.15802-1-dev.jain@arm.com/
->
-> Cc: <stable@vger.kernel.org>
-> Fixes: bbd6ec605c0f ("arm64/mm: Enable memory hot remove")
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+On 7/11/25 19:36, James Morse wrote:
+> Register and enable error IRQs. All the MPAM error interrupts indicate a
+> software bug, e.g. out of range partid. If the error interrupt is ever
+> signalled, attempt to disable MPAM.
+> 
+> Only the irq handler accesses the ESR register, so no locking is needed.
+> The work to disable MPAM after an error needs to happen at process
+> context, use a threaded interrupt.
+> 
+> There is no support for percpu threaded interrupts, for now schedule
+> the work to be done from the irq handler.
+> 
+> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+> can access the MSC.
+> 
+> CC: Rohit Mathew <rohit.mathew@arm.com>
+> Tested-by: Rohit Mathew <rohit.mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 > ---
+>   drivers/platform/arm64/mpam/mpam_devices.c  | 304 +++++++++++++++++++-
+>   drivers/platform/arm64/mpam/mpam_internal.h |   9 +-
+>   2 files changed, 307 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+> index 145535cd4732..af19cc25d16e 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -14,6 +14,9 @@
+>   #include <linux/device.h>
+>   #include <linux/errno.h>
+>   #include <linux/gfp.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdesc.h>
+>   #include <linux/list.h>
+>   #include <linux/lockdep.h>
+>   #include <linux/mutex.h>
+> @@ -62,6 +65,12 @@ static DEFINE_SPINLOCK(partid_max_lock);
+>    */
+>   static DECLARE_WORK(mpam_enable_work, &mpam_enable);
+>   
+> +/*
+> + * All mpam error interrupts indicate a software bug. On receipt, disable the
+> + * driver.
+> + */
+> +static DECLARE_WORK(mpam_broken_work, &mpam_disable);
+> +
+>   /*
+>    * An MSC is a physical container for controls and monitors, each identified by
+>    * their RIS index. These share a base-address, interrupts and some MMIO
+> @@ -159,6 +168,24 @@ static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>   	return (idr_high << 32) | idr_low;
+>   }
+>   
+> +static void mpam_msc_zero_esr(struct mpam_msc *msc)
+> +{
+> +	__mpam_write_reg(msc, MPAMF_ESR, 0);
+> +	if (msc->has_extd_esr)
+> +		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+> +}
+> +
+> +static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+> +{
+> +	u64 esr_high = 0, esr_low;
+> +
+> +	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
+> +	if (msc->has_extd_esr)
+> +		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
+> +
+> +	return (esr_high << 32) | esr_low;
+> +}
+> +
+>   static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
+>   {
+>   	lockdep_assert_held(&msc->part_sel_lock);
+> @@ -405,12 +432,12 @@ static void mpam_msc_destroy(struct mpam_msc *msc)
+>   
+>   	lockdep_assert_held(&mpam_list_lock);
+>   
+> -	list_del_rcu(&msc->glbl_list);
+> -	platform_set_drvdata(pdev, NULL);
+> -
+>   	list_for_each_entry_safe(ris, tmp, &msc->ris, msc_list)
+>   		mpam_ris_destroy(ris);
+>   
+> +	list_del_rcu(&msc->glbl_list);
+> +	platform_set_drvdata(pdev, NULL);
+> +
+>   	add_to_garbage(msc);
+>   	msc->garbage.pdev = pdev;
+>   }
+> @@ -828,6 +855,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
+>   		msc->partid_max = min(msc->partid_max, partid_max);
+>   		msc->pmg_max = min(msc->pmg_max, pmg_max);
+> +		msc->has_extd_esr = FIELD_GET(MPAMF_IDR_HAS_EXT_ESR, idr);
+>   
+>   		ris = mpam_get_or_create_ris(msc, ris_idx);
+>   		if (IS_ERR(ris))
+> @@ -974,6 +1002,13 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>   	mpam_mon_sel_outer_unlock(msc);
+>   }
+>   
+> +static void _enable_percpu_irq(void *_irq)
+> +{
+> +	int *irq = _irq;
+> +
+> +	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
+> +}
+> +
+>   static int mpam_cpu_online(unsigned int cpu)
+>   {
+>   	int idx;
+> @@ -984,6 +1019,9 @@ static int mpam_cpu_online(unsigned int cpu)
+>   		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+>   			continue;
+>   
+> +		if (msc->reenable_error_ppi)
+> +			_enable_percpu_irq(&msc->reenable_error_ppi);
+> +
+>   		if (atomic_fetch_inc(&msc->online_refs) == 0)
+>   			mpam_reset_msc(msc, true);
+>   	}
+> @@ -1032,6 +1070,9 @@ static int mpam_cpu_offline(unsigned int cpu)
+>   		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+>   			continue;
+>   
+> +		if (msc->reenable_error_ppi)
+> +			disable_percpu_irq(msc->reenable_error_ppi);
+> +
+>   		if (atomic_dec_and_test(&msc->online_refs))
+>   			mpam_reset_msc(msc, false);
+>   	}
+> @@ -1058,6 +1099,51 @@ static void mpam_register_cpuhp_callbacks(int (*online)(unsigned int online),
+>   	mutex_unlock(&mpam_cpuhp_state_lock);
+>   }
+>   
+> +static int __setup_ppi(struct mpam_msc *msc)
+> +{
+> +	int cpu;
+> +
+> +	msc->error_dev_id = alloc_percpu_gfp(struct mpam_msc *, GFP_KERNEL);
+> +	if (!msc->error_dev_id)
+> +		return -ENOMEM;
+> +
+> +	for_each_cpu(cpu, &msc->accessibility) {
+> +		struct mpam_msc *empty = *per_cpu_ptr(msc->error_dev_id, cpu);
+> +
+> +		if (empty) {
+> +			pr_err_once("%s shares PPI with %s!\n",
+> +				    dev_name(&msc->pdev->dev),
+> +				    dev_name(&empty->pdev->dev));
+> +			return -EBUSY;
+> +		}
+> +		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_msc_setup_error_irq(struct mpam_msc *msc)
+> +{
+> +	int irq;
+> +
+> +	irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +	if (irq <= 0)
+> +		return 0;
+> +
+> +	/* Allocate and initialise the percpu device pointer for PPI */
+> +	if (irq_is_percpu(irq))
+> +		return __setup_ppi(msc);
+> +
+> +	/* sanity check: shared interrupts can be routed anywhere? */
+> +	if (!cpumask_equal(&msc->accessibility, cpu_possible_mask)) {
+> +		pr_err_once("msc:%u is a private resource with a shared error interrupt",
+> +			    msc->id);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static int mpam_dt_count_msc(void)
+>   {
+>   	int count = 0;
+> @@ -1266,6 +1352,10 @@ static int mpam_msc_drv_probe(struct platform_device *pdev)
+>   			break;
+>   		}
+>   
+> +		err = mpam_msc_setup_error_irq(msc);
+> +		if (err)
+> +			break;
+> +
+>   		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+>   					     &msc->pcc_subspace_id))
+>   			msc->iface = MPAM_IFACE_MMIO;
+> @@ -1548,11 +1638,193 @@ static void mpam_enable_merge_features(struct list_head *all_classes_list)
+>   	}
+>   }
+>   
+> +static char *mpam_errcode_names[16] = {
+> +	[0] = "No error",
+> +	[1] = "PARTID_SEL_Range",
+> +	[2] = "Req_PARTID_Range",
+> +	[3] = "MSMONCFG_ID_RANGE",
+> +	[4] = "Req_PMG_Range",
+> +	[5] = "Monitor_Range",
+> +	[6] = "intPARTID_Range",
+> +	[7] = "Unexpected_INTERNAL",
+> +	[8] = "Undefined_RIS_PART_SEL",
+> +	[9] = "RIS_No_Control",
+> +	[10] = "Undefined_RIS_MON_SEL",
+> +	[11] = "RIS_No_Monitor",
+> +	[12 ... 15] = "Reserved"
+> +};
+> +
+> +static int mpam_enable_msc_ecr(void *_msc)
+> +{
+> +	struct mpam_msc *msc = _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, 1);
+You can use MPAMF_ECR_INTEN.
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpam_disable_msc_ecr(void *_msc)
+> +{
+> +	struct mpam_msc *msc = _msc;
+> +
+> +	__mpam_write_reg(msc, MPAMF_ECR, 0);
+> +
+> +	return 0;
+> +}
+> +
+> +static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+> +{
+> +	u64 reg;
+> +	u16 partid;
+> +	u8 errcode, pmg, ris;
+> +
+> +	if (WARN_ON_ONCE(!msc) ||
+> +	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+> +					   &msc->accessibility)))
+> +		return IRQ_NONE;
+> +
+> +	reg = mpam_msc_read_esr(msc);
+> +
+> +	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> +	if (!errcode)
+> +		return IRQ_NONE;
+> +
+> +	/* Clear level triggered irq */
+> +	mpam_msc_zero_esr(msc);
+> +
+> +	partid = FIELD_GET(MPAMF_ESR_PARTID_OR_MON, reg);
+> +	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> +	ris = FIELD_GET(MPAMF_ESR_PMG, reg);
+> +
+> +	pr_err("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> +	       msc->id, mpam_errcode_names[errcode], partid, pmg, ris);
+> +
+> +	if (irq_is_percpu(irq)) {
+> +		mpam_disable_msc_ecr(msc);
+> +		schedule_work(&mpam_broken_work);
+> +		return IRQ_HANDLED;
+> +	}
+> +
+> +	return IRQ_WAKE_THREAD;
+> +}
+> +
+> +static irqreturn_t mpam_ppi_handler(int irq, void *dev_id)
+> +{
+> +	struct mpam_msc *msc = *(struct mpam_msc **)dev_id;
+> +
+> +	return __mpam_irq_handler(irq, msc);
+> +}
+> +
+> +static irqreturn_t mpam_spi_handler(int irq, void *dev_id)
+> +{
+> +	struct mpam_msc *msc = dev_id;
+> +
+> +	return __mpam_irq_handler(irq, msc);
+> +}
+> +
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id);
+> +
+> +static int mpam_register_irqs(void)
+> +{
+> +	int err, irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	lockdep_assert_cpus_held();
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <= 0)
+> +			continue;
+> +
+> +		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+> +		/* We anticipate sharing the interrupt with other MSCs */
+> +		if (irq_is_percpu(irq)) {
+> +			err = request_percpu_irq(irq, &mpam_ppi_handler,
+> +						 "mpam:msc:error",
+> +						 msc->error_dev_id);
+> +			if (err)
+> +				return err;
+> +
+> +			msc->reenable_error_ppi = irq;
+> +			smp_call_function_many(&msc->accessibility,
+> +					       &_enable_percpu_irq, &irq,
+> +					       true);
+> +		} else {
+> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
+> +							&mpam_spi_handler,
+> +							&mpam_disable_thread,
+> +							IRQF_SHARED,
+> +							"mpam:msc:error", msc);
+> +			if (err)
+> +				return err;
+> +		}
+> +
+> +		msc->error_irq_requested = true;
+> +		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+> +		msc->error_irq_hw_enabled = true;
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mpam_unregister_irqs(void)
+> +{
+> +	int irq, idx;
+> +	struct mpam_msc *msc;
+> +
+> +	cpus_read_lock();
+> +	/* take the lock as free_irq() can sleep */
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
+> +		if (irq <= 0)
+> +			continue;
+> +
+> +		if (msc->error_irq_hw_enabled) {
+> +			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
+> +			msc->error_irq_hw_enabled = false;
+> +		}
+> +
+> +		if (msc->error_irq_requested) {
+> +			if (irq_is_percpu(irq)) {
+> +				msc->reenable_error_ppi = 0;
+> +				free_percpu_irq(irq, msc->error_dev_id);
+> +			} else {
+> +				devm_free_irq(&msc->pdev->dev, irq, msc);
+> +			}
+> +			msc->error_irq_requested = false;
+> +		}
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +	cpus_read_unlock();
+> +}
+> +
+>   static void mpam_enable_once(void)
+>   {
+> +	int err;
+> +
+> +	/*
+> +	 * If all the MSC have been probed, enabling the IRQs happens next.
+> +	 * That involves cross-calling to a CPU that can reach the MSC, and
+> +	 * the locks must be taken in this order:
+> +	 */
+> +	cpus_read_lock();
+>   	mutex_lock(&mpam_list_lock);
+>   	mpam_enable_merge_features(&mpam_classes);
+> +
+> +	err = mpam_register_irqs();
+> +	if (err)
+> +		pr_warn("Failed to register irqs: %d\n", err);
+> +
+>   	mutex_unlock(&mpam_list_lock);
+> +	cpus_read_unlock();
+> +
+> +	if (err) {
+> +		schedule_work(&mpam_broken_work);
+> +		return;
+> +	}
+>   
+>   	mutex_lock(&mpam_cpuhp_state_lock);
+>   	cpuhp_remove_state(mpam_cpuhp_state);
+> @@ -1621,16 +1893,39 @@ static void mpam_reset_class(struct mpam_class *class)
+>    * All of MPAMs errors indicate a software bug, restore any modified
+>    * controls to their reset values.
+>    */
+> -void mpam_disable(void)
+> +static irqreturn_t mpam_disable_thread(int irq, void *dev_id)
+>   {
+>   	int idx;
+>   	struct mpam_class *class;
+> +	struct mpam_msc *msc, *tmp;
+> +
+> +	mutex_lock(&mpam_cpuhp_state_lock);
+> +	if (mpam_cpuhp_state) {
+> +		cpuhp_remove_state(mpam_cpuhp_state);
+> +		mpam_cpuhp_state = 0;
+> +	}
+> +	mutex_unlock(&mpam_cpuhp_state_lock);
+> +
+> +	mpam_unregister_irqs();
+>   
+>   	idx = srcu_read_lock(&mpam_srcu);
+>   	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>   				 srcu_read_lock_held(&mpam_srcu))
+>   		mpam_reset_class(class);
+>   	srcu_read_unlock(&mpam_srcu, idx);
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	list_for_each_entry_safe(msc, tmp, &mpam_all_msc, glbl_list)
+> +		mpam_msc_destroy(msc);
+> +	mutex_unlock(&mpam_list_lock);
+> +	mpam_free_garbage();
+> +
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +void mpam_disable(struct work_struct *ignored)
+> +{
+> +	mpam_disable_thread(0, NULL);
+>   }
+>   
+>   /*
+> @@ -1644,7 +1939,6 @@ void mpam_enable(struct work_struct *work)
+>   	struct mpam_msc *msc;
+>   	bool all_devices_probed = true;
+>   
+> -	/* Have we probed all the hw devices? */
+Stray change. Keep the comment or remove it in the patch that introduced it.
+>   	mutex_lock(&mpam_list_lock);
+>   	list_for_each_entry(msc, &mpam_all_msc, glbl_list) {
+>   		mutex_lock(&msc->probe_lock);
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+> index de05eece0a31..e1c6a2676b54 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -44,6 +44,11 @@ struct mpam_msc {
+>   	struct pcc_mbox_chan	*pcc_chan;
+>   	u32			nrdy_usec;
+>   	cpumask_t		accessibility;
+> +	bool			has_extd_esr;
+> +
+> +	int				reenable_error_ppi;
+> +	struct mpam_msc * __percpu	*error_dev_id;
+> +
+>   	atomic_t		online_refs;
+>   
+>   	/*
+> @@ -52,6 +57,8 @@ struct mpam_msc {
+>   	 */
+>   	struct mutex		probe_lock;
+>   	bool			probed;
+> +	bool			error_irq_requested;
+> +	bool			error_irq_hw_enabled;
+>   	u16			partid_max;
+>   	u8			pmg_max;
+>   	unsigned long		ris_idxs[128 / BITS_PER_LONG];
+> @@ -280,7 +287,7 @@ extern u8 mpam_pmg_max;
+>   
+>   /* Scheduled work callback to enable mpam once all MSC have been probed */
+>   void mpam_enable(struct work_struct *work);
+> -void mpam_disable(void);
+> +void mpam_disable(struct work_struct *work);
+>   
+>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>   				   cpumask_t *affinity);
 
-Immediately after posting, I guess the first objection which is going to
-come is, why not just nest free_empty_tables() with mmap_read_lock/unlock.
-Memory offlining obviously should not be a hot path so taking the read lock
-should be fine I guess.
+-- 
+Thanks,
+
+Ben
 
 
