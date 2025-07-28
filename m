@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FC3C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACA8C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywyodn+MUU5x5feIY64Qk8PDo7yNWWLhLu4bo6EHBlM=; b=E9hl4Hv7FOSL5WUt7/adT7SC8/
-	gPNRUXGX/Etvdzfyyj6NE/3F6frtHfBCXQwJV0G3Lce5Z1i1mv7tTvIPAjoIQIG7es3Ty8eSk/UMF
-	HTwAof3YTfTVKVp0rO9hAgH6XakTIUX6wDTJ0oDLQg85j8eT62q45A9PHhuOE1TlhhRFnsr4Aa3+3
-	y7DVs2uqqXAMmiocFvyz+h/spoJqGeff4xg4nHuZG4GblDe+tDa2LTPCAIyblHZudOgyWocDMBpnf
-	+9T0fFFwPzKDBlSco0zpjoPwqiQWv7eriyU8AKWNADMa/6aB/kRrLFlWYEkhh+wV+6diKaC/7BrMF
-	ar3X0tFg==;
+	bh=akqUQfJc807kCu0sYZi5OCGTzmARlWNMPI99bkotwi0=; b=kKw6QyHTgKFrSTxb9pdZ5iTBui
+	dSa3koaDA5HtX/olvZeSn/dzyIocbsnjh+hfd/o8UHEcVI3PiJRDzUCicOsHNMwDod06qMsDzZEvF
+	qfZCg/8lgv0rCePxb9rq0A94SzH5YfNX0o3BwMrO7znCHYQn+tTnjdtcDM4UkUEkZ+47IUmmKhLXE
+	rFbyz7IzyRlVVIyQyIaSRkNymFZCmK1rIA056P0JlWiNbHysY3ShD6aJWnVH9nVglzDQ52L/YxWYo
+	yzFPklMUb8s6cGO/HNRvtPkQSnceaqa0l6OenwdQZpd5PxEt5hOx44BfvG4W3jWFO0FghiNxLMirz
+	3yWO5KFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQFZ-0000000EuEf-307T;
-	Mon, 28 Jul 2025 15:58:53 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1ugQHz-0000000Eucm-2I8p;
+	Mon, 28 Jul 2025 16:01:23 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPqs-0000000EpPf-3rYx
+	id 1ugPqt-0000000EpPk-020z
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 28 Jul 2025 15:33:24 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SDod5e027633;
-	Mon, 28 Jul 2025 17:33:05 +0200
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SFO4l8018609;
+	Mon, 28 Jul 2025 17:33:11 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	ywyodn+MUU5x5feIY64Qk8PDo7yNWWLhLu4bo6EHBlM=; b=j4b9ZTH5xJdfGrCG
-	+y8IB1l3DncVgkxMhhgI6AgRFYoPlWKOlLbtXSl7vUS1YIahlXZQcBbQV6Bhusej
-	IDBKfxTy+UXP/ucjkHW+I/RzSj2GclOeOUuBsV7R4+Eazq9H7h5J5ojzT81kBXTy
-	5O5tj2MQIvsuDQzsEa/v5vNUA9PU3D1Wenehy34yYoBoEVPNkaB6xhZqZPRiSsgO
-	jiAzVGHLDvw2/rU3pyshjJumc9tv2SJDsDNvuJMjYXY9F93QvV3AMr6WFpRyX/SJ
-	iZXOkr8+/cRpxe+pBJ76zVMdhA6fKzI2/GmBn+d5z5agSY/CM/Lp7WdnQTkb9fSx
-	RTaocQ==
+	akqUQfJc807kCu0sYZi5OCGTzmARlWNMPI99bkotwi0=; b=7dilj+8Zs7ihZIQc
+	Ihp/1PbRvQgIHI3Ca56w6PwxLblrlP4n4TbDU2qFGeATNqJMyZvWn9oBm3AhDkad
+	fR7wH9ht3F330/nw8lw4bq/9kNA+EnhZsh7MD/wsZcSB+bwVHOVftUNxV45sYc4H
+	Ss5exKH0SDg3E8fLIYQw3EUb7ISoKbALn+Jko4bte7QfZuVjqKftNKPKadkXZSnl
+	dTgW/8BFv8sIMlyyQdOB8vLjaXaaeHotLjmTj0Xkv/XFfMsjD3x6UjPKQuRXDz5N
+	Rnbhz4GmzeleQ/jq79uoYL9gtluXC6VmPcUEpFTSIQ5U91aESV3QcikZoRsnBcxV
+	uFSd/w==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4858k4x9du-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484m590qbv-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Jul 2025 17:33:04 +0200 (MEST)
+	Mon, 28 Jul 2025 17:33:10 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 302564004F;
-	Mon, 28 Jul 2025 17:31:38 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C251F4004C;
+	Mon, 28 Jul 2025 17:31:26 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BBD2E787C3D;
-	Mon, 28 Jul 2025 17:29:59 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A563478C900;
+	Mon, 28 Jul 2025 17:29:56 +0200 (CEST)
 Received: from localhost (10.252.23.100) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
- 2025 17:29:59 +0200
+ 2025 17:29:56 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Mon, 28 Jul 2025 17:29:41 +0200
-Subject: [PATCH v5 10/20] arm64: dts: st: add LPDDR channel to
- stm32mp257f-dk board
+Date: Mon, 28 Jul 2025 17:29:38 +0200
+Subject: [PATCH v5 07/20] dt-bindings: memory: factorise LPDDR channel
+ binding into SDRAM channel
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250728-ddrperfm-upstream-v5-10-03f1be8ad396@foss.st.com>
+Message-ID: <20250728-ddrperfm-upstream-v5-7-03f1be8ad396@foss.st.com>
 References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
 In-Reply-To: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -99,9 +99,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_083323_246203_6BA72C64 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_083323_311375_5E2B6721 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,31 +115,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add 32bits LPDDR4 channel to the stm32mp257f-dk board.
+LPDDR, DDR and so SDRAM channels exist and share the same properties, they
+have a compatible, ranks, and an io-width.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp257f-dk.dts | 7 +++++++
- 1 file changed, 7 insertions(+)
+ ...lpddr-channel.yaml => jedec,sdram-channel.yaml} | 23 +++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-index a278a1e3ce03..45ffa358c800 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-dk.dts
-@@ -54,6 +54,13 @@ led-blue {
- 		};
- 	};
+diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,lpddr-channel.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml
+similarity index 83%
+rename from Documentation/devicetree/bindings/memory-controllers/ddr/jedec,lpddr-channel.yaml
+rename to Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml
+index 34b5bd153f63..9892da520fe4 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,lpddr-channel.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,sdram-channel.yaml
+@@ -1,16 +1,17 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,lpddr-channel.yaml#
++$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,sdram-channel.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
  
-+	lpddr_channel: sdram-channel-0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "jedec,lpddr4-channel";
-+		io-width = <32>;
-+	};
-+
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x80000000 0x1 0x0>;
+-title: LPDDR channel with chip/rank topology description
++title: SDRAM channel with chip/rank topology description
+ 
+ description:
+-  An LPDDR channel is a completely independent set of LPDDR pins (DQ, CA, CS,
+-  CK, etc.) that connect one or more LPDDR chips to a host system. The main
+-  purpose of this node is to overall LPDDR topology of the system, including the
+-  amount of individual LPDDR chips and the ranks per chip.
++  A memory channel of SDRAM memory like DDR SDRAM or LPDDR SDRAM is a completely
++  independent set of pins (DQ, CA, CS, CK, etc.) that connect one or more memory
++  chips to a host system. The main purpose of this node is to overall memory
++  topology of the system, including the amount of individual memory chips and
++  the ranks per chip.
+ 
+ maintainers:
+   - Julius Werner <jwerner@chromium.org>
+@@ -26,14 +27,14 @@ properties:
+   io-width:
+     description:
+       The number of DQ pins in the channel. If this number is different
+-      from (a multiple of) the io-width of the LPDDR chip, that means that
++      from (a multiple of) the io-width of the SDRAM chip, that means that
+       multiple instances of that type of chip are wired in parallel on this
+       channel (with the channel's DQ pins split up between the different
+       chips, and the CA, CS, etc. pins of the different chips all shorted
+       together).  This means that the total physical memory controlled by a
+       channel is equal to the sum of the densities of each rank on the
+-      connected LPDDR chip, times the io-width of the channel divided by
+-      the io-width of the LPDDR chip.
++      connected SDRAM chip, times the io-width of the channel divided by
++      the io-width of the SDRAM chip.
+     enum:
+       - 8
+       - 16
+@@ -51,8 +52,8 @@ patternProperties:
+   "^rank@[0-9]+$":
+     type: object
+     description:
+-      Each physical LPDDR chip may have one or more ranks. Ranks are
+-      internal but fully independent sub-units of the chip. Each LPDDR bus
++      Each physical SDRAM chip may have one or more ranks. Ranks are
++      internal but fully independent sub-units of the chip. Each SDRAM bus
+       transaction on the channel targets exactly one rank, based on the
+       state of the CS pins. Different ranks may have different densities and
+       timing requirements.
 
 -- 
 2.43.0
