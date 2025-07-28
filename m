@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E25C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 05:15:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6835FC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 05:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zi/pEJJ0jb2fSY425MSJyhBGLAiCuTzFe2fib4QTSdo=; b=Jc80rn/M0x3DiwQquXEQ8p/o50
-	1QqMb/AsumrWhXB1QYqNN2/SQx+PYrFRbsR4hOebV2tWi2+dC11/Jla9UHnbSF5NojYZkXCKBsfcp
-	hjUSrnRl0iqEuiFdtECwwe7U+s2M35EjmzPyxu9Uyb21A3YRpPVS2VeoPsIdsgZJZ/fpdaDbd4nwL
-	ifePhp+2Sly+IUg39MwVPmXRISGQveXuDHmYKhOUnAx1UHYlYakr/FNdsz8jferBRzXPYkxivKaBv
-	Tx83ZVsfTtDv0PqGcyqIcqFPEg1VJk7ROwZDAa5GiLtnzhXjVFyvH3VPCGTs4PMiPWEeaEeZ+YUUj
-	3Yr564tQ==;
+	bh=84q5qV1miuI9RwajUtGac9GGLEnDzykpSDbkBVn2L2w=; b=RF7AMoFQLs50zpLNd8ilCv1wki
+	t+i4feZSFPolmQ3uzUFWXMcoQ8hTP1KBSw07+rIQaCTRza7ntaRi8b0ytERRGvRnoKDyxrNm0RUnm
+	P+rA2yc16Bj9yZ7ka2YQ751Whb0crzkFzHIYYpSaAii8CGoLYdsFGG0C5uMHNxmYrffj4ZjfpIDVi
+	XTsVuf4s18q5GrE//oH54FddFcUU9BLho0tUKAFI3gejaIHVFJ6q2jLk2JcR1sX33dqx1eawrXzef
+	EtWarD82jkXaJMKLSD65RR/MRmG+cOPjlGZQWNlbFw9R0zVL2iZXEVwSIRNtNZUbonf1Ub1e49h66
+	7MdYTm9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugGCq-0000000De6C-49sZ;
-	Mon, 28 Jul 2025 05:15:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ugGFM-0000000DeKX-1Otp;
+	Mon, 28 Jul 2025 05:18:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugG6R-0000000DdNq-0UdI;
-	Mon, 28 Jul 2025 05:08:48 +0000
+	id 1ugG7A-0000000DdRX-29jF;
+	Mon, 28 Jul 2025 05:09:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2BEDFA547E4;
-	Mon, 28 Jul 2025 05:08:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90836C4CEE7;
-	Mon, 28 Jul 2025 05:08:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2732740BD3;
+	Mon, 28 Jul 2025 05:09:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0561C4CEE7;
+	Mon, 28 Jul 2025 05:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753679325;
-	bh=yk7EIKaMA1+vT3aBsH4QJI9N/7S5/eB9802+31fXP7Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BMhzU91KElqo+abIz6lBOndpxSEzIM4+5A9AH4ZWucm/Xj4xAPBN1upHkxsVTz/Iq
-	 5AhbGvEiibiv75bAhA0pcyX7E2ltSRjBBXg14ynbgwTBVkgWXSr4Q/iTcwZmDtJX/O
-	 PGuKvKBK0Ca4/Y/WbDrPmUHfFRCZY7SPERlwaEIfnG1ewEycxRaASGl64QCN1YfMlA
-	 g07OMc93M6z8Q51Dg9PFeZDJygBfdHgtVb2ahGa4Y00cX/Y7Eoh/IIsbSdSc+amJkB
-	 lAD/CihLWwk1A9AGqVeW6aCDnXjOWd0q8Y80XJUn4rR6EsaGEezaNgSP1wVujbruXR
-	 dFwr5Lhh5UFGw==
-Message-ID: <642df1ee-5e92-4f0a-bcdf-7e10dbc0d59b@kernel.org>
-Date: Mon, 28 Jul 2025 07:08:41 +0200
+	s=k20201202; t=1753679370;
+	bh=T9lo0t6P/L6EZKk6AfmRjZYXVJYgMvSsSmmuIkFH45g=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=a+whWOiUBkCLaHGeCZ6XV8zVeP/UdSNkBSXpz4A0DKjW9mRwFdgKCTHK4cMMid6qA
+	 IXdpnqSUtqVyFKA4LYv47lVy/YNyKR5/LHK2njzJeWos0UL5PjIuLpEa0FsLIsrapO
+	 +sXPKOfTSZb5713S+wfWyWdI0uuEz7aiw6Cm+l6dryeOssFj1wrmx8JDHuH66lTm3S
+	 yMhA2za1kY+nskSyQqIJdMOrKI9JlwpgzdJjoQHwa2a3DJ14AWmKKHpZ4y57AVincc
+	 HzUWZ4U/RaKX6aJ3stJ0xBQkO53m//w8h+oLtts/5HrcZVWVp8EcatZXQIbydHtzFe
+	 ripkUCHVp0KOw==
+Message-ID: <93c39b36-07c8-4883-bd23-7d0194c50a7a@kernel.org>
+Date: Mon, 28 Jul 2025 07:09:25 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] arm64: dts: rockchip: add LinkStar-H68k-1432v1
-To: Erik Beck <xunil@tahomasoft.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250727-linkstarpatch_v4_6-16-rc1-v4-0-0dfa7aa06ec9@tahomasoft.com>
- <20250727-linkstarpatch_v4_6-16-rc1-v4-2-0dfa7aa06ec9@tahomasoft.com>
+Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: add LinkStar-H68k-1432v1
 From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Erik Beck <xunil@tahomasoft.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250724-linkstar-h68k-patchv3-v3-0-b9f87b7306e5@tahomasoft.com>
+ <20250724-linkstar-h68k-patchv3-v3-2-b9f87b7306e5@tahomasoft.com>
+ <20250725-muskox-of-authentic-gaiety-b8eda4@kuoka>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -98,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250727-linkstarpatch_v4_6-16-rc1-v4-2-0dfa7aa06ec9@tahomasoft.com>
+In-Reply-To: <20250725-muskox-of-authentic-gaiety-b8eda4@kuoka>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_220847_294278_25E2B604 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20250727_220932_948375_CEB25DE1 
+X-CRM114-Status: UNSURE (   6.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,23 +120,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2025 02:03, Erik Beck wrote:
-> Add DTS.
+On 25/07/2025 09:26, Krzysztof Kozlowski wrote:
+> On Thu, Jul 24, 2025 at 05:37:59PM -0400, Erik Beck wrote:
+>> Adds dts for LinkStar-H68K-1432v1 board, using rk3568.  Also modifies
 > 
-> This device:
->   - Has not been supported previously in the mainline Linux kernel;
->   - Is a single board travel router made by Seeed, using an rk3568;
->   - Has four ethernet ports;
->   - Has four USB ports;
->   - Has WiFi (MediaTek MT7921e);
->   - Has a real-time clock (rk809)
-> 
-> Base commit:
->   - Commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494 (tag: v6.16-rc1);
+> Add DTS
 
-Drop entire commit msg, you are duplicating the binding. Instead:
-
-Add DTS for foo bar board, a travel router using Rockchip baz foo SoC.
+Add DTS and here goes the rest. Not "Add DTS full stop".
 
 Best regards,
 Krzysztof
