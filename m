@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BADEC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DE9C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 20:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ItkzBZe1xNWTDxJw3YTXp/blm8WuT8V/aqN+K06Qllw=; b=eiy1vTl/+hS11uoykok/EpcoqZ
-	gjvEfeX9R8yrLtHwx1Xhc9hTJmdapERUSM53geyWqL4VmTED9Od9UID6gZtrdnb4qvr//DGzd+0Rw
-	MXqbfyxEB0uwXt65FrolXsPYXRnKlwYKmtSVwhU/r40XdzLxLvrdhmV3jyF5SYsE8zaVlari7lnJX
-	K1wECiYKY8WYIPqJFWx0JZ1uNzRCpQi358FxWeOyquzmN/nQebGLa6C/ZK7rXk0/iGa4yH1rxoiH5
-	2u9OPNVptXe+w1qKtMLRnTZBvFOA26UOMv4a9sSYDQLNypQcVgsuk2cDYLyZTl2Qqfo2mwOiSI+Ny
-	ZIyasIMA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0LmW0E/vkDNIAhf3X31SRxOQwtkOCbr34v6CbexZ2HU=; b=RUWKWSE0JvuWKqxArTUNP9aHbL
+	nv0SZmGsJo5tsh89rxykvzWT67V1xCFBvcD3Z8ZyQvOedSUci3f4saPafgmgb2Dsiwj4S2sxL1wbx
+	03AVnZtDPjYUO8HeD4OxJqs52LJJqbNmL5fZ2SgSZ+0hsumf8eliUmb4raG8Cd/AdV2pRKhFK8t3h
+	WRUm9PKwi909NbHGCqkjzlCGANu8s+GKgRN9IMw2AZopBtdq1dlQuIMBikT2plxmF4rQjbicliSQq
+	W4Gf1Mdpgjj0dx6uMfPLrik1xacE+p5fkgtGyvvpHmFkU7WwVhMVG4QtIyEIh3bqqKfctAiVhXVl/
+	rspXUy1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugTox-0000000FKil-1jBE;
-	Mon, 28 Jul 2025 19:47:39 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1ugUIY-0000000FMVm-0Yq8;
+	Mon, 28 Jul 2025 20:18:14 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugTmV-0000000FKa1-2AMh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 19:45:08 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3b7862bd22bso119615f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 12:45:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753731905; x=1754336705; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ItkzBZe1xNWTDxJw3YTXp/blm8WuT8V/aqN+K06Qllw=;
-        b=SQNHhv07YuwLJVw1U+NhhVvmiay030fDzTvTq5rkI8yrOkzLCcgLoZkCSd+cZWSUQV
-         //mh7E8/QrcKYq2/3vwMQ8IyU4NLNGzXjvNKLi8k1MgA9+KK+17wlt+VlcJ7hXkkaPSP
-         Y6uUAACHVr4wYiUpjYmfmvJiBCr2XuO1Ca5/HOww7jsFqa7afpseo4rnnwqPVmJEkKLx
-         YQsRRHKTNsxHmaOxvQUrpcfCjC842/m+TIKRcOm/8zBBEfiZExx7vVO1aqgpvrjZiYrp
-         /xDllgYBYU3USm9s5twytAITJ0i+m6IeXGVhum+7D3hMUQj0j52cuqj2zOABBkDsXTHs
-         0Xzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753731905; x=1754336705;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ItkzBZe1xNWTDxJw3YTXp/blm8WuT8V/aqN+K06Qllw=;
-        b=G71qXnubPhL90TBCu9cydRVkzOdEeaaI4t7/GPsle03FiwbQ6JD/IM/Iet6hnV3hm/
-         FB8idFzjoQt0lPXw0m/szj1l5UvaEC2PSzF8LULoAk9u1QFKYYR9TZksBoqC3jT5WIKH
-         D8ddVHlsseZJE2QZn9ZOW/K7scMRHdcxlZ7nhYSIES0SlECtbwRMdxEse4uNkA+XfshL
-         q7gEPZKJ4U2ZlrKRj4v2iSPmnpIXvJp4vnf4NdLFhuhKdyEXYmDLZb+RPSYD400MZuN9
-         ifdHKkDklckaYi4tk1Q1EdYQxTPfM8ygIlTAnPHsAB2SHBjepbTwqcLVaxQfB9nD9J0T
-         1l3g==
-X-Forwarded-Encrypted: i=1; AJvYcCU15ZhfgE5GOxhES+cfUv9Qb4SmXlNduWmfKqcAhsHQruJJNmH7EkfSTOwJaA+ARXcucCEU3BmETmijddLefr+x@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMnwLYzRUBg+ED/dtiGA6BvK24MsPGgl5IZzxPRHcK4OHIjQpc
-	c1bzU4fBAtj5RtTVDDu3VXpr55OzDdyhEmUfuE91AHLNtaTi3JOr16ry
-X-Gm-Gg: ASbGncvwjgD6K4xNTRXvZquuh5xEHkcpzYRRjRp9GroFYb0FlQ23eTvGoRLq0UfVTHz
-	SzXQ0wRv9r0F0aS5tgYkpA0LqsctQn74M81zNwGOBli9JrY6FuuvHc2ey51lI2bdum50pTyjvX+
-	C6TrPqM6YodigPpdaGOua3lYZMAa3+jaWcoFUWTPILFJAbvlfsqhIFZqVBHC1RzEBGXnH/xhtn8
-	Lsvbulj060foPAhO78Tv8cH6G5HJf8mzaf331gmSGDPQUj1XMTRp+ls+Fh4ZfOFhje6fi6EEWi9
-	qiZamntMRpCaGGXOk8GGNokyDNT0gbcHLKdV3oD6xbBwcum/MogZvZ4aHv6UYgH1OL6cCTpipAr
-	CdoWfvTzkV1ewbBnDoMG76ybso2IwugAnM60UWwy5tZbUqx5r7E1n/BxY1lGzXxexGWQFfg==
-X-Google-Smtp-Source: AGHT+IHY8hLa8p8y5iQ7pp/OFOj7bim/OIX1NELu4CwTPhxkimsWDOt02B6vAdwiG9TIVZN04Lvssg==
-X-Received: by 2002:a05:6000:2a08:b0:3a5:3993:3427 with SMTP id ffacd0b85a97d-3b78e60fbf0mr426846f8f.26.1753731905198;
-        Mon, 28 Jul 2025 12:45:05 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.20])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b778f0c477sm9547837f8f.58.2025.07.28.12.45.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 12:45:04 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-pwm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] pwm: imx-tpm: reset counter if CMOD is 0
-Date: Mon, 28 Jul 2025 15:41:44 -0400
-Message-Id: <20250728194144.22884-1-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1ugUG4-0000000FMHE-4Acc;
+	Mon, 28 Jul 2025 20:15:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0LmW0E/vkDNIAhf3X31SRxOQwtkOCbr34v6CbexZ2HU=; b=ftEeCykmVD7+wuWAjJ/X4kj+un
+	YzwkwGVF0bgM2jZgwsHfI7O9O9aUW0SjA7lGCFz5ziPpj/xO5D92x4DDbsdht/rF0MyLn2vhGBKuy
+	QS5wcc2eyKQ21yp0+tRu3vbWrGHr8xtNO9RwghEkLHFdnvlzjNsTiWEdtrCbvwkMUi4ClEVA67Xk6
+	L1rk5jmpjI5vbm+sucG+o3hGd4jwbu7r9GBZiT3TPNiys0ZKqDGyapJY7hx0An3mXThhtiDV6008+
+	Un7XGFM6jmXWq3X15uln72QKltAU506EEsPYgiFowCXrTGty+sHnT2LmBFH0nbVOZshOLTjt8VP1n
+	t4R3hg2A==;
+Received: from [189.7.87.79] (helo=[192.168.0.7])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1ugUFn-005571-H1; Mon, 28 Jul 2025 22:15:23 +0200
+Message-ID: <b19643a7-33b1-4b75-83ec-6027ed69d4c0@igalia.com>
+Date: Mon, 28 Jul 2025 17:15:15 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: Stefan Wahren <wahrenst@gmx.net>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+ <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+ <673f3f05-53f1-4eb4-ae65-a3cd9ccbd1bf@gmx.net>
+Content-Language: en-US
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+In-Reply-To: <673f3f05-53f1-4eb4-ae65-a3cd9ccbd1bf@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_124507_559323_93A6382D 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20250728_131542_301645_FB8C2DD8 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,64 +85,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Hi Stefan,
 
-As per the i.MX93 TRM, section 67.3.2.1 "MOD register update", the value
-of the TPM counter does NOT get updated when writing MOD.MOD unless
-SC.CMOD != 0. Therefore, with the current code, assuming the following
-sequence:
+On 28/07/25 13:33, Stefan Wahren wrote:
+> Hi Maíra,
+> 
+> thanks for working on this.
+> 
+> Am 28.07.25 um 14:35 schrieb Maíra Canal:
+>> Currently, when we prepare or unprepare RPi's clocks, we don't actually
+>> enable/disable the firmware clock. This means that
+>> `clk_disable_unprepare()` doesn't actually change the clock state at
+>> all, nor does it lowers the clock rate.
+>>
+>>  From the Mailbox Property Interface documentation [1], we can see that
+>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+>> prepare and an unprepare hook for RPi's firmware clock.
+>>
+>> As now the clocks are actually turned off, some of them are now marked
+>> with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are required since
+>> early boot or are required during reboot.
+>>
+>> Link: https://github.com/raspberrypi/firmware/wiki/Mailbox-property- 
+>> interface [1]
+>> Fixes: 93d2725affd6 ("clk: bcm: rpi: Discover the firmware clocks")
+> could you please explain from user perspective, which issue is fixed by 
+> this patch?
 
-	1) pwm_disable()
-	2) pwm_apply_might_sleep() /* period is changed here */
-	3) pwm_enable()
+I was about to talk about the power savings benefits for the user.
+However, as I type, I notice that such a thing doesn't justify a
+"Fixes:" tag. I'll drop it.
 
-and assuming only one channel is active, if CNT.COUNT is higher than the
-MOD.MOD value written during the pwm_apply_might_sleep() call then, when
-re-enabling the PWM during pwm_enable(), the counter will end up resetting
-after UINT32_MAX - CNT.COUNT + MOD.MOD cycles instead of MOD.MOD cycles as
-normally expected.
+Thanks for your review, I'll address all the comments.
 
-Fix this problem by forcing a reset of the TPM counter before MOD.MOD is
-written.
+Best Regards,
+- Maíra
 
-Fixes: 738a1cfec2ed ("pwm: Add i.MX TPM PWM driver support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
-Changes in v3:
-  - added Fixes and Cc tags
-  - rephrased the newly introduced comment such that the bit is understandable
-  w/o having to check the TRM.
-  - Link to v2: https://lore.kernel.org/lkml/20250714123634.6442-1-laurentiumihalcea111@gmail.com/
-
-Changes in v2:
-  - dropped the "VERY IMPORTANT" bit as per Uwe's suggestion.
-  - Link to v1: https://lore.kernel.org/lkml/20250701220147.1007786-1-laurentiumihalcea111@gmail.com/
-
- drivers/pwm/pwm-imx-tpm.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/pwm/pwm-imx-tpm.c b/drivers/pwm/pwm-imx-tpm.c
-index 7ee7b65b9b90..5b399de16d60 100644
---- a/drivers/pwm/pwm-imx-tpm.c
-+++ b/drivers/pwm/pwm-imx-tpm.c
-@@ -204,6 +204,15 @@ static int pwm_imx_tpm_apply_hw(struct pwm_chip *chip,
- 		val |= FIELD_PREP(PWM_IMX_TPM_SC_PS, p->prescale);
- 		writel(val, tpm->base + PWM_IMX_TPM_SC);
- 
-+		/*
-+		 * if the counter is disabled (CMOD == 0), programming the new
-+		 * period length (MOD) will not reset the counter (CNT). If
-+		 * CNT.COUNT happens to be bigger than the new MOD value then
-+		 * the counter will end up being reset way too late. Therefore,
-+		 * manually reset it to 0.
-+		 */
-+		if (!cmod)
-+			writel(0x0, tpm->base + PWM_IMX_TPM_CNT);
- 		/*
- 		 * set period count:
- 		 * if the PWM is disabled (CMOD[1:0] = 2b00), then MOD register
--- 
-2.34.1
+> 
+> Why does this needs to be backported?
+>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+>> ---
+>>   drivers/clk/bcm/clk-raspberrypi.c | 41 +++++++++++++++++++++++++++++ 
+>> +++++++++-
+>>   1 file changed, 40 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk- 
+>> raspberrypi.c
+>> index 
+>> 8e4fde03ed232b464165f524d27744b4ced93a60..a2bd5040283a2f456760bd685e696b423985cac0 100644
+>> --- a/drivers/clk/bcm/clk-raspberrypi.c
+>> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+>> @@ -68,6 +68,7 @@ struct raspberrypi_clk_variant {
+>>       char        *clkdev;
+>>       unsigned long    min_rate;
+>>       bool        minimize;
+>> +    u32        flags;
+>>   };
+>>   static struct raspberrypi_clk_variant
+>> @@ -75,6 +76,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>>       [RPI_FIRMWARE_ARM_CLK_ID] = {
+>>           .export = true,
+>>           .clkdev = "cpu0",
+>> +        .flags = CLK_IGNORE_UNUSED,
+>>       },
+>>       [RPI_FIRMWARE_CORE_CLK_ID] = {
+>>           .export = true,
+>> @@ -90,6 +92,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>>            * always use the minimum the drivers will let us.
+>>            */
+>>           .minimize = true,
+>> +        .flags = CLK_IGNORE_UNUSED,
+>>       },
+>>       [RPI_FIRMWARE_M2MC_CLK_ID] = {
+>>           .export = true,
+>> @@ -115,6 +118,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>>            * drivers will let us.
+>>            */
+>>           .minimize = true,
+>> +        .flags = CLK_IGNORE_UNUSED,
+>>       },
+>>       [RPI_FIRMWARE_V3D_CLK_ID] = {
+>>           .export = true,
+>> @@ -127,6 +131,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>>       [RPI_FIRMWARE_HEVC_CLK_ID] = {
+>>           .export = true,
+>>           .minimize = true,
+>> +        .flags = CLK_IGNORE_UNUSED,
+>>       },
+>>       [RPI_FIRMWARE_ISP_CLK_ID] = {
+>>           .export = true,
+>> @@ -135,6 +140,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>>       [RPI_FIRMWARE_PIXEL_BVB_CLK_ID] = {
+>>           .export = true,
+>>           .minimize = true,
+>> +        .flags = CLK_IS_CRITICAL,
+>>       },
+>>       [RPI_FIRMWARE_VEC_CLK_ID] = {
+>>           .export = true,
+>> @@ -259,7 +265,40 @@ static int 
+>> raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
+>>       return 0;
+>>   }
+>> +static int raspberrypi_fw_prepare(struct clk_hw *hw)
+>> +{
+>> +    const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+>> +    struct raspberrypi_clk *rpi = data->rpi;
+>> +    u32 state = RPI_FIRMWARE_STATE_ENABLE_BIT;
+>> +    int ret;
+>> +
+>> +    ret = raspberrypi_clock_property(rpi->firmware, data,
+>> +                     RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+>> +    if (ret)
+>> +        dev_err(rpi->dev, "Failed to set clock %d state to on: %d",
+>> +            data->id, ret);
+> I suggest to use dev_err_ratelimited for prepare/unprepare, otherwise 
+> this could spam the kernel log.
+> 
+> Furthermore i wouldn't recommend to log some magic clock id. How about 
+> using clk_hw_get_name(hw) instead?
+> 
+> Don't we need a newline character at the end?
+> 
+>> +
+>> +    return ret;
+>> +}
+>> +
+>> +static void raspberrypi_fw_unprepare(struct clk_hw *hw)
+>> +{
+>> +    const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
+>> +    struct raspberrypi_clk *rpi = data->rpi;
+>> +    u32 state = 0;
+>> +    int ret;
+>> +
+>> +    ret = raspberrypi_clock_property(rpi->firmware, data,
+>> +                     RPI_FIRMWARE_SET_CLOCK_STATE, &state);
+>> +    if (ret)
+>> +        dev_err(rpi->dev, "Failed to set clock %d state to off: %d",
+>> +            data->id, ret);
+> see above
+> 
+> Best regards
+>> +}
+>> +
+>> +
+>>   static const struct clk_ops raspberrypi_firmware_clk_ops = {
+>> +    .prepare        = raspberrypi_fw_prepare,
+>> +    .unprepare      = raspberrypi_fw_unprepare,
+>>       .is_prepared    = raspberrypi_fw_is_prepared,
+>>       .recalc_rate    = raspberrypi_fw_get_rate,
+>>       .determine_rate    = raspberrypi_fw_dumb_determine_rate,
+>> @@ -289,7 +328,7 @@ static struct clk_hw 
+>> *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+>>       if (!init.name)
+>>           return ERR_PTR(-ENOMEM);
+>>       init.ops = &raspberrypi_firmware_clk_ops;
+>> -    init.flags = CLK_GET_RATE_NOCACHE;
+>> +    init.flags = variant->flags | CLK_GET_RATE_NOCACHE;
+>>       data->hw.init = &init;
+>>
+> 
 
 
