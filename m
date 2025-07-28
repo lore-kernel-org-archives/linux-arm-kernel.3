@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4354C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 04:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144DCC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 04:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQUdVKjyjo4aw7LghzEonX01EZV5Lz+0FS3x+MT8Lpg=; b=mknAMtQerJVY1h8cbv8nh8/WWH
-	azhHWklFLwuJdtpRtKojfTMDqN/L4H/jSQzSVO38IyZxgfHMSuEmx2NR0milL75QBEvp3C4+e1JtW
-	CliMCjrUyYoAOzpYki23lDmb3ZWsDWmAX1bLNrjJaicTuzuIeR7brm12s5LfS6JpeWf0voWOFIYkG
-	XhFnGMumjDyypNTkgQYfV+eKoZZao08gXOrywfh1njfjgGbxaL/p7c64P79oYtxqyaTpqE51ujEak
-	pSqQaNIOw05tbHCn7uubtn5kmtAlg/sqAsOzRz3aGbhIQYRWXScADBg34hr2/xoqsoiMVV0gESFbt
-	rWvmR9IQ==;
+	bh=dlHbtTdANGO573AGuKiCT/EVnvnwUdNoutK9dI46G+g=; b=pJx8nV7i7GRGxR3ZbDFpNwhmhU
+	F/O/ocub/u+FAOiMVHQ6GgrQfu6lresZ785ftcxTN0hNMxdJoRYsaINuJ8Okhr6YWgViMiFgiHNAW
+	uRcSbL+S1W7dapwgglW1DnntV8fChRgNNzNfLYUdSehJk/4eMDrazWWPZw7jObcRKuRYRCGkZZjoX
+	uHs9haEVPSNGJi7LXAgN0BVaTzx1Zof+NFUB5yJy8uxhdjI174rafOHGLjg4xR6AzghMDEI0a0Y1G
+	228xMMaWZPgp1rXg19izMqnpz4gqEOh+5mLGvs9BhB4c6adTzALvSRHPej9dcVGmmbXfDSYI+jlvh
+	dNCVijGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugFqx-0000000Dbql-03Zh;
-	Mon, 28 Jul 2025 04:52:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ugFu5-0000000Dc91-1Oip;
+	Mon, 28 Jul 2025 04:56:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugFoQ-0000000Dbfy-2Dsz;
-	Mon, 28 Jul 2025 04:50:11 +0000
+	id 1ugFrZ-0000000Dbuj-0siJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Jul 2025 04:53:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 745EFA45F9A;
-	Mon, 28 Jul 2025 04:50:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6663CC4CEE7;
-	Mon, 28 Jul 2025 04:50:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BCACD601D4;
+	Mon, 28 Jul 2025 04:53:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30899C4CEE7;
+	Mon, 28 Jul 2025 04:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753678209;
-	bh=CzRdO948Lo2iFxSrbyu5Pagmi3kJ6/7KYnoh6hd6OHk=;
+	s=k20201202; t=1753678402;
+	bh=zsnBU3qQQDiYFD7qpMKtcuJR6qr2mTSmb4EcinSR/zc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RrL4+y31r5CPtYMDYuefm/kgI9mrBIwDYDdyLrivD4MtAP93Y6kIIdD3PwSYu7lVg
-	 Uo8V3Ult2hqkn770Jdo4Ho1Hzz3cnflSDULKiwCCF1OPBlQzhSrrEmHVuSpVzU1HKS
-	 FLliS9vWzC/t1hOFce8Y1V66kO4MQKaws1beT7e5wzpVC7WoVtL+vnDmBtoyyfEKtc
-	 wuwhhL5rWE9X5KY8mPkQGFmutq1vQpEvdVE/MwCfiyX9svGf+utJg6Tzsr91HWJvtK
-	 LlHLnyi+B/Lw4Ll67QVQEAohs2n+trvYGsGW5yuqn9k0rh2JFYvlQOw5r5hkJJcHGL
-	 Bf3EwaKb25e8g==
-Message-ID: <eef43c76-7e1d-4e91-a41a-0a8c33d9616f@kernel.org>
-Date: Mon, 28 Jul 2025 06:50:04 +0200
+	b=ZR84LQawVO+YuvpxZ8FgKNzYt7kElbKXAfpHODDe8WeyF1JzWQt/UH5jhghbtDv0D
+	 0DSMx6uNSKTJxlfwMeFyLhWJgc4D8ODFqTlE0YXSM1iOimgrE9wIvCpUkM1ubc2tgj
+	 nwPjBaDWAORb/oRSeugbxNbz0U5Itso0li4AmeZ8iNA9sLj/D08zn7ni8Np6I0QEJ8
+	 uWhCByQO3qhDHX4RITqi3OsjCDfTX9Yz4h2jzWV3sUdEDADfLguXPp6F/HkCJ3Fu9x
+	 E1unYyz0DJS9Y7CXkArX5HSlpVFT5CEjQMlnFX594koHyZFbSCzxkuv60GKCtwLSJy
+	 MVecQBAI9kwng==
+Message-ID: <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
+Date: Mon, 28 Jul 2025 06:53:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp
- for MT8188
-To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250521063347.31578-1-friday.yang@mediatek.com>
- <20250521063347.31578-3-friday.yang@mediatek.com>
- <fe4d93d1-fb6a-4985-8316-7a76fa1a481f@kernel.org>
- <7421d8f4f3d5fdb392f46df93bfee21a97cc2e1c.camel@mediatek.com>
- <633ea291-2e02-44be-bd03-220634b3c62d@kernel.org>
- <d7e6e9f9da7adf5c806f29c577f6bf51b35fdeed.camel@mediatek.com>
- <1e9de035-9d32-45d1-9f11-33c3439143be@kernel.org>
- <2cc7a0be13d2b35b8728fb23e56097620a40fc05.camel@mediatek.com>
- <03dece78-44d5-4b85-b71c-bb6794849ddd@kernel.org>
- <7e390b85e1ba6362ffa0231faefc0ea63a922639.camel@mediatek.com>
+Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+ Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+ Stephen Boyd <swboyd@chromium.org>, Andre Draszik
+ <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ Elliot Berman <quic_eberman@quicinc.com>,
+ Srinivas Kandagatla <srini@kernel.org>
+References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
+ <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +116,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <7e390b85e1ba6362ffa0231faefc0ea63a922639.camel@mediatek.com>
+In-Reply-To: <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_215010_715675_A5BD9A1F 
-X-CRM114-Status: GOOD (  13.04  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,60 +133,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2025 04:59, Friday Yang (杨阳) wrote:
-> On Thu, 2025-07-24 at 10:55 +0200, Krzysztof Kozlowski wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On 24/07/2025 10:43, Friday Yang (杨阳) wrote:
->>>>
->>>>> ignore this tag. What I intended to explain here was that I
->>>>> decided
->>>>> not
->>>>> to use 'devm_pm_runtime_enable' to replace 'pm_runtime_enable'
->>>>> functions. Unfortunately, the fake tag didn't explain this
->>>>> clearly
->>>>> in
->>>>> the changelog, which was my fault. To address this, I updated
->>>>> patchset
->>>>> v8 to include an explanation.
->>>>>
->>>>> In patchset v6, I replaced 'pm_runtime_enable' with
->>>>> 'devm_pm_runtime_enable'. However, in patchset v8, I reverted
->>>>> this
->>>>> change and included the reason for this decision in the
->>>>> changelog.
->>>>> Apologize for the delay and the trouble again.
->>>>
->>>> Nothing above is related to my question about the
->>>> fake/invented/questioned tag.
->>>>
->>>
->>> I got your point, you refer to the 'reviewed-by' and 'acked-by' tag
->>> in
->>> this patch.
->>> These are the tags from two reviewers.
->>>
->>>
-> https://lore.kernel.org/lkml/174172361378.44650.15345202042780383326.robh@kernel.org/
->>
->>
->> You are really not responding to my initial comments and keep
->> dragging
->> this discussion in some confused directions. Do we talk here about
->> that
->> patch? No.
->>
-> 
-> I understand what you're referring to. For the 'dt-binding' patch, I
-> can keep the tags. However, for the 'smi driver' patch, I should remove
-> the tags because there was a change after v6.
-> I will update v9 soon. Thank you!
+On 27/07/2025 18:24, Shivendra Pratap wrote:
+> +
+> +static int __init psci_init_vendor_reset(void)
+> +{
+> +	struct reboot_mode_driver *reboot;
+> +	struct device_node *np;
+> +	int ret;
+> +
+> +	np = of_find_node_by_path("/psci/reboot-mode");
 
 
-No. You never responded to v7 and never addressed the actual comments I
-raised.
+Why are you looking by full path, not by compatible? Is the ABI - above
+path - expressed anywhere?
 
 
 Best regards,
