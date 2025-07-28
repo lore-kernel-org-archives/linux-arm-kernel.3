@@ -4,91 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCC9C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 08:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A13B0C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 08:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/1C0ecdmCsSKInhz4z8SdSet/WiKzIt/u3FdhjILhQ=; b=WnRgp64gYER9tXnWI1c/iFzC0V
-	/64zc3eK3ukwsjQl+Zogn6dEu7V+1qOJOU7Yii7REQ4Rkac7rpg5LBumcNhOo4v7go4YQoS+UsySo
-	UMO+P2pq3jxwqftE2yLrgLchi1rdEtjiVZqn+xSsBk3UqWJtBZhjoqUdilY1ens5xwL9xl4arIOGD
-	6wfZCkIw2dDwVm5R6xBYkQGs0NvlIevI1w2JwLw6xMd4nVPVOGia8mn+SEzWcV69bWY6y7VLR00Pf
-	EqtMocMtKFeYFTJpv/xe8DrRXf6Y+TNGONfEGvsvSyfjgtRf7kbXThgfb/lhDiPrJADnFnjF6OVa2
-	98JIs13A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lg/zej223n0BvDYYY+24Lde/1H1a2/zWfNQZFecjM2E=; b=MtvxhBao6I1fNybPUjh9XWdOyv
+	F3L2w9aVJBw9YWoH8waOsU6IydXaOPhcAjW8FQIxRMK9Lcq9x57Pu0qzJ0xx87FNAZldJItanSOqk
+	MmyF6O3xVlQlbKzSFBw6f8g+wRhXOARWfPMMxfa4B6CPcR4Sc9UMheg++cOiF1gj4e0kv9sGAFVMG
+	uJW+p6N4chiakTUFIx8XEt3w0nyWPx5ZpUh4LP8g0kZv9rJum3ngCosEtoA9hEy6BwTeiR+bNWGcd
+	DHdm7XyXBIpmiBX31/Aj/xEI2JHC+E417n9THG3tpl1NnS9Bc5zRc1qLx0CGV+eFS1dqz9/I+K+q2
+	zy7nq5zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJ5c-0000000DxVA-0F0k;
-	Mon, 28 Jul 2025 08:20:08 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ugJ86-0000000Dxw1-3T6V;
+	Mon, 28 Jul 2025 08:22:42 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJ34-0000000DxD6-2TFx
+	id 1ugJ59-0000000DxPy-15fQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 08:17:31 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56S78cGN007928;
-	Mon, 28 Jul 2025 10:17:13 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	l/1C0ecdmCsSKInhz4z8SdSet/WiKzIt/u3FdhjILhQ=; b=C3cAEzX0Fw+6SVHZ
-	E8pdcAyNbkxOsLM6zze7ldv5v6FI6fSHTEBYzrybHm4PPNdaQGX0wjYVgskvgYWc
-	/FEfbHh5uPHrr++YWsgK3NiRUfZZQO/3Q3haGaO3CNNABtgHZpKphcAROYJGKkJV
-	JsizCNbYoAZUmkl29WrI44TlHudLZ4xzQMq8UfIBeSpw8S4YMQwqh/n+u0ujmezW
-	jZe8kBp9+IQIY9RtIQpR4lS+uvTQvj/insHisUxR3trrLvINZe76FKXp3iZZ7x/Z
-	oitKiKvYlDvFswyryoFPxNAAPsOHg00F4c8IbFXMWSwyTtpRYVd5KYaivSAY47iS
-	HqpYbw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484m58xx6m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Jul 2025 10:17:12 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1565B40049;
-	Mon, 28 Jul 2025 10:15:59 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 07AEE6EF690;
-	Mon, 28 Jul 2025 10:15:13 +0200 (CEST)
-Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
- 2025 10:15:12 +0200
-Message-ID: <424f8bbd-10b2-468c-aac8-edc71296dabb@foss.st.com>
-Date: Mon, 28 Jul 2025 10:15:07 +0200
+	Mon, 28 Jul 2025 08:19:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753690779; x=1785226779;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=r9heF4Jx2oSf4dh7BKMtWEH3wRtjhZSOKr7RdyIDwec=;
+  b=MKZat7Wm9Lq/C7zsf8BV407McsLz2p8O7/BHlqwKvSymmVfsFwP4iFxZ
+   13/hymVB3zAoAFZ4VyqRhMQ+yxnjZfCUFgcYUqAHj0mWvFmTeMHSlg66r
+   Qo3qNs/sSnDT0PhHm1JEnj/jdCnJUbu3LcL9/ln5DPtlLnEpbb3NS8wZT
+   kLA8lPf98tdjFWshzyUFQMDNJw3P5KAwIS7OObeozgBGn5b/g77LLji7W
+   dGGRNHCXUdWNmG+iozn6Eoa7UEx80AGocBOOvbAsdP5kTSaIePodAT4Sm
+   z4b8OhwciODoDNAJxOO1CGtaAOB8wiDJrFElOtCxj3q46nhvNB4fVNqpz
+   A==;
+X-CSE-ConnectionGUID: g7UXlN7zTxWGwVabY0JXZg==
+X-CSE-MsgGUID: uNdt/ymhTTCSMy9ihjjCsA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11504"; a="55142953"
+X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
+   d="scan'208";a="55142953"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2025 01:19:38 -0700
+X-CSE-ConnectionGUID: e4j/OyJ1Q+m/OV7eekb6VQ==
+X-CSE-MsgGUID: gR3o9gKhS6iEfbQfGj2kbg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
+   d="scan'208";a="161600047"
+Received: from lkp-server01.sh.intel.com (HELO 160750d4a34c) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 28 Jul 2025 01:19:35 -0700
+Received: from kbuild by 160750d4a34c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ugJ52-0000K1-1z;
+	Mon, 28 Jul 2025 08:19:32 +0000
+Date: Mon, 28 Jul 2025 16:19:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>, clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au, davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, wens@csie.org,
+	jernej.skrabec@gmail.com, samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: Re: [PATCH 3/9] crypto: sun8i-ce - remove unnecessary __maybe_unused
+ annotations
+Message-ID: <202507281638.lcdB5LRY-lkp@intel.com>
+References: <20250728060701.1787607-4-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/2] net: stmmac: allow generation of flexible
- PPS relative to MAC time
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Paolo Abeni
-	<pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Richard Cochran
-	<richardcochran@gmail.com>, <netdev@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250724-relative_flex_pps-v1-0-37ca65773369@foss.st.com>
- <20250725172547.13d550a4@kernel.org>
-Content-Language: en-US
-From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-In-Reply-To: <20250725172547.13d550a4@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.141]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_03,2025-07-24_01,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250728060701.1787607-4-ovidiu.panait.oss@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_011730_894174_18A736E8 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20250728_011939_317949_BB30889C 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,60 +93,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ovidiu,
 
-On 7/26/25 02:25, Jakub Kicinski wrote:
-> On Thu, 24 Jul 2025 14:31:17 +0200 Gatien Chevallier wrote:
->> When doing some testing on stm32mp2x platforms(MACv5), I noticed that
->> the command previously used with a MACv4 for genering a PPS signal:
->> echo "0 0 0 1 1" > /sys/class/ptp/ptp0/period
->> did not work.
->>
->> This is because the arguments passed through this command must contain
->> the start time at which the PPS should be generated, relative to the
->> MAC system time. For some reason, a time set in the past seems to work
->> with a MACv4.
->>
->> Because passing such an argument is tedious, introduce
->> STMMAC_RELATIVE_FLEX_PPS config switch so that the MAC system time
->> is added to the args to the stmmac_ptp driver.
->>
->> Example to generate a flexible PPS signal that has a 1s period 3s
->> relative to when the command was entered before and after setting
->> STMMAC_RELATIVE_FLEX_PPS:
->>
->> Before: echo "0 175xxxxxxx 0 1 1" > /sys/class/ptp/ptp0/period
->>
->> After: echo "0 3 0 1 1" > /sys/class/ptp/ptp0/period
-> 
-> Kconfig doesn't seem like a great way of achieving the outcome.
-> Some per-platform knob would be better.
-> But ideally we wouldn't do either. Could we possibly guess which
-> format user has chosen based on the values, at runtime?
+kernel test robot noticed the following build warnings:
 
-Hello Jakub,
+[auto build test WARNING on herbert-cryptodev-2.6/master]
+[also build test WARNING on next-20250728]
+[cannot apply to sunxi/sunxi/for-next herbert-crypto-2.6/master linus/master v6.16]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-There are two reasons for which I chose this approach:
-1) I did not want to affect other platforms and possibly
-break scripts that work with the current behavior. Is it
-acceptable to do otherwise? If so, maybe there's no need
-for a config switch or a per-platform implementation.
-2) SoCs may implement more than one MAC and the system
-time for these MACs may or may not be synced + the system
-time maintained by a MAC may not be a value that represents
-a date.
+url:    https://github.com/intel-lab-lkp/linux/commits/Ovidiu-Panait/crypto-sun8i-ce-remove-channel-timeout-field/20250728-141133
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git master
+patch link:    https://lore.kernel.org/r/20250728060701.1787607-4-ovidiu.panait.oss%40gmail.com
+patch subject: [PATCH 3/9] crypto: sun8i-ce - remove unnecessary __maybe_unused annotations
+config: arm-randconfig-002-20250728 (https://download.01.org/0day-ci/archive/20250728/202507281638.lcdB5LRY-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 1b4db78d2eaa070b3f364a2d2b2b826a5439b892)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250728/202507281638.lcdB5LRY-lkp@intel.com/reproduce)
 
-For these reasons, I'm not sure we can rely on the values
-that were given to stmmac_enable() to deduce what behavior
-we choose. The ptp_clock_request() structure does not hold
-loads of information as well.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202507281638.lcdB5LRY-lkp@intel.com/
 
-Maybe we could compare the time to the current MAC system
-time and, if the start time is in the past, consider the
-value to be an offset. Therefore, any value set in the past
-would be considered as an offset. I see some implementations
-doing either that or replacing any value set in the past to
-a safe start + a fixed offset.
+All warnings (new ones prefixed by >>):
 
-Best regards,
-Gatien
+>> drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c:1066:18: warning: variable 'dbgfs_stats' set but not used [-Wunused-but-set-variable]
+    1066 |                 struct dentry *dbgfs_stats;
+         |                                ^
+   1 warning generated.
+
+
+vim +/dbgfs_stats +1066 drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
+
+  1056	
+  1057		v = readl(ce->base + CE_CTR);
+  1058		v >>= CE_DIE_ID_SHIFT;
+  1059		v &= CE_DIE_ID_MASK;
+  1060		dev_info(&pdev->dev, "CryptoEngine Die ID %x\n", v);
+  1061	
+  1062		pm_runtime_put_sync(ce->dev);
+  1063	
+  1064		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
+  1065			struct dentry *dbgfs_dir;
+> 1066			struct dentry *dbgfs_stats;
+  1067	
+  1068			/* Ignore error of debugfs */
+  1069			dbgfs_dir = debugfs_create_dir("sun8i-ce", NULL);
+  1070			dbgfs_stats = debugfs_create_file("stats", 0444,
+  1071							  dbgfs_dir, ce,
+  1072							  &sun8i_ce_debugfs_fops);
+  1073	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
