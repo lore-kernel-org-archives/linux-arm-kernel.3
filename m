@@ -4,68 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26279C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:06:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A829C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j9eqnKcn6xFmuMKz1MUEBtlbUFa94aG6iPvGSHOUD+w=; b=zagjVrbmKm77aUwy/apkijw5Xy
-	D2bwQSFUze71y/iTw2FTY8NQYclE8djaNvrlW9DSNkI7Q7XcMDiNnAozV5c3viHxMPFE1D0fjTNwg
-	pVSJi+ZcGFCXKu1LTprocRdKfjkl0VC/c/YtLt328CIV05ecXUA4CtN1qhJEtNZAAHI1vtDtFKFey
-	TJZBiKmriOdbYNEmpj6dF1vrv0JvlEs6XFwCXbyWhXxN40XSY0pj4JuDDuUCr9Gf7iRXSjCT7kRYj
-	IOn5rh9aJf0WEH5PaJU9+Va4xl9CqAY5elCp+ldhd0nt8ZZr6RGwIwnNQfysWbWsoD2aS+1QfY99O
-	6XmN3r6A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W7lja2ibWXfiVo4eDJLx4tgeIggbs4JL9GjrFt29DoI=; b=zA4CnFcWgIIeIkZNmOv1p4ptHP
+	YVGRHZrSxYyBGPQDsnxCxrooqG63Y3Etmj1y0a82Vjm9FqV5HdT0qkh1wSXfcImm5+UfMgpLqzXfk
+	78Kzm5cS3eZaPc1ZuexDs/jSMAZcykTdsYUYxj/OD+U0stwA88CQN4APCQXnmI2UV2x46OJE+cOC6
+	R3jBjbXbepzfXEmRkzZ7aRO+d0SFpW8ERHXZXiebJZn4OU1A7uxVe6i6pnv2PdexLIg7NRAKV1CKM
+	MYGmE/S618pjC32mmz+F3rwqPnSOE5ZiVzt0msfDH8Lq0O8gX3YFzbT2voLxjKqGmCwmAE0jxzB1g
+	sRGCbqrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQMr-0000000EvdW-0rGw;
-	Mon, 28 Jul 2025 16:06:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPs6-0000000Epin-3Axr
+	id 1ugQPH-0000000Ew84-46hn;
+	Mon, 28 Jul 2025 16:08:55 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugPsd-0000000Epph-2A76
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 15:34:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0789B152B;
-	Mon, 28 Jul 2025 08:34:28 -0700 (PDT)
-Received: from e133380.arm.com (e133380.arm.com [10.1.197.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB3323F66E;
-	Mon, 28 Jul 2025 08:34:32 -0700 (PDT)
-Date: Mon, 28 Jul 2025 16:34:27 +0100
-From: Dave Martin <Dave.Martin@arm.com>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Lecopzer Chen <lecopzerc@nvidia.com>,
-	Carl Worth <carl@os.amperecomputing.com>,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	lcherian@marvell.com, bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com, baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>, Koba Ko <kobak@nvidia.com>
-Subject: Re: [RFC PATCH 27/36] arm_mpam: Allow configuration to be applied
- and restored during cpu online
-Message-ID: <aIeYgxJf9EASA5Zs@e133380.arm.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-28-james.morse@arm.com>
- <7ab40c09-3922-4e0c-85dd-00ff05be4ce6@arm.com>
+	Mon, 28 Jul 2025 15:35:12 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SDr2Gx027841;
+	Mon, 28 Jul 2025 17:35:01 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	W7lja2ibWXfiVo4eDJLx4tgeIggbs4JL9GjrFt29DoI=; b=gG0Y2yOT1jDlR+cK
+	EGtjFyZ3sRVlssE1wceff2KDnwFejXfgN1RJU7hTml/0QXMePRBp/Gj/KJwU2Gzg
+	9wFRVM6ZZSvyJuc04hjGkb7/CLvrxCjCjm96kXzIqcDKhpzz9qaYqNgcugz6lI7g
+	wtTKydRYJNH85eSTJ8kcRCqvmH/dvaAPeUqkrTCqrGv5jmFJ1dSLhx0XBD5k1l0L
+	9VO6JVnC6edA8+RBB2+ew1riYBW7zsWQwppeqxEJN+iHIYmxhHEKKur7RrfOFbO/
+	4ncAU4YmrBX8ZbpeXlUnKR7uRiNQL14ZHT4QCWJErwF6+klO3KGRQ1B4Hkhm4Chu
+	iNdcVA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4859yndytr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Jul 2025 17:35:01 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 18CAA4004B;
+	Mon, 28 Jul 2025 17:33:38 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1187D78C90A;
+	Mon, 28 Jul 2025 17:30:04 +0200 (CEST)
+Received: from localhost (10.252.23.100) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
+ 2025 17:30:03 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Mon, 28 Jul 2025 17:29:45 +0200
+Subject: [PATCH v5 14/20] Documentation: perf: stm32: add ddrperfm support
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <7ab40c09-3922-4e0c-85dd-00ff05be4ce6@arm.com>
+Message-ID: <20250728-ddrperfm-upstream-v5-14-03f1be8ad396@foss.st.com>
+References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
+In-Reply-To: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Le
+ Goffic <legoffic.clement@gmail.com>,
+        Julius Werner <jwerner@chromium.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-8018a
+X-Originating-IP: [10.252.23.100]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_083438_876510_9F041438 
-X-CRM114-Status: GOOD (  34.32  )
+X-CRM114-CacheID: sfid-20250728_083511_838107_445ADB6C 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,153 +114,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
 
-On Mon, Jul 28, 2025 at 12:59:12PM +0100, Ben Horgan wrote:
-> Hi James,
-> 
-> On 7/11/25 19:36, James Morse wrote:
-> > When CPUs come online the original configuration should be restored.
-> > Once the maximum partid is known, allocate an configuration array for
-> > each component, and reprogram each RIS configuration from this.
-> > 
-> > The MPAM spec describes how multiple controls can interact. To prevent
-> > this happening by accident, always reset controls that don't have a
-> > valid configuration. This allows the same helper to be used for
-> > configuration and reset.
-> > 
-> > CC: Dave Martin <Dave.Martin@arm.com>
-> > Signed-off-by: James Morse <james.morse@arm.com>
-> > ---
-> >   drivers/platform/arm64/mpam/mpam_devices.c  | 236 ++++++++++++++++++--
-> >   drivers/platform/arm64/mpam/mpam_internal.h |  26 ++-
-> >   2 files changed, 234 insertions(+), 28 deletions(-)
-> > 
-> > diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-> > index bb3695eb84e9..f3ecfda265d2 100644
-> > --- a/drivers/platform/arm64/mpam/mpam_devices.c
-> > +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+This documentation introduces the DDRPERFM, the stm32-ddr-pmu driver
+supporting it and how to use it with the perf tool.
 
-[...]
+Signed-off-by: Cl√©ment Le Goffic <clement.legoffic@foss.st.com>
+---
+ Documentation/admin-guide/perf/index.rst         |  1 +
+ Documentation/admin-guide/perf/stm32-ddr-pmu.rst | 86 ++++++++++++++++++++++++
+ 2 files changed, 87 insertions(+)
 
-> > @@ -1000,10 +1041,38 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+diff --git a/Documentation/admin-guide/perf/index.rst b/Documentation/admin-guide/perf/index.rst
+index 072b510385c4..33aedc4ee5c3 100644
+--- a/Documentation/admin-guide/perf/index.rst
++++ b/Documentation/admin-guide/perf/index.rst
+@@ -29,3 +29,4 @@ Performance monitor support
+    cxl
+    ampere_cspmu
+    mrvl-pem-pmu
++   stm32-ddr-pmu
+diff --git a/Documentation/admin-guide/perf/stm32-ddr-pmu.rst b/Documentation/admin-guide/perf/stm32-ddr-pmu.rst
+new file mode 100644
+index 000000000000..5b02bf44dd7a
+--- /dev/null
++++ b/Documentation/admin-guide/perf/stm32-ddr-pmu.rst
+@@ -0,0 +1,86 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++========================================
++STM32 DDR Performance Monitor (DDRPERFM)
++========================================
++
++The DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
++The DDR controller provides events to DDRPERFM, once selected they are counted in the DDRPERFM
++peripheral.
++
++In MP1 family, the DDRPERFM is able to count 4 different events at the same time.
++However, the 4 events must belong to the same set.
++One hardware counter is dedicated to the time counter, `time_cnt`.
++
++In MP2 family, the DDRPERFM is able to select between 44 different DDR events.
++As for MP1, there is a dedicated hardware counter for the time.
++It is incremented every 4 DDR clock cycles.
++All the other counters can be freely allocated to count any other DDR event.
++
++The stm32-ddr-pmu driver relies on the perf PMU framework to expose the counters via sysfs:
++
++On MP1:
++
++    .. code-block:: bash
++
++        $ ls /sys/bus/event_source/devices/stm32_ddr_pmu/events/
++        cactive_ddrc                 perf_lpr_req_with_no_credit  perf_op_is_wr
++        ctl_idle                     perf_lpr_xact_when_critical  perf_selfresh_mode
++        dfi_lp_req                   perf_op_is_activate          perf_wr_xact_when_critical
++        dfi_lp_req_cpy               perf_op_is_enter_powerdown   time_cnt
++        perf_hpr_req_with_no_credit  perf_op_is_rd
++        perf_hpr_xact_when_critical  perf_op_is_refresh
++
++On MP2:
++
++    .. code-block:: bash
++
++        $ ls /sys/bus/event_source/devices/stm32_ddr_pmu/events/
++        dfi_is_act       perf_hpr_req_with_nocredit   perf_op_is_spec_ref
++        dfi_is_mpc       perf_hpr_xact_when_critical  perf_op_is_wr
++        dfi_is_mrr       perf_lpr_req_with_nocredit   perf_op_is_zqcal
++        dfi_is_mrw       perf_lpr_xact_when_critical  perf_rank
++        dfi_is_mwr       perf_op_is_act               perf_raw_hazard
++        dfi_is_mwra      perf_op_is_crit_ref          perf_rdwr_transitions
++        dfi_is_preab     perf_op_is_enter_powdn       perf_read_bypass
++        dfi_is_prepb     perf_op_is_enter_selfref     perf_war_hazard
++        dfi_is_rd        perf_op_is_mwr               perf_waw_hazard
++        dfi_is_rda       perf_op_is_pre               perf_window_limit_reached_rd
++        dfi_is_refab     perf_op_is_pre_for_others    perf_window_limit_reached_wr
++        dfi_is_refpb     perf_op_is_pre_for_rdwr      perf_wr_xact_when_critical
++        dfi_is_wr        perf_op_is_rd                time_cnt
++        dfi_is_wra       perf_op_is_rd_activate
++        perf_act_bypass  perf_op_is_ref
++
++
++The perf PMU framework is usually invoked via the 'perf stat' tool.
++
++
++Example:
++
++    .. code-block:: bash
++
++        $ perf stat --timeout 60000 -e stm32_ddr_pmu/dfi_is_act/,\
++        > stm32_ddr_pmu/dfi_is_rd/,\
++        > stm32_ddr_pmu/dfi_is_wr/,\
++        > stm32_ddr_pmu/dfi_is_refab/,\
++        > stm32_ddr_pmu/dfi_is_mrw/,\
++        > stm32_ddr_pmu/dfi_is_rda/,\
++        > stm32_ddr_pmu/dfi_is_wra/,\
++        > stm32_ddr_pmu/dfi_is_mrr/,\
++        > stm32_ddr_pmu/time_cnt/ \
++        > -a sleep 5
++
++         Performance counter stats for 'system wide':
++
++                    481025      stm32_ddr_pmu/dfi_is_act/
++                    732166      stm32_ddr_pmu/dfi_is_rd/
++                    144926      stm32_ddr_pmu/dfi_is_wr/
++                    644154      stm32_ddr_pmu/dfi_is_refab/
++                         0      stm32_ddr_pmu/dfi_is_mrw/
++                         0      stm32_ddr_pmu/dfi_is_rda/
++                         0      stm32_ddr_pmu/dfi_is_wra/
++                         0      stm32_ddr_pmu/dfi_is_mrr/
++                 752347686      stm32_ddr_pmu/time_cnt/
++
++               5.014910750 seconds time elapsed
 
-[...]
+-- 
+2.43.0
 
-> > +static void mpam_reprogram_msc(struct mpam_msc *msc)
-> > +{
-> > +	int idx;
-> > +	u16 partid;
-> > +	bool reset;
-> > +	struct mpam_config *cfg;
-> > +	struct mpam_msc_ris *ris;
-> > +
-> > +	idx = srcu_read_lock(&mpam_srcu);
-> > +	list_for_each_entry_rcu(ris, &msc->ris, msc_list) {
-> > +		if (!mpam_is_enabled() && !ris->in_reset_state) {
-> > +			mpam_touch_msc(msc, &mpam_reset_ris, ris);
-> > +			ris->in_reset_state = true;
-> > +			continue;
-> > +		}
-> > +
-> > +		reset = true;
-> > +		for (partid = 0; partid <= mpam_partid_max; partid++) {
-
-> Do we need to consider 'partid_max_lock' here?
-
-Just throwing in my 2¢, since I'd dug into this a bit previously:
-
-Here, we are resetting an MSC or re-onlining a CPU.  Either way, I
-think that this only happens after the initial probing phase is
-complete.
-
-mpam_enable_once() is ordered with respect to the task that did the
-final unlock of partid_max_lock during probing, by means of the
-schedule_work() call.  (See <linux/workqueue.h>.)
-
-Taking the hotplug lock and installing mpam_cpu_online() for CPU
-hotplug probably brings a sufficient guarantee also (though I've not
-dug into it).
-
-This function doesn't seem to be called during the probing phase (via
-mpam_discovery_cpu_online()), so there shouldn't be any racing updates
-to the global variables here.
-
-> > +			cfg = &ris->vmsc->comp->cfg[partid];
-> > +			if (cfg->features)
-> > +				reset = false;
-> > +
-> > +			mpam_reprogram_ris_partid(ris, partid, cfg);
-> > +		}
-> > +		ris->in_reset_state = reset;
-> > +	}
-> > +	srcu_read_unlock(&mpam_srcu, idx);
-> > +}
-
-[...]
-
-> > @@ -1806,6 +1875,43 @@ static void mpam_unregister_irqs(void)
-
-[...]
-
-> > +static int __allocate_component_cfg(struct mpam_component *comp)
-> > +{
-> > +	if (comp->cfg)
-> > +		return 0;
-> > +
-> > +	comp->cfg = kcalloc(mpam_partid_max + 1, sizeof(*comp->cfg), GFP_KERNEL);
-
-> And here?
-
-Similarly, this runs only in the mpam_enable_once() call.
-
-[...]
-
-> > @@ -1861,6 +1976,8 @@ static void mpam_reset_component_locked(struct mpam_component *comp)
-> >   	might_sleep();
-> >   	lockdep_assert_cpus_held();
-> > +	memset(comp->cfg, 0, (mpam_partid_max * sizeof(*comp->cfg)));
-
-> And here?
-
-Similarly to mpam_reset_msc(), I think this probably only runs from
-mpam_enable_once() or mpam_cpu_online().
-
-I think most or all of the existing reads of the affected globals from
-within mpam_resctrl.c are also callbacks from resctrl_init(), which
-again exceutes during mpam_enable_once() (though I won't promise I
-haven't missed one or two).
-
-Once resctrl has fired up, I believe that the MPAM driver basically
-trusts the IDs coming in from resctrl, and doesn't need to range-check
-them against the global parameters again.
-
-[...]
-
-> Thanks,
-> 
-> Ben
-
-I consciously haven't done all the homework on this.
-
-Although it may look like the globals are read all over the place after
-probing, I think this actually only happens during resctrl initialision
-(which is basically single-threaded).
-
-The only place where they are read after probing and without mediation
-via resctrl is on the CPU hotplug path.
-
-Adding locking would ensure that an unstable value is never read, but
-this is not sufficient by itself to sure that the _final_ value of a
-variable is read (for some definition of "final").  And, if there is a
-well-defined notion of final value and there is sufficient
-synchronisation to ensure that this is the value read by a particular
-read, then by construction an unstable value cannot be read.
-
-
-I think that this kind of pattern is not that uncommon in the kernel,
-though it is a bit painful to reason about.
-
-Cheers
----Dave
 
