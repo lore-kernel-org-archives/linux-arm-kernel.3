@@ -4,65 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF048C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B03EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qb7Rwwje7f3Tdy9vNZPriJ2y9oCcAGKpXNcg++VGf/E=; b=OSgQ6aKgXZPyBIcwFm+nZi3iMJ
-	jEBiyOFK31+nf8UEn49c9CcEMGtbEFooIJ8hFmwhmNMeihgXF48XXujQrRFTDQXHiLqTP6KAeh+Ew
-	SY+gw5PqbZlNFNmM1APg/6b4pRlJ6V08nqUs4yeqdhnS/p+CI0x142t8KmO6kjCri5BUW3GGmeCvm
-	kJ9slzi523Pa3C35h+EfrcW8+wYW6vODgeJXYfddGY6R77bFEfZydOfkSJOQKSAB/HGmD6lDlik+l
-	Ebzo8Tjd83ZufEBCCq/ZQkV3YQGOeetDQWHdfEpP0oMS7+k/sZN6OMTYmsgSR78NhSHdkPyVnYqfo
-	kgJWDBeQ==;
+	bh=1S+/fxjBGM9OThOsnlJiBdnI+RCOnybmlz6yPJOrPUQ=; b=N33nA0qcWablo3TEmpbmE5IGTU
+	+8OmZjuXw0sMF30mEibBNaOJxtDmPGw9nI+IBXdGdLXM+fuG5BajW5lqKj694rd3c8V5Pa6s26Lhc
+	7ZZuxpOxdxj952f50W1KCswuG4J8Fuh3VGIqH4lInApbOaI5napC2IUvnD9t5UW+znl4ArfwjWAG3
+	cRYEU1Wm5PjcRERVjAo5tNDcNmPjhFiVLt+JOPfRyyTwvs3vJ3p/YRax+UghlEvYZO8a4ZTtZd97+
+	Dp6GehBtu7MBpsZtN9JQhfvKTZGT8AjIxFBSuMHOAurEw4poQNKCiS3lRUuyhX5EzVHKxX2uayJBu
+	V7Qlrjdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPti-0000000Eq96-3OQq;
-	Mon, 28 Jul 2025 15:36:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ugPw9-0000000EqjK-0fMz;
+	Mon, 28 Jul 2025 15:38:49 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPmX-0000000EodL-3E2z;
-	Mon, 28 Jul 2025 15:28:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C1AE448EC;
-	Mon, 28 Jul 2025 15:28:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C01CEC4CEE7;
-	Mon, 28 Jul 2025 15:28:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753716533;
-	bh=lPiDGpZFpdH6itgC3rcfg1u0DDgdbAG7h3QwQTSxGz4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=EmflJWGrgqbhGLWqVxqvw4Yq4qHbm+pgRuCev4GyeV1j2aAeS3HB94b6/1EGL4mIf
-	 idZBrQtkA2SmHyKpO0xqzOndDVDewjc6byd+VyxNgF8b0+Etz0Ee62AnwveT+RgrQV
-	 ywyTuzLoupa5h7V+5rvRd36XDA4YItPeALYBxlQF+x1P1T4weIm84/HMtU9kEpx8TX
-	 WbD3UBTPLEYcf+lwWG0ro2jXtozr+K4eVCOZLDRmDf2KCbjj9iDGQveL2z95d/Ag1N
-	 nJWkzVdosnzwEA839eeqx2paRzs8SuGcb5KJcpE/8jC7RNoXHegSUncLdUyHxQIyv6
-	 SGrC0eVSBOI+w==
-Date: Mon, 28 Jul 2025 08:28:52 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Simon Horman
- <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v6 0/7] net: airoha: Introduce NPU callbacks
- for wlan offloading
-Message-ID: <20250728082852.158f6829@kernel.org>
-In-Reply-To: <20250727-airoha-en7581-wlan-offlaod-v6-0-6afad96ac176@kernel.org>
-References: <20250727-airoha-en7581-wlan-offlaod-v6-0-6afad96ac176@kernel.org>
+	id 1ugPqO-0000000EpHG-3j7M
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Jul 2025 15:32:54 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SFWM3m003733;
+	Mon, 28 Jul 2025 17:32:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	1S+/fxjBGM9OThOsnlJiBdnI+RCOnybmlz6yPJOrPUQ=; b=QWQne/m3XfCBehhG
+	wu7fz9Ssqb3Z1wtPXL8wioGHUBX9kCbn7ML4vf5BUXMa9XsdT8Ds9NdP+2/oiiT+
+	y6mE8aPjHP7+Slc0w4qgf0v5zLtTDU4q+j1Xq9TekXI5GSuLr8WgfKgc4Uum7XdF
+	9zAszF15vaMJdCMZ/ouO/k9SI2DcRZsqCM5pCfwg4EFj4zh4ixkf0IkcLxgWBrBo
+	1zLME0JIiqOHpSQu4fjQ9TQAXlilcp+KZKNRZ+ICCB3cWEXLOOFVekjsgU61VgS/
+	cy34ovwxQXWO0XCUuAXflnPp8coea90uKeQ1t+TOt6ZUNFHEwghVhw0XHuTbUfbx
+	Yvy74g==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484pc28w28-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Jul 2025 17:32:40 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 450A24002D;
+	Mon, 28 Jul 2025 17:31:10 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 68E70787C37;
+	Mon, 28 Jul 2025 17:29:50 +0200 (CEST)
+Received: from localhost (10.252.23.100) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
+ 2025 17:29:50 +0200
+From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+Date: Mon, 28 Jul 2025 17:29:32 +0200
+Subject: [PATCH v5 01/20] bus: firewall: move stm32_firewall header file in
+ include folder
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250728-ddrperfm-upstream-v5-1-03f1be8ad396@foss.st.com>
+References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
+In-Reply-To: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Rob
+ Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor
+ Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Jonathan Corbet <corbet@lwn.net>,
+        Gatien Chevallier
+	<gatien.chevallier@foss.st.com>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>,
+        Gabriel Fernandez
+	<gabriel.fernandez@foss.st.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Le
+ Goffic <legoffic.clement@gmail.com>,
+        Julius Werner <jwerner@chromium.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>,
+        =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
+X-Mailer: b4 0.15-dev-8018a
+X-Originating-IP: [10.252.23.100]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_082853_829527_D5973F08 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_083253_438686_53B746FE 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,26 +115,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 27 Jul 2025 16:40:45 +0200 Lorenzo Bianconi wrote:
-> Similar to wired traffic, EN7581 SoC allows to offload traffic to/from
-> the MT76 wireless NIC configuring the NPU module via the Netfilter
-> flowtable. This series introduces the necessary NPU callback used by
-> the MT7996 driver in order to enable the offloading.
-> MT76 support has been posted as RFC in [0] in order to show how the
-> APIs are consumed.
+Other driver than rifsc and etzpc can implement firewall ops, such as
+rcc.
+In order for them to have access to the ops and type of this framework,
+we need to get the `stm32_firewall.h` file in the include/ folder.
 
-## Form letter - net-next-closed
+Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+---
+ drivers/bus/stm32_etzpc.c                       | 3 +--
+ drivers/bus/stm32_firewall.c                    | 3 +--
+ drivers/bus/stm32_rifsc.c                       | 3 +--
+ {drivers => include/linux}/bus/stm32_firewall.h | 0
+ 4 files changed, 3 insertions(+), 6 deletions(-)
 
-We have already submitted our pull request with net-next material for v6.17,
-and therefore net-next is closed for new drivers, features, code refactoring
-and optimizations. We are currently accepting bug fixes only.
+diff --git a/drivers/bus/stm32_etzpc.c b/drivers/bus/stm32_etzpc.c
+index 7fc0f16960be..4918a14e507e 100644
+--- a/drivers/bus/stm32_etzpc.c
++++ b/drivers/bus/stm32_etzpc.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -16,8 +17,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /*
+  * ETZPC registers
+  */
+diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
+index 2fc9761dadec..ef4988054b44 100644
+--- a/drivers/bus/stm32_firewall.c
++++ b/drivers/bus/stm32_firewall.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/bus/stm32_firewall_device.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+@@ -18,8 +19,6 @@
+ #include <linux/types.h>
+ #include <linux/slab.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /* Corresponds to STM32_FIREWALL_MAX_EXTRA_ARGS + firewall ID */
+ #define STM32_FIREWALL_MAX_ARGS		(STM32_FIREWALL_MAX_EXTRA_ARGS + 1)
+ 
+diff --git a/drivers/bus/stm32_rifsc.c b/drivers/bus/stm32_rifsc.c
+index 4cf1b60014b7..643ddd0a5f54 100644
+--- a/drivers/bus/stm32_rifsc.c
++++ b/drivers/bus/stm32_rifsc.c
+@@ -5,6 +5,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/bus/stm32_firewall.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+ #include <linux/init.h>
+@@ -16,8 +17,6 @@
+ #include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+-#include "stm32_firewall.h"
+-
+ /*
+  * RIFSC offset register
+  */
+diff --git a/drivers/bus/stm32_firewall.h b/include/linux/bus/stm32_firewall.h
+similarity index 100%
+rename from drivers/bus/stm32_firewall.h
+rename to include/linux/bus/stm32_firewall.h
 
-Please repost when net-next reopens after Aug 11th.
-
-RFC patches sent for review only are obviously welcome at any time.
-
-See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
 -- 
-pw-bot: defer
-pv-bot: closed
+2.43.0
+
 
