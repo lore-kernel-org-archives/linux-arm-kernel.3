@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04E8C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7D4C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 15:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L5U4iOIMzTLQcNGAWLcYUHl7amMuMgZWgZO8MaFVrQk=; b=ptMmse8+mE8Bnq5X2So7z+G+Xb
-	nLWKU2P8hlUqihiQmQSupJh8a3UgONr99E9d+4Qk82NIBi9pQiMtyE9eWj/G7S7tNiQSkSK9QhtsI
-	FXXgUyMHFVXe9cbfegko9eJXMH5JzQhBFHfEy5gxq+MwDeyKzXfuXNRSYjjEyWu4xYjyKpZc8lc25
-	7cxKziDaATY9xlwuSpcZKlSajCxdCl3xv/B5FuJWVr10CqdaKCSo3o5ao3snyv6x4o9L9Lt5tn2EK
-	uMzlRGw/Dcsp+gM9epP/wInNbeey+lNw/IMFpTfe1CUhMn4FpVGbTsFrpQ/RbZauTaOjxFOyOgh0v
-	SZ/u5whg==;
+	bh=a7LWlOLtHEVsw7QyER6FfjOKmrZdqB2/hdIwi6Hbs9U=; b=l8xT5AeFcBoXFbIlGGlwEvcLkM
+	NiiB6iXiDJf59alzgtfnhmyNnEDtg3fqzJ7oCLCubNj6Y2Pl9k2ibGi4qt23NMDJPp7zMEvuStAcT
+	DLGVZZALMpGvumpZFDmfYB0siCA6cCot+ORsmoBTXMZlbgH6jnaupBCRbHjRAjVME2u5Poav1dSjf
+	fZzk1XsIGeW9o9Gc/htaexuEXkE29/MTWwVKxufrL1/ULX9n8bSKj3pK4zkuB2ADsNzzeZTIzBtLX
+	yF/WbKiSADYfSQ4FgnshbF2O+ggRWQrqgpdyjs+qjEcowFbUI4sWolj+sf42qZim/HWQP3X13OLeX
+	Gi8qFjEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQ10-0000000Ern4-3CeM;
-	Mon, 28 Jul 2025 15:43:50 +0000
+	id 1ugQ3R-0000000EsDu-2fXC;
+	Mon, 28 Jul 2025 15:46:21 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugPqP-0000000EpHJ-2EA6
+	id 1ugPqZ-0000000EpJN-1v3I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 15:32:55 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SDmqUL025850;
-	Mon, 28 Jul 2025 17:32:40 +0200
+	Mon, 28 Jul 2025 15:33:04 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SDnfmq008418;
+	Mon, 28 Jul 2025 17:32:52 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	L5U4iOIMzTLQcNGAWLcYUHl7amMuMgZWgZO8MaFVrQk=; b=BKjbs/xs31c7FSK6
-	R7Hw18HQ/9sqBmYKB0lJ24Om3mySIoCQUhNKsOM9eaxfgWKe1vxufD07ZCSE7a6b
-	VI4iAG0DRoeerDPWNPUUAi2++vS0oGTT4mUMNZAfmehmY1mc+7Tpj5T4zT/lDW0A
-	Wy5v6lI01wD/63+TaMivxAbpjZ1OhYmWdJKZMODqtgFu/hyPWd4IUQRQRIPfSO6g
-	UQGOmuWcLg1r4nJ6QmCdriRfKje71aZ5yhK7foBX+WP0P1rhiDvF+W6FPRdYF1Oc
-	N8/5Tak5VIaC4pC8FAAbc2rCxOee3BauQ4G1SvwemaxM0OgZpU+V6sruODTUrMeo
-	6M4rPA==
+	a7LWlOLtHEVsw7QyER6FfjOKmrZdqB2/hdIwi6Hbs9U=; b=BIJYTa99Mpig0rQc
+	wd+FwDNdRmK1zEh5JSgDPnTn9UH+2V80VAbm09FKd9sUjx1XU9Sfncy0wrTL5KHA
+	r4vzSz0kBwT93R8JDq95SOocQkcJsM4s2CrsX3f8EF0m+JoZgfzoZ1Zy8ObRilei
+	JTeoLfJ4meHaI8vR3KL8G3IZQ+rXmn6MgFriiSJ6LCE5ioYCmhqCK+OvbRMX5B+R
+	HvTYi8on1jPP1fxNHWOB9jSEqHN3WhhLE8PkhqiUQTTz/rMAc3tTBOUQCnVCoMyh
+	I9wB2++t/tELyOfJ2Av5cDFVr1AtofHCuvud/O7DPuxFQ3J5GppxcldBYU45sDkp
+	Kbb9Cw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484pc28w27-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484memha9y-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Jul 2025 17:32:40 +0200 (MEST)
+	Mon, 28 Jul 2025 17:32:52 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 4637940045;
-	Mon, 28 Jul 2025 17:31:10 +0200 (CEST)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id F3E114004B;
+	Mon, 28 Jul 2025 17:31:17 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5F84776DC2C;
-	Mon, 28 Jul 2025 17:29:51 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8C6F8787C26;
+	Mon, 28 Jul 2025 17:29:55 +0200 (CEST)
 Received: from localhost (10.252.23.100) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
- 2025 17:29:51 +0200
+ 2025 17:29:55 +0200
 From: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Date: Mon, 28 Jul 2025 17:29:33 +0200
-Subject: [PATCH v5 02/20] dt-bindings: stm32: stm32mp25: add
- `#access-controller-cells` property
+Date: Mon, 28 Jul 2025 17:29:37 +0200
+Subject: [PATCH v5 06/20] dt-bindings: memory: introduce DDR4
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20250728-ddrperfm-upstream-v5-2-03f1be8ad396@foss.st.com>
+Message-ID: <20250728-ddrperfm-upstream-v5-6-03f1be8ad396@foss.st.com>
 References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
 In-Reply-To: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
@@ -99,9 +98,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_083253_863906_8B6A0DCF 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_083303_787376_B6E8ABEB 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,46 +114,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RCC is able to check the availability of a clock.
-Allow to query the RCC with a firewall ID.
+Introduce JEDEC compliant DDR bindings, that use new memory-props binding.
 
 Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 ---
- Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../memory-controllers/ddr/jedec,ddr4.yaml         | 34 ++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-index 88e52f10d1ec..4d471e3d89bc 100644
---- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-+++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
-@@ -31,6 +31,11 @@ properties:
-   '#reset-cells':
-     const: 1
- 
-+  '#access-controller-cells':
-+    const: 1
-+    description:
-+      Contains the firewall ID associated to the peripheral.
+diff --git a/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+new file mode 100644
+index 000000000000..f457066a2f8b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/memory-controllers/ddr/jedec,ddr4.yaml
+@@ -0,0 +1,34 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/memory-controllers/ddr/jedec,ddr4.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-   clocks:
-     items:
-       - description: CK_SCMI_HSE High Speed External oscillator (8 to 48 MHz)
-@@ -123,6 +128,7 @@ required:
-   - reg
-   - '#clock-cells'
-   - '#reset-cells'
-+  - '#access-controller-cells'
-   - clocks
- 
- additionalProperties: false
-@@ -136,6 +142,7 @@ examples:
-         reg = <0x44200000 0x10000>;
-         #clock-cells = <1>;
-         #reset-cells = <1>;
-+        #access-controller-cells = <1>;
-         clocks =  <&scmi_clk CK_SCMI_HSE>,
-                   <&scmi_clk CK_SCMI_HSI>,
-                   <&scmi_clk CK_SCMI_MSI>,
++title: DDR3 SDRAM compliant to JEDEC JESD79-4D
++
++maintainers:
++  - Krzysztof Kozlowski <krzk@kernel.org>
++
++allOf:
++  - $ref: jedec,sdram-props.yaml#
++
++properties:
++  compatible:
++    items:
++      - pattern: "^ddr4-[0-9a-f]{2},[0-9a-f]{1}$"
++      - const: jedec,ddr4
++
++required:
++  - compatible
++  - density
++  - io-width
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    ddr {
++        compatible = "ddr4-ff,f", "jedec,ddr4";
++        density = <8192>;
++        io-width = <8>;
++    };
 
 -- 
 2.43.0
