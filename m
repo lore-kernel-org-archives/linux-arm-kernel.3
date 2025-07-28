@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4556AC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 22:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC9AEC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 22:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ArPO0aSMNQ4VJy5Cn1NLmMTjUMksppDpeUXhdV8G3FI=; b=iCkr10MONvCINwKb/FmAEolu2Y
-	8EaqtiPy7dgJOquMBj3Y5OzM0bnXTXJNdUtdfMk/XO/OPxH+IN9pPcNEEkxmE9QdINGrcsnAi1ihf
-	ak9nvbhKObIY4McTTUgUQofjQpwXRVmPosli5LKgNuCqYzGp1NVpIV6BdwWyZrNnbIJMYB4vao0Su
-	I/6u1FyRGY4bgOF/xfijZJACPYLH0cpvcKdRWLebafqxcNr1KQug/OEo5ZYkl0wMYHUOlvJBbz3zr
-	qfm3R1/SyPYvLjuBFnsT1s+oLHMUqjCOIFkBhrshE+k4YQb3heBhWnFv3ycCYOeKGo9PfnaDq/ObA
-	VsRxJBEQ==;
+	bh=POWcbrzxD1nx0V6VO4ze6P6md5CtQ52lbSHa2nlLUDw=; b=AIVA1uheM6lWdH0XEgrj20Sf0h
+	USFyeY51MGYjrUibQ9PMM8G4SWbAvGYY961maqGc+UVAA+t6olhPZ/Grvi1kpWNxry2mCiJ+rY7pP
+	RmoHK0iTTlVgROnuZbUjHSZA/l7rA7IPjmY2osufJqf7Iu3dDtGJAfhVvbI3cdbvun6XKifKoJ4Kc
+	wWLmmjrQoiPmDnwyqEMPJp20+lDD9iSq7KaVfN9HC5IbQ0zA/Ydzu33KXlQW95dZt/XU71WFMB7/5
+	HepIm1pHpWsxPpiwPlOoy0w995NPFyec4j5uKtitjB/0Q+QBHTOpwe9JvTSDViaKRWuebtH7KY1RV
+	Zkc8NvfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugWNA-0000000FX1x-3y7s;
-	Mon, 28 Jul 2025 22:31:08 +0000
-Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
+	id 1ugWPb-0000000FXDz-2zzp;
+	Mon, 28 Jul 2025 22:33:39 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugWB8-0000000FVpF-1WvK
+	id 1ugWB9-0000000FVqg-0Sr8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 22:18:43 +0000
+	Mon, 28 Jul 2025 22:18:44 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753741112;
+	t=1753741121;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ArPO0aSMNQ4VJy5Cn1NLmMTjUMksppDpeUXhdV8G3FI=;
-	b=caG6b1mqcOoRc7hfIDQrtz1cYWaITOPREObfVtfKia1jZmN7vlxMHX9oKB6w2gS16QjJti
-	xk0Q/+RixGLCsVhA12o23z0dwMnzGI7ozWRqpKHDodTU8HE0r2eUrg1DsdKgwirUfKTVyY
-	8FPDBeAay50CwX6i62DimCvO9iexmp8=
+	bh=POWcbrzxD1nx0V6VO4ze6P6md5CtQ52lbSHa2nlLUDw=;
+	b=fLJsW90+cfYAXMqmbSOg2v1XBclO1mzeuvH+MbglyoSVv5bc0aSLPAugoCKLQy7jTUdSXh
+	iDIMH5ae+vD/z9kBfeEpxEVjAPXOj6g8obsa5EUjM2N37v5972PAIOtUnsO1MIsy4VurN4
+	QSxsqa9WlkV2KSel3rCqG7V+O7j+ztM=
 From: Sean Anderson <sean.anderson@linux.dev>
 To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -52,17 +52,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Leon Romanovsky <leon@kernel.org>,
 	Sean Anderson <sean.anderson@linux.dev>
-Subject: [PATCH net-next v3 1/7] net: axienet: Fix resource release ordering
-Date: Mon, 28 Jul 2025 18:18:17 -0400
-Message-Id: <20250728221823.11968-2-sean.anderson@linux.dev>
+Subject: [PATCH net-next v3 5/7] net: axienet: Use device variable in probe
+Date: Mon, 28 Jul 2025 18:18:21 -0400
+Message-Id: <20250728221823.11968-6-sean.anderson@linux.dev>
 In-Reply-To: <20250728221823.11968-1-sean.anderson@linux.dev>
 References: <20250728221823.11968-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_151842_550452_AD28164A 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250728_151843_453889_AAFC3601 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,233 +77,295 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device-managed resources are released after manually-managed resources.
-Therefore, once any manually-managed resource is acquired, all further
-resources must be manually-managed too.
+There are a lot of references to pdev->dev that we can shorten by using
+a dev variable.
 
-Convert all resources before the MDIO bus is created into device-managed
-resources. In all cases but one there are already devm variants available.
-
-Fixes: 46aa27df8853 ("net: axienet: Use devm_* calls")
 Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
 ---
 
-(no changes since v1)
+Changes in v3:
+- New
 
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 89 ++++++++-----------
- 1 file changed, 37 insertions(+), 52 deletions(-)
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 83 +++++++++----------
+ 1 file changed, 41 insertions(+), 42 deletions(-)
 
 diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 6011d7eae0c7..1f277e5e4a62 100644
+index 1f277e5e4a62..28927c7c6c41 100644
 --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
 +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2744,6 +2744,11 @@ static void axienet_dma_err_handler(struct work_struct *work)
- 	axienet_setoptions(ndev, lp->options);
- }
- 
-+static void axienet_disable_misc(void *clocks)
-+{
-+	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, clocks);
-+}
-+
- /**
-  * axienet_probe - Axi Ethernet probe function.
-  * @pdev:	Pointer to platform device structure.
-@@ -2767,7 +2772,7 @@ static int axienet_probe(struct platform_device *pdev)
+@@ -2764,6 +2764,7 @@ static void axienet_disable_misc(void *clocks)
+ static int axienet_probe(struct platform_device *pdev)
+ {
+ 	int ret;
++	struct device *dev = &pdev->dev;
+ 	struct device_node *np;
+ 	struct axienet_local *lp;
+ 	struct net_device *ndev;
+@@ -2772,13 +2773,13 @@ static int axienet_probe(struct platform_device *pdev)
  	int addr_width = 32;
  	u32 value;
  
--	ndev = alloc_etherdev(sizeof(*lp));
-+	ndev = devm_alloc_etherdev(&pdev->dev, sizeof(*lp));
+-	ndev = devm_alloc_etherdev(&pdev->dev, sizeof(*lp));
++	ndev = devm_alloc_etherdev(dev, sizeof(*lp));
  	if (!ndev)
  		return -ENOMEM;
  
-@@ -2795,22 +2800,17 @@ static int axienet_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, ndev);
+ 
+-	SET_NETDEV_DEV(ndev, &pdev->dev);
++	SET_NETDEV_DEV(ndev, dev);
+ 	ndev->features = NETIF_F_SG;
+ 	ndev->ethtool_ops = &axienet_ethtool_ops;
+ 
+@@ -2788,7 +2789,7 @@ static int axienet_probe(struct platform_device *pdev)
+ 
+ 	lp = netdev_priv(ndev);
+ 	lp->ndev = ndev;
+-	lp->dev = &pdev->dev;
++	lp->dev = dev;
+ 	lp->options = XAE_OPTION_DEFAULTS;
+ 	lp->rx_bd_num = RX_BD_NUM_DEFAULT;
+ 	lp->tx_bd_num = TX_BD_NUM_DEFAULT;
+@@ -2800,33 +2801,32 @@ static int axienet_probe(struct platform_device *pdev)
  	seqcount_mutex_init(&lp->hw_stats_seqcount, &lp->stats_lock);
  	INIT_DEFERRABLE_WORK(&lp->stats_work, axienet_refresh_stats);
  
--	lp->axi_clk = devm_clk_get_optional(&pdev->dev, "s_axi_lite_clk");
-+	lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev,
-+						    "s_axi_lite_clk");
+-	lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev,
+-						    "s_axi_lite_clk");
++	lp->axi_clk = devm_clk_get_optional_enabled(dev, "s_axi_lite_clk");
  	if (!lp->axi_clk) {
  		/* For backward compatibility, if named AXI clock is not present,
  		 * treat the first clock specified as the AXI clock.
  		 */
--		lp->axi_clk = devm_clk_get_optional(&pdev->dev, NULL);
--	}
--	if (IS_ERR(lp->axi_clk)) {
--		ret = PTR_ERR(lp->axi_clk);
--		goto free_netdev;
--	}
--	ret = clk_prepare_enable(lp->axi_clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Unable to enable AXI clock: %d\n", ret);
--		goto free_netdev;
-+		lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
+-		lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
++		lp->axi_clk = devm_clk_get_optional_enabled(dev, NULL);
  	}
-+	if (IS_ERR(lp->axi_clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(lp->axi_clk),
-+				     "could not get AXI clock\n");
+ 	if (IS_ERR(lp->axi_clk))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(lp->axi_clk),
++		return dev_err_probe(dev, PTR_ERR(lp->axi_clk),
+ 				     "could not get AXI clock\n");
  
  	lp->misc_clks[0].id = "axis_clk";
  	lp->misc_clks[1].id = "ref_clk";
-@@ -2818,18 +2818,23 @@ static int axienet_probe(struct platform_device *pdev)
+ 	lp->misc_clks[2].id = "mgt_clk";
  
- 	ret = devm_clk_bulk_get_optional(&pdev->dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
+-	ret = devm_clk_bulk_get_optional(&pdev->dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
++	ret = devm_clk_bulk_get_optional(dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
  	if (ret)
--		goto cleanup_clk;
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "could not get misc. clocks\n");
+-		return dev_err_probe(&pdev->dev, ret,
++		return dev_err_probe(dev, ret,
+ 				     "could not get misc. clocks\n");
  
  	ret = clk_bulk_prepare_enable(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
  	if (ret)
--		goto cleanup_clk;
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "could not enable misc. clocks\n");
-+
-+	ret = devm_add_action_or_reset(&pdev->dev, axienet_disable_misc,
-+				       lp->misc_clks);
-+	if (ret)
-+		return ret;
+-		return dev_err_probe(&pdev->dev, ret,
++		return dev_err_probe(dev, ret,
+ 				     "could not enable misc. clocks\n");
  
- 	/* Map device registers */
- 	lp->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &ethres);
--	if (IS_ERR(lp->regs)) {
--		ret = PTR_ERR(lp->regs);
--		goto cleanup_clk;
--	}
-+	if (IS_ERR(lp->regs))
-+		return PTR_ERR(lp->regs);
- 	lp->regs_start = ethres->start;
+-	ret = devm_add_action_or_reset(&pdev->dev, axienet_disable_misc,
++	ret = devm_add_action_or_reset(dev, axienet_disable_misc,
+ 				       lp->misc_clks);
+ 	if (ret)
+ 		return ret;
+@@ -2843,7 +2843,7 @@ static int axienet_probe(struct platform_device *pdev)
+ 	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_STATS)
+ 		lp->features |= XAE_FEATURE_STATS;
  
- 	/* Setup checksum offload, but default to off if not specified */
-@@ -2898,19 +2903,17 @@ static int axienet_probe(struct platform_device *pdev)
- 			lp->phy_mode = PHY_INTERFACE_MODE_1000BASEX;
+-	ret = of_property_read_u32(pdev->dev.of_node, "xlnx,txcsum", &value);
++	ret = of_property_read_u32(dev->of_node, "xlnx,txcsum", &value);
+ 	if (!ret) {
+ 		switch (value) {
+ 		case 1:
+@@ -2858,7 +2858,7 @@ static int axienet_probe(struct platform_device *pdev)
  			break;
- 		default:
--			ret = -EINVAL;
--			goto cleanup_clk;
-+			return -EINVAL;
+ 		}
+ 	}
+-	ret = of_property_read_u32(pdev->dev.of_node, "xlnx,rxcsum", &value);
++	ret = of_property_read_u32(dev->of_node, "xlnx,rxcsum", &value);
+ 	if (!ret) {
+ 		switch (value) {
+ 		case 1:
+@@ -2877,13 +2877,13 @@ static int axienet_probe(struct platform_device *pdev)
+ 	 * Here we check for memory allocated for Rx/Tx in the hardware from
+ 	 * the device-tree and accordingly set flags.
+ 	 */
+-	of_property_read_u32(pdev->dev.of_node, "xlnx,rxmem", &lp->rxmem);
++	of_property_read_u32(dev->of_node, "xlnx,rxmem", &lp->rxmem);
+ 
+-	lp->switch_x_sgmii = of_property_read_bool(pdev->dev.of_node,
++	lp->switch_x_sgmii = of_property_read_bool(dev->of_node,
+ 						   "xlnx,switch-x-sgmii");
+ 
+ 	/* Start with the proprietary, and broken phy_type */
+-	ret = of_property_read_u32(pdev->dev.of_node, "xlnx,phy-type", &value);
++	ret = of_property_read_u32(dev->of_node, "xlnx,phy-type", &value);
+ 	if (!ret) {
+ 		netdev_warn(ndev, "Please upgrade your device tree binary blob to use phy-mode");
+ 		switch (value) {
+@@ -2906,32 +2906,31 @@ static int axienet_probe(struct platform_device *pdev)
+ 			return -EINVAL;
  		}
  	} else {
- 		ret = of_get_phy_mode(pdev->dev.of_node, &lp->phy_mode);
+-		ret = of_get_phy_mode(pdev->dev.of_node, &lp->phy_mode);
++		ret = of_get_phy_mode(dev->of_node, &lp->phy_mode);
  		if (ret)
--			goto cleanup_clk;
-+			return ret;
+ 			return ret;
  	}
  	if (lp->switch_x_sgmii && lp->phy_mode != PHY_INTERFACE_MODE_SGMII &&
  	    lp->phy_mode != PHY_INTERFACE_MODE_1000BASEX) {
- 		dev_err(&pdev->dev, "xlnx,switch-x-sgmii only supported with SGMII or 1000BaseX\n");
--		ret = -EINVAL;
--		goto cleanup_clk;
-+		return -EINVAL;
+-		dev_err(&pdev->dev, "xlnx,switch-x-sgmii only supported with SGMII or 1000BaseX\n");
++		dev_err(dev, "xlnx,switch-x-sgmii only supported with SGMII or 1000BaseX\n");
+ 		return -EINVAL;
  	}
  
- 	if (!of_property_present(pdev->dev.of_node, "dmas")) {
-@@ -2925,7 +2928,7 @@ static int axienet_probe(struct platform_device *pdev)
- 				dev_err(&pdev->dev,
+-	if (!of_property_present(pdev->dev.of_node, "dmas")) {
++	if (!of_property_present(dev->of_node, "dmas")) {
+ 		/* Find the DMA node, map the DMA registers, and decode the DMA IRQs */
+-		np = of_parse_phandle(pdev->dev.of_node, "axistream-connected", 0);
++		np = of_parse_phandle(dev->of_node, "axistream-connected", 0);
+ 
+ 		if (np) {
+ 			struct resource dmares;
+ 
+ 			ret = of_address_to_resource(np, 0, &dmares);
+ 			if (ret) {
+-				dev_err(&pdev->dev,
++				dev_err(dev,
  					"unable to get DMA resource\n");
  				of_node_put(np);
--				goto cleanup_clk;
-+				return ret;
+ 				return ret;
  			}
- 			lp->dma_regs = devm_ioremap_resource(&pdev->dev,
- 							     &dmares);
-@@ -2942,19 +2945,17 @@ static int axienet_probe(struct platform_device *pdev)
+-			lp->dma_regs = devm_ioremap_resource(&pdev->dev,
+-							     &dmares);
++			lp->dma_regs = devm_ioremap_resource(dev, &dmares);
+ 			lp->rx_irq = irq_of_parse_and_map(np, 1);
+ 			lp->tx_irq = irq_of_parse_and_map(np, 0);
+ 			of_node_put(np);
+@@ -2944,11 +2943,11 @@ static int axienet_probe(struct platform_device *pdev)
+ 			lp->eth_irq = platform_get_irq_optional(pdev, 2);
  		}
  		if (IS_ERR(lp->dma_regs)) {
- 			dev_err(&pdev->dev, "could not map DMA regs\n");
--			ret = PTR_ERR(lp->dma_regs);
--			goto cleanup_clk;
-+			return PTR_ERR(lp->dma_regs);
+-			dev_err(&pdev->dev, "could not map DMA regs\n");
++			dev_err(dev, "could not map DMA regs\n");
+ 			return PTR_ERR(lp->dma_regs);
  		}
  		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
- 			dev_err(&pdev->dev, "could not determine irqs\n");
--			ret = -ENOMEM;
--			goto cleanup_clk;
-+			return -ENOMEM;
+-			dev_err(&pdev->dev, "could not determine irqs\n");
++			dev_err(dev, "could not determine irqs\n");
+ 			return -ENOMEM;
  		}
  
- 		/* Reset core now that clocks are enabled, prior to accessing MDIO */
- 		ret = __axienet_device_reset(lp);
- 		if (ret)
--			goto cleanup_clk;
-+			return ret;
- 
- 		/* Autodetect the need for 64-bit DMA pointers.
- 		 * When the IP is configured for a bus width bigger than 32 bits,
-@@ -2981,14 +2982,13 @@ static int axienet_probe(struct platform_device *pdev)
+@@ -2974,20 +2973,20 @@ static int axienet_probe(struct platform_device *pdev)
+ 				if (ioread32(desc) > 0) {
+ 					lp->features |= XAE_FEATURE_DMA_64BIT;
+ 					addr_width = 64;
+-					dev_info(&pdev->dev,
++					dev_info(dev,
+ 						 "autodetected 64-bit DMA range\n");
+ 				}
+ 				iowrite32(0x0, desc);
+ 			}
  		}
  		if (!IS_ENABLED(CONFIG_64BIT) && lp->features & XAE_FEATURE_DMA_64BIT) {
- 			dev_err(&pdev->dev, "64-bit addressable DMA is not compatible with 32-bit architecture\n");
--			ret = -EINVAL;
--			goto cleanup_clk;
-+			return -EINVAL;
+-			dev_err(&pdev->dev, "64-bit addressable DMA is not compatible with 32-bit architecture\n");
++			dev_err(dev, "64-bit addressable DMA is not compatible with 32-bit architecture\n");
+ 			return -EINVAL;
  		}
  
- 		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(addr_width));
+-		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(addr_width));
++		ret = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(addr_width));
  		if (ret) {
- 			dev_err(&pdev->dev, "No suitable DMA available\n");
--			goto cleanup_clk;
-+			return ret;
+-			dev_err(&pdev->dev, "No suitable DMA available\n");
++			dev_err(dev, "No suitable DMA available\n");
+ 			return ret;
  		}
  		netif_napi_add(ndev, &lp->napi_rx, axienet_rx_poll);
- 		netif_napi_add(ndev, &lp->napi_tx, axienet_tx_poll);
-@@ -2998,15 +2998,12 @@ static int axienet_probe(struct platform_device *pdev)
- 
- 		lp->eth_irq = platform_get_irq_optional(pdev, 0);
+@@ -3000,16 +2999,16 @@ static int axienet_probe(struct platform_device *pdev)
  		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO) {
--			ret = lp->eth_irq;
--			goto cleanup_clk;
-+			return lp->eth_irq;
+ 			return lp->eth_irq;
  		}
- 		tx_chan = dma_request_chan(lp->dev, "tx_chan0");
--		if (IS_ERR(tx_chan)) {
--			ret = PTR_ERR(tx_chan);
--			dev_err_probe(lp->dev, ret, "No Ethernet DMA (TX) channel found\n");
--			goto cleanup_clk;
--		}
-+		if (IS_ERR(tx_chan))
-+			return dev_err_probe(lp->dev, PTR_ERR(tx_chan),
-+					     "No Ethernet DMA (TX) channel found\n");
+-		tx_chan = dma_request_chan(lp->dev, "tx_chan0");
++		tx_chan = dma_request_chan(dev, "tx_chan0");
+ 		if (IS_ERR(tx_chan))
+-			return dev_err_probe(lp->dev, PTR_ERR(tx_chan),
++			return dev_err_probe(dev, PTR_ERR(tx_chan),
+ 					     "No Ethernet DMA (TX) channel found\n");
  
  		cfg.reset = 1;
  		/* As name says VDMA but it has support for DMA channel reset */
-@@ -3014,7 +3011,7 @@ static int axienet_probe(struct platform_device *pdev)
+ 		ret = xilinx_vdma_channel_set_config(tx_chan, &cfg);
  		if (ret < 0) {
- 			dev_err(&pdev->dev, "Reset channel failed\n");
+-			dev_err(&pdev->dev, "Reset channel failed\n");
++			dev_err(dev, "Reset channel failed\n");
  			dma_release_channel(tx_chan);
--			goto cleanup_clk;
-+			return ret;
+ 			return ret;
  		}
+@@ -3024,14 +3023,14 @@ static int axienet_probe(struct platform_device *pdev)
+ 		ndev->netdev_ops = &axienet_netdev_ops;
+ 	/* Check for Ethernet core IRQ (optional) */
+ 	if (lp->eth_irq <= 0)
+-		dev_info(&pdev->dev, "Ethernet core IRQ not defined\n");
++		dev_info(dev, "Ethernet core IRQ not defined\n");
  
- 		dma_release_channel(tx_chan);
-@@ -3119,13 +3116,6 @@ static int axienet_probe(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
- 	if (lp->mii_bus)
- 		axienet_mdio_teardown(lp);
--cleanup_clk:
--	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	clk_disable_unprepare(lp->axi_clk);
--
--free_netdev:
--	free_netdev(ndev);
--
- 	return ret;
- }
+ 	/* Retrieve the MAC address */
+-	ret = of_get_mac_address(pdev->dev.of_node, mac_addr);
++	ret = of_get_mac_address(dev->of_node, mac_addr);
+ 	if (!ret) {
+ 		axienet_set_mac_address(ndev, mac_addr);
+ 	} else {
+-		dev_warn(&pdev->dev, "could not find MAC address property: %d\n",
++		dev_warn(dev, "could not find MAC address property: %d\n",
+ 			 ret);
+ 		axienet_set_mac_address(ndev, NULL);
+ 	}
+@@ -3048,21 +3047,21 @@ static int axienet_probe(struct platform_device *pdev)
  
-@@ -3143,11 +3133,6 @@ static void axienet_remove(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
+ 	ret = axienet_mdio_setup(lp);
+ 	if (ret)
+-		dev_warn(&pdev->dev,
++		dev_warn(dev,
+ 			 "error registering MDIO bus: %d\n", ret);
  
- 	axienet_mdio_teardown(lp);
--
--	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	clk_disable_unprepare(lp->axi_clk);
--
--	free_netdev(ndev);
- }
+ 	if (lp->phy_mode == PHY_INTERFACE_MODE_SGMII ||
+ 	    lp->phy_mode == PHY_INTERFACE_MODE_1000BASEX) {
+-		np = of_parse_phandle(pdev->dev.of_node, "pcs-handle", 0);
++		np = of_parse_phandle(dev->of_node, "pcs-handle", 0);
+ 		if (!np) {
+ 			/* Deprecated: Always use "pcs-handle" for pcs_phy.
+ 			 * Falling back to "phy-handle" here is only for
+ 			 * backward compatibility with old device trees.
+ 			 */
+-			np = of_parse_phandle(pdev->dev.of_node, "phy-handle", 0);
++			np = of_parse_phandle(dev->of_node, "phy-handle", 0);
+ 		}
+ 		if (!np) {
+-			dev_err(&pdev->dev, "pcs-handle (preferred) or phy-handle required for 1000BaseX/SGMII\n");
++			dev_err(dev, "pcs-handle (preferred) or phy-handle required for 1000BaseX/SGMII\n");
+ 			ret = -EINVAL;
+ 			goto cleanup_mdio;
+ 		}
+@@ -3091,18 +3090,18 @@ static int axienet_probe(struct platform_device *pdev)
+ 			  lp->phylink_config.supported_interfaces);
+ 	}
  
- static void axienet_shutdown(struct platform_device *pdev)
+-	lp->phylink = phylink_create(&lp->phylink_config, pdev->dev.fwnode,
++	lp->phylink = phylink_create(&lp->phylink_config, dev->fwnode,
+ 				     lp->phy_mode,
+ 				     &axienet_phylink_ops);
+ 	if (IS_ERR(lp->phylink)) {
+ 		ret = PTR_ERR(lp->phylink);
+-		dev_err(&pdev->dev, "phylink_create error (%i)\n", ret);
++		dev_err(dev, "phylink_create error (%i)\n", ret);
+ 		goto cleanup_mdio;
+ 	}
+ 
+ 	ret = register_netdev(lp->ndev);
+ 	if (ret) {
+-		dev_err(lp->dev, "register_netdev() error (%i)\n", ret);
++		dev_err(dev, "register_netdev() error (%i)\n", ret);
+ 		goto cleanup_phylink;
+ 	}
+ 
 -- 
 2.35.1.1320.gc452695387.dirty
 
