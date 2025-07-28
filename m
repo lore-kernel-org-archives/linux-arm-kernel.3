@@ -4,139 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5868DC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C33C87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOxjWi9b8eIAm2p2pRQ1nK3wCINCr+bSXTxNl04Iwns=; b=V7606lHFD/dNzVhY0YkvqbIc8N
-	TFTRQcJJlbPV2OtkyYriHw2EgjG8A2Bp1TEWjKQg1eiusH6m1gV5B1R418hz6zYqfGRS/tc6E37GO
-	LuW+n9c9eRnnW5k8SxXYGHzLS4Nh3Qwhr5UTjzdw4ETmIkBVFpwlc9ajbvWXUHjRXaBtl3mE3NKOe
-	H5WdS1XUCzOgT21dGKv15hLRs1ocZF+ZR3APrit8diRxsiOsD071MG7CqcYyXcI0LEvaK9qLdVZAk
-	E1RhBoQy6Ew2RRNRynSfGMXEEq+TbywUgbs/N+f/dBWb8ymdFJlTonNGL2yqnwDhIB7yZRPfHg2nQ
-	aK9ngryw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BeiV4NODkxjfxtGWIe0xh6ntlFkFQ7e97BJBGJKxzmE=; b=Ag3HMiAOPDujDo80peMMJ5x5Gw
+	CMgTf4jannKKijKPq3b9Mr2j0X49/sdtA0M2+NZlpihvFS0n+oSfvT72JcWKt+wdUC64uglBLSuGv
+	f3KJ91ecIaH0uDPvsWo9vHXyZ+k49st4JoWZ8PeZvW05Jt9myNmMy+Xm00nXTT9PIyY2zV3QEUmNv
+	ErzUkjFZuPr0JIs193PSDHqphTZMDGKE8RxqWt8kx7oAurO07MU2+IIp5eIoSG+g33VRUU8QlqPzr
+	KbGnQWwhoeO4h6ra0oigKomZ+3RDIQ1WNyyzUy1140JrEhVlRGyVGU9ksN1E8J/LysRO8QeP3OZTk
+	Nw3z0NHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKRh-0000000E9Tt-3PDw;
-	Mon, 28 Jul 2025 09:47:01 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugKPC-0000000E8z1-08kT
+	id 1ugKWj-0000000EAOB-2peb;
+	Mon, 28 Jul 2025 09:52:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugKUE-0000000EA5f-250h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 09:44:27 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56S4rcLk017029
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 09:44:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=UOxjWi9b8eIAm2p2pRQ1nK3w
-	CINCr+bSXTxNl04Iwns=; b=DVDp0PqBgLD+NF8qmIq9Qt29gBEp5VDIQCAjQkSf
-	3npSFDhlHpICA5usCGoY5cfH9tM6JZAJKFp5NIZ+SX40YcKCBJx+RKv/7s0WBHQO
-	2wm4egiX4/zdb3BsGuONb9o+82nOU4Y4lu3KDXkUuGRVZpxaNn9Gje7BPIfahr1j
-	RS3K7QyhnL7MGGnWSPZs2zKd/XsyQ/lx8JBDYj88GUgwDlDH7wojIPM0aOR6Mgou
-	O/LEu0laj17/H+dRJf59W+061sSkUd63Xwicjokp0PDYJ2R0w3V9TUhL73UpjJsD
-	ox8/4YeovcrXExrxvfE2fS5nBkhQOwTDcnA3SLM/o4UlOQ==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4860ens8nw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 09:44:24 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-6fab979413fso84329746d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 02:44:24 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753695863; x=1754300663;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UOxjWi9b8eIAm2p2pRQ1nK3wCINCr+bSXTxNl04Iwns=;
-        b=KDWQge1uWltZFtrkytYNBC3FtpC9nYTpux+ISomOsPyUzJk1mTZXZDMIDZ7JB18RKg
-         syWblcrlEGuOgN8A6NxItmVbfcOtC2Q05lYFWRJE4iuUKz9pdSy49dZQW+Z1jBMy7i+9
-         obp1vgzVTCjU2KPv3ruU/cdjiWttvA6sEcO2VMjUn0cRuHURZha97lKXJ87puZv5Nffs
-         /KiuuVtu3qBztuNg5VCMUq8OTLuPvgdoIAv6EOvSlfplG979PtKZHRo2IYfhi3NRoDXa
-         KBhHYG7An+J8hbj7QaXyLiQt1kQTa3W1miJvJJ/FgwCL3LYbGLB60q+nzTdhT1Lf1jO1
-         1q5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUWGRyOK9PhFfn6FjqiD30EoYDKobNXX2uo5fr1ug8jgEjZKbni7Nex9yQHiOqYFml5MHKziNhu3eD9T4RRBIeQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyIyNt345HvzAtJ8umb7GLbaf/bdhnV3Bn06WwXeqWmdSS9HyAc
-	xOVMDbdfivlajsV5AKh6Jz83L+d5xAIgq1Q8S2QsYtQp/qnOPPr/rtzzeDoXIjb3W3MREmcRqeY
-	kPlRxIuGEoYPaSkqE0mNwtNiw6CWjWVjOc3w16EFvSal89IW2aAAWycirZn8VYJZCCJpiH2UfzY
-	NAqw==
-X-Gm-Gg: ASbGnctv98OgmAC6u45wr7gZ2sckzxl/gdySG3hrRZxwZ8Z6LpkR2CS4LfMUcxySSxc
-	NF8n+6+EoqgRfWjsOqTUV1N4nATi1pCM2oTHpYdpGuqbR3ahd6kXNkoHRNgMsYOeGPrpkAgetef
-	uTrheULH/ErL9TN7ih20E2dmQ2T5MeoOEe4CbvdK9d8k4GOLyvWWcTw8mj1PVPHLhBjSYSaNdZg
-	YiA+VZkPbSq5g+UbobWPFcDoa68yY3zeSiVoEA6kSaLHQp8RMRxRfn63Z+iWNCu9cu0CLWCBlf2
-	VeDvrKRh6BqSD962KYR+ozlvnuXe4ii9vPQFyX/howdlsyKXfwB/62TwMAI+J/jeYau3TqOX9un
-	16pIzGnvVxCQh3Y3qTpxpSbQGodXTUZeVvEs0EJrsTDab7U1rs59E
-X-Received: by 2002:a05:6214:401:b0:707:419d:2e28 with SMTP id 6a1803df08f44-707419d33aamr57187516d6.41.1753695863264;
-        Mon, 28 Jul 2025 02:44:23 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFSFwEBe/2mm24nadIjbBi00JjeMT/2cBqpF+9f5PXZDrO8IXpWYX2OiIxMU2L7zeyH96PryQ==
-X-Received: by 2002:a05:6214:401:b0:707:419d:2e28 with SMTP id 6a1803df08f44-707419d33aamr57187146d6.41.1753695862738;
-        Mon, 28 Jul 2025 02:44:22 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b63394014sm1183804e87.180.2025.07.28.02.44.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 02:44:21 -0700 (PDT)
-Date: Mon, 28 Jul 2025 12:44:20 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-Message-ID: <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
+	Mon, 28 Jul 2025 09:49:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B4DB150C;
+	Mon, 28 Jul 2025 02:49:29 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8ED263F66E;
+	Mon, 28 Jul 2025 02:49:33 -0700 (PDT)
+Message-ID: <b69f7207-84b3-424f-b675-b423c56e5dcd@arm.com>
+Date: Mon, 28 Jul 2025 10:49:31 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
-X-Proofpoint-GUID: a3TNpvKbMlugz6La4QKRx7_CIyj9-mxh
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI4MDA3MSBTYWx0ZWRfXxj2pngcprXlr
- lu/lMEkjLzcQb2NhTG5V+2/1FEil0BV/1UAQckYdioezgEll5k1ISnB8F9Ji9+0HkDWserwfAd9
- ch/D/tO8ch0yianb291zc3OdBT562FZyiy81cC9Dggd5k3gv5d7AojLWx44qb/Ph76R6hjqYB0V
- N0NmRJwvJE2IMJD3ViwA/x6FB/EQyRhHdzLbMPofumFbDJxdNTJ6UgmuEBt5hcvFIWkbg9mNl/+
- 3f4g31b7KHDHGhKNgKCQWQmpvDihijTHAUQIuIz1YQu1ZJJnI4ODEplhYDJMyxntuzAZDCbeTiP
- g/rwsHtyr51A2ua64mOSWYNgT1pMmIIrmujGQ268Dg8S/+AeYywjYg9spSnG79shQn3A7ndz10m
- pJ8ILICHu0mdYKgxyB4io4AXI/ZbPIOHzun1Fb4Jk6gU2GebOGLyIkXhem1vSZeJZZtI5C7t
-X-Authority-Analysis: v=2.4 cv=DIWP4zNb c=1 sm=1 tr=0 ts=68874678 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Wb1JkmetP80A:10 a=fdSrWZEoeHojn4nDOlUA:9 a=CjuIK1q_8ugA:10
- a=OIgjcC2v60KrkQgK7BGD:22
-X-Proofpoint-ORIG-GUID: a3TNpvKbMlugz6La4QKRx7_CIyj9-mxh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_03,2025-07-24_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 clxscore=1015 bulkscore=0 mlxscore=0 mlxlogscore=999
- spamscore=0 impostorscore=0 suspectscore=0 malwarescore=0 priorityscore=1501
- adultscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507280071
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 22/36] arm_mpam: Reset MSC controls from cpu hp
+ callbacks
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-23-james.morse@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-23-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_024426_078096_E70DE25A 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20250728_024938_621065_90B3748F 
+X-CRM114-Status: GOOD (  31.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,30 +77,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 06:53:14AM +0200, Krzysztof Kozlowski wrote:
-> On 27/07/2025 18:24, Shivendra Pratap wrote:
-> > +
-> > +static int __init psci_init_vendor_reset(void)
-> > +{
-> > +	struct reboot_mode_driver *reboot;
-> > +	struct device_node *np;
-> > +	int ret;
-> > +
-> > +	np = of_find_node_by_path("/psci/reboot-mode");
+Hi James,
+
+On 7/11/25 19:36, James Morse wrote:
+> When a CPU comes online, it may bring a newly accessible MSC with
+> it. Only the default partid has its value reset by hardware, and
+> even then the MSC might not have been reset since its config was
+> previously dirtyied. e.g. Kexec.
 > 
+> Any in-use partid must have its configuration restored, or reset.
+> In-use partids may be held in caches and evicted later.
 > 
-> Why are you looking by full path, not by compatible? Is the ABI - above
-> path - expressed anywhere?
+> MSC are also reset when CPUs are taken offline to cover cases where
+> firmware doesn't reset the MSC over reboot using UEFI, or kexec
+> where there is no firmware involvement.
+> 
+> If the configuration for a RIS has not been touched since it was
+> brought online, it does not need resetting again.
+> 
+> To reset, write the maximum values for all discovered controls.
+> 
+> CC: Rohit Mathew <Rohit.Mathew@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/platform/arm64/mpam/mpam_devices.c  | 124 +++++++++++++++++++-
+>   drivers/platform/arm64/mpam/mpam_internal.h |   8 ++
+>   2 files changed, 131 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+> index 7b042a35405a..d014dbe0ab96 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -7,6 +7,7 @@
+>   #include <linux/atomic.h>
+>   #include <linux/arm_mpam.h>
+>   #include <linux/bitfield.h>
+> +#include <linux/bitmap.h>
+>   #include <linux/cacheinfo.h>
+>   #include <linux/cpu.h>
+>   #include <linux/cpumask.h>
+> @@ -849,8 +850,116 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   	return 0;
+>   }
+>   
+> +static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
+> +{
+> +	u32 num_words, msb;
+> +	u32 bm = ~0;
+> +	int i;
+> +
+> +	lockdep_assert_held(&msc->part_sel_lock);
+> +
+> +	if (wd == 0)
+> +		return;
+> +
+> +	/*
+> +	 * Write all ~0 to all but the last 32bit-word, which may
+> +	 * have fewer bits...
+> +	 */
+> +	num_words = DIV_ROUND_UP(wd, 32);
+> +	for (i = 0; i < num_words - 1; i++, reg += sizeof(bm))
+> +		__mpam_write_reg(msc, reg, bm);
+> +
+> +	/*
+> +	 * ....and then the last (maybe) partial 32bit word. When wd is a
+> +	 * multiple of 32, msb should be 31 to write a full 32bit word.
+> +	 */
+> +	msb = (wd - 1) % 32;
+> +	bm = GENMASK(msb, 0);
+> +	if (bm)
+> +		__mpam_write_reg(msc, reg, bm);
+Drop the 'if' as the 0 bit will always be part of the mask.
 
-PSCI node is required to have a node name of psci, it doesn't have MMIO,
-so it resides in the root node and the reboot-mode is defined in the
-previous patch. So, I'd assume, the path is defined.
+> +}
+> +
+> +static void mpam_reset_ris_partid(struct mpam_msc_ris *ris, u16 partid)
+> +{
+> +	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
+> +	struct mpam_msc *msc = ris->vmsc->msc;
+> +	struct mpam_props *rprops = &ris->props;
+> +
+> +	mpam_assert_srcu_read_lock_held();
+> +
+> +	mutex_lock(&msc->part_sel_lock);
+> +	__mpam_part_sel(ris->ris_idx, partid, msc);
+> +
+> +	if (mpam_has_feature(mpam_feat_cpor_part, rprops))
+> +		mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
+> +
+> +	if (mpam_has_feature(mpam_feat_mbw_part, rprops))
+> +		mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
+> +
+> +	if (mpam_has_feature(mpam_feat_mbw_min, rprops))
+> +		mpam_write_partsel_reg(msc, MBW_MIN, 0);
+> +
+> +	if (mpam_has_feature(mpam_feat_mbw_max, rprops))
+> +		mpam_write_partsel_reg(msc, MBW_MAX, bwa_fract);
+> +
+> +	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
+> +		mpam_write_partsel_reg(msc, MBW_PROP, bwa_fract);
+> +	mutex_unlock(&msc->part_sel_lock);
+> +}
+> +
+> +static void mpam_reset_ris(struct mpam_msc_ris *ris)
+> +{
+> +	u16 partid, partid_max;
+> +
+> +	mpam_assert_srcu_read_lock_held();
+> +
+> +	if (ris->in_reset_state)
+> +		return;
+> +
+> +	spin_lock(&partid_max_lock);
+> +	partid_max = mpam_partid_max;
+> +	spin_unlock(&partid_max_lock);
+> +	for (partid = 0; partid < partid_max; partid++)
+> +		mpam_reset_ris_partid(ris, partid);
+> +}
+> +
+> +static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+> +{
+> +	int idx;
+> +	struct mpam_msc_ris *ris;
+> +
+> +	mpam_assert_srcu_read_lock_held();
+> +
+> +	mpam_mon_sel_outer_lock(msc);
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(ris, &msc->ris, msc_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		mpam_reset_ris(ris);
+> +
+> +		/*
+> +		 * Set in_reset_state when coming online. The reset state
+> +		 * for non-zero partid may be lost while the CPUs are offline.
+> +		 */
+> +		ris->in_reset_state = online;
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +	mpam_mon_sel_outer_unlock(msc);
+> +}
+> +
+>   static int mpam_cpu_online(unsigned int cpu)
+>   {
+> +	int idx;
+> +	struct mpam_msc *msc;
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+> +			continue;
+> +
+> +		if (atomic_fetch_inc(&msc->online_refs) == 0)
+> +			mpam_reset_msc(msc, true);
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+>   	return 0;
+>   }
+>   
+> @@ -886,6 +995,19 @@ static int mpam_discovery_cpu_online(unsigned int cpu)
+>   
+>   static int mpam_cpu_offline(unsigned int cpu)
+>   {
+> +	int idx;
+> +	struct mpam_msc *msc;
+> +
+> +	idx = srcu_read_lock(&mpam_srcu);
+> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
+> +		if (!cpumask_test_cpu(cpu, &msc->accessibility))
+> +			continue;
+> +
+> +		if (atomic_dec_and_test(&msc->online_refs))
+> +			mpam_reset_msc(msc, false);
+> +	}
+> +	srcu_read_unlock(&mpam_srcu, idx);
+> +
+>   	return 0;
+>   }
+>   
+> @@ -1419,7 +1541,7 @@ static void mpam_enable_once(void)
+>   	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+>   
+>   	printk(KERN_INFO "MPAM enabled with %u partid and %u pmg\n",
+> -	       mpam_partid_max + 1, mpam_pmg_max + 1);
+> +		READ_ONCE(mpam_partid_max) + 1, mpam_pmg_max + 1);
 
-However the question might be slightly different: why do we need a
-separate initcall for reboot handling? The reasons for that need to be
-documented in the commit message.
+Belongs in 'arm_mpam: Probe MSCs to find the supported partid/pmg values'.
 
--- 
-With best wishes
-Dmitry
+>   }
+>   
+>   /*
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+> index be56234b84b4..f3cc88136524 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -5,6 +5,7 @@
+>   #define MPAM_INTERNAL_H
+>   
+>   #include <linux/arm_mpam.h>
+> +#include <linux/atomic.h>
+>   #include <linux/cpumask.h>
+>   #include <linux/io.h>
+>   #include <linux/llist.h>
+> @@ -43,6 +44,7 @@ struct mpam_msc {
+>   	struct pcc_mbox_chan	*pcc_chan;
+>   	u32			nrdy_usec;
+>   	cpumask_t		accessibility;
+> +	atomic_t		online_refs;
+>   
+>   	/*
+>   	 * probe_lock is only take during discovery. After discovery these
+> @@ -247,6 +249,7 @@ struct mpam_msc_ris {
+>   	u8			ris_idx;
+>   	u64			idr;
+>   	struct mpam_props	props;
+> +	bool			in_reset_state;
+>   
+>   	cpumask_t		affinity;
+>   
+> @@ -266,6 +269,11 @@ struct mpam_msc_ris {
+>   extern struct srcu_struct mpam_srcu;
+>   extern struct list_head mpam_classes;
+>   
+> +static inline void mpam_assert_srcu_read_lock_held(void)
+> +{
+> +	WARN_ON_ONCE(!srcu_read_lock_held((&mpam_srcu)));
+> +}
+> +
+>   /* System wide partid/pmg values */
+>   extern u16 mpam_partid_max;
+>   extern u8 mpam_pmg_max;
+
+
+Thanks,
+
+Ben
+
 
