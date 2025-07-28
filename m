@@ -4,106 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C94C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 13:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893F4C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 13:26:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLBhveJQnl8m3PppqLbOwkmepYRNmUTrNGuqfx0S5N0=; b=QMSnFDYZdbAOD5rEybz4xQpFHZ
-	FuN0IEfck8VWESD2f6b8wcaX9olI1OOUSC97Qs36fAghVmnJmH2mn086YQJAAcP06nlYe7KwhQ4Go
-	ZYId60lYMBT3M2Gs2bBtcBN6j1UTdJUet+ahEKpAQT7PXfl78VAzUJNXMEo4CE6ksa9nOAcPZcFUb
-	5ZnHHueBuSFTi5sKf5P1Q/wApoqKmT1Ns+9K4OzXDD9EZZv3CYS8WDv9FmkaqpyeiH4YehyJ6p3Bk
-	/EVDrIX64cLx5NlszcST52ggGt3oqnDPBeY8Q6AuSYyPsCGZNCLLGjZTvgJcw4Oj/EPDPYtAif+pB
-	6hd790Xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rV+iMey5LSZL2gvznWqZKZOEISS8HPR8cxxiSSro7DU=; b=4O1M+DuGATgv6a4YNGyzJm2G5P
+	cOTmjvxyoQfy+XUn3j5iVqSG003/62vIkH2oC7U1gpVKJ0Niz/iQq9v3Ei4IuYjMmPxiQ+qD0q09/
+	bVhSXrhkwuYZxKPQ+5ALAWORb3xGf9Dt104adwM7krHDIRGAG9bvHTmLjbBkgSQbifcENm0VHoKU+
+	qSm+ThVWhU24bD+ZFmoBFFXwWcRcZbcpOyK50oZVjWZI+Ap0VZImio76LT0a+fwQaexedLi3DGYBB
+	iggD71MIe46rSmhqrOMYnq2Y/4vuKxQeq4h0TbxJu+fV+s4f+s4qY+XjOX9anu+rnSBajhFVnKtb+
+	q/C9lxlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNml-0000000EWJs-14ht;
-	Mon, 28 Jul 2025 13:20:59 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugNi0-0000000EVZu-07D7
+	id 1ugNra-0000000EWqX-0t3n;
+	Mon, 28 Jul 2025 13:25:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugNp8-0000000EWaR-2RfA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 13:16:05 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SCmIZY020685;
-	Mon, 28 Jul 2025 15:15:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	kLBhveJQnl8m3PppqLbOwkmepYRNmUTrNGuqfx0S5N0=; b=BO0GX2YIvdvzkDS8
-	ZgLPuGdA6WGl6NtJ6/xQvARzA7FDTBuGpl2k/0Qe88TTGB7pnIHxmoiSSisOV32g
-	UPiaPFmPKvtiX3XhLTfQmiPWWhAf9mhUbsxt+Qr5vXr+/xmOe8AI+GP0Tf55h+zN
-	AFsqv8MDszq5GkCQzzPwvL5oMkRwBOJCrayjtLqCoOJvpNLWhq4S434nD6ImKdRB
-	72VdlL6sQWIW34oobe/U/QH4wcbMN4ZdhzkhC81oilbCnC/pNvViJ6nfNqbMdD1i
-	EIeVOm26ibQEre65vm7otTMzzWKq1lvbLirBMolEWRX1Hn8E7BM9qTwCIDk13yj3
-	LKIF2A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484pc28cgd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Jul 2025 15:15:27 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C3CB64005A;
-	Mon, 28 Jul 2025 15:13:58 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BDC18768ABE;
-	Mon, 28 Jul 2025 15:12:40 +0200 (CEST)
-Received: from [10.252.23.100] (10.252.23.100) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
- 2025 15:12:39 +0200
-Message-ID: <a0c0e255-32c6-466d-a2ea-694a4f074de3@foss.st.com>
-Date: Mon, 28 Jul 2025 15:12:38 +0200
+	Mon, 28 Jul 2025 13:23:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A3151516;
+	Mon, 28 Jul 2025 06:23:17 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54A813F66E;
+	Mon, 28 Jul 2025 06:23:20 -0700 (PDT)
+Date: Mon, 28 Jul 2025 14:23:17 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Stephen Boyd <swboyd@chromium.org>,
+	Andre Draszik <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+Message-ID: <20250728-exotic-armadillo-of-upgrade-fbebc1@sudeepholla>
+References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
+ <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
+ <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
+ <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
+ <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
+ <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
+ <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/19] perf: stm32: introduce DDRPERFM driver
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-CC: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-        Rob
- Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor
- Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Gatien Chevallier
-	<gatien.chevallier@foss.st.com>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Gabriel Fernandez
-	<gabriel.fernandez@foss.st.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Le
- Goffic <legoffic.clement@gmail.com>,
-        Julius Werner <jwerner@chromium.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-perf-users@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>
-References: <20250722-ddrperfm-upstream-v3-0-7b7a4f3dc8a0@foss.st.com>
- <20250722-ddrperfm-upstream-v3-12-7b7a4f3dc8a0@foss.st.com>
- <20250725115655.00002304@huawei.com> <20250725115908.000074d7@huawei.com>
-Content-Language: en-US
-From: Clement LE GOFFIC <clement.legoffic@foss.st.com>
-In-Reply-To: <20250725115908.000074d7@huawei.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.23.100]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_03,2025-07-28_01,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_061604_364045_5AC491EC 
-X-CRM114-Status: UNSURE (   8.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_062326_656239_7CFC3397 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,34 +92,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/25/25 12:59, Jonathan Cameron wrote:
->>> +
->>> +	platform_set_drvdata(pdev, pmu);
->>> +	pmu->dev = &pdev->dev;
->>> +
->>> +	pmu->cfg = device_get_match_data(pmu->dev);
->>> +
->>> +	pmu->membase = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
->>> +	if (IS_ERR(pmu->membase))
->>> +		return PTR_ERR(pmu->membase);
->>> +
->>> +	if (of_property_present(pmu->dev->of_node, "access-controllers")) {
->>> +		ret = stm32_firewall_get_firewall(pmu->dev->of_node, &firewall, 1);
->>
->> Jiri is busy driving dev_fwnode() thorugh to get rid of all the directly references
->> to of_node.  Probably better to use that here from the start.
->>
-> Need more coffee. Ignore this one, you still need an of_node here.
-Ack
-
+On Mon, Jul 28, 2025 at 02:23:14PM +0200, Krzysztof Kozlowski wrote:
+> On 28/07/2025 14:03, Dmitry Baryshkov wrote:
+> >>
+> >>> and the reboot-mode is defined in the
+> >>> previous patch. So, I'd assume, the path is defined.
+> >>
+> >> As I said, path is not. only psci/reboot-mode is.
+> > 
+> > Do we have an _actual_ use case where PSCI node is not at at root node? 
 > 
->>
->>> +		if (ret)
->>> +			return dev_err_probe(pmu->dev, ret, "Failed to get firewall\n");
->>> +		ret = stm32_firewall_grant_access_by_id(&firewall, firewall.firewall_id);
->>> +		if (ret)
->>> +			return dev_err_probe(pmu->dev, ret, "Failed to grant access\n");
->>> +	}
->>> +
+> Yes, many cases, because it belongs as well to firmware node.
+> 
 
++1, I was about to make similar comment. /psci predates the formal push
+to put all firmware related nodes under /firmware, so /firmware/psci is
+equally possible path and should be recommended one so that all such
+firmware related nodes are contained under /firmware.
+
+-- 
+Regards,
+Sudeep
 
