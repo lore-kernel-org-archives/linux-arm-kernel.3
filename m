@@ -4,206 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E58C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:14:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091F2C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Z2WXO1gAtD9YCNeiywPE7yvbc3roC2fs+9U69qjTh0=; b=MEC7+WS/PNaZd5csbwppzxZYlA
-	tl9NQgj9YqY1pZBUqd2ICL2rpLHp5N/CRxdzVM0ZFEbmW6jAHP8J1XTTcT7dgi0LfZvdC2R+USyw3
-	q/y2r/tY/tbx6mwBdB6v8SaRRaxPbUPvFYc9xLK2bXfZYB6Oar8Svu1nKzDXAnpTjkUX9UubMZP0c
-	7+93X8miIG2mYH+b81k5FDeGvn8qqQ8nwIpTpYs+NE+w2rUHlxEpofJlgoCO3auayirt1piNZJ0uT
-	T/XCC4vV7WDx9LZ5GkVQrxUb+BmA+nffzioVTc51MP/wWNG8/gtdB4hFm2qJcRSqkcalvZgXgP0Ke
-	3rn67EXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mxVpK/LCpI6jDy5FBBoMfKQKH9OF2AKVHBOgSun6w8Q=; b=Enjo+lN5thLQdvEt7i+Q3Pbri3
+	+ee6m9dM0UbCpHHe76T3ppKl0vlH5XWEnvnE0TDo87XjjTObFpn8aSNiO8kylQ4beoQ1F/7I+hFRR
+	fq3KjVnHV45HeyUiFSbBzo3KElPL9uIqK5EROMEruEj+VqpfgiyzDc5Aky6RR0+A/9jwiU1X7Vdjo
+	JV2GkrjjeqrEX5s5ysj974jBh+cH/Og+VOqp56RBHoDdS5qufXHiutrqD/4Us2hFNISB5cOteZy72
+	O0IqWXASPs5rn0yN0TRXocgIo82tz1HL4Rhs7bpt4MrTIjQz/iUsKymg2cr3OcdR/HtuKNmCZtIKy
+	Zu7fweSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJw3-0000000E51W-3jPp;
-	Mon, 28 Jul 2025 09:14:19 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJtW-0000000E4mY-13Cb
+	id 1ugJzk-0000000E5Jg-383W;
+	Mon, 28 Jul 2025 09:18:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugJxE-0000000E590-19Rb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 09:11:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753693902; x=1785229902;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=SR56B+T7IUDB6rBfHBGAdheycMNfyvUBfBlLHFWugdw=;
-  b=cVa06OuheLtZAgS1eoNEWCCvJLymRHoTi80PUVbyHvxRICfo7KaagfrC
-   jD8k+SxLUZ6sFTV+Rp+99qTQPZOLkCpFMzfBLuGJP4n1fRDGgfPHW/voo
-   aSC4hvrPLWdBq0SsJbJrkpU7zbKrtSicDs+2C0AKR1H0y80yOl/OcDKey
-   SbF4lWxK8tPGWfwF3Qt7duJvv9g2+XL7LycROHOgfzZfJL5/kmkA0anla
-   QQgXJE3gc6wuEwVeEhZfbYVlVtSBJDawq9RdbqiQIS8MEz8l0NtXhb6Hk
-   eMfUGMrM3Z8as2+2i8NHXuXxhD9GAROHJQZaMEutiEsYEOzMSEvGjYknS
-   g==;
-X-CSE-ConnectionGUID: fsj6aCOJRU2doevcDjFj4g==
-X-CSE-MsgGUID: o3AVbTpvQnaI0ZYoS9QtQA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11504"; a="59755079"
-X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
-   d="scan'208";a="59755079"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2025 02:11:28 -0700
-X-CSE-ConnectionGUID: SBIOylzzTPmbS2bN97KAqw==
-X-CSE-MsgGUID: xGKUlGoNSgGnk7wfA7nUQA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,339,1744095600"; 
-   d="scan'208";a="162240082"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Jul 2025 02:11:28 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Mon, 28 Jul 2025 02:11:27 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26 via Frontend Transport; Mon, 28 Jul 2025 02:11:27 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (40.107.220.66)
- by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Mon, 28 Jul 2025 02:11:27 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ggxy4UsSntG2h14Wq5Ps9hUO4h4s07hjKi+xywWk0gxZxi3E+JwzHk2gIAgWeJy52ZBD9aUoSz+0C2oRUXSOtL6rR3Dk2l4qieMLGES4oPIFxI7y03ocj2MwOZpcxzfUyb/EmsTDcYMVEFSqXje+AYVVuLoAxZ+V/K7GKr2kG7tHpl0K5BMbdO2LYN0vWPnm6k2PoBpNOjrvG6UkvH8HYdluVVOMjLJfTByZ7iPwHbxHMK/TCaGq4F0E2zPdzCmAMSk0avtwgZb9nTmxVjg/yqRXnUc2UPEpTyYDjtVwem/n8VKOPGzMoDK23WAue6S6ZVjs4PdzFa66SAGp4VieYA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2Z2WXO1gAtD9YCNeiywPE7yvbc3roC2fs+9U69qjTh0=;
- b=DOOIYfqYD6zcf88aY7dHf7aasbWbsi3fsOwtXRwmUIkUnkfBdqnQgF9/gmcG/XvpAn5ws6JZCgYF2hhrMZtjdiQQu0j+hL959aWtMQsb9MDW+ebHXP15Amyx5aiV7I94IHApOhOkh/cQO7xErMdy7LE0XWmG74afD7c4h81sJ/vAga5qkMSFJ/zbi6ZjHnBvZshHEuFdgbTr8tSOABbKPkNbgwKKYltyB0NTS5W84y2E50BtUffS/FIn0++s6ti3Ta1+SP72EKbQNmkckLyV7U4k2dwX2Bs5d7tCpT0+W3QzvTAPhFKi73CnoMeGveUW8uHr4l12kb9eqxns42EDQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by MW5PR11MB5907.namprd11.prod.outlook.com (2603:10b6:303:1a1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.22; Mon, 28 Jul
- 2025 09:11:25 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::eeac:69b0:1990:4905]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::eeac:69b0:1990:4905%5]) with mapi id 15.20.8964.025; Mon, 28 Jul 2025
- 09:11:25 +0000
-Message-ID: <d542b1fa-6e2a-4af1-a14b-eee32a7f3de6@intel.com>
-Date: Mon, 28 Jul 2025 12:11:19 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] mmc: sdhci-brcmstb: rpmb sharing by claiming host for
- TZOS
-To: Kamal Dasu <kamal.dasu@broadcom.com>, <andersson@kernel.org>,
-	<baolin.wang@linux.alibaba.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <florian.fainelli@broadcom.com>,
-	<ulf.hansson@linaro.org>
-CC: <bcm-kernel-feedback-list@broadcom.com>,
-	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-References: <20250711154221.928164-1-kamal.dasu@broadcom.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20250711154221.928164-1-kamal.dasu@broadcom.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0109.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bb::28) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Mon, 28 Jul 2025 09:15:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 497171596;
+	Mon, 28 Jul 2025 02:15:23 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C75A3F66E;
+	Mon, 28 Jul 2025 02:15:27 -0700 (PDT)
+Message-ID: <b7f48e6b-2b48-4946-8ab6-fae7a3fec061@arm.com>
+Date: Mon, 28 Jul 2025 10:15:25 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|MW5PR11MB5907:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36be5eca-43a7-417f-9dbb-08ddcdb6ba57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MWJYLzRiK1lzaCtYalZGVDVNdFFCNDMrZUhVTXVjcXBDK0IwVW1lWDF6ZUlu?=
- =?utf-8?B?SFV4TWxGbTBjM2ZNeUpRcW0zUjBBM0Fqb1FwOGJ1bEFJMDhDRlNpMEt2TzFS?=
- =?utf-8?B?TTAvL1ZDZFR1aHhneXdJVHljZk4xVjkza21yVlB0d1IzSlZTQUNUSmhZdzN3?=
- =?utf-8?B?Zmdaa05CTG9LMlordUZHOVV5WFJ4ZXlTYjlid2VMejR5dnhhc1Y1a2VtUVlH?=
- =?utf-8?B?Tms1WUJndUJkT3NjbG9SUTVZT2p6dHpQMGZmczZTZmtKR3Zid0NkcExieEpT?=
- =?utf-8?B?cEw5KzkvQnErUWpFa3EwcE1rNjJ1dmpjdVE5NmYzMWN1RHp1NkhzdGJmVVc3?=
- =?utf-8?B?alZOR1luQ3hhOXUrMzJMT2ZSdngxZjlkZDJtTDdwZGVIRjNmSGVmc0Fzc0lF?=
- =?utf-8?B?M1dKVkdMRHNBZnpuWlIwWGpRODlvRUFLSE5UZlNzVXVjd3FIamVrSVBhTXpV?=
- =?utf-8?B?VkRNSU5sd0gzVjRlakNIZzU1SExTaWxvU2c0UXJoTkhBeFc5bjBYbnNPN09E?=
- =?utf-8?B?WERMUWxwN0xiRXlocjI4ekdpR1dWWHI1bDFRVFhCdmlRQnh2MlMyazh3WW5X?=
- =?utf-8?B?NHJJU01Pdk5yaCtYLzR1bjRUenNCQ1RwTkNaclQycm00L2NuVEl3YW9FZGVB?=
- =?utf-8?B?cVpIT2l1VnZEa0VtZDMyc0dGbTFxZVlEbVNqRFliNHpQVlprY2VnN2g5UzRD?=
- =?utf-8?B?WGRVMHprdmh1TEMzQnZPRFhHVWQ2ektxRlJXMkxmNjFadkJia0lNRFIyMjBa?=
- =?utf-8?B?SHMwYlpjODR6Y3dtWUxBZkR4ZjNTYkpKYWFvTWoxZkNrNkdFY3BuZzRxVmpI?=
- =?utf-8?B?cjVTbzROQ1RtUUJrMTU2MHg3R2dPRTR4NXJ3OVV3OERsa0tGNnpkWWh1eHEz?=
- =?utf-8?B?Z3ZCazBEZjlDb1p6czhYTlRrM0V6MUV3a1JRRXJYekEyS291NG96Tkw5R003?=
- =?utf-8?B?QmlrU0ZUeHdJbmhFQzJqaGQ4aHVuWURyQ3hQZTNEdXFzQi9aWEExMlViaGJk?=
- =?utf-8?B?dUhJY0JWVFM1UVhMZWM4R2ZENCtsdXZobFZxakFkdmUrZ1dxS1MxdjZXVmlz?=
- =?utf-8?B?WUhjQmhXUzFRZE1YbXdVekVuR25naFdRU3BNeG9TblJlVWxCdWpUdFUyS0Zl?=
- =?utf-8?B?d2l5NmVmd25RdGZjZHdOQ3BTbXREN1BtU2xITlRCSHRSNmVYcisxNDZiNjFu?=
- =?utf-8?B?N3UwTnQ2UFQzWFp2ZTZ1Y0lYQVpFN2VwWHNpNUtObXZBajBSQjRSU3VndDJk?=
- =?utf-8?B?NkhGUHE0QUJlRmYvRzVvNVo0c2NDT1RpeXh1MHBTRE9YUFJNbVdqbUFxd0Ev?=
- =?utf-8?B?aG9yeXVFYjV6UUlXZE5RNjkxN3VXcUZvQnpKYnRFclhiRlNQRkV2eXcrRDQ1?=
- =?utf-8?B?aUVhYWZpbTZRdkZKdFJjUlJ6WTdZNHF6eXI2MTZKWndPdXFicnlXY2tkMnND?=
- =?utf-8?B?NXdFZkZ5ODl6SithY3NuQVBuWXNhMExQMkhpWTB2N2ttRnJHOGxZMVZoMGd3?=
- =?utf-8?B?dlZzWVhqcVg4U1pOYjVDTzZ1c3dFUjY1WmNha0dqbUdEWmRaZk9scmhjOVVI?=
- =?utf-8?B?UUZud0syOEhPMFVWL29OdHk2WmxyMmg4V2JMQlF4OW9DZW5tS1Z4S29DbVRu?=
- =?utf-8?B?c1EwcUxFZmk1YVZrenN2aWlPWDVYV25SUTZzOU01Sis5Uk10OWFMYzd3V2NW?=
- =?utf-8?B?WnhxZUNSdDlBYWh1ZlpIZFBWTHFWSVNRT1lzLzV2NTEvWFdXK0FaMlFTcVF6?=
- =?utf-8?B?RWhmU3ZyT1d6dUJ4MkxLekE5TzB0OXJrSVQzTGo1YkxXeXR5MXZ2NWl5WnRJ?=
- =?utf-8?B?Q1ArM1B1emdLMGJtWk9GbklpcmZYelA5emM2eWlBM3lqajRRZnlod05DcE0w?=
- =?utf-8?Q?8ehEi2RFAFN4f?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QkVZbzFUa2J0QW1yOFV4cGMyWFdna20rK0ZWY1YrZFoxZW5LQWN2KzM2ZzlZ?=
- =?utf-8?B?ZE45S1NxWW1iMk1pRkRkNysxb2FCUEtabm8raFpMem16K3YyWjR1SjU3VXJK?=
- =?utf-8?B?ZmF2MUp6bFZUZWs5WkZwcnN2RE9TWStUcWt0YkQrMkZDaXJsbkVLRkhKNXg4?=
- =?utf-8?B?Q2I3dTN3NXVyUHMvSmlMMjV6NmQ5b1hDOUgwclZPZXJnRHlld0ZUTndVUC9L?=
- =?utf-8?B?eDlSTURRQ3F3YjI2VTBBNElaRHRzelJRZ3FzanNINmhZL1F1N0xkV0NpZ21j?=
- =?utf-8?B?NndKcXJKcE5ManJEOFR1Q1dkZFJldmZUaU0yaWVLTkFzUFRNU1NEcVRiUDJT?=
- =?utf-8?B?RUgvT0JlS0pnNjF2SG5iMDlaREtBU3lxUXlWNlNuTTMycy9BY3NudWZoR0NU?=
- =?utf-8?B?cThnUlZtaXJ0dG5MRXBxai9pWlVhYy9JZWNac044ai9ZdDZsdDBLbUdsTzBx?=
- =?utf-8?B?QURORy9ONkhNSzFLWFdWNzRTOHB4ckdnNmx5eDVYUzlTVWVBdnlHTEp4b0lK?=
- =?utf-8?B?QXBVRTE3T3YrZGR3SFpuUFcvQ1k2SzNQRUdWb0hKOExZbUpXYWYyT0E5bnB2?=
- =?utf-8?B?czB0ZHdtcTJQZWRKMnJJSi9YanQyNisvd0dEaFpRZkxxTTZoVFA5UkNELy80?=
- =?utf-8?B?V0d0ZjJNSXBRUjBvYVgrNWlzbWVoNUxROFpJTkUzQlljZzRRQnlWZXlGSFFI?=
- =?utf-8?B?eUxQNjlYcWVnd1NXZ29KbzZXSmJ3eUNVREZRVGJWNWIyWjg4VHcvUmRoTlFk?=
- =?utf-8?B?ODg1SHpGMlJ2U08ycEl4Zlh0MUpIMndEUEY3b2dGT1pYMldMUXZqSFRUVzVV?=
- =?utf-8?B?cU1vam1HWW81QXdFTHgwSzRFd1dqbVlyNVd2elpCNzZOVUwranQ4R2VjWWFZ?=
- =?utf-8?B?MDJYYlNyNjcyQks2UTZzUUdYZEdlUVdKSVEzTzNaOGdxbWFiY01kUi9nNjBz?=
- =?utf-8?B?WVBiWHNBQzBGUXRhKy8reFk5OFQrVk9ER0kzTThGZjZZVzU4QUlmVTVaM0dU?=
- =?utf-8?B?V0JKTkpkWGViYUYzSER4SEhHN2ZtUXVZUmhBZW5zSDQzV1UySFZKTWg5Mlk1?=
- =?utf-8?B?NnQvSUZya1hPOEN4bTlYVi9SeHRSWG1qMXo5dnRBaFFvdXBBMld1TWtPYTZW?=
- =?utf-8?B?Wm1pYVpGQXQvQk51Y0toSHVvVU9tMHRGcExwaWM1NXBkSHh3Yi9HUWJNcU45?=
- =?utf-8?B?Y3NFaXJvRnE5TVFtVXR3NUdlUUJRUHloZ3NDWk9FUmNXdFR3TkRkdmNHbEhB?=
- =?utf-8?B?SjJ3NG9ZS000TFozQjZyeDErYysxa0dBNnFGWVhPV1lQVFV4dkZFSlR6QzFa?=
- =?utf-8?B?WlZWVWpwdUF2YjVKK2lQRWhkR2VBcWlsMklYSDB6TlBsMGZrNnhucEpEV1Nq?=
- =?utf-8?B?RVZRNUZkRzdvam9NQUhkYlZsS1pLWVNMUlpoRUhMR1JyQlowTHRDc20vWVJv?=
- =?utf-8?B?dEE3Ris4Ui9QdG9OZ0M0SWRBWUdyVzR0UFgwQlpObVdKdDluVUdtcGRwVmxy?=
- =?utf-8?B?QTQ0QVRIUk1YQVZXMmgrT0tLUlNuUVJFeTdoRzhMdUgzQmlnZW1yTkpRK3A5?=
- =?utf-8?B?YTdKLzJjNVRYdmpEZFEwVDhOODRvZm5xdzVUUXVCOGtDcFBGc29Gd2hqQnhM?=
- =?utf-8?B?M055Tk5zTytDVDZUUVBMblE4dCtJYzUvSlRlOEdIaWFrWnRscHVJVE1YN2cv?=
- =?utf-8?B?VXJzTFJOeStnVS9keWpWWk02cWIwQVdONTFVU3VCYVJZeWZNdlUwODVRZWkv?=
- =?utf-8?B?UElDVW5rMTRXZFNNK3FSSDMxcEtHQ21SLzFmZzlIRW5iM0I1bjZtcHpzbnk0?=
- =?utf-8?B?WVhmak56eVRpcWlPVmNlMWlOd09Oa3FocXMvZHVjTWxoVjNZMXJYMFJ5cVBz?=
- =?utf-8?B?ZUluTk5wSmVkdk51Ylg0TG9vbUxTVy9SZTkySXUzUi8vZFhxbERoNDlZeFFo?=
- =?utf-8?B?VTlaeTZOYWJibXNNSG9RY2x0UnFkd2lGZkk5R2pJYUdxOHdORmpmbmVhVElC?=
- =?utf-8?B?UHJaM0ZSMFo4ZWRKZC9uN0JlazluZlNLY0JtZ2tPRVMvWTRMYnovTW9xRDUw?=
- =?utf-8?B?YUxldHZzVlhPQ2ZZRXRGcWJoTFh3NnpWbzZjanpwY3lpT3NaSThJOERXRlBu?=
- =?utf-8?B?UjNUZTlLUEVscmI0T2FnZm1rbU1BZFUvejRseEFBTkFpZEwxU3p3TjE2OW5P?=
- =?utf-8?B?aEE9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36be5eca-43a7-417f-9dbb-08ddcdb6ba57
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Jul 2025 09:11:25.4464
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: URgc4WdIkeqpqLp06lEarBACvK4/NiKlztrs56JzYgqHw50dgLgO+bSFDydRombf6mWokr4Bct72LhDfVtqBAA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR11MB5907
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 21/36] arm_mpam: Merge supported features during
+ mpam_enable() into mpam_class
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-22-james.morse@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20250711183648.30766-22-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_021142_312957_F529FF26 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250728_021532_401296_A53B7FA3 
+X-CRM114-Status: GOOD (  36.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,49 +77,288 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/07/2025 18:42, Kamal Dasu wrote:
-> This patch adds support to claim host for TZOS RPMB access and synchronized
-> access to the controller hardware using hwspinlock framework.
-> To achieve this Linux OS and the secure TZOS make use of:
-> - shared hardware semaphore register
-> - a set of SDIO shared work registers and
-> - IPI interrupt registers 
-> 
-> The currently running OS that needs access to the controller puts itself in its
-> slot of work register and if its next in line it can try to grab the hardware
-> semaphore and complete its mmc requests. The shared work registers indicate next
-> in queue to access the controller, and current agent in the queue. Next agent
-> queue state is changed under the hwspinlock is owned by the current OS accessing
-> the controller hardware before release the semaphore, send and receive IPI
-> interrupts between linux and secure world are used to indicate completion of
-> transaction to the waiting OS. TZOS has its own RPMB driver which accesses
-> partition when it wants to read/write RPMB frames. Current implementation
-> assumes Linux and TZOS as the two work agents.
-> 
-> This patchset is an alternative method to initial RFC patch:
-> [PATCH RFC 0/3] mmc: sdhci-brcmstb: Add rpmb sharing support	
-> https://lkml.org/lkml/2025/2/6/1711
+Hi James,
 
-Does it address Ulf's comments? i.e.
+On 7/11/25 19:36, James Morse wrote:
+> To make a decision about whether to expose an mpam class as
+> a resctrl resource we need to know its overall supported
+> features and properties.
+> 
+> Once we've probed all the resources, we can walk the tree
+> and produced overall values by merging the bitmaps. This
+nit: s/produced/produce/
+> eliminates features that are only supported by some MSC
+> that make up a component or class.
+> 
+> If bitmap properties are mismatched within a component we
+> cannot support the mismatched feature.
+> 
+> Care has to be taken as vMSC may hold mismatched RIS.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>   drivers/platform/arm64/mpam/mpam_devices.c  | 215 ++++++++++++++++++++
+>   drivers/platform/arm64/mpam/mpam_internal.h |   8 +
+>   2 files changed, 223 insertions(+)
+> 
+> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+> index 61911831ab39..7b042a35405a 100644
+> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+> @@ -1186,8 +1186,223 @@ static struct platform_driver mpam_msc_driver = {
+>   	.remove = mpam_msc_drv_remove,
+>   };
+>   
+> +/* Any of these features mean the BWA_WD field is valid. */
+> +static bool mpam_has_bwa_wd_feature(struct mpam_props *props)
+> +{
+> +	if (mpam_has_feature(mpam_feat_mbw_min, props))
+> +		return true;
+> +	if (mpam_has_feature(mpam_feat_mbw_max, props))
+> +		return true;
+> +	if (mpam_has_feature(mpam_feat_mbw_prop, props))
+> +		return true;
+> +	return false;
+> +}
+> +
+> +#define MISMATCHED_HELPER(parent, child, helper, field, alias)		\
+> +	helper(parent) &&						\
+> +	((helper(child) && (parent)->field != (child)->field) ||	\
+> +	 (!helper(child) && !(alias)))
+> +
+> +#define MISMATCHED_FEAT(parent, child, feat, field, alias)		     \
+> +	mpam_has_feature((feat), (parent)) &&				     \
+> +	((mpam_has_feature((feat), (child)) && (parent)->field != (child)->field) || \
+> +	 (!mpam_has_feature((feat), (child)) && !(alias)))
+> +
+> +#define CAN_MERGE_FEAT(parent, child, feat, alias)			\
+> +	(alias) && !mpam_has_feature((feat), (parent)) &&		\
+> +	mpam_has_feature((feat), (child))
+> +
+> +/*
+> + * Combime two props fields.
+nit: s/combime/combine/
+> + * If this is for controls that alias the same resource, it is safe to just
+> + * copy the values over. If two aliasing controls implement the same scheme
+> + * a safe value must be picked.
+> + * For non-aliasing controls, these control different resources, and the
+> + * resulting safe value must be compatible with both. When merging values in
+> + * the tree, all the aliasing resources must be handled first.
+> + * On mismatch, parent is modified.
+> + */
+> +static void __props_mismatch(struct mpam_props *parent,
+> +			     struct mpam_props *child, bool alias)
+> +{
+> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cpor_part, alias)) {
+> +		parent->cpbm_wd = child->cpbm_wd;
+> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cpor_part,
+> +				   cpbm_wd, alias)) {
+> +		pr_debug("%s cleared cpor_part\n", __func__);
+> +		mpam_clear_feature(mpam_feat_cpor_part, &parent->features);
+> +		parent->cpbm_wd = 0;
+> +	}
+> +
+> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_mbw_part, alias)) {
+> +		parent->mbw_pbm_bits = child->mbw_pbm_bits;
+> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_mbw_part,
+> +				   mbw_pbm_bits, alias)) {
+> +		pr_debug("%s cleared mbw_part\n", __func__);
+> +		mpam_clear_feature(mpam_feat_mbw_part, &parent->features);
+> +		parent->mbw_pbm_bits = 0;
+> +	}
+> +
+> +	/* bwa_wd is a count of bits, fewer bits means less precision */
+> +	if (alias && !mpam_has_bwa_wd_feature(parent) && mpam_has_bwa_wd_feature(child)) {
+> +		parent->bwa_wd = child->bwa_wd;
+> +	} else if (MISMATCHED_HELPER(parent, child, mpam_has_bwa_wd_feature,
+> +				     bwa_wd, alias)) {
+> +		pr_debug("%s took the min bwa_wd\n", __func__);
+> +		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
+> +	}
+> +
+> +	/* For num properties, take the minimum */
+> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
+> +		parent->num_csu_mon = child->num_csu_mon;
+> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_csu,
+> +				   num_csu_mon, alias)) {
+> +		pr_debug("%s took the min num_csu_mon\n", __func__);
+> +		parent->num_csu_mon = min(parent->num_csu_mon, child->num_csu_mon);
+> +	}
+> +
+> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_mbwu, alias)) {
+> +		parent->num_mbwu_mon = child->num_mbwu_mon;
+> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_mbwu,
+> +				   num_mbwu_mon, alias)) {
+> +		pr_debug("%s took the min num_mbwu_mon\n", __func__);
+> +		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
+> +	}
+> +
+> +	if (alias) {
+> +		/* Merge features for aliased resources */
+> +		parent->features |= child->features;
+> +	} else {
+> +		/* Clear missing features for non aliasing */
+> +		parent->features &= child->features;
+> +	}
+> +}
+> +
+> +/*
+> + * If a vmsc doesn't match class feature/configuration, do the right thing(tm).
+> + * For 'num' properties we can just take the minimum.
+> + * For properties where the mismatched unused bits would make a difference, we
+> + * nobble the class feature, as we can't configure all the resources.
+> + * e.g. The L3 cache is composed of two resources with 13 and 17 portion
+> + * bitmaps respectively.
+> + */
+> +static void
+> +__class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
+> +{
+> +	struct mpam_props *cprops = &class->props;
+> +	struct mpam_props *vprops = &vmsc->props;
+> +
+> +	lockdep_assert_held(&mpam_list_lock); /* we modify class */
+> +
+> +	pr_debug("%s: Merging features for class:0x%lx &= vmsc:0x%lx\n",
+> +		 dev_name(&vmsc->msc->pdev->dev),
+> +		 (long)cprops->features, (long)vprops->features);
+> +
+> +	/* Take the safe value for any common features */
+> +	__props_mismatch(cprops, vprops, false);
+> +}
+> +
+> +static void
+> +__vmsc_props_mismatch(struct mpam_vmsc *vmsc, struct mpam_msc_ris *ris)
+> +{
+> +	struct mpam_props *rprops = &ris->props;
+> +	struct mpam_props *vprops = &vmsc->props;
+> +
+> +	lockdep_assert_held(&mpam_list_lock); /* we modify vmsc */
+> +
+> +	pr_debug("%s: Merging features for vmsc:0x%lx |= ris:0x%lx\n",
+> +		 dev_name(&vmsc->msc->pdev->dev),
+> +		 (long)vprops->features, (long)rprops->features);
+> +
+> +	/*
+> +	 * Merge mismatched features - Copy any features that aren't common,
+> +	 * but take the safe value for any common features.
+> +	 */
+> +	__props_mismatch(vprops, rprops, true);
+> +}
+> +
+> +/*
+> + * Copy the first component's first vMSC's properties and features to the
+> + * class. __class_props_mismatch() will remove conflicts.
+> + * It is not possible to have a class with no components, or a component with
+> + * no resources. The vMSC properties have already been built.
+> + */
+> +static void mpam_enable_init_class_features(struct mpam_class *class)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_component *comp;
+> +
+> +	comp = list_first_entry_or_null(&class->components,
+> +					struct mpam_component, class_list);
+> +	if (WARN_ON(!comp))
+> +		return;
+> +
+> +	vmsc = list_first_entry_or_null(&comp->vmsc,
+> +					struct mpam_vmsc, comp_list);
+> +	if (WARN_ON(!vmsc))
+> +		return;
+> +
+> +	class->props = vmsc->props;
+> +}
+> +
+> +static void mpam_enable_merge_vmsc_features(struct mpam_component *comp)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_msc_ris *ris;
+> +	struct mpam_class *class = comp->class;
+> +
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
+> +			__vmsc_props_mismatch(vmsc, ris);
+> +			class->nrdy_usec = max(class->nrdy_usec,
+> +					       vmsc->msc->nrdy_usec);
+> +		}
+> +	}
+> +}
+> +
+> +static void mpam_enable_merge_class_features(struct mpam_component *comp)
+> +{
+> +	struct mpam_vmsc *vmsc;
+> +	struct mpam_class *class = comp->class;
+> +
+> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list)
+> +		__class_props_mismatch(class, vmsc);
+> +}
+> +
+> +/*
+> + * Merge all the common resource features into class.
+> + * vmsc features are bitwise-or'd together, this must be done first.
+> + * Next the class features are the bitwise-and of all the vmsc features.
+> + * Other features are the min/max as appropriate.
+> + *
+> + * To avoid walking the whole tree twice, the class->nrdy_usec property is
+> + * updated when working with the vmsc as it is a max(), and doesn't need
+> + * initialising first.
+> + */
+> +static void mpam_enable_merge_features(struct list_head *all_classes_list)
+> +{
+> +	struct mpam_class *class;
+> +	struct mpam_component *comp;
+> +
+> +	lockdep_assert_held(&mpam_list_lock);
+> +
+> +	list_for_each_entry(class, all_classes_list, classes_list) {
+> +		list_for_each_entry(comp, &class->components, class_list)
+> +			mpam_enable_merge_vmsc_features(comp);
+> +
+> +		mpam_enable_init_class_features(class);
+> +
+> +		list_for_each_entry(comp, &class->components, class_list)
+> +			mpam_enable_merge_class_features(comp);
+> +	}
+> +}
+> +
+>   static void mpam_enable_once(void)
+>   {
+> +	mutex_lock(&mpam_list_lock);
+> +	mpam_enable_merge_features(&mpam_classes);
+> +	mutex_unlock(&mpam_list_lock);
+> +
+>   	mutex_lock(&mpam_cpuhp_state_lock);
+>   	cpuhp_remove_state(mpam_cpuhp_state);
+>   	mpam_cpuhp_state = 0;
+> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+> index ae6fd1f62cc4..be56234b84b4 100644
+> --- a/drivers/platform/arm64/mpam/mpam_internal.h
+> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
+> @@ -185,12 +185,20 @@ static inline void mpam_set_feature(enum mpam_device_features feat,
+>   	props->features |= (1 << feat);
+>   }
+>   
+> +static inline void mpam_clear_feature(enum mpam_device_features feat,
+> +				      mpam_features_t *supported)
+> +{
+> +	*supported &= ~(1 << feat);
+> +}
+> +
+>   struct mpam_class {
+>   	/* mpam_components in this class */
+>   	struct list_head	components;
+>   
+>   	cpumask_t		affinity;
+>   
+> +	struct mpam_props	props;
+> +	u32			nrdy_usec;
+>   	u8			level;
+>   	enum mpam_class_types	type;
+>   
 
-	https://lore.kernel.org/all/CAPDyKFrCjo8gGnxmXWP6V39N+b1o62VQH9zwMUNb2_+D3-qrdw@mail.gmail.com/
 
-> 
-> Kamal Dasu (4):
->   dt-bindings: brcmstb-hwspinlock: support for hwspinlock
->   hwspinlock: brcmstb hardware semaphore support
->   dt-bindings: mmc: add brcmstb share register and hwlocks reference
->   mmc: sdhci-brcmstb: rpmb sharing by claiming host for TZOS
-> 
->  .../hwlock/brcm,brcmstb-hwspinlock.yaml       |  36 +++
->  .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |  29 ++-
->  drivers/hwspinlock/Kconfig                    |   9 +
->  drivers/hwspinlock/Makefile                   |   1 +
->  drivers/hwspinlock/brcmstb_hwspinlock.c       |  98 +++++++
->  drivers/mmc/host/sdhci-brcmstb.c              | 243 +++++++++++++++++-
->  6 files changed, 413 insertions(+), 3 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
->  create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
-> 
+Thanks,
+
+Ben
 
 
