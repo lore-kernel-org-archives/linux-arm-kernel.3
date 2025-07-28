@@ -4,99 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A01C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30661C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:26:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2TRBNRU0aazEaz412aN0yClz+07/RSAtN1hf3sqcbTY=; b=tw5wpV7JJ6bB1EDGxroOywDvCV
-	6nDHLlvpt8uYfPEIashxaeh69xaC7xdJEZxFAV86Etb4e9keElvQHD4+XlyRZIHnE+kjpsqorylU9
-	C5z/w7/+XLxf+sp37OlSMzrw6CIqKb2zVMiVEd2i2ZWGA9dqljBF6zA6hXHj+l8Wul6hW49i51WQa
-	1vEz5NPpX/F8ic4VxlAB6pS9zNhBK+XWdcFlGNHJdycxjzIdT7l3nXhXgUc1w9qCIn1xgy+W3Ryz1
-	R+I79KniwSYFhv5UYpVPKJ6bS8BRSKEIlRogG2h3rcjUCFGr0Wq/pLVUotglkNOOYkwsa8oiO5zDy
-	rElFU2xw==;
+	bh=ywGbxT8cWbjPtq89O/IAA7hkWO093C+M7t1fWEZih8k=; b=Qv/azdyYCI4FUgP9W/M800d0kp
+	K5XEOqLdLl2m1ZG3HFAsZqF2IZzF+0iPZ/LR6S8dbX9aCHOSlCpVsoiSso9wYN6noIIHdyftYrWYe
+	j8X/M/7hUZnDLSYboF4loIZ92m1xaL5uy25Cn+Bffd6jzLPlQvs9/YK2VDhtuDOUeFC8Wv6wxBuxF
+	MR8OSZ5o9IENJitfn08yRAeI7tetplDJ7QAnM5kuEVO4RgmHsRt0SzDCNtvhok/jWlG94LleSWksi
+	GFJbvgF+uZLyXxJxVTaWyxK7laiu6wwBUhMrPmWMhjMT6N1uNrJGq5wtA0Q823vNZuGvYQoU7NcMD
+	kphmsfQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMif-0000000EP6o-3lRg;
-	Mon, 28 Jul 2025 12:12:42 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1ugMvU-0000000EQIb-2Y2U;
+	Mon, 28 Jul 2025 12:25:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugLG2-0000000EFfC-40V8
+	id 1ugMt2-0000000EQ61-0Y9J
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 10:39:04 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SAK6Pk031811;
-	Mon, 28 Jul 2025 12:38:38 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	2TRBNRU0aazEaz412aN0yClz+07/RSAtN1hf3sqcbTY=; b=3duh5Aotax1L6S6u
-	3Wfer4PGVcgXjO92s+e7kzK5anxAOga19rCv/l6vuBIvnnaHiWdWQR8La38yiVqY
-	oX2PooxgymVguBVZ3ZTrg9+bPNmJNeVn6frG+gj3Uo1QBLNOG1mM7ZYZ0tTuc+Ba
-	1Vp8TxeYiWzwSR5eNJIi7XnIp74HBDzr9bgBLmgQdCz7N0WVXrS5QZF4r4HUj7oB
-	9l9oCHDf0v0E6onuymUAmSy06IKGdqvwcbdoZSmTbZmRibUmGIhENqidnl5Gkc6i
-	OmEHzWNlh+Vg8iAYv04BiCvCvm1m+voNydrK4q8gqmY2uRo4WqzMfJjjPH0fyxKf
-	3vaWNA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484pc27rr4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Jul 2025 12:38:37 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B67FC4002D;
-	Mon, 28 Jul 2025 12:37:09 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4CFD6769726;
-	Mon, 28 Jul 2025 12:36:04 +0200 (CEST)
-Received: from [10.252.20.157] (10.252.20.157) by SHFDAG1NODE2.st.com
- (10.75.129.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
- 2025 12:36:03 +0200
-Message-ID: <58bcd0dc-9df0-461c-8e11-5e892bee2f34@foss.st.com>
-Date: Mon, 28 Jul 2025 12:35:54 +0200
+	Mon, 28 Jul 2025 12:23:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 436304519F;
+	Mon, 28 Jul 2025 12:23:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19226C4CEE7;
+	Mon, 28 Jul 2025 12:23:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753705402;
+	bh=Tsr9NQwfI4BCS/zuCTheVTv/aPg7pxX9MjHV1UIW+lQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o/2x0i2NTgs//HPCdOS9icimooS4gH00SGpVx2b6NbCwVa/f+vTpHzzpvDy3MeS/r
+	 BoYDMqkXBDnCXUQG/b/ViEUQlC1fhHbKrOvTxL26XvanJdqyYPTst22MWvtlEBZm23
+	 vxkVDBGASfuTbiF9rZOqdXNpdp+AANLs5CQHuvA1nIdhKyVZETH80JRoaf9wfWlWpI
+	 eYQ51BF0UnPmO+sWsVjAXVPpRRk6qJyeHhCvU4zKwkyoelngtpkGqFPwvAxvebtUXK
+	 xbDFo2qK6rUwv1qf+FgJVfGdFDswA7FUjvvUR8hCqVkrWPuhauCvAfgWe+4h8GGN8t
+	 FpQTp/2IiJBbw==
+Message-ID: <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
+Date: Mon, 28 Jul 2025 14:23:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] dt-bindings: display: st: add new compatible to
- LTDC device
-To: Rob Herring <robh@kernel.org>
-CC: Yannick Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier <christophe.roullier@foss.st.com>,
-        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250725-drm-misc-next-v1-0-a59848e62cf9@foss.st.com>
- <20250725-drm-misc-next-v1-1-a59848e62cf9@foss.st.com>
- <20250725194936.GA1731993-robh@kernel.org>
+Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+ Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org,
+ Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+ Stephen Boyd <swboyd@chromium.org>, Andre Draszik
+ <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ Elliot Berman <quic_eberman@quicinc.com>,
+ Srinivas Kandagatla <srini@kernel.org>
+References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
+ <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
+ <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
+ <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
+ <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
+ <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-In-Reply-To: <20250725194936.GA1731993-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.20.157]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_03,2025-07-24_01,2025-03-28_01
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_033903_280212_DBAEE4E3 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250728_052324_213093_FF31D3C6 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,101 +140,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/25/25 21:49, Rob Herring wrote:
-> On Fri, Jul 25, 2025 at 12:03:53PM +0200, Raphael Gallais-Pou wrote:
->> The new STMicroelectronics SoC features a display controller similar to
->> the one used in previous SoCs.  Because there is additional registers,
->> it is incompatible with existing IPs.
+On 28/07/2025 14:03, Dmitry Baryshkov wrote:
 >>
->> Add the new name to the list of compatible string.
+>>> and the reboot-mode is defined in the
+>>> previous patch. So, I'd assume, the path is defined.
 >>
->> Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
->> ---
->>  .../devicetree/bindings/display/st,stm32-ltdc.yaml | 37 +++++++++++++++++++---
->>  1 file changed, 33 insertions(+), 4 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
->> index d6ea4d62a2cfae26353c9f20a326a4329fed3a2f..546f57cb7a402b82e868aa05f874c65b8da19444 100644
->> --- a/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
->> +++ b/Documentation/devicetree/bindings/display/st,stm32-ltdc.yaml
->> @@ -12,7 +12,9 @@ maintainers:
->>  
->>  properties:
->>    compatible:
->> -    const: st,stm32-ltdc
->> +    enum:
->> +      - st,stm32-ltdc
->> +      - st,stm32mp25-ltdc
->>  
->>    reg:
->>      maxItems: 1
->> @@ -24,11 +26,12 @@ properties:
->>      minItems: 1
->>  
->>    clocks:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 4
->>  
->>    clock-names:
->> -    items:
->> -      - const: lcd
->> +    minItems: 1
->> +    maxItems: 4
->>  
->>    resets:
->>      maxItems: 1
->> @@ -51,6 +54,32 @@ required:
->>    - resets
->>    - port
->>  
->> +if:
->> +  properties:
->> +    compatible:
->> +      contains:
->> +        enum:
->> +          - st,stm32-ltdc
->> +then:
->> +  properties:
->> +    clocks:
->> +      maxItems: 1
->> +    clock-names:
->> +      maxItems: 1
->> +      items:
->> +        - const: lcd
->> +else:
->> +  properties:
->> +    clocks:
->> +      maxItems: 4
->> +    clock-names:
->> +      maxItems: 4
->> +      items:
->> +      - const: bus
->> +      - const: lcd
-> Why can't 'lcd' be 1st so you aren't changing positions? Keep the items 
-> list at the top level and just use minItems/maxItems in the if/then 
-> schemas.
-Hi Rob,
+>> As I said, path is not. only psci/reboot-mode is.
+> 
+> Do we have an _actual_ use case where PSCI node is not at at root node? 
 
-I've set the name order to match the stm32mp255.dtsi device-tree, so that it
-does not confuse anybody regarding which clock goes with.
+Yes, many cases, because it belongs as well to firmware node.
 
-Your comment is taken into account for the upcoming version.
+> If not, it's obviously a deficiency of the schema. Could you please 
+> provide suggestions on how to describe that in DT schema?
 
-Thanks,
-Raphaël
->
->> +      - const: ref
->> +      - const: lvds
->> +
->>  additionalProperties: false
->>  
->>  examples:
->>
->> -- 
->> 2.25.1
->>
+I do not see deficiency. There is no ABI that psci must be root node, so
+there is no issue to fix there.
 
+If you want to add such ABI, I will answer: no, don't, because we do not
+want paths or node names to be the ABI.
+
+Compatible is the ABI.
+
+Best regards,
+Krzysztof
 
