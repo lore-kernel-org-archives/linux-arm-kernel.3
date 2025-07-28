@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 865A1C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 21:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5CBC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 21:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g2HkGuPdjC+GNCrApZe3pzlcGnX64te3qygbh3oqdwo=; b=NIInBURA4r0IsqOP2eEu4yA5vg
-	tIe0V6v1SI2B28k6vDwNtaTQKN6Y15FonThrIl1Iii7x0P355gXYn2RKBwEqclAAEJiF2G/g0HPsO
-	zDcLidhX2S+YajeYlwnXIJ91DqaUeVkImO6vdExXk2hqKgiM6iMVUE2dLNsZcl3huq28v9QR3mBrH
-	MJsGTnmwBzLgFx8QtmvIfUqq0R74rc/UI0tAItUdVvFaFLk18pAHXa2TZ7ElGS81O0tRSSCk8jLEq
-	KxnyXD251cZEzgb+hLImjolPHlVC2c9ljmabBfonQWtcw4DEkr76g/QQ4iZ4KmBPvbKAWOcaS/N0/
-	cdWdNpAg==;
+	bh=slHkTPTO23OubaoGcLALPC4EFvq2t1/SJARmRLWq8ek=; b=4xtmE5xgtQ6ry2wp4zvLfkm+Et
+	ou6HuZXAsW3uSdcOCnJLecClvkdv76g6TJzOW5eEqvhvTh/BNt4MGYb+owxe1bRU8TwVndzEoh7R7
+	ZuTQ0gMfGs0Btb79mw+tLsVn0FoJjHoN23rM1K1yvDXPds9r9yTOqTtzqRfNuBU7J9tcaaeqll62y
+	hm33CNWJETo+mzgGzXtrit5bdlImpqO70KcZCUiG3RwVe1HPMz+HnaaKFHDS7OgXdyqzZYRj3B7Fx
+	M9qG1ID/6BKQnPHoCLzozKY3rpRA/T/cdvqp8GZdiT4/6WbFskt2r0XAjIsNs7A1teCL0MlA3nsCe
+	PMtpzwuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugV3r-0000000FR5X-1raH;
-	Mon, 28 Jul 2025 21:07:07 +0000
-Received: from mail-il1-x14a.google.com ([2607:f8b0:4864:20::14a])
+	id 1ugV6r-0000000FRPP-0qIw;
+	Mon, 28 Jul 2025 21:10:13 +0000
+Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugV1O-0000000FQwS-2Lwq
+	id 1ugV4O-0000000FR9g-1KQ1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 21:04:36 +0000
-Received: by mail-il1-x14a.google.com with SMTP id e9e14a558f8ab-3e3e6bd9e7eso6050885ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 14:04:33 -0700 (PDT)
+	Mon, 28 Jul 2025 21:07:41 +0000
+Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-73e562462b5so3591187a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 14:07:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753736673; x=1754341473; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1753736858; x=1754341658; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=g2HkGuPdjC+GNCrApZe3pzlcGnX64te3qygbh3oqdwo=;
-        b=x30sHcUwKNOsE0dmozafuiAY9UGEWGJ1HTKzHtOtqS9NtbjmPZZFcN5fLO/QXYywB/
-         zFu+nSlJX/Oo/ClRaYX6yfaQb0q9236QY4GoK2jpvLM4lA9nmfQnmIxe/dj9FxXLLhKx
-         FbpkQgvsf3OwTTsPlyzUGrggay+KCQ/P/utDfNNPwqtkO3BbloWgMOt2CBloDyHD5LxZ
-         wN8IVQbrSfry1P2QJn/ZoXDzQJUpRJKP1qRrDuPlQDNQCUl6ZoIkR+5pMf2bQzYdrIkI
-         UfyOZsGgHNL+zxBH+BE590Ahn4IqnvFt0oHNocJ+w574XB+LMZU3YI5iHPlFS/A0/+EO
-         Ubcw==
+        bh=slHkTPTO23OubaoGcLALPC4EFvq2t1/SJARmRLWq8ek=;
+        b=UwpiTTw7H1Bl/yixt6tTEjjePevCa8HliRIplDJXzy+Yo3m4coxaYgCqHyxTyOFBOM
+         FNZr7V3WwmBpqlU7R3+gMIW4XsRrP1AwujuqMef6pHAuybPKfKcLbkW3NI58yAXGb+Vx
+         2p6YWjpam3BI2bMJ1jeN4sFnLYSkCB7hEtnWs4OfounRcRkoZCveDBl82JuWqsYltdxw
+         NnHv1g1epzQ4oLwd+qvh/oqOAy6EMfJDPp1CcZ+43DSaO8eaU1JE2S4Nn6vr1xrSK16A
+         tnuoK/qcnN9AoD+WaAB8hrTBPdcHpQX4PVvJO+Lp4juiw3Y5Gjs91GViqbCnXgie6YCL
+         CLCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753736673; x=1754341473;
+        d=1e100.net; s=20230601; t=1753736858; x=1754341658;
         h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=g2HkGuPdjC+GNCrApZe3pzlcGnX64te3qygbh3oqdwo=;
-        b=lMkl82pimDhBvWDve1X0LJqar6pGbD8LVdNqe6htiT0GIQMprrMJ/VGd5k6tEp6sWc
-         cJ8UtGTWhPGysSRR8q6YhSfXkWdWxnDpYMfbvfnxhlA9JGOO3sCvUbfOyap3prBj3RAf
-         Lvh2qnl9dKrcdooPlI8hWnayBE0vRBTW2thyHXRzgbsQbTQuoVbXI9WNwcQ0nzYcgDrL
-         pHrsLqRjdAdRTphLmwKEf49R5zP8cw8+2//7my3CzOQycuWbnnOe7bdQYZAeSJSHYiiQ
-         rum4tZRNHCKCN/JVpD8+Yy9SiMMQjwYvivMSaPVZClaw1SmvZeisRMNTdGzT0/wRUh2x
-         i0vA==
-X-Gm-Message-State: AOJu0YxWOOXehlk5Y/3oSYst3rEKJcRAyv7Wlu74VTrr6Yx2bKmTqrNd
-	T1a+hrjtUylkA3cD3OYjoriZSLtCLire25Io0/gRFXt180yvOkcXHcp0XE1+albW8r7Ee5fAwXr
-	tErVqRpRACsvFJJYjA8TK+njJ4w==
-X-Google-Smtp-Source: AGHT+IF3ElRNmNEgLOiZ+XFI0ik5ZaJq9q7/NhwGFbXXUTCuR7C+nhEBtW4V6iPFUdR2A3KToowq+hl+CNEjc4UEBw==
-X-Received: from ilbbu29.prod.google.com ([2002:a05:6e02:351d:b0:3df:2bc3:4c40])
+        bh=slHkTPTO23OubaoGcLALPC4EFvq2t1/SJARmRLWq8ek=;
+        b=qp57LWlZgAW3u+EkfTDpx1qIDa6kCjGeYRPRVPhaKCcgcIFHxMrl680DQKMAxwqxaU
+         FKfDQ0Lig85/BsKsy3bhEqfv5QsGF1mKy4XO8KtA8Ypp1DVzG9dd8peMGoHE96eQwSEm
+         VIaHKD0cSSEPnn7hgjrbU0Gryb9pSEUbhKjEpr8Mh58RM7iEe/RD01pd6tfenS4avDWE
+         KiYFEAdb+zLB+zylG3oWSv9p8MgGqizhrG+hDHPyX0xWyTNIv4yCFEvezeWlKNLZR+Wj
+         iMONcUZJ5N27nM2pwix2q+ZF2JT4vmLXmIZpYMdIFY1ZJUpoG3cpyeoNvl3BnZo0HA04
+         4/aQ==
+X-Gm-Message-State: AOJu0YxGMBXNpy1nb8SRBkxVppG/pSkOulwaSDYBSZDRsIOQoq7YaHO4
+	grT2HFdhT4aHzbrjEZQ79r2d9Yd8QRw8T5rQiiIqjnXDwNU2gSSs00b0U6JUkt+p8TFDxoAZpms
+	8yZJLBPNj4YtPVywkE3fnPdluxA==
+X-Google-Smtp-Source: AGHT+IE47Z4A3+D9s5HwxzIu2gGt99OXTdaSbCqZ0hKtmsL0LHdSzeDVlhRw2PjDnFeNQYwtxQNiod7Q3hr1gALGAw==
+X-Received: from otbca17.prod.google.com ([2002:a05:6830:6111:b0:73c:b634:7b70])
  (user=justinstitt job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6e02:19ce:b0:3df:3bc5:bac1 with SMTP id e9e14a558f8ab-3e3c5250ebdmr229349785ab.5.1753736673097;
- Mon, 28 Jul 2025 14:04:33 -0700 (PDT)
-Date: Mon, 28 Jul 2025 14:04:24 -0700
+ 2002:a05:6830:2641:b0:741:5d00:e86a with SMTP id 46e09a7af769-7415d00e9efmr3612294a34.8.1753736858551;
+ Mon, 28 Jul 2025 14:07:38 -0700 (PDT)
+Date: Mon, 28 Jul 2025 14:07:36 -0700
 Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIANflh2gC/x2NSQ7CMAwAv1L5jKskELavoB6yuGAJmcoJFFT17
- 0Q9jeYys0AhZSpw7RZQ+nDhlzSxuw7SI8idkHNzcMZ5c3JnjAcsNcQnYeay8S0sXHGqinNQQY/ WYzLpkuM+j84cocUmpZG/2+gGvre+/8Gwrn8ZZ8nEgAAAAA==
+X-B4-Tracking: v=1; b=H4sIAJfmh2gC/x3MQQqDQAxA0atI1o04EdtpryJdjBo1UKaSTFtFv
+ HsHV5+3+TsYq7DBo9hB+Ssm75jhLgX0c4gTowzZQBU11Y08Wgrdi3EQO/uJknBJir+gEcm7kdl TU997yItFeZT13LdwLV25wfM4/t3NQ751AAAA
 X-Developer-Key: i=justinstitt@google.com; a=ed25519; pk=tC3hNkJQTpNX/gLKxTNQKDmiQl6QjBNCGKJINqAdJsE=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753736672; l=1896;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753736857; l=1926;
  i=justinstitt@google.com; s=20230717; h=from:subject:message-id;
- bh=zFb2Oa6g6C1AFnPxXLdZtpXeNv9w6hxscbJigmNdpCg=; b=HH73qpE/zdS+HCUqoI7QlwguMOVUWIcr2Ny2CgnzuAwg/gvWWMVd4GqIurLvfypFGt3lDRlob
- 13Mch8agVrpDeZ9Y0oMMvccLNTHA6rhTzU/w5faraqws/Vx98Q7G6j3
+ bh=VYvyAPR2rjDj8OeNJRruAu8npV1N/RHzlGka234BYnk=; b=HlGzpA+TYc3ck5X9eKZ/5YyDluZ21Hq1Gvc/SoBUkfkiAD8EgpqAOtMwdmCUD0dG6UEsL7Jja
+ ZVx2abnVmotBHZV+zPnLise4jybp/uEsKfEPTnW+S6eenOBCzZVTrLu
 X-Mailer: b4 0.12.3
-Message-ID: <20250728-b4-stable-disable-uninit-ptr-warn-5-15-v1-1-e373a895b9c5@google.com>
-Subject: [PATCH 5.15.y] KVM: arm64: sys_regs: disable -Wuninitialized-const-pointer
+Message-ID: <20250728-stable-disable-unit-ptr-warn-v1-1-958be9b66520@google.com>
+Subject: [PATCH 6.1.y] KVM: arm64: sys_regs: disable -Wuninitialized-const-pointer
  warning
 From: Justin Stitt <justinstitt@google.com>
 To: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
 	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Christopher Covington <cov@codeaurora.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+	Oliver Upton <oliver.upton@linux.dev>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Tom Rix <trix@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org, 
 	Justin Stitt <justinstitt@google.com>
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_140434_619007_FA8F1CF4 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20250728_140740_358607_0D30717B 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,8 +103,8 @@ get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
 doesn't really care since it casts away the const-ness anyways -- it is
 a false positive.
 
-|  ../arch/arm64/kvm/sys_regs.c:2838:23: warning: variable 'clidr' is uninitialized when passed as a const pointer argument here [-Wuninitialized-const-pointer]
-|   2838 |         get_clidr_el1(NULL, &clidr); /* Ugly... */
+|  ../arch/arm64/kvm/sys_regs.c:2978:23: warning: variable 'clidr' is uninitialized when passed as a const pointer argument here [-Wuninitialized-const-pointer]
+|   2978 |         get_clidr_el1(NULL, &clidr); /* Ugly... */
 |        |                              ^~~~~
 
 Disable this warning for sys_regs.o with an iron fist as it doesn't make
@@ -121,26 +120,29 @@ Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
 Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
 Signed-off-by: Justin Stitt <justinstitt@google.com>
 ---
-I'm sending a similar patch for 6.1.
+I've sent a similar patch for 5.15.
 ---
  arch/arm64/kvm/Makefile | 3 +++
  1 file changed, 3 insertions(+)
 
 diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 989bb5dad2c8..109cca425d3e 100644
+index 5e33c2d4645a..5fdb5331bfad 100644
 --- a/arch/arm64/kvm/Makefile
 +++ b/arch/arm64/kvm/Makefile
-@@ -25,3 +25,6 @@ kvm-y := $(KVM)/kvm_main.o $(KVM)/coalesced_mmio.o $(KVM)/eventfd.o \
- 	 vgic/vgic-its.o vgic/vgic-debug.o
+@@ -24,6 +24,9 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
  
- kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o
-+
+ kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+ 
 +# Work around a false positive Clang 22 -Wuninitialized-const-pointer warning
 +CFLAGS_sys_regs.o := $(call cc-disable-warning, uninitialized-const-pointer)
++
+ always-y := hyp_constants.h hyp-constants.s
+ 
+ define rule_gen_hyp_constants
 
 ---
-base-commit: 8bb7eca972ad531c9b149c0a51ab43a417385813
-change-id: 20250728-b4-stable-disable-uninit-ptr-warn-5-15-c0c9db3df206
+base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
+change-id: 20250728-stable-disable-unit-ptr-warn-281fee82539c
 
 Best regards,
 --
