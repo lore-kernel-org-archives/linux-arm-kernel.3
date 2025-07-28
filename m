@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091F2C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD35C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 09:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxVpK/LCpI6jDy5FBBoMfKQKH9OF2AKVHBOgSun6w8Q=; b=Enjo+lN5thLQdvEt7i+Q3Pbri3
-	+ee6m9dM0UbCpHHe76T3ppKl0vlH5XWEnvnE0TDo87XjjTObFpn8aSNiO8kylQ4beoQ1F/7I+hFRR
-	fq3KjVnHV45HeyUiFSbBzo3KElPL9uIqK5EROMEruEj+VqpfgiyzDc5Aky6RR0+A/9jwiU1X7Vdjo
-	JV2GkrjjeqrEX5s5ysj974jBh+cH/Og+VOqp56RBHoDdS5qufXHiutrqD/4Us2hFNISB5cOteZy72
-	O0IqWXASPs5rn0yN0TRXocgIo82tz1HL4Rhs7bpt4MrTIjQz/iUsKymg2cr3OcdR/HtuKNmCZtIKy
-	Zu7fweSg==;
+	bh=/n2Y6jUtj/p2PorjZw4FleFZNqzHtoA8QQQ55mAjzHM=; b=TcYEYdXf8ffVPUj10xH1CIehty
+	WFNNweOlSDhJIS6Hw1XsmvTSkzVjrPzfM27lcAnAp5XnEaMKrnwGDPSndRnaqTrIbt7S05NrysAdh
+	/TjzJr63QnSWFen3Owqnz39ckhAP/w0f7Ow0rryqVw2ZEnlCDa7EVSN8hlHEvqJzr2qUPlcWjGRMK
+	S1a3fPQ54lbslg3hjNp1BuoxEgUpQws1H6aWyDJtG4wjwFMc6c1EOQI+xDGYLE6Scd8LPGfRAj1BZ
+	XWOAxeZeyOILSofmCU/F/aFyJ1y/wLYAbE+jzOru2pppFoMgBSifY+i2Pu1AIu8Q/My8HwyU9/YM3
+	OfaiAIoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJzk-0000000E5Jg-383W;
-	Mon, 28 Jul 2025 09:18:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugJxE-0000000E590-19Rb
+	id 1ugK3l-0000000E5nX-1SvC;
+	Mon, 28 Jul 2025 09:22:17 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugK1C-0000000E5UA-36Ox
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 09:15:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 497171596;
-	Mon, 28 Jul 2025 02:15:23 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C75A3F66E;
-	Mon, 28 Jul 2025 02:15:27 -0700 (PDT)
-Message-ID: <b7f48e6b-2b48-4946-8ab6-fae7a3fec061@arm.com>
-Date: Mon, 28 Jul 2025 10:15:25 +0100
+	Mon, 28 Jul 2025 09:19:40 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56S8jfbS023646;
+	Mon, 28 Jul 2025 11:19:31 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	/n2Y6jUtj/p2PorjZw4FleFZNqzHtoA8QQQ55mAjzHM=; b=ra9i7CSTewtW3PGz
+	EVHG77biSbn99acmZdPMO6Luyd2LqgWttWTP6203xfySIexq4wRZRqdPoI87a5XP
+	l18sBvBmcntaMlsA8dE/2HrpQ1nTISVpKkTKWYZfIL4H2zSuvXOp0GkF1G+S06UX
+	sV8tScxIdCquuTwVi6DwcHNZ1pqxReJleky1vbh5ojubX5Ml4WV0p9hNMl9xEpIy
+	72lUATwhtKv6JnGDWiwwL6IeUN7JLurheXysmn3A8AF0FQq4voIsR7FCuvqgvjT/
+	5H9FFDF8kop6+gwnpHvnhmx/Djv++vi7dKBcLEADglFIsvFluV/i9LP0TZ5zB/o3
+	8+KdhQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 484m58y7xa-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Jul 2025 11:19:31 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 27ECF4002D;
+	Mon, 28 Jul 2025 11:18:38 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A1520700A0D;
+	Mon, 28 Jul 2025 11:18:08 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Jul
+ 2025 11:18:08 +0200
+Message-ID: <09384c23-cffe-471c-95b4-82b3d34de4e7@foss.st.com>
+Date: Mon, 28 Jul 2025 11:18:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 21/36] arm_mpam: Merge supported features during
- mpam_enable() into mpam_class
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
- <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
- Carl Worth <carl@os.amperecomputing.com>,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-22-james.morse@arm.com>
+Subject: Re: [PATCH] ARM: dts: sti: rename SATA phy-names
+To: Raphael Gallais-Pou <rgallaispou@gmail.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250713142424.41236-1-rgallaispou@gmail.com>
 Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20250711183648.30766-22-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250713142424.41236-1-rgallaispou@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-28_03,2025-07-24_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_021532_401296_A53B7FA3 
-X-CRM114-Status: GOOD (  36.44  )
+X-CRM114-CacheID: sfid-20250728_021939_043579_6F6F1192 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,288 +96,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
 
-On 7/11/25 19:36, James Morse wrote:
-> To make a decision about whether to expose an mpam class as
-> a resctrl resource we need to know its overall supported
-> features and properties.
+
+On 7/13/25 16:24, Raphael Gallais-Pou wrote:
+> Stick to the documentation and rename both SATA phy-names properties to
+> what is expected.
 > 
-> Once we've probed all the resources, we can walk the tree
-> and produced overall values by merging the bitmaps. This
-nit: s/produced/produce/
-> eliminates features that are only supported by some MSC
-> that make up a component or class.
-> 
-> If bitmap properties are mismatched within a component we
-> cannot support the mismatched feature.
-> 
-> Care has to be taken as vMSC may hold mismatched RIS.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Raphael Gallais-Pou <rgallaispou@gmail.com>
 > ---
->   drivers/platform/arm64/mpam/mpam_devices.c  | 215 ++++++++++++++++++++
->   drivers/platform/arm64/mpam/mpam_internal.h |   8 +
->   2 files changed, 223 insertions(+)
+>  arch/arm/boot/dts/st/stih407-family.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
-> index 61911831ab39..7b042a35405a 100644
-> --- a/drivers/platform/arm64/mpam/mpam_devices.c
-> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
-> @@ -1186,8 +1186,223 @@ static struct platform_driver mpam_msc_driver = {
->   	.remove = mpam_msc_drv_remove,
->   };
->   
-> +/* Any of these features mean the BWA_WD field is valid. */
-> +static bool mpam_has_bwa_wd_feature(struct mpam_props *props)
-> +{
-> +	if (mpam_has_feature(mpam_feat_mbw_min, props))
-> +		return true;
-> +	if (mpam_has_feature(mpam_feat_mbw_max, props))
-> +		return true;
-> +	if (mpam_has_feature(mpam_feat_mbw_prop, props))
-> +		return true;
-> +	return false;
-> +}
-> +
-> +#define MISMATCHED_HELPER(parent, child, helper, field, alias)		\
-> +	helper(parent) &&						\
-> +	((helper(child) && (parent)->field != (child)->field) ||	\
-> +	 (!helper(child) && !(alias)))
-> +
-> +#define MISMATCHED_FEAT(parent, child, feat, field, alias)		     \
-> +	mpam_has_feature((feat), (parent)) &&				     \
-> +	((mpam_has_feature((feat), (child)) && (parent)->field != (child)->field) || \
-> +	 (!mpam_has_feature((feat), (child)) && !(alias)))
-> +
-> +#define CAN_MERGE_FEAT(parent, child, feat, alias)			\
-> +	(alias) && !mpam_has_feature((feat), (parent)) &&		\
-> +	mpam_has_feature((feat), (child))
-> +
-> +/*
-> + * Combime two props fields.
-nit: s/combime/combine/
-> + * If this is for controls that alias the same resource, it is safe to just
-> + * copy the values over. If two aliasing controls implement the same scheme
-> + * a safe value must be picked.
-> + * For non-aliasing controls, these control different resources, and the
-> + * resulting safe value must be compatible with both. When merging values in
-> + * the tree, all the aliasing resources must be handled first.
-> + * On mismatch, parent is modified.
-> + */
-> +static void __props_mismatch(struct mpam_props *parent,
-> +			     struct mpam_props *child, bool alias)
-> +{
-> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cpor_part, alias)) {
-> +		parent->cpbm_wd = child->cpbm_wd;
-> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cpor_part,
-> +				   cpbm_wd, alias)) {
-> +		pr_debug("%s cleared cpor_part\n", __func__);
-> +		mpam_clear_feature(mpam_feat_cpor_part, &parent->features);
-> +		parent->cpbm_wd = 0;
-> +	}
-> +
-> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_mbw_part, alias)) {
-> +		parent->mbw_pbm_bits = child->mbw_pbm_bits;
-> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_mbw_part,
-> +				   mbw_pbm_bits, alias)) {
-> +		pr_debug("%s cleared mbw_part\n", __func__);
-> +		mpam_clear_feature(mpam_feat_mbw_part, &parent->features);
-> +		parent->mbw_pbm_bits = 0;
-> +	}
-> +
-> +	/* bwa_wd is a count of bits, fewer bits means less precision */
-> +	if (alias && !mpam_has_bwa_wd_feature(parent) && mpam_has_bwa_wd_feature(child)) {
-> +		parent->bwa_wd = child->bwa_wd;
-> +	} else if (MISMATCHED_HELPER(parent, child, mpam_has_bwa_wd_feature,
-> +				     bwa_wd, alias)) {
-> +		pr_debug("%s took the min bwa_wd\n", __func__);
-> +		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
-> +	}
-> +
-> +	/* For num properties, take the minimum */
-> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
-> +		parent->num_csu_mon = child->num_csu_mon;
-> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_csu,
-> +				   num_csu_mon, alias)) {
-> +		pr_debug("%s took the min num_csu_mon\n", __func__);
-> +		parent->num_csu_mon = min(parent->num_csu_mon, child->num_csu_mon);
-> +	}
-> +
-> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_mbwu, alias)) {
-> +		parent->num_mbwu_mon = child->num_mbwu_mon;
-> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_mbwu,
-> +				   num_mbwu_mon, alias)) {
-> +		pr_debug("%s took the min num_mbwu_mon\n", __func__);
-> +		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
-> +	}
-> +
-> +	if (alias) {
-> +		/* Merge features for aliased resources */
-> +		parent->features |= child->features;
-> +	} else {
-> +		/* Clear missing features for non aliasing */
-> +		parent->features &= child->features;
-> +	}
-> +}
-> +
-> +/*
-> + * If a vmsc doesn't match class feature/configuration, do the right thing(tm).
-> + * For 'num' properties we can just take the minimum.
-> + * For properties where the mismatched unused bits would make a difference, we
-> + * nobble the class feature, as we can't configure all the resources.
-> + * e.g. The L3 cache is composed of two resources with 13 and 17 portion
-> + * bitmaps respectively.
-> + */
-> +static void
-> +__class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
-> +{
-> +	struct mpam_props *cprops = &class->props;
-> +	struct mpam_props *vprops = &vmsc->props;
-> +
-> +	lockdep_assert_held(&mpam_list_lock); /* we modify class */
-> +
-> +	pr_debug("%s: Merging features for class:0x%lx &= vmsc:0x%lx\n",
-> +		 dev_name(&vmsc->msc->pdev->dev),
-> +		 (long)cprops->features, (long)vprops->features);
-> +
-> +	/* Take the safe value for any common features */
-> +	__props_mismatch(cprops, vprops, false);
-> +}
-> +
-> +static void
-> +__vmsc_props_mismatch(struct mpam_vmsc *vmsc, struct mpam_msc_ris *ris)
-> +{
-> +	struct mpam_props *rprops = &ris->props;
-> +	struct mpam_props *vprops = &vmsc->props;
-> +
-> +	lockdep_assert_held(&mpam_list_lock); /* we modify vmsc */
-> +
-> +	pr_debug("%s: Merging features for vmsc:0x%lx |= ris:0x%lx\n",
-> +		 dev_name(&vmsc->msc->pdev->dev),
-> +		 (long)vprops->features, (long)rprops->features);
-> +
-> +	/*
-> +	 * Merge mismatched features - Copy any features that aren't common,
-> +	 * but take the safe value for any common features.
-> +	 */
-> +	__props_mismatch(vprops, rprops, true);
-> +}
-> +
-> +/*
-> + * Copy the first component's first vMSC's properties and features to the
-> + * class. __class_props_mismatch() will remove conflicts.
-> + * It is not possible to have a class with no components, or a component with
-> + * no resources. The vMSC properties have already been built.
-> + */
-> +static void mpam_enable_init_class_features(struct mpam_class *class)
-> +{
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_component *comp;
-> +
-> +	comp = list_first_entry_or_null(&class->components,
-> +					struct mpam_component, class_list);
-> +	if (WARN_ON(!comp))
-> +		return;
-> +
-> +	vmsc = list_first_entry_or_null(&comp->vmsc,
-> +					struct mpam_vmsc, comp_list);
-> +	if (WARN_ON(!vmsc))
-> +		return;
-> +
-> +	class->props = vmsc->props;
-> +}
-> +
-> +static void mpam_enable_merge_vmsc_features(struct mpam_component *comp)
-> +{
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_msc_ris *ris;
-> +	struct mpam_class *class = comp->class;
-> +
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
-> +		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
-> +			__vmsc_props_mismatch(vmsc, ris);
-> +			class->nrdy_usec = max(class->nrdy_usec,
-> +					       vmsc->msc->nrdy_usec);
-> +		}
-> +	}
-> +}
-> +
-> +static void mpam_enable_merge_class_features(struct mpam_component *comp)
-> +{
-> +	struct mpam_vmsc *vmsc;
-> +	struct mpam_class *class = comp->class;
-> +
-> +	list_for_each_entry(vmsc, &comp->vmsc, comp_list)
-> +		__class_props_mismatch(class, vmsc);
-> +}
-> +
-> +/*
-> + * Merge all the common resource features into class.
-> + * vmsc features are bitwise-or'd together, this must be done first.
-> + * Next the class features are the bitwise-and of all the vmsc features.
-> + * Other features are the min/max as appropriate.
-> + *
-> + * To avoid walking the whole tree twice, the class->nrdy_usec property is
-> + * updated when working with the vmsc as it is a max(), and doesn't need
-> + * initialising first.
-> + */
-> +static void mpam_enable_merge_features(struct list_head *all_classes_list)
-> +{
-> +	struct mpam_class *class;
-> +	struct mpam_component *comp;
-> +
-> +	lockdep_assert_held(&mpam_list_lock);
-> +
-> +	list_for_each_entry(class, all_classes_list, classes_list) {
-> +		list_for_each_entry(comp, &class->components, class_list)
-> +			mpam_enable_merge_vmsc_features(comp);
-> +
-> +		mpam_enable_init_class_features(class);
-> +
-> +		list_for_each_entry(comp, &class->components, class_list)
-> +			mpam_enable_merge_class_features(comp);
-> +	}
-> +}
-> +
->   static void mpam_enable_once(void)
->   {
-> +	mutex_lock(&mpam_list_lock);
-> +	mpam_enable_merge_features(&mpam_classes);
-> +	mutex_unlock(&mpam_list_lock);
-> +
->   	mutex_lock(&mpam_cpuhp_state_lock);
->   	cpuhp_remove_state(mpam_cpuhp_state);
->   	mpam_cpuhp_state = 0;
-> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
-> index ae6fd1f62cc4..be56234b84b4 100644
-> --- a/drivers/platform/arm64/mpam/mpam_internal.h
-> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
-> @@ -185,12 +185,20 @@ static inline void mpam_set_feature(enum mpam_device_features feat,
->   	props->features |= (1 << feat);
->   }
->   
-> +static inline void mpam_clear_feature(enum mpam_device_features feat,
-> +				      mpam_features_t *supported)
-> +{
-> +	*supported &= ~(1 << feat);
-> +}
-> +
->   struct mpam_class {
->   	/* mpam_components in this class */
->   	struct list_head	components;
->   
->   	cpumask_t		affinity;
->   
-> +	struct mpam_props	props;
-> +	u32			nrdy_usec;
->   	u8			level;
->   	enum mpam_class_types	type;
->   
+> diff --git a/arch/arm/boot/dts/st/stih407-family.dtsi b/arch/arm/boot/dts/st/stih407-family.dtsi
+> index 35a55aef7f4b..3e6a0542e3ae 100644
+> --- a/arch/arm/boot/dts/st/stih407-family.dtsi
+> +++ b/arch/arm/boot/dts/st/stih407-family.dtsi
+> @@ -669,7 +669,7 @@ sata0: sata@9b20000 {
+>  			interrupt-names = "hostc";
+>  
+>  			phys = <&phy_port0 PHY_TYPE_SATA>;
+> -			phy-names = "ahci_phy";
+> +			phy-names = "sata-phy";
+>  
+>  			resets = <&powerdown STIH407_SATA0_POWERDOWN>,
+>  				 <&softreset STIH407_SATA0_SOFTRESET>,
+> @@ -692,7 +692,7 @@ sata1: sata@9b28000 {
+>  			interrupt-names = "hostc";
+>  
+>  			phys = <&phy_port1 PHY_TYPE_SATA>;
+> -			phy-names = "ahci_phy";
+> +			phy-names = "sata-phy";
+>  
+>  			resets = <&powerdown STIH407_SATA1_POWERDOWN>,
+>  				 <&softreset STIH407_SATA1_SOFTRESET>,
 
 
-Thanks,
+Hi Raphael
 
-Ben
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
+Thanks
 
