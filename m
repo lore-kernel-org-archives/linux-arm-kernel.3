@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0771CC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 17:42:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCEF3C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 17:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wlh8TQENPeCYbTiQf0d9bZH4utQ+NyqyA5rQwHDtMqQ=; b=YcAO59ea0zpuHfjhWqmk7E+D0i
-	2YwBnJsJ4wYMlrM/ZB7tgYGgw+hpe7BT23KomaEtRK3cRN9+Cly3rro3HCyBhJAwddgeLSg7boMlQ
-	DLr9vTolWhbShzfVFjHfVyZIX1jXVLgyOTmjsMPM8mguxjorEzQsZUb8XWxQKbNVtPe2lHkfaC8mv
-	jMhVDZMQou83ZHgoLw/mIlYxz47N+8wL14YrtK+z/pG8MIj1mG0/mbMMJiuR4rkAfOLuOvajmvZ4G
-	IJPMHdCqHjP/oEzJTWGEQlQrDnrfOioC3ZVjdA96iNLME/NxaMX1M2oHRlqMicP/EacIVutvHGSmC
-	o8KFevsA==;
+	bh=sGhiWFQpDnDh5hIYzqZ65rI4dfzw9Vl7m4izlhQIr8Y=; b=KoQPda3884dnIWWoMOPiKOgpA6
+	Bo+7EtjktSel5Hk76NMsxkTHb/cfhHwjNK7vPdZyfnLOb5a4AozxC4IoOfUZN7mzunSYlze5/Oy6L
+	ALk/yBQX8uPqd/stLwxuk+pf2baj/Odb6tM3fcXTV8AkfBjceMVdnij6HKb1gMlj2qK9uYytW+HwU
+	IMxaRatbzDcP04sN1k6QW7hG+bHF5hh5NoXvdv+StenvEZAZ8bWwROOY0FsBvorJZ3csmZRG8Z34Q
+	41nuHV2i4V+IjRm7Ki0e2c9prJ2rBNpqSrmkpiJekKP0i35lBjQh9OnU6Wo248EY0szQgKaPKZHpz
+	tAxwGWRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRrx-0000000F7o0-3w5a;
-	Mon, 28 Jul 2025 17:42:37 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ugRwo-0000000F8Eu-042p;
+	Mon, 28 Jul 2025 17:47:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRW3-0000000F5aT-32DN
+	id 1ugQyH-0000000F10i-0WZK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:20:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wlh8TQENPeCYbTiQf0d9bZH4utQ+NyqyA5rQwHDtMqQ=; b=FO8DlWdHOopyqPulTAnvX5Y0nc
-	E06J1mwbvsRBJeXYQHdy7fTgEY23XcJOhXnBqMRc2j+Vw2h0H3ZAWwes0u/jD11qeSXAkPhzQ7AVw
-	mx7GCCM0R8lZRkx00QIPwaMHD3Jsa1xpuoyGBbdg75ANQhkwBvsojBP3ki0nn08UdeC0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ugRVx-0037OV-Rw; Mon, 28 Jul 2025 19:19:53 +0200
-Date: Mon, 28 Jul 2025 19:19:53 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next 7/7] net: stmmac: explain the
- phylink_speed_down() call in stmmac_release()
-Message-ID: <cc0b948d-01ac-4a06-a16e-597d0f11b1a7@lunn.ch>
-References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
- <E1ugQ38-006KDX-RT@rmk-PC.armlinux.org.uk>
+	Mon, 28 Jul 2025 16:45:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 615C1A54C00;
+	Mon, 28 Jul 2025 16:45:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2ED1C4CEE7;
+	Mon, 28 Jul 2025 16:45:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753721104;
+	bh=X4T3huFMENK/bbr2LynN8Axapfi9UhpKjcbblmGX5Bs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qWGGmqx66EfxCa8gov6J7bRBjwLBblLLX//wYzazzAxB4vrLuQSBOyZ7MbM8WLlZG
+	 ySStgBEYbgA7/x68MEgzeESnjy4Y3A6KhTb438ZqWedAiVzHKOeSrbeGmYUkFdHwKT
+	 K+7ql7zBFZn5c6dYKe59rYfyzi1ltec00QEx3UYUCjvkVf4a5LUYdeW3ncybTlRYEF
+	 CwyJ8Cs/ko7WrDx5ygDP/SwwcsInBxe+KnbIL4w614FELAzcl4SMBMUmzEcGcwzsBp
+	 JTFk+Pa3QaGB7R0bbzP9FRbViAFIgon2IpyinY6mfVRqal5mR+ocYCeUg+KlluOOBF
+	 C9/bu42paKwUg==
+Date: Mon, 28 Jul 2025 17:44:59 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 04/10] coresight: Appropriately disable programming
+ clocks
+Message-ID: <b3782b8f-8c09-4fb8-bec6-186102cc66a8@sirena.org.uk>
+References: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
+ <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jva5e9nRu1WNTR+w"
 Content-Disposition: inline
-In-Reply-To: <E1ugQ38-006KDX-RT@rmk-PC.armlinux.org.uk>
+In-Reply-To: <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
+X-Cookie: Do not exceed recommended dosage.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_101959_758533_BA826AE9 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_094505_237643_1B712095 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,13 +82,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 04:46:02PM +0100, Russell King (Oracle) wrote:
-> The call to phylink_speed_down() looks odd on the face of it. Add a
-> comment to explain why this call is there.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+--jva5e9nRu1WNTR+w
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-    Andrew
+On Thu, Jul 24, 2025 at 04:22:34PM +0100, Leo Yan wrote:
+
+>  static inline struct clk *coresight_get_enable_apb_pclk(struct device *d=
+ev)
+>  {
+>  	struct clk *pclk;
+> -	int ret;
+> =20
+> -	pclk =3D clk_get(dev, "apb_pclk");
+> -	if (IS_ERR(pclk)) {
+> -		pclk =3D clk_get(dev, "apb");
+> -		if (IS_ERR(pclk))
+> -			return NULL;
+> -	}
+
+Previously we would return NULL for any error (which isn't super great
+for deferred probe but never mind).
+
+> +	pclk =3D devm_clk_get_enabled(dev, "apb_pclk");
+> +	if (IS_ERR(pclk))
+> +		pclk =3D devm_clk_get_enabled(dev, "apb");
+
+=2E..
+
+>  	return pclk;
+>  }
+
+Now we pass errors back to the caller, making missing clocks fatal.
+
+--jva5e9nRu1WNTR+w
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiHqQoACgkQJNaLcl1U
+h9AEugf/Q0rlo7qxVE/p7BjSpN/fElPo7fwtwPg2sDCGvqLKh0MlhHgi8Hi/Zcj4
+A/T+FYfF71i/5Np0lVNDNVXcv2g2ogF+jcS9N+KeAaG/5x58IbNe0s4USb/qt1BF
+vcCuZac0BR4hNQOJX1EOgZ/NgU611k7NRDJPUqXbaacM7on4h4BabU+QJYpUaZY5
+mUjSzh1USlrhb3lspn5CTKKMxtrtv65RuXzZvQpfpU4atL8N2akJtzElvks6xTDm
+j4TGsbkTbStSt3WVaEeZDNAlcxMMgjMbFRF3efxrokRBdMklJL6wIzHILgBCcsX4
+QDpPwEp1A8sKUIZ9BxwJbPVABY66GA==
+=gcbM
+-----END PGP SIGNATURE-----
+
+--jva5e9nRu1WNTR+w--
 
