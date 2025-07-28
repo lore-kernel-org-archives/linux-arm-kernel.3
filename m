@@ -4,71 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32358C87FCE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 18:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D503C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 19:41:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CoB5tasYH7GrZPehMHvuHgB7MplGLckmtYJLeYrDXq4=; b=Ptva7xeBxDK0I0QakiNLXtqHWj
-	Rk9KpwvgB7ifNOfLLlu1xVVao3RhHHxcbr4ZUj6tMsTC1USOPMuvFZvp5G5AvmGYI49SNY4OUsKY0
-	JwbJ81T28+jtVkROHhGDcGXWD1SoDdxJNzvDDjvaloyZhUzUz4pgThGGVxKViI1RO0SED7Al5Dlnk
-	NAVXZyJD7/wNM3VSzQd8oy8rpQlInC/il7mctTh5tv8QPdGpcPz6ItyECu+Xchl6b6GmnQ+V1bync
-	87qlYNvDjEzp3JKNApg1mOiyrN8icop4GXGOT9zn7qVWU1NRfDku3VXtONrAoeeO9d/gbTBMNuBGq
-	c9dzbbFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UBRRf2ok05qV4V10RyprFxOV/7isNWPsP0/960vxN5o=; b=Z4lT7dyRfCsMKbl75bGc1aPtZo
+	wngdfprBcySHK27AYwFJgN5Eo0h7UmOmX50BTzQQIIRzJ20AA0RR0GIrsrFhIS0RQzFM4N5xofJ9G
+	YcA4plN9le7yODY3s/hc2HJcTFZRYTQ7Q/ljBTgfpo4yDIHYim170ysnHwMkaqKF47U/U71Or0c7g
+	s8RYZ4eYThpe72fSVXLGs+KLmcKutcvPsRw2cN+RAWOjky9TM9vEq9YKSJZWkL0lhBXLiK5O/IC0A
+	WKtWmQ6HS/SfcECmf2iyrjP2eZrMIt0GHf8GnCfAtgUby0lslZLlgUMGpM79Dtl1GQ0iHEV9fgRM8
+	FN0cIqXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugS8y-0000000FAL1-0plo;
-	Mon, 28 Jul 2025 18:00:12 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1ugTic-0000000FHmp-3f9y;
+	Mon, 28 Jul 2025 19:41:06 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugRxR-0000000F8J5-2356
+	id 1ugS2Z-0000000F8qi-2QJs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 17:48:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1753724896;
- bh=CoB5tasYH7GrZPehMHvuHgB7MplGLckmtYJLeYrDXq4=;
- b=hkZLzsLqyazrdXtSVHlqKkgLlWIdgR6nPrJ7kBxwYa/shm7QqvReY5GwpSxmpK48jBZrj5rEK
- WTQ5QVdBId2h9fVO7Gcn63pC75LKYe94cONB4FOdZ1Kh7SCaYWM1+HqLD0XtTHb2Xqt+6q6LUku
- /Cv36s18Wszpl1oKgvm3zCBPfCnC72Atdw8jiPqAtvB0HNbkIT1jdT0WwfLPQMHtZeVoceUq5BK
- XSISPv9/+0MFC9RHXGU3jocyDXazaJAtmttNWjvDvbLCkZBQyZ7y5a/NxSjX3Qjvmw2jNAGiv11
- tGtK5wvj8HX69UIifr3xMAMp0V4SBx/Ds0Axywn+zXMA==
-X-Forward-Email-ID: 6887b7c8351ec66b15a2df24
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.1.8
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <5bdd0009-589f-49bc-914f-62e5dc4469e9@kwiboo.se>
-Date: Mon, 28 Jul 2025 19:47:44 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
- Radxa E24C
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: alsi@bang-olufsen.dk, andrew@lunn.ch, conor+dt@kernel.org,
- davem@davemloft.net, devicetree@vger.kernel.org, edumazet@google.com,
- heiko@sntech.de, krzk+dt@kernel.org, kuba@kernel.org,
- linus.walleij@linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- netdev@vger.kernel.org, olteanv@gmail.com, pabeni@redhat.com,
- robh@kernel.org, ziyao@disroot.org
-References: <20250727180305.381483-4-jonas@kwiboo.se>
- <20250728143020.1007374-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250728143020.1007374-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Mon, 28 Jul 2025 17:53:36 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3b785aee904so902988f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 10:53:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753725213; x=1754330013; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UBRRf2ok05qV4V10RyprFxOV/7isNWPsP0/960vxN5o=;
+        b=KyAY7ankYLj1kGY7W42kiIp1EFNIJxnubVgnxTbP0vSQuaC86wQ4KQ7c2/xxId/n1S
+         B9mH1jGhe6YB5QCWcytsYFg9REQRuC+l65dZpkU2et0cqCY5SY4BSHRWwyM3of6gjauu
+         ztEagfVzxLw0edDVwnkFJQkEsfS/6u7Gdge2cWtqSVTYpkmjNwaANfsu3MU6WpygBs44
+         fDdMemRMZv3yuEJd8iEySyUM9SS1GzxyGdyagJ4374aTIbCOAHq5clGzyM/HA3HgNHYZ
+         q1ssAbckoWrMUjPHQJgod+a643wD+CRrnKtr/nYQbU+PjGRN5sT2VeKqtq14jSxc3Klw
+         +3ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753725213; x=1754330013;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=UBRRf2ok05qV4V10RyprFxOV/7isNWPsP0/960vxN5o=;
+        b=pP824drTdIPrqgCb7KPmz26nYzk8K5sIvWN5U7j6ZeDLTIbaPbji4Qyx7eY01qwjrz
+         2klmjzX92lZZ50Z3KPRBG/BzeMvAnEtMaBQSreA8QsaXa1IptQ7647WejoYfgzvQCOgj
+         mMy2tpQbeN6KgfCGCEnMU5RAfphC+v4qJTJBtl7H9rjGnDtF1jb27iHeIixvTCTdnf1z
+         e4RF19TPIJU6xWWggYZJEw8EEiGVtTDmjycvmGgHMsMd+rxeGT9f3Cc/uwdxlHqZcX8l
+         FIQjMlA/L2+qrxXn3gkd12SbKX7PBZuEEsPhjPt2Y+YtdKSiMtoPAs8RNrjmPFh9KX97
+         doqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWsN+U8sK3bXjzWuRUIp7Yv3qhoLVXLR3Umc+VYretPa8cXYYyuj0zJmCEnDkhq8Oh1t+u1v0ajr6yyd6E7/gAv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5wmqBsgS2Jug75GTO3Hd4OHGImToHmKYus7t6QeMwgs/bJn8g
+	gKEuY/W7WqdfK2LorSc1szxWoPaGzocwsMyx6MJGvHHSvazeC9sCf1E7glx3Qkgc81EMJN1jb+E
+	X1kU+0HNcjsGXJw==
+X-Google-Smtp-Source: AGHT+IEdo5UmQraGXTZJ9gCaHcWtxJIv/tFc5vNP8HwnzGiRANkg0buplE/XnYHC6sojxb0f1IZVCz/ntN1JZg==
+X-Received: from wmbji2.prod.google.com ([2002:a05:600c:a342:b0:456:214c:845d])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:290d:b0:3b5:f93a:bcc with SMTP id ffacd0b85a97d-3b77675be5amr9578336f8f.35.1753725213520;
+ Mon, 28 Jul 2025 10:53:33 -0700 (PDT)
+Date: Mon, 28 Jul 2025 17:52:50 +0000
+In-Reply-To: <20250728175316.3706196-1-smostafa@google.com>
+Mime-Version: 1.0
+References: <20250728175316.3706196-1-smostafa@google.com>
+X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
+Message-ID: <20250728175316.3706196-4-smostafa@google.com>
+Subject: [PATCH v3 03/29] KVM: arm64: pkvm: Add pkvm_time_get()
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, robin.murphy@arm.com, jean-philippe@linaro.org, 
+	qperret@google.com, tabba@google.com, jgg@ziepe.ca, mark.rutland@arm.com, 
+	praan@google.com, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_104817_573656_10E55B9C 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250728_105335_619113_6193B8F1 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,169 +93,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+Add a function to return time in us.
 
-On 7/28/2025 4:30 PM, Chukun Pan wrote:
-> Hi,
-> 
->> Initial testing with iperf3 showed ~930-940 Mbits/sec in one direction
->> and only around ~1-2 Mbits/sec in the other direction.
-> 
->> Any mix of MAC (rx/tx delay) and switch (rx/tx internal delay) did not
->> seem to resolve this speed issue, however dropping snps,tso seems to fix
->> that issue.
-> 
-> Have you tried setting phy-mode to rgmii? (just for testing)
-> Usually this problem is caused by incorrect rx/tx delay.
+This can be used from IOMMU drivers while waiting for conditions as
+for SMMUv3 TLB invalidation waiting for sync.
 
-The issue is with TSO and RX checksum offload, with those disabled on
-the conduit interface (gmac1/eth0) my issues disappeared.
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+---
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  2 ++
+ arch/arm64/kvm/hyp/nvhe/setup.c        |  4 ++++
+ arch/arm64/kvm/hyp/nvhe/timer-sr.c     | 33 ++++++++++++++++++++++++++
+ 3 files changed, 39 insertions(+)
 
-Use of rgmii-id "RX and TX delays are not provided by the PCB." as
-defined by the dt-bindings seem to most correctly describe the HW.
-
-Describing switches is new to me, so I could be wrong :-)
-
-> 
->> +	ethernet-switch@1d {
->> +		compatible = "realtek,rtl8365mb";
->> +		reg = <0x1d>;
->> +		pinctrl-names = "default";
->> +		pinctrl-0 = <&rtl8367rb_eint>;
-> 
-> Shouldn't this pinctrl be written in interrupts?
-
-Not necessarily, in my mind the pinctrl is applied for the switch
-interface to the SoC, not the internal workings of the switch.
-
-> 
->> +			ethernet-port@6 {
->> +				reg = <6>;
->> +				ethernet = <&gmac1>;
->> +				label = "cpu";
-> 
-> No need for label = "cpu":
-> https://github.com/torvalds/linux/commit/567f38317054e66647fd59cfa4e261219a2a21db
-
-Thanks, will drop in v2.
-
-> 
->> This series relaxes the realtek dsa drivers requirement of having a mdio
->> child OF node to probe and instead have it register a user_mii_bus to
->> make it function when a mdio child OF node is missing.
-> 
-> This is weird, the switch is connected to the gmac via mdio.
-> Can you try the following and see if it works? I tried it on
-> a rk3568 + rtl8367s board and it worked:
-
-With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
-
-   rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
-         from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
-
-With a mdio node the driver is happy and dtschema is sad, and without
-the mdio node it was the other way around.
-
-The plan is to drop this patch and instead modify the dt-binding to
-allow describing a mdio node when the switch node has a reg prop in v2.
-
-Regards,
-Jonas
-
-> 
-> ```
-> &mdio1 {
-> 	switch@29 {
-> 		compatible = "realtek,rtl8365mb";
-> 		reg = <29>;
-> 		reset-gpios = ...
-> 
-> 		switch_intc: interrupt-controller {
-> 			interrupt-parent = ...
-> 			interrupts = ...
-> 			interrupt-controller;
-> 			#address-cells = <0>;
-> 			#interrupt-cells = <1>;
-> 		};
-> 
-> 		mdio {
-> 			#address-cells = <1>;
-> 			#size-cells = <0>;
-> 
-> 			phy0: ethernet-phy@0 {
-> 				reg = <0>;
-> 				interrupt-parent = <&switch_intc>;
-> 				interrupts = <0>;
-> 			};
-> 
-> 			phy1: ethernet-phy@1 {
-> 				reg = <1>;
-> 				interrupt-parent = <&switch_intc>;
-> 				interrupts = <1>;
-> 			};
-> 
-> 			phy2: ethernet-phy@2 {
-> 				reg = <2>;
-> 				interrupt-parent = <&switch_intc>;
-> 				interrupts = <2>;
-> 			};
-> 
-> 			phy3: ethernet-phy@3 {
-> 				reg = <3>;
-> 				interrupt-parent = <&switch_intc>;
-> 				interrupts = <3>;
-> 			};
-> 		};
-> 
-> 		ports {
-> 			#address-cells = <1>;
-> 			#size-cells = <0>;
-> 
-> 			port@0 {
-> 				reg = <0>;
-> 				label = "wan";
-> 				phy-handle = <&phy0>;
-> 			};
-> 
-> 			port@1 {
-> 				reg = <1>;
-> 				label = "lan1";
-> 				phy-handle = <&phy1>;
-> 			};
-> 
-> 			port@2 {
-> 				reg = <2>;
-> 				label = "lan2";
-> 				phy-handle = <&phy2>;
-> 			};
-> 
-> 			port@3 {
-> 				reg = <3>;
-> 				label = "lan3";
-> 				phy-handle = <&phy3>;
-> 			};
-> 
-> 			port@x {
-> 				reg = <x>;
-> 				ethernet = <&gmac1>;
-> 				phy-mode = "rgmii";
-> 
-> 				fixed-link {
-> 					speed = <1000>;
-> 					full-duplex;
-> 				};
-> 			};
-> 		};
-> 	};
-> };
-> ```
-> 
-> Thanks,
-> Chukun
-> 
-> --
-> 2.25.1
-> 
-> 
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+index ce31d3b73603..6c19691720cd 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+@@ -87,4 +87,6 @@ bool kvm_handle_pvm_restricted(struct kvm_vcpu *vcpu, u64 *exit_code);
+ void kvm_init_pvm_id_regs(struct kvm_vcpu *vcpu);
+ int kvm_check_pvm_sysreg_table(void);
+ 
++int pkvm_timer_init(void);
++u64 pkvm_time_get(void);
+ #endif /* __ARM64_KVM_NVHE_PKVM_H__ */
+diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+index a48d3f5a5afb..ee6435473204 100644
+--- a/arch/arm64/kvm/hyp/nvhe/setup.c
++++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+@@ -304,6 +304,10 @@ void __noreturn __pkvm_init_finalise(void)
+ 	};
+ 	pkvm_pgtable.mm_ops = &pkvm_pgtable_mm_ops;
+ 
++	ret = pkvm_timer_init();
++	if (ret)
++		goto out;
++
+ 	ret = fix_host_ownership();
+ 	if (ret)
+ 		goto out;
+diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+index ff176f4ce7de..e166cd5a56b8 100644
+--- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+@@ -11,6 +11,10 @@
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+ 
++#include <nvhe/pkvm.h>
++
++static u32 timer_freq;
++
+ void __kvm_timer_set_cntvoff(u64 cntvoff)
+ {
+ 	write_sysreg(cntvoff, cntvoff_el2);
+@@ -68,3 +72,32 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+ 
+ 	sysreg_clear_set(cnthctl_el2, clr, set);
+ }
++
++static u64 pkvm_ticks_get(void)
++{
++	return __arch_counter_get_cntvct();
++}
++
++#define SEC_TO_US 1000000
++
++int pkvm_timer_init(void)
++{
++	timer_freq = read_sysreg(cntfrq_el0);
++	/*
++	 * TODO: The highest privileged level is supposed to initialize this
++	 * register. But on some systems (which?), this information is only
++	 * contained in the device-tree, so we'll need to find it out some other
++	 * way.
++	 */
++	if (!timer_freq || timer_freq < SEC_TO_US)
++		return -ENODEV;
++	return 0;
++}
++
++#define pkvm_time_ticks_to_us(ticks) ((u64)(ticks) * SEC_TO_US / timer_freq)
++
++/* Return time in us. */
++u64 pkvm_time_get(void)
++{
++	return pkvm_time_ticks_to_us(pkvm_ticks_get());
++}
+-- 
+2.50.1.552.g942d659e1b-goog
 
 
