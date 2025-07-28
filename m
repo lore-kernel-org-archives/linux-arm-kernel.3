@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DE9C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99E1C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 16:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S2/9CrIkyCkTQXqeV8o41hbghya5WlNkELab3pT3g6o=; b=DYh8lvEAXIcs30QF2rzI588Sok
-	9m9pHEjAwXFbmxY7SJZjXr18XPZ2qXaaqwCawaR37h4efvoh65/q2xGvNEeMxdue8ITODBpRYUvKB
-	F2MwvvIgcPZvUDf1j3DFqXQR4qOzl1WbOohUbifA1KoRC8+ldBSFfYhRFHkqYX7kkmTE2TtZItGjI
-	+/moSIUWv2u2kKjbr5uRIo8uh+N7BBERHNwOdAmbG91TWkKHafj1CYDSQ0UrEHklqQIaGJK8mJTGA
-	KOArOA60gkTeKGCzxdNuw3J1sdlq6iXwcBt/rVaTmv8BPIi4qdzLmD3tfjtLt7gzwbmqYYPXvQEiH
-	YJn+0gdw==;
+	bh=qiasyHW8eYHcGSr/FVeeF5VMI/eVubqybz/H7IzQDig=; b=kfgeTcTXFuizv4uny499ck0ZI7
+	+zEfoAbMFTNrd7wYtIA7+3QL53i7szAnD49bjy5DCzoxKjluLGZexXXkbLWpCQxmsDs0bQxen74fk
+	iAu79g3IuTI0RMoHSCrhOpb4O4yA8YzoaxTvwLZdCEZxElNSF16G5DOQAA5y4OBbBYlGeys+9p7HM
+	tEtFvL7gjSU6/Td2kwgte+Vlp7emF4J6Rrexulx9WybzGZLlhvJZQoZayL8K+YZb4F33NWBZK3qXb
+	CeyTaMHKczcwWH+dlp8Z/u6Hs26yPUys9hrA2nXn+IckO9yAckM9Q07WyV/DpcpGJAngFIlUSYoZA
+	cljTJFRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQxJ-0000000F0tF-3Nhb;
-	Mon, 28 Jul 2025 16:44:05 +0000
+	id 1ugQzk-0000000F1B6-2lid;
+	Mon, 28 Jul 2025 16:46:36 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugQ3Z-0000000EsFB-0Xfz
+	id 1ugQ3c-0000000EsGO-17PA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 15:46:30 +0000
+	Mon, 28 Jul 2025 15:46:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=S2/9CrIkyCkTQXqeV8o41hbghya5WlNkELab3pT3g6o=; b=iF71GvH41E3PohlxxokaIfu4ne
-	z2n6JZ12tlZr3La61I54T2tDDgCX5RcTXoX01D8g0IW6IKx6BrC4Rxhr4r2OpgDd5Pm04g95u6Rsn
-	30Rp1lvCtNOzAJH+kCWbxSTM35pQnO/DztnaLUflt+XdBvvuMHsHxBFENC07VC9aWNUcvKvf87H39
-	tuHo5Znn9YP0Yn8Byo+nbi8WCqhTyvOQV+FPdcZLOqtNH0J4wJLtU6T/7C6SnPHlXiKErPS71Q6ca
-	QH6flxCqXizd70dwV1ldjacpZcum52a/6vGboKX2hYQztBkeWwbRDJJ/f900BoN4Q8W7WyGUJG6BB
-	bL7OyQug==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:55550 helo=rmk-PC.armlinux.org.uk)
+	bh=qiasyHW8eYHcGSr/FVeeF5VMI/eVubqybz/H7IzQDig=; b=ryFjVsuYIpcaRU2hz/cU1trPw/
+	EPHp0HZvGRtqq1aYEOtxMaBjxQO30JQN8+zwKN+uxmJdcMg1iejmnfwbtwwruvOookBFg2RfYBUuY
+	CpOQfhGZjSaFVQV2BRsbOpWCIC1SRq2RqVpMm6FtPf8p85Cso+UEOLqJo3+hmSWJWCGN9bmbbEtfP
+	JFFD+nlARb5X8QHWjCeXMccaUNOyDLUv7F6upft2xchHmFDnfqjq0zm0Ki55dv/rqns/sUI0eWz9d
+	PdwSkCpXMJzO2G48990FIWdRMuyjalrYdtO5VN/WFC6zT9J6GzAWaYJTHwJOEMGqD5vcGpoNYfElm
+	hCbsJObA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:37866 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1ugQ3Q-0000Tz-2m;
-	Mon, 28 Jul 2025 16:46:20 +0100
+	id 1ugQ3W-0000UG-0c;
+	Mon, 28 Jul 2025 16:46:26 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1ugQ2j-006KD3-B2; Mon, 28 Jul 2025 16:45:37 +0100
+	id 1ugQ2o-006KD9-EB; Mon, 28 Jul 2025 16:45:42 +0100
 In-Reply-To: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
 References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -63,17 +63,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	netdev@vger.kernel.org,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next 2/7] net: stmmac: remove write-only mac->pmt
+Subject: [PATCH RFC net-next 3/7] net: stmmac: remove redundant WoL option
+ validation
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1ugQ2j-006KD3-B2@rmk-PC.armlinux.org.uk>
-Date: Mon, 28 Jul 2025 16:45:37 +0100
+Message-Id: <E1ugQ2o-006KD9-EB@rmk-PC.armlinux.org.uk>
+Date: Mon, 28 Jul 2025 16:45:42 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_084629_165592_3B131DED 
-X-CRM114-Status: UNSURE (   9.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250728_084632_303949_6DE4E53E 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,39 +88,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mac_device_info->pmt is only ever written, nothing reads it. Remove
-this struct member.
+The core ethtool API validates the WoL options passed from userspace
+against the support which the driver reports from its get_wol() method,
+returning EINVAL if an unsupported mode is requested.
+
+Therefore, there is no need for stmmac to implement its own validation.
+Remove this unnecessary code.
+
+See ethnl_set_wol() in net/ethtool/wol.c and ethtool_set_wol() in
+net/ethtool/ioctl.c.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/common.h      | 1 -
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 -
- 2 files changed, 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
-index cbffccb3b9af..eaa1f2e1c5a5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/common.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/common.h
-@@ -602,7 +602,6 @@ struct mac_device_info {
- 	unsigned int mcast_bits_log2;
- 	unsigned int rx_csum;
- 	unsigned int pcs;
--	unsigned int pmt;
- 	unsigned int ps;
- 	unsigned int xlgmac;
- 	unsigned int num_vlan;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f350a6662880..6a4ef32f57ec 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7240,7 +7240,6 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
- 		priv->plat->enh_desc = priv->dma_cap.enh_desc;
- 		priv->plat->pmt = priv->dma_cap.pmt_remote_wake_up &&
- 				!(priv->plat->flags & STMMAC_FLAG_USE_PHY_WOL);
--		priv->hw->pmt = priv->plat->pmt;
- 		if (priv->dma_cap.hash_tb_sz) {
- 			priv->hw->multicast_filter_bins =
- 					(BIT(priv->dma_cap.hash_tb_sz) << 5);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index dda7ba1f524d..cd2fb92ac84c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -803,7 +803,6 @@ static void stmmac_get_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
+ static int stmmac_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
+ {
+ 	struct stmmac_priv *priv = netdev_priv(dev);
+-	u32 support = WAKE_MAGIC | WAKE_UCAST;
+ 
+ 	if (!device_can_wakeup(priv->device))
+ 		return -EOPNOTSUPP;
+@@ -816,15 +815,6 @@ static int stmmac_set_wol(struct net_device *dev, struct ethtool_wolinfo *wol)
+ 		return ret;
+ 	}
+ 
+-	/* By default almost all GMAC devices support the WoL via
+-	 * magic frame but we can disable it if the HW capability
+-	 * register shows no support for pmt_magic_frame. */
+-	if ((priv->hw_cap_support) && (!priv->dma_cap.pmt_magic_frame))
+-		wol->wolopts &= ~WAKE_MAGIC;
+-
+-	if (wol->wolopts & ~support)
+-		return -EINVAL;
+-
+ 	if (wol->wolopts) {
+ 		pr_info("stmmac: wakeup enable\n");
+ 		device_set_wakeup_enable(priv->device, 1);
 -- 
 2.30.2
 
