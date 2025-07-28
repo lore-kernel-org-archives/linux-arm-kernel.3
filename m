@@ -4,126 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF9FC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 11:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B87C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 11:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2sx94zOOluFDSOYcHMLomrrcrsxddxr4e8oXoy+1+BI=; b=4W+GNvr4l/EsP1TiZ7T9EWsFGz
-	ezoiGSg996aj7+sHyfB/ctEGhAnSDDGUYXxAfeaTzynVVw0+Zy/E+wubM1ZYIxCv0aKkKHoEHG8Em
-	YYtuq9Bdc3xALUgJcWaTAC4wzvyJAzkKmdcKiw28OdU4bbFmdTW/ZPfhmhL24OghaOkAMpdcyZVU1
-	dXUq4GXLlFsVJwrAea8/t9t9xJepM8H2jkABlKSnFvA2ZwmnWGkDhJpyEw1ZzA8DfvfaBRkXYHFCu
-	WIpDRGohikr2xLJMx2FUMy7aQ5Gb4nDRvUWHI40P1x3TCXz2TeU0yLw3WUGvToU5gH9t0hKgQbgkz
-	F2f3BUsg==;
+	bh=r2s2W3CeV4JjRQGIPp5GnSKupi9TJaP80uGHLGW0NVo=; b=nneG+dLxlcIXFcVG/Wvr8SRbUj
+	gaH3rQAJ7SJ+ysmOGBoDrrR/dhD0grJqCOgbJAcuCrD9r9YDM2fxxVvCrbe1lDzYKqWpne72KCZ9/
+	PRgM/ao0lJ/x6DU+k98cSUNOM9B1wvwW/Ta/jZGbm/kSP83mb47DJQZzI5KK1U4DyQpR6b1qwDoim
+	EH+8HbFsQUAasO3hMMce2EEnYaZlompMQnjzWqohqp1RPgUMrJn0uKiuyrvqcFE38kuiGSI5qz5CR
+	xiPUEBHNly9dJoyRSAytGs73x1BLmD7xw+CzEVQv5+vWkGnVjRZrZOYOSvxKdaElNzVs6RJFusiTG
+	XRX3Uq/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMRb-0000000ENMJ-1mHD;
-	Mon, 28 Jul 2025 11:55:03 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMP9-0000000ENGU-2iYn
+	id 1ugMVl-0000000ENvk-1QBd;
+	Mon, 28 Jul 2025 11:59:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ugMTJ-0000000ENXe-1qQq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 11:52:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B790F5C5CE8;
-	Mon, 28 Jul 2025 11:52:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A6C3C4CEE7;
-	Mon, 28 Jul 2025 11:52:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753703550;
-	bh=n0J5JDKTqeiSZ0GT4nTGggSWytKhfzg7qr5qEFkmUNU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oRbksmGapq9OYmr5bQZfbTnyAEOopzoaYZZzPo1tB1TP9ZpJZr+WnOqmdDUHOk5uh
-	 dOUb48Vfpe2P0N8Z0v1WaTEjVYl/YuwZXxZV4ZnZRvJvUxkdEx4oW61QXxqMLWyrKZ
-	 p2jM6GbxuMkfDU6sAuM03YhB2FwcBz9szLJtx2DCEFB++0YJh3gS0GJFvJTy18kuc8
-	 n2c/wYxTRZUNhrtHb7DooKhp5tCbUaOVVfsK+w0OOAVFdNg4601pOBifTghfyjli7L
-	 dL6Lb75oBuNuDDgPO+JxEnUhc+y3DXIF1V2tN+g1L4ekaVGKqW7CMROGdkWQxAVyXN
-	 ShtXfvTTP+uLQ==
-Message-ID: <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
-Date: Mon, 28 Jul 2025 13:52:22 +0200
+	Mon, 28 Jul 2025 11:56:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B57CD152B;
+	Mon, 28 Jul 2025 04:56:40 -0700 (PDT)
+Received: from [10.57.87.40] (unknown [10.57.87.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 543033F673;
+	Mon, 28 Jul 2025 04:56:46 -0700 (PDT)
+Message-ID: <ad29f800-34e3-45c4-afd6-3661b9cfaec3@arm.com>
+Date: Mon, 28 Jul 2025 12:56:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
- Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org,
- Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
- Stephen Boyd <swboyd@chromium.org>, Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- Elliot Berman <quic_eberman@quicinc.com>,
- Srinivas Kandagatla <srini@kernel.org>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
- <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
+Subject: Re: [PATCH] arm64/mm: Fix use-after-free due to race between memory
+ hotunplug and ptdump
+Content-Language: en-GB
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+ kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ mark.rutland@arm.com, maz@kernel.org, stable@vger.kernel.org
+References: <20250728103137.94726-1-dev.jain@arm.com>
+ <f0e12d1e-110d-4a56-9f77-8fe2d664b0d1@arm.com>
+ <ebbd54a7-1d84-4a47-8a66-394bdcb53d65@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <ebbd54a7-1d84-4a47-8a66-394bdcb53d65@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_045231_767757_776ED88C 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250728_045649_519822_AC1030A1 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,40 +69,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2025 11:44, Dmitry Baryshkov wrote:
-> On Mon, Jul 28, 2025 at 06:53:14AM +0200, Krzysztof Kozlowski wrote:
->> On 27/07/2025 18:24, Shivendra Pratap wrote:
->>> +
->>> +static int __init psci_init_vendor_reset(void)
->>> +{
->>> +	struct reboot_mode_driver *reboot;
->>> +	struct device_node *np;
->>> +	int ret;
->>> +
->>> +	np = of_find_node_by_path("/psci/reboot-mode");
->>
->>
->> Why are you looking by full path, not by compatible? Is the ABI - above
->> path - expressed anywhere?
+On 28/07/2025 12:31, Dev Jain wrote:
 > 
-> PSCI node is required to have a node name of psci, it doesn't have MMIO,
+> On 28/07/25 4:43 pm, Ryan Roberts wrote:
+>> On 28/07/2025 11:31, Dev Jain wrote:
+>>> Memory hotunplug is done under the hotplug lock and ptdump walk is done
+>>> under the init_mm.mmap_lock. Therefore, ptdump and hotunplug can run
+>>> simultaneously without any synchronization. During hotunplug,
+>>> free_empty_tables() is ultimately called to free up the pagetables.
+>>> The following race can happen, where x denotes the level of the pagetable:
+>>>
+>>> CPU1                    CPU2
+>>> free_empty_pxd_table
+>>>                     ptdump_walk_pgd()
+>>>                     Get p(x+1)d table from pxd entry
+>>> pxd_clear
+>>> free_hotplug_pgtable_page(p(x+1)dp)
+>>>                     Still using the p(x+1)d table
+>>>
+>>> which leads to a user-after-free.
+>> I'm not sure I understand this. ptdump_show() protects against this with
+>> get_online_mems()/put_online_mems(), doesn't it? There are 2 paths that call
+>> ptdump_walk_pgd(). This protects one of them. The other is ptdump_check_wx(); I
+>> thought you (or Anshuman?) had a patch in flight to fix that with
+>> [get|put]_online_mems() too?
+>>
+>> Sorry if my memory is failing me here...
+> 
+> Nope, I think I just had a use-after-free in my memory so I came up with this
+> patch :)
+> Because of the recent work with ptdump, I was so concentrated on
+> ptdump_walk_pgd() that I
+> didn't even bother looking up the call chain. And I even forgot we had these
+> [get|put]_online_mems()
+> patches recently.
 
-This is true
+I just checked; Anshuman's fix is in mm-stable, so I guess it'll be in v6.17-rc1.
 
-> so it resides in the root node
-
-This might be or not might be true. It is not defined by ABI. Anyway,
-you answered where the ABI would be documented, even though as I said it
-is not (/psci is not), but does not answer to first part: why you are
-not using compatibles which is always the preferred method?
-
-
-> and the reboot-mode is defined in the
-> previous patch. So, I'd assume, the path is defined.
-
-As I said, path is not. only psci/reboot-mode is.
+That's the patch:
+https://lore.kernel.org/linux-arm-kernel/20250620052427.2092093-1-anshuman.khandual@arm.com/
 
 > 
-Best regards,
-Krzysztof
+> Sorry for the noise, it must have been incredibly confusing to see this patch :(
+> 
+
 
