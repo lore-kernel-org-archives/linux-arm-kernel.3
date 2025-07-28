@@ -4,128 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30661C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7413C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 12:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywGbxT8cWbjPtq89O/IAA7hkWO093C+M7t1fWEZih8k=; b=Qv/azdyYCI4FUgP9W/M800d0kp
-	K5XEOqLdLl2m1ZG3HFAsZqF2IZzF+0iPZ/LR6S8dbX9aCHOSlCpVsoiSso9wYN6noIIHdyftYrWYe
-	j8X/M/7hUZnDLSYboF4loIZ92m1xaL5uy25Cn+Bffd6jzLPlQvs9/YK2VDhtuDOUeFC8Wv6wxBuxF
-	MR8OSZ5o9IENJitfn08yRAeI7tetplDJ7QAnM5kuEVO4RgmHsRt0SzDCNtvhok/jWlG94LleSWksi
-	GFJbvgF+uZLyXxJxVTaWyxK7laiu6wwBUhMrPmWMhjMT6N1uNrJGq5wtA0Q823vNZuGvYQoU7NcMD
-	kphmsfQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VU5EK1O4shzZ8WGIAcVRMsxGJyv6yO+NIH7YM+/dws8=; b=GWpWo1/00Gxha+
+	VShwpZ2Q+nBdrliKLcUVC+A8HTT9IDJPpFjhgOr5H5WqgnPuXIK9lFB5ogNhOyT7OaSQMmC19+Am8
+	UIt3z4yU3W9m8lCO6Kd7mZiQsaVMXWiaupt/cK9NFxev9tIwEr0YhaK3N+BA0691MbB3UVhaxQvZ/
+	cQXo8X6L49ErQaFNzrxxcUAg0kAEbHeu7nIe+Rj0vcHtoTm3WWMnL+OKPrmBXT+jUjxCay27EGjgX
+	tPy79nG3D/GDnlsRuKYHASqjjfKGO2U6p3lDtEYx76Qy+g5Ul+tc5ShZdYga9M8TZKkFOcG8GaqIe
+	9xT5Q5yIQfNZioYiiSVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMvU-0000000EQIb-2Y2U;
-	Mon, 28 Jul 2025 12:25:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ugNAm-0000000ERlN-1j2j;
+	Mon, 28 Jul 2025 12:41:44 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugMt2-0000000EQ61-0Y9J
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 12:23:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 436304519F;
-	Mon, 28 Jul 2025 12:23:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19226C4CEE7;
-	Mon, 28 Jul 2025 12:23:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753705402;
-	bh=Tsr9NQwfI4BCS/zuCTheVTv/aPg7pxX9MjHV1UIW+lQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o/2x0i2NTgs//HPCdOS9icimooS4gH00SGpVx2b6NbCwVa/f+vTpHzzpvDy3MeS/r
-	 BoYDMqkXBDnCXUQG/b/ViEUQlC1fhHbKrOvTxL26XvanJdqyYPTst22MWvtlEBZm23
-	 vxkVDBGASfuTbiF9rZOqdXNpdp+AANLs5CQHuvA1nIdhKyVZETH80JRoaf9wfWlWpI
-	 eYQ51BF0UnPmO+sWsVjAXVPpRRk6qJyeHhCvU4zKwkyoelngtpkGqFPwvAxvebtUXK
-	 xbDFo2qK6rUwv1qf+FgJVfGdFDswA7FUjvvUR8hCqVkrWPuhauCvAfgWe+4h8GGN8t
-	 FpQTp/2IiJBbw==
-Message-ID: <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
-Date: Mon, 28 Jul 2025 14:23:14 +0200
+	id 1ugN5p-0000000ERPq-0s0p;
+	Mon, 28 Jul 2025 12:36:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=VU5EK1O4shzZ8WGIAcVRMsxGJyv6yO+NIH7YM+/dws8=; b=g/G/d37qRoSQYNoY4eyNEcay0E
+	xUT06QBjmYiuYibLdQqFPj4tUxNPOX7A8CrXybeLdMoIH8YcJ2BaMUHstLhrAZ+GZ7mTdl8OUujWo
+	JkKjx9CkmkLwyT38QlR4q2yop4SKRgWUFPi6BCG4cvclPyZdBvzK93a+loKCobwzWruY6OSpFlNPO
+	IGGKsvfmLlw9WAaXhyBUOCHWc24zF3czNwzKtl48h9WLoUvfXTPmMDhqekJZAhGrgQEZuO71e4agh
+	vOuKOb+i3lencN+PyWRi26tH2RrfnCE8GZqS19CbFUrb0fbMipBdV1cS9qDnexsuQRB4/lbLs190+
+	7ZROmRSA==;
+Received: from [189.7.87.79] (helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1ugN5Y-004u0J-Cz; Mon, 28 Jul 2025 14:36:20 +0200
+From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: [PATCH 0/3] Power Management for Raspberry Pi V3D GPU
+Date: Mon, 28 Jul 2025 09:35:37 -0300
+Message-Id: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
- Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Konrad Dybcio <konradybcio@kernel.org>, cros-qcom-dts-watchers@chromium.org,
- Vinod Koul <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
- Stephen Boyd <swboyd@chromium.org>, Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- Elliot Berman <quic_eberman@quicinc.com>,
- Srinivas Kandagatla <srini@kernel.org>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
- <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
- <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
- <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAJpuh2gC/x2MTQ5AMBQGryJv7SXUv6uIRemHt1DSChJxd43lJ
+ DPzkIcTeGqjhxxO8bLZAGkc0bhoO4PFBCaVqCKpVM1nZnjfLjhetdUzVtiDgWEIRm7GpqSQ7g6
+ T3P+269/3A+c97xRmAAAA
+X-Change-ID: 20250728-v3d-power-management-eebb2024dc96
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Stefan Wahren <wahrenst@gmx.net>, Maxime Ripard <mripard@kernel.org>, 
+ Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga <itoral@igalia.com>, 
+ Dom Cobley <popcornmix@gmail.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1940; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=VZB4TY2XDNSiEWoEhnr9I9NCUpRbewBq82IBfHPpAQM=;
+ b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBoh26+klHq7mJ02coyITsL7uFituOV+joiNpDlJ
+ Ac53ERSxhyJATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaIduvgAKCRA/8w6Kdoj6
+ qhriB/4k4oXHgtpfuTtVv1M43tkR3ikAAMqGVrZOhRjUU3YtAnc5czLrQoN50cuEH825AtRVr8g
+ 04E8V7ypYKUTVqfeZSTJuVBhMWgAymMtoGyKZIaEPkf40Hv3S+FzyB6XeYQ77zrYm6fTS/nio5k
+ E3zTKxb9rNcoFFoY5pQIdXLN8L9dT6hsPC0JWUVAzabiBUp7IQjw4xOjgyDtHGPcG2DnH6+8fQy
+ a40ufjlCI/CMN8iH+fHx5f+puGqjk80nOoVea7gt8/tS1VUI/lMgkI/NzHbIgD0IcvPBiJBxyw5
+ dy2J5iCCkgE1U2kDjGEnq/84yvokfc1H8RAMTwmHT2S45o+l
+X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
+ fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_052324_213093_FF31D3C6 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20250728_053637_235259_EA92C6DA 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,28 +95,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/07/2025 14:03, Dmitry Baryshkov wrote:
->>
->>> and the reboot-mode is defined in the
->>> previous patch. So, I'd assume, the path is defined.
->>
->> As I said, path is not. only psci/reboot-mode is.
-> 
-> Do we have an _actual_ use case where PSCI node is not at at root node? 
+This series introduces Runtime PM for Raspberry Pi's GPU, V3D.
+Currently, the GPU clock stays up during the whole operation, even if
+the GPU is idle. By introducing Runtime PM, we can now turn off the
+clock completely during idle. For example, with this series, when
+checking `vcgencmd measure_clock v3d` in the Raspberry Pi 5, we get:
 
-Yes, many cases, because it belongs as well to firmware node.
+(idle)
 
-> If not, it's obviously a deficiency of the schema. Could you please 
-> provide suggestions on how to describe that in DT schema?
+$ vcgencmd measure_clock v3d
+frequency(0)=0
 
-I do not see deficiency. There is no ABI that psci must be root node, so
-there is no issue to fix there.
+(running glmark2)
 
-If you want to add such ABI, I will answer: no, don't, because we do not
-want paths or node names to be the ABI.
+$ vcgencmd measure_clock v3d
+frequency(0)=960016128
 
-Compatible is the ABI.
+To implement PM for V3D, it was needed to add a prepare and unprepare
+hook to RPi's firmware clocks. Currently, they don't turn on and off,
+nor lower the clock rate. Therefore, PATCH 1/3 addresses this issue in
+clk/bcm/clk-raspberrypi.c.
 
-Best regards,
-Krzysztof
+The other two patches are related to PM enablement in the V3D driver.
+
+To ease testing in Raspberry Pi 4 and 5, I prepared a downstream branch
+backporting this series to rpi-6.12.y [1].
+
+[1] https://github.com/mairacanal/linux-rpi/tree/v3d/downstream/power-management-v2
+
+Best Regards,
+- Maíra
+
+---
+Maíra Canal (3):
+      clk: bcm: rpi: Turn firmware clock on/off when preparing/unpreparing
+      drm/v3d: Allocate all resources before enabling the clock
+      drm/v3d: Introduce Runtime Power Management
+
+ drivers/clk/bcm/clk-raspberrypi.c |  41 ++++++++-
+ drivers/gpu/drm/v3d/Makefile      |   3 +-
+ drivers/gpu/drm/v3d/v3d_debugfs.c |  23 ++++-
+ drivers/gpu/drm/v3d/v3d_drv.c     | 171 +++++++++++++++++++-------------------
+ drivers/gpu/drm/v3d/v3d_drv.h     |  21 ++++-
+ drivers/gpu/drm/v3d/v3d_gem.c     |  18 +++-
+ drivers/gpu/drm/v3d/v3d_irq.c     |  15 ++--
+ drivers/gpu/drm/v3d/v3d_mmu.c     |  12 ++-
+ drivers/gpu/drm/v3d/v3d_power.c   |  79 ++++++++++++++++++
+ drivers/gpu/drm/v3d/v3d_submit.c  |  19 ++++-
+ 10 files changed, 291 insertions(+), 111 deletions(-)
+---
+base-commit: a7352c849492a30b5d8491fcb9314ab376a3942f
+change-id: 20250728-v3d-power-management-eebb2024dc96
+
 
