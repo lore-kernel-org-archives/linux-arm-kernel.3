@@ -4,96 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB08C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 06:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB53BC87FCE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Jul 2025 06:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h+hROFZIJ4zafnbkZoU/ntEvBJYn2g7xzj4eJTsFhmI=; b=Z7otY1sK8bR8WWz2n9VTbfdaAd
-	80cY+mz+7QyNqzakNqQZYwtqp72J9qJw0bhb5VjnW83tkhEV+j3NkeDi2irwg7PGLH1j3B2TVnFa9
-	A2KvP77uTsPfkjLuJ7L8S6IG5pzsUqfprs1LmODaW218ht4J4JjSSyrwUeHF/9KvoAEYaVCEVSPnR
-	hXzD0HDZTRYUoO+lI5F0AaQCypZeTMPpxu3mSvsyfyyBQ5ANzKXIVkz0BsevHrey5Me6Xw2jKAHDW
-	Fb2QOsp479F2FWQCYgesz2EyIR59VeifMwQqVRW1P5ws1ZXVoEdSn7sXwYL8IHiEJC/5By3uSOPl6
-	2IcA7GRQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JjSYGmuLm2Hp4MqcZuZg1hPjsmb4clQ4mOoZCeNonbs=; b=Xxh5jd1qVFcNfQdsJsGLtGIcNc
+	0H2qpmO/gNS342KmvLqiGnTdO7plw8MLJztbQqEi5HR7vgj0FsSIqDmYIBkg6trPIiMzlb5FZ62pe
+	0+7YXxpMVkszhwM7QLDxcq7gyxD948SX+jt3fjDQX+64xZenDfuS/0d7eC1BB3WXHAv+f0LpbZ8jw
+	mm4EfB6HFNbG0JoynqTDKGBBaqJJzfJoXj8fMyOrECCVCMjLjBlM/MZVkXO1tZQJOQMlIL+N1jKqW
+	K6wE7SIEHe2fv9BKC8hCenfTQWggweeiFhh6CFco5QOULnd3IyU196S9KmD2zPbzAj0l87Hhvrot+
+	+mVvk2nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugHQw-0000000DltI-0p40;
-	Mon, 28 Jul 2025 06:34:02 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1ugHTR-0000000Dm9P-0HXL;
+	Mon, 28 Jul 2025 06:36:37 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugGqr-0000000DhSG-1FE9
+	id 1ugGzp-0000000Dj3m-1AoW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Jul 2025 05:56:46 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-23ffdea3575so6098715ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Jul 2025 22:56:45 -0700 (PDT)
+	Mon, 28 Jul 2025 06:06:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753682204; x=1754287004; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h+hROFZIJ4zafnbkZoU/ntEvBJYn2g7xzj4eJTsFhmI=;
-        b=IgIN/+mqkESTr4ssXGjMNOIjgENnegfVnNBja+XZg01pavkL6pJbmiD9nJ9V0HHzl+
-         XdpbSKWhK+vXaBljLQudeolgIQcU9bE7gar7OwLyjokmUtGeQLhxjq4yns3mr51AyGJS
-         FXGLtPpEUhTpA24job5oFmDSx0QolsDnF4QIw24SmP6si1/mEieIy+ACfbzgO6tloXOT
-         jQRbtjQACiJXZWNDvbihYHD/G7COykW5vSMxhsiLY4GqCHTY5Yeyzi6Fsx00Y0HLJjTU
-         ZyYxRPf9nmym1khKqqWfIhhE5urY5bfzDwAhctvhjkNZgYQRRBlvnCWGXTm30z82p/cH
-         8HRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753682204; x=1754287004;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=h+hROFZIJ4zafnbkZoU/ntEvBJYn2g7xzj4eJTsFhmI=;
-        b=ubitV2oset+vQuAt3tkwt963/thnD/rFazkGIvqAdptMYbgdw8vxHPwUpsCztqO1oK
-         9f23jwejW6+vZyyWwCdtcUpXB/MkZLwmi4J624q8SM7Kr69kda3CdLaxP5xot+Sgrbt0
-         COh+Te2u/Yr3hc6ar480kUfZkPdUIcF58fncbWLJbMcAsiVvl91D7gYp4mZvCKKYa9pY
-         UCeyd7jYHy/IO4fFJVvJvoKE8r9VR8074n9urzqYU+3gcXsiQAdA/geUadiWPda3U7/3
-         RqQJJDckUcun5koiSSD8j4xK0muTKLzea6RbDR2Sv5SWSkXNBemVaECYoKOfgwDWke66
-         0K6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXDhQKZH8GJ1kAh/cNFO/IiTnufweGf1WuV7iZy3WWnZRWdaZxJ7egbNr7GwWO+DaCrTn9LIi1kZag58W8coOZR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIKyY2aZp+Ry7QsKi64obfSQ3vhkYK3u0YBA/ENPjFpx2aa6pJ
-	uYkmi9MXAR91WZXE8XZRMzMwnYo817IZ+H/YcBoje6KSNWz3QcTKSnoM
-X-Gm-Gg: ASbGncvUdg5DlN4RCKxbVWHhm44B0P5VBn0NSg8Xzm4qiv8NwpQurnBOaFwH3iMEtdm
-	Ud1esO47rVGq2DZ6PXIQvTd26y99B/GDofYJlQYQDvOYCXI1GVMyYlmBWW72iUUuMkZMm0rnix0
-	TWF2f+tKfZMCsdtKWkXdYxmoDQf3II7+JjCaTuxcsS8rLmYemgnSO+d5MOa9pWrfxv7WFKGxeSq
-	8pRU2yCAM5iM9FjVJCm5DARbDPluJWNO6DlYDl+AVNDsIcdLmhJfwiTyowln8qRJp6YETHvaLhx
-	4gX/YT6Pp194MXph3oUKny0JpnjNMBZdxJs5ZijnUuRM840OMI0RqkrmeG2vWPG9wxUwv2TQZIP
-	Lw/aCtv35J3DQJqhd0tZFwcVz9YxUrjdStSjkTCUbbqZ5fynA2eGWx86iTOiA8I9SjzSFqFsEjl
-	o=
-X-Google-Smtp-Source: AGHT+IESYMV9/aCSq8+ZkMIq1xghfGxILNOdIuRhEeldG3+nYfcr3Y2QDDogE793q0IX8dW9AYzfjA==
-X-Received: by 2002:a17:902:c409:b0:234:f4da:7eeb with SMTP id d9443c01a7336-23fb3051350mr152238685ad.7.1753682204352;
-        Sun, 27 Jul 2025 22:56:44 -0700 (PDT)
-Received: from localhost.localdomain (c-76-133-73-115.hsd1.ca.comcast.net. [76.133.73.115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23fbe514b59sm45091795ad.128.2025.07.27.22.56.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Jul 2025 22:56:43 -0700 (PDT)
-From: rentao.bupt@gmail.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1753682760; x=1785218760;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=JjSYGmuLm2Hp4MqcZuZg1hPjsmb4clQ4mOoZCeNonbs=;
+  b=LofuU/VHfvpWfdBITg/nqOQ+DigA1bAXSXHiOkAVyWIu50QFHGYDumye
+   QnEdecu14vRW6ekWqaUe9vwakkfkbiST66GfK2eaZ29frdO6s0hiUdmnl
+   us0WO4RVyCp68YtVemJu6ZM9KfX5zzm/Hie6+oZqcJJGnP0xwLtwgbKul
+   lGaiq2Sa/XFQAg+ixRtFGE9Y0weiWCAQIm+dJSLil4YYnfTlY66wrjXZW
+   QRB2UoY2FV9DuuOgm+zemyQ62+CNt2QRjRk8VyjJiLI/wzOPro8T8To5Q
+   v5DiAy6X9TWtNiDLbQtuDCFCt6OzCVCqaLYfBVV8OHlkPzG7A0dlqfxGk
+   Q==;
+X-CSE-ConnectionGUID: LuVdxQooQWywzzukvPuoDg==
+X-CSE-MsgGUID: tSUhUxs7SjGmYTS1cQrlpA==
+X-IronPort-AV: E=Sophos;i="6.16,339,1744063200"; 
+   d="scan'208";a="45440332"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 28 Jul 2025 08:05:51 +0200
+X-CheckPoint: {68871340-A-BB1FFBB0-EB2CC75E}
+X-MAIL-CPID: 154A4088696352CA20E2E8C7001DE7E1_2
+X-Control-Analysis: str=0001.0A002106.6887134A.008B,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A938E16568B;
+	Mon, 28 Jul 2025 08:05:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1753682747;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=JjSYGmuLm2Hp4MqcZuZg1hPjsmb4clQ4mOoZCeNonbs=;
+	b=oh9g3DYI0g2Ihh111neIBiKYeOBcsinYlR9XMSILJwIObcOmA5eB3dYyvC8wwLQxrDbq5q
+	TDue0UOUfjc6qvBGVcpfGQgRoOaUUuApM6qp8u3XV0kbAO2WWKa/Ojo1jsb5kvPSaGyTZ3
+	FqEyJ8MZSkrwvEnl8RTD+2BwN/dKWwhzXWOKWJ5TNOi/onxB89OGjv/hZg0yeZtHolvYXD
+	Rm3GkSeNmxHLodTJx4tZ9b9IJvZ2tLmKuSV7Y+bUeJMOUTYdByPimye8d5m/OL0u9VR9sc
+	7jW5b8QXdC8A2WhFUr0LOs9IlmSmltBoUsvoUGHO6adfBJxN35gDfR9m6C3v0g==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>,
-	Tao Ren <taoren@meta.com>
-Cc: Tao Ren <rentao.bupt@gmail.com>
-Subject: [PATCH v4 13/13] ARM: dts: aspeed: Add Facebook Darwin (AST2600) BMC
-Date: Sun, 27 Jul 2025 22:56:15 -0700
-Message-ID: <20250728055618.61616-14-rentao.bupt@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20250728055618.61616-1-rentao.bupt@gmail.com>
-References: <20250728055618.61616-1-rentao.bupt@gmail.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 1/1] gpio: stmpe: Allow to compile as a module
+Date: Mon, 28 Jul 2025 08:05:43 +0200
+Message-ID: <20250728060544.18169-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250727_225645_335619_506F01FA 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20250727_230601_804941_21CFDF20 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,119 +96,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tao Ren <rentao.bupt@gmail.com>
+Add the necessary boilerplate to also make this driver modular.
+Keep the subsys_initcall to not change registration order for built-in.
+Also add OF match table for module autoloading.
 
-Add initial device tree for the Meta (Facebook) Darwin AST2600 BMC.
-
-Darwin is Meta's rack switch platform with an AST2600 BMC integrated for
-health monitoring purpose.
-
-Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
-Changes in v4:
-  - None.
-Changes in v3:
-  - Removed flash layout (use the "default" in common.dtsi).
 Changes in v2:
-  - Removed mac3 controller.
-  - Fixed DTB warnings.
+* Do not touch subsys_initcall
+* Add module_exit instead
+* Adjust commit message
 
- arch/arm/boot/dts/aspeed/Makefile             |  1 +
- .../dts/aspeed/aspeed-bmc-facebook-darwin.dts | 72 +++++++++++++++++++
- 2 files changed, 73 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
+ drivers/gpio/Kconfig      |  2 +-
+ drivers/gpio/gpio-stmpe.c | 20 ++++++++++++++++++--
+ 2 files changed, 19 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index f6e714b7db2d..dce32ee0ace7 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -20,6 +20,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-facebook-bletchley.dtb \
- 	aspeed-bmc-facebook-catalina.dtb \
- 	aspeed-bmc-facebook-cmm.dtb \
-+	aspeed-bmc-facebook-darwin.dtb \
- 	aspeed-bmc-facebook-elbert.dtb \
- 	aspeed-bmc-facebook-fuji-data64.dtb \
- 	aspeed-bmc-facebook-fuji.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
-new file mode 100644
-index 000000000000..58c107a1b6cf
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-darwin.dts
-@@ -0,0 +1,72 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+// Copyright (c) 2021 Facebook Inc.
-+
-+/dts-v1/;
-+
-+#include "ast2600-facebook-netbmc-common.dtsi"
-+
-+/ {
-+	model = "Facebook Darwin BMC";
-+	compatible = "facebook,darwin-bmc", "aspeed,ast2600";
-+
-+	aliases {
-+		serial0 = &uart5;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+	};
-+
-+	chosen {
-+		stdout-path = &uart5;
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
-+			      <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
-+			      <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>,
-+			      <&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
-+	};
-+
-+	spi_gpio: spi {
-+		num-chipselects = <1>;
-+		cs-gpios = <&gpio0 ASPEED_GPIO(X, 0) GPIO_ACTIVE_LOW>;
-+	};
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index 500d839f65ee8..0621832d045fa 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -1559,7 +1559,7 @@ config GPIO_SL28CPLD
+ 	  called gpio-sl28cpld.
+ 
+ config GPIO_STMPE
+-	bool "STMPE GPIOs"
++	tristate "STMPE GPIOs"
+ 	depends on MFD_STMPE
+ 	depends on OF_GPIO
+ 	select GPIOLIB_IRQCHIP
+diff --git a/drivers/gpio/gpio-stmpe.c b/drivers/gpio/gpio-stmpe.c
+index 0a270156e0bea..97d6c4f98eaf7 100644
+--- a/drivers/gpio/gpio-stmpe.c
++++ b/drivers/gpio/gpio-stmpe.c
+@@ -534,10 +534,16 @@ static int stmpe_gpio_probe(struct platform_device *pdev)
+ 	return devm_gpiochip_add_data(dev, &stmpe_gpio->chip, stmpe_gpio);
+ }
+ 
++static const struct of_device_id stmpe_gpio_of_matches[] = {
++	{ .compatible = "st,stmpe-gpio", },
++	{ /* sentinel */ }
 +};
++MODULE_DEVICE_TABLE(of, stmpe_gpio_of_matches);
 +
-+&i2c0 {
-+	eeprom@50 {
-+		compatible = "atmel,24c512";
-+		reg = <0x50>;
-+	};
-+};
+ static struct platform_driver stmpe_gpio_driver = {
+ 	.driver = {
+-		.suppress_bind_attrs	= true,
+-		.name			= "stmpe-gpio",
++		.name = "stmpe-gpio",
++		.of_match_table = stmpe_gpio_of_matches,
+ 	},
+ 	.probe		= stmpe_gpio_probe,
+ };
+@@ -547,3 +553,13 @@ static int __init stmpe_gpio_init(void)
+ 	return platform_driver_register(&stmpe_gpio_driver);
+ }
+ subsys_initcall(stmpe_gpio_init);
 +
-+&adc0 {
-+	status = "okay";
++static void __exit stmpe_gpio_exit(void)
++{
++	platform_driver_unregister(&stmpe_gpio_driver);
++}
++module_exit(stmpe_gpio_exit);
 +
-+	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
-+		     &pinctrl_adc2_default &pinctrl_adc3_default
-+		     &pinctrl_adc4_default &pinctrl_adc5_default
-+		     &pinctrl_adc6_default &pinctrl_adc7_default>;
-+};
-+
-+&adc1 {
-+	status = "okay";
-+
-+	pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc9_default
-+		     &pinctrl_adc10_default &pinctrl_adc11_default
-+		     &pinctrl_adc12_default &pinctrl_adc13_default
-+		     &pinctrl_adc14_default &pinctrl_adc15_default>;
-+};
-+
-+&emmc_controller {
-+	status = "okay";
-+};
-+
-+&emmc {
-+	status = "okay";
-+
-+	non-removable;
-+	max-frequency = <25000000>;
-+	bus-width = <4>;
-+};
++MODULE_DESCRIPTION("STMPE expander GPIO");
++MODULE_AUTHOR("Rabin Vincent <rabin.vincent@stericsson.com>");
++MODULE_LICENSE("GPL");
 -- 
-2.47.3
+2.43.0
 
 
