@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DFF6C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 03:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EEFC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 03:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n/oZwA3AlTNfmx4P7C3GWExCuKTHEtbzFqxGSx8S9/k=; b=4+2tlKBJ4tf+D/AfVTO8xH/zEd
-	LhDmNuvAyhU8vv8Jbif2K6clg7bvKe/FjbpOcgJaX/On9ZuI2SvKgGfqCO31Z5HWcdfaTI6RT7lnE
-	fvfHuIogTR5/ngyfg8ns8AGGq/j4uUnrvK3VkfoOrwWHhkxkfc0BwgFqij6IhJ1EOUIMJNJSfkCd6
-	aC7Uy9gX0FzTiAmLGO7Rt6Z3AaH7KXW7TuUV61MXFBBEtNLPAYVNgbadUsrUhXNgQLgWMNrBOXYYg
-	VPbOU2ucXGHdKKlNZd8s9YuBrYuindO1qj+fx62p3ygsDn95CPwRXqaAm0E+gSRnozaIvnGWqNYha
-	vrA8QuSg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VaH78BxSqInc7YWoloFx3Urvp7YqnyUZb3BPxUwn1CQ=; b=GH6B5MlEGwcx6eyrjqmfZWqHJK
+	ufF2zd2uVNit8D+D0gzSgz7FwiQN3HmgZUi8RLUC1VhZCOgS3HmLSG3LZ7yW/oL1DSKI+QVBXbQeg
+	xWNH8Yk1HHbyD+7f7PTr+vJB6GYn7uNEkPmRlv6ydQNssdpoH2jJE0XkgxlaXxXXBlcctulDMYMHk
+	Og9/+g9HsYSRysRvMYcpI0lsdZTD37HZ6Vp5O2qAzK5vnPRMVTDFfRaJJXNvIzxG9iaBkWH+Modwf
+	CtYsFPkCi3sQU4MVXHNcwHIpbl3edLYxsxricXTQxoiETsQzAGTbIdvI4vCR0QxfgvZWH1vfD3EEU
+	H4UEEKEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugb0P-0000000Fqao-0koR;
-	Tue, 29 Jul 2025 03:27:57 +0000
-Received: from mail-m158216.netease.com ([47.251.158.216])
+	id 1ugbPd-0000000Fri1-27wm;
+	Tue, 29 Jul 2025 03:54:01 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugavY-0000000Fq0Y-2TCV;
-	Tue, 29 Jul 2025 03:22:59 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1d8de167e;
-	Tue, 29 Jul 2025 11:22:50 +0800 (GMT+08:00)
-Message-ID: <63226b37-1dec-4998-b2b6-e969ca786f37@rock-chips.com>
-Date: Tue, 29 Jul 2025 11:22:49 +0800
+	id 1ugbNA-0000000Frb4-3AJe;
+	Tue, 29 Jul 2025 03:51:29 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2403c13cac3so4780435ad.0;
+        Mon, 28 Jul 2025 20:51:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753761087; x=1754365887; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VaH78BxSqInc7YWoloFx3Urvp7YqnyUZb3BPxUwn1CQ=;
+        b=RdnSpMfUarR2gx0MyP27u+YUnfM3PkNyS2FP55twLyN5NdOxfRO6Ic138Oju3qhzdj
+         td64XNGr9Zmnr45Ait5d817E5MuK8OpNG9XSUZBd3/dbHxOUTj8LUiV0Seo4qFliiW9N
+         hQifzYsDr+Q4zfzDipOQ09K2TMNV+FehSrAKSwxBuMrRng1jWRUIv9pOECEZHAN5dx5k
+         G5SDy7czfFDqPF86tQCNYwZI3XcBmKrsa47PERMwJ04qtjsMSCv0sJDH1wuXexiOdx2Q
+         jK+VeOUnshgIGnAXYjN1+7Z0Nst7oZ1clggVrVQQ8JxAQhqnmSfcH4fS1QFT7w097/1l
+         uKMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753761087; x=1754365887;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VaH78BxSqInc7YWoloFx3Urvp7YqnyUZb3BPxUwn1CQ=;
+        b=VbatyEoWWBuq/xdhHGwN8WeO9p6VuCJYEiNCi3EuH5vI2OgU/fsJ1XngfnQaZnZEd5
+         6Qu7L+qII80m+Z+8EyJsgYQVvWkhdRnrZg79Ubb95HPpdSRPkeykkzMaV7kxvv39XR9N
+         uzGBqJhpSrACdFGRlZfy1vGGu9o6AdLQKWhn31kUJOQubTtaJA2kM+ijSV84AUX90CiT
+         g5grWENiSZrg/SVbFfszW8MdTjV8MpZdq7MG7pqh4oT09RgCfcDEtk3E3Lf6D/rLgcaH
+         MA+N9APCsqhI65UL6Ulvw5f2AwX0VG7laKXLvMwwRkkOrTQmrX998lYGAinbQhrIer8n
+         HB8A==
+X-Forwarded-Encrypted: i=1; AJvYcCVVTJE+5pbxOFbNqf3lE2o0hSfR2bC4q9ECyVSmBVEgK7oLZEuFXoy28E3P4S/g6iahfGCyEnucGW3oPgqOPBs=@lists.infradead.org, AJvYcCWoZjJjdHVatBQdTh65p6j/9maObu9BzGLtX7ra2r1JVGF3K0PVFZU6BZD5hazdq1/cGxLSmm1zxhnbDMhdz2V7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5TGQ3xc7uA628nCadWeaw4CIfNZZjh7rLU9FDhFQ7UduRbgNQ
+	9oKlROd4RBEDPPdhLz2gvS13NebCiZ2jDnL3ueCmzR+K2jSMGSyXSso0
+X-Gm-Gg: ASbGnct7exYh0JgIcZx5ynOjSgmjpd7tPmFhBmrr4BBaWIeDrSjWQMKT9lFHCrczaC0
+	M1HwNSn4F/bXTXMOUDXsuruLT1N0O8676lhHR6MfUENDASilT5TiURBKtemR4QJM8TslZWuD5EO
+	56C+o3ZFsl9U1UDgshAQqS47OSUFLhrMiwtr/mVD4njiA1lsBpFVI0pTQLYIesObPysDU8+W1jv
+	eGHP3kz/+tMHtyvO5rRYMuxoQWVG22HAWvPQOjD7XenPr0lK6BP/LGY4vhjFeO7hv/Ku8ru6iHO
+	lag0h7dAqOHfqi63crb6+YYuff4IYlHU4/g138UU76fstumPakrHRJQ1tzY5gHTbFUAK/yLBYJe
+	TOjb8Wub4KhNk7+pZde6gmO5qTzkfxG8s4XWEJgEoDGMXemwGhBc5fA==
+X-Google-Smtp-Source: AGHT+IELJXUiKm6KGXwaWiJUOPXk0c1EvlpOE0FOhZcoN6Z2MeI+X6ZgSi+Gg/tOSGKg3s7RZBPU3A==
+X-Received: by 2002:a17:902:e84e:b0:23f:9718:85f5 with SMTP id d9443c01a7336-24063d62911mr24916295ad.15.1753761087280;
+        Mon, 28 Jul 2025 20:51:27 -0700 (PDT)
+Received: from CQSWSUNAO.transsion.com ([107.155.12.245])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24025f5a3cesm34549145ad.72.2025.07.28.20.51.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Jul 2025 20:51:26 -0700 (PDT)
+From: Ao Sun <aosun718@gmail.com>
+To: wim@linux-watchdog.org,
+	linux@roeck-us.net,
+	matthias.bgg@gmail.com,
+	p.zabel@pengutronix.de
+Cc: linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	geng.sun@transsion.com,
+	Ao Sun <aosun718@gmail.com>
+Subject: [PATCH] watchdog: mtk_wdt: Use NOIRQ_SYSTEM_SLEEP_PM_OPS()
+Date: Tue, 29 Jul 2025 11:51:17 +0800
+Message-Id: <20250729035117.3170-1-aosun718@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/14] drm/rockchip: analogix_dp: Apply
- drmm_encoder_init() instead of drm_simple_encoder_init()
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- l.stach@pengutronix.de, dianders@chromium.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <20250724080304.3572457-4-damon.ding@rock-chips.com>
- <6psjcrhbnk7czdrdtxh65kr6qvygkwogvert75dg2svbm2cqd3@uhffyfdxqpec>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <6psjcrhbnk7czdrdtxh65kr6qvygkwogvert75dg2svbm2cqd3@uhffyfdxqpec>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9854344c1803a3kunmbc6d5ef53b5bbd
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGklKGlZIHx1LHkkeSx9DH09WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=LiMF/V4rH3QqRzk0VLBeqKLCLbx/NP1Emxe528xmhWl9Zye0NFzYX4UPlWJWn/fBxk/znUKcFCVyqFWK/urEAE3LRP6IEmQNllUopbTDUvA9KZ7BnHHZB1R5zzAf8eLa+eIeuBYiAe2DouhqA3FKqaEfD9JHKsZvXXMvHM6RQTY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=n/oZwA3AlTNfmx4P7C3GWExCuKTHEtbzFqxGSx8S9/k=;
-	h=date:mime-version:subject:message-id:from;
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_202257_454704_B758156D 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250728_205128_831935_5FF12482 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,57 +101,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+During the device resume process, an interrupt storm occurs after
+interrupts are enabled, preventing the watchdog device from being
+awakened and functioning.
 
-On 2025/7/26 8:12, Dmitry Baryshkov wrote:
-> On Thu, Jul 24, 2025 at 04:02:53PM +0800, Damon Ding wrote:
->> Compared with drm_simple_encoder_init(), drmm_encoder_init() can handle
->> the cleanup automatically through registering drm_encoder_cleanup() with
->> drmm_add_action().
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> ---
->>   drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 4 +---
->>   1 file changed, 1 insertion(+), 3 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> index d30f0983a53a..4ed6bf9e5377 100644
->> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
->> @@ -29,7 +29,6 @@
->>   #include <drm/drm_of.h>
->>   #include <drm/drm_panel.h>
->>   #include <drm/drm_probe_helper.h>
->> -#include <drm/drm_simple_kms_helper.h>
->>   
->>   #include "rockchip_drm_drv.h"
->>   
->> @@ -377,8 +376,7 @@ static int rockchip_dp_drm_create_encoder(struct rockchip_dp_device *dp)
->>   							     dev->of_node);
->>   	DRM_DEBUG_KMS("possible_crtcs = 0x%x\n", encoder->possible_crtcs);
->>   
->> -	ret = drm_simple_encoder_init(drm_dev, encoder,
->> -				      DRM_MODE_ENCODER_TMDS);
->> +	ret = drmm_encoder_init(drm_dev, encoder, NULL, DRM_MODE_ENCODER_TMDS, NULL);
-> 
-> It's not possible to use drmm_encoder_init() here. Per the documentation
-> the encoder data structure should be allocated by drmm_kzalloc().
-> However this drm_encoder is a part of struct rockchip_dp_device. It's
-> allocated by rockchip_dp_probe() via devm_kzalloc(). This means that it
-> can potentially be freed before the drm device is completely released,
-> creating a use-after-free error.
-> 
->>   	if (ret) {
->>   		DRM_ERROR("failed to initialize encoder with drm\n");
->>   		return ret;
->> -- 
->> 2.34.1
->>
-> 
+To ensure that the watchdog is executed before interrupts are enabled,
+Use NOIRQ_SYSTEM_SLEEP_PM_OPS().
 
-Got it. This patch will be dropped in the next version.
+Signed-off-by: Ao Sun <aosun718@gmail.com>
+---
+ drivers/watchdog/mtk_wdt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
-Damon
+diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
+index d6a6393f609d..5f2179dabd67 100644
+--- a/drivers/watchdog/mtk_wdt.c
++++ b/drivers/watchdog/mtk_wdt.c
+@@ -327,7 +327,7 @@ static const struct of_device_id mtk_wdt_dt_ids[] = {
+ MODULE_DEVICE_TABLE(of, mtk_wdt_dt_ids);
+ 
+ static const struct dev_pm_ops mtk_wdt_pm_ops = {
+-	SET_SYSTEM_SLEEP_PM_OPS(mtk_wdt_suspend,
++	 SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_wdt_suspend,
+ 				mtk_wdt_resume)
+ };
+ 
+-- 
+2.34.1
 
 
