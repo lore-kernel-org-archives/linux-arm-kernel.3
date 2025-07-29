@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3E39C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 10:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635A4C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 10:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1HBlta0H4Jx7bvZ1b7rM6/tQhHSL1Aapm4R8KLGYAI0=; b=JpBRpO5UKCDSd1zKbuHUZshpBR
-	WBvYliCo8Xpt5xdORxO0xjrohdwy+zcx3VuL2Y8sVPAqE6n+snQz+oMlcDD0dSNlAzT4SdP7jFzd5
-	A5nF8LMw1Ovx0aWuOrwdPqZZ+SN4uXf/K2q1mtYhlYdoQ9aZwfMcw8K5pDCM2ZzqAa4IMHZlEQ2bA
-	VsFEsCwdq2NDld13NyB57gcwUkKGfhIMy/2xhEYisufHiV5vS8RVOb61Dstkq3onzpeoJWQVfY0Gu
-	oeDB+9+11CtTPhFCi7Ac8Bi/SF1UcYGVOVNm4rIve/YSzmKgaTDmR46UNnb2Hir/o9/KoIbWvRI1v
-	erHwXeNg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3qgzy6iwxohGdtifggVtmc58gMZbgfkT4+Q+nzZ4nRM=; b=1H3eAY+6G4j8j7DpyLRdGwtBV+
+	Fy/Qi3wSknFgc6NRE3VubOsMUlrLxYI3zgBlx3RRjcH+Dt9ghSwqpMtvwMTRc5QlWlMj5aTX5+7Vm
+	o7VJpGq22l2nzIzPpQMydHd3pgdUtYHDKvSYK7BOG2iaeg7/dgUOU2fWi1m5mLJLuTtssHjcTgywb
+	a9z65FlACgWEUpB3/0WpBemTJYKsGANdbAcHPS6oOohhY6VSLAeonqG0622DCbcMEJaA/J0CLiXrs
+	mfwj0DWdIlW4BarnyvmvjKOcEy5QL1UyiR3FgC3pWK0PPY5gGcJ2kDn5En++ByRaW2p9BOCFT5GJu
+	LaMXM12w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ughcU-0000000GXNi-06dv;
-	Tue, 29 Jul 2025 10:31:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ugheu-0000000GXgg-3WV8;
+	Tue, 29 Jul 2025 10:34:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ughZF-0000000GWdG-1O7A
+	id 1ughZP-0000000GWeY-0DmM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 10:28:21 +0000
+	Tue, 29 Jul 2025 10:28:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 31915601F4;
-	Tue, 29 Jul 2025 10:28:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC27EC4CEF5;
-	Tue, 29 Jul 2025 10:28:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1961D44E99;
+	Tue, 29 Jul 2025 10:28:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B207C4CEEF;
+	Tue, 29 Jul 2025 10:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753784898;
-	bh=OdjL2rd1addmR1OyPctySgVMlUNEtBw1AyeTREwXlmQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=mV11jTfEzIy7cXmLJFY4fmn7U37r6DX9yP3lmPbtt5dwSA8KG2y8881YwOB9Ph2Yy
-	 VIUnsq5ImkMQynvHIL+M/tHcOdifQU+3r3vVSx+LLvxK09rlboMz57EWaRtXTL9JTb
-	 pcuU3wegX6QusUMJ+C2DHhigdbSxGlGAucMF6Lf7U84UYBDKqCXCNAnzEL3tiQvLLa
-	 C3Ipovo2vCe4hCQ3YVczf3Lq7eZCZme3EWVq+b4a42V/p4hEdCnTm+nFwbbiati9CO
-	 LM0tmHvSAf1ANu0mhOSLoCrNUJn2zy2UZZyI+Sp6Lq26SVD+mG8GU/+Ez0PIp5IJd4
-	 JWL2XmaqlEdHw==
+	s=k20201202; t=1753784909;
+	bh=Sm7jV+tRKsytGK5LOleOia6QLTmymRlF5GUTJcd927I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Fa94HDatVkSI/VlhVI0V22z6g6CxlV/NoPqz+yc+zjKjJUkB+9QSzWB1X4RMqR+6s
+	 Kc0V7nU/Nx4KMQirEt6DddN50VwYea+QdtZTQcYRJY0zya2q7v5M6F41xdT5ci2E33
+	 xaAbUYW8p/b6ucLEhs5YXr9CUn9woOz/6ta/GtW/Qz3MwKnAaBUeBxbeRNK5JM+pcT
+	 aRlY4mh7bvXmj3bAbFZwUxmVr8waN3MscHIRtxQJCfcGrV20eB+zjLCAk3GobxLkxF
+	 5d01W12qAJdZsNr6RRUa6XvJ4TO3iN2Zw5+3TVtiLMiW4vELhmAlZeaSX2zNelYDLN
+	 nS4YoTPAtwL0Q==
 From: Jiri Olsa <jolsa@kernel.org>
 To: Steven Rostedt <rostedt@kernel.org>,
 	Florent Revest <revest@google.com>,
@@ -54,12 +54,17 @@ Cc: bpf@vger.kernel.org,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Menglong Dong <menglong8.dong@gmail.com>
-Subject: [RFC 00/10] ftrace,bpf: Use single direct ops for bpf trampolines
-Date: Tue, 29 Jul 2025 12:28:03 +0200
-Message-ID: <20250729102813.1531457-1-jolsa@kernel.org>
+Subject: [RFC 01/10] ftrace: Make alloc_and_copy_ftrace_hash direct friendly
+Date: Tue, 29 Jul 2025 12:28:04 +0200
+Message-ID: <20250729102813.1531457-2-jolsa@kernel.org>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250729102813.1531457-1-jolsa@kernel.org>
+References: <20250729102813.1531457-1-jolsa@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250729_032831_108328_8B1A5579 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hi,
-while poking the multi-tracing interface I ended up with just one
-ftrace_ops object to attach all trampolines.
+Make alloc_and_copy_ftrace_hash to copy also direct address
+for each hash entry.
 
-This change allows to use less direct API calls during the attachment
-changes in the future code, so in effect speeding up the attachment.
-
-However having just single ftrace_ops object removes direct_call
-field from direct_call, which is needed by arm, so I'm not sure
-it's the right path forward.
-
-Mark, Florent,
-any idea how hard would it be to for arm to get rid of direct_call field?
-
-thougts? thanks,
-jirka
-
-
+Signed-off-by: Jiri Olsa <jolsa@kernel.org>
 ---
-Jiri Olsa (10):
-      ftrace: Make alloc_and_copy_ftrace_hash direct friendly
-      ftrace: Add register_ftrace_direct_hash function
-      ftrace: Add unregister_ftrace_direct_hash function
-      ftrace: Add modify_ftrace_direct_hash function
-      ftrace: Export some of hash related functions
-      ftrace: Use direct hash interface in direct functions
-      bpf: Add trampoline ip hash table
-      ftrace: Factor ftrace_ops ops_func interface
-      bpf: Remove ftrace_ops from bpf_trampoline object
-      Revert "ftrace: Store direct called addresses in their ops"
+ kernel/trace/ftrace.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
- include/linux/bpf.h           |   8 +-
- include/linux/ftrace.h        |  51 ++++++++++---
- kernel/bpf/trampoline.c       |  94 +++++++++++++-----------
- kernel/trace/ftrace.c         | 481 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-----------------------------------------------
- kernel/trace/trace.h          |   8 --
- kernel/trace/trace_selftest.c |   5 +-
- 6 files changed, 395 insertions(+), 252 deletions(-)
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 4203fad56b6c..5b8f565a1258 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -1190,7 +1190,7 @@ static void __add_hash_entry(struct ftrace_hash *hash,
+ }
+ 
+ static struct ftrace_func_entry *
+-add_hash_entry(struct ftrace_hash *hash, unsigned long ip)
++add_hash_entry_direct(struct ftrace_hash *hash, unsigned long ip, unsigned long direct)
+ {
+ 	struct ftrace_func_entry *entry;
+ 
+@@ -1199,11 +1199,18 @@ add_hash_entry(struct ftrace_hash *hash, unsigned long ip)
+ 		return NULL;
+ 
+ 	entry->ip = ip;
++	entry->direct = direct;
+ 	__add_hash_entry(hash, entry);
+ 
+ 	return entry;
+ }
+ 
++static struct ftrace_func_entry *
++add_hash_entry(struct ftrace_hash *hash, unsigned long ip)
++{
++	return add_hash_entry_direct(hash, ip, 0);
++}
++
+ static void
+ free_hash_entry(struct ftrace_hash *hash,
+ 		  struct ftrace_func_entry *entry)
+@@ -1376,7 +1383,7 @@ alloc_and_copy_ftrace_hash(int size_bits, struct ftrace_hash *hash)
+ 	size = 1 << hash->size_bits;
+ 	for (i = 0; i < size; i++) {
+ 		hlist_for_each_entry(entry, &hash->buckets[i], hlist) {
+-			if (add_hash_entry(new_hash, entry->ip) == NULL)
++			if (add_hash_entry_direct(new_hash, entry->ip, entry->direct) == NULL)
+ 				goto free_hash;
+ 		}
+ 	}
+-- 
+2.50.1
+
 
