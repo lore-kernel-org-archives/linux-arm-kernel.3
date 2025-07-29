@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F230C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 21:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8C7C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 21:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+EFRhrySWl3zLJ7XlS9rNLMc1j/yRIrm57mAagtY1s=; b=xxekuFXxxbLlkZGIkBAcVJIY/t
-	4BUrwPq2ruyVINlHr/J2VDdUxTGf7YcTuIWkzXrc5cz9Yz+tkiLT8jo8j2u8RwufxEk4yo2rRvByR
-	TIqc5Bbbz1hC7g06z0G36YZZKck1C6ZwPmKa7xmT9nEIOskYY0nc+gJTLBjE2HeyDxvnNWxy4eEgO
-	/7N85XS4TsQB1aZIyHPeRQ1b3aL68YxvVy1ZMDp3XqpuOw+G0hL+gtLcp7BPgpTk4LiYv3POCKbVR
-	oHZV0IIkK9NciQnQMJ7ODcot/2wA0iMHK3IrGKMpwlOg8zMELZzxnrmmIKbm2MLBwWCegCRsZOP+p
-	3ptVRCZg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=62J/dEyN/EwT8abgITW4qqx9cwe9pAiVlD/mAy/C0zE=; b=bZpWMozKuAcra6x/FFUuHcpMA/
+	SXxA2NVgbhl7U5H9vXJPDHagPPUtR5CFC3AsCE/DWVcID1xMaBm4dcIZN3XqqsjZ1AQNMIrHr00ZI
+	GZC83PSKtJpwaGKYKiBp1QiJf7JxhvKCvTJjqrCQgKho5PcwByapGBzGh5ZQMHVT3VDLMFQOU4n4e
+	0KIQwEAYhEt37NMmQWUYu3JSTuLooO27b2PTQkjkqsSnlByENCr+ye9bKtDIb3VEHNyGigUo1+oTD
+	QORd/ZSJTdNY6iJru2x23vjeA6eDqwf44mi+VQJI4l1QHULDQ5GCe7X5U4TC1todcVKxeQCQaWADK
+	JmyhVvuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugrT9-000000005oc-04oF;
-	Tue, 29 Jul 2025 21:02:43 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1ugrVa-0000000061Y-0mcL;
+	Tue, 29 Jul 2025 21:05:14 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugrN4-0000000059A-0K2J
+	id 1ugrNp-000000005EW-2e1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 20:56:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1753822585;
- bh=v+EFRhrySWl3zLJ7XlS9rNLMc1j/yRIrm57mAagtY1s=;
- b=mJrbyA1ble6/nphYpMi34e8bAqPqrjQGgsPeFyY4KyRAgI1tkIn7eAuGDYeB+82rC/vHjZFrA
- yN/GVOlAu/RqrLUeumdgzkvC6O/lwisuWV41gJvfdfXNnTwxdg9SID9GNKgrOVKGz1/DIEIpwEn
- DRmDLVGfO1Q5YhzCafBn6qsT6pUDqgPV1/7LHWeghQLe32BioUnJRwfTE/kyaz+ikdan3KQ3bzU
- CGZOJBnpvI9g9IzgoiRkyRcLhRXW04FZA0bXNoHYhdKDfL8yoY+L26roMGpGtdLLNcTHrhXl5u0
- QPzN1HBsHOup9caWsgaferOETO1mQ2qgLx8KcQxVfAXQ==
-X-Forward-Email-ID: 688935605983c8a2f4b4a751
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.1.8
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <db1f42c3-c8bb-43ef-a605-12bfc8cd0d46@kwiboo.se>
-Date: Tue, 29 Jul 2025 22:55:53 +0200
+	Tue, 29 Jul 2025 20:57:14 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id F2A86C0000E2;
+	Tue, 29 Jul 2025 13:57:12 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com F2A86C0000E2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1753822633;
+	bh=ckxxI0pEhUoNwFhENigVXMswGZJ3obdfkxnF7idf7f0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ZBXG1ZIp4dGKZ6WWka60on0NSyHGtz87i3UjF1qPsnoManPmBNTFZbOAGtOA5Icd/
+	 OTxtjZ42b2e0SiXmpJCJ2zoGP1Y1+W+HS77lSzo8YFcwrPV3vo4qMiOm8PGAfwQCNe
+	 6BcdifUimrhsuiGSSDdDKrUFpdqfTb8uv+P9PLAo=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D6000180004FC;
+	Tue, 29 Jul 2025 13:57:12 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: soc@kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	kernel test robot <lkp@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	arnd@arndb.de,
+	khilman@kernel.org,
+	bcm-kernel-feedback-list@broadcom.com
+Subject: [GIT PULL 1/1] Broadcom devicetree fixes for 6.16
+Date: Tue, 29 Jul 2025 13:57:11 -0700
+Message-ID: <20250729205711.3393417-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
- Radxa E24C
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: "alsi@bang-olufsen.dk" <alsi@bang-olufsen.dk>,
- "andrew@lunn.ch" <andrew@lunn.ch>, "conor+dt@kernel.org"
- <conor+dt@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "edumazet@google.com" <edumazet@google.com>,
- "heiko@sntech.de" <heiko@sntech.de>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "olteanv@gmail.com" <olteanv@gmail.com>,
- "pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org"
- <robh@kernel.org>, "ziyao@disroot.org" <ziyao@disroot.org>
-References: <5bdd0009-589f-49bc-914f-62e5dc4469e9@kwiboo.se>
- <20250729115009.2158019-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250729115009.2158019-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_135626_215448_5A6F88C1 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20250729_135713_690427_17008267 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
 
-On 7/29/2025 1:50 PM, Chukun Pan wrote:
-> Hi,
-> 
->> The issue is with TSO and RX checksum offload, with those disabled on
->> the conduit interface (gmac1/eth0) my issues disappeared.
-> 
-> I did a test today and the same problem occurred when running the new
-> kernel on my rk3568 + rtl8367s board. This problem does not exist on
-> older kernels (6.1 and 6.6). Not sure where the problem is.
+  Linux 6.16-rc1 (2025-06-08 13:44:43 -0700)
 
-I had only tested on a next-20250722 based kernel and on a vendor 6.1
-based kernel. And similar to your findings, on 6.1 based kernel there
-was no issue only on the newer kernel.
+are available in the Git repository at:
 
-I will probably drop the use of "/delete-property/ snps,tso" and include
-a note in commit message about the TSO and RX checksum issue for v2.
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.16/devicetree-fixes
 
-> 
->> With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
->>
->>    rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
->>          from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
->>
->> With a mdio node the driver is happy and dtschema is sad, and without
->> the mdio node it was the other way around.
-> 
-> On older kernels (6.1/6.6) only realtek-smi requires mdio child OF node.
-> Commit bba140a566ed ("net: dsa: realtek: use the same mii bus driver for both interfaces")
-> changed this behavior, both MDIO interface and SMI interface need it
-> (rtl83xx_setup_user_mdio), but the dt-bindings has not been updated.
-> I think this needs a Fixes tag.
+for you to fetch changes up to 0c927d478486fbc96a225aeae6705e7152700c87:
 
-Thanks for finding this, and yes I can see that commit bba140a566ed
-changed the behavior of the driver and probably broke out-of-tree users.
+  ARM: dts: broadcom: Fix bcm7445 memory controller compatible (2025-07-15 10:42:18 -0700)
 
-My current plan for a v2 is to:
-- include a new dt-bindings patch to allow use of a mdio node
-- include a mdio node in the switch node
-- add a Fixes tag to the driver patch
+----------------------------------------------------------------
+This pull request contains Device Tree fixes for Broadcom ARM-based SoC
+platforms, please pull the following:
 
-Then leave up to maintainers to decide if they want to accept this patch
-or not.
+- Florian fixes the bcm7445.dtsi file to conform to the
+  brcm,brcm,brcmstb-memc-ddr.yaml binding after 501be7cecec9
+  ("dt-bindings: memory-controller: Define fallback compatible")
 
-Regards,
-Jonas
+----------------------------------------------------------------
+Florian Fainelli (1):
+      ARM: dts: broadcom: Fix bcm7445 memory controller compatible
 
-> 
-> Thanks,
-> Chukun
-> 
-> --
-> 2.25.1
-> 
-> 
-
+ arch/arm/boot/dts/broadcom/bcm7445.dtsi | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
