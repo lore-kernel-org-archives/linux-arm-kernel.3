@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6916FC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 19:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 918E6C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 20:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zeFpIkzo0Wyq768tyw/OemiA7+E+R4gy3J0xUS5yaPk=; b=mTQixHCu8ELJ23igROhiJWF6Ed
-	3EiSyCmmybm1cs27rHzEwzTJJMUyt/zIJNm3doQCTQ+5FibrQr8W+FxpiKuUrqutNZxXfH/JCrBpM
-	dTw+E7p8K7ux59KTfpUIJlSOryH0fSBd53PWhnYDPRecKCXaCRtKLOGJdRRGS7RmLPhptSFjvnrCP
-	+Okvcj8H/ipZr7Ksi3l/REp4/M35ekENG3rx7iaTj1AOVSV+wNFnOHLlKlCZa7PQm5pTDzhiN8wQ7
-	bCgLG3yuFzP2NK/8A8/Bbql7njNZJWe2A6CfhpP+NJMI71PJgZsE28/NSl/xntKVS69weIuB7m5lB
-	LIKNcpaw==;
+	bh=OcthrL0Xe+fdbwJ+7ct553yzhsg4eVUVDzsOcSB6eAI=; b=CVSklC0iKBeLUH0NgdCggz7VCa
+	uRQf2p84YmlhuIp8mLQK19YiDkCs4hBo3fB6GY621qQ3it/Qg69MlhSyd4ItDGCSugv9+KC3HJ4o+
+	gx5WUWRBknGgtjKxJWMR0NUKLe+NfRJCV4Ufi0WTq6v0Bc0VsSwsA6VaFGnR9kvlT2lt/ChRYxCjj
+	eQzzER55mhB/BR8pYGVUFZBESZummxlz/uDkVoY8D4qNIQjJndLof5EPiHhSRz2N66nTixOSsDPQH
+	cPzPSGyad/lPqSC93Uxk4NRSJtPVBWNrqqqmClxMTRXFvWvOA0kMtPUo4HrEuXsg55Qzcpuf7df69
+	fdzRSrgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugqOR-000000000n2-0sT3;
-	Tue, 29 Jul 2025 19:53:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ugqWQ-000000001SL-2z1h;
+	Tue, 29 Jul 2025 20:02:02 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugqFf-0000000Haaz-2SjQ
+	id 1ugqTy-000000001At-1Gve
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 19:44:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16BCE43BC2;
-	Tue, 29 Jul 2025 19:44:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8A76C4CEEF;
-	Tue, 29 Jul 2025 19:44:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753818282;
-	bh=tcDsuAoiaaM76wFOzY0SxBKTvoLfG7AMBnUMYwUV4O0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=JeAO7L88FzPGI7BaY21czmYhqSf+u3bTcREGIZoPadRvepFiUp8sa/Qxb5LsljYC2
-	 W6rE4j0NxTLAkwDh845cBFmDG+aGzHt3MpXM1eCYnH4Rv50mImaB0IksIfFY22vEKK
-	 GFyKs5otNo1knw9SNA++V+titfbeS/YG6qP8Bw3x9ertLJ+ov2b9Aa26LOvgJRK36r
-	 TIL0gLzP2y5BgykGTFpUKaHJKSNUC6yuAIQ+YS75N8cNlD+GRQr+fbnpp00mhfKEhO
-	 V/uUJu+tBV/uFo+FS1G/qzsCotxDrkbIWIuImzBHdFxs64wV9et4WvWkTc8VgvdODm
-	 mCcLM+Q3ERIkw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 710C3383BF5F;
-	Tue, 29 Jul 2025 19:45:00 +0000 (UTC)
-Subject: Re: [GIT PULL] pmdomain/cpuidle-psci updates for v6.17
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20250729111743.14723-1-ulf.hansson@linaro.org>
-References: <20250729111743.14723-1-ulf.hansson@linaro.org>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <20250729111743.14723-1-ulf.hansson@linaro.org>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17
-X-PR-Tracked-Commit-Id: 05e35bd07d56780f0a5119973995b97a16843579
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: fc8f5028eb0cc5aee0501a99f59a04f748fbff1c
-Message-Id: <175381829885.1616007.17630324003432809799.pr-tracker-bot@kernel.org>
-Date: Tue, 29 Jul 2025 19:44:58 +0000
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
+	Tue, 29 Jul 2025 19:59:31 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1753819157;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OcthrL0Xe+fdbwJ+7ct553yzhsg4eVUVDzsOcSB6eAI=;
+	b=xH6bv/Vl6xdZ1vLDAdzZn5s3YjOUgRr+1aTVe6G+zr84L6yRGGOVX8FLfWGaUOvAUNnlE8
+	OkJnIsxTPLgZPwebAIBIXU7JOWLjxBeLZadQnyYcyV+Y2Vfgkp+aCcSlX7UpwqmPpScSHw
+	YNl6ErX0r7qmEXJMigEFrzj+eF52Z8nbqK4AhrYbWaMXjiGQpixAa5p5AkJXzTjPk2TNKY
+	3CwvGNBQZyVzE5aSpvyt8P+KqlQRTV4IXH3fqrGTUEFoluwLKK8OInxSTONR6iuXkLLqf3
+	hlc1zw9l4s/WOFJWkT9fyDHI25o1uymTqosLMs6a2gIyxx6PNBl6s7qtaftYpA==
+Content-Type: multipart/signed;
+ boundary=2fd07b92180be8290edbe889ada7baa056994820fa28317a2cadcfeab9c7;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 29 Jul 2025 21:59:02 +0200
+Message-Id: <DBOSZZ7TMD2P.U0MGKUR3DXN@cknow.org>
+Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-phy@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <dri-devel@lists.freedesktop.org>
+Subject: Re: [PATCH v3 4/5] arm64: dts: rockchip: Add missing dp_out port
+ for RK3399 CDN-DP
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Chaoyi Chen" <kernel@airkyi.com>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Vinod Koul" <vkoul@kernel.org>, "Kishon Vijay
+ Abraham I" <kishon@kernel.org>, "Heiko Stuebner" <heiko@sntech.de>, "Sandy
+ Huang" <hjc@rock-chips.com>, "Andy Yan" <andy.yan@rock-chips.com>, "Yubing
+ Zhang" <yubing.zhang@rock-chips.com>, "Frank Wang"
+ <frank.wang@rock-chips.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Amit Sunil Dhamne"
+ <amitsd@google.com>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+ "Chaoyi Chen" <chaoyi.chen@rock-chips.com>, "Dragan Simic"
+ <dsimic@manjaro.org>, "Johan Jonker" <jbx6244@gmail.com>, "Dmitry
+ Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>, "Peter Robinson"
+ <pbrobinson@gmail.com>
+References: <20250729090032.97-1-kernel@airkyi.com>
+ <20250729090032.97-5-kernel@airkyi.com>
+In-Reply-To: <20250729090032.97-5-kernel@airkyi.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_124443_650446_3C984B66 
-X-CRM114-Status: UNSURE (   4.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250729_125930_474038_E40232E5 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +87,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Tue, 29 Jul 2025 13:17:33 +0200:
+--2fd07b92180be8290edbe889ada7baa056994820fa28317a2cadcfeab9c7
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17
+On Tue Jul 29, 2025 at 11:00 AM CEST, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>
+> Let's make the ports nodes of cdn_dp in the same style as the other
+> display interface, and match the style of ports's yaml.
+>
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3399-base.dtsi | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi b/arch/arm64/b=
+oot/dts/rockchip/rk3399-base.dtsi
+> index 9d5f5b083e3c..edeb177bc433 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-base.dtsi
+> @@ -618,7 +618,11 @@ cdn_dp: dp@fec00000 {
+>  		status =3D "disabled";
+> =20
+>  		ports {
+> -			dp_in: port {
+> +			#address-cells =3D <1>;
+> +			#size-cells =3D <0>;
+> +
+> +			dp_in: port@0 {
+> +				reg =3D <0>;
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> =20
+> @@ -632,6 +636,12 @@ dp_in_vopl: endpoint@1 {
+>  					remote-endpoint =3D <&vopl_out_dp>;
+>  				};
+>  			};
+> +
+> +			dp_out: port@1 {
+> +				reg =3D <1>;
+> +				#address-cells =3D <1>;
+> +				#size-cells =3D <0>;
+> +			};
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/fc8f5028eb0cc5aee0501a99f59a04f748fbff1c
+Patch 5 adds a single endpoint to dp_out (without a reg property), so it
+seems that #address/#size-cells is not needed?
+If you run ``make CHECK_DTBS=3Dy W=3D1 rockchip/rk3399-evb-ind.dtb`` it
+should spit out a warning about that.
 
-Thank you!
+Cheers,
+  Diederik
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+>  		};
+>  	};
+> =20
+
+
+--2fd07b92180be8290edbe889ada7baa056994820fa28317a2cadcfeab9c7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaIkoCgAKCRDXblvOeH7b
+brfGAP91vbmzqtSHHq487babaTkFfCZ5yunCKjR4z8ny048RbAEAionq5YOmCJoU
+pi+lTvFwVYBJkyoMcr/Yv7tpfvlC2w0=
+=ePLo
+-----END PGP SIGNATURE-----
+
+--2fd07b92180be8290edbe889ada7baa056994820fa28317a2cadcfeab9c7--
 
