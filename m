@@ -4,82 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33207C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 20:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A794C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 20:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GsF9xa5Mt5eWvFYvP4ppl+lpx7xROA4dI7ZLgi/IK7c=; b=4ESiFrtq1YTKguAKlvIWBaMJu0
-	+JMb6qf7Tw0ZAasNelmpANVaECsk+JWQrr9+thwaOGF4kjxNK6MlKyJLLx9NLomvI2m9/syiUAjoQ
-	kQnCH6X16rmdW8/ekMtautqJHAOdeDSpuEY5BeXB609kH4Di+6UePdD6TsorZWzICTAu/c2yQpnM2
-	IJMquw56x0tphF5jWFsxxF2HfuLGLwX3JCz03GYtpbVfb/Gi5QJql9LaGVcaFp84D/Hv3LPC8cmxd
-	gA2N+zQ3o9VtZDhLtGPFeQcrtnIqug66ShdBNbmAPdIsW9HmnwsheyHdOrsyTID0cxuCxX9tHoaBm
-	xQ090WCA==;
+	bh=Sks/oZ+7tIpTACzqkphTUOHi7ThhBk6+6jXUP3TcOBk=; b=s/qic4JA7lgtRmdMNzyNTGqA3d
+	2D81sD65PNi8++srnEk1ZdAhIKhWnPEK33shKSht3WDqL525qxHYI/pTj6XbbtDcR/mkhtoQBsr48
+	mP2NOCmxlNxgmswqAdmR+eZbzvsz6t8XdURALwAnx1+sKKEGo43qySONrNvJwWfanA3jPB2JIGSB9
+	7JJIgTTjTFFfm2Nchpc2Xr0tiNASt5hvvG7RvxUxHskABOFTNvEGrFqCbKzfoDxKu5HJMl0Y1tU5I
+	1O5GRGdcnSyR15CVYAXwyM9MrZZr4zxDrnxLgGkWY4y2zQOFrWg7qz5LHBYxy3P+n8Gr6Cu8REacN
+	45FhSYmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugqgc-000000002BT-2n5M;
-	Tue, 29 Jul 2025 20:12:34 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1ugqyu-000000003XE-1Tbj;
+	Tue, 29 Jul 2025 20:31:28 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugqe4-000000001uP-0fJI;
-	Tue, 29 Jul 2025 20:10:01 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-6154d14d6b7so2640782a12.2;
-        Tue, 29 Jul 2025 13:09:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753819793; x=1754424593; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=GsF9xa5Mt5eWvFYvP4ppl+lpx7xROA4dI7ZLgi/IK7c=;
-        b=GldTIyfWbGUcIEZgOKOds+quxdGwQauCt5aEr6UvfVjJ/mwIzsj96VEpRjbJj4OuPa
-         oURTBz2/Bvk5rWrcVTVlbf4tEGT2T7TSF8QOxD98L1Uuv8TWdgrIDmJ/TpW/piDULyw0
-         op8rHeh0dbzOBgXUnCYuyjRoNNb/Cg52gxsZlRRTqWthUpqckTEWnIcTLNIEzfvjZIO4
-         Bw5u/xet0iZj/xNVLl8wYzoa6MmI2WwFwBwowkxgkOPwE7PU+PqhNXqIGQqFLHTcRsAe
-         5amCeYG4p675O9ZwFyb0FiqespYSGkfZGS2iXjoCLVsQhUEV+qsctEoE3o9FIN3zwF3c
-         XQCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753819793; x=1754424593;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GsF9xa5Mt5eWvFYvP4ppl+lpx7xROA4dI7ZLgi/IK7c=;
-        b=e5ItwBX+jagS3yH4GUUA8MA7e6Nc3ZZhvZEz7ikZQd9YC+fcWfgBkCPZp5WdyD4Agb
-         ffiBPYaCkjxq01kAdCN7RjmwKpXnFbJ40CbN8+NfRMiY3k2FKCzhUQ6wsAaBxE9u/cSg
-         8dkEDjPJngl04LKBZ+7OMOjUJdZyzPWaLJ3NI2TLdiO9AliEnn1v2BkJkqz5zLVOSzxQ
-         EKC5m43RKCLlljK1q0R0x1vSjupnXLtUqafDhazIcc+f0Lv80dWrPN/aUAkTpLuPiSKN
-         6K/QVqjA82a60ghCU8w23WRGx8PLW1y1PNhZIgnBGYSkPppFwMQMS0rHHXiciLP2+oqH
-         56tQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVJEzYf3HqmkYMwAfpm6EHAUWRCzcVoQOcbsGLazdBCyPWJ8yOVbFBUyIV4LfBHHA1SWV7En7z1+47pTIZNlZw=@lists.infradead.org, AJvYcCWXP5NwH0W3fdjfNJ1tdLxa2/92w9g3d/+hM2KMH2kwTxTQf60JYuJR/igLxGKTR22mJ8D+oSpkavMwl0NWop2G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3PByKyTOHn4IP7lp6Ln2PtZ54TgnYXifQwUMBWYZBnzK+wzlu
-	xKW/Mr4BMXySn9a5xSo5+3n+J6hg0j89QA67qrPX057f0n950FJ3qFtfGjaWKpEbyZL9/cAfH3q
-	ZZzpr1WFLP0rU3qWJwXbNQc33jsbmSmhP2RTC
-X-Gm-Gg: ASbGncuSzBwVyr1hxZ8N/h1aJxKAen1Eaxg6xof0LGLHGKM7fno8/Byi808QAoxgHoh
-	HcfiDXQ4Paks6FFfe0LqXHi8jfxxeSQkya0UP0UUo43/z+vaOLJi6y2OurVdWt2CwKFfdgcL2ig
-	3KSO+hL/rUQZDeb9aCUC0a2zX2eaqDACO48ufh3z8w+xVI+WLKwe0DUubwIbtmy1ewdG5wzoUrB
-	7y/zsYT1sSYI+VC1JWe7PpBQWgbZx/nmxLcAOnX
-X-Google-Smtp-Source: AGHT+IHp08a+dqAcG2SqZdg/Q/IaPZikdzCFE1YVv3PwaCR2cMYRBTvpJ0sMCJoMk8buiVXu2JvpXqMV1MUNd/Qb36s=
-X-Received: by 2002:a17:907:3d0e:b0:ad8:ae51:d16 with SMTP id
- a640c23a62f3a-af8fda55064mr88607166b.55.1753819793020; Tue, 29 Jul 2025
- 13:09:53 -0700 (PDT)
+	id 1ugqwR-000000003KP-3nWJ;
+	Tue, 29 Jul 2025 20:28:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753820933;
+	bh=jZMrI5UUMbuZDiGnt8FkFQimvckPilm2MrcZRDKWVHc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=oEBbTxd3KVDL4gP8qEqUcbEzbglIvu61cPRJma43SBVByqj19YVbfMq4GaSrlxzgl
+	 YVyAE/VV4kpMmv2P04eg/mDRALf2fX0X8o1szBF3Vf1XBhGvrs5IN07jymf/LCdNFK
+	 ifcTkLbhUAsMQVVHOgofnWErTrcXkDEwgeJkJuYExyu1vAZx1mATpR/Pzwmg11yjDP
+	 vXGQyXr796C/bsujGRrIwVUwih33Zsa9X9CtKfG4WcBEDXVjXhZ3EYZUzSEJfeQPj/
+	 zbrIlnJlWRRBfIbEu6ngEknbi3FCdm+vxeSj+HmAf1m8P8r5xI9bShZxy2BHGX/BOO
+	 REa+3g5DDqvbQ==
+Received: from [IPv6:2606:6d00:11:5a76::5ac] (unknown [IPv6:2606:6d00:11:5a76::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0451317E1293;
+	Tue, 29 Jul 2025 22:28:51 +0200 (CEST)
+Message-ID: <75434480affd424f3be4885acc3f18e57423b72e.camel@collabora.com>
+Subject: Re: [PATCH] media: rkvdec: Fix an error handling path in
+ rkvdec_probe()
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Heiko Stuebner	 <heiko@sntech.de>, Hans Verkuil
+ <hverkuil@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Date: Tue, 29 Jul 2025 16:28:49 -0400
+In-Reply-To: <884293c1-f6f4-48b3-a5d9-9b41fa8614a5@wanadoo.fr>
+References: <b69c20783a7b6f7964ab636679d3da80fc48372e.1753610517.git.christophe.jaillet@wanadoo.fr>
+	 <0a8391cb368653b91ea73a51e2c0dee35cceb128.camel@collabora.com>
+	 <884293c1-f6f4-48b3-a5d9-9b41fa8614a5@wanadoo.fr>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
+ oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
+ zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
+ TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
+ 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
+ 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
+ cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
+ tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
+ bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
+ qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
+ BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
+ tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
+ zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
+ 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
+ s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
+ An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
+ ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
+ AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
+ CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
+ 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
+ BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
+ +E7ItOqZEHAs+xabBgknYZIFPU=
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
+	boundary="=-05BjQuggd1guXcSOOvaz"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-References: <20250729185827.144547-1-pbrobinson@gmail.com> <6948463c8ca90bd9c72fb34178ddb029@manjaro.org>
-In-Reply-To: <6948463c8ca90bd9c72fb34178ddb029@manjaro.org>
-From: Peter Robinson <pbrobinson@gmail.com>
-Date: Tue, 29 Jul 2025 21:09:41 +0100
-X-Gm-Features: Ac12FXyxfZWg8J34PdCYZFxIOQsYsTBJ_0Qnm0fc0wOJNc5kZopjCpZIel3xgKc
-Message-ID: <CALeDE9PBnfu9Oxo4xc8O+uJW8p+_=43Y-goe0i3=VmT0SsovNg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Pinebook Pro: Update WiFi
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_130956_268183_572D7BED 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20250729_132856_264702_7FE03D6E 
+X-CRM114-Status: GOOD (  32.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +104,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dragan,
 
-> On 2025-07-29 20:58, Peter Robinson wrote:
-> > Update the WiFi configuration to include the wake-up
-> > pin and add an ethernet alias to allow assignment of
-> > a mac-address from the firmware.
-> >
-> > Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
-> > ---
-> >  .../boot/dts/rockchip/rk3399-pinebook-pro.dts | 19 +++++++++++++++++++
-> >  1 file changed, 19 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> > b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> > index 5a8551d9ffe47..05c48cb09df6f 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-> > @@ -19,6 +19,7 @@ / {
-> >       chassis-type = "laptop";
-> >
-> >       aliases {
-> > +             ethernet0 = &brcmf;
->
-> I'm sorry, but this alias isn't acceptable.  In a few words, this
-> simply isn't an Ethernet interface.
+--=-05BjQuggd1guXcSOOvaz
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Can you explain why? It's a wireless ethernet interface with a MAC
-address, there's other example in the kernel doing this so there's
-already a precedent, can you explain how else to do this or give me an
-example?
+Le mardi 29 juillet 2025 =C3=A0 21:33 +0200, Christophe JAILLET a =C3=A9cri=
+t=C2=A0:
+> Le 29/07/2025 =C3=A0 00:50, Nicolas Dufresne a =C3=A9crit=C2=A0:
+> > Hi,
+> >=20
+> > Le dimanche 27 juillet 2025 =C3=A0 12:02 +0200, Christophe JAILLET a =
+=C3=A9crit=C2=A0:
+> > > If an error occurs after a successful iommu_paging_domain_alloc() cal=
+l, it
+> > > should be undone by a corresponding iommu_domain_free() call, as alre=
+ady
+> > > done in the remove function.
+> > >=20
+> > > Fixes: ff8c5622f9f7 ("media: rkvdec: Restore iommu addresses on error=
+s")
+> > > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> > > ---
+> > > Compile tested only
+> > > ---
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c | 11 ++++=
+++++---
+> > > =C2=A0=C2=A01 file changed, 8 insertions(+), 3 deletions(-)
+> > >=20
+> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > index d707088ec0dc..eb0d41f85d89 100644
+> > > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > > @@ -1169,15 +1169,17 @@ static int rkvdec_probe(struct platform_devic=
+e *pdev)
+> > > =C2=A0=C2=A0	vb2_dma_contig_set_max_seg_size(&pdev->dev, DMA_BIT_MASK=
+(32));
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0	irq =3D platform_get_irq(pdev, 0);
+> > > -	if (irq <=3D 0)
+> > > -		return -ENXIO;
+> > > +	if (irq <=3D 0) {
+> > > +		ret =3D -ENXIO;
+> > > +		goto err_free_domain;
+> > > +	}
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0	ret =3D devm_request_threaded_irq(&pdev->dev, irq, NULL,
+> > > =C2=A0=C2=A0					rkvdec_irq_handler, IRQF_ONESHOT,
+> > > =C2=A0=C2=A0					dev_name(&pdev->dev), rkvdec);
+> > > =C2=A0=C2=A0	if (ret) {
+> > > =C2=A0=C2=A0		dev_err(&pdev->dev, "Could not request vdec IRQ\n");
+> > > -		return ret;
+> > > +		goto err_free_domain;
+> > > =C2=A0=C2=A0	}
+> > > =C2=A0=20
+> > > =C2=A0=C2=A0	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
+> >=20
+> > Have you considered moving the allocation of the domain right above the=
+ above
+> > line instead ? The empty domain can't possibly be used unless the probe=
+ have
+> > fully completed.
+>=20
+> That would not change things much. We still need to handle=20
+> rkvdec_v4l2_init() failure a few lines below.
+>=20
+> If it is correct to move it at the very end of the function, after=20
+> rkvdec_v4l2_init(), then the patch would be simpler.
+>=20
+>=20
+> Honestly, I'm not very confident with it. request_threaded_irq()=20
+> documentation states that "From the point this call is made your handler=
+=20
+> function may be invoked."
+> And rkvdec_irq_handler() may call rkvdec_iommu_restore() which uses=20
+> empty_domain.
 
-> We're already stretching a bit the dynamic nature of, well, everything
-> with the aliases in the Rockchip DT files, and an alias like this one
-> would be stretching the whole thing beyond the breaking point.
 
-Why? If you look through DT outside of rockchip there's even more
-stretching and I don't see how using this goes beyond breaking, I
-think this is a bit of an exaggeration. Rather than saying no how
-about explaining an alternative solution?
+This is a supposition in the doc. If you get familiar with codec, they eith=
+er
+have a firmware that needs to be booted, or it is trigger based, meaning if=
+ we
+don't trigger any work, there will not be any interrupt. This is not true f=
+or
+all kind of hardware though.
 
-> >               mmc0 = &sdio0;
-> >               mmc1 = &sdmmc;
-> >               mmc2 = &sdhci;
-> > @@ -883,6 +884,12 @@ vcc5v0_host_en_pin: vcc5v0-host-en-pin {
-> >               };
-> >       };
-> >
-> > +     wifi {
-> > +             wifi_host_wake_l: wifi-host-wake-l {
-> > +                     rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
-> > +             };
-> > +     };
-> > +
-> >       wireless-bluetooth {
-> >               bt_wake_pin: bt-wake-pin {
-> >                       rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
-> > @@ -940,7 +947,19 @@ &sdio0 {
-> >       pinctrl-names = "default";
-> >       pinctrl-0 = <&sdio0_bus4 &sdio0_cmd &sdio0_clk>;
-> >       sd-uhs-sdr104;
-> > +     #address-cells = <1>;
-> > +     #size-cells = <0>;
-> >       status = "okay";
-> > +
-> > +     brcmf: wifi@1 {
-> > +             reg = <1>;
-> > +             compatible = "brcm,bcm4329-fmac";
-> > +             interrupt-parent = <&gpio0>;
-> > +             interrupts = <RK_PA3 IRQ_TYPE_LEVEL_HIGH>;
-> > +             interrupt-names = "host-wake";
-> > +             pinctrl-names = "default";
-> > +             pinctrl-0 = <&wifi_host_wake_l>;
-> > +     };
-> >  };
-> >
-> >  &sdhci {
+>=20
+> Not sure if I'm right and if this can happen, but the existing order=20
+> looks safer to me.
+>=20
+> That said, if it is fine for you, I can send a v2.
+>=20
+>=20
+> This would be:
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c=20
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index d707088ec0dc..6eae10e16c73 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -1159,13 +1159,6 @@ static int rkvdec_probe(struct platform_device *pd=
+ev)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 return ret;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+>=20
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (iommu_get_domain_for_dev(&pdev-=
+>dev)) {
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 rkvdec->empty_domain =3D=20
+> iommu_paging_domain_alloc(rkvdec->dev);
+> -
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 if (!rkvdec->empty_domain)
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_warn(rkvde=
+c->dev, "cannot alloc new empty=20
+> domain\n");
+> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+> -
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vb2_dma_contig_set_max_s=
+eg_size(&pdev->dev, DMA_BIT_MASK(32));
+>=20
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 irq =3D platform_get_irq=
+(pdev, 0);
+> @@ -1188,6 +1181,13 @@ static int rkvdec_probe(struct platform_device *pd=
+ev)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (ret)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 goto err_disable_runtime_pm;
+>=20
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (iommu_get_domain_for_dev(&pdev-=
+>dev)) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 rkvdec->empty_domain =3D=20
+> iommu_paging_domain_alloc(rkvdec->dev);
+> +
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 if (!rkvdec->empty_domain)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_warn(rkvde=
+c->dev, "cannot alloc new empty=20
+> domain\n");
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+> +
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return 0;
+
+For me this looks cleaner, but as you stated its a matter of taste more the=
+n
+anything. A better answer lives in cleanup.h, but I'm not going to ask to p=
+ort
+drivers just yet.
+
+So let me know, it can go like this too.
+
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+Nicolas
+
+>=20
+> =C2=A0 err_disable_runtime_pm:
+>=20
+>=20
+> CJ
+>=20
+> >=20
+> > Nicolas
+> >=20
+> > > @@ -1193,6 +1195,9 @@ static int rkvdec_probe(struct platform_device =
+*pdev)
+> > > =C2=A0=C2=A0err_disable_runtime_pm:
+> > > =C2=A0=C2=A0	pm_runtime_dont_use_autosuspend(&pdev->dev);
+> > > =C2=A0=C2=A0	pm_runtime_disable(&pdev->dev);
+> > > +err_free_domain:
+> > > +	if (rkvdec->empty_domain)
+> > > +		iommu_domain_free(rkvdec->empty_domain);
+> > > =C2=A0=C2=A0	return ret;
+> > > =C2=A0=C2=A0}
+> > > =C2=A0=20
+
+--=-05BjQuggd1guXcSOOvaz
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaIkvAQAKCRBxUwItrAao
+HCNoAJ9ZUC8asKL6KZjVLXujVOUOEc8kLACaA03KI5fVnkU2EAe3rnQSnpDFQnk=
+=yQn/
+-----END PGP SIGNATURE-----
+
+--=-05BjQuggd1guXcSOOvaz--
 
