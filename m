@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C150C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 09:32:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793BFC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 09:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c7EPaE2bHAD0ecNNc0XMu907yYWecMKnydM+hyTx2ZA=; b=McGb3nGQyCVXsVOMPOsxEFRfmy
-	bIYHdgKY5nSO+fSBDVFdasDopZnumpQDVj30V7eAwbdC3/YZ6HeSBH28FHA/DvaFWroGCtKqWVkJX
-	yMURpHoWUKicFcDH8LVJqUohUd8Yo+wF1iXqpx60snaULSKgdZpVhZws62/R/2O1VLSrWPsZRRziY
-	G1EyMMVaMFmZN0Dby09m8mUsrgpCjy6R/+nVkPOiPtngv+gHWmXBwkb7GX0y8g0cgNmu6A42+6Jme
-	3k0+46RJCX8pgO6IDkNbOmMN+P+qVC38iS6UewMwdlqLNS/z7llcN9+5oAIETvDPKIQEfHqTrMlW0
-	mdpz8HrA==;
+	bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=; b=TpOz0toqjDZkuKBi3JmFqTugl2
+	1tA3dgCMhq/hHhMLwsOHZtvbiwvbuFXAb4AMrkIO5I5K9jVHNA6kq37DTYqg4WUW9AV7eKy9wsvOz
+	oNShej/Pt0FrNqO9COrEMh2sSWhLwzDywYRR7a9DQaa4BXYzUAB3VXvMDU+aPZ2h5zf3l0k4ZjPTR
+	qTzpgOuuZFIIZp2UPmiPm2SIXc2CeAHf8eURh/0kpYTuwxeMBZnNkJa5InyFKRh4PhsGS5toXOqoZ
+	AYjKZDavtIy0PV9Vmn2QhiTbZUVBewjL7B8smW87PnYuuYk0WD+pZB7opVKiO1W6iAmURWchB6M90
+	v3wPfQBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggh2-0000000GOry-44ba;
-	Tue, 29 Jul 2025 09:32:20 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1uggjU-0000000GP7n-3Iet;
+	Tue, 29 Jul 2025 09:34:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggPL-0000000GMLI-2qiq
+	id 1uggPV-0000000GMNC-1tgj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Jul 2025 09:14:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=; b=cpQnEZ96Gx9NI5eP0VSDB64CeR
+	H3DPd37/Fsx1V47nldT0HeqwVQqWDd8vWdtlYA4MmouktRIFhE9Fm+PQEh1jq3gaf64VS5nSu7UZj
+	ol0Q5IP+BT6pivTT4lbrb2DjDaSTjzQKe+Bmipaszq2EqLImJ6p/WeTx9xiE3xkmqN3O47l18jbED
+	9skMhhZJLg1JpxwaqP5N2V0zHwkHAQN4vnIkFB1Z0fx9mM/B2NMrZuETPwDCEzBsCn6/4u8bHQRST
+	/KjJo+yzo0+OqCCBH37gh6RN0d6VyEYkPGDIcqdG7LZZm4WCkaT6jlToJyLwL6NyElM+yGtG3pS24
+	DTeofxFQ==;
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uggPR-0000000CbhJ-3hyy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 09:14:04 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-749068b9b63so3618910b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 02:14:03 -0700 (PDT)
+	Tue, 29 Jul 2025 09:14:12 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-748d982e97cso4854788b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 02:14:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753780443; x=1754385243; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1753780446; x=1754385246; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=c7EPaE2bHAD0ecNNc0XMu907yYWecMKnydM+hyTx2ZA=;
-        b=MCLlx5CyaZJm++UhAjsxhHBUCoddtOIlWsSKiXeg9EmNi+wAQDTGq/UDcZF9QP6Vxc
-         tRPJEd4B2rt10BGUhcGRylFQmKIKkEiTqu9yZNd03NKkyxsmILqhw2fH12cGrl3OB2lj
-         dl42Z4/s2Kl27jyo77AT1ackottPi6+IR3ZpBEFqlxqtyLeE7I0LUHSOJG80LC8cojFC
-         1Oi068zkHedz2evi+AJOs371T9GLFLe9j2CvEg+A4xBKnmdFuTeygZAzZIYIGbJGsFlb
-         hA1PCkGGzRFFo7BGUDufGwTos1VwVTEKBO+K7uiZr9Wogt61cTBvEZ6daWyqkmKplFro
-         MQ3Q==
+        bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=;
+        b=e0fux4w0RCcwG5e7lWLFhshtzc8xU97RK5Fr0ExhvrV4KtWbY8L2u/OJgA7tuhFWUv
+         lGdzDJkl2EaySQXDwliRRehdrVlnNrrfvEwXlRXQ6fulNQpCnnn3PVCqLKUAFfNzttDJ
+         mk6yELt8m0n8XNeqghv8afcQZNoMQEZCXJPTZXlK6rdwQIsjf+nGUP7jK2/vbYO7KzxA
+         c3c2olIGhKM1O1uXcAg04qJ6CxGw+xdtxZjzNBgOMwoT0Ma5Zt7Lrg5dmrMDGOH0fI/J
+         UAj2YrtKPdoK+Fb9LvLJcQfagVGYqRiA7kJ1I9Td40DYBKIPh4KgadAKszn4vZKZ60If
+         IWBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753780443; x=1754385243;
+        d=1e100.net; s=20230601; t=1753780446; x=1754385246;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=c7EPaE2bHAD0ecNNc0XMu907yYWecMKnydM+hyTx2ZA=;
-        b=CSfkmGwj9yXdwOA3AYu0Gw7/Cj9WB/d1ayWS9xoKpWJOjzK7zri1qh1I8njsGU1aBr
-         0sjatW9DkBK+cZnZQ5nINs6bSQlr4fDVthwfMCW3wwt08nAjlANNcaP9/V3CFkUxBGQF
-         AFcVzVYpmT32GpKfHzQblAAF2B5Ty75RhbmHRPzzzBns+1sqtDh8RP0GmOTiTMgRvW+O
-         3Iuk9i7mMeOnI8e2z68VLE94+K1vm5O221LX851t8WfP7IYj9d1nYwCHYTiyJj5gzSm1
-         Ws79Y1UWiiXtp9DTn6kBu9Noiv7fW0LIpV1W9Bjl2S6drkN1o1hR8cnqc1zgFED2TiQc
-         GaPg==
-X-Forwarded-Encrypted: i=1; AJvYcCVn2ZZV8QSM2KlyJTftAiMUN+vLfAwVafeafibuj52AsbXfY1mqt8ryWgoCRNe+y95VNtvWwEDaoJJaZpxsgPxu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN9WIURvSx7qzVtX34uiOqxFCCZ9jOrMMJzICNoV2k0xrTY2qj
-	gpCjbdzcWx9dQKatCRT/ejg++qoK1D9WkBWReMNhIq/ddaz2KD7hHIq7dMxc2Q==
-X-Gm-Gg: ASbGnctNRG9OyW2yKBE035J7ewqdAgTjNUZz6jKKnTyl2GwYcFR7HIdPvs4/lGcfpqB
-	b/rkIdjGStivCZYZQ1NZlZ5Fn1SA9jS6kDOLGYRfmkW9gfWHeIeiBVB0gGdXr/Bgemlsvq7c1+i
-	nOIoyd5AvxVVWQCPQNR8joAMIQ5PQsVO6bEFAHasr1Rfo4qfaPSR2cUcQ+DzErQYQfeEfUMVP5M
-	5eI3qUhDkb2Q7bfNouke4lStwGOq3rShL4+beXJhqlz5R1dKkCAnjE4IsOdXLxLjN+v7MVwq3OF
-	E5E2+wutqFPgSf8dov22KLPQ5HW5EkTGt1MACi5q0Yc30sd45bEK7j7A2Jwo2Goqq9HqPgpoxng
-	CDJhKcCvCx39COhIc7+7p2X4ItxymOGOu9ttbopX+hboH71j4VATyfGlZcYlY2aFb4gi84O0F6J
-	UE+YeDaNj4z5UgMvBa9CHl4c7ovYn4/HOMXO0yP6VG9OjXITY=
-X-Google-Smtp-Source: AGHT+IE5de0i6/0ajEO85aIFRHzPN7aXOAjUa8N7MjCYc6cFnhkPCLV7DX4sN98WfDkKcoDvsFP22w==
-X-Received: by 2002:a05:6a00:a85:b0:740:b394:3ebd with SMTP id d2e1a72fcca58-7633276c2b6mr21066948b3a.7.1753780442892;
-        Tue, 29 Jul 2025 02:14:02 -0700 (PDT)
+        bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=;
+        b=C6R1jO0kOnPKwQn3uwNWgdTXj0M3FL/kMUNJxq6pETCmeNanukMKI38BUva37lNF2G
+         cmEoVlFxQkLKpT3sqvbD/cGQl5O5YT+ynQn4Gqh8ro9UNQSTw+C1HCGG/aUdn9A5na9v
+         em/P+IHgCT+wFrOsvkn6lWUH1LEysqy2H9jHlQgH7Fq5Yb8jIFkUDGE4e0R8VBFZGiua
+         HEuAlc8BBNgR8KVfVpEwyXGTu7nM/4siko6kq0PnhRsOo1nGOTQcv3WUdxAKIyAcDrrY
+         Yi3pyCd5LhpJh/hcJhCUEP4yDpEbGHdGdSV6ZHaQU5yciHblgUNW1HpwI37h0HfRld91
+         TFwA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7pJoqgrhGKuvi4SXj3dCUlIfYtDpIf18XZz3yNV8mss2uE6RqteETqoIRSnOHpUvwHhoScfAJi/GUujybWNNc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi4nvjKZRoVoftBrNfSbIgzCxmT+SV4FO1lNq8JH7AJrljPRO+
+	bMW5slyhQEAa0778r6EKLuwtgFvjCfZ70TlNUKdquK/A0ro+MneKQwZVojM0MQ==
+X-Gm-Gg: ASbGncu/e4RhYpaQKXpDM3x5PMphbNf6Mkvkcr+mUiVhwya7VMBfMTRy2OURmQeFpPV
+	07YRETo4oxcZPcPImriHXtgGIQcfsjEMPKQvaMeS/2r/z7q91MKNoZlRNppmxE7o0xWygYMonKT
+	5C9jKy/psBJr+ylPXlLq3jFfbZF4XfahkaCPscgXeC7mol4xdn4TQ4Wws7EXl1HTlS38HyNmGUC
+	IV0OLxFWEw1uhou1nmfD6WYR1kNLzNuz+bPSQDk1JXjPx456IE7TyK0ZZ5HXYDJ2spRjLfLP2Bb
+	Pkt4r1MMmmvGRK3RR6Qo2gk+HUp4lBV5eL+P2kf4i3sxCF5p/OGikivpQ1wtUW2txGlVgausNe7
+	HSvtLWjMB6VBkOzfriZSO3mSkA09DF93upuo1V4NF3HB30waYkWxFue/yEGYg0FPAp0hMhEMWE4
+	HkCSWihc4ZsS6pEyN/8cG/mQZhJG7cQTIgSsVfSNjiP1+c0cY=
+X-Google-Smtp-Source: AGHT+IGZbRiJ4XM9/7SP0TbANTsh6WCA507Pa7WbbQuyrxdcEdrxbpHYh29JWvG1Csf/3GaK7l82Mw==
+X-Received: by 2002:a05:6a20:7491:b0:21c:fbf0:21bb with SMTP id adf61e73a8af0-23d70171d80mr25597800637.24.1753780446288;
+        Tue, 29 Jul 2025 02:14:06 -0700 (PDT)
 Received: from fred-System-Product-Name.. (2001-b400-e38d-c586-0429-5c72-053d-8858.emome-ip6.hinet.net. [2001:b400:e38d:c586:429:5c72:53d:8858])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7640b8b06ddsm7528612b3a.121.2025.07.29.02.14.00
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7640b8b06ddsm7528612b3a.121.2025.07.29.02.14.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Jul 2025 02:14:02 -0700 (PDT)
+        Tue, 29 Jul 2025 02:14:05 -0700 (PDT)
 From: Fred Chen <fredchen.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,17 +95,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 2/3] ARM: dts: aspeed: santabarbara: Enable MCTP for frontend NIC
-Date: Tue, 29 Jul 2025 17:13:44 +0800
-Message-ID: <20250729091351.3964939-3-fredchen.openbmc@gmail.com>
+Subject: [PATCH v1 3/3] ARM: dts: aspeed: santabarbara: Adjust LED configuration
+Date: Tue, 29 Jul 2025 17:13:45 +0800
+Message-ID: <20250729091351.3964939-4-fredchen.openbmc@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250729091351.3964939-1-fredchen.openbmc@gmail.com>
 References: <20250729091351.3964939-1-fredchen.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_021403_716441_BCB539D6 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250729_101410_211148_F42ED848 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +120,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the mctp-controller property and MCTP node to enable frontend NIC
-management via PLDM over MCTP.
+Add a new power fault LED on GPIOB5 and relocate the ID LED to GPIOQ4.
+The ID LED is now driven by the CPLD, allowing it to reflect multiple
+system states depending on CPLD logic.
 
 Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
 ---
- .../boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts  | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ .../boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts  | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index 2f5712e9ba9f..ed30f3bf61a4 100644
+index ed30f3bf61a4..c7eb30e5baad 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -1248,8 +1248,16 @@ temperature-sensor@49 {
- };
+@@ -94,7 +94,7 @@ led-0 {
+ 		};
  
- &i2c11 {
-+	multi-master;
-+	mctp-controller;
- 	status = "okay";
- 
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+		label = "mb_nic0_mctp";
-+	};
+ 		led-1 {
+-			label = "fp_id_amber";
++			label = "power_fault";
+ 			default-state = "off";
+ 			gpios = <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
+ 		};
+@@ -104,6 +104,12 @@ led-2 {
+ 			default-state = "off";
+ 			gpios = <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_HIGH>;
+ 		};
 +
- 	// OCP NIC TEMP
- 	temperature-sensor@1f {
- 		compatible = "ti,tmp421";
++		led-3 {
++			label = "fp_id_amber";
++			default-state = "off";
++			gpios = <&gpio0 ASPEED_GPIO(Q, 4) GPIO_ACTIVE_HIGH>;
++		};
+ 	};
+ 
+ 	memory@80000000 {
 -- 
 2.49.0
 
