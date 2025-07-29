@@ -4,57 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A1A5C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 14:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4A0C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 14:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7SkkcDNglAXfu0FPaIefArcN3O7d7Q9M6mkwEnU1wYQ=; b=OIfUZA1eCiz/H/DrM1Cu/CihVP
-	oYHel+QgEzQztCz0KCgyh+jn3RvIR2zo4WqUio4gUaeXuifCSg/N/AzjiOFOtMR7PA2ONZl1NkJcN
-	b1vgKtQX3A6yKkMHy2HAZ9eTTyedBP6cpW6dj2/HwH1qoml5tg1uYqhWVuLZBUgdePUX+YzMZYKcS
-	HGHyIuqwoGqoVpfyRtD5NJTL8gPCzF5ZKTWJifRX9RbP5XgelyZAZ7iLwzTunhl5zynwIio0B7ImE
-	tSCUJhQUtLPE6yGw3Hy9sxCHFvwgyjT50OHjD0bV0X/o+C9+XYy5WaR2K837HfATZqh8+8sXAkq+S
-	5xSD88EA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W1DVO47gvS6UWjKDvUYox8GWZkvqXljuut3TigsUQkg=; b=QhKA9OYXXcDZOLEXv0HRI4Iz16
+	1Ry3qhM5/FK6RTzBPt7jBdRohstT0PlNgyUCiNk3kSM/dJ8NbMDMJrwl/bseSykeGA1LM6K1PGHGL
+	u4aQ8JcySMZRUlSe5ZdUeXl3NslmSVKPU1lUamToTGAzmtmPR1mLBkXz79PSbi8EkdmWJ4F8xqK3t
+	vB6HlYBUetizJQ3sMj8j0RV4dqcsLXo83r2FjRUX3xPmG2MnpYJP+jdz7LH3Jo6y3/WfDF8TOU7el
+	56wBH92hm4yJzsGx0nFo5+9NKG6kxa8yF+nQYXyX81EcTAvy8CW1Mz4i5xPfPSt5ef1DvWMHW9Ysb
+	aK0/k6mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uglUl-0000000GvlR-0Zxe;
-	Tue, 29 Jul 2025 14:39:59 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1uglXM-0000000Gw8K-3lc4;
+	Tue, 29 Jul 2025 14:42:40 +0000
+Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uglSI-0000000GvVm-2ZIH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 14:37:28 +0000
-Date: Tue, 29 Jul 2025 07:37:14 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753799842;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7SkkcDNglAXfu0FPaIefArcN3O7d7Q9M6mkwEnU1wYQ=;
-	b=tgFHkjL1MUAkN7dMrvMKdcStfjJYcM4ebAA5sAdTDjfvIQEWiHLGWCSUsWvL0uV28S7XQ1
-	eIgJ5E1Qt1cTbsiu7xjOB+1Is3P/keuM343viJH8dUcSreCBvbbf71iiZ15IFVZ4/ZwNAn
-	N5QIg5/aQUhNFUpZfk3nhd91z6higeU=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Set/unset vGIC v4 forwarding if direct IRQs
- are supported
-Message-ID: <aIjcmquPNOdE5l4K@linux.dev>
-References: <20250728223710.129440-1-rananta@google.com>
+	id 1uglUu-0000000Gvmk-0LII;
+	Tue, 29 Jul 2025 14:40:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
+	s=default; t=1753800007;
+	bh=uvTHoWDfs2EDKcTU/ctS/fdFesLbnoOsjLa1+Mgz95M=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=e7f+1gF04EPCJtMjvzWXTovDsLqaG/DQcATOpq/FxVfZdzpC4TPRztqcuxnF6B+5V
+	 V/vQRlY2FySRnjldujy/hfBKpFMERlRxDz+HERA3hnyZoaPFMIPd1ae8GDvIZ79uCF
+	 4uKheQUkp4/LE5Zj70QHptIjzlzaPYTky70IrGnZ9FZGXkXmEexnpyr1d/4K3NmH42
+	 FoJGNgoGCgnG2OkErsYoKVk1RJKFVspnma4bog3+HIDPu4hbYRzkjYpYc4Zum0HWce
+	 Ljh+eI9rXA9TSoT+868HlPxJTtDuK8MOX2x0OgIPGOnmlbxXIfcEMiYgqyIWi3qxWP
+	 Hs92GuGq2CgXw==
+Received: from localhost (unknown [IPv6:2600:4040:50b7:b604:f717:c76f:99e7:4a24])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by chumsalmon.baetis.net (Postfix) with ESMTPSA id 4F31527E5BC;
+	Tue, 29 Jul 2025 14:40:07 +0000 (UTC)
+From: Erik Beck <xunil@tahomasoft.com>
+Date: Tue, 29 Jul 2025 10:39:51 -0400
+Subject: [PATCH v6 1/2] dt-bindings: arm: rockchip: add
+ LinkStar-H68k-1432v1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250728223710.129440-1-rananta@google.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250729-linkstar-6-16-rc1-v6-v6-1-92307f465835@tahomasoft.com>
+References: <20250729-linkstar-6-16-rc1-v6-v6-0-92307f465835@tahomasoft.com>
+In-Reply-To: <20250729-linkstar-6-16-rc1-v6-v6-0-92307f465835@tahomasoft.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Erik Beck <xunil@tahomasoft.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753800001; l=1156;
+ i=xunil@tahomasoft.com; s=20250724; h=from:subject:message-id;
+ bh=uvTHoWDfs2EDKcTU/ctS/fdFesLbnoOsjLa1+Mgz95M=;
+ b=V6/m2tlOfsIWk2cC8KTlKZI6zh95Fkkghwoqhv0WwiCwkWxYvYNiFntnkOW9Oi4b3MdqJaiF0
+ olwkg0MatQDA/0FPJIfXoHRYl+G0XsL6DvUB025YzEgXGDGobevhjqL
+X-Developer-Key: i=xunil@tahomasoft.com; a=ed25519;
+ pk=FTZVGUexvkWb4j8v0wbtm7CtJLijIAaa5x0XV72WWC0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_073727_245553_B330B6A0 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20250729_074008_234145_AA7C7A1F 
+X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,77 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Raghu,
+Add device tree bindings.
 
-Thanks for reporting this so quickly :)
+This device:
+  - Is a single board travel router made by Seeed, using an rk3568;
+  - Has four ethernet ports;
+  - Has four USB ports;
+  - Has WiFi (MediaTek MT7921e);
+  - Has a real-time clock (rk809)
 
-On Mon, Jul 28, 2025 at 10:37:10PM +0000, Raghavendra Rao Ananta wrote:
-> diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
-> index e7e284d47a77..873a190bcff7 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v4.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v4.c
-> @@ -433,7 +433,7 @@ int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
->  	unsigned long flags;
->  	int ret = 0;
->  
-> -	if (!vgic_supports_direct_msis(kvm))
-> +	if (!vgic_supports_direct_irqs(kvm))
->  		return 0;
->  
->  	/*
-> @@ -533,7 +533,7 @@ int kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq)
->  	unsigned long flags;
->  	int ret = 0;
->  
-> -	if (!vgic_supports_direct_msis(kvm))
-> +	if (!vgic_supports_direct_irqs(kvm))
->  		return 0;
+Signed-off-by: Erik Beck <xunil@tahomasoft.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-I'm not sure this is what we want, since a precondition of actually
-doing vLPI injection is the guest having an ITS. Could you try the
-following?
-
-Thanks,
-Oliver
-
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index a3ef185209e9..70d50c77e5dc 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -50,6 +50,14 @@ bool vgic_has_its(struct kvm *kvm)
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 5772d905f390e53b44f9093d32b869a7e0655db6..7f3904b69293f31fdd4f6080fab5ce054c1abee2 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -1109,6 +1109,11 @@ properties:
+           - const: rockchip,rk3588-toybrick-x0
+           - const: rockchip,rk3588
  
- bool vgic_supports_direct_msis(struct kvm *kvm)
- {
-+	/*
-+	 * Deliberately conflate vLPI and vSGI support on GICv4.1 hardware,
-+	 * indirectly allowing userspace to control whether or not vPEs are
-+	 * allocated for the VM.
-+	 */
-+	if (system_supports_direct_sgis() && !vgic_supports_direct_sgis(kvm))
-+		return false;
++      - description: Seeed LinkStar H68K-1432v1 RK3568
++        items:
++          - const: seeed,rk3568-linkstar-h68k-1432v1
++          - const: rockchip,rk3568
 +
- 	return kvm_vgic_global_state.has_gicv4 && vgic_has_its(kvm);
- }
- 
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 1384a04c0784..de1c1d3261c3 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -396,15 +396,7 @@ bool vgic_supports_direct_sgis(struct kvm *kvm);
- 
- static inline bool vgic_supports_direct_irqs(struct kvm *kvm)
- {
--	/*
--	 * Deliberately conflate vLPI and vSGI support on GICv4.1 hardware,
--	 * indirectly allowing userspace to control whether or not vPEs are
--	 * allocated for the VM.
--	 */
--	if (system_supports_direct_sgis())
--		return vgic_supports_direct_sgis(kvm);
--
--	return vgic_supports_direct_msis(kvm);
-+	return vgic_supports_direct_msis(kvm) || vgic_supports_direct_sgis(kvm);
- }
- 
- int vgic_v4_init(struct kvm *kvm);
+       - description: Sinovoip RK3308 Banana Pi P2 Pro
+         items:
+           - const: sinovoip,rk3308-bpi-p2pro
+
+-- 
+2.43.0
+
 
