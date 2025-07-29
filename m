@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E53C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 11:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96476C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 11:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lgH+9BRlWHsY5wGm3Wquz7iV5P7B9zR4LIdcizyl9N0=; b=Xmc8LZHgds8DXkWMKTD/wZcgXv
-	dkV4sR+5L5ZJjkwz0Qzny81ucCdvl5prMABEmkhOrba8cIqVzAvIthrSXu2UnI7Rnz5M7z09dZkt7
-	1C5PpJqernE5pg+XEcLwzLJzmFZUGg/jnqmyXtDc49CAA2+IQd5iMrHRni2LLmi5Ur3B9X99TPJ/S
-	ecEh9AGkr3wWlMEZyVNSy0IsXrZTJJHLPZcgwamE6GP/ttgskXu8Qo84ASQY4P6DriYQ5fonbmHTK
-	dXimpFPczmaQwkAoaLfITIgC1gxBwDSIzkit3ZbpvxA/xUwqBu2KkzfdXem2+CBsLKoVD7RJ7l/CU
-	FFn1Fnng==;
+	bh=yYnbywAQMxSgmkBg9bfzNajHDUz7u130g9a2sd9vZdU=; b=Ln/HPDk+jSYsH2BDTYcc6eFcRf
+	X6P8OzS0eAaHUnVgNOCOV0spx0+txIBPPzShprgmYGN2rqqTYDA/JO/AwTWNOi7L/Q/iiXg4qJNeh
+	SY18lFbAj5cLC7RceA4p1NKp+ChkV2kkUOj8n3hwFNu7yQwYuRvpE8Ng+WOLwNYY1DsLm9FtOMSkR
+	czn8Dv4lwzOD5+9QjZNqYlh8EMl64MPN+uUwxixPII3DfLUBYKR5mvB4567Sc9RLx8rfy+b+lhJfQ
+	+uKQ3PTj32pJMN6DlLcZZ4l5LNcWeFnYrcMWldJTIeG3h/JiEnJ10A+O5LivaTWv7jeYC+7CYj5dT
+	oaCxE/QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugit6-0000000Gf3k-23S8;
-	Tue, 29 Jul 2025 11:52:56 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1ugiwr-0000000GfJE-3BRR;
+	Tue, 29 Jul 2025 11:56:49 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugiqd-0000000GeoC-2bCW;
-	Tue, 29 Jul 2025 11:50:25 +0000
-Received: from localhost.localdomain (unknown [119.122.213.139])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1d9d0f96f;
-	Tue, 29 Jul 2025 19:50:14 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: jonas@kwiboo.se
-Cc: alsi@bang-olufsen.dk,
-	amadeus@jmu.edu.cn,
-	andrew@lunn.ch,
-	conor+dt@kernel.org,
-	davem@davemloft.net,
-	devicetree@vger.kernel.org,
-	edumazet@google.com,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
-	kuba@kernel.org,
-	linus.walleij@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	netdev@vger.kernel.org,
-	olteanv@gmail.com,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to Radxa E24C
-Date: Tue, 29 Jul 2025 19:50:09 +0800
-Message-Id: <20250729115009.2158019-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <5bdd0009-589f-49bc-914f-62e5dc4469e9@kwiboo.se>
-References: <5bdd0009-589f-49bc-914f-62e5dc4469e9@kwiboo.se>
+	id 1ugiuO-0000000Gf9f-1Zo8;
+	Tue, 29 Jul 2025 11:54:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=yYnbywAQMxSgmkBg9bfzNajHDUz7u130g9a2sd9vZdU=; b=p1v3Xmask9tJwEmYfcxRWyJFFW
+	GKU4VDAtVzwsDNhPFLlPx/Z3PYhL02HcepdLmLvK2RCKgVeJ5J+ViPZUr3FniwoA3dLGj1oUpVIjF
+	Ju2XKx6otFq1ha5qM++Y3YOlfnSSKMLs3yXjvYeXHT3p80+/39R1+ozHIhva/vjfwGnlIGoG/yWa5
+	xTUZUz1EpDzNZoclzxcLDwb7pT/bAjhb1FvBimWEzWC/a7C0tP7ryhvNs5XHsU31M67TLt3Bz4Jy4
+	v9MsGJ1YzGLoqZ2GAj6wR3Lni2IlZB5fQkXHcoijgcUSo55R/cpCE8w24NQiWCmFLPyi3fzXmNbJ4
+	gT04WqyA==;
+Received: from [189.7.87.79] (helo=[192.168.0.7])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1ugiu8-005Q0t-9h; Tue, 29 Jul 2025 13:54:00 +0200
+Message-ID: <1bc23ad0-7273-4ddf-a0ef-4a80186f2581@igalia.com>
+Date: Tue, 29 Jul 2025 08:53:51 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+ <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+ <20250729-tall-fluffy-grouse-f5deec@houat>
+Content-Language: en-US
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+In-Reply-To: <20250729-tall-fluffy-grouse-f5deec@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a985604d4c503a2kunm15728bea1d0da6
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaGktDVkhNSxkYQx4fT0JNSVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSFVKSEJZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0pVSktLVU
-	tZBg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_045023_842989_463AD9CB 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250729_045416_702356_A568D2E9 
+X-CRM114-Status: GOOD (  17.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +85,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Maxime,
 
-> The issue is with TSO and RX checksum offload, with those disabled on
-> the conduit interface (gmac1/eth0) my issues disappeared.
+On 29/07/25 04:27, Maxime Ripard wrote:
+> Hi Maíra,
+> 
+> On Mon, Jul 28, 2025 at 09:35:38AM -0300, Maíra Canal wrote:
+>> Currently, when we prepare or unprepare RPi's clocks, we don't actually
+>> enable/disable the firmware clock. This means that
+>> `clk_disable_unprepare()` doesn't actually change the clock state at
+>> all, nor does it lowers the clock rate.
+>>
+>>  From the Mailbox Property Interface documentation [1], we can see that
+>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+>> prepare and an unprepare hook for RPi's firmware clock.
+>>
+>> As now the clocks are actually turned off, some of them are now marked
+>> with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are required since
+>> early boot or are required during reboot.
+> 
+> What difference is there between the CLK_IGNORE_UNUSED and
+> CLK_IS_CRITICAL clocks?
 
-I did a test today and the same problem occurred when running the new
-kernel on my rk3568 + rtl8367s board. This problem does not exist on
-older kernels (6.1 and 6.6). Not sure where the problem is.
+ From my understanding, CLK_IGNORE_UNUSED will prevent the clock to be
+gated during boot (on "clk: Disabling unused clocks"), but after it, the
+clock can be gated.
 
-> With a 'mdio' child node 'make CHECK_DTBS=y' report something like:
->
->    rockchip/rk3528-radxa-e24c.dtb: ethernet-switch@1d (realtek,rtl8365mb): mdio: False schema does not allow { [snip] }
->          from schema $id: http://devicetree.org/schemas/net/dsa/realtek.yaml#
->
-> With a mdio node the driver is happy and dtschema is sad, and without
-> the mdio node it was the other way around.
+With CLK_IS_CRITICAL, the clock will never be disabled.
 
-On older kernels (6.1/6.6) only realtek-smi requires mdio child OF node.
-Commit bba140a566ed ("net: dsa: realtek: use the same mii bus driver for both interfaces")
-changed this behavior, both MDIO interface and SMI interface need it
-(rtl83xx_setup_user_mdio), but the dt-bindings has not been updated.
-I think this needs a Fixes tag.
+For example, RPI_FIRMWARE_M2MC_CLK_ID is used by vc4. It needs to be
+enabled at boot (I tested; if not enabled, it won't boot). However,
+after vc4 is probed, we would like vc4 to have control of it and be able
+to unprepare it in `vc4_hdmi_runtime_suspend()`. If I set it as
+CLK_IS_CRITICAL, vc4 won't be able to unprepare it.
 
-Thanks,
-Chukun
+I only set RPI_FIRMWARE_PIXEL_BVB_CLK_ID as critical, as, otherwise, the
+RPi won't reboot.
 
---
-2.25.1
+Best Regards,
+- Maíra
 
+> 
+> I'm asking, because CLK_IGNORE_UNUSED is mostly useless, and
+> CLK_IS_CRITICAL is probably what you're looking for for all of them.
+> 
+> Maxime
 
 
