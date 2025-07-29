@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABCCC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 06:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74192C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 06:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UxAh9Lk34gQlgN0ydugw2cZhIR/DNXsXIKCRyrQ4gQA=; b=tfKsJbQlwhUIXKH/r9sfVuykdT
-	DoFe1zrJhUQ6YQbrXegZNQab4l6WjKXyjA4Lkhl/I3hntMDoAUJNWABU4AgavrYpkyojTgTIJ/QjN
-	lTO7ldYj9tF47apI2qqXLWKYiiIsM2c1C0/0cVscmWm0FolK0QSMJzNTQMvz34szb1MyBn7vduLV9
-	WPLLXWzepnMuTth9jmH1lBiLxo5vyWvA/BQ1GBwIXNSAvjAXAmGA4RO4GzlIRQM/J49KJzCbWHEML
-	+yOAnC6OvJq95+Q/gn1Uj09sYVsliE40noD4+U4XhjPVI2Xnc+gtbHLMRT8fxU1m0aUqTiPZssB1G
-	gv3sTwog==;
+	bh=niNHoCAD7J8kEKqHZYZsWT3+mUywaPXwVxq01jkz2d4=; b=gko7ywfsUlBbXs0I6AQCk0Oz0s
+	TFcJYAaNxz0SX2S3Zm0Vpwpm2nNmNk2I4vuRSxe9HzvP3LxzRkXSP1UPqhv3wQaPNsgXqVMMJiHuK
+	1JqMnzJU7GRwPSDowUf2uKzKFLabrWw/jm4IVgH7xVzjPjVl2kWfCe/dE02WLWyyLbpxVFrAR8l6R
+	doRhIe/HRYfwLHmSkMzFnR73zwSwOOo7zbI8QTMX9bdhzbFdl6dM3InsThamhHz2DNqbSFKOYJU9o
+	upXyPLZv4M8LD+OGb4n2HplIfjTR6Y7emDUhnygf2fICZz/H7P10Bfhlna1BoNowhTj6Lu9KGX05q
+	QWiCmVLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uge4V-0000000G2jx-3uGC;
-	Tue, 29 Jul 2025 06:44:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uge6x-0000000G33H-0F0E;
+	Tue, 29 Jul 2025 06:46:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uge23-0000000G2ax-1OCm
+	id 1uge2x-0000000G2dP-2ECc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 06:41:52 +0000
+	Tue, 29 Jul 2025 06:42:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B3A044317;
-	Tue, 29 Jul 2025 06:41:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384C2C4CEEF;
-	Tue, 29 Jul 2025 06:41:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7DFDF601DF;
+	Tue, 29 Jul 2025 06:42:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2506C4CEEF;
+	Tue, 29 Jul 2025 06:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753771309;
-	bh=d1lLLI34uQtoY5cFrj3BNI8qFTK886lMrjgPenWvRxg=;
+	s=k20201202; t=1753771366;
+	bh=rz7sPehGGQwD9/qaMbd8+aH/afiOwr4+TclPx58XHHA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rpuPt04A6eZE7rl0vxrVcYmuXfGWMKce0jPIBfUf1aIgT8eDC24Ku/RHMnvOm1Hp1
-	 ooCYapf/rqastnnEKL6NvtjWM6xDVXrjBTSjR2FgIheCda1KXDRA1vuT6V3IfdW4uK
-	 RzGu0dmIIhllvmbRh8boAj5toYfhsVQAvtsP/zWegLv76P69GjPTrOi0kAJnvcDMLR
-	 sLDewDnpu5TT425nyUOiHwxSXU9/KqY2no3OtQ5KgXQyTlLiaBfJKGJCmRBl8nM+x2
-	 1dtM/l5/r9McbRga0VFtc4u2XiiNOBl6dY52Te8hyw1VCYjZ8SkQ+9+gyRxSFK8XV+
-	 U16y4Y0fE7hBg==
-Message-ID: <a5b67786-69eb-4c87-899b-0db67c7b79f2@kernel.org>
-Date: Tue, 29 Jul 2025 08:41:44 +0200
+	b=B2o9KbMYMWN/1B+HcRZbHDgoyCY6b8vnVOCABigY/JEXx5RYm/Xelyhl2ULSiZA9+
+	 ruqnTeuzQ9GCY4tZqAnVjUrlzta1ydFdoMScWz8ydceCX2MY9EwFxsxhgA4C2Ixoba
+	 9e/n4foui3dN+MkdIlcImC4gV5/2OflGuPXpaTQ+iXUWp7cZ6NJk6Qdl7Bwmg+/4Ug
+	 g0FRl2LNpPLQW6I98r2JZSiEanQWS8inwjxTlQkpjB/lsFN/TaYoWEPzcpRagf8Q8X
+	 +fa/VMiLOpGna/I+suXIv83RFuneaNCILIpf/tdgjvbFZ62Z7ZbSG84xSc2pBkSrRZ
+	 DnHwPIXNgfeXw==
+Message-ID: <21ce4f23-8aec-486f-8fbb-021c1e114908@kernel.org>
+Date: Tue, 29 Jul 2025 08:42:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: thermal: qoriq: Update compatible string
- for imx93
+Subject: Re: [PATCH 2/4] thermal: qoriq: add i.MX93 TMU support
 To: Jacky Bai <ping.bai@nxp.com>, rafael@kernel.org,
  daniel.lezcano@linaro.org, rui.zhang@intel.com, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org
@@ -55,6 +54,7 @@ Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
  kernel@pengutronix.de, festevam@gmail.com
 References: <20250729024039.1223771-1-ping.bai@nxp.com>
+ <20250729024039.1223771-2-ping.bai@nxp.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,12 +100,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250729024039.1223771-1-ping.bai@nxp.com>
+In-Reply-To: <20250729024039.1223771-2-ping.bai@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_234151_416068_05258F64 
-X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,48 +118,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 29/07/2025 04:40, Jacky Bai wrote:
-> The TMU used on i.MX93 has some slight differances and bugs compared to
-
-Typo
-
-> the one used on qoriq platform even the basic function is the same. Add
-
-qoriq? Qoriq?
-
-> imx93 specific compatible string and keep the fallback ability.
-
-imx93? I.MX93? Can you use proper names for OWN products?
-
+> The TMU used on i.MX93 need some speccial handling and workaround to be
+> done even the revision info read from the ID register is the same as
+> Qoriq platform. Add i.MX93 compatible string and corresponding code for it.
 > 
+> Signed-off-by: Alice Guo <alice.guo@nxp.com>
 > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 > ---
->  .../devicetree/bindings/thermal/qoriq-thermal.yaml       | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
+>  drivers/thermal/qoriq_thermal.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml b/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml
-> index aa756dae512a..cc65e210e26b 100644
-> --- a/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/qoriq-thermal.yaml
-> @@ -22,9 +22,12 @@ properties:
->              Value           Device
->              ----------      -----
->              0x01900102      T1040
-> -    enum:
-> -      - fsl,qoriq-tmu
-> -      - fsl,imx8mq-tmu
-> +    oneOf:
-> +      - const: fsl,qoriq-tmu
-> +      - const: fsl,imx8mq-tmu
-
-
-That's still enum. Don't change that.
-
-> +      - items:
-> +          - const: fsl,imx93-tmu
-> +          - const: fsl,qoriq-tmu
+> diff --git a/drivers/thermal/qoriq_thermal.c b/drivers/thermal/qoriq_thermal.c
+> index 01b58be0dcc6..fc1bf102350d 100644
+> --- a/drivers/thermal/qoriq_thermal.c
+> +++ b/drivers/thermal/qoriq_thermal.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0
+>  //
+>  // Copyright 2016 Freescale Semiconductor, Inc.
+> +// Copyright 2022-2025 NXP
 >  
->    reg:
->      maxItems: 1
+>  #include <linux/clk.h>
+>  #include <linux/err.h>
+> @@ -24,9 +25,11 @@
+>  #define TMTMIR_DEFAULT	0x0000000f
+>  #define TIER_DISABLE	0x0
+>  #define TEUMR0_V2		0x51009c00
+> +#define TEUMR0_V21		0x55010c00
+>  #define TMSARA_V2		0xe
+>  #define TMU_VER1		0x1
+>  #define TMU_VER2		0x2
+> +#define TMU_VER93		0x3
+>  
+>  #define REGS_TMR	0x000	/* Mode Register */
+>  #define TMR_DISABLE	0x0
+> @@ -232,6 +235,9 @@ static void qoriq_tmu_init_device(struct qoriq_tmu_data *data)
+>  
+>  	if (data->ver == TMU_VER1) {
+>  		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
+> +	} else if (data->ver == TMU_VER93) {
+> +		regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
+> +		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V21);
+>  	} else {
+>  		regmap_write(data->regmap, REGS_V2_TMTMIR, TMTMIR_DEFAULT);
+>  		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
+> @@ -319,6 +325,9 @@ static int qoriq_tmu_probe(struct platform_device *pdev)
+>  
+>  	data->ver = (ver >> 8) & 0xff;
+>  
+> +	if (of_find_compatible_node(NULL, NULL, "fsl,imx93-tmu"))
+> +		data->ver = TMU_VER93;
+
+No, you have driver match data for this.
+
+Anyway, are you sure devices are compatible how you expressed in the
+bindings?
+
+> +
+>  	qoriq_tmu_init_device(data);	/* TMU initialization */
+>  
+>  	ret = qoriq_tmu_calibration(dev, data);	/* TMU calibration */
+> @@ -379,6 +388,7 @@ static DEFINE_SIMPLE_DEV_PM_OPS(qoriq_tmu_pm_ops,
+>  static const struct of_device_id qoriq_tmu_match[] = {
+>  	{ .compatible = "fsl,qoriq-tmu", },
+>  	{ .compatible = "fsl,imx8mq-tmu", },
+> +	{ .compatible = "fsl,imx93-tmu", },
+
+Otherwise I claim devices are compatible and this should be dropped.
+
 
 
 Best regards,
