@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29822C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 23:55:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B020C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 23:57:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ESC0itWrrYha2Tf9gSEwP/cvcMjKDVsb022arfffBY=; b=U66T6yczo0MGe6NkJnRUO8LnPl
-	E3XdM6BnxC61IDmq90xtCtsCs4m0bj5X16IkEdE4wVRPq5cu/k9ZamJnRgZjUU5cRuTnLX2UAT57I
-	So4Snx8AIb2wKFPmVvcQfXzz1YTUKXRNVkpFa3StNj5+UbjbT+Vng9KmMMVHwj+UOp3DNb497EqoT
-	FABbl6lD4DZD4uRz38nDZCUKxGpRxJlE+qM72Ts1a9C7BexFmHP4OhgyVejyAeZuDN3xdGV5zJ1DT
-	bWYYjL7KzzSLo/o+V/kZIKMFqdeVtJHggevJeLHVVeHe8rFWNqcWzuhrdAFoXESJIbGD1UUBx38Ed
-	SDLKujSg==;
+	bh=iJsEx4FG6bZLukMaYebCB5jI3mya4Bwx9n+hJfoOxy0=; b=dX15ZhRrQ+ulRzostD9eIActis
+	EquQgd5cvel0yEbrFfZnhEK0q1F+C9oSV3CrwJQA8FCUOWrbUufRSKcyaf0nOYu8NIRXzbsOnoS8U
+	DE+85/wtYRvZZXWK06VfcSNX28Fkz19f1tnu/21BpeDaSfEqHinBT2kYRVWCYmQh+/aHtHpxLBCzt
+	tq5qpfyjdSG54tTfACCjuydON5PpkhEsfm7h80tHHOt9rqDtbHPR09Euq419VIfWTLiY2rFZ606wp
+	o9DHXLFrYxIKeS0HvYSgMIUCgYxUOsTXsdaLZMc5aJlVsvnIqWxUAd4DTb/MEl6f8SGib2btgfVMN
+	zB4Heuvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uguA6-00000000L3C-3aaR;
-	Tue, 29 Jul 2025 23:55:14 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uguCX-00000000LE2-3EVn;
+	Tue, 29 Jul 2025 23:57:45 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugtEw-00000000DwT-12fF
+	id 1ugtEy-00000000DxA-0PNQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 22:56:11 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-313fb0ec33bso7303161a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 15:56:09 -0700 (PDT)
+	Tue, 29 Jul 2025 22:56:13 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-24011ceafc8so2491115ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 15:56:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753829769; x=1754434569; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1753829771; x=1754434571; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=+ESC0itWrrYha2Tf9gSEwP/cvcMjKDVsb022arfffBY=;
-        b=pIzotQ/cebKFHtktNLGt5h+3FBFItiy+AmHsolN3lRKyfqa68LM88lPqmGArWqQfpn
-         VjqsrhY+ViWDjiqmVZTuHSKM0GF0gYHWxC+5Pa7jjC0J+hsgQz+gnaRSiwGHKan+Eybs
-         WxstbsqZKEnB3D7+yDsFxnGaUjJ/fA307WQxTWnTgb43X2jZbY9qD+kBecybFkXuK0x5
-         Vc9gJf57iFZSYvqkVw+IFuIYsmShe/2ol9QggkjviN/hMQcsqdFEbiFsLnh5bcth/5ln
-         zJXnPSrTlwNw2GvS33949M6cWVF27f/Xw72O5hCfsTfaqgeBs5akDVbQIhi9dzpXGPCQ
-         vSOg==
+        bh=iJsEx4FG6bZLukMaYebCB5jI3mya4Bwx9n+hJfoOxy0=;
+        b=kA0edsV7nBiRjAE7Hr6KDwv1T/lAGwxw8qqlcf7lZR90jxvCWK1PyTzRWfJ67w3KBg
+         j0fpnsbjCklZvlEWjypynzeHze06ryEYXfdGj5wdU3HaY5lqInz+8KK8fGllJqcjC6ut
+         lmoYJp2kN88GTE1S73Mod2UJR1Sg9I+r6N5N9C90cCVel6njebQSfkhCQEfIKgLfkxL1
+         /BpEEbQYLsk/2Jm/4DOUVFsnRsv3bWIER2NxYZLEwLlGOrF23kI+ecFUQXv4nGbWi7Mq
+         tir9y6xFbo9Pk1TQjTvXJi1N1+LskrAsADwIxspnJE3FkWNFkosQMDNaD0VRZ+JBWYkE
+         n53w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753829769; x=1754434569;
+        d=1e100.net; s=20230601; t=1753829771; x=1754434571;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=+ESC0itWrrYha2Tf9gSEwP/cvcMjKDVsb022arfffBY=;
-        b=HP/qKSA8G6HDT1yse8LsXL9K4zLJ5pqIYXkLIjaVZwgBIIupis114CsOE04ksPL8L+
-         gvAXDKH/UoX3oWqr4InrpzRlTqR7Up7ppIEJOP41EvLny6II6aoAP/hai1LwUAtgdNTn
-         D5XpQGSPkBNX/H2vDAM/FyD9W5A2r9QxVQJmW6WNwiRKn6nT3BIHfRfdDezPtgxm7b3j
-         NA63jPb1Ix2wTuy8lqOAesm8oCMMASjuQQUh2af34ydQID1VcTdZswaqth4rnJXgITtT
-         cqYs/kVVPQ0jMOiruOEtFOTAZiP+S7qApJbQC+RBq/OfGTBmoOvW8pc6mt7ZBoRqcNrW
-         am9A==
-X-Forwarded-Encrypted: i=1; AJvYcCX+9JW22op66o3o91d7Pa0WHOSweNX/GxQMcmORi7PBQx6WDFoL8bJere0YOwRdT92c/ZBTsGr+xweVIgxGVvSh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXHFXGDbI6HveT1p6neU0FcX4URJ8l7tq2IB69RUVbQ3PIs5lo
-	6372eNpF8qV4y+QPdIRc+PpmnAzo3XujoXRYWQ5K/8TnCIwbmNz6ambSs9MngVYu2wTRTey+Uic
-	JZ9pJkg==
-X-Google-Smtp-Source: AGHT+IEP72ZXZaJ48/ldlCnpX6zM87VMY86dQ66SFrkWz5+rNp24L8qvClHiEDb9z5cTOvOVU6+mQmJCcYQ=
-X-Received: from pjbst4.prod.google.com ([2002:a17:90b:1fc4:b0:311:f309:e314])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2683:b0:312:1dc9:9f67
- with SMTP id 98e67ed59e1d1-31f5dd6b52fmr1710635a91.2.1753829769155; Tue, 29
- Jul 2025 15:56:09 -0700 (PDT)
-Date: Tue, 29 Jul 2025 15:54:53 -0700
+        bh=iJsEx4FG6bZLukMaYebCB5jI3mya4Bwx9n+hJfoOxy0=;
+        b=nSdMutJN/J9w9DXHW4/pT9ST2MqW11BXnWaZDdavObTwZjQgGvoGZQsCJnQmAMc7Os
+         MzuvNVKkx/eTffGHuC59+z5035M3IiNhjMnAER3oaiVWsG+SBXJzyz6elvVp9uSYZgjf
+         DSBpTtYrKmVzOalCuIRiDWSHxaGBjNw1GwgRUB/80FxoKGMdR1S/NENqk2TGRbH3z+Js
+         1esT8fdTbmzLgPTAE2MUl5UAZGOa/mI4Ncn1uqs5Dy0RfklqA74HtGEOjIVjrVOyu69Z
+         Rujm+g0dx7HDZUSI3mM4F8YpvktiuFhNnHBJszMvNyJurd8OZ0n+jdVK3LfhF7YA8l91
+         dhug==
+X-Forwarded-Encrypted: i=1; AJvYcCUuyAfOMzozRie/Cq6R8TAk2tz9v2p+48eYFil4J0kTt3nUL87ec0tN1TTA6J5WCuXVEEmplZBKZ+fo/gsv+gvy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxagPSufmiD5G5msSvo/Z3hpeD5jho7A+oHOHt3f4m1iW4FScC7
+	GUJUL+v98kdfY6yPiXRXb9qvdkroJwi253t0lj4+KlUa5vjz71oCzTv2ra0J0oUxt7Ii6X+vzW3
+	Z/iDXIw==
+X-Google-Smtp-Source: AGHT+IFuvJKbK3bsSX0xIb/YEbZhFW6DEC02S7h04mcxkIxVOmzeLRPCwAt9nWckZ/hRC4rRu0zMmk/gJ8c=
+X-Received: from pjyr14.prod.google.com ([2002:a17:90a:e18e:b0:31c:2fe4:33b7])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:f652:b0:240:79d5:8df4
+ with SMTP id d9443c01a7336-24096b499fcmr13337365ad.53.1753829771053; Tue, 29
+ Jul 2025 15:56:11 -0700 (PDT)
+Date: Tue, 29 Jul 2025 15:54:54 -0700
 In-Reply-To: <20250729225455.670324-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250729225455.670324-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
-Message-ID: <20250729225455.670324-23-seanjc@google.com>
-Subject: [PATCH v17 22/24] KVM: selftests: Do not use hardcoded page sizes in
- guest_memfd test
+Message-ID: <20250729225455.670324-24-seanjc@google.com>
+Subject: [PATCH v17 23/24] KVM: selftests: guest_memfd mmap() test when mmap
+ is supported
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>
@@ -81,8 +81,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_155610_296092_ADF714FE 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20250729_155612_139969_CFC3C95A 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,74 +100,271 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fuad Tabba <tabba@google.com>
 
-Update the guest_memfd_test selftest to use getpagesize() instead of
-hardcoded 4KB page size values.
+Expand the guest_memfd selftests to comprehensively test host userspace
+mmap functionality for guest_memfd-backed memory when supported by the
+VM type.
 
-Using hardcoded page sizes can cause test failures on architectures or
-systems configured with larger page sizes, such as arm64 with 64KB
-pages. By dynamically querying the system's page size, the test becomes
-more portable and robust across different environments.
+Introduce new test cases to verify the following:
 
-Additionally, build the guest_memfd_test selftest for arm64.
+* Successful mmap operations: Ensure that MAP_SHARED mappings succeed
+  when guest_memfd mmap is enabled.
 
-Reviewed-by: David Hildenbrand <david@redhat.com>
-Reviewed-by: Shivank Garg <shivankg@amd.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Suggested-by: Gavin Shan <gshan@redhat.com>
+* Data integrity: Validate that data written to the mmap'd region is
+  correctly persistent and readable.
+
+* fallocate interaction: Test that fallocate(FALLOC_FL_PUNCH_HOLE)
+  correctly zeros out mapped pages.
+
+* Out-of-bounds access: Verify that accessing memory beyond the
+  guest_memfd's size correctly triggers a SIGBUS signal.
+
+* Unsupported mmap: Confirm that mmap attempts fail as expected when
+  guest_memfd mmap support is not enabled for the specific guest_memfd
+  instance or VM type.
+
+* Flag validity: Introduce test_vm_type_gmem_flag_validity() to
+  systematically test that only allowed guest_memfd creation flags are
+  accepted for different VM types (e.g., GUEST_MEMFD_FLAG_MMAP for
+  default VMs, no flags for CoCo VMs).
+
+The existing tests for guest_memfd creation (multiple instances, invalid
+sizes), file read/write, file size, and invalid punch hole operations
+are integrated into the new test_with_type() framework to allow testing
+across different VM types.
+
+Cc: James Houghton <jthoughton@google.com>
+Cc: Gavin Shan <gshan@redhat.com>
+Cc: Shivank Garg <shivankg@amd.com>
+Co-developed-by: Ackerley Tng <ackerleytng@google.com>
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
+Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm       |  1 +
- tools/testing/selftests/kvm/guest_memfd_test.c | 11 ++++++-----
- 2 files changed, 7 insertions(+), 5 deletions(-)
+ .../testing/selftests/kvm/guest_memfd_test.c  | 161 +++++++++++++++---
+ 1 file changed, 139 insertions(+), 22 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 40920445bfbe..963687892bcb 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -174,6 +174,7 @@ TEST_GEN_PROGS_arm64 += arch_timer
- TEST_GEN_PROGS_arm64 += coalesced_io_test
- TEST_GEN_PROGS_arm64 += dirty_log_perf_test
- TEST_GEN_PROGS_arm64 += get-reg-list
-+TEST_GEN_PROGS_arm64 += guest_memfd_test
- TEST_GEN_PROGS_arm64 += memslot_modification_stress_test
- TEST_GEN_PROGS_arm64 += memslot_perf_test
- TEST_GEN_PROGS_arm64 += mmu_stress_test
 diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-index ce687f8d248f..341ba616cf55 100644
+index 341ba616cf55..088053d5f0f5 100644
 --- a/tools/testing/selftests/kvm/guest_memfd_test.c
 +++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-@@ -146,24 +146,25 @@ static void test_create_guest_memfd_multiple(struct kvm_vm *vm)
+@@ -13,6 +13,8 @@
+ 
+ #include <linux/bitmap.h>
+ #include <linux/falloc.h>
++#include <setjmp.h>
++#include <signal.h>
+ #include <sys/mman.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+@@ -34,12 +36,83 @@ static void test_file_read_write(int fd)
+ 		    "pwrite on a guest_mem fd should fail");
+ }
+ 
+-static void test_mmap(int fd, size_t page_size)
++static void test_mmap_supported(int fd, size_t page_size, size_t total_size)
++{
++	const char val = 0xaa;
++	char *mem;
++	size_t i;
++	int ret;
++
++	mem = mmap(NULL, total_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
++	TEST_ASSERT(mem == MAP_FAILED, "Copy-on-write not allowed by guest_memfd.");
++
++	mem = mmap(NULL, total_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
++	TEST_ASSERT(mem != MAP_FAILED, "mmap() for guest_memfd should succeed.");
++
++	memset(mem, val, total_size);
++	for (i = 0; i < total_size; i++)
++		TEST_ASSERT_EQ(READ_ONCE(mem[i]), val);
++
++	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE, 0,
++			page_size);
++	TEST_ASSERT(!ret, "fallocate the first page should succeed.");
++
++	for (i = 0; i < page_size; i++)
++		TEST_ASSERT_EQ(READ_ONCE(mem[i]), 0x00);
++	for (; i < total_size; i++)
++		TEST_ASSERT_EQ(READ_ONCE(mem[i]), val);
++
++	memset(mem, val, page_size);
++	for (i = 0; i < total_size; i++)
++		TEST_ASSERT_EQ(READ_ONCE(mem[i]), val);
++
++	ret = munmap(mem, total_size);
++	TEST_ASSERT(!ret, "munmap() should succeed.");
++}
++
++static sigjmp_buf jmpbuf;
++void fault_sigbus_handler(int signum)
++{
++	siglongjmp(jmpbuf, 1);
++}
++
++static void test_fault_overflow(int fd, size_t page_size, size_t total_size)
++{
++	struct sigaction sa_old, sa_new = {
++		.sa_handler = fault_sigbus_handler,
++	};
++	size_t map_size = total_size * 4;
++	const char val = 0xaa;
++	char *mem;
++	size_t i;
++	int ret;
++
++	mem = mmap(NULL, map_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
++	TEST_ASSERT(mem != MAP_FAILED, "mmap() for guest_memfd should succeed.");
++
++	sigaction(SIGBUS, &sa_new, &sa_old);
++	if (sigsetjmp(jmpbuf, 1) == 0) {
++		memset(mem, 0xaa, map_size);
++		TEST_ASSERT(false, "memset() should have triggered SIGBUS.");
++	}
++	sigaction(SIGBUS, &sa_old, NULL);
++
++	for (i = 0; i < total_size; i++)
++		TEST_ASSERT_EQ(READ_ONCE(mem[i]), val);
++
++	ret = munmap(mem, map_size);
++	TEST_ASSERT(!ret, "munmap() should succeed.");
++}
++
++static void test_mmap_not_supported(int fd, size_t page_size, size_t total_size)
  {
- 	int fd1, fd2, ret;
- 	struct stat st1, st2;
+ 	char *mem;
+ 
+ 	mem = mmap(NULL, page_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+ 	TEST_ASSERT_EQ(mem, MAP_FAILED);
++
++	mem = mmap(NULL, total_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
++	TEST_ASSERT_EQ(mem, MAP_FAILED);
+ }
+ 
+ static void test_file_size(int fd, size_t page_size, size_t total_size)
+@@ -120,26 +193,19 @@ static void test_invalid_punch_hole(int fd, size_t page_size, size_t total_size)
+ 	}
+ }
+ 
+-static void test_create_guest_memfd_invalid(struct kvm_vm *vm)
++static void test_create_guest_memfd_invalid_sizes(struct kvm_vm *vm,
++						  uint64_t guest_memfd_flags,
++						  size_t page_size)
+ {
+-	size_t page_size = getpagesize();
+-	uint64_t flag;
+ 	size_t size;
+ 	int fd;
+ 
+ 	for (size = 1; size < page_size; size++) {
+-		fd = __vm_create_guest_memfd(vm, size, 0);
+-		TEST_ASSERT(fd == -1 && errno == EINVAL,
++		fd = __vm_create_guest_memfd(vm, size, guest_memfd_flags);
++		TEST_ASSERT(fd < 0 && errno == EINVAL,
+ 			    "guest_memfd() with non-page-aligned page size '0x%lx' should fail with EINVAL",
+ 			    size);
+ 	}
+-
+-	for (flag = BIT(0); flag; flag <<= 1) {
+-		fd = __vm_create_guest_memfd(vm, page_size, flag);
+-		TEST_ASSERT(fd == -1 && errno == EINVAL,
+-			    "guest_memfd() with flag '0x%lx' should fail with EINVAL",
+-			    flag);
+-	}
+ }
+ 
+ static void test_create_guest_memfd_multiple(struct kvm_vm *vm)
+@@ -171,30 +237,81 @@ static void test_create_guest_memfd_multiple(struct kvm_vm *vm)
+ 	close(fd1);
+ }
+ 
+-int main(int argc, char *argv[])
++static void test_guest_memfd_flags(struct kvm_vm *vm, uint64_t valid_flags)
+ {
+-	size_t page_size;
+-	size_t total_size;
 +	size_t page_size = getpagesize();
++	uint64_t flag;
+ 	int fd;
++
++	for (flag = BIT(0); flag; flag <<= 1) {
++		fd = __vm_create_guest_memfd(vm, page_size, flag);
++		if (flag & valid_flags) {
++			TEST_ASSERT(fd >= 0,
++				    "guest_memfd() with flag '0x%lx' should succeed",
++				    flag);
++			close(fd);
++		} else {
++			TEST_ASSERT(fd < 0 && errno == EINVAL,
++				    "guest_memfd() with flag '0x%lx' should fail with EINVAL",
++				    flag);
++		}
++	}
++}
++
++static void test_guest_memfd(unsigned long vm_type)
++{
++	uint64_t flags = 0;
+ 	struct kvm_vm *vm;
+-
+-	TEST_REQUIRE(kvm_has_cap(KVM_CAP_GUEST_MEMFD));
++	size_t total_size;
++	size_t page_size;
++	int fd;
  
--	fd1 = __vm_create_guest_memfd(vm, 4096, 0);
-+	fd1 = __vm_create_guest_memfd(vm, page_size, 0);
- 	TEST_ASSERT(fd1 != -1, "memfd creation should succeed");
+ 	page_size = getpagesize();
+ 	total_size = page_size * 4;
  
- 	ret = fstat(fd1, &st1);
- 	TEST_ASSERT(ret != -1, "memfd fstat should succeed");
--	TEST_ASSERT(st1.st_size == 4096, "memfd st_size should match requested size");
-+	TEST_ASSERT(st1.st_size == page_size, "memfd st_size should match requested size");
+-	vm = vm_create_barebones();
++	vm = vm_create_barebones_type(vm_type);
++
++	if (vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_MMAP))
++		flags |= GUEST_MEMFD_FLAG_MMAP;
  
--	fd2 = __vm_create_guest_memfd(vm, 8192, 0);
-+	fd2 = __vm_create_guest_memfd(vm, page_size * 2, 0);
- 	TEST_ASSERT(fd2 != -1, "memfd creation should succeed");
+-	test_create_guest_memfd_invalid(vm);
+ 	test_create_guest_memfd_multiple(vm);
++	test_create_guest_memfd_invalid_sizes(vm, flags, page_size);
  
- 	ret = fstat(fd2, &st2);
- 	TEST_ASSERT(ret != -1, "memfd fstat should succeed");
--	TEST_ASSERT(st2.st_size == 8192, "second memfd st_size should match requested size");
-+	TEST_ASSERT(st2.st_size == page_size * 2, "second memfd st_size should match requested size");
+-	fd = vm_create_guest_memfd(vm, total_size, 0);
++	fd = vm_create_guest_memfd(vm, total_size, flags);
  
- 	ret = fstat(fd1, &st1);
- 	TEST_ASSERT(ret != -1, "memfd fstat should succeed");
--	TEST_ASSERT(st1.st_size == 4096, "first memfd st_size should still match requested size");
-+	TEST_ASSERT(st1.st_size == page_size, "first memfd st_size should still match requested size");
- 	TEST_ASSERT(st1.st_ino != st2.st_ino, "different memfd should have different inode numbers");
+ 	test_file_read_write(fd);
+-	test_mmap(fd, page_size);
++
++	if (flags & GUEST_MEMFD_FLAG_MMAP) {
++		test_mmap_supported(fd, page_size, total_size);
++		test_fault_overflow(fd, page_size, total_size);
++	} else {
++		test_mmap_not_supported(fd, page_size, total_size);
++	}
++
+ 	test_file_size(fd, page_size, total_size);
+ 	test_fallocate(fd, page_size, total_size);
+ 	test_invalid_punch_hole(fd, page_size, total_size);
  
- 	close(fd2);
++	test_guest_memfd_flags(vm, flags);
++
+ 	close(fd);
++	kvm_vm_free(vm);
++}
++
++int main(int argc, char *argv[])
++{
++	unsigned long vm_types, vm_type;
++
++	TEST_REQUIRE(kvm_has_cap(KVM_CAP_GUEST_MEMFD));
++
++	/*
++	 * Not all architectures support KVM_CAP_VM_TYPES. However, those that
++	 * support guest_memfd have that support for the default VM type.
++	 */
++	vm_types = kvm_check_cap(KVM_CAP_VM_TYPES);
++	if (!vm_types)
++		vm_types = VM_TYPE_DEFAULT;
++
++	for_each_set_bit(vm_type, &vm_types, BITS_PER_TYPE(vm_types))
++		test_guest_memfd(vm_type);
+ }
 -- 
 2.50.1.552.g942d659e1b-goog
 
