@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06458C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 23:52:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29822C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 23:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDh3a2mKi2563DqkffKvhXA2J/RouDXBIlWaKp9FKZM=; b=0D+CxwZSTF6Vz23hTI/MXcTpyU
-	m2vCiK0dSdI0WogXSxSk5Usk4f3N5cF6eyotpQwmtUX1W9QmlJ6ZAH5tVuAbeRuDKoSNcncY89Z9M
-	ATBqMEiVf+gOmF/cZ4yhG/VPRC1IyWcOeZlE61y42IArBEIoaR9DReB7cNG8oGCWac3VntSu7dFnN
-	ny4ARtLEAmHVV8q1MiyM4hX9TsB73EemfDYD47HSXikrDwP9Yj5kFbHFSy2CRKwUBd7Arbg4vV59/
-	Id6n+F98Si4mN12ECiudvrCkulJ+yV8L2PASsQRH95BZJF5BemJOM+N/o4BeSEaxB4YcoDQIw5N3g
-	sC7secxA==;
+	bh=+ESC0itWrrYha2Tf9gSEwP/cvcMjKDVsb022arfffBY=; b=U66T6yczo0MGe6NkJnRUO8LnPl
+	E3XdM6BnxC61IDmq90xtCtsCs4m0bj5X16IkEdE4wVRPq5cu/k9ZamJnRgZjUU5cRuTnLX2UAT57I
+	So4Snx8AIb2wKFPmVvcQfXzz1YTUKXRNVkpFa3StNj5+UbjbT+Vng9KmMMVHwj+UOp3DNb497EqoT
+	FABbl6lD4DZD4uRz38nDZCUKxGpRxJlE+qM72Ts1a9C7BexFmHP4OhgyVejyAeZuDN3xdGV5zJ1DT
+	bWYYjL7KzzSLo/o+V/kZIKMFqdeVtJHggevJeLHVVeHe8rFWNqcWzuhrdAFoXESJIbGD1UUBx38Ed
+	SDLKujSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugu7g-00000000Kqs-0VQD;
-	Tue, 29 Jul 2025 23:52:44 +0000
+	id 1uguA6-00000000L3C-3aaR;
+	Tue, 29 Jul 2025 23:55:14 +0000
 Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugtEu-00000000Dvu-24cf
+	id 1ugtEw-00000000DwT-12fF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 22:56:09 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-313c3915345so9489238a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 15:56:07 -0700 (PDT)
+	Tue, 29 Jul 2025 22:56:11 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-313fb0ec33bso7303161a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 15:56:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753829767; x=1754434567; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1753829769; x=1754434569; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=CDh3a2mKi2563DqkffKvhXA2J/RouDXBIlWaKp9FKZM=;
-        b=1dLCQz/h38ErTVhcoy3IME2FptqwAAjDGlTnjhAVfCafBb26QRVOJxqPIqd95Sybjn
-         nL8XToP9xu5WEm5NVP/Pi8yWZfa7Xoi6Lv2mOvPms/7fLg1I7QIl8NaYUeMvVBt/tG5v
-         0ARr0UiXUDSbdLQBLGOSOAOQ83fGsDlH0qNpKVjwfhypSkza8+MPvJ1hfhbCBf6p3DhE
-         qq/ZLlbLpizI8W/a+xvEPNRzgfKAARpjXogElA+a609flFbcyzpvtSO9TxpKoXlMKmae
-         vtJgJAepWJbB1TFCQI8bXuyOY1FP22uZgCcZl2a5PD05+/K/HjZ9y8DTRPPMdikG83qF
-         H4Aw==
+        bh=+ESC0itWrrYha2Tf9gSEwP/cvcMjKDVsb022arfffBY=;
+        b=pIzotQ/cebKFHtktNLGt5h+3FBFItiy+AmHsolN3lRKyfqa68LM88lPqmGArWqQfpn
+         VjqsrhY+ViWDjiqmVZTuHSKM0GF0gYHWxC+5Pa7jjC0J+hsgQz+gnaRSiwGHKan+Eybs
+         WxstbsqZKEnB3D7+yDsFxnGaUjJ/fA307WQxTWnTgb43X2jZbY9qD+kBecybFkXuK0x5
+         Vc9gJf57iFZSYvqkVw+IFuIYsmShe/2ol9QggkjviN/hMQcsqdFEbiFsLnh5bcth/5ln
+         zJXnPSrTlwNw2GvS33949M6cWVF27f/Xw72O5hCfsTfaqgeBs5akDVbQIhi9dzpXGPCQ
+         vSOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753829767; x=1754434567;
+        d=1e100.net; s=20230601; t=1753829769; x=1754434569;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CDh3a2mKi2563DqkffKvhXA2J/RouDXBIlWaKp9FKZM=;
-        b=HRZOTiJHGcy3xpy0zoctY+UP4oMJpGGXpF0WOvx0ZlDyfVzS0iorThy32nx7TBFBvI
-         yvsFVBqxb3zt9hA7jS/jJbj0uYN4tW0PzBUozbme9cuFaaSmWcMtWNuMIOX5xLx8dXE/
-         x4YlEnUZrUudC+Sbqk+c+Xy09Ret2hciWRWEHWJ65n8nPjVRxyWuTufb95tAg5Fl5+uW
-         NJ84NTL5k/17dPZbpE3stuwr4uifQXTQfBE9hJ0wpZuU6WfB9g9a2El9q28TN3iq93vT
-         U3UQzONgz51kxc4wJe6xfayfGuj7FnWZUcR1o0pu4aBo3FWlx3/tGktqQDL1uxLc7SoC
-         q+BA==
-X-Forwarded-Encrypted: i=1; AJvYcCWkT4nTont+L/LuMzRyhZr1HDTczaMM/fKfn29PYPduL06+iZ8IGSv4J5Nc9L9mZm5vHGgZmW+Oh5UKJ4gzZhGN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAmZUReBb9t6ihs9UNQrfLQW1aVhpLnUqwyItKHtqNmmBWd0n1
-	UwrOHS7KeCfx1F/erb/eqP8J1AqGbMpAGZG00UreB/qOwL7i+uSH7z3lZbQ0TFl0FUTphSnyfc4
-	9FFucvA==
-X-Google-Smtp-Source: AGHT+IHC3uJKuTdSzXOEtHPqlvC+coV4BnnQv6uc7mWxcOspxNE/dt4wFfxxPGUhBzxbDLgfuxcg7hNN5F0=
-X-Received: from pjg6.prod.google.com ([2002:a17:90b:3f46:b0:31c:bd1d:516])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a81:b0:31f:210d:2e56
- with SMTP id 98e67ed59e1d1-31f5de557femr1551448a91.28.1753829767333; Tue, 29
- Jul 2025 15:56:07 -0700 (PDT)
-Date: Tue, 29 Jul 2025 15:54:52 -0700
+        bh=+ESC0itWrrYha2Tf9gSEwP/cvcMjKDVsb022arfffBY=;
+        b=HP/qKSA8G6HDT1yse8LsXL9K4zLJ5pqIYXkLIjaVZwgBIIupis114CsOE04ksPL8L+
+         gvAXDKH/UoX3oWqr4InrpzRlTqR7Up7ppIEJOP41EvLny6II6aoAP/hai1LwUAtgdNTn
+         D5XpQGSPkBNX/H2vDAM/FyD9W5A2r9QxVQJmW6WNwiRKn6nT3BIHfRfdDezPtgxm7b3j
+         NA63jPb1Ix2wTuy8lqOAesm8oCMMASjuQQUh2af34ydQID1VcTdZswaqth4rnJXgITtT
+         cqYs/kVVPQ0jMOiruOEtFOTAZiP+S7qApJbQC+RBq/OfGTBmoOvW8pc6mt7ZBoRqcNrW
+         am9A==
+X-Forwarded-Encrypted: i=1; AJvYcCX+9JW22op66o3o91d7Pa0WHOSweNX/GxQMcmORi7PBQx6WDFoL8bJere0YOwRdT92c/ZBTsGr+xweVIgxGVvSh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXHFXGDbI6HveT1p6neU0FcX4URJ8l7tq2IB69RUVbQ3PIs5lo
+	6372eNpF8qV4y+QPdIRc+PpmnAzo3XujoXRYWQ5K/8TnCIwbmNz6ambSs9MngVYu2wTRTey+Uic
+	JZ9pJkg==
+X-Google-Smtp-Source: AGHT+IEP72ZXZaJ48/ldlCnpX6zM87VMY86dQ66SFrkWz5+rNp24L8qvClHiEDb9z5cTOvOVU6+mQmJCcYQ=
+X-Received: from pjbst4.prod.google.com ([2002:a17:90b:1fc4:b0:311:f309:e314])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2683:b0:312:1dc9:9f67
+ with SMTP id 98e67ed59e1d1-31f5dd6b52fmr1710635a91.2.1753829769155; Tue, 29
+ Jul 2025 15:56:09 -0700 (PDT)
+Date: Tue, 29 Jul 2025 15:54:53 -0700
 In-Reply-To: <20250729225455.670324-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250729225455.670324-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.552.g942d659e1b-goog
-Message-ID: <20250729225455.670324-22-seanjc@google.com>
-Subject: [PATCH v17 21/24] KVM: Allow and advertise support for host mmap() on
- guest_memfd files
+Message-ID: <20250729225455.670324-23-seanjc@google.com>
+Subject: [PATCH v17 22/24] KVM: selftests: Do not use hardcoded page sizes in
+ guest_memfd test
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>
@@ -81,8 +81,8 @@ Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	James Houghton <jthoughton@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_155608_538517_185343B9 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20250729_155610_296092_ADF714FE 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,109 +100,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Fuad Tabba <tabba@google.com>
 
-Now that all the x86 and arm64 plumbing for mmap() on guest_memfd is in
-place, allow userspace to set GUEST_MEMFD_FLAG_MMAP and advertise support
-via a new capability, KVM_CAP_GUEST_MEMFD_MMAP.
+Update the guest_memfd_test selftest to use getpagesize() instead of
+hardcoded 4KB page size values.
 
-The availability of this capability is determined per architecture, and
-its enablement for a specific guest_memfd instance is controlled by the
-GUEST_MEMFD_FLAG_MMAP flag at creation time.
+Using hardcoded page sizes can cause test failures on architectures or
+systems configured with larger page sizes, such as arm64 with 64KB
+pages. By dynamically querying the system's page size, the test becomes
+more portable and robust across different environments.
 
-Update the KVM API documentation to detail the KVM_CAP_GUEST_MEMFD_MMAP
-capability, the associated GUEST_MEMFD_FLAG_MMAP, and provide essential
-information regarding support for mmap in guest_memfd.
+Additionally, build the guest_memfd_test selftest for arm64.
 
 Reviewed-by: David Hildenbrand <david@redhat.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Reviewed-by: Shivank Garg <shivankg@amd.com>
-Reviewed-by: Xiaoyao Li <xiaoyao.li@intel.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Suggested-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- Documentation/virt/kvm/api.rst | 9 +++++++++
- include/uapi/linux/kvm.h       | 2 ++
- virt/kvm/guest_memfd.c         | 7 ++++++-
- virt/kvm/kvm_main.c            | 2 ++
- 4 files changed, 19 insertions(+), 1 deletion(-)
+ tools/testing/selftests/kvm/Makefile.kvm       |  1 +
+ tools/testing/selftests/kvm/guest_memfd_test.c | 11 ++++++-----
+ 2 files changed, 7 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index fcb783735dd1..1e0c4a68876d 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -6414,6 +6414,15 @@ most one mapping per page, i.e. binding multiple memory regions to a single
- guest_memfd range is not allowed (any number of memory regions can be bound to
- a single guest_memfd file, but the bound ranges must not overlap).
- 
-+When the capability KVM_CAP_GUEST_MEMFD_MMAP is supported, the 'flags' field
-+supports GUEST_MEMFD_FLAG_MMAP.  Setting this flag on guest_memfd creation
-+enables mmap() and faulting of guest_memfd memory to host userspace.
-+
-+When the KVM MMU performs a PFN lookup to service a guest fault and the backing
-+guest_memfd has the GUEST_MEMFD_FLAG_MMAP set, then the fault will always be
-+consumed from guest_memfd, regardless of whether it is a shared or a private
-+fault.
-+
- See KVM_SET_USER_MEMORY_REGION2 for additional details.
- 
- 4.143 KVM_PRE_FAULT_MEMORY
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index aeb2ca10b190..0d96d2ae6e5d 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -961,6 +961,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_ARM_EL2 240
- #define KVM_CAP_ARM_EL2_E2H0 241
- #define KVM_CAP_RISCV_MP_STATE_RESET 242
-+#define KVM_CAP_GUEST_MEMFD_MMAP 243
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
-@@ -1597,6 +1598,7 @@ struct kvm_memory_attributes {
- #define KVM_MEMORY_ATTRIBUTE_PRIVATE           (1ULL << 3)
- 
- #define KVM_CREATE_GUEST_MEMFD	_IOWR(KVMIO,  0xd4, struct kvm_create_guest_memfd)
-+#define GUEST_MEMFD_FLAG_MMAP	(1ULL << 0)
- 
- struct kvm_create_guest_memfd {
- 	__u64 size;
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index d5b445548af4..08a6bc7d25b6 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -314,7 +314,9 @@ static pgoff_t kvm_gmem_get_index(struct kvm_memory_slot *slot, gfn_t gfn)
- 
- static bool kvm_gmem_supports_mmap(struct inode *inode)
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 40920445bfbe..963687892bcb 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -174,6 +174,7 @@ TEST_GEN_PROGS_arm64 += arch_timer
+ TEST_GEN_PROGS_arm64 += coalesced_io_test
+ TEST_GEN_PROGS_arm64 += dirty_log_perf_test
+ TEST_GEN_PROGS_arm64 += get-reg-list
++TEST_GEN_PROGS_arm64 += guest_memfd_test
+ TEST_GEN_PROGS_arm64 += memslot_modification_stress_test
+ TEST_GEN_PROGS_arm64 += memslot_perf_test
+ TEST_GEN_PROGS_arm64 += mmu_stress_test
+diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
+index ce687f8d248f..341ba616cf55 100644
+--- a/tools/testing/selftests/kvm/guest_memfd_test.c
++++ b/tools/testing/selftests/kvm/guest_memfd_test.c
+@@ -146,24 +146,25 @@ static void test_create_guest_memfd_multiple(struct kvm_vm *vm)
  {
--	return false;
-+	const u64 flags = (u64)inode->i_private;
-+
-+	return flags & GUEST_MEMFD_FLAG_MMAP;
- }
+ 	int fd1, fd2, ret;
+ 	struct stat st1, st2;
++	size_t page_size = getpagesize();
  
- static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
-@@ -522,6 +524,9 @@ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args)
- 	u64 flags = args->flags;
- 	u64 valid_flags = 0;
+-	fd1 = __vm_create_guest_memfd(vm, 4096, 0);
++	fd1 = __vm_create_guest_memfd(vm, page_size, 0);
+ 	TEST_ASSERT(fd1 != -1, "memfd creation should succeed");
  
-+	if (kvm_arch_supports_gmem_mmap(kvm))
-+		valid_flags |= GUEST_MEMFD_FLAG_MMAP;
-+
- 	if (flags & ~valid_flags)
- 		return -EINVAL;
+ 	ret = fstat(fd1, &st1);
+ 	TEST_ASSERT(ret != -1, "memfd fstat should succeed");
+-	TEST_ASSERT(st1.st_size == 4096, "memfd st_size should match requested size");
++	TEST_ASSERT(st1.st_size == page_size, "memfd st_size should match requested size");
  
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 4f57cb92e109..18f29ef93543 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -4918,6 +4918,8 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- #ifdef CONFIG_KVM_GUEST_MEMFD
- 	case KVM_CAP_GUEST_MEMFD:
- 		return 1;
-+	case KVM_CAP_GUEST_MEMFD_MMAP:
-+		return !kvm || kvm_arch_supports_gmem_mmap(kvm);
- #endif
- 	default:
- 		break;
+-	fd2 = __vm_create_guest_memfd(vm, 8192, 0);
++	fd2 = __vm_create_guest_memfd(vm, page_size * 2, 0);
+ 	TEST_ASSERT(fd2 != -1, "memfd creation should succeed");
+ 
+ 	ret = fstat(fd2, &st2);
+ 	TEST_ASSERT(ret != -1, "memfd fstat should succeed");
+-	TEST_ASSERT(st2.st_size == 8192, "second memfd st_size should match requested size");
++	TEST_ASSERT(st2.st_size == page_size * 2, "second memfd st_size should match requested size");
+ 
+ 	ret = fstat(fd1, &st1);
+ 	TEST_ASSERT(ret != -1, "memfd fstat should succeed");
+-	TEST_ASSERT(st1.st_size == 4096, "first memfd st_size should still match requested size");
++	TEST_ASSERT(st1.st_size == page_size, "first memfd st_size should still match requested size");
+ 	TEST_ASSERT(st1.st_ino != st2.st_ino, "different memfd should have different inode numbers");
+ 
+ 	close(fd2);
 -- 
 2.50.1.552.g942d659e1b-goog
 
