@@ -4,62 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529B7C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 01:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11609C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 01:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:CC:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aWo45nrGNOaDm5AbIk29RwbaX3rKdNhX8pS8G2NVac0=; b=piNbNtWxRq0E+/gF37geq9IFq7
-	ectS9CO8AYRo1WCdBq9R/1t+BTQ0lp5Y4EwQsswQXB8J+vi14V1LL+u7eoJUEJK/gWbks9ZRrBKUQ
-	BMQYS5eG02/z7Ae9tfZVDF78cJjfkgvhjwwlQCWoyuhlcYXLXrORZyUKP5dnEqRMcCHoI+vmLdQZ6
-	o2grLeG3QjUqPVHQy3kiMF4m6FhGWUxOfWZbbeQez66VAZLsGtR2eFAu4yDgQllnQBRqAUHkd4J/Z
-	QRwgIkYv6J9laZlXOCKqaDoWJYU1OG7Av8dr4sigdYaVNG3bGB1lxz/Ozt7whcWDQapDhmsDeo2Mk
-	NdBa5CVw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S23qOVMAAKB7qgLVeWulkQC0C/F5u4i6UjQVVe6TXAI=; b=0Fu6W5rNPsFA7DG6/nZYJ9lvx2
+	Lrz4nVeWlBHvyfkkOmwJ1bE7VF1M/GIjctqrlPk1rkvsqIU97INLX6syEBM22eveuK8tbjlcA9ylj
+	IhlSLg1cxWHAI81XI8bOcLWV7LBAmDkc/7drvjHtyhQRn6xO/FfH21lX/rKdajIWI9C3dfYxRz/YF
+	zuqoscNwTmBcHugkCjpBmqLFyTtzAwBiIPt1ytaFBYj5O2Y9H8ms8dqWM49UG2y37gLHKMWKNYgcI
+	doOAi8zKrDkZk2M55F+veZhmBxC7r5hVOWtWLSwUYIG4VCJ5cUGxfciE1zA2Ax8p4PBzzofGi/pQx
+	sXzv3KHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugYwu-0000000Fgn7-2vzL;
-	Tue, 29 Jul 2025 01:16:12 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1ugZGE-0000000Fi1d-2gks;
+	Tue, 29 Jul 2025 01:36:10 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugYuM-0000000Fged-3cHl
+	id 1ugZDl-0000000Fhkh-131p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 01:13:40 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4brcjc1nFNz23jZm;
-	Tue, 29 Jul 2025 09:11:00 +0800 (CST)
-Received: from kwepemo100013.china.huawei.com (unknown [7.202.195.244])
-	by mail.maildlp.com (Postfix) with ESMTPS id 539D1180044;
-	Tue, 29 Jul 2025 09:13:20 +0800 (CST)
-Received: from [10.67.120.83] (10.67.120.83) by kwepemo100013.china.huawei.com
- (7.202.195.244) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 29 Jul
- 2025 09:13:19 +0800
-Message-ID: <b51519d6-ce45-4b6d-8135-c70169bd110e@h-partners.com>
-Date: Tue, 29 Jul 2025 09:13:19 +0800
+	Tue, 29 Jul 2025 01:33:38 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3e2c683524fso22771585ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 18:33:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753752816; x=1754357616; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S23qOVMAAKB7qgLVeWulkQC0C/F5u4i6UjQVVe6TXAI=;
+        b=ZoWCg2mIQg35NRBnOmKwO7aB1XhuXnN/wWY6uqWnLnZ/J0t1qNxmBj22m4Slz/8rXA
+         ruuOkgFL8yK0pW8/hpcM+6oXiN2jkCNRK6lJyqOoHeAgKCLliYi3h2e9atl43ETkYhAV
+         OvOFruDq+mTHYteCPAKBJl4BCN5lbrKi/BMCP4R++fuY505SKQC1YIj5QGe4cROZCE6J
+         B4jCI44QdgttKb7BdHcLIejIMhes5VSFeLxI63aPKH4nuBgSKo7HCTZwOncGjXe191jK
+         2RfKRGkz8FCjh4GY2HsZL8PXaSF/s12s+wLjxhfpYdMYxxwMFH5zyORzyrNIeTYJ+AGG
+         rYiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753752816; x=1754357616;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S23qOVMAAKB7qgLVeWulkQC0C/F5u4i6UjQVVe6TXAI=;
+        b=R46WjVTMSvK9GVmJ5xWDPa9OOOvF/ivUNgI5okn0Ii0P3r7WTejhsFScTCtakT6mDt
+         ylXkGWGnfkKCjWdkwc7LDIpNAcMyqs0eOxhWzuoYCVqfF2k0hqMnzJTq7FCGWgnjK+3D
+         KMGJMJ46Q2oz/myWV0vVcoJdToxInduRskrwnPkSaH1ODwxAhcIc3m4bFFeBDlMxR5X1
+         Gt+oY60PD+vQNSinmKsDaTpkuLJfJWYcBOLSXqRVBRPrdpiO8LwI5G4DDnxseG9wLxeR
+         512txDizIYwH0q5xU/egQF2V22gjjH3WIp7vUe23yQ2GRHWH17CzUxgMBcTgLBoDMZJM
+         gQxA==
+X-Forwarded-Encrypted: i=1; AJvYcCWU3C/7wNOqLRdI2xi+HvK0UUiUl5xn5LwNVONyoHTuY0zMOcFba+p/K9F8jmn1Z1XxDU+rkg3LitbP7UCg0xjm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKcxipUbLhVE+ww2l4Aa1qi9m7f9FUrK985GE+JHtFsMeeGFtq
+	HN1Sf0aeNfwvA2+LFE8gxJyMv9JfzSAB8qndG3IrK/VvueJEK7+vO2Mc0bRnRuwQBpxuTnKM4x1
+	Q7uDxAO+DYGt7vC1uRZ1twOsnHp1G9TU=
+X-Gm-Gg: ASbGncvd9D2yIDTRGU+8FjzDD7ma1uiXFXP9rTikutU2sDiGWBR5+CnmCb+4hJj/w5x
+	ra1nugzF4P/SHu6fzRy6f/jApFi2Sv8WgXRBfGKqnfV5LdZzC7w+l5ADZkysV31HmsnX7VSUN6L
+	LnU4AbNz24Hee1DPHpgmMI5iT2EfYSz4kpvw+cvL/mROpgqo33F9Vf91o/jcKnclYJGlayaZJqJ
+	Jfgyfs=
+X-Google-Smtp-Source: AGHT+IEr/DTMtrde4B2O2jQtp73B0jXdt56IWjZMklggeu9+9ek06vbQzMnKQzsISgrp5QqOpsqfLGJJJJuLC3iPRHo=
+X-Received: by 2002:a92:cd82:0:b0:3e2:c350:2e61 with SMTP id
+ e9e14a558f8ab-3e3c5312d49mr225067155ab.20.1753752815891; Mon, 28 Jul 2025
+ 18:33:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: <bhelgaas@google.com>
-CC: <ilpo.jarvinen@linux.intel.com>, <lukas@wunner.de>, linux-arm
-	<linux-arm-kernel@lists.infradead.org>, linux-kernl
-	<linux-kernel@vger.kernel.org>, linux-pci <linux-pci@vger.kernel.org>,
-	fanghao <fanghao11@huawei.com>, gaozhihao <gaozhihao6@h-partners.com>,
-	lujunhua <lujunhua7@h-partners.com>, shenyang <shenyang39@huawei.com>,
-	wushanping <wushanping@huawei.com>, zengtao <prime.zeng@hisilicon.com>,
-	<jonathan.cameron@huawei.com>
-From: moubingquan <moubingquan@h-partners.com>
-Subject: [BUG] sysfs: duplicate resource file creation during PCIe rescan
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.83]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemo100013.china.huawei.com (7.202.195.244)
+References: <20250722075225.544319-1-shengjiu.wang@nxp.com>
+ <CAEnQRZBc2X6Yn0X+RbJ9-OSxovnHvoqJ3NXsJKBkuH82GNSAHA@mail.gmail.com>
+ <aIeFqVUp2C6fh4PT@p14s> <12184ce7-e74b-48eb-abee-25f8a10a2423@nxp.com>
+In-Reply-To: <12184ce7-e74b-48eb-abee-25f8a10a2423@nxp.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Tue, 29 Jul 2025 09:33:17 +0800
+X-Gm-Features: Ac12FXyQrZyIVbOJ3pLjAv_HaREeHglGrD0Wy22HTBcGicbPxb4TlW_nT6cra8A
+Message-ID: <CAA+D8AMpF9Te1+V=o6WQCzHTkKpKvrhP+76fpCZoswOhPiKDjQ@mail.gmail.com>
+Subject: Re: [PATCH v3] remoteproc: imx_dsp_rproc: Add support of recovery and
+ coredump process
+To: Iuliana Prodan <iuliana.prodan@nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
+	Daniel Baluta <daniel.baluta@gmail.com>, andersson@kernel.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	jassisinghbrar@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_181335_283569_9351BE25 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250728_183337_291544_40EA7EA7 
+X-CRM114-Status: GOOD (  28.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,138 +102,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Mon, Jul 28, 2025 at 11:09=E2=80=AFPM Iuliana Prodan <iuliana.prodan@nxp=
+.com> wrote:
+>
+> On 7/28/2025 5:14 PM, Mathieu Poirier wrote:
+> > On Mon, Jul 28, 2025 at 01:39:38PM +0300, Daniel Baluta wrote:
+> >> On Tue, Jul 22, 2025 at 11:16=E2=80=AFAM Shengjiu Wang <shengjiu.wang@=
+nxp.com> wrote:
+> >>>
+> >>> When enabled FW recovery, but is broken because software reset is mis=
+sed
+> >>> in this recovery flow. So move software reset from
+> >>> imx_dsp_runtime_resume() to .load() and clear memory before loading
+> >>> firmware to make recovery work.
+> >>>
+> >>> Add call rproc_coredump_set_elf_info() to initialize the elf info for
+> >>> coredump, otherwise coredump will report error "ELF class is not set"=
+.
+> >>>
+> >>> Fixes: ec0e5549f358 ("remoteproc: imx_dsp_rproc: Add remoteproc drive=
+r for DSP on i.MX")
+> >>> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> >>
+> >> Changes looks good to me:
+>
+> I agree, but this is not enough.
+>
+> >>
+> >> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> >>
+> >> I've tested it with Zephyr synchronization samples inducing a crash
+> >> via debugfs interface. App
+> >> can recover correctly.
+>
+>
+> The synchronization sample does not utilize the Messaging Unit (MU) for
+> communication between the two cores, its behavior is similar to the
+> basic hello_world example (no fw_ready reply is expected by host).
+>
+> I=E2=80=99ve tested this patch with both the synchronization and hello_wo=
+rld
+> samples, as well as with the default firmware specified in the device
+> tree (imx/dsp/hifi4.bin), and everything works as expected.
+>
+> However, when testing with the openamp_rsc_table sample from Zephyr [1],
+> I encountered the following issue:
+> ```
+> [ 1500.964232] remoteproc remoteproc0: crash detected in imx-dsp-rproc:
+> type watchdog
+> [ 1500.964595] remoteproc remoteproc0: handling crash #1 in imx-dsp-rproc
+> [ 1500.964608] remoteproc remoteproc0: recovering imx-dsp-rproc
+> [ 1500.965959] remoteproc remoteproc0: stopped remote processor
+> imx-dsp-rproc
+> [ 1501.251897] remoteproc remoteproc0: can't start rproc imx-dsp-rproc: -=
+110
+> ```
+> Upon debugging, I discovered that the issue stems from the imx-mailbox
+> driver not clearing the General Purpose Interrupt (GPI) bits. This leads
+> to the remote processor failing to restart properly.
+>
+> To ensure compatibility across all firmware variants, including those
+> using OpenAMP, the attached patch is required. Both the recovery and
+> mailbox patches have been successfully tested on the following
+> platforms: i.MX8MP, i.MX8ULP, i.MX8QM and i.MX8QXP.
+>
+> Shengjiu, do you want to send a new version with both patches?
 
-When uninstalling the driver on the ARM64 platform and invoking `sriov_disable()`,
-another thread simultaneously performed `echo 1 > /sys/bus/pci/rescan`,
-which resulted in a call trace error (`sysfs: cannot create duplicate filename`) when subsequently loading the driver.
+No.  it is a different issue.
+You can send it to the mailbox maintainer for review.
 
-Under certain multi-threaded scenarios (e.g. VF teardown + PCI rescan triggered in parallel),
-The following sequence may result in files appearing in sysfs that should not exist:
+Best regards
+Shengjiu Wang
 
-1. sriov_disable() uninstalls VFs and removes the corresponding VF files in sysfs.
-2.At the same time, when rescan_store() rescan the entire PCI device tree,
-there is a possibility that VF files that should have been deleted are added back,
-resulting in VF files in sysfs that should have been removed but were not.
-
-Tested on:
-- Kernel version: Linux version 6.15.0-rc4+ (phisik3@10-50-163-153-ARM-openEuler22-3)
-- Platform: ARM64 (Huawei Kunpeng920)
-- Repro steps:
-1.Thread A unloads the driver and VF (requires calling sriov_disable()).
-2.Thread B calls `echo 1 > /sys/bus/pci/rescan `
-
-The system will report a call trace as follows:
-
-sysfs: cannot create duplicate filename '/devices/pci0000:3c/0000:3c:01.0/0000:3e:00.2/resource2'
-CPU: 138 UID: 0 PID: 11067 Comm: sh Kdump: loaded Tainted: G      D W  O        6.15.0-rc4+ #1 PREEMPT
-Tainted: [D]=DIE, [W]=WARN, [O]=OOT_MODULE
-Call trace:
-  show_stack+0x20/0x38 (C)
-  dump_stack_lvl+0x80/0xf8
-  dump_stack+0x18/0x28
-  sysfs_warn_dup+0x6c/0x90
-  sysfs_add_bin_file_mode_ns+0x12c/0x178
-  sysfs_create_bin_file+0x7c/0xb8
-  pci_create_attr+0x104/0x1b0
-  pci_create_resource_files.part.0+0x50/0xd0
-  pci_create_sysfs_dev_files+0x30/0x50
-  pci_bus_add_device+0x40/0x120
-  pci_bus_add_devices+0x40/0x98
-  pci_bus_add_devices+0x6c/0x98
-  pci_rescan_bus+0x38/0x58
-  rescan_store+0x80/0xb0
-  bus_attr_store+0x2c/0x48
-  sysfs_kf_write+0x84/0xa8
-  kernfs_fop_write_iter+0x120/0x1b8
-  vfs_write+0x338/0x3f8
-  ksys_write+0x70/0x110
-  __arm64_sys_write+0x24/0x38
-  invoke_syscall+0x50/0x120
-  el0_svc_common.constprop.0+0xc8/0xf0
-  do_el0_svc+0x24/0x38
-  el0_svc+0x34/0xf0
-  el0t_64_sync_handler+0xc8/0xd0
-  el0t_64_sync+0x1ac/0x1b0
-
-The general analysis and corresponding code are as follows:
-
-drivers/pci/iov.c
-
-736 static void sriov_disable(struct pci_dev *dev)
-737 {
-738         struct pci_sriov *iov = dev->sriov;
-739
-740         if (!iov->num_VFs)
-741                 return;
-742
-743         sriov_del_vfs(dev);
-744         iov->ctrl &= ~(PCI_SRIOV_CTRL_VFE | PCI_SRIOV_CTRL_MSE);
-745         pci_cfg_access_lock(dev);
-746         pci_write_config_word(dev, iov->pos + PCI_SRIOV_CTRL, iov->ctrl);
-747         ssleep(1);
-748         pci_cfg_access_unlock(dev);
-749
-750         pcibios_sriov_disable(dev);
-751
-752         if (iov->link != dev->devfn)
-753                 sysfs_remove_link(&dev->dev.kobj, "dep_link");
-754
-755         iov->num_VFs = 0;
-756         pci_iov_set_numvfs(dev, 0);
-757 }
-
-sriov_disable() will unload the VF and remove its files from sysfs.
-
-drivers/pci/pci-sysfs.c
-
-  435 static ssize_t rescan_store(const struct bus_type *bus, const char *buf, size_t count)
-  436 {
-  437         unsigned long val;
-  438         struct pci_bus *b = NULL;
-  439
-  440         if (kstrtoul(buf, 0, &val) < 0)
-  441                 return -EINVAL;
-  442
-  443         if (val) {
-  444                 pci_lock_rescan_remove();
-  445                 while ((b = pci_find_next_bus(b)) != NULL)
-  446                         pci_rescan_bus(b);
-  447                 pci_unlock_rescan_remove();
-  448         }
-  449         return count;
-  450 }
-  451 static BUS_ATTR_WO(rescan);
-
-The `rescan_store()` function will scan the entire PCI bus, including the relevant sysfs files for the aforementioned VFs.
-
-Initially, it seemed that directly adding the pci_lock_rescan_remove() lock to sriov_disable() could solve the problem.
-However, it was later discovered that this might lead to a deadlock issue (because the remove_store() function would call sriov_disable(), causing a deadlock).
-
-drivers/pci/pci-sysfs.c
-
-  487 static ssize_t remove_store(struct device *dev, struct device_attribute *attr,
-  488                             const char *buf, size_t count)
-  489 {
-  490         unsigned long val;
-  491
-  492         if (kstrtoul(buf, 0, &val) < 0)
-  493                 return -EINVAL;
-  494
-  495         if (val && device_remove_file_self(dev, attr))
-  496
-         //Subsequently, sriov_disable() will be invoked.
-                 pci_stop_and_remove_bus_device_locked(to_pci_dev(dev));
-  497         return count;
-  498 }
-  499 static DEVICE_ATTR_IGNORE_LOCKDEP(remove, 0220, NULL,
-  500                                   remove_store);
-
-The function `pci_stop_and_remove_bus_device_locked()` acquires the `pci_lock_rescan_remove()` lock and subsequently calls `sriov_disable()`.
-If the lock is added within `sriov_disable()`, it could lead to a deadlock.
-
-Should we add a new lock to address this issue, or are there any other ideas? I would like to consult and discuss this with everyone.
-
-Thanks,
-Bingquan Mou <moubingquan@h-partners.com>
+>
+> Thanks,
+> Iulia
+>
+> >
+> > Very good - I will merge this around 6.17-rc2 when I get back from vaca=
+tion.
+> >
+> > Mathieu
+> >
+>
+> [1]
+> https://github.com/zephyrproject-rtos/zephyr/tree/main/samples/subsys/ipc=
+/openamp_rsc_table
 
