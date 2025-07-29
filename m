@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BDAC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 08:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93469C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 08:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hy5UWCAEJ8QpZLBQjuKhMArV1bapCPsMjvUUWG3LcSY=; b=S+4C1IHZJ6gl4d6J3iIWLlzUBm
-	PTJLlfvm2fT6erny5RxvA0Pl6QgoNH7HjduX3iscnBzyBWfzYrCHzZeEQqxqMr6H9y5nmKzv0BT3U
-	+trBY56SwQnDgxa/ssnkGXZZQgEv+Wt9N1Yul3/NptzkxOdEs0ZxNppTgeFLjeQgOD+MAFWJnntYZ
-	5WXi68IYU0aghTZdO6RXI3xLSig8RnFOr3eVgv9+bh3RXAkDgBq2lR7DRayZVyu4clkcZTecs5iPO
-	N1zbIkrZXExPfAsY7AgkPRaIiYbVwCAkS7yUnWxlfTkK1DpwNDOJmnkk9R4OgUOhPHbTDEWmBFfZM
-	rFndKKXA==;
+	bh=dZOnwyJc/z92LBdcHXh09X96k4RSZO3Wfpl7wZweE1U=; b=HpgoROsQWzEN7CLpQ4WQoqIQIl
+	fBNMN7L1r0oCzwcrL/DD+3GH6A4uaLouaNtp8Mf9O94TLxlN8/RZ2MxJfrXT6kfnBsb02wgMunzvG
+	17JceszyIpVb8KQpgUtFJAFOLrjDSLL7yofdR7A1m3ay924Kr4Kg4qdQn4wAwLwl9wHY2TaXzoE8x
+	8a/GqfTOfT8vl314BSfPJNCFSLYVin72LAU/lG5Eja+YSH6RSP4+yA8XQ0TJ4PCJrpku8lw5Hgs97
+	nLgOQceY9OPtSF5ePZnyOGV3l6J54WPRO9L2/qoH6jWOI30qT5ZLLcab8FTu71EBzI9OrXCgfBYGk
+	rP+8mxnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugfmm-0000000GGZp-0y5C;
-	Tue, 29 Jul 2025 08:34:12 +0000
-Received: from mail-m19731116.qiye.163.com ([220.197.31.116])
+	id 1ugg0s-0000000GIA6-2QdI;
+	Tue, 29 Jul 2025 08:48:46 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugfkG-0000000GGDz-04fp;
-	Tue, 29 Jul 2025 08:31:39 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1d9827a9b;
-	Tue, 29 Jul 2025 16:31:28 +0800 (GMT+08:00)
-Message-ID: <7445b3d4-0e88-40e5-bcbd-8ea60c35d5bb@rock-chips.com>
-Date: Tue, 29 Jul 2025 16:31:27 +0800
+	id 1ugfyN-0000000GHiV-1WMj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Jul 2025 08:46:13 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56T8YNat014089;
+	Tue, 29 Jul 2025 10:45:49 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	dZOnwyJc/z92LBdcHXh09X96k4RSZO3Wfpl7wZweE1U=; b=XwF5dllEtECZLCeq
+	JJifgyRlhmk9xDJChmramDEt0vbuK5xkHgtWAt+3NgJRIN5ptXyhNVShV476LLg4
+	Ee384LrKR+nfpswuEJva/XjMRNXgsvo8hbbP8LVl9MEDHrSmFyqzQawtuzsnCBjW
+	3tndnxRP71fnGUcb/gyVjYA66+Zh5ibkl7EA3Dwq1WXEiz+S+B4vFuf6ZYMSZY4a
+	q2laWBj7+d7G208HtTSG+/dDfiFNciLpIqJn7mK7GVivJFGpcouiB626sSwu1a+Y
+	57NhNXArM0o9iq4tAasVLMKdxTWdv5qOCH4m8r6AcB4fgaYCSQk3rJK517Rg2EFg
+	7ivAsw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4858k51a3a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 29 Jul 2025 10:45:49 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 53DFD4004D;
+	Tue, 29 Jul 2025 10:44:24 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8DA065F4E65;
+	Tue, 29 Jul 2025 10:43:33 +0200 (CEST)
+Received: from [10.48.87.141] (10.48.87.141) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 29 Jul
+ 2025 10:43:32 +0200
+Message-ID: <77229e46-6466-4cd4-9b3b-d76aadbe167c@foss.st.com>
+Date: Tue, 29 Jul 2025 10:43:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v3 04/14] drm/bridge: analogix_dp: Add
- &analogix_dp_plat_data.bridge
-To: Maxime Ripard <mripard@kernel.org>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <20250724080304.3572457-5-damon.ding@rock-chips.com>
- <20250729-wooden-opalescent-baboon-f24fa2@houat>
+Subject: Re: [Linux-stm32] [PATCH RFC net-next 6/7] net: stmmac: add helpers
+ to indicate WoL enable status
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+        Andrew Lunn
+	<andrew@lunn.ch>
+CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        Eric Dumazet <edumazet@google.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Heiner
+ Kallweit <hkallweit1@gmail.com>
+References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
+ <E1ugQ33-006KDR-Nj@rmk-PC.armlinux.org.uk>
+ <eaef1b1b-5366-430c-97dd-cf3b40399ac7@lunn.ch>
+ <aIe5SqLITb2cfFQw@shell.armlinux.org.uk>
 Content-Language: en-US
-In-Reply-To: <20250729-wooden-opalescent-baboon-f24fa2@houat>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+In-Reply-To: <aIe5SqLITb2cfFQw@shell.armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a98554edd1703a3kunma08ba3a841d6e7
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkNMGlYaGh1JSElDSR5MTBhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Q80s3a/tV4F2URBBklVXAzRfnVtfBo4yEdM/EZTEwDhDT0yBlKMCM/g4YkEMUHGcQZuzRB36AwgHJagRlvr2/emhFxN1gxf3dbNEzpE1/e+oHBfC3qFnlFMNZKoKPzivDTWL1SsMk8EJefvVkEZjqfv+ae5P4YR/7x2BVNQkl2g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=hy5UWCAEJ8QpZLBQjuKhMArV1bapCPsMjvUUWG3LcSY=;
-	h=date:mime-version:subject:message-id:from;
+X-Originating-IP: [10.48.87.141]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-29_02,2025-07-28_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_013136_538795_BCCD87E7 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250729_014612_186842_B014431E 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,49 +106,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
 
-On 2025/7/29 15:30, Maxime Ripard wrote:
-> Hi,
-> 
-> On Thu, Jul 24, 2025 at 04:02:54PM +0800, Damon Ding wrote:
->> In order to move the parnel/bridge parsing and attachmenet to the
->> Analogix side, add component struct drm_bridge *bridge to platform
->> data struct analogix_dp_plat_data.
+
+On 7/28/25 19:54, Russell King (Oracle) wrote:
+> On Mon, Jul 28, 2025 at 07:28:01PM +0200, Andrew Lunn wrote:
+>>> +static inline bool stmmac_wol_enabled_mac(struct stmmac_priv *priv)
+>>> +{
+>>> +	return priv->plat->pmt && device_may_wakeup(priv->device);
+>>> +}
+>>> +
+>>> +static inline bool stmmac_wol_enabled_phy(struct stmmac_priv *priv)
+>>> +{
+>>> +	return !priv->plat->pmt && device_may_wakeup(priv->device);
+>>> +}
 >>
->> The movemenet makes sense because the panel/bridge should logically
->> be positioned behind the Analogix bridge in the display pipeline.
+>> I agree this is a direct translation into a helper.
 >>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> ---
->>   include/drm/bridge/analogix_dp.h | 1 +
->>   1 file changed, 1 insertion(+)
+>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 >>
->> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
->> index cf17646c1310..15cb6b706e9f 100644
->> --- a/include/drm/bridge/analogix_dp.h
->> +++ b/include/drm/bridge/analogix_dp.h
->> @@ -27,6 +27,7 @@ static inline bool is_rockchip(enum analogix_dp_devtype type)
->>   struct analogix_dp_plat_data {
->>   	enum analogix_dp_devtype dev_type;
->>   	struct drm_panel *panel;
->> +	struct drm_bridge *bridge;
->>   	struct drm_encoder *encoder;
->>   	struct drm_connector *connector;
->>   	bool skip_connector;
+>> I'm guessing at some point you want to change these two
+>> helpers. e.g. at some point, you want to try getting the PHY to do the
+>> WoL, independent of !priv->plat->pmt?
+>>
+>>> -	if (device_may_wakeup(priv->device) && !priv->plat->pmt)
+>>> +	if (stmmac_wol_enabled_phy(priv))
+>>>   		phylink_speed_down(priv->phylink, false);
+>>
+>> This might be related to the next patch. But why only do speed down
+>> when PHY is doing WoL? If the MAC is doing WoL, you could also do a
+>> speed_down.
 > 
-> So it's not the analogix_dp bridge, but the bridge after that if any?
+> No idea, but that's what the code currently does, and, as ever with
+> a cleanup series, I try to avoid functional changes in cleanup series.
 > 
-> You should probably change it to next_bridge to avoid any confusion.
+> Also, bear in mind that I can't test any of this.
+> 
+> We haven't yet been successful in getting WoL working in mainline. It
+> _seems_ that the Jetson Xaiver NX platform should be using PHY mode,
+> but the Realtek PHY driver is definitely broken for WoL. Even with
+> that hacked, and along with other fixes that I've been given, I still
+> can't get the SoC to wake up via WoL. In fact, the changes to change
+> DT to specify the PHY interrupt as being routed through the PM
+> controller results in normal PHY link up/down interrupts no longer
+> working.
+> 
+> I'd like someone else to test functional changes!
 > 
 
-Yes, &analogix_dp_plat_data.bridge is intended to be the next bridge 
-after analogix_dp bridge.
+Hello Russel,
 
-I will rename it to &analogix_dp_plat_data.next_bridge as suggested and 
-update it in the next version.
-
-Best regards,
-Damon
-
+First of all, thank you for taking the time to improve this code.
+What exactly do you mean by hacking? Forcing !priv->plat->pmt?
 
