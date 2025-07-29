@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E98C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 15:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F373FC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 15:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lMSzY7ue4eFWmMd8BYkzILVMrW6VArDgYPCn+6mjTsU=; b=OiE+HCvnt0aqXKG0lXztn9VFPA
-	BDKH6eNqeKxS9oMsT9ACcgLP7zL4iS8ltlQtN/A0wa2EzwEIZwzqqOL3qmbsICfixHoZVJ6dghbjp
-	6eIV2T56RWQJV6TeL9YRfLDiFpN8Mw3+0FMFQ7ws6aXxaAsGoLrCUm81MPHH/fDlEsDx4BdMALjH7
-	IiQ526Sd3TaZZqHAdeCtWI0Lbxkq0MUuuqsl5yMbSSHD0zQu3/SFWSAS/GYJjgsp4s6LjyoDAL+yB
-	zkcTAPWL2JBiaWFA4t2S+V30tOUwTDEemZKLbmatQFqNqqpTgk9slCvNuVwWZ0WjKFbNGBJBwL3EG
-	5MFkEz/g==;
+	bh=FFogQjnIODfHGj22Gx1zZo+ULkqnpv6siRtc6vWCMHA=; b=OiXtmn42pZn97MUDhUoKcXI72Q
+	RKKK6gaaSkt6U0R3ZoYRhx94TxhupvNKdl8cKVHdERanBpAtgrIaUPo19xCp23FGGEjDtjKeO4xVm
+	VBdHqIiSs3SNJIKl1eBQAuM74mvbXHhGI1vdu4Sc7UnIEhu2+kfyQWlRHwMsXPJTrw9/QsmoIwvdR
+	sZqqmL6rQb3GKkgt05GrRTe502wMhxhQ0W5CpeaABxuV1ag56zF/AFQCISZ960B9Dec/DDamzAJfl
+	Rq55mWNqcp6gxSYu5ufBR1oSpz5+Ql4amdTma3YKd+r8eVCXEpKTk8l7MZyUvLeHuYZTvNRaOMB+X
+	moA47ybg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugmT7-0000000HAXX-1NnG;
-	Tue, 29 Jul 2025 15:42:21 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1ugmVX-0000000HAnf-0f5s;
+	Tue, 29 Jul 2025 15:44:51 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugmPS-0000000H9rA-0QFG
+	id 1ugmPS-0000000H9rC-0WGb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 15:38:35 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4brzvn2GhLz2RVvT;
-	Tue, 29 Jul 2025 23:36:05 +0800 (CST)
+	Tue, 29 Jul 2025 15:38:36 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4brzsB3zkhzSjYy;
+	Tue, 29 Jul 2025 23:33:50 +0800 (CST)
 Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id A21F118005F;
-	Tue, 29 Jul 2025 23:38:26 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 734B1180487;
+	Tue, 29 Jul 2025 23:38:25 +0800 (CST)
 Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
  dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 29 Jul 2025 23:38:26 +0800
+ 15.2.1544.11; Tue, 29 Jul 2025 23:38:25 +0800
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 29 Jul 2025 23:38:25 +0800
+ 15.2.1544.11; Tue, 29 Jul 2025 23:38:24 +0800
 From: Yushan Wang <wangyushan12@huawei.com>
 To: <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
 CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
 	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <yangyicong@hisilicon.com>,
 	<wangyushan12@huawei.com>
-Subject: [PATCH 4/8] drivers/perf: hisi: Extract the event filter check of L3C PMU
-Date: Tue, 29 Jul 2025 23:38:19 +0800
-Message-ID: <20250729153823.2026154-5-wangyushan12@huawei.com>
+Subject: [PATCH 1/8] drivers/perf: hisi: Relax the event ID check in the framework
+Date: Tue, 29 Jul 2025 23:38:16 +0800
+Message-ID: <20250729153823.2026154-2-wangyushan12@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20250729153823.2026154-1-wangyushan12@huawei.com>
 References: <20250729153823.2026154-1-wangyushan12@huawei.com>
@@ -60,8 +60,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_083834_314120_94A23B1A 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250729_083834_344756_4F7C127F 
+X-CRM114-Status: GOOD (  12.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,48 +78,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-L3C PMU has 4 filter options which are sharing perf_event_attr::config1.
-Driver will check config1 to see whether a certain event has a filter
-setting. It'll be incorrect if we make use of other bits in config1
-for non-filter options. So check whether each filter options are set
-directly in a separate function instead.
+Event ID is only using the attr::config bit [7, 0] but we check the
+event range using the whole 64bit field. It blocks the usage of the
+resident field of attr::config. Relax the check by only using the
+bit [7, 0].
 
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_pmu.c | 2 +-
+ drivers/perf/hisilicon/hisi_uncore_pmu.h | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index db683dd7375c..a372dd2c07b5 100644
---- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-+++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -204,9 +204,15 @@ static void hisi_l3c_pmu_clear_core_tracetag(struct perf_event *event)
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+index ef058b1dd509..3050899ddf17 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+@@ -234,7 +234,7 @@ int hisi_uncore_pmu_event_init(struct perf_event *event)
+ 		return -EINVAL;
+ 
+ 	hisi_pmu = to_hisi_pmu(event->pmu);
+-	if (event->attr.config > hisi_pmu->check_event)
++	if ((event->attr.config & HISI_EVENTID_MASK) > hisi_pmu->check_event)
+ 		return -EINVAL;
+ 
+ 	if (hisi_pmu->on_cpu == -1)
+diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+index f4fed2544877..50a97e79076a 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
++++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+@@ -43,7 +43,8 @@
+ 		return FIELD_GET(GENMASK_ULL(hi, lo), event->attr.config);  \
  	}
- }
  
-+static bool hisi_l3c_pmu_have_filter(struct perf_event *event)
-+{
-+	return hisi_get_tt_req(event) || hisi_get_tt_core(event) ||
-+	       hisi_get_datasrc_cfg(event) || hisi_get_datasrc_skt(event);
-+}
-+
- static void hisi_l3c_pmu_enable_filter(struct perf_event *event)
- {
--	if (event->attr.config1 != 0x0) {
-+	if (hisi_l3c_pmu_have_filter(event)) {
- 		hisi_l3c_pmu_config_req_tracetag(event);
- 		hisi_l3c_pmu_config_core_tracetag(event);
- 		hisi_l3c_pmu_config_ds(event);
-@@ -215,7 +221,7 @@ static void hisi_l3c_pmu_enable_filter(struct perf_event *event)
+-#define HISI_GET_EVENTID(ev) (ev->hw.config_base & 0xff)
++#define HISI_EVENTID_MASK	0xff
++#define HISI_GET_EVENTID(ev) ((ev)->hw.config_base & HISI_EVENTID_MASK)
  
- static void hisi_l3c_pmu_disable_filter(struct perf_event *event)
- {
--	if (event->attr.config1 != 0x0) {
-+	if (hisi_l3c_pmu_have_filter(event)) {
- 		hisi_l3c_pmu_clear_ds(event);
- 		hisi_l3c_pmu_clear_core_tracetag(event);
- 		hisi_l3c_pmu_clear_req_tracetag(event);
+ #define HISI_PMU_EVTYPE_BITS		8
+ #define HISI_PMU_EVTYPE_SHIFT(idx)	((idx) % 4 * HISI_PMU_EVTYPE_BITS)
 -- 
 2.33.0
 
