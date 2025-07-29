@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CCFC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 11:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19C3C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 11:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g7iuRz92HCVIT1exQjMnG0/dtwvtLcUKiQwnTs/Nc7g=; b=nyfMJ02vdar0sjVP10THY9d0b1
-	Y8yAKfdcF681nL2Is6oMQcLLR+/dOBMMQUCOM784wqXNBU/SbmPlZIAE9lxbes+f1pGLvkV9sSWLM
-	jh58VhVoyp6B7qgzFcmwdwxl8MGI3Bjxl96Vri8MwP5kWvcKmjxxQ9huAGDZeVZyfzpUe1mMcC6tn
-	aavp63ty7adPjcYHWZYKx+v7uRT6vdULj4Of7Zn4bY+DKU+VHrC9TnunuiF2ai1glbtA6L8GlXkQf
-	pVyqNuaJKFmiRKHH8+6nvJKXWmTpAn+3GHMeB5tFZp7u/YYKf/apX8BqRkea3RNem5aCrMIRfRnew
-	b2QtzhKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ndgQ6kaCgk3fpnFUCA4YQhJBs5itv48fCfGXFazSnLY=; b=oNd2657b68pOJtH9bewQu54tR2
+	+jz13Q+QtDbULee4SbE29bkJwoH2HhJya5lYkmS5XBLwOYXIThIrvry107mBcZyMLYIoQe/kYyGvd
+	1Q/cVeWZCN1bHQOvaE/xFq5xDrwEEVbzaebIu0r9vtmY5RtDhPNgbBRhdBuH8uTdRuRk6ttZuVzvV
+	RQndbtkKsy9NTDUIG/mVD51NORdOeH+4qZRTmKbCLyx4tuT/8M25ojmWPVVW+MPxmCgYzDujQG8Nw
+	TfFUCFuqQhVzLpS/ZT2U2RqZ+8HgJfN9FRDqWgdmpj+u/xsHu5xqyVIK/ZsWniVilM1BDImAE5yTn
+	IfbVhKuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugiQ4-0000000GcH6-0x6l;
-	Tue, 29 Jul 2025 11:22:56 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1ugib0-0000000Gd28-2UjI;
+	Tue, 29 Jul 2025 11:34:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugiMZ-0000000Gbsk-0Ami
+	id 1ugiYX-0000000Gclh-1lx9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 11:19:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-451d7b50815so35409015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 04:19:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753787957; x=1754392757; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=g7iuRz92HCVIT1exQjMnG0/dtwvtLcUKiQwnTs/Nc7g=;
-        b=VfI6Rxlh6hq1WzK1KPk7+00yCpsTaFvW7DiwHKcKZYF9xPjVHIunzacN7J+eWwYwO2
-         UXszyzBtvALZw5nHRP7X30nzDDQgtm5loP3rVagLMphq+1wip7xMbBZrYd1rbPXJr1Qs
-         dXAOzTUJ+2VRAPna71/CkF1bG5Kebqsjk67XtqMzAD/w+FFAYiWPlt3NwAJrIrXIdhfr
-         XEDbbhoOImMz/fBN9ixaEhKqfD3E9JVP7/Hrq9ho9XIlhfxDaauWkMWEU55SZAR0vDQi
-         0n71I8OPyxdOApkzIirgCGXmLrAfPLOddEq+pyw2AM8Hj3McSZu9LZ+Eli/HHmiK1SMI
-         l+nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753787957; x=1754392757;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=g7iuRz92HCVIT1exQjMnG0/dtwvtLcUKiQwnTs/Nc7g=;
-        b=fIHfscEDeHXRJnHAeAaxKvrrwi3LNDwUI30DlOYEc0hhoOj7x7OrkFmChRSwGij+HO
-         6k3CFMFF7jQh8DYuTbzWbaX6rkgeUrHVd5BQSyvVNGNj3WaMoKXSfjn91GJSXCi9GE4q
-         UiJpEWa5PFaIbSvdnX85C9/EkSL+46baPPSIu4RL6HqYoEnz8rjugHU5NsHJ1+skVBo1
-         GYcjrywDBpElLE2t7k/Ph023Iif+Xy4QXZzOYvjsGfYI5Evi9YGAsJMkFYev3ToI+WAR
-         EFDMdd7wSD5dSAxEWd1g49rinRLUI1WdYIpH/fdyLe5+0dvexoKZrMQpwUi0QkOJ3tzm
-         jfAA==
-X-Forwarded-Encrypted: i=1; AJvYcCWT9H9IELuQAxn7RljE3afUsjrSy/vXfLT11iRI8p/IJMdYoMDsUtuJwir/WdILkqmSwtqDWeCpDWnVw14U1Qg+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxs7uSMX6pSfwa6FX4cxr1XT75NzeqlvRaFnWUb6f6t8iTr044i
-	CeOKKx1VDIPXUZMZoxHjid2WUynXFLsiIGfStBPvWYi7fMellVDGjdwHud8JnUy8
-X-Gm-Gg: ASbGncsLVgkds5Zz780QR4YntWyIZdS4sn15Ks4TBmSg7nklIl1661b/U9Gs8YT8rbu
-	Igza9CnkSOliwkocN595n6dYTlFFI0hj618PsWaW8Qp5048bNppQWV8w5moTTN9fLTKxIAom4sL
-	zlCJRESSzHiFVKetk2nNIfYx61m6iZaeWRCfGvwlKyXRc9yvfmrxaJ7fjOYRkg2e9UzkFSZhUOv
-	U7aK8oE4oshOX+/6GJxO7fkSLotPsZVakg7oLTZvUKmiy0w/5U4JrWMWfEH39cLN+q9kyUodUbj
-	lon5NYKhZoXOnWrLs17C1jJy9jnSPhFC6qHUiTFj/RsDyaUqjfiJcHkACTFRJZgbLOFIYOHRmyM
-	aJT4YXaSO/gUGpOJ3U9GPVRnGetmMX8A=
-X-Google-Smtp-Source: AGHT+IEn8baAKkdjQiKjD+OkAvGRUrXrS2YdK0Poq0GfjeJLzaXTkGoyXCAUov55fzv/FaoSuH9ICg==
-X-Received: by 2002:a05:600c:c173:b0:456:18f3:b951 with SMTP id 5b1f17b1804b1-458788a2116mr129642095e9.15.1753787956726;
-        Tue, 29 Jul 2025 04:19:16 -0700 (PDT)
-Received: from localhost ([87.254.0.133])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4588e5c2232sm23268075e9.13.2025.07.29.04.19.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Jul 2025 04:19:16 -0700 (PDT)
-From: Colin Ian King <colin.i.king@gmail.com>
-To: Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
+	Tue, 29 Jul 2025 11:31:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CA61C5C0F2E;
+	Tue, 29 Jul 2025 11:31:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35CF3C4CEF5;
+	Tue, 29 Jul 2025 11:31:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753788700;
+	bh=y4vGbQPemKBalKQIjXvDv5t7GDCaowzVXc0y68AGVhg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gh4BWWnN1B38M5qEC5SU5f91E5va0e5qOxwTmr43pxSnjArVIFXNwbgy/YdjU6yig
+	 ow7GVuylhQ1CzlsFSq214lJLqgA+T4NuZQvOi3IsTQVUx/7Jk5+6iaPZ5In8AkV1kK
+	 ppnAx+AbdjGFbkn9u5Ql+bivqgNJy83iCUI0WNy6q7n5tEuKkng9SxuwtFNhTnVf0U
+	 x5doAH37MXCTMyeLuzs2IMta58XcC/kccyOvuMNR9V3dVEd9SmVYY7B1mXv+pPfWxo
+	 oNTZOakA515YdJQoEtw06lv6cPD/RFiqwLG5igj5KPh0xLwozlfJ4MN0qdMfVxNqXc
+	 pS/yI3Wsby/fw==
+Date: Tue, 29 Jul 2025 12:31:35 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: mach-sa1100: Remove space before newline
-Date: Tue, 29 Jul 2025 12:18:42 +0100
-Message-ID: <20250729111842.1923915-1-colin.i.king@gmail.com>
-X-Mailer: git-send-email 2.50.0
+Subject: Re: [PATCH v5 04/10] coresight: Appropriately disable programming
+ clocks
+Message-ID: <f9fb2174-5bc5-4c7b-b74b-8542b4f7cbe0@sirena.org.uk>
+References: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
+ <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
+ <b3782b8f-8c09-4fb8-bec6-186102cc66a8@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QMmVRuHtuPBSW/9q"
+Content-Disposition: inline
+In-Reply-To: <b3782b8f-8c09-4fb8-bec6-186102cc66a8@sirena.org.uk>
+X-Cookie: Short people get rained on last.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_041919_077521_BEBB6B7D 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250729_043141_505653_01FAE30E 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,28 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is an extraneous space before a newline in a warning message.
-Remove it.
 
-Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
----
- arch/arm/mach-sa1100/jornada720_ssp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+--QMmVRuHtuPBSW/9q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm/mach-sa1100/jornada720_ssp.c b/arch/arm/mach-sa1100/jornada720_ssp.c
-index d94810217095..983988395488 100644
---- a/arch/arm/mach-sa1100/jornada720_ssp.c
-+++ b/arch/arm/mach-sa1100/jornada720_ssp.c
-@@ -144,7 +144,7 @@ static int jornada_ssp_probe(struct platform_device *dev)
- 		return ret;
- 	}
- 
--	printk(KERN_WARNING "SSP: initialization failed, trying non-irq solution \n");
-+	printk(KERN_WARNING "SSP: initialization failed, trying non-irq solution\n");
- 
- 	/* init of Serial 4 port */
- 	Ser4MCCR0 = 0;
--- 
-2.50.0
+On Mon, Jul 28, 2025 at 05:45:04PM +0100, Mark Brown wrote:
+> On Thu, Jul 24, 2025 at 04:22:34PM +0100, Leo Yan wrote:
+>=20
+> Previously we would return NULL for any error (which isn't super great
+> for deferred probe but never mind).
+>=20
+> > +	pclk =3D devm_clk_get_enabled(dev, "apb_pclk");
+> > +	if (IS_ERR(pclk))
+> > +		pclk =3D devm_clk_get_enabled(dev, "apb");
+>=20
+> ...
+>=20
+> >  	return pclk;
+> >  }
+>=20
+> Now we pass errors back to the caller, making missing clocks fatal.
 
+Thinking about this some more I think for compatiblity these clocks need
+to be treated as optional - that's what the original code was
+effectively doing, and I can imagine this isn't the only SoC which has
+(hopefully) always on clocks and didn't wire things up in DT.
+
+--QMmVRuHtuPBSW/9q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiIsRYACgkQJNaLcl1U
+h9CP7gf/a6QGIQvui9I8RFs1artw7Ym1nwZpYTmbZEe1GpG3O3wU/Xrwqci8/bIm
++xr5ymPxS+a+Po2e4bJZ1suPpFq/wp15/HzEF6DpEGWdgjvokn7JkteNO3UohWNw
+3o67pP6Il9kvUL6W2tRk4GQqqUGITGMlaiHX4Qqc2CuhJTHcNMNYXm3FpXQBeNBL
+xXUy04CjKL9I8kqWu/6bnAB5mSjj1MwDtWhQcWi/Xt83VwfeXIHTgMFDdIR3c62S
+xZ4KU5uHpxSLqY6dns5JbM6Ibqm3EKmVX1O0ZOTyPD7QgYusdNsQ+zaXqYVhPXAg
+yOtwcnHJpB/euhvB9Fui1K+ORnlDEg==
+=PiH5
+-----END PGP SIGNATURE-----
+
+--QMmVRuHtuPBSW/9q--
 
