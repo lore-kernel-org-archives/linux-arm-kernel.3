@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFDAC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DD0C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TxY+JKrWeGH0H6xo56T1MRsEGuU0255fEPWJ+EHkpqA=; b=NLbdAQmJyaBb0bktOiN0zVLxb2
-	swxxT8NvN/GY0jw9r8S5qADce+RR8gqROWTKmdEDVpjoZKIXH98bgbRsxGcs3LF7FvZyjlxByhLG1
-	mfvFOt535LVixo4/RIrZ4EkHa5wjoZJBdEQoKDkp+JvUHLBd1zQ9JnKKLKgxIal6eHw1SuWnA5CW4
-	q/XluRDm6VDG6t6yts/Zx5wit0AZgQ2ewJ18RrAfiBxQfxHf3QxIpYpF7WStcrI91GKK90VkBq2iB
-	ebPA/Sx9Frc1F+oMf3ll6CQeJ7ZQNZcgwnmWsCgmdk85kIB7T0mirPHVaOCJ26/MDg+JkjLTtJ74v
-	pSBwjt/w==;
+	bh=DGouwviuscU4MvVzPjOZbXPwY1apdTkMc59v81/WQ3o=; b=K7VykAN03inM4RpxW089aCcYuw
+	kTXtlRSNASffpaGUOxT6NBf8yiEGfWGQk6hiV+/xbInFPHcF4svWw0BTnnSFkuU5ui5G/aO6Wdzoo
+	QV7N60rbZjzOqAji+3LrayKjgcUQJVVR8wUQ4bcU6Tiq7/EW3irtjXOk/jldHhEQMpW4hnkKFGj8c
+	SNlVL1CqXB0KhU5+xf4tWr4hoJ2ygRm1IJMhGXVNBcw+edx3HbF+QjBtdA/CjGW4H2xxfHRCpVjnt
+	QKzGZUOgCkuLdd/lKTNvDa6ZtXS/D6CPFLgH42r+/C50HwSNFrQkcRptWw0lETVXxKsfXrYoDrBBP
+	k+deY/zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnum-0000000HLJb-2jCB;
-	Tue, 29 Jul 2025 17:15:00 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ugnxD-0000000HLeW-0Uym;
+	Tue, 29 Jul 2025 17:17:31 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnq2-0000000HKm3-1O46;
-	Tue, 29 Jul 2025 17:10:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1753808989; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SfxG9oyq7Xh8cTqP4vj/WMBsAVKKyJGE+kgbDuj9GfiznmFzbYCU1RFKYuJ1+PkM/MHnJiWt4bUh+cZ2fl7/Vzrszw8deKQciSfQL+emFjSlk4R2wePdVXx+SvXdQqh6KibmQVXeJDS0iZE0ib3d/Ih697a0bi1Fvx8rFrqYn/c=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1753808989; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=TxY+JKrWeGH0H6xo56T1MRsEGuU0255fEPWJ+EHkpqA=; 
-	b=jGKxLA38fK+Wa5kjzUZSZGRREuV//fN3TzV9QTPyK7DUAWUQgT6VVXQKS9RxRi1xfGvQ2nPhPkcOM1ujZdFRb3zSbmPCczj4CAWDz/5rbOyx00C8vaoSWqdio5MCz0mWu3WiC07ESQL7lgfcxqfgKmTNbSPCKhmfH7mUX6sDhOo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753808989;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=TxY+JKrWeGH0H6xo56T1MRsEGuU0255fEPWJ+EHkpqA=;
-	b=flWQIz7djxGg2eW+E94jqszUeQMWJ/YoZmfNOdOHpqLbst6uitu0W/kUVagoSK7D
-	ySTx3VwmZNGjMoVB7EmCXZZoBMqq3MB7PrJQ1vJ6JqZpBhPGWG9FF3zgSI7BX4aBwul
-	jr7++GN4QedV8dLVHczmIrWPdqIhoF3uLhSdL610=
-Received: by mx.zohomail.com with SMTPS id 1753808986669159.71490156758534;
-	Tue, 29 Jul 2025 10:09:46 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 669AE180F0B; Tue, 29 Jul 2025 19:09:41 +0200 (CEST)
-Date: Tue, 29 Jul 2025 19:09:41 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Andy Yan <andyshrk@163.com>
-Cc: dmitry.baryshkov@oss.qualcomm.com, heiko@sntech.de, hjc@rock-chips.com, 
-	mripard@kernel.org, naoki@radxa.com, stephen@radxa.com, 
-	cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com, 
-	yubing.zhang@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, robh@kernel.org, 
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort for
- rk3588s Cool Pi 4B
-Message-ID: <hbvwlucm5mnjpve6hb6h7dusgrokvdxzbpq5zrwib4yesrdakp@v77ofq7u2vv2>
-References: <20250728082846.3811429-1-andyshrk@163.com>
- <20250728082846.3811429-10-andyshrk@163.com>
+	id 1ugnrz-0000000HL3Z-2bG6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Jul 2025 17:12:08 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2402bbb4bf3so30168495ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 10:12:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753809126; x=1754413926; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DGouwviuscU4MvVzPjOZbXPwY1apdTkMc59v81/WQ3o=;
+        b=rXipHPm39I/laSIyOr0d/lAhtBKyK+ixlQX0rJoCRh3cDwSRt0hjGWhhaAxkX12KJJ
+         TvLHJarEvkXrxbLyuZaVVkOxIH5b5r67UGRbLDPq+ZYzyUuIx+K+rJcQujt+c5WwdbNy
+         1jv+QyHI8chnd85Qymw855jGDL3naCc9W35H8ksM4unVM19Bg3pAnsyx8fEticXEIAW2
+         eN7A4dIFHDAsa2xbvsH1Gk5XbhK1864EdDMjuZmRKwXhVb8lEDJ0uPbli6JKlCzUyhyY
+         0RHNCYXNQ5tFq/asxsTUBlwKXItoWJuVSAen9380ufw7s4F49zD/g22t9PneHMaJFdOu
+         t1uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753809126; x=1754413926;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DGouwviuscU4MvVzPjOZbXPwY1apdTkMc59v81/WQ3o=;
+        b=JcbY/KlKmdqLZwPuCS/q9gRBArXDYzAHP7tRUXqYy31YZmtIU3P1qHZDmrZuXjQaec
+         9RsfMJ9+O3JYQVgqb3S+eqX4hjYKi3ABLQRwchtKJG1QHChEHIaz7NUaCT/Pcm6g3254
+         S/WAWbZ9dl9rOmeOQh3UDBx+Plf7iRica38ICX42+5BT1E1xLinE2qJn+KFOrlFStI+Y
+         kbJMH2mNV4AGoHUogbNb+DhfXBr6TSMKlxxrDPniKX3KFDnukZ+ddmR0r+yOg7BoSaBJ
+         TvFm9Ki2oz15MomlGfSObuhuVfGwBXoDX5DdpzSQ4IxNLIBPUD/HR7daFp0KVzHkV/f5
+         lDOw==
+X-Forwarded-Encrypted: i=1; AJvYcCV7gWp6xoC8BsKwJuqYY50dprg5+0ciCGssIsH1xeO5VzAPwWlpWZzJ5GPwaxv1NAPtFLeWxE6ggqBRhMsFLpeK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMzfKSQvY0I+DIPycGWYMpWOVsQyU+JADSfynZEXGgRrwTtM6G
+	fD/k2zxbpxwT7ttaczmRDKBNnNl/EacDsADq4DOfnNk65htwvB2+ufphTKXfUTT+xQ==
+X-Gm-Gg: ASbGncvuxrGIcoB74x5KZUOEsoo8qsxmBVrijK9HGMrJs46tWznIEbmKWNjJEajpbPT
+	8T+Ws55pGmVREDcSZmgOFIaWwyU3hQwCvO4oOZlFR8pD9LZnj4diRY3iNRI1HMQJ+9YGKxtyJnP
+	2MEAx65uC4GDdFTZAHeBUWj24W/28QTIVJdCYNzvmHE7TsffMyq97Mp+ZfMJiuRQaIH/Fd60eeK
+	K3puANZneTiaa4SyaAIv68yf11ycxVtygLUVwwiVv2O+s7ULV+aQpNYL84rNCeUYAQTMnd5OgFU
+	1RKaoNKmjSwln06QO1He8Rxdkw2pupqHlzK9gGeC4FggxUOFU24BX54szzZZyt0H9OyMYiPFCSX
+	3mL5a6KhqFHzhz5WCt4j5hZz7FI0wJQGBGypjSJ2Dqvr0qtdIKe2c0ukY07gqHBE=
+X-Google-Smtp-Source: AGHT+IFbUdPnNNCdHdOd3aWHqfiWNykncHbUZuz2LGLXLcHMra+1y9VTs59V2W3LfoQRs9MqT/0x+Q==
+X-Received: by 2002:a17:902:cf0b:b0:240:4b3b:334f with SMTP id d9443c01a7336-24096b4c467mr2110255ad.34.1753809125594;
+        Tue, 29 Jul 2025 10:12:05 -0700 (PDT)
+Received: from google.com (152.33.83.34.bc.googleusercontent.com. [34.83.33.152])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f32cb3430sm2060873a91.33.2025.07.29.10.12.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Jul 2025 10:12:05 -0700 (PDT)
+Date: Tue, 29 Jul 2025 10:11:58 -0700
+From: William McVicker <willmcvicker@google.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Youngmin Nam <youngmin.nam@samsung.com>,
+	Donghoon Yu <hoony.yu@samsung.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Revert commits causing
+ section mismatches
+Message-ID: <aIkA3sMvioatVNFu@google.com>
+References: <20250725090349.87730-2-krzysztof.kozlowski@linaro.org>
+ <63a6d253-305d-4ffd-9954-7cd665bd332d@linaro.org>
+ <2f413942-8126-4d94-b64b-c4a05052b5a1@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iihpr7ffgjlj4iks"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250728082846.3811429-10-andyshrk@163.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/253.35.66
-X-ZohoMailClient: External
+In-Reply-To: <2f413942-8126-4d94-b64b-c4a05052b5a1@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_101006_437470_943057F9 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20250729_101207_659480_0B7C5E5B 
+X-CRM114-Status: GOOD (  31.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,142 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 07/25/2025, Krzysztof Kozlowski wrote:
+> On 25/07/2025 11:28, Daniel Lezcano wrote:
+> > On 25/07/2025 11:03, Krzysztof Kozlowski wrote:
+> >> Commit 5d86e479193b ("clocksource/drivers/exynos_mct: Add module
+> >> support") introduced section mismatch failures.
+> >> Commit 7e477e9c4eb4 ("clocksource/drivers/exynos_mct: Fix section
+> >> mismatch from the module conversion") replaced these to other section
+> >> mismatch failures:
+> >>
+> >>    WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x164 (section: .text) -> register_current_timer_delay (section: .init.text)
+> >>    WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x20c (section: .text) -> register_current_timer_delay (section: .init.text)
+> >>    ERROR: modpost: Section mismatches detected.
+> >>
+> >> No progress on real fixing of these happened (intermediary fix was still
+> >> not tested), so revert both commits till the work is prepared correctly.
+> > 
+> > Please don't claim the fix was not tested. I reproduced the section 
+> 
+> 
+> section mismatch code MUST BE tested with enabled DEBUG_SECTION_MISMATCH
+> and disabled SECTION_MISMATCH_WARN_ONLY. If you have warnings which you
+> missed (although if you have warnings what did you fix?), means you did
+> not prepare testing setup.
 
---iihpr7ffgjlj4iks
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort for
- rk3588s Cool Pi 4B
-MIME-Version: 1.0
+Thanks Krzysztof for reporting this! Sorry for the mess this has created. I was
+unaware of testing with DEBUG_SECTION_MISMATCH and clearly missed those
+warnings when I compile tested with ARCH=arm. I see the issue and will fix
+the patches accordingly.
 
-Hi,
+Regarding ARM32 runtime testing, how do I ensure my patch series is testing on
+ARM32 devices? The series was discussed on the list for quite some time and I'm
+wondering what step I missed to get this further tested? Do I just need to
+explicitly request for ARM32 testing on the list?
 
-On Mon, Jul 28, 2025 at 04:28:34PM +0800, Andy Yan wrote:
-> From: Andy Yan <andy.yan@rock-chips.com>
->=20
-> Enable the Mini DisplayPort on this board.
-> Note that ROCKCHIP_VOP2_EP_DP0 is defined as 10 in dt-binding header,
-> but it will trigger a dtc warning like "graph node unit address error,
-> expected "a"" if we use it directly after endpoint, so we use "a"
-> instead here.
->=20
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
+To avoid this in the future, I took a look at the thread that introduced the
+section mismatch warning [1] and wondering (before I propose this broadly) if
+we can make section mismatches fatal by default for everything except
+allmodconfig? Then we can selectively disable it where appropriate.
 
-The graph currently looks like this:
+[1] https://lore.kernel.org/all/1443807963-36364-1-git-send-email-drinkcat@chromium.org/
 
-VOP <-> DP controller <-> DP Connector
+Thanks,
+Will
 
-IIUIC this does not work for USB-C and needs to look like this,
-because the USBDP PHY handles the lane muxing and thus must be
-the thing connected to the USB-C controller/connector:
-
-VOP <-> DP controller <-> USBDP PHY <-> USB-C Connector
-
-I wonder if the simple case not involving USB-C should also have
-the USBDP PHY described in the graph as a transparent bridge?
-Note, that the USBDP PHY DT binding is currently not ready for
-this (this also affects the next patch, but should be enough to
-discuss this once :)).
-
-Greetings,
-
--- Sebastian
-
->=20
-> (no changes since v2)
->=20
-> Changes in v2:
-> - Sort in alphabetical order
->=20
->  .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 37 +++++++++++++++++++
->  1 file changed, 37 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/ar=
-m64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-> index 8b717c4017a46..5393c6cc493c3 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-> @@ -39,6 +39,18 @@ chosen {
->  		stdout-path =3D "serial2:1500000n8";
->  	};
-> =20
-> +	dp-con {
-> +		compatible =3D "dp-connector";
-> +		label =3D "DP OUT";
-> +		type =3D "mini";
-> +
-> +		port {
-> +			dp_con_in: endpoint {
-> +				remote-endpoint =3D <&dp0_out_con>;
-> +			};
-> +		};
-> +	};
-> +
->  	hdmi-con {
->  		compatible =3D "hdmi-connector";
->  		type =3D "d";
-> @@ -215,6 +227,24 @@ &cpu_b2 {
->  	cpu-supply =3D <&vdd_cpu_big1_s0>;
->  };
-> =20
-> +&dp0 {
-> +	status =3D "okay";
-> +	pinctrl-0 =3D <&dp0m0_pins>;
-> +	pinctrl-names =3D "default";
-> +};
-> +
-> +&dp0_in {
-> +	dp0_in_vp2: endpoint {
-> +		remote-endpoint =3D <&vp2_out_dp0>;
-> +	};
-> +};
-> +
-> +&dp0_out {
-> +	dp0_out_con: endpoint {
-> +		remote-endpoint =3D <&dp_con_in>;
-> +	};
-> +};
-> +
->  &gpu {
->  	mali-supply =3D <&vdd_gpu_s0>;
->  	status =3D "okay";
-> @@ -889,3 +919,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
->  		remote-endpoint =3D <&hdmi0_in_vp0>;
->  	};
->  };
-> +
-> +&vp2 {
-> +	vp2_out_dp0: endpoint@a {
-> +		reg =3D <ROCKCHIP_VOP2_EP_DP0>;
-> +		remote-endpoint =3D <&dp0_in_vp2>;
-> +	};
-> +};
-> --=20
-> 2.43.0
->=20
-
---iihpr7ffgjlj4iks
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmiJAEsACgkQ2O7X88g7
-+prNtg//bsKKMAA8eaI9O6lXTAxHpG5/NO6poWY5y1hlAapvyZeYfdlPRJFAPnV4
-vu3UUT2mwRQOeAE6SzjKI2DOvtKU3vDQJgf8a9OrHM3OuS3+ioutmpyhX2YyeANt
-GjC0tX7gfv7dOTzp9L3j2pEGN7bQNQLZh9doIjM1f+wdCBvgKB7pMbwDeoPoHzf0
-UwhUQ2eB4EgVZn7XNd5NnF5eL7/JosLDNrYkek0M/rfrgkV7Hfq6HmvPSTnd0w57
-sAl/zZ66VAAnEukJ2PDyZOR5vCM1qlEn4Bux919MB0ltGyHuHXBB8MLosIFVNRBA
-aesK52/wn7w4EhE4Jg+iEggmk6kqMu67wOEdWyfPZ8gL/xrFi7j7u1CYAWpaTI5R
-dBxq55fS9o/pcTQ41HDEyX4TfV+11c5TnxPGo+0NQlucZqDEO7UcddXl76IuVIUO
-pgqREMW9l9Y8+vozkUXmgTQrqk6wde/3R2i7kBSFnj1FAGsHWkO1rY9ESy+uyghZ
-PMu8pPQuNKTdX8vMI1ejrbPbbNawsMvpLhHVN1S72qK3sSy4U9BUnEjrHR5bjJor
-fmYq+pk3URBT3tsaubEmvV1TGNZnrs+8E6U8Ls6ewDEZ8OG1IezkiR2DHnj/oi4x
-I+c7X3YmyfDiEUX11MpjNVy3ROss+0q83O5mc6tmJAR7CaongWs=
-=0LrM
------END PGP SIGNATURE-----
-
---iihpr7ffgjlj4iks--
+> 
+> > mismatch, tested it and figured out it was indeed fixing the issue. I 
+> > just missed the error because it sounds very close to the first one 
+> > reported initially and I did the confusion.
+> > 
+> > The driver is not supposed to be compiled as a module on ARM32.
+> > 
+> > The option tristate "Exynos multi core timer driver" if ARM64 is 
+> > misleading. From this change, the defconfig on ARM can do 
+> > CONFIG_EXYNOS_MCT=m which should not be allowed.
+> > 
+> > Before getting wild and revert everything, let's try to find a proper 
+> > fix for that.
+> 
+> I am not wild here. The issue is there since 9 days.
+> 
+> Best regards,
+> Krzysztof
 
