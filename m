@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC67C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 10:10:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A1AC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 10:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OjrzzwNMA+3O7j9t/xTKxk8mOnp+XZv5foYx7oPCGic=; b=jlQEN9NklCYG75Kv2khYEnqLnY
-	AFN5UCc1CBIUVo2I3e1DQ12gVcUzUj0Ea6/x82WnHpRTq9nCvVlpVaVu7d+MZjsZuMSNtCP8hDnbT
-	oPlllmUo9v0Uw1CMi4eIKmCyZYXX1lhJmwIw1nFecKge7C6HXJjYSYNUc1c5QJxBX3a4hBebjsZCA
-	FgfHqaBZgHBYrfyrM0dDod+pKpiAXRcPIG9j5vopWbi4s00ElUyrEPboHuThxCp8ZcEiJ/x+qctE3
-	Xh2lblCUrQipbTqm7AxojbJOi98u3XlJqVDFyGyztJ0Ssk7Yj/9TO8ilpAkwOZU61vyxq4NyjKkKf
-	/871nVSQ==;
+	bh=oMEe3XZpHPxwwnaqtq+9kNL/ex5JhOTcLJrsDcwD9OY=; b=ryBzkM0tnl9l/iYN5ag1mqxErg
+	vbT1hw8Hp3O3Aeb8we/GwPEFBTX4iSyfFEZFoJ+V4Zr0QnNKhnv1kZhDhqV1nmWglRXkdIzNIzuf9
+	ttbeHBIc+p1sR0XTjoX0slAgfPE1rhejN2cUk8UjsW26MPdOTAwQOBbj8iJ4LkeY6Ek+DNmvxvWf7
+	LIZUD5MIkw8o7b3Pj6qbW2l+HIh3g+ZxrE8MiyRdMB/g7RgGdDz9GiR+bhITklSJoiR5JWpqSI4AV
+	Kh45zObvGXbuklsBL5YFdqLVlwydIPxXerJShx2HLnzipNWMoXsCSR0/s+E/hgW6ZC8fvFWZJwMmT
+	FuQPlENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ughHu-0000000GUU7-3tbN;
-	Tue, 29 Jul 2025 10:10:26 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1ughMP-0000000GV0D-0amq;
+	Tue, 29 Jul 2025 10:15:05 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ughFK-0000000GUCL-34uP;
-	Tue, 29 Jul 2025 10:07:48 +0000
+	id 1ughJu-0000000GUgp-0gQf;
+	Tue, 29 Jul 2025 10:12:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753783664;
-	bh=o/WtOzmD0eqgF0NqPyOK0K28rcV98y6nu4G49mqiIsg=;
+	s=mail; t=1753783948;
+	bh=ga1JTtLUG7Q52MGzj+vkuRjsmvah356T2zKFS+YsXcE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ULbWeeMOHHXy+5q8edRndOYyouEGmLDHksHpclNESI2LteyNpH3PGnB8mgBneH4/W
-	 B/E0352vsKkUHOhBDCMzRTucAJdjw/p1CnU1wExUBj/Wct+TqP65RjQoI3Mpb/R/CG
-	 vyCbVzpt+H6NN7XHMdJ09rL3qyVwwWK8nwA8K/nKNK+zg4tH7CnhFQIYuDG+eKHTRt
-	 W62fgblpj/QZbDJlqP/UUlpU5DOHQnVTMaRphPSmvgvRQ6gUkOfXX/vjkt/oG/rqvv
-	 GuVZsYa87WprCnIJeoRj5bK8Qf7h1VjjKfrLN69Yk6oZlLPDFQHPNJj/oF6A3i0jrj
-	 kSwWK9pO7LBdQ==
+	b=N/5cyCKubm8JTRiz0NaERogxpC26wBdILD44OYbuR3AyAWI2d4V2tKksMFHzjPQaY
+	 KXedWyGg99EDOZADwvUFIH+00PqZfJAhxSVmF5t35hBFA0w6HaslbJtfhKLd58Ihzc
+	 jdo59aEPgerez2WgwWAoKe1NF2qZlg9qwiCXwAoWiuE1rFWllIgYZ84jVcpGTQRkQ7
+	 0PEjqS64qpCOiWM+iQfC48TTL5dMgBTjocbslKIYcCBkz/V4Cmunwo76FDYje2/cQX
+	 rp812m3xIHZwy+4362adXy4sNGQKSpJqSG5peTqfIotZ1kIE73c6usUW9aEz5H7niS
+	 N+Cf+coo7+e8A==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F46317E1315;
-	Tue, 29 Jul 2025 12:07:44 +0200 (CEST)
-Message-ID: <bb4d8100-ceb2-4ce1-bf27-86fe21ce2aad@collabora.com>
-Date: Tue, 29 Jul 2025 12:07:43 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 380AF17E1284;
+	Tue, 29 Jul 2025 12:12:27 +0200 (CEST)
+Message-ID: <8fbe2710-df2a-463d-a6d0-3e3c1a2ba465@collabora.com>
+Date: Tue, 29 Jul 2025 12:12:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] pwm: mediatek: Fix duty and period setting
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, John Crispin <john@phrozen.org>
-Cc: linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH v3 4/4] arm64: defconfig: Enable UFS support for MediaTek
+ Genio 1200 EVK UFS board
+To: Macpaul Lin <macpaul.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org
-References: <cover.1753717973.git.u.kleine-koenig@baylibre.com>
+Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
+ Ramax Lo <ramax.lo@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
+ MediaTek Chromebook Upstream
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20250729093506.273337-1-macpaul.lin@mediatek.com>
+ <20250729093506.273337-4-macpaul.lin@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <cover.1753717973.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <20250729093506.273337-4-macpaul.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_030746_925962_A159F819 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20250729_031230_351883_C562B697 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +85,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 28/07/25 18:00, Uwe Kleine-König ha scritto:
-> Hello,
+Il 29/07/25 11:35, Macpaul Lin ha scritto:
+> Enable the UFS related settings to support Genio 1200 EVK UFS board.
+> This board uses UFS as the boot device and also the main storage.
+> This includes support for:
+>   - CONFIG_SCSI_UFS_MEDIATEK
 > 
-> here comes v3 of the (formerly patch, now) series to fix duty_cycle and
-> period setting for the mediatek PWM driver.
-> 
-> v2: https://lore.kernel.org/linux-pwm/20250724210041.2513590-2-u.kleine-koenig@baylibre.com
-> 
-> Changes since v2:
-> 
->   - Split changed clock handling into a separate patch (suggested by
->     AngeloGioacchino)
->   - Drop
-> 
-> 	if (err < 0)
-> 	        return err;
-> 
->     just before an unconditional
-> 
-> 	return err;
-> 
->     .
-> 
-> 
-> I didn't add a R-b for AngeloGioacchino yet, as it felt wrong to do that
-> for a patch that he didn't see before. So assuming you're happy, please
-> provide the tag again for this v3.
-> 
-
-For the whole series
+> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-Cheers,
-Angelo
-
-> v1: https://lore.kernel.org/linux-pwm/20250710163705.2095418-2-u.kleine-koenig@baylibre.com
-> 
-> Best regards
-> Uwe
-> 
-> Uwe Kleine-König (2):
->    pwm: mediatek: Handle hardware enable and clock enable separately
->    pwm: mediatek: Fix duty and period setting
-> 
->   drivers/pwm/pwm-mediatek.c | 71 ++++++++++++++++++++------------------
->   1 file changed, 37 insertions(+), 34 deletions(-)
-> 
-> base-commit: 68b9272ca7ac948b71aba482ef8244dee8032f46
-
 
 
