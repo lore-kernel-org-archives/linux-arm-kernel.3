@@ -4,77 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84140C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 08:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE5DC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 08:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7oOJG5KTLIajgCuDI26bWwy2UJFAttGvQUBB26YlI0=; b=GdOM2sSKLKklORkbAJLppkg7Jg
-	6q7QW1pjSiLtIzu3we8FOMVlu8GtcUYx+4cVerbf86lGxFNS6OAaWnK9Sn3wBvrh+VRcb/oooEPS0
-	bbTKXw44p4d/j40qe8vuxHXoNgNI8ScXNZfCw6PraWc+e6pQvAw5yUxPSCS5hT9ez3cSR74YIsJha
-	i5y4bw69lYJvlSdr9QtdxxVcrJgaPL9qkT2odIub16FLmgk7QlSiZF/Soexm44hd1/1BURlUokTJc
-	ouey1Etfj4aouhWY2lBLc1B7bSV/cuksa35sHA3Ltcx67iVrUjpvsAocPyzi28z+FdqBnAxQD1bYb
-	19mnx5jg==;
+	bh=2JhJ23PKDGh0rNTPf4+9GEhrGZZAPJDZKUqvEUJMYfY=; b=f8mRTCc32/dR5rHz6hAo7Brsft
+	bHF5UkuogYCl2E8GPqmtFF+SERastdmx9L5yDeUYAYfEPK7/ZzWP6bSJCPQKg4rqdMRu4VsE7eQ1q
+	Km0EUwopDt+x9PloiZlC6UTtdU6VTgGm9JrAfBBiqxAIhy26wvetvWv9iKthi72W+QSQWfGTKjuo/
+	xt/hNzbKotfU/TWlG0KZdb7hP0S/LOe1tNZe2ZGqtnpZ+kltPn515nipugwFpbrtoLwAwDUsjCcRZ
+	87fGGHtlUYqD4USFrxIq54Lgirao1Sy1ML9NTeAnIi4MqmACK/1UJz7nJDILNMWN7mX2W0kfEORMG
+	XDp9TTWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugg3K-0000000GITi-1RhA;
-	Tue, 29 Jul 2025 08:51:18 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1ugg5l-0000000GIqg-2daA;
+	Tue, 29 Jul 2025 08:53:49 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugg0A-0000000GI3D-2KaG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 08:48:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=P7oOJG5KTLIajgCuDI26bWwy2UJFAttGvQUBB26YlI0=; b=w9hTs92QWrfKsmkOfTZU3IzEK9
-	/NKQF8UfFxhlytprmFOCd75wSELHVG+RUGnz4wM7Dx+2BPss78SGmtPdHHKqXTVoV+8J/kyMTLg/I
-	hRViRpc1b1w3DMsWnVpCv6p54buc+jEfs+NYmwP4vuf7807MxGJTSNKyACuKF7NsdLYmIeK/zwHhi
-	6rTY9HECZiKlsvCvt5yr4ekE9YHDNY01jZOJ1qgJQQMG36r0aFS4MlX9ZudxvFrYkCa2Z9Kux6Z8z
-	zaUq7ikJI+pkp1WYuCTMqBTlJM0X1inAtGKp0jvRfT3AF6NHz39TTUui2BCr/k4YynT5kjqW0JN+N
-	+vUvWBFQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47240)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ugg04-0001bH-0U;
-	Tue, 29 Jul 2025 09:47:56 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ugg01-0007G2-2s;
-	Tue, 29 Jul 2025 09:47:53 +0100
-Date: Tue, 29 Jul 2025 09:47:53 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next 7/7] net: stmmac: explain the
- phylink_speed_down() call in stmmac_release()
-Message-ID: <aIiKuVwyzR4ZSitl@shell.armlinux.org.uk>
-References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
- <E1ugQ38-006KDX-RT@rmk-PC.armlinux.org.uk>
- <b612eaee-17f2-4cab-bc37-a1cb9560ffe1@lunn.ch>
+	id 1ugg0U-0000000GI5w-3xM1;
+	Tue, 29 Jul 2025 08:48:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F1055C60F6;
+	Tue, 29 Jul 2025 08:48:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B402FC4CEF5;
+	Tue, 29 Jul 2025 08:48:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753778902;
+	bh=2JhJ23PKDGh0rNTPf4+9GEhrGZZAPJDZKUqvEUJMYfY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mNAAoGpN/YY4FI3E9IjMxHdPD0kk9XalVNVAzKrpsR5O3jdpDjrcpf1gyFV00y2b+
+	 2kB3X6Wel/4P8A52a5+S/oPsWTptQrti7af0fojd+r7RIbsKtdq88TkGOmzleDfftC
+	 L40j/hPxabP0hFKIdZLm2X6p6yf72JrwFd8QtgDCyKk82X/DMB0yYdRYlVp4i4bQke
+	 jcz/YOD2N3EAKJfUi/Em2gF1rdVg9hEiivzvzcflPhLz48zsBTV4nrqO5zfoX43Os1
+	 ucB0/ejIRjdvNv4Tsg7bUCcNi3OJT/EKp/cgomKb2rc0ITUC+7p8/MjUXvy2JWrBMt
+	 Ou+p1ZXShTW0w==
+Date: Tue, 29 Jul 2025 10:48:19 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Erik Beck <xunil@tahomasoft.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] dt-bindings: arm: rockchip: add
+ LinkStar-H68k-1432v1
+Message-ID: <20250729-passionate-jerboa-of-superiority-c7aff5@kuoka>
+References: <20250728-linkstarpatch_v5-v5-0-b4ebfeaca652@tahomasoft.com>
+ <20250728-linkstarpatch_v5-v5-2-b4ebfeaca652@tahomasoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <b612eaee-17f2-4cab-bc37-a1cb9560ffe1@lunn.ch>
+In-Reply-To: <20250728-linkstarpatch_v5-v5-2-b4ebfeaca652@tahomasoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_014802_595310_C5824E27 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20250729_014823_020816_07A372DE 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +75,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 07:29:09PM +0200, Andrew Lunn wrote:
-> On Mon, Jul 28, 2025 at 04:46:02PM +0100, Russell King (Oracle) wrote:
-> > The call to phylink_speed_down() looks odd on the face of it. Add a
-> > comment to explain why this call is there.
-> > 
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> >  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > index f44f8b1b0efa..0da5c29b8cb0 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> > @@ -4138,8 +4138,13 @@ static int stmmac_release(struct net_device *dev)
-> >  	struct stmmac_priv *priv = netdev_priv(dev);
-> >  	u32 chan;
-> >  
-> > +	/* If the PHY or MAC has WoL enabled, then the PHY will not be
-> > +	 * suspended when phylink_stop() is called below. Set the PHY
-> > +	 * to its slowest speed to save power.
-> > +	 */
-> >  	if (device_may_wakeup(priv->device))
-> >  		phylink_speed_down(priv->phylink, false);
-> > +
-> 
-> Is there a corresponding phylink_speed_up() somewhere else? Does that
-> need a similar comment?
+On Mon, Jul 28, 2025 at 11:07:37AM -0400, Erik Beck wrote:
+> Add device tree bindings.
 
-__stmmac_open() does:
+I don't understand why correct patch order was changed to incorrect.
 
-        phylink_start(priv->phylink);
-        /* We may have called phylink_speed_down before */
-        phylink_speed_up(priv->phylink);
+See submitting patches in DT bindings dir.
 
-So yes, there is a corresponding call, and it's unconditional, so such
-a comment there wouldn't make sense.
+Best regards,
+Krzysztof
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
