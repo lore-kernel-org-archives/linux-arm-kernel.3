@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DD0C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:17:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6FDC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGouwviuscU4MvVzPjOZbXPwY1apdTkMc59v81/WQ3o=; b=K7VykAN03inM4RpxW089aCcYuw
-	kTXtlRSNASffpaGUOxT6NBf8yiEGfWGQk6hiV+/xbInFPHcF4svWw0BTnnSFkuU5ui5G/aO6Wdzoo
-	QV7N60rbZjzOqAji+3LrayKjgcUQJVVR8wUQ4bcU6Tiq7/EW3irtjXOk/jldHhEQMpW4hnkKFGj8c
-	SNlVL1CqXB0KhU5+xf4tWr4hoJ2ygRm1IJMhGXVNBcw+edx3HbF+QjBtdA/CjGW4H2xxfHRCpVjnt
-	QKzGZUOgCkuLdd/lKTNvDa6ZtXS/D6CPFLgH42r+/C50HwSNFrQkcRptWw0lETVXxKsfXrYoDrBBP
-	k+deY/zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hVEV/TSm1W1PFMOSwee9B8OOxzTuIcz20KTJ/vy5N8Y=; b=i5i5tLtpaZcWgyOktsiZoBZ+tM
+	U+zjajIK5mSTEek9hKSvZ2Z0+GGXBCtDn7C10jiyXINuqZBY9z/rafa5t4r3ZzjdCjcV+0zzmjbkA
+	GU4gdKIB8gMmezWGGUPePuQZOQY7d2LYEz/z0yEKbSmaH5lg4A7mhQtRocFL7i3IBZNj1Q7b2azvi
+	qnvvZZDcjDDizLZhFgXcL0ihlPoOxFikZuUAn90EcoFXFGR8SPopSoNN6YhsXdZW81vjaiABdKKQv
+	nSkKkRu7kwtduTViK9Yq8NXRM9FVHj8a8tG9K2sgeyjrjitKLOdmNfmqc/r5HiCfAWlJigHRCLUju
+	9qYunUBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnxD-0000000HLeW-0Uym;
-	Tue, 29 Jul 2025 17:17:31 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1ugnze-0000000HLzR-0WmC;
+	Tue, 29 Jul 2025 17:20:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnrz-0000000HL3Z-2bG6
+	id 1ugnsJ-0000000HL6A-43Fh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 17:12:08 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2402bbb4bf3so30168495ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 10:12:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753809126; x=1754413926; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DGouwviuscU4MvVzPjOZbXPwY1apdTkMc59v81/WQ3o=;
-        b=rXipHPm39I/laSIyOr0d/lAhtBKyK+ixlQX0rJoCRh3cDwSRt0hjGWhhaAxkX12KJJ
-         TvLHJarEvkXrxbLyuZaVVkOxIH5b5r67UGRbLDPq+ZYzyUuIx+K+rJcQujt+c5WwdbNy
-         1jv+QyHI8chnd85Qymw855jGDL3naCc9W35H8ksM4unVM19Bg3pAnsyx8fEticXEIAW2
-         eN7A4dIFHDAsa2xbvsH1Gk5XbhK1864EdDMjuZmRKwXhVb8lEDJ0uPbli6JKlCzUyhyY
-         0RHNCYXNQ5tFq/asxsTUBlwKXItoWJuVSAen9380ufw7s4F49zD/g22t9PneHMaJFdOu
-         t1uw==
+	Tue, 29 Jul 2025 17:12:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1753809146;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hVEV/TSm1W1PFMOSwee9B8OOxzTuIcz20KTJ/vy5N8Y=;
+	b=Aoysm56vxDj3Dkcv0mhzKj051bPG8RwnuPU66bi3zD3hfTiTi0hE6CZzo5aNmb4mbDGUQA
+	tk3koZz7C42cJPZjPR5fOB79keyE8xEJOyM5a5rSAgUfbFUfoQ2ZsmM/5uFOwYkveuqaFE
+	CSMc67XE3peLeO0w3071pVKwK/KJ0L8=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-164-2oRNxybmMcWjql2PXE2ZLQ-1; Tue, 29 Jul 2025 13:12:24 -0400
+X-MC-Unique: 2oRNxybmMcWjql2PXE2ZLQ-1
+X-Mimecast-MFC-AGG-ID: 2oRNxybmMcWjql2PXE2ZLQ_1753809143
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a4e713e05bso2065680f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 10:12:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753809126; x=1754413926;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DGouwviuscU4MvVzPjOZbXPwY1apdTkMc59v81/WQ3o=;
-        b=JcbY/KlKmdqLZwPuCS/q9gRBArXDYzAHP7tRUXqYy31YZmtIU3P1qHZDmrZuXjQaec
-         9RsfMJ9+O3JYQVgqb3S+eqX4hjYKi3ABLQRwchtKJG1QHChEHIaz7NUaCT/Pcm6g3254
-         S/WAWbZ9dl9rOmeOQh3UDBx+Plf7iRica38ICX42+5BT1E1xLinE2qJn+KFOrlFStI+Y
-         kbJMH2mNV4AGoHUogbNb+DhfXBr6TSMKlxxrDPniKX3KFDnukZ+ddmR0r+yOg7BoSaBJ
-         TvFm9Ki2oz15MomlGfSObuhuVfGwBXoDX5DdpzSQ4IxNLIBPUD/HR7daFp0KVzHkV/f5
-         lDOw==
-X-Forwarded-Encrypted: i=1; AJvYcCV7gWp6xoC8BsKwJuqYY50dprg5+0ciCGssIsH1xeO5VzAPwWlpWZzJ5GPwaxv1NAPtFLeWxE6ggqBRhMsFLpeK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMzfKSQvY0I+DIPycGWYMpWOVsQyU+JADSfynZEXGgRrwTtM6G
-	fD/k2zxbpxwT7ttaczmRDKBNnNl/EacDsADq4DOfnNk65htwvB2+ufphTKXfUTT+xQ==
-X-Gm-Gg: ASbGncvuxrGIcoB74x5KZUOEsoo8qsxmBVrijK9HGMrJs46tWznIEbmKWNjJEajpbPT
-	8T+Ws55pGmVREDcSZmgOFIaWwyU3hQwCvO4oOZlFR8pD9LZnj4diRY3iNRI1HMQJ+9YGKxtyJnP
-	2MEAx65uC4GDdFTZAHeBUWj24W/28QTIVJdCYNzvmHE7TsffMyq97Mp+ZfMJiuRQaIH/Fd60eeK
-	K3puANZneTiaa4SyaAIv68yf11ycxVtygLUVwwiVv2O+s7ULV+aQpNYL84rNCeUYAQTMnd5OgFU
-	1RKaoNKmjSwln06QO1He8Rxdkw2pupqHlzK9gGeC4FggxUOFU24BX54szzZZyt0H9OyMYiPFCSX
-	3mL5a6KhqFHzhz5WCt4j5hZz7FI0wJQGBGypjSJ2Dqvr0qtdIKe2c0ukY07gqHBE=
-X-Google-Smtp-Source: AGHT+IFbUdPnNNCdHdOd3aWHqfiWNykncHbUZuz2LGLXLcHMra+1y9VTs59V2W3LfoQRs9MqT/0x+Q==
-X-Received: by 2002:a17:902:cf0b:b0:240:4b3b:334f with SMTP id d9443c01a7336-24096b4c467mr2110255ad.34.1753809125594;
-        Tue, 29 Jul 2025 10:12:05 -0700 (PDT)
-Received: from google.com (152.33.83.34.bc.googleusercontent.com. [34.83.33.152])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f32cb3430sm2060873a91.33.2025.07.29.10.12.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Jul 2025 10:12:05 -0700 (PDT)
-Date: Tue, 29 Jul 2025 10:11:58 -0700
-From: William McVicker <willmcvicker@google.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Donghoon Yu <hoony.yu@samsung.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH] clocksource/drivers/exynos_mct: Revert commits causing
- section mismatches
-Message-ID: <aIkA3sMvioatVNFu@google.com>
-References: <20250725090349.87730-2-krzysztof.kozlowski@linaro.org>
- <63a6d253-305d-4ffd-9954-7cd665bd332d@linaro.org>
- <2f413942-8126-4d94-b64b-c4a05052b5a1@linaro.org>
+        d=1e100.net; s=20230601; t=1753809143; x=1754413943;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hVEV/TSm1W1PFMOSwee9B8OOxzTuIcz20KTJ/vy5N8Y=;
+        b=Fy2Ej+RbyPyJv6t9K/N/OA1lhkDaMJX/mNmNc2q30zjg6kp6ZcBOp3kRBl8lMwqhmS
+         kFdjGWT0ainsmJW5hFXqN3Uw5YOb2LnkzP57QaOesEupAH+oeSgazn4vTluE5QxkuBF4
+         4Ci2VB6AxvIgp2+aTBFUh63wIlFmje+MT8KnfAm7kC/eG2YSkDihIKnzmOcBZGl9hfvL
+         +BmvMrAhwQEQ6cFFYhoNkRhzPDd3BlVKjZfoBI+NVmhBANMz+5Wb2gVMQQADRHJnZO4H
+         /+tt6Qnag1AcmO1Fr4lBULQVBQrLMEoRV/7owXBtTGDQHnB+lpySxye/EWY4P1SjTAPD
+         hc3w==
+X-Forwarded-Encrypted: i=1; AJvYcCVVkq/9Mg75S+KJGFfjgeMYORWkWCJRt9Spb9IB4gEn+x6yB9iAiH05Zi146hGcghofgEJgBAT6jh2bfujc03Ak@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx54sGDWXADALvlo8X7EdzsvUWnNgnlUe+dfhbPic9j5g3lKz62
+	WsPHEPQYxDbI5hH2sUUtl+65u2HOdytcSB5iCg7P3lHtU8Cj0G4+TjK50RP2tR3Pb+2ANFLtYKr
+	Nz/4IqQDW92lNp6+EOCzZg6jqi2lPmltaI3xWxy96oEdKOM7DsRhHeDnceYemUTF177hgfUs/nT
+	/X8LytWsEc1iZO+9niuLNKrONd1WEDzerp3qkPdxQf4Qf0f6Hy4TU=
+X-Gm-Gg: ASbGncu2kFg/8PStY9QZO71u8Bd8Z7nAol3VuolOl7Y49lhy9okhSbakVHncTLyqA9A
+	JYCY8IEXFWfvRwysWyl3GBKShgkAFWZf73HVFPN7s1Zo1yM1RF9IPis6MjmhGMwouo9dpl4jD4N
+	60+4QI/lkiYu01aHfwf+ZoLQ==
+X-Received: by 2002:a05:6000:4305:b0:3b7:8fcd:d14d with SMTP id ffacd0b85a97d-3b79501078emr312319f8f.46.1753809142796;
+        Tue, 29 Jul 2025 10:12:22 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFuiVZnrQB35ydxSwvUCpk0QJExlXpkA5D8EwlqwQR5GaLwV32atgJyeUyqBcgRlQ9q+bEIF74jDHcNM9Iww6w=
+X-Received: by 2002:a05:6000:4305:b0:3b7:8fcd:d14d with SMTP id
+ ffacd0b85a97d-3b79501078emr312293f8f.46.1753809142307; Tue, 29 Jul 2025
+ 10:12:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2f413942-8126-4d94-b64b-c4a05052b5a1@linaro.org>
+References: <aIe-v1QP-VvaOONC@linux.dev>
+In-Reply-To: <aIe-v1QP-VvaOONC@linux.dev>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Tue, 29 Jul 2025 19:12:07 +0200
+X-Gm-Features: Ac12FXzWw606ViTdS_zZBEZxmMgUBcTeg2CGOllmPTkMWZGmW7scTxSdHaxwzW8
+Message-ID: <CABgObfZZxW2seq+B9OdSPG71-SywbTkmUEw1xKONX73QLjDTjQ@mail.gmail.com>
+Subject: Re: [GIT PULL] KVM/arm64 changes for 6.17, round #1
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: RJwFNX4wiHZU1HeJinxuoD_ymRacjEKQ61EvlSSaok8_1753809143
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_101207_659480_0B7C5E5B 
-X-CRM114-Status: GOOD (  31.65  )
+X-CRM114-CacheID: sfid-20250729_101228_152433_42CFE66C 
+X-CRM114-Status: GOOD (  29.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +105,321 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/25/2025, Krzysztof Kozlowski wrote:
-> On 25/07/2025 11:28, Daniel Lezcano wrote:
-> > On 25/07/2025 11:03, Krzysztof Kozlowski wrote:
-> >> Commit 5d86e479193b ("clocksource/drivers/exynos_mct: Add module
-> >> support") introduced section mismatch failures.
-> >> Commit 7e477e9c4eb4 ("clocksource/drivers/exynos_mct: Fix section
-> >> mismatch from the module conversion") replaced these to other section
-> >> mismatch failures:
-> >>
-> >>    WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x164 (section: .text) -> register_current_timer_delay (section: .init.text)
-> >>    WARNING: modpost: vmlinux: section mismatch in reference: mct_init_dt+0x20c (section: .text) -> register_current_timer_delay (section: .init.text)
-> >>    ERROR: modpost: Section mismatches detected.
-> >>
-> >> No progress on real fixing of these happened (intermediary fix was still
-> >> not tested), so revert both commits till the work is prepared correctly.
-> > 
-> > Please don't claim the fix was not tested. I reproduced the section 
-> 
-> 
-> section mismatch code MUST BE tested with enabled DEBUG_SECTION_MISMATCH
-> and disabled SECTION_MISMATCH_WARN_ONLY. If you have warnings which you
-> missed (although if you have warnings what did you fix?), means you did
-> not prepare testing setup.
+On Mon, Jul 28, 2025 at 8:17=E2=80=AFPM Oliver Upton <oliver.upton@linux.de=
+v> wrote:
+>
+> Hi Paolo,
+>
+> Here's the first round of changes for 6.17.
+>
+> A very unusual inclusion that you should know about is the GICv5 host dri=
+ver.
+> Thomas was OK with the driver going through the kvmarm tree [*] as there =
+aren't
+> any conflicts and Sascha's series adds some KVM support on top.
+>
+> Otherwise, we've got the usual mix (details in the tag) with some reducti=
+on
+> of the NV v. non-NV feature gap.
 
-Thanks Krzysztof for reporting this! Sorry for the mess this has created. I was
-unaware of testing with DEBUG_SECTION_MISMATCH and clearly missed those
-warnings when I compile tested with ARCH=arm. I see the issue and will fix
-the patches accordingly.
+Pulled, thanks.
 
-Regarding ARM32 runtime testing, how do I ensure my patch series is testing on
-ARM32 devices? The series was discussed on the list for quite some time and I'm
-wondering what step I missed to get this further tested? Do I just need to
-explicitly request for ARM32 testing on the list?
+Paolo
 
-To avoid this in the future, I took a look at the thread that introduced the
-section mismatch warning [1] and wondering (before I propose this broadly) if
-we can make section mismatches fatal by default for everything except
-allmodconfig? Then we can selectively disable it where appropriate.
+> Please pull.
+>
+> Thanks,
+> Oliver
+>
+> [*]: https://lore.kernel.org/all/87y0slur4t.ffs@tglx/
+>
+> The following changes since commit 86731a2a651e58953fc949573895f2fa6d4568=
+41:
+>
+>   Linux 6.16-rc3 (2025-06-22 13:30:08 -0700)
+>
+> are available in the Git repository at:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git/ tags=
+/kvmarm-6.17
+>
+> for you to fetch changes up to 18ec25dd0e97653cdb576bb1750c31acf2513ea7:
+>
+>   KVM: arm64: selftests: Add FEAT_RAS EL2 registers to get-reg-list (2025=
+-07-28 08:28:05 -0700)
+>
+> ----------------------------------------------------------------
+> KVM/arm64 changes for 6.17, round #1
+>
+>  - Host driver for GICv5, the next generation interrupt controller for
+>    arm64, including support for interrupt routing, MSIs, interrupt
+>    translation and wired interrupts.
+>
+>  - Use FEAT_GCIE_LEGACY on GICv5 systems to virtualize GICv3 VMs on
+>    GICv5 hardware, leveraging the legacy VGIC interface.
+>
+>  - Userspace control of the 'nASSGIcap' GICv3 feature, allowing
+>    userspace to disable support for SGIs w/o an active state on hardware
+>    that previously advertised it unconditionally.
+>
+>  - Map supporting endpoints with cacheable memory attributes on systems
+>    with FEAT_S2FWB and DIC where KVM no longer needs to perform cache
+>    maintenance on the address range.
+>
+>  - Nested support for FEAT_RAS and FEAT_DoubleFault2, allowing the guest
+>    hypervisor to inject external aborts into an L2 VM and take traps of
+>    masked external aborts to the hypervisor.
+>
+>  - Convert more system register sanitization to the config-driven
+>    implementation.
+>
+>  - Fixes to the visibility of EL2 registers, namely making VGICv3 system
+>    registers accessible through the VGIC device instead of the ONE_REG
+>    vCPU ioctls.
+>
+>  - Various cleanups and minor fixes.
+>
+> ----------------------------------------------------------------
+> Ankit Agrawal (5):
+>       KVM: arm64: Rename the device variable to s2_force_noncacheable
+>       KVM: arm64: Assume non-PFNMAP/MIXEDMAP VMAs can be mapped cacheable
+>       KVM: arm64: Block cacheable PFNMAP mapping
+>       KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
+>       KVM: arm64: Expose new KVM cap for cacheable PFNMAP
+>
+> David Woodhouse (1):
+>       KVM: arm64: vgic-its: Return -ENXIO to invalid KVM_DEV_ARM_VGIC_GRP=
+_CTRL attrs
+>
+> Kuninori Morimoto (2):
+>       arm64: kvm: sys_regs: use string choices helper
+>       arm64: kvm: trace_handle_exit: use string choices helper
+>
+> Lorenzo Pieralisi (30):
+>       dt-bindings: interrupt-controller: Add Arm GICv5
+>       arm64/sysreg: Add GCIE field to ID_AA64PFR2_EL1
+>       arm64/sysreg: Add ICC_PPI_PRIORITY<n>_EL1
+>       arm64/sysreg: Add ICC_ICSR_EL1
+>       arm64/sysreg: Add ICC_PPI_HMR<n>_EL1
+>       arm64/sysreg: Add ICC_PPI_ENABLER<n>_EL1
+>       arm64/sysreg: Add ICC_PPI_{C/S}ACTIVER<n>_EL1
+>       arm64/sysreg: Add ICC_PPI_{C/S}PENDR<n>_EL1
+>       arm64/sysreg: Add ICC_CR0_EL1
+>       arm64/sysreg: Add ICC_PCR_EL1
+>       arm64/sysreg: Add ICC_IDR0_EL1
+>       arm64/sysreg: Add ICH_HFGRTR_EL2
+>       arm64/sysreg: Add ICH_HFGWTR_EL2
+>       arm64/sysreg: Add ICH_HFGITR_EL2
+>       arm64: Disable GICv5 read/write/instruction traps
+>       arm64: cpucaps: Rename GICv3 CPU interface capability
+>       arm64: cpucaps: Add GICv5 CPU interface (GCIE) capability
+>       arm64: Add support for GICv5 GSB barriers
+>       irqchip/gic-v5: Add GICv5 PPI support
+>       irqchip/gic-v5: Add GICv5 IRS/SPI support
+>       irqchip/gic-v5: Add GICv5 LPI/IPI support
+>       irqchip/gic-v5: Enable GICv5 SMP booting
+>       of/irq: Add of_msi_xlate() helper function
+>       PCI/MSI: Add pci_msi_map_rid_ctlr_node() helper function
+>       irqchip/gic-v3: Rename GICv3 ITS MSI parent
+>       irqchip/msi-lib: Add IRQ_DOMAIN_FLAG_FWNODE_PARENT handling
+>       irqchip/gic-v5: Add GICv5 ITS support
+>       irqchip/gic-v5: Add GICv5 IWB support
+>       docs: arm64: gic-v5: Document booting requirements for GICv5
+>       arm64: Kconfig: Enable GICv5
+>
+> Marc Zyngier (28):
+>       arm64: smp: Support non-SGIs for IPIs
+>       KVM: arm64: Add helper to identify a nested context
+>       arm64: smp: Fix pNMI setup after GICv5 rework
+>       KVM: arm64: Make RVBAR_EL2 accesses UNDEF
+>       KVM: arm64: Don't advertise ICH_*_EL2 registers through GET_ONE_REG
+>       KVM: arm64: Define constant value for ICC_SRE_EL2
+>       KVM: arm64: Define helper for ICH_VTR_EL2
+>       KVM: arm64: Let GICv3 save/restore honor visibility attribute
+>       KVM: arm64: Expose GICv3 EL2 registers via KVM_DEV_ARM_VGIC_GRP_CPU=
+_SYSREGS
+>       KVM: arm64: Condition FGT registers on feature availability
+>       KVM: arm64: Advertise FGT2 registers to userspace
+>       KVM: arm64: selftests: get-reg-list: Simplify feature dependency
+>       KVM: arm64: selftests: get-reg-list: Add base EL2 registers
+>       KVM: arm64: Document registers exposed via KVM_DEV_ARM_VGIC_GRP_CPU=
+_SYSREGS
+>       arm64: sysreg: Add THE/ASID2 controls to TCR2_ELx
+>       KVM: arm64: Convert TCR2_EL2 to config-driven sanitisation
+>       KVM: arm64: Convert SCTLR_EL1 to config-driven sanitisation
+>       KVM: arm64: Convert MDCR_EL2 to config-driven sanitisation
+>       KVM: arm64: Tighten the definition of FEAT_PMUv3p9
+>       KVM: arm64: Check for SYSREGS_ON_CPU before accessing the CPU state
+>       KVM: arm64: Filter out HCR_EL2 bits when running in hypervisor cont=
+ext
+>       KVM: arm64: Make RAS registers UNDEF when RAS isn't advertised
+>       KVM: arm64: Remove the wi->{e0,}poe vs wr->{p,u}ov confusion
+>       KVM: arm64: Follow specification when implementing WXN
+>       KVM: arm64: vgic-v3: Fix ordering of ICH_HCR_EL2
+>       KVM: arm64: Clarify the check for reset callback in check_sysreg_ta=
+ble()
+>       KVM: arm64: Enforce the sorting of the GICv3 system register table
+>       KVM: arm64: selftest: vgic-v3: Add basic GICv3 sysreg userspace acc=
+ess test
+>
+> Oliver Upton (42):
+>       arm64: Detect FEAT_SCTLR2
+>       arm64: Detect FEAT_DoubleFault2
+>       KVM: arm64: Treat vCPU with pending SError as runnable
+>       KVM: arm64: nv: Respect exception routing rules for SEAs
+>       KVM: arm64: nv: Honor SError exception routing / masking
+>       KVM: arm64: nv: Add FEAT_RAS vSError sys regs to table
+>       KVM: arm64: nv: Use guest hypervisor's vSError state
+>       KVM: arm64: nv: Advertise support for FEAT_RAS
+>       KVM: arm64: nv: Describe trap behavior of SCTLR2_EL1
+>       KVM: arm64: Wire up SCTLR2_ELx sysreg descriptors
+>       KVM: arm64: Context switch SCTLR2_ELx when advertised to the guest
+>       KVM: arm64: Enable SCTLR2 when advertised to the guest
+>       KVM: arm64: Describe SCTLR2_ELx RESx masks
+>       KVM: arm64: Factor out helper for selecting exception target EL
+>       KVM: arm64: nv: Ensure Address size faults affect correct ESR
+>       KVM: arm64: Route SEAs to the SError vector when EASE is set
+>       KVM: arm64: nv: Take "masked" aborts to EL2 when HCRX_EL2.TMEA is s=
+et
+>       KVM: arm64: nv: Honor SError routing effects of SCTLR2_ELx.NMEA
+>       KVM: arm64: nv: Enable vSErrors when HCRX_EL2.TMEA is set
+>       KVM: arm64: Advertise support for FEAT_SCTLR2
+>       KVM: arm64: Advertise support for FEAT_DoubleFault2
+>       KVM: arm64: Don't retire MMIO instruction w/ pending (emulated) SEr=
+ror
+>       KVM: arm64: selftests: Add basic SError injection test
+>       KVM: arm64: selftests: Test SEAs are taken to SError vector when EA=
+SE=3D1
+>       KVM: arm64: selftests: Add SCTLR2_EL1 to get-reg-list
+>       KVM: arm64: selftests: Catch up set_id_regs with the kernel
+>       KVM: arm64: Populate ESR_ELx.EC for emulated SError injection
+>       KVM: arm64: selftests: Test ESR propagation for vSError injection
+>       KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediately
+>       KVM: arm64: Disambiguate support for vSGIs v. vLPIs
+>       KVM: arm64: vgic-v3: Consolidate MAINT_IRQ handling
+>       KVM: arm64: vgic-v3: Allow access to GICD_IIDR prior to initializat=
+ion
+>       Documentation: KVM: arm64: Describe VGICv3 registers writable pre-i=
+nit
+>       Merge branch 'kvm-arm64/cacheable-pfnmap' into kvmarm/next
+>       Merge branch 'kvm-arm64/doublefault2' into kvmarm/next
+>       Merge tag 'irqchip-gic-v5-host' into kvmarm/next
+>       Merge branch 'kvm-arm64/gcie-legacy' into kvmarm/next
+>       Merge branch 'kvm-arm64/misc' into kvmarm/next
+>       Merge branch 'kvm-arm64/config-masks' into kvmarm/next
+>       Merge branch 'kvm-arm64/el2-reg-visibility' into kvmarm/next
+>       Merge branch 'kvm-arm64/vgic-v4-ctl' into kvmarm/next
+>       KVM: arm64: selftests: Add FEAT_RAS EL2 registers to get-reg-list
+>
+> Raghavendra Rao Ananta (2):
+>       KVM: arm64: vgic-v3: Allow userspace to write GICD_TYPER2.nASSGIcap
+>       KVM: arm64: selftests: Add test for nASSGIcap attribute
+>
+> Sascha Bischoff (5):
+>       irqchip/gic-v5: Skip deactivate for forwarded PPI interrupts
+>       irqchip/gic-v5: Populate struct gic_kvm_info
+>       arm64/sysreg: Add ICH_VCTLR_EL2
+>       KVM: arm64: gic-v5: Support GICv3 compat
+>       KVM: arm64: gic-v5: Probe for GICv5
+>
+>  Documentation/arch/arm64/booting.rst               |   41 +
+>  .../interrupt-controller/arm,gic-v5-iwb.yaml       |   78 ++
+>  .../bindings/interrupt-controller/arm,gic-v5.yaml  |  267 +++++
+>  Documentation/virt/kvm/api.rst                     |   13 +-
+>  Documentation/virt/kvm/devices/arm-vgic-v3.rst     |   80 +-
+>  MAINTAINERS                                        |   10 +
+>  arch/arm64/Kconfig                                 |    1 +
+>  arch/arm64/include/asm/barrier.h                   |    3 +
+>  arch/arm64/include/asm/el2_setup.h                 |   45 +
+>  arch/arm64/include/asm/kvm_emulate.h               |   51 +-
+>  arch/arm64/include/asm/kvm_host.h                  |   36 +-
+>  arch/arm64/include/asm/kvm_mmu.h                   |   18 +
+>  arch/arm64/include/asm/kvm_nested.h                |    2 +
+>  arch/arm64/include/asm/smp.h                       |   24 +-
+>  arch/arm64/include/asm/sysreg.h                    |   71 +-
+>  arch/arm64/include/asm/vncr_mapping.h              |    2 +
+>  arch/arm64/kernel/cpufeature.c                     |   26 +-
+>  arch/arm64/kernel/smp.c                            |  142 ++-
+>  arch/arm64/kvm/Makefile                            |    3 +-
+>  arch/arm64/kvm/arch_timer.c                        |    2 +-
+>  arch/arm64/kvm/arm.c                               |   16 +-
+>  arch/arm64/kvm/at.c                                |   80 +-
+>  arch/arm64/kvm/config.c                            |  255 +++-
+>  arch/arm64/kvm/emulate-nested.c                    |   49 +-
+>  arch/arm64/kvm/guest.c                             |   62 +-
+>  arch/arm64/kvm/handle_exit.c                       |   24 +-
+>  arch/arm64/kvm/hyp/exception.c                     |   16 +-
+>  arch/arm64/kvm/hyp/include/hyp/switch.h            |   53 +-
+>  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |   49 +-
+>  arch/arm64/kvm/hyp/vgic-v3-sr.c                    |   53 +-
+>  arch/arm64/kvm/hyp/vhe/switch.c                    |   14 +-
+>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c                 |    6 +
+>  arch/arm64/kvm/inject_fault.c                      |  235 ++--
+>  arch/arm64/kvm/mmio.c                              |   12 +-
+>  arch/arm64/kvm/mmu.c                               |  105 +-
+>  arch/arm64/kvm/nested.c                            |  109 +-
+>  arch/arm64/kvm/sys_regs.c                          |  207 +++-
+>  arch/arm64/kvm/sys_regs.h                          |    2 +-
+>  arch/arm64/kvm/trace_handle_exit.h                 |    2 +-
+>  arch/arm64/kvm/vgic-sys-reg-v3.c                   |  127 +-
+>  arch/arm64/kvm/vgic/vgic-init.c                    |   30 +-
+>  arch/arm64/kvm/vgic/vgic-its.c                     |    3 +
+>  arch/arm64/kvm/vgic/vgic-kvm-device.c              |   70 +-
+>  arch/arm64/kvm/vgic/vgic-mmio-v3.c                 |   33 +-
+>  arch/arm64/kvm/vgic/vgic-v3-nested.c               |    2 +-
+>  arch/arm64/kvm/vgic/vgic-v4.c                      |    4 +-
+>  arch/arm64/kvm/vgic/vgic-v5.c                      |   52 +
+>  arch/arm64/kvm/vgic/vgic.c                         |    4 +-
+>  arch/arm64/kvm/vgic/vgic.h                         |   48 +
+>  arch/arm64/tools/cpucaps                           |    4 +-
+>  arch/arm64/tools/sysreg                            |  514 +++++++-
+>  drivers/irqchip/Kconfig                            |   12 +
+>  drivers/irqchip/Makefile                           |    5 +-
+>  drivers/irqchip/irq-gic-common.h                   |    2 -
+>  ...3-its-msi-parent.c =3D> irq-gic-its-msi-parent.c} |  168 ++-
+>  drivers/irqchip/irq-gic-its-msi-parent.h           |   12 +
+>  drivers/irqchip/irq-gic-v3-its.c                   |    1 +
+>  drivers/irqchip/irq-gic-v5-irs.c                   |  822 +++++++++++++
+>  drivers/irqchip/irq-gic-v5-its.c                   | 1228 ++++++++++++++=
+++++++
+>  drivers/irqchip/irq-gic-v5-iwb.c                   |  284 +++++
+>  drivers/irqchip/irq-gic-v5.c                       | 1137 ++++++++++++++=
+++++
+>  drivers/irqchip/irq-gic.c                          |    2 +-
+>  drivers/irqchip/irq-msi-lib.c                      |    5 +-
+>  drivers/of/irq.c                                   |   22 +-
+>  drivers/pci/msi/irqdomain.c                        |   20 +
+>  include/asm-generic/msi.h                          |    1 +
+>  include/kvm/arm_vgic.h                             |    9 +-
+>  include/linux/irqchip/arm-gic-v5.h                 |  394 +++++++
+>  include/linux/irqchip/arm-vgic-info.h              |    4 +
+>  include/linux/irqdomain.h                          |    3 +
+>  include/linux/msi.h                                |    1 +
+>  include/linux/of_irq.h                             |    5 +
+>  include/uapi/linux/kvm.h                           |    1 +
+>  tools/testing/selftests/kvm/Makefile.kvm           |    2 +-
+>  .../testing/selftests/kvm/arm64/external_aborts.c  |  330 ++++++
+>  tools/testing/selftests/kvm/arm64/get-reg-list.c   |  203 +++-
+>  tools/testing/selftests/kvm/arm64/mmio_abort.c     |  159 ---
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c    |   14 +-
+>  tools/testing/selftests/kvm/arm64/vgic_init.c      |  259 ++++-
+>  .../selftests/kvm/include/arm64/processor.h        |   10 +
+>  80 files changed, 7589 insertions(+), 681 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controlle=
+r/arm,gic-v5-iwb.yaml
+>  create mode 100644 Documentation/devicetree/bindings/interrupt-controlle=
+r/arm,gic-v5.yaml
+>  create mode 100644 arch/arm64/kvm/vgic/vgic-v5.c
+>  rename drivers/irqchip/{irq-gic-v3-its-msi-parent.c =3D> irq-gic-its-msi=
+-parent.c} (59%)
+>  create mode 100644 drivers/irqchip/irq-gic-its-msi-parent.h
+>  create mode 100644 drivers/irqchip/irq-gic-v5-irs.c
+>  create mode 100644 drivers/irqchip/irq-gic-v5-its.c
+>  create mode 100644 drivers/irqchip/irq-gic-v5-iwb.c
+>  create mode 100644 drivers/irqchip/irq-gic-v5.c
+>  create mode 100644 include/linux/irqchip/arm-gic-v5.h
+>  create mode 100644 tools/testing/selftests/kvm/arm64/external_aborts.c
+>  delete mode 100644 tools/testing/selftests/kvm/arm64/mmio_abort.c
+>
 
-[1] https://lore.kernel.org/all/1443807963-36364-1-git-send-email-drinkcat@chromium.org/
-
-Thanks,
-Will
-
-> 
-> > mismatch, tested it and figured out it was indeed fixing the issue. I 
-> > just missed the error because it sounds very close to the first one 
-> > reported initially and I did the confusion.
-> > 
-> > The driver is not supposed to be compiled as a module on ARM32.
-> > 
-> > The option tristate "Exynos multi core timer driver" if ARM64 is 
-> > misleading. From this change, the defconfig on ARM can do 
-> > CONFIG_EXYNOS_MCT=m which should not be allowed.
-> > 
-> > Before getting wild and revert everything, let's try to find a proper 
-> > fix for that.
-> 
-> I am not wild here. The issue is there since 9 days.
-> 
-> Best regards,
-> Krzysztof
 
