@@ -4,80 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AA4C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E030C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:00:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P3a8N7GGRYeSHSllhgnuhQKsscziar9Xg6190x1fyKo=; b=g7AQ+7mpNWcblmpSFb7xU2P4JZ
-	QJ8c9Ei/L0+K4KXuqv9Um6SKmyui6i0cNdvjDu6nsPuienwS3CWGAYdkxXsR31FvwLTFJqlyQV4/P
-	GwOyZu4mnKwG8lz/GdC3SSn8jxsPgN3biaQ0sBPWGPbWQR0+Z7K9dP3cMQIf0qrmVqZu+/2Rrv/u9
-	050fJfkQ4fFoCs2LVVUz8P6Ad5J88hpEm4F3hgz2leD10htkvpSMCf5H8LChzliHSUAV7oihvRwn/
-	3d6M/20jefBlXkJ2xA27Bz7TxDPFqdELGa4LGjWMcaHM7+qgwmT42LbYjEsftX7sjt6mgJ+pnrBYb
-	X5qr17GA==;
+	bh=olpMFDwASacEEZQNbrMULSQ+6ICftdmhbLe2zdZtGrI=; b=HexqnSe70q9cDgYEa/7NyjhzIt
+	EtigvWvolSI0oTLeZEz9uIiEJER2BYv20ZcQm8JTZCcF+46My5Sw1XZ6tw+d5NvTxxMTJdJiw5LcX
+	X80iL7DfbPLkw+Mb55evC8UnDcXuwZKFmV5qA5cvfeObD0ewFJKibXAE+j+CumT0RVm25wn0u+/81
+	gFW5ERz5niB5Fz56e9sZbzcA96bUfA4GEgpQExvSqsfSef559eOQTR0/O9rlI5vZ8ScpWDz3Wt+K8
+	cB6hGfy8kIZaeKfKsKCAnvwZaHB4OR+He1ZE/fi5EzHqrVUOJkhVodasWGfyrDS3kyGOwmB4fXjjo
+	TOWKpl6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugndo-0000000HJmf-0p0t;
-	Tue, 29 Jul 2025 16:57:28 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1ugngE-0000000HK6b-0p29;
+	Tue, 29 Jul 2025 16:59:58 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugn7L-0000000HGLu-3Zp2
+	id 1ugnAS-0000000HGid-10QU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 16:23:57 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56TGNdFC2561302;
-	Tue, 29 Jul 2025 11:23:39 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1753806219;
-	bh=P3a8N7GGRYeSHSllhgnuhQKsscziar9Xg6190x1fyKo=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=ra0usx3KRW+fLu8oZYORUDkvuKkHaa+Sdu14m3BzyQM67DiV4QMTAW7AO6DHTdBYW
-	 ayR5EffXTF+qK1vl1Pf0L94NCHnIuVbsylUdhSbh1ALBfJ82HauMnp+LLODItFacqu
-	 Khta69na9dF2jI2AEaLASntQ3HH9UId24X3vcv04=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56TGNdTX1239402
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 29 Jul 2025 11:23:39 -0500
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 29
- Jul 2025 11:23:38 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 29 Jul 2025 11:23:38 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56TGNc6U3708765;
-	Tue, 29 Jul 2025 11:23:38 -0500
-Date: Tue, 29 Jul 2025 11:23:38 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Jan Kiszka <jan.kiszka@siemens.com>
-CC: <huaqian.li@siemens.com>, <lkp@intel.com>, <baocheng.su@siemens.com>,
-        <bhelgaas@google.com>, <christophe.jaillet@wanadoo.fr>,
-        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        <diogo.ivo@siemens.com>, <helgaas@kernel.org>, <kristo@kernel.org>,
-        <krzk+dt@kernel.org>, <kw@linux.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pci@vger.kernel.org>, <lpieralisi@kernel.org>,
-        <oe-kbuild-all@lists.linux.dev>, <robh@kernel.org>,
-        <s-vadapalli@ti.com>, <ssantosh@kernel.org>, <vigneshr@ti.com>
-Subject: Re: [PATCH v12 3/7] soc: ti: Add IOMMU-like PVU driver
-Message-ID: <20250729162338.so7evngndnysg4ui@cinnamon>
-References: <20250728023701.116963-1-huaqian.li@siemens.com>
- <20250728023701.116963-4-huaqian.li@siemens.com>
- <20250729122246.o7upnxvqnp7nltdo@harmonize>
- <bdb5a5e2-3a7e-4050-bf25-c95dfa05138a@siemens.com>
+	Tue, 29 Jul 2025 16:27:09 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=Y9GZAptSWYiILsww5VJA4+JXOLMitV1KsDN9UuccmGitxuEo73OrfgHqPNWGpTq0H/8GDjaY0ShDONbYaByo/inXrRjHc8Hkz8ah+tPHYfJAxfhd1Z+eUEyh2G4ait9lbw2ysKBL985Jig1u+ll3D52Ldv4XQOFzapAoC++C0GOfIs8hH3XcbXlZ3mDnGWKgfeIzhmaT/OlyME8xhEoTXOPsDYQkj5Df4H/qAP5kf1AQJEioeoO2Jf7P85WlOtPr8/XFarGRmdaRNGTiK51+i4WsERzAX5j1Ywe45X0GRQC7FCzQc2caywIGJMOyGbaZx4JeKG44tKjm0tMJk6IjJw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=olpMFDwASacEEZQNbrMULSQ+6ICftdmhbLe2zdZtGrI=;
+ b=M0lWQzccmevSY9zVzAA4IHsQK3PPqQbvNzgKeqTeSVjHMTYmUnQ2VDFx5V5DZ75RYPnnnl/sVRRz+hEzvCxcD5hN+bMOhbNpeeg+x9EDT1/NoilZSz0nfy4XNdWajkxW+vKrlCgU2qOlVI7nyH0NznmDlg5IhvUbmL2XwR6Gng2ZapL0zO6OSiyhtKG8HzRV7wkwHLOWaxXzcqdt6KWu8Q0/ZoLU5lWWi/iKFhSthA8mVxroLtTWRReLZfbOoa36SgMj8e9CYU1Xmt3qBORo5jZ17kKjEHOCHuMcFKCjYrKLMnXptj6uXVK20YSzysJP/yRn+M9zkYZj9TR3wOpJlw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=olpMFDwASacEEZQNbrMULSQ+6ICftdmhbLe2zdZtGrI=;
+ b=BDpWc/cHW98l8Mg4P/JqJ+tmK5rjAk4BnU8fh9USOj0xn/w61D/4T9r5DKIBUzW7uzhCrO59sCxs5nTCWu05GBF70D0bIEkxxE9Ccui6guHHjKzIaXXrR9EXhjci7h5AFiCJGy2oM5LI75ZLxlCFvHsC9nEiMVvDf5wivV36Cac=
+Received: from PAZP264CA0107.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1fb::17)
+ by GV1PR08MB7876.eurprd08.prod.outlook.com (2603:10a6:150:5f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.26; Tue, 29 Jul
+ 2025 16:26:58 +0000
+Received: from AMS0EPF00000191.eurprd05.prod.outlook.com
+ (2603:10a6:102:1fb:cafe::ae) by PAZP264CA0107.outlook.office365.com
+ (2603:10a6:102:1fb::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.11 via Frontend Transport; Tue,
+ 29 Jul 2025 16:26:58 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF00000191.mail.protection.outlook.com (10.167.16.216) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.10
+ via Frontend Transport; Tue, 29 Jul 2025 16:26:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Yech/EADq+S2I8H2Eb5r/oWx0HMDeF03MbsZiDEOf9iCfcMuL2zqpO7xE7bhRtbOQaeuJXPNke7ARSIJXe6GpM2q8tH2RS0hGGcMZg4Ttquef37NA16IQaOPi5XLQ9AkkKfTcIcz3oREvGeNN8a1tOCx5gLxDzmXMhXAFFVuJCEsppStVJ+jV4dkYEAuT0KzqV4zWSxq1dLhtzFk4WRC9g8e8N5wCyjMDbBjF2CEhpx0jLYyMiYp7wzRVNsv8MFi8ekejHUqpI4NhsBHhSePpMJsOpNw5/+PYow2sVQ0lSMrP7yFCB0A1Z+vosE5A+t5dms02WZKOByMJkIoZSr00g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=olpMFDwASacEEZQNbrMULSQ+6ICftdmhbLe2zdZtGrI=;
+ b=fQpRJWnEDlOZArGUKWk2XnNyclD5lPLG1CxlEU63sFwXwAGgau002yiXopNZ2YWfXHMvip7cZnA+T6TdzLHO44AE3cHvNHRYGoH9ZFHPkHX+j40Vh+0iY0baLOfvmvHZGvCht0Pbi4TCqZPtGN73Szxfci2Yo/s95SWEQuR3i+Umn0IPixi1Ocp/7pQ0badt43bc7gzbRIbvwf45nj9/Lw/HQ38f1oQPDqsZ2KpLfs/gz1NfDwUG3JrzhM3hmD/klMAiA5mDv2TLi8YsGHkIGfSA7W9AMMQU82bEWTudNzl4qnfW1E7HoYiFOQHyx9X9/rX7GHYqU6GO6/qLOCHezw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=olpMFDwASacEEZQNbrMULSQ+6ICftdmhbLe2zdZtGrI=;
+ b=BDpWc/cHW98l8Mg4P/JqJ+tmK5rjAk4BnU8fh9USOj0xn/w61D/4T9r5DKIBUzW7uzhCrO59sCxs5nTCWu05GBF70D0bIEkxxE9Ccui6guHHjKzIaXXrR9EXhjci7h5AFiCJGy2oM5LI75ZLxlCFvHsC9nEiMVvDf5wivV36Cac=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by VE1PR08MB5823.eurprd08.prod.outlook.com (2603:10a6:800:1a5::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.11; Tue, 29 Jul
+ 2025 16:26:23 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.8964.026; Tue, 29 Jul 2025
+ 16:26:22 +0000
+Message-ID: <f5efa19f-7eb9-4ffd-aa12-6aae19379cf8@arm.com>
+Date: Tue, 29 Jul 2025 21:56:16 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mm: vmalloc: use VMALLOC_EARLY_START boundary for early
+ vmap area
+To: Justin He <Justin.He@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>
+Cc: Anshuman Khandual <Anshuman.Khandual@arm.com>,
+ Ryan Roberts <Ryan.Roberts@arm.com>, Peter Xu <peterx@redhat.com>,
+ Joey Gouly <Joey.Gouly@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mm@kvack.org" <linux-mm@kvack.org>
+References: <20250722040850.2017769-1-justin.he@arm.com>
+ <c185e160-1b82-41f6-832d-cef3938a1a9f@arm.com>
+ <AS2PR08MB97864CC7022A8DB7BDB87952F75AA@AS2PR08MB9786.eurprd08.prod.outlook.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <AS2PR08MB97864CC7022A8DB7BDB87952F75AA@AS2PR08MB9786.eurprd08.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0058.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ac::16) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <bdb5a5e2-3a7e-4050-bf25-c95dfa05138a@siemens.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|VE1PR08MB5823:EE_|AMS0EPF00000191:EE_|GV1PR08MB7876:EE_
+X-MS-Office365-Filtering-Correlation-Id: 498f2135-588e-45fc-4bc2-08ddcebcbc8d
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?Y3dqTjZUQ3JsMUhmZlZOSnFocVJJQlY1TGh3ektWWmswTlllVVUzRFJPSnZ5?=
+ =?utf-8?B?VHN4L09WVTdhVWZ2UDB2a2FjQU1HbFRTZ3NyVFNuNWtOUHVWVzF5c2ZGeEZo?=
+ =?utf-8?B?T2gwYjdERE1ycnhSbktQcVp2MEcrOFdxWEpUUEg2YU9mMUpNd2dLdXFRNVNq?=
+ =?utf-8?B?OTRkMkdSaWdlRG1jUVJVdmpsNGNjdE51YWluZGNUd0xoNnVrZEFoVHFEcXVx?=
+ =?utf-8?B?ejdjMXdNNGF5OEQ5YVBDQ05wUjlVUlZiMVEvOGRweURCdE1QZitzSW1ISi9a?=
+ =?utf-8?B?WTNPWGRvMUZqdjZkV2l5OVpQYXZnRnBpOTl3YXlSaStHUWRXYVpHNmFlU2dX?=
+ =?utf-8?B?MkpZM2dwK1dHRkhRbVcyRnE1YXd1TTNpL2JwU29KaTgrSi9lZEx6SVFKMzIw?=
+ =?utf-8?B?cUttNmVGQ0VmeEtPbzRNK2hjNVdKN2pObS9TUlRMWmtDVXluRWhRTHpLRVBG?=
+ =?utf-8?B?emM1VmYyem9zNDRWYXdqM0dTbHI1USt5ZHpzZEduVFczS0kwL09rRkYrTkhT?=
+ =?utf-8?B?RERwZS9QMzFPckplMzdHYmFOZDZRdzcwUGpmZ05qc1lnQ09kc29XL3J6NzFF?=
+ =?utf-8?B?K2tNdzZaWHlGc1hsblBCd1haejhhbUZLV2xrS2Zsd1RRaHZkNlRlSU1WSE5y?=
+ =?utf-8?B?NElvV0ZlWFBtNDJ1b3graGpvVFlXdk13Si9pUENId1RVZmlUMmJaQnovemFG?=
+ =?utf-8?B?ZUErVFBCdUpvUGdackxOTzRERG1tMlk4WjNRM0pnWFNvcGJTVlNOQzVwU01t?=
+ =?utf-8?B?d3dBaEREQ3JjVno3bUpiQmwzMDAwWW9VdnZoYlFURkRvTTNQRG4yT1Izb3kr?=
+ =?utf-8?B?UldyejNxeVY2RjZ1NGJlVnkyUkpKVW1KWXRjcFVtd3cvek1GUkZlMXl4NW9D?=
+ =?utf-8?B?WG1UUTRhY1lleWN5UFJSVzFjck1KQ0o1blR2YVhoek4xVHlkY0FSTjVIWTV1?=
+ =?utf-8?B?cGU3V1RVSG9mTEJLY0pkZXZvTmZDaUdjOXVGWFpJdUU0S2FuNThhL1h3aExJ?=
+ =?utf-8?B?Z3JEMTFLK1ZMNURuT0lUbms1V2dEQzQwbUlrVlZVRi9LS1FoUWtoOWNRRGFp?=
+ =?utf-8?B?R2RsVjN2VlVnSDFrZGl6ZU5UL09Vbmswb2M2UTRIRFA1c1lMaGR2WkxELzl3?=
+ =?utf-8?B?NCtDd09HdjRINi9FM01sYnZsTC9TYjJuUis5UWwrZDB3alJZL0traUR2aVZi?=
+ =?utf-8?B?TUVlRmwrcmphVks2ckdwdDlEaEtnbUhxWWpKNHRMTElQdFViaEVTZHFzOWlZ?=
+ =?utf-8?B?S2h4VXVxdW4xK0F5Q3dNSSt3UXlZVFU1TVEwbVYwSExITWJmekRJMkZNSFBz?=
+ =?utf-8?B?QzZUZklwRVkvMXVHUmZjcGVaWENQbytoSGFBRS9BbGxMaCsyN24zRGxBMDlI?=
+ =?utf-8?B?VytIanhDamo0UVNWaEFRdGY2d08vTC8xdEcvcjY0TGFJUGdXUkhNemRhT3Uy?=
+ =?utf-8?B?ZE9BYVJVRlY2K0p4OHFmcVdFSm50NVJzNXlrbnlSY3JySGJYdk9ZK0Yxcys1?=
+ =?utf-8?B?UzUzcUhWdDdsWVFXUGxlSTNHeVJYSklEaHVDajBmZ2QzY1dSMVdGUGZydXg1?=
+ =?utf-8?B?eE1hOFBienNzOVVnM3VVZjAzd1hRMitXbndNWFEzWGZxVys1OU9VMVJmOW9H?=
+ =?utf-8?B?Z2JvK2tyV3YxcjhqQmVJTmpMMVhtUlo5RHprV0JTU1VIa00wMXl6MHdjVkMr?=
+ =?utf-8?B?c0dSL3FGb25iK1RJSmlhWDBwRnQzeEUvUzFDMjg1SjdvTHNNUU8yYUpOY2pk?=
+ =?utf-8?B?eG9sSzdpbWJOYXN2bnR5dDhHVFRPVWRvdWtXdXlUUGwwLy9KaU9CcCtXN0VP?=
+ =?utf-8?B?VEc1UEVlTi9ISG16SzZCUUZSZWtWZFB1dVhKQVVWaDMrb3dFanFJejcwR0RQ?=
+ =?utf-8?B?Sk8vZjR0Tnoxc1MvZldza0puSWY3MUx1WktjdHgrUitNdGdMeWpCM1pMMi9L?=
+ =?utf-8?Q?10R5aDt4LLM=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR08MB5823
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF00000191.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: cbe51d6e-c3fb-4539-0cb5-08ddcebca7c4
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|14060799003|376014|35042699022|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dFUybytRdFk1UWdxeE9XMFZJRzJGQkpkaS9HWW1ReEJlWm53ajdPVmRmelVS?=
+ =?utf-8?B?SUc1dlN0b2sxKzZtUWlKQ3ZTd2VWWC9scDhJRFhYMGJjdEs4VVc5VlBGSVBI?=
+ =?utf-8?B?TlJHOFFHUFllZG90TCswTThsb3UwY3k3blk3bVlZVWFRZXZMS1AvOGFCZ3VD?=
+ =?utf-8?B?TmtnTlZqeUtjQmh4RXcrb0hRYUg4UlQ5ZGZucXhzV3U4UG1lc0N1VkNDa092?=
+ =?utf-8?B?MEZDaUYzQnVycWdkM3paa29rS0tqUllKV0w2U09UaDZORUY1dXVUTEJUWHJG?=
+ =?utf-8?B?VGVJQUtlNUtpL2UvN2N5SGpDZG52RVU0b2ppdTlsUXpYZUNsZ0RuRXY4dWg1?=
+ =?utf-8?B?aHJIRkF3YTVkczQ2NWZPWkdjRWtWSnFxc0htTkVIQWtuWUk4MUx3T3JsOU00?=
+ =?utf-8?B?UkhNd2Y2c2txaURDSzZGSnFabGVVM1dPM2hSSXdUZmZuZHR2MmdVQWI1ak5s?=
+ =?utf-8?B?Z2NKaXFjUFQ1RG94S0NMaHpxaDNvZHlKaUUxdC9rYzB5dUtlTzJ0ZnpZMGlu?=
+ =?utf-8?B?S0M3V09vdVFRYzBXMWxPdXNJa1MxSENtQVdxeDhnUGFya2hXSWtDcEtJNktp?=
+ =?utf-8?B?eUlPSDVKeVhhUDVqY2dsYm5pUWM2ZlV5NnFTSmEvdWRMT0FGbHlvS2w4aHV4?=
+ =?utf-8?B?SHRMYlE3UU1GKzdmR2pzdzZyMWdSWjVlU0VCRkJIRmpNQXppb1dyNGhXenEz?=
+ =?utf-8?B?MHZBUVUzZ0xUUFlYYzdkcWdyOVRPOWZ2RnBKZGo4Z1cxeGg2SGFoazd6MG1D?=
+ =?utf-8?B?TkRUSFB3RFJhWGxFNUhBTVBVdklsVkNxZlhhTmxXSnVLcWk3TXhEemZnS2s2?=
+ =?utf-8?B?SjZUOXd0RFh4YVVudE9KNTR6R0hHZE9RSzBOK0ZFZy81dlpGQksvT3VGRVho?=
+ =?utf-8?B?NWE1Y0FwQW5JNTlTUmJ2RlljMlZuNGloY1ZVYlJuMStBdlllaWMxNjlUODk4?=
+ =?utf-8?B?WHFWc1IxTTVVQ3lXRWtwM2pPR1d2cDdCSXNTT2xpc3FTRllFNmRsbkNPTy9B?=
+ =?utf-8?B?SEZNZ3NnMVJmYlgrYUlaTytCa1J0eWtmWDVwVGU2QjNpV2tqOGVOL0ppVnBS?=
+ =?utf-8?B?Y1VIalQ0T1FzamRla0tRTUpkZFM5emxiMjlTRVF4QjFiZkxLT0F0NGxXdEZW?=
+ =?utf-8?B?RFlicmZtMFI2czhHV2pjd09RczZIQU10ZHVQWGczNHVtdHhVeFRrOXgydkY2?=
+ =?utf-8?B?WVNGWkhWMGRmY2FFYjFLWFZSWG5DeWZQbWZ0UkxXampuNVhQTnE2Y00zODA5?=
+ =?utf-8?B?ZkU5WmFlWE14TnlPMElYQXhLTldHTWM5dmxWOTBXZXljeUdNVUJvUGtUWml5?=
+ =?utf-8?B?c3FoZ3ByeGJRUWdIMi9HVHI0NkZHYlllZTVIdEdKeXN4S2FGOTRGcHd6YjUy?=
+ =?utf-8?B?S1VObktHall0NHlHckp3OTVFYThQU1E3eXRZR05BNkUvQ3FoRys2bzV2Zi9W?=
+ =?utf-8?B?MFp3VjNNZGtCaVVUd1pqUFB0UkZBRmpxbm1Edk9GdU1yNGE5dFJ5NXF0Ymow?=
+ =?utf-8?B?dlZ2NFZUL0JFVWQzcm1ybXpyNUZlVDY4WkxSeUlVQkRBSEpSZUNGMndCbk9L?=
+ =?utf-8?B?UWxjbUJ5ZFlnd1JOQ3RvMXpkM2grdy8xUldKTmlzcXo4MTRNUVNySUt0WFZW?=
+ =?utf-8?B?eHJiR0JMR2hkcFN0VVprMW9oWnMwKzF3d1dVdlpFR2hoRGJvN1ZIbm03V3FS?=
+ =?utf-8?B?Sy9rU3krSUxEVlNLaTNhY2JPcVY5UGFmaVFoVXVjcjY5eUJ4cjFDVUk5YkRC?=
+ =?utf-8?B?UVQ1UUhsSE9IbG1Oci90Y1B1cnA0Rm1ORHVBa2J6QVRpaHMxN3htTjhIV0Rm?=
+ =?utf-8?B?T1QwdkxmN0prbzNTNnliRm12bktkNFFyanM3c2pZRVZsWU9DRG1jeU5YWUg1?=
+ =?utf-8?B?QWMwS0lYYUNIcXIyYUFjRGVzL1VXV0sxZmtlVlR3WWpzSjNDNi8wWm5COTFj?=
+ =?utf-8?B?WmFMU0dhdHBJaExoeERsVU1oWUdtVUcwMTBtTnBjOFFlUXhGdlRwbGxYNFcz?=
+ =?utf-8?B?a0VWc0N0cUZsNlVVMyttd3VBSkcvampQSG9VQjNDcy9uQlJzYkpHU3dLS1ZF?=
+ =?utf-8?Q?4nyo7P?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(14060799003)(376014)(35042699022)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2025 16:26:56.8058
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 498f2135-588e-45fc-4bc2-08ddcebcbc8d
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000191.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB7876
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_092356_027547_285CEBFC 
-X-CRM114-Status: GOOD (  24.90  )
+X-CRM114-CacheID: sfid-20250729_092708_435328_EF52880C 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +228,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18:11-20250729, Jan Kiszka wrote:
-> On 29.07.25 14:22, Nishanth Menon wrote:
-> > On 10:36-20250728, huaqian.li@siemens.com wrote:
-> >> From: Jan Kiszka <jan.kiszka@siemens.com>
-> >>
-> >> The TI Peripheral Virtualization Unit (PVU) permits to define a limited
-> >> set of mappings for DMA requests on the system memory. Unlike with an
-> >> IOMMU, there is no fallback to a memory-backed page table, only a fixed
-> >> set of register-backed TLBs. Emulating an IOMMU behavior appears to be
-> >> the more fragile the more fragmentation of pending requests occur.
-> >>
-> >> Therefore, this driver does not expose the PVU as an IOMMU. It rather
-> >> introduces a simple, static interface to devices that are under
-> >> restricted-dma-pool constraints. They can register their pools with the
-> >> PVUs, enabling only those pools to work for DMA. As also MSI is issued
-> >> as DMA, the PVU already register the related translator region of the
-> >> AM654 as valid DMA target.
-> >>
-> >> This driver is the essential building block for limiting DMA from
-> >> untrusted devices to clearly defined memory regions in the absence of a
-> >> real IOMMU (SMMU).
-> >>
-> >> Co-developed-by: Diogo Ivo <diogo.ivo@siemens.com>
-> >> Signed-off-by: Diogo Ivo <diogo.ivo@siemens.com>
-> >> Signed-off-by: Jan Kiszka <jan.kiszka@siemens.com>
-> >> Signed-off-by: Li Hua Qian <huaqian.li@siemens.com>
-> >> ---
-> >>  drivers/soc/ti/Kconfig  |   4 +
-> >>  drivers/soc/ti/Makefile |   1 +
-> >>  drivers/soc/ti/ti-pvu.c | 500 ++++++++++++++++++++++++++++++++++++++++
-> >>  include/linux/ti-pvu.h  |  32 +++
-> >>  4 files changed, 537 insertions(+)
-> >>  create mode 100644 drivers/soc/ti/ti-pvu.c
-> >>  create mode 100644 include/linux/ti-pvu.h
-> >>
-> >> diff --git a/drivers/soc/ti/Kconfig b/drivers/soc/ti/Kconfig
-> >> index 1a93001c9e36..af7173ad84de 100644
-> >> --- a/drivers/soc/ti/Kconfig
-> >> +++ b/drivers/soc/ti/Kconfig
-> >> @@ -82,6 +82,10 @@ config TI_PRUSS
-> >>  	  processors on various TI SoCs. It's safe to say N here if you're
-> >>  	  not interested in the PRU or if you are unsure.
-> >>  
-> >> +config TI_PVU
-> >> +	bool "TI Peripheral Virtualization Unit driver"
-> > 
-> > tristate please? Prefer to make this as a module.
-> > 
-> > 
-> 
-> PCI_KEYSTONE is bool and needs this (if enabled). So this won't be a
-> module in practice.
-> 
 
-Something of the form of
-https://lore.kernel.org/all/20250307103128.3287497-1-s-vadapalli@ti.com/
-will need to be done then.
+On 28/07/25 11:49 am, Justin He wrote:
+> Hi Dev,
+>
+>> -----Original Message-----
+>> From: Dev Jain <Dev.Jain@arm.com>
+>> Sent: Tuesday, July 22, 2025 2:48 PM
+>> To: Justin He <Justin.He@arm.com>; Catalin Marinas
+>> <Catalin.Marinas@arm.com>; Will Deacon <will@kernel.org>; Andrew
+>> Morton <akpm@linux-foundation.org>; Uladzislau Rezki <urezki@gmail.com>
+>> Cc: Anshuman Khandual <Anshuman.Khandual@arm.com>; Ryan Roberts
+>> <Ryan.Roberts@arm.com>; Peter Xu <peterx@redhat.com>; Joey Gouly
+>> <Joey.Gouly@arm.com>; Yicong Yang <yangyicong@hisilicon.com>; Matthew
+>> Wilcox (Oracle) <willy@infradead.org>; linux-arm-kernel@lists.infradead.org;
+>> linux-kernel@vger.kernel.org; linux-mm@kvack.org
+>> Subject: Re: [PATCH] mm: vmalloc: use VMALLOC_EARLY_START boundary for
+>> early vmap area
+>>
+>>
+>> On 22/07/25 9:38 am, Jia He wrote:
+>>> When VMALLOC_START is redefined to a new boundary, most subsystems
+>>> continue to function correctly. However, vm_area_register_early()
+>>> assumes the use of the global _vmlist_ structure before vmalloc_init()
+>>> is invoked. This assumption can lead to issues during early boot.
+>>>
+>>> See the calltrace as follows:
+>>> 	start_kernel()
+>>> 		setup_per_cpu_areas()
+>>> 			pcpu_page_first_chunk()
+>>> 				vm_area_register_early()
+>>> 		mm_core_init()
+>>> 			vmalloc_init()
+>>>
+>>> The early vm areas will be added to vmlist at declare_kernel_vmas()
+>>> ->declare_vma():
+>>> ffff800080010000 T _stext
+>>> ffff800080da0000 D __start_rodata
+>>> ffff800081890000 T __inittext_begin
+>>> ffff800081980000 D __initdata_begin
+>>> ffff800081ee0000 D _data
+>>> The starting address of the early areas is tied to the *old*
+>>> VMALLOC_START (i.e. 0xffff800080000000 on an arm64 N2 server).
+>>>
+>>> If VMALLOC_START is redefined, it can disrupt early VM area
+>>> allocation, particularly in like pcpu_page_first_chunk()-
+>>> vm_area_register_early().
+>>>
+>>> To address this potential risk on arm64, introduce a new boundary,
+>>> VMALLOC_EARLY_START, to avoid boot issues when VMALLOC_START is
+>>> occasionaly redefined.
+>> Sorry but I am unable to understand the point of the patch. If a particular
+>> value of VMALLOC_START causes a problem because the vma declarations of
+>> the kernel are tied to that value, surely we should be reasoning about what
+>> was wrong about the new value, and not circumventing the actual problem by
+>> introducing VMALLOC_EARLY_START?
+>>
+>> Also by your patch description I don't think you have run into a reproducible
+>> boot issue, so this patch is basically adding dead code because both macros
+>> are defined to MODULES_END?
+>>
+> Please try this *debugging* purpose patch which can trigger the boot panic
+> more easily(I can always reproduce the boot panic on an ARM64 server):
+>
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>   index 192d86e1cc76..2be8db8d0205 100644
+>   --- a/arch/arm64/include/asm/pgtable.h
+>   +++ b/arch/arm64/include/asm/pgtable.h
+>   @@ -20,7 +20,8 @@
+>     * VMALLOC_START: beginning of the kernel vmalloc space
+>     * VMALLOC_END: extends to the available space below vmemmap
+>     */
+>   -#define VMALLOC_START          (MODULES_END)
+>   +//#define VMALLOC_START                (MODULES_END)
+>   +#define VMALLOC_START          ((MODULES_END & PGDIR_MASK) + PGDIR_SIZE)
+>    #if VA_BITS == VA_BITS_MIN
+>    #define VMALLOC_END            (VMEMMAP_START - SZ_8M)
+>    #else
+>   diff --git a/mm/percpu.c b/mm/percpu.c
+>   index b35494c8ede2..53d187172b5e 100644
+>   --- a/mm/percpu.c
+>   +++ b/mm/percpu.c
+>   @@ -3051,7 +3051,7 @@ int __init pcpu_embed_first_chunk(size_t reserved_size, size_t dyn_size,
+>           max_distance += ai->unit_size * ai->groups[highest_group].nr_units;
+>
+>           /* warn if maximum distance is further than 75% of vmalloc space */
+>   -       if (max_distance > VMALLOC_TOTAL * 3 / 4) {
+>   +       if (1 || max_distance > VMALLOC_TOTAL * 3 / 4) {
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+This will always return true - which leads to returning -EINVAL and then
+panicking in setup_per_cpu_areas(). Probably you made this change by mistake
+and are trying to say that the redefinition above panics?
+
+>                   pr_warn("max_distance=0x%lx too large for vmalloc space 0x%lx\n",
+>                                   max_distance, VMALLOC_TOTAL);
+>    #ifdef CONFIG_NEED_PER_CPU_PAGE_FIRST_CHUNK
+>
+>
+> ---
+> Cheers,
+> Justin He(Jia He)
+>
+>
 
