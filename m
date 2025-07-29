@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43D7C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFDAC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PbYaN4ncaC0fEvQ/Bbn3DQ53qZe1pK4nSqgAe9aIAe0=; b=x3f57T5XpBs3MyMqHepGkmRKFG
-	SfctdH0IGgoRzfXr4FK5mYNNZH5P4ecxT8rli23rVu8Wn+sEFNfqRctoi08zU8WBxt6idLG7jaGs7
-	RkG9SgV7YJFncU4gdLnL3C2HbHZalbpPJu9zuCFeBOlpDe/d5e3izlqvLLTvAQnWTnre0FQ8iB6Pw
-	kpQIGxMskIkvO2Sj4KiHQkasI4FKxnh0Ji9ZhlAL4L/kKlAiBku8l4/AT9sPQNxS83j8MS0HFhTuU
-	DwuxmFSlJp9BpDnwzbXJ/QStWDLgZx+LqO3a80Klm02q2CGNSHtb7HeI8lksDvec/4POLM+NJFNjN
-	PD92AskA==;
+	bh=TxY+JKrWeGH0H6xo56T1MRsEGuU0255fEPWJ+EHkpqA=; b=NLbdAQmJyaBb0bktOiN0zVLxb2
+	swxxT8NvN/GY0jw9r8S5qADce+RR8gqROWTKmdEDVpjoZKIXH98bgbRsxGcs3LF7FvZyjlxByhLG1
+	mfvFOt535LVixo4/RIrZ4EkHa5wjoZJBdEQoKDkp+JvUHLBd1zQ9JnKKLKgxIal6eHw1SuWnA5CW4
+	q/XluRDm6VDG6t6yts/Zx5wit0AZgQ2ewJ18RrAfiBxQfxHf3QxIpYpF7WStcrI91GKK90VkBq2iB
+	ebPA/Sx9Frc1F+oMf3ll6CQeJ7ZQNZcgwnmWsCgmdk85kIB7T0mirPHVaOCJ26/MDg+JkjLTtJ74v
+	pSBwjt/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnsL-0000000HL7I-3nnF;
-	Tue, 29 Jul 2025 17:12:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ugnum-0000000HLJb-2jCB;
+	Tue, 29 Jul 2025 17:15:00 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugneb-0000000HJqt-1hmd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 16:58:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8C90560202;
-	Tue, 29 Jul 2025 16:58:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A35EC4CEF5;
-	Tue, 29 Jul 2025 16:58:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753808296;
-	bh=Hb9smdHf0g56CpF8sBWDOF38RasuaUJ0puvOlmqvOjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KlPT85UP6HQLETFTi6OtUJx9aRuyZBcfrc4BG0gLSetfvPPGD3huNlBLFo0yL5k22
-	 Mtx9Bqa1YmgYyOQeni00rZcMrLD1xMmj+A/AcO7/p2AZGoUM57od4OFqJgUlcbZPy1
-	 vwoHTTPkVS1J/e0Wea9moLyTMgW5hPt3gOmatUFpd7vYVdHguB+8uTPSslkTw2M+Nd
-	 AQ9lmMqb8djPioT5MzVN22+r099MIJTq6z508uKiDs1wcvKL++f6Yh4T1g5d9/PNTn
-	 kMtkM/iz68Sx+YMXAHzvOowhlMKSqVIczcTgLwLbXL7BKChTSMwB2V7Xl1e7J3sn/D
-	 v2qe7PZzt4j6A==
-Date: Tue, 29 Jul 2025 17:58:10 +0100
-From: Simon Horman <horms@kernel.org>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/2] drivers: net: stmmac: handle start time
- set in the past for flexible PPS
-Message-ID: <20250729165810.GG1877762@horms.kernel.org>
-References: <20250729-relative_flex_pps-v2-0-3e5f03525c45@foss.st.com>
- <20250729-relative_flex_pps-v2-1-3e5f03525c45@foss.st.com>
+	id 1ugnq2-0000000HKm3-1O46;
+	Tue, 29 Jul 2025 17:10:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1753808989; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=SfxG9oyq7Xh8cTqP4vj/WMBsAVKKyJGE+kgbDuj9GfiznmFzbYCU1RFKYuJ1+PkM/MHnJiWt4bUh+cZ2fl7/Vzrszw8deKQciSfQL+emFjSlk4R2wePdVXx+SvXdQqh6KibmQVXeJDS0iZE0ib3d/Ih697a0bi1Fvx8rFrqYn/c=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1753808989; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=TxY+JKrWeGH0H6xo56T1MRsEGuU0255fEPWJ+EHkpqA=; 
+	b=jGKxLA38fK+Wa5kjzUZSZGRREuV//fN3TzV9QTPyK7DUAWUQgT6VVXQKS9RxRi1xfGvQ2nPhPkcOM1ujZdFRb3zSbmPCczj4CAWDz/5rbOyx00C8vaoSWqdio5MCz0mWu3WiC07ESQL7lgfcxqfgKmTNbSPCKhmfH7mUX6sDhOo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1753808989;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=TxY+JKrWeGH0H6xo56T1MRsEGuU0255fEPWJ+EHkpqA=;
+	b=flWQIz7djxGg2eW+E94jqszUeQMWJ/YoZmfNOdOHpqLbst6uitu0W/kUVagoSK7D
+	ySTx3VwmZNGjMoVB7EmCXZZoBMqq3MB7PrJQ1vJ6JqZpBhPGWG9FF3zgSI7BX4aBwul
+	jr7++GN4QedV8dLVHczmIrWPdqIhoF3uLhSdL610=
+Received: by mx.zohomail.com with SMTPS id 1753808986669159.71490156758534;
+	Tue, 29 Jul 2025 10:09:46 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id 669AE180F0B; Tue, 29 Jul 2025 19:09:41 +0200 (CEST)
+Date: Tue, 29 Jul 2025 19:09:41 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andy Yan <andyshrk@163.com>
+Cc: dmitry.baryshkov@oss.qualcomm.com, heiko@sntech.de, hjc@rock-chips.com, 
+	mripard@kernel.org, naoki@radxa.com, stephen@radxa.com, 
+	cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org, Laurent.pinchart@ideasonboard.com, 
+	yubing.zhang@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, robh@kernel.org, 
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort for
+ rk3588s Cool Pi 4B
+Message-ID: <hbvwlucm5mnjpve6hb6h7dusgrokvdxzbpq5zrwib4yesrdakp@v77ofq7u2vv2>
+References: <20250728082846.3811429-1-andyshrk@163.com>
+ <20250728082846.3811429-10-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iihpr7ffgjlj4iks"
 Content-Disposition: inline
-In-Reply-To: <20250729-relative_flex_pps-v2-1-3e5f03525c45@foss.st.com>
+In-Reply-To: <20250728082846.3811429-10-andyshrk@163.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/253.35.66
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250729_101006_437470_943057F9 
+X-CRM114-Status: GOOD (  21.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,68 +89,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 04:52:00PM +0200, Gatien Chevallier wrote:
-> In case the time arguments used for flexible PPS signal generation are in
-> the past, consider the arguments to be a time offset relative to the MAC
-> system time.
-> 
-> This way, past time use case is handled and it avoids the tedious work
-> of passing an absolute time value for the flexible PPS signal generation
-> while not breaking existing scripts that may rely on this behavior.
-> 
-> Signed-off-by: Gatien Chevallier <gatien.chevallier@foss.st.com>
+
+--iihpr7ffgjlj4iks
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort for
+ rk3588s Cool Pi 4B
+MIME-Version: 1.0
+
+Hi,
+
+On Mon, Jul 28, 2025 at 04:28:34PM +0800, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
+>=20
+> Enable the Mini DisplayPort on this board.
+> Note that ROCKCHIP_VOP2_EP_DP0 is defined as 10 in dt-binding header,
+> but it will trigger a dtc warning like "graph node unit address error,
+> expected "a"" if we use it directly after endpoint, so we use "a"
+> instead here.
+>=20
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c | 31 ++++++++++++++++++++++++
->  1 file changed, 31 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> index 3767ba495e78d210b0529ee1754e5331f2dd0a47..5c712b33851081b5ae1dbf2a0988919ae647a9e2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-> @@ -10,6 +10,8 @@
->  #include "stmmac.h"
->  #include "stmmac_ptp.h"
->  
-> +#define PTP_SAFE_TIME_OFFSET_NS	500000
+
+The graph currently looks like this:
+
+VOP <-> DP controller <-> DP Connector
+
+IIUIC this does not work for USB-C and needs to look like this,
+because the USBDP PHY handles the lane muxing and thus must be
+the thing connected to the USB-C controller/connector:
+
+VOP <-> DP controller <-> USBDP PHY <-> USB-C Connector
+
+I wonder if the simple case not involving USB-C should also have
+the USBDP PHY described in the graph as a transparent bridge?
+Note, that the USBDP PHY DT binding is currently not ready for
+this (this also affects the next patch, but should be enough to
+discuss this once :)).
+
+Greetings,
+
+-- Sebastian
+
+>=20
+> (no changes since v2)
+>=20
+> Changes in v2:
+> - Sort in alphabetical order
+>=20
+>  .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 37 +++++++++++++++++++
+>  1 file changed, 37 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/ar=
+m64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> index 8b717c4017a46..5393c6cc493c3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> @@ -39,6 +39,18 @@ chosen {
+>  		stdout-path =3D "serial2:1500000n8";
+>  	};
+> =20
+> +	dp-con {
+> +		compatible =3D "dp-connector";
+> +		label =3D "DP OUT";
+> +		type =3D "mini";
 > +
->  /**
->   * stmmac_adjust_freq
->   *
-> @@ -172,6 +174,10 @@ static int stmmac_enable(struct ptp_clock_info *ptp,
->  
->  	switch (rq->type) {
->  	case PTP_CLK_REQ_PEROUT:
-> +		struct timespec64 curr_time;
-> +		u64 target_ns = 0;
-> +		u64 ns = 0;
+> +		port {
+> +			dp_con_in: endpoint {
+> +				remote-endpoint =3D <&dp0_out_con>;
+> +			};
+> +		};
+> +	};
 > +
+>  	hdmi-con {
+>  		compatible =3D "hdmi-connector";
+>  		type =3D "d";
+> @@ -215,6 +227,24 @@ &cpu_b2 {
+>  	cpu-supply =3D <&vdd_cpu_big1_s0>;
+>  };
+> =20
+> +&dp0 {
+> +	status =3D "okay";
+> +	pinctrl-0 =3D <&dp0m0_pins>;
+> +	pinctrl-names =3D "default";
+> +};
+> +
+> +&dp0_in {
+> +	dp0_in_vp2: endpoint {
+> +		remote-endpoint =3D <&vp2_out_dp0>;
+> +	};
+> +};
+> +
+> +&dp0_out {
+> +	dp0_out_con: endpoint {
+> +		remote-endpoint =3D <&dp_con_in>;
+> +	};
+> +};
+> +
+>  &gpu {
+>  	mali-supply =3D <&vdd_gpu_s0>;
+>  	status =3D "okay";
+> @@ -889,3 +919,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+>  		remote-endpoint =3D <&hdmi0_in_vp0>;
+>  	};
+>  };
+> +
+> +&vp2 {
+> +	vp2_out_dp0: endpoint@a {
+> +		reg =3D <ROCKCHIP_VOP2_EP_DP0>;
+> +		remote-endpoint =3D <&dp0_in_vp2>;
+> +	};
+> +};
+> --=20
+> 2.43.0
+>=20
 
-I think you need to wrap this case in {}, as is already done for the following
-case.
+--iihpr7ffgjlj4iks
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Clang 20.1.8 W=1 build warn about the current arrangement as follows.
+-----BEGIN PGP SIGNATURE-----
 
-  .../stmmac_ptp.c:177:3: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
-    177 |                 struct timespec64 curr_time;
-        |                 ^
-  1 warning generated.
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmiJAEsACgkQ2O7X88g7
++prNtg//bsKKMAA8eaI9O6lXTAxHpG5/NO6poWY5y1hlAapvyZeYfdlPRJFAPnV4
+vu3UUT2mwRQOeAE6SzjKI2DOvtKU3vDQJgf8a9OrHM3OuS3+ioutmpyhX2YyeANt
+GjC0tX7gfv7dOTzp9L3j2pEGN7bQNQLZh9doIjM1f+wdCBvgKB7pMbwDeoPoHzf0
+UwhUQ2eB4EgVZn7XNd5NnF5eL7/JosLDNrYkek0M/rfrgkV7Hfq6HmvPSTnd0w57
+sAl/zZ66VAAnEukJ2PDyZOR5vCM1qlEn4Bux919MB0ltGyHuHXBB8MLosIFVNRBA
+aesK52/wn7w4EhE4Jg+iEggmk6kqMu67wOEdWyfPZ8gL/xrFi7j7u1CYAWpaTI5R
+dBxq55fS9o/pcTQ41HDEyX4TfV+11c5TnxPGo+0NQlucZqDEO7UcddXl76IuVIUO
+pgqREMW9l9Y8+vozkUXmgTQrqk6wde/3R2i7kBSFnj1FAGsHWkO1rY9ESy+uyghZ
+PMu8pPQuNKTdX8vMI1ejrbPbbNawsMvpLhHVN1S72qK3sSy4U9BUnEjrHR5bjJor
+fmYq+pk3URBT3tsaubEmvV1TGNZnrs+8E6U8Ls6ewDEZ8OG1IezkiR2DHnj/oi4x
+I+c7X3YmyfDiEUX11MpjNVy3ROss+0q83O5mc6tmJAR7CaongWs=
+=0LrM
+-----END PGP SIGNATURE-----
 
-GCC 8.5.0 (but not 15.1.0) also flags this problem.
-
-Also, please note:
-
-## Form letter - net-next-closed
-
-The merge window for v6.17 has begun and therefore net-next is closed
-for new drivers, features, code refactoring and optimizations. We are
-currently accepting bug fixes only.
-
-Please repost when net-next reopens after 11th August.
-
-RFC patches sent for review only are obviously welcome at any time.
-
-See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
-
--- 
-pw-bot: defer
+--iihpr7ffgjlj4iks--
 
