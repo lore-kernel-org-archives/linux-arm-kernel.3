@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0ABC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 15:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138D4C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xa00rQkDcEQWo1Ev6hRyJS17IV/RkaUV+d6Oj5x+Hm4=; b=R4T/yPWb+7QX96zXy4U15uZ3VL
-	xCus5APeqjv4Q021yPIegr0c7kU0kHtizwXKOrrU9xe68EWHHyhu69rPt2sMVk8an7P0Kkgk5BCEJ
-	jJ3aPUZ/eH70L2flnPNT1ZwPncklIdmL16LUixKILNdDhx40CGF9gckwuDby7zYA2IHRL8x0CeeNE
-	PEuprUSIC4/1Kbr8r11PGfBAf9tFMdy1OFpdArELvVnY8xN/k3PVaYpxQcRzkpXfNEkGUVc0rfpPK
-	zkUJlxy9FfOT4I2YMZ9oVTx/rPRrO3bsQ63ZAirPHEZlH5fdPbyd1kpeXZNLVYUDb78YMmB/zxmE7
-	eXZc/BVQ==;
+	bh=JhZZC71T7MhYKp/7kkvgtJMtHoA0GAtsAcX2EGqQlRY=; b=mw98IipdgQbt2AtfCeE9vBdt0D
+	ULFm3NOBLe5YQ5aO4Q+Sqqdzlp4R24vNzOAWyo+M2QQPg00JYyML2bSG2NH9WHLSe7UUnKDjDxG3l
+	oe7VzTs3OAZjfbCtXweuPrYGlUmwMCRL6nZOfFhLduVK6b19Sjo9/kT69YA4gC94RfS6Age1AcXDf
+	9nKw1gaQ57KcSrjbeotiXuh7MwJr1f03seOt00YCHRwzl/kvp8polrOqWkaBPa88XMlrcufA6Z62N
+	4u70B/c36Sc8ii34YdFKiMedcZ7WJNCd0P/Z5Re5BWxLVDznd9yINS5C1SnLk+TrcaGzfTYa06vmb
+	7yEVwAXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugmhf-0000000HCMF-45eR;
-	Tue, 29 Jul 2025 15:57:23 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1ugmk6-0000000HCj4-3Fvq;
+	Tue, 29 Jul 2025 15:59:54 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugmPU-0000000H9rJ-0djA
+	id 1ugmPU-0000000H9rH-3Qcn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 15:38:37 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4brzsd70MgzdcB9;
-	Tue, 29 Jul 2025 23:34:13 +0800 (CST)
+	Tue, 29 Jul 2025 15:38:38 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4brzxJ3x85ztScm;
+	Tue, 29 Jul 2025 23:37:24 +0800 (CST)
 Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 33A78180B52;
+	by mail.maildlp.com (Postfix) with ESMTPS id 6C181140278;
 	Tue, 29 Jul 2025 23:38:27 +0800 (CST)
 Received: from kwepemn100008.china.huawei.com (7.202.194.111) by
  dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 29 Jul 2025 23:38:26 +0800
+ 15.2.1544.11; Tue, 29 Jul 2025 23:38:27 +0800
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemn100008.china.huawei.com (7.202.194.111) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
@@ -47,9 +47,9 @@ To: <will@kernel.org>, <mark.rutland@arm.com>,
 CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
 	<fanghao11@huawei.com>, <linuxarm@huawei.com>, <yangyicong@hisilicon.com>,
 	<wangyushan12@huawei.com>
-Subject: [PATCH 5/8] drivers/perf: hisi: Extend the field of tt_core
-Date: Tue, 29 Jul 2025 23:38:20 +0800
-Message-ID: <20250729153823.2026154-6-wangyushan12@huawei.com>
+Subject: [PATCH 6/8] drivers/perf: hisi: Refactor the event configuration of L3C PMU
+Date: Tue, 29 Jul 2025 23:38:21 +0800
+Message-ID: <20250729153823.2026154-7-wangyushan12@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20250729153823.2026154-1-wangyushan12@huawei.com>
 References: <20250729153823.2026154-1-wangyushan12@huawei.com>
@@ -60,8 +60,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemn100008.china.huawei.com (7.202.194.111)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_083836_405224_CF606321 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250729_083837_203220_4D45F3A1 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,42 +78,334 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-Currently the tt_core's using config1's bit [7, 0] and can not be
-extended. For some platforms there's more the 8 CPUs sharing the
-L3 cache. So make tt_core use config2's bit [15, 0] and the remaining
-bits in config2 is reserved for extension.
+The event register is configured using hisi_pmu::base directly since
+only one address space is supported for L3C PMU. We need to extend if
+events configuration locates in different address space. In order to
+make preparation for such hardware, extract the event register
+configuration to separate function using hw_perf_event::event_base as
+each event's base address.  Implement a private
+hisi_uncore_ops::get_event_idx() callback for initialize the event_base
+besides get the hardware index.
+
+No functional changes intended.
 
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 ---
- drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 128 ++++++++++++-------
+ 1 file changed, 83 insertions(+), 45 deletions(-)
 
 diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-index a372dd2c07b5..39444f11cbad 100644
+index 39444f11cbad..6ac0ea74cda3 100644
 --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
 +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-@@ -55,10 +55,10 @@
- #define L3C_V1_NR_EVENTS	0x59
- #define L3C_V2_NR_EVENTS	0xFF
- 
--HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config1, 7, 0);
- HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_req, config1, 10, 8);
- HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
+@@ -60,51 +60,86 @@ HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
-+HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
+ HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
  
- static void hisi_l3c_pmu_config_req_tracetag(struct perf_event *event)
+-static void hisi_l3c_pmu_config_req_tracetag(struct perf_event *event)
++static int hisi_l3c_pmu_get_event_idx(struct perf_event *event)
  {
-@@ -397,7 +397,7 @@ static const struct attribute_group hisi_l3c_pmu_v1_format_group = {
+ 	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
++	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
++	u32 num_counters = l3c_pmu->num_counters;
++	int idx;
++
++	idx = find_first_zero_bit(used_mask, num_counters);
++	if (idx == num_counters)
++		return -EAGAIN;
++
++	set_bit(idx, used_mask);
++	event->hw.event_base = (unsigned long)l3c_pmu->base;
++	return idx;
++}
++
++static u32 hisi_l3c_pmu_event_readl(struct hw_perf_event *hwc, u32 reg)
++{
++	return readl((void __iomem *)hwc->event_base + reg);
++}
++
++static void hisi_l3c_pmu_event_writel(struct hw_perf_event *hwc, u32 reg, u32 val)
++{
++	writel(val, (void __iomem *)hwc->event_base + reg);
++}
++
++static u64 hisi_l3c_pmu_event_readq(struct hw_perf_event *hwc, u32 reg)
++{
++	return readq((void __iomem *)hwc->event_base + reg);
++}
++
++static void hisi_l3c_pmu_event_writeq(struct hw_perf_event *hwc, u32 reg, u64 val)
++{
++	writeq(val, (void __iomem *)hwc->event_base + reg);
++}
++
++static void hisi_l3c_pmu_config_req_tracetag(struct perf_event *event)
++{
++	struct hw_perf_event *hwc = &event->hw;
+ 	u32 tt_req = hisi_get_tt_req(event);
  
- static struct attribute *hisi_l3c_pmu_v2_format_attr[] = {
- 	HISI_PMU_FORMAT_ATTR(event, "config:0-7"),
--	HISI_PMU_FORMAT_ATTR(tt_core, "config1:0-7"),
-+	HISI_PMU_FORMAT_ATTR(tt_core, "config2:0-15"),
- 	HISI_PMU_FORMAT_ATTR(tt_req, "config1:8-10"),
- 	HISI_PMU_FORMAT_ATTR(datasrc_cfg, "config1:11-15"),
- 	HISI_PMU_FORMAT_ATTR(datasrc_skt, "config1:16"),
+ 	if (tt_req) {
+ 		u32 val;
+ 
+ 		/* Set request-type for tracetag */
+-		val = readl(l3c_pmu->base + L3C_TRACETAG_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_TRACETAG_CTRL);
+ 		val |= tt_req << L3C_TRACETAG_REQ_SHIFT;
+ 		val |= L3C_TRACETAG_REQ_EN;
+-		writel(val, l3c_pmu->base + L3C_TRACETAG_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_TRACETAG_CTRL, val);
+ 
+ 		/* Enable request-tracetag statistics */
+-		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_PERF_CTRL);
+ 		val |= L3C_TRACETAG_EN;
+-		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_PERF_CTRL, val);
+ 	}
+ }
+ 
+ static void hisi_l3c_pmu_clear_req_tracetag(struct perf_event *event)
+ {
+-	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
+ 	u32 tt_req = hisi_get_tt_req(event);
+ 
+ 	if (tt_req) {
+ 		u32 val;
+ 
+ 		/* Clear request-type */
+-		val = readl(l3c_pmu->base + L3C_TRACETAG_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_TRACETAG_CTRL);
+ 		val &= ~(tt_req << L3C_TRACETAG_REQ_SHIFT);
+ 		val &= ~L3C_TRACETAG_REQ_EN;
+-		writel(val, l3c_pmu->base + L3C_TRACETAG_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_TRACETAG_CTRL, val);
+ 
+ 		/* Disable request-tracetag statistics */
+-		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_PERF_CTRL);
+ 		val &= ~L3C_TRACETAG_EN;
+-		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_PERF_CTRL, val);
+ 	}
+ }
+ 
+ static void hisi_l3c_pmu_write_ds(struct perf_event *event, u32 ds_cfg)
+ {
+-	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	u32 reg, reg_idx, shift, val;
+ 	int idx = hwc->idx;
+@@ -120,15 +155,15 @@ static void hisi_l3c_pmu_write_ds(struct perf_event *event, u32 ds_cfg)
+ 	reg_idx = idx % 4;
+ 	shift = 8 * reg_idx;
+ 
+-	val = readl(l3c_pmu->base + reg);
++	val = hisi_l3c_pmu_event_readl(hwc, reg);
+ 	val &= ~(L3C_DATSRC_MASK << shift);
+ 	val |= ds_cfg << shift;
+-	writel(val, l3c_pmu->base + reg);
++	hisi_l3c_pmu_event_writel(hwc, reg, val);
+ }
+ 
+ static void hisi_l3c_pmu_config_ds(struct perf_event *event)
+ {
+-	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
+ 	u32 ds_cfg = hisi_get_datasrc_cfg(event);
+ 	u32 ds_skt = hisi_get_datasrc_skt(event);
+ 
+@@ -138,15 +173,15 @@ static void hisi_l3c_pmu_config_ds(struct perf_event *event)
+ 	if (ds_skt) {
+ 		u32 val;
+ 
+-		val = readl(l3c_pmu->base + L3C_DATSRC_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_DATSRC_CTRL);
+ 		val |= L3C_DATSRC_SKT_EN;
+-		writel(val, l3c_pmu->base + L3C_DATSRC_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_DATSRC_CTRL, val);
+ 	}
+ }
+ 
+ static void hisi_l3c_pmu_clear_ds(struct perf_event *event)
+ {
+-	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
+ 	u32 ds_cfg = hisi_get_datasrc_cfg(event);
+ 	u32 ds_skt = hisi_get_datasrc_skt(event);
+ 
+@@ -156,51 +191,51 @@ static void hisi_l3c_pmu_clear_ds(struct perf_event *event)
+ 	if (ds_skt) {
+ 		u32 val;
+ 
+-		val = readl(l3c_pmu->base + L3C_DATSRC_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_DATSRC_CTRL);
+ 		val &= ~L3C_DATSRC_SKT_EN;
+-		writel(val, l3c_pmu->base + L3C_DATSRC_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_DATSRC_CTRL, val);
+ 	}
+ }
+ 
+ static void hisi_l3c_pmu_config_core_tracetag(struct perf_event *event)
+ {
+-	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
+ 	u32 core = hisi_get_tt_core(event);
+ 
+ 	if (core) {
+ 		u32 val;
+ 
+ 		/* Config and enable core information */
+-		writel(core, l3c_pmu->base + L3C_CORE_CTRL);
+-		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_CORE_CTRL, core);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_PERF_CTRL);
+ 		val |= L3C_CORE_EN;
+-		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_PERF_CTRL, val);
+ 
+ 		/* Enable core-tracetag statistics */
+-		val = readl(l3c_pmu->base + L3C_TRACETAG_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_TRACETAG_CTRL);
+ 		val |= L3C_TRACETAG_CORE_EN;
+-		writel(val, l3c_pmu->base + L3C_TRACETAG_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_TRACETAG_CTRL, val);
+ 	}
+ }
+ 
+ static void hisi_l3c_pmu_clear_core_tracetag(struct perf_event *event)
+ {
+-	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
++	struct hw_perf_event *hwc = &event->hw;
+ 	u32 core = hisi_get_tt_core(event);
+ 
+ 	if (core) {
+ 		u32 val;
+ 
+ 		/* Clear core information */
+-		writel(L3C_COER_NONE, l3c_pmu->base + L3C_CORE_CTRL);
+-		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_CORE_CTRL, L3C_COER_NONE);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_PERF_CTRL);
+ 		val &= ~L3C_CORE_EN;
+-		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_PERF_CTRL, val);
+ 
+ 		/* Disable core-tracetag statistics */
+-		val = readl(l3c_pmu->base + L3C_TRACETAG_CTRL);
++		val = hisi_l3c_pmu_event_readl(hwc, L3C_TRACETAG_CTRL);
+ 		val &= ~L3C_TRACETAG_CORE_EN;
+-		writel(val, l3c_pmu->base + L3C_TRACETAG_CTRL);
++		hisi_l3c_pmu_event_writel(hwc, L3C_TRACETAG_CTRL, val);
+ 	}
+ }
+ 
+@@ -239,18 +274,19 @@ static u32 hisi_l3c_pmu_get_counter_offset(int cntr_idx)
+ static u64 hisi_l3c_pmu_read_counter(struct hisi_pmu *l3c_pmu,
+ 				     struct hw_perf_event *hwc)
+ {
+-	return readq(l3c_pmu->base + hisi_l3c_pmu_get_counter_offset(hwc->idx));
++	return hisi_l3c_pmu_event_readq(hwc, hisi_l3c_pmu_get_counter_offset(hwc->idx));
+ }
+ 
+ static void hisi_l3c_pmu_write_counter(struct hisi_pmu *l3c_pmu,
+ 				       struct hw_perf_event *hwc, u64 val)
+ {
+-	writeq(val, l3c_pmu->base + hisi_l3c_pmu_get_counter_offset(hwc->idx));
++	hisi_l3c_pmu_event_writeq(hwc, hisi_l3c_pmu_get_counter_offset(hwc->idx), val);
+ }
+ 
+ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
+ 				      u32 type)
+ {
++	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
+ 	u32 reg, reg_idx, shift, val;
+ 
+ 	/*
+@@ -265,10 +301,10 @@ static void hisi_l3c_pmu_write_evtype(struct hisi_pmu *l3c_pmu, int idx,
+ 	shift = 8 * reg_idx;
+ 
+ 	/* Write event code to L3C_EVENT_TYPEx Register */
+-	val = readl(l3c_pmu->base + reg);
++	val = hisi_l3c_pmu_event_readl(hwc, reg);
+ 	val &= ~(L3C_EVTYPE_NONE << shift);
+ 	val |= (type << shift);
+-	writel(val, l3c_pmu->base + reg);
++	hisi_l3c_pmu_event_writel(hwc, reg, val);
+ }
+ 
+ static void hisi_l3c_pmu_start_counters(struct hisi_pmu *l3c_pmu)
+@@ -303,9 +339,9 @@ static void hisi_l3c_pmu_enable_counter(struct hisi_pmu *l3c_pmu,
+ 	u32 val;
+ 
+ 	/* Enable counter index in L3C_EVENT_CTRL register */
+-	val = readl(l3c_pmu->base + L3C_EVENT_CTRL);
++	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
+ 	val |= (1 << hwc->idx);
+-	writel(val, l3c_pmu->base + L3C_EVENT_CTRL);
++	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
+ }
+ 
+ static void hisi_l3c_pmu_disable_counter(struct hisi_pmu *l3c_pmu,
+@@ -314,9 +350,9 @@ static void hisi_l3c_pmu_disable_counter(struct hisi_pmu *l3c_pmu,
+ 	u32 val;
+ 
+ 	/* Clear counter index in L3C_EVENT_CTRL register */
+-	val = readl(l3c_pmu->base + L3C_EVENT_CTRL);
++	val = hisi_l3c_pmu_event_readl(hwc, L3C_EVENT_CTRL);
+ 	val &= ~(1 << hwc->idx);
+-	writel(val, l3c_pmu->base + L3C_EVENT_CTRL);
++	hisi_l3c_pmu_event_writel(hwc, L3C_EVENT_CTRL, val);
+ }
+ 
+ static void hisi_l3c_pmu_enable_counter_int(struct hisi_pmu *l3c_pmu,
+@@ -324,10 +360,10 @@ static void hisi_l3c_pmu_enable_counter_int(struct hisi_pmu *l3c_pmu,
+ {
+ 	u32 val;
+ 
+-	val = readl(l3c_pmu->base + L3C_INT_MASK);
++	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
+ 	/* Write 0 to enable interrupt */
+ 	val &= ~(1 << hwc->idx);
+-	writel(val, l3c_pmu->base + L3C_INT_MASK);
++	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
+ }
+ 
+ static void hisi_l3c_pmu_disable_counter_int(struct hisi_pmu *l3c_pmu,
+@@ -335,10 +371,10 @@ static void hisi_l3c_pmu_disable_counter_int(struct hisi_pmu *l3c_pmu,
+ {
+ 	u32 val;
+ 
+-	val = readl(l3c_pmu->base + L3C_INT_MASK);
++	val = hisi_l3c_pmu_event_readl(hwc, L3C_INT_MASK);
+ 	/* Write 1 to mask interrupt */
+ 	val |= (1 << hwc->idx);
+-	writel(val, l3c_pmu->base + L3C_INT_MASK);
++	hisi_l3c_pmu_event_writel(hwc, L3C_INT_MASK, val);
+ }
+ 
+ static u32 hisi_l3c_pmu_get_int_status(struct hisi_pmu *l3c_pmu)
+@@ -348,7 +384,9 @@ static u32 hisi_l3c_pmu_get_int_status(struct hisi_pmu *l3c_pmu)
+ 
+ static void hisi_l3c_pmu_clear_int_status(struct hisi_pmu *l3c_pmu, int idx)
+ {
+-	writel(1 << idx, l3c_pmu->base + L3C_INT_CLEAR);
++	struct hw_perf_event *hwc = &l3c_pmu->pmu_events.hw_events[idx]->hw;
++
++	hisi_l3c_pmu_event_writel(hwc, L3C_INT_CLEAR, 1 << idx);
+ }
+ 
+ static int hisi_l3c_pmu_init_data(struct platform_device *pdev,
+@@ -474,7 +512,7 @@ static const struct hisi_pmu_dev_info hisi_l3c_pmu_v2 = {
+ 
+ static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
+ 	.write_evtype		= hisi_l3c_pmu_write_evtype,
+-	.get_event_idx		= hisi_uncore_pmu_get_event_idx,
++	.get_event_idx		= hisi_l3c_pmu_get_event_idx,
+ 	.start_counters		= hisi_l3c_pmu_start_counters,
+ 	.stop_counters		= hisi_l3c_pmu_stop_counters,
+ 	.enable_counter		= hisi_l3c_pmu_enable_counter,
 -- 
 2.33.0
 
