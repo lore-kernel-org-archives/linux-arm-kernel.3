@@ -4,108 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793BFC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 09:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C592C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 09:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=; b=TpOz0toqjDZkuKBi3JmFqTugl2
-	1tA3dgCMhq/hHhMLwsOHZtvbiwvbuFXAb4AMrkIO5I5K9jVHNA6kq37DTYqg4WUW9AV7eKy9wsvOz
-	oNShej/Pt0FrNqO9COrEMh2sSWhLwzDywYRR7a9DQaa4BXYzUAB3VXvMDU+aPZ2h5zf3l0k4ZjPTR
-	qTzpgOuuZFIIZp2UPmiPm2SIXc2CeAHf8eURh/0kpYTuwxeMBZnNkJa5InyFKRh4PhsGS5toXOqoZ
-	AYjKZDavtIy0PV9Vmn2QhiTbZUVBewjL7B8smW87PnYuuYk0WD+pZB7opVKiO1W6iAmURWchB6M90
-	v3wPfQBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BDb4J5a+AiGLZI7v9e7yzeDvRtwwpyCg2pNHaK7xfOI=; b=RPdmym5G04SlNrJ3Rnah85V+ad
+	BxUxTK23Zn8+YzKCzZdPhgcdsGmdcIqEsuOSmg2BHtCIgQXv/YDA+7NzFOKPfcFxYz/aQe3EWXR/9
+	5aghBSsSYrTEJ9epwUHfUFnl4+wCg1X+3XiPzWXtLICE2YpcE1i0D7Co1kg/2Mc8ne1og1v+UvuET
+	t5UZUqDeUJJFKNB/srQKIFil/fgPRm4ygKYx5+vlv4+gghvSBGRm6Zw5Gp4BRvwLfkO3PFy84UI7y
+	HC/Xnc9N0XNAyrLR9UOVudycplReIXdyfCS+DvbCxSH90PSuVwsU1Ost4x6bI6qjT4UKDBHN0Sy05
+	vdnguQPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggjU-0000000GP7n-3Iet;
-	Tue, 29 Jul 2025 09:34:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ugglx-0000000GPcF-2E5b;
+	Tue, 29 Jul 2025 09:37:25 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggPV-0000000GMNC-1tgj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Jul 2025 09:14:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=; b=cpQnEZ96Gx9NI5eP0VSDB64CeR
-	H3DPd37/Fsx1V47nldT0HeqwVQqWDd8vWdtlYA4MmouktRIFhE9Fm+PQEh1jq3gaf64VS5nSu7UZj
-	ol0Q5IP+BT6pivTT4lbrb2DjDaSTjzQKe+Bmipaszq2EqLImJ6p/WeTx9xiE3xkmqN3O47l18jbED
-	9skMhhZJLg1JpxwaqP5N2V0zHwkHAQN4vnIkFB1Z0fx9mM/B2NMrZuETPwDCEzBsCn6/4u8bHQRST
-	/KjJo+yzo0+OqCCBH37gh6RN0d6VyEYkPGDIcqdG7LZZm4WCkaT6jlToJyLwL6NyElM+yGtG3pS24
-	DTeofxFQ==;
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggPR-0000000CbhJ-3hyy
+	id 1uggPp-0000000GMQw-0KvC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 09:14:12 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-748d982e97cso4854788b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 02:14:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753780446; x=1754385246; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=;
-        b=e0fux4w0RCcwG5e7lWLFhshtzc8xU97RK5Fr0ExhvrV4KtWbY8L2u/OJgA7tuhFWUv
-         lGdzDJkl2EaySQXDwliRRehdrVlnNrrfvEwXlRXQ6fulNQpCnnn3PVCqLKUAFfNzttDJ
-         mk6yELt8m0n8XNeqghv8afcQZNoMQEZCXJPTZXlK6rdwQIsjf+nGUP7jK2/vbYO7KzxA
-         c3c2olIGhKM1O1uXcAg04qJ6CxGw+xdtxZjzNBgOMwoT0Ma5Zt7Lrg5dmrMDGOH0fI/J
-         UAj2YrtKPdoK+Fb9LvLJcQfagVGYqRiA7kJ1I9Td40DYBKIPh4KgadAKszn4vZKZ60If
-         IWBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753780446; x=1754385246;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FEtF7qEvsNXTmyOD1T2fZBfkSHd2BexV1VORoI+Vnis=;
-        b=C6R1jO0kOnPKwQn3uwNWgdTXj0M3FL/kMUNJxq6pETCmeNanukMKI38BUva37lNF2G
-         cmEoVlFxQkLKpT3sqvbD/cGQl5O5YT+ynQn4Gqh8ro9UNQSTw+C1HCGG/aUdn9A5na9v
-         em/P+IHgCT+wFrOsvkn6lWUH1LEysqy2H9jHlQgH7Fq5Yb8jIFkUDGE4e0R8VBFZGiua
-         HEuAlc8BBNgR8KVfVpEwyXGTu7nM/4siko6kq0PnhRsOo1nGOTQcv3WUdxAKIyAcDrrY
-         Yi3pyCd5LhpJh/hcJhCUEP4yDpEbGHdGdSV6ZHaQU5yciHblgUNW1HpwI37h0HfRld91
-         TFwA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7pJoqgrhGKuvi4SXj3dCUlIfYtDpIf18XZz3yNV8mss2uE6RqteETqoIRSnOHpUvwHhoScfAJi/GUujybWNNc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi4nvjKZRoVoftBrNfSbIgzCxmT+SV4FO1lNq8JH7AJrljPRO+
-	bMW5slyhQEAa0778r6EKLuwtgFvjCfZ70TlNUKdquK/A0ro+MneKQwZVojM0MQ==
-X-Gm-Gg: ASbGncu/e4RhYpaQKXpDM3x5PMphbNf6Mkvkcr+mUiVhwya7VMBfMTRy2OURmQeFpPV
-	07YRETo4oxcZPcPImriHXtgGIQcfsjEMPKQvaMeS/2r/z7q91MKNoZlRNppmxE7o0xWygYMonKT
-	5C9jKy/psBJr+ylPXlLq3jFfbZF4XfahkaCPscgXeC7mol4xdn4TQ4Wws7EXl1HTlS38HyNmGUC
-	IV0OLxFWEw1uhou1nmfD6WYR1kNLzNuz+bPSQDk1JXjPx456IE7TyK0ZZ5HXYDJ2spRjLfLP2Bb
-	Pkt4r1MMmmvGRK3RR6Qo2gk+HUp4lBV5eL+P2kf4i3sxCF5p/OGikivpQ1wtUW2txGlVgausNe7
-	HSvtLWjMB6VBkOzfriZSO3mSkA09DF93upuo1V4NF3HB30waYkWxFue/yEGYg0FPAp0hMhEMWE4
-	HkCSWihc4ZsS6pEyN/8cG/mQZhJG7cQTIgSsVfSNjiP1+c0cY=
-X-Google-Smtp-Source: AGHT+IGZbRiJ4XM9/7SP0TbANTsh6WCA507Pa7WbbQuyrxdcEdrxbpHYh29JWvG1Csf/3GaK7l82Mw==
-X-Received: by 2002:a05:6a20:7491:b0:21c:fbf0:21bb with SMTP id adf61e73a8af0-23d70171d80mr25597800637.24.1753780446288;
-        Tue, 29 Jul 2025 02:14:06 -0700 (PDT)
-Received: from fred-System-Product-Name.. (2001-b400-e38d-c586-0429-5c72-053d-8858.emome-ip6.hinet.net. [2001:b400:e38d:c586:429:5c72:53d:8858])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7640b8b06ddsm7528612b3a.121.2025.07.29.02.14.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Jul 2025 02:14:05 -0700 (PDT)
-From: Fred Chen <fredchen.openbmc@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org,
+	Tue, 29 Jul 2025 09:14:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=BDb4J5a+AiGLZI7v9e7yzeDvRtwwpyCg2pNHaK7xfOI=; b=UTfonjKqPZWb97am0NhvQMxJ3G
+	L8uQyv5HsuohTsD4JC7FSV6pnzjYCZxOXGTwMtSrbfBIFhFBzk0WmnwQQ8m5+e08P4SHXxhv1FCnB
+	GDkAiF/xcXnBDGTFz/YVI7AAseRF/aS3/HMEHLR6taygI4xAP4BZj+j9i1zf5oOiyK2LwzJMqW9hJ
+	a9zxncFZXGABYCayhilVg5zHJLTT4URhTPKmYTzc6JZiEZoyDZYNa5898ahZAmQWwhpJ1e3Dpp0sS
+	zG2HtxqDVguqdhBdh4/psmtJpbIbnI9uL6tK/i84ylBNNhB079EQeCTFuwr1paITdi8FVLF3MUmsf
+	NtJS3/mg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48204)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uggPe-0001ds-0d;
+	Tue, 29 Jul 2025 10:14:22 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uggPb-0007HU-03;
+	Tue, 29 Jul 2025 10:14:19 +0100
+Date: Tue, 29 Jul 2025 10:14:18 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 3/3] ARM: dts: aspeed: santabarbara: Adjust LED configuration
-Date: Tue, 29 Jul 2025 17:13:45 +0800
-Message-ID: <20250729091351.3964939-4-fredchen.openbmc@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250729091351.3964939-1-fredchen.openbmc@gmail.com>
-References: <20250729091351.3964939-1-fredchen.openbmc@gmail.com>
+	Heiner Kallweit <hkallweit1@gmail.com>
+Subject: Re: [Linux-stm32] [PATCH RFC net-next 6/7] net: stmmac: add helpers
+ to indicate WoL enable status
+Message-ID: <aIiQ6qnj1M2qTudc@shell.armlinux.org.uk>
+References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
+ <E1ugQ33-006KDR-Nj@rmk-PC.armlinux.org.uk>
+ <eaef1b1b-5366-430c-97dd-cf3b40399ac7@lunn.ch>
+ <aIe5SqLITb2cfFQw@shell.armlinux.org.uk>
+ <77229e46-6466-4cd4-9b3b-d76aadbe167c@foss.st.com>
+ <aIiOWh7tBjlsdZgs@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aIiOWh7tBjlsdZgs@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_101410_211148_F42ED848 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250729_021433_117632_752EE2D9 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,42 +91,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a new power fault LED on GPIOB5 and relocate the ID LED to GPIOQ4.
-The ID LED is now driven by the CPLD, allowing it to reflect multiple
-system states depending on CPLD logic.
+On Tue, Jul 29, 2025 at 10:03:22AM +0100, Russell King (Oracle) wrote:
+> Without Thierry's .dts patch, as I predicted, enabling WoL at the
+> PHY results in Bad Stuff happening - the code in the realtek driver
+> for WoL is quite simply broken and wrong.
+> 
+> Switching the pin from INTB mode to PMEB mode results in:
+> - No link change interrupts once WoL is enabled
+> - The interrupt output being stuck at active level, causing an
+>   interrupt storm and the interrupt is eventually disabled.
+>   The PHY can be configured to pulse the PMEB or hold at an active
+>   level until the WoL is cleared - and by default it's the latter.
+> 
+> So, switching the interrupt pin to PMEB mode is simply wrong and
+> breaks phylib. I guess the original WoL support was only tested on
+> a system which didn't use the PHY interrupt, only using the interrupt
+> pin for wake-up purposes.
 
-Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
----
- .../boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts  | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+I will also state that the only way the WoL support for Realtek that
+was merged can possibly work is if there is some other agent in the
+system which configures the PHY such that PMEB only pulses on WoL
+packet reception. Unless this is the case, the PMEB pin will be
+pulled active on the first matching WoL packet, and remain there.
+That means WoL will work for the first attempt and not after.
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index ed30f3bf61a4..c7eb30e5baad 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -94,7 +94,7 @@ led-0 {
- 		};
- 
- 		led-1 {
--			label = "fp_id_amber";
-+			label = "power_fault";
- 			default-state = "off";
- 			gpios = <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
- 		};
-@@ -104,6 +104,12 @@ led-2 {
- 			default-state = "off";
- 			gpios = <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_HIGH>;
- 		};
-+
-+		led-3 {
-+			label = "fp_id_amber";
-+			default-state = "off";
-+			gpios = <&gpio0 ASPEED_GPIO(Q, 4) GPIO_ACTIVE_HIGH>;
-+		};
- 	};
- 
- 	memory@80000000 {
+This makes the WoL support that was merged completely broken for the
+general case where there isn't some other agent configuring the PHY
+e.g. at boot time.
+
+I am in two minds whether it should be reverted until it can be
+correctly implemented. It's a relatively recent addition to the
+kernel - the patch is dated 29th April 2025. See
+https://patch.msgid.link/20250429-realtek_wol-v2-1-8f84def1ef2c@kuka.com
+
 -- 
-2.49.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
