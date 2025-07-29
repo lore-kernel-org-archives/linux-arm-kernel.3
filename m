@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64585C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 00:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529B7C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 01:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRk2fyCDyZx5gPYPB0wJzgS/Jl89GG2lzFDMkwucWZQ=; b=Z56L3LR3mStnvLnG4/D/sPOu87
-	u/+0lNXOJsuXNf3qfJRTPHlPVwijd52wK6kpUVEPVT/tliAi6d6iMZ9n8CQs5hkljkqAV0kFg3Qjv
-	tLgjcw/cv8GiZHLYAczCl7qC3TJxsQdpCizqwCWKoLaOC3cU7ye6RK2qMHQc0PyFLEg6H65NKrkWh
-	bwwtlgYMel6qzN+RQS4l5EEuWb8QBbYUy1ze1DbH2Z/vhznPIYDgwLOyr8Q1ZY1MAUNn7osGAghCP
-	clOGw3ezTO4ZBWbT3m788iQX7T0HHr7pg4yDlXHFHWCEtJfOS5Xs3UAjxsznJfr6GZowwmo9atEFc
-	yygxf54g==;
+	Content-Type:Subject:From:CC:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=aWo45nrGNOaDm5AbIk29RwbaX3rKdNhX8pS8G2NVac0=; b=piNbNtWxRq0E+/gF37geq9IFq7
+	ectS9CO8AYRo1WCdBq9R/1t+BTQ0lp5Y4EwQsswQXB8J+vi14V1LL+u7eoJUEJK/gWbks9ZRrBKUQ
+	BMQYS5eG02/z7Ae9tfZVDF78cJjfkgvhjwwlQCWoyuhlcYXLXrORZyUKP5dnEqRMcCHoI+vmLdQZ6
+	o2grLeG3QjUqPVHQy3kiMF4m6FhGWUxOfWZbbeQez66VAZLsGtR2eFAu4yDgQllnQBRqAUHkd4J/Z
+	QRwgIkYv6J9laZlXOCKqaDoWJYU1OG7Av8dr4sigdYaVNG3bGB1lxz/Ozt7whcWDQapDhmsDeo2Mk
+	NdBa5CVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugYHd-0000000FeCL-2EGv;
-	Tue, 29 Jul 2025 00:33:33 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1ugYwu-0000000Fgn7-2vzL;
+	Tue, 29 Jul 2025 01:16:12 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugYF8-0000000Fe63-42f2;
-	Tue, 29 Jul 2025 00:31:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=pRk2fyCDyZx5gPYPB0wJzgS/Jl89GG2lzFDMkwucWZQ=; b=Dw+9cwbtwkgP4be0O3Z3sv/AFn
-	HN+FWJpjJZfL9SNJ38SYnQjtJNlOB56SVZHz0w0ASooDsprr7l3K0brn3rQZY2OBxZ+0LACz1STEU
-	HllkwmgZ8cmutXHOo+ekh8JTgXmwmCEL0npfXG4wJFbK7FvbxresHG2ltFR3A8BRmIlhAET36yDw/
-	+wAKCZty68kE021wK6PYkoVUvIZxQ7fixnAMd5Tki4Qf+G1Re45y6r5LzMfc/W8khFFi1JZMu7rHB
-	khu8MH8GNp2etaG6n3s4d4cywGTtL6md6ERfa4RR5Cj+czaUugNpRaOw9Co9IBv/1gtCWy/g9pqEf
-	NiYZWgKg==;
-Received: from [189.7.87.79] (helo=[192.168.0.7])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1ugYEs-005AkZ-Sx; Tue, 29 Jul 2025 02:30:43 +0200
-Message-ID: <9b3c2cb3-736c-46a0-a734-f17ed4bc0170@igalia.com>
-Date: Mon, 28 Jul 2025 21:30:35 -0300
+	id 1ugYuM-0000000Fged-3cHl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Jul 2025 01:13:40 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4brcjc1nFNz23jZm;
+	Tue, 29 Jul 2025 09:11:00 +0800 (CST)
+Received: from kwepemo100013.china.huawei.com (unknown [7.202.195.244])
+	by mail.maildlp.com (Postfix) with ESMTPS id 539D1180044;
+	Tue, 29 Jul 2025 09:13:20 +0800 (CST)
+Received: from [10.67.120.83] (10.67.120.83) by kwepemo100013.china.huawei.com
+ (7.202.195.244) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 29 Jul
+ 2025 09:13:19 +0800
+Message-ID: <b51519d6-ce45-4b6d-8135-c70169bd110e@h-partners.com>
+Date: Tue, 29 Jul 2025 09:13:19 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Power Management for Raspberry Pi V3D GPU
-To: Stefan Wahren <wahrenst@gmx.net>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Maxime Ripard <mripard@kernel.org>, Melissa Wen <mwen@igalia.com>,
- Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
- <e18ed574-e84e-4812-86c0-5cfd14860030@gmx.net>
 Content-Language: en-US
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-In-Reply-To: <e18ed574-e84e-4812-86c0-5cfd14860030@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+To: <bhelgaas@google.com>
+CC: <ilpo.jarvinen@linux.intel.com>, <lukas@wunner.de>, linux-arm
+	<linux-arm-kernel@lists.infradead.org>, linux-kernl
+	<linux-kernel@vger.kernel.org>, linux-pci <linux-pci@vger.kernel.org>,
+	fanghao <fanghao11@huawei.com>, gaozhihao <gaozhihao6@h-partners.com>,
+	lujunhua <lujunhua7@h-partners.com>, shenyang <shenyang39@huawei.com>,
+	wushanping <wushanping@huawei.com>, zengtao <prime.zeng@hisilicon.com>,
+	<jonathan.cameron@huawei.com>
+From: moubingquan <moubingquan@h-partners.com>
+Subject: [BUG] sysfs: duplicate resource file creation during PCIe rescan
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.83]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemo100013.china.huawei.com (7.202.195.244)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_173059_300457_2BD59E5D 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20250728_181335_283569_9351BE25 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,78 +74,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+Hi all,
 
-On 28/07/25 18:00, Stefan Wahren wrote:
-> Hi,
-> 
-> Am 28.07.25 um 14:35 schrieb Maíra Canal:
->> This series introduces Runtime PM for Raspberry Pi's GPU, V3D.
->> Currently, the GPU clock stays up during the whole operation, even if
->> the GPU is idle. By introducing Runtime PM, we can now turn off the
->> clock completely during idle. For example, with this series, when
->> checking `vcgencmd measure_clock v3d` in the Raspberry Pi 5, we get:
->>
->> (idle)
->>
->> $ vcgencmd measure_clock v3d
->> frequency(0)=0
->>
->> (running glmark2)
->>
->> $ vcgencmd measure_clock v3d
->> frequency(0)=960016128
->>
->> To implement PM for V3D, it was needed to add a prepare and unprepare
->> hook to RPi's firmware clocks. Currently, they don't turn on and off,
->> nor lower the clock rate. Therefore, PATCH 1/3 addresses this issue in
->> clk/bcm/clk-raspberrypi.c.
->>
->> The other two patches are related to PM enablement in the V3D driver.
-> Maybe you want to cherry-pick this older patch and integrate it into 
-> your series? [2]
+When uninstalling the driver on the ARM64 platform and invoking `sriov_disable()`,
+another thread simultaneously performed `echo 1 > /sys/bus/pci/rescan`,
+which resulted in a call trace error (`sysfs: cannot create duplicate filename`) when subsequently loading the driver.
 
-Yeah, sure! I'll add your patch to v2.
+Under certain multi-threaded scenarios (e.g. VF teardown + PCI rescan triggered in parallel),
+The following sequence may result in files appearing in sysfs that should not exist:
 
-Best Regards,
-- Maíra
+1. sriov_disable() uninstalls VFs and removes the corresponding VF files in sysfs.
+2.At the same time, when rescan_store() rescan the entire PCI device tree,
+there is a possibility that VF files that should have been deleted are added back,
+resulting in VF files in sysfs that should have been removed but were not.
 
-> 
-> [2] - https://github.com/lategoodbye/linux-dev/ 
-> commit/2ee5e1205922b06100206e760ed8aefe0b6d322f
->>
->> To ease testing in Raspberry Pi 4 and 5, I prepared a downstream branch
->> backporting this series to rpi-6.12.y [1].
->>
->> [1] https://github.com/mairacanal/linux-rpi/tree/v3d/downstream/power- 
->> management-v2
->>
->> Best Regards,
->> - Maíra
->>
->> ---
->> Maíra Canal (3):
->>        clk: bcm: rpi: Turn firmware clock on/off when preparing/ 
->> unpreparing
->>        drm/v3d: Allocate all resources before enabling the clock
->>        drm/v3d: Introduce Runtime Power Management
->>
->>   drivers/clk/bcm/clk-raspberrypi.c |  41 ++++++++-
->>   drivers/gpu/drm/v3d/Makefile      |   3 +-
->>   drivers/gpu/drm/v3d/v3d_debugfs.c |  23 ++++-
->>   drivers/gpu/drm/v3d/v3d_drv.c     | 171 ++++++++++++++++++ 
->> +-------------------
->>   drivers/gpu/drm/v3d/v3d_drv.h     |  21 ++++-
->>   drivers/gpu/drm/v3d/v3d_gem.c     |  18 +++-
->>   drivers/gpu/drm/v3d/v3d_irq.c     |  15 ++--
->>   drivers/gpu/drm/v3d/v3d_mmu.c     |  12 ++-
->>   drivers/gpu/drm/v3d/v3d_power.c   |  79 ++++++++++++++++++
->>   drivers/gpu/drm/v3d/v3d_submit.c  |  19 ++++-
->>   10 files changed, 291 insertions(+), 111 deletions(-)
->> ---
->> base-commit: a7352c849492a30b5d8491fcb9314ab376a3942f
->> change-id: 20250728-v3d-power-management-eebb2024dc96
->>
-> 
+Tested on:
+- Kernel version: Linux version 6.15.0-rc4+ (phisik3@10-50-163-153-ARM-openEuler22-3)
+- Platform: ARM64 (Huawei Kunpeng920)
+- Repro steps:
+1.Thread A unloads the driver and VF (requires calling sriov_disable()).
+2.Thread B calls `echo 1 > /sys/bus/pci/rescan `
 
+The system will report a call trace as follows:
+
+sysfs: cannot create duplicate filename '/devices/pci0000:3c/0000:3c:01.0/0000:3e:00.2/resource2'
+CPU: 138 UID: 0 PID: 11067 Comm: sh Kdump: loaded Tainted: G      D W  O        6.15.0-rc4+ #1 PREEMPT
+Tainted: [D]=DIE, [W]=WARN, [O]=OOT_MODULE
+Call trace:
+  show_stack+0x20/0x38 (C)
+  dump_stack_lvl+0x80/0xf8
+  dump_stack+0x18/0x28
+  sysfs_warn_dup+0x6c/0x90
+  sysfs_add_bin_file_mode_ns+0x12c/0x178
+  sysfs_create_bin_file+0x7c/0xb8
+  pci_create_attr+0x104/0x1b0
+  pci_create_resource_files.part.0+0x50/0xd0
+  pci_create_sysfs_dev_files+0x30/0x50
+  pci_bus_add_device+0x40/0x120
+  pci_bus_add_devices+0x40/0x98
+  pci_bus_add_devices+0x6c/0x98
+  pci_rescan_bus+0x38/0x58
+  rescan_store+0x80/0xb0
+  bus_attr_store+0x2c/0x48
+  sysfs_kf_write+0x84/0xa8
+  kernfs_fop_write_iter+0x120/0x1b8
+  vfs_write+0x338/0x3f8
+  ksys_write+0x70/0x110
+  __arm64_sys_write+0x24/0x38
+  invoke_syscall+0x50/0x120
+  el0_svc_common.constprop.0+0xc8/0xf0
+  do_el0_svc+0x24/0x38
+  el0_svc+0x34/0xf0
+  el0t_64_sync_handler+0xc8/0xd0
+  el0t_64_sync+0x1ac/0x1b0
+
+The general analysis and corresponding code are as follows:
+
+drivers/pci/iov.c
+
+736 static void sriov_disable(struct pci_dev *dev)
+737 {
+738         struct pci_sriov *iov = dev->sriov;
+739
+740         if (!iov->num_VFs)
+741                 return;
+742
+743         sriov_del_vfs(dev);
+744         iov->ctrl &= ~(PCI_SRIOV_CTRL_VFE | PCI_SRIOV_CTRL_MSE);
+745         pci_cfg_access_lock(dev);
+746         pci_write_config_word(dev, iov->pos + PCI_SRIOV_CTRL, iov->ctrl);
+747         ssleep(1);
+748         pci_cfg_access_unlock(dev);
+749
+750         pcibios_sriov_disable(dev);
+751
+752         if (iov->link != dev->devfn)
+753                 sysfs_remove_link(&dev->dev.kobj, "dep_link");
+754
+755         iov->num_VFs = 0;
+756         pci_iov_set_numvfs(dev, 0);
+757 }
+
+sriov_disable() will unload the VF and remove its files from sysfs.
+
+drivers/pci/pci-sysfs.c
+
+  435 static ssize_t rescan_store(const struct bus_type *bus, const char *buf, size_t count)
+  436 {
+  437         unsigned long val;
+  438         struct pci_bus *b = NULL;
+  439
+  440         if (kstrtoul(buf, 0, &val) < 0)
+  441                 return -EINVAL;
+  442
+  443         if (val) {
+  444                 pci_lock_rescan_remove();
+  445                 while ((b = pci_find_next_bus(b)) != NULL)
+  446                         pci_rescan_bus(b);
+  447                 pci_unlock_rescan_remove();
+  448         }
+  449         return count;
+  450 }
+  451 static BUS_ATTR_WO(rescan);
+
+The `rescan_store()` function will scan the entire PCI bus, including the relevant sysfs files for the aforementioned VFs.
+
+Initially, it seemed that directly adding the pci_lock_rescan_remove() lock to sriov_disable() could solve the problem.
+However, it was later discovered that this might lead to a deadlock issue (because the remove_store() function would call sriov_disable(), causing a deadlock).
+
+drivers/pci/pci-sysfs.c
+
+  487 static ssize_t remove_store(struct device *dev, struct device_attribute *attr,
+  488                             const char *buf, size_t count)
+  489 {
+  490         unsigned long val;
+  491
+  492         if (kstrtoul(buf, 0, &val) < 0)
+  493                 return -EINVAL;
+  494
+  495         if (val && device_remove_file_self(dev, attr))
+  496
+         //Subsequently, sriov_disable() will be invoked.
+                 pci_stop_and_remove_bus_device_locked(to_pci_dev(dev));
+  497         return count;
+  498 }
+  499 static DEVICE_ATTR_IGNORE_LOCKDEP(remove, 0220, NULL,
+  500                                   remove_store);
+
+The function `pci_stop_and_remove_bus_device_locked()` acquires the `pci_lock_rescan_remove()` lock and subsequently calls `sriov_disable()`.
+If the lock is added within `sriov_disable()`, it could lead to a deadlock.
+
+Should we add a new lock to address this issue, or are there any other ideas? I would like to consult and discuss this with everyone.
+
+Thanks,
+Bingquan Mou <moubingquan@h-partners.com>
 
