@@ -4,94 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F66C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 07:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA167C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 07:12:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPe/qLLEwDQRByPG42BYIGc6HQMFYi+UgYC+8be7e28=; b=BlCgYvlxennhs+qMVnJ9Xy9Tkw
-	5qcgsAwiYTu569oixpe3Mxkx9KrIWa+SO9Esr1T5qxz6vWdwgR6Na53Cql9nmOrh6cGxIBTuyWqNM
-	eUacVwSdPVkiZ8rG+SHjfLmS3YQo71d2sfmW8NtXX0eE2SRzsObf48SVEJJ5zZ6zEMoY7y4WrAvTf
-	LNuIBEjzVH9gyfZW90BknyEovTX0CNy5vvH+K8q0nkWA9bkItxraWno4+pq5ktKZRCkOj3WYIKVM8
-	dARSXKHhq6Cpyuz12wLvP7fFheemxiH/WGKJvbUWAFgjYRg3ICoIpTiagvRIuKJUHzUZlnv+vY7pp
-	C6JRjdxw==;
+	bh=3GHjsJktWirBm7FctLeatVlntkR+dGVJ08ZjT0OOKPQ=; b=0hA+BDLDyxT9D3Y/B/2a5CwIMm
+	W0arPxSOAtZzJYBLWf/y19vQN5/VmQFK1qZ0EM82x9I1GScxj+ph3gf4CvUbSKuAbD3FgEYFvwJGR
+	2y3a/2SCFELedx0eRvIn+cr4d7lxb7SMmBRaJ8WLV8O/FLGDkY8jDUTL8jaPIqUy4zYHQh85ViLt/
+	BSz+epcHiHhDPPXYRbRBgnrGPeNvJuPk9yTGzBkg2T/lq3hWotufqwofCg6Dk8N5+sbw4SnWsz4e6
+	Jxr1GeyqwjFwEBhjfoPMUjXmcY+z7Ybyv4YS/xSX/DOXZqjzaec/eH4E0LEOK9jsnLtB3VoRYVurl
+	86BkXOkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugeQ3-0000000G5K3-1WdK;
-	Tue, 29 Jul 2025 07:06:39 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1ugeVB-0000000G6UW-13v1;
+	Tue, 29 Jul 2025 07:11:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugeMP-0000000G51k-1aE6
+	id 1ugeSh-0000000G6La-3RON
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 07:02:54 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4e9b26a5e45so2453313137.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 00:02:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753772572; x=1754377372; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=UPe/qLLEwDQRByPG42BYIGc6HQMFYi+UgYC+8be7e28=;
-        b=mHnZm+55UbUJzlgcCJ287f/AP5olL5SWFJZ+4SO1PhAsfqNkpoNYP4yZRQ4qyVV7Wk
-         opbgnSfQ/lz2hX53v7HnwxRx2MfC2nKDU7ZGT0KU7SyMQv9yDPY59+tQjSPuKj+LDxFS
-         P0sHOB58kcatVU6m0tAYh/+AHFC3o/S1HBd8QLES7S/vqazWXJnLqqkcd2iOoD97Pnr/
-         0qbOiIPjsclxGGPNshlLEdiyxixiUvPNNJb6Na31QyWJlO9xWz+Vs6H6lRh6GBIxj9dR
-         2PUxJl5bYg1F3H3OUBHaSr7GL5qeleRSZ9BIchd+8xXDYWYQQKNdU8cKXxdZIJWMMXAE
-         qH8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753772572; x=1754377372;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UPe/qLLEwDQRByPG42BYIGc6HQMFYi+UgYC+8be7e28=;
-        b=r/sTUAmmgmWJZAwCGt4e5KJzEuZzEsnTPUUmRhYmTqSXufLz0u6Q2mAypZ6g3ryQho
-         V4D+ATMSm9JFLTIHq6JIrwe1ky5EvHlbhizuY+sGUWwVeW641Jps6YPwplAos2rflWFo
-         xM/epwyQp/L0oOLSE7PCRD8TxKATzBjijJMIbbSF33ASZQU6DAX3RNArtOaAS60EzqjB
-         f/ZGcpajd1X6G2Hjy2GhXh0s0Yxs9zZv8nyby3nawGnXtVvZ4tyKu7Gd+R5rpQQ9T84S
-         4imSMJwxiQbAmfAAYWnCcjdX0iwHvldOEyse7SwsunlypT45vMfV3uWb5eiFcHGgrnR8
-         m6ow==
-X-Forwarded-Encrypted: i=1; AJvYcCXISGfAr9pIDUY5Gv3KILjdLPXdChSPhX9acWj65fhnm/jqow49YhYH/17EEbHj0FzaA1E2gsKp6P/B/rKCNOEd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRpKsGaxWM+gkVL3E2rXwbPXrlyKAKwQk/f7CA3dhXUYWNNGyg
-	FSxj60X2VGi9B4sOLZ4BFuz84+GNpMZIWwwgzkb9ZzS8lGKRbciLaOQZCBMBkhKO3Sjs61g2pX2
-	IpHkzap2Znda9VCKvAExitcTZAJ1pbgg=
-X-Gm-Gg: ASbGncvXG+pUU7H5WpH28ZFy9BxYTaUNHtTnZZRZ783PPKcG/atJkphvRsxpMq6Txzd
-	tm1gXqszuld56fSghuSbzcd36O4td1rolErx9pfb1BQnyBp/fNqN1QYZ5PuUUYUj7unGo35YNme
-	kq3wQew1jBiI/i4rO0XYTx7WHscVGfuCFVgn+JFYks25ZjKFo5liCku+LuwcXx7+hFrlIhuhXMk
-	uM19Q==
-X-Google-Smtp-Source: AGHT+IFoncrlpWw1i6WzQqR3txoGKpqtrzhok2riEERJ9a82EDQDLrmTtk5K8booTBL5JJI+e2v2Ca5TnYv+mP2pkxQ=
-X-Received: by 2002:a05:6102:d90:b0:4f9:6a93:2a3a with SMTP id
- ada2fe7eead31-4fa3ff86239mr6458282137.26.1753772571875; Tue, 29 Jul 2025
- 00:02:51 -0700 (PDT)
+	Tue, 29 Jul 2025 07:09:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 886E3450E8;
+	Tue, 29 Jul 2025 07:09:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D278C4CEEF;
+	Tue, 29 Jul 2025 07:09:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753772963;
+	bh=ttp2pg2E0G3O80bmEVNhTPN71XGz8PyVEn/p3TKXl4g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nwy6irSehLHGu5rfkzfkd4HLD5YioRJZDrqnkuzzSYI2M2fUOejevx4XKpReThkH0
+	 OZcJF9A1ee+YCWH9/vfAu6srb4Eco0e0HfmAiBUb5ObcF/y9YzgMQ+umtHO0aAElrI
+	 Avczupp7E0D+PdBDbxobFoVIdpfUsKEqrbzjXzPdCr1AQvZ19wxL//tKaxoJSFwdox
+	 lbzLRD8PIMbG9jx9MQZubXe7lAupAPiezZ7OsemHZMYQqUPFGnpWYhYjFcEtbtMz0g
+	 H1y1TKzk3zx/JYccH70Wt7wucZfZJJt+Q2/SzP5G4drr15uI1AiFKBG/uy1pHJfHZH
+	 AFyd1NqB4smVw==
+Message-ID: <4beb3a10-79c8-493e-bd28-80172a8e87b7@kernel.org>
+Date: Tue, 29 Jul 2025 09:09:19 +0200
 MIME-Version: 1.0
-References: <20250706-exynos7870-dsim-v3-0-9879fb9a644d@disroot.org> <20250706-exynos7870-dsim-v3-10-9879fb9a644d@disroot.org>
-In-Reply-To: <20250706-exynos7870-dsim-v3-10-9879fb9a644d@disroot.org>
-From: Inki Dae <daeinki@gmail.com>
-Date: Tue, 29 Jul 2025 16:02:09 +0900
-X-Gm-Features: Ac12FXzIdQh-2hSRJxrhTX04Gexopr85LkmnAh4nGUB4cX_MHGUC9ISKVNYHE8E
-Message-ID: <CAAQKjZNfb6LkShtCvan__ew=H7CaquTqn5DLcP1agtkG6B5mSw@mail.gmail.com>
-Subject: Re: [PATCH v3 10/13] drm/bridge: samsung-dsim: add ability to define
- clock names for every variant
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 staging] staging: debix-model-a: update DTS for debix
+ model a
+To: WangErQian <WangErQianY@icloud.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, linux-arm-kernel@lists.infradead.org
+References: <20250729030448.3872138-1-WangErQianY@icloud.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250729030448.3872138-1-WangErQianY@icloud.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_000253_498829_4F7B358F 
-X-CRM114-Status: GOOD (  31.73  )
+X-CRM114-CacheID: sfid-20250729_000923_940698_90C4C4B0 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,292 +118,501 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025=EB=85=84 7=EC=9B=94 7=EC=9D=BC (=EC=9B=94) =EC=98=A4=EC=A0=84 3:28, Ka=
-ustabh Chakraborty <kauschluss@disroot.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=
-=84=B1:
->
-> Presently, all devices refer to clock names from a single array. The
-> only controlling parameter is the number of clocks (num_clks field of
-> samsung_dsim_driver_data) which uses the first n clocks of that array.
-> As new devices are added, this approach turns out to be cumbersome.
->
-> Separate the clock names in individual arrays required by each variant,
-> in a struct clk_bulk_data. Add a pointer field to the driver data struct
-> which points to their respective clock names, and rework the clock usage
-> code to use the clk_bulk_* API instead.
->
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+On 29/07/2025 05:04, WangErQian wrote:
+> Update the device tree for Debix Model A
+> 
+> Signed-off-by: WangErQian <WangErQianY@icloud.com>
+
+You ned to use real name.
+
 > ---
->  drivers/gpu/drm/bridge/samsung-dsim.c | 88 +++++++++++++++++------------=
-------
->  include/drm/bridge/samsung-dsim.h     |  2 +-
->  2 files changed, 44 insertions(+), 46 deletions(-)
->
-> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/brid=
-ge/samsung-dsim.c
-> index 4b49707730db76aa8fd3ab973b02507436750889..b6b3bbcbd0f438e5e1d3faf18=
-f8c2d532a4ecc93 100644
-> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
-> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-> @@ -219,23 +219,31 @@
->  #define DSI_XFER_TIMEOUT_MS            100
->  #define DSI_RX_FIFO_EMPTY              0x30800002
->
-> -#define OLD_SCLK_MIPI_CLK_NAME         "pll_clk"
-> -
->  #define PS_TO_CYCLE(ps, hz) DIV64_U64_ROUND_CLOSEST(((ps) * (hz)), 10000=
-00000000ULL)
->
-> -static const char *const clk_names[5] =3D {
-> -       "bus_clk",
-> -       "sclk_mipi",
-> -       "phyclk_mipidphy0_bitclkdiv8",
-> -       "phyclk_mipidphy0_rxclkesc0",
-> -       "sclk_rgb_vclk_to_dsim0"
-> -};
-> -
->  enum samsung_dsim_transfer_type {
->         EXYNOS_DSI_TX,
->         EXYNOS_DSI_RX,
+>  .../dts/freescale/imx8mp-debix-model-a.dts    | 871 +++++++++++++++---
+>  1 file changed, 752 insertions(+), 119 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
+> index af02af9e5334..c398be341ff8 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-model-a.dts
+> @@ -9,6 +9,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/leds/common.h>
+>  #include <dt-bindings/usb/pd.h>
+> +#include <dt-bindings/phy/phy-imx8-pcie.h>
+>  
+>  #include "imx8mp.dtsi"
+>  
+> @@ -20,13 +21,22 @@ chosen {
+>  		stdout-path = &uart2;
+>  	};
+>  
+> +	bt_rfkill {
+
+Please follow DTS coding style closely.
+
+...
+
+> +&ecspi1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	fsl,spi-num-chipselects = <1>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
+> +	cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+> +	status = "okay";
+> +	spidev1: spi@0 {
+> +		reg = <0>;
+> +		compatible = "rohm,dh2228fv";
+
+No, it is not true. You do not have such thing there.
+
+> +		spi-max-frequency = <20000000>;
+> +	};
+> +};
+> +
+> +&ecspi2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	fsl,spi-num-chipselects = <1>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
+> +	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
+> +	status = "okay";
+> +
+> +	spidev2: spi@0 {
+> +		reg = <0>;
+> +		compatible = "rohm,dh2228fv";
+
+No, not true. Drop entire node.
+
+> +		spi-max-frequency = <20000000>;
+> +	};
+> +};
+> +
+
+
+..
+
+>  
+> +&flexcan1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan1>;
+> +	//xceiver-supply = <&reg_can1_stby>;
+
+Why are you adding dead code?
+
+> +	status = "okay";
+> +};
+> +
+> +&flexcan2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexcan2>;
+> +	//xceiver-supply = <&reg_can2_stby>;
+> +	//pinctrl-assert-gpios = <&pca6416 3 GPIO_ACTIVE_HIGH>;
+> +	status = "okay";/* can2 pin conflict with pdm */
+> +};
+> +
+> +&flexspi {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_flexspi0>;
+> +	status = "disabled";
+> +
+> +	flash@0 {
+> +		compatible = "jedec,spi-nor";
+> +		reg = <0>;
+> +		spi-max-frequency = <80000000>;
+> +		spi-tx-bus-width = <1>;
+> +		spi-rx-bus-width = <4>;
+> +	};
+> +};
+> +
+> +&hdmi_blk_ctrl {
+> +	status = "okay";
+> +};
+> +
+>  &hdmi_pvi {
+>  	status = "okay";
 >  };
->
-> +static struct clk_bulk_data exynos3_clk_bulk_data[] =3D {
-> +       { .id =3D "bus_clk" },
-> +       { .id =3D "pll_clk" },
-> +};
-> +
-> +static struct clk_bulk_data exynos4_clk_bulk_data[] =3D {
-> +       { .id =3D "bus_clk" },
-> +       { .id =3D "sclk_mipi" },
-> +};
-> +
-> +static struct clk_bulk_data exynos5433_clk_bulk_data[] =3D {
-> +       { .id =3D "bus_clk" },
-> +       { .id =3D "sclk_mipi" },
-> +       { .id =3D "phyclk_mipidphy0_bitclkdiv8" },
-> +       { .id =3D "phyclk_mipidphy0_rxclkesc0" },
-> +       { .id =3D "sclk_rgb_vclk_to_dsim0" },
-> +};
-> +
->  enum reg_idx {
->         DSIM_STATUS_REG,        /* Status register (legacy) */
->         DSIM_LINK_STATUS_REG,   /* Link status register */
-> @@ -408,7 +416,8 @@ static const struct samsung_dsim_driver_data exynos3_=
-dsi_driver_data =3D {
->         .has_legacy_status_reg =3D 1,
->         .has_freqband =3D 1,
->         .has_clklane_stop =3D 1,
-> -       .num_clks =3D 2,
-> +       .clk_data =3D exynos3_clk_bulk_data,
-> +       .num_clks =3D ARRAY_SIZE(exynos3_clk_bulk_data),
->         .max_freq =3D 1000,
->         .wait_for_hdr_fifo =3D 1,
->         .wait_for_reset =3D 1,
-> @@ -439,7 +448,8 @@ static const struct samsung_dsim_driver_data exynos4_=
-dsi_driver_data =3D {
->         .has_legacy_status_reg =3D 1,
->         .has_freqband =3D 1,
->         .has_clklane_stop =3D 1,
-> -       .num_clks =3D 2,
-> +       .clk_data =3D exynos4_clk_bulk_data,
-> +       .num_clks =3D ARRAY_SIZE(exynos4_clk_bulk_data),
->         .max_freq =3D 1000,
->         .wait_for_hdr_fifo =3D 1,
->         .wait_for_reset =3D 1,
-> @@ -468,7 +478,8 @@ static const struct samsung_dsim_driver_data exynos5_=
-dsi_driver_data =3D {
->         .reg_ofs =3D exynos_reg_ofs,
->         .plltmr_reg =3D 0x58,
->         .has_legacy_status_reg =3D 1,
-> -       .num_clks =3D 2,
-> +       .clk_data =3D exynos3_clk_bulk_data,
-> +       .num_clks =3D ARRAY_SIZE(exynos3_clk_bulk_data),
->         .max_freq =3D 1000,
->         .wait_for_hdr_fifo =3D 1,
->         .wait_for_reset =3D 1,
-> @@ -497,7 +508,8 @@ static const struct samsung_dsim_driver_data exynos54=
-33_dsi_driver_data =3D {
->         .plltmr_reg =3D 0xa0,
->         .has_legacy_status_reg =3D 1,
->         .has_clklane_stop =3D 1,
-> -       .num_clks =3D 5,
-> +       .clk_data =3D exynos5433_clk_bulk_data,
-> +       .num_clks =3D ARRAY_SIZE(exynos5433_clk_bulk_data),
->         .max_freq =3D 1500,
->         .wait_for_hdr_fifo =3D 1,
->         .wait_for_reset =3D 0,
-> @@ -526,7 +538,8 @@ static const struct samsung_dsim_driver_data exynos54=
-22_dsi_driver_data =3D {
->         .plltmr_reg =3D 0xa0,
->         .has_legacy_status_reg =3D 1,
->         .has_clklane_stop =3D 1,
-> -       .num_clks =3D 2,
-> +       .clk_data =3D exynos3_clk_bulk_data,
-> +       .num_clks =3D ARRAY_SIZE(exynos3_clk_bulk_data),
->         .max_freq =3D 1500,
->         .wait_for_hdr_fifo =3D 1,
->         .wait_for_reset =3D 1,
-> @@ -555,7 +568,8 @@ static const struct samsung_dsim_driver_data imx8mm_d=
-si_driver_data =3D {
->         .plltmr_reg =3D 0xa0,
->         .has_legacy_status_reg =3D 1,
->         .has_clklane_stop =3D 1,
-> -       .num_clks =3D 2,
-> +       .clk_data =3D exynos4_clk_bulk_data,
-> +       .num_clks =3D ARRAY_SIZE(exynos4_clk_bulk_data),
->         .max_freq =3D 2100,
->         .wait_for_hdr_fifo =3D 1,
->         .wait_for_reset =3D 0,
-> @@ -2021,7 +2035,7 @@ int samsung_dsim_probe(struct platform_device *pdev=
-)
->  {
->         struct device *dev =3D &pdev->dev;
->         struct samsung_dsim *dsi;
-> -       int ret, i;
-> +       int ret;
->
->         dsi =3D devm_drm_bridge_alloc(dev, struct samsung_dsim, bridge, &=
-samsung_dsim_bridge_funcs);
->         if (IS_ERR(dsi))
-> @@ -2045,23 +2059,11 @@ int samsung_dsim_probe(struct platform_device *pd=
-ev)
->         if (ret)
->                 return dev_err_probe(dev, ret, "failed to get regulators\=
-n");
->
-> -       dsi->clks =3D devm_kcalloc(dev, dsi->driver_data->num_clks,
-> -                                sizeof(*dsi->clks), GFP_KERNEL);
-> -       if (!dsi->clks)
-> -               return -ENOMEM;
+> @@ -114,11 +353,11 @@ &hdmi_tx {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_hdmi>;
+>  	status = "okay";
 > -
-> -       for (i =3D 0; i < dsi->driver_data->num_clks; i++) {
-> -               dsi->clks[i] =3D devm_clk_get(dev, clk_names[i]);
-> -               if (IS_ERR(dsi->clks[i])) {
-> -                       if (strcmp(clk_names[i], "sclk_mipi") =3D=3D 0) {
-> -                               dsi->clks[i] =3D devm_clk_get(dev, OLD_SC=
-LK_MIPI_CLK_NAME);
-> -                               if (!IS_ERR(dsi->clks[i]))
-> -                                       continue;
-> -                       }
-> -
-> -                       dev_info(dev, "failed to get the clock: %s\n", cl=
-k_names[i]);
-> -                       return PTR_ERR(dsi->clks[i]);
-> -               }
-> +       ret =3D devm_clk_bulk_get(dev, dsi->driver_data->num_clks,
-> +                               dsi->driver_data->clk_data);
-> +       if (ret) {
-> +               dev_err(dev, "failed to get clocks in bulk (%d)\n", ret);
-> +               return ret;
+>  	ports {
+>  		port@1 {
+> +			reg = <1>;
+>  			hdmi_tx_out: endpoint {
+> -				remote-endpoint = <&hdmi_connector_in>;
+> +				remote-endpoint = <&hdmi_connector_out>;
+>  			};
+>  		};
+>  	};
+> @@ -128,6 +367,10 @@ &hdmi_tx_phy {
+>  	status = "okay";
+>  };
+>  
+> +&irqsteer_hdmi {
+> +	status = "okay";
+> +};
+> +
+>  &i2c1 {
+>  	clock-frequency = <400000>;
+>  	pinctrl-names = "default";
+> @@ -140,7 +383,7 @@ pmic@25 {
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&pinctrl_pmic>;
+>  		interrupt-parent = <&gpio1>;
+> -		interrupts = <3 IRQ_TYPE_EDGE_RISING>;
+> +		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+>  
+>  		regulators {
+>  			buck1: BUCK1 {
+> @@ -163,7 +406,7 @@ buck2: BUCK2 {
+>  				nxp,dvs-standby-voltage = <850000>;
+>  			};
+>  
+> -			buck4: BUCK4 {
+> +			buck4: BUCK4{
+>  				regulator-name = "BUCK4";
+>  				regulator-min-microvolt = <600000>;
+>  				regulator-max-microvolt = <3400000>;
+> @@ -171,7 +414,7 @@ buck4: BUCK4 {
+>  				regulator-always-on;
+>  			};
+>  
+> -			buck5: BUCK5 {
+> +			buck5: BUCK5{
+>  				regulator-name = "BUCK5";
+>  				regulator-min-microvolt = <600000>;
+>  				regulator-max-microvolt = <3400000>;
+> @@ -231,8 +474,10 @@ ldo5: LDO5 {
+>  };
+>  
+>  &i2c2 {
+> +	clock-frequency = <400000>;
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_i2c2>;
+> +	status = "okay";
+>  };
+>  
+>  &i2c3 {
+> @@ -240,30 +485,72 @@ &i2c3 {
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_i2c3>;
+>  	status = "okay";
+> +
+> +	codec: es8316@10 {
+> +		compatible = "everest,es8316";
+> +		reg = <0x10>;
+> +		clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SAI3_MCLK1>;
+> +		clock-names = "mclk";
+> +	};
+>  };
+>  
+>  &i2c4 {
+> -	clock-frequency = <100000>;
+> +	clock-frequency = <50000>;
 
-Above change modifies the existing behavior.
+Why one patch is making so many changes?
 
-Previously, when devm_clk_get() failed and the clock name was
-"sclk_mipi", the code included a fallback mechanism to try "pll_clk"
-instead. This fallback logic has been removed in the current patch.
+Nothing in the commit msg explains that. Read carefully submitting
+patches - it explains what you should do.
 
-While changing this behavior may raise concerns, the benefits of
-refactoring=E2=80=94specifically, defining clock names per SoC and adopting
-the clk_bulk_* API for improved maintainability=E2=80=94appear to outweigh =
-the
-potential downsides.
 
-Unless there are objections from other reviewers, I intend to proceed
-with merging this patch.
-If anyone has concerns or sees potential issues with this change,
-please share your thoughts.
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&pinctrl_i2c4>;
+>  	status = "okay";
+>  
+> -	eeprom@50 {
+> +	eeprom1: eeprom@50 {
+>  		compatible = "atmel,24c02";
+>  		reg = <0x50>;
+>  		pagesize = <16>;
+>  	};
+>  
+> -	rtc@51 {
+> +	hym8563: hym8563@51 {
 
-Thanks,
-Inki Dae
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
->         }
->
->         dsi->reg_base =3D devm_platform_ioremap_resource(pdev, 0);
-> @@ -2134,7 +2136,7 @@ static int samsung_dsim_suspend(struct device *dev)
->  {
->         struct samsung_dsim *dsi =3D dev_get_drvdata(dev);
->         const struct samsung_dsim_driver_data *driver_data =3D dsi->drive=
-r_data;
-> -       int ret, i;
-> +       int ret;
->
->         usleep_range(10000, 20000);
->
-> @@ -2150,8 +2152,7 @@ static int samsung_dsim_suspend(struct device *dev)
->
->         phy_power_off(dsi->phy);
->
-> -       for (i =3D driver_data->num_clks - 1; i > -1; i--)
-> -               clk_disable_unprepare(dsi->clks[i]);
-> +       clk_bulk_disable_unprepare(driver_data->num_clks, driver_data->cl=
-k_data);
->
->         ret =3D regulator_bulk_disable(ARRAY_SIZE(dsi->supplies), dsi->su=
-pplies);
->         if (ret < 0)
-> @@ -2164,7 +2165,7 @@ static int samsung_dsim_resume(struct device *dev)
->  {
->         struct samsung_dsim *dsi =3D dev_get_drvdata(dev);
->         const struct samsung_dsim_driver_data *driver_data =3D dsi->drive=
-r_data;
-> -       int ret, i;
-> +       int ret;
->
->         ret =3D regulator_bulk_enable(ARRAY_SIZE(dsi->supplies), dsi->sup=
-plies);
->         if (ret < 0) {
-> @@ -2172,11 +2173,9 @@ static int samsung_dsim_resume(struct device *dev)
->                 return ret;
->         }
->
-> -       for (i =3D 0; i < driver_data->num_clks; i++) {
-> -               ret =3D clk_prepare_enable(dsi->clks[i]);
-> -               if (ret < 0)
-> -                       goto err_clk;
-> -       }
-> +       ret =3D clk_bulk_prepare_enable(driver_data->num_clks, driver_dat=
-a->clk_data);
-> +       if (ret < 0)
-> +               goto err_clk;
->
->         ret =3D phy_power_on(dsi->phy);
->         if (ret < 0) {
-> @@ -2187,8 +2186,7 @@ static int samsung_dsim_resume(struct device *dev)
->         return 0;
->
->  err_clk:
-> -       while (--i > -1)
-> -               clk_disable_unprepare(dsi->clks[i]);
-> +       clk_bulk_disable_unprepare(driver_data->num_clks, driver_data->cl=
-k_data);
->         regulator_bulk_disable(ARRAY_SIZE(dsi->supplies), dsi->supplies);
->
->         return ret;
-> diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsu=
-ng-dsim.h
-> index 04ed11787bbd22503f7221cad1a491a4e5e66781..eb9fdbab1b34074923daa0aa0=
-443c33c5b99ae42 100644
-> --- a/include/drm/bridge/samsung-dsim.h
-> +++ b/include/drm/bridge/samsung-dsim.h
-> @@ -58,6 +58,7 @@ struct samsung_dsim_driver_data {
->         unsigned int has_clklane_stop:1;
->         unsigned int has_broken_fifoctrl_emptyhdr:1;
->         unsigned int has_sfrctrl:1;
-> +       struct clk_bulk_data *clk_data;
->         unsigned int num_clks;
->         unsigned int min_freq;
->         unsigned int max_freq;
-> @@ -104,7 +105,6 @@ struct samsung_dsim {
->
->         void __iomem *reg_base;
->         struct phy *phy;
-> -       struct clk **clks;
->         struct clk *pll_clk;
->         struct regulator_bulk_data supplies[2];
->         int irq;
->
-> --
-> 2.49.0
->
->
+
+
+>  		compatible = "haoyu,hym8563";
+>  		reg = <0x51>;
+>  		#clock-cells = <0>;
+> +		clock-frequency = <32768>;
+>  		clock-output-names = "xin32k";
+> +		init_date="2022/04/12";
+>  		interrupt-parent = <&gpio2>;
+>  		interrupts = <11 IRQ_TYPE_EDGE_FALLING>;
+> +
+>  		pinctrl-names = "default";
+>  		pinctrl-0 = <&pinctrl_rtc_int>;
+>  	};
+> +	ads1115: ads1115@48 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+
+
+> +		compatible = "ti,ads1115";
+> +		status = "okay";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		reg = <0x48>;
+> +		channel@4 {
+> +		 reg = <4>;
+> +		 ti,gain = <1>;
+> +		 ti,datarate = <4>;
+> +		};
+> +		channel@5 {
+> +		 reg = <5>;
+> +		 ti,gain = <1>;
+> +		 ti,datarate = <4>;
+> +		};
+> +		channel@3 {
+> +		 reg = <3>;
+> +		 ti,gain = <1>;
+> +		 ti,datarate = <4>;
+> +		};
+> +		channel@6 {
+> +		 reg = <6>;
+> +		 ti,gain = <1>;
+> +		 ti,datarate = <4>;
+> +		};
+> +		channel@7 {
+> +		 reg = <7>;
+> +		 ti,gain = <1>;
+> +		 ti,datarate = <4>;
+> +		};
+> +	};
+>  };
+>  
+>  &i2c6 {
+> @@ -273,14 +560,85 @@ &i2c6 {
+>  	status = "okay";
+>  };
+>  
+> +&lcdif1 {
+> +	status = "okay";
+> +};
+> +
+> +&lcdif2 {
+> +	status = "okay";
+> +};
+> +
+>  &lcdif3 {
+>  	status = "okay";
+> +
+> +	thres-low  = <1 2>;
+> +	thres-high = <3 4>;
+> +};
+> +
+> +&lvds_bridge {
+> +	status = "disabled";
+> +};
+> +
+> +&media_blk_ctrl {
+> +	status = "disabled";
+> +};
+> +
+> +&mipi_dsi {
+> +	status = "disabled";
+> +};
+> +
+> +&pcie {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_pcie0>;
+> +	reset-gpio = <&gpio4 27 GPIO_ACTIVE_LOW>;
+> +	vpcie-supply = <&reg_pcie0>;
+> +	status = "disabled";
+> +};
+> +
+> +&pcie_phy {
+> +	fsl,refclk-pad-mode = <IMX8_PCIE_REFCLK_PAD_INPUT>;
+> +	clocks = <&pcie0_refclk>;
+> +	clock-names = "ref";
+> +	status = "disabled";
+> +};
+> +
+> +&pwm2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_pwm2>;
+> +	status = "disabled";
+> +};
+> +
+> +&sai3 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_sai3>;
+> +	assigned-clocks = <&clk IMX8MP_CLK_SAI3>;
+> +	assigned-clock-parents = <&clk IMX8MP_AUDIO_PLL1_OUT>;
+> +	assigned-clock-rates = <12288000>;
+> +	clocks = <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SAI3_IPG>, <&clk IMX8MP_CLK_DUMMY>,
+> +		 <&audio_blk_ctrl IMX8MP_CLK_AUDIOMIX_SAI3_MCLK1>, <&clk IMX8MP_CLK_DUMMY>,
+> +		 <&clk IMX8MP_CLK_DUMMY>;
+> +	clock-names = "bus", "mclk0", "mclk1", "mclk2", "mclk3";
+> +	fsl,sai-mclk-direction-output;
+> +	status = "okay";
+> +};
+> +
+> +&sdma2 {
+> +	status = "okay";
+>  };
+>  
+>  &snvs_pwrkey {
+>  	status = "okay";
+>  };
+>  
+> +&uart1 { /* BT */
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_uart1>;
+> +	assigned-clocks = <&clk IMX8MP_CLK_UART1>;
+> +	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +};
+> +
+>  &uart2 {
+>  	/* console */
+>  	pinctrl-names = "default";
+> @@ -300,7 +658,28 @@ &uart4 {
+>  	status = "okay";
+>  };
+>  
+> +&usb3_phy0 {
+> +	status = "okay";
+> +};
+> +
+> +&usb3_0 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_dwc3_0 {
+> +	dr_mode = "otg";
+> +	hnp-disable;
+> +	srp-disable;
+> +	adp-disable;
+> +	usb-role-switch;
+> +	snps,dis-u1-entry-quirk;
+> +	snps,dis-u2-entry-quirk;
+> +	status = "okay";
+> +};
+> +
+>  &usb3_phy1 {
+> +	fsl,phy-tx-preemp-amp-tune = <3>;
+> +	fsl,phy-tx-vref-tune = <0xb>;
+>  	status = "okay";
+>  };
+>  
+> @@ -309,32 +688,45 @@ &usb3_1 {
+>  };
+>  
+>  &usb_dwc3_1 {
+> -	#address-cells = <1>;
+> -	#size-cells = <0>;
+>  	pinctrl-names = "default";
+> -	pinctrl-0 = <&pinctrl_usb1>;
+> +	pinctrl-0 = <&pinctrl_usb1_vbus>;
+> +	hub-pwd-gpio = <&gpio4 26 GPIO_ACTIVE_LOW>;
+> +	hub-reset-gpio = <&gpio4 25 GPIO_ACTIVE_LOW>;
+>  	dr_mode = "host";
+>  	status = "okay";
+> +};
+>  
+> -	/* 2.x hub on port 1 */
+> -	usb_hub_2_x: hub@1 {
+> -		compatible = "usbbda,5411";
+> -		reg = <1>;
+> -		vdd-supply = <&reg_usb_hub>;
+> -		peer-hub = <&usb_hub_3_x>;
+> -	};
+> +/*WIFI */
+> +&usdhc1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+> +	pinctrl-0 = <&pinctrl_usdhc1>, <&pinctrl_wlan_wake_host>;
+> +	pinctrl-1 = <&pinctrl_usdhc1_100mhz>, <&pinctrl_wlan_wake_host>;
+> +	pinctrl-2 = <&pinctrl_usdhc1_200mhz>, <&pinctrl_wlan_wake_host>;
+> +	bus-width = <4>;
+> +	pm-ignore-notify;
+> +	keep-power-in-suspend;
+> +	non-removable;
+> +	cap-power-off-card;
+> +	/delete-property/ vmmc-supply;
+> +	mmc-pwrseq = <&usdhc1_pwrseq>;
+> +	status = "okay";
+> +	max-frequency = <100000000>;
+>  
+> -	/* 3.x hub on port 2 */
+> -	usb_hub_3_x: hub@2 {
+> -		compatible = "usbbda,411";
+> -		reg = <2>;
+> -		vdd-supply = <&reg_usb_hub>;
+> -		peer-hub = <&usb_hub_2_x>;
+> +	brcmf: bcrmf@1 {
+> +		reg = <1>;
+> +		compatible = "brcm,bcm4329-fmac";
+> +		interrupt-parent = <&gpio2>;
+> +		interrupts = <9 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-names = "host-wake";
+>  	};
+>  };
+>  
+>  /* SD Card */
+>  &usdhc2 {
+> +	assigned-clocks = <&clk IMX8MP_CLK_USDHC2>;
+> +	assigned-clock-rates = <400000000>;
+>  	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+>  	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>  	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+> @@ -366,25 +758,108 @@ &wdog1 {
+>  };
+>  
+>  &iomuxc {
+> +	pinctrl_bt_ctrl: btctrlgrp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_SD1_DATA4__GPIO2_IO06        0x41
+> +			MX8MP_IOMUXC_SD1_DATA5__GPIO2_IO07        0x41
+> +			MX8MP_IOMUXC_SD1_DATA6__GPIO2_IO08        0x16
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi1: ecspi1grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_ECSPI1_SCLK__ECSPI1_SCLK		0x82
+> +			MX8MP_IOMUXC_ECSPI1_MOSI__ECSPI1_MOSI		0x82
+> +			MX8MP_IOMUXC_ECSPI1_MISO__ECSPI1_MISO		0x82
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi1_cs: ecspi1cs {
+
+Looks never tested.
+
+
+Also:
+
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC (and consider --no-git-fallback argument, so you will
+not CC people just because they made one commit years ago). It might
+happen, that command when run on an older kernel, gives you outdated
+entries. Therefore please be sure you base your patches on recent Linux
+kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+</form letter>
+
+
+Best regards,
+Krzysztof
 
