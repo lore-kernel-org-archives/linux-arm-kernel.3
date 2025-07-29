@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F60C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 14:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340ACC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 14:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEDJ03nzfgxz+MlBdNB8Z4OER756sB/3etF57ztcywY=; b=gAmp0ZWOS+Gi6r/phfUJjGFaav
-	NKamuK5F53QpTj4UVDG1sHCqlqKH64AirGQiblewJCDpjNc+kPLiDjUdas6j18OhUFOPC8VZrkWkr
-	YUmj1pOg5R1+FLinLFyZbWO0STGhPJv/jzcLoxC5tuGwPfkSk9poHextuUXQHpV2vejh2g1ic6Fhj
-	sR/03xssvqOJRQ7HdYA6A2dShTQR4uuuml+oSp8jJKzAYF8Lhq3amiYLE1aAKPUU0zWSVd1axuDe8
-	TBjk0HVBaYY6Lf3CUXLZSQElcK8tkmThgRyOs3lN9Y1rouWRLlxsS8JcOijdBgDs6LudnZtsXLS4V
-	15zqlCfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t8wGSo9XATI3giAKMDKds/aq062osT6tctjbABHT4DA=; b=jrAhgHdisw3Rnt4XqbDVZyHmji
+	gY88UtqLqgjp2+mJ96NI6Y6N7m0AaA6eiOO1iI0jvvYQCnWhqi1LrMVnYrrGPV8uWaLYubWod/lX0
+	q/fjQOxlE5eBrbZqNbCOMFCunFyjwcDzRen5nj0QbS88/c/uY6PHil7APSpbi2pCDJdIdc4QGJ7tv
+	zZ2iViJSKyCdf1g5VBoDt+F2xOsV44gh4SWocPFrhS5SB+qaCkogK8bDKJ4nuFBL8zvzt3CSyEzqR
+	ccxMgE+BE729fE8ajrWm9zFDFlh5UwCXo/E718OX/8zk033UhMXZ7PgxfL1V4k5DUmhi/kksP82HF
+	CHIvRLlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uglcD-0000000GwhV-1dw1;
-	Tue, 29 Jul 2025 14:47:41 +0000
-Received: from chumsalmon.baetis.net ([2001:19f0:5:5b58:5400:5ff:fe17:97e8])
+	id 1ugled-0000000GwyI-3eMH;
+	Tue, 29 Jul 2025 14:50:11 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uglUu-0000000Gvml-1V8n;
-	Tue, 29 Jul 2025 14:40:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tahomasoft.com;
-	s=default; t=1753800007;
-	bh=9IRbN/U/kDg106YFNhCMl7MrSRCuBKWNIv98ffbKBwI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UiSWDPouu5AlLZchZqmf6nLEOGeTNUj4ZQ0Sml71BLJLv67xqhipbrgYEggBvSEH/
-	 44Rp562dYXzjhYYcnI2tRjBqDco2edkJZtV9kSCqm7A6dK1hoNIS72lo4AMRnybNkO
-	 +PJqCH3cb6oW70s1TpY9kylg4wSbmiAnay2YfHfGzRauQL/JR8NtcJuhrtJEDwDi4+
-	 z/h23mL0oMVgLZGseudnXhhxkk+LJlIw4lKS06wzpbz3R5wbltSkTvt95AiP5iNbVR
-	 ncGg8+lnWQZLp6sFuM8jDHOHvFgEGFC2BVSn8jpPmdyw5Vm6HQ4PcOkxcC9dddzy2b
-	 iLrOPcPIFF0AA==
-Received: from localhost (unknown [IPv6:2600:4040:50b7:b604:f717:c76f:99e7:4a24])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by chumsalmon.baetis.net (Postfix) with ESMTPSA id A6B1D27E83B;
-	Tue, 29 Jul 2025 14:40:07 +0000 (UTC)
-From: Erik Beck <xunil@tahomasoft.com>
-Date: Tue, 29 Jul 2025 10:39:52 -0400
-Subject: [PATCH v6 2/2] arm64: dts: rockchip: add LinkStar-H68k-1432v1
+	id 1uglZ5-0000000GwLn-1a8o
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Jul 2025 14:44:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=t8wGSo9XATI3giAKMDKds/aq062osT6tctjbABHT4DA=; b=rOFvNinTRkQwE4gVwqDsOV+G2g
+	WQMQIiYCE+SssYAg7ZmPkhr+NqZpwkOw3HtWlU2BEnRn5RJeQsHxrrGp6SfzRT/fBT/2iwJfhbObM
+	DocjlT/P0G4Oc1nNbgHI9erZEnHZdsfxXr8lIWupUSzqpWD8nTKs6QvLUiNEk/5XqTO+fxuR9xcMS
+	ACzWzfIol4DruUvddnbxZFuxwgim5xkFpuFN7sB2Y5dYMYLBW75N/DI8WdO9yNVQgysyQhxjLvqrG
+	P9OswWzkGnZ6wHTK6hRcJQZBCNpyrOm0dczrDBk/L97ZwFMkvlvu0vrmLeTuNs5OctVa6zhpphXOt
+	hFC+au7A==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60690)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uglYu-00023b-2f;
+	Tue, 29 Jul 2025 15:44:16 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uglYr-0007Ud-0E;
+	Tue, 29 Jul 2025 15:44:13 +0100
+Date: Tue, 29 Jul 2025 15:44:12 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-arm-kernel@lists.infradead.org,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Subject: Re: [Linux-stm32] [PATCH RFC net-next 6/7] net: stmmac: add helpers
+ to indicate WoL enable status
+Message-ID: <aIjePMWG6pEBvna6@shell.armlinux.org.uk>
+References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
+ <E1ugQ33-006KDR-Nj@rmk-PC.armlinux.org.uk>
+ <eaef1b1b-5366-430c-97dd-cf3b40399ac7@lunn.ch>
+ <aIe5SqLITb2cfFQw@shell.armlinux.org.uk>
+ <77229e46-6466-4cd4-9b3b-d76aadbe167c@foss.st.com>
+ <aIiOWh7tBjlsdZgs@shell.armlinux.org.uk>
+ <aIjCg_sjTOge9vd4@shell.armlinux.org.uk>
+ <d300d546-09fa-4b37-b8e0-349daa0cc108@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250729-linkstar-6-16-rc1-v6-v6-2-92307f465835@tahomasoft.com>
-References: <20250729-linkstar-6-16-rc1-v6-v6-0-92307f465835@tahomasoft.com>
-In-Reply-To: <20250729-linkstar-6-16-rc1-v6-v6-0-92307f465835@tahomasoft.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Erik Beck <xunil@tahomasoft.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753800001; l=17879;
- i=xunil@tahomasoft.com; s=20250724; h=from:subject:message-id;
- bh=9IRbN/U/kDg106YFNhCMl7MrSRCuBKWNIv98ffbKBwI=;
- b=7qtu9p3RkVua/3XJec5B4APv1dUsaKWDFVP+LMSxJd/YHsPZpFsHAC7pecs1WgZ8sQVYZf65b
- NdDnO16Z2ayDTTKpeNVtLsOwUwIFpr6Ae0NWW+gs/auHGVN2jsw5gG3
-X-Developer-Key: i=xunil@tahomasoft.com; a=ed25519;
- pk=FTZVGUexvkWb4j8v0wbtm7CtJLijIAaa5x0XV72WWC0=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d300d546-09fa-4b37-b8e0-349daa0cc108@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_074008_487531_C48278A3 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250729_074427_417777_E4195078 
+X-CRM114-Status: GOOD (  45.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,775 +93,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DTS for Seeed LinkStar H68K-1432v1 board, a travel router using
-Rockchip rk3568 SoC.
+On Tue, Jul 29, 2025 at 03:10:56PM +0200, Gatien CHEVALLIER wrote:
+> 
+> 
+> On 7/29/25 14:45, Russell King (Oracle) wrote:
+> > On Tue, Jul 29, 2025 at 10:03:22AM +0100, Russell King (Oracle) wrote:
+> > > With Thierry's .dts patch, PHY interrupts completely stop working, so
+> > > we don't get link change notifications anymore - and we still don't
+> > > seem to be capable of waking the system up with the PHY interrupt
+> > > being asserted.
+> > > 
+> > > Without Thierry's .dts patch, as I predicted, enabling WoL at the
+> > > PHY results in Bad Stuff happening - the code in the realtek driver
+> > > for WoL is quite simply broken and wrong.
+> > > 
+> > > Switching the pin from INTB mode to PMEB mode results in:
+> > > - No link change interrupts once WoL is enabled
+> > > - The interrupt output being stuck at active level, causing an
+> > >    interrupt storm and the interrupt is eventually disabled.
+> > >    The PHY can be configured to pulse the PMEB or hold at an active
+> > >    level until the WoL is cleared - and by default it's the latter.
+> > > 
+> > > So, switching the interrupt pin to PMEB mode is simply wrong and
+> > > breaks phylib. I guess the original WoL support was only tested on
+> > > a system which didn't use the PHY interrupt, only using the interrupt
+> > > pin for wake-up purposes.
+> > > 
+> > > I was working on the realtek driver to fix this, but it's pointless
+> > > spending time on this until the rest of the system can wake up -
+> > > and thus the changes can be tested. This is where I got to (and
+> > > includes work from both Thierry and myself, so please don't pick
+> > > this up as-is, because I can guarantee that you'll get the sign-offs
+> > > wrong! It's a work-in-progress, and should be a series for submission.)
+> > 
+> > Okay, with this patch, wake-up now works on the PHY interrupt line, but
+> > because normal interrupts aren't processed, the interrupt output from
+> > the PHY is stuck at active level, so the system immediately wakes up
+> > from suspend.
+> > 
+> 
+> If I'm following correctly, you do not use the PMEB mode and share
+> the same pin for WoL and regular interrupts (INTB mode)?
 
-Signed-off-by: Erik Beck <xunil@tahomasoft.com>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   1 +
- .../dts/rockchip/rk3568-linkstar-h68k-1432v1.dts   | 740 +++++++++++++++++++++
- 2 files changed, 741 insertions(+)
+As the driver is currently structured, switching the pin to PMEB mode
+in .set_wol() breaks phylib, since as soon as one enables WoL at the
+PHY, link state interrupts are no longer delivered.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 4bf84622db473696f64b157ba94560f476d4f52f..baae5a9a3f06e0c7f74c9252eb244bb03989f2d7 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -128,6 +128,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-bpi-r2-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r66s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r68s.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-linkstar-h68k-1432v1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-lubancat-2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-mecsbc.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-nanopi-r5c.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts b/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..1d05ce94746288299618961280378b50eb3ade42
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-linkstar-h68k-1432v1.dts
-@@ -0,0 +1,740 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 TahomaSoft xunil@tahomasoft.com
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3568.dtsi"
-+
-+/ {
-+	model = "Seeed LinkStar H68K-1432V1 (RK3568) DDR4 Board";
-+	compatible = "seeed,rk3568-linkstar-h68k-1432v1", "rockchip,rk3568";
-+
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+
-+		/* fixed eMMC */
-+		mmc0 = &sdhci;
-+
-+		/* removable uSD/TF Card */
-+		mmc1 = &sdmmc0;
-+
-+		rtc0 = &rk809;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		pinctrl-0 = <&reset_button_pin>;
-+		pinctrl-names = "default";
-+
-+		/* Middle inset/recessed button,
-+		 * marked by clockwise arrow/circle
-+		 */
-+
-+		button-reset {
-+			label = "button:system:reset";
-+			gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_LOW>;
-+			linux,code = <KEY_RESTART>;
-+			debounce-interval = <50>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&led_white_pin>, <&led_green_pin>,
-+			<&led_amber_pin>, <&led_blue_pin>;
-+
-+		/* White LED inset in power button */
-+
-+		led_white: led-0   {
-+			color = <LED_COLOR_ID_WHITE>;
-+			default-state = "on";
-+			function = LED_FUNCTION_POWER;
-+			gpios = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "default-on";
-+		};
-+
-+		led_green: led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "none";
-+		};
-+
-+		led_amber: led-2 {
-+			color = <LED_COLOR_ID_AMBER>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PA7 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "none";
-+		};
-+
-+		led_blue: led-3 {
-+			color = <LED_COLOR_ID_BLUE>;
-+			default-state = "off";
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio3 RK_PA5 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+	vcc12v_dcin: regulator-vcc12v-dcin {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+		regulator-name = "vcc12v_dcin";
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_sys";
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_sys";
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_usb: regulator-vcc5v0-usb {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_usb";
-+		vin-supply = <&vcc12v_dcin>;
-+	};
-+
-+	vcc5v0_usb_host: regulator-vcc5v0-usb-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&gpio0 RK_PA5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_usb_host_en>;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-name = "vcc5v0_usb_host";
-+		vin-supply = <&vcc5v0_usb>;
-+	};
-+
-+	vcc3v3_pcie: regulator-vcc3v3-pcie {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-name = "vcc3v3_pcie";
-+		startup-delay-us = <5000>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	rk809-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,name = "Analog RK809";
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s1_8ch>;
-+		};
-+		simple-audio-card,codec {
-+			sound-dai = <&rk809>;
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-+	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	clock_in_out = "output";
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim
-+		     &gmac0_tx_bus2
-+		     &gmac0_rx_bus2
-+		     &gmac0_rgmii_clk
-+		     &gmac0_rgmii_bus>;
-+	snps,reset-gpio = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-+	snps,reset-active-low;
-+	snps,reset-delays-us = <0 20000 100000>;
-+	phy-handle = <&rgmii_phy0>;
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	clock_in_out = "output";
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		     &gmac1m1_tx_bus2
-+		     &gmac1m1_rx_bus2
-+		     &gmac1m1_rgmii_clk
-+		     &gmac1m1_rgmii_bus>;
-+	snps,reset-gpio = <&gpio1 RK_PB0 GPIO_ACTIVE_LOW>;
-+	snps,reset-active-low;
-+	snps,reset-delays-us = <0 20000 100000>;
-+	phy-handle = <&rgmii_phy1>;
-+	status = "okay";
-+};
-+
-+&combphy0 {
-+	status = "okay";
-+};
-+
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu>;
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	avdd-0v9-supply = <&vdda0v9_image>;
-+	avdd-1v8-supply = <&vcca1v8_image>;
-+	status = "okay";
-+};
-+
-+&hdmi_in {
-+	hdmi_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi>;
-+	};
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdmi_sound {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	vdd_cpu: regulator@1c {
-+		compatible = "tcs,tcs4525";
-+		reg = <0x1c>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1150000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	rk809: pmic@20 {
-+		compatible = "rockchip,rk809";
-+		reg = <0x20>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
-+		assigned-clocks = <&cru I2S1_MCLKOUT_TX>;
-+		assigned-clock-parents = <&cru CLK_I2S1_8CH_TX>;
-+		#clock-cells = <1>;
-+		clock-names = "mclk";
-+		clocks = <&cru I2S1_MCLKOUT_TX>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_int>, <&i2s1m0_mclk>;
-+		rockchip,system-power-controller;
-+		#sound-dai-cells = <0>;
-+		wakeup-source;
-+
-+		vcc1-supply = <&vcc3v3_sys>;
-+		vcc2-supply = <&vcc3v3_sys>;
-+		vcc3-supply = <&vcc3v3_sys>;
-+		vcc4-supply = <&vcc3v3_sys>;
-+		vcc5-supply = <&vcc3v3_sys>;
-+		vcc6-supply = <&vcc3v3_sys>;
-+		vcc7-supply = <&vcc3v3_sys>;
-+		vcc8-supply = <&vcc3v3_sys>;
-+		vcc9-supply = <&vcc3v3_sys>;
-+
-+		regulators {
-+			vdd_logic: DCDC_REG1 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-name = "vdd_logic";
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_gpu: DCDC_REG2 {
-+				regulator-always-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-name = "vdd_gpu";
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_ddr: DCDC_REG3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-name = "vcc_ddr";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vdd_npu: DCDC_REG4 {
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-name = "vdd_npu";
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8: DCDC_REG5 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc_1v8";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_image: LDO_REG1 {
-+				regulator-name = "vdda0v9_image";
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda_0v9: LDO_REG2 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdda_0v9";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_pmu: LDO_REG3 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdda0v9_pmu";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <900000>;
-+				};
-+			};
-+
-+			vccio_acodec: LDO_REG4 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vccio_acodec";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd: LDO_REG5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vccio_sd";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_pmu: LDO_REG6 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc3v3_pmu";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vcca_1v8: LDO_REG7 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcca_1v8";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcca1v8_pmu: LDO_REG8 {
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcca1v8_pmu";
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vcca1v8_image: LDO_REG9 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcca1v8_image";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3: SWITCH_REG1 {
-+				regulator-name = "vcc_3v3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_sd: SWITCH_REG2 {
-+				regulator-name = "vcc3v3_sd";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+
-+		codec {
-+			rockchip,mic-in-differential;
-+		};
-+	};
-+};
-+
-+&i2s0_8ch {
-+	status = "okay";
-+};
-+
-+&i2s1_8ch {
-+	rockchip,trcm-sync-tx-only;
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	rgmii_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x0>;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@0 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x0>;
-+	};
-+};
-+
-+&pcie30phy {
-+	 data-lanes = <1 2>;
-+	 status = "okay";
-+};
-+
-+&pcie2x1 {
-+	 reset-gpios = <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;
-+	 vpcie3v3-supply = <&vcc3v3_pcie>;
-+	 status = "okay";
-+};
-+
-+&pcie3x1 {
-+	 num-lanes= <1>;
-+	 bus-range = <0x10 0x1f>;
-+	 reset-gpios = <&gpio3 RK_PA4 GPIO_ACTIVE_HIGH>;
-+	 vpcie3v3-supply = <&vcc3v3_pcie>;
-+	 status = "okay";
-+
-+};
-+
-+&pcie3x2 {
-+	 num-lanes= <1>;
-+	 bus-range = <0x20 0x2f>;
-+	 reset-gpios = <&gpio2 RK_PD0 GPIO_ACTIVE_HIGH>;
-+	 vpcie3v3-supply = <&vcc3v3_pcie>;
-+	 status = "okay";
-+};
-+
-+&pinctrl {
-+	button {
-+		reset_button_pin: reset-button-pin {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	bluetooth {
-+		bt_wake_host_h: bt-wake-host-h {
-+			rockchip,pins = <3 RK_PA1 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		host_wake_bt_h: host-wake-bt-h {
-+			rockchip,pins = <3 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	gpio-leds {
-+	     led_white_pin: led-white-pin  {
-+		    rockchip,pins = <0 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	     led_green_pin: led-green-pin {
-+		    rockchip,pins = <3 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	     led_amber_pin: led-amber-pin {
-+		    rockchip,pins = <3 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	     led_blue_pin: led-blue-pin {
-+		    rockchip,pins = <3 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+	     };
-+
-+	};
-+
-+	pmic {
-+		pmic_int: pmic_int {
-+			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_usb_host_en: vcc5v0_usb_host_en {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc3v3_pmu>;
-+	pmuio2-supply = <&vcc3v3_pmu>;
-+	vccio1-supply = <&vccio_acodec>;
-+	vccio2-supply = <&vcc_1v8>;
-+	vccio3-supply = <&vccio_sd>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&rng {
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcca_1v8>;
-+	status = "okay";
-+};
-+
-+&sata0 {
-+	status = "disabled";
-+};
-+
-+&sata1 {
-+	status = "disabled";
-+};
-+
-+&sata2 {
-+	status = "disabled";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
-+	status = "okay";
-+};
-+
-+&sdmmc0 {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-+	disable-wp;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host0_xhci {
-+	phys = <&combphy0 PHY_TYPE_USB3>;
-+	phy-names = "usb3-phy";
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1 {
-+	status = "okay";
-+};
-+
-+&usb2phy1_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1_otg {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&vop {
-+	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-+	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi_in_vp0>;
-+	};
-+};
+It may be appropriate to switch the pin to PMEB mode in the suspend
+method while waiting for a wakeup but we need code in place to deal
+with the resulting interrupt storm (by clearing the wakeup) and that
+code is missing.
+
+The other approach would be to leave the pin in INTB mode, and
+reconfigure the interrupt enable register (INER) to allow WoL
+interrupts, maybe disabling link state interrupts (more on that
+below.) This has the advantage that reading the interrupt status
+register clears the interrupt - and that code already exists so we
+avoid the interrupt storm.
+
+> > Without the normal interrupt problem solved, there's nothing further
+> > I can do on this.
+> > 
+> > Some of the open questions are:
+> > - whether we should configure the WoL interrupt in the suspend/resume
+> >    function
+> 
+> For the LAN8742 PHY with which I worked with, the recommendation when
+> using the same pin for WoL and regular interrupt management is to mask
+> regular interrupt and enable the WoL IIRC.
+
+That's only really appropriate if the MAC isn't involved in WoL. Let's
+say that the PHY can support magic-packet WoL, but the MAC can also
+support unicast frame WoL, and the user has enabled both.
+
+The system goes to sleep (e.g. overnight) and during the night, there's
+a hiccup which causes the link to drop and re-establish at a slower
+speed.
+
+Since the MAC has not been reconfigured (because the link state
+interrupt is disabled, and thus won't wake the system) the MAC can now
+no longer receive unicast frames to check whether they match the
+despired system wakeup condition.
+
+So, this poses another question: do we really want to support
+simultaneous PHY and MAC level WoL support, or should we only allow
+one or other device to support WoL?
+
+If we explicitly deny the WoL at both approach, then we don't have
+to care about link state interrupts, because the PHY will be able
+to cope with the different link speed without needing to wake the
+iystem to reconfigure the network interface for the new link
+parameters.
+
+> This prevents the PHY from waking up from undesired events while still
+> being able use the WoL capability and should be done in suspend() /
+> resume() callbacks. I guess this means also that you share the same
+> interrupt handler that must manage both WoL events and regular events.
+> 
+> On the other hand, on the stm32mp135f-dk, the nPME pin (equivalent to
+> PMEB IIUC) is wired and is different from the nINT pin. Therefore, I
+> guess it should not be done during suspend()/resume() and it really
+> depends on how the PHY is wired. Because if a WoL event is received at
+> runtime, then the PHY must clear the flags otherwise the WoL event won't
+> trigger a system wakeup afterwards.
+> 
+> I need to look at how the PHYs can handle two different interrupts.
+
+The RTL8211F only has one pin (pin 31) which can be used in INTB mode
+or PMEB mode. You can't have independent interrupt and wakeup signals
+with this PHY.
 
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
