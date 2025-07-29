@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5612DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 21:31:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0373CC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 21:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NR9slzoUcFOnPOoSMrOV4yposz1NlG4bkgRYfak492c=; b=TGauVGiq0b7LyTtzZJxVuZcm9q
-	xb1IdKkLPMC2aqxEgCaqNZlsBhzpI30RSdNEl+sF1MMw0XSbfl90q97hINHCy/aJzuiiRnPdkg5Aa
-	3+zbjQN5ZGErVOyDHnnjgcSeNv0kJPuLLaEkH1HSMXaBmDxmxHxO8lmTz1dKWnCmNAMAKGpnT1vXb
-	aKQ4naAO3F1fLfNX4c5a/gtQyRRO49rl1lsnqvGxHUsc9HAVb/1ijrBbJFOFhB+1H0zUKv6iuDs9g
-	MNog2zg4gb+eBiF3q2Kl+hFhOE+fPctKIty+WRfLeFodi0nVGemgCBK6p5B93dwVOYdGqGqBjFPUp
-	6A2MO7Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T6TTijnB+mf1Tx70AUpgzd27gcsp61CTxKy/bu5Mf0k=; b=boN/Rfyouee6UjwophyFzNCF8D
+	UZ0NYfvWAhT/+2RN3TsINvMk+f1nm23SA05sdoSatQTTsJhwxl8dmXhCHqFRAGajeZfucuC/U+VpE
+	Hrm9Rtyt6nUtjRWETsG05x6CapT3UX1/TPx+WhpcedFgGUg08y4KS6Ncfo8RWChSPRwqtTRnaGB1t
+	x428KOv1Kyt2e+CjFMRrk/lS+xNVX7oLu+LrC6qNAXkGr72h28sUGkcmUO3JXhwwmlu09Dgg91/Dn
+	qXyjmsE0ZasJRcSi1T/sEPZQHfVityo6BZCgWxDSpRVu9bd7PUFI91jSii3hW8JcACdbBgzSKisKM
+	dUOa3a3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugrub-000000007bJ-1T6W;
-	Tue, 29 Jul 2025 21:31:05 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1ugs1q-0000000081j-28fJ;
+	Tue, 29 Jul 2025 21:38:34 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugrs8-000000007SS-19KS
+	id 1ugrzM-000000007si-3pPc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 21:28:33 +0000
-Date: Tue, 29 Jul 2025 14:28:18 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753824508;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=NR9slzoUcFOnPOoSMrOV4yposz1NlG4bkgRYfak492c=;
-	b=lhsW2pTcB10VQHQ789IqoXJswxckQki4VJ3/2loOEW2BzG6PgAfa2kj9NJPn524jv0WgfP
-	MjYAlqeTx1ZzRP990X7EM/qgcaHk5t/9IMRbFKRswJP+taDNsnL+hGCJ99RzwPHiQQ/vVN
-	YBCJ0Z4l9hzEspcc7A/hA8yTNEKhxYc=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Jiaqi Yan <jiaqiyan@google.com>
-Cc: maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org,
-	kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	duenwen@google.com, rananta@google.com, jthoughton@google.com
-Subject: Re: [PATCH v2 1/6] KVM: arm64: VM exit to userspace to handle SEA
-Message-ID: <aIk88sBA2eIEF7w-@linux.dev>
-References: <20250604050902.3944054-1-jiaqiyan@google.com>
- <20250604050902.3944054-2-jiaqiyan@google.com>
- <aHFohmTb9qR_JG1E@linux.dev>
- <CACw3F509B=AHhpaTcuH9O851rrDdHh1baC8uRYy7bDa7BSMhgg@mail.gmail.com>
- <aHK-DPufhLy5Dtuk@linux.dev>
- <CACw3F53TYZ1KFv0Yc-GCyOxn7TF3iYjTNSE8bd3nte=KaCN0UQ@mail.gmail.com>
- <CACw3F50Q_G75wf2rBm-P-NkyyO72i1NKqR9se99QrgipfD62yg@mail.gmail.com>
+	Tue, 29 Jul 2025 21:36:02 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3e3ef0024acso2027615ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 14:36:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1753824959; x=1754429759; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=T6TTijnB+mf1Tx70AUpgzd27gcsp61CTxKy/bu5Mf0k=;
+        b=soWFIecqRn/xMoGgDAN5aCKLv1V012EHQ5Wmps3FDVPFcsPt7Yi3tMp1DF65y8Qaxi
+         aR4bp25K4casc0VP7Xj4p7v8mxv55UEohjEmMSCELZ5E307rrqvN/Eu9Ohgld9tWINuq
+         BptAbSBuIHowFOBsWfbJB5k3cl7qs0K75qmGuU7YakIh5e03vMQjbySR37RwRryoWy/x
+         JURCT8CLAyYYkNXivXEkXBRUHhVQ1xH3HCMw5Ibk81uCDXz+gowlxKmmah42mBpcAAM3
+         9RP+sXUlfCsyytBNJW1MICZUlFv+A+WlUjK6ggB+NAUVjuo5GvV7rp8FLzvwlaPp7ijG
+         6uNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753824959; x=1754429759;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T6TTijnB+mf1Tx70AUpgzd27gcsp61CTxKy/bu5Mf0k=;
+        b=af3cmErg+vMnEACgzeH8Y7tlBpqRFyW9BSgsmyPHWlfvn2273rfzG44bi8eIuTVOZx
+         ePYhKlcsvDxL1SLq3JHMQ1343EhAYL2aOaSMX+J06tVJF6Rx/Pdkb6y6GZ4Vm8+/3ks7
+         FAzD8Uz07AQVJBrsb9Ia1fOhuG5xGW6Gg2kWOOmJgKa11Kh0blx6D3hZlF/y6w25FVg3
+         +GTNx1P96EOGFo2yJJguT8WFGZ9kRAx1Y3ufr84CMl/5CRR/BPCwVgFOapctBXsiTo4+
+         V/1elE+ajFLdCFCflVJEIkkRIx8fNB2OxOjHDjEXdw81OTOK8qEOtbEgCBftbNXpqmKR
+         y2lg==
+X-Forwarded-Encrypted: i=1; AJvYcCUj+x7iJfZeGt85FM4TBzJZrR6+56GtEroiWoSQ6MZVA3HfX/6o+NQpiIpU1DPyWi0YOCjhPWXfKhDlggxduodI@lists.infradead.org
+X-Gm-Message-State: AOJu0YytWwYfVw6l2pROL61s4bm6yw1DVaV9WqVU8vlQZrJi4S4x+LwD
+	jWXuezc+K0WSLVgHM3DBN9g4vv9EiZqzKPz8lae4wHutJ3iG6uFzKNOJh+wct/YJMNE=
+X-Gm-Gg: ASbGnctknsCrAp66ZyRJ8BywnBN+Pvq4NikPK6m9WLSK3u0t6OgmdFV6qqmGGhNrPle
+	8JWFGi2x9g/Kdewqir5zgBxMZt+sSJ0SGPYjOVisteo0Ol0sI71k9kaymOCEqRja+EsLHkhvTOY
+	frQ1TG0G83KIiOlTXjs/SwDJJtGMrBfm+wfktjs0iVjy6bjiXonB1E55+DGAQppj6LHfHop2owO
+	IOrRFF+gXGeIN6Zr1epBMy1pzXfGOBUeYaQn7fZrZjkNk0mr6djRA4gGn66/9TKR6rOp8UOvSr3
+	SD1a7bFRgGMvpTLl6GbFcRWdtWHpqLuGCh4O/QeQHTn9xcoG6PsN7MCSOQ07dXlzraeRqUeTWvi
+	J1Vs0htk00EZsdCsV4mb45AjPFWJGyAbvCiBwDLFhO5pBxfAgfsqy+0raVuOOkg==
+X-Google-Smtp-Source: AGHT+IH9yMoT3SyI/T66ZtxcPnZNldk6FIOoyhUi5kHT3q4ZE7dn1hQwAMIQq+oM/1pZl9ARWn7tQA==
+X-Received: by 2002:a92:db50:0:b0:3e3:b3d0:26cf with SMTP id e9e14a558f8ab-3e3e97254b5mr53179065ab.10.1753824959544;
+        Tue, 29 Jul 2025 14:35:59 -0700 (PDT)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-508c9343739sm2781465173.69.2025.07.29.14.35.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Jul 2025 14:35:59 -0700 (PDT)
+Message-ID: <79fde2dc-2370-4ec8-94eb-57715cfc2806@riscstar.com>
+Date: Tue, 29 Jul 2025 16:35:57 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACw3F50Q_G75wf2rBm-P-NkyyO72i1NKqR9se99QrgipfD62yg@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: serial: 8250: allow "main" and "uart" as
+ clock names
+To: Conor Dooley <conor@kernel.org>
+Cc: Yixun Lan <dlan@gentoo.org>, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, lkundrak@v3.sk,
+ devicetree@vger.kernel.org, linux-serial@vger.kernel.org,
+ spacemit@lists.linux.dev, linux-mediatek@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
+References: <20250728220002.599554-1-elder@riscstar.com>
+ <20250728225319-GYA900803@gentoo>
+ <20250729-reshuffle-contented-e6def76b540b@spud>
+ <5c3f9f10-6a9d-45b4-80c0-09402b35bf47@riscstar.com>
+ <20250729-clench-hastily-b80f11f73336@spud>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250729-clench-hastily-b80f11f73336@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_142832_465109_06B8D780 
-X-CRM114-Status: GOOD (  40.10  )
+X-CRM114-CacheID: sfid-20250729_143600_962684_553EFCC2 
+X-CRM114-Status: GOOD (  20.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,127 +111,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 25, 2025 at 03:54:10PM -0700, Jiaqi Yan wrote:
-> On Sat, Jul 19, 2025 at 2:24 PM Jiaqi Yan <jiaqiyan@google.com> wrote:
-> >
-> > On Sat, Jul 12, 2025 at 12:57 PM Oliver Upton <oliver.upton@linux.dev> wrote:
-> > >
-> > > On Fri, Jul 11, 2025 at 04:59:11PM -0700, Jiaqi Yan wrote:
-> > > > >  - Add some detail about FEAT_RAS where we may still exit to userspace
-> > > > >    for host-controlled memory, as we cannot differentiate between a
-> > > > >    stage-1 or stage-2 TTW SEA when taken on the descriptor PA
-> > > >
-> > > > Ah, IIUC, you are saying even if the FSC code tells fault is on TTW
-> > > > (esr_fsc_is_secc_ttw or esr_fsc_is_sea_ttw), it can either be guest
-> > > > stage-1's or stage-2's descriptor PA, and we can tell which from
-> > > > which.
-> > > >
-> > > > However, if ESR_ELx_S1PTW is set, we can tell this is a sub-case of
-> > > > stage-2 descriptor PA, their usage is for stage-1 PTW but they are
-> > > > stage-2 memory.
-> > > >
-> > > > Is my current understanding right?
-> > >
-> > > Yep, that's exactly what I'm getting at. As you note, stage-2 aborts
-> > > during a stage-1 walk are sufficiently described, but not much else.
-> >
-> > Got it, thanks!
-> >
-> > >
-> > > > > +/*
-> > > > > + * Returns true if the SEA should be handled locally within KVM if the abort is
-> > > > > + * caused by a kernel memory allocation (e.g. stage-2 table memory).
-> > > > > + */
-> > > > > +static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
-> > > > > +{
-> > > > > +       /*
-> > > > > +        * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abort
-> > > > > +        * taken from a guest EL to EL2 is due to a host-imposed access (e.g.
-> > > > > +        * stage-2 PTW).
-> > > > > +        */
-> > > > > +       if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
-> > > > > +               return true;
-> > > > > +
-> > > > > +       /* KVM owns the VNCR when the vCPU isn't in a nested context. */
-> > > > > +       if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
-> > > > > +               return true;
-> > > > > +
-> > > > > +       /*
-> > > > > +        * Determining if an external abort during a table walk happened at
-> > > > > +        * stage-2 is only possible with S1PTW is set. Otherwise, since KVM
-> > > > > +        * sets HCR_EL2.TEA, SEAs due to a stage-1 walk (i.e. accessing the PA
-> > > > > +        * of the stage-1 descriptor) can reach here and are reported with a
-> > > > > +        * TTW ESR value.
-> > > > > +        */
-> > > > > +       return esr_fsc_is_sea_ttw(esr) && (esr & ESR_ELx_S1PTW);
-> > > >
-> > > > Should we include esr_fsc_is_secc_ttw? like
-> > > >   (esr_fsc_is_sea_ttw(esr) || esr_fsc_is_secc_ttw(esr)) && (esr & ESR_ELx_S1PTW)
-> > >
-> > > Parity / ECC errors are not permitted if FEAT_RAS is implemented (which
-> > > is tested for up front).
-> >
-> > Ah, thanks for pointing this out.
-> >
-> > >
-> > > > > +}
-> > > > > +
-> > > > >  int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
-> > > > >  {
-> > > > > +       u64 esr = kvm_vcpu_get_esr(vcpu);
-> > > > > +       struct kvm_run *run = vcpu->run;
-> > > > > +       struct kvm *kvm = vcpu->kvm;
-> > > > > +       u64 esr_mask = ESR_ELx_EC_MASK  |
-> > > > > +                      ESR_ELx_FnV      |
-> > > > > +                      ESR_ELx_EA       |
-> > > > > +                      ESR_ELx_CM       |
-> > > > > +                      ESR_ELx_WNR      |
-> > > > > +                      ESR_ELx_FSC;
-> > > >
-> > > > Do you (and why) exclude ESR_ELx_IL on purpose?
-> > >
-> > > Unintended :)
-> >
-> > Will add into my patch.
-> >
-> > >
-> > > > BTW, if my previous statement about TTW SEA is correct, then I also
-> > > > understand why we need to explicitly exclude ESR_ELx_S1PTW.
-> > >
-> > > Right, we shouldn't be exposing genuine stage-2 external aborts to userspace.
-> > >
-> > > > > +       u64 ipa;
-> > > > > +
-> > > > > +
-> > > > >         /*
-> > > > >          * Give APEI the opportunity to claim the abort before handling it
-> > > > >          * within KVM. apei_claim_sea() expects to be called with IRQs
-> > > > > @@ -1824,7 +1864,32 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
-> > > > >         if (apei_claim_sea(NULL) == 0)
-> > > >
-> > > > I assume kvm should still lockdep_assert_irqs_enabled(), right? That
-> > > > is, a WARN_ON_ONCE is still useful in case?
-> > >
-> > > Ah, this is diffed against my VNCR prefix which has this context. Yes, I
-> > > want to preserve the lockdep assertion.
-> >
-> > Thanks for sharing the patch! Should I wait for you to send and queue
-> > to kvmarm/next and rebase my v3 to it? Or should I insert it into my
-> > v3 patch series with you as the commit author, and Signed-off-by you?
+On 7/29/25 4:08 PM, Conor Dooley wrote:
+> On Tue, Jul 29, 2025 at 04:04:05PM -0500, Alex Elder wrote:
+>> On 7/29/25 12:54 PM, Conor Dooley wrote:
+>>> On Tue, Jul 29, 2025 at 06:53:19AM +0800, Yixun Lan wrote:
+>>>> Hi Alex,
+>>>>
+>>>> On 17:00 Mon 28 Jul     , Alex Elder wrote:
+>>>>> There are two compatible strings defined in "8250.yaml" that require
+>>>>> two clocks to be specified, along with their names:
+>>>>>     - "spacemit,k1-uart", used in "spacemit/k1.dtsi"
+>>>>>     - "nxp,lpc1850-uart", used in "lpc/lpc18xx.dtsi"
+>>>>>
+>>>>> When only one clock is used, the name is not required.  However there
+>>>>> are two places that do specify a name:
+>>>>>     - In "mediatek/mt7623.dtsi", the clock for the "mediatek,mtk-btif"
+>>>>>       compatible serial device is named "main"
+>>>>>     - In "qca/ar9132.dtsi", the clock for the "ns8250" compatible
+>>>>>       serial device is named "uart"
+>>>>>
+>>>>> In commit d2db0d7815444 ("dt-bindings: serial: 8250: allow clock 'uartclk'
+>>>>> and 'reg' for nxp,lpc1850-uart"), Frank Li added the restriction that two
+>>>>> named clocks be used for the NXP platform mentioned above.  Extend that
+>>>>> so that the two named clocks used by the SpacemiT platform are similarly
+>>>>> restricted.
+>>>>>
+>>>>> Add "main" and "uart" as allowed names when a single clock is specified.
+>>>>>
+>>>>> Fixes: 2c0594f9f0629 ("dt-bindings: serial: 8250: support an optional second clock")
+>>>>> Reported-by: kernel test robot <lkp@intel.com>
+>>>>> Closes: https://lore.kernel.org/oe-kbuild-all/202507160314.wrC51lXX-lkp@intel.com/
+>>>>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>>>>> ---
+>>>>>    .../devicetree/bindings/serial/8250.yaml      | 19 ++++++++++++++-----
+>>>>>    1 file changed, 14 insertions(+), 5 deletions(-)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/serial/8250.yaml b/Documentation/devicetree/bindings/serial/8250.yaml
+>>>>> index e46bee8d25bf0..cef52ebd8f7da 100644
+>>>>> --- a/Documentation/devicetree/bindings/serial/8250.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/serial/8250.yaml
+>>>>> @@ -61,11 +61,17 @@ allOf:
+>>>>>                - const: uartclk
+>>>>>                - const: reg
+>>>> ..
+>>>>>        else:
+>>>> would it be better to drop this 'else', and moving following 'if' block
+>>>> to the same level with "nxp,lpc1850-uart"?
+>>>>
+>>>> the reason here would avoid too many indentions if add more constraint in
+>>>> the future if other SoC uart need different clock-names..
+>>>
+>>> I agree, it's more typical to do it that way I think to boot.
+>>>
+>>> Also, why is there a k1/lpc conditional bit that is not part of the
+>>> allOf in addition to the bits in the allOf? Can that get merged with the
+>>> allOf please?
+>>
+>> Are you talking about the blank line here?
 > 
-> Friendly ping for this question, my v3 is ready but want to confirm
-> the best option here.
-> 
-> Recently we found even the newer ARM64 platforms used by our org has
-> to rely on KVM to more gracefully handle SEA (lacking support from
-> APEI), so we would really want to work with upstream to lock down the
-> proposed approach/UAPI asap.
+> No, I'm talking about what's down around line 270 in the binding.
 
-Posted the VNCR fix which I plan on taking in 6.17. Feel free to rebase
-your work on top of kvmarm-6.17 or -rc1 when it comes out.
+Oh wow that's in a weird spot, and it might be redundant?
 
-https://lore.kernel.org/kvmarm/20250729182342.3281742-1-oliver.upton@linux.dev/
+Anyway I'll work on getting that fixed too before I send
+my next version.
 
-Thanks,
-Oliver
+					-Alex
+
+>>
+>>      then:
+>>        oneOf:
+>>          - required: [ clock-frequency ]
+>>          - required: [ clocks ]
+>>                             <------ this blank line
+>>    - if:
+>>        properties:
+>>          compatible:
+>>            contains:
+>>              const: nxp,lpc1850-uart
+>>      then:
+>>
+>> I didn't notice that before.  It got inserted with commit
+>> d2db0d7815444 ("dt-bindings: serial: 8250: allow clock
+>> 'uartclk' and 'reg' for nxp,lpc1850-uart").
+>>
+>> If so, yes I'll remove that as well when I update the patch to
+>> get rid of the else as Yixun suggests.
+>>
+>> Greg won't take this for a couple weeks so I'll hold off sending
+>> v2 for a while.
+>>
+>> 					-Alex
+>>
+
 
