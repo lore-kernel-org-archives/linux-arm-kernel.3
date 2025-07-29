@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11609C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 01:36:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9758BC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 01:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S23qOVMAAKB7qgLVeWulkQC0C/F5u4i6UjQVVe6TXAI=; b=0Fu6W5rNPsFA7DG6/nZYJ9lvx2
-	Lrz4nVeWlBHvyfkkOmwJ1bE7VF1M/GIjctqrlPk1rkvsqIU97INLX6syEBM22eveuK8tbjlcA9ylj
-	IhlSLg1cxWHAI81XI8bOcLWV7LBAmDkc/7drvjHtyhQRn6xO/FfH21lX/rKdajIWI9C3dfYxRz/YF
-	zuqoscNwTmBcHugkCjpBmqLFyTtzAwBiIPt1ytaFBYj5O2Y9H8ms8dqWM49UG2y37gLHKMWKNYgcI
-	doOAi8zKrDkZk2M55F+veZhmBxC7r5hVOWtWLSwUYIG4VCJ5cUGxfciE1zA2Ax8p4PBzzofGi/pQx
-	sXzv3KHw==;
+	bh=rTE78ChE+vquBrI5YrDGqyKJDHj33kW+vj6Lk06X/sU=; b=E2g23nLn6yHQcF9U0gaSWa6Dh4
+	rQJ4uXJ2UhP6sSKrOKAsrjkGlag6snXG62QjLxdGGhmPbsCjmg0j+kPw9D5RsWTnUxyf9VOqoojE+
+	EtjnW4FOAuvYThn1W4D5NUXXCLbcEnhUoDI3FM8sjRZlNDJQZVsLYVdHGyWefWwGIvY4qHdXXKp+w
+	qE+HC8N7BMDZIJQp+SwlRRvMZWzn7tafX6ANrlg2vRskxql09Niy8wuctwPq/bnB6s/SaoDf5W144
+	Wxbx7ZkDpm68Nd4rq9DSq3DVNezkNghSpG2JnloacB59cp4p7BUFt8l7H4TZlY+ejN+i4EZQB6D5W
+	o+f6CefQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugZGE-0000000Fi1d-2gks;
-	Tue, 29 Jul 2025 01:36:10 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1ugZNe-0000000FiiN-3XMx;
+	Tue, 29 Jul 2025 01:43:50 +0000
+Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugZDl-0000000Fhkh-131p
+	id 1ugZLC-0000000FiTA-0HMD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 01:33:38 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3e2c683524fso22771585ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 18:33:36 -0700 (PDT)
+	Tue, 29 Jul 2025 01:41:19 +0000
+Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-886b2fdba07so1480845241.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 18:41:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753752816; x=1754357616; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1753753276; x=1754358076; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=S23qOVMAAKB7qgLVeWulkQC0C/F5u4i6UjQVVe6TXAI=;
-        b=ZoWCg2mIQg35NRBnOmKwO7aB1XhuXnN/wWY6uqWnLnZ/J0t1qNxmBj22m4Slz/8rXA
-         ruuOkgFL8yK0pW8/hpcM+6oXiN2jkCNRK6lJyqOoHeAgKCLliYi3h2e9atl43ETkYhAV
-         OvOFruDq+mTHYteCPAKBJl4BCN5lbrKi/BMCP4R++fuY505SKQC1YIj5QGe4cROZCE6J
-         B4jCI44QdgttKb7BdHcLIejIMhes5VSFeLxI63aPKH4nuBgSKo7HCTZwOncGjXe191jK
-         2RfKRGkz8FCjh4GY2HsZL8PXaSF/s12s+wLjxhfpYdMYxxwMFH5zyORzyrNIeTYJ+AGG
-         rYiQ==
+        bh=rTE78ChE+vquBrI5YrDGqyKJDHj33kW+vj6Lk06X/sU=;
+        b=Q2gj2hyVNZOUzOjgsSUZGxufXxmnTJuSt02x1da1dIaosN1g7ZKqfho/yBfo5Pucyp
+         F6snHy9to1uGY0cjQy8G2wljYhBE5I9sBDWDCYK+7Sl6Sjqy3725bGLruo98X+1IXBIJ
+         Krt0TB3aaTmnZKj/tKd/Wpva1HzjY1ifIHuqqjV1ejmLoyOPaL3Ft9qGgNeYjU2ejKW2
+         8umM6xSqwh1KxMjkeAvi2rPiIxQlzhRXDmfWTUJyoFbCJdpZtQihvDlek6dmIykmZn00
+         p3+xMw5DHTNWcNnLUJ1hGarShmIAyBwCZfJGnP3i0bafRWYb9DY0paCRIJgfgVXlCbmZ
+         v1Ww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753752816; x=1754357616;
+        d=1e100.net; s=20230601; t=1753753276; x=1754358076;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=S23qOVMAAKB7qgLVeWulkQC0C/F5u4i6UjQVVe6TXAI=;
-        b=R46WjVTMSvK9GVmJ5xWDPa9OOOvF/ivUNgI5okn0Ii0P3r7WTejhsFScTCtakT6mDt
-         ylXkGWGnfkKCjWdkwc7LDIpNAcMyqs0eOxhWzuoYCVqfF2k0hqMnzJTq7FCGWgnjK+3D
-         KMGJMJ46Q2oz/myWV0vVcoJdToxInduRskrwnPkSaH1ODwxAhcIc3m4bFFeBDlMxR5X1
-         Gt+oY60PD+vQNSinmKsDaTpkuLJfJWYcBOLSXqRVBRPrdpiO8LwI5G4DDnxseG9wLxeR
-         512txDizIYwH0q5xU/egQF2V22gjjH3WIp7vUe23yQ2GRHWH17CzUxgMBcTgLBoDMZJM
-         gQxA==
-X-Forwarded-Encrypted: i=1; AJvYcCWU3C/7wNOqLRdI2xi+HvK0UUiUl5xn5LwNVONyoHTuY0zMOcFba+p/K9F8jmn1Z1XxDU+rkg3LitbP7UCg0xjm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKcxipUbLhVE+ww2l4Aa1qi9m7f9FUrK985GE+JHtFsMeeGFtq
-	HN1Sf0aeNfwvA2+LFE8gxJyMv9JfzSAB8qndG3IrK/VvueJEK7+vO2Mc0bRnRuwQBpxuTnKM4x1
-	Q7uDxAO+DYGt7vC1uRZ1twOsnHp1G9TU=
-X-Gm-Gg: ASbGncvd9D2yIDTRGU+8FjzDD7ma1uiXFXP9rTikutU2sDiGWBR5+CnmCb+4hJj/w5x
-	ra1nugzF4P/SHu6fzRy6f/jApFi2Sv8WgXRBfGKqnfV5LdZzC7w+l5ADZkysV31HmsnX7VSUN6L
-	LnU4AbNz24Hee1DPHpgmMI5iT2EfYSz4kpvw+cvL/mROpgqo33F9Vf91o/jcKnclYJGlayaZJqJ
-	Jfgyfs=
-X-Google-Smtp-Source: AGHT+IEr/DTMtrde4B2O2jQtp73B0jXdt56IWjZMklggeu9+9ek06vbQzMnKQzsISgrp5QqOpsqfLGJJJJuLC3iPRHo=
-X-Received: by 2002:a92:cd82:0:b0:3e2:c350:2e61 with SMTP id
- e9e14a558f8ab-3e3c5312d49mr225067155ab.20.1753752815891; Mon, 28 Jul 2025
- 18:33:35 -0700 (PDT)
+        bh=rTE78ChE+vquBrI5YrDGqyKJDHj33kW+vj6Lk06X/sU=;
+        b=BWmSr+mwoKxWT/byTTpSti1rcW3Z6NdiX1nzLgTLfAlMThYPUbRagXzJAW1Ly1hr7Y
+         9yBbscEafcC24/lwkzSpHmKRTXtI/LMOuwzyy2PZMGwDVVI9ZtzhQXLB6kkvhHhqlg+k
+         HiAUz8BpfwyMBtElrcedOloOEbx2gL3D+x4pNLmOTRrGheXF3j7CvqZUTLAYtjlQutFr
+         6tldQqB8UF/k7dm+H9DSARWoRtkCYlBgEZGb0kg95EffR0HN/FWCdiZRbNX0hxh4C7RO
+         aVRlUl+fjxi0rxstfcysy18XVTod2BwOq5mf4WUE5Glcj52A4DTEu9kQyvzIjdfZNqwe
+         hP6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVhAmtyKfcdi/346pXTyth6SyfBYzyueHcSLEVPiuT+DlFSlJGFOG6pmwx+ZQ6xp1x/mMLJZ70OeIl78u93k5pd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTiBUvDQOkxmciYYy3oI6XfcmfLtcBeFMtguD4i5UP4cS8ONrP
+	wcyHgK+hSpbNmNxLeRMKlGd+kGTHr7vYbqRz4MYilqMB3PYp6Watmftdc8lIhFHysA5tBFugpMg
+	nUvPg57nNOnvISc6lDvVypvV+zX9ql88=
+X-Gm-Gg: ASbGncvz7b8QUHEGt6ZdxNc9vd7EPl6bN/fQfmyDacugj7zEstRIezeYhmhvt+/kKWT
+	6LYa8LtXGxCwGKLB+zv2IxC1fS1kt7dgUQTnSOaC/Jcc3ZbbJXZe/DBJLxDoCT34Vy3V6dwjJ4+
+	LISlhUnxNQUSNBHA5yypMHPmx+cN7rf+oHCss4nsLThrDWWQItGpLXhCxzVFCsnip8zamSx0rI6
+	2uLQA==
+X-Google-Smtp-Source: AGHT+IH5sSaz4kLWBjYQ8xg5A6GoRN5L+Q3qFpxAbI0in2TfAspkDTFwyyOI/F2e9j59D50tjfOZG4mczSkStSE5wG4=
+X-Received: by 2002:a05:6102:8024:b0:4fa:d2c:4fe with SMTP id
+ ada2fe7eead31-4fa3fef74c9mr6797567137.26.1753753276427; Mon, 28 Jul 2025
+ 18:41:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250722075225.544319-1-shengjiu.wang@nxp.com>
- <CAEnQRZBc2X6Yn0X+RbJ9-OSxovnHvoqJ3NXsJKBkuH82GNSAHA@mail.gmail.com>
- <aIeFqVUp2C6fh4PT@p14s> <12184ce7-e74b-48eb-abee-25f8a10a2423@nxp.com>
-In-Reply-To: <12184ce7-e74b-48eb-abee-25f8a10a2423@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Tue, 29 Jul 2025 09:33:17 +0800
-X-Gm-Features: Ac12FXyQrZyIVbOJ3pLjAv_HaREeHglGrD0Wy22HTBcGicbPxb4TlW_nT6cra8A
-Message-ID: <CAA+D8AMpF9Te1+V=o6WQCzHTkKpKvrhP+76fpCZoswOhPiKDjQ@mail.gmail.com>
-Subject: Re: [PATCH v3] remoteproc: imx_dsp_rproc: Add support of recovery and
- coredump process
-To: Iuliana Prodan <iuliana.prodan@nxp.com>
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	Daniel Baluta <daniel.baluta@gmail.com>, andersson@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	jassisinghbrar@gmail.com
+References: <20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org>
+In-Reply-To: <20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org>
+From: Inki Dae <daeinki@gmail.com>
+Date: Tue, 29 Jul 2025 10:40:34 +0900
+X-Gm-Features: Ac12FXy-Uc3aIGD_z-2Hmjo9PpVFm9Hawvq4wg2d1-g_c1M1SQ84nY0S7pRIJwA
+Message-ID: <CAAQKjZOLZw7e1G56i29b28L0NwOM=P4eZtcNAp2vFpe3ck958A@mail.gmail.com>
+Subject: Re: [PATCH v4 0/2] Samsung Exynos 7870 DECON driver support
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>, Conor Dooley <conor@kernel.org>, 
+	Ajay Kumar <ajaykumar.rs@samsung.com>, Akshu Agrawal <akshua@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_183337_291544_40EA7EA7 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20250728_184118_106051_95F589E6 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,90 +103,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 11:09=E2=80=AFPM Iuliana Prodan <iuliana.prodan@nxp=
-.com> wrote:
->
-> On 7/28/2025 5:14 PM, Mathieu Poirier wrote:
-> > On Mon, Jul 28, 2025 at 01:39:38PM +0300, Daniel Baluta wrote:
-> >> On Tue, Jul 22, 2025 at 11:16=E2=80=AFAM Shengjiu Wang <shengjiu.wang@=
-nxp.com> wrote:
-> >>>
-> >>> When enabled FW recovery, but is broken because software reset is mis=
-sed
-> >>> in this recovery flow. So move software reset from
-> >>> imx_dsp_runtime_resume() to .load() and clear memory before loading
-> >>> firmware to make recovery work.
-> >>>
-> >>> Add call rproc_coredump_set_elf_info() to initialize the elf info for
-> >>> coredump, otherwise coredump will report error "ELF class is not set"=
-.
-> >>>
-> >>> Fixes: ec0e5549f358 ("remoteproc: imx_dsp_rproc: Add remoteproc drive=
-r for DSP on i.MX")
-> >>> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> >>
-> >> Changes looks good to me:
->
-> I agree, but this is not enough.
->
-> >>
-> >> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> >>
-> >> I've tested it with Zephyr synchronization samples inducing a crash
-> >> via debugfs interface. App
-> >> can recover correctly.
->
->
-> The synchronization sample does not utilize the Messaging Unit (MU) for
-> communication between the two cores, its behavior is similar to the
-> basic hello_world example (no fw_ready reply is expected by host).
->
-> I=E2=80=99ve tested this patch with both the synchronization and hello_wo=
-rld
-> samples, as well as with the default firmware specified in the device
-> tree (imx/dsp/hifi4.bin), and everything works as expected.
->
-> However, when testing with the openamp_rsc_table sample from Zephyr [1],
-> I encountered the following issue:
-> ```
-> [ 1500.964232] remoteproc remoteproc0: crash detected in imx-dsp-rproc:
-> type watchdog
-> [ 1500.964595] remoteproc remoteproc0: handling crash #1 in imx-dsp-rproc
-> [ 1500.964608] remoteproc remoteproc0: recovering imx-dsp-rproc
-> [ 1500.965959] remoteproc remoteproc0: stopped remote processor
-> imx-dsp-rproc
-> [ 1501.251897] remoteproc remoteproc0: can't start rproc imx-dsp-rproc: -=
-110
-> ```
-> Upon debugging, I discovered that the issue stems from the imx-mailbox
-> driver not clearing the General Purpose Interrupt (GPI) bits. This leads
-> to the remote processor failing to restart properly.
->
-> To ensure compatibility across all firmware variants, including those
-> using OpenAMP, the attached patch is required. Both the recovery and
-> mailbox patches have been successfully tested on the following
-> platforms: i.MX8MP, i.MX8ULP, i.MX8QM and i.MX8QXP.
->
-> Shengjiu, do you want to send a new version with both patches?
+Hi  Kaustabh Chakraborty,
 
-No.  it is a different issue.
-You can send it to the mailbox maintainer for review.
+This patch series has been merged into the exynos-drm-next branch.
 
-Best regards
-Shengjiu Wang
+Thanks,
+Inki Dae
 
+2025=EB=85=84 7=EC=9B=94 7=EC=9D=BC (=EC=9B=94) =EC=98=A4=EC=A0=84 2:30, Ka=
+ustabh Chakraborty <kauschluss@disroot.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=
+=84=B1:
 >
-> Thanks,
-> Iulia
+> This patch series aims at adding support for Exynos7870's DECON in the
+> Exynos7 DECON driver. It introduces a driver data struct so that support
+> for DECON on other SoCs can be added to it in the future.
 >
-> >
-> > Very good - I will merge this around 6.17-rc2 when I get back from vaca=
-tion.
-> >
-> > Mathieu
-> >
+> It also fixes a few bugs in the driver, such as functions receiving bad
+> pointers.
 >
-> [1]
-> https://github.com/zephyrproject-rtos/zephyr/tree/main/samples/subsys/ipc=
-/openamp_rsc_table
+> Tested on Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2
+> Core (samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte).
+>
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+> Changes in v4:
+> - Drop applied patch [v2 3/3].
+> - Correct documentation of port dt property.
+> - Add documentation of memory-region.
+> - Remove redundant ctx->suspended completely.
+> - Link to v3: https://lore.kernel.org/r/20250627-exynosdrm-decon-v3-0-5b4=
+56f88cfea@disroot.org
+>
+> Changes in v3:
+> - Add a new commit documenting iommus and ports dt properties.
+> - Link to v2: https://lore.kernel.org/r/20250612-exynosdrm-decon-v2-0-d6c=
+1d21c8057@disroot.org
+>
+> Changes in v2:
+> - Add a new commit to prevent an occasional panic under circumstances.
+> - Rewrite and redo [v1 2/6] to be a more sensible commit.
+> - Link to v1: https://lore.kernel.org/r/20240919-exynosdrm-decon-v1-0-6c5=
+861c1cb04@disroot.org
+>
+> ---
+> Kaustabh Chakraborty (2):
+>       dt-bindings: display: samsung,exynos7-decon: document iommus, memor=
+y-region, and ports
+>       drm/exynos: exynos7_drm_decon: remove ctx->suspended
+>
+>  .../display/samsung/samsung,exynos7-decon.yaml     | 21 +++++++++++++
+>  drivers/gpu/drm/exynos/exynos7_drm_decon.c         | 36 ----------------=
+------
+>  2 files changed, 21 insertions(+), 36 deletions(-)
+> ---
+> base-commit: 26ffb3d6f02cd0935fb9fa3db897767beee1cb2a
+> change-id: 20240917-exynosdrm-decon-4c228dd1d2bf
+>
+> Best regards,
+> --
+> Kaustabh Chakraborty <kauschluss@disroot.org>
+>
+>
 
