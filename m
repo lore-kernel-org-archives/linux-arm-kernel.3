@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B517C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 12:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78DAC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 12:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bJTOrfSboZ5kBnfTci5EHjzBUJIqW0Jji9p+5UbooMI=; b=RKhoh0YvM9Dh9BV2AigR14MEWN
-	e7sBDbPUkb4BQ61WbSnXkKXfRRUrKiMSZ/ecR7+jQEp7JLPgKO8gwnPUCYmYaQKL9umu5NSdY2bgR
-	uMMumRhNRSvXsmAL/CxV+Fvt4ZvLjn2Ngd/VSPpsMD9ehHDlAOyw4X+J/R1RepCjIXmHm5/ruR9VP
-	0nyKhQZVQNdVn0zXFen1Ey560IQeIMxziAvUymhWJ7+uUVYWzCcV+filAVqACOw7zjutvv7p7iwFA
-	q+b9CLMteSZRJ4z+OPh3UtEV60+HdfwJzRMOd+S007k4KY+X2un1UL7bY0ibUeyrMmC/pSMK4lUhJ
-	q41Vv9VQ==;
+	bh=0enBcGmOVjVsJnS5QwljRyEmuUYBgIN46ve7sxCU8E4=; b=glEYqNm9wiIFzCIPU/xJFUQDwU
+	vzWNObqxER6vEA3gDzUBsuY9ULQCnSMOhdE8EuGnU/koHhb2j0l1POv9RrXYshLn3gxeIyFRVG00H
+	AVU5LTnwR7LA1jaJUYCN+SJx4kUDRKOY1WXWQYEKX3HL5XMMM+HD1p9XPcQGFlW72D+tPONs0Gjbd
+	g0lG62IrtG6r3E/HcE6gxsCku+iU9EWYUtBSpgsAD8TGtjYmJmg3Qqm+NLkOQIQEQHfjT3qLSWBXU
+	7glRO9HMnWAyFN/PumGcx+lPdRYW574g+2oyMysE1okk8VFO3jm2DTJqnU4IvuCoEYQI3k/khFeTc
+	+7Ncqd4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugjOW-0000000GiQn-007o;
-	Tue, 29 Jul 2025 12:25:24 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1ugjQv-0000000GijJ-3Q31;
+	Tue, 29 Jul 2025 12:27:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugjAZ-0000000Gh5I-0aTo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 12:11:00 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1753791055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bJTOrfSboZ5kBnfTci5EHjzBUJIqW0Jji9p+5UbooMI=;
-	b=vtH1wAm4o8ZwzxxHLKO8cxIM67H/br7RGJ8TODVhx6Bp7jAJV2cT73RtIebTma5fuwuRuc
-	2Odr3BPEGTYZO4CVCJYPIYFKSfzwsFaKUOkxmioZPMAd9LCaLo2mYRlTeuWhhGQwHiAHN2
-	+rV28pGPY42N+SI1Hz6UAMxV2Eg3lW9qnNHRZlxPGEZZjKDJfd4e29ioN/2eDVy1ONZn21
-	sUMouBnZYgTWFwFb0zXmBSnjjUld/Mdl7mOSjiRTkbCN+72blr7sSGusl/hN/vonNBY9QR
-	M74EGGApj2FnieVBV5cqpvgitt4NaQjSK2v5dbZflUibqZZaRA7Rd+KYUrnhLg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1753791055;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=bJTOrfSboZ5kBnfTci5EHjzBUJIqW0Jji9p+5UbooMI=;
-	b=CODkKN93nKbR4BkRAHJ60sfY22CZ5gfznf78OK/QMCyHUOTixYw9DOEdo0kdo7yWfIHLVQ
-	r58CG5qkBWbO+KAw==
-To: enachman@marvell.com, andrew@lunn.ch, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: enachman@marvell.com
-Subject: Re: [PATCH] irqchip/mvebu-gicp: clear pending irqs on init
-In-Reply-To: <20250729084826.3222785-1-enachman@marvell.com>
-References: <20250729084826.3222785-1-enachman@marvell.com>
-Date: Tue, 29 Jul 2025 14:10:54 +0200
-Message-ID: <87ldo7jiy9.ffs@tglx>
+	id 1ugjDy-0000000GhU6-0rQ5;
+	Tue, 29 Jul 2025 12:14:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6124F43270;
+	Tue, 29 Jul 2025 12:14:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2FBFC4CEEF;
+	Tue, 29 Jul 2025 12:14:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753791268;
+	bh=BgaFoqVRetlFIdGlmgFlyEwE1NoxMQBs2gwHf2XrQ0Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JY+yc2pXP08LnmnnmxYC52FWExBeXVu/8wtbgxuDB6CrXCYIuNmxhupesBh0I4XyL
+	 OEAIOPjNXPxXfTYi9EkDJsjwFJW68YVydXOplSn2ytp0SUiRDdB9Gqi7jXqF5RTuKx
+	 mTI6MUy0PcMkAFXAejs57hb+sUJdyjdAnKkbJ5FDjUseoSsOYpMnaT52fzaa8N5OxX
+	 fNjiSUS7/8oiPLXaecVGexMjcs1qKDC+Mu5fg6ClailYNd8jaHnCkoriG9jDzLwgTU
+	 KjH+6YpzqNSzySdSGDzlXuDXHVytmzcj5sD1IrTEOO657SIywrtqoDWbksxd/73uFI
+	 dbqDZbnNxQkHw==
+Date: Tue, 29 Jul 2025 14:14:25 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>, 
+	Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+Message-ID: <20250729-whispering-accelerated-raptor-134e8a@houat>
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+ <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+ <20250729-tall-fluffy-grouse-f5deec@houat>
+ <1bc23ad0-7273-4ddf-a0ef-4a80186f2581@igalia.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="lreg5x3nkzb4mttn"
+Content-Disposition: inline
+In-Reply-To: <1bc23ad0-7273-4ddf-a0ef-4a80186f2581@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_051059_324640_603DACBC 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250729_051430_289706_E46F9E3C 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,81 +81,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29 2025 at 11:48, enachman@marvell.com wrote:
-> From: Elad Nachman <enachman@marvell.com>
->
-> For kexec case, left interrupt might generate spurious
-> interrupts in various A7/A8/CN913x interrupt system
-> from the I/O SB to the NB.
 
-That's a lot of incomprehensible acronyms. Is any of that relevant for
-understanding the problem?
+--lreg5x3nkzb4mttn
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+MIME-Version: 1.0
 
-What's a 'left' interrupt?
+On Tue, Jul 29, 2025 at 08:53:51AM -0300, Ma=EDra Canal wrote:
+> Hi Maxime,
+>=20
+> On 29/07/25 04:27, Maxime Ripard wrote:
+> > Hi Ma=EDra,
+> >=20
+> > On Mon, Jul 28, 2025 at 09:35:38AM -0300, Ma=EDra Canal wrote:
+> > > Currently, when we prepare or unprepare RPi's clocks, we don't actual=
+ly
+> > > enable/disable the firmware clock. This means that
+> > > `clk_disable_unprepare()` doesn't actually change the clock state at
+> > > all, nor does it lowers the clock rate.
+> > >=20
+> > >  From the Mailbox Property Interface documentation [1], we can see th=
+at
+> > > we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+> > > off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+> > > prepare and an unprepare hook for RPi's firmware clock.
+> > >=20
+> > > As now the clocks are actually turned off, some of them are now marked
+> > > with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are required since
+> > > early boot or are required during reboot.
+> >=20
+> > What difference is there between the CLK_IGNORE_UNUSED and
+> > CLK_IS_CRITICAL clocks?
+>=20
+> From my understanding, CLK_IGNORE_UNUSED will prevent the clock to be
+> gated during boot (on "clk: Disabling unused clocks"), but after it, the
+> clock can be gated.
+>=20
+> With CLK_IS_CRITICAL, the clock will never be disabled.
 
-Just say something like this:
+Yeah, that's correct.
 
-  When a kexec'ed kernel boots up, there might be stale unhandled
-  interrupts pending in the interrupt controller. These are delivered as
-  spurious interrupts once the boot CPU enables interrupts.
+> For example, RPI_FIRMWARE_M2MC_CLK_ID is used by vc4. It needs to be
+> enabled at boot (I tested; if not enabled, it won't boot). However,
+> after vc4 is probed, we would like vc4 to have control of it and be able
+> to unprepare it in `vc4_hdmi_runtime_suspend()`. If I set it as
+> CLK_IS_CRITICAL, vc4 won't be able to unprepare it.
 
-That's clear and sufficient, no?
+If the clock can be disabled by Linux, but it breaks some drivers if
+it's not enabled during their probe, something is fishy somewhere, and
+it's likely it would be just as broken if you compiled the driver as a
+module.
 
-> Clear all pending interrupts
-> when the driver is initialized to prevent these spurious
-> interrupts.
+Even then, some of the other clocks should probably never be disabled,
+like the CPU clock.
 
-> Signed-off-by: Elad Nachman <enachman@marvell.com>
-> ---
->  drivers/irqchip/irq-mvebu-gicp.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
->
-> diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
-> index d3232d6d8dce..0fa21a45d4e1 100644
-> --- a/drivers/irqchip/irq-mvebu-gicp.c
-> +++ b/drivers/irqchip/irq-mvebu-gicp.c
-> @@ -31,6 +31,7 @@ struct mvebu_gicp_spi_range {
->  
->  struct mvebu_gicp {
->  	struct mvebu_gicp_spi_range *spi_ranges;
-> +	void __iomem *base;
+> I only set RPI_FIRMWARE_PIXEL_BVB_CLK_ID as critical, as, otherwise, the
+> RPi won't reboot.
 
 Why?
 
->  	unsigned int spi_ranges_cnt;
->  	unsigned int spi_cnt;
->  	unsigned long *spi_bitmap;
-> @@ -236,6 +237,14 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
->  		return -ENODEV;
->  	}
->  
-> +	gicp->base = devm_platform_ioremap_resource(pdev, 0);
+Maxime
 
-There is no reason to create a permanent mapping, which is not used
-anywhere else. Just map, write, unmap.
+--lreg5x3nkzb4mttn
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +	if (IS_ERR(gicp->base))
-> +		dev_err(&pdev->dev, "gicp - Cannot ioremap !\n");
+-----BEGIN PGP SIGNATURE-----
 
-So this emits a unspecific error message and then happily
-continues. That does not make sense.
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaIi7HAAKCRAnX84Zoj2+
+ds9aAYDbl6MronUKcv7fcDowoI1cKqjICPvChFLlj4l/6+TNRODFMDYikX0DAv9f
+vPf8uZEBf0TfcPnG8iD/d1L+SRJdNwbm5wVBFkOhdNF09qs/KrmVOBpAighNYiFB
+XpfasiJfkg==
+=+OS0
+-----END PGP SIGNATURE-----
 
-As the ioremap failure is not fatal, tell the user what this is about,
-i.e. "ioremap() failed. Unable to clear pending interrupts."
-or something to that effect.
-
-> +	else {
-
-Lacks parenthesis on the if clause for symmetry.
-
-> +		for (i = 0; i < 64; i++)
-> +			writel(i, gicp->base + GICP_CLRSPI_NSR_OFFSET);
-> +	}
-> +
->  	return msi_create_parent_irq_domain(&info, &gicp_msi_parent_ops) ? 0 : -ENOMEM;
->  }
-
-Thanks,
-
-        tglx
+--lreg5x3nkzb4mttn--
 
