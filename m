@@ -4,93 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F0A8C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 02:19:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0ED2C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 02:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EEeZXXxE8pXnqG0YImoNpmvGHhhvN/xzySIEmSbgUno=; b=yy5hVu4Q3eW7vZW0QYDEKW2Hxo
-	w/NGU3rOgVgGGgZam+F2507Q79GaUmYL0EG3w/Jc6iX0TnwbJAVMRr16fXg2nfFPakgHSt+zEvZMf
-	V91kjhbZycTP69p3oUVksEcBiRFnxLezevRY8preGNBduUk+4CbemwlJ9U/6d14/0uRx2C0iPg+mK
-	2vTws1MdfTceHCybynq3naYiixDdeavuFThlAUvMXX81ojsj3acp9blk7bYO5KkMFrEh6acTSepq5
-	neyDoWzf8OIlTb3+OcXJ7qSEY1Lg1iWgB2+esnuWZwL3jC/WWTa8ipGwRP6EmgfO8/mHgElTNeAm0
-	e/bVFCEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=41rw4LISPl+iO7NfLc3Ar1MC/dnrRsPRo+py+vvxe0E=; b=Z4tcqORANufE01hmrOlkxoEyCm
+	NMv6jM9xk1HvRRwMd2IaZTVp5rP8Lj2yT5bPunYvsEng0OURlxMJle5qcbJETylnlKvzOOKlUH2Tb
+	2Wx+tN1viaO5qVqFwDuoQj6mlvErvlUp7OeXc8+poknrLVsio+q2fvipbk+bMkgxZchiW8ssHAmNA
+	G8RH8spECG0+XZquWcW4Vv741QjmL8LgT8p/CAiQ5Pj3kQvcpvy26hqt8Pkr++SDDlrm/QsUhX0xD
+	Kglu4A4QQ0FhNtmTgKWhzzvatylXptQoDZL2Wa8+27QbPUqIiNBEGno4e54AfPW2c1zjQjNPzqg67
+	c/oufuMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugZwG-0000000FkhF-0vwu;
-	Tue, 29 Jul 2025 02:19:36 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1ugaAP-0000000Fm05-45rb;
+	Tue, 29 Jul 2025 02:34:13 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugZfO-0000000Fjqe-3Ri3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 02:02:12 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2ffa8e58654so2746162fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 19:02:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753754529; x=1754359329; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=EEeZXXxE8pXnqG0YImoNpmvGHhhvN/xzySIEmSbgUno=;
-        b=BKXBYHcnDboOOBnjYB5HGi/xAXEytAt2rI/dxUL2Uu88E/xL6nXw91sKa5BXKuvMJh
-         eTWKq4RTvCW9hZkM8hZX/TtOB3JJzEmdwd/MzIawGYZqP8cdgpmOVojrYjGNqK4a4mhP
-         nTjJQFEVlReScPDIQdjlPh/xlYnzDmVfDz0vGyeZinTzsypzNdKBdSkjSiFMeQ3Y8uta
-         85/+UjwA4Yf8AJ3tkqSTfuRfSVMMqwzT/1FAmXRTWDd/vSSNioRdHhDI3UMjnpND7siR
-         FetAxFnVZAIzbaMLMsaWHajT6BBcK4AfB6CSZYcsN309BkdKBFUUTn6w9nByOb65RW34
-         Rccw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753754529; x=1754359329;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=EEeZXXxE8pXnqG0YImoNpmvGHhhvN/xzySIEmSbgUno=;
-        b=RWX1VDSJv82GhZ5JLNol9vPRiKv+NpHnOlMrRE+LRq5Uijh65NpsFJb0VvG7ocxAq4
-         6uNw72XdN7SjEbNd9D1uWSn0KmNU3mG+wb5WrEargrknomQkkWsO0VC4CNQgb5rlEbWr
-         DiiiQKPofvEYsj3qiag81rfWU8ZvzDHYjtn55vfjWcNdLDVt31/y584aW99PaPVSlegz
-         wzbv+hUzelUriKhQTHOKOop+YPGvItpDlmrLxOg+yx13xqI9qpvxsOGc21y4Y92FFENu
-         TVwN/+vh3MIP0Kbpl6yxN4tZGwDuMKwffM+yAKJUE49yAAUe9XIFbr2F+Pyw64D47PVR
-         dUuA==
-X-Forwarded-Encrypted: i=1; AJvYcCV6T2T1T5Vu4mNQ++5hUIqPy1ApO32LLPzM/HQKC26b7Au7+iYiw9fkcvvM5agkvrHpTHzs5Y4rNUIvDf7axFq5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxt/jodoVASV9dOjOet1EXadWGfpzafarelE7gGWckLLQRrIYlq
-	MF3hWZO03ctf0T0s52bRVTfDC975vWwiO4EMMGFzzFzY/lK7VBsFg8L5
-X-Gm-Gg: ASbGnctPwy/Oa4scvIGRT6cZdzhRu/maA6o4r+LiWz64InhRCDJ9nlabK9f8MtCnBqR
-	2gPQSqsIZnpTFiunaRRL0xiJDeYZpRj3gwlMBdC0XGweKRrmwS8fsnn0NXRTy3JgbqlV4sS6ap5
-	Ouimh9gBlRrobksfHfMTU1vQKMTp90Sif/D1352IOFa7CR5K5mt14X03OOgmF1gXnu0etxXX0rk
-	/ZdwrlO2hJ+niH1/NmsZwPsNGD++rl8sLcrrnnbUEu1RsxD9ChkMZhFUjGhIV1Bok/kYCq24fmO
-	71xLujAc74CeYVWvvoCcx55e5y2UyDq8bERPu9H1GSN6RzVJOR5cAjgLTq1Oc7zNcmu+z+Eov8y
-	OHofCDsQWRfiGVYqO03v5R8Ts
-X-Google-Smtp-Source: AGHT+IHOw30O5Z7jeXCpP/Gpsx4e0WuD5rBxHCXsw90edV57RFa6IsOd12KYHPXG7J73ZnyfU7myhA==
-X-Received: by 2002:a05:6870:1b83:b0:306:9f8e:6699 with SMTP id 586e51a60fabf-30701faa8b5mr9069467fac.30.1753754529402;
-        Mon, 28 Jul 2025 19:02:09 -0700 (PDT)
-Received: from s-machine2.. ([2806:2f0:5501:d07c:e094:d952:816c:c6a5])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-30713663c67sm2001746fac.31.2025.07.28.19.02.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 19:02:09 -0700 (PDT)
-From: Sergio Perez Gonzalez <sperezglz@gmail.com>
-To: olivier.moysan@foss.st.com,
-	arnaud.pouliquen@foss.st.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: Sergio Perez Gonzalez <sperezglz@gmail.com>,
-	linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ASoC: stm: stm32_i2s: Fix calc_clk_div() error handling in determine_rate()
-Date: Mon, 28 Jul 2025 20:00:49 -0600
-Message-ID: <20250729020052.404617-1-sperezglz@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uga7w-0000000Flii-168s;
+	Tue, 29 Jul 2025 02:31:41 +0000
+X-UUID: 242c8f026c2411f09eb0dd999d3936bf-20250728
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=41rw4LISPl+iO7NfLc3Ar1MC/dnrRsPRo+py+vvxe0E=;
+	b=LD/lu15gcYba++9X9lodLeKiqr1jW3FCU+NThFwCj3IqedqH48AQbiuTRbDwfD5l1y2H6h8RIbu1CojLOaAaCRl9J9ppNVAWpwWJ5Uzg8dauYQI7fl7hbd/JHTrS3RF3vSuB1JxYnNDh//9n2gIGJdyMJrc7AJgKEx300tXGMj0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:cfb7a39c-efc0-450c-92b6-b1ce59ada530,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:b4ba450f-6968-429c-a74d-a1cce2b698bd,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|15|50,EDM:-3,IP
+	:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 242c8f026c2411f09eb0dd999d3936bf-20250728
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <huayu.zong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 183473938; Mon, 28 Jul 2025 19:31:33 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Tue, 29 Jul 2025 10:31:30 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Tue, 29 Jul 2025 10:31:29 +0800
+From: Huayu Zong <huayu.zong@mediatek.com>
+To: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Tinghan Shen
+	<tinghan.shen@mediatek.com>
+CC: <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<--cc=Project_Global_Chrome_Upstream_Group@mediatek.com>, Huayu Zong
+	<huayu.zong@mediatek.com>
+Subject: [PATCH 0/3] Add support for MT8189 SCP and device tree bindings
+Date: Tue, 29 Jul 2025 10:31:10 +0800
+Message-ID: <20250729023125.9036-1-huayu.zong@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_190210_863200_C24B6733 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250728_193140_307370_BEF05215 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,40 +91,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-calc_clk_div() will only return a non-zero value (-EINVAL)
-in case of error. On the other hand, req->rate is an unsigned long.
-It seems quite odd that req->rate would be assigned a negative value,
-which is clearly not a rate, and success would be returned.
+  This patch series adds support for the System Companion
+Processor (SCP) on MediaTek MT8189, including device tree
+bindings, dts node, and driver support.
 
-Reinstate previous logic, which would just return error.
-
-Fixes: afd529d74002 ("ASoC: stm: stm32_i2s: convert from round_rate() to determine_rate()")
-Link: https://scan7.scan.coverity.com/#/project-view/53936/11354?selectedIssue=1647702
-
-Signed-off-by: Sergio Perez Gonzalez <sperezglz@gmail.com>
 ---
- sound/soc/stm/stm32_i2s.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+This series patches dependent on:
+[1]
+https://patchwork.kernel.org/project/linux-mediatek/cover/20250718075630.644870-1-sirius.wang@mediatek.com/
 
-diff --git a/sound/soc/stm/stm32_i2s.c b/sound/soc/stm/stm32_i2s.c
-index 0e489097d9c1..6ca21780f21d 100644
---- a/sound/soc/stm/stm32_i2s.c
-+++ b/sound/soc/stm/stm32_i2s.c
-@@ -469,11 +469,8 @@ static int stm32_i2smclk_determine_rate(struct clk_hw *hw,
- 	int ret;
- 
- 	ret = stm32_i2s_calc_clk_div(i2s, req->best_parent_rate, req->rate);
--	if (ret) {
--		req->rate = ret;
--
--		return 0;
--	}
-+	if (ret)
-+		return ret;
- 
- 	mclk->freq = req->best_parent_rate / i2s->divider;
- 
+Huayu Zong (3):
+  dt-bindings: remoteproc: mediatek: Add binding for mt8189 scp
+  arm64: dts: mt8189: Add scp node
+  remoteproc: mediatek: Support MT8189 SCP
+
+ .../bindings/remoteproc/mtk,scp.yaml          |  2 +
+ arch/arm64/boot/dts/mediatek/mt8189-evb.dts   | 17 +++++++++
+ arch/arm64/boot/dts/mediatek/mt8189.dtsi      | 11 ++++++
+ drivers/remoteproc/mtk_common.h               | 11 ++++++
+ drivers/remoteproc/mtk_scp.c                  | 37 +++++++++++++++++--
+ 5 files changed, 75 insertions(+), 3 deletions(-)
+
 -- 
-2.43.0
+2.45.2
 
 
