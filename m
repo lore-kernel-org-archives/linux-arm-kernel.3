@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CE9C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850FDC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z80Zrosde97YBz7Ubg5HD+igCGm3hX2mgXP8gtZ7ExY=; b=AMUCwRiRi3pd7X4QDGrl8Cijm1
-	+SH5GUtSw6TRS7/ZZ574mJzBsoSHMtTZzKNKLnJfkVA+/Vsgaa0l6y5JJLtfRyUwYhk8wwt331QlS
-	6aPxHoN+uxhyK3J13EvFdR0qSoaYWFXnXszq7WMybaAWpe08FxkceqNjCENRLfuQZSPoiVFs6/1XV
-	6gWqqGfWZlISvRX4LB3E7MgRcsILRerHeKQ70vWgBReKM8vyLYybzIwIbW1Yz9owM1NMYt+kjSAhl
-	l6iPUZMqgeHMv/DY+FKZvjMPQ9ZspOQpgScK0jl2uAamxKfFY7upEkfm+7tOcQQSQ8YYqeKuYQ6Ua
-	7j+gmuRQ==;
+	bh=qcxvNQM6vg2mqo1lXls22vnZnYNg+C8s24HejiNGeOc=; b=ECDp3vPOk804TR8bhBzIoof/JU
+	luXFRlOgHr8Uf3T37pGe5t6QqIgNf5W6xrYhGUj3xfzBDkx1C1xPc5j3dmbIryTRCQeUZ0cJPhfPm
+	b0mgaCn6fZG5GhJncNUHLsrygvOQZmXv3eWQc8W/SAW6Y1y7hQG1aSBF2JHye6XeEtdnO0U9w9Igu
+	7I+FUQjCclJ9jk51SLohpf5e4/0Mdbrwbc5fSkJpkIjh4EMtOtX076W4JYlcb79lDKHIRo2mxeBrP
+	n53RKHxsgImHYq2Nv8F3n9BWz+M5HnfFsqipdpog/mp7QEFmIDG3rBKDf2c5pGz1p0qgVgcSQpqCn
+	D7n7Vh+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnLd-0000000HHzR-1V3z;
-	Tue, 29 Jul 2025 16:38:41 +0000
+	id 1ugnO4-0000000HI82-0klk;
+	Tue, 29 Jul 2025 16:41:12 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugmuG-0000000HEed-0ybC
+	id 1ugmZv-0000000HBKC-26do
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 16:10:25 +0000
+	Tue, 29 Jul 2025 15:49:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3891D5C5C48;
-	Tue, 29 Jul 2025 16:10:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51CF4C4CEEF;
-	Tue, 29 Jul 2025 16:10:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8A4C5C5743;
+	Tue, 29 Jul 2025 15:49:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B592C4CEF7;
+	Tue, 29 Jul 2025 15:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753805422;
-	bh=8PqRrJ4T1GIZlo9A5K1NFm+LtDjYC1pJgTCd4O4aAMI=;
+	s=k20201202; t=1753804162;
+	bh=zGmD3167+YxqSnrktPvUpd/I+LwF4Gpt9JasfT/czbI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FTA0aK9UOoK2ym/J1kozYqDufRATC87ozTu2dcOE8R9riGJty2rKAH0ZFwyS5etFG
-	 znwiee/8xiGhtqzLxLAi79OYj5gGqeevHhw+dEXpY5Z1McQ8cWJ42pGi815NRBDhJK
-	 7jl+GMCchEUyoMkK6m7dCQhEnMwF85xdwQuNP2uKWNYnfGCNqyTmdz4g58FmeTzjF+
-	 9C12Q0PBu3+TUV9aaeZURd1EwZr4KPRCF1231dnTIeMXWjOIEQKw05WY515GP0SkGC
-	 h8ZTqThxhxX9t0UB2tMyv5XoDA1BR2AIU4NuJTltnXXKRSpRWOVziBbvNsMnUI5UgW
-	 WdEgRH/dnRJuw==
-Date: Tue, 29 Jul 2025 18:10:20 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	linux-pwm@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] pwm: imx-tpm: reset counter if CMOD is 0
-Message-ID: <ylg2wadbfbyg6ncvoxxz5zthxokphs52lgzscus4qwqgn7q3vy@xzljjzukbtle>
-References: <20250728194144.22884-1-laurentiumihalcea111@gmail.com>
+	b=UeboxoC0XEFnibrKKHSRwegzcAX9Gg+RhiCj6Haa0TJjlD1BVMkwgmXfrJBtEBnxP
+	 zDTnwzuZwLG67Fj/v5t8/XGCpeIf06lg2vk99rSoWwwpeX8S+r8HDkZZ3Rh4m/2s4w
+	 vnr5MfuqN1p3Mim9m8fWyeSoioEDjSFx8rIe9TRitumdSkzjdSrxjys1arowqP8Pzg
+	 igl4jAsxDXNrViv5axls2jFY+F2z9YU7DEsVUJaHSzRAqzR7Pyg8pWvz9WFyFPMZZ5
+	 cr/07hivBzg8aIMLB0v8GMf77IgZNTMw0/5jcKYsW7/UVKOaynIDfBZhvrZ96j805G
+	 nmrlQmXPYUZpA==
+Date: Tue, 29 Jul 2025 16:49:16 +0100
+From: Will Deacon <will@kernel.org>
+To: perlarsen@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, ahomescu@google.com,
+	armellel@google.com, arve@android.com, ayrton@google.com,
+	qperret@google.com, sebastianene@google.com, qwandor@google.com
+Subject: Re: [PATCH v8 6/7] KVM: arm64: Bump the supported version of FF-A to
+ 1.2
+Message-ID: <aIjtfPY2db0LOwe4@willie-the-truck>
+References: <20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com>
+ <20250719-virtio-msg-ffa-v8-6-03e8e8dbe856@google.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lcvyewca57ejyx32"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250728194144.22884-1-laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250719-virtio-msg-ffa-v8-6-03e8e8dbe856@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_091024_309116_B4D614E6 
-X-CRM114-Status: GOOD (  14.95  )
+X-CRM114-CacheID: sfid-20250729_084923_586206_68413733 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Jul 19, 2025 at 02:11:28AM +0000, Per Larsen via B4 Relay wrote:
+> From: Per Larsen <perlarsen@google.com>
+> 
+> FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
+> preferred by the hypervisor as a precursor to implementing the 1.2-only
+> FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
+> 
+> Co-developed-by: Ayrton Munoz <ayrton@google.com>
+> Signed-off-by: Ayrton Munoz <ayrton@google.com>
+> Signed-off-by: Per Larsen <perlarsen@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 2cbecc9af5d27a9e7c8497001cf9b0987c72bdb4..f6d964df53c3e21ba85984f35cc7b6859012d1b0 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -930,7 +930,7 @@ int hyp_ffa_init(void *pages)
+>  
+>  	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
+>  		.a0 = FFA_VERSION,
+> -		.a1 = FFA_VERSION_1_1,
+> +		.a1 = FFA_VERSION_1_2,
+>  	}, &res);
+>  	if (res.a0 == FFA_RET_NOT_SUPPORTED)
+>  		return 0;
+> @@ -951,10 +951,10 @@ int hyp_ffa_init(void *pages)
+>  	if (FFA_MAJOR_VERSION(res.a0) != 1)
+>  		return -EOPNOTSUPP;
+>  
+> -	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
+> +	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_2))
+>  		hyp_ffa_version = res.a0;
+>  	else
+> -		hyp_ffa_version = FFA_VERSION_1_1;
+> +		hyp_ffa_version = FFA_VERSION_1_2;
 
---lcvyewca57ejyx32
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3] pwm: imx-tpm: reset counter if CMOD is 0
-MIME-Version: 1.0
+Acked-by: Will Deacon <will@kernel.org>
 
-Hello Laurentiu,
-
-On Mon, Jul 28, 2025 at 03:41:44PM -0400, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->=20
-> As per the i.MX93 TRM, section 67.3.2.1 "MOD register update", the value
-> of the TPM counter does NOT get updated when writing MOD.MOD unless
-> SC.CMOD !=3D 0. Therefore, with the current code, assuming the following
-> sequence:
->=20
-> 	1) pwm_disable()
-> 	2) pwm_apply_might_sleep() /* period is changed here */
-> 	3) pwm_enable()
->=20
-> and assuming only one channel is active, if CNT.COUNT is higher than the
-> MOD.MOD value written during the pwm_apply_might_sleep() call then, when
-> re-enabling the PWM during pwm_enable(), the counter will end up resetting
-> after UINT32_MAX - CNT.COUNT + MOD.MOD cycles instead of MOD.MOD cycles as
-> normally expected.
->=20
-> Fix this problem by forcing a reset of the TPM counter before MOD.MOD is
-> written.
->=20
-> Fixes: 738a1cfec2ed ("pwm: Add i.MX TPM PWM driver support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-
-Thanks for the respin, looks good now. For consistency I capitalized
-"Reset" in the Subject.
-
-Applied to
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/fixes
-
-=2E I'll give that a day or two in next and then send it to Linus for
-6.17-rc1.
-
-Thanks
-Uwe
-
---lcvyewca57ejyx32
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmiI8mgACgkQj4D7WH0S
-/k79agf+LH57UR0G6y7RA0SZ7VTuCOOu8rGs7cN4IkwsVO/fpcWnZvidGDVERCL7
-HCk0IuDvQJIk1zCIv54AgJkHcMk3HtWfWf/lYM5QhVZxHbHQSKEDQgMM6J2pAEBJ
-uE0PJ+4fvdYrPY0YPQhSIICwuKS+rhUyFi5ksRbeKetgMRtuiBEFETkt1MmfWOWd
-cGDljyV724kVk3uD6PpuK1OMdWb9Rx09ZMCxwER+HllGGks2Esiia0F3NLIXQm8R
-8p1a9CRVSq/zNO+/vS83imY/XAmwkOJ2ucS/oH+zFhu3EJQysY3FSzXsen+ywl7V
-YKCb1/VjVFk7SX7puGqqE2Viv9oXJA==
-=N9cL
------END PGP SIGNATURE-----
-
---lcvyewca57ejyx32--
+Will
 
