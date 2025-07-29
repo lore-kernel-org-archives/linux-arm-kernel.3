@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9AAC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A582C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUnLUSkkHQ0KtmeifxLqpV19mfTPS/23h/uc9Q4JzE4=; b=Whzhqq8Qz5LN0Sr2Hjeov8reGH
-	i29khuNfXeZ0z5/fQXhYcP42vY2s37TGh/TmO0kxbirxyjlDlgvjL/rvMePbeRUEBLLBn913TpZtH
-	iZUVjhpve2Qv9jaJw4OaUzLO4l9TkCR+Mg+YLRuQiw6rrRrGXiHW7X1xl3VPQkqdUTWm/oytlLSB7
-	qMfvNj9v54mcR6kcVyTs7WF+p3tR+H3OGTpBMQStBEGHJE12CFLvqsDfpCO2AKGYkREDWtaIvs0+Q
-	26HkyE+nXoMS0z8t3iGvawrZDIvKXLDhMBPh5W+fE9JsUOOTb8WgliQLyyRzbVlXo/i2F2gUfvkGL
-	Mj8rMX6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KGFA8/qiQ+o5ik256RDNP9cmkGCnpiaOPIJzZoy/5Ng=; b=g7LkoOSpXRGQurWYWEi5S/s954
+	AwcQ1VxEMa/aPZqCEBblygUbj865pxdvbY2dC3ZQZFcxwHEYXO8pIe+kUoS0XVSXfc2rHXLAIXA7j
+	UPPh5Emi2eNZBVQtTruXA5rSwpoEdJqqnehXEy3nDnbleBVVgubxU3wFY3kM2RZcLA2fAWGSJz8Eg
+	DxeRmeYtI/SsEm9Ag2I5GzH1cD12tnkb90pK/IlKpbDQJvEYHszoMAlBg4R3mams7aLqsA0YigLRv
+	FlHWxLjuIpczZKr2I4OlxMSUVyKC74OgtTY0/QlYVhb+YqUjbkcN/0tyjz8WJ35NMCGkjAKJlmB9r
+	0vpj+nMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnYx-0000000HJCP-1QUX;
-	Tue, 29 Jul 2025 16:52:27 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1ugnbN-0000000HJOV-0EVc;
+	Tue, 29 Jul 2025 16:54:57 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugnIa-0000000HHZK-3HYQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 16:35:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=LUnLUSkkHQ0KtmeifxLqpV19mfTPS/23h/uc9Q4JzE4=; b=Yn7TvtWASbRMJEShmmX8wbGU29
-	w8cc/jSobrXubE6LcPAHIPHD9MOcuyRGTOgzRIWmlbJiaK63XqQRuZHIMOiNnaCdff5y/+k2l4ENc
-	ThplDkSAXq+0F0v8DHWd13z4lrPwaS38uBIDYnZnukOfuGD/GC+ttx64ddeXSfrZLVip9jFeMxQl1
-	LC4Tmzk3E8g9Jz/o8dsvL8yB12YZQ3oyzzBYzJSTZuvJQHdYvS5hpYksPkktYsH+k3ybGhKIJvt+j
-	4Zyrft+4Mb2JQD1RJXAFDNJWFDLUMEOLhETH10NCigvvjMY0dlP8BQlup4QnZDRuftMd+TcTdBcmn
-	P4ZJ9Shg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:37072)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ugnIN-0002Cl-1t;
-	Tue, 29 Jul 2025 17:35:19 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ugnIJ-0007YC-2w;
-	Tue, 29 Jul 2025 17:35:15 +0100
-Date: Tue, 29 Jul 2025 17:35:15 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-arm-kernel@lists.infradead.org,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Subject: Re: [Linux-stm32] [PATCH RFC net-next 6/7] net: stmmac: add helpers
- to indicate WoL enable status
-Message-ID: <aIj4Q6WzEQkcGYVQ@shell.armlinux.org.uk>
-References: <aIebMKnQgzQxIY3j@shell.armlinux.org.uk>
- <E1ugQ33-006KDR-Nj@rmk-PC.armlinux.org.uk>
- <eaef1b1b-5366-430c-97dd-cf3b40399ac7@lunn.ch>
- <aIe5SqLITb2cfFQw@shell.armlinux.org.uk>
- <77229e46-6466-4cd4-9b3b-d76aadbe167c@foss.st.com>
- <aIiOWh7tBjlsdZgs@shell.armlinux.org.uk>
- <aIjCg_sjTOge9vd4@shell.armlinux.org.uk>
- <d300d546-09fa-4b37-b8e0-349daa0cc108@foss.st.com>
- <aIjePMWG6pEBvna6@shell.armlinux.org.uk>
- <186a2265-8ca8-4b75-b4a2-a81d21ca42eb@foss.st.com>
+	id 1ugn3v-0000000HFym-3TiG;
+	Tue, 29 Jul 2025 16:20:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=KGFA8/qiQ+o5ik256RDNP9cmkGCnpiaOPIJzZoy/5Ng=; b=J/WM7Br/52lWhQbcO7aHla1y5p
+	5RsC9rVz3mPL2FPeb0A/4Nsm5XFZ/0/ashoMwVG90zt5ikDDKrPxaNyRMrP2+S1v46sXvzasGG2+7
+	ZiIp2Oj5nx4dNlEDttCUAbimB43Jstyk3atw9MQQh5NAJLEpxh/7zuk7Z/dukVkAql6skdHJXsQSV
+	Dw9atacsews1INTF+jeiP1w4w2cSKeicOHK3+Aqnx7OSW3uHHQTnYshpKsQP5E6LhthMWlStqwWQP
+	jf8ZveMmDSGoeI6TP3LAAaqPujqyOTzDlKGMV0DL5+jI7RfNsthHw0bB+LAF/eTfDd0oSE3T0JGEz
+	ZBGL0Fag==;
+Received: from [189.7.87.79] (helo=[192.168.0.7])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1ugn3c-005VsR-Th; Tue, 29 Jul 2025 18:20:05 +0200
+Message-ID: <b8c0f9be-a57e-49b3-8113-cbb9307facd9@igalia.com>
+Date: Tue, 29 Jul 2025 13:19:56 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <186a2265-8ca8-4b75-b4a2-a81d21ca42eb@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>,
+ Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+ <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+ <20250729-tall-fluffy-grouse-f5deec@houat>
+ <1bc23ad0-7273-4ddf-a0ef-4a80186f2581@igalia.com>
+ <20250729-whispering-accelerated-raptor-134e8a@houat>
+Content-Language: en-US
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+In-Reply-To: <20250729-whispering-accelerated-raptor-134e8a@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_093533_100312_4857C6FC 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20250729_092025_805723_DF9F0D62 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +87,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 05:34:49PM +0200, Gatien CHEVALLIER wrote:
-> For STMMAC:
-> I'm a bit lost there. I may be missing something. I thought that using
-> PHY WoL (therefore having STMMAC_FLAG_USE_PHY_WOL) superseded the MAC
-> WoL usage.
+Hi Maxime,
 
-I'll simply point you to Andrew's message:
+On 29/07/25 09:14, Maxime Ripard wrote:
+> On Tue, Jul 29, 2025 at 08:53:51AM -0300, Maíra Canal wrote:
+>> Hi Maxime,
+>>
+>> On 29/07/25 04:27, Maxime Ripard wrote:
+>>> Hi Maíra,
+>>>
+>>> On Mon, Jul 28, 2025 at 09:35:38AM -0300, Maíra Canal wrote:
+>>>> Currently, when we prepare or unprepare RPi's clocks, we don't actually
+>>>> enable/disable the firmware clock. This means that
+>>>> `clk_disable_unprepare()` doesn't actually change the clock state at
+>>>> all, nor does it lowers the clock rate.
+>>>>
+>>>>   From the Mailbox Property Interface documentation [1], we can see that
+>>>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+>>>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+>>>> prepare and an unprepare hook for RPi's firmware clock.
+>>>>
+>>>> As now the clocks are actually turned off, some of them are now marked
+>>>> with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are required since
+>>>> early boot or are required during reboot.
+>>>
+>>> What difference is there between the CLK_IGNORE_UNUSED and
+>>> CLK_IS_CRITICAL clocks?
+>>
+>>  From my understanding, CLK_IGNORE_UNUSED will prevent the clock to be
+>> gated during boot (on "clk: Disabling unused clocks"), but after it, the
+>> clock can be gated.
+>>
+>> With CLK_IS_CRITICAL, the clock will never be disabled.
+> 
+> Yeah, that's correct.
+> 
+>> For example, RPI_FIRMWARE_M2MC_CLK_ID is used by vc4. It needs to be
+>> enabled at boot (I tested; if not enabled, it won't boot). However,
+>> after vc4 is probed, we would like vc4 to have control of it and be able
+>> to unprepare it in `vc4_hdmi_runtime_suspend()`. If I set it as
+>> CLK_IS_CRITICAL, vc4 won't be able to unprepare it.
+> 
+> If the clock can be disabled by Linux, but it breaks some drivers if
+> it's not enabled during their probe, something is fishy somewhere, and
+> it's likely it would be just as broken if you compiled the driver as a
+> module.
+> 
+> Even then, some of the other clocks should probably never be disabled,
+> like the CPU clock.
 
-https://lore.kernel.org/r/5b8608cb-1369-4638-9cda-1cf90412fc0f@lunn.ch
+I'll mark RPI_FIRMWARE_ARM_CLK_ID and RPI_FIRMWARE_CORE_CLK_ID as
+critical. Are there any other clocks you think should never be disabled?
 
-The PHY and the MAC are supposed to inter-operate so that one ends
-up with the union of the WoL capabilities.
+> 
+>> I only set RPI_FIRMWARE_PIXEL_BVB_CLK_ID as critical, as, otherwise, the
+>> RPi won't reboot.
+> 
+> Why?
 
-stmmac gets this wrong right now, but (as I've written previously)
-this is going to be a *very* difficult problem to solve, because
-the PHY drivers are - to put it bluntly - "utter crap" when it
-comes to WoL.
+I'll have to dig a bit into vc4 HDMI code and to investigate the reason
+(and maybe fix the issue there).
 
-I'll take the rtl8211f again as an example - its get_wol()
-implementation is quite typical of many PHY drivers. Someone comes
-along and decides to implement WoL support at the PHY. They add the
-.get_wol() method, which unconditionally returns the PHY's hardware
-capabilities without regards for the rest of the system.
+Best Regards,
+- Maíra
 
-Consider the case where a PHY supports WoL, but the signalling for
-WoL to wake up the system is not wired. The .get_wol() method happily
-says that WoL is supported. Let's say that the PHY supports magic
-packet, and so does the MAC, and the MAC WoL is functional.
-
-Now, with what Andrew said in his email, and consider what this means.
-.set_wol() is called, requesting magic packet. The PHY driver says "oh
-yes, the PHY hardware supports this, I'll program the PHY and return
-zero". At this point, the MAC thinks the PHY has accepted the WoL
-configuration.
-
-The user suspends the system. The user sends the correct magic
-packet. The system does not wake up. The user is now confused.
-
-However, if the PHY driver were to behave correctly according to what
-Andrew says, and not allow WoL if it can't wake the system, then
-instead we would program the MAC to allow magic packet, and the user
-would be happy because their system would wake up as expected.
-
-This is why we can't simply "fix" stmmac - not without all the PHY
-drivers that are being used with stmmac behaving properly. Can it
-ever be fixed to work as Andrew suggests? I really don't know. I
-suspect not, because that will probably involve regressing a lot of
-setups that work today (fixing the PHY drivers will likely cause
-user visible regressions.)
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
