@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08780C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E51D5C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 16:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wlri4TImGK2Nq390bQXaKqOdz2FIIALuCIDn8HJtVIo=; b=wLWvRYEBfQOXltG6tPkxDc1zfj
-	+4/6Q0cC16IxYHrWcIiDi0pt3vNsX0jL5cZrYsTuUMcQcxV6H1oCYI7p0ja3OVVBMAmn5o3aQ2k86
-	760hOnqUmKX5KGO3nrsDlB6TTTpCQaDfBqZIjFYXuPmc2adT8RyXs4Bifr5T1+tRvKtDr37S4UlnI
-	gzZ61Twl2a/GJJB7SD0pTlV3XeHoyx4bVafHxJplVHl6o0jDc2kRE/zFw6VvNPxLQ1sSnV6bV+wpN
-	zLAXz82Ej+ZKvmpu0EmOw7wTXJEaHbbCQ8PfZEveQwq73+NHmB1qPDAcCWVLiY4hgt11Wn3cupcYj
-	rTXKgTNw==;
+	bh=3B/rfeapbthmIcnLwo9IRZoO1aenCmPbL9oFe6IN3jo=; b=RBRC3z2BAsqkD1Zbfr0kW9P0cv
+	QLz09YEjj30XZhq246Vl7f2svrff0Hk+eu8yWq+IsgLlxguBsSujODhG9A1RdHYrwIf0zipVmMMzf
+	rBwnZzfyByzHfAxrmyZ/aO+PfY4cgrS7mH97za+d9jJdsn8+Jv1Yy7yThXnd82Ky3opugzP7VjaA7
+	FOsxF8Wg6D3SuX5B9NJ9Aq93SpGDequVYQgMwBMgp9OEQ5mu8g2zpDtpaSty3M8xpbpzdxLCjSTuh
+	BZQKV/P66dIaYZ+e7FLLghFDa1AzSoZRRaN8+NZm2Fi5lt6PjDWLSEyHZ0LYKqeVyUvMtVIGr1J42
+	am7AIpkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugn2F-0000000HFgH-0caW;
-	Tue, 29 Jul 2025 16:18:39 +0000
-Received: from out-172.mta1.migadu.com ([95.215.58.172])
+	id 1ugn4e-0000000HG7l-3w0x;
+	Tue, 29 Jul 2025 16:21:08 +0000
+Received: from out-180.mta1.migadu.com ([95.215.58.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugmhq-0000000HCNR-0nr9
+	id 1ugmm3-0000000HDEl-3gwz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 15:57:36 +0000
-Date: Tue, 29 Jul 2025 08:57:22 -0700
+	Tue, 29 Jul 2025 16:01:57 +0000
+Date: Tue, 29 Jul 2025 09:01:46 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753804650;
+	t=1753804913;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Wlri4TImGK2Nq390bQXaKqOdz2FIIALuCIDn8HJtVIo=;
-	b=qDhRQfbvrQnB679V2u+y99NiCS4UGBDkb4hEi9ISnukmWBAlHwk4ngyyadfiZN6JcuEl2g
-	4TyqTbHXhqxPDRTeuhIgq71qJUptKzeOs9D52DBosEAlZs1O8d6w454t2nd7vEqRhBZ4mD
-	E5xPMb3TNhQ32Wwtr0RlB8jimsDkfhc=
+	bh=3B/rfeapbthmIcnLwo9IRZoO1aenCmPbL9oFe6IN3jo=;
+	b=ImColJVbfscPb/0mBsz4xbAjxEgoz7J03iLZm5emzMbFd7tEW4nwJWFwO+yaDkSDCKRNW+
+	QRNWbLrjWBmhAIk7yxxyhPKzsHURc/4lsFSpfju8uZoL4SK7pXCYLHCFqTkkD4KYg8pHL7
+	7MjEmfjLmMnBcVFwhCSsgmv7zLAVNGg=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Raghavendra Rao Ananta <rananta@google.com>
 Cc: Marc Zyngier <maz@kernel.org>, Mingwei Zhang <mizhang@google.com>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org, kvm@vger.kernel.org
-Subject: Re: [PATCH 1/2] KVM: arm64: Split kvm_pgtable_stage2_destroy()
-Message-ID: <aIjvYl474_6F9d9P@linux.dev>
+Subject: Re: [PATCH 2/2] KVM: arm64: Destroy the stage-2 page-table
+ periodically
+Message-ID: <aIjwalITY6CAj7TO@linux.dev>
 References: <20250724235144.2428795-1-rananta@google.com>
- <20250724235144.2428795-2-rananta@google.com>
+ <20250724235144.2428795-3-rananta@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250724235144.2428795-2-rananta@google.com>
+In-Reply-To: <20250724235144.2428795-3-rananta@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_085734_950275_E17A786A 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20250729_090156_062491_A150FBC6 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,47 +70,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 24, 2025 at 11:51:43PM +0000, Raghavendra Rao Ananta wrote:
-> Split kvm_pgtable_stage2_destroy() into two:
->   - kvm_pgtable_stage2_destroy_range(), that performs the
->     page-table walk and free the entries over a range of addresses.
->   - kvm_pgtable_stage2_destroy_pgd(), that frees the PGD.
-> 
-> This refactoring enables subsequent patches to free large page-tables
-> in chunks, calling cond_resched() between each chunk, to yield the CPU
-> as necessary.
-> 
-> Direct callers of kvm_pgtable_stage2_destroy() will continue to walk
-> the entire range of the VM as before, ensuring no functional changes.
-> 
-> Also, add equivalent pkvm_pgtable_stage2_*() stubs to maintain 1:1
-> mapping of the page-table functions.
-
-Uhh... We can't stub these functions out for protected mode, we already
-have a load-bearing implementation of pkvm_pgtable_stage2_destroy().
-Just reuse what's already there and provide a NOP for
-pkvm_pgtable_stage2_destroy_pgd().
-
-> +void kvm_pgtable_stage2_destroy_pgd(struct kvm_pgtable *pgt)
+On Thu, Jul 24, 2025 at 11:51:44PM +0000, Raghavendra Rao Ananta wrote:
+> +/*
+> + * Assume that @pgt is valid and unlinked from the KVM MMU to free the
+> + * page-table without taking the kvm_mmu_lock and without performing any
+> + * TLB invalidations.
+> + *
+> + * Also, the range of addresses can be large enough to cause need_resched
+> + * warnings, for instance on CONFIG_PREEMPT_NONE kernels. Hence, invoke
+> + * cond_resched() periodically to prevent hogging the CPU for a long time
+> + * and schedule something else, if required.
+> + */
+> +static void stage2_destroy_range(struct kvm_pgtable *pgt, phys_addr_t addr,
+> +			      phys_addr_t end)
 > +{
-> +	/*
-> +	 * We aren't doing a pgtable walk here, but the walker struct is needed
-> +	 * for kvm_dereference_pteref(), which only looks at the ->flags.
-> +	 */
-> +	struct kvm_pgtable_walker walker = {0};
-
-This feels subtle and prone for error. I'd rather we have something that
-boils down to rcu_dereference_raw() (with the appropriate n/hVHE awareness)
-and add a comment why it is safe.
-
-> +void kvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
+> +	u64 next;
+> +
+> +	do {
+> +		next = stage2_range_addr_end(addr, end);
+> +		kvm_pgtable_stage2_destroy_range(pgt, addr, next - addr);
+> +
+> +		if (next != end)
+> +			cond_resched();
+> +	} while (addr = next, addr != end);
+> +}
+> +
+> +static void kvm_destroy_stage2_pgt(struct kvm_pgtable *pgt)
 > +{
-> +	kvm_pgtable_stage2_destroy_range(pgt, 0, BIT(pgt->ia_bits));
-> +	kvm_pgtable_stage2_destroy_pgd(pgt);
+> +	if (!is_protected_kvm_enabled()) {
+> +		stage2_destroy_range(pgt, 0, BIT(pgt->ia_bits));
+> +		kvm_pgtable_stage2_destroy_pgd(pgt);
+> +	} else {
+> +		pkvm_pgtable_stage2_destroy(pgt);
+> +	}
 > +}
 > +
 
-Move this to mmu.c as a static function and use KVM_PGT_FN()
+Protected mode is affected by the same problem, potentially even worse
+due to the overheads of calling into EL2. Both protected and
+non-protected flows should use stage2_destroy_range().
 
 Thanks,
 Oliver
