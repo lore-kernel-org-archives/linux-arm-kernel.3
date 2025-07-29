@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65DFC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7243FC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 17:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3HNOWZw5hkcyGSQgmqXfoEJ+ny9/ZCvslOQJp7MB2E=; b=ao9GXbqUCr02Ws0mgS/JM6/T7V
-	6kyF5YN4s1K6y2Gm8CLtIoxBv2GLJdgZPvlB7hfYsgl3g3NuadSvtFzjk40agA6edEjxLduw3zTvN
-	F8RUEJsCv2SmQRKk856fuMZCC577YbjwK/DH9cuzWTyrEkQjwEYgtaunCwF5xtNMooJqyRLFhwv03
-	vc6CtCX6pH6yPgs8zaSTjsV8i4I/vFBxLJl07m/aDwrIYdgpKy8WyzT1DtcV19l7KlADIWtP5zeJ1
-	+UJESeMQcz7d1p9TOu+czSW/sytZXj81+lvBxrvsEvDoLFhrUo9BRC/FOcAF406HUxdzYgFDwp9OA
-	hCO+QwAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GdHWjF09E8lNPFgfN+AMA/jUedy7gB/f42S7Lv2O8PQ=; b=Ilo5oAY08dbctwB7KF4eMxfkA6
+	gjrWhBWK7sFIc7AZ4QKZtXeBBuvO05mEJP/NL1oNydioh/O0QnlMAC+HnCUei0OWniYChtkAhSBSf
+	8JE6K7PutkVBDL2LkhY3KvJBtsnrFAtU7ez4cQPUojKW5KSebBth5qwTMGQ/Wbx4TzuQk67E3NhlX
+	4AgLm6Rke+iHapPoneMBCXNcU2BrpdDjb8Kh0JSFAU7HAwl0IQZg70sL+CtDJXCenK24T31ot+QIu
+	s9l9AeazcwVf2CmySujQw27XwhXJibiCJVCpfsvE/+pwk8/bER2HrmQQhqQ0hWnt3IgbG/vtYVzdG
+	ugi4aoKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugoQi-0000000HOQQ-4C1e;
-	Tue, 29 Jul 2025 17:48:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ugoTm-0000000HOje-33Ao;
+	Tue, 29 Jul 2025 17:51:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugoOG-0000000HOAG-0Mbn;
-	Tue, 29 Jul 2025 17:45:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6004EA549BE;
-	Tue, 29 Jul 2025 17:45:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07791C4CEF4;
-	Tue, 29 Jul 2025 17:45:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753811127;
-	bh=x3HNOWZw5hkcyGSQgmqXfoEJ+ny9/ZCvslOQJp7MB2E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KpYz6p89DzVpv//o/gFNgWEc5Gm98fYQHRh53L/XAWVBwKf6VN4selbeF3gdwwEvg
-	 u98KjXQ+5iE3qf+0PljVq+7U6G0i+8g8/g9PlFz68kwZDKNgUlgQjigkgP9A1YfC6B
-	 9X8Ms26uAs+GCTr1uCtrFAuSHuRLHW1z2YDRJsI5z3Nf70z4vA/bBChgiwI2YG2OEe
-	 naZZVD+u9g8sLV6R4EQMlhKSJ7f/5V8LlkT4e+czD5gn/DRl/Y4EvNof/bpqSNfdpw
-	 p+dlMs7GS/CXFDGcJ3/fWfe2l8DGD5l4E2fAVzl/R2WObcVvwyyop5zZBqcVz2NVQ6
-	 VnYBAwpJko4pw==
-Date: Tue, 29 Jul 2025 18:45:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Huayu Zong <huayu.zong@mediatek.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Tinghan Shen <tinghan.shen@mediatek.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH 1/3] dt-bindings: remoteproc: mediatek: Add binding for
- mt8189 scp
-Message-ID: <20250729-flask-applaud-7af817ef7a94@spud>
-References: <20250729023125.9036-1-huayu.zong@mediatek.com>
- <20250729023125.9036-2-huayu.zong@mediatek.com>
+	id 1ugoRI-0000000HOWN-22XB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Jul 2025 17:48:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1753811315;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GdHWjF09E8lNPFgfN+AMA/jUedy7gB/f42S7Lv2O8PQ=;
+	b=ekzyi19QkPVMkvfiUV5qU1V/ss1bATTcLyrPnxrp2/W4KaP8Gy1PDIDsplvVe3O11L20gu
+	E93hEtgZfZg9VogGln5JGEB37Ptrw+21/tsZ08QnLv7lnJQorLaNdDAND2gbCQlcXk7Vpn
+	2yOo1srnwYILc3hZOUQP+75Pg6WtHRA=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-675-c3RyHX0pPaSZvAQ1mTs7kA-1; Tue, 29 Jul 2025 13:48:33 -0400
+X-MC-Unique: c3RyHX0pPaSZvAQ1mTs7kA-1
+X-Mimecast-MFC-AGG-ID: c3RyHX0pPaSZvAQ1mTs7kA_1753811312
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-456013b59c1so31860045e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 10:48:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753811312; x=1754416112;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GdHWjF09E8lNPFgfN+AMA/jUedy7gB/f42S7Lv2O8PQ=;
+        b=ojk/Rx4KwGwavWrKpHm8YKtvHs7QDJO6aJNKQTllVaVpsfvzgQ08dihtqBSiyKjzj3
+         CGK+5fYKWaZBN/CX6bPtyychMTO+O6L9JHbJYD78IW3I0uw3JdeSVjp5byZ3h/0m65ZG
+         q5yM2wkk/ByFvJ5B6N2qKh750JZIz78zHlKcqssXsVV40gItRxp2lUDwsxW4d09itBCe
+         rlnX6WfVKI3fVLRLuk+riF1e+HRpJORA9FRRsAX8JMkuEh9DYhP04rOiCvZRyy+qK1xK
+         HtU8eFD9SDRmkdNLfg4o972eJy82LWv+GsAebjJNjSoVazEV3DWwD8gIccvEj3CzJW7z
+         Qy6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWYBgxYo9JCxsI7IspPCtJ8yD4L0OvEl2X2jj6/NG3+H2ccHW5x3n5CIT43QY2EwsKhKXWrrem6O5k986BKoYro@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk+vKAX4G06L9cvaAs1dGj20m3fcEYa7t4+HdDSuOg/Pd543QD
+	Gy1T3k2HWySNCSGQM4I4y6DVmFQkgFgMHqmZSP5kwTqQYp4/YXmAK/hsO3+2BMcivGbvueCGW+n
+	8gy8OYQ2ze1yAwh6Smx3BO15NV941pUuf9L6WX99N/dsyDhepBZj1qtFEwmMfVgs37J37mybuLZ
+	wsva5mhFigOohxuAIwGsVv3XEVt6Syxfj2eNp3zXa1lsMN9aTdRew=
+X-Gm-Gg: ASbGncvI2QU6qnY4WAbzRy163nzBEW6DobLp1NacaK2P1UU81tkg/62qBc0EtTn8Fbh
+	o9A+ODTEF6yRWqL19E1HxjNgLVvRXFQQtb6Vcy3vTn2W7+P18jPMYEu8LqQAQUsnm0Vds+uZw3L
+	W/Oifa+xlrl4P7fEHqCQz5HQ==
+X-Received: by 2002:a05:600c:46d0:b0:456:28d4:ef1 with SMTP id 5b1f17b1804b1-45892bdff7bmr5738065e9.29.1753811312043;
+        Tue, 29 Jul 2025 10:48:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE/dbI6PC8okdFaCniCC9qiuNe+yrTulSjAAYEBGsbcVFrkrsSbuNLgb6g6LFMth/jnctvMCU0jFHttlBO3HoE=
+X-Received: by 2002:a05:600c:46d0:b0:456:28d4:ef1 with SMTP id
+ 5b1f17b1804b1-45892bdff7bmr5737755e9.29.1753811311498; Tue, 29 Jul 2025
+ 10:48:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="kD2euniIewJpEG2U"
-Content-Disposition: inline
-In-Reply-To: <20250729023125.9036-2-huayu.zong@mediatek.com>
+References: <aIe-v1QP-VvaOONC@linux.dev> <CABgObfZZxW2seq+B9OdSPG71-SywbTkmUEw1xKONX73QLjDTjQ@mail.gmail.com>
+ <aIkCQyKd7Ua0mNHX@linux.dev>
+In-Reply-To: <aIkCQyKd7Ua0mNHX@linux.dev>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Tue, 29 Jul 2025 19:48:19 +0200
+X-Gm-Features: Ac12FXyj7OyerCBG4UKRMB4zJEZlvRDtfkNkWqxoNZfdiu8Cf4kY2Ris7HeAw_4
+Message-ID: <CABgObfbu6=BrqkPL5xgXxTJ916_-_U-6ybQP+DKMOzZ0ZEXYvw@mail.gmail.com>
+Subject: Re: [GIT PULL] KVM/arm64 changes for 6.17, round #1
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: NP9vO57mPRMWBxkI6S7EznDPhqDcjUZ-4bvy9gPpxAk_1753811312
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_104528_190234_FA2618A7 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250729_104836_858264_EE86E97C 
+X-CRM114-Status: GOOD (  35.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +106,362 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jul 29, 2025 at 7:18=E2=80=AFPM Oliver Upton <oliver.upton@linux.de=
+v> wrote:
+>
+> On Tue, Jul 29, 2025 at 07:12:07PM +0200, Paolo Bonzini wrote:
+> > On Mon, Jul 28, 2025 at 8:17=E2=80=AFPM Oliver Upton <oliver.upton@linu=
+x.dev> wrote:
+> > >
+> > > Hi Paolo,
+> > >
+> > > Here's the first round of changes for 6.17.
+> > >
+> > > A very unusual inclusion that you should know about is the GICv5 host=
+ driver.
+> > > Thomas was OK with the driver going through the kvmarm tree [*] as th=
+ere aren't
+> > > any conflicts and Sascha's series adds some KVM support on top.
+> > >
+> > > Otherwise, we've got the usual mix (details in the tag) with some red=
+uction
+> > > of the NV v. non-NV feature gap.
+> >
+> > Pulled, thanks.
+>
+> Thanks!
+>
+> Can you apply this patch on top [*]? Mistake in documentation markup
+> that broke docs builds in -next.
 
---kD2euniIewJpEG2U
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+No problem, done.
 
-On Tue, Jul 29, 2025 at 10:31:11AM +0800, Huayu Zong wrote:
-> Add the compatible for mt8189 SCP to the binding.
->=20
-> Signed-off-by: Huayu Zong <huayu.zong@mediatek.com>
+Paolo
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Otherwise I can send you another pull if you prefer.
+>
+> [*]: https://lore.kernel.org/kvmarm/20250729152242.3232229-1-oliver.upton=
+@linux.dev/
+>
+> Thanks,
+> Oliver
+>
+> > > Please pull.
+> > >
+> > > Thanks,
+> > > Oliver
+> > >
+> > > [*]: https://lore.kernel.org/all/87y0slur4t.ffs@tglx/
+> > >
+> > > The following changes since commit 86731a2a651e58953fc949573895f2fa6d=
+456841:
+> > >
+> > >   Linux 6.16-rc3 (2025-06-22 13:30:08 -0700)
+> > >
+> > > are available in the Git repository at:
+> > >
+> > >   https://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git/ =
+tags/kvmarm-6.17
+> > >
+> > > for you to fetch changes up to 18ec25dd0e97653cdb576bb1750c31acf2513e=
+a7:
+> > >
+> > >   KVM: arm64: selftests: Add FEAT_RAS EL2 registers to get-reg-list (=
+2025-07-28 08:28:05 -0700)
+> > >
+> > > ----------------------------------------------------------------
+> > > KVM/arm64 changes for 6.17, round #1
+> > >
+> > >  - Host driver for GICv5, the next generation interrupt controller fo=
+r
+> > >    arm64, including support for interrupt routing, MSIs, interrupt
+> > >    translation and wired interrupts.
+> > >
+> > >  - Use FEAT_GCIE_LEGACY on GICv5 systems to virtualize GICv3 VMs on
+> > >    GICv5 hardware, leveraging the legacy VGIC interface.
+> > >
+> > >  - Userspace control of the 'nASSGIcap' GICv3 feature, allowing
+> > >    userspace to disable support for SGIs w/o an active state on hardw=
+are
+> > >    that previously advertised it unconditionally.
+> > >
+> > >  - Map supporting endpoints with cacheable memory attributes on syste=
+ms
+> > >    with FEAT_S2FWB and DIC where KVM no longer needs to perform cache
+> > >    maintenance on the address range.
+> > >
+> > >  - Nested support for FEAT_RAS and FEAT_DoubleFault2, allowing the gu=
+est
+> > >    hypervisor to inject external aborts into an L2 VM and take traps =
+of
+> > >    masked external aborts to the hypervisor.
+> > >
+> > >  - Convert more system register sanitization to the config-driven
+> > >    implementation.
+> > >
+> > >  - Fixes to the visibility of EL2 registers, namely making VGICv3 sys=
+tem
+> > >    registers accessible through the VGIC device instead of the ONE_RE=
+G
+> > >    vCPU ioctls.
+> > >
+> > >  - Various cleanups and minor fixes.
+> > >
+> > > ----------------------------------------------------------------
+> > > Ankit Agrawal (5):
+> > >       KVM: arm64: Rename the device variable to s2_force_noncacheable
+> > >       KVM: arm64: Assume non-PFNMAP/MIXEDMAP VMAs can be mapped cache=
+able
+> > >       KVM: arm64: Block cacheable PFNMAP mapping
+> > >       KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
+> > >       KVM: arm64: Expose new KVM cap for cacheable PFNMAP
+> > >
+> > > David Woodhouse (1):
+> > >       KVM: arm64: vgic-its: Return -ENXIO to invalid KVM_DEV_ARM_VGIC=
+_GRP_CTRL attrs
+> > >
+> > > Kuninori Morimoto (2):
+> > >       arm64: kvm: sys_regs: use string choices helper
+> > >       arm64: kvm: trace_handle_exit: use string choices helper
+> > >
+> > > Lorenzo Pieralisi (30):
+> > >       dt-bindings: interrupt-controller: Add Arm GICv5
+> > >       arm64/sysreg: Add GCIE field to ID_AA64PFR2_EL1
+> > >       arm64/sysreg: Add ICC_PPI_PRIORITY<n>_EL1
+> > >       arm64/sysreg: Add ICC_ICSR_EL1
+> > >       arm64/sysreg: Add ICC_PPI_HMR<n>_EL1
+> > >       arm64/sysreg: Add ICC_PPI_ENABLER<n>_EL1
+> > >       arm64/sysreg: Add ICC_PPI_{C/S}ACTIVER<n>_EL1
+> > >       arm64/sysreg: Add ICC_PPI_{C/S}PENDR<n>_EL1
+> > >       arm64/sysreg: Add ICC_CR0_EL1
+> > >       arm64/sysreg: Add ICC_PCR_EL1
+> > >       arm64/sysreg: Add ICC_IDR0_EL1
+> > >       arm64/sysreg: Add ICH_HFGRTR_EL2
+> > >       arm64/sysreg: Add ICH_HFGWTR_EL2
+> > >       arm64/sysreg: Add ICH_HFGITR_EL2
+> > >       arm64: Disable GICv5 read/write/instruction traps
+> > >       arm64: cpucaps: Rename GICv3 CPU interface capability
+> > >       arm64: cpucaps: Add GICv5 CPU interface (GCIE) capability
+> > >       arm64: Add support for GICv5 GSB barriers
+> > >       irqchip/gic-v5: Add GICv5 PPI support
+> > >       irqchip/gic-v5: Add GICv5 IRS/SPI support
+> > >       irqchip/gic-v5: Add GICv5 LPI/IPI support
+> > >       irqchip/gic-v5: Enable GICv5 SMP booting
+> > >       of/irq: Add of_msi_xlate() helper function
+> > >       PCI/MSI: Add pci_msi_map_rid_ctlr_node() helper function
+> > >       irqchip/gic-v3: Rename GICv3 ITS MSI parent
+> > >       irqchip/msi-lib: Add IRQ_DOMAIN_FLAG_FWNODE_PARENT handling
+> > >       irqchip/gic-v5: Add GICv5 ITS support
+> > >       irqchip/gic-v5: Add GICv5 IWB support
+> > >       docs: arm64: gic-v5: Document booting requirements for GICv5
+> > >       arm64: Kconfig: Enable GICv5
+> > >
+> > > Marc Zyngier (28):
+> > >       arm64: smp: Support non-SGIs for IPIs
+> > >       KVM: arm64: Add helper to identify a nested context
+> > >       arm64: smp: Fix pNMI setup after GICv5 rework
+> > >       KVM: arm64: Make RVBAR_EL2 accesses UNDEF
+> > >       KVM: arm64: Don't advertise ICH_*_EL2 registers through GET_ONE=
+_REG
+> > >       KVM: arm64: Define constant value for ICC_SRE_EL2
+> > >       KVM: arm64: Define helper for ICH_VTR_EL2
+> > >       KVM: arm64: Let GICv3 save/restore honor visibility attribute
+> > >       KVM: arm64: Expose GICv3 EL2 registers via KVM_DEV_ARM_VGIC_GRP=
+_CPU_SYSREGS
+> > >       KVM: arm64: Condition FGT registers on feature availability
+> > >       KVM: arm64: Advertise FGT2 registers to userspace
+> > >       KVM: arm64: selftests: get-reg-list: Simplify feature dependenc=
+y
+> > >       KVM: arm64: selftests: get-reg-list: Add base EL2 registers
+> > >       KVM: arm64: Document registers exposed via KVM_DEV_ARM_VGIC_GRP=
+_CPU_SYSREGS
+> > >       arm64: sysreg: Add THE/ASID2 controls to TCR2_ELx
+> > >       KVM: arm64: Convert TCR2_EL2 to config-driven sanitisation
+> > >       KVM: arm64: Convert SCTLR_EL1 to config-driven sanitisation
+> > >       KVM: arm64: Convert MDCR_EL2 to config-driven sanitisation
+> > >       KVM: arm64: Tighten the definition of FEAT_PMUv3p9
+> > >       KVM: arm64: Check for SYSREGS_ON_CPU before accessing the CPU s=
+tate
+> > >       KVM: arm64: Filter out HCR_EL2 bits when running in hypervisor =
+context
+> > >       KVM: arm64: Make RAS registers UNDEF when RAS isn't advertised
+> > >       KVM: arm64: Remove the wi->{e0,}poe vs wr->{p,u}ov confusion
+> > >       KVM: arm64: Follow specification when implementing WXN
+> > >       KVM: arm64: vgic-v3: Fix ordering of ICH_HCR_EL2
+> > >       KVM: arm64: Clarify the check for reset callback in check_sysre=
+g_table()
+> > >       KVM: arm64: Enforce the sorting of the GICv3 system register ta=
+ble
+> > >       KVM: arm64: selftest: vgic-v3: Add basic GICv3 sysreg userspace=
+ access test
+> > >
+> > > Oliver Upton (42):
+> > >       arm64: Detect FEAT_SCTLR2
+> > >       arm64: Detect FEAT_DoubleFault2
+> > >       KVM: arm64: Treat vCPU with pending SError as runnable
+> > >       KVM: arm64: nv: Respect exception routing rules for SEAs
+> > >       KVM: arm64: nv: Honor SError exception routing / masking
+> > >       KVM: arm64: nv: Add FEAT_RAS vSError sys regs to table
+> > >       KVM: arm64: nv: Use guest hypervisor's vSError state
+> > >       KVM: arm64: nv: Advertise support for FEAT_RAS
+> > >       KVM: arm64: nv: Describe trap behavior of SCTLR2_EL1
+> > >       KVM: arm64: Wire up SCTLR2_ELx sysreg descriptors
+> > >       KVM: arm64: Context switch SCTLR2_ELx when advertised to the gu=
+est
+> > >       KVM: arm64: Enable SCTLR2 when advertised to the guest
+> > >       KVM: arm64: Describe SCTLR2_ELx RESx masks
+> > >       KVM: arm64: Factor out helper for selecting exception target EL
+> > >       KVM: arm64: nv: Ensure Address size faults affect correct ESR
+> > >       KVM: arm64: Route SEAs to the SError vector when EASE is set
+> > >       KVM: arm64: nv: Take "masked" aborts to EL2 when HCRX_EL2.TMEA =
+is set
+> > >       KVM: arm64: nv: Honor SError routing effects of SCTLR2_ELx.NMEA
+> > >       KVM: arm64: nv: Enable vSErrors when HCRX_EL2.TMEA is set
+> > >       KVM: arm64: Advertise support for FEAT_SCTLR2
+> > >       KVM: arm64: Advertise support for FEAT_DoubleFault2
+> > >       KVM: arm64: Don't retire MMIO instruction w/ pending (emulated)=
+ SError
+> > >       KVM: arm64: selftests: Add basic SError injection test
+> > >       KVM: arm64: selftests: Test SEAs are taken to SError vector whe=
+n EASE=3D1
+> > >       KVM: arm64: selftests: Add SCTLR2_EL1 to get-reg-list
+> > >       KVM: arm64: selftests: Catch up set_id_regs with the kernel
+> > >       KVM: arm64: Populate ESR_ELx.EC for emulated SError injection
+> > >       KVM: arm64: selftests: Test ESR propagation for vSError injecti=
+on
+> > >       KVM: arm64: Commit exceptions from KVM_SET_VCPU_EVENTS immediat=
+ely
+> > >       KVM: arm64: Disambiguate support for vSGIs v. vLPIs
+> > >       KVM: arm64: vgic-v3: Consolidate MAINT_IRQ handling
+> > >       KVM: arm64: vgic-v3: Allow access to GICD_IIDR prior to initial=
+ization
+> > >       Documentation: KVM: arm64: Describe VGICv3 registers writable p=
+re-init
+> > >       Merge branch 'kvm-arm64/cacheable-pfnmap' into kvmarm/next
+> > >       Merge branch 'kvm-arm64/doublefault2' into kvmarm/next
+> > >       Merge tag 'irqchip-gic-v5-host' into kvmarm/next
+> > >       Merge branch 'kvm-arm64/gcie-legacy' into kvmarm/next
+> > >       Merge branch 'kvm-arm64/misc' into kvmarm/next
+> > >       Merge branch 'kvm-arm64/config-masks' into kvmarm/next
+> > >       Merge branch 'kvm-arm64/el2-reg-visibility' into kvmarm/next
+> > >       Merge branch 'kvm-arm64/vgic-v4-ctl' into kvmarm/next
+> > >       KVM: arm64: selftests: Add FEAT_RAS EL2 registers to get-reg-li=
+st
+> > >
+> > > Raghavendra Rao Ananta (2):
+> > >       KVM: arm64: vgic-v3: Allow userspace to write GICD_TYPER2.nASSG=
+Icap
+> > >       KVM: arm64: selftests: Add test for nASSGIcap attribute
+> > >
+> > > Sascha Bischoff (5):
+> > >       irqchip/gic-v5: Skip deactivate for forwarded PPI interrupts
+> > >       irqchip/gic-v5: Populate struct gic_kvm_info
+> > >       arm64/sysreg: Add ICH_VCTLR_EL2
+> > >       KVM: arm64: gic-v5: Support GICv3 compat
+> > >       KVM: arm64: gic-v5: Probe for GICv5
+> > >
+> > >  Documentation/arch/arm64/booting.rst               |   41 +
+> > >  .../interrupt-controller/arm,gic-v5-iwb.yaml       |   78 ++
+> > >  .../bindings/interrupt-controller/arm,gic-v5.yaml  |  267 +++++
+> > >  Documentation/virt/kvm/api.rst                     |   13 +-
+> > >  Documentation/virt/kvm/devices/arm-vgic-v3.rst     |   80 +-
+> > >  MAINTAINERS                                        |   10 +
+> > >  arch/arm64/Kconfig                                 |    1 +
+> > >  arch/arm64/include/asm/barrier.h                   |    3 +
+> > >  arch/arm64/include/asm/el2_setup.h                 |   45 +
+> > >  arch/arm64/include/asm/kvm_emulate.h               |   51 +-
+> > >  arch/arm64/include/asm/kvm_host.h                  |   36 +-
+> > >  arch/arm64/include/asm/kvm_mmu.h                   |   18 +
+> > >  arch/arm64/include/asm/kvm_nested.h                |    2 +
+> > >  arch/arm64/include/asm/smp.h                       |   24 +-
+> > >  arch/arm64/include/asm/sysreg.h                    |   71 +-
+> > >  arch/arm64/include/asm/vncr_mapping.h              |    2 +
+> > >  arch/arm64/kernel/cpufeature.c                     |   26 +-
+> > >  arch/arm64/kernel/smp.c                            |  142 ++-
+> > >  arch/arm64/kvm/Makefile                            |    3 +-
+> > >  arch/arm64/kvm/arch_timer.c                        |    2 +-
+> > >  arch/arm64/kvm/arm.c                               |   16 +-
+> > >  arch/arm64/kvm/at.c                                |   80 +-
+> > >  arch/arm64/kvm/config.c                            |  255 +++-
+> > >  arch/arm64/kvm/emulate-nested.c                    |   49 +-
+> > >  arch/arm64/kvm/guest.c                             |   62 +-
+> > >  arch/arm64/kvm/handle_exit.c                       |   24 +-
+> > >  arch/arm64/kvm/hyp/exception.c                     |   16 +-
+> > >  arch/arm64/kvm/hyp/include/hyp/switch.h            |   53 +-
+> > >  arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h         |   49 +-
+> > >  arch/arm64/kvm/hyp/vgic-v3-sr.c                    |   53 +-
+> > >  arch/arm64/kvm/hyp/vhe/switch.c                    |   14 +-
+> > >  arch/arm64/kvm/hyp/vhe/sysreg-sr.c                 |    6 +
+> > >  arch/arm64/kvm/inject_fault.c                      |  235 ++--
+> > >  arch/arm64/kvm/mmio.c                              |   12 +-
+> > >  arch/arm64/kvm/mmu.c                               |  105 +-
+> > >  arch/arm64/kvm/nested.c                            |  109 +-
+> > >  arch/arm64/kvm/sys_regs.c                          |  207 +++-
+> > >  arch/arm64/kvm/sys_regs.h                          |    2 +-
+> > >  arch/arm64/kvm/trace_handle_exit.h                 |    2 +-
+> > >  arch/arm64/kvm/vgic-sys-reg-v3.c                   |  127 +-
+> > >  arch/arm64/kvm/vgic/vgic-init.c                    |   30 +-
+> > >  arch/arm64/kvm/vgic/vgic-its.c                     |    3 +
+> > >  arch/arm64/kvm/vgic/vgic-kvm-device.c              |   70 +-
+> > >  arch/arm64/kvm/vgic/vgic-mmio-v3.c                 |   33 +-
+> > >  arch/arm64/kvm/vgic/vgic-v3-nested.c               |    2 +-
+> > >  arch/arm64/kvm/vgic/vgic-v4.c                      |    4 +-
+> > >  arch/arm64/kvm/vgic/vgic-v5.c                      |   52 +
+> > >  arch/arm64/kvm/vgic/vgic.c                         |    4 +-
+> > >  arch/arm64/kvm/vgic/vgic.h                         |   48 +
+> > >  arch/arm64/tools/cpucaps                           |    4 +-
+> > >  arch/arm64/tools/sysreg                            |  514 +++++++-
+> > >  drivers/irqchip/Kconfig                            |   12 +
+> > >  drivers/irqchip/Makefile                           |    5 +-
+> > >  drivers/irqchip/irq-gic-common.h                   |    2 -
+> > >  ...3-its-msi-parent.c =3D> irq-gic-its-msi-parent.c} |  168 ++-
+> > >  drivers/irqchip/irq-gic-its-msi-parent.h           |   12 +
+> > >  drivers/irqchip/irq-gic-v3-its.c                   |    1 +
+> > >  drivers/irqchip/irq-gic-v5-irs.c                   |  822 ++++++++++=
++++
+> > >  drivers/irqchip/irq-gic-v5-its.c                   | 1228 ++++++++++=
+++++++++++
+> > >  drivers/irqchip/irq-gic-v5-iwb.c                   |  284 +++++
+> > >  drivers/irqchip/irq-gic-v5.c                       | 1137 ++++++++++=
+++++++++
+> > >  drivers/irqchip/irq-gic.c                          |    2 +-
+> > >  drivers/irqchip/irq-msi-lib.c                      |    5 +-
+> > >  drivers/of/irq.c                                   |   22 +-
+> > >  drivers/pci/msi/irqdomain.c                        |   20 +
+> > >  include/asm-generic/msi.h                          |    1 +
+> > >  include/kvm/arm_vgic.h                             |    9 +-
+> > >  include/linux/irqchip/arm-gic-v5.h                 |  394 +++++++
+> > >  include/linux/irqchip/arm-vgic-info.h              |    4 +
+> > >  include/linux/irqdomain.h                          |    3 +
+> > >  include/linux/msi.h                                |    1 +
+> > >  include/linux/of_irq.h                             |    5 +
+> > >  include/uapi/linux/kvm.h                           |    1 +
+> > >  tools/testing/selftests/kvm/Makefile.kvm           |    2 +-
+> > >  .../testing/selftests/kvm/arm64/external_aborts.c  |  330 ++++++
+> > >  tools/testing/selftests/kvm/arm64/get-reg-list.c   |  203 +++-
+> > >  tools/testing/selftests/kvm/arm64/mmio_abort.c     |  159 ---
+> > >  tools/testing/selftests/kvm/arm64/set_id_regs.c    |   14 +-
+> > >  tools/testing/selftests/kvm/arm64/vgic_init.c      |  259 ++++-
+> > >  .../selftests/kvm/include/arm64/processor.h        |   10 +
+> > >  80 files changed, 7589 insertions(+), 681 deletions(-)
+> > >  create mode 100644 Documentation/devicetree/bindings/interrupt-contr=
+oller/arm,gic-v5-iwb.yaml
+> > >  create mode 100644 Documentation/devicetree/bindings/interrupt-contr=
+oller/arm,gic-v5.yaml
+> > >  create mode 100644 arch/arm64/kvm/vgic/vgic-v5.c
+> > >  rename drivers/irqchip/{irq-gic-v3-its-msi-parent.c =3D> irq-gic-its=
+-msi-parent.c} (59%)
+> > >  create mode 100644 drivers/irqchip/irq-gic-its-msi-parent.h
+> > >  create mode 100644 drivers/irqchip/irq-gic-v5-irs.c
+> > >  create mode 100644 drivers/irqchip/irq-gic-v5-its.c
+> > >  create mode 100644 drivers/irqchip/irq-gic-v5-iwb.c
+> > >  create mode 100644 drivers/irqchip/irq-gic-v5.c
+> > >  create mode 100644 include/linux/irqchip/arm-gic-v5.h
+> > >  create mode 100644 tools/testing/selftests/kvm/arm64/external_aborts=
+.c
+> > >  delete mode 100644 tools/testing/selftests/kvm/arm64/mmio_abort.c
+> > >
+> >
+>
 
---kD2euniIewJpEG2U
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaIkIsQAKCRB4tDGHoIJi
-0pwmAQDF9XgoLzRZN2+HymZe6A7A4abQRqFlzcGxlUnimpt8xQD7BQ2lbwb8Iw7n
-KyWPgmI4hfaZEK9QDBPIsnCbJOyAaQk=
-=qcBV
------END PGP SIGNATURE-----
-
---kD2euniIewJpEG2U--
 
