@@ -4,61 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E84EC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 18:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D225C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 18:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40dRevb3+VbSqC7PTRUcFwY+Be9Qk1uzZ2DAmm4HBNw=; b=YYQo7Bc4jO8WgOfaFvqUbVdv8p
-	fHvk2viEl88JZt1/aulx5a1KoQ4K576deN4VugTRNfRb347sdxmT/O5guZMBYfe1+AcEQxbtjy+/5
-	Xd9K5RCnSq+3Tud8dDrEEPl24f5QDfVFrRHoUmHkT2543oA5L+fc4e6MA5CEVuOo/ssFC+He/rQUj
-	nvFAtLiHZUueboeSkBGNSAtQD78GIf2w7fhTiv31wA66R5Ec4vUgFNuysJM1cIAWm04K+ubvY80dp
-	UU6aMt6oETdh4RW2Eo0JeYICuSnD8f/pkUfWP1ERrlILkdO2NVtnDyqwFeMOrtYtmPi6Fm7SWPYwh
-	0wED/VvQ==;
+	bh=ZwP3dr7YyDibVHyf7li9AJtXWtRFZLZZCBSKzcLCyxA=; b=AW/OWHSLJhlzeOvsQwSis4ZSPH
+	kNhVF9ZbIaTEqWwcPSmTSaR/w/yIn5C2dOHSUvgPURO8dFdQzhYg4m77K6h+1m3z2SB2bLEeHzw1P
+	VBKxO7OirKXvxDNM7RcMaK5+BPxFA6C6cd2EnSBTXXftYWRF2lx2Jrwi3DFOc4qBeZL21WYU0o2Si
+	pW+/8iQcsvUuNAVByP+0ZT5pNeIvWs9P0Q2GLzERRbK2VSXktR4GRVARSFjI9Hy09ggffiMKypqDn
+	cmpCn8fjjKkdiLPmhqnf8knBgucJmpySrxhTjMSDZ9zlSymrk7kz0Y4XzV3wu5Ht4/bzwpHM+ymyV
+	bKHDMnvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugohm-0000000HPsg-15gq;
-	Tue, 29 Jul 2025 18:05:38 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1ugoqL-0000000HQSZ-1vMZ;
+	Tue, 29 Jul 2025 18:14:29 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugofH-0000000HPj6-1yFO
+	id 1ugont-0000000HQIq-1fbY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 18:03:06 +0000
-Date: Tue, 29 Jul 2025 11:02:51 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1753812179;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=40dRevb3+VbSqC7PTRUcFwY+Be9Qk1uzZ2DAmm4HBNw=;
-	b=GmGwuBcwRjVOq4k7VEaTkmwB4av+swJA7Ghf530CDjC3cjGYHKELbUrsUe5cNnN0x2nl8u
-	crfORW5dyCulim6P3KozhWBhcHoTKE7BsYNr7i2eGyjitZ6rDF2Lw5vnNxVZxxelul6ht+
-	VdArZIn5ZLyadHML5z3tqLhb03CgPcU=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Raghavendra Rao Ananta <rananta@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Set/unset vGIC v4 forwarding if direct IRQs
- are supported
-Message-ID: <aIkMy7YPbcf0jvHq@linux.dev>
-References: <20250728223710.129440-1-rananta@google.com>
- <aIjcmquPNOdE5l4K@linux.dev>
- <CAJHc60xPKgVn96azWhP1NbfKioEZj68APQPf=zKRMuHB7-goqA@mail.gmail.com>
+	Tue, 29 Jul 2025 18:11:58 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-af66d49daffso372590266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 11:11:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1753812715; x=1754417515; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZwP3dr7YyDibVHyf7li9AJtXWtRFZLZZCBSKzcLCyxA=;
+        b=gHhLpfEoj7np/RjiqI6n9+8kUKNUXepXxn85BZ1ibYKIwsJ0NOYIuLK0G8LVpLQ4Yj
+         JU9lCS2DZkhcT3O6RqtFnpcs02wVhmHFD9Qu9+FF4Q3/4DumcmrHKJKa+FYGRzorjbAF
+         tKq9RXzAaQcUM5xj68/8PpaKY76A4FfGWN8OI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753812715; x=1754417515;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZwP3dr7YyDibVHyf7li9AJtXWtRFZLZZCBSKzcLCyxA=;
+        b=SMomvggbHFaaPk1K8usoGMXd/a0JHLV4eDEtPrHePKgjnPPIbbBKMaO1DiTfMgjNIV
+         l4ArjFwEqpNXivicf6hG17m0nk0Q+SoC1dsvvTgAfeCV32cd3tld+g2GNA16iJxedfpC
+         snQbNfcr2loVMspEixrzf64h7/HersipbN8k4URh5iBf9xEz6YtI5gexP6TRiRNVCbXl
+         3p1q6hg452emaMrhFGai1ByVYKT4RebwRV4ohJ2idLqSQu/e7XDQVCjVe7YM9CpoQKWK
+         5y/y0KaCbIIMl7unGghbDQcleHApDh1GEw+QQga94FV5WdULk1AVwsu6v6R86KWB58Nq
+         jEpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUs25W4Epty7zwzi5MM/NQ2qGQTUsS9n73ZzpY0/vFEGSV6P7tJWQf9GoCrALaNbuKnc+K85jiIl/MBCoxs8ftq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2ynolc164yqmjWC01T5qEvqxg50nLKfhjcx0hKUp5KUwk8ng/
+	jxRIkxa/RIv8HNDmq00gJiq8tTd+EOGnhA+PNBPFLztxLKgMB/yXN4Ptuy4oAJIoVqbybaHNqjp
+	2qSpxsd0=
+X-Gm-Gg: ASbGncstAinHWtX2yMM7aT5uxxlW7fRDFDmUfDJNWTgkXFStC9X22LUEd7Cd3JjqnRZ
+	VmH6bf7xA/uZZ5oWZInDwci032rNA7Vvi6Q8DmY+ZodW35sxrJcBD28nD9iipIOHHkEL9K7SwqU
+	TDV7QGnQSZLoNIA+V8vMgO28Au6VmZDenZljm6WFdOCOvh+F4SMhUu8gZoFlJq1pKuQfeE4Jd0o
+	6GFMi8DGxHnBvXkZ+YeJb8H59vCLaAK17EjaG+TrYAX236AClYzD34JZ98rSphrSTWla/zAp3CA
+	Ce5gTfz3EctNu9x1wVZbqGmazzJhaEbBj9DDYPoWXDeGaA20DuhzTsO04C0KAuWbfvmO6+UulYV
+	mOhXkz0/ps5cC0CHwuahE2vrkSAaHiL1Bpx790rymaP1hkxl8o4K4VZOU0Csnlt06OXWtMruh
+X-Google-Smtp-Source: AGHT+IFuiP9V3nJeeLc+XPTiqTPeiy9ux/1YGOd4ODScMHtTGpKSdUOanY5hhsJC/rJd9wujMJXvIQ==
+X-Received: by 2002:a17:907:d649:b0:ae6:e1ba:30a with SMTP id a640c23a62f3a-af8fda1235dmr51058166b.54.1753812714950;
+        Tue, 29 Jul 2025 11:11:54 -0700 (PDT)
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af8f62b27a1sm51436566b.54.2025.07.29.11.11.54
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Jul 2025 11:11:54 -0700 (PDT)
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-61571192c3aso1317586a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 11:11:54 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUo2kYQToQuFiIUxjgftdCZFwZ/T+SwZ3z1bXOfh8nJTXxebmRQPsfAxVFoW4nB30J59xqXEQAZOe4cmIq5FIG8@lists.infradead.org
+X-Received: by 2002:a05:6402:278d:b0:615:399e:d3ba with SMTP id
+ 4fb4d7f45d1cf-615872038b7mr479533a12.32.1753812713808; Tue, 29 Jul 2025
+ 11:11:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJHc60xPKgVn96azWhP1NbfKioEZj68APQPf=zKRMuHB7-goqA@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+References: <564b7ace-bb5f-430e-a7f1-9f6a41305e10@app.fastmail.com> <cc7b0bd2-53be-4981-bef2-44903b64dd6a@app.fastmail.com>
+In-Reply-To: <cc7b0bd2-53be-4981-bef2-44903b64dd6a@app.fastmail.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 29 Jul 2025 11:11:37 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wi4JiEFZ1ofX5Df5mvhYS4Ob0_JpHGd2VxNzDypWknqXg@mail.gmail.com>
+X-Gm-Features: Ac12FXz1Qxn4crxv1oBy3yf37kVc7TYxrFXCgROlz1H2zNpBoR4Q1XkLw2GtmWA
+Message-ID: <CAHk-=wi4JiEFZ1ofX5Df5mvhYS4Ob0_JpHGd2VxNzDypWknqXg@mail.gmail.com>
+Subject: Re: [GIT PULL 1/5] soc: dt changes for 6.17
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-kernel@vger.kernel.org, soc@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_110303_720262_F5B65C2E 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20250729_111157_459726_5D60800F 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,87 +104,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 09:56:12AM -0700, Raghavendra Rao Ananta wrote:
-> On Tue, Jul 29, 2025 at 7:37 AM Oliver Upton <oliver.upton@linux.dev> wrote:
-> >
-> > Hi Raghu,
-> >
-> > Thanks for reporting this so quickly :)
-> >
-> > On Mon, Jul 28, 2025 at 10:37:10PM +0000, Raghavendra Rao Ananta wrote:
-> > > diff --git a/arch/arm64/kvm/vgic/vgic-v4.c b/arch/arm64/kvm/vgic/vgic-v4.c
-> > > index e7e284d47a77..873a190bcff7 100644
-> > > --- a/arch/arm64/kvm/vgic/vgic-v4.c
-> > > +++ b/arch/arm64/kvm/vgic/vgic-v4.c
-> > > @@ -433,7 +433,7 @@ int kvm_vgic_v4_set_forwarding(struct kvm *kvm, int virq,
-> > >       unsigned long flags;
-> > >       int ret = 0;
-> > >
-> > > -     if (!vgic_supports_direct_msis(kvm))
-> > > +     if (!vgic_supports_direct_irqs(kvm))
-> > >               return 0;
-> > >
-> > >       /*
-> > > @@ -533,7 +533,7 @@ int kvm_vgic_v4_unset_forwarding(struct kvm *kvm, int host_irq)
-> > >       unsigned long flags;
-> > >       int ret = 0;
-> > >
-> > > -     if (!vgic_supports_direct_msis(kvm))
-> > > +     if (!vgic_supports_direct_irqs(kvm))
-> > >               return 0;
-> >
-> > I'm not sure this is what we want, since a precondition of actually
-> > doing vLPI injection is the guest having an ITS. Could you try the
-> > following?
-> >
-> > Thanks,
-> > Oliver
-> >
-> > diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> > index a3ef185209e9..70d50c77e5dc 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> > @@ -50,6 +50,14 @@ bool vgic_has_its(struct kvm *kvm)
-> >
-> >  bool vgic_supports_direct_msis(struct kvm *kvm)
-> >  {
-> > +       /*
-> > +        * Deliberately conflate vLPI and vSGI support on GICv4.1 hardware,
-> > +        * indirectly allowing userspace to control whether or not vPEs are
-> > +        * allocated for the VM.
-> > +        */
-> > +       if (system_supports_direct_sgis() && !vgic_supports_direct_sgis(kvm))
-> > +               return false;
-> > +
-> >         return kvm_vgic_global_state.has_gicv4 && vgic_has_its(kvm);
-> >  }
-> >
-> > diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-> > index 1384a04c0784..de1c1d3261c3 100644
-> > --- a/arch/arm64/kvm/vgic/vgic.h
-> > +++ b/arch/arm64/kvm/vgic/vgic.h
-> > @@ -396,15 +396,7 @@ bool vgic_supports_direct_sgis(struct kvm *kvm);
-> >
-> >  static inline bool vgic_supports_direct_irqs(struct kvm *kvm)
-> >  {
-> > -       /*
-> > -        * Deliberately conflate vLPI and vSGI support on GICv4.1 hardware,
-> > -        * indirectly allowing userspace to control whether or not vPEs are
-> > -        * allocated for the VM.
-> > -        */
-> > -       if (system_supports_direct_sgis())
-> > -               return vgic_supports_direct_sgis(kvm);
-> > -
-> > -       return vgic_supports_direct_msis(kvm);
-> > +       return vgic_supports_direct_msis(kvm) || vgic_supports_direct_sgis(kvm);
-> >  }
-> >
-> >  int vgic_v4_init(struct kvm *kvm);
-> 
-> Yes, the diff seems fine (tested as well). Would you be pushing a v2
-> or do you want me to (on your behalf)?
+On Sat, 26 Jul 2025 at 03:28, Arnd Bergmann <arnd@arndb.de> wrote:
+>
+>   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.17
 
-Go ahead and respin this diff, thanks!
+So this caused a trivial conflict with some of the usb additions (in
+the freescale s32g2 and s32g3 dt files) I just pulled in through the
+usb tree commit d1b07cc0868f ("arm64: dts: s32g: Add USB device tree
+information for s32g2/s32g3")
 
-Oliver
+The conflicts are trivial, but I thought I'd mention them just because
+they put the DT info out of order wrt the addresses things are mapped
+at, and in one case also had some odd whitespace.
+
+I did *not* change either of those in the merge, so the oddities
+remain. But I thought I'd mention them in case somebody cares and
+wants to fix things up.
+
+                Linus
 
