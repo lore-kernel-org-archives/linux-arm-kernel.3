@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD71C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 09:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0F1C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 09:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EnMb3u0yE1PVpSG6moOkuibstHkmR15sFhEujDouJvM=; b=m7O17un31wLHDMFtlUkPp682Rn
-	/FDBPayir53DYULY6c05PeF0H/vR3IRqYQjV8OYoTAmlarnn4oFs5dhk4cQOiVO4gD59V+ND/p5Tw
-	Ag+ZGy5VlpSq65NwaHS7pLeHXvdw8P6CxHZBIqeAA5C0A6wIecsNavgBVZ6gyEiOhCbcSmSqDHyG/
-	Zu3XFjDqvmvvVFIpxIvfgU44aElNLUvRv8s5kEKzhvVOXkU8E+ev0aR63O5dAegocYF0paXt4FPTQ
-	qjZh6qWSG2Lp+S9KehAQffaXryaAl1PcRU/TrdK+yCqE5kLJmtPrDg3P6zxKoh1lLb/ptfCb41Vc5
-	PMXwgqCg==;
+	bh=Ih2qmbw0kIlUrbc6K54EF8TQLIe280fNI5rV3oonE98=; b=0zf643CHmrcdmPd82A/zNEYgyG
+	6BVAbEQeiUIJiWc+wVdwFhj0x1L4lHBkq3NPOe0qtu+9blNWyUixDz/Wrq48kML6/FIarXDuSgN5Q
+	993gCBzZZnfCCM8Eu0bFokurUz3SCWkx1pGsBxwikz/MaovrmkHuqEaLUv2Fm9jWpQVnhi17eVXRy
+	sb43jeOf1+/voNM1cuT2q8IUr2T02WHVar3qTn5fOVfgaZ1R2O9/rKeXzRWWbIVEiwU0YTuwiBZ+h
+	9AB0AY63EHK1G/55ToSFBCq3hbmaNidZQ5k9vWeYSnpft2xaHSF8VSjBfE2iAO9pmUPCIU1pBfp7h
+	WSCQ1J4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggXI-0000000GNku-3ZqK;
-	Tue, 29 Jul 2025 09:22:16 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uggZk-0000000GOCJ-2gLf;
+	Tue, 29 Jul 2025 09:24:48 +0000
+Received: from mail-ed1-f46.google.com ([209.85.208.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uggJY-0000000GLAX-1BJX
+	id 1uggLz-0000000GLal-2P5a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 09:08:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753780084; x=1785316084;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=u5UpzlLxjeFXPtPFg0oC+Cw7TMJczCQeJysGpqVrRZ0=;
-  b=PAr+El4SWbIJqI684k0roZWuVi/eWf77mB8ac16LOIWvuVuY9NnT3aJM
-   Tx57hTsUNV/N0GOulJM1AtZD7m5tY3wgDOxdiRJFU6jhiu0SjaefWMFrp
-   yiIhpHlulCc3HuwLtwmaNFr+zqkwGrl9mmbL0zGsuZGL/sJYbruA/B8kC
-   IjdnHhQ18H5yNhDrW5VNlSo0DR1581AU6qOfY6hhZ3LEi4vnN1zyL2Uap
-   e+YUR5VWWqc5c/QNqUrPZHU3HU6mNm3O9jJ4jnU5zrth7080a9bzkDsq4
-   j+4r+YVlz0TmxElgo3xJO02TCNyhHz/01MBb6PZuAS12PphJuQdvsrn+n
-   g==;
-X-CSE-ConnectionGUID: rnJawQ0nT9W2JSYrETYB6w==
-X-CSE-MsgGUID: I+dk3bOtTy21ZaDEGhoW+g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11505"; a="55980638"
-X-IronPort-AV: E=Sophos;i="6.16,348,1744095600"; 
-   d="scan'208";a="55980638"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2025 02:08:02 -0700
-X-CSE-ConnectionGUID: UaZkfoxbTzCUs4LYJLaVgw==
-X-CSE-MsgGUID: fbz7WF3LRPeOZWk5gKRMuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,348,1744095600"; 
-   d="scan'208";a="162360902"
-Received: from lkp-server01.sh.intel.com (HELO 160750d4a34c) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 29 Jul 2025 02:07:59 -0700
-Received: from kbuild by 160750d4a34c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uggJP-00018v-1v;
-	Tue, 29 Jul 2025 09:07:55 +0000
-Date: Tue, 29 Jul 2025 17:07:11 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sean Anderson <sean.anderson@linux.dev>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Tue, 29 Jul 2025 09:10:37 +0000
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-607ec30df2bso10172990a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 02:10:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753780233; x=1754385033;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ih2qmbw0kIlUrbc6K54EF8TQLIe280fNI5rV3oonE98=;
+        b=cgTizAzbgZhy2aTFKFkqKQsriYPhYoka5qiB9/Y/QlU2Gi/JKg1iaT36qMqV9EQgNA
+         0AcDkwBHqTv94iKQXGCw5ZfTJ5w78m8WxUx9oPQ0aCaUoFI6YH4C7CgxG3VQ5fdAXKBc
+         ciqzeUSGWEl9oFwcoBGu7z4R82QSTB/hDrNGI7BMPm2ieXxf2x2UK8ruy+b8jAnEqo5B
+         vBTFMgw9KULLSlN9ZkU3u4QnYsiPnYzCF8THVi9M6Mgx2vWa6DFil/KYOELuQKpeErL8
+         nwTL8TrmDJqho4wp9pVhj8CCb9lfQCKBE4UjR8U3RF0VQdaknosAoFEv9Tq2u0eeZ6hN
+         7SXg==
+X-Forwarded-Encrypted: i=1; AJvYcCX4ppsvei5LKh5uQxpI56kXezqsEUcRLgazmUan3HvSRoBW6Qu8/tOonHt7R2utZymBaWy7abG65g2Mu2n9PHaA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7gLZNA0YiEJhRs16pjUz9aKgsK3n/jN3B1nhkEv7qp/64cXyj
+	sb3wffGC6Mv1Mi0RvcenewVV9a5l6bQUfcblpgzOFMt4EbC3ro7BfCrQ
+X-Gm-Gg: ASbGncvl6d0iLVMdyg4Y5+C2oMA4Vbi8BtpRuWY+EvTJ9PwSXCfLqLCSFlPfb9x+kSX
+	RDZqPpheRCQVIoSMWlgQ0OjRLxXxMh0wLEEbK6TFxuba1w95/e3ZiJHyWC79o2hL3bl0tPV/JBz
+	SQBTvwBDFwa3DCRLuORANaXb0Qk9hDz/X5htupR+qx3Vnikws59HfHGJLN68N35VeQvngjRDhx4
+	wdPgnTg44WaLZLWhMwm2menhp1vdwKIBRMXX/LZjIiGFM40lZdCcnMmFM+piXheUE6la/74LxnJ
+	iChszkNl4ivuDfwXoIoPvO7i7FPztYJJiKfAGJ/etCifciSkBbkr6cHdePA5YjjH6uF8quB/0es
+	WrH0y7bIkb9JgJGGmv8AoH+hO
+X-Google-Smtp-Source: AGHT+IGl6n+ifSL/KMMTqTxzwuB1z4pRgpR79rQhN5RUlYpPobdpUuW/5vOu1d899LsLXtkRT0+q+Q==
+X-Received: by 2002:a05:6402:27c6:b0:607:f63b:aa31 with SMTP id 4fb4d7f45d1cf-614f1d19bc4mr14119485a12.6.1753780233258;
+        Tue, 29 Jul 2025 02:10:33 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:72::])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615285de7casm3178237a12.46.2025.07.29.02.10.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Jul 2025 02:10:32 -0700 (PDT)
+Date: Tue, 29 Jul 2025 02:10:30 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Jason Wang <jasowang@redhat.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>, 
+	Will Deacon <will@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>, eperezma@redhat.com, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, Stefan Hajnoczi <stefanha@redhat.com>, 
 	netdev@vger.kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <monstr@monstr.eu>,
-	linux-arm-kernel@lists.infradead.org,
-	Leon Romanovsky <leon@kernel.org>,
-	Sean Anderson <sean.anderson@linux.dev>
-Subject: Re: [PATCH net-next v3 3/7] net: axienet: Use MDIO bus device in
- prints
-Message-ID: <202507291640.Zr1m8oli-lkp@intel.com>
-References: <20250728221823.11968-4-sean.anderson@linux.dev>
+Subject: Re: vhost: linux-next: crash at vhost_dev_cleanup()
+Message-ID: <ppjmgrtdfepjqvrnqo6xuuxipgu2s6edfboy3ymoe4h7cxr3qw@qtjxjnd7ocfr>
+References: <vosten2rykookljp6u6qc4hqhsqb6uhdy2iuhpl54plbq2tkr4@kphfpgst3e7c>
+ <20250724034659-mutt-send-email-mst@kernel.org>
+ <CAGxU2F76ueKm3H30vXL+jxMVsiQBuRkDN9NRfVU8VeTXzTVAWg@mail.gmail.com>
+ <20250724042100-mutt-send-email-mst@kernel.org>
+ <aIHydjBEnmkTt-P-@willie-the-truck>
+ <fv6uhq6lcgjwrdp7fcxmokczjmavbc37ikrqz7zpd7puvrbsml@zkt2lidjrqm6>
+ <CAGxU2F5Qy=vMD0z9_HTN2K9wyt+6EH-Yr0N9VqR4OT4O1asqZg@mail.gmail.com>
+ <bvjomrplpsjklglped5pmwttzmljigasdafjiizt2sfmytc5rr@ljpu455kx52j>
+ <CACGkMEt0ZBtcAUgc1RBU7Gd3JGvC-eszEOexee-kx7TgoiMGtA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250728221823.11968-4-sean.anderson@linux.dev>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACGkMEt0ZBtcAUgc1RBU7Gd3JGvC-eszEOexee-kx7TgoiMGtA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_020804_332730_091BA753 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20250729_021035_616196_A65187F9 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +97,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+Hello Jason,
 
-kernel test robot noticed the following build warnings:
+On Tue, Jul 29, 2025 at 03:44:49PM +0800, Jason Wang wrote:
+> On Thu, Jul 24, 2025 at 9:50 PM Breno Leitao <leitao@debian.org> wrote:
+> > > The initial report contained only vhost_vsock traces IIUC, so I'm
+> > > suspecting something in the vhost core.
+> >
+> > Right, it seems we are hitting the same code path, on on both
+> > vhost_vsock and vhost_net.
+> >
+> 
+> I've posted a fix here:
+> 
+> https://lore.kernel.org/virtualization/20250729073916.80647-1-jasowang@redhat.com/T/#u
+> 
+> I think it should address this issue.
 
-[auto build test WARNING on net-next/main]
+yes, it does. I've tested the fix on my machine and I was not able to
+reproduce the error at all.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sean-Anderson/net-axienet-Fix-resource-release-ordering/20250729-062108
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250728221823.11968-4-sean.anderson%40linux.dev
-patch subject: [PATCH net-next v3 3/7] net: axienet: Use MDIO bus device in prints
-config: arm-randconfig-002-20250729 (https://download.01.org/0day-ci/archive/20250729/202507291640.Zr1m8oli-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250729/202507291640.Zr1m8oli-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507291640.Zr1m8oli-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> Warning: drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c:172 function parameter 'bus' not described in 'axienet_mdio_enable'
->> Warning: drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c:172 Excess function parameter 'lp' description in 'axienet_mdio_enable'
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks for the fix,
+--breno
 
