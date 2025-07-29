@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EEFC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 03:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28C4C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 03:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VaH78BxSqInc7YWoloFx3Urvp7YqnyUZb3BPxUwn1CQ=; b=GH6B5MlEGwcx6eyrjqmfZWqHJK
-	ufF2zd2uVNit8D+D0gzSgz7FwiQN3HmgZUi8RLUC1VhZCOgS3HmLSG3LZ7yW/oL1DSKI+QVBXbQeg
-	xWNH8Yk1HHbyD+7f7PTr+vJB6GYn7uNEkPmRlv6ydQNssdpoH2jJE0XkgxlaXxXXBlcctulDMYMHk
-	Og9/+g9HsYSRysRvMYcpI0lsdZTD37HZ6Vp5O2qAzK5vnPRMVTDFfRaJJXNvIzxG9iaBkWH+Modwf
-	CtYsFPkCi3sQU4MVXHNcwHIpbl3edLYxsxricXTQxoiETsQzAGTbIdvI4vCR0QxfgvZWH1vfD3EEU
-	H4UEEKEQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QeyQgL4zAM9urQ/V2LLVC5jrotO1A696xW4MrH9cKZw=; b=KottQ/mLCcD8WMIEZ16huX7Gh9
+	tbmt3JWtB+9sY/gFFdP71zleoSOkYq4EVDEMDaaL/xyYTWz2yJiAJmheMUKy9vHiApWYMguhF4+bQ
+	DzCZf1+Yc+tT3eeMSlyvjW0GY9dsH9IJ0TtJ/gTMxop0bkoZ84fHSogZfz+lFRulmmpZcytJ+rJ2k
+	VGfDrSV8XGV3BcGFRJ+IScwUQ6kTdt48d/0l1EZVM9li4mbqRqPhxzyr4Ad6yg4paP8JalHsOSW7Q
+	OXcuf09aza5vG+KvsLGvazy55Cqpdd7QjXnRh+zQU5k/SjsxSyFGg4MF+u3GcO+0nmyh9FmwK6SAD
+	Yye/gfeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugbPd-0000000Fri1-27wm;
-	Tue, 29 Jul 2025 03:54:01 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1ugbTu-0000000Fs1s-1na3;
+	Tue, 29 Jul 2025 03:58:26 +0000
+Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugbNA-0000000Frb4-3AJe;
-	Tue, 29 Jul 2025 03:51:29 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2403c13cac3so4780435ad.0;
-        Mon, 28 Jul 2025 20:51:28 -0700 (PDT)
+	id 1ugbRQ-0000000Frvh-2jiC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Jul 2025 03:55:53 +0000
+Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-88bbcf89e71so352136241.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 20:55:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753761087; x=1754365887; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=VaH78BxSqInc7YWoloFx3Urvp7YqnyUZb3BPxUwn1CQ=;
-        b=RdnSpMfUarR2gx0MyP27u+YUnfM3PkNyS2FP55twLyN5NdOxfRO6Ic138Oju3qhzdj
-         td64XNGr9Zmnr45Ait5d817E5MuK8OpNG9XSUZBd3/dbHxOUTj8LUiV0Seo4qFliiW9N
-         hQifzYsDr+Q4zfzDipOQ09K2TMNV+FehSrAKSwxBuMrRng1jWRUIv9pOECEZHAN5dx5k
-         G5SDy7czfFDqPF86tQCNYwZI3XcBmKrsa47PERMwJ04qtjsMSCv0sJDH1wuXexiOdx2Q
-         jK+VeOUnshgIGnAXYjN1+7Z0Nst7oZ1clggVrVQQ8JxAQhqnmSfcH4fS1QFT7w097/1l
-         uKMw==
+        d=gmail.com; s=20230601; t=1753761351; x=1754366151; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QeyQgL4zAM9urQ/V2LLVC5jrotO1A696xW4MrH9cKZw=;
+        b=NyRDqBVd4k8hKh2jlLcpNc2YPm5B+nmF1B+xEuxQMt5pucw3mHCujpD2z8TJmhvi+k
+         yy31NGBEXDnWDtD/3xPEWeh5WtvSwj8uOOVSVVeotQ5MJXRPrmyp3jGTevkJg9Z+Kxma
+         xgdH/8Ub2UgES8XyKznPubhhrP/RYARRuYpfJJzSLGTrmC+rvltMdByR/0xzEqKY831Q
+         4JYU9viC8+jAVbZUr/wWAXSlWKhpjjo5teeNrwk/9P2motV1SqjANnmgJzq5yGQZuyWT
+         HZagTngUmGXWGQ+g0m5U07Er33C8Ln4mbDV59LoNj10p8AffbJvvuLUimwMbKhClQW+P
+         sXxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753761087; x=1754365887;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VaH78BxSqInc7YWoloFx3Urvp7YqnyUZb3BPxUwn1CQ=;
-        b=VbatyEoWWBuq/xdhHGwN8WeO9p6VuCJYEiNCi3EuH5vI2OgU/fsJ1XngfnQaZnZEd5
-         6Qu7L+qII80m+Z+8EyJsgYQVvWkhdRnrZg79Ubb95HPpdSRPkeykkzMaV7kxvv39XR9N
-         uzGBqJhpSrACdFGRlZfy1vGGu9o6AdLQKWhn31kUJOQubTtaJA2kM+ijSV84AUX90CiT
-         g5grWENiSZrg/SVbFfszW8MdTjV8MpZdq7MG7pqh4oT09RgCfcDEtk3E3Lf6D/rLgcaH
-         MA+N9APCsqhI65UL6Ulvw5f2AwX0VG7laKXLvMwwRkkOrTQmrX998lYGAinbQhrIer8n
-         HB8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVVTJE+5pbxOFbNqf3lE2o0hSfR2bC4q9ECyVSmBVEgK7oLZEuFXoy28E3P4S/g6iahfGCyEnucGW3oPgqOPBs=@lists.infradead.org, AJvYcCWoZjJjdHVatBQdTh65p6j/9maObu9BzGLtX7ra2r1JVGF3K0PVFZU6BZD5hazdq1/cGxLSmm1zxhnbDMhdz2V7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5TGQ3xc7uA628nCadWeaw4CIfNZZjh7rLU9FDhFQ7UduRbgNQ
-	9oKlROd4RBEDPPdhLz2gvS13NebCiZ2jDnL3ueCmzR+K2jSMGSyXSso0
-X-Gm-Gg: ASbGnct7exYh0JgIcZx5ynOjSgmjpd7tPmFhBmrr4BBaWIeDrSjWQMKT9lFHCrczaC0
-	M1HwNSn4F/bXTXMOUDXsuruLT1N0O8676lhHR6MfUENDASilT5TiURBKtemR4QJM8TslZWuD5EO
-	56C+o3ZFsl9U1UDgshAQqS47OSUFLhrMiwtr/mVD4njiA1lsBpFVI0pTQLYIesObPysDU8+W1jv
-	eGHP3kz/+tMHtyvO5rRYMuxoQWVG22HAWvPQOjD7XenPr0lK6BP/LGY4vhjFeO7hv/Ku8ru6iHO
-	lag0h7dAqOHfqi63crb6+YYuff4IYlHU4/g138UU76fstumPakrHRJQ1tzY5gHTbFUAK/yLBYJe
-	TOjb8Wub4KhNk7+pZde6gmO5qTzkfxG8s4XWEJgEoDGMXemwGhBc5fA==
-X-Google-Smtp-Source: AGHT+IELJXUiKm6KGXwaWiJUOPXk0c1EvlpOE0FOhZcoN6Z2MeI+X6ZgSi+Gg/tOSGKg3s7RZBPU3A==
-X-Received: by 2002:a17:902:e84e:b0:23f:9718:85f5 with SMTP id d9443c01a7336-24063d62911mr24916295ad.15.1753761087280;
-        Mon, 28 Jul 2025 20:51:27 -0700 (PDT)
-Received: from CQSWSUNAO.transsion.com ([107.155.12.245])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24025f5a3cesm34549145ad.72.2025.07.28.20.51.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Jul 2025 20:51:26 -0700 (PDT)
-From: Ao Sun <aosun718@gmail.com>
-To: wim@linux-watchdog.org,
-	linux@roeck-us.net,
-	matthias.bgg@gmail.com,
-	p.zabel@pengutronix.de
-Cc: linux-watchdog@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	geng.sun@transsion.com,
-	Ao Sun <aosun718@gmail.com>
-Subject: [PATCH] watchdog: mtk_wdt: Use NOIRQ_SYSTEM_SLEEP_PM_OPS()
-Date: Tue, 29 Jul 2025 11:51:17 +0800
-Message-Id: <20250729035117.3170-1-aosun718@gmail.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1753761351; x=1754366151;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QeyQgL4zAM9urQ/V2LLVC5jrotO1A696xW4MrH9cKZw=;
+        b=UJ4R9xJNGZDFyguR+XkUSJpv1ghYrpBl8PoEkv+sX9eHViDjuvxZ9HZ+u9HyOYTj6q
+         vHpZZwOhs2z2QUH/D1RhqfWMZTvMEz3c07QceZ0dyzRR/06kA4h5twAQqoSN7S0lHKXD
+         TfPA0NRs9EtEe4jRLvyGnoe8lzzP3iG1eCvsbZX1LKqgW27SJYOP7jMzoklJDXe6Hyrr
+         wf76D2944ZS48ZE6giPfdWx2Jy14V9JLACkocGLbdBbCiknvlMBtmnQOg0eku14w3L1/
+         K6OzYcXMxI8W9Vbr3JVjqpQ11d+rI/UbVWjPdpf77puyGDcOy2S21F1inv0KZzaJK4RJ
+         ZVnA==
+X-Forwarded-Encrypted: i=1; AJvYcCUuxtTw8MaKvW6bYCuvjh+C8BSntJD4ThiiQhyO2kkcluXizmSeGd3ELKcLCTdYBzVeSr/BqUldG1i7DMDSXcFF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+RxUZLShAr2BVzCQ3+zV5CVenDP+yquLo3RFLRUvcu2ol1fgZ
+	fQukTg7CknU5K40e7f0rXwHmvpgUQigv9mTaNfaqINnZOC7CBho0YfmuhMoqPhNo2nG4JVTj8jT
+	SSwbuV0h3TwlwEjEhq+FfVrd+BZdAFKk=
+X-Gm-Gg: ASbGncvwzUMUQ0i6rTPtF3SMnlWvQfpJGdqtrZFRd5Yv5koYihffQzrudXyte/12u4r
+	q5l01oeG6wEiuwnH+lweUt3AuGypC9/MZdu7A4TjIUZL8QDf7Vv7BWecpq61ioyw0dPFMKNWAvk
+	txLs0Fe1p/6n1KLJTWfR1iTaEECgdPOI+pLKUMCrgXms0X/ufMwEiIrRGILwcxo6xJcXFvnjCx4
+	to2mQ==
+X-Google-Smtp-Source: AGHT+IG2mKzTaoyQhIzvXEq6IUJ/Cn1eY9r2poRKFBunLtB0fjLDRJGBG8ErMCT2vRGzzaUM0D1HViC2dX+iwTNt2js=
+X-Received: by 2002:a05:6102:6885:b0:4e9:b793:1977 with SMTP id
+ ada2fe7eead31-4fa3f6f2a22mr6292838137.0.1753761351455; Mon, 28 Jul 2025
+ 20:55:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250706-exynos7870-dsim-v3-0-9879fb9a644d@disroot.org> <20250706-exynos7870-dsim-v3-3-9879fb9a644d@disroot.org>
+In-Reply-To: <20250706-exynos7870-dsim-v3-3-9879fb9a644d@disroot.org>
+From: Inki Dae <daeinki@gmail.com>
+Date: Tue, 29 Jul 2025 12:55:09 +0900
+X-Gm-Features: Ac12FXwWbP8lV4QH9kqWdIB3oIAGkUWrt4c9ZYSOynqYZlW4YQIBN8DquJzuVJI
+Message-ID: <CAAQKjZPNh=r5xf7X_R58VhuKz61vVGO83Oe9KsA1m_nJ1OuMLA@mail.gmail.com>
+Subject: Re: [PATCH v3 03/13] drm/bridge: samsung-dsim: add flag to control
+ header FIFO wait
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_205128_831935_5FF12482 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250728_205552_754222_E035B123 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +106,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During the device resume process, an interrupt storm occurs after
-interrupts are enabled, preventing the watchdog device from being
-awakened and functioning.
+2025=EB=85=84 7=EC=9B=94 7=EC=9D=BC (=EC=9B=94) =EC=98=A4=EC=A0=84 3:26, Ka=
+ustabh Chakraborty <kauschluss@disroot.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=
+=84=B1:
+>
+> Exynos7870's DSIM device doesn't require waiting for the header FIFO
+> during a MIPI DSI transfer. Add a flag in the driver data in order to
+> control said behavior.
 
-To ensure that the watchdog is executed before interrupts are enabled,
-Use NOIRQ_SYSTEM_SLEEP_PM_OPS().
+I will merge this patch as-is and just sharing the following comments
+purely for reference (for other Exynos DRM contributors).
 
-Signed-off-by: Ao Sun <aosun718@gmail.com>
----
- drivers/watchdog/mtk_wdt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This patch likely needs follow-up improvements in conjunction with
+Marek=E2=80=99s earlier patch (commit-id:
+15f389da11257b806da75a070cfa41ca0cc15aae). I=E2=80=99m unable to verify thi=
+s
+at the moment because the SoC Technical Reference Manual (TRM)
+documentation I have is incomplete.
 
-diff --git a/drivers/watchdog/mtk_wdt.c b/drivers/watchdog/mtk_wdt.c
-index d6a6393f609d..5f2179dabd67 100644
---- a/drivers/watchdog/mtk_wdt.c
-+++ b/drivers/watchdog/mtk_wdt.c
-@@ -327,7 +327,7 @@ static const struct of_device_id mtk_wdt_dt_ids[] = {
- MODULE_DEVICE_TABLE(of, mtk_wdt_dt_ids);
- 
- static const struct dev_pm_ops mtk_wdt_pm_ops = {
--	SET_SYSTEM_SLEEP_PM_OPS(mtk_wdt_suspend,
-+	 SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_wdt_suspend,
- 				mtk_wdt_resume)
- };
- 
--- 
-2.34.1
+Based on these two patches, we should plan for future code
+improvements that account for two scenarios:
 
+- The header FIFO must be waited for.
+- The header FIFO does not need to be waited for.
+
+Currently, this is handled via driver data using the
+has_broken_fifoctrl_emptyhdr and wait_for_hdr_fifo flags. If the
+handling of this behavior changes in newer Exynos SoCs, this approach
+may become confusing or lead to inconsistencies.
+
+Thanks,
+Inki Dae
+
+>
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  drivers/gpu/drm/bridge/samsung-dsim.c | 15 ++++++++++++---
+>  include/drm/bridge/samsung-dsim.h     |  1 +
+>  2 files changed, 13 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/brid=
+ge/samsung-dsim.c
+> index dca3939dd99fa07aee309067b93e652bc9a9b78f..84af24171b6856cbcf95b9077=
+b997ee587fc0409 100644
+> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+> @@ -418,6 +418,7 @@ static const struct samsung_dsim_driver_data exynos3_=
+dsi_driver_data =3D {
+>         .has_clklane_stop =3D 1,
+>         .num_clks =3D 2,
+>         .max_freq =3D 1000,
+> +       .wait_for_hdr_fifo =3D 1,
+>         .wait_for_reset =3D 1,
+>         .num_bits_resol =3D 11,
+>         .pll_p_offset =3D 13,
+> @@ -438,6 +439,7 @@ static const struct samsung_dsim_driver_data exynos4_=
+dsi_driver_data =3D {
+>         .has_clklane_stop =3D 1,
+>         .num_clks =3D 2,
+>         .max_freq =3D 1000,
+> +       .wait_for_hdr_fifo =3D 1,
+>         .wait_for_reset =3D 1,
+>         .num_bits_resol =3D 11,
+>         .pll_p_offset =3D 13,
+> @@ -456,6 +458,7 @@ static const struct samsung_dsim_driver_data exynos5_=
+dsi_driver_data =3D {
+>         .has_legacy_status_reg =3D 1,
+>         .num_clks =3D 2,
+>         .max_freq =3D 1000,
+> +       .wait_for_hdr_fifo =3D 1,
+>         .wait_for_reset =3D 1,
+>         .num_bits_resol =3D 11,
+>         .pll_p_offset =3D 13,
+> @@ -474,6 +477,7 @@ static const struct samsung_dsim_driver_data exynos54=
+33_dsi_driver_data =3D {
+>         .has_clklane_stop =3D 1,
+>         .num_clks =3D 5,
+>         .max_freq =3D 1500,
+> +       .wait_for_hdr_fifo =3D 1,
+>         .wait_for_reset =3D 0,
+>         .num_bits_resol =3D 12,
+>         .pll_p_offset =3D 13,
+> @@ -492,6 +496,7 @@ static const struct samsung_dsim_driver_data exynos54=
+22_dsi_driver_data =3D {
+>         .has_clklane_stop =3D 1,
+>         .num_clks =3D 2,
+>         .max_freq =3D 1500,
+> +       .wait_for_hdr_fifo =3D 1,
+>         .wait_for_reset =3D 1,
+>         .num_bits_resol =3D 12,
+>         .pll_p_offset =3D 13,
+> @@ -510,6 +515,7 @@ static const struct samsung_dsim_driver_data imx8mm_d=
+si_driver_data =3D {
+>         .has_clklane_stop =3D 1,
+>         .num_clks =3D 2,
+>         .max_freq =3D 2100,
+> +       .wait_for_hdr_fifo =3D 1,
+>         .wait_for_reset =3D 0,
+>         .num_bits_resol =3D 12,
+>         /*
+> @@ -1117,6 +1123,7 @@ static void samsung_dsim_send_to_fifo(struct samsun=
+g_dsim *dsi,
+>  {
+>         struct device *dev =3D dsi->dev;
+>         struct mipi_dsi_packet *pkt =3D &xfer->packet;
+> +       const struct samsung_dsim_driver_data *driver_data =3D dsi->drive=
+r_data;
+>         const u8 *payload =3D pkt->payload + xfer->tx_done;
+>         u16 length =3D pkt->payload_length - xfer->tx_done;
+>         bool first =3D !xfer->tx_done;
+> @@ -1157,9 +1164,11 @@ static void samsung_dsim_send_to_fifo(struct samsu=
+ng_dsim *dsi,
+>                 return;
+>
+>         reg =3D get_unaligned_le32(pkt->header);
+> -       if (samsung_dsim_wait_for_hdr_fifo(dsi)) {
+> -               dev_err(dev, "waiting for header FIFO timed out\n");
+> -               return;
+> +       if (driver_data->wait_for_hdr_fifo) {
+> +               if (samsung_dsim_wait_for_hdr_fifo(dsi)) {
+> +                       dev_err(dev, "waiting for header FIFO timed out\n=
+");
+> +                       return;
+> +               }
+>         }
+>
+>         if (NEQV(xfer->flags & MIPI_DSI_MSG_USE_LPM,
+> diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsu=
+ng-dsim.h
+> index f0c1e5c5ed490afe0bcfd06830f52471710b29ea..62c07952bd00f9c2c287a6a99=
+8f0e243dd4032a9 100644
+> --- a/include/drm/bridge/samsung-dsim.h
+> +++ b/include/drm/bridge/samsung-dsim.h
+> @@ -61,6 +61,7 @@ struct samsung_dsim_driver_data {
+>         unsigned int num_clks;
+>         unsigned int min_freq;
+>         unsigned int max_freq;
+> +       unsigned int wait_for_hdr_fifo;
+>         unsigned int wait_for_reset;
+>         unsigned int num_bits_resol;
+>         unsigned int pll_p_offset;
+>
+> --
+> 2.49.0
+>
+>
 
