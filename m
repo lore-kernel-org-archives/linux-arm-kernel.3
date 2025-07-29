@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A7FC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 04:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2376C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 05:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BnwACJJOau8zEGOwnOjbwJEg1c7xl7eU8ZYtstWld9w=; b=EgiFDy4RDpNpz9PNBUl+ybt27S
-	jU5S9fwq1G2z9CMAz3gmqrdeJeNot/6p+YS80h5+FdnRUlueNMsthZdxuMavvZz8r1zynCcwudiqX
-	JRczmqSaZoUD2KRy2V7a32humTsrKt7OoaU6wo+F4GydqViupYE3kYjlH9HynBz3AZZEfJw5GBlFk
-	MdcHgVrPtdd31G2ThgxDp3nSH6wwMtAMbvOpVzfnLZGbnZilojraxG9lKArEk3dY8lMCcPyTeWSS+
-	gmmetcVZlD3epO6Ea7GbcSfAhCceYzER7eb2U6eW4gt9HD2L5DD1FwuC9I6Wjp/ys0h+qCz4OgaSS
-	35tVljnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KViA9cK2jd0mcOlnHsktz8HBcxRyMOa5DH/RlB6yhTc=; b=UMP2exOxtFVvu+LAUkftzMkSqO
+	h2fwVSS4ILRSHuGHza7f4E5KfnFplzp4FMyIViWm37motD3Fe/Oa8mGXpRlGol0r9IqiBHXJioS0l
+	wrD1qo51dFuO4tR4wK3hL38mGTI/zS4h5urQim4RC9fENbJaMIbaURhzFXpTxFVvr8OQCxso9vD5b
+	hUgiVkRX32qIJgoUeeVIiIARPQ6RtqGbuuveWpmH5REL5CNjEgiXBoDizFrJLkl0Fb+p1JJvfyH3W
+	xvKmW/4wXaYUGlhMnZZHF5m0P07WzUZN5pxfWmYSwZseUlIdJY8uNLp0a4IWb4QD9H0k+xt6dM+Jj
+	puOMSdRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugbzr-0000000Fu6Z-2P5K;
-	Tue, 29 Jul 2025 04:31:27 +0000
-Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
+	id 1ugdBH-0000000FydT-43uX;
+	Tue, 29 Jul 2025 05:47:19 +0000
+Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugbxM-0000000Ftto-3cqr
+	id 1ugd8p-0000000FyIT-20ZI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 04:28:54 +0000
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SFhCWZ030143;
-	Mon, 28 Jul 2025 21:28:42 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=BnwACJJOau8zEGOwnOjbwJEg1
-	c7xl7eU8ZYtstWld9w=; b=XtvsoC2ePFX+VsJkYyp347dAhcuvsczcvqsrg2EHi
-	BH7DtcMJIIsYu0BoSuobJcJJ4LvBFVQwPrfjkA6bT9Iglv0/UYhPi8sKRBvmOxWX
-	iQa8qST2Zb0HY4BNc9xxa97MnWJP0dhPEajAWUXcRJb3lsLkMfqVnXXwvye/vr5U
-	ADucap42I0Jy2Jhc5O8m7OGXTn0jMrduQZ09Lny35/M0f9AHKaHy5JAZF9kXhOty
-	KwUBgSxwKyCpyXTUrxBXWSUzokyRH1Uf/l/kuq/ZssfXFIdwnk6POlE+ARjrabWu
-	7wFdhMjSM+RbFN3TkORWc0mAus7NKo6VnqZyrh5lttzHg==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 486c3ghc64-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Jul 2025 21:28:42 -0700 (PDT)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Mon, 28 Jul 2025 21:28:43 -0700
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Mon, 28 Jul 2025 21:28:43 -0700
-Received: from opensource (unknown [10.29.20.14])
-	by maili.marvell.com (Postfix) with SMTP id 2E1E73F7059;
-	Mon, 28 Jul 2025 21:28:36 -0700 (PDT)
-Date: Tue, 29 Jul 2025 04:28:35 +0000
-From: Subbaraya Sundeep <sbhatta@marvell.com>
-To: Sean Anderson <sean.anderson@linux.dev>
-CC: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        "David S . Miller" <davem@davemloft.net>,
-        Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        Michal Simek <michal.simek@amd.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH net-next v3 2/7] net: axienet: Use ioread32/iowrite32
- directly
-Message-ID: <aIhN85EwjsUaSHXk@opensource>
-References: <20250728221823.11968-1-sean.anderson@linux.dev>
- <20250728221823.11968-3-sean.anderson@linux.dev>
+	Tue, 29 Jul 2025 05:44:48 +0000
+Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-4e80d19c7ebso3449878137.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 22:44:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753767886; x=1754372686; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KViA9cK2jd0mcOlnHsktz8HBcxRyMOa5DH/RlB6yhTc=;
+        b=MTVPYv/eUQD6Xv+okLrALCkSMZysS87NNwWNC0/EEYQBisZsQgpdw7kW/G1hDzxGbn
+         vlqqu8NBaEEvJ6tdWWiNwR1TnY9WYyQFWjZzfMDacMhXSw1824Yl5a1po3+dUanhCvNY
+         Q3Je5xz57fcWVsJPVsfbQV7nauMcQunRtdOWieSh2LB4n3AFvzPP38ZlYCB+BWrXKuRo
+         nyuFy7QTRS87LDj7sQ5LQJTQMQcWCk4kMKzOKcpBnNEgTJR0BpFeSpSfk70cvlbuUDrS
+         Y96BIRyCJYIby/LGWvY2f8en8VQuyUvF+EIrTFMrsgoaReIAEpzs+g5q1FlpDtxjSKbd
+         W1Kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753767886; x=1754372686;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KViA9cK2jd0mcOlnHsktz8HBcxRyMOa5DH/RlB6yhTc=;
+        b=SdmZvIV9fbshfRzBfWnYD+wQAC1NoN5imRT1QqFPAHww0e0YTNuHP787INg7+Uy6xs
+         pidQ1zfibfPiX0Gj/pWIVOAX+APctwxVbwAp2rcuh51+nfp676U1uq98wjspXOKUtr0d
+         RYN+oJ9+JxhP9xavwrV02pM+D1iWp77XFTvPAObFIJaGbn0jS/tOfgupgAjM35+sKsXL
+         eWVLXiJF9knwVWjWirnpRPIP0oeoi0JGimvBUU5sIVXHRE20FdKjtIUqYG4t2WMk4+Ov
+         zkq8lHnkArEbaBycrakCAp0NFQrlJneM+oiKpaCLw+QF7gwm+nivCpZPFpKbINSLMIOf
+         wIbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXAoI7LU7fUknBSznaDAwz2OxEE4V9VsVw0L6EpbEeiiUAb5hxg/yritYiCAkCrIdFnqZsMa6gE5XPKqSyZIVKO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRLLJY9j4EOz4/KFuzb3+cAZZ/HIYB7l3hfAlduMpvPpM182lY
+	2umlYBAnL/EKypihoS9CrnO897wuT2xMKVVAyUb93iIwU8jbJqIW1lexbSc5jOTEh90zouyQu7W
+	6aNC2xOgx2ECgK86EjivXIw6bFibh69o=
+X-Gm-Gg: ASbGncueiSPyIhL6Z4DgCGmmTHLnvipkv6bC9zxjBhy/l233qQgRk6ai2YTbIifDZt/
+	F1GREXmFHhs7NgkBCnoAerVO+eWTXEjlo8x9oCPsAGjdVKh3TiAfbIEq+lPpCWSgcwv62882aRN
+	JELXYdY89imfRQA9O9wRN45WMbilGhMtMQ9i6LlppDAslpOom39j4Sw7NCY+d3HLFl8VWEQP3NQ
+	oMlPA==
+X-Google-Smtp-Source: AGHT+IEsVgJXjoaJJQ1V37M9wx7CFXObKZWA/ky7jPfEPGlwsIppSymEDnwGfyFMHa/pUSY45t6bV5SHcp/btowCI3c=
+X-Received: by 2002:a05:6102:648f:10b0:4fb:142:1ff5 with SMTP id
+ ada2fe7eead31-4fb01422464mr654319137.26.1753767885910; Mon, 28 Jul 2025
+ 22:44:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250728221823.11968-3-sean.anderson@linux.dev>
-X-Authority-Analysis: v=2.4 cv=LeQ86ifi c=1 sm=1 tr=0 ts=68884dfa cx=c_pps a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17 a=kj9zAlcOel0A:10 a=Wb1JkmetP80A:10 a=6D5sPuq1OPGPnUfxrF0A:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: _lq8buJsV1pfHjq5xISGmqTlGS0i4lCC
-X-Proofpoint-GUID: _lq8buJsV1pfHjq5xISGmqTlGS0i4lCC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI5MDAzMCBTYWx0ZWRfX0D4CaGosaavh uPvtTn7jgKdVxdX1pfmmyiq2ZNzexlI2Fq/8Smb+nUpgIvErqPt8ETLg+4go41cKlovDt2q5PHC D70Ou6Wopbf8lPwXaGc7e+oDAUX5SCaWL9QDvo5mvXKHOIXxRUtc2eIldamW8IYPLNiSpUssikJ
- Q/0juF8rVuY5/kLstK5NryUbaXV1s0YCQ9Pd75VeIgNpNyYWz8k7MpU4FQffUW6a6KBbwI3oMC8 bpfJEQaZFVnW2qw2DQseizaUzcQv+1n14Wj8f12AKYmgqE2pyCfrR70C5UyWJKT/+mvBif1BqtD lblcMkZ7DirTDg7tPSHi5f44ktG5Mv0Ymn78NwCid6x/j9eEVaDTajLUjJxeDIsyf6LoU+qFJsW
- qbLUuX7syEbGUmj+gLHGe5RVAwS8lOv+sNdgnAg5laL+0MCoqncDobihOkqBjBAttc799wjp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-29_01,2025-07-28_01,2025-03-28_01
+References: <20250706-exynos7870-dsim-v3-0-9879fb9a644d@disroot.org> <20250706-exynos7870-dsim-v3-9-9879fb9a644d@disroot.org>
+In-Reply-To: <20250706-exynos7870-dsim-v3-9-9879fb9a644d@disroot.org>
+From: Inki Dae <daeinki@gmail.com>
+Date: Tue, 29 Jul 2025 14:44:03 +0900
+X-Gm-Features: Ac12FXzAP3fREaTsrBTi2grtepIb_8yjQOzO6O2L5XoQ97YnHsqpGgIB0mEB7O0
+Message-ID: <CAAQKjZMLMbwDVZRb5+Xb_5yz3AEP4uuzFJMuuZy9NFDu13VU5w@mail.gmail.com>
+Subject: Re: [PATCH v3 09/13] drm/bridge: samsung-dsim: increase timeout value
+ for PLL_STABLE
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Jagan Teki <jagan@amarulasolutions.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_212853_021661_0177A0C3 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20250728_224447_518329_EAF2EB0A 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,125 +106,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 2025-07-28 at 22:18:18, Sean Anderson (sean.anderson@linux.dev) wrote:
-> In preparation for splitting the MDIO bus into a separate driver,
-> convert all register reads/writes to use ioread32/iowrite32 directly
-> instead of using the axienet_ior/iow helpers. While we're at it, clean
-> up the register calculations a bit.
-> 
-> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+2025=EB=85=84 7=EC=9B=94 7=EC=9D=BC (=EC=9B=94) =EC=98=A4=EC=A0=84 3:28, Ka=
+ustabh Chakraborty <kauschluss@disroot.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=
+=84=B1:
+>
+> Exynos7870's DSIM requires more time to stabilize its PLL. The current
+> timeout value, 1000, doesn't suffice. Increase the value to 3000, which
+> is just about enough as observed experimentally.
+>
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 > ---
-> 
-> Changes in v3:
-> - New
-> 
->  .../net/ethernet/xilinx/xilinx_axienet_mdio.c | 43 +++++++++----------
->  1 file changed, 20 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c b/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-> index 9ca2643c921e..16f3581390dd 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-> @@ -32,7 +32,7 @@ static int axienet_mdio_wait_until_ready(struct axienet_local *lp)
->  {
->  	u32 val;
->  
-> -	return readx_poll_timeout(axinet_ior_read_mcr, lp,
-> +	return readx_poll_timeout(ioread32, lp->regs + XAE_MDIO_MCR_OFFSET,
->  				  val, val & XAE_MDIO_MCR_READY_MASK,
->  				  1, 20000);
->  }
-> @@ -45,8 +45,8 @@ static int axienet_mdio_wait_until_ready(struct axienet_local *lp)
->   */
->  static void axienet_mdio_mdc_enable(struct axienet_local *lp)
->  {
-> -	axienet_iow(lp, XAE_MDIO_MC_OFFSET,
-> -		    ((u32)lp->mii_clk_div | XAE_MDIO_MC_MDIOEN_MASK));
-> +	iowrite32((u32)lp->mii_clk_div | XAE_MDIO_MC_MDIOEN_MASK,
-> +		  lp->regs + XAE_MDIO_MC_OFFSET);
->  }
->  
->  /**
-> @@ -59,9 +59,9 @@ static void axienet_mdio_mdc_disable(struct axienet_local *lp)
->  {
->  	u32 mc_reg;
->  
-> -	mc_reg = axienet_ior(lp, XAE_MDIO_MC_OFFSET);
-> -	axienet_iow(lp, XAE_MDIO_MC_OFFSET,
-> -		    (mc_reg & ~XAE_MDIO_MC_MDIOEN_MASK));
-> +	mc_reg = ioread32(lp->regs + XAE_MDIO_MC_OFFSET);
-> +	iowrite32(mc_reg & ~XAE_MDIO_MC_MDIOEN_MASK,
-> +		  lp->regs + XAE_MDIO_MC_OFFSET);
->  }
->  
->  /**
-> @@ -90,13 +90,11 @@ static int axienet_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  		return ret;
->  	}
->  
-> -	axienet_iow(lp, XAE_MDIO_MCR_OFFSET,
-> -		    (((phy_id << XAE_MDIO_MCR_PHYAD_SHIFT) &
-> -		      XAE_MDIO_MCR_PHYAD_MASK) |
-> -		     ((reg << XAE_MDIO_MCR_REGAD_SHIFT) &
-> -		      XAE_MDIO_MCR_REGAD_MASK) |
-> -		     XAE_MDIO_MCR_INITIATE_MASK |
-> -		     XAE_MDIO_MCR_OP_READ_MASK));
-> +	rc = FIELD_PREP(XAE_MDIO_MCR_PHYAD_MASK, phy_id) |
-> +	     FIELD_PREP(XAE_MDIO_MCR_REGAD_MASK, reg) |
-> +	     XAE_MDIO_MCR_INITIATE_MASK |
-> +	     XAE_MDIO_MCR_OP_READ_MASK;
-> +	iowrite32(rc, lp->regs + XAE_MDIO_MCR_OFFSET);
-nit: remove XAE_MDIO_MCR_REGAD_SHIFT macros in header file too in this patch.
+>  drivers/gpu/drm/bridge/samsung-dsim.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/brid=
+ge/samsung-dsim.c
+> index fb2cb09cfd5a4f2fb50f802dc434c0956107b4e9..4b49707730db76aa8fd3ab973=
+b02507436750889 100644
+> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
+> @@ -755,7 +755,7 @@ static unsigned long samsung_dsim_set_pll(struct sams=
+ung_dsim *dsi,
+>
+>         samsung_dsim_write(dsi, DSIM_PLLCTRL_REG, reg);
+>
+> -       timeout =3D 1000;
+> +       timeout =3D 3000;
+
+Relying on an implicit loop to wait for PLL stabilization is not an
+ideal solution.
+According to the datasheet, this can be addressed more explicitly by
+using the DSIM_PLLTMR (PLL timer) register instead.
+
+By configuring the pll timer field in DSIM_PLLTMR appropriately, we
+can avoid arbitrary loops.
+For example according to data sheet:
+If the APB clock is 80 MHz and the desired delay is 20 =C2=B5s,
+the pll timer field should be set to:
+delay_time * apb_clock =3D 20 * 80 =3D 1600 (0x3E80)
+
+Once this value is set and the MskPllStable field in the DSIM_INTMSK
+register is unmasked,
+the pll_stable field in the DSIM_INTSRC register will be set after the
+specified delay (20 =C2=B5s in this example).
+We can then check this field to determine whether the PLL has stabilized.
+
+While the current patch relies on an implicit method, I=E2=80=99m fine with
+merging it as-is for now.
+However, since this patch series likely has sufficient time to
+mainline, I believe this is a good opportunity to improve the related
+logic.
+
+Would you be open to trying the approach described above?
 
 Thanks,
-Sundeep
->  
->  	ret = axienet_mdio_wait_until_ready(lp);
->  	if (ret < 0) {
-> @@ -104,7 +102,7 @@ static int axienet_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  		return ret;
->  	}
->  
-> -	rc = axienet_ior(lp, XAE_MDIO_MRD_OFFSET) & 0x0000FFFF;
-> +	rc = ioread32(lp->regs + XAE_MDIO_MRD_OFFSET) & 0x0000FFFF;
->  
->  	dev_dbg(lp->dev, "axienet_mdio_read(phy_id=%i, reg=%x) == %x\n",
->  		phy_id, reg, rc);
-> @@ -129,8 +127,9 @@ static int axienet_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  static int axienet_mdio_write(struct mii_bus *bus, int phy_id, int reg,
->  			      u16 val)
->  {
-> -	int ret;
->  	struct axienet_local *lp = bus->priv;
-> +	int ret;
-> +	u32 mcr;
->  
->  	dev_dbg(lp->dev, "axienet_mdio_write(phy_id=%i, reg=%x, val=%x)\n",
->  		phy_id, reg, val);
-> @@ -143,14 +142,12 @@ static int axienet_mdio_write(struct mii_bus *bus, int phy_id, int reg,
->  		return ret;
->  	}
->  
-> -	axienet_iow(lp, XAE_MDIO_MWD_OFFSET, (u32)val);
-> -	axienet_iow(lp, XAE_MDIO_MCR_OFFSET,
-> -		    (((phy_id << XAE_MDIO_MCR_PHYAD_SHIFT) &
-> -		      XAE_MDIO_MCR_PHYAD_MASK) |
-> -		     ((reg << XAE_MDIO_MCR_REGAD_SHIFT) &
-> -		      XAE_MDIO_MCR_REGAD_MASK) |
-> -		     XAE_MDIO_MCR_INITIATE_MASK |
-> -		     XAE_MDIO_MCR_OP_WRITE_MASK));
-> +	iowrite32(val, lp->regs + XAE_MDIO_MWD_OFFSET);
-> +	mcr = FIELD_PREP(XAE_MDIO_MCR_PHYAD_MASK, phy_id) |
-> +	      FIELD_PREP(XAE_MDIO_MCR_REGAD_MASK, reg) |
-> +	      XAE_MDIO_MCR_INITIATE_MASK |
-> +	      XAE_MDIO_MCR_OP_WRITE_MASK;
-> +	iowrite32(mcr, lp->regs + XAE_MDIO_MCR_OFFSET);
->  
->  	ret = axienet_mdio_wait_until_ready(lp);
->  	if (ret < 0) {
-> -- 
-> 2.35.1.1320.gc452695387.dirty
-> 
+Inki Dae
+
+>         do {
+>                 if (timeout-- =3D=3D 0) {
+>                         dev_err(dsi->dev, "PLL failed to stabilize\n");
+>
+> --
+> 2.49.0
+>
+>
 
