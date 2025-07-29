@@ -4,152 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5406C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 03:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 746EAC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 03:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KxXIkqbzjBGr5vRnRk2sdhKE3MD5Ak/KadxWElxQAI=; b=pHMICGxgAJ8Q4RkrujkbK0pU92
-	Oro/4NDQKVpp89UvaJor1i2ZefYoQKrAGnNpwHtWJaHW0Z+ZMUvCMZKTu54Rz179MOcewv4fLBs0u
-	4RjvVbCXnvuECR6nT0oWhluJc+cOVk1SaRP2YBE/wBRszKpgdereq80UUgomtwU1IeI0Q5xCsNNI/
-	5Bx0jUYZNMlk3B+uIAZx2BU7m1EYFpwDcBwPQq4VfD/1RwKKO/c61dPsiM9rKp+JI5mG+yWjFRAUX
-	2TIpZhPVpRdDMDjn3U/cdPnSdhwFXVmP3FtS6T4R2lDXPRfG1GEl+/wU44D8Xsw1BNN8B40COreur
-	flXj759w==;
+	bh=P30xMObD+4ZJRdzp8lAIExQtJvi4EAiA8x/rld+Y1H0=; b=F3JEkqAMm7ck0VUSn5YA320kyK
+	fST5xxQXX08JdVeCnwTxb94SW0NYPxXYqethZuZDWHeM1se4CKkI6zQuBXdMA4gspYl9DarZZRHqr
+	9XhtgaENbu0cxEpt8pH+eVH+Bk2FQRAUSWNGkR3qQgEh7FwNuMZ/uAewEkxoFvD4Cokjvk66GOTNP
+	1jEnxupm20UVD/pFEZq1sNSBG7au5KOu/o93YCFaaZ/ObhZMweX+gnnAjfF08ko8V7yE6rYwxrQey
+	H68Oq3ki47RiZoPFLPlIlvBg65evNl6/o7bZKF7z5hOgb/7Qq0IABWDiW/5f4b+UF1witWHjKW5xj
+	95NSkRdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugasd-0000000FplX-3C5P;
-	Tue, 29 Jul 2025 03:19:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ugav4-0000000Fpwm-3wBc;
+	Tue, 29 Jul 2025 03:22:26 +0000
+Received: from mail-m15566.qiye.163.com ([101.71.155.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uganz-0000000FpPD-1LRM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 03:15:08 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56SMGkAS012528
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 03:15:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+KxXIkqbzjBGr5vRnRk2sdhKE3MD5Ak/KadxWElxQAI=; b=dPz6W0iBPnAWNh0X
-	289xMEPISgZerETop/Q3bva5xdQODTGleBgzGdpB5Y8lIbHh2UbKy4SXYbHCNUfu
-	OWXPP3T5OVTuE63q8qsloEyDTydSteFO+nNgYrrdhhwLPTldHk5Kdt5tqzklrQWp
-	eou+l1tj1tk3qRfr6lX9we7eftZx8q4SOhRVds+anP4NzNBJhRTldCAvBxMie3Qj
-	JFh8ZP89+w/3fHqH306nfecyr2elObnqcPuqtfBtQhTneBsRxQI5yJsBLM0tx60J
-	3Zx8uDPSQK0nXktZVMsAfWPaTFhYjLoNDLM/u3wN01DdDkBUDUnyCCWTtEJNCwX1
-	KLECBA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484qd9xjnk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Jul 2025 03:15:04 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-23fed1492f6so32779925ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Jul 2025 20:15:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753758904; x=1754363704;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+KxXIkqbzjBGr5vRnRk2sdhKE3MD5Ak/KadxWElxQAI=;
-        b=TRx7XNIHftrLzp11XvWM47MDFUZl9Un0lCy/C2tCtMmgS8XZS4yBLJbtCsWwo8FTbB
-         Uuz/Za/8GuSayxLuGjqh4OcXjiIfB7s6p+ti9WJxBQNTITRg0R57OHuXqw7s48zCcfSX
-         HXPrcHtsmzAGEMnqDT+H9tCHsmvP9CvA28mtaSDbtVniIWPsb3acxDXCStQvUX89LxOR
-         f1yTBHIvmhovbL4BWPamdv53xMoN94nK3TkBiDP69szgHenYL2/wgFM6G1Ag8sgoZJPW
-         M2cGLox03nmU4Naxc5wfdgyLWkab+JFOUG+LzL0zM0ev19NRQ08lZAOJzKmgoI+c2rBi
-         YrgA==
-X-Forwarded-Encrypted: i=1; AJvYcCWfXMoPEP54SfhSuivWq8keZQO7nG52erCLEu8066b1JLG/J6iUCQwwDys/O+jCWrXn8JZEFSWrpUWDMweC/bDn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsSxCRvUn/OPADI5L6wq9CAEZOGQJl1uyWZKtgmeBIckjCFRvV
-	RTU6uiNKbnPw2QfzxHXJFvhGJGRn/zk3vyvYnUc5KDEZ0nJ9D/OguUFpjiDaxOgj2icw7jqG0Hl
-	UmttsJ43ei9XChtIhAPEJKlFNGZSJGgRK2dYCLKGApa0iBM40UGRM65K9EYVLGtAcBELphmYus7
-	JUnA==
-X-Gm-Gg: ASbGncsENj2jl/gUjqXQQu7c4YU98yWz8pLNxCbRntfEtHzvBmT/U1X8bZAR00/8xd3
-	elg6Rox4F+11VCS4we/xiHQdHlhBJPiOUyzZF7zbQ+XG5nZPiY5igQWW5zE0fFE6pHI4jbta4wb
-	4eoDP/Fe3mrwpiTtVHIpn9nF6FthSuLM9Pi5TFDluhP7wzJDktfTledX/M6cdtEn3bMlyrfbaWJ
-	UsQ9GuXbiCo69ldRfmwZO/F1Ya26MceggEvo9NR3q4da5rbsmbCPiABtS5jyK8J7H2c7rgLxdWF
-	Z6YrdscuhMRK3556F+zQlZyJpKA8pXbOQshogEdeJ3weg2gQrB94n91KGidvl3992HMhaq9cPF1
-	3sA==
-X-Received: by 2002:a17:903:b50:b0:240:1831:eeeb with SMTP id d9443c01a7336-2401831f1f9mr77116935ad.40.1753758903591;
-        Mon, 28 Jul 2025 20:15:03 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH3+knxDm31O2rClWjozM3+CecgvNZoNp+cf6nrVr5Lm6XqDELyjYKUNByBB9MayBRtK3ee3Q==
-X-Received: by 2002:a17:903:b50:b0:240:1831:eeeb with SMTP id d9443c01a7336-2401831f1f9mr77116615ad.40.1753758903134;
-        Mon, 28 Jul 2025 20:15:03 -0700 (PDT)
-Received: from [192.168.29.115] ([49.43.228.121])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23ffdea35d1sm44404645ad.28.2025.07.28.20.14.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Jul 2025 20:15:02 -0700 (PDT)
-Message-ID: <9b9c4572-9afd-f77e-07ea-ad1673feee47@oss.qualcomm.com>
-Date: Tue, 29 Jul 2025 08:44:52 +0530
+	id 1ugapN-0000000FpXc-11km;
+	Tue, 29 Jul 2025 03:16:34 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1d8da68de;
+	Tue, 29 Jul 2025 11:16:28 +0800 (GMT+08:00)
+Message-ID: <1cf4bc1b-d7f3-4a88-b8d8-d2f681dce370@rock-chips.com>
+Date: Tue, 29 Jul 2025 11:16:27 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge
+ helper for the Analogix DP driver
+From: Damon Ding <damon.ding@rock-chips.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
+ <3890785.kQq0lBPeGt@diego>
+ <b0ce0d8d-4ceb-419e-a892-d39b8633aa13@rock-chips.com>
+ <6070443.MhkbZ0Pkbq@diego>
+ <c73fa024-fdd0-4f62-9c8a-11e7eee3c475@rock-chips.com>
 Content-Language: en-US
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b81aa592-a66b-457b-9f42-df4505b28508@kernel.org>
- <3gtlf5txxtioa5bvo6o467jupyoam4hjhm2mdiw5izv5vbl3tz@drndgp3tcrgo>
- <bcef34c3-98b4-454c-8138-c73729e17081@kernel.org>
- <5e2caeb7-360a-4590-a36f-ff1ec4c20d31@oss.qualcomm.com>
- <2a39c0ab-edd4-402c-95a0-a6286f03102a@kernel.org>
- <1926e6e0-70a4-67fa-5e91-cd0155af1eac@oss.qualcomm.com>
- <2d672126-ca4d-411e-89cd-f40f8d8a4f5e@oss.qualcomm.com>
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <2d672126-ca4d-411e-89cd-f40f8d8a4f5e@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: iwhL32NNwore04hFj9z6DozI9R9Q33ND
-X-Authority-Analysis: v=2.4 cv=Pfv/hjhd c=1 sm=1 tr=0 ts=68883cb8 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=URdbDvd2+uEZUUOZgz/1Vw==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=jnCx6B5Jve7-ZDeCMK0A:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-GUID: iwhL32NNwore04hFj9z6DozI9R9Q33ND
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI5MDAyMSBTYWx0ZWRfX3HUES1Sm9JC8
- UwWU9l8Kzxx9rSxpnGG/x1KkfJJgIPl+IWovKaZhvst0hvYyO7e+JRQGsDKYS91CNmtE4HWmUM7
- /80JZNZct9UPu17+cY0SgN7zSkeCRiOvQNbQUp3EQV1Ep8+CGlv5B0abOeFkydyeLC162wzjiXX
- rdSu6nieRftk6yEteVhHy73jw6iqUlKPyF9Dh9dTTDXziN4RRXE2C+J2pATG8b/OKIAOGZeu4dr
- sQ8YjVFrPRwYHBRpKBjA9uu/c2Hm6fccSlf+gpahg1MmBPjyiXevcla4GrnGYfQLdELYkaNESb0
- M0dwAk8XUR8aLvc4elz/mT0ouSB0mWCzsxBKgkRp8n9mqPI1WLu1UFZp9/c7EPZQ3R4dlMPw/R7
- ZDjXSsCQCu5Fm14QQYLYjHHi9BP+FVDdeDpqp66uCVae8YVMsreOd2w2vt67q/HKmpNg/qcE
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-28_05,2025-07-28_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=791 clxscore=1015 adultscore=0 priorityscore=1501 mlxscore=0
- spamscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0
- impostorscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2507290021
+In-Reply-To: <c73fa024-fdd0-4f62-9c8a-11e7eee3c475@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98542e771803a3kunme49a881d3b3324
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUgeGFZPTE1JQktDSkxPQ09WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=Awj36o1fZIv1IG0o76X7hKYBrp5apPQb5p//ZbkLwZTnM1WGzYBl4vs64yB9BBnVNQEW/pJs6fuSc0HlYlkJNLwCrFpG/96yZMZXi6z7yaSH3Dn23+QCPXRZN4KCnyBEjKhuTqLDLLBL4y0R+I9spgBmlyoynbdCb3j/K0Yavcs=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=P30xMObD+4ZJRdzp8lAIExQtJvi4EAiA8x/rld+Y1H0=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250728_201507_501989_B44F1607 
-X-CRM114-Status: GOOD (  17.58  )
+X-CRM114-CacheID: sfid-20250728_201633_521329_F3599168 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,49 +84,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/28/2025 11:59 PM, Dmitry Baryshkov wrote:
-> On 28/07/2025 18:54, Shivendra Pratap wrote:
->>
->>
->> On 7/28/2025 5:53 PM, Krzysztof Kozlowski wrote:
->>> On 28/07/2025 14:03, Dmitry Baryshkov wrote:
->>>>>
->>>>>> and the reboot-mode is defined in the
->>>>>> previous patch. So, I'd assume, the path is defined.
->>>>>
->>>>> As I said, path is not. only psci/reboot-mode is.
+On 2025/7/29 11:02, Damon Ding wrote:
+> Hi Heiko,
+> 
+> On 2025/7/26 3:45, Heiko Stübner wrote:
+>> Hi Damon,
+>> Am Freitag, 25. Juli 2025, 04:15:06 Mitteleuropäische Sommerzeit 
+>> schrieb Damon Ding:
+>>> On 2025/7/24 21:10, Heiko Stübner wrote:
+>>>> Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleuropäische Sommerzeit 
+>>>> schrieb Damon Ding:
+>>>>> PATCH 1 is a small format optimization for struct analogid_dp_device.
+>>>>> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
+>>>>> PATCH 3 is to apply a better API for the encoder initialization.
+>>>>> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
+>>>>> PATCH 8 is to apply the drm_bridge_connector helper.
+>>>>> PATCH 9-11 are to move the panel/bridge parsing to the Analogix side.
+>>>>> PATCH 12-13 are preparations for apply panel_bridge helper.
+>>>>> PATCH 14 is to apply the panel_bridge helper.
 >>>>
->>>> Do we have an _actual_ use case where PSCI node is not at at root node?
+>>>> for future revisions, please provide a changelog on what changed since
+>>>> the previous version, I guess ideally here in the cover-letter.
+>>>>
+>>>>
+>>>> On my rk3588-tiger-displayport-carrier this works like a charm
+>>>> Tested-by: Heiko Stuebner <heiko@sntech.de>
+>>>>
+>>>>
+>>>>
+>>>>
 >>>
->>> Yes, many cases, because it belongs as well to firmware node.
+>>> Glad to see your review and test. :-)
 >>>
->>>> If not, it's obviously a deficiency of the schema. Could you please
->>>> provide suggestions on how to describe that in DT schema?
->>>
->>> I do not see deficiency. There is no ABI that psci must be root node, so
->>> there is no issue to fix there.
->>>
->>> If you want to add such ABI, I will answer: no, don't, because we do not
->>> want paths or node names to be the ABI.
->>>
->>> Compatible is the ABI.
->> Will define a compatible for psci->reboot-mode node and use it to find the
->> node. Hope its fine to define a compatible for reboot-mode which is defined
->> as a property inside psci?
-> 
-> I think it was more about finding the PSCI node.
-can either find for psci node using psci compatible "arm,psci-1.0". And then
-look for reboot-mode node inside psci.
-or can directly define a compatible for reboot-mode and find it using compatible.
-Is there any other suggestion to find this node? 
-> 
+>>> I will include the version-to-version changelogs (v2 -> v3 and v3 -> v4)
+>>> in the next iteration.
 >>
->> thanks.
->>>
->>> Best regards,
->>> Krzysztof
+>> I have to amend that a bit, sadly. When doing a reboot with the edp
+>> running, I see logs like:
+>>
+>> [...]
+>> [  139.614749] systemd-shutdown[1]: Syncing filesystems and block 
+>> devices.
+>> [  139.622201] systemd-shutdown[1]: Rebooting.
+>> [  139.684845] ------------[ cut here ]------------
+>> [  139.690050] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip- 
+>> iommu.c:989 rk_iommu_identity_attach+0xac/0xbc
+>> [  139.701175] Modules linked in: panthor rockchip_vdec rocket 
+>> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper 
+>> v4l2_mem2mem gpu_sched rng_core fuse
+>> [  139.717685] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Not tainted 
+>> 6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
+>> [  139.728799] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger 
+>> Displayport Carrier v1 (DT)
+>> [  139.738548] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS 
+>> BTYPE=--)
+>> [  139.746351] pc : rk_iommu_identity_attach+0xac/0xbc
+>> [  139.751821] lr : rk_iommu_identity_attach+0x70/0xbc
+>> [  139.757290] sp : ffff800080e4b7c0
+>> [  139.761001] x29: ffff800080e4b7c0 x28: ffff0001f6f98080 x27: 
+>> ffff0001f0a4b010
+>> [  139.769006] x26: ffff0001f6f98e58 x25: 0000000000000000 x24: 
+>> 0000000000000000
+>> [  139.777010] x23: 0000000000000000 x22: ffffdbf23c0485e0 x21: 
+>> ffff0001f0e9cc10
+>> [  139.785014] x20: ffff0001f0df17a0 x19: ffff0001f0e2cb80 x18: 
+>> 0000000000000038
+>> [  139.793018] x17: 0002550800000009 x16: 0000046c0446043e x15: 
+>> 0438000008ca080c
+>> [  139.801021] x14: 07d008ca07800780 x13: 0438000008ca080c x12: 
+>> 07d0078000025508
+>> [  139.809024] x11: 0002550800000009 x10: 0000046c0446043e x9 : 
+>> ffffdbf23c137000
+>> [  139.817031] x8 : 0000000000000438 x7 : 0000000000000000 x6 : 
+>> 0000000000000000
+>> [  139.825034] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 : 
+>> ffff0001f0df1780
+>> [  139.833038] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 : 
+>> 00000000ffffffea
+>> [  139.841042] Call trace:
+>> [  139.843780]  rk_iommu_identity_attach+0xac/0xbc (P)
+>> [  139.849252]  rk_iommu_attach_device+0x54/0x134
+>> [  139.854236]  __iommu_device_set_domain+0x7c/0x110
+>> [  139.859510]  __iommu_group_set_domain_internal+0x60/0x134
+>> [  139.865561]  __iommu_attach_group+0x88/0x9c
+>> [  139.870250]  iommu_attach_device+0x68/0xa0
+>> [  139.874841]  rockchip_drm_dma_attach_device+0x28/0x7c
+>> [  139.880508]  vop2_crtc_atomic_enable+0x620/0xaa0
+>> [  139.885678]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
+>> [  139.892413]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
+>> [  139.898369]  commit_tail+0xa0/0x1a0
+>> [  139.902279]  drm_atomic_helper_commit+0x17c/0x1b0
+>> [  139.907552]  drm_atomic_commit+0x8c/0xcc
+>> [  139.911951]  drm_client_modeset_commit_atomic+0x228/0x298
+>> [  139.918005]  drm_client_modeset_commit_locked+0x5c/0x188
+>> [  139.923960]  drm_client_modeset_commit+0x2c/0x58
+>> [  139.929137]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
+>> [  139.936164]  drm_fb_helper_hotplug_event+0xe8/0xf8
+>> [  139.941526]  drm_fbdev_client_hotplug+0x24/0xe0
+>> [  139.946605]  drm_client_hotplug+0x48/0xc4
+>> [  139.951100]  drm_client_dev_hotplug+0x9c/0xd4
+>> [  139.955984]  drm_kms_helper_connector_hotplug_event+0x20/0x30
+>> [  139.962426]  drm_bridge_connector_hpd_cb+0x88/0xa0
+>> [  139.967790]  drm_bridge_hpd_notify+0x3c/0x60
+>> [  139.972577]  display_connector_hpd_irq+0x30/0xa4
+>> [  139.978835]  irq_thread_fn+0x2c/0xb0
+>> [  139.983894]  irq_thread+0x170/0x304
+>> [  139.988833]  kthread+0x12c/0x204
+>> [  139.993468]  ret_from_fork+0x10/0x20
+>> [  139.998486] ---[ end trace 0000000000000000 ]---
+>> [  140.004737] ------------[ cut here ]------------
+>> [  140.010884] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip- 
+>> iommu.c:1040 rk_iommu_attach_device+0x114/0x134
+>> [  140.023079] Modules linked in: panthor rockchip_vdec rocket 
+>> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper 
+>> v4l2_mem2mem gpu_sched rng_core fuse
+>> [  140.040577] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Tainted: 
+>> G        W           6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
+>> [  140.054457] Tainted: [W]=WARN
+>> [  140.058804] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger 
+>> Displayport Carrier v1 (DT)
+>> [  140.069595] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS 
+>> BTYPE=--)
+>> [  140.078454] pc : rk_iommu_attach_device+0x114/0x134
+>> [  140.084989] lr : rk_iommu_attach_device+0x98/0x134
+>> [  140.091423] sp : ffff800080e4b7e0
+>> [  140.096197] x29: ffff800080e4b7e0 x28: ffff0001f6f98080 x27: 
+>> ffff0001f0a4b010
+>> [  140.105270] x26: ffff0001f6f98e58 x25: 0000000000000000 x24: 
+>> 0000000000000000
+>> [  140.114351] x23: ffff0001f6f843e0 x22: ffffdbf23c0485e0 x21: 
+>> ffff0001f0e9cc10
+>> [  140.123425] x20: ffff0001f0e2cb80 x19: ffff0001f6f843c0 x18: 
+>> 0000000000000038
+>> [  140.132489] x17: 0002550800000009 x16: 0000046c0446043e x15: 
+>> 0438000008ca080c
+>> [  140.141552] x14: 07d008ca07800780 x13: 0438000008ca080c x12: 
+>> 07d0078000025508
+>> [  140.150623] x11: 0002550800000009 x10: 0000046c0446043e x9 : 
+>> ffffdbf23c137000
+>> [  140.159701] x8 : 0000000000000438 x7 : 0000000000000000 x6 : 
+>> 0000000000000000
+>> [  140.168772] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 : 
+>> ffff0001f0e2cbe0
+>> [  140.177825] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 : 
+>> 00000000ffffffea
+>> [  140.186858] Call trace:
+>> [  140.190627]  rk_iommu_attach_device+0x114/0x134 (P)
+>> [  140.197124]  __iommu_device_set_domain+0x7c/0x110
+>> [  140.203417]  __iommu_group_set_domain_internal+0x60/0x134
+>> [  140.210492]  __iommu_attach_group+0x88/0x9c
+>> [  140.216203]  iommu_attach_device+0x68/0xa0
+>> [  140.221802]  rockchip_drm_dma_attach_device+0x28/0x7c
+>> [  140.228479]  vop2_crtc_atomic_enable+0x620/0xaa0
+>> [  140.234664]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
+>> [  140.242400]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
+>> [  140.249349]  commit_tail+0xa0/0x1a0
+>> [  140.254246]  drm_atomic_helper_commit+0x17c/0x1b0
+>> [  140.260496]  drm_atomic_commit+0x8c/0xcc
+>> [  140.265866]  drm_client_modeset_commit_atomic+0x228/0x298
+>> [  140.272885]  drm_client_modeset_commit_locked+0x5c/0x188
+>> [  140.279791]  drm_client_modeset_commit+0x2c/0x58
+>> [  140.285914]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
+>> [  140.293889]  drm_fb_helper_hotplug_event+0xe8/0xf8
+>> [  140.300214]  drm_fbdev_client_hotplug+0x24/0xe0
+>> [  140.306248]  drm_client_hotplug+0x48/0xc4
+>> [  140.311695]  drm_client_dev_hotplug+0x9c/0xd4
+>> [  140.317531]  drm_kms_helper_connector_hotplug_event+0x20/0x30
+>> [  140.324930]  drm_bridge_connector_hpd_cb+0x88/0xa0
+>> [  140.331248]  drm_bridge_hpd_notify+0x3c/0x60
+>> [  140.336990]  display_connector_hpd_irq+0x30/0xa4
+>> [  140.343120]  irq_thread_fn+0x2c/0xb0
+>> [  140.348081]  irq_thread+0x170/0x304
+>> [  140.352937]  kthread+0x12c/0x204
+>> [  140.357501]  ret_from_fork+0x10/0x20
+>> [  140.362453] ---[ end trace 0000000000000000 ]---
+>>
+>>
+>> After some minutes of hanging it does reboot afterall.
+>>
+>> Heiko
+>>
+>>
+> 
+> Could you please help confirm whether the same error still occurs with 
+> this patch series under the same conditions?
+
+Careless, what I want to express should be '...without this patch 
+series...'. :-)
+
+> 
+> And I will also perform additional verification on my RK3588S EVB1 board.
+> 
+> Best regards,
+> Damon
 > 
 > 
+> 
+
 
