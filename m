@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFFAC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 18:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CBEC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Jul 2025 18:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0ZxO4zaTBDiZ70aFZFCdiOcnI2dippFCSPeeEmtK4A=; b=otgHvOTirIJvLgrbb0iQJgmizF
-	5TPixKSv2KBogRsKeQZxP+cTMjMY0dhxgTI2DufIQOPdTkngF/UmKu//iAsYn/IOJlV/x+MZkblef
-	5cRX2qX6SwZN5KShIjs2ikL55PqL45E5Bp+E2UnoMoK7vE0zKpT4gK70eae4qbaxAFN2tiZ3n+/vj
-	yuOpCG8WssJRLL3qGOEldGaGteN8NYjuqrVpAAzLoSJaBOFCMZso6H1zyScEs1MjeD1AAbYiGuhod
-	rxqQ01KVuTQL4QPhvQf0M2B/ERpCUdhqMN5INeDMHVhgwwcwRLFfFtR1aTv6M98XllijqnrOahIyy
-	xErMmORA==;
+	bh=jjOZUzSpGLWjsH2Ko4RMwZ4gESCThc/tnZm3ptKives=; b=SwfVZW/AVGl5A9Zth19i8stM8w
+	umOBGdoJaeZ8zghmurjR0f39OdcKfhU5tLyVg6nDQLnECjCeD5RyDBq8swgdu9wrhEAb/nXTGackN
+	KX9pt4RepxwAeTY/opjwBo9X+5YcAu1xzC5gbedk5eKxoHc0TPCfB6EpZm+fW7K2PtJxNpcSlb/zu
+	qPtPY9Jf8YzBeEfBPEvASZxS8sJxadSkLjibdTN9j8mBOiyIdP442u3JoALQgCQAQ61gwxZuwf0fW
+	+RLAByHDR+n9bKiRNNXBQxfii6s1XDFErUSwJ4MSd84koPdpxnRpNn1sCj8dFqj/o3+ldat+R5Ru/
+	v588plgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugoyI-0000000HRET-2bjE;
-	Tue, 29 Jul 2025 18:22:42 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1ugpHj-0000000HTbk-3DKc;
+	Tue, 29 Jul 2025 18:42:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugovp-0000000HQss-0wGt
+	id 1ugpFF-0000000HTIA-0j3S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Jul 2025 18:20:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=b0ZxO4zaTBDiZ70aFZFCdiOcnI2dippFCSPeeEmtK4A=; b=ZE21ZVYPFB2jAHQsq8YihIXAYh
-	FH+BI3PDBCZslICCC7CKweHWy7PdUAm3UtMvyFtuEfJyfGbqSWApdp4cMM0jfL5zeM9Gr2W6Ifxek
-	wqd233XaxmNsMdVvrzh15z19q0PCGgWB/vlfOoyY5sslW+Iw2oXZCVZ0v/pRcRocG/WtPjXDyO4cM
-	G9Ee3BS1udYhI9EAECfxCZFt71y7bN750e8a5RUeS9cafyDXrZnvYNpC1aagzH09LhxKyXAVq2lUo
-	KuCa/FTLGu0zCu6x5eFNuCv7XEpQ/+KtKbvF31+aq/5XbEMKlZUwqZo+bHpMpXyR/SaZ1cI3RP+FK
-	cLO9fegA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:46032)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1ugovb-0002KX-21;
-	Tue, 29 Jul 2025 19:19:55 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1ugovW-0007cp-1f;
-	Tue, 29 Jul 2025 19:19:50 +0100
-Date: Tue, 29 Jul 2025 19:19:50 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Gatien CHEVALLIER <gatien.chevallier@foss.st.com>,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-arm-kernel@lists.infradead.org,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Subject: Re: [Linux-stm32] [PATCH RFC net-next 6/7] net: stmmac: add helpers
- to indicate WoL enable status
-Message-ID: <aIkQxlqmg9_EFqsI@shell.armlinux.org.uk>
-References: <eaef1b1b-5366-430c-97dd-cf3b40399ac7@lunn.ch>
- <aIe5SqLITb2cfFQw@shell.armlinux.org.uk>
- <77229e46-6466-4cd4-9b3b-d76aadbe167c@foss.st.com>
- <aIiOWh7tBjlsdZgs@shell.armlinux.org.uk>
- <aIjCg_sjTOge9vd4@shell.armlinux.org.uk>
- <d300d546-09fa-4b37-b8e0-349daa0cc108@foss.st.com>
- <aIjePMWG6pEBvna6@shell.armlinux.org.uk>
- <186a2265-8ca8-4b75-b4a2-a81d21ca42eb@foss.st.com>
- <aIj4Q6WzEQkcGYVQ@shell.armlinux.org.uk>
- <b88160a5-a0b8-4a1a-a489-867b8495a88e@lunn.ch>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b88160a5-a0b8-4a1a-a489-867b8495a88e@lunn.ch>
+	Tue, 29 Jul 2025 18:40:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C415945836;
+	Tue, 29 Jul 2025 18:40:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2B86C4CEEF;
+	Tue, 29 Jul 2025 18:40:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753814412;
+	bh=evXIhNwfoSdAgvghJsAnRiqCWO5j4bPeXDPhUZPO7qg=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=lJM7ykPZ7V2MnN/GxXuj2yWrHQH/qzmr80ECII/hu0oBso9r7pX39EBox6oZVTFg0
+	 zbUsOvB+6zVWBS+ikoe9FVT/E1cK7Yff1MHStLpKr2puZd55ovDQ664oySRCInLOL3
+	 bFOYj+5SV67tmg60qHel5bUbiQVI8+lI3KqbNtMyjQXGKmwbMnG1LxB/ig6KHj8t7t
+	 TiGa6XaHN3QBdhpXFJwCcOktqH9Svly67bWj9o4TZv/1TD/3V4rO/qmNOTzE6TrbmV
+	 eGpZexL3Ikt/QVeVu6ZRJxnCIxhRIwdeK+OoIKzgdllSFc5vypPWImGQEaeca1x+YG
+	 n+hUWNDdbyiMA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34446383BF5F;
+	Tue, 29 Jul 2025 18:40:30 +0000 (UTC)
+Subject: Re: [GIT PULL 1/5] soc: dt changes for 6.17
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <cc7b0bd2-53be-4981-bef2-44903b64dd6a@app.fastmail.com>
+References: <564b7ace-bb5f-430e-a7f1-9f6a41305e10@app.fastmail.com> <cc7b0bd2-53be-4981-bef2-44903b64dd6a@app.fastmail.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <cc7b0bd2-53be-4981-bef2-44903b64dd6a@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.17
+X-PR-Tracked-Commit-Id: ac75da105eb38d7c48ee3421d116282d8c44b690
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 115e74a29b530d121891238e9551c4bcdf7b04b5
+Message-Id: <175381442898.1585410.6262605657034973054.pr-tracker-bot@kernel.org>
+Date: Tue, 29 Jul 2025 18:40:28 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_112009_260133_7368A63A 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20250729_114013_236144_FA217AD9 
+X-CRM114-Status: UNSURE (   4.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,21 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 07:27:11PM +0200, Andrew Lunn wrote:
-> And i did notice that the Broadcom code is the only one doing anything
-> with enable_irq_wake()/disable_irq_wake(). We need to scatter these
-> into the drivers.
+The pull request you sent on Sat, 26 Jul 2025 12:27:05 +0200:
 
-It's better to use devm_pm_set_wake_irq() in the probe function, and
-then let the core code (drivers/base/power/wakeup.c and
-drivers/base/power/wakeirq.c) handle it. This is what I'm doing for
-the rtl8211f.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.17
 
-IRQ wake gets enabled/disabled at suspend/resume time, rather than
-when the device wakeup state changes, which I believe is what is
-preferred.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/115e74a29b530d121891238e9551c4bcdf7b04b5
+
+Thank you!
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
