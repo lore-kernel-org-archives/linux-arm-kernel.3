@@ -4,86 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1F4C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 08:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A9CEC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 08:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RCwMDWtoJ6H58L5kBL4cwqw2CDwhxml2txAA6EJBzFE=; b=B4/dbwU5DVFMi6qYj6XpOAm+mw
-	6Fer00HDD3ySC7Jt/lHkDKYHJgd9AvGUSiaV2LULI4fttYLnEkIvVqeUptJhPmnmID6N65Kzd8rmL
-	GfStVtgiBWSxG3uZZfKTLH+/uGMW4OBDEOa1H0e8nr/gUyAPCA9lrv/ErP6ft5tH4qRw46rPDTKJj
-	EJZ9S1WB7NmyMw5mKgbDuTqHMF34qdn6n3mBqrUid12DDTzLJogvBm4+A0lZh5H1Xxl73kFWfRpC2
-	LQIpJ0Oj4wqtsEqwUPyj82+cgQo4w4ZT0z38ICvhXUJ8zHj4WpMY9XWaJsrCJrgsTVz+tPNjIBBpU
-	4W78nyuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pNJc0MhKyem6DJ9KMPfzr1zes3FYUQgDKGyo+jiBCKA=; b=QG9zVy7A4v4hAtmuONh+nC8eWR
+	l8N6Cu5HpLmEtafz8PiIkm1Ui8LvkXIXq/aRQOyO7LFrYUN9qe7hi3hbn/M1yawpRiRpWSLnqM9MB
+	Vmmvj+jyoK5K6Yg07v8WLCKFxKs2yzC8Ornb/+2jbMkj+mhNR2hZ1u6WEWToOuZy+6K2aiDDVdLgS
+	tlxHWmVnyqAkrS7hyBmj/PeGfZWvzWgf3/x5WA6xSRPmg+ywmbEqRStAIMHBSg+Q1h+QX8owOIgGP
+	KX5/QXVVD8O5tGbDkDMnXAHraVzNzvV/ml/vqq4/0h/VmblrJ+DwBrVMHeA7DGqIO1iEvkCM2DyxA
+	HSK+f0YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh2RL-000000011LG-1J6m;
-	Wed, 30 Jul 2025 08:45:35 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1uh2Tn-000000011aS-2tcH;
+	Wed, 30 Jul 2025 08:48:07 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh2Or-0000000116n-2OVs
+	id 1uh2Qe-000000011G2-2Q4X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 08:43:02 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-558f7fda97eso5417327e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 01:43:01 -0700 (PDT)
+	Wed, 30 Jul 2025 08:44:53 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-45619d70c72so4714185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 01:44:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1753864980; x=1754469780; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RCwMDWtoJ6H58L5kBL4cwqw2CDwhxml2txAA6EJBzFE=;
-        b=RMzPIU4sOF2KhYoBJmNV/yKI5jkd8IO/R42HuUvkTE7I4qD5+BwUFUmpheqwC6iEvB
-         aNbZVQdb5sUmWrvwe16c0cvPmCyb+Ugm+NpJZfrbKHb8no8mm5PsxLUbjSpfj4MtFXGG
-         C5fFOQm2ga/aH4MWcD5Tb4TidPJeJkbF/MI9Y=
+        d=linaro.org; s=google; t=1753865090; x=1754469890; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=pNJc0MhKyem6DJ9KMPfzr1zes3FYUQgDKGyo+jiBCKA=;
+        b=mvT3NZ3fnYBj/Mw83ODma0r/+t0d+b5ssh38T0OpnxPZfDseY8tAofGVutbgoRqjXi
+         1jHlDgB5soVBsxUVqnwb1k1Ha9TsZUG68FfWU3k+XimQEWpV3nxkT4xeuaDtMUha2Hel
+         XCODI5nMH4CdCv/JMB9HUX5iLi47tjK/sIeJLgnTsfgTyGJ9zona6VdE8rc4BnnRrfg2
+         1jL0gs4BmjzTo0Iqtd3Yz9SfP1Trtgl/DPYzkOTgQWstAYW2ml8TqqOlvwNkMV9NawlJ
+         kqxdoxpe3y12p4r6kJ5jWencdz2RSuEckCB3LRjJ6f/jAi/X2/l8HxxsPzrzIM1njyXE
+         HLog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753864980; x=1754469780;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RCwMDWtoJ6H58L5kBL4cwqw2CDwhxml2txAA6EJBzFE=;
-        b=XxbdeHx4VgGxD2kWlV1unNmfC/BOmMv6aDS2LhcEXLPdRhNGPzJ8q+iQk9AvKbl0eC
-         WgMUb6BiV4QdnE274yYHkjSTxoskUtfkGm9tHh2tnVqPmPN+KfZPd7IquJVc4wO5VDZN
-         zke6JTzuHPNgJsghVS78dbhddJ1uXf8/mn3ExMIU5ua2NEvqD3VqWXurFewFP71cpnHi
-         lRSs/oajjAUGLZLRsd122R0BWZANDIDojYmZ1LFeCJ68x23vbmjyK334Z+ltU1EOBDOS
-         gouAoOyM0z18XkblVl47r+JGD6w9+XHWENWruvBQLd93TjhcfcbLUD/1YdQiDyLH4SSi
-         eg1w==
-X-Forwarded-Encrypted: i=1; AJvYcCXSexO4WgAX4l25q9qJK7fRwZaH5GlIrIM6XqJm/39TB592osKjXY2tlmhqkzQWVu0cneoAf8zkUxQyylYlDfU8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNudFn05tsIHeIBreDg/Do6FcDkJfdeE+7Gg/qo+QonEaIQUGu
-	Ss9gz6ui1GaS/rhVTbgpsF/zNSpBHmEoul8uzcSYeXC1pvdTGso8w17O4FjhWmPSYCRGZALrhHa
-	vKH2fCM4NBl55s7WC+X3zCoyQYCOo5STr2x5p2IOl
-X-Gm-Gg: ASbGncs37mue1U0PDT72QkuAkvIfZM7Do2N5DZSkKSRJFl3fyd4SfrKxf1c4RCFOwp5
-	ZkbDlLPrHXF95gIr9PNx1Zcoal8Mg2PEnufciOQWte1VpTOuoZHzG4uqvnkqD4zTyLSj9NOFLkV
-	UnUu4mT2hTjnmGTP7isfhgVFOphlzUE2Ivx+CLQWAGqpM2HhbnMgtIzjzzSRKMu+9gctD6XoKfF
-	jbrgYl/vox+VQJMNVmKMfvplzHVjlJr15HSqCQDNSLIpw==
-X-Google-Smtp-Source: AGHT+IFB/Ct3suqH0gmQXFJmF6MnUkKOGS1aalcnnOjIUVn4PpqF7DlFLlC9o8DP1JFLZSIwsJwu/Elj6xSVQfUrxg0=
-X-Received: by 2002:a05:6512:3d94:b0:551:f0ce:80e3 with SMTP id
- 2adb3069b0e04-55b7c04363dmr699933e87.25.1753864979699; Wed, 30 Jul 2025
- 01:42:59 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250708111806.3992-1-darren.ye@mediatek.com> <20250708111806.3992-4-darren.ye@mediatek.com>
-In-Reply-To: <20250708111806.3992-4-darren.ye@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 30 Jul 2025 16:42:48 +0800
-X-Gm-Features: Ac12FXwg35RUtCHSrQDm77AYEC5EjaDvELreyxlzBmCrHt1OYxQRjmdcvB6QXeE
-Message-ID: <CAGXv+5EZ99i74_pTp2wKR1ni28K9fwbqo_67CFXwwiN13DB71w@mail.gmail.com>
-Subject: Re: [PATCH v6 03/10] ASoC: mediatek: mt8196: support audio clock control
-To: "Darren.Ye" <darren.ye@mediatek.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
+        d=1e100.net; s=20230601; t=1753865090; x=1754469890;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pNJc0MhKyem6DJ9KMPfzr1zes3FYUQgDKGyo+jiBCKA=;
+        b=Ky0mZkD61gSPTgNno8jlx3ReNbHa3fpR2T81Bk9Noihp3fjSO03mwmGSKnU7ZCAIni
+         eSRC1EkffaF6E80W3FacSamoJE1py+Y8AtCbhiMwD8nrFJ9n0WlkJ345qgofze1YsYCa
+         5BmEEwhCLq37vLnp1QjHIwi69mzdtjhol5FryxwepZ/tZJJh3bevY6JsPAzSC+UNOcs6
+         QWaMG/cb26uGR02GaZKqqzFVgxeZ6MxezAAvhKn57VspL7C3117RuPBigGMUCYMJMTMh
+         DPtkd3kBLLjIimQf0b02fDDv++sN4D9HfidWHKVO43YuhjOHHk5LbR9txQeR7F5aEy8H
+         A2iA==
+X-Forwarded-Encrypted: i=1; AJvYcCVdhOP2ANyz50cvzq8ZNq4C+uK109dR2q6QO/gmSxva+9Dk1kI0vDD1Ugnky8xdX2bxf0eKfZJUx3Vklr4E/pxf@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHlSiU0MagdXnZWCCCdx0JnEnFzKp6/SRqMFEKq0hMFkgm4T72
+	Kg78rp8/0BbfOMRgsYJ0/WMID0kIl7d+R+Vip6rVykwQr5uJ+3/iEuZEi3/u5SWQYsI=
+X-Gm-Gg: ASbGncug0BvbTCB10htsz/J1AgJGm8C9SH0xI0wtsINhdoFzZG1c99BYHeXCuP/aLvB
+	EuNlQOfNgoSpHxNO2WzX92xNf60w3+98JgyDWTVP1zGkqo9FiBcTpn0szx1wCh5omgiZZBW+ZbJ
+	e9RHlGJCBT+kjjcyQd3gzuJj/dTGPOapdudngwKGAWOvpABffTdgPjO+Eoy+RBzsSvf1RzxXdR9
+	r05w0hzyCY2nD0YPTZTit+imxrOc01Day5h1aLrn1LM2EybQIH46UeDf0aryyQvolbA6WEKnxa3
+	be57Dda8dkY/GwDpcpFB/Fbz5weaZZwqHFyMW+OCTnt9xKjknGDgbI6m5pocRgcSXFt6Jj0QioZ
+	vMn3Cb4S4qynn4dlX2p85U/NVDg==
+X-Google-Smtp-Source: AGHT+IFifdJ3RFvCYy7icV5bmFoBw6S3AjQmM0nH3OcGn2ldcETMHgAeTiCZi2wsWZ7N/6oYzxdvqw==
+X-Received: by 2002:a05:600c:78f:b0:456:12ad:ec3d with SMTP id 5b1f17b1804b1-4588d17968dmr38218165e9.14.1753865090327;
+        Wed, 30 Jul 2025 01:44:50 -0700 (PDT)
+Received: from [10.1.1.59] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b785258135sm11141357f8f.42.2025.07.30.01.44.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Jul 2025 01:44:49 -0700 (PDT)
+Message-ID: <b45b157593f1865a402f4098cdeafc298a294c6d.camel@linaro.org>
+Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>, Bartosz
+ Golaszewski	 <bartosz.golaszewski@linaro.org>, Bjorn Andersson
+ <andersson@kernel.org>,  Sebastian Reichel	 <sre@kernel.org>, Rob Herring
+ <robh@kernel.org>, Sudeep Holla	 <sudeep.holla@arm.com>, Souvik Chakravarty
+ <Souvik.Chakravarty@arm.com>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andy Yan	 <andy.yan@rock-chips.com>,
+ Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio
+ <konradybcio@kernel.org>, 	cros-qcom-dts-watchers@chromium.org, Vinod Koul
+ <vkoul@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Florian Fainelli	 <florian.fainelli@broadcom.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha
+	 <mukesh.ojha@oss.qualcomm.com>, Stephen Boyd <swboyd@chromium.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Elliot Berman <quic_eberman@quicinc.com>, 
+ Srinivas Kandagatla
+	 <srini@kernel.org>
+Date: Wed, 30 Jul 2025 09:44:48 +0100
+In-Reply-To: <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
+References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
+	 <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1+build2 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_014301_681039_3E2ACC21 
-X-CRM114-Status: GOOD (  26.53  )
+X-CRM114-CacheID: sfid-20250730_014452_760181_7F5557B4 
+X-CRM114-Status: GOOD (  33.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,868 +116,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 8, 2025 at 7:34=E2=80=AFPM Darren.Ye <darren.ye@mediatek.com> w=
-rote:
->
-> From: Darren Ye <darren.ye@mediatek.com>
->
-> Add audio clock wrapper and audio tuner control.
->
-> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+On Sun, 2025-07-27 at 21:54 +0530, Shivendra Pratap wrote:
+> SoC vendors have different types of resets which are controlled
+> through various hardware registers. For instance, Qualcomm SoC
+> may have a requirement that reboot with =E2=80=9Cbootloader=E2=80=9D comm=
+and
+> should reboot the device to bootloader flashing mode and reboot
+> with =E2=80=9Cedl=E2=80=9D should reboot the device into Emergency flashi=
+ng mode.
+> Setting up such reboots on Qualcomm devices can be inconsistent
+> across SoC platforms and may require setting different HW
+> registers, where some of these registers may not be accessible to
+> HLOS. These knobs evolve over product generations and require
+> more drivers. PSCI spec defines, SYSTEM_RESET2, vendor-specific
+> reset which can help align this requirement. Add support for PSCI
+> SYSTEM_RESET2, vendor-specific resets and align the implementation
+> to allow user-space initiated reboots to trigger these resets.
+>=20
+> Introduce a late_initcall to register PSCI vendor-specific resets
+> as reboot modes. Implement a reboot-mode write function that sets
+> reset_type and cookie values during the reboot notifier callback.
+> Introduce a firmware-based call for SYSTEM_RESET2 vendor-specific
+> reset in the psci_sys_reset path, using reset_type and cookie if
+> supported by secure firmware.
+>=20
+> By using the above implementation, userspace will be able to issue
+> such resets using the reboot() system call with the "*arg"
+> parameter as a string based command. The commands can be defined
+> in PSCI device tree node as =E2=80=9Creset-types=E2=80=9D and are based o=
+n the
+> reboot-mode based commands.
+>=20
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
 > ---
->  sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 728 +++++++++++++++++++++
->  sound/soc/mediatek/mt8196/mt8196-afe-clk.h |  80 +++
->  2 files changed, 808 insertions(+)
->  create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.c
->  create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.h
->
-> diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c b/sound/soc/media=
-tek/mt8196/mt8196-afe-clk.c
-> new file mode 100644
-> index 000000000000..00f47b485812
-> --- /dev/null
-> +++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
-> @@ -0,0 +1,728 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + *  mt8196-afe-clk.c  --  Mediatek 8196 afe clock ctrl
-> + *
-> + *  Copyright (c) 2024 MediaTek Inc.
-> + *  Author: Darren Ye <darren.ye@mediatek.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/regmap.h>
-> +#include <linux/mfd/syscon.h>
-
-Please add an empty line here for separation.
-
-> +#include "mt8196-afe-common.h"
-> +#include "mt8196-afe-clk.h"
-> +
-> +static const char *aud_clks[MT8196_CLK_NUM] =3D {
-> +       /* vlp clk */
-> +       [MT8196_CLK_VLP_MUX_AUDIOINTBUS] =3D "top_aud_intbus",
-> +       [MT8196_CLK_VLP_MUX_AUD_ENG1] =3D "top_aud_eng1",
-> +       [MT8196_CLK_VLP_MUX_AUD_ENG2] =3D "top_aud_eng2",
-> +       [MT8196_CLK_VLP_MUX_AUDIO_H] =3D "top_aud_h",
-> +       [MT8196_CLK_VLP_CLK26M] =3D "vlp_clk26m",
-> +       /* pll */
-> +       [MT8196_CLK_TOP_APLL1_CK] =3D "apll1",
-> +       [MT8196_CLK_TOP_APLL2_CK] =3D "apll2",
-> +       /* divider */
-> +       [MT8196_CLK_TOP_APLL1_D4] =3D "apll1_d4",
-> +       [MT8196_CLK_TOP_APLL2_D4] =3D "apll2_d4",
-> +       [MT8196_CLK_TOP_APLL12_DIV_I2SIN0] =3D "apll12_div_i2sin0",
-> +       [MT8196_CLK_TOP_APLL12_DIV_I2SIN1] =3D "apll12_div_i2sin1",
-> +       [MT8196_CLK_TOP_APLL12_DIV_FMI2S] =3D "apll12_div_fmi2s",
-> +       [MT8196_CLK_TOP_APLL12_DIV_TDMOUT_M] =3D "apll12_div_tdmout_m",
-> +       [MT8196_CLK_TOP_APLL12_DIV_TDMOUT_B] =3D "apll12_div_tdmout_b",
-> +       /* mux */
-> +       [MT8196_CLK_TOP_MUX_AUD_1] =3D "top_apll1",
-> +       [MT8196_CLK_TOP_MUX_AUD_2] =3D "top_apll2",
-> +       [MT8196_CLK_TOP_I2SIN0_M_SEL] =3D "top_i2sin0",
-> +       [MT8196_CLK_TOP_I2SIN1_M_SEL] =3D "top_i2sin1",
-> +       [MT8196_CLK_TOP_FMI2S_M_SEL] =3D "top_fmi2s",
-> +       [MT8196_CLK_TOP_TDMOUT_M_SEL] =3D "top_dptx",
-> +       [MT8196_CLK_TOP_ADSP_SEL] =3D "top_adsp",
-> +       /* top 26m*/
-> +       [MT8196_CLK_TOP_CLK26M] =3D "clk26m",
+> =C2=A0drivers/firmware/psci/Kconfig |=C2=A0 2 ++
+> =C2=A0drivers/firmware/psci/psci.c=C2=A0 | 57 +++++++++++++++++++++++++++=
++++++++++++++++-
+> =C2=A02 files changed, 58 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/firmware/psci/Kconfig b/drivers/firmware/psci/Kconfi=
+g
+> index 97944168b5e66aea1e38a7eb2d4ced8348fce64b..93ff7b071a0c364a376699733=
+e6bc5654d56a17f 100644
+> --- a/drivers/firmware/psci/Kconfig
+> +++ b/drivers/firmware/psci/Kconfig
+> @@ -1,6 +1,8 @@
+> =C2=A0# SPDX-License-Identifier: GPL-2.0-only
+> =C2=A0config ARM_PSCI_FW
+> =C2=A0	bool
+> +	select POWER_RESET
+> +	select REBOOT_MODE
+> =C2=A0
+> =C2=A0config ARM_PSCI_CHECKER
+> =C2=A0	bool "ARM PSCI checker"
+> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
+> index 38ca190d4a22d6e7e0f06420e8478a2b0ec2fe6f..e14bcdbec1750db8aa9297c8b=
+cdb242f58cc420e 100644
+> --- a/drivers/firmware/psci/psci.c
+> +++ b/drivers/firmware/psci/psci.c
+> @@ -17,6 +17,7 @@
+> =C2=A0#include <linux/printk.h>
+> =C2=A0#include <linux/psci.h>
+> =C2=A0#include <linux/reboot.h>
+> +#include <linux/reboot-mode.h>
+> =C2=A0#include <linux/slab.h>
+> =C2=A0#include <linux/suspend.h>
+> =C2=A0
+> @@ -51,6 +52,14 @@ static int resident_cpu =3D -1;
+> =C2=A0struct psci_operations psci_ops;
+> =C2=A0static enum arm_smccc_conduit psci_conduit =3D SMCCC_CONDUIT_NONE;
+> =C2=A0
+> +struct psci_vendor_sysreset2 {
+> +	u32 reset_type;
+> +	u32 cookie;
+> +	bool valid;
 > +};
 > +
-> +int mt8196_afe_enable_clk(struct mtk_base_afe *afe, struct clk *clk)
+> +static struct psci_vendor_sysreset2 vendor_reset;
+> +
+> =C2=A0bool psci_tos_resident_on(int cpu)
+> =C2=A0{
+> =C2=A0	return cpu =3D=3D resident_cpu;
+> @@ -309,7 +318,10 @@ static int get_set_conduit_method(const struct devic=
+e_node *np)
+> =C2=A0static int psci_sys_reset(struct notifier_block *nb, unsigned long =
+action,
+> =C2=A0			=C2=A0 void *data)
+> =C2=A0{
+> -	if ((reboot_mode =3D=3D REBOOT_WARM || reboot_mode =3D=3D REBOOT_SOFT) =
+&&
+> +	if (vendor_reset.valid && psci_system_reset2_supported) {
+> +		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor_reset.reset_=
+type,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 vendor_reset.cookie, 0);
+> +	} else if ((reboot_mode =3D=3D REBOOT_WARM || reboot_mode =3D=3D REBOOT=
+_SOFT) &&
+> =C2=A0	=C2=A0=C2=A0=C2=A0 psci_system_reset2_supported) {
+> =C2=A0		/*
+> =C2=A0		 * reset_type[31] =3D 0 (architectural)
+
+I don't know the PSCI spec, but it looks like with this code it's not
+possible to set=C2=A0a reboot mode (in DT) and at the same time instruct
+the firmware whether a warm or a cold reboot was requested.
+
+Doing warm reboot is useful if e.g. RAM contents needs to be retained
+for crash recovery handling, or other reasons, while in normal cases
+doing a more secure cold reboot.
+
+On the other hand, of course it's useful to be able to specify the
+reboot target for normal reboots.
+
+Is this a problem with the PSCI spec or with this specific change
+geared at the Qcom implementation?
+
+
+> @@ -547,6 +559,49 @@ static const struct platform_suspend_ops psci_suspen=
+d_ops =3D {
+> =C2=A0	.enter=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D p=
+sci_system_suspend_enter,
+> =C2=A0};
+> =C2=A0
+> +static int psci_set_vendor_sys_reset2(struct reboot_mode_driver *reboot,=
+ u64 magic)
 > +{
-> +       int ret;
+> +	u32 magic_32;
 > +
-> +       if (clk) {
+> +	if (psci_system_reset2_supported) {
+> +		magic_32 =3D magic & 0xFFFFFFFF;
 
-There's no need to check the validity of the pointer. The clk prepare
-and enable APIs can take NULL pointers and become no-ops.
+I believe usual kernel style is to use lower case for
+hex values.
 
-> +               ret =3D clk_prepare_enable(clk);
-> +               if (ret) {
-> +                       dev_dbg(afe->dev, "failed to enable clk\n");
+> +		vendor_reset.reset_type =3D PSCI_1_1_RESET_TYPE_VENDOR_START | magic_3=
+2;
+> +		vendor_reset.cookie =3D (magic >> 32) & 0xFFFFFFFF;
 
-This should be a visible error.
+dito.
 
-> +                       return ret;
-> +               }
-> +       } else {
-> +               dev_dbg(afe->dev, "NULL clk\n");
-> +       }
-> +       return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(mt8196_afe_enable_clk);
-> +
-> +void mt8196_afe_disable_clk(struct mtk_base_afe *afe, struct clk *clk)
-> +{
-> +       if (clk)
-> +               clk_disable_unprepare(clk);
-> +       else
-> +               dev_dbg(afe->dev, "NULL clk\n");
-> +}
-> +EXPORT_SYMBOL_GPL(mt8196_afe_disable_clk);
-> +
-> +static int mt8196_afe_set_clk_rate(struct mtk_base_afe *afe, struct clk =
-*clk,
-> +                                  unsigned int rate)
-> +{
-> +       int ret;
-> +
-> +       if (clk) {
-> +               ret =3D clk_set_rate(clk, rate);
-> +               if (ret) {
-> +                       dev_dbg(afe->dev, "failed to set clk rate\n");
+Cheers,
+Andre'
 
-This should be a visible error.
-
-> +                       return ret;
-> +               }
-> +       }
+> +		vendor_reset.valid =3D true;
+> +	}
 > +
-> +       return 0;
-> +}
-> +
-> +static int mt8196_afe_set_clk_parent(struct mtk_base_afe *afe, struct cl=
-k *clk,
-> +                                    struct clk *parent)
-> +{
-> +       int ret;
-> +
-> +       if (clk && parent) {
-> +               ret =3D clk_set_parent(clk, parent);
-> +               if (ret) {
-> +                       dev_dbg(afe->dev, "failed to set clk parent %d\n"=
-, ret);
-> +                       return ret;
-> +               }
-> +       }
-> +
-> +       return 0;
-> +}
-
-Per our offline discussions, explicitly setting clock parents are not
-needed.
-
-> +
-> +static unsigned int get_top_cg_reg(unsigned int cg_type)
-> +{
-> +       switch (cg_type) {
-> +       case MT8196_AUDIO_26M_EN_ON:
-> +       case MT8196_AUDIO_F3P25M_EN_ON:
-> +       case MT8196_AUDIO_APLL1_EN_ON:
-> +       case MT8196_AUDIO_APLL2_EN_ON:
-> +               return AUDIO_ENGEN_CON0;
-> +       case MT8196_CG_AUDIO_HOPPING_CK:
-> +       case MT8196_CG_AUDIO_F26M_CK:
-> +       case MT8196_CG_APLL1_CK:
-> +       case MT8196_CG_APLL2_CK:
-> +       case MT8196_PDN_APLL_TUNER2:
-> +       case MT8196_PDN_APLL_TUNER1:
-> +               return AUDIO_TOP_CON4;
-> +       default:
-> +               return 0;
-> +       }
+> +	return NOTIFY_DONE;
 > +}
 > +
-> +static unsigned int get_top_cg_mask(unsigned int cg_type)
+> +static int __init psci_init_vendor_reset(void)
 > +{
-> +       switch (cg_type) {
-> +       case MT8196_AUDIO_26M_EN_ON:
-> +               return AUDIO_26M_EN_ON_MASK_SFT;
-> +       case MT8196_AUDIO_F3P25M_EN_ON:
-> +               return AUDIO_F3P25M_EN_ON_MASK_SFT;
-> +       case MT8196_AUDIO_APLL1_EN_ON:
-> +               return AUDIO_APLL1_EN_ON_MASK_SFT;
-> +       case MT8196_AUDIO_APLL2_EN_ON:
-> +               return AUDIO_APLL2_EN_ON_MASK_SFT;
-> +       case MT8196_CG_AUDIO_HOPPING_CK:
-> +               return CG_AUDIO_HOPPING_CK_MASK_SFT;
-> +       case MT8196_CG_AUDIO_F26M_CK:
-> +               return CG_AUDIO_F26M_CK_MASK_SFT;
-> +       case MT8196_CG_APLL1_CK:
-> +               return CG_APLL1_CK_MASK_SFT;
-> +       case MT8196_CG_APLL2_CK:
-> +               return CG_APLL2_CK_MASK_SFT;
-> +       case MT8196_PDN_APLL_TUNER2:
-> +               return PDN_APLL_TUNER2_MASK_SFT;
-> +       case MT8196_PDN_APLL_TUNER1:
-> +               return PDN_APLL_TUNER1_MASK_SFT;
-> +       default:
-> +               return 0;
-> +       }
+> +	struct reboot_mode_driver *reboot;
+> +	struct device_node *np;
+> +	int ret;
+> +
+> +	np =3D of_find_node_by_path("/psci/reboot-mode");
+> +	if (!np)
+> +		return -ENODEV;
+> +
+> +	reboot =3D kzalloc(sizeof(*reboot), GFP_KERNEL);
+> +	if (!reboot) {
+> +		of_node_put(np);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	reboot->write =3D psci_set_vendor_sys_reset2;
+> +
+> +	ret =3D reboot_mode_register(reboot, np, "psci");
+> +	if (ret) {
+> +		of_node_put(np);
+> +		kfree(reboot);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
 > +}
-> +
-> +static unsigned int get_top_cg_on_val(unsigned int cg_type)
-> +{
-> +       switch (cg_type) {
-> +       case MT8196_AUDIO_26M_EN_ON:
-> +       case MT8196_AUDIO_F3P25M_EN_ON:
-> +       case MT8196_AUDIO_APLL1_EN_ON:
-> +       case MT8196_AUDIO_APLL2_EN_ON:
-> +               return get_top_cg_mask(cg_type);
-> +       case MT8196_CG_AUDIO_HOPPING_CK:
-> +       case MT8196_CG_AUDIO_F26M_CK:
-> +       case MT8196_CG_APLL1_CK:
-> +       case MT8196_CG_APLL2_CK:
-> +       case MT8196_PDN_APLL_TUNER2:
-> +       case MT8196_PDN_APLL_TUNER1:
-> +               return 0;
-> +       default:
-> +               return 0;
-> +       }
-> +}
-> +
-> +static unsigned int get_top_cg_off_val(unsigned int cg_type)
-> +{
-> +       switch (cg_type) {
-> +       case MT8196_AUDIO_26M_EN_ON:
-> +       case MT8196_AUDIO_F3P25M_EN_ON:
-> +       case MT8196_AUDIO_APLL1_EN_ON:
-> +       case MT8196_AUDIO_APLL2_EN_ON:
-> +               return 0;
-> +       case MT8196_CG_AUDIO_HOPPING_CK:
-> +       case MT8196_CG_AUDIO_F26M_CK:
-> +       case MT8196_CG_APLL1_CK:
-> +       case MT8196_CG_APLL2_CK:
-> +       case MT8196_PDN_APLL_TUNER2:
-> +       case MT8196_PDN_APLL_TUNER1:
-> +               return get_top_cg_mask(cg_type);
-> +       default:
-> +               return get_top_cg_mask(cg_type);
-> +       }
-> +}
-> +
-> +static int mt8196_afe_enable_top_cg(struct mtk_base_afe *afe, unsigned i=
-nt cg_type)
-> +{
-> +       unsigned int reg =3D get_top_cg_reg(cg_type);
-> +       unsigned int mask =3D get_top_cg_mask(cg_type);
-> +       unsigned int val =3D get_top_cg_on_val(cg_type);
-> +
-> +       if (!afe->regmap) {
-> +               dev_warn(afe->dev, "skip regmap\n");
-> +               return 0;
-
-This should be a fatal error.
-
-> +       }
-> +
-> +       dev_dbg(afe->dev, "reg: 0x%x, mask: 0x%x, val: 0x%x\n", reg, mask=
-, val);
-> +       regmap_update_bits(afe->regmap, reg, mask, val);
-
-Should check the return value, since it could fail because these are set as
-volatile registers and cannot be updated in cache-only state.
-
-> +       return 0;
-> +}
-> +
-> +static int mt8196_afe_disable_top_cg(struct mtk_base_afe *afe, unsigned =
-int cg_type)
-> +{
-> +       unsigned int reg =3D get_top_cg_reg(cg_type);
-> +       unsigned int mask =3D get_top_cg_mask(cg_type);
-> +       unsigned int val =3D get_top_cg_off_val(cg_type);
-> +
-> +       if (!afe->regmap) {
-> +               dev_warn(afe->dev, "skip regmap\n");
-> +               return 0;
-> +       }
-> +
-> +       dev_dbg(afe->dev, "reg: 0x%x, mask: 0x%x, val: 0x%x\n", reg, mask=
-, val);
-> +       regmap_update_bits(afe->regmap, reg, mask, val);
-
-Same here.
-
-> +
-> +       return 0;
-> +}
-> +
-> +static int apll1_mux_setting(struct mtk_base_afe *afe, bool enable)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int ret =3D 0;
-> +
-> +       dev_dbg(afe->dev, "enable: %d\n", enable);
-> +
-> +       if (enable) {
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_C=
-LK_TOP_MUX_AUD_1]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_TOP_MUX_AUD_1],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_APLL1_CK]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               /* 180.6336 / 4 =3D 45.1584MHz */
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_C=
-LK_VLP_MUX_AUD_ENG1]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_VLP_MUX_AUD_ENG1],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_APLL1_D4]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_C=
-LK_VLP_MUX_AUDIO_H]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_VLP_MUX_AUDIO_H],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_APLL1_CK]);
-> +               if (ret)
-> +                       return ret;
-> +       } else {
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_VLP_MUX_AUD_ENG1],
-> +                                               afe_priv->clk[MT8196_CLK_=
-VLP_CLK26M]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_=
-MUX_AUD_ENG1]);
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_TOP_MUX_AUD_1],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_CLK26M]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_=
-MUX_AUD_1]);
-> +               mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_V=
-LP_MUX_AUDIO_H],
-> +                                         afe_priv->clk[MT8196_CLK_VLP_CL=
-K26M]);
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_=
-MUX_AUDIO_H]);
-> +       }
-
-We've talked about this offline. FTR there's no need to enable intermediate
-clocks. When the leaf clock is enabled, the CCF also enables all connected
-parents. There's also no need to set parents explicitly. When the clock
-rate of the leaf clock gets set, the CCF will take care to reparent it
-or the sub-tree to the most appropriate clock parent.
-
-> +       return 0;
-> +}
-> +
-> +static int apll2_mux_setting(struct mtk_base_afe *afe, bool enable)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int ret =3D 0;
-> +
-> +       dev_dbg(afe->dev, "enable: %d\n", enable);
-> +
-> +       if (enable) {
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_C=
-LK_TOP_MUX_AUD_2]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_TOP_MUX_AUD_2],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_APLL2_CK]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               /* 196.608 / 4 =3D 49.152MHz */
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_C=
-LK_VLP_MUX_AUD_ENG2]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_VLP_MUX_AUD_ENG2],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_APLL2_D4]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_C=
-LK_VLP_MUX_AUDIO_H]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_VLP_MUX_AUDIO_H],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_APLL2_CK]);
-> +               if (ret)
-> +                       return ret;
-> +       } else {
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_VLP_MUX_AUD_ENG2],
-> +                                               afe_priv->clk[MT8196_CLK_=
-VLP_CLK26M]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_=
-MUX_AUD_ENG2]);
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT81=
-96_CLK_TOP_MUX_AUD_2],
-> +                                               afe_priv->clk[MT8196_CLK_=
-TOP_CLK26M]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_=
-MUX_AUD_2]);
-> +               mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_V=
-LP_MUX_AUDIO_H],
-> +                                         afe_priv->clk[MT8196_CLK_VLP_CL=
-K26M]);
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_=
-MUX_AUDIO_H]);
-> +       }
-
-Same for this function.
-
-> +       return 0;
-> +}
-> +
-> +static int mt8196_afe_disable_apll(struct mtk_base_afe *afe)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int ret =3D 0;
-> +
-> +       ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_M=
-UX_AUDIO_H]);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_M=
-UX_AUD_1]);
-> +       if (ret)
-> +               goto clk_ck_mux_aud1_err;
-> +
-> +       ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_T=
-OP_MUX_AUD_1],
-> +                                       afe_priv->clk[MT8196_CLK_TOP_CLK2=
-6M]);
-> +       if (ret)
-> +               goto clk_ck_mux_aud1_parent_err;
-> +
-> +       ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_M=
-UX_AUD_2]);
-> +       if (ret)
-> +               goto clk_ck_mux_aud2_err;
-> +
-> +       ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_T=
-OP_MUX_AUD_2],
-> +                                       afe_priv->clk[MT8196_CLK_TOP_CLK2=
-6M]);
-> +       if (ret)
-> +               goto clk_ck_mux_aud2_parent_err;
-> +
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_MUX_AUD_=
-1]);
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_MUX_AUD_=
-2]);
-> +       mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_A=
-UDIO_H],
-> +                                 afe_priv->clk[MT8196_CLK_VLP_CLK26M]);
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDI=
-O_H]);
-
-Same here. There's no need to toggle all the intermediate clocks. And since
-everything is getting disabled, what parent is selected shouldn't matter.
-
-> +       return 0;
-> +
-> +clk_ck_mux_aud2_parent_err:
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_MUX_AUD_=
-2]);
-> +clk_ck_mux_aud2_err:
-> +       mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_TOP_MUX_A=
-UD_1],
-> +                                 afe_priv->clk[MT8196_CLK_TOP_APLL1_CK])=
-;
-> +clk_ck_mux_aud1_parent_err:
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_MUX_AUD_=
-1]);
-> +clk_ck_mux_aud1_err:
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDI=
-O_H]);
-> +
-> +       return ret;
-> +}
-> +
-> +static void mt8196_afe_apll_init(struct mtk_base_afe *afe)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +
-> +       if (!afe_priv->vlp_ck) {
-> +               dev_warn(afe->dev, "vlp_ck regmap is null ptr\n");
-> +               return;
-> +       }
-> +
-> +       regmap_write(afe_priv->vlp_ck, VLP_APLL1_TUNER_CON0, VLP_APLL1_TU=
-NER_CON0_VALUE);
-> +       regmap_write(afe_priv->vlp_ck, VLP_APLL2_TUNER_CON0, VLP_APLL2_TU=
-NER_CON0_VALUE);
-
-Per offline discussion, this should be moved to the vlp clk driver.
-This was already mentioned to the clk patch owners in a recent review.
-
-> +}
-
-[...]
-
-> +/* mck */
-> +struct mt8196_mck_div {
-> +       int m_sel_id;
-> +       int div_clk_id;
-> +};
-> +
-> +static const struct mt8196_mck_div mck_div[MT8196_MCK_NUM] =3D {
-> +       [MT8196_I2SIN0_MCK] =3D {
-> +               .m_sel_id =3D MT8196_CLK_TOP_I2SIN0_M_SEL,
-> +               .div_clk_id =3D MT8196_CLK_TOP_APLL12_DIV_I2SIN0,
-> +       },
-> +       [MT8196_I2SIN1_MCK] =3D {
-> +               .m_sel_id =3D MT8196_CLK_TOP_I2SIN1_M_SEL,
-> +               .div_clk_id =3D MT8196_CLK_TOP_APLL12_DIV_I2SIN1,
-> +       },
-> +       [MT8196_FMI2S_MCK] =3D {
-> +               .m_sel_id =3D MT8196_CLK_TOP_FMI2S_M_SEL,
-> +               .div_clk_id =3D MT8196_CLK_TOP_APLL12_DIV_FMI2S,
-> +       },
-> +       [MT8196_TDMOUT_MCK] =3D {
-> +               .m_sel_id =3D MT8196_CLK_TOP_TDMOUT_M_SEL,
-> +               .div_clk_id =3D MT8196_CLK_TOP_APLL12_DIV_TDMOUT_M,
-> +       },
-> +       [MT8196_TDMOUT_BCK] =3D {
-> +               .m_sel_id =3D -1,
-> +               .div_clk_id =3D MT8196_CLK_TOP_APLL12_DIV_TDMOUT_B,
-> +       },
-> +};
-
-In the upstream clk patch submission, the mux and divider have been
-combined. So this part could be simplified a bit. Also...
-
-> +int mt8196_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int apll =3D mt8196_get_apll_by_rate(afe, rate);
-> +       int apll_clk_id =3D apll =3D=3D MT8196_APLL1 ?
-> +                         MT8196_CLK_TOP_MUX_AUD_1 : MT8196_CLK_TOP_MUX_A=
-UD_2;
-> +       int m_sel_id;
-> +       int div_clk_id;
-> +       int ret;
-> +
-> +       dev_dbg(afe->dev, "mck_id: %d, rate: %d\n", mck_id, rate);
-> +
-> +       if (mck_id >=3D MT8196_MCK_NUM || mck_id < 0)
-> +               return -EINVAL;
-> +
-> +       m_sel_id =3D mck_div[mck_id].m_sel_id;
-> +       div_clk_id =3D mck_div[mck_id].div_clk_id;
-> +
-> +       /* select apll */
-> +       if (m_sel_id >=3D 0) {
-> +               ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[m_sel_id=
-]);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               ret =3D mt8196_afe_set_clk_parent(afe, afe_priv->clk[m_se=
-l_id],
-> +                                               afe_priv->clk[apll_clk_id=
-]);
-
-This part would be taken care of by the framework as well. There's no
-need to do it explicitly.
-
-> +               if (ret)
-> +                       return ret;
-> +       }
-> +
-> +       /* enable div, set rate */
-> +       if (div_clk_id < 0) {
-> +               dev_err(afe->dev, "invalid div_clk_id %d\n", div_clk_id);
-> +               return -EINVAL;
-> +       }
-> +       if (div_clk_id =3D=3D MT8196_CLK_TOP_APLL12_DIV_TDMOUT_B)
-> +               rate =3D rate * 16;
-
-                  rate *=3D 16;
-
-> +
-> +       ret =3D mt8196_afe_enable_clk(afe, afe_priv->clk[div_clk_id]);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret =3D mt8196_afe_set_clk_rate(afe, afe_priv->clk[div_clk_id], r=
-ate);
-> +       if (ret)
-> +               return ret;
-> +
-> +       return 0;
-> +}
-> +
-> +int mt8196_mck_disable(struct mtk_base_afe *afe, int mck_id)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int m_sel_id;
-> +       int div_clk_id;
-> +
-> +       dev_dbg(afe->dev, "mck_id: %d.\n", mck_id);
-> +
-> +       if (mck_id < 0) {
-> +               dev_err(afe->dev, "mck_id =3D %d < 0\n", mck_id);
-> +               return -EINVAL;
-> +       }
-> +
-> +       m_sel_id =3D mck_div[mck_id].m_sel_id;
-> +       div_clk_id =3D mck_div[mck_id].div_clk_id;
-> +
-> +       if (div_clk_id < 0) {
-> +               dev_err(afe->dev, "div_clk_id =3D %d < 0\n",
-> +                       div_clk_id);
-> +               return -EINVAL;
-> +       }
-> +
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[div_clk_id]);
-> +
-> +       if (m_sel_id >=3D 0)
-> +               mt8196_afe_disable_clk(afe, afe_priv->clk[m_sel_id]);
-> +
-> +       return 0;
-> +}
-> +
-> +int mt8196_afe_enable_reg_rw_clk(struct mtk_base_afe *afe)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +
-> +       /* bus clock for AFE external access, like DRAM */
-> +       mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL]=
-);
-> +
-> +       /* bus clock for AFE internal access, like AFE SRAM */
-> +       mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO=
-INTBUS]);
-> +       mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_A=
-UDIOINTBUS],
-> +                                 afe_priv->clk[MT8196_CLK_VLP_CLK26M]);
-
-If you are setting it to 26M, then it probably doesn't matter what parent
-it uses? I would just drop this.
-
-> +       /* enable audio vlp clock source */
-> +       mt8196_afe_enable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDIO=
-_H]);
-> +       mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_A=
-UDIO_H],
-> +                                 afe_priv->clk[MT8196_CLK_VLP_CLK26M]);
-
-Same here.
-
-> +
-> +       /* AFE hw clock */
-> +       /* IPM2.0: USE HOPPING & 26M */
-> +       /* set in the regmap_register_patch */
-> +       return 0;
-> +}
-> +
-> +int mt8196_afe_disable_reg_rw_clk(struct mtk_base_afe *afe)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +
-> +       /* IPM2.0: Use HOPPING & 26M */
-> +       /* set in the regmap_register_patch */
-> +
-> +       mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_A=
-UDIO_H],
-> +                                 afe_priv->clk[MT8196_CLK_VLP_CLK26M]);
-
-There's no point in selecting a parent on a clock that is going to be disab=
-led.
-
-> +
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDI=
-O_H]);
-> +       mt8196_afe_set_clk_parent(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_A=
-UDIOINTBUS],
-> +                                 afe_priv->clk[MT8196_CLK_VLP_CLK26M]);
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_VLP_MUX_AUDI=
-OINTBUS]);
-> +       mt8196_afe_disable_clk(afe, afe_priv->clk[MT8196_CLK_TOP_ADSP_SEL=
-]);
-> +       return 0;
-> +}
-> +
-> +int mt8196_afe_enable_main_clock(struct mtk_base_afe *afe)
-> +{
-> +       mt8196_afe_enable_top_cg(afe, MT8196_AUDIO_26M_EN_ON);
-> +       return 0;
-> +}
-> +
-> +int mt8196_afe_disable_main_clock(struct mtk_base_afe *afe)
-> +{
-> +       mt8196_afe_disable_top_cg(afe, MT8196_AUDIO_26M_EN_ON);
-> +       return 0;
-> +}
-> +
-> +int mt8196_init_clock(struct mtk_base_afe *afe)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int ret =3D 0;
-> +       int i =3D 0;
-> +
-> +       afe_priv->clk =3D devm_kcalloc(afe->dev, MT8196_CLK_NUM, sizeof(*=
-afe_priv->clk),
-> +                                    GFP_KERNEL);
-> +       if (!afe_priv->clk)
-> +               return -ENOMEM;
-> +
-> +       for (i =3D 0; i < MT8196_CLK_NUM; i++) {
-> +               afe_priv->clk[i] =3D devm_clk_get(afe->dev, aud_clks[i]);
-> +               if (IS_ERR(afe_priv->clk[i])) {
-> +                       dev_err(afe->dev, "devm_clk_get %s fail\n", aud_c=
-lks[i]);
-> +                       return PTR_ERR(afe_priv->clk[i]);
-> +               }
-> +       }
-> +
-
-> +       afe_priv->vlp_ck =3D syscon_regmap_lookup_by_phandle(afe->dev->of=
-_node,
-> +                                                          "vlpcksys");
-> +       if (IS_ERR(afe_priv->vlp_ck)) {
-> +               dev_err(afe->dev, "Cannot find vlpcksys\n");
-> +               return PTR_ERR(afe_priv->vlp_ck);
-> +       }
-
-As mentioned, the tuner bits will be moved to the clk driver, so this
-bit is no longer needed.
-
-> +
-> +       mt8196_afe_apll_init(afe);
-> +
-> +       ret =3D mt8196_afe_disable_apll(afe);
-> +       if (ret)
-> +               return ret;
-> +
-> +       return 0;
-> +}
-> +
-> diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.h b/sound/soc/media=
-tek/mt8196/mt8196-afe-clk.h
-> new file mode 100644
-> index 000000000000..854da3844104
-> --- /dev/null
-> +++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.h
-> @@ -0,0 +1,80 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * mt8196-afe-clk.h  --  Mediatek MT8196 AFE Clock Control definitions
-> + *
-> + * Copyright (c) 2024 MediaTek Inc.
-> + *  Author: Darren Ye <darren.ye@mediatek.com>
-> + */
-> +
-> +#ifndef _MT8196_AFE_CLOCK_CTRL_H_
-> +#define _MT8196_AFE_CLOCK_CTRL_H_
-> +
-> +/* vlp_cksys_clk: 0x1c016000 */
-> +#define VLP_APLL1_TUNER_CON0 0x02a4
-> +#define VLP_APLL2_TUNER_CON0 0x02a8
-> +
-> +/* vlp apll1 tuner default value*/
-> +#define VLP_APLL1_TUNER_CON0_VALUE 0x6f28bd4d
-> +/* vlp apll2 tuner default value + 1*/
-> +#define VLP_APLL2_TUNER_CON0_VALUE 0x78fd5265
-> +
-> +/* APLL */
-> +#define APLL1_W_NAME "APLL1"
-> +#define APLL2_W_NAME "APLL2"
-> +
-> +enum {
-> +       MT8196_APLL1 =3D 0,
-> +       MT8196_APLL2,
-> +};
-> +
-> +enum {
-> +       /* vlp clk */
-> +       MT8196_CLK_VLP_MUX_AUDIOINTBUS,
-> +       MT8196_CLK_VLP_MUX_AUD_ENG1,
-> +       MT8196_CLK_VLP_MUX_AUD_ENG2,
-> +       MT8196_CLK_VLP_MUX_AUDIO_H,
-> +       MT8196_CLK_VLP_CLK26M,
-> +       /* pll */
-> +       MT8196_CLK_TOP_APLL1_CK,
-> +       MT8196_CLK_TOP_APLL2_CK,
-> +       /* divider */
-> +       MT8196_CLK_TOP_APLL1_D4,
-> +       MT8196_CLK_TOP_APLL2_D4,
-> +       MT8196_CLK_TOP_APLL12_DIV_I2SIN0,
-> +       MT8196_CLK_TOP_APLL12_DIV_I2SIN1,
-> +       MT8196_CLK_TOP_APLL12_DIV_FMI2S,
-> +       MT8196_CLK_TOP_APLL12_DIV_TDMOUT_M,
-> +       MT8196_CLK_TOP_APLL12_DIV_TDMOUT_B,
-> +       /* mux */
-> +       MT8196_CLK_TOP_MUX_AUD_1,
-> +       MT8196_CLK_TOP_MUX_AUD_2,
-> +       MT8196_CLK_TOP_I2SIN0_M_SEL,
-> +       MT8196_CLK_TOP_I2SIN1_M_SEL,
-> +       MT8196_CLK_TOP_FMI2S_M_SEL,
-> +       MT8196_CLK_TOP_TDMOUT_M_SEL,
-> +       MT8196_CLK_TOP_ADSP_SEL,
-> +       /* top 26m */
-> +       MT8196_CLK_TOP_CLK26M,
-> +       MT8196_CLK_NUM,
-
-The list should be reworked based on review comments to the DT bindings
-and our offline discussions. Basically only clocks that directly feed
-into the hardware, or otherwise have a reason to be referenced should
-be listed.
-
-
-ChenYu
-
-> +};
-> +
-> +struct mtk_base_afe;
-> +
-> +int mt8196_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate);
-> +int mt8196_mck_disable(struct mtk_base_afe *afe, int mck_id);
-> +int mt8196_get_apll_rate(struct mtk_base_afe *afe, int apll);
-> +int mt8196_get_apll_by_rate(struct mtk_base_afe *afe, int rate);
-> +int mt8196_get_apll_by_name(struct mtk_base_afe *afe, const char *name);
-> +int mt8196_init_clock(struct mtk_base_afe *afe);
-> +int mt8196_afe_enable_clk(struct mtk_base_afe *afe, struct clk *clk);
-> +void mt8196_afe_disable_clk(struct mtk_base_afe *afe, struct clk *clk);
-> +int mt8196_apll1_enable(struct mtk_base_afe *afe);
-> +void mt8196_apll1_disable(struct mtk_base_afe *afe);
-> +int mt8196_apll2_enable(struct mtk_base_afe *afe);
-> +void mt8196_apll2_disable(struct mtk_base_afe *afe);
-> +int mt8196_afe_enable_main_clock(struct mtk_base_afe *afe);
-> +int mt8196_afe_disable_main_clock(struct mtk_base_afe *afe);
-> +int mt8196_afe_enable_reg_rw_clk(struct mtk_base_afe *afe);
-> +int mt8196_afe_disable_reg_rw_clk(struct mtk_base_afe *afe);
-> +
-> +#endif
-> --
-> 2.45.2
->
->
+> +late_initcall(psci_init_vendor_reset)
+> +
+> =C2=A0static void __init psci_init_system_reset2(void)
+> =C2=A0{
+> =C2=A0	int ret;
 
