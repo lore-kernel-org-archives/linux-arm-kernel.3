@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305F2C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 20:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAD5C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 20:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S1tDMbTuCN3Y0uldNJTdwwCiPIYOQ819zTdnVjVwO+c=; b=quBluPWojLcKmPGKGnOXGp95hd
-	B/0iTivxVfNuoxhsOD4XAG6xB8h11en8kIkLeRsQPfWqTQ4xOY8MMo+X9LJW6UtHTfdkedZnFSoN9
-	MslAjoAhVQOE7/9n/Fpqh/gkATJTEg5rr2q5TU3a8pu7LFdNKktqoSf69opURBshrMs90Ia5PuB2O
-	KGmFDTAKp+XmXbA1+8PRgC3ET+2OL903JrUSrbzulvpU2w6p1wR9I8M07G5JjhixiJZNDt1W9WQmi
-	F+cA51PAvmQ/vTYVXk1pHdwKmqIgDMEvtzVGCwqBVIrF/NT3RN0EsGuGlkw0e2unp/LmMayQ43n9S
-	eMzCS07A==;
+	bh=fIjCGhz8tLixz44uwO4xKNvBCCKp5RNzQO4yWFCNcHo=; b=XwCG9dH+lwCykhptABhPH2gxeQ
+	7a6YMOGBJLwQyhFzbCKLKG8PhpdoVPgkH2aAQjrAaRD7Auk8CnyblfZEuaFTZpPe91Z8wwTLQ1pVq
+	8HDFt8jsz8vdkdP6MUt15Idqwd1Y5zm+n8Lidc7lZB20EZ5Yto7NuEuzYHVbPNAsANXku1K2xJk4d
+	Ukt63j/VTRZ8Zf3ERHWdX2FdGflSTnYnpqUIlkI9VSlMmNoBoZNg9diuOrAQCJB/6OgslGWHIrPLt
+	gs1wWy5hOhq3D3TywzBW/jCbNqtyWRHAMiIa4ZJg0q1Oagd3/y8RLpm9Shc1ZtugMmO/f2SvkW6WG
+	BTyHE9NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhD5y-00000002LcW-2oZN;
-	Wed, 30 Jul 2025 20:08:14 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1uhD8P-00000002M4E-20yB;
+	Wed, 30 Jul 2025 20:10:45 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhCrN-00000002Jbd-1LOj
+	id 1uhCrO-00000002Jc2-255U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 19:53:10 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3b77673fd78so115624f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 12:53:09 -0700 (PDT)
+	Wed, 30 Jul 2025 19:53:11 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3b782cca9a0so155087f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 12:53:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753905188; x=1754509988; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1753905189; x=1754509989; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=S1tDMbTuCN3Y0uldNJTdwwCiPIYOQ819zTdnVjVwO+c=;
-        b=Xixb+BHWHrenkP5kE/DoFyU+RrkbOBHjiOVCnNUcFBe9SR9Z8J1RwJqcLMFoEFux0u
-         hLW2wke/p9rJMeuHp1lIl7qRMFri5jmbeJYNlpi3XqtZ7WXA2srtWV1tUoc4eLLPuvLO
-         SSB8aEkUJ6j6BVW7V52ad6yBfVisvhe7Buz/zWhOj0Dlhy/8V21UKM/brwnK7Pv43Gca
-         5V4aYd1HGvgqqKQS+xc5fTXXgoCZ+hcSipB3yD9js6dF9bpRXNNnEOyayebW5UB9tu/G
-         wxqK3OLnWZYCYKVaPrnTPSda2iMHBengVA0ANaaqZ5luNDZFK83Ak8ReLLuBCctM1T5v
-         A+wA==
+        bh=fIjCGhz8tLixz44uwO4xKNvBCCKp5RNzQO4yWFCNcHo=;
+        b=yTpv1mTqLgJlJnfYv4MLM4F0xGhwwlFriI3MSx+9rM2vTu+z+b4DOQQu2Y3RhLxKSB
+         sMUjxLzAX7+bzRDvSAx5bxasryB8zeWs95sFnvE1MsdRE2RhqHd1+7+iKd5GLrMf5Sct
+         f0WIibFToFlbV6JKUZyTnBAOcexj+Y3KkjkIHwlYO7GC1aFuVc/fGelKEcYnySbnjWF9
+         G3w/b9WaNgkoBdOiaBw6NWZISWoWxbT8PRln0TN96Q2bQpHhfob7n+EIi/TYXSoj5QmL
+         R5crNZbbdy1JpGuqJdtXqCCT3OiWjqU3O9raIv24P8Zo9n0H+92+dg/3boI/0S+AJ7He
+         wYuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753905188; x=1754509988;
+        d=1e100.net; s=20230601; t=1753905189; x=1754509989;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=S1tDMbTuCN3Y0uldNJTdwwCiPIYOQ819zTdnVjVwO+c=;
-        b=kDEmvjAF1gNrgErgtR0CO0rOAUqSxA7CL7ZCLWdHm4HJxc5SQ5qFusEUST95b2T7Ni
-         s/IDG5dOW7RJrTZg3RhWY0u8gERqlgudIQ92bNf02EVpA/C5owT8GH2vYX6RglXy/FRW
-         20tSH0sBMpFap9gYzLCE2fRJewU0dkiG8q8pfWRg787CPz/0HSxPCxPReTzfoXyCo9Lb
-         L5Gfys+7408sWwlrTU8886KCTtD/lR44lftyKo4EAeTfxBk7TT8lWQ4j+o4IO+YvcqoR
-         g5/Dr11jPvSOEiMXuLyRViq31OuoIk6bfbWC/0KUeHewlTLSN7T5TslZ88kfSwGB116J
-         Plsg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3mOk/ueECD2iMZZuJRlR21SW4hWvOrNvpaeK3cyv9hI1uSM5K34Nyg4VITBw3uLdAxGFWIGTXTZhIjFLC0VeC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMWkMEl2xjjU8YpmHjnIetfkgh3N7uq4vg/E3kl5plNCeRZW/P
-	N5aEqCtw6lAOuBO6UFNY1wpQ3T6Kg76oO+Fksno6MGCUnZQ44+R/gUAjMtfuwdO7Yck=
-X-Gm-Gg: ASbGnctiPgh1CzPRmMhmZWUMQJaMB2KFmDdOzggLVsV+OTnhSIbM5rcbMXBUioX1ITd
-	9ttc0+9sXP0bWVt86PYa12l6vkXnHsr37r2pl54lFIhRgKAnPMMmutAkj+Y+p036dH1/YqsOS7q
-	ZWNcRPF8yQE4F4SsbMV7SjuRoAZsKdp6gEXpX12gJI+xssT2/LjFwdbdVmeriEz++mK0yv+m6o+
-	xvSc4CMRog2qIfg9Re8L8V7MzDNxFzjltrzaXsXR8oqNpwNqxR3kGP83tvz4uxBfZW4MTd2/gw3
-	zpgjrKBgzJFaxSoMkPeeBE6QLWuzk7ESQAMC8yNkxlVc1k7qAcu6uw2FxRSYv4CFYfCRS1c4Uum
-	qX8iffuqIS0ql5otCmTb/8NU4JMQNQojxAuFFcjECUE0EUx/j
-X-Google-Smtp-Source: AGHT+IGRYElrDpNrl4+NOhTLGZelVLohbX8W6yyY1T9P0SsEBWFP5ZTfZfawxMYWXsxXjtUKCFrSbg==
-X-Received: by 2002:a05:6000:25c6:b0:3b7:8984:5134 with SMTP id ffacd0b85a97d-3b794fc0fb7mr3760889f8f.16.1753905187980;
-        Wed, 30 Jul 2025 12:53:07 -0700 (PDT)
+        bh=fIjCGhz8tLixz44uwO4xKNvBCCKp5RNzQO4yWFCNcHo=;
+        b=wLLLZqr3fiVnwOjxyb29ByLMWpJvhiawbEZFRirGuiTMBbqvsucZjeKw+E/D7TW3TB
+         /ZWYV35xGpv2Frh6/XposFZBRTdapu6kPAb9bIm36JVBYeOt22u5ghsSn2G2xMmlR3hm
+         LknDsKa2MRRfaNBi4Hhom/pzNsYMqNUQfkFDHK0AK5hfKE5xSwi+6V5SzpW1BtkAGl85
+         Rmbijv7rXBBMrpSurQbDyKIq/qikBZccXXYryTsZgPMqjacKho3ZlyWP6uZkdt0ZtS9C
+         qjnHTaAyftgEu8YtnkgBi9PC9OovA8lfZohp5AwBcN9PyveFnQP8KLxOZPZA6oGath3J
+         PHCg==
+X-Forwarded-Encrypted: i=1; AJvYcCUhCLf//HDhOjWfvAljv3pNf9eorvTA3VhxL/PxfyiWKu+X9d8uvHXqjoqpkOGODHTjs43xvZ1fvjtiFIncghfe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNJg4U1GDwcnXPqHss6UnKoMPaP6AgD10EC3srifmCWqJd3ske
+	S+eyOZgMP6J8lCDMLMjWXhnHVO4pwDy/nktFlZ2FhkvMYYxJcFo3B2euPVWjpPi2Mf0=
+X-Gm-Gg: ASbGnctCrGf1lDTp8MClLedXD/SDibBETkQNS5lYLfMrfOf0ETPRVtT3dO0HQFPfQ1v
+	Y4xScsx53d+xxH7ETrKW6my3XUnOp/lSdA0pswxsCoO9PutrwTlgUQ9p0jAWcxCS9M1spjdsb6g
+	vc832pPIVYGmomcGTA97zVDxVZip6XtgrUBOmG9MiReNuOt7WX3L0o0A4xnZoqsdfoY1nDokliB
+	ywKNDYi3oOXuqLsmn521GsiE5krCLEl5/HvO6DLH++3aqrpK8Ryja8WZhXEz5v+H+8ORHNPuj/8
+	jKfD2HsDSq1nyC/okmRBeBm8SvdFJixLopeveWQS2FZjlw7IwVGThrT22S/MxYP6ZKxYX9VuzPx
+	a8Mcivn+5hI4D00uMEZNdFwyWv8+vs9PG15YwhwndzPpLqGsi
+X-Google-Smtp-Source: AGHT+IEmsYHO0oNTJZYruShh/TW9R20EpAqhA//OGFPfdlNYdNfaTg5M72i1uh4bkKDQ8O6mJZ4IOg==
+X-Received: by 2002:a5d:54cb:0:b0:3b7:889e:2b2b with SMTP id ffacd0b85a97d-3b795010da3mr2683397f8f.47.1753905189071;
+        Wed, 30 Jul 2025 12:53:09 -0700 (PDT)
 Received: from mai.. (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b78b26a4dcsm9556193f8f.32.2025.07.30.12.53.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b78b26a4dcsm9556193f8f.32.2025.07.30.12.53.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Jul 2025 12:53:07 -0700 (PDT)
+        Wed, 30 Jul 2025 12:53:08 -0700 (PDT)
 From: Daniel Lezcano <daniel.lezcano@linaro.org>
 To: mbrugger@suse.com,
 	chester62515@gmail.com,
@@ -84,18 +84,20 @@ Cc: s32@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/8] arm64: dts: s32g2: Add the Software Timer Watchdog (SWT) description
-Date: Wed, 30 Jul 2025 21:50:18 +0200
-Message-ID: <20250730195022.449894-6-daniel.lezcano@linaro.org>
+	linux-kernel@vger.kernel.org,
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+	Thomas Fossati <thomas.fossati@linaro.org>
+Subject: [PATCH 6/8] arm64: dts: s32g274-rd2: Enable the SWT watchdog
+Date: Wed, 30 Jul 2025 21:50:19 +0200
+Message-ID: <20250730195022.449894-7-daniel.lezcano@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250730195022.449894-1-daniel.lezcano@linaro.org>
 References: <20250730195022.449894-1-daniel.lezcano@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_125309_357294_146E3627 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250730_125310_537930_C1BE62DF 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,83 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Referred in the documentation as the Software Timer Watchdog (SWT),
-the s32g2 has 7 watchdogs. The number of watchdogs is designed to
-allow dedicating one watchdog per Cortex-M7/A53 present on the SoC.
-
-Describe them in the device tree.
+The SWT0 is directly connected to the reset line and only one instance
+is useful for its purpose. Let's enable it for the s32g274-rd2.
 
 Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+Cc: Thomas Fossati <thomas.fossati@linaro.org>
 ---
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 56 ++++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+ arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 3e775d030e37..12ce02525ae1 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -566,5 +566,61 @@ stm6: timer@40224000 {
- 			interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
- 			status = "disabled";
- 		};
-+
-+		swt0: watchdog@40100000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x40100000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
-+
-+		swt1: watchdog@40104000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x40104000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
-+
-+		swt2: watchdog@40108000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x40108000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
-+
-+		swt3: watchdog@4010c000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x4010c000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
-+
-+		swt4: watchdog@40200000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x40200000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
-+
-+		swt5: watchdog@40204000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x40204000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
-+
-+		swt6: watchdog@40208000 {
-+			compatible = "nxp,s32g2-swt";
-+			reg = <0x40208000 0x1000>;
-+			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
-+			clock-names = "counter", "module", "register";
-+			status = "disabled";
-+		};
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+index 505776d19151..4f58be68c818 100644
+--- a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
++++ b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
+@@ -56,6 +56,10 @@ &stm3 {
+ 	status = "okay";
  };
+ 
++&swt0 {
++	status = "okay";
++};
++
+ &usdhc0 {
+ 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+ 	pinctrl-0 = <&pinctrl_usdhc0>;
 -- 
 2.43.0
 
