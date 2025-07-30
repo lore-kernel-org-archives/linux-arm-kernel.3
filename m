@@ -4,89 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DD4C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4ACC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=izmdp1mfJElMA660m7jOXKNrgn9YS9Q0kIP1psA3utA=; b=c2D4BYp1CWNUgJ/tBZbOS3O0a5
-	m4C3dnKFZ4uemnitpv1xaJhkhKu+w97G0TAWoU+7wLKWwjnw6dDrB9Drk2Mao/43o4SBSCPQQ9wtq
-	EezjLMZ5om1jMBIwdK9kJ2LfxazlnCd5K5Z86GYvWqlnHNTaR1eXzwJX37WoRQE28IBF8J5OV0Luj
-	c1OgqKO0rJMY2ODRL5QT0N4HtpSKK71jLAMnd7BHtVDyUBsuRD8adzlv4qxH12qwx5URuJEcO9f8z
-	ERtkDsRE5VPhyRfd9jT0ErkOuJVqijzJHHhRan1dPhNLyeUAkghzI/ScOhFabzlKdpsgAscEx3P8h
-	jsEnnFig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8DfRGBX3mcpytWgeuQOoQcWlLUxxXP7ehgwEP8S8+jQ=; b=WEoMAQuAKYdgQEi1u7jy74PK3A
+	GUdiEgkAkipNFgoFser1RnTIwJugdta7jfBN4dvYbKFpwiKI6Riwz9deTOENIgYc65S1JyJ0DY7PQ
+	XFknc5C66XbjKAnED5dLplYVxBseKSiYJ7VIADk2Rbi2sZpYZyC4Xwmz+x7xX+HPnpQRuySS89Mcr
+	R6AJ/EInMirJFPulE2AgMorRD8KZhteKzpHIa4zLFdZh7Uly5syP2uShj4NQVjdjUFzqWvK2BD2Dt
+	JU8DitsDX3QFwEik8jY8LpfyO1nSuwoj4NZWGniMRTcNMxwDQ9JrJnrMerns3Q2iAUb0BSCGhpNHp
+	YthBovaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3yi-00000001Dyf-1lDs;
-	Wed, 30 Jul 2025 10:24:08 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uh46n-00000001EkG-1pBG;
+	Wed, 30 Jul 2025 10:32:29 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3wE-00000001DmQ-048h;
-	Wed, 30 Jul 2025 10:21:35 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4563bc166a5so3981645e9.1;
-        Wed, 30 Jul 2025 03:21:33 -0700 (PDT)
+	id 1uh44H-00000001ETy-08et
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Jul 2025 10:29:55 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-71a39f93879so8447517b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 03:29:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753870892; x=1754475692; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=izmdp1mfJElMA660m7jOXKNrgn9YS9Q0kIP1psA3utA=;
-        b=W6wV35WtCeaFp8RRhVzk3CxdrYR4TIFuE1l9xxcDfW5f0wFcLp7lkFEhYpvR4YeWPM
-         z4qumDzUCAE+nmF5UOe1j8tgdRh9ZsGYmA0lpfx6BGOmkYHZCpfun9PFpT5xin4B58wx
-         hbrzU0IMifG9gzgEoGtTfexXe04X2KgRkN5fxbvjcxu5GP9k7CAPpDPkjebWI/CzEvA6
-         Am/KxnH/qctASKAx1IyvenLt/WnOtrgnyiKH5KR/IyMxzHSXMOrOEqyADEn+He5ZRqia
-         qGZbk+5TWg7ER3TlHXW0omnR5z9z/g6lnEDiz72JHfq3V+5fBuwpvibs/CZXV6mKTNKP
-         BazA==
+        d=linaro.org; s=google; t=1753871392; x=1754476192; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8DfRGBX3mcpytWgeuQOoQcWlLUxxXP7ehgwEP8S8+jQ=;
+        b=A++uy+CC8/QBLX/IeNf/ZlCa4GkjrPGkZUIJu/oR9aBnsm+wK7VgensRfE5WYGaVVs
+         eMuMBuz24CYxmsQp3QVZgjAMmDDXciFQOWm1Ch+AO88i9kCDKa/gUAWaF+XgjrZBchhf
+         LFMMjgPLZtXBKZAjzS1EVbmEDXkNg7D58bwt8hLcKe6APIWQU3CbbJv7aQXyNNDDQ5gr
+         bJapEjNRgjxIwVz24rqB0BJ5lOSPG3dP4oPQJJb7oY+/KzO8Y7o0RpGogYgSOiZiTuHA
+         Mt+/9jm9i0JTWUbaGKSRLuJA5wustExdS6G43faWehggmMaeDcdfu9xkBTOw9+fOSIYf
+         sS9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753870892; x=1754475692;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1753871392; x=1754476192;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=izmdp1mfJElMA660m7jOXKNrgn9YS9Q0kIP1psA3utA=;
-        b=kcU7Nx0QnEPH14xu/ubFdlnoMRrEH1bQ6vOPsBbSFlAVzzpw3HOeHKM1mbMKMt8e5/
-         KMt6S/l86YLtT89UHqlJpYBBtDU7W/Sar8syZ1CpWXtuTuVyOa7Uf2g5eXJuNyccMfux
-         nXlZExFbhuw+tSbilOPmYiYxg6MsdbxIdFFJYkIm16Xbf9GaWGi7AgQhcKlAjBESgewg
-         ejtdBXBdeuELaOKnj38Wp5PJf/xOEQB5/04wVIAFoDr7KRhS7vOWGxlIgXkq0OR8jIw+
-         3RruGhnhQKrfOcQmY2S0nB4qxeYouD1C3MlGq2IGIgeK/JDyscxDsqdPgAnQuZuAfJM+
-         +aoA==
-X-Forwarded-Encrypted: i=1; AJvYcCW4n5n0cV6p3ExZnsgJbCDKBeoJC5XEKe5HjYNWz6p3kD4vf+hS12cZ8FBDKIYGQQ++63tC9Ir9wMSv2Mdaim+o@lists.infradead.org, AJvYcCXfRfCPFSDfRgSADSQPLRVaeE6hQy8eTa/gEAemvLFivoftD/a66wgtJadSb5tgQI7eH2ZZsgrgfMXsKr48E+g=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzRWob7qOG1X5SwS9X4Pydw3dBLzZSEsX79Bs4DBkSLKgMzCEtp
-	h//8upqm8bfHhVJZfXmzmtKbKSrAegDJgl3C53jaz19EJQO3Zv+PFG7g
-X-Gm-Gg: ASbGncvz4jMgDFdN3S58j84o+7FxZWPMnDaLmyeXMU/r6esoWqwuYXztiSph8nA/0MQ
-	d9M8i+ERT0Pv6uaJ/2dz6OpCWTwt5M6dB3ogqQezmmCuVLfQg34Pz7ab7yssRxKEZJ3usxBvr6l
-	WApeGw7joBLUvhE1Ri9v5NznBqW1mzMbASrW6wqzM3TBK19Z9CNIVgAxsk8sNu7SHu6n2WAIzbb
-	Ro0/0tA6QaAhl8ktn9QqglLd8k9to70bC5u0KluxDT4JxBGQyVYfFojfHSqNLk8mGSrS9qp7Eu1
-	C4p3g4Pc4XH2I+z4bRwp4iUUh06+4EbqUtDOIdFABthV06tuoe+i8WYbw5LyXIAk8+grBBaebX9
-	3sEJ1lwU690dgFNTA5lPqG2zmtOZrltWx7ZiADfxkKvFKbR/NuUC5ZSvefCk1zjE5rKrXjaE2JH
-	5sjnRq7p6bdIRI7xD5ma1iPpy6R+bT0tQGQ1V+Zd0eOGEqaW9vfchHfsmYWA==
-X-Google-Smtp-Source: AGHT+IEHXtB2NA59RXOAGzl8/E7rrQL8mlrQPxG7D28gE4sPqk53HQ56chwvDhjCqBfn8C/qtk2Kow==
-X-Received: by 2002:a05:600c:628c:b0:456:1281:f8dd with SMTP id 5b1f17b1804b1-45893108700mr24657995e9.12.1753870892301;
-        Wed, 30 Jul 2025 03:21:32 -0700 (PDT)
-Received: from cypher.home.roving-it.com (2.c.4.1.7.3.6.4.2.a.a.3.0.f.c.2.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:2cf0:3aa2:4637:14c2])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-45895377b3csm20230985e9.13.2025.07.30.03.21.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Jul 2025 03:21:31 -0700 (PDT)
-From: Peter Robinson <pbrobinson@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Diederik de Haas <didi.debian@cknow.org>
-Cc: Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH] arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3399-pinebook-pro
-Date: Wed, 30 Jul 2025 11:21:26 +0100
-Message-ID: <20250730102129.224468-1-pbrobinson@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        bh=8DfRGBX3mcpytWgeuQOoQcWlLUxxXP7ehgwEP8S8+jQ=;
+        b=Clak2lApya+JT/K/y8FdgXqx/bLnarYiDlGTNvdjrQoWL0KD+Y69DuCWBTkYUUm7Ni
+         ZTTNBzD2DvMUX96jR6vUwP/KFlN81M8A7INtykBkoTp9YBqmkGGTAYp247ktzsVyDoxc
+         Skn3UTqOD4F1INEoC61w9zXl6yvbfz24flcXDisFPB0SmLujbsZ068WmYhtkNEcTM/KE
+         O45WOwQOCxN9LCO1euiutmslgwnf6SgaHPt+Macvmj2IycWyMSkelDAtUygXXn66j7Bl
+         2U5WypbHcpmqWVdKfY7SJNCgBU0Sjywf2TvH0PB4Meyk7xltZQhsuczQnKiODM+rByXR
+         VJ2A==
+X-Forwarded-Encrypted: i=1; AJvYcCX1vilY379wvoZNaRvGDoY+h/C2mNflfaDoiOwVk15FyJQlkFvuFi2qWGJZHTNiyx7tx+jOEZ+qV1z83DVSwGU5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkjKQpBOgFkzX2gLG0LegI1g7PD1TCTzXJOF5RsuOmIf4O4CYe
+	wY3QVVccmExcuW8h/81cUujhRqKJGmhSMcXg+hubvBR3RBpe9/3AZa8Ayr5HLOxiO95C0pGNWX2
+	iP5mZXiwKyRUQGm0gHifEwkgcHliYFLFfEEUk14Vjkg==
+X-Gm-Gg: ASbGncvXnq2LjVU/tV342h30/6gx93nxy8nPjZfzzJGvk05/wFDxbnB9FYQMl9jrY00
+	J6kYo7+iAWkNZr1++wRuXMKs7cV++P0CYVLR3NIcEjELGI6BNqUrtcr5aKfR1jfivp0usHWPabz
+	lkNFPCHTWDq2D9cipCsL96uL7J30pTeCpcvqVE4xOJyoxuP9JOfjWGW5/PQeCWLMP5574b1yC7X
+	o5oB5vo48HnC/CYc5w=
+X-Google-Smtp-Source: AGHT+IGFQjbmfwQ2KygX5zLfPtAfVRDoKZEoCDWpl15Tj6cbjvtyN/moXAbjn/fUqackhgtTl9hi4qXu0QdfTHnMzRw=
+X-Received: by 2002:a05:690c:3686:b0:71a:2178:3e70 with SMTP id
+ 00721157ae682-71a4745d2abmr37909517b3.8.1753871391946; Wed, 30 Jul 2025
+ 03:29:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250701114733.636510-1-ulf.hansson@linaro.org>
+ <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com> <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
+In-Reply-To: <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Wed, 30 Jul 2025 12:29:13 +0200
+X-Gm-Features: Ac12FXyYhnc-5Yj1CQN0T9Q5i6IKPQAs_4KsBvKN_tu1xC2bA9MW4FBogdA1snU
+Message-ID: <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com>
+Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
+	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_032134_052332_7B5B4FC8 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250730_032953_079722_3AA9C37A 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +102,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As described in the pinebookpro_v2.1_mainboard_schematic.pdf page 10,
-he SPI Flash's VCC connector is connected to VCC_3V0 power source.
+On Wed, 30 Jul 2025 at 11:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Ulf,
+>
+> On Wed, 9 Jul 2025 at 13:31, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> > On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> > > Changes in v3:
+> > >         - Added a couple of patches to adress problems on some Renesas
+> > >         platforms. Thanks Geert and Tomi for helping out!
+> > >         - Adressed a few comments from Saravanna and Konrad.
+> > >         - Added some tested-by tags.
+> >
+> > I decided it was time to give this a try, so I have queued this up for
+> > v6.17 via the next branch at my pmdomain tree.
+> >
+> > If you encounter any issues, please let me know so I can help to fix them.
+>
+> Thanks for your series!  Due to holidays, I only managed to test
+> this very recently.
+>
+> Unfortunately I have an issue with unused PM Domains no longer being
+> disabled on R-Car:
+>   - On R-Car Gen1/2/3, using rcar-sysc.c, unused PM Domains are never
+>     disabled.
+>   - On R-Car Gen4, using rcar-gen4-sysc.c, unused PM Domains are
+>     sometimes not disabled.
+>     At first, I noticed the IOMMU driver was not enabled in my config,
+>     and enabling it did fix the issue.  However, after that I still
+>     encountered the issue in a different config that does have the
+>     IOMMU driver enabled...
+>
+> FTR, unused PM Domains are still disabled correctly on R/SH-Mobile
+> (using rmobile-sysc.c) and on BeagleBone Black. Note that these use
+> of_genpd_add_provider_simple(), while all R-Car drivers use
+> of_genpd_add_provider_onecell().  Perhaps there is an issue with
+> the latter?  If you don't have a clue, I plan to do some more
+> investigation later...
 
-This fixes the following warning:
+Geert, thanks for reporting!
 
-  spi-nor spi1.0: supply vcc not found, using dummy regulator
+>
+> BTW, the "pending due to"-messages look weird to me.
+> On R-Car M2-W (r8a7791.dtsi) I see e.g.:
+>
+>     genpd_provider ca15-cpu0: sync_state() pending due to e6020000.watchdog
+>     renesas-cpg-mssr e6150000.clock-controller: sync_state() pending
+> due to e6020000.watchdog
+>
+> ca15-cpu0 is the PM Domain holding the first CPU core, while
+> the watchdog resides in the always-on Clock Domain, and uses the
+> clock-controller for PM_CLK handling.
 
-Fixes: 5a65505a69884 ("arm64: dts: rockchip: Add initial support for Pinebook Pro")
-Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts | 1 +
- 1 file changed, 1 insertion(+)
+I will have a closer look as soon as I can  to see if I can find some
+potential problems.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-index 05c48cb09df6f..ee0e6c1947acb 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinebook-pro.dts
-@@ -978,6 +978,7 @@ spiflash: flash@0 {
- 		reg = <0>;
- 		m25p,fast-read;
- 		spi-max-frequency = <10000000>;
-+		vcc-supply = <&vcc_3v0>;
- 	};
- };
- 
--- 
-2.50.1
-
+Kind regards
+Uffe
 
