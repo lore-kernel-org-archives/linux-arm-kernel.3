@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07459C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 15:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA891C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 15:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+D1Q0GyjOqvzrFA6k6racNKN1FDyU6GD/XKQYEhxOKU=; b=miDvvUkL2Y/w1VwHFkHO0DvnFs
-	zGk6z3LubSYzJA/CpyPUQ4sJWvo33/9T1N9LohilMZC+P0niQu3Za9ArgPfzYVpK2l/NuXxBUx+sE
-	hFzwpy8d2ktAnBkSvsuf9dOXyyBlAqlCzO+D6B+ZF9Emvkd19fVeSwktc9fCUBA2X/PIZdBKNKtrl
-	uV5z7hqKv2HOgEn4g8POzohwtpMkxt/TYKQLHBOB6XO55HZnqMJdEgkcd8hig+cCx5KZYMoBSidk4
-	GYYlDihOZQ6IklI3UyUNTJ7asGN7SLRdJ37iyRre2mu4JbCtyn4U7iZBW/penc4yDPemwbBQwQUST
-	AeUlTrDA==;
+	bh=jvhrQYpwdxLrVJFi0UETljkB1d4RN0E4OT00FikJ4ss=; b=k1t31LrJO9B+UUvn7+jyOxarVe
+	9ROqop01R0twtSkOVRtn2v0TbFM4tgeJmUfgLrxZIZgWBFfJqIWgfittuV4/g7kYr2LU+iO4tx8IA
+	MmzyXhazMlGv6lMv8GU26LOgBGZQqufRicxjwX9GIcrS1QT1LM7dzwo4q3dHY7DvrpLp+8hkf+zuN
+	VVYq01lzUACqfyXFfVA8LQyqDiPtHb8EZTmdT0yVaRX72g/rSCWnUqK2YYIKCvTDCwnFL1JrLnzBg
+	c5luxrTmlQAhsIjhU/Qv3w5GSORSri4nSSxXbRsH7rKaifZs6zCYSdQ0ABJUjbSTVSFTqFKi3Nj7+
+	2oBpLPTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh8x6-00000001rwF-2vHP;
-	Wed, 30 Jul 2025 15:42:48 +0000
+	id 1uh8zY-00000001sAM-3fGZ;
+	Wed, 30 Jul 2025 15:45:20 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh8da-00000001q3O-3exg;
-	Wed, 30 Jul 2025 15:22:40 +0000
+	id 1uh8dc-00000001q3m-1epe;
+	Wed, 30 Jul 2025 15:22:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753888957;
-	bh=SbTOQ2lEB8QIZMUiX91hFJ98ODaTQ+EtuSSw5D5zFFU=;
+	s=mail; t=1753888959;
+	bh=bG3Zd77lA8rW8aZGZDSgujlWfx/S3qWkQS7LOkZRz5s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pDU/CzXp9HMSSQdMTQd1/uZMT0xzlHqCI/2FmovyCTozo32uqDAiRNQyHhTnKPqDE
-	 Baf8h2eXqDoYhsPuLzaNPZvr6n7Xh37sPbmePS1zcETFvli5E7WLk7IoJVCMb8VuWh
-	 GYMzD4/RSfA5sJ47YADBmQxcPgECsWAfTOA1kgCHLlHsJVSx6stIFOMDDcY9ofSaHW
-	 iz87Q7zOW/jUuww2TAt6RB9odh1+dtP3qH/n3iKxVXazNx8+WrcbJHxpBJwy8gWKRr
-	 5ixkV3BhzOYna9BCgnVwT5q+jhvjnu+RRUPVJDQHb6qMa9lIL5xztTfyb1hyrmXifz
-	 wqWf63mGQkTBQ==
+	b=Hjnzs4yTsjYdbIKCAswNgH3Dns2ZdVGC3KgevNSxTJ2/SKl4MWpqtMvEaKdo7lDQg
+	 oDmZ6ccuh8tEKAB5i3GBYVh32H/Gun3kXWZ/y5m7EhnEy6E9PXuypz8cTgNGjxJtCj
+	 z2utndTsUs7ppt5GAjcG3uS74DomnitB679DbZiaE5gao6mJGuOB7jfMG6zwshHStZ
+	 7Aoik5hmAi3xZl47EU/KfnpcFnygowLEXXAd0BAmFXJXX3UvEjE5ieTCpDBE2Ut7oG
+	 MIcXDAlY01/nqxxoY9upV98ysSIUorxNuDzBbkojVt96/8HLsUmurhHJWLVslaNVdY
+	 ES+H3h29awJug==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:41d5:bfd6:7c6f:85ff])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2032017E129D;
-	Wed, 30 Jul 2025 17:22:36 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD6B017E1511;
+	Wed, 30 Jul 2025 17:22:37 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: srini@kernel.org,
 	robh@kernel.org,
@@ -70,17 +70,17 @@ Cc: wenst@chromium.org,
 	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 7/9] thermal/drivers/mediatek/lvts: Support MSR offset for 16-bit calibration data
-Date: Wed, 30 Jul 2025 17:21:26 +0200
-Message-Id: <20250730152128.311109-8-laura.nao@collabora.com>
+Subject: [PATCH v2 8/9] thermal/drivers/mediatek/lvts_thermal: Add MT8196 support
+Date: Wed, 30 Jul 2025 17:21:27 +0200
+Message-Id: <20250730152128.311109-9-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250730152128.311109-1-laura.nao@collabora.com>
 References: <20250730152128.311109-1-laura.nao@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_082239_051432_9D45BAA4 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250730_082240_577447_26FE194D 
+X-CRM114-Status: GOOD (  11.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,73 +95,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On MT8196/MT6991, per-sensor calibration data read from eFuses is
-16-bit. When the LVTS controller operates in 16-bit mode, a fixed offset
-must be added to MSR values during post-processing to obtain correct
-temperature readings. Introduce a new msr_offset field in lvts_data,
-program the respective register and apply the offset to the calibration
-data read from eFuses.
+Add LVTS driver support for MT8196.
 
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ drivers/thermal/mediatek/lvts_thermal.c | 166 ++++++++++++++++++++++++
+ 1 file changed, 166 insertions(+)
 
 diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index fbe735e4fd77..a45f18ce85eb 100644
+index a45f18ce85eb..4e0c0b04fb1e 100644
 --- a/drivers/thermal/mediatek/lvts_thermal.c
 +++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -44,6 +44,7 @@
- #define LVTS_EDATA01(__base)	(__base + 0x0058)
- #define LVTS_EDATA02(__base)	(__base + 0x005C)
- #define LVTS_EDATA03(__base)	(__base + 0x0060)
-+#define LVTS_MSROFT(__base)		(__base + 0x006C)
- #define LVTS_ATP0(__base)		(__base + 0x0070)
- #define LVTS_ATP1(__base)		(__base + 0x0074)
- #define LVTS_ATP2(__base)		(__base + 0x0078)
-@@ -150,6 +151,7 @@ struct lvts_data {
- 	int temp_offset;
- 	int gt_calib_bit_offset;
- 	unsigned int def_calibration;
-+	u16 msr_offset;
+@@ -92,6 +92,10 @@
+ #define LVTS_COEFF_B_MT8195			250460
+ #define LVTS_COEFF_A_MT7988			-204650
+ #define LVTS_COEFF_B_MT7988			204650
++#define LVTS_COEFF_A_MT8196			391460
++#define LVTS_COEFF_B_MT8196			-391460
++
++#define LVTS_MSR_OFFSET_MT8196		-984
+ 
+ #define LVTS_MSR_READ_TIMEOUT_US	400
+ #define LVTS_MSR_READ_WAIT_US		(LVTS_MSR_READ_TIMEOUT_US / 2)
+@@ -761,6 +765,39 @@ static int lvts_sensor_init(struct device *dev, struct lvts_ctrl *lvts_ctrl,
+  * <-----ap--tc#3-----> <-----sensor#7-----> <-----sensor#8----->
+  *  0x40 | 0x41 | 0x42 | 0x43 | 0x44 | 0x45 | 0x46 | 0x47 | 0x48
+  *
++ * MT8196 :
++ * Stream index map for MCU Domain mt8196 :
++ *
++ * <-sensor#1--> <-sensor#0--> <-sensor#3--> <-sensor#2-->
++ *  0x04 | 0x05 | 0x06 | 0x07 | 0x08 | 0x09 | 0x0A | 0x0B
++ *
++ * <-sensor#5--> <-sensor#4--> <-sensor#7--> <-sensor#6-->
++ *  0x0C | 0x0D | 0x0E | 0x0F | 0x10 | 0x11 | 0x12 | 0x13
++ *
++ * <-sensor#9--> <-sensor#8--> <-sensor#11-> <-sensor#10->
++ *  0x14 | 0x15 | 0x16 | 0x17 | 0x18 | 0x19 | 0x1A | 0X1B
++ *
++ * <-sensor#13-> <-sensor#12-> <-sensor#15-> <-sensor#14->
++ *  0x1C | 0x1D | 0x1E | 0x1F | 0x20 | 0x21 | 0x22 | 0x23
++ *
++ * Stream index map for APU Domain mt8196 :
++ *
++ * <-sensor#1--> <-sensor#0--> <-sensor#3--> <-sensor#2-->
++ *  0x24 | 0x25 | 0x26 | 0x27 | 0x28 | 0x29 | 0x2A | 0x2B
++ *
++ * Stream index map for GPU Domain mt8196 :
++ *
++ * <-sensor#1--> <-sensor#0-->
++ *  0x2C | 0x2D | 0x2E | 0x2F
++ *
++ * Stream index map for AP Domain mt8196 :
++ *
++ * <-sensor#1--> <-sensor#0--> <-sensor#3--> <-sensor#2-->
++ *  0x30 | 0x31 | 0x32 | 0x33 | 0x34 | 0x35 | 0x36 | 0x37
++ *
++ * <-sensor#5--> <-sensor#4--> <-sensor#6--> <-sensor#7-->
++ *  0x38 | 0x39 | 0x3A | 0x3B | 0x3C | 0x3D | 0x3E | 0x3F
++ *
+  * Note: In some cases, values don't strictly follow a little endian ordering.
+  * The data description gives byte offsets constituting each calibration value
+  * for each sensor.
+@@ -1829,6 +1866,103 @@ static const struct lvts_ctrl_data mt8195_lvts_ap_data_ctrl[] = {
+ 	}
  };
  
- struct lvts_sensor {
-@@ -218,6 +220,7 @@ static const struct debugfs_reg32 lvts_regs[] = {
- 	LVTS_DEBUG_FS_REGS(LVTS_EDATA01),
- 	LVTS_DEBUG_FS_REGS(LVTS_EDATA02),
- 	LVTS_DEBUG_FS_REGS(LVTS_EDATA03),
-+	LVTS_DEBUG_FS_REGS(LVTS_MSROFT),
- 	LVTS_DEBUG_FS_REGS(LVTS_ATP0),
- 	LVTS_DEBUG_FS_REGS(LVTS_ATP1),
- 	LVTS_DEBUG_FS_REGS(LVTS_ATP2),
-@@ -788,6 +791,8 @@ static int lvts_calibration_init(struct device *dev, struct lvts_ctrl *lvts_ctrl
- 
- 		if (gt) {
- 			lvts_ctrl->calibration[i] = calib;
-+			if (lvts_ctrl->lvts_data->msr_offset)
-+				lvts_ctrl->calibration[i] += lvts_ctrl->lvts_data->msr_offset;
- 		} else if (lvts_ctrl->lvts_data->def_calibration) {
- 			lvts_ctrl->calibration[i] = lvts_ctrl->lvts_data->def_calibration;
- 		} else {
-@@ -1095,6 +1100,17 @@ static int lvts_ctrl_calibrate(struct device *dev, struct lvts_ctrl *lvts_ctrl)
- 	for (i = 0; i < LVTS_SENSOR_MAX; i++)
- 		writel(lvts_ctrl->calibration[i], lvts_edata[i]);
- 
-+	/* LVTS_MSROFT : Constant offset applied to MSR values
-+	 * for post-processing
-+	 *
-+	 * Bits:
-+	 *
-+	 * 20-0 : Constant data added to MSR values
-+	 */
-+	if (lvts_ctrl->lvts_data->msr_offset)
-+		writel(lvts_ctrl->lvts_data->msr_offset,
-+		       LVTS_MSROFT(lvts_ctrl->base));
++static const struct lvts_ctrl_data mt8196_lvts_mcu_data_ctrl[] = {
++	{
++		.lvts_sensor = {
++			{ .dt_id = MT8196_MCU_MEDIUM_CPU6_0,
++			  .cal_offsets = { 0x06, 0x07 } },
++			{ .dt_id = MT8196_MCU_MEDIUM_CPU6_1,
++			  .cal_offsets = { 0x04, 0x05 } },
++			{ .dt_id = MT8196_MCU_DSU2,
++			  .cal_offsets = { 0x0A, 0x0B } },
++			{ .dt_id = MT8196_MCU_DSU3,
++			  .cal_offsets = { 0x08, 0x09 } }
++		},
++		VALID_SENSOR_MAP(1, 1, 1, 1),
++		.offset = 0x0,
++		.mode = LVTS_MSR_ATP_MODE,
++	},
++	{
++		.lvts_sensor = {
++			{ .dt_id = MT8196_MCU_LITTLE_CPU3,
++			  .cal_offsets = { 0x0E, 0x0F } },
++			{ .dt_id = MT8196_MCU_LITTLE_CPU0,
++			  .cal_offsets = { 0x0C, 0x0D } },
++			{ .dt_id = MT8196_MCU_LITTLE_CPU1,
++			  .cal_offsets = { 0x12, 0x13 } },
++			{ .dt_id = MT8196_MCU_LITTLE_CPU2,
++			  .cal_offsets = { 0x10, 0x11 } }
++		},
++		VALID_SENSOR_MAP(1, 1, 1, 1),
++		.offset = 0x100,
++		.mode = LVTS_MSR_ATP_MODE,
++	},
++	{
++		.lvts_sensor = {
++			{ .dt_id = MT8196_MCU_MEDIUM_CPU4_0,
++			  .cal_offsets = { 0x16, 0x17 } },
++			{ .dt_id = MT8196_MCU_MEDIUM_CPU4_1,
++			  .cal_offsets = { 0x14, 0x15 } },
++			{ .dt_id = MT8196_MCU_MEDIUM_CPU5_0,
++			  .cal_offsets = { 0x1A, 0x1B } },
++			{ .dt_id = MT8196_MCU_MEDIUM_CPU5_1,
++			  .cal_offsets = { 0x18, 0x19 } }
++		},
++		VALID_SENSOR_MAP(1, 1, 1, 1),
++		.offset = 0x200,
++		.mode = LVTS_MSR_ATP_MODE,
++	},
++	{
++		.lvts_sensor = {
++			{ .dt_id = MT8196_MCU_DSU0,
++			  .cal_offsets = { 0x1E, 0x1F } },
++			{ .dt_id = MT8196_MCU_DSU1,
++			  .cal_offsets = { 0x1C, 0x1D } },
++			{ .dt_id = MT8196_MCU_BIG_CPU7_0,
++			  .cal_offsets = { 0x22, 0x23 } },
++			{ .dt_id = MT8196_MCU_BIG_CPU7_1,
++			  .cal_offsets = { 0x20, 0x21 } }
++		},
++		VALID_SENSOR_MAP(1, 1, 1, 1),
++		.offset = 0x300,
++		.mode = LVTS_MSR_ATP_MODE,
++	}
++};
 +
- 	return 0;
- }
++static const struct lvts_ctrl_data mt8196_lvts_ap_data_ctrl[] = {
++	{
++		.lvts_sensor = {
++			{ .dt_id = MT8196_AP_TOP0,
++			  .cal_offsets = { 0x32, 0x33 } },
++			{ .dt_id = MT8196_AP_TOP1,
++			  .cal_offsets = { 0x30, 0x31 } },
++			{ .dt_id = MT8196_AP_TOP2,
++			  .cal_offsets = { 0x36, 0x37 } },
++			{ .dt_id = MT8196_AP_TOP3,
++			  .cal_offsets = { 0x34, 0x35 } }
++		},
++		VALID_SENSOR_MAP(1, 1, 1, 1),
++		.offset = 0x0,
++		.mode = LVTS_MSR_ATP_MODE,
++	},
++	{
++		.lvts_sensor = {
++			{ .dt_id = MT8196_AP_BOT0,
++			  .cal_offsets = { 0x3A, 0x3B } },
++			{ .dt_id = MT8196_AP_BOT1,
++			  .cal_offsets = { 0x38, 0x39 } },
++			{ .dt_id = MT8196_AP_BOT2,
++			  .cal_offsets = { 0x3E, 0x3F } },
++			{ .dt_id = MT8196_AP_BOT3,
++			  .cal_offsets = { 0x3C, 0x3D } }
++		},
++		VALID_SENSOR_MAP(1, 1, 1, 1),
++		.offset = 0x100,
++		.mode = LVTS_MSR_ATP_MODE,
++	}
++};
++
++
+ static const struct lvts_data mt7988_lvts_ap_data = {
+ 	.lvts_ctrl	= mt7988_lvts_ap_data_ctrl,
+ 	.conn_cmd	= mt7988_conn_cmds,
+@@ -1972,6 +2106,36 @@ static const struct lvts_data mt8195_lvts_ap_data = {
+ 	}
+ };
  
++static const struct lvts_data mt8196_lvts_mcu_data = {
++	.lvts_ctrl	= mt8196_lvts_mcu_data_ctrl,
++	.num_lvts_ctrl	= ARRAY_SIZE(mt8196_lvts_mcu_data_ctrl),
++	.temp_factor	= LVTS_COEFF_A_MT8196,
++	.temp_offset	= LVTS_COEFF_B_MT8196,
++	.gt_calib_bit_offset = 0,
++	.def_calibration = 14437,
++	.num_cal_offsets = 2,
++	.msr_offset = LVTS_MSR_OFFSET_MT8196,
++	.ops = {
++		.lvts_raw_to_temp = lvts_raw_to_temp,
++		.lvts_temp_to_raw = lvts_temp_to_raw_v2,
++	}
++};
++
++static const struct lvts_data mt8196_lvts_ap_data = {
++	.lvts_ctrl	= mt8196_lvts_ap_data_ctrl,
++	.num_lvts_ctrl	= ARRAY_SIZE(mt8196_lvts_ap_data_ctrl),
++	.temp_factor	= LVTS_COEFF_A_MT8196,
++	.temp_offset	= LVTS_COEFF_B_MT8196,
++	.gt_calib_bit_offset = 0,
++	.def_calibration = 14437,
++	.num_cal_offsets = 2,
++	.msr_offset = LVTS_MSR_OFFSET_MT8196,
++	.ops = {
++		.lvts_raw_to_temp = lvts_raw_to_temp,
++		.lvts_temp_to_raw = lvts_temp_to_raw_v2,
++	}
++};
++
+ static const struct of_device_id lvts_of_match[] = {
+ 	{ .compatible = "mediatek,mt7988-lvts-ap", .data = &mt7988_lvts_ap_data },
+ 	{ .compatible = "mediatek,mt8186-lvts", .data = &mt8186_lvts_data },
+@@ -1981,6 +2145,8 @@ static const struct of_device_id lvts_of_match[] = {
+ 	{ .compatible = "mediatek,mt8192-lvts-ap", .data = &mt8192_lvts_ap_data },
+ 	{ .compatible = "mediatek,mt8195-lvts-mcu", .data = &mt8195_lvts_mcu_data },
+ 	{ .compatible = "mediatek,mt8195-lvts-ap", .data = &mt8195_lvts_ap_data },
++	{ .compatible = "mediatek,mt8196-lvts-mcu", .data = &mt8196_lvts_mcu_data },
++	{ .compatible = "mediatek,mt8196-lvts-ap", .data = &mt8196_lvts_ap_data },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, lvts_of_match);
 -- 
 2.39.5
 
