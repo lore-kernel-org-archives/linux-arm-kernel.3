@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9AFC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 08:23:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39EF5C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 08:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9AapuAKiCNZbEMmYARPlEQivoLvl/OTHJdBcc566Vo=; b=veolPEsCuz7O6gZG8W2X8FCYOB
-	8UgCE2w3AxZMKvPF4dn32ftEBAxISlHH/bWztOxBs9nbZcJBhm6h3Q+dBIRRwJyBcnt5lox0aOAYt
-	JWy0PmgYUdoJOTvDQ4xyxXYFOwSnuSF13VC662wf28xcyYM4nrSlaXfC/qV0TlGOGihboBxR03iyK
-	a31PSx+y4VVuG5DkRs6FMz5fC4p0Az2BRctIERH0Ff8/f49jgsPgQcfVYgq5mJCrZWhqfcsXQklI5
-	t3uumvZ652Gis/Ft0s1y2gUFpTuquQfB37w5XtJHngPbx6a70PhItYVB7DfXeUmgQ3AzrTN5zw2SM
-	B6LJuv3Q==;
+	bh=U1r2R6OONrqy2phTDjM24jkvudNKHdg6QD1pSz1RSbE=; b=NZXTJVQy3ARJYggvMNUekNGESG
+	jAa9ZeadjG0Ll8PBgk3jPQopLtmE7JllWYqABvXdI0ehfgEQKnArlOG/qXzE1aE30PbkncPFyhnCC
+	1Qa+bGr+8ephYHq7/MmLDQZK8giyi252yK1X8vVLt91dTTftOWtP/Iw1cuGJrwaVyCFyMEIzx5ZTO
+	kOy7zwy+2g35Mll/i7OB1oNE0GPSaCzLqTAt2mOyGYxCJ9mQgJ3kORoe3GGGdVuRzve5Wf7bj3cHp
+	sdJ6+7MsJflUwTVPqb9PZ7NQL2XMGDX29qYga+EMoxhvOmhSE5tRFPSLyLs7o4JSNoQc8ZTu3x6gV
+	qKkEbMag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh25v-00000000yXM-1Nk8;
-	Wed, 30 Jul 2025 08:23:27 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1uh28g-00000000yuB-0iT5;
+	Wed, 30 Jul 2025 08:26:18 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh23R-00000000yFv-0vPe
+	id 1uh26A-00000000yaq-2J3p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 08:20:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753863653; x=1785399653;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=sMpVGob/1Mg4p+/qdsiXIOdlRZ53nvSriy4F/sWaKfA=;
-  b=TptkLNIXH7jpBg1/dx2GQLg3DGSHWhis2zaJfrasjo/ISah+Tc+WRGjq
-   ZJ13PgYF6zOjLfqFEhdFwE7KosxojDOHPBSTlDPVOWFtXua259+VqySEX
-   GEN1PSuhMHNV1NBzJGS98ud8ckeuJ8kaGACXIEn18oxVxEyvqQeS1Ykc8
-   5s9j7iBvfBIKP78uk1JVThPgqjm0zFKEb6yp5mLMtIgCsMZvXGOvYlKeA
-   hIKxR+KIL7KjIFbaAuNQ6mx/g+UT+qjZFkaSpu0H1YXLiVqTBQBN7lnfk
-   UPW/hSqWsFwMCaEel8ViFCv4MlVRV4rrWHCt7A3NZkgO+lN8FX/VqNth9
-   g==;
-X-CSE-ConnectionGUID: 9fjIe2XKRkmd+SPuFgUAFA==
-X-CSE-MsgGUID: Cg04d/UUSDeBV/2sPhWYnQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11506"; a="43760836"
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="43760836"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 01:20:53 -0700
-X-CSE-ConnectionGUID: Ek445IxjTgK8rLEtsHGYDg==
-X-CSE-MsgGUID: m2qrEWuSTVaeqSuq+gdBEQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="168338717"
-Received: from xiaoyaol-hp-g830.ccr.corp.intel.com (HELO [10.124.247.1]) ([10.124.247.1])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 01:20:48 -0700
-Message-ID: <42d840e5-d063-4a84-9028-e17a69fc7c91@intel.com>
-Date: Wed, 30 Jul 2025 16:20:45 +0800
+	Wed, 30 Jul 2025 08:23:44 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55b73f4ead1so1943785e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 01:23:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1753863821; x=1754468621; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U1r2R6OONrqy2phTDjM24jkvudNKHdg6QD1pSz1RSbE=;
+        b=H5ArbLB9sYH2dVmt3Bb/sIoWcTHpO+SWk90baFJeGsf6bW3OcLlNGOONMMrLoidJht
+         FsWDvybhEYqP8YUYvuEJJaQpQhvoTSGeXuoZzukKPdl2KLB4W105O9QtqrUp2v2uthyf
+         nMZRfQlf8l8xkteqDEG1iYrgrKb8sC7vxW8Ew=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753863821; x=1754468621;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U1r2R6OONrqy2phTDjM24jkvudNKHdg6QD1pSz1RSbE=;
+        b=MLBRXSYF7567wRNpH03FChBU9F9ezxyOrfjoJk7BuYGLPzRyhTrMbyI04jolH+aNoY
+         EA+9lWqFbQzSXtjkSmBtz8waWgg9/ULpjCvdeJbruZQkxwViLf/xc+tKCGL2f/ExDCjj
+         44CTLSnIvq9Ul7QxxpNjxrkIuk7imOCC43yYHR2v+y53IQwakaN3aruxhOJdowqsZB0g
+         gBXKguXlGLrYwbeZxbSvgrjfpkJ/KvYuCtIXFP1IC9LwALN8TOAUW0/ZBs9ZuBYKkoyk
+         C05sZNDhbPXkYSg3llS8j2eIs5Fs+xOythFDgZTLAwtuEx72V3DJRfs30enKxdaUonK3
+         KBCw==
+X-Forwarded-Encrypted: i=1; AJvYcCWdNpOcE0D8yKkUPCHxQcLpb6KCuhuJGv8211j2Sjmg/iMiyEjqhwaMgCIZQ/p3PmBymew45jgY6+ShMIlp9rY6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFeEZ2FiPAHNYjgADbVLEzgDPSRUU3xEf78c5B+vrqksArz7ha
+	xuWNtdg2Oe0QKyOzn0l4zArML+DqiQjeJ2tY28e0SgVzT5y58FR03jlx9mjluONmW3kP0zrea9a
+	ke16hQnSsFx2czLjnWbIDjB9ZCovBcrPb9fHstJh0
+X-Gm-Gg: ASbGncuGrEs7g55CBcpi1bp9A/ygrbK1Na7/b6/sy5HtVtebesZg3Qe3YpKdt/xJJho
+	Y+fHAQyR/ExrpJ6UKDOYNvK441+TeWgNyet59STSNz3XA5mbNM7MR3FfnbBhSosMPAHmME1+NvG
+	fPASRQoU1OxC9EwsNsZojMirBnG7Ea3yKO0QklnLmNw2sIfbj0Q+yEn4QT6oOfM56WKqlWDhlpw
+	IzaekF2I/dWx9GJJ8sy8awvu2N3f2BhZKU=
+X-Google-Smtp-Source: AGHT+IFNNgGe2N+Najma2XgK1xBeO1Tq5z4VdOwxsWj1JkHm5nTTq++sDH5npr//Xe7MrxeLpTLuyirVohv+SG9hXog=
+X-Received: by 2002:a05:6512:3a81:b0:553:65bc:4232 with SMTP id
+ 2adb3069b0e04-55b7c06cb83mr858483e87.31.1753863820791; Wed, 30 Jul 2025
+ 01:23:40 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v17 24/24] KVM: selftests: Add guest_memfd testcase to
- fault-in on !mmap()'d memory
-To: Sean Christopherson <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
- Ira Weiny <ira.weiny@intel.com>, Gavin Shan <gshan@redhat.com>,
- Shivank Garg <shivankg@amd.com>, Vlastimil Babka <vbabka@suse.cz>,
- David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>,
- Ackerley Tng <ackerleytng@google.com>, Tao Chan <chentao@kylinos.cn>,
- James Houghton <jthoughton@google.com>
-References: <20250729225455.670324-1-seanjc@google.com>
- <20250729225455.670324-25-seanjc@google.com>
-Content-Language: en-US
-From: Xiaoyao Li <xiaoyao.li@intel.com>
-In-Reply-To: <20250729225455.670324-25-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250708111806.3992-1-darren.ye@mediatek.com> <20250708111806.3992-3-darren.ye@mediatek.com>
+In-Reply-To: <20250708111806.3992-3-darren.ye@mediatek.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 30 Jul 2025 16:23:29 +0800
+X-Gm-Features: Ac12FXziz9m63a9IuaHiHsS0x7hGxpkPqvcMpJ0GxNVtaytZnTnRhyBsZaU2UF8
+Message-ID: <CAGXv+5FiZJqymDfvGO05SNgzSUYAdOwtFCqE0WPGwC5Dwg7OEA@mail.gmail.com>
+Subject: Re: [PATCH v6 02/10] ASoC: mediatek: mt8196: add common header
+To: "Darren.Ye" <darren.ye@mediatek.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_012053_301620_0FBAECEF 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250730_012342_605321_D45BDEF8 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,118 +98,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/30/2025 6:54 AM, Sean Christopherson wrote:
-> Add a guest_memfd testcase to verify that a vCPU can fault-in guest_memfd
-> memory that supports mmap(), but that is not currently mapped into host
-> userspace and/or has a userspace address (in the memslot) that points at
-> something other than the target guest_memfd range.  Mapping guest_memfd
-> memory into the guest is supposed to operate completely independently from
-> any userspace mappings.
-
-Based on above, I suppose the userspace_address is not NULL but some 
-other separate userspace mapped memory.
-
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On Tue, Jul 8, 2025 at 7:34=E2=80=AFPM Darren.Ye <darren.ye@mediatek.com> w=
+rote:
+>
+> From: Darren Ye <darren.ye@mediatek.com>
+>
+> Add header files for register definitions and structures.
+>
+> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
 > ---
->   .../testing/selftests/kvm/guest_memfd_test.c  | 64 +++++++++++++++++++
->   1 file changed, 64 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/kvm/guest_memfd_test.c b/tools/testing/selftests/kvm/guest_memfd_test.c
-> index 088053d5f0f5..b86bf89a71e0 100644
-> --- a/tools/testing/selftests/kvm/guest_memfd_test.c
-> +++ b/tools/testing/selftests/kvm/guest_memfd_test.c
-> @@ -13,6 +13,7 @@
->   
->   #include <linux/bitmap.h>
->   #include <linux/falloc.h>
-> +#include <linux/sizes.h>
->   #include <setjmp.h>
->   #include <signal.h>
->   #include <sys/mman.h>
-> @@ -21,6 +22,7 @@
->   
->   #include "kvm_util.h"
->   #include "test_util.h"
-> +#include "ucall_common.h"
->   
->   static void test_file_read_write(int fd)
->   {
-> @@ -298,6 +300,66 @@ static void test_guest_memfd(unsigned long vm_type)
->   	kvm_vm_free(vm);
->   }
->   
-> +static void guest_code(uint8_t *mem, uint64_t size)
-> +{
-> +	size_t i;
+>  sound/soc/mediatek/mt8196/mt8196-afe-common.h |   213 +
+>  .../mediatek/mt8196/mt8196-interconnection.h  |   121 +
+>  sound/soc/mediatek/mt8196/mt8196-reg.h        | 12068 ++++++++++++++++
+>  3 files changed, 12402 insertions(+)
+>  create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-common.h
+>  create mode 100644 sound/soc/mediatek/mt8196/mt8196-interconnection.h
+>  create mode 100644 sound/soc/mediatek/mt8196/mt8196-reg.h
+>
+> diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-common.h b/sound/soc/me=
+diatek/mt8196/mt8196-afe-common.h
+> new file mode 100644
+> index 000000000000..574003a8a2e4
+> --- /dev/null
+> +++ b/sound/soc/mediatek/mt8196/mt8196-afe-common.h
+> @@ -0,0 +1,213 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * mt8196-afe-common.h  --  Mediatek 8196 audio driver definitions
+> + *
+> + * Copyright (c) 2024 MediaTek Inc.
+> + *  Author: Darren Ye <darren.ye@mediatek.com>
+> + */
 > +
-> +	for (i = 0; i < size; i++)
-> +		__GUEST_ASSERT(mem[i] == 0xaa,
-> +			       "Guest expected 0xaa at offset %lu, got 0x%x", i, mem[i]);
-> +
-> +	memset(mem, 0xff, size);
-> +	GUEST_DONE();
-> +}
-> +
-> +static void test_guest_memfd_guest(void)
-> +{
-> +	/*
-> +	 * Skip the first 4gb and slot0.  slot0 maps <1gb and is used to back
-> +	 * the guest's code, stack, and page tables, and low memory contains
-> +	 * the PCI hole and other MMIO regions that need to be avoided.
-> +	 */
-> +	const uint64_t gpa = SZ_4G;
-> +	const int slot = 1;
-> +
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	uint8_t *mem;
-> +	size_t size;
-> +	int fd, i;
-> +
-> +	if (!kvm_has_cap(KVM_CAP_GUEST_MEMFD_MMAP))
-> +		return;
-> +
-> +	vm = __vm_create_shape_with_one_vcpu(VM_SHAPE_DEFAULT, &vcpu, 1, guest_code);
-> +
-> +	TEST_ASSERT(vm_check_cap(vm, KVM_CAP_GUEST_MEMFD_MMAP),
-> +		    "Default VM type should always support guest_memfd mmap()");
-> +
-> +	size = vm->page_size;
-> +	fd = vm_create_guest_memfd(vm, size, GUEST_MEMFD_FLAG_MMAP);
-> +	vm_set_user_memory_region2(vm, slot, KVM_MEM_GUEST_MEMFD, gpa, size, NULL, fd, 0);
-> +
-> +	mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-> +	TEST_ASSERT(mem != MAP_FAILED, "mmap() on guest_memfd failed");
-> +	memset(mem, 0xaa, size);
-> +	munmap(mem, size);
-> +
-> +	virt_pg_map(vm, gpa, gpa);
-> +	vcpu_args_set(vcpu, 2, gpa, size);
-> +	vcpu_run(vcpu);
-> +
-> +	TEST_ASSERT_EQ(get_ucall(vcpu, NULL), UCALL_DONE);
-> +
-> +	mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-> +	TEST_ASSERT(mem != MAP_FAILED, "mmap() on guest_memfd failed");
-> +	for (i = 0; i < size; i++)
-> +		TEST_ASSERT_EQ(mem[i], 0xff);
-> +
-> +	close(fd);
-> +	kvm_vm_free(vm);
-> +}
-> +
->   int main(int argc, char *argv[])
->   {
->   	unsigned long vm_types, vm_type;
-> @@ -314,4 +376,6 @@ int main(int argc, char *argv[])
->   
->   	for_each_set_bit(vm_type, &vm_types, BITS_PER_TYPE(vm_types))
->   		test_guest_memfd(vm_type);
-> +
-> +	test_guest_memfd_guest();
+> +#ifndef _MT_8196_AFE_COMMON_H_
+> +#define _MT_8196_AFE_COMMON_H_
 
-First glance at the name, it leads me to think about something of nested.
+Add an empty line here for separation.
 
->   }
+> +#include <sound/soc.h>
+> +#include <sound/pcm.h>
+> +#include <linux/clk.h>
+> +#include <linux/list.h>
+> +#include <linux/regmap.h>
+> +#include "mt8196-reg.h"
+> +#include "mtk-base-afe.h"
 
+Please add empty lines between each group of headers. Headers are grouped
+by path prefix.
+
+Moreover, the contents of these header files are not required in this
+header file. Please push these include statements to the files that
+actually need them.
+
+For the pointer to struct types, you can just forward declare the struct
+types instead of including the whole header file:
+
+    struct clk;
+    struct mtk_base_afe;
+
+[...]
+
+> +struct mt8196_afe_private {
+> +       struct clk **clk;
+
+> +       struct clk_lookup **lookup;
+
+This doesn't seem to be used.
+
+> +       struct regmap *vlp_ck;
+
+IIRC this will get removed since the tuner values will be moved to the
+clk driver.
+
+> +       int irq_cnt[MT8196_MEMIF_NUM];
+
+> +       int dram_resource_counter;
+
+This seems unused. Please remove.
+
+> +
+> +       /* xrun assert */
+> +       int xrun_assert[MT8196_MEMIF_NUM];
+
+This doesn't seem to do anything. It is initialized to zero and then
+never used.
+
+> +
+> +       /* dai */
+> +       void *dai_priv[MT8196_DAI_NUM];
+> +
+> +       /* mck */
+> +       int mck_rate[MT8196_MCK_NUM];
+> +
+> +       /* channel merge */
+> +       unsigned int cm_rate[CM_NUM];
+> +       unsigned int cm_channels;
+> +};
+> +
+> +int mt8196_dai_adda_register(struct mtk_base_afe *afe);
+> +int mt8196_dai_i2s_register(struct mtk_base_afe *afe);
+> +int mt8196_dai_tdm_register(struct mtk_base_afe *afe);
+> +int mt8196_dai_set_priv(struct mtk_base_afe *afe, int id,
+> +                       int priv_size, const void *priv_data);
+
+Please add an empty line here.
+
+> +#endif
+
+[...]
+
+
+ChenYu
 
