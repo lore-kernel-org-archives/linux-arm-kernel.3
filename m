@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 950ADC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 17:13:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3235AC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 17:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2UE0f0lxM12DzKY8SLP9Ryrfpakau+5gbE2rpdBN1A=; b=dDN76Zfaax4zs4W4Ub2D5xbT9h
-	wt8k1wLXsmJUu8WVXgVMhX6HO+JccVo2vP713TNuqGi5fXlJNW2B91HEobdWyLzuioxhhpIzH/dwy
-	ximydZ3It6tRqi7MBnbt9McsY2zEXruRhHDJXoKwpFWhV2NoWV94Kx4O0n/tSVTnAo1pVDKacYGl2
-	DL4+12/aiw1NkhU+idfCjLv9/agK7/xCMm+SRIRkgIU0TDC1VxLYeZsNFN1D9a2jY1V1oZyImE9mC
-	3K6rJbSMJfT1A0XDwDs8CRFG7FsoIg2L3s8tZH4WTYpbm362fF8GICXAz8sPJmLAKAFgGe4pnqiTH
-	1hq61jxw==;
+	bh=N+xY4UZr8LvAM8jYcOJRM8hzadDR3NumATbc214IapM=; b=RiyZFxQC2Q25AZCGl/T3X9g4aN
+	OMajCIAdcbA0MG+/JazYmx+hPpVgp1EW3o9FF7eQbZTGeqNC65uA+pqNIi83qXb4Hq9S2wpbcvb9q
+	34UTFS4zqyNp33fimfh1T9cjyVu7x/nlgGCHvuU35uUidy86BAZQTnQ67aPTuNaeURBWI3DsJQLl8
+	L+IqA+Vgk8MxWnQZcHds1UYLK9EvZPqAibTYApu1PZjCoEQi9Y4885HK6gSCBYd+uUbjGcyHyiD1u
+	gFKkDSquHaC86j7kqKJWk6BtVVUkIAMoErt3hJuoGq1IQY6j7ycfefFLm5mJloQCvGKJUnTd4WV9i
+	MUqdhJ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhAMp-0000000252D-2MuS;
-	Wed, 30 Jul 2025 17:13:27 +0000
+	id 1uhAPG-000000025SX-3FJv;
+	Wed, 30 Jul 2025 17:15:58 +0000
 Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhACh-000000023Z1-0t2n
+	id 1uhACg-000000023Xa-0ioY
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 30 Jul 2025 17:03:00 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6F0BE442AA;
-	Wed, 30 Jul 2025 17:02:56 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BE0E6442A6;
+	Wed, 30 Jul 2025 17:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753894977;
+	t=1753894975;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=p2UE0f0lxM12DzKY8SLP9Ryrfpakau+5gbE2rpdBN1A=;
-	b=ahu2yZS5PpM6RqG4gIA/3xnCkg4qml3y3KjQG8RWCeS0mvQ8P3OO48pA1rjRhGSrKzrK7i
-	xxkgydLuwN02xdb5Ml6RPck3kBzCDx+pkpu5ylKcKwPORFhLh8pcpuLaYUiDiF8tg+5cAv
-	glJgPdehk+mWn7F0mT65XneDhDEyWbo+itCG78QK53R5CMcaxIXTAdpS7ALLA6xKJWjVKA
-	b9Qfv5dmHeIaaouIiJVme4EiM4UyXGpj+CXD4PkLcdT2bu7dHbL2zd88p7K/SzgCeMxxFo
-	PjPaPgg+Ccs6LAfJztYZtdj7421A95gj0SUdHn9FKnjKBuFY4dZ4M0n2GyRw3A==
+	bh=N+xY4UZr8LvAM8jYcOJRM8hzadDR3NumATbc214IapM=;
+	b=QrZJunuzAe9A32IXdLxegg+gs4exspfjaG6mJNmOBcAId+g/COu7BRFQUYml/7aUdlElg/
+	5k019XhQbOTZakt5FNPO68V8akrtj04+biWh8SQvGRQOUPgDMvbHD1fZGBeDz45Ixctlsk
+	PKwvSnyHqcNG+NyrMVm1mbF9njC7cm5l8roFPbJn8DbfXqYTzQnVn3fcQrGVEc3jgAx4ky
+	IT/9gKcgJqkt3+pS6TkO9nGSvJ7Q1GVdhsQLbL5V0C1FC8QqHDFaROVS3yvIFS+eiG2b2O
+	0vu2hi2xpPqRJ/GWLNBCQS1sF2qLKQ3rptTpHoRghTgJcYyXvh4I/3CBVu3rUQ==
 From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Wed, 30 Jul 2025 19:02:47 +0200
-Subject: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
+Date: Wed, 30 Jul 2025 19:02:45 +0200
+Subject: [PATCH 2/4] dt-bindings: mfd: syscon: Add ti,am625-dss-clk-ctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
+Message-Id: <20250730-fix-edge-handling-v1-2-1bdfb3fe7922@bootlin.com>
 References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
 In-Reply-To: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -66,21 +66,21 @@ Cc: thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>,
  linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
  Louis Chauvet <louis.chauvet@bootlin.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2065;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1779;
  i=louis.chauvet@bootlin.com; h=from:subject:message-id;
- bh=/p3QCeb5vrjQsgDySv7ceP1YaCttjBmqpB2bCe9hbyY=;
- b=owEBbQKS/ZANAwAIASCtLsZbECziAcsmYgBoilA3+uu7ksY6HhTrzvxrlNdnU7OHWYsxGYCQ2
- fxOj7ZMH/+JAjMEAAEIAB0WIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCaIpQNwAKCRAgrS7GWxAs
- 4tKXD/4sZ0sUqe4etG+L+kea89Ub7gI7TmlWL/HHW/R4eN/jjonq+ae5qyuwSAYLbvlFvEBEgyC
- qGTFg0GCF67gfuuN095HEUNZ1EP9dGB2S0Yqj3MKXM36OHsCG2DHXtsBaFxs62DBxrwgnA1tEa+
- 04f30TQYPpAPR4oKH/FF1/MEfz3j0Idt7cQXQcbqV8svD0waNm95iMrezSX15XkMajTFFQ5fB+S
- tbzr/utpbB4oFoT+mpoLBLPIeaE6Y9MlIi+iui9Ze3e4E4DjGRtj10IzVkig8tKyF+juxQNq61s
- OFuZuBz0o9eRx1ZQSuOW5HQrSP+3EkS0Om7KQ6OvJNvn/22fQb0zhxbON9UZ9LNjx4ooAZ/NxHR
- e7kMUuRN/CN4K92cH4vXzB65xti1xFFgmoQUpvjIUSH4FSTSvcxbdPYgoVjLvrImV6IOCzwysv0
- A7bhsLRoY4ZsyY2jqRTICAx4X3SQ10DCf7JwLKfvd+mxkZivK9nxJ9t64krM0M8PpYjQ802gPk3
- 5tao4daQfje4SJ0R/shh8sCut2UJrR2QEdLX62WNxIWlRWfqaQTRDDHTBv9hJF1Sg4Z0dtPmyYR
- XZlEuSKxYEjSz/DNucVZ6iYTK+KIHJy27udRLPlcsFeAVY9MJnojagC9sn5AbuY827lx87j98Ps
- 241f24OZV4aqqFA==
+ bh=+vQmzWOpJ3o7m/vAWofAcDWRydefU96Ll29wNpFlYIo=;
+ b=owEBbQKS/ZANAwAIASCtLsZbECziAcsmYgBoilA3M4ea0dmIilicR6aW0qGwK4i4ICkosRsvt
+ d60pygWKgmJAjMEAAEIAB0WIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCaIpQNwAKCRAgrS7GWxAs
+ 4upxD/9zxSfXLrFH5tI+71ohX67Q17YO5UDoErAp8zVlMW9VQFTihgpw0Ulexzo5d2Hj9OgZl01
+ SfQPcsgnY4J6Zm3lL6584731SIlWk3xkH77d3bSotXbkLhlMcOa5GaUJlV4aHOmnGv1Q7aDbw0W
+ TARRvPlLlGPRqAqTUJ53I7cUnbq6edBc2CzOD3D6v/NS3NqArH9Um9vVoi+DKZxvQWFt4IHnc2k
+ 4uSQ2hl05y1oJi8uMlK2slSpysT5lwcdkj5rQ807cRw/AYXDM0Ftr3VbA+JKJj6uid/ngC9m2fY
+ 2HqinTX07O3pojp4hoKrCWTPRnsGJldzqispnktmQClZpq93W0gbsfa/tLXwuzWcke1vqqdAatv
+ DCsU4M1dAEHE4v3Z6Fa9ogDw/n1dxQBAZ+LuqAVVeI9NO88/cZWrPBLTXXqvdcs9B51ImzSiFeC
+ AMnGnG8pJeBNiA0NxsDtYS+Lo6YeDMoJbRx5huwzaKtc8100GsB41vZoykPFixIdLgqWHGPukPI
+ KGs8NJRfQQdJBfIxym3w5v2AhI5+gnjH6mXF8HPv7DT9dgJIXY/+euv8krKh5XjniHVadMeD0Fe
+ MxwqXZ2VW3tU/gEIjYD2Ok3gvpoy+lGr/WbBOIusOZLGQtxluZHSAiL07boSFEil0LqxqNxw5Uv
+ HkMjHdbq7Qd0qNQ==
 X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
  fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
 X-GND-State: clean
@@ -88,8 +88,8 @@ X-GND-Score: -100
 X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdelkeegkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkfhfjgfvvefosehtjeertdertdejnecuhfhrohhmpefnohhuihhsucevhhgruhhvvghtuceolhhouhhishdrtghhrghuvhgvthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephedtjedttdetieeigfeljeekteetvefhudekgeelffejheegieevhfegudffvddvnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrtddrvddtngdpmhgrihhlfhhrohhmpehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehjhihrihdrshgrrhhhrgesihhkihdrfhhipdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrihhsthhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtoheps
  hhimhhonhgrsehffhiflhhlrdgthhdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehnmhesthhirdgtohhm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_100259_411237_76CC6270 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250730_100258_361287_25D3411B 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,61 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As stated in the AM62x Technical Reference Manual (SPRUIV7B), the data
-sampling edge needs to be configured in two distinct registers: one in the
-TIDSS IP and another in the memory-mapped control register modules. Since
-the latter is not within the same address range, a phandle to a syscon
-device is used to access the regmap.
+The dt-bindings for the multi-function device (mfd) syscon need to include
+ti,am625-dss-clk-ctrl. On AM625 chips, the display controller (tidss) has
+external registers to control certain clock properties. These registers
+are located in the device configuration registers, so they need to be
+declared using syscon. They will later be used with a phandle in the tidss
+node.
 
 Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
 Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
-
 ---
 
 Cc: stable@vger.kernel.org
 ---
- drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-index c0277fa36425ee1f966dccecf2b69a2d01794899..65ca7629a2e75437023bf58f8a1bddc24db5e3da 100644
---- a/drivers/gpu/drm/tidss/tidss_dispc.c
-+++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-@@ -498,6 +498,7 @@ struct dispc_device {
- 	const struct dispc_features *feat;
- 
- 	struct clk *fclk;
-+	struct regmap *clk_ctrl;
- 
- 	bool is_enabled;
- 
-@@ -1267,6 +1268,11 @@ void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport,
- 		       FLD_VAL(mode->vdisplay - 1, 27, 16));
- 
- 	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1, 0, 0);
-+
-+	if (dispc->clk_ctrl) {
-+		regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
-+		regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 0x000);
-+	}
- }
- 
- void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
-@@ -3012,6 +3018,14 @@ int dispc_init(struct tidss_device *tidss)
- 
- 	dispc_init_errata(dispc);
- 
-+	dispc->clk_ctrl = syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
-+								   "ti,clk-ctrl");
-+	if (IS_ERR(dispc->clk_ctrl)) {
-+		r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
-+				  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
-+		return r;
-+	}
-+
- 	dispc->fourccs = devm_kcalloc(dev, ARRAY_SIZE(dispc_color_formats),
- 				      sizeof(*dispc->fourccs), GFP_KERNEL);
- 	if (!dispc->fourccs)
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 27672adeb1fedb7c81b8ae86c35f4f3b26d5516f..afe4a2a19591e90c850c05ef5888f18bdb64eac9 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -121,6 +121,7 @@ select:
+           - ti,am62-opp-efuse-table
+           - ti,am62-usb-phy-ctrl
+           - ti,am625-dss-oldi-io-ctrl
++          - ti,am625-dss-clk-ctrl
+           - ti,am62p-cpsw-mac-efuse
+           - ti,am654-dss-oldi-io-ctrl
+           - ti,j784s4-acspcie-proxy-ctrl
+@@ -228,6 +229,7 @@ properties:
+           - ti,am62-opp-efuse-table
+           - ti,am62-usb-phy-ctrl
+           - ti,am625-dss-oldi-io-ctrl
++          - ti,am625-dss-clk-ctrl
+           - ti,am62p-cpsw-mac-efuse
+           - ti,am654-dss-oldi-io-ctrl
+           - ti,j784s4-acspcie-proxy-ctrl
+@@ -256,4 +258,3 @@ examples:
+         compatible = "allwinner,sun8i-h3-system-controller", "syscon";
+         reg = <0x01c00000 0x1000>;
+     };
+-...
 
 -- 
 2.50.1
