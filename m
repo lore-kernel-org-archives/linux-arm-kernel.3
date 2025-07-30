@@ -4,88 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A3AC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 18:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 429DDC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 18:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7NIbM6q1x218b7Li1UvxruEIMKkwKF1Zyv43mPS1uqY=; b=orvQ855Np1hnPL7ELSwgJjs2Jp
-	kr738zUYm9rV01WJo9n9K1KQO0fOz6YxdHvOoJlpQ2h65stinWDQ6z56tM7At75BSFtXcWQWu3vaJ
-	rwRqOhcu0bXil8+eNhu53XieWyv1DDZqAP+KRZ2YWCWOSDzumbZ6WYPo5jeOaZYv0mUqYEcrsP04W
-	2iG3FFfcR0gUPWkOiMuwlat2752HfU9L2pEHGDfp/hJTKq6Q7mZwxCvZ9eBj0tQZc1YhrF5O8z/xp
-	fLIZc1gdFnS4pkSgeh0FoCW3VvmCHRxRsjQK4MQ0MzPLUZWXdXDV/rqLgEBeI0XvX951ZIESWqIZ2
-	hjQS2wQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/r6ceY6wuLmPZxO2obp4/gZdNM/4IXxHbonw4d2nQfE=; b=yYjLfm86llmyfyJ7fJ9FM3NqHx
+	+BhoyBcSiAbDJygDaMCMZjxiA87j8xI/9/siVpm+MAzsdR+FhO+JQY2f2CgpAgCP3hkbZDBAwOmoT
+	IB2C38p0WRCh2KjQ1y0pNp6EOyWOoSESXdMdaUcEDpc5FUwpnNh/O7uHOBbd1/jNj/Pgz9J86bq1q
+	w6AkAZo4D77jiScqCMQe1gvzR5U54AuMPbzvw7qfadxIdgan52jib143OiZkA0RPGimZc7HPC4zgJ
+	e5XyJtKNvCNHe4tjI1/WBDdEKCTYj1ZDVGGSdNojUHct/G4IszUVPMjACNraCL0lh5PwbjOKPdSCq
+	l7hi7qLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhBeB-00000002DTr-00cU;
-	Wed, 30 Jul 2025 18:35:27 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1uhBqa-00000002EYY-44Ln;
+	Wed, 30 Jul 2025 18:48:16 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhBYy-00000002CkS-00IQ
+	id 1uhBo6-00000002EHv-3r2o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 18:30:05 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5f438523d6fso1789a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 11:30:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1753900202; x=1754505002; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=7NIbM6q1x218b7Li1UvxruEIMKkwKF1Zyv43mPS1uqY=;
-        b=X6HRu2jdZMQw4BJchqxb3QYr7bKeeGC5FjuU2I6Dh7FuxSZYPaGADJsUd5XOMBNjY+
-         AdgtiIJZfikLjall0pCF/zyH5zGi27MfcM9oaL8ehGtN098MgLuesPhW4zUaFxfjKPcz
-         PeRyzgXEr7+E1EpD+VXTK0K4v5k5c+LRPl5os=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753900202; x=1754505002;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7NIbM6q1x218b7Li1UvxruEIMKkwKF1Zyv43mPS1uqY=;
-        b=brMJHzXpIhuawFDQ7DRBJfamXrw7Eu+tbKR6lM8tSGbP4UGtexw1aEsuCWXT1FeNQw
-         A/wXnR7GTGazENVMQLFjffZe/+a8xQO9Wr+Tabq3ZTerPSIkIyza5zpZO2cEQNhVwMit
-         FY1buLFJJ393fUzpTVgt7zLrgQTH+ptwvPKzkUFTuZSFYJuAvQOyMQ2WEWasv1uh+rZD
-         MP4MwMJ+tCb0FWnHWUQxLONNoJHH46q/qtS08QHsKZFPq0aO/9oZXFvaUhbeqCELW7EM
-         I++h7D261kGWuIaNiTbhVqjygUiw6k0z3k8K5n93HDdU0PCCseAeqPvPtLtxL0uxnvwo
-         Ay6g==
-X-Forwarded-Encrypted: i=1; AJvYcCX07FgziKGYfmRpo3oy3L9qOFzguUYcupZFXBIfI2naBBsHHa+SAkLe5QA3+UDYlINSKzxtRkUsokf9Gz4gOI/a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/4xMwDwYYpX0ppEP+LwCTRqRdW+Bys2rRZ/959pnClgBPhV38
-	wcLwyalWoU6krEG1sbLaOuBNalHpGbQRWKshYZmsqeb7G1mqT+dXlhw7RMOWed5XxDgbsD3RgEl
-	RgCMfNZTRicAQyT1O6Kn7PdWixJtWBdryvr5Psyd1
-X-Gm-Gg: ASbGncsrRQ6ylByXum8t55hXHrn02EcCcX+9p2W95aWLU04fEfZPKFyyKF1oRJ44Qr4
-	R74rrM2raBWH8w+QblkNqCltXdD/BF+FutfPdCQrdDIH5ovXo0J7YlIjupNJAm9vCOr0N3N1oyk
-	/YyhUbI0rek65rZMoY5cD5u9lBXnVKp6FB8qUY5NOXrB0oOBcYkOnE3r8nbDXSYxrCvCaAvDirj
-	1MoorM=
-X-Google-Smtp-Source: AGHT+IFbbK/ul5EAl+qpurW8QCD6MUFcOByL7/YGvDuMq5A8bS06QIOt2f3QRAN6xuePrLmBIsEPhHn7xYqFra8YQrM=
-X-Received: by 2002:a05:6402:d50:b0:607:d206:7657 with SMTP id
- 4fb4d7f45d1cf-615a5f03c3amr15582a12.2.1753900202156; Wed, 30 Jul 2025
- 11:30:02 -0700 (PDT)
+	Wed, 30 Jul 2025 18:45:44 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfout.stl.internal (Postfix) with ESMTP id 11F761D0043E;
+	Wed, 30 Jul 2025 14:45:42 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Wed, 30 Jul 2025 14:45:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1753901141;
+	 x=1753987541; bh=/r6ceY6wuLmPZxO2obp4/gZdNM/4IXxHbonw4d2nQfE=; b=
+	ArWMqwR7hD/w3J7bUCFuYrLZ0HhCHqnrWbhyP9BMFTm4mVMZqAgQXEShxcJG4Ixc
+	BxC8QnsMVChteLA+HQSqbqiQZlOKbYI/G5Z8ANgYh1jGZ9Pal9jF58lUwuBE/Ajm
+	Li4IpppdpFamfWhnTSheYPmAadCP1HC4115+ngguegX1Zq2eDOhm7UJNUBMee1Sx
+	DjnoI7tmrTbvI5TByJP9V2i8HnQmeWYZMkd0dgGFDn+joPpG3HORYQoHwAS9w45/
+	ft2d5BpjffF1plJJF7iip8c+OriCOloRnNxgAKU3YfqrF5RQ0LgaHVvYKZbP0UDp
+	eBjOIzKZHaqPLbRSycDatg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1753901141; x=
+	1753987541; bh=/r6ceY6wuLmPZxO2obp4/gZdNM/4IXxHbonw4d2nQfE=; b=h
+	iKK4tUWkuF4NE53qXW3FYuI9zWT/7elSOZ19zYsdxd3/4I/WAcvIR0riPUDInqRF
+	XrOYokynhJuwKQTWuSYDoIrKR2bA01L2fhldxJ1E+U9YdqhYLjxUjtDRiY0svDLc
+	00MiUtPOLetvD9UHgdeNeQsMu2WdvxU0Tire7QVFCKVieZM7+a+ZU/cfj1OSs9Bx
+	ags8ezt1CijxjQhFr/8CceQ1D3ZlIPC0ICRJM2Dj9a7FgiFXZE7p/BLTqIHiFCaS
+	HojzZ1Uuyj3zj8jgeQjDHtdc1o/N3aNb3edFi1nhABVmJiG3eEI/mh7Ewol6PLNR
+	vEaiyiRD9N1wnK2s/sTFQ==
+X-ME-Sender: <xms:VGiKaM3-og9oeXNg7TDOo9wljsRBftFKFsjTpO4s458ZOsk9vLCx-g>
+    <xme:VGiKaHHHRAxbLFba3De9JzwDTwyXJQUa1APUMi6iGipUn7JBRdQVbVP05MkzuZxql
+    K3rdwZ0_d0qMDjDNu8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdelkeeilecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeipdhmohguvgepshhmthhpohhuthdp
+    rhgtphhtthhopegsrhhglhessghguggvvhdrphhlpdhrtghpthhtohepshhfrhestggrnh
+    gsrdgruhhughdrohhrghdrrghupdhrtghpthhtoheptghhrhhishhtohhphhgvrdhlvghr
+    ohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
+    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
+    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuh
+    igqdhnvgigthesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:VGiKaBOxyL1D1VkqoeaUWlVyV-Mx2RU2WOGCxHDnpRmQmZybpTxYoQ>
+    <xmx:VGiKaLnS6EjiD1xQV4aynnKIZJL06uNeP9BKAbdLNe7cqlLRJZ-tCg>
+    <xmx:VGiKaN7paHc0r3hlbiQjYgD9lFzfDm9FaiDpspvdSII-aemPzHSRTw>
+    <xmx:VGiKaH3F_cn6W738_4EnDnFxoqQH3TpAiRIcE4b0OuRm1xPyCJMIBg>
+    <xmx:VWiKaKV10Wj1loCmHSPdnPbPGBciNAEO1-pLjKWAh7nTjP-52Stwb6Ch>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id BABB6700065; Wed, 30 Jul 2025 14:45:40 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com> <20250728-ddrperfm-upstream-v5-6-03f1be8ad396@foss.st.com>
-In-Reply-To: <20250728-ddrperfm-upstream-v5-6-03f1be8ad396@foss.st.com>
-From: Julius Werner <jwerner@chromium.org>
-Date: Wed, 30 Jul 2025 11:29:49 -0700
-X-Gm-Features: Ac12FXzJRbNK4O4rQzoS61E9llbPlM-a0El1zXFqw746Wesi6zAN_YlMACvZJkI
-Message-ID: <CAODwPW8ZXfMdFL2=6ht+BvQq5_LQkwHhQJT5j9DcseEx9naXxg@mail.gmail.com>
-Subject: Re: [PATCH v5 06/20] dt-bindings: memory: introduce DDR4
-To: =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, 
-	Gatien Chevallier <gatien.chevallier@foss.st.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Le Goffic <legoffic.clement@gmail.com>, 
-	Julius Werner <jwerner@chromium.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-ThreadId: T1270fe1a31e2c778
+Date: Wed, 30 Jul 2025 20:45:19 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>,
+ "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
+ "Stephen Rothwell" <sfr@canb.auug.org.au>,
+ linux-next <linux-next@vger.kernel.org>
+Message-Id: <1457d4cc-512b-4dfe-bf2f-375af1fdbe94@app.fastmail.com>
+In-Reply-To: <0b738b01-8574-49b1-b89c-3c96e9a56b28@csgroup.eu>
+References: <20250723094558.5bcfca69@canb.auug.org.au>
+ <627cbb55-2a55-4124-8f6e-7b4ba0441558@csgroup.eu>
+ <6eac14b4-765b-4a29-b278-364dba47e0e9@app.fastmail.com>
+ <0b738b01-8574-49b1-b89c-3c96e9a56b28@csgroup.eu>
+Subject: Re: linux-next: duplicate patch in the fsl tree
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_113004_041290_953B60A2 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250730_114543_278066_3AA8A414 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,14 +118,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +title: DDR3 SDRAM compliant to JEDEC JESD79-4D
+On Wed, Jul 30, 2025, at 16:23, Christophe Leroy wrote:
+> Le 30/07/2025 =C3=A0 15:55, Arnd Bergmann a =C3=A9crit=C2=A0:
+>> On Wed, Jul 30, 2025, at 15:41, Christophe Leroy wrote:
+>>>
+>>> Le 23/07/2025 =C3=A0 01:45, Stephen Rothwell a =C3=A9crit=C2=A0:
+>>>
+>>> I was going to send a pull request for this fix but I see the duplic=
+ate
+>>> patch is already tagged in the soc tree:
+>>>
+>>> $ git tag --contains 12702f0c3834
+>>> next-20250728
+>>> next-20250730
+>>> soc-drivers-6.17
+>>>
+>>> Shall I do anything or just ignore it and drop it from my tree ?
+>>=20
+>> Linus has already pulled the soc-drivers-6.17 tags, so I think
+>> both copies of the patch ended up in mainline and there is nothing
+>> left you can do to change that.
+>
+> The one in my tree is in Linux next, nowhere else for the time being a=
+s=20
+> far as I know, as it was not included in the pull request I sent three=20
+> weeks ago.
 
-Should this say DDR4?
+Ah right. I thought I saw it included in the branch I pulled
+from you when I looked earlier today, but I see I made a mistake
+now, as I had checked out a branch based on top of linux-next that
+included yours.
 
-> +examples:
-> +  - |
-> +    ddr {
-> +        compatible = "ddr4-ff,f", "jedec,ddr4";
-
-This is not a valid example for the way you're defining it now anymore.
+      Arnd
 
