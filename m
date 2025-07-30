@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD651C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 22:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36BFC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 22:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iO9RYEMjounlf7B9Iu+6tM1rmYhk9c5Mv4VgYq1OqyM=; b=C4dZscgrnxKqRA5+zEcz7GZEQi
-	3P/bGMF+1BiKU9a/RjI2fbtuDWU3yrqbY/5nKdnWZ9avXBZwwiJfP811TB0DZAwLo6nK3AgAWw5Zo
-	dMHUrpZBhk2iuQxCqGZGFw1l6iItUbAZFIhgH9Ek1jCMHSaViAt175+DhlkPwsD8yLfJ5RBdZ99zk
-	Hc7Y2XZaYy7necZte05yimY2kWjIGprxufd09dJ8kLPEv9ilLp0xlftf0vjXky5l/bTXCP29dEXf1
-	ZE/yt32LabUUS9PKYdHpFWHPp9dt+d7rUf5swPhj/La71dH3SRc1SPYe5ABt1fAYn3PKZ5EP+kMre
-	V495pBlA==;
+	bh=ECWzv5e2xsuSDiY8UbhBmnQ0CYKWUYp4TIAX7WJgUDc=; b=Fi/js/8fDDiPm+QybWaLo8gYX5
+	X82a/oFeibM1l0mO4g4+HQJIOHsBvRzP+GPgCusAbo4Aj7O2PcTEmD9+kaxCtS20BOXVwUXtV+Kg0
+	fHJAJz8/zkj3KM7x2m1WGga9nIiUQ6GJGx6w9I6HjrC1PEkx4S7bgft8358kn3lTGepCQvFJlBjJg
+	u6vKnPd48M5iCXPI/KTN6jbfar+GNTofBMXTScv8QZHsMb1zZb+nMpwWJ0el7eHo1GonOfEPVQX8L
+	vTWaFfN9DCA9ykRAaIBywLKD27yVB/AO30u3u5h1DQ4iPOzwFKHtcoWGdGjCi8NpIRtQct/OsOVOb
+	t2QG1MiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhFLr-00000002ZDA-0oTv;
-	Wed, 30 Jul 2025 22:32:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uhFZw-00000002Zrp-01uy;
+	Wed, 30 Jul 2025 22:47:20 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhFJP-00000002Z7G-1go6
+	id 1uhFXS-00000002Zjl-2hgq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 22:30:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63B1E601D2;
-	Wed, 30 Jul 2025 22:30:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A7AC4CEE3;
-	Wed, 30 Jul 2025 22:30:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753914613;
-	bh=Ty5hOFOCnqR3+TxmVt5Wrhxdf9KjsnmTgra0uxnT61E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kiFik3lQlYH2t1kf5pDvKffiyH4xQp6wAKUJXocuXk+lCYMGQbQa4XtSu+xypdwdG
-	 Jx4sou2B3FtFAGUbTqwg84DbujP7thW2iLlQGf2J1rpGBEXiZFWWdokkK/5suUYjtd
-	 mi9aRETfoTE9z2gEJMS4yh+mmP4W3K1X7/RowZMIYWjs804Sg/WtiQhclewhZE2mfV
-	 cxqaJGhsnlT7LLgyDJljkVrlrIDF0PkAi24p+vwVjO2XeIwpwImwZNbYz9W3efJtYe
-	 yB+jk93/JQjJN3pBnY9WxcR2VdhfWl6l5apwAQE18V//PQCHSBW12o08HjnRtoYcmJ
-	 ZObIs6Kmneh1g==
-Date: Wed, 30 Jul 2025 17:30:12 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: memory: Update brcmstb-memc-ddr binding
- with older chips
-Message-ID: <175391461181.1819073.14169607307672802524.robh@kernel.org>
-References: <20250729205213.3392481-1-florian.fainelli@broadcom.com>
- <20250729205213.3392481-2-florian.fainelli@broadcom.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250729205213.3392481-2-florian.fainelli@broadcom.com>
+	Wed, 30 Jul 2025 22:44:48 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-74ae13e99d6so1061541b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 15:44:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753915485; x=1754520285; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ECWzv5e2xsuSDiY8UbhBmnQ0CYKWUYp4TIAX7WJgUDc=;
+        b=V2qhI6zS09aLOGF+kkfbeAEvHm+uAvu0+DmMDRIufPmB4RmA5Dzo5SKT7DG20bq/4U
+         oaGDGU3Ftr6aR33w3GZZtxmusK4joqc8sHVKEIZbJNku8pCkTpaRG4cnhCECj8w5TBJ0
+         bWWELSmOys/mYI3GdQA0YOkEA7S1CEhZrWEfXiov/rYAzPQB6ZoP2xsTY9HnPwLBFHKE
+         X4JS+LDumPeKNe7RCJhx8tkRPKWkOal3x11XWMsKHm7RHnJrBfKyy3gpWySzuHziSaf/
+         yWzvKhRPEVkgGMootiSXGFutjm69r+S/vegvoUqRepmaFdIVqN0J7KzBNRXpnxvg01+2
+         tqsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753915485; x=1754520285;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ECWzv5e2xsuSDiY8UbhBmnQ0CYKWUYp4TIAX7WJgUDc=;
+        b=ZiazU7CrwvWWh6pGW4Od2dhMgG2D/doujCLRLLlfpb12SBy17JB5Xni0UqprENg6Aw
+         hpK/09rhU+BvJFMM+4U/apkBedCsAR/BWpKVvRkjebhKv1nugEFG1rtdXmEssSEaqY0z
+         qlWSln/4d6SseX4QnvR3UseAt3Lr224kJt2zZNQIyoUf6Au8PuV+L6m/DXq5MF/R+C4d
+         HC8961qdpjrrQRAnYFIes3v5CoFurwX0Gb8g23F/cYNC5Pi4vi86+EBFMzdGwyunnZEL
+         tiLQYFFZpgq1zraB9qVC4RXWdTZE89Kn4OQozgX0pTSH2uwmuG9tt8EaGQT4s0GERGg/
+         bYfw==
+X-Forwarded-Encrypted: i=1; AJvYcCUgWk3aJDzl77Y2KKWhh3FRlT7m3ze9upSfLI/U6atXVWa//mZekJhAkr+3/jW9n3ISWh2d55f0IV/I1FTMClFH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhG6SfcO1OvKZoCX7NDL9eDQ1X1p7+lGQhRhqtJvq7GI2WD0q8
+	XeLZkQCQwrgMEwRVX3c+1LSjykxjgf4C4RbEGm20xVLWLJFMojX5OUC3uUeTo79uxCmkWIsPMrm
+	LLhQbrSt0TwWcNmiHb3QFT0zOiw==
+X-Google-Smtp-Source: AGHT+IG2jrN7LcvgIWrJ4pHg8D4X2boCwV7dmSEgcVYsZ4qFvdN8Q5fmxfreX5UVqZROCmx2pQYYvC5DyR2A5cxeKg==
+X-Received: from pfoo1.prod.google.com ([2002:a05:6a00:1a01:b0:746:21fd:3f7a])
+ (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a21:47c7:b0:23d:c7aa:a6f0 with SMTP id adf61e73a8af0-23dc7aaa79dmr5184186637.22.1753915485016;
+ Wed, 30 Jul 2025 15:44:45 -0700 (PDT)
+Date: Wed, 30 Jul 2025 15:44:43 -0700
+In-Reply-To: <diqzwm7pjrbf.fsf@ackerleytng-ctop.c.googlers.com>
+Mime-Version: 1.0
+References: <20250729225455.670324-1-seanjc@google.com> <diqzwm7pjrbf.fsf@ackerleytng-ctop.c.googlers.com>
+Message-ID: <diqztt2tjo2s.fsf@ackerleytng-ctop.c.googlers.com>
+Subject: Re: [PATCH v17 00/24] KVM: Enable mmap() for guest_memfd
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>
+Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Ira Weiny <ira.weiny@intel.com>, Gavin Shan <gshan@redhat.com>, Shivank Garg <shivankg@amd.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Tao Chan <chentao@kylinos.cn>, 
+	James Houghton <jthoughton@google.com>, Jiaqi Yan <jiaqiyan@google.com>, vannapurve@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250730_154446_688024_F52395D3 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +93,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Ackerley Tng <ackerleytng@google.com> writes:
 
-On Tue, 29 Jul 2025 13:52:12 -0700, Florian Fainelli wrote:
-> The older MIPS-based chips incorporated a memory controller with the
-> revision A.0.0, update the binding to list that compatible.
-> 
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> ---
->  .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml    | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
+> Sean Christopherson <seanjc@google.com> writes:
+>
+>> Paolo,
+>>
+>> The arm64 patches have been Reviewed-by Marc, and AFAICT the x86 side of
+>> things is a go.  Barring a screwup on my end, this just needs your approval.
+>>
+>> Assuming everything looks good, it'd be helpful to get this into kvm/next
+>> shortly after rc1.  The x86 Kconfig changes in particular create semantic
+>> conflicts with in-flight series.
+>>
+>>
+>> Add support for host userspace mapping of guest_memfd-backed memory for VM
+>> types that do NOT use support KVM_MEMORY_ATTRIBUTE_PRIVATE (which isn't
+>> precisely the same thing as CoCo VMs, since x86's SEV-MEM and SEV-ES have
+>> no way to detect private vs. shared).
+>>
+>> mmap() support paves the way for several evolving KVM use cases:
+>>
+>>  * Allows VMMs like Firecracker to run guests entirely backed by
+>>    guest_memfd [1]. This provides a unified memory management model for
+>>    both confidential and non-confidential guests, simplifying VMM design.
+>>
+>>  * Enhanced Security via direct map removal: When combined with Patrick's
+>>    series for direct map removal [2], this provides additional hardening
+>>    against Spectre-like transient execution attacks by eliminating the
+>>    need for host kernel direct maps of guest memory.
+>>
+>>  * Lays the groundwork for *restricted* mmap() support for guest_memfd-backed
+>>    memory on CoCo platforms [3] that permit in-place
+>>    sharing of guest memory with the host.
+>>
+>> Based on kvm/queue.
+>>
+>> [1] https://github.com/firecracker-microvm/firecracker/tree/feature/secret-hiding
+>> [2] https://lore.kernel.org/all/20250221160728.1584559-1-roypat@amazon.co.uk
+>> [3] https://lore.kernel.org/all/20250328153133.3504118-1-tabba@google.com
+>>
+>> [...snip...]
+>
+> With this version, when guest_memfd memory is mmap-ed() and faulted to
+> userspace, when there's a memory failure, the process does not get a
+> SIGBUS. Specifically, this selftest fails with "MADV_HWPOISON should
+> have triggered SIGBUS."
+>
+> diff --git i/tools/testing/selftests/kvm/guest_memfd_test.c w/tools/testing/selftests/kvm/guest_memfd_test.c
+> index b86bf89a71e04..70ef75a23bb60 100644
+> --- i/tools/testing/selftests/kvm/guest_memfd_test.c
+> +++ w/tools/testing/selftests/kvm/guest_memfd_test.c
+> @@ -70,6 +70,10 @@ static void test_mmap_supported(int fd, size_t page_size, size_t total_size)
+>  
+>  	ret = munmap(mem, total_size);
+>  	TEST_ASSERT(!ret, "munmap() should succeed.");
+> +
+> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE, 0,
+> +			total_size);
+> +	TEST_ASSERT(!ret, "Truncate the entire file (cleanup) should succeed.");
+>  }
+>  
+>  static sigjmp_buf jmpbuf;
+> @@ -104,6 +108,47 @@ static void test_fault_overflow(int fd, size_t page_size, size_t total_size)
+>  
+>  	ret = munmap(mem, map_size);
+>  	TEST_ASSERT(!ret, "munmap() should succeed.");
+> +
+> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE, 0,
+> +			total_size);
+> +	TEST_ASSERT(!ret, "Truncate the entire file (cleanup) should succeed.");
+> +}
+> +
+> +static void test_memory_failure(int fd, size_t page_size, size_t total_size)
+> +{
+> +	struct sigaction sa_old, sa_new = {
+> +		.sa_handler = fault_sigbus_handler,
+> +	};
+> +	void *memory_failure_addr;
+> +	char *mem;
+> +	int ret;
+> +
+> +	mem = mmap(NULL, total_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+> +	TEST_ASSERT(mem != MAP_FAILED, "mmap() for guest_memfd should succeed.");
+> +
+> +	memset(mem, 0xaa, page_size);
+> +
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+My bad. If the above was changed from page_size to total_size, the page
+would have been faulted in, and then we get a SIGBUS.
 
+> +	memory_failure_addr = mem + page_size;
+> +	sigaction(SIGBUS, &sa_new, &sa_old);
+> +	if (sigsetjmp(jmpbuf, 1) == 0) {
+> +		madvise(memory_failure_addr, page_size, MADV_HWPOISON);
+> +		TEST_ASSERT(false, "MADV_HWPOISON should have triggered SIGBUS.");
+> +	}
+> +	sigaction(SIGBUS, &sa_old, NULL);
+> +
+> +	ret = munmap(mem, total_size);
+> +	TEST_ASSERT(!ret, "munmap() should succeed.");
+> +
+> +	ret = fallocate(fd, FALLOC_FL_KEEP_SIZE | FALLOC_FL_PUNCH_HOLE, 0,
+> +			total_size);
+> +	TEST_ASSERT(!ret, "Truncate the entire file (cleanup) should succeed.");
+>  }
+>  
+>  static void test_mmap_not_supported(int fd, size_t page_size, size_t total_size)
+> @@ -286,6 +331,7 @@ static void test_guest_memfd(unsigned long vm_type)
+>  	if (flags & GUEST_MEMFD_FLAG_MMAP) {
+>  		test_mmap_supported(fd, page_size, total_size);
+>  		test_fault_overflow(fd, page_size, total_size);
+> +		test_memory_failure(fd, page_size, total_size);
+>  	} else {
+>  		test_mmap_not_supported(fd, page_size, total_size);
+>  	}
+>
+> Is this by design or should some new memory_failure handling be added?
 
