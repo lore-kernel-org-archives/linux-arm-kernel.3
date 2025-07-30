@@ -4,51 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C73BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 13:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7424AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 13:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YAoOGAraN2pjrqttev+Zr8SnyWszyLGEI78fJRIM/2M=; b=5B5+itBuxVlsGGUsT3teP8nlcb
-	REYhSuZGqCxBR9r7dWcYhzB8L0VuwWiikjvWfdjGzko8Cye/Pdz/no/lwtFrYDsTFPYEAivBOMdog
-	v2UbjTZNH7Z14VkM415SOl0U2PeHsKsIMVtNEy72ohdY18sykMhu2U55Pf/GWTuoV8aRz3XrpA3WQ
-	/9lBIL9DIftEXYTxKfCIU0Y1Uq+K4Ro76Ji7s1IhiNCAli4LgeSIMJf1n8ZQg5oUShSLchuyB5d39
-	bPrNgdvvDW8ugYgN6w6xnYUdyD31z6GOr8sfZOoNeKYtfsv3mF255fkD7DPNyaBlWfyW1rKkPPUkn
-	o9Xs2Nog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lmv66C0qFZcUIm9R7HIkRvONxM0fEIcf47qrSAs2f+M=; b=1Ys+eHFK8ps2ebz3e9K0oal+eH
+	02doWMY5wltaSe1ZPbANDC6ZYpEu0v1xn+7P2wUDG02MVgmLBU6rJOgqmKpFzfF/WhAsOpc+skdDx
+	gUFmKgxsioX8FB3mf+j4VpQ/cCVogc23dhX39qKAixqOp32DE9T5yyEG66TZ57aKkG78nFgEkSIZ3
+	HBYdJVPoh9tFisoWxcVD+AQ7240VrJdZ22N/hNdhkib8kO0JwGTlX7y5ALLtqCeNLX1/tLGUy5G/3
+	XL8SENc9boWl1YKZ7mS7FT6i8kVpK5NQ/nC4FwLkKwcgLgQTwz0kp5zDbWZXrE9AGTPvJzM545bcz
+	s0ywVyGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh6yy-00000001cWx-1cTn;
-	Wed, 30 Jul 2025 13:36:36 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
+	id 1uh7F4-00000001ebl-2pnF;
+	Wed, 30 Jul 2025 13:53:14 +0000
+Received: from pegase1.c-s.fr ([93.17.236.30])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh6wR-00000001cH1-3sD7;
-	Wed, 30 Jul 2025 13:34:01 +0000
-Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 56UDXhIe027054;
-	Wed, 30 Jul 2025 15:33:43 +0200
-Date: Wed, 30 Jul 2025 15:33:43 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: alchark@gmail.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-        heiko@sntech.de, jonas@kwiboo.se, krzk+dt@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, ziyao@disroot.org
-Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
- scaling support
-Message-ID: <20250730133343.GC26787@1wt.eu>
-References: <20250730071145.GA26734@1wt.eu>
- <20250730132026.214754-1-amadeus@jmu.edu.cn>
+	id 1uh7CY-00000001e0s-0QUi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Jul 2025 13:50:40 +0000
+Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
+	by localhost (Postfix) with ESMTP id 4bsYKT1Fmbz9sr6;
+	Wed, 30 Jul 2025 15:41:49 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase1.c-s.fr ([192.168.12.234])
+	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 6arbvrYtM0X6; Wed, 30 Jul 2025 15:41:49 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase1.c-s.fr (Postfix) with ESMTP id 4bsYKT0PKHz9snk;
+	Wed, 30 Jul 2025 15:41:49 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 080558B76E;
+	Wed, 30 Jul 2025 15:41:49 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id A6h5hzYvNTWs; Wed, 30 Jul 2025 15:41:48 +0200 (CEST)
+Received: from [10.25.207.160] (unknown [10.25.207.160])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 99FFE8B763;
+	Wed, 30 Jul 2025 15:41:48 +0200 (CEST)
+Message-ID: <627cbb55-2a55-4124-8f6e-7b4ba0441558@csgroup.eu>
+Date: Wed, 30 Jul 2025 15:41:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250730132026.214754-1-amadeus@jmu.edu.cn>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: linux-next: duplicate patch in the fsl tree
+To: Arnd Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Stephen Rothwell <sfr@canb.auug.org.au>,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
+References: <20250723094558.5bcfca69@canb.auug.org.au>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <20250723094558.5bcfca69@canb.auug.org.au>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_063400_387092_A477EA5E 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20250730_065038_296992_7623F25D 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,41 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi all,
 
-On Wed, Jul 30, 2025 at 09:20:26PM +0800, Chukun Pan wrote:
-> Hi,
+Le 23/07/2025 à 01:45, Stephen Rothwell a écrit :
+> Hi all,
 > 
-> > My point is that if you disable cpufreq, the CPU is running at 1.2V, which
-> > is even higher. I don't know why it's running at this voltage, maybe as
-> > the result of initializing some regulators, but that's what we're getting.
-> > So the question about safety of running between 1.13-1.15 resolves to
-> > "it's at least safer than running without cpufreq" in the current state.
-> >
-> > And as I mentioned it's clearly linux and not u-boot that is setting 1.2V,
-> > because under u-boot and during kernel selection and image loading, my
-> > board is at 0.95V. It's only once the kernel starts to boot that it bumps
-> > to 1.2V.
+> The following commit is also in the arm-soc tree as a different commit
+> (but the same patch):
 > 
-> If opp-table is not configured, kernel will initialize the pwm-regulator
-> to maximum microvolts. This can be solved by configuring the pwm-regulator
-> in U-Boot (waiting for U-Boot to synchronize the DT of kernel 6.16):
+>    8b3da0519ae6 ("soc: fsl: qe: convert set_multiple() to returning an integer")
 > 
-> ```
-> &vdd_arm {
-> 	regulator-init-microvolt = <953000>;
-> };
+> This is commit
+> 
+>    12702f0c3834 ("soc: fsl: qe: convert set_multiple() to returning an integer")
+> 
+> in the arm-soc tree.
+> 
 
-OK thanks for the explanation, but will be stable at highest frequency, or
-do we expect the TF-A or PVTM mechanism to automatically reduce the
-frequency enough to keep everything stable ? I'm asking because right now
-I'm booting at 2 GHz, and I don't imagine 2 GHz to work fine at 953mV.
 
-Also, if we'd set this to a low enough voltage that it results in throttling
-the CPU, it could significantly slow down the boot for no reason. If we
-consider that the configured max-microvolt is valid, then better continue
-to use it. And if it's not valid, then maybe just fix it without going
-full throttle to a lower value either. Just my two cents.
+I was going to send a pull request for this fix but I see the duplicate 
+patch is already tagged in the soc tree:
 
-Willy
+$ git tag --contains 12702f0c3834
+next-20250728
+next-20250730
+soc-drivers-6.17
+
+Shall I do anything or just ignore it and drop it from my tree ?
+
+Thanks
+Christophe
 
