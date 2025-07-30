@@ -4,144 +4,218 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F833C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 13:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BED9C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 13:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VkI3WQWbywiMbx9yHKEjkAeAkd4dqWhZHzhHA1MpbUc=; b=mbaXEI/szXXDcLu+I/SLDogPAX
-	aqzg1Rae0L5vMPQUIrMl5nRO1PGk2bJnDet970avfTSCAYid9EIIMf0YBSXFKyIMZVeC4yQ7K/prx
-	S+15jvrHORRb4T5OK/TGbltZfsHH8W3g1sD1JwEmPyki4lozrHHpZv/ytfkmqcl/X4JIIKHfrXp0w
-	Cnv5jxMItKF2656cBOyatl4qSbgVNazWKebqaQrl5DutnvAa9g7ZDlGC1VJrdmQZQHwKn2Z330vmX
-	RKByDBuKBEaeOqH6z8Y3WUKNGqsx5JuxD8ra25JRA9vCtQlZn+Wo6gZtHIrVG8Pl6zFx0dVgt65Rj
-	uOC/gTUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dFaWz02o3sM2ajiuTR8tffBTHXVFLETnxpLQXbUMQuQ=; b=GowISDZyv3BX/gfjSKKNOTUg6z
+	WGLiuQSBt6eN8CSkxO3m6pdpIdqg/TpxpYxCgEzn7HNAgiHme5ZuT70gddZNaNvcwrPesy7MylcLQ
+	k3az5+xUpNIKEkoXdenqLkUZsNrvykKp3EM/Sf43Lchv4Chx4BF3wRC64rBAUHQB4Ako5Z+BLUP0N
+	E+LLt1M07AfHQj6syefFkDb6J4UppUHpy4/feCLH6pzqP4QrPyBDD7+2DvkHaUF7hwNu0GYrawR50
+	jfm3Ca3FHVjFNceKuKpxiWwEgWGN1PQp3dkEXVymEilL2/IBWNqv8xZct9zA3A4UwsUmPC1uBbY+b
+	6zmvRfXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh6aS-00000001Z1G-2Y2p;
-	Wed, 30 Jul 2025 13:11:16 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uh6cw-00000001ZWf-0r3n;
+	Wed, 30 Jul 2025 13:13:50 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh6T9-00000001Y4c-2WFR
+	id 1uh6TZ-00000001Y9M-1aa1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 13:03:44 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56UCbucO007273
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 13:03:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VkI3WQWbywiMbx9yHKEjkAeAkd4dqWhZHzhHA1MpbUc=; b=ac6+sWuVIk66bbmw
-	+1wNn2vLJNkhWxYNALy2HU7n8y3t3/O4RRpaz8tE5maqxeJ8RY0JVT8t4H9Lo6h1
-	BUAx8UKlUvmJJpcUJGzdIO/03PrAgJKXDOdbG4jPVonCLE0BkRay1AmQoKXd+C4o
-	hCxkY7cExrTlC5GnXPJRBtuisMq5IeUUWIFcRtrspDxnhahujp0DWyRXEIMFYOJW
-	7rcFa27cDDheKyAN/2aMz1CGGiv1l3lxN0IP2NZPzDPar2RTyveoJjiy0zWZhOO4
-	W0MgDtSC9l8HpWQ8lyetBHPQovYQXZsPanPEDjs2wRE1g9HYnmRasZK9rYtTNYrH
-	kydUwQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 487jwg85t4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 13:03:41 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-240607653f4so16882565ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 06:03:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753880620; x=1754485420;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VkI3WQWbywiMbx9yHKEjkAeAkd4dqWhZHzhHA1MpbUc=;
-        b=PPnH6sw6U/STHROE6PJkIDq7wMcOnm8T3l1fGtjmb95QamSK/sVvwc9TYqJzFk0OOK
-         aB3iO6d6H+uUdZqfJ3sVJGeNUrXu5NDt5L8c5pr9ar2bf246Nj74c7m3QnD9ZuvccsAD
-         TP3iOBWvguQBvaXRJdRzmF74fdc7+TnN7NbGazkvc6691/xBDRfMVpYxiomlRsS1lLSb
-         H2ug96Rq0vawOlur3fy8H3PDcZ+hsj3HCYS8m8584SWK0F9/zVGQSKKXmZaUTqNiJPl1
-         jiqJhmPnJa3aUyFaPWvphA1pcNwu/t6f7/naBCH7X5ACxXH606i2omAnHJYK9AeqDify
-         6SNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVIio2QNQyt9CJ/EbxVgEak8r48ScjcedWi14PmMoW3ULYvz73jqSqhVXRCqD93elBLDU9kQx3+wUGRrjYL3Bt4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzj+irKkhrESijDmlJrX9vZaVbyVLhyLWaC/sxO+wGNb1qasB/i
-	I9WJ1xEGzD6Lp8QJVuQqP0GGVwzc0lwDRczpfMEE10ggJaghKnrSMKbHCtl65YgWBI831dWaVy3
-	my5N6c0zoB5tO/gu++DUiTAvAjwlQTz7efMP+/lv2S8PoM4VZPFDg7/7VkiStt53BWF86bZ2nbP
-	2eHA==
-X-Gm-Gg: ASbGncuumw6eL8LW5a0Es86SKFOgTA3rkshBT23v4SSi2eErz10rzbt3lOitstqV1Yn
-	QoQtYUrtKqeCkRj0XW5z+ZKZoV8wFIBmuX5zpTh4vYxLam1RobOg+sjAFteMd2+VO9z+LwDNxuD
-	M9M4p2ZFDfkptrA60CUHPxdtX44nZDcA5xMaBF5dgFaEerGRPTA9CUmW7lw8cYV71L2Dh19Tp1l
-	BQqSnQx5DIBKJCOq40cf2NVJe2G+KSxmzwgtq64JdSGtMAle1y8k2rLM+3KmJthM+OMnrkdoa/V
-	juiQ69yqEkTsoW95OrIfI+P2AGCnzUbbL8Yea993bZDUWX2WBB0YYvJU2MP2+SsI3hcg5K2zWg=
-	=
-X-Received: by 2002:a17:902:e5cb:b0:23f:df56:c74c with SMTP id d9443c01a7336-24096ade845mr42859735ad.14.1753880620310;
-        Wed, 30 Jul 2025 06:03:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHNUn1eUO9r0CsK9snk8Amv0Q5O2izLQsu4h9m62zFXz39lSAwZnmqj49t0viIaY9A0s5Gjxw==
-X-Received: by 2002:a17:902:e5cb:b0:23f:df56:c74c with SMTP id d9443c01a7336-24096ade845mr42859175ad.14.1753880619783;
-        Wed, 30 Jul 2025 06:03:39 -0700 (PDT)
-Received: from [10.219.57.35] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2403ed55780sm62154095ad.166.2025.07.30.06.03.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Jul 2025 06:03:39 -0700 (PDT)
-Message-ID: <b92c164f-c6df-a2c0-1416-67652a01b179@oss.qualcomm.com>
-Date: Wed, 30 Jul 2025 18:33:31 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-To: =?UTF-8?Q?Andr=c3=a9_Draszik?= <andre.draszik@linaro.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b45b157593f1865a402f4098cdeafc298a294c6d.camel@linaro.org>
+	Wed, 30 Jul 2025 13:04:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753880649; x=1785416649;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=dFaWz02o3sM2ajiuTR8tffBTHXVFLETnxpLQXbUMQuQ=;
+  b=Jp6E5uK5Jjae0iYuJOtSCrD+e99PRFncB3AlMZRwJU54QqgeBhmawOcM
+   5NZfUWKwB8LM5cK4jSuO5oGj+tknLAwmzlYujSO3kwfcgj6VKqKSlSz1h
+   UhmPQyTk37qRmsokjs/MDcZcbUirJIYXJe09N13Eao5ZVGzvtwaEsYiq9
+   sP1YAZ8E6ft2DHegL9NHZPBuypNSzSWHa/WSE2Hq3wUNzR+y+TYwKLO0N
+   BxbDou/h5qpV8QJWXvsQ88SB3qobVPvLXcDoVf43nQPeOXhLKqUCnAxAM
+   TPq0cTCRjdmWzvQMLN2W4DgJRHNnFVZGZlLNE9mbvKDsQronTezr8Uh4e
+   g==;
+X-CSE-ConnectionGUID: bQwVQoJ8RhOntaZiqQzFkg==
+X-CSE-MsgGUID: E5rjCgOaS/CFWEuxIcOAUg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11507"; a="56046318"
+X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
+   d="scan'208";a="56046318"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 06:00:29 -0700
+X-CSE-ConnectionGUID: KlROA92fQb2mDvH3Kv+8+A==
+X-CSE-MsgGUID: DzjNDNLjQqS4grPrN+/A5w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
+   d="scan'208";a="162570091"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 06:00:28 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Wed, 30 Jul 2025 06:00:28 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26 via Frontend Transport; Wed, 30 Jul 2025 06:00:28 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (40.107.223.72)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Wed, 30 Jul 2025 06:00:27 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rYSqXKfSYZ/qvB9jDLHCcmR6ipdlnnsHvw0lHHm3mg287gCtfsuX3LCIEhOTNnmUeKqzNIjFAZQFHNVxTW0SHyQl0xJQL2z5n5d+pB0YpRJEVTbydzX9L4vV+Fgb7g7XCEz9M49zGo7qTtm6kTc8sj4j7hkbDJXl7dWSG3hn6OhC58nJ9cqqvUktJKp5Xy32QZPtQOkNA4z6EHHJojV1NfHJDckSAmcscp9Z2/Mkv9ZYz4+xAdcbbaUcfB6HPTeLPunw7yUAVhcKY7dnj4GEE9vwkJkyj+uSF8DYMtvReEMSZwGOE7ox2O2bK/Yy5e0roCUsSGeg4SdzVPcFMVodhA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dFaWz02o3sM2ajiuTR8tffBTHXVFLETnxpLQXbUMQuQ=;
+ b=zTSBsSgqF70MIu0UG3bxXYF9Q0vwMAbQ6ww6NnM2b9phnRueGkBbWXNOZs7Zt32j7lOUgQqLWXg1gc95tuN/hipD5ltshu3y74bmbOY5XSENHWlh5BAalFphsq+shHl1vJH+N+IwpCeZYE7sJEZO/25uPHBrqu3jvbojSjWLy4kpw9ITIQw+rzV9Dn82bMhRqZsIN8cPJZisHaKzxqrlhsXMlE9eWJ9TB2WWkqiZ07+knev5cP3n+CRZ44rFge64C8wkDWmAa/uWutyAaQUma9nbG7fAczpuEfMvttv1kFjl/ZRHk1eQMG6d3JDxuJCj2Abf5XiVhMs1Uew+jcuGxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com (2603:10b6:208:372::10)
+ by BY1PR11MB8127.namprd11.prod.outlook.com (2603:10b6:a03:531::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8964.26; Wed, 30 Jul
+ 2025 12:59:24 +0000
+Received: from MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::edb2:a242:e0b8:5ac9]) by MN0PR11MB5963.namprd11.prod.outlook.com
+ ([fe80::edb2:a242:e0b8:5ac9%5]) with mapi id 15.20.8964.025; Wed, 30 Jul 2025
+ 12:59:24 +0000
+From: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+To: "Zhao, Yan Y" <yan.y.zhao@intel.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"seanjc@google.com" <seanjc@google.com>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "Annapurve, Vishal" <vannapurve@google.com>, "Li,
+ Xiaoyao" <xiaoyao.li@intel.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "Hunter, Adrian" <adrian.hunter@intel.com>,
+	"maz@kernel.org" <maz@kernel.org>, "pbonzini@redhat.com"
+	<pbonzini@redhat.com>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "nik.borisov@suse.com"
+	<nik.borisov@suse.com>
+Subject: Re: [PATCH 2/5] KVM: TDX: Exit with MEMORY_FAULT on unexpected
+ pending S-EPT Violation
+Thread-Topic: [PATCH 2/5] KVM: TDX: Exit with MEMORY_FAULT on unexpected
+ pending S-EPT Violation
+Thread-Index: AQHcAL+7V9fiN+6xT0aRmIRaSyEMmrRJrnYAgAB9EwCAAHaCgA==
+Date: Wed, 30 Jul 2025 12:59:24 +0000
+Message-ID: <3ee65cf000465d46d0f682946c238b9310246816.camel@intel.com>
+References: <20250729193341.621487-1-seanjc@google.com>
+	 <20250729193341.621487-3-seanjc@google.com>
+	 <1d9d6e35ebf4658bbe48e6273eefff3267759519.camel@intel.com>
+	 <aImzwgbuZniu31/V@yzhao56-desk.sh.intel.com>
+In-Reply-To: <aImzwgbuZniu31/V@yzhao56-desk.sh.intel.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <b45b157593f1865a402f4098cdeafc298a294c6d.camel@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=WvgrMcfv c=1 sm=1 tr=0 ts=688a182d cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=EUspDBNiAAAA:8 a=dOR7WsgJQ9bLIEUHlCUA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-ORIG-GUID: tgq2lUKSmkTyWx0x6CAfUrm-SfBSaeph
-X-Proofpoint-GUID: tgq2lUKSmkTyWx0x6CAfUrm-SfBSaeph
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzMwMDA5NCBTYWx0ZWRfX9eEJov/wrs5/
- KHXNIkfn9zO2leLfTLEn4fQcnCy7peWG/OpNXU+uOoQypHoGMSiyvBaP7Sf8hl+a+4RodD7Liqx
- LqA87gODMlJ5pvOJeyIA2PoCQReF+GvdHcd7X43ka8navY9D8+W97mMhIBf3KJ1sT7UZMEPnDlz
- eRG93OsJoSjX9wPu196SmmmaS1IofiqXsilRT9PdrBOW2ShwCdEt86qq3hKYo3+K1g1k87sXmEl
- dXak3LPFK3xqxWKNqtBzZRljoVgpigndQh+Wj0u2puvh7s7nwxjmEs/JH1GGmeD76Blab8p2Vbh
- zbinELxHH2FMaCR653Mm32rdxvfp93cDJklkeQztfYwjvUrQP269poBZB/jiFpCYCN10ZFA8qVb
- Bp8rWRHlNflUO6R5RQHyO8cZQvixFFz2aF+7Cm49kG0AOkjTCLNgUyb8+p/q6Fjf61OQc3/T
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-30_04,2025-07-30_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 bulkscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
- spamscore=0 mlxscore=0 impostorscore=0 adultscore=0 malwarescore=0
- priorityscore=1501 mlxlogscore=999 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507300094
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.44.4-0ubuntu2 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR11MB5963:EE_|BY1PR11MB8127:EE_
+x-ms-office365-filtering-correlation-id: 13d594e7-0a5a-440c-79b3-08ddcf68e8e5
+x-ld-processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?UHpVMUJnanByWDFEU2JESWV0UGpqelh3a2JqSS9vVG1KVU5wKzRCSzRWdkh6?=
+ =?utf-8?B?Zk51TEIxMG9nSDZjQ1AzcWxuSGZ2SVFhY0FlS2t5Q2NRU3hHM0tyOUh5YlZl?=
+ =?utf-8?B?SmxGNmtZMm90TjFGM01td3ZpZ2dRaHlQU2p5MW94U2YzZWpTL3JRdzkxbkV2?=
+ =?utf-8?B?N2Z6M3JZNFNISHo2NDVjMElSWFJxdnV3Q1FpanErMWF0cGhKalV3QUx0NEJk?=
+ =?utf-8?B?Z3NFUXY1djVRdTM3ZG9lQVIrR2hNdnhvS0dETkxxZWYwN1JBOUpSYk4yazF1?=
+ =?utf-8?B?UkFsY2VqbUNDM2VHbjRoRkpKaUxZalJmdm9JYUZTc3lyK2RieFo0RWlaa2pj?=
+ =?utf-8?B?UWhqbTU3WkE3WlJ1U1RpR3JkMGkyZFZTdTNXUE1VU2k5R3NYaEcwWFAyQTRI?=
+ =?utf-8?B?a0l2RDVsZ3krWlE2VHZSL2hMamxZS2VHdzRvVXFRREpzN1M4NzI3S0Q4MFBY?=
+ =?utf-8?B?MGpZQjVxby9DVG9kSlIzUjlhYjltcTlPdkE5ZmVzSjFPOHBVTE5sWS9IRHZz?=
+ =?utf-8?B?TGtqSmh6V2NTSUN2bk9pMTZnMGt2d1krczJrV0RLQThIRUgxM09oWEwwbERH?=
+ =?utf-8?B?aW5VWDV5Rm9XZStkQlg5RjVxSXlvWWNNcDh0YVhpVWVkbS9PZHMyMHJwemR6?=
+ =?utf-8?B?dWF5eEZwL3Z0ZWQyUmxWTnBvZ0NsQ200RkVMbUZJOTJRRWNES2dlSkJWMW1Y?=
+ =?utf-8?B?YzFLNzhDY3k5eGNybDcwMWdFb3BnanlDbXBHWmdWdGR3NjFRemZuSm5McC9E?=
+ =?utf-8?B?N3I0dkZGckk0cVpEN3hqb3k1ckRORTJ4VW9mSFB5VUhnZytFSlVBeEdnNDkw?=
+ =?utf-8?B?c1Q2TE5sMEU4RFFISlUzb20zaDFLTGl0VzZTV2pjREdMY3hvZzZSb1R5eFJo?=
+ =?utf-8?B?c0M0NzUybHg0clU2bWlEMlJEWmQwWGl1YXQ2UjRxSHoxYTJmV0dnZ0ZscHRU?=
+ =?utf-8?B?K3c2NHNxZFpKTFM3U3dmODVpZzlkbTZlc0xoblJaZlJ0eEc4TWZjUE40ZDBH?=
+ =?utf-8?B?cFNiZ25HVkFMd1dEZUdGZkpyaVVmZTRlQzNyVGJjUTZhNk96SnRTV2EzZ3py?=
+ =?utf-8?B?clFnaCtZY1RyaTl6ZU9wL1IybmVkK09LQ3VpMWxycy9HS1YwbnJ5enovQjd2?=
+ =?utf-8?B?N2JDU0VGV081cWd3NDBFYlZwY0RLUDlMWCs3bUQwWnZLZ0txeFhJOExlK1BD?=
+ =?utf-8?B?Wk1GeVFlTFBKYUVuOGYwQUhjd2FrbUtINlhnREFRMlJEQVk0ZHlqRE5CTkRj?=
+ =?utf-8?B?d0ZIZnpUR1o3WXo4ZHdmZnVkb0gxZ2Nmck5sNEc0NTYvVCtrMnpaRmdnMnVX?=
+ =?utf-8?B?YjVaVUVIa1pEb1B1R050STd1Q29HeHhBdHpCaHh5T1pDZXVXdUViWE5ZZzZ1?=
+ =?utf-8?B?WVBDb0VtVFNZUTFBNnhJaGVaUjNEczJOYVdwMVNhaThMLzJTWUIzYTd4Q2I5?=
+ =?utf-8?B?T1QyZlRsYk1hYmZIV0pJVlgyVm1URUlsdXk3WFpOd2NRR0YyaGx3Q2E1STg0?=
+ =?utf-8?B?QmlBbkJ1ZTJDK3U5bmlkSVdaQlljU0c4RFc5M0RoUlExb0piNEhhcmtPTGpL?=
+ =?utf-8?B?VGpuN3RXLzZZZDBpbmNyV1NFY1d1RXNsc3lLakhPMGVDQWpNVXJVclF0dmhh?=
+ =?utf-8?B?YmN6bW0xQWg5bDBmWTBTcE16THc0VmUxRS9ZWXVQMWQrOXk0RFB1K1NaTm1z?=
+ =?utf-8?B?bDRRTlptRkhwMmZhUzRWVS9UQTdPd1FaWGhIeG5QM2UvRkVmWXBVSWNnaUd3?=
+ =?utf-8?B?UHBNMEZYQTZOU1FGdG1JRGN1N09MSmphNjIyazVBUDVkZWdDN0JXaEhyYmN2?=
+ =?utf-8?B?em9tU2VjTEFGMkpaVmR5azFDVzFQUVNsRUNQMnROZTJYYzlwN2JHZlZseDB5?=
+ =?utf-8?B?aFBDWGd4Zk95SFVidlhHdWpYajhzZFA3ZitrY0tTZHZORVZkcmVhdThscUw0?=
+ =?utf-8?B?Z29STk5HY29DTlh5OHhnRXBQMG1ML1UvcEFwLzZ3SjVicmN1dHpNYWlUdmd0?=
+ =?utf-8?Q?y2dSqIy2VLaWvK7aSsnGYfCqB9XzeA=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR11MB5963.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VnZML1VJMzlOdHNsUjRrQmRWNS9JbXZKVVhGeGlBYk40Q1p3WndZckhnZlVY?=
+ =?utf-8?B?QVlFMmlFZldoYnlKMTlCbFRtZUZjazdUUzJuQmNCbHBUcjlGZGFtckRDaXdL?=
+ =?utf-8?B?WE82eDhCbnBDemkvVnZoZUJWUU5uUmhYbjVpVG1zMlJsMmpIMk9EYjU1d2R2?=
+ =?utf-8?B?YlFnTTduMFphclJIa2VseS9sbWdILzlvUzhwMTU0NzFIOWNMaWdHQ3JMbWRj?=
+ =?utf-8?B?TWhaTEJCa3NOTWN3TmtGQ2dOWGgxR01rSDVFNFpObzExK2F3RFRJZmJwMWdX?=
+ =?utf-8?B?UXk0Y1ViMVgvSGdsdU0vQUxIbEZKVmVjdGlDQWZQcmhFTGpyR1o0UnVvYW54?=
+ =?utf-8?B?U0M3OTZ3VHZMVVdnZEhyd01GK0dHZEJacmRLVHFZQlVXaUJRajhjVERLOVpx?=
+ =?utf-8?B?azJ0aGRYL2VkVjgwQ2ZVZFhjQ3MxUTh5cld0ZVlPaFdEQ05sb1FTV2xBbFNr?=
+ =?utf-8?B?MFBLQkwzdEp0QVpVQ0VIeWUxTGY2bDVUUlN4QkNDdzRsQXFsOVlpeG82TGp0?=
+ =?utf-8?B?ekVMZ0FUblRnTm5ZRTZzRlA0VFNHd3VDVlQ4Z0NjM2NVcUtadXlmdENjNEx2?=
+ =?utf-8?B?cEpsT3lCTEhWWERKNTZCQ2FxZnNYUUQwK1c2WHUrR1lyWnZYU0lFdlA4bnVH?=
+ =?utf-8?B?QkZtWmhKZFRGY1hjc0xIT0dQeTRkVDlPbUkrOVBVNzIwc1VnL3M2WktTWmJC?=
+ =?utf-8?B?Y3RCYWh5S0g0MzJWVk84NXNmQ1BoeFIwSU1lejM1dHRnSUpjcWI4ZVdFWUd6?=
+ =?utf-8?B?TndmdTdia0lOZy9sREp2QVBmdXlBZE9SOGZhb3FHQ1FKaGdXK0pkWXhrenNa?=
+ =?utf-8?B?dDZTZjZRaTduWHd5SmJrcGd5dWZtYUFzZ1J6TW9YTkJSNWw3NXB1eXEwTm5T?=
+ =?utf-8?B?TjNoZnVlOXZYdzNiOHl5UDBRMUNnRGdoNHp5d3FnWEoySkNpQXY1aU5pbEVP?=
+ =?utf-8?B?SjAzWGJ6QVlrai9PMzRScnNDODV0RzRBeDdHV1YzVElpQXRoTWdQRHkyRUln?=
+ =?utf-8?B?MkltenhuUlAvV3dxTXBnTDZaZlY4clkzUjd6OG9sTnkzdjNaQk1GemJrOEl6?=
+ =?utf-8?B?Ny81Zi9MSlFVTEE5cExwRXdGU2RRZ1ExbncxY3hDdU91cVBxNGNLMEJkRFJ6?=
+ =?utf-8?B?OTJ5WWpuN3lJeFpIdVJyMFZQRWI3Y3BtNnB6dDE5b1hGRmtjQ0xxc0Z1R09r?=
+ =?utf-8?B?YjlmemRLK2YwQzczZ1hRUXpnM01TdERjOC9jUXN2TjJ0U1VZbENWdTR1aFB1?=
+ =?utf-8?B?MW5qRXpibytUa0UvQVYwNkI0RUFYbVd4YS9vcXd1Z2srVHN2NnNpQUFYeU43?=
+ =?utf-8?B?NXFKWEx3amdSazlxTjBpR3pIaWlxUnRDcWJsWVhYWjNNaGsrOGZXc1Biclg3?=
+ =?utf-8?B?NEZ0VTVpZXlzMm1sNDRTc29kcS9LcWZjVzB3cUxaR0FMeGlMc2dZK2duMUE2?=
+ =?utf-8?B?U3hPZkdycHorRFpxcEpVTEhJdHB2eU1lMjZ0WXJ5cVNERU9tclFJbCsvdUFJ?=
+ =?utf-8?B?YkJ2aWdxZVl2a1B4RDVPbk1CaUYzbjM3dUo5cnZvTEoxVWI2M1RBY0h5eFVM?=
+ =?utf-8?B?Z1dlZEc2MWVoMXp1azNvcVIrei9IdDlLeTcxUUp3QXlGT3YyLzZHLzVvcEZQ?=
+ =?utf-8?B?ZkxiZTRQRXNwLzRpWmM5ZUdEbzhZdDgveXBjTGdsRUszdi9sZ1dQc0UwRjJD?=
+ =?utf-8?B?dnE0SllnYmdZZEpHVUFCb1VPSGRDR0E0NzROSTNrdk96M0ErdmFUSTR6UURT?=
+ =?utf-8?B?eFBnYTc2WkJKY3ZCdTBRL0psVitxcFFiaWllK3VVK1dmSVBYU0dWTXFMTW5O?=
+ =?utf-8?B?MlFGREFFZjhFOVdJTis0OUxHeXdFMlVGZWV2UjA2UkV5RkxSWXZ1VEpVSDEw?=
+ =?utf-8?B?VUh4U0xYY0JvS0JQQ0EraUJxYWtYY1lrN1FTS2kxbDl4ZDZKcVFaeVdDSk53?=
+ =?utf-8?B?OGxIUjZqZXFkYzh5ZUFmRmJuOTVQM1BORCthdG1PdUFMMG1tOEYxbDQ3cjRx?=
+ =?utf-8?B?VVlvWWF3dWlGdWErV0ljOEIwb240MkVValVpN0hJMFlSMlhFN0J6dEhmdzU4?=
+ =?utf-8?B?R1RIQk5TVkJFYVhXcFdEcEJ2U0xhUlpTck9nMmE5VTVvcTYwR2RYbFE2bHhp?=
+ =?utf-8?B?STEzVkJxdE1lRk9ZZ0FMcjNuaVRXOTdMbDJXQzhpWG5wL1lVTElQOStOLzU5?=
+ =?utf-8?B?RXc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <55A81DF3D5EEB449A53E54516C21A3AC@namprd11.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR11MB5963.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13d594e7-0a5a-440c-79b3-08ddcf68e8e5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jul 2025 12:59:24.6944
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 042S7a9J+w0mW8BMDn0E2abSlBxlSihCJnwZIS/GokFxtpVWtWDOK94vQXsLF+wQ8qw7eHCftYo503X+douVwO45lLq0zLYEcUv4nIRamho=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY1PR11MB8127
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_060343_650747_CF3022C5 
-X-CRM114-Status: GOOD (  44.88  )
+X-CRM114-CacheID: sfid-20250730_060409_454235_9E525749 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,208 +230,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/30/2025 2:14 PM, André Draszik wrote:
-> On Sun, 2025-07-27 at 21:54 +0530, Shivendra Pratap wrote:
->> SoC vendors have different types of resets which are controlled
->> through various hardware registers. For instance, Qualcomm SoC
->> may have a requirement that reboot with “bootloader” command
->> should reboot the device to bootloader flashing mode and reboot
->> with “edl” should reboot the device into Emergency flashing mode.
->> Setting up such reboots on Qualcomm devices can be inconsistent
->> across SoC platforms and may require setting different HW
->> registers, where some of these registers may not be accessible to
->> HLOS. These knobs evolve over product generations and require
->> more drivers. PSCI spec defines, SYSTEM_RESET2, vendor-specific
->> reset which can help align this requirement. Add support for PSCI
->> SYSTEM_RESET2, vendor-specific resets and align the implementation
->> to allow user-space initiated reboots to trigger these resets.
->>
->> Introduce a late_initcall to register PSCI vendor-specific resets
->> as reboot modes. Implement a reboot-mode write function that sets
->> reset_type and cookie values during the reboot notifier callback.
->> Introduce a firmware-based call for SYSTEM_RESET2 vendor-specific
->> reset in the psci_sys_reset path, using reset_type and cookie if
->> supported by secure firmware.
->>
->> By using the above implementation, userspace will be able to issue
->> such resets using the reboot() system call with the "*arg"
->> parameter as a string based command. The commands can be defined
->> in PSCI device tree node as “reset-types” and are based on the
->> reboot-mode based commands.
->>
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->> ---
->>  drivers/firmware/psci/Kconfig |  2 ++
->>  drivers/firmware/psci/psci.c  | 57 ++++++++++++++++++++++++++++++++++++++++++-
->>  2 files changed, 58 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/firmware/psci/Kconfig b/drivers/firmware/psci/Kconfig
->> index 97944168b5e66aea1e38a7eb2d4ced8348fce64b..93ff7b071a0c364a376699733e6bc5654d56a17f 100644
->> --- a/drivers/firmware/psci/Kconfig
->> +++ b/drivers/firmware/psci/Kconfig
->> @@ -1,6 +1,8 @@
->>  # SPDX-License-Identifier: GPL-2.0-only
->>  config ARM_PSCI_FW
->>  	bool
->> +	select POWER_RESET
->> +	select REBOOT_MODE
->>  
->>  config ARM_PSCI_CHECKER
->>  	bool "ARM PSCI checker"
->> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
->> index 38ca190d4a22d6e7e0f06420e8478a2b0ec2fe6f..e14bcdbec1750db8aa9297c8bcdb242f58cc420e 100644
->> --- a/drivers/firmware/psci/psci.c
->> +++ b/drivers/firmware/psci/psci.c
->> @@ -17,6 +17,7 @@
->>  #include <linux/printk.h>
->>  #include <linux/psci.h>
->>  #include <linux/reboot.h>
->> +#include <linux/reboot-mode.h>
->>  #include <linux/slab.h>
->>  #include <linux/suspend.h>
->>  
->> @@ -51,6 +52,14 @@ static int resident_cpu = -1;
->>  struct psci_operations psci_ops;
->>  static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
->>  
->> +struct psci_vendor_sysreset2 {
->> +	u32 reset_type;
->> +	u32 cookie;
->> +	bool valid;
->> +};
->> +
->> +static struct psci_vendor_sysreset2 vendor_reset;
->> +
->>  bool psci_tos_resident_on(int cpu)
->>  {
->>  	return cpu == resident_cpu;
->> @@ -309,7 +318,10 @@ static int get_set_conduit_method(const struct device_node *np)
->>  static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->>  			  void *data)
->>  {
->> -	if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->> +	if (vendor_reset.valid && psci_system_reset2_supported) {
->> +		invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor_reset.reset_type,
->> +			       vendor_reset.cookie, 0);
->> +	} else if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->>  	    psci_system_reset2_supported) {
->>  		/*
->>  		 * reset_type[31] = 0 (architectural)
-> 
-> I don't know the PSCI spec, but it looks like with this code it's not
-> possible to set a reboot mode (in DT) and at the same time instruct
-> the firmware whether a warm or a cold reboot was requested.
-
-The code added in this patch is kind of dead, until vendor_reset.valid is set to true.
-It can be true, only when both below conditions are true.
- 1. A SoC DT defines a psci->reboot-mode command say - "bootloader".
- 2. reboot sys call is issued using LINUX_REBOOT_CMD_RESTART2 and the arg* as "bootloader".
-      reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, LINUX_REBOOT_CMD_RESTART2, "bootloader");
-
-With that in place, warm and cold reboot just work same as before until above conditions are true.
-There is no effect on regular reboots or the reboots with a "command" which is not defined in
-psci->reboot-mode DT.
-
-Now lets take a case below, where a SoC vendor wants a combination of psci->reboo-mode command and
-warm/cold to work in combination. For ex. a requirement below:
- - reboot command say - "bootlaoder" should do a cold reboot along with some extra HW reg writes.
- - reboot command say - "edl" should do a warm reboot along with some extra HW reg writes.
-
-1. For this, both commands will be defined in the psci->reboot-mode DT Node with the arguments that
-   are defined and supported by the firmware.
-2. Further, such requirement will now be taken care by the underlying firmware that supports
-   PSCI vendor-specific reset. When we call into firmware with vendor specific reset arguments,
-   firmware will take care of the defined HW writes and warm/cold reset as per the mapping of the
-   defined arguments. Firmware and the Linux kernel here are in agreement for executing the
-   vendor-specific resets.
-
-> 
-> Doing warm reboot is useful if e.g. RAM contents needs to be retained
-> for crash recovery handling, or other reasons, while in normal cases
-> doing a more secure cold reboot.
-> 
-> On the other hand, of course it's useful to be able to specify the
-> reboot target for normal reboots.
-> 
-> Is this a problem with the PSCI spec or with this specific change
-> geared at the Qcom implementation?
-
-SoC vendor should define a vendor-specific reset in psci DT only when they support them in their
-firmware. 
-
-Do we still think we are breaking anything in the spec or in the warm or the cold
-reset path? If so can we discuss such use-cases?
-
-> 
-> 
->> @@ -547,6 +559,49 @@ static const struct platform_suspend_ops psci_suspend_ops = {
->>  	.enter          = psci_system_suspend_enter,
->>  };
->>  
->> +static int psci_set_vendor_sys_reset2(struct reboot_mode_driver *reboot, u64 magic)
->> +{
->> +	u32 magic_32;
->> +
->> +	if (psci_system_reset2_supported) {
->> +		magic_32 = magic & 0xFFFFFFFF;
-> 
-> I believe usual kernel style is to use lower case for
-> hex values.
-
-Sure, will make it lower case.
-
-> 
->> +		vendor_reset.reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic_32;
->> +		vendor_reset.cookie = (magic >> 32) & 0xFFFFFFFF;
-> 
-> dito.
-
-Ack.
-
-thanks.
-
-> 
-> Cheers,
-> Andre'
-> 
->> +		vendor_reset.valid = true;
->> +	}
->> +
->> +	return NOTIFY_DONE;
->> +}
->> +
->> +static int __init psci_init_vendor_reset(void)
->> +{
->> +	struct reboot_mode_driver *reboot;
->> +	struct device_node *np;
->> +	int ret;
->> +
->> +	np = of_find_node_by_path("/psci/reboot-mode");
->> +	if (!np)
->> +		return -ENODEV;
->> +
->> +	reboot = kzalloc(sizeof(*reboot), GFP_KERNEL);
->> +	if (!reboot) {
->> +		of_node_put(np);
->> +		return -ENOMEM;
->> +	}
->> +
->> +	reboot->write = psci_set_vendor_sys_reset2;
->> +
->> +	ret = reboot_mode_register(reboot, np, "psci");
->> +	if (ret) {
->> +		of_node_put(np);
->> +		kfree(reboot);
->> +		return ret;
->> +	}
->> +
->> +	return 0;
->> +}
->> +late_initcall(psci_init_vendor_reset)
->> +
->>  static void __init psci_init_system_reset2(void)
->>  {
->>  	int ret;
+T24gV2VkLCAyMDI1LTA3LTMwIGF0IDEzOjU1ICswODAwLCBZYW4gWmhhbyB3cm90ZToNCj4gPiBC
+dXQgaG1tLCB0YW5nZW50aWFsbHkgcmVsYXRlZCwgYnV0IFlhbiBkbyB3ZSBoYXZlIGEgc2ltaWxh
+ciBwcm9ibGVtIHdpdGgNCj4gPiBLVk1fUFJFX0ZBVUxUX01FTU9SWSBhZnRlciB3ZSBzdGFydGVk
+IHNldHRpbmcgcHJlX2ZhdWx0X2FsbG93ZWQgZHVyaW5nIFREDQo+ID4gZmluYWxpemF0aW9uPw0K
+PiBTZWFuJ3MgY29tbWl0IDYzODVkMDFlZWMxNiAoIktWTTogeDg2L21tdTogRG9uJ3Qgb3Zlcndy
+aXRlIHNoYWRvdy1wcmVzZW50IE1NVQ0KPiBTUFRFcyB3aGVuIHByZWZhdWx0aW5nIikgc2hvdWxk
+IGhhdmUgcHJldmVudGVkIHJlcGVhdGVkIGludm9jYXRpb24gb2YNCj4gc2V0X2V4dGVybmFsX3Nw
+dGVfcHJlc2VudCgpIHdpdGggcHJlZmF1bHRlZCBlbnRyaWVzLg0KDQpPaywgZ3JlYXQuDQo=
 
