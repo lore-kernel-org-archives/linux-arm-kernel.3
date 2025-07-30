@@ -4,136 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343F1C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:25:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0A2C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jwybOaHzIBthLs8G/IuO1ESl+V/z8kWER/2+ChZYdYw=; b=ZgBf3ZEmYlReBwu2XzzsLg5poh
-	uvP8FcQ63GMiK7aRFCBePuidvBY5OEjQhiqujwLkFV3y9YonuMnjXApF86LD0Hgp+o2rWmUS5w6tM
-	UAVs2A6Wi+gq7itTSpwEj30DmDNDK9PeqhFP2yJOdB1+TnaF1LMGL8qXgEHxtU2JTEq9OUm8q6J8X
-	cfhqiw/7oSprry+3GsDwS1dWnFAWkpbIJ6bGnJZJ/5Qsv6nlJywCWWj31SwIiVor72ABTpCa99xse
-	TlVJ1lLSzGbooRcI+uj87kbAY61PFJXDwpZp3rKgKtqBuEVvwqk1S//TMXdecjjnNpISEFvK5FN1F
-	syXwRcHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jM2lKKsaUK/2/ezpP7H67fTfmIqiEVsc2+l+DJuNOLo=; b=eOy1k8oTzeCATj0OKmKeUzjy0/
+	aTQGrbgQetD35Glisb1eZRAx/Y3ZtrBsqAE11zLhM0DiZAkNFgFLCUsHTuKLcx7EyexTTJDKHs7NU
+	ithetDD/tIHU0yPoDUYRjXThakV26z/3l8HNO59kopAo/+oyP0e8zaGCl7Gfktkh8A8DnXor5oDri
+	rPvxwu3TWWWj84VBRfG0TTmvYeHaGR4y9gGI4JVRkdjTuosHz40NPdU68QGTzWXwc/IHUmlnd4B0y
+	IrXex71hWXQPzhjfRnJX9fYnxvDo5lefN0QHSB1Muakp319fOkT8EMZha76kbRz4pgmQaVDTFBPss
+	4Sn6Mi6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7jy-00000001jWv-1ZwJ;
-	Wed, 30 Jul 2025 14:25:10 +0000
-Received: from mail-bn7nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2009::604] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uh7wq-00000001l41-3UkI;
+	Wed, 30 Jul 2025 14:38:28 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7gR-00000001izq-2t9Q
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 14:21:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FKnfflEwZ0aiV0gDJ2yP/I3G2n5ZVfvakekTHfq6HhaTuQq7Oe4zK6W0vmXfacBteu/LKSnDCqcXi22BT9ZVTIduOMXgYue5nmBCNpNwyWkE4CWQbUsf3KPgA2NfxfPouNsDmXDQ+LvwXJ5MatDCpmFqbp5ayjB8WZTJ0xhWQHa83R6jUVRsveCg8YOyxVl0iMbxGzTjxvCReQF3RGqesz5K1DQ27liCH+CmkLxsIHgK6H+PbQ2XYuyKwrU+AHfJ0QDnRz9YB6QVNMmuqTRbMo/nr1+QLhAoKA/FkFXWuzfSnF+vk/u5BTL2mbiBAEgyD15WM6mdAuPRwuI7IDbmww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jwybOaHzIBthLs8G/IuO1ESl+V/z8kWER/2+ChZYdYw=;
- b=k2qYv0vLYqJwTegi29m5SQtBEDdJnhi+7+9gBmLXUItkIF9P2UlQB5o5ZX5ZH+iT0q5mi+CHFZMZGQT9aWEaJCed7WXImmfoPVfqQr3Osn/2osS6qu1ZcVHfM1ggrKkEuVzR9wuBT7ARCqLzI+axFuQ56Y6727PGOh7ITGycb6od7Z9hlQ4OPnIb4k3NhckY7AbDfhYa3rqeEGi08GH20iH4LBLwynr7XRgS1oUTXgQbdAxpmMJCTwr0MtMS4uSdMYoDtluZ9r3MmX+TpQHBI6gorHCK77YlUEKFcmT8MdM1X6prMKLvZr0LPJdGTUXImV3yAEEJ+jtekG1dFSh6rw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=bootlin.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jwybOaHzIBthLs8G/IuO1ESl+V/z8kWER/2+ChZYdYw=;
- b=gYLtscgpEZSTF4mc21Q9yMFNwvfttMViTSJPfi+vfb7y5p+kEsUTqLta7LafBsOgL94r2vhYW4U/NfYbOaWv1nbwy3Xm0L13+T1vSkEn+Jjvp+kdhgebf0JF8HEbAZ585ZUbUIyrvkDAqaDVEd8IZmJQ7F2sR6v6WvO4TCdgoZg=
-Received: from BYAPR02CA0033.namprd02.prod.outlook.com (2603:10b6:a02:ee::46)
- by SJ2PR12MB9190.namprd12.prod.outlook.com (2603:10b6:a03:554::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.12; Wed, 30 Jul
- 2025 14:21:23 +0000
-Received: from SJ5PEPF00000208.namprd05.prod.outlook.com
- (2603:10b6:a02:ee:cafe::db) by BYAPR02CA0033.outlook.office365.com
- (2603:10b6:a02:ee::46) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.13 via Frontend Transport; Wed,
- 30 Jul 2025 14:21:23 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- SJ5PEPF00000208.mail.protection.outlook.com (10.167.244.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8989.10 via Frontend Transport; Wed, 30 Jul 2025 14:21:23 +0000
-Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Jul
- 2025 09:21:21 -0500
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB05.amd.com
- (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Jul
- 2025 09:21:20 -0500
-Received: from xhdharinit40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 30 Jul 2025 09:21:18 -0500
-From: Harini T <harini.t@amd.com>
-To: <alexandre.belloni@bootlin.com>, <michal.simek@amd.com>
-CC: <linux-rtc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>, Harini T <harini.t@amd.com>
-Subject: [PATCH V2] rtc: zynqmp: Restore alarm functionality after kexec transition
-Date: Wed, 30 Jul 2025 19:51:10 +0530
-Message-ID: <20250730142110.2354507-1-harini.t@amd.com>
-X-Mailer: git-send-email 2.43.0
+	id 1uh7uL-00000001kqA-3V0B;
+	Wed, 30 Jul 2025 14:35:55 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id C56891C008E; Wed, 30 Jul 2025 16:35:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
+	t=1753886148;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jM2lKKsaUK/2/ezpP7H67fTfmIqiEVsc2+l+DJuNOLo=;
+	b=Y0DK5VdKj7DdGQWZYOl9Oy0kbFy2e52flvg2Ks8DK4Jg5OIgTHODnagVLxgoI3/eXGn5DK
+	xYLp8YH71CxbqqFNEcCAqhnR+X2M94MHnlVBaHcKvF4fohv2651N8ubol7u1h5EfViVzE0
+	G05d01CXLVshIEkmNS6gC/foc+HCG7Y=
+Date: Wed, 30 Jul 2025 16:35:48 +0200
+From: Pavel Machek <pavel@ucw.cz>
+To: Olivier Benjamin <olivier.benjamin@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Nicholas Roth <nicholas@rothemail.net>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+	imx@lists.linux.dev, ~diederik/pine64-discuss@lists.sr.ht,
+	Dragan Simic <dsimic@manjaro.org>, Ondrej Jirman <megi@xff.cz>
+Subject: Re: [PATCH v4 0/4] Describe the cameras in the PinePhone Pro dts
+Message-ID: <aIotxHrxuEEqGbkk@duo.ucw.cz>
+References: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB05.amd.com: harini.t@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF00000208:EE_|SJ2PR12MB9190:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37e4b677-6588-4034-89a8-08ddcf745c98
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EPGmkM+DmTWfXsSopfVzAkm0FGc/asq6Z3BeQ1KLNi38sx4ejwfE3HYtBdnK?=
- =?us-ascii?Q?u3sXcWzFRvePVsKbNNQQJe2mCwj+8jPv5gzXxyg6vcGmKG2KczpJcuZpEt4O?=
- =?us-ascii?Q?ZUmBKCh2AGSbmJCvOMIxZw0evCh1ND4++CqsLejnqw5WBZ4f0mYXplIx5RrS?=
- =?us-ascii?Q?Qy0sWxQzn/wt5Yda5KHONZOpedVxVyvSrlJI8TEmQaV1ednAa4A8PgqbQJwH?=
- =?us-ascii?Q?e6rEp0nOgADFuM7g7jhUDa76+6CkzytOo1VHrzjBN91iNAh0W3hpdhFupCcY?=
- =?us-ascii?Q?JP15tQGeTG6OeNLQHkMuTYFEBvKfmVT9yn+rSInI9wpM4jpbKn1KpOj06Iib?=
- =?us-ascii?Q?Lua8VXvcoxOCNAQBMrH7GBB54NdgGxeFaQ7V6/88HYdSMF05Nd2TdUa5yGcS?=
- =?us-ascii?Q?rYcqYLWEE5JoNnvutK95Twsv47nL6q40HOZJn968cP/osmcXDZa78nZ3UBHX?=
- =?us-ascii?Q?m0LXvKudbJRmDJvFv9rlwl2Z6H8Z9Zws7Cpw1Tc6VgNLjqKDbZ06BUYfolAP?=
- =?us-ascii?Q?WGqjnSf6D/jPUB8QRe4a0Xp7+WEkz5QeQJyaQwXWGzwLhyq3cdWSdOr0Yh88?=
- =?us-ascii?Q?X252CG7VH5k96z5ucZudRG9z3au5pkXudwP9yKrCCiAhO7+WUjFASgrgKYBh?=
- =?us-ascii?Q?f5oCkX8OdfyqpBeksRk4MpkEr6PcQ1js4rH4Cis3SiM0wKhxAZSQQNHtojl+?=
- =?us-ascii?Q?mushs05UXDuhsg18uqYBTIQbXmFVjrUQd+z5lfz0mRlabDNJvfoN5giRmeqN?=
- =?us-ascii?Q?bXoo7Lcu+Yo0n3KjK5A2JPvY7fnlugR2n/RqZwUtyHukTYI+b8Y6OWLIO2T/?=
- =?us-ascii?Q?xNSzmY3hctjpE4VkttAQ0drvr/VHgNDt1GVI/F/XLBsIhvw0/v0EkjS5wvkJ?=
- =?us-ascii?Q?jOI6OWXG/d9R25pJ0hYAbljOQJrigGV5qk7EAE5yV+ubdDSGSe1c5A5MW9ks?=
- =?us-ascii?Q?Xq4yue3oOQUOGA6+K98IJ7/ur1yzSLIx2gl3Ug+5weGlfz0DOPJb4MWu2Xut?=
- =?us-ascii?Q?iC8WLciGUF+NtLjCoBwzs/MPF+vwntFGyLLi7Sd06Ifq5cO19NwmPxPYiHgl?=
- =?us-ascii?Q?5SB1zkpDCQULPFGxpCYzS1jZakivkDEBVIZHSy9wg4N8ing//5NR7f3hpXEg?=
- =?us-ascii?Q?XG14SOiRahon/hguTaDE0sLYWa1+kFxL1sO42OCuiJSrrZHfa5UaiObvw0FQ?=
- =?us-ascii?Q?Jbbicz1AAKYJM+0DlXM+pTn8KvS+AXiLqJsnE/Ne2PoHC3X92/bsZYQf00ez?=
- =?us-ascii?Q?RMKLqAImWMHC8ChxnlIItnAWQ/Q0UaoDN3trmPfbb8h004B78jWC78NXZ/2n?=
- =?us-ascii?Q?0SCMFzywBw5Dov4HLJMV4KUrV42ZyV+yl60FIOIBGpJj9S1y0Qdfk5xJog5J?=
- =?us-ascii?Q?b/VThd+ecAhbZ5Z64zyUXUkxiiRVINt5vKCQKl2D6FVTxYr/3Ok+VmhyMCnf?=
- =?us-ascii?Q?N3H7FT95cTFTnRoZHFLSaR1RjGK/b3E5nsAVCP9TOY+SSjfMF7K1zy+x7k6f?=
- =?us-ascii?Q?t1NRKr480MIhJDmovbbL1+1bMwRbiZVW0r/6Hz2IxKqdrHeMdX1VcnM8rA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2025 14:21:23.1787
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37e4b677-6588-4034-89a8-08ddcf745c98
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF00000208.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9190
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="UCFE5hbQc5QNmNAy"
+Content-Disposition: inline
+In-Reply-To: <20250620-camera-v4-0-0201a8ed5fae@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_072131_732591_5C7F284E 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250730_073554_160061_2289EEA4 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,78 +82,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During kexec reboots, RTC alarms that are fired during the kernel
-transition experience delayed execution. The new kernel would eventually
-honor these alarms, but the interrupt handlers would only execute after
-the driver probe is completed rather than at the intended alarm time.
 
-This is because pending alarm interrupt status from the previous kernel
-is not properly cleared during driver initialization, causing timing
-discrepancies in alarm delivery.
+--UCFE5hbQc5QNmNAy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-To ensure precise alarm timing across kexec transitions, enhance the
-probe function to:
-1. Clear any pending alarm interrupt status from previous boot.
-2. Detect existing valid alarms and preserve their state.
-3. Re-enable alarm interrupts for future alarms.
+On Fri 2025-06-20 17:21:31, Olivier Benjamin wrote:
+> This series adds support for the Pine64 PinePhone Pro's rear and front
+> cameras in Device Tree.
+> This is based on some of Ondrej Jirman's patches hosted in his tree at
+> https://codeberg.org/megi/linux, but I have also fully reviewed and
+> re-written the code from the RK3399 datasheet, the PinePhone Pro
+> schematic, and the IMX258-0AQH5 software reference manual.
+>=20
+> I have tested these changes on my PinePhone Pro and am able to take
+> photos from both cameras using libcamera's cam.
+>=20
+> This series has raised a question about the proper label name for the
+> front/user camera and rear/world camera for phones.
 
-Signed-off-by: Harini T <harini.t@amd.com>
----
-Changes in V2:
-- Remove shutdown handler to prevent alarm interrupts from being
-  disabled during kexec transitions.
-- Add alarm state detection and restoration in probe.
+I am not familiar with "user" / "world" cameras, but "selfie" and
+"main" is something I've seen before.
 
-V1 link: https://lore.kernel.org/linux-rtc/20250724170517.974356-1-harini.t@amd.com/T/#u
----
- drivers/rtc/rtc-zynqmp.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+Best regards,
+								Pavel
+--=20
+I don't work for Nazis and criminals, and neither should you.
+Boycott Putin, Trump, and Musk!
 
-diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-index f39102b66eac..3baa2b481d9f 100644
---- a/drivers/rtc/rtc-zynqmp.c
-+++ b/drivers/rtc/rtc-zynqmp.c
-@@ -277,6 +277,10 @@ static irqreturn_t xlnx_rtc_interrupt(int irq, void *id)
- static int xlnx_rtc_probe(struct platform_device *pdev)
- {
- 	struct xlnx_rtc_dev *xrtcdev;
-+	bool is_alarm_set = false;
-+	u32 pending_alrm_irq;
-+	u32 current_time;
-+	u32 alarm_time;
- 	int ret;
- 
- 	xrtcdev = devm_kzalloc(&pdev->dev, sizeof(*xrtcdev), GFP_KERNEL);
-@@ -296,6 +300,17 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
- 	if (IS_ERR(xrtcdev->reg_base))
- 		return PTR_ERR(xrtcdev->reg_base);
- 
-+	/* Clear any pending alarm interrupts from previous kernel/boot */
-+	pending_alrm_irq = readl(xrtcdev->reg_base + RTC_INT_STS) & RTC_INT_ALRM;
-+	if (pending_alrm_irq)
-+		writel(pending_alrm_irq, xrtcdev->reg_base + RTC_INT_STS);
-+
-+	/* Check if a valid alarm is already set from previous kernel/boot */
-+	alarm_time = readl(xrtcdev->reg_base + RTC_ALRM);
-+	current_time = readl(xrtcdev->reg_base + RTC_CUR_TM);
-+	if (alarm_time > current_time && alarm_time != 0)
-+		is_alarm_set = true;
-+
- 	xrtcdev->alarm_irq = platform_get_irq_byname(pdev, "alarm");
- 	if (xrtcdev->alarm_irq < 0)
- 		return xrtcdev->alarm_irq;
-@@ -337,6 +352,10 @@ static int xlnx_rtc_probe(struct platform_device *pdev)
- 
- 	xlnx_init_rtc(xrtcdev);
- 
-+	/* Re-enable alarm interrupt if a valid alarm was found */
-+	if (is_alarm_set)
-+		writel(RTC_INT_ALRM, xrtcdev->reg_base + RTC_INT_EN);
-+
- 	device_init_wakeup(&pdev->dev, true);
- 
- 	return devm_rtc_register_device(xrtcdev->rtc);
--- 
-2.43.0
+--UCFE5hbQc5QNmNAy
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaIotxAAKCRAw5/Bqldv6
+8jtFAKCAXX0aOwyInpx0Q+gZ2vXgWjrBHQCeMQnkyOMwVT35tIbT/RC5hlstnU0=
+=x7Kn
+-----END PGP SIGNATURE-----
+
+--UCFE5hbQc5QNmNAy--
 
