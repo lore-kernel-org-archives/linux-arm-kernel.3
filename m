@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E7EC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 04:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6714C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 05:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XADhAxJSJK7XTnD6xMYiRrgiWZbM/wAFycVV7wrUEWw=; b=JSH2HiMR7ICvPyrExontO/CBEC
-	nKsOqbMWSp0Lhs5LKJ/OhBwdUi2PoDqF7t+Pk/ZuJhPTtyW1F+H/i6mSQahxybBhqGiiw2mJsnRzY
-	6D2lRKySNk5cjkXItEHB29CAPm6HQbO17itT7t7E0XdwQrKupxJ9aYOHzQx7edg8bav8R1PS0Khru
-	1WyI9ZZmZfIwY504LWbxNOmRBqLJiiMxmypa9XoyTH/WwGJZ1U9Fg9nZ114ZG1Hfo+ZFjCqJfRzxW
-	wynZ/2xYREvma0fHltLIlOMPUmtDOxnaLxmyLMx1/SOOJ5hHbqlVCsjL6AwNsCIqs++4JD54LUqTO
-	+eoBZsrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=25n2H/W0zHzBfG72uoois/3Cd4v1GoEtSniUUwyLEZA=; b=a8jUf0vhDOtoks4iNzuqdCRnKk
+	qhW1Uh/N3sgcGVUhgsviNRaJGaLEkzbZ4umHyaKApSyhYZxQmdMaX1+i1wVYepkqgMkZTGpDnZtvi
+	HeAbqZ6BbnlElGRTLH7Xi48lusYXP3U26MUbE/hL4aYlNPtr6Gy+uuPyQ8X8kztA0NFbsNGx9x1Gv
+	x7GDLETxmUeHmS0mmoSsxVfvZdVqxePUVTWSV/7TsjLwIY9+kuK27ZxSOSJHyBbYhwg6WIGz2BVhk
+	xl/8bBDmT62AmVproe6rEL8pxKW4yJRgWIBZl1eJ4i5oLiLKL6cDBo/FaXmTfbQYXlcA6eyWtbj23
+	t0uWC64A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugyRE-00000000g8f-15oK;
-	Wed, 30 Jul 2025 04:29:12 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1ugzX9-00000000jMm-0aqA;
+	Wed, 30 Jul 2025 05:39:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugyOg-00000000fxy-0ADq
+	id 1ugzUc-00000000j93-1Py3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 04:26:36 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250730042626epoutp02fda81bd1f53aea61c31b4f538c573608~W7OglHnsP1590815908epoutp02Z
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 04:26:26 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250730042626epoutp02fda81bd1f53aea61c31b4f538c573608~W7OglHnsP1590815908epoutp02Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1753849586;
-	bh=XADhAxJSJK7XTnD6xMYiRrgiWZbM/wAFycVV7wrUEWw=;
-	h=From:To:In-Reply-To:Subject:Date:References:From;
-	b=WTpxiXNo5hDwREZCQCpXkEmdBk9uwAq4fs7H8jEmZv9y8Vqtky7kB51qPKMP25TG7
-	 vvD+dEiBY+yAZlhVXyQdaffReJVuztkJ2wmIYL5lCNBHZ6429ZK3gyHLWcKPpSJ//i
-	 J5HfyxnrW+QYbpU74BPHrA3RV/hGsOr6ixVuXCFg=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250730042625epcas5p2bd1524fa52de5daae0afa6b10db513cf~W7Of3rIvi1492314923epcas5p23;
-	Wed, 30 Jul 2025 04:26:25 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4bsK0c60mZz6B9mF; Wed, 30 Jul
-	2025 04:26:24 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250730042624epcas5p35c34b8407135ac6b3ffd8f5e6f85eadb~W7OeGesCm1453314533epcas5p35;
-	Wed, 30 Jul 2025 04:26:24 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250730042622epsmtip2189c4cceaa19ce310300f1e31e526d55~W7OcshZbi0895408954epsmtip2K;
-	Wed, 30 Jul 2025 04:26:22 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Devang Tailor'" <dev.tailor@samsung.com>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alexandre.belloni@bootlin.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-rtc@vger.kernel.org>,
-	<faraz.ata@samsung.com>
-In-Reply-To: <20250710083434.1821671-4-dev.tailor@samsung.com>
-Subject: RE: [PATCH v2 3/3] arm64: dts: exynosautov9: add RTC DT node
-Date: Wed, 30 Jul 2025 09:56:21 +0530
-Message-ID: <36d501dc010a$1ba82f60$52f88e20$@samsung.com>
+	Wed, 30 Jul 2025 05:36:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1753853806; x=1785389806;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=N1w1SjMrVlxfirhilq++adg4shvXqJr7FQPDQ+oinmA=;
+  b=QpO1WpxjVNNo8n0Cq42izezXzRQEahLmb/N7ySAUmIM3EA5tNQolk6y5
+   OMH4BwDZXexNbflI0bOqN2uODUbFaPOJwQZhCPLCG9Lf3v7FlgtCOPHhe
+   yqOYzX8SKldHPlvvSreENuK4CqG6USqSk8GzxvkUuZPDzimEXIWgpj5B+
+   fTOMUGaLsjJwg0wQb06U2TvxBuowsnqeJgw0f2LQbsEIm+extwr4hAUg3
+   1dsINbkzi9FwOKFEgUZPFRECt63xpJT0zTUYIFMp7iefum6joVcSsLCmK
+   9YHqh10GEcc/SMNhZHdyKIakYb9M4I6/t/3/+5bFj+S35AVgk4uMvA0Nc
+   w==;
+X-CSE-ConnectionGUID: KXdcS/E5QFaLzQr7m9yLTA==
+X-CSE-MsgGUID: 95Lgc1qwR3ylPu6C6MQ5Pw==
+X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
+   d="scan'208";a="275977859"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 29 Jul 2025 22:36:44 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 29 Jul 2025 22:36:16 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 29 Jul 2025 22:36:13 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <ryan.wanner@microchip.com>, <broonie@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <linux-spi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: [PATCH 1/3] spi: atmel: simplify MR register update in cs_activate()
+Date: Wed, 30 Jul 2025 11:05:59 +0530
+Message-ID: <20250730053559.261866-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: en-us
-Thread-Index: AQMc6yo9jRPgA4nZ2IiZrgLtyBFMygGaMzhCAmY8HSqxqDjnIA==
-X-CMS-MailID: 20250730042624epcas5p35c34b8407135ac6b3ffd8f5e6f85eadb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250710082538epcas5p2556f80b4193a046262808ae7742675be
-References: <20250710083434.1821671-1-dev.tailor@samsung.com>
-	<CGME20250710082538epcas5p2556f80b4193a046262808ae7742675be@epcas5p2.samsung.com>
-	<20250710083434.1821671-4-dev.tailor@samsung.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_212635_530723_AA9A82BB 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250729_223646_554504_1E8BA4BF 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +85,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+simplified the MR register configuration by updating only the PCS field
+using SPI_BFINS() instead of rewriting the entire register.
+Avoids code duplication.
 
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+---
+ drivers/spi/spi-atmel.c | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
-> -----Original Message-----
-> From: Devang Tailor <dev.tailor=40samsung.com>
-> Sent: Thursday, July 10, 2025 2:05 PM
-> To: robh=40kernel.org; krzk+dt=40kernel.org; conor+dt=40kernel.org;
-> alim.akhtar=40samsung.com; alexandre.belloni=40bootlin.com;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org; linux-
-> rtc=40vger.kernel.org; faraz.ata=40samsung.com
-> Cc: Devang Tailor <dev.tailor=40samsung.com>
-> Subject: =5BPATCH v2 3/3=5D arm64: dts: exynosautov9: add RTC DT node
->=20
-> Add DT node for on-chip RTC for ExynosAutov9
->=20
-> Signed-off-by: Devang Tailor <dev.tailor=40samsung.com>
-> ---
-Reviewed-by: Alim Akhtar <alim.akhtar=40samsung.com>
+diff --git a/drivers/spi/spi-atmel.c b/drivers/spi/spi-atmel.c
+index 89a6b46cd319..409f544d8983 100644
+--- a/drivers/spi/spi-atmel.c
++++ b/drivers/spi/spi-atmel.c
+@@ -397,20 +397,10 @@ static void cs_activate(struct atmel_spi *as, struct spi_device *spi)
+ 		 * on CS1,2,3 needs SPI_CSR0.BITS config as SPI_CSR1,2,3.BITS
+ 		 */
+ 		spi_writel(as, CSR0, asd->csr);
+-		if (as->caps.has_wdrbt) {
+-			spi_writel(as, MR,
+-					SPI_BF(PCS, ~(0x01 << chip_select))
+-					| SPI_BIT(WDRBT)
+-					| SPI_BIT(MODFDIS)
+-					| SPI_BIT(MSTR));
+-		} else {
+-			spi_writel(as, MR,
+-					SPI_BF(PCS, ~(0x01 << chip_select))
+-					| SPI_BIT(MODFDIS)
+-					| SPI_BIT(MSTR));
+-		}
+ 
+ 		mr = spi_readl(as, MR);
++		mr = SPI_BFINS(PCS, ~(0x01 << chip_select), mr);
++		spi_writel(as, MR, mr);
+ 
+ 		/*
+ 		 * Ensures the clock polarity is valid before we actually
 
-You can also send a top-up patch to correct the ordering of the nodes based=
- on the ascending addresses.
-
->  arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts =7C  4 ++++
->  arch/arm64/boot/dts/exynos/exynosautov9.dtsi     =7C 10 ++++++++++
->  2 files changed, 14 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-> b/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-> index de2c1de51a76..5f5167571f7a 100644
-> --- a/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-> +++ b/arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts
-> =40=40 -106,6 +106,10 =40=40 &pwm =7B
->  	status =3D =22okay=22;
->  =7D;
->=20
-> +&rtc =7B
-> +	status =3D =22okay=22;
-> +=7D;
-> +
->  &serial_0 =7B
->  	pinctrl-0 =3D <&uart0_bus_dual>;
->  	status =3D =22okay=22;
-> diff --git a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-> b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-> index 66628cb32776..afa6b258153c 100644
-> --- a/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-> +++ b/arch/arm64/boot/dts/exynos/exynosautov9.dtsi
-> =40=40 -1633,6 +1633,16 =40=40 pwm: pwm=40103f0000 =7B
->  			clock-names =3D =22timers=22;
->  			status =3D =22disabled=22;
->  		=7D;
-> +
-> +		rtc: rtc=4010540000 =7B
-> +			compatible =3D =22samsung,exynosautov9-rtc=22;
-> +			reg =3D <0x10540000 0x100>;
-> +			interrupts =3D <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>,
-> +				     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks =3D <&xtcxo>;
-> +			clock-names =3D =22rtc=22;
-> +			status =3D =22disabled=22;
-> +		=7D;
->  	=7D;
->  =7D;
->=20
-> --
-> 2.34.1
-
+base-commit: 4b290aae788e06561754b28c6842e4080957d3f7
+-- 
+2.25.1
 
 
