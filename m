@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5E74C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 03:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11C77C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 03:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L1QsmQWXdIqobR+ROd4SnezbjmWhyX278yp94d68D1w=; b=OGAA1OezvA6LXafA/049+GXQw+
-	FpQQudU5iiMF5sVvP72yS6UsxPESIK9X3JDUcn4zDueOx+lUbs2YQdDMVGFjrG8B75yc69wOuVc6K
-	Vqymj4nZGoGhyY5DGJN61PqMCW8LFGC5Zs6m1cc7elXpC0HSwpNkSEIMzm93aRuPO5ZbINUFLx/fI
-	u/8wEerK1t0FmZLEU89ToN59h+5i/MxKCuHJM2AB8XS7Go9SVAtPFrQMiEXswqBMCsfFFFau59uka
-	WfXujiDBztt72bcm9upWSwk3JmGPkxEc/XlVeBgwJ+UKtH1qn2TQdwNXAcRiF7PlNvjoEmiuFwK2d
-	p7/0zTWg==;
+	bh=Ba/FOb6bY5WanQVf29S2/UJyl+gwJNuBRP96gIyj+Zc=; b=nBLvRJ+/MFbtBR6W6SepaCsbc9
+	KH7aRpvDJAhmRhc+UicMwKT9ZHQ651XZIQe8pxvCpAduYm+CTronJJKKdeCv1qWzQq2pX1EAaDAUV
+	bkEHKkkPKgEcNbOcqyC1aewP71rLxQ+v1VqMnyBQAu2m4pxlmocIkb6uA2wXWfOL9jL68bytZxrCE
+	9YqsP+8NjwZq07Q7hUYfdjt1xUrADQbi9+TD7fbSba1AIPnLYObcN5f1V10w9XbIKdLkDQzn2Iwk7
+	Eq8vtKGS+re8Hll/FnQxJUb8gdRmPmg+x5VzYozHbHDGeg0vFJ9d9QicTldw+2bp7cB/Na7t3VnVz
+	0T7sgnCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugxfe-00000000d50-06Dq;
-	Wed, 30 Jul 2025 03:40:02 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1ugxi5-00000000dXG-3B2w;
+	Wed, 30 Jul 2025 03:42:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugxd8-00000000cfr-3iDa
+	id 1ugxf2-00000000cv9-2oLI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 03:37:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753846646; x=1785382646;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Ymk96y7FUWnE0zbfR0VLJRsckN/JMqE00GtgLPj0qRo=;
-  b=GPBIW0JoswrYZqLOFl7JfU/8JWFEUAfQdQwlfNEopqH/geapbwQuk5NU
-   qRiLceCkZ/ygzPiuB3jxFHvcpK9smITH4ymYNSedD1Cdf4kT5iPkmLXIl
-   FvQT5bGHgb5gyU8V8PZFFFk8ZvfRN+LUtWXiun1t/cZt+8WAj/+nXV8po
-   Ho4f8I0A7+lIvhOKAdPjT4MrqjqLQSLo4lq7TeH8VMR3NolNKqJZ8xMLR
-   /DpVZvgqIwKtrakvlyxocODfa7Rx+orqk7AA0JpWxE6cpKyfe/ctWZC0p
-   c6dox8TWVPN+XDpuYDZlIGmXDVjbN9Qt6OAq/5v61K7l4nPuAs/CvC25Y
-   A==;
-X-CSE-ConnectionGUID: jqYJhMqBSHqYU22u2GEJ5Q==
-X-CSE-MsgGUID: AH0DpGhqR22B1Hyi5NOANQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11506"; a="81578762"
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="81578762"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2025 20:37:26 -0700
-X-CSE-ConnectionGUID: ar/G3DOGS8uedznncdnXVw==
-X-CSE-MsgGUID: H23rFKPZQJqYSvne5Xy7JA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="167077052"
-Received: from lkp-server01.sh.intel.com (HELO 160750d4a34c) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 29 Jul 2025 20:37:22 -0700
-Received: from kbuild by 160750d4a34c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ugxd1-0001y2-21;
-	Wed, 30 Jul 2025 03:37:19 +0000
-Date: Wed, 30 Jul 2025 11:36:21 +0800
-From: kernel test robot <lkp@intel.com>
-To: Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>
-Subject: Re: [PATCH net-next v2 1/2] drivers: net: stmmac: handle start time
- set in the past for flexible PPS
-Message-ID: <202507301148.TVzOecMo-lkp@intel.com>
-References: <20250729-relative_flex_pps-v2-1-3e5f03525c45@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250729-relative_flex_pps-v2-1-3e5f03525c45@foss.st.com>
+	Wed, 30 Jul 2025 03:39:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6C313A54EC0;
+	Wed, 30 Jul 2025 03:39:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133EAC4CEE7;
+	Wed, 30 Jul 2025 03:39:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753846763;
+	bh=s0UqDdD2vcItUS++pbUmt9deNMP4R43V/iHPYRxJBWo=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=Wb7KMtAZsVftdc8+nnFiTv+JoYboatXo5SYdcCR+c8p+IsJXWf1HRGKeZYXsBhMpM
+	 BZP305arnpPFJqWRI0cR4inSLVH6eMDLuG+1nuxVjFjouu0aTiedSsg4tKYd3jyhJH
+	 Jv0rhYjAtHv80cJQubSs0kKkwyVe8GdAJO39n52GNkWRPtSUuF31yGmhZ6cBDEXzZG
+	 aYTg+AzntFW2jVhmLi/mYKL+o5NsYAgGUq2WlYFK6iJmV1MTSEYfA2WByAi1DCaQoL
+	 H3nnvpL813TIIxZKpE5Y51zZfag4uQ2BZDKaMKbXSKR3eSKkAIzU4BoOQXecj3tSUO
+	 QmFAQObU+fiUQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70BAA383BF5F;
+	Wed, 30 Jul 2025 03:39:40 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 updates for 6.17
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20250725143925.1674618-1-catalin.marinas@arm.com>
+References: <20250725143925.1674618-1-catalin.marinas@arm.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20250725143925.1674618-1-catalin.marinas@arm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
+X-PR-Tracked-Commit-Id: 5b1ae9de71335865d06ff0e60eadcf368a735edf
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 6fb44438a5e1897a72dd11139274735256be8069
+Message-Id: <175384677911.1749338.2052974279366612113.pr-tracker-bot@kernel.org>
+Date: Wed, 30 Jul 2025 03:39:39 +0000
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Catalin Marinas <cmarinas@kernel.org>, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_203726_938327_4FC214F7 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250729_203924_770657_904117CA 
+X-CRM114-Status: UNSURE (   4.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,141 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gatien,
+The pull request you sent on Fri, 25 Jul 2025 15:39:25 +0100:
 
-kernel test robot noticed the following build warnings:
+> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-upstream
 
-[auto build test WARNING on fa582ca7e187a15e772e6a72fe035f649b387a60]
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/6fb44438a5e1897a72dd11139274735256be8069
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Gatien-Chevallier/drivers-net-stmmac-handle-start-time-set-in-the-past-for-flexible-PPS/20250729-225635
-base:   fa582ca7e187a15e772e6a72fe035f649b387a60
-patch link:    https://lore.kernel.org/r/20250729-relative_flex_pps-v2-1-3e5f03525c45%40foss.st.com
-patch subject: [PATCH net-next v2 1/2] drivers: net: stmmac: handle start time set in the past for flexible PPS
-config: x86_64-buildonly-randconfig-002-20250730 (https://download.01.org/0day-ci/archive/20250730/202507301148.TVzOecMo-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250730/202507301148.TVzOecMo-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507301148.TVzOecMo-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c:177:3: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
-     177 |                 struct timespec64 curr_time;
-         |                 ^
-   1 warning generated.
-
-
-vim +177 drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
-
-   163	
-   164	static int stmmac_enable(struct ptp_clock_info *ptp,
-   165				 struct ptp_clock_request *rq, int on)
-   166	{
-   167		struct stmmac_priv *priv =
-   168		    container_of(ptp, struct stmmac_priv, ptp_clock_ops);
-   169		void __iomem *ptpaddr = priv->ptpaddr;
-   170		struct stmmac_pps_cfg *cfg;
-   171		int ret = -EOPNOTSUPP;
-   172		unsigned long flags;
-   173		u32 acr_value;
-   174	
-   175		switch (rq->type) {
-   176		case PTP_CLK_REQ_PEROUT:
- > 177			struct timespec64 curr_time;
-   178			u64 target_ns = 0;
-   179			u64 ns = 0;
-   180	
-   181			/* Reject requests with unsupported flags */
-   182			if (rq->perout.flags)
-   183				return -EOPNOTSUPP;
-   184	
-   185			cfg = &priv->pps[rq->perout.index];
-   186	
-   187			cfg->start.tv_sec = rq->perout.start.sec;
-   188			cfg->start.tv_nsec = rq->perout.start.nsec;
-   189	
-   190			/* A time set in the past won't trigger the start of the flexible PPS generation for
-   191			 * the GMAC5. For some reason it does for the GMAC4 but setting a time in the past
-   192			 * should be addressed anyway. Therefore, any value set it the past is considered as
-   193			 * an offset compared to the current MAC system time.
-   194			 * Be aware that an offset too low may not trigger flexible PPS generation
-   195			 * if time spent in this configuration makes the targeted time already outdated.
-   196			 * To address this, add a safe time offset.
-   197			 */
-   198			if (!cfg->start.tv_sec && cfg->start.tv_nsec < PTP_SAFE_TIME_OFFSET_NS)
-   199				cfg->start.tv_nsec += PTP_SAFE_TIME_OFFSET_NS;
-   200	
-   201			target_ns = cfg->start.tv_nsec + ((u64)cfg->start.tv_sec * NSEC_PER_SEC);
-   202	
-   203			stmmac_get_systime(priv, priv->ptpaddr, &ns);
-   204			if (ns > TIME64_MAX - PTP_SAFE_TIME_OFFSET_NS)
-   205				return -EINVAL;
-   206	
-   207			curr_time = ns_to_timespec64(ns);
-   208			if (target_ns < ns + PTP_SAFE_TIME_OFFSET_NS) {
-   209				cfg->start = timespec64_add_safe(cfg->start, curr_time);
-   210				if (cfg->start.tv_sec == TIME64_MAX)
-   211					return -EINVAL;
-   212			}
-   213	
-   214			cfg->period.tv_sec = rq->perout.period.sec;
-   215			cfg->period.tv_nsec = rq->perout.period.nsec;
-   216	
-   217			write_lock_irqsave(&priv->ptp_lock, flags);
-   218			ret = stmmac_flex_pps_config(priv, priv->ioaddr,
-   219						     rq->perout.index, cfg, on,
-   220						     priv->sub_second_inc,
-   221						     priv->systime_flags);
-   222			write_unlock_irqrestore(&priv->ptp_lock, flags);
-   223			break;
-   224		case PTP_CLK_REQ_EXTTS: {
-   225			u8 channel;
-   226	
-   227			mutex_lock(&priv->aux_ts_lock);
-   228			acr_value = readl(ptpaddr + PTP_ACR);
-   229			channel = ilog2(FIELD_GET(PTP_ACR_MASK, acr_value));
-   230			acr_value &= ~PTP_ACR_MASK;
-   231	
-   232			if (on) {
-   233				if (FIELD_GET(PTP_ACR_MASK, acr_value)) {
-   234					netdev_err(priv->dev,
-   235						   "Cannot enable auxiliary snapshot %d as auxiliary snapshot %d is already enabled",
-   236						rq->extts.index, channel);
-   237					mutex_unlock(&priv->aux_ts_lock);
-   238					return -EBUSY;
-   239				}
-   240	
-   241				priv->plat->flags |= STMMAC_FLAG_EXT_SNAPSHOT_EN;
-   242	
-   243				/* Enable External snapshot trigger */
-   244				acr_value |= PTP_ACR_ATSEN(rq->extts.index);
-   245				acr_value |= PTP_ACR_ATSFC;
-   246			} else {
-   247				priv->plat->flags &= ~STMMAC_FLAG_EXT_SNAPSHOT_EN;
-   248			}
-   249			netdev_dbg(priv->dev, "Auxiliary Snapshot %d %s.\n",
-   250				   rq->extts.index, on ? "enabled" : "disabled");
-   251			writel(acr_value, ptpaddr + PTP_ACR);
-   252			mutex_unlock(&priv->aux_ts_lock);
-   253			/* wait for auxts fifo clear to finish */
-   254			ret = readl_poll_timeout(ptpaddr + PTP_ACR, acr_value,
-   255						 !(acr_value & PTP_ACR_ATSFC),
-   256						 10, 10000);
-   257			break;
-   258		}
-   259	
-   260		default:
-   261			break;
-   262		}
-   263	
-   264		return ret;
-   265	}
-   266	
+Thank you!
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
