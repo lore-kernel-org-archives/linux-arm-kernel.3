@@ -4,51 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E3FC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 07:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81C1C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 07:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yuWYeQsj0GmYUhGsxXEXfSXM/xpiHh8/S5vH2Q8PAtY=; b=yBLD+/K6Dx3ZohY8jxTn7OQWa8
-	7+JebKDFIEKpEB2H1bhM39wUhBCM/3Ps7ySUdfy3ayd9KcUYKErpGLVRBkWhbkjhna/EBcsoGtcQG
-	YvdmC1FGdi+uV4jB7vr4MmzB1bjAWjqoPUNR95TcVb5RgXKPSuQsinIUXoDEYXcpBC1Vn6yPFEQni
-	KsY11puaurgX9/mcPXLjHDhlCk1OKMosMKHa+2Ymh2H/MbJC60y+N3TL6fdUYuhXtDPtRbE7M5EPM
-	ihQGI00wvkjYyyiem6HiU2GDNgP1hR7+gHd506JVY7Mq08Ftp19ccpOyz0RLeegytXDqfXiGXqB+W
-	kIEHIYEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TZFPYlDdJ0rVu0VNavE3SZOZbmVPr53MAqWXB77UPjc=; b=hPPc7FWoqNfor//aey3eTzstZQ
+	Cqtb02kebLATp8UaMQw4ygtQZTBBJiLV6pkKHaN5+uqhqIYzuDyv5MDUVs3e839VIG7bhkJBalMrE
+	BVJMmZemYc9ClC57dK3QnxVkbu6FE0E9dfSsUuXK7/SRhJQ6lo0IrtZhIslh8Hmw1iVa9yltzCzSk
+	fv26RYfd8gb99BlYz0v6f6Z//R3oqgsAnc/a/A68H27q/SlpzL9srPeE3gGg7ItiCQ6l6sEbTkwdT
+	dKgnCFUtGxiYek9SjqEs4+fIX0B2wqrx+ZIcqy5qG4z6pnYJqeLxHxLHJ4yNHbwvYdMydigZhL1Wu
+	myuUog4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh11P-00000000rTs-2b7c;
-	Wed, 30 Jul 2025 07:14:43 +0000
-Received: from ded1.1wt.eu ([163.172.96.212] helo=1wt.eu)
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh0yv-00000000rET-1RXb;
-	Wed, 30 Jul 2025 07:12:11 +0000
-Received: (from willy@localhost)
-	by pcw.home.local (8.15.2/8.15.2/Submit) id 56U7BjvR026741;
-	Wed, 30 Jul 2025 09:11:45 +0200
-Date: Wed, 30 Jul 2025 09:11:45 +0200
-From: Willy Tarreau <w@1wt.eu>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: alchark@gmail.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-        heiko@sntech.de, jonas@kwiboo.se, krzk+dt@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-rockchip@lists.infradead.org, ziyao@disroot.org
-Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: rk3528: Add CPU frequency
- scaling support
-Message-ID: <20250730071145.GA26734@1wt.eu>
-References: <20250727170947.GA19379@1wt.eu>
- <20250730070026.60109-1-amadeus@jmu.edu.cn>
+	id 1uh14B-00000000rsw-1nNi;
+	Wed, 30 Jul 2025 07:17:35 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uh11g-00000000rWO-3D8z
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Jul 2025 07:15:02 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-451d41e1ad1so3656955e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 00:15:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753859699; x=1754464499; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TZFPYlDdJ0rVu0VNavE3SZOZbmVPr53MAqWXB77UPjc=;
+        b=eLDFjOZZ6OlFt2i5P5rDRP63GHH8wzGvxwWbbK8KVlFs6BP+op4vDCcQiCzdL999wU
+         cg6mkgtBTIAGLeaU2ZfRtX390+KHtMakDm3ZuZcyf3CEzF6FnQZQZZi936oJ65laZ1Bs
+         oUcFe5O+lD0wIHTeMZ1UItqu6H/xQMca3Y3+hAGZ+UfX1cacQV4yL5lizCd5fa5IJgWO
+         QmiogkNKz9mfxVMVDen8glkK+KA6oQqALsjn7Kl5xBmY1UCtGv+p5Yb6o/TZzPS6A9L7
+         sp9+eDRPJSfd/tjf9rp0Z9FM4UcGBlJLZuHLrYSq6hGKZd22pepTm6xlSlHs/qVocPoE
+         MSDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753859699; x=1754464499;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TZFPYlDdJ0rVu0VNavE3SZOZbmVPr53MAqWXB77UPjc=;
+        b=hWbi+onInX+csKQlZr5gLo6kmUPoIYjLIZ2bsHMFFiyUth6E3ygKDbXTHZQWAfv6N4
+         53wL92pE/2ONIMIxLh0HveJvlDB2MyXGayoPzlz7/hz+t3cUoZGHajAGzcpO2kwE8G2b
+         asLO+LZicYKXf6aP46Fxv2TFRFAyoajg8oMBTv90cT1KZrjBX2MAsa/pK4q/osmfaJ8e
+         9olcZKh/7Kmvks0c4s/EcEv9ZswoGVnrge85ZyX7zQ30ai1OWKuiMZyHt+I57WcsJrJQ
+         2AqGRmopQEwtkw+g3Nekm9dgcjWMtCe3HVRJ+Bbfmj2wJma4SavNnhZXAlD2ZMPXJT5F
+         P+kA==
+X-Gm-Message-State: AOJu0Yxs9LcO0nVYdRlbw1jLn+iqQ5sCgy259d5DGsCN9Z6s/wsYTpi2
+	MmnWvTOkmEOcKakia0UL/5803b+1pMTYw20PHzhi4eahROkXK+6I5zemb1CIOxi4J+Q=
+X-Gm-Gg: ASbGnct3vQt2zaxUEJYcJxIh/4iNkVDhiN2H5t8A9AnP3XULy8+d9jywHg150u6xntk
+	b6ydYNx4b+Aw5rUdeIgWOr46WfK13NjlaIk3w0zdI5sZbqny83YhZcyUySxsSFTqGxN+oKW5D6F
+	NHoukAglfajiteqpC64gRYuPmT+wtlLyKnUyFYiI0rS22LHCPb7t1ecr6fSvCKS2ISfqBxqKetq
+	SIevBfHaqCCpCiv+wTeEFE1kAbGx8VM2SdO67mDq1lxeJANlvpFvBlrTARzHHWBsvzgt1AZyFsP
+	50vUyuThvs/rW2ClGU5UCC4j/iWy07Bo6ZeuF2AFKlY4SuC8f41SAK8M+MIx8aGZUy0p9/0Dzdx
+	HGabRTWT1yH1/qm03DNBV30lI
+X-Google-Smtp-Source: AGHT+IHNb3WqBOl3BcnyoTf2mFnsCMBFsTDjTJbP6rodUQ7rplDyO6pwXBZDtxJ0tWuM+n35yFd+5Q==
+X-Received: by 2002:a05:600c:3d8a:b0:458:6733:fb59 with SMTP id 5b1f17b1804b1-45892bc5895mr18567715e9.19.1753859699078;
+        Wed, 30 Jul 2025 00:14:59 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:e75d:6dc4:a638:ae8e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b778eb284fsm15118926f8f.12.2025.07.30.00.14.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Jul 2025 00:14:58 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [PATCH] ARM: s3c/gpio: complete the conversion to new GPIO value setters
+Date: Wed, 30 Jul 2025 09:14:43 +0200
+Message-ID: <20250730071443.8758-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250730070026.60109-1-amadeus@jmu.edu.cn>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_001209_808550_E69F4781 
-X-CRM114-Status: GOOD (  26.91  )
+X-CRM114-CacheID: sfid-20250730_001501_044705_23FB4782 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,67 +99,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-On Wed, Jul 30, 2025 at 03:00:26PM +0800, Chukun Pan wrote:
-> Hi,
-> 
-> > It's interesting to note that 816, 1008 and 1200 MHz result in a higher
-> > frequency than configured, but upper ones result in slightly smaller
-> > frequencies (~2%, might just be a measurement error), particularly for
-> > the last one which is 6% lower.
-> 
-> Please refer to the description of this series:
-> https://lore.kernel.org/lkml/20250320100002.332720-1-amadeus@jmu.edu.cn/
+Commit fb52f3226cab ("ARM: s3c/gpio: use new line value setter
+callbacks") correctly changed the assignment of the callback but missed
+the check one liner higher. Change it now too to using the recommended
+callback as the legacy one is going away soon.
 
-Yes I had read this one. I'm just getting higher differences on my
-device here.
+Fixes: fb52f3226cab ("ARM: s3c/gpio: use new line value setter callbacks")
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Autobuilders pointed out only now that I missed the other line that
+needs changing in my previous patch. I'd like to still queue this for
+v6.17. Either through the SoC tree if it's not too late or through the
+GPIO tree together with my second PR for this merge window. Please
+kindly ack it.
 
-> During the discussion, it was considered that the minimum voltage should
-> be 875mV to maintain stability, so there is a deviation in the frequency
-> between 816MHz and 1200MHz.
+ arch/arm/mach-s3c/gpio-samsung.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I tend to agree, especially on low voltages, where the gain in stability
-is important while the difference in consumptionis barely noticeable.
+diff --git a/arch/arm/mach-s3c/gpio-samsung.c b/arch/arm/mach-s3c/gpio-samsung.c
+index 206a492fbaf5..3ee4ad969cc2 100644
+--- a/arch/arm/mach-s3c/gpio-samsung.c
++++ b/arch/arm/mach-s3c/gpio-samsung.c
+@@ -516,7 +516,7 @@ static void __init samsung_gpiolib_add(struct samsung_gpio_chip *chip)
+ 		gc->direction_input = samsung_gpiolib_2bit_input;
+ 	if (!gc->direction_output)
+ 		gc->direction_output = samsung_gpiolib_2bit_output;
+-	if (!gc->set)
++	if (!gc->set_rv)
+ 		gc->set_rv = samsung_gpiolib_set;
+ 	if (!gc->get)
+ 		gc->get = samsung_gpiolib_get;
+-- 
+2.48.1
 
-> > I noticed a missing entry for 2 GHz in clk-rk3528.c so I've added it,
-> > expecting that it would solve the problem:
-> >
-> > +       RK3036_PLL_RATE(2016000000, 1, 84, 1, 1, 1, 0),
-> >
-> > But it had no effect at all, the frequency remains limited to 1896 MHz.
-> 
-> There is a comment in the bsp kernel:
-> https://github.com/rockchip-linux/kernel/blob/develop-5.10/drivers/clk/rockchip/clk-rk3528.c#L101
-> 
-> Only 408MHz and 600MHz are generated by normal PLL, the rest of the
-> CPU frequency is controlled by TF-A via SCMI.
-
-OK!
-
-> > Or maybe we could simply raise the voltage a little bit. The table above
-> > shows that at 1.15V we're close to the configured OPP and still below the
-> > stock voltage. This is not critical, but I find it a bit annoying that
-> > enabling cpufreq results in lower performance than without!
-> 
-> I also mentioned this in the cover letter. The actual frequency of 2016MHz
-> requires 1.13V ~ 1.15V. Not sure if this is safe for the rk3528 SoC.
-
-My point is that if you disable cpufreq, the CPU is running at 1.2V, which
-is even higher. I don't know why it's running at this voltage, maybe as
-the result of initializing some regulators, but that's what we're getting.
-So the question about safety of running between 1.13-1.15 resolves to
-"it's at least safer than running without cpufreq" in the current state.
-
-And as I mentioned it's clearly linux and not u-boot that is setting 1.2V,
-because under u-boot and during kernel selection and image loading, my
-board is at 0.95V. It's only once the kernel starts to boot that it bumps
-to 1.2V.
-
-So there's something to fix somewhere, either by lowering the default
-setting or by increasing the voltages in OPP, but as it is right now the
-situation is inconsistent.
-
-Regards,
-Willy
 
