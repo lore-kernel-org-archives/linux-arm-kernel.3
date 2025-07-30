@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30203C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 22:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD651C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 22:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TNHleuSifX4SpZEBGO13RG2Nv3EISS0eVP1Y9ZTvpOg=; b=2KSoKwSqJYroBGovhL7PqykzLo
-	TMvpMEuJ7OxNs5qqFFrQ+f19GimKjNbIEq4ySvoh8tt0FuON8VCPTfwfP3aY7b4cLKhgCzB7ihk3w
-	GgKz4QcJO9rEWMva8DwwFcq3xX4ZUrooMd+v6elPekFTwb6A6s3N55t8OQVqogntzhPcWFqmxLjTf
-	2IrdNcC6Sw0+P4lU3uzvHWYbQmd+Tdw8/RrWnGQPt6rU2kBnJUhJTs2xi2zXzytPbf4NbVkWUcVlP
-	+Kh5pDtLkXmIA/zwt3rvvd1ud2W552AYuWp0s+JTsfsAzHuRitG6Dn6Qq+YLInPRCTXclir9YidSC
-	hlFCgz1g==;
+	bh=iO9RYEMjounlf7B9Iu+6tM1rmYhk9c5Mv4VgYq1OqyM=; b=C4dZscgrnxKqRA5+zEcz7GZEQi
+	3P/bGMF+1BiKU9a/RjI2fbtuDWU3yrqbY/5nKdnWZ9avXBZwwiJfP811TB0DZAwLo6nK3AgAWw5Zo
+	dMHUrpZBhk2iuQxCqGZGFw1l6iItUbAZFIhgH9Ek1jCMHSaViAt175+DhlkPwsD8yLfJ5RBdZ99zk
+	Hc7Y2XZaYy7necZte05yimY2kWjIGprxufd09dJ8kLPEv9ilLp0xlftf0vjXky5l/bTXCP29dEXf1
+	ZE/yt32LabUUS9PKYdHpFWHPp9dt+d7rUf5swPhj/La71dH3SRc1SPYe5ABt1fAYn3PKZ5EP+kMre
+	V495pBlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhF2J-00000002YGP-0lVW;
-	Wed, 30 Jul 2025 22:12:35 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1uhFLr-00000002ZDA-0oTv;
+	Wed, 30 Jul 2025 22:32:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhEzo-00000002Y6P-3Gr9
+	id 1uhFJP-00000002Z7G-1go6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 22:10:02 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-76b0724d64bso276885b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 15:09:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1753913399; x=1754518199; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TNHleuSifX4SpZEBGO13RG2Nv3EISS0eVP1Y9ZTvpOg=;
-        b=FZjMGzHKjaXdSRpmQfmfGEMxDVL99oXNEAa/NkejFazN8GZeu8aU1Xh/oOd6h2Rxea
-         2orekI1y7MsOpcfzEnKDS+DxMBnilGZCfnKuFNT40RTX20oV9DS2B9I61LQbCCQMMSsw
-         /n6z+A0rsf7B7LBZsSeZFohHXFUFGIG7SBUMbFasrSszs3cfk3hS2byEJxnkRzVU/iE/
-         kp/+vvKDMsEscx1DODV9OBlRQs90JDJgzzPAtFqAde2unAzsXqQK7ZgzdihR8n3qqvi5
-         8P4TIL12gcdAjzbVGmXjkREpWa/vmR21Iivz34EaUuoFn1gNbmCJ570L9cURP6fweJpI
-         +qmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753913399; x=1754518199;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TNHleuSifX4SpZEBGO13RG2Nv3EISS0eVP1Y9ZTvpOg=;
-        b=ihc3ZzeUZ+hG/ymUkv8IG1RSqIdOsMrIzdMLdm461QD0qK5vJZXJ+0REzG7p9Gep+s
-         CWO+hh+cb1LFtB3ITrFcQcigzGWvx+0lRkF2icGyoslEbvmeHx1aItioawGmmui28Puy
-         htaxuEYJX++y4/UXxB2Rr/mfHng0GUEf9eVnuZuVu9SIAMgDEeeIbpx5lqIP0RH0KxyO
-         GaiPd9TIAs6Eb7M1ATto7KMkwhadyUZY5rDia5vhBQbHqMjSEhOORmKdGwFA/hwKA45+
-         YB7aa6d1zleQNZY3Zm8P90zFWIka8avoGS9TFptu3psxkGsrInPftcNRRUJPnxHFz8cd
-         zydg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+85y/MLOtwR0gu2iz2elPJwCO+8m2nfUk5WRInUc5Zph0XAayCswCIyM91r3WYo3wqERqTdv++/1G6dm6oySF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZ8RGn5ySYqrpSMoy9Z9PuaJjU+iIaTihObYNwvPhVbAc1/KYj
-	vDVRxf8dOm/KcgUhrBVli1mJ5NmJMumYgsz8jtAkp1e05FJvMZftdLjgp2MuYDD6sh3IV76zRAM
-	ZLRpXIB8=
-X-Gm-Gg: ASbGncvE9ntcUWkg09hhMLevUvBNFPR2C04mVtqOpm/qipWgYeVllqwHIA8pNxy1tx8
-	8W407n+3Nk6TwWS+W2imOC6eODuxHfTsJ/fgk/NcWQRk9mEj8BTJdL14EGw79I1veL+/9XXnh64
-	6Iy9cDkIfqq+5KJlSy9o0ObpPw8Wr7zhV6ZqwrmNdK+RV0LvZIghsgVAF9T+H8SoK4WWkeGkyEn
-	BRcqLHpQXH96YS9aoLnqk6QxmyVvKXYVNlkSDn1gzuoRzp8uy3/AKGxwIaUWCr5XSW5iAgvERP4
-	W4mAWu2T1W7D/uUFZyp9i9R+FD7DnyMCBxzDLQl/75RCWoH+L5S99W1vPCSAm7ROtb7m7O9J+rS
-	PH9LGllIb1tIkxIq9c+TL
-X-Google-Smtp-Source: AGHT+IG2Jmy1RxV6oBn2xGkRgnttbrjqStwBdj8OoNSVMvlZtpFrHbZ+yOlxDoOXh/Si7e4z6KNvHw==
-X-Received: by 2002:a05:6300:8054:b0:23d:c9d4:8634 with SMTP id adf61e73a8af0-23dc9d49682mr4388168637.16.1753913399278;
-        Wed, 30 Jul 2025 15:09:59 -0700 (PDT)
-Received: from localhost ([71.212.208.158])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b422bb18834sm42944a12.64.2025.07.30.15.09.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Jul 2025 15:09:58 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev
-Cc: Linux-OMAP <linux-omap@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL] soc: OMAP updates for v6.17
-In-Reply-To: <42241d2a-bf66-4ef0-a083-b0d4f0c3f9b2@app.fastmail.com>
-References: <7h34b4xcxb.fsf@baylibre.com>
- <42241d2a-bf66-4ef0-a083-b0d4f0c3f9b2@app.fastmail.com>
-Date: Wed, 30 Jul 2025 15:09:58 -0700
-Message-ID: <7hwm7pbaa1.fsf@baylibre.com>
+	Wed, 30 Jul 2025 22:30:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63B1E601D2;
+	Wed, 30 Jul 2025 22:30:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A7AC4CEE3;
+	Wed, 30 Jul 2025 22:30:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753914613;
+	bh=Ty5hOFOCnqR3+TxmVt5Wrhxdf9KjsnmTgra0uxnT61E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kiFik3lQlYH2t1kf5pDvKffiyH4xQp6wAKUJXocuXk+lCYMGQbQa4XtSu+xypdwdG
+	 Jx4sou2B3FtFAGUbTqwg84DbujP7thW2iLlQGf2J1rpGBEXiZFWWdokkK/5suUYjtd
+	 mi9aRETfoTE9z2gEJMS4yh+mmP4W3K1X7/RowZMIYWjs804Sg/WtiQhclewhZE2mfV
+	 cxqaJGhsnlT7LLgyDJljkVrlrIDF0PkAi24p+vwVjO2XeIwpwImwZNbYz9W3efJtYe
+	 yB+jk93/JQjJN3pBnY9WxcR2VdhfWl6l5apwAQE18V//PQCHSBW12o08HjnRtoYcmJ
+	 ZObIs6Kmneh1g==
+Date: Wed, 30 Jul 2025 17:30:12 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: memory: Update brcmstb-memc-ddr binding
+ with older chips
+Message-ID: <175391461181.1819073.14169607307672802524.robh@kernel.org>
+References: <20250729205213.3392481-1-florian.fainelli@broadcom.com>
+ <20250729205213.3392481-2-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_151001_059083_CD595D09 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250729205213.3392481-2-florian.fainelli@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,29 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Arnd Bergmann" <arnd@arndb.de> writes:
 
-> On Thu, Jul 10, 2025, at 17:50, Kevin Hilman wrote:
->> The following changes since commit 19272b37aa4f83ca52bdf9c16d5d81bdd1354494:
->>
->> ----------------------------------------------------------------
->> Kory Maincent (2):
->>       arm: omap2plus_defconfig: Enable TPS65219 regulator
->>       arm: multi_v7_defconfig: Enable TPS65219 regulator
->>
->> Li Jun (1):
->>       bus: del unnecessary init var
->
-> Unfortunately these are changes that I really want in separate
-> branches, for defconfig and drivers respectively.
+On Tue, 29 Jul 2025 13:52:12 -0700, Florian Fainelli wrote:
+> The older MIPS-based chips incorporated a memory controller with the
+> revision A.0.0, update the binding to list that compatible.
+> 
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> ---
+>  .../bindings/memory-controllers/brcm,brcmstb-memc-ddr.yaml    | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-OK, noted for the future.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> Since all three changes are trivial, I ended up cherry-picking
-> the commits to where I want them. I hope that's ok with you,
-> let me know if you need the stable commit IDs.
-
-Yes, fine with me.  Thanks for the update.
-
-Kevin
 
