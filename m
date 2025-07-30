@@ -4,104 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42EDCC83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F19EC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k5GMeG03tjewtcK58G4TQ57zAvN4HNyzHDLLhPeneKI=; b=mhga2cIlXTjJyqTs06QK22Lb7i
-	iwh44gx/0wNeEsGsUacH8/zrUFXLPIfGg+GcildDmYH7lH5MaU8BNowGbd2Dit5Mk2k3sy7eW4Mve
-	stOdHrwpzR5iBZ5lIAu7wkCL2p5bV5WfuxAIbKGiaoyqKE61nGSUdbtIoIKUTRfWBULa6YYEr/EwI
-	897nKnnrJy/vSLch4IIF0VaLmQImmYoDNqUAw4rqQWZeTv+bydFmMtkerfF82eD3JgxrpMjfk4Qit
-	YgJGsnQd6adrZmPgr76n8sGuDWMJIJsc7cHTzmlO6vCah2vbkh5ddHNBFQ+I7SSNeaH3mrGX/AVxT
-	VlSjHlzA==;
+	bh=JrxgxvaTgZcOQfUDO1CErW1VsWXC6yeMcmgw+etiHNw=; b=NNn2o8qU2JADSdmC9jVsVgH4YA
+	Rgpi8u42wSAAhYsjhmXfPWNJZeMvRuRGn+QZUxgoeegaqdZh9V7txR4Xj9ORPth+hh3ITNbcfsFrm
+	32vAzpKgJTnnQxAMf3s+iHMz5hreNsX5IDHvq73/VWv+n53pmVo4DqQoGNjaeEHBYzqlBzvS/rXEm
+	JNF3whWcx/O9YoUP+YKvBNReTe8Iw6lgeLRsCPNOUKiw6AesVs2deyb6jnflJdjsP+GzW8UmiE9lR
+	bXQUy/2+jO5Lixs2s0GaIamATaYIY0aFLfnJGUf08HG0fd6uhVKW6q340URF6MjJQVtmOGOGvoqPB
+	QJv9jZew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7Ts-00000001h8j-2BRu;
-	Wed, 30 Jul 2025 14:08:32 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
+	id 1uh7WL-00000001hZj-1BhJ;
+	Wed, 30 Jul 2025 14:11:05 +0000
+Received: from smtprelay0012.hostedemail.com ([216.40.44.12] helo=relay.hostedemail.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7Hc-00000001fDD-0ByM
+	id 1uh7IG-00000001fQ6-3cLe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 13:55:53 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id B46721D014C3;
-	Wed, 30 Jul 2025 09:55:48 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 30 Jul 2025 09:55:48 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1753883748;
-	 x=1753970148; bh=k5GMeG03tjewtcK58G4TQ57zAvN4HNyzHDLLhPeneKI=; b=
-	gaqjJ9YSGEVQDtJh18xB+957rxtqekgkY5cIsZe5QfKIl66kOSTta/swukoZgDfJ
-	D6rQWt/fptu4LzUQHC8V7yyA3jK6VvHFaJjM1L3c/xA5F+0vYh1PqLSxkXWfOsCn
-	/EO+msnPd98znrcO1S50DoImaMfm+iVQmIfcV1X1BbsYZOKpNQ7jWKddI8AtjR68
-	IjWlgkgyeC3ZCNmLIw+VFsMaUnzF1oeL8rcDYygY9plFn8m4mmAEweZM2x012BvV
-	7swMUhd1zdXpdswAHLc818OMPwtNpPFH1bQdWNSQgVZP6ZsqKndWq9fpR6b06eVn
-	BvifuEpuc6yqAKTduO+pNw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1753883748; x=
-	1753970148; bh=k5GMeG03tjewtcK58G4TQ57zAvN4HNyzHDLLhPeneKI=; b=g
-	lruIOeQbETX0RZEC6R3DaKV6hVAptYrCQJP452Gv4BFn4yx2r1mwEwGIEm/7ZXwj
-	QHpqbLhniv7dZenu27wOuMxCAVs1B0NcuBjuHIIw8rXqrxMm+muxDjsgVluY09bl
-	eDkaKqYBkO+5I2IFcOzflekJANl++9w+dGd95XvcsPwqsb+v6VwSmeFWeE1Y6rX9
-	DzRPyXjoCaEQfM4wKzZGaQRwOe/vWowgtKwYuqB8x1RpnWJA0cRen1tAVzlcdZvd
-	q0t1heC/UOzl9El1GnThNwfG1r9PN96jFCWr3FgWsN2E+Q+6vWdL4W9lHNGF7CPo
-	XLPJQk8nxJ7WHHhKMojQA==
-X-ME-Sender: <xms:YySKaBuhOCzwvpmVBFNoSo6EzpdeMcPjw9woEnLN14d41rr7PtYPsA>
-    <xme:YySKaKf2tOsiTm_IOtOcNLsRcm8QqAScDNVyeB9-fjKcdizV-1cA4gdFDuaOzdpnG
-    XOwO3ugsKhWIxqg8V8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdelkeduudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeeipdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopegsrhhglhessghguggvvhdrphhlpdhrtghpthhtohepshhfrhestggrnh
-    gsrdgruhhughdrohhrghdrrghupdhrtghpthhtoheptghhrhhishhtohhphhgvrdhlvghr
-    ohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
-    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
-    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuh
-    igqdhnvgigthesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:YySKaOGB5iPrpPPT5udIB6aQdFEPCEb2c33bc470a0V_oTL_hWlY7w>
-    <xmx:YySKaG_OG69IZY7HfuLELQnvMc10xHwIu2JJfcgJyYKCiDWWDrX2jQ>
-    <xmx:YySKaFyaC6ksiJ6iKJmRCIgFX879-d_ClzXZQWkM5swXHZjkkxMXtw>
-    <xmx:YySKaCMf_A5s_GZPyktKw0RSRcZds5sG-hGuPCRwpoxDmPLY-JaNEA>
-    <xmx:ZCSKaFEq8hBkwwxo-4e_WxypxyEZqcsqLwtnvCH25aHR0ndZPjaHyg5R>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 6D6EB700065; Wed, 30 Jul 2025 09:55:47 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 30 Jul 2025 13:56:34 +0000
+Received: from omf01.hostedemail.com (a10.router.float.18 [10.200.18.1])
+	by unirelay01.hostedemail.com (Postfix) with ESMTP id 5A0C41DA394;
+	Wed, 30 Jul 2025 13:56:29 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf01.hostedemail.com (Postfix) with ESMTPA id B003A6000C;
+	Wed, 30 Jul 2025 13:56:25 +0000 (UTC)
+Date: Wed, 30 Jul 2025 09:56:41 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Steven Rostedt
+ <rostedt@kernel.org>, Florent Revest <revest@google.com>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Menglong Dong
+ <menglong8.dong@gmail.com>, Naveen N Rao <naveen@kernel.org>, Michael
+ Ellerman <mpe@ellerman.id.au>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Andy Chiu <andybnac@gmail.com>, Alexandre Ghiti
+ <alexghiti@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [RFC 00/10] ftrace,bpf: Use single direct ops for bpf
+ trampolines
+Message-ID: <20250730095641.660800b1@gandalf.local.home>
+In-Reply-To: <aIn_12KHz7ikF2t1@krava>
+References: <20250729102813.1531457-1-jolsa@kernel.org>
+	<aIkLlB7Z7V--BeGi@J2N7QTR9R3.cambridge.arm.com>
+	<aIn_12KHz7ikF2t1@krava>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-ThreadId: T1270fe1a31e2c778
-Date: Wed, 30 Jul 2025 15:55:27 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Bartosz Golaszewski" <brgl@bgdev.pl>
-Cc: ARM <linux-arm-kernel@lists.infradead.org>,
- "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- "Stephen Rothwell" <sfr@canb.auug.org.au>,
- linux-next <linux-next@vger.kernel.org>
-Message-Id: <6eac14b4-765b-4a29-b278-364dba47e0e9@app.fastmail.com>
-In-Reply-To: <627cbb55-2a55-4124-8f6e-7b4ba0441558@csgroup.eu>
-References: <20250723094558.5bcfca69@canb.auug.org.au>
- <627cbb55-2a55-4124-8f6e-7b4ba0441558@csgroup.eu>
-Subject: Re: linux-next: duplicate patch in the fsl tree
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: B003A6000C
+X-Stat-Signature: 7a4jg1qcadtiqm5ucfmr9eog7prsws1c
+X-Rspamd-Server: rspamout02
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+GT+298XNw3sUtH/KUCJiMoJtrK0AAras=
+X-HE-Tag: 1753883785-400689
+X-HE-Meta: U2FsdGVkX18Y/wSr2PULlU+lJxRhXXAG/s/Ujl4zZXjBJpuMO1KJcwBl6CXFVM4KjGtjbyoRKGWOanlXAYGH35krn+qg641/t3dLIKJfubRLoHassBCAHH6NHSYjV/xU5DlgyPLzrruf7cTfAVQU9yhZdLOm/GBzFYd+mN3oTIa+0e7LTcEeMguNJfkLqAD2pGsjrgYJ3s851UwStnvdSsq4aYxwsejKlXtgRJJeRLAs7eeWOr/Tg2BKayY4NyeqP1CBq5OgEApEpQE0HhY/LrzaUzbgxIIpBzuhqDSUWNpJUT/neq02SIPkdVnRkvuWsVLeU+OMwlHlphB1TE8cvDSNbsG80ko4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_065552_485960_01C49781 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250730_065632_960832_6F785F93 
+X-CRM114-Status: GOOD (  27.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,24 +80,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025, at 15:41, Christophe Leroy wrote:
->
-> Le 23/07/2025 =C3=A0 01:45, Stephen Rothwell a =C3=A9crit=C2=A0:
->
-> I was going to send a pull request for this fix but I see the duplicat=
-e=20
-> patch is already tagged in the soc tree:
->
-> $ git tag --contains 12702f0c3834
-> next-20250728
-> next-20250730
-> soc-drivers-6.17
->
-> Shall I do anything or just ignore it and drop it from my tree ?
+On Wed, 30 Jul 2025 13:19:51 +0200
+Jiri Olsa <olsajiri@gmail.com> wrote:
 
-Linus has already pulled the soc-drivers-6.17 tags, so I think
-both copies of the patch ended up in mainline and there is nothing
-left you can do to change that.
+> so it's all work on PoC stage, the idea is to be able to attach many
+> (like 20,30,40k) functions to their trampolines quickly, which at the
+> moment is slow because all the involved interfaces work with just single
+> function/tracempoline relation
 
-    Arnd
+Sounds like you are reinventing the ftrace mechanism itself. Which I warned
+against when I first introduced direct trampolines, which were purposely
+designed to do a few functions, not thousands. But, oh well.
+
+
+> Steven, please correct me if/when I'm wrong ;-)
+> 
+> IIUC in x86_64, IF there's just single ftrace_ops defined for the function,
+> it will bypass ftrace trampoline and call directly the direct trampoline
+> for the function, like:
+> 
+>    <foo>:
+>      call direct_trampoline
+>      ...
+
+Yes.
+
+And it will also do the same for normal ftrace functions. If you have:
+
+struct ftrace_ops {
+	.func = myfunc;
+};
+
+It will create a trampoline that has:
+
+      <tramp>
+	...
+	call myfunc
+	...
+	ret
+
+On x86, I believe the ftrace_ops for myfunc is added to the trampoline,
+where as in arm, it's part of the function header. To modify it, it
+requires converting to the list operation (which ignores the ops
+parameter), then the ops at the function gets changed before it goes to the
+new function.
+
+And if it is the only ops attached to a function foo, the function foo
+would have:
+
+      <foo>
+	call tramp
+	...
+
+But what's nice about this is that if you have 12 different ftrace_ops that
+each attach to a 1000 different functions, but no two ftrace_ops attach to
+the same function, they all do the above. No hash needed!
+
+> 
+> IF there are other ftrace_ops 'users' on the same function, we execute
+> each of them like:
+> 
+>   <foo>:
+>     call ftrace_trampoline
+>       call ftrace_ops_1->func
+>       call ftrace_ops_2->func
+>       ...
+> 
+> with our direct ftrace_ops->func currently using ftrace_ops->direct_call
+> to return direct trampoline for the function:
+> 
+> 	-static void call_direct_funcs(unsigned long ip, unsigned long pip,
+> 	-                             struct ftrace_ops *ops, struct ftrace_regs *fregs)
+> 	-{
+> 	-       unsigned long addr = READ_ONCE(ops->direct_call);
+> 	-
+> 	-       if (!addr)
+> 	-               return;
+> 	-
+> 	-       arch_ftrace_set_direct_caller(fregs, addr);
+> 	-}
+> 
+> in the new changes it will do hash lookup (based on ip) for the direct
+> trampoline we want to execute:
+> 
+> 	+static void call_direct_funcs_hash(unsigned long ip, unsigned long pip,
+> 	+                                  struct ftrace_ops *ops, struct ftrace_regs *fregs)
+> 	+{
+> 	+       unsigned long addr;
+> 	+
+> 	+       addr = ftrace_find_rec_direct(ip);
+> 	+       if (!addr)
+> 	+               return;
+> 	+
+> 	+       arch_ftrace_set_direct_caller(fregs, addr);
+> 	+}
+
+I think the above will work.
+
+> 
+> still this is the slow path for the case where multiple ftrace_ops objects use
+> same function.. for the fast path we have the direct attachment as described above
+> 
+> sorry I probably forgot/missed discussion on this, but doing the fast path like in
+> x86_64 is not an option in arm, right?
+
+That's a question for Mark, right?
+
+-- Steve
 
