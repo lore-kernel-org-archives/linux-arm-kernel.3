@@ -4,127 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FF6C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 17:34:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C583C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 18:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FrHvCL86NTqIeIXqqveuapZXFtcxgLyI0phgD1y5qhE=; b=bccHF5JLnjv4mn0J9FghIjqjDw
-	2J80nOsCda9JhOxlLxhdxj9ia87+C5ICUZo/sKK2AaRBQBKp7rSMC+BgSkyXTyn36xqmOhiFYwqMz
-	OoJxEySlQ3HLkdRjb3Wpv/oBBWRADpGvhFqTTHZrr5ovNmmmF9yf7MHYjfyw13BvzRyvBphfBOXMf
-	EEyde3sc0vOOVdClbVN9kZ8Xkg6u8xEHRuf/LsrZ1zIWS+xBs2NXpjRWycL5OVtRKgbO4gJH+AYxc
-	LtT/EKal5Z0u9KnzOVTCchQpe/jxADoJdKqXxBu9BiYqW7ThE3ssaoWWOmgxNSv3DqjIyl1m8l44I
-	hom/Ywyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/uzhMu8l/+xX8avWPqH5+S+kIt5RrrcqO2P6A1XQnEc=; b=KLJXulZG+cNVCKj9gYn0jkN1Zk
+	fFwLnCqsed+CB9uA1dX1U4d6zDbEeFbfZElx9vBPKA2u2JY5VwHEKa3ioACIEPgdQTQpCM6P5VCmZ
+	O2d+wqFzUwDXHgGGDt7g2E6hMQLMAbSVRlCfuFxgryhD6lpAGQ23Um8RUGR8o3nfo3HLkn1JlkzMT
+	yZ1bBeauwC4KD8Tmqii+yBsQoicxOSg910V5pIHhtk2aWCe6xJcK3EqFg3vRloiz0diZkl7hYOTpn
+	4QBU8UT9+W19mhTDxnuVQ5nWe6kQkIYT2/9FYkj24bp8gzliXfDKMzDIsfYO73uj+qW1e7KDdeEqw
+	ORbGpWAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhAhP-000000027dm-3w1C;
-	Wed, 30 Jul 2025 17:34:43 +0000
-Received: from fout-b7-smtp.messagingengine.com ([202.12.124.150])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhAev-000000027Mu-1uaH
+	id 1uhB66-00000002ASN-1T8g;
+	Wed, 30 Jul 2025 18:00:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhB3c-00000002A4z-0NYT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 17:32:11 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 373B51D0072A;
-	Wed, 30 Jul 2025 13:32:07 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Wed, 30 Jul 2025 13:32:07 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1753896727;
-	 x=1753983127; bh=FrHvCL86NTqIeIXqqveuapZXFtcxgLyI0phgD1y5qhE=; b=
-	KfRAx0F9Xs75XSfLmAibLMEPU8y2lITs1ww//Ie9depgBY4VykMHI0haY1mA+j0h
-	Am+HMz3PJ9JQWKZPuw6HCCwdxEWak/lr2flm06ppnxslvhp0u+nmDgfS0yq/sxRm
-	rCE8WF9oZRQPWneIChsWjja4p1VbvwrcIISq02LGiJ2bcfGM/qG8iNPQbCUrFBJR
-	szViXaS408oFZ1d31/6ARhWDaI0yPA4YgO8BLZbanz65kazXIfl5ClDnGD4a5uJd
-	yOXbk72l52vw7O6R/6Hvz6EAeaQ83EMSDUcYGnWkykCx7diE5wod+pf1YH2VIK0B
-	g8nBr85TdPSvR5YbiyNE/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1753896727; x=
-	1753983127; bh=FrHvCL86NTqIeIXqqveuapZXFtcxgLyI0phgD1y5qhE=; b=W
-	HzSHeMPYLikGA2Hxm8f+dM7xH4xEZ3AHcnmKvMUOAfgt8v8h3rUUiPp0gAtngs83
-	Viu0sghkMwCFFSzdOuoMalyc86bgZuC3Fxy0QB1Fg/gFoPq4wIDviWx5hROez17B
-	BrNb5WlEdpam1zk31mSnvtk1NmSnw6DmukHC/8RcGIml+2l2iqTZH16kr0IySBvc
-	sjCbPL7PzBBbXB1FHTuLG5bvBrwj/9uOMQO1IrmuTAAGPKIlanIlMjQIpqvPSAl6
-	2ZccOmDBudTU1xe+D2EGyslVitmy2NYT1+DBr7wejYTuHQ7ZmGfT/Jl9l4u76EoA
-	YB46JMVf3TyCrobxxS8EQ==
-X-ME-Sender: <xms:FVeKaLWJXTQoddk-B5fMRxk0o_J9cvs4ZTAZdU8RGcZm-L6RtLORKg>
-    <xme:FVeKaDlcXoYmJGFEYcojfvDIp9b5qDKesd8Aj-WN3-07sqmeLAPF0oJlsJw6y5iOQ
-    CkQYDF2DIqitwrFD_g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdelkeehgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedvledpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtohepshhouhhvihhkrdgthhgrkhhrrghvrghrthihsegrrhhmrdgtohhmpd
-    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
-    thhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopehsuhguvg
-    gvphdrhhholhhlrgesrghrmhdrtghomhdprhgtphhtthhopehflhhorhhirghnrdhfrghi
-    nhgvlhhlihessghrohgruggtohhmrdgtohhmpdhrtghpthhtoheptghrohhsqdhqtghomh
-    dqughtshdqfigrthgthhgvrhhssegthhhrohhmihhumhdrohhrghdprhgtphhtthhopehs
-    figsohihugestghhrhhomhhiuhhmrdhorhhgpdhrtghpthhtoheprghnuggvrhhsshhonh
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdr
-    ohhrgh
-X-ME-Proxy: <xmx:FVeKaDuAfdIO_iGt1QPOYtiwfGQ-pAv9670yxyCWmxR5LpX6fMQi5Q>
-    <xmx:FVeKaMLKze5sQiDoY9NlwDFYigiF2DPgevfMeiwFCGkEWw8Mgi2haw>
-    <xmx:FVeKaMk2QP5I7zDxaw21V4IKd_FWf-rl00_CoBA9iwguB8Qv6l0LwA>
-    <xmx:FVeKaDksrpwIemRS9oMC5PPeu_Wnnsld29fhXaiezuRN1sr67kWQ9A>
-    <xmx:F1eKaHi9YhMXWL0IpIiIb0TWX_M_HJQxaNyT072MS32My-VY2-YiwnGM>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 93DAA700068; Wed, 30 Jul 2025 13:32:05 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 30 Jul 2025 17:57:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A74D71BF7;
+	Wed, 30 Jul 2025 10:57:30 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F7A03F66E;
+	Wed, 30 Jul 2025 10:57:38 -0700 (PDT)
+Date: Wed, 30 Jul 2025 18:57:36 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v5 04/10] coresight: Appropriately disable programming
+ clocks
+Message-ID: <20250730175736.GD143191@e132581.arm.com>
+References: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
+ <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
+ <b3782b8f-8c09-4fb8-bec6-186102cc66a8@sirena.org.uk>
+ <f9fb2174-5bc5-4c7b-b74b-8542b4f7cbe0@sirena.org.uk>
+ <15370a42-8e92-4f57-9ff2-f283d9fd30bd@arm.com>
+ <20250730085637.GB143191@e132581.arm.com>
+ <caffdde4-fad4-4462-ba92-84416726a12d@arm.com>
+ <20250730105432.GC143191@e132581.arm.com>
+ <cd250adb-61e7-414f-bf17-6cc960e44f7b@arm.com>
+ <015c39de-001b-4660-bc64-6fd07eff9f18@sirena.org.uk>
 MIME-Version: 1.0
-X-ThreadId: Tc37f4eafbf89ea7c
-Date: Wed, 30 Jul 2025 19:31:44 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- "Shivendra Pratap" <shivendra.pratap@oss.qualcomm.com>,
- "Bartosz Golaszewski" <bartosz.golaszewski@linaro.org>,
- "Bjorn Andersson" <andersson@kernel.org>,
- "Sebastian Reichel" <sre@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Sudeep Holla" <sudeep.holla@arm.com>,
- "Souvik Chakravarty" <Souvik.Chakravarty@arm.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Andy Yan" <andy.yan@rock-chips.com>,
- "Mark Rutland" <mark.rutland@arm.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Konrad Dybcio" <konradybcio@kernel.org>,
- cros-qcom-dts-watchers@chromium.org, "Vinod Koul" <vkoul@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Florian Fainelli" <florian.fainelli@broadcom.com>
-Cc: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
- "Mukesh Ojha" <mukesh.ojha@oss.qualcomm.com>,
- "Stephen Boyd" <swboyd@chromium.org>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- "Elliot Berman" <quic_eberman@quicinc.com>,
- "Srinivas Kandagatla" <srini@kernel.org>
-Message-Id: <592902f1-549f-47c5-9ef4-b5c7ef2c9a47@app.fastmail.com>
-In-Reply-To: <34c52c88fd8fcbf68c453c1e94e4cd6294becff1.camel@linaro.org>
-References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
- <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
- <b45b157593f1865a402f4098cdeafc298a294c6d.camel@linaro.org>
- <b92c164f-c6df-a2c0-1416-67652a01b179@oss.qualcomm.com>
- <34c52c88fd8fcbf68c453c1e94e4cd6294becff1.camel@linaro.org>
-Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific resets as
- reboot-mode
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <015c39de-001b-4660-bc64-6fd07eff9f18@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_103209_960391_7DC8EBC3 
-X-CRM114-Status: GOOD (  17.78  )
+X-CRM114-CacheID: sfid-20250730_105740_168417_4C1FDE31 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,47 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025, at 17:23, Andr=C3=A9 Draszik wrote:
-> On Wed, 2025-07-30 at 18:33 +0530, Shivendra Pratap wrote:
->> On 7/30/2025 2:14 PM, Andr=C3=A9 Draszik wrote:
+On Wed, Jul 30, 2025 at 12:09:42PM +0100, Mark Brown wrote:
+> On Wed, Jul 30, 2025 at 12:01:25PM +0100, Suzuki K Poulose wrote:
+> 
+> > I would recommend using that and don't force the use of apb_clk/apb
+> > for AMBA devices. If the firmware doesn't specify a clock, but does
+> > specify the CoreSight components, it knows it better.
+> 
+> And perhaps more to the point if a currently working system suddenly
+> starts requiring additional clocks in it's binding that's an ABI break.
 
->> 1. For this, both commands will be defined in the psci->reboot-mode D=
-T Node with the arguments that
->> =C2=A0=C2=A0 are defined and supported by the firmware.
->> 2. Further, such requirement will now be taken care by the underlying=
- firmware that supports
->> =C2=A0=C2=A0 PSCI vendor-specific reset. When we call into firmware w=
-ith vendor specific reset arguments,
->> =C2=A0=C2=A0 firmware will take care of the defined HW writes and war=
-m/cold reset as per the mapping of the
->> =C2=A0=C2=A0 defined arguments. Firmware and the Linux kernel here ar=
-e in agreement for executing the
->> =C2=A0=C2=A0 vendor-specific resets.
->
-> So that means
->
->     echo warm > /sys/kernel/reboot/mode
->     reboot bootloader
->
-> and
->
->     echo cold > /sys/kernel/reboot/mode
->     reboot bootloader
->
-> can not be distinguished.
->
-> The firmware can not know whether or not cold or warm reboot was
-> requested in this case by the user.
+Yes, the change should not break any platforms if the DT binding is
+passed correctly. I will update with devm_clk_get_optional_enabled().
 
-My feeling is that this is fine: the /sys/kernel/reboot/mode
-interface is not really used on anything other than 32-bit
-arm and x86 machines, and the way it is specific as
-cold/warm/hard/soft/gpio is not that useful.
+Just for the record, I was a bit concerned that the driver might not
+report a missing clock after switching to the optional clock API.
+After discussed with Rob and Suzuki, I understand this should not be a
+problem. Any missing clock issue can be caught by the DT schema static
+checker, or a system hang during the development phase would remind
+developers to bind clocks properly.
 
-I think for the purpose of the new code here, we should talk
-about reboot "commands" instead of "modes" to avoid confusing
-between the global "enum reboot_mode" variable and the
-firmware interface for reboot modes as listed in DT.
-
-    Arnd
+Thanks,
+Leo
 
