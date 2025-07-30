@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78744C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 12:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AF3C83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 12:58:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHuGd1o3geC90thSCnWisGLP32owTrOKYJC4wfO+xvA=; b=hqPKrcDML6PYvR7Vnrmn4lrpHg
-	tK63QAiXGx/2ya3eQ7pYw9slrjujUQcN8HUHyuBOylqx4qOrAs8FobO0ugffJ+saLqc42MoHPkspn
-	rY+cR5aMp3r0Wn9OhxwFtIsCJasfHNPt3bpKR3wYc3+rrT33iUWQeuBRAV57w7zPfCSR8mZwq6LmQ
-	y0EDC4J1zEy2MOiN+gK2WCtsojThdRbxUSEZ927CIcrV8hZ9uehBPpQbTFE7i9CEUaMoEYotILT4w
-	eq5o2Ce9q90OvZCSrHjjguvNuitSGQiMe+PUbF9DbGjma7lrz6wCPGvN15ee+On1BKZDeFgnAwx3n
-	+7/YqkRQ==;
+	bh=qUTEvgPr5pDo52lKZf6mOXPWs0RWvEkRiwEoyLLTu3o=; b=HHqgS79kA8AWMf6awywxZxPizj
+	BMLAVbe7sNfOq8XtFD3/NhHEZNclspA3qcn2TIv/u8mVwyAWCkCYtsQpKaoEFwp2MkG1fRlxxOaDL
+	Dt/NE8fVGDbf6P8oxZytAlEPG7DHCtVMS0kqBt1DYj1aBC7J5WTSBWE4kVoLkD+MKGc3D3mGWCoqU
+	1bKGlFToGL8U35mvpToRE1b3il+LUEXgWGO/tjRek6bo92C8vP/q3Tp4T6IC8m7oMyybNWrNv3Y7L
+	BhWwEeLhkDgjEVfh/y7zbqaFaRDMH0j2MB0ZVD+3ZPbNXK4m94tsp0TVRspkuBGyU7NvjuUffmAoE
+	DlhTt/IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh6Lh-00000001X4q-1W0C;
-	Wed, 30 Jul 2025 12:56:01 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uh6OA-00000001XIS-0NFr;
+	Wed, 30 Jul 2025 12:58:34 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh6JC-00000001WfA-1aZm;
-	Wed, 30 Jul 2025 12:53:27 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ae3cd8fdd77so1405695366b.1;
-        Wed, 30 Jul 2025 05:53:26 -0700 (PDT)
+	id 1uh6Ja-00000001Wlb-3OhI
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Jul 2025 12:53:52 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-55516abe02cso1082453e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 05:53:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753880005; x=1754484805; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753880029; x=1754484829; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=iHuGd1o3geC90thSCnWisGLP32owTrOKYJC4wfO+xvA=;
-        b=KQ3lYTbvKaT2f542zW4OfoQSaEd/UxHijtR5Ixu5f46gAyly3tuH766frtEMctdHUJ
-         y6VCBNN4MMCBoavJRSVoDw06W4UZFcYHc6k3hYYUO8c8jDTA0KStN7z4uV4Fo9Bz8oDz
-         QthJ5XRDaFt/dRHyr/mdeGTYZjhE4y+bEaW0B44LIh0fzJJnRWL/JlYsZI+uVhmjTQdZ
-         kV9Tyx/ZodORgGW9fq6zGoFjr7igZPObrvyHsayQzmcOpO/wDWOhfyr5EORn6QE3TF0L
-         4wYWqZdgoA0rokwf43oIwwbsjo8AOL/I5BTabFaMDlIAKmo+8N1SnbvpEK7SZm0dun9B
-         AZiQ==
+        bh=qUTEvgPr5pDo52lKZf6mOXPWs0RWvEkRiwEoyLLTu3o=;
+        b=v8nQtQlzefbBEjxykBNH+ceb5NjRqLy4qUaWXMHb0Zhcm2zVqrYyACWokZFD92CHdF
+         jgdRbvho8sLKmVc9AiaDe3K+avGc5PoKLEIEMmmFQhwgGk+bcvTzQQBydSAUYK2OF7VC
+         GCgism9E0kv86zu8O2ADWISdfKzxSCVY4zIbVKoQGpvtPLcvP14D9JPnK2v1DpyV2m+l
+         vUeRN4A/E9ZZQkfHf5ijWOwV0TrlIfCS7YQdAZXgTDDUahfAiYIB8LIwR3ZEuA50vwII
+         r9lp1ZT6YG7356HNvMzeEGjQQ5rB58A227Vm2c3BwMdTcQhYIJdCEB5G4QfIUxCjVut/
+         YhWw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753880005; x=1754484805;
+        d=1e100.net; s=20230601; t=1753880029; x=1754484829;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iHuGd1o3geC90thSCnWisGLP32owTrOKYJC4wfO+xvA=;
-        b=L+sfrfpfw1QIicbgnGQcv0BUpCYFy1Dv8FWfqEiJRP+hh5bRVGufLH5hUdbYp2HDX4
-         QW2wll5LC9nu0pVjmoZvKgIHGw3N/4ftEh7j+YZHBXK1d3WTZmYNLnvbBefj10CHAYPi
-         o5ZyD2WCwo9vXcJA+gmuODGWdTpD0CdJjTuwHAFcXk+Ai4lXiCtDOBwQSk8Ub2pCM8Py
-         iCRbEx9dNj6sPegJNem+d/zvEcNBV9e2grBQ22euohV/ke3tCUvqImuf6AII3UMD2eBV
-         FSplqsX89B16oFTc464kQTFj9zzOWAd4LxZRlJe3Bw1Rp7hOYUFfzwZpGa02gu4x2L/r
-         8BiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZNNokKKuqMS5sD1OK6cnB5Bzv43bySS+dzIkY4OfnxbQvTR4nXxmh2lRwrk+640tOUAG6ZQ8ftIaGdnNosyWg@lists.infradead.org, AJvYcCXvceQqI9O+WOBQvUrRxSDBUSuHW/eKQc0CoR9wXMahkX72AmgQSW97ubazWoZFvYXfMzT6dN2fRTjmoVXWvQQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhfWsXEY42R/453NeZ5Z9BWD6jJ1YkVfhSqsiRuMf/WTqEXwoI
-	71ET9WD60u369eD/6SaTrp+l+nROlnBrg0p+zQYJ9USD+nfDrHHmYThfZD1yfXaC/4GOJNFYqg0
-	n5nkCs29R5UpmHCGnj8ueMSk/ohMtPBw=
-X-Gm-Gg: ASbGncvz6VUntlhR/go9dgAJDqmvmSO38kg2L0HzEEUj7YpgJxZjl4pMIjdRVK0s3Mf
-	s3isZ0/+sLQASI6VCGFigWF3AmqvnVdKOboTgiOh6Nw+uvRtO2WmKzQ5vLG9gWjYtc6YdamtF7w
-	EHvo6abNwCBq0qMAwEBxTwbXgXf3OiejNeK+4dzrsiKc9NREZ5DGgFlQ1SgMkN5LZtHvIB/QbiE
-	bacE8oaDQ==
-X-Google-Smtp-Source: AGHT+IExcFLcRiu5QtKTR/cGupB5CiCW+Pjw09y0EZqUm/lnXA4CrvfRLkkrfhzcJE8+pxyrQnSgTbf1NQKA1MoVcOw=
-X-Received: by 2002:a17:907:60d0:b0:ae1:1a30:6682 with SMTP id
- a640c23a62f3a-af8fd739a45mr409970266b.18.1753880004488; Wed, 30 Jul 2025
- 05:53:24 -0700 (PDT)
+        bh=qUTEvgPr5pDo52lKZf6mOXPWs0RWvEkRiwEoyLLTu3o=;
+        b=ghPiKQmFIauXq5DsbgcVnZRwIyL2gTe5o1acI9HzG20UMZc+kMRMtHBTf7qFeQDVQ2
+         UEumKtWc8OHeyRBXDbeRqctI1LVLgTE2ZW7i23GcA/aIrmVFvCF6OUwv05RwFpOE+LrY
+         e8fqJmhgA3R+WcFxlIteKanaSsWPkr37G+d/k/RUxRKpcot9I0Ojmh0S1+9kijN7Yb/R
+         3sZn0hXiXVJqmVfkzTJxOmhrJitLxVxkUNQJYigx+kAHLJy8xJw9HSZw5ijMB9DVUO3q
+         gXSHkLdabo0vGojQrX/GEd52A2zznJzMIeOfrELONmjeSqZJ8XgYXD5wyDpdl6zEY2JL
+         ykxA==
+X-Forwarded-Encrypted: i=1; AJvYcCVvluLYA55aLjdS9okD5dfbsDnJr7Nf4gwF+2s4+HtU9LCS2qPjyX+esUATm+lxKntyMYzS2WSqtOhaOkqMHLhX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymd0LOrdw6KwgxnksXDHx+EszpaZvYQiEOiYcOXEAZpqw/SAQc
+	deJXuAq6VS2gzHPnlMCaKqdxG1cHHymrQnEVopPgjYS+5NwGW7AWnExHSxjOntuxZPBLnRkErYF
+	rYcFCkKIXcfsJ9XhusIIX0ynYZ7PXoPaaluvF+qM8dQ==
+X-Gm-Gg: ASbGncv6Ozs6RXcdxz5HsTYnrHEvxh4HVChw/SRzI3k9tDRudztYEBmvt1gOBhgLmh9
+	4cghysaLRdIykMw5++9tlLbbo2LWAmbLrML51StwbsL1mgCoNsEBUWyHTx/Hy3ZUMoDvlwU6avD
+	t/1GBq3vQ5NZV/ZouuIBqD8scs58R8kIUT5HHsOukr0Lt6QUnWuWRxmNnl7f3biGMPS9lMbRHMc
+	90Udgy5Iwx/JngblzsN1Zcv2bwPprKfPAa/n00=
+X-Google-Smtp-Source: AGHT+IGSuyPnAInz8gQT37fKK4pgrT4+RIAYI9IrKjK2MWPd45oP6K0zUhD/GSonCiRI3dzBbJ8n7cWJZ+qNt54xgoU=
+X-Received: by 2002:a05:6512:ba1:b0:55b:83cf:b260 with SMTP id
+ 2adb3069b0e04-55b83cfb693mr305928e87.11.1753880028944; Wed, 30 Jul 2025
+ 05:53:48 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
  <20250724-pinctrl-gpio-pinfuncs-v3-12-af4db9302de4@linaro.org>
  <CAHp75Vc4vsJh_-GbP+YO50veoGoGtfAPL4tjcF+73uophfmnGw@mail.gmail.com>
  <CAMRc=Mc1ophkofB6MmtD4adBAi69C3JyovM-S9YD_y7UA3V1qA@mail.gmail.com> <CAHp75VcV=K-DfOGs0z64==nO+wQNoEB2Ngd2vc+dLYr3WLChjg@mail.gmail.com>
 In-Reply-To: <CAHp75VcV=K-DfOGs0z64==nO+wQNoEB2Ngd2vc+dLYr3WLChjg@mail.gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 30 Jul 2025 14:52:47 +0200
-X-Gm-Features: Ac12FXy6gmS688CUsaG6BseFKvaIP4Sk1EUtOxMURXryhfGHjEY11oJr_rDyuZs
-Message-ID: <CAHp75Vc-kFPz9J5CQgrwb+5Wgzyxne4RVn5efEDwwATAHTxC+A@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 30 Jul 2025 14:53:37 +0200
+X-Gm-Features: Ac12FXya2mYA_HSI46S7KktzTvTwdWuT-o4vBrrr3z0vtr46fp0gRnU_ZqynDBk
+Message-ID: <CAMRc=MeVOEFkdqf+SwQ-a=7ZPvpoerb4G_kn-aZgNLR3aTTUog@mail.gmail.com>
 Subject: Re: [PATCH v3 12/15] pinctrl: allow to mark pin functions as
  requestable GPIOs
-To: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
 	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
 	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
@@ -101,8 +102,8 @@ Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_055326_416934_59BF9A26 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20250730_055351_085919_D18648EE 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,10 +118,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025 at 2:49=E2=80=AFPM Andy Shevchenko
+On Wed, Jul 30, 2025 at 2:50=E2=80=AFPM Andy Shevchenko
 <andy.shevchenko@gmail.com> wrote:
+>
 > On Wed, Jul 30, 2025 at 11:54=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.=
 pl> wrote:
+> >
 > > On Thu, Jul 24, 2025 at 2:22=E2=80=AFPM Andy Shevchenko
 > > <andy.shevchenko@gmail.com> wrote:
 > > >
@@ -133,21 +136,22 @@ pl> wrote:
 > > > Not sure we need this. If the function is GPIO, pin control already
 > > > knows about this. The pin muxing has gpio request / release callbacks
 > > > that change the state. Why do we need an additional flag(s)?
+> > >
 > >
 > > I'm not following, how does the pin controller know that the function
 > > is GPIO exactly, other than by the bit set in this field?
 >
 > AFAICS the gpio_owner !=3D NULL means that. No need to have a duplicate
 > of this information.
+>
 
-To be clear, the pin control and muxing core knows about this, if the
-certain pin control driver needs that information it can request this
-from the core or do some other shortcuts (as it knows the state as
-well in the HW). So, I do not see any need for this flag. But again,
-maybe I'm missing the subtle corner case?
+No, that's not at all what this series does... gpio_owner is the
+consumer label of a pin used by the GPIOLIB framework. The flag I'm
+introducing it telling the pinctrl core - before GPIOLIB is ever
+involved - that *this pin can be requested as a GPIO by GPIOLIB*. It's
+the other way around - without knowing this, for strict pinmuxers,
+GPIOLIB would never be able to request this pin if it was muxed to a
+function (even if the function is called "GPIO").
 
-
---=20
-With Best Regards,
-Andy Shevchenko
+Bart
 
