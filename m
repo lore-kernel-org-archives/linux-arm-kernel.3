@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01795C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAE5C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dOuU2CzAbDwgt7O1ZCpa+m2x3EzBHS/V4An9ZnS+K1M=; b=1TwqsquB5LZLodRo8B/r5ay8cP
-	2Ut/eThTh3CgWhW00tbIBjRzw/AS6tmtLuuHgkTG9/iyy1COoHEneo6ovyzzNjtbblG5dWjXTMT9e
-	ZMfyyysueG8XkltmQAWYeJYwNlWGzvgHCw8pcYv+iOzMZWnf1zTBLfwhsxQOSuPOX5u8G1rFX0oib
-	p2avy2JuEejEQBfStKe8UInlcCOnL0ZuUFsgfesg44ywWCmxTtL3rLz5gEOxfbHXPqFK9Yh9dcmWm
-	eVYxlngCZedhl93VPnlTo+F52qJyta6zyRE+LrIovGlyPFMJspvfajgOsLTnkDNwbfobalF/prrVe
-	1RwPzYXw==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zcr0HAZVJL/wPM68//kB0QFOkcy4cqNgVvPP1uhkVrY=; b=uRBVnNN+NZCPPyVJ425YAk+d/F
+	ThAr9QvAvgbmwN0V2BUJyi7/NK7s192G2LQ9mTW1SJ9Q87bIY1IvbEDNILcKBQuejoimWD/KFs53g
+	dVumOlqAGNjmvTKBbgvqFjcKKYBPBgi+JlBii0K8BnHK5oTJ0sy3e2j+ftweZo5vF09xz00zSTqha
+	NUNbxh59ZiwgLrH1fqkHYv7mfQdilPhBkATNV8/V+5hnc3N19XxPxxSEIWYWLv0XoKBp9zxy13sIg
+	nGuoHr7TlwqVw1/iP0kCa6sfiT4Q5jxRdPEGdpu3RN2la5I0o4FKsV1+FrqSX0nLRPCSA1la1EZTD
+	NlOZrn/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhDx6-00000002RoD-07Bj;
-	Wed, 30 Jul 2025 21:03:08 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1uhE7Z-00000002Sho-0O2w;
+	Wed, 30 Jul 2025 21:13:57 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhDs7-00000002R6Y-42Ch
+	id 1uhE55-00000002SQz-1Ck6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 20:58:01 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 3C6E2C0005D3;
-	Wed, 30 Jul 2025 13:57:58 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 3C6E2C0005D3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1753909078;
-	bh=echyi2c3urhSqgs7glAWZFtXGzhcRzbjLt58B4Kxebo=;
-	h=From:To:Cc:Subject:Date:From;
-	b=qLnM8crOGdPhLMTCi2MBVo/qSMtZcRXN8XoQtTZY2fCu9ymbL4taV4o7KdOkpZFzv
-	 M21NyTjgeok6tiX7Fg1X6suyQ5f1xQ70ZjWWLySpXShncya+OAZudQkM3DlLEAQ15b
-	 mPXS3APs+mzWtKrGhd7LGqDb/toWMIPzTpiIKQuk=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id DC1B418000530;
-	Wed, 30 Jul 2025 13:57:57 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 1/1] Broadcom drivers changes for 6.17 part 2
-Date: Wed, 30 Jul 2025 13:57:54 -0700
-Message-ID: <20250730205754.3465896-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 30 Jul 2025 21:11:24 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-756bb07b029so180718b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 14:11:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753909882; x=1754514682; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Zcr0HAZVJL/wPM68//kB0QFOkcy4cqNgVvPP1uhkVrY=;
+        b=wTo/S60CwBFSwseKrKtOsUwZLc12jQnBu1mZfYcZO8adGPt9aMp0/HyVZU7OHK1Njw
+         g/MOolz1hgA6PBCt6hIF4BCZ1N0g6uhfFy72Yl7gnc3UgSbSlFx5fuG4m1t7+qO5fl7L
+         YjfLDYpQ9ZdklsV2ShhSOzUuSV5ajoTXzJRWmnKov5iC0iuh/NHvc1UoMPYOd05XP+aV
+         r+GYzBLHdK89FlAJ2Xrpq0rw4Vqv7PeVNa5kfURo3fGUSqRM183F1xbeZJPfXLG64/Ad
+         nDLB28C/+gOwjjoDNNfD7X7OTJxo0rYgBAf0RUELVy8oDkyEZnI/SqcWjsxPVnOWJt1u
+         E+lQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753909882; x=1754514682;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=Zcr0HAZVJL/wPM68//kB0QFOkcy4cqNgVvPP1uhkVrY=;
+        b=FFv6U3wujHdD2ARMENKzPrvFy7GCKtD9w+fUckx6SD2k3Hgr3Qzz1fyxRwk/+ht3ay
+         9aVJ00GL3sC6imO/BV/SXbgcGvATw1qtjxyDPK1GEyjZrLFK2EEp6ELMUVtksYmeU9pE
+         WuSr7nHBa+BNP3t42l/BPhqi8nUCgng0cm8mp9swyPRtem+D9rg2Z/ri90QYSY0ynyKC
+         qm+3FCgAMhQMcOtB32f4BYF7fp022Ow9carLIvZBf+nUzFjtQjq21ubjO/RhoaFsiWCh
+         U0Bwbit3+Rlb+qFI54lmEolWGzuzZLj441upndWLhd/rkjX3RgVrLAHoinOBgZFuDCp4
+         sREg==
+X-Forwarded-Encrypted: i=1; AJvYcCUyB8X8hNhh8DXK0JpiVOfz7GeagNSeBB4jiIhdtTkryNkauC1OEbC8EC4iBkt2GwgM4juMAj3ZymMqTLInwW6r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUlMi1mJDbvXhxJRfr7rOF0moGj8y/er2QiW/A/bxAetwWJr8I
+	hTBrCn1jo9r2OkMxccnizlUaMgWE8gmCTTBf9YS4pee6hLNw3+85LxWRXOgf3WcC/pEQuqKZevH
+	ALYvRefYTRuOSxYWOeAAPEw==
+X-Google-Smtp-Source: AGHT+IH81SELHZh+GPX7YKucdrOrQjsD2qC5Y2tfTvaMHB5OVH1Y4cxqU+ojrj5t1POmR4E8onsMP+EV8Hr7rDZV
+X-Received: from pgmb10.prod.google.com ([2002:a63:1b4a:0:b0:b3b:d2a0:df40])
+ (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a20:12d3:b0:234:216b:cf98 with SMTP id adf61e73a8af0-23dc0e8609fmr7392654637.35.1753909881916;
+ Wed, 30 Jul 2025 14:11:21 -0700 (PDT)
+Date: Wed, 30 Jul 2025 21:11:18 +0000
+In-Reply-To: <20250618042424.330664-6-jthoughton@google.com>
+Mime-Version: 1.0
+References: <20250618042424.330664-6-jthoughton@google.com>
+X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
+Message-ID: <20250730211120.4163536-1-jthoughton@google.com>
+Subject: Re: [PATCH v3 05/15] KVM: x86: Add support for KVM userfault exits
+From: James Houghton <jthoughton@google.com>
+To: jthoughton@google.com
+Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
+	kalyazin@amazon.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	pbonzini@redhat.com, peterx@redhat.com, pgonda@google.com, seanjc@google.com, 
+	wei.w.wang@intel.com, yan.y.zhao@intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_135800_156538_6CD602B6 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250730_141123_323005_E52FAE21 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +96,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit e3ce7b897388339b407d57969acaa26063e38209:
+On Tue, Jun 17, 2025 at 9:24=E2=80=AFPM James Houghton <jthoughton@google.c=
+om> wrote:
+>
+> Only a few changes are needed to support KVM userfault exits on x86:
+>
+> 1. Adjust kvm_mmu_hugepage_adjust() to force pages to be mapped at 4K
+> =C2=A0 =C2=A0while KVM_MEM_USERFAULT is enabled.
+> 2. Return -EFAULT when kvm_do_userfault() when it reports that the page
+> =C2=A0 =C2=A0is userfault. (Upon failure to read from the bitmap,
+> =C2=A0 =C2=A0kvm_do_userfault() will return true without setting up a mem=
+ory fault
+> =C2=A0 =C2=A0exit, so we'll return a bare -EFAULT).
+>
+> For hugepage recovery, the behavior when disabling KVM_MEM_USERFAULT
+> should match the behavior when disabling KVM_MEM_LOG_DIRTY_PAGES; make
+> changes to kvm_mmu_slot_apply_flags() to recover hugepages when
+> KVM_MEM_USERFAULT is disabled.
+>
+> Signed-off-by: James Houghton <jthoughton@google.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-  pinctrl: rp1: Implement RaspberryPi RP1 pinmux/pinconf support (2025-06-25 12:08:56 -0700)
+This patch fails to remove the WARN in recover_huge_pages_range(). The
+diff below will be applied to the next version of this patch, whenever it
+comes.
 
-are available in the Git repository at:
+This WARN can be hit by enabling KVM_MEM_LOG_DIRTY_PAGES and
+KVM_MEM_USERFAULT, then disabling KVM_MEM_USERFAULT.
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.17/drivers-part2
+I've been having offline discussions with Sean about this series; I'm
+waiting for him to rework the KVM_GENERIC_PAGE_FAULT bits. I'll dedicate
+some more time to the QEMU side of things too.
 
-for you to fetch changes up to add858eff8c57e31d367399e4a4308a7b1d3485f:
+Thanks.
 
-  clk: rp1: Implement remaining clock tree (2025-07-30 13:56:29 -0700)
-
-----------------------------------------------------------------
-This pull request contains Broadcom SoC drivers changes for 6.17, these
-were applied a bit late, but would not otherwise be able to make it into
-the clock tree:
-
-- Andrea implements the remaining RP1 clocks within the RP1 clock
-  driver: ADC, Audio IN/OUT, DMA, I2S, MIPI DPI/DSI, PWM, SDIO, UART and
-  video encoder
-
-----------------------------------------------------------------
-Andrea della Porta (2):
-      dt-bindings: clock: rp1: Add missing MIPI DSI defines
-      clk: rp1: Implement remaining clock tree
-
- drivers/clk/clk-rp1.c                              | 1192 ++++++++++++++++++--
- include/dt-bindings/clock/raspberrypi,rp1-clocks.h |    4 +
- 2 files changed, 1080 insertions(+), 116 deletions(-)
+diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
+index 7f3d7229b2c1f..2d83ddb233a9a 100644
+--- a/arch/x86/kvm/mmu/tdp_mmu.c
++++ b/arch/x86/kvm/mmu/tdp_mmu.c
+@@ -1779,7 +1779,7 @@ static void recover_huge_pages_range(struct kvm *kvm,
+ 	u64 huge_spte;
+ 	int r;
+=20
+-	if (WARN_ON_ONCE(kvm_slot_dirty_track_enabled(slot)))
++	if (kvm_slot_dirty_track_enabled(slot))
+ 		return;
+=20
+ 	rcu_read_lock();
 
