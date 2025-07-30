@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6DD7C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 15:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1835C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 15:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PUhUpt/sdZ3Qtk0o12ia/SX+2zZ4RKWh6/9apKRow4M=; b=ZhBXlG028WLAF5AE8xmgFS/2pk
-	chJz7hnhyro6GYImRJQkwxMNKI9kxy2FqODjCCK77sojC90OFt231Cc663V1mOjBwuNgMiuNqq/SD
-	5a5jz8CSnxny/V+Q9d+Av5TIU51WlCtL2xbOEF4qyAvtHyDoisdtCXAHaTvN+DhBF8ITgf3yJ1sP3
-	26IEY46MywM3twtPfhVcEbfc2erTJW4XVPCKi7ZTvplsyDaGCwvYLNEGpuqx6MaKuR+Lsyg8NDLsE
-	dSWPUHbVyUF0BJs8BLos+wdWCeoo56FJxYgSUavK92hvdDAz0V8fHjgAZOPpNwY6/sl2Q6Iz0IJ25
-	HSVydgFA==;
+	bh=nMMht2TNNUkUWX5EtH4WEEw4k0dGoqk0PcMBjYyULBo=; b=pUUfoPorvorWFAGOzJpqVqqkrB
+	Qadj2+zT1bmMDNS15MmOXJHce+YY7VE+76+DPNG6RxM5K6ZYs6JV710oD/Ydip/J78NuZt/UEz4wg
+	Yfvsybn2hnCFuFL6UG4BElTjdL7ZvJXC+ODc8/zTKjwz1DHFhIj6b2954mxbh8yQc2zY1USpfvTI+
+	+HVrJR2Qng6m+0xRn5hQffB9zbhi8XwVsR+9F7tJ4PC7A++K6myanEABHgsN8GG+5EuE1hHz1XUnQ
+	C+bte7Ks5fVpCxpZnhC3oFG1L9n6QLYBIQ7M8VMf/6pT3erHCcJz3f/SN4q/zVZjZhhQwLFAyQHzF
+	AdJDWDwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh8sB-00000001rWp-0zPE;
-	Wed, 30 Jul 2025 15:37:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uh8ue-00000001rkB-2laR;
+	Wed, 30 Jul 2025 15:40:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh8dX-00000001q2e-2tvx;
-	Wed, 30 Jul 2025 15:22:36 +0000
+	id 1uh8dZ-00000001q30-12D8;
+	Wed, 30 Jul 2025 15:22:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753888954;
-	bh=nP1axPdaA35vSvt1B38Z0AIa64RQJzj9NXJaUphLIvE=;
+	s=mail; t=1753888955;
+	bh=6oSrWE7nDKS9ds+QujMt4KJb/Qw7JldrgF69gNyz5KY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bVk3+IrwCjpypp/ItF8K/65hnCBurtXPGXIEfNlEVRoGrzR/OOWNQWMbvw16W0VJF
-	 H5B6zG0J6np7C4u8X/Rex2mOL3DpS04e9Rns79GsnH0nSCM8i4YtMXPavjl7tsoXA+
-	 TdQ0/6odoHFsrBkCZWCiyT2gcduaZ2gT0AVK0W6p5ybgyReGtNBsAvf3r5DKEDbLTB
-	 2sFfRgAjVqdK5No4Olk5+SAxUwUPNZNcaWHVFESeA5VZ6Cp5XUlC40oV3njVDhs0YD
-	 qXWepfb/JH+607wZFvDNBi65Tim/oSLQUctp/O68KB3c5zqX1/qxBKmfsta2aP4JEB
-	 Vm3VhscvFJyGw==
+	b=jpJdEhXGRuIrL69fTsc4htLZucyBZ93eqmUBlok459owKo7F7FhIV7R0SGi45/knG
+	 0wS/7jB1GSqjk4baQleowf+h/bW4CrEuVQVcM6f1C+GjiqAP8zduJ8pL/WjrxU+Ie0
+	 4HBUC0lUBopVVN7sHvyyMP9sJqAvcnDJ4fIQdxeBkZL4DxVZb2YDh1VqrGRZQa1f52
+	 5nNyojdIy/VHkGFkDrKSXWKHrYsIJrh6v7iw9vxtVYs0sNiT2oENAP1GOM/ATYSf8Y
+	 XAb2ZAb3yfwX/di0hrv9o9kq6b8pT9QVliAExxNEIuhWsspDjqUPLaCmvEkrb5VAEu
+	 3APHRpGEoUmNw==
 Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:41d5:bfd6:7c6f:85ff])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EE5A417E130E;
-	Wed, 30 Jul 2025 17:22:32 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 886F917E1321;
+	Wed, 30 Jul 2025 17:22:34 +0200 (CEST)
 From: Laura Nao <laura.nao@collabora.com>
 To: srini@kernel.org,
 	robh@kernel.org,
@@ -70,18 +70,17 @@ Cc: wenst@chromium.org,
 	linux-mediatek@lists.infradead.org,
 	kernel@collabora.com,
 	Laura Nao <laura.nao@collabora.com>
-Subject: [PATCH v2 5/9] thermal/drivers/mediatek/lvts: Add lvts_temp_to_raw variant
-Date: Wed, 30 Jul 2025 17:21:24 +0200
-Message-Id: <20250730152128.311109-6-laura.nao@collabora.com>
+Subject: [PATCH v2 6/9] thermal/drivers/mediatek/lvts: Add support for ATP mode
+Date: Wed, 30 Jul 2025 17:21:25 +0200
+Message-Id: <20250730152128.311109-7-laura.nao@collabora.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250730152128.311109-1-laura.nao@collabora.com>
 References: <20250730152128.311109-1-laura.nao@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_082235_872668_DB973302 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250730_082237_426703_A90721E8 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +95,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8196/MT6991 require a different version of lvts_temp_to_raw(),
-specifically the multiplicative inverse of the existing implementation.
-Introduce a variant of the function with inverted calculation logic to
-match this requirement.
+MT8196/MT6991 uses ATP (Abnormal Temperature Prevention) mode to detect
+abnormal temperature conditions, which involves reading temperature data
+from a dedicated set of registers separate from the ones used for
+immediate and filtered modes.
 
-This ensures accurate raw value generation for temperature
-thresholds, avoiding spurious thermal interrupts or unintended hardware
-resets on MT8196/MT6991.
+Add support for ATP mode and its relative registers to ensure accurate
+temperature readings and proper thermal management on MT8196/MT6991
+devices.
 
+While at it, convert mode defines to enum.
+
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 Signed-off-by: Laura Nao <laura.nao@collabora.com>
 ---
- drivers/thermal/mediatek/lvts_thermal.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/thermal/mediatek/lvts_thermal.c | 44 +++++++++++++++++++++----
+ 1 file changed, 37 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index 6e4a35ecaf34..750345465f00 100644
+index 750345465f00..fbe735e4fd77 100644
 --- a/drivers/thermal/mediatek/lvts_thermal.c
 +++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -300,6 +300,18 @@ static u32 lvts_temp_to_raw(int temperature, int temp_factor)
- 	return div_s64(raw_temp, -temp_factor);
- }
+@@ -44,6 +44,10 @@
+ #define LVTS_EDATA01(__base)	(__base + 0x0058)
+ #define LVTS_EDATA02(__base)	(__base + 0x005C)
+ #define LVTS_EDATA03(__base)	(__base + 0x0060)
++#define LVTS_ATP0(__base)		(__base + 0x0070)
++#define LVTS_ATP1(__base)		(__base + 0x0074)
++#define LVTS_ATP2(__base)		(__base + 0x0078)
++#define LVTS_ATP3(__base)		(__base + 0x007C)
+ #define LVTS_MSR0(__base)		(__base + 0x0090)
+ #define LVTS_MSR1(__base)		(__base + 0x0094)
+ #define LVTS_MSR2(__base)		(__base + 0x0098)
+@@ -88,9 +92,6 @@
+ #define LVTS_COEFF_A_MT7988			-204650
+ #define LVTS_COEFF_B_MT7988			204650
  
-+static u32 lvts_temp_to_raw_v2(int temperature, int temp_factor)
-+{
-+	u32 raw_temp;
+-#define LVTS_MSR_IMMEDIATE_MODE		0
+-#define LVTS_MSR_FILTERED_MODE		1
+-
+ #define LVTS_MSR_READ_TIMEOUT_US	400
+ #define LVTS_MSR_READ_WAIT_US		(LVTS_MSR_READ_TIMEOUT_US / 2)
+ 
+@@ -101,6 +102,12 @@
+ static int golden_temp = LVTS_GOLDEN_TEMP_DEFAULT;
+ static int golden_temp_offset;
+ 
++enum lvts_msr_mode {
++	LVTS_MSR_IMMEDIATE_MODE,
++	LVTS_MSR_FILTERED_MODE,
++	LVTS_MSR_ATP_MODE,
++};
 +
-+	if (temp_factor == 0)
-+		return temperature;
+ struct lvts_sensor_data {
+ 	int dt_id;
+ 	u8 cal_offsets[LVTS_MAX_CAL_OFFSETS];
+@@ -110,7 +117,7 @@ struct lvts_ctrl_data {
+ 	struct lvts_sensor_data lvts_sensor[LVTS_SENSOR_MAX];
+ 	u8 valid_sensor_mask;
+ 	int offset;
+-	int mode;
++	enum lvts_msr_mode mode;
+ };
+ 
+ #define VALID_SENSOR_MAP(s0, s1, s2, s3) \
+@@ -211,6 +218,10 @@ static const struct debugfs_reg32 lvts_regs[] = {
+ 	LVTS_DEBUG_FS_REGS(LVTS_EDATA01),
+ 	LVTS_DEBUG_FS_REGS(LVTS_EDATA02),
+ 	LVTS_DEBUG_FS_REGS(LVTS_EDATA03),
++	LVTS_DEBUG_FS_REGS(LVTS_ATP0),
++	LVTS_DEBUG_FS_REGS(LVTS_ATP1),
++	LVTS_DEBUG_FS_REGS(LVTS_ATP2),
++	LVTS_DEBUG_FS_REGS(LVTS_ATP3),
+ 	LVTS_DEBUG_FS_REGS(LVTS_MSR0),
+ 	LVTS_DEBUG_FS_REGS(LVTS_MSR1),
+ 	LVTS_DEBUG_FS_REGS(LVTS_MSR2),
+@@ -625,6 +636,13 @@ static int lvts_sensor_init(struct device *dev, struct lvts_ctrl *lvts_ctrl,
+ 		LVTS_IMMD3(lvts_ctrl->base)
+ 	};
+ 
++	void __iomem *atp_regs[] = {
++		LVTS_ATP0(lvts_ctrl->base),
++		LVTS_ATP1(lvts_ctrl->base),
++		LVTS_ATP2(lvts_ctrl->base),
++		LVTS_ATP3(lvts_ctrl->base)
++	};
 +
-+	raw_temp = temperature - golden_temp_offset;
-+
-+	return div_s64((s64)temp_factor << 14, raw_temp);
-+}
-+
- static int lvts_get_temp(struct thermal_zone_device *tz, int *temp)
- {
- 	struct lvts_sensor *lvts_sensor = thermal_zone_device_priv(tz);
+ 	int i;
+ 
+ 	lvts_for_each_valid_sensor(i, lvts_ctrl_data) {
+@@ -660,8 +678,20 @@ static int lvts_sensor_init(struct device *dev, struct lvts_ctrl *lvts_ctrl,
+ 		/*
+ 		 * Each sensor has its own register address to read from.
+ 		 */
+-		lvts_sensor[i].msr = lvts_ctrl_data->mode == LVTS_MSR_IMMEDIATE_MODE ?
+-			imm_regs[i] : msr_regs[i];
++		switch (lvts_ctrl_data->mode) {
++		case LVTS_MSR_IMMEDIATE_MODE:
++			lvts_sensor[i].msr = imm_regs[i];
++			break;
++		case LVTS_MSR_FILTERED_MODE:
++			lvts_sensor[i].msr = msr_regs[i];
++			break;
++		case LVTS_MSR_ATP_MODE:
++			lvts_sensor[i].msr = atp_regs[i];
++			break;
++		default:
++			lvts_sensor[i].msr = imm_regs[i];
++			break;
++		}
+ 
+ 		lvts_sensor[i].low_thresh = INT_MIN;
+ 		lvts_sensor[i].high_thresh = INT_MIN;
+@@ -911,7 +941,7 @@ static void lvts_ctrl_monitor_enable(struct device *dev, struct lvts_ctrl *lvts_
+ 	u32 sensor_map = 0;
+ 	int i;
+ 
+-	if (lvts_ctrl->mode != LVTS_MSR_FILTERED_MODE)
++	if (lvts_ctrl->mode == LVTS_MSR_IMMEDIATE_MODE)
+ 		return;
+ 
+ 	if (enable) {
 -- 
 2.39.5
 
