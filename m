@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 234C8C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49C6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INvhw9PaQlqHnlfqMb8yKpdneujvD9kPiqSCHTmOp+c=; b=wJNa9CdalSoG9VhO5wnurSroyM
-	rbJZ6WPIs4d8h2uNVZSeGp5p4FTTexY+th9+P8dj4o7Cn84vWvYzDddQtdY2CskoWK4DTZlUynOO4
-	PaP8JQTbU0/cYXq9yDWHJxKrJ1P1HpGoMOoKvTz2FTzg2NQgvyby4fvuI6e+y5aF2CwPg6N3hWC1O
-	XbG8PmYRSbJ3+eRoX3R5vzjiVyGGwNa8QFvYcdxRw0wKkM9PAWnMJTNi2UFd0C+O7EmoRTzPPh8N/
-	DWHHXLL4MJn5qrZukli/wU4dwdzjgKKZGeDnomYJ8xAK/FzJ6uQsZAphU0mp4+Qn3XqUeKi2I98an
-	MXnF3ixA==;
+	bh=3VcFQqoev4ndFVh1DgWdnNI6LwW73kLIz7RUlLHtApU=; b=QglpZiVh34sSjrGJKro5qWmV0q
+	du6TRDDkPx1h8VyI5WrTcwRWQe4YqNmnB5pup72IJo5gc4RgLjBU3intir8TKql9S1TckatjyVSvT
+	NeDExqo2ZTWNK2803SD/75tsfJUuuQb2FYkbOCjdlz1D2d3lOZeGAmKJpWR31WcPtA0M7eUt1JtSa
+	s8gOPj+9Q9UzDG9DKfbgc6N0jiKvu/G7+vHYBcScMdvaPGyeTiry8I/k8ODbj2Lzxp3bQxJWjCY5j
+	5Cx5bNEOXr02rTe7M7qzkuKG095wUTSUHTKOp5MFQFynJO2z2RaAE8YI1Btvb13VCZPts+Tr868Lj
+	vvjAcPCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7Ow-00000001gWe-3mzU;
-	Wed, 30 Jul 2025 14:03:26 +0000
+	id 1uh7RP-00000001gwA-2om5;
+	Wed, 30 Jul 2025 14:05:59 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7Eh-00000001eVX-43NZ
+	id 1uh7HE-00000001f9Y-3Gcw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 13:52:55 +0000
+	Wed, 30 Jul 2025 13:55:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1753883570;
+	s=mimecast20190719; t=1753883727;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=INvhw9PaQlqHnlfqMb8yKpdneujvD9kPiqSCHTmOp+c=;
-	b=NnmcbnfJhU2/NmsRFZVrdqjNb5iMgOgQqbzK9LVodq8aDOuY6kCm/h/jNenCXHLdwak9Bf
-	6ihB/pUr2EfVQrfdqua1RmzzPZ1u+oQnEvsbeFbIqa1oGKbROs286G+gCPjrvmr2REfDDw
-	Ese/ZybnmLWigjzY9x/lgBKwH0D3M4Q=
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com
- [209.85.218.72]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=3VcFQqoev4ndFVh1DgWdnNI6LwW73kLIz7RUlLHtApU=;
+	b=U4D8eQXA+5wuPHvqhTS/DElTxJb5SXU6AfRUn+4VEWgSUlULNE0DNEbTLXvDGBlLex0u2A
+	vLlZ4YGleS7WkEKJD6ERsdKOUIXqM2ALqE+DL0lWroyURD9blrIRlXIG52lYYh+AZWrJKd
+	agq4jY8v8Ve2jUrRzByL9YpwHrEPYAI=
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-199-aJZWaThENPeiQak9qUKS7w-1; Wed, 30 Jul 2025 09:52:49 -0400
-X-MC-Unique: aJZWaThENPeiQak9qUKS7w-1
-X-Mimecast-MFC-AGG-ID: aJZWaThENPeiQak9qUKS7w_1753883568
-Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-ae3c8477f1fso86589166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 06:52:48 -0700 (PDT)
+ us-mta-465-zrpcsGl3NkOg5MaOxyBUiQ-1; Wed, 30 Jul 2025 09:55:26 -0400
+X-MC-Unique: zrpcsGl3NkOg5MaOxyBUiQ-1
+X-Mimecast-MFC-AGG-ID: zrpcsGl3NkOg5MaOxyBUiQ_1753883725
+Received: by mail-ej1-f71.google.com with SMTP id a640c23a62f3a-af8fe47fb7eso87674666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 06:55:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753883568; x=1754488368;
+        d=1e100.net; s=20230601; t=1753883725; x=1754488525;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=INvhw9PaQlqHnlfqMb8yKpdneujvD9kPiqSCHTmOp+c=;
-        b=btGwgVXXYkqD7c6Gnw/etNHraGoQykIEOeQzk9kIeZHRu4w/DIpNGQ1G3aIVcD9y7k
-         O6e2SieehAMIxJQCRY/O4gFds0k6eKKOzNYvjg4fea3k3PyPHY2RwsXb99jzJhtQ0Ii1
-         A4+Nk/LZYOueXL9J5fJmW6bRLI3aLB+fq/bxtAiaHxb9ssd48ipiOAdAzmC0LO4bnDmz
-         s0D51iy7YKKY+SJSJpupmxbLt5gbXG8pIDbxHHCUWRA7Rs/e21WTg+PFnB8oGPENmVvj
-         NMXPHsjkH7Hm7lCU3z17GdOJd5a+hTJcxdF7v49z6lTnTQ8sp1di1pJ5HHwUaWt/JRAI
-         RewA==
-X-Gm-Message-State: AOJu0YzH2bns+5bWYJNpF1UNl/wwfmc4IlrPH2pWCUv8FXreP4fqum9e
-	nHsp8nAEe0TP0Ufd2WK0DSdG9ZU9P4W+KmjhMhc1qfGHiDeG6AvYZScKcPWNQY8ds0hXEpheQq/
-	CXa7oQnqf87mpf+yMVG4h/vOOJ3XzUdAcwqeUQM7Bh+tuuESGAnOLEB2PdTd+fZzWdo8PplHagg
-	hP
-X-Gm-Gg: ASbGncu1Vmi3nk2OWYj1yxiSe0BUHSuaYr8kaenAfoKtsXa4xQ3ycyR/BuVSVRjjNsz
-	A4YXJ9wsN8P46yWxlHbr43gCM+LvO4wOgKRgBvMCJ4xcTLopl4EZ9/NGj4rErt7Ie0rSyMKjuS9
-	kyZp2Ekd2UF9v5y9bjceRc+SLvTHxheC6YxjZgHasNYSffIvwXgcJk+Hv7+7mTpefFl9Z0wL61o
-	BMZaV42gA8+/EF83SXIN9Of4GLqbQlpJNobwlQxtfhdVSYz2TRrvCbey95kGmknncuVx6j5kwBy
-	6AJ0/tqZh8eevreKGMDuCSQ+HMRBQmpZtnOgvhQ8mLTlwLv9sMIg3I00dHbDFA==
-X-Received: by 2002:a17:907:7252:b0:ae6:e25b:2413 with SMTP id a640c23a62f3a-af8fda42a6emr459883766b.44.1753883567586;
-        Wed, 30 Jul 2025 06:52:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE2KhtHgQZ228r5yO4JfetEAu342+CZE6Zr5/g2fkWHPp7n9P5vjQqg7A7lY87sHfovdnuCuA==
-X-Received: by 2002:a17:907:7252:b0:ae6:e25b:2413 with SMTP id a640c23a62f3a-af8fda42a6emr459879766b.44.1753883567129;
-        Wed, 30 Jul 2025 06:52:47 -0700 (PDT)
+        bh=3VcFQqoev4ndFVh1DgWdnNI6LwW73kLIz7RUlLHtApU=;
+        b=OBcuTo+rvfThQyGsF5r2lGk6ikiqcWGcltkXc0nF/a5RKwf4pTIL7XwV1uhAK2aS9T
+         scV3zvhSKc0J+sFyXzyMWZ5/2whwDvzyP6Mrfoz8cYOwuPW7GiEjnQMqKI1vmw7HDykl
+         +8xuEKLcaILXlPt134f3GEEcxwtIJbBw2O5xuFpc74EI35uHBEmYSOd9DxZG3HSMAEbu
+         bl6uYWNBH29gijcRj/7fv2AZlYj0P2sIiBTFV33UtRlb15SKeuXoMjnXnLAi4CoEyRn5
+         IlaPkuRlIbRx1oKTCgsvQrNWFGeQdCWqxKDKFEzrC3G6Y55EcAN0QdVdNdTumhUDxH/9
+         xC3g==
+X-Gm-Message-State: AOJu0Yw+S6EkbjFRL6Sp7NJtzUo8C3guCc1Iy9rUhIcyVNvCSsJakauN
+	6cnGlijz3ifQwJ3V+yEyX9tZaBktq7NnOjCNdqTOj/KZ6hiqwtArMB3k4gzAoCns1HU20kvHzex
+	iTBfftA47uiGB0cTRxT8E0cNpt1CHguoowkqDbisCyvvoQJ49YZWeifTqPcdOEFrijISnWlVihy
+	W5
+X-Gm-Gg: ASbGncvrFMp2uTGS1CN+foXFdPbcWtl1UQCAEoNAewfI3F9HtOEG8vFk0ZLEw5B95nO
+	bmFkI+QCYgWUGR8Y2jJoX9djo7YqfZqE+jjXK6KhWG5Z0IcDuUH5rLYJdcHwgJT0UIPMRpezKTA
+	SeVS932tb0p/rs1LJJR6Inr08XI1xyIVjMlv3tgL9b9dZYOLbUIg50ClTWFrLEfvwsV0wgEDR+E
+	be8twzqjxnJSlfUBobDw//YTujcVe3J+fTjCZYAyOX94ml00ve/ZwpQbmOUSJ3buPhPmTJV6QLg
+	Gq73czZvqC10yZFxQpXEExHXy3e1SnDr6L33NlINSmXJps1EOXdJb+h/ReIlkQ==
+X-Received: by 2002:a17:907:3f16:b0:ada:4b3c:ea81 with SMTP id a640c23a62f3a-af8fd957532mr381802366b.39.1753883724937;
+        Wed, 30 Jul 2025 06:55:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGnFvdC4+f6/eJenyOa18wsoa3h5I67gwGBhJ32KqQ2TAENVXY/DrKoXNbTnHSurkHrTJi8SA==
+X-Received: by 2002:a17:907:3f16:b0:ada:4b3c:ea81 with SMTP id a640c23a62f3a-af8fd957532mr381798266b.39.1753883724471;
+        Wed, 30 Jul 2025 06:55:24 -0700 (PDT)
 Received: from [10.32.64.156] (nat-pool-muc-t.redhat.com. [149.14.88.26])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af8f1b172f2sm210258566b.80.2025.07.30.06.52.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af63585fff3sm750425466b.21.2025.07.30.06.55.23
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Jul 2025 06:52:46 -0700 (PDT)
-Message-ID: <ffc43855-2263-408d-831c-33f518249f96@redhat.com>
-Date: Wed, 30 Jul 2025 15:52:45 +0200
+        Wed, 30 Jul 2025 06:55:23 -0700 (PDT)
+Message-ID: <7ecaae9e-a088-4c1b-9caf-6a006a756544@redhat.com>
+Date: Wed, 30 Jul 2025 15:55:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v2 22/29] mm/numa: Register information into Kmemdump
+Subject: Re: [RFC][PATCH v2 16/29] mm/show_mem: Annotate static information
+ into Kmemdump
 To: Eugen Hristev <eugen.hristev@linaro.org>, linux-kernel@vger.kernel.org,
  linux-arm-msm@vger.kernel.org, linux-arch@vger.kernel.org,
  linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
@@ -89,7 +90,7 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
  corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
  jonechou@google.com, tudor.ambarus@linaro.org
 References: <20250724135512.518487-1-eugen.hristev@linaro.org>
- <20250724135512.518487-23-eugen.hristev@linaro.org>
+ <20250724135512.518487-17-eugen.hristev@linaro.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -136,16 +137,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  WBe5lqcozu9LpNDH/brVSzHCSb7vjNGvvSVESDuoiHK8gNlf0v+epy5WYd7CGAgODPvDShGN
  g3eXuA==
 Organization: Red Hat
-In-Reply-To: <20250724135512.518487-23-eugen.hristev@linaro.org>
+In-Reply-To: <20250724135512.518487-17-eugen.hristev@linaro.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 4FcQmC6Wrr8d8_G1KlfQ7Ruz9L8Gj1HZ9R1uhWs5Paw_1753883568
+X-Mimecast-MFC-PROC-ID: 72vu7uPvmpJ9ZNRsgZT7QprNAa1xC-eA8IB2oqEAspY_1753883725
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_065252_261309_721714C2 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20250730_065528_904914_907B22CF 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,54 +161,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24.07.25 15:55, Eugen Hristev wrote:
+On 24.07.25 15:54, Eugen Hristev wrote:
 > Annotate vital static information into kmemdump:
->   - node_data
+>   - _totalram_pages
 > 
 > Information on these variables is stored into dedicated kmemdump section.
 > 
-> Register dynamic information into kmemdump:
->   - dynamic node data for each node
-> 
-> This information is being allocated for each node, as physical address,
-> so call kmemdump_phys_alloc_size that will allocate an unique kmemdump
-> uid, and register the virtual address.
-> 
 > Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 > ---
->   mm/numa.c | 5 ++++-
->   1 file changed, 4 insertions(+), 1 deletion(-)
+>   mm/show_mem.c | 2 ++
+>   1 file changed, 2 insertions(+)
 > 
-> diff --git a/mm/numa.c b/mm/numa.c
-> index 7d5e06fe5bd4..88cada571171 100644
-> --- a/mm/numa.c
-> +++ b/mm/numa.c
-> @@ -4,9 +4,11 @@
->   #include <linux/printk.h>
->   #include <linux/numa.h>
->   #include <linux/numa_memblks.h>
+> diff --git a/mm/show_mem.c b/mm/show_mem.c
+> index 41999e94a56d..93a5dc041ae1 100644
+> --- a/mm/show_mem.c
+> +++ b/mm/show_mem.c
+> @@ -14,12 +14,14 @@
+>   #include <linux/mmzone.h>
+>   #include <linux/swap.h>
+>   #include <linux/vmstat.h>
 > +#include <linux/kmemdump.h>
 >   
->   struct pglist_data *node_data[MAX_NUMNODES];
->   EXPORT_SYMBOL(node_data);
-> +KMEMDUMP_VAR_CORE(node_data, MAX_NUMNODES * sizeof(struct pglist_data));
+>   #include "internal.h"
+>   #include "swap.h"
 >   
->   /* Allocate NODE_DATA for a node on the local memory */
->   void __init alloc_node_data(int nid)
-> @@ -16,7 +18,8 @@ void __init alloc_node_data(int nid)
->   	int tnid;
->   
->   	/* Allocate node data.  Try node-local memory and then any node. */
-> -	nd_pa = memblock_phys_alloc_try_nid(nd_size, SMP_CACHE_BYTES, nid);
-> +	nd_pa = kmemdump_phys_alloc_size(nd_size, memblock_phys_alloc_try_nid,
-> +					 nd_size, SMP_CACHE_BYTES, nid);
+>   atomic_long_t _totalram_pages __read_mostly;
+>   EXPORT_SYMBOL(_totalram_pages);
+> +KMEMDUMP_VAR_CORE(_totalram_pages, sizeof(_totalram_pages));
 
-Do we really want to wrap memblock allocations in such a way? :/
+Tagging these variables that way is really rather ... controversial.
 
-Gah, no, no no.
+As these are exported globals, isn't there a way to have a list of what 
+to include and what not somewhere else?
 
-Can't we pass that as some magical flag, or just ... register *after* 
-allocating?
+Not sure if any of that would win a beauty price, though.
 
 -- 
 Cheers,
