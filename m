@@ -4,97 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D59C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8309BC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HTZ24rJm+Pue1YLQjE0bpMb81Dlei+K5VJgH8GnuVPg=; b=j4T8Kcz9V/0PGEPb+PCmCaZ2FJ
-	Z4O855ZfhctSl4aRq55LABNg8KFYQ++btUYcvdMubX8V1Fzfg699hbWRLNxtkcts39yXqr5z8YcwK
-	r+l69SZuC4pN7dw2vXKRLK2E2v0i+8er+hOIXP2A6f5FO5pOi1iy2ufAMAljlzV2KQsb8gfCXcwg+
-	9ksOIaQ7qgGyMZGMQTNpiVbwCbVauu554o4IkM2wRYOD3GF4/9W+o3qL21fysSv3F3ImQplj1xji2
-	njkNZakd/rv9O6SAqdhP0+uUgyyCqe4T0VeepMw9o/RKMy6ElZ5Ds9mVopPIiK58R03uY5cfP2XW3
-	yy8MTDiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pVgkhTlafty+L/vxHX/GEJpdSDDX7Jm+wl7HFwI8zi8=; b=b6nAHCQbq7Ib8v24L8yJlgQzNW
+	F4iDhnrqHa6kEVrB/6Yh4KvzGPZsg/JH0oAHwHBJVLBFX26XZOB0Au9oydrBahiW0X25K5MWdh902
+	VtWEPNa6NXbuKIE3at0NoygxpXUvLtaeBAs3g3M2mwLE2UKuq1WkH5ED7xiYl5/EgozRUZ/EDZdxT
+	NGmf540HumQNZU87xh6L4a/LiAL7xtvef1I8dk3isRMqBa3OVSW0NpTmyf27YAZXixCbJ/4ny9u8p
+	H1BxPZOOLse8Q7SaZtWwW0oF9wb3+ZxSagYPg3zpzOx5MCXUG/JKtscESxK7obQ0oGSrqjF2/Q0RG
+	Po1y3Cmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhEYQ-00000002V8n-0F6p;
-	Wed, 30 Jul 2025 21:41:42 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1uhEar-00000002VJ5-43rJ;
+	Wed, 30 Jul 2025 21:44:13 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhE9W-00000002T0r-0IMc
+	id 1uhEG0-00000002Th3-04kB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 21:15:59 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3b79bd3b1f7so65661f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 14:15:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753910156; x=1754514956; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HTZ24rJm+Pue1YLQjE0bpMb81Dlei+K5VJgH8GnuVPg=;
-        b=mhqf2Rxa5voQLJjmR6VAv39svPB2E8LmkN7WHfY9incmmteNXMoDXdeqcyoUVwIRIU
-         M7IUOzcm1kleB44CnlT1H1ZomjDtPbjbzZGTUiLOTxBbxzb9IbTHeCmBRdXscZLqJbg+
-         pOlt7h22h5FbREIgNZMpqaHyiNh41HOpaKO4odm72FEoP+fAj5vb6gQo+7epm2hgtS6k
-         b+KTzHV6AZcE7Ku/uESaNXh5TQly6mR5lFy3Mk37omZvBkWsrB+DkQYvTzdjIWhX4T/W
-         BmsaVkZtWkFgrvte8IgDM177KGCeItZHTep5KpTAe6Y6ugsVa/iogAP1TijK1rsmx+vQ
-         h2KA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753910156; x=1754514956;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HTZ24rJm+Pue1YLQjE0bpMb81Dlei+K5VJgH8GnuVPg=;
-        b=VxvQHzJGREuPupCcjXFReM8QR56SRZo/lS1J6IOpzvdTVtPgAKweExuQZ61qmy/LCF
-         AqxclkXBkrdYjAMeIcNS58sXNCl04ZtljCdXAfTiDCK4/Zv4NUljNaebcR3RW5VsnX7y
-         LCD0Qx1ndQRfiQgQ9arbhmMdqq1352fkZsA40vvWxnhzi9D6AdEJNW43JLsMytZ6L0/I
-         OoZSvDx8bphdBTwSch4TRSNe6MWJjCakwjj5j74BF+J6AmTUyRlLXJhClGTlIloD7g1B
-         CYZDXoTY4PseJ1q7OWhHYJhyqvJf/CCBK06OHfSYPmaewc3g0F7uvHiWdvugeyJu/Xun
-         kPIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVfrngIq79QnEb998T+8Ryvwm1S1egtdW7sBQdqxFtKnG7lF2i5MGlU3YorIAPgli75oui4B8cxy+pBb2PZKAgS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE9SpJq2Enl6wTKjcHzQGHS/66lW0qh/uEhvfweBLdYm4wwyL/
-	tgcAufU3sdgDuSI6qohudtf5VGyolzeZaGthhfLyZKjemmjetU9pIXJgUJY+Iv1iJJA=
-X-Gm-Gg: ASbGncv+NqeqMYFB59HnnLegbdVMi5clghtl+K9h5a/YDlRC0V/l8QORCUcj79j5hH+
-	+mztyh7rXDsFYQ6h8JLOJuPtyFZLxctld2lLjb3IdQNlySHXiwtEEdkbS3Lfn8DH3eOP/dNP/+4
-	UjgIn/9ktzBOuAWgZvYYHxPiKl1/YDnntHq5qLwcbEcaPUFC/KKgOzQaGXNS5YEqNfuJc7aUhuI
-	HOzLU/ba/EmBkYdiNC8F92/G/QiFckOCjkUWKo3X9/K+gDmwe7SlI1S/qHU8TKMLDTnfZzDPOSA
-	fgoRRSJTAp3ivLRtR6B9JI56aNpUDqH/MV+HrfTU9zw+t/ugyXOzL76TcO7yrzPF2nvqSi8CVJ+
-	RDC984PE1rJcylSFCciTdLdYpEHpQjZP5A1D5BFvhrSfs7KtmuXzYBs56rna45g==
-X-Google-Smtp-Source: AGHT+IHQkznpibqUF8XL+omLAf+uDsGuaH8lAZ0YQHFkhu+hPUSUSN7QyTWCfS2BgMUd882X/GeefQ==
-X-Received: by 2002:a05:6000:1a8d:b0:3b7:8481:e365 with SMTP id ffacd0b85a97d-3b794fbe269mr3794834f8f.10.1753910156462;
-        Wed, 30 Jul 2025 14:15:56 -0700 (PDT)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3b79c45346asm122454f8f.39.2025.07.30.14.15.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Jul 2025 14:15:55 -0700 (PDT)
-Message-ID: <87d40626-8789-4e71-8ac3-fa8fff0a7435@linaro.org>
-Date: Wed, 30 Jul 2025 23:15:54 +0200
+	Wed, 30 Jul 2025 21:22:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1753910560; x=1785446560;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5sMf4Lo8mFFoam81Ms38b19tARdJKE66DvP2/RGQEHo=;
+  b=I17Ss5w62F5Z6nByH9O50dV6kjTVw5AjQyR1e9QmZB9uIK9Z4+zn+Wno
+   brXRb0j+68cyOUoByhyTvKG4LYCqvZcv8JFws/Zio10BwxbcDkC4ZtDMZ
+   irsQwkidot6y9KtZV05GcdfkmsDIdKRbU6FWcaQ094ELoJvPVpvjdW+31
+   lzE7Kenu4RoLGB120zKwul1agyjnfo62jFBpXCiYR/DOCvHFqwVOhuMDP
+   Khohj6Tk0XCp4X0x9axE3yq+WN/kF4sgNjBeXIxCnNWH4cKm6+S8ivioo
+   063j18B/ZXwTskS6bDVu1KrvUpIXYaHNW4cU96wHFMfhNhaIGthCGlOon
+   Q==;
+X-CSE-ConnectionGUID: KNhe9QC3T4m/sHd3OWx1wQ==
+X-CSE-MsgGUID: zsTuyG6WQwGOSmgJ8NE8Fw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11507"; a="56156622"
+X-IronPort-AV: E=Sophos;i="6.16,353,1744095600"; 
+   d="scan'208";a="56156622"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 14:22:39 -0700
+X-CSE-ConnectionGUID: YcaH1nJ9QGWY2SSMHcC6EQ==
+X-CSE-MsgGUID: eGvSTNbzQQqzHkTvZOEp0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,353,1744095600"; 
+   d="scan'208";a="168377951"
+Received: from bergbenj-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.173])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 14:22:35 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id EBD5611F97D;
+	Thu, 31 Jul 2025 00:22:32 +0300 (EEST)
+Date: Wed, 30 Jul 2025 21:22:32 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Dan Scally <dan.scally@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
+	robh+dt@kernel.org, mchehab@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+	laurent.pinchart@ideasonboard.com
+Subject: Re: [PATCH v11 18/19] media: platform: Add mali-c55 parameters video
+ node
+Message-ID: <aIqNGObJlU-YCgPC@kekkonen.localdomain>
+References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+ <20250714-c55-v11-18-bc20e460e42a@ideasonboard.com>
+ <aIot2pmuIIidZORo@kekkonen.localdomain>
+ <7b6dbaab-ec40-4b84-8e8f-b53062568838@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] arm64: dts: s32g274-rd2: Enable the STM timers
-To: Frank Li <Frank.li@nxp.com>
-Cc: mbrugger@suse.com, chester62515@gmail.com,
- ghennadi.procopciuc@oss.nxp.com, shawnguo@kernel.org,
- s.hauer@pengutronix.de, s32@nxp.com, kernel@pengutronix.de,
- festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Thomas Fossati <thomas.fossati@linaro.org>
-References: <20250730195022.449894-1-daniel.lezcano@linaro.org>
- <20250730195022.449894-3-daniel.lezcano@linaro.org>
- <aIp+4mWS1k73Vf/A@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <aIp+4mWS1k73Vf/A@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7b6dbaab-ec40-4b84-8e8f-b53062568838@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_141558_109005_AC21A2F0 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250730_142240_098620_D22EFB62 
+X-CRM114-Status: GOOD (  31.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,62 +96,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2025 22:21, Frank Li wrote:
-> On Wed, Jul 30, 2025 at 09:50:15PM +0200, Daniel Lezcano wrote:
->> Enable the timers STM0 -> STM3 on the s32g274-rd2
->>
->> The platform has 4 CPUs and the Linux STM timer driver is per
->> CPU. Enable 4 timers which will be used, other timers are useless for
->> the Linux kernel and there is no benefit to enable them.
+Hi Dan,
+
+On Wed, Jul 30, 2025 at 10:11:22PM +0100, Dan Scally wrote:
+> Hi Sakari, thanks for the comments
 > 
-> S32 have not ARM local timer? It is quite strange!
+> On 30/07/2025 15:36, Sakari Ailus wrote:
+> > Hi Daniel,
+> > 
+> > Thanks for the update.
+> > 
+> > On Mon, Jul 14, 2025 at 04:06:44PM +0100, Daniel Scally wrote:
+> > > +static int
+> > > +mali_c55_params_validate_buffer(struct device *dev,
+> > > +				const struct v4l2_params_buffer *buffer)
+> > > +{
+> > > +	/* Only v1 is supported at the moment. */
+> > > +	if (buffer->version != MALI_C55_PARAM_BUFFER_V1) {
+> > > +		dev_dbg(dev, "Unsupported extensible format version: %u\n",
+> > > +			buffer->version);
+> > > +		return -EINVAL;
+> > > +	}
+> > Is there anything else to validate here?
+> 
+> 
+> Not at this stage; the rest of the validation is done by Jacopo's new
+> framework
+> 
+> > 
+> > I guess nothing is done with the information other than the value is being
+> > checked above, but if it had an effect on something, one would need to copy
+> > the information to memory not accessible to the user.
+> 
+> 
+> Thats done later in .buf_prepare()
 
-I'm not saying there is no architected timers but there are the STM. May 
-be I can reword the sentence to prevent this ambiguity.
+Ah, thanks; I missed that earlier.
 
->> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
->> Cc: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
->> Cc: Thomas Fossati <thomas.fossati@linaro.org>
->> ---
->>   arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts | 16 ++++++++++++++++
->>   1 file changed, 16 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
->> index b5ba51696f43..505776d19151 100644
->> --- a/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
->> +++ b/arch/arm64/boot/dts/freescale/s32g274a-rdb2.dts
->> @@ -40,6 +40,22 @@ &uart1 {
->>   	status = "okay";
->>   };
->>
->> +&stm0 {
->> +	status = "okay";
->> +};
->> +
->> +&stm1 {
->> +	status = "okay";
->> +};
->> +
->> +&stm2 {
->> +	status = "okay";
->> +};
->> +
->> +&stm3 {
->> +	status = "okay";
->> +};
->> +
->>   &usdhc0 {
->>   	pinctrl-names = "default", "state_100mhz", "state_200mhz";
->>   	pinctrl-0 = <&pinctrl_usdhc0>;
->> --
->> 2.43.0
->>
+> 
+> > 
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
+> > > +{
+> > > +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
+> > > +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+> > > +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
+> > > +	struct mali_c55 *mali_c55 = params->mali_c55;
+> > > +	struct v4l2_params_buffer *config;
+> > > +	int ret;
+> > > +
+> > > +	ret = v4l2_params_buffer_validate(
+> > > +		mali_c55->dev, vb,
+> > > +		v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE),
+> > > +		mali_c55_params_validate_buffer);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	/*
+> > > +	 * Copy the parameters buffer provided by userspace to the internal
+> > > +	 * scratch buffer. This protects against the chance of userspace making
+> > > +	 * changed to the buffer content whilst the driver processes it.
+> > > +	 */
+> > > +	config = vb2_plane_vaddr(vb, 0);
+> > > +	memcpy(buf->config, config, v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
+> > > +
+> > > +	return v4l2_params_blocks_validate(mali_c55->dev, buf->config,
+> > > +					   mali_c55_block_handlers,
+> > > +					   ARRAY_SIZE(mali_c55_block_handlers),
+> > > +					   NULL);
+> > > +}
+> > > +
+> > > +static void mali_c55_params_buf_queue(struct vb2_buffer *vb)
+> > > +{
+> > > +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
+> > > +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+> > > +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
+> > > +
+> > > +	spin_lock(&params->buffers.lock);
+> > > +	list_add_tail(&buf->queue, &params->buffers.queue);
+> > > +	spin_unlock(&params->buffers.lock);
+> > > +}
+> > > +
+> > > +static void mali_c55_params_return_buffers(struct mali_c55_params *params,
+> > > +					   enum vb2_buffer_state state)
+> > > +{
+> > > +	struct mali_c55_params_buf *buf, *tmp;
+> > > +
+> > > +	guard(spinlock)(&params->buffers.lock);
+> > > +
+> > > +	list_for_each_entry_safe(buf, tmp, &params->buffers.queue, queue) {
+> > > +		list_del(&buf->queue);
+> > > +		vb2_buffer_done(&buf->vb.vb2_buf, state);
+> > > +	}
+> > > +}
+> > > +
+> > > +static int mali_c55_params_start_streaming(struct vb2_queue *q,
+> > > +					   unsigned int count)
+> > > +{
+> > > +	struct mali_c55_params *params = vb2_get_drv_priv(q);
+> > > +	struct mali_c55 *mali_c55 = params->mali_c55;
+> > > +	int ret;
+> > > +
+> > > +	ret = pm_runtime_resume_and_get(mali_c55->dev);
+> > > +	if (ret)
+> > > +		goto err_return_buffers;
+> > > +
+> > > +	ret = video_device_pipeline_alloc_start(&params->vdev);
+> > > +	if (ret)
+> > > +		goto err_pm_put;
+> > > +
+> > > +	ret = video_device_pipeline_started(&params->vdev);
+> > > +	if (ret < 0)
+> > > +		goto err_stop_pipeline;
+> > > +
+> > > +	return 0;
+> > > +
+> > > +err_stop_pipeline:
+> > > +	video_device_pipeline_stop(&params->vdev);
+> > > +err_pm_put:
+> > > +	pm_runtime_put(mali_c55->dev);
+> > > +err_return_buffers:
+> > > +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_QUEUED);
+> > > +
+> > > +	return ret;
+> > > +}
+> > > +
+> > > +static void mali_c55_params_stop_streaming(struct vb2_queue *q)
+> > > +{
+> > > +	struct mali_c55_params *params = vb2_get_drv_priv(q);
+> > > +	struct media_pipeline *pipe;
+> > > +
+> > > +	pipe = video_device_pipeline(&params->vdev);
+> > > +	if (mali_c55_pipeline_ready(pipe))
+> > > +		media_pipeline_stopped(pipe);
+> > > +
+> > > +	video_device_pipeline_stop(&params->vdev);
+> > > +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_ERROR);
+> > > +}
+> > > +
+> > > +static const struct vb2_ops mali_c55_params_vb2_ops = {
+> > > +	.queue_setup = mali_c55_params_queue_setup,
+> > > +	.buf_init = mali_c55_params_buf_init,
+> > > +	.buf_cleanup = mali_c55_params_buf_cleanup,
+> > > +	.buf_queue = mali_c55_params_buf_queue,
+> > > +	.buf_prepare = mali_c55_params_buf_prepare,
+> > > +	.wait_prepare = vb2_ops_wait_prepare,
+> > > +	.wait_finish = vb2_ops_wait_finish,
+> > > +	.start_streaming = mali_c55_params_start_streaming,
+> > > +	.stop_streaming = mali_c55_params_stop_streaming,
+> > > +};
+> > > +
+> > > +void mali_c55_params_write_config(struct mali_c55 *mali_c55)
+> > > +{
+> > > +	struct mali_c55_params *params = &mali_c55->params;
+> > > +	struct v4l2_params_buffer *config;
+> > > +	struct mali_c55_params_buf *buf;
+> > > +	size_t block_offset = 0;
+> > > +	size_t max_offset;
+> > > +
+> > > +	spin_lock(&params->buffers.lock);
+> > > +
+> > > +	buf = list_first_entry_or_null(&params->buffers.queue,
+> > > +				       struct mali_c55_params_buf, queue);
+> > > +	if (buf)
+> > > +		list_del(&buf->queue);
+> > > +	spin_unlock(&params->buffers.lock);
+> > > +
+> > > +	if (!buf)
+> > > +		return;
+> > > +
+> > > +	buf->vb.sequence = mali_c55->isp.frame_sequence;
+> > > +	config = buf->config;
+> > > +
+> > > +	max_offset = config->data_size - sizeof(struct v4l2_params_block_header);
+> > > +
+> > > +	/*
+> > > +	 * Walk the list of parameter blocks and process them. No validation is
+> > > +	 * done here, as the contents of the config buffer are already checked
+> > > +	 * when the buffer is queued.
+> > > +	 */
+> > > +	while (block_offset < max_offset) {
+> > > +		const struct v4l2_params_handler *block_handler;
+> > > +		union mali_c55_params_block block;
+> > > +
+> > > +		block.data = &config->data[block_offset];
+> > > +
+> > > +		/* We checked the array index already in .buf_queue() */
+> > Not a lot seems to be done there in terms of validation.
+> > 
+> > Even if that had been done, you can't trust the buffer contents as it
+> > remains mapped to the userspace.
+> 
+> Ah; a hangover of an earlier iteration before using the new v4l2-params
+> helpers; the validation is done by those functions in .buf_prepare() now and
+> the userspace buffer is memcopied to a scratch buffer.
 
+Ack, I'll take a look at Jacopo's set and get back to this. It looks nice
+overall.
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+Kind regards,
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Sakari Ailus
 
