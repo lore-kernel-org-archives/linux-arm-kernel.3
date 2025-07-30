@@ -4,67 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E8EC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 09:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4FBC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:00:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjPNvqQW+32U0GZ3uLKkhcL506IfzWiZDDMxQSP3GIc=; b=JxwRpMd9J6MVK7d93GXfRfYCy2
-	ifKXhcrcDQ+qPuRjzE/UV/3fUg/Sa575h4C3JXYaS01vdk/i9yqVk6kqPHT2ZBRqS6W92YfrSfEoy
-	t9xE5PoNl1/TRkadPFGJMjb+NIzweR8Y0JeNPoyMYBQWkYlpYWvn6IKpfAsbW3UvdyMKFiQfW3muX
-	t23EIucG5WVSVqVgubL50w+ICNRiszhCsQFT4vGIGYgm1XwxoxWO5nyShh04ws6JUtBiLax0BgrxH
-	FvyVY+XqBlT2pIo3QnZeiGRRKjd6Cr8hEyU+ix4w2OX0CDGW0BqsjfuQ7Q0jIgUnNXk5iJ+xgigf+
-	F4FGktrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b6vdhp2EWkPtq+IAr0ObGae8XoJd1fUV2G+NSQOgeB0=; b=ISytZoawSAPcpbLeorau0i36W9
+	NadSgjRJ6BkkWC3c6T3xHU9aTJ1K+XUwnqUhzGG/ceiySRctrl+Xg+VQ4ORuXzZ+N+XjqND6mnZEy
+	zqJgENRz9mio4hHcE9fTIAFnjbsUX0k7EE6AAD2Cr6J0JCBINsMIsYZ4kSwRGnff6LNwPHy4AMP03
+	P26voIq7XKGzDoh6pOqjHA4ZDkcbrT5jCko+UkQWE1XkzTr8ieWZn5fI1zkYiaMUo3eK2tA6nT/6B
+	2Ohbyu3QtemQQ8jgfAKZxupJ+aCIXX78cpGBwYqT32wwR1Z0OvuYdW77y0Q9Qjm928JmqdcIUpO1M
+	yvoz+oxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3Ui-00000001AVG-3LBf;
-	Wed, 30 Jul 2025 09:53:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3SC-00000001A6d-2xaJ
+	id 1uh3bl-00000001BgR-0mMe;
+	Wed, 30 Jul 2025 10:00:25 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uh3WO-00000001AqD-2Dsv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 09:50:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 161511BC0;
-	Wed, 30 Jul 2025 02:50:22 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E04AD3F7BD;
-	Wed, 30 Jul 2025 02:50:27 -0700 (PDT)
-Date: Wed, 30 Jul 2025 10:50:17 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <Anshuman.Khandual@arm.com>,
-	Rob Herring <Rob.Herring@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
- PMBPTR_EL1 or PMBSR_EL1
-Message-ID: <aInqMPBzi7YnIxOB@raptor>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
- <20250704155016.GI1039028@e132581.arm.com>
- <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
- <20250707153710.GB2182465@e132581.arm.com>
- <aG4_uYJgpMXo3QHQ@raptor>
- <20250714085849.GC1093654@e132581.arm.com>
- <0c53164a-306a-4cb7-9085-bba8985c32e7@linaro.org>
- <20250721152134.GF3137075@e132581.arm.com>
- <10e9cb52-2476-4c13-8632-0a85830f98dd@linaro.org>
+	Wed, 30 Jul 2025 09:54:54 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-55b797ad392so1238331e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 02:54:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753869290; x=1754474090; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b6vdhp2EWkPtq+IAr0ObGae8XoJd1fUV2G+NSQOgeB0=;
+        b=QbEdC91KDi1VDmOsyei3Pmk9KLKN5Sclvgq473nR12RIwg5wGwJNMgXyKc7IjKTPuh
+         PScNSz7a1iAaVQP/NXZjAFAqPOQFe8pHuW/sIfS/95nHvEM1WAqSEl37MSn+tccULt20
+         DUB3JBXHNQcfdv3ikEv+gEsHeGai1ERAhkugGlP3J0olwf9WjzmCCsEy20e7cqlE7k02
+         DHzk574MYAz87T7EVrlqz1DsjnF3PjsLg3K3Emxrb0L3XddSDswf0rqSaH8zRPwQWCIJ
+         xvZoKY9W4laUgxML1aGYm7ozX6W1HYKRUAG7HLm9ve0zR71E2J1zDQmIaSkRyykyhFoj
+         EvBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753869290; x=1754474090;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=b6vdhp2EWkPtq+IAr0ObGae8XoJd1fUV2G+NSQOgeB0=;
+        b=M/GlhreO+Ot+vPZRfaqsXFXHG6Q3V4++2RPQ2UBwI1JbQh9VA20S/l4YtQhY7ZC0L5
+         IT9s8/A2JVM+KZ7JjG16TSIN8K4IROvepvK6C+fwk/Lfa8dzWdHIJWxZyx+gmYA/W6V1
+         WmGtHVDxnFNJjqUQ45428D+VmSP25c7h4FPCenDN2u8x1S160pATKSCMRXOGLAf29Efo
+         Zhgdsjac0I6JPconUogJhcDYfIcw9volBJ9gMPY0wiGIbUNze7VHO7NjhwzPNu1AFmpl
+         AMTkWeObsqiDn8EaUkdfBfG0Gtq3gddHG1+K3Tckqrj1IQ10QnRMtSiFELRBZE7S+PVE
+         3HCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVweW+bBoMWegsGc3+X8SoYsQMcbJlZSYhT9wnoMHYt15geguCxC06ewm/y39aC9SXihXBMDSNyn1e2zw5SfXd7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBGHbvyNpzDGqbaw7KocINUdq4AZlu8sE7H5YAXNnt57u0xZax
+	Z1f8y43YnUN4fBtzw3zagDlL3kDb2qa2fao9JNYdhZ1mTfuVd2HcnY1qN7ik7gXuqlq1A0hq0Hr
+	CcXq3E0uz/hbXFmkp6xK3ZRYbeIiF6OnZugR07TEv9g==
+X-Gm-Gg: ASbGncs689yvmVloiaSPkhBpv2QpOyn8TGqFCELHpNsrzcSLUtTBC2ReVWKdpOYTTB+
+	qXOVB9qVUnAg128woGfIx1j2HU3pU1nYeyUM0fwJyH/eiOFFNbDfQs+Z7arVfHfKd9ygFEDZC5T
+	U/Okf2CGBS+3KK6/QEExPQT03sWCrTdgWYLJ0WlSdYUwMF2GO7EdUUuc+rBH8xzG9h4s4f4Q+uI
+	6nux5C8iAe2uI00n94UzvcOTwrjvaBcyNwreiA=
+X-Google-Smtp-Source: AGHT+IFD0mC+adTu2tQIUqoYqi4YbEm6lb9KfHl4WlQUhUVwQ9owZPBnvnUOvhF+89ksRVwAv/r0YIR9B2aVVdKhoAo=
+X-Received: by 2002:a05:6512:33c7:b0:554:e7f2:d76b with SMTP id
+ 2adb3069b0e04-55b7c0b0f66mr939851e87.56.1753869289592; Wed, 30 Jul 2025
+ 02:54:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <10e9cb52-2476-4c13-8632-0a85830f98dd@linaro.org>
+References: <20250724-pinctrl-gpio-pinfuncs-v3-0-af4db9302de4@linaro.org>
+ <20250724-pinctrl-gpio-pinfuncs-v3-12-af4db9302de4@linaro.org> <CAHp75Vc4vsJh_-GbP+YO50veoGoGtfAPL4tjcF+73uophfmnGw@mail.gmail.com>
+In-Reply-To: <CAHp75Vc4vsJh_-GbP+YO50veoGoGtfAPL4tjcF+73uophfmnGw@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 30 Jul 2025 11:54:38 +0200
+X-Gm-Features: Ac12FXyouWksKyGI1Z-cYawOTPPQ3IbuMxJxWat2oIDr-ST0nxIlLBCifNIDusI
+Message-ID: <CAMRc=Mc1ophkofB6MmtD4adBAi69C3JyovM-S9YD_y7UA3V1qA@mail.gmail.com>
+Subject: Re: [PATCH v3 12/15] pinctrl: allow to mark pin functions as
+ requestable GPIOs
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Alexey Klimov <alexey.klimov@linaro.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Paul Cercueil <paul@crapouillou.net>, Kees Cook <kees@kernel.org>, 
+	Andy Shevchenko <andy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@redhat.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, NXP S32 Linux Team <s32@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Tony Lindgren <tony@atomide.com>, 
+	Haojian Zhuang <haojian.zhuang@linaro.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-mm@kvack.org, imx@lists.linux.dev, 
+	linux-omap@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_025032_820747_B1D4CC74 
-X-CRM114-Status: GOOD (  44.72  )
+X-CRM114-CacheID: sfid-20250730_025452_806797_C6C9C98C 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,131 +116,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo, James,
+On Thu, Jul 24, 2025 at 2:22=E2=80=AFPM Andy Shevchenko
+<andy.shevchenko@gmail.com> wrote:
+>
+> >  struct pinfunction {
+> >         const char *name;
+> >         const char * const *groups;
+> >         size_t ngroups;
+> > +       unsigned long flags;
+>
+> Not sure we need this. If the function is GPIO, pin control already
+> knows about this. The pin muxing has gpio request / release callbacks
+> that change the state. Why do we need an additional flag(s)?
+>
 
-On Tue, Jul 22, 2025 at 03:46:11PM +0100, James Clark wrote:
-> 
-> 
-> On 21/07/2025 4:21 pm, Leo Yan wrote:
-> > On Mon, Jul 21, 2025 at 02:20:15PM +0100, James Clark wrote:
-> > 
-> > [...]
-> > 
-> > > > > Thought about this some more.
-> > > > > 
-> > > > > Before:
-> > > > > 
-> > > > > arm_spe_pmu_buf_get_fault_act:
-> > > > >     <drain buffer>
-> > > > >     ISB
-> > > > > arm_spe_perf_aux_output_begin:
-> > > > >     PMBLIMITR_EL1.E = 1
-> > > > > ISB
-> > > > > PMBSR_EL1.S = 0
-> > > > > ERET
-> > > > > 
-> > > > > Now:
-> > > > > 
-> > > > > PMBLIMITR_EL1 = 0
-> > > > > ISB
-> > > > > 
-> > > > > PMBSR_EL1.S = 0
-> > > > > arm_spe_perf_aux_output_begin:
-> > > > >     ISB
-> > > > >     PMBLIMITR_EL1.E = 1
-> > > > > ERET
-> > > > > 
-> > > > > I don't see much of a difference between the two sequences - the point after
-> > > > > which we can be sure that profiling is enabled remains the ERET from the
-> > > > > exception return.  The only difference is that, before this change, the ERET
-> > > > > synchronized clearing the PMBSR_EL1.S bit, now it synchronizes setting the
-> > > > > PMBLIMITR_EL1.E bit.
-> > > > > 
-> > > > > Thoughts?
-> > > > 
-> > > > To make the discussion easier, I'll focus on the trace enabling flow
-> > > > in this reply.
-> > > > 
-> > > > My understanding of a sane flow would be:
-> > > > 
-> > > >     arm_spe_pmu_irq_handler() {
-> > > >       arm_spe_perf_aux_output_begin() {
-> > > >             SYS_PMBPTR_EL1 = base;
-> > > > 
-> > > >             ISB // Synchronization between SPE register setting and
-> > > >                 // enabling profiling buffer.
-> > > >             PMBLIMITR_EL1.E = 1;
-> > > >       }
-> > > >       ISB // Context synchronization event to ensure visibility to SPE
-> > > >     }
-> > > > 
-> > > >     ... start trace ... (Bottom half, e.g., softirq, etc)
-> > > > 
-> > > >     ERET
-> > > > 
-> > > > In the current code, arm_spe_perf_aux_output_begin() is followed by an
-> > > > ISB, which serves as a context synchronization event to ensure
-> > > > visibility to the SPE. After that, it ensures that the trace unit will
-> > > > function correctly.
-> > > > 
-> > > 
-> > > But I think Alex's point is that in the existing code the thing that finally
-> > > enables trace (PMBSR_EL1.S = 0) isn't followed by an isb(), only an ERET. So
-> > > the new flow isn't any different in that regard.
-> > 
-> > Thanks for explanation.
-> > 
-> > > > I understand that the Software Usage PKLXF recommends using an ERET as
-> > > > the synchronization point. However, between enabling the profiling
-> > > > buffer and the ERET, the kernel might execute other operations (e.g.,
-> > > > softirqs, tasklets, etc.).
-> > > 
-> > > Isn't preemption disabled? Surely that's not possible. Even if something did
-> > > run it wouldn't be anything that touches the SPE registers, and we're sure
-> > > there's an isb() between setting up the buffer and the final PMBLIMITR_EL1.E
-> > > = 1
-> > 
-> > Yes, bottom half runs in preemtion disabled state. See:
-> > 
-> >    el1_interrupt() -> __el1_irq() -> irq_exit_rcu() -> invoke_softirq()
-> > 
-> > In some cases, sotfirq and tasklet might even cause long latency (I
-> > believe it can be milliseconds or even longer), this is why ftrace
-> > "irqsoff" tracer is used to profile latency caused by irq off state.
-> > 
-> > Bottom half does not modify SPE registsers, but it can be a long road
-> > between enabling SPE trace and ERET.
-> > 
-> > > > Therefore, it seems to me that using ERET as the synchronization point
-> > > > may be too late. This is why I think we should keep an ISB after
-> > > > arm_spe_perf_aux_output_begin().
-> > > 
-> > > Wouldn't that make the ERET too late even in the current code then? But I
-> > > think we're agreeing there's no issue there?
-> > 
-> > I would say ERET is too late for current code as well.
-> > 
-> > Thanks,
-> > Leo
+I'm not following, how does the pin controller know that the function
+is GPIO exactly, other than by the bit set in this field?
 
-Thanks for the explanation and the analysis. I think we were looking at the
-patch from different point of views: I was interested in not changing the
-current behaviour, you were saying that the existing behaviour can be improved
-upon.
-
-> Ok I get it now. The point is that there is stuff in between the return in
-> the SPE IRQ handler and the actual ERET. If someone is interested in
-> sampling the kernel then they might miss sampling a small amount of that.
-> 
-> It's not a correctness thing, just reducing potential gaps in the samples. I
-> can add another commit to add it, but it doesn't look like it would be a
-> fixes commit either, just an improvement. And the same issue applies to the
-> existing code too.
-
-I agree here, this looks on an improvement on existing behaviour. I would keep
-it as a patch separate from this series, as it's not a fix, and it's not related
-to to the rules from DEN0154.
-
-Thanks,
-Alex
+Bartosz
 
