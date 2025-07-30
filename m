@@ -4,90 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C216EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AA3C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AISXCkdyfWizizwGG/lMEnAGITAartWfZjVCOPp8Btc=; b=O3a/az23OVYYFra04SmJJGBL6Y
-	grR5KO0tnjG56d0myJnlzGaTxTGEepW8tGq5AfALplNS+EX0gJD/7gyW3ZOEj82rwIx4EGOsmSgGK
-	HZwcoO3lFgK4PxyS1yfzyPS0OHBDpLYfJyPBdZ0OzxDPQzrCQfdb7x0dR3wQQVZzD8/hDerQRiZ94
-	zmtxilLwFs/bMg9H4HOgi9JE/VmKumdilp4zbjIm+MAjkOXTeNMt0lFujPZf5SKt3wcKWA/uCniBs
-	a9LdnKJgGLr8YXaFjyY2AUREGN0lArn5/XaVZujfpnbf6ayrM6xfCbfxI/z3yHmVs7X2l7tPbwCd+
-	XynqLwxQ==;
+	bh=bsrA2A2QMyCV/Ikd00XgPWtG5DcZPDcgRSJ6z3M0gt8=; b=djLJHBdto7r5NFJUXvFKXlGElz
+	RJgDeu9C7cTN8DvphnscNPhjPUvjARSsLClp43J7wzZtkr15kaXu27RYnD070tr4QRNcQe2i/NuBp
+	MO+HG5khNbMTOMYrx91s2gyOgaNINAO1UQcC49QZeTJxsU2H3cjX2TrdtHcsshg7lldg4XHE29gBs
+	5rrJQQ80RMFS2DWLNw8qiXCLEBEUtgelph/OdXovcr8P6mHp4GDsAdz0zXpVkejT0dk6lXQ6I8D7Z
+	xl3/nNq3ZmOjSswBk9COYBW0LXoHJ4oXfNSZCZ6jghOTaTTxUMaHCCOck326MjqZpJFElInaFWzNh
+	T2XWBagg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3bl-00000001Bgd-44kj;
-	Wed, 30 Jul 2025 10:00:25 +0000
-Received: from mail-vk1-f177.google.com ([209.85.221.177])
+	id 1uh3kM-00000001CYm-3fx7;
+	Wed, 30 Jul 2025 10:09:18 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3Y1-00000001B7g-0eVO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 09:56:34 +0000
-Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-532f9127978so2066549e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 02:56:32 -0700 (PDT)
+	id 1uh3hq-00000001CJW-2mMe;
+	Wed, 30 Jul 2025 10:06:43 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-87f1b3a3e7bso1501950241.1;
+        Wed, 30 Jul 2025 03:06:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753869392; x=1754474192;
+        d=1e100.net; s=20230601; t=1753870001; x=1754474801;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=AISXCkdyfWizizwGG/lMEnAGITAartWfZjVCOPp8Btc=;
-        b=HNGStkKtVhw5PHUdSFAfJVtOtYLqROiAqXSXLpIFgFVwA8Tw21deyA+wECfcVorTaL
-         vjyzr+xRj8sVy23cZddfRMHe2JWPmFoq4AVyBOZZotKC7btnbuEw/pkg754FayKP93AZ
-         Qt8gfeAA5/BoRCl5ClX4zQtlg8vy88Lg89NWOr0EeDM31DXb8yq+H7z3At0V87rEmfeK
-         PJWDaVZCyexTQlF1gjDkkokTe9Bg+wTvw0T6l6NxB0+w1n5KqinkjZYx10eZ3yre2fiv
-         qFeRREdFmjxB+hkFKx8431Yuu89IKFzBfJgZpFny6R+ZZQZHLs3upDVjnj8K97tI5QiL
-         QCqA==
-X-Forwarded-Encrypted: i=1; AJvYcCWRD2OrZLF5n6fV3FD8gBs98MhK5T9Hocwydn/K7TaI4qA9DYHouFN9D7CwqNDDKrx5ztRVLaQTgLsezqw4tLZt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaH7YIg2li3XP/BTMsxXw5oZ5jBsGN151aV+/5DHSWh8FgWALD
-	qbVqSGSMvIKLjfjjMpQj8QtU+7XMZgedNhWHR7RAofLHgqaFl67g2DcvRIGt9CSz
-X-Gm-Gg: ASbGncvuACLuPfnI2HOHDLz0tm/APR1AgbK0HGe9owTqvXSp7/CmJCwIiBuNQtzedAM
-	RlwH2Rw09eQxdxFBCH70C/vGMeJnuY1sL0d1z+82epmJrBzD9VgtqOgzkou0K/5+hJIYffhkI3J
-	vDc3QO5Td6wv5bETkF7/Y6mD/EBhjWSB7PlLddS4GEgvs8tmwiRkbCn4uD2PwZR2mCk7GsDUNAy
-	Psloa/ig+7X0mSye9P9F8Xt5STjU5Ld7yJj6Cidi+3ibj8AydH1OC3ZDVMF7yZ21KWYKPtjGqnP
-	xFPnX39sZ6MyzRAPrVz+qxjNr3WqFzwZpUVW4ipqvcUVxU8co2uNjggIbVoS/EivXH2ydKsp8ZP
-	O9HG6jf+F2Y8lqp/MDuNbTqvIzU4bOTTKghVb033sa+gyieLOspDd+z2u8/WR
-X-Google-Smtp-Source: AGHT+IF2T8d4jUb5771UjmruMrP9mBeTc5QvBHjxcR+pzPfNdx1rons3OcjmSb6z0PqOPeBmBjW8Cw==
-X-Received: by 2002:a05:6122:458d:b0:539:1154:d149 with SMTP id 71dfb90a1353d-5391cffb624mr1530950e0c.9.1753869391525;
-        Wed, 30 Jul 2025 02:56:31 -0700 (PDT)
-Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com. [209.85.217.54])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-538e3410a88sm2598813e0c.16.2025.07.30.02.56.30
-        for <linux-arm-kernel@lists.infradead.org>
+        bh=bsrA2A2QMyCV/Ikd00XgPWtG5DcZPDcgRSJ6z3M0gt8=;
+        b=e7ecGuV+Y777Ako5km/2GQFhZ8WyKldKajoppBJbOF/oyw5egJDcFDgOkQhqfbsxqr
+         r9NlFu0OsHSfSzOjzREontZHi24llzGdY8T3joHu5TnjI0Amy+g3rgduiAitu0mL1Pb5
+         /T5Rr2pKZ7ACmRirXLinf/Uon9rnokqxD86AyxWjhoZidv3128VzYZnflgt9RopLhrJO
+         pIYl/xUOTynZlS80nn1kP5Rw4nUJL0IH7YKJGWql3Yjrt1dNaCHH4AwjMXypEQK2DB63
+         xJVMiUcZRDEdNy3CwD4MVKHiCaO/Nug4MjH85uNeipeiZr0ejYawmhqIeOeCd3wpJ/Gi
+         6I8A==
+X-Forwarded-Encrypted: i=1; AJvYcCUJFxdXjcqF7vUeZE+MNQ5Ga3+SJSRjXSZ+EfQvLLDoJ96hNT0rDtWQe8Yhhvn5u7fC9LPggh0UmCAk/7EnPqE=@lists.infradead.org, AJvYcCXMAqQzworKFYAOD0MoYdy5GznH57uL/G45Mwpro0LwojOK8o+mSA9QJTGEWZAj2vbckiOh5COUvwTqXJ+ow+VL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3amD5DLct2LLlqwT124Y7JnWSEZL1w2ShTE1j6gdvQBZAimvi
+	DYY0oUSNPmX5AKHJXtQ7F4xxEMgfLRHUngJkYxF9/GTeTq0OAqi9BLTFlpU9RnN6
+X-Gm-Gg: ASbGncvmycIrYpaWrps7eCT2OMWSqjxkUUXFzuplyJOEhJ7h15OkBOdNu9SXPWMDCgc
+	4othv8xULX4mWRQ0Q9sNG9IsK7XpHgV1YoJgs9CdcJtDCCV7eJofTN2ZLtORfIHbO8ocDNU46Ym
+	p0DDnb+i57TpvrqesyI1TuAm0CoiZHrRFt5P5xUHS3lgq/HUDpPhh7RO+sphDh7XfuR5vtOpVbk
+	k75zOvGkC86n4Sgw6sK6ml6jJ5dmQMuVKq14T+dDbydCRKzS71S7D20YU1kQW5BmB84Mt4li/RX
+	uIwZ1gEaB0TT2fhzU8avgDDRggZ0HcoFHia21wfIPLrdwACfRdX//91JAuxZmwFv+nyk3kj/+wc
+	uvwfqm6RseICn6hA8beSj4VLvNyPfKBe8zSeWTSAxtSe+ObaQjMsKb2MdC49y
+X-Google-Smtp-Source: AGHT+IEM6ew48HomVl6yxyiNu8vmOgLDYS7CMyQVLquJMNNa0lun+yUpo5dCqJf69jprIpLjIUsS0w==
+X-Received: by 2002:a05:6102:3e92:b0:4fb:dde8:76cf with SMTP id ada2fe7eead31-4fbe8753b11mr1756226137.13.1753870001452;
+        Wed, 30 Jul 2025 03:06:41 -0700 (PDT)
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4fa678adeb5sm1185880137.18.2025.07.30.03.06.40
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Jul 2025 02:56:30 -0700 (PDT)
-Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-4e8135adfccso2143254137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 02:56:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXjjqDrkn8vQ5fHz797VYHra9/TYYRGMHVs0SiwR9Jy1m8YAChjNoYKOsn68Q3CJhLA99l2T4TS02uVtD4hbqyg@lists.infradead.org
-X-Received: by 2002:a05:6102:6488:10b0:4fb:f31a:98ce with SMTP id
- ada2fe7eead31-4fbf31a9e23mr303837137.6.1753869389838; Wed, 30 Jul 2025
- 02:56:29 -0700 (PDT)
+        Wed, 30 Jul 2025 03:06:40 -0700 (PDT)
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-88bacb82a6dso705358241.3;
+        Wed, 30 Jul 2025 03:06:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUnARc9EDXvSzIrqH+NAhS+B6LrEPCQ2D958X+P1/M5gKT86e8y0SCegY6oE7unOlrOGbrDvCV/yYWvGPFGq/ET@lists.infradead.org, AJvYcCVv5TUCpMKT38ZQS3FdmpSOiiHojtvGwAefPssiRcazepJdK8V8SW6lhag40occHIHad0XkDpUUfTuGsgWD7Po=@lists.infradead.org
+X-Received: by 2002:a05:6102:3c81:b0:4fb:dd65:b97f with SMTP id
+ ada2fe7eead31-4fbe87dd1aamr1637733137.23.1753869999913; Wed, 30 Jul 2025
+ 03:06:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org> <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
-In-Reply-To: <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
+References: <20250615131129.954975-1-kuyo.chang@mediatek.com>
+In-Reply-To: <20250615131129.954975-1-kuyo.chang@mediatek.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 30 Jul 2025 11:56:18 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
-X-Gm-Features: Ac12FXyBxoyf0eZjZq4tsf22xBIlBFOx02dopJh05JbQN3Bvqm8lfaYDOjqls6g
-Message-ID: <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Date: Wed, 30 Jul 2025 12:06:28 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWZHwr_nmMbVREKC9nQCYigT_gvKH3M9v+oyYqk6FLONw@mail.gmail.com>
+X-Gm-Features: Ac12FXwS-l7uHGU1oTYcgJSesd4W3K8Q8G2IZz1kbq4jmTeRDTrEyXIFWqDBxL0
+Message-ID: <CAMuHMdWZHwr_nmMbVREKC9nQCYigT_gvKH3M9v+oyYqk6FLONw@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/1] sched/deadline: Fix RT task potential starvation
+ when expiry time passed
+To: Kuyo Chang <kuyo.chang@mediatek.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>, 
+	Valentin Schneider <vschneid@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, jstultz <jstultz@google.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_025633_196577_7D18CB3C 
-X-CRM114-Status: GOOD (  30.59  )
+X-CRM114-CacheID: sfid-20250730_030642_693614_B298E133 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +99,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+Hi Kuyo,
 
-On Wed, 9 Jul 2025 at 13:31, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > Changes in v3:
-> >         - Added a couple of patches to adress problems on some Renesas
-> >         platforms. Thanks Geert and Tomi for helping out!
-> >         - Adressed a few comments from Saravanna and Konrad.
-> >         - Added some tested-by tags.
+On Mon, 16 Jun 2025 at 14:39, Kuyo Chang <kuyo.chang@mediatek.com> wrote:
+> From: kuyo chang <kuyo.chang@mediatek.com>
 >
-> I decided it was time to give this a try, so I have queued this up for
-> v6.17 via the next branch at my pmdomain tree.
+> [Symptom]
+> The fair server mechanism, which is intended to prevent fair starvation
+> when higher-priority tasks monopolize the CPU.
+> Specifically, RT tasks on the runqueue may not be scheduled as expected.
 >
-> If you encounter any issues, please let me know so I can help to fix them.
+> [Analysis]
+> ---------
+> The log "sched: DL replenish lagged too much" triggered.
+>
+> By memory dump of dl_server:
+> --------------
+>     curr = 0xFFFFFF80D6A0AC00 (
+>       dl_server = 0xFFFFFF83CD5B1470(
+>         dl_runtime = 0x02FAF080,
+>         dl_deadline = 0x3B9ACA00,
+>         dl_period = 0x3B9ACA00,
+>         dl_bw = 0xCCCC,
+>         dl_density = 0xCCCC,
+>         runtime = 0x02FAF080,
+>         deadline = 0x0000082031EB0E80,
+>         flags = 0x0,
+>         dl_throttled = 0x0,
+>         dl_yielded = 0x0,
+>         dl_non_contending = 0x0,
+>         dl_overrun = 0x0,
+>         dl_server = 0x1,
+>         dl_server_active = 0x1,
+>         dl_defer = 0x1,
+>         dl_defer_armed = 0x0,
+>         dl_defer_running = 0x1,
+>         dl_timer = (
+>           node = (
+>             expires = 0x000008199756E700),
+>           _softexpires = 0x000008199756E700,
+>           function = 0xFFFFFFDB9AF44D30 = dl_task_timer,
+>           base = 0xFFFFFF83CD5A12C0,
+>           state = 0x0,
+>           is_rel = 0x0,
+>           is_soft = 0x0,
+>     clock_update_flags = 0x4,
+>     clock = 0x000008204A496900,
+>
+> - The timer expiration time (rq->curr->dl_server->dl_timer->expires)
+>   is already in the past, indicating the timer has expired.
+> - The timer state (rq->curr->dl_server->dl_timer->state) is 0.
+>
+> [Suspected Root Cause]
+> --------------------
+> The relevant code flow in the throttle path of
+> update_curr_dl_se() as follows:
+>
+> dequeue_dl_entity(dl_se, 0);                // the DL entity is dequeued
+>
+> if (unlikely(is_dl_boosted(dl_se) || !start_dl_timer(dl_se))) {
+>     if (dl_server(dl_se))                   // timer registration fails
+>         enqueue_dl_entity(dl_se, ENQUEUE_REPLENISH);//enqueue immediately
+>     ...
+> }
+>
+> The failure of `start_dl_timer` is caused by attempting to register a
+> timer with an expiration time that is already in the past. When this
+> situation persists, the code repeatedly re-enqueues the DL entity
+> without properly replenishing or restarting the timer, resulting in RT
+> task may not be scheduled as expected.
+>
+> [Proposed Solution]:
+> ------------------
+> Instead of immediately re-enqueuing the DL entity on timer registration
+> failure, this change ensures the DL entity is properly replenished and
+> the timer is restarted, preventing RT potential starvation.
+>
+> Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
 
-Thanks for your series!  Due to holidays, I only managed to test
-this very recently.
+Thanks, this fixes the issue I was seeing!
 
-Unfortunately I have an issue with unused PM Domains no longer being
-disabled on R-Car:
-  - On R-Car Gen1/2/3, using rcar-sysc.c, unused PM Domains are never
-    disabled.
-  - On R-Car Gen4, using rcar-gen4-sysc.c, unused PM Domains are
-    sometimes not disabled.
-    At first, I noticed the IOMMU driver was not enabled in my config,
-    and enabling it did fix the issue.  However, after that I still
-    encountered the issue in a different config that does have the
-    IOMMU driver enabled...
-
-FTR, unused PM Domains are still disabled correctly on R/SH-Mobile
-(using rmobile-sysc.c) and on BeagleBone Black. Note that these use
-of_genpd_add_provider_simple(), while all R-Car drivers use
-of_genpd_add_provider_onecell().  Perhaps there is an issue with
-the latter?  If you don't have a clue, I plan to do some more
-investigation later...
-
-BTW, the "pending due to"-messages look weird to me.
-On R-Car M2-W (r8a7791.dtsi) I see e.g.:
-
-    genpd_provider ca15-cpu0: sync_state() pending due to e6020000.watchdog
-    renesas-cpg-mssr e6150000.clock-controller: sync_state() pending
-due to e6020000.watchdog
-
-ca15-cpu0 is the PM Domain holding the first CPU core, while
-the watchdog resides in the always-on Clock Domain, and uses the
-clock-controller for PM_CLK handling.
-
-Thanks!
+Closes: https://lore.kernel.org/CAMuHMdXn4z1pioTtBGMfQM0jsLviqS2jwysaWXpoLxWYoGa82w@mail.gmail.com
+Tested-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
 Gr{oetje,eeting}s,
 
