@@ -4,152 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB562C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 16:26:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A6AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 16:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+TaVxcVJR8Iow8EXX7p0XNMJQZeeb4WZVCs7MtifldY=; b=1VXcV1nfmWseah+932HNDxVVNs
-	Tyq7/B0Gct8OHRbqpZW56rJgWB8bU8UXyy5FifQzSueMShaXSMg6yrzMC2AfsHucF0+m2gzAjU1MZ
-	Ac7pxdrPV4yo6OFmiTr5H24YxBjXZjTLl5AKBMwgDUcFHHvIkbXvGiTj2xJxPbFxRfWZgb0DmY5sA
-	g+7IamSTeuGn1LJS/m9CtvwCkkaAHCC85Grc/N1CM+UZJM9QYLtjVg7OTPSMD71Cpw/uZaWnbWtJw
-	7Bd+ph2BBR0NhLcOUaop0iNceyn5OOax3LBacC247tzANVi2Ygmi3wMKQ1D0X0LHhOsbCFAfSd8W8
-	8S1Iq2Lw==;
+	bh=QFuG/A3j2Vv1mbEqh/G2TAhE+lxRzm1/wn84++4OCP8=; b=o2SjgUNnsuyK2F4P+P/EokhTeK
+	GEMjE9GENqbK8m6wmWWLsTjgBPURNDgGmC7Sn0HVAxjEUaSzZvJ9PHKQPtqvBZ6fjlVBGgBZz5DGG
+	gU+PprARZBNYq/jbR4+0SMguJ37Fx5OUUCjSaAtooG0QTyVN5rpnySGQhfgE73LITvnzGYlBxrPl/
+	EOn4BvDqKCIUY3UioLlUzsGtJvtzrBJ4p7rTBV97oq/uC/IfffukmjcUmGs67J2w73uymVwPeq4Bp
+	02rgNOenCUZKz/p6s4F21OrnxSYXdpIYEtzAZl4KCBZhsbXpWVJpdjmNufM8ntbVtyScrWgDfaaZT
+	832bJr6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh9dY-00000001xcZ-2UjQ;
-	Wed, 30 Jul 2025 16:26:40 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1uhA0b-000000022Pb-05CE;
+	Wed, 30 Jul 2025 16:50:29 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh9b5-00000001xLn-0p8F
+	id 1uh9y7-0000000227h-0nUU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 16:24:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rowFoOqPrKygV/DQIUXzjBsuP8cmIpSUhfepMFjzcmnmrG0Y5VprPJvGHDQzrEl5qgnPfo6SE5RvLD3lIe8Hl01LKuYva/fVI71hASYccfA/EXXu4MBIk9YwylrsFLWEeK90crFARWsF2vdqPzyLJ+dkW2/fzc96xKcZ8cMOYNudBdZGjd2EHR3XMvCE1IXubzteY2byCR2lB+9NiuanBLmBOMfuO47c245CDho7jacdMdb85okbvlxEFsK5pvdyZqY9Ur2d9PPmjxUB/pVHVw+mPBobIec9Bj14/1AAP2HPsbcB1RAT7rQ60fK/ecS2p32yVQPnnMQQ/mgk1yAxnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+TaVxcVJR8Iow8EXX7p0XNMJQZeeb4WZVCs7MtifldY=;
- b=UEzB7D5XAVBde+ptgKnlnDxy/oKd5ze/UYZwnCIGKo2IIDivUWGfSpMwxZClLUCBpHlTMXa1p+yCE2LHqcJWDeVs4KbDPSlbyn8sZjymFBTbO2Zk8HurdHOhu3ghjWU2/KjI1N+UIfQE1g2ygDjsZZZQK+VqC+UrjS2zFe0hyocR8ZEsB9VPdpzGDZjX8NG1zIZYfixNF3RmhwnrwQfMYz/S+U+wbY8fVJ2dZ67J6+7RP0FRiTfLXfm1aVb6CdeHN76TAwllfP6JtDsAtKbcHXsVx6JV8BrWI9rFujeQHKNASghlUz0ekjOMOqcZ7+kzDhbM1E921VbJWQxbjXLI4A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+TaVxcVJR8Iow8EXX7p0XNMJQZeeb4WZVCs7MtifldY=;
- b=Cr3pXpnhvsvZVHUyz+KB/uaXgx85x2/hR+ezPHVW4vJTPDymnvKg9kkccp5L6RxQop2vhGwUWkT9bd0raOyr4YNdryE9f/nNFLYC7DwDeCUQA/NrMgD97d4uVQP4T9NQc/9MpIM1c91UlM4rVv1IycmxfP9H6X4Brq+oK4L+5BWJIu0zanngaDvRkmVAUlbwfimHb18i5bsBSfExxC/iA2fA4lveHjkHSZvATibE/+KY5fm4M8+ztrcb03zg0YTqXCbEF93Fb/p3h5Pc6nxZj1qzjPzc4Q4970NBE280kMj73HjL7yZ8rOdMjH5yDuS6TXZxCAvU/sj8P4LY8N4jxg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AS8PR04MB9094.eurprd04.prod.outlook.com (2603:10a6:20b:445::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.12; Wed, 30 Jul
- 2025 16:23:56 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.8989.010; Wed, 30 Jul 2025
- 16:23:56 +0000
-Date: Wed, 30 Jul 2025 12:23:46 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] clk: imx95-blk-ctl: Save/restore registers when RPM
- routines are called
-Message-ID: <aIpHEugNppI2C0/q@lizhi-Precision-Tower-5810>
-References: <20250730125932.357379-1-laurentiu.palcu@oss.nxp.com>
- <20250730125932.357379-3-laurentiu.palcu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250730125932.357379-3-laurentiu.palcu@oss.nxp.com>
-X-ClientProxiedBy: PH8PR15CA0020.namprd15.prod.outlook.com
- (2603:10b6:510:2d2::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 30 Jul 2025 16:47:56 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-707389a2fe3so37533116d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 09:47:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1753894074; x=1754498874; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=QFuG/A3j2Vv1mbEqh/G2TAhE+lxRzm1/wn84++4OCP8=;
+        b=DjXccWSuK/CCkY/pwIWoPXaFkX1wpqq+aYRFLlGXc78fxQ4VkJ7G3wcCPWuxevSvqz
+         rLUgZRhpa73bNbPmZXZ42I9Rfe5K5v9OhqSyTlzyshrRfMcVLVjkedC7iOPNz3xOcUG1
+         NPJlHZodY+xLFq93w0rI2giOrlb+PHDYXkyA7Uf11BxrU42mGbpjpmfl5MxwNgE+NDBo
+         5+z5fKv9sqWQdKCRWNvQrR2kz2kKpUjMRgxxTMAPGUrD0y0G4rllQH+5GNqAJbG2Gumz
+         pYapPjYbyNjUBjw1mkFD0q3QosW/qhaItXqC8FbBplCZMm5ElNJYueQoMSwQ1o1o3con
+         xNrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753894074; x=1754498874;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QFuG/A3j2Vv1mbEqh/G2TAhE+lxRzm1/wn84++4OCP8=;
+        b=KEKPUMJvDCb2Ypu0w7nTdMhM5eRExiS36YT6mc0zPM7xtPqS3zPkomJbtK3JqULYvU
+         1CWEj/aDsCuidqSiFIy3DMcq4t14+hwYYlO9Bs4I8plY/bdG2QJqhBtlu7REho3WGsFt
+         XY9J7mSSmLfKp4qE051gpYA1dASKae+dwPU1nRdN/Tv6UKhaiAH2mNU/kk9IDPXGl65j
+         xioAleviMzXolpI2vk6yvCfOIpDe7p7cxZLIj21pjE8iOCON4uG+vEoGw5a+wAuWEwht
+         I5H+FCtOu4PzJjvIEhP40NTFvXH0AZSLNzlt0u1iYBCB8MlW7QAFmhqiQVi03wf0xzfY
+         0C9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVSa2fqU94oqhoN+JrwP3temNA0nLQhNZ/ubtbPIXStCxLSNsZwFlJrMQ+CtWXUTaHmeFaPNc5tBlLf3Rf5bZNY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxH5l41OIAmoOU9rN1+98YV2okHUCqGY3uFsbe1yH2K2WuJa4UC
+	fR77o14QY2Yan1EobYz/G/lK8hxsnyFICunZHgZKyASPzZniqqknmsnwHP0JTmW/9Yc=
+X-Gm-Gg: ASbGncsmuPBBRmmbP3AzLH4+v+9jzGS5TgSUqFgY+9ockkmi36r8FzZuZv3vSBdM7AN
+	PjBdZCSRFmFrMdteNPHU7lUCu+r7ryt/uUIO0sDRViPN0Wj4tk79IQJAvT6ZFu4SOEB507wC+4f
+	Gla32RcLKEPZDQdMFOAt44fts+Fpcj3j8CbqKbkv5MLKa3zWye29qBERBG0IEtsuuP1KzUnJbyQ
+	RQ5EkiWuUcB6Knd7yS0PEZDeTYOYjkEcrIGvAsD6aCbjcmts3/tvJjZF55ZStWxsQwk1HBYFSlT
+	9UpgTtM9uv45xdB2FzUjdALVwE2ukYrhIy2M7rbN2kXzw4/qGMtcdhoD0A5ck9DHW+C+Lzh7+N4
+	+BlnPVSceY6g4gmOjHPsVvNVkOUqby5e2xVIt33OJtXg+nBUe5UvhJzs3iYkGG/4GL9qQIv5JCt
+	/88aE=
+X-Google-Smtp-Source: AGHT+IEYjgoPB2+hXPaGV5LTcJrEx5auyd7kyK9NRID9fF4xcgzzjcLh06XEPwQDU8NDYLbYj9Li/A==
+X-Received: by 2002:a05:6214:624:b0:707:3829:d491 with SMTP id 6a1803df08f44-707669437aamr60902136d6.0.1753894073853;
+        Wed, 30 Jul 2025 09:47:53 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-70729c15a84sm61759986d6.48.2025.07.30.09.47.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Jul 2025 09:47:53 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uh9y4-00000000SQn-3S3W;
+	Wed, 30 Jul 2025 13:47:52 -0300
+Date: Wed, 30 Jul 2025 13:47:52 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
+Message-ID: <20250730164752.GO26511@ziepe.ca>
+References: <20250728175316.3706196-1-smostafa@google.com>
+ <20250728175316.3706196-30-smostafa@google.com>
+ <20250730144253.GM26511@ziepe.ca>
+ <aIo1ImP7R7VhRpVE@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB9094:EE_
-X-MS-Office365-Filtering-Correlation-Id: 45cee3d5-dfc3-4c9e-42e2-08ddcf857ad8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|19092799006|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7PMEIv2jU0kIy0roTIvFmVT7WEtRer9bmFse1ZxWbZk9tSYMU++JeOsT+jqI?=
- =?us-ascii?Q?ASdGJfEMVM+XUjBCw3PVTsC9fI6cNeAglxfKst5gaIJucCqgSnr9BU+Zb4nP?=
- =?us-ascii?Q?oKkPNKTu1G1UgNboG2KdlG+AfFf3E3FDZcqolgvQCgvOtKCn8eiQ50NF1aKO?=
- =?us-ascii?Q?Sh0yNPdJx1EG6GIaBgGFm8Q0h2wR1qqzl5KSi1mFek8gtQqGWOfzicABvBWA?=
- =?us-ascii?Q?OC4lqgqSRQmG6nd93NBW3k0x/QdNgvUSivGNszrOeL9PuqXjsUB2dLXMNXG0?=
- =?us-ascii?Q?NrHHPQVkxeXCc4HLteqleiMiTK3KyEPmGQvJrej+9BQFxoodhI7oVD859M5x?=
- =?us-ascii?Q?ASBlhyBXgyZ333qnvfD4x4JE9BW3bA2wnrjEilHTzGeaCtIjcgO2OCSFNNfa?=
- =?us-ascii?Q?ZmuQX9UCpx+VQLSdqBE+OWlG6zPxofy4VceUmRURzaaDAL+IaPrbcbB774WO?=
- =?us-ascii?Q?Dhc1rup7RjWqGPX7wc0s1FwFvyFh3Mjx9PcrNK38w95dQLgS/iXXrqDXWyur?=
- =?us-ascii?Q?yPvJq0zEW3snW+ZeabOZE/YLokGRXvyxhn3Qo3zRhzwLv6PXXtDotNyZx1r1?=
- =?us-ascii?Q?bUtF+WRuUmBf7m1rBFXrzZ2eef31x0yegbt74uY+9FQPoalj5G9on8edREBl?=
- =?us-ascii?Q?dnwUen0lk/RdR7aKhvsuDpbOVF9Ysr6hAnwq2Iy3XUh4iUHbzSwBXvFbWPtz?=
- =?us-ascii?Q?i4S4qMkp9MGMjIzM5//UIb/zCWh66Cjfs2X1rxuRJjEylCygLwny9MxPGTN5?=
- =?us-ascii?Q?gCx6o6yvQe9OeFrlnBHb4Vd4bDSDquh1Eif9R11AOXlkndSj1op29KzsMuIE?=
- =?us-ascii?Q?Gp7BYylqX8T35EYYFuD/NlFc9tFAIZ4uLaBZc5i2f9GvUuepwxymGI7uzAOX?=
- =?us-ascii?Q?B2pyT9ihHGTbpkmDznPPrld/JNruYn3KSyrlhNCuKdCX9Qp3RmISk017soZN?=
- =?us-ascii?Q?iHJgpkJE1arcrFnqVjprMfVR1h8G2hvGg0o3ua5lxDJTUYClQXpKYieTQjTQ?=
- =?us-ascii?Q?wQ5u5AN9Bsgtm2XD+2BUQ9YmyMJWx5JCiBBblaOeKsojE+UWno/IQLEzkvli?=
- =?us-ascii?Q?W2X4LcXtW9tGTl+o3IuCWjD00VLwiAgl3ZP2eDZ2a9EvGxsc8Inl+3IEsYrY?=
- =?us-ascii?Q?aa9gyMbuYP/vY3mKPGeiSE6EDVRiTDygpqv20yeHupn3ZySTXRyuR5DhBZKq?=
- =?us-ascii?Q?2j4bdyLN2s6QV9YpVM4OiwVpW5gXXlYUR/HYjgSucRSKLiA+IprquL+QyB3t?=
- =?us-ascii?Q?G0F1jqTcwfUjvRbkYY//Xjo+Y46bHJEJTjsZ6H2jMR01SV8aXSn/xiOCb6Sz?=
- =?us-ascii?Q?KQQQk+va3lIPEBhY3xXUj6yjfrQ4JRQXmsmzeZQcl+cc+e1vryD0H2fsZYd5?=
- =?us-ascii?Q?Te0FVcp14hpg5ti0Lkdf901pi8cEuOPLgQrceJN3gNaFXBbbNJvlLu3BTq3u?=
- =?us-ascii?Q?ZEczLr3eRRz+AhCQPIZDQaIlgG47LGI6TQy/HsF7aREpBk4moD5HuWPzuHTY?=
- =?us-ascii?Q?PIV6njoa4ZsOcTY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(19092799006)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dnIBMj1bq+JyLpiD+p8olJmPeQodxsFhQE7+6kojVm40d9ctkf6W7rzULDBi?=
- =?us-ascii?Q?vHXoayqD2d976MjYrGCsYi8GIah5thiqh4Uw3Z3xu2gq7E8CA2qF4humIQAb?=
- =?us-ascii?Q?cm0RcHKaPce1xDCsK4hjDUyJPzlelTLj40TsX6RYmDX1e4wsaUV/Pnan443v?=
- =?us-ascii?Q?T8yn96OCBDsxYrEm8SfC6GjNpRtb1kHiiQLqeqK4s1xvbOp8NkZJ01juP6Vb?=
- =?us-ascii?Q?TSc5qZk4VuT2R3YOHb4guiwy2bLcLGvtISjQpdp5FqsHa/JNvQnOpr7hs2sj?=
- =?us-ascii?Q?Pl2o+6Est+uGaXnDv89svLVT9FZx2mjFU27INoq9qh2Rpx8jYOJ/DJPqjxgA?=
- =?us-ascii?Q?DShon0i7erryPpgAt4lpjJn0LSxNR55ckCrZgBYVYYZtGiyHZ6406ubNQ3aF?=
- =?us-ascii?Q?bCgjI4OyNKifXRy4fMAECOelRZe3hzC3aa8JTVRV9u+x4VTTESOidtUZUBMs?=
- =?us-ascii?Q?FdWOEwNC8p1YjA8lbhzLWFkust2RlxWhs+BV5M5mldS6gAXKuD5jqnb28RZ5?=
- =?us-ascii?Q?hk1jrF6JPk1aXoAvcprTQ6bFJiApQGTY8I+nUJmW6I2qWAJUR1irv2azwwM9?=
- =?us-ascii?Q?G15g0cQEY5cKa0Y2yhsto8n/Ot8tjqnIbh+GVGIDSstJT1Dk204hulroCvlv?=
- =?us-ascii?Q?sxMWwnxaATnJAppfodrpKn8/WJ1sQGACKzovfFYB3Qpkh5BcidaNvjt4kta9?=
- =?us-ascii?Q?VC7rZx/lVN1RbeB9qk6jrACWu4/0ltQ5FhgJePvlPBx8NND3WoShkBbZ6yS6?=
- =?us-ascii?Q?b4rbfdDvnAZ40XuRU5klK76hVK6laUYVvjpv18kr4P/lRd0MAJ5nPlw1OJZ1?=
- =?us-ascii?Q?v5vor0MU9gl5jfcRlfaspOYKwd8WiP57ul+SPsKD8RmEQ/jctOdwbzoRYSrA?=
- =?us-ascii?Q?jfOiWhgSJNSQZxngLIMQP1qtp0NaMwhEtlZ+4y9piU5jsdL3Hjid6eDvBVss?=
- =?us-ascii?Q?/EKF5LR4RNvkAwbSiEwbKr/6qwGYvH9paoZ9zVR+zNx+ztcHWq2/zKIahstb?=
- =?us-ascii?Q?tSf/mokGqV1hqnOzRS2yBS9/1KBTwXJJ5UET66uywSDNv34HNrVZ3CIYkFAL?=
- =?us-ascii?Q?HEFehTJQS9gZpAIDaPEBH/OZG/LynKNxFUtOmLyOYFo4XJwEOvm6fwntuXKB?=
- =?us-ascii?Q?4XYsU7sYhUupOPn94pbL2LMUvezqCHV624Sv5C/Pm61vvr8OugwCPBlkf/hw?=
- =?us-ascii?Q?N+GNP6bymgcIzuSIPuQB8haSVJJDqjw81WhyMFmgG3Q6uh/gPRbADOaJzchB?=
- =?us-ascii?Q?JAzpdpI6TnwL+1+UHgAyPIM29jlXfxe+Dz8Moik+wP3hGLd04/d4yFRBZv+w?=
- =?us-ascii?Q?xM4m/pQW7itQve8CYbXvL+gzzg8ct1Lb2rZELMzHdS6SAh9y+XA2Fu7JakJD?=
- =?us-ascii?Q?0Gc6fTLpPOSvB4/a5apBnvUjx9zJxv46uR4FYL+FCMnt8j8m/5vaEV22MRp3?=
- =?us-ascii?Q?f7RRJtjMrpJrSbl0qBnRz8ug6jAWr/9WEWprYRV+OMwhzqhLMrSvgNxz/oXJ?=
- =?us-ascii?Q?V9/vc/kvCXfh7nJsmGWD0WYUqWNCSVD4ZuGRfI2H+Yms4Mdc6RtEtnLImrR/?=
- =?us-ascii?Q?mNEPq9NWB7jVlRILQ60=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 45cee3d5-dfc3-4c9e-42e2-08ddcf857ad8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2025 16:23:56.2922
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3YFlYovCMBLjpikfM4UUZW6S5KJwfu2R4KkTrcl+TdI4kIdTYPWvtXtJ9QWZzF6DkFI0a2sVONmO8QFDZ7FzQw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9094
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aIo1ImP7R7VhRpVE@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_092407_239824_7588959D 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20250730_094755_229936_5B4C33A1 
+X-CRM114-Status: GOOD (  35.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,100 +112,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025 at 03:59:31PM +0300, Laurentiu Palcu wrote:
-> If runtime PM is used for the clock providers and they're part of a
-> power domain, then the power domain supply will be cut off when runtime
-> suspended. That means all BLK CTL registers belonging to that power
-> domain will be reset. Save the registers, then, before entering suspend
-> and restore them in resume.
+On Wed, Jul 30, 2025 at 03:07:14PM +0000, Mostafa Saleh wrote:
+> On Wed, Jul 30, 2025 at 11:42:53AM -0300, Jason Gunthorpe wrote:
+> > On Mon, Jul 28, 2025 at 05:53:16PM +0000, Mostafa Saleh wrote:
+> > > Register the SMMUv3 through IOMMU ops, that only support identity
+> > > domains. This allows the driver to know which device are currently used
+> > > to properly enable/disable then.
+> > > 
+> > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > > ---
+> > >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 92 ++++++++++++++++++-
+> > >  1 file changed, 91 insertions(+), 1 deletion(-)
+> > 
+> > Can you split the new iommu subysstem driver out please? I think I
+> > asked this before.
+> 
+> Sorry, maybe I misunderstood, do you mean split this patch into multiple
+> patches or split all KVM SMMUv3 driver out of this series?
 
-Save the registers before entering suspend, then restore them in resume.
+Yes the latter, the iommu driver introduction is best as its own
+series
 
->
-> Also, fix the suspend/resume routines and make sure we disable/enable
-> the clock correctly.
+> >  - Domain attachment looks questionable. Please do not have
+> >    attach/detach language at all in the hypervisor facing API.
+> 
+> I am not sure I understand this one, the hypervisor API has no
+> attach/detach APIs?
+> We only notify the hypervisor via “enable/disable” hypercalls when
+> devices are attached or released (as only IDENTITY DOMAIN is supported)
+> so it can enable or disable translation.
 
-Check runtime pm status in suspend/resume routines to make sure
-disable/enable clock correctly.
+Same difference, different words.. We've had trouble with this kind of
+ambiguous language.
 
->
-> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> ---
->  drivers/clk/imx/clk-imx95-blk-ctl.c | 33 ++++++++++++++++++-----------
->  1 file changed, 21 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
-> index c72debaf3a60b..56bed44719954 100644
-> --- a/drivers/clk/imx/clk-imx95-blk-ctl.c
-> +++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
-> @@ -453,15 +453,24 @@ static int imx95_bc_runtime_suspend(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
->
-> +	bc->clk_reg_restore = readl(bc->base + bc->pdata->clk_reg_offset);
->  	clk_disable_unprepare(bc->clk_apb);
-> +
->  	return 0;
->  }
->
->  static int imx95_bc_runtime_resume(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
-> +	int ret;
->
-> -	return clk_prepare_enable(bc->clk_apb);
-> +	ret = clk_prepare_enable(bc->clk_apb);
-> +	if (ret)
-> +		return ret;
-> +
-> +	writel(bc->clk_reg_restore, bc->base + bc->pdata->clk_reg_offset);
-> +
-> +	return 0;
->  }
->  #endif
->
-> @@ -469,17 +478,12 @@ static int imx95_bc_runtime_resume(struct device *dev)
->  static int imx95_bc_suspend(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
-> -	int ret;
->
-> -	if (bc->pdata->rpm_enabled) {
-> -		ret = pm_runtime_get_sync(bc->dev);
-> -		if (ret < 0) {
-> -			pm_runtime_put_noidle(bc->dev);
-> -			return ret;
-> -		}
-> -	}
-> +	if (pm_runtime_suspended(dev))
-> +		return 0;
->
->  	bc->clk_reg_restore = readl(bc->base + bc->pdata->clk_reg_offset);
-> +	clk_disable_unprepare(bc->clk_apb);
->
->  	return 0;
->  }
-> @@ -487,11 +491,16 @@ static int imx95_bc_suspend(struct device *dev)
->  static int imx95_bc_resume(struct device *dev)
->  {
->  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
-> +	int ret;
->
-> -	writel(bc->clk_reg_restore, bc->base + bc->pdata->clk_reg_offset);
-> +	if (pm_runtime_suspended(dev))
-> +		return 0;
->
-> -	if (bc->pdata->rpm_enabled)
-> -		pm_runtime_put(bc->dev);
-> +	ret = clk_prepare_enable(bc->clk_apb);
-> +	if (ret)
-> +		return ret;
-> +
-> +	writel(bc->clk_reg_restore, bc->base + bc->pdata->clk_reg_offset);
->
->  	return 0;
->  }
-> --
-> 2.46.1
->
+attach identity
+attach blocking
+
+Keep it clean and simple
+
+> >  - Get the ordering and APIs right so replace works. You need this to support RMRs
+> 
+> I see, we can’t support bypass for security reasons, but we can enable
+> the identity map for such devices.
+
+You will have a small issue if the bootup has the pkvm side put the
+device into a blocking translation then later switches to an
+"identity".
+
+As far as I understand it display scan out buffers have to be
+continuously hitlessly mapped. So you want all the transitions from
+bootup bypass, pkvm isolation, "identity", etc to continuously
+hitlessly map the RMRs containing the buffers.
+
+I think :)
+
+> >  - Use a blocking domain not some unclear detatch idea
+> 
+> There is not a single detach in this driver, we only support attach and release
+> operation, which just goes to the hypervisor as enable/disable
+> identity.
+
+'disable' then.
+
+> >  - Use a blocking domain for release
+> 
+> I see, I can add “blocked_domain” similar to “arm_smmu_blocked_domain”
+> which just disables the device translation, I will look into, I am just
+> concerned it's more code as this driver only supports a single domain
+> type.
+
+Yes, this is the right thing. There should not be operations in the
+driver that change the underyling translation that are anything other
+than attaching domains. It becomes too hard to maintain.
+
+ 
+> >  - Use the smmu-v3 approach for the fwspec, don't store things in the drvdata.
+> 
+> This is using “dev_iommu_fwspec_get” similar to the SMMUv3 driver,
+> am I missing something?
+
+Oh I got it confused, you are just calling 
+
++       .device_group           = arm_smmu_device_group,
++       .of_xlate               = arm_smmu_of_xlate,
++       .get_resv_regions       = arm_smmu_get_resv_regions,
+
+Which is also weird, why does an entirely new driver call 4 random functions
+in arm smmu?
+
+Maybe don't, they are all trivial functions, or you don't need
+them. For example you don't need MSI_IOVA_BASE if the driver doesn't
+support paging.
+
+Jason
 
