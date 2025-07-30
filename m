@@ -4,58 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6725C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 09:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E8EC87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 09:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vBTybFK7THjmLoPMZim8+9V/lwdax5628HZkXAMB+yk=; b=fvwdplkc6tb04rQsj3XFLDjuCO
-	vwPfItR2HAs62Xu2lLhlZrY2BjEx6G1KJaTZ0eGPg7mDhPsBo6udpK44jAXXq550uHsovCxuDb3mz
-	BtOpIB+m8LcUemQCyTdDlMufvnZEHke8i4UohUuP8BJg1q3Evy2jYqFbubwTMuW4OaQDGcbQOgIiC
-	r810p8ZhCfVdCysan9GCiRC+kaLOVijSUANs6AxlfzYnBbugi7ox0VV6pndaAUxwb5dBNvhKgITLW
-	m545ntD2RgWSaVxOo+d4xVUf9aWyenR9DPMJECJ4wO+N+K8L0A5yqQiWi8v0157MH9giKNIFMWj5A
-	N91pqFWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VjPNvqQW+32U0GZ3uLKkhcL506IfzWiZDDMxQSP3GIc=; b=JxwRpMd9J6MVK7d93GXfRfYCy2
+	ifKXhcrcDQ+qPuRjzE/UV/3fUg/Sa575h4C3JXYaS01vdk/i9yqVk6kqPHT2ZBRqS6W92YfrSfEoy
+	t9xE5PoNl1/TRkadPFGJMjb+NIzweR8Y0JeNPoyMYBQWkYlpYWvn6IKpfAsbW3UvdyMKFiQfW3muX
+	t23EIucG5WVSVqVgubL50w+ICNRiszhCsQFT4vGIGYgm1XwxoxWO5nyShh04ws6JUtBiLax0BgrxH
+	FvyVY+XqBlT2pIo3QnZeiGRRKjd6Cr8hEyU+ix4w2OX0CDGW0BqsjfuQ7Q0jIgUnNXk5iJ+xgigf+
+	F4FGktrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3LL-0000000192A-0f6p;
-	Wed, 30 Jul 2025 09:43:27 +0000
-Received: from ssh248.corpemail.net ([210.51.61.248])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh3Ip-000000018c6-338k
+	id 1uh3Ui-00000001AVG-3LBf;
+	Wed, 30 Jul 2025 09:53:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uh3SC-00000001A6d-2xaJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 09:40:53 +0000
-Received: from jtjnmail201608.home.langchao.com
-        by ssh248.corpemail.net ((D)) with ASMTP (SSL) id 202507301740262167;
-        Wed, 30 Jul 2025 17:40:26 +0800
-Received: from locahost.localdomain.com (10.94.11.126) by
- jtjnmail201608.home.langchao.com (10.100.2.8) with Microsoft SMTP Server id
- 15.1.2507.57; Wed, 30 Jul 2025 17:40:25 +0800
-From: Charles Han <hanchunchao@inspur.com>
-To: <linux@armlinux.org.uk>, <rmk+kernel@armlinux.org.uk>, <ardb@kernel.org>,
-	<nathan@kernel.org>, <ebiggers@kernel.org>, <linus.walleij@linaro.org>,
-	<rostedt@goodmis.org>, <kees@kernel.org>, <ruanjinjie@huawei.com>,
-	<dave@vasilevsky.ca>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Charles Han <hanchunchao@inspur.com>
-Subject: [PATCH] ARM: Kconfig: Remove repeated word in Kconfig
-Date: Wed, 30 Jul 2025 17:40:12 +0800
-Message-ID: <20250730094012.3200-1-hanchunchao@inspur.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 30 Jul 2025 09:50:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 161511BC0;
+	Wed, 30 Jul 2025 02:50:22 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E04AD3F7BD;
+	Wed, 30 Jul 2025 02:50:27 -0700 (PDT)
+Date: Wed, 30 Jul 2025 10:50:17 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <Anshuman.Khandual@arm.com>,
+	Rob Herring <Rob.Herring@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	Robin Murphy <Robin.Murphy@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] perf: arm_spe: Disable buffer before writing to
+ PMBPTR_EL1 or PMBSR_EL1
+Message-ID: <aInqMPBzi7YnIxOB@raptor>
+References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
+ <20250701-james-spe-vm-interface-v1-2-52a2cd223d00@linaro.org>
+ <20250704155016.GI1039028@e132581.arm.com>
+ <b77f12e7-ea3f-4c57-9706-ff8e32721cc8@linaro.org>
+ <20250707153710.GB2182465@e132581.arm.com>
+ <aG4_uYJgpMXo3QHQ@raptor>
+ <20250714085849.GC1093654@e132581.arm.com>
+ <0c53164a-306a-4cb7-9085-bba8985c32e7@linaro.org>
+ <20250721152134.GF3137075@e132581.arm.com>
+ <10e9cb52-2476-4c13-8632-0a85830f98dd@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.94.11.126]
-tUid: 20257301740267c554ea7e2085ffd15d81d4884a3010c
-X-Abuse-Reports-To: service@corp-email.com
-Abuse-Reports-To: service@corp-email.com
-X-Complaints-To: service@corp-email.com
-X-Report-Abuse-To: service@corp-email.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <10e9cb52-2476-4c13-8632-0a85830f98dd@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_024052_017582_FC4FA9CB 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20250730_025032_820747_B1D4CC74 
+X-CRM114-Status: GOOD (  44.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,36 +79,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the repeated word "the" in description of the help field.
+Hi Leo, James,
 
-Signed-off-by: Charles Han <hanchunchao@inspur.com>
----
- arch/arm/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+On Tue, Jul 22, 2025 at 03:46:11PM +0100, James Clark wrote:
+> 
+> 
+> On 21/07/2025 4:21 pm, Leo Yan wrote:
+> > On Mon, Jul 21, 2025 at 02:20:15PM +0100, James Clark wrote:
+> > 
+> > [...]
+> > 
+> > > > > Thought about this some more.
+> > > > > 
+> > > > > Before:
+> > > > > 
+> > > > > arm_spe_pmu_buf_get_fault_act:
+> > > > >     <drain buffer>
+> > > > >     ISB
+> > > > > arm_spe_perf_aux_output_begin:
+> > > > >     PMBLIMITR_EL1.E = 1
+> > > > > ISB
+> > > > > PMBSR_EL1.S = 0
+> > > > > ERET
+> > > > > 
+> > > > > Now:
+> > > > > 
+> > > > > PMBLIMITR_EL1 = 0
+> > > > > ISB
+> > > > > 
+> > > > > PMBSR_EL1.S = 0
+> > > > > arm_spe_perf_aux_output_begin:
+> > > > >     ISB
+> > > > >     PMBLIMITR_EL1.E = 1
+> > > > > ERET
+> > > > > 
+> > > > > I don't see much of a difference between the two sequences - the point after
+> > > > > which we can be sure that profiling is enabled remains the ERET from the
+> > > > > exception return.  The only difference is that, before this change, the ERET
+> > > > > synchronized clearing the PMBSR_EL1.S bit, now it synchronizes setting the
+> > > > > PMBLIMITR_EL1.E bit.
+> > > > > 
+> > > > > Thoughts?
+> > > > 
+> > > > To make the discussion easier, I'll focus on the trace enabling flow
+> > > > in this reply.
+> > > > 
+> > > > My understanding of a sane flow would be:
+> > > > 
+> > > >     arm_spe_pmu_irq_handler() {
+> > > >       arm_spe_perf_aux_output_begin() {
+> > > >             SYS_PMBPTR_EL1 = base;
+> > > > 
+> > > >             ISB // Synchronization between SPE register setting and
+> > > >                 // enabling profiling buffer.
+> > > >             PMBLIMITR_EL1.E = 1;
+> > > >       }
+> > > >       ISB // Context synchronization event to ensure visibility to SPE
+> > > >     }
+> > > > 
+> > > >     ... start trace ... (Bottom half, e.g., softirq, etc)
+> > > > 
+> > > >     ERET
+> > > > 
+> > > > In the current code, arm_spe_perf_aux_output_begin() is followed by an
+> > > > ISB, which serves as a context synchronization event to ensure
+> > > > visibility to the SPE. After that, it ensures that the trace unit will
+> > > > function correctly.
+> > > > 
+> > > 
+> > > But I think Alex's point is that in the existing code the thing that finally
+> > > enables trace (PMBSR_EL1.S = 0) isn't followed by an isb(), only an ERET. So
+> > > the new flow isn't any different in that regard.
+> > 
+> > Thanks for explanation.
+> > 
+> > > > I understand that the Software Usage PKLXF recommends using an ERET as
+> > > > the synchronization point. However, between enabling the profiling
+> > > > buffer and the ERET, the kernel might execute other operations (e.g.,
+> > > > softirqs, tasklets, etc.).
+> > > 
+> > > Isn't preemption disabled? Surely that's not possible. Even if something did
+> > > run it wouldn't be anything that touches the SPE registers, and we're sure
+> > > there's an isb() between setting up the buffer and the final PMBLIMITR_EL1.E
+> > > = 1
+> > 
+> > Yes, bottom half runs in preemtion disabled state. See:
+> > 
+> >    el1_interrupt() -> __el1_irq() -> irq_exit_rcu() -> invoke_softirq()
+> > 
+> > In some cases, sotfirq and tasklet might even cause long latency (I
+> > believe it can be milliseconds or even longer), this is why ftrace
+> > "irqsoff" tracer is used to profile latency caused by irq off state.
+> > 
+> > Bottom half does not modify SPE registsers, but it can be a long road
+> > between enabling SPE trace and ERET.
+> > 
+> > > > Therefore, it seems to me that using ERET as the synchronization point
+> > > > may be too late. This is why I think we should keep an ISB after
+> > > > arm_spe_perf_aux_output_begin().
+> > > 
+> > > Wouldn't that make the ERET too late even in the current code then? But I
+> > > think we're agreeing there's no issue there?
+> > 
+> > I would say ERET is too late for current code as well.
+> > 
+> > Thanks,
+> > Leo
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index b1f3df39ed40..20f88ea59818 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1502,7 +1502,7 @@ config ARM_ATAG_DTB_COMPAT_CMDLINE_EXTEND
- 	bool "Extend with bootloader kernel arguments"
- 	help
- 	  The command-line arguments provided by the boot loader will be
--	  appended to the the device tree bootargs property.
-+	  appended to the device tree bootargs property.
- 
- endchoice
- 
-@@ -1644,7 +1644,7 @@ config DMI
- 	  continue to boot on existing non-UEFI platforms.
- 
- 	  NOTE: This does *NOT* enable or encourage the use of DMI quirks,
--	  i.e., the the practice of identifying the platform via DMI to
-+	  i.e., the practice of identifying the platform via DMI to
- 	  decide whether certain workarounds for buggy hardware and/or
- 	  firmware need to be enabled. This would require the DMI subsystem
- 	  to be enabled much earlier than we do on ARM, which is non-trivial.
--- 
-2.43.0
+Thanks for the explanation and the analysis. I think we were looking at the
+patch from different point of views: I was interested in not changing the
+current behaviour, you were saying that the existing behaviour can be improved
+upon.
 
+> Ok I get it now. The point is that there is stuff in between the return in
+> the SPE IRQ handler and the actual ERET. If someone is interested in
+> sampling the kernel then they might miss sampling a small amount of that.
+> 
+> It's not a correctness thing, just reducing potential gaps in the samples. I
+> can add another commit to add it, but it doesn't look like it would be a
+> fixes commit either, just an improvement. And the same issue applies to the
+> existing code too.
+
+I agree here, this looks on an improvement on existing behaviour. I would keep
+it as a patch separate from this series, as it's not a fix, and it's not related
+to to the rules from DEN0154.
+
+Thanks,
+Alex
 
