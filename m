@@ -4,133 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04AD7C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 06:11:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA952C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 06:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8GarnDOnNJKzeZ2lD2KNRhYJHX7+tWc+5HdYlPv7A2U=; b=NEFLZ/j9Oxzmmvjk1zxRxsdF/g
-	sAo3FFN5wqR2H5ErDVY0LYC+SE0eNjpn8KM6YIGpH0h/kN2SaHaNkQ5NvJn787q4zcHN2ABlnJcnK
-	gL9l4xrYegh/H+7kz2wYF5UTuvAMNaAqogFpPS8CFHYShKc41BTWn5ph0oH7goBinLrSFLCN7ltl+
-	LHWVlko0TSY2r1AQlRcWpJneGboz5QC1y0iMErPFE3aUyDF2wJX8uPMteEjYhNPUC+UY08oi8cY5X
-	Vp1fWFZGaqrD0KXR8bKCdQ8FjSL/LyMDAnZ8OVu5xSTJv1Jo0jhH3nhpQNem9uDsdP7gEHy+2UDBX
-	puJEvNjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CE+VGFhEeMBuX62wOBgp62Z2B/CebCJnk+FFXVi5qSQ=; b=JW6BtQ3JbVBk1KKOXkAA9Ik5z2
+	GCHeSwVA2QB1FM78IIdaguB0hkfMEU1fRzH14cgm27tqAji01dlYpNG/42xS/qEUDT8O9GQc5yY8w
+	kTa5m9NOGgLBEtzXmg4BfI3zP6hB9QiC8Z/hgV3lG3Wom4wG8Og3fjPruJZiXlVVIJAVNyDMEMC7h
+	GabhoLQ4icvIr8MUwBviS5BkKdQu1YVU1eWR1Pkpfb6OanDfxDL8bP8nMGyyp10rcEauRC38IlOLt
+	d8aJj8vW++VLndw0Oxrc6KioHj7idMjiZ+bvAZnlaEb7fRMXCrkoR4YKXproWBxucEIDxGlUDSeUG
+	vPpfxweA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh01i-00000000m62-2Fgy;
-	Wed, 30 Jul 2025 06:10:58 +0000
-Received: from mail-dm3nam02on20618.outbound.protection.outlook.com ([2a01:111:f403:2405::618] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1uh0l6-00000000pcp-3w3T;
+	Wed, 30 Jul 2025 06:57:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugzwq-00000000lfE-2aaU
+	id 1uh0id-00000000pXC-15bn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 06:05:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=G9FMZNZlh8jwIrHyppJCuPHoa3Gx7VqhSSZmf34kEa1q2nJmy9qaANQVQrADuzKXkPQ3gVbkr7yVCS6H2F3NqbPVb53xztC7/2k/MH2b+jlcU4MvYMoumQXRru+NehAoCB35+kRwrs1PbZzej00daRrybAgdsfiLbqiX01Dj81s/WqCYDQqFohdx5U92VfBB6V51i0Uau161BcF43n6ALVhqwOrw4RJpVDXO28Vne4uyTXScFelbucpnnXTT44HapaGG+ZIa15vKwy2HqyHLYonKqFKLVzjen5lAxrIAkHoTWtUMnR6OFNuu2BOsh9VjN86GUD3oFBc1q+UmokhlKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8GarnDOnNJKzeZ2lD2KNRhYJHX7+tWc+5HdYlPv7A2U=;
- b=xpYNMwl74+1C4BB8CaRiuF5robPE/FNvLC/Lm3h9Wi7MAqtnd2FSHRwmQ02adZ3P77rCdDEKvyXZB79FaZ3yL40txY02SwOhFOtRawB5DcVq5w23gdogb/ztiEvRua/ILTlyrjXbKHL+AQLCJhYad13KN6KGPx7GUwUHYxNPo7JevBcFm03CYj/e9N8SQ93ME7xx/B6r5Wu7TtELIf5oz3KzNGeF+FPyT+z57uVp+l4O9GT4F/Im/y9q9Wh48yvayWqUDDoDhVvT1x7/SngTS8MdMN3BDIYla2zbnDhD0eLAgW7MmBTbY6D3Nzn6EJCOCwvGJEZk2pZ9JPjJajVFbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=intel.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8GarnDOnNJKzeZ2lD2KNRhYJHX7+tWc+5HdYlPv7A2U=;
- b=i2S05LuxDYgml+5IQQrH1ZUPp9fYQa1GONQRqVglsyhtnKGRDhkElPSb6shaauaJPBMihsKypjqouhNobG3/pvFM9ngdqCAaRmgBDzvjcRAHZg7cG831MDJTWfgM/eDpzUpHe6xMChfV+GCu3i+wU+Grjq0wrBqtz8Aj8nnAzzs=
-Received: from BYAPR07CA0012.namprd07.prod.outlook.com (2603:10b6:a02:bc::25)
- by CYYPR12MB8855.namprd12.prod.outlook.com (2603:10b6:930:bb::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.11; Wed, 30 Jul
- 2025 06:05:51 +0000
-Received: from SA2PEPF000015C6.namprd03.prod.outlook.com
- (2603:10b6:a02:bc:cafe::30) by BYAPR07CA0012.outlook.office365.com
- (2603:10b6:a02:bc::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.13 via Frontend Transport; Wed,
- 30 Jul 2025 06:05:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB03.amd.com; pr=C
-Received: from SATLEXMB03.amd.com (165.204.84.17) by
- SA2PEPF000015C6.mail.protection.outlook.com (10.167.241.196) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8989.10 via Frontend Transport; Wed, 30 Jul 2025 06:05:50 +0000
-Received: from SATLEXMB03.amd.com (10.181.40.144) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Jul
- 2025 01:05:49 -0500
-Received: from xhdlakshmis40.xilinx.com (10.180.168.240) by SATLEXMB03.amd.com
- (10.181.40.144) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 30 Jul 2025 01:05:46 -0500
-From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-To: Adrian Hunter <adrian.hunter@intel.com>, Michal Simek
-	<michal.simek@amd.com>, Ulf Hansson <ulf.hansson@linaro.org>
-CC: <linux-mmc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>, <saikrishna12468@gmail.com>,
-	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: [PATCH v3] mmc: sdhci-of-arasan: Ensure CD logic stabilization before power-up
-Date: Wed, 30 Jul 2025 11:35:43 +0530
-Message-ID: <20250730060543.1735971-1-sai.krishna.potthuri@amd.com>
-X-Mailer: git-send-email 2.25.1
+	Wed, 30 Jul 2025 06:55:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CEB74498F;
+	Wed, 30 Jul 2025 06:55:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82767C4CEE7;
+	Wed, 30 Jul 2025 06:55:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753858517;
+	bh=CE+VGFhEeMBuX62wOBgp62Z2B/CebCJnk+FFXVi5qSQ=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=EJLncwru6TUCRxeZ4od39fNNxekNt5DSvRCOdGH5q8gH3Zu8SnYrmlPPKPLYhM+3a
+	 qVNVOA+GqVwL1t3sHSP97O0tdI03qQv/kYgEjimqZM7Omkz028CBWXWFYUs6EoqnV/
+	 d6HHEKZr5uKVX9OkzoSxZry7MRX0DB9/nW4PmBaT9bUfH3EqEeIOZIR13FAk2mC1J0
+	 jFijBD+d3IYEsFLn4/HDyLI/7r3FBKe01kQjmj1J3vkgagE/ZZJ3x6tBlxdgAjWoUk
+	 mPFRceNdbK4pSWDMW0OInnfDUKbzXV7Oxkd5fKwV3Uysii9sIGdVyrJA/vqBtQmwRE
+	 aLQjlmrDCR6lQ==
+Message-ID: <926eebd1-4790-4ca4-a03b-b52a32e7fd91@kernel.org>
+Date: Wed, 30 Jul 2025 08:55:12 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB03.amd.com: sai.krishna.potthuri@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015C6:EE_|CYYPR12MB8855:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e1f5dd1-e132-4a6a-4dd3-08ddcf2f22c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Kl6J0yNDR/tqkM+8IgaTlkAxFo/vSD14lp167cD7ItQR6z68JuHSIWakFIZr?=
- =?us-ascii?Q?HcMnymiSfNFh3KyQGRokUTNrcu3fPt41nDbXMukLoXihuEV+f8MODhGkjZyc?=
- =?us-ascii?Q?bwp5BIlrSl30iOo7lFDGtsuo7V+uc5hbIlEOqJ9VPy7cKXq7pBwIYECpjp9X?=
- =?us-ascii?Q?qPTsoH/NWX/aecJshHextkF/S7F2nMo3rDU7w2wo04XvDSmiBIqHHcSt3A4a?=
- =?us-ascii?Q?Cr/+YL6nOeVzy9AVIxODegG3ssrU0ywYGYnV6Y4rmrKlfniHd2d2HUYtjpiz?=
- =?us-ascii?Q?TaQGODFC5O/ISH4z1wWpNkBLSI91Y2mB+8c0f6iBpR+PlnxBZFotUgWlxO9g?=
- =?us-ascii?Q?GeJyYZ8zbup2ML16hQHPC0n9NB5UvbngLtbHVPog92bYJL112DAdL6pPI8L3?=
- =?us-ascii?Q?8bO0cJukyo9k2NmuvGKGLSJM3AqdhUqyUmw5BhJ95e6XG/5oBwnyTzCisHCv?=
- =?us-ascii?Q?mdQot76v8dKjC6l5JD4RTYlpFu+w1RWiEJvoX7q/QKXqM7svkYKSN1fx3fh0?=
- =?us-ascii?Q?M0GLuXBA2TbT/thoPZ6AeEOyua9V+ILlJC6dmjMoo/xPF/CfmBpunY6DS6ia?=
- =?us-ascii?Q?6VA8fYXm+5JgtIGUg/MP0WVS0wmYTVzbYlSpIUtt3HLU3GEPpDv3sU8f3M2D?=
- =?us-ascii?Q?5T/thP0OZU81lmhUUw+k8znX9EBmPfGNUfCO7/qOElO11+8Om1LuhVM77q/J?=
- =?us-ascii?Q?L3jxAmeM13ciBvWavZ6KgipqXfHQgff5Qqqz8AuSXFKJ2DJ/zpirOGi49qnv?=
- =?us-ascii?Q?62AOZ2Scfp8WwLOSdGpeCd79O0tccob46FCnTsCyL+n5QssZ6IGzb1KIv/cR?=
- =?us-ascii?Q?nDC13DiY7uwnPrA6zG7R/oRrqx4bW+hqFDX8uOcJhM2uVoLUqRc4nJe9Hs6z?=
- =?us-ascii?Q?3yYmXIn+ZiyIJYGbJAFJypkrcaJjzDVDfU4S4kHyvUFLhPaHguLSuW6rbgs4?=
- =?us-ascii?Q?V90KPQHEBD1nBdDgGTHFt/+gvGklQsatam+uIyX5fbX4tx7aS8xquE8zcx5H?=
- =?us-ascii?Q?mi7GxV/Lah5F0OWaMHSFTVnsSH3+KYdDxnhf2z55XtxRGkCo3xo8oEvlXMCY?=
- =?us-ascii?Q?EoGZL3zSjOBjQ0QJ1y4a+pbmlYLFONUwvqS7qb5uBttQxXNjRiE2B1Dm7a32?=
- =?us-ascii?Q?wdNUrHOigGRZ8zfWYxjZ2V2+qW4Z1lJ71tR6gXr0cC1o8WmRleh+68pIEhfY?=
- =?us-ascii?Q?q0eFL8kkAw3PUoVii/6CjzV8pvma5/vcYZObLB3BLYveuNynGDKaFhuzSHba?=
- =?us-ascii?Q?QHjm2YszvgU0R/8zlkV1LSN0TU6W3o5EH6HNGJhHxjlOaHgYlLXJW0jJNpZf?=
- =?us-ascii?Q?0w9j50kJMkfrGufDb2QIvxC6qtme5wPZr1PVmmf0AY9JFJWa4AwhZQYyA2pr?=
- =?us-ascii?Q?RGRZQIHR3yIHQbKMBdU8NisKhynhTTa4K+FRV5f4hlg2CX7r/9QTWV9B10ts?=
- =?us-ascii?Q?FmWSQpkr5c9S0JxHkVO4sbJ/OHUzToxS+ldcurQd0/NFYMfXkItPSheNPTa+?=
- =?us-ascii?Q?uOxZV1MSNRruhh8lsUFi8afdHh7y+KS52uiC?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB03.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2025 06:05:50.9733
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e1f5dd1-e132-4a6a-4dd3-08ddcf2f22c7
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB03.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015C6.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8855
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] spi: dt-bindings: atmel,at91rm9200-spi: Add support
+ for optional 'spi_gclk' clock
+To: Manikandan Muralidharan <manikandan.m@microchip.com>, broonie@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org,
+ linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250730053720.262118-1-manikandan.m@microchip.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250730053720.262118-1-manikandan.m@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_230556_658080_157C8C40 
-X-CRM114-Status: GOOD (  20.16  )
+X-CRM114-CacheID: sfid-20250729_235519_341224_AC18E718 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,137 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During SD suspend/resume without a full card rescan (when using
-non-removable SD cards for rootfs), the SD card initialization may fail
-after resume. This occurs because, after a host controller reset, the
-card detect logic may take time to stabilize due to debounce logic.
-Without waiting for stabilization, the host may attempt powering up the
-card prematurely, leading to command timeouts during resume flow.
-Add sdhci_arasan_set_power_and_bus_voltage() to wait for the card detect
-stable bit before power up the card. Since the stabilization time
-is not fixed, a maximum timeout of one second is used to ensure
-sufficient wait time for the card detect signal to stabilize.
+On 30/07/2025 07:37, Manikandan Muralidharan wrote:
+> Update the Atmel SPI DT binding to support an optional programmable
+> SPI generic clock 'spi_gclk', in addition to the required 'spi_clk'.
 
-Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
----
-Changes in v3:
-- Add quirk to sdhci_arasan_of_data and assigned them to
-sdhci_arasan->quirks in probe instead of using of_device_is_compatible().
-Changes in v2:
-- Use read_poll_timeout() instead of readl_poll_timeout().
-- Enable the CD stable check using platform specific quirk.
-- Define the quirk for Xilinx/AMD ZynqMP, Versal and Versal NET platforms.
+Why? Hardware changed? Explain why you are making changes to the stable ABI.
 
- drivers/mmc/host/sdhci-of-arasan.c | 33 ++++++++++++++++++++++++++++--
- 1 file changed, 31 insertions(+), 2 deletions(-)
+Also, I do not see any user of this, but maybe you just created Cc-list
+incomplete.
 
-diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
-index 42878474e56e..60dbc815e501 100644
---- a/drivers/mmc/host/sdhci-of-arasan.c
-+++ b/drivers/mmc/host/sdhci-of-arasan.c
-@@ -99,6 +99,9 @@
- #define HIWORD_UPDATE(val, mask, shift) \
- 		((val) << (shift) | (mask) << ((shift) + 16))
- 
-+#define CD_STABLE_TIMEOUT_US		1000000
-+#define CD_STABLE_MAX_SLEEP_US		10
-+
- /**
-  * struct sdhci_arasan_soc_ctl_field - Field used in sdhci_arasan_soc_ctl_map
-  *
-@@ -206,12 +209,15 @@ struct sdhci_arasan_data {
-  * 19MHz instead
-  */
- #define SDHCI_ARASAN_QUIRK_CLOCK_25_BROKEN BIT(2)
-+/* Enable CD stable check before power-up */
-+#define SDHCI_ARASAN_QUIRK_ENSURE_CD_STABLE	BIT(3)
- };
- 
- struct sdhci_arasan_of_data {
- 	const struct sdhci_arasan_soc_ctl_map *soc_ctl_map;
- 	const struct sdhci_pltfm_data *pdata;
- 	const struct sdhci_arasan_clk_ops *clk_ops;
-+	u32 quirks;
- };
- 
- static const struct sdhci_arasan_soc_ctl_map rk3399_soc_ctl_map = {
-@@ -514,6 +520,24 @@ static int sdhci_arasan_voltage_switch(struct mmc_host *mmc,
- 	return -EINVAL;
- }
- 
-+static void sdhci_arasan_set_power_and_bus_voltage(struct sdhci_host *host, unsigned char mode,
-+						   unsigned short vdd)
-+{
-+	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-+	struct sdhci_arasan_data *sdhci_arasan = sdhci_pltfm_priv(pltfm_host);
-+	u32 reg;
-+
-+	/*
-+	 * Ensure that the card detect logic has stabilized before powering up, this is
-+	 * necessary after a host controller reset.
-+	 */
-+	if (mode == MMC_POWER_UP && sdhci_arasan->quirks & SDHCI_ARASAN_QUIRK_ENSURE_CD_STABLE)
-+		read_poll_timeout(sdhci_readl, reg, reg & SDHCI_CD_STABLE, CD_STABLE_MAX_SLEEP_US,
-+				  CD_STABLE_TIMEOUT_US, false, host, SDHCI_PRESENT_STATE);
-+
-+	sdhci_set_power_and_bus_voltage(host, mode, vdd);
-+}
-+
- static const struct sdhci_ops sdhci_arasan_ops = {
- 	.set_clock = sdhci_arasan_set_clock,
- 	.get_max_clock = sdhci_pltfm_clk_get_max_clock,
-@@ -521,7 +545,7 @@ static const struct sdhci_ops sdhci_arasan_ops = {
- 	.set_bus_width = sdhci_set_bus_width,
- 	.reset = sdhci_arasan_reset,
- 	.set_uhs_signaling = sdhci_set_uhs_signaling,
--	.set_power = sdhci_set_power_and_bus_voltage,
-+	.set_power = sdhci_arasan_set_power_and_bus_voltage,
- 	.hw_reset = sdhci_arasan_hw_reset,
- };
- 
-@@ -570,7 +594,7 @@ static const struct sdhci_ops sdhci_arasan_cqe_ops = {
- 	.set_bus_width = sdhci_set_bus_width,
- 	.reset = sdhci_arasan_reset,
- 	.set_uhs_signaling = sdhci_set_uhs_signaling,
--	.set_power = sdhci_set_power_and_bus_voltage,
-+	.set_power = sdhci_arasan_set_power_and_bus_voltage,
- 	.irq = sdhci_arasan_cqhci_irq,
- };
- 
-@@ -1447,6 +1471,7 @@ static const struct sdhci_arasan_clk_ops zynqmp_clk_ops = {
- static struct sdhci_arasan_of_data sdhci_arasan_zynqmp_data = {
- 	.pdata = &sdhci_arasan_zynqmp_pdata,
- 	.clk_ops = &zynqmp_clk_ops,
-+	.quirks = SDHCI_ARASAN_QUIRK_ENSURE_CD_STABLE,
- };
- 
- static const struct sdhci_arasan_clk_ops versal_clk_ops = {
-@@ -1457,6 +1482,7 @@ static const struct sdhci_arasan_clk_ops versal_clk_ops = {
- static struct sdhci_arasan_of_data sdhci_arasan_versal_data = {
- 	.pdata = &sdhci_arasan_zynqmp_pdata,
- 	.clk_ops = &versal_clk_ops,
-+	.quirks = SDHCI_ARASAN_QUIRK_ENSURE_CD_STABLE,
- };
- 
- static const struct sdhci_arasan_clk_ops versal_net_clk_ops = {
-@@ -1467,6 +1493,7 @@ static const struct sdhci_arasan_clk_ops versal_net_clk_ops = {
- static struct sdhci_arasan_of_data sdhci_arasan_versal_net_data = {
- 	.pdata = &sdhci_arasan_versal_net_pdata,
- 	.clk_ops = &versal_net_clk_ops,
-+	.quirks = SDHCI_ARASAN_QUIRK_ENSURE_CD_STABLE,
- };
- 
- static struct sdhci_arasan_of_data intel_keembay_emmc_data = {
-@@ -1937,6 +1964,8 @@ static int sdhci_arasan_probe(struct platform_device *pdev)
- 	if (of_device_is_compatible(np, "rockchip,rk3399-sdhci-5.1"))
- 		sdhci_arasan_update_clockmultiplier(host, 0x0);
- 
-+	sdhci_arasan->quirks |= data->quirks;
-+
- 	if (of_device_is_compatible(np, "intel,keembay-sdhci-5.1-emmc") ||
- 	    of_device_is_compatible(np, "intel,keembay-sdhci-5.1-sd") ||
- 	    of_device_is_compatible(np, "intel,keembay-sdhci-5.1-sdio")) {
--- 
-2.25.1
-
+Best regards,
+Krzysztof
 
