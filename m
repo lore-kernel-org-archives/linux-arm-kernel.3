@@ -4,162 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BBCC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F443C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 11:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/E8q38LqUZN8GyGcHMxocWkfDT+RSPgbK8YhzzhHfc=; b=wUiDWeHuuTVhXxTXuV5XQ5NMPW
-	e5AVtIcFk2kBoDguYvbHIIQnBAgl1QPezKhtnGqfy1e2TJCDA3ORI8gQomnp8JU3z4kBSSchgXS+V
-	th67ubVw6WUV8pZdjQLOAUvshH4PUmDZh5QQT/sOk1f0cVWDEyygoX7tHbZS0Jof9qA9yjdQBtfbV
-	yj+uJuMwNRGaOSXPum7GKd2QDowpHUzWV7zg5ldJYIx/FudGLaEMfRKiclOGMD41E7BBXNQN3065V
-	3pbApqwZN9ruVAd+spweGOcgqPTR/nmHubZ1GqUjXngKHFFrulWKPjeluH2oVL4FxMfAPzggkeb9k
-	odqLCvgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rtkTsML0SgiyxB4HRxcyE0Dg7dVQnCnvsW3qOAMl6K8=; b=AzVstJxhQqVjVPoUWhWkrWvY+8
+	ComB0gqsU3jIsY9FMvJ4E8k2CrEA4HhuvjGKVDOJYqBkkkLGrvSf0guaIl/zqLrVQ8S0JkGQQXyyQ
+	5aM6pOJeHSn3GgI+u896ZfkBdQJlIjazO2SMs7+FeJDs1X/PXzXmQVHsnoL0W/9yK200hvIjq6GK1
+	a/y3HZ9s00UaHhlWdohBc7QxQyszmF7ENVlW+BhnybG/mI+GBwJRC547+1m1OYjyi1sFuBjucNj1n
+	ifiv0H2EQUsudJziuwyW/SLRMrf/OWDCHUgOCgt5a53nZeL5wr0m3yt4KV7yasb/r/rorPwmKK2+y
+	4kvrAmdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh4X8-00000001HXG-3USb;
-	Wed, 30 Jul 2025 10:59:42 +0000
-Received: from mail-bn7nam10on20624.outbound.protection.outlook.com ([2a01:111:f403:2009::624] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1uh4Zb-00000001I2S-2xYp;
+	Wed, 30 Jul 2025 11:02:15 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh4TE-00000001GgZ-0kGf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 10:55:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iAmgB+GuKCiA1p1tbHFaIfc9xg9TiKJXT4GaMOTZMex8GixUuYKwTvOwjtbfpd2dg7tRkpD+uKZguIFSWxL01teIs7cjqqEoAsb3qe7Aq8k0fmShiecZqTB1FRkZY6ntp+F0WzddgdKnQyePSyiMM/1WubjstYftal5fUAqcAP4r4IPxWKukapT70JKC9ofQqE53yWZw5j9x7dJp/be/Wfc9NpwZXGjZ+org5OUgZcM9cDgYsevBqSUF/3B6XYKJgWV05AETJQthNbGldkZetWcT/zisPevrNs/s4aTsTXXGha+uKs7C/zEHM+w6cI5XRTA8HrYzNzD5eEHA/V1UVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f/E8q38LqUZN8GyGcHMxocWkfDT+RSPgbK8YhzzhHfc=;
- b=ZGeQlmFnizJxkgpsu9Shrr+LhAKmYsClLmHhSq+OImr3q/W0d5XGBAuOThg8B2gjsGDPpvr0BwMdkPZ2Ij2+bGEBng1fzg40vyy6p3rs/zoqV5QrRHWhRMsuq0yR7PdJuP11s/AXnzar3XSuZ4//gZkKL4e+ur0p+5XdujGtW++rOTaCfBDqNH3KGMdrhFxrJZLYLbBIusXBT4uIAD0k3pvfaMNsknD0X6Nesi9sp3HCuDPVOiB7SMC88/+OAUBGkX4+D9y/jaa5YIa8DQ6NjSkHW4C2fsOrMnfQ6B02gPGTmg9NdileZ2GsdiKmTKl2ORhbpW409IWnMO+wjvf5cA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f/E8q38LqUZN8GyGcHMxocWkfDT+RSPgbK8YhzzhHfc=;
- b=PeyAOHeBjbRINrNGx2VndAvrXLg00iXJYPPuyPOuFJaumHqL9JnBow8a4Y7+ef+/UQKBodsQo4EVWr0jyqCp3kLNqOLNmmphJUZ+HCDN9X4oFDaMKmxU9h0cgP5faRybIGixtRhHs2ojM+40qCFrbPey5x9TwsYTkZyoM1yYULg=
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com (2603:10b6:208:420::15)
- by CY8PR12MB8065.namprd12.prod.outlook.com (2603:10b6:930:73::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.12; Wed, 30 Jul
- 2025 10:55:31 +0000
-Received: from IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::af21:b877:699d:43b0]) by IA1PR12MB7736.namprd12.prod.outlook.com
- ([fe80::af21:b877:699d:43b0%5]) with mapi id 15.20.8964.026; Wed, 30 Jul 2025
- 10:55:30 +0000
-From: "Erim, Salih" <Salih.Erim@amd.com>
-To: "Simek, Michal" <michal.simek@amd.com>, Jonathan Cameron
-	<jic23@kernel.org>
-CC: Sean Anderson <sean.anderson@linux.dev>, "O'Griofa, Conall"
-	<conall.ogriofa@amd.com>, "linux-iio@vger.kernel.org"
-	<linux-iio@vger.kernel.org>, David Lechner <dlechner@baylibre.com>,
-	=?iso-8859-1?Q?Nuno_S=E1?= <nuno.sa@analog.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Andy Shevchenko <andy@kernel.org>,
-	Manish Narani <manish.narani@xilinx.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH] iio: xilinx-ams: Unmask interrupts after updating alarms
-Thread-Topic: [PATCH] iio: xilinx-ams: Unmask interrupts after updating alarms
-Thread-Index: AQHb9R/b1tmWBACI9EytyB8y8tMvrrRBdgiAgADeHACAA9wKAIAA7csAgAN4QLA=
-Date: Wed, 30 Jul 2025 10:55:30 +0000
-Message-ID: <IA1PR12MB7736A3924239D1EF35DAED089F24A@IA1PR12MB7736.namprd12.prod.outlook.com>
-References: <20250715002847.2035228-1-sean.anderson@linux.dev>
- <20250724163219.0098ced6@jic23-huawei>
- <3a77d5db-eeb4-43df-9de0-e6bafea4d9ea@amd.com>
- <20250727164336.385dda93@jic23-huawei>
- <69a99252-4f1e-4197-8914-a6fc1c6c7027@amd.com>
-In-Reply-To: <69a99252-4f1e-4197-8914-a6fc1c6c7027@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-07-30T10:53:51.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: IA1PR12MB7736:EE_|CY8PR12MB8065:EE_
-x-ms-office365-filtering-correlation-id: 0530d73c-174d-4c97-a1e5-08ddcf5799d6
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?AgEUMOmFEYvLMohDWGSZRucMocRlCDqMv+/Mk6grVNQI/egFMJTlkQH2b+?=
- =?iso-8859-1?Q?GtATD4hGLwunlnUHeMcP5QTsWxlVzfRNcGIyK4iYGO8EHtcn4bk47yU33P?=
- =?iso-8859-1?Q?aO+Y/W/EMPffqB+77EFetxxQt/UlxXUQ8U0wsPvr35GRvQFpyg/QNlu4vp?=
- =?iso-8859-1?Q?xEJ4kyCeh5WDjl1QwXdAVIml7K5ffnTY3K7hJdAvwOJ89N1yg5Pmge8rdP?=
- =?iso-8859-1?Q?R/WrLZKPW1N1a9M7Bmg/K9LsMFTQYUyid9xZCi1T6uWkM+zj9DPT6fwzO5?=
- =?iso-8859-1?Q?i2VebAyQincnRTHs7PA41+x1I7ef65Kg/88A/oIZQqumC+/e+LS1l7/a9u?=
- =?iso-8859-1?Q?8Uirhn3l8ZzijnhNQkUIsw6OzISvnWlD0nTMIq2qQYK+KqMNfN7p7d0KKB?=
- =?iso-8859-1?Q?kp4TnLORlGyB+XyD1RLBk+LvHEF0ufdGipE1Gyw5AE1sEz1Dm1EJzajcRb?=
- =?iso-8859-1?Q?A0FI4IPBLOogoiZFyDZW3Hv+Cm/TTnzY+zdumQl3ewR5n+IrS7K0gAe44j?=
- =?iso-8859-1?Q?ZyrIHZTOHHNJraMElbPOJvvKAlNrlugCIImZTtiPla4axAKPh2XU1nK7LU?=
- =?iso-8859-1?Q?s/b2cH6jgNGbc9TE/rVSidyR+ZorKEANRbhp7gl32T6x1NIuldXpZDbBDS?=
- =?iso-8859-1?Q?ZSFoxFOS70xEUPWQPGn5jydtkpv7LG/y4ycQgto1bAGLOUiUk84YRdWUzq?=
- =?iso-8859-1?Q?eRcF8Hqq6BypJruNkRYHL75Clc3ketpPqNvPQeyu9ATPnKKa0u7SwruPHk?=
- =?iso-8859-1?Q?BK7TtpL8+yovRmAGlB2U69Fi1H+xuSZzLd9YJT4crVYlEKBdSeQCMaVzK6?=
- =?iso-8859-1?Q?RRXw2uwE0rovSQXJnyOq0lNqrZFSwJZMPRSUjvtePADGTfdRw/YN6HiAx3?=
- =?iso-8859-1?Q?PPMD7hM5M4Jx2MBX/HhlfRkJCKEIiutKjXnD4Q/2LUiftprU/+XF8qCVVc?=
- =?iso-8859-1?Q?yy/Kh/ewfuRj2QTJIKrI9oTgUA3EHAZZxbGxt2Zcu0DFjBwsKDVdVrz4I+?=
- =?iso-8859-1?Q?JPuCPnM3ieOwE17AkMxborv90K1gwCqlCblqU+iVoDGh7ieBik38tzgizA?=
- =?iso-8859-1?Q?220dLwzGpXVnCNNyBLQm9GuV6a9/MRSU7NyQxv/1u9365TsDEO4x9daKp2?=
- =?iso-8859-1?Q?wOANYUJBdYvuow1GGxeMuHVZISxRfmCGWGw8mcaDaIqsctRkxfzH4KLu7Y?=
- =?iso-8859-1?Q?VL4HkLR72t3h8GGZxylmQZU3esOl/Qr4C92G8beCFnNIz+X4MEDE8rFEA3?=
- =?iso-8859-1?Q?Ik7PVq/HLGL80lJflidFy0/p7yWPEL+bTUCOjWhl7ZjwhBg1WE9ICdfAHD?=
- =?iso-8859-1?Q?OlTRQaDdR1ccM+Ef025FivvQonH1iQORuL7VTHs0sSwzoBqZcnReM6pgyj?=
- =?iso-8859-1?Q?+v6lgFqNwahNU8lJZyAm0oDcHIWmvU8CjHVjLpAXPqOvTLbO2quMr9fUIm?=
- =?iso-8859-1?Q?L/DeuxDhAd5lBnWX8DpRsFpXy1aWejd3n0nvavGO0lhRwc4ovrmg1bmCwi?=
- =?iso-8859-1?Q?U2K3I8GZqYFWF+hYPruW4x4WYN7kIv/2msZno/+nOBdA=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR12MB7736.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?7Khh60YXW6iNFmBOAwpg2kkXVFQp9JtuZiLOOsEGkPJSBd+wiQcVdT6UWh?=
- =?iso-8859-1?Q?q671QJ/XLc19B5Bed9HsWIsN4biLPmdsDkK+Nj3+mJcscZXnRiSKO2N8H1?=
- =?iso-8859-1?Q?B49vaeLxS93enSENq1tg3DyZHqFcw3VoXOkMjSPkvKlYzGRwBkw5363RzH?=
- =?iso-8859-1?Q?wXVRoThOus4u7gm76Vl+AG8t4JMwZUIz7dSPXXrfy4QbQ/TYoXPx5POg7l?=
- =?iso-8859-1?Q?yamggXfBta9hKg9CekBMMGucGRPZRZM5dAwpn6yDgtat+C3Iv1T05RABkr?=
- =?iso-8859-1?Q?a6SrWEx5+4VkxS9XvMZ4fJpj9NmUpwFjv65pkGrzmeGru6B5qSZghk1MIc?=
- =?iso-8859-1?Q?/BOfF6zlW78FYUbJn1mIzZxMdsZDh1iPA8g1mFuo5cJtzaNCy+UBPAzEM3?=
- =?iso-8859-1?Q?OoPFOHA4ZGWNmoYajA+Zql1YePLfrnp6+Fxke+iBN48ribX5SOo04cm50n?=
- =?iso-8859-1?Q?GqCVQH/erfFNV84+RtEEP+KPpogQniZK+oU4loSMgKQhPnhwPc0Two4wP2?=
- =?iso-8859-1?Q?AuAXZZXg639wa+KmlOvkDNZFZbakq1W95iid7fUunEsxKE5t67z52efe2Y?=
- =?iso-8859-1?Q?NlPReuisdu1LVtsT2ZAsZlQ4ebXdtQwWFwBOPQKgw/23WOprgpFjdRxtaN?=
- =?iso-8859-1?Q?IMCcnaUA8xyskFwXAQpYoT+sOfbK/D1sU1pJb0aUxhgWdVs4kKPWptg7Lp?=
- =?iso-8859-1?Q?41xSPUIdAKyrL7HIbW6DkNL8YQ8Z3lb3xrf6C6cu3OEZAD9516hWc2TMmp?=
- =?iso-8859-1?Q?DsV/0h4Z3kG5Rz1GF8PK54pASev2xbaXLwIB0+0L743zvAJ1W5TTGci6XT?=
- =?iso-8859-1?Q?HelUz4kWc9Lc1yec20imSuSNvEk2lqCaQueN36c+hzvZulH+daW+gQo4g1?=
- =?iso-8859-1?Q?18WPYEcbhulCLUNSlNBKYUzqX61HW4NTzYX87GnafG12IDQLrUjypyxV1z?=
- =?iso-8859-1?Q?S/eCuYnUG5vlEDdSQQkesos3M1/LL2wXIP7IO2Xe4ckq+nEic0Im1zcLKX?=
- =?iso-8859-1?Q?Xrko3aAV6BVlgbyziVvHLOQHfxUyg4OtZmHegGdeexSC9SgjQzB/zqzmqM?=
- =?iso-8859-1?Q?8LU/wbkiMwFchYXN9Tf+3hbXRBP38kNxCUzjNKx1r59IpQ0jBBFYrYspDQ?=
- =?iso-8859-1?Q?qq2FUiX4bYghewRxhqks++jGtBop2dU5B8r/idxnqxZaYF1//jRESbcTVE?=
- =?iso-8859-1?Q?xO3zFwKprRu0mFavzMrdM1KvcmTHC7GP8giO7DOcgqDgguMAAnAsmdTdY7?=
- =?iso-8859-1?Q?Vvxm7/Xg4FlXfEsGh+Bc1oUneN6m1s/LXRBemptPgk6jD7PnJ0pknjbwLq?=
- =?iso-8859-1?Q?3BVEfVrAlfGpjb8M+3pQAXwPWTv+0Ne3FW9lA8BgFObnIyib5jGDrBLw1g?=
- =?iso-8859-1?Q?j1c0gVMtpB8jdUNMm01KsEn1N0Q0zJHxo5uxI7hk9LZFO739pkT+NYOWrD?=
- =?iso-8859-1?Q?/K5J2WgC7HMrepdG6K6a5Frm/75DNWIt7ocRNrMAb76ocNwM1tK+SMrtFp?=
- =?iso-8859-1?Q?+La9kR59R4gfuyO5tYhxAaZFQpCDygfwaTB0nDOeVPkcfgg7bgrtMiAeLO?=
- =?iso-8859-1?Q?FhHgbYM0MVMeis6lUo33xsiYRRDrk1Li1Ye1RVNs2LbOsrUzGCOVdkIQrT?=
- =?iso-8859-1?Q?TH/F4qUsbHA8g=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	id 1uh4Vc-00000001GzW-02ts;
+	Wed, 30 Jul 2025 10:58:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1753873086;
+	bh=lYv7QHbDNZ0Rc0wYrcyojYSl0/lSp3gFzLiTa6zBXlY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lW8Gg+GeZCJ9O8G3LKJcykUKKJbkTpmyGUycdZchqGWe0jTwwl7ejAwNzKgyYjoNw
+	 qAK7vYEdH3ZiQ7c15eCC9Cl/rDm+2Rg/L01XqJcTxECJeZd5aED5Tiu49JHZZaImnL
+	 OYqHmUXwldaDKg1waTILTaUglqVEVp/g4qS5hni9bPdJFbKfP8Ar6b/h25jY44pKxy
+	 qECYxEzCUkRA0bMNv7oN4J/VNcdUtRZyF1i6ogUDy8ukK1UB8lav1o998PzWpIV/a0
+	 4ehYdZMGogmBOBC+O721hqkhGvOPUmJwAFt0nIrx1dofTx3BTzDoCuLavTnfd0uC3v
+	 qo3FjjI19katQ==
+Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:4db2:e926:c82d:3276])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laura.nao)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA0B817E130E;
+	Wed, 30 Jul 2025 12:58:04 +0200 (CEST)
+From: Laura Nao <laura.nao@collabora.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	p.zabel@pengutronix.de,
+	richardcochran@gmail.com
+Cc: guangjie.song@mediatek.com,
+	wenst@chromium.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	kernel@collabora.com,
+	Laura Nao <laura.nao@collabora.com>
+Subject: [PATCH v3 00/27] Add support for MT8196 clock controllers
+Date: Wed, 30 Jul 2025 12:56:26 +0200
+Message-Id: <20250730105653.64910-1-laura.nao@collabora.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR12MB7736.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0530d73c-174d-4c97-a1e5-08ddcf5799d6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jul 2025 10:55:30.6255
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9YHKdcJP56G5aM/7GIruh2aYvNYaRncc4dwihOM3G3teB/Xj2GdlEHVajR3Gbdpk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8065
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_035540_227036_7C71040B 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20250730_035808_348393_35333F42 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,84 +87,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+This patch series introduces support for the clock controllers on the
+MediaTek MT8196 platform, following up on an earlier submission[1].
 
-Hi,
+MT8196 uses a hardware voting mechanism to control some of the clock muxes
+and gates, along with a fence register responsible for tracking PLL and mux
+gate readiness. The series introduces support for these voting and fence
+mechanisms, and includes drivers for all clock controllers on the platform.
 
-I am really busy right now. I will look into this within next week.
+[1] https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
 
-Regards,
-Salih.
+Changes in v3:
+- Removed duplication in clock parent lists in the topckgen, topckgen2, and vlpckgen drivers
+- Added vlp_clk26m parent and index table for audio clocks in the vlpckgen driver
+- Added APLL tuner initialization to the probe function of the vlpckgen driver
+- Dropped the adsp driver
+- Merged reset controller binding into the clock binding doc commit
+- Dropped .owner entry from mfg driver
+- Added R-b tags
 
-> -----Original Message-----
-> From: Simek, Michal <michal.simek@amd.com>
-> Sent: Monday, July 28, 2025 6:55 AM
-> To: Jonathan Cameron <jic23@kernel.org>
-> Cc: Sean Anderson <sean.anderson@linux.dev>; Erim, Salih
-> <Salih.Erim@amd.com>; O'Griofa, Conall <conall.ogriofa@amd.com>; Anand
-> Ashok Dumbre <anand.ashok.dumbre@xilinx.com>; linux-iio@vger.kernel.org;
-> David Lechner <dlechner@baylibre.com>; Nuno S=E1 <nuno.sa@analog.com>; li=
-nux-
-> arm-kernel@lists.infradead.org; Andy Shevchenko <andy@kernel.org>; Manish
-> Narani <manish.narani@xilinx.com>; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH] iio: xilinx-ams: Unmask interrupts after updating al=
-arms
->
->
->
-> On 7/27/25 17:43, Jonathan Cameron wrote:
-> > On Fri, 25 Jul 2025 06:47:16 +0200
-> > Michal Simek <michal.simek@amd.com> wrote:
-> >
-> >> On 7/24/25 17:32, Jonathan Cameron wrote:
-> >>> On Mon, 14 Jul 2025 20:28:47 -0400
-> >>> Sean Anderson <sean.anderson@linux.dev> wrote:
-> >>>
-> >>>> To convert level-triggered alarms into edge-triggered IIO events,
-> >>>> alarms are masked when they are triggered. To ensure we catch
-> >>>> subsequent alarms, we then periodically poll to see if the alarm is =
-still active.
-> >>>> If it isn't, we unmask it. Active but masked alarms are stored in
-> >>>> current_masked_alarm.
-> >>>>
-> >>>> If an active alarm is disabled, it will remain set in
-> >>>> current_masked_alarm until ams_unmask_worker clears it. If the
-> >>>> alarm is re-enabled before ams_unmask_worker runs, then it will
-> >>>> never be cleared from current_masked_alarm. This will prevent the
-> >>>> alarm event from being pushed even if the alarm is still active.
-> >>>>
-> >>>> Fix this by recalculating current_masked_alarm immediately when
-> >>>> enabling or disabling alarms.
-> >>>>
-> >>>> Fixes: d5c70627a794 ("iio: adc: Add Xilinx AMS driver")
-> >>>> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> >>>> ---
-> >>> Anand?
-> >>>
-> >>> This seems fine to me, but I'm not that familiar with the hardware or=
- driver.
-> >>
-> >> Anand left some time ago. Salih or Conall should be able to provide so=
-me input.
-> >>
-> >> Thanks,
-> >> Michal
-> >>
-> >
-> > Hi Michal,
-> >
-> > Thanks for letting me know.  Would be good to have a MAINTAINERS
-> > update patch to remove Anand + ideally add someone else.  If not to
-> > mark it orphaned (will still be covered by the top level IIO entry).
->
-> Salih: Can you please send a patch for it?
->
-> It is also covered my fragment that's why you don't need to explicitly ad=
-d me there.
->
-> Thanks,
-> Michal
->
->
+Link to v2: https://lore.kernel.org/all/20250624143220.244549-1-laura.nao@collabora.com
+
+Laura Nao (27):
+  clk: mediatek: clk-pll: Add set/clr regs for shared PLL enable control
+  clk: mediatek: clk-pll: Add ops for PLLs using set/clr regs and FENC
+  clk: mediatek: clk-mux: Add ops for mux gates with set/clr/upd and
+    FENC
+  clk: mediatek: clk-mtk: Introduce mtk_clk_get_hwv_regmap()
+  clk: mediatek: clk-mux: Add ops for mux gates with HW voter and FENC
+  clk: mediatek: clk-gate: Refactor mtk_clk_register_gate to use
+    mtk_gate struct
+  clk: mediatek: clk-gate: Add ops for gates with HW voter
+  clk: mediatek: clk-mtk: Add MUX_DIV_GATE macro
+  dt-bindings: clock: mediatek: Describe MT8196 clock controllers
+  clk: mediatek: Add MT8196 apmixedsys clock support
+  clk: mediatek: Add MT8196 topckgen clock support
+  clk: mediatek: Add MT8196 topckgen2 clock support
+  clk: mediatek: Add MT8196 vlpckgen clock support
+  clk: mediatek: Add MT8196 peripheral clock support
+  clk: mediatek: Add MT8196 ufssys clock support
+  clk: mediatek: Add MT8196 pextpsys clock support
+  clk: mediatek: Add MT8196 I2C clock support
+  clk: mediatek: Add MT8196 mcu clock support
+  clk: mediatek: Add MT8196 mdpsys clock support
+  clk: mediatek: Add MT8196 mfg clock support
+  clk: mediatek: Add MT8196 disp0 clock support
+  clk: mediatek: Add MT8196 disp1 clock support
+  clk: mediatek: Add MT8196 disp-ao clock support
+  clk: mediatek: Add MT8196 ovl0 clock support
+  clk: mediatek: Add MT8196 ovl1 clock support
+  clk: mediatek: Add MT8196 vdecsys clock support
+  clk: mediatek: Add MT8196 vencsys clock support
+
+ .../bindings/clock/mediatek,mt8196-clock.yaml |  86 ++
+ .../clock/mediatek,mt8196-sys-clock.yaml      |  81 ++
+ drivers/clk/mediatek/Kconfig                  |  71 ++
+ drivers/clk/mediatek/Makefile                 |  13 +
+ drivers/clk/mediatek/clk-gate.c               | 106 +-
+ drivers/clk/mediatek/clk-gate.h               |   3 +
+ drivers/clk/mediatek/clk-mt8196-apmixedsys.c  | 203 ++++
+ drivers/clk/mediatek/clk-mt8196-disp0.c       | 169 +++
+ drivers/clk/mediatek/clk-mt8196-disp1.c       | 170 +++
+ .../clk/mediatek/clk-mt8196-imp_iic_wrap.c    | 117 +++
+ drivers/clk/mediatek/clk-mt8196-mcu.c         | 166 +++
+ drivers/clk/mediatek/clk-mt8196-mdpsys.c      | 187 ++++
+ drivers/clk/mediatek/clk-mt8196-mfg.c         | 149 +++
+ drivers/clk/mediatek/clk-mt8196-ovl0.c        | 154 +++
+ drivers/clk/mediatek/clk-mt8196-ovl1.c        | 153 +++
+ drivers/clk/mediatek/clk-mt8196-peri_ao.c     | 144 +++
+ drivers/clk/mediatek/clk-mt8196-pextp.c       | 131 +++
+ drivers/clk/mediatek/clk-mt8196-topckgen.c    | 984 ++++++++++++++++++
+ drivers/clk/mediatek/clk-mt8196-topckgen2.c   | 567 ++++++++++
+ drivers/clk/mediatek/clk-mt8196-ufs_ao.c      | 109 ++
+ drivers/clk/mediatek/clk-mt8196-vdec.c        | 253 +++++
+ drivers/clk/mediatek/clk-mt8196-vdisp_ao.c    |  79 ++
+ drivers/clk/mediatek/clk-mt8196-venc.c        | 235 +++++
+ drivers/clk/mediatek/clk-mt8196-vlpckgen.c    | 726 +++++++++++++
+ drivers/clk/mediatek/clk-mtk.c                |  16 +
+ drivers/clk/mediatek/clk-mtk.h                |  23 +
+ drivers/clk/mediatek/clk-mux.c                | 119 ++-
+ drivers/clk/mediatek/clk-mux.h                |  87 ++
+ drivers/clk/mediatek/clk-pll.c                |  46 +-
+ drivers/clk/mediatek/clk-pll.h                |   9 +
+ .../dt-bindings/clock/mediatek,mt8196-clock.h | 802 ++++++++++++++
+ .../reset/mediatek,mt8196-resets.h            |  26 +
+ 32 files changed, 6160 insertions(+), 24 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-apmixedsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-disp0.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-disp1.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-imp_iic_wrap.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mcu.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mdpsys.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-mfg.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl0.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-ovl1.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-peri_ao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-pextp.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-topckgen2.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-ufs_ao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-vdec.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-vdisp_ao.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
+ create mode 100644 drivers/clk/mediatek/clk-mt8196-vlpckgen.c
+ create mode 100644 include/dt-bindings/clock/mediatek,mt8196-clock.h
+ create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+
+-- 
+2.39.5
 
 
