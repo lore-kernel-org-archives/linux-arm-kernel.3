@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984C5C83F26
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9473C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 14:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gj3ut29r+a9hEJQ4NltwL/etzTKKUzYKvG56elITLHE=; b=Kt+egBt0WxWjNV+koLfp02Cf+A
-	CiqkUMhb6cXBBbIkAg9elUk1BXDZHgZmwhf5nJglHBzI11GdOLWr4E/NrhrnenWpFGbuSGYjtmwKD
-	Iwhv6JLnc2sjk68G7foAt0HS7T2yYSUirD/5LEaQq7MRgx11l1fw2lK+sKQbAtxUxHp3qRIuF1DV2
-	9OVrWQDHTUQLEiHggzZ9vXvpojZEqqHHIzi4ycGNXsfjqrrdoWooPrXbo1mEmn5LOmGf8SmA7rmgu
-	w5674y7AAdSXe3l37ULN2m+QXVdTPIyBmqQvlEF/JNw0SM7IFCltzU9m8AjB2DKWvPzSs4nj35OjN
-	ORcXO/HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lXJ73jdHr5s/O4AsJ9vHXZKR5cKPhac21dmjQ/GtsgM=; b=RM6nOXbHVZJ9G93SI8G6XB+w8P
+	8ILYLS0LbSHBGP2t2UX13M54tYMzqWE8rKSxuKzRwJoCs/Cf6GHPLL54jyswRJFGHRbGS//YidaI2
+	T86w89WnPb1qcJlmm0ug8gK7jEd3Rod9XRI3ePQGbrWIKd5rXMhvEELh0DLbhsrz5x7azhf4aDklJ
+	J4ZuWUXGknUqU+iT9owB+KEKW1M+iZvqXTykWofnbhv0eBOADmnD9YvfJ0tMecva90NMz37StCGVv
+	zxU6KOa9WwVKYMX0MsZFbgZmQGePVEKAfSaCvQ07VbLtcNm4iq7eL9syfiNfKf4i8XK8Q+A+hSBKG
+	A/c+W6WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7zJ-00000001lGO-3vsx;
-	Wed, 30 Jul 2025 14:41:01 +0000
-Received: from mgamail.intel.com ([192.198.163.18])
+	id 1uh81l-00000001lWx-3D9v;
+	Wed, 30 Jul 2025 14:43:33 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh7uj-00000001kuv-1VcV
+	id 1uh7vz-00000001l0K-2SpV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 14:36:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753886177; x=1785422177;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=lxHKgUkWac2v36o8e3U/pGI0AZva8sNFeeBWqCh7CxI=;
-  b=WxJtsYhFUE2iNYqDn/tOIfNEIRArshhs46THlxYe16opZQAkf34st8nr
-   yn6fComSM6ZGcTSx6+eK4XzTtPJbmAi+KxYAjwx1lGZOJPVg7whS+UzXi
-   nzIzbZemNL3W9PVMAuCUxRHc6fXjJFWPmvO/n9VihuTTAuWa1jFGhI0kh
-   njqXmFvNwjieJvLe+tQfhwTn/zHrp7pMFuatwmREYsfHsav6lRZaxcuYe
-   tl4d5cbft13FLF1sva2+1fUzd4b1lm1OeUkiJyf+wUazLxUPbaJXIfRN5
-   sTqyZWegt22meJYqpt4t0yyiNvSijf4J6mfUgoBrn7LpOAh40FsDWT6Ql
-   w==;
-X-CSE-ConnectionGUID: CaFE7JRsR5q5VZqSoPUn0Q==
-X-CSE-MsgGUID: YEL5kaQOSmWBR47QYTefcA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11507"; a="55394564"
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="55394564"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 07:36:16 -0700
-X-CSE-ConnectionGUID: OfhaFuY8TTaqQ+iBtG4J9w==
-X-CSE-MsgGUID: ZhP/bfnFQ8Kz4Wlk2pAVPA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="162267682"
-Received: from abityuts-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.47])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 07:36:13 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 5D4DB11FA47;
-	Wed, 30 Jul 2025 17:36:10 +0300 (EEST)
-Date: Wed, 30 Jul 2025 14:36:10 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	robh+dt@kernel.org, mchehab@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
-	laurent.pinchart@ideasonboard.com
-Subject: Re: [PATCH v11 18/19] media: platform: Add mali-c55 parameters video
- node
-Message-ID: <aIot2pmuIIidZORo@kekkonen.localdomain>
-References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
- <20250714-c55-v11-18-bc20e460e42a@ideasonboard.com>
+	Wed, 30 Jul 2025 14:37:36 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-33229f67729so7533811fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 07:37:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1753886253; x=1754491053; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lXJ73jdHr5s/O4AsJ9vHXZKR5cKPhac21dmjQ/GtsgM=;
+        b=2+mwZz5jRGMPft5osENeBhyCIWdJgw8o+jJfY9pzIgz1pX4LHhAMwiTMsszk70k6lW
+         XGSyqOZocvNtDhF8GsGy3JqI/JTQJQPuqhUAGyNGlzUmuGrf/MMy+UAP87mSlrvjkO9a
+         8Ibo4hYOBp64L+ekzzKJ8ZREkUkiEo3dTVRqJG8KxdxOTv6vEnskYoGwQdOg8fmw35Xs
+         B7YDfJJgkd6P+jIFgBhur/qA6lzWw4ixgIa0xUyNNTmqZ1VnGIl+TTVNGubg2euIoPMA
+         TG7gnScq3fecfVCPOX1x5QjUaSuN2s62F9QKzJ75A/boopJD3TlEK7U3yrxOzSfNvFeV
+         A3Yg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753886253; x=1754491053;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lXJ73jdHr5s/O4AsJ9vHXZKR5cKPhac21dmjQ/GtsgM=;
+        b=ZVRgv5ciXD+3DJjh+Uo81+HQC8mjJlQFyp5t5cufvUZyoiMLVgCiTSlUOjyA9tr/aE
+         +t/5Y7bP10oAbKsFrOy6htVBMydrFBjGrwfvh15TjwFr8eRlJmE3GH+QFd6tw7UYx/Cd
+         xQeE9OhoUtk42eZKYmC1Lk/DtR9sPZmUIYUNB7ahVfnXCuUfLwukjrI5XWLQnnzhbgkb
+         GcSc7Gdd3+DNuOuyb2Y6mkPWhNfg4TpJPUPq9SGoX2O86T31Cqh9xAVsKUKvpGN2MomH
+         OBCU7gdMjUfbh8XW7X7hgyM5aYh9S7tD8bpjw9Gl2umnCArRcDOidp6fK0rTwcUiXjKJ
+         /iww==
+X-Forwarded-Encrypted: i=1; AJvYcCVVgvODMGmBBUoE9UpZRnMmmrMSIVUmQQyO5g2bV0PPLtqLuE/2W+v0QZZLPmkNz/ckKQQQihWi9uUEemdlByi8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxI27k+H/kDINWeuHdhiVuW905XFsvh6meAmRshjhu/jKFs0DXL
+	fUkuaYJGO2EcOEJCSNws8Jm82wOBiGQMNDwjOMxDVmhVW+ELAO82nVkZJoJZzUoQIN/xm9Kj8Tq
+	UA/C9tsYILdhzbz9RCaduJcl9cMuoJlNTPOc59mBYrw==
+X-Gm-Gg: ASbGncvU8ceby98arc/S7tBzhk9rbvCNmSgr5EZcvleqq7JegpkKlGVIhq5O+/XxTyt
+	hif+3Hx72hCI+YRDBRQx0ys5PqDMPwYN0GlK33Kzdqd9TkS15x/7hYVkN7epBEenMMiQYbZiwNR
+	3Rd7SuvFe2fE/WoNZSWzNAfx9x6fGECo21wP7xiQllZ+Yl+8x/Rol3Xf6hjAC1yzsBbvjXC2zTa
+	40oiZs9lK0pk+kB6O3wVN+IrEFnSEIUESFzWWI=
+X-Google-Smtp-Source: AGHT+IEHQwnB79u13ccn0v4jhSNP1wNv1SCqDLPqjR5PoLcasXYprdf/GeMcKzgEB2VCqotr8ZyorITapctIMNYkHD0=
+X-Received: by 2002:a05:6512:39d6:b0:553:2e3a:bae with SMTP id
+ 2adb3069b0e04-55b7c05f18fmr984925e87.39.1753886253374; Wed, 30 Jul 2025
+ 07:37:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250714-c55-v11-18-bc20e460e42a@ideasonboard.com>
+References: <20250723094558.5bcfca69@canb.auug.org.au> <627cbb55-2a55-4124-8f6e-7b4ba0441558@csgroup.eu>
+ <6eac14b4-765b-4a29-b278-364dba47e0e9@app.fastmail.com> <0b738b01-8574-49b1-b89c-3c96e9a56b28@csgroup.eu>
+In-Reply-To: <0b738b01-8574-49b1-b89c-3c96e9a56b28@csgroup.eu>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 30 Jul 2025 16:37:22 +0200
+X-Gm-Features: Ac12FXyBTxA114Svy5Uj0ivWoSbrkrjvRPCa-JAMdMs5h4ChxTFMooUaMdouQsE
+Message-ID: <CAMRc=Me=hNhER-EnvJarG-uig67cEPWfjuLyT1_F0WKd8jyLig@mail.gmail.com>
+Subject: Re: linux-next: duplicate patch in the fsl tree
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Arnd Bergmann <arnd@arndb.de>, ARM <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
+	linux-next <linux-next@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_073617_410154_17040B92 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20250730_073735_865874_A6F5A683 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,195 +97,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On Wed, Jul 30, 2025 at 4:23=E2=80=AFPM Christophe Leroy
+<christophe.leroy@csgroup.eu> wrote:
+>
+>
+>
+> Le 30/07/2025 =C3=A0 15:55, Arnd Bergmann a =C3=A9crit :
+> > On Wed, Jul 30, 2025, at 15:41, Christophe Leroy wrote:
+> >>
+> >> Le 23/07/2025 =C3=A0 01:45, Stephen Rothwell a =C3=A9crit :
+> >>
+> >> I was going to send a pull request for this fix but I see the duplicat=
+e
+> >> patch is already tagged in the soc tree:
+> >>
+> >> $ git tag --contains 12702f0c3834
+> >> next-20250728
+> >> next-20250730
+> >> soc-drivers-6.17
+> >>
+> >> Shall I do anything or just ignore it and drop it from my tree ?
+> >
+> > Linus has already pulled the soc-drivers-6.17 tags, so I think
+> > both copies of the patch ended up in mainline and there is nothing
+> > left you can do to change that.
+>
+> The one in my tree is in Linux next, nowhere else for the time being as
+> far as I know, as it was not included in the pull request I sent three
+> weeks ago.
+>
 
-Thanks for the update.
+Arnd kindly picked it up directly into his tree when you were on
+vacation in order to make sure it makes the v6.17 merge window.
 
-On Mon, Jul 14, 2025 at 04:06:44PM +0100, Daniel Scally wrote:
-> +static int
-> +mali_c55_params_validate_buffer(struct device *dev,
-> +				const struct v4l2_params_buffer *buffer)
-> +{
-> +	/* Only v1 is supported at the moment. */
-> +	if (buffer->version != MALI_C55_PARAM_BUFFER_V1) {
-> +		dev_dbg(dev, "Unsupported extensible format version: %u\n",
-> +			buffer->version);
-> +		return -EINVAL;
-> +	}
-
-Is there anything else to validate here?
-
-I guess nothing is done with the information other than the value is being
-checked above, but if it had an effect on something, one would need to copy
-the information to memory not accessible to the user.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
-> +{
-> +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
-> +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-> +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-> +	struct mali_c55 *mali_c55 = params->mali_c55;
-> +	struct v4l2_params_buffer *config;
-> +	int ret;
-> +
-> +	ret = v4l2_params_buffer_validate(
-> +		mali_c55->dev, vb,
-> +		v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE),
-> +		mali_c55_params_validate_buffer);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/*
-> +	 * Copy the parameters buffer provided by userspace to the internal
-> +	 * scratch buffer. This protects against the chance of userspace making
-> +	 * changed to the buffer content whilst the driver processes it.
-> +	 */
-> +	config = vb2_plane_vaddr(vb, 0);
-> +	memcpy(buf->config, config, v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
-> +
-> +	return v4l2_params_blocks_validate(mali_c55->dev, buf->config,
-> +					   mali_c55_block_handlers,
-> +					   ARRAY_SIZE(mali_c55_block_handlers),
-> +					   NULL);
-> +}
-> +
-> +static void mali_c55_params_buf_queue(struct vb2_buffer *vb)
-> +{
-> +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
-> +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-> +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-> +
-> +	spin_lock(&params->buffers.lock);
-> +	list_add_tail(&buf->queue, &params->buffers.queue);
-> +	spin_unlock(&params->buffers.lock);
-> +}
-> +
-> +static void mali_c55_params_return_buffers(struct mali_c55_params *params,
-> +					   enum vb2_buffer_state state)
-> +{
-> +	struct mali_c55_params_buf *buf, *tmp;
-> +
-> +	guard(spinlock)(&params->buffers.lock);
-> +
-> +	list_for_each_entry_safe(buf, tmp, &params->buffers.queue, queue) {
-> +		list_del(&buf->queue);
-> +		vb2_buffer_done(&buf->vb.vb2_buf, state);
-> +	}
-> +}
-> +
-> +static int mali_c55_params_start_streaming(struct vb2_queue *q,
-> +					   unsigned int count)
-> +{
-> +	struct mali_c55_params *params = vb2_get_drv_priv(q);
-> +	struct mali_c55 *mali_c55 = params->mali_c55;
-> +	int ret;
-> +
-> +	ret = pm_runtime_resume_and_get(mali_c55->dev);
-> +	if (ret)
-> +		goto err_return_buffers;
-> +
-> +	ret = video_device_pipeline_alloc_start(&params->vdev);
-> +	if (ret)
-> +		goto err_pm_put;
-> +
-> +	ret = video_device_pipeline_started(&params->vdev);
-> +	if (ret < 0)
-> +		goto err_stop_pipeline;
-> +
-> +	return 0;
-> +
-> +err_stop_pipeline:
-> +	video_device_pipeline_stop(&params->vdev);
-> +err_pm_put:
-> +	pm_runtime_put(mali_c55->dev);
-> +err_return_buffers:
-> +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_QUEUED);
-> +
-> +	return ret;
-> +}
-> +
-> +static void mali_c55_params_stop_streaming(struct vb2_queue *q)
-> +{
-> +	struct mali_c55_params *params = vb2_get_drv_priv(q);
-> +	struct media_pipeline *pipe;
-> +
-> +	pipe = video_device_pipeline(&params->vdev);
-> +	if (mali_c55_pipeline_ready(pipe))
-> +		media_pipeline_stopped(pipe);
-> +
-> +	video_device_pipeline_stop(&params->vdev);
-> +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_ERROR);
-> +}
-> +
-> +static const struct vb2_ops mali_c55_params_vb2_ops = {
-> +	.queue_setup = mali_c55_params_queue_setup,
-> +	.buf_init = mali_c55_params_buf_init,
-> +	.buf_cleanup = mali_c55_params_buf_cleanup,
-> +	.buf_queue = mali_c55_params_buf_queue,
-> +	.buf_prepare = mali_c55_params_buf_prepare,
-> +	.wait_prepare = vb2_ops_wait_prepare,
-> +	.wait_finish = vb2_ops_wait_finish,
-> +	.start_streaming = mali_c55_params_start_streaming,
-> +	.stop_streaming = mali_c55_params_stop_streaming,
-> +};
-> +
-> +void mali_c55_params_write_config(struct mali_c55 *mali_c55)
-> +{
-> +	struct mali_c55_params *params = &mali_c55->params;
-> +	struct v4l2_params_buffer *config;
-> +	struct mali_c55_params_buf *buf;
-> +	size_t block_offset = 0;
-> +	size_t max_offset;
-> +
-> +	spin_lock(&params->buffers.lock);
-> +
-> +	buf = list_first_entry_or_null(&params->buffers.queue,
-> +				       struct mali_c55_params_buf, queue);
-> +	if (buf)
-> +		list_del(&buf->queue);
-> +	spin_unlock(&params->buffers.lock);
-> +
-> +	if (!buf)
-> +		return;
-> +
-> +	buf->vb.sequence = mali_c55->isp.frame_sequence;
-> +	config = buf->config;
-> +
-> +	max_offset = config->data_size - sizeof(struct v4l2_params_block_header);
-> +
-> +	/*
-> +	 * Walk the list of parameter blocks and process them. No validation is
-> +	 * done here, as the contents of the config buffer are already checked
-> +	 * when the buffer is queued.
-> +	 */
-> +	while (block_offset < max_offset) {
-> +		const struct v4l2_params_handler *block_handler;
-> +		union mali_c55_params_block block;
-> +
-> +		block.data = &config->data[block_offset];
-> +
-> +		/* We checked the array index already in .buf_queue() */
-
-Not a lot seems to be done there in terms of validation.
-
-Even if that had been done, you can't trust the buffer contents as it
-remains mapped to the userspace.
-
-> +		block_handler = &mali_c55_block_handlers[block.header->type];
-> +		block_handler->handler(mali_c55, block.header);
-> +
-> +		block_offset += block.header->size;
-> +	}
-> +
-> +	vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
-> +}
-
--- 
-Kind regards,
-
-Sakari Ailus
+Bartosz
 
