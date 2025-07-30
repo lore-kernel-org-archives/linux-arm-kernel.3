@@ -4,84 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8309BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897A9C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pVgkhTlafty+L/vxHX/GEJpdSDDX7Jm+wl7HFwI8zi8=; b=b6nAHCQbq7Ib8v24L8yJlgQzNW
-	F4iDhnrqHa6kEVrB/6Yh4KvzGPZsg/JH0oAHwHBJVLBFX26XZOB0Au9oydrBahiW0X25K5MWdh902
-	VtWEPNa6NXbuKIE3at0NoygxpXUvLtaeBAs3g3M2mwLE2UKuq1WkH5ED7xiYl5/EgozRUZ/EDZdxT
-	NGmf540HumQNZU87xh6L4a/LiAL7xtvef1I8dk3isRMqBa3OVSW0NpTmyf27YAZXixCbJ/4ny9u8p
-	H1BxPZOOLse8Q7SaZtWwW0oF9wb3+ZxSagYPg3zpzOx5MCXUG/JKtscESxK7obQ0oGSrqjF2/Q0RG
-	Po1y3Cmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fYXmUgtDhZVPhhdm/V2ZjXttfyf75BghnxyqwP+suDQ=; b=zlLfPa7T5As0HaoNjOsUbKTA6/
+	Um5fTV4okhnPI/QxiiZp2MTTf58skkVbS+xzb3RlEAOojMVJ5k4KpQqBOvrHje/ncv/J7ksU37gE4
+	3OpyzypTLqjNKSmmvYfBnJxzqPH/yHXP8kKXkmw8DiSzCZLFZIb664nDUD7QBsiqDNBg1d0GJNfzI
+	9apLF9Q09coeDFM2FP3rlqZIixslb/BhD2J33wuTYYruclFSKu/HbMNEwUigW5E6wljLxYWJAi01T
+	FkmxFwEy+wyQZadpJGO13EKMwRmcZzHZmA6Hek/GVTgz7JSm76sS+mibssIi50zJTeaJwU2O9XMHc
+	TXIkWVkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhEar-00000002VJ5-43rJ;
-	Wed, 30 Jul 2025 21:44:13 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uhEdJ-00000002VhM-1paT;
+	Wed, 30 Jul 2025 21:46:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhEG0-00000002Th3-04kB
+	id 1uhENK-00000002UFX-0CAf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 21:22:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753910560; x=1785446560;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5sMf4Lo8mFFoam81Ms38b19tARdJKE66DvP2/RGQEHo=;
-  b=I17Ss5w62F5Z6nByH9O50dV6kjTVw5AjQyR1e9QmZB9uIK9Z4+zn+Wno
-   brXRb0j+68cyOUoByhyTvKG4LYCqvZcv8JFws/Zio10BwxbcDkC4ZtDMZ
-   irsQwkidot6y9KtZV05GcdfkmsDIdKRbU6FWcaQ094ELoJvPVpvjdW+31
-   lzE7Kenu4RoLGB120zKwul1agyjnfo62jFBpXCiYR/DOCvHFqwVOhuMDP
-   Khohj6Tk0XCp4X0x9axE3yq+WN/kF4sgNjBeXIxCnNWH4cKm6+S8ivioo
-   063j18B/ZXwTskS6bDVu1KrvUpIXYaHNW4cU96wHFMfhNhaIGthCGlOon
-   Q==;
-X-CSE-ConnectionGUID: KNhe9QC3T4m/sHd3OWx1wQ==
-X-CSE-MsgGUID: zsTuyG6WQwGOSmgJ8NE8Fw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11507"; a="56156622"
-X-IronPort-AV: E=Sophos;i="6.16,353,1744095600"; 
-   d="scan'208";a="56156622"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 14:22:39 -0700
-X-CSE-ConnectionGUID: YcaH1nJ9QGWY2SSMHcC6EQ==
-X-CSE-MsgGUID: eGvSTNbzQQqzHkTvZOEp0A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,353,1744095600"; 
-   d="scan'208";a="168377951"
-Received: from bergbenj-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.173])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2025 14:22:35 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id EBD5611F97D;
-	Thu, 31 Jul 2025 00:22:32 +0300 (EEST)
-Date: Wed, 30 Jul 2025 21:22:32 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Dan Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
-	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
-	robh+dt@kernel.org, mchehab@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
-	jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
-	laurent.pinchart@ideasonboard.com
-Subject: Re: [PATCH v11 18/19] media: platform: Add mali-c55 parameters video
- node
-Message-ID: <aIqNGObJlU-YCgPC@kekkonen.localdomain>
-References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
- <20250714-c55-v11-18-bc20e460e42a@ideasonboard.com>
- <aIot2pmuIIidZORo@kekkonen.localdomain>
- <7b6dbaab-ec40-4b84-8e8f-b53062568838@ideasonboard.com>
+	Wed, 30 Jul 2025 21:30:15 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56UCb9jg017617;
+	Wed, 30 Jul 2025 21:30:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=fYXmUgtDhZVPhhdm/V2ZjX
+	ttfyf75BghnxyqwP+suDQ=; b=NsRS6jUhFm051yVbdy7w3mmb1y6EEx5nX+/KAs
+	1EPhO82RBLHvsK7P5phuyrV5Apdfi9wCNErWnLenSK1IhLnET3Ea8rL710Tgr1eC
+	1mG9jah2QYqQUjGy8xnPAGVO5roUpbx6ht/aw+kA60sIyEPUlUzUK4Db/EGHnTb1
+	NBVNoWtruiRjrZmBvBxg45EbRyYTdMRIv7Nb6yVUp+4/fH9gmNYGVAnsDqYHqSdk
+	FliGwjGYMoJcElAeyBEisqE4HYOPTvXldi1MwcrXj1H0gKgQQtKBj0MaFNXk+fek
+	OJ/zYE6sPcRb5V+dWIqeDgWB+ZuhcDElH9wWl/DHkxS0oRPg==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484qda59wm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Jul 2025 21:30:06 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56ULU5Ot012677
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Jul 2025 21:30:05 GMT
+Received: from hu-djaggi-lv.qualcomm.com (10.49.16.6) by
+ nasanex01c.na.qualcomm.com (10.45.79.139) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 30 Jul 2025 14:30:05 -0700
+From: Deepti Jaggi <quic_djaggi@quicinc.com>
+Date: Wed, 30 Jul 2025 14:30:00 -0700
+Subject: [PATCH v6] dt-bindings: firmware: arm,scmi: allow multiple
+ instances
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7b6dbaab-ec40-4b84-8e8f-b53062568838@ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250730-8255-scmi-v6-1-a7d8ba19aded@quicinc.com>
+X-B4-Tracking: v=1; b=H4sIANeOimgC/0XMQQ6CMBCF4auQWTukTBksrryHMYaUKYwJoK0aE
+ 8LdrW7cvS95+VdIElUSHIoVorw06TJnNLsC/NjNg6D22UCG2OzJoSNmTH5SlL5trAQXKmbI/1u
+ UoO9f63TODnGZ8DFG6f6Fmqwx7Kgubdta4gYrvD/VX/prNwx6/G6dfemXCbbtAz0rENueAAAA
+X-Change-ID: 20250728-8255-scmi-ed963ef8f155
+To: Sudeep Holla <sudeep.holla@arm.com>,
+        Cristian Marussi
+	<cristian.marussi@arm.com>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <arm-scmi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <kernel@oss.qualcomm.com>, Nikunj Kela <quic_nkela@quicinc.com>,
+        "Krzysztof
+ Kozlowski" <krzysztof.kozlowski@linaro.org>,
+        Deepti Jaggi
+	<quic_djaggi@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753911005; l=1844;
+ i=quic_djaggi@quicinc.com; s=20250501; h=from:subject:message-id;
+ bh=skJf2Bzqhq4yfT++BK+QHTMYMPnwGA25TtvhHHnGmgM=;
+ b=AqpY3K5/VxB6qNqTYurcE51SRntRr2/VkV39N0SwP1vw8y0eECIig+GIPAymSBnIXlAcAM8+h
+ mw2IwOiRCV2B4dzwtGTCvDGKnD8mvb5LcEBSztXi8kmBRC94XTOAjZv
+X-Developer-Key: i=quic_djaggi@quicinc.com; a=ed25519;
+ pk=+b3H5UC/u0pUK5+btJ+35nW+6vKwJV1CfjJ1CJWuOZw=
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01c.na.qualcomm.com (10.47.97.35) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: V2YKOJqjBxpcS_EJGfGl9K6MjCaHFu_5
+X-Authority-Analysis: v=2.4 cv=Pfv/hjhd c=1 sm=1 tr=0 ts=688a8ede cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=3H110R4YSZwA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8
+ a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=7CQSdrXTAAAA:8 a=9VXx9WMDf_sXN765KV4A:9
+ a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: V2YKOJqjBxpcS_EJGfGl9K6MjCaHFu_5
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzMwMDE1NiBTYWx0ZWRfX3Qg6jr/e3Thz
+ w2qMrMedx1SsmReFdB9SYq0yTr9I22TzDTXVr+p1kuCM4NpckQ+j0o5JVxmFhNR7uwRJkZahvDL
+ W5xNihLLaig0HndG2JfXjftxDud25uBFFqEO8wZeX/ppTPIhVc3iWkoJQxH89/yc521JnQlPJ9Y
+ SfIZjpSkoFpomTj8Uu83ue1raU2jWKpPLMr/JlCgBss0ThKRfbbssY/OHSF0tIUHrehlDgIBXS5
+ 85zqUuxi/Pd49zBmxlpM18pmS3ihQMjhIrwvZ2uj3hbTn2E46v5mruyu95c1mKvy43KBHviSH8/
+ jmNX8s3YdT6XZ87B0insrF6NBY8ZaJiPbCz6fXhVCYqW4h8NINi7nLYEwBAo0O9ln8TbETAiizn
+ FdV/n7c1lrKIgG0iO+DbFMB5kiwTeb6Z3+pw4h/vkDn1L7HNavee69rrL16otHL1uAKp1WnL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-30_06,2025-07-30_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ mlxlogscore=999 clxscore=1011 adultscore=0 priorityscore=1501 mlxscore=0
+ spamscore=0 suspectscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0
+ impostorscore=0 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2507300156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_142240_098620_D22EFB62 
-X-CRM114-Status: GOOD (  31.49  )
+X-CRM114-CacheID: sfid-20250730_143014_232448_4D3108CB 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,209 +131,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+From: Nikunj Kela <quic_nkela@quicinc.com>
 
-On Wed, Jul 30, 2025 at 10:11:22PM +0100, Dan Scally wrote:
-> Hi Sakari, thanks for the comments
-> 
-> On 30/07/2025 15:36, Sakari Ailus wrote:
-> > Hi Daniel,
-> > 
-> > Thanks for the update.
-> > 
-> > On Mon, Jul 14, 2025 at 04:06:44PM +0100, Daniel Scally wrote:
-> > > +static int
-> > > +mali_c55_params_validate_buffer(struct device *dev,
-> > > +				const struct v4l2_params_buffer *buffer)
-> > > +{
-> > > +	/* Only v1 is supported at the moment. */
-> > > +	if (buffer->version != MALI_C55_PARAM_BUFFER_V1) {
-> > > +		dev_dbg(dev, "Unsupported extensible format version: %u\n",
-> > > +			buffer->version);
-> > > +		return -EINVAL;
-> > > +	}
-> > Is there anything else to validate here?
-> 
-> 
-> Not at this stage; the rest of the validation is done by Jacopo's new
-> framework
-> 
-> > 
-> > I guess nothing is done with the information other than the value is being
-> > checked above, but if it had an effect on something, one would need to copy
-> > the information to memory not accessible to the user.
-> 
-> 
-> Thats done later in .buf_prepare()
+Allow multiple SCMI instances by extending the scmi node name to include
+an instance number suffix.
 
-Ah, thanks; I missed that earlier.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
+Signed-off-by: Nikunj Kela <quic_nkela@quicinc.com>
+Signed-off-by: Deepti Jaggi <quic_djaggi@quicinc.com>
+---
+Changes in v6:
+        - Dropped 'this change' from description
+	- Link to v5: https://lore.kernel.org/all/20250423005824.3993256-1-quic_djaggi@quicinc.com
 
-> 
-> > 
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
-> > > +{
-> > > +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
-> > > +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-> > > +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-> > > +	struct mali_c55 *mali_c55 = params->mali_c55;
-> > > +	struct v4l2_params_buffer *config;
-> > > +	int ret;
-> > > +
-> > > +	ret = v4l2_params_buffer_validate(
-> > > +		mali_c55->dev, vb,
-> > > +		v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE),
-> > > +		mali_c55_params_validate_buffer);
-> > > +	if (ret)
-> > > +		return ret;
-> > > +
-> > > +	/*
-> > > +	 * Copy the parameters buffer provided by userspace to the internal
-> > > +	 * scratch buffer. This protects against the chance of userspace making
-> > > +	 * changed to the buffer content whilst the driver processes it.
-> > > +	 */
-> > > +	config = vb2_plane_vaddr(vb, 0);
-> > > +	memcpy(buf->config, config, v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
-> > > +
-> > > +	return v4l2_params_blocks_validate(mali_c55->dev, buf->config,
-> > > +					   mali_c55_block_handlers,
-> > > +					   ARRAY_SIZE(mali_c55_block_handlers),
-> > > +					   NULL);
-> > > +}
-> > > +
-> > > +static void mali_c55_params_buf_queue(struct vb2_buffer *vb)
-> > > +{
-> > > +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
-> > > +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-> > > +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
-> > > +
-> > > +	spin_lock(&params->buffers.lock);
-> > > +	list_add_tail(&buf->queue, &params->buffers.queue);
-> > > +	spin_unlock(&params->buffers.lock);
-> > > +}
-> > > +
-> > > +static void mali_c55_params_return_buffers(struct mali_c55_params *params,
-> > > +					   enum vb2_buffer_state state)
-> > > +{
-> > > +	struct mali_c55_params_buf *buf, *tmp;
-> > > +
-> > > +	guard(spinlock)(&params->buffers.lock);
-> > > +
-> > > +	list_for_each_entry_safe(buf, tmp, &params->buffers.queue, queue) {
-> > > +		list_del(&buf->queue);
-> > > +		vb2_buffer_done(&buf->vb.vb2_buf, state);
-> > > +	}
-> > > +}
-> > > +
-> > > +static int mali_c55_params_start_streaming(struct vb2_queue *q,
-> > > +					   unsigned int count)
-> > > +{
-> > > +	struct mali_c55_params *params = vb2_get_drv_priv(q);
-> > > +	struct mali_c55 *mali_c55 = params->mali_c55;
-> > > +	int ret;
-> > > +
-> > > +	ret = pm_runtime_resume_and_get(mali_c55->dev);
-> > > +	if (ret)
-> > > +		goto err_return_buffers;
-> > > +
-> > > +	ret = video_device_pipeline_alloc_start(&params->vdev);
-> > > +	if (ret)
-> > > +		goto err_pm_put;
-> > > +
-> > > +	ret = video_device_pipeline_started(&params->vdev);
-> > > +	if (ret < 0)
-> > > +		goto err_stop_pipeline;
-> > > +
-> > > +	return 0;
-> > > +
-> > > +err_stop_pipeline:
-> > > +	video_device_pipeline_stop(&params->vdev);
-> > > +err_pm_put:
-> > > +	pm_runtime_put(mali_c55->dev);
-> > > +err_return_buffers:
-> > > +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_QUEUED);
-> > > +
-> > > +	return ret;
-> > > +}
-> > > +
-> > > +static void mali_c55_params_stop_streaming(struct vb2_queue *q)
-> > > +{
-> > > +	struct mali_c55_params *params = vb2_get_drv_priv(q);
-> > > +	struct media_pipeline *pipe;
-> > > +
-> > > +	pipe = video_device_pipeline(&params->vdev);
-> > > +	if (mali_c55_pipeline_ready(pipe))
-> > > +		media_pipeline_stopped(pipe);
-> > > +
-> > > +	video_device_pipeline_stop(&params->vdev);
-> > > +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_ERROR);
-> > > +}
-> > > +
-> > > +static const struct vb2_ops mali_c55_params_vb2_ops = {
-> > > +	.queue_setup = mali_c55_params_queue_setup,
-> > > +	.buf_init = mali_c55_params_buf_init,
-> > > +	.buf_cleanup = mali_c55_params_buf_cleanup,
-> > > +	.buf_queue = mali_c55_params_buf_queue,
-> > > +	.buf_prepare = mali_c55_params_buf_prepare,
-> > > +	.wait_prepare = vb2_ops_wait_prepare,
-> > > +	.wait_finish = vb2_ops_wait_finish,
-> > > +	.start_streaming = mali_c55_params_start_streaming,
-> > > +	.stop_streaming = mali_c55_params_stop_streaming,
-> > > +};
-> > > +
-> > > +void mali_c55_params_write_config(struct mali_c55 *mali_c55)
-> > > +{
-> > > +	struct mali_c55_params *params = &mali_c55->params;
-> > > +	struct v4l2_params_buffer *config;
-> > > +	struct mali_c55_params_buf *buf;
-> > > +	size_t block_offset = 0;
-> > > +	size_t max_offset;
-> > > +
-> > > +	spin_lock(&params->buffers.lock);
-> > > +
-> > > +	buf = list_first_entry_or_null(&params->buffers.queue,
-> > > +				       struct mali_c55_params_buf, queue);
-> > > +	if (buf)
-> > > +		list_del(&buf->queue);
-> > > +	spin_unlock(&params->buffers.lock);
-> > > +
-> > > +	if (!buf)
-> > > +		return;
-> > > +
-> > > +	buf->vb.sequence = mali_c55->isp.frame_sequence;
-> > > +	config = buf->config;
-> > > +
-> > > +	max_offset = config->data_size - sizeof(struct v4l2_params_block_header);
-> > > +
-> > > +	/*
-> > > +	 * Walk the list of parameter blocks and process them. No validation is
-> > > +	 * done here, as the contents of the config buffer are already checked
-> > > +	 * when the buffer is queued.
-> > > +	 */
-> > > +	while (block_offset < max_offset) {
-> > > +		const struct v4l2_params_handler *block_handler;
-> > > +		union mali_c55_params_block block;
-> > > +
-> > > +		block.data = &config->data[block_offset];
-> > > +
-> > > +		/* We checked the array index already in .buf_queue() */
-> > Not a lot seems to be done there in terms of validation.
-> > 
-> > Even if that had been done, you can't trust the buffer contents as it
-> > remains mapped to the userspace.
-> 
-> Ah; a hangover of an earlier iteration before using the new v4l2-params
-> helpers; the validation is done by those functions in .buf_prepare() now and
-> the userspace buffer is memcopied to a scratch buffer.
+Changes in v5:
+        - Added Reviewed-by tag
+	- Link to v4: https://lore.kernel.org/all/20240910163456.2383372-1-quic_nkela@quicinc.com
 
-Ack, I'll take a look at Jacopo's set and get back to this. It looks nice
-overall.
+Changes in v4:
+        - Dropped 'virtual' from subject and description
+	- Link to v3: https://lore.kernel.org/all/20240905201217.3815113-1-quic_nkela@quicinc.com
 
+Changes in v3:
+        - Added Reviewed-by tag
+        - Removed the patch from original series[1]
+
+Changes in v2:
+        - Fixed scmi nodename pattern
+
+[1]: https://lore.kernel.org/all/20240903220240.2594102-1-quic_nkela@quicinc.com/
+---
+ Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index abbd62f1fed0993ab98fa44bdb9a0575f8e1c78e..be817fd9cc34b14009a3b1d69e78b802215571b6 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -27,7 +27,7 @@ anyOf:
+ 
+ properties:
+   $nodename:
+-    const: scmi
++    pattern: '^scmi(-[0-9]+)?$'
+ 
+   compatible:
+     oneOf:
+
+---
+base-commit: 0b90c3b6d76ea512dc3dac8fb30215e175b0019a
+change-id: 20250728-8255-scmi-ed963ef8f155
+
+Best regards,
 -- 
-Kind regards,
+Deepti Jaggi <quic_djaggi@quicinc.com>
 
-Sakari Ailus
 
