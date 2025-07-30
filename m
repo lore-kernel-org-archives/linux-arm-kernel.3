@@ -4,90 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F4ACC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEB1C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:35:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8DfRGBX3mcpytWgeuQOoQcWlLUxxXP7ehgwEP8S8+jQ=; b=WEoMAQuAKYdgQEi1u7jy74PK3A
-	GUdiEgkAkipNFgoFser1RnTIwJugdta7jfBN4dvYbKFpwiKI6Riwz9deTOENIgYc65S1JyJ0DY7PQ
-	XFknc5C66XbjKAnED5dLplYVxBseKSiYJ7VIADk2Rbi2sZpYZyC4Xwmz+x7xX+HPnpQRuySS89Mcr
-	R6AJ/EInMirJFPulE2AgMorRD8KZhteKzpHIa4zLFdZh7Uly5syP2uShj4NQVjdjUFzqWvK2BD2Dt
-	JU8DitsDX3QFwEik8jY8LpfyO1nSuwoj4NZWGniMRTcNMxwDQ9JrJnrMerns3Q2iAUb0BSCGhpNHp
-	YthBovaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SFHjmBfONw4toFYpDQyyxLKf2g6u6KINpULYTGLZT3Y=; b=NCozRsZdqczzoNE/vsQCtattcX
+	HFyXmonR7VJDtyQi1D+UVSzsXtcPjsMmWPo0RfG0yIcvZsae7bMJuV/GQTliseIQl0ZXway6jGsI/
+	XsiOJBLlUit7/uJm5mP6eJwvSUabJN3WmGA591mFbCzsm1Ubb+YQvUg9jWRyEQLEN1pOM9tGoiVOJ
+	sPutKmceW2GFNXZc8o1F9Ejw2njq0+iIgm8L2TOM024J2mLDlRCRAlKQh3JHbK2Oc81J4eJqDx+Hs
+	y0OQ7FkwjwhMb49bQwWuG0gW30vPeC83LoFTpa2vvuaRLo5dw5SAv8o5yMKkkZcn3itBTo1VrP8zM
+	U5E/VX0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh46n-00000001EkG-1pBG;
-	Wed, 30 Jul 2025 10:32:29 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1uh49F-00000001Ev0-0fqT;
+	Wed, 30 Jul 2025 10:35:01 +0000
+Received: from ni.piap.pl ([195.187.100.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh44H-00000001ETy-08et
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 10:29:55 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-71a39f93879so8447517b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 03:29:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753871392; x=1754476192; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=8DfRGBX3mcpytWgeuQOoQcWlLUxxXP7ehgwEP8S8+jQ=;
-        b=A++uy+CC8/QBLX/IeNf/ZlCa4GkjrPGkZUIJu/oR9aBnsm+wK7VgensRfE5WYGaVVs
-         eMuMBuz24CYxmsQp3QVZgjAMmDDXciFQOWm1Ch+AO88i9kCDKa/gUAWaF+XgjrZBchhf
-         LFMMjgPLZtXBKZAjzS1EVbmEDXkNg7D58bwt8hLcKe6APIWQU3CbbJv7aQXyNNDDQ5gr
-         bJapEjNRgjxIwVz24rqB0BJ5lOSPG3dP4oPQJJb7oY+/KzO8Y7o0RpGogYgSOiZiTuHA
-         Mt+/9jm9i0JTWUbaGKSRLuJA5wustExdS6G43faWehggmMaeDcdfu9xkBTOw9+fOSIYf
-         sS9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753871392; x=1754476192;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8DfRGBX3mcpytWgeuQOoQcWlLUxxXP7ehgwEP8S8+jQ=;
-        b=Clak2lApya+JT/K/y8FdgXqx/bLnarYiDlGTNvdjrQoWL0KD+Y69DuCWBTkYUUm7Ni
-         ZTTNBzD2DvMUX96jR6vUwP/KFlN81M8A7INtykBkoTp9YBqmkGGTAYp247ktzsVyDoxc
-         Skn3UTqOD4F1INEoC61w9zXl6yvbfz24flcXDisFPB0SmLujbsZ068WmYhtkNEcTM/KE
-         O45WOwQOCxN9LCO1euiutmslgwnf6SgaHPt+Macvmj2IycWyMSkelDAtUygXXn66j7Bl
-         2U5WypbHcpmqWVdKfY7SJNCgBU0Sjywf2TvH0PB4Meyk7xltZQhsuczQnKiODM+rByXR
-         VJ2A==
-X-Forwarded-Encrypted: i=1; AJvYcCX1vilY379wvoZNaRvGDoY+h/C2mNflfaDoiOwVk15FyJQlkFvuFi2qWGJZHTNiyx7tx+jOEZ+qV1z83DVSwGU5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkjKQpBOgFkzX2gLG0LegI1g7PD1TCTzXJOF5RsuOmIf4O4CYe
-	wY3QVVccmExcuW8h/81cUujhRqKJGmhSMcXg+hubvBR3RBpe9/3AZa8Ayr5HLOxiO95C0pGNWX2
-	iP5mZXiwKyRUQGm0gHifEwkgcHliYFLFfEEUk14Vjkg==
-X-Gm-Gg: ASbGncvXnq2LjVU/tV342h30/6gx93nxy8nPjZfzzJGvk05/wFDxbnB9FYQMl9jrY00
-	J6kYo7+iAWkNZr1++wRuXMKs7cV++P0CYVLR3NIcEjELGI6BNqUrtcr5aKfR1jfivp0usHWPabz
-	lkNFPCHTWDq2D9cipCsL96uL7J30pTeCpcvqVE4xOJyoxuP9JOfjWGW5/PQeCWLMP5574b1yC7X
-	o5oB5vo48HnC/CYc5w=
-X-Google-Smtp-Source: AGHT+IGFQjbmfwQ2KygX5zLfPtAfVRDoKZEoCDWpl15Tj6cbjvtyN/moXAbjn/fUqackhgtTl9hi4qXu0QdfTHnMzRw=
-X-Received: by 2002:a05:690c:3686:b0:71a:2178:3e70 with SMTP id
- 00721157ae682-71a4745d2abmr37909517b3.8.1753871391946; Wed, 30 Jul 2025
- 03:29:51 -0700 (PDT)
+	id 1uh44t-00000001EXe-18X8;
+	Wed, 30 Jul 2025 10:30:33 +0000
+Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
+	by ni.piap.pl (Postfix) with ESMTPS id 2C134C3EEAC9;
+	Wed, 30 Jul 2025 12:30:24 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 2C134C3EEAC9
+From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
+To: Stefan Klug <stefan.klug@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,  Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>,  Heiko Stuebner <heiko@sntech.de>,
+  Paul Elder <paul.elder@ideasonboard.com>,  Jacopo Mondi
+ <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
+  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption
+In-Reply-To: <175344176070.2811177.10693943493658922992@localhost> (Stefan
+	Klug's message of "Fri, 25 Jul 2025 13:09:20 +0200")
+References: <m3h5zbxkc6.fsf@t19.piap.pl> <m38qknx939.fsf@t19.piap.pl>
+	<175308758352.3134829.9472501038683860006@localhost>
+	<m31pq9y98z.fsf@t19.piap.pl>
+	<175326599663.2811177.16620980968274114885@localhost>
+	<m3h5z2vw12.fsf@t19.piap.pl>
+	<175344176070.2811177.10693943493658922992@localhost>
+Date: Wed, 30 Jul 2025 12:30:23 +0200
+Message-ID: <m3qzxyug1s.fsf@t19.piap.pl>
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com> <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
-In-Reply-To: <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 30 Jul 2025 12:29:13 +0200
-X-Gm-Features: Ac12FXyYhnc-5Yj1CQN0T9Q5i6IKPQAs_4KsBvKN_tu1xC2bA9MW4FBogdA1snU
-Message-ID: <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_032953_079722_3AA9C37A 
-X-CRM114-Status: GOOD (  30.59  )
+X-CRM114-CacheID: sfid-20250730_033031_468368_AAE7A2FF 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,61 +69,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Jul 2025 at 11:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Ulf,
->
-> On Wed, 9 Jul 2025 at 13:31, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > Changes in v3:
-> > >         - Added a couple of patches to adress problems on some Renesas
-> > >         platforms. Thanks Geert and Tomi for helping out!
-> > >         - Adressed a few comments from Saravanna and Konrad.
-> > >         - Added some tested-by tags.
-> >
-> > I decided it was time to give this a try, so I have queued this up for
-> > v6.17 via the next branch at my pmdomain tree.
-> >
-> > If you encounter any issues, please let me know so I can help to fix them.
->
-> Thanks for your series!  Due to holidays, I only managed to test
-> this very recently.
->
-> Unfortunately I have an issue with unused PM Domains no longer being
-> disabled on R-Car:
->   - On R-Car Gen1/2/3, using rcar-sysc.c, unused PM Domains are never
->     disabled.
->   - On R-Car Gen4, using rcar-gen4-sysc.c, unused PM Domains are
->     sometimes not disabled.
->     At first, I noticed the IOMMU driver was not enabled in my config,
->     and enabling it did fix the issue.  However, after that I still
->     encountered the issue in a different config that does have the
->     IOMMU driver enabled...
->
-> FTR, unused PM Domains are still disabled correctly on R/SH-Mobile
-> (using rmobile-sysc.c) and on BeagleBone Black. Note that these use
-> of_genpd_add_provider_simple(), while all R-Car drivers use
-> of_genpd_add_provider_onecell().  Perhaps there is an issue with
-> the latter?  If you don't have a clue, I plan to do some more
-> investigation later...
+Hi,
 
-Geert, thanks for reporting!
+still investigating the problem, but I can't see a simple way to work
+around it.
 
->
-> BTW, the "pending due to"-messages look weird to me.
-> On R-Car M2-W (r8a7791.dtsi) I see e.g.:
->
->     genpd_provider ca15-cpu0: sync_state() pending due to e6020000.watchdog
->     renesas-cpg-mssr e6150000.clock-controller: sync_state() pending
-> due to e6020000.watchdog
->
-> ca15-cpu0 is the PM Domain holding the first CPU core, while
-> the watchdog resides in the always-on Clock Domain, and uses the
-> clock-controller for PM_CLK handling.
+It happens with the second ISP only, so the single camera setups (using
+isp0) are immune.
 
-I will have a closer look as soon as I can  to see if I can find some
-potential problems.
+The ISP MI (memory interface) register read operations are not
+a problem, the workaround uses LDP instructions (for registers located
+at addresses not on 32-byte boundary) or read multiple times and return
+the most frequent result (fortunately the MI reads have no side
+effects).
 
-Kind regards
-Uffe
+The writes are a problem, though. Especially writing to
+RKISP1_CIF_MI_ICR register (address 0x32E21504) can (and does) corrupt
+other MI registers, like RKISP1_CIF_MI_CTRL (0x32E21400):
+
+Camera apps just started:
+32E21400:   7A2001       20 3C180000   1FA400
+32E21410:        0        0        0 3C200000
+32E21420:    FD200        0        0        0
+32E21470:        0    10001 3C0C0000   1FA400
+32E21480:        0        0 3C140000    FD200
+32E214F0:        0        0        1       3C
+32E21540:        0        0        0  2000000
+32E21550:      780        0        0        1
+32E21560:        0      780      438   1FA400
+32E21570:        0 1E1E00EF 1E2200E0        0
+
+Video stream halted:
+32E21400:  1000007       20 3C240000   1FA400
+32E21410:        0        0        0 3C2C0000
+32E21420:    FD200        0        0        0
+32E21470:        0        0 3C0C0000   1FA400
+32E21480:        0        0 3C140000    FD200
+32E21490:    7E900        0        0        0
+32E214F0:        0        0        1       7C
+32E21500:        0        0        0        7
+32E21540:        0        0        0  2000000
+32E21550:      780        0        0        1
+32E21560:        0      780      438   1FA400
+32E21570:        0 1E060000 1E0A0000       77
+
+Note that e.g. the 0x32E21400 register, MI_CTRL, has changed value from
+the valid one (0x7A2001) to 0x1000007, which probably originated in
+MI_MIS (and was to be written to MI_ICR).
+
+
+It appears the problems are not constant, they manifest themselves in
+maybe 10% of system boots. Once a system boots, the problems are either
+present (and don't go away) or not.
+
+It appears the ISP uses 3 clocks (+2 used by CSI receiver) - dump of
+their CCM registers (Clock Control Module, IMX8MPRM page 227 and so on):
+MEDIA_ISP           EN mux 7       post 0 SYSTEM_PLL2_DIV2 =3D 500 MHz
+MEDIA_AXI           EN mux 1 pre 1 post 0 SYSTEM_PLL2_CLK / 2 =3D 500 MHz
+MEDIA_APB           EN mux 2 pre 3 post 0 SYSTEM_PLL1_CLK / 4 =3D 200 MHz
+MEDIA_MIPI_PHY1_REF EN mux 0 pre 0 post 0 24M_REF_CLK =3D 24 MHz
+MEDIA_CAM2_PIX      EN mux 2 pre 0 post 0 SYSTEM_PLL2_DIV4 =3D 250 MHz
+
+Now, it appears that in certain cases changing the MEDIA_APB
+(MEDIA_APB_CLOCK_ROOT) "fixes" the problem (for current boot only), or
+make it less (or more) visible. I'm changing the POST divider in
+CCM_POST_ROOT21_SET register directly (the MEDIA_APB frequency is then
+100 MHz):
+
+0x30388A80 MEDIA_APB EN mux 2 pre 3 post 0 SYSTEM_PLL1_CLK / 4 =3D 200 MHz
+# devmem write32 0x30388AA4 1
+0x30388A80 MEDIA_APB EN mux 2 pre 3 post 1 SYSTEM_PLL1_CLK / 8 =3D 100 MHz
+
+Examples - bad read counts from register 0x32E21400 (mi_ctrl)
+per 10 millions of read operations:
+POST=3D0 (default)  with POST=3D1
+945               1
+1448              2361
+1088              2419
+1842              2451
+1333              0
+67                5
+2033              0
+1                 8
+13                16
+2                 4
+7                 0
+1                 0
+539               0
+2605              0
+1                 0
+1723              1
+
+I'm starting to run out of ideas.
+--=20
+Krzysztof "Chris" Ha=C5=82asa
+
+Sie=C4=87 Badawcza =C5=81ukasiewicz
+Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
+Al. Jerozolimskie 202, 02-486 Warszawa
 
