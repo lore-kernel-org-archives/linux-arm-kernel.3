@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B58BC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 00:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9154C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 00:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RMF+UatbKHI59k7lArGqHe3Hem7Fi1L2IGMhNhshshM=; b=D5qnPeR1+IHj5DgyfUNXSb+vjK
-	HI+OYS2t8hYQ7+vU3TBsDiCRmStEWG3IWhE7zy0QSTh6NND6KTQEjZommjyjddoiorCfjnBZq6AR/
-	/IMCB3TWT9HYbUMs+RYqrcCpmooVnXJweMoDFW7PNM04EqUTG6VnVZ0jNC0J3GXEi8fjAIyw7dIQj
-	MtVZmkIl0zwQTMpHAwETLlhptHFtGwXgRI8rRgI3qEqz0TmKtfwd9uNnMxIF3ZAQCRYZ+AU5QTT4Z
-	uk4mr2rI68ZwgNW7t1u2cipRoMi3cLpNk+qU4QZ4alsUAKJB5XXuh0oP33Kl54EK1XuZCqQ1yReiT
-	7YNhzgfQ==;
+	bh=oXqeHgXUmXKp3ebnbfqH9ZLQzmTPLLBG8ssAtKzUzs8=; b=r2Nq7rAP9WwZo50cnBvVVrUVu5
+	8moRG8o1+K/BBhhmynKNtyY6IOnpPHppBdJJ6HLhPh9AdeLKvf9BbyZK32NNU8xf7BjnR5LhJwnYO
+	6aPJaydp0FbJODC47GH0sd3sT/bojt56+yf1+VwC8w7YOdptCvi3BF4lhw6daFmvOTlUAbx5IYh8y
+	Ryrz8+g61ST7dDxnm7rC76io/QztmhDOflyDG8aYTx+Qi5O+QCcYuWSvziWKgzjKJ5fvbI5Z2VGQr
+	bwr3aXbBRT6jOkUre3y0DdvpTkCLUFaGGvfQMpEb4o4vHAbtuLDgmBuSG7XSRjAffbRVnWxF9v6Tw
+	XsrqmZSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugv5J-00000000Pkh-20P0;
-	Wed, 30 Jul 2025 00:54:21 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1ugv7j-00000000Pwl-3gai;
+	Wed, 30 Jul 2025 00:56:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ugv2q-00000000PSi-0Oh0;
-	Wed, 30 Jul 2025 00:51:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1753836708; x=1785372708;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PRvj7/tY0gbPjZ9nvQIa9jtFtzC+d4gO88MH1ziiZgY=;
-  b=Tybz5EJxBbZ7VnH7jLO89wQiSur4un6C4Qg4VyTI5Pi6fhn93SlUVEof
-   qGnKo/FxXxEYGvOxgOzBdDOEbkPqGQQYn4uYEC8wrhsPKqX63yna2++hM
-   uCjRbKlRh1PZ4zh4IiAivQ7bBZ7XSnRZkZMWD0fKlSATK7mpDiDDGmPlC
-   Cgu/f1V8alNo+cQJY0XxSJXsz1RiNFPfiBhjqE2RiuFSL6Lt1dLARMT/A
-   wqZL9MGt0lSya/luAuSTsrLCcf07/zyjpPfulCbmObcT+i7hVz9xtT3g/
-   vNF54GOK2pQQgDIqG7OuYlduzAYII8wZ255dBaVlvGroyH43SEhb/qVyx
-   Q==;
-X-CSE-ConnectionGUID: f4K3NaLTQruQmkvc0jGfjQ==
-X-CSE-MsgGUID: iOk4c+2YTUy1y2ibJ4nSDg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11506"; a="67566244"
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="67566244"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Jul 2025 17:51:47 -0700
-X-CSE-ConnectionGUID: 1Std8N5pSHOU8Hrf9kRN4A==
-X-CSE-MsgGUID: tRwCDmk9QRGDzKVmAmsItA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,350,1744095600"; 
-   d="scan'208";a="193840524"
-Received: from lkp-server01.sh.intel.com (HELO 160750d4a34c) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 29 Jul 2025 17:51:40 -0700
-Received: from kbuild by 160750d4a34c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ugv2f-0001oh-2w;
-	Wed, 30 Jul 2025 00:51:37 +0000
-Date: Wed, 30 Jul 2025 08:50:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Peter Robinson <pbrobinson@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v3 2/5] phy: rockchip: phy-rockchip-typec: Add
- typec_mux/typec_switch support
-Message-ID: <202507300837.EQJOJgpi-lkp@intel.com>
-References: <20250729090032.97-3-kernel@airkyi.com>
+	id 1ugv3K-00000000PYg-1dyA
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Jul 2025 00:52:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6A59CA55022;
+	Wed, 30 Jul 2025 00:52:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A10EC4CEEF;
+	Wed, 30 Jul 2025 00:52:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753836737;
+	bh=jkBmzSmPV94LC+ja+IPJ0d+EvqCY2J5S5RouHbBqu1Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NqLZvq7HqI12euM24CWcJEa6U0shJVZ6f5b+ORyJJpHm1fCWcisczNXjbJENKaSWj
+	 AB7pp9gokr7/t8B9spmlxd3OTFtJSMPuhqmymFZqv0vWTNdEsjpg+ZXIeFYc3zcuLT
+	 dYIAAAc9tngW9W9XTxXxWYjlF65vsCgqIEU5n6Lgspyr9hBcePqGLKXd3uIzSSApRo
+	 Z0AfVfx5ZLtruj2j8QvtnZ4/UGNGE9oLwJpB+CivuHAWLbuLqWHVOdZlsJITEunG1J
+	 2teScO4Cg6B20BOAazfK/7yHp+Lp/SM7neazBwUjveV82Ihc5TLKRe8rDpeZRxQkCk
+	 3eZ5WbOKyVRYA==
+Date: Tue, 29 Jul 2025 17:52:12 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	llvm@lists.linux.dev, patches@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] media: s5p-mfc: Always pass NULL to
+ s5p_mfc_cmd_host2risc_v6()
+Message-ID: <20250730005212.GB2984390@ax162>
+References: <20250715-media-s5p-mfc-fix-uninit-const-pointer-v1-1-4d52b58cafe9@kernel.org>
+ <9650d2e240a9170175069e3a4f6d6d9512d62aa3.camel@ndufresne.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250729090032.97-3-kernel@airkyi.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9650d2e240a9170175069e3a4f6d6d9512d62aa3.camel@ndufresne.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250729_175148_237160_87EFA30F 
-X-CRM114-Status: GOOD (  12.15  )
+X-CRM114-CacheID: sfid-20250729_175218_493962_2ACAA4B9 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +78,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chaoyi,
+Hi Nicolas,
 
-kernel test robot noticed the following build errors:
+On Tue, Jul 29, 2025 at 10:24:22AM -0400, Nicolas Dufresne wrote:
+> Le mardi 15 juillet 2025 à 15:13 -0700, Nathan Chancellor a écrit :
+> > From what I can tell, it seems like ->cmd_host2risc() is only ever
+> > called from v6 code, which always passes NULL? It seems like it should
+> > be possible to just drop .cmd_host2risc on the v5 side, then update
+> > .cmd_host2risc to only take two parameters? If so, I can send a follow
+> > up as a clean up, so that this can go back relatively conflict free.
+> 
+> It seems so yes. For this specific patch, I would probably rename "args" to
+> "__unused" to make the reading faster. But does not matter so much if you later
+> remove it.
 
-[auto build test ERROR on next-20250729]
-[also build test ERROR on linus/master v6.16]
-[cannot apply to robh/for-next rockchip/for-next krzk/for-next krzk-dt/for-next v6.16 v6.16-rc7 v6.16-rc6]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Yes, after this change is picked up in a maintainer's tree, I do plan to
+send a patch to remove the "args" parameter altogether. If you really
+care, I can certainly rename the parameter in this change to "__unused"
+as suggested but if you don't, I will just leave it as is to make
+backporting this a little easier.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Chaoyi-Chen/dt-bindings-phy-rockchip-rk3399-typec-phy-Support-mode-switch/20250729-170255
-base:   next-20250729
-patch link:    https://lore.kernel.org/r/20250729090032.97-3-kernel%40airkyi.com
-patch subject: [PATCH v3 2/5] phy: rockchip: phy-rockchip-typec: Add typec_mux/typec_switch support
-config: powerpc-randconfig-002-20250730 (https://download.01.org/0day-ci/archive/20250730/202507300837.EQJOJgpi-lkp@intel.com/config)
-compiler: powerpc-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250730/202507300837.EQJOJgpi-lkp@intel.com/reproduce)
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202507300837.EQJOJgpi-lkp@intel.com/
+Thanks a lot for taking a look!
 
-All errors (new ones prefixed by >>, old ones prefixed by <<):
-
->> ERROR: modpost: "drm_connector_oob_hotplug_event" [drivers/phy/rockchip/phy-rockchip-typec.ko] undefined!
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for HOTPLUG_CPU
-   Depends on [n]: SMP [=y] && (PPC_PSERIES [=n] || PPC_PMAC [=n] || PPC_POWERNV [=n] || FSL_SOC_BOOKE [=n])
-   Selected by [y]:
-   - PM_SLEEP_SMP [=y] && SMP [=y] && (ARCH_SUSPEND_POSSIBLE [=n] || ARCH_HIBERNATION_POSSIBLE [=y]) && PM_SLEEP [=y]
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Cheers,
+Nathan
 
