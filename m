@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 648CDC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 15:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF7AC83F26
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 15:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6zbDF6DuNywreDfjORRT1cKAmeYmyOF35f+RgRaR5Jw=; b=KVa7ncGNbtqktzlPw46ba4NABI
-	ce5BI/W7ALn0rACBlcDZvkpbJc1lYse5qn81m1pTi+ZBW8BZKFnQN94GkfVv1O/iHbjoi0uC0dLHF
-	yMctNmdWjAnF0zauJJZU1Jwetjkjbkk7Gg3ArC+0r0rVqaCns2cBW/i43zR7lUHGSAh9z8CmNqFON
-	nbFhTFeXmbAhiD58vDlNFVuafCJlygw1AtdC/dqRCm2ltRZJ67cwS1Swe4VKKT8YgNDny0MkjMJet
-	K9IAvsPiuAEN9tBiCCyb8p34+aYHZBlkIu3ACJVgPQQ5PJZYuTRqh9JPLvFC0Il0aa9E6VC7O9Vz8
-	OOMv3vbw==;
+	bh=YqBW6ZCHBt4v3Y+QsUzEN/bOKa7JgRKiAz8ZlMqNhLA=; b=jyWQrTKcfRT2iJeO1DUoNqRACw
+	q87K0IRgXcwHCOwCGp1/Y14LVVr/bDHnTOE0tu++KGv70eWX6J9q1hp95Lq5ufGyiFwQYoq2tVVdl
+	KB0mbc9JTAMXsfkhxUwshPv61dTtz0J6wIIlAY0IRLtxL2mkLG3/9sy1nJ+pEmZKTFNCMS77+mCsn
+	2BjnflUO07exyJL3EZv4ocPwV/vuvLw2DablTLO7GDLbvZqQzhcLMOMiPXz+n4IVNJ7sXRe0x/Ybm
+	o4qiqEf1o4+waDIH66yCOCykPb33SwRDFrDgvky5d32C1nCpVYIIwNYG5/kXrQFEAb2zbZVA3frNy
+	KYK5y+OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh8Ti-00000001oye-2Dvl;
-	Wed, 30 Jul 2025 15:12:26 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uh8Wr-00000001pOR-1vLf;
+	Wed, 30 Jul 2025 15:15:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh8Ow-00000001oPe-3e9M
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 15:07:32 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-749068b9b63so738286b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 08:07:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1753888049; x=1754492849; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6zbDF6DuNywreDfjORRT1cKAmeYmyOF35f+RgRaR5Jw=;
-        b=w3xuTAFcWhEpgVSive4jCUKpnzh1Ubbl3L0u5vf5cozXcu9pePYCgWAu9mFr9GlCMn
-         SzMqlzRco84stRwiuMa3qUDPydP6IJBwSE8TjiMKRvTxfTcMcHHKKsJ9Wrwq5ixMKmF5
-         15wc/J2JRTSzwXtbThC8hAgOrC1YyIkYaHHVdmfGnwSo08Y28y0WOz70bNXWsbtzkh33
-         JSBoyoScOVMuOtfBZATk9Yf2szfffVhPnpEFWjkaTXLJ/0bqg7JKSgXN76/W6/y7UVap
-         pe6isMbykL8h63kpc6+BD81Xp2dKidnfvtKr3gP7bDZdx2mzDPlpawKW6wbW7Tz/FpQM
-         hK1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753888049; x=1754492849;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6zbDF6DuNywreDfjORRT1cKAmeYmyOF35f+RgRaR5Jw=;
-        b=Oa/aC1GTaoIjCegnyfjqA5kOwrTGr0EQIjE2VgW+KX6++bsBtAyl6FFsNZgbj0/95a
-         PQv0dkYisFYZT7+gQdXhhVOoLaZ+e9CGlcdRff0C2sUENzCZn8dIINHBMK5Fkf7ie3mI
-         iMCgEkWijqwaqyln5jaZDuAqtZH7DSKDDYinv9dM1GuUhNkK7IeN/DJHfjwVUyca578m
-         M88lfDt19Hrl0i9opQBlmY+B/dxQzJF8j7832yLsA92DyUxezH0QGmelYMPkZIqbhYLM
-         LfK4b1AmdE9iYasF6Plaqt/W19S8FoV97VKZUZQGSHHl8xKCV9P7G4cj5Ko1AKh0BcuP
-         6GYg==
-X-Forwarded-Encrypted: i=1; AJvYcCUY3+UwTjro1bcb0SA8hUT2ru020MM5JXdiNQ1c/S/j37WUXBb++UJRUyPJsVBob+D8VOE4C63dVJIySEyXH5TD@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywaj5LjOU+pu5frol96g/xX/3T6gI1HQBi3oYPOov1J6CZNNody
-	TBNYwpIoNouBKpXcmeKSIIQq+SmUqHSNwBChllDnwT1qFynhKe/kTKyDEIIJvuUO9ro=
-X-Gm-Gg: ASbGnctMp0fSpfDcdTx//6vGQxuPFac2hmTuOgdZOjqHHGbk5fk2xOg/9laJsXecjk5
-	ffa7d3O91Bwi+i8RhVrQzYk5kAjHIiO595htp4PC9M1bPJvK0YzFYOMvFJL2k5R79cmzrni0KxI
-	83YwBlbFot2zAeSqRI3jqipLwFqSjLmzyib2Q8PvpiKEPTrKnJTGeo3lskI5v74TqSiOVKDzEjz
-	lnqFpkoeRa76RXHX6AVejcbvbqT5aVP+wVwteJdojplLtVSe52qSaDm+eeuYAfLfywktO+qZlO1
-	ZVdYiN7k9Q3HOJskM7xSRMs7x2cqGnCcEQcu/ujd40Ad1EMEK6g3tqZA5SwW0EZERbHsIWaz2zn
-	r1w8YOFCJ/+V4Q/uH4uCdYPz4N9x922c1iLDh
-X-Google-Smtp-Source: AGHT+IFaZ9+p55hN5f6LxwvTNGvq2uEnkVbWsMgb6AANE/sV3IXqIf2qyYyxe/SLSbbyK1EkPLnaaw==
-X-Received: by 2002:a05:6a00:4b0c:b0:740:b394:3ebd with SMTP id d2e1a72fcca58-76ab092312amr5779637b3a.7.1753888049439;
-        Wed, 30 Jul 2025 08:07:29 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:19cc:e53e:637f:aa72])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76408cf75dfsm10232542b3a.50.2025.07.30.08.07.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Jul 2025 08:07:28 -0700 (PDT)
-Date: Wed, 30 Jul 2025 09:07:26 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Huayu Zong <huayu.zong@mediatek.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Tinghan Shen <tinghan.shen@mediatek.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	--cc=Project_Global_Chrome_Upstream_Group@mediatek.com
-Subject: Re: [PATCH 3/3] remoteproc: mediatek: Support MT8189 SCP
-Message-ID: <aIo1LsFeKqtPoCDm@p14s>
-References: <20250729023125.9036-1-huayu.zong@mediatek.com>
- <20250729023125.9036-4-huayu.zong@mediatek.com>
+	id 1uh8UM-00000001pA7-3U72;
+	Wed, 30 Jul 2025 15:13:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 96481A55415;
+	Wed, 30 Jul 2025 15:13:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E312AC4CEE3;
+	Wed, 30 Jul 2025 15:13:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753888385;
+	bh=YqBW6ZCHBt4v3Y+QsUzEN/bOKa7JgRKiAz8ZlMqNhLA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tVDBPGBe3uFtYEbN2yRY07XWJukABYJHao60BGXdLpMTcesP2rN+58FdjC3+TFwza
+	 960l9358iNOb9qwv9+kbr+Ase/bR7oBGvCFvltUiVfsi4PsdaUGgj+NyBHWTqsIg6g
+	 Ob/FmsHiM83t7lKc/YiHcLlYBVyyQRflHNvCJc46HeOnTJqz05oBPtEks3j2BdXdXZ
+	 U4cmc09QPjZPh1vN5G7sCu6qKTlFjVRoWROzFM3wJkvGUeiow1x8FdXJ2Z1t6qxipB
+	 Gk9KtZGgT/CrBloejH2DWrbEcJxz0WCXqcMTX74WhDyL/tqDD71byD+Lek3nus/uab
+	 WY1mSLZthELzw==
+Date: Wed, 30 Jul 2025 17:13:02 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, Melissa Wen <mwen@igalia.com>, 
+	Iago Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+Message-ID: <20250730-boisterous-rare-rattlesnake-ae3a6d@houat>
+References: <20250728-v3d-power-management-v1-0-780f922b1048@igalia.com>
+ <20250728-v3d-power-management-v1-1-780f922b1048@igalia.com>
+ <20250729-tall-fluffy-grouse-f5deec@houat>
+ <1bc23ad0-7273-4ddf-a0ef-4a80186f2581@igalia.com>
+ <20250729-whispering-accelerated-raptor-134e8a@houat>
+ <b8c0f9be-a57e-49b3-8113-cbb9307facd9@igalia.com>
+ <38d12f53-8c8a-4713-b1f9-0e8ffdf71f98@igalia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="5u3z2tlprnrcmq42"
 Content-Disposition: inline
-In-Reply-To: <20250729023125.9036-4-huayu.zong@mediatek.com>
+In-Reply-To: <38d12f53-8c8a-4713-b1f9-0e8ffdf71f98@igalia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_080730_917525_762080CC 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20250730_081306_999194_3338E28B 
+X-CRM114-Status: GOOD (  45.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,148 +84,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Tue, Jul 29, 2025 at 10:31:13AM +0800, Huayu Zong wrote:
-> Add SCP support for mt8189.
-> 
-> Signed-off-by: Huayu Zong <huayu.zong@mediatek.com>
-> ---
->  drivers/remoteproc/mtk_common.h | 11 ++++++++++
->  drivers/remoteproc/mtk_scp.c    | 37 ++++++++++++++++++++++++++++++---
->  2 files changed, 45 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/mtk_common.h b/drivers/remoteproc/mtk_common.h
-> index fd5c539ab2ac..fb2131e0ed07 100644
-> --- a/drivers/remoteproc/mtk_common.h
-> +++ b/drivers/remoteproc/mtk_common.h
-> @@ -35,6 +35,11 @@
->  #define MT8186_SCP_L1_SRAM_PD_P1	0x40B0
->  #define MT8186_SCP_L1_SRAM_PD_p2	0x40B4
->  
-> +#define MT8189_SCP2APMCU_IPC_CLR	0x30010
-> +#define MT8189_SCP2SPM_IPC_CLR		0x30018
-> +#define MT8189_SCP_SECURE_DOMAIN	0xA080
-> +#define MT8189_SCP_DOMAIN_VAL		0x3303003
-> +
->  #define MT8192_L2TCM_SRAM_PD_0		0x10C0
->  #define MT8192_L2TCM_SRAM_PD_1		0x10C4
->  #define MT8192_L2TCM_SRAM_PD_2		0x10C8
-> @@ -112,6 +117,12 @@ struct mtk_scp_of_data {
->  
->  	u32 host_to_scp_reg;
->  	u32 host_to_scp_int_bit;
-> +	u32 scp_to_host_ipc_set_reg;
-> +	u32 scp_to_host_ipc_clr_reg;
-> +	u32 scp_to_spm_ipc_clr_reg;
-> +
-> +	u32 scp_secure_domain_reg;
-> +	u32 scp_domain_value;
->  
->  	size_t ipi_buf_offset;
->  	const struct mtk_scp_sizes_data *scp_sizes;
-> diff --git a/drivers/remoteproc/mtk_scp.c b/drivers/remoteproc/mtk_scp.c
-> index 8206a1766481..956793fc6901 100644
-> --- a/drivers/remoteproc/mtk_scp.c
-> +++ b/drivers/remoteproc/mtk_scp.c
-> @@ -225,7 +225,8 @@ static void mt8192_scp_irq_handler(struct mtk_scp *scp)
->  {
->  	u32 scp_to_host;
->  
-> -	scp_to_host = readl(scp->cluster->reg_base + MT8192_SCP2APMCU_IPC_SET);
-> +	scp_to_host = readl(scp->cluster->reg_base +
-> +			    scp->data->scp_to_host_ipc_set_reg);
+--5u3z2tlprnrcmq42
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/3] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+MIME-Version: 1.0
 
-As far as I can tell, this is the same for both mt8189 and mt8192 - it should
-not be needed.
+On Tue, Jul 29, 2025 at 09:33:50PM -0300, Ma=EDra Canal wrote:
+> On 29/07/25 13:19, Ma=EDra Canal wrote:
+> > Hi Maxime,
+> >=20
+> > On 29/07/25 09:14, Maxime Ripard wrote:
+> > > On Tue, Jul 29, 2025 at 08:53:51AM -0300, Ma=EDra Canal wrote:
+> > > > Hi Maxime,
+> > > >=20
+> > > > On 29/07/25 04:27, Maxime Ripard wrote:
+> > > > > Hi Ma=EDra,
+> > > > >=20
+> > > > > On Mon, Jul 28, 2025 at 09:35:38AM -0300, Ma=EDra Canal wrote:
+> > > > > > Currently, when we prepare or unprepare RPi's clocks, we
+> > > > > > don't actually
+> > > > > > enable/disable the firmware clock. This means that
+> > > > > > `clk_disable_unprepare()` doesn't actually change the clock sta=
+te at
+> > > > > > all, nor does it lowers the clock rate.
+> > > > > >=20
+> > > > > > =A0 From the Mailbox Property Interface documentation [1],
+> > > > > > we can see that
+> > > > > > we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock s=
+tate
+> > > > > > off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create=
+ a
+> > > > > > prepare and an unprepare hook for RPi's firmware clock.
+> > > > > >=20
+> > > > > > As now the clocks are actually turned off, some of them are now=
+ marked
+> > > > > > with CLK_IGNORE_UNUSED or CLK_IS_CRITICAL, as those are require=
+d since
+> > > > > > early boot or are required during reboot.
+> > > > >=20
+> > > > > What difference is there between the CLK_IGNORE_UNUSED and
+> > > > > CLK_IS_CRITICAL clocks?
+> > > >=20
+> > > > =A0From my understanding, CLK_IGNORE_UNUSED will prevent the clock =
+to be
+> > > > gated during boot (on "clk: Disabling unused clocks"), but after it=
+, the
+> > > > clock can be gated.
+> > > >=20
+> > > > With CLK_IS_CRITICAL, the clock will never be disabled.
+> > >=20
+> > > Yeah, that's correct.
+> > >=20
+> > > > For example, RPI_FIRMWARE_M2MC_CLK_ID is used by vc4. It needs to be
+> > > > enabled at boot (I tested; if not enabled, it won't boot). However,
+> > > > after vc4 is probed, we would like vc4 to have control of it and be=
+ able
+> > > > to unprepare it in `vc4_hdmi_runtime_suspend()`. If I set it as
+> > > > CLK_IS_CRITICAL, vc4 won't be able to unprepare it.
+> > >=20
+> > > If the clock can be disabled by Linux, but it breaks some drivers if
+> > > it's not enabled during their probe, something is fishy somewhere, and
+> > > it's likely it would be just as broken if you compiled the driver as a
+> > > module.
+> > >=20
+> > > Even then, some of the other clocks should probably never be disabled,
+> > > like the CPU clock.
+> >=20
+> > I'll mark RPI_FIRMWARE_ARM_CLK_ID and RPI_FIRMWARE_CORE_CLK_ID as
+> > critical. Are there any other clocks you think should never be disabled?
+> >=20
+> > >=20
+> > > > I only set RPI_FIRMWARE_PIXEL_BVB_CLK_ID as critical, as, otherwise=
+, the
+> > > > RPi won't reboot.
+> > >=20
+> > > Why?
+> >=20
+> > I'll have to dig a bit into vc4 HDMI code and to investigate the reason
+> > (and maybe fix the issue there).
+>=20
+> After some investigation, I believe that those display-related should be
+> set to CLK_IGNORE_UNUSED. It's not that it breaks some drivers if not
+> enabled, but it breaks hardware functionality and the device won't boot.
 
->  
->  	if (scp_to_host & MT8192_SCP_IPC_INT_BIT) {
->  		scp_ipi_handler(scp);
-> @@ -235,7 +236,7 @@ static void mt8192_scp_irq_handler(struct mtk_scp *scp)
->  		 * MT8192_SCP2APMCU_IPC.
->  		 */
->  		writel(MT8192_SCP_IPC_INT_BIT,
-> -		       scp->cluster->reg_base + MT8192_SCP2APMCU_IPC_CLR);
-> +		       scp->cluster->reg_base + scp->data->scp_to_host_ipc_clr_reg);
->  	} else {
->  		scp_wdt_handler(scp, scp_to_host);
->  		writel(1, scp->cluster->reg_base + MT8192_CORE0_WDT_IRQ);
-> @@ -559,8 +560,10 @@ static int mt8188_scp_c1_before_load(struct mtk_scp *scp)
->  
->  static int mt8192_scp_before_load(struct mtk_scp *scp)
->  {
-> +	u32 scp2spm_ipc_clr = scp->data->scp_to_spm_ipc_clr_reg;
-> +
->  	/* clear SPM interrupt, SCP2SPM_IPC_CLR */
-> -	writel(0xff, scp->cluster->reg_base + MT8192_SCP2SPM_IPC_CLR);
-> +	writel(0xff, scp->cluster->reg_base + scp2spm_ipc_clr);
->  
->  	writel(1, scp->cluster->reg_base + MT8192_CORE0_SW_RSTN_SET);
->  
-> @@ -574,6 +577,11 @@ static int mt8192_scp_before_load(struct mtk_scp *scp)
->  	/* enable MPU for all memory regions */
->  	writel(0xff, scp->cluster->reg_base + MT8192_CORE0_MEM_ATT_PREDEF);
->  
-> +	/* set the domain of master in SCP */
-> +	if (scp->data->scp_secure_domain_reg)
-> +		writel(scp->data->scp_domain_value,
-> +		       scp->cluster->reg_base + scp->data->scp_secure_domain_reg);
-> +
->  	return 0;
->  }
->  
-> @@ -1464,6 +1472,24 @@ static const struct mtk_scp_of_data mt8188_of_data_c1 = {
->  	.scp_sizes = &mt8188_scp_c1_sizes,
->  };
->  
-> +static const struct mtk_scp_of_data mt8189_of_data = {
-> +	.scp_clk_get = mt8195_scp_clk_get,
-> +	.scp_before_load = mt8192_scp_before_load,
-> +	.scp_irq_handler = mt8192_scp_irq_handler,
-> +	.scp_reset_assert = mt8192_scp_reset_assert,
-> +	.scp_reset_deassert = mt8192_scp_reset_deassert,
-> +	.scp_stop = mt8192_scp_stop,
-> +	.scp_da_to_va = mt8192_scp_da_to_va,
-> +	.host_to_scp_reg = MT8192_GIPC_IN_SET,
-> +	.host_to_scp_int_bit = MT8192_HOST_IPC_INT_BIT,
-> +	.scp_to_host_ipc_set_reg = MT8192_SCP2APMCU_IPC_SET,
-> +	.scp_to_host_ipc_clr_reg = MT8189_SCP2APMCU_IPC_CLR,
-> +	.scp_to_spm_ipc_clr_reg = MT8189_SCP2SPM_IPC_CLR,
-> +	.scp_secure_domain_reg = MT8189_SCP_SECURE_DOMAIN,
-> +	.scp_domain_value = MT8189_SCP_DOMAIN_VAL,
-> +	.scp_sizes = &default_scp_sizes,
-> +};
-> +
->  static const struct mtk_scp_of_data mt8192_of_data = {
->  	.scp_clk_get = mt8192_scp_clk_get,
->  	.scp_before_load = mt8192_scp_before_load,
-> @@ -1475,6 +1501,10 @@ static const struct mtk_scp_of_data mt8192_of_data = {
->  	.host_to_scp_reg = MT8192_GIPC_IN_SET,
->  	.host_to_scp_int_bit = MT8192_HOST_IPC_INT_BIT,
->  	.scp_sizes = &default_scp_sizes,
-> +	.scp_to_host_ipc_set_reg = MT8192_SCP2APMCU_IPC_SET,
-> +	.scp_to_host_ipc_clr_reg = MT8192_SCP2APMCU_IPC_CLR,
-> +	.scp_to_spm_ipc_clr_reg = MT8192_SCP2SPM_IPC_CLR,
-> +	.scp_sizes = &default_scp_sizes,
+That's the sign of a driver accessing a register without having its
+clock explicitly enabled. It's a bug in the driver.
 
-You are introducing a duplicate .scp_sizes
+> See, for example, clk-bcm2835 in which all PLL and PLL dividers clocks
+> are marked with CLK_IGNORE_UNUSED and some with CLK_IS_CRITICAL.
+>
+> Maybe Dave has some input about the topic?
+>=20
+> So far, I'm planing to keep CLK_IGNORE_UNUSED to the display-related
+> clocks and remove CLK_IS_CRITICAL from RPI_FIRMWARE_PIXEL_BVB_CLK_ID. If
+> you have any objections about it, let me know.
 
-Thanks,
-Mathieu
+I guess my main point was that CLK_IGNORE_UNUSED is inherently fragile
+and doesn't protect from the clock being actually disabled: a driver
+probing, failing and calling clk_disable on that clock would disable it
+for example. Or if the last enabled sibling reparents to another parent
+and thus your parent will get disabled.
 
->  };
->  
->  static const struct mtk_scp_of_data mt8195_of_data = {
-> @@ -1520,6 +1550,7 @@ static const struct of_device_id mtk_scp_of_match[] = {
->  	{ .compatible = "mediatek,mt8186-scp", .data = &mt8186_of_data },
->  	{ .compatible = "mediatek,mt8188-scp", .data = &mt8188_of_data },
->  	{ .compatible = "mediatek,mt8188-scp-dual", .data = &mt8188_of_data_cores },
-> +	{ .compatible = "mediatek,mt8189-scp", .data = &mt8189_of_data },
->  	{ .compatible = "mediatek,mt8192-scp", .data = &mt8192_of_data },
->  	{ .compatible = "mediatek,mt8195-scp", .data = &mt8195_of_data },
->  	{ .compatible = "mediatek,mt8195-scp-dual", .data = &mt8195_of_data_cores },
-> -- 
-> 2.45.2
-> 
+The only thing it does is skipping the explicit disable round at the end
+of the kernel boot. That's it.
+
+So if you do need to keep the clock enabled, use CLK_IS_CRITICAL. If you
+don't, well then that's easy :)
+
+Maxime
+
+--5u3z2tlprnrcmq42
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaIo2eQAKCRAnX84Zoj2+
+dtcgAX0X3wsxlIhSt8GuDredypYxHxwtC+MgUdYZeXHTlPuR9ueUAmjehy6oSxBY
+WZFV8p8BgLB5L/NKlr42GYLe7RA5Rx7TQWGj3KmSeHzjEAXGb4tXSlWDGMp8EQTv
+Qyo6gR+tiQ==
+=zEWw
+-----END PGP SIGNATURE-----
+
+--5u3z2tlprnrcmq42--
 
