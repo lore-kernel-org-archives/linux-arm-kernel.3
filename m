@@ -4,84 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CAE5C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A840C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 21:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zcr0HAZVJL/wPM68//kB0QFOkcy4cqNgVvPP1uhkVrY=; b=uRBVnNN+NZCPPyVJ425YAk+d/F
-	ThAr9QvAvgbmwN0V2BUJyi7/NK7s192G2LQ9mTW1SJ9Q87bIY1IvbEDNILcKBQuejoimWD/KFs53g
-	dVumOlqAGNjmvTKBbgvqFjcKKYBPBgi+JlBii0K8BnHK5oTJ0sy3e2j+ftweZo5vF09xz00zSTqha
-	NUNbxh59ZiwgLrH1fqkHYv7mfQdilPhBkATNV8/V+5hnc3N19XxPxxSEIWYWLv0XoKBp9zxy13sIg
-	nGuoHr7TlwqVw1/iP0kCa6sfiT4Q5jxRdPEGdpu3RN2la5I0o4FKsV1+FrqSX0nLRPCSA1la1EZTD
-	NlOZrn/Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RD20S9/B4NdnAogMOR2KiY4OmUeYof6pQXYMHwBkIes=; b=1ktg7VDBwJAmnJBbbOt6jWahBf
+	yKnBFY2K7WdJArbmG9LlO0cSwndNCBMI3/aRd7L+JlaxaAn74CgD5wyeXBFUptw3Ghr9d1E5ydZA/
+	kU5JhRgCeUeKEjdp3eQOvJOLq8bI30pUvDmHZZ18gNSjCAEiboPGhB0psq2WgOSkI12tuHjOgeS7c
+	sbtR2tfVNObHt8PmVCBp+8uZIkVDaOFNeDtb00xVeOAHu35D+rXWVWKPG4uK/qJwjIoR9spokHs9e
+	HH0bkugeAzhPBclyUtln0fyWkZkyXPDaFT4GFzXNvPvnZun5bzF6ta3FfUkq0mzHnUXTEm9oNWk99
+	i/DVZuxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhE7Z-00000002Sho-0O2w;
-	Wed, 30 Jul 2025 21:13:57 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uhEA0-00000002T5i-3afs;
+	Wed, 30 Jul 2025 21:16:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhE55-00000002SQz-1Ck6
+	id 1uhE5C-00000002SRj-1nbT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Jul 2025 21:11:24 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-756bb07b029so180718b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 14:11:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753909882; x=1754514682; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zcr0HAZVJL/wPM68//kB0QFOkcy4cqNgVvPP1uhkVrY=;
-        b=wTo/S60CwBFSwseKrKtOsUwZLc12jQnBu1mZfYcZO8adGPt9aMp0/HyVZU7OHK1Njw
-         g/MOolz1hgA6PBCt6hIF4BCZ1N0g6uhfFy72Yl7gnc3UgSbSlFx5fuG4m1t7+qO5fl7L
-         YjfLDYpQ9ZdklsV2ShhSOzUuSV5ajoTXzJRWmnKov5iC0iuh/NHvc1UoMPYOd05XP+aV
-         r+GYzBLHdK89FlAJ2Xrpq0rw4Vqv7PeVNa5kfURo3fGUSqRM183F1xbeZJPfXLG64/Ad
-         nDLB28C/+gOwjjoDNNfD7X7OTJxo0rYgBAf0RUELVy8oDkyEZnI/SqcWjsxPVnOWJt1u
-         E+lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753909882; x=1754514682;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Zcr0HAZVJL/wPM68//kB0QFOkcy4cqNgVvPP1uhkVrY=;
-        b=FFv6U3wujHdD2ARMENKzPrvFy7GCKtD9w+fUckx6SD2k3Hgr3Qzz1fyxRwk/+ht3ay
-         9aVJ00GL3sC6imO/BV/SXbgcGvATw1qtjxyDPK1GEyjZrLFK2EEp6ELMUVtksYmeU9pE
-         WuSr7nHBa+BNP3t42l/BPhqi8nUCgng0cm8mp9swyPRtem+D9rg2Z/ri90QYSY0ynyKC
-         qm+3FCgAMhQMcOtB32f4BYF7fp022Ow9carLIvZBf+nUzFjtQjq21ubjO/RhoaFsiWCh
-         U0Bwbit3+Rlb+qFI54lmEolWGzuzZLj441upndWLhd/rkjX3RgVrLAHoinOBgZFuDCp4
-         sREg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyB8X8hNhh8DXK0JpiVOfz7GeagNSeBB4jiIhdtTkryNkauC1OEbC8EC4iBkt2GwgM4juMAj3ZymMqTLInwW6r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUlMi1mJDbvXhxJRfr7rOF0moGj8y/er2QiW/A/bxAetwWJr8I
-	hTBrCn1jo9r2OkMxccnizlUaMgWE8gmCTTBf9YS4pee6hLNw3+85LxWRXOgf3WcC/pEQuqKZevH
-	ALYvRefYTRuOSxYWOeAAPEw==
-X-Google-Smtp-Source: AGHT+IH81SELHZh+GPX7YKucdrOrQjsD2qC5Y2tfTvaMHB5OVH1Y4cxqU+ojrj5t1POmR4E8onsMP+EV8Hr7rDZV
-X-Received: from pgmb10.prod.google.com ([2002:a63:1b4a:0:b0:b3b:d2a0:df40])
- (user=jthoughton job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:12d3:b0:234:216b:cf98 with SMTP id adf61e73a8af0-23dc0e8609fmr7392654637.35.1753909881916;
- Wed, 30 Jul 2025 14:11:21 -0700 (PDT)
-Date: Wed, 30 Jul 2025 21:11:18 +0000
-In-Reply-To: <20250618042424.330664-6-jthoughton@google.com>
-Mime-Version: 1.0
-References: <20250618042424.330664-6-jthoughton@google.com>
-X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250730211120.4163536-1-jthoughton@google.com>
-Subject: Re: [PATCH v3 05/15] KVM: x86: Add support for KVM userfault exits
-From: James Houghton <jthoughton@google.com>
-To: jthoughton@google.com
-Cc: amoorthy@google.com, corbet@lwn.net, dmatlack@google.com, 
-	kalyazin@amazon.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	pbonzini@redhat.com, peterx@redhat.com, pgonda@google.com, seanjc@google.com, 
-	wei.w.wang@intel.com, yan.y.zhao@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 30 Jul 2025 21:11:31 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3B548C0B;
+	Wed, 30 Jul 2025 23:10:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1753909842;
+	bh=eTV7kQZVXkO0t6U/NUa8taJ4lj69rZbez7gVS/90+H8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EzqSyvXHkGuj7A/hvv3Z7k3FepbLPyx7DowhVF+p9Tb0z3v+dkHYfoolbQEcIF6Mi
+	 P6HEhwX1e+h3Gu5dGm693URm7qbm930kJ8a462Gnhr1BrG0Y8ReYMDR6+sm+FYwk9d
+	 JlOt+uxktWP+v6NHBRRK/eLUcd4oD5EN3PmsLZXE=
+Message-ID: <7b6dbaab-ec40-4b84-8e8f-b53062568838@ideasonboard.com>
+Date: Wed, 30 Jul 2025 22:11:22 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 18/19] media: platform: Add mali-c55 parameters video
+ node
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+ jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com, robh+dt@kernel.org,
+ mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org,
+ jerome.forissier@linaro.org, kieran.bingham@ideasonboard.com,
+ laurent.pinchart@ideasonboard.com
+References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
+ <20250714-c55-v11-18-bc20e460e42a@ideasonboard.com>
+ <aIot2pmuIIidZORo@kekkonen.localdomain>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+Autocrypt: addr=dan.scally@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <aIot2pmuIIidZORo@kekkonen.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_141123_323005_E52FAE21 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20250730_141130_616232_3C0D0574 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +118,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 17, 2025 at 9:24=E2=80=AFPM James Houghton <jthoughton@google.c=
-om> wrote:
+Hi Sakari, thanks for the comments
+
+On 30/07/2025 15:36, Sakari Ailus wrote:
+> Hi Daniel,
 >
-> Only a few changes are needed to support KVM userfault exits on x86:
+> Thanks for the update.
 >
-> 1. Adjust kvm_mmu_hugepage_adjust() to force pages to be mapped at 4K
-> =C2=A0 =C2=A0while KVM_MEM_USERFAULT is enabled.
-> 2. Return -EFAULT when kvm_do_userfault() when it reports that the page
-> =C2=A0 =C2=A0is userfault. (Upon failure to read from the bitmap,
-> =C2=A0 =C2=A0kvm_do_userfault() will return true without setting up a mem=
-ory fault
-> =C2=A0 =C2=A0exit, so we'll return a bare -EFAULT).
+> On Mon, Jul 14, 2025 at 04:06:44PM +0100, Daniel Scally wrote:
+>> +static int
+>> +mali_c55_params_validate_buffer(struct device *dev,
+>> +				const struct v4l2_params_buffer *buffer)
+>> +{
+>> +	/* Only v1 is supported at the moment. */
+>> +	if (buffer->version != MALI_C55_PARAM_BUFFER_V1) {
+>> +		dev_dbg(dev, "Unsupported extensible format version: %u\n",
+>> +			buffer->version);
+>> +		return -EINVAL;
+>> +	}
+> Is there anything else to validate here?
+
+
+Not at this stage; the rest of the validation is done by Jacopo's new framework
+
 >
-> For hugepage recovery, the behavior when disabling KVM_MEM_USERFAULT
-> should match the behavior when disabling KVM_MEM_LOG_DIRTY_PAGES; make
-> changes to kvm_mmu_slot_apply_flags() to recover hugepages when
-> KVM_MEM_USERFAULT is disabled.
+> I guess nothing is done with the information other than the value is being
+> checked above, but if it had an effect on something, one would need to copy
+> the information to memory not accessible to the user.
+
+
+Thats done later in .buf_prepare()
+
 >
-> Signed-off-by: James Houghton <jthoughton@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int mali_c55_params_buf_prepare(struct vb2_buffer *vb)
+>> +{
+>> +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
+>> +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+>> +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
+>> +	struct mali_c55 *mali_c55 = params->mali_c55;
+>> +	struct v4l2_params_buffer *config;
+>> +	int ret;
+>> +
+>> +	ret = v4l2_params_buffer_validate(
+>> +		mali_c55->dev, vb,
+>> +		v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE),
+>> +		mali_c55_params_validate_buffer);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/*
+>> +	 * Copy the parameters buffer provided by userspace to the internal
+>> +	 * scratch buffer. This protects against the chance of userspace making
+>> +	 * changed to the buffer content whilst the driver processes it.
+>> +	 */
+>> +	config = vb2_plane_vaddr(vb, 0);
+>> +	memcpy(buf->config, config, v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
+>> +
+>> +	return v4l2_params_blocks_validate(mali_c55->dev, buf->config,
+>> +					   mali_c55_block_handlers,
+>> +					   ARRAY_SIZE(mali_c55_block_handlers),
+>> +					   NULL);
+>> +}
+>> +
+>> +static void mali_c55_params_buf_queue(struct vb2_buffer *vb)
+>> +{
+>> +	struct mali_c55_params *params = vb2_get_drv_priv(vb->vb2_queue);
+>> +	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+>> +	struct mali_c55_params_buf *buf = to_mali_c55_params_buf(vbuf);
+>> +
+>> +	spin_lock(&params->buffers.lock);
+>> +	list_add_tail(&buf->queue, &params->buffers.queue);
+>> +	spin_unlock(&params->buffers.lock);
+>> +}
+>> +
+>> +static void mali_c55_params_return_buffers(struct mali_c55_params *params,
+>> +					   enum vb2_buffer_state state)
+>> +{
+>> +	struct mali_c55_params_buf *buf, *tmp;
+>> +
+>> +	guard(spinlock)(&params->buffers.lock);
+>> +
+>> +	list_for_each_entry_safe(buf, tmp, &params->buffers.queue, queue) {
+>> +		list_del(&buf->queue);
+>> +		vb2_buffer_done(&buf->vb.vb2_buf, state);
+>> +	}
+>> +}
+>> +
+>> +static int mali_c55_params_start_streaming(struct vb2_queue *q,
+>> +					   unsigned int count)
+>> +{
+>> +	struct mali_c55_params *params = vb2_get_drv_priv(q);
+>> +	struct mali_c55 *mali_c55 = params->mali_c55;
+>> +	int ret;
+>> +
+>> +	ret = pm_runtime_resume_and_get(mali_c55->dev);
+>> +	if (ret)
+>> +		goto err_return_buffers;
+>> +
+>> +	ret = video_device_pipeline_alloc_start(&params->vdev);
+>> +	if (ret)
+>> +		goto err_pm_put;
+>> +
+>> +	ret = video_device_pipeline_started(&params->vdev);
+>> +	if (ret < 0)
+>> +		goto err_stop_pipeline;
+>> +
+>> +	return 0;
+>> +
+>> +err_stop_pipeline:
+>> +	video_device_pipeline_stop(&params->vdev);
+>> +err_pm_put:
+>> +	pm_runtime_put(mali_c55->dev);
+>> +err_return_buffers:
+>> +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_QUEUED);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static void mali_c55_params_stop_streaming(struct vb2_queue *q)
+>> +{
+>> +	struct mali_c55_params *params = vb2_get_drv_priv(q);
+>> +	struct media_pipeline *pipe;
+>> +
+>> +	pipe = video_device_pipeline(&params->vdev);
+>> +	if (mali_c55_pipeline_ready(pipe))
+>> +		media_pipeline_stopped(pipe);
+>> +
+>> +	video_device_pipeline_stop(&params->vdev);
+>> +	mali_c55_params_return_buffers(params, VB2_BUF_STATE_ERROR);
+>> +}
+>> +
+>> +static const struct vb2_ops mali_c55_params_vb2_ops = {
+>> +	.queue_setup = mali_c55_params_queue_setup,
+>> +	.buf_init = mali_c55_params_buf_init,
+>> +	.buf_cleanup = mali_c55_params_buf_cleanup,
+>> +	.buf_queue = mali_c55_params_buf_queue,
+>> +	.buf_prepare = mali_c55_params_buf_prepare,
+>> +	.wait_prepare = vb2_ops_wait_prepare,
+>> +	.wait_finish = vb2_ops_wait_finish,
+>> +	.start_streaming = mali_c55_params_start_streaming,
+>> +	.stop_streaming = mali_c55_params_stop_streaming,
+>> +};
+>> +
+>> +void mali_c55_params_write_config(struct mali_c55 *mali_c55)
+>> +{
+>> +	struct mali_c55_params *params = &mali_c55->params;
+>> +	struct v4l2_params_buffer *config;
+>> +	struct mali_c55_params_buf *buf;
+>> +	size_t block_offset = 0;
+>> +	size_t max_offset;
+>> +
+>> +	spin_lock(&params->buffers.lock);
+>> +
+>> +	buf = list_first_entry_or_null(&params->buffers.queue,
+>> +				       struct mali_c55_params_buf, queue);
+>> +	if (buf)
+>> +		list_del(&buf->queue);
+>> +	spin_unlock(&params->buffers.lock);
+>> +
+>> +	if (!buf)
+>> +		return;
+>> +
+>> +	buf->vb.sequence = mali_c55->isp.frame_sequence;
+>> +	config = buf->config;
+>> +
+>> +	max_offset = config->data_size - sizeof(struct v4l2_params_block_header);
+>> +
+>> +	/*
+>> +	 * Walk the list of parameter blocks and process them. No validation is
+>> +	 * done here, as the contents of the config buffer are already checked
+>> +	 * when the buffer is queued.
+>> +	 */
+>> +	while (block_offset < max_offset) {
+>> +		const struct v4l2_params_handler *block_handler;
+>> +		union mali_c55_params_block block;
+>> +
+>> +		block.data = &config->data[block_offset];
+>> +
+>> +		/* We checked the array index already in .buf_queue() */
+> Not a lot seems to be done there in terms of validation.
+>
+> Even if that had been done, you can't trust the buffer contents as it
+> remains mapped to the userspace.
 
-This patch fails to remove the WARN in recover_huge_pages_range(). The
-diff below will be applied to the next version of this patch, whenever it
-comes.
+Ah; a hangover of an earlier iteration before using the new v4l2-params helpers; the validation is 
+done by those functions in .buf_prepare() now and the userspace buffer is memcopied to a scratch buffer.
 
-This WARN can be hit by enabling KVM_MEM_LOG_DIRTY_PAGES and
-KVM_MEM_USERFAULT, then disabling KVM_MEM_USERFAULT.
 
-I've been having offline discussions with Sean about this series; I'm
-waiting for him to rework the KVM_GENERIC_PAGE_FAULT bits. I'll dedicate
-some more time to the QEMU side of things too.
+Thanks
 
-Thanks.
+Dan
 
-diff --git a/arch/x86/kvm/mmu/tdp_mmu.c b/arch/x86/kvm/mmu/tdp_mmu.c
-index 7f3d7229b2c1f..2d83ddb233a9a 100644
---- a/arch/x86/kvm/mmu/tdp_mmu.c
-+++ b/arch/x86/kvm/mmu/tdp_mmu.c
-@@ -1779,7 +1779,7 @@ static void recover_huge_pages_range(struct kvm *kvm,
- 	u64 huge_spte;
- 	int r;
-=20
--	if (WARN_ON_ONCE(kvm_slot_dirty_track_enabled(slot)))
-+	if (kvm_slot_dirty_track_enabled(slot))
- 		return;
-=20
- 	rcu_read_lock();
+>> +		block_handler = &mali_c55_block_handlers[block.header->type];
+>> +		block_handler->handler(mali_c55, block.header);
+>> +
+>> +		block_offset += block.header->size;
+>> +	}
+>> +
+>> +	vb2_buffer_done(&buf->vb.vb2_buf, VB2_BUF_STATE_DONE);
+>> +}
 
