@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEB1C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C381C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Jul 2025 10:57:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFHjmBfONw4toFYpDQyyxLKf2g6u6KINpULYTGLZT3Y=; b=NCozRsZdqczzoNE/vsQCtattcX
-	HFyXmonR7VJDtyQi1D+UVSzsXtcPjsMmWPo0RfG0yIcvZsae7bMJuV/GQTliseIQl0ZXway6jGsI/
-	XsiOJBLlUit7/uJm5mP6eJwvSUabJN3WmGA591mFbCzsm1Ubb+YQvUg9jWRyEQLEN1pOM9tGoiVOJ
-	sPutKmceW2GFNXZc8o1F9Ejw2njq0+iIgm8L2TOM024J2mLDlRCRAlKQh3JHbK2Oc81J4eJqDx+Hs
-	y0OQ7FkwjwhMb49bQwWuG0gW30vPeC83LoFTpa2vvuaRLo5dw5SAv8o5yMKkkZcn3itBTo1VrP8zM
-	U5E/VX0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zlCrFZc1Ar+beMlB/WLfMgLOYzTr4GAjOxsN2uARjsk=; b=aZdcBRCOQ5Ej+h08fppQmXtbR3
+	KGnAlrq/igNwBS1nUlmq1C6skCvcshk0CKvPOlEWxIIWcM+SvI8AwxsXrUxW8sdBmED0VVDo6ijN8
+	jUbKF4th1l7D+0q3jj2zGeto17SfEEDceA5lvMwkqJGe7XMY/bhVDmqUqBu6/I3hHhv8FoT0tn8PY
+	mU8Y64jaU3TCuKccErOVk/jKp3bPsufTAP/UBOCa4ES9H/B4jFeGLP6Hs9BaWrnyfuT+8QuGI3c3H
+	jNAzfTtXXZnNkvSAdEf9HJUo1h2JyPu+BvNFIyss9rDscGJHxPHZJbpERZRcJCkagGxcUXYbCzHoE
+	a4Qh/6qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh49F-00000001Ev0-0fqT;
-	Wed, 30 Jul 2025 10:35:01 +0000
-Received: from ni.piap.pl ([195.187.100.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uh44t-00000001EXe-18X8;
-	Wed, 30 Jul 2025 10:30:33 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 2C134C3EEAC9;
-	Wed, 30 Jul 2025 12:30:24 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 2C134C3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,  Heiko Stuebner <heiko@sntech.de>,
-  Paul Elder <paul.elder@ideasonboard.com>,  Jacopo Mondi
- <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
-  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption
-In-Reply-To: <175344176070.2811177.10693943493658922992@localhost> (Stefan
-	Klug's message of "Fri, 25 Jul 2025 13:09:20 +0200")
-References: <m3h5zbxkc6.fsf@t19.piap.pl> <m38qknx939.fsf@t19.piap.pl>
-	<175308758352.3134829.9472501038683860006@localhost>
-	<m31pq9y98z.fsf@t19.piap.pl>
-	<175326599663.2811177.16620980968274114885@localhost>
-	<m3h5z2vw12.fsf@t19.piap.pl>
-	<175344176070.2811177.10693943493658922992@localhost>
-Date: Wed, 30 Jul 2025 12:30:23 +0200
-Message-ID: <m3qzxyug1s.fsf@t19.piap.pl>
+	id 1uh4Ug-00000001Grp-2LGw;
+	Wed, 30 Jul 2025 10:57:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uh4SB-00000001GbW-2vbx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Jul 2025 10:54:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C74031BC0;
+	Wed, 30 Jul 2025 03:54:26 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C1CE3F673;
+	Wed, 30 Jul 2025 03:54:34 -0700 (PDT)
+Date: Wed, 30 Jul 2025 11:54:32 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mark Brown <broonie@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 04/10] coresight: Appropriately disable programming
+ clocks
+Message-ID: <20250730105432.GC143191@e132581.arm.com>
+References: <20250724-arm_cs_fix_clock_v4-v5-0-63f648dae021@arm.com>
+ <20250724-arm_cs_fix_clock_v4-v5-4-63f648dae021@arm.com>
+ <b3782b8f-8c09-4fb8-bec6-186102cc66a8@sirena.org.uk>
+ <f9fb2174-5bc5-4c7b-b74b-8542b4f7cbe0@sirena.org.uk>
+ <15370a42-8e92-4f57-9ff2-f283d9fd30bd@arm.com>
+ <20250730085637.GB143191@e132581.arm.com>
+ <caffdde4-fad4-4462-ba92-84416726a12d@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <caffdde4-fad4-4462-ba92-84416726a12d@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_033031_468368_AAE7A2FF 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250730_035435_815485_C3136734 
+X-CRM114-Status: GOOD (  30.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,102 +76,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Jul 30, 2025 at 10:27:48AM +0100, Suzuki Kuruppassery Poulose wrote:
+> On 30/07/2025 09:56, Leo Yan wrote:
+> > On Tue, Jul 29, 2025 at 01:30:28PM +0100, Suzuki Kuruppassery Poulose wrote:
+> > > On 29/07/2025 12:31, Mark Brown wrote:
+> > > > On Mon, Jul 28, 2025 at 05:45:04PM +0100, Mark Brown wrote:
+> > > > > On Thu, Jul 24, 2025 at 04:22:34PM +0100, Leo Yan wrote:
+> > > > > 
+> > > > > Previously we would return NULL for any error (which isn't super great
+> > > > > for deferred probe but never mind).
+> > > > > 
+> > > > > > +	pclk = devm_clk_get_enabled(dev, "apb_pclk");
+> > > > > > +	if (IS_ERR(pclk))
+> > > > > > +		pclk = devm_clk_get_enabled(dev, "apb");
+> > > > > 
+> > > > > ...
+> > > > > 
+> > > > > >    	return pclk;
+> > > > > >    }
+> > > > > 
+> > > > > Now we pass errors back to the caller, making missing clocks fatal.
+> > > > 
+> > > > Thinking about this some more I think for compatiblity these clocks need
+> > > > to be treated as optional - that's what the original code was
+> > > > effectively doing, and I can imagine this isn't the only SoC which has
+> > > > (hopefully) always on clocks and didn't wire things up in DT.
+> > > 
+> > > You're right. The static components (funnels, replicators) don't have
+> > > APB programming interface and hence no clocks. That said, may be the
+> > > "is amba device" check could be used to enforce the presence of a clock.
+> > 
+> > I was wondering how this issue slipped through when I tested it on the
+> > Hikey960 board. The Hikey960 also has one static funnel, but it binds
+> > pclk with the static funnel node. That's why I didn't detect the issue.
+> > 
+> > I don't think using optional clock API is right thing, as DT binding
+> > schema claims the pclk is mandatory for dynamic components. My proposal
+> > is to enable the clocks only when IORESOURCE_MEM is available, something
+> > like:
+> > 
+> >    if (res) {
+> >        ret = coresight_get_enable_clocks(dev, &drvdata->pclk,
+> >                                          &drvdata->atclk);
+> 
+> That may not work, as they may need the ATCLK enabled to
+> push the trace over ATB. They may skip the APB, as there
+> is no programming interface.
 
-still investigating the problem, but I can't see a simple way to work
-around it.
+If so, I will use an extra patch to skip pclk enabling for static funnel
+and replicator, as a result, patch 04 will be:
 
-It happens with the second ISP only, so the single camera setups (using
-isp0) are immune.
+  if (res) {
+      drvdata->pclk = coresight_get_enable_apb_pclk(dev);
+      if (IS_ERR(drvdata->pclk))
+          return PTR_ERR(drvdata->pclk);
+  }
 
-The ISP MI (memory interface) register read operations are not
-a problem, the workaround uses LDP instructions (for registers located
-at addresses not on 32-byte boundary) or read multiple times and return
-the most frequent result (fortunately the MI reads have no side
-effects).
+Then, when consolidation in patch 07, it will have a code:
 
-The writes are a problem, though. Especially writing to
-RKISP1_CIF_MI_ICR register (address 0x32E21504) can (and does) corrupt
-other MI registers, like RKISP1_CIF_MI_CTRL (0x32E21400):
+  /* Only enable pclk for a device with I/O resource */
+  ret = coresight_get_enable_clocks(dev, res ? &drvdata->pclk : NULL,
+                                    &drvdata->atclk);
 
-Camera apps just started:
-32E21400:   7A2001       20 3C180000   1FA400
-32E21410:        0        0        0 3C200000
-32E21420:    FD200        0        0        0
-32E21470:        0    10001 3C0C0000   1FA400
-32E21480:        0        0 3C140000    FD200
-32E214F0:        0        0        1       3C
-32E21540:        0        0        0  2000000
-32E21550:      780        0        0        1
-32E21560:        0      780      438   1FA400
-32E21570:        0 1E1E00EF 1E2200E0        0
+This turns out to be the case for both static funnel and replicator
+devices — regardless of whether the DT binding includes "apb_pclk" or
+not, the driver will always skip enabling it. Any concerns?
 
-Video stream halted:
-32E21400:  1000007       20 3C240000   1FA400
-32E21410:        0        0        0 3C2C0000
-32E21420:    FD200        0        0        0
-32E21470:        0        0 3C0C0000   1FA400
-32E21480:        0        0 3C140000    FD200
-32E21490:    7E900        0        0        0
-32E214F0:        0        0        1       7C
-32E21500:        0        0        0        7
-32E21540:        0        0        0  2000000
-32E21550:      780        0        0        1
-32E21560:        0      780      438   1FA400
-32E21570:        0 1E060000 1E0A0000       77
-
-Note that e.g. the 0x32E21400 register, MI_CTRL, has changed value from
-the valid one (0x7A2001) to 0x1000007, which probably originated in
-MI_MIS (and was to be written to MI_ICR).
-
-
-It appears the problems are not constant, they manifest themselves in
-maybe 10% of system boots. Once a system boots, the problems are either
-present (and don't go away) or not.
-
-It appears the ISP uses 3 clocks (+2 used by CSI receiver) - dump of
-their CCM registers (Clock Control Module, IMX8MPRM page 227 and so on):
-MEDIA_ISP           EN mux 7       post 0 SYSTEM_PLL2_DIV2 =3D 500 MHz
-MEDIA_AXI           EN mux 1 pre 1 post 0 SYSTEM_PLL2_CLK / 2 =3D 500 MHz
-MEDIA_APB           EN mux 2 pre 3 post 0 SYSTEM_PLL1_CLK / 4 =3D 200 MHz
-MEDIA_MIPI_PHY1_REF EN mux 0 pre 0 post 0 24M_REF_CLK =3D 24 MHz
-MEDIA_CAM2_PIX      EN mux 2 pre 0 post 0 SYSTEM_PLL2_DIV4 =3D 250 MHz
-
-Now, it appears that in certain cases changing the MEDIA_APB
-(MEDIA_APB_CLOCK_ROOT) "fixes" the problem (for current boot only), or
-make it less (or more) visible. I'm changing the POST divider in
-CCM_POST_ROOT21_SET register directly (the MEDIA_APB frequency is then
-100 MHz):
-
-0x30388A80 MEDIA_APB EN mux 2 pre 3 post 0 SYSTEM_PLL1_CLK / 4 =3D 200 MHz
-# devmem write32 0x30388AA4 1
-0x30388A80 MEDIA_APB EN mux 2 pre 3 post 1 SYSTEM_PLL1_CLK / 8 =3D 100 MHz
-
-Examples - bad read counts from register 0x32E21400 (mi_ctrl)
-per 10 millions of read operations:
-POST=3D0 (default)  with POST=3D1
-945               1
-1448              2361
-1088              2419
-1842              2451
-1333              0
-67                5
-2033              0
-1                 8
-13                16
-2                 4
-7                 0
-1                 0
-539               0
-2605              0
-1                 0
-1723              1
-
-I'm starting to run out of ideas.
---=20
-Krzysztof "Chris" Ha=C5=82asa
-
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+Thanks,
+Leo
 
