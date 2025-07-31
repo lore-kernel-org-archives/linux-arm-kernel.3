@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18AF6C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 21:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35206C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 21:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8GhUDeTLSwNjxecym9jvvl8qS8LaxkEHbs2c8gKKa24=; b=1/ZGRjsJJp/zrkbwylfFd1N5Zr
-	V0boM/71qyScrTPRj/3qlR+VBfvnFVuBJo64dcimbGFaPvNtI8vGxNkvfl9adek6G23p25vql+CNF
-	SGixKZRqhqMPCpiZupJ79i7hzemz3Cln5/GlQwhehijFNZXJoQakHyrcMBNedx/M9fbz4GS+v4+iv
-	G/yonPmdo2/T2SbHm6lND2cwvyTugKstDG+/vliJoLbgsNz4ixtvmEauHWtwKODez/fFit19pkUL1
-	eSvzoeu1PFXuKZ7yH//s5NBcViYRCLwzPYL5UbwqTj2EZir8Dbqvia1BLbYGyGSSxi9IgZfXPweje
-	m5BD9LNw==;
+	bh=R0L6qLTIbgNKzyTAVrO1jq098ae1s1ramXFJMC9SSFk=; b=eu+C70c5QoHzQBK1Y+KKgPF2gu
+	MbeafBxAEhG/Ob1hY3yiWLfdWt1s3ssHNTHsD3ZdzZG7mFrdKs6DCwSsi2dLNndtHhkIFszfoco5m
+	HK9YLi+OkXz+4PhBUInEG0RrJqOPL6dU+OlwM90IuseyXpAGPrxkEHP7sxkyJ2Pa/I4EoI1hip81V
+	6141TGVg1BOIy+2tIinzSKKcIioKT1liHmXVWESk38HP3c5PNG9bTxxxhzgIWIQOy8DG1UzJAGEfU
+	MBbm8yhDClw+uDqJvVnDewZRFauYpllICe+c/yRzm8MWphVnDNFu+80IIBVi1eRt9dZ4IokQ5O9c8
+	klxLMLrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhaeT-00000004Rnq-0DYN;
-	Thu, 31 Jul 2025 21:17:25 +0000
+	id 1uhahl-00000004SMc-2zPU;
+	Thu, 31 Jul 2025 21:20:49 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhaUI-00000004QNL-1ZNU;
-	Thu, 31 Jul 2025 21:06:56 +0000
+	id 1uhaUL-00000004QOS-1NwY;
+	Thu, 31 Jul 2025 21:06:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8GhUDeTLSwNjxecym9jvvl8qS8LaxkEHbs2c8gKKa24=; b=YS1nL0oJVh0cvWyxm8UyXWoXx1
-	xnSo/6a57JxK1C8CHfndF1U3Zrtnd4nl8JGPTTUMZDW3FyeneV3bzD3EuudJq3kDY5MyVRapJJ3Tk
-	kdj28lS4baHyX7rd0CL5SY6a4NqUs0cyGsW6HwRBqNSm/fVr8l/PgRiOxmfAv4BTAG37rWxXmb1zn
-	x1a2aaehBIKECiTXQD7PMwOkWGpUDuQhk7IlrL/K1kubt2QhQ2a9PujnFNwhdlNZz1mb3FptwAQUO
-	hbGmpIOv0vjuxQhwi12v09TL8gwSr6sfTou7xTQuGy2V9Dmk5KiEI9XZK4ulMMzVXA7Q/7OHxXOdt
-	OdKdKNfQ==;
+	bh=R0L6qLTIbgNKzyTAVrO1jq098ae1s1ramXFJMC9SSFk=; b=aVZPGeU15Dg0ocf1NoZH2/pE3I
+	E/OlyuNPWw1LNKCXw/TLdZv42+51FvWxzK2MbBOz4nxk/SIWGd7Sjh7Eivy6bvb65IRNS5ovt5c7M
+	rHK0hfL0FHi+ev11qmKSfMHyN0dnNLQDji6wF795U1z0eY9OE8xXqSXaRb6/dtNYInG5ld70LmG9q
+	/cuiU8rg9B8CoNggYjCUnkMFmgt1zD8rm/B4PxlsivqMB8dl8Cp3JmZ7LNYoQFfFGMcscCslPnPXH
+	bvUFF8/rZ8e/Op+GnfNIp3kZdnD2+JbKgL08Cqc4wFwWQeNimQCnYU+lZZoljh61anJTiiNdaZj48
+	+8Iz2y7w==;
 Received: from [189.7.87.79] (helo=1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa)
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1uhaU4-006udv-5k; Thu, 31 Jul 2025 23:06:40 +0200
+	id 1uhaUA-006udv-3M; Thu, 31 Jul 2025 23:06:46 +0200
 From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Date: Thu, 31 Jul 2025 18:06:17 -0300
-Subject: [PATCH v2 1/5] clk: bcm: rpi: Add missing logs if firmware fails
+Date: Thu, 31 Jul 2025 18:06:18 -0300
+Subject: [PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250731-v3d-power-management-v2-1-032d56b01964@igalia.com>
+Message-Id: <20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
 References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
 In-Reply-To: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -64,21 +65,20 @@ Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
  kernel-dev@igalia.com, =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1470; i=mcanal@igalia.com;
- h=from:subject:message-id; bh=erDCfOsYa2mIy6rXKmvOpHwNvVeseuMZhnPMp7sgL84=;
- b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBoi9rTbW3zXA3JCj73aonfd9bzr3nFhywVj/Wx2
- afRt8diZnuJATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaIva0wAKCRA/8w6Kdoj6
- qhxMB/oDRSqLUnbJhzCRdkHJPMO7vN+qYdfAfph+4ZYGOE+H0MVIxLnI5q9CsE6aBJpub5R3MER
- JkGex4eMjo3dsUaIl+ojQXmlICTvFAjZ2TRqYKRWHiaxfYY1dcHbzsnF5kNISNQ7Y4LFkTMR2R+
- rqTJJaOH4IWu+0tkvv9scmuJWtfzsbycGSq5nLkvQ+4yOTT7Zby3rxOZVWewXmKH07BV/a5k8Dk
- hjXMwrmjK/tnyi3ydQvbbrbgWICTDa0epQFWcLLaFo/7wRmTVUVCNu5ET8jcmCw6ojGvVidGEvK
- D6uWnlCWhEKk7Xir8gBUQtPzTXAnHUEnV1b2azT6+KMlHdfe
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5387; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=6jEVVfLodSL8WKKFdrKFm+68yujmWpqJOl3UO5TrSOY=;
+ b=owEBbQGS/pANAwAIAT/zDop2iPqqAcsmYgBoi9rTNjfx8cUF70MY7STvsmHbIDyPWkML21DCd
+ Y0YRV/hsdiJATMEAAEIAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaIva0wAKCRA/8w6Kdoj6
+ qlaYB/0UrxewmCHO5GGkGp99jtIF+2AbtXzOxTipYUDiwzbLR7XilOHjKQscCRv3CWUOaeNSQzy
+ 5KWQG5pYtk12wrlywB2FW4zPGpQfYDNsfzMLJa53Nncd/oVn1eyuvhRi6XvlDV+rIaoQFt9L5Ww
+ 2IHaDgEGi5i0+jQXW7WK7cxjfhAz7FPgnFCOcKQdW4XqNYez+Mn6yM6z3ILG5gyvdf/X27YsqXv
+ M7/+MsbWDs280NX1C181cAFLXTo+ZN9e10TFIvPFzsJhHmeIfCembgsifyMWj2c5xQexKhHIkmw
+ 18xFjAo2EPIDs5aMWmYWlhjJU0Y5j5/TzcnEqZRPvpcUSN4m
 X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
  fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_140654_427243_027B22BF 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250731_140657_536572_C69C7B9D 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +93,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefan Wahren <wahrenst@gmx.net>
+Currently, when we prepare or unprepare RPi's clocks, we don't actually
+enable/disable the firmware clock. This means that
+`clk_disable_unprepare()` doesn't actually change the clock state at
+all, nor does it lowers the clock rate.
 
-In contrary to raspberrypi_fw_set_rate(), the ops for is_prepared() and
-recalc_rate() silently ignore firmware errors by just returning 0.
-Since these operations should never fail, add at least error logs
-to inform the user.
+From the Mailbox Property Interface documentation [1], we can see that
+we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+prepare and an unprepare hook for RPi's firmware clock.
 
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+As now the clocks are actually turned off, some of them are now marked
+CLK_IS_CRITICAL, as those are required to be on during the whole system
+operation.
+
+Link: https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface [1]
 Signed-off-by: Maíra Canal <mcanal@igalia.com>
+
 ---
- drivers/clk/bcm/clk-raspberrypi.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+
+About the pixel clock: currently, if we actually disable the pixel
+clock during a hotplug, the system will crash. This happens in the
+RPi 4.
+
+The crash happens after we disabled the CRTC (thus, the pixel clock),
+but before the end of atomic commit tail. As vc4's pixel valve doesn't
+directly hold a reference to its clock – we use the HDMI encoder to
+manage the pixel clock – I believe we might be disabling the clock
+before we should.
+
+After this investigation, I decided to keep things as they current are:
+the pixel clock is never disabled, as fixing it would go out of
+the scope of this series.
+---
+ drivers/clk/bcm/clk-raspberrypi.c | 56 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 55 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/clk/bcm/clk-raspberrypi.c b/drivers/clk/bcm/clk-raspberrypi.c
-index 8e4fde03ed232b464165f524d27744b4ced93a60..166d0bec380310e8b98f91568efa4aa88401af4f 100644
+index 166d0bec380310e8b98f91568efa4aa88401af4f..70acfa68827d84670c645bedd17bf0e181aadfbb 100644
 --- a/drivers/clk/bcm/clk-raspberrypi.c
 +++ b/drivers/clk/bcm/clk-raspberrypi.c
-@@ -194,8 +194,11 @@ static int raspberrypi_fw_is_prepared(struct clk_hw *hw)
+@@ -68,6 +68,7 @@ struct raspberrypi_clk_variant {
+ 	char		*clkdev;
+ 	unsigned long	min_rate;
+ 	bool		minimize;
++	u32		flags;
+ };
  
- 	ret = raspberrypi_clock_property(rpi->firmware, data,
- 					 RPI_FIRMWARE_GET_CLOCK_STATE, &val);
--	if (ret)
-+	if (ret) {
-+		dev_err_ratelimited(rpi->dev, "Failed to get %s state: %d\n",
-+				    clk_hw_get_name(hw), ret);
- 		return 0;
-+	}
- 
- 	return !!(val & RPI_FIRMWARE_STATE_ENABLE_BIT);
+ static struct raspberrypi_clk_variant
+@@ -75,6 +76,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_ARM_CLK_ID] = {
+ 		.export = true,
+ 		.clkdev = "cpu0",
++		.flags = CLK_IS_CRITICAL,
+ 	},
+ 	[RPI_FIRMWARE_CORE_CLK_ID] = {
+ 		.export = true,
+@@ -90,6 +92,12 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 		 * always use the minimum the drivers will let us.
+ 		 */
+ 		.minimize = true,
++
++		/*
++		 * It should never be disabled as it drives the bus for
++		 * everything else.
++		 */
++		.flags = CLK_IS_CRITICAL,
+ 	},
+ 	[RPI_FIRMWARE_M2MC_CLK_ID] = {
+ 		.export = true,
+@@ -115,6 +123,15 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 		 * drivers will let us.
+ 		 */
+ 		.minimize = true,
++
++		/*
++		 * As mentioned above, this clock is disabled during boot,
++		 * the firmware will skip the HSM initialization, resulting
++		 * in a bus lockup. Therefore, make sure it's enabled
++		 * during boot, but after it, it can be enabled/disabled
++		 * by the driver.
++		 */
++		.flags = CLK_IGNORE_UNUSED,
+ 	},
+ 	[RPI_FIRMWARE_V3D_CLK_ID] = {
+ 		.export = true,
+@@ -123,10 +140,12 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_PIXEL_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
++		.flags = CLK_IS_CRITICAL,
+ 	},
+ 	[RPI_FIRMWARE_HEVC_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
++		.flags = CLK_IS_CRITICAL,
+ 	},
+ 	[RPI_FIRMWARE_ISP_CLK_ID] = {
+ 		.export = true,
+@@ -135,6 +154,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+ 	[RPI_FIRMWARE_PIXEL_BVB_CLK_ID] = {
+ 		.export = true,
+ 		.minimize = true,
++		.flags = CLK_IS_CRITICAL,
+ 	},
+ 	[RPI_FIRMWARE_VEC_CLK_ID] = {
+ 		.export = true,
+@@ -265,7 +285,41 @@ static int raspberrypi_fw_dumb_determine_rate(struct clk_hw *hw,
+ 	return 0;
  }
-@@ -211,8 +214,11 @@ static unsigned long raspberrypi_fw_get_rate(struct clk_hw *hw,
  
- 	ret = raspberrypi_clock_property(rpi->firmware, data,
- 					 RPI_FIRMWARE_GET_CLOCK_RATE, &val);
--	if (ret)
-+	if (ret) {
-+		dev_err_ratelimited(rpi->dev, "Failed to get %s frequency: %d\n",
++static int raspberrypi_fw_prepare(struct clk_hw *hw)
++{
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
++	struct raspberrypi_clk *rpi = data->rpi;
++	u32 state = RPI_FIRMWARE_STATE_ENABLE_BIT;
++	int ret;
++
++	ret = raspberrypi_clock_property(rpi->firmware, data,
++					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
++	if (ret)
++		dev_err_ratelimited(rpi->dev,
++				    "Failed to set clock %s state to on: %d\n",
 +				    clk_hw_get_name(hw), ret);
- 		return 0;
-+	}
++
++	return ret;
++}
++
++static void raspberrypi_fw_unprepare(struct clk_hw *hw)
++{
++	const struct raspberrypi_clk_data *data = clk_hw_to_data(hw);
++	struct raspberrypi_clk *rpi = data->rpi;
++	u32 state = 0;
++	int ret;
++
++	ret = raspberrypi_clock_property(rpi->firmware, data,
++					 RPI_FIRMWARE_SET_CLOCK_STATE, &state);
++	if (ret)
++		dev_err_ratelimited(rpi->dev,
++				    "Failed to set clock %s state to off: %d\n",
++				    clk_hw_get_name(hw), ret);
++}
++
+ static const struct clk_ops raspberrypi_firmware_clk_ops = {
++	.prepare        = raspberrypi_fw_prepare,
++	.unprepare      = raspberrypi_fw_unprepare,
+ 	.is_prepared	= raspberrypi_fw_is_prepared,
+ 	.recalc_rate	= raspberrypi_fw_get_rate,
+ 	.determine_rate	= raspberrypi_fw_dumb_determine_rate,
+@@ -295,7 +349,7 @@ static struct clk_hw *raspberrypi_clk_register(struct raspberrypi_clk *rpi,
+ 	if (!init.name)
+ 		return ERR_PTR(-ENOMEM);
+ 	init.ops = &raspberrypi_firmware_clk_ops;
+-	init.flags = CLK_GET_RATE_NOCACHE;
++	init.flags = variant->flags | CLK_GET_RATE_NOCACHE;
  
- 	return val;
- }
+ 	data->hw.init = &init;
+ 
 
 -- 
 2.50.0
