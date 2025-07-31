@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E68BC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 12:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A1B3C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 13:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fp6SFesHnzqH2p2onJYlq711+V+MiwD5W8Eh2PM8RGc=; b=0FbVikebbSRs6YNMXeMbEiN0Mp
-	LtHnrwfw1esOFfYHgevYHGf6lCSEYZRa8uuFHsff8xwDkhVwT5I2UNXr2QrGzmn37ZnoTYtBPWRgh
-	2f/kOHi/zgFtQla9fvoTaEP9NERVctAD8cPWiaGPehXX8aN/5bCKmXVfPn5TyeflTya5Fw2XfhuVM
-	mIiFZpE7MOUf/tRswe7gHEUjcHqR1qP30ydRL2vIdD7x7TgwLDSiLIs2DcU9I/XtND4etMOdK93ZI
-	xEroMKYz0zNM59GYzPDsc6QBO7vYhQ9TG6yJlM4n+gYhMHVQEpWYxedrsSV5xthWc0YKYgXsno76p
-	G3iEHMrg==;
+	bh=tnGgyvRRH32TeGsaIvULUqSP4Ehg3FZQTTgWXzA7RI4=; b=daKUB1yuBoee7m2a5yUK5h93Uq
+	lisUJxN5OEscZf9CRPdln+lb9uRtXqk+O0lja80uzGCHOzIprS7KICC1TnT+qWn3jsqw8ulDBYsrK
+	mCAXZRs/wguWxAloz4rk7Zr34HBProWbWsWacHtN3wbTSSU1bDCPETEvjcX7Nc+kEwVuT503qS3X8
+	Mwn0jz75heZdBD62wx8rH2KszvKCoWYHKYmuestSj3onnJu/Wu33iUPuTVmJ1HWwpXG9uR16motD9
+	R6X352s4VGM6fUlIK7yJgdN/zEO96i+VLW8W4WJl1zZ+UeKRjEDmpJvS59N5Pth7oKr4pLf/vwICT
+	4NRoFFQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhSqt-00000003dTd-1GmA;
-	Thu, 31 Jul 2025 12:57:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhSKV-00000003ZNd-0vaa
+	id 1uhStT-00000003dtv-32Mx;
+	Thu, 31 Jul 2025 13:00:23 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhSLz-00000003Zfl-49lM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 12:24:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A57A1D13;
-	Thu, 31 Jul 2025 05:24:03 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA85B3F673;
-	Thu, 31 Jul 2025 05:24:09 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 31 Jul 2025 13:23:46 +0100
-Subject: [PATCH v6 10/10] coresight: Refactor runtime PM
+	Thu, 31 Jul 2025 12:25:49 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bt7VF3y20z6L4sF;
+	Thu, 31 Jul 2025 20:21:25 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 42B651402F2;
+	Thu, 31 Jul 2025 20:25:41 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 31 Jul
+ 2025 14:25:40 +0200
+Date: Thu, 31 Jul 2025 13:25:38 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Yushan Wang <wangyushan12@huawei.com>
+CC: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>
+Subject: Re: [PATCH 6/8] drivers/perf: hisi: Refactor the event
+ configuration of L3C PMU
+Message-ID: <20250731132538.000043a3@huawei.com>
+In-Reply-To: <20250729153823.2026154-7-wangyushan12@huawei.com>
+References: <20250729153823.2026154-1-wangyushan12@huawei.com>
+	<20250729153823.2026154-7-wangyushan12@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250731-arm_cs_fix_clock_v4-v6-10-1dfe10bb3f6f@arm.com>
-References: <20250731-arm_cs_fix_clock_v4-v6-0-1dfe10bb3f6f@arm.com>
-In-Reply-To: <20250731-arm_cs_fix_clock_v4-v6-0-1dfe10bb3f6f@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Anshuman Khandual <anshuman.khandual@arm.com>, 
- Yeoreum Yun <yeoreum.yun@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Mark Brown <broonie@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753964630; l=10160;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=9B9GRnYgfpTJWjhaQ0xcDfRH9eb+VLV5iDDUhlW/7Oo=;
- b=eOwgxhFsp+qBBArustp/yDb43lDvB6MQt1Bhfn1XAWooriGtkMoIDqroUZFogKttXp1zj+Dwz
- Wyk7N2+72VsCfZVReHdHYs2a3LdqmlQbkxl0MQPH/W6TThV1rIE7a5I
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_052415_361330_367753F5 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250731_052548_182098_7A2236B6 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,298 +74,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The validation for driver data pointers and clock pointers are redundant
-in the runtime PM callbacks.  After a driver's probing, its driver data
-and clocks have been initialized successfully, this ensures it is safe
-to access driver data and clocks in the runtime PM callbacks.  A corner
-case is a clock pointer is NULL, in this case, the clock core layer can
-handle it properly.  So remove these redundant checking.
+On Tue, 29 Jul 2025 23:38:21 +0800
+Yushan Wang <wangyushan12@huawei.com> wrote:
 
-In runtime resume, respect values returned from clock function and add
-error handling.
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> The event register is configured using hisi_pmu::base directly since
+> only one address space is supported for L3C PMU. We need to extend if
+> events configuration locates in different address space. In order to
+> make preparation for such hardware, extract the event register
+> configuration to separate function using hw_perf_event::event_base as
+> each event's base address.  Implement a private
+> hisi_uncore_ops::get_event_idx() callback for initialize the event_base
+> besides get the hardware index.
+> 
+> No functional changes intended.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+One tiny thing inline.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Tested-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-cpu-debug.c  |  8 +++-----
- drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++------
- drivers/hwtracing/coresight/coresight-etb10.c      |  8 ++------
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  8 ++------
- drivers/hwtracing/coresight/coresight-funnel.c     | 21 +++++++++++----------
- drivers/hwtracing/coresight/coresight-replicator.c | 20 +++++++++++---------
- drivers/hwtracing/coresight/coresight-stm.c        | 20 +++++++++++---------
- drivers/hwtracing/coresight/coresight-tpiu.c       | 20 +++++++++++---------
- 8 files changed, 53 insertions(+), 60 deletions(-)
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index 3edfb5d3d02056afcaab4da575d1101c68aeac80..5f21366406aae03edef9e4fb737e19941afb9ac2 100644
---- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-+++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -731,8 +731,8 @@ static int debug_runtime_suspend(struct device *dev)
- {
- 	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
-+	clk_disable_unprepare(drvdata->pclk);
-+
- 	return 0;
- }
- 
-@@ -740,9 +740,7 @@ static int debug_runtime_resume(struct device *dev)
- {
- 	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
--	return 0;
-+	return clk_prepare_enable(drvdata->pclk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-index 75b5114ef652e4a47c53fbd2b7811c1bab575645..c586495e9a088a63cec481a82fd9f4ec7c645160 100644
---- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-+++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-@@ -278,8 +278,7 @@ static int ctcu_runtime_suspend(struct device *dev)
- {
- 	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
--		clk_disable_unprepare(drvdata->apb_clk);
-+	clk_disable_unprepare(drvdata->apb_clk);
- 
- 	return 0;
- }
-@@ -288,10 +287,7 @@ static int ctcu_runtime_resume(struct device *dev)
- {
- 	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
--		clk_prepare_enable(drvdata->apb_clk);
--
--	return 0;
-+	return clk_prepare_enable(drvdata->apb_clk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-index 8e81b41eb22264f17606050fa8da277aae05c5cc..35db1b6093d154d67dc567df42f838e2ba3d1d58 100644
---- a/drivers/hwtracing/coresight/coresight-etb10.c
-+++ b/drivers/hwtracing/coresight/coresight-etb10.c
-@@ -809,8 +809,7 @@ static int etb_runtime_suspend(struct device *dev)
- {
- 	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
- 
- 	return 0;
- }
-@@ -819,10 +818,7 @@ static int etb_runtime_resume(struct device *dev)
- {
- 	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--
--	return 0;
-+	return clk_prepare_enable(drvdata->atclk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index baba2245b1dfb31f4bf19080e20c33df3a5b854f..45630a1cd32fbd05ec8b2a6979f0174cacce365e 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -925,8 +925,7 @@ static int etm_runtime_suspend(struct device *dev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
- 
- 	return 0;
- }
-@@ -935,10 +934,7 @@ static int etm_runtime_resume(struct device *dev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--
--	return 0;
-+	return clk_prepare_enable(drvdata->atclk);
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index 9dcfc5ce8845d9e01bb956dddab0d64de51ec397..3b248e54471a38f501777fe162fea850d1c851b3 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -284,11 +284,8 @@ static int funnel_runtime_suspend(struct device *dev)
- {
- 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
--
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
- 	return 0;
- }
-@@ -296,13 +293,17 @@ static int funnel_runtime_suspend(struct device *dev)
- static int funnel_runtime_resume(struct device *dev)
- {
- 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	return ret;
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index e53095603b0c0419bc96a66b23d15bb54e75e634..e6472658235dc479cec91ac18f3737f76f8c74f0 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -323,24 +323,26 @@ static int replicator_runtime_suspend(struct device *dev)
- {
- 	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
- 	return 0;
- }
- 
- static int replicator_runtime_resume(struct device *dev)
- {
- 	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
-+
-+	return ret;
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index 7b1e289f17ab2000816d8641fe0a79759452d3b4..e68529bf89c9815a8118955bf3114ad1ed4fb346 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -957,24 +957,26 @@ static int stm_runtime_suspend(struct device *dev)
- {
- 	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
- 	return 0;
- }
- 
- static int stm_runtime_resume(struct device *dev)
- {
- 	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
-+
-+	return ret;
- }
- #endif
- 
-diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-index 1c5c2a82971490888c45508c68b516ab7dbf3eeb..9463afdbda8ad74eee78c72185fe7603f81b7888 100644
---- a/drivers/hwtracing/coresight/coresight-tpiu.c
-+++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-@@ -206,24 +206,26 @@ static int tpiu_runtime_suspend(struct device *dev)
- {
- 	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->atclk);
-+	clk_disable_unprepare(drvdata->pclk);
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_disable_unprepare(drvdata->pclk);
- 	return 0;
- }
- 
- static int tpiu_runtime_resume(struct device *dev)
- {
- 	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
-+	int ret;
- 
--	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
--		clk_prepare_enable(drvdata->pclk);
-+	ret = clk_prepare_enable(drvdata->pclk);
-+	if (ret)
-+		return ret;
- 
--	if (drvdata && !IS_ERR(drvdata->atclk))
--		clk_prepare_enable(drvdata->atclk);
--	return 0;
-+	ret = clk_prepare_enable(drvdata->atclk);
-+	if (ret)
-+		clk_disable_unprepare(drvdata->pclk);
-+
-+	return ret;
- }
- #endif
- 
+> ---
+>  drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 128 ++++++++++++-------
+>  1 file changed, 83 insertions(+), 45 deletions(-)
+> 
+> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+> index 39444f11cbad..6ac0ea74cda3 100644
+> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
+> @@ -60,51 +60,86 @@ HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_cfg, config1, 15, 11);
+>  HISI_PMU_EVENT_ATTR_EXTRACTOR(datasrc_skt, config1, 16, 16);
+>  HISI_PMU_EVENT_ATTR_EXTRACTOR(tt_core, config2, 15, 0);
+>  
+> -static void hisi_l3c_pmu_config_req_tracetag(struct perf_event *event)
+> +static int hisi_l3c_pmu_get_event_idx(struct perf_event *event)
+>  {
+>  	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
+> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
+> +	u32 num_counters = l3c_pmu->num_counters;
+> +	int idx;
+> +
+> +	idx = find_first_zero_bit(used_mask, num_counters);
+> +	if (idx == num_counters)
+> +		return -EAGAIN;
+> +
+> +	set_bit(idx, used_mask);
+> +	event->hw.event_base = (unsigned long)l3c_pmu->base;
 
--- 
-2.34.1
+Trivial but blank line here.
+
+> +	return idx;
+> +}
 
 
