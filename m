@@ -4,102 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B2CC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 20:43:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94126C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 21:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/AAkvvpbQOhTuAwe9EJHG3ghOkBXusQx1F2hWyP1fLc=; b=q8Vdzom5ZfUvmL859DBIPDGmyg
-	Xk8Oemhi0sDaOsXKtwUfh6eIIuMR2ePu4AQh+D1Dg2veVm8NRlqu2aSFwM5Lc9WIlZO38ijdZxx0+
-	eAqavcWKO1gc1gzNCoRntUwyxDYLacFJ7kfRvrK7/coozBfpnOU8xP1G9SygmH3XGyTYA9f8HnHKr
-	HT9tVFIAUWqGXzzQ43r3G8pR5IjekIVJOhsoIrWQvSG9SC/3kbfXz0EHZAIO/YzrENZJbxYic/o3R
-	1FbtkvO6WshwCI7KmoGnNgpwJL3NCz4dITTq8FjT6A2KVgBVllyEyVbxLZQVcozhNXVQ5BmdRVjJ6
-	ReokoUjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1DNL4ZqkcIvug0P6zNDToFEaRqlmYm3XRLwrpfrR4hk=; b=Onmv8XfLkt/4Tl8Jmr+ahCOCSm
+	fcwJH+NAO2WoTdgw5+ajLQCD+eNpRAA+XxUdipLqtQf60xH/3AT365Zn0leIdapChAt21qgYZNfd1
+	oFasCUtHuVErTLmQPS36adDmxojtBMcFsovLM+mVbGSb/OiGVfjGHHgESFh+2ckbG0XZMbtj7mew/
+	B/D1qvb6u1MmQN75HgAy7rIAj3KYfVB2/GkyHBJ1evatVd+PX8F/P/LTY7MNz4sZPWFvwZSA4KK9P
+	IgnCEf1IurBIyp0bO12/rKs3OdlSNMqsE17X7aR/k9jCgLIEe7ue3HGqDI2q6HKEeCak3m4vb/Lnf
+	7kAFofQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uha73-00000004O1p-0PMO;
-	Thu, 31 Jul 2025 20:42:53 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1uhaPB-00000004Ply-0Jh5;
+	Thu, 31 Jul 2025 21:01:37 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uha4S-00000004NqT-2NbN
+	id 1uhaMZ-00000004PN5-0uke
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 20:40:13 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-af8ffa04463so30912066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 13:40:11 -0700 (PDT)
+	Thu, 31 Jul 2025 20:58:56 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-31f5f70a07bso209720a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 13:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753994410; x=1754599210; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/AAkvvpbQOhTuAwe9EJHG3ghOkBXusQx1F2hWyP1fLc=;
-        b=FKUYXw4AaYsjEywEcBWN/kBZ4jnlB6+ne6SiGYnJUkNBVabU5d+VIhid6G3qTJr3p2
-         ywA4nQVayLBRpluqIu6mnVYoyrYtTW3LGWfOm+oZieDi4U1K7tNk5WT1hemi3e+KdwLk
-         2qg4JOFvebu2Qi8W7E4etVjtQSbqHSyL4ZOMfqA1ixsvUpGGwclZutV/1BqZ+3yy3EH8
-         p28v/pu/qG8hIqwMmh0LzqGTXKgmixC7gWVOObwLxUnaJNHorTzuSzZfIq2IjFUHoQJy
-         E2V00TTQDiKUyVxX1WEXXCe4bb3LIaZ8XNBfxxU8cAmzyuZLYwuJr6W9xf79jV4ew2Eb
-         UKWA==
+        d=google.com; s=20230601; t=1753995534; x=1754600334; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1DNL4ZqkcIvug0P6zNDToFEaRqlmYm3XRLwrpfrR4hk=;
+        b=xJeO8Cul/9/Ly4w8pM0RcFS7shVnScfPd4TCkFtODKfhgpHXy086uzt4cjfzb2mL3+
+         YdMwv1xvtPBjgUGR7QNkohF9Nqalh43vZeCEqbwGXjvv6YEvZUCw9ZWLaToRTSkINLwz
+         FoRZlzo/IEjj0C+k58AnMI4D2OTWgDUT1uWSCSuJ726XrZAt+ALyFgLpnQMn0VOoia4t
+         W2mDeoKmJ6Z9lIOEQ8983r9HFzWDKBBbcmJWtSVEftme8kB+kRJLI+wGH3ecsLx/yhpg
+         ZcD7TUhiZn/dTKNcLvJldbTGi4CvoX3RtuW33r6FqZIfSIFfBBgWMOGzrB13E3nt5y5q
+         hRWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753994410; x=1754599210;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/AAkvvpbQOhTuAwe9EJHG3ghOkBXusQx1F2hWyP1fLc=;
-        b=FKkV3NhMEwJB1FaR+Hoaj5gso0RrCB1fm2u9FlMFhcYebEFiaKxmbA3TN5Ug0pw/pe
-         PjeDsp4v42lY7bHWuhnyAZ1wstbgUueaCIHJqo1hH5LOAl8sBgBsjfcYnE6EKyOK2vJ1
-         qXOSgJH6dl0y0TqCMjhpZyVZrPvfn58mhJHELHDDWQsRlBub2DTpibDR9JDkSHpYD7Pn
-         SXkQ64U+hAUMQgKn1/7rNvuSe0JzRXs8Cj+Miex1aQKp2HjbjFN0RdBUP+ShVcL65wXF
-         Fpl6mVKzdSFTqq1Q++rhde7XeNOQEcOh83sFMZMz3bI0esXLLFfxekP84UAsmMY1Fi8v
-         nECw==
-X-Forwarded-Encrypted: i=1; AJvYcCUvZmJ+M+RVxsMe8NM86QL4ibAA8mFhOStrmcdCVBFqRsFjtRFhfWoHKqAhjweU3KOd/jn3YpUkmVbeqWhG/L+m@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaWQvz9vWUSosEjH+l7dkfhR7dac2Gp9CzrF7lKHkjPAu5EHE6
-	te7AAunadU5pn2Tc3ZmsXf1gFSjNxcd0+6PpFxVwTtlJxwlY5i5SW+d3
-X-Gm-Gg: ASbGncuX146pyYVRoja33MLXKiofJ5JZ3CZj9LbsGplDof8mWrQCOow2NC1xYoWiG/I
-	na3nj12VIupxgiTXcWXkvvsiwk5KTA8Mf4nN5Stu2gU4xalcYP/OK/Jn0PNF5WpHQrDNKEoal4X
-	vZi9wVxqACKhIrELhp4+cWwhMyDyGUVDvjIoM/NOSr428uoE7+n6lV4qnVCas+CC3iWS3jc/7Gw
-	7ctl0nIEaecBguwqUNMCM/3GwDdOhrczhlwpzioScA6Z9S6Hd7M1TNyUZRuukxLq3YlipH4Ln1N
-	h6Us0EsUBSpPEOzlm4q5YsL47Ag3aYNDasPaO1t8lCOiieJXhZ3vGT/PM2q5I9Gok+YtdmGxFYx
-	JwdVhojSOCg==
-X-Google-Smtp-Source: AGHT+IH35GZfVfrFy+4u5JJvJfBMXKVCGrjrhAiwGxS9sqsd6tRiJOQQ6uPYqZ73ZuJ5boDADFvL5w==
-X-Received: by 2002:a17:907:3cca:b0:aec:f8bb:abeb with SMTP id a640c23a62f3a-af8fd9a5c45mr987006766b.42.1753994409970;
-        Thu, 31 Jul 2025 13:40:09 -0700 (PDT)
-Received: from krava ([176.74.159.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a1e8359sm166233666b.89.2025.07.31.13.40.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Jul 2025 13:40:09 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Thu, 31 Jul 2025 22:40:07 +0200
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Mark Rutland <mark.rutland@arm.com>,
-	Steven Rostedt <rostedt@kernel.org>,
-	Florent Revest <revest@google.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [RFC 00/10] ftrace,bpf: Use single direct ops for bpf trampolines
-Message-ID: <aIvUp_88v84Uw-lQ@krava>
-References: <20250729102813.1531457-1-jolsa@kernel.org>
- <aIkLlB7Z7V--BeGi@J2N7QTR9R3.cambridge.arm.com>
- <aIn_12KHz7ikF2t1@krava>
- <20250730095641.660800b1@gandalf.local.home>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250730095641.660800b1@gandalf.local.home>
+        d=1e100.net; s=20230601; t=1753995534; x=1754600334;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1DNL4ZqkcIvug0P6zNDToFEaRqlmYm3XRLwrpfrR4hk=;
+        b=Chqfn2kRyYVvv8rIO8YLDjp7lh3WIFYrAdRF683NCG09etKmfMAudJa0MOEjQ76JMy
+         KulMnUKdQ7LOPuoEexIJIBpLmPTXE9rmV8Znl3Se3x2ZjdU4PaHn3hWDt6APVHqYiDUr
+         y5gIpXRxXzBj1yd2S+faJo//bh65v5A6ZAMB7HjZOXg0rC5/Z56mqHSPRRxp85fxtUoO
+         pAE3zvUyLcoAjNlqcZYptvEvBT9SjSaN/zOmhXts20YplqUsqmBig7AZJhUgW448h0yZ
+         GV/KPhKySKAFHdo7SB/lbZfZGkwQt8wrEOMlb0Le949lcbby1jCqFG4QWUxuxsjcHLVs
+         cXkw==
+X-Forwarded-Encrypted: i=1; AJvYcCX2HKEm9dQ8vg/fWqjB0XNEtWtk3NCOwy7V5NafS8Ox/6C+Iz7fVCT/j6jCMb6TdJVI1ihAcJxiks2IFaDw9rld@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGhRqDFZhpTTv7BTFL1xVBivaNVOAKc7qwLf6B8/qmrrjPXTkr
+	uVKzG8e3k8ljUEMbu4wU3PydMrxNjdL5YVZ1irY9TIXrnlPwYXlqao+Ea19u5QL9J79JZPWGbm+
+	8Oukwsco7zFV/Xg==
+X-Google-Smtp-Source: AGHT+IFtBee05Y+0YcwYG+qw66EBKTnwyLUw2Zd87HU0sy3vcGl9Liy/DQSHpFber1pJeKsCOjefFdN8peNhiQ==
+X-Received: from pji5.prod.google.com ([2002:a17:90b:3fc5:b0:31c:2fe4:33b6])
+ (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:39c5:b0:311:ea13:2e70 with SMTP id 98e67ed59e1d1-31f5de3ceb7mr12431905a91.14.1753995533793;
+ Thu, 31 Jul 2025 13:58:53 -0700 (PDT)
+Date: Thu, 31 Jul 2025 20:58:41 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
+Message-ID: <20250731205844.1346839-1-jiaqiyan@google.com>
+Subject: [PATCH v3 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
+From: Jiaqi Yan <jiaqiyan@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev
+Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	duenwen@google.com, rananta@google.com, jthoughton@google.com, 
+	Jiaqi Yan <jiaqiyan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_134012_613417_3AE3E65F 
-X-CRM114-Status: GOOD (  36.18  )
+X-CRM114-CacheID: sfid-20250731_135855_256684_95DF2282 
+X-CRM114-Status: GOOD (  20.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,114 +92,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025 at 09:56:41AM -0400, Steven Rostedt wrote:
-> On Wed, 30 Jul 2025 13:19:51 +0200
-> Jiri Olsa <olsajiri@gmail.com> wrote:
-> 
-> > so it's all work on PoC stage, the idea is to be able to attach many
-> > (like 20,30,40k) functions to their trampolines quickly, which at the
-> > moment is slow because all the involved interfaces work with just single
-> > function/tracempoline relation
-> 
-> Sounds like you are reinventing the ftrace mechanism itself. Which I warned
-> against when I first introduced direct trampolines, which were purposely
-> designed to do a few functions, not thousands. But, oh well.
-> 
-> 
-> > Steven, please correct me if/when I'm wrong ;-)
-> > 
-> > IIUC in x86_64, IF there's just single ftrace_ops defined for the function,
-> > it will bypass ftrace trampoline and call directly the direct trampoline
-> > for the function, like:
-> > 
-> >    <foo>:
-> >      call direct_trampoline
-> >      ...
-> 
-> Yes.
-> 
-> And it will also do the same for normal ftrace functions. If you have:
-> 
-> struct ftrace_ops {
-> 	.func = myfunc;
-> };
-> 
-> It will create a trampoline that has:
-> 
->       <tramp>
-> 	...
-> 	call myfunc
-> 	...
-> 	ret
-> 
-> On x86, I believe the ftrace_ops for myfunc is added to the trampoline,
-> where as in arm, it's part of the function header. To modify it, it
-> requires converting to the list operation (which ignores the ops
-> parameter), then the ops at the function gets changed before it goes to the
-> new function.
-> 
-> And if it is the only ops attached to a function foo, the function foo
-> would have:
-> 
->       <foo>
-> 	call tramp
-> 	...
-> 
-> But what's nice about this is that if you have 12 different ftrace_ops that
-> each attach to a 1000 different functions, but no two ftrace_ops attach to
-> the same function, they all do the above. No hash needed!
-> 
-> > 
-> > IF there are other ftrace_ops 'users' on the same function, we execute
-> > each of them like:
-> > 
-> >   <foo>:
-> >     call ftrace_trampoline
-> >       call ftrace_ops_1->func
-> >       call ftrace_ops_2->func
-> >       ...
-> > 
-> > with our direct ftrace_ops->func currently using ftrace_ops->direct_call
-> > to return direct trampoline for the function:
-> > 
-> > 	-static void call_direct_funcs(unsigned long ip, unsigned long pip,
-> > 	-                             struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> > 	-{
-> > 	-       unsigned long addr = READ_ONCE(ops->direct_call);
-> > 	-
-> > 	-       if (!addr)
-> > 	-               return;
-> > 	-
-> > 	-       arch_ftrace_set_direct_caller(fregs, addr);
-> > 	-}
-> > 
-> > in the new changes it will do hash lookup (based on ip) for the direct
-> > trampoline we want to execute:
-> > 
-> > 	+static void call_direct_funcs_hash(unsigned long ip, unsigned long pip,
-> > 	+                                  struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> > 	+{
-> > 	+       unsigned long addr;
-> > 	+
-> > 	+       addr = ftrace_find_rec_direct(ip);
-> > 	+       if (!addr)
-> > 	+               return;
-> > 	+
-> > 	+       arch_ftrace_set_direct_caller(fregs, addr);
-> > 	+}
-> 
-> I think the above will work.
-> 
-> > 
-> > still this is the slow path for the case where multiple ftrace_ops objects use
-> > same function.. for the fast path we have the direct attachment as described above
-> > 
-> > sorry I probably forgot/missed discussion on this, but doing the fast path like in
-> > x86_64 is not an option in arm, right?
-> 
-> That's a question for Mark, right?
+Problem
+=======
 
-yes, thanks for the other details
+When host APEI is unable to claim a synchronous external abort (SEA)
+during guest abort, today KVM directly injects an asynchronous SError
+into the VCPU then resumes it. The injected SError usually results in
+unpleasant guest kernel panic.
 
-jirka
+One of the major situation of guest SEA is when VCPU consumes recoverable
+uncorrected memory error (UER), which is not uncommon at all in modern
+datacenter servers with large amounts of physical memory. Although SError
+and guest panic is sufficient to stop the propagation of corrupted memory,
+there is room to recover from an UER in a more graceful manner.
+
+Proposed Solution
+=================
+
+The idea is, we can replay the SEA to the faulting VCPU. If the memory
+error consumption or the fault that cause SEA is not from guest kernel,
+the blast radius can be limited to the poison-consuming guest process,
+while the VM can keep running.
+
+In addition, instead of doing under the hood without involving userspace,
+there are benefits to redirect the SEA to VMM:
+
+- VM customers care about the disruptions caused by memory errors, and
+  VMM usually has the responsibility to start the process of notifying
+  the customers of memory error events in their VMs. For example some
+  cloud provider emits a critical log in their observability UI [1], and
+  provides a playbook for customers on how to mitigate disruptions to
+  their workloads.
+
+- VMM can protect future memory error consumption by unmapping the poisoned
+  pages from stage-2 page table with KVM userfault [2], or by splitting the
+  memslot that contains the poisoned pages.
+
+- VMM can keep track of SEA events in the VM. When VMM thinks the status
+  on the host or the VM is bad enough, e.g. number of distinct SEAs
+  exceeds a threshold, it can restart the VM on another healthy host.
+
+- Behavior parity with x86 architecture. When machine check exception
+  (MCE) is caused by VCPU, kernel or KVM signals userspace SIGBUS to
+  let VMM either recover from the MCE, or terminate itself with VM.
+  The prior RFC proposes to implement SIGBUS on arm64 as well, but
+  Marc preferred KVM exit over signal [3]. However, implementation
+  aside, returning SEA to VMM is on par with returning MCE to VMM.
+
+Once SEA is redirected to VMM, among other actions, VMM is encouraged
+to inject external aborts into the faulting VCPU.
+
+New UAPIs
+=========
+
+This patchset introduces following userspace-visible changes to empower
+VMM to control what happens for SEA on guest memory:
+
+- KVM_CAP_ARM_SEA_TO_USER. While taking SEA, if userspace has enabled
+  this new capability at VM creation, and the SEA is not owned by kernel
+  allocated memory, instead of injecting SError, return KVM_EXIT_ARM_SEA
+  to userspace.
+
+- KVM_EXIT_ARM_SEA. This is the VM exit reason VMM gets. The details
+  about the SEA is provided in arm_sea as much as possible, including
+  sanitized ESR value at EL2, faulting guest virtual and physical
+  addresses if available.
+
+* From v2 [4]:
+  - Rebased on "[PATCH] KVM: arm64: nv: Handle SEAs due to VNCR redirection" [5]
+    and kvmarm/next commit 7b8346bd9fce ("KVM: arm64: Don't attempt vLPI
+    mappings when vPE allocation is disabled")
+  - Took the host_owns_sea implementation from Oliver [6, 7].
+  - Excluded the guest SEA injection patches.
+  - Updated selftest.
+
+* From v1 [8]:
+  - Rebased on commit 4d62121ce9b5 ("KVM: arm64: vgic-debug: Avoid
+    dereferencing NULL ITE pointer").
+  - Sanitize ESR_EL2 before reporting it to userspace.
+  - Do not do KVM_EXIT_ARM_SEA when SEA is caused by memory allocated to
+    stage-2 translation table.
+
+[1] https://cloud.google.com/solutions/sap/docs/manage-host-errors
+[2] https://lore.kernel.org/kvm/20250109204929.1106563-1-jthoughton@google.com
+[3] https://lore.kernel.org/kvm/86pljbqqh0.wl-maz@kernel.org
+[4] https://lore.kernel.org/kvm/20250604050902.3944054-1-jiaqiyan@google.com/
+[5] https://lore.kernel.org/kvmarm/20250729182342.3281742-1-oliver.upton@linux.dev/
+[6] https://lore.kernel.org/kvm/aHFohmTb9qR_JG1E@linux.dev/#t
+[7] https://lore.kernel.org/kvm/aHK-DPufhLy5Dtuk@linux.dev/
+[8] https://lore.kernel.org/kvm/20250505161412.1926643-1-jiaqiyan@google.com
+
+Jiaqi Yan (3):
+  KVM: arm64: VM exit to userspace to handle SEA
+  KVM: selftests: Test for KVM_EXIT_ARM_SEA
+  Documentation: kvm: new UAPI for handling SEA
+
+ Documentation/virt/kvm/api.rst                |  61 ++++
+ arch/arm64/include/asm/kvm_host.h             |   2 +
+ arch/arm64/kvm/arm.c                          |   5 +
+ arch/arm64/kvm/mmu.c                          |  68 +++-
+ include/uapi/linux/kvm.h                      |  10 +
+ tools/arch/arm64/include/asm/esr.h            |   2 +
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/sea_to_user.c | 327 ++++++++++++++++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    |   1 +
+ 9 files changed, 476 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/sea_to_user.c
+
+-- 
+2.50.1.565.gc32cd1483b-goog
+
 
