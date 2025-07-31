@@ -4,106 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6957C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 16:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BB6C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 16:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=li7AzagmW0ymU43WIzpnsFPtOLa6z8qQMj5NFGuDEvk=; b=GWEuzZHaMFuei0qcq1fot7KyvU
-	hj4TQfyH8mmEgtRJL5j0d8AYp8d3vGV2CENkDqGv1XB88X6sag/HqI6zzFp8zNz21Py5L0SKmyybp
-	F0o8CDQi+6cx7I4fuIPrKJHsQDkg8JyQAeqsHGDxpnnMg8FvJX7uj5RKF3a/j+CLE4UHGmoG28SMf
-	H6K4b9nC2ET3CY52MLqA8FtodS+uQlUbSiVD4yahvm4HPToUIA7eTyRSapOS9DwJEQRLDBM38EzDV
-	cOcYLquYjfaA+0abRljCZo3n1K8acmubEXSwCUkZQjZpe73jcs17oh8A0aoyaT0DZOF67QvADbgNE
-	tBto2SDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lbNcmxdMTZH4+4fKNLqLIFsAiyBnuQVAnpbsOwkpl5U=; b=XTOHem1keFmgpg+3o1Nvl/krQ/
+	lGU8/FhwYADfHSC471Qrf7opwhfPsDhIsWRAf41x7Im7a1YO/K33QRQEdqcZEZPkMplOK2nUfkUjn
+	hMANpLGxXeVWGcN1Xu+bCrIfJ4X9I2FvQA/RLJiASyAA/cki43KNmrLuvT5ROvNNRtAVWBzsf9AD1
+	SPFNiNFtZvqt2MCdaj1OQS/aDYHBtAEQhdfDp//8UUtrwFyQdAtOi1xDQIq9kTRRB6EYsbp+30uV3
+	mBY8o7BLlEqaWvSIKaH4B1twscr9oXBPqQGbkQHVb8KZr6+9+72OjeOVbAS0F9XFYl0LSULIXUsic
+	nWwadkDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhWGQ-000000045NB-0vNU;
-	Thu, 31 Jul 2025 16:36:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uhWPs-000000046He-3LTe;
+	Thu, 31 Jul 2025 16:46:04 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhWDL-00000004543-29JP
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 31 Jul 2025 16:33:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=li7AzagmW0ymU43WIzpnsFPtOLa6z8qQMj5NFGuDEvk=; b=k+xSNNT7KneuEORin2ZDvE9Oh0
-	KrJCG7ScPasa17cKRewOYM+2iOp8/GhUP7GZQEVqhzBYQNkS7ULJ5b29Qi+StyUa4eIRJQrryIL8U
-	mMi/rUHNwhIVW41KlapQAyBF1quDHLiW5clGaCTNkwCth3KdhGngQ1A6Win7cVCgD0eagZ3FH6584
-	WPbWAYDvcDhuTRqTfBkx2e4hWRg/EzDJTC5x1SHnOzkLut4x6+OaaGtVGuXzpZ0Yi3ATXl2S1AXW7
-	Zbg2hdZFmI7vY9BlvxOe1Z2sYF9hljPqK+UJuxM20Ix7xtYEByeewEml6r7qqW4sQLDrQhQ6OCAQ+
-	5o3xUR4w==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhWDH-0000000D6VE-31WS
+	id 1uhWNH-00000004623-2klW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 16:33:05 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4561607166aso8189535e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 09:33:03 -0700 (PDT)
+	Thu, 31 Jul 2025 16:43:25 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7e6696eb47bso141498785a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 09:43:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1753979582; x=1754584382; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=li7AzagmW0ymU43WIzpnsFPtOLa6z8qQMj5NFGuDEvk=;
-        b=nXvg0mXz+U6Fs12ho8QSlXB3yjmN4bNHEaoESguR1Wv/S7sAAEHcJvwhsrX8v9MkNF
-         TZet88Nx00J5zIXo+mogvRZjfIucuvpmA2jzyuX+QHhJopMs/kJa0IwJ0jeEGwwpb2S+
-         kpeAKBh1AOTfOJUh5f73JNaL0TaGqtnR8yVMU9n7TaLyzq3FQOS94SMycOfZXCnAul+h
-         3J/oopGaX6dqiSPXjaNP+TDKiZhxgycTpAlgJ9nLsiU519ZgITeFsfTw+cx+yP3N1VPt
-         SABDqm62mH2jBzcSuR3ktFnA7EiCmN8Bynj0RItS7eUIv1H28wUp7nsMXoQy27qlXmrD
-         uyaA==
+        d=broadcom.com; s=google; t=1753980202; x=1754585002; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=lbNcmxdMTZH4+4fKNLqLIFsAiyBnuQVAnpbsOwkpl5U=;
+        b=bsv5aGJD2vqnsTgwTsUP36nj7BbC6x6zHseWky/MKa5IsuMFRnsmlSr21BohwxLXaQ
+         MoroP/ubpb2h1HKfNQXEy9iYPTvpdsxufzcH2VDHdQJDLfiy8DBeHyly6aYHtvpfLmGf
+         4zzwjC7E8gyjrFhEHMJhIsabqt2dBJTLxwj7M=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753979582; x=1754584382;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1753980202; x=1754585002;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=li7AzagmW0ymU43WIzpnsFPtOLa6z8qQMj5NFGuDEvk=;
-        b=oGDwVkPdKsfTCQw4bPClWox3h+ojm3oqZ7bYy1gY42L07fjMSSNZ93j7zXjXi928p7
-         tqh1GTCPMvh2rqy/6BospY1/W0TnGeTlgpMwniMhvI5Ckf0arHoSjXhl9MkZ7xT6KSep
-         mO9SRaITFuXYW7ND7dOGI/nBlEgu5qw3HML93Vj1+T03ew07SErLPIwoz1LcAikn6lRo
-         scsmoQiH3R9SW+nkaweklRAj1XuIyI/qNLyeYxRLPd2KgD+Gc0ANwKpyaeBTKXTcDf+A
-         BqZ0nzkusKbl+yfPOoKXh+uV4ucjMZOH3iCYfGtwYYZN/ohTGd+9UwEF9v2ji08U+GXP
-         pteg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBDu0vUP+xjVT2tjLel7SCjUW8cMzPqJtPD1IQFw54otGHLNty3cJNXoudDq96xdrt0JKbEzx5maf0aKnG+UIT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwftpebUHmm/DX14i7VsyXTKOOfbgNvIRPmao41Ok2cT6i/zMZQ
-	YQhkhExFDfJIpE3IUBRkT1PFxXGFZMdOn++qxH2N6U7kR2Z0ZABFpJIl
-X-Gm-Gg: ASbGnctt9xY563+AluKPfhNPLFGWP3ItZA35mqJqkOkhPP0G87E3QcUPO67eUD5HIJg
-	CLHGEKLxLnezb25FEi6FaAq2tnhP4ELHmC9YDXiP7UuVdwbF9B5zIVEKovAA9RLeQ/uDI9eRmnj
-	ytkziiem9MzKuE/JJ4mOu+1CncnG8i8CbFj5MHI/JmPlufab7ohgX8JgtWnEpDYjfQaiUxl59Ql
-	o8eywxMmhJ6yApOocNcpSx6YUEHDgUo5keF7tmx1ZJBf6v8huUgN1SbMYfpa5c93Vkq/dLbgRXs
-	4ev/FqDBWsKiDzrD9xeczDqchEzuVlnN9dxZWOmMqi+oa7amFXhMaNHq78cRORNXnya9TeUT6p6
-	+aYKQDvYcwKVig+Yw/wI4Q6LvNW8YH3zBQq0SxEJDlewNXT2aURsbS1uODULbUBKAy30t5f9zdH
-	wVbSF9tqDu
-X-Google-Smtp-Source: AGHT+IE42z7i7CovswTO03kEARLVTHTFnCJDTexv2D207gRXY26yhBPPOm+9zcqlKYN2OgVEMQVr4A==
-X-Received: by 2002:a05:600c:4fd3:b0:453:697:6f08 with SMTP id 5b1f17b1804b1-45892bd1a95mr70310155e9.26.1753979581888;
-        Thu, 31 Jul 2025 09:33:01 -0700 (PDT)
-Received: from orome (p200300e41f4e9b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f4e:9b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4589536abb1sm77810615e9.4.2025.07.31.09.33.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 31 Jul 2025 09:33:00 -0700 (PDT)
-Date: Thu, 31 Jul 2025 18:32:58 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: arm <arm@kernel.org>, soc@kernel.org, 
-	Jon Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
-Message-ID: <llqwla5x22fmhktolfyfmfkeur5z46v7j54mr6bkxm3i7avwqu@57kwpnif3zjv>
-References: <20250711220943.2389322-1-thierry.reding@gmail.com>
- <20250711220943.2389322-7-thierry.reding@gmail.com>
- <izdiwbkuipbzunqot7zhillohtfcm32xrk5ydu54bamumfgkpx@p6ikuhkv3bkj>
- <ba53e8c1-b097-4b02-947f-06a8e0c8ad5c@app.fastmail.com>
+        bh=lbNcmxdMTZH4+4fKNLqLIFsAiyBnuQVAnpbsOwkpl5U=;
+        b=mfW5uK3IuweJHdeYWajHpRSfCDe/StT/wjKPjQifoFal65QSZ572Yvlv4iK5yIBOJR
+         syAHw8GefpFRc2HsaEwipiLRF8nVlesAACtOBGibWcCIZZPIqphjocwHTpHf5d/Nyect
+         S8XDj+IKJgU6auMPSwUYNHC0vmkANnWHBm0Atg1uzfynuSaRQOT6/dWU8PxY6+yH7mMz
+         bc7hTQTdBri8+kr9JDHuLkreVd27uVfaahQ41JS8agL+ETZfFef9g2cbMvuOYb0RpTqX
+         qcNuAoaMer+/THdxh/LXTdC5K8OXgCl75cxoN2LoHflPeM/ZyG1vyLJkZLFBIs82/I+J
+         ZUgg==
+X-Forwarded-Encrypted: i=1; AJvYcCXNTzTO67BE6gcGB1HrEIL6p88Ss93d1H4oO0W5Sik+1yetuA3VMUaLtfX+alXBU0jqr72lPyQ+zComqF/yHAON@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1UoIGMSNXDLrlDaQEM4kRjVUm94UIFqT8rvwQMvHtlmBPGsz2
+	KJPXKyezgzTx7Lj2rIYqAYZEQcXgofltMZdHHqoNNoTPL3NInWis/s0ZvZ7tKwpHvA==
+X-Gm-Gg: ASbGnct4yhsL8/J8WIxInF0yOg/i4EF1fxCGDqR94Dowv+aLrWw0wA/nDZH/0C3QqOd
+	o88R8Xqdl4STSQCmwoanCS6e77MSqJ8kPH1/KFcXplfgrF/6O/QRtyj0/eHMrv6xzwiHt8oPFLV
+	JANi84QOzPDDLX9AUEZvFYk0+02oArzTETAdgy3g6tX0j44/fGa2+0lXYXqYsIckzGJ1u2Wl9sU
+	6KlhvTkvJc4qReH9ZW1jxTibmJybaKq3+aOOYVBwpfPgVN9kv7nMxt5R3OE8rl0GOjxYGfjOiB2
+	pw2dt3JPaohzCUYvT4+tnmHalNO5jU3Y4ZMT6GSCAGzs/M7r3TWQwBfR53YqxTS1FpS86b7hpUp
+	xP67kBp+1xSMLzF2oxjKYwXiagIAlvblWkobepebrlSIy+3tjQXOss65CR27SxA==
+X-Google-Smtp-Source: AGHT+IEMxmTL/RtEarc2NI77icOmXLVKI0iWLz9cXU1YYoJIxr439vc8qqp/uBQFKFpa+CTDFCVyAA==
+X-Received: by 2002:a05:620a:430a:b0:7cd:3b02:b6e4 with SMTP id af79cd13be357-7e66ef7f617mr1153543485a.1.1753980201850;
+        Thu, 31 Jul 2025 09:43:21 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e67f5bfdb9sm107416485a.29.2025.07.31.09.43.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 31 Jul 2025 09:43:21 -0700 (PDT)
+Message-ID: <f85367bb-566e-43d6-b405-b896c49c9aa7@broadcom.com>
+Date: Thu, 31 Jul 2025 09:43:18 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="dyb25h5bm2euygmp"
-Content-Disposition: inline
-In-Reply-To: <ba53e8c1-b097-4b02-947f-06a8e0c8ad5c@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] mmc: sdhci-brcmstb: rpmb sharing by claiming host for
+ TZOS
+To: Adrian Hunter <adrian.hunter@intel.com>,
+ Kamal Dasu <kamal.dasu@broadcom.com>, andersson@kernel.org,
+ baolin.wang@linux.alibaba.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, ulf.hansson@linaro.org
+Cc: bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
+References: <20250711154221.928164-1-kamal.dasu@broadcom.com>
+ <d542b1fa-6e2a-4af1-a14b-eee32a7f3de6@intel.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <d542b1fa-6e2a-4af1-a14b-eee32a7f3de6@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_173303_919511_7C4FF14F 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20250731_094323_733250_B69AEE2A 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,63 +136,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/28/25 02:11, Adrian Hunter wrote:
+> On 11/07/2025 18:42, Kamal Dasu wrote:
+>> This patch adds support to claim host for TZOS RPMB access and synchronized
+>> access to the controller hardware using hwspinlock framework.
+>> To achieve this Linux OS and the secure TZOS make use of:
+>> - shared hardware semaphore register
+>> - a set of SDIO shared work registers and
+>> - IPI interrupt registers
+>>
+>> The currently running OS that needs access to the controller puts itself in its
+>> slot of work register and if its next in line it can try to grab the hardware
+>> semaphore and complete its mmc requests. The shared work registers indicate next
+>> in queue to access the controller, and current agent in the queue. Next agent
+>> queue state is changed under the hwspinlock is owned by the current OS accessing
+>> the controller hardware before release the semaphore, send and receive IPI
+>> interrupts between linux and secure world are used to indicate completion of
+>> transaction to the waiting OS. TZOS has its own RPMB driver which accesses
+>> partition when it wants to read/write RPMB frames. Current implementation
+>> assumes Linux and TZOS as the two work agents.
+>>
+>> This patchset is an alternative method to initial RFC patch:
+>> [PATCH RFC 0/3] mmc: sdhci-brcmstb: Add rpmb sharing support	
+>> https://lkml.org/lkml/2025/2/6/1711
+> 
+> Does it address Ulf's comments? i.e.
+> 
+> 	https://lore.kernel.org/all/CAPDyKFrCjo8gGnxmXWP6V39N+b1o62VQH9zwMUNb2_+D3-qrdw@mail.gmail.com/
 
---dyb25h5bm2euygmp
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [GIT PULL 7/8] arm64: tegra: Changes for v6.17-rc1
-MIME-Version: 1.0
+If you are referring to the fact that Linux is the exclusive owner of 
+the eMMC controller, then no, that is still not what is being done here, 
+but we did respond as to why this is done that way, and there was no 
+subsequent question or comments on my respond to Ulf:
 
-On Thu, Jul 24, 2025 at 02:17:08PM +0200, Arnd Bergmann wrote:
-> On Tue, Jul 22, 2025, at 14:21, Thierry Reding wrote:
-> > On Sat, Jul 12, 2025 at 12:09:40AM +0200, Thierry Reding wrote:
-> >> for you to fetch changes up to d01e4f1e7aa8833f549ac61a0bbcdc395533269=
-b:
-> >>=20
-> >>   arm64: tegra: Add p3971-0089+p3834-0008 support (2025-07-11 16:57:47=
- +0200)
-> >
-> > Hi Arnd,
-> >
-> > it looks like you haven't pulled this yet, in which case, please hold
-> > off for a little. There's a missing dependency on another branch, so I
-> > need to redo this. I'll send an updated pull request ASAP.
-> >
->=20
-> Sorry I missed your message here and ended up pulling v1, which now
-> conflicted with v2. Can you change v2 into an incremental series instead?
-
-Sorry for the delay on this, things got a bit complicated as I was
-trying to untangle everything. I've now sent v3 of the DT changes which
-is effectively v2 without the dependency and with a patch on top to get
-it incrementally towards what v2 was.
-
-I've also sent v2 of the DT bindings changes which are needed to resolve
-a DT validation issue for the new Tegra264 files.
-
-Thanks,
-Thierry
-
---dyb25h5bm2euygmp
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmiLmroACgkQ3SOs138+
-s6HtAQ//eSz+Bw+2b0FTb/6yzmbLV8BKO4lC7yIl+7FhjfmORCS05Fp7e1QRjuPS
-bbAl5I9ubAxMtCG65Av112IIsC1jzy7wGiIKHZlyJ1mCyD6tng//b4TjWoaMZrv9
-iIZ6VMuAnd2eBZyIByNOc+y6uTHhT4NQndUpDYuGgAyoZj1KxSaaEFggFJWv02Ej
-roINesBhWn0vUJ2tPIq3a3KyyW7ewqV3sdKDJBQRwv1cCTm7MInGFAWZvNI38gPq
-D4OPgKin7he9Ys3ksv/oTsRBsJ1U18vqoXIT2pVoc/vFyKc2kxQo6idHzztEdsyS
-BzETIFoOG8LCMESiRRPF5ihJYA4hub9L7dVn8qFy9G4gvgyTRvO3ClN8XR4yf+91
-NKy1ciKRRd78CAwGvRvyl8Dc7VBSBnTZRvRC6Asp+X9hqiDS3v38zf2ZMfUjRCt2
-GrOrq5I/hq6MfTySyFxV6EJaqJqgTshD0NCC1sG7X2DPO10N2A3wfOZNDFFX8Voo
-i3y5yAyGHsq+hbzzBOonRDKUFqzp1w4r/A9pjRpxl0fmb4IrlyCqbw/Q0AfxvPdj
-ZS/iiiKv4UMrWKmqX9QzlrQqo1uT+1vj7wrMjs19gu5D2jURT7D49XPu6NjLquVD
-XFD5ZsecCiFnDnqzkjJl0c1yhdwqjAsbFZIzjJf1IM3cPPvrFn0=
-=Us0s
------END PGP SIGNATURE-----
-
---dyb25h5bm2euygmp--
+https://lore.kernel.org/all/6328fe8d-c4ea-4945-b6ba-d994403121b5@broadcom.com/
+-- 
+Florian
 
