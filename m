@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D00DC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 22:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FC9C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 22:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kHj91cBJP4UCmkQVDHlswFtyp58W2+u6yWfvVBawNZs=; b=DDeAB492meJDibnis2KnyMR+R8
-	9S91Bg06BWYpcwgp3IA1NRj8jBeChzUl9IgVsFYEDTweIUUi7kDuGFGbpahsPNFqf0dt6xWYiH1HI
-	Tdnj27OFT2rmSxCLs3urKMECW1/7sW63J4bdIYDzqbNGvfGdQSCx4o+h8cuiptDGS13dMq8NfbkmY
-	O1kFSGtnKOtOFeOQffA4F5EMsvNFKicNwAatdPZcAxZfUvMlLWC8ECYsDuRUrc6SB7TMmKtr93+ug
-	cFdkOlZa8bD2vhHnkQUD0VVNXkzbwcDA8SDTEY8PkI7pBNHutZbj12xYk3VS6Vut7dIGXESCzdUyu
-	GX6QdiXA==;
+	bh=3NZ6SufYrkjXdgD6YyUWmxuMnyEMDpHdR4fnqfnN0PY=; b=n9IdtAWXV6Tstc9tPP9n9lx4kp
+	d6RnVW4XILQoO30nHMVetkytiZp6oDCQzif778oN6KyKaLvwFpOAvu2l/hwKa6/oEPzRKqQe61i1u
+	s2NQgCYLVG0XX75TS6ZhUDIk/c8WZ9m5ve1YMjxfktmtqW4LwttHeWsCXXNaB/JG+8Mk6/9t7DonG
+	qgvIawU6KgfBED9ZldAbu/AncuhaK+lewLiwBXDQ0/iCMAbtvIYDFctPn5prVC0EywgcyJVKLdhZS
+	fM1Pdih9pqkCPildaxxuZbCKHpw+O4PSYrA84CGjP/d3K/6KI0uL9wmhYSaZgjimfjJVARRWd4H48
+	FUmJtOBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhbik-00000004YBB-0BIB;
-	Thu, 31 Jul 2025 22:25:54 +0000
+	id 1uhblG-00000004YNU-3WGF;
+	Thu, 31 Jul 2025 22:28:30 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhbVz-00000004XBA-3QvO
+	id 1uhbW0-00000004XBP-2wHD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 22:12:45 +0000
+	Thu, 31 Jul 2025 22:12:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8225143A42;
-	Thu, 31 Jul 2025 22:12:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50176C4CEF8;
-	Thu, 31 Jul 2025 22:12:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5DE32463F8;
+	Thu, 31 Jul 2025 22:12:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DE92C4CEEF;
+	Thu, 31 Jul 2025 22:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753999963;
-	bh=hPXs+VvV1Z0lvnVsLb9P/CrQ7tEFhXZWjhaO05I861c=;
+	s=k20201202; t=1753999964;
+	bh=0kFL/C/HEWZ7M63kG+iOdTn4GO2S1xBbGOGTtJ8z7AU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=iCvpK9I82kPhEpK8t1h0Ne7/It67WKDWjCgnmWYXCS/tRB8rDtmureWGGG9qIRa8R
-	 Mj87Ii6KoBomAr9zGp3jVH8ws2BgF0nXYrQQSOcRxe7pZUQmtNh0Mz9NiiZK+7vG2i
-	 iiCJPiHuoiCmz/VY+BLz5EsGGj5wVQrnM4yjo+s+EWWCpZWytDQRTj+3kIKJE8NTwc
-	 YxuhxrvavW3NHcI6J+fmgoSeKmDvCxaFoVF7IgE0HNEEiLyTCHeFDbu8JrOg3CHx7c
-	 DziRGP44pSyglPL5umjP3Fd4W77aCbZCJox7ncqdJd5F63fpMBYK5fh0zKT4LvD7/C
-	 bXxP3k5x87i9g==
+	b=NSufTE42qvM3qg+eoMVzRekmq5HV2zU9DsPTV8PcbUnk49s3/opccp9/r9nRriXgw
+	 DfePqI1+sRuRDtI6hXXQcIBcbwMOHQ84oVunKRVMq/mWGjhaU6WVRgrAt9DEZld6k/
+	 yJFyW0NhLIZqoU+FBDxvijhVyqZfVn+Ah31oNJyjfyJjpxLHRZkbFGrydB0fLx+vFI
+	 i2bB+B/Bt8a1qxDu3NSZjDYrlqTwZh1q3DO1AqQiAJPMufBUI7qDBvfzlg3z3ItNLu
+	 FBKPrtcbhMbI+VmIpBxNI68r85IMFrhmBbRFQ8ZamDDj90JEmJq0tc/ZeeeRO3Yn7o
+	 NjnK6AoKUlPOg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 31 Jul 2025 17:12:21 -0500
-Subject: [PATCH 4/6] MAINTAINERS: Add FSI bindings to FSI subsystem entry
+Date: Thu, 31 Jul 2025 17:12:22 -0500
+Subject: [PATCH 5/6] dt-bindings: fsi: Convert fsi-master-gpio to DT schema
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250731-dt-fsi-cleanups-v1-4-e7b695a29fc3@kernel.org>
+Message-Id: <20250731-dt-fsi-cleanups-v1-5-e7b695a29fc3@kernel.org>
 References: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
 In-Reply-To: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,9 +61,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-fsi@lists.ozlabs.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_151243_881103_6C4F5338 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250731_151244_785091_E08EEBC7 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,27 +77,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maintainers of a subsystem should also be the maintainer for
-corresponding DT bindings. Add the FSI bindings to the FSI subsystem
-entry.
+Convert the GPIO-based FSI master binding to DT schema format.
+
+Drop the "fsi-master" compatible as it has not be used consistently and
+doesn't represent anything.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+ .../devicetree/bindings/fsi/fsi-master-gpio.txt    | 28 ----------
+ .../devicetree/bindings/fsi/fsi-master-gpio.yaml   | 63 ++++++++++++++++++++++
+ 2 files changed, 63 insertions(+), 28 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a92290fffa16..4a7b4656822c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9810,6 +9810,7 @@ R:	Ninad Palsule <ninad@linux.ibm.com>
- L:	linux-fsi@lists.ozlabs.org
- S:	Supported
- Q:	http://patchwork.ozlabs.org/project/linux-fsi/list/
-+F:	Documentation/devicetree/bindings/fsi/
- F:	drivers/fsi/
- F:	include/linux/fsi*.h
- F:	include/trace/events/fsi*.h
+diff --git a/Documentation/devicetree/bindings/fsi/fsi-master-gpio.txt b/Documentation/devicetree/bindings/fsi/fsi-master-gpio.txt
+deleted file mode 100644
+index 1e442450747f..000000000000
+--- a/Documentation/devicetree/bindings/fsi/fsi-master-gpio.txt
++++ /dev/null
+@@ -1,28 +0,0 @@
+-Device-tree bindings for gpio-based FSI master driver
+------------------------------------------------------
+-
+-Required properties:
+- - compatible = "fsi-master-gpio";
+- - clock-gpios = <gpio-descriptor>;	: GPIO for FSI clock
+- - data-gpios = <gpio-descriptor>;	: GPIO for FSI data signal
+-
+-Optional properties:
+- - enable-gpios = <gpio-descriptor>;	: GPIO for enable signal
+- - trans-gpios = <gpio-descriptor>;	: GPIO for voltage translator enable
+- - mux-gpios = <gpio-descriptor>;	: GPIO for pin multiplexing with other
+-                                          functions (eg, external FSI masters)
+- - no-gpio-delays;			: Don't add extra delays between GPIO
+-                                          accesses. This is useful when the HW
+-					  GPIO block is running at a low enough
+-					  frequency.
+-
+-Examples:
+-
+-    fsi-master {
+-        compatible = "fsi-master-gpio", "fsi-master";
+-        clock-gpios = <&gpio 0>;
+-        data-gpios = <&gpio 1>;
+-        enable-gpios = <&gpio 2>;
+-        trans-gpios = <&gpio 3>;
+-        mux-gpios = <&gpio 4>;
+-    }
+diff --git a/Documentation/devicetree/bindings/fsi/fsi-master-gpio.yaml b/Documentation/devicetree/bindings/fsi/fsi-master-gpio.yaml
+new file mode 100644
+index 000000000000..21bfbad595b3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/fsi/fsi-master-gpio.yaml
+@@ -0,0 +1,63 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/fsi/fsi-master-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: fsi-master-gpio
++
++maintainers:
++  - Eddie James <eajames@linux.ibm.com>
++
++allOf:
++  - $ref: /schemas/fsi/fsi-controller.yaml
++
++properties:
++  compatible:
++    items:
++      - const: fsi-master-gpio
++
++  clock-gpios:
++    description: GPIO for FSI clock
++    maxItems: 1
++
++  data-gpios:
++    description: GPIO for FSI data signal
++    maxItems: 1
++
++  enable-gpios:
++    description: GPIO for enable signal
++    maxItems: 1
++
++  trans-gpios:
++    description: GPIO for voltage translator enable
++    maxItems: 1
++
++  mux-gpios:
++    description: GPIO for pin multiplexing with other functions (eg, external
++      FSI masters)
++    maxItems: 1
++
++  no-gpio-delays:
++    description:
++      Don't add extra delays between GPIO accesses. This is useful when the HW
++      GPIO block is running at a low enough frequency.
++    type: boolean
++
++required:
++  - compatible
++  - clock-gpios
++  - data-gpios
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    fsi-master {
++        compatible = "fsi-master-gpio";
++        clock-gpios = <&gpio 0>;
++        data-gpios = <&gpio 1>;
++        enable-gpios = <&gpio 2>;
++        trans-gpios = <&gpio 3>;
++        mux-gpios = <&gpio 4>;
++    };
 
 -- 
 2.47.2
