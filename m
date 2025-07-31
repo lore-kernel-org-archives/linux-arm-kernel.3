@@ -4,42 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9991C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BC6C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+8n1Ig4ak+SwBMC04baaC0GACZNRbAlGF4awbDboOlM=; b=UpSU6GLs4nyQlOxstlQivzbtZG
-	DaVgMiZuTOqtzZU9ncbhjeY03ZLa4N+9DUGzlfrgvSqXTMgtjYvhSML4Qgw7jAPmUeXok5+noG29F
-	hQmnjnqvjy5u7Lkt7sV28kjY5CA0HTm02TQqB4yKEBlN7oLNQ5j0qDu37FT+As3TCBnXl4dS8Lx55
-	OM0yHj5ZUL4/5wpw0xQQXXwKwCvJWxZ7y/GqZFSIp59sA3l+0WWKdBlLKS0+8Ju1emneqcM9aowV4
-	6qMaAYo3IV0KB7ACeVpQLgqN8n2roIs6kXkT7ptI3DDMfbr8i6nZVnOZJnzMf37qmX2f4+0ar7jgJ
-	zs6Cc4tw==;
+	bh=A4rMJSNuwjfN230TtsdOnFvoHx+sdZ6f2oTG8jxLLQ8=; b=OVzqVrM7QhSGy+YjL8hwzVvcVn
+	mCva011RDZTXQcz4dtJEWadb7BPK9Lu8BtZqShcfg27mwnyQMjWh3C13E/0ZtVgwwdNFUePJyi282
+	6o75c6z/bSX1we+OauFyLJSGgD+msdaHrZhk4nuv5q4y0pnsvmrw3v0Xj0Zw1U0qhEp2+HpX0wbKt
+	Iht1mftEgGnLhmp2rwfc4NWisp1kOhQtYHoWYkznqG3iDNUClB3Fl9YebINHUtFgGZrE+8q8Hr7aa
+	zCo+ejial6IZlNH1tGxaq7kWGAIR951K3bvR0IvBOeTiDZzp7tTsn6vAA5xlMGR7khXI48+6r2A7q
+	uYFl4hhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTyR-00000003mqf-3CgL;
-	Thu, 31 Jul 2025 14:09:35 +0000
+	id 1uhU10-00000003nAO-2Z1f;
+	Thu, 31 Jul 2025 14:12:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTJo-00000003gwh-44dx
+	id 1uhTJt-00000003gyK-2fBG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 13:27:38 +0000
+	Thu, 31 Jul 2025 13:27:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A36C01D13;
-	Thu, 31 Jul 2025 06:27:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E93B92BC3;
+	Thu, 31 Jul 2025 06:27:30 -0700 (PDT)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EA773F66E;
-	Thu, 31 Jul 2025 06:27:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4C7B3F66E;
+	Thu, 31 Jul 2025 06:27:36 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 31 Jul 2025 14:25:49 +0100
-Subject: [PATCH v4 14/15] perf arm_spe: Set HITM flag
+Date: Thu, 31 Jul 2025 14:25:50 +0100
+Subject: [PATCH v4 15/15] perf arm_spe: Allow parsing both data source and
+ events
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-14-58e5677a412b@arm.com>
+Message-Id: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-15-58e5677a412b@arm.com>
 References: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-0-58e5677a412b@arm.com>
 In-Reply-To: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-0-58e5677a412b@arm.com>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -54,16 +55,16 @@ Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
  linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753968422; l=3699;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1753968422; l=4722;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=8woj2Xsj9K+UYw1EJ0q+XIB6Hpo8URirm3ffEJF8jEQ=;
- b=MjvFvRBUC9RbbvgNFLE6LSwCbefoQnotVNC8yzdlJKJ9f7jB9jPFCkHsdzp5rpygbqVVkbPLw
- kUqPfKepav4CQmL8wpbxToL6ML3cp5MEOVD+ZJ32swB6HJmUD4mwcoi
+ bh=DwDknRz+M+PM0kRQxaVsn+FUh1ULlnp1rQaeTIs9xco=;
+ b=OOKeWz+A9vVgpnRs33Uf4YarurcS1VAbmxuSDBLoawWkqgWvCZT9h7b1bJtYBgLGbU/EGR98i
+ bkSymMQU/RTCp4qzAh5HVsYF1TeFvbFNEUXHWcdXe/uLnlTfTCsAjAF
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_062737_097014_2AF09BDF 
-X-CRM114-Status: GOOD (  17.18  )
+X-CRM114-CacheID: sfid-20250731_062741_757477_E93EA661 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,94 +79,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since FEAT_SPEv1p4, Arm SPE provides extra two events "Cache data
-modified" and "Data snooped".
+Current code skips to parse events after generating data source. The
+reason is the data source packets have cache and snooping related info,
+the afterwards event packets might contain duplicate info.
 
-Set the snoop mode as:
+This commit changes to continue parsing the events after data source
+analysis. If data source does not give out memory level and snooping
+types, then the event info is used to synthesize the related fields.
 
-- If both the "Cache data modified" event and the "Data snooped" event
-  are set, which indicates a load operation that snooped from a outside
-  cache and hit a modified copy, set the HITM flag to inspect false
-  sharing.
-- If the snooped event bit is not set, and the snooped event has been
-  supported by the hardware, set as NONE mode (no snoop operation).
-- If the snooped event bit is not set, and the event is not supported or
-  absent the events info in the meta data, set as NA mode (not
-  available).
-
-Don't set any mode for only "Cache data modified" event, as it hits a
-local modified copy.
+As a result, both the peer snoop option ('-d peer') and hitm options
+('-d tot/lcl/rmt') are supported by Arm SPE in the perf c2c.
 
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe-decoder/arm-spe-decoder.h |  2 ++
- tools/perf/util/arm-spe.c                         | 26 +++++++++++++++++++++--
- 2 files changed, 26 insertions(+), 2 deletions(-)
+ tools/perf/util/arm-spe.c | 75 ++++++++++++++++++++++++++++-------------------
+ 1 file changed, 45 insertions(+), 30 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 3afa8703b21db9d231eef93fe981e0c20d562e83..fbb57f8052371e51d562d9dd6098e97fc099461c 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -28,6 +28,8 @@
- #define ARM_SPE_L2D_ACCESS		BIT(EV_L2D_ACCESS)
- #define ARM_SPE_L2D_MISS		BIT(EV_L2D_MISS)
- #define ARM_SPE_RECENTLY_FETCHED	BIT(EV_RECENTLY_FETCHED)
-+#define ARM_SPE_DATA_SNOOPED		BIT(EV_DATA_SNOOPED)
-+#define ARM_SPE_HITM			BIT(EV_CACHE_DATA_MODIFIED)
- 
- enum arm_spe_op_type {
- 	/* First level operation type */
 diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 3c32b9bc9c983370e37d871adeaa610bf5905c1d..17d12bfa812c86a796dd79624a3d283f0cbac237 100644
+index 17d12bfa812c86a796dd79624a3d283f0cbac237..a2925a5cfe980f1c72a8748b02fbe238cc7b8e00 100644
 --- a/tools/perf/util/arm-spe.c
 +++ b/tools/perf/util/arm-spe.c
-@@ -915,9 +915,12 @@ static void arm_spe__synth_st_memory_level(const struct arm_spe_record *record,
- 	}
- }
- 
--static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
-+static void arm_spe__synth_memory_level(struct arm_spe_queue *speq,
-+					const struct arm_spe_record *record,
- 					union perf_mem_data_src *data_src)
+@@ -921,40 +921,56 @@ static void arm_spe__synth_memory_level(struct arm_spe_queue *speq,
  {
-+	struct arm_spe *spe = speq->spe;
-+
- 	if (data_src->mem_op == PERF_MEM_OP_LOAD)
- 		arm_spe__synth_ld_memory_level(record, data_src);
- 	if (data_src->mem_op == PERF_MEM_OP_STORE)
-@@ -928,6 +931,25 @@ static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
+ 	struct arm_spe *spe = speq->spe;
+ 
+-	if (data_src->mem_op == PERF_MEM_OP_LOAD)
+-		arm_spe__synth_ld_memory_level(record, data_src);
+-	if (data_src->mem_op == PERF_MEM_OP_STORE)
+-		arm_spe__synth_st_memory_level(record, data_src);
++	/*
++	 * The data source packet contains more info for cache levels for
++	 * peer snooping. So respect the memory level if has been set by
++	 * data source parsing.
++	 */
++	if (!data_src->mem_lvl) {
++		if (data_src->mem_op == PERF_MEM_OP_LOAD)
++			arm_spe__synth_ld_memory_level(record, data_src);
++		if (data_src->mem_op == PERF_MEM_OP_STORE)
++			arm_spe__synth_st_memory_level(record, data_src);
++	}
+ 
+ 	if (!data_src->mem_lvl) {
+ 		data_src->mem_lvl = PERF_MEM_LVL_NA;
  		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
  	}
  
-+	if (record->type & ARM_SPE_DATA_SNOOPED) {
-+		if (record->type & ARM_SPE_HITM)
-+			data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		else
-+			data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
-+	} else {
-+		u64 *metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
+-	if (record->type & ARM_SPE_DATA_SNOOPED) {
+-		if (record->type & ARM_SPE_HITM)
+-			data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
+-		else
+-			data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
+-	} else {
+-		u64 *metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
+-
+-		/*
+-		 * Set NA ("Not available") mode if no meta data or the
+-		 * SNOOPED event is not supported.
+-		 */
+-		if (!metadata ||
+-		    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
+-			data_src->mem_snoop = PERF_MEM_SNOOP_NA;
+-		else
+-			data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
++	/*
++	 * If 'mem_snoop' has been set by data source packet, skip to set
++	 * it at here.
++	 */
++	if (!data_src->mem_snoop) {
++		if (record->type & ARM_SPE_DATA_SNOOPED) {
++			if (record->type & ARM_SPE_HITM)
++				data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
++			else
++				data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
++		} else {
++			u64 *metadata =
++				arm_spe__get_metadata_by_cpu(spe, speq->cpu);
 +
-+		/*
-+		 * Set NA ("Not available") mode if no meta data or the
-+		 * SNOOPED event is not supported.
-+		 */
-+		if (!metadata ||
-+		    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
-+			data_src->mem_snoop = PERF_MEM_SNOOP_NA;
-+		else
-+			data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
++			/*
++			 * Set NA ("Not available") mode if no meta data or the
++			 * SNOOPED event is not supported.
++			 */
++			if (!metadata ||
++			    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
++				data_src->mem_snoop = PERF_MEM_SNOOP_NA;
++			else
++				data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
++		}
+ 	}
+ 
+-	if (record->type & ARM_SPE_REMOTE_ACCESS)
+-		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
++	if (!data_src->mem_remote) {
++		if (record->type & ARM_SPE_REMOTE_ACCESS)
++			data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
 +	}
-+
- 	if (record->type & ARM_SPE_REMOTE_ACCESS)
- 		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
  }
-@@ -984,7 +1006,7 @@ arm_spe__synth_data_source(struct arm_spe_queue *speq,
+ 
+-static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
++static void arm_spe__synth_ds(struct arm_spe_queue *speq,
+ 			      const struct arm_spe_record *record,
+ 			      union perf_mem_data_src *data_src)
+ {
+@@ -973,19 +989,18 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
+ 	} else {
+ 		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
+ 		if (!metadata)
+-			return false;
++			return;
+ 
+ 		midr = metadata[ARM_SPE_CPU_MIDR];
+ 	}
+ 
+ 	for (i = 0; i < ARRAY_SIZE(data_source_handles); i++) {
+ 		if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
+-			data_source_handles[i].ds_synth(record, data_src);
+-			return true;
++			return data_source_handles[i].ds_synth(record, data_src);
+ 		}
+ 	}
+ 
+-	return false;
++	return;
+ }
+ 
+ static union perf_mem_data_src
+@@ -1005,8 +1020,8 @@ arm_spe__synth_data_source(struct arm_spe_queue *speq,
+ 	else
  		return data_src;
  
- 	if (!arm_spe__synth_ds(speq, record, &data_src))
--		arm_spe__synth_memory_level(record, &data_src);
-+		arm_spe__synth_memory_level(speq, record, &data_src);
+-	if (!arm_spe__synth_ds(speq, record, &data_src))
+-		arm_spe__synth_memory_level(speq, record, &data_src);
++	arm_spe__synth_ds(speq, record, &data_src);
++	arm_spe__synth_memory_level(speq, record, &data_src);
  
  	if (record->type & (ARM_SPE_TLB_ACCESS | ARM_SPE_TLB_MISS)) {
  		data_src.mem_dtlb = PERF_MEM_TLB_WK;
