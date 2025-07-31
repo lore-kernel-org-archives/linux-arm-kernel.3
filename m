@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A34C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8068CC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=My2aLPxmdnpZ3qTUzBLrCqn0REKR+9iuEoTW7pGZFAM=; b=EaOWuAuCQQ3VdPfYbRvl6OJrFs
-	dDyw3UKtjOIVYrcbXi/mlE4ib2LREA/rQsAOUEqIZjSLPsp1uPCiPBXGDF0xIBb5SLgPNRUzrX1qO
-	pMIlXpNwfNj9aRd2uH/aWkx0BWwxZa39D8TzmNqBrcdVsjRUlcFSJShN0nhh8MBJY56m9JlZArk4U
-	w692PhsAYwA6brrdAULVWwZFvnYJ+dv4ZMaO1ezvhqUDv51JYR5z9HkW8WNt/+ao+6u9853NJUoEW
-	ynp1PyfnE+DK5K3t30P7FTaYQOLaJG4NNQpV/ONretpnSoGq+Bp0rDXTueJJlFyVExrL7SqrlQ/Op
-	3PoDVtkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EdfR3+ghXfvid8Ak9BFhtOhrGJNHg3UqEP+sC26bPJo=; b=f9dUf8LxV8qPKnqXT/oXAKWO6l
+	HYJqDI+pf9s/nZzsNkmxtC7Gw4HyYmTKDjvuOWq/avujfQASXAAtIUjjvzgvSL+qm8RU3AFmAw9JP
+	AHL3ALaFalYwrKNWNHzZs6ATABKn1YW104xC7d+C3DYftNQ3v5v1jX6b/tCsMmsgTs+roItaA0pIG
+	Evi6cANCDbgwC70upnVTOZ4bykAX6wlLJSVWGPMydnWd4mEIuVUoBRvyuIAybs6eoR6x307tq9tH0
+	dIVATMau6sOdWB9UP8oTFtNdyRsrnwWXyL6qJUwiHZA/g7KcDRcJwLr1+7GEVzh3L9Z1vgzLZPxZB
+	e35Dbgww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhU8l-00000003oPL-0tQR;
-	Thu, 31 Jul 2025 14:20:15 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1uhUBL-00000003ovc-1lVX;
+	Thu, 31 Jul 2025 14:22:55 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTR9-00000003iAe-0v6k
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 13:35:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id AE10B443EE;
-	Thu, 31 Jul 2025 13:35:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753968907;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=My2aLPxmdnpZ3qTUzBLrCqn0REKR+9iuEoTW7pGZFAM=;
-	b=BzgOYlwzGRnkYY5poCQBmzn8jMwUTz/Ok1HYLcWyM01sOXjztsfhamRlWzW9uEN8m3R9zQ
-	gP4/kwyIRCDT9zoNMBSTPAVQZxwNpjOjwxA1JnHLY0Q0tliPT7Dv4xtdkZ+v085hX0uCvW
-	cQW/4yTi9Anhx9gqTnfQtuoXh4LPcB/639i3TwToj+h6ZaTBomtDarh2xMDRuYRV1yCIe0
-	nEn8NOpO/gkHDzXzyxL0vQLbqoZhGpurhCRgL2R6hmJToTbSPGh/DGfegjDOVq3X/ByRra
-	QmyWGxzQCjK2fN358+BLWEazzVeYnqQvCzOG1ndpcBEAyZi39o9yrzJtu7/v7Q==
-Date: Thu, 31 Jul 2025 15:35:02 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell
- King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>, Heiner
- Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v10 01/15] dt-bindings: net: Introduce the
- ethernet-connector description
-Message-ID: <20250731153502.78eebb88@fedora.home>
-In-Reply-To: <8d0029bc-74b7-44bc-ae0b-606d5fd2d7c3@lunn.ch>
-References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
-	<20250722121623.609732-2-maxime.chevallier@bootlin.com>
-	<8d0029bc-74b7-44bc-ae0b-606d5fd2d7c3@lunn.ch>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1uhTbv-00000003jKz-2V8w;
+	Thu, 31 Jul 2025 13:46:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=EdfR3+ghXfvid8Ak9BFhtOhrGJNHg3UqEP+sC26bPJo=; b=s2aPDoKSHYE2kKRj6gIVVD1GOV
+	fcyxAWhVigRK5nmd4r39qvJYfsh15mYv+up49sLyMVgmgm7fdKeXj6Tz8jcov+sqW47LaViq+O/08
+	FiCKhEKVmsqLmQ0JaxVWMq4ng6kFiYqGXXUx75iOnj6mx4t/NmSeMMj9FH9AsQb12ZZ55EQQgHLnP
+	IE0IpOIQkNRTLTp0NQKMuk5DBt+odJ9HJ8FN9vLyk29Z/24LDNtQ4lKOt9lEoGZmmEAHFhbSTLMVC
+	b4OYu5XIloViojkcFakmlrrMcioISbGwOtsjg2jyrZ+B2nvw7ptg8weOVx0KeeA2p+xD6aM6MZPfu
+	Oz+uHF3w==;
+Received: from i53875bde.versanet.de ([83.135.91.222] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uhTbQ-0008Cv-68; Thu, 31 Jul 2025 15:45:48 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Alexey Charkov <alchark@gmail.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>, kernel@collabora.com,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Ye Zhang <ye.zhang@rock-chips.com>
+Subject: Re: [PATCH v6 0/7] RK3576 thermal sensor support,
+ including OTP trim adjustments
+Date: Thu, 31 Jul 2025 15:45:47 +0200
+Message-ID: <2664626.Lt9SDvczpP@diego>
+In-Reply-To: <iafobb7h4nphjcujm34gig6vwlzfveegwewpayehb4h3tayzgv@bxpdfmhf2hfa>
+References: <20250610-rk3576-tsadc-upstream-v6-0-b6e9efbf1015@collabora.com>
+ <3560770.QJadu78ljV@diego>
+ <iafobb7h4nphjcujm34gig6vwlzfveegwewpayehb4h3tayzgv@bxpdfmhf2hfa>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutddtleegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
- hhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_063511_752930_8A7BCB30 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20250731_064619_662315_7D6E066B 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Andrew,
+Am Donnerstag, 31. Juli 2025, 15:27:03 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Sebastian Reichel:
+> Hi,
+>=20
+> On Thu, Jul 31, 2025 at 10:11:23AM +0200, Heiko St=C3=BCbner wrote:
+> > Right now we're in the middle of the merge-window though, so everything
+> > I apply now, I'd need to rebase onto -rc1 in slightly more than a week,
+> > invalidating all those nice commit hashes that end up in the "applied" =
+mails.
+> >=20
+> > So I'm struggling with myself on every merge window about that.
+>=20
+> Your are not supposed to merge anything to your for-next branch
+> during the merge window anyways. See first sentence of Stephen
+> Rothwell's mails [0]:
+>
+> > Please do not add any v6.18 material to your linux-next included
+> > branches until after v6.17-rc1 has been released.
 
-First, thanks a lot for taking a look a this series !
+The general idea is just merging but without updating the -next branch,
+then after -rc1 rebase + do new -next.
 
-On Sat, 26 Jul 2025 21:49:07 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
+But as you pointed out, this is all cumbersome and doesn't shave off much
+from the amount of patches waiting, so as most of the time, I'll just wait
+for -rc1 to start clean :-)
 
-> >  - The number of lanes, which is a quite generic property that allows
-> >    differentating between multiple similar technologies such as BaseT1
-> >    and "regular" BaseT (which usually means BaseT4).  
-> 
-> > +            mdi {
-> > +                connector-0 {
-> > +                    lanes = <2>;
-> > +                    media = "BaseT";  
-> 
-> This is correct when the port is Fast Ethernet. However, as you point
-> out, now a days, the more normal case is 1G, with 4 lanes for BaseT.
-> To avoid developers just copy/pasting without engaging brain, maybe
-> add a comment about it being a Fast Ethernet port?
 
-Absolutely :)
+>=20
+> [0] https://lore.kernel.org/all/20250731133311.1a3e3867@canb.auug.org.au/
+>=20
+> Greetings,
+>=20
+> -- Sebastian
+>=20
 
-Maxime
 
-> 
-> 	Andrew
+
 
 
