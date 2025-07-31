@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB9DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 04:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA15C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 05:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I83MFnCiFXCiIp5e2+LBV1sV8BJ5k9xK1eQKah6+dzI=; b=Tj4NNrlXoG8PMcs4dabHVnqbVb
-	cmjgLzMwrzkHcfl9/Yaqz8yH5y6OgKxlqvO4CvGmTj1iJSe2Y6lLkM1G+76ujm5/gDVoeFDhS7MVs
-	DNUIGzZbYlZXLh4FUb3PazSjPvkOdK9L29L6kXEn+CO4H9lLCLcIFZb52n8R5D8DsP0cywBe7UPpP
-	DYhtFc0783ETdbuWAFDV/VOGt9tigACb3pKB4IJkq/ifBJbBL+FUdl03xBRyQbzZ1ZK3IvNp+Wmml
-	wHjUgaxxpKgC3NQK+jFSZGxdLRcVp5fQ13vLvpkeTc69cP846F7uk3XPebHnnQGABjLgRKhFs4h0a
-	ok2pJBtA==;
+	bh=P4Sp2GDUfFML3x1uoKRtS9TflaYxWalc0AI94nd7XtQ=; b=mxqrLkQ6flUm9e41sPMqoWTjnG
+	sfm4ckjl1l79xXXdbd+TGWCNZtUCG7zIrtg2z4e2qVKCYfJ8MrvjEyk6rcz+VQ5t+vcVLjDffu4qo
+	uZJ27QuS9hk1sOrYyIm6kMsYnJF34km/UijBlkia4Q7tJg/h8Jw8nUO5XXypJcOYyUEH/XhShGMu6
+	uazA/vdWsreGZowlNvWAo2Gj+Wp5rco1onECBT1Gz1Bo/urBPtzIuwu4bJc7EmMYTJx0S+IRFG3kF
+	Bv3Q/kDYw3hki7sPUMa1dr9lyyIwJNhEzvK5EU0eLIyueYtbfX1JhkJ/WYi2nH0DBp0akcHhA56dV
+	IvQCsBYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhLCL-00000002tnJ-0AI5;
-	Thu, 31 Jul 2025 04:47:21 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uhLyd-00000002wGf-0VB4;
+	Thu, 31 Jul 2025 05:37:15 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhL9o-00000002tSm-2FWP;
-	Thu, 31 Jul 2025 04:44:46 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56V2gPvg030695;
-	Thu, 31 Jul 2025 04:44:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=I83MFnCiFXCiIp5e2+LBV1sV8BJ5k9xK1eQKah6+dzI=; b=
-	oeB5ywcsynEPWrIZpHiooUp7LDcm26sOUoltFGrXOj7E4oUZfpO/Sv+0sGryCuw4
-	xU+L32Al5QdljiknJP7Qe77gn9aDGtnWUZrN3sBq+eTSH37JslKrdQKr7nGhXCRw
-	57riVXcF3At2rWvfkJOu423STTbV+QJYF1N9DJaycpBbcYFgpURC+6/nkRJMJfYF
-	b8q5N4I76hK1buwLqhY+s1abU/kdexVPVrg0OMXUIQogOTjgWx1FYaH6cYfDyQCr
-	FiU60vzLJKcvOA5PVVmbNzebB12VtsvZVbayvtnX4KS2I9Qd2TPOFqzhsy91wlWL
-	iJiom95AGKZMk0PjJNp5AA==
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 487y2p06cv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 31 Jul 2025 04:44:37 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 56V36bKd016669;
-	Thu, 31 Jul 2025 04:44:36 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 484nfjb2ud-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 31 Jul 2025 04:44:36 +0000
-Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 56V4iX43035411;
-	Thu, 31 Jul 2025 04:44:35 GMT
-Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
-	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 484nfjb2tg-5;
-	Thu, 31 Jul 2025 04:44:35 +0000
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
-        Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Peter Wang <peter.wang@mediatek.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-        linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org,
-        Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
-        Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
-        Ramax Lo <ramax.lo@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
-        MediaTek Chromebook Upstream <Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: Re: [PATCH v2 1/4] scsi: ufs: ufs-mediatek: Add UFS host support for MT8195 SoC
-Date: Thu, 31 Jul 2025 00:44:23 -0400
-Message-ID: <175375581146.455613.10975874538933316960.b4-ty@oracle.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
-References: <20250722085721.2062657-1-macpaul.lin@mediatek.com>
+	id 1uhLw9-00000002w4u-1qnF
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Jul 2025 05:34:42 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-31ca042d3b8so437986a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 22:34:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1753940080; x=1754544880; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P4Sp2GDUfFML3x1uoKRtS9TflaYxWalc0AI94nd7XtQ=;
+        b=U2au85NK98ihPpFNNGmyTDa1Q4VJQZUmBy7zaNTCg7jEG2eDg+4o1fC3t2P8mvYyc8
+         CQ7caCquH+EGYhhqzruAMbtyCJaxlrZ2bPg84NqpbBXqjc2Zp2Mr+LXO+HlfzLJmhsMv
+         02P/hyg/dj5hSL7qRTGz3/+lGY3NCVgaNYxc5dzcS/vQPFJWorgWt1dGEZRjXoTaGcbS
+         i2AKmxwvQ9P4/W6t8r3JrMVV1soQWKY0ZVK4aNRG7IysJ09C3fg+nJnXIfhcU7JSLBjF
+         rsAtODCi3RoWissx0ohX5WAnjVM1eYUyoomtBiyvBnB5yNcty8zuwSPF3r0Is31OgDHf
+         1AKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753940080; x=1754544880;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=P4Sp2GDUfFML3x1uoKRtS9TflaYxWalc0AI94nd7XtQ=;
+        b=WkS/FhQGb/VJ5y/44mUr7lGHrvVRq32odBQ3/rF/1RAHnNBiH3VrSjozInuDtdMcQd
+         szbOdNKLi9Ei99SFKsxI1UlR78P1tMeE8kUBNN6HJgocNcjwuHh33jta+vbTBL+7nomc
+         1EkTF+Ld8nFrveCG2CefcOpe0WF16JlIOAHZgedH2w/Lh+3F+5OzkckPxi9H69Zjq0zS
+         2dM3+99cx3mUkkMoAnUBMxz4TsbUJVBpVG0VkSuUraGyzoBWAPszPQJvbUCR/A7IqAbg
+         pgudi7oELGaRdaclt0OxLirrdC4AeH7W9Pf6dYQ/iKSUawvlJttGm+d1oLljsJDCdxVt
+         vOQw==
+X-Forwarded-Encrypted: i=1; AJvYcCXwcwMevsLrkP+xZYMIaFV1yxDLn/eX4lknAFSy3eVv6W9qwxPERF1t5b9XC1DEkp7YEhO77DUnzhIpwC1aDtsc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1EK0QoZ02YMjvmsTu9YCHqxhyA4FXnix/QjmCKMDbmMR5vfJU
+	moqduS8jqa3eVkAwTRxGNUBGqg6oMegvPRDhM+u5KpYr5Hsc94ulCpznKSvGDLqlBrwLvAVDaH4
+	QI1iUGRGMN5rh09K+VBbGtz+rRxgCEfm4APw+
+X-Gm-Gg: ASbGnctvDdslS7T3dCD2EqCU8qiSFNTKV9W95jTyl8iwjIluB90OJylFEUM6awE6yHU
+	Y0B9gMeez2+b4gzYyPFBS9DPezDEKbVVZA0IT92wGbhqMCEn+IRMCHZSdBYT4ORsnDJvjkZYp3b
+	DSLNn9/XspJEE8WaJUkB67Gnp75girocP0TlDgmUrzy8D3g6E51Zb00zSmwVOfCeUClQCTtZq+S
+	9J6
+X-Google-Smtp-Source: AGHT+IHXrxbbNNYCinyHQoskYKFqoXHqmo6YX2SFTgg5APWeBRHOh1sgrx3dY4RlljDqEABe85zpkVvrzPg+EkqADTg=
+X-Received: by 2002:a17:90b:5847:b0:31f:42cd:6900 with SMTP id
+ 98e67ed59e1d1-31f5dd9de96mr9675756a91.12.1753940079962; Wed, 30 Jul 2025
+ 22:34:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-31_01,2025-07-30_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 spamscore=0 mlxscore=0
- phishscore=0 suspectscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2507310030
-X-Authority-Analysis: v=2.4 cv=COwqXQrD c=1 sm=1 tr=0 ts=688af4b5 b=1 cx=c_pps
- a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
- a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=VwQbUJbxAAAA:8 a=Sz4xQF61w0hT1LMIHCkA:9
- a=QEXdDO2ut3YA:10 cc=ntf awl=host:12070
-X-Proofpoint-ORIG-GUID: Y8eRtjW2yVAzR-f2CA9cdFL5iiSi5iTs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzMxMDAyOSBTYWx0ZWRfXww8Fhxoti4mV
- 1itO/IqhdDBarORqZisMtXyeMabxZnpmHq577rG3cV9RZi2kZMY726J11kD/E+Wa3i2q2zfO9l3
- w1mVPawTAxmhCwSXy4ckAGIasxnL8g4qiFOU8qB4BgHghhsR3e/l0135vvailU8AaOzuU78Gf+w
- OLOcyEI86yWXspiY8Byjm+uBTaVCDSoS+OaaIZieDxnzfQpqwu5ENNioZea5Tius4IC8mCaQxqj
- mTwUlHGXgLSxIyL0j9wENVsMyVEi6sWWl2cKgkZX4gx4lVA7NaPgTxUp0pmBZc3RjcuUR0WYF4E
- G6P2xMDJCyYuc+gZ1u+Hink0xnmW/E2RQHUjMKHQtPf0Uf5g+GzBi/8OSAVsBQYq5FOX9/swyjA
- GksggwWNJb2DIwHzPHWYGiah0DRNVpSm/Qs/aHQdZ7/gfV2LcUYhmdOdA3qmpO53ZlnWaRe+
-X-Proofpoint-GUID: Y8eRtjW2yVAzR-f2CA9cdFL5iiSi5iTs
+References: <20250730125932.357379-1-laurentiu.palcu@oss.nxp.com> <20250730125932.357379-2-laurentiu.palcu@oss.nxp.com>
+In-Reply-To: <20250730125932.357379-2-laurentiu.palcu@oss.nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 31 Jul 2025 08:36:47 +0300
+X-Gm-Features: Ac12FXy6016R5yBjERUVNjJ9NaURXNKHJ2pnztmaFYpAtiC1FehtoRDqe3M3hL0
+Message-ID: <CAEnQRZC5UDTMeF==2POenjw+YK6X4rCPCH_XN1Jq+ULJLofuqQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] clk: imx95-blk-ctl: Save platform data in
+ imx95_blk_ctl structure
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_214444_691366_7DA8499A 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250730_223441_495530_D1A7C77D 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,26 +101,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Jul 2025 16:57:17 +0800, Macpaul Lin wrote:
+On Wed, Jul 30, 2025 at 3:59=E2=80=AFPM Laurentiu Palcu
+<laurentiu.palcu@oss.nxp.com> wrote:
+>
+> Add a platform data (pdata) member to struct imx95_blk_ctl to store the
+> result of of_device_get_match_data() during probe to avoid redundant
+> calls in suspend and resume functions.
+>
+> Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
 
-> Add "mediatek,mt8195-ufshci" to the of_device_id table to enable
-> support for MediaTek MT8195/MT8395 UFS host controller. This matches the
-> device node entry in the MT8195/MT8395 device tree and allows proper driver
-> binding.
-> 
-> 
+LGTM,
 
-Applied to 6.17/scsi-queue, thanks!
-
-[1/4] scsi: ufs: ufs-mediatek: Add UFS host support for MT8195 SoC
-      https://git.kernel.org/mkp/scsi/c/6f1fd3e0279f
-[2/4] dt-bindings: ufs: mediatek,ufs: add ufs-disable-mcq flag for UFS host
-      https://git.kernel.org/mkp/scsi/c/794ff7a0a6e7
-[3/4] dt-bindings: ufs: mediatek,ufs: add MT8195 compatible and update clock nodes
-      https://git.kernel.org/mkp/scsi/c/d01cfeac89e9
-[4/4] arm64: dts: mediatek: mt8195: add UFSHCI node
-      https://git.kernel.org/mkp/scsi/c/a28f98103890
-
--- 
-Martin K. Petersen	Oracle Linux Engineering
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
