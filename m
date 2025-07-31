@@ -4,178 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27615C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 15:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CE8C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 15:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hlNfEy6/WyiJ3l431H1ekDwy1/YArH5TVXP13TSFxew=; b=0C1+UEILjxP1Em5epaWqjiYXkj
-	MAarkYFRw654fgq2HMJeWmU3OfT112CRziU6uVREHKFQGaWYeS7o9UFKXLKtqxU9mvQN4dtq8c2ve
-	Bg+8Nf/J6iKascdAAeg9y7hHf3LlyUs8ETMjWzLnryuCtKXzUzDLUJXpyfbeIC8xjQj8d6D2uCH+W
-	2TP+YLzrcmfIlh+kVfBOQUG1A1FBSXDxBL2GAZ5vHGoV/NIgP8FqN3gNotOD/rkSZPYs0dYmx8086
-	ok1frNxg8WX2GClsB820RKT4hpp5Jt2H+AsvDCpEIDAaFgOuYAvqx19Y0rWUUktFjqHLS8hrDFcEg
-	tcyHYD4Q==;
+	bh=I04yD0YtgyJOQ/tADeNk0II4/5tx8Bsowhc0prCMek8=; b=cdAoPE6Vax71bISavKtAKKMk8G
+	JuoufIV9yrk4GvPn/+vjdDpipAWdqHEKOv3x2tBXOsPdd03OlzH6/86m616VXNjInL3sYHjb1bcHt
+	VyrYIHaWVEWCU1RE4OD1YzOzY9kobqjtTK4mL+iG9zczfbgY54K6KEZegvxdmg9C9Qw87F2aa0F46
+	1fIFfBvs1XxZowZlaWXGlZ5EsgGz0379fgxiXEXtEg6fdser/w+5NCa1IXhYEFDN7APIvdtcyJmLE
+	ZmHAN8ovtpcpp9pxJwaoQNLFFujskPDe6KajLhV4DTahc8LOkeb5AlsTQmq+DIDMvsvj0gvbS38jd
+	7V+bWM4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhV8W-00000003xjy-40mP;
-	Thu, 31 Jul 2025 15:24:04 +0000
-Received: from mail-dm6nam04on2062f.outbound.protection.outlook.com ([2a01:111:f403:2409::62f] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1uhVCJ-00000003yFo-3rgs;
+	Thu, 31 Jul 2025 15:27:59 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhUsY-00000003vVC-2f0b
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 15:07:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CkPiJOUiYCaFWM/JWCaKg5L2T7l7HBV+jLFKi7TUGTH/+bRe5eud/dpFLURczkZERtfVmSfFH9Fa8Cry9mwbtEobzJUrQY6u+Z1FJ2hFXaCg9HuyLMdMNgc3Gefl9H9YB7CbluOSzDFC2iOHQmjNB4oukNCla939agQQWtrz4wwoKbHTMjeG4JRED7e2LE0YZniFm7m6QW9FUOo0sU21IEI6V/+SVggCshdO1wVF/FmJRcm8wo1so26uiX7mtuTpb7pZdkJEhsWk4C835axj4HMLENLM2aIxfCDHiG6c8iDgN7dEaSD2FB1imgzzgw1C2zF+QgfjvnhFXaF8prNhSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hlNfEy6/WyiJ3l431H1ekDwy1/YArH5TVXP13TSFxew=;
- b=iIzmIqSe1RhCOE29WJKKG653nGas/isR9gdvq9KhWyg4yq4eDt8vXWkCxNSmy824RxXrKPqCEyaVf4K79VQINlbolIFxPMC9fgwJi7QlaYmiLcK8d/VN9yA37iWSrf3xwzH4Y4DeGfqMZ4cjIKcovwz12W44GoV+aKNdwUQTe8MFrXVfiuv2kZ2YTkE//ihL7WoeWEnXUsIptjU6i8v4tNvg0m0OocG62p1bTBBpBUZb8wiv7cLOfNdO0B05m2zbD2VFceoGqfj0AaLEGYXbRTO1GGHQxSjQ4gzJU2eQTfVdtzi9QqN1LB0xTDNBiTzGf78ayyvPCudfwqdS294odg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hlNfEy6/WyiJ3l431H1ekDwy1/YArH5TVXP13TSFxew=;
- b=THrNkQQrlx0Gd10oPT8vzmGZBqVIlKEmNrS2BVJfALzoXNPRnXkmUV5gS2KFxCp9NeZdDBBJKbAOg7FU50KWTU1bt1lT1I2ux2Z7qkKjBGlaJEviyeIRUb1dQofJLnL2cQ/jOh4XkJGalZVuOOmPr7i/2zDvsXsyqHYzoA/XMzlBS8+1wMCzRV9Qifj4AgJDjZJVIbAHqoHKHXUsP6FH3AGKK1yZ+EkFiIfnO4d/+pEHRFO3Gw2/ep7OboF51BEMMP5RBHWrFK5TdY5pg86sQuPh9Yv67OiBv/+ulWmJjNC1zEJabfgR025SYu9+66Ir1vlbbHSfbsDKpipqh4zVPw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from PH0PR12MB8773.namprd12.prod.outlook.com (2603:10b6:510:28d::18)
- by MW3PR12MB4475.namprd12.prod.outlook.com (2603:10b6:303:55::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.13; Thu, 31 Jul
- 2025 15:07:30 +0000
-Received: from PH0PR12MB8773.namprd12.prod.outlook.com
- ([fe80::47a4:8efb:3dca:c296]) by PH0PR12MB8773.namprd12.prod.outlook.com
- ([fe80::47a4:8efb:3dca:c296%2]) with mapi id 15.20.8989.010; Thu, 31 Jul 2025
- 15:07:30 +0000
-Message-ID: <4478f28b-47f8-4049-bf17-b7fc95cfac65@nvidia.com>
-Date: Thu, 31 Jul 2025 16:07:23 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 20/24] pmdomain: core: Default to use
- of_genpd_sync_state() for genpd providers
-To: Ulf Hansson <ulf.hansson@linaro.org>,
- Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
- linux-pm@vger.kernel.org
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Michael Grzeschik <m.grzeschik@pengutronix.de>,
- Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>,
- Peng Fan <peng.fan@oss.nxp.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Johan Hovold <johan@kernel.org>, Maulik Shah <maulik.shah@oss.qualcomm.com>,
- Michal Simek <michal.simek@amd.com>, Konrad Dybcio <konradybcio@kernel.org>,
- Thierry Reding <thierry.reding@gmail.com>,
- Hiago De Franco <hiago.franco@toradex.com>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <20250701114733.636510-21-ulf.hansson@linaro.org>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <20250701114733.636510-21-ulf.hansson@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0615.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:314::17) To PH0PR12MB8773.namprd12.prod.outlook.com
- (2603:10b6:510:28d::18)
+	id 1uhV8p-00000003xry-48Fr;
+	Thu, 31 Jul 2025 15:24:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 45C37A5546E;
+	Thu, 31 Jul 2025 15:24:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65D56C4CEEF;
+	Thu, 31 Jul 2025 15:24:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753975462;
+	bh=hV+4QbSz5Udx3GshLiQvcY/nKgtH8erkV2rR614Vsok=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tA3sXF8Wm+rCh5mCtzlnzkpSBzdJoXk9uSm04XD8G9+Xe5wPjXpJ4iw2zM1jkor20
+	 i4KXvmcOZ7WWlRvwPhSiIs1SPOheHn/6xyQ0fQslkUJVFNXoz5IadUOSTgEog7jKmW
+	 FIVJ3hqnsenhiJ43t/lk9fwP48XUqtV6oWICB6s6HuhzLTH4eO52tw/S4Cj3Ut1dUm
+	 +vUgpTgdQhY7eGIQY1ov5B8CfJQB3Otitgqz49+4RmJPzCkfEew0aePtsGJmuGLirm
+	 XvAjFnWzTY1jfUzZWhlOCZViCSnFXCHtaqIaj1/w2L8nO3se8Uj7f7y7OM5xm1ydpQ
+	 PtHBAHEbsi6qA==
+Date: Thu, 31 Jul 2025 17:24:20 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: npu: Add missing MODULE_FIRMWARE macros
+Message-ID: <aIuKpP-wKp1FA8jM@lore-desk>
+References: <20250731-airoha-npu-missing-module-firmware-v1-1-450c6cc50ce6@kernel.org>
+ <1ef51e54-9ad1-4e98-aaba-63d493e22959@lunn.ch>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR12MB8773:EE_|MW3PR12MB4475:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0181a428-ca69-4adc-83e9-08ddd043f7bb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bHpxbVI5SWQ2bEtNUUtya1ZOR1ZUSTJFT0FxVGlNTGhsSFdFaCsyeC9zSkc5?=
- =?utf-8?B?WUJUR3RDRkZzY0tUUXhRVHpmMFRkMnVxNnhxNlUwT0lhTEFKRjFTV21weXE1?=
- =?utf-8?B?aDJTMCtOZFpGdENjRXJzS21uODJLaGZmWWJrbFNYYWxVajhidjFOb0JzTWtT?=
- =?utf-8?B?NUxteGlkcVp0SWNIWnF2NElVQTAyMWhBMy80dmtTaUJTQitEKzI3VEszSnhq?=
- =?utf-8?B?WGhWdE5QYXdVeTZKSXIxcUM5d3g0Vlk5UXo4TkVBNEcxaGdQb3ltV2VJRmdO?=
- =?utf-8?B?a2VtRUpVQlpOT2J4a2VCc25OY1hTMml4RU9OWHJnbFIwR210K1pOSXR3Sy9U?=
- =?utf-8?B?SzA4elh0ZFJzN01wUm9zMi8xUjJZUFNEYjBtRVVvQmExRmUvWnRkR09IY3BE?=
- =?utf-8?B?QUMzYVg4S2xjdTBsWDM2QWFvenNDOGZaaXpLZzRQUDJ3S3dZaGkvc0dWaDUy?=
- =?utf-8?B?all6Mk5IaEFDNVJ1Y09SSzdqaEliUjg4RG01dFFnSHNVWFMxNGNTcUxPVnRx?=
- =?utf-8?B?dTd4UU9oN0FxRnQ1V1NNcGRjRFZ2bjZiRTlITzg5WlhZOGppQXZET0JDK05s?=
- =?utf-8?B?U2IvcTZIU21JMWpWUE1ndG52NElocWFub2xHeVY1TVVhR2t1TE1xNVlVVWdV?=
- =?utf-8?B?N3REVkJramdFVnZrQzZDSGlJNU4zdkFjNC9xdEpnQlBzbDMyaEFzVjVkNDdQ?=
- =?utf-8?B?cWRCQlJvTXc2WjZCRkVETzIraW5nMVVNYzRNR2hmRWFlZ2E5L0Y5cTdxNTBz?=
- =?utf-8?B?QVRzWkJhSm03VW5weXcva2FFejNuamtsRlU2ZWk4ci9yZWZEOUd2L2tlM05q?=
- =?utf-8?B?UUtoUTNzd1A4Q2RjNVl4aDNLdWw5L3JtL2gvMU9IVTRQQldMUTdaQjZvRTFm?=
- =?utf-8?B?WlVYL2hCdXI1dWU1YlU1VHUwRDNKWVpHU1hjcVdQS0p6Z243K3AwMWVEUU5Y?=
- =?utf-8?B?SzBNZXEzT2RIT1p2dlhNaStYNWRINWxEUXdVa2lHRWM0SllHYWJYcWNYRm9H?=
- =?utf-8?B?WFlYR0RiTlNxYlJMYzcrakZqTjlQUHRmRzVoYnJ5OXpWSDFQaDFHWHphczR3?=
- =?utf-8?B?WkdOa3VwNXJtTC9DeVNvWGw4QVVUOVg3ZU1odStWZUY4dDNNUUxrdys4VDZm?=
- =?utf-8?B?aWd6dHlEUDk5bS9FZmtIZVdMNzRJQVhpS2ZCNUwzN3R2YmZCRnpXV0xkTmJZ?=
- =?utf-8?B?QlowanhTaGFmbkpGVWVxTkd2T1N2ZGtPdUJJNnQ5Nk1FM2xvdDZVOSt4Z0ds?=
- =?utf-8?B?SThzbWFmaFJvRjJUZmlHbWgvZ1NUc1oyYVFXMXZDN1dRNlNwZmdraENQQjFD?=
- =?utf-8?B?Rlo1WHVBa21ycnF6azZ6ZnRTZWh0cGNmRnoycmcvSlRySmJIRkJIQWxJQ3pi?=
- =?utf-8?B?U0d3U1VCY2FDNGRJL3l6L2tSeStWQ2ZCQXlrRE45Z1lnTk0xMWg2VnZ3bjFY?=
- =?utf-8?B?SXE1ejVZSG9WTllsTzBSV2ZoV0dFWFJFQ2d2M3QrbEZBV1haK3FOZGM5dWNt?=
- =?utf-8?B?VS9CUW1RSmNYLzE3QnptN2UxRTVOZ09mamJGbW56RDQ4Y0d5N2VzWEQ3TEdB?=
- =?utf-8?B?b3NLZ3JRd0Z2WVRpTDlUZm1CaUJzTit3WC9ZVS8xeTZBeTBvS1lZYXhRL3Nz?=
- =?utf-8?B?OVRUZ0VjVmd0RnNTSnF4NVJENkNNeGJ3M1FSeHlVYVYwQ0V0ZkNNZzJRNmZG?=
- =?utf-8?B?bHVPRDZZMTFXL241b2JHUmpPNmxaaGZXRkh4Mi9NTExSL3UzZWY2MXE2YjBk?=
- =?utf-8?B?YXlkUmYzZXFjR1hLN2d4NUduRHBPOWtsbGp1dmNrQWhETHlucld3bUdSSTEz?=
- =?utf-8?B?WlBiZWpKeHBod3FvWnhmSFBydFhXZjZXR3R3NUE0TkpZTnVQeDJ5MjV3T2p2?=
- =?utf-8?B?MkdBa1RzTE5kZlFITmtTaUNQNVFvM0F2UFU3RnN5b1YvSXUxQk4yZUJFd0hT?=
- =?utf-8?Q?fHfjU67q8Cw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR12MB8773.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RjJMbEtJbDdRVFlpS0pZUmlGVHFIOXl4VjMveThWL0h2QS9nUUxhQmpvVGdj?=
- =?utf-8?B?T2orSUQ0N09nK29JTktGWUVreEpOZkpmc2J2c1I3YVhIaEJxSmlkOGxLZlpq?=
- =?utf-8?B?eFdtNlBoUUYrYm9MNnhWM2haWWo3a3RxaW5pdkprVGk0N0ZxMWdBZFpCMzRS?=
- =?utf-8?B?Vi9ubkkxN3ByemN5U0NVTXdKZExJVE9mNG8zeXY3ZWtuVitWK2ZvcTY2b2NY?=
- =?utf-8?B?K2ZMaVRINjIrd3VlcHA2dVMySCtqV3VWOXNqTSswWFVOeEhoSmdEUGtWNGZW?=
- =?utf-8?B?YW9NNWNjQU4rU0ZwYUFuSk85a25sdkphTlFEbzFlM1VOeGRwQjdzMjRKYjhZ?=
- =?utf-8?B?c3kyY21CcjFOTnErM1ZOQUJqSHlya2lEVlVmZU9qUkdwL0lyZkVTbUdrVzA1?=
- =?utf-8?B?cmx3c3JOM1dWS3lSWXBKYmxJbEl6dHUyUnpSY01acFZ4RG55dEM5dy9vbU9H?=
- =?utf-8?B?a0JvM2NITWZ1dnJrbm1WYml3eHkzcFVodllSY1g4djFJd01PeGRMUkt1czJL?=
- =?utf-8?B?TjRhOFp2VzI0bzluZlg1ZVZHdndFZGZFM0dha2pMOHV1Ny9qa0V0SzRxdXNW?=
- =?utf-8?B?dFB3RHMvWUNOd3BYQ3ZaTGFLWjU1NVVDOGRXUzR3OXlweFhUb053VFhxejhx?=
- =?utf-8?B?RVRBM2xFVVUxL2dOUlpxWkFPWFcvS2l3cXl0RkVORmpNY3o0Z3liazM0RTZK?=
- =?utf-8?B?K1NLbU9tT1VWNk5qdjFJbWF6ODhXcE96RktxSGptRUdlWGhEeDVhUzA1Q0s1?=
- =?utf-8?B?Q1Y1WmxBdjA1OHozRXEzQnB2S1NDZnB4cTFyZ3ZQWjNJbUc4NDlwQmUvZTg5?=
- =?utf-8?B?NjhHdE1jQWxMcVZFczVMY250MnZkNngwM3hSdTFMdHc2RjhDODVzWkFoeE1w?=
- =?utf-8?B?ZjJPQlo2K0Iyc2Y2MDBZeVFXRjE1aCthSTlLVlhKQThPbCtOYjF0VHdNODc0?=
- =?utf-8?B?d2hiNnJhYzJPbk1lbjlTZ2pPemptYjBzWVlNWk93c2daMnR5cmZqOW1OL0w0?=
- =?utf-8?B?ZmovOUJuMUpyZnAzNVFEbWJCSVV6dVlLTEdhay9iY3c2eDV5azFlNmRONXZG?=
- =?utf-8?B?N0RvRHRDNnhZdTJQM056a2J1RzRFdG54NUdyUjhzdUhNUjByaWhxWlZNaEoy?=
- =?utf-8?B?VDJmc2MvVHV2Tjd6ZjIyZWJFa3VlVG5QSTlaSWs0aC9IemZ0a1kwTEV3RXU4?=
- =?utf-8?B?UU1Kck5admh6UlJLbGpnbnVOQmdUcDd4R2lMaS9pTm0yR2pSV3M5VkVTTm94?=
- =?utf-8?B?WGVwUXlqdlJGOTd5bTkrZFlsWld5bzBlQm81SFM2RXIvY3pldzExbjlKMkdl?=
- =?utf-8?B?dlJBL2IyRzJpRDVaZXRtY0VoNzljNTUwUjMvOXNPTlRBNVVJYVNScEpoNmR5?=
- =?utf-8?B?TWhrVXJzOXp5ZThxNGRjNUhlaFJNS2Jwc1VsdUh4OXlCamoxRENPUXN1SHV4?=
- =?utf-8?B?dFc1UC9VVmtVNXVUclViQ2x1TUpRb3A1eHV5UE9ubVBqQ2kxUnhJMTlwM212?=
- =?utf-8?B?eVdXb044clYvVEtaM3Zra01ML0tJMTNrVFNTaFRSQkY3b0Q3SVlWZW9VVnZq?=
- =?utf-8?B?enVPM1NONDVsRWRWRDB3aW50dndBK1l2KzVUSlJyTys2YXpyZk55TU54ejBs?=
- =?utf-8?B?WWR0MGVWa05EbTNzNHFPUXFwNEcxY2hPeDE0U3JDOERGcEdBcXJTL3A4aXM3?=
- =?utf-8?B?OU5OWEFFMUdhdGRXRFd4NFJEOHRBSlcvVjdLNCtnUVBLajl0NUp5M0pJTlZn?=
- =?utf-8?B?SGFBSGxxTFRKS2gyVUNhVFI2NjBtTmsxRXloay9uc1IvQTlxRzltYStZamgx?=
- =?utf-8?B?STRkeHVUMXNHUU9xMm1Cb3R2b2ZQWVhOMkZYZVhIbTNBOFhSdUN1clRnZnlQ?=
- =?utf-8?B?L0U2eG1uaWt1VWZSWmdyaTN6WmttYTZJV3Fmd0hieVVUMFJTbDVuWkp5L0xL?=
- =?utf-8?B?QUtsQ2VtT2o2UDRNMFcxN2tFVzBiY215NmJGK241SmVqM20vampBUGJTRE9Y?=
- =?utf-8?B?N3R4QmNxMVh6bWp1amx6YjM2VkJMd3BXVUVoUnUzZnB2R3FJT1NYdFhNcjlS?=
- =?utf-8?B?RitqSlZkK1N6dHZtZlZqenFaTm8xMXl1Z0NVNmk3L1laSENKbkdlUnE5TVFy?=
- =?utf-8?Q?3QIb6xptrynorumQcem6JBdA/?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0181a428-ca69-4adc-83e9-08ddd043f7bb
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR12MB8773.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2025 15:07:29.9587
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZyjAKIpxkHNsqYwSSvuuj29upL7Hsu94nByqx/9jMZKmGquPPJ6IWIRkBo0AfSnX7jWX9jMEQ77DWZzBwlpgfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4475
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="E2aXBMfY4AdSuySP"
+Content-Disposition: inline
+In-Reply-To: <1ef51e54-9ad1-4e98-aaba-63d493e22959@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_080734_682985_177C19AF 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20250731_082424_093156_FF2B3BA3 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,79 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
 
-On 01/07/2025 12:47, Ulf Hansson wrote:
-> Unless the typical platform driver that act as genpd provider, has its own
-> ->sync_state() callback implemented let's default to use
-> of_genpd_sync_state().
-> 
-> More precisely, while adding a genpd OF provider let's assign the
-> ->sync_state() callback, in case the fwnode has a device and its driver
-> doesn't have the ->sync_state() set already. In this way the typical
-> platform driver doesn't need to assign ->sync_state(), unless it has some
-> additional things to manage beyond genpds.
-> 
-> Suggested-by: Saravana Kannan <saravanak@google.com>
-> Tested-by: Hiago De Franco <hiago.franco@toradex.com> # Colibri iMX8X
-> Tested-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> # TI AM62A,Xilinx ZynqMP ZCU106
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+--E2aXBMfY4AdSuySP
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> On Thu, Jul 31, 2025 at 12:25:21PM +0200, Lorenzo Bianconi wrote:
+> > Introduce missing MODULE_FIRMWARE definitions for firmware autoload.
+> >=20
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+>=20
+> If this is for net it needs a Fixes: tag.
+
+ack, right. I will add it in v2.
+
+Regards,
+Lorenzo
+
+>=20
+>     Andrew
+>=20
 > ---
->   drivers/pmdomain/core.c | 9 +++++++++
->   1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index ca47f91b9e91..5cef6de60c72 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -2600,6 +2600,11 @@ static bool genpd_present(const struct generic_pm_domain *genpd)
->   	return ret;
->   }
->   
-> +static void genpd_sync_state(struct device *dev)
-> +{
-> +	return of_genpd_sync_state(dev->of_node);
-> +}
-> +
->   /**
->    * of_genpd_add_provider_simple() - Register a simple PM domain provider
->    * @np: Device node pointer associated with the PM domain provider.
-> @@ -2628,6 +2633,8 @@ int of_genpd_add_provider_simple(struct device_node *np,
->   	if (!dev && !genpd_is_no_sync_state(genpd)) {
->   		genpd->sync_state = GENPD_SYNC_STATE_SIMPLE;
->   		device_set_node(&genpd->dev, fwnode);
-> +	} else {
-> +		dev_set_drv_sync_state(dev, genpd_sync_state);
->   	}
->   
->   	put_device(dev);
-> @@ -2700,6 +2707,8 @@ int of_genpd_add_provider_onecell(struct device_node *np,
->   	dev = get_dev_from_fwnode(fwnode);
->   	if (!dev)
->   		sync_state = true;
-> +	else
-> +		dev_set_drv_sync_state(dev, genpd_sync_state);
->   
->   	put_device(dev);
->   
+> pw-bot: cr
 
-Following this change I am seeing the following warning on our Tegra194
-devices ...
+--E2aXBMfY4AdSuySP
+Content-Type: application/pgp-signature; name=signature.asc
 
-  WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 17000000.gpu
-  WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 3960000.cec
-  WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 15380000.nvjpg
-  WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 154c0000.nvenc
-  WARNING KERN tegra-bpmp bpmp: sync_state() pending due to 15a80000.nvenc
+-----BEGIN PGP SIGNATURE-----
 
-Per your change [0], the 'GENPD_FLAG_NO_SYNC_STATE' is set for Tegra
-and so should Tegra be using of_genpd_sync_state() by default?
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaIuKpAAKCRA6cBh0uS2t
+rLfQAQDKaUprICj1f1jY9i/BonCKzcGgE8L5TpLpaeKx2bdKGwD8CYzZ+VBSB8Rc
+eh1L1nTp4U8W+SKz05d/eRhmsNs3BA4=
+=1Iaq
+-----END PGP SIGNATURE-----
 
-Thanks
-Jon
-
-[0] https://lore.kernel.org/all/20250701114733.636510-10-ulf.hansson@linaro.org/
--- 
-nvpublic
-
+--E2aXBMfY4AdSuySP--
 
