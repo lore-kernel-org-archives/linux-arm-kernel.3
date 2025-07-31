@@ -4,55 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644A0C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 17:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14CBC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 17:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QpKzVEWrznttY/lytAsOYrnf77U95szFwJAKgUAZLqQ=; b=BkMac6GZvVQg8o0sIq9fq8ASNl
-	5wt4etZJb5N/+D67QGJYIcMFJrIZqgXAgijfqXUEyv1zHLuSWWPd+8aDiENBbQ78xdtClSIeEDLXS
-	B2n6diOzVPeBgBBda7SHqlVF+IJeCPmpc9B9a4KV712yd5z9aflxkOf2cb6TrnhPqMa4hVPpFp2qr
-	1gAqoTQpfJAtNLIChRGqp24o7bbSrUbf63eshoC8h6K9o88/jcTUvexLpzCM7p1B4biUq5vGEFOmO
-	RWEcFxVSEy8tFCunf236s9l3cyiBOGXvVik2LlQI1pUakJ/+uHAXUNgSrMnc8DlFu2FjP52668p3t
-	bRIGGEaw==;
+	bh=pcWB14Cn8mezh693QdjehHNThSsfRoWZAjW9od9JFCc=; b=gNulv5hJH8LdnHGeER7mH4q7Ua
+	cHquv6F4/LLoeWCeS9xB0FSVht/3NlcBPLD2qXtBUMDbxDflNwwrOwG+1uxjPru6PXf+wo3hb4QHC
+	1ZlDQ6H5rQq6Hx3Q3Abg/82cefvYAzIOzQ8euSxQvJ2oNwqGL5MzQ0Z/bl7O9QP9H8qCHii0QyGCX
+	xazBzT4b3M0i9A4jEK4x8IzVmvkIS7GRouMi2QtsTXmQhrY4Abo/6wcmLleVHRsxA81x2l6L2yXuw
+	kVs6KDMTZE94S4Kw7EsX8f/Be78Emj8+mJIEFd75XbdFopeAy/8P8fl6/d6G1rmrFrPcDpzhkU70c
+	RsSR7Ahw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhWm5-00000004900-3XuZ;
-	Thu, 31 Jul 2025 17:09:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uhX4Y-00000004AQT-28Bv;
+	Thu, 31 Jul 2025 17:28:06 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhWjW-000000048qx-2fBo
+	id 1uhU5z-00000003o2O-1NJy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 17:06:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5BDDD5C6301;
-	Thu, 31 Jul 2025 17:06:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A24C4CEEF;
-	Thu, 31 Jul 2025 17:06:16 +0000 (UTC)
-Date: Thu, 31 Jul 2025 18:06:13 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: will@kernel.org, anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
-	ryan.roberts@arm.com, kevin.brodsky@arm.com,
-	yangyicong@hisilicon.com, joey.gouly@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	david@redhat.com, mark.rutland@arm.com, urezki@gmail.com
-Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
-Message-ID: <aIuihRzw1xvZ-PaY@arm.com>
-References: <20250723161827.15802-1-dev.jain@arm.com>
- <aIpPsg1Kij8Knnjl@arm.com>
- <9169f4a1-1ad3-4ef0-8d16-eabebfa64cf0@arm.com>
+	Thu, 31 Jul 2025 14:17:24 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-455b63bfa52so48055e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 07:17:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1753971442; x=1754576242; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pcWB14Cn8mezh693QdjehHNThSsfRoWZAjW9od9JFCc=;
+        b=eu5XnkngwAiUtjYZqP4D9ljK586OiBt4MDi0hdyLCRIBLermQPb7xghOmKBrJoW8XM
+         2qoGFaXl7MOcuAGc/yoPQfUEGwtSX5aZNZ87fyd7OZfGiGTyEpBGqOaWnjkPz5ScM7bi
+         TwOV3Aua61K6lb2t+WIp+jOmUMoCE20zZi6xzHclBODDr4M0NQSHQNbarXL8YuVrtI9G
+         32EuZDAPadb9Kqo7KIo1SJ4xmZ1Qz1OACyrHxu8EXKstB2GbdnSBTESazQZz4u8nOKS0
+         0ndmCuziM2tKAgqUkTwOmg0ejPVcYawiF1gkt+q5PLk4B77GO4rL7itDFK6lEXqeieJA
+         ksRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753971442; x=1754576242;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pcWB14Cn8mezh693QdjehHNThSsfRoWZAjW9od9JFCc=;
+        b=N3San8YYD61QDRSYw5IgVDb9ytmG80LNQ5wVNhsNG5ERPduReYdUtZX+vniJzp4TQ5
+         yIB+6m5acfg+vqV+66/tyMQ1fk6Kb3aZl0XTe6JkbZjixdv+gcnCFphlL+P/VAF60If/
+         i3RgghEkxBoY+KewKEQhVE72TeRaeLp8BvLXRRgt/VQJ5cvX1X2BgWfk0gyvUk+uniDD
+         UALd8IxPyUeBpWjByNuTpr6aQaZ3jXZysh6zVcZJ1zM2+WCgVrqzlhd8iarLcQ8+OhSV
+         /knuxcChVzB7+gEq0egszaWZ8idn+782w3+a8EWrDCm6SvA+k6PiojHRzk5HLqX2GCJh
+         mM4w==
+X-Forwarded-Encrypted: i=1; AJvYcCWudFixHZ6NNvWRBQCbPkN9SpypSybuvnm1KE5Vd7oi2/x4+SAOHjx+4FCgPqZOn7tA8dQPPReMsiW/5lEy7vxy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhFHHEbsZTEW0/vq6HhHu5e/Z4Ofo728bQRHSFFiu6YXMmD0HH
+	0T1qvaRgrbdjDJX5Ui0OzLuP6H3FatVbI7iY71lgIcDrItJg5Fao8dxJYhRJnERPxw==
+X-Gm-Gg: ASbGncuntFVvmdMJILTAF42J/fqlbrZ/486jQuGwN9zG/doMMZ0DdKULHLmpJUbOH5b
+	TbkCfio+pNvrRm7PpsGyTy+WXTWkJcmFviPPp+rgDp9ulIslZCb4RttDMTKuDZQL6WC8gXgdsVU
+	rffSY65XIrVaZUPEtY6ctaquFto/x2V1CWoaTdRhCNlcYCTqOcH6y9wjAZNV84k/emD3SOgbb+X
+	o5zGK243zPdyjI+Yh/v1OSqZK0F/n7PeksD/+nAeroAsCsvbFK8v/hRbVN+XnVbgRBUv7qIhbjT
+	2aDVQSnvqpyqhzbQ29Jw/uKpPYbuEcXyfj4NEJWjNras34EwVS61Ihl9RPQmOCy34JzIq6FX6nE
+	Bqv8FRD92OLbjCYRpVmZ7VndvLnE3nWOx59VjwUJPcDfV6HbvMW+hXl04K0MLukk8mw==
+X-Google-Smtp-Source: AGHT+IHQna8PBH+0rnLeEfLwPLu5VSthuOinGeMrMZmAiA37gK//dxUBEvZYVDk/z0ZzOGHZAGlqMw==
+X-Received: by 2002:a05:600d:108:10b0:455:fd3e:4e12 with SMTP id 5b1f17b1804b1-4589f38f199mr1003195e9.4.1753971441527;
+        Thu, 31 Jul 2025 07:17:21 -0700 (PDT)
+Received: from google.com (110.121.148.146.bc.googleusercontent.com. [146.148.121.110])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4589ee4f0d2sm28100345e9.18.2025.07.31.07.17.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Jul 2025 07:17:20 -0700 (PDT)
+Date: Thu, 31 Jul 2025 14:17:17 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
+Message-ID: <aIt67bOzp6XS_yO-@google.com>
+References: <20250728175316.3706196-1-smostafa@google.com>
+ <20250728175316.3706196-30-smostafa@google.com>
+ <20250730144253.GM26511@ziepe.ca>
+ <aIo1ImP7R7VhRpVE@google.com>
+ <20250730164752.GO26511@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <9169f4a1-1ad3-4ef0-8d16-eabebfa64cf0@arm.com>
-X-TUID: jV4/sQUEdPmd
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250730164752.GO26511@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_100622_757222_C7107625 
-X-CRM114-Status: GOOD (  46.71  )
+X-CRM114-CacheID: sfid-20250731_071723_371886_DA6F9155 
+X-CRM114-Status: GOOD (  50.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,203 +108,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 31, 2025 at 12:42:21PM +0530, Dev Jain wrote:
-> On 30/07/25 10:30 pm, Catalin Marinas wrote:
-> > On Wed, Jul 23, 2025 at 09:48:27PM +0530, Dev Jain wrote:
-> > > +	 * Case 2: The static branch is not visible to T2.
-> > > +	 *
-> > > +	 * Since static_branch_enable() (via dmb(ish)) and mmap_write_lock()
-> > > +	 * have acquire semantics, it is guaranteed that the static branch
-> > > +	 * will be visible to all CPUs before T1 can enter CS. The static
+On Wed, Jul 30, 2025 at 01:47:52PM -0300, Jason Gunthorpe wrote:
+> On Wed, Jul 30, 2025 at 03:07:14PM +0000, Mostafa Saleh wrote:
+> > On Wed, Jul 30, 2025 at 11:42:53AM -0300, Jason Gunthorpe wrote:
+> > > On Mon, Jul 28, 2025 at 05:53:16PM +0000, Mostafa Saleh wrote:
+> > > > Register the SMMUv3 through IOMMU ops, that only support identity
+> > > > domains. This allows the driver to know which device are currently used
+> > > > to properly enable/disable then.
+> > > > 
+> > > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > > > ---
+> > > >  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-kvm.c   | 92 ++++++++++++++++++-
+> > > >  1 file changed, 91 insertions(+), 1 deletion(-)
+> > > 
+> > > Can you split the new iommu subysstem driver out please? I think I
+> > > asked this before.
 > > 
-> > Does static_branch_disable() have release semantics? I think it does via
-> > some atomic_cmpxchg() but it's worth spelling it out.
+> > Sorry, maybe I misunderstood, do you mean split this patch into multiple
+> > patches or split all KVM SMMUv3 driver out of this series?
 > 
-> Yes it *should* have, but this proof is already getting complicated so I thought,
-> let's not mention anything which is not required in the reasoning of the proof :)
+> Yes the latter, the iommu driver introduction is best as its own
+> series
 
-The static branch observability relative to the mmap_lock is essential,
-both when enabling and disabling the static key (i.e. you don't want the
-static branch to be seen disabled while T1 is in the critical section).
-That's why it's worth mentioning.
+I thought about that but I was worried the maintainers wouldn't like
+introducing the infrastructure first in the hypervisor without a user.
+I am open to split this, but let’s see what they think.
 
-On the static_branch_enable() path, we have a kick_all_cpus_sync(), so
-the T1 update of mmap lock will become visible after the branch update
-(of course, also subject to correct ordering on T2, see more at the end
-of the email).
-
-On the static_branch_disable() path, we need it to have release
-semantics _prior_ to disabling the key. We get this via the
-atomic_cmpxchg() in static_key_disable_cpuslocked().
-
-So I think it's all good here from the T1 perspective, just capture this
-in a comment so that we remember in a couple of months time.
-
-> > As I mentioned on a previous version, this visibility is not absolute.
-> > You could say that it will be observed by other CPUs before they observe
-> > the write_lock.
 > 
-> Hmm. I probably am bad at explaining all of this in English :)
-
-It's the other way around - I don't think English is appropriate for
-explaining this ;).
-
-> > > +	 * branch not being visible to T2 therefore guarantees that T1 has
-> > > +	 * not yet entered CS .... (i)
-> > > +	 * The sequence of barriers via __flush_tlb_kernel_pgtable() in T2
-> > > +	 * implies that if the invisibility of the static branch has been
-> > > +	 * observed by T2 (i.e static_branch_unlikely() is observed as false),
-> > > +	 * then all CPUs will have observed an empty PUD ... (ii)
-> > > +	 * Combining (i) and (ii), we conclude that T1 observes an empty PUD
-> > > +	 * before entering CS => it is impossible for the CS to get hold of
-> > > +	 * the address of the isolated PMD table. Q.E.D
+> > >  - Domain attachment looks questionable. Please do not have
+> > >    attach/detach language at all in the hypervisor facing API.
 > > 
-> > OK, I nearly got lost. That's not a straightforward memory ordering with
-> > as we have instruction updates with ISB as part of the TLB flushing. I
-> > concluded last time I looked that this branch patching part works
-> > because we also have kick_all_cpus_sync() as part of the static branch
-> > update.
-> > 
-> > Stepping back to a simpler model, let's say that the static key is a
-> > variable. I wrote this quick test for herd7 and the Linux kernel memory
-> > model (fairly easy to play with):
-> > 
-> > -------------------------------------8<---------------------------------------
-> > C pte_free_ptdump
-> > 
-> > (*
-> >   * $ cd tools/memory-model
-> >   * $ herd7 -conf linux-kernel.cfg path/to/pte_free_ptdump.litmus
-> >   *)
-> > 
-> > {
-> > 	pmd = 1;				(* allocated pmd *)
-> > 	pte_page = 1;				(* valid pte page pointed at by the pmd *)
-> > }
-> > 
-> > // pmd_free_pte_page()
-> > P0(spinlock_t *init_mm, int *ptdump_lock_key, int *pmd, int *pte_page)
-> > {
-> > 	WRITE_ONCE(*pmd, 0);			// pmd_clear()
-> > 	smp_mb();
-> > 	if (READ_ONCE(*ptdump_lock_key)) {	// static_branch() approximation
-> > 		spin_lock(init_mm);		// mmap_read_lock()
-> > 		spin_unlock(init_mm);		// mmap_read_unlock()
-> > 	}
-> > 	smp_mb();
-> > 	WRITE_ONCE(*pte_page, 0);		// pte_free_kernel()
-> > }
-> > 
-> > // ptdump_walk_pgd()
-> > P1(spinlock_t *init_mm, int *ptdump_lock_key, int *pmd, int *pte_page)
-> > {
-> > 	int val;
-> > 	int page;
-> > 
-> > 	WRITE_ONCE(*ptdump_lock_key, 1);	// static_branch_enable()
-> > 	smp_mb();
-> > 	spin_lock(init_mm);			// mmap_write_lock()
-> > 	val = READ_ONCE(*pmd);
-> > 	page = READ_ONCE(*pte_page);		// freed pte page?
-> > 	spin_unlock(init_mm);			// mmap_write_unlock()
-> > 	smp_mb();
-> > 	WRITE_ONCE(*ptdump_lock_key, 0);	// static_branch_disable()
-> > }
-> > 
-> > exists(1:val=1 /\ 1:page=0)
-> > -------------------------------------8<---------------------------------------
-> > 
-> > I sprinkled some necessary smp_mb() but in most cases we have
-> > release/acquire semantics. It does show that we need a barrier before
-> > the page freeing. We also need to acquire for enabling the static key
-> > and release for disabling it.
-
-The smp_mb() before the write to *pte_page in the model above is only
-needed on the static key disabled path. As Ryan pointed out, on the
-other path we take the mmap_lock and we have acquire semantics.
-
-> > Next step is to assess that replacing the static key variable read/write
-> > with code patching preserves the model.
+> > I am not sure I understand this one, the hypervisor API has no
+> > attach/detach APIs?
+> > We only notify the hypervisor via “enable/disable” hypercalls when
+> > devices are attached or released (as only IDENTITY DOMAIN is supported)
+> > so it can enable or disable translation.
 > 
-> Thanks for the litmus test!
-> I ran it and I get the same result. But I still cannot figure out where is the hole
-> in my proof.
-
-TBH, I couldn't fully follow the proof. The arm memory model is based on
-relations between accesses (e.g. read-from, coherence order) rather than
-timestamps. They may be equivalent but that's a whole new (and complex)
-proof to write.
-
-So I'm happy with a simple English explanation and a formal model along
-the lines of the one I posted as the equivalent of a proof.
-
-> I think you raise an objection to Case 2:
-
-Let's follow your approach, you are missing some timestamps, adding them
-below:
-
-> T1:						T2:
+> Same difference, different words.. We've had trouble with this kind of
+> ambiguous language.
 > 
-> WRITE_ONCE(*pmd, 0) : t1			WRITE_ONCE(*ptdump_lock_key, 1) : t3
-> smp_mb() // flush_tlb_kernel_pgtable		cmpxchg(acquire write lock)
-						^^^ : t3'
-> 						smp_mb()
-> READ_ONCE(*ptdump_lock_key) = 0 : t2		val = READ_ONCE(*pmd) : t4
-> WRITE_ONCE(*pte_page, 0)			page = READ_ONCE(*pte_page)
-  ^^^ : t2'					^^^ : t4'
-> 						smp_mb()
-> 						cmpxchg(release write lock)
-						^^^ : t5
-						smp_mb()
-						WRITE_ONCE(*ptdump_lock_key, 0): t6
-
-> Let t_i be the global timestamps of the execution of the labelled instructions
-> (note that each labelled instruction is atomic so assigning a timestamp makes sense).
+> attach identity
+> attach blocking
 > 
-> The fact that we read ptdump_lock_key as 0 implies that
-> t2 < t3 ... (i)
+> Keep it clean and simple
 
-Or that t2 > t6, a plausible scenario in the litmus test above.
+Makes sense, from the kernel point of view it will be attached to
+identity/blocking domains, but the hypervisor api is just enable/disable HVC
+as it doesn’t know what is a domain. If terminology is really a problem,
+I can make it one hypercall as “set_state” with on/off or identity/blocking
 
-> Now,
-> t1 < t2 because of barrier (ii)
-> t3 < t4 because of barrier (iii)
 > 
-> So we conclude that t1 < t4, so val will be observed as 0.
+> > >  - Get the ordering and APIs right so replace works. You need this to support RMRs
+> > 
+> > I see, we can’t support bypass for security reasons, but we can enable
+> > the identity map for such devices.
+> 
+> You will have a small issue if the bootup has the pkvm side put the
+> device into a blocking translation then later switches to an
+> "identity".
+> 
+> As far as I understand it display scan out buffers have to be
+> continuously hitlessly mapped. So you want all the transitions from
+> bootup bypass, pkvm isolation, "identity", etc to continuously
+> hitlessly map the RMRs containing the buffers.
+> 
+> I think :)
 
-Without a barrier between t2 and t2', there's no guarantee that t2' >
-t2. If you remove the last smp_mb() on P0 in my litmus test, you'll see
-it failing (run herd7 with something like "-view evince -show prop" for
-a visualisation of the transitions and relations; you need graphviz
-installed as well).
+I think that would be hard with pKVM, maybe it’s possible to achieve
+that seamingless, we would need to export such devices to pKVM at
+boot before de-privilege.
 
-The way it fails is that t4 is seeing the pmd=1 prior to t1, t2 is
-reading from the t6 write and t4' is reading pte_page=0 from t2' (since
-t2' < t2 is possible without a barrier).
+TBH, I am not sure what hardware does that. So, another option is to fail
+gracefully if RMR exists (which falls back to the current driver) and then
+pKVM would run with DMA isolation, which is the status quo.
 
-A control dependency would work as well without a barrier, i.e.:
+And then RMR support for pKVM can be added later if there is interset.
 
-	if (READ_ONCE(*ptdump_lock_key)) {
-		mmap_lock();
-		mmap_unlock();
-		WRITE_ONCE(*pte_page, 0);
-	} else {
-		WRITE_ONCE(*pte_page, 0);
-	}
+> 
+> > >  - Use a blocking domain not some unclear detatch idea
+> > 
+> > There is not a single detach in this driver, we only support attach and release
+> > operation, which just goes to the hypervisor as enable/disable
+> > identity.
+> 
+> 'disable' then.
+> 
+> > >  - Use a blocking domain for release
+> > 
+> > I see, I can add “blocked_domain” similar to “arm_smmu_blocked_domain”
+> > which just disables the device translation, I will look into, I am just
+> > concerned it's more code as this driver only supports a single domain
+> > type.
+> 
+> Yes, this is the right thing. There should not be operations in the
+> driver that change the underyling translation that are anything other
+> than attaching domains. It becomes too hard to maintain.
 
-but the compiler is probably free to only issue a single WRITE_ONCE()
-irrespective of the ptdump_lock_key check.
+Will do as mentioned above.
 
-Of course, using smp_load_acquire(ptdump_lock_key) would also work.
+> 
+>  
+> > >  - Use the smmu-v3 approach for the fwspec, don't store things in the drvdata.
+> > 
+> > This is using “dev_iommu_fwspec_get” similar to the SMMUv3 driver,
+> > am I missing something?
+> 
+> Oh I got it confused, you are just calling 
+> 
+> +       .device_group           = arm_smmu_device_group,
+> +       .of_xlate               = arm_smmu_of_xlate,
+> +       .get_resv_regions       = arm_smmu_get_resv_regions,
+> 
+> Which is also weird, why does an entirely new driver call 4 random functions
+> in arm smmu?
+> 
+> Maybe don't, they are all trivial functions, or you don't need
+> them. For example you don't need MSI_IOVA_BASE if the driver doesn't
+> support paging.
+> 
 
-However, things get fuzzier as we don't have a classic load from the
-ptdump_lock_key but rather a patched instruction. We need to guarantee
-that t2' is issued after the t2 branch when the instruction is patched.
-The kick_all_cpus_sync() on the static key disable path doesn't help us
-since P0 (T2 in your description) may see the patched branch/nop and go
-straight to the WRITE_ONCE(*pte_page). Not sure what barrier helps here
-(after more sleep, I may have a better idea tomorrow).
+They are not random, as part of this series the SMMUv3 driver is split
+where some of the code goes to “arm-smmu-v3-common.c” which is used by
+both drivers, this reduces a lot of duplication.
 
--- 
-Catalin
+I am not sure if we need get_resv_regions, maybe it's useful for sysfs
+"/sys/kernel/iommu_groups/reserved_regions"? I will double check.
+
+Thanks,
+Mostafa
+
+> Jason
 
