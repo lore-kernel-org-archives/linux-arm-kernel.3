@@ -4,62 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DBEC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 06:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81935C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 06:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=To58GqKtVDhgzD+Qyo+UHbj1HickfStGsC4DJIVqF9E=; b=qJ25VYl880Z3Le6l0E1IJI+5To
-	KbNBs2XQjgpxQNhJRi5FdudG7c0B6rMWQvx6TAtGckYsiajrY6rCzeU6cYf3j0sYSeD12vTnZ+Azr
-	Tun8gNGz0NZMxlkzhucFid7DPL6HMknFO060WGrbNpnM7uL8zgh8rM13sNzFvtrPxWJg/1uveu8+d
-	0/hvXsl/RqX3/wHBPiewJznqD21EjsRIP/EAHiepqLJgzhotk1H8Pq71DCkUz37oBBq9bbq5FZD2h
-	zuq9DDxZUEFeoa65ce0e2pi/CE4YFecwcR1ec8FODfJKVbuzlze8iLlH/D/BdAicYvBHpcJWqRie9
-	nzQa92pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=krg4eEKBDHW8yuizuSSwWwKUE+N9PXsQII1Dp6qD3AM=; b=RX3wAU5zFFyOai/LvcsMlZgCSX
+	TJ/m8wdsdWQYj2iGaJfha6+mcmi5TCXpC/zQMFGWYb84eppZ5z9q5KBIEUzbVy86WzhqtIUuXNf/8
+	N27IiC8/bgWyE8/bC5VKaJa/zwrhvMIt4gU0eou1ulZF4jJeLBHSjN8m6V0UMAJKqXE+ZqNpzEjuL
+	esWgR/Ks8s26hnR8lXOKYR0RWKNdp1l5ApYlfILQC8gcFJeJ925TAvNB/FNEXNEYEtlJ/0HAsmlKB
+	b6jKUla7vIRzJfm3sjhlen1/tWIMj2xGlLl8X6yOy1wqo/tvw1DyiWXJ8jJIj5E70x9KV9CgwXco7
+	AJ47mh4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhMt4-00000002zqk-3wLJ;
-	Thu, 31 Jul 2025 06:35:34 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uhN0f-000000030EG-0Pt0;
+	Thu, 31 Jul 2025 06:43:25 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhMqb-00000002zhq-0FoW
+	id 1uhMyC-0000000308h-0v7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 06:33:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3E242A5525E;
-	Thu, 31 Jul 2025 06:33:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52F7CC4CEF6;
-	Thu, 31 Jul 2025 06:32:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753943579;
-	bh=10nRDdbRtJZpHUKeiyBjTnyVRKN1Tb81tLf8PDNnHBw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qws2gpyyV9j+BYOBQcfUihn50ogp1E76SRWdvRY5sivhOzlu55L+gTg7zdkawi0Cq
-	 9V7bw5Qn69XjBc2KXcsXrbTJc7vn57Yjt5Uhe1TL8hH7NdpRbhXJQxmzBKUhn3XAIH
-	 gqDz81yxQHsmzE0cSqqwM1WHIakZFoqVfYBYugtyYxs/xQkPEdYzs3Cv4e5LiMhouq
-	 I+0Q9ACzC/Dk/pdabZXRkANb6chMAZ0QHpH9XdcELC2iKB9CY0NrdAp4Ocl3xP+zDF
-	 K6CpzFjnXD+Q9hLDVfGrlEpDiv1tAlxD56K+nCteqTYUvHvUKaVoNCkpbcF75Lw3PK
-	 pyfWNc24urbXg==
-Date: Thu, 31 Jul 2025 08:32:57 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] dt-bindings: fsl: fsl,rcpm: Add
- #power-domain-cells
-Message-ID: <20250731-funky-crab-of-defense-7cd658@kuoka>
-References: <20250731055806.2265628-1-alexander.stein@ew.tq-group.com>
+	Thu, 31 Jul 2025 06:40:53 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56V1fOMv020374;
+	Thu, 31 Jul 2025 06:40:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	krg4eEKBDHW8yuizuSSwWwKUE+N9PXsQII1Dp6qD3AM=; b=EcqENJS+/wVctH2E
+	Eo+3P+t8o5BFAqA/gipn1qa/cWNc/PDflohl1ixcR86m9OsCWEVLm0J1hz0sCTWz
+	XFs+8BfuGcTp1D+eueTb9+EJwc0rS+We25X8nm9GGtSeC8gGo94BjRtjUYQo+sD+
+	DEsgSMoFPfSrDwkMAAitjtYY7ozeMHfegS/p/M72jK51s8z/7hISUgrId5kKXstS
+	edBEp9N/nfkgLji5ZzkRgswKn32HUrD+0hHlQgOf/FLeuFqh9FaeQg9CflRFcbKY
+	woVWyZnNqRqujs6ovof1ewFmeU9CzgfgBU6Fxk1xNKUuIcQqqF7hsc0vxW9cFJqr
+	MI34Lw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484p1apgv4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 31 Jul 2025 06:40:41 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56V6eedT008345
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 31 Jul 2025 06:40:40 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 30 Jul
+ 2025 23:40:37 -0700
+Message-ID: <8d6a4c97-51a3-423f-9095-74347283d71b@quicinc.com>
+Date: Thu, 31 Jul 2025 14:40:35 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250731055806.2265628-1-alexander.stein@ew.tq-group.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+To: Mike Leach <mike.leach@linaro.org>
+CC: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Yingchao Deng
+	<quic_yingdeng@quicinc.com>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+References: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
+ <20250722081405.2947294-2-quic_jinlmao@quicinc.com>
+ <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
+ <20250722091425.GH3137075@e132581.arm.com>
+ <CAJ9a7VhLLgAak_4FB=iW0izXprM4W+RsKfHUeo=XUHh9LwtUsA@mail.gmail.com>
+ <20250722140659.GI3137075@e132581.arm.com>
+ <CAJ9a7ViUoSMV_HHKKRMhcQX=isU+feJvwCaVhu-6EBK4QXJbVg@mail.gmail.com>
+ <de702854-aca1-4c78-9555-f2139d5376af@quicinc.com>
+ <CAJ9a7VjTYvFVz1fp2_hNkLrKBbBYkiHHyshgsVT98V8oB_bn8g@mail.gmail.com>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <CAJ9a7VjTYvFVz1fp2_hNkLrKBbBYkiHHyshgsVT98V8oB_bn8g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: Z2D5yA4lildV6Q0NQz6aK8P3MRlPOFQM
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzMxMDA0MyBTYWx0ZWRfXyM0hefolPZzi
+ bddd8kZGEcgZYpwmRgg0TRXI5Spa99CeHizTgpc1eYFieg/SvnrcAsdNJfjNoK0vRamRf6AKDIW
+ 3dhyqb6u3/kWJvKc4tBFY1YT5DhBprH75xG4+mOUSoEBZ/1H6SP7teZZBxDQYmSYvEWfXUpT2DJ
+ S3X0hh/wAQ+FN1urjMIUlc/5jzifyDEwD57qQFd8MOGqWY3HEvWeHFNK423UzuchNqWfnEUl5k/
+ xtGzPLLecWq2pHDve0K8FQzxFfleJxhpIH6MrGcibYaYm1khSgwoHPkg+lPGo4jKn2FhWoaQXLK
+ uVkZVE9kt8PiWdDgL8tCitVC0EWGHIK3NxwJcgwE9ri3n5opGoiXzG7QkU2YhV7L7hKoutXd2Bj
+ Z12MJUu1zcpCucc08NdWij1/KdURjb75+4AJIjanSbacqJh6OxV9zUahnJNXGaLYCdYLSitI
+X-Proofpoint-GUID: Z2D5yA4lildV6Q0NQz6aK8P3MRlPOFQM
+X-Authority-Analysis: v=2.4 cv=KtNN2XWN c=1 sm=1 tr=0 ts=688b0fea cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8
+ a=7CQSdrXTAAAA:8 a=lllgu8f7gHFEmeyaSi0A:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-07-31_01,2025-07-31_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ adultscore=0 mlxlogscore=999 bulkscore=0 spamscore=0 impostorscore=0
+ mlxscore=0 malwarescore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2507310043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_233301_168170_4A0B0478 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250730_234052_383426_4942829F 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,29 +127,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 31, 2025 at 07:58:04AM +0200, Alexander Stein wrote:
-> dtbs_check for ls1021.dtsi warns about unsupported property:
->  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' does not match any of the regexes: '^pinctrl-[0-9]+$'
+
+
+On 7/28/2025 5:52 PM, Mike Leach wrote:
+> Hi,
 > 
-> But if removed the check warns about missing property:
->  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' is a required property
+> On Wed, 23 Jul 2025 at 03:58, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
+>>
+>>
+>>
+>> On 7/22/2025 10:56 PM, Mike Leach wrote:
+>>> On Tue, 22 Jul 2025 at 15:07, Leo Yan <leo.yan@arm.com> wrote:
+>>>>
+>>>> On Tue, Jul 22, 2025 at 01:00:18PM +0100, Mike Leach wrote:
+>>>>
+>>>> [...]
+>>>>
+>>>>> For a change of this magnitude to a CS component, that the ID
+>>>>> registers will also have to change. This is a requirement of the
+>>>>> Visible Component Architecture in the CoreSight specification.
+>>>>> External tools cannot see the device tree.
+>>>>>
+>>>>> This is effectively no longer an ARM designed component, so the
+>>>>> CoreSight specification requires that the DEVARCH register change to
+>>>>> show qualcomm as the designer, and the architecture value change to
+>>>>> represent this component.
+>>>>> DEVID should be used to allow the driver to pick up parameters such as
+>>>>> number of triggers as per the existing CTI component.
+>>>>>
+>>>>> If this component is Coresight compliant then the driver can use the
+>>>>> ID registers to configure to the extended trigger architecture.
+>>>>>
+>>>>> With complete remapping of most of the registers, and the dropping of
+>>>>> claim tag compatibility - which appears to be a breach of the
+>>>>> CoreSight specification - it may be better to have a completely
+>>>>> separate driver for this component.
+>>>>
+>>>> Good point. I'd like to confirm with the Qualcomm team: apart from the
+>>>> differences in register offsets and claim bits, does this CTI module
+>>>> have exactly the same bit layout and usage as CTI standard
+>>>> implementation?
+>>>>
+>>>> If yes, then from a maintenance perspective, we probably don't want to
+>>>> have two CTI drivers with identical register settings. It seems plausible
+>>>> to encapsulate register access and claim logic into several functions.
+>>>>
+>>>>     void cti_reg_writel(u32 val, struct cti_drvdata *drvdata, bool relax);
+>>>>     u32 cti_reg_readl(struct cti_drvdata *drvdata, bool relax);
+>>>>     int cti_claim_device(struct cti_drvdata *drvdata);
+>>>>     int cti_disclaim_device(struct cti_drvdata *drvdata, bool unlocked);
+>>>>
+>>>> Thanks,
+>>>> Leo
+>>>
+>>> The CTI supports 128 triggers  - which means many more registers to
+>>> enable / connect etc.
+>>> I need to study the changes to determine if there are functional
+>>> differences too.
+>>>
+>>> It might be feasible to divide the code into a common file and a pair
+>>> of variants so some is reused.
+>>>
+>>> Mike
+>> Thanks Mike & Leo & Suzuki.
+>>
+>> There is no register to show the version ID to distinguish between ARM
+>> CTI and QCOM extended CTI.I will double confirm with internal HW team.
+>>
+> 
+> Can you clarify here please.
+> The CID0-3, PID0-7, DEVARCH and DEVTYPE registers are part of the
+> CoreSight specification for component identification.
+> Can you confirm they are present on your component and the values they have.
+> 
+> If they are present then the CoreSight specification requires that
+> they be different than the standard ARM CTI.
+> 
+> Regards
+> 
+> Mike
 
+Hi Mike,
 
-And if any other warning says something, are you going to do that as
-well?
+These registers are present. I checked they are same as standard ARM
+CTI. Like CIDR1(0xFF4), both are 0x90.
+
+Thanks
+Jinlong Mao
 
 > 
-> Given commit 8bcf67b8d893b ("ARM: dts: ls1021a: add #power-domain-cells
-> for power-controller node") explicitly added that property, add it
-> to the expected property list as well.
-
-No, commit does not explain why! It's one of this NXP commits without
-explanation, doing random things.
-
-No, explain why do you think this is a power domain provider - fast
-look told me that it is NOT.
-
-Best regards,
-Krzysztof
+>> For extended CTI, only trigger number changes and claim logic. Other
+>> functions are the same as ARM CTI(bit layout of the register and usage)
+>>
+>> Thanks
+>> Jinlong Mao>
+>>
+>>
+> 
+> 
 
 
