@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDE8C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 07:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF952C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 07:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRs/hDxYY28k1vGh70q5IQsg9RAMHgUy9QeIIWRPDBw=; b=TSmtkIBAbzH2NkPbkdY7Lejaf1
-	AbbGTm0a8qnd/4e94nOTotvjZrn6OdzpT9t1JfLCl1Lt2LwXvVvmCUgeh/cDtDwgd3RsnkkiuepeJ
-	r0JkeoZRhLv0DtG7WG+9N9DW+GObDwPSWJRu7LuzvjPbAjTi5E30Ry9/Fvx3YKS4dERjmAwxm0neY
-	SxFoFGf8nlU8Rm0JKcTFN+lLc2XTIgJSjJupweFBwVl8pK+QvO2XcznF9Wf1MNxYaFvh0eMN83Mh/
-	2xH+13fD/5+jlgo9cAcotEcgn6ZDmtu4rYdzlfYTuN2mxgGKQLitGEjXVB6DXpFaUesHL81iiGDDF
-	Gj+0lOXg==;
+	bh=rGaC2RK2K60aU9ILU/yIawe6YAOVfa3ISrHJ7vgOtis=; b=GLLbQXoO4T4xx++LA7M1Y0Ctke
+	Gi7NUvZPs1dWAMOM+/sKHan/OFuGOBjqdOQt3xHYlg1wQCd6+8mLidCWOF2bPahS9FBcoNnkwjybY
+	r/Avwt2AidQ47SZNourevN1QcwZ6R6wyM4fgSnPh1ZcavYPv7FNmvKaCMVwTgfLSJhTG0KBYYuf05
+	QbL6wdWnl9nXqBEPNnxbYyMHvafKLcQgy75tWwNLa+wiwOuwFBDcG1nyWICwispCpA4WO0ZfjHpsh
+	yb2g6wjT42of/zYq5EoUxUSIJxOo4WrOhzBdyvGaB7V+7K+tV1NTWrPhnBPjtlPyqqPx0Mw+uXg7h
+	+K4F245Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhNia-000000033cm-0cGh;
-	Thu, 31 Jul 2025 07:28:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uhNl2-000000033pR-16Dw;
+	Thu, 31 Jul 2025 07:31:20 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhNg5-000000033S5-1F5f;
-	Thu, 31 Jul 2025 07:26:14 +0000
+	id 1uhNiI-000000033a6-0UVE;
+	Thu, 31 Jul 2025 07:28:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753946771;
-	bh=xLDZ92NZiZGURqy1KihB6GBNQMXzkiyFkWW7HUN2XkQ=;
+	s=mail; t=1753946907;
+	bh=qtZaVgHB/hhKpNwT2a4wIg9fcBK+yk7JS3AwLBOGuOY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dBBNP2PxvhWmV9tpMlbU84kK3XubH6TLRhjv3KHB1DpnXq+DRkLRBkGGApHzeBGF2
-	 sTEhUbXPFchJLu56c0oKNH6eAp4lSM50LfL+wypuKg4YRYAmlUwR7GD4GrFWyoO1fV
-	 4NRMY9UCGpOtURK0ZfneIbMtJTHaUlfvUi1tqx0YdWwfU+Jbzl9EMs8EG4qYNR7fpf
-	 IOWLvNw6VvuUD1eo+L8SiMOFfou3UdyNaMffn6NYbcyrUQMB6JZ2X2QeLWdE1p7U/I
-	 RunxdJii1uHH/gX5fM0AbdaQ9HsHcyWOCplLnb/Nosqqs7A5H/Efph6l+u25nxcgdE
-	 6u7dq3oTnRlww==
+	b=Flxe1seKL0nCIHgcCgIKPgBLjmpo5KOvhOo85ujPcLRGU5A96/x+g7eN3dyGVA8Oe
+	 NJbwkjNyTQnnrUC31XQfujNKb+HJOAKLKsHuNf1rlh1ALFZ7i7PotWnVut8a/2s7b5
+	 88GrLyct7536PeT5TDcilbsOa3MS/RZfEQpmfmW9rooO9pF3MYA9z69cf2orAxbQ+Q
+	 OsbrLiYm6/Saz7Nh2Kk71rE+nOQwda8CsJkFtYTy6NMI+6yzpMobR995FDeyzTOq4l
+	 YIhAWjetUrY2N2JDiIiNeRFOjp3uqYiQWeHyq6SPHlcGSfjTw5sw6INzX5q+hirh2P
+	 iiQxekzhq0/8Q==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5136617E088C;
-	Thu, 31 Jul 2025 09:26:10 +0200 (CEST)
-Message-ID: <10fd2758-4ad2-4f5e-97d7-0dcdeefd15c0@collabora.com>
-Date: Thu, 31 Jul 2025 09:26:09 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A270117E0593;
+	Thu, 31 Jul 2025 09:28:26 +0200 (CEST)
+Message-ID: <f485e3a1-46eb-4239-9c66-7a212c63ad64@collabora.com>
+Date: Thu, 31 Jul 2025 09:28:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 9/9] dt-bindings: nvmem: mediatek: efuse: Add support
@@ -68,9 +68,8 @@ In-Reply-To: <20250730152128.311109-10-laura.nao@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_002613_495717_84AE21A5 
-X-CRM114-Status: UNSURE (   5.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250731_002830_313142_83C5CF1D 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,8 +89,30 @@ Il 30/07/25 17:21, Laura Nao ha scritto:
 > decoding scheme for the gpu-speedbin cell.
 > 
 > Signed-off-by: Laura Nao <laura.nao@collabora.com>
+> ---
+>   Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
+> index 4dc0d42df3e6..455b96c1e1f4 100644
+> --- a/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/mediatek,efuse.yaml
+> @@ -25,6 +25,7 @@ properties:
+>     compatible:
+>       oneOf:
+>         - items:
+> +          - const: mediatek,mt8196-efuse
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Oh wow wait. This is not an enum.
+
+You broke MT8188 like that...!
+
+Cheers,
+Angelo
+
+>             - const: mediatek,mt8188-efuse
+>             - const: mediatek,mt8186-efuse
+>         - const: mediatek,mt8186-efuse
 
 
 
