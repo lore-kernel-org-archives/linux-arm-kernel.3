@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF443C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 13:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F258C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 13:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nVYLEv1YdmNYBwHDg0WFPUS9wAGCeM6OAx4RrGLgyNc=; b=cn45avlH3XEZ2iLanCY/7Zn40d
-	8kRkN8vGpLDeDkt00Px2YGWg+QH7AZAFuTI9m6rR3b6TcajeRPqeqwRSufOgtTmfdAZSMqCodVaXx
-	sk1wazUCErvMs+iO0+In9Xe4t3NkxO5qXuufnKzABYy/QXfO36FtC6fT7CkDWYQrrNvVMVN7GVRR9
-	oP1++v+PCzs3IpB4BGQO8cwJy6KjX2MFl46umXunT/X5bec1f8BqAd1LlkHAJB8Clvth8hgogLWqm
-	Z9FTlpFoxLJHr+wBirq/MtJ9iowyRle/6gEXu1BrP8JFM6+AcpLqrBbJxsU8LPhVN24KlQ86oASP6
-	oFPglg9A==;
+	bh=+pD5TIR77XFUXDaqKLs8daYrh/+bzI8XGfpyQVZKFv4=; b=HbgktAB7VFMD1hwHS72OU4jUqt
+	VRwNSco9eaLvB3JpPMJ7snprC4Y6xKW5DKRiQ2m6D2aHXC6sNTscvFT6uVJITx7Bevpu4TK/strlF
+	ce0sclyg+DtQUY/JFZg91d5Odw4VmxXjnkjMBPdq/RO1q2+KFU8SDa7dzV/Fcbic6g7u5RLNas4hr
+	4i+DeK0ahd3Fv4ch1nfpOtWKJRCj3llC353vHB7mdT0tQR5AfTTZW1cU5oZ/aa1bg8I0CthmvZSwD
+	/Vx6rmiUNaXX2KAxyrSxMY5o0uTvfYXaCseoi/i0rKboGfHrpILX7TNufL7oYuObHlhNNSJY0+LSc
+	WcI14GTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhSw4-00000003eT9-3xfT;
-	Thu, 31 Jul 2025 13:03:04 +0000
+	id 1uhSye-00000003enX-3Pn9;
+	Thu, 31 Jul 2025 13:05:44 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhSfW-00000003cJI-1QWg
+	id 1uhShd-00000003cZQ-1fym
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 12:46:00 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bt8082rFBz6L53t;
-	Thu, 31 Jul 2025 20:43:52 +0800 (CST)
+	Thu, 31 Jul 2025 12:48:10 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bt82g6P8Yz6L534;
+	Thu, 31 Jul 2025 20:46:03 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4D0591400D9;
-	Thu, 31 Jul 2025 20:45:51 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id CB7421402EA;
+	Thu, 31 Jul 2025 20:48:02 +0800 (CST)
 Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
  (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 31 Jul
- 2025 14:45:50 +0200
-Date: Thu, 31 Jul 2025 13:45:48 +0100
+ 2025 14:48:00 +0200
+Date: Thu, 31 Jul 2025 13:47:59 +0100
 From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 To: Yushan Wang <wangyushan12@huawei.com>
 CC: <will@kernel.org>, <mark.rutland@arm.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <linuxarm@huawei.com>,
 	<yangyicong@hisilicon.com>
-Subject: Re: [PATCH 7/8] drivers/perf: hisi: Add support for L3C PMU v3
-Message-ID: <20250731134548.000076c3@huawei.com>
-In-Reply-To: <20250729153823.2026154-8-wangyushan12@huawei.com>
+Subject: Re: [PATCH 8/8] Documentation: hisi-pmu: Add introduction to
+ HiSilicon V3 PMU
+Message-ID: <20250731134759.00000c74@huawei.com>
+In-Reply-To: <20250729153823.2026154-9-wangyushan12@huawei.com>
 References: <20250729153823.2026154-1-wangyushan12@huawei.com>
-	<20250729153823.2026154-8-wangyushan12@huawei.com>
+	<20250729153823.2026154-9-wangyushan12@huawei.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -57,8 +58,8 @@ X-Originating-IP: [10.203.177.66]
 X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_054558_678758_965C708C 
-X-CRM114-Status: GOOD (  46.05  )
+X-CRM114-CacheID: sfid-20250731_054809_589210_F428BBC5 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,283 +74,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Jul 2025 23:38:22 +0800
+On Tue, 29 Jul 2025 23:38:23 +0800
 Yushan Wang <wangyushan12@huawei.com> wrote:
 
-> From: Yicong Yang <yangyicong@hisilicon.com>
+> Some of HiSilicon V3 PMU hardware is divided into parts to fulfill the
+> job of monitoring specific parts of a device.  Add description on that
+> as well as the newly added ext operand for L3C PMU.
 > 
-> This patch adds support for L3C PMU v3. The v3 L3C PMU supports
-> an extended events space which can be controlled in up to 2 extra
-> address spaces with separate overflow interrupts. The layout
-> of the control/event registers are kept the same. The extended events
-> with original ones together cover the monitoring job of all transactions
-> on L3C.
-> 
-> The extended events is specified with `ext=[1|2]` option for the
-> driver to distinguish, like below:
-> 
-> perf stat -e hisi_sccl0_l3c0_0/event=<event_id>,ext=1/
-> 
-> Currently only event option using config bit [7, 0]. There's
-> still plenty unused space. Make ext using config [16, 17] and
-> reserve bit [15, 8] for event option for future extension.
-> 
-> With the capability of extra counters, number of counters for HiSilicon
-> uncore PMU could reach up to 24, the usedmap is extended accordingly.
-> 
-> The hw_perf_event::event_base is initialized to the base MMIO
-> address of the event and will be used for later control,
-> overflow handling and counts readout.
-> 
-> We still make use of the Uncore PMU framework for handling the
-> events and interrupt migration on CPU hotplug. The framework's
-> cpuhp callback will handle the event migration and interrupt
-> migration of orginial event, if PMU supports extended events
-> then the interrupt of extended events is migrated to the same
-> CPU choosed by the framework.
-> 
-> A new HID of HISI0215 is used for this version of L3C PMU.
-> 
-> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> Co-developed-by: Yushan Wang <wangyushan12@huawei.com>
 > Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
+There is one fixlet hiding in here that maybe could have been done
+as a precursor.  I doubt anyone cares though!
 
-Hi Yushan, Yicong
-
-A few things inline that I missed during internal reviews.
-Sorry about that!
-
-Jonathan
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
 > ---
->  drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c | 360 +++++++++++++++++--
->  drivers/perf/hisilicon/hisi_uncore_pmu.h     |   2 +-
->  2 files changed, 329 insertions(+), 33 deletions(-)
+>  Documentation/admin-guide/perf/hisi-pmu.rst | 43 +++++++++++++++++++--
+>  1 file changed, 39 insertions(+), 4 deletions(-)
 > 
-> diff --git a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> index 6ac0ea74cda3..414c923f4ddf 100644
-> --- a/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-> +++ b/drivers/perf/hisilicon/hisi_uncore_l3c_pmu.c
-
-> +struct hisi_l3c_pmu_ext {
-> +	bool support_ext;
-> +};
-> +
-> +static inline bool support_ext(struct hisi_l3c_pmu *pmu)
-
-Don't mark this sort of thing inline in a c file.  Let the compiler figure out
-whether that makes sense
-
-> +{
-> +	return ((struct hisi_l3c_pmu_ext *)pmu->l3c_pmu.dev_info->private)->support_ext;
-That's long and complicate enough I'd do something like.
-
-
-	struct hisi_l3c_pmu_ext *l3c_pmu_ext = pmu->l3c_pmu.dev_info->private;
-
-	return l3c_pmu_ext->supported_ext;
-
-> +}
-
+> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
+> index 48992a0b8e94..4c7584fe3c1a 100644
+> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
+> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
+> @@ -12,15 +12,16 @@ The HiSilicon SoC encapsulates multiple CPU and IO dies. Each CPU cluster
+>  called Super CPU cluster (SCCL) and is made up of 6 CCLs. Each SCCL has
+>  two HHAs (0 - 1) and four DDRCs (0 - 3), respectively.
 >  
-> +static int hisi_l3c_pmu_check_filter(struct perf_event *event)
-> +{
-> +	struct hisi_pmu *l3c_pmu = to_hisi_pmu(event->pmu);
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	int ext = hisi_get_ext(event);
-> +
-> +	return ext < 0 || ext > hisi_l3c_pmu->ext_num;
-
-If you want to do this, return type of bool. If not 0, or negative error code.
-
-
-> +}
-
->  static void hisi_l3c_pmu_stop_counters(struct hisi_pmu *l3c_pmu)
->  {
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	unsigned long *used_mask = l3c_pmu->pmu_events.used_mask;
-> +	unsigned long bit = find_first_bit(used_mask, l3c_pmu->num_counters);
->  	u32 val;
-> +	int i;
+> -HiSilicon SoC uncore PMU driver
+> --------------------------------
+> +HiSilicon SoC uncore PMU v1
+> +---------------------------
 >  
->  	/*
-> -	 * Clear perf_enable bit in L3C_PERF_CTRL register to stop counting
-> -	 * for all enabled counters.
-> +	 * Check if any counter belongs to the normal range (instead of ext
-> +	 * range). If so, stop it.
->  	 */
-> -	val = readl(l3c_pmu->base + L3C_PERF_CTRL);
-> -	val &= ~(L3C_PERF_CTRL_EN);
-> -	writel(val, l3c_pmu->base + L3C_PERF_CTRL);
-> +	if (bit < L3C_NR_COUNTERS) {
-> +		val = readl(l3c_pmu->base + L3C_PERF_CTRL);
-> +		val &= ~(L3C_PERF_CTRL_EN);
-> +		writel(val, l3c_pmu->base + L3C_PERF_CTRL);
-> +	}
+>  Each device PMU has separate registers for event counting, control and
+>  interrupt, and the PMU driver shall register perf PMU drivers like L3C,
+>  HHA and DDRC etc. The available events and configuration options shall
+> -be described in the sysfs, see:
+> +be described in the sysfs, see::
 > +
-> +	/* If not, do stop it on ext ranges. */
-> +	for (i = 0; i < hisi_l3c_pmu->ext_num; i++) {
-> +		bit = find_next_bit(used_mask, L3C_NR_COUNTERS * (i + 2),
-> +				    L3C_NR_COUNTERS * (i + 1));
-> +		if (L3C_CNTR_EXT(bit) == i + 1) {
-
-Nesting is getting a bit deep. Consider
-
-		if (L3C_CNTR_EXT(bit) != i + )
-			continue
-
-		val =...
-
-> +			val = readl(hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
-> +			val &= ~L3C_PERF_CTRL_EN;
-> +			writel(val, hisi_l3c_pmu->ext_base[i] + L3C_PERF_CTRL);
-> +		}
-> +	}
->  }
-
+> +/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}/hha{Y}/ddrc{Y}>
 >  
->  static u32 hisi_l3c_pmu_get_int_status(struct hisi_pmu *l3c_pmu)
->  {
-> -	return readl(l3c_pmu->base + L3C_INT_STATUS);
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	u32 status, status_ext = 0;
-> +	u32 ext_int;
-> +
-> +	status = readl(l3c_pmu->base + L3C_INT_STATUS);
-> +
-> +	if (!support_ext(hisi_l3c_pmu))
-> +		return status;
-> +
-> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++) {
+> -/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}/hha{Y}/ddrc{Y}>.
 
-Be consistent on this.  It is becoming more acceptable to declare
-i like this, but a driver should chose one style or another. 
-*_init_ext declares it at the top for example.
+This is fixing existing stuff so maybe should be a separate patch.
 
-> +		ext_int = readl(hisi_l3c_pmu->ext_base[i] + L3C_INT_STATUS);
-> +		status_ext |= ext_int << (L3C_NR_COUNTERS * i);
-> +	}
-> +
-> +	return status | (status_ext << L3C_NR_COUNTERS);
->  }
-
+>  The "perf list" command shall list the available events from sysfs.
 >  
-> +static int hisi_l3c_pmu_init_ext(struct hisi_pmu *l3c_pmu, struct platform_device *pdev)
-> +{
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	char *irqname;
-> +	int ret, irq;
-> +	int ext_num;
-> +	int i;
-Might as well combine all the int local variables
-	int ret, irq, ext_num, i;
-and save a few lines.
-
-> +
-> +	/* HiSilicon L3C PMU ext should have more than 1 irq resources. */
-> +	ext_num = platform_irq_count(pdev);
-
-
->  static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
-> @@ -525,11 +740,15 @@ static const struct hisi_uncore_ops hisi_uncore_l3c_ops = {
->  	.clear_int_status	= hisi_l3c_pmu_clear_int_status,
->  	.enable_filter		= hisi_l3c_pmu_enable_filter,
->  	.disable_filter		= hisi_l3c_pmu_disable_filter,
-> +	.check_filter		= hisi_l3c_pmu_check_filter,
->  };
->  
->  static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
->  				  struct hisi_pmu *l3c_pmu)
->  {
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	struct hisi_l3c_pmu_ext *l3c_pmu_dev_ext =
-> +		(struct hisi_l3c_pmu_ext *)l3c_pmu->dev_info->private;
-
-I think private is a void *? If so no need for the cast.
-
->  	int ret;
->  
->  	ret = hisi_l3c_pmu_init_data(pdev, l3c_pmu);
-> @@ -548,27 +767,50 @@ static int hisi_l3c_pmu_dev_probe(struct platform_device *pdev,
->  	l3c_pmu->dev = &pdev->dev;
->  	l3c_pmu->on_cpu = -1;
->  
-> +	if (l3c_pmu_dev_ext->support_ext) {
-> +		ret = hisi_l3c_pmu_init_ext(l3c_pmu, pdev);
-> +		if (ret)
-> +			return ret;
-> +		/*
-> +		 * The extension events have their own counters with the
-> +		 * same number of the normal events counters. So we can
-> +		 * have at maximum num_counters * ext events monitored.
-> +		 */
-> +		l3c_pmu->num_counters += hisi_l3c_pmu->ext_num * L3C_NR_COUNTERS;
-> +	}
-> +
->  	return 0;
->  }
-
->  
-> +static int hisi_l3c_pmu_online_cpu(unsigned int cpu, struct hlist_node *node)
-> +{
-> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	int ret;
-> +
-> +	/*
-> +	 * Invoking the framework's online function for doing the core logic
-> +	 * of CPU, interrupt and perf context migrating. Then return directly
-> +	 * if we don't support L3C_PMU_FEAT_EXT. Otherwise migrate the ext_irq
-> +	 * using the migrated CPU.
-
-This seems to be replicating the better placed comment below.  I'm not sure
-this comment is adding anything useful.  Maybe just drop it?
-
-> +	 *
-> +	 * Same logic for CPU offline.
-> +	 */
-> +	ret = hisi_uncore_pmu_online_cpu(cpu, node);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
-> +	if (!support_ext(hisi_l3c_pmu))
-> +		return 0;
-> +
-> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
-> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
-> +					 cpumask_of(l3c_pmu->on_cpu)));
-> +	return 0;
-> +}
-> +
-> +static int hisi_l3c_pmu_offline_cpu(unsigned int cpu, struct hlist_node *node)
-> +{
-> +	struct hisi_pmu *l3c_pmu = hlist_entry_safe(node, struct hisi_pmu, node);
-> +	struct hisi_l3c_pmu *hisi_l3c_pmu = to_hisi_l3c_pmu(l3c_pmu);
-> +	int ret;
-> +
-> +	ret = hisi_uncore_pmu_offline_cpu(cpu, node);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (l3c_pmu->on_cpu >= nr_cpu_ids) {
-> +		disable_irq(l3c_pmu->irq);
-
-This needs a comment.  Not obvious to me why it only matters for this
-hisi PMU.
-
-> +		return 0;
-> +	}
-> +
-> +	/* Avoid L3C pmu not supporting ext from ext irq migrating. */
-> +	if (!support_ext(hisi_l3c_pmu))
-> +		return 0;
-> +
-> +	for (int i = 0; i < hisi_l3c_pmu->ext_num; i++)
-> +		WARN_ON(irq_set_affinity(hisi_l3c_pmu->ext_irq[i],
-> +					 cpumask_of(l3c_pmu->on_cpu)));
-> +	return 0;
-> +}
+>  Each L3C, HHA and DDRC is registered as a separate PMU with perf. The PMU
 
 
