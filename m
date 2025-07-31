@@ -4,115 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81935C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 06:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16841C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 06:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krg4eEKBDHW8yuizuSSwWwKUE+N9PXsQII1Dp6qD3AM=; b=RX3wAU5zFFyOai/LvcsMlZgCSX
-	TJ/m8wdsdWQYj2iGaJfha6+mcmi5TCXpC/zQMFGWYb84eppZ5z9q5KBIEUzbVy86WzhqtIUuXNf/8
-	N27IiC8/bgWyE8/bC5VKaJa/zwrhvMIt4gU0eou1ulZF4jJeLBHSjN8m6V0UMAJKqXE+ZqNpzEjuL
-	esWgR/Ks8s26hnR8lXOKYR0RWKNdp1l5ApYlfILQC8gcFJeJ925TAvNB/FNEXNEYEtlJ/0HAsmlKB
-	b6jKUla7vIRzJfm3sjhlen1/tWIMj2xGlLl8X6yOy1wqo/tvw1DyiWXJ8jJIj5E70x9KV9CgwXco7
-	AJ47mh4Q==;
+	bh=BO4zXQG9mQbxNNz741df5MrXfBSfo5uw+HDlUfM7QUM=; b=z/+YJXXYbMLvuY+0kgmBymyeDv
+	l9XCkj/cqkfjkikHAvL39CKGvJqOt3nyxd4VTGB3gjnD9Lnf1W8U/fQOx1LSZx5I42TE8XUuVk7mm
+	mZly6IJzwEUXrYMBtzpB2elDnG1DYjCpiabsQ/gTl4o67DxABJGQPI8u22xLPena7+C3hD57lFbnX
+	c/BbhF0U3Yhu6TUqDhZc0h7lrFoZRbpW5a4ikh9lGp5yfAZCoG3TG7VpC5erwd9GCRtrFiQorzAyU
+	6VSN5OYDCXaJT/07ClLWokOlRx7wH2jdBiT4LyGGiDWCgjaHJN73rWBBosTX4jozJPvVuCyfvqTxl
+	qWp18aGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhN0f-000000030EG-0Pt0;
-	Thu, 31 Jul 2025 06:43:25 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uhN8Z-000000030nd-2IAh;
+	Thu, 31 Jul 2025 06:51:35 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhMyC-0000000308h-0v7Z
+	id 1uhN64-000000030Ul-1gIo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 06:40:53 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 56V1fOMv020374;
-	Thu, 31 Jul 2025 06:40:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	krg4eEKBDHW8yuizuSSwWwKUE+N9PXsQII1Dp6qD3AM=; b=EcqENJS+/wVctH2E
-	Eo+3P+t8o5BFAqA/gipn1qa/cWNc/PDflohl1ixcR86m9OsCWEVLm0J1hz0sCTWz
-	XFs+8BfuGcTp1D+eueTb9+EJwc0rS+We25X8nm9GGtSeC8gGo94BjRtjUYQo+sD+
-	DEsgSMoFPfSrDwkMAAitjtYY7ozeMHfegS/p/M72jK51s8z/7hISUgrId5kKXstS
-	edBEp9N/nfkgLji5ZzkRgswKn32HUrD+0hHlQgOf/FLeuFqh9FaeQg9CflRFcbKY
-	woVWyZnNqRqujs6ovof1ewFmeU9CzgfgBU6Fxk1xNKUuIcQqqF7hsc0vxW9cFJqr
-	MI34Lw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 484p1apgv4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 31 Jul 2025 06:40:41 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 56V6eedT008345
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 31 Jul 2025 06:40:40 GMT
-Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 30 Jul
- 2025 23:40:37 -0700
-Message-ID: <8d6a4c97-51a3-423f-9095-74347283d71b@quicinc.com>
-Date: Thu, 31 Jul 2025 14:40:35 +0800
+	Thu, 31 Jul 2025 06:49:01 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 2A4DD21B56;
+	Thu, 31 Jul 2025 06:48:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1753944537; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BO4zXQG9mQbxNNz741df5MrXfBSfo5uw+HDlUfM7QUM=;
+	b=J+DeBVCE9zq7/jWPxOJ4236kcSdU9hDL/AIJVe3B/lP8cFOvcIt+/F6OkXKl6jjzgpb++T
+	oEwXGPoTHkX/oUVzbH+DoiNf+bpRvb5XXfd0/nieY3ciPlizmNBymP1AjrHCXosumhcaJa
+	pAfSTenI3k9//PS9xKprDDOm7Pk0ksg=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1753944537;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BO4zXQG9mQbxNNz741df5MrXfBSfo5uw+HDlUfM7QUM=;
+	b=6baETcIDbWLigfeyOvGvMiAEs/64LeDXyh++Uxt/jERulWa5qE0vG40mtT1jwhSk63rQ04
+	Bm5mYXoolJsVRZAQ==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1753944536; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BO4zXQG9mQbxNNz741df5MrXfBSfo5uw+HDlUfM7QUM=;
+	b=1L1JeJEvwzcYRBdRa6EWA64DQ6OEoHNnBxWHPeVuI3P1o9MQArtyng6k+Aep5YkHKp3dzo
+	V8cvpkN+BGpHd6Vi6PQE9TwWzRpB6tPNjK78tDczR+NFax1mLZy+jMpxcVxsGuCYpiRtK4
+	m4mQgU5+sa2KLEWoFzxgDeMe0Hp5eaI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1753944536;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BO4zXQG9mQbxNNz741df5MrXfBSfo5uw+HDlUfM7QUM=;
+	b=erce1/t0L6v2IF6sFbaNDTc5n8EKDYTbJO4f9n/9dX/7vJ1ME5axPHeAg4aY/O78/Hmv51
+	1IFX6q6UNGRgy+Aw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id EA35313A8A;
+	Thu, 31 Jul 2025 06:48:55 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id sEXmN9cRi2hnZAAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Thu, 31 Jul 2025 06:48:55 +0000
+From: Takashi Iwai <tiwai@suse.de>
+To: linux-sound@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH 1/3] arm: Update HD-audio configs again
+Date: Thu, 31 Jul 2025 08:48:07 +0200
+Message-ID: <20250731064813.1622-2-tiwai@suse.de>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250731064813.1622-1-tiwai@suse.de>
+References: <20250731064813.1622-1-tiwai@suse.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add Qualcomm extended CTI
-To: Mike Leach <mike.leach@linaro.org>
-CC: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Yingchao Deng
-	<quic_yingdeng@quicinc.com>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>
-References: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
- <20250722081405.2947294-2-quic_jinlmao@quicinc.com>
- <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
- <20250722091425.GH3137075@e132581.arm.com>
- <CAJ9a7VhLLgAak_4FB=iW0izXprM4W+RsKfHUeo=XUHh9LwtUsA@mail.gmail.com>
- <20250722140659.GI3137075@e132581.arm.com>
- <CAJ9a7ViUoSMV_HHKKRMhcQX=isU+feJvwCaVhu-6EBK4QXJbVg@mail.gmail.com>
- <de702854-aca1-4c78-9555-f2139d5376af@quicinc.com>
- <CAJ9a7VjTYvFVz1fp2_hNkLrKBbBYkiHHyshgsVT98V8oB_bn8g@mail.gmail.com>
-Content-Language: en-US
-From: Jinlong Mao <quic_jinlmao@quicinc.com>
-In-Reply-To: <CAJ9a7VjTYvFVz1fp2_hNkLrKBbBYkiHHyshgsVT98V8oB_bn8g@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: Z2D5yA4lildV6Q0NQz6aK8P3MRlPOFQM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzMxMDA0MyBTYWx0ZWRfXyM0hefolPZzi
- bddd8kZGEcgZYpwmRgg0TRXI5Spa99CeHizTgpc1eYFieg/SvnrcAsdNJfjNoK0vRamRf6AKDIW
- 3dhyqb6u3/kWJvKc4tBFY1YT5DhBprH75xG4+mOUSoEBZ/1H6SP7teZZBxDQYmSYvEWfXUpT2DJ
- S3X0hh/wAQ+FN1urjMIUlc/5jzifyDEwD57qQFd8MOGqWY3HEvWeHFNK423UzuchNqWfnEUl5k/
- xtGzPLLecWq2pHDve0K8FQzxFfleJxhpIH6MrGcibYaYm1khSgwoHPkg+lPGo4jKn2FhWoaQXLK
- uVkZVE9kt8PiWdDgL8tCitVC0EWGHIK3NxwJcgwE9ri3n5opGoiXzG7QkU2YhV7L7hKoutXd2Bj
- Z12MJUu1zcpCucc08NdWij1/KdURjb75+4AJIjanSbacqJh6OxV9zUahnJNXGaLYCdYLSitI
-X-Proofpoint-GUID: Z2D5yA4lildV6Q0NQz6aK8P3MRlPOFQM
-X-Authority-Analysis: v=2.4 cv=KtNN2XWN c=1 sm=1 tr=0 ts=688b0fea cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Wb1JkmetP80A:10 a=COk6AnOGAAAA:8
- a=7CQSdrXTAAAA:8 a=lllgu8f7gHFEmeyaSi0A:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-07-31_01,2025-07-31_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 lowpriorityscore=0 suspectscore=0
- adultscore=0 mlxlogscore=999 bulkscore=0 spamscore=0 impostorscore=0
- mlxscore=0 malwarescore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a
- authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2507310043
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.999];
+	MIME_GOOD(-0.10)[text/plain];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_THREE(0.00)[4];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	TO_DN_NONE(0.00)[];
+	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_234052_383426_4942829F 
-X-CRM114-Status: GOOD (  25.20  )
+X-CRM114-CacheID: sfid-20250730_234900_585079_F855CB41 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,103 +131,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Realtek and HDMI HD-audio codec configs have been slightly updated
+again since the previous change.  Follow the new kconfig changes for
+multi_v7_defconfig and tegra_defconfig.
 
+Fixes: 1d8dd982c409 ("ALSA: hda/realtek: Enable drivers as default")
+Fixes: 81231ad173d8 ("ALSA: hda/hdmi: Enable drivers as default")
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-tegra@vger.kernel.org
+Signed-off-by: Takashi Iwai <tiwai@suse.de>
+---
 
-On 7/28/2025 5:52 PM, Mike Leach wrote:
-> Hi,
-> 
-> On Wed, 23 Jul 2025 at 03:58, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
->>
->>
->>
->> On 7/22/2025 10:56 PM, Mike Leach wrote:
->>> On Tue, 22 Jul 2025 at 15:07, Leo Yan <leo.yan@arm.com> wrote:
->>>>
->>>> On Tue, Jul 22, 2025 at 01:00:18PM +0100, Mike Leach wrote:
->>>>
->>>> [...]
->>>>
->>>>> For a change of this magnitude to a CS component, that the ID
->>>>> registers will also have to change. This is a requirement of the
->>>>> Visible Component Architecture in the CoreSight specification.
->>>>> External tools cannot see the device tree.
->>>>>
->>>>> This is effectively no longer an ARM designed component, so the
->>>>> CoreSight specification requires that the DEVARCH register change to
->>>>> show qualcomm as the designer, and the architecture value change to
->>>>> represent this component.
->>>>> DEVID should be used to allow the driver to pick up parameters such as
->>>>> number of triggers as per the existing CTI component.
->>>>>
->>>>> If this component is Coresight compliant then the driver can use the
->>>>> ID registers to configure to the extended trigger architecture.
->>>>>
->>>>> With complete remapping of most of the registers, and the dropping of
->>>>> claim tag compatibility - which appears to be a breach of the
->>>>> CoreSight specification - it may be better to have a completely
->>>>> separate driver for this component.
->>>>
->>>> Good point. I'd like to confirm with the Qualcomm team: apart from the
->>>> differences in register offsets and claim bits, does this CTI module
->>>> have exactly the same bit layout and usage as CTI standard
->>>> implementation?
->>>>
->>>> If yes, then from a maintenance perspective, we probably don't want to
->>>> have two CTI drivers with identical register settings. It seems plausible
->>>> to encapsulate register access and claim logic into several functions.
->>>>
->>>>     void cti_reg_writel(u32 val, struct cti_drvdata *drvdata, bool relax);
->>>>     u32 cti_reg_readl(struct cti_drvdata *drvdata, bool relax);
->>>>     int cti_claim_device(struct cti_drvdata *drvdata);
->>>>     int cti_disclaim_device(struct cti_drvdata *drvdata, bool unlocked);
->>>>
->>>> Thanks,
->>>> Leo
->>>
->>> The CTI supports 128 triggers  - which means many more registers to
->>> enable / connect etc.
->>> I need to study the changes to determine if there are functional
->>> differences too.
->>>
->>> It might be feasible to divide the code into a common file and a pair
->>> of variants so some is reused.
->>>
->>> Mike
->> Thanks Mike & Leo & Suzuki.
->>
->> There is no register to show the version ID to distinguish between ARM
->> CTI and QCOM extended CTI.I will double confirm with internal HW team.
->>
-> 
-> Can you clarify here please.
-> The CID0-3, PID0-7, DEVARCH and DEVTYPE registers are part of the
-> CoreSight specification for component identification.
-> Can you confirm they are present on your component and the values they have.
-> 
-> If they are present then the CoreSight specification requires that
-> they be different than the standard ARM CTI.
-> 
-> Regards
-> 
-> Mike
+The changes are only in sound.git tree, so I'll pick up this there, too
 
-Hi Mike,
+ arch/arm/configs/multi_v7_defconfig | 3 ++-
+ arch/arm/configs/tegra_defconfig    | 3 +++
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-These registers are present. I checked they are same as standard ARM
-CTI. Like CIDR1(0xFF4), both are 0x90.
-
-Thanks
-Jinlong Mao
-
-> 
->> For extended CTI, only trigger number changes and claim logic. Other
->> functions are the same as ARM CTI(bit layout of the register and usage)
->>
->> Thanks
->> Jinlong Mao>
->>
->>
-> 
-> 
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 02ddd7ce9e3e..7fb1f7dc8139 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -791,10 +791,11 @@ CONFIG_SND=m
+ CONFIG_SND_HDA_TEGRA=m
+ CONFIG_SND_HDA_INPUT_BEEP=y
+ CONFIG_SND_HDA_PATCH_LOADER=y
+-CONFIG_SND_HDA_CODEC_REALTEK=y
++CONFIG_SND_HDA_CODEC_REALTEK=m
+ CONFIG_SND_HDA_CODEC_REALTEK_LIB=m
+ CONFIG_SND_HDA_CODEC_ALC269=m
+ CONFIG_SND_HDA_CODEC_HDMI=m
++CONFIG_SND_HDA_CODEC_HDMI_GENERIC=m
+ CONFIG_SND_HDA_CODEC_HDMI_TEGRA=m
+ CONFIG_SND_USB_AUDIO=m
+ CONFIG_SND_SOC=m
+diff --git a/arch/arm/configs/tegra_defconfig b/arch/arm/configs/tegra_defconfig
+index 3a9bda2bf422..63bd824e84a8 100644
+--- a/arch/arm/configs/tegra_defconfig
++++ b/arch/arm/configs/tegra_defconfig
+@@ -225,7 +225,10 @@ CONFIG_SND_HDA_TEGRA=y
+ CONFIG_SND_HDA_INPUT_BEEP=y
+ CONFIG_SND_HDA_PATCH_LOADER=y
+ CONFIG_SND_HDA_CODEC_REALTEK=y
++CONFIG_SND_HDA_CODEC_ALC269=y
+ CONFIG_SND_HDA_CODEC_HDMI=y
++CONFIG_SND_HDA_CODEC_HDMI_GENERIC=y
++CONFIG_SND_HDA_CODEC_HDMI_TEGRA=y
+ # CONFIG_SND_ARM is not set
+ # CONFIG_SND_SPI is not set
+ # CONFIG_SND_USB is not set
+-- 
+2.50.1
 
 
