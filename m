@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C151EC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 12:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E89DC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 12:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+WVY+FchNflwyhjUu1n/fND1UpVRfjWqymxZncmzm3A=; b=Vc5vBg3SF7XAtA/ijJ3rYW1Q86
-	Sf4/lcVUN4gguwbNVXvTisp8BIyZZlW9tkq628H/9y9gxFGJZ2kmeeNKXcdukHCy/JSDVLn8GxXFT
-	kJbOWFY7oSZ6LsVM8K0V4E42pmC1MoOah3/PONT7/mlcj8RBVReZoWGI8tOPPJpp42nySm/JzOPxu
-	T/Pk/++b2AH+EIdJiG3WvWXvURFK7kNAlPBDbYbA6ImXwbqjRsVBmf8jSpR3e9VWvzi1sF5T0JfHg
-	nohvRQb8D4o9QiNbIQrq6KkxjMBGoktv78IgyGbkAMAxjhwyXzVC+7q20hEA1IWSPfGtHrs1T5PMK
-	2qM434jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M8u5dMhW8BUcTUWXBbbgiycQFZnF0lI4n8eI1dG1HmY=; b=jn0hmxAoOj4/HPbGlCt8SlAG0W
+	K1leHXpWVAkGRqwsrzn/c1a+kuR3x+oDrY5UWKqoUtbNpBFe3lGDHHtjygBPwZQ5oyaslw+8pS89d
+	vT3KDCrBE6AC+3tFFi7SwGXUUptK3cGBZ9r/0lyvL1D1XAM529CcA7EGhiycDWImjzo4rhq9BZ96g
+	Uh458Y1x9qTNZ6Mq4QYdMzoUKIM28b9iQPFVFeVCRwEh8O8UOyTPTeS7MKRvXG9xFdElbS3aeCx9Q
+	Qhucat/o/+zHBWD67eyTTqPGsYRhH7MZjn5jlssfdkRTOhAq2DPFODxSSnbuMR+4VLbjt8cKQfE8Y
+	+OqA+r5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhS7h-00000003Xqb-39Vq;
-	Thu, 31 Jul 2025 12:11:01 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uhSEQ-00000003YGM-3bf3;
+	Thu, 31 Jul 2025 12:17:58 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhS57-00000003Xfh-3zJG
+	id 1uhSBp-00000003Y3P-0WX2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 12:08:23 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56VC8FOJ3025590;
-	Thu, 31 Jul 2025 07:08:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1753963695;
-	bh=+WVY+FchNflwyhjUu1n/fND1UpVRfjWqymxZncmzm3A=;
-	h=From:To:CC:Subject:Date;
-	b=S+ASQAb8SHTApNSeI96umGhd0hiBOwGZH/GANo5fM89vk/mCjw8Xl/6h34M4RJgaV
-	 xx8D//ni7/ThL/y/i0qnfjnxVFDQzHXtJ3ZcVRzTEpn6VxGoFk4KeNxkOmo//HxsrV
-	 XknKui3i3S1DWFVO+TzeZyzHvbvM+j4CtxRFYoi8=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56VC8FXl014082
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 31 Jul 2025 07:08:15 -0500
-Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 31
- Jul 2025 07:08:15 -0500
-Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 31 Jul 2025 07:08:15 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56VC8Fqh3405092;
-	Thu, 31 Jul 2025 07:08:15 -0500
-Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 56VC8E1t016802;
-	Thu, 31 Jul 2025 07:08:14 -0500
-From: MD Danish Anwar <danishanwar@ti.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
-	<m-malladi@ti.com>,
-        Himanshu Mittal <h-mittal1@ti.com>,
-        Ravi Gunasekaran
-	<r-gunasekaran@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net] net: ti: icssg-prueth: Fix emac link speed handling
-Date: Thu, 31 Jul 2025 17:38:12 +0530
-Message-ID: <20250731120812.1606839-1-danishanwar@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 31 Jul 2025 12:15:18 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bt7Jg20bKz67kb7;
+	Thu, 31 Jul 2025 20:13:07 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 236C71402EA;
+	Thu, 31 Jul 2025 20:15:06 +0800 (CST)
+Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Thu, 31 Jul
+ 2025 14:15:05 +0200
+Date: Thu, 31 Jul 2025 13:15:03 +0100
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Yushan Wang <wangyushan12@huawei.com>
+CC: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>
+Subject: Re: [PATCH 1/8] drivers/perf: hisi: Relax the event ID check in the
+ framework
+Message-ID: <20250731131503.0000740f@huawei.com>
+In-Reply-To: <20250729153823.2026154-2-wangyushan12@huawei.com>
+References: <20250729153823.2026154-1-wangyushan12@huawei.com>
+	<20250729153823.2026154-2-wangyushan12@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.66]
+X-ClientProxiedBy: lhrpeml100010.china.huawei.com (7.191.174.197) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_050822_079339_DE5FB263 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20250731_051517_305662_677E076D 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,51 +74,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When link settings are changed emac->speed is populated by
-emac_adjust_link(). The link speed and other settings are then written into
-the DRAM. However if both ports are brought down after this and brought up
-again or if the operating mode is changed and a firmware reload is needed,
-the DRAM is cleared by icssg_config(). As a result the link settings are
-lost.
+On Tue, 29 Jul 2025 23:38:16 +0800
+Yushan Wang <wangyushan12@huawei.com> wrote:
 
-Fix this by calling emac_adjust_link() after icssg_config(). This re
-populates the settings in the DRAM after a new firmware load.
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> Event ID is only using the attr::config bit [7, 0] but we check the
+> event range using the whole 64bit field. It blocks the usage of the
+> resident field of attr::config. Relax the check by only using the
+> bit [7, 0].
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
 
-Fixes: 9facce84f406 ("net: ti: icssg-prueth: Fix firmware load sequence.")
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
----
-NOTE: emac_adjust_link() is defined after prueth_emac_common_start() as a
-result to call this from prueth_emac_common_start() I am using forward
-declaration of the function. The other alternate is to move the definition
-of emac_adjust_link() before prueth_emac_common_start().
+Reviewed-by: Jonathan Csmeron <Jonathan.Cameron@huawei.com>
 
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 3 +++
- 1 file changed, 3 insertions(+)
+This seems sensible clean up even without the rest of the series.
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 2b973d6e2341..8ca0ea768e16 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -50,6 +50,8 @@
- /* CTRLMMR_ICSSG_RGMII_CTRL register bits */
- #define ICSSG_CTRL_RGMII_ID_MODE                BIT(24)
- 
-+static void emac_adjust_link(struct net_device *ndev);
-+
- static int emac_get_tx_ts(struct prueth_emac *emac,
- 			  struct emac_tx_ts_response *rsp)
- {
-@@ -229,6 +231,7 @@ static int prueth_emac_common_start(struct prueth *prueth)
- 		ret = icssg_config(prueth, emac, slice);
- 		if (ret)
- 			goto disable_class;
-+		emac_adjust_link(emac->ndev);
- 	}
- 
- 	ret = prueth_emac_start(prueth);
 
-base-commit: 759dfc7d04bab1b0b86113f1164dc1fec192b859
--- 
-2.34.1
+> ---
+>  drivers/perf/hisilicon/hisi_uncore_pmu.c | 2 +-
+>  drivers/perf/hisilicon/hisi_uncore_pmu.h | 3 ++-
+>  2 files changed, 3 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.c b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+> index ef058b1dd509..3050899ddf17 100644
+> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.c
+> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.c
+> @@ -234,7 +234,7 @@ int hisi_uncore_pmu_event_init(struct perf_event *event)
+>  		return -EINVAL;
+>  
+>  	hisi_pmu = to_hisi_pmu(event->pmu);
+> -	if (event->attr.config > hisi_pmu->check_event)
+> +	if ((event->attr.config & HISI_EVENTID_MASK) > hisi_pmu->check_event)
+>  		return -EINVAL;
+>  
+>  	if (hisi_pmu->on_cpu == -1)
+> diff --git a/drivers/perf/hisilicon/hisi_uncore_pmu.h b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+> index f4fed2544877..50a97e79076a 100644
+> --- a/drivers/perf/hisilicon/hisi_uncore_pmu.h
+> +++ b/drivers/perf/hisilicon/hisi_uncore_pmu.h
+> @@ -43,7 +43,8 @@
+>  		return FIELD_GET(GENMASK_ULL(hi, lo), event->attr.config);  \
+>  	}
+>  
+> -#define HISI_GET_EVENTID(ev) (ev->hw.config_base & 0xff)
+> +#define HISI_EVENTID_MASK	0xff
+> +#define HISI_GET_EVENTID(ev) ((ev)->hw.config_base & HISI_EVENTID_MASK)
+>  
+>  #define HISI_PMU_EVTYPE_BITS		8
+>  #define HISI_PMU_EVTYPE_SHIFT(idx)	((idx) % 4 * HISI_PMU_EVTYPE_BITS)
 
 
