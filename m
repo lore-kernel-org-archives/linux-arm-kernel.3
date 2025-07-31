@@ -4,72 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D24FBC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 07:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB02C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 07:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWEV+VEuzq1AAVTVz+CiIxYbNnYNS1gCDHmHpkGBJ/U=; b=KKydPXpLNRlXxcYZ4VBPKB+rqF
-	ymLOAYw95DIlhzpJ/MzEi2SUxdKVHvOc/sNL8QyJ2edB2uSPNNJTaV6fYmp3pj05mZaeUlcyIvYOA
-	oc+8/uDGCOfeHh21yD8jgZokwqcn3B636ndFFzCjWBoCDL0pYtMxGTrQ7JacSKua1cxXbFThH6fAc
-	MxdpvdIL110+KiRJ2DHV615l/jKi6/l/EDEVS7Uc8YDW49/kMVieTDyZDGzPOIW1ULFoFtxhQgA2n
-	RtnQnDqEOXOCa92zrJeM4C/R+D50pkOPHW0szVuJaN3ltF/8CGAPDWahH506TRwZIYs+4kC4/kIV9
-	AHGpuijw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=al7sb0PaqWnvrI2wuBfH/Lk4Z8Ssp9m1xI3c1kWfnkU=; b=WR5ypBZMj7fWTOlzAccCNIb3+0
+	aYGJ8RGM5i/XIaAQL0mkxWRJAw4tKAsw4gC1NsXor63FKSYRhNj28P+P9BJDf41uhJAe4nIjYpGj0
+	L3L0o/t7O0X/gonAMOtUm188BMD1+Tf6B3NSEU8MTtKCN+sixjYEpv/tL5IzsTVPw06Qpdy5+IX2m
+	AR1Zl/7EA20a9HAcEcvKPCm07xHf0C4oHQpm8Loxnkf5Y9ZMayKFzr87FFJ21kM5uerEW6dfumGPn
+	8YV6IS8v8uHbH+3yXY1/2wbBbv6g2u8T1PIYNCZ4dQI9skhIr8DAhZYEv/UVyXpiKY8J4SwNX9Nbs
+	Q0R+Wt3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhNnW-0000000347K-2kZl;
-	Thu, 31 Jul 2025 07:33:54 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uhNpz-000000034Lp-1jDq;
+	Thu, 31 Jul 2025 07:36:27 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhNkl-000000033nN-19qd;
-	Thu, 31 Jul 2025 07:31:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753947061;
-	bh=ErjQ47ZFmrUB+6AgCPEt2uAQFQd2rCBgVrhD5uTl65w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fmba4iSmh0us7h4tkqeW8Kz2Xhjy7f0Inj2joxQrEOopNR4/ibo5OuM+Xz3wIeG3W
-	 audj9JZc3IYMm7j/RTw2r8VWxj/lQjemHmdrfFgacHRswJQ/GCPVHKVDkqIkBj+xeD
-	 QJEVqwS5jHg8k0HHx8iDDFs5hk4QTJvrTXyJ/gO5JkiN0ner/muifOGVqb9YQky6FO
-	 e6+qqHRkgj4tzjW9OjHJNrIGiRVbezsX6vaM17aXIExumIcSwkryXL28i9+B6sItzX
-	 s+GuQBQXf/sOJeKNdd61nq4qhbsJtyRsKwzxNA8C20dusdMMVDU+b3jg3sd8ojbvrK
-	 4QwlrBStxLqEg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9C3D917E088C;
-	Thu, 31 Jul 2025 09:31:00 +0200 (CEST)
-Message-ID: <9a369599-d0cf-4a17-8667-fa2d7adf63d9@collabora.com>
-Date: Thu, 31 Jul 2025 09:31:00 +0200
+	id 1uhNlJ-000000033tm-3qA0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Jul 2025 07:31:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JLBNJ89C6Ctwlo/DQZ2FO2ez3aZgWgp5i8WvB2r29FhujLQzrI7ae+jAYsqyJXkVoqC2RayPkgcvtaXbs17Pwqyrvo4uAKcBbK79iMJOmbZBbhsqiBgLSVeO57IYGmCDVquA4xYRgxN3zr4/fmxu68oHZvBe9scFHYeQ86b1tbpcdLh181JGYO1r+NYz/4ZNjMWs65dor75ObfqrqQcRCguzUhWvLdVlHImKwTsaz4Q8iP2Degz0xfmpq4dY7lrg3qu8bUqbqDdtELtakK5EkiBwT5iU28x1JjJTxBTEyQ9eCXtbegPHocd3e2/lLwH9tXA4/Y8ZMs/yb/kOG7qKMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=al7sb0PaqWnvrI2wuBfH/Lk4Z8Ssp9m1xI3c1kWfnkU=;
+ b=QV1TVLnpSmGbpFAv+iTYTJw6uXiNtuC5lytJHSsyQ2sSOaFuGtbQunm/LFwWlkCIV5U+sZG3wXMNZP1m28HBi/PkSeSCwqaunZuykHF7JKWoihAlBgQGbKwXxe4Thmj4kE2geYc6xF2nHl39Km3SnT3Ije55PU3pTprk5qAmleV7CfpfGZMhUm6QyUSjXVaqrExVeq7mPDAw9o3V9xUjYkBZFlRlirKKmuf0CALsUstrbblsfGIwpCTba7inxXwfjLiYBY3f+yw9Ml0OhlbR56BT3R+/TFMg+U1ygRXDQrKyHQluCoaYP9cwftiQ76TgDUerEvN3eZRDF1nbIrV+Cw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=al7sb0PaqWnvrI2wuBfH/Lk4Z8Ssp9m1xI3c1kWfnkU=;
+ b=Y8doCavnPXr0Ohwia6NT6rQfRXbjogsBUYogNnteQRKHWOH7UgYHZKLN3gQeMI+FsuUByjRvbjHIvwcw9k+Xe2WtnYfUujwh9o1AasU9iXnXjpQ7r8WuxIKMaqqo790FQor/sCoaDlIzl9OcGnI8Qqyezvs+vFZyc3ueqTXSO+5Gik5klWpXrI4qLekJIikr+FmzorQ6YZnbcPFcBw04BQCiQgy9WYw4gGYK1ISW+DmdJKiFZDU9b9CFClC8mdzydtTv0ya9rD1fIuwDIG8yq2QtXQgpdZLIRFE0zGcisNaqoF+Y5RRVoDNuXbWJLMvSDwaKG9urFGWQSkkc47MrhA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
+ by VI0PR04MB10686.eurprd04.prod.outlook.com (2603:10a6:800:25d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.12; Thu, 31 Jul
+ 2025 07:31:30 +0000
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.8989.013; Thu, 31 Jul 2025
+ 07:31:29 +0000
+Date: Thu, 31 Jul 2025 10:31:25 +0300
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] clk: imx95-blk-ctl: Save/restore registers when RPM
+ routines are called
+Message-ID: <2dgzmsbzx5geriie4kaolwa6uw43etut55re4pxcvyvy34mlqr@33pynziwfzfc>
+References: <20250730125932.357379-1-laurentiu.palcu@oss.nxp.com>
+ <20250730125932.357379-3-laurentiu.palcu@oss.nxp.com>
+ <aIpHEugNppI2C0/q@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aIpHEugNppI2C0/q@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: AM8P191CA0014.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21a::19) To GV1PR04MB9135.eurprd04.prod.outlook.com
+ (2603:10a6:150:26::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/9] dt-bindings: thermal: mediatek: Add LVTS thermal
- controller support for MT8196
-To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
- daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
- matthias.bgg@gmail.com
-Cc: wenst@chromium.org, nfraprado@collabora.com, arnd@arndb.de,
- colin.i.king@gmail.com, u.kleine-koenig@baylibre.com,
- andrew-ct.chen@mediatek.com, lala.lin@mediatek.com, bchihi@baylibre.com,
- frank-w@public-files.de, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- kernel@collabora.com, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250730152128.311109-1-laura.nao@collabora.com>
- <20250730152128.311109-2-laura.nao@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250730152128.311109-2-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|VI0PR04MB10686:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ff9d41d-3d53-478f-3bd2-08ddd00443f1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2maabeo+5NY1q8psOgN1eEHiAA1pmXAvx0P/huIjpCXMsHMVovzdL3VDyVuN?=
+ =?us-ascii?Q?rFMDoK9xdueB0FPd2T9UcpqWLZ+URhNbEyY8aDgF3i0tJPDRPwU1/ORX8Z9p?=
+ =?us-ascii?Q?mNM556ZLHRe2xmbEf2ndhXYLV+PqNmSacjyGLhjoJpW14WzNu8SbP7nStxcv?=
+ =?us-ascii?Q?MwLqBDtGn1TTV0q6U3mrVS+hz1oFNz1ZpqO4HNHkk3mZQxFPWO12e+NtV7hd?=
+ =?us-ascii?Q?lkbYCA0z25SAUWHM6qX7Jk3IyakD7G9HjS078un1xvaj8yEkYfYXxXJmf2NJ?=
+ =?us-ascii?Q?uV39XsUmbub9s5iKqbBJlJNv8Iwsjoi/vFdADImxEOginJ+qZJ9KhdkINu7q?=
+ =?us-ascii?Q?v2A7kcR/ZO7+Jv7zcWyT/CK1gdwEtO1sPHj4vI+WpJwNnNjc8oNRq3wxzHG6?=
+ =?us-ascii?Q?T7rwL311L4maUCCCEHY865zlqkdB+BV1UuXeMdNFb2vZ3M/CLf9juKeuiMvv?=
+ =?us-ascii?Q?ZKuxUVUVMTfNHK0GgOTDSEnGx7/ZX/G1kT2uibd2Veu7YWLQ9oknNXinnc4o?=
+ =?us-ascii?Q?RM4pkJHtTFXeDaAP/DqEFkzrlgeUZLG9MCywRlQyYXZ5xdBkW253tisRqXki?=
+ =?us-ascii?Q?wJwJfyeuUW9OJMAh0ZKku/I9sw/TT1cFpceQE3QsUayoWcmHYST/GnBxhhi7?=
+ =?us-ascii?Q?hqqKaBa3kvYJ/uFao+6DjKw5X+/S0lETUDkZ8WnGFpu8X+Q4VluwrbE/kyu7?=
+ =?us-ascii?Q?ugSxa2A4rk9bZMOpkMheJmRMxBNsH+/7BPFbQS6luiJEt2XtfmTPvG7tpMv+?=
+ =?us-ascii?Q?loLQvZubJj7FQvjjPkPbsxgGWyrZjsi0NK5wO+0qj0DBXRkPmT9XXOVhl6pS?=
+ =?us-ascii?Q?DFSsZjUPYmUs8UzwFXh3rqwHqFALVcmbVsLP0CAakkX8CEx1MhY0Ke8c7bSJ?=
+ =?us-ascii?Q?UCJxCQlGafXGkvhXZKLnqd1Ci8iPViea/+/Tu9FELtyQ10uhibf2t93ZJTsE?=
+ =?us-ascii?Q?bagc/o2pOUemH5d+flyadXpeuRvv1BC5EURBSAQIpIC4m8tnkgBYX8bLuWX3?=
+ =?us-ascii?Q?fk8FlO4eq2PWFsJF7AVvMni12W8iQgsNgU6t3IHT17OVdRiPNiM9r1gfcD+E?=
+ =?us-ascii?Q?ih5TTfa+xrhJ7uRHZkvEimxB7xgiif8jjGP6GmpAQ9/9YlEuz3bcHqiVNEgs?=
+ =?us-ascii?Q?1cDqvfehs1586cZIfBKK+Wdd4sc434ODgi8hUtZ4Np1HLFkne3S/Su46k5vt?=
+ =?us-ascii?Q?r9JQ6IfuPjDluZk4mH4I03Zg22j9o6GBaNpJl62hvbM8mzW5XTi7AaNdurBp?=
+ =?us-ascii?Q?ievN01pzof5sJVsQJrbcjbm4B+QVQzMKU8s7DK7wrfq7wKyG1d8Mv4RnQZ/D?=
+ =?us-ascii?Q?ab3MnOOZ1rjEsYZjFw9Te7al1lXKQjel90OST9qEB0QgWkoZK6yn8ahCfnTk?=
+ =?us-ascii?Q?lsntf+vKot3M/Hy6XGZMUZ7MLDU6Hyd4FiPz3dslIQsT/qLP038pb4Euyzvm?=
+ =?us-ascii?Q?3Dutv9LBEj0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?frnazKBEIGCXhvcPyBl1wC9Z4SDKzEYb/rSLNEh8D0fKpaxw0CCNnmXZy7Cd?=
+ =?us-ascii?Q?ftKDqzPvjHX8lUZrqqevuIm/4UV9lGRAOpFtlx+nZ5BatO+U6pB7xvZAHc/y?=
+ =?us-ascii?Q?Ip26TRDT84FWpVwrm6FsXe5fGStloeP+VAd93wtDItOqlAONRipmrqFXsSSR?=
+ =?us-ascii?Q?mRhG65mG6oLk2U55uUWFJIiDgSCKSwvhf5cQ7ei6RGNBwtLrul9X55tO+iB9?=
+ =?us-ascii?Q?DzMNxHwrvfxelJMR5UWMNyTBk9sZ9Y/dSN8hGaOrQYeQl61jOS5KLNJyINg6?=
+ =?us-ascii?Q?ZjArQWuqajsBfaosdxZQyxPtX5qi2qxc5SxkWFf96ceBVCzjBAK/bHVYLYHC?=
+ =?us-ascii?Q?7NPOqxBDxxfDhgckYHeYCsBUbTQwRMx3N0D0wSrkqcoHPaNBI7JsMkPCuIkD?=
+ =?us-ascii?Q?auhOsQhTt3Bv7KZ5Q1YtgIsmzKlaA7kW1cFIxvFsAjEM59y82X6b3KbGlR93?=
+ =?us-ascii?Q?xRK/gOoV3Z34UHDhiY+6oD+Yog2nBrqaj9ED9heuEcU1gVigFh58I/dh5OED?=
+ =?us-ascii?Q?spNBF3ClWnzDrSs9BX8uvviN9+/9Cp0ZrbpYONdaJrXz69Nj+59t5vdWFBIu?=
+ =?us-ascii?Q?FodsHs8SDGh2Jcbx4jX/EYiDAf0KfXij36lPZbcon4QRQdUwTJhpkJh0g6j3?=
+ =?us-ascii?Q?9Ci1G6/vWhFioGo1I8kch8tGO4yuPjnqobblKg8RGNW7GXtbd+CpZt0dNmsB?=
+ =?us-ascii?Q?LNZVK6HCbCgIOHBDvGFiOZGswMWvjgzqlkHEpaMI/nnr9uTWNIGqLeKopJGW?=
+ =?us-ascii?Q?zMaLLzHad7qmwEWjEG/isHDXhwIxquHsMWOwI2f6kUatxnofOT0jOT1OSwXs?=
+ =?us-ascii?Q?efTC1bhutIlo46tvAmkeEWg+Uymc+UJLg/q9JQiPn8gov/vNZSRhsxuASpxk?=
+ =?us-ascii?Q?184rHJM9hOCuQagpReVgzAPOTv3N78d17M7O6QFHTjWhqSeBuRWRRMPmM7I5?=
+ =?us-ascii?Q?XbQPZUWmDCrbnvzgpQ5bFOGGzWHdvdQ/XKVTca6WimamWJ+JwomazDsUsafO?=
+ =?us-ascii?Q?LetmmDQL3w52LirYRi96hGH89E/EtQPKfgTkuAHqmY0kVl+4GcCrOUPj73Sk?=
+ =?us-ascii?Q?1JsElhLID/AfadtjYc27anheuyoIKetM6q0bj3BUAdCFcsQtURLLgHtnPeS0?=
+ =?us-ascii?Q?cOuopHUDY5RbD6U2HJaEJk2d4jnx+LTtMeqTStqknlgCWpFv0xu5klhgJhDT?=
+ =?us-ascii?Q?aQp/06J7CIAAIQc98/7f3C6Kh1Y4GJqE2U1my1waQfhpu8iFsKt5Jka8wGg6?=
+ =?us-ascii?Q?kkRP0f5m8X5MoaSfoP+JeSkh5w9ZyymoVnyaGrSQiUoz4hknydfxZz0gU8uz?=
+ =?us-ascii?Q?UwfU6sb0llG6iGT+oAy/UCCakJb8NKVm1S32j9rUc9DTtasAmVrGD3fPJvcS?=
+ =?us-ascii?Q?8QqHo52jcGaIc0rzEiqY40FALcrgZAszKH6Vy5pWz8lHVlIDTvb0i79PzgDU?=
+ =?us-ascii?Q?YVcdc+IIRxPHuOadFy47EQMqy1V0my0qczQeD1eUMkDypaFwqlo8O8HURJJF?=
+ =?us-ascii?Q?h5/7x2EDv7fGwWD42r1FcZWDFeq4keOJipsfamQjN1BR57ehHlTJgDTKs9h6?=
+ =?us-ascii?Q?d9/Bc18XEGd/VVoZx6VjL4EClWwPhDBXAfGsG35/PxosIC19B2Z3rZxN+gG2?=
+ =?us-ascii?Q?/Q=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ff9d41d-3d53-478f-3bd2-08ddd00443f1
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2025 07:31:29.8021
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eD+B2nItR04c28U+LXjKOMPnRW5GOoA2HNNmWzCXpGNtjlQhjF8ZUjLw9Oy6pXSLQ9pPxjgySmczi0fmlDhTtQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10686
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_003103_464723_6047E81B 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250731_003137_961715_5A70F742 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +165,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 30/07/25 17:21, Laura Nao ha scritto:
-> Add LVTS thermal controller binding for MediaTek MT8196.
+Hi Frank,
+
+On Wed, Jul 30, 2025 at 12:23:46PM -0400, Frank Li wrote:
+> On Wed, Jul 30, 2025 at 03:59:31PM +0300, Laurentiu Palcu wrote:
+> > If runtime PM is used for the clock providers and they're part of a
+> > power domain, then the power domain supply will be cut off when runtime
+> > suspended. That means all BLK CTL registers belonging to that power
+> > domain will be reset. Save the registers, then, before entering suspend
+> > and restore them in resume.
 > 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-> ---
->   .../thermal/mediatek,lvts-thermal.yaml        |  2 ++
->   .../thermal/mediatek,lvts-thermal.h           | 26 +++++++++++++++++++
->   2 files changed, 28 insertions(+)
+> Save the registers before entering suspend, then restore them in resume.
 > 
-> diff --git a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
-> index 0259cd3ce9c5..beccdabe110b 100644
-> --- a/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/mediatek,lvts-thermal.yaml
-> @@ -26,6 +26,8 @@ properties:
->         - mediatek,mt8192-lvts-mcu
->         - mediatek,mt8195-lvts-ap
->         - mediatek,mt8195-lvts-mcu
-> +      - mediatek,mt8196-lvts-ap
-> +      - mediatek,mt8196-lvts-mcu
->   
->     reg:
->       maxItems: 1
-> diff --git a/include/dt-bindings/thermal/mediatek,lvts-thermal.h b/include/dt-bindings/thermal/mediatek,lvts-thermal.h
-> index ddc7302a510a..0ec8ad184d47 100644
-> --- a/include/dt-bindings/thermal/mediatek,lvts-thermal.h
-> +++ b/include/dt-bindings/thermal/mediatek,lvts-thermal.h
-> @@ -80,4 +80,30 @@
->   #define MT8192_AP_MD1   15
->   #define MT8192_AP_MD2   16
->   
-> +#define MT8196_MCU_MEDIUM_CPU6_0        0
-> +#define MT8196_MCU_MEDIUM_CPU6_1        1
-> +#define MT8196_MCU_DSU2                 2
-> +#define MT8196_MCU_DSU3                 3
-> +#define MT8196_MCU_LITTLE_CPU3          4
-> +#define MT8196_MCU_LITTLE_CPU0          5
-> +#define MT8196_MCU_LITTLE_CPU1          6
-> +#define MT8196_MCU_LITTLE_CPU2          7
-> +#define MT8196_MCU_MEDIUM_CPU4_0        8
-> +#define MT8196_MCU_MEDIUM_CPU4_1        9
-> +#define MT8196_MCU_MEDIUM_CPU5_0        10
-> +#define MT8196_MCU_MEDIUM_CPU5_1        11
-> +#define MT8196_MCU_DSU0                 12
-> +#define MT8196_MCU_DSU1                 13
-> +#define MT8196_MCU_BIG_CPU7_0           14
-> +#define MT8196_MCU_BIG_CPU7_1           15
-> +
-> +#define MT8196_AP_TOP0                  0
-> +#define MT8196_AP_TOP1                  1
-> +#define MT8196_AP_TOP2                  2
-> +#define MT8196_AP_TOP3                  3
-> +#define MT8196_AP_BOT0                  4
-> +#define MT8196_AP_BOT1                  5
-> +#define MT8196_AP_BOT2                  6
-> +#define MT8196_AP_BOT3                  7
-> +
->   #endif /* __MEDIATEK_LVTS_DT_H */
+> >
+> > Also, fix the suspend/resume routines and make sure we disable/enable
+> > the clock correctly.
+> 
+> Check runtime pm status in suspend/resume routines to make sure
+> disable/enable clock correctly.
 
+I think the current commit message is clear enough already and follows
+the guidelines. Obviously, someone else could rephrase it differently
+but I'm pretty happy with it in its current state. TBH, your suggested
+changes neither add new information nor correct any grammar or spelling
+mistakes, so I don't see a strong point in changing the commit message.
+
+Thanks,
+Laurentiu
+
+> 
+> >
+> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+> > ---
+> >  drivers/clk/imx/clk-imx95-blk-ctl.c | 33 ++++++++++++++++++-----------
+> >  1 file changed, 21 insertions(+), 12 deletions(-)
+> >
+> > diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
+> > index c72debaf3a60b..56bed44719954 100644
+> > --- a/drivers/clk/imx/clk-imx95-blk-ctl.c
+> > +++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
+> > @@ -453,15 +453,24 @@ static int imx95_bc_runtime_suspend(struct device *dev)
+> >  {
+> >  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+> >
+> > +	bc->clk_reg_restore = readl(bc->base + bc->pdata->clk_reg_offset);
+> >  	clk_disable_unprepare(bc->clk_apb);
+> > +
+> >  	return 0;
+> >  }
+> >
+> >  static int imx95_bc_runtime_resume(struct device *dev)
+> >  {
+> >  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+> > +	int ret;
+> >
+> > -	return clk_prepare_enable(bc->clk_apb);
+> > +	ret = clk_prepare_enable(bc->clk_apb);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	writel(bc->clk_reg_restore, bc->base + bc->pdata->clk_reg_offset);
+> > +
+> > +	return 0;
+> >  }
+> >  #endif
+> >
+> > @@ -469,17 +478,12 @@ static int imx95_bc_runtime_resume(struct device *dev)
+> >  static int imx95_bc_suspend(struct device *dev)
+> >  {
+> >  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+> > -	int ret;
+> >
+> > -	if (bc->pdata->rpm_enabled) {
+> > -		ret = pm_runtime_get_sync(bc->dev);
+> > -		if (ret < 0) {
+> > -			pm_runtime_put_noidle(bc->dev);
+> > -			return ret;
+> > -		}
+> > -	}
+> > +	if (pm_runtime_suspended(dev))
+> > +		return 0;
+> >
+> >  	bc->clk_reg_restore = readl(bc->base + bc->pdata->clk_reg_offset);
+> > +	clk_disable_unprepare(bc->clk_apb);
+> >
+> >  	return 0;
+> >  }
+> > @@ -487,11 +491,16 @@ static int imx95_bc_suspend(struct device *dev)
+> >  static int imx95_bc_resume(struct device *dev)
+> >  {
+> >  	struct imx95_blk_ctl *bc = dev_get_drvdata(dev);
+> > +	int ret;
+> >
+> > -	writel(bc->clk_reg_restore, bc->base + bc->pdata->clk_reg_offset);
+> > +	if (pm_runtime_suspended(dev))
+> > +		return 0;
+> >
+> > -	if (bc->pdata->rpm_enabled)
+> > -		pm_runtime_put(bc->dev);
+> > +	ret = clk_prepare_enable(bc->clk_apb);
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	writel(bc->clk_reg_restore, bc->base + bc->pdata->clk_reg_offset);
+> >
+> >  	return 0;
+> >  }
+> > --
+> > 2.46.1
+> >
 
