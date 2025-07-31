@@ -4,55 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B2FC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA4EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pV7YGKsXkfb9P0H0WBjzoDAyQmik89jc68S6AND8OW4=; b=KbCgd2U1+Qcc1EbAcwS4GWJqN6
-	Ee1Br902XurMG42Ygyq5T6vEGXEaLcEbUnfpQw1GXIfVj/bKuLNCtdQmtzQyKaPu7L1ZSqzyiIJel
-	Uif87gI1tv/RwCasMADZaM4bHQn7K0qkle3FlDvKfHDeXCrH9bgt2XElTSaRwjw+i+7xP0F5Orlrf
-	s3ufe0WScxc9JAdhXNkEUoOd8zQZ7nxzh+QzjSZkzU61FhkcPsogbbEACT+dlhi9sswRgi734MvAh
-	HYf9vbZ3TnU4tqu7ISGNFt0hmzu9gD2Xx+VXMH4vDqgOJ+MjB93VPvn7RZV0a+TXZ+vOXO/EfX9cu
-	mAtYCTDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ctS2IsIxQtxk4XIYF0HsMS9YZmREfXrPM1zm5+YRlrs=; b=sj0Qf3V2EynNV59oUEfPMwtroU
+	awZGjmRSpT2AYSMeK7ETbwjplKHZHaATSw+JOb3L9jjle1UCP3M9/UGl+UrN2JtEJhPSmVT95Px8O
+	vzfMS5RG+mWht6U9THF/JdN7PwwX9K5ah46PfYnaV0rHfFsOCXdH6vH7VcYsbBzPJaT3Bm6bKeuhL
+	gZeGsCzAL2LmsNGK2n18Ht4NJa3AGNtHIJbgDiz+fWayMyMzb1E/798Nb+CpifG6K+uJ5B9vvPBu9
+	wqQ9u4g79oC57fp1+llRBXjt0XkMLqeXg92k4kMZrBiX3fZUPUVXOrD+xUUldxMMqnjTX+Dbd5oH3
+	rnO8QVqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhRes-00000003Unt-0U3F;
-	Thu, 31 Jul 2025 11:41:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uhRwZ-00000003WkM-46n5;
+	Thu, 31 Jul 2025 11:59:31 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhRcH-00000003UdT-3aA1
+	id 1uhRty-00000003WTT-3X4O
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 11:38:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 247665C62BC;
-	Thu, 31 Jul 2025 11:38:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FB0C4CEF6;
-	Thu, 31 Jul 2025 11:38:30 +0000 (UTC)
-Date: Thu, 31 Jul 2025 12:38:27 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
-	anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
-	kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	david@redhat.com, mark.rutland@arm.com, urezki@gmail.com
-Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
-Message-ID: <aItVswTcGVz_A6K8@arm.com>
-References: <20250723161827.15802-1-dev.jain@arm.com>
- <aIpPsg1Kij8Knnjl@arm.com>
- <8f89490b-bac5-4297-a4a8-9e9c4a8f5ef5@arm.com>
- <20ab00da-e85d-4f18-b482-bb406275693c@arm.com>
+	Thu, 31 Jul 2025 11:56:52 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56VBuitk3437181;
+	Thu, 31 Jul 2025 06:56:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1753963004;
+	bh=ctS2IsIxQtxk4XIYF0HsMS9YZmREfXrPM1zm5+YRlrs=;
+	h=From:To:CC:Subject:Date;
+	b=fqE5vUhsL9xqx7rB7V9LEHJAyv0sTk2/w9bXZEjppS3pMwW8RdLH8j9shnP1hkV3o
+	 /A+r17eWdStDO1xx6zBRvAvupbQO7jgBmy3Bo7ReG4OHSpGl+qdvEUjBOlnjTIK2wP
+	 9Ndas5gBH/2F3gaViGAmQnzY6Ny0IP6hLtmd7BIg=
+Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56VBuiMG3301194
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Thu, 31 Jul 2025 06:56:44 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 31
+ Jul 2025 06:56:43 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Thu, 31 Jul 2025 06:56:43 -0500
+Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56VBudQO2861468;
+	Thu, 31 Jul 2025 06:56:40 -0500
+From: Akashdeep Kaur <a-kaur@ti.com>
+To: <vigneshr@ti.com>, <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <vishalm@ti.com>, <sebin.francis@ti.com>
+Subject: [PATCH 0/3] Remove unused bits from dts and add support for remaining pinctrl macros 
+Date: Thu, 31 Jul 2025 17:26:28 +0530
+Message-ID: <20250731115631.3263798-1-a-kaur@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20ab00da-e85d-4f18-b482-bb406275693c@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_043833_936033_5B15A885 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20250731_045651_031430_FDEDCE87 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,47 +84,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 31, 2025 at 10:00:15AM +0530, Dev Jain wrote:
-> On 30/07/25 11:59 pm, Ryan Roberts wrote:
-> > On 30/07/2025 18:00, Catalin Marinas wrote:
-> > > On Wed, Jul 23, 2025 at 09:48:27PM +0530, Dev Jain wrote:
-> > > > +	 * mmap_write_lock/unlock in T1 be called CS (the critical section).
-> > > > +	 *
-> > > > +	 * Claim: The CS of T1 will never operate on a freed PMD table.
-> > > > +	 *
-> > > > +	 * Proof:
-> > > > +	 *
-> > > > +	 * Case 1: The static branch is visible to T2.
-> > > > +	 *
-> > > > +	 * Case 1 (a): T1 acquires the lock before T2 can.
-> > > > +	 * T2 will block until T1 drops the lock, so pmd_free() will only be
-> > > > +	 * executed after T1 exits CS.
-> > > 
-> > > This assumes that there is some ordering between unlock and pmd_free()
-> > > (e.g. some poisoning of the old page). The unlock only gives us release
-> > > semantics, not acquire. It just happens that we have an atomic
-> > > dec-and-test down the __free_pages() path but I'm not convinced we
-> > > should rely on it unless free_pages() has clear semantics on ordering
-> > > related to prior memory writes.
-> > 
-> > I can understand how pmd_free() could be re-ordered before the unlock, but
-> > surely it can't be reorded before the lock? I need to go unlearn everything I
-> > thought I understood about locking if that's the case...
+This patch series cleans up the dts files to remove the pin control deep 
+sleep configuration that does not take effect in hardware.
+This series also adds the remaining macros in the pin control file 
+supported by SoC so that any configuration can be used as per requirement 
+in dts files.
 
-Indeed, it can't be reordered before the lock as it has acquire
-semantics.
+Akashdeep Kaur (3):
+  arm64: dts: ti: k3-am62p5-sk: Remove the unused config from
+    USB1_DRVVBUS
+  arm64: dts: ti: k3-am62x-sk-common: Remove the unused config from
+    USB1_DRVVBUS
+  arm64: dts: ti: k3-pinctrl: Add the remaining macros
 
-> You are correct, what Catalin is saying is that my reasoning has a hole.
-> There is no obvious ordering between unlock and free(), but
-> 
-> mmap_write_unlock() will happen before mmap_read_lock() ... (i)
-> mmap_read_lock() will happen before pmd_free() ... (ii)
-> 
-> which lets us conclude that mmap_write_unlock() will happen before pmd_free().
-
-Yes, in this sub-case, mmap_write_unlock() on T1 will happen before
-pmd_free() on T2 if T2 waits on the lock.
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts       |  2 +-
+ .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi |  2 +-
+ arch/arm64/boot/dts/ti/k3-pinctrl.h           | 66 +++++++++++++++----
+ 3 files changed, 56 insertions(+), 14 deletions(-)
 
 -- 
-Catalin
+2.34.1
+
 
