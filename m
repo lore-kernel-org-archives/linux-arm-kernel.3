@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86658C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4913EC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Af9/Ij4UC3M9G1aNesXYjpw829cbfm5E+K5g67q+bmk=; b=PuZ1YTmmc3v/1qeLegHoseqGrw
-	JaQzFX8v+jnobErgDZn1BztSfA08hKU4xTss5CsGB96mvKkSunIWYQ87wKR8KN5xmCxXEyJDIXvI/
-	MqHqeebDMsWGb+iGy9Xi3tgjF9PyzcKJpsVF5db8R3bPrSxNx/14WeD3Tb7EN/jxby5mzRWmr7CEK
-	UhE/laeEBPrnHoyaI4UQMEm0bxaZ+UMfjtCu7V2Vp1PZOvcckSeknxmuVCFNNT0q26+bPci+5aV8e
-	GVIR4TT9g8YGJsxK+uC3Kckf/DcQOOMVza61Nwe5a43AGcF7X51yPoyt0VTBDEkagmJaDX6yuY5ag
-	HMOPaE4g==;
+	bh=/5ZOa5Bdzk2St6inmchEvW3Ga3OzI20QY+mKrMFR+D4=; b=Bynnvoi6kGn1Z/51ThLgbJ6Nwf
+	VXr16tInZspvX+acTfN1o4ddttqlMTU0WkqyH03Xj0ij/OfM8pe5JP+7ytKmaPgsCjN12axuYsT5d
+	PYvfqznl1WePHbpLewUKReYCeHnx2ZRFJdhy94HABK49Bg46Y8np5t5+rShzHZQm1LgkJA8A2+1bV
+	RPXRZw8jv/5HUNEyMUZ+EbqFSSPwvXzXSRirLPnbJ9xpN7iZ7eAqe/PzwaxK2cjE9pnuvV3CFBizo
+	UHHOCbZTk5K2hwKm2P+CezCCk2dowOdoZWJdn8hPAb+tgMmJXat6e698iAGmP+OYz3FRvYQrHqul4
+	KZxLoA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhULa-00000003qHQ-2Aks;
-	Thu, 31 Jul 2025 14:33:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uhUO8-00000003qTz-12Dv;
+	Thu, 31 Jul 2025 14:36:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTie-00000003kON-0v3d
+	id 1uhTk4-00000003kdA-2Idj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 13:53:17 +0000
+	Thu, 31 Jul 2025 13:54:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B4FA75C637B;
-	Thu, 31 Jul 2025 13:53:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FAF4C4CEEF;
-	Thu, 31 Jul 2025 13:53:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EE6AB61126;
+	Thu, 31 Jul 2025 13:54:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B785C4CEEF;
+	Thu, 31 Jul 2025 13:54:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753969995;
-	bh=yXz5mBUZF6Q+N9j0CfMMnnCvdMIaf13rIadj2MRnX6I=;
+	s=k20201202; t=1753970083;
+	bh=eMaB/jC7BQOujSeVyd65hlSZ/jJUt5A5InXdWSnL42Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nuKFVyrU6RyPSXasWhoG+PZAXbRQvg71zY3Sb4uTSLtkzVcZM0ctCwZO3WwvbrI09
-	 ofP7XRFAPu1cfff9IQtvv+PsZrp7DYf2mrsMz4ChCf7VEdMnancKGYNTWTjE6nTgv4
-	 jkH4N26DgfRG0wbOfGY5i72biU7CN1WqAAjiYVz3VcYFVBazuo0nDfZbuitZk1w+Qa
-	 t1dnTWlsxZqR9BiurwrZeHrk8ddZNmlW4lAIpMUpX2ytaljEbDNC2ctWKdiOTqCGJ7
-	 Uccf4zOgOrnGHzrK+5ybIUOuYGenFyIiknGkpjqzCdoVc7TLn//RW+GppLnn3oeaof
-	 /JXo+hqbBlLwg==
-Date: Thu, 31 Jul 2025 08:53:14 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
+	b=LfD/b5JDEM4tfHtFXQ7drTEt8aleNybYQzijLgWsq+p+xNnv2CcV45z6g8k5blx1h
+	 LJf5RQXMtCD81I18Q730/r1cE/tRooUKRse/MQ/98Qlo+4ZFt5C5W6s1FmE+UiT+fF
+	 fGCKKTUwxi15kn0RnwXrfshq0blX42oaFLSpFa3U91GiH3JSQOhvC16wow3IWEPPzg
+	 +pTr7wJssZyyxv0p2wNtIHbABvZknQz/dtOcZFP113btCZgTq6Cw9xoAYeYBAp1nma
+	 sfJnJs0Bctps/fzgTBSZSILD6YtS6wqLAFG+Uucid+jkpoas5T2SOHxJMNGtmE2Wsc
+	 MbABvN8U+VXfA==
+Date: Thu, 31 Jul 2025 08:54:42 -0500
+From: Rob Herring <robh@kernel.org>
 To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, devicetree@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Julius Werner <jwerner@chromium.org>, linux-clk@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Le Goffic <legoffic.clement@gmail.com>,
-	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-doc@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
 	Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Stephen Boyd <sboyd@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Le Goffic <legoffic.clement@gmail.com>,
+	Julius Werner <jwerner@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Subject: Re: [PATCH v5 09/20] dt-bindings: memory: SDRAM channel: standardise
- node name
-Message-ID: <175396999408.2138783.9344122999119698215.robh@kernel.org>
+	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v5 12/20] dt-bindings: perf: stm32: introduce DDRPERFM
+ dt-bindings
+Message-ID: <20250731135442.GA2139000-robh@kernel.org>
 References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
- <20250728-ddrperfm-upstream-v5-9-03f1be8ad396@foss.st.com>
+ <20250728-ddrperfm-upstream-v5-12-03f1be8ad396@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250728-ddrperfm-upstream-v5-9-03f1be8ad396@foss.st.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_065316_297470_5EDCC9A4 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20250728-ddrperfm-upstream-v5-12-03f1be8ad396@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,16 +88,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 28 Jul 2025 17:29:40 +0200, Clément Le Goffic wrote:
-> Add a pattern for sdram channel node name.
+On Mon, Jul 28, 2025 at 05:29:43PM +0200, Clément Le Goffic wrote:
+> DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
+> It allows to monitor DDR events that come from the DDR Controller
+> such as read or write events.
 > 
 > Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
 > ---
->  .../bindings/memory-controllers/ddr/jedec,sdram-channel.yaml       | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
+>  .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
+>  1 file changed, 94 insertions(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
+> new file mode 100644
+> index 000000000000..1d97861e3d44
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
+> @@ -0,0 +1,94 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/perf/st,stm32-ddr-pmu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +maintainers:
+> +  - Clément Le Goffic <legoffic.clement@gmail.com>
+> +
+> +title: STMicroelectronics STM32 DDR Performance Monitor (DDRPERFM)
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - const: st,stm32mp131-ddr-pmu
+> +      - items:
+> +          - enum:
+> +              - st,stm32mp151-ddr-pmu
+> +          - const: st,stm32mp131-ddr-pmu
+> +      - items:
+> +          - const: st,stm32mp251-ddr-pmu
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+This and the 1st entry can be a single enum.
 
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  access-controllers:
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  memory-channel:
+> +    description:
+> +      The memory channel this DDRPERFM is attached to.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: st,stm32mp131-ddr-pmu
+> +    then:
+> +      required:
+> +        - clocks
+> +        - resets
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: st,stm32mp251-ddr-pmu
+> +    then:
+> +      required:
+> +        - access-controllers
+> +        - memory-channel
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/stm32mp1-clks.h>
+> +    #include <dt-bindings/reset/stm32mp1-resets.h>
+> +
+> +    perf@5a007000 {
+> +        compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp131-ddr-pmu";
+> +        reg = <0x5a007000 0x400>;
+> +        clocks = <&rcc DDRPERFM>;
+> +        resets = <&rcc DDRPERFM_R>;
+> +    };
+> +
+> +  - |
+> +    ddr_channel: sdram-channel-0 {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +        compatible = "jedec,ddr4-channel";
+> +        io-width = <16>;
+> +    };
+> +
+> +    perf@48041000 {
+> +      compatible = "st,stm32mp251-ddr-pmu";
+> +      reg = <0x48041000 0x400>;
+> +      access-controllers = <&rcc 104>;
+> +      memory-channel = <&ddr_channel>;
+> +    };
+> 
+> -- 
+> 2.43.0
+> 
 
