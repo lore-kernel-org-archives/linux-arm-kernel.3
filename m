@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8F0C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60E1C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfEHBZ02wUVwRXSKBRQb6U57So6qITtjQ8Vyh+zAsHY=; b=Dfokw0fkZ+2QomjYPVMQxnQKva
-	MipDYkFtmYzu/TjfE+7tk7lSLSq0Uc0FVDk2naUk0NGVNCN0OlDs2Hra/LwmACCghzm2Fu+dkjlWA
-	XCeko7mdfPUs4Bqv7wbJI7B9UqoZ4OvzRm2mb5ZLY4pZ+cJ5znbBm72cVtvABzH6N4dcpgoW45Evx
-	g1xOAeTR54TV3jicTqmExOu0RNLChbyhmzG7xVCh+8SEypyYiV50gRSQ0s2K8OTyjYZrhindpanbU
-	j+8GiX9Z4WwSD7/gD7lJQ7bvAxN1nXwBWXW6JYYGXGkAiWs2yurCqaMSxa+c+jm6q1vGOQwuw2hcI
-	PnwLqb5A==;
+	bh=fegrJucts4h/Wh/12yvX28tz83l7qAYaODgwjDKH8Nw=; b=kHvOuUSgtdoU2qZ0fThJKm/X5C
+	c4MHd25/sxTlCyfcMU9lOtD44LzvL1Oz2QC/sEbBMXZ0EV6jDEzDk3yJaTkpL89s/dOlLnRRJK19D
+	R57ZrdyvKQgbDXfJSqGXDd3IPMaPt7URTC0G9flW12qlGb2fU3HV5MlR6Kl8KU7cw+BPNCLVQ0fFZ
+	iXdks8sqO3joNox+YKry7PNOB922k8tSaGgQDQ/xUz7XTrHa44X7KU5hUXuTADTfsTZsfM0Dr4jyG
+	AFY7xq9wnTbcA6oMA9RZ7stNRXztoV32GO+J6rYl8F1TShQfY4FPlJvxNvyqbNh79qT4lzrjO8xML
+	ScCHNqHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhU3a-00000003niP-1NpK;
-	Thu, 31 Jul 2025 14:14:54 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uhU6B-00000003o4t-1iqs;
+	Thu, 31 Jul 2025 14:17:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTOM-00000003hdA-47KF
+	id 1uhTR7-00000003iBC-2YCC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 13:32:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=yfEHBZ02wUVwRXSKBRQb6U57So6qITtjQ8Vyh+zAsHY=; b=x3
-	NX7dX0lbkdeNEwffn13vC0JOlNuFr3f1HVsqcNK8OqvHLEdXSwBn/QQXiGa8FBSzv+ylFNEoLS7Dg
-	OKoeKKITgmI3sB4qVJJgpux2oJguBXJXMW4GU9o09ogE+ldh7Jn1K1+33vCOMBv7zEp9RHE7hXQSB
-	4GtOvSKCAlpfPn8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uhTNw-003N6x-RK; Thu, 31 Jul 2025 15:31:52 +0200
-Date: Thu, 31 Jul 2025 15:31:52 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
-Cc: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
-	yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
-	jszhang@kernel.org, jan.petrous@oss.nxp.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
-	boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
-	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com
-Subject: Re: Re: Re: Re: Re: [PATCH v3 2/2] ethernet: eswin: Add eic7700
- ethernet driver
-Message-ID: <bad83fec-afca-4c41-bee4-e4e4f9ced57a@lunn.ch>
-References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
- <20250703092015.1200-1-weishangjuan@eswincomputing.com>
- <c212c50e-52ae-4330-8e67-792e83ab29e4@lunn.ch>
- <7ccc507d.34b1.1980d6a26c0.Coremail.lizhi2@eswincomputing.com>
- <e734f2fd-b96f-4981-9f00-a94f3fd03213@lunn.ch>
- <6c5f12cd.37b0.1982ada38e5.Coremail.lizhi2@eswincomputing.com>
- <6b3c8130-77f0-4266-b1ed-2de80e0113b0@lunn.ch>
- <006c01dbfafb$3a99e0e0$afcda2a0$@eswincomputing.com>
- <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
- <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
+	Thu, 31 Jul 2025 13:35:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7FFE6601F0;
+	Thu, 31 Jul 2025 13:35:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E516C4CEEF;
+	Thu, 31 Jul 2025 13:35:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753968907;
+	bh=JlgjnISOVlbMm171G0UqLCdsAqO+LwlJ2wQNnZovLEA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n62DkWJI5QDzlSFj4I0ZZxFbWRpzaHmiyzX3/mXIv+bAD973YvFciv5FfgfDDdfy3
+	 g8wvomrxmJ095KgSDtLbd8toTpFS6e9ZZjIHS30te5ucGfNGQ+x+oa5w3NUn5UCdEu
+	 i1D5AX5tXpnVOc9/SgA4vGyGdm9wB/rkVqBUdjc9YNukoEhPQmNC3NaxO79vYFMPDS
+	 S/+V15V6uMBAB0eoSFQRlSXzgG2tWk8cBgm6tBKhLuNFbKGg3I0nIgzpG19QV6bXnT
+	 pkiJ0icmE5bjGGDxC47KnVLpgUdZCRtUYVV19Yk+82WJmxd0Txsa5Bay9lhYfVHut1
+	 tTCGBWuAZjSiQ==
+Date: Thu, 31 Jul 2025 08:35:06 -0500
+From: Rob Herring <robh@kernel.org>
+To: Daniel Scally <dan.scally@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com,
+	jacopo.mondi@ideasonboard.com, nayden.kanchev@arm.com,
+	mchehab@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	conor+dt@kernel.org, jerome.forissier@linaro.org,
+	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com,
+	sakari.ailus@linux.intel.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v11.1 07/19] dt-bindings: media: Add bindings for ARM
+ mali-c55
+Message-ID: <20250731133506.GA2114146-robh@kernel.org>
+References: <20250714-c55-v11-7-bc20e460e42a@ideasonboard.com>
+ <20250731071151.997550-1-dan.scally@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_063219_022228_9EEA0380 
-X-CRM114-Status: GOOD (  17.82  )
+In-Reply-To: <20250731071151.997550-1-dan.scally@ideasonboard.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,63 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > You hardware has a lot of flexibility, but none of if should actually
-> > be needed, if you follow the standard.
-> > 
-> > So phy-mode = "rgmii-id"; should be all you need for most boards.
-> > Everything else should be optional, with sensible defaults.
-> > 
+On Thu, Jul 31, 2025 at 08:11:51AM +0100, Daniel Scally wrote:
+> Add the yaml binding for ARM's Mali-C55 Image Signal Processor.
 > 
-> On our platform, the vendor-specific attributes eswin,dly-param-* were
-> initially introduced to compensate for board-specific variations in RGMII
-> signal timing, primarily due to differences in PCB trace lengths.
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Acked-by: Nayden Kanchev <nayden.kanchev@arm.com>
+> Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> ---
+> Resending this patch with the change that I had forgotten to make,
+> actually made.
+> 
+> Changes in v11.1:
 
-So it seems like, because you have the flexibility in the hardware,
-you designed your PCB poorly, breaking the standard, so now must have
-these properties.  It would of been much better if you had stuck to
-the standard...
+Creative versioning like this and sending 1 patch of the series doesn't 
+work with the tools (i.e. b4). You're going to have to send the whole 
+thing as v12. But do that after rc1 is out.
 
-Please ensure your default values, when nothing is specified in DT,
-correspond to a board which actually fulfils the standard. The next
-board which is made using this device can then avoid having anything
-special in there DT blob.
-
-> These attributes allow fine-grained, per-signal delay control for RXD, TXD,
-> TXEN, RXDV, RXCLK, and TXCLK, based on empirically derived optimal phase
-> settings.
-> In our experience, setting phy-mode = "rgmii-id" alone, along with only
-> the standard properties rx-internal-delay-ps and tx-internal-delay-ps,
-> has proven insufficient to meet our hardware's timing requirements.
-
-You don't need vendor properties for RXCLK and TXCLK, that is what
-tx-internal-delay-ps and rx-internal-delay-ps do. They change the
-clock signal relative to TX and RX data. So you only need properties
-for TXEN and RXDV. You should probably call these
-eswin,txen-internal-delay-ps and eswin,rxdv-internal-delay-ps.  In the
-binding you need to clearly define what these mean, for your hardware,
-i.e.  what is the delay relative to?
-
-> 1. Setting all delay parameters (RXD, TXD, TXEN, RXDV, RXCLK, and TXCLK)
->    using vendor-specific attributes eswin,dly-param-*.
->    e.g.
->    eswin,dly-param-1000m = <0x20202020 0x96205A20 0x20202020>;
-> 2. Setting delay parameters (RXD, TXD, TXEN, RXDV) using vendor-specific
->    attributes eswin,dly-param-* , RXCLK using rx-internal-delay-ps and
->    TXCLK using tx-internal-delay-ps.
->    e.g
->    eswin,dly-param-1000m = <0x20202020 0x80200020 0x20202020>;
->    rx-internal-delay-ps = <9000>;
->    tx-internal-delay-ps = <2200>;
-
-Neither. DT should not contain HW values you poke into registers. They
-should be SI using, in this case, pico seconds. From these delays in
-picoseconds, have the driver calculate what values should be written
-into the registers.
-
-And these delay values are unlikely to be correct. You are using
-rgmii-id, so the PHY is adding 2ns. You want the MAC to make small
-tuning adjustments, so 200 could be reasonable, but 9000ps is way too
-big.
-
-	Andrew
+Rob
 
