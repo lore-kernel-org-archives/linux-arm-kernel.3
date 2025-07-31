@@ -4,66 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74DB6C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 10:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A10C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:02:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4odthgpL669trIYuGSc79a2PbDMDTzqM0a0YUOGgrG4=; b=WrWv9j3onT0u2IlGrhK8xcq/hB
-	FI4R2/WHE1xNnmj3656aCNJClkihCGLnhnrMK9izdVAKW43hVU9lcaxp4Mw0CyjuAz13XAdy6smmn
-	+C+0CjHKiy17/rnpJ7gDt5Fif7RUfaYIoiiDslny1G2xC1Ezjld66ej0jcjvDkICIp/2rLfEnwQo1
-	DyNJP30TXx5mygJjwmHJA+6lmvEBHqnsbqMIzsoctPrcBArJts/tg9Guu1h1VESZKuJB1BZXMUMHM
-	/6dhYMPYYu26yLytfg5I9XtRLc9bpFrnJH23uJf1Jlcwj2gahwGASl5Z2Focu5AVzn4iwTwKn9wdv
-	wxYA6D/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OFNCmYtH61Nndov9+nrflnm2Khdw9kLv+m1BQD23EEs=; b=SFqPslLyOLqf1aWPFRwBKHuliU
+	66L+vvV1R7y6fT+ppkAxJ14n1MRjp0+gNX7SsoIKxwORleXnrJ+ySPPrdkfGMBheFU6MLxFK+22rJ
+	0DMby034ENlUi8v/pd5KbY9Ge9rbXUr7joXqgFun+YBIw+DCeCNpgGWWJAHX80Dbapp3WE5GepMKc
+	0yl0+ighABPaOfm1Q2VY/eAn4lR/6QUOdL6pFiF08VeFHi09yuSCG8WK/BrFEU021J8WqEJ03rqu5
+	RRWtsI3M/5Lj/GXOpqi9adFbzWv0+es7363QtmkM07Vfkb/omYNEI2C5JEDBDHsZZOmdbauDfe8qm
+	nRkAYYVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhQv3-00000003Pps-0BQp;
-	Thu, 31 Jul 2025 10:53:53 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1uhR3O-00000003S37-2h0k;
+	Thu, 31 Jul 2025 11:02:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhQpF-00000003P9d-3dey
+	id 1uhR0m-00000003Ra0-2kFb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 10:47:56 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1753958869;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4odthgpL669trIYuGSc79a2PbDMDTzqM0a0YUOGgrG4=;
-	b=qIN3qzqyLEa3z9iZDs4OBiMyEkwfOUm9Rgo0ugEyNNN9bQxGrV7mMmEe7UJSpU2oEYInKA
-	kXO5MgJsKXAsjT/ZVYgAxzSdHgrLstMXufy/zJIML0jm1K5GcgSCskrDrRb1VPkibOvLqX
-	yQhgIv7EQHp3NYwluIZ2zZ40zpaT0sYyEEoeQkqEfwB3jG4nuJDmd9BNp2PnTkkXn/aTq8
-	mD49PYVQmnTWzczEcBPucD9wKrC+VJzmCo0/J6NFqq9x4FvnWon/5NljRHsntow0ithW7Q
-	Gi/6M3de/t7h9ADLPGf5p2lYEQ2U8QFdPaK0Ew6QE8v9wQyJswlZbZroRG48Vw==
-Content-Type: multipart/signed;
- boundary=0b38981bb829eebfafe48a04f99efa1bdb4b30b7bde156f6b84f4be44d26;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Thu, 31 Jul 2025 12:47:31 +0200
-Message-Id: <DBQ6ISOKV0XR.22W3OAALUKIHQ@cknow.org>
-Cc: "Lee Jones" <lee@kernel.org>, "Pavel Machek" <pavel@kernel.org>, "Andrew
- Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, <linux-leds@vger.kernel.org>,
- <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: BUG: Circular locking dependency on netdev led trigger on
- NanoPi R5S
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <didi.debian@cknow.org>
-To: "Dragan Simic" <dsimic@manjaro.org>, "Robin Murphy"
- <robin.murphy@arm.com>
-References: <DBLBPIBKFCJV.36AVW8JY88L7H@cknow.org>
- <6817efe1-f2c2-4686-bdf1-fca11f066e3a@arm.com>
- <475ee9ae8cdca5ce86b708fe0ade7c9d@manjaro.org>
-In-Reply-To: <475ee9ae8cdca5ce86b708fe0ade7c9d@manjaro.org>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 31 Jul 2025 10:59:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BFB2944ECC;
+	Thu, 31 Jul 2025 10:59:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FA39C4CEF5;
+	Thu, 31 Jul 2025 10:59:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753959586;
+	bh=qPWfK9sgu6r8bmRE+mFmR8DEssdNTrNeH7RfdRDf8hc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jy2SfELj63IFup2dLp/YeTc1l0sM7Tr8Xu0JCb7WWN1lNQVx9z9F9YkHCOUY3ngEN
+	 PJfv0rQacZTEZ5BDe81CUoOcohA71TL/TVsLo946tkmZT0yoJt/dg20po9iOugbXke
+	 o3Oa47KxEUcWHVJB3je+QQcyuk5QHB1kbErBOQ5sXzGrkphI1uVhF2O1nU7yXk71yV
+	 CVHPKDVIL+yr8Y0IWAACC4QTuGeb33ZUMrdsBBAOIIFan8DrGj76SCkBXZFmtdzERP
+	 o1MfTPQeJyOnINMelM4ThSUl3Q1thgwEMys9M0rtgMIr5YRCE1o6s6cWS5sWJk6WFX
+	 SbpYjLuE8DAXg==
+Message-ID: <0774bf0f-5686-46ab-bd71-82b859201353@kernel.org>
+Date: Thu, 31 Jul 2025 12:59:43 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] memory: samsung: exynos-srom: Fix of_iomap leak in
+ exynos_srom_probe
+To: "zhen.ni" <zhen.ni@easystack.cn>, alim.akhtar@samsung.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250731083340.1057564-1-zhen.ni@easystack.cn>
+ <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
+ <5b4dc6a3-f6fd-4bf7-a84e-3d79db8d062e@easystack.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <5b4dc6a3-f6fd-4bf7-a84e-3d79db8d062e@easystack.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_034754_719129_21B3C15D 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20250731_035948_740550_1B601AFB 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---0b38981bb829eebfafe48a04f99efa1bdb4b30b7bde156f6b84f4be44d26
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 31/07/2025 11:40, zhen.ni wrote:
+> Hi,
+> 
+> During static analysis with Smatch, I identified the following issue:
+> 
+> ```
+> drivers/memory/samsung/exynos-srom.c:155 exynos_srom_probe()
+> warn: 'srom->reg_base' from of_iomap() not released on lines: 155.
 
-On Wed Jul 30, 2025 at 9:50 PM CEST, Dragan Simic wrote:
-> I've spent some time digging through the LED subsystem, which I'm
-> already somewhat familiar with, and I think I've narrowed down the
-> root cause of this deadlock.
->
-> I'll send a preliminary patch soon, after I make sure that the root
-> cause is identified correctly, and I hope Diederik will be willing
-> to test the patch.  If so, and if the patch checks out to be the
-> cure, I'll prepare and submit a proper patch, of course.
+Nothing in commit msg explained you used Smatch. You must describe the
+tools you use.
 
-Sure, but AFAIC you can send it to the ML(s) directly as well.
-Please do CC me as I'm only subscribed to the linux-rockchip ML.
+> ```
+> 
+> Problem analysis:
+> 1. In exynos_srom_probe(), the reg_base resource is acquired via of_iomap()
+> 2. The of_platform_populate() call at the end of the function has a 
+> possible failure path:
 
-Cheers,
-  Diederik
+Above is AI/LLM output?
 
---0b38981bb829eebfafe48a04f99efa1bdb4b30b7bde156f6b84f4be44d26
-Content-Type: application/pgp-signature; name="signature.asc"
+> ```
+> root = root ? of_node_get(root) : of_find_node_by_path("/");
+> if (!root)
+>       return -EINVAL; // Failure return point
+> ```
+> 3. When this path is taken, reg_base is not released, causing a resource 
+> leak
+> 
+> Verification:
+> After applying the patch, the Smatch warning is resolved
 
------BEGIN PGP SIGNATURE-----
+This means no testing. You should mention it as well.
 
-iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaItJxQAKCRDXblvOeH7b
-bi5gAQCxYSZt1DjQ/NWu1cowGv/jz0IMEd2jlu0r9jnSjHLQuAEAo0Kmyapy/Pgp
-ro+OUyTrc2A4aBmU2frzWFW+zmcZtAc=
-=jZT0
------END PGP SIGNATURE-----
+Don't top post. See netiquette.
 
---0b38981bb829eebfafe48a04f99efa1bdb4b30b7bde156f6b84f4be44d26--
+
+Best regards,
+Krzysztof
 
