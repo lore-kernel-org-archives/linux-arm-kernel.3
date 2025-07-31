@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BC6C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8F0C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4rMJSNuwjfN230TtsdOnFvoHx+sdZ6f2oTG8jxLLQ8=; b=OVzqVrM7QhSGy+YjL8hwzVvcVn
-	mCva011RDZTXQcz4dtJEWadb7BPK9Lu8BtZqShcfg27mwnyQMjWh3C13E/0ZtVgwwdNFUePJyi282
-	6o75c6z/bSX1we+OauFyLJSGgD+msdaHrZhk4nuv5q4y0pnsvmrw3v0Xj0Zw1U0qhEp2+HpX0wbKt
-	Iht1mftEgGnLhmp2rwfc4NWisp1kOhQtYHoWYkznqG3iDNUClB3Fl9YebINHUtFgGZrE+8q8Hr7aa
-	zCo+ejial6IZlNH1tGxaq7kWGAIR951K3bvR0IvBOeTiDZzp7tTsn6vAA5xlMGR7khXI48+6r2A7q
-	uYFl4hhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yfEHBZ02wUVwRXSKBRQb6U57So6qITtjQ8Vyh+zAsHY=; b=Dfokw0fkZ+2QomjYPVMQxnQKva
+	MipDYkFtmYzu/TjfE+7tk7lSLSq0Uc0FVDk2naUk0NGVNCN0OlDs2Hra/LwmACCghzm2Fu+dkjlWA
+	XCeko7mdfPUs4Bqv7wbJI7B9UqoZ4OvzRm2mb5ZLY4pZ+cJ5znbBm72cVtvABzH6N4dcpgoW45Evx
+	g1xOAeTR54TV3jicTqmExOu0RNLChbyhmzG7xVCh+8SEypyYiV50gRSQ0s2K8OTyjYZrhindpanbU
+	j+8GiX9Z4WwSD7/gD7lJQ7bvAxN1nXwBWXW6JYYGXGkAiWs2yurCqaMSxa+c+jm6q1vGOQwuw2hcI
+	PnwLqb5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhU10-00000003nAO-2Z1f;
-	Thu, 31 Jul 2025 14:12:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTJt-00000003gyK-2fBG
+	id 1uhU3a-00000003niP-1NpK;
+	Thu, 31 Jul 2025 14:14:54 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhTOM-00000003hdA-47KF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 13:27:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E93B92BC3;
-	Thu, 31 Jul 2025 06:27:30 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4C7B3F66E;
-	Thu, 31 Jul 2025 06:27:36 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 31 Jul 2025 14:25:50 +0100
-Subject: [PATCH v4 15/15] perf arm_spe: Allow parsing both data source and
- events
+	Thu, 31 Jul 2025 13:32:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=yfEHBZ02wUVwRXSKBRQb6U57So6qITtjQ8Vyh+zAsHY=; b=x3
+	NX7dX0lbkdeNEwffn13vC0JOlNuFr3f1HVsqcNK8OqvHLEdXSwBn/QQXiGa8FBSzv+ylFNEoLS7Dg
+	OKoeKKITgmI3sB4qVJJgpux2oJguBXJXMW4GU9o09ogE+ldh7Jn1K1+33vCOMBv7zEp9RHE7hXQSB
+	4GtOvSKCAlpfPn8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uhTNw-003N6x-RK; Thu, 31 Jul 2025 15:31:52 +0200
+Date: Thu, 31 Jul 2025 15:31:52 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?utf-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+Cc: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
+	jszhang@kernel.org, jan.petrous@oss.nxp.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com
+Subject: Re: Re: Re: Re: Re: [PATCH v3 2/2] ethernet: eswin: Add eic7700
+ ethernet driver
+Message-ID: <bad83fec-afca-4c41-bee4-e4e4f9ced57a@lunn.ch>
+References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
+ <20250703092015.1200-1-weishangjuan@eswincomputing.com>
+ <c212c50e-52ae-4330-8e67-792e83ab29e4@lunn.ch>
+ <7ccc507d.34b1.1980d6a26c0.Coremail.lizhi2@eswincomputing.com>
+ <e734f2fd-b96f-4981-9f00-a94f3fd03213@lunn.ch>
+ <6c5f12cd.37b0.1982ada38e5.Coremail.lizhi2@eswincomputing.com>
+ <6b3c8130-77f0-4266-b1ed-2de80e0113b0@lunn.ch>
+ <006c01dbfafb$3a99e0e0$afcda2a0$@eswincomputing.com>
+ <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
+ <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-15-58e5677a412b@arm.com>
-References: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-0-58e5677a412b@arm.com>
-In-Reply-To: <20250731-arm_spe_support_hitm_overhead_v1_public-v4-0-58e5677a412b@arm.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- James Clark <james.clark@linaro.org>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- German Gomez <german.gomez@arm.com>, Ali Saidi <alisaidi@amazon.com>
-Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1753968422; l=4722;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=DwDknRz+M+PM0kRQxaVsn+FUh1ULlnp1rQaeTIs9xco=;
- b=OOKeWz+A9vVgpnRs33Uf4YarurcS1VAbmxuSDBLoawWkqgWvCZT9h7b1bJtYBgLGbU/EGR98i
- bkSymMQU/RTCp4qzAh5HVsYF1TeFvbFNEUXHWcdXe/uLnlTfTCsAjAF
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_062741_757477_E93EA661 
-X-CRM114-Status: GOOD (  18.01  )
+X-CRM114-CacheID: sfid-20250731_063219_022228_9EEA0380 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,144 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current code skips to parse events after generating data source. The
-reason is the data source packets have cache and snooping related info,
-the afterwards event packets might contain duplicate info.
+> > You hardware has a lot of flexibility, but none of if should actually
+> > be needed, if you follow the standard.
+> > 
+> > So phy-mode = "rgmii-id"; should be all you need for most boards.
+> > Everything else should be optional, with sensible defaults.
+> > 
+> 
+> On our platform, the vendor-specific attributes eswin,dly-param-* were
+> initially introduced to compensate for board-specific variations in RGMII
+> signal timing, primarily due to differences in PCB trace lengths.
 
-This commit changes to continue parsing the events after data source
-analysis. If data source does not give out memory level and snooping
-types, then the event info is used to synthesize the related fields.
+So it seems like, because you have the flexibility in the hardware,
+you designed your PCB poorly, breaking the standard, so now must have
+these properties.  It would of been much better if you had stuck to
+the standard...
 
-As a result, both the peer snoop option ('-d peer') and hitm options
-('-d tot/lcl/rmt') are supported by Arm SPE in the perf c2c.
+Please ensure your default values, when nothing is specified in DT,
+correspond to a board which actually fulfils the standard. The next
+board which is made using this device can then avoid having anything
+special in there DT blob.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/util/arm-spe.c | 75 ++++++++++++++++++++++++++++-------------------
- 1 file changed, 45 insertions(+), 30 deletions(-)
+> These attributes allow fine-grained, per-signal delay control for RXD, TXD,
+> TXEN, RXDV, RXCLK, and TXCLK, based on empirically derived optimal phase
+> settings.
+> In our experience, setting phy-mode = "rgmii-id" alone, along with only
+> the standard properties rx-internal-delay-ps and tx-internal-delay-ps,
+> has proven insufficient to meet our hardware's timing requirements.
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 17d12bfa812c86a796dd79624a3d283f0cbac237..a2925a5cfe980f1c72a8748b02fbe238cc7b8e00 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -921,40 +921,56 @@ static void arm_spe__synth_memory_level(struct arm_spe_queue *speq,
- {
- 	struct arm_spe *spe = speq->spe;
- 
--	if (data_src->mem_op == PERF_MEM_OP_LOAD)
--		arm_spe__synth_ld_memory_level(record, data_src);
--	if (data_src->mem_op == PERF_MEM_OP_STORE)
--		arm_spe__synth_st_memory_level(record, data_src);
-+	/*
-+	 * The data source packet contains more info for cache levels for
-+	 * peer snooping. So respect the memory level if has been set by
-+	 * data source parsing.
-+	 */
-+	if (!data_src->mem_lvl) {
-+		if (data_src->mem_op == PERF_MEM_OP_LOAD)
-+			arm_spe__synth_ld_memory_level(record, data_src);
-+		if (data_src->mem_op == PERF_MEM_OP_STORE)
-+			arm_spe__synth_st_memory_level(record, data_src);
-+	}
- 
- 	if (!data_src->mem_lvl) {
- 		data_src->mem_lvl = PERF_MEM_LVL_NA;
- 		data_src->mem_lvl_num = PERF_MEM_LVLNUM_NA;
- 	}
- 
--	if (record->type & ARM_SPE_DATA_SNOOPED) {
--		if (record->type & ARM_SPE_HITM)
--			data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
--		else
--			data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
--	} else {
--		u64 *metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
--
--		/*
--		 * Set NA ("Not available") mode if no meta data or the
--		 * SNOOPED event is not supported.
--		 */
--		if (!metadata ||
--		    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
--			data_src->mem_snoop = PERF_MEM_SNOOP_NA;
--		else
--			data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+	/*
-+	 * If 'mem_snoop' has been set by data source packet, skip to set
-+	 * it at here.
-+	 */
-+	if (!data_src->mem_snoop) {
-+		if (record->type & ARM_SPE_DATA_SNOOPED) {
-+			if (record->type & ARM_SPE_HITM)
-+				data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+			else
-+				data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
-+		} else {
-+			u64 *metadata =
-+				arm_spe__get_metadata_by_cpu(spe, speq->cpu);
-+
-+			/*
-+			 * Set NA ("Not available") mode if no meta data or the
-+			 * SNOOPED event is not supported.
-+			 */
-+			if (!metadata ||
-+			    !(metadata[ARM_SPE_CAP_EVENT_FILTER] & ARM_SPE_DATA_SNOOPED))
-+				data_src->mem_snoop = PERF_MEM_SNOOP_NA;
-+			else
-+				data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		}
- 	}
- 
--	if (record->type & ARM_SPE_REMOTE_ACCESS)
--		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+	if (!data_src->mem_remote) {
-+		if (record->type & ARM_SPE_REMOTE_ACCESS)
-+			data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+	}
- }
- 
--static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
-+static void arm_spe__synth_ds(struct arm_spe_queue *speq,
- 			      const struct arm_spe_record *record,
- 			      union perf_mem_data_src *data_src)
- {
-@@ -973,19 +989,18 @@ static bool arm_spe__synth_ds(struct arm_spe_queue *speq,
- 	} else {
- 		metadata = arm_spe__get_metadata_by_cpu(spe, speq->cpu);
- 		if (!metadata)
--			return false;
-+			return;
- 
- 		midr = metadata[ARM_SPE_CPU_MIDR];
- 	}
- 
- 	for (i = 0; i < ARRAY_SIZE(data_source_handles); i++) {
- 		if (is_midr_in_range_list(midr, data_source_handles[i].midr_ranges)) {
--			data_source_handles[i].ds_synth(record, data_src);
--			return true;
-+			return data_source_handles[i].ds_synth(record, data_src);
- 		}
- 	}
- 
--	return false;
-+	return;
- }
- 
- static union perf_mem_data_src
-@@ -1005,8 +1020,8 @@ arm_spe__synth_data_source(struct arm_spe_queue *speq,
- 	else
- 		return data_src;
- 
--	if (!arm_spe__synth_ds(speq, record, &data_src))
--		arm_spe__synth_memory_level(speq, record, &data_src);
-+	arm_spe__synth_ds(speq, record, &data_src);
-+	arm_spe__synth_memory_level(speq, record, &data_src);
- 
- 	if (record->type & (ARM_SPE_TLB_ACCESS | ARM_SPE_TLB_MISS)) {
- 		data_src.mem_dtlb = PERF_MEM_TLB_WK;
+You don't need vendor properties for RXCLK and TXCLK, that is what
+tx-internal-delay-ps and rx-internal-delay-ps do. They change the
+clock signal relative to TX and RX data. So you only need properties
+for TXEN and RXDV. You should probably call these
+eswin,txen-internal-delay-ps and eswin,rxdv-internal-delay-ps.  In the
+binding you need to clearly define what these mean, for your hardware,
+i.e.  what is the delay relative to?
 
--- 
-2.34.1
+> 1. Setting all delay parameters (RXD, TXD, TXEN, RXDV, RXCLK, and TXCLK)
+>    using vendor-specific attributes eswin,dly-param-*.
+>    e.g.
+>    eswin,dly-param-1000m = <0x20202020 0x96205A20 0x20202020>;
+> 2. Setting delay parameters (RXD, TXD, TXEN, RXDV) using vendor-specific
+>    attributes eswin,dly-param-* , RXCLK using rx-internal-delay-ps and
+>    TXCLK using tx-internal-delay-ps.
+>    e.g
+>    eswin,dly-param-1000m = <0x20202020 0x80200020 0x20202020>;
+>    rx-internal-delay-ps = <9000>;
+>    tx-internal-delay-ps = <2200>;
 
+Neither. DT should not contain HW values you poke into registers. They
+should be SI using, in this case, pico seconds. From these delays in
+picoseconds, have the driver calculate what values should be written
+into the registers.
+
+And these delay values are unlikely to be correct. You are using
+rgmii-id, so the PHY is adding 2ns. You want the MAC to make small
+tuning adjustments, so 200 could be reasonable, but 9000ps is way too
+big.
+
+	Andrew
 
