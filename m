@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E50BC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 10:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45985C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 10:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxk1GEBxgt7Wq5m0JMo2E8p/OXKtwtzOI0AI4QbYiho=; b=QRwMjGlo/SPP1zVZ0P7wsY/MUs
-	LhBwjlV0LVZdcZqBaTqe/SbhCy2UUkDYWCXfymTwQkpBOvjPYZxC00C7K/KvKMDgjH2xHsGqTlaH+
-	uSYfkkX/o+bIxTek++78EW0fVmPTZ47PXSpEqrizdYoYK2qeLsxXlZx/v+KJN1plkxhwLLhHJ7eY+
-	sq1hIhZgcamPkFXdbeJs822Ib5KSmT9+EmKAf6E1STtlrQ+01GUaByjDb0uBtqhqAtONzhazT6mBt
-	WmS7oUe/07BLWc8YMR8p1QXCrvBrvvqV+ZxEFVTzTRr4pygHt34pbI6fA5JD9hxgDgN4ki3nhq1HQ
-	uJGe8spA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eeZqZiIDDXHwWP76HNKsyEyhco1yGowTasqjD2qFGQY=; b=KklHYG+RXZ/StgxFAICbnyr4mT
+	Jdc2JjjHIMejQ5qMt4YfEzoUduo2EOmYU68tsB96cYgbgNQ7F3fY9ICojqMHintTiUUb1coXZu8of
+	SVjh0ahHACxcGwxG21BE16DN0bD+ABYEG17rHRa2z2uasmy/Rbju2eHOrkeJ1DrtYAqiADprIU43B
+	aUb4iUgs68XffJu4BeHA8XLPiSFhORTzsHmO1j9M/zPk38Le301bJ7XLafVGweRYHVN21Dq8oCTvn
+	jlxibv9sZwEv7GhDFdrvujMq1dMR5xEI4M7VPUxC9e+gA7MAQRX+WwAmF3DY9hDBB8zmWAVozaYRE
+	vrtSxNKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhQMt-00000003Lx3-401N;
-	Thu, 31 Jul 2025 10:18:35 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uhQRt-00000003MNJ-1K82;
+	Thu, 31 Jul 2025 10:23:45 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhQKD-00000003LjK-3gfr;
-	Thu, 31 Jul 2025 10:15:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1753956948;
-	bh=RJiuaDp9mWdvOO/DBR0WGEM4OUuHTFOlawmLNB3P+G4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=njKKHKIzlvWFgIIXcjpz+iskyPm9MiUUMKAUvxUtiG1R1CgxIxZBHbJjZBHW5uq3u
-	 jiKMiAau9Fc3+HFgb86VauHp12rel7f8aFYebPkZHci0x0Q4agt18ckSKOTwDUSiXb
-	 naWk8UpG8LvfB6reJg+U+S8i3x6yNwU06vqxE3Kyj96t372JvbxtEv/FS4iQrpm52A
-	 vdIHItdj2KWjh0XbwNH5BTVLH4H5lanquQcnsqIyYj2ZbiVAP0rTJRA1kwIUkRMD4m
-	 Q1HrtCVCOmc4oY9mqSYISE9uT3ccecOvDRfl1rFvwg8v0pC2d75f+fEShZd3VCvuCk
-	 ohEj4DvNj4y8A==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:e229:d0be:3141:7dd2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8432E17E05F0;
-	Thu, 31 Jul 2025 12:15:38 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: fshao@chromium.org
-Cc: andrew-ct.chen@mediatek.com,
-	angelogioacchino.delregno@collabora.com,
-	arnd@arndb.de,
-	bchihi@baylibre.com,
-	colin.i.king@gmail.com,
-	conor+dt@kernel.org,
-	daniel.lezcano@linaro.org,
-	devicetree@vger.kernel.org,
-	kernel@collabora.com,
-	krzk+dt@kernel.org,
-	lala.lin@mediatek.com,
-	laura.nao@collabora.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	lukasz.luba@arm.com,
-	matthias.bgg@gmail.com,
-	nfraprado@collabora.com,
-	rafael@kernel.org,
-	robh@kernel.org,
-	rui.zhang@intel.com,
-	srini@kernel.org,
-	u.kleine-koenig@baylibre.com,
-	wenst@chromium.org
-Subject: Re: [PATCH v2 6/9] thermal/drivers/mediatek/lvts: Add support for ATP mode
-Date: Thu, 31 Jul 2025 12:14:41 +0200
-Message-Id: <20250731101441.142132-1-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <CAC=S1njcFhyY6+dT2MHU02ZsLDq+k_vAVv==bWuoGt3KA18PHg@mail.gmail.com>
-References: <CAC=S1njcFhyY6+dT2MHU02ZsLDq+k_vAVv==bWuoGt3KA18PHg@mail.gmail.com>
+	id 1uhQPF-00000003M7J-0h6L
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Jul 2025 10:21:02 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3b7848df30cso1081717f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 03:21:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753957259; x=1754562059; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=eeZqZiIDDXHwWP76HNKsyEyhco1yGowTasqjD2qFGQY=;
+        b=EpHanyv30rzqOrb/X+DjaVCuxRNgK2Ue2z9nBc/lNeoVf6+s2AgrM744E2/6o8PQfD
+         MVmbP8lk2jG3ZPXae/LLZHghay44eEQqWNJWcvkXGs3Bbj/HEeAf5we2+tD2yw/csppb
+         zuTI37wq29DWmnD7RHTZAJ+AJSfLLQ3El/OuDb2nhvz4e/Sw8A/3BXvXVFbh+wIEisjt
+         lvzzo551hejRpCm1macEnziRF7vWOGvqi8IOFrvIWp2Qp5ch5u3ub/dmVrhh+IHYUM6s
+         U1pCduQMS1YHdA4H21cLz65i8xhHxN4c6AZhcS056Zu8nplURKcni2f8NOOfEtQclKVW
+         n1NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753957259; x=1754562059;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=eeZqZiIDDXHwWP76HNKsyEyhco1yGowTasqjD2qFGQY=;
+        b=uNt5zbe2nhU02QF0aQfNN53b5JdclanvfAG0cYNJ2Igu+Fs7l2eFu77iFu9Xp14LzX
+         Nd07LgMP6+iWYlJW4OFqrIwmjViNdUgisS19s+EOWNIfnFphbzAGkJbpBZlmfc/VXuQr
+         6vblRrwTxZGbz6360E8wPwOEyHioaFnz/+y5QhojaIsutn/QpMn1IHP55uIBfNy1bhXs
+         MhUhgXMxv+Q3j1DWKhiWUlld9wGV0e4D/525E5aQzT+II2MT+gHR19GzKUdjWs7tJy8x
+         OMZyH8W4UqCOq1X/YuYzNto7COdEXgrUbn3aa3u7fSskvZg6golV+NgNugnrQ7RVeO+F
+         SfNg==
+X-Forwarded-Encrypted: i=1; AJvYcCXUDHhXZ5T5oGrPKShQqDUBo5I4ef6hITBjTkWhqodTh/EXD8uFkss86ACkuyDdt+80kE222EZMss/T/w670neu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwtoSm/ibjYudkCJRWIqg5HGWz+H9D+3qHyfOqPNn0OCBXRwAL
+	3Udbr2icPhKMmwIXlJO9RAGr4IJCS+pbE5LvN4bU3Mr4yhgr7kdLNsYE9ZHKcRkFzbw=
+X-Gm-Gg: ASbGncveEWZSPtwfiNZwFjevS86QXoloq3syQ3PahPj1XJle72Kjv1c/dGd1zjfIlLX
+	3EbKPrjnsQlJISqN/Lwk+FxutbOvNxvMOOIpMiTF1ZqM3Lzc811kktgPpo7VLVHeBim5adqRi+6
+	ktX8jnClEZTJ2OBh4N5WsFF1LJxoTnnV+l0WADDxv1szmFKablsRfpZgJ1XXnDDhjFBBdkow3y3
+	iDrcIsqhCuNexTchz8XTkpBWgvKiUMUAWiLiqSZuzyR6ee8bHJKqSDlR2xwELVKfienIlDgnMSI
+	7sye8ImbKbNFbku3O3QvmsE+PRyVkdhfuC/n5nFcpLLgaxzljU77Pooa2UF+lYZHoKDWy4CEbUn
+	/hIrogjNRxHJLzZ1A2lM3ghaUHA==
+X-Google-Smtp-Source: AGHT+IFVEwLIcO4fNKnjyIY1mnWetXH6kHJKTnn/c6Wln21XoHb709OPThVEb0OesSZIKjx5gzja4Q==
+X-Received: by 2002:a05:6000:22c8:b0:3a4:cec5:b59c with SMTP id ffacd0b85a97d-3b79d812bc8mr1195293f8f.25.1753957258867;
+        Thu, 31 Jul 2025 03:20:58 -0700 (PDT)
+Received: from [10.1.1.59] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4588d89c50fsm60787795e9.0.2025.07.31.03.20.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Jul 2025 03:20:58 -0700 (PDT)
+Message-ID: <1a72e672995ef6cd186f8ff18a91bb8b72d86554.camel@linaro.org>
+Subject: Re: [PATCH v5 0/2] Samsung S2MPG10 PMIC MFD-based drivers
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Lee Jones <lee@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sylwester Nawrocki
+ <s.nawrocki@samsung.com>, Chanwoo Choi	 <cw00.choi@samsung.com>, Alim
+ Akhtar <alim.akhtar@samsung.com>, Michael Turquette
+ <mturquette@baylibre.com>, Russell King <linux@armlinux.org.uk>, Catalin
+ Marinas	 <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alexandre Belloni	 <alexandre.belloni@bootlin.com>, Peter Griffin
+ <peter.griffin@linaro.org>,  Tudor Ambarus <tudor.ambarus@linaro.org>, Will
+ McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>
+Date: Thu, 31 Jul 2025 11:20:56 +0100
+In-Reply-To: <20250730145100.GA6782@google.com>
+References: <20250730-s2mpg10-v5-0-cd133963626c@linaro.org>
+	 <20250730145100.GA6782@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1+build2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_031550_073949_6A45A64B 
-X-CRM114-Status: GOOD (  15.26  )
+X-CRM114-CacheID: sfid-20250731_032101_217057_51A6922B 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +111,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fei,
+On Wed, 2025-07-30 at 15:51 +0100, Lee Jones wrote:
+> On Wed, 30 Jul 2025, Andr=C3=A9 Draszik wrote:
+>=20
+> > Original cover letter further down.
+> >=20
+> > This is a resend of two patches from the original series that haven't
+> > been merged yet. That series was merged except for the attached two
+> > patches here. Other than rebasing against next-20250729 there are no
+> > changes to them.
+> >=20
+> > Lee, I think Stephen's intention was to get these two merged via the
+> > MFD tree please.
+>=20
+> Although I have no issue with this, it does seem a little odd now that
+> the set consists of only Clk patches.=C2=A0 Let me know what you / Stephe=
+n
+> decide.
 
-On 7/31/25 06:25, Fei Shao wrote:
-> On Wed, Jul 30, 2025 at 11:40 PM Laura Nao <laura.nao@collabora.com> wrote:
->>
->> MT8196/MT6991 uses ATP (Abnormal Temperature Prevention) mode to detect
->> abnormal temperature conditions, which involves reading temperature data
->> from a dedicated set of registers separate from the ones used for
->> immediate and filtered modes.
->>
->> Add support for ATP mode and its relative registers to ensure accurate
->> temperature readings and proper thermal management on MT8196/MT6991
->> devices.
->>
->> While at it, convert mode defines to enum.
->>
->> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
->> Signed-off-by: Laura Nao <laura.nao@collabora.com>
->
-> It's not visible in this patch, but a heads-up that I see
-> lvts_ctrl_start() also depends on whether lvts is in immediate mode. I
-> wonder if anything is needed there for ATP mode e.g. a new
-> sensor_atp_bitmap.
-> Feel free to ignore if this is a false alarm.
->
+Thanks Lee.
 
-Thanks for the heads up - the bitmap for ATP mode is the same as 
-sensor_filt_bitmap, so the function is already working as intended.
+I simply went by Stephen's ACK, which to me implies he wanted it merged
+via a different tree (mfd). I guess at this stage it doesn't matter anymore=
+,
+since all the core changes are in already.
 
-Best,
+I'll defer to Stephen :-)
 
-Laura
 
-> Regards,
-> Fei
+Cheers,
+Andre'
 
 
