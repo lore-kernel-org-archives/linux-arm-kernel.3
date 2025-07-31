@@ -4,54 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37422C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 08:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B9CC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GUzuDR1An1edfh6QZmzcabAiVyPsNXnevxeCcBMCr34=; b=GbD5AcygYi9QEQvIF6kEzc3+cm
-	amvlrEWZzHiIeKqY2Fkl6FcsWsBRsQCn3Ffk0Ek0Q1TZO5MvhKXbvZeBZyMUnC7kFJUzGQkGDP+Z3
-	juXLzjKnoE5drDdoVBukWaFyTpHlyFx/eYanB6UuXQt+5bFKgxeSaJ/Bih/R7vfv7XkqUCXNhdJFN
-	PaWPuYuvHXXatC2J3N4sjyutUw1fSyMt88PQ3Y1VmsUjmkmyw6Qi488fxVz+ySwti9HOzWwGBMD7Q
-	81QcesVENx/oX59lrNdEvUIQ9DccME7EYWWdkQBDgOkx4he97jOM0TddJ3fYua3xUt6NRwe3oyMz8
-	UuaU6Saw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k2Nx/LegFy/E1eU89PbApIE6ldIbJeB0zgfUhW6ateM=; b=1PnyAe+E3L+VdRRWi0RC2A7Y1c
+	xf9q8FTqxwjAOIUxF+zwGBF5wG7SBAnfXJkSv+aIifzgup9tC7V+nAgdnAZoYwk12eG7E1BpGAKza
+	YMYmnVJ0MOlCB5tEXLwveLeTZzZD52YpztvIQ0yTtlpC35vdycL8CJBsfi3P+nzVq9FhY1uLuSXfy
+	ksmVNn2l3Fg3TGAVgwRyq4CHOsHTR195+0v7wM7mVoqOs7eRrq3RJF+gRzy+NaHOEy5AQTUk1O12D
+	fPn/iaLZSlGJD2D8D2Wve1JwLB6LB+qdYPol5WcoeRkVRQra4dVRh2hPNLkRgF+y9wQTOMxoeBI1D
+	C9WuUVfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhP2D-00000003D3V-3Giq;
-	Thu, 31 Jul 2025 08:53:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1uhPDm-00000003EVl-1PhP;
+	Thu, 31 Jul 2025 09:05:06 +0000
+Received: from azure-sdnproxy.icoremail.net ([13.76.142.27])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhOuM-00000003CF6-2Zwl
+	id 1uhP6P-00000003DgP-26Ec
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 08:45:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD1461D13;
-	Thu, 31 Jul 2025 01:44:53 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 453603F673;
-	Thu, 31 Jul 2025 01:44:58 -0700 (PDT)
-Date: Thu, 31 Jul 2025 10:44:42 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, sudeep.holla@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linuxarm@huawei.com, jonathan.cameron@huawei.com,
-	viresh.kumar@linaro.org, vincent.guittot@linaro.org,
-	yangyicong@hisilicon.com, zhanjie9@hisilicon.com,
-	lihuisong@huawei.com, yubowen8@huawei.com, linhongye@h-partners.com
-Subject: Re: [PATCH v2] arm64: topology: Setup AMU FIE for online CPUs only
-Message-ID: <aIss-syLMXmCBZ7E@arm.com>
-References: <20250725102813.1404322-1-zhenglifeng1@huawei.com>
+	Thu, 31 Jul 2025 08:57:31 +0000
+Received: from lizhi2$eswincomputing.com ( [10.11.96.26] ) by
+ ajax-webmail-app1 (Coremail) ; Thu, 31 Jul 2025 16:56:57 +0800 (GMT+08:00)
+X-Originating-IP: [10.11.96.26]
+Date: Thu, 31 Jul 2025 16:56:57 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5p2O5b+X?= <lizhi2@eswincomputing.com>
+To: "Andrew Lunn" <andrew@lunn.ch>
+Cc: weishangjuan@eswincomputing.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	yong.liang.choong@linux.intel.com, vladimir.oltean@nxp.com,
+	jszhang@kernel.org, jan.petrous@oss.nxp.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, inochiama@gmail.com,
+	boon.khai.ng@altera.com, dfustini@tenstorrent.com, 0x1207@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com
+Subject: Re: Re: Re: Re: Re: [PATCH v3 2/2] ethernet: eswin: Add eic7700
+ ethernet driver
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT6 build
+ 20241203(6b039d88) Copyright (c) 2002-2025 www.mailtech.cn
+ mispb-72143050-eaf5-4703-89e0-86624513b4ce-eswincomputing.com
+In-Reply-To: <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
+References: <20250703091808.1092-1-weishangjuan@eswincomputing.com>
+ <20250703092015.1200-1-weishangjuan@eswincomputing.com>
+ <c212c50e-52ae-4330-8e67-792e83ab29e4@lunn.ch>
+ <7ccc507d.34b1.1980d6a26c0.Coremail.lizhi2@eswincomputing.com>
+ <e734f2fd-b96f-4981-9f00-a94f3fd03213@lunn.ch>
+ <6c5f12cd.37b0.1982ada38e5.Coremail.lizhi2@eswincomputing.com>
+ <6b3c8130-77f0-4266-b1ed-2de80e0113b0@lunn.ch>
+ <006c01dbfafb$3a99e0e0$afcda2a0$@eswincomputing.com>
+ <28a48738-af05-41a4-be4c-5ca9ec2071d3@lunn.ch>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250725102813.1404322-1-zhenglifeng1@huawei.com>
+Message-ID: <2b4deeba.3f61.1985fb2e8d4.Coremail.lizhi2@eswincomputing.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: TAJkCgA3WxHaL4toD0e5AA--.13444W
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/1tbiAgEADGiKSUwhLgABsm
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_014502_744929_FA6CBDD5 
-X-CRM114-Status: GOOD (  34.13  )
+X-CRM114-CacheID: sfid-20250731_015729_712592_4F22FF35 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,121 +90,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lifeng,
-
-Apologies for late reply.
-
-On Fri, Jul 25, 2025 at 06:28:13PM +0800, Lifeng Zheng wrote:
-> When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
-> only CPU0 will go online. The support AMU flag of CPU0 will be set but the
-> flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
-> when it shares a cpufreq policy with other CPU(s). After that, when other
-> CPUs are finally online and the support AMU flags of them are set, they'll
-> never have a chance to set up AMU FIE, even though they're eligible.
-> 
-> To solve this problem, the process of setting up AMU FIE needs to be
-> modified as follows:
-> 
-> 1. Set up AMU FIE only for the online CPUs.
-> 
-> 2. Try to set up AMU FIE each time a CPU goes online and do the
-> freq_counters_valid() check for all the online CPUs share the same policy.
-> If this check fails, clear scale freq source of these CPUs, in case they
-> use different source of the freq scale.
-> 
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> ---
->  arch/arm64/kernel/topology.c | 49 ++++++++++++++++++++++++++++++++----
->  1 file changed, 44 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 5d07ee85bdae..d578c496d457 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -357,12 +357,15 @@ static void amu_fie_setup(const struct cpumask *cpus)
->  
->  	/* We are already set since the last insmod of cpufreq driver */
->  	if (cpumask_available(amu_fie_cpus) &&
-> -	    unlikely(cpumask_subset(cpus, amu_fie_cpus)))
-> +	    cpumask_subset(cpus, amu_fie_cpus))
->  		return;
->  
-> -	for_each_cpu(cpu, cpus)
-> -		if (!freq_counters_valid(cpu))
-> +	for_each_cpu(cpu, cpus) {
-> +		if (!freq_counters_valid(cpu)) {
-> +			topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpus);
->  			return;
-> +		}
-> +	}
->  
->  	if (!cpumask_available(amu_fie_cpus) &&
->  	    !zalloc_cpumask_var(&amu_fie_cpus, GFP_KERNEL)) {
-> @@ -385,7 +388,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
->  	struct cpufreq_policy *policy = data;
->  
->  	if (val == CPUFREQ_CREATE_POLICY)
-> -		amu_fie_setup(policy->related_cpus);
-> +		amu_fie_setup(policy->cpus);
-Right, so this will only work for the AMU side of things. The cpufreq core still
-considers `related_cpus` which should be aligned (if possible).
->  
->  	/*
->  	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
-> @@ -404,10 +407,46 @@ static struct notifier_block init_amu_fie_notifier = {
->  	.notifier_call = init_amu_fie_callback,
->  };
->  
-> +static int cpuhp_topology_online(unsigned int cpu)
-> +{
-> +	struct cpufreq_policy *policy __free(put_cpufreq_policy);
-> +	cpumask_var_t cpus_to_set;
-> +
-> +	if (!zalloc_cpumask_var(&cpus_to_set, GFP_KERNEL))
-> +		return -ENOMEM;
-> +
-> +	cpumask_copy(cpus_to_set, cpumask_of(cpu));
-> +
-> +	policy = cpufreq_cpu_get(cpu);
-> +	if (policy) {
-> +		cpumask_or(cpus_to_set, cpus_to_set, policy->cpus);
-This should be available via `amu_fie_cpus` mask (as of subset).
-So it should be enough to test only the CPU at hand?
-Additionally there is no tracking whether that CPU hasn't been verified already.
-> +		amu_fie_setup(cpus_to_set);
-> +	}
-> +
-> +	free_cpumask_var(cpus_to_set);
-> +	return 0;
-> +}
-> +
->  static int __init init_amu_fie(void)
->  {
-> -	return cpufreq_register_notifier(&init_amu_fie_notifier,
-> +	int ret;
-> +
-> +	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
->  					CPUFREQ_POLICY_NOTIFIER);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
-> +					"arm64/topology:online",
-> +					cpuhp_topology_online,
-> +					NULL);
-We should check whether we really have to set it up, as of all CPUs are already
-online).
-> +	if (ret < 0) {
-> +		cpufreq_unregister_notifier(&init_amu_fie_notifier,
-> +					    CPUFREQ_POLICY_NOTIFIER);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
->  }
->  core_initcall(init_amu_fie);
->  
-> -- 
-> 2.33.0
-> 
+RGVhciBBbmRyZXcgTHVubiwKVGhhbmsgeW91IGZvciB5b3VyIHByb2Zlc3Npb25hbCBhbmQgdmFs
+dWFibGUgc3VnZ2VzdGlvbnMuCk91ciBxdWVzdGlvbnMgYXJlIGVtYmVkZGVkIGJlbG93IHlvdXIg
+Y29tbWVudHMgaW4gdGhlIG9yaWdpbmFsIGVtYWlsIGJlbG93LgoKCkJlc3QgcmVnYXJkcywKCkxp
+IFpoaQpFc3dpbiBDb21wdXRpbmcKCgo+IC0tLS0t5Y6f5aeL6YKu5Lu2LS0tLS0KPiDlj5Hku7bk
+uro6ICJBbmRyZXcgTHVubiIgPGFuZHJld0BsdW5uLmNoPgo+IOWPkemAgeaXtumXtDoyMDI1LTA3
+LTIyIDIyOjA3OjIzICjmmJ/mnJ/kuowpCj4g5pS25Lu25Lq6OiDmnY7lv5cgPGxpemhpMkBlc3dp
+bmNvbXB1dGluZy5jb20+Cj4g5oqE6YCBOiB3ZWlzaGFuZ2p1YW5AZXN3aW5jb21wdXRpbmcuY29t
+LCBhbmRyZXcrbmV0ZGV2QGx1bm4uY2gsIGRhdmVtQGRhdmVtbG9mdC5uZXQsIGVkdW1hemV0QGdv
+b2dsZS5jb20sIGt1YmFAa2VybmVsLm9yZywgcm9iaEBrZXJuZWwub3JnLCBrcnprK2R0QGtlcm5l
+bC5vcmcsIGNvbm9yK2R0QGtlcm5lbC5vcmcsIG5ldGRldkB2Z2VyLmtlcm5lbC5vcmcsIGRldmlj
+ZXRyZWVAdmdlci5rZXJuZWwub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLCBtY29x
+dWVsaW4uc3RtMzJAZ21haWwuY29tLCBhbGV4YW5kcmUudG9yZ3VlQGZvc3Muc3QuY29tLCBybWsr
+a2VybmVsQGFybWxpbnV4Lm9yZy51aywgeW9uZy5saWFuZy5jaG9vbmdAbGludXguaW50ZWwuY29t
+LCB2bGFkaW1pci5vbHRlYW5AbnhwLmNvbSwganN6aGFuZ0BrZXJuZWwub3JnLCBqYW4ucGV0cm91
+c0Bvc3MubnhwLmNvbSwgcHJhYmhha2FyLm1haGFkZXYtbGFkLnJqQGJwLnJlbmVzYXMuY29tLCBp
+bm9jaGlhbWFAZ21haWwuY29tLCBib29uLmtoYWkubmdAYWx0ZXJhLmNvbSwgZGZ1c3RpbmlAdGVu
+c3RvcnJlbnQuY29tLCAweDEyMDdAZ21haWwuY29tLCBsaW51eC1zdG0zMkBzdC1tZC1tYWlsbWFu
+LnN0b3JtcmVwbHkuY29tLCBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmcsIG5p
+bmd5dUBlc3dpbmNvbXB1dGluZy5jb20sIGxpbm1pbkBlc3dpbmNvbXB1dGluZy5jb20sIHBpbmtl
+c2gudmFnaGVsYUBlaW5mb2NoaXBzLmNvbQo+IOS4u+mimDogUmU6IFJlOiBSZTogUmU6IFtQQVRD
+SCB2MyAyLzJdIGV0aGVybmV0OiBlc3dpbjogQWRkIGVpYzc3MDAgZXRoZXJuZXQgZHJpdmVyCj4g
+Cj4gPiBJbiB2MiwgYGVzd2luLGRseS1wYXJhbS14eHhgIGlzIHVzZWQgdG8gY29uZmlndXJlIGFs
+bCBkZWxheSByZWdpc3RlcnMgdmlhCj4gPiBkZXZpY2UgdHJlZSwgaW5jbHVkaW5nIFJYQ0xLIGFu
+ZCBUWENMSy4gQmFzZWQgb24gdGhlIGxhdGVzdCBkaXNjdXNzaW9uLAo+ID4gdGhpcyBhcHByb2Fj
+aCBpbiB0aGUgbmV4dCB2ZXJzaW9uOgo+ID4gLSBUaGUgZGVsYXkgY29uZmlndXJhdGlvbiBmb3Ig
+UlhDTEsgYW5kIFRYQ0xLIHdpbGwgYmUgaGFuZGxlZCB1c2luZyB0aGUKPiA+ICBzdGFuZGFyZCBE
+VCBwcm9wZXJ0aWVzIGByeC1pbnRlcm5hbC1kZWxheS1wc2AgYW5kIGB0eC1pbnRlcm5hbC1kZWxh
+eS1wc2AuCj4gPiAtIFRoZSByZW1haW5pbmcgZGVsYXkgY29uZmlndXJhdGlvbiAoZS5nLiwgZm9y
+IFJYRDAtNCwgVFhEMC00LCBSWERWKSB3aWxsCj4gPiAgY29udGludWUgdG8gdXNlIHRoZSB2ZW5k
+b3Itc3BlY2lmaWMgYGVzd2luLGRseS1wYXJhbS14eHhgIHByb3BlcnRpZXMuCj4gPiAtIElmIHRo
+ZSBzdGFuZGFyZCBkZWxheSBwcm9wZXJ0aWVzIGFyZSBub3Qgc3BlY2lmaWVkIGluIERULCBhIGRl
+ZmF1bHQgb2YgMAo+ID4gcHMKPiA+ICB3aWxsIGJlIGFzc3VtZWQuCj4gCj4gUGxlYXNlIGtlZXAg
+dGhlIFJHTUlJIHN0YW5kYXJkIGluIG1pbmQuIEFsbCBpdCBzYXlzIGlzIHRoYXQgdGhlcmUKPiBz
+aG91bGQgYmUgYSAybnMgZGVsYXkgYmV0d2VlbiB0aGUgZGF0YSBhbmQgdGhlIGNsb2NrIHNpZ25h
+bC4gSXQgaXMKPiBhbHNvIHF1aXRlIGdlbmVyb3VzIG9uIHRoZSByYW5nZSBvZiBkZWxheXMgd2hp
+Y2ggc2hvdWxkIGFjdHVhbGx5Cj4gd29yay4gSXQgc2F5cyBub3RoaW5nIGFib3V0IGJlaW5nIGFi
+bGUgdG8gY29uZmlndXJlIHRoYXQgZGVsYXkuIEFuZCBpdAo+IGRlZmluaXRlbHkgc2F5cyBub3Ro
+aW5nIGFib3V0IGJlaW5nIGFibGUgdG8gY29uZmlndXJlIGVhY2ggaW5kaXZpZHVhbAo+IHNpbmds
+ZS4KPiAKPiBZb3UgaGFyZHdhcmUgaGFzIGEgbG90IG9mIGZsZXhpYmlsaXR5LCBidXQgbm9uZSBv
+ZiBpZiBzaG91bGQgYWN0dWFsbHkKPiBiZSBuZWVkZWQsIGlmIHlvdSBmb2xsb3cgdGhlIHN0YW5k
+YXJkLgo+IAo+IFNvIHBoeS1tb2RlID0gInJnbWlpLWlkIjsgc2hvdWxkIGJlIGFsbCB5b3UgbmVl
+ZCBmb3IgbW9zdCBib2FyZHMuCj4gRXZlcnl0aGluZyBlbHNlIHNob3VsZCBiZSBvcHRpb25hbCwg
+d2l0aCBzZW5zaWJsZSBkZWZhdWx0cy4KPiAKCk9uIG91ciBwbGF0Zm9ybSwgdGhlIHZlbmRvci1z
+cGVjaWZpYyBhdHRyaWJ1dGVzIGVzd2luLGRseS1wYXJhbS0qIHdlcmUKaW5pdGlhbGx5IGludHJv
+ZHVjZWQgdG8gY29tcGVuc2F0ZSBmb3IgYm9hcmQtc3BlY2lmaWMgdmFyaWF0aW9ucyBpbiBSR01J
+SQpzaWduYWwgdGltaW5nLCBwcmltYXJpbHkgZHVlIHRvIGRpZmZlcmVuY2VzIGluIFBDQiB0cmFj
+ZSBsZW5ndGhzLiBUaGVzZQphdHRyaWJ1dGVzIGFsbG93IGZpbmUtZ3JhaW5lZCwgcGVyLXNpZ25h
+bCBkZWxheSBjb250cm9sIGZvciBSWEQsIFRYRCwKVFhFTiwgUlhEViwgUlhDTEssIGFuZCBUWENM
+SywgYmFzZWQgb24gZW1waXJpY2FsbHkgZGVyaXZlZCBvcHRpbWFsIHBoYXNlCnNldHRpbmdzLgpJ
+biBvdXIgZXhwZXJpZW5jZSwgc2V0dGluZyBwaHktbW9kZSA9ICJyZ21paS1pZCIgYWxvbmUsIGFs
+b25nIHdpdGggb25seQp0aGUgc3RhbmRhcmQgcHJvcGVydGllcyByeC1pbnRlcm5hbC1kZWxheS1w
+cyBhbmQgdHgtaW50ZXJuYWwtZGVsYXktcHMsCmhhcyBwcm92ZW4gaW5zdWZmaWNpZW50IHRvIG1l
+ZXQgb3VyIGhhcmR3YXJlJ3MgdGltaW5nIHJlcXVpcmVtZW50cy4KVGhlcmVmb3JlIHRoZXNlIHN0
+YW5kYXJkIHByb3BlcnRpZXMgYXJlIHRyZWF0ZWQgYXMgY29udHJvbGxpbmcgb25seSBSWENMSwph
+bmQgVFhDTEssIHdoaWxlIGNvbnRpbnVpbmcgdG8gdXNlIHRoZSBlc3dpbixkbHktcGFyYW0tKiBh
+dHRyaWJ1dGVzIGZvcgpvdGhlciBzaWduYWxzLgpBZGRpdGlvbmFsbHksIGlmIHJ4LWludGVybmFs
+LWRlbGF5LXBzIGFuZCB0eC1pbnRlcm5hbC1kZWxheS1wcyBhcmUKb21pdHRlZCwgdGhlaXIgdmFs
+dWVzIGRlZmF1bHQgdG8gMHBzIGR1ZSB0byB0aGUgdXNlIG9mIGRldm1fa3phbGxvYygpLgpUaGlz
+IGJlaGF2aW9yIHJlaW5mb3JjZXMgdGhlIG5lZWQgZm9yIGV4cGxpY2l0IGRlbGF5IHZhbHVlcyBp
+biBjZXJ0YWluCmNvbmZpZ3VyYXRpb25zLiBGb3IgcmVmZXJlbmNlLCBUSSBwbGF0Zm9ybXMgdXNl
+IGEgZGVkaWNhdGVkIElPREVMQVkKaGFyZHdhcmUgbW9kdWxlIHRvIHByb2dyYW0gcGVyLXNpZ25h
+bCBSR01JSSBkZWxheXMgaW4gYSBzaW1pbGFyIGZhc2hpb24uCgpBcyBwZXIgeW91ciBzdWdnZXN0
+aW9uLCB3ZSB3aWxsIHNldCBtb2RlPSJyZ21paS1pZCIuCldlIGhhdmUgcXVlc3Rpb25zIG9uIHNl
+dHRpbmcgZGVsYXkgcGFyYW1ldGVycyBmcm9tIGR0cyB3ZSBoYXZlIHR3bwphcHByb2NoZXMuIENv
+dWxkIHlvdSBwbGVhc2UgbGV0IHVzIGtub3cgd2hpY2ggYXBwcm9hY2ggaXMgYXBwcm9wcmlhdGU/
+CgoxLiBTZXR0aW5nIGFsbCBkZWxheSBwYXJhbWV0ZXJzIChSWEQsIFRYRCwgVFhFTiwgUlhEViwg
+UlhDTEssIGFuZCBUWENMSykKICAgdXNpbmcgdmVuZG9yLXNwZWNpZmljIGF0dHJpYnV0ZXPCoGVz
+d2luLGRseS1wYXJhbS0qLgogICBlLmcuCiAgIGVzd2luLGRseS1wYXJhbS0xMDAwbSA9IDwweDIw
+MjAyMDIwIDB4OTYyMDVBMjAgMHgyMDIwMjAyMD47CjIuIFNldHRpbmcgZGVsYXkgcGFyYW1ldGVy
+cyAoUlhELCBUWEQsIFRYRU4sIFJYRFYpIHVzaW5nIHZlbmRvci1zcGVjaWZpYwogICBhdHRyaWJ1
+dGVzwqBlc3dpbixkbHktcGFyYW0tKsKgLCBSWENMSyB1c2luZyByeC1pbnRlcm5hbC1kZWxheS1w
+cyBhbmQKICAgVFhDTEsgdXNpbmcgdHgtaW50ZXJuYWwtZGVsYXktcHMuCiAgIGUuZwogICBlc3dp
+bixkbHktcGFyYW0tMTAwMG0gPSA8MHgyMDIwMjAyMCAweDgwMjAwMDIwIDB4MjAyMDIwMjA+Owog
+ICByeC1pbnRlcm5hbC1kZWxheS1wcyA9IDw5MDAwPjsKICAgdHgtaW50ZXJuYWwtZGVsYXktcHMg
+PSA8MjIwMD47Cgo+IAlBbmRyZXcK
 
