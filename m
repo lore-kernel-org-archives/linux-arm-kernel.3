@@ -4,53 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C87FEC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 22:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 138CDC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 22:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2NGcQHepQEbDwK1/helvLsNzofswCWPbS6vNwKd9Ak=; b=xB+gOyG3ZxX92IDuEuaSQpxBbH
-	Le4BDM4dOIZBrGT6mfci8xecImY4tiew9VwpwIlI8D8WOmbzqxWUhJVJx3RM4RYu/FTba2iXTdPOY
-	xlnzPop4dum3xD3A33Wum08RYM8DGsme268I6kfl3NfYP5bWxp4IIh3A6Hr/1b2rfweUg4E0vshyA
-	hSwy+M0zAYnsCn2Or+DWksChfa2EPBwboW+XqHH6ZX/l6akGfx8njd/wbseSud/vEVhdZJfvKKaTE
-	6HT8kNiyAuxPPsvM5obaHS5lLtkTxhoB6Ai/Eu80YJAuR+SeBfwMjuENTJPOQtylt+TRNgVYaAz1U
-	qoDlf9iw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=n5zF9eYAfet4a2a7y5aVXc8isdMOf/EErsvnjAstrus=; b=2A3jsXkMWZ3zF0
+	tUSOEbFTamqlptAkFgc6/8X3pjkZ3+HM8MNWx+hwYjnGROuU7pRpfQK0w6EHe27+BNNdhmp8sZ/hG
+	ECBymupYrp5aSvIA9kqhZcGLTZ5adNjsgupizHL8BUE6gA9xuwXF1cXGz7nldC6kTJST5vCYQRPJe
+	sFo4127QbOljMfi4767ueK2vITv5hdg8wyM6VJB2nO5QMzqafFV1s64YxNTekLQgUJJE3jgRXdYO5
+	7MoiqBw+0maRWMWJ4X1vsiy5zfSl6ql++EEsQ++stUKwqRlIMDlPwC9qbuFAgzJ2myzcbI2XADvRr
+	DYbb7Rvgl8nhrK/sGNWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhbYY-00000004XZP-34oo;
-	Thu, 31 Jul 2025 22:15:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uhbb6-00000004Xjk-25nY;
+	Thu, 31 Jul 2025 22:18:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhbVx-00000004XAR-3YEV
+	id 1uhbVw-00000004XAB-3oho
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 22:12:41 +0000
+	Thu, 31 Jul 2025 22:12:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A44D6112C;
-	Thu, 31 Jul 2025 22:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA040C4CEEF;
+	by sea.source.kernel.org (Postfix) with ESMTP id 227D543E26;
 	Thu, 31 Jul 2025 22:12:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5A0CC4CEEF;
+	Thu, 31 Jul 2025 22:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1753999960;
-	bh=cfyyeN6Mb/ojJhksgCO4DWogxFkAIMP5MsCuIL3s2YA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=r8+yQ7J97MSgjECdZIEpPz29v94q0XLnMmAmK2wKV/FeSbIh3sAdiodOLVBHToGsa
-	 JyE7pZIcE2Ub9FFFAZTd6zo7jKpRSLN+0dJVSoeeR9IA8uiclLH99KXbDgwCOa+L9c
-	 zR8d2LIhi089je4vkNYTVcG39wWMQSQT0atXVG09MCB8IBLeX2+dlc2dU4kCiyMeAM
-	 MDZiTuwsPs9csc/aiQTANOSooPHM1VbPYrvNKdJadQ5Ds+UWUMEnCU1gogLjfl4QsL
-	 KuC59InQMObYKalpvPNkwqKwDqLffkwDooCVXzA9uIxkmhMW6vDZfugLL+Lwos32Hu
-	 QvYjfh2eNYuaA==
+	bh=dGSihHIH6s1bKpn+VJDgTQDiIrWhwFA7/h+sIJx6jwg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=oLJcqY90eQJdOq4+ZVdz9zCLTXxY9bYXetWN3wruycZl68Vv8gOinkMD1NxlUtUU7
+	 KKZdgufnrqxghzfCIpcVsP3a4SUL2gkcBcukTJZTEj+TmrSU4/PCG1awNmtn5dsfwy
+	 MQNiKrUxOePQXuomTAgaRPMUZCjAaSS+ARkk8dc49O91FthtGs1ySu4P+hycZIzoWw
+	 yJwRvZFKpTm8rpsTb9Ayip8A8O1z697Wp/1bZACv9Pq7uqzrOUGwkXbjCRgaCpD/Hs
+	 DipIW8Hnun2M+qLnJ1C338nHAPVgDVH0+SoM+e1SA7/1/YEf+h+MhLZLm1EhasDVH7
+	 9ZVX0dE4D+2Mw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 31 Jul 2025 17:12:18 -0500
-Subject: [PATCH 1/6] ARM: dts: aspeed: Drop "no-gpio-delays"
+Subject: [PATCH 0/6] ASpeed FSI DT clean-ups
+Date: Thu, 31 Jul 2025 17:12:17 -0500
+Message-Id: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250731-dt-fsi-cleanups-v1-1-e7b695a29fc3@kernel.org>
-References: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
-In-Reply-To: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAEHqi2gC/x3MMQqAMAxA0atIZgNtRQWvIg5qEw1IlUZFKN7d4
+ viG/xMoRSGFrkgQ6RaVPWTYsoB5HcNCKD4bnHG1aSuL/kRWwXmjMVyHInvrTVPzZNlAro5ILM9
+ /7If3/QC+DbP4YQAAAA==
+X-Change-ID: 20250731-dt-fsi-cleanups-fd1d065fb1f0
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>, 
@@ -60,6 +62,9 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  linux-fsi@lists.ozlabs.org
 X-Mailer: b4 0.15-dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250731_151240_993903_8239AA3F 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,56 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "no-gpios-delays" property only applies to the "fsi-master-gpio"
-binding and not the "aspeed,ast2[45]00-cf-fsi-master" binding. It
-doesn't really make sense either as the timing is controlled by the
-offloaded firmware.
+There's a whole bunch of FSI related DT warnings on ASpeed platforms. 
+This series fixes most of them except some related to SBEFIFO.
+
+The remaining SBEFIFO warnings are from some deprecated properties noted 
+with 'remove when userspace is fixed'. Not sure if they can be removed 
+now or soon. If not, perhaps the deprecated properties need to be 
+properly documented.
+
+All the patches here are independent, so DTS changes can go via ASpeed 
+tree and FSI bindings via FSI tree (or ack if you want me to take the 
+bindings instead).
+
+Rob
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts | 1 -
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts      | 1 -
- arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts     | 1 -
- 3 files changed, 3 deletions(-)
+Rob Herring (Arm) (6):
+      ARM: dts: aspeed: Drop "no-gpio-delays"
+      ARM: dts: aspeed: Drop "fsi-master" compatibles
+      ARM: dts: aspeed: Add missing "ibm,spi-fsi" compatibles
+      MAINTAINERS: Add FSI bindings to FSI subsystem entry
+      dt-bindings: fsi: Convert fsi-master-gpio to DT schema
+      dt-bindings: fsi: Convert aspeed,ast2400-cf-fsi-master to DT schema
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts
-index 78a5656ef75d..f42254ba6aeb 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts
-@@ -57,7 +57,6 @@ fsi: gpio-fsi {
- 		compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
- 		#address-cells = <2>;
- 		#size-cells = <0>;
--		no-gpio-delays;
- 
- 		memory-region = <&coldfire_memory>;
- 		aspeed,sram = <&sram>;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
-index b1d0ff85d397..e5b8d07e7622 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
-@@ -80,7 +80,6 @@ fsi: gpio-fsi {
- 		compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
- 		#address-cells = <2>;
- 		#size-cells = <0>;
--		no-gpio-delays;
- 
- 		memory-region = <&coldfire_memory>;
- 		aspeed,sram = <&sram>;
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
-index 24df24ad9c80..2180fa9b6f24 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
-@@ -71,7 +71,6 @@ fsi: gpio-fsi {
- 		compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
- 		#address-cells = <2>;
- 		#size-cells = <0>;
--		no-gpio-delays;
- 
- 		memory-region = <&coldfire_memory>;
- 		aspeed,sram = <&sram>;
+ .../bindings/fsi/aspeed,ast2400-cf-fsi-master.yaml | 81 ++++++++++++++++++++++
+ .../devicetree/bindings/fsi/fsi-master-ast-cf.txt  | 36 ----------
+ .../devicetree/bindings/fsi/fsi-master-gpio.txt    | 28 --------
+ .../devicetree/bindings/fsi/fsi-master-gpio.yaml   | 63 +++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ .../arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts | 24 ++++---
+ .../boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts |  3 +-
+ .../arm/boot/dts/aspeed/aspeed-bmc-opp-lanyang.dts |  2 +-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-mowgli.dts |  2 +-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts |  3 +-
+ .../boot/dts/aspeed/aspeed-bmc-opp-palmetto.dts    |  2 +-
+ .../arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts |  3 +-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-swift.dts  |  2 +-
+ .../boot/dts/aspeed/aspeed-bmc-opp-witherspoon.dts |  2 +-
+ arch/arm/boot/dts/aspeed/aspeed-bmc-opp-zaius.dts  |  2 +-
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |  4 +-
+ arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi     | 12 ++--
+ arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi     | 12 ++--
+ 18 files changed, 188 insertions(+), 94 deletions(-)
+---
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+change-id: 20250731-dt-fsi-cleanups-fd1d065fb1f0
 
--- 
-2.47.2
+Best regards,
+--  
+Rob Herring (Arm) <robh@kernel.org>
 
 
