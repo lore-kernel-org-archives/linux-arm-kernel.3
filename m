@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D42C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6071FC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:31:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xFdq7UpjL9aTNtZ2OV0vOiqdMOBKJaP4cAvmEBkhieM=; b=uNo73LroysWzTMn7nxDRgdw22J
-	WMs2iGpXXIHLf3ihIrvbbpevgZJIFU8WS2Fip3jtiUIehSreMqFKNHGtdlHeG+W9K2TdcZwQ5KGwN
-	2t9ery7K5MltwrtdSt3Ox21BKak56oRQvCeIP8Is6kiR7HxCj0ANGae4irDqXRIE5yx2Xl3g6yeZf
-	erAy+V2u84kLMi2mwoVq+m4wW63mqJxMsdRjkiLRS3kf5aLRpCp6582XUq/IFIXWsnFtvtLDqwm+H
-	fxnLnWC0UihSl9H+7TxjLdwA6AMBAnoRFByGP5ITjBFhLrqrgU3oKwYmuFud2doUKC1KjBvtJgGD7
-	zX83Zqhw==;
+	bh=fjlF0hDL+GcP1LxYuRMqQFAx3cvqnaJ2UPhI2yOXLvw=; b=btkDjfG8aH/UMQhjEz3SJLk80e
+	upXfv1qh73R+TA3DxFN6oXZrcWK3NMz/pVnJHXk9DdFPbss0jWmWujaX8g+dJKo5RY8l8nX1jylzz
+	/dVaUPgqSafiD/hteVvLFTQ7t7V2zoCoSwp8kJLsZPLii8f32hIj+O5hCjIz+rwLFN1KlnNc56Im5
+	m09o9OnO9gDd7NTZNIrXxjocwuLm6NEkYE8/h6yx7cusmqOHnXSV9ZxCX+YvrBrcP77l4G+5LBIM6
+	tjujYRptAbrbh4htEf8puaLb+ZTzKQo6IR0cueWxJU8WnSTVhpZNqjj2oofF/pwTFpjZCkd03l4W3
+	rS7JliAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPdG-00000003HON-1Utc;
-	Thu, 31 Jul 2025 09:31:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uhPdJ-00000003HQi-2IHZ;
+	Thu, 31 Jul 2025 09:31:29 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPTB-00000003GDP-3IAe;
-	Thu, 31 Jul 2025 09:21:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F16CEA52298;
-	Thu, 31 Jul 2025 09:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C541C4CEEF;
-	Thu, 31 Jul 2025 09:20:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753953660;
-	bh=YQitdJZEqx49z+aEtgIFZrSpHymltedYz+RclMvgrQk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rbJLOQHDqprFeguHWI4PoV3aRzwTXcJU6XhvZc7x4IPsLrXsOMrL0wRPExZxowbHD
-	 GXNz6bnZutQbK3/TCxxB9MLMC91Ty6BrQ2gWiadtfLDVTKcMRFoA4CYz80vYEwiv9L
-	 V7eNWJj3DSBru/pqEwz5t2lFvzX6Bil/hG1jyWMVxnVGqjcuQwTenpv6NpkCjcnE7q
-	 7Prto0sYallXr14WCC0MY5umXrDhVYP+/4Le0wPNuuv0w7JY8MOuTQ331gn5e3MVo0
-	 yf08rfB8B/VZIlftPeaoEN8JBLkIDJmVXMScNO3Mc07qhkI5kbVw82LbFAwK1hq62V
-	 37IRTFD5FuhlQ==
-Date: Thu, 31 Jul 2025 11:20:57 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: airoha: Fix PPE table access in
- airoha_ppe_debugfs_foe_show()
-Message-ID: <aIs1eXkuez-sZtfH@lore-desk>
-References: <20250728-airoha_ppe_foe_get_entry_locked-v1-1-8630ec73f3d1@kernel.org>
- <20250730181249.78dbe4f2@kernel.org>
+	id 1uhPXD-00000003Gea-1NbA
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Jul 2025 09:25:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1753953911; x=1785489911;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=fjlF0hDL+GcP1LxYuRMqQFAx3cvqnaJ2UPhI2yOXLvw=;
+  b=qsOIAFQeHn1wlTPwP2CmkmxmBAnKn8XySTjPNgpHlSXLshUkL4U7YcOM
+   UmhKYgBnWwD6ZH1pdXg2MXIQ9EbBaHjFLKIiFJ/bLCEUsAgMXjbDJ39Hw
+   jisM7WnonW/fTaGrdO2JD36irYUOJCOHYIj5WjVB/D5P8kHusLskDf8Ec
+   uLaybizYAheYDbuMfVxu15X6V+u14HlIHc2BXUGqi3l/ICA1W77Hh3/W+
+   SqGf82bsQBbrAOobTorh7MyUkteJ/cwz8lqu9rIlB4tpdGN3dQaDD9vlN
+   0cV2ctYpX3wsnaI+aGKzeEi3fyjyAX23EksFf6a8ikcCMrPWBysLXXogf
+   g==;
+X-CSE-ConnectionGUID: fsU95/NzSae495Z9CxCmKg==
+X-CSE-MsgGUID: Ur4qndlhTGO+5Yq4s7Aopw==
+X-IronPort-AV: E=Sophos;i="6.16,353,1744063200"; 
+   d="scan'208";a="45516796"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 31 Jul 2025 11:25:08 +0200
+X-CheckPoint: {688B3674-49-8CC3CD70-C1DBF452}
+X-MAIL-CPID: 7D8464778F9C483E0B2683681F104E7C_1
+X-Control-Analysis: str=0001.0A002112.688B3671.0041,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 228D41656F9;
+	Thu, 31 Jul 2025 11:25:04 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1753953904;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fjlF0hDL+GcP1LxYuRMqQFAx3cvqnaJ2UPhI2yOXLvw=;
+	b=NmDuqKb9KyIlFuhOuYHwBb8uOFn+iNVVUVCo7jopYuAhiI9f95nR0rhTJI8xb3sf8wP3pn
+	SRlQVJkZZEaltXrBj22aBjZbs+W0nUh38iccCX94+7T86y2MXLIlf1YmOArYN1dQZebbzM
+	DNesKAeygVb+o8IAQZGq8zOS9bKBWBBo4/Rq6cS1d0aHs+Xuzn+on6kK+wR5btdZMQaqeZ
+	qoBnq2cAyY15XQRJmQw8lGfRFg2cnAA0ZAjZJ5rkql1NdGLKOqrH/flgb5HRXqKpjVDX4l
+	ourkr3Y89MGFC1C4OX293DGbmiwt6gr8w4JipeLsVc5+97SDeokhD9+LsTJc/A==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB driver
+Date: Thu, 31 Jul 2025 11:25:03 +0200
+Message-ID: <4669830.LvFx2qVVIh@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250506130940.2621554-1-alexander.stein@ew.tq-group.com>
+References: <20250506130940.2621554-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iy9ceCsbIKdzJyDD"
-Content-Disposition: inline
-In-Reply-To: <20250730181249.78dbe4f2@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_022101_889754_38CB2FF1 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250731_022511_711744_05DC4910 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,55 +93,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---iy9ceCsbIKdzJyDD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Am Dienstag, 6. Mai 2025, 15:09:39 CEST schrieb Alexander Stein:
+> This driver is used on imx93-tqma9352-mba91xxca.dts.
 
-> On Mon, 28 Jul 2025 13:58:08 +0200 Lorenzo Bianconi wrote:
-> > +struct airoha_foe_entry *
-> > +airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash)
+Gentle ping. Thanks
+Alexander
+
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
-> Hm, could be just me, but the way we/I used _locked in the core was=20
-> the opposite. _locked means the caller's already taken the lock.
-> Here you seem to be saying that the "callee is locked"..
-> Can we stick to core's interpretation?
-
-sure, that's fine.
-
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 8691f0ee44e66..550b2505b5658 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -437,6 +437,7 @@ CONFIG_IWLMVM=3Dm
+>  CONFIG_MWIFIEX=3Dm
+>  CONFIG_MWIFIEX_SDIO=3Dm
+>  CONFIG_MWIFIEX_PCIE=3Dm
+> +CONFIG_MWIFIEX_USB=3Dm
+>  CONFIG_MT7921E=3Dm
+>  CONFIG_RSI_91X=3Dm
+>  CONFIG_WL18XX=3Dm
 >=20
-> > +	struct airoha_foe_entry *hwe;
-> > +
-> > +	spin_lock_bh(&ppe_lock);
-> > +	hwe =3D airoha_ppe_foe_get_entry(ppe, hash);
-> > +	spin_unlock_bh(&ppe_lock);
-> > +
-> > +	return hwe;
->=20
-> Is the lifetime of the hwe object somehow guaranteed in the debugfs
-> code? Looks questionable..
 
-PPE table entries are allocated at driver load and never freed, the hw is j=
-ust
-writing into this DMA area when the entry is binded.
 
-Regards,
-Lorenzo
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-> --=20
-> pw-bot: cr
 
---iy9ceCsbIKdzJyDD
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaIs1eQAKCRA6cBh0uS2t
-rKE+AP9acbZ1NXEFMJ8nPy6u1cFPCw8RfBLLOGACBYGpxGOffgEAwSwgpDJiqJnM
-Nv8H3NbW2BL1j9z8OroubX6meSBdZwU=
-=PjV9
------END PGP SIGNATURE-----
-
---iy9ceCsbIKdzJyDD--
 
