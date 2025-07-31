@@ -4,71 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB47AC87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 02:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27772C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 03:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HW/b2spO6igiTuBEPCZxJKREgXrKAcG245Cq0rdBwFQ=; b=eTBv2SETQBhT+8B6HgneHkQcnP
-	ccjLqvxtKcuJ0CU+F31fbPs7xRZhHMl/nZmhB2ucpRf1LS20vcBHc+TKoFdYmL0HDz3lBeJX84C7g
-	lQpPxGKk66doJGDnWPfNVefC3qfU3AW+ftEzkwnWmgTciruI0ZnRvmOxVIZ5cEAkv1a4dftRea6on
-	63vHu7H14VNh7OjYzG3QIVnkRax4jU565ObiU1NCmqblic7FRlldGQ9CR+lGNzsc1DiYCwHDftsMF
-	6lAYHxDRKZAfgr6YSqy9ggq3kVn1FIZCiNxMhrQVvhDcXma6nsd9HRGMQuhHxScSU6394iUbHpAtC
-	c175bRZw==;
+	bh=IQz3EwDsCOo1XFmvxHoa4HIcyhVHPzzMG2oMGGNImxA=; b=Y7JDFxGOulZp08ngti+5Xp+lBz
+	A1MeMiL9ieqqTQ6cnGDA79hP+Ku+a5dZ1mnHOao/dULQ6bzz1OgsdTFj6ShYRrHB8Bw/qMZYXjMCs
+	WBFPPsSDN0h9couaa0CNXmdswEfu8/1DsJhbZhahROfSBr1FhAsWAb9MmUhCAkNJ0RKPJhEQ5TN7F
+	JkNSJ6WhV/ClfGHlSpAx7WUHcnMkMtJIuMPBUl3VEA5HMrPmaOtzUW3+KjHp+yXLG3dj5gJR1USvl
+	ousLLQGLmYgaJMC3TmVZHdrMaiFaOV7Jd44VDLTg7Gi5t9N1/NbyNpHyVEMNiQqhgc4+vmxc/HIpQ
+	m2YsDtTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhJSX-00000002nOQ-42QH;
-	Thu, 31 Jul 2025 02:55:57 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhJQ3-00000002nAB-0Oil;
-	Thu, 31 Jul 2025 02:53:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=i4q4vAwvrtsGAsI2xJ7dj3RYSF+Dg7GuGqgKNXJO4wI=; b=F
-	njEUdBtGApk+zvVvFqcr6uTdp/npFHFGLFq8t6Cn+qEL3yS2KCDI/mWC3+4QABJY
-	HrkbBl8I8G3XhbXttd/LUU33EaLcbS+gvRgZNwocdkfN+gM4SERQ4Ua1lb4FcLs1
-	M+//3d+SnyZYE8VIzBXv6YdIZPn8fr/90WhAd8jbVo=
-Received: from andyshrk$163.com ( [103.29.142.67] ) by
- ajax-webmail-wmsvr-40-100 (Coremail) ; Thu, 31 Jul 2025 10:52:49 +0800
- (CST)
-X-Originating-IP: [103.29.142.67]
-Date: Thu, 31 Jul 2025 10:52:49 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
-Cc: dmitry.baryshkov@oss.qualcomm.com, neil.armstrong@linaro.org,
-	heiko@sntech.de, stephen@radxa.com, dri-devel@lists.freedesktop.org,
-	hjc@rock-chips.com, mripard@kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	yubing.zhang@rock-chips.com, naoki@radxa.com,
-	Laurent.pinchart@ideasonboard.com,
-	"Andy Yan" <andy.yan@rock-chips.com>, krzk+dt@kernel.org,
-	robh@kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re:Re:Re: [PATCH v6 09/10] arm64: dts: rockchip: Enable DisplayPort
- for rk3588s Cool Pi 4B
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20250519(9504565a)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <5deac95c.8ec2.1985b428b0b.Coremail.andyshrk@163.com>
-References: <20250728082846.3811429-1-andyshrk@163.com>
- <20250728082846.3811429-10-andyshrk@163.com>
- <hbvwlucm5mnjpve6hb6h7dusgrokvdxzbpq5zrwib4yesrdakp@v77ofq7u2vv2>
- <5deac95c.8ec2.1985b428b0b.Coremail.andyshrk@163.com>
-X-NTES-SC: AL_Qu2eAfWYv0st7yeQZekfmkcVgOw9UcO5v/Qk3oZXOJF8jCrp+T8Sd2ZaF1DE/tCJOQeHiwGOexp84/ZoY4N9R58oT+R9drh8m7TZL7FtHtaLMA==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1uhJp4-00000002p3n-26IA;
+	Thu, 31 Jul 2025 03:19:14 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhJmb-00000002ooL-2EKN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 31 Jul 2025 03:16:42 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-73e62d692fbso358912a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 20:16:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1753931800; x=1754536600; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IQz3EwDsCOo1XFmvxHoa4HIcyhVHPzzMG2oMGGNImxA=;
+        b=XePNkXULzlpTNUbUtDYxw3/As+hfgni0TbjcGeEO075a8WVK8IbyjX5QqyBBnyT9Np
+         K0qxDx22HAQohA2H2yyc1deHfWz6B63xV+M40Q+lbwiEtblYYZue8Fc3N3LVHE6gBz2h
+         3b8/HQP7znoEgK2CzyL2np4aF6VbXiXonMIeQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753931800; x=1754536600;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IQz3EwDsCOo1XFmvxHoa4HIcyhVHPzzMG2oMGGNImxA=;
+        b=HsGtCkiNBMMX5YVpGfJ+94Mrud2ziwc+a2jf5tF0lyOqrENOUNnkq9WjzGdU8QpKto
+         2+C/uoUctekmNuaSnPRo66r9cziZdobS0xiSmb7O0JADxZ4opzUsOmwXU0jCI03eqPvO
+         W3Yoi5oaPHT6MQgGBYPWiBZXzgLR3iCYRRYqRcXr3K2vmzgbeWDlr5gVJ5tFvEENJEOt
+         4X7NXUcw2ihliPdLvEnO16GBfFleqUpddj0qAWa1f5zSD6hEgsaczTdJ70xw2yJRBfcy
+         6FeOInkxH6Vou00gs5KMawWuwQHuM1uKohQIPqY/uXmYQVsDYvkG9YYjYnQjUqkhVbOs
+         Qpdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXEdm7x8F8R69mY0O83ndPFbx7PlNsuwooY/vPH6V/8RxgNBYLiiOmI9QE/gQ7zm6tLVszB4SlUTNwu+E39OaeY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwseiOoYgzLnU56cnNQLFzkKEzMz0z/ZbFCQCOn33JdLrXsi1Hm
+	YGQhQvECJa1DxUhseTI9c6VXrfLIFQjIjbeaLMZ325OMMT6B/4jTX2FcJqGSFTbIo7gHwIfegoc
+	juA4=
+X-Gm-Gg: ASbGncscNuH1YPUoqj5iKw2wByiG8h/RK3yZgiAivlOtV66+p2Dyl1czJ/dWHkzqj/g
+	3x6Vk18tvITLJCRfHAFDkFUaNDQB1H01EvffoUTp22uH0qufqW0fLTY3ejbmbRC4LJt5pMYgdsD
+	NtC8siK09PrzskDLOIMJ4A2GIv81CqSnymd/z6dNkyiGI7ZAmhRSI1me+y2xK3QbiEffmhvBemV
+	hgVjmg3sD6tW8ZwQfUeCR7TvIsTryBOd+Fr5DePTWaCZMdvn01tkaMpjYIeTrsE0iKXRPYU4GjB
+	Fxwx7Ei628c+6J7Snc7a4N30PpTxKoCEY+zvSaihzAqnklLO6SxjD5du4JGiIeooLY2iEK0OTMs
+	jyr1gJnPVaSMSku6tkklcEQ/DIDBS9j5o1vHx8hQApj3SkGe/TAzp8TNqFEhsnV/tOebm
+X-Google-Smtp-Source: AGHT+IF1BxeAas60QGmGdRQsq4yLQom6g5YzjKxGVT+TjZYrEo/JJl/tFwC6uSK0OHKnq6VIgG5+QA==
+X-Received: by 2002:a05:6830:448a:b0:73b:2ec0:6556 with SMTP id 46e09a7af769-741778519aemr4793841a34.0.1753931799934;
+        Wed, 30 Jul 2025 20:16:39 -0700 (PDT)
+Received: from mail-oo1-f47.google.com (mail-oo1-f47.google.com. [209.85.161.47])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-74186dc83ffsm133554a34.50.2025.07.30.20.16.39
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Jul 2025 20:16:39 -0700 (PDT)
+Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-615ee07353bso294689eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Jul 2025 20:16:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV97ZAu+Gb9bE4NSTCqwEE/BCdS/9sGfsESJrHIb/mIEujt7D63nbPUrORY6lgcW5PZKO4fzkDr3LjXfIYAothz@lists.infradead.org
+X-Received: by 2002:a05:6102:3e86:b0:4f9:d929:8558 with SMTP id
+ ada2fe7eead31-4fbe7f5a8ecmr3674144137.10.1753931451474; Wed, 30 Jul 2025
+ 20:10:51 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <6c84556c.29cb.1985e658afb.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: ZCgvCgDnTyGB2opoljMKAA--.20578W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gObXmiK0YynmQADsW
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+References: <20250730152128.311109-1-laura.nao@collabora.com> <20250730152128.311109-3-laura.nao@collabora.com>
+In-Reply-To: <20250730152128.311109-3-laura.nao@collabora.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Thu, 31 Jul 2025 11:10:15 +0800
+X-Gmail-Original-Message-ID: <CAC=S1nhEiWmFkVMVGqg97TqXQqLhP0KZkQvq+F=k_hS_Jg297Q@mail.gmail.com>
+X-Gm-Features: Ac12FXxQNf_MHWgJFTLhQCBFRAD1HLcfHVxkjg6vNoUDqC6XlmkmVeEw5sZ-QQw
+Message-ID: <CAC=S1nhEiWmFkVMVGqg97TqXQqLhP0KZkQvq+F=k_hS_Jg297Q@mail.gmail.com>
+Subject: Re: [PATCH v2 2/9] thermal/drivers/mediatek/lvts: Make number of
+ calibration offsets configurable
+To: Laura Nao <laura.nao@collabora.com>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, andrew-ct.chen@mediatek.com, 
+	kernel@collabora.com, nfraprado@collabora.com, arnd@arndb.de, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, u.kleine-koenig@baylibre.com, 
+	linux-arm-kernel@lists.infradead.org, wenst@chromium.org, 
+	linux-mediatek@lists.infradead.org, bchihi@baylibre.com, 
+	colin.i.king@gmail.com, lala.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250730_195323_463767_59ADEBC9 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20250730_201641_583245_A44B3007 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,81 +114,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIFNlYmFzdGlhbu+8jAoK5ZyoIDIwMjUtMDctMzAgMjA6MTU6NDTvvIwiQW5keSBZYW4i
-IDxhbmR5c2hya0AxNjMuY29tPiDlhpnpgZPvvJoKPgo+Cj5IZWxsbyBTZWJhc3RpYW7vvIwKPgo+
-QXQgMjAyNS0wNy0zMCAwMTowOTo0MSwgIlNlYmFzdGlhbiBSZWljaGVsIiA8c2ViYXN0aWFuLnJl
-aWNoZWxAY29sbGFib3JhLmNvbT4gd3JvdGU6Cj4+SGksCj4+Cj4+T24gTW9uLCBKdWwgMjgsIDIw
-MjUgYXQgMDQ6Mjg6MzRQTSArMDgwMCwgQW5keSBZYW4gd3JvdGU6Cj4+PiBGcm9tOiBBbmR5IFlh
-biA8YW5keS55YW5Acm9jay1jaGlwcy5jb20+Cj4+PiAKPj4+IEVuYWJsZSB0aGUgTWluaSBEaXNw
-bGF5UG9ydCBvbiB0aGlzIGJvYXJkLgo+Pj4gTm90ZSB0aGF0IFJPQ0tDSElQX1ZPUDJfRVBfRFAw
-IGlzIGRlZmluZWQgYXMgMTAgaW4gZHQtYmluZGluZyBoZWFkZXIsCj4+PiBidXQgaXQgd2lsbCB0
-cmlnZ2VyIGEgZHRjIHdhcm5pbmcgbGlrZSAiZ3JhcGggbm9kZSB1bml0IGFkZHJlc3MgZXJyb3Is
-Cj4+PiBleHBlY3RlZCAiYSIiIGlmIHdlIHVzZSBpdCBkaXJlY3RseSBhZnRlciBlbmRwb2ludCwg
-c28gd2UgdXNlICJhIgo+Pj4gaW5zdGVhZCBoZXJlLgo+Pj4gCj4+PiBTaWduZWQtb2ZmLWJ5OiBB
-bmR5IFlhbiA8YW5keS55YW5Acm9jay1jaGlwcy5jb20+Cj4+PiBSZXZpZXdlZC1ieTogRG1pdHJ5
-IEJhcnlzaGtvdiA8ZG1pdHJ5LmJhcnlzaGtvdkBvc3MucXVhbGNvbW0uY29tPgo+Pj4gLS0tCj4+
-Cj4+VGhlIGdyYXBoIGN1cnJlbnRseSBsb29rcyBsaWtlIHRoaXM6Cj4+Cj4+Vk9QIDwtPiBEUCBj
-b250cm9sbGVyIDwtPiBEUCBDb25uZWN0b3IKPj4KPj5JSVVJQyB0aGlzIGRvZXMgbm90IHdvcmsg
-Zm9yIFVTQi1DIGFuZCBuZWVkcyB0byBsb29rIGxpa2UgdGhpcywKPj5iZWNhdXNlIHRoZSBVU0JE
-UCBQSFkgaGFuZGxlcyB0aGUgbGFuZSBtdXhpbmcgYW5kIHRodXMgbXVzdCBiZQo+PnRoZSB0aGlu
-ZyBjb25uZWN0ZWQgdG8gdGhlIFVTQi1DIGNvbnRyb2xsZXIvY29ubmVjdG9yOgo+Cj5JIHByZXZp
-b3VzbHkgdGVzdHMgVVNCLUMgQWx0bW9kZSBvbiBMaW51eCA1LjE1IHVzaW5nIFJvY2sgNWIsICB0
-aGlzIGZ1bmN0aW9uIHdvcmtzIHdlbGwuIAo+SG93ZXZlciwgd2hlbiB0aGUgc2FtZSBkdHMgY29u
-ZmlndXJhdGlvbiBpcyB1c2VkIG9uIExpbnV4IDYuMTYgYW5kIHRlc3RlZCB3aXRoIFJvY2sgNWIg
-aW4gVVNCLUMgQWx0bW9kZSwgCj50aGUgSFBEIGludGVycnVwdCBvZiBEUCBjYW5ub3QgYmUgdHJp
-Z2dlcmVkLiBJJ20gbm90IHN1cmUgeWV0IHdoYXQgY2hhbmdlcyBoYXZlIG9jY3VycmVkIGJldHdl
-ZW4gdGhlbS4KPk1vcmVvdmVyLCBJIG5vdGljZWQgdGhhdCBvbiB5b3VyIHRlc3QgYnJhbmNoWzFd
-LCB0aGUgRFRTIGNvbmZpZ3VyYXRpb24gaGFzIGFsc28gY2hhbmdlZCBjb21wYXJlZCB0byBiZWZv
-cmUuCj5JIHdvdWxkIGdyZWF0bHkgYXBwcmVjaWF0ZSBpdCBpZiB5b3UgY291bGQgc2hhcmUgc29t
-ZSBkZXRhaWxzLgoKU29tZSB1cGRhdGVzOgogICAgICBBZnRlciBjb21tZW50IG91dCBwZC12ZXJz
-aW9uKFlvdXIgcHJldmlvdXMgRFRTIGRpZG4ndCBpbmNsdWRlIHRoaXMgcHJvcGVydHkuKSBvbiBs
-aW51eCA2LjE2WzJdCiAgICAgLy9wZC1yZXZpc2lvbiA9IC9iaXRzLyA4IDwweDIgMHgwIDB4MSAw
-eDI+OwogICAgVGhlIFVTQi1DIEFsdCBNb2RlIG91dHB1dCBjYW4gd29yayBhcyBiZWZvcmXjgIIK
-ICAgIEkgc3RpbGwgaGF2ZSByZWxhdGl2ZWx5IGxpbWl0ZWQga25vd2xlZGdlIGFib3V0IFVTQi1D
-LCBzbyBJIGhvcGUgdG8gaGVhciBtb3JlIG9mIHlvdXIgb3BpbmlvbnMuCgoKPgo+Cj4KPlswXWh0
-dHBzOi8vZ2l0aHViLmNvbS9hbmR5c2hyay9saW51eC9jb21taXQvYjlmODdhNTYyZDQzMWZiNTli
-NjY0YjdhZWQ0MTg2OWE4ZjE4NGRlMwo+WzFdaHR0cHM6Ly9naXRsYWIuY29sbGFib3JhLmNvbS9o
-YXJkd2FyZS1lbmFibGVtZW50L3JvY2tjaGlwLTM1ODgvbGludXgvLS9jb21taXQvMGU3ZTkwNDk0
-NDgyY2Y3N2Q1YmIwNThhNDc1ODNiNjc0N2IxNDBmNAogIFsyXWh0dHBzOi8vZ2l0aHViLmNvbS9h
-bmR5c2hyay9saW51eC90cmVlL3JrMzU4OC1kcC11cHN0cmVhbS12NgoKPj4KPj5WT1AgPC0+IERQ
-IGNvbnRyb2xsZXIgPC0+IFVTQkRQIFBIWSA8LT4gVVNCLUMgQ29ubmVjdG9yCj4+Cj4+SSB3b25k
-ZXIgaWYgdGhlIHNpbXBsZSBjYXNlIG5vdCBpbnZvbHZpbmcgVVNCLUMgc2hvdWxkIGFsc28gaGF2
-ZQo+PnRoZSBVU0JEUCBQSFkgZGVzY3JpYmVkIGluIHRoZSBncmFwaCBhcyBhIHRyYW5zcGFyZW50
-IGJyaWRnZT8KPj5Ob3RlLCB0aGF0IHRoZSBVU0JEUCBQSFkgRFQgYmluZGluZyBpcyBjdXJyZW50
-bHkgbm90IHJlYWR5IGZvcgo+PnRoaXMgKHRoaXMgYWxzbyBhZmZlY3RzIHRoZSBuZXh0IHBhdGNo
-LCBidXQgc2hvdWxkIGJlIGVub3VnaCB0bwo+PmRpc2N1c3MgdGhpcyBvbmNlIDopKS4KPj4KPj5H
-cmVldGluZ3MsCj4+Cj4+LS0gU2ViYXN0aWFuCj4+Cj4+PiAKPj4+IChubyBjaGFuZ2VzIHNpbmNl
-IHYyKQo+Pj4gCj4+PiBDaGFuZ2VzIGluIHYyOgo+Pj4gLSBTb3J0IGluIGFscGhhYmV0aWNhbCBv
-cmRlcgo+Pj4gCj4+PiAgLi4uL2Jvb3QvZHRzL3JvY2tjaGlwL3JrMzU4OHMtY29vbHBpLTRiLmR0
-cyAgIHwgMzcgKysrKysrKysrKysrKysrKysrKwo+Pj4gIDEgZmlsZSBjaGFuZ2VkLCAzNyBpbnNl
-cnRpb25zKCspCj4+PiAKPj4+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL3JvY2tj
-aGlwL3JrMzU4OHMtY29vbHBpLTRiLmR0cyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAv
-cmszNTg4cy1jb29scGktNGIuZHRzCj4+PiBpbmRleCA4YjcxN2M0MDE3YTQ2Li41MzkzYzZjYzQ5
-M2MzIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9hcm02NC9ib290L2R0cy9yb2NrY2hpcC9yazM1ODhz
-LWNvb2xwaS00Yi5kdHMKPj4+ICsrKyBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvcm9ja2NoaXAvcmsz
-NTg4cy1jb29scGktNGIuZHRzCj4+PiBAQCAtMzksNiArMzksMTggQEAgY2hvc2VuIHsKPj4+ICAJ
-CXN0ZG91dC1wYXRoID0gInNlcmlhbDI6MTUwMDAwMG44IjsKPj4+ICAJfTsKPj4+ICAKPj4+ICsJ
-ZHAtY29uIHsKPj4+ICsJCWNvbXBhdGlibGUgPSAiZHAtY29ubmVjdG9yIjsKPj4+ICsJCWxhYmVs
-ID0gIkRQIE9VVCI7Cj4+PiArCQl0eXBlID0gIm1pbmkiOwo+Pj4gKwo+Pj4gKwkJcG9ydCB7Cj4+
-PiArCQkJZHBfY29uX2luOiBlbmRwb2ludCB7Cj4+PiArCQkJCXJlbW90ZS1lbmRwb2ludCA9IDwm
-ZHAwX291dF9jb24+Owo+Pj4gKwkJCX07Cj4+PiArCQl9Owo+Pj4gKwl9Owo+Pj4gKwo+Pj4gIAlo
-ZG1pLWNvbiB7Cj4+PiAgCQljb21wYXRpYmxlID0gImhkbWktY29ubmVjdG9yIjsKPj4+ICAJCXR5
-cGUgPSAiZCI7Cj4+PiBAQCAtMjE1LDYgKzIyNywyNCBAQCAmY3B1X2IyIHsKPj4+ICAJY3B1LXN1
-cHBseSA9IDwmdmRkX2NwdV9iaWcxX3MwPjsKPj4+ICB9Owo+Pj4gIAo+Pj4gKyZkcDAgewo+Pj4g
-KwlzdGF0dXMgPSAib2theSI7Cj4+PiArCXBpbmN0cmwtMCA9IDwmZHAwbTBfcGlucz47Cj4+PiAr
-CXBpbmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4+PiArfTsKPj4+ICsKPj4+ICsmZHAwX2luIHsK
-Pj4+ICsJZHAwX2luX3ZwMjogZW5kcG9pbnQgewo+Pj4gKwkJcmVtb3RlLWVuZHBvaW50ID0gPCZ2
-cDJfb3V0X2RwMD47Cj4+PiArCX07Cj4+PiArfTsKPj4+ICsKPj4+ICsmZHAwX291dCB7Cj4+PiAr
-CWRwMF9vdXRfY29uOiBlbmRwb2ludCB7Cj4+PiArCQlyZW1vdGUtZW5kcG9pbnQgPSA8JmRwX2Nv
-bl9pbj47Cj4+PiArCX07Cj4+PiArfTsKPj4+ICsKPj4+ICAmZ3B1IHsKPj4+ICAJbWFsaS1zdXBw
-bHkgPSA8JnZkZF9ncHVfczA+Owo+Pj4gIAlzdGF0dXMgPSAib2theSI7Cj4+PiBAQCAtODg5LDMg
-KzkxOSwxMCBAQCB2cDBfb3V0X2hkbWkwOiBlbmRwb2ludEBST0NLQ0hJUF9WT1AyX0VQX0hETUkw
-IHsKPj4+ICAJCXJlbW90ZS1lbmRwb2ludCA9IDwmaGRtaTBfaW5fdnAwPjsKPj4+ICAJfTsKPj4+
-ICB9Owo+Pj4gKwo+Pj4gKyZ2cDIgewo+Pj4gKwl2cDJfb3V0X2RwMDogZW5kcG9pbnRAYSB7Cj4+
-PiArCQlyZWcgPSA8Uk9DS0NISVBfVk9QMl9FUF9EUDA+Owo+Pj4gKwkJcmVtb3RlLWVuZHBvaW50
-ID0gPCZkcDBfaW5fdnAyPjsKPj4+ICsJfTsKPj4+ICt9Owo+Pj4gLS0gCj4+PiAyLjQzLjAKPj4+
-IAo+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPkxpbnV4
-LXJvY2tjaGlwIG1haWxpbmcgbGlzdAo+TGludXgtcm9ja2NoaXBAbGlzdHMuaW5mcmFkZWFkLm9y
-Zwo+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yb2Nr
-Y2hpcAo=
+On Wed, Jul 30, 2025 at 11:30=E2=80=AFPM Laura Nao <laura.nao@collabora.com=
+> wrote:
+>
+> MT8196/MT6991 use 2-byte eFuse calibration data, whereas other SoCs
+> supported by the driver rely on 3 bytes. Make the number of calibration
+> bytes per sensor configurable, enabling support for SoCs with varying
+> calibration formats.
+>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
+
+Reviewed-by: Fei Shao <fshao@chromium.org>
+
+> ---
+>  drivers/thermal/mediatek/lvts_thermal.c | 32 +++++++++++++++++--------
+>  1 file changed, 22 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/me=
+diatek/lvts_thermal.c
+> index f4d1e66d7db9..05aa8895ccce 100644
+> --- a/drivers/thermal/mediatek/lvts_thermal.c
+> +++ b/drivers/thermal/mediatek/lvts_thermal.c
+> @@ -96,12 +96,14 @@
+>
+>  #define LVTS_MINIMUM_THRESHOLD         20000
+>
+> +#define LVTS_MAX_CAL_OFFSETS           3
+> +
+>  static int golden_temp =3D LVTS_GOLDEN_TEMP_DEFAULT;
+>  static int golden_temp_offset;
+>
+>  struct lvts_sensor_data {
+>         int dt_id;
+> -       u8 cal_offsets[3];
+> +       u8 cal_offsets[LVTS_MAX_CAL_OFFSETS];
+>  };
+>
+>  struct lvts_ctrl_data {
+> @@ -127,6 +129,7 @@ struct lvts_data {
+>         const struct lvts_ctrl_data *lvts_ctrl;
+>         const u32 *conn_cmd;
+>         const u32 *init_cmd;
+> +       int num_cal_offsets;
+>         int num_lvts_ctrl;
+>         int num_conn_cmd;
+>         int num_init_cmd;
+> @@ -711,7 +714,7 @@ static int lvts_calibration_init(struct device *dev, =
+struct lvts_ctrl *lvts_ctrl
+>                                         u8 *efuse_calibration,
+>                                         size_t calib_len)
+>  {
+> -       int i;
+> +       int i, j;
+>         u32 gt;
+>
+>         /* A zero value for gt means that device has invalid efuse data *=
+/
+> @@ -720,17 +723,18 @@ static int lvts_calibration_init(struct device *dev=
+, struct lvts_ctrl *lvts_ctrl
+>         lvts_for_each_valid_sensor(i, lvts_ctrl_data) {
+>                 const struct lvts_sensor_data *sensor =3D
+>                                         &lvts_ctrl_data->lvts_sensor[i];
+> +               u32 calib =3D 0;
+>
+> -               if (sensor->cal_offsets[0] >=3D calib_len ||
+> -                   sensor->cal_offsets[1] >=3D calib_len ||
+> -                   sensor->cal_offsets[2] >=3D calib_len)
+> -                       return -EINVAL;
+> +               for (j =3D 0; j < lvts_ctrl->lvts_data->num_cal_offsets; =
+j++) {
+> +                       u8 offset =3D sensor->cal_offsets[j];
+> +
+> +                       if (offset >=3D calib_len)
+> +                               return -EINVAL;
+> +                       calib |=3D efuse_calibration[offset] << (8 * j);
+> +               }
+>
+>                 if (gt) {
+> -                       lvts_ctrl->calibration[i] =3D
+> -                               (efuse_calibration[sensor->cal_offsets[0]=
+] << 0) +
+> -                               (efuse_calibration[sensor->cal_offsets[1]=
+] << 8) +
+> -                               (efuse_calibration[sensor->cal_offsets[2]=
+] << 16);
+> +                       lvts_ctrl->calibration[i] =3D calib;
+>                 } else if (lvts_ctrl->lvts_data->def_calibration) {
+>                         lvts_ctrl->calibration[i] =3D lvts_ctrl->lvts_dat=
+a->def_calibration;
+>                 } else {
+> @@ -1763,6 +1767,7 @@ static const struct lvts_data mt7988_lvts_ap_data =
+=3D {
+>         .temp_factor    =3D LVTS_COEFF_A_MT7988,
+>         .temp_offset    =3D LVTS_COEFF_B_MT7988,
+>         .gt_calib_bit_offset =3D 24,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8186_lvts_data =3D {
+> @@ -1776,6 +1781,7 @@ static const struct lvts_data mt8186_lvts_data =3D =
+{
+>         .temp_offset    =3D LVTS_COEFF_B_MT7988,
+>         .gt_calib_bit_offset =3D 24,
+>         .def_calibration =3D 19000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8188_lvts_mcu_data =3D {
+> @@ -1789,6 +1795,7 @@ static const struct lvts_data mt8188_lvts_mcu_data =
+=3D {
+>         .temp_offset    =3D LVTS_COEFF_B_MT8195,
+>         .gt_calib_bit_offset =3D 20,
+>         .def_calibration =3D 35000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8188_lvts_ap_data =3D {
+> @@ -1802,6 +1809,7 @@ static const struct lvts_data mt8188_lvts_ap_data =
+=3D {
+>         .temp_offset    =3D LVTS_COEFF_B_MT8195,
+>         .gt_calib_bit_offset =3D 20,
+>         .def_calibration =3D 35000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8192_lvts_mcu_data =3D {
+> @@ -1815,6 +1823,7 @@ static const struct lvts_data mt8192_lvts_mcu_data =
+=3D {
+>         .temp_offset    =3D LVTS_COEFF_B_MT8195,
+>         .gt_calib_bit_offset =3D 24,
+>         .def_calibration =3D 35000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8192_lvts_ap_data =3D {
+> @@ -1828,6 +1837,7 @@ static const struct lvts_data mt8192_lvts_ap_data =
+=3D {
+>         .temp_offset    =3D LVTS_COEFF_B_MT8195,
+>         .gt_calib_bit_offset =3D 24,
+>         .def_calibration =3D 35000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8195_lvts_mcu_data =3D {
+> @@ -1841,6 +1851,7 @@ static const struct lvts_data mt8195_lvts_mcu_data =
+=3D {
+>         .temp_offset    =3D LVTS_COEFF_B_MT8195,
+>         .gt_calib_bit_offset =3D 24,
+>         .def_calibration =3D 35000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct lvts_data mt8195_lvts_ap_data =3D {
+> @@ -1854,6 +1865,7 @@ static const struct lvts_data mt8195_lvts_ap_data =
+=3D {
+>         .temp_offset    =3D LVTS_COEFF_B_MT8195,
+>         .gt_calib_bit_offset =3D 24,
+>         .def_calibration =3D 35000,
+> +       .num_cal_offsets =3D 3,
+>  };
+>
+>  static const struct of_device_id lvts_of_match[] =3D {
+> --
+> 2.39.5
+>
+>
 
