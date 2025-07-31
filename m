@@ -4,52 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2826FC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 22:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D00DC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 22:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IqTotNiAOWcLbU9JFvPO9h9wcM3uvNLK5yQIugKJtOA=; b=34H2lquYT++pftFLue1i4wHKNq
-	HNDmwkvb9LRh1R54Lz0euayYnpDTZSiqBreZi5U4yuTRs+ckkvmIEJFAODLZp5S2/kP2E9i9GdbSS
-	3mzMGOPjnaQ+sPOzX41GUtM9dZY3rbuTgxMv+NzimWG2EqfeU5QUCW3g9+TzFxyexDHMV+WX9MZkF
-	uVh4I31ZA4SIl79Dcf/NMyOhKAGePZdXyaLSnwIJByCRXOSP7R/AV4/uZk1cTkV5QonZX1FGVErzM
-	Y0imAfKp2LB2s0wcXMYtuP0SbDZ0go+vxFOz3U/gAEs0HIhOgt0gw9iE6qTEzVUguWCDxhsM0l3Ce
-	OPMkrhnw==;
+	bh=kHj91cBJP4UCmkQVDHlswFtyp58W2+u6yWfvVBawNZs=; b=DDeAB492meJDibnis2KnyMR+R8
+	9S91Bg06BWYpcwgp3IA1NRj8jBeChzUl9IgVsFYEDTweIUUi7kDuGFGbpahsPNFqf0dt6xWYiH1HI
+	Tdnj27OFT2rmSxCLs3urKMECW1/7sW63J4bdIYDzqbNGvfGdQSCx4o+h8cuiptDGS13dMq8NfbkmY
+	O1kFSGtnKOtOFeOQffA4F5EMsvNFKicNwAatdPZcAxZfUvMlLWC8ECYsDuRUrc6SB7TMmKtr93+ug
+	cFdkOlZa8bD2vhHnkQUD0VVNXkzbwcDA8SDTEY8PkI7pBNHutZbj12xYk3VS6Vut7dIGXESCzdUyu
+	GX6QdiXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhbgC-00000004Y1X-0cu4;
-	Thu, 31 Jul 2025 22:23:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uhbik-00000004YBB-0BIB;
+	Thu, 31 Jul 2025 22:25:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhbVz-00000004XAv-1WvV
+	id 1uhbVz-00000004XBA-3QvO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 22:12:43 +0000
+	Thu, 31 Jul 2025 22:12:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA9DF61135;
-	Thu, 31 Jul 2025 22:12:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 714F7C4CEF4;
-	Thu, 31 Jul 2025 22:12:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8225143A42;
+	Thu, 31 Jul 2025 22:12:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50176C4CEF8;
+	Thu, 31 Jul 2025 22:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753999962;
-	bh=tdDkXmNUX4O3VWO9zUljpRGtZvcgIcgJ0oBAw1ujc0A=;
+	s=k20201202; t=1753999963;
+	bh=hPXs+VvV1Z0lvnVsLb9P/CrQ7tEFhXZWjhaO05I861c=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=g35nxxeUbz4f/mQmvW8Q5iBzd6861+826jXm8MYGFoj1apAVSoWQCnKon2dnihV44
-	 lj10o/xd8zFe7SyTPXXwnm+1m3cXx8nOf+yOXNE8GQulwcpVymZTTnrs+PMch7p4EJ
-	 pslA2XsT3ik9C1pZU/kju+bPppN2G3sad396d38wo3yqZsFrtYyY1jBmobbRt9mGHI
-	 r23bvPynjzG/Y6Fuo6nuTsNtEpePsji9uRj51gVF8YEKilo7U3S0rYPEu/wGxvbsjh
-	 W7JlyjmEaacyN+qJtBzQsx2EAGAcgYXLAEKZig6a5omNNzZ3E+S5vKI487twBQtf6n
-	 b05zlMAaGn8lA==
+	b=iCvpK9I82kPhEpK8t1h0Ne7/It67WKDWjCgnmWYXCS/tRB8rDtmureWGGG9qIRa8R
+	 Mj87Ii6KoBomAr9zGp3jVH8ws2BgF0nXYrQQSOcRxe7pZUQmtNh0Mz9NiiZK+7vG2i
+	 iiCJPiHuoiCmz/VY+BLz5EsGGj5wVQrnM4yjo+s+EWWCpZWytDQRTj+3kIKJE8NTwc
+	 YxuhxrvavW3NHcI6J+fmgoSeKmDvCxaFoVF7IgE0HNEEiLyTCHeFDbu8JrOg3CHx7c
+	 DziRGP44pSyglPL5umjP3Fd4W77aCbZCJox7ncqdJd5F63fpMBYK5fh0zKT4LvD7/C
+	 bXxP3k5x87i9g==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Thu, 31 Jul 2025 17:12:20 -0500
-Subject: [PATCH 3/6] ARM: dts: aspeed: Add missing "ibm,spi-fsi"
- compatibles
+Date: Thu, 31 Jul 2025 17:12:21 -0500
+Subject: [PATCH 4/6] MAINTAINERS: Add FSI bindings to FSI subsystem entry
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250731-dt-fsi-cleanups-v1-3-e7b695a29fc3@kernel.org>
+Message-Id: <20250731-dt-fsi-cleanups-v1-4-e7b695a29fc3@kernel.org>
 References: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
 In-Reply-To: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
 To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,6 +60,10 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  linux-fsi@lists.ozlabs.org
 X-Mailer: b4 0.15-dev
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250731_151243_881103_6C4F5338 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,317 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "ibm,spi-fsi" compatible is missing or incorrect in various nodes.
-The incorrect cases used the "ibm,fsi2spi" compatible by mistake which
-is the parent node of the actual SPI controller nodes.
+Maintainers of a subsystem should also be the maintainer for
+corresponding DT bindings. Add the FSI bindings to the FSI subsystem
+entry.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts | 24 ++++++++++++++--------
- arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi     | 12 +++++++----
- arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi     | 12 +++++++----
- 3 files changed, 32 insertions(+), 16 deletions(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
-index 9961508ee872..52a044b1e454 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
-@@ -2808,6 +2808,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam4_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -2824,6 +2825,7 @@ eeprom@0 {
- 			};
- 
- 			cfam4_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -2840,8 +2842,8 @@ eeprom@0 {
- 			};
- 
- 			cfam4_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -2857,8 +2859,8 @@ eeprom@0 {
- 			};
- 
- 			cfam4_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -3181,6 +3183,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam5_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -3197,6 +3200,7 @@ eeprom@0 {
- 			};
- 
- 			cfam5_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -3213,8 +3217,8 @@ eeprom@0 {
- 			};
- 
- 			cfam5_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -3230,8 +3234,8 @@ eeprom@0 {
- 			};
- 
- 			cfam5_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -3554,6 +3558,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam6_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -3570,6 +3575,7 @@ eeprom@0 {
- 			};
- 
- 			cfam6_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -3586,8 +3592,8 @@ eeprom@0 {
- 			};
- 
- 			cfam6_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -3603,8 +3609,8 @@ eeprom@0 {
- 			};
- 
- 			cfam6_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -3927,6 +3933,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam7_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -3943,6 +3950,7 @@ eeprom@0 {
- 			};
- 
- 			cfam7_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -3959,8 +3967,8 @@ eeprom@0 {
- 			};
- 
- 			cfam7_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -3976,8 +3984,8 @@ eeprom@0 {
- 			};
- 
- 			cfam7_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible = "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-diff --git a/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi b/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
-index 07ce3b2bc62a..06fac236773f 100644
---- a/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
-+++ b/arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
-@@ -82,6 +82,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam0_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -98,6 +99,7 @@ eeprom@0 {
- 			};
- 
- 			cfam0_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -114,8 +116,8 @@ eeprom@0 {
- 			};
- 
- 			cfam0_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -131,8 +133,8 @@ eeprom@0 {
- 			};
- 
- 			cfam0_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -249,6 +251,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam1_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -265,6 +268,7 @@ eeprom@0 {
- 			};
- 
- 			cfam1_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -281,8 +285,8 @@ eeprom@0 {
- 			};
- 
- 			cfam1_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -298,8 +302,8 @@ eeprom@0 {
- 			};
- 
- 			cfam1_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-diff --git a/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi b/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
-index 57494c744b5d..9501f66d0030 100644
---- a/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
-+++ b/arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
-@@ -733,6 +733,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam2_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -749,6 +750,7 @@ eeprom@0 {
- 			};
- 
- 			cfam2_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -765,8 +767,8 @@ eeprom@0 {
- 			};
- 
- 			cfam2_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -782,8 +784,8 @@ eeprom@0 {
- 			};
- 
- 			cfam2_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -1106,6 +1108,7 @@ fsi2spi@1c00 {
- 			#size-cells = <0>;
- 
- 			cfam3_spi0: spi@0 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x0>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -1122,6 +1125,7 @@ eeprom@0 {
- 			};
- 
- 			cfam3_spi1: spi@20 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x20>;
- 				#address-cells = <1>;
- 				#size-cells = <0>;
-@@ -1138,8 +1142,8 @@ eeprom@0 {
- 			};
- 
- 			cfam3_spi2: spi@40 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x40>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
-@@ -1155,8 +1159,8 @@ eeprom@0 {
- 			};
- 
- 			cfam3_spi3: spi@60 {
-+				compatible = "ibm,spi-fsi";
- 				reg = <0x60>;
--				compatible =  "ibm,fsi2spi";
- 				#address-cells = <1>;
- 				#size-cells = <0>;
- 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a92290fffa16..4a7b4656822c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9810,6 +9810,7 @@ R:	Ninad Palsule <ninad@linux.ibm.com>
+ L:	linux-fsi@lists.ozlabs.org
+ S:	Supported
+ Q:	http://patchwork.ozlabs.org/project/linux-fsi/list/
++F:	Documentation/devicetree/bindings/fsi/
+ F:	drivers/fsi/
+ F:	include/linux/fsi*.h
+ F:	include/trace/events/fsi*.h
 
 -- 
 2.47.2
