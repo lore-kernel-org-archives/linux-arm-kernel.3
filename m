@@ -4,134 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07735C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF9BC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 10:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQZaEeF9d7skWsfawRi1lhOPl2zgtzHvwTKPULZo3oY=; b=4W3f6/1ZNYX8au34gmvBDa2aAd
-	H69C2GcLALRTdIwsCim2MrANQLzBEwWU1XiaNNDcCjfq248iv+NwsQvJUdFLVx5i9UWwmcRskH6by
-	xNi/fILH4p9rNGPvNUx4n/xkl5rIVAZU/2Lb0IexqbHrm98T2stJO8+PSkrGFPZ5aIWUFK/sDGt//
-	4cQ3z3sovyVgnm7bi28mK4q1rFlFKu0bMG3HhdH/1p8MjK3gHEdCYN1dWgIK0LISDGs73G//yyMjr
-	VG3BrMKYgKYkrzz0N8xfhX1KwJd506ZYb3u+/3tKl7Dfed3UZJWQHA+BOXpHDUaw6lxE7Shp6PhEp
-	jaXuGIoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5oKwdxbuYAh1/EPi9eb9uLvwaxelHetpR8ngLYV+0CE=; b=3ZkgFRLE4crLUrzGVneAkxfqng
+	7TM48F5K7OFxAPfOt9KgQJdGHoB02zZPH/kJHjKMdEncZ20/mWFKB2SOw5i2xA9yH0pG95gxanFT9
+	1he+0j9y12jROasBSBkIXtq6L5wCJxGdBHY+IegSaLgDQYdAlftRmvcDNfK1KA9X7FwxcvEcDuqEB
+	dyxClPKsFCR9MBnBObW6wyRbKImLGz203c0uiByA1WCNPyLwTTDfhtJXOoszfeBaCFU46qBsxEYoa
+	/pZMkWBWLEJIljFcOv5c8HpPu8LZnQz/XdEqJd4OnKtNJTMnHmXnPFnazJzt2DZoCncenI5zQFsOH
+	rQ+0Dt5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhQ0k-00000003Jvq-2FSv;
-	Thu, 31 Jul 2025 09:55:42 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1uhQ89-00000003KVw-45RX;
+	Thu, 31 Jul 2025 10:03:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPvX-00000003JYs-2YyV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 09:50:21 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 15CA243854;
-	Thu, 31 Jul 2025 09:50:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1753955418;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=oQZaEeF9d7skWsfawRi1lhOPl2zgtzHvwTKPULZo3oY=;
-	b=O2s09FwLDoyIJnk/6dSjw3g3U7UcPzW9P4u7udmFTu0FSLNhbqZQgC/L851x4QIWbNeiKX
-	CAj03MM4/ipe3/IALyAtpEt5XGCb3vgZJMxfOp5ltuwCjQneLW5kXWPVrbkQOrQpVXZRBj
-	iHqp9cjZdA6QvsgcyAlhnwdpt5F9LIAnxoiOGGLUyXxTzJ1kG8/3vS5M3jI583MVUsrgVz
-	uu0tUdBY7rS7YZU06ZK7VJKL8q93C+bkD7asgweDVaPfcbEQ+SIUi1POmbRJgY//OXC//W
-	OVtPn3yZyla+Y4O6BNxt18eYzPukHlBkwPQDf5CBvX5H0wftyH0LwYWpxFVm4A==
-Message-ID: <8a2b1876-d1d4-4523-ae6a-bd14875772cf@bootlin.com>
-Date: Thu, 31 Jul 2025 11:50:16 +0200
+	id 1uhQ5V-00000003KJI-23wF;
+	Thu, 31 Jul 2025 10:00:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 522ADA5501F;
+	Thu, 31 Jul 2025 10:00:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96C17C4CEEF;
+	Thu, 31 Jul 2025 10:00:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753956036;
+	bh=nIIy3EtagONm9o7fIocsy3fvnqj5DKyDI9AvQpz+YsA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=eLC7+6ijyBPGKVEMVLfwY+Uw6w5la+YyHP/0svxYWWgTFagJusQ8YCt5h4K9Qtm0W
+	 fbrDqzIHcEFwXtz/8R1k+qnVGmHJN5o8B7/o2YJiD3ybv9+NhnnPJrBUd2iuVkpUa8
+	 YYYqqfimZw0V4cfMDJIpaQjmGJiF4wX1cAEABFHg8Z8oTrFq9Q54sseSj4nJXfyJHX
+	 EYltQcNTEyRH/UM9T21J0eGc3M9obqQuaUxWHB4BPHCl0GPUHmT76oqYxuQ03M1kEz
+	 qe1lxG2BGYaCC71S+ehz0G2qPrCwVtDYWeuiROsBXwFkBUc87nrnR91ESTs81SFsj6
+	 858ooeFMMIHTQ==
+Date: Thu, 31 Jul 2025 12:00:33 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Aleksandr Shubin <privatesub2@gmail.com>, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Cheo Fusi <fusibrandon13@gmail.com>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v12 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+Message-ID: <6d2cq657lkwrzntlwwyc5drgkh4vsetkppugrhjedpp7hlvdh5@lqwe34oyuuvb>
+References: <20250427142500.151925-1-privatesub2@gmail.com>
+ <20250427142500.151925-2-privatesub2@gmail.com>
+ <20250512235619.30cff739@minigeek.lan>
+ <20250619094407c4c849f3@mail.local>
+ <20250619131044.20b45d8d@donnerap.manchester.arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: ti: k3-am62-main: Add tidss clk-ctrl
- property
-To: Rob Herring <robh@kernel.org>
-Cc: Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
- Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, thomas.petazzoni@bootlin.com,
- Jyri Sarha <jsarha@ti.com>, Tomi Valkeinen <tomi.valkeinen@ti.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- stable@vger.kernel.org
-References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
- <20250730-fix-edge-handling-v1-3-1bdfb3fe7922@bootlin.com>
- <20250731001725.GA1938112-robh@kernel.org>
-Content-Language: en-US
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
- xsFNBGCG5KEBEAD1yQ5C7eS4rxD0Wj7JRYZ07UhWTbBpbSjHjYJQWx/qupQdzzxe6sdrxYSY
- 5K81kIWbtQX91pD/wH5UapRF4kwMXTAqof8+m3XfYcEDVG31Kf8QkJTG/gLBi1UfJgGBahbY
- hjP40kuUR/mr7M7bKoBP9Uh0uaEM+DuKl6bSXMSrJ6fOtEPOtnfBY0xVPmqIKfLFEkjh800v
- jD1fdwWKtAIXf+cQtC9QWvcdzAmQIwmyFBmbg+ccqao1OIXTgu+qMAHfgKDjYctESvo+Szmb
- DFBZudPbyTAlf2mVKpoHKMGy3ndPZ19RboKUP0wjrF+Snif6zRFisHK7D/mqpgUftoV4HjEH
- bQO9bTJZXIoPJMSb+Lyds0m83/LYfjcWP8w889bNyD4Lzzzu+hWIu/OObJeGEQqY01etOLMh
- deuSuCG9tFr0DY6l37d4VK4dqq4Snmm87IRCb3AHAEMJ5SsO8WmRYF8ReLIk0tJJPrALv8DD
- lnLnwadBJ9H8djZMj24+GC6MJjN8dDNWctpBXgGZKuCM7Ggaex+RLHP/+14Vl+lSLdFiUb3U
- ljBXuc9v5/9+D8fWlH03q+NCa1dVgUtsP2lpolOV3EE85q1HdMyt5K91oB0hLNFdTFYwn1bW
- WJ2FaRhiC1yV4kn/z8g7fAp57VyIb6lQfS1Wwuj5/53XYjdipQARAQABzSlMb3VpcyBDaGF1
- dmV0IDxsb3Vpcy5jaGF1dmV0QGJvb3RsaW4uY29tPsLBlAQTAQgAPgIbAwULCQgHAgYVCgkI
- CwIEFgIDAQIeAQIXgBYhBItxBK6aJy1mk/Un8uwYg/VeC0ClBQJod7hIBQkJ0gcjAAoJEOwY
- g/VeC0ClghwP/RQeixyghRVZEQtZO5/UsHkNkRRUWeVF9EoFXqFFnWqh4XXKos242btk5+Ew
- +OThuqDx9iLhLJLUc8XXuVw6rbJEP5j5+z0jI40e7Y+kVWCli/O2H/CrK98mGWwicBPEzrDD
- 4EfRgD0MeQ9fo2XJ3Iv+XiiZaBFQIKMAEynYdbqECIXxuzAnofhq2PcCrjZmqThwu8jHSc55
- KwdknZU3aEKSrTYiCIRrsHHi1N6vwiTZ098zL1efw7u0Q8rcqxHu3OWNIAeKHkozsMy9yo1h
- h3Yc7CA1PrKDGcywuY4MrV726/0VlrWcypYOCM1XG+/4ezIChYizpAiBNlAmd7witTK0d2HT
- UNSZF8KAOQRlHsIPrkA5qLr94OrFHYx6Ek07zS8LmVTtHricbYxFAXnQ5WbugNSE0uwRyrL/
- Kies5F0Sst2PcVYguoWcHfoNxes6OeU3xDmzclnpYQTanIU7SBzWXB1fr5WgHF7SAcAVxPY8
- wAlJBe+zMeA6oWidrd1u37eaEhHfpKX38J1VaSDTNRE+4SPQ+hKGDuMrDn0mXfcqR5wO7n1Z
- Q6uhKj3k6SJNksAWh1u13NP0DRS6rpRllvGWIyp+653R03NN8TE9JNRWAtSqoGvsiryhQyCE
- FlPOsv6+Ed/5a4dfLcO1qScJwiuP/XjFHAaWFK9RoOX52lR4zsFNBGCG6KUBEADZhvm9TZ25
- JZa7wbKMOpvSH36K8wl74FhuVuv7ykeFPKH2oC7zmP1oqs1IF1UXQQzNkCHsBpIZq+TSE74a
- mG4sEhZP0irrG/w3JQ9Vbxds7PzlQzDarJ1WJvS2KZ4AVnwc/ucirNuxinAuAmmNBUNF8w6o
- Y97sdgFuIZUP6h972Tby5bu7wmy1hWL3+2QV+LEKmRpr0D9jDtJrKfm25sLwoHIojdQtGv2g
- JbQ9Oh9+k3QG9Kh6tiQoOrzgJ9pNjamYsnti9M2XHhlX489eXq/E6bWOBRa0UmD0tuQKNgK1
- n8EDmFPW3L0vEnytAl4QyZEzPhO30GEcgtNkaJVQwiXtn4FMw4R5ncqXVvzR7rnEuXwyO9RF
- tjqhwxsfRlORo6vMKqvDxFfgIkVnlc2KBa563qDNARB6caG6kRaLVcy0pGVlCiHLjl6ygP+G
- GCNfoh/PADQz7gaobN2WZzXbsVS5LDb9w/TqskSRhkgXpxt6k2rqNgdfeyomlkQnruvkIIjs
- Sk2X68nwHJlCjze3IgSngS2Gc0NC/DDoUBMblP6a2LJwuF/nvaW+QzPquy5KjKUO2UqIO9y+
- movZqE777uayqmMeIy4cd/gg/yTBBcGvWVm0Dh7dE6G6WXJUhWIUtXCzxKMmkvSmZy+gt1rN
- OyCd65HgUXPBf+hioCzGVFSoqQARAQABwsOyBBgBCAAmAhsuFiEEi3EErponLWaT9Sfy7BiD
- 9V4LQKUFAmh3uH8FCQnSA1kCQMF0IAQZAQgAHRYhBE+PuD++eDwxDFBZBCCtLsZbECziBQJg
- huilAAoJECCtLsZbECziB8YQAJwDRdU16xtUjK+zlImknL7pyysfjLLbfegZyVfY/ulwKWzn
- nCJXrLAK1FpdYWPO1iaSVCJ5pn/Or6lS5QO0Fmj3mtQ/bQTnqBhXZcUHXxZh56RPAfl3Z3+P
- 77rSIcTFZMH6yAwS/cIQaKRQGPuJoxfYq1oHWT0r7crp3H+zUpbE4KUWRskRX+2Z6rtNrwuL
- K1Az1vjJjnnS3MLSkQR4VwsVejWbkpwlq5icCquU5Vjjw0WkVR32gBl/8/OnegSz7Of/zMrY
- 8GtlkIPoCGtui1HLuKsTl6KaHFywWbX4wbm5+dpBRYetFhdW4WG+RKipnyMY+A8SkWivg2NH
- Jf88wuCVDtLmyeS8pyvcu6fjhrJtcQer/UVPNbaQ6HqQUcUU49sy/W+gkowjOuYOgNL7EA23
- 8trs7CkLKUKAXq32gcdNMZ8B/C19hluJ6kLroUN78m39AvCQhd4ih5JLU7jqsl0ZYbaQe2FQ
- z64htRtpElbwCQmnM/UzPtOJ5H/2M7hg95Sb20YvmQ/bLI23MWKVyg56jHU1IU0A/P7M9yi9
- WbEBpIMZxLOFBUlWWTzE+JvyDh+cjyoncaPvHLDwP13PGEJHYMgWZkvzgSc3tGP6ThUgZjsz
- 9xW/EvzWOVswYwREyZv3oK5r3PVE6+IYDUd7aBsc5ynqqYs27eemuV4bw8tlCRDsGIP1XgtA
- pT1zD/0dT+clFbGoCMaIQ5qXypYoO0DYLmBD1aFjJy1YLsS1SCzuwROy4qWWaFMNBoDMF2cY
- D+XbM+C/4XBS8/wruAUrr+8RSbABBI/rfiVmqv0gPQWDm676V8iMDgyyvMG2DotMjnG/Dfxj
- w9WVnQUs/kQSPD8GZCZZ3AcycFmxN24ibGHo4zC947VKR5ZYdFHknX+Dt92TdNDkmoBg2CEm
- 9S2Skki9Pwyvb/21zCYq/o4pRMfKmQgpF2LT2m51rdtmNg9oj9F4+BJUmkgyNxMyGEA1V1jM
- xQaVX4mRY61O4CimPByUDp2EH2VaEr2rEwvHszaWqFJdSQE8hdSDc4cqhik7rznNBjwgZAzq
- cefLctAVnKjasfKEWp0VhgkIVB8/Sos4S8YaG4qbeGviSfIQJ2GO1Vd9WQ2n1XGth3cY2Qwk
- dIo13GCFJF7b6y0J13bm+siRpPZQ3aOda7pn07GXqREjFsfq5gF04/9am5x/haehPse2yzcP
- wDN7ORknPndzxrq3CyB7b/Tk1e8Qx+6HU/pnMb4ZqwwMwZAMk24TZpsgg28o9MQiUNzad0h2
- gIszbeej9ryrtLHxMzyK8yKhHoI2i2ovxy5O+hsWeAoCPE9xwbqnAjLjOn4Jzd/pPovizrq/
- kUoX66YgvCuHfQMC/aBPLnVunZSP23J2CrkTrnsUzw==
-In-Reply-To: <20250731001725.GA1938112-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutddtgeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepnfhouhhishcuvehhrghuvhgvthcuoehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeetieekffetjeeugfdvfefhudetueelleetuddvtddtvdehgefgudeugfehgeelfeenucffohhmrghinhepthhirdgtohhmpdgsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrtddrvddtngdpmhgrihhlfhhrohhmpehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvgedprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhihrhhirdhsrghrhhgrsehikhhirdhfihdprhgtphhtthhopehtohhmihdrvhgrlhhkvghinhgvnhesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhug
- idrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghh
-X-GND-Sasl: louis.chauvet@bootlin.com
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xadqunur2iav4gmf"
+Content-Disposition: inline
+In-Reply-To: <20250619131044.20b45d8d@donnerap.manchester.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_025019_923844_6E9F1C2A 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20250731_030037_665886_70D63C0E 
+X-CRM114-Status: GOOD (  40.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,80 +85,166 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--xadqunur2iav4gmf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v12 1/3] dt-bindings: pwm: Add binding for Allwinner
+ D1/T113-S3/R329 PWM controller
+MIME-Version: 1.0
 
-Le 31/07/2025 à 02:17, Rob Herring a écrit :
-> On Wed, Jul 30, 2025 at 07:02:46PM +0200, Louis Chauvet wrote:
->> For am62 processors, we need to use the newly created clk-ctrl property to
->> properly handle data edge sampling configuration. Add them in the main
->> device tree.
->>
->> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
->> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
->> ---
->>
->> Cc: stable@vger.kernel.org
->> ---
->>   arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 6 ++++++
->>   1 file changed, 6 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->> index 9e0b6eee9ac77d66869915b2d7bec3e2275c03ea..d3131e6da8e70fde035d3c44716f939e8167795a 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->> @@ -76,6 +76,11 @@ audio_refclk1: clock-controller@82e4 {
->>   			assigned-clock-parents = <&k3_clks 157 18>;
->>   			#clock-cells = <0>;
->>   		};
->> +
->> +		dss_clk_ctrl: dss_clk_ctrl@8300 {
->> +			compatible = "ti,am625-dss-clk-ctrl", "syscon";
->> +			reg = <0x8300 0x4>;
-> 
-> H/w blocks are rarely only 4 bytes of registers... Does this belong to
-> some larger block. The problem with bindings defining single registers
-> like this is they don't get defined until needed and you have a constant
-> stream of DT updates.
+Hello Andre,
 
-In this case, I don't think there is a "larger block". This register 
-exists only because TI had issues in the display controller [1].
+On Thu, Jun 19, 2025 at 01:10:44PM +0100, Andre Przywara wrote:
+> On Thu, 19 Jun 2025 11:44:07 +0200
+> Alexandre Belloni <alexandre.belloni@bootlin.com> wrote:
+>=20
+> Hi Alexandre,
+>=20
+> > On 12/05/2025 23:56:19+0100, Andre Przywara wrote:
+> > > On Sun, 27 Apr 2025 17:24:53 +0300
+> > > Aleksandr Shubin <privatesub2@gmail.com> wrote:
+> > >=20
+> > > Hi,
+> > >  =20
+> > > > Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
+> > > > controller witch is different from the previous pwm-sun4i.
+> > > >=20
+> > > > The D1 and T113 are identical in terms of peripherals,
+> > > > they differ only in the architecture of the CPU core, and
+> > > > even share the majority of their DT. Because of that,
+> > > > using the same compatible makes sense.
+> > > > The R329 is a different SoC though, and should have
+> > > > a different compatible string added, especially as there
+> > > > is a difference in the number of channels.
+> > > >=20
+> > > > D1 and T113s SoCs have one PWM controller with 8 channels.
+> > > > R329 SoC has two PWM controllers in both power domains, one of
+> > > > them has 9 channels (CPUX one) and the other has 6 (CPUS one).
+> > > >=20
+> > > > Add a device tree binding for them.
+> > > >=20
+> > > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> > > > Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+> > > > ---
+> > > >  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 84 +++++++++++++++=
+++++
+> > > >  1 file changed, 84 insertions(+)
+> > > >  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner=
+,sun20i-pwm.yaml
+> > > >=20
+> > > > diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i=
+-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+> > > > new file mode 100644
+> > > > index 000000000000..4b25e94a8e46
+> > > > --- /dev/null
+> > > > +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.ya=
+ml
+> > > > @@ -0,0 +1,84 @@
+> > > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > > +%YAML 1.2
+> > > > +---
+> > > > +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
+> > > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > > +
+> > > > +title: Allwinner D1, T113-S3 and R329 PWM
+> > > > +
+> > > > +maintainers:
+> > > > +  - Aleksandr Shubin <privatesub2@gmail.com>
+> > > > +  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
+> > > > +
+> > > > +properties:
+> > > > +  compatible:
+> > > > +    oneOf:
+> > > > +      - const: allwinner,sun20i-d1-pwm
+> > > > +      - items:
+> > > > +          - const: allwinner,sun50i-r329-pwm
+> > > > +          - const: allwinner,sun20i-d1-pwm
+> > > > +
+> > > > +  reg:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  "#pwm-cells":
+> > > > +    const: 3
+> > > > +
+> > > > +  clocks:
+> > > > +    items:
+> > > > +      - description: Bus clock
+> > > > +      - description: 24 MHz oscillator
+> > > > +      - description: APB clock
+> > > > +
+> > > > +  clock-names:
+> > > > +    items:
+> > > > +      - const: bus
+> > > > +      - const: hosc
+> > > > +      - const: apb
+> > > > +
+> > > > +  resets:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  allwinner,npwms:
+> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > +    description: The number of PWM channels configured for this in=
+stance
+> > > > +    enum: [6, 8, 9] =20
+> > >=20
+> > > Do we really need to be so restrictive here? The IP has an
+> > > "architectural" limit of 16 channels (due to the MMIO register layout
+> > > and status/control bits usage in some registers), so can't we just le=
+ave
+> > > this value to be anything between 1 and 16 here? If people configure
+> > > this wrongly, it's their fault, I'd say? Without confining this furth=
+er
+> > > based on the respective compatible strings this enum is less useful
+> > > anyway, I think. The Allwinner A523 uses the same IP, and supports all
+> > > 16 channels, the V853 implements 12, that's what I quickly found
+> > > already, and there might be more examples in the future, so I'd rather
+> > > open this up.
+> > >  =20
+> >=20
+> > Do we really need this property? I feel like the number of PWM channels=
+ should be
+> > something the driver could infer from the compatible string as we are g=
+oing to
+> > have one compatible string per SoC anyway.
+>=20
+> Well yes, this would work, but I feel like it creates unnecessary churn to
+> touch the driver every time some new SoC with the same IP pops up, and
+> where just the number of channels is different - see above for a list of
+> SoCs we already know about, and there are more in the pipe. It also means
+> stable kernels would already work.
 
-Here is the extract of MMR registers ([2], page 4311):
+Having a property that specifies the number of PWM outputs is fine for
+me.
 
-[...]
-A2E4h AUDIO_REFCLK1_CTRL_PROXY <unrelated>
-A300h DPI0_CLK_CTRL_PROXY <this register, 32 bits>
-<nothing between 0xA304 and 0xA319>
-A320h DSS_DISPC0_CLKSEL1_PROXY <an other dss clock stuff, 32 bits>
-A330h MCASP0_CLKSEL_PROXY <unrelated>
-[...]
+There is some prior art for that: mxs-pwm.yaml has fsl,pwm-number;
+pwm-st.txt has st,pwm-num-chan with that semantic.
 
-I agree that DSS_DISPC_CLKSEL_PROXY is also related to DSS clock stuff, 
-so may be included in the same block, but there is also a big hole in 
-between. What do you think is better?
+Given that this is a fundamental concept of a pwm chip, I'd say giving
+that a generic name without vendor prefix is justified. I suggest to go
+for
 
-[1]:https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1228207/am62a7-rgb-display-flickering-and-pixel-issue/4687209#4687209
-[2]:https://www.ti.com/lit/ug/spruiv7b/spruiv7b.pdf#page=4311
+	npwms =3D <..>;
 
->> +		};
->>   	};
->>   
->>   	dmss: bus@48000000 {
->> @@ -787,6 +792,7 @@ dss: dss@30200000 {
->>   			 <&k3_clks 186 2>;
->>   		clock-names = "fck", "vp1", "vp2";
->>   		interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
->> +		ti,clk-ctrl = <&dss_clk_ctrl>;
->>   		status = "disabled";
->>   
->>   		dss_ports: ports {
->>
->> -- 
->> 2.50.1
->>
+which matches ngpios that is specified for gpio chips.
 
--- 
-Louis Chauvet, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Best regards
+Uwe
 
+--xadqunur2iav4gmf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmiLPr4ACgkQj4D7WH0S
+/k6qWwf/UfJJoL8d1i9SVPk/Syl4ySb6I9d8VOpLaDSJfkSpXLfkxhBEvlXyOXAn
+FzlTMz893YPQTTpTeuEmFMebZhM62aQoFwRTw8NecOLepM3Y/3ia5Q+wS/goyNf3
+NKMXMcqIeyF2BiQc1PvBTInND72IGsRqzuScnGVZtoAgz8IOEgigclMY5cc4mbGX
+CsbLwoTC9F9MXYHQp2j+2VpL3qf89ug6zXdXq+j4YSRYaBj9LuPCFhTN921V6MfP
+18OK7KI7rfJpJUuVPcpnmM0nH7Z9hTXM3kQFdiSwGd6QexuESuw3KBCdfDwuRpoI
+4nSRBPbwtqh1Eq7AwAuqT07vbY/DRQ==
+=JDZ2
+-----END PGP SIGNATURE-----
+
+--xadqunur2iav4gmf--
 
