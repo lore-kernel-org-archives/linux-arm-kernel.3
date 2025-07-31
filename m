@@ -4,56 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F73DC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B613C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Imnp0d+dE81H1pBJO8FP2xfuY7SEn2GDS6aOUwfQXVs=; b=Sqpx/lST2Cdj9/nyHPhOno7JHM
-	BKFx66VRWEIFNCQo4de5wnnDwTdTcybBhPYNst33tjRebSzjMZ6m1sjA7De0NKM+iVYfp2/3D93an
-	nzACpT6jCtqvncimdovmUh79cNwevRK+EEvDVSXhsRTOv5iKPrrp3IM4RlZTXqQLXTFUeu+DIwhXX
-	JQjkls6PkqZ7+4CVCMqoBSefra14X7yKKoxQY6iUSX6y/s+KX2/ewVU4gqS1zz5VqB/aGMTwvKoIe
-	514MtA+xlUk1e2pU1XbHjf056/x0flVlIBTOya3uN0PmuwQViUTDbMr1z4xKLz5IXUme8bGE645Le
-	OYtb6ADw==;
+	bh=QwxHrTbydqwM7d6UzbsfH9IioeyAzaZVSGDspK8v8KU=; b=grmd0cym2zqOOj+aW0t1V6UNod
+	YsrdyridLFVjeIMpmXaRme/G+cpxCkeG6x6hMakDRv8EyP/fNjiatv4jKh2zTWetS9Ibayq98nJDa
+	WTA4qu+UQZHXPpnKzrNBoy4pXUAVzlOULDznLTnm5L6LW94ixQEUREgo5WExh4VxaWB1b4qhi2Vh1
+	5K73LLwmIQVyFFn3mE8tmy8deGqDYDgLcacOA1dPsyK+hHMdrmFIJmenJ2X94c3lN/tuXnCpITVoR
+	gKhGoa6faCBhyEPSBuzauShE0oFCX5xZ6ZtDV2ULZJ4+aLu1SEl0F7X3GEWB1x8YI5wl1SNsetbuJ
+	buokiAGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPoh-00000003Iuk-3xVQ;
-	Thu, 31 Jul 2025 09:43:15 +0000
-Received: from mail-m83230.xmail.ntesmail.com ([156.224.83.230])
+	id 1uhPy8-00000003JlN-38ni;
+	Thu, 31 Jul 2025 09:53:00 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPm3-00000003Iko-1vrp
+	id 1uhPvU-00000003JY9-3dyb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 09:40:33 +0000
-Received: from [192.168.1.94] (unknown [218.94.118.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id dee002b7;
-	Thu, 31 Jul 2025 17:40:26 +0800 (GMT+08:00)
-Message-ID: <5b4dc6a3-f6fd-4bf7-a84e-3d79db8d062e@easystack.cn>
-Date: Thu, 31 Jul 2025 17:40:26 +0800
+	Thu, 31 Jul 2025 09:50:19 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A3863430B7;
+	Thu, 31 Jul 2025 09:50:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1753955414;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=QwxHrTbydqwM7d6UzbsfH9IioeyAzaZVSGDspK8v8KU=;
+	b=g7ZtkIhLgsNC+D4XgALuZ5CW3tBZUXYeWZXXR+qzBSasztnToKOUfX66nnk8tgmhcwnjuh
+	M0x/a0uMor5V8J7X9yyizXDwtzGl4vGqKL/FFfu4vLdI7rBedAurrSWrHmA4koMnITfHGy
+	MveGPV4yjge5QY1al+UF0z9PvhdLzDFyM0DODdvbBp4nFJLMdtImJdXmH0sblubYeIhJYR
+	+RcN2H0lB7GRDGAYNXYEUODX/ZTaBhkP8Jb4xKn0VY4LnQIbsZLaahXezkU38llBw5az91
+	fgAG2ZidRuYVCi8SNdzZedOFdX2C/PtmHcEFP36c6izfl9vBABhwdoZjOhYF9Q==
+Message-ID: <28715810-1279-45ad-b978-f991ecf49c70@bootlin.com>
+Date: Thu, 31 Jul 2025 11:50:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: samsung: exynos-srom: Fix of_iomap leak in
- exynos_srom_probe
-To: Krzysztof Kozlowski <krzk@kernel.org>, alim.akhtar@samsung.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250731083340.1057564-1-zhen.ni@easystack.cn>
- <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
-From: "zhen.ni" <zhen.ni@easystack.cn>
-In-Reply-To: <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
+Subject: Re: [PATCH 1/4] dt-bindings: display: ti,am65x-dss: Add clk property
+ for data edge synchronization
+To: Rob Herring <robh@kernel.org>
+Cc: Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
+ Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, thomas.petazzoni@bootlin.com,
+ Jyri Sarha <jsarha@ti.com>, Tomi Valkeinen <tomi.valkeinen@ti.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ stable@vger.kernel.org
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+ <20250730-fix-edge-handling-v1-1-1bdfb3fe7922@bootlin.com>
+ <20250730235653.GA1914482-robh@kernel.org>
+Content-Language: en-US
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ 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
+In-Reply-To: <20250730235653.GA1914482-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a985fdab9b90229kunm51918700f3967
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFJQjdXWS1ZQUlXWQ8JGhUIEh9ZQVlDShkZVkgZHk9NT08aHk8fT1YVFAkWGhdVGRETFh
-	oSFyQUDg9ZV1kYEgtZQVlJSkNVQk9VSkpDVUJLWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09IVUpLS1
-	VKQktLWQY+
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutddtgeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepnfhouhhishcuvehhrghuvhgvthcuoehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekieevtdefgedtkeehteehtddttdefhffhgeejleejjeeluddvhfdugedvkeehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgduledvrdduieekrddtrddvtdgnpdhmrghilhhfrhhomheplhhouhhishdrtghhrghuvhgvthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdegpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehjhihrihdrshgrrhhhrgesihhkihdrfhhipdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlr
+ dgtohhmpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhimhhonhgrsehffhiflhhlrdgthh
+X-GND-Sasl: louis.chauvet@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_024031_792046_C1379CB8 
-X-CRM114-Status: GOOD (  23.79  )
+X-CRM114-CacheID: sfid-20250731_025017_542594_B411CF8F 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,92 +146,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-During static analysis with Smatch, I identified the following issue:
-
-```
-drivers/memory/samsung/exynos-srom.c:155 exynos_srom_probe()
-warn: 'srom->reg_base' from of_iomap() not released on lines: 155.
-```
-
-Problem analysis:
-1. In exynos_srom_probe(), the reg_base resource is acquired via of_iomap()
-2. The of_platform_populate() call at the end of the function has a 
-possible failure path:
-```
-root = root ? of_node_get(root) : of_find_node_by_path("/");
-if (!root)
-      return -EINVAL; // Failure return point
-```
-3. When this path is taken, reg_base is not released, causing a resource 
-leak
-
-Verification:
-After applying the patch, the Smatch warning is resolved
 
 
-Best regards,
-Zhen
-
-
-在 2025/7/31 17:06, Krzysztof Kozlowski 写道:
-> On 31/07/2025 10:33, Zhen Ni wrote:
->> The current error handling in exynos_srom_probe() has a resource leak
->> in the of_platform_populate() failure path. When this function fails
->> after successful resource allocation, srom->reg_base is not released.
+Le 31/07/2025 à 01:56, Rob Herring a écrit :
+> On Wed, Jul 30, 2025 at 07:02:44PM +0200, Louis Chauvet wrote:
+>> The dt-bindings for the display, specifically ti,am65x-dss, need to
+>> include a clock property for data edge synchronization. The current
+>> implementation does not correctly apply the data edge sampling property.
 >>
->> To fix this issue, replace of_iomap() with
->> devm_platform_ioremap_resource(). devm_platform_ioremap_resource()
->> is a specialized function for platform devices.
-> 
-> Don't explain us kernel code. Drop sentence.
-> 
->> It allows 'srom->reg_base' to be automatically released whether the
->> probe function succeeds or fails.
-> 
-> It's obvious.
-> 
+>> To address this, synchronization of writes to two different registers is
+>> required: one in the TIDSS IP (which is already described in the tidss
+>> node) and one is in the Memory Mapped Control Register Modules (added by
+>> the previous commit).
 >>
->> Besides, use IS_ERR() instead of !srom->reg_base
+>> As the Memory Mapped Control Register Modules is located in a different
+>> IP, we need to use a phandle to write values in its registers.
 > 
-> I don't understand this. You keep explaining the code and this suggests
-> you made change here not related to original case. Can you return
-> srom->reg_base here? No?
-> 
-> 
->> as the return value of devm_platform_ioremap_resource()
->> can either be a pointer to the remapped memory or
->> an ERR_PTR() encoded error code if the operation fails.
+> You can always just lookup the target node by compatible. Then you don't
+> need a DT update to solve your problem.
+
+I just followed what was already done for dss_oldi_io_ctrl/ti,oldi-io-ctrl.
+
+I will use syscon_regmap_lookup_by_compatible for the v2.
+
 >>
-> 
-> Missing fixes and cc-stable.
-> 
->> Signed-off-by: Zhen Ni <zhen.ni@easystack.cn>
+>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
+>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+>>
 >> ---
->>   drivers/memory/samsung/exynos-srom.c | 10 ++++------
->>   1 file changed, 4 insertions(+), 6 deletions(-)
 >>
->> diff --git a/drivers/memory/samsung/exynos-srom.c b/drivers/memory/samsung/exynos-srom.c
->> index e73dd330af47..d913fb901973 100644
->> --- a/drivers/memory/samsung/exynos-srom.c
->> +++ b/drivers/memory/samsung/exynos-srom.c
->> @@ -121,20 +121,18 @@ static int exynos_srom_probe(struct platform_device *pdev)
->>   		return -ENOMEM;
+>> Cc: stable@vger.kernel.org
+>> ---
+>>   Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml | 6 ++++++
+>>   1 file changed, 6 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
+>> index 361e9cae6896c1f4d7fa1ec47a6e3a73bca2b102..b9a373b569170332f671416eb7bbc0c83f7b5ea6 100644
+>> --- a/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
+>> +++ b/Documentation/devicetree/bindings/display/ti/ti,am65x-dss.yaml
+>> @@ -133,6 +133,12 @@ properties:
+>>         and OLDI_CLK_IO_CTRL registers. This property is needed for OLDI
+>>         interface to work.
 >>   
->>   	srom->dev = dev;
->> -	srom->reg_base = of_iomap(np, 0);
->> -	if (!srom->reg_base) {
->> +	srom->reg_base = devm_platform_ioremap_resource(pdev, 0);
->> +	if (IS_ERR(srom->reg_base)) {
->>   		dev_err(&pdev->dev, "iomap of exynos srom controller failed\n");
->> -		return -ENOMEM;
->> +		return PTR_ERR(srom->reg_base);
-> 
-> How did you test it?
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
+>> +  ti,clk-ctrl:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description:
+>> +      phandle to syscon device node mapping CFG0_CLK_CTRL registers.
+>> +      This property is needed for proper data sampling edge.
+>> +
+>>     max-memory-bandwidth:
+>>       $ref: /schemas/types.yaml#/definitions/uint32
+>>       description:
+>>
+>> -- 
+>> 2.50.1
+>>
+
+-- 
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
