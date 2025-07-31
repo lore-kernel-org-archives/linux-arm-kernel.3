@@ -4,105 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 628DFC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A89ADC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=maiAHi6g3C+KsJWcP2fVkDgUj89bcqv0ETPeP0aoMOA=; b=sq2rADVc0sJqzMYSyeONxV5btd
-	q1+D6vy3os360roI4ZWHBNVqJuRF0unhijPgzUJGJW16vhpW5I0pjeli+iA5AfpRSS79g4KX8huNh
-	6IV+Cw+/Y9ulF7r4xEmv3Thugyq6qTtFlZ9HeUF2riXDuracDlIPHvqWYXri0NnKX0czrUybiOf7d
-	MARWe0fE6YOGIQSRMgoPDTuQmdnIb34758/vzYqexL/DbgptZxeqdEpQLQ93TEAvlgT3W0sqjqmyM
-	uNQJ3yRcIZ6q3NPYDRWSma5bFfZwFZi/wd7UK7DQ+N2ULPgZtRlHF3siIExxDY9JILm/DkQPNIrFS
-	FrzTOCRw==;
+	bh=hRwq5x4VwHGS6JkevscNB7G4mlDeMcL9xsQzNX6TfQY=; b=y+ZrcqU+QrT9V/+weaqcbzDhMe
+	7wJQ1IS0Yoqaf5A/ZMTcuBA6DgZFuusU12kb27k/9a1/9rAheEXhK4j4Sbw6zPNJlh0vpBwVyMUG4
+	O6hQ79OLLAA+MiGZlAddPxzQqiZ6LCM9sIoUVVTtadbaNbMf7OPsFFwdeZ4nglQCIU2xZqwnuzl+G
+	3WxUqrrKEYwnxd/cJObFhTwhF6OI6Ag3jLvwekKX8AoUaDuUM85wRNsqutnx9+YhTcpHXxVKlUEAY
+	NrleK2SCRsa/8kavWKT/N3ZwKzuRXK3SYjQohuLL1/k6/jIEWFTXq+JpD5rl+0AMlMFKeWPwNUUbU
+	QdNvzCDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPHM-00000003ExA-0fCM;
-	Thu, 31 Jul 2025 09:08:48 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uhPdC-00000003HKQ-0wQS;
+	Thu, 31 Jul 2025 09:31:22 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPEs-00000003EkZ-0690
+	id 1uhPJ5-00000003FJV-3aWg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 09:06:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F852A5487F;
-	Thu, 31 Jul 2025 09:06:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FB98C4CEEF;
-	Thu, 31 Jul 2025 09:06:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753952772;
-	bh=oSMKei0qcQQgEgMV1zyUo1IrYdKO89Yq7Tm0/TNmFXg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=f/4YKdSqLENAXDynYM/jt1AeTEaJ1yN5/Y4+ny2jqUH48YHlnTWdpMznnDtMoJMAZ
-	 4U6iuyBEB1GhdqkuklBMFvcUWSc2X5RE4nNW1rvKAPiEl99/Mo4JKvALE1LXTTYY/e
-	 ZNitFaBeqkKxGBu+vvpbaTPYjb0zyrQ2fP2n+zcz7q4bpmw0PNWJvMjJEgumjL2lCH
-	 MA6bE0nn/ezx8pO9+kCNyh16hJKbqMPCZXzxwmbx1Z9FAjRxyDgjbXV9bMNNZMemlm
-	 b5Y1hj2VpJskxwt/ibowYUnzsj62pqZ5dID0HT+SC7sn8DGwsChJf7vEpZkYWH1lHv
-	 WhxI2EoV+tKSQ==
-Message-ID: <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
-Date: Thu, 31 Jul 2025 11:06:09 +0200
+	Thu, 31 Jul 2025 09:10:37 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-3322a34e84fso5231921fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 02:10:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1753953033; x=1754557833; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hRwq5x4VwHGS6JkevscNB7G4mlDeMcL9xsQzNX6TfQY=;
+        b=eyA1jujh7UT/t6v55I8pUJESiPfix7viQuW/ZHL24ArrTXBuX7wfnfLQq1SPyWEvWN
+         al2LFFg9qmV/ok6JRTi+1YQRQeT8DZXotLjQPizWUmXTOEwcGwY0zeP1y85Z0QDGuRuc
+         2v9emmfpR5K0ABeR72z4FkwEPPp6XbhxoyQcE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753953033; x=1754557833;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hRwq5x4VwHGS6JkevscNB7G4mlDeMcL9xsQzNX6TfQY=;
+        b=XxzkipxbIynACMK6t6iVp4m0uwOBPE+OSTUqqIvoCuZ/sxaj/DQMigmrgxiF0cCtin
+         ai5/LffinioYpwvYaLPbuECdjVleQWc7TfMw2qNtJQKrLvHhwf6GO7gnBoIoW5i6h134
+         doXynBLz1Er/xPj00wYi8wDVYWPLgvdBgXE4MjIYFmb4IHq2OQIO+IR/eDfUrM7ngDC+
+         dMvrIN4BniTtqhDsfyWXS4QMeVLhS1Dqd5L3Em7/CXN46mpi4vyIavcTTybjIYnEF6af
+         mkfsbE50lgbaWgMT7qVxKAcPhRcyE26lTiW7/P3kgXR0pLX3TuLVMTEb/WzT9rJjoZhi
+         Jafg==
+X-Forwarded-Encrypted: i=1; AJvYcCW0J7Gm1pwJUJJunivJvDtYPca6bOwbtE8jZ0Ya0PKcLoBJFpVvhGm+znrDQKbqL1Ueqp5YyTywoEwdSq9i6JGb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6bQfOvtIT0rTmxun1kLPQpt0bnuSzwY7iMO24DS6IICkoA5Uk
+	49keKRGTwmnq+inslI+66N9WYcjrqo7xi+xmdAhUHBTUpYHz4UIWoaLSiX7tzn2wcXfDQxzumLX
+	j/Zb/NtZ2rEJIP8VoYMOnCyVoNDj+sLFp3YsgWjJM
+X-Gm-Gg: ASbGncuo98RSs2KVUNz4g99MglRAw1NOvtxvvsWir/I0d/6LV0n/zQLkP1oC3e3H9M+
+	kl0a2LA0vHreW03JIcrdlfdACRPZePIq5lU5PAYAMmiwrHAvJb904NGKpvdIh30kQm1wSG6TVVW
+	4V0q6nutTI8E+tqkAFOjvLMaFL34zKfdFXgxzTi/bs/IonGhFKF6Ll5nWQsVwBMsj1k5xbr3h9n
+	AGPUKa7QLSYVv+G6XIjIQLh3OPG5zoHqOM=
+X-Google-Smtp-Source: AGHT+IGy0Gr0CeJFqOAF9pederTnU2rsst1o/T1ozFpoxo2U18QbJElG5oX2wY8idW4WJNxX3lI94NTcxLdGpZxd8nA=
+X-Received: by 2002:a05:651c:554:b0:332:1720:2ec7 with SMTP id
+ 38308e7fff4ca-332248beecamr19682921fa.0.1753953033319; Thu, 31 Jul 2025
+ 02:10:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: samsung: exynos-srom: Fix of_iomap leak in
- exynos_srom_probe
-To: Zhen Ni <zhen.ni@easystack.cn>, alim.akhtar@samsung.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250731083340.1057564-1-zhen.ni@easystack.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250731083340.1057564-1-zhen.ni@easystack.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250730152128.311109-1-laura.nao@collabora.com> <20250730152128.311109-6-laura.nao@collabora.com>
+In-Reply-To: <20250730152128.311109-6-laura.nao@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 31 Jul 2025 17:10:21 +0800
+X-Gm-Features: Ac12FXwCRD80agK2VpVTgVXGMFnqiS6tk-7RfCAqmaHj7sFRHCdDG6ywSscGSLk
+Message-ID: <CAGXv+5En_Yxy1BoWWTsQPSLYCqvd0_r-JCtEByan9xNU0QLmDg@mail.gmail.com>
+Subject: Re: [PATCH v2 5/9] thermal/drivers/mediatek/lvts: Add
+ lvts_temp_to_raw variant
+To: Laura Nao <laura.nao@collabora.com>
+Cc: srini@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, nfraprado@collabora.com, 
+	arnd@arndb.de, colin.i.king@gmail.com, u.kleine-koenig@baylibre.com, 
+	andrew-ct.chen@mediatek.com, lala.lin@mediatek.com, bchihi@baylibre.com, 
+	frank-w@public-files.de, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_020614_209449_F4C2C1C8 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20250731_021035_919778_73E7D6C6 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,60 +101,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2025 10:33, Zhen Ni wrote:
-> The current error handling in exynos_srom_probe() has a resource leak
-> in the of_platform_populate() failure path. When this function fails
-> after successful resource allocation, srom->reg_base is not released.
-> 
-> To fix this issue, replace of_iomap() with
-> devm_platform_ioremap_resource(). devm_platform_ioremap_resource()
-> is a specialized function for platform devices.
+On Wed, Jul 30, 2025 at 11:22=E2=80=AFPM Laura Nao <laura.nao@collabora.com=
+> wrote:
+>
+> MT8196/MT6991 require a different version of lvts_temp_to_raw(),
+> specifically the multiplicative inverse of the existing implementation.
+> Introduce a variant of the function with inverted calculation logic to
+> match this requirement.
+>
+> This ensures accurate raw value generation for temperature
+> thresholds, avoiding spurious thermal interrupts or unintended hardware
+> resets on MT8196/MT6991.
+>
+> Signed-off-by: Laura Nao <laura.nao@collabora.com>
 
-Don't explain us kernel code. Drop sentence.
-
-> It allows 'srom->reg_base' to be automatically released whether the
-> probe function succeeds or fails.
-
-It's obvious.
-
-> 
-> Besides, use IS_ERR() instead of !srom->reg_base
-
-I don't understand this. You keep explaining the code and this suggests
-you made change here not related to original case. Can you return
-srom->reg_base here? No?
-
-
-> as the return value of devm_platform_ioremap_resource()
-> can either be a pointer to the remapped memory or
-> an ERR_PTR() encoded error code if the operation fails.
-> 
-
-Missing fixes and cc-stable.
-
-> Signed-off-by: Zhen Ni <zhen.ni@easystack.cn>
-> ---
->  drivers/memory/samsung/exynos-srom.c | 10 ++++------
->  1 file changed, 4 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/memory/samsung/exynos-srom.c b/drivers/memory/samsung/exynos-srom.c
-> index e73dd330af47..d913fb901973 100644
-> --- a/drivers/memory/samsung/exynos-srom.c
-> +++ b/drivers/memory/samsung/exynos-srom.c
-> @@ -121,20 +121,18 @@ static int exynos_srom_probe(struct platform_device *pdev)
->  		return -ENOMEM;
->  
->  	srom->dev = dev;
-> -	srom->reg_base = of_iomap(np, 0);
-> -	if (!srom->reg_base) {
-> +	srom->reg_base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(srom->reg_base)) {
->  		dev_err(&pdev->dev, "iomap of exynos srom controller failed\n");
-> -		return -ENOMEM;
-> +		return PTR_ERR(srom->reg_base);
-
-How did you test it?
-
-Best regards,
-Krzysztof
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
