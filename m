@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F99EC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 12:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C151EC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 12:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUhi9nC9YeRWmVZFH255GZ/Sq30z2FhAM7qKgOtn4Os=; b=IsBNVP9l+1ebp8ECOdy9JJhDae
-	Lx0jsGcSmm1OVo5BOngUJQWLiGrMit1so60yBV1x/yp0rkfC0XPgEjzAEzbgxSBt4sHF98HCMVzV4
-	L95DQJthnFVlaR6l8kIleUC+BPEAa3s5umamSX2TRNwJLyCuYIkD9m/+MvGRTG+dzN/R87z+vIMM1
-	dBq0GnzbJrqVUpQ4NQJtqyHaRtVWpS7YibMs/vm0wMAedXxLQV2JWx2c1+Rgg+JgyOww0DCxUt0lx
-	PsqddCh1jP9fnqx0KEd3W5QAUPh0zG3XDMJonOdw6xp2MVpG4hPwi7f+9a7K6K4NN0JJ0UQBDqJTC
-	8yeJ9/3Q==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+WVY+FchNflwyhjUu1n/fND1UpVRfjWqymxZncmzm3A=; b=Vc5vBg3SF7XAtA/ijJ3rYW1Q86
+	Sf4/lcVUN4gguwbNVXvTisp8BIyZZlW9tkq628H/9y9gxFGJZ2kmeeNKXcdukHCy/JSDVLn8GxXFT
+	kJbOWFY7oSZ6LsVM8K0V4E42pmC1MoOah3/PONT7/mlcj8RBVReZoWGI8tOPPJpp42nySm/JzOPxu
+	T/Pk/++b2AH+EIdJiG3WvWXvURFK7kNAlPBDbYbA6ImXwbqjRsVBmf8jSpR3e9VWvzi1sF5T0JfHg
+	nohvRQb8D4o9QiNbIQrq6KkxjMBGoktv78IgyGbkAMAxjhwyXzVC+7q20hEA1IWSPfGtHrs1T5PMK
+	2qM434jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhS4G-00000003XZE-3W8a;
-	Thu, 31 Jul 2025 12:07:28 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uhS7h-00000003Xqb-39Vq;
+	Thu, 31 Jul 2025 12:11:01 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhRuq-00000003Wbd-2n9d
+	id 1uhS57-00000003Xfh-3zJG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 11:57:45 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56VBveGH2995875;
-	Thu, 31 Jul 2025 06:57:40 -0500
+	Thu, 31 Jul 2025 12:08:23 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 56VC8FOJ3025590;
+	Thu, 31 Jul 2025 07:08:15 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1753963060;
-	bh=VUhi9nC9YeRWmVZFH255GZ/Sq30z2FhAM7qKgOtn4Os=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=JvO7/Uudh3PTnwhqzoeZ+n/DvUDgZ84gDNEYLD7cJZ9i3ij0edrUyBfyxuzSmw5k5
-	 0rEWjxbdT32UrjnUQ4jVfQiVH2eg1gpgJVeTu5OhiqHbgSC/eaykyIpzeFQWAV+PmS
-	 Pe8NAvDVYMjMpiXMjV5Bxccsg9LgLuuSv28DMAb8=
-Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56VBveRi3301646
+	s=ti-com-17Q1; t=1753963695;
+	bh=+WVY+FchNflwyhjUu1n/fND1UpVRfjWqymxZncmzm3A=;
+	h=From:To:CC:Subject:Date;
+	b=S+ASQAb8SHTApNSeI96umGhd0hiBOwGZH/GANo5fM89vk/mCjw8Xl/6h34M4RJgaV
+	 xx8D//ni7/ThL/y/i0qnfjnxVFDQzHXtJ3ZcVRzTEpn6VxGoFk4KeNxkOmo//HxsrV
+	 XknKui3i3S1DWFVO+TzeZyzHvbvM+j4CtxRFYoi8=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 56VC8FXl014082
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 31 Jul 2025 06:57:40 -0500
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 31 Jul 2025 07:08:15 -0500
+Received: from DFLE108.ent.ti.com (10.64.6.29) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 31
- Jul 2025 06:57:40 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ Jul 2025 07:08:15 -0500
+Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 31 Jul 2025 06:57:40 -0500
-Received: from akashdeep-HP-Z2-Tower-G5-Workstation.dhcp.ti.com (akashdeep-hp-z2-tower-g5-workstation.dhcp.ti.com [10.24.68.177])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56VBudQR2861468;
-	Thu, 31 Jul 2025 06:57:36 -0500
-From: Akashdeep Kaur <a-kaur@ti.com>
-To: <vigneshr@ti.com>, <praneeth@ti.com>, <nm@ti.com>, <afd@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <vishalm@ti.com>, <sebin.francis@ti.com>
-Subject: [PATCH 3/3] arm64: dts: ti: k3-pinctrl: Add the remaining macros
-Date: Thu, 31 Jul 2025 17:26:31 +0530
-Message-ID: <20250731115631.3263798-4-a-kaur@ti.com>
+ Frontend Transport; Thu, 31 Jul 2025 07:08:15 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 56VC8Fqh3405092;
+	Thu, 31 Jul 2025 07:08:15 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 56VC8E1t016802;
+	Thu, 31 Jul 2025 07:08:14 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
+	<m-malladi@ti.com>,
+        Himanshu Mittal <h-mittal1@ti.com>,
+        Ravi Gunasekaran
+	<r-gunasekaran@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net] net: ti: icssg-prueth: Fix emac link speed handling
+Date: Thu, 31 Jul 2025 17:38:12 +0530
+Message-ID: <20250731120812.1606839-1-danishanwar@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250731115631.3263798-1-a-kaur@ti.com>
-References: <20250731115631.3263798-1-a-kaur@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_045744_792265_ECC0D143 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20250731_050822_079339_DE5FB263 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,115 +96,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the drive strength, schmitt trigger enable macros to pinctrl file.
-Add the missing macros for deep sleep configuration control.
-Reword the existing deep sleep macros to provide combinations that can
-directly be used in device tree files.
+When link settings are changed emac->speed is populated by
+emac_adjust_link(). The link speed and other settings are then written into
+the DRAM. However if both ports are brought down after this and brought up
+again or if the operating mode is changed and a firmware reload is needed,
+the DRAM is cleared by icssg_config(). As a result the link settings are
+lost.
 
-Signed-off-by: Akashdeep Kaur <a-kaur@ti.com>
+Fix this by calling emac_adjust_link() after icssg_config(). This re
+populates the settings in the DRAM after a new firmware load.
+
+Fixes: 9facce84f406 ("net: ti: icssg-prueth: Fix firmware load sequence.")
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-pinctrl.h | 66 +++++++++++++++++++++++------
- 1 file changed, 54 insertions(+), 12 deletions(-)
+NOTE: emac_adjust_link() is defined after prueth_emac_common_start() as a
+result to call this from prueth_emac_common_start() I am using forward
+declaration of the function. The other alternate is to move the definition
+of emac_adjust_link() before prueth_emac_common_start().
 
-diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-index c0f09be8d3f9..f26f1fcf6f74 100644
---- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
-+++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
-@@ -3,7 +3,7 @@
-  * This header provides constants for pinctrl bindings for TI's K3 SoC
-  * family.
-  *
-- * Copyright (C) 2018-2024 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C) 2018-2025 Texas Instruments Incorporated - https://www.ti.com/
-  */
- #ifndef DTS_ARM64_TI_K3_PINCTRL_H
- #define DTS_ARM64_TI_K3_PINCTRL_H
-@@ -19,6 +19,13 @@
- #define DS_OUT_VAL_SHIFT	(26)
- #define DS_PULLUD_EN_SHIFT	(27)
- #define DS_PULLTYPE_SEL_SHIFT	(28)
-+#define WKUP_EN_SHIFT		    (29)
-+#define WKUP_LVL_EN_SHIFT	    (7)
-+#define WKUP_LVL_POL_SHIFT	    (8)
-+#define ST_EN_SHIFT		        (14)
-+#define DRV_STR_SHIFT		    (19)
-+#define DS_ISO_OVERRIDE_EN_SHIFT (22)
-+#define DS_ISO_BYPASS_EN_SHIFT  (23)
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 2b973d6e2341..8ca0ea768e16 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -50,6 +50,8 @@
+ /* CTRLMMR_ICSSG_RGMII_CTRL register bits */
+ #define ICSSG_CTRL_RGMII_ID_MODE                BIT(24)
  
- /* Schmitt trigger configuration */
- #define ST_DISABLE		(0 << ST_EN_SHIFT)
-@@ -33,6 +40,26 @@
- #define INPUT_EN		(1 << RXACTIVE_SHIFT)
- #define INPUT_DISABLE		(0 << RXACTIVE_SHIFT)
++static void emac_adjust_link(struct net_device *ndev);
++
+ static int emac_get_tx_ts(struct prueth_emac *emac,
+ 			  struct emac_tx_ts_response *rsp)
+ {
+@@ -229,6 +231,7 @@ static int prueth_emac_common_start(struct prueth *prueth)
+ 		ret = icssg_config(prueth, emac, slice);
+ 		if (ret)
+ 			goto disable_class;
++		emac_adjust_link(emac->ndev);
+ 	}
  
-+#define DS_PULL_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
-+#define DS_PULL_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
-+
-+#define DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-+#define DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT | DS_PULL_ENABLE)
-+
-+#define DS_INPUT_EN		    (1 << DS_OUT_DIS_SHIFT)
-+#define DS_INPUT_DISABLE    (0 << DS_OUT_DIS_SHIFT)
-+
-+#define DS_OUT_VALUE_ZERO   (0 << DS_OUT_VAL_SHIFT)
-+#define DS_OUT_VALUE_ONE    (1 << DS_OUT_VAL_SHIFT)
-+
-+#define WKUP_ENABLE		    (1 << WKUP_EN_SHIFT)
-+#define WKUP_ON_LEVEL		(1 << WKUP_LVL_EN_SHIFT)
-+#define WKUP_ON_EDGE        (0 << WKUP_LVL_EN_SHIFT)
-+#define WKUP_LEVEL_LOW      (0 << WKUP_LVL_POL_SHIFT)
-+#define WKUP_LEVEL_HIGH		(1 << WKUP_LVL_POL_SHIFT)
-+
-+#define WKUP_DISABLE        (0 << WKUP_EN_SHIFT)
-+
- /* Only these macros are expected be used directly in device tree files */
- #define PIN_OUTPUT		(INPUT_DISABLE | PULL_DISABLE)
- #define PIN_OUTPUT_PULLUP	(INPUT_DISABLE | PULL_UP)
-@@ -53,18 +80,33 @@
- #define PIN_DEBOUNCE_CONF5	(5 << DEBOUNCE_SHIFT)
- #define PIN_DEBOUNCE_CONF6	(6 << DEBOUNCE_SHIFT)
- 
-+#define PIN_DRIVE_STRENGTH_NOMINAL	(0 << DRV_STR_SHIFT)
-+#define PIN_DRIVE_STRENGTH_SLOW	    (1 << DRV_STR_SHIFT)
-+#define PIN_DRIVE_STRENGTH_FAST	    (2 << DRV_STR_SHIFT)
-+
-+#define PIN_SCHMITT_TRIGGER_DISABLE	(0 << ST_EN_SHIFT)
-+#define PIN_SCHMITT_TRIGGER_ENABLE	(1 << ST_EN_SHIFT)
-+
- #define PIN_DS_FORCE_DISABLE		(0 << FORCE_DS_EN_SHIFT)
--#define PIN_DS_FORCE_ENABLE		(1 << FORCE_DS_EN_SHIFT)
--#define PIN_DS_IO_OVERRIDE_DISABLE	(0 << DS_IO_OVERRIDE_EN_SHIFT)
--#define PIN_DS_IO_OVERRIDE_ENABLE	(1 << DS_IO_OVERRIDE_EN_SHIFT)
--#define PIN_DS_OUT_ENABLE		(0 << DS_OUT_DIS_SHIFT)
--#define PIN_DS_OUT_DISABLE		(1 << DS_OUT_DIS_SHIFT)
--#define PIN_DS_OUT_VALUE_ZERO		(0 << DS_OUT_VAL_SHIFT)
--#define PIN_DS_OUT_VALUE_ONE		(1 << DS_OUT_VAL_SHIFT)
--#define PIN_DS_PULLUD_ENABLE		(0 << DS_PULLUD_EN_SHIFT)
--#define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
--#define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
--#define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
-+#define PIN_DS_FORCE_ENABLE		    (1 << FORCE_DS_EN_SHIFT)
-+#define PIN_DS_ISO_OVERRIDE_DISABLE	(0 << DS_ISO_OVERRIDE_EN_SHIFT)
-+#define PIN_DS_ISO_OVERRIDE	        (1 << DS_ISO_OVERRIDE_EN_SHIFT)
-+#define PIN_DS_ISO_BYPASS           (1 << DS_ISO_BYPASS_EN_SHIFT)
-+#define PIN_DS_ISO_BYPASS_DISABLE   (0 << DS_ISO_BYPASS_EN_SHIFT)
-+
-+#define DS_STATE_VAL        (1 << DS_EN_SHIFT)
-+#define ACTIVE_STATE_VAL    (0 << DS_EN_SHIFT)
-+
-+#define PIN_DS_OUTPUT_LOW       (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ZERO)
-+#define PIN_DS_OUTPUT_HIGH      (DS_STATE_VAL | DS_INPUT_DISABLE | DS_OUT_VALUE_ONE)
-+#define PIN_DS_INPUT            (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DISABLE)
-+#define PIN_DS_INPUT_PULLUP	    (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_UP)
-+#define PIN_DS_INPUT_PULLDOWN   (DS_STATE_VAL | DS_INPUT_EN | DS_PULL_DOWN)
-+
-+#define WKUP_EN_EDGE		(WKUP_ENABLE | WKUP_ON_EDGE)
-+#define WKUP_EN_LEVEL_LOW	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_LOW)
-+#define WKUP_EN_LEVEL_HIGH	(WKUP_ENABLE | WKUP_ON_LEVEL | WKUP_LEVEL_HIGH)
-+#define WKUP_EN		        WKUP_EN_EDGE
- 
- /* Default mux configuration for gpio-ranges to use with pinctrl */
- #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
+ 	ret = prueth_emac_start(prueth);
+
+base-commit: 759dfc7d04bab1b0b86113f1164dc1fec192b859
 -- 
 2.34.1
 
