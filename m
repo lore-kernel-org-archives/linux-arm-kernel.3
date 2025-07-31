@@ -4,61 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D587C87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5B2FC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M2E+iGdIlkoV59NdMfEBRQzgmdfJXBZ5T/hflZcAGZw=; b=mho+zjQRgINBm7BkUeJ5piqShq
-	nckq+jIPZLEn0XqQbR+P4JauiqeZTMe2PqevWSAr/1viTlsG9I34XKuvlm8O6XXUTdwWb6K66ey+P
-	8I1XPeFOIwp5TXh1ByFxDLe4+7DFVYIgy8fq1TfgyGflWH2p+KD4iC0vp97929RN7t2JDgtVlouNH
-	9bhjcaEj7v81kroXJ6U2g1FdZoSOvdCeoBzZOUW6HxdzB74plSyXsdC2GHSqaTNKqRI4VJJYgfOtG
-	WE4Afhvx5bwMZeGhaqQXUqWAbNzegcAco2AbyioKRh/QU7kTBud6bQSww+8cMhTYBFcacfVqk/0Xy
-	QP7Fi3Xw==;
+	bh=pV7YGKsXkfb9P0H0WBjzoDAyQmik89jc68S6AND8OW4=; b=KbCgd2U1+Qcc1EbAcwS4GWJqN6
+	Ee1Br902XurMG42Ygyq5T6vEGXEaLcEbUnfpQw1GXIfVj/bKuLNCtdQmtzQyKaPu7L1ZSqzyiIJel
+	Uif87gI1tv/RwCasMADZaM4bHQn7K0qkle3FlDvKfHDeXCrH9bgt2XElTSaRwjw+i+7xP0F5Orlrf
+	s3ufe0WScxc9JAdhXNkEUoOd8zQZ7nxzh+QzjSZkzU61FhkcPsogbbEACT+dlhi9sswRgi734MvAh
+	HYf9vbZ3TnU4tqu7ISGNFt0hmzu9gD2Xx+VXMH4vDqgOJ+MjB93VPvn7RZV0a+TXZ+vOXO/EfX9cu
+	mAtYCTDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhRCS-00000003Sq5-3UJD;
-	Thu, 31 Jul 2025 11:11:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uhRes-00000003Unt-0U3F;
+	Thu, 31 Jul 2025 11:41:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhR9u-00000003SfB-3rq6
+	id 1uhRcH-00000003UdT-3aA1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 11:09:14 +0000
+	Thu, 31 Jul 2025 11:38:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE334601F0;
-	Thu, 31 Jul 2025 11:09:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57B74C4CEEF;
-	Thu, 31 Jul 2025 11:09:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753960153;
-	bh=A1QiLFsWkLOne69flYjxRji6b6Am/6hybG4NGr+X1Gg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eq7cm8edGkoGi5Z4FYjfHo2kfBz7kdjZ8gZnbMlHsFJZ9GpJ160ANP36pAiPhDGgx
-	 iSBRb9D8F7+YbYqseUEpRsE63h0uqHBH01Uq2J1uPpafcHOZhF4KTe2YNGlJtUzKHL
-	 iB5+szXDjW87D6zwKwO3ejN4+vhRb6yJj+sGXe6+xpj52OdlEzIwBprztPVvRNP9c2
-	 PLPwNZp6qxfLgeMYhH+UA1pDV+wfT2P9utoPe0+jzebjPRub1Yghs+ZdE4iF1UUXCB
-	 amjkeVJfPiPJDx5TmmyaUmFj+PBG+X127oT0+Vmh7jkNVD3e0eJBq5CW7ekvCaZorT
-	 g9j8GQxvmThvA==
-Date: Thu, 31 Jul 2025 12:09:09 +0100
-From: Lee Jones <lee@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/3] mfd: stmpe: Allow building as module
-Message-ID: <20250731110909.GE1049189@google.com>
-References: <20250725071153.338912-1-alexander.stein@ew.tq-group.com>
- <20250725071153.338912-4-alexander.stein@ew.tq-group.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 247665C62BC;
+	Thu, 31 Jul 2025 11:38:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FB0C4CEF6;
+	Thu, 31 Jul 2025 11:38:30 +0000 (UTC)
+Date: Thu, 31 Jul 2025 12:38:27 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
+	anshuman.khandual@arm.com, quic_zhenhuah@quicinc.com,
+	kevin.brodsky@arm.com, yangyicong@hisilicon.com, joey.gouly@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	david@redhat.com, mark.rutland@arm.com, urezki@gmail.com
+Subject: Re: [RESEND PATCH v5] arm64: Enable vmalloc-huge with ptdump
+Message-ID: <aItVswTcGVz_A6K8@arm.com>
+References: <20250723161827.15802-1-dev.jain@arm.com>
+ <aIpPsg1Kij8Knnjl@arm.com>
+ <8f89490b-bac5-4297-a4a8-9e9c4a8f5ef5@arm.com>
+ <20ab00da-e85d-4f18-b482-bb406275693c@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250725071153.338912-4-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20ab00da-e85d-4f18-b482-bb406275693c@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250731_043833_936033_5B15A885 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,87 +67,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Jul 2025, Alexander Stein wrote:
+On Thu, Jul 31, 2025 at 10:00:15AM +0530, Dev Jain wrote:
+> On 30/07/25 11:59 pm, Ryan Roberts wrote:
+> > On 30/07/2025 18:00, Catalin Marinas wrote:
+> > > On Wed, Jul 23, 2025 at 09:48:27PM +0530, Dev Jain wrote:
+> > > > +	 * mmap_write_lock/unlock in T1 be called CS (the critical section).
+> > > > +	 *
+> > > > +	 * Claim: The CS of T1 will never operate on a freed PMD table.
+> > > > +	 *
+> > > > +	 * Proof:
+> > > > +	 *
+> > > > +	 * Case 1: The static branch is visible to T2.
+> > > > +	 *
+> > > > +	 * Case 1 (a): T1 acquires the lock before T2 can.
+> > > > +	 * T2 will block until T1 drops the lock, so pmd_free() will only be
+> > > > +	 * executed after T1 exits CS.
+> > > 
+> > > This assumes that there is some ordering between unlock and pmd_free()
+> > > (e.g. some poisoning of the old page). The unlock only gives us release
+> > > semantics, not acquire. It just happens that we have an atomic
+> > > dec-and-test down the __free_pages() path but I'm not convinced we
+> > > should rely on it unless free_pages() has clear semantics on ordering
+> > > related to prior memory writes.
+> > 
+> > I can understand how pmd_free() could be re-ordered before the unlock, but
+> > surely it can't be reorded before the lock? I need to go unlearn everything I
+> > thought I understood about locking if that's the case...
 
-> Export the core probe and remove function to be used by modules. Add
-> necessary module information so the driver can be built as a module.
+Indeed, it can't be reordered before the lock as it has acquire
+semantics.
 
-because ...
-
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  drivers/mfd/Kconfig | 10 +++++-----
->  drivers/mfd/stmpe.c |  6 ++++++
->  2 files changed, 11 insertions(+), 5 deletions(-)
+> You are correct, what Catalin is saying is that my reasoning has a hole.
+> There is no obvious ordering between unlock and free(), but
 > 
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index 8f11b2df14704..a58c95e5b8072 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -1539,8 +1539,8 @@ config MFD_DB8500_PRCMU
->  	  through a register map.
->  
->  config MFD_STMPE
-> -	bool "STMicroelectronics STMPE"
-> -	depends on I2C=y || SPI_MASTER=y
-> +	tristate "STMicroelectronics STMPE"
-> +	depends on I2C || SPI_MASTER
->  	depends on OF
->  	select MFD_CORE
->  	help
-> @@ -1568,14 +1568,14 @@ menu "STMicroelectronics STMPE Interface Drivers"
->  depends on MFD_STMPE
->  
->  config STMPE_I2C
-> -	bool "STMicroelectronics STMPE I2C Interface"
-> -	depends on I2C=y
-> +	tristate "STMicroelectronics STMPE I2C Interface"
-> +	depends on I2C
->  	default y
->  	help
->  	  This is used to enable I2C interface of STMPE
->  
->  config STMPE_SPI
-> -	bool "STMicroelectronics STMPE SPI Interface"
-> +	tristate "STMicroelectronics STMPE SPI Interface"
->  	depends on SPI_MASTER
->  	help
->  	  This is used to enable SPI interface of STMPE
-> diff --git a/drivers/mfd/stmpe.c b/drivers/mfd/stmpe.c
-> index e1165f63aedae..5faf13fd6cf83 100644
-> --- a/drivers/mfd/stmpe.c
-> +++ b/drivers/mfd/stmpe.c
-> @@ -1482,6 +1482,7 @@ int stmpe_probe(struct stmpe_client_info *ci, enum stmpe_partnum partnum)
->  
->  	return ret;
->  }
-> +EXPORT_SYMBOL_GPL(stmpe_probe);
->  
->  void stmpe_remove(struct stmpe *stmpe)
->  {
-> @@ -1497,6 +1498,7 @@ void stmpe_remove(struct stmpe *stmpe)
->  
->  	mfd_remove_devices(stmpe->dev);
->  }
-> +EXPORT_SYMBOL_GPL(stmpe_remove);
->  
->  static int stmpe_suspend(struct device *dev)
->  {
-> @@ -1520,3 +1522,7 @@ static int stmpe_resume(struct device *dev)
->  
->  EXPORT_GPL_SIMPLE_DEV_PM_OPS(stmpe_dev_pm_ops,
->  			     stmpe_suspend, stmpe_resume);
-> +
-> +MODULE_DESCRIPTION("STMPE MFD Core driver");
-
-Drop the MFD part.
-
-> +MODULE_AUTHOR("Rabin Vincent <rabin.vincent@stericsson.com>");
-> +MODULE_LICENSE("GPL");
-> -- 
-> 2.43.0
+> mmap_write_unlock() will happen before mmap_read_lock() ... (i)
+> mmap_read_lock() will happen before pmd_free() ... (ii)
 > 
+> which lets us conclude that mmap_write_unlock() will happen before pmd_free().
+
+Yes, in this sub-case, mmap_write_unlock() on T1 will happen before
+pmd_free() on T2 if T2 waits on the lock.
 
 -- 
-Lee Jones [李琼斯]
+Catalin
 
