@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7807CC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 21:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8F0C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 21:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eOUpQzKtFZYeNywfqlT/YzIj7U1gzFp8S5SCwF5sOXg=; b=folfIpWM/ROJV8iVacZFtuk7sB
-	bMBlyxhBEK/VjOGYT7V2TNcSrPGinI63zR4P5H3w/a5A5T0qTLaCQqyPfQrTDGPMnbQJ9/O874/Wo
-	VGYBkpbprcA/s2BkDU9MmLEugH5mTOGAMMyFCLPNjI4TzYtqF/dpVQZ+ilMsBnAZqsP5TsKNYCaHv
-	sxYQyPxDCgyk/55fAtMYgcQ8pLJuwcimdQqed5UbxgJF8lLS595kFDvanqVHQ0yAqTzhi/LV6sVZ+
-	b824sG/ogw5wyFV37KlIbw9r562YLx2gRLOuvG+sL+mrt4gmiDTndaHnhxM51oBAkClJM9vFpiC6U
-	6MMhv4YA==;
+	bh=F46pMH1+iZGmF9xaF77AjZh22HwgVlr+zZEaUyOdnFk=; b=y82rIi1jiI3Vvpe4YYOMLe5JqH
+	dLmgQbIgF1n3ET9T4E2CA6DRvcdToW9A6UWJKMQGLeQrCVN4CIOWZZ0LCnR/zl48Ol6pLfnb7tIAF
+	4LVYgQh8zkjkEpIo20T/nSPJU4qfO9aeQs8dwXjZYalDCfIEWGlTNRaCSy4J5AGMp3jyTPCSoJxd/
+	WLvCuKHQvNh4yr49z5zpKNZMJ4fE5pDg84ttEcOmQhtYKDG+zbv9NmIScKD3mhvCHV2IaDqul9RNv
+	wfJ9oeJf5vOw6QcXwX+wzQJgBwR6KOfCuhXDH8M6dr8mSqcr0MO89UXq4Mu3aBMHU5ezshhV/le11
+	RTOe1JTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhaRj-00000004Q8N-3bOO;
-	Thu, 31 Jul 2025 21:04:15 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1uhaUI-00000004QPf-39Tl;
+	Thu, 31 Jul 2025 21:06:54 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhaMa-00000004PNj-3TRn
+	id 1uhaMb-00000004POz-3Y7g
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 20:58:58 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b31ff607527so154225a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 13:58:55 -0700 (PDT)
+	Thu, 31 Jul 2025 20:58:59 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31ed2a7d475so134695a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 13:58:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1753995535; x=1754600335; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1753995537; x=1754600337; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=eOUpQzKtFZYeNywfqlT/YzIj7U1gzFp8S5SCwF5sOXg=;
-        b=ZUlowxb1GRpbPOLhbAQvaabuRPPVLXORVkKOXjIZMQAxGTQKBuCq5D8oKaNKY1fBat
-         QFh346YSe/ScuI0knY1rZwvjpra0+4IRt652CwCKB27qVzp91y0xCIQOktTYtjK97zvp
-         7azH8zYuPy9Jz9zvdnb5zRLAFpu69bDMjpIoO81noq9jaDCJrMLFWXsQj4x0eHuQkvdq
-         dbXLpC94wqeqZxTtTLIz7ttiI7QUcy0BKM+eSEW349G/HbCCEDw4gK5/ysnU1Am/njnn
-         BAa4OSVfG/Zctd9pYacXeO0SG+eCTX5yrqmIeGagELkodpoNNotUbQ5MEHt8oIXowQ1n
-         wwcQ==
+        bh=F46pMH1+iZGmF9xaF77AjZh22HwgVlr+zZEaUyOdnFk=;
+        b=v5U+CoukH5kY4e9Axf22ykW/IztqrbGuXmMcPPI603opel4RKDtHaM8R81W6RImNAU
+         t8Rt7ifqLB/+lYk6twThX6gJ0CMpw3tIwtJKYOZNuzizRB87rltUUGxUl4zOKH7qsjnX
+         E2uhjQpI2yTwi+Bn3uA1Qae74xtZESZfK61+41tAf/H3XQu3VXVKqQW2Wzp/L2Hx9h0B
+         bCOWsmk0Brjzdc+vYifWXYAspbIQ30QWdKf6v64K6QH1aeyvJdeklvVNlBS76EISbeME
+         bxblTLdZJhz1nCyNEIw/sxc0Bp76uQ5zaBZbeX0r5C8zFv4qRXv9iZRudO7NszSVXzqY
+         5uFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1753995535; x=1754600335;
+        d=1e100.net; s=20230601; t=1753995537; x=1754600337;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eOUpQzKtFZYeNywfqlT/YzIj7U1gzFp8S5SCwF5sOXg=;
-        b=YjlQ0UZTGFpV/f/XgPRpAxNScwwd1IrUHHpicS/dPbS2YPj5wGlebLuq+AEQQkw+0Z
-         IHd8+I8mhlYNWnDKlDOqPMr/VDJm0PEbspN+N8FXlBx9WaSHbqO3qJGbWnx4RgztBrd9
-         Eb6ODVJ+XI2zoCCl6y/CgsZ4wkYBDJruNhRAynBwvwgV2i/bIDCIYecYkl1U7yd2W3TJ
-         EtmCMiCAWlNCweSLlVEPLeCK48/cwsIdPBpI/2m152ET1cAijoBG5+d609SOda2eL8cq
-         RSjDYBMy48YCQpjioPkJRMhv9I/bhyoUDv5E+T+aWx+a8ryVgHrWfPEO8PsEFsL0SL77
-         QPBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAsy6l5xk5N8xy7OKy79FIFlQkvL1VdTiRW9qqpLD6eQEaEn7msRrCVqyc38NIIy/4+hxL9+OEC0p8DCM7wGV3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGhI4A25skogNHddl3kD/rUapvzgPHE09Z5TArhN8Fwews40ac
-	877b2BL7txYgkLUvcxYc+7rCxaJHvjuzi5pBanPXGhvS1yJ6JMRDEvilxorUYKCkJ5057h0GHYO
-	bbg/fIfqhF0J3sQ==
-X-Google-Smtp-Source: AGHT+IFYBd0n/6m6Ox1Nv0VY06rvT/P3u/kIBdHylp6A2OvXCXAjXPjyyd0PyslE+N1LWREbAdmRywkwsgANvQ==
-X-Received: from plbu12.prod.google.com ([2002:a17:902:e20c:b0:240:801d:1089])
+        bh=F46pMH1+iZGmF9xaF77AjZh22HwgVlr+zZEaUyOdnFk=;
+        b=vNySzOxEM9l9LHk1cRViD9dehLIyYoXPCzaVh3Jde++GU9Oh+YZNgnE4AYQFJftXmI
+         DQ4b+Z1pGp6DTlXm7muPPnir+XcbH4LSNWhk7tkx0QY2SZtKGrCSZcawRuqb16Fye5e6
+         F8Yfs8vDXEgv46ItOgcNMwDNNQUCdW575YbBPg2YGyjPsbr/LdvNyN3h+/ridM4OdZGK
+         DrygH5cMNjrALcFsaEI9q6iKZGCbEhEl3SSEdWPes2IVUQdocd/BBkmAnjmRBkZV3CZE
+         Jp3LjjpFZy9dA2d+Q0cSTHsLM88sxaGzZ+A3eZfzKtR30z06TVxFHXPA8d0PZbIj4oMq
+         FwAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQUzAj0KmogvBbJGvU9DTCyjOzboBl1jN30JMyBaFy1mJqcfTWGJkNDy+I9yrqRUoWWl8z9mBv39hLS7sxBy45@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1HVvk9idlQ+Dk3GJHCKDX3NwdUmX+F1Aqe1hdYSSz7h26c3HR
+	mHTvkT6hoc28rV3vOjQLnKLXXDaz7DC2PE5cg7FmW8u4PXg1o/n8JCF4yUGvV5XmBfyvkIXHG9E
+	i68AzXS3+hJ0zrA==
+X-Google-Smtp-Source: AGHT+IEQ3yXPShvKLn0RwZSyuAR/26fLbmN+PMhu/KUx8Bqh8AprTssst9Gv9dW7e1g9nfOkQELiWT0go9UbEw==
+X-Received: from pjyf13.prod.google.com ([2002:a17:90a:ec8d:b0:312:e266:f849])
  (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:e5cd:b0:240:678c:d2b7 with SMTP id d9443c01a7336-24096ab6fc1mr124071855ad.15.1753995535319;
- Thu, 31 Jul 2025 13:58:55 -0700 (PDT)
-Date: Thu, 31 Jul 2025 20:58:42 +0000
+ 2002:a17:90b:1f88:b0:31f:336a:f0db with SMTP id 98e67ed59e1d1-31f5ddc4b7fmr12701699a91.10.1753995536842;
+ Thu, 31 Jul 2025 13:58:56 -0700 (PDT)
+Date: Thu, 31 Jul 2025 20:58:43 +0000
 In-Reply-To: <20250731205844.1346839-1-jiaqiyan@google.com>
 Mime-Version: 1.0
 References: <20250731205844.1346839-1-jiaqiyan@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250731205844.1346839-2-jiaqiyan@google.com>
-Subject: [PATCH v3 1/3] KVM: arm64: VM exit to userspace to handle SEA
+Message-ID: <20250731205844.1346839-3-jiaqiyan@google.com>
+Subject: [PATCH v3 2/3] KVM: selftests: Test for KVM_EXIT_ARM_SEA
 From: Jiaqi Yan <jiaqiyan@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev
 Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
@@ -78,8 +78,8 @@ Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
 	Jiaqi Yan <jiaqiyan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_135856_878602_BD5315E0 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20250731_135857_894132_96B32BBD 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,212 +94,407 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When APEI fails to handle a stage-2 synchronous external abort (SEA),
-today KVM directly injects an async SError to the VCPU then resumes it,
-which usually results in unpleasant guest kernel panic.
+Test how KVM handles guest SEA when APEI is unable to claim it, and
+KVM_CAP_ARM_SEA_TO_USER is enabled.
 
-One major situation of guest SEA is when vCPU consumes recoverable
-uncorrected memory error (UER). Although SError and guest kernel panic
-effectively stops the propagation of corrupted memory, guest may
-re-use the corrupted memory if auto-rebooted; in worse case, guest
-boot may run into poisoned memory. So there is room to recover from
-an UER in a more graceful manner.
+The behavior is triggered by consuming recoverable memory error (UER)
+injected via EINJ. The test asserts two major things:
+1. KVM returns to userspace with KVM_EXIT_ARM_SEA exit reason, and
+   has provided expected fault information, e.g. esr, flags, gva, gpa.
+2. Userspace is able to handle KVM_EXIT_ARM_SEA by injecting SEA to
+   guest and KVM injects expected SEA into the VCPU.
 
-Alternatively KVM can redirect the synchronous SEA event to VMM to
-- Reduce blast radius if possible. VMM can inject a SEA to VCPU via
-  KVM's existing KVM_SET_VCPU_EVENTS API. If the memory poison
-  consumption or fault is not from guest kernel, blast radius can be
-  limited to the triggering thread in guest userspace, so VM can
-  keep running.
-- Allow VMM to protect from future memory poison consumption by
-  unmapping the page from stage-2, or to interrupt guest of the
-  poisoned page so guest kernel can unmap it from stage-1 page table.
-- Allow VMM to track SEA events that VM customers care about, to restart
-  VM when certain number of distinct poison events have happened,
-  to provide observability to customers in log management UI.
+Tested on a data center server running Siryn AmpereOne processor
+that has RAS support.
 
-Introduce an userspace-visible feature to enable VMM handle SEA:
-- KVM_CAP_ARM_SEA_TO_USER. As the alternative fallback behavior
-  when host APEI fails to claim a SEA, userspace can opt in this new
-  capability to let KVM exit to userspace during SEA if it is not
-  owned by host.
-- KVM_EXIT_ARM_SEA. A new exit reason is introduced for this.
-  KVM fills kvm_run.arm_sea with as much as possible information about
-  the SEA, enabling VMM to emulate SEA to guest by itself.
-  - Sanitized ESR_EL2. The general rule is to keep only the bits
-    useful for userspace and relevant to guest memory.
-  - Flags indicating if faulting guest physical address is valid.
-  - Faulting guest physical and virtual addresses if valid.
+Several things to notice before attempting to run this selftest:
+- The test relies on EINJ support in both firmware and kernel to
+  inject UER. Otherwise the test will be skipped.
+- The under-test platform's APEI should be unable to claim the SEA.
+  Otherwise the test will be skipped.
+- Some platform doesn't support notrigger in EINJ, which may cause
+  APEI and GHES to offline the memory before guest can consume
+  injected UER, and making test unable to trigger SEA.
 
 Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
-Co-developed-by: Oliver Upton <oliver.upton@linux.dev>
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 +
- arch/arm64/kvm/arm.c              |  5 +++
- arch/arm64/kvm/mmu.c              | 68 ++++++++++++++++++++++++++++++-
- include/uapi/linux/kvm.h          | 10 +++++
- 4 files changed, 84 insertions(+), 1 deletion(-)
+ tools/arch/arm64/include/asm/esr.h            |   2 +
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/sea_to_user.c | 327 ++++++++++++++++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    |   1 +
+ 4 files changed, 331 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/arm64/sea_to_user.c
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index d373d555a69ba..8b4133a5aacf3 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -349,6 +349,8 @@ struct kvm_arch {
- #define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
- 	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
- #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
-+	/* Unhandled SEAs are taken to userspace */
-+#define KVM_ARCH_FLAG_EXIT_SEA				11
- 	unsigned long flags;
+diff --git a/tools/arch/arm64/include/asm/esr.h b/tools/arch/arm64/include/asm/esr.h
+index bd592ca815711..0fa17b3af1f78 100644
+--- a/tools/arch/arm64/include/asm/esr.h
++++ b/tools/arch/arm64/include/asm/esr.h
+@@ -141,6 +141,8 @@
+ #define ESR_ELx_SF 		(UL(1) << ESR_ELx_SF_SHIFT)
+ #define ESR_ELx_AR_SHIFT	(14)
+ #define ESR_ELx_AR 		(UL(1) << ESR_ELx_AR_SHIFT)
++#define ESR_ELx_VNCR_SHIFT	(13)
++#define ESR_ELx_VNCR		(UL(1) << ESR_ELx_VNCR_SHIFT)
+ #define ESR_ELx_CM_SHIFT	(8)
+ #define ESR_ELx_CM 		(UL(1) << ESR_ELx_CM_SHIFT)
  
- 	/* VM-wide vCPU feature set */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 7a1a8210ff918..aec6034db1e75 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -133,6 +133,10 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
- 		}
- 		mutex_unlock(&kvm->lock);
- 		break;
-+	case KVM_CAP_ARM_SEA_TO_USER:
-+		r = 0;
-+		set_bit(KVM_ARCH_FLAG_EXIT_SEA, &kvm->arch.flags);
-+		break;
- 	default:
- 		break;
- 	}
-@@ -322,6 +326,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_IRQFD_RESAMPLE:
- 	case KVM_CAP_COUNTER_OFFSET:
- 	case KVM_CAP_ARM_WRITABLE_IMP_ID_REGS:
-+	case KVM_CAP_ARM_SEA_TO_USER:
- 		r = 1;
- 		break;
- 	case KVM_CAP_SET_GUEST_DEBUG2:
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 9a45daf817bfd..f6a545700c15b 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1812,8 +1812,48 @@ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 	read_unlock(&vcpu->kvm->mmu_lock);
- }
- 
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index ce817a975e50a..8512e790f45fa 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -159,6 +159,7 @@ TEST_GEN_PROGS_arm64 += arm64/hypercalls
+ TEST_GEN_PROGS_arm64 += arm64/external_aborts
+ TEST_GEN_PROGS_arm64 += arm64/page_fault_test
+ TEST_GEN_PROGS_arm64 += arm64/psci_test
++TEST_GEN_PROGS_arm64 += arm64/sea_to_user
+ TEST_GEN_PROGS_arm64 += arm64/set_id_regs
+ TEST_GEN_PROGS_arm64 += arm64/smccc_filter
+ TEST_GEN_PROGS_arm64 += arm64/vcpu_width_config
+diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+new file mode 100644
+index 0000000000000..3ddc890e8a8b5
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+@@ -0,0 +1,327 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Returns true if the SEA should be handled locally within KVM if the abort
-+ * is caused by a kernel memory allocation (e.g. stage-2 table memory).
++ * Test KVM returns to userspace with KVM_EXIT_ARM_SEA if host APEI fails
++ * to handle SEA and userspace has opt-ed in KVM_CAP_ARM_SEA_TO_USER.
++ *
++ * After reaching userspace with expected arm_sea info, also test userspace
++ * injecting a synchronous external data abort into the guest.
++ *
++ * This test utilizes EINJ to generate a REAL synchronous external data
++ * abort by consuming a recoverable uncorrectable memory error. Therefore
++ * the device under test must support EINJ in both firmware and host kernel,
++ * including the notrigger feature. Otherwise the test will be skipped.
++ * The under-test platform's APEI should be unable to claim SEA. Otherwise
++ * the test will also be skipped.
 + */
-+static bool host_owns_sea(struct kvm_vcpu *vcpu, u64 esr)
++
++#include <signal.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++
++#include "test_util.h"
++#include "kvm_util.h"
++#include "processor.h"
++#include "guest_modes.h"
++
++#define PAGE_PRESENT		(1ULL << 63)
++#define PAGE_PHYSICAL		0x007fffffffffffffULL
++#define PAGE_ADDR_MASK		(~(0xfffULL))
++
++/* Group ISV and ISS[23:14]. */
++#define ESR_ELx_INST_SYNDROME	((ESR_ELx_ISV) | (ESR_ELx_SAS) | \
++				 (ESR_ELx_SSE) | (ESR_ELx_SRT_MASK) | \
++				 (ESR_ELx_SF) | (ESR_ELx_AR))
++
++#define EINJ_ETYPE		"/sys/kernel/debug/apei/einj/error_type"
++#define EINJ_ADDR		"/sys/kernel/debug/apei/einj/param1"
++#define EINJ_MASK		"/sys/kernel/debug/apei/einj/param2"
++#define EINJ_FLAGS		"/sys/kernel/debug/apei/einj/flags"
++#define EINJ_NOTRIGGER		"/sys/kernel/debug/apei/einj/notrigger"
++#define EINJ_DOIT		"/sys/kernel/debug/apei/einj/error_inject"
++/* Memory Uncorrectable non-fatal. */
++#define ERROR_TYPE_MEMORY_UER	0x10
++/* Memory address and mask valid (param1 and param2). */
++#define MASK_MEMORY_UER		0b10
++
++/* Guest virtual address region = [2G, 3G).  */
++#define START_GVA		0x80000000UL
++#define VM_MEM_SIZE		0x40000000UL
++/* Note: EINJ_OFFSET must < VM_MEM_SIZE. */
++#define EINJ_OFFSET		0x01234badUL
++#define EINJ_GVA		((START_GVA) + (EINJ_OFFSET))
++
++static vm_paddr_t einj_gpa;
++static void *einj_hva;
++static uint64_t einj_hpa;
++static bool far_invalid;
++
++static uint64_t translate_to_host_paddr(unsigned long vaddr)
 +{
-+	/*
-+	 * Without FEAT_RAS HCR_EL2.TEA is RES0, meaning any external abort
-+	 * taken from a guest EL to EL2 is due to a host-imposed access (e.g.
-+	 * stage-2 PTW).
-+	 */
-+	if (!cpus_have_final_cap(ARM64_HAS_RAS_EXTN))
-+		return true;
++	uint64_t pinfo;
++	int64_t offset = vaddr / getpagesize() * sizeof(pinfo);
++	int fd;
++	uint64_t page_addr;
++	uint64_t paddr;
 +
-+	/* KVM owns the VNCR when the vCPU isn't in a nested context. */
-+	if (is_hyp_ctxt(vcpu) && (esr & ESR_ELx_VNCR))
-+		return true;
-+
-+	/*
-+	 * Determine if an external abort during a table walk happened at
-+	 * stage-2 is only possible when S1PTW is set. Otherwise, since KVM
-+	 * sets HCR_EL2.TEA, SEAs due to a stage-1 walk (i.e. accessing the
-+	 * PA of the stage-1 descriptor) can reach here and are reported
-+	 * with a TTW ESR value.
-+	 */
-+	return (esr_fsc_is_sea_ttw(esr) && (esr & ESR_ELx_S1PTW));
-+}
-+
- int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
- {
-+	struct kvm *kvm = vcpu->kvm;
-+	struct kvm_run *run = vcpu->run;
-+	u64 esr = kvm_vcpu_get_esr(vcpu);
-+	u64 esr_mask = ESR_ELx_EC_MASK	|
-+		       ESR_ELx_IL	|
-+		       ESR_ELx_FnV	|
-+		       ESR_ELx_EA	|
-+		       ESR_ELx_CM	|
-+		       ESR_ELx_WNR	|
-+		       ESR_ELx_FSC;
-+	u64 ipa;
-+
- 	/*
- 	 * Give APEI the opportunity to claim the abort before handling it
- 	 * within KVM. apei_claim_sea() expects to be called with IRQs enabled.
-@@ -1822,7 +1862,33 @@ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
- 	if (apei_claim_sea(NULL) == 0)
- 		return 1;
- 
--	return kvm_inject_serror(vcpu);
-+	if (host_owns_sea(vcpu, esr) ||
-+	    !test_bit(KVM_ARCH_FLAG_EXIT_SEA, &vcpu->kvm->arch.flags))
-+		return kvm_inject_serror(vcpu);
-+
-+	/* ESR_ELx.SET is RES0 when FEAT_RAS isn't implemented. */
-+	if (kvm_has_ras(kvm))
-+		esr_mask |= ESR_ELx_SET_MASK;
-+
-+	/*
-+	 * Exit to userspace, and provide faulting guest virtual and physical
-+	 * addresses in case userspace wants to emulate SEA to guest by
-+	 * writing to FAR_ELx and HPFAR_ELx registers.
-+	 */
-+	memset(&run->arm_sea, 0, sizeof(run->arm_sea));
-+	run->exit_reason = KVM_EXIT_ARM_SEA;
-+	run->arm_sea.esr = esr & esr_mask;
-+
-+	if (!(esr & ESR_ELx_FnV))
-+		run->arm_sea.gva = kvm_vcpu_get_hfar(vcpu);
-+
-+	ipa = kvm_vcpu_get_fault_ipa(vcpu);
-+	if (ipa != INVALID_GPA) {
-+		run->arm_sea.flags |= KVM_EXIT_ARM_SEA_FLAG_GPA_VALID;
-+		run->arm_sea.gpa = ipa;
++	fd = open("/proc/self/pagemap", O_RDONLY);
++	if (fd < 0)
++		ksft_exit_fail_perror("Failed to open /proc/self/pagemap");
++	if (pread(fd, &pinfo, sizeof(pinfo), offset) != sizeof(pinfo)) {
++		close(fd);
++		ksft_exit_fail_perror("Failed to read /proc/self/pagemap");
 +	}
 +
++	close(fd);
++
++	if ((pinfo & PAGE_PRESENT) == 0)
++		ksft_exit_fail_perror("Page not present");
++
++	page_addr = (pinfo & PAGE_PHYSICAL) << MIN_PAGE_SHIFT;
++	paddr = page_addr + (vaddr & (getpagesize() - 1));
++	return paddr;
++}
++
++static void write_einj_entry(const char *einj_path, uint64_t val)
++{
++	char cmd[256] = {0};
++	FILE *cmdfile = NULL;
++
++	sprintf(cmd, "echo %#lx > %s", val, einj_path);
++	cmdfile = popen(cmd, "r");
++
++	if (pclose(cmdfile) == 0)
++		ksft_print_msg("echo %#lx > %s - done\n", val, einj_path);
++	else
++		ksft_exit_fail_perror("Failed to write EINJ entry");
++}
++
++static void inject_uer(uint64_t paddr)
++{
++	if (access("/sys/firmware/acpi/tables/EINJ", R_OK) == -1)
++		ksft_test_result_skip("EINJ table no available in firmware");
++
++	if (access(EINJ_ETYPE, R_OK | W_OK) == -1)
++		ksft_test_result_skip("EINJ module probably not loaded?");
++
++	write_einj_entry(EINJ_ETYPE, ERROR_TYPE_MEMORY_UER);
++	write_einj_entry(EINJ_FLAGS, MASK_MEMORY_UER);
++	write_einj_entry(EINJ_ADDR, paddr);
++	write_einj_entry(EINJ_MASK, ~0x0UL);
++	write_einj_entry(EINJ_NOTRIGGER, 1);
++	write_einj_entry(EINJ_DOIT, 1);
++}
++
++/*
++ * When host APEI successfully claims the SEA caused by guest_code, kernel
++ * will send SIGBUS signal with BUS_MCEERR_AR to test thread.
++ *
++ * We set up this SIGBUS handler to skip the test for that case.
++ */
++static void sigbus_signal_handler(int sig, siginfo_t *si, void *v)
++{
++	ksft_print_msg("SIGBUS (%d) received, dumping siginfo...\n", sig);
++	ksft_print_msg("si_signo=%d, si_errno=%d, si_code=%d, si_addr=%p\n",
++		       si->si_signo, si->si_errno, si->si_code, si->si_addr);
++	if (si->si_code == BUS_MCEERR_AR)
++		ksft_test_result_skip("SEA is claimed by host APEI\n");
++	else
++		ksft_test_result_fail("Exit with signal unhandled\n");
++
++	exit(0);
++}
++
++static void setup_sigbus_handler(void)
++{
++	struct sigaction act;
++
++	memset(&act, 0, sizeof(act));
++	sigemptyset(&act.sa_mask);
++	act.sa_sigaction = sigbus_signal_handler;
++	act.sa_flags = SA_SIGINFO;
++	TEST_ASSERT(sigaction(SIGBUS, &act, NULL) == 0,
++		    "Failed to setup SIGBUS handler");
++}
++
++static void guest_code(void)
++{
++	uint64_t guest_data;
++
++	/* Consumes error will cause a SEA. */
++	guest_data = *(uint64_t *)EINJ_GVA;
++
++	GUEST_FAIL("Poison not protected by SEA: gva=%#lx, guest_data=%#lx\n",
++		   EINJ_GVA, guest_data);
++}
++
++static void expect_sea_handler(struct ex_regs *regs)
++{
++	u64 esr = read_sysreg(esr_el1);
++	u64 far = read_sysreg(far_el1);
++	bool expect_far_invalid = far_invalid;
++
++	GUEST_PRINTF("Handling Guest SEA\n");
++	GUEST_PRINTF("ESR_EL1=%#lx, FAR_EL1=%#lx\n", esr, far);
++
++	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_CUR);
++	GUEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
++
++	if (expect_far_invalid) {
++		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, ESR_ELx_FnV);
++		GUEST_PRINTF("Guest observed garbage value in FAR\n");
++	} else {
++		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, 0);
++		GUEST_ASSERT_EQ(far, EINJ_GVA);
++	}
++
++	GUEST_DONE();
++}
++
++static void vcpu_inject_sea(struct kvm_vcpu *vcpu)
++{
++	struct kvm_vcpu_events events = {};
++
++	events.exception.ext_dabt_pending = true;
++	vcpu_events_set(vcpu, &events);
++}
++
++static void run_vm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
++{
++	struct ucall uc;
++	bool guest_done = false;
++	struct kvm_run *run = vcpu->run;
++	u64 esr;
++
++	/* Resume the vCPU after error injection to consume the error. */
++	vcpu_run(vcpu);
++
++	ksft_print_msg("Dump kvm_run info about KVM_EXIT_%s\n",
++		       exit_reason_str(run->exit_reason));
++	ksft_print_msg("kvm_run.arm_sea: esr=%#llx, flags=%#llx\n",
++		       run->arm_sea.esr, run->arm_sea.flags);
++	ksft_print_msg("kvm_run.arm_sea: gva=%#llx, gpa=%#llx\n",
++		       run->arm_sea.gva, run->arm_sea.gpa);
++
++	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_ARM_SEA);
++
++	esr = run->arm_sea.esr;
++	TEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_LOW);
++	TEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
++	TEST_ASSERT_EQ(ESR_ELx_ISS2(esr), 0);
++	TEST_ASSERT_EQ((esr & ESR_ELx_INST_SYNDROME), 0);
++	TEST_ASSERT_EQ(esr & ESR_ELx_VNCR, 0);
++
++	if (!(esr & ESR_ELx_FnV))
++		TEST_ASSERT_EQ(run->arm_sea.gva, EINJ_GVA);
++
++	if (run->arm_sea.flags & KVM_EXIT_ARM_SEA_FLAG_GPA_VALID)
++		TEST_ASSERT_EQ(run->arm_sea.gpa, einj_gpa & PAGE_ADDR_MASK);
++
++	far_invalid = esr & ESR_ELx_FnV;
++
++	/* Inject a SEA into guest and expect handled in SEA handler. */
++	vcpu_inject_sea(vcpu);
++
++	/* Expect the guest to reach GUEST_DONE gracefully. */
++	do {
++		vcpu_run(vcpu);
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_PRINTF:
++			ksft_print_msg("From guest: %s", uc.buffer);
++			break;
++		case UCALL_DONE:
++			ksft_print_msg("Guest done gracefully!\n");
++			guest_done = 1;
++			break;
++		case UCALL_ABORT:
++			ksft_print_msg("Guest aborted!\n");
++			guest_done = 1;
++			REPORT_GUEST_ASSERT(uc);
++			break;
++		default:
++			TEST_FAIL("Unexpected ucall: %lu\n", uc.cmd);
++		}
++	} while (!guest_done);
++}
++
++static struct kvm_vm *vm_create_with_sea_handler(struct kvm_vcpu **vcpu)
++{
++	size_t backing_page_size;
++	size_t guest_page_size;
++	size_t alignment;
++	uint64_t num_guest_pages;
++	vm_paddr_t start_gpa;
++	enum vm_mem_backing_src_type src_type = VM_MEM_SRC_ANONYMOUS_HUGETLB_1GB;
++	struct kvm_vm *vm;
++
++	backing_page_size = get_backing_src_pagesz(src_type);
++	guest_page_size = vm_guest_mode_params[VM_MODE_DEFAULT].page_size;
++	alignment = max(backing_page_size, guest_page_size);
++	num_guest_pages = VM_MEM_SIZE / guest_page_size;
++
++	vm = __vm_create_with_one_vcpu(vcpu, num_guest_pages, guest_code);
++	vm_init_descriptor_tables(vm);
++	vcpu_init_descriptor_tables(*vcpu);
++
++	vm_install_sync_handler(vm,
++		/*vector=*/VECTOR_SYNC_CURRENT,
++		/*ec=*/ESR_ELx_EC_DABT_CUR,
++		/*handler=*/expect_sea_handler);
++
++	start_gpa = (vm->max_gfn - num_guest_pages) * guest_page_size;
++	start_gpa = align_down(start_gpa, alignment);
++
++	vm_userspace_mem_region_add(
++		/*vm=*/vm,
++		/*src_type=*/src_type,
++		/*guest_paddr=*/start_gpa,
++		/*slot=*/1,
++		/*npages=*/num_guest_pages,
++		/*flags=*/0);
++
++	virt_map(vm, START_GVA, start_gpa, num_guest_pages);
++
++	ksft_print_msg("Mapped %#lx pages: gva=%#lx to gpa=%#lx\n",
++		       num_guest_pages, START_GVA, start_gpa);
++	return vm;
++}
++
++static void vm_inject_memory_uer(struct kvm_vm *vm)
++{
++	uint64_t guest_data;
++
++	einj_gpa = addr_gva2gpa(vm, EINJ_GVA);
++	einj_hva = addr_gva2hva(vm, EINJ_GVA);
++
++	/* Populate certain data before injecting UER. */
++	*(uint64_t *)einj_hva = 0xBAADCAFE;
++	guest_data = *(uint64_t *)einj_hva;
++	ksft_print_msg("Before EINJect: data=%#lx\n",
++		guest_data);
++
++	einj_hpa = translate_to_host_paddr((unsigned long)einj_hva);
++
++	ksft_print_msg("EINJ_GVA=%#lx, einj_gpa=%#lx, einj_hva=%p, einj_hpa=%#lx\n",
++		       EINJ_GVA, einj_gpa, einj_hva, einj_hpa);
++
++	inject_uer(einj_hpa);
++	ksft_print_msg("Memory UER EINJected\n");
++}
++
++int main(int argc, char *argv[])
++{
++	struct kvm_vm *vm;
++	struct kvm_vcpu *vcpu;
++
++	TEST_REQUIRE(kvm_has_cap(KVM_CAP_ARM_SEA_TO_USER));
++
++	setup_sigbus_handler();
++
++	vm = vm_create_with_sea_handler(&vcpu);
++	vm_enable_cap(vm, KVM_CAP_ARM_SEA_TO_USER, 0);
++	vm_inject_memory_uer(vm);
++	run_vm(vm, vcpu);
++	kvm_vm_free(vm);
++
 +	return 0;
- }
++}
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index a055343a7bf75..d3234239b9845 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -2041,6 +2041,7 @@ static struct exit_reason {
+ 	KVM_EXIT_STRING(NOTIFY),
+ 	KVM_EXIT_STRING(LOONGARCH_IOCSR),
+ 	KVM_EXIT_STRING(MEMORY_FAULT),
++	KVM_EXIT_STRING(ARM_SEA),
+ };
  
- /**
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index e4e566ff348b0..b2cc3d74d769c 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -179,6 +179,7 @@ struct kvm_xen_exit {
- #define KVM_EXIT_LOONGARCH_IOCSR  38
- #define KVM_EXIT_MEMORY_FAULT     39
- #define KVM_EXIT_TDX              40
-+#define KVM_EXIT_ARM_SEA          41
- 
- /* For KVM_EXIT_INTERNAL_ERROR */
- /* Emulate instruction failed. */
-@@ -469,6 +470,14 @@ struct kvm_run {
- 				} get_tdvmcall_info;
- 			};
- 		} tdx;
-+		/* KVM_EXIT_ARM_SEA */
-+		struct {
-+#define KVM_EXIT_ARM_SEA_FLAG_GPA_VALID	(1ULL << 0)
-+			__u64 flags;
-+			__u64 esr;
-+			__u64 gva;
-+			__u64 gpa;
-+		} arm_sea;
- 		/* Fix the size of the union. */
- 		char padding[256];
- 	};
-@@ -957,6 +966,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_ARM_EL2_E2H0 241
- #define KVM_CAP_RISCV_MP_STATE_RESET 242
- #define KVM_CAP_ARM_CACHEABLE_PFNMAP_SUPPORTED 243
-+#define KVM_CAP_ARM_SEA_TO_USER 244
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
+ /*
 -- 
 2.50.1.565.gc32cd1483b-goog
 
