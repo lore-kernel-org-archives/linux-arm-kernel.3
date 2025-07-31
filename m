@@ -4,107 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A10C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACCCC83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 11:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OFNCmYtH61Nndov9+nrflnm2Khdw9kLv+m1BQD23EEs=; b=SFqPslLyOLqf1aWPFRwBKHuliU
-	66L+vvV1R7y6fT+ppkAxJ14n1MRjp0+gNX7SsoIKxwORleXnrJ+ySPPrdkfGMBheFU6MLxFK+22rJ
-	0DMby034ENlUi8v/pd5KbY9Ge9rbXUr7joXqgFun+YBIw+DCeCNpgGWWJAHX80Dbapp3WE5GepMKc
-	0yl0+ighABPaOfm1Q2VY/eAn4lR/6QUOdL6pFiF08VeFHi09yuSCG8WK/BrFEU021J8WqEJ03rqu5
-	RRWtsI3M/5Lj/GXOpqi9adFbzWv0+es7363QtmkM07Vfkb/omYNEI2C5JEDBDHsZZOmdbauDfe8qm
-	nRkAYYVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VEKn7bCKtQ4DC3+ZJIGn7pT8WXFtiTvd9gJWSwXEX6s=; b=DfS73IkxfimoEQudpiQ8jxNQxk
+	wa8aPst4bhKkd8oaitlLe9jq0e1L3eukOq8Qa0FtZVGzSK5BDZmqV7KGqehpbLXb1+xOXNKEGjnge
+	t6Onaw1Z2O3E++CBaxZI5mGftLT/NT5oZ47ag6YV//b3c5I2lQBZ1MvAzek+cjGTCSMbHHnvUr/0+
+	WVJnM9aZWF2WFPLJ3O3EovH/e0EYEtXte/ZPCa1aeI1vQpYGn3VSc+FXdVx6RAdI+muf/YySaQtaz
+	42LX37ULK84MbLrM7rM2b0hP0A1l4T0uO8sv4zPNs5SJ9KvH57qd6CtNCLmI6mTUnl2fWiTt1NEqt
+	xZFMXXaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhR3O-00000003S37-2h0k;
-	Thu, 31 Jul 2025 11:02:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uhR8e-00000003SYI-2u4f;
+	Thu, 31 Jul 2025 11:07:56 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhR0m-00000003Ra0-2kFb
+	id 1uhR64-00000003SIU-38Yp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 10:59:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFB2944ECC;
-	Thu, 31 Jul 2025 10:59:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FA39C4CEF5;
-	Thu, 31 Jul 2025 10:59:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753959586;
-	bh=qPWfK9sgu6r8bmRE+mFmR8DEssdNTrNeH7RfdRDf8hc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jy2SfELj63IFup2dLp/YeTc1l0sM7Tr8Xu0JCb7WWN1lNQVx9z9F9YkHCOUY3ngEN
-	 PJfv0rQacZTEZ5BDe81CUoOcohA71TL/TVsLo946tkmZT0yoJt/dg20po9iOugbXke
-	 o3Oa47KxEUcWHVJB3je+QQcyuk5QHB1kbErBOQ5sXzGrkphI1uVhF2O1nU7yXk71yV
-	 CVHPKDVIL+yr8Y0IWAACC4QTuGeb33ZUMrdsBBAOIIFan8DrGj76SCkBXZFmtdzERP
-	 o1MfTPQeJyOnINMelM4ThSUl3Q1thgwEMys9M0rtgMIr5YRCE1o6s6cWS5sWJk6WFX
-	 SbpYjLuE8DAXg==
-Message-ID: <0774bf0f-5686-46ab-bd71-82b859201353@kernel.org>
-Date: Thu, 31 Jul 2025 12:59:43 +0200
+	Thu, 31 Jul 2025 11:05:17 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-455ecacfc32so3016875e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 04:05:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753959915; x=1754564715; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=VEKn7bCKtQ4DC3+ZJIGn7pT8WXFtiTvd9gJWSwXEX6s=;
+        b=w6H/xKLz3m5OB//Hirja+KNaKZwdx4zKA5t7WyxzMzzfmuZ4avcBPKhghqPNwdqIZw
+         8mpilRKlOBHQn2TAYi74qQwNI4M2wahK+O3sjbsFx2OMFgZ+Ma3YHDzz6chvkNszATpn
+         hOiXFp8fuSOhgQ+cwVH0ekbAY9TIT8XpbfkWjBhVdhbujQkKFbCfhWiYP2gus8WiDtQD
+         JSIcB7kppQOwDWpCRdk2hki+ISyd1JmIgWX9yd0VJzAkbsC0Orsj6nqhD2kYYL539vJb
+         aLBq6cJW2OsoGwbiG3za2tNXaRsdeB2f8WHPfkwKHEY9Gk6jZ0uk0Q7Mj0EBHN9Yhzr/
+         tcmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753959915; x=1754564715;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VEKn7bCKtQ4DC3+ZJIGn7pT8WXFtiTvd9gJWSwXEX6s=;
+        b=wpJ4js2vnI4fk7M+Ii06yiNj2a24G8gM2SfEe5PAYyXY3BqNQFPhq5IQhy31jCZdNn
+         junwj9/IRSmdQb71EJeyZWoKCtPqZ+qSkbYegvHQGUvvbFq5M5cwRERyW1iNNUVbEG0R
+         M4+fZjhdDnwVDgQY+XDk+xtISl33gcKo2Av+RFJyIJ1kJggRmbla7Aa5MBspOAVQPF08
+         o7UlEPGeEalG3IpcMmzW2itQKimDO07+fcH7wY0jMNguKODrc76oyiIFkmXMysbkdvWT
+         nOjZN92K6mVvFNpRjMEYmRfmQMLmpPRl0e8OdQc0zMpdTCS3ldEg9JxWmy7puExLJZjr
+         lkYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWXINQqUcY6YunMcXErrDqn70R3f6MYrxHKbiJYZkJJ3VWmXdz3UzkUo9NztiG7So/EzwCHajF0nUuuDMt3/D5a@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqJtDnWrsCojQkNnvkOCAjUavrfBlK5aUkaSQ8U3pulIIoC9Bb
+	RD4h/XPmDh9U9yAciGFkZmuUTZb5tcjvPL0yIBoPD0cUv9KF4Wxl7D58bdI/A9NSgWM=
+X-Gm-Gg: ASbGncuBqpc4zCwg55HthRslMYocDwGlys8PPNHf7qBij4iqxA5ZqDa4pKcGlTSxoqi
+	rUu0LvmNf7dDtn+toJKPKJriGJzkKb+Xk2EopYYqV6R5AxzJvOm8/0LW3T8AxYzHLgclApaahmE
+	NcCkI2t0k3DxYqROkNdBN3IfnIVn8Ktb43f/MLE4QOdDLmXB20i311UnwmFLvGNV4P/Fs+q8jZg
+	fmwyNvrPlIsJTvKIaULfo1WFZ4QV/Fzmonv+gyYdUbZ5yZqL2Qmko9G4+EeIy9qo++L3C2h3rEf
+	FQKCCNOdTUsB+dfc3Fobgdtn7cCxFipHHcfnEOcAI3nHaiPIKl4M5w5tfoznf9BY7ULqR1DaWzZ
+	XfnQgl4daYowVDm58FaHK8tUm/g==
+X-Google-Smtp-Source: AGHT+IE2uAVTLlLGsEyuKRwFnRFU/FdmGqD5jafe8UhDC8Cs0NgSXpOAHHVQxxk7a76FdVpc+nYZfA==
+X-Received: by 2002:a05:600c:1d25:b0:456:1560:7c5f with SMTP id 5b1f17b1804b1-4589a700e05mr55899935e9.14.1753959915171;
+        Thu, 31 Jul 2025 04:05:15 -0700 (PDT)
+Received: from [10.1.1.59] ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4589edfcdc3sm23160775e9.12.2025.07.31.04.05.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Jul 2025 04:05:14 -0700 (PDT)
+Message-ID: <63d090988d04fa81231c984771a563c55daf1bd9.camel@linaro.org>
+Subject: Re: [PATCH v13 07/10] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Arnd Bergmann <arnd@arndb.de>, Shivendra Pratap	
+ <shivendra.pratap@oss.qualcomm.com>, Bartosz Golaszewski	
+ <bartosz.golaszewski@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+ Sebastian Reichel	 <sre@kernel.org>, Rob Herring <robh@kernel.org>, Sudeep
+ Holla	 <sudeep.holla@arm.com>, Souvik Chakravarty
+ <Souvik.Chakravarty@arm.com>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andy Yan	 <andy.yan@rock-chips.com>,
+ Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Florian
+ Fainelli	 <florian.fainelli@broadcom.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Mukesh Ojha
+	 <mukesh.ojha@oss.qualcomm.com>, Stephen Boyd <swboyd@chromium.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, Elliot Berman <quic_eberman@quicinc.com>, 
+ Srinivas Kandagatla
+	 <srini@kernel.org>
+Date: Thu, 31 Jul 2025 12:05:13 +0100
+In-Reply-To: <592902f1-549f-47c5-9ef4-b5c7ef2c9a47@app.fastmail.com>
+References: <20250727-arm-psci-system_reset2-vendor-reboots-v13-0-6b8d23315898@oss.qualcomm.com>
+	 <20250727-arm-psci-system_reset2-vendor-reboots-v13-7-6b8d23315898@oss.qualcomm.com>
+	 <b45b157593f1865a402f4098cdeafc298a294c6d.camel@linaro.org>
+	 <b92c164f-c6df-a2c0-1416-67652a01b179@oss.qualcomm.com>
+	 <34c52c88fd8fcbf68c453c1e94e4cd6294becff1.camel@linaro.org>
+	 <592902f1-549f-47c5-9ef4-b5c7ef2c9a47@app.fastmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.1-1+build2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: samsung: exynos-srom: Fix of_iomap leak in
- exynos_srom_probe
-To: "zhen.ni" <zhen.ni@easystack.cn>, alim.akhtar@samsung.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20250731083340.1057564-1-zhen.ni@easystack.cn>
- <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
- <5b4dc6a3-f6fd-4bf7-a84e-3d79db8d062e@easystack.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <5b4dc6a3-f6fd-4bf7-a84e-3d79db8d062e@easystack.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_035948_740550_1B601AFB 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20250731_040516_801518_D666E202 
+X-CRM114-Status: GOOD (  27.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,43 +121,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2025 11:40, zhen.ni wrote:
-> Hi,
-> 
-> During static analysis with Smatch, I identified the following issue:
-> 
-> ```
-> drivers/memory/samsung/exynos-srom.c:155 exynos_srom_probe()
-> warn: 'srom->reg_base' from of_iomap() not released on lines: 155.
+On Wed, 2025-07-30 at 19:31 +0200, Arnd Bergmann wrote:
+> On Wed, Jul 30, 2025, at 17:23, Andr=C3=A9 Draszik wrote:
+> > On Wed, 2025-07-30 at 18:33 +0530, Shivendra Pratap wrote:
+> > > On 7/30/2025 2:14 PM, Andr=C3=A9 Draszik wrote:
+>=20
+> > > 1. For this, both commands will be defined in the psci->reboot-mode D=
+T Node with the arguments that
+> > > =C2=A0=C2=A0 are defined and supported by the firmware.
+> > > 2. Further, such requirement will now be taken care by the underlying=
+ firmware that supports
+> > > =C2=A0=C2=A0 PSCI vendor-specific reset. When we call into firmware w=
+ith vendor specific reset arguments,
+> > > =C2=A0=C2=A0 firmware will take care of the defined HW writes and war=
+m/cold reset as per the mapping of the
+> > > =C2=A0=C2=A0 defined arguments. Firmware and the Linux kernel here ar=
+e in agreement for executing the
+> > > =C2=A0=C2=A0 vendor-specific resets.
+> >=20
+> > So that means
+> >=20
+> > =C2=A0=C2=A0=C2=A0 echo warm > /sys/kernel/reboot/mode
+> > =C2=A0=C2=A0=C2=A0 reboot bootloader
+> >=20
+> > and
+> >=20
+> > =C2=A0=C2=A0=C2=A0 echo cold > /sys/kernel/reboot/mode
+> > =C2=A0=C2=A0=C2=A0 reboot bootloader
+> >=20
+> > can not be distinguished.
+> >=20
+> > The firmware can not know whether or not cold or warm reboot was
+> > requested in this case by the user.
+>=20
+> My feeling is that this is fine: the /sys/kernel/reboot/mode
+> interface is not really used on anything other than 32-bit
+> arm and x86 machines, and the way it is specific as
+> cold/warm/hard/soft/gpio is not that useful.
 
-Nothing in commit msg explained you used Smatch. You must describe the
-tools you use.
+Currently, reboot_mode as such is also used by gs101 and later, we do
+distinguish between the reboot_modes (cold/hard and warm/soft), although
+generally not via sysfs indeed. And yes, gpio is a strangely specific
+one.
 
-> ```
-> 
-> Problem analysis:
-> 1. In exynos_srom_probe(), the reg_base resource is acquired via of_iomap()
-> 2. The of_platform_populate() call at the end of the function has a 
-> possible failure path:
+I don't have insight into newer SoCs / board designs in that family,
+but my understanding is that newer SoCs use PSCI for reboot as well
+and I do believe being able to do cold reboot by default and warm
+reboot in some cases (crash handling in particular) to still be a
+valid use-case.
 
-Above is AI/LLM output?
+> I think for the purpose of the new code here, we should talk
+> about reboot "commands" instead of "modes" to avoid confusing
+> between the global "enum reboot_mode" variable and the
+> firmware interface for reboot modes as listed in DT.
 
-> ```
-> root = root ? of_node_get(root) : of_find_node_by_path("/");
-> if (!root)
->       return -EINVAL; // Failure return point
-> ```
-> 3. When this path is taken, reg_base is not released, causing a resource 
-> leak
-> 
-> Verification:
-> After applying the patch, the Smatch warning is resolved
++1 It should really have been added as reboot command or reboot target
+in the first place.
 
-This means no testing. You should mention it as well.
-
-Don't top post. See netiquette.
-
-
-Best regards,
-Krzysztof
+A.
 
