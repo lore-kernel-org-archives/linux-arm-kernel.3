@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4913EC87FCC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72A33C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 14:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5ZOa5Bdzk2St6inmchEvW3Ga3OzI20QY+mKrMFR+D4=; b=Bynnvoi6kGn1Z/51ThLgbJ6Nwf
-	VXr16tInZspvX+acTfN1o4ddttqlMTU0WkqyH03Xj0ij/OfM8pe5JP+7ytKmaPgsCjN12axuYsT5d
-	PYvfqznl1WePHbpLewUKReYCeHnx2ZRFJdhy94HABK49Bg46Y8np5t5+rShzHZQm1LgkJA8A2+1bV
-	RPXRZw8jv/5HUNEyMUZ+EbqFSSPwvXzXSRirLPnbJ9xpN7iZ7eAqe/PzwaxK2cjE9pnuvV3CFBizo
-	UHHOCbZTk5K2hwKm2P+CezCCk2dowOdoZWJdn8hPAb+tgMmJXat6e698iAGmP+OYz3FRvYQrHqul4
-	KZxLoA8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BLgS03msUmp+vuGwcZngE+sO5Zm7YcN21p+x25WXrLM=; b=Pj+wFc90pCKvpWSm3FXWilOfls
+	uZ9m9Sbs9jo0dT3dRKNg4uZE815T3BxOMXNmcXx4VPHcnYBRad3HvGO0K5BIrbAFQtX8sEtkx1DrR
+	5IQmW9v8mPkBalEJh/YzjLE3e9FWhwM3U49dyw8uPCl8IKSpXWQ12qaEq3cN+Rig+eNyMtow2UILJ
+	PcT776FUOZuUboD1bRnJ/9M99DrnebFkEhRVPSufhIFgqFD8Al4JzHg5MNcmR+TG8segD8YBVxQ+1
+	S58a+RoE721Q9mDchdwy8OMppj0Em90MfE2MG81c1v5k8+qfJk4pVliRS2b/6HmyA1HM3KaBZpvJU
+	R6eCus/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhUO8-00000003qTz-12Dv;
-	Thu, 31 Jul 2025 14:36:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uhUTW-00000003sMu-10op;
+	Thu, 31 Jul 2025 14:41:42 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhTk4-00000003kdA-2Idj
+	id 1uhTrA-00000003ljU-0cNy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 13:54:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE6AB61126;
-	Thu, 31 Jul 2025 13:54:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B785C4CEEF;
-	Thu, 31 Jul 2025 13:54:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1753970083;
-	bh=eMaB/jC7BQOujSeVyd65hlSZ/jJUt5A5InXdWSnL42Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LfD/b5JDEM4tfHtFXQ7drTEt8aleNybYQzijLgWsq+p+xNnv2CcV45z6g8k5blx1h
-	 LJf5RQXMtCD81I18Q730/r1cE/tRooUKRse/MQ/98Qlo+4ZFt5C5W6s1FmE+UiT+fF
-	 fGCKKTUwxi15kn0RnwXrfshq0blX42oaFLSpFa3U91GiH3JSQOhvC16wow3IWEPPzg
-	 +pTr7wJssZyyxv0p2wNtIHbABvZknQz/dtOcZFP113btCZgTq6Cw9xoAYeYBAp1nma
-	 sfJnJs0Bctps/fzgTBSZSILD6YtS6wqLAFG+Uucid+jkpoas5T2SOHxJMNGtmE2Wsc
-	 MbABvN8U+VXfA==
-Date: Thu, 31 Jul 2025 08:54:42 -0500
-From: Rob Herring <robh@kernel.org>
-To: =?iso-8859-1?Q?Cl=E9ment?= Le Goffic <clement.legoffic@foss.st.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Le Goffic <legoffic.clement@gmail.com>,
-	Julius Werner <jwerner@chromium.org>,
+	Thu, 31 Jul 2025 14:02:05 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3b78315ff04so374645f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 07:02:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1753970522; x=1754575322; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BLgS03msUmp+vuGwcZngE+sO5Zm7YcN21p+x25WXrLM=;
+        b=nEYS+OzOl+TghT9m/vqqi++QeDWVgpVgcMF3SNm9aO167E1Mn96AUTJQLV8Zm+QRvC
+         z/74hYbIzlQpEFwnt8iSuxLGphrF4OootrjtqcxGNT/UXl502UjeJovkCFXT4MAFujDk
+         +sPseZzNldD83k4+7CLu6vOCNcF+2fjN2CAEdAuVn2/UwVeYo4Yt8k80SOA98pjDFNlu
+         1GeP0FrgPVx/60D3+0nydVa2Z0oJrF80hT69rF18XygIxcNUYpLJMMkUkOKTg8Acd7H8
+         vEYYYx+LzKUq1pAUdhJ8KzCkVWzAr/mYBUPfxne+T/wI9I0in1IcCLzk0CSVLCO2mxhb
+         g7Pg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753970522; x=1754575322;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BLgS03msUmp+vuGwcZngE+sO5Zm7YcN21p+x25WXrLM=;
+        b=s24ERkU2+GgaTGwRoZlV1Ny6VMR6dfyoZuLW0ydn0iG+ex7lND08keNpNSWiy2NkkR
+         j8/ib1cE4wRhn1j2PogjGr2tbkGL9eUtbwYC7t76yEYnnK9q14j2tdqxfL1e1eArNlan
+         A8tzVC6ghvQQJKET+pGDKHN5ODXJeQlCIIWI4C+ccIhtLRPtzDF8PaQtFaW58SqF+dyA
+         SD619JCOD99HwfXn9XP+2fgh8jRf4DYdraxdnlEd4uIESO7rrw2zz4+M2Pwvs/I0IjUB
+         Lxh4cjIYNDA6nD64zVfBvcW2awGST8CBEsdVmE4RWD1ebjSNXZYfuR2jMoh0aWYZHaDR
+         8I+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWlVsOLJB+uRcZmhE+Zmrx2EU1r4RGxSGW3ptN1VtFLuwGcZvCqGU2zt2woam6SswrwrxC8ZO2OxJqAg9YA1Hgc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuOaW32Ai4RNn9nx3Xv2qXBBMkxDkAgjM6JdXN433PnulK/jpW
+	n+Ft3MK1+KV/qM0Hl4zMdVeGp8WIn2RVqsH7SqO9/SDoUowsizEQ/w+rSK6aJxxYmTA=
+X-Gm-Gg: ASbGncse2mCkKrWOBd5eKdzh1+FqH3Yu083VCTK3C1MfVEM7mXRLJPEQZh99Fp+oGSY
+	PLQHk2T1soTuxtTVS6xDa7FUW0tlsUfAxdZ3w9wRR5pWwFm2UCtCbrzgyWxr0v47z3qMlzJO7M9
+	2SIuH6iZqN+Uu6TvQdyNcLyiUvWSbf+eOG/73nv9uUrqqI2IIssa8slEA3nHYok90AfV1V1YCWB
+	VJ8jtPiBXhJThrbrCF9zo3Car6fl7djz1rteZAMIxOUQj/erm87aGKRgl3ZgmW+DolKB78WuLR1
+	z4MixwS7SHJ7MOeUPQNsLLbqSQflelR+MJbwppuqZmYZeUwJ9J65UOtZYhofldh+KwYqwH1l687
+	TtcmvVH+n7ijhn7gB1bCi+sx1MlPZQrNCf6eyu+hcbTZa22Uv
+X-Google-Smtp-Source: AGHT+IHKeZczvelpwGjx/EOADUEZKpoKSKEfhOoz3VFDbeZbEjT91pFxldnpybLu9UgLDOG6DAcA7w==
+X-Received: by 2002:a05:6000:401f:b0:3b5:e2ca:1c2 with SMTP id ffacd0b85a97d-3b794fe50b7mr6057814f8f.2.1753970522308;
+        Thu, 31 Jul 2025 07:02:02 -0700 (PDT)
+Received: from mai.. (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4589ee57c18sm28121285e9.28.2025.07.31.07.02.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 31 Jul 2025 07:02:01 -0700 (PDT)
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: mbrugger@suse.com,
+	chester62515@gmail.com,
+	ghennadi.procopciuc@oss.nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de
+Cc: s32@nxp.com,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH v5 12/20] dt-bindings: perf: stm32: introduce DDRPERFM
- dt-bindings
-Message-ID: <20250731135442.GA2139000-robh@kernel.org>
-References: <20250728-ddrperfm-upstream-v5-0-03f1be8ad396@foss.st.com>
- <20250728-ddrperfm-upstream-v5-12-03f1be8ad396@foss.st.com>
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 5/8] arm64: dts: s32g2: Add the Software Timer Watchdog (SWT) nodes
+Date: Thu, 31 Jul 2025 16:01:38 +0200
+Message-ID: <20250731140146.62960-6-daniel.lezcano@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250731140146.62960-1-daniel.lezcano@linaro.org>
+References: <20250731140146.62960-1-daniel.lezcano@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250728-ddrperfm-upstream-v5-12-03f1be8ad396@foss.st.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250731_070204_187172_628C5556 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,121 +110,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 05:29:43PM +0200, Clément Le Goffic wrote:
-> DDRPERFM is the DDR Performance Monitor embedded in STM32MPU SoC.
-> It allows to monitor DDR events that come from the DDR Controller
-> such as read or write events.
-> 
-> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
-> ---
->  .../devicetree/bindings/perf/st,stm32-ddr-pmu.yaml | 94 ++++++++++++++++++++++
->  1 file changed, 94 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
-> new file mode 100644
-> index 000000000000..1d97861e3d44
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/perf/st,stm32-ddr-pmu.yaml
-> @@ -0,0 +1,94 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/perf/st,stm32-ddr-pmu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +maintainers:
-> +  - Clément Le Goffic <legoffic.clement@gmail.com>
-> +
-> +title: STMicroelectronics STM32 DDR Performance Monitor (DDRPERFM)
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - const: st,stm32mp131-ddr-pmu
-> +      - items:
-> +          - enum:
-> +              - st,stm32mp151-ddr-pmu
-> +          - const: st,stm32mp131-ddr-pmu
-> +      - items:
-> +          - const: st,stm32mp251-ddr-pmu
+Referred in the documentation as the Software Timer Watchdog (SWT),
+the s32g2 has 7 watchdogs. The number of watchdogs is designed to
+allow dedicating one watchdog per Cortex-M7/A53 present on the SoC.
 
-This and the 1st entry can be a single enum.
+Add the SWT nodes in the device tree.
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  access-controllers:
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  memory-channel:
-> +    description:
-> +      The memory channel this DDRPERFM is attached to.
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp131-ddr-pmu
-> +    then:
-> +      required:
-> +        - clocks
-> +        - resets
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: st,stm32mp251-ddr-pmu
-> +    then:
-> +      required:
-> +        - access-controllers
-> +        - memory-channel
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/stm32mp1-clks.h>
-> +    #include <dt-bindings/reset/stm32mp1-resets.h>
-> +
-> +    perf@5a007000 {
-> +        compatible = "st,stm32mp151-ddr-pmu", "st,stm32mp131-ddr-pmu";
-> +        reg = <0x5a007000 0x400>;
-> +        clocks = <&rcc DDRPERFM>;
-> +        resets = <&rcc DDRPERFM_R>;
-> +    };
-> +
-> +  - |
-> +    ddr_channel: sdram-channel-0 {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +        compatible = "jedec,ddr4-channel";
-> +        io-width = <16>;
-> +    };
-> +
-> +    perf@48041000 {
-> +      compatible = "st,stm32mp251-ddr-pmu";
-> +      reg = <0x48041000 0x400>;
-> +      access-controllers = <&rcc 104>;
-> +      memory-channel = <&ddr_channel>;
-> +    };
-> 
-> -- 
-> 2.43.0
-> 
+Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+---
+ arch/arm64/boot/dts/freescale/s32g2.dtsi | 56 ++++++++++++++++++++++++
+ 1 file changed, 56 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+index 1783edb81350..478899d4dd06 100644
+--- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+@@ -317,6 +317,38 @@ usdhc0-200mhz-grp4 {
+ 			};
+ 		};
+ 
++		swt0: watchdog@40100000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x40100000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
++		swt1: watchdog@40104000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x40104000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
++		swt2: watchdog@40108000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x40108000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
++		swt3: watchdog@4010c000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x4010c000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
+ 		stm0: timer@4011c000 {
+ 			compatible = "nxp,s32g2-stm";
+ 			reg = <0x4011c000 0x3000>;
+@@ -445,6 +477,30 @@ i2c2: i2c@401ec000 {
+ 			status = "disabled";
+ 		};
+ 
++		swt4: watchdog@40200000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x40200000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
++		swt5: watchdog@40204000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x40204000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
++		swt6: watchdog@40208000 {
++			compatible = "nxp,s32g2-swt";
++			reg = <0x40208000 0x1000>;
++			clocks = <&clks 0x3a>, <&clks 0x3b>, <&clks 0x3b>;
++			clock-names = "counter", "module", "register";
++			status = "disabled";
++		};
++
+ 		stm4: timer@4021c000 {
+ 			compatible = "nxp,s32g2-stm";
+ 			reg = <0x4021c000 0x3000>;
+-- 
+2.43.0
+
 
