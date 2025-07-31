@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986B4C83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F73DC87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OA/fTBISzM4/0hQHF9JF3amGEuf4mz381ZmSovEWqf4=; b=luYlG6zBY+vvHuzHNkzWftecJ3
-	3KDLmbyjdOa3QB+0YLaFR5ovmLu3SvANGuwMu+3hozCa7Cy3slUZ2s1GRZssKhKJO1zWP/8gzAUMU
-	vp+dCLYkjlOKEV92aOKn8GSQlb35lHYM+MLP2sXZ8kBSHriYucLU9qBHaOiwR5InPTj9FNGhqJVKF
-	SbOKzWOWFwyE3oYVGSoq7t5tZYLyTnLSwAfQF8OFTZhN5wz4l/cZW5w6EKiH6pfRiEaef/z5i08Up
-	+DfNUtF1ttnRs3dRpKuelJ5YiNdkTnY95WjgUhjbsUvLYXyWvQHacPUtrObGwJ77x+STEFVKlYFcZ
-	AAp896hg==;
+	bh=Imnp0d+dE81H1pBJO8FP2xfuY7SEn2GDS6aOUwfQXVs=; b=Sqpx/lST2Cdj9/nyHPhOno7JHM
+	BKFx66VRWEIFNCQo4de5wnnDwTdTcybBhPYNst33tjRebSzjMZ6m1sjA7De0NKM+iVYfp2/3D93an
+	nzACpT6jCtqvncimdovmUh79cNwevRK+EEvDVSXhsRTOv5iKPrrp3IM4RlZTXqQLXTFUeu+DIwhXX
+	JQjkls6PkqZ7+4CVCMqoBSefra14X7yKKoxQY6iUSX6y/s+KX2/ewVU4gqS1zz5VqB/aGMTwvKoIe
+	514MtA+xlUk1e2pU1XbHjf056/x0flVlIBTOya3uN0PmuwQViUTDbMr1z4xKLz5IXUme8bGE645Le
+	OYtb6ADw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPgf-00000003IIP-0ilg;
-	Thu, 31 Jul 2025 09:34:57 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uhPoh-00000003Iuk-3xVQ;
+	Thu, 31 Jul 2025 09:43:15 +0000
+Received: from mail-m83230.xmail.ntesmail.com ([156.224.83.230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPdi-00000003Hga-0MXv
+	id 1uhPm3-00000003Iko-1vrp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 09:31:55 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1uhPdT-0005sL-9v; Thu, 31 Jul 2025 11:31:39 +0200
-Message-ID: <4043f877-fc29-4d81-b96a-83f6ef3fa926@pengutronix.de>
-Date: Thu, 31 Jul 2025 11:31:38 +0200
+	Thu, 31 Jul 2025 09:40:33 +0000
+Received: from [192.168.1.94] (unknown [218.94.118.90])
+	by smtp.qiye.163.com (Hmail) with ESMTP id dee002b7;
+	Thu, 31 Jul 2025 17:40:26 +0800 (GMT+08:00)
+Message-ID: <5b4dc6a3-f6fd-4bf7-a84e-3d79db8d062e@easystack.cn>
+Date: Thu, 31 Jul 2025 17:40:26 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: imx8mp-tqma8mpql: remove virtual 3.3V
- regulator
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, Markus Niebel
- <Markus.Niebel@ew.tq-group.com>, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux@ew.tq-group.com
-References: <20250731091655.2453107-1-alexander.stein@ew.tq-group.com>
- <20250731091655.2453107-2-alexander.stein@ew.tq-group.com>
-Content-Language: en-US, de-DE, de-BE
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <20250731091655.2453107-2-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] memory: samsung: exynos-srom: Fix of_iomap leak in
+ exynos_srom_probe
+To: Krzysztof Kozlowski <krzk@kernel.org>, alim.akhtar@samsung.com
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250731083340.1057564-1-zhen.ni@easystack.cn>
+ <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
+From: "zhen.ni" <zhen.ni@easystack.cn>
+In-Reply-To: <aa6ad382-dc2a-4f63-be11-7d331027af66@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a985fdab9b90229kunm51918700f3967
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFJQjdXWS1ZQUlXWQ8JGhUIEh9ZQVlDShkZVkgZHk9NT08aHk8fT1YVFAkWGhdVGRETFh
+	oSFyQUDg9ZV1kYEgtZQVlJSkNVQk9VSkpDVUJLWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09IVUpLS1
+	VKQktLWQY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_023154_133154_870D1AB0 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250731_024031_792046_C1379CB8 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,80 +68,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander,
+Hi,
 
-On 7/31/25 11:16, Alexander Stein wrote:
-> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+During static analysis with Smatch, I identified the following issue:
+
+```
+drivers/memory/samsung/exynos-srom.c:155 exynos_srom_probe()
+warn: 'srom->reg_base' from of_iomap() not released on lines: 155.
+```
+
+Problem analysis:
+1. In exynos_srom_probe(), the reg_base resource is acquired via of_iomap()
+2. The of_platform_populate() call at the end of the function has a 
+possible failure path:
+```
+root = root ? of_node_get(root) : of_find_node_by_path("/");
+if (!root)
+      return -EINVAL; // Failure return point
+```
+3. When this path is taken, reg_base is not released, causing a resource 
+leak
+
+Verification:
+After applying the patch, the Smatch warning is resolved
+
+
+Best regards,
+Zhen
+
+
+在 2025/7/31 17:06, Krzysztof Kozlowski 写道:
+> On 31/07/2025 10:33, Zhen Ni wrote:
+>> The current error handling in exynos_srom_probe() has a resource leak
+>> in the of_platform_populate() failure path. When this function fails
+>> after successful resource allocation, srom->reg_base is not released.
+>>
+>> To fix this issue, replace of_iomap() with
+>> devm_platform_ioremap_resource(). devm_platform_ioremap_resource()
+>> is a specialized function for platform devices.
 > 
-> BUCK4 rail supplies the 3.3V rail. Use the actual regulator
-> instead of a virtual fixed regulator.
+> Don't explain us kernel code. Drop sentence.
 > 
-> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-
-jfyi, this may impact boot time as it delays eMMC probe until after the
-PMIC on the slower I2C bus is registered. It would be cool if we could
-annotate regulators as left-on by bootloader somehow to weaken
-dependencies, but that's unrelated to your patch.
-
-Cheers,
-Ahmad
-
-> ---
->  .../boot/dts/freescale/imx8mp-tqma8mpql.dtsi      | 15 +++------------
->  1 file changed, 3 insertions(+), 12 deletions(-)
+>> It allows 'srom->reg_base' to be automatically released whether the
+>> probe function succeeds or fails.
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
-> index b48d5da147273..9716f24f7c6ed 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
-> @@ -16,15 +16,6 @@ memory@40000000 {
->  		reg = <0x0 0x40000000 0 0x80000000>;
->  	};
->  
-> -	/* identical to buck4_reg, but should never change */
-> -	reg_vcc3v3: regulator-vcc3v3 {
-> -		compatible = "regulator-fixed";
-> -		regulator-name = "VCC3V3";
-> -		regulator-min-microvolt = <3300000>;
-> -		regulator-max-microvolt = <3300000>;
-> -		regulator-always-on;
-> -	};
-> -
->  	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
->  		compatible = "regulator-gpio";
->  		pinctrl-names = "default";
-> @@ -187,14 +178,14 @@ at24c02: eeprom@53 {
->  		read-only;
->  		reg = <0x53>;
->  		pagesize = <16>;
-> -		vcc-supply = <&reg_vcc3v3>;
-> +		vcc-supply = <&buck4_reg>;
->  	};
->  
->  	m24c64: eeprom@57 {
->  		compatible = "atmel,24c64";
->  		reg = <0x57>;
->  		pagesize = <32>;
-> -		vcc-supply = <&reg_vcc3v3>;
-> +		vcc-supply = <&buck4_reg>;
->  	};
->  };
->  
-> @@ -211,7 +202,7 @@ &usdhc3 {
->  	non-removable;
->  	no-sd;
->  	no-sdio;
-> -	vmmc-supply = <&reg_vcc3v3>;
-> +	vmmc-supply = <&buck4_reg>;
->  	vqmmc-supply = <&buck5_reg>;
->  	status = "okay";
->  };
-
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
-
+> It's obvious.
+> 
+>>
+>> Besides, use IS_ERR() instead of !srom->reg_base
+> 
+> I don't understand this. You keep explaining the code and this suggests
+> you made change here not related to original case. Can you return
+> srom->reg_base here? No?
+> 
+> 
+>> as the return value of devm_platform_ioremap_resource()
+>> can either be a pointer to the remapped memory or
+>> an ERR_PTR() encoded error code if the operation fails.
+>>
+> 
+> Missing fixes and cc-stable.
+> 
+>> Signed-off-by: Zhen Ni <zhen.ni@easystack.cn>
+>> ---
+>>   drivers/memory/samsung/exynos-srom.c | 10 ++++------
+>>   1 file changed, 4 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/memory/samsung/exynos-srom.c b/drivers/memory/samsung/exynos-srom.c
+>> index e73dd330af47..d913fb901973 100644
+>> --- a/drivers/memory/samsung/exynos-srom.c
+>> +++ b/drivers/memory/samsung/exynos-srom.c
+>> @@ -121,20 +121,18 @@ static int exynos_srom_probe(struct platform_device *pdev)
+>>   		return -ENOMEM;
+>>   
+>>   	srom->dev = dev;
+>> -	srom->reg_base = of_iomap(np, 0);
+>> -	if (!srom->reg_base) {
+>> +	srom->reg_base = devm_platform_ioremap_resource(pdev, 0);
+>> +	if (IS_ERR(srom->reg_base)) {
+>>   		dev_err(&pdev->dev, "iomap of exynos srom controller failed\n");
+>> -		return -ENOMEM;
+>> +		return PTR_ERR(srom->reg_base);
+> 
+> How did you test it?
+> 
+> Best regards,
+> Krzysztof
+> 
+> 
 
