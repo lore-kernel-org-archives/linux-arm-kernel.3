@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6071FC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986B4C83F17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fjlF0hDL+GcP1LxYuRMqQFAx3cvqnaJ2UPhI2yOXLvw=; b=btkDjfG8aH/UMQhjEz3SJLk80e
-	upXfv1qh73R+TA3DxFN6oXZrcWK3NMz/pVnJHXk9DdFPbss0jWmWujaX8g+dJKo5RY8l8nX1jylzz
-	/dVaUPgqSafiD/hteVvLFTQ7t7V2zoCoSwp8kJLsZPLii8f32hIj+O5hCjIz+rwLFN1KlnNc56Im5
-	m09o9OnO9gDd7NTZNIrXxjocwuLm6NEkYE8/h6yx7cusmqOHnXSV9ZxCX+YvrBrcP77l4G+5LBIM6
-	tjujYRptAbrbh4htEf8puaLb+ZTzKQo6IR0cueWxJU8WnSTVhpZNqjj2oofF/pwTFpjZCkd03l4W3
-	rS7JliAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OA/fTBISzM4/0hQHF9JF3amGEuf4mz381ZmSovEWqf4=; b=luYlG6zBY+vvHuzHNkzWftecJ3
+	3KDLmbyjdOa3QB+0YLaFR5ovmLu3SvANGuwMu+3hozCa7Cy3slUZ2s1GRZssKhKJO1zWP/8gzAUMU
+	vp+dCLYkjlOKEV92aOKn8GSQlb35lHYM+MLP2sXZ8kBSHriYucLU9qBHaOiwR5InPTj9FNGhqJVKF
+	SbOKzWOWFwyE3oYVGSoq7t5tZYLyTnLSwAfQF8OFTZhN5wz4l/cZW5w6EKiH6pfRiEaef/z5i08Up
+	+DfNUtF1ttnRs3dRpKuelJ5YiNdkTnY95WjgUhjbsUvLYXyWvQHacPUtrObGwJ77x+STEFVKlYFcZ
+	AAp896hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPdJ-00000003HQi-2IHZ;
-	Thu, 31 Jul 2025 09:31:29 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uhPgf-00000003IIP-0ilg;
+	Thu, 31 Jul 2025 09:34:57 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPXD-00000003Gea-1NbA
+	id 1uhPdi-00000003Hga-0MXv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 09:25:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1753953911; x=1785489911;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=fjlF0hDL+GcP1LxYuRMqQFAx3cvqnaJ2UPhI2yOXLvw=;
-  b=qsOIAFQeHn1wlTPwP2CmkmxmBAnKn8XySTjPNgpHlSXLshUkL4U7YcOM
-   UmhKYgBnWwD6ZH1pdXg2MXIQ9EbBaHjFLKIiFJ/bLCEUsAgMXjbDJ39Hw
-   jisM7WnonW/fTaGrdO2JD36irYUOJCOHYIj5WjVB/D5P8kHusLskDf8Ec
-   uLaybizYAheYDbuMfVxu15X6V+u14HlIHc2BXUGqi3l/ICA1W77Hh3/W+
-   SqGf82bsQBbrAOobTorh7MyUkteJ/cwz8lqu9rIlB4tpdGN3dQaDD9vlN
-   0cV2ctYpX3wsnaI+aGKzeEi3fyjyAX23EksFf6a8ikcCMrPWBysLXXogf
-   g==;
-X-CSE-ConnectionGUID: fsU95/NzSae495Z9CxCmKg==
-X-CSE-MsgGUID: Ur4qndlhTGO+5Yq4s7Aopw==
-X-IronPort-AV: E=Sophos;i="6.16,353,1744063200"; 
-   d="scan'208";a="45516796"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 31 Jul 2025 11:25:08 +0200
-X-CheckPoint: {688B3674-49-8CC3CD70-C1DBF452}
-X-MAIL-CPID: 7D8464778F9C483E0B2683681F104E7C_1
-X-Control-Analysis: str=0001.0A002112.688B3671.0041,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 228D41656F9;
-	Thu, 31 Jul 2025 11:25:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1753953904;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fjlF0hDL+GcP1LxYuRMqQFAx3cvqnaJ2UPhI2yOXLvw=;
-	b=NmDuqKb9KyIlFuhOuYHwBb8uOFn+iNVVUVCo7jopYuAhiI9f95nR0rhTJI8xb3sf8wP3pn
-	SRlQVJkZZEaltXrBj22aBjZbs+W0nUh38iccCX94+7T86y2MXLIlf1YmOArYN1dQZebbzM
-	DNesKAeygVb+o8IAQZGq8zOS9bKBWBBo4/Rq6cS1d0aHs+Xuzn+on6kK+wR5btdZMQaqeZ
-	qoBnq2cAyY15XQRJmQw8lGfRFg2cnAA0ZAjZJ5rkql1NdGLKOqrH/flgb5HRXqKpjVDX4l
-	ourkr3Y89MGFC1C4OX293DGbmiwt6gr8w4JipeLsVc5+97SDeokhD9+LsTJc/A==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB driver
-Date: Thu, 31 Jul 2025 11:25:03 +0200
-Message-ID: <4669830.LvFx2qVVIh@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250506130940.2621554-1-alexander.stein@ew.tq-group.com>
-References: <20250506130940.2621554-1-alexander.stein@ew.tq-group.com>
+	Thu, 31 Jul 2025 09:31:55 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1uhPdT-0005sL-9v; Thu, 31 Jul 2025 11:31:39 +0200
+Message-ID: <4043f877-fc29-4d81-b96a-83f6ef3fa926@pengutronix.de>
+Date: Thu, 31 Jul 2025 11:31:38 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: imx8mp-tqma8mpql: remove virtual 3.3V
+ regulator
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, Markus Niebel
+ <Markus.Niebel@ew.tq-group.com>, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux@ew.tq-group.com
+References: <20250731091655.2453107-1-alexander.stein@ew.tq-group.com>
+ <20250731091655.2453107-2-alexander.stein@ew.tq-group.com>
+Content-Language: en-US, de-DE, de-BE
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+In-Reply-To: <20250731091655.2453107-2-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_022511_711744_05DC4910 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20250731_023154_133154_870D1AB0 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,39 +75,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Alexander,
 
-Am Dienstag, 6. Mai 2025, 15:09:39 CEST schrieb Alexander Stein:
-> This driver is used on imx93-tqma9352-mba91xxca.dts.
-
-Gentle ping. Thanks
-Alexander
-
+On 7/31/25 11:16, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> 
+> BUCK4 rail supplies the 3.3V rail. Use the actual regulator
+> instead of a virtual fixed regulator.
+> 
+> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+
+jfyi, this may impact boot time as it delays eMMC probe until after the
+PMIC on the slower I2C bus is registered. It would be cool if we could
+annotate regulators as left-on by bootloader somehow to weaken
+dependencies, but that's unrelated to your patch.
+
+Cheers,
+Ahmad
+
 > ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 8691f0ee44e66..550b2505b5658 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -437,6 +437,7 @@ CONFIG_IWLMVM=3Dm
->  CONFIG_MWIFIEX=3Dm
->  CONFIG_MWIFIEX_SDIO=3Dm
->  CONFIG_MWIFIEX_PCIE=3Dm
-> +CONFIG_MWIFIEX_USB=3Dm
->  CONFIG_MT7921E=3Dm
->  CONFIG_RSI_91X=3Dm
->  CONFIG_WL18XX=3Dm
->=20
+>  .../boot/dts/freescale/imx8mp-tqma8mpql.dtsi      | 15 +++------------
+>  1 file changed, 3 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
+> index b48d5da147273..9716f24f7c6ed 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
+> @@ -16,15 +16,6 @@ memory@40000000 {
+>  		reg = <0x0 0x40000000 0 0x80000000>;
+>  	};
+>  
+> -	/* identical to buck4_reg, but should never change */
+> -	reg_vcc3v3: regulator-vcc3v3 {
+> -		compatible = "regulator-fixed";
+> -		regulator-name = "VCC3V3";
+> -		regulator-min-microvolt = <3300000>;
+> -		regulator-max-microvolt = <3300000>;
+> -		regulator-always-on;
+> -	};
+> -
+>  	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+>  		compatible = "regulator-gpio";
+>  		pinctrl-names = "default";
+> @@ -187,14 +178,14 @@ at24c02: eeprom@53 {
+>  		read-only;
+>  		reg = <0x53>;
+>  		pagesize = <16>;
+> -		vcc-supply = <&reg_vcc3v3>;
+> +		vcc-supply = <&buck4_reg>;
+>  	};
+>  
+>  	m24c64: eeprom@57 {
+>  		compatible = "atmel,24c64";
+>  		reg = <0x57>;
+>  		pagesize = <32>;
+> -		vcc-supply = <&reg_vcc3v3>;
+> +		vcc-supply = <&buck4_reg>;
+>  	};
+>  };
+>  
+> @@ -211,7 +202,7 @@ &usdhc3 {
+>  	non-removable;
+>  	no-sd;
+>  	no-sdio;
+> -	vmmc-supply = <&reg_vcc3v3>;
+> +	vmmc-supply = <&buck4_reg>;
+>  	vqmmc-supply = <&buck5_reg>;
+>  	status = "okay";
+>  };
 
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+-- 
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
 
