@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE3BC83F17
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23D42C87FCC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 31 Jul 2025 09:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kLKtT8JZ6dODcbUKgfZeCB5jr/fQZczVXqQkqrWvrQk=; b=FEI8buEP00rSzB2NZaEh5UyqoG
-	ZY1yVgvVmYuP9SU/68G301IeU+ji3SRtZvpb8Nc0eewCrK+TggAtihdSY/zc+WCxseUSL0oZXAKkm
-	gUlfFxG9YxpXsv35bJHVnIWwTnMmkqN3brjYt0Mkt4NuEzrZaWpVgGLVRdlcqnxPnb6BJGjMaRXk+
-	tHpyiz1wSQFbEWNho7F9DQmZf/3kaHCgde/y3eKn9L0CmdNCWr3pjUtw2RqpLnD1XG1JzkoUPqwDd
-	GcYrfC48pFzDNej1Fz+wDTTfZgp9/YSX/4QZT/B0zfM9GiU6/oAcYt4zokpr89HzUWWNpY6QkaoRd
-	IYlUuYRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xFdq7UpjL9aTNtZ2OV0vOiqdMOBKJaP4cAvmEBkhieM=; b=uNo73LroysWzTMn7nxDRgdw22J
+	WMs2iGpXXIHLf3ihIrvbbpevgZJIFU8WS2Fip3jtiUIehSreMqFKNHGtdlHeG+W9K2TdcZwQ5KGwN
+	2t9ery7K5MltwrtdSt3Ox21BKak56oRQvCeIP8Is6kiR7HxCj0ANGae4irDqXRIE5yx2Xl3g6yeZf
+	erAy+V2u84kLMi2mwoVq+m4wW63mqJxMsdRjkiLRS3kf5aLRpCp6582XUq/IFIXWsnFtvtLDqwm+H
+	fxnLnWC0UihSl9H+7TxjLdwA6AMBAnoRFByGP5ITjBFhLrqrgU3oKwYmuFud2doUKC1KjBvtJgGD7
+	zX83Zqhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPdE-00000003HMP-26ZA;
-	Thu, 31 Jul 2025 09:31:24 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uhPdG-00000003HON-1Utc;
+	Thu, 31 Jul 2025 09:31:26 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhPPS-00000003Ftc-1atQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 31 Jul 2025 09:17:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1753953430; x=1785489430;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=kLKtT8JZ6dODcbUKgfZeCB5jr/fQZczVXqQkqrWvrQk=;
-  b=KhJvC8V3qh5z20AA4ejwqVtNF5RqqEBbkAwo8jsrUgcW9Jbe4x9Z9DIW
-   eOL8fYYGzeglsx5ILjleZmLOLb8uqEpYTa775dR9D4srmw/9NjlAZs2fQ
-   emIrfM1AQs2N/asw9gRpUNtSAUxqPb9Dm+qe0kal77f+5pDjhXtlBX24+
-   bpui7aYKhsGwrtoox5FYJfie3Bk21L6uwtvJKRi4qN4umygWdFkn7Znw6
-   pHIvQYdzr33IOKSd7nFUlUn1+l61av1Acq2LkHIHeyN7nlSKohLOrdcg3
-   xUIE8/Af4hxOuSptUxob3CRz/xeCAjL3zjGv0KioOCucj4MeH9nYQ3Yxn
-   w==;
-X-CSE-ConnectionGUID: ij/sogzaRoir3oVu13BriA==
-X-CSE-MsgGUID: CGxTcfeDRdyKGUD0CdhahA==
-X-IronPort-AV: E=Sophos;i="6.16,353,1744063200"; 
-   d="scan'208";a="45516517"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 31 Jul 2025 11:17:07 +0200
-X-CheckPoint: {688B3493-1E-943DFC15-D71A48EE}
-X-MAIL-CPID: 5A07E1B3BC8A0778C3A5FDBFD2D5B31C_5
-X-Control-Analysis: str=0001.0A002121.688B3439.0079,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 204D516B722;
-	Thu, 31 Jul 2025 11:17:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1753953423;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=kLKtT8JZ6dODcbUKgfZeCB5jr/fQZczVXqQkqrWvrQk=;
-	b=gyfGocUebJ0GY86x8QMGn0scMnn3B87qZHtHT5A2901xiNDkgOlpUrFg6eob75W0YRrec5
-	h60M/4bjHMQVNdP0h4W0A2VbObgUwK0fuyfxskTqn5qSC+EhhB5aSOsN2vT931n623uJ6X
-	2r1xfV8WUpBCkDisYCpIdntPwpb9tI3ZTsd+t6NG5toR0N/RyleTf9aO3jhGGFTunKOA4G
-	aRMW6vd4BYf1fHNWbVZiNm+fNuw9UMVEzuij1o3Y75cZWhDq6ld48YxfcYgVZK1tPZloZD
-	FrPxEFa83jdrFvMuxDHCKW/q7ow7NgKq7lb4RHO+HX9RQ0gz8Bgls7lkC8FyWQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1uhPTB-00000003GDP-3IAe;
+	Thu, 31 Jul 2025 09:21:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F16CEA52298;
+	Thu, 31 Jul 2025 09:21:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C541C4CEEF;
+	Thu, 31 Jul 2025 09:20:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1753953660;
+	bh=YQitdJZEqx49z+aEtgIFZrSpHymltedYz+RclMvgrQk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rbJLOQHDqprFeguHWI4PoV3aRzwTXcJU6XhvZc7x4IPsLrXsOMrL0wRPExZxowbHD
+	 GXNz6bnZutQbK3/TCxxB9MLMC91Ty6BrQ2gWiadtfLDVTKcMRFoA4CYz80vYEwiv9L
+	 V7eNWJj3DSBru/pqEwz5t2lFvzX6Bil/hG1jyWMVxnVGqjcuQwTenpv6NpkCjcnE7q
+	 7Prto0sYallXr14WCC0MY5umXrDhVYP+/4Le0wPNuuv0w7JY8MOuTQ331gn5e3MVo0
+	 yf08rfB8B/VZIlftPeaoEN8JBLkIDJmVXMScNO3Mc07qhkI5kbVw82LbFAwK1hq62V
+	 37IRTFD5FuhlQ==
+Date: Thu, 31 Jul 2025 11:20:57 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] arm64: dts: imx8mp-tqma8mpql: fix LDO5 power off
-Date: Thu, 31 Jul 2025 11:16:52 +0200
-Message-ID: <20250731091655.2453107-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Fix PPE table access in
+ airoha_ppe_debugfs_foe_show()
+Message-ID: <aIs1eXkuez-sZtfH@lore-desk>
+References: <20250728-airoha_ppe_foe_get_entry_locked-v1-1-8630ec73f3d1@kernel.org>
+ <20250730181249.78dbe4f2@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iy9ceCsbIKdzJyDD"
+Content-Disposition: inline
+In-Reply-To: <20250730181249.78dbe4f2@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_021710_914064_1F1D0C45 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250731_022101_889754_38CB2FF1 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,168 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
-Fix SD card removal caused by automatic LDO5 power off after boot:
+--iy9ceCsbIKdzJyDD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-LDO5: disabling
-mmc1: card 59b4 removed
-EXT4-fs (mmcblk1p2): shut down requested (2)
-Aborting journal on device mmcblk1p2-8.
-JBD2: I/O error when updating journal superblock for mmcblk1p2-8.
+> On Mon, 28 Jul 2025 13:58:08 +0200 Lorenzo Bianconi wrote:
+> > +struct airoha_foe_entry *
+> > +airoha_ppe_foe_get_entry_locked(struct airoha_ppe *ppe, u32 hash)
+>=20
+> Hm, could be just me, but the way we/I used _locked in the core was=20
+> the opposite. _locked means the caller's already taken the lock.
+> Here you seem to be saying that the "callee is locked"..
+> Can we stick to core's interpretation?
 
-To prevent this, add vqmmc regulator for USDHC, using a GPIO-controlled
-regulator that is supplied by LDO5. Since this is implemented on SoM but
-used on baseboards with SD-card interface, implement the functionality
-on SoM part and optionally enable it on baseboards if needed.
+sure, that's fine.
 
-Fixes: 418d1d840e42 ("arm64: dts: freescale: add initial device tree for TQMa8MPQL with i.MX8MP")
-Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../imx8mp-tqma8mpql-mba8mp-ras314.dts        | 13 ++++++-----
- .../freescale/imx8mp-tqma8mpql-mba8mpxl.dts   | 13 ++++++-----
- .../boot/dts/freescale/imx8mp-tqma8mpql.dtsi  | 22 +++++++++++++++++++
- 3 files changed, 36 insertions(+), 12 deletions(-)
+>=20
+> > +	struct airoha_foe_entry *hwe;
+> > +
+> > +	spin_lock_bh(&ppe_lock);
+> > +	hwe =3D airoha_ppe_foe_get_entry(ppe, hash);
+> > +	spin_unlock_bh(&ppe_lock);
+> > +
+> > +	return hwe;
+>=20
+> Is the lifetime of the hwe object somehow guaranteed in the debugfs
+> code? Looks questionable..
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-index d7fd9d36f8240..f7346b3d35fe5 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-@@ -467,6 +467,10 @@ &pwm4 {
- 	status = "okay";
- };
- 
-+&reg_usdhc2_vqmmc {
-+	status = "okay";
-+};
-+
- &sai5 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_sai5>;
-@@ -876,8 +880,7 @@ pinctrl_usdhc2: usdhc2grp {
- 			   <MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d2>,
- 			   <MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d2>,
- 			   <MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d2>,
--			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d2>,
--			   <MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0>;
-+			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d2>;
- 	};
- 
- 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-@@ -886,8 +889,7 @@ pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
- 			   <MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d4>,
--			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>,
--			   <MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0>;
-+			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>;
- 	};
- 
- 	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-@@ -896,8 +898,7 @@ pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
- 			   <MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d4>,
--			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>,
--			   <MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0>;
-+			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>;
- 	};
- 
- 	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-index 33cd92e63c5d5..4eedd00d83b9f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
-@@ -604,6 +604,10 @@ &pwm3 {
- 	status = "okay";
- };
- 
-+&reg_usdhc2_vqmmc {
-+	status = "okay";
-+};
-+
- &sai3 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_sai3>;
-@@ -983,8 +987,7 @@ pinctrl_usdhc2: usdhc2grp {
- 			   <MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d2>,
- 			   <MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d2>,
- 			   <MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d2>,
--			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d2>,
--			   <MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0>;
-+			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d2>;
- 	};
- 
- 	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-@@ -993,8 +996,7 @@ pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
- 			   <MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d4>,
--			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>,
--			   <MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0>;
-+			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>;
- 	};
- 
- 	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-@@ -1003,8 +1005,7 @@ pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
- 			   <MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1	0x1d4>,
- 			   <MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2	0x1d4>,
--			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>,
--			   <MX8MP_IOMUXC_GPIO1_IO04__USDHC2_VSELECT	0xc0>;
-+			   <MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3	0x1d4>;
- 	};
- 
- 	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
-index fd70b686e7efc..b48d5da147273 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql.dtsi
-@@ -24,6 +24,20 @@ reg_vcc3v3: regulator-vcc3v3 {
- 		regulator-max-microvolt = <3300000>;
- 		regulator-always-on;
- 	};
-+
-+	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
-+		compatible = "regulator-gpio";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vqmmc>;
-+		regulator-name = "V_SD2";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x1>,
-+			 <3300000 0x0>;
-+		vin-supply = <&ldo5_reg>;
-+		status = "disabled";
-+	};
- };
- 
- &A53_0 {
-@@ -184,6 +198,10 @@ m24c64: eeprom@57 {
- 	};
- };
- 
-+&usdhc2 {
-+	vqmmc-supply = <&reg_usdhc2_vqmmc>;
-+};
-+
- &usdhc3 {
- 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
- 	pinctrl-0 = <&pinctrl_usdhc3>;
-@@ -233,6 +251,10 @@ pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
- 		fsl,pins = <MX8MP_IOMUXC_SD2_RESET_B__GPIO2_IO19	0x10>;
- 	};
- 
-+	pinctrl_reg_usdhc2_vqmmc: regusdhc2vqmmcgrp {
-+		fsl,pins = <MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04		0xc0>;
-+	};
-+
- 	pinctrl_usdhc3: usdhc3grp {
- 		fsl,pins = <MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK		0x194>,
- 			   <MX8MP_IOMUXC_NAND_WP_B__USDHC3_CMD		0x1d4>,
--- 
-2.43.0
+PPE table entries are allocated at driver load and never freed, the hw is j=
+ust
+writing into this DMA area when the entry is binded.
 
+Regards,
+Lorenzo
+
+> --=20
+> pw-bot: cr
+
+--iy9ceCsbIKdzJyDD
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaIs1eQAKCRA6cBh0uS2t
+rKE+AP9acbZ1NXEFMJ8nPy6u1cFPCw8RfBLLOGACBYGpxGOffgEAwSwgpDJiqJnM
+Nv8H3NbW2BL1j9z8OroubX6meSBdZwU=
+=PjV9
+-----END PGP SIGNATURE-----
+
+--iy9ceCsbIKdzJyDD--
 
