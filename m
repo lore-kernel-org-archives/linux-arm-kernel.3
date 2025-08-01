@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F74C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:05:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6820EC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XViwbJWgbIu86zN3sUfdgksnysWSo6dBDfzdxEIlhi0=; b=FWYt3l7elGhQUa9mSZg5/NXOOj
-	MIjq7R8ZCPNXJ6uQ/fpLwrg7Y8X5O7GTQXLJ6R+BP/LWQhyokW5/Wrg9bqMcYkFYPEK5drd8QMg1M
-	/B6Kgs4TqN0plaI9kRgu3QKTCgSvwR25wKpDpmbERJvRTYxs62s3f8AUTHvkJ9muA3pdLEO8Y73tY
-	BW3JB46T6nJpozGY5zxh+wKwfQjQ943QRRMJgkDKctpyi/ER8+GidQOG/L/4g8qiskKCeQSUAl5xJ
-	YqeQU8znanRZCTVEqN5DETQ/QEVpvKs5iuaKcTmGAuOJ/U5X/VsQPajgR1hhfXtBPexHtKOfn1bhx
-	tYJ9fRKA==;
+	bh=oPOaoJOxoogHEJY9OnCsfnhHseVyLNZosFa8aUPuduY=; b=STr3muyhFF3Ty119Pi8NS82nzs
+	vnAT/rH/xB06j0zupAWKdwfcd6zGSHk/stjzGQ2Ta5Lkc1kStRQjg4FdvvVLGHD2kAuTg+OMXMuaI
+	PHGu80nXvL/9gscZAp9m5e7cwxRosSiwVbZz4e77zOf1rqltBdI2DVB8Wc8pyIKpNViH3BIKRnIfM
+	Jck0tVIOhq9xV9rFhI3F8JFg1kWOMk8MMhFguq3KrCtFty3zzCIeTmb/8j/jm8nm/LdNyyjOQR8q4
+	9ytKwCu8aJgT6y0zs8z/7Q9qhgZ0zzRIXvhAfVZwlNwmUJ2cvyQ/ZXniA81I0/dmTbvwWrKJz+0aZ
+	5rZ+Zs4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqNU-00000006Ay0-2BEU;
-	Fri, 01 Aug 2025 14:04:56 +0000
+	id 1uhqQ6-00000006BQi-3lSb;
+	Fri, 01 Aug 2025 14:07:38 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqJv-00000006ARr-0Npd
+	id 1uhqNX-00000006Ayt-2GGs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 14:01:15 +0000
+	Fri, 01 Aug 2025 14:04:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64EAD61139;
-	Fri,  1 Aug 2025 14:01:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8757CC4CEF8;
-	Fri,  1 Aug 2025 14:01:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EC3F66112C;
+	Fri,  1 Aug 2025 14:04:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C909CC4CEE7;
+	Fri,  1 Aug 2025 14:04:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754056874;
-	bh=1A0vKq6aLyn928rq+rEroQrfD5FWW0QJIKoi9NpxWDM=;
+	s=k20201202; t=1754057098;
+	bh=rhp32RlGZQWi0qaev57mn8Lf6Y/ncV8+flahaYlr1h0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TNi39Z27XOtOYfhgN5Ub2eAx5kpsGAuTxmwMUBwfEjqfBW3BFQbcRxy0Eh1l0Je8l
-	 SjJdF/jNlwn2UzmIyeb5YAzy3KgaB/AyiS1sY6WYM8x29ZmoggBWZ3SvfrS1K2+Nhd
-	 UT3dtwVpBvI7OkNLTlBNgPfFlfLBh+VsDwnMUhF9GAfJK4Mkp5t6Zkriwvo6Gyuh4A
-	 Jq/6/lqJcPLki7/VM6q0GXje61SfXII/sMxoYTPdxUzKoXOeFEj76yQP63wqQ2M8uf
-	 AhmBNb4pZ4jtFZg8jjRGUGzrzKL0klu74psO2SzsvQoM+SYKlvGPwWjLIFBy/r5k/3
-	 4e5WAuxMAPgqw==
-Date: Fri, 1 Aug 2025 16:01:09 +0200
+	b=mhVN12b1haQLw3UTPQ/OFTK0vLoR4Uo4zSoTd60d5dOaQ1WJlLYg7Qlx1xxKm5s9k
+	 vhz9T8jXHuQw46BMDWAadLcZ1IorBaBgg5u4BIc+Rbw5viXuqUgmNNWcrSX++Ryku6
+	 g1tsqfwMLbJ6pkrE1gQhSoahrjZ6YspUJh8sCxEI14tNJ7UBKK3imB4/A3PmcD20Qs
+	 kLghoGA0WUoDvuDuJBSPaBFIxO14FLmvewJC78oc2WU44eI/REQTvu8QclIRV2Gmlg
+	 B1zb/dnAKk2F48m7wtWXmbIUGfSbZ/BX7CqwcmINAjHnDR2dlHh+ChqRpY9Q6U4xK3
+	 EmLnOzxuWHD1A==
+Date: Fri, 1 Aug 2025 16:04:54 +0200
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: Marc Zyngier <maz@kernel.org>
 Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] irqchip/gic-v5: Remove IRQD_RESEND_WHEN_IN_PROGRESS
- for ITS IRQs
-Message-ID: <aIzIpbQOcxmWOwvs@lpieralisi>
+Subject: Re: [PATCH 2/3] irqchip/gic-v5: iwb: Remove module boilerplate
+Message-ID: <aIzJhqnooJ/hO2Tv@lpieralisi>
 References: <20250801-gic-v5-fixes-6-17-v1-0-4fcedaccf9e6@kernel.org>
- <20250801-gic-v5-fixes-6-17-v1-3-4fcedaccf9e6@kernel.org>
- <86seib6x7b.wl-maz@kernel.org>
+ <20250801-gic-v5-fixes-6-17-v1-2-4fcedaccf9e6@kernel.org>
+ <86v7n76xgm.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86seib6x7b.wl-maz@kernel.org>
+In-Reply-To: <86v7n76xgm.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,57 +72,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 01, 2025 at 01:30:32PM +0100, Marc Zyngier wrote:
-> On Fri, 01 Aug 2025 08:58:20 +0100,
+On Fri, Aug 01, 2025 at 01:24:57PM +0100, Marc Zyngier wrote:
+> On Fri, 01 Aug 2025 08:58:19 +0100,
 > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > > 
-> > GICv5 LPI interrupts have an active state hence they cannot retrigger
-> > while the IRQ is being handled.
-> > 
-> > Therefore setting IRQD_RESEND_WHEN_IN_PROGRESS for GICv5 ITS
-> > interrupts provides no benefit and it is useless (and confusing),
-> > it solves an issue that cannot happen.
+> > The IWB driver cannot be compiled as a module and is as matter of fact a
+> > builtin driver at present.
 > 
-> This doesn't read very well. How about:
-> 
-> "Therefore, setting the IRQD_RESEND_WHEN_IN_PROGRESS flag on LPIs
->  is pointless, as the situation this flag caters for cannot happen".
+> What is blocking that?
 
-Yes it is clearer, I can respin a v2 unless Thomas can update the log
-please while applying it ? Just let me know.
+Yep, you read my mind I need to test this but AFAICS at the moment
+the answer is: nothing.
 
-Thanks,
-Lorenzo
-
-> > Remove it.
+> > Make it explicitly so by removing useless boilerplate and by using the
+> > builtin_platform_driver() helper to initialize its registration
+> > functions.
 > > 
 > > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 > > Cc: Thomas Gleixner <tglx@linutronix.de>
 > > Cc: Marc Zyngier <maz@kernel.org>
 > > ---
-> >  drivers/irqchip/irq-gic-v5-its.c | 1 -
-> >  1 file changed, 1 deletion(-)
+> >  drivers/irqchip/irq-gic-v5-iwb.c | 3 +--
+> >  1 file changed, 1 insertion(+), 2 deletions(-)
 > > 
-> > diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> > index 340640fdbdf6..9290ac741949 100644
-> > --- a/drivers/irqchip/irq-gic-v5-its.c
-> > +++ b/drivers/irqchip/irq-gic-v5-its.c
-> > @@ -973,7 +973,6 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
-> >  		irqd = irq_get_irq_data(virq + i);
-> >  		irqd_set_single_target(irqd);
-> >  		irqd_set_affinity_on_activate(irqd);
-> > -		irqd_set_resend_when_in_progress(irqd);
-> >  	}
+> > diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
+> > index ad9fdc14d1c6..c3a3b30e9f4e 100644
+> > --- a/drivers/irqchip/irq-gic-v5-iwb.c
+> > +++ b/drivers/irqchip/irq-gic-v5-iwb.c
+> > @@ -263,7 +263,6 @@ static const struct of_device_id gicv5_iwb_of_match[] = {
+> >  	{ .compatible = "arm,gic-v5-iwb" },
+> >  	{ /* END */ }
+> >  };
+> > -MODULE_DEVICE_TABLE(of, gicv5_iwb_of_match);
 > >  
-> >  	return 0;
+> >  static struct platform_driver gicv5_iwb_platform_driver = {
+> >  	.driver = {
+> > @@ -274,4 +273,4 @@ static struct platform_driver gicv5_iwb_platform_driver = {
+> >  	.probe				= gicv5_iwb_device_probe,
+> >  };
+> >  
+> > -module_platform_driver(gicv5_iwb_platform_driver);
+> > +builtin_platform_driver(gicv5_iwb_platform_driver);
 > > 
 > 
-> With that,
-> 
-> Reviewed-by: Marc Zyngier <maz@kernel.org>
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+> I'd rather we make the driver buildable as a module if at all
+> possible, instead of forcing it as built-in for everyone. It would
+> definitely help pipe-cleaning the potential missing dependencies.
+
+Yes - I took a shortcut by removing boilerplate (that the
+compiler/linker remove anyway) - it makes sense to rework the
+build to make it possible to build as a module instead.
+
+This patch can be dropped then, I will work on the follow-up.
+
+Lorenzo
 
