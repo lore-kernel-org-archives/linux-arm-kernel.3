@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04DEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 21:36:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA4BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 22:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=8AYB3qr0rI4Q6BV8egZtLOnh5AgoD1Erm0sJ1aQRyJM=; b=PLjVkds+TzsCWG
-	7PRuyc0qafWNyG9HRfjMXulcUQzORE1qDkExOWgIGbZhFWk98YgX7UxhIFbV3fpACtOSu8THD5s0W
-	Aq7q8I50I6OMxQjBRCinLX0tm804LZhx0pDf4kkF9ZzOL0XL5Joio6OjDaT1yZ1DDDwpk+Dsa4JTv
-	dbyZaOWsnrgsk5yEDoMgD3CLWhWJWSbPJtJ2+PpGXDtmuGTUBOK5MOATjAABCEp14LmDzwXNpLjvt
-	jfcBuHYNiXUc7bN6QV5owptVdOx9pk7WpUEgSbimtmehnj76D1DJmPJcjhGsbA1iaqmlUzCQB3CRL
-	gPQvT517hgG2A1Srqdnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0ZQ3ptl+nXCUruGL17lHqoeg1DTCDNqkoTZmaRK16Pk=; b=OI+ghjRmLhQdhM8XmWknTGVlcR
+	Q0eortq6DSa1z4kR57kY/a9Z67YtT2Z4gHUMb/jIHduD3ioLH9o6nFHnd+UBLYK4VJXgYdCMJfa5w
+	8tk+CHIslwtuc19F8UXztnjOVWpJQ7r5ubgPFQYJZ5M9koJNPn6j8nflDY/rHOJv9uufuREoeEoQp
+	dpq0m1X7CulMnbjnj5jrOea1TJlDtquDRle3bp2Gt+5PoQ1s2UO54Dqlk3GsdVeuztlAbAzV9XAij
+	7GEceIXrqzxuH7Ose99Qy1QfmzyH6QOZLD/zd6vJSEQo8Qzo1PFQTPFfMQA/sxiL/ChSt68ayJuxj
+	GlwUN6hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxQa-00000006pyf-40TZ;
-	Fri, 01 Aug 2025 21:36:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uhy1I-00000006s77-1Nwc;
+	Fri, 01 Aug 2025 22:14:32 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxO0-00000006pj5-2RE3
+	id 1uhxyi-00000006rxr-2Kpg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 21:33:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 676CAA5564D;
-	Fri,  1 Aug 2025 21:33:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ADCCC4CEE7;
-	Fri,  1 Aug 2025 21:33:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754084034;
-	bh=+pXG+/8x+eovxVFUgbrD5YQLJQEUBlpsiR9an1SRSUk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=dEJFuXVUpIXNqVnLu3QVmq4JfP26f/yuEPleAj+PZbjcPkFXJ3hNEwE+Ea33zwB3T
-	 yTebhUob6kuVT1jRDV+XIqDksoyzYfvuZgW0umz6tbStW3c4ljN3ewPd/uu2xlqEJ2
-	 00/Jj9thTraNR+PxHwC3km18lK5oP/AHunuTpBIu1MhgY1ImOGNVM/dANHT6Vuk8/T
-	 hQ0qDN6yILZxCa0Uwc0WMPwMVztv9T7mZ7ubMQQFi3nSCpArTPiQ/LM+yIHSOvbNCT
-	 YabR5DqoiFrjV40nIqngb0zKmPLUVkXvZnvUETgKjgHc+eW8CuGLkrvOn9eqSJlCEn
-	 IHSBguVjpWCeA==
-Date: Fri, 1 Aug 2025 16:33:53 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Ray Jui <ray.jui@broadcom.com>,
-	Scott Branden <scott.branden@broadcom.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: PCI: Add missing "#address-cells" to
- interrupt controllers
-Message-ID: <20250801213353.GA3511997@bhelgaas>
+	Fri, 01 Aug 2025 22:11:53 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e8e11af0f54so1905370276.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 15:11:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754086311; x=1754691111; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0ZQ3ptl+nXCUruGL17lHqoeg1DTCDNqkoTZmaRK16Pk=;
+        b=y3M28RQ280ZeofTozcxPLBSZN3lRfeFNT027q5IQmx2EMQgrM9WebRwUlBzCgfKrFT
+         HtIzgUvuYHHrbmQGulyjxM+DtPss+9WXnVWIpSpzi99GvvhX74nMxXZGgpIMlIefbcMP
+         84OZJpS13HK2oUa0AJyhGQsyM0+7ynNzv9qC/6tl7x/2ZHHCixGIq9Zs8UDgvmlnM11y
+         gtsBY8p2qw9Sc+d53AniIX3YxL2ACQmCdxF7KoNpOQfBXvqTWwKfD+IIlxznFmPMZlVW
+         CwQmYHBbUuMDdUWDkmgm2qdyPuLY39nrBo/RdGRv6rqVfhwsXmoOYjUKaaBqC1I/nmfK
+         meVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754086311; x=1754691111;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0ZQ3ptl+nXCUruGL17lHqoeg1DTCDNqkoTZmaRK16Pk=;
+        b=QZNmpwXxtxCg7EYZ4VL5CgoCNyxJRurvc+XAa2EgvFxZvvZmRidq+2QslXAHmSUDHH
+         FFcnsCwMBXAsXBra/3fR4JGXEQi27xlnYSdO3UMjW0r6vrXAtPM0XpGiN7T8a0Tl+uJN
+         M+C8pd25LjF8mPDxtp/lFP5j25oEY+jHbD9Bo5YmVDjH4bgqrzz/C/qomnJ/SAVLMmUy
+         0xq+DnAdI+EDeOCJulwf3IwxSZ9VPltS5Kr8st/+sMPpoJN47Rv1vwpGInvP6MdRXfHJ
+         uPv4umYehuiE369ZY9s0PP+fN6BMRc2Fx+efsRAMzm/mgsj8kF+musmRyZfxGl9a2SSp
+         dq5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXqeXZfjPWHWLK9vDsFeYPtE/zZmU2usYOI/x9ZcHaHgrjv9jO/UA3zUudG1wXz1CWiqYBC579o/ssa0kamesr5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz07BKWU7oOlJ+l54YwX32qHPUayVD+6NY+fm4hxxgTCHAH9yYC
+	nRwcxmDBn/PIL/y0CTHPocKtIr2U9HJwM3oY1TjNVYjFFnWB1VhlMY0W8wV5F2JhO9T9+Oq/CN/
+	rzhrDrdyDTBLn8aRzJf79kC0PYEVqDmdjyu3Pp9zEQw==
+X-Gm-Gg: ASbGncvZcfnqehCW3ggtBmNEEH2opCJZJbjtEY18VuAgNoAd0iti82J91hRQg6WJImR
+	gkcwUnVcVGiXMEPN9u74nVVzgpl47n4zvVSb0p5Mbi3VJvTXrsKRdmdGKVzqqfzySgPbGC9Pe9O
+	r8FIusEBsf0Rxk1LbrGHDohg8BexF/9vpf+bICCIDIgK4pvRytu4NoGgJmrF9szdW5hHdvuZI4D
+	rxysg==
+X-Google-Smtp-Source: AGHT+IHHqeJHNAbgmM8GMieWnZy5D9PazvXOXJxMb+nmM8OfoRPhTwJEHb5ZjR+06/LLEwPYiHrsAqqhXrmv7gbk9Bc=
+X-Received: by 2002:a05:690c:d8c:b0:71a:27d2:2bdd with SMTP id
+ 00721157ae682-71b7f62d7famr21657777b3.13.1754086311325; Fri, 01 Aug 2025
+ 15:11:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250801200728.3252036-2-robh@kernel.org>
+References: <20250730074253.1884111-1-ivo.ivanov.ivanov1@gmail.com> <20250730074253.1884111-4-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250730074253.1884111-4-ivo.ivanov.ivanov1@gmail.com>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Fri, 1 Aug 2025 17:11:39 -0500
+X-Gm-Features: Ac12FXwPXRZu6Ot3_0uSchflAwrF7qDuOzVPDdy_jKO2tY1n3bXW3MwJ9wqx3gQ
+Message-ID: <CAPLW+4=QwTv96KMdJ7tcWd+Swh-fC7+h9bo22e2aZMeRbg4wKQ@mail.gmail.com>
+Subject: Re: [PATCH v2 3/5] arm64: dts: exynos2200: increase peric1 and cmgp
+ syscon sizes
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_143356_754188_D922A8DA 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250801_151152_635921_9A1A2D29 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,111 +98,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 01, 2025 at 03:07:27PM -0500, Rob Herring (Arm) wrote:
-> An interrupt-controller node which is the parent provider for
-> "interrupt-map" needs an "#address-cells" property. This fixes
-> "interrupt_map" warnings in new dtc.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-
+On Wed, Jul 30, 2025 at 2:43=E2=80=AFAM Ivaylo Ivanov
+<ivo.ivanov.ivanov1@gmail.com> wrote:
+>
+> Some USI instances have swconfig offsets that reside over the currently
+> defined syscon ranges for peric1 and cmgp. Increase their sizes.
+>
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
-> PCI maintainers, Please ack, I'll take this with the dtc update for 
-> 6.18.
-> 
->  Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml    | 1 +
->  .../devicetree/bindings/pci/marvell,armada-3700-pcie.yaml     | 4 ++++
->  .../devicetree/bindings/pci/marvell,kirkwood-pcie.yaml        | 3 +++
->  .../devicetree/bindings/pci/socionext,uniphier-pcie.yaml      | 4 ++++
->  Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml  | 3 +++
->  5 files changed, 15 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
-> index 5434c144d2ec..18e7981241b5 100644
-> --- a/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
-> @@ -108,6 +108,7 @@ examples:
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
->  
->      gic: interrupt-controller {
-> +        #address-cells = <0>;
->          interrupt-controller;
->          #interrupt-cells = <3>;
->      };
-> diff --git a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
-> index 68090b3ca419..8403c79634ed 100644
-> --- a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
-> @@ -42,6 +42,9 @@ properties:
->      additionalProperties: false
->  
->      properties:
-> +      '#address-cells':
-> +        const: 0
-> +
->        interrupt-controller: true
->  
->        '#interrupt-cells':
-> @@ -92,6 +95,7 @@ examples:
->              reset-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>;
->  
->              pcie_intc: interrupt-controller {
-> +                #address-cells = <0>;
->                  interrupt-controller;
->                  #interrupt-cells = <1>;
->              };
-> diff --git a/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
-> index 7be695320ddf..3d68bfbe6feb 100644
-> --- a/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
-> @@ -101,6 +101,9 @@ patternProperties:
->          additionalProperties: false
->  
->          properties:
-> +          '#address-cells':
-> +            const: 0
-> +
->            interrupt-controller: true
->  
->            '#interrupt-cells':
-> diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
-> index 638b99db0433..c07b0ed51613 100644
-> --- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
-> @@ -56,6 +56,9 @@ properties:
->      additionalProperties: false
->  
->      properties:
-> +      '#address-cells':
-> +        const: 0
-> +
->        interrupt-controller: true
->  
->        '#interrupt-cells':
-> @@ -109,6 +112,7 @@ examples:
->                          <0 0 0  4  &pcie_intc 3>;
->  
->          pcie_intc: interrupt-controller {
-> +            #address-cells = <0>;
->              interrupt-controller;
->              #interrupt-cells = <1>;
->              interrupt-parent = <&gic>;
-> diff --git a/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml b/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
-> index 69b499c96c71..c704099f134b 100644
-> --- a/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
-> +++ b/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
-> @@ -99,6 +99,9 @@ properties:
->      additionalProperties: false
->  
->      properties:
-> +      '#address-cells':
-> +        const: 0
-> +
->        interrupt-controller: true
->  
->        '#interrupt-cells':
-> -- 
-> 2.47.2
-> 
+
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+
+>  arch/arm64/boot/dts/exynos/exynos2200.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot=
+/dts/exynos/exynos2200.dtsi
+> index 943e83851..bab77b442 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos2200.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
+> @@ -328,7 +328,7 @@ cmu_peric1: clock-controller@10700000 {
+>
+>                 syscon_peric1: syscon@10720000 {
+>                         compatible =3D "samsung,exynos2200-peric1-sysreg"=
+, "syscon";
+> -                       reg =3D <0x10720000 0x2000>;
+> +                       reg =3D <0x10720000 0x3000>;
+
+Exynos850 TRM says that all System Register instances (in Exynos850
+SoC) use 16 KiB (0x4000) of address space for their registers. And I
+can see some SYSREG registers actually have offsets over 0x3000. In
+reality though all IP cores are aligned by 0x10000. I have a feeling
+Samsung does the IP cores integration in the same way for all their
+modern Exynos SoCs. It can be actually deduced by looking at the
+starting addresses of the nodes in the device tree, they are always
+aligned by 0x10000.
+
+Hence I'd recommend doing this:
+  1. Use either 0x4000 or 0x10000 size (not 0x3000). For the
+reference, Exynos850 and gs101 use 0x10000 value.
+  2. Replace the size values for all sysreg nodes in your device tree
+(not only peric1 and cmgp), for consistency and to prevent possible
+issues in future.
+
+Also, maybe it'd be better to use "sysreg_" prefix for these node
+labels (not "syscon_"), as it's called System Register in TRM. But
+that's minor, and probably out of scope for this patch.
+
+>                 };
+>
+>                 pinctrl_peric1: pinctrl@10730000 {
+> @@ -471,7 +471,7 @@ cmu_cmgp: clock-controller@14e00000 {
+>
+>                 syscon_cmgp: syscon@14e20000 {
+>                         compatible =3D "samsung,exynos2200-cmgp-sysreg", =
+"syscon";
+> -                       reg =3D <0x14e20000 0x2000>;
+> +                       reg =3D <0x14e20000 0x3000>;
+>                 };
+>
+>                 pinctrl_cmgp: pinctrl@14e30000 {
+> --
+> 2.43.0
+>
+>
 
