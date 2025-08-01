@@ -4,156 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E88BAC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26765C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaLaunDXpHF6tgpocpr9gXG8RHg/lAlBs3jfrpgXhTo=; b=LBkm7kBKv4WXHAkjT2Zn2OXHGi
-	+vrWjeh9w3v0Z0FLK6mfCQM6NWM3wzvRkPPFN9wK/pa2101hEjPLJ3uT+KqlQzShRBztlfvPhkJEr
-	F5z65TVOmBUwcJSeIdy/zSZCDd08j6fRB3mlFuQXbTnVMckKOJXTtidMs6UdohhpmTOy3/vhbAChx
-	BGOyQPuWWjkhOANBFeyBro2wUWw4TfLC5CW7vvjeIrCcNt/q/EDGHtNaAkUD8VZGm6CV608AkTdri
-	AeSs+uFCfNp0edSKIqHNZY6cz3yJtVWshmJj/AM0LgbiEpg92wMCno1Xd3Ba/07+JkyeZA1UAl87M
-	61ObULuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YnSnKuFRT8BCgjASZrg1uqVgtZph4jMWjiixUwKGaeI=; b=KBIP/Yf/1KnVEulEuMp2F8FlXh
+	IVa9xogNzGAa5PdOP90X5FyHqQR4H2SQNILZumjwg63o+SJ4hIgX3tQSZPkpZ86/EBBPT3c18yTHE
+	aLxAj360bDTJQRbeIu5lAbor30whRqQEVLoPZOIOtd/cBLypJQHIJGw6YAhgcBKaR0gU06ygLzJDp
+	C0B0OMALoKC3ErBS4ljThwThv4br2RDN4YS0fM4pxAN/4lKmHj5S/25OpBx+Gh8ntS6/g69ycnkYo
+	QCj0+HmGIdT9ydvY9cs5iHkch6a1TehyH2PsHWxt35CHGYz7D3fQR+jtJ0OGqQswDkKCxAvJZnGbv
+	B9VuE6Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhrBx-00000006HpQ-0gRo;
-	Fri, 01 Aug 2025 14:57:05 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1uhrEe-00000006IJx-27nh;
+	Fri, 01 Aug 2025 14:59:52 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhr9N-00000006HYj-1vC5
+	id 1uhrC5-00000006HsW-0Yxc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 14:54:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aIwEQtY8uxe2RP4eG4PAAo5o6Vj0mBx2M9UV8HfOoE4V4SPy8rGhFf7dhNQkF9V59rq1QwwxLPnsuUN2NESiCByRr8bYUlD6qtC5kGRvCZeeJqoyDxzRFEDQf7VRHGulVG4fmV28s+V1s/Ea90Dk+LCWaZUzsV6na8oplEZQY02dxVDilnH/8midedrDQa1Eckfycj5O8XKBx2UEF2m4gqrdjVi4Pvy2yJj37p5lgQ/uayVefvMTyRp76TpW7VxAuD/hb6dRJbkxO3ilzzS4TXgqkjR6PXhhIJ/eRQqlk9k5ILFEDF7WpXjMo4RaxiHGzNfVvYetItYgX3w0LHWeMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CaLaunDXpHF6tgpocpr9gXG8RHg/lAlBs3jfrpgXhTo=;
- b=wc9rvhFjvXy6/KLY2xoEaCLGpiIQ5XM3edpj0dh50GIl0rtqP/2QiTey2O/zh8NtDPh3DaP59obhCkHKFdtpC0NAnBv98PuhHKpchrJtfueSmpq6cgF4CwqrN8e/oaWbNtER3Fb0uXEizATSmqpLBgAW/BpJ+nEhvgfkkfPk+C24IcGeER6l7PMfo4FT2w10pE+oKBB5naJffqDlL1nBGgU3ay2AeGzcw3l6kkBPhPPxlglBLuZe0HOmDsD7rc3T/ifPsXnLUiBk6a5H1mghDqgkiZc5YDgr6so5p6VYALHPzVNqW9YoEFWEB7HriQJ7XWXaBUYebWBt9rf4MpO7vA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CaLaunDXpHF6tgpocpr9gXG8RHg/lAlBs3jfrpgXhTo=;
- b=DK+s1RdgaIkmuQnYXfudjqpW7/FwHjaAht/DB2+uER4Z8MCbSDzBvi8tygtdyNZwjKo5KRO/zIfnkVCFHOZOGQVYl8SRxc/Qvc0vR5REe2d0xVHBW/pSF5fe+Ko+5U6JnJ/xAscIeNlTb+Di3eSOr4oBLxHc00N1yepq+o6PwruMQkXsUU0lz0Xb+Nu4zWT2s/Gpd1LH9FQyqkSq4vmgkCXZPC4q6zkK7F2mxDr3DNWaMemcJWr5j1WsSDPtVNKH3UWZz1zdgQlHtdUTfdGftCmKSe9v+tfdWBrehG0EZADolr8l2daU8JykoKt1FbCCnvuQz28X4ZpmeC4H+sgbjw==
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by DBBPR04MB7978.eurprd04.prod.outlook.com (2603:10a6:10:1e9::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.16; Fri, 1 Aug
- 2025 14:54:18 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%5]) with mapi id 15.20.8989.015; Fri, 1 Aug 2025
- 14:54:18 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: Frank Li <frank.li@nxp.com>
-CC: "krzk@kernel.org" <krzk@kernel.org>, "rafael@kernel.org"
-	<rafael@kernel.org>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"rui.zhang@intel.com" <rui.zhang@intel.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "shawnguo@kernel.org"
-	<shawnguo@kernel.org>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>
-Subject: RE: [PATCH v2 2/4] thermal: qoriq: add i.MX93 TMU support
-Thread-Topic: [PATCH v2 2/4] thermal: qoriq: add i.MX93 TMU support
-Thread-Index: AQHcAruGxq2iEhcWo02hHK5ogHM2ObRN1jcAgAALk8A=
-Date: Fri, 1 Aug 2025 14:54:18 +0000
-Message-ID: <AS8PR04MB864298D157317757B19FCA5E8726A@AS8PR04MB8642.eurprd04.prod.outlook.com>
-References: <20250801081119.1999298-1-ping.bai@nxp.com>
- <20250801081119.1999298-2-ping.bai@nxp.com>
- <aIzKgvERyoaCpnyt@lizhi-Precision-Tower-5810>
-In-Reply-To: <aIzKgvERyoaCpnyt@lizhi-Precision-Tower-5810>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|DBBPR04MB7978:EE_
-x-ms-office365-filtering-correlation-id: 6b1eb134-04fe-46df-0f52-08ddd10b4a91
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?9pRAATPjM1DQR8MdOxkpjWEd6KZMFF8OZJTWUb1FcWbXK08ge7EjYOrbFjVo?=
- =?us-ascii?Q?eM5K6cZVTS855DZQyeaOglA9d4sOqQu0DsaIojipFy3opUBzSiMAze6xBba2?=
- =?us-ascii?Q?G/cjb94SIKl4Fb5o0DvU50h18w0GZFSHQQFbpOjrJB+Y2Ov7UybVOcNO0Qsu?=
- =?us-ascii?Q?1xsqhLnk/eLPUQUa0iY4CdozGUDkUph1prmCEXjAwnQXlGnDoDixGnyAYZYI?=
- =?us-ascii?Q?0EW9oPDJ2uUTb1BUMuV0skxxKX61kVE0xxKcJAlyHIyfaCegJoK0ORjyxhNj?=
- =?us-ascii?Q?qno+uVl9envg/+q7gvnvY1I0PIEQbnQjbfVx1hhYlvburcjFwdrtIbAnhpC8?=
- =?us-ascii?Q?7CvzvnjPL8VzEX/S8HXfXJEkCLL4MpIvcBsnLN2VF9NcTmB0sPqtKhWnDshy?=
- =?us-ascii?Q?Tqf78yZuMyL7v6ftHtIZfzeaC97at4jdR0wCi33JxgkOgFi23HYFx8CUN4IF?=
- =?us-ascii?Q?FKmKB/6WDBWZP4XtyNVqQkRDBiJ8b+k3PmACMEvVMGq2YxU72DLDxvOwfmTU?=
- =?us-ascii?Q?MnaWqOb8tcE2FIp9ziRWsDw6D4yEBMUtduQsezCDRzu0hrRgWdPMzPyxUXic?=
- =?us-ascii?Q?YbIq6cV8lNpeDZrceRECXQ7a+VmSHaLF691ah2MBP/oYXjh/FeooCK+m+tJ5?=
- =?us-ascii?Q?a0lld+/thos1GGNBesuLJyHd1pw5DTltBsNmpSSuShbMU3aBN2ogw8GNks/F?=
- =?us-ascii?Q?Wra/u2P7mMlEFssuv31RQ/Xg9Cxmoze6QAU31Da8/l5CYsiMg6l67zc2mAZH?=
- =?us-ascii?Q?Drj2tnFcAyGIBUoqXLCL4V5Ay5VAJ/g8W6Z07QxGA4TgXVJ201B2f7xLEOXw?=
- =?us-ascii?Q?3VAmWpB7yt+Ee8qLYeVUJLrR19tiE/0BwIB+e1j4p7/1+z8dngdFWqvsgU1I?=
- =?us-ascii?Q?pX6gKPTFj2VwXuF+SSx8TaFvFCH/knri4IfEMGEn95ZE5qVLcCx2nHmK4adz?=
- =?us-ascii?Q?uDZLMDc5r3yPLoCOnbdSyPBzHhlywgnVpNBUfM7GX0WbP9kdfNZixlCpg5GP?=
- =?us-ascii?Q?HBUTyPBpKx/835kFREckbXcWvgtmDCuQmBpkSfONd2bp4iNM/mbHK/DhCNf6?=
- =?us-ascii?Q?38twAb8/T+7wUjYpqw629i6CZ/uOJePmQQNQy0F9GAFhC4u8nwg9e9Fo+4Nc?=
- =?us-ascii?Q?4OHssTvQl5ipWYPwKxOsHdBYg416o/xWFBfHQOJNxC1aHB0dmtSmro0iQCAy?=
- =?us-ascii?Q?wGtfmDDrajSa1LWu6jc2DoAFHpJSbRa6P8cJoUMVUmyV3JDT5tg8M8A4xrAZ?=
- =?us-ascii?Q?NLaqPD0VZkC4OgcVfNtx0vUAhGAI9J/oRzvD/7g0HGew+cBpd2MZX6OC6v4w?=
- =?us-ascii?Q?dYS+phXBiAqdxy86aKMibtUsyNzL8Bx5rvxyPN0/3rtxyBpULR4laXStfT/P?=
- =?us-ascii?Q?XWK/BpHObo2bbyTujPZMprcD52IETce8hgBW0eAQjLiRFEGAOGFCZGtqQ/cA?=
- =?us-ascii?Q?7+mM+IrQu0JCX5Xt0CCFJBwnO4T8pZNA1V0N1RMqAy2KZ9HZl+bQPQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?kRzzV9NOkitO7+P6Q96klOm4MyT7HUPQkWBtzSED44ywaJEi097I5yGubnpn?=
- =?us-ascii?Q?FeD5TDGlsiO9uwoZkjZ5EGVtwWvduDUfudbZPKnm4iTLSXaq+UdrnfSyJjPK?=
- =?us-ascii?Q?CDQrt/qBd1Ax2q/8exzZR048fKOqIwJBfRzCNx3QE4K+s/a8RROVP2HjdLBK?=
- =?us-ascii?Q?qxJGpkRfNqP4OsS8gfFp9GdtEu6imFQ9HP7P2gV7yi5AAIIXogKMVkAE2XNl?=
- =?us-ascii?Q?1qbxEGQ7qzy/xFCOTxBnpCpAvvVrfvUq0Aaf9pVokXghGHO5aD6l7WKDzk8Z?=
- =?us-ascii?Q?Njb2HSNYDUXGGxRMoJT1k0LVPtqAygucY+JWM3a+zCJ1cb4+HJ5JbPWWZx5T?=
- =?us-ascii?Q?hpe4LbyLAULdGBEqR//ITDawd9LEmCknKAJoiVhH5GranX8dmQucOm40PvgA?=
- =?us-ascii?Q?Si91iqCUNo4B5zvHIcmttys/Arc39XGX4cLWujawYAQkXkOKrZRsp4iEPxLv?=
- =?us-ascii?Q?YzUposppQNlhv3BKdb1oWufbY1MmoIWqaRjik6pdlXLJv6tVAWHToNp8oreI?=
- =?us-ascii?Q?lgZOmDn77nWnPV1ixZXBH5skCkDWEQ+TZHrQQv6rlrX7VEKCV8GCC+Esvo8T?=
- =?us-ascii?Q?5im8IngSNnjmBf679WwQVUYJcESE0fQydjdob5Z/Rjmup+A2eLJBYIwZWHVv?=
- =?us-ascii?Q?TgdVVd7VAJboqQCmmX26zCSUDc7JJqbUNJt6xizWIHU7P7HYLEC5pgIG7fNK?=
- =?us-ascii?Q?Tp4T5fFwFNF/ydpwF13JDc9eFdWZbRkEoLTwmXbXUJCgyuFK4rF+FWySXr9+?=
- =?us-ascii?Q?av7GEugtqjgiE/rw3MpLu7WKI78hCHyGPPxRmwAc8exbA2EtYagOjT+YdueJ?=
- =?us-ascii?Q?3yVf6/5Lt0IeaE4VKQNTGGiXeVWb9MMewnj6p+uzt2K4sGtpVRW2r/jTsXXu?=
- =?us-ascii?Q?COqK6p5EaQ892egopnRLEM/h50LKJBssWVhP3CxJN2ubczQshUZQK04ovtaw?=
- =?us-ascii?Q?sc9UO7jcfmOVCqcD1+wV1DhY2u31ycwJ1xPiG4FuA/61TO2Awx2UjBWvGfgt?=
- =?us-ascii?Q?oum1Yot/YQ5eK6Xvv3TuhYUvcB52J+SLNXMQOvrtMKQ6DOu6vCHVhexoHHhy?=
- =?us-ascii?Q?7iVEUr3Wxf9o3iAmxKbWhOUATcn0zOpFYaSU6qlx3P7n0F0xa3+zgvDr0btn?=
- =?us-ascii?Q?GAsIX1LsczMG1zuohu+vx+/BBWaeHiQqj6eW5PoISzfmuKCIu7nE49Jnzow9?=
- =?us-ascii?Q?mblPH+ykDt+nZbGrV6RQAtJOlPwZLSRNT/bsTrhC/v9Uaqpo940PyBGsyO+/?=
- =?us-ascii?Q?j0utfcecEMZPEniz3eSbAV1zP4ide9SUFGmYWXEngPqASdR455NR6P5VbdvC?=
- =?us-ascii?Q?r/0OAPji1dWvnBIrTZwRGllsBYmZOuU5vSNI/tmjEGxdXrVAb0p30wjL3Y7N?=
- =?us-ascii?Q?UUKLVPLv3RwJp5KLS32hTz8Cgc9qxqVBEPgAPCW4LWzHejEpXuHxQD3itaEo?=
- =?us-ascii?Q?56DohofdyF9K2Q8q8M7ujiSWMBpzuof9dMKyN5g4DIrS6MyE/vS0t8bMuokO?=
- =?us-ascii?Q?iYzWHz4shRiye02lnpOEAWmREfx1bzsqa/GLFCNL6nl31IRrqVW69a/D848e?=
- =?us-ascii?Q?oHS+alagHM6C/7xcuoo=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 01 Aug 2025 14:57:14 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5716RQ45021860;
+	Fri, 1 Aug 2025 14:56:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=YnSnKu
+	FRT8BCgjASZrg1uqVgtZph4jMWjiixUwKGaeI=; b=cu7ufEW9j3hSs64eHtRRpY
+	56JgN2/rMmAdcaMuWm8mJLl99nnqlB4MGOQq+RuPMtlfTM1gJX4mdrkIrqdSvGrA
+	jIN4XSekS2D6XxUseipDHOuhZxb1MbJ8hvE0QcoeBp41HlJYDC+6y5uCblzWC79E
+	jJgwLraPZAU7vgwpZIGCl3w0qFM+TRdSEbhWSWYMius7tj8aUJGFcKC7Mz/kWfmr
+	RyxbxI12K+X07Ae0x1CFFwfkhmj7zNaKSTMU1xsAWLnT5xNnGSi81ME3oIjVG/iy
+	hYITdpLc2KUDS4w9+tCHykE0zhordXGmyqk5+SYUVo+qvMBLxW449gWTu8eTgxyg
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 484qen9d0w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 Aug 2025 14:56:54 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 571ED5Ka015999;
+	Fri, 1 Aug 2025 14:56:53 GMT
+Received: from smtprelay06.wdc07v.mail.ibm.com ([172.16.1.73])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 485aun1r64-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 Aug 2025 14:56:53 +0000
+Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
+	by smtprelay06.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 571EuqPt32178850
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 1 Aug 2025 14:56:53 GMT
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7958158051;
+	Fri,  1 Aug 2025 14:56:52 +0000 (GMT)
+Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1A3AC5805A;
+	Fri,  1 Aug 2025 14:56:52 +0000 (GMT)
+Received: from [9.61.163.64] (unknown [9.61.163.64])
+	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Fri,  1 Aug 2025 14:56:52 +0000 (GMT)
+Message-ID: <0dbd00c1-7b47-4e6e-a8bc-5dd0b5d7e539@linux.ibm.com>
+Date: Fri, 1 Aug 2025 09:56:50 -0500
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b1eb134-04fe-46df-0f52-08ddd10b4a91
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Aug 2025 14:54:18.2105
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BdBttOqC0d5pud1dAsxlJl/Usm/Q0QITRJm4VbJiOeqtwHiHe023TkUqTXdOqZVZgFGs4KsKEZefKRyZxiwdFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7978
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/6] ARM: dts: aspeed: Drop "no-gpio-delays"
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+        Ninad Palsule <ninad@linux.ibm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        linux-fsi@lists.ozlabs.org
+References: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
+ <20250731-dt-fsi-cleanups-v1-1-e7b695a29fc3@kernel.org>
+Content-Language: en-US
+From: Eddie James <eajames@linux.ibm.com>
+In-Reply-To: <20250731-dt-fsi-cleanups-v1-1-e7b695a29fc3@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: HIw9ud3jprKX7EaZVCKTXNHQ5Xj2KOwx
+X-Proofpoint-GUID: HIw9ud3jprKX7EaZVCKTXNHQ5Xj2KOwx
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAxMDExMyBTYWx0ZWRfX9IsCkPss3zXH
+ 14wNQTMiDkysyvTxDCJW6qeSsum2KPu5soAYnGADq2plh9VwpWivHL7WME3ByJyiHRRoKX9dzdc
+ EYxn5BcRRcGUFP2k2WpOFqIhWlmj/TMWw3reYieGLRh41H953e2eVX6oXeQ7IAzjWyaLPDgVdo3
+ jO72JIL+sXKXCWnMuH/FZ5G0Oo3/IM07w46Vk9ZLZR/g2mCiY2U32Nu/+PxXg0tpueZEh1XukfU
+ mlsm9okJAwFhgaytZEHP5ZQfyLoanOPULC4ilQdADYZOuboivV0ivLcpbKobal6wOzZuVjpMnJE
+ zYyKQDlGMXjxSjUAyQk0Gc0BnsvmcIfx7RkUxIP9qD6cMNGZyoD6EMo5OfP+EGt8Pp1L63zQC2M
+ TSum2VC6y7niTAhc1mqmPwGzl01e9+2ohpvGd4kOhNpv9p9N+NCwZH2SKd5Dzqm0ggKCkTaD
+X-Authority-Analysis: v=2.4 cv=BJOzrEQG c=1 sm=1 tr=0 ts=688cd5b6 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VnNF1IyMAAAA:8 a=VwQbUJbxAAAA:8
+ a=dLEtqkc4Rl9NwHs-IUkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-01_04,2025-08-01_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 suspectscore=0 spamscore=0 lowpriorityscore=0
+ mlxlogscore=974 priorityscore=1501 malwarescore=0 mlxscore=0 bulkscore=0
+ adultscore=0 clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2508010113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_075425_500296_B8EAE4B3 
-X-CRM114-Status: GOOD (  30.76  )
+X-CRM114-CacheID: sfid-20250801_075713_181542_5E808D42 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,128 +126,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH v2 2/4] thermal: qoriq: add i.MX93 TMU support
->=20
-> On Fri, Aug 01, 2025 at 04:11:17PM +0800, Jacky Bai wrote:
-> > The TMU used on i.MX93 need some speccial handling and workaround to
-> > be done even the revision info read from the ID register is the same
-> > as Qoriq platform. Add i.MX93 compatible string and corresponding code =
-for
-> it.
-> >
-> > Signed-off-by: Alice Guo <alice.guo@nxp.com>
-> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> > ---
-> >  - v2 changes:
-> >   - use the compatible match data to identify the i.MX93 TMU variant
-> > ---
-> >  drivers/thermal/qoriq_thermal.c | 27 ++++++++++++++++++++++-----
-> >  1 file changed, 22 insertions(+), 5 deletions(-)
-> >
-> > diff --git a/drivers/thermal/qoriq_thermal.c
-> > b/drivers/thermal/qoriq_thermal.c index 01b58be0dcc6..fd4d162fc188
-> > 100644
-> > --- a/drivers/thermal/qoriq_thermal.c
-> > +++ b/drivers/thermal/qoriq_thermal.c
-> > @@ -1,6 +1,7 @@
-> >  // SPDX-License-Identifier: GPL-2.0
-> >  //
-> >  // Copyright 2016 Freescale Semiconductor, Inc.
-> > +// Copyright 2022-2025 NXP
->=20
-> should only claim 2025.
->=20
 
-Ok.
+On 7/31/25 17:12, Rob Herring (Arm) wrote:
+> The "no-gpios-delays" property only applies to the "fsi-master-gpio"
+> binding and not the "aspeed,ast2[45]00-cf-fsi-master" binding. It
+> doesn't really make sense either as the timing is controlled by the
+> offloaded firmware.
 
-> >
-> >  #include <linux/clk.h>
-> >  #include <linux/err.h>
-> > @@ -24,9 +25,11 @@
-> >  #define TMTMIR_DEFAULT	0x0000000f
-> >  #define TIER_DISABLE	0x0
-> >  #define TEUMR0_V2		0x51009c00
-> > +#define TEUMR0_V21		0x55010c00
-> >  #define TMSARA_V2		0xe
-> >  #define TMU_VER1		0x1
-> >  #define TMU_VER2		0x2
-> > +#define TMU_VER93		0x3
-> >
-> >  #define REGS_TMR	0x000	/* Mode Register */
-> >  #define TMR_DISABLE	0x0
-> > @@ -232,6 +235,9 @@ static void qoriq_tmu_init_device(struct
-> > qoriq_tmu_data *data)
-> >
-> >  	if (data->ver =3D=3D TMU_VER1) {
-> >  		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
-> > +	} else if (data->ver =3D=3D TMU_VER93) {
-> > +		regmap_write(data->regmap, REGS_V2_TMTMIR,
-> TMTMIR_DEFAULT);
-> > +		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V21);
-> >  	} else {
-> >  		regmap_write(data->regmap, REGS_V2_TMTMIR,
-> TMTMIR_DEFAULT);
-> >  		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
-> @@ -312,12
-> > +318,22 @@ static int qoriq_tmu_probe(struct platform_device *pdev)
-> >  	if (ret)
-> >  		return ret;
-> >
-> > -	/* version register offset at: 0xbf8 on both v1 and v2 */
-> > -	ret =3D regmap_read(data->regmap, REGS_IPBRR(0), &ver);
-> > -	if (ret)
-> > -		return dev_err_probe(dev, ret,  "Failed to read IP block
-> version\n");
-> > +	/*
-> > +	 * for i.MX93, the TMU HW version read from the ID register does
-> > +	 * reflect the real HW implementation version, assigned the TMU
-> > +	 * version statically.
-> > +	 */
-> > +	ver =3D (uintptr_t)of_device_get_match_data(&pdev->dev);
-> > +	if (ver =3D=3D TMU_VER93) {
-> > +		data->ver =3D ver;
-> > +	} else {
-> > +		/* version register offset at: 0xbf8 on both v1 and v2 */
-> > +		ret =3D regmap_read(data->regmap, REGS_IPBRR(0), &ver);
-> > +		if (ret)
-> > +			return dev_err_probe(dev, ret,  "Failed to read IP block
-> > +version\n");
-> >
-> > -	data->ver =3D (ver >> 8) & 0xff;
-> > +		data->ver =3D (ver >> 8) & 0xff;
-> > +	}
-> >
-> >  	qoriq_tmu_init_device(data);	/* TMU initialization */
-> >
-> > @@ -379,6 +395,7 @@ static
-> DEFINE_SIMPLE_DEV_PM_OPS(qoriq_tmu_pm_ops,
-> >  static const struct of_device_id qoriq_tmu_match[] =3D {
-> >  	{ .compatible =3D "fsl,qoriq-tmu", },
-> >  	{ .compatible =3D "fsl,imx8mq-tmu", },
-> > +	{ .compatible =3D "fsl,imx93-tmu", .data =3D (void *) TMU_VER93 },
->=20
-> Now, don't prefer direct pass a ID here.
->=20
-> struct tmu_drv_data
-> {
-> 	u32  temu0;  /* or other touch actual bits define, or workaround
-> 			name, ticket number ... */
-> }
->=20
-> const struct tmu_drv_data imx93_data =3D {
-> 	.temu0 =3D TEUMR0_V21;
-> }
->=20
 
-Sure, will introduce a new struct to hold the match data info.
+Thanks for the series Rob. It's fine with me if you take the bindings 
+(we're not using the FSI tree now, Grek just merges stuff as needed)
 
-BR
+Acked-by: Eddie James <eajames@linux.ibm.com>
 
-> Frank
-> >  	{},
-> >  };
-> >  MODULE_DEVICE_TABLE(of, qoriq_tmu_match);
-> > --
-> > 2.34.1
-> >
+
+>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>   arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts | 1 -
+>   arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts      | 1 -
+>   arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts     | 1 -
+>   3 files changed, 3 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts
+> index 78a5656ef75d..f42254ba6aeb 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-fp5280g2.dts
+> @@ -57,7 +57,6 @@ fsi: gpio-fsi {
+>   		compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
+>   		#address-cells = <2>;
+>   		#size-cells = <0>;
+> -		no-gpio-delays;
+>   
+>   		memory-region = <&coldfire_memory>;
+>   		aspeed,sram = <&sram>;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
+> index b1d0ff85d397..e5b8d07e7622 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-nicole.dts
+> @@ -80,7 +80,6 @@ fsi: gpio-fsi {
+>   		compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
+>   		#address-cells = <2>;
+>   		#size-cells = <0>;
+> -		no-gpio-delays;
+>   
+>   		memory-region = <&coldfire_memory>;
+>   		aspeed,sram = <&sram>;
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
+> index 24df24ad9c80..2180fa9b6f24 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-opp-romulus.dts
+> @@ -71,7 +71,6 @@ fsi: gpio-fsi {
+>   		compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
+>   		#address-cells = <2>;
+>   		#size-cells = <0>;
+> -		no-gpio-delays;
+>   
+>   		memory-region = <&coldfire_memory>;
+>   		aspeed,sram = <&sram>;
+>
 
