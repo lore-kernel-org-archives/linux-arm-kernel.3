@@ -4,102 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32771C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 01:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E605CC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 01:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f5uDl85wDGhTjSIRJ3MDpBVcbv+/o9QKj57RG6DGCPk=; b=Wiu8uLS+FCB64U93Maudnz+SdS
-	rZ8acM00zAnIm+NkNHUJGh6lPvDl6G8bjcI2quKC55ZIr8cFHOhpPcjnkxW1RwruIorFbVxCph08k
-	BZFK7CeIey8nDv53QyGVmWP/cspa1gXdXAXYQZ64kYCDoanVu9PHByty5EA2kP/hrNAwMTTjoBV36
-	RvV5/vcxqfLz/qLf8s82gQ8ew18f3BwEuSo/MvgoYF6zxhy2ZBIhz+FGEtvN5s/Co1lnmTK+LiwLF
-	lIHl567BT+TnIVV1SUAWUlEs3tgPe3KJv3iZovAnabORddGfEbWruhvZMowVxgwpDHsjYU4J3FnsK
-	IggSlL+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=73dgZbebrLU8zYg1FAZPFQA33fxb43EZn3LSBSzNaM8=; b=1+8R/sueGeAj0NepYOQujPKed3
+	P2F1+WCgNOup1i3Z7Ie0lCHu589T475DzU8b7dDFcfGE1JN2Z7vQ56CBWqQ+xZpJl8ZSyB1IW3tVF
+	SVQW5Nc2ZLP7MDBFV75wW6N1utTcNQ2z1fhGHhS9OxTPX3mdurgSJOITrfwwNOKALM/ihpV6EFkf4
+	D3T5PDvkY3r+32wVxerxalAKkVsLllSFTuqIBdiDp0S7+owxSseTlc6n3mKO7TimCD4otRps5GpL9
+	3YpZjbGTO3IhNqFgSAJRPl+yIkOsQWFSMPbe1j2emsHZW3P7DrWXTvlrRfaKIbjN/QCbX3a8itMDk
+	JCDIwajw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhend-00000004n9U-0yzd;
-	Fri, 01 Aug 2025 01:43:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uhf3T-00000004oF9-4APZ;
+	Fri, 01 Aug 2025 01:59:31 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhdLz-00000004i7E-0LXS
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 01 Aug 2025 00:10:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=f5uDl85wDGhTjSIRJ3MDpBVcbv+/o9QKj57RG6DGCPk=; b=cJ8Y/Rqr+hmBtV0PbWygbllB0E
-	eblEmtJWaR7c2GQwx6GrEUl+2PPNxnLEABEUM1JLfPGS/Rcn2L+YBqkbDmus05tqrxow3G5Sblrx8
-	Ka85Iga1ISA1rWwLKQvIewPXF9wII/cd6fVHZyt3j/4vSgq562rv13w8TCSjuMjjfm9HqdaoJ05Uo
-	bfcHpVK41kLk/mftr2G4ciIRIucGZXjYP66TXpcN5jmGZ1Z8KUsmJkQmNc17rEJVyAzi7mPdjRm+z
-	PDwZX2d9chJFl9RtthbkksmQMWfiLyYlm1kH6pHEVRcoIHZgsduGGTsy7Ww0Qjr8oWiQGZ7uqthJT
-	kCukP7nw==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhdLo-0000000DBDk-1xG0
+	id 1uhf0u-00000004nwy-2nvR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 00:10:27 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31ebadfb7f2so1537071a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 17:10:17 -0700 (PDT)
+	Fri, 01 Aug 2025 01:56:53 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-24070ef9e2eso79125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 31 Jul 2025 18:56:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754007014; x=1754611814; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=f5uDl85wDGhTjSIRJ3MDpBVcbv+/o9QKj57RG6DGCPk=;
-        b=iWuBJ3fCQOHnPkgTr2bvlN0mq5gtLK3CKTPM2u7/tjnv3YaYdjD4+RWyzw3MC9uxzV
-         LTbZj4XAGX4NUd+RXppAeI9f4ZqN8G76uRzLclltHKeddSECPiXEIeSRPVstPzbD79iH
-         YZdWnLOBfsOXWYpvgEyB8iA51C78KDUuH0jixGsW4bHS/1KeQsz8KWSY+jmoHJ2gEx5L
-         OnxgxlLqBNlTVoR+EmpuboUJ/124ub0K3ZUAiP5nSXZGjMgKdwhsO6PpFxjhOLHJm+nz
-         +PWzMx1DWcnXGWl8WTGYQJZVv/ZiJAo+XTbnCKqVkgPyQt/9QvCR9MfF72A8eI7qeFh4
-         +scg==
+        d=google.com; s=20230601; t=1754013411; x=1754618211; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=73dgZbebrLU8zYg1FAZPFQA33fxb43EZn3LSBSzNaM8=;
+        b=Uve/YbG+tE0N+OdZSkQZnxebZOvsTUPy43FxRiGx7krL+mkR3/At+WE25VUaVCXoSo
+         +UNhkOdPhMVHi0KN5MkIMr53mPUTQvVW8kEutAQAY27uOoBB12uYfEzs/FYbf3xpfIbP
+         QH3ZuGIflv/zV5BjECGvxe459NbpuFYnJrDZOxZeRpt7bSe8MnD4lYC47JTMMPqJQo4b
+         q8rZHtaxazYwlj+RrhF/Xa7m3wsHHo7wDPiJ4aBagbdlKLGj5v0T5SqDq3JU4aG0PD40
+         mr6Kz+oBqvyDgUfIMXv+cwwIU+9eAMvwWmCWNjdwcKL6ARD1TVCRnbGzmdnVa0dXH701
+         2lyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754007014; x=1754611814;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=f5uDl85wDGhTjSIRJ3MDpBVcbv+/o9QKj57RG6DGCPk=;
-        b=tj2sZc5ZTXIkq8WKekbj65xIPzaOQdxft9tLsIpXk94aPZ0/Q7uSQ+WCRtrFBTCvx3
-         9aBpKzF2EKxFgH6w55LRxlCtnLlRKbT8iQH7fd+zQXF8nT3FgZ+t4f6rtpl7tIBwtX6B
-         gjQUxfscZeb9EmHDwudFKj61zdCrZQ10jGFEYWwCk75g+YAYchpJ+e0XVNdVBppWCTkB
-         8GGK0wwkmyjq7BC7nFXoIpLjpYDwijWUvdp5jJtznHmZHQmQq7QF7OHDrTCVA9mcDvaB
-         z8Vurtlxm7P1SwDUfpiNFJVPOzIRoTJbSTRMBRLFJsAx4cEdMdsD1elKUF0VzWl7mFOP
-         s2nQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWgk32QjpfXBROHgMKPXtPp2wbeAjOpvadRAdnDE2ZbKn++RjrgLUhtAotSly8XfEgl5SdjXtTdf32RHiBXtuLY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6G0NTK3stu66a0Z3am9S1N9A3cws3vkWV6PtSp3gf3AyH1NsG
-	cKgG2mAW0Oqjxk0zHMdYq3Wdgod6HOdP4s/Bw8g74Li9tqRzATIvvpozbM3nCWRMFiWvFVkz1cy
-	Vx9zkoRrfTSEMHBxNqKjNGXl0vJjT9g==
-X-Google-Smtp-Source: AGHT+IGe6iTItosrIYdSiu53+Ci7qA2QFXWZJ90ywhAykW0k2WhvUSTmqFJV6z+v+U/Hxqi/jtBom1ufe6Z6w654MMc=
-X-Received: from pjx3.prod.google.com ([2002:a17:90b:5683:b0:311:6040:2c7a])
- (user=samitolvanen job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:35d1:b0:312:e6f1:c05d with SMTP id 98e67ed59e1d1-31f5dd891dcmr12128094a91.2.1754007014453;
- Thu, 31 Jul 2025 17:10:14 -0700 (PDT)
-Date: Fri,  1 Aug 2025 00:10:08 +0000
-In-Reply-To: <20250801001004.1859976-5-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20250801001004.1859976-5-samitolvanen@google.com>
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4507; i=samitolvanen@google.com;
- h=from:subject; bh=hZabVFFCxKVAeJdp4nYEgQjtD7vc/y+UZPfwjcPcYes=;
- b=owGbwMvMwCUWxa662nLh8irG02pJDBk9rPdi03WyDi2s+j2TLXrpqwQv4byFyydv75kopqocs
- DiXUWVmRykLgxgXg6yYIkvL19Vbd393Sn31uUgCZg4rE8gQBi5OAZjI5U0M/+sPv9nwy1tTa8sK
- 7+iJU/REprzNuvh764M2XiPGqQp7Xrsz/JVLcNrHEN/pst8r23nVypj3X66827fl0ElBj7VHOT6 /cmcHAA==
-X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250801001004.1859976-8-samitolvanen@google.com>
-Subject: [PATCH bpf-next v14 3/3] arm64/cfi,bpf: Support kCFI + BPF on arm64
-From: Sami Tolvanen <samitolvanen@google.com>
-To: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+        d=1e100.net; s=20230601; t=1754013411; x=1754618211;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=73dgZbebrLU8zYg1FAZPFQA33fxb43EZn3LSBSzNaM8=;
+        b=EVYS83n1ohnhJrJiCPGocPiawFa+LBrfG9SGSGSwHTynRNj6HSmaIA5TjSA5DT+KCQ
+         W3glhXsPWgXK1IgNuM6ERyXsOofWB5d3DrYL8HuTe/xdgBK8FRBQm6hthypX92fahSWK
+         YGgyyYx+9vXSlHUtSfqi89h0v4mZGqRAPCCvu2TL+zxrxzFIB8ofcOP/yydGtHRzZAJU
+         8x+5SpFW2d/7yQDthUHyhqgRKxOKP5mdV4ehIOLWR9Lng6Yu932sOOral4KBdguXO0uj
+         Vzsa/1y0G5VM8dDWcoJ3TI0ZAXpQ+cuctm1PgxdeAiCVPKkOwTolntraqnFh+Zzgz3yL
+         ne/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXpjotYFiA+SadZfLN77B9AxP4lwiTkyfpoSE0PjkzFIoMBaTk2zqTvwNgRi+5lZ1RwCGvOyZgJCyhJUkIrEe9t@lists.infradead.org
+X-Gm-Message-State: AOJu0YzD3idcEPTBdt+cjXimf9xVg78pdHaQ4t4QBiJXFnhoGbB8pxlJ
+	sHcbPmTzads4ZEPLsys3ThF+xMQNQ01WqUj/sSZaBvyAAzjbw5HW9uyA/u7C+vb030j3rdQVzm2
+	L0PRr8KVzR+lUGAGe8f3kj5MbNmW5cu6VngjiOj65
+X-Gm-Gg: ASbGnctt1MQZeC3IEFMU51qL5CvN1efpNwP5YJUfCHaol3JDSCwb8Iclghxc8cnb7Zd
+	V+2p1cJgPNMgc44ZFP0xaAJXbk6nyyEELrFVU2vjDeHzl+RIgmAzveTDgH323NHcAJxmWlygL4C
+	LeGc9SLsAO64QOot8Lvf3AJvlRznBJDIPaanuI6VsKHyqRUvZzo+heeUC3u9yJUamSYWOahJZmr
+	NpOGuMHqy3zK00oV5LDQoN09taZmQgApf2b/g==
+X-Google-Smtp-Source: AGHT+IGvZgypmLXLSq3N1f77JjImJFtH643iQZJ6JC8/AqrHkOHoDRMIuJnZGr/f0hMyS1/ZxzAo17cEHgxEVEja0es=
+X-Received: by 2002:a17:902:d490:b0:240:48f4:40fd with SMTP id
+ d9443c01a7336-2422a435a05mr1308475ad.19.1754013410954; Thu, 31 Jul 2025
+ 18:56:50 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250611104844.245235-1-steven.price@arm.com> <20250611104844.245235-20-steven.price@arm.com>
+In-Reply-To: <20250611104844.245235-20-steven.price@arm.com>
+From: Vishal Annapurve <vannapurve@google.com>
+Date: Thu, 31 Jul 2025 18:56:38 -0700
+X-Gm-Features: Ac12FXzyEE-6rAkSbBh6dTxzQhEIIz_vo5j0_DPiuqgwWpPvKvjM24zs36qca7o
+Message-ID: <CAGtprH-on3JdsHx-DyjN_z_5Z6HJoSQjJpA5o5_V6=rygMSbtQ@mail.gmail.com>
+Subject: Re: [PATCH v9 19/43] arm64: RME: Allow populating initial contents
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Maxwell Bland <mbland@motorola.com>, Puranjay Mohan <puranjay12@gmail.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Dao Huang <huangdao1@oppo.com>
+	Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_011022_457053_547588F3 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20250731_185652_711468_6FDBFF2E 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,136 +103,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Puranjay Mohan <puranjay12@gmail.com>
-
-Currently, bpf_dispatcher_*_func() is marked with `__nocfi` therefore
-calling BPF programs from this interface doesn't cause CFI warnings.
-
-When BPF programs are called directly from C: from BPF helpers or
-struct_ops, CFI warnings are generated.
-
-Implement proper CFI prologues for the BPF programs and callbacks and
-drop __nocfi for arm64. Fix the trampoline generation code to emit kCFI
-prologue when a struct_ops trampoline is being prepared.
-
-Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
-Co-developed-by: Maxwell Bland <mbland@motorola.com>
-Signed-off-by: Maxwell Bland <mbland@motorola.com>
-Co-developed-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Tested-by: Dao Huang <huangdao1@oppo.com>
-Acked-by: Will Deacon <will@kernel.org>
----
- arch/arm64/include/asm/cfi.h  |  7 +++++++
- arch/arm64/net/bpf_jit_comp.c | 30 +++++++++++++++++++++++++++---
- 2 files changed, 34 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/include/asm/cfi.h
-
-diff --git a/arch/arm64/include/asm/cfi.h b/arch/arm64/include/asm/cfi.h
-new file mode 100644
-index 000000000000..ab90f0351b7a
---- /dev/null
-+++ b/arch/arm64/include/asm/cfi.h
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_CFI_H
-+#define _ASM_ARM64_CFI_H
-+
-+#define __bpfcall
-+
-+#endif /* _ASM_ARM64_CFI_H */
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 97dfd5432809..52ffe115a8c4 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -10,6 +10,7 @@
- #include <linux/arm-smccc.h>
- #include <linux/bitfield.h>
- #include <linux/bpf.h>
-+#include <linux/cfi.h>
- #include <linux/filter.h>
- #include <linux/memory.h>
- #include <linux/printk.h>
-@@ -114,6 +115,14 @@ static inline void emit(const u32 insn, struct jit_ctx *ctx)
- 	ctx->idx++;
- }
- 
-+static inline void emit_u32_data(const u32 data, struct jit_ctx *ctx)
-+{
-+	if (ctx->image != NULL && ctx->write)
-+		ctx->image[ctx->idx] = data;
-+
-+	ctx->idx++;
-+}
-+
- static inline void emit_a64_mov_i(const int is64, const int reg,
- 				  const s32 val, struct jit_ctx *ctx)
+On Wed, Jun 11, 2025 at 3:59=E2=80=AFAM Steven Price <steven.price@arm.com>=
+ wrote:
+>
+> +static int realm_create_protected_data_page(struct realm *realm,
+> +                                           unsigned long ipa,
+> +                                           kvm_pfn_t dst_pfn,
+> +                                           kvm_pfn_t src_pfn,
+> +                                           unsigned long flags)
+> +{
+> +       unsigned long rd =3D virt_to_phys(realm->rd);
+> +       phys_addr_t dst_phys, src_phys;
+> +       bool undelegate_failed =3D false;
+> +       int ret, offset;
+> +
+> +       dst_phys =3D __pfn_to_phys(dst_pfn);
+> +       src_phys =3D __pfn_to_phys(src_pfn);
+> +
+> +       for (offset =3D 0; offset < PAGE_SIZE; offset +=3D RMM_PAGE_SIZE)=
  {
-@@ -174,6 +183,12 @@ static inline void emit_bti(u32 insn, struct jit_ctx *ctx)
- 		emit(insn, ctx);
- }
- 
-+static inline void emit_kcfi(u32 hash, struct jit_ctx *ctx)
-+{
-+	if (IS_ENABLED(CONFIG_CFI_CLANG))
-+		emit_u32_data(hash, ctx);
-+}
-+
- /*
-  * Kernel addresses in the vmalloc space use at most 48 bits, and the
-  * remaining bits are guaranteed to be 0x1. So we can compose the address
-@@ -503,7 +518,6 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	const u8 arena_vm_base = bpf2a64[ARENA_VM_START];
- 	const u8 priv_sp = bpf2a64[PRIVATE_SP];
- 	void __percpu *priv_stack_ptr;
--	const int idx0 = ctx->idx;
- 	int cur_offset;
- 
- 	/*
-@@ -529,6 +543,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	 *
- 	 */
- 
-+	emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
-+	const int idx0 = ctx->idx;
-+
- 	/* bpf function may be invoked by 3 instruction types:
- 	 * 1. bl, attached via freplace to bpf prog via short jump
- 	 * 2. br, attached via freplace to bpf prog via long jump
-@@ -2146,9 +2163,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		jit_data->ro_header = ro_header;
- 	}
- 
--	prog->bpf_func = (void *)ctx.ro_image;
-+	prog->bpf_func = (void *)ctx.ro_image + cfi_get_offset();
- 	prog->jited = 1;
--	prog->jited_len = prog_size;
-+	prog->jited_len = prog_size - cfi_get_offset();
- 
- 	if (!prog->is_func || extra_pass) {
- 		int i;
-@@ -2527,6 +2544,12 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
- 	/* return address locates above FP */
- 	retaddr_off = stack_size + 8;
- 
-+	if (flags & BPF_TRAMP_F_INDIRECT) {
-+		/*
-+		 * Indirect call for bpf_struct_ops
-+		 */
-+		emit_kcfi(cfi_get_func_hash(func_addr), ctx);
-+	}
- 	/* bpf trampoline may be invoked by 3 instruction types:
- 	 * 1. bl, attached to bpf prog or kernel function via short jump
- 	 * 2. br, attached to bpf prog or kernel function via long jump
-@@ -3045,6 +3068,7 @@ void bpf_jit_free(struct bpf_prog *prog)
- 					   sizeof(jit_data->header->size));
- 			kfree(jit_data);
- 		}
-+		prog->bpf_func -= cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
- 		priv_stack_ptr = prog->aux->priv_stack_ptr;
--- 
-2.50.1.565.gc32cd1483b-goog
+> +               ret =3D realm_create_protected_data_granule(realm,
+> +                                                         ipa,
+> +                                                         dst_phys,
+> +                                                         src_phys,
+> +                                                         flags);
+> +               if (ret)
+> +                       goto err;
+> +
+> +               ipa +=3D RMM_PAGE_SIZE;
+> +               dst_phys +=3D RMM_PAGE_SIZE;
+> +               src_phys +=3D RMM_PAGE_SIZE;
+> +       }
+> +
+> +       return 0;
+> +
+> +err:
+> +       if (ret =3D=3D -EIO) {
+> +               /* current offset needs undelegating */
+> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+> +                       undelegate_failed =3D true;
+> +       }
+> +       while (offset > 0) {
+> +               ipa -=3D RMM_PAGE_SIZE;
+> +               offset -=3D RMM_PAGE_SIZE;
+> +               dst_phys -=3D RMM_PAGE_SIZE;
+> +
+> +               rmi_data_destroy(rd, ipa, NULL, NULL);
+> +
+> +               if (WARN_ON(rmi_granule_undelegate(dst_phys)))
+> +                       undelegate_failed =3D true;
+> +       }
+> +
+> +       if (undelegate_failed) {
+> +               /*
+> +                * A granule could not be undelegated,
+> +                * so the page has to be leaked
+> +                */
+> +               get_page(pfn_to_page(dst_pfn));
 
+I would like to point out that the support for in-place conversion
+with guest_memfd using hugetlb pages [1] is under discussion.
+
+As part of the in-place conversion, the policy we are routing for is
+to avoid any "refcounts" from KVM on folios supplied by guest_memfd as
+in-place conversion works by splitting and merging folios during
+memory conversion as per discussion at LPC [2].
+
+The best way to avoid further use of this page with huge page support
+around would be either:
+1) Explicitly Inform guest_memfd of a particular pfn being in use by
+KVM without relying on page refcounts or
+2) Set the page as hwpoisoned. (Needs further discussion)
+
+This page refcounting strategy will have to be revisited depending on
+which series lands first. That being said, it would be great if ARM
+could review/verify if the series [1] works for backing CCA VMs with
+huge pages.
+
+[1] https://lore.kernel.org/kvm/cover.1747264138.git.ackerleytng@google.com=
+/
+[2] https://lpc.events/event/18/contributions/1764/
+
+> +       }
+> +
+> +       return -ENXIO;
+> +}
+> +
+> +static int populate_region(struct kvm *kvm,
+> +                          phys_addr_t ipa_base,
+> +                          phys_addr_t ipa_end,
+> +                          unsigned long data_flags)
+> +{
+> +       struct realm *realm =3D &kvm->arch.realm;
+> +       struct kvm_memory_slot *memslot;
+> +       gfn_t base_gfn, end_gfn;
+> +       int idx;
+> +       phys_addr_t ipa =3D ipa_base;
+> +       int ret =3D 0;
+> +
+> +       base_gfn =3D gpa_to_gfn(ipa_base);
+> +       end_gfn =3D gpa_to_gfn(ipa_end);
+> +
+> +       idx =3D srcu_read_lock(&kvm->srcu);
+> +       memslot =3D gfn_to_memslot(kvm, base_gfn);
+> +       if (!memslot) {
+> +               ret =3D -EFAULT;
+> +               goto out;
+> +       }
+> +
+> +       /* We require the region to be contained within a single memslot =
+*/
+> +       if (memslot->base_gfn + memslot->npages < end_gfn) {
+> +               ret =3D -EINVAL;
+> +               goto out;
+> +       }
+> +
+> +       if (!kvm_slot_can_be_private(memslot)) {
+> +               ret =3D -EPERM;
+> +               goto out;
+> +       }
+> +
+> +       while (ipa < ipa_end) {
+> +               struct vm_area_struct *vma;
+> +               unsigned long hva;
+> +               struct page *page;
+> +               bool writeable;
+> +               kvm_pfn_t pfn;
+> +               kvm_pfn_t priv_pfn;
+> +               struct page *gmem_page;
+> +
+> +               hva =3D gfn_to_hva_memslot(memslot, gpa_to_gfn(ipa));
+> +               vma =3D vma_lookup(current->mm, hva);
+> +               if (!vma) {
+> +                       ret =3D -EFAULT;
+> +                       break;
+> +               }
+> +
+> +               pfn =3D __kvm_faultin_pfn(memslot, gpa_to_gfn(ipa), FOLL_=
+WRITE,
+> +                                       &writeable, &page);
+
+Is this assuming double backing of guest memory ranges? Is this logic
+trying to simulate a shared fault?
+
+Does memory population work with CCA if priv_pfn and pfn are the same?
+I am curious how the memory population will work with in-place
+conversion support available for guest_memfd files.
+
+> +
+> +               if (is_error_pfn(pfn)) {
+> +                       ret =3D -EFAULT;
+> +                       break;
+> +               }
+> +
+> +               ret =3D kvm_gmem_get_pfn(kvm, memslot,
+> +                                      ipa >> PAGE_SHIFT,
+> +                                      &priv_pfn, &gmem_page, NULL);
+> +               if (ret)
+> +                       break;
+> +
+> +               ret =3D realm_create_protected_data_page(realm, ipa,
+> +                                                      priv_pfn,
+> +                                                      pfn,
+> +                                                      data_flags);
+> +
+> +               kvm_release_page_clean(page);
+> +
+> +               if (ret)
+> +                       break;
+> +
+> +               ipa +=3D PAGE_SIZE;
+> +       }
+> +
+> +out:
+> +       srcu_read_unlock(&kvm->srcu, idx);
+> +       return ret;
+> +}
+> +
 
