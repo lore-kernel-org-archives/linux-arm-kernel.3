@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A848FC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 21:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B04DEC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 21:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hLPwcuI4ugiXwkjg0rvMLapTACGRc+nL6mhp+Zi3zRs=; b=OerY7TveSuHR9SskEV41UXF1ad
-	5Dmr5Vmx4aCz4ppXaQvbbqBL4cwhf74QuEjoaKBmf8VLSKmxZWpsUidKLb2a16xcomdTGZq7clLqP
-	PwzkbHwbseHfp8C/h8XrwsxUqUH/yBhxSbi6BHd/+MQMaJrsjl3gcXd18ck0brdV2+i2yTX7B0Heo
-	li/+tG+TxL1DuZ5scCwh8RVbSZ+CETWrECI5nTx1qLJgcr2yxmOw4nI+07cOGYoEW0bkHGvViPbuJ
-	hexnsBRlsCiCnKC0AmYxC4e4+CMl9gULsVN13/Qz4NNpd5k3fY9PNaeriNvh8L+fY2LSAPRy+EurM
-	sEBVCkZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=8AYB3qr0rI4Q6BV8egZtLOnh5AgoD1Erm0sJ1aQRyJM=; b=PLjVkds+TzsCWG
+	7PRuyc0qafWNyG9HRfjMXulcUQzORE1qDkExOWgIGbZhFWk98YgX7UxhIFbV3fpACtOSu8THD5s0W
+	Aq7q8I50I6OMxQjBRCinLX0tm804LZhx0pDf4kkF9ZzOL0XL5Joio6OjDaT1yZ1DDDwpk+Dsa4JTv
+	dbyZaOWsnrgsk5yEDoMgD3CLWhWJWSbPJtJ2+PpGXDtmuGTUBOK5MOATjAABCEp14LmDzwXNpLjvt
+	jfcBuHYNiXUc7bN6QV5owptVdOx9pk7WpUEgSbimtmehnj76D1DJmPJcjhGsbA1iaqmlUzCQB3CRL
+	gPQvT517hgG2A1Srqdnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxFa-00000006pAC-2NNG;
-	Fri, 01 Aug 2025 21:25:14 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1uhxQa-00000006pyf-40TZ;
+	Fri, 01 Aug 2025 21:36:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxCK-00000006ouZ-0o9g
+	id 1uhxO0-00000006pj5-2RE3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 21:21:53 +0000
-Message-ID: <12e12833-3c0f-4bf2-a758-25275b48ce0b@postmarketos.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
-	s=key1; t=1754083298;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hLPwcuI4ugiXwkjg0rvMLapTACGRc+nL6mhp+Zi3zRs=;
-	b=eBXMmg4IgNgYoxpUUhPyxeDjTZe055ln/0r8qfcr287bdmPA5gekrn5JjOHhNCuuawYgHR
-	+StGYDtgs7Mr08wWH4ECB/dbGugeuY5X72izeu+wci++KnIPTyhr6PmqEF0k5I1Q9qmzUa
-	2r9eZCmuwmylDeRoXBHBNH3L6+gHjL2Q5WcTLnQSRUxRkoGNFD8lN9p2qkUp4K4RE017fw
-	n6HqQgZr61p7zrxfr6LXZHOdOrGOQ4xNGKUauAc+Fc2476CFwlDx/twnh+hkurcOup/U7f
-	RowjwMIw7YN76ZCXEG2QWilNFMDFHNadC62R/vqqAsIzMsKjQxD3H/vyD0tegQ==
-Date: Fri, 1 Aug 2025 14:21:33 -0700
+	Fri, 01 Aug 2025 21:33:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 676CAA5564D;
+	Fri,  1 Aug 2025 21:33:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ADCCC4CEE7;
+	Fri,  1 Aug 2025 21:33:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754084034;
+	bh=+pXG+/8x+eovxVFUgbrD5YQLJQEUBlpsiR9an1SRSUk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=dEJFuXVUpIXNqVnLu3QVmq4JfP26f/yuEPleAj+PZbjcPkFXJ3hNEwE+Ea33zwB3T
+	 yTebhUob6kuVT1jRDV+XIqDksoyzYfvuZgW0umz6tbStW3c4ljN3ewPd/uu2xlqEJ2
+	 00/Jj9thTraNR+PxHwC3km18lK5oP/AHunuTpBIu1MhgY1ImOGNVM/dANHT6Vuk8/T
+	 hQ0qDN6yILZxCa0Uwc0WMPwMVztv9T7mZ7ubMQQFi3nSCpArTPiQ/LM+yIHSOvbNCT
+	 YabR5DqoiFrjV40nIqngb0zKmPLUVkXvZnvUETgKjgHc+eW8CuGLkrvOn9eqSJlCEn
+	 IHSBguVjpWCeA==
+Date: Fri, 1 Aug 2025 16:33:53 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Ray Jui <ray.jui@broadcom.com>,
+	Scott Branden <scott.branden@broadcom.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: PCI: Add missing "#address-cells" to
+ interrupt controllers
+Message-ID: <20250801213353.GA3511997@bhelgaas>
 MIME-Version: 1.0
-Subject: Re: [PATCH] Input: stmpe-keypad - add STMPE1801 support
-To: Sergey Larin <cerg2010cerg2010@mail.ru>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-input@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20210618145149.10136-1-cerg2010cerg2010@mail.ru>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Paul Sajna <sajattack@postmarketos.org>
-In-Reply-To: <20210618145149.10136-1-cerg2010cerg2010@mail.ru>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250801200728.3252036-2-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_142152_383052_0C032866 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20250801_143356_754188_D922A8DA 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,229 +86,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I've been heavily testing and relying on this patch for part of a 
-device-specific-port to BlackBerry KEY2. This patch works great. I hope 
-to submit my changes upstream when they are ready. Please let me know if 
-there's anything I can do to help move this patch forward.
+On Fri, Aug 01, 2025 at 03:07:27PM -0500, Rob Herring (Arm) wrote:
+> An interrupt-controller node which is the parent provider for
+> "interrupt-map" needs an "#address-cells" property. This fixes
+> "interrupt_map" warnings in new dtc.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-https://github.com/sdm660-mainline/linux/pull/97
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-On 6/18/21 7:51 AM, Sergey Larin wrote:
-> This chip variant differs from others - it has different register
-> map and swapped rows/columns.
->
-> Signed-off-by: Sergey Larin <cerg2010cerg2010@mail.ru>
 > ---
->   drivers/input/keyboard/stmpe-keypad.c | 108 ++++++++++++++++++++------
->   1 file changed, 85 insertions(+), 23 deletions(-)
->
-> diff --git a/drivers/input/keyboard/stmpe-keypad.c b/drivers/input/keyboard/stmpe-keypad.c
-> index 7bf97285e30c..ed74578927a3 100644
-> --- a/drivers/input/keyboard/stmpe-keypad.c
-> +++ b/drivers/input/keyboard/stmpe-keypad.c
-> @@ -13,7 +13,7 @@
->   #include <linux/input/matrix_keypad.h>
->   #include <linux/mfd/stmpe.h>
->   
-> -/* These are at the same addresses in all STMPE variants */
-> +/* These are at the same addresses in all STMPE variants, except 1801 */
->   #define STMPE_KPC_COL			0x60
->   #define STMPE_KPC_ROW_MSB		0x61
->   #define STMPE_KPC_ROW_LSB		0x62
-> @@ -42,14 +42,15 @@
->   #define STMPE_KEYPAD_MAX_DEBOUNCE	127
->   #define STMPE_KEYPAD_MAX_SCAN_COUNT	15
->   
-> -#define STMPE_KEYPAD_MAX_ROWS		8
-> -#define STMPE_KEYPAD_MAX_COLS		8
-> +#define STMPE_KEYPAD_MAX_ROWS		10
-> +#define STMPE_KEYPAD_MAX_COLS		12
->   #define STMPE_KEYPAD_ROW_SHIFT		3
->   #define STMPE_KEYPAD_KEYMAP_MAX_SIZE \
->   	(STMPE_KEYPAD_MAX_ROWS * STMPE_KEYPAD_MAX_COLS)
->   
->   
->   #define STMPE1601_NUM_DATA	5
-> +#define STMPE1801_NUM_DATA	5
->   #define STMPE2401_NUM_DATA	3
->   #define STMPE2403_NUM_DATA	5
->   
-> @@ -67,6 +68,12 @@
->    * @max_rows: maximum number of rows supported
->    * @col_gpios: bitmask of gpios which can be used for columns
->    * @row_gpios: bitmask of gpios which can be used for rows
-> + * @col_regs: registers for setting column pins
-> + * @row_regs: registers for setting row pins
-> + * @data_regs: registers for reading key data
-> + * @ctrl_msb_reg: register for setting scan count
-> + * @ctrl_lsb_reg: register for setting debounce time
-> + * @cmd_reg: register for toggling scan mode
->    */
->   struct stmpe_keypad_variant {
->   	bool		auto_increment;
-> @@ -77,6 +84,18 @@ struct stmpe_keypad_variant {
->   	int		max_rows;
->   	unsigned int	col_gpios;
->   	unsigned int	row_gpios;
+> PCI maintainers, Please ack, I'll take this with the dtc update for 
+> 6.18.
+> 
+>  Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml    | 1 +
+>  .../devicetree/bindings/pci/marvell,armada-3700-pcie.yaml     | 4 ++++
+>  .../devicetree/bindings/pci/marvell,kirkwood-pcie.yaml        | 3 +++
+>  .../devicetree/bindings/pci/socionext,uniphier-pcie.yaml      | 4 ++++
+>  Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml  | 3 +++
+>  5 files changed, 15 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
+> index 5434c144d2ec..18e7981241b5 100644
+> --- a/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
+> @@ -108,6 +108,7 @@ examples:
+>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  
+>      gic: interrupt-controller {
+> +        #address-cells = <0>;
+>          interrupt-controller;
+>          #interrupt-cells = <3>;
+>      };
+> diff --git a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
+> index 68090b3ca419..8403c79634ed 100644
+> --- a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
+> @@ -42,6 +42,9 @@ properties:
+>      additionalProperties: false
+>  
+>      properties:
+> +      '#address-cells':
+> +        const: 0
 > +
-> +#define MAX_COL_REGS 3
-> +#define MAX_ROW_REGS 3
-> +#define MAX_DATA_REGS 5
+>        interrupt-controller: true
+>  
+>        '#interrupt-cells':
+> @@ -92,6 +95,7 @@ examples:
+>              reset-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>;
+>  
+>              pcie_intc: interrupt-controller {
+> +                #address-cells = <0>;
+>                  interrupt-controller;
+>                  #interrupt-cells = <1>;
+>              };
+> diff --git a/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
+> index 7be695320ddf..3d68bfbe6feb 100644
+> --- a/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
+> @@ -101,6 +101,9 @@ patternProperties:
+>          additionalProperties: false
+>  
+>          properties:
+> +          '#address-cells':
+> +            const: 0
 > +
-> +	u8 col_regs[MAX_COL_REGS];
-> +	u8 row_regs[MAX_ROW_REGS];
-> +	u8 data_regs[MAX_DATA_REGS];
-> +	u8 ctrl_msb_reg;
-> +	u8 ctrl_lsb_reg;
-> +	u8 cmd_reg;
-> +	bool read_inverted;
->   };
->   
->   static const struct stmpe_keypad_variant stmpe_keypad_variants[] = {
-> @@ -88,6 +107,29 @@ static const struct stmpe_keypad_variant stmpe_keypad_variants[] = {
->   		.max_rows		= 8,
->   		.col_gpios		= 0x000ff,	/* GPIO 0 - 7 */
->   		.row_gpios		= 0x0ff00,	/* GPIO 8 - 15 */
-> +		.col_regs		= { 0x60 },
-> +		.row_regs		= { 0x62, 0x61 },
-> +		.data_regs		= { 0x68, 0x69, 0x6a, 0x6b, 0x6c },
-> +		.ctrl_msb_reg		= 0x63,
-> +		.ctrl_lsb_reg		= 0x64,
-> +		.cmd_reg		= 0x64,
-> +		.read_inverted		= 0,
-> +	},
-> +	[STMPE1801] = {
-> +		.auto_increment		= true,
-> +		.num_data		= STMPE1801_NUM_DATA,
-> +		.num_normal_data	= 3,
-> +		.max_cols		= 10,
-> +		.max_rows		= 8,
-> +		.col_gpios		= 0x3ff00,	/* GPIO 8 - 17 */
-> +		.row_gpios		= 0x000ff,	/* GPIO 0 - 7 */
-> +		.col_regs		= { 0x31, 0x32 },
-> +		.row_regs		= { 0x30 },
-> +		.data_regs		= { 0x3a, 0x3b, 0x3c, 0x3d, 0x3e },
-> +		.ctrl_msb_reg		= 0x33,
-> +		.ctrl_lsb_reg		= 0x34,
-> +		.cmd_reg		= 0x36,
-> +		.read_inverted		= 1,
->   	},
->   	[STMPE2401] = {
->   		.auto_increment		= false,
-> @@ -98,6 +140,13 @@ static const struct stmpe_keypad_variant stmpe_keypad_variants[] = {
->   		.max_rows		= 12,
->   		.col_gpios		= 0x0000ff,	/* GPIO 0 - 7*/
->   		.row_gpios		= 0x1f7f00,	/* GPIO 8-14, 16-20 */
-> +		.col_regs		= { 0x60 },
-> +		.row_regs		= { 0x62, 0x61 },
-> +		.data_regs		= { 0x68, 0x69, 0x6a, 0x6b, 0x6c },
-> +		.ctrl_msb_reg		= 0x63,
-> +		.ctrl_lsb_reg		= 0x64,
-> +		.cmd_reg		= 0x64,
-> +		.read_inverted		= 0,
->   	},
->   	[STMPE2403] = {
->   		.auto_increment		= true,
-> @@ -108,6 +157,13 @@ static const struct stmpe_keypad_variant stmpe_keypad_variants[] = {
->   		.max_rows		= 12,
->   		.col_gpios		= 0x0000ff,	/* GPIO 0 - 7*/
->   		.row_gpios		= 0x1fef00,	/* GPIO 8-14, 16-20 */
-> +		.col_regs		= { 0x60 },
-> +		.row_regs		= { 0x62, 0x61 },
-> +		.data_regs		= { 0x68, 0x69, 0x6a, 0x6b, 0x6c },
-> +		.ctrl_msb_reg		= 0x63,
-> +		.ctrl_lsb_reg		= 0x64,
-> +		.cmd_reg		= 0x64,
-> +		.read_inverted		= 0,
->   	},
->   };
->   
-> @@ -145,11 +201,11 @@ static int stmpe_keypad_read_data(struct stmpe_keypad *keypad, u8 *data)
->   	int i;
->   
->   	if (variant->auto_increment)
-> -		return stmpe_block_read(stmpe, STMPE_KPC_DATA_BYTE0,
-> +		return stmpe_block_read(stmpe, variant->data_regs[0],
->   					variant->num_data, data);
->   
->   	for (i = 0; i < variant->num_data; i++) {
-> -		ret = stmpe_reg_read(stmpe, STMPE_KPC_DATA_BYTE0 + i);
-> +		ret = stmpe_reg_read(stmpe, variant->data_regs[i]);
->   		if (ret < 0)
->   			return ret;
->   
-> @@ -176,7 +232,9 @@ static irqreturn_t stmpe_keypad_irq(int irq, void *dev)
->   		u8 data = fifo[i];
->   		int row = (data & STMPE_KPC_DATA_ROW) >> 3;
->   		int col = data & STMPE_KPC_DATA_COL;
-> -		int code = MATRIX_SCAN_CODE(row, col, STMPE_KEYPAD_ROW_SHIFT);
-> +		int code = variant->read_inverted ?
-> +			  MATRIX_SCAN_CODE(col, row, STMPE_KEYPAD_ROW_SHIFT)
-> +			: MATRIX_SCAN_CODE(row, col, STMPE_KEYPAD_ROW_SHIFT);
->   		bool up = data & STMPE_KPC_DATA_UP;
->   
->   		if ((data & STMPE_KPC_DATA_NOKEY_MASK)
-> @@ -265,7 +323,7 @@ static int stmpe_keypad_chip_init(struct stmpe_keypad *keypad)
->   {
->   	const struct stmpe_keypad_variant *variant = keypad->variant;
->   	struct stmpe *stmpe = keypad->stmpe;
-> -	int ret;
-> +	int ret, val, i;
->   
->   	if (keypad->debounce_ms > STMPE_KEYPAD_MAX_DEBOUNCE)
->   		return -EINVAL;
-> @@ -281,33 +339,37 @@ static int stmpe_keypad_chip_init(struct stmpe_keypad *keypad)
->   	if (ret < 0)
->   		return ret;
->   
-> -	ret = stmpe_reg_write(stmpe, STMPE_KPC_COL, keypad->cols);
-> -	if (ret < 0)
-> -		return ret;
-> -
-> -	ret = stmpe_reg_write(stmpe, STMPE_KPC_ROW_LSB, keypad->rows);
-> -	if (ret < 0)
-> -		return ret;
-> +	val = keypad->cols;
-> +	i = 0;
-> +	do {
-> +		ret = stmpe_reg_write(stmpe, variant->col_regs[i++], val & 0xff);
-> +		if (ret < 0)
-> +			return ret;
-> +	} while ((val >>= 8) != 0);
->   
-> -	if (variant->max_rows > 8) {
-> -		ret = stmpe_set_bits(stmpe, STMPE_KPC_ROW_MSB,
-> -				     STMPE_KPC_ROW_MSB_ROWS,
-> -				     keypad->rows >> 8);
-> +	val = keypad->rows;
-> +	i = 0;
-> +	do {
-> +		ret = stmpe_reg_write(stmpe, variant->row_regs[i++], val & 0xff);
->   		if (ret < 0)
->   			return ret;
-> -	}
-> +	} while ((val >>= 8) != 0);
->   
-> -	ret = stmpe_set_bits(stmpe, STMPE_KPC_CTRL_MSB,
-> +	ret = stmpe_set_bits(stmpe, variant->ctrl_msb_reg,
->   			     STMPE_KPC_CTRL_MSB_SCAN_COUNT,
->   			     keypad->scan_count << 4);
->   	if (ret < 0)
->   		return ret;
->   
-> -	return stmpe_set_bits(stmpe, STMPE_KPC_CTRL_LSB,
-> -			      STMPE_KPC_CTRL_LSB_SCAN |
-> +	ret = stmpe_set_bits(stmpe, variant->ctrl_lsb_reg,
->   			      STMPE_KPC_CTRL_LSB_DEBOUNCE,
-> -			      STMPE_KPC_CTRL_LSB_SCAN |
->   			      (keypad->debounce_ms << 1));
-> +	if (ret < 0)
-> +		return ret;
+>            interrupt-controller: true
+>  
+>            '#interrupt-cells':
+> diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
+> index 638b99db0433..c07b0ed51613 100644
+> --- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
+> @@ -56,6 +56,9 @@ properties:
+>      additionalProperties: false
+>  
+>      properties:
+> +      '#address-cells':
+> +        const: 0
 > +
-> +	return stmpe_set_bits(stmpe, variant->cmd_reg,
-> +			      STMPE_KPC_CTRL_LSB_SCAN,
-> +			      STMPE_KPC_CTRL_LSB_SCAN);
->   }
->   
->   static void stmpe_keypad_fill_used_pins(struct stmpe_keypad *keypad,
+>        interrupt-controller: true
+>  
+>        '#interrupt-cells':
+> @@ -109,6 +112,7 @@ examples:
+>                          <0 0 0  4  &pcie_intc 3>;
+>  
+>          pcie_intc: interrupt-controller {
+> +            #address-cells = <0>;
+>              interrupt-controller;
+>              #interrupt-cells = <1>;
+>              interrupt-parent = <&gic>;
+> diff --git a/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml b/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
+> index 69b499c96c71..c704099f134b 100644
+> --- a/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
+> +++ b/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
+> @@ -99,6 +99,9 @@ properties:
+>      additionalProperties: false
+>  
+>      properties:
+> +      '#address-cells':
+> +        const: 0
+> +
+>        interrupt-controller: true
+>  
+>        '#interrupt-cells':
+> -- 
+> 2.47.2
+> 
 
