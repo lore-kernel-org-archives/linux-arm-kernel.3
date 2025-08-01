@@ -4,106 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E082EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB582C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0O8k8v6VkWyNLRO6LV6+X5paGC+lB8sVPMPnLlEwvd4=; b=iIXGgLf40iSkA4zJBf4ckaebjg
-	wuk8T87O+8OvamJYmUgOkb4WdUv8SS9p6uotKv3+rD8BmrSYEASrwDt8IMh8VIVv55ypZ5BaJ6HLf
-	yHPUMy+Q5o809yHMAPVbipuqj4rTZKSIUny6rIzhEOnrDx9KNPiFwXB82IjL2ySghkcS2OePxjjda
-	9x4MqxBFtPazYTFOLVPLOlRabD38f2gV03rFNai1BrRbmxqyC45pr10QeUdD2z4i79a1kFy7451ea
-	/jVFQ/T5PZI5YpBO6USAQ/0Es7CE/qt5opBi6Hz12/oKpwyNU7VCEDJW14543+uBN8SH1hcblg7J2
-	ZnAtNJmQ==;
+	bh=fuY6/HSh6y6ghHTCNicd1M2f7zD07d8qiGFWh9pxQfI=; b=EmbRxpfHfg/iBujqaw0LVyM5fd
+	jW+dULLLbZGRFNgtGoXCQiuiY7f+JQJC3+sHIZvQpqVsFNHgXxosgdq/6eZ+iWJB3XEg9lwRwl2vr
+	6Vw/b/IPkmWxEY/XI1hIZKvj/B/XnSqNMMHEvw6OfYjZYcrf1EC1anSF/Yp+eeR7IWAwHIXwKMDDG
+	EFlFuApkJDnwhCb1qB/LmZA8PnO0ReHppSm5Iqu5uusXo2S7v4WeqAi2524QV6yUovs0StyGNLuho
+	Ow712Gk0UiaQBabvVW5Zu7okdOGqAakwUbtHrRQbSwFs+TYFp2GhZCLqBzETmxMdpuuI5ksMDw9Ln
+	YiVUyIrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqjd-00000006ESa-1xea;
-	Fri, 01 Aug 2025 14:27:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uhqmC-00000006EnO-1Kn8;
+	Fri, 01 Aug 2025 14:30:28 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqZX-00000006Cwy-2TlB
+	id 1uhqjN-00000006EQq-0TJn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 14:17:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B4D776112D;
-	Fri,  1 Aug 2025 14:17:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D51AC4CEF6;
-	Fri,  1 Aug 2025 14:17:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754057842;
-	bh=/dGL8FJB2k7jmU4fx1ZjtOzHw2+joJD4qeXW5OLAM6s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Sol4L29agLL1FChmutM5z1UedXm6DKCbOi86TOYW6ti1MHvI2h+sfkuF2IQDzCzIc
-	 0Jb/yHzTZcDGQiL9q3cqK+72n4DSR6HJXqTyhAwf4CuDvTa15yv2sPUiAyh+NwjSL1
-	 G+dg8dUiqgM302SciUuZM/bL+R3RRjxbReayTAmZDVpRYaI2MrJJGLD0Sgeu9Pl/lr
-	 P9CWEsCUFYNpUc5Sjm7TIzJ0pmiq2UPC1448la1rSgKty2TzJXp3MTVSWlQiprYBmu
-	 YVPV4xbBVOvmrRqCbg83ANttEyzu7cw/zxd/MrbTmsUqFX2XosAhmQm6LHoLGNUeBj
-	 48NW5sib1Robw==
-Message-ID: <6452a85c-0b90-4c46-9685-5cd6886dca15@kernel.org>
-Date: Fri, 1 Aug 2025 16:17:17 +0200
+	Fri, 01 Aug 2025 14:27:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DE2D543A21;
+	Fri,  1 Aug 2025 14:27:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1754058450;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fuY6/HSh6y6ghHTCNicd1M2f7zD07d8qiGFWh9pxQfI=;
+	b=ZmTgxucd39smaH/63V7RsE58gOzzqQ5Y8ChKpgAh9cG91AS41UvRS9kxFs8Fj4KuJTvA6b
+	S4qm9JfQKAh7Aqn3xQzw8XXQthOl+EndZRmQqP5S5eXV2d0vEGKWjiBh2Az6Hq+dXFe3fd
+	cIC//AjIRyiCLJYZWTXIB06x9jqcnw6WJH5yfGvMmB2X3UG7zWAniVIP8WuqaZmBF0bHBw
+	179HcSPCxGV93V8ji/1GPDNBUT+6k6DkvFrv+jxE/wY5aZGycvl77q0k2fJhSfFA7+c/19
+	L5Z+U8yvTR1OPCAsf9cOpoKTjyeFy7Vd1WdSCXfkRIvihR1LEMLxPxS7/HfdrA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>,  Gregory Clement
+ <gregory.clement@bootlin.com>,  Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>,  Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  "Rafael J.
+ Wysocki" <rafael@kernel.org>,  Daniel Lezcano <daniel.lezcano@linaro.org>,
+  Zhang Rui <rui.zhang@intel.com>,  Lukasz Luba <lukasz.luba@arm.com>,
+  linux-arm-kernel@lists.infradead.org,  devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-pm@vger.kernel.org, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH] dt-binding: thermal: Convert
+ marvell,armada-ap806-thermal to DT schema
+In-Reply-To: <20250702230030.2892116-1-robh@kernel.org> (Rob Herring's message
+	of "Wed, 2 Jul 2025 18:00:29 -0500")
+References: <20250702230030.2892116-1-robh@kernel.org>
+User-Agent: mu4e 1.12.7; emacs 30.1
+Date: Fri, 01 Aug 2025 16:27:28 +0200
+Message-ID: <87qzxv5d7z.fsf@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 1/2] dt-bindings: arm:aspeed add Meta Ventura board
-To: "P.K. Lee" <pkleequanta@gmail.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, joel@jms.id.au, andrew@codeconstruct.com.au,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- patrick@stwcx.xyz
-Cc: Jerry.Lin@quantatw.com, Jason-Hsu@quantatw.com, yang.chen@quantatw.com,
- p.k.lee@quantatw.com
-References: <20250801141131.2238599-1-pkleequanta@gmail.com>
- <20250801141131.2238599-2-pkleequanta@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250801141131.2238599-2-pkleequanta@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutdefleefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduhedprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdprhgtphhtthhopehsvggsrghsthhirghnrdhhvghsshgvlhgsrghrthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpt
+ hhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrgh
+X-GND-Sasl: miquel.raynal@bootlin.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250801_072733_484774_DB19465B 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,15 +85,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 16:11, P.K. Lee wrote:
-> From: "P.K. Lee" <p.k.lee@quantatw.com>
-> 
-> Document the new compatibles used on Meta Ventura.
-> 
-> Signed-off-by: P.K. Lee <p.k.lee@quantatw.com>
+Hi Rob,
 
-So you just ignored everything I wrote?
+Sorry for the delay, I don't know why I forgot these.
 
-Best regards,
-Krzysztof
+...
+
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - marvell,armada-ap806-thermal
+> +      - marvell,armada-ap807-thermal
+> +      - marvell,armada-cp110-thermal
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    description: overheat interrupt
+> +    maxItems: 1
+> +
+> +  '#thermal-sensor-cells':
+> +    description: Cell represents the channel ID. There is one sensor per
+> +      channel. O refers to the thermal IP internal channel.
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+
+IIRC on these Marvell designs, there was one (or more, I don't remember)
+Application Processor (AP) and several Co-Processors (CP).
+
+[On the AP]
+The AP8XX overheat interrupt was not directly wired to the GIC but was
+going through another intermediate IRQ controller named SEI (System
+Error Interrupt).
+
+      Thermal overheat IRQ -> SEI -> GIC
+
+[On the CP]
+There was one interrupt controller per CP11X named ICU, which would be
+connected to the top level GIC through MSIs. The ICU was however split
+into several sub-controllers reaching different areas on the GIC.
+
+                                      MSI
+      Thermal overheat IRQ -> ICU SEI -> GIC
+
+As the OS could not guess the internal connexions, I believe we had to
+include in the bindings the parent IRQ chip we were connected to. In the
+case of the thermal over heat interrupts, they were all going through an
+SEI controller (System Error Interrupt) which, if I still remember
+correctly, was not the default parent, hence the use of
+interrupts-parent/interrupts-extended in the examples.
+
+This is all a bit cloudy in my mind, but I believe these properties
+matter and with 'additionalProperties: false' and without
+interrupts-parent/interrupts-extended allowed, a real world DT
+snippet would not pass the binding checks.
+
+> +examples:
+> +  - |
+> +    thermal-sensor@80 {
+> +        compatible =3D "marvell,armada-ap806-thermal";
+> +        reg =3D <0x80 0x10>;
+> +        interrupts =3D <18>;
+
+I do not know how accurate the example must be, but maybe the example
+shall reflect the SEI connection as well.
+
+> +        #thermal-sensor-cells =3D <1>;
+> +    };
+
+Thanks,
+Miqu=C3=A8l
 
