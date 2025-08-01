@@ -4,103 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BC0C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 19:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E60C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 20:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AyIY9+7qRYH18QG3yHqvpWY8fQNePxyU0Y1cLmmOWtc=; b=VfCw9x58QPBXo2hJSpbuVtUNHf
-	9nI/gdfsqUca3ORWFjHsHE43mJEgbYynQ+1z5ta2YhOCi7PvdZ5a8CgCcl/Vu7bhGAWsDg/AVVkrp
-	zPJCORPRBYhMURz5RN4PN9ze0suwbq2osI0kkThW6oG55jqzYVYj4+SuLrMa2NCRPvdgnQyoA/Peo
-	ZNln/qWJuHRyt25Nkj/st/TUURXMtq9CwTxySB1a4v+oF7X7Kv/SK6KKfNUjfbIUKfEuudQfonukc
-	BjCvTFZ1QpYZq7lhltH3eqmGXKxmMHlLBdOI7VXuKqIueK164pq2ZYxN/rc9EIm0i9VqjqmHWkF0/
-	otT45Mmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c95SO1fHz9K24mtQ9wxAd9VJTGRZd8tCH+aRoccaHis=; b=dcVS+vkYzMzHHM6Du3L6iEwOPD
+	mnuBUfLUDMLP6fmzvxu8OSX1sdC8DKiqLlK81pqETGPK1LYzGG7OcTeoxnczkyYvBSSlhCvcZaUwX
+	EpD+xOI5QaAbCorI70cDqgvH9PJa1nsEYEuLd7eexBce5faqfqq1WvuRMwNICKWA5A2CsTAkNcD1/
+	TficrMvZhAhw5ykArQxyPV84E1z5jdN99rMoEMafmNavXFQF/8v0ElaIuthpz6lwhkM2PtY1DGUu4
+	TQH4hWU9MgRNz06PrXm+SgDeiF9Trnu2uYQJW41mUnijYGEvAxP4fBGqwmFVwwpFwFA8FnfGcsRn3
+	LBRoQMgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhv1E-00000006fBN-0bnA;
-	Fri, 01 Aug 2025 19:02:16 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1uhvzF-00000006iqa-1EHM;
+	Fri, 01 Aug 2025 20:04:17 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhuyb-00000006evP-0fLr
+	id 1uhvwg-00000006ikz-074R
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 18:59:34 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4aeea691687so13754251cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 11:59:32 -0700 (PDT)
+	Fri, 01 Aug 2025 20:01:39 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-24070ef9e2eso33935ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 13:01:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1754074772; x=1754679572; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=AyIY9+7qRYH18QG3yHqvpWY8fQNePxyU0Y1cLmmOWtc=;
-        b=QTIAF2qBWlCCLIugPIx39PhlM+Gbp0IujKxXBBWBUhxaXX1zX+A1EtM2dV0kxRWEnZ
-         lYQQ/pDbHUGVbshghIM0aV6pjLUcqpxfrgTzlLiARxM8YRl0mUkxwgc7zF4jnJhDTCXY
-         nGtcftXnVx6c96gae1PSNG/30ksy2DA6G308dEZjKW1Hr+eTmrNZoylo3AiqxN8B7pUZ
-         7nyiDQ3VHRJJjQ5TtdEXj8XsJy8r6BHdzX4+X779/Aysgfen0KZg0LZQ+vJqsynIWmEE
-         fn9m95DuveyJPDwmcO6BQpauCHTCTpP1xTY2DAyxq1Mf1Y6EYLYHOp9oedZ6SCHdg4Qf
-         pFpA==
+        d=google.com; s=20230601; t=1754078496; x=1754683296; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c95SO1fHz9K24mtQ9wxAd9VJTGRZd8tCH+aRoccaHis=;
+        b=v8pgf8/d+30oa/deIR9MU6gj7JIAKEGMT2xLvQ0Gb1OakVODXVUSbU8cfoh1S0eq2c
+         wISRCGSF9MZ8Aih+Epv0awvcz9KSBYRDZimEllhGKUPZQV3vBQup6dHA+M/6Vd6jrCU1
+         Upk6hvUrZdyBs/mc5yGBH/zPCZh6fYQj7sUfP2TGZYvlF6ay3syo0TSLpzrpKLe7VAlZ
+         Wi/0CstZuUTKogXUWTTgWzIUXddPQnxnzrGqCUQRlM6IjWzMHiPbhgIQl98hFUIWAW6I
+         WO40gdvkj2hiI1Na4DR1LyL918AF7deDTkxG24RtgRJd9YsTUKtsvSTEhA6OoPOhJQqG
+         TZvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754074772; x=1754679572;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AyIY9+7qRYH18QG3yHqvpWY8fQNePxyU0Y1cLmmOWtc=;
-        b=G9f3DZ7PLUaOJkhs45wXeLU7rTVuMkUGixyaWuXboi2C3HfWER8PQhvSwfgUFReR+E
-         WMUVn/bRNVfaBI4gKA2CCzhOZgsH+2nz1ZApdSQlgZ4wKt9GYFlVYkVNX56elvBznFFN
-         Nv0wzKU/kj1drwin3jvSKiXPooX5UGnyj7eeTbDUfoc28KnSMhpSczRet3cYGKSyWMYB
-         jcGsk7y4KvbUvMozMoP5/lJ5dCGH2UbQCAu4ibQxdmXur/cAKe/ehzddztoEp5WfF4In
-         Gsz9xm6cfg30TCmr6FnkCymunGedtlgTZpbTildpAMrxNRvTKr5KC/akG9TVC4Lmtaww
-         9wzA==
-X-Forwarded-Encrypted: i=1; AJvYcCV4bt6pZ/dLffGYMZfum+Fj7dwqLkuTL8Lz/9vmLeNCxbYlHZGyqrit9kE6B1j6vAy1QWraiareaHw6NKAIQwFA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzt0x3BWVjK+Dtk/TGDPFdmfs0LqvxAdyDgS0YSSnt0CHDptj51
-	ky8u8Hbxi6PCzSgQSeD9xG9uRfSD8VVUUQJuAMFlJWCEfRJ6Eb6vg/dBajry28oUUQs=
-X-Gm-Gg: ASbGncuFgkGcEeRAubmzmjmJxLX5/uZaVc9rpprZ0lfLcLCYtWty7G9t8MlkU1vi+xW
-	B57wDgbQGHx9+vHNasIYHaSRVwptFHMOOiCLvaEusaMigYGNVczpJOVPwtZi/uGkX3jQc4jpE2z
-	kbkmu1Ly43dazvFCoiYIuZ5SWb9HlSCE3RF57j/4Cg6OVLM5ZHNbj7uG0HGjcNWD3hTjGBPsHXe
-	qiSHjckFhTL74j8GeE7cVphB5v2k/WSxpwwm8FgCU4peShD2NolJXG08GSKGF9dEtZBuDZ95gyj
-	1dGeWLnD2oSi+iq0AFsxUd+nebbpoiSEqDkDB/v9pfDsw9OH2StCpg+xodc3J+ZXXJZCDXma7yK
-	91uH/7yFsTcEL3olXAKUKUn76aLcbBo8X2KAntbDp6e+1iF7EasGAM/AmUwxRVqp3peC3
-X-Google-Smtp-Source: AGHT+IHvW1P/vYfLuQdieKRLav2sj0iL8HcBFcWOObvqQ/GoW+Jjhx1hxhp1NE0qHlpxeA4ab2Hb6w==
-X-Received: by 2002:a05:622a:15c2:b0:4ab:887c:8b with SMTP id d75a77b69052e-4af10a88ee3mr13217181cf.42.1754074771752;
-        Fri, 01 Aug 2025 11:59:31 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4aeeed670c6sm24010891cf.37.2025.08.01.11.59.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Aug 2025 11:59:31 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1uhuyY-000000014Fy-2vCk;
-	Fri, 01 Aug 2025 15:59:30 -0300
-Date: Fri, 1 Aug 2025 15:59:30 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
-Message-ID: <20250801185930.GH26511@ziepe.ca>
-References: <20250728175316.3706196-1-smostafa@google.com>
- <20250728175316.3706196-30-smostafa@google.com>
- <20250730144253.GM26511@ziepe.ca>
- <aIo1ImP7R7VhRpVE@google.com>
- <20250730164752.GO26511@ziepe.ca>
- <aIt67bOzp6XS_yO-@google.com>
- <20250731165757.GZ26511@ziepe.ca>
- <aIurlx5QzEtjpFLd@google.com>
+        d=1e100.net; s=20230601; t=1754078496; x=1754683296;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c95SO1fHz9K24mtQ9wxAd9VJTGRZd8tCH+aRoccaHis=;
+        b=ljalHReWFzep6llDgjvoSVWoNETSZ1YBj5ton2RLKornDOZ6Ff3yvomWYT3WSWtl2T
+         jT0wDcfbBbG67IxS12grAdnP4N36rGZJq0v994kahFDdwqbD2oB8arWZwwADqxSDr8zt
+         px9DZEPjfgX6+j0E3ooAzT7DhSP1GSEd0V4rsjbvI9mUIMleI4cxem+umF1YICzfJxsy
+         wrdQqTQ8f9CN0GLimIrMORTDsv5XDOVl+hgi33h9mDYSpjPq2ILQ0posyLMSc/vB72Qs
+         nCTv0WIoPxmY9stKr55narhQ7Iq6HUc6HiJK+Wu32v/FcMtkRFXO3ceSfm6E9w1VfDuK
+         rAkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXU108i63l65ytpNmPgZSyISXgQciuV27z11DfYz+HYtYyTiLxwMqRopFPXGmQRQyT4QTIHTnj78yVLiq3RPiM4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2vtbHHvbkBmiiXR1kqY6JM+hnPSfjsvpiCu6LF5CsR+BZm5sK
+	m4bwkE3g6yFgcEamKWrlOl5eDUwQqNemQiM5uK0Izu3MIDIXoqJioVHZJaSNpimDAHhGEB5Lvm5
+	Y+78heaYCU5Dug8Nt3DiwqZa4hr/sp4ZEzZQwf05a
+X-Gm-Gg: ASbGnctbSLqGNxatxEjF451ms92d1fiKJGccAC0Di2w2EXse78aAMUni7giXHx3ybHl
+	sI10TnDdVEv4mzZgESJWxxloeCrqUGuyqX8rpgxTywdOsgsWgr5XU1G49UiD3uU5ZQnjTYoWZ8w
+	GAipY4SFdPX36YJZZbYo1dMKSe19NjW5iswdETp5QGk1J9zytN2u9ZiLqlqbSp0VCrxNFpHQXTf
+	DPTYl8=
+X-Google-Smtp-Source: AGHT+IHuOxPllulgogwfmDjrZAE8YEK6VsCz4A2vXAP7UUNBEr6WAK+nuX9eymfhKP0sTBfL0OHu53T1yVXdOSprvqE=
+X-Received: by 2002:a17:903:1cb:b0:240:640a:c564 with SMTP id
+ d9443c01a7336-24248ba4bd4mr465995ad.3.1754078496365; Fri, 01 Aug 2025
+ 13:01:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aIurlx5QzEtjpFLd@google.com>
+References: <CALxfFW5-sXyF+K-PqZAZ7MKXkftnc1C3F59vTDhtWzk13Z3jQg@mail.gmail.com>
+ <aIdR-Rv2Oi_hyl1h@willie-the-truck>
+In-Reply-To: <aIdR-Rv2Oi_hyl1h@willie-the-truck>
+From: Seth Jenkins <sethjenkins@google.com>
+Date: Fri, 1 Aug 2025 16:01:25 -0400
+X-Gm-Features: Ac12FXxrZblMonwmtq48c65BRuJLFrKBTNPkFb_lkl0dpzEa2aBWovpnwq7QDHA
+Message-ID: <CALxfFW7ZdBhwv=978eFQuCwYSuD64Tb-SnKToN0druMwGJpCLg@mail.gmail.com>
+Subject: Re: arm64: Linear mapping is mapped at the same static virtual address
+To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: security <security@kernel.org>, Jann Horn <jannh@google.com>, 
+	Project Zero Comms <project-zero-comms@google.com>, catalin.marinas@arm.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_115933_307005_A2049FE9 
-X-CRM114-Status: GOOD (  30.50  )
+X-CRM114-CacheID: sfid-20250801_130138_068721_564D245C 
+X-CRM114-Status: GOOD (  27.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,59 +96,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 31, 2025 at 05:44:55PM +0000, Mostafa Saleh wrote:
-> > > They are not random, as part of this series the SMMUv3 driver is split
-> > > where some of the code goes to “arm-smmu-v3-common.c” which is used by
-> > > both drivers, this reduces a lot of duplication.
-> > 
-> > I find it very confusing.
-> > 
-> > It made sense to factor some of the code out so that pKVM can have
-> > it's own smmv3 HW driver, sure.
-> > 
-> > But I don't understand why a paravirtualized iommu driver for pKVM has
-> > any relation to smmuv3. Shouldn't it just be calling some hypercalls
-> > to set IDENTITY/BLOCKING?
-> 
-> Well it’s not really “paravirtualized” as virtio-iommu, this is an SMMUv3
-> driver (it uses the same binding a the smmu-v3)
++linux-arm-kernel
 
-> It re-use the same probe code, fw/hw parsing and so on (inside the kernel),
-> also re-use the same structs to make that possible. 
+Okay, given that this is already public knowledge and technically
+working-as-intended, I derestricted the bug report.
 
-I think this is not quite true, I think you have some part of the smmu driver
-bootstrap the pkvm protected driver.
+> the decision whether or not to randomize the placement of the system's
+> DRAM inside the linear map is based on the capabilities of the CPU
+> rather than how much memory is present at boot time. This change was
+> necessary because memory hotplug may result in DRAM appearing in places
+> that are not covered by the linear region at all (and therefore
+> unusable) if the decision is solely based on the memory map at boot.
 
-But then the pkvm takes over all the registers and the command queue.
+If I understand correctly, given that the PA space is already larger
+than the linear region size, it is *already* impossible to prevent
+memory hotplug from theoretically causing DRAM to appear in a place
+that the linear region does not cover. Please correct me if I'm wrong
+but it sounds like removing randomization doesn't resolve this issue,
+*and* it introduces an *exceptionally* useful exploitation
+target/primitive that makes KASLR substantially weaker than it already
+was.
 
-Are you saying the event queue is left behind for the kernel? How does
-that work if it doesn't have access to the registers?
+If we really need to support the absolute maximum amount of memory
+hotpluggable RAM and we can't sacrifice a couple GB of address space
+to enable randomization by default, maybe we could consider having a
+CONFIG option for it instead - and require that config option on
+Android GKI if it's not an option just to remove hotplug support from
+GKI entirely.
 
-So what is left of the actual *iommu subsystem* driver is just some
-pkvm hypercalls?
+Jann off-handedly suggested having a CONFIG option that says "I will
+never need more than X amount of physical RAM" which sounds reasonable
+as well.
 
-It seems more sensible to me to have a pkvm HW driver for SMMUv3 that
-is split between pkvm and kernel, that operates the HW - but is NOT an
-iommu subsystem driver
-
-Then an iommu subsystem driver that does the hypercalls, that is NOT
-connected to SMMUv3 at all.
-
-In other words you have two cleanly seperate concerns here, an "pkvm
-iommu subsystem" that lets pkvm control iommu HW - and the current
-"iommu subsystem" that lets the kernel control iommu HW. The same
-driver should not register to both.
-
-> As mentioned in the cover letter, we can also still build nesting on top of
-> this driver, and I plan to post an RFC for that, once this one is sorted.
-
-I would expect nesting to present an actual paravirtualized SMMUv3
-though, with a proper normal SMMUv3 IOMMU subystem driver. This is how
-ARM architecture is built to work, why mess it up?
-
-So my advice above seems cleaner, you have the pkvm iommu HW driver
-that turns around and presents a completely normal SMMUv3 HW API which
-is bound by the ordinately SMMUv3 iommu subsystem driver.
-
-Jason
+On Mon, Jul 28, 2025 at 6:33=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
+>
+> Hi Seth, [+Catalin]
+>
+> On Fri, Jul 25, 2025 at 01:43:57PM -0400, Seth Jenkins wrote:
+> >    On arm64, when the kernel goes to map all of physical memory into th=
+e
+> >    linear mapping, it attempts to perform some randomization within a r=
+ange
+> >    calculated via the following logic in arm64_memblock_init():
+> >            s64 range =3D linear_region_size -
+> >                    BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
+> >    On arm64 systems that use 3-level paging (such as Android), the avai=
+lable
+> >    virtual address space (linear_region_size) is smaller than the physi=
+cal
+> >    address space size supported by the CPU
+> >    (BIT(id_aa64mmfr0_parange_to_phys_shift(parange))). This means
+> >    the range is ultimately negative, no ASLR is performed at all, and t=
+he
+> >    linear mapping is placed at the same static virtual address every bo=
+ot.
+>
+> We've been aware of this limitation for a while but we've not been able
+> to improve the situation for kernels where memory hotplug is enabled
+> (and that includes the Android GKI kernel used by Pixel).
+>
+> Consequently, we gave up recently and removed the randomisation entirely
+> in 1db780bafa4c ("arm64/mm: Remove randomization of the linear map") so
+> it would be better just to discuss this on the list (linux-arm-kernel@)
+> if you have any suggestions for how we could perform the randomisation
+> effectively in this case.
+>
+> Cheers,
+>
+> Will
 
