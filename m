@@ -4,107 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8EEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 203E8C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:30:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROhyw+t7FAuJ/neKZ5R3uau4fvGt/s6iE4pUlePNK0k=; b=5ASMvCuDeMCjZOR/hSZkYqVd9q
-	3XSGB7E7AmqvnmhQQpQcRWsaXsWeVEnW59IRKkftejlELzGN7NlOQpPQjr4wvAh4247y97XgIvcgn
-	Lzoo8j+Nmr/XaI4X20vM5FCCJ6JEkA0/WfRX8xv7kxveYsaxXd4+zTzsb6APhDyNO7gE2IqWY2/Wf
-	PPJ7O52YMtJY6ljzOySc4vzm+bIAkJEx65OD6qSPOa+5uDQYly3r330Q5+lsRXMv6AYb11uDK1fUf
-	daVmpz8qKChhHczkbC9y57PEKwzcCfFkzXFzbsMN4f3y6d04CXQwoqhYMmEaDHRPcmCrs35nVrlKF
-	xHTlyOEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aOzsaXGRbHTCJm/fkLtI1bRP1MDJ9mJ9tPK5q2Dho2g=; b=BwffA9lT3FDdQrrUfJ+VUzRv4J
+	5XrsyDKv8TIKXRn44rk0jUmkk3q5AyHCY6/ys9YgjIhnnZW4uxUPhvjj3neUDa+lBYldNCRq7jAkh
+	Z8hAScIJ9gBnrdZa/9xXp37xO1q2r0RRxo3ow4ju7dW5B1pTwZ6Q8ZQ0KxGAf4GxuWjFRd3eE4oss
+	8D/Jib392hdSTEle2eRLn3cfL9BNtIx69h6ojZOqxdg/A9EO3GoBljGWcPuf5a101iPMxg/fRsVps
+	FM0o2VJDieFk7hiMcL+O4i2xjbuEfRwNhYOTYIqhltEvMHGg2+EvXMtUt7jNPcMGQ+EKDbwYIVMh4
+	qSUaROAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhm2D-00000005MVd-1Kjf;
-	Fri, 01 Aug 2025 09:26:41 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uhm5o-00000005N4F-41bA;
+	Fri, 01 Aug 2025 09:30:24 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhluY-00000005LVm-2qdj;
-	Fri, 01 Aug 2025 09:18:47 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4561607166aso13237275e9.2;
-        Fri, 01 Aug 2025 02:18:46 -0700 (PDT)
+	id 1uhm3D-00000005McG-3GXq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Aug 2025 09:27:44 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-7682560a2f2so1949487b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 02:27:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754039925; x=1754644725; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ROhyw+t7FAuJ/neKZ5R3uau4fvGt/s6iE4pUlePNK0k=;
-        b=YSbKaoDGntAwZpnJU6aUe7kbliB0tJG/pIp6SRJnd6FLbtfdsji228QAb0Zq9z1tNG
-         BELYv9sPJflbirvEkeGW2nBiygB68WUh1JSxClzPUHZ6NIegatLMG0CbaxghL11FglT8
-         lZ3SWONLIoJIKDYHNAIi/TJFyJxlk1epPKm04rTN2TEvdIKK2ycpQuik264LFj6ZSA5B
-         NnPUnTwEuzm/Ko8UnCUc57n3diUimFpcmwEUOZbOYxLzyc8ZWUV0zI2L1Pz3bjOC79zw
-         vQZChxUZu30osyrAX3NPgbeQw8eR0Wzdnebb9OD+V09xoQKS6PfX/JcOGhKWJ6qFTONd
-         Byow==
+        d=linaro.org; s=google; t=1754040463; x=1754645263; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=aOzsaXGRbHTCJm/fkLtI1bRP1MDJ9mJ9tPK5q2Dho2g=;
+        b=BYxv83gqhYKQaqaepSSqpnlCoI9QUQ3esTuO9wJ5XstzgUgDvi2wdFdevx6wIoG+vf
+         65/xyT1PJDwPnj/oz7WCOkJ+I870eY1YGXlN5+toMu8l0nAxW5v4N33S20i0Ect+23Nk
+         T8dYEbH+UwSAhf3GtXAirZflUuvXdn5YXTUZbOw6+02+VQhEy16hArd8fTAGghkVq2Jp
+         YbAuq7R+QNGvnrovAuIdECK8h0FcJtahVmz/RGOn5Phcmej+S3D/PxkoUKVIp9Kso9Qg
+         3fGsDssN5Xy7s6Ito6Mjqg97PRH/jfG5cj+VzD+DJ8amyR/E48aYryKA4HU7bADBjE6c
+         2TcA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754039925; x=1754644725;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ROhyw+t7FAuJ/neKZ5R3uau4fvGt/s6iE4pUlePNK0k=;
-        b=lK9mHbJeubvOm1mCdqDBj2g+pSoLxm0JHK+lIyJex59jbG11sm/kMLtTZsILesOxHe
-         Zx9VfN19x711u5Z2uJI1/OHe90wcpzHqlXPAJ2B/43opb2lWIaSUa9fijZBMsbii/4Xi
-         tWeXHkVEjnNncndb/29SIChZ4FsZb7sts2Tdnmd7TejajRHtCXeS0dUdMYODwMFE80Vh
-         kxGNEUO576s2T9mz+f1TgVXb2vRTa/N+Q6x7ofjIfC7Tyw3frVlI+wBVuat3RHgrdy3S
-         E9bhRuScTQLpU1pZJz0Cxh0PLZuwBJOnKcK1dgxp3wORH2hTrJC6EnIsLI1KkHR9P5RJ
-         97kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUECylbdn+MB6uYf4o0sRkwIahpPbI/kMh3wQ++xRBgTJQByL6dGOXGyaNcsuoKH8PaLzupfWIr273W8r/6OB8=@lists.infradead.org, AJvYcCXsCMmbfOH9yDMpeELXj95JxdYJBuTQTrJEHzTQjD3YTlT0dctNtG9AnBbp6LAQ+XSJizkFK8Ot3PeA2d4OUoZi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/qdG6ZAwolI+0RO5Icqhk6vw/Buo7gkg38M6e4k3VXeIaJ9D+
-	D5z9xpe113Jn8Gb4q0e9jNnYHz5unf8RfEVp9otA0HIHO750LNvsXnDWyepePA==
-X-Gm-Gg: ASbGnctVLyDoFG2tDA8PT59Hcvo46ZVE6OyTmOjkcqTq4WgVrFIzkK2yid5M9z6WyC3
-	ytrlQ8+FgWUvdZcPHjcn2EDpCGPiNTbK1o2siJi0E9DoEJZ/d38Q9PlHmOt6L2/Eb4sYV+yaEcG
-	loj82vykjtsma0jtDBVnlZ3tESbn3MmXayg/7QYnbqzZCKMISlbso1emlyMgw/HrqyJ7J3GoSM/
-	wQmLEqF1KAeey6BuZR9h88hj0nMLKlRp2Osq+SJyPEIk3YlYs9cVyo2oe5Aifn1/7pg85ybeWn+
-	YmxW9jJzQUTvjTZbSNRTPly0Z7DAVc6Nr4t/Sm3CjNnWcE33a+fR6LInVFm5j9ZKtbCL1xYian+
-	qotLWH8frWkHIPTGlXPmk6syVEN2v4yLWOYRwO1op9vTEmOJlGgP6N9qKxFbhS2gRT5moowHRXj
-	Sa9ndk+ThZ7Rv0
-X-Google-Smtp-Source: AGHT+IF0EPte8HqaVBIYXtF1RnC8Y0lOpWJbe9LERhVuYpNScsmKQadfRHJvlxBAdqbO8bu+1FMb/A==
-X-Received: by 2002:a05:600c:138e:b0:456:1824:4808 with SMTP id 5b1f17b1804b1-45892bdf9admr85140375e9.32.1754039924825;
-        Fri, 01 Aug 2025 02:18:44 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-80-181-255-224.pool80181.interbusiness.it. [80.181.255.224])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-458953787a8sm95789065e9.14.2025.08.01.02.18.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Aug 2025 02:18:44 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Tang Bin <tangbin@cmss.chinamobile.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
-	parkeryang <Parker.Yang@mediatek.com>,
-	YR Yang <yr.yang@mediatek.com>,
-	Zhang Yi <zhangyi@everest-semi.com>,
-	Fei Shao <fshao@chromium.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Alexandre Mergnat <amergnat@baylibre.com>,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [RFC RESEND PATCH 2/2] ASoC: airoha: Add AFE driver for Airoha AN7581
-Date: Fri,  1 Aug 2025 11:18:09 +0200
-Message-ID: <20250801091812.4866-3-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.50.0
-In-Reply-To: <20250801091812.4866-1-ansuelsmth@gmail.com>
-References: <20250801091812.4866-1-ansuelsmth@gmail.com>
+        d=1e100.net; s=20230601; t=1754040463; x=1754645263;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aOzsaXGRbHTCJm/fkLtI1bRP1MDJ9mJ9tPK5q2Dho2g=;
+        b=Js9MUJOPev9DPUu0VfqltbZihPlbY6iWmMe5BQ4lFKLGbXiHzisd0BI4568tc4P6c+
+         VQXwoN/wnreETtsoxWf8ALSPMqwG4MgaT2S6L3Ms5tr3DTDTyMvlWMgBpO9P5DjNcd46
+         43lLU8yqotdJFWOS1Dz9DnMsEhBe87V30nYRMFrsL7LyMuJK3Pj7vzkM1G0VFK5CXkWx
+         9uD7omT0SzttCEQFI2+VT1upYJC5NIlPgeQBIIFkMd2wosxjzlFOyRQjTbimYdSav6I8
+         lqkq/nEgq3RBlNMEi4MPwPlYPhVmfKcj62RiEFvclLXJl4RJCBoGwSYQ1MFgSQ+AO7XU
+         CSVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVAdFRhVXEf4eyaFvRQD54AUOOkgMlxTVoer29UaNK+YaKJNpjSpstuHjaAG+BZyildK8r3czo1rIGjLTHYaZ+k@lists.infradead.org
+X-Gm-Message-State: AOJu0YywlkAj0NiJuMi8w2ohH8ElfMAmukCaNSORcqD+9H9fZKf1xnmj
+	5NJePPHqNv3Ck7JUZ71EvS12D5DqMKoJwhp8+IuohAsvWwtvT+lJ8pVsWIjjyPncdA0Nuj/mcBA
+	SSxUswM8g5sm3RqeH/MEy1FyyaaEz0BozWF5EzaS96A==
+X-Gm-Gg: ASbGnctJBBKvh/2ZgezVnj0XaGu+g4X/wLk06NyJ/dFolQyLhpNeYSTsfG5TpYAN1ie
+	q1b6M6yXAOk9zprjRmNOcy/m85bK8TAHu252EJDXhhclRDRxc4f8MRnKfhDFwoN96BTVsxnXXVV
+	FOW0CvSbincupxcKGWafrMbU6EN0h9wp6yBTdDFKuv+QcuV/6b3A9PXPr59SGpnTM0EfaegBhF4
+	R1ejA==
+X-Google-Smtp-Source: AGHT+IHuKlUReo8BLBfNLWmArweL00LOxZR7uhUg6oyeIixMBD+kBAo6QhwVGBOeWx6hpJc7ym91L6wo5ave853cAD4=
+X-Received: by 2002:a05:6a00:2485:b0:74a:d2a3:80dd with SMTP id
+ d2e1a72fcca58-76bccff259dmr6577824b3a.3.1754040462719; Fri, 01 Aug 2025
+ 02:27:42 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250722081405.2947294-1-quic_jinlmao@quicinc.com>
+ <20250722081405.2947294-2-quic_jinlmao@quicinc.com> <727fa9f4-fe25-495e-9d8d-48e504fbe6b0@arm.com>
+ <20250722091425.GH3137075@e132581.arm.com> <CAJ9a7VhLLgAak_4FB=iW0izXprM4W+RsKfHUeo=XUHh9LwtUsA@mail.gmail.com>
+ <20250722140659.GI3137075@e132581.arm.com> <CAJ9a7ViUoSMV_HHKKRMhcQX=isU+feJvwCaVhu-6EBK4QXJbVg@mail.gmail.com>
+ <de702854-aca1-4c78-9555-f2139d5376af@quicinc.com> <CAJ9a7VjTYvFVz1fp2_hNkLrKBbBYkiHHyshgsVT98V8oB_bn8g@mail.gmail.com>
+ <8d6a4c97-51a3-423f-9095-74347283d71b@quicinc.com>
+In-Reply-To: <8d6a4c97-51a3-423f-9095-74347283d71b@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 1 Aug 2025 10:27:30 +0100
+X-Gm-Features: Ac12FXxb0p9qM-DmIoa1tkbL88-z9uRmiixPI8Eab6j9wjkCgT_azXgWX96JPwI
+Message-ID: <CAJ9a7VjYw5ExWV6DZBTTEWwmLmuhN0LZOFTiZq0xHekdAa41AA@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+To: Jinlong Mao <quic_jinlmao@quicinc.com>
+Cc: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Yingchao Deng <quic_yingdeng@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_021846_736411_FAA366CF 
-X-CRM114-Status: GOOD (  26.72  )
+X-CRM114-CacheID: sfid-20250801_022743_830461_50E245EB 
+X-CRM114-Status: GOOD (  36.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,613 +103,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Sound system present on Airoha AN7581 SoC. This is
-based on the mediatek AFE drivers.
+Hi,
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- sound/soc/Makefile                          |   1 +
- sound/soc/airoha/Kconfig                    |  10 +
- sound/soc/airoha/Makefile                   |   2 +
- sound/soc/airoha/an7581/Makefile            |   7 +
- sound/soc/airoha/an7581/an7581-afe-common.h |  35 ++
- sound/soc/airoha/an7581/an7581-afe-pcm.c    | 455 ++++++++++++++++++++
- sound/soc/airoha/an7581/an7581-reg.h        |  29 ++
- 7 files changed, 539 insertions(+)
- create mode 100644 sound/soc/airoha/Kconfig
- create mode 100644 sound/soc/airoha/Makefile
- create mode 100644 sound/soc/airoha/an7581/Makefile
- create mode 100644 sound/soc/airoha/an7581/an7581-afe-common.h
- create mode 100644 sound/soc/airoha/an7581/an7581-afe-pcm.c
- create mode 100644 sound/soc/airoha/an7581/an7581-reg.h
+On Thu, 31 Jul 2025 at 07:40, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
+>
+>
+>
+> On 7/28/2025 5:52 PM, Mike Leach wrote:
+> > Hi,
+> >
+> > On Wed, 23 Jul 2025 at 03:58, Jinlong Mao <quic_jinlmao@quicinc.com> wrote:
+> >>
+> >>
+> >>
+> >> On 7/22/2025 10:56 PM, Mike Leach wrote:
+> >>> On Tue, 22 Jul 2025 at 15:07, Leo Yan <leo.yan@arm.com> wrote:
+> >>>>
+> >>>> On Tue, Jul 22, 2025 at 01:00:18PM +0100, Mike Leach wrote:
+> >>>>
+> >>>> [...]
+> >>>>
+> >>>>> For a change of this magnitude to a CS component, that the ID
+> >>>>> registers will also have to change. This is a requirement of the
+> >>>>> Visible Component Architecture in the CoreSight specification.
+> >>>>> External tools cannot see the device tree.
+> >>>>>
+> >>>>> This is effectively no longer an ARM designed component, so the
+> >>>>> CoreSight specification requires that the DEVARCH register change to
+> >>>>> show qualcomm as the designer, and the architecture value change to
+> >>>>> represent this component.
+> >>>>> DEVID should be used to allow the driver to pick up parameters such as
+> >>>>> number of triggers as per the existing CTI component.
+> >>>>>
+> >>>>> If this component is Coresight compliant then the driver can use the
+> >>>>> ID registers to configure to the extended trigger architecture.
+> >>>>>
+> >>>>> With complete remapping of most of the registers, and the dropping of
+> >>>>> claim tag compatibility - which appears to be a breach of the
+> >>>>> CoreSight specification - it may be better to have a completely
+> >>>>> separate driver for this component.
+> >>>>
+> >>>> Good point. I'd like to confirm with the Qualcomm team: apart from the
+> >>>> differences in register offsets and claim bits, does this CTI module
+> >>>> have exactly the same bit layout and usage as CTI standard
+> >>>> implementation?
+> >>>>
+> >>>> If yes, then from a maintenance perspective, we probably don't want to
+> >>>> have two CTI drivers with identical register settings. It seems plausible
+> >>>> to encapsulate register access and claim logic into several functions.
+> >>>>
+> >>>>     void cti_reg_writel(u32 val, struct cti_drvdata *drvdata, bool relax);
+> >>>>     u32 cti_reg_readl(struct cti_drvdata *drvdata, bool relax);
+> >>>>     int cti_claim_device(struct cti_drvdata *drvdata);
+> >>>>     int cti_disclaim_device(struct cti_drvdata *drvdata, bool unlocked);
+> >>>>
+> >>>> Thanks,
+> >>>> Leo
+> >>>
+> >>> The CTI supports 128 triggers  - which means many more registers to
+> >>> enable / connect etc.
+> >>> I need to study the changes to determine if there are functional
+> >>> differences too.
+> >>>
+> >>> It might be feasible to divide the code into a common file and a pair
+> >>> of variants so some is reused.
+> >>>
+> >>> Mike
+> >> Thanks Mike & Leo & Suzuki.
+> >>
+> >> There is no register to show the version ID to distinguish between ARM
+> >> CTI and QCOM extended CTI.I will double confirm with internal HW team.
+> >>
+> >
+> > Can you clarify here please.
+> > The CID0-3, PID0-7, DEVARCH and DEVTYPE registers are part of the
+> > CoreSight specification for component identification.
+> > Can you confirm they are present on your component and the values they have.
+> >
+> > If they are present then the CoreSight specification requires that
+> > they be different than the standard ARM CTI.
+> >
+> > Regards
+> >
+> > Mike
+>
+> Hi Mike,
+>
+> These registers are present. I checked they are same as standard ARM
+> CTI. Like CIDR1(0xFF4), both are 0x90.
+>
+> Thanks
+> Jinlong Mao
+>
 
-diff --git a/sound/soc/Makefile b/sound/soc/Makefile
-index 462322c38aa4..a6a9f5e84bad 100644
---- a/sound/soc/Makefile
-+++ b/sound/soc/Makefile
-@@ -46,6 +46,7 @@ obj-$(CONFIG_SND_SOC)	+= codecs/
- obj-$(CONFIG_SND_SOC)	+= generic/
- obj-$(CONFIG_SND_SOC)	+= apple/
- obj-$(CONFIG_SND_SOC)	+= adi/
-+obj-$(CONFIG_SND_SOC)	+= airoha/
- obj-$(CONFIG_SND_SOC)	+= amd/
- obj-$(CONFIG_SND_SOC)	+= atmel/
- obj-$(CONFIG_SND_SOC)	+= au1x/
-diff --git a/sound/soc/airoha/Kconfig b/sound/soc/airoha/Kconfig
-new file mode 100644
-index 000000000000..01e84daba8fa
---- /dev/null
-+++ b/sound/soc/airoha/Kconfig
-@@ -0,0 +1,10 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+config SND_SOC_AN7581
-+	tristate "ASoC support for Airoha AN7581 chip"
-+	depends on ARCH_AIROHA
-+	select SND_SOC_MEDIATEK
-+	help
-+	  This adds ASoC driver for Airoha AN7581 boards
-+	  that can be used with other codecs.
-+	  Select Y if you have such device.
-+	  If unsure select "N".
-diff --git a/sound/soc/airoha/Makefile b/sound/soc/airoha/Makefile
-new file mode 100644
-index 000000000000..fef7fed384a9
---- /dev/null
-+++ b/sound/soc/airoha/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_SND_SOC_AN7581) += an7581/
-diff --git a/sound/soc/airoha/an7581/Makefile b/sound/soc/airoha/an7581/Makefile
-new file mode 100644
-index 000000000000..bf475e14096a
---- /dev/null
-+++ b/sound/soc/airoha/an7581/Makefile
-@@ -0,0 +1,7 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+# platform driver
-+snd-soc-an7581-afe-y := \
-+	an7581-afe-pcm.o
-+
-+obj-$(CONFIG_SND_SOC_AN7581) += snd-soc-an7581-afe.o
-diff --git a/sound/soc/airoha/an7581/an7581-afe-common.h b/sound/soc/airoha/an7581/an7581-afe-common.h
-new file mode 100644
-index 000000000000..d2528735b75f
---- /dev/null
-+++ b/sound/soc/airoha/an7581/an7581-afe-common.h
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * an7581-afe-common.h  --  Airoha AN7581 audio driver definitions
-+ */
-+
-+#ifndef _AN_7581_AFE_COMMON_H_
-+#define _AN_7581_AFE_COMMON_H_
-+
-+#include <sound/soc.h>
-+#include <linux/list.h>
-+#include <linux/regmap.h>
-+#include "../common/mtk-base-afe.h"
-+
-+enum {
-+	AN7581_MEMIF_DL1,
-+	AN7581_MEMIF_UL1,
-+	AN7581_MEMIF_NUM,
-+	AN7581_DAI_NUM = AN7581_MEMIF_NUM,
-+};
-+
-+enum {
-+	AN7581_IRQ_0,
-+	AN7581_IRQ_1,
-+	AN7581_IRQ_NUM,
-+};
-+
-+struct an7581_afe_private {
-+	/* dai */
-+	void *dai_priv[AN7581_DAI_NUM];
-+};
-+
-+unsigned int an7581_afe_rate_transform(struct device *dev,
-+				       unsigned int rate);
-+
-+#endif
-diff --git a/sound/soc/airoha/an7581/an7581-afe-pcm.c b/sound/soc/airoha/an7581/an7581-afe-pcm.c
-new file mode 100644
-index 000000000000..456d402ba0ed
---- /dev/null
-+++ b/sound/soc/airoha/an7581/an7581-afe-pcm.c
-@@ -0,0 +1,455 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Airoha ALSA SoC AFE platform driver for AN7581
-+ *
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/pm_runtime.h>
-+
-+#include "an7581-afe-common.h"
-+#include "an7581-reg.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
-+
-+enum {
-+	ARH_AFE_RATE_7K = 16,
-+	ARH_AFE_RATE_8K = 0,
-+	ARH_AFE_RATE_11K = 17,
-+	ARH_AFE_RATE_12K = 1,
-+	ARH_AFE_RATE_14K = 18,
-+	ARH_AFE_RATE_16K = 2,
-+	ARH_AFE_RATE_22K = 19,
-+	ARH_AFE_RATE_24K = 3,
-+	ARH_AFE_RATE_29K = 20,
-+	ARH_AFE_RATE_32K = 4,
-+	ARH_AFE_RATE_44K = 21,
-+	ARH_AFE_RATE_48K = 5,
-+	ARH_AFE_RATE_88K = 22,
-+	ARH_AFE_RATE_96K = 6,
-+	ARH_AFE_RATE_176K = 23,
-+	ARH_AFE_RATE_192K = 7,
-+	ARH_AFE_RATE_352K = 24,
-+	ARH_AFE_RATE_384K = 8,
-+};
-+
-+unsigned int an7581_afe_rate_transform(struct device *dev, unsigned int rate)
-+{
-+	switch (rate) {
-+	case 7350:
-+		return ARH_AFE_RATE_7K;
-+	case 8000:
-+		return ARH_AFE_RATE_8K;
-+	case 11025:
-+		return ARH_AFE_RATE_11K;
-+	case 12000:
-+		return ARH_AFE_RATE_12K;
-+	case 14700:
-+		return ARH_AFE_RATE_14K;
-+	case 16000:
-+		return ARH_AFE_RATE_16K;
-+	case 22050:
-+		return ARH_AFE_RATE_22K;
-+	case 24000:
-+		return ARH_AFE_RATE_24K;
-+	case 29400:
-+		return ARH_AFE_RATE_29K;
-+	case 32000:
-+		return ARH_AFE_RATE_32K;
-+	case 44100:
-+		return ARH_AFE_RATE_44K;
-+	case 48000:
-+		return ARH_AFE_RATE_48K;
-+	case 88200:
-+		return ARH_AFE_RATE_88K;
-+	case 96000:
-+		return ARH_AFE_RATE_96K;
-+	case 176400:
-+		return ARH_AFE_RATE_176K;
-+	case 192000:
-+		return ARH_AFE_RATE_192K;
-+	case 352800:
-+		return ARH_AFE_RATE_352K;
-+	case 384000:
-+		return ARH_AFE_RATE_384K;
-+	default:
-+		dev_warn(dev, "%s(), rate %u invalid, using %d!!!\n",
-+			 __func__, rate, ARH_AFE_RATE_48K);
-+		return ARH_AFE_RATE_48K;
-+	}
-+}
-+
-+static const int an7581_memif_specified_irqs[AN7581_MEMIF_NUM] = {
-+	[AN7581_MEMIF_DL1] = AN7581_IRQ_0,
-+	[AN7581_MEMIF_UL1] = AN7581_IRQ_1,
-+};
-+
-+static const struct snd_pcm_hardware an7581_afe_hardware = {
-+	.info = SNDRV_PCM_INFO_MMAP |
-+		SNDRV_PCM_INFO_INTERLEAVED |
-+		SNDRV_PCM_INFO_MMAP_VALID,
-+	.formats = SNDRV_PCM_FMTBIT_S16_LE |
-+		   SNDRV_PCM_FMTBIT_S24_LE |
-+		   SNDRV_PCM_FMTBIT_S32_LE,
-+	.period_bytes_min = 512,
-+	.period_bytes_max = 128 * 1024,
-+	.periods_min = 2,
-+	.periods_max = 256,
-+	.buffer_bytes_max = 256 * 1024,
-+	.fifo_size = 0,
-+};
-+
-+static int an7581_memif_fs(struct snd_pcm_substream *substream,
-+			   unsigned int rate)
-+{
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct snd_soc_component *component = snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
-+	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
-+
-+	return an7581_afe_rate_transform(afe->dev, rate);
-+}
-+
-+static int an7581_irq_fs(struct snd_pcm_substream *substream,
-+			 unsigned int rate)
-+{
-+	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
-+	struct snd_soc_component *component = snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
-+	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
-+
-+	return an7581_afe_rate_transform(afe->dev, rate);
-+}
-+
-+#define ARH_PCM_FORMATS (SNDRV_PCM_FMTBIT_S16_LE |\
-+			 SNDRV_PCM_FMTBIT_S32_LE)
-+
-+static struct snd_soc_dai_driver an7581_memif_dai_driver[] = {
-+	/* FE DAIs: memory intefaces to CPU */
-+	{
-+		.name = "DL1",
-+		.id = AN7581_MEMIF_DL1,
-+		.playback = {
-+			.stream_name = "DL1",
-+			.channels_min = 1,
-+			.channels_max = 8,
-+			.rates = SNDRV_PCM_RATE_8000_192000,
-+			.formats = ARH_PCM_FORMATS,
-+		},
-+		.ops = &mtk_afe_fe_ops,
-+	},
-+	{
-+		.name = "UL1",
-+		.id = AN7581_MEMIF_UL1,
-+		.capture = {
-+			.stream_name = "UL1",
-+			.channels_min = 1,
-+			.channels_max = 2,
-+			.rates = SNDRV_PCM_RATE_8000_192000,
-+			.formats = ARH_PCM_FORMATS,
-+		},
-+		.ops = &mtk_afe_fe_ops,
-+	},
-+};
-+static const struct snd_soc_component_driver an7581_afe_pcm_dai_component = {
-+	.name = "an7581-afe-pcm-dai",
-+};
-+
-+static const struct mtk_base_memif_data memif_data[AN7581_MEMIF_NUM] = {
-+	[AN7581_MEMIF_DL1] = {
-+		.name = "DL1",
-+		.id = AN7581_MEMIF_DL1,
-+		.reg_ofs_base = AFE_DL1_BASE,
-+		.reg_ofs_cur = AFE_DL1_CUR,
-+		.reg_ofs_end = AFE_DL1_END,
-+		.fs_reg = -1,
-+		.fs_shift = -1,
-+		.fs_maskbit = -1,
-+		.mono_reg = -1,
-+		.mono_shift = -1,
-+		.hd_reg = -1,
-+		.hd_shift = -1,
-+		.enable_reg = AFE_DAC_CON0,
-+		.enable_shift = 17,
-+		.msb_reg = -1,
-+		.msb_shift = -1,
-+		.agent_disable_reg = -1,
-+		.agent_disable_shift = -1,
-+	},
-+	[AN7581_MEMIF_UL1] = {
-+		.name = "UL1",
-+		.id = AN7581_MEMIF_UL1,
-+		.reg_ofs_base = AFE_UL1_BASE,
-+		.reg_ofs_cur = AFE_UL1_CUR,
-+		.reg_ofs_end = AFE_UL1_END,
-+		.fs_reg = -1,
-+		.fs_shift = -1,
-+		.fs_maskbit = -1,
-+		.mono_reg = -1,
-+		.mono_shift = -1,
-+		.hd_reg = -1,
-+		.hd_shift = -1,
-+		.enable_reg = AFE_DAC_CON0,
-+		.enable_shift = 1,
-+		.msb_reg = -1,
-+		.msb_shift = -1,
-+		.agent_disable_reg = -1,
-+		.agent_disable_shift = -1,
-+	},
-+};
-+
-+static const struct mtk_base_irq_data irq_data[AN7581_IRQ_NUM] = {
-+	[AN7581_IRQ_0] = {
-+		.id = AN7581_IRQ_0,
-+		.irq_cnt_reg = -1,
-+		.irq_cnt_shift = -1,
-+		.irq_cnt_maskbit = -1,
-+		.irq_en_reg = AFE_IRQ1_CON0,
-+		.irq_en_shift = 4,
-+		.irq_fs_reg = -1,
-+		.irq_fs_shift = -1,
-+		.irq_fs_maskbit = -1,
-+		.irq_clr_reg = AFE_IRQ1_CON0,
-+		.irq_clr_shift = 0,
-+	},
-+	[AN7581_IRQ_1] = {
-+		.id = AN7581_IRQ_1,
-+		.irq_cnt_reg = -1,
-+		.irq_cnt_shift = -1,
-+		.irq_cnt_maskbit = -1,
-+		.irq_en_reg = AFE_IRQ0_CON0,
-+		.irq_en_shift = 4,
-+		.irq_fs_reg = -1,
-+		.irq_fs_shift = -1,
-+		.irq_fs_maskbit = -1,
-+		.irq_clr_reg = AFE_IRQ0_CON0,
-+		.irq_clr_shift = 1,
-+	},
-+};
-+
-+static const struct regmap_config an7581_afe_regmap_config = {
-+	.reg_bits = 32,
-+	.reg_stride = 4,
-+	.val_bits = 32,
-+	.max_register = AFE_MAX_REGISTER,
-+	.num_reg_defaults_raw = ((AFE_MAX_REGISTER / 4) + 1),
-+};
-+
-+static irqreturn_t an7581_afe_irq_handler(int irq_id, void *dev)
-+{
-+	struct mtk_base_afe *afe = dev;
-+	struct mtk_base_afe_irq *irq;
-+	u32 status;
-+	u32 reg;
-+	int i;
-+
-+	regmap_read(afe->regmap, AFE_IRQ_STS, &status);
-+
-+	if (status & AFE_IRQ_STS_RECORD)
-+		reg = AFE_IRQ0_CON0;
-+	else
-+		reg = AFE_IRQ1_CON0;
-+
-+	regmap_set_bits(afe->regmap, reg, BIT(2));
-+	regmap_clear_bits(afe->regmap, reg, BIT(2));
-+
-+	regmap_set_bits(afe->regmap, reg, BIT(3));
-+	regmap_clear_bits(afe->regmap, reg, BIT(3));
-+
-+	for (i = 0; i < AN7581_MEMIF_NUM; i++) {
-+		struct mtk_base_afe_memif *memif = &afe->memif[i];
-+
-+		if (!memif->substream)
-+			continue;
-+
-+		if (memif->irq_usage < 0)
-+			continue;
-+
-+		irq = &afe->irqs[memif->irq_usage];
-+
-+		if (status & (1 << irq->irq_data->irq_clr_shift))
-+			snd_pcm_period_elapsed(memif->substream);
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int an7581_afe_runtime_suspend(struct device *dev)
-+{
-+	return 0;
-+}
-+
-+static int an7581_afe_runtime_resume(struct device *dev)
-+{
-+	return 0;
-+}
-+
-+static int an7581_dai_memif_register(struct mtk_base_afe *afe)
-+{
-+	struct mtk_base_afe_dai *dai;
-+
-+	dai = devm_kzalloc(afe->dev, sizeof(*dai), GFP_KERNEL);
-+	if (!dai)
-+		return -ENOMEM;
-+
-+	list_add(&dai->list, &afe->sub_dais);
-+
-+	dai->dai_drivers = an7581_memif_dai_driver;
-+	dai->num_dai_drivers = ARRAY_SIZE(an7581_memif_dai_driver);
-+
-+	return 0;
-+}
-+
-+typedef int (*dai_register_cb)(struct mtk_base_afe *);
-+static const dai_register_cb dai_register_cbs[] = {
-+	an7581_dai_memif_register,
-+};
-+
-+static int an7581_afe_pcm_dev_probe(struct platform_device *pdev)
-+{
-+	struct mtk_base_afe *afe;
-+	struct an7581_afe_private *afe_priv;
-+	struct device *dev;
-+	int i, irq_id, ret;
-+
-+	afe = devm_kzalloc(&pdev->dev, sizeof(*afe), GFP_KERNEL);
-+	if (!afe)
-+		return -ENOMEM;
-+	platform_set_drvdata(pdev, afe);
-+
-+	afe->platform_priv = devm_kzalloc(&pdev->dev, sizeof(*afe_priv),
-+					  GFP_KERNEL);
-+	if (!afe->platform_priv)
-+		return -ENOMEM;
-+
-+	afe_priv = afe->platform_priv;
-+	afe->dev = &pdev->dev;
-+	dev = afe->dev;
-+
-+	afe->base_addr = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(afe->base_addr))
-+		return PTR_ERR(afe->base_addr);
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	pm_runtime_get_sync(&pdev->dev);
-+
-+	afe->regmap = devm_regmap_init_mmio(&pdev->dev, afe->base_addr,
-+					    &an7581_afe_regmap_config);
-+
-+	pm_runtime_put_sync(&pdev->dev);
-+	if (IS_ERR(afe->regmap))
-+		return PTR_ERR(afe->regmap);
-+
-+
-+	mutex_init(&afe->irq_alloc_lock);
-+
-+	/* irq initialize */
-+	afe->irqs_size = AN7581_IRQ_NUM;
-+	afe->irqs = devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs),
-+				 GFP_KERNEL);
-+	if (!afe->irqs)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < afe->irqs_size; i++)
-+		afe->irqs[i].irq_data = &irq_data[i];
-+
-+	/* request irq */
-+	irq_id = platform_get_irq(pdev, 0);
-+	if (irq_id < 0)
-+		return irq_id;
-+
-+	ret = devm_request_irq(dev, irq_id, an7581_afe_irq_handler,
-+			       IRQF_TRIGGER_NONE, "asys-isr", (void *)afe);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to request irq for asys-isr\n");
-+
-+	/* init memif */
-+	afe->memif_size = AN7581_MEMIF_NUM;
-+	afe->memif = devm_kcalloc(dev, afe->memif_size, sizeof(*afe->memif),
-+				  GFP_KERNEL);
-+	if (!afe->memif)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < afe->memif_size; i++) {
-+		int sel_irq = an7581_memif_specified_irqs[i];
-+
-+		afe->memif[i].data = &memif_data[i];
-+		afe->memif[i].irq_usage = sel_irq;
-+		afe->memif[i].const_irq = 1;
-+		afe->irqs[sel_irq].irq_occupyed = true;
-+	}
-+
-+	/* init sub_dais */
-+	INIT_LIST_HEAD(&afe->sub_dais);
-+
-+	for (i = 0; i < ARRAY_SIZE(dai_register_cbs); i++) {
-+		ret = dai_register_cbs[i](afe);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "DAI register failed, i: %d\n", i);
-+	}
-+
-+	/* init dai_driver and component_driver */
-+	ret = mtk_afe_combine_sub_dai(afe);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "mtk_afe_combine_sub_dai fail\n");
-+
-+	afe->mtk_afe_hardware = &an7581_afe_hardware;
-+	afe->memif_fs = an7581_memif_fs;
-+	afe->irq_fs = an7581_irq_fs;
-+
-+	afe->runtime_resume = an7581_afe_runtime_resume;
-+	afe->runtime_suspend = an7581_afe_runtime_suspend;
-+
-+	/* register component */
-+	ret = devm_snd_soc_register_component(&pdev->dev,
-+					      &mtk_afe_pcm_platform,
-+					      NULL, 0);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot register AFE component\n");
-+
-+	ret = devm_snd_soc_register_component(afe->dev,
-+					      &an7581_afe_pcm_dai_component,
-+					      afe->dai_drivers,
-+					      afe->num_dai_drivers);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot register PCM DAI component\n");
-+
-+	return 0;
-+}
-+
-+static void an7581_afe_pcm_dev_remove(struct platform_device *pdev)
-+{
-+	pm_runtime_disable(&pdev->dev);
-+	if (!pm_runtime_status_suspended(&pdev->dev))
-+		an7581_afe_runtime_suspend(&pdev->dev);
-+}
-+
-+static const struct of_device_id an7581_afe_pcm_dt_match[] = {
-+	{ .compatible = "airoha,an7581-afe" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, an7581_afe_pcm_dt_match);
-+
-+static const struct dev_pm_ops an7581_afe_pm_ops = {
-+	RUNTIME_PM_OPS(an7581_afe_runtime_suspend,
-+		       an7581_afe_runtime_resume, NULL)
-+};
-+
-+static struct platform_driver an7581_afe_pcm_driver = {
-+	.driver = {
-+		   .name = "an7581-audio",
-+		   .of_match_table = an7581_afe_pcm_dt_match,
-+		   .pm = pm_ptr(&an7581_afe_pm_ops),
-+	},
-+	.probe = an7581_afe_pcm_dev_probe,
-+	.remove = an7581_afe_pcm_dev_remove,
-+};
-+module_platform_driver(an7581_afe_pcm_driver);
-+
-+MODULE_DESCRIPTION("Airoha SoC AFE platform driver for ALSA AN7581");
-+MODULE_LICENSE("GPL");
-diff --git a/sound/soc/airoha/an7581/an7581-reg.h b/sound/soc/airoha/an7581/an7581-reg.h
-new file mode 100644
-index 000000000000..2b14a66afa68
---- /dev/null
-+++ b/sound/soc/airoha/an7581/an7581-reg.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * an7581-reg.h  --  Airoha AN7581 audio driver reg definition
-+ */
-+
-+#ifndef _AN7581_REG_H_
-+#define _AN7581_REG_H_
-+
-+#define AFE_DAC_CON0			0x0
-+
-+#define AFE_DL1_BASE			0xa8
-+#define AFE_DL1_END			0xac
-+#define AFE_DL1_CUR			0xb0
-+
-+#define AFE_UL1_BASE			0xc4
-+#define AFE_UL1_END			0xc8
-+#define AFE_UL1_CUR			0xcc
-+
-+#define AFE_IRQ0_CON0			0xe4
-+
-+#define AFE_IRQ_STS			0xf8
-+#define  AFE_IRQ_STS_PLAY		BIT(1)
-+#define  AFE_IRQ_STS_RECORD		BIT(0)
-+
-+#define AFE_IRQ1_CON0			0x100
-+
-+#define AFE_MAX_REGISTER		AFE_IRQ1_CON0
-+
-+#endif
+This is not permitted under the CoreSight specification as the
+register mappings are different to the standard ARM CTI. Any tools
+(external debug tools, userspace scripts etc.) that use the CoreSight
+ID registers to identify components will fail to work on your device.
+
+Regards
+
+Mike
+
+> >
+> >> For extended CTI, only trigger number changes and claim logic. Other
+> >> functions are the same as ARM CTI(bit layout of the register and usage)
+> >>
+> >> Thanks
+> >> Jinlong Mao>
+> >>
+> >>
+> >
+> >
+>
+
+
 -- 
-2.50.0
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
