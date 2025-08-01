@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C275C87FDA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5AC1C87FCB
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 13:07:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ltd4Hy3tdsuA5Vc2mPQHqD/Wg7sA0TicSGOKBy5Rpk=; b=2tQtgJPDySVJ+GTZuVol6qNx9D
-	JiXeUaHvajqVdzKuZ9B5hpbFcRYvl9L9EmtrmTZ3JYJaGVkOVsWuykkCkItNJ0iz+MgXGa7DnsZ0u
-	GeM7NY5cCXY5cxY8LfZ2nufBX6TyMOX/Q8Ie6knPvxEloRojuBDTrc4D4BKC7f3TFThynHu+a4Na1
-	0GEkO913DiTYiHHr78+d/7ztBDvZXIkI1GANrZlq/6hF8bzRyOgY22G+xV8Hd45LBBRIBGvYS1xxj
-	7sMfbQbq+CbposmNb/Qc3KnLdtkV18a+zO04fQ4rExGywOfZ7ypqpsvHp723JGg6AZQpxNRxzJ082
-	/0bmVdTw==;
+	bh=UbxDDhrqIELVHBv50WKj54yTQRh1pk5Od4TiPZVyiiY=; b=i8MTnS3GubItrAiUi5CI75hqhr
+	IR2X0q1ko+apSuYxOq18ZzSDF3iB7POOubE03UufbxVlT/JTP5YbpvYomWHXxfbNhIW9dHpr2F25N
+	XX3g9gV9xLmTZsm3UrnX16nJ/lkpkF2pnZuYTnb73gJZHl0xgPEG8qyWsGgyD2KUh/blhAWeX5p6q
+	n3B9UuhNYIaL6ZJFbIWqi7vOB2Ty8rBvZknaNURJ9x2Ixc40xTNAkV62bnMD2XujrWX5hrg/irfrK
+	bbCcrIauRBg8Ka/lpi/PxmAVgqsQbSjB2nrmusPpfx7DAqNrmNro2fvZo52PdrDQBqCg5c4W+aenP
+	dgcvOOkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhpTm-000000063mj-1Nmg;
-	Fri, 01 Aug 2025 13:07:22 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uhpTn-000000063of-3dIX;
+	Fri, 01 Aug 2025 13:07:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhopf-00000005saR-2LkH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 01 Aug 2025 12:25:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+Ltd4Hy3tdsuA5Vc2mPQHqD/Wg7sA0TicSGOKBy5Rpk=; b=U4GACaKsgynZ6ANU/dUYe0WO9B
-	HqZjffV8Z+YKe7oAyOvYfE4OXc+Tp3guH5IQ3bOT/NTHN6EX3gzv88hkJEvWA1triNTC+jCVKsmuO
-	ceIbz4xWOhlCiNxRX7/HxEv4zTy6SC+JvMl8MCNHsL4MxvJOkdcwtOXwxDkucj5X4vjWhLpUDVRel
-	rUMuAxgeUQIxSuYIF6XTym15EPB10OefYNbY4r5DDq0nd1suq51reXMZr2j9Jqa5s7L2L3yA0pMHR
-	TF3yFX26DG54wZP9CI3+zV28zxdaw3orGuQ+tAvHeOD8mhFGMvbWTlPVP4Qjs7K5A7JttrigDkEa1
-	RvdLI+PQ==;
-Received: from 54-240-197-232.amazon.com ([54.240.197.232] helo=edge-m2-r3-179.e-iad50.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhopV-0000000E6LM-42Z2;
-	Fri, 01 Aug 2025 12:25:47 +0000
-Message-ID: <2700e50c6ca07b58c4a4a0c219815cf3e1319f35.camel@infradead.org>
-Subject: Re: [RFC PATCH 06/34] KVM: gunyah: Add initial Gunyah backend
- support
-From: David Woodhouse <dwmw2@infradead.org>
-To: Karim Manaouil <karim.manaouil@linaro.org>,
- linux-kernel@vger.kernel.org,  kvm@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, Steven Price <steven.price@arm.com>, Gavin Shan
- <gshan@redhat.com>, Suzuki Poulose's avatarSuzuki K Poulose
- <suzuki.poulose@arm.com>, "Usug, Ugur" <ugurus@amazon.co.uk>
-Cc: Alexander Graf <graf@amazon.com>, Alex Elder <elder@kernel.org>, Catalin
- Marinas <catalin.marinas@arm.com>, Fuad Tabba <tabba@google.com>, Joey
- Gouly <joey.gouly@arm.com>,  Jonathan Corbet <corbet@lwn.net>, Marc Zyngier
- <maz@kernel.org>, Mark Brown <broonie@kernel.org>,  Mark Rutland
- <mark.rutland@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Paolo
- Bonzini <pbonzini@redhat.com>, Prakruthi Deepak Heragu
- <quic_pheragu@quicinc.com>,  Quentin Perret <qperret@google.com>, Rob
- Herring <robh@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
- Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>, Will Deacon
- <will@kernel.org>, Haripranesh S <haripran@qti.qualcomm.com>,  Carl van
- Schaik <cvanscha@qti.qualcomm.com>, Murali Nalajala <mnalajal@quicinc.com>,
- Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>, Trilok Soni
- <tsoni@quicinc.com>, Stefan Schmidt <stefan.schmidt@linaro.org>
-Date: Fri, 01 Aug 2025 13:25:43 +0100
-In-Reply-To: <20250424141341.841734-7-karim.manaouil@linaro.org>
-References: <20250424141341.841734-1-karim.manaouil@linaro.org>
-	 <20250424141341.841734-7-karim.manaouil@linaro.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-kuiyOGxGFoDOQHVFJxGm"
-User-Agent: Evolution 3.52.3-0ubuntu1 
-MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+	id 1uhouD-00000005vzJ-1J5F
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Aug 2025 12:30:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E4FF35C64E3;
+	Fri,  1 Aug 2025 12:30:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92EE8C4CEE7;
+	Fri,  1 Aug 2025 12:30:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754051435;
+	bh=/ggtNs5ogUeCOWKk2L9VN+ED68QrwSUCjumblqjB2Xo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=R4ZyqggHDWuR+bOXski8PyPOwbafzu9eJ7h/Tg96yzHvHZRFp2UrDFKQXqXYhjVnk
+	 v10mDHCfiADKT3XQbbQfur428+DQ36J9F/wixs77a/hpnyULjK+IL+eAueVMJco6q5
+	 ut0Y8Oe/SY0eN1NxiQAdQy5fJfN5AkKyu2to3kB9999U69s8we1iySwFm5Xna5qbAY
+	 AKdqAnaBDJX0FeWAg/SUmWXIfd7VBUFWfzK2bFjDi6DPm1yQkFVd4sRsZ5+nZRdlKs
+	 G8plduAQd1eT9kRq6dVpQ+ORstVfkqXKR5ZcW03FU2qO3jDZ67sAdpD3s10PLDpZ7W
+	 XDo2LzAVUoTRw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uhou9-003C78-HR;
+	Fri, 01 Aug 2025 13:30:33 +0100
+Date: Fri, 01 Aug 2025 13:30:32 +0100
+Message-ID: <86seib6x7b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] irqchip/gic-v5: Remove IRQD_RESEND_WHEN_IN_PROGRESS for ITS IRQs
+In-Reply-To: <20250801-gic-v5-fixes-6-17-v1-3-4fcedaccf9e6@kernel.org>
+References: <20250801-gic-v5-fixes-6-17-v1-0-4fcedaccf9e6@kernel.org>
+	<20250801-gic-v5-fixes-6-17-v1-3-4fcedaccf9e6@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250801_053037_413180_36DBA828 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,143 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 01 Aug 2025 08:58:20 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> GICv5 LPI interrupts have an active state hence they cannot retrigger
+> while the IRQ is being handled.
+> 
+> Therefore setting IRQD_RESEND_WHEN_IN_PROGRESS for GICv5 ITS
+> interrupts provides no benefit and it is useless (and confusing),
+> it solves an issue that cannot happen.
 
---=-kuiyOGxGFoDOQHVFJxGm
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This doesn't read very well. How about:
 
-On Thu, 2025-04-24 at 15:13 +0100, Karim Manaouil wrote:
->=20
-> - Introduces a new Kconfig split: `CONFIG_KVM_ARM` for native support,
-> =C2=A0 and a variant for Gunyah-backed virtualization.
-> - Adds `gunyah.c`, a new arch backend file that implements the minimal
-> =C2=A0 KVM architecture callbacks and stub interfaces required by the KVM
-> =C2=A0 core to build and boot.
-> - Refactors Makefile and build rules to support mutually exclusive
-> =C2=A0 builds of `CONFIG_KVM_ARM` and `CONFIG_GUNYAH`.
-> - Introduces a dummy implementation of required KVM stubs such as:
-> =C2=A0 `kvm_arch_init_vm()`, `kvm_arch_vcpu_create()`, `kvm_age_gfn()`, e=
-tc.
+"Therefore, setting the IRQD_RESEND_WHEN_IN_PROGRESS flag on LPIs
+ is pointless, as the situation this flag caters for cannot happen".
 
-I quite like this, conceptually. I do think it's important for the
-kernel to provide a generic virtualization API regardless of the
-underlying hardware/firmware =E2=80=94 that is, after all, what an OS kerne=
-l is
-*for*. So the answer "not in KVM" is just fundamentally not realistic.
+>
+> Remove it.
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index 340640fdbdf6..9290ac741949 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -973,7 +973,6 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
+>  		irqd = irq_get_irq_data(virq + i);
+>  		irqd_set_single_target(irqd);
+>  		irqd_set_affinity_on_activate(irqd);
+> -		irqd_set_resend_when_in_progress(irqd);
+>  	}
+>  
+>  	return 0;
+> 
 
-I'd like to see fewer #ifdefs though. The model we have on x86 with
-static_calls for the AMD vs. Intel back ends seems to work out OK.
+With that,
 
-We ought to be able to come up with a model inspired by x86 where we
-allow certain methods to be provided by one of many sets of 'lowvisor'
-ops or whatever we want to call them:
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
- =E2=80=A2 Native KVM (at EL2)
- =E2=80=A2 pKVM
- =E2=80=A2 Gunyah
- =E2=80=A2 CCA
- =E2=80=A2 ... and potentially one or two others.
+	M.
 
-Currently we have completely separate work on some of those; can we
-combine at least the basic hooks/operations and come up with something
-which is minimally intrusive where each one just plugs in its own
-implementation but the KVM userspace API is as unified as possible?
-
---=-kuiyOGxGFoDOQHVFJxGm
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDgwMTEyMjU0
-M1owLwYJKoZIhvcNAQkEMSIEIOCh638+fg6HH0s6fKaXunZT8sKstrN7UYcBZ1ogkLEEMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIASdHLiVQmlr6W
-jlNNL+KtVJ+ZydQztNDdK3u1lkYjE9evUTAnQtuA9hOtD+VfuBi/e1lZinYZqLUJKDoFf96ery5i
-ACKJPCmpW4tfgkDHPPGscM6J7kKP+OIhDv5rKd/i61jXZsQQ6f1sGAcGWUluNzdrAfuB1ycvAtjr
-IEqvfmRtAN3MxORUMabjkzHuYJG5FvTSGtyYhpcMbjpBhD4/petj3DdoQvyVkH0QFnH+Fy8D5VDo
-mgbDKWmlK//4sIceKkc0dBBoLm9i2B8UsQ76oREiWM/zRcQGGuJ1tiiBx2iTucIXh91QCR/RHB0M
-SqUuSCIhPjOkt4xpv6CRr4rgNRVN1RnZto+nBaHsp6NNVht9Mxep61y3nlh5hAJ9LcGQcZOUFhir
-fSUZ1qkN3RfbsJSjrDJUpMeFi+gHECitcp1jMiFr+g+WbIfsDzFzfoOVOL4zhEpd45A3IN5+6RI8
-9FABy/Otw1m92tDtJJgvnqw0OdkqrdEZRWTBsrJg6JLdzZnNRLWDoedzEkE/LL++7PuhaSy+6BXt
-mqid7HxGosGrFHZGxxf3k1WfMxQQdiICaTOkV+O72ZEdvJ62rsnuiFZOIsw/xxAxhqGrvaMNzhWx
-syhYmPopOYx0BLpEMj2kFDO9jqHDjRt8sReAu6sl1/o5LKAWlWXxU6jmpLvSx5MAAAAAAAA=
-
-
---=-kuiyOGxGFoDOQHVFJxGm--
+-- 
+Without deviation from the norm, progress is not possible.
 
