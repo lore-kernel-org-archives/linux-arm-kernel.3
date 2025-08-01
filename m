@@ -4,99 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B241C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFADC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jiFqr0OPCqHVXSpWzCqecK/S1S4l0jHxVTGQ1xBrzUE=; b=1PBDuPrga+cJdqNlbWX3Y7Ykw6
-	79NzyOBeGGZF3MHq1ePtCx3862Isv345udJSVCxDL/meyfV11ioKbRW9jpBQAOgC298VZ53u8BEne
-	jMHGk9MO1Ew7g31iUvlmbdaJlsVmYtZI0SEIJgkuFa9zuAERdtU7CCoshIp6JbtNdP1Un/3U71nrD
-	JVW4Q4h0wq+n+NP6OsCIu3VXH0WSPvUkJDpGPpejhOus0E/9OxCNTAc8jDwJgsFKz4ir+UZjMAQFL
-	xSD0wTYxMJ7ZO4SXRgF1Z/4+0HbQYxLfDbj1aB5XSRK+auuRxB54QVsyt/5ATkqVLec7vX19gJHs4
-	vQM/Etyg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q3ut2IZtB01vlovnDAd6xUWzFbNv5v2C3DILCLpVpw0=; b=B1EdEzEsUtWKEfGC5xgKCZT3aj
+	0FHuLk5kiCUtJEPgdsPZDyE1vHnGedc6j4s/la6KdWMN5hAUJjTVG42uK4bfO4Rx5uR1ZYJpyKfJ4
+	SahQNLbvBk6RfBmvOpT9uW5hNT9zpupMVBJHJDdlwIl2bsIn7Zvrn8RuPD/FYX/Cmw2K/33Nz91ed
+	sannsTJKZdfPppesUuegbLA1OswqIZBh/9Qqfvs77dDZ2oUcfU3//fTWz+YQGY/nRkskqyKtggHlo
+	ueS7v2By+D8qCDfSbR4HWBuc17eSuTUxa/CPj7E+Nnq+O5Zoa7pHLbfjcNV6qLJc1ncZaPpsHxRX6
+	IpXAQHOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlRb-00000005Hrp-0Cmx;
-	Fri, 01 Aug 2025 08:48:51 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uhlaB-00000005Ibo-3r4q;
+	Fri, 01 Aug 2025 08:57:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlEJ-00000005GRe-3vyU
+	id 1uhlXc-00000005ITX-0VCa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 08:35:09 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3b79bddd604so988307f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 01:35:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754037306; x=1754642106; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=jiFqr0OPCqHVXSpWzCqecK/S1S4l0jHxVTGQ1xBrzUE=;
-        b=JujDWC+dnw8On80GWZFLp2xJgbH6CfcKApHRSSZZTXeWpSrzVdruaCUIlAvgaUKiMx
-         i5JeTT4QIzZvUGRzGkVWRbLUBH723Tkj0a0D5YbstXek+VVcDpDQDxYjXIpQN6YAxChN
-         7kwjmM7i2fXuzHEZoV+hdZqG/BFkpPGZps1Vj4QHEFN+rpXkbuLg7e+D35HXR1RFeRZS
-         W3wWQaXc4yK03EEX6bpoEpNzORAfm2GAQDifKaS2genw3YNGtMWG6yGozks6PC4L//EF
-         UUTLJiHP1nPL9Hh5xhNlCLf6Amyg+T3jYNnOrG7xUXNp/Q4Go2bdXbtELnE+wHLV3a6c
-         QI4g==
+	Fri, 01 Aug 2025 08:55:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1754038502;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Q3ut2IZtB01vlovnDAd6xUWzFbNv5v2C3DILCLpVpw0=;
+	b=JmK7fO+4lbwH1PUzBEhaED0EakJJ4Vn+f5RIqP7hJg0gM4A/rz0olso1OvFlrbW/8PV+dZ
+	oTQJKQGNTVAD5+gS8+eOlynFpCM64ltD4z6tkO9uTmYRIqUqeQ4cCHcDhZYk7viagsXx1R
+	eLmlHML0OCOxzdtv4ZB4CuvB5AGr074=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-452-FbzW4e8DMfqFkK0bmrRT-w-1; Fri, 01 Aug 2025 04:52:37 -0400
+X-MC-Unique: FbzW4e8DMfqFkK0bmrRT-w-1
+X-Mimecast-MFC-AGG-ID: FbzW4e8DMfqFkK0bmrRT-w_1754038356
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3b785d52c19so298094f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 01:52:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754037306; x=1754642106;
+        d=1e100.net; s=20230601; t=1754038356; x=1754643156;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jiFqr0OPCqHVXSpWzCqecK/S1S4l0jHxVTGQ1xBrzUE=;
-        b=dQlI7AmaS7nstMl6WITgtR7gIwb4Ub3hGHMP1JPGuhqdHlVGVeIsaiDtVwbxVOraQI
-         OTE5wV0xudVdKsHB3J4TD4I51apNMqlyxTUbB7VA8FuauVhIMoYIs13Ow4CJzD2WymCo
-         fBTaEVNkt0+dv8G9YwTaMtQJUSEpaEL4VHbCZt9MOvCvD54iv1nxx7swLHiRJ7H9ubzH
-         EQsa2pv0cdXyGr7exM92oGPiIC35y8OiIh0xWn3TKsRvPZeSelj9u0Sv9YjoSD7GLhSv
-         AqSX9gIfcIxWKaGVeNDTnZbYzGl1EE5awEvk/KU/XDsOD6NE5Sbcoet+vr2lIOsCgbUY
-         Rf0w==
-X-Forwarded-Encrypted: i=1; AJvYcCXPpRwf5MvzOlhW0AqzWafpRo97bNWuBOCIQFVo32nGBwkwMIIfqgAN5Yh2n5UWsPNoOjvN3m4n7LcQrIx9AqwF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYX9n3lMS2lkBFcuPDIXt3BQnzTbcLIKM+NrI38H4AOlBcVCsL
-	3EnQ2U/QpEhIMW4NH3fpNr2p5DyXh8G3J3EO62W/WQpIWr7/iDC+EvVpT1wcnFbjo5I=
-X-Gm-Gg: ASbGncuJwqhN3ulaucbGBRQBWPS8O8plszVcmRR4XQm8S5c3XlJn4ahEPbC1zsQ+RQg
-	d9sKhYJ7qXhSACfT6P3VmzzxJTL4VbVJ5X6SG6Ib9haIzllyO5yL1CnoHk9sIXakZhqO+v6/HFG
-	+hltuSUsAFSQpzbmhHNlNl45D9zuk/nm5zSuIqGfEjXxtQK9Y9MSQToD4qGaPj7w6KkwuuLZtUp
-	BJw1I4kO9tomGxjxL3HWhS9BRVKGHPjy5JYMoMyStQpTcENVrlSdJGCrkrtxaYALNgWh8c7cs9D
-	5eJIzu/Gn2cRlaL6AsfRX1WbtbsApjsAG3S7jeu0ChFa8Ri3weTxtuX0yCrrHpvKgoBF1sI95ug
-	B8F/oiCO7oTbxqI4PSIzrROkFggPMgPFJEs0kS1hbM268a1gfGIeadTNBOUBCsQ==
-X-Google-Smtp-Source: AGHT+IGS+73xkShFl6cO1Qu7hyyuX9oTyEOMrN6GMT2KH3N0L9G6LCMIuM6NsKe0gCwLrUaUqn7Ybg==
-X-Received: by 2002:a05:6000:2884:b0:3b7:99cb:16ed with SMTP id ffacd0b85a97d-3b799cb1a28mr6844043f8f.40.1754037306324;
-        Fri, 01 Aug 2025 01:35:06 -0700 (PDT)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-458953f8e02sm92820875e9.32.2025.08.01.01.35.04
+        bh=Q3ut2IZtB01vlovnDAd6xUWzFbNv5v2C3DILCLpVpw0=;
+        b=ime1fYlj3/5SftCkZpMpo2dJyzShYIT4nbHM6sEmUjXZevM7WIHEPstywLA75SsNtj
+         rJ1V/GKnmNZ4+v4+havKvEokyzaa7W/uUFEbc1vmDaJaEc1LW8qjy6LPk2VSxgHBzvBE
+         HjobPNoEWM3t0iHx8vGGVkEXa5Jlhj0ovU5vAFTnkCZwJ0A6a73pfIys77xyslMtJmbs
+         ccdOn9uil/HcHZfLpDzFDHEC/r2/oNV9t5bk3um/wel6+DFW2h5jxGGjH1e8484Lc/Vb
+         iJcDjHfjM4Wc2Q39u4iG2eUwCQUjmc1bVsZnLd7lLkraOnIiqoLOOy5cm2E0Gw31p6nS
+         gIWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWcnCHV13ENO3hNGRsE9xBxHd7W1w49aj6I6kx37xutEo0pbpu3Crl0J5Hw0BEjUB5i837QMUHWx6xQPHJCWhje@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2WCTARckfnm3Dqw30irIjx4rwZgALrKqeb9sIYtanQRYCpoeH
+	+Zglw6jDPmV/hwCt8GVMOeHS2g2B3vhH1WB0GLSjTjyv7dKw9AC+ekdBoDawsEpBahb/6YGGUjv
+	uQXAlzsPs2rx7TLasasV/9+f6sTwtZ1NwmV+1yX49oKMSA+ejzA/f61MkEFa5900h9HDeSRijbE
+	Hk
+X-Gm-Gg: ASbGncuYST/85Mzg26bIEbJY4y/FVEPLD3DbWrWxG8fkLJixC+BuRgw13LaPADb7H0V
+	9Ie2cJ04Zmpbw6gMU/9KULZmZPGCBwlCMoCf1yX1USZ9/BYRaPFlAXA88zxcMh1QSYP9lb01Mjg
+	mjMNJG6b8aLADSH8C1550tdl6eZo3KUo8Ci5uz2T4JMIEqOYoelB4QCZoYEtAosQ7fikaW0Qyvi
+	qAjAzY9rAD27TSO5WRpcK2avGtpO64ed/shMV/CUd2Rh4Me9c0xjaukgLU/Y83uInuxTcKr8oA2
+	h9E4DzdWaicq2s9U+HydrcHN09a7ghYeRPpAko0/kH4Of1QXyjKETi9ZtPijg+tPNWk2xEzc8wF
+	iziU=
+X-Received: by 2002:a05:6000:2481:b0:3b8:bb8b:6b05 with SMTP id ffacd0b85a97d-3b8bb8b6deemr3637774f8f.29.1754038355803;
+        Fri, 01 Aug 2025 01:52:35 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH0SO4q2RvFPtgA+PGMdbAXShTVcEjLgx7m1c3m1LKK7FMUDdGk4NLVg7RcdXJk4nSy5WynYA==
+X-Received: by 2002:a05:6000:2481:b0:3b8:bb8b:6b05 with SMTP id ffacd0b85a97d-3b8bb8b6deemr3637740f8f.29.1754038355055;
+        Fri, 01 Aug 2025 01:52:35 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:d5:a000:d252:5640:545:41db? ([2a01:e0a:d5:a000:d252:5640:545:41db])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c4533e6sm5323520f8f.35.2025.08.01.01.52.33
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 Aug 2025 01:35:05 -0700 (PDT)
-Message-ID: <164402ad-2762-4d6b-aa34-38ff1b506600@linaro.org>
-Date: Fri, 1 Aug 2025 10:35:04 +0200
+        Fri, 01 Aug 2025 01:52:34 -0700 (PDT)
+Message-ID: <b04db6eb-03aa-43bc-bc09-4192e2a021b8@redhat.com>
+Date: Fri, 1 Aug 2025 10:52:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] arm64: dts: s32g2: Add the STM description
-To: Frank Li <Frank.li@nxp.com>
-Cc: mbrugger@suse.com, chester62515@gmail.com,
- ghennadi.procopciuc@oss.nxp.com, shawnguo@kernel.org,
- s.hauer@pengutronix.de, s32@nxp.com, kernel@pengutronix.de,
- festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
- Thomas Fossati <thomas.fossati@linaro.org>
-References: <20250730195022.449894-1-daniel.lezcano@linaro.org>
- <20250730195022.449894-2-daniel.lezcano@linaro.org>
- <aIp+XTCSpNGee2qx@lizhi-Precision-Tower-5810>
- <5be6d858-01e1-4c2d-bd5c-0e3385251af7@linaro.org>
- <aIv6L30mf5bzUqup@lizhi-Precision-Tower-5810>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <aIv6L30mf5bzUqup@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v2] drm/panic: Add a u64 divide by 10 for arm32
+To: Andrei Lalaev <andrey.lalaev@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ Russell King <linux@armlinux.org.uk>, Paolo Bonzini <pbonzini@redhat.com>,
+ rust-for-linux <rust-for-linux@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Javier Martinez Canillas <javierm@redhat.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
+References: <20250627123854.921704-1-jfalempe@redhat.com>
+From: Jocelyn Falempe <jfalempe@redhat.com>
+In-Reply-To: <20250627123854.921704-1-jfalempe@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Nfd8S7dMEnkP3mfmgX5aPgWSQqtJbCHIjspW3nRy-Rs_1754038356
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US, fr
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_013507_985266_3C3755EB 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250801_015504_226656_D3703269 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,47 +118,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 01:20, Frank Li wrote:
-> On Wed, Jul 30, 2025 at 11:15:40PM +0200, Daniel Lezcano wrote:
+On 27/06/2025 14:38, Jocelyn Falempe wrote:
+> On 32bits ARM, u64 divided by a constant is not optimized to a
+> multiply by inverse by the compiler [1].
+> So do the multiply by inverse explicitly for this architecture.
 
-[ ... ]
+Gentle ping.
 
->>>> +			compatible = "nxp,s32g2-stm";
->>>> +			reg = <0x4011c000 0x3000>;
->>>> +			interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
->>>> +			clocks = <&clks 0x3b>, <&clks 0x3c>, <&clks 0x3c>;
->>>> +			clock-names = "counter", "module", "register";
->>>> +			status = "disabled";
->>>
->>> why not default enable.
->>
->> The S32G2 and S32G3 can have different variants with 2, 4, 8 Cortex-A53 and
->> 3 or 4 Cortex-M7. We enable the same number of CPUs present on the system.
->>
->> AFAIU:
->> 	S32G233A : 2 x Cortex-A53
->> 	S32G274A : 4 x Cortex-A53
->>
->> 	S32G399A : 8 x Cortex-A53
->> 	S32G379A : 4 x Cortex-A53
->>
->> Otherwise we would have to do the opposite, that is disable the unused ones
->> in the s32g274a-rdb2.dts, s32g399a-rdb3.dts and other dts which include the
->> s32g2.dtsi and s32g3.dtsi.
->>
-> 
-> That's fine by default disabled. but what's impact if it is enable but no
-> one use it?
 
-At the first glance I would say we call the probe function for nothing, 
-so adding an extra overhead. When repeated into multiple drivers that 
-increases the boot time significantly. It is certainly a good practice 
-as a rule of thumb to enable only the ones we really need.
+Best regards,
 
 -- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
 
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+Jocelyn
+
+> 
+> Link: https://github.com/llvm/llvm-project/issues/37280 [1]
+> Reported-by: Andrei Lalaev <andrey.lalaev@gmail.com>
+> Closes: https://lore.kernel.org/dri-devel/c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com/
+> Fixes: 675008f196ca ("drm/panic: Use a decimal fifo to avoid u64 by u64 divide")
+> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+> ---
+>   drivers/gpu/drm/drm_panic_qr.rs | 22 +++++++++++++++++++++-
+>   1 file changed, 21 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
+> index dd55b1cb764d..774a17de4f2f 100644
+> --- a/drivers/gpu/drm/drm_panic_qr.rs
+> +++ b/drivers/gpu/drm/drm_panic_qr.rs
+> @@ -381,6 +381,26 @@ struct DecFifo {
+>       len: usize,
+>   }
+>   
+> +// On arm32 architecture, dividing an `u64` by a constant will generate a call
+> +// to `__aeabi_uldivmod` which is not present in the kernel.
+> +// So use the multiply by inverse method for this architecture.
+> +fn div10(val: u64) -> u64 {
+> +    if cfg!(target_arch = "arm") {
+> +        let val_h = val >> 32;
+> +        let val_l = val & 0xFFFFFFFF;
+> +        let b_h: u64 = 0x66666666;
+> +        let b_l: u64 = 0x66666667;
+> +
+> +        let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
+> +        let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
+> +        let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
+> +
+> +        tmp3 >> 2
+> +    } else {
+> +        val / 10
+> +    }
+> +}
+> +
+>   impl DecFifo {
+>       fn push(&mut self, data: u64, len: usize) {
+>           let mut chunk = data;
+> @@ -389,7 +409,7 @@ fn push(&mut self, data: u64, len: usize) {
+>           }
+>           for i in 0..len {
+>               self.decimals[i] = (chunk % 10) as u8;
+> -            chunk /= 10;
+> +            chunk = div10(chunk);
+>           }
+>           self.len += len;
+>       }
+> 
+> base-commit: 3529cb5ab16b4f1f8bbc31dc39a1076a94bd1e38
+
 
