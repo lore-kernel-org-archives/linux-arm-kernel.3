@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E60C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 20:04:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AEAC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 20:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c95SO1fHz9K24mtQ9wxAd9VJTGRZd8tCH+aRoccaHis=; b=dcVS+vkYzMzHHM6Du3L6iEwOPD
-	mnuBUfLUDMLP6fmzvxu8OSX1sdC8DKiqLlK81pqETGPK1LYzGG7OcTeoxnczkyYvBSSlhCvcZaUwX
-	EpD+xOI5QaAbCorI70cDqgvH9PJa1nsEYEuLd7eexBce5faqfqq1WvuRMwNICKWA5A2CsTAkNcD1/
-	TficrMvZhAhw5ykArQxyPV84E1z5jdN99rMoEMafmNavXFQF/8v0ElaIuthpz6lwhkM2PtY1DGUu4
-	TQH4hWU9MgRNz06PrXm+SgDeiF9Trnu2uYQJW41mUnijYGEvAxP4fBGqwmFVwwpFwFA8FnfGcsRn3
-	LBRoQMgA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SWVba2QF+FAtEBq/LMZ5p4fhMnOvaZzmetuOniYwx8g=; b=nSRzOl97xQOkfvFN6J/yufskWp
+	MuOl8hP51ncK9HXpcMVmZHn4VSt+At2LKle7ln1wHmeeDacY2rTt35VSJjKwJsM/taXsiHFeLXd8x
+	4d01UAykxaRhzvNgiuNA76odWZCLUnWU3kPtQRsVDBKWZarr1HjIU84OQscNicC+ZI1FVwPRjPHdJ
+	dnT1BNHW8n//qdYv8T3sYcidTbuxBguV4kkD0vO9K+rOkmyKBOtFtRVA/BzkL6r2kkDNODRa/ut69
+	biapAk95DSsma/ayXI0FLg0Gm8nIzzkqRWzmoO+wOyjJDnii5MgFWTzRxvGLcpFSxDOqPq7aBUmtu
+	lJxjLOIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhvzF-00000006iqa-1EHM;
-	Fri, 01 Aug 2025 20:04:17 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uhw6S-00000006jUv-1lHx;
+	Fri, 01 Aug 2025 20:11:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhvwg-00000006ikz-074R
+	id 1uhw3s-00000006jGe-0Eno
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 20:01:39 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-24070ef9e2eso33935ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 13:01:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754078496; x=1754683296; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c95SO1fHz9K24mtQ9wxAd9VJTGRZd8tCH+aRoccaHis=;
-        b=v8pgf8/d+30oa/deIR9MU6gj7JIAKEGMT2xLvQ0Gb1OakVODXVUSbU8cfoh1S0eq2c
-         wISRCGSF9MZ8Aih+Epv0awvcz9KSBYRDZimEllhGKUPZQV3vBQup6dHA+M/6Vd6jrCU1
-         Upk6hvUrZdyBs/mc5yGBH/zPCZh6fYQj7sUfP2TGZYvlF6ay3syo0TSLpzrpKLe7VAlZ
-         Wi/0CstZuUTKogXUWTTgWzIUXddPQnxnzrGqCUQRlM6IjWzMHiPbhgIQl98hFUIWAW6I
-         WO40gdvkj2hiI1Na4DR1LyL918AF7deDTkxG24RtgRJd9YsTUKtsvSTEhA6OoPOhJQqG
-         TZvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754078496; x=1754683296;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c95SO1fHz9K24mtQ9wxAd9VJTGRZd8tCH+aRoccaHis=;
-        b=ljalHReWFzep6llDgjvoSVWoNETSZ1YBj5ton2RLKornDOZ6Ff3yvomWYT3WSWtl2T
-         jT0wDcfbBbG67IxS12grAdnP4N36rGZJq0v994kahFDdwqbD2oB8arWZwwADqxSDr8zt
-         px9DZEPjfgX6+j0E3ooAzT7DhSP1GSEd0V4rsjbvI9mUIMleI4cxem+umF1YICzfJxsy
-         wrdQqTQ8f9CN0GLimIrMORTDsv5XDOVl+hgi33h9mDYSpjPq2ILQ0posyLMSc/vB72Qs
-         nCTv0WIoPxmY9stKr55narhQ7Iq6HUc6HiJK+Wu32v/FcMtkRFXO3ceSfm6E9w1VfDuK
-         rAkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXU108i63l65ytpNmPgZSyISXgQciuV27z11DfYz+HYtYyTiLxwMqRopFPXGmQRQyT4QTIHTnj78yVLiq3RPiM4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2vtbHHvbkBmiiXR1kqY6JM+hnPSfjsvpiCu6LF5CsR+BZm5sK
-	m4bwkE3g6yFgcEamKWrlOl5eDUwQqNemQiM5uK0Izu3MIDIXoqJioVHZJaSNpimDAHhGEB5Lvm5
-	Y+78heaYCU5Dug8Nt3DiwqZa4hr/sp4ZEzZQwf05a
-X-Gm-Gg: ASbGnctbSLqGNxatxEjF451ms92d1fiKJGccAC0Di2w2EXse78aAMUni7giXHx3ybHl
-	sI10TnDdVEv4mzZgESJWxxloeCrqUGuyqX8rpgxTywdOsgsWgr5XU1G49UiD3uU5ZQnjTYoWZ8w
-	GAipY4SFdPX36YJZZbYo1dMKSe19NjW5iswdETp5QGk1J9zytN2u9ZiLqlqbSp0VCrxNFpHQXTf
-	DPTYl8=
-X-Google-Smtp-Source: AGHT+IHuOxPllulgogwfmDjrZAE8YEK6VsCz4A2vXAP7UUNBEr6WAK+nuX9eymfhKP0sTBfL0OHu53T1yVXdOSprvqE=
-X-Received: by 2002:a17:903:1cb:b0:240:640a:c564 with SMTP id
- d9443c01a7336-24248ba4bd4mr465995ad.3.1754078496365; Fri, 01 Aug 2025
- 13:01:36 -0700 (PDT)
+	Fri, 01 Aug 2025 20:09:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 728E36112D;
+	Fri,  1 Aug 2025 20:09:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 014BFC4CEF4;
+	Fri,  1 Aug 2025 20:09:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754078942;
+	bh=fw8F8QiVkdM8Joh95+oEe6ERIlYYV1zFhGgB51zRycI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WJSufQXFoUAEZZCjWBC9UGKH+EmX5KsBppVj8N0wgJiZIlj2c0SE/B6ot+wXAzjfR
+	 8c0FBs/P7OcD/RPqQVyOpmiaKgupLYB+rcf0dm4tRYo6chPIoNZzaM34Ho1yr1ojw0
+	 6L6DO6oO5rZrvRV1fWzWiHWjhZ8iy/bv02S3qKSNwSsh/Pa4Q2Qg0E/b0zTOJEMZwr
+	 Z6St/MYc0GkSJ/xhl1I+OPaIqFcdBBzbKKybMWRi2xo4UuWN4vHtLJWL92wJM9qUcS
+	 9IRHeazBA/b2/wTc3pkdJw4SqdCMkWaez/8bTr4PIKWjFC56K6F9N38t09MjTNd2Jz
+	 utKIeLrGDySuw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	=?UTF-8?q?Pali=20Roh=C3=A1r?= <pali@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Ray Jui <ray.jui@broadcom.com>,
+	Scott Branden <scott.branden@broadcom.com>,
+	linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: PCI: Add missing "#address-cells" to interrupt controllers
+Date: Fri,  1 Aug 2025 15:07:27 -0500
+Message-ID: <20250801200728.3252036-2-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-References: <CALxfFW5-sXyF+K-PqZAZ7MKXkftnc1C3F59vTDhtWzk13Z3jQg@mail.gmail.com>
- <aIdR-Rv2Oi_hyl1h@willie-the-truck>
-In-Reply-To: <aIdR-Rv2Oi_hyl1h@willie-the-truck>
-From: Seth Jenkins <sethjenkins@google.com>
-Date: Fri, 1 Aug 2025 16:01:25 -0400
-X-Gm-Features: Ac12FXxrZblMonwmtq48c65BRuJLFrKBTNPkFb_lkl0dpzEa2aBWovpnwq7QDHA
-Message-ID: <CALxfFW7ZdBhwv=978eFQuCwYSuD64Tb-SnKToN0druMwGJpCLg@mail.gmail.com>
-Subject: Re: arm64: Linear mapping is mapped at the same static virtual address
-To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: security <security@kernel.org>, Jann Horn <jannh@google.com>, 
-	Project Zero Comms <project-zero-comms@google.com>, catalin.marinas@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_130138_068721_564D245C 
-X-CRM114-Status: GOOD (  27.79  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +83,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+linux-arm-kernel
+An interrupt-controller node which is the parent provider for
+"interrupt-map" needs an "#address-cells" property. This fixes
+"interrupt_map" warnings in new dtc.
 
-Okay, given that this is already public knowledge and technically
-working-as-intended, I derestricted the bug report.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+PCI maintainers, Please ack, I'll take this with the dtc update for 
+6.18.
 
-> the decision whether or not to randomize the placement of the system's
-> DRAM inside the linear map is based on the capabilities of the CPU
-> rather than how much memory is present at boot time. This change was
-> necessary because memory hotplug may result in DRAM appearing in places
-> that are not covered by the linear region at all (and therefore
-> unusable) if the decision is solely based on the memory map at boot.
+ Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml    | 1 +
+ .../devicetree/bindings/pci/marvell,armada-3700-pcie.yaml     | 4 ++++
+ .../devicetree/bindings/pci/marvell,kirkwood-pcie.yaml        | 3 +++
+ .../devicetree/bindings/pci/socionext,uniphier-pcie.yaml      | 4 ++++
+ Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml  | 3 +++
+ 5 files changed, 15 insertions(+)
 
-If I understand correctly, given that the PA space is already larger
-than the linear region size, it is *already* impossible to prevent
-memory hotplug from theoretically causing DRAM to appear in a place
-that the linear region does not cover. Please correct me if I'm wrong
-but it sounds like removing randomization doesn't resolve this issue,
-*and* it introduces an *exceptionally* useful exploitation
-target/primitive that makes KASLR substantially weaker than it already
-was.
+diff --git a/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
+index 5434c144d2ec..18e7981241b5 100644
+--- a/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/brcm,iproc-pcie.yaml
+@@ -108,6 +108,7 @@ examples:
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
+ 
+     gic: interrupt-controller {
++        #address-cells = <0>;
+         interrupt-controller;
+         #interrupt-cells = <3>;
+     };
+diff --git a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
+index 68090b3ca419..8403c79634ed 100644
+--- a/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/marvell,armada-3700-pcie.yaml
+@@ -42,6 +42,9 @@ properties:
+     additionalProperties: false
+ 
+     properties:
++      '#address-cells':
++        const: 0
++
+       interrupt-controller: true
+ 
+       '#interrupt-cells':
+@@ -92,6 +95,7 @@ examples:
+             reset-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>;
+ 
+             pcie_intc: interrupt-controller {
++                #address-cells = <0>;
+                 interrupt-controller;
+                 #interrupt-cells = <1>;
+             };
+diff --git a/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml b/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
+index 7be695320ddf..3d68bfbe6feb 100644
+--- a/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/marvell,kirkwood-pcie.yaml
+@@ -101,6 +101,9 @@ patternProperties:
+         additionalProperties: false
+ 
+         properties:
++          '#address-cells':
++            const: 0
++
+           interrupt-controller: true
+ 
+           '#interrupt-cells':
+diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
+index 638b99db0433..c07b0ed51613 100644
+--- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
+@@ -56,6 +56,9 @@ properties:
+     additionalProperties: false
+ 
+     properties:
++      '#address-cells':
++        const: 0
++
+       interrupt-controller: true
+ 
+       '#interrupt-cells':
+@@ -109,6 +112,7 @@ examples:
+                         <0 0 0  4  &pcie_intc 3>;
+ 
+         pcie_intc: interrupt-controller {
++            #address-cells = <0>;
+             interrupt-controller;
+             #interrupt-cells = <1>;
+             interrupt-parent = <&gic>;
+diff --git a/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml b/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
+index 69b499c96c71..c704099f134b 100644
+--- a/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
++++ b/Documentation/devicetree/bindings/pci/ti,j721e-pci-host.yaml
+@@ -99,6 +99,9 @@ properties:
+     additionalProperties: false
+ 
+     properties:
++      '#address-cells':
++        const: 0
++
+       interrupt-controller: true
+ 
+       '#interrupt-cells':
+-- 
+2.47.2
 
-If we really need to support the absolute maximum amount of memory
-hotpluggable RAM and we can't sacrifice a couple GB of address space
-to enable randomization by default, maybe we could consider having a
-CONFIG option for it instead - and require that config option on
-Android GKI if it's not an option just to remove hotplug support from
-GKI entirely.
-
-Jann off-handedly suggested having a CONFIG option that says "I will
-never need more than X amount of physical RAM" which sounds reasonable
-as well.
-
-On Mon, Jul 28, 2025 at 6:33=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> Hi Seth, [+Catalin]
->
-> On Fri, Jul 25, 2025 at 01:43:57PM -0400, Seth Jenkins wrote:
-> >    On arm64, when the kernel goes to map all of physical memory into th=
-e
-> >    linear mapping, it attempts to perform some randomization within a r=
-ange
-> >    calculated via the following logic in arm64_memblock_init():
-> >            s64 range =3D linear_region_size -
-> >                    BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
-> >    On arm64 systems that use 3-level paging (such as Android), the avai=
-lable
-> >    virtual address space (linear_region_size) is smaller than the physi=
-cal
-> >    address space size supported by the CPU
-> >    (BIT(id_aa64mmfr0_parange_to_phys_shift(parange))). This means
-> >    the range is ultimately negative, no ASLR is performed at all, and t=
-he
-> >    linear mapping is placed at the same static virtual address every bo=
-ot.
->
-> We've been aware of this limitation for a while but we've not been able
-> to improve the situation for kernels where memory hotplug is enabled
-> (and that includes the Android GKI kernel used by Pixel).
->
-> Consequently, we gave up recently and removed the randomisation entirely
-> in 1db780bafa4c ("arm64/mm: Remove randomization of the linear map") so
-> it would be better just to discuss this on the list (linux-arm-kernel@)
-> if you have any suggestions for how we could perform the randomisation
-> effectively in this case.
->
-> Cheers,
->
-> Will
 
