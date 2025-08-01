@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273A2C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F74C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:05:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KYl6gHCrVR/A+/kiIdOxnWNF3Rfy3eS4XK9j6S8445s=; b=x7dYGBgUkcXn/RoV6W/UhG5Uru
-	sIF/PGSrjtVYDYO4owlJVtyXPAjMZgj86T94zccPyNYcKAXsswp92w9xP4RGVgrPxfjx0bo0eSwzU
-	sCPmLEWIVmrqk+yPuhq3lVq9JktvOvVDTm+R2ZzS/eW8ATQZn26MNp7bQpYwq518qCKsYg/73DFfu
-	+EgNUIYiZcwPJzzmYYXCJQOfHjM+O7sypcMwHTe/H5jE5JwH1aM3jbnz1Qr4/Hkvp6siguWzqqG8M
-	l/s+G0UNcQJFd9M5rf7j6A56VIVqdNjAUs7AHinIo/d9fenCkV6N0xWt5ECoXsRkwjxVw7uZD9CLm
-	m8DDiOQw==;
+	bh=XViwbJWgbIu86zN3sUfdgksnysWSo6dBDfzdxEIlhi0=; b=FWYt3l7elGhQUa9mSZg5/NXOOj
+	MIjq7R8ZCPNXJ6uQ/fpLwrg7Y8X5O7GTQXLJ6R+BP/LWQhyokW5/Wrg9bqMcYkFYPEK5drd8QMg1M
+	/B6Kgs4TqN0plaI9kRgu3QKTCgSvwR25wKpDpmbERJvRTYxs62s3f8AUTHvkJ9muA3pdLEO8Y73tY
+	BW3JB46T6nJpozGY5zxh+wKwfQjQ943QRRMJgkDKctpyi/ER8+GidQOG/L/4g8qiskKCeQSUAl5xJ
+	YqeQU8znanRZCTVEqN5DETQ/QEVpvKs5iuaKcTmGAuOJ/U5X/VsQPajgR1hhfXtBPexHtKOfn1bhx
+	tYJ9fRKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqKw-00000006Ady-0Xpu;
-	Fri, 01 Aug 2025 14:02:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uhqNU-00000006Ay0-2BEU;
+	Fri, 01 Aug 2025 14:04:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqFz-00000006A0u-1MTq;
-	Fri, 01 Aug 2025 13:57:12 +0000
+	id 1uhqJv-00000006ARr-0Npd
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Aug 2025 14:01:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B08785C6770;
-	Fri,  1 Aug 2025 13:57:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EC78C4CEE7;
-	Fri,  1 Aug 2025 13:57:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 64EAD61139;
+	Fri,  1 Aug 2025 14:01:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8757CC4CEF8;
+	Fri,  1 Aug 2025 14:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754056630;
-	bh=ODFfb+QAAqr6E6So/c4wBLjAbythTMbcmohhbIRP7Z8=;
+	s=k20201202; t=1754056874;
+	bh=1A0vKq6aLyn928rq+rEroQrfD5FWW0QJIKoi9NpxWDM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HYVLna3I2WaENWcmwrOtQHlnHx9n5kSO61/R3IwON8bfkhKmTH5gg/W51WKGenC6K
-	 ftQW4jUfeVAezxjBp/tQ7NzkUv5moGiHVAXVR4J9jTWPOM5zUjtTg02uicu7kR01fP
-	 ERq8Tw2/2u0crORVkjSpEhy+oe/bTUujY2qtq/SUWsiO+4Xd0anTZXK5F+B2g6X0mD
-	 Zxx1SciqjzRF5V2A4rRKT9G5ICLCfr/yg+U4N5B0JzyyrUpSqCFJYT4ON/zDMjEO0M
-	 JwYPSGKiowhLEUtZWPO7atEaRjk2FhNhs3lu+4rMkVDgR/lkVY5NplpQzBQG1quCFJ
-	 woym3/NjsyI3g==
-Date: Fri, 1 Aug 2025 08:57:09 -0500
-From: Rob Herring <robh@kernel.org>
-To: Laura Nao <laura.nao@collabora.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de,
-	richardcochran@gmail.com, guangjie.song@mediatek.com,
-	wenst@chromium.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	kernel@collabora.com,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>
-Subject: Re: [PATCH v3 09/27] dt-bindings: clock: mediatek: Describe MT8196
- clock controllers
-Message-ID: <20250801135604.GA3045005-robh@kernel.org>
-References: <20250730105653.64910-1-laura.nao@collabora.com>
- <20250730105653.64910-10-laura.nao@collabora.com>
+	b=TNi39Z27XOtOYfhgN5Ub2eAx5kpsGAuTxmwMUBwfEjqfBW3BFQbcRxy0Eh1l0Je8l
+	 SjJdF/jNlwn2UzmIyeb5YAzy3KgaB/AyiS1sY6WYM8x29ZmoggBWZ3SvfrS1K2+Nhd
+	 UT3dtwVpBvI7OkNLTlBNgPfFlfLBh+VsDwnMUhF9GAfJK4Mkp5t6Zkriwvo6Gyuh4A
+	 Jq/6/lqJcPLki7/VM6q0GXje61SfXII/sMxoYTPdxUzKoXOeFEj76yQP63wqQ2M8uf
+	 AhmBNb4pZ4jtFZg8jjRGUGzrzKL0klu74psO2SzsvQoM+SYKlvGPwWjLIFBy/r5k/3
+	 4e5WAuxMAPgqw==
+Date: Fri, 1 Aug 2025 16:01:09 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] irqchip/gic-v5: Remove IRQD_RESEND_WHEN_IN_PROGRESS
+ for ITS IRQs
+Message-ID: <aIzIpbQOcxmWOwvs@lpieralisi>
+References: <20250801-gic-v5-fixes-6-17-v1-0-4fcedaccf9e6@kernel.org>
+ <20250801-gic-v5-fixes-6-17-v1-3-4fcedaccf9e6@kernel.org>
+ <86seib6x7b.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250730105653.64910-10-laura.nao@collabora.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_065711_442053_6BD1F28D 
-X-CRM114-Status: GOOD (  17.56  )
+In-Reply-To: <86seib6x7b.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,97 +73,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 30, 2025 at 12:56:35PM +0200, Laura Nao wrote:
-> Add new binding documentation for system clocks, functional clocks and
-> PEXTP0/1 and UFS reset controllers on MediaTek MT8196.
+On Fri, Aug 01, 2025 at 01:30:32PM +0100, Marc Zyngier wrote:
+> On Fri, 01 Aug 2025 08:58:20 +0100,
+> Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > 
+> > GICv5 LPI interrupts have an active state hence they cannot retrigger
+> > while the IRQ is being handled.
+> > 
+> > Therefore setting IRQD_RESEND_WHEN_IN_PROGRESS for GICv5 ITS
+> > interrupts provides no benefit and it is useless (and confusing),
+> > it solves an issue that cannot happen.
 > 
-> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Laura Nao <laura.nao@collabora.com>
-> ---
->  .../bindings/clock/mediatek,mt8196-clock.yaml |  86 ++
->  .../clock/mediatek,mt8196-sys-clock.yaml      |  81 ++
->  .../dt-bindings/clock/mediatek,mt8196-clock.h | 802 ++++++++++++++++++
->  .../reset/mediatek,mt8196-resets.h            |  26 +
->  4 files changed, 995 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
->  create mode 100644 include/dt-bindings/clock/mediatek,mt8196-clock.h
->  create mode 100644 include/dt-bindings/reset/mediatek,mt8196-resets.h
+> This doesn't read very well. How about:
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
-> new file mode 100644
-> index 000000000000..03ee0dff464b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
-> @@ -0,0 +1,86 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/mediatek,mt8196-clock.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek Functional Clock Controller for MT8196
-> +
-> +maintainers:
-> +  - Guangjie Song <guangjie.song@mediatek.com>
-> +  - Laura Nao <laura.nao@collabora.com>
-> +
-> +description: |
-> +  The clock architecture in MediaTek SoCs is structured like below:
-> +  PLLs -->
-> +          dividers -->
-> +                      muxes
-> +                           -->
-> +                              clock gate
-> +
-> +  The device nodes provide clock gate control in different IP blocks.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - mediatek,mt8196-imp-iic-wrap-c
-> +          - mediatek,mt8196-imp-iic-wrap-e
-> +          - mediatek,mt8196-imp-iic-wrap-n
-> +          - mediatek,mt8196-imp-iic-wrap-w
-> +          - mediatek,mt8196-mdpsys0
-> +          - mediatek,mt8196-mdpsys1
-> +          - mediatek,mt8196-pericfg-ao
-> +          - mediatek,mt8196-pextp0cfg-ao
-> +          - mediatek,mt8196-pextp1cfg-ao
-> +          - mediatek,mt8196-ufscfg-ao
-> +          - mediatek,mt8196-vencsys
-> +          - mediatek,mt8196-vencsys-c1
-> +          - mediatek,mt8196-vencsys-c2
-> +          - mediatek,mt8196-vdecsys
-> +          - mediatek,mt8196-vdecsys-soc
-> +          - mediatek,mt8196-vdisp-ao
-> +      - const: syscon
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +
-> +  '#reset-cells':
-> +    const: 1
-> +    description:
-> +      Reset lines for PEXTP0/1 and UFS blocks.
-> +
-> +  mediatek,hardware-voter:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
-> +      MCU manages clock and power domain control across the AP and other
-> +      remote processors. By aggregating their votes, it ensures clocks are
-> +      safely enabled/disabled and power domains are active before register
-> +      access.
+> "Therefore, setting the IRQD_RESEND_WHEN_IN_PROGRESS flag on LPIs
+>  is pointless, as the situation this flag caters for cannot happen".
 
-I thought this was going away based on v2 discussion?
+Yes it is clearer, I can respin a v2 unless Thomas can update the log
+please while applying it ? Just let me know.
 
-Rob
+Thanks,
+Lorenzo
 
+> > Remove it.
+> > 
+> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  drivers/irqchip/irq-gic-v5-its.c | 1 -
+> >  1 file changed, 1 deletion(-)
+> > 
+> > diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> > index 340640fdbdf6..9290ac741949 100644
+> > --- a/drivers/irqchip/irq-gic-v5-its.c
+> > +++ b/drivers/irqchip/irq-gic-v5-its.c
+> > @@ -973,7 +973,6 @@ static int gicv5_its_irq_domain_alloc(struct irq_domain *domain, unsigned int vi
+> >  		irqd = irq_get_irq_data(virq + i);
+> >  		irqd_set_single_target(irqd);
+> >  		irqd_set_affinity_on_activate(irqd);
+> > -		irqd_set_resend_when_in_progress(irqd);
+> >  	}
+> >  
+> >  	return 0;
+> > 
+> 
+> With that,
+> 
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
