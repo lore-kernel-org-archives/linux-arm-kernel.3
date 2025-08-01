@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8D28C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 11:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D82FC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 11:26:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GM6+ah7qzUOGhErR0fDigeV/mrNjuhmW+e9yPW7wu/o=; b=E1cFrSkd0aPXup
-	px580Nip1wxQfG/cIjPWATzXM6V0LEbW7lDO02SDGcxYvG76epd6bJ03s/ekgJTK87Qcp19FT5IRd
-	3i7IXqAaT3y6vBxc30GoeqZ/6eBsHzEzh+1Ohusni5G9tl/Qg3m0jdT4sNshyK1oy7z25cZBQD2u9
-	8j9WSbVSbeHzUZ2YHRg08zf98bqJ6XnCi9976Qk7wgou9G9k01AbQThHJnqNfA5yuPm5RtJkk+5DF
-	hqZCkSvYZmqXG8Ew1a/66vMNqAHzT4AZcuRW+cYdl9pBUc1vmcxPst+GefilUwgKMJ2XbItyQQsRG
-	X4Vf1yfTqIO4kWfAu4pQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z8VdbJBOlXoBkF3uqt8fJExAcNTDFto3gONgI5UEhY4=; b=d09Pew2LB55Wm6pNDIFrhHVSVn
+	RkClZmQ2aPQLPSslFRy0IZJlCc+kCL6bLmqBE2ThfOinGmSoxOofBUEIpqlGv636PpSmCHqaZNbHE
+	NzHs1T1xv9V01q4A3oifeubmsJzhleySjxj/j48ylBAqOi9GPg7In1lHsq7zR1hknYY4Gtmzit8ud
+	ejYx/QcNNzl1HKaymMUX8DRVGZyUX6gksyCJjrnb6aB3rM5I3k8w0VvpwfQeWepOCwNMCRtw2u5sQ
+	WSOMihmeSratYuixRDmpWGwXaj/c22aGMW3lI8ucVvq14Fom1LRKvZeUWGSZKj5Q7Ie8pWtDKTEDi
+	jT1sFWiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhnrE-00000005Y9T-1a7a;
-	Fri, 01 Aug 2025 11:23:28 +0000
+	id 1uhntm-00000005YPv-10le;
+	Fri, 01 Aug 2025 11:26:06 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhnm5-00000005XGr-1dtQ;
-	Fri, 01 Aug 2025 11:18:10 +0000
+	id 1uhnm5-00000005XGv-4Bij;
+	Fri, 01 Aug 2025 11:18:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754047085;
-	bh=PuTz5rP+g1ZNjvUwlN2rQtxoXWKf+C3pIRkEwIk533k=;
-	h=From:Subject:Date:To:Cc:From;
-	b=TuJJvz8vFL99CAaAFlgj7f3CllPTWHCLan9hM0cD1Cjr+Luo0h5MfgVGpC/p2waZX
-	 tzMVV5LhUvsYMg7w+rnZpXAupaLFoR7vx0FZbJ78yHPS1MEt7uSm2Ve7suHVi4kG9W
-	 D65RdIu23GcUpsaUqewq2iUTaFhHbeR3Mknbz+oDTM5lgbtZgr5UpUGqdGiKiU7REv
-	 mDkFkXBDqN4Y094si7k+fx8PG5BHD/bca8u+180HUyGbyQI+wI/FLjnLQOvI3M9Tak
-	 F+5a2PqNF1mZ5xjH24e+xoNQTthUuocashNJX8aZnPdovHcBCQBI/aECzBKEckVWmT
-	 Q/0VOoew0NODw==
+	s=mail; t=1754047088;
+	bh=6cjt0RITd8PmIpdtTTBLHZ2ZTTTpYhzzJb6BLpwZh+E=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jmGmIrJS3e5pChQTvVi5scTvwvM7afYI+62XhozBmkcRfHYLNDIhvwQuAlxTenMxd
+	 FxVgvptrDfhW8UHdl4o9CX3C56CYQnaL5N06SDl68G+QuWERExyCYHsbq4N9WsVlJX
+	 dQkhojh7eI3p6UW/9PSa/j3UQCWX3jgN7ORpVELQ4oPnA2HrIXgWW6QUxVGa8ptdso
+	 9ilL6lJ8PgCHcQw2CvFTUjdwEAPzIlF8QBKVXPv7M3eqQEWQh7dm+lKqDC7XQ/UiqY
+	 0F3khhYJ+z+tBsiy6cwuTQy7niyzDhqtuP+r81J4JxQMC1FPjLc6dQ9lyUg/JEKV4s
+	 gYLd8wuL5ACwg==
 Received: from 2a01cb0892f2d600c8f85cf092d4af51.ipv6.abo.wanadoo.fr (2a01cb0892f2d600c8f85cF092d4af51.ipv6.abo.wanadoo.fr [IPv6:2a01:cb08:92f2:d600:c8f8:5cf0:92d4:af51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: jmassot)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ADD4417E01FD;
-	Fri,  1 Aug 2025 13:18:04 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 498CE17E061F;
+	Fri,  1 Aug 2025 13:18:07 +0200 (CEST)
 From: Julien Massot <julien.massot@collabora.com>
-Subject: [PATCH 0/9] MediaTek devicetree/bindings warnings sanitization
- second round
-Date: Fri, 01 Aug 2025 13:18:02 +0200
-Message-Id: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
+Date: Fri, 01 Aug 2025 13:18:04 +0200
+Subject: [PATCH 2/9] dt-bindings: arm: mediatek: Support mt8183-audiosys
+ binding variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGqijGgC/x3MQQqAIBBA0avIrBvQKIyuEi1KxxoiC5UKwrsnL
- d/i/xciBaYIvXgh0MWRD1+gKgFmnfxCyLYYalm3spMK97ShTTPeU/Dsl4iq1bZxRkmnNZTsDOT
- 4+ZfDmPMHxs4ujGIAAAA=
-X-Change-ID: 20250801-mtk-dtb-warnings-157d4fc10f77
+Message-Id: <20250801-mtk-dtb-warnings-v1-2-6ba4e432427b@collabora.com>
+References: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
+In-Reply-To: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
 To: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -74,8 +72,8 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-gpio@vger.kernel.org, Julien Massot <julien.massot@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_041809_611986_681A3BE2 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250801_041810_183394_A7425997 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,42 +88,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series continues the effort to address Device Tree validation warnings for MediaTek platforms, with a focus on MT8183. It follows the initial cleanup series by Angelo (https://www.spinics.net/lists/kernel/msg5780177.html)
-
-The patches in this set eliminate several of the remaining warnings by improving or converting DT bindings to YAML, adding missing properties, and updating device tree files accordingly.
+Update the mediatek,audsys binding to support the mt8183-audiosys
+compatible, which uses a different audio controller binding
+(mt8183-afe-pcm.yaml) compared to the legacy mt2701-audio controller.
 
 Signed-off-by: Julien Massot <julien.massot@collabora.com>
 ---
-Julien Massot (9):
-      dt-bindings: clock: mediatek: Add power-domains property
-      dt-bindings: arm: mediatek: Support mt8183-audiosys binding variant
-      arm64: dts: mt8183: Rename nodes to match audiosys binding schema
-      ASoc: dt-binding: Convert mt8183-afe-pcm binding to YAML
-      dt-bindings: sound: Convert MT8183 DA7219 sound card bindings to YAML
-      ASoC: dt-binding: Convert MediaTek mt8183-mt6358 bindings to YAML
-      dt-bindings: pinctrl: mediatek: mt8183: Allow gpio-line-names
-      arm64: dts: mediatek: mt8183-kukui: Fix pull-down/up-adv values
-      arm64: dts: mediatek: mt8183-pumkin: Fix pull-down/up-adv values
+ .../bindings/arm/mediatek/mediatek,audsys.yaml          | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
 
- .../bindings/arm/mediatek/mediatek,audsys.yaml     |  17 +-
- .../devicetree/bindings/clock/mediatek,syscon.yaml |   3 +
- .../bindings/pinctrl/mediatek,mt8183-pinctrl.yaml  |   2 +
- .../devicetree/bindings/sound/mt8183-afe-pcm.txt   |  42 ----
- .../devicetree/bindings/sound/mt8183-afe-pcm.yaml  | 225 +++++++++++++++++++++
- .../bindings/sound/mt8183-da7219-max98357.txt      |  21 --
- .../devicetree/bindings/sound/mt8183-da7219.yaml   |  49 +++++
- .../sound/mt8183-mt6358-ts3a227-max98357.txt       |  25 ---
- .../devicetree/bindings/sound/mt8183-mt6358.yaml   |  59 ++++++
- arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi     |  22 +-
- arch/arm64/boot/dts/mediatek/mt8183-pumpkin.dts    |  22 +-
- arch/arm64/boot/dts/mediatek/mt8183.dtsi           |   4 +-
- 12 files changed, 378 insertions(+), 113 deletions(-)
----
-base-commit: b9ddaa95fd283bce7041550ddbbe7e764c477110
-change-id: 20250801-mtk-dtb-warnings-157d4fc10f77
+diff --git a/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml b/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml
+index 45d4a6620041b11cf6e943de49a42f3fcd91e1b9..5d9d91f9c5802240ac7d411c5632ae6663d15f29 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek/mediatek,audsys.yaml
+@@ -23,6 +23,7 @@ properties:
+               - mediatek,mt7622-audsys
+               - mediatek,mt8167-audsys
+               - mediatek,mt8173-audsys
++              - mediatek,mt8183-audiosys
+               - mediatek,mt8183-audsys
+               - mediatek,mt8186-audsys
+               - mediatek,mt8192-audsys
+@@ -41,7 +42,6 @@ properties:
+     const: 1
+ 
+   audio-controller:
+-    $ref: /schemas/sound/mediatek,mt2701-audio.yaml#
+     type: object
+ 
+ required:
+@@ -50,6 +50,21 @@ required:
+ 
+ additionalProperties: false
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8183-audiosys
++    then:
++      properties:
++        audio-controller:
++          $ref: /schemas/sound/mt8183-afe-pcm.yaml#
++    else:
++      properties:
++        audio-controller:
++          $ref: /schemas/sound/mediatek,mt2701-audio.yaml#
++
+ examples:
+   - |
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
 
-Best regards,
 -- 
-Julien Massot <julien.massot@collabora.com>
+2.50.1
 
 
