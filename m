@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A60FC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E758CC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79SZYQtqMomIncwxxLPz8D+UqJziEYyljpADLIr/5Vs=; b=23VL0SFCQGMMgt0OBcpv+wSk9n
-	vDsVO5PM9zdIzHeskM7zx+mem/Agv/wXHqk3+rqOrEfPNzTJithaiPWamhgR7zhmhZ6/Ly+0fHRP5
-	JzE8Tvcel7JQtE+mKQ/cr1znMMbLt/OwsJWDzS4q8tdFTNRvHtar46vSRxLe9PPWZYwKti2maIcrE
-	1VhNcq7UljmD7ZaGcEK3lkB7JDkyscpxD3tBZv6FznpS9svAn+q4EGdqibgduXSuvibv58m191iYx
-	sjd20JNma/t6x/HbomWYos5DjvkerCa45bEGrztwcsGNWKd5vRF+/tBOmsud4MyvSrI1alBPN0nzl
-	rb8svc2w==;
+	bh=MVZplkCOafw9PXy6Wjs7zS2Pde9qiPq9k15TqHCbQFk=; b=UqYPfZ+xVjhFrtWYwqd/hbOlxg
+	ypiaiqS31hB1Zv/C2pgR51fVsFFYOZiJ5ZQscjp1Wu4Urikcc/jcvycoJOvJsWL17IvyxAFyN1qWK
+	MMV4bQESsE7JE0rL66tlqrVbnkMGDAVUNkU03cHX9HfSOYupDlPRLIcyYzu/Xj0XB9Epfiy16K0Ru
+	/ZYIcgPzc56dY8RaBTBpfqZK+c5qSdxE5fYG2xVlcpnFAXukZZ6IIII6hkqFMyuVZtx3QzAGvBbsn
+	5SyQiQCKArRx0NWBVU6aFroKB9zEtuLE4GC0XGwgqIbQrqrHqiCQVAcDnsu89lbn7OKc13c38n7dD
+	M9elW+Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhkMF-000000059vW-1fdz;
-	Fri, 01 Aug 2025 07:39:15 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uhkOn-00000005A9s-1tXt;
+	Fri, 01 Aug 2025 07:41:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhkC0-000000058If-3iU0;
-	Fri, 01 Aug 2025 07:28:42 +0000
+	id 1uhkC3-000000058Jd-3jqx;
+	Fri, 01 Aug 2025 07:28:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754033319;
-	bh=jXYnqKd+evMLO6CdXgt/eiSiWPrES/uLOFR0c+/Ng1M=;
+	s=mail; t=1754033322;
+	bh=cJOZrJVqTn54T1sWZZNpKwPvvOjubd5GMfcP+9HSNaI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Yn+pVNuew58PUcsiidTiHFo6YO3PUcK4wnCs5F1lV+vwHfnMx/QXXLdYdpBMl3Z44
-	 nHEgMMNpc+DogNWCPVIWvux0fT7edEKTJ2Y6gCuJXRt8sTF96ifOHmrlKyxBOlJrEy
-	 k1BejyM4RzROH646ZXaLvyI1F046zUdrRtV8p07pzyww7qJZcMOZ23twBM7oSdXsQn
-	 aBC6KHRUBnacIHI6RNY8Rwrk9LPSiJtZUNuLchABUmt4uOHer02BEHwp5WlaIg8F9u
-	 9g6mGjue0qPQhzw0INM70tWhdKJNjedk/4mTPQ76a6dnpnqiHR+Jadl41U+PK6iHMQ
-	 615It7xfCE+3A==
+	b=gtRDKKJb99HJ4Q5f3nHAVfpIo6Te/52HnDNPZguqiZ2hp4a4UkKINSMnggYExK8RJ
+	 u1m3P7sKs4IKnyNC147SgsSHpbJiWHiV+IT5TfhJRBfIso5u4pTuCz++GtQvJFAyqh
+	 /ZTndMioD5AsdLL7FCIXmhAhOyo/nGiljKNYUntnb4eMtNj4hwKoRLPIa+Qf9A4Zhj
+	 TpiYX5H4Ip9nLnDSuYV9RXdSXCaj4Tuqg6AYq+ogTPjQ9teOcPNwLgzqbbVDj5L+X2
+	 O0zJr2p5f5Z+XRdY2TxRjkJFBrAho+217t+8/OJKJv2Q+C39JWjIxf77N0suUK4oBF
+	 nNIP2XPSp3r/A==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 496BA17E130E;
-	Fri,  1 Aug 2025 09:28:38 +0200 (CEST)
-Message-ID: <ff101a12-2b71-4641-af57-f70f4055cd78@collabora.com>
-Date: Fri, 1 Aug 2025 09:28:37 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8007717E1319;
+	Fri,  1 Aug 2025 09:28:41 +0200 (CEST)
+Message-ID: <062a44cf-eae6-4d5f-a736-8242a606ca5b@collabora.com>
+Date: Fri, 1 Aug 2025 09:28:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/9] thermal/drivers/mediatek/lvts: Guard against zero
- temp_factor in lvts_raw_to_temp
+Subject: Re: [PATCH v2 2/9] thermal/drivers/mediatek/lvts: Make number of
+ calibration offsets configurable
 To: Laura Nao <laura.nao@collabora.com>, srini@kernel.org, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, rafael@kernel.org,
  daniel.lezcano@linaro.org, rui.zhang@intel.com, lukasz.luba@arm.com,
@@ -61,15 +61,15 @@ Cc: wenst@chromium.org, nfraprado@collabora.com, arnd@arndb.de,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  kernel@collabora.com
 References: <20250730152128.311109-1-laura.nao@collabora.com>
- <20250730152128.311109-4-laura.nao@collabora.com>
+ <20250730152128.311109-3-laura.nao@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250730152128.311109-4-laura.nao@collabora.com>
+In-Reply-To: <20250730152128.311109-3-laura.nao@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_002841_076663_1D34AE80 
-X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-CacheID: sfid-20250801_002844_080707_72F435CD 
+X-CRM114-Status: UNSURE (   6.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,11 +86,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 30/07/25 17:21, Laura Nao ha scritto:
-> Add a guard against zero temp_factor in lvts_raw_to_temp() to prevent
-> division by zero and ensure safe conversion.
+> MT8196/MT6991 use 2-byte eFuse calibration data, whereas other SoCs
+> supported by the driver rely on 3 bytes. Make the number of calibration
+> bytes per sensor configurable, enabling support for SoCs with varying
+> calibration formats.
 > 
-> Fixes: 6725a29321e4 ("thermal/drivers/mediatek/lvts_thermal: Make coeff configurable")
-> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 > Signed-off-by: Laura Nao <laura.nao@collabora.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
