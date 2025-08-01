@@ -4,111 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A935AC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52446C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ML7HqWSi5zBK5PjsuAAVKVDwi/3cJJ6Q/fZTUDPWx54=; b=lbVxGGjgLNQdLCl6hgMIvWkxcv
-	Ytf25uZxqsOm8ke/poJuhSAaicSdfnP/lhOs3TIoymxJ2NZjtfxN7Pr9TU1WGtjEzRwDVZCj7V4bb
-	AbVg3FjRfU0PHNGPOchR6FwKGQ75BRQEl+mnhBTK1F4mdB+e4EQbngduddCdhwbVN/rRssf17nKY3
-	/P1aITAALqlFCn5bbhSxdyMYMsEYXC3NuBHh/cJ02BE51EJcXfbkGzX9okH/D8eUMEhsvnSt4CpwV
-	+ueIgGJR44sC6eBn4Wlw/hF7G4ZUnn0F+20U/pQXg1eMgvKEI83dwTid+TtyVtj6KzS84mLXgQCwD
-	FE/U8IeQ==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9OXzHZvZFg/7OiUCWnuamIDUXt4QwG2aw48t2rlvoPE=; b=uLUIks5OFuX90vmMcbfEfTThou
+	KPyxfzPZjhmgn1h7JEMKXNh7IxBpqVs6qnJwal7MPwiQX+lXeOjmUYRFd/GsLUGSKWyeI3TQV1ZbS
+	scwZc8wmB09XmlQmOebfbhxe5w0kswtPTbVVUHPcVGmV0YtdGCVGnmC9Gb/RaPxviEYlcwZQL82PY
+	QUlPM8wzrNsmKZPASN2NmvnyTIx8SJ8cwuzHQusf6slfJ5vzWM5VpR6ICM6r1E87c9Pc0O1D3bh+p
+	QaNNpY6AK9OE1aJGbpDVtef3IYKFUZEOKne26Uogf0fnPfO2eNJx4cyMJLoKyjSfP0vkPl+xGCbHy
+	z7ySiH8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhltp-00000005LOS-3io9;
-	Fri, 01 Aug 2025 09:18:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uhlx4-00000005Ls4-3Je9;
+	Fri, 01 Aug 2025 09:21:22 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlrG-00000005L94-08Zf
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 09:15:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 051145C5B04;
-	Fri,  1 Aug 2025 09:15:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE5BC4CEF4;
-	Fri,  1 Aug 2025 09:15:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754039720;
-	bh=mezW9xzXYXNVMaS5xbipPNlV2pAkqbqinlAL532+tuw=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=dPhibHPprev4C+3iNCISr0HctHbtEks3fm+R5o0FcPIjx34sUs4y8xYWn1nd2Wzcw
-	 IPQxZtU7t8+JyKKYT7EZWJAaEMYEhcCa5R7Xf+SiHrA+t6ayhhRKJNfPCgQ8I/o7H5
-	 nFApZweLdpt4Nd/WGtIN3IhBxzJcIv8yJTNRiWbTslXhVKUYsPV1Gq6vE84hyrWQSG
-	 FK2pBFoAv6PdlSf0VWAZtCcm3BP/zufcCSly3ub+DzrZ1zc7zZLPiibVxVkBV/Z/MJ
-	 t+aFURymtd0VUTmoUPVfh7ruPqoDjjIt2RxXnkYlFGbQ0UDOfnsPOZ75BZR/Pvx401
-	 NC7TGfrer0j8g==
-Message-ID: <967dafd1-a1e7-41be-a194-aa7c9f6f7e8c@kernel.org>
-Date: Fri, 1 Aug 2025 11:15:15 +0200
+	id 1uhluT-00000005LUe-2JRa;
+	Fri, 01 Aug 2025 09:18:42 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-456108bf94bso3732255e9.0;
+        Fri, 01 Aug 2025 02:18:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754039919; x=1754644719; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9OXzHZvZFg/7OiUCWnuamIDUXt4QwG2aw48t2rlvoPE=;
+        b=ZeU26NWuy+euS//2gyy/FRSgEbIvKrZ7pO9xQbj6Gokhzv7bB19fM7FUzEZmR66pWF
+         55ck+9YZeb/M3aZgJZ+0X4dCQit8uPT/MTjbsYhWMWr5TgQ3oXjLf3Ay7ji3SqHH+oKi
+         KvP6k30sFwPlu7ZFmEZNs2Hq5uOMi9rOv6NXpymbmL1c2kDdFTIzlxQb0FzH13rycKce
+         hjz0dLtHJfFOIpgGnzRiv6/3pWfRHmjFgcrv2iLrxyKmt1Pg2/SmAqO3ZCquxdSNNSv5
+         kdqlsluGQL4BYrRHTw+Qf6Hu6RuY5WkcFzHkMrJqwLIlX4o7xP7JvY9ctWou3KZYE2zn
+         BbyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754039919; x=1754644719;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9OXzHZvZFg/7OiUCWnuamIDUXt4QwG2aw48t2rlvoPE=;
+        b=GFlgg5gFKkZ0u/5qxqDKwmsE0paqiwmzI+E7ryw9RVmqbKUSFs+nkxi+5G+XdB/N2X
+         W5sCdnUfqEYKKNLHaXKSoLMExOwjxGCgGf42MeLkYj7z9HURLjEmpz6hlwI/TP+mAnPQ
+         94s/8FTtVBi+4fPrd08Tu2Y7Ox5pCEdulAn9IKJXuebZFg25IutGe8S8mmyQFZyWuYb0
+         GqmN/30FaFPvjSP44GWf8ThpOQNn3yiFR5RztcNWR6dThbU4k2Gd2XtPFfUUSJK7AtT9
+         9VBvNA6kvhahGV3ol4x2reXJZ4wWPkaZWNHqxlRa6KCmeAL2wZSu+RHLf1QZIxNG9cqY
+         DnYA==
+X-Forwarded-Encrypted: i=1; AJvYcCWXQJ/KNNxopLTh7yN6vv+m8nXiJMk1NnDe97yPCtkj6jZIphAXBmlZBVXWgnlq72yZYvNvx0kVM8exN8Dq1hF7@lists.infradead.org, AJvYcCXzDPhyyB2YP9eNSQZz/cOSRwQ02lrxQzxwudDBApLPTveOCTeQMvcFmVafjTjNhgBlVsfcXBotaXO1FeXjonc=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuwpzAYNMYc16U3PUgrl6K9waWM+g9wG915VhxcmGpqFPGhlpP
+	EHqcsIfyY5idjjAIqV5KwFOyhd8l3nvF36aXbuOVlewxiPOGEaXyCFyP
+X-Gm-Gg: ASbGnct9+g2PuqpTbeA7TiDT4JI7266fGrtcfMrYjwe/IuWtkOU0iAd1zvx68qCQpeX
+	3wrMhowk7lctyt+sxd3k7IxQQ6i31pbPqOtpilpmLWhUouPgC16C//fwBIKT/g8W+gE4UnHtzg3
+	tLRuNzsPnMArb8RzuVxoRaMGVWhwFh5nd0adck40g580MadVOl3w9Bp5khwQBQyik04vDIvEdmt
+	zV1cfXow8VbsR4SuxCz7dSNY63CdoTy2ftJefyC6fkudg0g0ni0Zmzxsk+s4xlsBl8QWOYIe8EB
+	5V8mR+DU34l+naUO78800EMbIu5cTSrF9XZMunYboZS1DWqcNCBcxhUye3DslyC/kn/gFPvE7RM
+	B/uYj3WkFY2Q+ln9zkCZ1Ogqq+7U2fuUdRGKKDfACHr7Q4GuAQ7sEPWgylvpmr2/Htvi8gjmlDE
+	qaaA==
+X-Google-Smtp-Source: AGHT+IEe0pNPbigzu96UgzYklOvX77/sciOzq5+IAwimo0FIOMEER5bpY4XblUXQDZ+bRyR0eBRXQw==
+X-Received: by 2002:a05:600c:528a:b0:458:7005:2ac3 with SMTP id 5b1f17b1804b1-458a5858a2emr47023755e9.21.1754039919355;
+        Fri, 01 Aug 2025 02:18:39 -0700 (PDT)
+Received: from Ansuel-XPS24 (host-80-181-255-224.pool80181.interbusiness.it. [80.181.255.224])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-458953787a8sm95789065e9.14.2025.08.01.02.18.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Aug 2025 02:18:38 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	"Dr. David Alan Gilbert" <linux@treblig.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Tang Bin <tangbin@cmss.chinamobile.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	parkeryang <Parker.Yang@mediatek.com>,
+	YR Yang <yr.yang@mediatek.com>,
+	Zhang Yi <zhangyi@everest-semi.com>,
+	Fei Shao <fshao@chromium.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Alexandre Mergnat <amergnat@baylibre.com>,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [RFC RESEND PATCH 0/2] ASoC: airoha: Add initial driver AN7581
+Date: Fri,  1 Aug 2025 11:18:07 +0200
+Message-ID: <20250801091812.4866-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.50.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] spi: dt-bindings: atmel,at91rm9200-spi: Add
- support for optional 'spi_gclk' clock
-To: Manikandan.M@microchip.com, broonie@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, Nicolas.Ferre@microchip.com,
- alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
- Ryan.Wanner@microchip.com, tudor.ambarus@linaro.org,
- linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250730101015.323964-1-manikandan.m@microchip.com>
- <20250730101015.323964-2-manikandan.m@microchip.com>
- <c1230d31-cb7e-4a21-b7d0-ea32d862823f@kernel.org>
- <691cfc11-3804-4f7d-b535-ea25f86c0c16@microchip.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <691cfc11-3804-4f7d-b535-ea25f86c0c16@microchip.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_021522_146291_49479CCD 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20250801_021841_592134_99C20978 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,36 +115,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 05:36, Manikandan.M@microchip.com wrote:
-> Hi Krzysztof,
-> 
-> On 30/07/25 4:51 pm, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> On 30/07/2025 12:10, Manikandan Muralidharan wrote:
->>> Update the Atmel SPI DT binding to support an optional programmable
->>> SPI generic clock 'spi_gclk', in addition to the required 'spi_clk'.
->>>
->>> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
->>> ---
->>> changes in v2:
->>>   - Fixed mail threading
->>
->> You already received comments. Respond to them instead of sending again
->> the same.
->>
-> 
-> I have re-submitted the series so that patch 3/3 includes a clear 
-> explanation of this change for the benefit of a wider audience.
-> Apologies if this patch also requires a brief explanation—please let me 
-> know if I should include it here.
+This is an initial series to add the Sound system for Airoha AN7581.
 
-I do not see you addressed any comments. There are no changes here
-except threading. Look at your changelog:
+It's based mainly on the Mediatek AFE system with some bigger
+changes for additional Codec (that will be submitted later)
 
-changes in v2:
-   - Fixed mail threading
+A small cleanup to make it possible to use the Mediatek AFE
+header and API without having to use complex redirection to
+reach the local header.
 
-Best regards,
-Krzysztof
+Posting as RFC to make sure these rework changes are happly
+accepted.
+
+Christian Marangi (2):
+  ASoC: mediatek: move some header to global include
+  ASoC: airoha: Add AFE driver for Airoha AN7581
+
+ .../sound/mediatek}/mtk-afe-fe-dai.h          |   0
+ .../sound/mediatek}/mtk-afe-platform-driver.h |   0
+ sound/soc/Makefile                            |   1 +
+ sound/soc/airoha/Kconfig                      |  10 +
+ sound/soc/airoha/Makefile                     |   2 +
+ sound/soc/airoha/an7581/Makefile              |   7 +
+ sound/soc/airoha/an7581/an7581-afe-common.h   |  35 ++
+ sound/soc/airoha/an7581/an7581-afe-pcm.c      | 455 ++++++++++++++++++
+ sound/soc/airoha/an7581/an7581-reg.h          |  29 ++
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c    |   4 +-
+ .../mediatek/common/mtk-afe-platform-driver.c |   2 +-
+ sound/soc/mediatek/mt2701/mt2701-afe-pcm.c    |   4 +-
+ sound/soc/mediatek/mt6797/mt6797-afe-pcm.c    |   4 +-
+ sound/soc/mediatek/mt7986/mt7986-afe-pcm.c    |   4 +-
+ sound/soc/mediatek/mt8173/mt8173-afe-pcm.c    |   4 +-
+ sound/soc/mediatek/mt8183/mt8183-afe-pcm.c    |   4 +-
+ .../mediatek/mt8183/mt8183-da7219-max98357.c  |   2 +-
+ .../mt8183/mt8183-mt6358-ts3a227-max98357.c   |   2 +-
+ sound/soc/mediatek/mt8186/mt8186-afe-pcm.c    |   4 +-
+ .../soc/mediatek/mt8186/mt8186-misc-control.c |   4 +-
+ .../mediatek/mt8186/mt8186-mt6366-common.c    |   2 +-
+ sound/soc/mediatek/mt8186/mt8186-mt6366.c     |   2 +-
+ sound/soc/mediatek/mt8188/mt8188-afe-pcm.c    |   4 +-
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c     |   2 +-
+ sound/soc/mediatek/mt8192/mt8192-afe-pcm.c    |   4 +-
+ .../mt8192/mt8192-mt6359-rt1015-rt5682.c      |   2 +-
+ sound/soc/mediatek/mt8195/mt8195-afe-pcm.c    |   4 +-
+ sound/soc/mediatek/mt8195/mt8195-mt6359.c     |   2 +-
+ sound/soc/mediatek/mt8365/mt8365-afe-pcm.c    |   4 +-
+ 29 files changed, 571 insertions(+), 32 deletions(-)
+ rename {sound/soc/mediatek/common => include/sound/mediatek}/mtk-afe-fe-dai.h (100%)
+ rename {sound/soc/mediatek/common => include/sound/mediatek}/mtk-afe-platform-driver.h (100%)
+ create mode 100644 sound/soc/airoha/Kconfig
+ create mode 100644 sound/soc/airoha/Makefile
+ create mode 100644 sound/soc/airoha/an7581/Makefile
+ create mode 100644 sound/soc/airoha/an7581/an7581-afe-common.h
+ create mode 100644 sound/soc/airoha/an7581/an7581-afe-pcm.c
+ create mode 100644 sound/soc/airoha/an7581/an7581-reg.h
+
+-- 
+2.50.0
+
 
