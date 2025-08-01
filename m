@@ -4,154 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AA0C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB8EC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Bo1M70aVU9uB6+S9+3myvlKh6FXn1oNOX2U/DuumPU=; b=f6aRQjmAZswQrYx8KjW/qSNtJW
-	dwtq0pyQxbbOmm0lcKjR83hQef9UOUJME/jHIF1mkr081szJjF4L/8dktRpG9qzY2Tk4UuFrgKz9T
-	9Pq+QWen403Ml+6GAKWBjQsEOWitTybJ/qFJ61UxSwirQ2wxMSJhWJPrN1yEMDzmDZ/go3yJaJhPM
-	zbCJGuYXEGGSFcgCoyaAZbZm0VaopFBonq0hzjwigahd23BAKOSzx3eF918LtlI+mhMGksphSuyg2
-	cJ9msvQc98BiFEUW3YLloWTNmBiEd1rwwWckHULWIPI3KKLGWl7ZAjZ1lGbVlCou1xdBN8tLhto8B
-	MnX7tL6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vY5IloWsNQwsLIRSq+Jk0RbLuNAFATBZvlKueff9YnQ=; b=tMEC9wS4AuyoWSe9giiqDt+s3l
+	fGfIzJM4B2Ptw8YHuXID8nEWbHfY5BBOhOC1Yi9YBa3Ajs8kV8zdS2A90b9vJy4XXAQImqDJoqbtt
+	Z1kmbuyiuVh7s0yJ9TzezpViEkt1WwdvissDwJG6QTd8PGuThu8o45HQkW1EbQiEpWKe6MGe6wpLK
+	1Bdx5ILIzVyR2vEXeZkJb6PhlYQFLrX8ID0SmCzKENsdJnVS+xYXoSUx8sRQWjz5t3pwEcnsxedk7
+	zwFx66q86pb8YQmt6V2PYHELM62y6tqAbpJN1mLI4tAImSBeH2AiYhETSXvIIqUP7Q6ajugxDh5kq
+	4QWgN4+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhl9i-00000005FhB-2jUr;
-	Fri, 01 Aug 2025 08:30:22 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uhlCH-00000005G5f-0Xvc;
+	Fri, 01 Aug 2025 08:33:01 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhkpA-00000005DLQ-35Ot
+	id 1uhkuQ-00000005DqQ-3JWH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 08:09:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PkwmpNmE8XVfUKfybHyfX6onetbYD76FneRlPLvHD9dtv8+D0OZLgIJN1df5wKe8UGdz7wCSQ1BTNrtg8HS+FWsOwZdFA+/i79kc5KsU/xUhg/ljxa4MvX5YDGbYOgqOzkMaUr5GZnPD284O1lo1l9awQpVpdx7sgDvKxYtD8CP8FNAAPq1Z8eUsuJO0eL7Pl5SmiYcSDpHrjaafVKbtGAbDt0Dc0XczMY3O2Rw+TJGif5jRr03fMQ3J0Yzx+NLdjDfQAfM+xPc0YU0/YKH2AWN/tQTablZEroTpWkFXVlizX+nqfRp4JVsPi73FlyzJ+ZJpPpCfBFiy+iuS0TvIGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+Bo1M70aVU9uB6+S9+3myvlKh6FXn1oNOX2U/DuumPU=;
- b=Bh3znIl5aimyPQK8QwVWbzeOGMKZZTnIGQOR+X50jqvcOZb18A3rVY9gi6ChitajWg7qvvOuC5EopPsGcIFEmZZw5LW5WWh1FVBm05hYSLyt278WMF445z8+tTGjlFTUxzOILoxAv87POg/bf4wiISpDq9WbGAWQszjoBW/TB/qP9KZT0s4RGpk93udNsLiV5DFZnoLYtJkxI7NE7zqzRyRrwwLTDemLt2YL9LOZt5TA1bdxzaOoYUQNuDR2J56TtN1ic8s11FTDH8+SmwuBO38CpWb9Q5zB0xZAPcFifF1w8cU3eCGAXGqqPAoM6Z1PctgZnxFFG4c8mf/k5CfjkA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+Bo1M70aVU9uB6+S9+3myvlKh6FXn1oNOX2U/DuumPU=;
- b=aOcQj0RT6sN/nMQruVV3Z6ETZ1kYil9RLu+0D0LG6rUAk4ZkTvER1/46cwBmVwkqNNs4C0dRfop1I6gNaqgHgSWjWaGDX3N/zsDlvhRBk1KdkL4jsK+MABRuT1wsgzwu0pzLPue6cUL1WoBSC1ZYTaCV7rFWXVp9s2xxy8cGFCeKiHQSQZZhLGk9nij1xNsYOrR4dFaGUzj9PbJ6SdbVB+jKRPzD2gSQHoLwXy1F69kOj8jKp8/fRitjg8lN1Iq5rj7w06LguZcszFSeYkCtRlWiTHiIiuy2BGeillK8hzw/y5CcbXzHUb5BkCEFY9maoY+rd58UmuE5duQk+WYiJQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by PR3PR04MB7484.eurprd04.prod.outlook.com (2603:10a6:102:8d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.16; Fri, 1 Aug
- 2025 08:09:06 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%5]) with mapi id 15.20.8989.015; Fri, 1 Aug 2025
- 08:09:06 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: krzk@kernel.org,
-	rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	rui.zhang@intel.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org
-Cc: linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Subject: [PATCH v2 4/4] arm64: dts: imx93: update the tmu compatible string
-Date: Fri,  1 Aug 2025 16:11:19 +0800
-Message-Id: <20250801081119.1999298-4-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250801081119.1999298-1-ping.bai@nxp.com>
-References: <20250801081119.1999298-1-ping.bai@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR04CA0010.apcprd04.prod.outlook.com
- (2603:1096:4:197::11) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	Fri, 01 Aug 2025 08:14:35 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-24070ef9e2eso119555ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 01:14:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754036073; x=1754640873; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vY5IloWsNQwsLIRSq+Jk0RbLuNAFATBZvlKueff9YnQ=;
+        b=VgxUrKlD7CMvCO2gqqzdEFrasnsUn50kthBaf3biWVqNKYBY41D1nqOL1H+DeYfxXj
+         zlJGBPPBga1xIg/YMoD0x+kxyjS6ziOsL2JsEDC69AfmtjO46vzhrhurE60ELExgeLxH
+         ErsUDkv6HjU5fOxgYUY+neSs45+/95v4eVMdfyY9j3yFLhS6FSUd+wdrHP1X6X33XbDe
+         O376opFG0lSkwUEwCipQMCU+ou6BgIYbn29hRXeY/lGQSu6vf+uAsC5iy6xj8mLZaCkW
+         hxhmjqIt48ujTcicHeaBNPqRVEglwCVSJg3uAshowq3r2XIMLcVXWmWOqtoikmembnnP
+         Zppw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754036073; x=1754640873;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vY5IloWsNQwsLIRSq+Jk0RbLuNAFATBZvlKueff9YnQ=;
+        b=uGO/As7IovpsIRlJdjGcSUDi6ErBlCTnQsaY3ukVyTwHoLNlx9AR9qHUVTeyRqQUCX
+         8wJXlbO3X8Bw/SbyuzXqRPCsDl9NRi/tT2X1PlaDfYhxtSWRU3TL/otdAiVXflrHpX8N
+         crCdfmVohlu3Pka1FLDt9IcTUXbl6y0xrQBJ1V/vaFEZ9ZjcyCnFZV0Ma31had2ezlsB
+         LTCd+/tqEq3MfbwxmViu9WQFwlZ6v4mzEqkzp9yKVgLJ2U7Bf5dghXrDFd9UuwUN3Nqa
+         ZCzapquQZWDjDH7MHparXyKdqi1yRYqNVqBMQ9sJcwo0RUgpOr1Z4xjwhcMbX2crwjLw
+         hgjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUKKDlqtUZID33a9n5YaOfgoTunEfsq3DErKEExeYy/W1IgK6UBbwq/g7sXQp3ZEvEZSFmLQ9/sVCmyBntCsyJm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp97CRW5K0AZzAlkruoAt6wXF9K0dHPLqa/lTPCQJv9ewPB7oV
+	yBD4ru0OiE1oMh9GNz2Efd+tN+q1VsLQNr38MGbAzckvP5DypWoIvqLSbRdBR4FDdA==
+X-Gm-Gg: ASbGncty4TOcNejR6MrMC48L+ZTP+m2Wym/ZDN01mlxzy6HrsiDwZnNuEEQXQMtGCL5
+	suTC11zdzvr6YoYtJzeNZF2aVzxIzDeHL7+QHSQMt+6JDdHj0pPjpCglo9+M6o4bVjO7zriPLR7
+	+Ks+kPMzA2wqu3LUkGcWouWAnOl2YWScWbXIqdCZqikc4DZi3z5mJdYA8pdeSPYkymiYAL3KwKa
+	S7BHl112QUSy53zasgz4b9W1V2hWnGNTjcbpiU83SZd7AFLtAZOtI1nHlkGZFkYQAlyUvpudfIs
+	C4RjYmSTTgKgsgO3wTJ7CwkwiGY2CBWcL3pmx87KrV4m+tcVVcaC5obbYz6IY3k1jeu+gk3UN1q
+	oSR/9PDAUb0u/hDDLnKbSQOSF1pjaqj/qcbjS9v/6tBRnzoqeFh5444FC
+X-Google-Smtp-Source: AGHT+IGXJ0oDUg8x3lalK0qa+IS9YcsVUdYwosMrUSgYdRWE/44m5WMnRi51aRiN1cRnb1G5Gn4Zxw==
+X-Received: by 2002:a17:902:d490:b0:240:48f4:40fd with SMTP id d9443c01a7336-2422a435a05mr2506505ad.19.1754036073034;
+        Fri, 01 Aug 2025 01:14:33 -0700 (PDT)
+Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1f1efe8sm36422045ad.69.2025.08.01.01.14.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Aug 2025 01:14:32 -0700 (PDT)
+Date: Fri, 1 Aug 2025 08:14:27 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Fix smmu_domain->nr_ats_masters
+ decrement
+Message-ID: <aIx3Y3qIstTceTC0@google.com>
+References: <20250801030127.2006979-1-nicolinc@nvidia.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|PR3PR04MB7484:EE_
-X-MS-Office365-Filtering-Correlation-Id: 84ba0373-2e6c-4e3b-9540-08ddd0d2af50
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|7416014|52116014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vXzipq4tiN7RJisUn7QJQkI+ev0GhusiDQKidPbCbPbEHxoNF+7Nw7Jy6ST1?=
- =?us-ascii?Q?+e58smWFS+rInbinMRMtdnpvvQEs6Hk6D2pdm7Yx7/cSKb9+WGG40X6y1ZDe?=
- =?us-ascii?Q?2p+JnJIO0b5lQiSIfQsGac1LjrhyJ79tId1FWk+MSDAuq9HvLD4JWQ2D3OtL?=
- =?us-ascii?Q?g+XQZWunTVo9pS1gYjzHldXxXPxGuu+nhMqg+ER3p330w3U1jhc058Oq1ykH?=
- =?us-ascii?Q?QTo2/4vm/NwPpcL3WTe+3GC07SBAGEap74WKKc9Z05a65CWG9Ii9/Kko7iSM?=
- =?us-ascii?Q?yaaLqnHQ6CpAf6VgcPEBR+EzpqVhOIIlEaWa7dedmbChvvrnd/sHojWZn+Jc?=
- =?us-ascii?Q?KXYyBodPcfnBA+eM6WiCem5/+7u3ev4pHP454xYNZN29CPROHUjbyLoEBEB+?=
- =?us-ascii?Q?v2wzOGtR2g6CnFhtj6HHqAisL7+uKcMTJziMvAZYsPk3WU6Yx4MeTRwV4Bt2?=
- =?us-ascii?Q?Zaenv1XucQJur6HkGmJQ9Av4AsteHZgMlKjTMUp9ZJbCVBKOo00EQ1XDawes?=
- =?us-ascii?Q?Oho7c2O2SK0yPFugErZ9P26A/cbvtymRIx9gVTlA7zoOiQXO3k49BiDSdv/o?=
- =?us-ascii?Q?e4nK/RBAxB3nxvJve0iLHwWIMCmUGOz84x6U/nh+K2kuH4YySspa0gi2QtxC?=
- =?us-ascii?Q?xr1Y5ctVGlZ242W8v2G9ULd8LGDa791fjF8wKYcXu5M5ctvkI7yQX+++zVkV?=
- =?us-ascii?Q?eG80xcdIu8h/QCv1mMVifQYjqOnJb1Axpc4ZqktM8NjvjEKRYBGIU41xAJ04?=
- =?us-ascii?Q?RbdTTSJfIiAhKRmv+a1uP19ap8fer8esGnzYSQgARn+NlZ9R8P6qfiuzIvG3?=
- =?us-ascii?Q?EpqYtDIXlqxkMVGUVg1DBEcCKXN9Drv5iZ0Bl3teXEo17PW9CSYYhDMu5vA0?=
- =?us-ascii?Q?C6SU+c1m2xP4lRU79saDD32LcbcU4KvlQmptKZYv42eOiEiEj5zmF+ftJ6JI?=
- =?us-ascii?Q?ZZpdLFT6sF29Wy6LjPkR/oJCz9DJeqOJcVt0lDdhPsyQ7+ZjdCghDOynPfvA?=
- =?us-ascii?Q?N+1BjVaJMyM1qE+qbXJdbS3dLksAv/Vm7g7sGaYpakLDIf3UnYU0Ky5rpCyG?=
- =?us-ascii?Q?3+FhnJkEQiZl6ItrlseeYx5DYS7dPNKKriy75uqldlIN8mgHE4WnC8m3Q4zv?=
- =?us-ascii?Q?a5L8Ipg+voNmaPwAHgYyYBUWnsL+45o2HRaeAiw7bfXZXazpjKD40L47gzzk?=
- =?us-ascii?Q?FVvrG3+yOS91d5eLc8hUkl22cDxDjU3Vm0HMBZpn/BWrQFc7ZRfJP0B7E6IF?=
- =?us-ascii?Q?5Wn0n3dEOn1D2im1f1//FeTEqsPLNvPWpDkWEc7DTi49RbnocSKAuDovK3vP?=
- =?us-ascii?Q?vFB8oDyRxnJGxWW9zz9Ci24lkRIm/JgyPmO3+K25mxCgIkrDpJZ6S5u20/p8?=
- =?us-ascii?Q?h+rUX5sFiIsBRqEsyfoY+JgRXAiB7ULwmKvRHC+pbxluP40VoRtTJPskSZz+?=
- =?us-ascii?Q?yiAUfTRe57mNYuS3haWy3xXsiL+XEnyKy1vmg9bche7/9znwlwZoDg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(7416014)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oDkFFbhUVQpM5WJE/DYNJ5EH7JBDc9BhtxOdnB3GXLdd40DuCjkKPUMP0ePl?=
- =?us-ascii?Q?FcgQNIWProp+wqAobTVLtzHHE0GGH3sY/auFhPmgko8k9yALYD7xQSLErwhb?=
- =?us-ascii?Q?M9DwfWxl+xYVIyP3e9vz8cP8pRqs3SudQFEe9AzqyZK/EstPL4n6gorTvAGw?=
- =?us-ascii?Q?2CN6vXuO5N5tHIY6ik3xVWp65sqIx+YsQ0b0C38VOppHoyugDpkMkFDRzVEF?=
- =?us-ascii?Q?oRLc2vU1mJNXUD0DQmQCQTpskb0OD0Jw6V3fVvGeEzbkOfLdQqr8j5B+8b97?=
- =?us-ascii?Q?TWPOpVra4ro9JIxtUQ68y7N+1XYWB57cy01ml3MNoXy/3+8wUJQ9fm1C+t86?=
- =?us-ascii?Q?rffCC49WoSJEjY88646QcMqX2r0JAWs4N75qTUBPexIYg8JdfJAdC1E8NM6P?=
- =?us-ascii?Q?x1k+f9cRCnoIswML+WqGZEnZHKqqvdK+9/aha3rpbslt0p0ACQmca15kXWIs?=
- =?us-ascii?Q?X3jXw/3TWtU3H6hv3a7CrfilnGsS5aV8NXINoOmxMYaZSl5RV31AV92TeEmr?=
- =?us-ascii?Q?3tnYOutwc/u6kjZw+bS0iPBJ3uBzmsv+RSugzX7t7i4abhz8P+CTSBMq/xV4?=
- =?us-ascii?Q?Pj/PGH3yktDULfzNdwh8L/TT8fxKVTEell0t2V0XhvmrEi0jeww6k8udxPOL?=
- =?us-ascii?Q?9CfN+LnLtRcHtyNNFHSP35/s1cgUzkztOfmwdAos05o7K+QGYIsrJzrmdIfM?=
- =?us-ascii?Q?pag0fVDSv7p6KELd/ffeq6w26P+nYzf6clKjJ4echTOh4U8P2DKdtaiZk8sT?=
- =?us-ascii?Q?3l3gz1qUt6orv8TT/G6fHHhMr70zS1d3tjzAbW94ksWAIvrGH49Eq/3rGb0P?=
- =?us-ascii?Q?6Q0TBdu3CdhUAE3o3B75W8G68RNkplg7G4F8YdFz5Z+ANGhEKTEi2sWYlWoI?=
- =?us-ascii?Q?h71bTbbQQ2kzi8JBWt/6w2VV9NR7SRcMsoKL1FGk7hHrfOg8SXCfqTveizMD?=
- =?us-ascii?Q?XiutDgwQ9G9+BmHaOwf1/npw9+AKkiklrd3TbLlMRasNTtymXBdQcbgG9ko/?=
- =?us-ascii?Q?s0iK9ZZsiJRUSvZq89zRr8FNkTVsBDVMcEaHUTynJ26uVWxqTGHPiJZA3Bb4?=
- =?us-ascii?Q?pDpZGJeV2QIcxglWZgg40QFVRjCWczBKjxia2dTwpr2RYqCuTt2HXmN+btPP?=
- =?us-ascii?Q?gB8OYsBOkRSuLiRXiKsSSCe2h0dEzvjPg5RCaqs7Vx0wCxW91wEa7Pnc0d+J?=
- =?us-ascii?Q?rXKFsh5XXD2ASTCFgOFvIKf6P0Y/YOD88qDI3XBD4EjoaCSQzjYnGD1wyCr6?=
- =?us-ascii?Q?WP2KE+mCLlsyQ6Sd5hvnWoFzn+Rg6cajn8hkDUeFIBFf5utoF8iNDxKeg2JS?=
- =?us-ascii?Q?HuVRUSoMvXzRwmxXl4okdgGbAwLacKe+TLPHEE8TfCiQJdbdYc6rII7RAuHG?=
- =?us-ascii?Q?VY/PsYaMU/dpwwwHCXVkqjgQE2UkstAYF49lMVe1nmdj3RBhtTcCGbibODhN?=
- =?us-ascii?Q?Rh4nINIFbv/iXArehwbmKChVAnvkuq4XzbHysU+AwgieBjamZ64JE6DR9HbK?=
- =?us-ascii?Q?KQtPw54EoPpKfIAiHHgXW+2NJZv4TAYsbo45v0v6oJXhUYU/caMdQWhgweVJ?=
- =?us-ascii?Q?s7e/21ZCcKrynyZ1c8gH+LdSq4hmF5n8ZzrPDqeR?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 84ba0373-2e6c-4e3b-9540-08ddd0d2af50
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Aug 2025 08:09:06.2939
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EN888rmOP12laGs6lLsH+jmfTbPZwVxgKp0iKVRUlVt5g/fXcvJ/3S3Go2Ebd52BstKcr1nTqOJUpyyxirTxqw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7484
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250801030127.2006979-1-nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_010908_774683_A502C0BA 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20250801_011434_835445_147A7B7D 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,28 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the tmu compatible string.
+On Thu, Jul 31, 2025 at 08:01:27PM -0700, Nicolin Chen wrote:
+> The arm_smmu_attach_commit() updates master->ats_enabled before calling
+> arm_smmu_remove_master_domain() that is supposed to clean up everything
+> in the old domain, including the old domain's nr_ats_masters. So, it is
+> supposed to use the old ats_enabled state of the device, not an updated
+> state.
+> 
+> This isn't a problem if switching between two domains where:
+>  - old ats_enabled = false; new ats_enabled = false
+>  - old ats_enabled = true;  new ats_enabled = true
+> but can fail cases where:
+>  - old ats_enabled = false; new ats_enabled = true
+>    (old domain should keep the counter but incorrectly decreased it)
+>  - old ats_enabled = true;  new ats_enabled = false
+>    (old domain needed to decrease the counter but incorrectly missed it)
+> 
+> Update master->ats_enabled after arm_smmu_remove_master_domain() to fix
+> this.
+> 
+> Fixes: 7497f4211f4f ("iommu/arm-smmu-v3: Make changing domains be hitless for ATS")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx93.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+arm_smmu_remove_master_domain() needs to see the old ats_enabled state
+for the cleanup.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
-index 8a7f1cd76c76..2f1db9cbfa4e 100644
---- a/arch/arm64/boot/dts/freescale/imx93.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
-@@ -544,7 +544,7 @@ clock-controller@44480000 {
- 			};
- 
- 			tmu: tmu@44482000 {
--				compatible = "fsl,qoriq-tmu";
-+				compatible = "fsl,imx93-tmu", "fsl,qoriq-tmu";
- 				reg = <0x44482000 0x1000>;
- 				interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
- 				clocks = <&clk IMX93_CLK_TMC_GATE>;
--- 
-2.34.1
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
+Thanks,
+Praan
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 312bc31d7e8eb..3c81139faecae 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -2997,9 +2997,9 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state)
+>  		/* ATS is being switched off, invalidate the entire ATC */
+>  		arm_smmu_atc_inv_master(master, IOMMU_NO_PASID);
+>  	}
+> -	master->ats_enabled = state->ats_enabled;
+>  
+>  	arm_smmu_remove_master_domain(master, state->old_domain, state->ssid);
+> +	master->ats_enabled = state->ats_enabled;
+>  }
+>  
+>  static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev)
+> -- 
+> 2.43.0
+> 
+> 
 
