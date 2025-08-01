@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66800C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 12:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683D8C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 12:33:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GM7VspiuNJbWJfvQBErQDCx2bV8UH8sNG4aEdut/aes=; b=VBwJU2GB8aXJaEOOCpOv0NXEuV
-	KJenYB+rDx+FA5gYWGZm7ZyLxXsZ7moc1RtWKOhCCrupMXhNFiW7g2uLsIOQUOOvf8BlO3rOzwMyo
-	r1A1B6cdECCAG7QR/REBNNfCaXzOuJGOeM86YzxKa2xSuJH4T68ibheXXXEPqVs66kTjCod6Bm5ad
-	YSipWPUm9Qbqf/mFbnYAmrAgnEpKMoM0wKijNUw6IjfR4bYHqd2NGq5dENF+S+ITVhZClvDHY1QUB
-	3bAEw0I3OTJ4iQORkio13TKNwzKv1gj2wqVUu/inXDKuqzhOjzksh5C+I19w+HbjseblZmnrlelqw
-	TT+OHL+A==;
+	bh=yVEO8AwCYGneK3iCtnSO2FYSE0y23c65UkSqDR4ustY=; b=2LZM6e79+b85l57wG07G+vruxv
+	FpSSSCwvx05EBl+zPtvvW/dRHjF7PsGcP+29HMJDk6S1+Jvj8/glSfuuyzGbjsQd1EpUbj0+K8qMG
+	MWKZzMocyeIRpki/cBqG3dG6Ksd7KY4qGVuo5fXbbXlpX4BoGTtfC5vmbmXQmYXaaHzb006Qack81
+	q4UnYT5Yl6Hur/wEgokGfq6ek7tj82XpPeAZify6zhOnmF7VLhonPvyCSPqMmsxBd/49ZEMdMxDyk
+	agnnnfy2+lJ0da9bYGKPdUbvojNC2CulPHjZ6bZMxGiFMYEWQ08bgGp2eZGvbXZOrIC/t++tc4VVu
+	6eqKsGag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhowN-00000005xaw-1aRH;
-	Fri, 01 Aug 2025 12:32:51 +0000
+	id 1uhowR-00000005xeM-2c3T;
+	Fri, 01 Aug 2025 12:32:55 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhoW2-00000005fKf-09YN
+	id 1uhoXg-00000005gRz-2xhS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 12:05:39 +0000
+	Fri, 01 Aug 2025 12:07:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9284457F1;
-	Fri,  1 Aug 2025 12:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DF6DC4CEE7;
-	Fri,  1 Aug 2025 12:05:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D5F7438BF;
+	Fri,  1 Aug 2025 12:07:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A943C4CEE7;
+	Fri,  1 Aug 2025 12:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754049935;
-	bh=GM7VspiuNJbWJfvQBErQDCx2bV8UH8sNG4aEdut/aes=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LX2QbAFzWP4riFP/JJv51l2FyaX9fyPK28wMVGHcCfFKEtSFKVpZ0FgtSPOucSLlo
-	 6F9mQvqm5SbUGEKvWIVf7NTkzhFFSQF2fpERwB3xIoq9+aJoX6tV0y0j2re+htZDca
-	 4TQ/su42Nre4xrONdEbvGAZiJlHIUeul9jjsER/2v6tU+kfhy9CnqhrYZlssjmWglo
-	 MCc+SQaTDvuVBDckvzUSTZz6AVRbpgDqBqAYpi/Vb85APyR5ixD4tqWKZ9AfeD/m7l
-	 I7xHyotIH7HMM4PjyI7zDUo1D42nSzZfZ9OX1u3wkM/BCIfYQv1wRpF60Ua25tRbcc
-	 Dg3O4I4BmkLTQ==
-Date: Fri, 1 Aug 2025 13:05:28 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Joris Verhaegen <verhaegen@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	Miller Liang <millerliang@google.com>
-Subject: Re: [PATCH v4 1/3] ALSA: compress_offload: Add 64-bit safe timestamp
- infrastructure
-Message-ID: <13ad9530-8e9a-4955-8844-aaf49146e988@sirena.org.uk>
-References: <20250801092720.1845282-1-verhaegen@google.com>
- <20250801092720.1845282-2-verhaegen@google.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3hce4ALIJPGSBrPW"
-Content-Disposition: inline
-In-Reply-To: <20250801092720.1845282-2-verhaegen@google.com>
-X-Cookie: Who messed with my anti-paranoia shot?
+	s=k20201202; t=1754050040;
+	bh=Wp+h0yuXbNcfsqxPwXEF+nUHlta7mU/BT9QxhztE+PM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lQJOkcZhiHbnE7Q2Z0W/FcI+MphhoKeHfJypKmsOnm9XxwDi8MYdNWaaDvhwQfky3
+	 bWD2Cdnxb/+uN6nspd/c652fMgz9xd45ahEcFbvYfer+RDNJZn3pz3N/Q/yLpt/6Gr
+	 l2MTOwvE4clh06Lzd8fjOi6nPMjDlrUPHdqcRXzVJIEl1e/jfUW0/hqjG3W7TkrW7l
+	 X84of3zDF8UqbQtmTGp5sAEi74qB9/F8LZX0LPx9vVtBIZ126Vbv/8L9X9as7VdHbF
+	 yPESws8Y2n3Rvw8oammoac03qeEoswwgxE1JgxppSk+1YhVSvCrgV/7TGy5fxkhNHR
+	 xM/0F2xExtP1w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uhoXe-003Boj-3B;
+	Fri, 01 Aug 2025 13:07:18 +0100
+Date: Fri, 01 Aug 2025 13:07:17 +0100
+Message-ID: <86wm7n6ya2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jinqian Yang <yangjinqian1@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	jiangkunkun <jiangkunkun@huawei.com>,
+	Luchunhua <luchunhua@huawei.com>,
+	liuyonglong <liuyonglong@huawei.com>,
+	"xuwei (O)" <xuwei5@huawei.com>,
+	"Zengtao (B)" <prime.zeng@hisilicon.com>
+Subject: Re: Regarding the Issue of vNMI Not Supporting Live Migration
+In-Reply-To: <c7bc0979-3721-49ba-89bd-ebcaa5ce70d9@huawei.com>
+References: <c7bc0979-3721-49ba-89bd-ebcaa5ce70d9@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yangjinqian1@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, luchunhua@huawei.com, liuyonglong@huawei.com, xuwei5@huawei.com, prime.zeng@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_050538_100556_7F544A58 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250801_050720_771420_042420B0 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,32 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 01 Aug 2025 09:00:07 +0100,
+Jinqian Yang <yangjinqian1@huawei.com> wrote:
+>=20
+> Hi=EF=BC=8Cmarc
+>=20
+> https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/log=
+/?h=3Darm64/nmi
+>=20
+> During the testing of this set of vNMI patches, it was discovered that
+> vNMI do not support live
+> migration. The reason is that GICD_INMIR/GICR_INMIR0 have not been
+> migrated, causing
+> irq->nmi to reset to 0 after migration. Therefore, to resolve this
+> issue, we need to complete the
+> migration of GICD_INMIR/GICR_INMIR0. This set of patches does not seem
+> to have been uploaded
+> to the mainline. I was wondering if these are scheduled for upload to
+> the mainline?
 
---3hce4ALIJPGSBrPW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+There patches are *dead*, and will *not* be upstreamed as such. You
+can tell from the date and the base commit that they are old and
+unmaintained.
 
-On Fri, Aug 01, 2025 at 10:27:14AM +0100, Joris Verhaegen wrote:
-> The copied_total field in struct snd_compr_tstamp is a 32-bit
-> value that can overflow on long-running high-bitrate streams,
-> leading to incorrect calculations for buffer availablility.
+Please do not pick random branches from my tree.
 
-Acked-by: Mark Brown <broonie@kernel.org>
+Thanks,
 
---3hce4ALIJPGSBrPW
-Content-Type: application/pgp-signature; name="signature.asc"
+	M.
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiMrYcACgkQJNaLcl1U
-h9AdmAf+IBbNJ4JZ0K2alkJmSZ4ClSpvLsc0OJHhkr8kbAMrBOyFn67A/Hw95kxf
-x3856yC73oTlON1VWQ1DCxThT1ubwy4iK9vnC8dmfKo7ZgkUVdY8dfcoVG7QPeab
-ZySf3lBoPZ/S2gVGj6xJATKtWPD4llhjHtICjjKT9zhVCSZgHaY9W048zBrnEw00
-vLxTiYQrYcDgygYjmfRkOBZw6z4n6C4jaesRnMUJfx5uUrb1kwDnPTsS+aIEA1MZ
-uKirsvNKBuPvnxBbadHLFnuJfWHLBcKjGH5WkO8F5DFYMzW1UgzUpZJEhK0IZyMc
-lP89DWksuDpwBsl8JcYJ4mW+VgxX0Q==
-=8Yki
------END PGP SIGNATURE-----
-
---3hce4ALIJPGSBrPW--
+--=20
+Without deviation from the norm, progress is not possible.
 
