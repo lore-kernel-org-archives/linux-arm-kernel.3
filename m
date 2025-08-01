@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB8EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE25DC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vY5IloWsNQwsLIRSq+Jk0RbLuNAFATBZvlKueff9YnQ=; b=tMEC9wS4AuyoWSe9giiqDt+s3l
-	fGfIzJM4B2Ptw8YHuXID8nEWbHfY5BBOhOC1Yi9YBa3Ajs8kV8zdS2A90b9vJy4XXAQImqDJoqbtt
-	Z1kmbuyiuVh7s0yJ9TzezpViEkt1WwdvissDwJG6QTd8PGuThu8o45HQkW1EbQiEpWKe6MGe6wpLK
-	1Bdx5ILIzVyR2vEXeZkJb6PhlYQFLrX8ID0SmCzKENsdJnVS+xYXoSUx8sRQWjz5t3pwEcnsxedk7
-	zwFx66q86pb8YQmt6V2PYHELM62y6tqAbpJN1mLI4tAImSBeH2AiYhETSXvIIqUP7Q6ajugxDh5kq
-	4QWgN4+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zOC4uGHuBV8wACSUSYr4zqb/AWSw2lkHtrho7jKDnI4=; b=PcGfR94AHaKGApZcP6TdjPZCiv
+	ckt1BIrt3QJmHY2DgVCT/OL6fq/XCFKXXMhuXeWHyGkxNkU++AmxKs97Zq1y1bigHM4Bm7dk1MR7A
+	obmtN0GADw3MW5Qc4pKt6zFUOJjSVs3u2F67rQDsxp9EVogJvCclnYg0SWGGT9nvgXYv1B5K3p0ZJ
+	vJEiZvPWl/CvOFa3t+OiA7P3M4aLB1fwha9vE1pe7ucX37O/11GOVYRes5U/S0FV1MQ/yK/c1dbpT
+	On2FLOjF1LbvCjE/9DTgMdxe4daVm7ULM5YdsnL6kw7Xb+6hfEzYV6LlJzbkW6HAWM4h2TU7tMAck
+	roVgkMRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlCH-00000005G5f-0Xvc;
-	Fri, 01 Aug 2025 08:33:01 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uhlEo-00000005GVT-3lEd;
+	Fri, 01 Aug 2025 08:35:38 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhkuQ-00000005DqQ-3JWH
+	id 1uhl2m-00000005Eq2-16Vg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 08:14:35 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-24070ef9e2eso119555ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 01:14:33 -0700 (PDT)
+	Fri, 01 Aug 2025 08:23:13 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-45618ddd62fso7207765e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 01:23:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754036073; x=1754640873; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vY5IloWsNQwsLIRSq+Jk0RbLuNAFATBZvlKueff9YnQ=;
-        b=VgxUrKlD7CMvCO2gqqzdEFrasnsUn50kthBaf3biWVqNKYBY41D1nqOL1H+DeYfxXj
-         zlJGBPPBga1xIg/YMoD0x+kxyjS6ziOsL2JsEDC69AfmtjO46vzhrhurE60ELExgeLxH
-         ErsUDkv6HjU5fOxgYUY+neSs45+/95v4eVMdfyY9j3yFLhS6FSUd+wdrHP1X6X33XbDe
-         O376opFG0lSkwUEwCipQMCU+ou6BgIYbn29hRXeY/lGQSu6vf+uAsC5iy6xj8mLZaCkW
-         hxhmjqIt48ujTcicHeaBNPqRVEglwCVSJg3uAshowq3r2XIMLcVXWmWOqtoikmembnnP
-         Zppw==
+        d=linaro.org; s=google; t=1754036590; x=1754641390; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zOC4uGHuBV8wACSUSYr4zqb/AWSw2lkHtrho7jKDnI4=;
+        b=YNy0md1clVx5WKGwxMkszzBPr7gbZebM3qnn7Ra7p3GysJSnqIe61igIIsIlDgCzX9
+         SrpTcBArzt+r1sVdZerbejIfVmA8luv0E9JjcI6OVYp77un06cJY8WQzVzRvLB3f52jq
+         JpJmiby4QG+AlX9k56qAtAEOWCrV5sBk9mKRq9umQACfR55PakL4QV+jKO8MswaPoJQz
+         BPC4hgBZvnEWmO+elzRqLBjtAAc/Man/auQiVS1VqsXAEI8aFVrf9SCBDKW/OeqlEmHm
+         wdIcSQtx7QCsn17jQs3D5Iu7p3YgM0qBtOIHM+aa8zByCvjnMyVZFS/EnefbAZbQXMxY
+         NWcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754036073; x=1754640873;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vY5IloWsNQwsLIRSq+Jk0RbLuNAFATBZvlKueff9YnQ=;
-        b=uGO/As7IovpsIRlJdjGcSUDi6ErBlCTnQsaY3ukVyTwHoLNlx9AR9qHUVTeyRqQUCX
-         8wJXlbO3X8Bw/SbyuzXqRPCsDl9NRi/tT2X1PlaDfYhxtSWRU3TL/otdAiVXflrHpX8N
-         crCdfmVohlu3Pka1FLDt9IcTUXbl6y0xrQBJ1V/vaFEZ9ZjcyCnFZV0Ma31had2ezlsB
-         LTCd+/tqEq3MfbwxmViu9WQFwlZ6v4mzEqkzp9yKVgLJ2U7Bf5dghXrDFd9UuwUN3Nqa
-         ZCzapquQZWDjDH7MHparXyKdqi1yRYqNVqBMQ9sJcwo0RUgpOr1Z4xjwhcMbX2crwjLw
-         hgjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUKKDlqtUZID33a9n5YaOfgoTunEfsq3DErKEExeYy/W1IgK6UBbwq/g7sXQp3ZEvEZSFmLQ9/sVCmyBntCsyJm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyp97CRW5K0AZzAlkruoAt6wXF9K0dHPLqa/lTPCQJv9ewPB7oV
-	yBD4ru0OiE1oMh9GNz2Efd+tN+q1VsLQNr38MGbAzckvP5DypWoIvqLSbRdBR4FDdA==
-X-Gm-Gg: ASbGncty4TOcNejR6MrMC48L+ZTP+m2Wym/ZDN01mlxzy6HrsiDwZnNuEEQXQMtGCL5
-	suTC11zdzvr6YoYtJzeNZF2aVzxIzDeHL7+QHSQMt+6JDdHj0pPjpCglo9+M6o4bVjO7zriPLR7
-	+Ks+kPMzA2wqu3LUkGcWouWAnOl2YWScWbXIqdCZqikc4DZi3z5mJdYA8pdeSPYkymiYAL3KwKa
-	S7BHl112QUSy53zasgz4b9W1V2hWnGNTjcbpiU83SZd7AFLtAZOtI1nHlkGZFkYQAlyUvpudfIs
-	C4RjYmSTTgKgsgO3wTJ7CwkwiGY2CBWcL3pmx87KrV4m+tcVVcaC5obbYz6IY3k1jeu+gk3UN1q
-	oSR/9PDAUb0u/hDDLnKbSQOSF1pjaqj/qcbjS9v/6tBRnzoqeFh5444FC
-X-Google-Smtp-Source: AGHT+IGXJ0oDUg8x3lalK0qa+IS9YcsVUdYwosMrUSgYdRWE/44m5WMnRi51aRiN1cRnb1G5Gn4Zxw==
-X-Received: by 2002:a17:902:d490:b0:240:48f4:40fd with SMTP id d9443c01a7336-2422a435a05mr2506505ad.19.1754036073034;
-        Fri, 01 Aug 2025 01:14:33 -0700 (PDT)
-Received: from google.com (232.98.126.34.bc.googleusercontent.com. [34.126.98.232])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1f1efe8sm36422045ad.69.2025.08.01.01.14.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Aug 2025 01:14:32 -0700 (PDT)
-Date: Fri, 1 Aug 2025 08:14:27 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH rc] iommu/arm-smmu-v3: Fix smmu_domain->nr_ats_masters
- decrement
-Message-ID: <aIx3Y3qIstTceTC0@google.com>
-References: <20250801030127.2006979-1-nicolinc@nvidia.com>
+        d=1e100.net; s=20230601; t=1754036590; x=1754641390;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zOC4uGHuBV8wACSUSYr4zqb/AWSw2lkHtrho7jKDnI4=;
+        b=GzbYre4mnmoiAZSgHdyIMyNKl/vakMYaX+FUBBVb67cNSP+5o2/NDt7hLUF5PRLV3u
+         ljTk3/TvBcz8ZeV2hmMdOLCvBOeqHLgiKnJ2EHFwSpDoYEJQhpLKCawYnDzcpA8NaUs0
+         V5E2h9/DFxEZhSoZ5FBhfsirzzrV0K0Pu85ZIlB6ulphz/ext0EoFpvgu0r12yyPXxOg
+         wPCFM9HqnXsCgqEgt6NCCLQL11Xwoqj2BL/yjLlq3OXGIxA5eralSJc2Jl8fR8wlN043
+         w/Lh7h/ROs9G8Pa8S0lE9yqteQUv+FiflqJ58nEJdZEQlfe+G3BE5GboOf3KRhcQh6cb
+         /JAw==
+X-Forwarded-Encrypted: i=1; AJvYcCWZP8EOZP6makMlsF/US6RqN2/sXJF/JizhBvYGIwNe0SoaxDTKryt6DoylORSX6ImBqBEfgKKcD2OBR2TkGB7+@lists.infradead.org
+X-Gm-Message-State: AOJu0YymZdqjbf/nDelFSf23CWU6pGlDrJm4eeckYRCnI237hiPQeZYk
+	j3R0PPqqMT7R6NT+YO4IrbgnvC5QQGiB5FJZL7qEyDOefkwPSTaPmnWWfBcR9aq2b4U=
+X-Gm-Gg: ASbGncuO0x+909zKEat9/zvMa1xzgHw6sYoYbx8P9LlRE/DJ7RUogROol6EndGuiH+N
+	XUYUPZMjaMTj5QhbSbXaD4Mem8cYi5AYvW2yyqzc7xEowkV3lgngOQl3geXvps4XYhgOIX2TzBm
+	S7pI+14p/+E2z3hJnfCHW8mUVGCUEUNYaZt3tKEa8elCS5CBoPjWxWw5/2yf38BtFqizJyN8chs
+	GDG67+DUTgSojWuJWpXhsbsvzaFukpdhZTL4jpzw7N0V1a7xqFv1Q3aDCkkVUl72PcfnZOUkDme
+	QFlHJQyjFoefnEm43LrnVSXE0UELuLPpDIN9pXzV/Sggo0EZwCAC3IBysgEWRRbValp7HvzIgWs
+	V+Ocw+ShA7ztkH+Rslc84pGllU5WQUYlT6zf2iDd+6xrIRZBHIbXb06stOoQgcg==
+X-Google-Smtp-Source: AGHT+IHFaN3+egakRXZOjinaJFG+r4LMkGjP5kelar/Ki6ZV3odXQ8ubCXOx4u3mK+PBxlSADMEjhQ==
+X-Received: by 2002:a05:600c:630f:b0:456:18ca:68fd with SMTP id 5b1f17b1804b1-45898a828a3mr106806585e9.10.1754036590465;
+        Fri, 01 Aug 2025 01:23:10 -0700 (PDT)
+Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4589edf5683sm56534915e9.7.2025.08.01.01.23.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Aug 2025 01:23:09 -0700 (PDT)
+Message-ID: <4b2bd0ab-cc4b-4afd-a46e-60ccc8d6f239@linaro.org>
+Date: Fri, 1 Aug 2025 10:23:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250801030127.2006979-1-nicolinc@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/8] arm64: dts: s32g274-rd2: Enable the STM timers
+To: Frank Li <Frank.li@nxp.com>
+Cc: mbrugger@suse.com, chester62515@gmail.com,
+ ghennadi.procopciuc@oss.nxp.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, s32@nxp.com, kernel@pengutronix.de,
+ festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
+ Thomas Fossati <thomas.fossati@linaro.org>
+References: <20250730195022.449894-1-daniel.lezcano@linaro.org>
+ <20250730195022.449894-3-daniel.lezcano@linaro.org>
+ <aIp+4mWS1k73Vf/A@lizhi-Precision-Tower-5810>
+ <87d40626-8789-4e71-8ac3-fa8fff0a7435@linaro.org>
+ <aIv5hYGq+fNStRBw@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+In-Reply-To: <aIv5hYGq+fNStRBw@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_011434_835445_147A7B7D 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20250801_012312_308572_43643A47 
+X-CRM114-Status: GOOD (  14.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 31, 2025 at 08:01:27PM -0700, Nicolin Chen wrote:
-> The arm_smmu_attach_commit() updates master->ats_enabled before calling
-> arm_smmu_remove_master_domain() that is supposed to clean up everything
-> in the old domain, including the old domain's nr_ats_masters. So, it is
-> supposed to use the old ats_enabled state of the device, not an updated
-> state.
+On 01/08/2025 01:17, Frank Li wrote:
+> On Wed, Jul 30, 2025 at 11:15:54PM +0200, Daniel Lezcano wrote:
+>> On 30/07/2025 22:21, Frank Li wrote:
+>>> On Wed, Jul 30, 2025 at 09:50:15PM +0200, Daniel Lezcano wrote:
+>>>> Enable the timers STM0 -> STM3 on the s32g274-rd2
+>>>>
+>>>> The platform has 4 CPUs and the Linux STM timer driver is per
+>>>> CPU. Enable 4 timers which will be used, other timers are useless for
+>>>> the Linux kernel and there is no benefit to enable them.
+>>>
+>>> S32 have not ARM local timer? It is quite strange!
+>>
+>> I'm not saying there is no architected timers but there are the STM. May be
+>> I can reword the sentence to prevent this ambiguity.
 > 
-> This isn't a problem if switching between two domains where:
->  - old ats_enabled = false; new ats_enabled = false
->  - old ats_enabled = true;  new ats_enabled = true
-> but can fail cases where:
->  - old ats_enabled = false; new ats_enabled = true
->    (old domain should keep the counter but incorrectly decreased it)
->  - old ats_enabled = true;  new ats_enabled = false
->    (old domain needed to decrease the counter but incorrectly missed it)
-> 
-> Update master->ats_enabled after arm_smmu_remove_master_domain() to fix
-> this.
-> 
-> Fixes: 7497f4211f4f ("iommu/arm-smmu-v3: Make changing domains be hitless for ATS")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> if there are local timer, why need STM for each core here?
 
-arm_smmu_remove_master_domain() needs to see the old ats_enabled state
-for the cleanup.
+Yes, I had initially the same question when upstreaming the STM timer. 
+Ghennadi explained the automotive designs can partition the system by 
+running a firmware and several instances of Linux. By using the STM, it 
+is then possible to have the firmware to read the STM counters or to 
+stop the timers when the board switches to debug mode.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Ghennadi can elaborate more on this if you need more context.
 
-Thanks,
-Praan
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 312bc31d7e8eb..3c81139faecae 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -2997,9 +2997,9 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state)
->  		/* ATS is being switched off, invalidate the entire ATC */
->  		arm_smmu_atc_inv_master(master, IOMMU_NO_PASID);
->  	}
-> -	master->ats_enabled = state->ats_enabled;
->  
->  	arm_smmu_remove_master_domain(master, state->old_domain, state->ssid);
-> +	master->ats_enabled = state->ats_enabled;
->  }
->  
->  static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev)
-> -- 
-> 2.43.0
-> 
-> 
+
+-- 
+<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
+
+Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+<http://twitter.com/#!/linaroorg> Twitter |
+<http://www.linaro.org/linaro-blog/> Blog
 
