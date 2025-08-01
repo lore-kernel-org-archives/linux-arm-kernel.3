@@ -4,106 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFADC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 08:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5017C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3ut2IZtB01vlovnDAd6xUWzFbNv5v2C3DILCLpVpw0=; b=B1EdEzEsUtWKEfGC5xgKCZT3aj
-	0FHuLk5kiCUtJEPgdsPZDyE1vHnGedc6j4s/la6KdWMN5hAUJjTVG42uK4bfO4Rx5uR1ZYJpyKfJ4
-	SahQNLbvBk6RfBmvOpT9uW5hNT9zpupMVBJHJDdlwIl2bsIn7Zvrn8RuPD/FYX/Cmw2K/33Nz91ed
-	sannsTJKZdfPppesUuegbLA1OswqIZBh/9Qqfvs77dDZ2oUcfU3//fTWz+YQGY/nRkskqyKtggHlo
-	ueS7v2By+D8qCDfSbR4HWBuc17eSuTUxa/CPj7E+Nnq+O5Zoa7pHLbfjcNV6qLJc1ncZaPpsHxRX6
-	IpXAQHOA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hgS+ODJb9CXg/LPw4dVtDuwRayXfLgKY/8D48g9UQjI=; b=0gDS9HIvqH4Ibo8NhJ2DbAoW0r
+	2a3sObe9F5v0/QgSTvn/eWHJpPPOhOJUq5lYtJC0jRQVFU6nEiY4t92gFEEI6ui+aOhSfFLLiF/7W
+	yI6swBNM/8IlvJ+NkfsjTiVWj1ftYFV/iyYoAR6CIw/KveYPDvQFKzQxsI/yVY25gDvAIeaVK1F/G
+	gis3VTKljlbqOEwOli5NJVA0xww6cNMLhowBiqJCaDtQ9xcZYB5ZMhK3MJtJDN8Nn9RcA/r0ryu+B
+	tH1arQ9vzmUcE/GcZGE2+3iNUONSewBeQukAB4rd/8XA/z5rfKthFo4wRX/J2ZiJ+ADb1XACfrd37
+	Dtf0qGCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlaB-00000005Ibo-3r4q;
-	Fri, 01 Aug 2025 08:57:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uhlck-00000005IqV-32ub;
+	Fri, 01 Aug 2025 09:00:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlXc-00000005ITX-0VCa
+	id 1uhlXg-00000005IU3-0U1Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 08:55:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754038502;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q3ut2IZtB01vlovnDAd6xUWzFbNv5v2C3DILCLpVpw0=;
-	b=JmK7fO+4lbwH1PUzBEhaED0EakJJ4Vn+f5RIqP7hJg0gM4A/rz0olso1OvFlrbW/8PV+dZ
-	oTQJKQGNTVAD5+gS8+eOlynFpCM64ltD4z6tkO9uTmYRIqUqeQ4cCHcDhZYk7viagsXx1R
-	eLmlHML0OCOxzdtv4ZB4CuvB5AGr074=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-452-FbzW4e8DMfqFkK0bmrRT-w-1; Fri, 01 Aug 2025 04:52:37 -0400
-X-MC-Unique: FbzW4e8DMfqFkK0bmrRT-w-1
-X-Mimecast-MFC-AGG-ID: FbzW4e8DMfqFkK0bmrRT-w_1754038356
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3b785d52c19so298094f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 01:52:36 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754038356; x=1754643156;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q3ut2IZtB01vlovnDAd6xUWzFbNv5v2C3DILCLpVpw0=;
-        b=ime1fYlj3/5SftCkZpMpo2dJyzShYIT4nbHM6sEmUjXZevM7WIHEPstywLA75SsNtj
-         rJ1V/GKnmNZ4+v4+havKvEokyzaa7W/uUFEbc1vmDaJaEc1LW8qjy6LPk2VSxgHBzvBE
-         HjobPNoEWM3t0iHx8vGGVkEXa5Jlhj0ovU5vAFTnkCZwJ0A6a73pfIys77xyslMtJmbs
-         ccdOn9uil/HcHZfLpDzFDHEC/r2/oNV9t5bk3um/wel6+DFW2h5jxGGjH1e8484Lc/Vb
-         iJcDjHfjM4Wc2Q39u4iG2eUwCQUjmc1bVsZnLd7lLkraOnIiqoLOOy5cm2E0Gw31p6nS
-         gIWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWcnCHV13ENO3hNGRsE9xBxHd7W1w49aj6I6kx37xutEo0pbpu3Crl0J5Hw0BEjUB5i837QMUHWx6xQPHJCWhje@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2WCTARckfnm3Dqw30irIjx4rwZgALrKqeb9sIYtanQRYCpoeH
-	+Zglw6jDPmV/hwCt8GVMOeHS2g2B3vhH1WB0GLSjTjyv7dKw9AC+ekdBoDawsEpBahb/6YGGUjv
-	uQXAlzsPs2rx7TLasasV/9+f6sTwtZ1NwmV+1yX49oKMSA+ejzA/f61MkEFa5900h9HDeSRijbE
-	Hk
-X-Gm-Gg: ASbGncuYST/85Mzg26bIEbJY4y/FVEPLD3DbWrWxG8fkLJixC+BuRgw13LaPADb7H0V
-	9Ie2cJ04Zmpbw6gMU/9KULZmZPGCBwlCMoCf1yX1USZ9/BYRaPFlAXA88zxcMh1QSYP9lb01Mjg
-	mjMNJG6b8aLADSH8C1550tdl6eZo3KUo8Ci5uz2T4JMIEqOYoelB4QCZoYEtAosQ7fikaW0Qyvi
-	qAjAzY9rAD27TSO5WRpcK2avGtpO64ed/shMV/CUd2Rh4Me9c0xjaukgLU/Y83uInuxTcKr8oA2
-	h9E4DzdWaicq2s9U+HydrcHN09a7ghYeRPpAko0/kH4Of1QXyjKETi9ZtPijg+tPNWk2xEzc8wF
-	iziU=
-X-Received: by 2002:a05:6000:2481:b0:3b8:bb8b:6b05 with SMTP id ffacd0b85a97d-3b8bb8b6deemr3637774f8f.29.1754038355803;
-        Fri, 01 Aug 2025 01:52:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH0SO4q2RvFPtgA+PGMdbAXShTVcEjLgx7m1c3m1LKK7FMUDdGk4NLVg7RcdXJk4nSy5WynYA==
-X-Received: by 2002:a05:6000:2481:b0:3b8:bb8b:6b05 with SMTP id ffacd0b85a97d-3b8bb8b6deemr3637740f8f.29.1754038355055;
-        Fri, 01 Aug 2025 01:52:35 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:d5:a000:d252:5640:545:41db? ([2a01:e0a:d5:a000:d252:5640:545:41db])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c4533e6sm5323520f8f.35.2025.08.01.01.52.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 Aug 2025 01:52:34 -0700 (PDT)
-Message-ID: <b04db6eb-03aa-43bc-bc09-4192e2a021b8@redhat.com>
-Date: Fri, 1 Aug 2025 10:52:33 +0200
+	Fri, 01 Aug 2025 08:55:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 23E596112C;
+	Fri,  1 Aug 2025 08:55:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7D92C4CEE7;
+	Fri,  1 Aug 2025 08:55:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754038505;
+	bh=Bz6BUp7Tw0CSmTxMjKUZlbJzRNbtQ7byvHPMgJbKn6k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SHtz1BnWgNBv1aHxw7Qwt+9luZxSzBVGlJZplqDMfYU3l+B7T6wIfEWG1EdoLVd5b
+	 rkTjImQNw6tdZacd1YRN7IkkXved6gWsfAc0qAbfDYVQPjlCVSeLkvYy6XPtVrPw6c
+	 OXAfSjY5YEIt4UXEVgK7snJShbWhNtOL+E9e2cPEfq4H7Jt3di/BT3YbRblqiDvjT4
+	 EY/CvESf5d7pnGxtAaJ6lkeWVIwqO3YUaP6DQQgStgerXosD0x7KfdPBsYjxogcZPv
+	 2vinLouEiiZCHcGp9xeIp0Bp5UdeRhlKNXIqOHmpySdoutLNwikAYis0GQDTQI7bzd
+	 j9yt3s5KGVrIA==
+Message-ID: <8dcbdb51-82ba-44bd-800f-ceb43f88cf4d@kernel.org>
+Date: Fri, 1 Aug 2025 10:55:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/panic: Add a u64 divide by 10 for arm32
-To: Andrei Lalaev <andrey.lalaev@gmail.com>, Miguel Ojeda <ojeda@kernel.org>,
- Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Paolo Bonzini <pbonzini@redhat.com>,
- rust-for-linux <rust-for-linux@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
-References: <20250627123854.921704-1-jfalempe@redhat.com>
-From: Jocelyn Falempe <jfalempe@redhat.com>
-In-Reply-To: <20250627123854.921704-1-jfalempe@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Nfd8S7dMEnkP3mfmgX5aPgWSQqtJbCHIjspW3nRy-Rs_1754038356
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US, fr
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v2 1/4] dt-bindings: thermal: qoriq: Update compatible
+ string for imx93
+To: Jacky Bai <ping.bai@nxp.com>, rafael@kernel.org,
+ daniel.lezcano@linaro.org, rui.zhang@intel.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, kernel@pengutronix.de, festevam@gmail.com
+References: <20250801081119.1999298-1-ping.bai@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250801081119.1999298-1-ping.bai@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_015504_226656_D3703269 
-X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,71 +116,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/06/2025 14:38, Jocelyn Falempe wrote:
-> On 32bits ARM, u64 divided by a constant is not optimized to a
-> multiply by inverse by the compiler [1].
-> So do the multiply by inverse explicitly for this architecture.
+On 01/08/2025 10:11, Jacky Bai wrote:
+> The TMU used on i.MX93 has some slight differences and bugs compared with
+> the one used on QorIQ platforam even the basic function is the same. Add
+> i.MX93 specific compatible string and keep the fallback ability.
+> 
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 
-Gentle ping.
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
 Best regards,
-
--- 
-
-Jocelyn
-
-> 
-> Link: https://github.com/llvm/llvm-project/issues/37280 [1]
-> Reported-by: Andrei Lalaev <andrey.lalaev@gmail.com>
-> Closes: https://lore.kernel.org/dri-devel/c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com/
-> Fixes: 675008f196ca ("drm/panic: Use a decimal fifo to avoid u64 by u64 divide")
-> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
-> ---
->   drivers/gpu/drm/drm_panic_qr.rs | 22 +++++++++++++++++++++-
->   1 file changed, 21 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
-> index dd55b1cb764d..774a17de4f2f 100644
-> --- a/drivers/gpu/drm/drm_panic_qr.rs
-> +++ b/drivers/gpu/drm/drm_panic_qr.rs
-> @@ -381,6 +381,26 @@ struct DecFifo {
->       len: usize,
->   }
->   
-> +// On arm32 architecture, dividing an `u64` by a constant will generate a call
-> +// to `__aeabi_uldivmod` which is not present in the kernel.
-> +// So use the multiply by inverse method for this architecture.
-> +fn div10(val: u64) -> u64 {
-> +    if cfg!(target_arch = "arm") {
-> +        let val_h = val >> 32;
-> +        let val_l = val & 0xFFFFFFFF;
-> +        let b_h: u64 = 0x66666666;
-> +        let b_l: u64 = 0x66666667;
-> +
-> +        let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
-> +        let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
-> +        let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
-> +
-> +        tmp3 >> 2
-> +    } else {
-> +        val / 10
-> +    }
-> +}
-> +
->   impl DecFifo {
->       fn push(&mut self, data: u64, len: usize) {
->           let mut chunk = data;
-> @@ -389,7 +409,7 @@ fn push(&mut self, data: u64, len: usize) {
->           }
->           for i in 0..len {
->               self.decimals[i] = (chunk % 10) as u8;
-> -            chunk /= 10;
-> +            chunk = div10(chunk);
->           }
->           self.len += len;
->       }
-> 
-> base-commit: 3529cb5ab16b4f1f8bbc31dc39a1076a94bd1e38
-
+Krzysztof
 
