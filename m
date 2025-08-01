@@ -4,73 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D4EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 04:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79483C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 04:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dPz+tpWDKsHmVSqra8RNl6xyeS/BIdYAq6BDfemNfgM=; b=evEmed2tLYpfDKqM10u9Ee9TZf
-	nEWRQtEI3xSlwP2EGeDfJK/yUrn4+YlCHNAOOjeReKhBVinNRc60CN3Nn5BqJJm+tJdd9R4Pr1bql
-	Pm1zC+uf0i4IRN9UyhAZfBz8tm93yYhB27jGwsRZbknokMNWwDUc8GS8SgeATCJT82FBNDddDMVvV
-	NXNet+T/hl6qUFO8o27KQndNeVzCwVXpYv02jEa1eN5TDL2bcId0kUbM68JaWLgA/I+FLD2/cCDky
-	d8DHujOKS2khqBRkmhPVBOFhIrhzpNd/T1QFRK0DwP3kMC4sBDCrv3jGd1wSewst8q4KS6ISWlNQ0
-	PJVKCT4g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cazfz037LmHclW8XHXBHFZq0vEjND40W4TWSxFvy07E=; b=qL77NBrKcNLQuw
+	E2WkqPs1s4TakxGbD+lJeQ108eNS+cQOuIuQxf0lBpMYS9Sn1AYTIghMtQwumwzWAE+yMv/sN8H73
+	Uw16XCpWK8YWOe820vD4mOOs9FJqzs5B9ZXG+chawmPO5vFmCC0w21h9jXJxsnIHHGjztwz0puqej
+	9DKm677YkJdDMjs8CasXm/xplUGuUnEfnjFQ1mpMlneGzt5cXshdCVgEKgbgnxG9ZfB/MYBiZSZia
+	15IK9qgiJreDmXMfiCB9reO6FmFe4pAm+hEdH4TpUgN7/DbNQGVqKfZK6cAO0KbiNNEDv+ASZPbR7
+	dtcmZm7XJ5Iq64PWuNGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhhgi-00000004yl7-3ali;
-	Fri, 01 Aug 2025 04:48:12 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1uhhjH-00000004yvP-14M9;
+	Fri, 01 Aug 2025 04:50:51 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhhUP-00000004wUH-3VRz
+	id 1uhheF-00000004yRh-1EGb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 04:35:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754022930; x=1785558930;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=xTLT1dq7i2qzp0hHgS3vNWQnXKcncg8giv7jdsQgm8I=;
-  b=BWKx9QspJDA13YV41Y1OB01/q53r1wBhllWytiflrNFY7wEixcEORpSa
-   4W/i/WaVEuKxIaxjtoRpUuZU79LNACqaizQJbsJomdTnGmJMZjqNCt/cw
-   Qck4n394y6OK5LfL6iwxq9fvMWJ3NlMlOPwBUd5kWiH87OTPOSjrJttng
-   vDhX8ZWkf7reEPND0NsH718zvAswQQ5KjXEM9N9V2oaokbyWnLBUuAQdW
-   qfjQL/022r+RKiOyWBS5/vm6CpS+kyLUmmxX7N8yWshaDDyur+Kna7lmr
-   4JnGESjNolyosFabe391Lurt2JZn+qUkzqM27LcKkScN8vYxBBiYYOXE4
-   w==;
-X-CSE-ConnectionGUID: Afu7h62SRJG9q1/4L9EDow==
-X-CSE-MsgGUID: RwTa7CyGRCGBJ3Voz26xww==
-X-IronPort-AV: E=McAfee;i="6800,10657,11508"; a="66930944"
-X-IronPort-AV: E=Sophos;i="6.17,255,1747724400"; 
-   d="scan'208";a="66930944"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2025 21:35:24 -0700
-X-CSE-ConnectionGUID: 1VncATKzQOquOek9KfYVww==
-X-CSE-MsgGUID: 4GwLvG45RfyrhOp2lOwc/g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,255,1747724400"; 
-   d="scan'208";a="163373909"
-Received: from lkp-server01.sh.intel.com (HELO 160750d4a34c) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 31 Jul 2025 21:35:23 -0700
-Received: from kbuild by 160750d4a34c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uhhUG-0004M8-2O;
-	Fri, 01 Aug 2025 04:35:20 +0000
-Date: Fri, 1 Aug 2025 12:34:36 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:hack/ppi 25/25] kernel/irq/manage.c:2453:5: warning:
- no previous prototype for function 'add_percpu_irq_target'
-Message-ID: <202508011211.XM88eJmr-lkp@intel.com>
+	Fri, 01 Aug 2025 04:45:41 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F28EA1038C126;
+	Fri,  1 Aug 2025 06:45:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1754023534;
+	h=from:reply-to:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=cazfz037LmHclW8XHXBHFZq0vEjND40W4TWSxFvy07E=;
+	b=gz+Z5D+i9YMV7qtc9jV2wB6l2n5mM6a5kkQ8N5Nrm4TkChr51IhcMCajFKXKFKQIDQsjt4
+	ShW3SLCe9XFh86uBmcTWkbHL2WbZATD/fRJZArT33UNgyIIrrdu4BBXN/LgGL0EgOfgJKe
+	kpEJ1HUwHN3gjuI/8WQAdhOM6WfrmJD3mlm/T+2Wss+jq3N+L3LfjcIxIipHcGxUU/MI2m
+	r1YZkcuFOuap5h6DZ3ytvYUiNMClLZyFlPKjbZO5LgT7qxUlivfIemKy9HNtBkvFhAx3cc
+	0IBrCFR61MfOwW9lvrYnv978S00+JLzejurw223yvP9RyOXsg3NBCeigGls2Sw==
+Message-ID: <0c6dcc6f-e09c-266d-f65a-12d18244a2c6@denx.de>
+Date: Fri, 1 Aug 2025 06:45:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.2.0
+Subject: Re: (subset) [PATCH v1 0/3] spidev: introduce trivial abb sensor
+ device
+Content-Language: en-US
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+ Guenter Roeck <linux@roeck-us.net>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Mark Brown <broonie@kernel.org>,
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Andrei Lalaev <andrey.lalaev@gmail.com>,
+ Chanh Nguyen <chanh@os.amperecomputing.com>,
+ Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Grant Peltier <grantpeltier93@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Michal Simek <michal.simek@amd.com>,
+ Naresh Solanki <naresh.solanki@9elements.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Rodrigo Gobbi <rodrigo.gobbi.7@gmail.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20250719063355.73111-1-hs@denx.de>
+ <175311337130.327079.7374455187420344577.b4-ty@kernel.org>
+ <d677ecd9-42d6-43fe-8fe1-a5afd4d270e2@kernel.org>
+ <8a8106ea-83d3-e02a-9ae7-ea4a66e4c248@denx.de>
+ <2e9c96c6-6dfb-4232-a9ab-a3e78b718fc2@roeck-us.net>
+ <20250722112013.0000597e@huawei.com>
+From: Heiko Schocher <hs@denx.de>
+In-Reply-To: <20250722112013.0000597e@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_213529_930024_B13F6587 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250731_214540_438975_A5CBA0DD 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,165 +89,102 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: hs@denx.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/ppi
-head:   8a3b504aca25e8c9a274cb563d63a6b9454b2780
-commit: 8a3b504aca25e8c9a274cb563d63a6b9454b2780 [25/25] WIP
-config: i386-buildonly-randconfig-001-20250801 (https://download.01.org/0day-ci/archive/20250801/202508011211.XM88eJmr-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250801/202508011211.XM88eJmr-lkp@intel.com/reproduce)
+Hello Jonathan,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508011211.XM88eJmr-lkp@intel.com/
+On 22.07.25 12:20, Jonathan Cameron wrote:
+> On Mon, 21 Jul 2025 21:58:10 -0700
+> Guenter Roeck <linux@roeck-us.net> wrote:
+> 
+>> On 7/21/25 21:05, Heiko Schocher wrote:
+>>> Hello Krzysztof,
+>>>
+>>> On 21.07.25 18:24, Krzysztof Kozlowski wrote:
+>>>> On 21/07/2025 17:56, Mark Brown wrote:
+>>>>> On Sat, 19 Jul 2025 08:33:51 +0200, Heiko Schocher wrote:
+>>>>>> This series introduces the changes needed for trivial spi
+>>>>>> based sensors from ABB, currently operated from userspace.
+>>>>>>
+>>>>>> The last patch adds the spidevices to the DTS files, already
+>>>>>> in mainline.
+>>>>>>
+>>>>>> make dtbs_check showed no errors/warnings for the dts files
+>>>>>>
+>>>>>> [...]
+>>>>>
+>>>>> Applied to
+>>>>>
+>>>>>      https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+>>>>>
+>>>>> Thanks!
+>>>>>
+>>>>> [1/3] dt-bindings: trivial-devices: Document ABB sensors
+>>>>>         commit: aad2f87cbcab56b322109d26d7b11842a09df91f
+>>>>> [2/3] spi: spidev: Add an entry for the ABB spi sensors
+>>>>>         commit: d60f7cab7c04944a79af16caa43c141e780a59c6
+>>>>>   
+>>>>
+>>>>
+>>>> That's unexpected, Mark. Patches received two objections/comments and I
+>>>> don't think discussion was resolved.
+>>>>
+>>>> ABB is huge company, probably making hundreds or more of sensors. The
+>>>> patchset basically claims that all of them work with spidev. It does not
+>>>> providing any model names or details, so it seems really incomplete to
+>>>> call them trivial devices.
+>>>
+>>> I do not know how many different sensors they have, nor if that department can
+>>> speak for the whole company...
+>>>
+>>> What I have as information is:
+>>> https://lore.kernel.org/linux-spi/2477dc64-92a0-9dc9-d168-56646d0d796e@denx.de/
+>>>
+>>> and I get no more information about them currently. May I should
+>>> add some sort of trivial into compatible name? Something like
+>>>
+>>> "abb,spi-trivial-sensor"
+>>> or
+>>> "abb,spidev-trivial-sensor"
+>>>
+>>> which makes it clearer, that only ABB trivial sensor, controlled through spidev
+>>> driver, is connected here?
+>>>    
+>>
+>> FWIW, I always thought that devicetree is not supposed to contain such generic
+>> information. Is it even appropriate to list something like this in devicetree
+>> in the first place ?
+>>
+>> If so, what prevents anyone from submitting hundreds of
+>> "<company>,spidev-trivial-<device-type>" entries, using the same line of argument ?
+> 
+> Agreed.  These should have separate compatibles based on what any OS etc
+> might want to bind to them.  Just because their model in Linux is spidev etc
+> that shouldn't mean a generic ID is appropriate.
+> 
+> Can we at least have some examples to motivate the discussion?
 
-All warnings (new ones prefixed by >>):
+I am sorry, I get no more information about the sensors... even I do
+not know the count of variants. What I can say is, that this sensors
+measure gases, and are only used "internal" on the aristainetos3 carriers.
 
-   kernel/irq/manage.c:2466:27: error: incompatible pointer types initializing 'struct irq_action *' with an expression of type 'struct irqaction **' [-Werror,-Wincompatible-pointer-types]
-    2466 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next) {
-         |                                         ^     ~~~~~~~~~~~~~
-   kernel/irq/manage.c:2466:62: error: incomplete definition of type 'struct irq_action'
-    2466 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next) {
-         |                                                                         ~~~^
-   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
-    2461 |                 struct irq_action *action = NULL;
-         |                        ^
-   kernel/irq/manage.c:2467:48: error: incomplete definition of type 'struct irq_action'
-    2467 |                         if (cpumask_test_cpu(smp_processor_id(), tmp->affinity))
-         |                                                                  ~~~^
-   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
-    2461 |                 struct irq_action *action = NULL;
-         |                        ^
-   kernel/irq/manage.c:2470:11: error: incomplete definition of type 'struct irq_action'
-    2470 |                         if (tmp->percpu_dev_id == dev_id)
-         |                             ~~~^
-   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
-    2461 |                 struct irq_action *action = NULL;
-         |                        ^
-   kernel/irq/manage.c:2474:45: error: incomplete definition of type 'struct irq_action'
-    2474 |                 cpumask_set_cpu(smp_processor_id(), action->affinity);
-         |                                                     ~~~~~~^
-   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
-    2461 |                 struct irq_action *action = NULL;
-         |                        ^
-   kernel/irq/manage.c:2477:28: error: incomplete definition of type 'struct irq_action'
-    2477 |                 if (cpumask_weight(action->affinity) == nr_possible_cpus())
-         |                                    ~~~~~~^
-   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
-    2461 |                 struct irq_action *action = NULL;
-         |                        ^
-   kernel/irq/manage.c:2477:43: error: call to undeclared function 'nr_possible_cpus'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-    2477 |                 if (cpumask_weight(action->affinity) == nr_possible_cpus())
-         |                                                         ^
-   kernel/irq/manage.c:2478:10: error: incomplete definition of type 'struct irq_action'
-    2478 |                         action->flags &= ~IRQF_SHARED;
-         |                         ~~~~~~^
-   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
-    2461 |                 struct irq_action *action = NULL;
-         |                        ^
->> kernel/irq/manage.c:2453:5: warning: no previous prototype for function 'add_percpu_irq_target' [-Wmissing-prototypes]
-    2453 | int add_percpu_irq_target(unsigned int irq, void __percpu *dev_id)
-         |     ^
-   kernel/irq/manage.c:2453:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-    2453 | int add_percpu_irq_target(unsigned int irq, void __percpu *dev_id)
-         | ^
-         | static 
-   kernel/irq/manage.c:2495:27: error: incompatible pointer types initializing 'struct irq_action *' with an expression of type 'struct irqaction **' [-Werror,-Wincompatible-pointer-types]
-    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
-         |                                         ^     ~~~~~~~~~~~~~
-   kernel/irq/manage.c:2495:62: error: incomplete definition of type 'struct irq_action'
-    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
-         |                                                                         ~~~^
-   kernel/irq/manage.c:2495:15: note: forward declaration of 'struct irq_action'
-    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
-         |                             ^
-   kernel/irq/manage.c:2496:58: error: incomplete definition of type 'struct irq_action'
-    2496 |                         if (cpumask_test_and_clear_cpu(smp_processor_id(), tmp->affinity)) {
-         |                                                                            ~~~^
-   kernel/irq/manage.c:2495:15: note: forward declaration of 'struct irq_action'
-    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
-         |                             ^
-   kernel/irq/manage.c:2497:44: error: call to undeclared function 'nr_possible_cpus'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-    2497 |                                 if (cpumask_weight(action->affinity) < nr_possible_cpus())
-         |                                                                        ^
-   kernel/irq/manage.c:2497:24: error: use of undeclared identifier 'action'
-    2497 |                                 if (cpumask_weight(action->affinity) < nr_possible_cpus())
-         |                                                    ^
-   kernel/irq/manage.c:2498:6: error: use of undeclared identifier 'action'
-    2498 |                                         action->flags |= IRQF_SHARED;
-         |                                         ^
->> kernel/irq/manage.c:2484:5: warning: no previous prototype for function 'remove_percpu_irq_target' [-Wmissing-prototypes]
-    2484 | int remove_percpu_irq_target(unsigned int irq)
-         |     ^
-   kernel/irq/manage.c:2484:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-    2484 | int remove_percpu_irq_target(unsigned int irq)
-         | ^
-         | static 
-   2 warnings and 14 errors generated.
+So a proposal would be:
 
+# ABB gas sensor on aristainetos3 carriers
+compatible "abb,aristainetos-gas-sensor"
 
-vim +/add_percpu_irq_target +2453 kernel/irq/manage.c
-
-  2452	
-> 2453	int add_percpu_irq_target(unsigned int irq, void __percpu *dev_id)
-  2454	{
-  2455		struct irq_desc *desc = irq_to_desc(irq);
-  2456	
-  2457		if (!desc || !irq_settings_is_per_cpu_devid(desc))
-  2458			return -EINVAL;
-  2459	
-  2460		scoped_guard(raw_spinlock_irqsave, &desc->lock) {
-  2461			struct irq_action *action = NULL;
-  2462	
-  2463			if (cpumask_test_cpu(smp_processor_id(), desc->percpu_enabled))
-  2464				return -EINVAL;
-  2465	
-  2466			for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next) {
-  2467				if (cpumask_test_cpu(smp_processor_id(), tmp->affinity))
-  2468					return -EINVAL;
-  2469	
-  2470				if (tmp->percpu_dev_id == dev_id)
-  2471					action = tmp;
-  2472			}
-  2473	
-  2474			cpumask_set_cpu(smp_processor_id(), action->affinity);
-  2475	
-  2476			/* If we have a full house, indicate we can't share anymore */
-> 2477			if (cpumask_weight(action->affinity) == nr_possible_cpus())
-  2478				action->flags &= ~IRQF_SHARED;
-  2479		}
-  2480	
-  2481		return 0;
-  2482	}
-  2483	
-> 2484	int remove_percpu_irq_target(unsigned int irq)
-  2485	{
-  2486		struct irq_desc *desc = irq_to_desc(irq);
-  2487	
-  2488		if (!desc || !irq_settings_is_per_cpu_devid(desc))
-  2489			return -EINVAL;
-  2490	
-  2491		scoped_guard(raw_spinlock_irqsave, &desc->lock) {
-  2492			if (cpumask_test_cpu(smp_processor_id(), desc->percpu_enabled))
-  2493				return -EINVAL;
-  2494	
-  2495			for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
-  2496				if (cpumask_test_and_clear_cpu(smp_processor_id(), tmp->affinity)) {
-> 2497					if (cpumask_weight(action->affinity) < nr_possible_cpus())
-  2498						action->flags |= IRQF_SHARED;
-  2499	
-  2500					return 0;
-  2501				}
-  2502		}
-  2503	
-  2504		return -ENOENT;
-  2505	}
-  2506	
+bye,
+Heiko
+> Jonathan
+> 
+>>
+>> Guenter
+>>
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+DENX Software Engineering GmbH, Managing Director: Johanna Denk, Tabea Lutz
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: +49-8142-66989-52   Fax: +49-8142-66989-80   Email: hs@denx.de
 
