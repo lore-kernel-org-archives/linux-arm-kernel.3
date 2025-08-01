@@ -4,59 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4F4C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 17:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BC0C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 19:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CeWhdWQUjjY6qtmHWK9NWvqGGMpBxisoCeR/n+R6EY8=; b=MCrPHyfbSJKTpxO6MZbnFU6+C6
-	taV7vUR1Nfb/qKxHul6Vwm150c4B61vkf4nHrwrTVBSNCJn2VgzYp7+venE3bvvpTgyOqSpZ2B+jB
-	A0lyN/7iHSRZG5Yqy45z/mZF2ePeYakLk/dJQzbnx8AA1RkV44E5TNZxGGebFHAnhJvRb73VK6tRD
-	FolJz/72wmDe8Igs8tLKRgVSLodnf1cVwcmu5aJx+hntgHARSS1Z1c49rVJhY/BZFEqzYL1Y5ecuK
-	Qai/uuso/VQK7ByDWhP/PQZRVaFEeNfJjJSNd5b8piz7wVKXmRR8p62hFxUBiZs1y4RDvwuGm6FWA
-	TFL9P0Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AyIY9+7qRYH18QG3yHqvpWY8fQNePxyU0Y1cLmmOWtc=; b=VfCw9x58QPBXo2hJSpbuVtUNHf
+	9nI/gdfsqUca3ORWFjHsHE43mJEgbYynQ+1z5ta2YhOCi7PvdZ5a8CgCcl/Vu7bhGAWsDg/AVVkrp
+	zPJCORPRBYhMURz5RN4PN9ze0suwbq2osI0kkThW6oG55jqzYVYj4+SuLrMa2NCRPvdgnQyoA/Peo
+	ZNln/qWJuHRyt25Nkj/st/TUURXMtq9CwTxySB1a4v+oF7X7Kv/SK6KKfNUjfbIUKfEuudQfonukc
+	BjCvTFZ1QpYZq7lhltH3eqmGXKxmMHlLBdOI7VXuKqIueK164pq2ZYxN/rc9EIm0i9VqjqmHWkF0/
+	otT45Mmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhtwT-00000006aXh-0vyt;
-	Fri, 01 Aug 2025 17:53:17 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1uhv1E-00000006fBN-0bnA;
+	Fri, 01 Aug 2025 19:02:16 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhtmx-00000006Zff-11Hk
+	id 1uhuyb-00000006evP-0fLr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 17:43:28 +0000
-Message-ID: <53f6d267-62af-4dad-8fa7-a2a497b22636@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1754070202;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=CeWhdWQUjjY6qtmHWK9NWvqGGMpBxisoCeR/n+R6EY8=;
-	b=J4cBhHlkUCErWxEVkMQqOgbDi09LfhUv5VpBBaW8Umpyw/gu8cOX25rq1jlpyV6ZqIbt9b
-	BVL8ge/2NGwtCduHs+FR8ZiB7zL7SVilXSgyGsSHrImPZMVbYEmSGwabJ1DE1+f21EkSiw
-	AXjHTwgciEhzf0QATa58jRP/xeGU4Bw=
-Date: Fri, 1 Aug 2025 13:43:19 -0400
+	Fri, 01 Aug 2025 18:59:34 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-4aeea691687so13754251cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 11:59:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1754074772; x=1754679572; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=AyIY9+7qRYH18QG3yHqvpWY8fQNePxyU0Y1cLmmOWtc=;
+        b=QTIAF2qBWlCCLIugPIx39PhlM+Gbp0IujKxXBBWBUhxaXX1zX+A1EtM2dV0kxRWEnZ
+         lYQQ/pDbHUGVbshghIM0aV6pjLUcqpxfrgTzlLiARxM8YRl0mUkxwgc7zF4jnJhDTCXY
+         nGtcftXnVx6c96gae1PSNG/30ksy2DA6G308dEZjKW1Hr+eTmrNZoylo3AiqxN8B7pUZ
+         7nyiDQ3VHRJJjQ5TtdEXj8XsJy8r6BHdzX4+X779/Aysgfen0KZg0LZQ+vJqsynIWmEE
+         fn9m95DuveyJPDwmcO6BQpauCHTCTpP1xTY2DAyxq1Mf1Y6EYLYHOp9oedZ6SCHdg4Qf
+         pFpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754074772; x=1754679572;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AyIY9+7qRYH18QG3yHqvpWY8fQNePxyU0Y1cLmmOWtc=;
+        b=G9f3DZ7PLUaOJkhs45wXeLU7rTVuMkUGixyaWuXboi2C3HfWER8PQhvSwfgUFReR+E
+         WMUVn/bRNVfaBI4gKA2CCzhOZgsH+2nz1ZApdSQlgZ4wKt9GYFlVYkVNX56elvBznFFN
+         Nv0wzKU/kj1drwin3jvSKiXPooX5UGnyj7eeTbDUfoc28KnSMhpSczRet3cYGKSyWMYB
+         jcGsk7y4KvbUvMozMoP5/lJ5dCGH2UbQCAu4ibQxdmXur/cAKe/ehzddztoEp5WfF4In
+         Gsz9xm6cfg30TCmr6FnkCymunGedtlgTZpbTildpAMrxNRvTKr5KC/akG9TVC4Lmtaww
+         9wzA==
+X-Forwarded-Encrypted: i=1; AJvYcCV4bt6pZ/dLffGYMZfum+Fj7dwqLkuTL8Lz/9vmLeNCxbYlHZGyqrit9kE6B1j6vAy1QWraiareaHw6NKAIQwFA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzt0x3BWVjK+Dtk/TGDPFdmfs0LqvxAdyDgS0YSSnt0CHDptj51
+	ky8u8Hbxi6PCzSgQSeD9xG9uRfSD8VVUUQJuAMFlJWCEfRJ6Eb6vg/dBajry28oUUQs=
+X-Gm-Gg: ASbGncuFgkGcEeRAubmzmjmJxLX5/uZaVc9rpprZ0lfLcLCYtWty7G9t8MlkU1vi+xW
+	B57wDgbQGHx9+vHNasIYHaSRVwptFHMOOiCLvaEusaMigYGNVczpJOVPwtZi/uGkX3jQc4jpE2z
+	kbkmu1Ly43dazvFCoiYIuZ5SWb9HlSCE3RF57j/4Cg6OVLM5ZHNbj7uG0HGjcNWD3hTjGBPsHXe
+	qiSHjckFhTL74j8GeE7cVphB5v2k/WSxpwwm8FgCU4peShD2NolJXG08GSKGF9dEtZBuDZ95gyj
+	1dGeWLnD2oSi+iq0AFsxUd+nebbpoiSEqDkDB/v9pfDsw9OH2StCpg+xodc3J+ZXXJZCDXma7yK
+	91uH/7yFsTcEL3olXAKUKUn76aLcbBo8X2KAntbDp6e+1iF7EasGAM/AmUwxRVqp3peC3
+X-Google-Smtp-Source: AGHT+IHvW1P/vYfLuQdieKRLav2sj0iL8HcBFcWOObvqQ/GoW+Jjhx1hxhp1NE0qHlpxeA4ab2Hb6w==
+X-Received: by 2002:a05:622a:15c2:b0:4ab:887c:8b with SMTP id d75a77b69052e-4af10a88ee3mr13217181cf.42.1754074771752;
+        Fri, 01 Aug 2025 11:59:31 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4aeeed670c6sm24010891cf.37.2025.08.01.11.59.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Aug 2025 11:59:31 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uhuyY-000000014Fy-2vCk;
+	Fri, 01 Aug 2025 15:59:30 -0300
+Date: Fri, 1 Aug 2025 15:59:30 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
+Message-ID: <20250801185930.GH26511@ziepe.ca>
+References: <20250728175316.3706196-1-smostafa@google.com>
+ <20250728175316.3706196-30-smostafa@google.com>
+ <20250730144253.GM26511@ziepe.ca>
+ <aIo1ImP7R7VhRpVE@google.com>
+ <20250730164752.GO26511@ziepe.ca>
+ <aIt67bOzp6XS_yO-@google.com>
+ <20250731165757.GZ26511@ziepe.ca>
+ <aIurlx5QzEtjpFLd@google.com>
 MIME-Version: 1.0
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-Subject: [BUG] pci: nwl: Unhandled AER correctable error
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- linux-pci@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, Mahesh J Salgaonkar
- <mahesh@linux.ibm.com>, Oliver O'Halloran <oohall@gmail.com>,
- Bjorn Helgaas <bhelgaas@google.com>, Michal Simek <michal.simek@amd.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aIurlx5QzEtjpFLd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_104327_439899_B26F9A60 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250801_115933_307005_A2049FE9 
+X-CRM114-Status: GOOD (  30.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,110 +115,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, Jul 31, 2025 at 05:44:55PM +0000, Mostafa Saleh wrote:
+> > > They are not random, as part of this series the SMMUv3 driver is split
+> > > where some of the code goes to “arm-smmu-v3-common.c” which is used by
+> > > both drivers, this reduces a lot of duplication.
+> > 
+> > I find it very confusing.
+> > 
+> > It made sense to factor some of the code out so that pKVM can have
+> > it's own smmv3 HW driver, sure.
+> > 
+> > But I don't understand why a paravirtualized iommu driver for pKVM has
+> > any relation to smmuv3. Shouldn't it just be calling some hypercalls
+> > to set IDENTITY/BLOCKING?
+> 
+> Well it’s not really “paravirtualized” as virtio-iommu, this is an SMMUv3
+> driver (it uses the same binding a the smmu-v3)
 
-AER correctable errors are pretty rare. I only saw one once before and
-came up with commit 78457cae24cb ("PCI: xilinx-nwl: Rate-limit misc
-interrupt messages") in response. I saw another today and,
-unfortunately, clearing the correctable AER bit in MSGF_MISC_STATUS is
-not sufficient to handle the IRQ. It gets immediately re-raised,
-preventing the system from making any other progress. I suspect that it
-needs to be cleared in PCI_ERR_ROOT_STATUS. But since the AER IRQ never
-gets delivered to aer_irq, those registers never get tickled.
+> It re-use the same probe code, fw/hw parsing and so on (inside the kernel),
+> also re-use the same structs to make that possible. 
 
-The underlying problem is that pcieport thinks that the IRQ is going to
-be one of the MSIs or a legacy interrupt, but it's actually a native
-interrupt:
+I think this is not quite true, I think you have some part of the smmu driver
+bootstrap the pkvm protected driver.
 
-           CPU0       CPU1       CPU2       CPU3       
- 42:          0          0          0          0     GICv2 150 Level     nwl_pcie:misc
- 45:          0          0          0          0  nwl_pcie:legacy   0 Level     PCIe PME, aerdrv
- 46:         25          0          0          0  nwl_pcie:msi 524288 Edge      nvme0q0
- 47:          0          0          0          0  nwl_pcie:msi 524289 Edge      nvme0q1
- 48:          0          0          0          0  nwl_pcie:msi 524290 Edge      nvme0q2
- 49:         46          0          0          0  nwl_pcie:msi 524291 Edge      nvme0q3
- 50:          0          0          0          0  nwl_pcie:msi 524292 Edge      nvme0q4
+But then the pkvm takes over all the registers and the command queue.
 
-In the above example, AER errors will trigger interrupt 42, not 45.
-Actually, there are a bunch of different interrupts in MSGF_MISC_STATUS,
-so maybe nwl_pcie_misc_handler should be an interrupt controller
-instead? But even then pcie_port_enable_irq_vec() won't figure out the
-correct IRQ. Any ideas on how to fix this?
+Are you saying the event queue is left behind for the kernel? How does
+that work if it doesn't have access to the registers?
 
-Additionally, any tips on actually triggering AER/PME stuff in a
-consistent way? Are there any off-the-shelf cards for sending weird PCIe
-stuff over a link for testing? Right now all I have 
+So what is left of the actual *iommu subsystem* driver is just some
+pkvm hypercalls?
 
---Sean
+It seems more sensible to me to have a pkvm HW driver for SMMUv3 that
+is split between pkvm and kernel, that operates the HW - but is NOT an
+iommu subsystem driver
 
-# lspci -vv
-00:00.0 PCI bridge: Xilinx Corporation Device d011 (prog-if 00 [Normal decode])
-	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
-	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
-	Latency: 0
-	Interrupt: pin A routed to IRQ 45
-	Bus: primary=00, secondary=01, subordinate=0c, sec-latency=0
-	I/O behind bridge: 00000000-00000fff [size=4K]
-	Memory behind bridge: e0000000-e00fffff [size=1M]
-	Prefetchable memory behind bridge: [disabled]
-	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- <SERR- <PERR-
-	BridgeCtl: Parity- SERR+ NoISA- VGA- VGA16- MAbort- >Reset- FastB2B-
-		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
-	Capabilities: [40] Power Management version 3
-		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1+,D2+,D3hot+,D3cold-)
-		Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
-	Capabilities: [60] Express (v2) Root Port (Slot-), MSI 00
-		DevCap:	MaxPayload 256 bytes, PhantFunc 0
-			ExtTag- RBE+
-		DevCtl:	CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-			RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
-			MaxPayload 128 bytes, MaxReadReq 512 bytes
-		DevSta:	CorrErr- NonFatalErr- FatalErr- UnsupReq- AuxPwr- TransPend+
-		LnkCap:	Port #0, Speed 5GT/s, Width x2, ASPM not supported
-			ClockPM- Surprise- LLActRep+ BwNot+ ASPMOptComp+
-		LnkCtl:	ASPM Disabled; RCB 64 bytes, Disabled- CommClk-
-			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
-		LnkSta:	Speed 5GT/s (ok), Width x2 (ok)
-			TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt+
-		RootCap: CRSVisible-
-		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna+ CRSVisible-
-		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
-		DevCap2: Completion Timeout: Range B, TimeoutDis+ NROPrPrP- LTR-
-			 10BitTagComp- 10BitTagReq- OBFF Not Supported, ExtFmt- EETLPPrefix-
-			 EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-
-			 FRS- LN System CLS Not Supported, TPHComp- ExtTPHComp- ARIFwd-
-			 AtomicOpsCap: Routing- 32bit- 64bit- 128bitCAS-
-		DevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis- LTR- OBFF Disabled, ARIFwd-
-			 AtomicOpsCtl: ReqEn- EgressBlck-
-		LnkCtl2: Target Link Speed: 5GT/s, EnterCompliance- SpeedDis-
-			 Transmit Margin: Normal Operating Range, EnterModifiedCompliance- ComplianceSOS-
-			 Compliance De-emphasis: -6dB
-		LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete- EqualizationPhase1-
-			 EqualizationPhase2- EqualizationPhase3- LinkEqualizationRequest-
-			 Retimer- 2Retimers- CrosslinkRes: unsupported
-	Capabilities: [100 v1] Device Serial Number 00-00-00-00-00-00-00-00
-	Capabilities: [10c v1] Virtual Channel
-		Caps:	LPEVC=0 RefClk=100ns PATEntryBits=1
-		Arb:	Fixed- WRR32- WRR64- WRR128-
-		Ctrl:	ArbSelect=Fixed
-		Status:	InProgress-
-		VC0:	Caps:	PATOffset=00 MaxTimeSlots=1 RejSnoopTrans-
-			Arb:	Fixed- WRR32- WRR64- WRR128- TWRR128- WRR256-
-			Ctrl:	Enable+ ID=0 ArbSelect=Fixed TC/VC=ff
-			Status:	NegoPending- InProgress-
-	Capabilities: [128 v1] Vendor Specific Information: ID=1234 Rev=1 Len=018 <?>
-	Capabilities: [140 v1] Advanced Error Reporting
-		UESta:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
-		UEMsk:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
-		UESvrt:	DLP+ SDES+ TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-
-		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr-
-		CEMsk:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
-		AERCap:	First Error Pointer: 00, ECRCGenCap+ ECRCGenEn- ECRCChkCap+ ECRCChkEn-
-			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
-		HeaderLog: 00000000 00000000 00000000 00000000
-		RootCmd: CERptEn+ NFERptEn+ FERptEn+
-		RootSta: CERcvd- MultCERcvd- UERcvd- MultUERcvd-
-			 FirstFatal- NonFatalMsg- FatalMsg- IntMsg 0
-		ErrorSrc: ERR_COR: 0000 ERR_FATAL/NONFATAL: 0000
-	Kernel driver in use: pcieport
+Then an iommu subsystem driver that does the hypercalls, that is NOT
+connected to SMMUv3 at all.
+
+In other words you have two cleanly seperate concerns here, an "pkvm
+iommu subsystem" that lets pkvm control iommu HW - and the current
+"iommu subsystem" that lets the kernel control iommu HW. The same
+driver should not register to both.
+
+> As mentioned in the cover letter, we can also still build nesting on top of
+> this driver, and I plan to post an RFC for that, once this one is sorted.
+
+I would expect nesting to present an actual paravirtualized SMMUv3
+though, with a proper normal SMMUv3 IOMMU subystem driver. This is how
+ARM architecture is built to work, why mess it up?
+
+So my advice above seems cleaner, you have the pkvm iommu HW driver
+that turns around and presents a completely normal SMMUv3 HW API which
+is bound by the ordinately SMMUv3 iommu subsystem driver.
+
+Jason
 
