@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA4BC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 22:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E274C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 23:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ZQ3ptl+nXCUruGL17lHqoeg1DTCDNqkoTZmaRK16Pk=; b=OI+ghjRmLhQdhM8XmWknTGVlcR
-	Q0eortq6DSa1z4kR57kY/a9Z67YtT2Z4gHUMb/jIHduD3ioLH9o6nFHnd+UBLYK4VJXgYdCMJfa5w
-	8tk+CHIslwtuc19F8UXztnjOVWpJQ7r5ubgPFQYJZ5M9koJNPn6j8nflDY/rHOJv9uufuREoeEoQp
-	dpq0m1X7CulMnbjnj5jrOea1TJlDtquDRle3bp2Gt+5PoQ1s2UO54Dqlk3GsdVeuztlAbAzV9XAij
-	7GEceIXrqzxuH7Ose99Qy1QfmzyH6QOZLD/zd6vJSEQo8Qzo1PFQTPFfMQA/sxiL/ChSt68ayJuxj
-	GlwUN6hw==;
+	bh=Qnr0gleEzCaWRPAfwAkPAasxmEHLjKhxCSZjhfl6r00=; b=yJWNZizy4h5Uu+uP2/LtDcJdcH
+	MxzTx6nOZNlE/bZxpPWcWdt1uTYe6tKAcpZD5xjCxgEjECueOcfzS0uvXaaVVaI6XA917g2hLD8vc
+	sMHIjlBPHEiQHgZEqpNsJypPjt5YOieZICxUE3mObC5Qr6wDHNhAhmSmyct0qYxuOcWOcdYrFocpX
+	/oRH0T2yeuL47XcLztyGMokY5ioD9j1QZQApDekvBey0i9HI3ZJnMqr7KtGQ05Z5LH8AICshio9EE
+	UDKo8Qu6mVix9Iix6Mu1XHMj9N8cTQwCAZjcNpCWwd8LVCWgOedDw5hNgnGUUjqDWNIUr3GLcTKFa
+	+YcrkLEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhy1I-00000006s77-1Nwc;
-	Fri, 01 Aug 2025 22:14:32 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1uhyyS-00000006vGC-3gJa;
+	Fri, 01 Aug 2025 23:15:40 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhxyi-00000006rxr-2Kpg
+	id 1uhyvr-00000006v5o-2HqC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 22:11:53 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e8e11af0f54so1905370276.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 15:11:52 -0700 (PDT)
+	Fri, 01 Aug 2025 23:13:00 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e8e0aa2e3f9so2212626276.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 16:12:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754086311; x=1754691111; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1754089978; x=1754694778; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=0ZQ3ptl+nXCUruGL17lHqoeg1DTCDNqkoTZmaRK16Pk=;
-        b=y3M28RQ280ZeofTozcxPLBSZN3lRfeFNT027q5IQmx2EMQgrM9WebRwUlBzCgfKrFT
-         HtIzgUvuYHHrbmQGulyjxM+DtPss+9WXnVWIpSpzi99GvvhX74nMxXZGgpIMlIefbcMP
-         84OZJpS13HK2oUa0AJyhGQsyM0+7ynNzv9qC/6tl7x/2ZHHCixGIq9Zs8UDgvmlnM11y
-         gtsBY8p2qw9Sc+d53AniIX3YxL2ACQmCdxF7KoNpOQfBXvqTWwKfD+IIlxznFmPMZlVW
-         CwQmYHBbUuMDdUWDkmgm2qdyPuLY39nrBo/RdGRv6rqVfhwsXmoOYjUKaaBqC1I/nmfK
-         meVQ==
+        bh=Qnr0gleEzCaWRPAfwAkPAasxmEHLjKhxCSZjhfl6r00=;
+        b=gTVDv4futs78a7+aoLhJMbdwUdBqLo5KjOGyw2x29vQwx90YmjMXRQp7UZ0GrtFXpR
+         B4jCjoAahWESCSH7y/xJ3z/IO8KhvXxLPKmif1YQSbjaCv5IW2b9FQMsQmJJVkUaLqQP
+         NQPiD6+QfTd5Wi5BzGjCZWWrVjLH78eWOkNv3ux9aouX9TnT1p31cPsXtODZrotFOn1a
+         VtRGUsBx9vgqcOnAI7BXfwtMXlEzPW5PyM4O5+wRNyKmlMKPe3l+ADBZ97aMILRC0KNC
+         Q1B4WHuyMUzH5E9MVOvhrcbnBWj/aTUMi5yLmM8ho5ppXZy45kaQZZAOF8gwa8cSRHM1
+         pYEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754086311; x=1754691111;
+        d=1e100.net; s=20230601; t=1754089978; x=1754694778;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0ZQ3ptl+nXCUruGL17lHqoeg1DTCDNqkoTZmaRK16Pk=;
-        b=QZNmpwXxtxCg7EYZ4VL5CgoCNyxJRurvc+XAa2EgvFxZvvZmRidq+2QslXAHmSUDHH
-         FFcnsCwMBXAsXBra/3fR4JGXEQi27xlnYSdO3UMjW0r6vrXAtPM0XpGiN7T8a0Tl+uJN
-         M+C8pd25LjF8mPDxtp/lFP5j25oEY+jHbD9Bo5YmVDjH4bgqrzz/C/qomnJ/SAVLMmUy
-         0xq+DnAdI+EDeOCJulwf3IwxSZ9VPltS5Kr8st/+sMPpoJN47Rv1vwpGInvP6MdRXfHJ
-         uPv4umYehuiE369ZY9s0PP+fN6BMRc2Fx+efsRAMzm/mgsj8kF+musmRyZfxGl9a2SSp
-         dq5A==
-X-Forwarded-Encrypted: i=1; AJvYcCXqeXZfjPWHWLK9vDsFeYPtE/zZmU2usYOI/x9ZcHaHgrjv9jO/UA3zUudG1wXz1CWiqYBC579o/ssa0kamesr5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz07BKWU7oOlJ+l54YwX32qHPUayVD+6NY+fm4hxxgTCHAH9yYC
-	nRwcxmDBn/PIL/y0CTHPocKtIr2U9HJwM3oY1TjNVYjFFnWB1VhlMY0W8wV5F2JhO9T9+Oq/CN/
-	rzhrDrdyDTBLn8aRzJf79kC0PYEVqDmdjyu3Pp9zEQw==
-X-Gm-Gg: ASbGncvZcfnqehCW3ggtBmNEEH2opCJZJbjtEY18VuAgNoAd0iti82J91hRQg6WJImR
-	gkcwUnVcVGiXMEPN9u74nVVzgpl47n4zvVSb0p5Mbi3VJvTXrsKRdmdGKVzqqfzySgPbGC9Pe9O
-	r8FIusEBsf0Rxk1LbrGHDohg8BexF/9vpf+bICCIDIgK4pvRytu4NoGgJmrF9szdW5hHdvuZI4D
-	rxysg==
-X-Google-Smtp-Source: AGHT+IHHqeJHNAbgmM8GMieWnZy5D9PazvXOXJxMb+nmM8OfoRPhTwJEHb5ZjR+06/LLEwPYiHrsAqqhXrmv7gbk9Bc=
-X-Received: by 2002:a05:690c:d8c:b0:71a:27d2:2bdd with SMTP id
- 00721157ae682-71b7f62d7famr21657777b3.13.1754086311325; Fri, 01 Aug 2025
- 15:11:51 -0700 (PDT)
+        bh=Qnr0gleEzCaWRPAfwAkPAasxmEHLjKhxCSZjhfl6r00=;
+        b=iYV75ZRgkvxVxOMkmvIwJ2DcCFSojUxenPtjjIy29Xaa4Shijpp1w7cb/w3Lnp3q+v
+         Hw2IwIp247V2YSMCswASK87CC1s3SD0J/GT0w9vbmbBSNd3RCTZXfyPhaI0fDe/n+yyr
+         01Se3mQIrXktj38N/WAcG6Yj4+J5b9to743gY72z2nel44BcWY09EME3VtJZvrweP+Kc
+         SAerTBwLzekLjL21rZ3eDl0DcfjD6kB8YU2KPRa9GoawSqFEBq+6Idi3CBCzxZIFcaTz
+         DMGUUqTogcJDc8DBcYWanG8NGHUt5G+YEAWypHaAtxjNepOxhloiXfuCmE01+DbZubvU
+         jn1A==
+X-Forwarded-Encrypted: i=1; AJvYcCXVKPwWVYW7Bk+8+PBOPNBwM3nlMp9x6cD/LYPDyx1yQDY35/je8qDe/DhPd6+WZloHXqYCx5/1meBz8VM2xg0j@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXdh9RUJILzVhfPym755sXat1GN8xcD0AHnAbPxviTIGm5obH4
+	y9sB7Qoi/FmZKH9AAHMJ9yY0eCiVUpj4vd+lSk+sKbu+AG8weQXtmOeBSc78vLbD+tnmBGNlQiH
+	x2CNcA2MTh9HzAlpOmWdLCOsHQqVbA423rECUOkOtfg==
+X-Gm-Gg: ASbGncuFbyHFEytlW0iCXNXUrv1VRgoSbZaf3o/JSc0+A36uWN2vUgsnNRwyhQPhMpc
+	qapY32cQcMT3K4DHHZLLewiUDwRa+zD9aOcWkLdkGJRVLNOoI9WND/UDxa4XRywa+KjffVUWAMA
+	15eiOUx/McB6azim7URhBD5pu+SYRGkNFmJvbwGff58Cv5QkUuqpYY1+8kdit3A0ezjRw8vpPj2
+	yRhIw==
+X-Google-Smtp-Source: AGHT+IFgbhp0zycvCOOvLLcXqyA8OgsubbXQ2AW066KqqN7IDoR7AWFw0XrDwVG6iqqj5YKOJnybVqjIOE+529ZV8Tc=
+X-Received: by 2002:a05:690c:d96:b0:71a:1e72:84c6 with SMTP id
+ 00721157ae682-71b7f5e133emr20973427b3.1.1754089978267; Fri, 01 Aug 2025
+ 16:12:58 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250730074253.1884111-1-ivo.ivanov.ivanov1@gmail.com> <20250730074253.1884111-4-ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250730074253.1884111-4-ivo.ivanov.ivanov1@gmail.com>
+References: <20250730074253.1884111-1-ivo.ivanov.ivanov1@gmail.com> <20250730074253.1884111-5-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250730074253.1884111-5-ivo.ivanov.ivanov1@gmail.com>
 From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 1 Aug 2025 17:11:39 -0500
-X-Gm-Features: Ac12FXwPXRZu6Ot3_0uSchflAwrF7qDuOzVPDdy_jKO2tY1n3bXW3MwJ9wqx3gQ
-Message-ID: <CAPLW+4=QwTv96KMdJ7tcWd+Swh-fC7+h9bo22e2aZMeRbg4wKQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/5] arm64: dts: exynos2200: increase peric1 and cmgp
- syscon sizes
+Date: Fri, 1 Aug 2025 18:12:47 -0500
+X-Gm-Features: Ac12FXzKSBmhmwqRZhR5hadTWEjBctW2rRjuv0sswLAzvNtoYbb40IWjhC7MaD8
+Message-ID: <CAPLW+4kOiBOZYQVA-ZiMEn+-_ZF1HD8QTm9AH0y34bcY+Mu92A@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] arm64: dts: exynos2200: add serial_0/1 nodes
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
 	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-samsung-soc@vger.kernel.org, 
@@ -82,8 +81,8 @@ Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.c
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_151152_635921_9A1A2D29 
-X-CRM114-Status: GOOD (  18.56  )
+X-CRM114-CacheID: sfid-20250801_161259_604561_5AC54972 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +100,121 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, Jul 30, 2025 at 2:43=E2=80=AFAM Ivaylo Ivanov
 <ivo.ivanov.ivanov1@gmail.com> wrote:
 >
-> Some USI instances have swconfig offsets that reside over the currently
-> defined syscon ranges for peric1 and cmgp. Increase their sizes.
+> Add nodes for serial_0 (UART_DBG) and serial_1 (UART_BT), which
+> allows using them.
 >
 > Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
-
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-
->  arch/arm64/boot/dts/exynos/exynos2200.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/arm64/boot/dts/exynos/exynos2200.dtsi | 26 ++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
 >
 > diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot=
 /dts/exynos/exynos2200.dtsi
-> index 943e83851..bab77b442 100644
+> index bab77b442..22c6da907 100644
 > --- a/arch/arm64/boot/dts/exynos/exynos2200.dtsi
 > +++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
-> @@ -328,7 +328,7 @@ cmu_peric1: clock-controller@10700000 {
->
->                 syscon_peric1: syscon@10720000 {
->                         compatible =3D "samsung,exynos2200-peric1-sysreg"=
-, "syscon";
-> -                       reg =3D <0x10720000 0x2000>;
-> +                       reg =3D <0x10720000 0x3000>;
-
-Exynos850 TRM says that all System Register instances (in Exynos850
-SoC) use 16 KiB (0x4000) of address space for their registers. And I
-can see some SYSREG registers actually have offsets over 0x3000. In
-reality though all IP cores are aligned by 0x10000. I have a feeling
-Samsung does the IP cores integration in the same way for all their
-modern Exynos SoCs. It can be actually deduced by looking at the
-starting addresses of the nodes in the device tree, they are always
-aligned by 0x10000.
-
-Hence I'd recommend doing this:
-  1. Use either 0x4000 or 0x10000 size (not 0x3000). For the
-reference, Exynos850 and gs101 use 0x10000 value.
-  2. Replace the size values for all sysreg nodes in your device tree
-(not only peric1 and cmgp), for consistency and to prevent possible
-issues in future.
-
-Also, maybe it'd be better to use "sysreg_" prefix for these node
-labels (not "syscon_"), as it's called System Register in TRM. But
-that's minor, and probably out of scope for this patch.
-
+> @@ -336,6 +336,19 @@ pinctrl_peric1: pinctrl@10730000 {
+>                         reg =3D <0x10730000 0x1000>;
 >                 };
 >
->                 pinctrl_peric1: pinctrl@10730000 {
-> @@ -471,7 +471,7 @@ cmu_cmgp: clock-controller@14e00000 {
->
->                 syscon_cmgp: syscon@14e20000 {
->                         compatible =3D "samsung,exynos2200-cmgp-sysreg", =
-"syscon";
-> -                       reg =3D <0x14e20000 0x2000>;
-> +                       reg =3D <0x14e20000 0x3000>;
+> +               serial_1: serial@10840000 {
+> +                       compatible =3D "samsung,exynos2200-uart", "google=
+,gs101-uart";
+> +                       reg =3D <0x10840000 0x100>;
+> +                       clocks =3D <&cmu_peric1 CLK_MOUT_PERIC1_NOC_USER>=
+,
+> +                                <&cmu_peric1 CLK_DOUT_PERIC1_UART_BT>;
+> +                       clock-names =3D "uart", "clk_uart_baud0";
+> +                       interrupts =3D <GIC_SPI 674 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+> +                       pinctrl-0 =3D <&uart1_bus>;
+> +                       pinctrl-names =3D "default";
+> +                       samsung,uart-fifosize =3D <256>;
+> +                       status =3D "disabled";
+> +               };
+> +
+>                 cmu_hsi0: clock-controller@10a00000 {
+>                         compatible =3D "samsung,exynos2200-cmu-hsi0";
+>                         reg =3D <0x10a00000 0x8000>;
+> @@ -458,6 +471,19 @@ pinctrl_peric2: pinctrl@11c30000 {
+>                         reg =3D <0x11c30000 0x1000>;
 >                 };
 >
->                 pinctrl_cmgp: pinctrl@14e30000 {
+> +               serial_0: serial@11c40000 {
+> +                       compatible =3D "samsung,exynos2200-uart", "google=
+,gs101-uart";
+> +                       reg =3D <0x11c40000 0x100>;
+> +                       clocks =3D <&cmu_peric2 CLK_MOUT_PERIC2_NOC_USER>=
+,
+> +                                <&cmu_peric2 CLK_DOUT_PERIC2_UART_DBG>;
+> +                       clock-names =3D "uart", "clk_uart_baud0";
+> +                       interrupts =3D <GIC_SPI 687 IRQ_TYPE_LEVEL_HIGH 0=
+>;
+> +                       pinctrl-0 =3D <&uart0_bus_single>;
+> +                       pinctrl-names =3D "default";
+> +                       samsung,uart-fifosize =3D <256>;
+> +                       status =3D "disabled";
+> +               };
+> +
+
+Shouldn't these two serial nodes be children of some corresponding USI
+nodes? IIUC, the downstream counterpart of this device tree is [1]? I
+can see the corresponding USI node is missing there. And if you don't
+have the TRM, it might get confusing. But, apart from my intuition
+telling me that those UART blocks *should* be implemented as a part of
+USI IP blocks in Exynos2200, there is also a fact that the downstream
+driver is actually accessing USI registers in exynos_usi_init()
+function, in the exynos-uart driver here: [2]. If that's correct, it
+means there should exist a USI block, which should be modeled like so:
+
+8<-------------------------------------------------------------------------=
+>8
+    usi_...: usi@11c400c0 {
+        compatible =3D ...;
+        reg =3D <0x138200c0 0x20>;
+        samsung,sysreg =3D <...>;
+        samsung,mode =3D <USI_MODE_UART>;
+        #address-cells =3D <1>;
+        #size-cells =3D <1>;
+        ranges;
+        clocks =3D <&cmu_peric2 CLK_MOUT_PERIC2_NOC_USER>,
+                 <&cmu_peric2 CLK_DOUT_PERIC2_UART_DBG>;
+        clock-names =3D "pclk", "ipclk";
+        status =3D "disabled";
+
+        serial_0: serial@11c40000 {
+            compatible =3D "samsung,exynos2200-uart", "google,gs101-uart";
+            reg =3D <0x11c40000 0x100>;
+            clocks =3D <&cmu_peric2 CLK_MOUT_PERIC2_NOC_USER>,
+                     <&cmu_peric2 CLK_DOUT_PERIC2_UART_DBG>;
+            clock-names =3D "uart", "clk_uart_baud0";
+            interrupts =3D <GIC_SPI 687 IRQ_TYPE_LEVEL_HIGH 0>;
+            pinctrl-0 =3D <&uart0_bus_single>;
+            pinctrl-names =3D "default";
+            samsung,uart-fifosize =3D <256>;
+            status =3D "disabled";
+        };
+    };
+8<-------------------------------------------------------------------------=
+>8
+
+This way you can achieve the same behavior as in downstream kernel, by
+making the (upstream) USI driver to initialize corresponding USI
+registers for you.
+
+Does that make any sense?
+
+Thanks!
+
+[1] https://github.com/jgudec/android_kernel_samsung_exynos2200/blob/CWAI/a=
+rch/arm64/boot/dts/exynos/s5e9925.dts#L4648
+[2] https://github.com/jgudec/android_kernel_samsung_exynos2200/blob/CWAI/d=
+rivers/tty/serial/exynos_tty.c#L2181
+
+
+>                 cmu_cmgp: clock-controller@14e00000 {
+>                         compatible =3D "samsung,exynos2200-cmu-cmgp";
+>                         reg =3D <0x14e00000 0x8000>;
 > --
 > 2.43.0
 >
