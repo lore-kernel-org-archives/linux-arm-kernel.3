@@ -4,68 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3DEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:55:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15903C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 10:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OGLTuCq5gyifcIhuKf69XTYD9F6AIomqVE0e+GKN8jM=; b=1H6YQNebiM4B+QFwXD4MwFIh/J
-	dRUtNiwzNDwgjEx8smbu4CDUKx1glzYoCIpvX2GIGMLCynbZ1BuTtmZGNrK54h0d+TIiPH2n+/b1D
-	A4oxFLsVGjPlYhfcmP2u34aXDa2E+IbH+ir4hHQLlyqG16ub0QDmrZ2VNJVP1s0Yz8E/B8N98iAw7
-	BMlvm7cu/r0OeTRl03dp6oXIJ/lZwax15j/UU//zEs7oMziG4nJ3USociEO5DO5PnMXs7a9Hmu3/U
-	MJ3G/UZ91ZjMVxutkIq/fpJi4u2Inzhm0yk4SlO+6u5Ge1IgK4Nua3UE0XWkpju8LCKTqhx1cDgrP
-	SdZU3cUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sTARMsS32SGlplJ4Kfi/hZPQa+yM1yt/K3K4gvXkwO0=; b=2IleTYtjPZSF05Sb8KVeSqomzZ
+	mwOqQA/q7qwbM0nagXRZutKQtpNblCwr1HZOzkGX61XmCVVhyZwx5dSoAosWia4Mu48H1CNgLNS3e
+	+XrCJcsXC2Zqnor4c2o/A8zWrmC3FluSgpbo7Wm4tR+pBKbe8u9xC9C07RwlCYTle1f8XsYe7d6UL
+	1/H0k2N3/634LJHKWgjdHpAGExO/BBNUyCs9A7QdJWhsNIvaSJS0dwsC39yB1aLvIOxXHEWjzYB5y
+	fUTbE58ib9y6AzGpHxkxpzxr7cbz82t+b4Y7zMWHi8l4R79WT4VSvkCQ3XnIN8pzVHoQt89RTBMJk
+	sm2zgGDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhmU0-00000005PSc-3TEb;
-	Fri, 01 Aug 2025 09:55:24 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1uhmb1-00000005Q8E-3who;
+	Fri, 01 Aug 2025 10:02:39 +0000
+Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhmP4-00000005P55-0x0Z
+	id 1uhmYS-00000005Pza-0LcZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 09:50:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4bth0D3GsQz2Cfd1;
-	Fri,  1 Aug 2025 17:45:48 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id A67871A0174;
-	Fri,  1 Aug 2025 17:50:02 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 1 Aug 2025 17:49:57 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 1 Aug 2025 17:49:56 +0800
-CC: <yangyicong@hisilicon.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <linuxarm@huawei.com>
-Subject: Re: [PATCH 8/8] Documentation: hisi-pmu: Add introduction to
- HiSilicon V3 PMU
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>, Yushan Wang
-	<wangyushan12@huawei.com>
-References: <20250729153823.2026154-1-wangyushan12@huawei.com>
- <20250729153823.2026154-9-wangyushan12@huawei.com>
- <20250731134759.00000c74@huawei.com>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <faf78f69-312e-32d1-d0a2-fea908c73218@huawei.com>
-Date: Fri, 1 Aug 2025 17:49:56 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Fri, 01 Aug 2025 10:00:01 +0000
+Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
+	by mx0b-001ae601.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5719Q2tU028955;
+	Fri, 1 Aug 2025 04:59:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=PODMain02222019; bh=sTARMsS32SGlplJ4Kf
+	i/hZPQa+yM1yt/K3K4gvXkwO0=; b=BD4tFKOc1umoDpZDaoBLL1jz7+PY0kKqNr
+	U1HBgZh+SgIrgKD7cOmy70oySrUQnSOaHY3hKfEKXJD4B1ixjAIoeYYtcZG4B3k0
+	rePiaytFf6AoKSE9nQ7gFjSAmU30SOOTd29xqmF26NYKDwjgQK4MHyGey4r+7mzO
+	3uI1nB1ypjE3q4DFptFtNbfQ8XRbiHyc8XKz1BdZlPWGJ9NXQbx5jsqKLH34ueIJ
+	ZFfX6I7oCT73oXrK1RU5T55OsLkyqTpV01daF/VHatK8DCSDfUfRkYnHXpZ/OyX/
+	YPvL2XtejCdJOjUm5C59jklqwdxRJ8Z+6/KXjLdyAe/PAUKxAHug==
+Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10on2120.outbound.protection.outlook.com [40.107.94.120])
+	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 484ueg07jt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 01 Aug 2025 04:59:26 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wJtMKgKoNBiubrd3ccLVn7N3iCPysExp+jGeUwC2IEVn3Q2QHOd0kXTz12SNafeALIpiHFXmVz+WzOoCMCsi9E+chzienVbV2AhoR9zcqP9f8iyhhOh6k4mD51TmePpezOrZmw11cRo27S3C4okFquxcvmGVdVC53e9w//SKcrirjXI001dsZX4Ep/FjqTBqp9EuQKnmlOlHTiQYJ5W9LB+v2RPItTlAp+fY7DyyqmlEAB8OvecDqVAnyUXHgMSUAEd3N/8j5ZCq7lm83wtIEVpNJxTeHmaVONeWW2n3QAVN1LgxB2AnHpdsKypqYCgi4z6paa9xaZbNObQaNZzHhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sTARMsS32SGlplJ4Kfi/hZPQa+yM1yt/K3K4gvXkwO0=;
+ b=TsChNq5khiabV5nBEDVanRhqpdsqz+B0SrQCIIseqzlPhFGH+zTjGSFr7z3tCeLkDH8VCok0a/EFp5cY7/rHQvhpPgIXlIDrPCviptFyxeRGIiL8mdrxtMMO6+HBEjkGHeeCGo+grUW1FjVPqSFA4WMgm6cRmDEpQJzQy+jPy1VfDbKV353dipI//yjrfaR/qU6g1cjr3uoMI+D9AZE7mmEAzp83HV9BkggotBnbmXpVGy0knzshgLXzcWLbILjObn4lhcw4gRDfrVWp0n/HtQOGo9QfbTgCWXln+RCgh/26X0d93lqfzktz5BerpfS6AaHy6Zg4n5n34wBd1RPzUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 84.19.233.75) smtp.rcpttodomain=alsa-project.org
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sTARMsS32SGlplJ4Kfi/hZPQa+yM1yt/K3K4gvXkwO0=;
+ b=oG/IeJu+OGw4kYLEmT3NgBZ0qZXdmIZfRnG7KYU2ib82jwjtYn3eqRBZ6aAu2b8ygRoGfPsv3l1bt09oKEd109z1NUGv3gjCYfyfsP8tpaaFHyGYAIifebmF8e0UdJiKdBhSr8nLve8hWhx+4EcZVzRBcLTqW8gbdIVjtPtZRX4=
+Received: from BYAPR02CA0055.namprd02.prod.outlook.com (2603:10b6:a03:54::32)
+ by DS7PR19MB4455.namprd19.prod.outlook.com (2603:10b6:5:2c4::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.5; Fri, 1 Aug
+ 2025 09:59:22 +0000
+Received: from CO1PEPF000044F7.namprd21.prod.outlook.com
+ (2603:10b6:a03:54:cafe::3b) by BYAPR02CA0055.outlook.office365.com
+ (2603:10b6:a03:54::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.16 via Frontend Transport; Fri,
+ 1 Aug 2025 09:59:22 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 84.19.233.75)
+ smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
+Received-SPF: Fail (protection.outlook.com: domain of opensource.cirrus.com
+ does not designate 84.19.233.75 as permitted sender)
+ receiver=protection.outlook.com; client-ip=84.19.233.75;
+ helo=edirelay1.ad.cirrus.com;
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ CO1PEPF000044F7.mail.protection.outlook.com (10.167.241.197) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.0
+ via Frontend Transport; Fri, 1 Aug 2025 09:59:21 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id A51A8406547;
+	Fri,  1 Aug 2025 09:59:19 +0000 (UTC)
+Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 80A0C820244;
+	Fri,  1 Aug 2025 09:59:19 +0000 (UTC)
+Date: Fri, 1 Aug 2025 10:59:18 +0100
+From: Charles Keepax <ckeepax@opensource.cirrus.com>
+To: Joris Verhaegen <verhaegen@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+        Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>,
+        Mark Brown <broonie@kernel.org>,
+        Cezary Rojewski <cezary.rojewski@intel.com>,
+        Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+        Bard Liao <yung-chuan.liao@linux.intel.com>,
+        Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+        Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+        Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Daniel Baluta <daniel.baluta@nxp.com>,
+        Orson Zhai <orsonzhai@gmail.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        Chunyan Zhang <zhang.lyra@gmail.com>,
+        Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+        Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
+        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+        patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
+        sound-open-firmware@alsa-project.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 0/3] ALSA: compress_offload: Add 64-bit safe timestamp
+ API
+Message-ID: <aIyP9u0ASJUUPToB@opensource.cirrus.com>
+References: <20250801092720.1845282-1-verhaegen@google.com>
 MIME-Version: 1.0
-In-Reply-To: <20250731134759.00000c74@huawei.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250801092720.1845282-1-verhaegen@google.com>
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000044F7:EE_|DS7PR19MB4455:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7934eb85-ee21-4b63-8e2f-08ddd0e21668
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|61400799027|36860700013|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+i+WSdGZ445H2BC681HLW+SIe1ZLOGmRLZhHsGv+G0uLJ1APolE1tlxW+iQq?=
+ =?us-ascii?Q?yzqIojJakgrcnPRxa+pdUZvTEV3VHoIpQus30V4L56FDWTbUwx5UK58MmSKI?=
+ =?us-ascii?Q?9JnmqlC4F8R8dMIYlS4VPHYlJvpjnXOhaXN13akr1fhHgsKLFH6KR1oSkkr2?=
+ =?us-ascii?Q?Y19fDmVDgckZKzF15zGVFzwjsNcIeYj6eQ1e2tnk0huEKtypCG9cwZb+E2cU?=
+ =?us-ascii?Q?Uktz16SOfFx4aoKD/Pg2aph8fREFkX+2MlSBhYLj0sI5UL72+243N4UmkOTu?=
+ =?us-ascii?Q?D65FM/CbvXEKQ1JpTAV1wjXmHyDzh8pwhG/vEUq6sIzv06xh5LXP9ePP3fxi?=
+ =?us-ascii?Q?ZCt6hX596ocULU5sy/HZPaGV66HBqK1f7fzifcE+5z/GgJFqONt4AF8SKChg?=
+ =?us-ascii?Q?ucEZtoRxjbJrRAxKFJ4BM1n4PpF5y5JIskYUPmL9I00N6K0LWZ0XWG1dgu24?=
+ =?us-ascii?Q?3x5s+OfK77dSCBU9nh7TnrCcyE19ehygeJFgPHXQJE3OMmMT+XFQSsiwbxSc?=
+ =?us-ascii?Q?Sjjy7PtNnAfTvYKbw/qrVYD8zacJPxZ+dZ1SeHzamoeSL1A+Gc12cNdEYmXZ?=
+ =?us-ascii?Q?Ikr8RUNRojWLV5dla9NPAKabXeMJGXEO9hYPGXBzFEkMMbccBPzGIV+FkqId?=
+ =?us-ascii?Q?1QQUsH6wmGkzQ1ELQbC5k5we5yhGgmC9ASltLVQRUoK/VMI/n4wLfscrGyPJ?=
+ =?us-ascii?Q?R4fH3iiCdBVEADeU7kd378pp1nj/qOMUbt4/FaGlS+2+BgxRM16MaLR3L0Dq?=
+ =?us-ascii?Q?X+vPeZNWet0zahUwE5L+nifpc5p0HiuuQl3TU7I1lKMMOQKePilvMUI4iqGM?=
+ =?us-ascii?Q?WlTPhhqeqtickVPYcKVxvrSXiYzRl+nwmFXgdMPJjXY5I3F4sG5RwBaY369T?=
+ =?us-ascii?Q?ANMxGgoDyBwuMvKpo3sShjWKGgcxHNQedD73jhDFgQA67WuC2sEzn0vVplzT?=
+ =?us-ascii?Q?hsjuH5Pt0kzkdrVuoGA+L7w7YH0vVERpT/JBbW7rsDBVsj4n0ED0QZOlrs+X?=
+ =?us-ascii?Q?O56IkSrWuSaN6bEMV55ZjhMdsjzUiwiaCdU86E38FVeT5T0lb8+q4d3W5TIT?=
+ =?us-ascii?Q?Y5A7tQq6iRTLMUozrwcLIQgzQIAE4V5ScCXrc9QHuGE1PuZeDMyktCKXLRdU?=
+ =?us-ascii?Q?h+G7icpnTY7unsq6YG0HclCLbCqdlWmxA+46qGUDv7sZaAMx/WTYK0cYp9Tz?=
+ =?us-ascii?Q?ZBOgz7F8Uhc1HtJAkFqW+WXaBfbZu6FAPm25KbFbvE26vy7emH4gItHnxI3M?=
+ =?us-ascii?Q?uaPpk32NZIIBLfnC/YZw+idDNsYx4Nn3PjYLj4CsXEiZyJncyHvC1mTIBPrr?=
+ =?us-ascii?Q?GTxKNK5WLf1bkG0Kq5Fdpl0SrT6FAilpxCggzQMpMjKxox5jrqBjTtGiEXhy?=
+ =?us-ascii?Q?6gSGq8ns69FCRMlJBykffTezlqreji0vCfoc0CdKItUA3b2tqZsA0FY57n6j?=
+ =?us-ascii?Q?xcm0EfJBvyYhr4ftqXFx2CbhFUTMiUNH2WznAFzsPNZ++n3JRi8KGOG+8KV1?=
+ =?us-ascii?Q?H9V0B8XIZR6eTIkcoS8OX/66YNE3kA2yVIuI?=
+X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(61400799027)(36860700013)(376014)(7416014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Aug 2025 09:59:21.0343
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7934eb85-ee21-4b63-8e2f-08ddd0e21668
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044F7.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR19MB4455
+X-Proofpoint-GUID: bHUUuEHv2JsDMk3VJGlSzySdC7P3tO0w
+X-Proofpoint-ORIG-GUID: bHUUuEHv2JsDMk3VJGlSzySdC7P3tO0w
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNzI2MDA3MSBTYWx0ZWRfX0sF6zQhJZlVg F/WMsV2RPy4H6aV8+JSJb90l1NjD16NOw/SFHZvtd7oFyn9v1fQhmbr00zeRCl3CZ3tuFIKzI5q yrzjUIYYAWefREbXAJn0h7nTuD+XmHuNJZMjjdXk0ITGjGsbNN4C1KosnREkdv+ng6oonb9Tq6i
+ yid+Khsq5xRZP3qsmwjGpFqzzxgcU9rh95bUny2GaFDFEzeH75UdzrRs4sMX/XtI3rIW7fEn+cr 9f4q08H0YbbFW7OiAphbY6jMcrXmQaK8Go5feRZYUzUtMpO2/qSNiHdriblIzUOtRfx4U5EAj7x LxZ22FsJ3nuzi0puQ7Gjbc13Tftx2tqHUCn+inMiOkLn3mzn74tLwBrNUmzZesHWT/Z//uqrHn2 N/2pvNdO
+X-Authority-Analysis: v=2.4 cv=OdKYDgTY c=1 sm=1 tr=0 ts=688c8ffe cx=c_pps a=sEwf21bbMNMW6iOsV/dM2g==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10 a=1XWaLZrsAAAA:8 a=w1d2syhTAAAA:8 a=KwO0Y2ZaRY3UfMHnQbAA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Spam-Reason: safe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_025018_434375_EBED7A8C 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20250801_030000_285865_31CC08B0 
+X-CRM114-Status: GOOD (  20.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +186,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/7/31 20:47, Jonathan Cameron wrote:
-> On Tue, 29 Jul 2025 23:38:23 +0800
-> Yushan Wang <wangyushan12@huawei.com> wrote:
+On Fri, Aug 01, 2025 at 10:27:13AM +0100, Joris Verhaegen wrote:
+> The current compress offload timestamping API relies on struct
+> snd_compr_tstamp, whose cumulative counters like copied_total are
+> defined as __u32. On long-running high-resolution audio streams, these
+> 32-bit counters can overflow, causing incorrect availability
+> calculations.
 > 
->> Some of HiSilicon V3 PMU hardware is divided into parts to fulfill the
->> job of monitoring specific parts of a device.  Add description on that
->> as well as the newly added ext operand for L3C PMU.
->>
->> Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> There is one fixlet hiding in here that maybe could have been done
-> as a precursor.  I doubt anyone cares though!
+> This patch series transitions to a 64-bit safe API to solve the problem
+> while maintaining perfect backward compatibility with the existing UAPI.
+> The pointer operation is reworked to use a new timestamp struct with
+> 64-bit fields for the cumulative counters, named snd_compr_tstamp64.
+> ASoC drivers are updated to use the 64-bit structures. Corresponding
+> ioctls are added to expose them to user-space.
 > 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> The series is structured as follows:
 > 
->> ---
->>  Documentation/admin-guide/perf/hisi-pmu.rst | 43 +++++++++++++++++++--
->>  1 file changed, 39 insertions(+), 4 deletions(-)
->>
->> diff --git a/Documentation/admin-guide/perf/hisi-pmu.rst b/Documentation/admin-guide/perf/hisi-pmu.rst
->> index 48992a0b8e94..4c7584fe3c1a 100644
->> --- a/Documentation/admin-guide/perf/hisi-pmu.rst
->> +++ b/Documentation/admin-guide/perf/hisi-pmu.rst
->> @@ -12,15 +12,16 @@ The HiSilicon SoC encapsulates multiple CPU and IO dies. Each CPU cluster
->>  called Super CPU cluster (SCCL) and is made up of 6 CCLs. Each SCCL has
->>  two HHAs (0 - 1) and four DDRCs (0 - 3), respectively.
->>  
->> -HiSilicon SoC uncore PMU driver
->> --------------------------------
->> +HiSilicon SoC uncore PMU v1
->> +---------------------------
->>  
->>  Each device PMU has separate registers for event counting, control and
->>  interrupt, and the PMU driver shall register perf PMU drivers like L3C,
->>  HHA and DDRC etc. The available events and configuration options shall
->> -be described in the sysfs, see:
->> +be described in the sysfs, see::
->> +
->> +/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}/hha{Y}/ddrc{Y}>
->>  
->> -/sys/bus/event_source/devices/hisi_sccl{X}_<l3c{Y}/hha{Y}/ddrc{Y}>.
+> Patch 1: Updates the pointer op, refactors the core logic and ASoC
+> drivers to use it, and defines the new UAPI structs.
 > 
-> This is fixing existing stuff so maybe should be a separate patch.
+> Patch 2: Exposes the SNDRV_COMPRESS_TSTAMP64 ioctl.
 > 
+> Patch 3: Exposes the corresponding SNDRV_COMPRESS_AVAIL64 ioctl.
+> 
+> This series has been tested on a Pixel 9 device. All compress offload
+> use cases, including long-running playback, were verified to work
+> correctly with the new 64-bit API.
+> 
+> Thanks,
+> Joris (George) Verhaegen
+> 
+> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
+> 
+> ---
 
-maybe it's just a format change (paragraph text to block text) so not worth backporting.
-that's why I didn't see any warnings when compile.
+Think it all looks good to me:
 
-thanks.
+Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+
+Thanks,
+Charles
 
