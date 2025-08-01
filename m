@@ -4,56 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7F3DC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 11:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA12C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 11:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ol3GtpiMM5QJ/cXIlKVDZAOq5nPw3ZNItLr/gjWoIRw=; b=tmlGyU9Os4rLitj0ROaaAd6g+S
-	YewvWbadEc+R5Q0S6RfVac5C5EkWt0HfxDNQ5gKg/h/YD9tpCMAym8HaFLwwHVSiQhrXYpzx/Fz4a
-	/FfGR4a4ACIc/EL7Pxhon02uc/nG0BTHpsOcVqPfykrohustI8oESL4xTBhCN7BisxD/W3o4CX4Xm
-	j3691AQ/N7+fEDO/nj6swYLeZiEtXRqoUk/cRr4VZGpd2H/4rc9iLZoD1Qq3sY/YxYEtdJT0tlr4N
-	D8Q+VCuH2Be+S+H1bZ8vJfLDqyMlYxERbKVOpYbSgl96Rypwx3oHz4IJVm/h0T12n9ck63lRYOlkz
-	jGT7yTxg==;
+	bh=WhG5DbnyNiSNFxOr3+CmfhAT0XiWxX1Ob5TAR60O8tE=; b=J4ijic9evVcNZ6O+hK0XJMl5qP
+	8qKC50oRq5VyBqpfC4i/hTT1Q4Dkli5gc0JdT2xUnuvTxTrzVMq0SQuGXnZcPgeDURHuTOd0e274G
+	Y8x3MhkV4HhZ5+sRo9ugIeAMKZhAaDD9VFnDxCSXe2vsU1KhuXvcuI7FfmPVTZ/OzF/Nn7RxW4HiG
+	AyflRCu2cU7OWBfKpqsMNsDUEBXfRWWfOrud+bXl3j2W+Q7dFBO1tWKef3GmMYjhGGHjlmzaqsvL+
+	IFNAioUMhaK4f8vW72a9EoakEa4F/KK4bOAmSDybqirGGMtCKJ9vp2PXPDlIZ9fUlKK9VOqs30+0x
+	+ZMDdOAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhoJG-00000005atP-3zLU;
-	Fri, 01 Aug 2025 11:52:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhnq4-00000005Y0X-2rZN
+	id 1uhoLo-00000005b9M-2qmr;
+	Fri, 01 Aug 2025 11:55:04 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhnsU-00000005YJm-1MLg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 11:22:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C47931516;
-	Fri,  1 Aug 2025 04:22:05 -0700 (PDT)
-Received: from [10.57.54.55] (unknown [10.57.54.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 919B33F66E;
-	Fri,  1 Aug 2025 04:22:12 -0700 (PDT)
-Message-ID: <8d810d87-e6a5-42bf-83c5-ba3aaec1889f@arm.com>
-Date: Fri, 1 Aug 2025 13:22:09 +0200
+	Fri, 01 Aug 2025 11:24:47 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-af939afe5efso32894866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 04:24:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=monstr-eu.20230601.gappssmtp.com; s=20230601; t=1754047484; x=1754652284; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=WhG5DbnyNiSNFxOr3+CmfhAT0XiWxX1Ob5TAR60O8tE=;
+        b=F/GEO8Mrp6YWJw6WrXDjRkjJv6XzqRs8SYnM5JrGyY2OsEujFz3WVJoNrX8nq/xryz
+         C+yNZ4UiTK2ZyImh23URH4r6GC6h70R82yFTS3s+oUE26/W2yoa849mMol38K3g54T6l
+         TTR8x2lRUGSsPddicUGD6hOLq/SOOr4novf5U9W4uLzZyXUbQVStrY4koe1baF3YlhDo
+         h3y++ZDp4nwJJnLx7z+ApiZ8UxqBWmHGrQgdBwDYOYLpWZrnHl5gPKV9LLi7oMk7crme
+         J05YhKDDeMZJ6YG3tbssCSxWSbzqIOr1Ok2fh5tf66anmywgfOmwLYzn9ZLenQGc4s+K
+         3UaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754047484; x=1754652284;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WhG5DbnyNiSNFxOr3+CmfhAT0XiWxX1Ob5TAR60O8tE=;
+        b=vQ1m+n+ot3XKD2l7j8lP+bhRqWkOQB8gx3Omnkj3s0B1JC40LfD5zykPh0qtMJ23XT
+         2Ed7U/As3eJTV5db67gfOXAU7MjkYGrdPEW7awSfsZDKa2pDd9gfe11eINF8ecR5kG6K
+         zUEhJBm0y/9CIhkCDCwj1/5utJV/bm90RCFQzVGnna6De7Ge79MsSz8wOjxUWZEX+KjY
+         DmbPzG2V1rXEj4Z3j7r8S4Xfytwf8uSUkA6CALCpdoDyDchZoA3p7YkpsUsj4rkpOwCB
+         uVbaJcxxfe9/4Io4V4s1ysOlw5F5+b6k6+SH8+6xalyhEDJMA2iZ+7YWXkQ++LTMo7k8
+         ubOA==
+X-Forwarded-Encrypted: i=1; AJvYcCUcbgQrmEWDOF2PLktwQ8iq0g69ezfIEK/931/mzz9Z8MzYZDHwrxYlwblqg/wVW+iaPPYj7kRHqCUjskeG3TKN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEF4J5K6xsTtzI1HLq96iNGLsxwXXtcLW91cEU4Bz7BarXHKwT
+	J6UE5/OUwf7Q+WRnQuoSOUaZZSJM1/vhoPsVpKrLS0EhokOodmPF1NZ6lf8b76ywdg==
+X-Gm-Gg: ASbGnctBomjokwIsbpHuA1kyFA6ASOolgjR21guN3kxZyMM57wfK+AQ2DigP46MQnQc
+	gX+Q+LBC8GjzHIxwxmHhvPG9yzCSGZhqZ8qP3OwQndLFJH1PzzRL+KA6fQboq9i1BimtjvfrVSD
+	byp+ML/EQExFAyw/BGPs5R9z0GVSSndj+9izQguotL8vt3J9S7VRmWfXI/xjyMYNw2WAP6+oUFf
+	1BybPmy6VJ/5B/pGu+y6Mt1BOa64bKPSTO4s/Ba1Ft4+9GxlC+sQ6SMQyiW7LhUbB8df6wUeiOq
+	zhSb697a7GejsvNec7HOrCd1dXtg2qHghaXStuhCcUTTfm+NQFGsGtaMu/e7+bnCQRGMEcc9qZJ
+	zvyoqsBC+HW0mCcUc+gpJqfXg
+X-Google-Smtp-Source: AGHT+IGAEwxmM6s8rcf+dLmLhqgPa7qSr1WrKscGfc7YN47rj1asFrZD+UvRmLT4EZYOZoO7IqhLxg==
+X-Received: by 2002:a17:906:c149:b0:af9:35f0:7a0f with SMTP id a640c23a62f3a-af935f07da4mr192102566b.28.1754047484211;
+        Fri, 01 Aug 2025 04:24:44 -0700 (PDT)
+Received: from [10.254.183.223] ([149.199.62.131])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a21c06bsm272442466b.119.2025.08.01.04.24.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 01 Aug 2025 04:24:43 -0700 (PDT)
+Message-ID: <64e24ac1-e0dc-4d0c-a9ab-8bb26f5acdcb@monstr.eu>
+Date: Fri, 1 Aug 2025 13:24:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] arm64/mm: Ensure lazy_mmu_mode never nests
-To: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250606135654.178300-1-ryan.roberts@arm.com>
- <aEgeQCCzRt-B8_nW@arm.com> <3cad01ea-b704-4156-807e-7a83643917a8@arm.com>
- <aEhKSq0zVaUJkomX@arm.com> <b567a16a-8d80-4aab-84c2-21cbc6a6a35d@arm.com>
- <20250612145906.GB12912@willie-the-truck>
- <066fa735-98ad-45f4-9316-b983d2e5a3d3@arm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <066fa735-98ad-45f4-9316-b983d2e5a3d3@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 0/3] arm64: zynqmp: Add support for kr260 and kd240
+To: linux-kernel@vger.kernel.org, monstr@monstr.eu, michal.simek@xilinx.com,
+ git@xilinx.com
+Cc: Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+References: <cover.1752837842.git.michal.simek@amd.com>
+Content-Language: en-US
+From: Michal Simek <monstr@monstr.eu>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <cover.1752837842.git.michal.simek@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_042216_823062_44529C55 
-X-CRM114-Status: GOOD (  29.78  )
+X-CRM114-CacheID: sfid-20250801_042446_372581_7F7B891F 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,99 +149,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/06/2025 18:00, Ryan Roberts wrote:
-> On 12/06/2025 15:59, Will Deacon wrote:
->> On Tue, Jun 10, 2025 at 05:37:20PM +0100, Ryan Roberts wrote:
->>> On 10/06/2025 16:07, Catalin Marinas wrote:
->>>> On Tue, Jun 10, 2025 at 02:41:01PM +0100, Ryan Roberts wrote:
->>>>> On 10/06/2025 13:00, Catalin Marinas wrote:
->>>>>> On Fri, Jun 06, 2025 at 02:56:52PM +0100, Ryan Roberts wrote:
->>>>>>> Commit 1ef3095b1405 ("arm64/mm: Permit lazy_mmu_mode to be nested")
->>>>>>> provided a quick fix to ensure that lazy_mmu_mode continues to work when
->>>>>>> CONFIG_DEBUG_PAGEALLOC is enabled, which can cause lazy_mmu_mode to
->>>>>>> nest.
->>>>>>>
->>>>>>> The solution in that patch is the make the implementation tolerant to
->>>>>> s/is the make/is to make/
->>>>>>
->>>>>>> nesting; when the inner nest exits lazy_mmu_mode, we exit then the outer
->>>>>>> exit becomes a nop. But this sacrifices the optimization opportunity for
->>>>>>> the remainder of the outer user.
->>>>>> [...]
->>>>>>> I wonder if you might be willing to take this for v6.16? I think its a neater
->>>>>>> solution then my first attempt - Commit 1ef3095b1405 ("arm64/mm: Permit
->>>>>>> lazy_mmu_mode to be nested") - which is already in Linus's master.
->>>>>>>
->>>>>>> To be clear, the current solution is safe, I just think this is much neater.
->>>>>> Maybe better, though I wouldn't say much neater. One concern I have is
->>>>>> about whether we'll get other such nesting in the future and we need to
->>>>>> fix them in generic code. Here we control __kernel_map_pages() but we
->>>>>> may not for other cases.
->>>>>>
->>>>>> Is it the fault of the arch code that uses apply_to_page_range() via
->>>>>> __kernel_map_pages()? It feels like it shouldn't care about the lazy
->>>>>> mode as that's some detail of the apply_to_page_range() implementation.
->>>>>> Maybe this API should just allow nesting.
->>>>> I don't think it is possible to properly support nesting:
->>>>>
->>>>> enter_lazy_mmu
->>>>>     for_each_pte {
->>>>>         read/modify-write pte
->>>>>
->>>>>         alloc_page
->>>>>             enter_lazy_mmu
->>>>>                 make page valid
->>>>>             exit_lazy_mmu
->>>>>
->>>>>         write_to_page
->>>>>     }
->>>>> exit_lazy_mmu
->>>>>
->>>>> This example only works because lazy_mmu doesn't support nesting. The "make page
->>>>> valid" operation is completed by the time of the inner exit_lazy_mmu so that the
->>>>> page can be accessed in write_to_page. If nesting was supported, the inner
->>>>> exit_lazy_mmu would become a nop and write_to_page would explode.
->>>> What I meant is for enter/exit_lazy_mmu to handle a kind of de-nesting
->>>> themselves: enter_lazy_mmu would emit the barriers if already in lazy
->>>> mode, clear pending (well, it doesn't need to do this but it may be
->>>> easier to reason about in terms of flattening). exit_lazy_mmu also needs
->>>> to emit the barriers but leave the lazy mode on if already on when last
->>>> entered. This does need some API modifications to return the old mode on
->>>> enter and get an argument for exit. But the correctness wouldn't be
->>>> affected since exit_lazy_mmu still emits the barriers irrespective of
->>>> the nesting level.
->>> Ahh I see what you mean now; exit always emits barriers but only the last exit
->>> clears TIF_LAZY_MMU.
->>>
->>> I think that's much cleaner, but we are changing the API which needs changes to
->>> all the arches and my attempt at [1] didn't really gain much enthusiasm.
->> To be honest, I don't think the proposal in this series is really
->> improving what we have. Either we support nested lazy mode or we don't;
->> having __kernel_map_pages() mess around with the lazy mmu state because
->> it somehow knows that set_memory_valid() is going to use it is fragile
->> and ugly.
->>
->> So I'm incined to leave the current code as-is, unless we can remove it
->> in favour of teaching the core code how to handle it instead.
-> Yeah fair enough. I'm not going to have time to do the proper nesting support
-> thing. But I'll see if I can find someone internally that I might be able to
-> convince. If not, we'll just leave as is.
 
-I've started working on supporting nesting as Catalin suggested above -
-modifying the API so that enter() returns whether the call is nested,
-and leave() takes the value returned by enter(). I've got it working
-without too much trouble, there's a fair amount of churn at the call
-sites but a trivial Coccinelle script can handle most of them.
 
-This new approach will also help with protecting page tables with
-kpkeys: lazy_mmu is very useful to write to POR_EL1 less often [1], but
-this currently assumes that nesting doesn't occur. In fact the new API
-should allow the old value of POR_EL1 to be returned by enter(), meaning
-we wouldn't need to store it in a thread-local variable.
+On 7/18/25 13:24, Michal Simek wrote:
+> Hi,
+> 
+> add description for k24 and kr260 with kd240 boards.
+> Pretty much both k24 and k26 SOMs can be plugged to other carrier cards but
+> not all combinations are tested together.
+> 
+> Thanks,
+> Michal
+> 
+> 
+> Michal Simek (3):
+>    dt-bindings: soc: xilinx: Add support for K24, KR260 and KD240 CCs
+>    arm64: zynqmp: Add support for kr260 board
+>    arm64: zynqmp: Add support for kd240 board
+> 
+>   .../bindings/soc/xilinx/xilinx.yaml           |  81 ++++
+>   arch/arm64/boot/dts/xilinx/Makefile           |  24 +
+>   .../boot/dts/xilinx/zynqmp-sck-kd-g-revA.dtso | 390 +++++++++++++++
+>   .../boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso | 438 +++++++++++++++++
+>   .../boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso | 451 ++++++++++++++++++
+>   .../boot/dts/xilinx/zynqmp-sm-k24-revA.dts    |  23 +
+>   .../boot/dts/xilinx/zynqmp-smk-k24-revA.dts   |  21 +
+>   7 files changed, 1428 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sck-kd-g-revA.dtso
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revA.dtso
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sck-kr-g-revB.dtso
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-sm-k24-revA.dts
+>   create mode 100644 arch/arm64/boot/dts/xilinx/zynqmp-smk-k24-revA.dts
+> 
 
-- Kevin
-
-[1]
-https://lore.kernel.org/linux-mm/20250411091631.954228-19-kevin.brodsky@arm.com/
+Applied.
+M
+-- 
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP/Versal ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal/Versal NET SoCs
+TF-A maintainer - Xilinx ZynqMP/Versal/Versal NET SoCs
 
 
