@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B6EC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA9CC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cn2RoAisMKaAgdwYwaUWd9l5blW+koqxiGIwZNbsspk=; b=YeHse/Gh13P5rtLrEjKUXRUYLO
-	wSXIblRWpPO3iE1DVB6H6NTI8sGijJX6Aqd3Hn5mChTN1xI2lNkA/1qtFJ5QwgPKs6ucIrf9zomSE
-	S1Uua6tpjnTR8B6caDHF7H34f0i52k+TYWqVkkbPoWJEOuTPMJ5IZ8bncv5huvC0CInXW7jsOReGK
-	TmAK71P1YArTDMYuWY3a/D9KAUPshLu2yPr/sGyb2n1/heq8abIOjS7wxd3Zyu4hC8wZ5A83nfkwM
-	8cmCHO0A6fU0E1mUE3Un8nieTi2JM6xjfDdGBALUsCLRYY6WSv4rpoR3CGWIcSAX+MiJ9eIADzk0y
-	uoYE+A3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A1HSYmHZRVrlkC/wtA94N2UZ9r/llCEGSWTmtx5jA+Q=; b=AkBIp0bbjGeOTuh0iWquFlfRO9
+	GrEfJsVKKjo0Zv6MOdJaEQn9uvNywN5wHwASANFVb2T08CYPjNFJfQUO1px8CzaJcW6PXiIEHvjjJ
+	vvjMOEjptvj+Yft3+NS4AWx7pFGiLEFt45cMquecSjTR7/yvL4fuEJ1akKU4raqAgQiIIgr0CXcYY
+	qy6T4ZKZTPM8B24CWrqP1WNnT3vO2Eszoi/sxbZG8JVzo4OP0uVfpHYDGBvI9DXa2vyuH2H/UdpwG
+	3DXB4cRdTT5wO+JjM5vrP3AEU7UH9bPYWpRom2xDLsQOeI2DYmf/kO1mWeN0C9ayqJVoIxBUoO0lu
+	DVs0NEYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhk3g-000000057nX-01cE;
-	Fri, 01 Aug 2025 07:20:04 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uhk6E-000000057zp-2uvJ;
+	Fri, 01 Aug 2025 07:22:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhjtS-000000056H7-1chl;
-	Fri, 01 Aug 2025 07:09:31 +0000
-X-UUID: 740e64e46ea611f09eb0dd999d3936bf-20250801
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=cn2RoAisMKaAgdwYwaUWd9l5blW+koqxiGIwZNbsspk=;
-	b=Yx03isguInoReYLzSgAx5TSR+1qmFNfoc9yY42tkd9X1L63CTAHZ0hEI3TUTNVd/k294V3LKOtlLkRtqvdsRjQDxvGtkmyGsUpdPMaPVx6f6l2adVDuEtS87j2UObsvSV1GxGyIrXRrbCdhIYqbGItSqx9F/NeTR4tpL1gJR1IA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:3e0662b1-226d-40b2-ad59-0703c26e0870,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:04b0660f-6968-429c-a74d-a1cce2b698bd,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 740e64e46ea611f09eb0dd999d3936bf-20250801
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <niklaus.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 461825912; Fri, 01 Aug 2025 00:09:23 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 1 Aug 2025 15:09:21 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 1 Aug 2025 15:09:20 +0800
-From: niklaus.liu <niklaus.liu@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Liam Girdwood
-	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Flora Fu
-	<flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>,
-	Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, niklaus.liu
-	<niklaus.liu@mediatek.com>
-Subject: [PATCH 3/3] regulator: Modify mt6315 regulator mode mask
-Date: Fri, 1 Aug 2025 14:39:37 +0800
-Message-ID: <20250801070913.3109-4-niklaus.liu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250801070913.3109-1-niklaus.liu@mediatek.com>
-References: <20250801070913.3109-1-niklaus.liu@mediatek.com>
+	id 1uhjwa-000000056wz-0Ase;
+	Fri, 01 Aug 2025 07:12:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2B8BFA556F0;
+	Fri,  1 Aug 2025 07:12:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E9F1C4CEE7;
+	Fri,  1 Aug 2025 07:12:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754032362;
+	bh=kZ2ssGifWusx+VAn097N3kTz4drLvew5uJnr57tCeTk=;
+	h=From:Date:Subject:To:Cc:From;
+	b=VZLqfKfiKRLlgY1GsmMNqmcAw+Ljlp+kTbga2cVoFEGFqoZLcyLQLg1lTEBuniLPG
+	 U37aCWmUSTcCCaxJ8fnsdKhBs2jvv0TuUhpX4k0sRbiQU5rmCiha8wMgqYgiuCaiEQ
+	 x9yUzwpZs8nqy0/CjEF48+b/pq0CqtesNohPItUGXL2iyPL+zG0/jlB867lu+18K7z
+	 JZmkXC1n8GFoxta3Zsgc03uRqRKK2Ahrgs9bmnibBwB8ZD6aHGps4sb7hbnc4+zhTB
+	 XAX2irL2hZdpj7WP2LAJxgdmC3hypmnrK6/Axej8UXQuqeoc+rDknJf0n2l96PJcGD
+	 N3QT6otILCZHw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 01 Aug 2025 09:12:25 +0200
+Subject: [PATCH net v2] net: airoha: npu: Add missing MODULE_FIRMWARE
+ macros
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250801-airoha-npu-missing-module-firmware-v2-1-e860c824d515@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANhojGgC/5WNQQ6CMBBFr0Jm7ZgWLCSuvAdhUcsAE6ElU0EN4
+ e5WbuDmJ+8v3tsgkjBFuGYbCK0cOfgE+SkDN1jfE3KbGHKVG1UVGi1LGCz6ecGJY2Tf4xTaZST
+ sWKaXFcKq0ureKmNsYSCJZqGO30ekbhIPHJ9BPkdz1b/3L/2qUePFKFc6l5bK24PE03gO0kOz7
+ /sXfRMOItUAAAA=
+X-Change-ID: 20250731-airoha-npu-missing-module-firmware-7710bd055a35
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_000930_436782_900D320B 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250801_001244_177947_44231BF1 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,40 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Modify mt6315 regulator mode mask, compatible with all 6315 models
+Introduce missing MODULE_FIRMWARE definitions for firmware autoload.
 
-Signed-off-by: niklaus.liu <niklaus.liu@mediatek.com>
+Fixes: 23290c7bc190d ("net: airoha: Introduce Airoha NPU support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/regulator/mt6315-regulator.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+Changes in v2:
+- Add missing Fixes tag
+- Link to v1: https://lore.kernel.org/r/20250731-airoha-npu-missing-module-firmware-v1-1-450c6cc50ce6@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_npu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/regulator/mt6315-regulator.c b/drivers/regulator/mt6315-regulator.c
-index 2608a6652d77..092ff748fe21 100644
---- a/drivers/regulator/mt6315-regulator.c
-+++ b/drivers/regulator/mt6315-regulator.c
-@@ -218,8 +218,10 @@ static int mt6315_regulator_probe(struct spmi_device *pdev)
- 	struct regmap *regmap;
- 	struct mt6315_chip *chip;
- 	struct mt_regulator_init_data *init_data;
-+	struct device_node *node = pdev->dev.of_node;
- 	struct regulator_config config = {};
- 	struct regulator_dev *rdev;
-+	unsigned int val = 0;
- 	int i;
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 9ab964c536e11173e3e3bb4854b4f886c75a0051..a802f95df99dd693293b1c0cc0fbf09afab2c835 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -579,6 +579,8 @@ static struct platform_driver airoha_npu_driver = {
+ };
+ module_platform_driver(airoha_npu_driver);
  
- 	regmap = devm_regmap_init_spmi_ext(pdev, &mt6315_regmap_config);
-@@ -247,6 +249,10 @@ static int mt6315_regulator_probe(struct spmi_device *pdev)
- 		init_data->modeset_mask[MT6315_VBUCK1] = BIT(MT6315_VBUCK1);
- 		break;
- 	}
-+
-+	if (!of_property_read_u32(node, "buck1-modeset-mask", &val))
-+		init_data->modeset_mask[MT6315_VBUCK1] = val;
-+
- 	for (i = MT6315_VBUCK2; i < MT6315_VBUCK_MAX; i++)
- 		init_data->modeset_mask[i] = BIT(i);
- 
++MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_DATA);
++MODULE_FIRMWARE(NPU_EN7581_FIRMWARE_RV32);
+ MODULE_LICENSE("GPL");
+ MODULE_AUTHOR("Lorenzo Bianconi <lorenzo@kernel.org>");
+ MODULE_DESCRIPTION("Airoha Network Processor Unit driver");
+
+---
+base-commit: 01051012887329ea78eaca19b1d2eac4c9f601b5
+change-id: 20250731-airoha-npu-missing-module-firmware-7710bd055a35
+
+Best regards,
 -- 
-2.46.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
