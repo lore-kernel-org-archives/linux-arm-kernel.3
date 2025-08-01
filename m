@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D0EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8EEC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xtLunnP4TedJqPo1vsBP+WsJ5NT7Bmy4r8DnYlq+CEY=; b=IPRnNi+S+aJ6Rbuzydo/Q2Pa2Z
-	kHsbxeYteRE3z/7EoF9hWe4Un+5SD4nkep/s92eFX/Tv9I5nJx/JieSY1uwtOnvE1+/n98VaDajRE
-	2vNbqT4p7CPzE0BJs1cheNULn3zFrlm21JbRBDoFvx1d3JV4c6+fRCj8mvJ7+17BYCSwVZepNfUdL
-	d5MOPUACvR1MhL6uZL5ZUJ764QKwW2Kuyus7YFOoFj6lo7T0Y2FIrTClfVBgVJ0Fg7ujwGxThZkM+
-	eXVVw5tZitXHRK2QliHO76ee7Uh03PepmHGPkxGMz9lnU1t25aXHCiJEYUI/401TG6Tm8x66+hMcX
-	/7DuF2tg==;
+	bh=ROhyw+t7FAuJ/neKZ5R3uau4fvGt/s6iE4pUlePNK0k=; b=5ASMvCuDeMCjZOR/hSZkYqVd9q
+	3XSGB7E7AmqvnmhQQpQcRWsaXsWeVEnW59IRKkftejlELzGN7NlOQpPQjr4wvAh4247y97XgIvcgn
+	Lzoo8j+Nmr/XaI4X20vM5FCCJ6JEkA0/WfRX8xv7kxveYsaxXd4+zTzsb6APhDyNO7gE2IqWY2/Wf
+	PPJ7O52YMtJY6ljzOySc4vzm+bIAkJEx65OD6qSPOa+5uDQYly3r330Q5+lsRXMv6AYb11uDK1fUf
+	daVmpz8qKChhHczkbC9y57PEKwzcCfFkzXFzbsMN4f3y6d04CXQwoqhYMmEaDHRPcmCrs35nVrlKF
+	xHTlyOEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlze-00000005MCh-3VDb;
-	Fri, 01 Aug 2025 09:24:02 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uhm2D-00000005MVd-1Kjf;
+	Fri, 01 Aug 2025 09:26:41 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhluW-00000005LVD-0uAv;
-	Fri, 01 Aug 2025 09:18:45 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4560cdf235cso9904425e9.1;
-        Fri, 01 Aug 2025 02:18:43 -0700 (PDT)
+	id 1uhluY-00000005LVm-2qdj;
+	Fri, 01 Aug 2025 09:18:47 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4561607166aso13237275e9.2;
+        Fri, 01 Aug 2025 02:18:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754039923; x=1754644723; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754039925; x=1754644725; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xtLunnP4TedJqPo1vsBP+WsJ5NT7Bmy4r8DnYlq+CEY=;
-        b=gktohtqSizPKxTcY780wef8rVI1oWk4DpsNVtD399dATeToYHrt9lPagp8xi16V621
-         nUfrg+bDg3xxstZZOnFpIGHqRpuAK45qm/EiAe7lqBEh7ZWC4UqESxPrvohQs55p4KzT
-         erWFRp+H1lQgKODggRX/Lf3slnJkHotKUE+Ga6EE+0WNewMh+jUXXQzp7X2VmwIb+LU0
-         W1tldRoEWZ86X05BWaciZCy3WgD+c9MtysdDYL71tnOOpjDqeoiFB5kJVOY2PVBgXYm0
-         KnhHqf0TPrpm0eUrUGXmJj/JnUdl3dHkT+TMR1eODbMDeLMdnwhzjb45949BqHAF51oO
-         XiQA==
+        bh=ROhyw+t7FAuJ/neKZ5R3uau4fvGt/s6iE4pUlePNK0k=;
+        b=YSbKaoDGntAwZpnJU6aUe7kbliB0tJG/pIp6SRJnd6FLbtfdsji228QAb0Zq9z1tNG
+         BELYv9sPJflbirvEkeGW2nBiygB68WUh1JSxClzPUHZ6NIegatLMG0CbaxghL11FglT8
+         lZ3SWONLIoJIKDYHNAIi/TJFyJxlk1epPKm04rTN2TEvdIKK2ycpQuik264LFj6ZSA5B
+         NnPUnTwEuzm/Ko8UnCUc57n3diUimFpcmwEUOZbOYxLzyc8ZWUV0zI2L1Pz3bjOC79zw
+         vQZChxUZu30osyrAX3NPgbeQw8eR0Wzdnebb9OD+V09xoQKS6PfX/JcOGhKWJ6qFTONd
+         Byow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754039923; x=1754644723;
+        d=1e100.net; s=20230601; t=1754039925; x=1754644725;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xtLunnP4TedJqPo1vsBP+WsJ5NT7Bmy4r8DnYlq+CEY=;
-        b=OMFi1+1ej7VjndDo8Ev64nNTfakKCQEVVswl7CNaM/3B9sgUg5Z8sodcTwhoAmr+Mo
-         kQCJzx3ypaoJstLcNv9nuHvhqKaitMGJH+zvEnMjRmAfgGJHVZAhbDWEhDx7QOSzuyPp
-         EHuHawNPEFFx+XOvwsa1ya5HMHcvD6stcPKUBaGUcywXhUOC4I4l/BtybGX5QnOGjozJ
-         xoglGJ5dIhTTeP8h/mZOiIJB7CUkdqu5Ap9ZsSwKw7RxXpPRrFI7XZAZKX1Hk1g8gEj0
-         Ekoqhc9lfzx51YDbfpkPJJCqjvpmcoLr61YDIJXhCLuJ/siDEC92Ss+z05PmEXjxay02
-         olQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVjpx3gt/jdtwuMcbyAf3cIZwR9oYePS2tDYrZ49+wePXmbJqdgZIMR4/gxBRWfPSNz106aF72mCvjUeP4SMRO3@lists.infradead.org, AJvYcCW0uDz05nsMX+z+fl/1Pvdefmzyg6DQZGfySqxy1YEG2PlpwLFzfRt9ELcdN/q6JC5N5WtOzvnPzh61jL0OqA4=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTztEcI4tTsSphtnJePFhC6A0zfFIYgX7vl1o2QgNrvqTl21/3
-	at6tr/G46liZJyHvHGk2OOLhOYpu2qkWtO6q87UIi9NOpuDLJ1jFpHA9
-X-Gm-Gg: ASbGncvB/18Wg0+NyxCeCbSUqNYu9rpBzpsofGenzGXlQZDgaEE12JZLK+OJQJzWnQ7
-	nn2QIUo2FaWNapwP5ITE+quTL7KYa7+Zd+j0HFTm47DF9svGE8XsuEG3XJxjUrWYHM0V21UK/d/
-	E68iE8fL+iAjAh/UnX2azMIEoo7pgcBLK/GkvCOauKUmcKR1y0Rw+k5VmhhB2n8LRGR+t2bPHED
-	oi3DokeBS7jMiuOBllksUGklpg8a+LuCpUmjkHw7unwbXIBcGdlW/4nxu32oB7x/urCUXBP2cVP
-	VvNamwOQmnXDwYfqKexc521txzLSa/a9fZGv1Xzk3tM+bb3tXtst+4ksLMrH90rp9fUMY1lyLiy
-	RfKTK68tnvfXASvdr2xP95kwhBrz391PwrckV0i7rqKXY2CDmW08i/oDhUhEdt97+riLfgi+KtA
-	R1qJ5eEP8P1kd4
-X-Google-Smtp-Source: AGHT+IFi/skLLCRiAqQgbi5epGmUch5tPREIEOTjh2ICmnSbjfdG3rTwP7VXpgf+GU2FtdKGaxac6w==
-X-Received: by 2002:a05:600c:3e1b:b0:455:e858:cd04 with SMTP id 5b1f17b1804b1-45892bd217bmr88566565e9.25.1754039922271;
-        Fri, 01 Aug 2025 02:18:42 -0700 (PDT)
+        bh=ROhyw+t7FAuJ/neKZ5R3uau4fvGt/s6iE4pUlePNK0k=;
+        b=lK9mHbJeubvOm1mCdqDBj2g+pSoLxm0JHK+lIyJex59jbG11sm/kMLtTZsILesOxHe
+         Zx9VfN19x711u5Z2uJI1/OHe90wcpzHqlXPAJ2B/43opb2lWIaSUa9fijZBMsbii/4Xi
+         tWeXHkVEjnNncndb/29SIChZ4FsZb7sts2Tdnmd7TejajRHtCXeS0dUdMYODwMFE80Vh
+         kxGNEUO576s2T9mz+f1TgVXb2vRTa/N+Q6x7ofjIfC7Tyw3frVlI+wBVuat3RHgrdy3S
+         E9bhRuScTQLpU1pZJz0Cxh0PLZuwBJOnKcK1dgxp3wORH2hTrJC6EnIsLI1KkHR9P5RJ
+         97kQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUECylbdn+MB6uYf4o0sRkwIahpPbI/kMh3wQ++xRBgTJQByL6dGOXGyaNcsuoKH8PaLzupfWIr273W8r/6OB8=@lists.infradead.org, AJvYcCXsCMmbfOH9yDMpeELXj95JxdYJBuTQTrJEHzTQjD3YTlT0dctNtG9AnBbp6LAQ+XSJizkFK8Ot3PeA2d4OUoZi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/qdG6ZAwolI+0RO5Icqhk6vw/Buo7gkg38M6e4k3VXeIaJ9D+
+	D5z9xpe113Jn8Gb4q0e9jNnYHz5unf8RfEVp9otA0HIHO750LNvsXnDWyepePA==
+X-Gm-Gg: ASbGnctVLyDoFG2tDA8PT59Hcvo46ZVE6OyTmOjkcqTq4WgVrFIzkK2yid5M9z6WyC3
+	ytrlQ8+FgWUvdZcPHjcn2EDpCGPiNTbK1o2siJi0E9DoEJZ/d38Q9PlHmOt6L2/Eb4sYV+yaEcG
+	loj82vykjtsma0jtDBVnlZ3tESbn3MmXayg/7QYnbqzZCKMISlbso1emlyMgw/HrqyJ7J3GoSM/
+	wQmLEqF1KAeey6BuZR9h88hj0nMLKlRp2Osq+SJyPEIk3YlYs9cVyo2oe5Aifn1/7pg85ybeWn+
+	YmxW9jJzQUTvjTZbSNRTPly0Z7DAVc6Nr4t/Sm3CjNnWcE33a+fR6LInVFm5j9ZKtbCL1xYian+
+	qotLWH8frWkHIPTGlXPmk6syVEN2v4yLWOYRwO1op9vTEmOJlGgP6N9qKxFbhS2gRT5moowHRXj
+	Sa9ndk+ThZ7Rv0
+X-Google-Smtp-Source: AGHT+IF0EPte8HqaVBIYXtF1RnC8Y0lOpWJbe9LERhVuYpNScsmKQadfRHJvlxBAdqbO8bu+1FMb/A==
+X-Received: by 2002:a05:600c:138e:b0:456:1824:4808 with SMTP id 5b1f17b1804b1-45892bdf9admr85140375e9.32.1754039924825;
+        Fri, 01 Aug 2025 02:18:44 -0700 (PDT)
 Received: from Ansuel-XPS24 (host-80-181-255-224.pool80181.interbusiness.it. [80.181.255.224])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-458953787a8sm95789065e9.14.2025.08.01.02.18.39
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-458953787a8sm95789065e9.14.2025.08.01.02.18.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Aug 2025 02:18:41 -0700 (PDT)
+        Fri, 01 Aug 2025 02:18:44 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Jaroslav Kysela <perex@perex.cz>,
 	Takashi Iwai <tiwai@suse.com>,
@@ -94,17 +94,17 @@ To: Jaroslav Kysela <perex@perex.cz>,
 	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [RFC RESEND PATCH 1/2] ASoC: mediatek: move some header to global include
-Date: Fri,  1 Aug 2025 11:18:08 +0200
-Message-ID: <20250801091812.4866-2-ansuelsmth@gmail.com>
+Subject: [RFC RESEND PATCH 2/2] ASoC: airoha: Add AFE driver for Airoha AN7581
+Date: Fri,  1 Aug 2025 11:18:09 +0200
+Message-ID: <20250801091812.4866-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250801091812.4866-1-ansuelsmth@gmail.com>
 References: <20250801091812.4866-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_021844_259491_4048947F 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20250801_021846_736411_FAA366CF 
+X-CRM114-Status: GOOD (  26.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,331 +119,612 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for support of Airoha SoC sound system based on Mediatek
-AFE, move some header to global include to prevent having to use complex
-redirection for inclusion.
+Add support for the Sound system present on Airoha AN7581 SoC. This is
+based on the mediatek AFE drivers.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- .../common => include/sound/mediatek}/mtk-afe-fe-dai.h        | 0
- .../sound/mediatek}/mtk-afe-platform-driver.h                 | 0
- sound/soc/mediatek/common/mtk-afe-fe-dai.c                    | 4 ++--
- sound/soc/mediatek/common/mtk-afe-platform-driver.c           | 2 +-
- sound/soc/mediatek/mt2701/mt2701-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt6797/mt6797-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt7986/mt7986-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8173/mt8173-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8183/mt8183-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8183/mt8183-da7219-max98357.c            | 2 +-
- sound/soc/mediatek/mt8183/mt8183-mt6358-ts3a227-max98357.c    | 2 +-
- sound/soc/mediatek/mt8186/mt8186-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8186/mt8186-misc-control.c               | 4 ++--
- sound/soc/mediatek/mt8186/mt8186-mt6366-common.c              | 2 +-
- sound/soc/mediatek/mt8186/mt8186-mt6366.c                     | 2 +-
- sound/soc/mediatek/mt8188/mt8188-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8188/mt8188-mt6359.c                     | 2 +-
- sound/soc/mediatek/mt8192/mt8192-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c       | 2 +-
- sound/soc/mediatek/mt8195/mt8195-afe-pcm.c                    | 4 ++--
- sound/soc/mediatek/mt8195/mt8195-mt6359.c                     | 2 +-
- sound/soc/mediatek/mt8365/mt8365-afe-pcm.c                    | 4 ++--
- 22 files changed, 32 insertions(+), 32 deletions(-)
- rename {sound/soc/mediatek/common => include/sound/mediatek}/mtk-afe-fe-dai.h (100%)
- rename {sound/soc/mediatek/common => include/sound/mediatek}/mtk-afe-platform-driver.h (100%)
+ sound/soc/Makefile                          |   1 +
+ sound/soc/airoha/Kconfig                    |  10 +
+ sound/soc/airoha/Makefile                   |   2 +
+ sound/soc/airoha/an7581/Makefile            |   7 +
+ sound/soc/airoha/an7581/an7581-afe-common.h |  35 ++
+ sound/soc/airoha/an7581/an7581-afe-pcm.c    | 455 ++++++++++++++++++++
+ sound/soc/airoha/an7581/an7581-reg.h        |  29 ++
+ 7 files changed, 539 insertions(+)
+ create mode 100644 sound/soc/airoha/Kconfig
+ create mode 100644 sound/soc/airoha/Makefile
+ create mode 100644 sound/soc/airoha/an7581/Makefile
+ create mode 100644 sound/soc/airoha/an7581/an7581-afe-common.h
+ create mode 100644 sound/soc/airoha/an7581/an7581-afe-pcm.c
+ create mode 100644 sound/soc/airoha/an7581/an7581-reg.h
 
-diff --git a/sound/soc/mediatek/common/mtk-afe-fe-dai.h b/include/sound/mediatek/mtk-afe-fe-dai.h
-similarity index 100%
-rename from sound/soc/mediatek/common/mtk-afe-fe-dai.h
-rename to include/sound/mediatek/mtk-afe-fe-dai.h
-diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.h b/include/sound/mediatek/mtk-afe-platform-driver.h
-similarity index 100%
-rename from sound/soc/mediatek/common/mtk-afe-platform-driver.h
-rename to include/sound/mediatek/mtk-afe-platform-driver.h
-diff --git a/sound/soc/mediatek/common/mtk-afe-fe-dai.c b/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-index 3809068f5620..de58ee0afe27 100644
---- a/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-+++ b/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-@@ -11,9 +11,9 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <sound/soc.h>
--#include "mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include <sound/pcm_params.h>
--#include "mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- #include "mtk-base-afe.h"
- 
- #define AFE_BASE_END_OFFSET 8
-diff --git a/sound/soc/mediatek/common/mtk-afe-platform-driver.c b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-index 6b6330583941..fc1681281ad5 100644
---- a/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-+++ b/sound/soc/mediatek/common/mtk-afe-platform-driver.c
-@@ -10,7 +10,7 @@
- #include <linux/dma-mapping.h>
- #include <sound/soc.h>
- 
--#include "mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "mtk-base-afe.h"
- 
- int mtk_afe_combine_sub_dai(struct mtk_base_afe *afe)
-diff --git a/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c b/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
-index fcae38135d93..ce50eda77bd9 100644
---- a/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
-+++ b/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
-@@ -16,8 +16,8 @@
- 
- #include "mt2701-afe-common.h"
- #include "mt2701-afe-clock-ctrl.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- static const struct snd_pcm_hardware mt2701_afe_hardware = {
- 	.info = SNDRV_PCM_INFO_MMAP | SNDRV_PCM_INFO_INTERLEAVED
-diff --git a/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c b/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
-index f62a32f2f2b6..dd8583df7d0a 100644
---- a/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
-+++ b/sound/soc/mediatek/mt6797/mt6797-afe-pcm.c
-@@ -16,8 +16,8 @@
- #include "mt6797-afe-clk.h"
- #include "mt6797-interconnection.h"
- #include "mt6797-reg.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- enum {
- 	MTK_AFE_RATE_8K = 0,
-diff --git a/sound/soc/mediatek/mt7986/mt7986-afe-pcm.c b/sound/soc/mediatek/mt7986/mt7986-afe-pcm.c
-index 7a6ad9116e55..640c3a7bff2d 100644
---- a/sound/soc/mediatek/mt7986/mt7986-afe-pcm.c
-+++ b/sound/soc/mediatek/mt7986/mt7986-afe-pcm.c
-@@ -16,8 +16,8 @@
- 
- #include "mt7986-afe-common.h"
- #include "mt7986-reg.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- enum {
- 	MTK_AFE_RATE_8K = 0,
-diff --git a/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c b/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c
-index 04ed0cfec174..6c58daa0a963 100644
---- a/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8173/mt8173-afe-pcm.c
-@@ -18,8 +18,8 @@
- #include <sound/soc.h>
- #include "mt8173-afe-common.h"
- #include "../common/mtk-base-afe.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- /*****************************************************************************
-  *                  R E G I S T E R       D E F I N I T I O N
-diff --git a/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c b/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
-index e8884354995c..9e1fa40bcb56 100644
---- a/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8183/mt8183-afe-pcm.c
-@@ -17,8 +17,8 @@
- #include "mt8183-afe-clk.h"
- #include "mt8183-interconnection.h"
- #include "mt8183-reg.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- enum {
- 	MTK_AFE_RATE_8K = 0,
-diff --git a/sound/soc/mediatek/mt8183/mt8183-da7219-max98357.c b/sound/soc/mediatek/mt8183/mt8183-da7219-max98357.c
-index 3388e076ccc9..faba30a58e9e 100644
---- a/sound/soc/mediatek/mt8183/mt8183-da7219-max98357.c
-+++ b/sound/soc/mediatek/mt8183/mt8183-da7219-max98357.c
-@@ -16,7 +16,7 @@
- 
- #include "../../codecs/da7219.h"
- #include "../../codecs/rt1015.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "mt8183-afe-common.h"
- 
- #define DA7219_CODEC_DAI "da7219-hifi"
-diff --git a/sound/soc/mediatek/mt8183/mt8183-mt6358-ts3a227-max98357.c b/sound/soc/mediatek/mt8183/mt8183-mt6358-ts3a227-max98357.c
-index 497a9043be7b..5d6bcaaebd8f 100644
---- a/sound/soc/mediatek/mt8183/mt8183-mt6358-ts3a227-max98357.c
-+++ b/sound/soc/mediatek/mt8183/mt8183-mt6358-ts3a227-max98357.c
-@@ -15,7 +15,7 @@
- 
- #include "../../codecs/rt1015.h"
- #include "../../codecs/ts3a227e.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "mt8183-afe-common.h"
- 
- #define RT1015_CODEC_DAI "rt1015-aif"
-diff --git a/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c b/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
-index db7c93401bee..2ffb64d88c56 100644
---- a/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8186/mt8186-afe-pcm.c
-@@ -14,8 +14,8 @@
- #include <linux/reset.h>
- #include <sound/soc.h>
- 
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
+diff --git a/sound/soc/Makefile b/sound/soc/Makefile
+index 462322c38aa4..a6a9f5e84bad 100644
+--- a/sound/soc/Makefile
++++ b/sound/soc/Makefile
+@@ -46,6 +46,7 @@ obj-$(CONFIG_SND_SOC)	+= codecs/
+ obj-$(CONFIG_SND_SOC)	+= generic/
+ obj-$(CONFIG_SND_SOC)	+= apple/
+ obj-$(CONFIG_SND_SOC)	+= adi/
++obj-$(CONFIG_SND_SOC)	+= airoha/
+ obj-$(CONFIG_SND_SOC)	+= amd/
+ obj-$(CONFIG_SND_SOC)	+= atmel/
+ obj-$(CONFIG_SND_SOC)	+= au1x/
+diff --git a/sound/soc/airoha/Kconfig b/sound/soc/airoha/Kconfig
+new file mode 100644
+index 000000000000..01e84daba8fa
+--- /dev/null
++++ b/sound/soc/airoha/Kconfig
+@@ -0,0 +1,10 @@
++# SPDX-License-Identifier: GPL-2.0-only
++config SND_SOC_AN7581
++	tristate "ASoC support for Airoha AN7581 chip"
++	depends on ARCH_AIROHA
++	select SND_SOC_MEDIATEK
++	help
++	  This adds ASoC driver for Airoha AN7581 boards
++	  that can be used with other codecs.
++	  Select Y if you have such device.
++	  If unsure select "N".
+diff --git a/sound/soc/airoha/Makefile b/sound/soc/airoha/Makefile
+new file mode 100644
+index 000000000000..fef7fed384a9
+--- /dev/null
++++ b/sound/soc/airoha/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++obj-$(CONFIG_SND_SOC_AN7581) += an7581/
+diff --git a/sound/soc/airoha/an7581/Makefile b/sound/soc/airoha/an7581/Makefile
+new file mode 100644
+index 000000000000..bf475e14096a
+--- /dev/null
++++ b/sound/soc/airoha/an7581/Makefile
+@@ -0,0 +1,7 @@
++# SPDX-License-Identifier: GPL-2.0
++
++# platform driver
++snd-soc-an7581-afe-y := \
++	an7581-afe-pcm.o
++
++obj-$(CONFIG_SND_SOC_AN7581) += snd-soc-an7581-afe.o
+diff --git a/sound/soc/airoha/an7581/an7581-afe-common.h b/sound/soc/airoha/an7581/an7581-afe-common.h
+new file mode 100644
+index 000000000000..d2528735b75f
+--- /dev/null
++++ b/sound/soc/airoha/an7581/an7581-afe-common.h
+@@ -0,0 +1,35 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * an7581-afe-common.h  --  Airoha AN7581 audio driver definitions
++ */
++
++#ifndef _AN_7581_AFE_COMMON_H_
++#define _AN_7581_AFE_COMMON_H_
++
++#include <sound/soc.h>
++#include <linux/list.h>
++#include <linux/regmap.h>
++#include "../common/mtk-base-afe.h"
++
++enum {
++	AN7581_MEMIF_DL1,
++	AN7581_MEMIF_UL1,
++	AN7581_MEMIF_NUM,
++	AN7581_DAI_NUM = AN7581_MEMIF_NUM,
++};
++
++enum {
++	AN7581_IRQ_0,
++	AN7581_IRQ_1,
++	AN7581_IRQ_NUM,
++};
++
++struct an7581_afe_private {
++	/* dai */
++	void *dai_priv[AN7581_DAI_NUM];
++};
++
++unsigned int an7581_afe_rate_transform(struct device *dev,
++				       unsigned int rate);
++
++#endif
+diff --git a/sound/soc/airoha/an7581/an7581-afe-pcm.c b/sound/soc/airoha/an7581/an7581-afe-pcm.c
+new file mode 100644
+index 000000000000..456d402ba0ed
+--- /dev/null
++++ b/sound/soc/airoha/an7581/an7581-afe-pcm.c
+@@ -0,0 +1,455 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Airoha ALSA SoC AFE platform driver for AN7581
++ *
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/pm_runtime.h>
++
++#include "an7581-afe-common.h"
++#include "an7581-reg.h"
 +#include <sound/mediatek/mtk-afe-platform-driver.h>
 +#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- #include "mt8186-afe-common.h"
- #include "mt8186-afe-clk.h"
-diff --git a/sound/soc/mediatek/mt8186/mt8186-misc-control.c b/sound/soc/mediatek/mt8186/mt8186-misc-control.c
-index 2317de8c44c0..96ee69fdc8a6 100644
---- a/sound/soc/mediatek/mt8186/mt8186-misc-control.c
-+++ b/sound/soc/mediatek/mt8186/mt8186-misc-control.c
-@@ -11,8 +11,8 @@
- #include <linux/regmap.h>
- #include <sound/soc.h>
- 
--#include "../common/mtk-afe-fe-dai.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "mt8186-afe-common.h"
- 
- static const char * const mt8186_sgen_mode_str[] = {
-diff --git a/sound/soc/mediatek/mt8186/mt8186-mt6366-common.c b/sound/soc/mediatek/mt8186/mt8186-mt6366-common.c
-index fa08eb0654d8..4155db56c59a 100644
---- a/sound/soc/mediatek/mt8186/mt8186-mt6366-common.c
-+++ b/sound/soc/mediatek/mt8186/mt8186-mt6366-common.c
-@@ -9,7 +9,7 @@
- #include <sound/soc.h>
- 
- #include "../../codecs/mt6358.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "mt8186-afe-common.h"
- #include "mt8186-mt6366-common.h"
- 
-diff --git a/sound/soc/mediatek/mt8186/mt8186-mt6366.c b/sound/soc/mediatek/mt8186/mt8186-mt6366.c
-index 43546012cf61..9c47949864fc 100644
---- a/sound/soc/mediatek/mt8186/mt8186-mt6366.c
-+++ b/sound/soc/mediatek/mt8186/mt8186-mt6366.c
-@@ -22,7 +22,7 @@
- #include "../../codecs/da7219.h"
- #include "../../codecs/mt6358.h"
- #include "../../codecs/rt5682.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "../common/mtk-dsp-sof-common.h"
- #include "../common/mtk-soc-card.h"
- #include "../common/mtk-soundcard-driver.h"
-diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c b/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
-index ac4fdf8ba78f..30bb0cd34953 100644
---- a/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
-@@ -24,8 +24,8 @@
- #include "mt8188-afe-common.h"
- #include "mt8188-afe-clk.h"
- #include "mt8188-reg.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- #define MT8188_MEMIF_BUFFER_BYTES_ALIGN  (0x40)
- #define MT8188_MEMIF_DL7_MAX_PERIOD_SIZE (0x3fff)
-diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-index a2a76b6df631..0801c26ef36d 100644
---- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-+++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-@@ -19,7 +19,7 @@
- #include "../../codecs/mt6359.h"
- #include "../../codecs/mt6359-accdet.h"
- #include "../../codecs/rt5682.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "../common/mtk-soundcard-driver.h"
- #include "../common/mtk-dsp-sof-common.h"
- #include "../common/mtk-soc-card.h"
-diff --git a/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c b/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-index fd6af74d7995..1498714ff6c0 100644
---- a/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8192/mt8192-afe-pcm.c
-@@ -16,8 +16,8 @@
- #include <linux/reset.h>
- #include <sound/soc.h>
- 
--#include "../common/mtk-afe-fe-dai.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- 
- #include "mt8192-afe-common.h"
- #include "mt8192-afe-clk.h"
-diff --git a/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c b/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-index bf483a8fb34a..910ff56cc607 100644
---- a/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-+++ b/sound/soc/mediatek/mt8192/mt8192-mt6359-rt1015-rt5682.c
-@@ -19,7 +19,7 @@
- #include "../../codecs/mt6359.h"
- #include "../../codecs/rt1015.h"
- #include "../../codecs/rt5682.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "../common/mtk-soc-card.h"
- #include "../common/mtk-soundcard-driver.h"
- #include "mt8192-afe-common.h"
-diff --git a/sound/soc/mediatek/mt8195/mt8195-afe-pcm.c b/sound/soc/mediatek/mt8195/mt8195-afe-pcm.c
-index 5d025ad72263..a18fdfd9049c 100644
---- a/sound/soc/mediatek/mt8195/mt8195-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8195/mt8195-afe-pcm.c
-@@ -20,8 +20,8 @@
- #include "mt8195-afe-common.h"
- #include "mt8195-afe-clk.h"
- #include "mt8195-reg.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- #define MT8195_MEMIF_BUFFER_BYTES_ALIGN  (0x40)
- #define MT8195_MEMIF_DL7_MAX_PERIOD_SIZE (0x3fff)
-diff --git a/sound/soc/mediatek/mt8195/mt8195-mt6359.c b/sound/soc/mediatek/mt8195/mt8195-mt6359.c
-index e57391c213e7..9594689d935a 100644
---- a/sound/soc/mediatek/mt8195/mt8195-mt6359.c
-+++ b/sound/soc/mediatek/mt8195/mt8195-mt6359.c
-@@ -19,7 +19,7 @@
- #include "../../codecs/mt6359.h"
- #include "../../codecs/rt1011.h"
- #include "../../codecs/rt5682.h"
--#include "../common/mtk-afe-platform-driver.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
- #include "../common/mtk-dsp-sof-common.h"
- #include "../common/mtk-soc-card.h"
- #include "../common/mtk-soundcard-driver.h"
-diff --git a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-index 10793bbe9275..ddedf55e0d8c 100644
---- a/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8365/mt8365-afe-pcm.c
-@@ -19,8 +19,8 @@
- #include "mt8365-afe-clk.h"
- #include "mt8365-reg.h"
- #include "../common/mtk-base-afe.h"
--#include "../common/mtk-afe-platform-driver.h"
--#include "../common/mtk-afe-fe-dai.h"
-+#include <sound/mediatek/mtk-afe-platform-driver.h>
-+#include <sound/mediatek/mtk-afe-fe-dai.h>
- 
- #define AFE_BASE_END_OFFSET 8
- 
++
++enum {
++	ARH_AFE_RATE_7K = 16,
++	ARH_AFE_RATE_8K = 0,
++	ARH_AFE_RATE_11K = 17,
++	ARH_AFE_RATE_12K = 1,
++	ARH_AFE_RATE_14K = 18,
++	ARH_AFE_RATE_16K = 2,
++	ARH_AFE_RATE_22K = 19,
++	ARH_AFE_RATE_24K = 3,
++	ARH_AFE_RATE_29K = 20,
++	ARH_AFE_RATE_32K = 4,
++	ARH_AFE_RATE_44K = 21,
++	ARH_AFE_RATE_48K = 5,
++	ARH_AFE_RATE_88K = 22,
++	ARH_AFE_RATE_96K = 6,
++	ARH_AFE_RATE_176K = 23,
++	ARH_AFE_RATE_192K = 7,
++	ARH_AFE_RATE_352K = 24,
++	ARH_AFE_RATE_384K = 8,
++};
++
++unsigned int an7581_afe_rate_transform(struct device *dev, unsigned int rate)
++{
++	switch (rate) {
++	case 7350:
++		return ARH_AFE_RATE_7K;
++	case 8000:
++		return ARH_AFE_RATE_8K;
++	case 11025:
++		return ARH_AFE_RATE_11K;
++	case 12000:
++		return ARH_AFE_RATE_12K;
++	case 14700:
++		return ARH_AFE_RATE_14K;
++	case 16000:
++		return ARH_AFE_RATE_16K;
++	case 22050:
++		return ARH_AFE_RATE_22K;
++	case 24000:
++		return ARH_AFE_RATE_24K;
++	case 29400:
++		return ARH_AFE_RATE_29K;
++	case 32000:
++		return ARH_AFE_RATE_32K;
++	case 44100:
++		return ARH_AFE_RATE_44K;
++	case 48000:
++		return ARH_AFE_RATE_48K;
++	case 88200:
++		return ARH_AFE_RATE_88K;
++	case 96000:
++		return ARH_AFE_RATE_96K;
++	case 176400:
++		return ARH_AFE_RATE_176K;
++	case 192000:
++		return ARH_AFE_RATE_192K;
++	case 352800:
++		return ARH_AFE_RATE_352K;
++	case 384000:
++		return ARH_AFE_RATE_384K;
++	default:
++		dev_warn(dev, "%s(), rate %u invalid, using %d!!!\n",
++			 __func__, rate, ARH_AFE_RATE_48K);
++		return ARH_AFE_RATE_48K;
++	}
++}
++
++static const int an7581_memif_specified_irqs[AN7581_MEMIF_NUM] = {
++	[AN7581_MEMIF_DL1] = AN7581_IRQ_0,
++	[AN7581_MEMIF_UL1] = AN7581_IRQ_1,
++};
++
++static const struct snd_pcm_hardware an7581_afe_hardware = {
++	.info = SNDRV_PCM_INFO_MMAP |
++		SNDRV_PCM_INFO_INTERLEAVED |
++		SNDRV_PCM_INFO_MMAP_VALID,
++	.formats = SNDRV_PCM_FMTBIT_S16_LE |
++		   SNDRV_PCM_FMTBIT_S24_LE |
++		   SNDRV_PCM_FMTBIT_S32_LE,
++	.period_bytes_min = 512,
++	.period_bytes_max = 128 * 1024,
++	.periods_min = 2,
++	.periods_max = 256,
++	.buffer_bytes_max = 256 * 1024,
++	.fifo_size = 0,
++};
++
++static int an7581_memif_fs(struct snd_pcm_substream *substream,
++			   unsigned int rate)
++{
++	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
++	struct snd_soc_component *component = snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
++	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
++
++	return an7581_afe_rate_transform(afe->dev, rate);
++}
++
++static int an7581_irq_fs(struct snd_pcm_substream *substream,
++			 unsigned int rate)
++{
++	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
++	struct snd_soc_component *component = snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
++	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
++
++	return an7581_afe_rate_transform(afe->dev, rate);
++}
++
++#define ARH_PCM_FORMATS (SNDRV_PCM_FMTBIT_S16_LE |\
++			 SNDRV_PCM_FMTBIT_S32_LE)
++
++static struct snd_soc_dai_driver an7581_memif_dai_driver[] = {
++	/* FE DAIs: memory intefaces to CPU */
++	{
++		.name = "DL1",
++		.id = AN7581_MEMIF_DL1,
++		.playback = {
++			.stream_name = "DL1",
++			.channels_min = 1,
++			.channels_max = 8,
++			.rates = SNDRV_PCM_RATE_8000_192000,
++			.formats = ARH_PCM_FORMATS,
++		},
++		.ops = &mtk_afe_fe_ops,
++	},
++	{
++		.name = "UL1",
++		.id = AN7581_MEMIF_UL1,
++		.capture = {
++			.stream_name = "UL1",
++			.channels_min = 1,
++			.channels_max = 2,
++			.rates = SNDRV_PCM_RATE_8000_192000,
++			.formats = ARH_PCM_FORMATS,
++		},
++		.ops = &mtk_afe_fe_ops,
++	},
++};
++static const struct snd_soc_component_driver an7581_afe_pcm_dai_component = {
++	.name = "an7581-afe-pcm-dai",
++};
++
++static const struct mtk_base_memif_data memif_data[AN7581_MEMIF_NUM] = {
++	[AN7581_MEMIF_DL1] = {
++		.name = "DL1",
++		.id = AN7581_MEMIF_DL1,
++		.reg_ofs_base = AFE_DL1_BASE,
++		.reg_ofs_cur = AFE_DL1_CUR,
++		.reg_ofs_end = AFE_DL1_END,
++		.fs_reg = -1,
++		.fs_shift = -1,
++		.fs_maskbit = -1,
++		.mono_reg = -1,
++		.mono_shift = -1,
++		.hd_reg = -1,
++		.hd_shift = -1,
++		.enable_reg = AFE_DAC_CON0,
++		.enable_shift = 17,
++		.msb_reg = -1,
++		.msb_shift = -1,
++		.agent_disable_reg = -1,
++		.agent_disable_shift = -1,
++	},
++	[AN7581_MEMIF_UL1] = {
++		.name = "UL1",
++		.id = AN7581_MEMIF_UL1,
++		.reg_ofs_base = AFE_UL1_BASE,
++		.reg_ofs_cur = AFE_UL1_CUR,
++		.reg_ofs_end = AFE_UL1_END,
++		.fs_reg = -1,
++		.fs_shift = -1,
++		.fs_maskbit = -1,
++		.mono_reg = -1,
++		.mono_shift = -1,
++		.hd_reg = -1,
++		.hd_shift = -1,
++		.enable_reg = AFE_DAC_CON0,
++		.enable_shift = 1,
++		.msb_reg = -1,
++		.msb_shift = -1,
++		.agent_disable_reg = -1,
++		.agent_disable_shift = -1,
++	},
++};
++
++static const struct mtk_base_irq_data irq_data[AN7581_IRQ_NUM] = {
++	[AN7581_IRQ_0] = {
++		.id = AN7581_IRQ_0,
++		.irq_cnt_reg = -1,
++		.irq_cnt_shift = -1,
++		.irq_cnt_maskbit = -1,
++		.irq_en_reg = AFE_IRQ1_CON0,
++		.irq_en_shift = 4,
++		.irq_fs_reg = -1,
++		.irq_fs_shift = -1,
++		.irq_fs_maskbit = -1,
++		.irq_clr_reg = AFE_IRQ1_CON0,
++		.irq_clr_shift = 0,
++	},
++	[AN7581_IRQ_1] = {
++		.id = AN7581_IRQ_1,
++		.irq_cnt_reg = -1,
++		.irq_cnt_shift = -1,
++		.irq_cnt_maskbit = -1,
++		.irq_en_reg = AFE_IRQ0_CON0,
++		.irq_en_shift = 4,
++		.irq_fs_reg = -1,
++		.irq_fs_shift = -1,
++		.irq_fs_maskbit = -1,
++		.irq_clr_reg = AFE_IRQ0_CON0,
++		.irq_clr_shift = 1,
++	},
++};
++
++static const struct regmap_config an7581_afe_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.max_register = AFE_MAX_REGISTER,
++	.num_reg_defaults_raw = ((AFE_MAX_REGISTER / 4) + 1),
++};
++
++static irqreturn_t an7581_afe_irq_handler(int irq_id, void *dev)
++{
++	struct mtk_base_afe *afe = dev;
++	struct mtk_base_afe_irq *irq;
++	u32 status;
++	u32 reg;
++	int i;
++
++	regmap_read(afe->regmap, AFE_IRQ_STS, &status);
++
++	if (status & AFE_IRQ_STS_RECORD)
++		reg = AFE_IRQ0_CON0;
++	else
++		reg = AFE_IRQ1_CON0;
++
++	regmap_set_bits(afe->regmap, reg, BIT(2));
++	regmap_clear_bits(afe->regmap, reg, BIT(2));
++
++	regmap_set_bits(afe->regmap, reg, BIT(3));
++	regmap_clear_bits(afe->regmap, reg, BIT(3));
++
++	for (i = 0; i < AN7581_MEMIF_NUM; i++) {
++		struct mtk_base_afe_memif *memif = &afe->memif[i];
++
++		if (!memif->substream)
++			continue;
++
++		if (memif->irq_usage < 0)
++			continue;
++
++		irq = &afe->irqs[memif->irq_usage];
++
++		if (status & (1 << irq->irq_data->irq_clr_shift))
++			snd_pcm_period_elapsed(memif->substream);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static int an7581_afe_runtime_suspend(struct device *dev)
++{
++	return 0;
++}
++
++static int an7581_afe_runtime_resume(struct device *dev)
++{
++	return 0;
++}
++
++static int an7581_dai_memif_register(struct mtk_base_afe *afe)
++{
++	struct mtk_base_afe_dai *dai;
++
++	dai = devm_kzalloc(afe->dev, sizeof(*dai), GFP_KERNEL);
++	if (!dai)
++		return -ENOMEM;
++
++	list_add(&dai->list, &afe->sub_dais);
++
++	dai->dai_drivers = an7581_memif_dai_driver;
++	dai->num_dai_drivers = ARRAY_SIZE(an7581_memif_dai_driver);
++
++	return 0;
++}
++
++typedef int (*dai_register_cb)(struct mtk_base_afe *);
++static const dai_register_cb dai_register_cbs[] = {
++	an7581_dai_memif_register,
++};
++
++static int an7581_afe_pcm_dev_probe(struct platform_device *pdev)
++{
++	struct mtk_base_afe *afe;
++	struct an7581_afe_private *afe_priv;
++	struct device *dev;
++	int i, irq_id, ret;
++
++	afe = devm_kzalloc(&pdev->dev, sizeof(*afe), GFP_KERNEL);
++	if (!afe)
++		return -ENOMEM;
++	platform_set_drvdata(pdev, afe);
++
++	afe->platform_priv = devm_kzalloc(&pdev->dev, sizeof(*afe_priv),
++					  GFP_KERNEL);
++	if (!afe->platform_priv)
++		return -ENOMEM;
++
++	afe_priv = afe->platform_priv;
++	afe->dev = &pdev->dev;
++	dev = afe->dev;
++
++	afe->base_addr = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(afe->base_addr))
++		return PTR_ERR(afe->base_addr);
++
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return ret;
++
++	pm_runtime_get_sync(&pdev->dev);
++
++	afe->regmap = devm_regmap_init_mmio(&pdev->dev, afe->base_addr,
++					    &an7581_afe_regmap_config);
++
++	pm_runtime_put_sync(&pdev->dev);
++	if (IS_ERR(afe->regmap))
++		return PTR_ERR(afe->regmap);
++
++
++	mutex_init(&afe->irq_alloc_lock);
++
++	/* irq initialize */
++	afe->irqs_size = AN7581_IRQ_NUM;
++	afe->irqs = devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs),
++				 GFP_KERNEL);
++	if (!afe->irqs)
++		return -ENOMEM;
++
++	for (i = 0; i < afe->irqs_size; i++)
++		afe->irqs[i].irq_data = &irq_data[i];
++
++	/* request irq */
++	irq_id = platform_get_irq(pdev, 0);
++	if (irq_id < 0)
++		return irq_id;
++
++	ret = devm_request_irq(dev, irq_id, an7581_afe_irq_handler,
++			       IRQF_TRIGGER_NONE, "asys-isr", (void *)afe);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to request irq for asys-isr\n");
++
++	/* init memif */
++	afe->memif_size = AN7581_MEMIF_NUM;
++	afe->memif = devm_kcalloc(dev, afe->memif_size, sizeof(*afe->memif),
++				  GFP_KERNEL);
++	if (!afe->memif)
++		return -ENOMEM;
++
++	for (i = 0; i < afe->memif_size; i++) {
++		int sel_irq = an7581_memif_specified_irqs[i];
++
++		afe->memif[i].data = &memif_data[i];
++		afe->memif[i].irq_usage = sel_irq;
++		afe->memif[i].const_irq = 1;
++		afe->irqs[sel_irq].irq_occupyed = true;
++	}
++
++	/* init sub_dais */
++	INIT_LIST_HEAD(&afe->sub_dais);
++
++	for (i = 0; i < ARRAY_SIZE(dai_register_cbs); i++) {
++		ret = dai_register_cbs[i](afe);
++		if (ret)
++			return dev_err_probe(dev, ret, "DAI register failed, i: %d\n", i);
++	}
++
++	/* init dai_driver and component_driver */
++	ret = mtk_afe_combine_sub_dai(afe);
++	if (ret)
++		return dev_err_probe(dev, ret, "mtk_afe_combine_sub_dai fail\n");
++
++	afe->mtk_afe_hardware = &an7581_afe_hardware;
++	afe->memif_fs = an7581_memif_fs;
++	afe->irq_fs = an7581_irq_fs;
++
++	afe->runtime_resume = an7581_afe_runtime_resume;
++	afe->runtime_suspend = an7581_afe_runtime_suspend;
++
++	/* register component */
++	ret = devm_snd_soc_register_component(&pdev->dev,
++					      &mtk_afe_pcm_platform,
++					      NULL, 0);
++	if (ret)
++		return dev_err_probe(dev, ret, "Cannot register AFE component\n");
++
++	ret = devm_snd_soc_register_component(afe->dev,
++					      &an7581_afe_pcm_dai_component,
++					      afe->dai_drivers,
++					      afe->num_dai_drivers);
++	if (ret)
++		return dev_err_probe(dev, ret, "Cannot register PCM DAI component\n");
++
++	return 0;
++}
++
++static void an7581_afe_pcm_dev_remove(struct platform_device *pdev)
++{
++	pm_runtime_disable(&pdev->dev);
++	if (!pm_runtime_status_suspended(&pdev->dev))
++		an7581_afe_runtime_suspend(&pdev->dev);
++}
++
++static const struct of_device_id an7581_afe_pcm_dt_match[] = {
++	{ .compatible = "airoha,an7581-afe" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, an7581_afe_pcm_dt_match);
++
++static const struct dev_pm_ops an7581_afe_pm_ops = {
++	RUNTIME_PM_OPS(an7581_afe_runtime_suspend,
++		       an7581_afe_runtime_resume, NULL)
++};
++
++static struct platform_driver an7581_afe_pcm_driver = {
++	.driver = {
++		   .name = "an7581-audio",
++		   .of_match_table = an7581_afe_pcm_dt_match,
++		   .pm = pm_ptr(&an7581_afe_pm_ops),
++	},
++	.probe = an7581_afe_pcm_dev_probe,
++	.remove = an7581_afe_pcm_dev_remove,
++};
++module_platform_driver(an7581_afe_pcm_driver);
++
++MODULE_DESCRIPTION("Airoha SoC AFE platform driver for ALSA AN7581");
++MODULE_LICENSE("GPL");
+diff --git a/sound/soc/airoha/an7581/an7581-reg.h b/sound/soc/airoha/an7581/an7581-reg.h
+new file mode 100644
+index 000000000000..2b14a66afa68
+--- /dev/null
++++ b/sound/soc/airoha/an7581/an7581-reg.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * an7581-reg.h  --  Airoha AN7581 audio driver reg definition
++ */
++
++#ifndef _AN7581_REG_H_
++#define _AN7581_REG_H_
++
++#define AFE_DAC_CON0			0x0
++
++#define AFE_DL1_BASE			0xa8
++#define AFE_DL1_END			0xac
++#define AFE_DL1_CUR			0xb0
++
++#define AFE_UL1_BASE			0xc4
++#define AFE_UL1_END			0xc8
++#define AFE_UL1_CUR			0xcc
++
++#define AFE_IRQ0_CON0			0xe4
++
++#define AFE_IRQ_STS			0xf8
++#define  AFE_IRQ_STS_PLAY		BIT(1)
++#define  AFE_IRQ_STS_RECORD		BIT(0)
++
++#define AFE_IRQ1_CON0			0x100
++
++#define AFE_MAX_REGISTER		AFE_IRQ1_CON0
++
++#endif
 -- 
 2.50.0
 
