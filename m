@@ -4,179 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BAB6C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 04:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D4EC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 04:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pkb/QAZ5ffb6HpNPKm4tGtXWVn8/4l3Gi7oJRiokwa4=; b=nM8phqX6qC8P9zX8oCL0T7F9Mz
-	Tfa57VAzJU8MnTKGKZTEM5jQ/6WSHczmCXUpxwwh/57yyDwZOT3gaqvqW5YHVM6fda9JuACOCUdY/
-	/GMpt+zkXSD6eppkAARbD59i4S50llPMW3d4cy8x5fSXtTWexYDkalRelE76yBqhmC+P2iPVYw1oo
-	3xaP4ipiRHuPN0SbFtB+/V+kt+520foUf0Ou6+EnUbH8Bk9JgSytC/h+62e9A68LvtA00VwSuK5Gc
-	h+Wyl0cB1MaPUtEu4Ppiel9/5XtbE/sOsJ5uUjJnE35PRwfKb67pGDV7YTp2rNucT4s+YnalI7dd/
-	jdArGKPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dPz+tpWDKsHmVSqra8RNl6xyeS/BIdYAq6BDfemNfgM=; b=evEmed2tLYpfDKqM10u9Ee9TZf
+	nEWRQtEI3xSlwP2EGeDfJK/yUrn4+YlCHNAOOjeReKhBVinNRc60CN3Nn5BqJJm+tJdd9R4Pr1bql
+	Pm1zC+uf0i4IRN9UyhAZfBz8tm93yYhB27jGwsRZbknokMNWwDUc8GS8SgeATCJT82FBNDddDMVvV
+	NXNet+T/hl6qUFO8o27KQndNeVzCwVXpYv02jEa1eN5TDL2bcId0kUbM68JaWLgA/I+FLD2/cCDky
+	d8DHujOKS2khqBRkmhPVBOFhIrhzpNd/T1QFRK0DwP3kMC4sBDCrv3jGd1wSewst8q4KS6ISWlNQ0
+	PJVKCT4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhhe9-00000004yRI-3zFM;
-	Fri, 01 Aug 2025 04:45:33 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uhhgi-00000004yl7-3ali;
+	Fri, 01 Aug 2025 04:48:12 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhhU4-00000004wPN-3mbo
+	id 1uhhUP-00000004wUH-3VRz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 04:35:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A1mbw+AhQbHTJ5pdnu6JSSSo1UzKWvdsEOzCSYK2jCO0fXO6b/gVn3YGW05ljdgwGhKHnA1JsXMFm2EnUyb0fqMmVfe/EE+fQ5IuSiCNHhtyhgSbxz2YDon+dPJ4J/2gHWRs3VI+a745/Zmyyr240tINTC6uy5Xr94oAq43KgkHMvMgyl55kmmsbPz3DTD9ofBBEecHyc2BxrjMfQt4ndhFh0c1yx2Q9TMs95TgWBZevS/v7kus1Fcm0AuDE+ZIF1qlvrdCYZtKZlPz5kJB08EpYKfAAEGSJicA5EOMe5ATHiVX3HaH2vLk5rNAFt1P/xJTx6yNl3ifqnpohKfg5BQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pkb/QAZ5ffb6HpNPKm4tGtXWVn8/4l3Gi7oJRiokwa4=;
- b=hYFgrE0nwxF4zZJ4YJWELyigi0agt+mEmrkMY6Iq7fQ9U0Jvps1m/UEBaeY4ENxaSM6kNpVeJLZaMagcJiJQ3MAlJeHfZEAwT5YJYvJeL2p17yC1DhLxNNuwtxO3rEiTWDf1Hv0RGHNdCbItW/DqDXcXl9BDsQ4jjfaiZI5JcJJQ0inCWWa/2ALH21ZIUGwUdLzg02mhNHp6GmLjMP3/6ZMQykyFNTJnM+3k+iIsEcO/lekfBRq/UPNIj34BFhuYo6BTjm7gZysqOXeCLkj+T05dKHHLdaaf3fGan3DUaCVJxqEST4peNLKN8clLVt/S6mEKvMHmgdwLBI+D4spHwA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pkb/QAZ5ffb6HpNPKm4tGtXWVn8/4l3Gi7oJRiokwa4=;
- b=B7RjqX7PsZyTEVKh8REDrIWog9tXPgqsp8OLuZQOIVf5CG/7GjNSwcQggxCwBU8T/6V6ALeizZAeEehz/OaqjuCRhRa1PmIkzKf+fbR4VfzK3qye8NR0hyeNKfQuknNqJACPnU5htfAaDehiabyjUKo1QHaJDusmYByC1MEFUS/pEkb+oZxqP70cdZ+sSnS8DjiTIPaR0gm9DGsSSMEQivU8MuUrqodetwvr0n10hrAOhMEbklQ0kK+OgKEzokick+f0l7L+yGk4KKHKMESf1TM6LPlmZ/1Ey9bLD0fobTZuuG6UppOxiUkpJk08124V/xRqJ9G/duRsCMblQ2I3og==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DU4PR04MB10600.eurprd04.prod.outlook.com (2603:10a6:10:588::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.13; Fri, 1 Aug
- 2025 04:35:05 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.8989.013; Fri, 1 Aug 2025
- 04:35:05 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Fri, 01 Aug 2025 12:34:24 +0800
-Subject: [PATCH v2 3/3] usb: dwc3: imx8mp: Set out of band wakeup for
- i.MX95
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250801-pm-v2-3-97c8fb2a433c@nxp.com>
-References: <20250801-pm-v2-0-97c8fb2a433c@nxp.com>
-In-Reply-To: <20250801-pm-v2-0-97c8fb2a433c@nxp.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, 
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
- Pavel Machek <pavel@kernel.org>, Peter Chen <peter.chen@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Vincent Guittot <vincent.guittot@linaro.org>, Xu Yang <xu.yang_2@nxp.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-usb@vger.kernel.org, imx@lists.linux.dev, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754022883; l=1001;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=xp++JJRoAxX8jN5gPlb5hwg2gm/dy5GVIBpRvUzPZM0=;
- b=1HC5Ld4j1zFHvdt6y668wcU6qmxwtdnRpM9m+EtcTIQ3FFtZNuZCeGOOD8XbaesDco9yVOkjc
- XnUm6swZ2AXCLs4qBWe2fuX1uO9qG1U+3YAyDrfYm4kUT5rsotqb6AA
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2PR02CA0046.apcprd02.prod.outlook.com
- (2603:1096:4:196::15) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 01 Aug 2025 04:35:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754022930; x=1785558930;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=xTLT1dq7i2qzp0hHgS3vNWQnXKcncg8giv7jdsQgm8I=;
+  b=BWKx9QspJDA13YV41Y1OB01/q53r1wBhllWytiflrNFY7wEixcEORpSa
+   4W/i/WaVEuKxIaxjtoRpUuZU79LNACqaizQJbsJomdTnGmJMZjqNCt/cw
+   Qck4n394y6OK5LfL6iwxq9fvMWJ3NlMlOPwBUd5kWiH87OTPOSjrJttng
+   vDhX8ZWkf7reEPND0NsH718zvAswQQ5KjXEM9N9V2oaokbyWnLBUuAQdW
+   qfjQL/022r+RKiOyWBS5/vm6CpS+kyLUmmxX7N8yWshaDDyur+Kna7lmr
+   4JnGESjNolyosFabe391Lurt2JZn+qUkzqM27LcKkScN8vYxBBiYYOXE4
+   w==;
+X-CSE-ConnectionGUID: Afu7h62SRJG9q1/4L9EDow==
+X-CSE-MsgGUID: RwTa7CyGRCGBJ3Voz26xww==
+X-IronPort-AV: E=McAfee;i="6800,10657,11508"; a="66930944"
+X-IronPort-AV: E=Sophos;i="6.17,255,1747724400"; 
+   d="scan'208";a="66930944"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2025 21:35:24 -0700
+X-CSE-ConnectionGUID: 1VncATKzQOquOek9KfYVww==
+X-CSE-MsgGUID: 4GwLvG45RfyrhOp2lOwc/g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,255,1747724400"; 
+   d="scan'208";a="163373909"
+Received: from lkp-server01.sh.intel.com (HELO 160750d4a34c) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 31 Jul 2025 21:35:23 -0700
+Received: from kbuild by 160750d4a34c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uhhUG-0004M8-2O;
+	Fri, 01 Aug 2025 04:35:20 +0000
+Date: Fri, 1 Aug 2025 12:34:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:hack/ppi 25/25] kernel/irq/manage.c:2453:5: warning:
+ no previous prototype for function 'add_percpu_irq_target'
+Message-ID: <202508011211.XM88eJmr-lkp@intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU4PR04MB10600:EE_
-X-MS-Office365-Filtering-Correlation-Id: 075d0ef6-17d1-40d1-ee94-08ddd0b4c9dc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VDhGbE45T0YzZ0xmYlpLUWl5REFMTERicS9aaS9XajY2M3pHcFRzU2RYOHFO?=
- =?utf-8?B?QTBlOTZRRHYxZGlGRUI1d1IrN0xLK1BGQ1JhTm55NzdHeGc5bGZ2THV6M2o4?=
- =?utf-8?B?WlE2QXIrbjgwOG83SldZLzdTeGpsNGsraGtNVThEWWxDQm92M0hneXN3K3g1?=
- =?utf-8?B?cUFTTUtqOHJUa2RFVEJ4clpTeDVaOWlneG95SG45TjNMaXBIcUx0WUg2alRI?=
- =?utf-8?B?UFlUTDZ0WEo0Tld2WWVPS1VyYXpwLzg0enVCMm9ZTURmOFFrbXgycjI1cUNH?=
- =?utf-8?B?SUVISU4wNlhCMHYvVlYxVzUvL1NtdFdhME5xMWhHOFZ6TGgydjk3RmN0Mm9K?=
- =?utf-8?B?U0JlakdQckx4bzV6enk1K1ZBQm5DRXA3VGNvQ0dhYnFCOHl5VmwwNHdFcUdp?=
- =?utf-8?B?ZmpncGNGNW1XQk9MQUIvcjl0eFRMQzArTUdtNVRnbkd5SjJISWVOZ1JRRUhN?=
- =?utf-8?B?NTFSUGgvY1k2QTl1UTRrdWl5d3haS3hSNFFVZzFrWUhLbFdwMHh0Wno4Mmky?=
- =?utf-8?B?M3J3ampoUEdSQldtcy9pay9jenBJSXdVVjFkL0VrUkp2UzRacFNaUDFCYWxt?=
- =?utf-8?B?dmM1R1JxOS9TdFRaSHFQZ3JSVTViNG96ajF2ZzFIaEV3T0tDMzJxd28zRWI2?=
- =?utf-8?B?TUhPRDlyY3FKODhhUXdLQ2hJakRMMFo2Q3BPSzRzM3VhZCtYbGNUVVEvclpF?=
- =?utf-8?B?MWZUOFMxa2N3M1J1MkpYMWlLSStpbjJzZmhhY2FlUWFtQVNsTVBvaWZ2YWlF?=
- =?utf-8?B?UGJLSENmT1haZHdXdEZkVDR1TTV1V2l6S1dJdkk2OE1JM2V6V0M2OWpUUGtO?=
- =?utf-8?B?SXR0R3VhdUJpRFhKVmV6ODBMT3ZTVVZzMEI1aTZUc1lHdmJwRUxWb1hFYVpW?=
- =?utf-8?B?N1IxbTNHTFZ5clY4Z0x2NlhBVGRvUDlDUFRJNHpGM2s1ZzUyZEdhejdDYlVS?=
- =?utf-8?B?UHNKMVc2LytCdDhCNngya1pNNk4xc1VoY0lXL2k4MWNQN0h4cUxKUzU0OVpp?=
- =?utf-8?B?MHZTaVJOQUpoalY1Z1ZLY1Zka1lFaGh2Zms4Rm40U0o1RndYUnlYWUdMSVZC?=
- =?utf-8?B?c1Bra0tuRXlmTkRTVjQ4QUJ6Tm9pMHFnVmZSWUxpK1dCSVR6L2JBRThYUjY3?=
- =?utf-8?B?TVhSaEVJUVd4NUxyQXhOK3dwY1VxS0F3T21ZRi9ScWwwTFVqNDdWNytTUHNX?=
- =?utf-8?B?NHFNUkZiK1FTOVdaZzdsYWJkbVNpclV6OFJZdmNnUTgwS2FMZFlYRzVRMWp3?=
- =?utf-8?B?cE1nQzA3UlR6RExKSDc5UlpKbXVsWHJwTG0wS1dINDVDd3JxSmtST29WdnhS?=
- =?utf-8?B?d3BxS2d3MEpROFhlK1h4Ym9HOFJUbmFUSjVtOHZFN3JodXZEZStjdTA5SURl?=
- =?utf-8?B?aFNKMHROQjh5NFFLQ0VsRUtVc3RDRURsQ3EvaHlFMEtncjdTUHpCRlFreVRq?=
- =?utf-8?B?cXJpVjhIQnRGRmpmaDZYYURzVHpCdVV0RTI0VWtHZExwMFRaZG9ocTQ4QlFj?=
- =?utf-8?B?bDNkSFlCSWt0bVJ1M2EyWGtVK0FVc1BhdUJzWDFaUWRZckI3Zmh4VG1paDlC?=
- =?utf-8?B?ZG5qYm4wTFZBV2JEa3hGeWpyOEhiczNNN3RqNG9lNDBUSGJGeXg5bGVoQjVP?=
- =?utf-8?B?Y1lTbWlwNkJWQlhEclErQ21QV0FseUhHeVk4WFlaNmw4ck9CbkJpMVZCaXJn?=
- =?utf-8?B?empBeXZSUzJrV2o0NzZWSVlYbEE4TGVzdU9HNGRnSHR3Rk9STHNwcjNVaEp3?=
- =?utf-8?B?SHdTeXdXWFgzYnJuVFExWGJGbmF2MFJzV0RCVGtSeWh3Ui9YZFZ3OHo5d0RF?=
- =?utf-8?B?Y3lFcStPMEdkMzd3aGQ5bEZZODZXanp2ME1CcDI3ZC9SWWdRWUUyczFBYThU?=
- =?utf-8?B?Z29TZmJQWjlLRGMyamFQQXhTcUc3emdyZ1QvaUd4elZ1dHV0S1F6YmZ3Y1ht?=
- =?utf-8?B?K3hWRW5HMDJQb1RuYkV1QzR0T3FDVmVWeFpER2ZWbkdWT2hnZHNObi8ySi8r?=
- =?utf-8?Q?kE9o/qbXNVx/AqEjcMSL0YviEhVD5U=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bWtrN3ZhcHd4aDdzOThHMlQ1U00xQkcxamdPdk5GMkVBaEVkYW1GY2N4ZXlG?=
- =?utf-8?B?SmZsV3gzc0tCVS9EOElkcWJpMVlMaEJvUTZxeUdwT0lqU08xVmFTT0xXUGlT?=
- =?utf-8?B?anZZRDVkbWdWR1g2QkdkYmQwS2tkZkdGUWZXUldwak05ZjQzL00vNFBJdEJG?=
- =?utf-8?B?cHdMeU5Ra3k5VkxRb24rYjZFZXM5QndPTFdscHdTZTdqTVpEYnB2d015Q1Nz?=
- =?utf-8?B?ZHJRMUoyWFduaDhqOW5kNkc5R3owQ0ZTT1N2QXhsN1JSUUdrR3BGSENZL2lt?=
- =?utf-8?B?Ti9LOXV2TUIwb2pOdWVkUll2M0dMYVVPbmttUDlxclpsdWhtc3pLbGZQTU94?=
- =?utf-8?B?TUhkcWhqOFk1T3FSYzBpbmxvYjFpaGR3RVlMVzQ2dnlNRWVwT2t0cjBRaVIy?=
- =?utf-8?B?L3dOUjZlL3AyZWUzSzgzT3BKUXM4L1o2RncyRTArbnhpZkJ4RVY3QnBhTmtD?=
- =?utf-8?B?eGUvbmNIZWRwL3hybTNHVkRPd0hKbnIwZlgyLzdjbVhnZnZGYy9qTzJuU21C?=
- =?utf-8?B?MUs5U0JGYXlpKzJSRk9QaGFWc3p6YVBiUGNWbjV6cFo5aDRhd3VsRXhLZlA5?=
- =?utf-8?B?TE5wMi9LYnhXOTBYTXB4ai9mL2prWmVuNWt5OC9idTh2d0s4VFdNU1V2d2pm?=
- =?utf-8?B?aUJPT3BSWllYS25ibFBENWhVN3FDMUlzWklJWkRyRmh1akwrVm1ucmo2SEYr?=
- =?utf-8?B?NmZVdzJUMHRJeERDN1h4RUxtUVRPeXNtaERYZ0pZajhoOWdkTFNGbHhIZWg0?=
- =?utf-8?B?YVR6Wk8yY1dMWWNtZUI1ajJRWjZtRjA4N2tTRnQ4ZTU5MUtiWU5MZUdHSmwv?=
- =?utf-8?B?M3VOSHV3a1Y2SEJxejNpTTBEKzQzQXZyWnh5VnF3Vk9oTDJyQVlwYllPR2da?=
- =?utf-8?B?blVPU004ck8xdFRBWUtmQk5pYkxYeVJBaDB5ZS9TSUYwWkNOSDJjVWhXdmNO?=
- =?utf-8?B?dXk4aVI4U2U0dUV0SzNJckVFM0ZNcGpCanFoZEVpM3BFMjkxTEdjdDQyVG1k?=
- =?utf-8?B?UVpiYXhmR09Bd0o2RHoyM0NzSC92UWptV25qckw1ajRtZWd3KzNaL3dlWnhP?=
- =?utf-8?B?ekc3SG5tdXFaQVF6K3VOcG00TkFFOEZ4ZytKcDJYZ3lJMkc1SG9FQytEM1RS?=
- =?utf-8?B?SDFaYStTQ01MSmZyaS9EOFVzbXBmeGltQ0FBQUpQWVA0NDU4VHFFRzhzb01m?=
- =?utf-8?B?RWU4aGhicThQdzU1UjFOZ1pHbWFtMHV1ZG1vTjN4VjlrTVcyc21MNUtqdHZZ?=
- =?utf-8?B?YTJ6ZG5ESWhocU0rVG5DTVB0Nkcya1pudVBqczEyOWd5TWYzY291ejVDVS9J?=
- =?utf-8?B?bm9WMXlHMGlPbFAvK3pXTEwwaEEvT1lIeXY3R1hIT1NVeGl5My9hV3hxczI2?=
- =?utf-8?B?ci96eXdiY3JuVG1NZDN3VDF2cGtraVVPU2lQTkNKdUdYQkR1NGlRN3BxRVdn?=
- =?utf-8?B?OEFVT1MyalRxbHRxUnBmN29kTHBaRXQyZFJGTm8yQjh3cU0vNWxKb1RjOGox?=
- =?utf-8?B?U2s3MDNpOWs0Vy9iRFlJT1VhNmIwdXVJREk2MzU3Y1R5K05VRkVLMnkwSmgv?=
- =?utf-8?B?ZjZ1WGxqaGIrUDBmaVhKcERCdFhaUDVEMTNCc3Jkd2dwMmIwZ3c1QUE4WGlG?=
- =?utf-8?B?ejBCVEcvU0dXekFIT1hjRkNoUElkcE5UejVmSERvTG9Od1N2Z05POXdvZGor?=
- =?utf-8?B?RllHZzdBdnkvQmVFUWlUallYZ29Cc25RNWVEaVVHL2YvWkx1RHZIT2ZWMk9R?=
- =?utf-8?B?S2dkYlp4VlBpaEtiOFd6dXllN0FURGZlRWFkeUc3R3hZM2dhWEEzMDNMTUl5?=
- =?utf-8?B?ZWhPRGdPdzNCTFp0RlovVTErV3hUR0t6di9Ya0xScWcremR6ZUUxSFNFOVFm?=
- =?utf-8?B?NzBrNFRpVHB5L0dzV2Qya2VyVHZmdkpmdWZRb0dodU9GK3dQL3dhRjhjek5r?=
- =?utf-8?B?b0orWTFyRFRoTC9PMlFnd2RJQ0M3MGpsMDJGY3ZYMVhZRVgxZGtDV1R1V3ZP?=
- =?utf-8?B?R2xvME1aSTNkZEhOOWkvTE1BU1VMUDRXZVloOW5YSDZFcEQ2WkNsYjVxNFhT?=
- =?utf-8?B?YnB2Q3JRTXFtS1gwd3QvTXBsaDVHVWZMZFlvRXlPczV0OEpBQ1U2V1ZrK0k3?=
- =?utf-8?Q?s923WRHsyrKkSuOU/Na0WroYB?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 075d0ef6-17d1-40d1-ee94-08ddd0b4c9dc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Aug 2025 04:35:05.7403
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /EhlDfd4u/dKls+ZrO3KibjykFemnEARKcU7PHYpjoyEhAOc0fT646krD5NW0SHkUu5lJpSo+X/vF8my2mPMcA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10600
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250731_213508_947859_3B5F6AC1 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250731_213529_930024_B13F6587 
+X-CRM114-Status: GOOD (  13.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,35 +85,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX95 DWC3 inside HSIOMIX could still wakeup Linux, even if HSIOMIX
-power domain(Digital logic) is off. There is still always on logic
-have the wakeup capability which is out band wakeup capbility.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/ppi
+head:   8a3b504aca25e8c9a274cb563d63a6b9454b2780
+commit: 8a3b504aca25e8c9a274cb563d63a6b9454b2780 [25/25] WIP
+config: i386-buildonly-randconfig-001-20250801 (https://download.01.org/0day-ci/archive/20250801/202508011211.XM88eJmr-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250801/202508011211.XM88eJmr-lkp@intel.com/reproduce)
 
-So use device_set_out_band_wakeup for i.MX95 to make sure DWC3 could
-wakeup system even if HSIOMIX power domain is in off state.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508011211.XM88eJmr-lkp@intel.com/
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/usb/dwc3/dwc3-imx8mp.c | 4 ++++
- 1 file changed, 4 insertions(+)
+All warnings (new ones prefixed by >>):
 
-diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
-index bce6af82f54c24423c1e1fcc46913c8456b6f035..fde158d1f6e3d89d261ed3689a17d703878c7e37 100644
---- a/drivers/usb/dwc3/dwc3-imx8mp.c
-+++ b/drivers/usb/dwc3/dwc3-imx8mp.c
-@@ -248,6 +248,10 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
- 	}
- 
- 	device_set_wakeup_capable(dev, true);
-+
-+	if (device_is_compatible(dev, "fsl,imx95-dwc3"))
-+		device_set_out_band_wakeup(dev, true);
-+
- 	pm_runtime_put(dev);
- 
- 	return 0;
+   kernel/irq/manage.c:2466:27: error: incompatible pointer types initializing 'struct irq_action *' with an expression of type 'struct irqaction **' [-Werror,-Wincompatible-pointer-types]
+    2466 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next) {
+         |                                         ^     ~~~~~~~~~~~~~
+   kernel/irq/manage.c:2466:62: error: incomplete definition of type 'struct irq_action'
+    2466 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next) {
+         |                                                                         ~~~^
+   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
+    2461 |                 struct irq_action *action = NULL;
+         |                        ^
+   kernel/irq/manage.c:2467:48: error: incomplete definition of type 'struct irq_action'
+    2467 |                         if (cpumask_test_cpu(smp_processor_id(), tmp->affinity))
+         |                                                                  ~~~^
+   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
+    2461 |                 struct irq_action *action = NULL;
+         |                        ^
+   kernel/irq/manage.c:2470:11: error: incomplete definition of type 'struct irq_action'
+    2470 |                         if (tmp->percpu_dev_id == dev_id)
+         |                             ~~~^
+   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
+    2461 |                 struct irq_action *action = NULL;
+         |                        ^
+   kernel/irq/manage.c:2474:45: error: incomplete definition of type 'struct irq_action'
+    2474 |                 cpumask_set_cpu(smp_processor_id(), action->affinity);
+         |                                                     ~~~~~~^
+   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
+    2461 |                 struct irq_action *action = NULL;
+         |                        ^
+   kernel/irq/manage.c:2477:28: error: incomplete definition of type 'struct irq_action'
+    2477 |                 if (cpumask_weight(action->affinity) == nr_possible_cpus())
+         |                                    ~~~~~~^
+   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
+    2461 |                 struct irq_action *action = NULL;
+         |                        ^
+   kernel/irq/manage.c:2477:43: error: call to undeclared function 'nr_possible_cpus'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    2477 |                 if (cpumask_weight(action->affinity) == nr_possible_cpus())
+         |                                                         ^
+   kernel/irq/manage.c:2478:10: error: incomplete definition of type 'struct irq_action'
+    2478 |                         action->flags &= ~IRQF_SHARED;
+         |                         ~~~~~~^
+   kernel/irq/manage.c:2461:10: note: forward declaration of 'struct irq_action'
+    2461 |                 struct irq_action *action = NULL;
+         |                        ^
+>> kernel/irq/manage.c:2453:5: warning: no previous prototype for function 'add_percpu_irq_target' [-Wmissing-prototypes]
+    2453 | int add_percpu_irq_target(unsigned int irq, void __percpu *dev_id)
+         |     ^
+   kernel/irq/manage.c:2453:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+    2453 | int add_percpu_irq_target(unsigned int irq, void __percpu *dev_id)
+         | ^
+         | static 
+   kernel/irq/manage.c:2495:27: error: incompatible pointer types initializing 'struct irq_action *' with an expression of type 'struct irqaction **' [-Werror,-Wincompatible-pointer-types]
+    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
+         |                                         ^     ~~~~~~~~~~~~~
+   kernel/irq/manage.c:2495:62: error: incomplete definition of type 'struct irq_action'
+    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
+         |                                                                         ~~~^
+   kernel/irq/manage.c:2495:15: note: forward declaration of 'struct irq_action'
+    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
+         |                             ^
+   kernel/irq/manage.c:2496:58: error: incomplete definition of type 'struct irq_action'
+    2496 |                         if (cpumask_test_and_clear_cpu(smp_processor_id(), tmp->affinity)) {
+         |                                                                            ~~~^
+   kernel/irq/manage.c:2495:15: note: forward declaration of 'struct irq_action'
+    2495 |                 for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
+         |                             ^
+   kernel/irq/manage.c:2497:44: error: call to undeclared function 'nr_possible_cpus'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    2497 |                                 if (cpumask_weight(action->affinity) < nr_possible_cpus())
+         |                                                                        ^
+   kernel/irq/manage.c:2497:24: error: use of undeclared identifier 'action'
+    2497 |                                 if (cpumask_weight(action->affinity) < nr_possible_cpus())
+         |                                                    ^
+   kernel/irq/manage.c:2498:6: error: use of undeclared identifier 'action'
+    2498 |                                         action->flags |= IRQF_SHARED;
+         |                                         ^
+>> kernel/irq/manage.c:2484:5: warning: no previous prototype for function 'remove_percpu_irq_target' [-Wmissing-prototypes]
+    2484 | int remove_percpu_irq_target(unsigned int irq)
+         |     ^
+   kernel/irq/manage.c:2484:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+    2484 | int remove_percpu_irq_target(unsigned int irq)
+         | ^
+         | static 
+   2 warnings and 14 errors generated.
+
+
+vim +/add_percpu_irq_target +2453 kernel/irq/manage.c
+
+  2452	
+> 2453	int add_percpu_irq_target(unsigned int irq, void __percpu *dev_id)
+  2454	{
+  2455		struct irq_desc *desc = irq_to_desc(irq);
+  2456	
+  2457		if (!desc || !irq_settings_is_per_cpu_devid(desc))
+  2458			return -EINVAL;
+  2459	
+  2460		scoped_guard(raw_spinlock_irqsave, &desc->lock) {
+  2461			struct irq_action *action = NULL;
+  2462	
+  2463			if (cpumask_test_cpu(smp_processor_id(), desc->percpu_enabled))
+  2464				return -EINVAL;
+  2465	
+  2466			for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next) {
+  2467				if (cpumask_test_cpu(smp_processor_id(), tmp->affinity))
+  2468					return -EINVAL;
+  2469	
+  2470				if (tmp->percpu_dev_id == dev_id)
+  2471					action = tmp;
+  2472			}
+  2473	
+  2474			cpumask_set_cpu(smp_processor_id(), action->affinity);
+  2475	
+  2476			/* If we have a full house, indicate we can't share anymore */
+> 2477			if (cpumask_weight(action->affinity) == nr_possible_cpus())
+  2478				action->flags &= ~IRQF_SHARED;
+  2479		}
+  2480	
+  2481		return 0;
+  2482	}
+  2483	
+> 2484	int remove_percpu_irq_target(unsigned int irq)
+  2485	{
+  2486		struct irq_desc *desc = irq_to_desc(irq);
+  2487	
+  2488		if (!desc || !irq_settings_is_per_cpu_devid(desc))
+  2489			return -EINVAL;
+  2490	
+  2491		scoped_guard(raw_spinlock_irqsave, &desc->lock) {
+  2492			if (cpumask_test_cpu(smp_processor_id(), desc->percpu_enabled))
+  2493				return -EINVAL;
+  2494	
+  2495			for (struct irq_action *tmp = &desc->action; tmp; tmp = tmp->next)
+  2496				if (cpumask_test_and_clear_cpu(smp_processor_id(), tmp->affinity)) {
+> 2497					if (cpumask_weight(action->affinity) < nr_possible_cpus())
+  2498						action->flags |= IRQF_SHARED;
+  2499	
+  2500					return 0;
+  2501				}
+  2502		}
+  2503	
+  2504		return -ENOENT;
+  2505	}
+  2506	
 
 -- 
-2.37.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
