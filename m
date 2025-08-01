@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E30C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01486C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:52:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=htF75GZq0w8gN2mFjIxAXyCVQ/hkCUtjFwdvPNYh4nE=; b=KUVP+z2juOvI/SnIJaLSInZkrJ
-	UYbalcnaQh670xOVMNAgFxBBBZmeRnwFsPUL09gfsj86oCNRlROnq8TXkFFC9fYUrCuylD1l9HuuZ
-	fam/0OCuMhXSGJQ6S8MY8fwfOZ7An2kixgP2rnRlZiTe+AXv4nI9yhYWuyMB2hhnYVBABfHmA+9xV
-	IbDty/yWYpnqwa3kV21yaePPWD9NwZ5WyEbQBgYUPSJbvInHAta/kVRmOJ9GWwu9yAEwyyM2Pav/P
-	9FdGm69HHvpiBQV9QT0hyf5XFjVe8fwG7Kj8yCMlRBQpjJ5oMRyo/OWnKrptytn22nnrLTLaOmQFJ
-	Ja6ebScw==;
+	bh=vmMyVJ/5rMb78KKUEbNykzKHIlbPOfd9AY/XmKVzJp4=; b=tsn/LXck5ZII4cS4AEohuKQKJ/
+	iyRoVCXw1/H/Q8n1cXC3z6JaYojKAJdYLCS+TrjYGGG8o1d4OvuFOxtk+FYcFPrOYF9r1jGe3Bi/l
+	UX1E8qSQgC8kf5cZ1eIgGAmCqi2pvlv1HtYX+CTVV03A1+sNsmFxCNJfWNNwhx63nt8+6mj5xqRrz
+	/WtAmALwWmBVvKJc6uwfICU18N03ocwzALVtIEGPTTmgPbFbdcBxIpziMimw++lg8ea0IAI7Y6x+R
+	Z1tuuqd0Y9yh1B0Skf9tjV0dGFz3V8cR1EvrAOZmJ8Dhbtfpd9XW7JwJp40fk7MJtbQSxyHG/7/8L
+	rPxmuArA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhkWQ-00000005Alu-1mkW;
-	Fri, 01 Aug 2025 07:49:46 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1uhkYy-00000005B1q-2XkP;
+	Fri, 01 Aug 2025 07:52:24 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhkEN-000000058kc-0QpH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 07:31:08 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-55b797ad392so734169e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 00:31:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1754033465; x=1754638265; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=htF75GZq0w8gN2mFjIxAXyCVQ/hkCUtjFwdvPNYh4nE=;
-        b=ap+b6TN8P2aszs0IsqwHzVKXoWTYa9hIaukaJSaQoCftt1bIKJ9VSigXtjbyFgGe/Q
-         BKnUFZmf3mTLRV+KCimNY2u1DuFOVcY6TOPlPvLBtvfazDrwC39qgG+7F5XtnJOgAU2w
-         15I4rHSoaiD0u7/6My/IdbRFhYmfmhM1uWrZI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754033465; x=1754638265;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=htF75GZq0w8gN2mFjIxAXyCVQ/hkCUtjFwdvPNYh4nE=;
-        b=hsqygeNtnmzrP8syMolxbURXH9b+BdGDAr5261ANpe+KLHJWlKOHj3iPOsIXK+o1Lj
-         K/eY9VomYMLuG6DRpTX0hU7KwHFU16s0GSF4HGc85zmBNZdG71Uko7jNNfTZdQQiljyE
-         /S/Z7LSdrg4UH6TI4AQraWMsKLkDNWdjecEX3tR3pVXkIgGt0PHde03UaRw6k1wtb+tj
-         swPgGkFgcoZ9vlNQD+jFBsosIta73AP2FgNHMNaJGcooS5IpuSLHmQpduE5PJAmJi17x
-         u34CIm0B21MrtMvltGCdT1TrtWzgHm3Jc70RI3aSfIasl1w+dXdDgbKBfwck6Uo2aySy
-         21RA==
-X-Forwarded-Encrypted: i=1; AJvYcCUScy5nXShg99CIa3BhLzDO2iebtesGGyQV8iRaZMF+pU+vR12SHcByAFP65M5NCrMKyfyRnrqnX4TJlhLEbxB6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaRM0Ch9DNmbohCF7hAIsrFNf/0iGdh5Za9uhkRm6Qhn1o2VZK
-	SZJw6/gYv8C7WUI/pF1m0A33olExoSRbXIqNBMwXxOzrhmh/sfgWNp+OKrn4wQJixOnjCbjgyg0
-	JJStlInuHCWlArbxy+YUwjVIsg6wWv7roJ7N6l9HE
-X-Gm-Gg: ASbGncunT0Xu7p8gryPokSqGt1z+eoOc6o3uJJ4Z7Zs/1Gbl56C6WGcbTKsAoPF7oNT
-	+dwtdDRKWFwFWs3FTnFYISm+fzcoNJKEjVHtsqHaIhEP4U8dPG/OLeaEBbeUj5moxOmW/mNDcXw
-	tgaxnb8cVPF5yZbW4KBrAy8bx/3bFMhqCjIGWI77SkEgFFppytwMVk2C/y/FfObC2ywV3v6o1Ql
-	7MWv5m8chnn4usm76gpO5Mqao2ilwkytrI=
-X-Google-Smtp-Source: AGHT+IGf+XWnJSS1ofdtRG4xXIiHJgHkwfLVUEtsoVjwZ6AcLoQT6SI+5n+wdM88xlKeQgIZ3eNKpD6h6k9lnfP4oTc=
-X-Received: by 2002:a05:6512:3e17:b0:55a:32b7:6273 with SMTP id
- 2adb3069b0e04-55b7c08a13amr3066799e87.39.1754033465235; Fri, 01 Aug 2025
- 00:31:05 -0700 (PDT)
+	id 1uhkM5-000000059ta-2FUO;
+	Fri, 01 Aug 2025 07:39:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1754033944;
+	bh=wAiPTqgnauUCUB9qcLcvnu642yRlTqzNKg/FCLXG3hw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CGvqrRC11iEJ2l+58kHuA3tF7uQu74MzunG8cZcQ0+6z8Ggxki17DOYY4LX3MvqgO
+	 wV8P8NPAHQpy0rZyOSwe3NLVhQhg82zoJnIwnm0cM6qga9YySzWL/KRuhunzPerzsg
+	 1vCNLWUp9Ro9rndQThheFpX67sn6oS4EtbJsS4qvTPhOf8q9Nn4xeEtsC8mHYKlNQK
+	 Gi9xY+EsIDII0tOrshYm4xWcbRJZDg2bMtV2c31hzYn+PGcBUFnOAZE2wzPRYgwlF+
+	 KY7uB0wAiH7BPKqWlXVo2wLQT1EsjZQiH+Bpxh1Ke7FFPsGmzSArfgK3Mm9pCso4MI
+	 wTQrugt6vGF5g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4C55617E0202;
+	Fri,  1 Aug 2025 09:39:03 +0200 (CEST)
+Message-ID: <9b70908a-d664-4f2c-8fd1-3ca280fe7381@collabora.com>
+Date: Fri, 1 Aug 2025 09:39:02 +0200
 MIME-Version: 1.0
-References: <20250801070913.3109-1-niklaus.liu@mediatek.com> <20250801070913.3109-4-niklaus.liu@mediatek.com>
-In-Reply-To: <20250801070913.3109-4-niklaus.liu@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 1 Aug 2025 15:30:53 +0800
-X-Gm-Features: Ac12FXywJYCGCnChotG_esGvBZERmatIw20FKLlBH7Yl4ATPob-8dBgyN2iGj1M
-Message-ID: <CAGXv+5ELHjc_egKVyNn4kqGfoj0jRxcmzP7H5VnE3dSv-YcERw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] regulator: Modify mt6315 regulator mode mask
-To: "niklaus.liu" <niklaus.liu@mediatek.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>, 
-	Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] soc:mediatek mt8189: Porting driver for spmi/pwrap
+To: "niklaus.liu" <niklaus.liu@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Flora Fu <flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>,
+ Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250801070913.3109-1-niklaus.liu@mediatek.com>
+ <20250801070913.3109-3-niklaus.liu@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250801070913.3109-3-niklaus.liu@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_003107_240430_BC92CB3B 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20250801_003905_731779_2BD630C6 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,69 +82,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 1, 2025 at 3:20=E2=80=AFPM niklaus.liu <niklaus.liu@mediatek.co=
-m> wrote:
->
-> Modify mt6315 regulator mode mask, compatible with all 6315 models
->
+Il 01/08/25 08:39, niklaus.liu ha scritto:
+> Modify spmi/pwrap driver for mt8189
+> 
 > Signed-off-by: niklaus.liu <niklaus.liu@mediatek.com>
 > ---
->  drivers/regulator/mt6315-regulator.c | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-> diff --git a/drivers/regulator/mt6315-regulator.c b/drivers/regulator/mt6=
-315-regulator.c
-> index 2608a6652d77..092ff748fe21 100644
-> --- a/drivers/regulator/mt6315-regulator.c
-> +++ b/drivers/regulator/mt6315-regulator.c
-> @@ -218,8 +218,10 @@ static int mt6315_regulator_probe(struct spmi_device=
- *pdev)
->         struct regmap *regmap;
->         struct mt6315_chip *chip;
->         struct mt_regulator_init_data *init_data;
-> +       struct device_node *node =3D pdev->dev.of_node;
->         struct regulator_config config =3D {};
->         struct regulator_dev *rdev;
-> +       unsigned int val =3D 0;
->         int i;
->
->         regmap =3D devm_regmap_init_spmi_ext(pdev, &mt6315_regmap_config)=
-;
-> @@ -247,6 +249,10 @@ static int mt6315_regulator_probe(struct spmi_device=
- *pdev)
->                 init_data->modeset_mask[MT6315_VBUCK1] =3D BIT(MT6315_VBU=
-CK1);
->                 break;
->         }
+>   drivers/soc/mediatek/mtk-pmic-wrap.c | 27 +++++++++++++++++++++++++++
+>   drivers/spmi/spmi-mtk-pmif.c         |  3 +++
+>   2 files changed, 30 insertions(+)
+> 
+> diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+> index 0bcd85826375..e3e8234e29a0 100644
+> --- a/drivers/soc/mediatek/mtk-pmic-wrap.c
+> +++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+> @@ -1087,6 +1087,17 @@ static const int mt8183_regs[] = {
+>   	[PWRAP_WACS2_VLDCLR] =			0xC28,
+>   };
+>   
+> +static int mt8189_regs[] = {
+> +	[PWRAP_INIT_DONE2] =		0x0,
+> +	[PWRAP_TIMER_EN] =		0x3e4,
+> +	[PWRAP_INT_EN] =		0x450,
+> +	[PWRAP_WACS2_CMD] =		0x880,
+> +	[PWRAP_SWINF_2_WDATA_31_0] =	0x884,
+> +	[PWRAP_SWINF_2_RDATA_31_0] =	0x894,
+> +	[PWRAP_WACS2_VLDCLR] =		0x8a4,
+> +	[PWRAP_WACS2_RDATA] =		0x8a8,
+> +};
+
+You can fully reuse mt8195_regs, as mt8189 has the same layout.
+
 > +
-> +       if (!of_property_read_u32(node, "buck1-modeset-mask", &val))
-> +               init_data->modeset_mask[MT6315_VBUCK1] =3D val;
+>   static const int mt8195_regs[] = {
+>   	[PWRAP_INIT_DONE2] =		0x0,
+>   	[PWRAP_STAUPD_CTRL] =		0x4C,
+> @@ -1324,6 +1335,7 @@ enum pwrap_type {
+>   	PWRAP_MT8173,
+>   	PWRAP_MT8183,
+>   	PWRAP_MT8186,
+> +	PWRAP_MT8189,
+>   	PWRAP_MT8195,
+>   	PWRAP_MT8365,
+>   	PWRAP_MT8516,
+> @@ -1854,6 +1866,7 @@ static int pwrap_init_cipher(struct pmic_wrapper *wrp)
+>   		break;
+>   	case PWRAP_MT6873:
+>   	case PWRAP_MT8183:
+> +	case PWRAP_MT8189:
+>   	case PWRAP_MT8195:
+>   		break;
+>   	}
+> @@ -2393,6 +2406,19 @@ static const struct pmic_wrapper_type pwrap_mt8183 = {
+>   	.init_soc_specific = pwrap_mt8183_init_soc_specific,
+>   };
+>   
+> +static struct pmic_wrapper_type pwrap_mt8189 = {
+> +	.regs = mt8189_regs,
+> +	.type = PWRAP_MT8189,
+> +	.arb_en_all = 0x777f,
+> +	.int_en_all = 0x180000,
+> +	.int1_en_all = 0,
+> +	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
+> +	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
+> +	.caps = PWRAP_CAP_ARB,
+
+Why are you avoiding to enable the INT1 interrupt on MT8189?
+
+Is this working around a hardware bug, or did you simply forget to enable it?
+I think you should really enable it, which means....
+
+> +	.init_reg_clock = pwrap_common_init_reg_clock,
+> +	.init_soc_specific = NULL,
+> +};
 > +
+>   static const struct pmic_wrapper_type pwrap_mt8195 = {
+>   	.regs = mt8195_regs,
+>   	.type = PWRAP_MT8195,
+> @@ -2456,6 +2482,7 @@ static const struct of_device_id of_pwrap_match_tbl[] = {
+>   	{ .compatible = "mediatek,mt8173-pwrap", .data = &pwrap_mt8173 },
+>   	{ .compatible = "mediatek,mt8183-pwrap", .data = &pwrap_mt8183 },
+>   	{ .compatible = "mediatek,mt8186-pwrap", .data = &pwrap_mt8186 },
+> +	{ .compatible = "mediatek,mt8189-pwrap", .data = &pwrap_mt8189 },
 
-This needs a matching change to the DT bindings.
+...means that you don't even need to add a new compatible in this list, because
+the MT8195 compatible can be reused.
 
-However, please take a look at Angelo's recent series [1] for MT8196
-PMICs that also adds variants of the MT6316 series regulators and how
-it adds compatible strings for various parts to cover 2-phase, 3-phase,
-and 4-phase settings.
+You only have to add the MT8189 compatible to the bindings, so that you are
+allowed to specify in your devicetree node
 
-Now personally I think a better way would be if we could somehow read back
-a) the part number, or b) the multi-phase settings from the chip itself,
-and derive `modeset_mask` automatically. Is that possible? Can MediaTek
-share this information?
+compatible = "mediatek,mt8189-pwrap", "mediatek,mt8195-pwrap";
 
+>   	{ .compatible = "mediatek,mt8195-pwrap", .data = &pwrap_mt8195 },
+>   	{ .compatible = "mediatek,mt8365-pwrap", .data = &pwrap_mt8365 },
+>   	{ .compatible = "mediatek,mt8516-pwrap", .data = &pwrap_mt8516 },
+> diff --git a/drivers/spmi/spmi-mtk-pmif.c b/drivers/spmi/spmi-mtk-pmif.c
+> index 160d36f7d238..00420568afef 100644
+> --- a/drivers/spmi/spmi-mtk-pmif.c
+> +++ b/drivers/spmi/spmi-mtk-pmif.c
+> @@ -530,6 +530,9 @@ static const struct of_device_id mtk_spmi_match_table[] = {
+>   	{
+>   		.compatible = "mediatek,mt6873-spmi",
+>   		.data = &mt6873_pmif_arb,
+> +	}, {
+> +		.compatible = "mediatek,mt8189-spmi",
+> +		.data = &mt8195_pmif_arb,
 
-ChenYu
+This change is useless. Just add the compatible to the bindings so that you
+can specify
 
-[1] https://lore.kernel.org/all/20250715140224.206329-1-angelogioacchino.de=
-lregno@collabora.com/
+compatible = "mediatek,mt8189-spmi", "mediatek,mt8195-spmi";
 
-
->         for (i =3D MT6315_VBUCK2; i < MT6315_VBUCK_MAX; i++)
->                 init_data->modeset_mask[i] =3D BIT(i);
->
-> --
-> 2.46.0
->
->
+Regards,
+Angelo
 
