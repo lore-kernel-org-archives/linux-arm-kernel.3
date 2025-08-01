@@ -4,116 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B8AC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 15:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CFBC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 15:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gDmG46Tk3Fu6LK97TgF72a8HHzYJ3HI4cdqzY4OubmQ=; b=i+yfFqvy5sljxpyqLPaUCOkcPP
-	FZdw/GdGzcQKUwXH9XO0neGRtLEyGeBfIYa8M1cv9O5j0fpj4mYHoOvlNTRztGiev4RPx93wMfM1e
-	LtQ5M4GN6gOaFfrtEZvsCNo428hxcrshgwsloobHTEeKCvJ6r3gAnK6iXBlYGEV0EhZcbp1DdoBJs
-	Spo4VbpTVpa2VTNz85CqtCfYVU0riLHDA69iEdMK12q7mNECUYM7demppzfIcuc4ZKoXF/GvCRtpQ
-	J2lU5iVZ2B3GB6HZvUhguz5cqtGg9hqInt6plHQBj0u9/mQYMQCmhV4b8TOfR99tD4nXu3D12swsm
-	A/8EaqgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7kEYbN1ZYsUeM4DWL45SyVK0aAWul3lje1xqpga8QDc=; b=NMMCAYKAVOh5GgxuwgManiYd9F
+	K0LvdC6LFE7opq3/kzboyC8yxQFnVFBkCEML3MPhp3hjpHm6LBx6vKdmbXfI/IfJxTq5Wwzc0mIbF
+	qIafZqOytaKN31SdquGcmP9xdl8dWBFVHKYQu/r8ViwRQQDu356f37+qcfJP1sOqPFhVqKpDvIM1u
+	7gPZ8jCxrhjcAKzJ9YrjWOMurDE/pRuv2FIMuQwuAWrt58Sc8Ryjx1+TtkTubXghip+0kEIseLlCY
+	hGuYl2LMzHvXOHqNkB9VFzDLO8FP6jSivXoAl6EVZ2QvkO4I6NitsU9EPaSziaaXYcLaeJBDoP67j
+	fLNYcelg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhrRR-00000006KLX-1Fmx;
-	Fri, 01 Aug 2025 15:13:05 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1uhrTz-00000006Khl-0PMw;
+	Fri, 01 Aug 2025 15:15:43 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhrIR-00000006Ikz-1uBE
+	id 1uhrP5-00000006Jvg-2rbq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 15:03:48 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 571B6aWW015630;
-	Fri, 1 Aug 2025 15:03:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=gDmG46
-	Tk3Fu6LK97TgF72a8HHzYJ3HI4cdqzY4OubmQ=; b=LGI1QlUoUZejyC1agmDUer
-	tb/ipM8pu6VL5ju0GpxYcpGWierr1asbq0zYtwE1V8cPBUAtazux3BGdZWqJoHUh
-	VAkRB8rJNclZIHCWCxyM48v2pprFcrWL+w+LqAeY0El2tw+OASLSHgs8HS7GL//W
-	jgHSG435ncKskKOzpnc+nGvskanN2TQtbnqvLtO1x50qPC+lXII9eqiVyGn/wzTx
-	UbcBoqayVfWANSNYaYla7oDlnIB0aqXFj9+DdhamBiD7ZiS1EkUOOZHv/e/cF8ik
-	HXuF5kuJ8anVMzkNY3LxsumtZ3cieRoqtU6fUgljIDqSkaaAh9oMae5PiGaf78fQ
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 484qfr9c3d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 01 Aug 2025 15:03:30 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 571B1JEW028782;
-	Fri, 1 Aug 2025 15:03:29 GMT
-Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 485c231j4v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 01 Aug 2025 15:03:29 +0000
-Received: from smtpav02.dal12v.mail.ibm.com (smtpav02.dal12v.mail.ibm.com [10.241.53.101])
-	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 571F3SUu56492292
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 1 Aug 2025 15:03:28 GMT
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AE5FD5805F;
-	Fri,  1 Aug 2025 15:03:28 +0000 (GMT)
-Received: from smtpav02.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 715D35805A;
-	Fri,  1 Aug 2025 15:03:28 +0000 (GMT)
-Received: from [9.61.163.64] (unknown [9.61.163.64])
-	by smtpav02.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Fri,  1 Aug 2025 15:03:28 +0000 (GMT)
-Message-ID: <ea5177ba-5905-40aa-91b0-9bcb66b6f0d4@linux.ibm.com>
-Date: Fri, 1 Aug 2025 10:03:25 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] dt-bindings: fsi: Convert
- aspeed,ast2400-cf-fsi-master to DT schema
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Ninad Palsule <ninad@linux.ibm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        linux-fsi@lists.ozlabs.org
-References: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
- <20250731-dt-fsi-cleanups-v1-6-e7b695a29fc3@kernel.org>
+	Fri, 01 Aug 2025 15:10:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VjiwJIpdUKhEvrEqw3fRdHkeQNFRTFkjE8BjD8EVUzp+yFsekXQv+7x5myoMcT4/HUnxhDIg//uBRQRdRTYUjtMvYH3H21s3bfaI9Q1gQ/k0hoCMMhTRisgjFOKr/THsRf/O6stl+IDDuyA5SjVDhDt4RydiTLM4oR9TgksDrJuE1oL7mamIo0iTGKW4wSWbS++EBlMPuIe6wb6wgbfVXo7bnLEwUUR8oJ8OijBBKUU4nP0Jv/NHZ6yK4G9BLYC9O5ioMmdAnl/gH6yTg5pnEiJl6muDs6BLPfedcHNQ9YTZkqPWxwIRCgI5J4QjA3KaH3Elra8+FNUDnTJCSHPNTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7kEYbN1ZYsUeM4DWL45SyVK0aAWul3lje1xqpga8QDc=;
+ b=rN0dSsUi2yYHkfKiG4N9m4WKdo1bv55N1LVqjNXCUcdR8Atw12jhAYl+ga/MJMiDW+7kTP0/0a/yzR9uJwuhTqTNrbbFhd2B21YSVehFBaTb9c+nOGu7YiwC3UuEz05+vYwRVrwTWopNxEZZk6Z73BuyECRZ8vlExtQZoYYO/shLitv0EkhPOn3Nzl12yhQxEMm85J04XhDYKhlD6+CFuYQLgb6cJttETfw4iHiYEoxSiyvCwgFsy9lebxzsZU4O+3ZFXcUpCc4Vwigm1zGPdzey+dJYfnCSTAATQGeTY1xWA/euec96IO8KybUa48zXEUT7kA3dryJzCH5iWySquw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7kEYbN1ZYsUeM4DWL45SyVK0aAWul3lje1xqpga8QDc=;
+ b=ExGH9vVV9Tq86dI/yvq+6Tz6cilRJhhxs01kK5icJqqI5IvGkvD8mcYAkepKoPb4oPaqbLpZNKcfjSoxx9VoljUB030koSBCx9vKh/KOsEVPWY5po++gE8yKQol4d91HoJzbCEYJvYDTqd8EFb/X0o3yIf+62N8+tt3F2fkzeSUjYbBKHg4G1BulhNZgJVMe/flOQXmpDlYiNCaE7Mctr8iheEqoagkLlcJMNbGw5fa8iEsOgzXZZuefMslX05lh2mZCkJgFBb6nJZtwDMDCEw33NBsfdZSaxTedRIvDEiVPDypqeeoJ5PH9Rcycbn0Om2UapsRk28rpFtiD2GDrMQ==
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by GV1PR04MB10774.eurprd04.prod.outlook.com (2603:10a6:150:205::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.14; Fri, 1 Aug
+ 2025 15:10:30 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%5]) with mapi id 15.20.8989.015; Fri, 1 Aug 2025
+ 15:10:30 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: Frank Li <frank.li@nxp.com>
+CC: "krzk@kernel.org" <krzk@kernel.org>, "rafael@kernel.org"
+	<rafael@kernel.org>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"rui.zhang@intel.com" <rui.zhang@intel.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "shawnguo@kernel.org"
+	<shawnguo@kernel.org>, "linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>
+Subject: RE: [PATCH v2 3/4] thermal: qoriq: workaround the tmu temp jump on
+ imx93
+Thread-Topic: [PATCH v2 3/4] thermal: qoriq: workaround the tmu temp jump on
+ imx93
+Thread-Index: AQHcAruJ+AtIm1IjGk2fa0w8DXTeJ7RN1sOAgAAMGIA=
+Date: Fri, 1 Aug 2025 15:10:29 +0000
+Message-ID: <AS8PR04MB86428A54DA5B45CF3D8829628726A@AS8PR04MB8642.eurprd04.prod.outlook.com>
+References: <20250801081119.1999298-1-ping.bai@nxp.com>
+ <20250801081119.1999298-3-ping.bai@nxp.com>
+ <aIzK93Gs/+sXHBZU@lizhi-Precision-Tower-5810>
+In-Reply-To: <aIzK93Gs/+sXHBZU@lizhi-Precision-Tower-5810>
+Accept-Language: en-US, zh-CN
 Content-Language: en-US
-From: Eddie James <eajames@linux.ibm.com>
-In-Reply-To: <20250731-dt-fsi-cleanups-v1-6-e7b695a29fc3@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAxMDExMyBTYWx0ZWRfXwkqOO444EumL
- YXjZ+64rSmUjTmtLSxPfWnM4021W3gqsEQnnSb0HENfzkTFimBJfR7mCrgaIo6aMTMtp3PDbnvM
- epWcngSfV0HEhKtKRrQxQoK+9NcPiAVhyQfODx0jxTdBdy2nZd8xGhdV+fXPCi9kZCJkzhCTSeK
- engtvGWpOoHFHSn+Y7mkAUhYj6Wo8Zwte3SPKhT33BYopPAjiyjoHFqNU1wMZXxGO+ihXqwTAPX
- 6BeVpFhSzoLwJ2E6OCqpijcs2kQkO6SAIXXayKzuzo+fCG2T/islMnKvz5/YcIYIymBYtEHpZ64
- GliIoc1pyV6O6KZ00qfhvJZcSzHhWY0izOpO1DdvbSg6Nktfu9gerXa32A0vke/qe290gez6xPt
- FYa21WDN02TpHENI0YvLrnR46JtLZLb22kXwyDAC2MrdqvB3WCFaQcWMQOzB8QqH1sGnN/sl
-X-Authority-Analysis: v=2.4 cv=Je28rVKV c=1 sm=1 tr=0 ts=688cd742 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=gEfo2CItAAAA:8 a=VnNF1IyMAAAA:8
- a=VwQbUJbxAAAA:8 a=KHSZ2H1nh6ehvMvmo5AA:9 a=QEXdDO2ut3YA:10
- a=sptkURWiP4Gy88Gu7hUp:22
-X-Proofpoint-GUID: ABclAUaAHOJT_qgRJ99oyhE207k_zMBu
-X-Proofpoint-ORIG-GUID: ABclAUaAHOJT_qgRJ99oyhE207k_zMBu
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-01_04,2025-08-01_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxlogscore=999 clxscore=1015 lowpriorityscore=0 spamscore=0 adultscore=0
- suspectscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 phishscore=0
- mlxscore=0 impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2508010113
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|GV1PR04MB10774:EE_
+x-ms-office365-filtering-correlation-id: 05c26129-b960-41ac-86a5-08ddd10d8dd3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|19092799006|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?f65g4bPdSRCTeGXzizerPVTsUs9YwGC4ivX9xuSx5sCWuXqAhP/Dui3eAmV8?=
+ =?us-ascii?Q?nUD1LPToIEk4PYDD4pOA0goEsPtKQotKG1OJZcAxX0U9we+il9t8trtRFgHm?=
+ =?us-ascii?Q?PU/IzFPCO/PPZbQzkSBefYSpnGeYyz1ccrXyi40YRWJOVOYQ6ocKmcNC0CKs?=
+ =?us-ascii?Q?MipZQmUoZDIbAuwCrqz33/+ucEqF8nRb0Sh7LxSrTPY1iuH+9gLGHYo5iEjh?=
+ =?us-ascii?Q?tzbO8YzT4MUc0Pw3NUzh0V9FEo/PKEDYyVdbkbcMD9ruIZm2V/SqHwSxtevh?=
+ =?us-ascii?Q?0UtBVf3GywunJ7dD6bo+9n8NJ0+oLOkVx3bK2DGNmASlEW4GSM8w8cCMWvr4?=
+ =?us-ascii?Q?mbQ7qod+HyZstePwPn7dE719ZeV5vDGG/GDKPZ4dWlw9baNq47L6eu+GQwcy?=
+ =?us-ascii?Q?kUc2YxctuYl1M0ynXzo560j+xeuVDiSa2Iv4OF+ayx/zWject7jM8MsR08kS?=
+ =?us-ascii?Q?Tg4bZn3+Z9nzvRxVtXVkJ0w7r4eE8KEea7fZ8ncobA5A5to6r1QcYlDpUMFu?=
+ =?us-ascii?Q?RfvYZAuagK9NLAYnvqD0HtdR6lBzGurmW8Z+lcMQJ+jIYyWKLeEOY0Rxlhih?=
+ =?us-ascii?Q?9nCdj3c8VfPOS1wXGl0T0duuZq9ahe8kO8f2lmquQFcBkTebg6LcO43qvFhO?=
+ =?us-ascii?Q?xIZw9MtPVYwvsLdn+0LwO8C9JKao0VgsrxO1fylY8W86hRmUW1dUzdS0tm7T?=
+ =?us-ascii?Q?G10d0GsXTHeWq4QMHSvQmnyu9BR9pDlHLUF7nyt8Jx1nEZsvM6dx7JBiFecv?=
+ =?us-ascii?Q?+MvWueHLwGXCcJnZT1gBg0vpzAaZcp6EwbOAMjnXZuxZncEzPHtDw/JosqhY?=
+ =?us-ascii?Q?4yApsmjlO62JOBYZQlqfcj4rjHyOfL81WO+iBmZ24vSfbIz97GrXCToUwrge?=
+ =?us-ascii?Q?j1IUHKBKDioIgp0ZaNuJP2NQOJVkEUOkNk/m7HVRKisykgatOK9kKQiq8Nl0?=
+ =?us-ascii?Q?4Ur4qojDhwDJcffvVtJUvE4y+7CsW3Vpas3bD9aijWdgbnO9mrwGwg9lzpQA?=
+ =?us-ascii?Q?SjxinGYWX72qlNAa+7Yz9CKoN46nugJ2xf/sbpl8Nk3v7rscB9UzitJsUpXf?=
+ =?us-ascii?Q?ZJntqnHb46XVOlR4K19hCV73H6k7GXP9N3PBYimZZHQ+kxpLPf47IAgvu7c4?=
+ =?us-ascii?Q?/tcUqDibfAsnzyI2KYK+qjhbbCWmPoKjuoYfYLQrjghjsABcV2dSXRiW5hTz?=
+ =?us-ascii?Q?JrjdgQfhrlxhoRGlq0s7/ZJDzVWGGsBw/RSq+f2KPNxKz97lNW6CJFUczkhH?=
+ =?us-ascii?Q?SSraDKe3UGoeM3GnYXmcj6UrGTSNNMKxLPVmHSyaTDjIfa/rg0Gdzm/DObQK?=
+ =?us-ascii?Q?19K3oMi+VWbI+FSDHHBnhJtZtVgyxoVMQ3qaWJoyeVOBhbIlPoTTLuFLAOcu?=
+ =?us-ascii?Q?sHqVUxPKAxqOpjzdV6fpQGTtXjdUfW9ThWr4203B8M2Zrk0+yaWVznqLvUxb?=
+ =?us-ascii?Q?5iZ36gg6h9f824br0atBZG6lLsSzFoIhb2nRn5AlnGwR0voQtSccvw=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(19092799006)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?suxHBe1nKIQlEEDJRocNIMJyfLNtz1c7ZObbm+lM1tAkP1/cC+RarpvHh+PG?=
+ =?us-ascii?Q?ADQAarspJjRAD6FsvsWHlYq7I1d5z5aLtuMN0hl1wJSPhA+SDJPgtYzOA8AZ?=
+ =?us-ascii?Q?AJaUSwSZrxwdUwQ98Qvf0yV1aMK27hzZ3+gDJeUume8zix3qiJvbL/c1lrKK?=
+ =?us-ascii?Q?O+aVRqriMTRUg91ViBr5mlV4rZ+nR+mdLjhi6l2hZZysvI7ECYpxfGiszvoi?=
+ =?us-ascii?Q?b/vOUyoUD0DxLU7c7uuoeghdYIGBRS4wWpTIBiMF5GPzyhL8j/GfrTLPAT0W?=
+ =?us-ascii?Q?GhcyINq2x9aXaR0Q796gpAd71Cgwmv4yxakm2cYhpU2vxEBSp+SoMWZJlBJM?=
+ =?us-ascii?Q?LuOvEBjcrCfb7qZxOzmrsKtRHFOaF+3T4+2G9Yg7ck+c0MQKFi48vHsW81JT?=
+ =?us-ascii?Q?YZgkl+GfW9y6REAYOAyewUqp8kK3UubPgqWHIlKL1jG00UYGS3S+tfrDavEc?=
+ =?us-ascii?Q?qBADq3GLqw9FWR+/JrKuBvGOWU0ztCg11RSO7xo0XSawXz3cdvueibHdgO9u?=
+ =?us-ascii?Q?37pd0Xq4ERSO9HN9c0HPFPURCWz00t9aNUYJQMG6rvy/YN5Q+pZN2E7EMZkv?=
+ =?us-ascii?Q?iQdIWq5wU0TWB++IH1mlLYCkmaMNQnyym0CzeoxC2GKmIwaed/fY2Zdy0hmj?=
+ =?us-ascii?Q?1IEy+wfcgrfvVpcSSVUGdwhU0kTGG5+FDlgBtkWjQUbc+00Ay+MtmZn5uf6U?=
+ =?us-ascii?Q?zajqEwpQy78adbxDmjw/pcxfaN82HKXiHygWrwdN8vl5GPN1ZqE9HMmaaJTi?=
+ =?us-ascii?Q?LPX5AVd5F2ZouMizxquqmA3Jr20xQ2K6xalrUNbqSADZnRy5e72WdBE0/Vcp?=
+ =?us-ascii?Q?gZVPCBM6HYfysNv3ZnfQDaP0sbtJpwxmtTwvoruYNF7gpCBagZO7t2ay6fXY?=
+ =?us-ascii?Q?7FMvAZPtzArZLa5Wg9JBlsimrcj7uzA/hmSbGpRn1aDfvTc8l12lvgOpIu43?=
+ =?us-ascii?Q?BvSK/TltY1tl0Knhe/3sNK+UQ/h4TrxeAFrsj7j9DvihiP6T1GcO61s/KJVv?=
+ =?us-ascii?Q?MCgclME4YxrCRvbeev1Y0snTALM/p0UtxgOMfia1WLUhCL1X0gN/8vZLQHMs?=
+ =?us-ascii?Q?IlyARyc/zkwxjsz//vJOn84vr5EtHAQ8pmYmOJvnxoGjDfMuUKvaKgsvfpv6?=
+ =?us-ascii?Q?vp98R09M8KUU3jKy/rmtZx0L7ZUB1hWUaNAwarwgGDSUrNi+pItySqfuE9eB?=
+ =?us-ascii?Q?HJkbQahcqCqXkXHeXCyb+lyzBpIYzixXQcRKSxAFvRvdvcyPSyuvqcsJIIZ4?=
+ =?us-ascii?Q?c5bFlZV9QjHEBVYIZL+YXJ3F+Ezr1/Ey/adDopx2VzEDpev2OjsWNO12suR6?=
+ =?us-ascii?Q?bqauiu/7Ez+/aD84flIuHRox6JPx5niVuusah+NEMRoqYlQropxH4BT+PjwM?=
+ =?us-ascii?Q?B+njyxMN7gHjQ48Gw/viHj6Pcro+4fQa/LiSp7fPNF+Rhpf9TW1sUaz2iAzL?=
+ =?us-ascii?Q?ZoeJuAsVC49fDM+8zEhbUoZQ5Do8pw3Tz+9bPVHWfRZkNPiQ8MYf/xD4wr+m?=
+ =?us-ascii?Q?StA6OSQpnzSQ5IUH0iaMh0U58dXmW+Ao+Y6h0fyObM4O5AEw1p/A9IDIB3uX?=
+ =?us-ascii?Q?Jn/h6FiJBCXKeE1LQMo=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 05c26129-b960-41ac-86a5-08ddd10d8dd3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Aug 2025 15:10:30.0158
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: igzCUrh+cV4heaXBhf29B6uSk8GUTL0pV+D63fPn+x1S0RTOIuv7+PR5K3kQvrXUeyD+eMAAISDDWZ7wng6AQw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10774
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_080347_517017_83894467 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20250801_081039_745240_6653B271 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,152 +170,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> Subject: Re: [PATCH v2 3/4] thermal: qoriq: workaround the tmu temp jump
+> on imx93
+>=20
+> On Fri, Aug 01, 2025 at 04:11:18PM +0800, Jacky Bai wrote:
+> > On i.MX93, the temp read from tmu may jump wrongly(ERR052243), and
+> > invalid temp will be read out. To workaround such issue, we need to
+> > use the raising/falling edge threshold to filter out the wrong temp.
+> > When reading the temp, need to check the TIDR register to make sure no
+> jump happens.
+> >
+> > Please refer to NXP errata ERR052243 for more details.
+>=20
+> Add download link here.
+>=20
 
-On 7/31/25 17:12, Rob Herring (Arm) wrote:
-> Convert the ASpeed Coldfire offloaded GPIO FSI master.
->
-> Drop the "fsi-master" compatible as it has not be used consistently and
-> doesn't represent anything.
+Thx, will add the url here.
 
+> >
+> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> > ---
+> >  drivers/thermal/qoriq_thermal.c | 31
+> +++++++++++++++++++++++++++++--
+> >  1 file changed, 29 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/thermal/qoriq_thermal.c
+> > b/drivers/thermal/qoriq_thermal.c index fd4d162fc188..664cd5f7d8af
+> > 100644
+> > --- a/drivers/thermal/qoriq_thermal.c
+> > +++ b/drivers/thermal/qoriq_thermal.c
+> > @@ -46,6 +46,13 @@
+> >  #define REGS_TIER	0x020	/* Interrupt Enable Register */
+> >  #define TIER_DISABLE	0x0
+> >
+> > +#define REGS_TIDR	0x24
+> > +#define TMRTRCTR	0x70
+> > +#define TMRTRCTR_EN	BIT(31)
+> > +#define TMRTRCTR_TEMP(x)	((x) & 0xFF)
+>=20
+> use GET_FIELD()
 
-Acked-by: Eddie James <eajames@linux.ibm.com>
+OK, will refine it will FILED_PREP macro.
 
-
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->   .../bindings/fsi/aspeed,ast2400-cf-fsi-master.yaml | 81 ++++++++++++++++++++++
->   .../devicetree/bindings/fsi/fsi-master-ast-cf.txt  | 36 ----------
->   2 files changed, 81 insertions(+), 36 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/fsi/aspeed,ast2400-cf-fsi-master.yaml b/Documentation/devicetree/bindings/fsi/aspeed,ast2400-cf-fsi-master.yaml
-> new file mode 100644
-> index 000000000000..690b6c936f18
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/fsi/aspeed,ast2400-cf-fsi-master.yaml
-> @@ -0,0 +1,81 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/fsi/aspeed,ast2400-cf-fsi-master.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ASpeed ColdFire offloaded GPIO-based FSI master
-> +
-> +maintainers:
-> +  - Eddie James <eajames@linux.ibm.com>
-> +
-> +allOf:
-> +  - $ref: /schemas/fsi/fsi-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - aspeed,ast2400-cf-fsi-master
-> +      - aspeed,ast2500-cf-fsi-master
-> +
-> +  clock-gpios:
-> +    maxItems: 1
-> +    description: GPIO for FSI clock
-> +
-> +  data-gpios:
-> +    maxItems: 1
-> +    description: GPIO for FSI data signal
-> +
-> +  enable-gpios:
-> +    maxItems: 1
-> +    description: GPIO for enable signal
-> +
-> +  trans-gpios:
-> +    maxItems: 1
-> +    description: GPIO for voltage translator enable
-> +
-> +  mux-gpios:
-> +    maxItems: 1
-> +    description:
-> +      GPIO for pin multiplexing with other functions (eg, external FSI masters)
-> +
-> +  memory-region:
-> +    maxItems: 1
-> +    description:
-> +      Reference to the reserved memory for the ColdFire. Must be 2M aligned on
-> +      AST2400 and 1M aligned on AST2500.
-> +
-> +  aspeed,cvic:
-> +    description: Reference to the CVIC node.
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +  aspeed,sram:
-> +    description: Reference to the SRAM node.
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +
-> +required:
-> +  - compatible
-> +  - clock-gpios
-> +  - data-gpios
-> +  - enable-gpios
-> +  - trans-gpios
-> +  - mux-gpios
-> +  - memory-region
-> +  - aspeed,cvic
-> +  - aspeed,sram
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    fsi-master {
-> +      compatible = "aspeed,ast2500-cf-fsi-master";
-> +      clock-gpios = <&gpio 0>;
-> +      data-gpios = <&gpio 1>;
-> +      enable-gpios = <&gpio 2>;
-> +      trans-gpios = <&gpio 3>;
-> +      mux-gpios = <&gpio 4>;
-> +      memory-region = <&coldfire_memory>;
-> +      aspeed,cvic = <&cvic>;
-> +      aspeed,sram = <&sram>;
-> +    };
-> diff --git a/Documentation/devicetree/bindings/fsi/fsi-master-ast-cf.txt b/Documentation/devicetree/bindings/fsi/fsi-master-ast-cf.txt
-> deleted file mode 100644
-> index 3dc752db748b..000000000000
-> --- a/Documentation/devicetree/bindings/fsi/fsi-master-ast-cf.txt
-> +++ /dev/null
-> @@ -1,36 +0,0 @@
-> -Device-tree bindings for ColdFire offloaded gpio-based FSI master driver
-> -------------------------------------------------------------------------
-> -
-> -Required properties:
-> - - compatible =
-> -	"aspeed,ast2400-cf-fsi-master" for an AST2400 based system
-> -   or
-> -	"aspeed,ast2500-cf-fsi-master" for an AST2500 based system
-> -
-> - - clock-gpios = <gpio-descriptor>;	: GPIO for FSI clock
-> - - data-gpios = <gpio-descriptor>;	: GPIO for FSI data signal
-> - - enable-gpios = <gpio-descriptor>;	: GPIO for enable signal
-> - - trans-gpios = <gpio-descriptor>;	: GPIO for voltage translator enable
-> - - mux-gpios = <gpio-descriptor>;	: GPIO for pin multiplexing with other
-> -                                          functions (eg, external FSI masters)
-> - - memory-region = <phandle>;		: Reference to the reserved memory for
-> -                                          the ColdFire. Must be 2M aligned on
-> -					  AST2400 and 1M aligned on AST2500
-> - - aspeed,sram = <phandle>;		: Reference to the SRAM node.
-> - - aspeed,cvic = <phandle>;		: Reference to the CVIC node.
-> -
-> -Examples:
-> -
-> -    fsi-master {
-> -        compatible = "aspeed,ast2500-cf-fsi-master", "fsi-master";
-> -
-> -	clock-gpios = <&gpio 0>;
-> -        data-gpios = <&gpio 1>;
-> -        enable-gpios = <&gpio 2>;
-> -        trans-gpios = <&gpio 3>;
-> -        mux-gpios = <&gpio 4>;
-> -
-> -	memory-region = <&coldfire_memory>;
-> -	aspeed,sram = <&sram>;
-> -	aspeed,cvic = <&cvic>;
-> -    }
->
+BR
+>=20
+> > +#define TMFTRCTR	0x74
+> > +#define TMFTRCTR_EN	BIT(31)
+> > +#define TMFTRCTR_TEMP(x)	((x) & 0xFF)
+> >
+> >  #define REGS_TTCFGR	0x080	/* Temperature Configuration Register
+> */
+> >  #define REGS_TSCFGR	0x084	/* Sensor Configuration Register */
+> > @@ -93,7 +100,7 @@ static int tmu_get_temp(struct thermal_zone_device
+> > *tz, int *temp)  {
+> >  	struct qoriq_sensor *qsensor =3D thermal_zone_device_priv(tz);
+> >  	struct qoriq_tmu_data *qdata =3D qoriq_sensor_to_data(qsensor);
+> > -	u32 val;
+> > +	u32 val, tidr;
+> >  	/*
+> >  	 * REGS_TRITSR(id) has the following layout:
+> >  	 *
+> > @@ -118,6 +125,15 @@ static int tmu_get_temp(struct
+> thermal_zone_device *tz, int *temp)
+> >  	if (!(val & TMR_ME))
+> >  		return -EAGAIN;
+> >
+> > +	/* ERR052243: If there raising or falling edge happens, try later */
+> > +	if (qdata->ver =3D=3D TMU_VER93) {
+> > +		regmap_read(qdata->regmap, REGS_TIDR, &tidr);
+> > +		if (tidr & GENMASK(25, 24)) {
+> > +			regmap_write(qdata->regmap, REGS_TIDR, GENMASK(25, 24));
+> > +			return -EAGAIN;
+> > +		}
+> > +	}
+> > +
+> >  	if (regmap_read_poll_timeout(qdata->regmap,
+> >  				     REGS_TRITSR(qsensor->id),
+> >  				     val,
+> > @@ -126,6 +142,15 @@ static int tmu_get_temp(struct
+> thermal_zone_device *tz, int *temp)
+> >  				     10 * USEC_PER_MSEC))
+> >  		return -ENODATA;
+> >
+> > +	/*ERR052243: If there raising or falling edge happens, try later */
+> > +	if (qdata->ver =3D=3D TMU_VER93) {
+> > +		regmap_read(qdata->regmap, REGS_TIDR, &tidr);
+> > +		if (tidr & GENMASK(25, 24)) {
+> > +			regmap_write(qdata->regmap, REGS_TIDR, GENMASK(25, 24));
+> > +			return -EAGAIN;
+> > +		}
+> > +	}
+> > +
+> >  	if (qdata->ver =3D=3D TMU_VER1) {
+> >  		*temp =3D (val & GENMASK(7, 0)) * MILLIDEGREE_PER_DEGREE;
+> >  	} else {
+> > @@ -232,12 +257,14 @@ static void qoriq_tmu_init_device(struct
+> qoriq_tmu_data *data)
+> >  	regmap_write(data->regmap, REGS_TIER, TIER_DISABLE);
+> >
+> >  	/* Set update_interval */
+> > -
+> >  	if (data->ver =3D=3D TMU_VER1) {
+> >  		regmap_write(data->regmap, REGS_TMTMIR, TMTMIR_DEFAULT);
+> >  	} else if (data->ver =3D=3D TMU_VER93) {
+> >  		regmap_write(data->regmap, REGS_V2_TMTMIR,
+> TMTMIR_DEFAULT);
+> >  		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V21);
+> > +		/* ERR052243: Set the raising & falling edge monitor */
+> > +		regmap_write(data->regmap, TMRTRCTR, TMRTRCTR_EN |
+> TMRTRCTR_TEMP(0x7));
+> > +		regmap_write(data->regmap, TMFTRCTR, TMFTRCTR_EN |
+> > +TMFTRCTR_TEMP(0x7));
+> >  	} else {
+> >  		regmap_write(data->regmap, REGS_V2_TMTMIR,
+> TMTMIR_DEFAULT);
+> >  		regmap_write(data->regmap, REGS_V2_TEUMR(0), TEUMR0_V2);
+> > --
+> > 2.34.1
+> >
 
