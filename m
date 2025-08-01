@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38FDC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 13:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935ACC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 13:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=76YrXol1VadaVpm2rSKGIHqgcLtD5umJrfw747ixCOw=; b=hv+pjDe2di3vOUrOcv0KK2QcfV
-	KTQz9DomIQ6dsnQ5X3+Vh9dnsoMFojUnRnVdp/y4g5JdT5luzvxQUfTceGDXCK6gScgK+VL5QCRK/
-	rOtbwSO6KMlCEHcDuFnU+6QJJ6lQ20adt1jLdBSK/uAgYOH90zIU4VihrVxu6uQPHGlH0eIirsrR3
-	wWBClYjjmqbB1VUm3nT/Mp2ID9/npECPH4u04JD/HvY9WnbdO6atoFcrJ4Bn+ZnwTNQkl8et4iNh9
-	n5Xm9MQaRiW7pmYv3i3NhF5QzrF5mTXJ8gAdSmliHphCWRFrrrztei0wIRa9WPnMgu4U0Q65FoKIy
-	BBS5mW9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pUtTWnJnFCUFZnOCDhSCjqlj1w/7DHhEYnzdKUIWCGA=; b=1DjvfnjnIQx5Zqvs9ey+KNu3V8
+	Kgkqy751vuGUqDWcVEiRSseyPSL1BNseHPvCJpecL/Ui/dYNu3Z4SOZauTCIfan1NHPRVAEbjxvEA
+	5icDh31XXnaE0gZzp106gLpnOPPIt4OGZ2imVKgYql20B2HP7n4vAnFLqwRegsvLRtXkFAR0gUjMj
+	FK5IIl3PTnoNu99i97NIH4yG9wXfu5VbNKg8nJ4Pr+saLEXMIkOnXbftIMlMlnaseqtBgHurDJ4dI
+	bX0nrWRus99ORWa8Y6pUdq1tab/yJbvSDeSVnEZMcw6oyUQ/+wK4orrMxrNScJaDiZ5XUXrtZeErD
+	LyC/ut9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhpTp-000000063rk-3uSg;
-	Fri, 01 Aug 2025 13:07:25 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uhpTr-000000063tX-2bFa;
+	Fri, 01 Aug 2025 13:07:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhozU-00000005zU3-33Yv
+	id 1uhpIg-0000000629M-2LcT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 12:36:05 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4589968e001so12384195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 05:36:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754051763; x=1754656563; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=76YrXol1VadaVpm2rSKGIHqgcLtD5umJrfw747ixCOw=;
-        b=VJB0Mtl684Q636i0h8SFutqSlxBIEV1NnK03DXZKzj80jqDu3fzoSX6RkmQNAN5kiZ
-         j3K9jCluZuYJJBEwEfFtmZahRyaWj+ChduqD1UXQ1aJUG4JbrgRhg5Zg/G2vuDAIrwxl
-         b9ZOTzBb12r6EdP/7JbMfYN53Q+tzGOXYSMENEffos7oZrXcaEO8mtCObCvD49RYpEiW
-         2OtJA9UEz5epeuYCUzNbo3vEaSCwMeqRvCRnMRr9mb8caWYMVT47yf1SNZBm1HBgcs/1
-         8hkAaSIAqY75zTavce5qB2RQ0cAv7nrruehf2wKhIc468x3QdJ/X7PmF2CqSY1bhr+dV
-         CzWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754051763; x=1754656563;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=76YrXol1VadaVpm2rSKGIHqgcLtD5umJrfw747ixCOw=;
-        b=piAhAotdhWMhg3faQWWmMZJEs9rMisJp57fzipmVg2EDH60N/GDdwTR/POSYRye+je
-         y0iv69qk21DCtvDizgMBr5LV2ToYXCJGCWCF1bycO2y3Sr5Na73llFgjp0zw4IAjxNDX
-         z/Jv+Y4iAQ719NhOF2mpD6LrWhP3FM9xOLu8Ikc96L7WGy+y5G3NBJFVsS4hs9ng9Wfk
-         7JkDLXgJS4iWaSfv6yDjoHDwP19ULzoDwqb37FuWkg3iJ9enAx0r/X0R7r8Y30riQ8IT
-         jo4lZFZXosQSppeTuKBJrFKfgQPRLKT7QkT0gOHlhA8zYPABTpR00TvpvNVoc62dpU1g
-         Q0UQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZDKVGOgKk5aFZxKfoyofYnbNKkMT6rroRHBJcRHi4YndKMJSqIUCqKXM4gKjHQjwvlNq2QeZ/7r9x/4rcpP5W@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHOUIGErAdDAfgGtzfhQdlhF8S5wvX4byEO7xzwhcs2WQNIOCC
-	XINpGstnWVzcR+JdwWxKXStAOdrumG6Cmweh0ZRZRIO09hhqZ9HCax19sk6fWqQi
-X-Gm-Gg: ASbGncvcEW4qfokEVhrRtx2lCIFNnE2SV2/p3CnVwtQMHgI3j9xqtGlZT238QBiLhte
-	JUfhLNk6uGsUXworXhjx/DBqbYHOcsHQ3l6Drr/GbNdwm7CJ7fVwpJMSONwu3+6feK5VoxEeyxY
-	YurJcYsdV02AGAlVYtd2FBy8uUfEhGMqlNQaW4qhTDuJMc4gZO8SbX6Uzdcawsq6ByTopFzBlVS
-	4PFbPZXSva/em7HAdJhU7AhCfMA+2mpSNSfRk7b8abLqjOr7akE5wf6SkuiqbpZQ0y4aqTGbrZp
-	bU2ePUC2rE0Br7r5uRBn38t/X6PlaEpQj6qiUXPwKMkIQXq1l/LapnDP03vgm6neaCqnNy9hy/T
-	36tUPRVibNCRvm5nmtuRDkDhrK+qhlidt8V5h0h6+3VFVXdor1A==
-X-Google-Smtp-Source: AGHT+IFaCtYVTgRwZ19nJjwacjiBxot+B0gOHr5d7RezG9lzzdi5O12mr/cv+SRU8eaUlfGK7m1eYQ==
-X-Received: by 2002:a05:600c:4f09:b0:458:affe:a5b5 with SMTP id 5b1f17b1804b1-458affeab35mr15788205e9.24.1754051762846;
-        Fri, 01 Aug 2025 05:36:02 -0700 (PDT)
-Received: from [192.168.1.129] ([82.79.237.20])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458953eb7acsm100098665e9.28.2025.08.01.05.36.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 Aug 2025 05:36:02 -0700 (PDT)
-Message-ID: <69f6a044-be90-490f-b0ad-e7867a4825da@gmail.com>
-Date: Fri, 1 Aug 2025 15:36:01 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+	Fri, 01 Aug 2025 12:55:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E69DA5C65CF;
+	Fri,  1 Aug 2025 12:55:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07280C4CEE7;
+	Fri,  1 Aug 2025 12:55:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754052953;
+	bh=pUtTWnJnFCUFZnOCDhSCjqlj1w/7DHhEYnzdKUIWCGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=B4q1fHlSZqScI1D+FYZNRuBmbRKsUuAL19Fff9b5hfrsGDU7TOx0e7nuTJ6H8edA0
+	 lFMK0Dh27cnAmrPkOL02WAPXsZD/U0C6Iy8rFAWNivNHy9MCFomJcPOH4FwC/m4J+9
+	 6w4CtFk/aifSDnBeLk8aNJQaFgryEv7YmA6BzYkUex+p/fNOZFm4TAIrwhCzdH8y1x
+	 SD3/fuaogok4GYXou0SeXlvfXdG2OLy61IaNW6NKYjb4lhOtbohBr5DETMso6Ej/1f
+	 EMWAGVMe1XqOBFkFhDln5EpwqvEjghte/vcLcQD2vW3HSJzHatla+B9YZpnGbW7zAC
+	 UTCKAgmiN7JPw==
+Date: Fri, 1 Aug 2025 13:55:47 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Shawn Guo <shawnguo2@yeah.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	Marco Felsch <m.felsch@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Subject: Re: [PATCH v7 4/6] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Content-Language: en-US
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Daniel Baluta <daniel.baluta@nxp.com>, Shengjiu Wang
- <shengjiu.wang@nxp.com>, Frank Li <Frank.Li@nxp.com>,
- Marco Felsch <m.felsch@pengutronix.de>,
- Marc Kleine-Budde <mkl@pengutronix.de>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Message-ID: <59b874bf-e23b-40c4-b095-016fe6b14ed6@sirena.org.uk>
 References: <20250610160152.1113930-1-laurentiumihalcea111@gmail.com>
  <20250610160152.1113930-5-laurentiumihalcea111@gmail.com>
  <aHDNmVE23O4V4rqJ@dragon>
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <aHDNmVE23O4V4rqJ@dragon>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ <69f6a044-be90-490f-b0ad-e7867a4825da@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="giqwk26NsK1VBXtr"
+Content-Disposition: inline
+In-Reply-To: <69f6a044-be90-490f-b0ad-e7867a4825da@gmail.com>
+X-Cookie: Who messed with my anti-paranoia shot?
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_053604_777830_3F72F76A 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250801_055554_637336_88C4EB56 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +88,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--giqwk26NsK1VBXtr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On 7/11/2025 11:38 AM, Shawn Guo wrote:
-> On Tue, Jun 10, 2025 at 12:01:50PM -0400, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> AIPS5 is actually AIPSTZ5 as it offers some security-related
->> configurations. Since these configurations need to be applied before
->> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
->> be their parent instead of keeping AIPS5 and adding a child node for
->> AIPSTZ5. Also, because of the security configurations, the address space
->> of the bus has to be changed to that of the configuration registers.
->>
->> Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
->> missing 'power-domains' property. The domain needs to be powered on before
->> attempting to configure the security-related registers.
->>
->> The DT node name is not changed to avoid potential issues with DTs in
->> which this node is referenced.
->>
->> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
->> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Fri, Aug 01, 2025 at 03:36:01PM +0300, Laurentiu Mihalcea wrote:
 
-Hi Shawn and Mark,
+> How should we proceed with this? The fix for the issue reported by Alexander
+> Stein was already picked up by Shawn via [1]. We also have [2], which is meant
+> to fix the Verdin issues pointed out by Mark. However, I'm still unsure about the
+> EVK issues reported by Mark, which I was not able to reproduce on my local setup.
 
-> Patch 4 ~ 6 dropped from my tree due to the regression.
+FWIW the EVK issues are still present in -next.
 
-How should we proceed with this? The fix for the issue reported by Alexander
-Stein was already picked up by Shawn via [1]. We also have [2], which is meant
-to fix the Verdin issues pointed out by Mark. However, I'm still unsure about the
-EVK issues reported by Mark, which I was not able to reproduce on my local setup.
+--giqwk26NsK1VBXtr
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
-[1]: https://lore.kernel.org/lkml/20250707234628.164151-2-laurentiumihalcea111@gmail.com/
-[2]: https://lore.kernel.org/lkml/20250707234628.164151-3-laurentiumihalcea111@gmail.com/
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiMuVIACgkQJNaLcl1U
+h9Ddzwf7B+1qvYnmWp1lrZr/Rt+m6pRPpt7K9BLW6292BCBsvBTh9lApj7nBItkN
+Q8GNfxqVr5+tKBzyyzMj0p+0Ey//XcbAHM0y6SYHolp7t0Xarltf/4M9tFlgZWr1
+qyOixSeu4dD6bMZLRg0UkBbAi0mAlfj3yPvpfLch+t9H9kdDJZ2GjrGCErdSSjEW
+tbEonKmQ9pEcjxRw4DOeE+DvSeZ+i4nLBj0NiqMDoIIMe/Cz/uVTVDa1zlki0Qyi
+/mb74K82IA+7oRtKaKIrV0qlUg4NixhoTehWmykKG3Ihwu6NjHK+cnG+ThmdgN4T
+EdQWGyarTplqMDK7aaeRxl8Pc464bQ==
+=leE3
+-----END PGP SIGNATURE-----
 
-Thanks,
-Laurentiu
-
+--giqwk26NsK1VBXtr--
 
