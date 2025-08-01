@@ -4,55 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 734BDC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 16:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 958A0C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 16:47:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JNR+fvCqZRhwlgDMXq+xgp6kgRY0reWURl4D5BcYyjY=; b=Q0MRaGMoOvAUUzD8tVf+IL5w+W
-	LIuZVXsee4pgf0vPY/ShAiipK/BE/FRELdH55CU6sxmTMTgIyYx7XoFuWQ/4TjE11JI8MlJjdfTze
-	tmenIuWsMsTnCA0kqMfyKUI8aexb5H5ShyjecOv062yWdFyQPuDbVNr7NE7SuOX04xP6iy2WZ4cYd
-	KoUOC8pxWBf1ClwhjR76+hQ/QA6dtXoRiLPIjzC5a5NND2UXlC4e0Q7cVGXdz4fF9pTNqqfZPy4uS
-	zgZ+FLASFwGj8XwEF690tglXZlTBwCc7UVf6q3TGIUv3hf3BgRbmXEFhKMu/lGqYQZxNOr2YyBRSs
-	3AXd8/Lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cmFw3mXH/exEQe+/QLbl03MUiMl4ucnB+5XoLqj1sUc=; b=oAM5POmn7NAnHXtb5jYpRwHB5a
+	Q763Wq9hAvJ47f/SFBayPkCRV0ZnzaJ04rN5Jx2iM//KwUKfY0+E94e/mLfO4EBTesYkGe30HPZur
+	TBFJJ1/zDB92WArXIJ/i4g0b5SODAwfnsGCll00C963yCADFchktYDbaWR7pBdwZOtxQzUYJGJ884
+	rnDyzs/nnam7qUY0hY6UG5JDU7JRJ4ZCamp+WH9dg+l/k8imERYwO7PDhNPBA0eIwe1Zhm1ooIIcS
+	XRjxKY2HbQ7qtxh/fbFfORlWYdE4U/db7YL2B/qcydiRrNoE2OI+sgJgD6JEUD7ZGk4qi9eu0ID6Y
+	xFF45d/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhsRb-00000006QQj-1KDx;
-	Fri, 01 Aug 2025 16:17:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhsOy-00000006QEE-0QB6
+	id 1uhsuO-00000006T25-0Epd;
+	Fri, 01 Aug 2025 16:47:04 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhsrl-00000006SlM-1nBv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 16:14:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C71381516;
-	Fri,  1 Aug 2025 09:14:26 -0700 (PDT)
-Received: from [10.57.87.210] (unknown [10.57.87.210])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F40503F673;
-	Fri,  1 Aug 2025 09:14:32 -0700 (PDT)
-Message-ID: <737dd4f2-c48b-449d-bb37-2f7ee0eb8fcd@arm.com>
-Date: Fri, 1 Aug 2025 17:14:31 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: mm: split linear mapping if BBML2 is not
- supported on secondary CPUs
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
- dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250724221216.1998696-1-yang@os.amperecomputing.com>
- <20250724221216.1998696-5-yang@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250724221216.1998696-5-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 01 Aug 2025 16:44:22 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-31f65d519d3so3135568a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 09:44:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754066660; x=1754671460; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=cmFw3mXH/exEQe+/QLbl03MUiMl4ucnB+5XoLqj1sUc=;
+        b=M0So+0GuDbMMq8FaK9LkhUiEKnXtIyp55oZCWAkLbCkS3Y37DA4S1IBIqRijHuaXsY
+         I8aL0qpFlyl8XapIZp/zxpggHd5sbkDlNwCFQK2/Lr4+Vy+aIAynzKzQnFDnDSNk+myU
+         cCLxWxT2vyX9g5yM/co3U2ePM6jAlUZGQjGpk0P24wkaHPcC+KKIKTSKXYYqLbQm8NsG
+         vJDhdkUOYu+LR8Pnw7Mdgl01iRQYY6arVVSx5X6WSJ5Ca92zAB/pMILNfo+8MwWbbU8U
+         kkD/5IeI+vol19rLvfaOGLRfm1ppi9Z1wjbPdGMBQTvfgJHAIQdZ/9DiAGaWcLjxE5i6
+         xWdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754066660; x=1754671460;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cmFw3mXH/exEQe+/QLbl03MUiMl4ucnB+5XoLqj1sUc=;
+        b=asSxZgrv/SXNidL3V7hW6NlhLyhntmhouqaZmC/QTtcnuVIDVuaglQjxYHHF9HdRFx
+         1jkM/OjRqv2M4QyG6deSgZ+Fxyj0qxEydZqGM/LG2x8feAoPyTtiz5OIGmOgupMirYgm
+         RrOGRKPQ6V6LFzEgsuf6iJ+PL6vm6Ky7534aq6O3u4Icax+LxasTy/aH9xqAQYMEjKzo
+         YERior8yjN0IDToEMFvlr22BG80ZB4oT8igNFGR+MeuV9Feg5LJmSi2FmRLnqHgrVYjp
+         CPvL0iARnclZcja384cJn3OEHcx8XaCm3CGiiElfQsQlH0h4HFhJoWqF+/YNZl3g8vOt
+         f2bw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdfm2pKgRzHR4IR/AeKOLPNArzZjmvLeoCSDB6VTQFmgnRZ/OgRtcZDIvZCJxuchfyqMuWesgBw3wZIKUPAR2x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yydh5q6YxokJdQ/kKvix4PnA/17p56ud65SxpQn94Z3HtTFAXDL
+	6QPMbsMZiWv6Shg5jYzl8eCLGpwLSBqRetAs2td0/vrtUNsPYCqmT+/sc1LJh9U8zcQqXkoaKjZ
+	dA4lNoQ==
+X-Google-Smtp-Source: AGHT+IHTCPWlBsVY++6yRHnsFzrU+E4U0uWTRC0q7DUxzgBPU0wzo6RMGy3C5kq+eZLK/o+LJzUMjGasNMs=
+X-Received: from pjf12.prod.google.com ([2002:a17:90b:3f0c:b0:311:462d:cb60])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1812:b0:311:da03:3437
+ with SMTP id 98e67ed59e1d1-321162b44b8mr568364a91.27.1754066660052; Fri, 01
+ Aug 2025 09:44:20 -0700 (PDT)
+Date: Fri, 1 Aug 2025 09:44:18 -0700
+In-Reply-To: <b27f807e-b04f-487d-be13-74a8b0a61b42@intel.com>
+Mime-Version: 1.0
+References: <20250729193341.621487-1-seanjc@google.com> <20250729193341.621487-6-seanjc@google.com>
+ <b27f807e-b04f-487d-be13-74a8b0a61b42@intel.com>
+Message-ID: <aIzu4q_7yBmCIOWK@google.com>
+Subject: Re: [PATCH 5/5] KVM: TDX: Add sub-ioctl KVM_TDX_TERMINATE_VM
+From: Sean Christopherson <seanjc@google.com>
+To: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Vishal Annapurve <vannapurve@google.com>, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	Rick Edgecombe <rick.p.edgecombe@intel.com>, Nikolay Borisov <nik.borisov@suse.com>, 
+	Yan Y Zhao <yan.y.zhao@intel.com>, Kai Huang <kai.huang@intel.com>, 
+	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_091436_229579_764EFED2 
-X-CRM114-Status: GOOD (  45.26  )
+X-CRM114-CacheID: sfid-20250801_094421_471682_A0E0300A 
+X-CRM114-Status: GOOD (  31.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,370 +94,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2025 23:11, Yang Shi wrote:
-> The kernel linear mapping is painted in very early stage of system boot.
-> The cpufeature has not been finalized yet at this point.  So the linear
-> mapping is determined by the capability of boot CPU.  If the boot CPU
-> supports BBML2, large block mapping will be used for linear mapping.
++Chao
+
+On Fri, Aug 01, 2025, Adrian Hunter wrote:
+> On 29/07/2025 22:33, Sean Christopherson wrote:
+> > +static int tdx_terminate_vm(struct kvm *kvm)
+> > +{
+> > +	if (kvm_trylock_all_vcpus(kvm))
+> > +		return -EBUSY;
+> > +
+> > +	kvm_vm_dead(kvm);
+> > +	to_kvm_tdx(kvm)->vm_terminated = true;
+> > +
+> > +	kvm_unlock_all_vcpus(kvm);
+> > +
+> > +	tdx_mmu_release_hkid(kvm);
+> > +
+> > +	return 0;
+> > +}
 > 
-> But the secondary CPUs may not support BBML2, so repaint the linear mapping
-> if large block mapping is used and the secondary CPUs don't support BBML2
-> once cpufeature is finalized on all CPUs.
+> As I think I mentioned when removing vm_dead first came up,
+> I think we need more checks.  I spent some time going through
+> the code and came up with what is below:
 > 
-> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
-> same BBML2 capability with the boot CPU, repainting the linear mapping
-> is not needed.
+> First, we need to avoid TDX VCPU sub-IOCTLs from racing with
+> tdx_mmu_release_hkid().  But having any TDX sub-IOCTL run after
+> KVM_TDX_TERMINATE_VM raises questions of what might happen, so
+> it is much simpler to understand, if that is not possible.
+> There are 3 options:
 > 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
->  arch/arm64/include/asm/mmu.h   |   6 +-
->  arch/arm64/kernel/cpufeature.c |   8 ++
->  arch/arm64/mm/mmu.c            | 173 +++++++++++++++++++++++++++------
->  arch/arm64/mm/pageattr.c       |   2 +-
->  arch/arm64/mm/proc.S           |  57 ++++++++---
->  5 files changed, 196 insertions(+), 50 deletions(-)
+> 1. Require that KVM_TDX_TERMINATE_VM is valid only if
+> kvm_tdx->state == TD_STATE_RUNNABLE.  Since currently all
+> the TDX sub-IOCTLs are for initialization, that would block
+> the opportunity for any to run after KVM_TDX_TERMINATE_VM.
 > 
-> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-> index 57f4b25e6f33..9bf50e8897e2 100644
-> --- a/arch/arm64/include/asm/mmu.h
-> +++ b/arch/arm64/include/asm/mmu.h
-> @@ -56,6 +56,8 @@ typedef struct {
->   */
->  #define ASID(mm)	(atomic64_read(&(mm)->context.id) & 0xffff)
->  
-> +extern bool linear_map_requires_bbml2;
+> 2. Check vm_terminated in tdx_vm_ioctl() and tdx_vcpu_ioctl()
+> 
+> 3. Test KVM_REQ_VM_DEAD in tdx_vm_ioctl() and tdx_vcpu_ioctl()
+> 
+> [ Note cannot check is_hkid_assigned() because that is racy ]
+> 
+> Secondly, I suggest we avoid SEAMCALLs that will fail and
+> result in KVM_BUG_ON() if HKID has been released.
+> 
+> There are 2 groups of those: MMU-related and TDVPS_ACCESSORS.
+> 
+> For the MMU-related, the following 2 functions should return
+> an error immediately if vm_terminated:
+> 
+> 	tdx_sept_link_private_spt()
+> 	tdx_sept_set_private_spte()
+> 
+> For that not be racy, extra synchronization is needed so that
+> vm_terminated can be reliably checked when holding mmu lock
+> i.e.
+> 
+> static int tdx_terminate_vm(struct kvm *kvm)
+> {
+> 	if (kvm_trylock_all_vcpus(kvm))
+> 		return -EBUSY;
+> 
+> 	kvm_vm_dead(kvm);
 > +
->  static inline bool arm64_kernel_unmapped_at_el0(void)
->  {
->  	return alternative_has_cap_unlikely(ARM64_UNMAP_KERNEL_AT_EL0);
-> @@ -71,7 +73,9 @@ extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
->  			       pgprot_t prot, bool page_mappings_only);
->  extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
->  extern void mark_linear_text_alias_ro(void);
-> -extern int split_kernel_pgtable_mapping(unsigned long start, unsigned long end);
-> +extern int split_kernel_pgtable_mapping(unsigned long start, unsigned long end,
-> +					unsigned int flags);
-> +extern int linear_map_split_to_ptes(void *__unused);
->  
->  /*
->   * This check is triggered during the early boot before the cpufeature
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 1c96016a7a41..23c01d679c40 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -85,6 +85,7 @@
->  #include <asm/insn.h>
->  #include <asm/kvm_host.h>
->  #include <asm/mmu_context.h>
-> +#include <asm/mmu.h>
->  #include <asm/mte.h>
->  #include <asm/hypervisor.h>
->  #include <asm/processor.h>
-> @@ -2009,6 +2010,12 @@ static int __init __kpti_install_ng_mappings(void *__unused)
->  	return 0;
->  }
->  
-> +static void __init linear_map_maybe_split_to_ptes(void)
-> +{
-> +	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort())
-> +		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
-> +}
-> +
->  static void __init kpti_install_ng_mappings(void)
->  {
->  	/* Check whether KPTI is going to be used */
-> @@ -3855,6 +3862,7 @@ void __init setup_system_features(void)
->  {
->  	setup_system_capabilities();
->  
-> +	linear_map_maybe_split_to_ptes();
->  	kpti_install_ng_mappings();
->  
->  	sve_setup();
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index f63b39613571..22f2d0869fdd 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -482,11 +482,11 @@ void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
->  
->  #define INVALID_PHYS_ADDR	-1
->  
+> +       write_lock(&kvm->mmu_lock);
+> 	to_kvm_tdx(kvm)->vm_terminated = true;
+> +       write_unlock(&kvm->mmu_lock);
+> 
+> 	kvm_unlock_all_vcpus(kvm);
+> 
+> 	tdx_mmu_release_hkid(kvm);
+> 
+> 	return 0;
+> }
+> 
+> Finally, there are 2 TDVPS_ACCESSORS that need avoiding:
+> 
+> 	tdx_load_mmu_pgd()
+> 		skip td_vmcs_write64() if vm_terminated
+> 
+> 	tdx_protected_apic_has_interrupt()
+> 		skip td_state_non_arch_read64() if vm_terminated
 
-[...]
+Oof.  And as Chao pointed out[*], removing the vm_dead check would allow creating
+and running vCPUs in a dead VM, which is most definitely not desirable.  Squashing
+the vCPU creation case is easy enough if we keep vm_dead but still generally allow
+ioctls, and it's probably worth doing that no matter what (to plug the hole where
+pending vCPU creations could succeed):
 
-I'll review the actual walker separately (I've run out of time today).
-
-
->  
-> +extern u32 repaint_done;
-> +
-> +int __init linear_map_split_to_ptes(void *__unused)
-> +{
-> +	typedef void (repaint_wait_fn)(void);
-> +	extern repaint_wait_fn bbml2_wait_for_repainting;
-> +	repaint_wait_fn *wait_fn;
-> +
-> +	int cpu = smp_processor_id();
-> +
-> +	wait_fn = (void *)__pa_symbol(bbml2_wait_for_repainting);
-> +
-> +	/*
-> +	 * Repainting just can be run on CPU 0 because we just can be sure
-> +	 * CPU 0 supports BBML2.
-> +	 */
-> +	if (!cpu) {
-> +		phys_addr_t kernel_start = __pa_symbol(_stext);
-> +		phys_addr_t kernel_end = __pa_symbol(__init_begin);
-> +		phys_addr_t start, end;
-> +		unsigned long vstart, vend;
-> +		int flags = NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
-> +		u64 i;
-> +		int ret;
-> +
-> +		/*
-> +		 * Wait for all secondary CPUs get prepared for repainting
-> +		 * the linear mapping.
-> +		 */
-> +		smp_cond_load_acquire(&repaint_done, VAL == num_online_cpus());
-
-Is this correct? I would have thought the primary is waiting for the
-secondaries, so "VAL == num_online_cpus() - 1" ?
-
-> +
-> +		memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
-> +		/* Split the whole linear mapping */
-> +		for_each_mem_range(i, &start, &end) {
-
-I think I asked this in the last round; but I just want to double check;
-memblock is definitely still valid here and we are definitely going to get
-exactly the same regions out as we did in map_mem()? I wonder if it's possible
-between then and now that some other component has reserved some memory? In that
-case we wouldn't walk that region?
-
-Perhaps it would be safer (and simpler) to just walk all of [PAGE_OFFSET,
-_stext) and [__init_begin, PAGE_END) and ignore the holes?
-
-> +			if (start >= end)
-> +				return -EINVAL;
-> +
-> +			vstart = __phys_to_virt(start);
-> +			vend = __phys_to_virt(end);
-> +			ret = split_kernel_pgtable_mapping(vstart, vend, flags);
-> +			if (ret)
-> +				panic("Failed to split linear mappings\n");
-> +
-> +			flush_tlb_kernel_range(vstart, vend);
-> +		}
-> +		memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
-> +
-> +		/*
-> +		 * Relies on dsb in flush_tlb_kernel_range() to avoid
-> +		 * reordering before any page table split operations.
-> +		 */
-> +		WRITE_ONCE(repaint_done, 0);
-> +	} else {
-> +		/*
-> +		 * The secondary CPUs can't run in the same address space
-> +		 * with CPU 0 because accessing the linear mapping address
-> +		 * when CPU 0 is repainting it is not safe.
-> +		 *
-> +		 * Let the secondary CPUs run busy loop in idmap address
-> +		 * space when repainting is ongoing.
-> +		 */
-> +		cpu_install_idmap();
-> +		wait_fn();
-> +		cpu_uninstall_idmap();
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  #ifdef CONFIG_KFENCE
->  
->  bool __ro_after_init kfence_early_init = !!CONFIG_KFENCE_SAMPLE_INTERVAL;
-> @@ -1079,7 +1174,8 @@ void __pi_map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
->  		    int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
->  
->  static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
-> -	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
-> +	  kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init,
-> +	  bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE) __ro_after_init;
->  
->  static void __init create_idmap(void)
->  {
-> @@ -1104,6 +1200,19 @@ static void __init create_idmap(void)
->  			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->  			       __phys_to_virt(ptep) - ptep);
->  	}
-> +
-> +	/*
-> +	 * Setup idmap mapping for repaint_done flag.  It will be used if
-> +	 * repainting the linear mapping is needed later.
-> +	 */
-> +	if (linear_map_requires_bbml2) {
-> +		u64 pa = __pa_symbol(&repaint_done);
-> +		ptep = __pa_symbol(bbml2_ptes);
-> +
-> +		__pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
-> +			       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
-> +			       __phys_to_virt(ptep) - ptep);
-> +	}
->  }
->  
->  void __init paging_init(void)
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 6566aa9d8abb..4471d7e510a1 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -140,7 +140,7 @@ static int update_range_prot(unsigned long start, unsigned long size,
->  	data.set_mask = set_mask;
->  	data.clear_mask = clear_mask;
->  
-> -	ret = split_kernel_pgtable_mapping(start, start + size);
-> +	ret = split_kernel_pgtable_mapping(start, start + size, 0);
->  	if (WARN_ON_ONCE(ret))
->  		return ret;
->  
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index 80d470aa469d..f0f9c49a4466 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -239,6 +239,25 @@ SYM_FUNC_ALIAS(__pi_idmap_cpu_replace_ttbr1, idmap_cpu_replace_ttbr1)
->  	dsb	nshst
->  	.endm
->  
-> +	.macro wait_for_boot_cpu, tmp1, tmp2, tmp3, tmp4
-> +	/* Increment the flag to let the boot CPU know we're ready */
-> +1:	ldxr	\tmp3, [\tmp2]
-> +	add	\tmp3, \tmp3, #1
-> +	stxr	\tmp4, \tmp3, [\tmp2]
-> +	cbnz	\tmp4, 1b
-> +
-> +	/* Wait for the boot CPU to finish its job */
-> +	sevl
-> +1:	wfe
-> +	ldxr	\tmp3, [\tmp2]
-> +	cbnz	\tmp3, 1b
-> +
-> +	/* All done, act like nothing happened */
-> +	msr	ttbr1_el1, \tmp1
-> +	isb
-> +	ret
-> +	.endm
-
-You've defined the macro within "#ifdef CONFIG_UNMAP_KERNEL_AT_EL0" but then
-need to use it outside of that scope.
-
-But I don't think this needs to be a macro; I think it would be better as a
-function (as I suggested in the last round). Then the text only needs to appear
-once in the image and it can be used from both places (see below).
-
-> +
->  /*
->   * void __kpti_install_ng_mappings(int cpu, int num_secondaries, phys_addr_t temp_pgd,
->   *				   unsigned long temp_pte_va)
-> @@ -416,29 +435,35 @@ alternative_else_nop_endif
->  __idmap_kpti_secondary:
->  	/* Uninstall swapper before surgery begins */
->  	__idmap_cpu_set_reserved_ttbr1 x16, x17
-> +	wait_for_boot_cpu swapper_ttb, flag_ptr, w16, w17
->  
-> -	/* Increment the flag to let the boot CPU we're ready */
-> -1:	ldxr	w16, [flag_ptr]
-> -	add	w16, w16, #1
-> -	stxr	w17, w16, [flag_ptr]
-> -	cbnz	w17, 1b
-> +	.unreq	swapper_ttb
-> +	.unreq	flag_ptr
-> +SYM_FUNC_END(idmap_kpti_install_ng_mappings)
-> +	.popsection
-> +#endif
->  
-> -	/* Wait for the boot CPU to finish messing around with swapper */
-> -	sevl
-> -1:	wfe
-> -	ldxr	w16, [flag_ptr]
-> -	cbnz	w16, 1b
-> +/*
-> + * Wait for repainting is done. Run on secondary CPUs
-> + * only.
-> + */
-> +	.pushsection	".data", "aw", %progbits
-> +SYM_DATA(repaint_done, .long 1)
-> +	.popsection
->  
-> -	/* All done, act like nothing happened */
-> -	msr	ttbr1_el1, swapper_ttb
-> -	isb
-> -	ret
-> +	.pushsection ".idmap.text", "a"
-> +SYM_TYPED_FUNC_START(bbml2_wait_for_repainting)
-> +	swapper_ttb	.req	x0
-> +	flag_ptr	.req	x1
-> +	mrs     swapper_ttb, ttbr1_el1
-> +	adr_l   flag_ptr, repaint_done
-> +	__idmap_cpu_set_reserved_ttbr1 x16, x17
-> +	wait_for_boot_cpu swapper_ttb, flag_ptr, w16, w17
->  
->  	.unreq	swapper_ttb
->  	.unreq	flag_ptr
-> -SYM_FUNC_END(idmap_kpti_install_ng_mappings)
-> +SYM_FUNC_END(bbml2_wait_for_repainting)
->  	.popsection
-> -#endif
-
-How about this instead?
-
----8<---
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index 8c75965afc9e..a116b2b8ad59 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -416,8 +416,30 @@ alternative_else_nop_endif
- __idmap_kpti_secondary:
- 	/* Uninstall swapper before surgery begins */
- 	__idmap_cpu_set_reserved_ttbr1 x16, x17
-+	b scondary_cpu_wait
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index d477a7fda0ae..941d2c32b7dc 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4207,6 +4207,11 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+ 
+        mutex_lock(&kvm->lock);
+ 
++       if (kvm->vm_dead) {
++               r = -EIO;
++               goto unlock_vcpu_destroy;
++       }
 +
-+	.unreq	swapper_ttb
-+	.unreq	flag_ptr
-+SYM_FUNC_END(idmap_kpti_install_ng_mappings)
-+	.popsection
-+#endif
+        if (kvm_get_vcpu_by_id(kvm, id)) {
+                r = -EEXIST;
+                goto unlock_vcpu_destroy;
+
+And then to ensure vCPUs can't do anything, check KVM_REQ_VM_DEAD after acquiring
+vcpu->mutex.
+
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 6c07dd423458..883077eee4ce 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4433,6 +4433,12 @@ static long kvm_vcpu_ioctl(struct file *filp,
+ 
+        if (mutex_lock_killable(&vcpu->mutex))
+                return -EINTR;
 +
-+	.pushsection	".data", "aw", %progbits
-+SYM_DATA(repaint_done, .long 1)
-+	.popsection
++       if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu)) {
++               r = -EIO;
++               goto out;
++       }
 +
-+	.pushsection ".idmap.text", "a"
-+SYM_TYPED_FUNC_START(bbml2_wait_for_repainting)
-+	/* Must be same registers as in idmap_kpti_install_ng_mappings */
-+	swapper_ttb	.req	x3
-+	flag_ptr	.req	x4
-+
-+	mrs     swapper_ttb, ttbr1_el1
-+	adr_l   flag_ptr, repaint_done
-+	__idmap_cpu_set_reserved_ttbr1 x16, x17
+        switch (ioctl) {
+        case KVM_RUN: {
+                struct pid *oldpid;
 
- 	/* Increment the flag to let the boot CPU we're ready */
-+scondary_cpu_wait:
- 1:	ldxr	w16, [flag_ptr]
- 	add	w16, w16, #1
- 	stxr	w17, w16, [flag_ptr]
-@@ -436,9 +458,8 @@ __idmap_kpti_secondary:
 
- 	.unreq	swapper_ttb
- 	.unreq	flag_ptr
--SYM_FUNC_END(idmap_kpti_install_ng_mappings)
-+SYM_FUNC_END(bbml2_wait_for_repainting)
- 	.popsection
--#endif
+That should address all TDVPS paths (I hope), and I _think_ would address all
+MMU-related paths as well?  E.g. prefault requires a vCPU.
 
- /*
-  *	__cpu_setup
----8<---
+Disallowing (most) vCPU ioctls but not all VM ioctls on vm_dead isn't great ABI
+(understatement), but I think we need/want the above changes even if we keep the
+general vm_dead restriction.  And given the extremely ad hoc behavior of taking
+kvm->lock for VM ioctls, trying to enforce vm_dead for "all" VM ioctls seems like
+a fool's errand.
 
-Thanks,
-Ryan
+So I'm leaning toward keeping "KVM: Reject ioctls only if the VM is bugged, not
+simply marked dead" (with a different shortlog+changelog), but keeping vm_dead
+(and not introducing kvm_tdx.vm_terminated).
 
+Thoughts?
+
+[*] https://lore.kernel.org/all/aIlzeT+yFG2Tvb3%2F@intel.com
 
