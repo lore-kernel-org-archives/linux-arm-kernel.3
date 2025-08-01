@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B74CCC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8010C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGqJwcIIXGX6gPFmMrFyOlEh3bYkZD3CtGlIUbK7Bvs=; b=BGEIr4WmI5OMKO4qj+GcWxcQ9L
-	l2izOHR/jnDxp6cO1u8ix9hlkAu9/jzHoZ0BvHbRMU9sPlGN3ohrGi7PiGxTI1KBA33Orh6I7YRJ5
-	7s8tfKZHpI3T+2AKLZHZ+sn1TuKc63/j0IEsj4DI/evWcGrsA2qNHLWofmIhIuYFp3Obd6BuNK+Xp
-	KZUp1ulbTP5WvLGf1bX/cscQFmCLLUtEx1EArM1EnXZqQ1xpNd9TcAp0IC1hExhpc9tqc2O8t9SB6
-	gd0CoB0etPph7EuJN5tVScQugW7cgSq139Xq9JgpaDyVnBXXTbDGl3MxLlFAIS/AZQSaAWx5oNNxQ
-	pdTSi13g==;
+	bh=Ova+vNI28FPI82CeUH4i8eEwaxh8Bm7iD+PyNauGWGA=; b=c1Lbqr2lutvnbvEf7yDqiA3dkX
+	x+ESpypGOt1Y8chMl7Lc0hxfnVc/lJbOdut3r8LhykFTGqS4qXEXOI5QTe7lELVSVPS++GTinEh6z
+	m6nZE0CWBPjrBolLj/AtC12SGFNGpEyk4pT/tS221dCze5CMVMZDY1T6ifvcXmm1Ji/D15RRl/4MA
+	EY+m+bF5Fz2FA81Kq1K8gP4AA+l9ErRNTBrtMYKQw55AK+5gXRm03wtcqqkbQnz3F1aXORtLDCHqp
+	hU7Ynn+lI3MAnSpNAInTr07pFcqyAVTvBA/i/05vg1yxEPQXEZ5AZHZs4H+gaUU4KKJenRK8ePF+r
+	v25s+vZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhmG0-00000005OIV-39Pd;
-	Fri, 01 Aug 2025 09:40:56 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1uhmIY-00000005OSl-2UCK;
+	Fri, 01 Aug 2025 09:43:34 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhm3n-00000005MkP-2vOc
+	id 1uhm4o-00000005MwC-1lT7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 09:28:20 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3b78c983014so8998f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 02:28:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754040498; x=1754645298; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=sGqJwcIIXGX6gPFmMrFyOlEh3bYkZD3CtGlIUbK7Bvs=;
-        b=d0QQERtwczozt+NHLeO6DIP9WsUjw5KRRW8VMFlaxB0+GJqdZBeN3Nysze65QRUD1u
-         WSpPRCLhFiPjm//EsuqB+UN10nrC/ZPG4zDsskh5zqfzFdqPucYq2gI+AbD/KzdkAoFE
-         ghFSFhmn6WKdw+xYPZiVxoNjwmhfwjAmF+nNWbPmQAya4/b8WHFYbjx3xbp0CSf/QWiQ
-         Ge3kg7oYTTeZEBkNRAV4aEszXsy896E4+aRHHhVSguIWFYgMv3RoKSlboIyh3aT4pY6E
-         ElniSfoDv0ajyQWkB3Xp1z3EIagb4ITj97R1fOaKzpcEXv+fa5speWCakIE0EMTln9kO
-         hidg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754040498; x=1754645298;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=sGqJwcIIXGX6gPFmMrFyOlEh3bYkZD3CtGlIUbK7Bvs=;
-        b=l2pgxTCoe25xXN5XCq/AjaD+HWpqUJbBCYwXukpqGvFFEngFqy/FG9Qosv/oy56NlV
-         E1KKI6Zk8rEm/GNBwWLa8UZAfj0/ptnZTeBzP66q4Zt8dRiaMOM+T57pz8YQBk0d9pij
-         /gtvbnoN5AfD3SLzc/yvdXfnhArGUNXo4g/2uj+8ZVlFyC+ySO/jLBdcBmocLAsbn2Xt
-         61m6g3JNMN+xvvNIiWdK67mGQQGuAKDu/qYQAcbfAq4gkZ5EU3E2XwLR43tCwBC4o+gv
-         GRrnqp++q3W57it2Q5hjUNWkeWAhsydt1FW6exqlinFMmVcQl9i7lyPi8MqKhhx9k1Gb
-         9S3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW/96gBNp10/YOXEXzKGI8Ou9NLL4i9OSUSiHPDXcHTqN3u762XVsirFklXT/4hl6ANHoibegr3cSwkdnOPNt5t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yymv9Y7b4E6aTv3FlV50aNx52aQmcSjMrVT48U/nAIbFfHPgwIa
-	ByK+05ztYtBBKQcbcMW9138KKPGeW2lxpPduHODzf6YvhghzugIby+cV4z+Dk6vH80vfuneAGti
-	mHFWFPrZpMDkIhgdpuA==
-X-Google-Smtp-Source: AGHT+IGuGJWlXT1GgrSFR5jnLb7A8Xwc1RjU3pAVlVHHLd9Rq5DVeyg7S8YW7qeBp1u7A9f0qGgaXcOFCxNv/1A=
-X-Received: from wmsp28.prod.google.com ([2002:a05:600c:1d9c:b0:456:1518:6d6e])
- (user=verhaegen job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:40df:b0:3b8:d5cb:ae1c with SMTP id ffacd0b85a97d-3b8d5cbb0dfmr948024f8f.28.1754040497655;
- Fri, 01 Aug 2025 02:28:17 -0700 (PDT)
-Date: Fri,  1 Aug 2025 10:27:16 +0100
-In-Reply-To: <20250801092720.1845282-1-verhaegen@google.com>
-Mime-Version: 1.0
-References: <20250801092720.1845282-1-verhaegen@google.com>
-X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250801092720.1845282-4-verhaegen@google.com>
-Subject: [PATCH v4 3/3] ALSA: compress_offload: Add SNDRV_COMPRESS_AVAIL64 ioctl
-From: Joris Verhaegen <verhaegen@google.com>
-To: Vinod Koul <vkoul@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Cezary Rojewski <cezary.rojewski@intel.com>, Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-	Bard Liao <yung-chuan.liao@linux.intel.com>, 
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Joris Verhaegen <verhaegen@google.com>, kernel-team@android.com, 
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org, 
-	sound-open-firmware@alsa-project.org, linux-arm-kernel@lists.infradead.org, 
-	Miller Liang <millerliang@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 01 Aug 2025 09:29:23 +0000
+Date: Fri, 1 Aug 2025 11:29:14 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1754040556;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ova+vNI28FPI82CeUH4i8eEwaxh8Bm7iD+PyNauGWGA=;
+	b=nJjz5eXA3X2ChMFpvoQzS3IZ2f6/shakOjreJFg1B91MTBn0QBf3PmDM/Cbx+/lEx/Bqwa
+	Xf7OsqF4T2FdJ10xKGDxVzRhKYThHWHIZUiqiMIuxQmwKsdLBeAg8PoWCdxm4RhDzPouIH
+	+mKqwC4I+K4uuc10vt37nSznSRv+o1twaQWPxKHLyKTW6Oob+oDztMMfjbrqbMz4Z/5fNq
+	48hYnr0qLdpu4lvZWgNsNAmGZmKvognSMAf+yhlIFNQLHcTB0SETrNvwMLpDrSlKaWzwm2
+	bwVgMm3/saJzeWaSgZxDdhRbWOITnivatH4ehQlVg6zbEfA56gbFrJxuTOHZZw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1754040556;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ova+vNI28FPI82CeUH4i8eEwaxh8Bm7iD+PyNauGWGA=;
+	b=327q2dIM7AHakBddR0i7X0tidlD4HhV2QL29/7LGORZKj1I3BhEhcMGrjfMqsYOIs6rpEc
+	HgPIZkqQYxSVpvDA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Jocelyn Falempe <jfalempe@redhat.com>
+Cc: Andrei Lalaev <andrey.lalaev@gmail.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Christian Schrefl <chrisi.schrefl@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
+	Paolo Bonzini <pbonzini@redhat.com>, rust-for-linux <rust-for-linux@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Javier Martinez Canillas <javierm@redhat.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2] drm/panic: Add a u64 divide by 10 for arm32
+Message-ID: <20250801111922-3af19987-9141-47a7-b67a-d10ac091ce2e@linutronix.de>
+References: <20250627123854.921704-1-jfalempe@redhat.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250627123854.921704-1-jfalempe@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_022819_741743_E0293784 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20250801_022922_601948_B012BED0 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,149 +81,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The previous patch introduced a 64-bit timestamp ioctl
-(SNDRV_COMPRESS_TSTAMP64). To provide a consistent API, this patch
-adds a corresponding 64-bit version of the SNDRV_COMPRESS_AVAIL ioctl.
+On Fri, Jun 27, 2025 at 02:38:19PM +0200, Jocelyn Falempe wrote:
+> On 32bits ARM, u64 divided by a constant is not optimized to a
+> multiply by inverse by the compiler [1].
+> So do the multiply by inverse explicitly for this architecture.
+> 
+> Link: https://github.com/llvm/llvm-project/issues/37280 [1]
+> Reported-by: Andrei Lalaev <andrey.lalaev@gmail.com>
+> Closes: https://lore.kernel.org/dri-devel/c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com/
+> Fixes: 675008f196ca ("drm/panic: Use a decimal fifo to avoid u64 by u64 divide")
+> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
+> ---
+>  drivers/gpu/drm/drm_panic_qr.rs | 22 +++++++++++++++++++++-
+>  1 file changed, 21 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
+> index dd55b1cb764d..774a17de4f2f 100644
+> --- a/drivers/gpu/drm/drm_panic_qr.rs
+> +++ b/drivers/gpu/drm/drm_panic_qr.rs
+> @@ -381,6 +381,26 @@ struct DecFifo {
+>      len: usize,
+>  }
+>  
+> +// On arm32 architecture, dividing an `u64` by a constant will generate a call
+> +// to `__aeabi_uldivmod` which is not present in the kernel.
+> +// So use the multiply by inverse method for this architecture.
 
-A new struct snd_compr_avail64 is added to the UAPI, which includes
-the 64-bit timestamp. The existing ioctl implementation is refactored
-to handle both the 32-bit and 64-bit variants.
+I think the problem here is the u64 by u64 division. u64 by u32 should work.
+Unfortunately Rust doesn't seem to have a way to perform a mixed-type division.
+We already have optimized C/ASM helpers for u64 divisions. For example
+div_u64() does such an u64 by u32 division.
+While it may be slower than the inverse multiplication, it is less code, easier
+to understand and will work for all architectures automatically.
 
-Reviewed-by: Miller Liang <millerliang@google.com>
-Tested-by: Joris Verhaegen <verhaegen@google.com>
-Signed-off-by: Joris Verhaegen <verhaegen@google.com>
----
- include/uapi/sound/compress_offload.h | 11 +++++++
- sound/core/compress_offload.c         | 45 +++++++++++++++++----------
- 2 files changed, 40 insertions(+), 16 deletions(-)
-
-diff --git a/include/uapi/sound/compress_offload.h b/include/uapi/sound/compress_offload.h
-index 70b8921601f9..26f756cc2e62 100644
---- a/include/uapi/sound/compress_offload.h
-+++ b/include/uapi/sound/compress_offload.h
-@@ -84,6 +84,16 @@ struct snd_compr_avail {
- 	struct snd_compr_tstamp tstamp;
- } __attribute__((packed, aligned(4)));
- 
-+/**
-+ * struct snd_compr_avail64 - avail descriptor with tstamp in 64 bit format
-+ * @avail: Number of bytes available in ring buffer for writing/reading
-+ * @tstamp: timestamp information
-+ */
-+struct snd_compr_avail64 {
-+	__u64 avail;
-+	struct snd_compr_tstamp64 tstamp;
-+} __attribute__((packed, aligned(4)));
-+
- enum snd_compr_direction {
- 	SND_COMPRESS_PLAYBACK = 0,
- 	SND_COMPRESS_CAPTURE,
-@@ -231,6 +241,7 @@ struct snd_compr_task_status {
- #define SNDRV_COMPRESS_TSTAMP		_IOR('C', 0x20, struct snd_compr_tstamp)
- #define SNDRV_COMPRESS_AVAIL		_IOR('C', 0x21, struct snd_compr_avail)
- #define SNDRV_COMPRESS_TSTAMP64		_IOR('C', 0x22, struct snd_compr_tstamp64)
-+#define SNDRV_COMPRESS_AVAIL64		_IOR('C', 0x23, struct snd_compr_avail64)
- #define SNDRV_COMPRESS_PAUSE		_IO('C', 0x30)
- #define SNDRV_COMPRESS_RESUME		_IO('C', 0x31)
- #define SNDRV_COMPRESS_START		_IO('C', 0x32)
-diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
-index 445220fdb6a0..4d3cf49c0c47 100644
---- a/sound/core/compress_offload.c
-+++ b/sound/core/compress_offload.c
-@@ -203,13 +203,10 @@ static int snd_compr_update_tstamp(struct snd_compr_stream *stream,
- }
- 
- static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
--		struct snd_compr_avail *avail)
-+				   struct snd_compr_avail64 *avail)
- {
--	struct snd_compr_tstamp64 tstamp64 = { 0 };
--
- 	memset(avail, 0, sizeof(*avail));
--	snd_compr_update_tstamp(stream, &tstamp64);
--	snd_compr_tstamp32_from_64(&avail->tstamp, &tstamp64);
-+	snd_compr_update_tstamp(stream, &avail->tstamp);
- 	/* Still need to return avail even if tstamp can't be filled in */
- 
- 	if (stream->runtime->total_bytes_available == 0 &&
-@@ -233,32 +230,47 @@ static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
- 	}
- 
- 	avail->avail = stream->runtime->total_bytes_available -
--			stream->runtime->total_bytes_transferred;
-+		       stream->runtime->total_bytes_transferred;
- 	if (stream->direction == SND_COMPRESS_PLAYBACK)
- 		avail->avail = stream->runtime->buffer_size - avail->avail;
- 
--	pr_debug("ret avail as %llu\n", avail->avail);
-+	pr_debug("ret avail as %zu\n", (size_t)avail->avail);
- 	return avail->avail;
- }
- 
- static inline size_t snd_compr_get_avail(struct snd_compr_stream *stream)
- {
--	struct snd_compr_avail avail;
-+	struct snd_compr_avail64 avail;
- 
- 	return snd_compr_calc_avail(stream, &avail);
- }
- 
--static int
--snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
-+static void snd_compr_avail32_from_64(struct snd_compr_avail *avail32,
-+				      const struct snd_compr_avail64 *avail64)
- {
--	struct snd_compr_avail ioctl_avail;
-+	avail32->avail = avail64->avail;
-+	snd_compr_tstamp32_from_64(&avail32->tstamp, &avail64->tstamp);
-+}
-+
-+static int snd_compr_ioctl_avail(struct snd_compr_stream *stream,
-+				 unsigned long arg, bool is_32bit)
-+{
-+	struct snd_compr_avail64 ioctl_avail64;
-+	struct snd_compr_avail ioctl_avail32;
- 	size_t avail;
-+	const void *copy_from = &ioctl_avail64;
-+	size_t copy_size = sizeof(ioctl_avail64);
- 
- 	if (stream->direction == SND_COMPRESS_ACCEL)
- 		return -EBADFD;
- 
--	avail = snd_compr_calc_avail(stream, &ioctl_avail);
--	ioctl_avail.avail = avail;
-+	avail = snd_compr_calc_avail(stream, &ioctl_avail64);
-+	ioctl_avail64.avail = avail;
-+	if (is_32bit) {
-+		snd_compr_avail32_from_64(&ioctl_avail32, &ioctl_avail64);
-+		copy_from = &ioctl_avail32;
-+		copy_size = sizeof(ioctl_avail32);
-+	}
- 
- 	switch (stream->runtime->state) {
- 	case SNDRV_PCM_STATE_OPEN:
-@@ -269,8 +281,7 @@ snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
- 		break;
- 	}
- 
--	if (copy_to_user((__u64 __user *)arg,
--				&ioctl_avail, sizeof(ioctl_avail)))
-+	if (copy_to_user((__u64 __user *)arg, copy_from, copy_size))
- 		return -EFAULT;
- 	return 0;
- }
-@@ -1336,7 +1347,9 @@ static long snd_compr_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
- 	case SNDRV_COMPRESS_TSTAMP64:
- 		return snd_compr_tstamp(stream, arg, false);
- 	case SNDRV_COMPRESS_AVAIL:
--		return snd_compr_ioctl_avail(stream, arg);
-+		return snd_compr_ioctl_avail(stream, arg, true);
-+	case SNDRV_COMPRESS_AVAIL64:
-+		return snd_compr_ioctl_avail(stream, arg, false);
- 	case SNDRV_COMPRESS_PAUSE:
- 		return snd_compr_pause(stream);
- 	case SNDRV_COMPRESS_RESUME:
--- 
-2.50.1.565.gc32cd1483b-goog
-
+> +fn div10(val: u64) -> u64 {
+> +    if cfg!(target_arch = "arm") {
+> +        let val_h = val >> 32;
+> +        let val_l = val & 0xFFFFFFFF;
+> +        let b_h: u64 = 0x66666666;
+> +        let b_l: u64 = 0x66666667;
+> +
+> +        let tmp1 = val_h * b_l + ((val_l * b_l) >> 32);
+> +        let tmp2 = val_l * b_h + (tmp1 & 0xffffffff);
+> +        let tmp3 = val_h * b_h + (tmp1 >> 32) + (tmp2 >> 32);
+> +
+> +        tmp3 >> 2
+> +    } else {
+> +        val / 10
+> +    }
+> +}
+> +
+>  impl DecFifo {
+>      fn push(&mut self, data: u64, len: usize) {
+>          let mut chunk = data;
+> @@ -389,7 +409,7 @@ fn push(&mut self, data: u64, len: usize) {
+>          }
+>          for i in 0..len {
+>              self.decimals[i] = (chunk % 10) as u8;
+> -            chunk /= 10;
+> +            chunk = div10(chunk);
+>          }
+>          self.len += len;
+>      }
+> 
+> base-commit: 3529cb5ab16b4f1f8bbc31dc39a1076a94bd1e38
+> -- 
+> 2.49.0
+> 
 
