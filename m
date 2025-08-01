@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3ADC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 13:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF755C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 13:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C/3MvqdjEhC5o2f9KOMcoirJNYMMMKT7N0AoP02oEYg=; b=yYl1diy0SEHmu49zJpt4YMbi1x
-	2VZ3tCOprgme99DkZDrkJbMGFNIGYKSJi2AAZRt93aJZqLYD5r8+BvE2g3krCFNWV1Dcl/bV1dzrY
-	x1V0UR1graGP2TVNLy4IleNJ+3ThzZXVMzIS7VEk3v5GeZ50fOES1zbYN38Rwnw0IcLV0JWA7zXXN
-	stGxyMZBxr+v2RvDSIGls4jacVjbPtDdKBk/UV4RseTHhsWiwQPrljz3Xb6G8FTAStgQKsjNi0ilI
-	SxbbEOEuULP8C0cWyfzVqtgfPqb0xvMh7SouI8ti9YC80Caw0Ar2Exl/5P1EktfRS5iRtgmdikmyM
-	E5g8RyQw==;
+	bh=UCfFfYLLacgTiqtgVh9KyngzJu3Ciuc4AtiXszph8Zo=; b=GSIaBwn69yBbZaIGBmLOjEgnZi
+	3J+eV9n9UTLZnE7DglKYPDVlSRpjYvu3xnW4YU/mOXGk8Ve+hE/e9ZkA3ZUjFpnp7OcCxfMziNCqW
+	Eybd6aCzfOUlZFbwtVQ4x1zGvv08Klf3NHSuhAPOTvGW7CKOKXYu9p5uxHEIt2WJnCBiWOO4CA6Lz
+	s9FJ5b3Dm+z77naNq141MLWZsfVNRWH655HcUIHhmUgqxUf8j5sEO3avi0LtcN6/w3yfEmszdvLvm
+	9tEwn9gIfWjMDnqeWBx9vR9C1NAWMuu1AXAKJJaq78OrOrabgcC1CLikvH/N9PGqZUZTlTbFVDAt3
+	WTFhBsqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhpTl-000000063mA-3GKw;
-	Fri, 01 Aug 2025 13:07:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uhpTm-000000063n8-3q0S;
+	Fri, 01 Aug 2025 13:07:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhoon-00000005ruL-2odD
+	id 1uhoqV-00000005tDi-2SJX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 12:25:03 +0000
+	Fri, 01 Aug 2025 12:26:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E7DEC5C657B;
-	Fri,  1 Aug 2025 12:25:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92D25C4CEE7;
-	Fri,  1 Aug 2025 12:25:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E7F7B43680;
+	Fri,  1 Aug 2025 12:26:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C47EEC4CEE7;
+	Fri,  1 Aug 2025 12:26:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754051100;
-	bh=ScBtPaSyjBJan+XQp6qnhcf8FtIx624ZaaqenfKe1wc=;
+	s=k20201202; t=1754051206;
+	bh=54omA8gQjQ0nB3x6U7tnPOT4PBWXGy4soqSWYNK0+ks=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PmfG6AvX3kx9FZRTQJFrLeqXL+JTGQHMRkVtfWah3KtXfMnP5xmSbGATTECejiy8+
-	 bPfZyjRMd8CUcFPj5X+DTuYM/fTZlzzrIa6Yg5OAvvcpPIEaapeq5ejT1JwRQvYxvK
-	 5ryZwBWepkhoUVNVyYGhVc9ubWva4PoT4SgPJ5sLWdEeBIMA7H95yRhZzr6RisknoO
-	 Q5WBCYfcXdPZ1J9uYfxtMHW0DcaSBhuWp7d8TyrkWIry00Y5WEecDQIGs0dygwptNE
-	 XwqQiFdNNGXwprJ9Xss0RZAlGWu/8R52bVRPSvUmxmBIkAQMq8iyV/XqCMF80pY3zJ
-	 a2K7JqMZJ2gYw==
+	b=P0n6ciKfDp3a+nZAH31xqpZfMLuq7M7ajQS/LqXvKygMG/NdOQzeOaBTCXo9lu5qF
+	 FXQC8qjQh7Y7HDtdYrRm7vcDOiV6Vm0Ii2xt6VVkpAUQxUhkI06UFdGDD7UreVJ+L+
+	 ZSDNWLjAGbtUWj14sdjOLMbBQgECeCDkLbEp50qkMYr7XXkgpTxYOoyMbmmA6Mtjvp
+	 IpeHOnOw08oZ3uNfRHCJdl8ufJ91nfDf6XYdcguJg3T11Jm0Hj2IafzisiCoZegCyZ
+	 4nnJTcqCPUV/hVawtZIJ0EHD7OfrbS6MfSoSHzgg4gNpg48kLTcQwMat7tjnVg9Zoe
+	 14TBCY0bJGNpA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uhook-003C0q-AG;
-	Fri, 01 Aug 2025 13:24:58 +0100
-Date: Fri, 01 Aug 2025 13:24:57 +0100
-Message-ID: <86v7n76xgm.wl-maz@kernel.org>
+	id 1uhoqS-003C3U-Ds;
+	Fri, 01 Aug 2025 13:26:44 +0100
+Date: Fri, 01 Aug 2025 13:26:42 +0100
+Message-ID: <86tt2r6xdp.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Timothy Hayes <timothy.hayes@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] irqchip/gic-v5: iwb: Remove module boilerplate
-In-Reply-To: <20250801-gic-v5-fixes-6-17-v1-2-4fcedaccf9e6@kernel.org>
+	linux-kernel@vger.kernel.org,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH 1/3] irqchip/gic-v5: iwb: Fix iounmap probe failure path
+In-Reply-To: <20250801-gic-v5-fixes-6-17-v1-1-4fcedaccf9e6@kernel.org>
 References: <20250801-gic-v5-fixes-6-17-v1-0-4fcedaccf9e6@kernel.org>
-	<20250801-gic-v5-fixes-6-17-v1-2-4fcedaccf9e6@kernel.org>
+	<20250801-gic-v5-fixes-6-17-v1-1-4fcedaccf9e6@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, lkp@intel.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_052501_801161_680E95BC 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20250801_052647_655177_7A074074 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,51 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 Aug 2025 08:58:19 +0100,
+On Fri, 01 Aug 2025 08:58:18 +0100,
 Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> The IWB driver cannot be compiled as a module and is as matter of fact a
-> builtin driver at present.
-
-What is blocking that?
-
+> Kbot reported that on the failure path the driver
+> iounmap() IWB resources that are managed through
+> devm_ioremap(), which is clearly wrong because
+> the driver would end up unmapping the MMIO
+> resource twice on probing failure.
 > 
-> Make it explicitly so by removing useless boilerplate and by using the
-> builtin_platform_driver() helper to initialize its registration
-> functions.
+> Fix this by removing the error path altogether
+> and by letting devres manage the iounmapping
+> on clean-up.
 > 
+> Fixes: 695949d8b16f ("irqchip/gic-v5: Add GICv5 IWB support")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202508010038.N3r4ZmII-lkp@intel.com
 > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 > Cc: Thomas Gleixner <tglx@linutronix.de>
 > Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v5-iwb.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-iwb.c b/drivers/irqchip/irq-gic-v5-iwb.c
-> index ad9fdc14d1c6..c3a3b30e9f4e 100644
-> --- a/drivers/irqchip/irq-gic-v5-iwb.c
-> +++ b/drivers/irqchip/irq-gic-v5-iwb.c
-> @@ -263,7 +263,6 @@ static const struct of_device_id gicv5_iwb_of_match[] = {
->  	{ .compatible = "arm,gic-v5-iwb" },
->  	{ /* END */ }
->  };
-> -MODULE_DEVICE_TABLE(of, gicv5_iwb_of_match);
->  
->  static struct platform_driver gicv5_iwb_platform_driver = {
->  	.driver = {
-> @@ -274,4 +273,4 @@ static struct platform_driver gicv5_iwb_platform_driver = {
->  	.probe				= gicv5_iwb_device_probe,
->  };
->  
-> -module_platform_driver(gicv5_iwb_platform_driver);
-> +builtin_platform_driver(gicv5_iwb_platform_driver);
-> 
 
-I'd rather we make the driver buildable as a module if at all
-possible, instead of forcing it as built-in for everyone. It would
-definitely help pipe-cleaning the potential missing dependencies.
-
-Thanks,
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
