@@ -4,75 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82956C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 17:50:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F4F4C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 17:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9whACskZgHLQLQu2NJZzziT5mx2wkb33IyawZ2ggjHI=; b=wh8WMoOFm5NjQbYQMr8FH5NS+g
-	9pCaBzwwHEICxF9i1Fu4pXQacmk2gtjv+zObIK6xSEbTM8sk4W62P/RojmY1Ra+nUq82kOzejDk3y
-	TGgbDRUKwGwcjXnNR1YEl7IdJu9rhVsqzMblbwCkV4XG0gr3vi0RfsXu31HpRY8HHOss8MIAV87yc
-	AKYi3RR1YEoIRx3CmrOEx98ivc9CKcLrCJpgZsP0vF+mKZ1P5vB6l4wt4m/X0UBb3U6LucgDZ6P8y
-	w9xRb2PbNycU/LonZ4MoXLScpqgqsdhlBG+H6TQac6jNzrlBb7QfWyvykGdcnsEgNuZbj4RSUudvt
-	s2uRdwwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CeWhdWQUjjY6qtmHWK9NWvqGGMpBxisoCeR/n+R6EY8=; b=MCrPHyfbSJKTpxO6MZbnFU6+C6
+	taV7vUR1Nfb/qKxHul6Vwm150c4B61vkf4nHrwrTVBSNCJn2VgzYp7+venE3bvvpTgyOqSpZ2B+jB
+	A0lyN/7iHSRZG5Yqy45z/mZF2ePeYakLk/dJQzbnx8AA1RkV44E5TNZxGGebFHAnhJvRb73VK6tRD
+	FolJz/72wmDe8Igs8tLKRgVSLodnf1cVwcmu5aJx+hntgHARSS1Z1c49rVJhY/BZFEqzYL1Y5ecuK
+	Qai/uuso/VQK7ByDWhP/PQZRVaFEeNfJjJSNd5b8piz7wVKXmRR8p62hFxUBiZs1y4RDvwuGm6FWA
+	TFL9P0Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhttv-00000006aMj-0bxZ;
-	Fri, 01 Aug 2025 17:50:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uhtwT-00000006aXh-0vyt;
+	Fri, 01 Aug 2025 17:53:17 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhtaF-00000006Y8y-3Lby;
-	Fri, 01 Aug 2025 17:30:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1F21BA558F2;
-	Fri,  1 Aug 2025 17:30:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A6BC4CEE7;
-	Fri,  1 Aug 2025 17:30:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754069418;
-	bh=lPzXpIa795/UAYucbxhQ/lqbSXcKmzSge/LIrsTQc54=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ezHZJ7ucJnfPB4oUWD7FF4veHqBSUYQO2rfX/4jx70xPeYunQKDZVqndyemghEcFp
-	 wH72RD4J/7gVUSywdQYJcrYLSkwp/ssF096SBbwlDhv6WYZacp3jkTl8KTJFIkFfz6
-	 7rmu4tRICpaEqH2QyycjnjQY/mbfeQ8rZn6JbsOtlY9n4AYXAkTmGWRNgtTd2qtd0S
-	 XLHwEBbWmDbQzJtWu1Gcqv++nwwKSyOSpenznLrG4iN3Fgf7axEOl+0HOLsLftmQw9
-	 /Px4kVZLiq4qV57VJDVMFwLtznFe7mVTOktcyyiM5owy9f3YZMhX4sSW6CF24ufleb
-	 2bvuniSyGEjCg==
-Date: Fri, 1 Aug 2025 12:30:18 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Julien Massot <julien.massot@collabora.com>
-Cc: kernel@collabora.com, Linus Walleij <linus.walleij@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Enric Balletbo i Serra <eballetbo@kernel.org>,
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-mediatek@lists.infradead.org,
-	Weiyi Lu <weiyi.lu@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Julien Massot <jmassot@collabora.com>, devicetree@vger.kernel.org,
-	linux-sound@vger.kernel.org, Sean Wang <sean.wang@kernel.org>,
-	Ikjoon Jang <ikjn@chromium.org>, linux-clk@vger.kernel.org,
-	Eugen Hristev <eugen.hristev@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH 7/9] dt-bindings: pinctrl: mediatek: mt8183: Allow
- gpio-line-names
-Message-ID: <175406941584.3116245.5714988449223130745.robh@kernel.org>
-References: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
- <20250801-mtk-dtb-warnings-v1-7-6ba4e432427b@collabora.com>
+	id 1uhtmx-00000006Zff-11Hk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 01 Aug 2025 17:43:28 +0000
+Message-ID: <53f6d267-62af-4dad-8fa7-a2a497b22636@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754070202;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=CeWhdWQUjjY6qtmHWK9NWvqGGMpBxisoCeR/n+R6EY8=;
+	b=J4cBhHlkUCErWxEVkMQqOgbDi09LfhUv5VpBBaW8Umpyw/gu8cOX25rq1jlpyV6ZqIbt9b
+	BVL8ge/2NGwtCduHs+FR8ZiB7zL7SVilXSgyGsSHrImPZMVbYEmSGwabJ1DE1+f21EkSiw
+	AXjHTwgciEhzf0QATa58jRP/xeGU4Bw=
+Date: Fri, 1 Aug 2025 13:43:19 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250801-mtk-dtb-warnings-v1-7-6ba4e432427b@collabora.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+Subject: [BUG] pci: nwl: Unhandled AER correctable error
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-pci@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Mahesh J Salgaonkar
+ <mahesh@linux.ibm.com>, Oliver O'Halloran <oohall@gmail.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, Michal Simek <michal.simek@amd.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_103019_916531_C5B239A9 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250801_104327_439899_B26F9A60 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,21 +71,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Fri, 01 Aug 2025 13:18:09 +0200, Julien Massot wrote:
-> Add support for the 'gpio-line-names' property in the MT8183 pinctrl
-> binding.
-> This allows naming the GPIOs, which is already done in several
-> device trees (e.g. mt8183-kukui-jacuzzi.dtsi, mt8183-kukui-kakadu.dtsi,
-> mt8183-kukui-krane.dtsi), but was previously generating DT schema
-> warnings.
-> 
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
-> ---
->  Documentation/devicetree/bindings/pinctrl/mediatek,mt8183-pinctrl.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
+AER correctable errors are pretty rare. I only saw one once before and
+came up with commit 78457cae24cb ("PCI: xilinx-nwl: Rate-limit misc
+interrupt messages") in response. I saw another today and,
+unfortunately, clearing the correctable AER bit in MSGF_MISC_STATUS is
+not sufficient to handle the IRQ. It gets immediately re-raised,
+preventing the system from making any other progress. I suspect that it
+needs to be cleared in PCI_ERR_ROOT_STATUS. But since the AER IRQ never
+gets delivered to aer_irq, those registers never get tickled.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+The underlying problem is that pcieport thinks that the IRQ is going to
+be one of the MSIs or a legacy interrupt, but it's actually a native
+interrupt:
 
+           CPU0       CPU1       CPU2       CPU3       
+ 42:          0          0          0          0     GICv2 150 Level     nwl_pcie:misc
+ 45:          0          0          0          0  nwl_pcie:legacy   0 Level     PCIe PME, aerdrv
+ 46:         25          0          0          0  nwl_pcie:msi 524288 Edge      nvme0q0
+ 47:          0          0          0          0  nwl_pcie:msi 524289 Edge      nvme0q1
+ 48:          0          0          0          0  nwl_pcie:msi 524290 Edge      nvme0q2
+ 49:         46          0          0          0  nwl_pcie:msi 524291 Edge      nvme0q3
+ 50:          0          0          0          0  nwl_pcie:msi 524292 Edge      nvme0q4
+
+In the above example, AER errors will trigger interrupt 42, not 45.
+Actually, there are a bunch of different interrupts in MSGF_MISC_STATUS,
+so maybe nwl_pcie_misc_handler should be an interrupt controller
+instead? But even then pcie_port_enable_irq_vec() won't figure out the
+correct IRQ. Any ideas on how to fix this?
+
+Additionally, any tips on actually triggering AER/PME stuff in a
+consistent way? Are there any off-the-shelf cards for sending weird PCIe
+stuff over a link for testing? Right now all I have 
+
+--Sean
+
+# lspci -vv
+00:00.0 PCI bridge: Xilinx Corporation Device d011 (prog-if 00 [Normal decode])
+	Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 0
+	Interrupt: pin A routed to IRQ 45
+	Bus: primary=00, secondary=01, subordinate=0c, sec-latency=0
+	I/O behind bridge: 00000000-00000fff [size=4K]
+	Memory behind bridge: e0000000-e00fffff [size=1M]
+	Prefetchable memory behind bridge: [disabled]
+	Secondary status: 66MHz- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- <SERR- <PERR-
+	BridgeCtl: Parity- SERR+ NoISA- VGA- VGA16- MAbort- >Reset- FastB2B-
+		PriDiscTmr- SecDiscTmr- DiscTmrStat- DiscTmrSERREn-
+	Capabilities: [40] Power Management version 3
+		Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1+,D2+,D3hot+,D3cold-)
+		Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
+	Capabilities: [60] Express (v2) Root Port (Slot-), MSI 00
+		DevCap:	MaxPayload 256 bytes, PhantFunc 0
+			ExtTag- RBE+
+		DevCtl:	CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+			RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+			MaxPayload 128 bytes, MaxReadReq 512 bytes
+		DevSta:	CorrErr- NonFatalErr- FatalErr- UnsupReq- AuxPwr- TransPend+
+		LnkCap:	Port #0, Speed 5GT/s, Width x2, ASPM not supported
+			ClockPM- Surprise- LLActRep+ BwNot+ ASPMOptComp+
+		LnkCtl:	ASPM Disabled; RCB 64 bytes, Disabled- CommClk-
+			ExtSynch- ClockPM- AutWidDis- BWInt- AutBWInt-
+		LnkSta:	Speed 5GT/s (ok), Width x2 (ok)
+			TrErr- Train- SlotClk+ DLActive+ BWMgmt- ABWMgmt+
+		RootCap: CRSVisible-
+		RootCtl: ErrCorrectable- ErrNon-Fatal- ErrFatal- PMEIntEna+ CRSVisible-
+		RootSta: PME ReqID 0000, PMEStatus- PMEPending-
+		DevCap2: Completion Timeout: Range B, TimeoutDis+ NROPrPrP- LTR-
+			 10BitTagComp- 10BitTagReq- OBFF Not Supported, ExtFmt- EETLPPrefix-
+			 EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-
+			 FRS- LN System CLS Not Supported, TPHComp- ExtTPHComp- ARIFwd-
+			 AtomicOpsCap: Routing- 32bit- 64bit- 128bitCAS-
+		DevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis- LTR- OBFF Disabled, ARIFwd-
+			 AtomicOpsCtl: ReqEn- EgressBlck-
+		LnkCtl2: Target Link Speed: 5GT/s, EnterCompliance- SpeedDis-
+			 Transmit Margin: Normal Operating Range, EnterModifiedCompliance- ComplianceSOS-
+			 Compliance De-emphasis: -6dB
+		LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete- EqualizationPhase1-
+			 EqualizationPhase2- EqualizationPhase3- LinkEqualizationRequest-
+			 Retimer- 2Retimers- CrosslinkRes: unsupported
+	Capabilities: [100 v1] Device Serial Number 00-00-00-00-00-00-00-00
+	Capabilities: [10c v1] Virtual Channel
+		Caps:	LPEVC=0 RefClk=100ns PATEntryBits=1
+		Arb:	Fixed- WRR32- WRR64- WRR128-
+		Ctrl:	ArbSelect=Fixed
+		Status:	InProgress-
+		VC0:	Caps:	PATOffset=00 MaxTimeSlots=1 RejSnoopTrans-
+			Arb:	Fixed- WRR32- WRR64- WRR128- TWRR128- WRR256-
+			Ctrl:	Enable+ ID=0 ArbSelect=Fixed TC/VC=ff
+			Status:	NegoPending- InProgress-
+	Capabilities: [128 v1] Vendor Specific Information: ID=1234 Rev=1 Len=018 <?>
+	Capabilities: [140 v1] Advanced Error Reporting
+		UESta:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+		UEMsk:	DLP- SDES- TLP- FCP- CmpltTO- CmpltAbrt- UnxCmplt- RxOF- MalfTLP- ECRC- UnsupReq- ACSViol-
+		UESvrt:	DLP+ SDES+ TLP- FCP+ CmpltTO- CmpltAbrt- UnxCmplt- RxOF+ MalfTLP+ ECRC- UnsupReq- ACSViol-
+		CESta:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr-
+		CEMsk:	RxErr- BadTLP- BadDLLP- Rollover- Timeout- AdvNonFatalErr+
+		AERCap:	First Error Pointer: 00, ECRCGenCap+ ECRCGenEn- ECRCChkCap+ ECRCChkEn-
+			MultHdrRecCap- MultHdrRecEn- TLPPfxPres- HdrLogCap-
+		HeaderLog: 00000000 00000000 00000000 00000000
+		RootCmd: CERptEn+ NFERptEn+ FERptEn+
+		RootSta: CERcvd- MultCERcvd- UERcvd- MultUERcvd-
+			 FirstFatal- NonFatalMsg- FatalMsg- IntMsg 0
+		ErrorSrc: ERR_COR: 0000 ERR_FATAL/NONFATAL: 0000
+	Kernel driver in use: pcieport
 
