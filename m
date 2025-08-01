@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB582C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60048C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 14:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuY6/HSh6y6ghHTCNicd1M2f7zD07d8qiGFWh9pxQfI=; b=EmbRxpfHfg/iBujqaw0LVyM5fd
-	jW+dULLLbZGRFNgtGoXCQiuiY7f+JQJC3+sHIZvQpqVsFNHgXxosgdq/6eZ+iWJB3XEg9lwRwl2vr
-	6Vw/b/IPkmWxEY/XI1hIZKvj/B/XnSqNMMHEvw6OfYjZYcrf1EC1anSF/Yp+eeR7IWAwHIXwKMDDG
-	EFlFuApkJDnwhCb1qB/LmZA8PnO0ReHppSm5Iqu5uusXo2S7v4WeqAi2524QV6yUovs0StyGNLuho
-	Ow712Gk0UiaQBabvVW5Zu7okdOGqAakwUbtHrRQbSwFs+TYFp2GhZCLqBzETmxMdpuuI5ksMDw9Ln
-	YiVUyIrQ==;
+	bh=fPef2aQPtiYy2tvqgS0ZNou1wRaYnqB6hVO06ChTxaM=; b=BTu4Q6llsIXZJFFyFYVLWMM39l
+	eigjt5ALOw/XN2N8qFegvaEGK0wvTwQZ5diXFUpGI0YKdwMcqHF3rZZ4emG760sAtkr3iC1PHL2Qy
+	dnR4KpIVrip5njMjnpzjBJCIIxsqnmz8NjusnePIlRlLCuljyFWLMN0v0hZfXQ3bnEa2FA+zCTKVT
+	7Tja2q6g6PwRnpRLslMt/ibSePWraws3UsJbD2SWAC+P0qhWb0FyTNQJpDm6JZBsCKyvWQfyomErA
+	M/uq78t87Rms47m2VNuq8e9yHEoZFV03N8MvP5obc2ax99zqlktKfIk/wGhbcZd/hhpG81zJvtGyZ
+	AKBkLxJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqmC-00000006EnO-1Kn8;
-	Fri, 01 Aug 2025 14:30:28 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhqjN-00000006EQq-0TJn
+	id 1uhqth-00000006FaP-2rhE;
+	Fri, 01 Aug 2025 14:38:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uhqr6-00000006FEC-1XO1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 14:27:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DE2D543A21;
-	Fri,  1 Aug 2025 14:27:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754058450;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fuY6/HSh6y6ghHTCNicd1M2f7zD07d8qiGFWh9pxQfI=;
-	b=ZmTgxucd39smaH/63V7RsE58gOzzqQ5Y8ChKpgAh9cG91AS41UvRS9kxFs8Fj4KuJTvA6b
-	S4qm9JfQKAh7Aqn3xQzw8XXQthOl+EndZRmQqP5S5eXV2d0vEGKWjiBh2Az6Hq+dXFe3fd
-	cIC//AjIRyiCLJYZWTXIB06x9jqcnw6WJH5yfGvMmB2X3UG7zWAniVIP8WuqaZmBF0bHBw
-	179HcSPCxGV93V8ji/1GPDNBUT+6k6DkvFrv+jxE/wY5aZGycvl77q0k2fJhSfFA7+c/19
-	L5Z+U8yvTR1OPCAsf9cOpoKTjyeFy7Vd1WdSCXfkRIvihR1LEMLxPxS7/HfdrA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,  Gregory Clement
- <gregory.clement@bootlin.com>,  Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  "Rafael J.
- Wysocki" <rafael@kernel.org>,  Daniel Lezcano <daniel.lezcano@linaro.org>,
-  Zhang Rui <rui.zhang@intel.com>,  Lukasz Luba <lukasz.luba@arm.com>,
-  linux-arm-kernel@lists.infradead.org,  devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-pm@vger.kernel.org, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH] dt-binding: thermal: Convert
- marvell,armada-ap806-thermal to DT schema
-In-Reply-To: <20250702230030.2892116-1-robh@kernel.org> (Rob Herring's message
-	of "Wed, 2 Jul 2025 18:00:29 -0500")
-References: <20250702230030.2892116-1-robh@kernel.org>
-User-Agent: mu4e 1.12.7; emacs 30.1
-Date: Fri, 01 Aug 2025 16:27:28 +0200
-Message-ID: <87qzxv5d7z.fsf@bootlin.com>
+	Fri, 01 Aug 2025 14:35:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A2091516;
+	Fri,  1 Aug 2025 07:35:21 -0700 (PDT)
+Received: from [10.57.87.210] (unknown [10.57.87.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 383D63F673;
+	Fri,  1 Aug 2025 07:35:27 -0700 (PDT)
+Message-ID: <0e86671e-18bb-4f3b-9294-c583299ad49e@arm.com>
+Date: Fri, 1 Aug 2025 15:35:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutdefleefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduhedprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdprhgtphhtthhopehsvggsrghsthhirghnrdhhvghsshgvlhgsrghrthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpt
- hhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrgh
-X-GND-Sasl: miquel.raynal@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: mm: support large block mapping when
+ rodata=full
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
+ catalin.marinas@arm.com, akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
+ dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250724221216.1998696-1-yang@os.amperecomputing.com>
+ <20250724221216.1998696-4-yang@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250724221216.1998696-4-yang@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_072733_484774_DB19465B 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250801_073532_505387_B45B5FCE 
+X-CRM114-Status: GOOD (  43.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,80 +67,627 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-Sorry for the delay, I don't know why I forgot these.
-
-...
-
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - marvell,armada-ap806-thermal
-> +      - marvell,armada-ap807-thermal
-> +      - marvell,armada-cp110-thermal
+On 24/07/2025 23:11, Yang Shi wrote:
+> When rodata=full is specified, kernel linear mapping has to be mapped at
+> PTE level since large page table can't be split due to break-before-make
+> rule on ARM64.
+> 
+> This resulted in a couple of problems:
+>   - performance degradation
+>   - more TLB pressure
+>   - memory waste for kernel page table
+> 
+> With FEAT_BBM level 2 support, splitting large block page table to
+> smaller ones doesn't need to make the page table entry invalid anymore.
+> This allows kernel split large block mapping on the fly.
+> 
+> Add kernel page table split support and use large block mapping by
+> default when FEAT_BBM level 2 is supported for rodata=full.  When
+> changing permissions for kernel linear mapping, the page table will be
+> split to smaller size.
+> 
+> The machine without FEAT_BBM level 2 will fallback to have kernel linear
+> mapping PTE-mapped when rodata=full.
+> 
+> With this we saw significant performance boost with some benchmarks and
+> much less memory consumption on my AmpereOne machine (192 cores, 1P) with
+> 256GB memory.
+> 
+> * Memory use after boot
+> Before:
+> MemTotal:       258988984 kB
+> MemFree:        254821700 kB
+> 
+> After:
+> MemTotal:       259505132 kB
+> MemFree:        255410264 kB
+> 
+> Around 500MB more memory are free to use.  The larger the machine, the
+> more memory saved.
+> 
+> * Memcached
+> We saw performance degradation when running Memcached benchmark with
+> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+> With this patchset we saw ops/sec is increased by around 3.5%, P99
+> latency is reduced by around 9.6%.
+> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+> MPKI is reduced by 28.5%.
+> 
+> The benchmark data is now on par with rodata=on too.
+> 
+> * Disk encryption (dm-crypt) benchmark
+> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+> encryption (by dm-crypt).
+> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>     --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>     --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>     --name=iops-test-job --eta-newline=1 --size 100G
+> 
+> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+> number of good case is around 90% more than the best number of bad case).
+> The bandwidth is increased and the avg clat is reduced proportionally.
+> 
+> * Sequential file read
+> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+> The bandwidth is increased by 150%.
+> 
+> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+> ---
+>  arch/arm64/include/asm/cpufeature.h |  34 ++++
+>  arch/arm64/include/asm/mmu.h        |   1 +
+>  arch/arm64/include/asm/pgtable.h    |   5 +
+>  arch/arm64/kernel/cpufeature.c      |  31 +--
+>  arch/arm64/mm/mmu.c                 | 293 +++++++++++++++++++++++++++-
+>  arch/arm64/mm/pageattr.c            |   4 +
+>  6 files changed, 333 insertions(+), 35 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index bf13d676aae2..d0d394cc837d 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -871,6 +871,40 @@ static inline bool system_supports_pmuv3(void)
+>  	return cpus_have_final_cap(ARM64_HAS_PMUV3);
+>  }
+>  
+> +static inline bool bbml2_noabort_available(void)
+> +{
+> +	/*
+> +	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
+> +	 * as possible. This list is therefore an allow-list of known-good
+> +	 * implementations that both support BBML2 and additionally, fulfill the
+> +	 * extra constraint of never generating TLB conflict aborts when using
+> +	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
+> +	 * kernel contexts difficult to prove safe against recursive aborts).
+> +	 *
+> +	 * Note that implementations can only be considered "known-good" if their
+> +	 * implementors attest to the fact that the implementation never raises
+> +	 * TLB conflict aborts for BBML2 mapping granularity changes.
+> +	 */
+> +	static const struct midr_range supports_bbml2_noabort_list[] = {
+> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
+> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
+> +		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> +		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> +		{}
+> +	};
 > +
-> +  reg:
-> +    maxItems: 1
+> +	/* Does our cpu guarantee to never raise TLB conflict aborts? */
+> +	if (!is_midr_in_range_list(supports_bbml2_noabort_list))
+> +		return false;
 > +
-> +  interrupts:
-> +    description: overheat interrupt
-> +    maxItems: 1
+> +	/*
+> +	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
+> +	 * about whether the MIDR check passes.
+> +	 */
 > +
-> +  '#thermal-sensor-cells':
-> +    description: Cell represents the channel ID. There is one sensor per
-> +      channel. O refers to the thermal IP internal channel.
-> +    const: 1
+> +	return true;
+> +}
+
+I don't think this function should be inline. Won't we end up duplicating the
+midr list everywhere? Suggest moving back to cpufeature.c.
+
 > +
-> +required:
-> +  - compatible
-> +  - reg
+>  static inline bool system_supports_bbml2_noabort(void)
+>  {
+>  	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
+> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
+> index 6e8aa8e72601..57f4b25e6f33 100644
+> --- a/arch/arm64/include/asm/mmu.h
+> +++ b/arch/arm64/include/asm/mmu.h
+> @@ -71,6 +71,7 @@ extern void create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+>  			       pgprot_t prot, bool page_mappings_only);
+>  extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
+>  extern void mark_linear_text_alias_ro(void);
+> +extern int split_kernel_pgtable_mapping(unsigned long start, unsigned long end);
+>  
+>  /*
+>   * This check is triggered during the early boot before the cpufeature
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index ba63c8736666..ad2a6a7e86b0 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -371,6 +371,11 @@ static inline pmd_t pmd_mkcont(pmd_t pmd)
+>  	return __pmd(pmd_val(pmd) | PMD_SECT_CONT);
+>  }
+>  
+> +static inline pmd_t pmd_mknoncont(pmd_t pmd)
+> +{
+> +	return __pmd(pmd_val(pmd) & ~PMD_SECT_CONT);
+> +}
 > +
-> +additionalProperties: false
+>  #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
+>  static inline int pte_uffd_wp(pte_t pte)
+>  {
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index d2a8a509a58e..1c96016a7a41 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2215,36 +2215,7 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>  
+>  static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
+>  {
+> -	/*
+> -	 * We want to allow usage of BBML2 in as wide a range of kernel contexts
+> -	 * as possible. This list is therefore an allow-list of known-good
+> -	 * implementations that both support BBML2 and additionally, fulfill the
+> -	 * extra constraint of never generating TLB conflict aborts when using
+> -	 * the relaxed BBML2 semantics (such aborts make use of BBML2 in certain
+> -	 * kernel contexts difficult to prove safe against recursive aborts).
+> -	 *
+> -	 * Note that implementations can only be considered "known-good" if their
+> -	 * implementors attest to the fact that the implementation never raises
+> -	 * TLB conflict aborts for BBML2 mapping granularity changes.
+> -	 */
+> -	static const struct midr_range supports_bbml2_noabort_list[] = {
+> -		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
+> -		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
+> -		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> -		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> -		{}
+> -	};
+> -
+> -	/* Does our cpu guarantee to never raise TLB conflict aborts? */
+> -	if (!is_midr_in_range_list(supports_bbml2_noabort_list))
+> -		return false;
+> -
+> -	/*
+> -	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
+> -	 * about whether the MIDR check passes.
+> -	 */
+> -
+> -	return true;
+> +	return bbml2_noabort_available();
+>  }
+>  
+>  #ifdef CONFIG_ARM64_PAN
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 3d5fb37424ab..f63b39613571 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -480,6 +480,8 @@ void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t phys, unsigned long virt,
+>  			     int flags);
+>  #endif
+>  
+> +#define INVALID_PHYS_ADDR	-1
+> +
+>  static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+>  				       enum pgtable_type pgtable_type)
+>  {
+> @@ -487,7 +489,9 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+>  	struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO, 0);
+>  	phys_addr_t pa;
+>  
+> -	BUG_ON(!ptdesc);
+> +	if (!ptdesc)
+> +		return INVALID_PHYS_ADDR;
+> +
+>  	pa = page_to_phys(ptdesc_page(ptdesc));
+>  
+>  	switch (pgtable_type) {
+> @@ -509,15 +513,29 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
+>  }
+>  
+>  static phys_addr_t __maybe_unused
+> -pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
+> +split_pgtable_alloc(enum pgtable_type pgtable_type)
+>  {
+>  	return __pgd_pgtable_alloc(&init_mm, pgtable_type);
+>  }
+>  
+> +static phys_addr_t __maybe_unused
+> +pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
+> +{
+> +	phys_addr_t pa;
+> +
+> +	pa = __pgd_pgtable_alloc(&init_mm, pgtable_type);
+> +	BUG_ON(pa == INVALID_PHYS_ADDR);
+> +	return pa;
+> +}
+> +
+>  static phys_addr_t
+>  pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
+>  {
+> -	return __pgd_pgtable_alloc(NULL, pgtable_type);
+> +	phys_addr_t pa;
+> +
+> +	pa = __pgd_pgtable_alloc(NULL, pgtable_type);
+> +	BUG_ON(pa == INVALID_PHYS_ADDR);
+> +	return pa;
+>  }
 
-IIRC on these Marvell designs, there was one (or more, I don't remember)
-Application Processor (AP) and several Co-Processors (CP).
+The allocation all looks clean to me now. Thanks.
 
-[On the AP]
-The AP8XX overheat interrupt was not directly wired to the GIC but was
-going through another intermediate IRQ controller named SEI (System
-Error Interrupt).
+>  
+>  /*
+> @@ -552,6 +570,254 @@ void __init create_pgd_mapping(struct mm_struct *mm, phys_addr_t phys,
+>  			     pgd_pgtable_alloc_special_mm, flags);
+>  }
+>  
+> +static DEFINE_MUTEX(pgtable_split_lock);
+> +
+> +static int split_cont_pte(pmd_t *pmdp, unsigned long addr, unsigned long end)
+> +{
+> +	pte_t *ptep;
+> +	unsigned long next;
+> +	unsigned int nr;
+> +	unsigned long span;
+> +
+> +	ptep = pte_offset_kernel(pmdp, addr);
+> +
+> +	do {
+> +		pte_t *_ptep;
+> +
+> +		nr = 0;
+> +		next = pte_cont_addr_end(addr, end);
+> +		if (next < end)
+> +			nr = max(nr, ((end - next) / CONT_PTE_SIZE));
+> +		span = nr * CONT_PTE_SIZE;
+> +
+> +		_ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
+> +		ptep += pte_index(next) - pte_index(addr) + nr * CONT_PTES;
+> +
+> +		if (((addr | next) & ~CONT_PTE_MASK) == 0)
+> +			continue;
+> +
+> +		if (!pte_cont(__ptep_get(_ptep)))
+> +			continue;
+> +
+> +		for (int i = 0; i < CONT_PTES; i++, _ptep++)
+> +			__set_pte(_ptep, pte_mknoncont(__ptep_get(_ptep)));
+> +	} while (addr = next + span, addr != end);
+> +
+> +	return 0;
+> +}
+> +
+> +static int split_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end)
+> +{
+> +	unsigned long next;
+> +	unsigned int nr;
+> +	unsigned long span;
+> +	int ret = 0;
+> +
+> +	do {
+> +		pmd_t pmd;
+> +
+> +		nr = 1;
+> +		next = pmd_addr_end(addr, end);
+> +		if (next < end)
+> +			nr = max(nr, ((end - next) / PMD_SIZE));
+> +		span = (nr - 1) * PMD_SIZE;
+> +
+> +		if (((addr | next) & ~PMD_MASK) == 0)
+> +			continue;
+> +
+> +		pmd = pmdp_get(pmdp);
+> +		if (pmd_leaf(pmd)) {
+> +			phys_addr_t pte_phys;
+> +			pte_t *ptep;
+> +			pmdval_t pmdval = PMD_TYPE_TABLE | PMD_TABLE_UXN |
+> +					  PMD_TABLE_AF;
+> +			unsigned long pfn = pmd_pfn(pmd);
+> +			pgprot_t prot = pmd_pgprot(pmd);
+> +
+> +			pte_phys = split_pgtable_alloc(TABLE_PTE);
+> +			if (pte_phys == INVALID_PHYS_ADDR)
+> +				return -ENOMEM;
+> +
+> +			if (pgprot_val(prot) & PMD_SECT_PXN)
+> +				pmdval |= PMD_TABLE_PXN;
+> +
+> +			prot = __pgprot((pgprot_val(prot) & ~PTE_TYPE_MASK) |
+> +					PTE_TYPE_PAGE);
+> +			prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+> +			ptep = (pte_t *)phys_to_virt(pte_phys);
+> +			for (int i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
+> +				__set_pte(ptep, pfn_pte(pfn, prot));
+> +
+> +			dsb(ishst);
+> +
+> +			__pmd_populate(pmdp, pte_phys, pmdval);
+> +		}
+> +
+> +		ret = split_cont_pte(pmdp, addr, next);
+> +		if (ret)
+> +			break;
+> +	} while (pmdp += nr, addr = next + span, addr != end);
+> +
+> +	return ret;
+> +}
+> +
+> +static int split_cont_pmd(pud_t *pudp, unsigned long addr, unsigned long end)
+> +{
+> +	pmd_t *pmdp;
+> +	unsigned long next;
+> +	unsigned int nr;
+> +	unsigned long span;
+> +	int ret = 0;
+> +
+> +	pmdp = pmd_offset(pudp, addr);
+> +
+> +	do {
+> +		pmd_t *_pmdp;
+> +
+> +		nr = 0;
+> +		next = pmd_cont_addr_end(addr, end);
+> +		if (next < end)
+> +			nr = max(nr, ((end - next) / CONT_PMD_SIZE));
+> +		span = nr * CONT_PMD_SIZE;
+> +
+> +		if (((addr | next) & ~CONT_PMD_MASK) == 0) {
+> +			pmdp += pmd_index(next) - pmd_index(addr) +
+> +				nr * CONT_PMDS;
+> +			continue;
+> +		}
+> +
+> +		_pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
+> +		if (!pmd_cont(pmdp_get(_pmdp)))
+> +			goto split;
+> +
+> +		for (int i = 0; i < CONT_PMDS; i++, _pmdp++)
+> +			set_pmd(_pmdp, pmd_mknoncont(pmdp_get(_pmdp)));
+> +
+> +split:
+> +		ret = split_pmd(pmdp, addr, next);
+> +		if (ret)
+> +			break;
+> +
+> +		pmdp += pmd_index(next) - pmd_index(addr) + nr * CONT_PMDS;
+> +	} while (addr = next + span, addr != end);
+> +
+> +	return ret;
+> +}
+> +
+> +static int split_pud(p4d_t *p4dp, unsigned long addr, unsigned long end)
+> +{
+> +	pud_t *pudp;
+> +	unsigned long next;
+> +	unsigned int nr;
+> +	unsigned long span;
+> +	int ret = 0;
+> +
+> +	pudp = pud_offset(p4dp, addr);
+> +
+> +	do {
+> +		pud_t pud;
+> +
+> +		nr = 1;
+> +		next = pud_addr_end(addr, end);
+> +		if (next < end)
+> +			nr = max(nr, ((end - next) / PUD_SIZE));
+> +		span = (nr - 1) * PUD_SIZE;
+> +
+> +		if (((addr | next) & ~PUD_MASK) == 0)
+> +			continue;
+> +
+> +		pud = pudp_get(pudp);
+> +		if (pud_leaf(pud)) {
+> +			phys_addr_t pmd_phys;
+> +			pmd_t *pmdp;
+> +			pudval_t pudval = PUD_TYPE_TABLE | PUD_TABLE_UXN |
+> +					  PUD_TABLE_AF;
+> +			unsigned long pfn = pud_pfn(pud);
+> +			pgprot_t prot = pud_pgprot(pud);
+> +			unsigned int step = PMD_SIZE >> PAGE_SHIFT;
+> +
+> +			pmd_phys = split_pgtable_alloc(TABLE_PMD);
+> +			if (pmd_phys == INVALID_PHYS_ADDR)
+> +				return -ENOMEM;
+> +
+> +			if (pgprot_val(prot) & PMD_SECT_PXN)
+> +				pudval |= PUD_TABLE_PXN;
+> +
+> +			prot = __pgprot((pgprot_val(prot) & ~PMD_TYPE_MASK) |
+> +					PMD_TYPE_SECT);
+> +			prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+> +			pmdp = (pmd_t *)phys_to_virt(pmd_phys);
+> +			for (int i = 0; i < PTRS_PER_PMD; i++, pmdp++) {
+> +				set_pmd(pmdp, pfn_pmd(pfn, prot));
+> +				pfn += step;
+> +			}
+> +
+> +			dsb(ishst);
+> +
+> +			__pud_populate(pudp, pmd_phys, pudval);
+> +		}
+> +
+> +		ret = split_cont_pmd(pudp, addr, next);
+> +		if (ret)
+> +			break;
+> +	} while (pudp += nr, addr = next + span, addr != end);
+> +
+> +	return ret;
+> +}
+> +
+> +static int split_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end)
+> +{
+> +	p4d_t *p4dp;
+> +	unsigned long next;
+> +	int ret = 0;
+> +
+> +	p4dp = p4d_offset(pgdp, addr);
+> +
+> +	do {
+> +		next = p4d_addr_end(addr, end);
+> +
+> +		ret = split_pud(p4dp, addr, next);
+> +		if (ret)
+> +			break;
+> +	} while (p4dp++, addr = next, addr != end);
+> +
+> +	return ret;
+> +}
+> +
+> +static int split_pgd(pgd_t *pgdp, unsigned long addr, unsigned long end)
+> +{
+> +	unsigned long next;
+> +	int ret = 0;
+> +
+> +	do {
+> +		next = pgd_addr_end(addr, end);
+> +		ret = split_p4d(pgdp, addr, next);
+> +		if (ret)
+> +			break;
+> +	} while (pgdp++, addr = next, addr != end);
+> +
+> +	return ret;
+> +}
+> +
+> +int split_kernel_pgtable_mapping(unsigned long start, unsigned long end)
+> +{
+> +	int ret;
+> +
+> +	if (!system_supports_bbml2_noabort())
+> +		return 0;
+> +
+> +	if (start != PAGE_ALIGN(start) || end != PAGE_ALIGN(end))
+> +		return -EINVAL;
+> +
+> +	mutex_lock(&pgtable_split_lock);
 
-      Thermal overheat IRQ -> SEI -> GIC
+On reflection, I agree this lock approach is simpler than my suggestion to do it
+locklessly and I doubt this will become a bottleneck. Given x86 does it this
+way, I guess it's fine.
 
-[On the CP]
-There was one interrupt controller per CP11X named ICU, which would be
-connected to the top level GIC through MSIs. The ICU was however split
-into several sub-controllers reaching different areas on the GIC.
+> +	arch_enter_lazy_mmu_mode();
+> +	ret = split_pgd(pgd_offset_k(start), start, end);
 
-                                      MSI
-      Thermal overheat IRQ -> ICU SEI -> GIC
+My instinct still remains that it would be better not to iterate over the range
+here, but instead call a "split(start); split(end);" since we just want to split
+the start and end. So the code would be simpler and probably more performant if
+we get rid of all the iteration.
 
-As the OS could not guess the internal connexions, I believe we had to
-include in the bindings the parent IRQ chip we were connected to. In the
-case of the thermal over heat interrupts, they were all going through an
-SEI controller (System Error Interrupt) which, if I still remember
-correctly, was not the default parent, hence the use of
-interrupts-parent/interrupts-extended in the examples.
+But I'm guessing you are going to enhance this infra in the next patch to
+support splitting all entries in the range for the system-doesn't-support-bbml case?
 
-This is all a bit cloudy in my mind, but I believe these properties
-matter and with 'additionalProperties: false' and without
-interrupts-parent/interrupts-extended allowed, a real world DT
-snippet would not pass the binding checks.
+Anyway, I'll take a look at the next patch then come back to review the details
+of split_pgd().
 
-> +examples:
-> +  - |
-> +    thermal-sensor@80 {
-> +        compatible =3D "marvell,armada-ap806-thermal";
-> +        reg =3D <0x80 0x10>;
-> +        interrupts =3D <18>;
+> +	arch_leave_lazy_mmu_mode();
+> +	mutex_unlock(&pgtable_split_lock);
+> +
+> +	return ret;
+> +}
+> +
+>  static void update_mapping_prot(phys_addr_t phys, unsigned long virt,
+>  				phys_addr_t size, pgprot_t prot)
+>  {
+> @@ -639,6 +905,20 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
+>  
+>  #endif /* CONFIG_KFENCE */
+>  
+> +bool linear_map_requires_bbml2;
 
-I do not know how accurate the example must be, but maybe the example
-shall reflect the SEI connection as well.
+Until the next patch, you're only using this variable in this file, so at the
+very least, it should be static for now. But I'm proposing below it should be
+removed entirely.
 
-> +        #thermal-sensor-cells =3D <1>;
-> +    };
+> +
+> +static inline bool force_pte_mapping(void)
+> +{
+> +	/*
+> +	 * Can't use cpufeature API to determine whether BBM level 2
+> +	 * is supported or not since cpufeature have not been
+> +	 * finalized yet.
+> +	 */
+> +	return (!bbml2_noabort_available() && (rodata_full ||
+> +		arm64_kfence_can_set_direct_map() || is_realm_world())) ||
+> +		debug_pagealloc_enabled();
+> +}
+> +
+>  static void __init map_mem(pgd_t *pgdp)
+>  {
+>  	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+> @@ -664,7 +944,9 @@ static void __init map_mem(pgd_t *pgdp)
+>  
+>  	early_kfence_pool = arm64_kfence_alloc_pool();
+>  
+> -	if (can_set_direct_map())
+> +	linear_map_requires_bbml2 = !force_pte_mapping() && rodata_full;
+
+This looks wrong; what about the kfence_can_set_direct_map and is_realm_world
+conditions?
+
+perhaps:
+
+	linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map()
+
+> +
+> +	if (force_pte_mapping())
+>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>  
+>  	/*
+> @@ -1366,7 +1648,8 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>  
+>  	VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>  
+> -	if (can_set_direct_map())
+> +	if (force_pte_mapping() ||
+> +	    (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()))
+
+So force_pte_mapping() isn't actually returning what it sounds like it is; it's
+returning whether you would have to force pte mapping based on the current cpu's
+support for bbml2. Perhaps it would be better to implement force_pte_mapping()  as:
+
+static inline bool force_pte_mapping(void)
+{
+	bool bbml2 = (system_capabilities_finalized() &&
+			system_supports_bbml2_noabort()) ||
+			bbml2_noabort_available();
+
+	return (!bbml2 && (rodata_full || arm64_kfence_can_set_direct_map() ||
+			   is_realm_world())) ||
+		debug_pagealloc_enabled();
+}
+
+Then we can just use force_pte_mapping() in both the boot and runtime paths
+without any adjustment based on linear_map_requires_bbml2. So you could drop
+linear_map_requires_bbml2 entirely, until the next patch at least.
+
+>  		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>  
+>  	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index c6a85000fa0e..6566aa9d8abb 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -140,6 +140,10 @@ static int update_range_prot(unsigned long start, unsigned long size,
+>  	data.set_mask = set_mask;
+>  	data.clear_mask = clear_mask;
+>  
+> +	ret = split_kernel_pgtable_mapping(start, start + size);
+> +	if (WARN_ON_ONCE(ret))
+
+I'm on the fence as to whether this warning is desirable. Would we normally want
+to warn in an OOM situation, or just unwind and carry on?
 
 Thanks,
-Miqu=C3=A8l
+Ryan
+
+
+> +		return ret;
+> +
+>  	arch_enter_lazy_mmu_mode();
+>  
+>  	/*
+
 
