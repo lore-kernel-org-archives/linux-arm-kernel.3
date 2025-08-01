@@ -4,104 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5017C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12338C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 09:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hgS+ODJb9CXg/LPw4dVtDuwRayXfLgKY/8D48g9UQjI=; b=0gDS9HIvqH4Ibo8NhJ2DbAoW0r
-	2a3sObe9F5v0/QgSTvn/eWHJpPPOhOJUq5lYtJC0jRQVFU6nEiY4t92gFEEI6ui+aOhSfFLLiF/7W
-	yI6swBNM/8IlvJ+NkfsjTiVWj1ftYFV/iyYoAR6CIw/KveYPDvQFKzQxsI/yVY25gDvAIeaVK1F/G
-	gis3VTKljlbqOEwOli5NJVA0xww6cNMLhowBiqJCaDtQ9xcZYB5ZMhK3MJtJDN8Nn9RcA/r0ryu+B
-	tH1arQ9vzmUcE/GcZGE2+3iNUONSewBeQukAB4rd/8XA/z5rfKthFo4wRX/J2ZiJ+ADb1XACfrd37
-	Dtf0qGCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PBmsuUJbeLL0NXrNXi6pfMqYL0XBVnx5Sg0vt6dYzDQ=; b=BMeGApdqrMwTVGXXoTKAFbJCtp
+	/4wTdzISliN57b5qyj4Stm4zsmGYKC+AEVyzKuvWdvxKjj7wmQi0TDTdo4cxJk7z6YyTIVnexQrtW
+	J3qgGpJOGShblla+PeLP/zISKEogzwuh8CUvyxW4qR3XoxK+oGEXN9K9XT5jspI/VyLBmL6gL47K2
+	iiYJJH0YXAAYinu2TMSilxlgijbIHYfC+HZYaK9hWwIIvPaJ7oe1leVhe0chk/lE/LXrmXxOxV+cR
+	R4B3dYuBf0VkgwrXuoaW0W3/5UwTFTN6xQQu64rboazJ3oM0c/TGj/OKbhSoOlI7ogmyUw9pymqSY
+	WlK/Epfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlck-00000005IqV-32ub;
-	Fri, 01 Aug 2025 09:00:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uhliA-00000005JUj-38Rs;
+	Fri, 01 Aug 2025 09:05:58 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhlXg-00000005IU3-0U1Z
+	id 1uhlfa-00000005JDc-2g46
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 08:55:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 23E596112C;
-	Fri,  1 Aug 2025 08:55:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7D92C4CEE7;
-	Fri,  1 Aug 2025 08:55:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754038505;
-	bh=Bz6BUp7Tw0CSmTxMjKUZlbJzRNbtQ7byvHPMgJbKn6k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SHtz1BnWgNBv1aHxw7Qwt+9luZxSzBVGlJZplqDMfYU3l+B7T6wIfEWG1EdoLVd5b
-	 rkTjImQNw6tdZacd1YRN7IkkXved6gWsfAc0qAbfDYVQPjlCVSeLkvYy6XPtVrPw6c
-	 OXAfSjY5YEIt4UXEVgK7snJShbWhNtOL+E9e2cPEfq4H7Jt3di/BT3YbRblqiDvjT4
-	 EY/CvESf5d7pnGxtAaJ6lkeWVIwqO3YUaP6DQQgStgerXosD0x7KfdPBsYjxogcZPv
-	 2vinLouEiiZCHcGp9xeIp0Bp5UdeRhlKNXIqOHmpySdoutLNwikAYis0GQDTQI7bzd
-	 j9yt3s5KGVrIA==
-Message-ID: <8dcbdb51-82ba-44bd-800f-ceb43f88cf4d@kernel.org>
-Date: Fri, 1 Aug 2025 10:55:00 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: thermal: qoriq: Update compatible
- string for imx93
-To: Jacky Bai <ping.bai@nxp.com>, rafael@kernel.org,
- daniel.lezcano@linaro.org, rui.zhang@intel.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, kernel@pengutronix.de, festevam@gmail.com
-References: <20250801081119.1999298-1-ping.bai@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250801081119.1999298-1-ping.bai@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 01 Aug 2025 09:03:19 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3b79ad7b8a5so1178313f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 01 Aug 2025 02:03:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754038996; x=1754643796; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=PBmsuUJbeLL0NXrNXi6pfMqYL0XBVnx5Sg0vt6dYzDQ=;
+        b=o8Be4U/oel2E8RRcQRtykvED00rpi7lyIO+FsmPSmRZCBTCVmCc+WxxdRBGNx3VIVW
+         1mgICu19C+hNqass7Gz+B8BMZPkaeUvlanjLImdJxiDYxx5qcqlfItFFk8KH8ghRp4WI
+         93tB3fhQuvHKfXt98eYh5LuqdVvzF1qm8RcVhAuJU3d685DdgsfugNcyzbphmcfRxVcW
+         O1RRCnIFTKBENsuDgGgntqIaQo2R7qwtn2ZjpwihKfJ1LQTtMhRVn7sWykZrDLcCezup
+         I67kXgMIZ8VzmkZIiinbJyq4V/MffuHtXBSDYmIa80IYtk2zBoeQGf0G7Tipn/r8okmo
+         CtQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754038996; x=1754643796;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PBmsuUJbeLL0NXrNXi6pfMqYL0XBVnx5Sg0vt6dYzDQ=;
+        b=Re2bT++rBbfPh7yjr2Lfi6HEUboVcerUEy9swmLPW/53N+amAXfiwL1RD2hFSro6wD
+         7DbJjIGxNrsIhgoGIpS1LZo2jzuD2ShhWQxHyDtOQ6f17OA/azH1MUvMtpEdyv/KI6WU
+         j8dXAZTAnMM9VFQL8ab3jOH1EQbJynP/RyP3qfjyu9ASdh/K+6xvGvBpgkxfbvglGasM
+         tWyc2ZgecUGyaiszTWTW+j26BIT0BtkamEsfI7T6Cf4t8XVhv4AL3X2xjeef5R6FTyr+
+         hGdHgPLV3OA3BH9xOWSKQZJDbR+LtXuvIh70tiwvqF8xVO/PZoOfUtg9y5q3xu8qkbRq
+         ZDNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWMNdQFuF1XMUEi7UN828czFzr/EhnCLOPOP1XKvESM9ruc8jK37SqHl8a4qcWLAulyoUMgCpCNurpt5ewimpH0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyu2nTsg090nCltKReUDOMrEoAII4/3mR99dGA0si88tU1wDXK+
+	Zx1S1naIiYWZ90Gd72qQT6PdcsMEtKochHUYZu0ZSKsoPPiRVy6NHnLIhhYF88G/0PvFm1vfVBw
+	YwBQGJ51+PMXVBN+qjg==
+X-Google-Smtp-Source: AGHT+IHE6ul98uLxU8+rgJ4DluypxUwUeH4rzGBJSdDhyXEUwohSo0THQ+GTzCr9BnM77dXh9jBEpBbHuNaVFFU=
+X-Received: from wrbeh10.prod.google.com ([2002:a05:6000:410a:b0:3b7:96ff:de4a])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:24c6:b0:3b7:6828:5f78 with SMTP id ffacd0b85a97d-3b8d343afadmr1672233f8f.4.1754038996632;
+ Fri, 01 Aug 2025 02:03:16 -0700 (PDT)
+Date: Fri, 1 Aug 2025 09:03:15 +0000
+In-Reply-To: <20250627123854.921704-1-jfalempe@redhat.com>
+Mime-Version: 1.0
+References: <20250627123854.921704-1-jfalempe@redhat.com>
+Message-ID: <aIyC0_Wxm-s6Yo1E@google.com>
+Subject: Re: [PATCH v2] drm/panic: Add a u64 divide by 10 for arm32
+From: Alice Ryhl <aliceryhl@google.com>
+To: Jocelyn Falempe <jfalempe@redhat.com>
+Cc: Andrei Lalaev <andrey.lalaev@gmail.com>, Miguel Ojeda <ojeda@kernel.org>, 
+	Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Russell King <linux@armlinux.org.uk>, Paolo Bonzini <pbonzini@redhat.com>, 
+	rust-for-linux <rust-for-linux@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Javier Martinez Canillas <javierm@redhat.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250801_020318_676092_B18E01BB 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,33 +94,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 10:11, Jacky Bai wrote:
-> The TMU used on i.MX93 has some slight differences and bugs compared with
-> the one used on QorIQ platforam even the basic function is the same. Add
-> i.MX93 specific compatible string and keep the fallback ability.
+On Fri, Jun 27, 2025 at 02:38:19PM +0200, Jocelyn Falempe wrote:
+> On 32bits ARM, u64 divided by a constant is not optimized to a
+> multiply by inverse by the compiler [1].
+> So do the multiply by inverse explicitly for this architecture.
 > 
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> Link: https://github.com/llvm/llvm-project/issues/37280 [1]
+> Reported-by: Andrei Lalaev <andrey.lalaev@gmail.com>
+> Closes: https://lore.kernel.org/dri-devel/c0a2771c-f3f5-4d4c-aa82-d673b3c5cb46@gmail.com/
+> Fixes: 675008f196ca ("drm/panic: Use a decimal fifo to avoid u64 by u64 divide")
+> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
 
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
-
-Best regards,
-Krzysztof
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
