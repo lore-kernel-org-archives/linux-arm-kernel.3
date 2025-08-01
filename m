@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947F8C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 17:29:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D19BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 17:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GNrBWhh4MDjBY2LHw69O2rADHzZIUkh9utCdX0Avk0I=; b=VAijIplzlT6AjdyaSaq74EqpIK
-	EEdxq8tXnAlGniQnw6SInGYXGq+ntU4QO8OCffJyuh7GhhgugopedoFNHFkUwXxTbxL76pe+s7VLl
-	22vXfh5N16yBp/sQ7DDNBT6quYDIeeVrsO3vf1l64CMFgA4Ae47JHcRRgrOUX+f/e8kvHqs1Czd3k
-	jDfMkv6e/jHswud1rKiOsM0oGZwF94Z5GKBUqbKhHmA8ogBi9HFaFqkByl+sjWmda9xn8hj7uUjSE
-	BHCRkQGdlPPEz11El/bqXG8SeRjVRR0eHsuVpibd/bSzFT4eKjAABgEWdX9LBgUsd+dDCf3sxaKCa
-	IN3z1vqQ==;
+	bh=XcuTwTnp9hmUdkX4u4R4cvzducFsDjBGc7V31uTMxgU=; b=yH0dVptEPfkLy/n8JO5GzOSrl1
+	7dhc67dWUc+PPDeIwMM0Qmb8deGaTQi08NtWN/9lNbtCzz+iVNoEnisc4MUCGpvaSQuwXj7kQPjvP
+	P0Xm0zNcC340ozwvLcI2v4j4VfdQ+8+T7Afn3tFeio9dJ4tNqDvBIxgVqzfYbnxIMxTwpgaAUw1oZ
+	IscsEumhjQ/cZDENw5lCtUa5hjDqdx2c5SUscm/qxbD0HEZ9kLgunrWmtoXhqdpsIk+5o0Tdhbuim
+	G6nxjh0lQ1Bo4I5iGz7T1bnBUBakMpVytct8BQJ3crlPYOb2fMyi2OJeER5eD1MQ6o7DFposQZxNP
+	Dtgxgy+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhtZQ-00000006Y1p-3i57;
-	Fri, 01 Aug 2025 17:29:28 +0000
-Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
+	id 1uhtbz-00000006YKp-2glc;
+	Fri, 01 Aug 2025 17:32:07 +0000
+Received: from relay15.mail.gandi.net ([217.70.178.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhtCc-00000006Uqb-0bCy
+	id 1uhtCe-00000006Urq-0XNd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 01 Aug 2025 17:05:55 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9CD34442C7;
-	Fri,  1 Aug 2025 17:05:50 +0000 (UTC)
+	Fri, 01 Aug 2025 17:05:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BD64C4422B;
+	Fri,  1 Aug 2025 17:05:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754067952;
+	t=1754067954;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GNrBWhh4MDjBY2LHw69O2rADHzZIUkh9utCdX0Avk0I=;
-	b=IJlchY9PRhyJCUWh5AW+kb9LnbgdE6UdsDupy+Nvj5v3BlVnbEgni9N2CfIXYqbd1lX+M3
-	kGPfYt6A0Qp9vl0xNTB173GKErmt6ygwiwBSBfaOtY/AYjyNE8Fu7X4ao74DqBfsYQYpNN
-	e6cn9Jp/XtOSgNEuI7kKCKANcymZbLfjoroWE8hb3+R5hjCAaXeQ/VBKFzekPBdHa2580r
-	AlcatWOrKwsM6J24IRz9H42O4f/H4Nto2fe9MTxiX7CMzRmph2IAwWdrjXYTLykXKXK8eC
-	GCatt6wp0eal6ef10J6T2r76gHmN8Y2igNw/g/YbZnoHcrVrIo3op9Hlq7VDww==
+	bh=XcuTwTnp9hmUdkX4u4R4cvzducFsDjBGc7V31uTMxgU=;
+	b=ZVaSEqkLA5dCJMDkriICUJn0u/r70N0foxiL23r6a2Q4qlQea8L9rLuxIKdG3wapqBM0GV
+	Kk34eG8bb96YWznUrHv2xBHvNn/RBfwiIx1sJwNcRyUtGf0bTqq53y8z8rE00gYixWRGe9
+	axzPSwxEU3Fo6CfczAzJkobm84F3pF6oKjZIHTiqLiC6HVqaYr3qWJOTRu4i+yA57Jecq4
+	XVosTWbIgKaLmWDltp0xs/qm1nLHtMi3jsG74UfWx8ovISQsyIUj2b3ANa34rxkd0N25fk
+	PpNsYzYlOxJcWVnsda8o+ZDABxLOi/LISJJK7A+VEktYcKffUCLM6Zmq5tp5eQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Fri, 01 Aug 2025 19:05:30 +0200
-Subject: [PATCH v2 8/9] drm/bridge: put the bridge returned by
- drm_bridge_get_next_bridge()
+Date: Fri, 01 Aug 2025 19:05:31 +0200
+Subject: [PATCH v2 9/9] drm/imx: parallel-display: put the bridge returned
+ by drm_bridge_get_next_bridge()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-8-888912b0be13@bootlin.com>
+Message-Id: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-9-888912b0be13@bootlin.com>
 References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
 In-Reply-To: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -72,11 +72,11 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutdegvdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpeehnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepphdriigrsggvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvl
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutdegvdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpeeknecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepphdriigrsggvlhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvl
  hdrohhrghdprhgtphhtthhopefjuhhirdfruhesghgvhhgvrghlthhhtggrrhgvrdgtohhmpdhrtghpthhtohepughrihdquggvvhgvlheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_100554_342154_2E5CE3FE 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20250801_100556_307398_B2E4686B 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +103,26 @@ Changed in v2:
 - use cleanup action instead of explicit drm_bridge_put(), also fixing the
   place where the ref is put
 ---
- drivers/gpu/drm/drm_bridge.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/gpu/drm/imx/ipuv3/parallel-display.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index c3bfcd735a3c426a147bf0a7427b3d2cd0df3524..ad37e27688bbfd104a95f413f6f98fecf314ade2 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -1121,7 +1121,6 @@ drm_atomic_bridge_propagate_bus_flags(struct drm_bridge *bridge,
- 				      struct drm_atomic_state *state)
- {
- 	struct drm_bridge_state *bridge_state, *next_bridge_state;
+diff --git a/drivers/gpu/drm/imx/ipuv3/parallel-display.c b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+index 6d8325c766979aa3ba98970f00806e99c139d3c3..dfdeb926fe9ca395c6843ec7976c8d00791dfbd2 100644
+--- a/drivers/gpu/drm/imx/ipuv3/parallel-display.c
++++ b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+@@ -134,10 +134,10 @@ static int imx_pd_bridge_atomic_check(struct drm_bridge *bridge,
+ 	struct imx_crtc_state *imx_crtc_state = to_imx_crtc_state(crtc_state);
+ 	struct drm_display_info *di = &conn_state->connector->display_info;
+ 	struct drm_bridge_state *next_bridge_state = NULL;
 -	struct drm_bridge *next_bridge;
- 	u32 output_flags = 0;
- 
- 	bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-@@ -1130,7 +1129,7 @@ drm_atomic_bridge_propagate_bus_flags(struct drm_bridge *bridge,
- 	if (!bridge_state)
- 		return;
+ 	u32 bus_flags, bus_fmt;
  
 -	next_bridge = drm_bridge_get_next_bridge(bridge);
 +	struct drm_bridge *next_bridge __free(drm_bridge_put) = drm_bridge_get_next_bridge(bridge);
- 
- 	/*
- 	 * Let's try to apply the most common case here, that is, propagate
++
+ 	if (next_bridge)
+ 		next_bridge_state = drm_atomic_get_new_bridge_state(crtc_state->state,
+ 								    next_bridge);
 
 -- 
 2.50.1
