@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E823C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 10:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF3CC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 10:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A1S8mfF4yYCy8B4bXgYdauCpYCVAjJ9auaBJ+UVNv+0=; b=MVc56LOqbs6A9EDuGmbkfCAY8Z
-	g1oyNcLVtBLQMgHN4RWKfUGh7uLf3PR8r1KDfKf+jShXMmpfGzEj0qpLVEvamVfjX69VkKkhzlY8H
-	jHpuMtjCqU8DeN1EFNgbe4VF5knWn1CZh0siQziZLAfxHScBvRlkoi9sQylJfxZANnWIzPxnlEBty
-	ciLbWMGmBwjGVev3YUUmWTnu84PxbGkaR+X9lGHUfu5Dvzt+2kKo/TFPk+i0EGA1yED52dtjWFKrx
-	j+4gaPgf2WhKZ+emlsvg+0c7uBzt5tt1RyUEaXTfRy51A+uM6FXVQ8DS630WTVo0zQOhaL/RbNQF6
-	HUS9a8cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3g+msApkkP/3mzvSWmf8zHoFKT2NpS/mO2NbmwlzjXg=; b=Gaza0TxJ/FsEtFNXMBZbhx/Rlm
+	bx6Nubrv86aQjCVgZ8IJwV88kY4bnkik6y05YxzN4io+FQ3j4XR3Uz5k5P+ryy2DmI4O3zlvMEKac
+	qVtBq7KUfNioq9PEQA7M4rq7smpcVFXmKorIRN9DEcNitFwU6Hi+hJzqqfgbpxQitXT5HawGDKFL1
+	9FMf2T81QiKri98eZ7KG/WBWYbJoPJLYYh7DvkP71dG5Ah8c3rt0J/007UhsA7/MnLyJm11GO6Y14
+	xnuhGbHg8LGlnW6GPelbl+f2bdAL8KEnKEiG3xjDJt5zzDiJvbqg5yCCpkx76eHPHoOBIg9kOCYuN
+	92+80X3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui9KA-00000007XLx-0iN5;
-	Sat, 02 Aug 2025 10:18:46 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1ui9S4-00000007Xfa-1UHB;
+	Sat, 02 Aug 2025 10:26:56 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui9HY-00000007X7k-2mLw
+	id 1ui9PT-00000007XaD-1yb8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Aug 2025 10:16:06 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-23fe9a5e5e8so12427415ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 03:16:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754129763; x=1754734563; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=A1S8mfF4yYCy8B4bXgYdauCpYCVAjJ9auaBJ+UVNv+0=;
-        b=D+THrzsnZ4y5tkgzpbtOTbZ45awL1UzUtMSwo0PCmnNwguG4vpHJD91D/drzM4NOic
-         oJxP9qw1eVC3P+FYM72dupgqFaBbiO13PqSaDdDvTaWLBW0v3Tn+4aXWMZlKPCi99q7H
-         a6qWi4dIgyW9emXNVxhaHnEKJjrRR7BILeIjVGc9hyaj2AGTAbXvlZssYGmmYTTpAGzv
-         dx0979g0Z40wbFk69WiHd2NZlnSb57DqwNJoux3oq9PutK34oont9XILGeIZ43twMTg8
-         9s/IymtfZ1ndhu1hLBrrn/1eUDhmMsrkKRSV2/8ymVjbcgbRJ3cItWGmRG2TS2lX10wx
-         MdhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754129763; x=1754734563;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=A1S8mfF4yYCy8B4bXgYdauCpYCVAjJ9auaBJ+UVNv+0=;
-        b=qo+rk1I4sFVjL6hMcSBGeccByGpW56bas9ikEwRsG7ezOxuhYe187qdxg/jCHcNKB/
-         zPyne2HLww9xkgDF3LIL5LgR8ODHQgAiIwvEJBSSze1kiqPokAjNxYZKCO5oqXO8b7RE
-         QP8DT7UzK/aiYlxTGihGYBS8cuu2Gz1Sfnj/y6Qhrqj8KB1z0wvN7eaMZUOoRYSZhylt
-         Nx5jojfJIUJUPyev5MSZXnbT0a8oIG7NdORAsfpuSH5f8lO7jjvLsjjZa0XrCaOnWaTO
-         ToytG+VyEc3uS9LN71WYogajKuc7VLz/EfwwQmzNJvNFPQ/B3caAZZTibI4h2YZLkwtY
-         G/Xw==
-X-Gm-Message-State: AOJu0Yy1S6sV15CPYlP0VF7bXNXJnHxbLHV3z1/wgVsCggphQCXF04cK
-	QsLKYZrLFULfGqO1rIDsJt5kuFbcOrwmquvcUFNwQIdjSD/8kNutso9Ki2nwStAuTRFdDVK6BEA
-	4D89kR3FjNMSX42q3UiczwIUQ90OO2RPVh4ECqhH2kVMM+Q2Uj9zBl/Q=
-X-Gm-Gg: ASbGnctjAY2eldbDNbTM4dy924FhWxher9omxCW3UI5M/5fwBtKJ2WeCpGICFOygD9H
-	Zk/Cq7N0QrB2U96ckHaa4GTQ0KteyZDEuNyyyVDny3HwSPnJM8ij+VV8BDMUN7SdC40XIZkqK6U
-	6D7RF/soKshNc2re2buvCHc+w75xT7CIkYA+VjZvVT3Jo0lYlUh1RW+ZUBLv9LxZFzuFuassufI
-	L9rYHRh
-X-Google-Smtp-Source: AGHT+IF5DdVFCKng2f5KqZFnrae99+X5k+Qmt2j+m7XSzt/2UvT45SCww97ZXS2/SMN5PQsRNiQICu4c2ULMe/0+YEk=
-X-Received: by 2002:a17:902:c40b:b0:240:49e8:1d38 with SMTP id
- d9443c01a7336-2424703f6b1mr38407935ad.35.1754129763175; Sat, 02 Aug 2025
- 03:16:03 -0700 (PDT)
+	Sat, 02 Aug 2025 10:24:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bvJh85nvMz14M7G;
+	Sat,  2 Aug 2025 18:19:04 +0800 (CST)
+Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
+	by mail.maildlp.com (Postfix) with ESMTPS id 41F62180064;
+	Sat,  2 Aug 2025 18:23:59 +0800 (CST)
+Received: from [10.67.121.90] (10.67.121.90) by kwepemh100008.china.huawei.com
+ (7.202.181.93) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 2 Aug
+ 2025 18:23:58 +0800
+Message-ID: <0efd122b-221a-4928-8b8d-76821cfc4548@huawei.com>
+Date: Sat, 2 Aug 2025 18:23:58 +0800
 MIME-Version: 1.0
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Sat, 2 Aug 2025 15:45:51 +0530
-X-Gm-Features: Ac12FXw5_ZolpvO5uI042bQDw80SWA9aZEkdOVC4W_T6xjrKpa2_HnxdtLqpkgM
-Message-ID: <CA+G9fYumD2MGjECCv0wx2V_96_FKNtFQpT63qVNrrCmomoPYVQ@mail.gmail.com>
-Subject: next-20250729: PREEMPT_RT: rock Pi 4b Internal error Oops
- kmem_cache_alloc_bulk_noprof - kernel locking rtmutex.c at __rt_mutex_slowlock_locked
-To: Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
-	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	Linux Regressions <regressions@lists.linux.dev>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Anders Roxell <anders.roxell@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Vlastimil Babka <vbabka@suse.cz>, "Paul E. McKenney" <paulmck@kernel.org>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Ben Copeland <benjamin.copeland@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: topology: Setup AMU FIE for online CPUs only
+To: Beata Michalska <beata.michalska@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<viresh.kumar@linaro.org>, <vincent.guittot@linaro.org>,
+	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <linhongye@h-partners.com>
+References: <20250725102813.1404322-1-zhenglifeng1@huawei.com>
+ <aIss-syLMXmCBZ7E@arm.com>
+From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+In-Reply-To: <aIss-syLMXmCBZ7E@arm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.90]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemh100008.china.huawei.com (7.202.181.93)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_031604_840409_A67746D4 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250802_032415_824510_54870ADB 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,339 +75,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Regressions found while validating Linux next on the Radxa Rock Pi 4B
-platform, we observed kernel crashes and deadlock warnings when running LTP
-syscall and controller tests under specific PREEMPT_RT configurations.
-These issues appear to be regressions introduced in next-20250729.
+On 2025/7/31 16:44, Beata Michalska wrote:
 
-* CONFIG_EXPERT=y
-* CONFIG_PREEMPT_RT=y
-* CONFIG_LAZY_PREEMPT=y
+> Hi Lifeng,
+> 
+> Apologies for late reply.
+> 
+> On Fri, Jul 25, 2025 at 06:28:13PM +0800, Lifeng Zheng wrote:
+>> When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
+>> only CPU0 will go online. The support AMU flag of CPU0 will be set but the
+>> flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
+>> when it shares a cpufreq policy with other CPU(s). After that, when other
+>> CPUs are finally online and the support AMU flags of them are set, they'll
+>> never have a chance to set up AMU FIE, even though they're eligible.
+>>
+>> To solve this problem, the process of setting up AMU FIE needs to be
+>> modified as follows:
+>>
+>> 1. Set up AMU FIE only for the online CPUs.
+>>
+>> 2. Try to set up AMU FIE each time a CPU goes online and do the
+>> freq_counters_valid() check for all the online CPUs share the same policy.
+>> If this check fails, clear scale freq source of these CPUs, in case they
+>> use different source of the freq scale.
+>>
+>> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+>> ---
+>>  arch/arm64/kernel/topology.c | 49 ++++++++++++++++++++++++++++++++----
+>>  1 file changed, 44 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+>> index 5d07ee85bdae..d578c496d457 100644
+>> --- a/arch/arm64/kernel/topology.c
+>> +++ b/arch/arm64/kernel/topology.c
+>> @@ -357,12 +357,15 @@ static void amu_fie_setup(const struct cpumask *cpus)
+>>  
+>>  	/* We are already set since the last insmod of cpufreq driver */
+>>  	if (cpumask_available(amu_fie_cpus) &&
+>> -	    unlikely(cpumask_subset(cpus, amu_fie_cpus)))
+>> +	    cpumask_subset(cpus, amu_fie_cpus))
+>>  		return;
+>>  
+>> -	for_each_cpu(cpu, cpus)
+>> -		if (!freq_counters_valid(cpu))
+>> +	for_each_cpu(cpu, cpus) {
+>> +		if (!freq_counters_valid(cpu)) {
+>> +			topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpus);
+>>  			return;
+>> +		}
+>> +	}
+>>  
+>>  	if (!cpumask_available(amu_fie_cpus) &&
+>>  	    !zalloc_cpumask_var(&amu_fie_cpus, GFP_KERNEL)) {
+>> @@ -385,7 +388,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
+>>  	struct cpufreq_policy *policy = data;
+>>  
+>>  	if (val == CPUFREQ_CREATE_POLICY)
+>> -		amu_fie_setup(policy->related_cpus);
+>> +		amu_fie_setup(policy->cpus);
+> Right, so this will only work for the AMU side of things. The cpufreq core still
+> considers `related_cpus` which should be aligned (if possible).
 
-Regression Analysis:
-- New regression? Yes
-- Reproducibility? Intermittent
+'cpus' means the online CPUs relate to this policy, and 'related_cpus'
+means all the CPUs relate to this policy. Use 'cpus' here because AMU FIE
+only needs to be set for the online CPUs. As for the offline CPUs, they
+don't have to set up AMU FIE, and shouldn't affect other CPUs setting up
+AMU FIE.
 
-First seen on the next-20250729
-Good: next-20250728
-Bad: next-20250729 and next-20250801
+>>  
+>>  	/*
+>>  	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
+>> @@ -404,10 +407,46 @@ static struct notifier_block init_amu_fie_notifier = {
+>>  	.notifier_call = init_amu_fie_callback,
+>>  };
+>>  
+>> +static int cpuhp_topology_online(unsigned int cpu)
+>> +{
+>> +	struct cpufreq_policy *policy __free(put_cpufreq_policy);
+>> +	cpumask_var_t cpus_to_set;
+>> +
+>> +	if (!zalloc_cpumask_var(&cpus_to_set, GFP_KERNEL))
+>> +		return -ENOMEM;
+>> +
+>> +	cpumask_copy(cpus_to_set, cpumask_of(cpu));
+>> +
+>> +	policy = cpufreq_cpu_get(cpu);
+>> +	if (policy) {
+>> +		cpumask_or(cpus_to_set, cpus_to_set, policy->cpus);
+> This should be available via `amu_fie_cpus` mask (as of subset).
+> So it should be enough to test only the CPU at hand?
 
-Test regression: next-20250729 rock Pi 4b Internal error Oops
-kmem_cache_alloc_bulk_noprof
-Test regression: next-20250729 rock Pi 4b WARNING kernel locking
-rtmutex.c at __rt_mutex_slowlock_locked
-Test regression: next-20250729 rock Pi 4b WARNING kernel rcu
-tree_plugin.h at rcu_note_context_switch
+Yeah, makes sense. Thanks.
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Additionally there is no tracking whether that CPU hasn't been verified already.
 
-## Test log
-[  527.570253] Unable to handle kernel paging request at virtual
-address 003f0020f94020a1
-[  527.570274] Mem abort info:
-[  527.570277]   ESR = 0x0000000096000004
-[  527.570282]   EC = 0x25: DABT (current EL), IL = 32 bits
-[  527.570288]   SET = 0, FnV = 0
-[  527.570292]   EA = 0, S1PTW = 0
-[  527.570297]   FSC = 0x04: level 0 translation fault
-[  527.570302] Data abort info:
-[  527.570305]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-[  527.570310]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[  527.570316]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[  527.570322] [003f0020f94020a1] address between user and kernel address ranges
-[  527.570330] Internal error: Oops: 0000000096000004 [#1]  SMP
-[  527.570336] Modules linked in: brcmfmac rockchip_dfi brcmutil
-cfg80211 snd_soc_hdmi_codec dw_hdmi_i2s_audio dw_hdmi_cec
-snd_soc_simple_card snd_soc_audio_graph_card hci_uart
-snd_soc_rockchip_i2s snd_soc_es8316 snd_soc_spdif_tx
-snd_soc_simple_card_utils btqca rtc_rk808 rockchipdrm btbcm
-snd_soc_core dw_hdmi_qp bluetooth snd_compress reset_gpio analogix_dp
-snd_pcm_dmaengine panfrost hantro_vpu dw_mipi_dsi rfkill rockchip_rga
-drm_shmem_helper drm_dp_aux_bus snd_pcm gpu_sched dw_hdmi pwrseq_core
-videobuf2_dma_sg v4l2_vp9 snd_timer drm_display_helper v4l2_h264
-v4l2_jpeg phy_rockchip_pcie snd v4l2_mem2mem cec videobuf2_dma_contig
-soundcore videobuf2_memops drm_client_lib videobuf2_v4l2
-drm_dma_helper videobuf2_common rockchip_saradc drm_kms_helper
-industrialio_triggered_buffer kfifo_buf rockchip_thermal
-pcie_rockchip_host coresight_cpu_debug fuse drm backlight
-[  527.570493] CPU: 3 UID: 0 PID: 34254 Comm: mkdir Not tainted
-6.16.0-next-20250801 #1 PREEMPT_RT
-[  527.570502] Hardware name: Radxa ROCK Pi 4B (DT)
-[  527.570506] pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[  527.570512] pc : kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
-(discriminator 1) mm/slub.c:5403 (discriminator 1))
-[  527.570527] lr : kmem_cache_alloc_bulk_noprof
-(include/linux/atomic/atomic-arch-fallback.h:457
-include/linux/atomic/atomic-instrumented.h:33
-include/linux/kfence.h:127 mm/slub.c:5307 mm/slub.c:5403)
-[  527.570533] sp : ffff80008e24b8f0
-[  527.570536] x29: ffff80008e24b930 x28: 00ff000000584610 x27: ffff800082b30538
-[  527.570545] x26: ffff8000816b64dc x25: 0000000000000cc0 x24: 0000000000000000
-[  527.570554] x23: 0000000000000004 x22: ffff0000f7579d20 x21: 0000000000000001
-[  527.570563] x20: 0000000000000001 x19: ffff000000405b00 x18: ffff80008e24bcd0
-[  527.570572] x17: 0000000000000000 x16: ffff800081e18420 x15: 0000ffffa2670fff
-[  527.570582] x14: 0000000000000000 x13: 1fffe000017942e1 x12: 0000ffffa2470fff
-[  527.570591] x11: ffff00000bca1708 x10: 0000000000000001 x9 : ffff8000816e41a4
-[  527.570600] x8 : ffff80008e24b850 x7 : fefefefefefefefe x6 : ffff800082b30000
-[  527.570608] x5 : d63f0020f9402021 x4 : ffff0000f7579d58 x3 : 0000000000000000
-[  527.570617] x2 : 0000000000000000 x1 : 0000000000000100 x0 : 0000000000000080
-[  527.570627] Call trace:
-[  527.570631] kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
-(discriminator 1) mm/slub.c:5403 (discriminator 1)) (P)
-[  527.570639] mas_alloc_nodes (lib/maple_tree.c:1278)
-[  527.570651] mas_node_count_gfp (lib/maple_tree.c:1339)
-[  527.570661] mas_preallocate (lib/maple_tree.c:5538 (discriminator 1))
-[  527.570667] __split_vma (mm/vma.c:528 (discriminator 1))
-[  527.570677] vma_modify (mm/vma.c:1633)
-[  527.570685] vma_modify_flags (mm/vma.c:1650)
-[  527.570694] mprotect_fixup (mm/mprotect.c:819)
-[  527.570704] do_mprotect_pkey (mm/mprotect.c:993)
-[  527.570713] __arm64_sys_mprotect (mm/mprotect.c:1011)
-[  527.570722] invoke_syscall (arch/arm64/include/asm/current.h:19
-arch/arm64/kernel/syscall.c:54)
-[  527.570731] el0_svc_common.constprop.0
-(include/linux/thread_info.h:135 (discriminator 2)
-arch/arm64/kernel/syscall.c:140 (discriminator 2))
-[  527.570737] do_el0_svc (arch/arm64/kernel/syscall.c:152)
-[  527.570744] el0_svc (arch/arm64/include/asm/irqflags.h:82
-(discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
-1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
-arch/arm64/kernel/entry-common.c:169 (discriminator 1)
-arch/arm64/kernel/entry-common.c:182 (discriminator 1)
-arch/arm64/kernel/entry-common.c:880 (discriminator 1))
-[  527.570752] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:899)
-[  527.570760] el0t_64_sync (arch/arm64/kernel/entry.S:596)
-[ 527.570772] Code: 1400000c f94002c5 b4000aa5 b9402a60 (f86068a0)
-All code
-========
-   0: 1400000c b 0x30
-   4: f94002c5 ldr x5, [x22]
-   8: b4000aa5 cbz x5, 0x15c
-   c: b9402a60 ldr w0, [x19, #40]
-  10:* f86068a0 ldr x0, [x5, x0] <-- trapping instruction
+I don't think it's necessary. If a CPU has been verified already and pass,
+then the 'amu_fie_cpus' mask should contain it, otherwise it deserves to be
+checked again.
 
-Code starting with the faulting instruction
-===========================================
-   0: f86068a0 ldr x0, [x5, x0]
-[  527.570778] ---[ end trace 0000000000000000 ]---
-[  527.570800] ------------[ cut here ]------------
-[  527.570803] rtmutex deadlock detected
-[  527.570827] WARNING: kernel/locking/rtmutex.c:1674 at
-__rt_mutex_slowlock_locked.constprop.0+0x800/0x8e0, CPU#3: mkdir/34254
-[  527.570841] Modules linked in: brcmfmac rockchip_dfi brcmutil
-cfg80211 snd_soc_hdmi_codec dw_hdmi_i2s_audio dw_hdmi_cec
-snd_soc_simple_card snd_soc_audio_graph_card hci_uart
-snd_soc_rockchip_i2s snd_soc_es8316 snd_soc_spdif_tx
-snd_soc_simple_card_utils btqca rtc_rk808 rockchipdrm btbcm
-snd_soc_core dw_hdmi_qp bluetooth snd_compress reset_gpio analogix_dp
-snd_pcm_dmaengine panfrost hantro_vpu dw_mipi_dsi rfkill rockchip_rga
-drm_shmem_helper drm_dp_aux_bus snd_pcm gpu_sched dw_hdmi pwrseq_core
-videobuf2_dma_sg v4l2_vp9 snd_timer drm_display_helper v4l2_h264
-v4l2_jpeg phy_rockchip_pcie snd v4l2_mem2mem cec videobuf2_dma_contig
-soundcore videobuf2_memops drm_client_lib videobuf2_v4l2
-drm_dma_helper videobuf2_common rockchip_saradc drm_kms_helper
-industrialio_triggered_buffer kfifo_buf rockchip_thermal
-pcie_rockchip_host coresight_cpu_debug fuse drm backlight
-[  527.570965] CPU: 3 UID: 0 PID: 34254 Comm: mkdir Tainted: G      D
-           6.16.0-next-20250801 #1 PREEMPT_RT
-[  527.570973] Tainted: [D]=DIE
-[  527.570976] Hardware name: Radxa ROCK Pi 4B (DT)
-[  527.570979] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[  527.570985] pc : __rt_mutex_slowlock_locked.constprop.0
-(kernel/locking/rtmutex.c:1674 (discriminator 1)
-kernel/locking/rtmutex.c:1734 (discriminator 1)
-kernel/locking/rtmutex.c:1760 (discriminator 1))
-[  527.570993] lr : __rt_mutex_slowlock_locked.constprop.0
-(kernel/locking/rtmutex.c:1674 (discriminator 1)
-kernel/locking/rtmutex.c:1734 (discriminator 1)
-kernel/locking/rtmutex.c:1760 (discriminator 1))
-[  527.571001] sp : ffff80008e24b2e0
-[  527.571004] x29: ffff80008e24b370 x28: ffff000007c1a600 x27: ffff000007c1a601
-[  527.571013] x26: ffff80008e24b318 x25: ffff000007c1a600 x24: 00000000ffffffdd
-[  527.571023] x23: 00000000ffffffdd x22: 0000000000000001 x21: ffff000007c1a601
-[  527.571032] x20: ffff80008e24b2f0 x19: ffff00001d756e30 x18: 0000000000000000
-[  527.571041] x17: 65676e6172207373 x16: 6572646461206c65 x15: 0000000000000000
-[  527.571050] x14: 0000000000000020 x13: 0a64657463657465 x12: 64206b636f6c6461
-[  527.571059] x11: 656820747563205b x10: ffff800082adac08 x9 : ffff80008015020c
-[  527.571068] x8 : ffff80008e24af08 x7 : 0000000000000001 x6 : ffff800082a5e000
-[  527.571077] x5 : ffff000007c1a600 x4 : 0000000000000000 x3 : 0000000000000027
-[  527.571086] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000007c1a600
-[  527.571094] Call trace:
-[  527.571097] __rt_mutex_slowlock_locked.constprop.0
-(kernel/locking/rtmutex.c:1674 (discriminator 1)
-kernel/locking/rtmutex.c:1734 (discriminator 1)
-kernel/locking/rtmutex.c:1760 (discriminator 1)) (P)
-[  527.571107] __rwbase_read_lock (kernel/locking/rwbase_rt.c:114)
-[  527.571117] down_read (kernel/locking/rwsem.c:1540)
-[  527.571126] acct_collect (arch/arm64/include/asm/jump_label.h:36
-include/linux/mmap_lock.h:41 include/linux/mmap_lock.h:454
-kernel/acct.c:597)
-[  527.571135] do_exit (kernel/exit.c:932)
-[  527.571143] make_task_dead
-(arch/arm64/include/asm/atomic_ll_sc.h:95 (discriminator 2)
-arch/arm64/include/asm/atomic.h:52 (discriminator 2)
-include/linux/atomic/atomic-arch-fallback.h:564 (discriminator 2)
-include/linux/atomic/atomic-arch-fallback.h:1020 (discriminator 2)
-include/linux/atomic/atomic-instrumented.h:454 (discriminator 2)
-kernel/exit.c:1049 (discriminator 2))
-[  527.571150] die (arch/arm64/kernel/traps.c:231)
-[  527.571157] die_kernel_fault (arch/arm64/mm/fault.c:313)
-[  527.571167] __do_kernel_fault (arch/arm64/mm/fault.c:375 (discriminator 5))
-[  527.571177] do_bad_area (arch/arm64/mm/fault.c:482)
-[  527.571186] do_translation_fault (arch/arm64/mm/fault.c:792)
-[  527.571195] do_mem_abort (arch/arm64/mm/fault.c:929 (discriminator 1))
-[  527.571204] el1_abort (arch/arm64/include/asm/daifflags.h:28
-arch/arm64/kernel/entry-common.c:482)
-[  527.571210] el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:637)
-[  527.571218] el1h_64_sync (arch/arm64/kernel/entry.S:591)
-[  527.571225] kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
-(discriminator 1) mm/slub.c:5403 (discriminator 1)) (P)
-[  527.571232] mas_alloc_nodes (lib/maple_tree.c:1278)
-[  527.571241] mas_node_count_gfp (lib/maple_tree.c:1339)
-[  527.571251] mas_preallocate (lib/maple_tree.c:5538 (discriminator 1))
-[  527.571257] __split_vma (mm/vma.c:528 (discriminator 1))
-[  527.571265] vma_modify (mm/vma.c:1633)
-[  527.571273] vma_modify_flags (mm/vma.c:1650)
-[  527.571282] mprotect_fixup (mm/mprotect.c:819)
-[  527.571290] do_mprotect_pkey (mm/mprotect.c:993)
-[  527.571299] __arm64_sys_mprotect (mm/mprotect.c:1011)
-[  527.571308] invoke_syscall (arch/arm64/include/asm/current.h:19
-arch/arm64/kernel/syscall.c:54)
-[  527.571314] el0_svc_common.constprop.0
-(include/linux/thread_info.h:135 (discriminator 2)
-arch/arm64/kernel/syscall.c:140 (discriminator 2))
-[  527.571321] do_el0_svc (arch/arm64/kernel/syscall.c:152)
-[  527.571327] el0_svc (arch/arm64/include/asm/irqflags.h:82
-(discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
-1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
-arch/arm64/kernel/entry-common.c:169 (discriminator 1)
-arch/arm64/kernel/entry-common.c:182 (discriminator 1)
-arch/arm64/kernel/entry-common.c:880 (discriminator 1))
-[  527.571334] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:899)
-[  527.571341] el0t_64_sync (arch/arm64/kernel/entry.S:596)
-[  527.571349] ---[ end trace 0000000000000000 ]---
-[  527.571354] ------------[ cut here ]------------
-[  527.571356] Voluntary context switch within RCU read-side critical section!
-[  527.571372] WARNING: kernel/rcu/tree_plugin.h:332 at
-rcu_note_context_switch+0x4ec/0x538, CPU#3: mkdir/34254
-[  527.571383] Modules linked in: brcmfmac rockchip_dfi brcmutil
-cfg80211 snd_soc_hdmi_codec dw_hdmi_i2s_audio dw_hdmi_cec
-snd_soc_simple_card snd_soc_audio_graph_card hci_uart
-snd_soc_rockchip_i2s snd_soc_es8316 snd_soc_spdif_tx
-snd_soc_simple_card_utils btqca rtc_rk808 rockchipdrm btbcm
-snd_soc_core dw_hdmi_qp bluetooth snd_compress reset_gpio analogix_dp
-snd_pcm_dmaengine panfrost hantro_vpu dw_mipi_dsi rfkill rockchip_rga
-drm_shmem_helper drm_dp_aux_bus snd_pcm gpu_sched dw_hdmi pwrseq_core
-videobuf2_dma_sg v4l2_vp9 snd_timer drm_display_helper v4l2_h264
-v4l2_jpeg phy_rockchip_pcie snd v4l2_mem2mem cec videobuf2_dma_contig
-soundcore videobuf2_memops drm_client_lib videobuf2_v4l2
-drm_dma_helper videobuf2_common rockchip_saradc drm_kms_helper
-industrialio_triggered_buffer kfifo_buf rockchip_thermal
-pcie_rockchip_host coresight_cpu_debug fuse drm backlight
-[  527.571503] CPU: 3 UID: 0 PID: 34254 Comm: mkdir Tainted: G      D
-W           6.16.0-next-20250801 #1 PREEMPT_RT
-[  527.571512] Tainted: [D]=DIE, [W]=WARN
-[  527.571514] Hardware name: Radxa ROCK Pi 4B (DT)
-[  527.571517] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[  527.571523] pc : rcu_note_context_switch
-(kernel/rcu/tree_plugin.h:332 (discriminator 1))
-[  527.571529] lr : rcu_note_context_switch
-(kernel/rcu/tree_plugin.h:332 (discriminator 1))
-[  527.571535] sp : ffff80008e24b1e0
-[  527.571538] x29: ffff80008e24b1e0 x28: ffff000007c1a600 x27: ffff000007c1a601
-[  527.571548] x26: 0000000000000000 x25: ffff000007c1a600 x24: ffff800082a60368
-[  527.571557] x23: 0000000000000000 x22: ffff000007c1a600 x21: ffff800083125260
-[  527.571566] x20: 0000000000000000 x19: ffff0000f7576080 x18: 0000000000000000
-[  527.571575] x17: 65676e6172207373 x16: 6572646461206c65 x15: 0000000000000000
-[  527.571583] x14: 0000000000000020 x13: 216e6f6974636573 x12: 206c616369746972
-[  527.571593] x11: 6320656469732d64 x10: 6165722055435220 x9 : ffff80008015020c
-[  527.571602] x8 : 6863746977732074 x7 : 7865746e6f632079 x6 : 7261746e756c6f56
-[  527.571611] x5 : ffff80008317146f x4 : 0000000000000000 x3 : 0000000000000027
-[  527.571619] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff000007c1a600
-[  527.571628] Call trace:
-[  527.571630] rcu_note_context_switch (kernel/rcu/tree_plugin.h:332
-(discriminator 1)) (P)
-[  527.571638] __schedule (kernel/sched/core.c:634
-kernel/sched/sched.h:1519 kernel/sched/sched.h:1841
-kernel/sched/core.c:6865)
-[  527.571647] rt_mutex_schedule (kernel/sched/core.c:7044
-kernel/sched/core.c:7339)
-[  527.571655] __rt_mutex_slowlock_locked.constprop.0
-(kernel/locking/rtmutex.c:1676 kernel/locking/rtmutex.c:1734
-kernel/locking/rtmutex.c:1760)
-[  527.571665] __rwbase_read_lock (kernel/locking/rwbase_rt.c:114)
-[  527.571674] down_read (kernel/locking/rwsem.c:1540)
-[  527.571683] acct_collect (arch/arm64/include/asm/jump_label.h:36
-include/linux/mmap_lock.h:41 include/linux/mmap_lock.h:454
-kernel/acct.c:597)
-[  527.571690] do_exit (kernel/exit.c:932)
-[  527.571696] make_task_dead
-(arch/arm64/include/asm/atomic_ll_sc.h:95 (discriminator 2)
-arch/arm64/include/asm/atomic.h:52 (discriminator 2)
-include/linux/atomic/atomic-arch-fallback.h:564 (discriminator 2)
-include/linux/atomic/atomic-arch-fallback.h:1020 (discriminator 2)
-include/linux/atomic/atomic-instrumented.h:454 (discriminator 2)
-kernel/exit.c:1049 (discriminator 2))
-[  527.571703] die (arch/arm64/kernel/traps.c:231)
-[  527.571710] die_kernel_fault (arch/arm64/mm/fault.c:313)
-[  527.571719] __do_kernel_fault (arch/arm64/mm/fault.c:375 (discriminator 5))
-[  527.571729] do_bad_area (arch/arm64/mm/fault.c:482)
-[  527.571738] do_translation_fault (arch/arm64/mm/fault.c:792)
-[  527.571746] do_mem_abort (arch/arm64/mm/fault.c:929 (discriminator 1))
-[  527.571755] el1_abort (arch/arm64/include/asm/daifflags.h:28
-arch/arm64/kernel/entry-common.c:482)
-[  527.571761] el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:637)
-[  527.571769] el1h_64_sync (arch/arm64/kernel/entry.S:591)
-[  527.571775] kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
-(discriminator 1) mm/slub.c:5403 (discriminator 1)) (P)
-[  527.571782] mas_alloc_nodes (lib/maple_tree.c:1278)
-[  527.571792] mas_node_count_gfp (lib/maple_tree.c:1339)
-[  527.571802] mas_preallocate (lib/maple_tree.c:5538 (discriminator 1))
-[  527.571808] __split_vma (mm/vma.c:528 (discriminator 1))
-[  527.571816] vma_modify (mm/vma.c:1633)
-[  527.571824] vma_modify_flags (mm/vma.c:1650)
-[  527.571833] mprotect_fixup (mm/mprotect.c:819)
-[  527.571842] do_mprotect_pkey (mm/mprotect.c:993)
-[  527.571850] __arm64_sys_mprotect (mm/mprotect.c:1011)
-[  527.571859] invoke_syscall (arch/arm64/include/asm/current.h:19
-arch/arm64/kernel/syscall.c:54)
-[  527.571866] el0_svc_common.constprop.0
-(include/linux/thread_info.h:135 (discriminator 2)
-arch/arm64/kernel/syscall.c:140 (discriminator 2))
-[  527.571872] do_el0_svc (arch/arm64/kernel/syscall.c:152)
-[  527.571878] el0_svc (arch/arm64/include/asm/irqflags.h:82
-(discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
-1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
-arch/arm64/kernel/entry-common.c:169 (discriminator 1)
-arch/arm64/kernel/entry-common.c:182 (discriminator 1)
-arch/arm64/kernel/entry-common.c:880 (discriminator 1))
-[  527.571885] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:899)
-[  527.571893] el0t_64_sync (arch/arm64/kernel/entry.S:596)
-[  527.571900] ---[ end trace 0000000000000000 ]---
-[  540.645451] sched: DL replenish lagged too much
+>> +		amu_fie_setup(cpus_to_set);
+>> +	}
+>> +
+>> +	free_cpumask_var(cpus_to_set);
+>> +	return 0;
+>> +}
+>> +
+>>  static int __init init_amu_fie(void)
+>>  {
+>> -	return cpufreq_register_notifier(&init_amu_fie_notifier,
+>> +	int ret;
+>> +
+>> +	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
+>>  					CPUFREQ_POLICY_NOTIFIER);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+>> +					"arm64/topology:online",
+>> +					cpuhp_topology_online,
+>> +					NULL);
+> We should check whether we really have to set it up, as of all CPUs are already
+> online).
 
-## Source
-* Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
-* Git sha: 54efec8782214652b331c50646013f8526570e8d
-* Git describe: next-20250729
-* Project details:
-https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250729
-* Architectures: arm64
-* Toolchains: gcc-13
-* Kconfigs: Preempt_rt
+All CPUs are likely to be online at this point. However, we cannot
+guarantee that this is still the case when the cpufreq policies are
+created.
 
-## Test
-* Test log 1: https://qa-reports.linaro.org/api/testruns/29282584/log_file/
-* Test log 2:https://qa-reports.linaro.org/api/testruns/29337984/log_file/
-* Test lava log: https://lkft.validation.linaro.org/scheduler/job/8373114#L19186
-* Test details:
-https://regressions.linaro.org/lkft/linux-next-master/next-20250729/log-parser-test/exception-rtmutex-deadlock-detected/
-* Test plan: https://tuxapi.tuxsuite.com/v1/groups/linaro/projects/lkft/tests/30XMjtCEi0VzsU1gYZ0a7kcTkLJ
-* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/30fq2ElntxgscJ13dnaD7iL5Z1G/
-* Kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/30fq2ElntxgscJ13dnaD7iL5Z1G/config
+>> +	if (ret < 0) {
+>> +		cpufreq_unregister_notifier(&init_amu_fie_notifier,
+>> +					    CPUFREQ_POLICY_NOTIFIER);
+>> +		return ret;
+>> +	}
+>> +
+>> +	return 0;
+>>  }
+>>  core_initcall(init_amu_fie);
+>>  
+>> -- 
+>> 2.33.0
+>>
+> 
 
---
-Linaro LKFT
-https://lkft.linaro.org
 
