@@ -4,63 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDF3CC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 10:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4055C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 10:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3g+msApkkP/3mzvSWmf8zHoFKT2NpS/mO2NbmwlzjXg=; b=Gaza0TxJ/FsEtFNXMBZbhx/Rlm
-	bx6Nubrv86aQjCVgZ8IJwV88kY4bnkik6y05YxzN4io+FQ3j4XR3Uz5k5P+ryy2DmI4O3zlvMEKac
-	qVtBq7KUfNioq9PEQA7M4rq7smpcVFXmKorIRN9DEcNitFwU6Hi+hJzqqfgbpxQitXT5HawGDKFL1
-	9FMf2T81QiKri98eZ7KG/WBWYbJoPJLYYh7DvkP71dG5Ah8c3rt0J/007UhsA7/MnLyJm11GO6Y14
-	xnuhGbHg8LGlnW6GPelbl+f2bdAL8KEnKEiG3xjDJt5zzDiJvbqg5yCCpkx76eHPHoOBIg9kOCYuN
-	92+80X3A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G63QXIxj+Dtjk0K95q+UoQIrd3RUwOdJawqBP/rtSGw=; b=DzwsKUon5fgYqjwiDrv1FII1+t
+	1bbL565QggGOG3KBEUFlNBoWnk5ddvxC8auL6ZPDLoIjHEbQzfjBWIjNrfHtoRG2Yvr3lVjFnDhEt
+	0ygIZ7hvqoG5vJ3GMAbIhRESQJqrVwCG7RQ1n2FkxeQBUzAKIRxtOK/G2BX7jlwDJE4LnvgGAyn6E
+	KgPzsCCaJvMmG5WcvtYS72tnIUPu+x6WwPhqruQ0V9gxM/pa4cdDZ67VIRF18WHlydp3pAXUnLRpY
+	Hn/tn48ybuPm/wElNXYJ3UHHO+T/4wueZPjcRfSX9ZDt8rbQ4jlMR1XK6sroKYI4tQ2laRzvQKdI6
+	klUziLoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui9S4-00000007Xfa-1UHB;
-	Sat, 02 Aug 2025 10:26:56 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ui9fa-00000007YDI-3nnF;
+	Sat, 02 Aug 2025 10:40:54 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui9PT-00000007XaD-1yb8
+	id 1ui9d0-00000007Y3X-0O2Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Aug 2025 10:24:17 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bvJh85nvMz14M7G;
-	Sat,  2 Aug 2025 18:19:04 +0800 (CST)
-Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
-	by mail.maildlp.com (Postfix) with ESMTPS id 41F62180064;
-	Sat,  2 Aug 2025 18:23:59 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemh100008.china.huawei.com
- (7.202.181.93) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 2 Aug
- 2025 18:23:58 +0800
-Message-ID: <0efd122b-221a-4928-8b8d-76821cfc4548@huawei.com>
-Date: Sat, 2 Aug 2025 18:23:58 +0800
+	Sat, 02 Aug 2025 10:38:16 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-24041a39005so12122215ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 03:38:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1754131089; x=1754735889; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=G63QXIxj+Dtjk0K95q+UoQIrd3RUwOdJawqBP/rtSGw=;
+        b=jmSw5iz4v8QXSUDzyuRItg0tinrnu3u+7Ib+ipHnmUKrOx+thD34YS3iTCWogQnNUj
+         OA37Zbr7gc4WK7UcqATb7DezVZgCce2I5+qsGK7FEZeZeKEK5P2sCuCYr2beqc6+2c/6
+         a5zjBeb5H3Qcxf5ZgqXkRXRl+V8fvE5PcLN0hU6QtD1O9aRJMxPmnwLAOghesOiP3wFr
+         9cs6CfbXtlEVK40OKnSJwgUwOpzoqaCYuKF+80slNEwPw3OHdxlVUpPSj5TMq0C6D338
+         Ej6Qu4FrytHBYqm56yORUR8rjmVDrZbVdo7ZDlq/L4z8XoQdRkF2tMQ4hdzcdM1Ss09b
+         fwjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754131089; x=1754735889;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=G63QXIxj+Dtjk0K95q+UoQIrd3RUwOdJawqBP/rtSGw=;
+        b=pSNpBWVw3RLsT9OOijJVwWigivKSPZHJK4pR2Gft9rnOctkzhpVhB+REkumm/MruuG
+         LqhYQct9kuVJuls6mUrabnVY3djkm+D7ijqAyKImXgLE6ZqDXXmT2DM36grJrhozzdTn
+         dKtVqR689LnvTGXQalKsO7u8k7dOE0lyLq9/l2/mPcBv8p1JQq9OeKyNHi7WDSQJAMTV
+         d0kHaG6HbvQEC0DfAOb9f7s+ER/nS5MUEySxA0UV5GmUgRbR71+0tJGPwU8HYmgIDVi3
+         BsOX5ay7D9ignaWcgbjpDY+wBYUnaGvHGaYTX3vXvVXZ5FUWsdxAyMwo5lp5z82iRQHi
+         ZWmw==
+X-Gm-Message-State: AOJu0Yy733VIu1Rajw5QDdPlsVpdQYqEBH+HMzddonyv+BRmrMbyuFNo
+	DH1ZEzmIcC+JmvvoBjGZt7Y6zixvufuhYLGPkfFxACT7lTnboBmagpevuSAaJzV30BegeMpU9+l
+	Ch91xwki150BtFMNWsKLwruWrqlVvHk6fbzb9Cf+3tZDnvxuKxGsPIh4DPlJJ1ZpZvCjIix/npg
+	CDW24vhhC6pg==
+X-Gm-Gg: ASbGncv7LUmTUtunsfVJdOPdAU22NzTJFHeuMjP9GggU8PWYQ1GXuBFecaJZ9UYH7uy
+	AAU9U/LKG3s/jKEAQOUwpdUErtSVKE8HIy2cDQbaKnZXlOpZl40z5K3Pv33KPIWmyGw4T0IZd20
+	8gG8LZOtRiwJaA/XXPPmvxFpzZEKKi0YUhApI5P2pFIXK+LI2/9fheFNRgy+LTPWHSOT5I6XTNs
+	JB0qhKykHVy0SBVIAQjIO/uqeI4v7ABaZUszu+SvRZqSo0JjsA01YffaE1FXnDMHQOle5mMg+8U
+	OBL/fwVv4R7VlBjBk5epOUUeJXKYuPpXWS18raX99dGCjgcNnygZ4VYfOR4tsJNAZdBPZIiOmgF
+	E0EeqBlt1gaal0zZvUD8qbkQpcK2nj0iT0LgY2H02zMbs3IyV90Qjr6nNgnls
+X-Google-Smtp-Source: AGHT+IET2miJQcQuyN4A48qXGASFh6PFQlmTNZHqpeRrnOMmptg7WMuDBI8s0Bnz8/+S9PgeZ151wg==
+X-Received: by 2002:a17:902:ea10:b0:240:3c62:6194 with SMTP id d9443c01a7336-24246f6a8famr37337425ad.20.1754131088712;
+        Sat, 02 Aug 2025 03:38:08 -0700 (PDT)
+Received: from zenbook (1-162-100-196.dynamic-ip.hinet.net. [1.162.100.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241e8aca205sm63963445ad.193.2025.08.02.03.38.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Aug 2025 03:38:08 -0700 (PDT)
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH] KVM: arm64: ptdump: Fix exec attribute printing
+Date: Sat,  2 Aug 2025 18:40:21 +0800
+Message-ID: <20250802104021.3076621-1-r09922117@csie.ntu.edu.tw>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: topology: Setup AMU FIE for online CPUs only
-To: Beata Michalska <beata.michalska@arm.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<viresh.kumar@linaro.org>, <vincent.guittot@linaro.org>,
-	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <linhongye@h-partners.com>
-References: <20250725102813.1404322-1-zhenglifeng1@huawei.com>
- <aIss-syLMXmCBZ7E@arm.com>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <aIss-syLMXmCBZ7E@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemh100008.china.huawei.com (7.202.181.93)
+Content-Transfer-Encoding: 8bit
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_032415_824510_54870ADB 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20250802_033814_411903_67B795B3 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,145 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/7/31 16:44, Beata Michalska wrote:
+Currently the guest stage-2 page table dump has the executable attribute
+printed in reverse, showing "X" for a non-executable region and showing
+" " for an executable one. This is caused by misjudgement of which
+string gets printed for the executable and non-executable case. Fix it
+by swapping the two strings.
 
-> Hi Lifeng,
-> 
-> Apologies for late reply.
-> 
-> On Fri, Jul 25, 2025 at 06:28:13PM +0800, Lifeng Zheng wrote:
->> When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
->> only CPU0 will go online. The support AMU flag of CPU0 will be set but the
->> flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
->> when it shares a cpufreq policy with other CPU(s). After that, when other
->> CPUs are finally online and the support AMU flags of them are set, they'll
->> never have a chance to set up AMU FIE, even though they're eligible.
->>
->> To solve this problem, the process of setting up AMU FIE needs to be
->> modified as follows:
->>
->> 1. Set up AMU FIE only for the online CPUs.
->>
->> 2. Try to set up AMU FIE each time a CPU goes online and do the
->> freq_counters_valid() check for all the online CPUs share the same policy.
->> If this check fails, clear scale freq source of these CPUs, in case they
->> use different source of the freq scale.
->>
->> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> ---
->>  arch/arm64/kernel/topology.c | 49 ++++++++++++++++++++++++++++++++----
->>  1 file changed, 44 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
->> index 5d07ee85bdae..d578c496d457 100644
->> --- a/arch/arm64/kernel/topology.c
->> +++ b/arch/arm64/kernel/topology.c
->> @@ -357,12 +357,15 @@ static void amu_fie_setup(const struct cpumask *cpus)
->>  
->>  	/* We are already set since the last insmod of cpufreq driver */
->>  	if (cpumask_available(amu_fie_cpus) &&
->> -	    unlikely(cpumask_subset(cpus, amu_fie_cpus)))
->> +	    cpumask_subset(cpus, amu_fie_cpus))
->>  		return;
->>  
->> -	for_each_cpu(cpu, cpus)
->> -		if (!freq_counters_valid(cpu))
->> +	for_each_cpu(cpu, cpus) {
->> +		if (!freq_counters_valid(cpu)) {
->> +			topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpus);
->>  			return;
->> +		}
->> +	}
->>  
->>  	if (!cpumask_available(amu_fie_cpus) &&
->>  	    !zalloc_cpumask_var(&amu_fie_cpus, GFP_KERNEL)) {
->> @@ -385,7 +388,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
->>  	struct cpufreq_policy *policy = data;
->>  
->>  	if (val == CPUFREQ_CREATE_POLICY)
->> -		amu_fie_setup(policy->related_cpus);
->> +		amu_fie_setup(policy->cpus);
-> Right, so this will only work for the AMU side of things. The cpufreq core still
-> considers `related_cpus` which should be aligned (if possible).
+Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+---
+ arch/arm64/kvm/ptdump.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-'cpus' means the online CPUs relate to this policy, and 'related_cpus'
-means all the CPUs relate to this policy. Use 'cpus' here because AMU FIE
-only needs to be set for the online CPUs. As for the offline CPUs, they
-don't have to set up AMU FIE, and shouldn't affect other CPUs setting up
-AMU FIE.
-
->>  
->>  	/*
->>  	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
->> @@ -404,10 +407,46 @@ static struct notifier_block init_amu_fie_notifier = {
->>  	.notifier_call = init_amu_fie_callback,
->>  };
->>  
->> +static int cpuhp_topology_online(unsigned int cpu)
->> +{
->> +	struct cpufreq_policy *policy __free(put_cpufreq_policy);
->> +	cpumask_var_t cpus_to_set;
->> +
->> +	if (!zalloc_cpumask_var(&cpus_to_set, GFP_KERNEL))
->> +		return -ENOMEM;
->> +
->> +	cpumask_copy(cpus_to_set, cpumask_of(cpu));
->> +
->> +	policy = cpufreq_cpu_get(cpu);
->> +	if (policy) {
->> +		cpumask_or(cpus_to_set, cpus_to_set, policy->cpus);
-> This should be available via `amu_fie_cpus` mask (as of subset).
-> So it should be enough to test only the CPU at hand?
-
-Yeah, makes sense. Thanks.
-
-> Additionally there is no tracking whether that CPU hasn't been verified already.
-
-I don't think it's necessary. If a CPU has been verified already and pass,
-then the 'amu_fie_cpus' mask should contain it, otherwise it deserves to be
-checked again.
-
->> +		amu_fie_setup(cpus_to_set);
->> +	}
->> +
->> +	free_cpumask_var(cpus_to_set);
->> +	return 0;
->> +}
->> +
->>  static int __init init_amu_fie(void)
->>  {
->> -	return cpufreq_register_notifier(&init_amu_fie_notifier,
->> +	int ret;
->> +
->> +	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
->>  					CPUFREQ_POLICY_NOTIFIER);
->> +	if (ret)
->> +		return ret;
->> +
->> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
->> +					"arm64/topology:online",
->> +					cpuhp_topology_online,
->> +					NULL);
-> We should check whether we really have to set it up, as of all CPUs are already
-> online).
-
-All CPUs are likely to be online at this point. However, we cannot
-guarantee that this is still the case when the cpufreq policies are
-created.
-
->> +	if (ret < 0) {
->> +		cpufreq_unregister_notifier(&init_amu_fie_notifier,
->> +					    CPUFREQ_POLICY_NOTIFIER);
->> +		return ret;
->> +	}
->> +
->> +	return 0;
->>  }
->>  core_initcall(init_amu_fie);
->>  
->> -- 
->> 2.33.0
->>
-> 
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index 098416d7e5c25..99fc13f1c11fb 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -44,8 +44,8 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
+ 	}, {
+ 		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID,
+ 		.val	= PTE_VALID,
+-		.set	= " ",
+-		.clear	= "X",
++		.set	= "X",
++		.clear	= " ",
+ 	}, {
+ 		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
+ 		.val	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
+-- 
+2.50.1
 
 
