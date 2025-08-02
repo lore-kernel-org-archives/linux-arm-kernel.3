@@ -4,99 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFDAC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 21:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6972CC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 22:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZrs8jDfEbjMNmNeAziRVtz9TxOqXsijf2MFBwiUjZM=; b=gJmUp7iHRsRvP0O7c3PaFiBUWq
-	B0r2AyoBcU57teX5vQDOkWXEAbjHRA7Fmy6G2ht+sv+/EvreP8445ceMgbjMhVQP1vvdCIN0DUCY8
-	aI0PrpUlTK72+QAGFWfuD86ceC82PuzTo2UFiCYOokh48QEnn8MsGBJesJW+iEKiynhWt4eeHpR5l
-	6voSflG65quQN9s2Z6HtfaRq2X6+/6gyssnWlBW8EBJjIO21+TzvZltg57/+d9stDpTuKiTj/bSvG
-	qVZxr7ussk52MR19SAjUp77GBK4pInqZSegnQUieAh55SQtoBtrkftbOnXtlCuKJPzZmqub7eoehi
-	qRbgFAPw==;
+	bh=xl0OxxNA7ca072iJm6M/zPG6jGGT3ai/1U553419los=; b=LEHJFrnoDj5e9xuYID98mhIWD9
+	WhLigeGLkUD4H6ZYYV1TvHmNIU0eJuz89yRfpaX2d4bGHNW4LYX00TAVjAiVRWdkBRMeAeKyRV922
+	fCh1Nz4DnxRElPFdkUlfGoYCapzo6Z5JCBfIZQ5O4NJVQAhqvifwURDKqHqMc4tr86D/zPl+qISAI
+	nsAQvSe6SfhsjsO90p38Q70fn+qrc+SUQ4NSl+E37crvrg/i/AczhNpKJCyqIF1qsvsmtGgb55xj8
+	9lqOIlWaoYFH0jBKYZ/3LyaTQpQj3oVK+uOBJP0sKewIIo2M2dyK3j+BAwozjvl2P7vbcCLiJrPVB
+	I2TMmeig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiJnH-00000007u9g-1PMi;
-	Sat, 02 Aug 2025 21:29:31 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1uiKgb-00000007w7K-1gpL;
+	Sat, 02 Aug 2025 22:26:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiJkh-00000007u3n-48V0
+	id 1uiKe2-00000007w1d-0ish
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Aug 2025 21:26:53 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-af94e75445dso117045066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 14:26:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754170010; x=1754774810; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pZrs8jDfEbjMNmNeAziRVtz9TxOqXsijf2MFBwiUjZM=;
-        b=OaFCKdQHCrJX2VnuaE1LD6owqeF9OGduiGsUxjxGLb/+Er0HkI+x7d+gSk6PGeYkYi
-         Rr2+tx9j44Sn5Ax4/2kFnWR3BGeNnUb8WZZe/sq5pGEboFkWsXgXp6g2YXVZC4vWsRkw
-         MYEJ0MQoWvykstEL0ERPb2b4LuFCiDYH7X4EEkZSUIGjxPWw3XvOSAt+h6KgYts1rQBr
-         feckopYYnTxIxLep0xC0Fwh+JFv320aZJR/XfDYtAXnmbw5zkBHlK9NjtGVQvjoMdWZ1
-         uuw6oEKuCzvIH7Bb27nt/iFpOQwWA+LlKiE9m2FwD4/ramiq8sbyB6Xz4Bvjo7Zz+cGQ
-         sHcA==
+	Sat, 02 Aug 2025 22:24:03 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 572Le2fN002364
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 2 Aug 2025 22:24:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=xl0OxxNA7ca072iJm6M/zPG6
+	jGGT3ai/1U553419los=; b=aeMnVJPpOqTPR3I2WDmw51lqLpvUV2fYhyARPtzJ
+	SBY2x5WNIE57zCPGcVper6imusSo8jxDorgVgWeJX/aCGimBRqOdNIqF+WBI6uq2
+	6nHGncnFUryddtwt3fyA80U5I6LqtoW6pHJfOWSFjzspVoEbk2xGx1GPQgOxl4WY
+	fvF8d7J2RFihfDNHah1LU2RCO3LBGxZVFpnZ4OB7fu6ItVyTwTZnLt17G3F5BPe0
+	+rVzOdk9X/GFYA4poaOBg6Lrdk5V9Ism/2L0LX+2heAaaBLpTMa5zcFH6vKbCh3+
+	GU5sp+rKsLgR8ph1MVvu97s7OnDKIPp7fR1C9fHarRMeYg==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 489bek1b57-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 22:24:01 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4aa826c9464so46970801cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 15:24:00 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754170010; x=1754774810;
+        d=1e100.net; s=20230601; t=1754173440; x=1754778240;
         h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pZrs8jDfEbjMNmNeAziRVtz9TxOqXsijf2MFBwiUjZM=;
-        b=tFmPnlOJXQL7+bF++snZiwWB+duI3gvI9OCU4HkWoFjEj9HDx9RXMGuMNF9stbtEeG
-         7m6nm5AJ89420qA1/76SQijbPxkLYmcWYQabR2bKa3oVIhmS94DwQldm2fhHqB4II6dY
-         4JXc5KbpGHhmCxBwBeMiPP8f5dMQJk84dQd6AYdeSfB/X7aFxFlY/cHkTJo5D6RD0f5j
-         u4yOyvarC0MplK3Zx8c6PtS4t6WkYoC7cYlunY390A/5uZWuogkeGYj84xK/uZHlB/NA
-         IKqEuyME/ZmlJCyRzdk2ilk05893IJZTkG/JiyzmFwhqJNDPtbYb479D8XkBioRUgU4G
-         IgKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVl8BTt2qH8Mnbr4UlkBObOIHwMKNoXEqFhmnPa9f9foyJX2aiHuqvzxZb4/gwiqUmBCnifjHM/TGqgXaCtyW1U@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrwMxun6BaGbc0UU8mf0Y7/znT9hFk5N6dhKXADLmXItOXBfD3
-	lb6in63INPEPVw7vM8yu3Q7YmZRpW5CegQWpZ8amOWCwu3P/Hb0Colaq
-X-Gm-Gg: ASbGncsmKnFTgtwkPw/gruVXBHwbM2enlp6vpGHyz8qIYMOH3iURcPGUqkAN+Hr1YVU
-	MXYhqakNFngH9FsNrx4Ai8FM/n0SSk0/PzF4v6pjy9ZazFwe5aXg9qtBEheahhMj6feGqGpIDxv
-	ItI6X6SSIrcbyDRshfaAsMZ2gXEsELtFG8ICuDHCzp17C9ODZ+R9E5XdgogU4HH8zsLry+iy+ja
-	JBZlHv6o3ApzyEPqCiwpnHsdUH9KUzhkvPZt/tjo6DWML3xLp+gIzxY+G9MvQ0mzTe1CGlN6vS/
-	XIA6yjT8FG31Zx1zyHRwt2dcWBq5Uo2b3ST+rBCRIVoeOXG8tllNM7XuE68mEyTK5H4AZoposBI
-	nx3CTNUYOEGRUld6sFbxZ
-X-Google-Smtp-Source: AGHT+IGrzUJLWgGeTuOrnWlkUUqNZRgEZCAA+VlEXyyO1EHMZFsA2i4k/67dmU7d8k+YWRmSZ0RJ6Q==
-X-Received: by 2002:a17:906:f59f:b0:ade:bf32:b05a with SMTP id a640c23a62f3a-af93fd5bf3emr457001266b.0.1754170009582;
-        Sat, 02 Aug 2025 14:26:49 -0700 (PDT)
-Received: from krava ([176.74.159.170])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a0a37a8sm488968566b.40.2025.08.02.14.26.48
+        bh=xl0OxxNA7ca072iJm6M/zPG6jGGT3ai/1U553419los=;
+        b=ELuhzOKKSjXi3dGr6NYKQ74+oWWawFEXIl74c64McpJQwEEzcq1tpql1SViqev0Vvx
+         sJNAPpYEJ0hfr69p6kspzrAuIg9qz/7waIj0Xe6f29FntmhhM1nFVKwJ80MYws7StLW4
+         csOk+BjMmqejLk14cTGpknK5tCygZypb05NIo8hKthqJ6KINX6dbTA1thQAmQjrBSIWy
+         w/jQc0A/+JJD2mhnKKy4mIEyLA8sbRUrv5SIm9SfwPb3BVayf3qckw+qEx7X+FXPFpvR
+         nru4c8n8zaveEVEZtARE9RhrZ6ZxZCSRotvnnWM06fqWbxmOLCoWydYe1rT4YITCST8q
+         SIQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+f9hJrjaApFDrlO2G0q656UmIcpiA+kRBZrq1gc9zEsA/CadCEw3cZOE8fkbcJek4xG3CzG0RUBtVeOhw9zeM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9oBkZcfqXzpjWWmfIDjEp9DwCVH6znHoeQ2/HG1fYeuad0bgT
+	N58hWSa5tvV1L4pHig/Qexrlp1FAQGfr1uiQlYN7m423m/ZCAB2cjN5sisWkFVnsz5ZNeh6qZFi
+	H01qugBQEXyy4HCHH7v9+ucr7nx9i2il+iGxbjXh+4y1K7evvYdw8L4YA2oJYFW+yNM9bpFjNX5
+	MPbA==
+X-Gm-Gg: ASbGncuXbvZjLxiUbpvEsPaxLxXZkxzRKdZ2WQVEFKp0TrQX1Yk96+NJgnsLJmgzMki
+	TrEZCRGXvZUzzz2QOiG0wHAH7gS5omJ1UReqf/55+oH07Mi4DcgTdYSJfoWjMXyb2RUEuJzLFNu
+	nGpm/tRY1KuJkT+WrcJ3kCwEL2r5cOEL7n0VrjDc45GmpouQVOlzDd9RY5Ps36yq7pI2ru8S6+D
+	SzyiTXENNXE2cWC9A2pA/LMCZ2BAtLEDq0ipexuR6yp2j3LFFpbXnFf5xa6GelM717n+RD2d/Qd
+	szv87H8rezrUSV6zdDRZXC8MS3LIjvL+thzkTPkGayhia3DOKru8zAXf0oztEBZlRZCWkaTK6+W
+	DtB/MJNBM7Li6AnNgVZ9Vj7rbIQD5fX8jm924ckZbs9SdE8cbvnki
+X-Received: by 2002:a05:622a:2614:b0:4a4:2c4c:ccb3 with SMTP id d75a77b69052e-4af10a4a6f8mr71116011cf.38.1754173439774;
+        Sat, 02 Aug 2025 15:23:59 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGrRsxcmSymm/iOQUBWA1JUQnU1xwsXzPXR9p1T+dpkt3Av38hBwrNFCZmoKC0DXjNEzzqClg==
+X-Received: by 2002:a05:622a:2614:b0:4a4:2c4c:ccb3 with SMTP id d75a77b69052e-4af10a4a6f8mr71115661cf.38.1754173439390;
+        Sat, 02 Aug 2025 15:23:59 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b88ca6776sm1105446e87.141.2025.08.02.15.23.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 14:26:48 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Sat, 2 Aug 2025 23:26:46 +0200
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Jiri Olsa <olsajiri@gmail.com>, Steven Rostedt <rostedt@kernel.org>,
-	Florent Revest <revest@google.com>, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [RFC 00/10] ftrace,bpf: Use single direct ops for bpf trampolines
-Message-ID: <aI6CltnCRbVXwyfm@krava>
-References: <aIn_12KHz7ikF2t1@krava>
- <aIyNOd18TRLu8EpY@J2N7QTR9R3>
+        Sat, 02 Aug 2025 15:23:58 -0700 (PDT)
+Date: Sun, 3 Aug 2025 01:23:56 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
+        simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+        tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+        conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
+        jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
+        dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+        dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com,
+        ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
+        jason-jh.lin@mediatek.com
+Subject: Re: [PATCH v9 00/23] Add support for MT8195/88 HDMIv2 and DDCv2
+Message-ID: <2eq5je6xk4ly5lxijit3ufor7pmm7mgivbuigzr35lrbe2ryvr@3axnsyabigm7>
+References: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aIyNOd18TRLu8EpY@J2N7QTR9R3>
+In-Reply-To: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
+X-Authority-Analysis: v=2.4 cv=M7tNKzws c=1 sm=1 tr=0 ts=688e9001 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=k3YYP44_YlkhweOvE2wA:9 a=CjuIK1q_8ugA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAyMDE4MiBTYWx0ZWRfXzCNJNzGKjO/h
+ w0Fx3q3e6MuhqT5z32Lo5XRKtDasmSBis8W9BeWH312XkE68lTQFWKpxGJT6+TEYjbzmpN2ZhwT
+ CkXO79mw3HwDOMNI45ZXPn3FweAEvMp29mG95BxoslDoUgZxyl8kNGFRfd6A14msX8QRb44jqYH
+ 6DcfozGWDolTA6x/TWA6Fq370cpOAVCO/sWTPX/W6oZnHlXSw/w9BCYYw6vz46GU6ROaDzyuIky
+ qR3sPlK1uHqslkW22Mi+IlOsMmUjvkxABXYpAnyNrGUgqnp+4YIHPL7yGloqrgpj1PSk9v6XyCc
+ oeuqCmUXeuXduduqpNOlzPFgYpOKpPVyUlSSYfGn2JK2+qIuCDZA+doKvF3w8ZOnIaheMRM33aT
+ O8vl5OKknnAiwc7SwGT0SlwoB1zZeOVxK8//BUsA0SSp16lmXXJPoEXx0pt6RRIqs4Zer3W7
+X-Proofpoint-ORIG-GUID: DIKYAG5Pk6glpCsZj-N9_DOoaeV5neR5
+X-Proofpoint-GUID: DIKYAG5Pk6glpCsZj-N9_DOoaeV5neR5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-02_01,2025-08-01_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
+ clxscore=1015 mlxlogscore=743 mlxscore=0 bulkscore=0 spamscore=0
+ suspectscore=0 phishscore=0 adultscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2508020182
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_142652_033535_CC5C3A7C 
-X-CRM114-Status: GOOD (  68.30  )
+X-CRM114-CacheID: sfid-20250802_152402_230571_91C142BB 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,228 +137,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 01, 2025 at 10:49:56AM +0100, Mark Rutland wrote:
-> On Wed, Jul 30, 2025 at 01:19:51PM +0200, Jiri Olsa wrote:
-> > On Tue, Jul 29, 2025 at 06:57:40PM +0100, Mark Rutland wrote:
-> > > Hi Jiri,
-> > > 
-> > > [adding some powerpc and riscv folk, see below]
-> > > 
-> > > On Tue, Jul 29, 2025 at 12:28:03PM +0200, Jiri Olsa wrote:
-> > > > hi,
-> > > > while poking the multi-tracing interface I ended up with just one
-> > > > ftrace_ops object to attach all trampolines.
-> > > > 
-> > > > This change allows to use less direct API calls during the attachment
-> > > > changes in the future code, so in effect speeding up the attachment.
-> > > 
-> > > How important is that, and what sort of speedup does this result in? I
-> > > ask due to potential performance hits noted below, and I'm lacking
-> > > context as to why we want to do this in the first place -- what is this
-> > > intended to enable/improve?
-> > 
-> > so it's all work on PoC stage, the idea is to be able to attach many
-> > (like 20,30,40k) functions to their trampolines quickly, which at the
-> > moment is slow because all the involved interfaces work with just single
-> > function/tracempoline relation
+On Tue, Apr 15, 2025 at 12:42:58PM +0200, AngeloGioacchino Del Regno wrote:
 > 
-> Do you know which aspect of that is slow? e.g. is that becuase you have
-> to update each ftrace_ops independently, and pay the synchronization
-> overhead per-ops?
-> 
-> I ask because it might be possible to do some more batching there, at
-> least for architectures like arm64 that use the CALL_OPS approach.
+> This series adds support for the HDMI-TX v2 Encoder and DDCv2, and for
+> the direct connection DPI as found in MT8195, MT8188 and their variants.
 
-IIRC it's the rcu sync in register_ftrace_direct and ftrace_shutdown
-I'll try to profile that case again, there  might have been changes
-since the last time we did that
+Angelo, just wanted to check, what is the fate of this series? I think
+it wasn't updated since April. It was a really good example of utilizing
+the HDMI framework(s). Wink.
 
 > 
-> > there's ongoing development by Menglong [1] to organize such attachment
-> > for multiple functions and trampolines, but still at the end we have to use
-> > ftrace direct interface to do the attachment for each involved ftrace_ops 
-> > 
-> > so at the point of attachment it helps to have as few ftrace_ops objects
-> > as possible, in my test code I ended up with just single ftrace_ops object
-> > and I see attachment time for 20k functions to be around 3 seconds
-> > 
-> > IIUC Menglong's change needs 12 ftrace_ops objects so we need to do around
-> > 12 direct ftrace_ops direct calls .. so probably not that bad, but still
-> > it would be faster with just single ftrace_ops involved
-> > 
-> > [1] https://lore.kernel.org/bpf/20250703121521.1874196-1-dongml2@chinatelecom.cn/
-> > 
-> > > 
-> > > > However having just single ftrace_ops object removes direct_call
-> > > > field from direct_call, which is needed by arm, so I'm not sure
-> > > > it's the right path forward.
-> > > 
-> > > It's also needed by powerpc and riscv since commits:
-> > > 
-> > >   a52f6043a2238d65 ("powerpc/ftrace: Add support for DYNAMIC_FTRACE_WITH_DIRECT_CALLS")
-> > >   b21cdb9523e5561b ("riscv: ftrace: support direct call using call_ops")
-> > > 
-> > > > Mark, Florent,
-> > > > any idea how hard would it be to for arm to get rid of direct_call field?
-> > > 
-> > > For architectures which follow the arm64 style of implementation, it's
-> > > pretty hard to get rid of it without introducing a performance hit to
-> > > the call and/or a hit to attachment/detachment/modification. It would
-> > > also end up being a fair amount more complicated.
-> > > 
-> > > There's some historical rationale at:
-> > > 
-> > >   https://lore.kernel.org/lkml/ZfBbxPDd0rz6FN2T@FVFF77S0Q05N/
-> > > 
-> > > ... but the gist is that for several reasons we want the ops pointer in
-> > > the callsite, and for atomic modification of this to switch everything
-> > > dependent on that ops atomically, as this keeps the call logic and
-> > > attachment/detachment/modification logic simple and pretty fast.
-> > > 
-> > > If we remove the direct_call pointer from the ftrace_ops, then IIUC our
-> > > options include:
-> > > 
-> > > * Point the callsite pointer at some intermediate structure which points
-> > >   to the ops (e.g. the dyn_ftrace for the callsite). That introduces an
-> > >   additional dependent load per call that needs the ops, and introduces
-> > >   potential incoherency with other fields in that structure, requiring
-> > >   more synchronization overhead for attachment/detachment/modification.
-> > > 
-> > > * Point the callsite pointer at a trampoline which can generate the ops
-> > >   pointer. This requires that every ops has a trampoline even for
-> > >   non-direct usage, which then requires more memory / I$, has more
-> > >   potential failure points, and is generally more complicated. The
-> > >   performance here will vary by architecture and platform, on some this
-> > >   might be faster, on some it might be slower.
-> > > 
-> > >   Note that we probably still need to bounce through an intermediary
-> > >   trampoline here to actually load from the callsite pointer and
-> > >   indirectly branch to it.
-> > > 
-> > > ... but I'm not really keen on either unless we really have to remove 
-> > > the ftrace_ops::direct_call field, since they come with a substantial
-> > > jump in complexity.
-> > 
-> > ok, that sounds bad.. thanks for the details
-> > 
-> > Steven, please correct me if/when I'm wrong ;-)
-> > 
-> > IIUC in x86_64, IF there's just single ftrace_ops defined for the function,
-> > it will bypass ftrace trampoline and call directly the direct trampoline
-> > for the function, like:
-> > 
-> >    <foo>:
-> >      call direct_trampoline
-> >      ...
-> 
-> More details at the end of this reply; arm64 can sometimes do this, but
-> not always, and even when there's a single ftrace_ops we may need to
-> bounce through a common trampoline (which can still be cheap).
-> 
-> > IF there are other ftrace_ops 'users' on the same function, we execute
-> > each of them like:
-> > 
-> >   <foo>:
-> >     call ftrace_trampoline
-> >       call ftrace_ops_1->func
-> >       call ftrace_ops_2->func
-> >       ...
-> 
-> More details at the end of this reply; arm64 does essentially the same
-> thing via the ftrace_list_ops and ftrace_ops_list_func().
-> 
-> > with our direct ftrace_ops->func currently using ftrace_ops->direct_call
-> > to return direct trampoline for the function:
-> > 
-> > 	-static void call_direct_funcs(unsigned long ip, unsigned long pip,
-> > 	-                             struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> > 	-{
-> > 	-       unsigned long addr = READ_ONCE(ops->direct_call);
-> > 	-
-> > 	-       if (!addr)
-> > 	-               return;
-> > 	-
-> > 	-       arch_ftrace_set_direct_caller(fregs, addr);
-> > 	-}
-> 
-> More details at the end of this reply; at present, when an instrumented
-> function has a single ops, arm64 can call ops->direct_call directly from
-> the common trampoline, and only needs to fall back to
-> call_direct_funcs() when there are multiple ops.
-> 
-> > in the new changes it will do hash lookup (based on ip) for the direct
-> > trampoline we want to execute:
-> > 
-> > 	+static void call_direct_funcs_hash(unsigned long ip, unsigned long pip,
-> > 	+                                  struct ftrace_ops *ops, struct ftrace_regs *fregs)
-> > 	+{
-> > 	+       unsigned long addr;
-> > 	+
-> > 	+       addr = ftrace_find_rec_direct(ip);
-> > 	+       if (!addr)
-> > 	+               return;
-> > 	+
-> > 	+       arch_ftrace_set_direct_caller(fregs, addr);
-> > 	+}
-> > 
-> > still this is the slow path for the case where multiple ftrace_ops objects use
-> > same function.. for the fast path we have the direct attachment as described above
-> > 
-> > sorry I probably forgot/missed discussion on this, but doing the fast path like in
-> > x86_64 is not an option in arm, right?
-> 
-> On arm64 we have a fast path, BUT branch range limitations means that we
-> cannot always branch directly from the instrumented function to the
-> direct func with a single branch instruction. We use ops->direct_call to
-> handle that case within a common trampoline, which is significantly
-> cheaper that iterating over the ops and/or looking up the direct func
-> from a hash.
-> 
-> With CALL_OPS, we place a pointer to the ops immediately before the
-> instrumented function, and have the instrumented function branch to a
-> common trampoline which can load that pointer (and can then branch to
-> any direct func as necessary).
-> 
-> The instrumented function looks like:
-> 
-> 	# Aligned to 8 bytes
-> 	func - 8:
-> 		< pointer to ops >
 
-stupid question.. so there's ftrace_ops pointer stored for each function at
-'func - 8` ?  why not store the func's direct trampoline address in there?
-
-> 	func:
-> 		BTI		// optional
-> 		MOV	X9, LR	// save original return address
-> 		NOP		// patched to `BL ftrace_caller`
-> 	func_body:
-> 
-> ... and then in ftrace_caller we can recover the 'ops' pointer with:
-> 
-> 	BIC	<tmp>, LR, 0x7					// align down (skips BTI)
-> 	LDR	<ops>, [<tmp>, #-16]				// load ops pointer
-> 
-> 	LDR	<direct>, [<ops>, #FTRACE_OPS_DIRECT_CALL]	// load ops->direct_call
-> 	CBNZ	<direct>, ftrace_caller_direct			// if !NULL, make direct call
-> 
-> 	< fall through to non-direct func case here >
-> 
-> Having the ops (and ops->direct_call) means that getting to the direct
-> func is significantly cheaper than having to lookup the direct func via
-> the hash.
-> 
-> Where an instrumented function has a single ops, this can get to the
-> direct func with a low constant overhead, significantly cheaper than
-> looking up the direct func via the hash.
-> 
-> Where an instrumented function has multiple ops, the ops pointer is
-> pointed at a common ftrace_list_ops, where ftrace_ops_list_func()
-> iterates over all the other relevant ops.
-
-thanks for all the details, I'll check if both the new change and ops->direct_call
-could live together for x86 and other arch, but it will probably complicate
-things a lot more
-
-jirka
+-- 
+With best wishes
+Dmitry
 
