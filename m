@@ -4,50 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79688C87FC9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 08:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB72C87FC9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 08:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsiOZ6/mNTM12jXvHJ77HVs8kgkzJaMuC+GyXWBdhdI=; b=K+SrFJM4qNllK8LlAnz8Kv6xUz
-	WFe+uRq/3FVgzOvLvV5Qe8MsrGzAcNEJ0SBrD62sWniVpRJFhw/sOpU+X985UUzIJzpd/RHYxHSyJ
-	kB5P5VbfCxnfzmU+Srif3o92IfTfkGPdvdp4gss1Apjr4hZuJqoW3q/EPvbOW3mri+TcjBHFqYO/0
-	Xj+zIPjkjM/BphrsvKth/Q1KS82ZirztW97KEGwtB/8FsRdL9KXxum113wYCiZZ+REebeengPMzI/
-	6ywHgj/zaIKfvPpCErwycACbO0A4SmnqWzuoYG+VvFcDKdoCREWCLWcv5eTg8DCRpQ2/51ygsNo8a
-	t4CHj7ng==;
+	bh=4N20LCwTIXP1y+ouBCEUR3r/1Oow6NbEvyzzWDBO690=; b=A8qJX5gnoB+vOhB1BL3/mguCf0
+	gvV2E/QgqEZ+O4c56ER9t+b/6WdJVj4pQ8uuIYhl8YauEWg/tU423qVXTkbtNGPKypRHtXcGYk8Jk
+	N2dstEVwcfJMvgMtnjZ9Owtm7fFJIAA+9GNkLssuRNRoS6+VjnWWpm22edEAU8jLafyGY+oTN0Krw
+	+LUF6e6EW8ZlY7/3cCFlq8nUUXisYwQjMtn7KaneP0jEsY7PjYAPgYCet5+k/0R/yFhuSxU/hsUeE
+	X7YWnymDzP8Y3KrMqoFj5QuS39aqYoHgL4nnwvnZUXNzAYIrhuWjfG3VudD9l9kKgOZw2q7brnWmD
+	S2oDMSag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui7e4-00000007KuV-0ACP;
-	Sat, 02 Aug 2025 08:31:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ui7i4-00000007LBg-3isa;
+	Sat, 02 Aug 2025 08:35:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ui7bV-00000007Kns-1Pku
+	id 1ui7fU-00000007L1G-2gPT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Aug 2025 08:28:34 +0000
+	Sat, 02 Aug 2025 08:32:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AD4785C42ED;
-	Sat,  2 Aug 2025 08:28:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C31AC4CEEF;
-	Sat,  2 Aug 2025 08:28:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E312D43D09;
+	Sat,  2 Aug 2025 08:32:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 167B6C4CEEF;
+	Sat,  2 Aug 2025 08:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754123312;
-	bh=llYTKSuol9RPYhKWm2gabhniwDxQUSufeYpHon5iO0A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qF6pajB3MrNJiZsOnq6oAnkc8s/bi0CUVb5wi7SQ6Z/x7eWWQ7B7M2ylXNYn7jiTy
-	 ZWakT2ODs7l7yMHalxSFFPFeyWayFVu0svHp273gp4owgldnjzrTqs7gzRiU2k6gQn
-	 NqRAaaInTWfPvJxa5Do5J0bFB+LcIWbdXLCaImeGQF957PyM6SvLbc0oHC9DQ7UcNS
-	 3CJsh9+UXBmaOFiXv9eu67QmSiuitIXdckka515ZsJIw4xMABM41us4YopGa/UnYfV
-	 0l0x7RYhiLG7B5LNZD5JgsqY+rfDXVPskP7VeqQEzzDKv0F3WUw4EBNYgMN2/EfaAx
-	 MG5LVFyfNuecg==
-Message-ID: <ed072356-6881-4466-a0c2-0f55b72f92c8@kernel.org>
-Date: Sat, 2 Aug 2025 10:28:23 +0200
+	s=k20201202; t=1754123559;
+	bh=O458uInlmvKV0nf853kQGeZrkBD30PxNgQKHkn2Pfaw=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=lzIWHeN+TKrMBV8pZq5Z/GWGyw6A6OyDbvJftSqx/nggvOf3kCLVSQTcu3bPLyJ3D
+	 HGmjEWNo9wtO7PhLPefDgwZaTbA8LS88FVh7cKRaljanhy+k7lUl4oaurAw8Ub7j41
+	 iyOoLLMEq07kfH7iVYrD3jN9UAz8YKWpAuUoRe7R4s0FOSrIfAdsniUSmdf61g6Sz6
+	 vF7/HINUyHFTIK2H1ah2OLcRp4r7hwFkDd0Z9AOvunWQwpWtbuhHtX4trQqpRX8h6+
+	 IsYa4NZO+8xj0GBxdq43XvkOh7VuXy9rZ8jLuvTGxakNmv72v493ELCwqALw5YHoBr
+	 s1199/lyQvG5A==
+Message-ID: <7902bac4-9f52-443c-995f-a15189102478@kernel.org>
+Date: Sat, 2 Aug 2025 10:32:31 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v7 10/12] nvmem: s32g2_siul2: add NVMEM driver for SoC
  information
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
  Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>,
  Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
@@ -72,7 +73,7 @@ References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
  <9d004ea4-0bb2-4a21-8501-82ecf3482c3e@app.fastmail.com>
  <fa24772b-0038-4f51-87c6-15b810d8d454@oss.nxp.com>
  <53bc13b9-365e-4212-84f9-85e67c23e067@oss.nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <ed072356-6881-4466-a0c2-0f55b72f92c8@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -117,12 +118,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <53bc13b9-365e-4212-84f9-85e67c23e067@oss.nxp.com>
+In-Reply-To: <ed072356-6881-4466-a0c2-0f55b72f92c8@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_012833_468889_10FD9E1E 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250802_013240_722677_A0481468 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,17 +138,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 16:36, Andrei Stefanescu wrote:
-> Apart from the proposed NVMEM driver, there is also an option of exporting
-> a syscon regmap for the registers which provide information about the SoC.
+On 02/08/2025 10:28, Krzysztof Kozlowski wrote:
+> On 01/08/2025 16:36, Andrei Stefanescu wrote:
+>> Apart from the proposed NVMEM driver, there is also an option of exporting
+>> a syscon regmap for the registers which provide information about the SoC.
+>>
+>> I have seen that typically NVMEM drivers export information read from fuses
+>> but I think having a NVMEM driver is nicer way to access the information
+>> instead of using a syscon regmap and manually extracting the needed bits. 
 > 
-> I have seen that typically NVMEM drivers export information read from fuses
-> but I think having a NVMEM driver is nicer way to access the information
-> instead of using a syscon regmap and manually extracting the needed bits. 
+> 
+> nvmem is not a syscon. Mixing these two means device is something
+> completely else.
 
 
-nvmem is not a syscon. Mixing these two means device is something
-completely else.
+... and yes, I am aware that three FSL/NXP bindings use nvmem as syscon
+already. People are mixing hardware description (nvmem) with some
+purpose for drivers (syscon) forgetting that syscon are miscellaneous
+SoC internal registers, not non-volatile memory.
 
 Best regards,
 Krzysztof
