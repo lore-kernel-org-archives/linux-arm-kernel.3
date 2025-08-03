@@ -4,125 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6972CC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  2 Aug 2025 22:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F9BC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 01:07:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xl0OxxNA7ca072iJm6M/zPG6jGGT3ai/1U553419los=; b=LEHJFrnoDj5e9xuYID98mhIWD9
-	WhLigeGLkUD4H6ZYYV1TvHmNIU0eJuz89yRfpaX2d4bGHNW4LYX00TAVjAiVRWdkBRMeAeKyRV922
-	fCh1Nz4DnxRElPFdkUlfGoYCapzo6Z5JCBfIZQ5O4NJVQAhqvifwURDKqHqMc4tr86D/zPl+qISAI
-	nsAQvSe6SfhsjsO90p38Q70fn+qrc+SUQ4NSl+E37crvrg/i/AczhNpKJCyqIF1qsvsmtGgb55xj8
-	9lqOIlWaoYFH0jBKYZ/3LyaTQpQj3oVK+uOBJP0sKewIIo2M2dyK3j+BAwozjvl2P7vbcCLiJrPVB
-	I2TMmeig==;
+	bh=IG2HpXzsqu+NkhilqnbEM95yf9B6n+TV1enjTn2IGB8=; b=p47vdvsrHJlE3goOM6olqhbHDq
+	Qe1BcCghVxRlKe8FtR1xrrPI7SaHkN4C1/8FpUdjxrIFXERPH9WhRPXbNizAKn+4lyrDiQgK2q23j
+	vOQJTE83H/s8h98yrwoyKLjpP0g8BT1Riy9TCmjnYsZdBZ2XoUC4Uvk4YCYGceNHq78Cr5I5KChOw
+	w/0LaqlnpnsOGSyc9wc053xOQAGpm1dwFGrlWzlTvsv3JVtbaDixtgaMShyvIP1L9aX0nxS2jTnJo
+	rttRW7Wf5Fj2trUZ4h7I5zxf7OUztsSo0Fs8MVTy9y6EoKRB9ggADblJPK1jqOs7jytD8dHnL8F7C
+	TmAgO5Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiKgb-00000007w7K-1gpL;
-	Sat, 02 Aug 2025 22:26:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uiNCK-000000081sI-0jpO;
+	Sun, 03 Aug 2025 01:07:36 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiKe2-00000007w1d-0ish
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 02 Aug 2025 22:24:03 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 572Le2fN002364
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 2 Aug 2025 22:24:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=xl0OxxNA7ca072iJm6M/zPG6
-	jGGT3ai/1U553419los=; b=aeMnVJPpOqTPR3I2WDmw51lqLpvUV2fYhyARPtzJ
-	SBY2x5WNIE57zCPGcVper6imusSo8jxDorgVgWeJX/aCGimBRqOdNIqF+WBI6uq2
-	6nHGncnFUryddtwt3fyA80U5I6LqtoW6pHJfOWSFjzspVoEbk2xGx1GPQgOxl4WY
-	fvF8d7J2RFihfDNHah1LU2RCO3LBGxZVFpnZ4OB7fu6ItVyTwTZnLt17G3F5BPe0
-	+rVzOdk9X/GFYA4poaOBg6Lrdk5V9Ism/2L0LX+2heAaaBLpTMa5zcFH6vKbCh3+
-	GU5sp+rKsLgR8ph1MVvu97s7OnDKIPp7fR1C9fHarRMeYg==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 489bek1b57-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 22:24:01 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4aa826c9464so46970801cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 15:24:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754173440; x=1754778240;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xl0OxxNA7ca072iJm6M/zPG6jGGT3ai/1U553419los=;
-        b=ELuhzOKKSjXi3dGr6NYKQ74+oWWawFEXIl74c64McpJQwEEzcq1tpql1SViqev0Vvx
-         sJNAPpYEJ0hfr69p6kspzrAuIg9qz/7waIj0Xe6f29FntmhhM1nFVKwJ80MYws7StLW4
-         csOk+BjMmqejLk14cTGpknK5tCygZypb05NIo8hKthqJ6KINX6dbTA1thQAmQjrBSIWy
-         w/jQc0A/+JJD2mhnKKy4mIEyLA8sbRUrv5SIm9SfwPb3BVayf3qckw+qEx7X+FXPFpvR
-         nru4c8n8zaveEVEZtARE9RhrZ6ZxZCSRotvnnWM06fqWbxmOLCoWydYe1rT4YITCST8q
-         SIQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+f9hJrjaApFDrlO2G0q656UmIcpiA+kRBZrq1gc9zEsA/CadCEw3cZOE8fkbcJek4xG3CzG0RUBtVeOhw9zeM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9oBkZcfqXzpjWWmfIDjEp9DwCVH6znHoeQ2/HG1fYeuad0bgT
-	N58hWSa5tvV1L4pHig/Qexrlp1FAQGfr1uiQlYN7m423m/ZCAB2cjN5sisWkFVnsz5ZNeh6qZFi
-	H01qugBQEXyy4HCHH7v9+ucr7nx9i2il+iGxbjXh+4y1K7evvYdw8L4YA2oJYFW+yNM9bpFjNX5
-	MPbA==
-X-Gm-Gg: ASbGncuXbvZjLxiUbpvEsPaxLxXZkxzRKdZ2WQVEFKp0TrQX1Yk96+NJgnsLJmgzMki
-	TrEZCRGXvZUzzz2QOiG0wHAH7gS5omJ1UReqf/55+oH07Mi4DcgTdYSJfoWjMXyb2RUEuJzLFNu
-	nGpm/tRY1KuJkT+WrcJ3kCwEL2r5cOEL7n0VrjDc45GmpouQVOlzDd9RY5Ps36yq7pI2ru8S6+D
-	SzyiTXENNXE2cWC9A2pA/LMCZ2BAtLEDq0ipexuR6yp2j3LFFpbXnFf5xa6GelM717n+RD2d/Qd
-	szv87H8rezrUSV6zdDRZXC8MS3LIjvL+thzkTPkGayhia3DOKru8zAXf0oztEBZlRZCWkaTK6+W
-	DtB/MJNBM7Li6AnNgVZ9Vj7rbIQD5fX8jm924ckZbs9SdE8cbvnki
-X-Received: by 2002:a05:622a:2614:b0:4a4:2c4c:ccb3 with SMTP id d75a77b69052e-4af10a4a6f8mr71116011cf.38.1754173439774;
-        Sat, 02 Aug 2025 15:23:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGrRsxcmSymm/iOQUBWA1JUQnU1xwsXzPXR9p1T+dpkt3Av38hBwrNFCZmoKC0DXjNEzzqClg==
-X-Received: by 2002:a05:622a:2614:b0:4a4:2c4c:ccb3 with SMTP id d75a77b69052e-4af10a4a6f8mr71115661cf.38.1754173439390;
-        Sat, 02 Aug 2025 15:23:59 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55b88ca6776sm1105446e87.141.2025.08.02.15.23.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 15:23:58 -0700 (PDT)
-Date: Sun, 3 Aug 2025 01:23:56 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com,
-        simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-        tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, matthias.bgg@gmail.com, ck.hu@mediatek.com,
-        jitao.shi@mediatek.com, jie.qiu@mediatek.com, junzhi.zhao@mediatek.com,
-        dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-        dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com,
-        ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com,
-        jason-jh.lin@mediatek.com
-Subject: Re: [PATCH v9 00/23] Add support for MT8195/88 HDMIv2 and DDCv2
-Message-ID: <2eq5je6xk4ly5lxijit3ufor7pmm7mgivbuigzr35lrbe2ryvr@3axnsyabigm7>
-References: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
+	id 1uiN9j-000000081lg-1qKd;
+	Sun, 03 Aug 2025 01:04:57 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 395D841DE2;
+	Sun,  3 Aug 2025 01:04:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1754183092;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IG2HpXzsqu+NkhilqnbEM95yf9B6n+TV1enjTn2IGB8=;
+	b=ibJLf44Stz+KQ8z1BIhUrXB8Hx8q3mDVJsoazKdnF5cGuJvjReExXK4mcEOGy+KCLeZn/+
+	kiZ6ksHecS6yzjenen9Bap4+NogZvlkX8LS/fcaTLx2nCLDMs16sjfVWHO2BVoee+7W6h1
+	UEJQo/hhQZmslKN2uXNBIo6f/iV7i4i2ULavQeZYg9xJlgn+4UWyifl1oqRN5FdvDOipjo
+	Anoil5WSqw3fdSJJkxGIZeUHKgePK471C7AqiXKnuTl4IJNxiRavQiZ+ZSEcB4GlH//Ny4
+	WFnmiHTOQORQeOxW5S5sx2Fjc6aV8soQemag6oeQvhlj/yfB9gN8N5R45YYCkg==
+Date: Sun, 3 Aug 2025 03:04:49 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Feng Tang <feng.tang@linux.alibaba.com>,
+	Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org,
+	linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org,
+	x86@kernel.org, linux-riscv@lists.infradead.org,
+	loongarch@lists.linux.dev
+Subject: Re: [RFC PATCH 1/3] efi-rtc: Remove wakeup functionality
+Message-ID: <20250803010449df1f5cfb@mail.local>
+References: <20250714060843.4029171-5-ardb+git@google.com>
+ <20250714060843.4029171-6-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250415104321.51149-1-angelogioacchino.delregno@collabora.com>
-X-Authority-Analysis: v=2.4 cv=M7tNKzws c=1 sm=1 tr=0 ts=688e9001 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=2OwXVqhp2XgA:10 a=k3YYP44_YlkhweOvE2wA:9 a=CjuIK1q_8ugA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAyMDE4MiBTYWx0ZWRfXzCNJNzGKjO/h
- w0Fx3q3e6MuhqT5z32Lo5XRKtDasmSBis8W9BeWH312XkE68lTQFWKpxGJT6+TEYjbzmpN2ZhwT
- CkXO79mw3HwDOMNI45ZXPn3FweAEvMp29mG95BxoslDoUgZxyl8kNGFRfd6A14msX8QRb44jqYH
- 6DcfozGWDolTA6x/TWA6Fq370cpOAVCO/sWTPX/W6oZnHlXSw/w9BCYYw6vz46GU6ROaDzyuIky
- qR3sPlK1uHqslkW22Mi+IlOsMmUjvkxABXYpAnyNrGUgqnp+4YIHPL7yGloqrgpj1PSk9v6XyCc
- oeuqCmUXeuXduduqpNOlzPFgYpOKpPVyUlSSYfGn2JK2+qIuCDZA+doKvF3w8ZOnIaheMRM33aT
- O8vl5OKknnAiwc7SwGT0SlwoB1zZeOVxK8//BUsA0SSp16lmXXJPoEXx0pt6RRIqs4Zer3W7
-X-Proofpoint-ORIG-GUID: DIKYAG5Pk6glpCsZj-N9_DOoaeV5neR5
-X-Proofpoint-GUID: DIKYAG5Pk6glpCsZj-N9_DOoaeV5neR5
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-02_01,2025-08-01_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0
- clxscore=1015 mlxlogscore=743 mlxscore=0 bulkscore=0 spamscore=0
- suspectscore=0 phishscore=0 adultscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2505280000 definitions=main-2508020182
+In-Reply-To: <20250714060843.4029171-6-ardb+git@google.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutdektdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeeiudeuteehhfekgeejveefhfeiudejuefhgfeljefgjeegkeeujeeugfehgefgnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtudemvgdtrgemvdgumeeifeejtdemjeekvgdtmegttdgvkeemvdektdeimeekrggtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdgumeeifeejtdemjeekvgdtmegttdgvkeemvdektdeimeekrggtiedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudejpdhrtghpthhtoheprghruggsodhgihhtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehli
+ hhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrrhgusgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhgvihhnrhhitghhrdhstghhuhgthhgrrhguthestggrnhhonhhitggrlhdrtghomhdprhgtphhtthhopehfvghnghdrthgrnhhgsehlihhnuhigrdgrlhhisggrsggrrdgtohhmpdhrtghpthhtohepjhhgrhhoshhssehsuhhsvgdrtghomhdprhgtphhtthhopehsshhtrggsvghllhhinhhisehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_152402_230571_91C142BB 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20250802_180455_626198_BF33E9D2 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,18 +84,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 12:42:58PM +0200, AngeloGioacchino Del Regno wrote:
+Hello,
+
+Apart from the topic that should be "rtc: efi:...", I'm ready to apply
+this patch.
+
+On 14/07/2025 08:08:45+0200, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
 > 
-> This series adds support for the HDMI-TX v2 Encoder and DDCv2, and for
-> the direct connection DPI as found in MT8195, MT8188 and their variants.
-
-Angelo, just wanted to check, what is the fate of this series? I think
-it wasn't updated since April. It was a really good example of utilizing
-the HDMI framework(s). Wink.
-
+> The EFI rtc driver is used by non-x86 architectures only, and exposes
+> the get/set wakeup time functionality provided by the underlying
+> platform. This is usually broken on most platforms, and not widely used
+> to begin with [if at all], so let's just remove it.
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  drivers/rtc/rtc-efi.c | 76 +-------------------
+>  1 file changed, 2 insertions(+), 74 deletions(-)
+> 
+> diff --git a/drivers/rtc/rtc-efi.c b/drivers/rtc/rtc-efi.c
+> index fa8bf82df948..b4f44999ef0f 100644
+> --- a/drivers/rtc/rtc-efi.c
+> +++ b/drivers/rtc/rtc-efi.c
+> @@ -112,48 +112,6 @@ convert_from_efi_time(efi_time_t *eft, struct rtc_time *wtime)
+>  	return true;
+>  }
+>  
+> -static int efi_read_alarm(struct device *dev, struct rtc_wkalrm *wkalrm)
+> -{
+> -	efi_time_t eft;
+> -	efi_status_t status;
+> -
+> -	/*
+> -	 * As of EFI v1.10, this call always returns an unsupported status
+> -	 */
+> -	status = efi.get_wakeup_time((efi_bool_t *)&wkalrm->enabled,
+> -				     (efi_bool_t *)&wkalrm->pending, &eft);
+> -
+> -	if (status != EFI_SUCCESS)
+> -		return -EINVAL;
+> -
+> -	if (!convert_from_efi_time(&eft, &wkalrm->time))
+> -		return -EIO;
+> -
+> -	return rtc_valid_tm(&wkalrm->time);
+> -}
+> -
+> -static int efi_set_alarm(struct device *dev, struct rtc_wkalrm *wkalrm)
+> -{
+> -	efi_time_t eft;
+> -	efi_status_t status;
+> -
+> -	convert_to_efi_time(&wkalrm->time, &eft);
+> -
+> -	/*
+> -	 * XXX Fixme:
+> -	 * As of EFI 0.92 with the firmware I have on my
+> -	 * machine this call does not seem to work quite
+> -	 * right
+> -	 *
+> -	 * As of v1.10, this call always returns an unsupported status
+> -	 */
+> -	status = efi.set_wakeup_time((efi_bool_t)wkalrm->enabled, &eft);
+> -
+> -	dev_warn(dev, "write status is %d\n", (int)status);
+> -
+> -	return status == EFI_SUCCESS ? 0 : -EINVAL;
+> -}
+> -
+>  static int efi_read_time(struct device *dev, struct rtc_time *tm)
+>  {
+>  	efi_status_t status;
+> @@ -188,17 +146,13 @@ static int efi_set_time(struct device *dev, struct rtc_time *tm)
+>  
+>  static int efi_procfs(struct device *dev, struct seq_file *seq)
+>  {
+> -	efi_time_t        eft, alm;
+> +	efi_time_t        eft;
+>  	efi_time_cap_t    cap;
+> -	efi_bool_t        enabled, pending;
+> -	struct rtc_device *rtc = dev_get_drvdata(dev);
+>  
+>  	memset(&eft, 0, sizeof(eft));
+> -	memset(&alm, 0, sizeof(alm));
+>  	memset(&cap, 0, sizeof(cap));
+>  
+>  	efi.get_time(&eft, &cap);
+> -	efi.get_wakeup_time(&enabled, &pending, &alm);
+>  
+>  	seq_printf(seq,
+>  		   "Time\t\t: %u:%u:%u.%09u\n"
+> @@ -214,26 +168,6 @@ static int efi_procfs(struct device *dev, struct seq_file *seq)
+>  		/* XXX fixme: convert to string? */
+>  		seq_printf(seq, "Timezone\t: %u\n", eft.timezone);
+>  
+> -	if (test_bit(RTC_FEATURE_ALARM, rtc->features)) {
+> -		seq_printf(seq,
+> -			   "Alarm Time\t: %u:%u:%u.%09u\n"
+> -			   "Alarm Date\t: %u-%u-%u\n"
+> -			   "Alarm Daylight\t: %u\n"
+> -			   "Enabled\t\t: %s\n"
+> -			   "Pending\t\t: %s\n",
+> -			   alm.hour, alm.minute, alm.second, alm.nanosecond,
+> -			   alm.year, alm.month, alm.day,
+> -			   alm.daylight,
+> -			   enabled == 1 ? "yes" : "no",
+> -			   pending == 1 ? "yes" : "no");
+> -
+> -		if (alm.timezone == EFI_UNSPECIFIED_TIMEZONE)
+> -			seq_puts(seq, "Timezone\t: unspecified\n");
+> -		else
+> -			/* XXX fixme: convert to string? */
+> -			seq_printf(seq, "Timezone\t: %u\n", alm.timezone);
+> -	}
+> -
+>  	/*
+>  	 * now prints the capabilities
+>  	 */
+> @@ -249,8 +183,6 @@ static int efi_procfs(struct device *dev, struct seq_file *seq)
+>  static const struct rtc_class_ops efi_rtc_ops = {
+>  	.read_time	= efi_read_time,
+>  	.set_time	= efi_set_time,
+> -	.read_alarm	= efi_read_alarm,
+> -	.set_alarm	= efi_set_alarm,
+>  	.proc		= efi_procfs,
+>  };
+>  
+> @@ -271,11 +203,7 @@ static int __init efi_rtc_probe(struct platform_device *dev)
+>  	platform_set_drvdata(dev, rtc);
+>  
+>  	rtc->ops = &efi_rtc_ops;
+> -	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
+> -	if (efi_rt_services_supported(EFI_RT_SUPPORTED_WAKEUP_SERVICES))
+> -		set_bit(RTC_FEATURE_ALARM_WAKEUP_ONLY, rtc->features);
+> -	else
+> -		clear_bit(RTC_FEATURE_ALARM, rtc->features);
+> +	clear_bit(RTC_FEATURE_ALARM, rtc->features);
+>  
+>  	device_init_wakeup(&dev->dev, true);
+>  
+> -- 
+> 2.50.0.727.gbf7dc18ff4-goog
 > 
 
 -- 
-With best wishes
-Dmitry
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
