@@ -4,71 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E2BC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 01:34:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE36C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 04:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a2+aIfYkPPNmXqv0UTcyAkx9bHVmsS9707Z90k5L7A0=; b=Xjkkjkr9YiaCdnuUgibX7CYdRV
-	PkShayIIPwFu0X696bh/f3T4bWfFuN1rd5I+o060BCt2J7L/fogxdSGY1OmGd5unV+dKSlupSgJOs
-	0C2PIs22e/OcrYBvyHesDqFcZ6kQYXXcUVYx413kitWTjRQ8AIHhq6Qhmr2rj9hjZ/s0XqJczMHon
-	Ek/DnPqT5mYgWQQW2bnIgvT6M9djXP99AgUUWoYTiOpX5L0cllnPHwze1peI2/DSj55QLQ6j4Mh9v
-	jatLRywr2/w4W+kgor95qSky6fOW0/w86Xex0Cai9Sr2joPMI738OcnUXzgv4YS866xMkdlC72q3u
-	vEmXKyzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DMLk2rTO/k/ZvCq5mpXv9xnm8IkxOQH6hbAYPKMfY2Y=; b=o0wYdbDTU7WBIiRHhr0f7E8VKJ
+	6qp9vT8f9tzJKs8/eFlvUnCCo0EYXpG929tPt3iavtgJEa6zt4MGWdgSSPU7lCbZuDnJ/AHiiI7mQ
+	8U0zEdTUqRh9KxZE8W1N4S9McPvRc3FZOlTysJWSKycake1gZdRuKpKtRZVlkLQgQ6epHRXaAMaFU
+	7exa1hQAbX0B8++OqVGKEFIvJa00hkRVrSS4RKJUBvsXQ2pWQarM+YRaSa19FXF+UnAm6oOV+4m1s
+	U45w80eYm0R7gFzcSmttB1Q3VisRuEbYkvPy8Yj4synmoxH2fAzI6tUoDJKpy0cVNlHWFg962oic1
+	h5Y1BE7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiNbk-000000082gS-0RNG;
-	Sun, 03 Aug 2025 01:33:52 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1uiPuI-000000089CG-2452;
+	Sun, 03 Aug 2025 04:01:10 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiNZB-000000082aj-1yqE;
-	Sun, 03 Aug 2025 01:31:15 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9C9A21F68D;
-	Sun,  3 Aug 2025 01:31:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754184670;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=a2+aIfYkPPNmXqv0UTcyAkx9bHVmsS9707Z90k5L7A0=;
-	b=ik9cPqzD8i2zYxIiSjffJRD9UklGLZblw2dckym2bvlQc8bocpgsSL55yJFzFX8uiP/qGD
-	x9svSADhUOR25RDHQptfX8Ym0tuyZ3+wOQ/aWGJfdgK/rVpHvEJk+5VqWsVRcRmhsXAlEC
-	iIWkhN/ikVOJ/EkxNULjIn6asut042+JqHP7rQs5Vl2BXyRkQaoWCgvIN2A2x5c/BQzSpX
-	b7eCUWoVUsefU49o+09zeDEIEsB4D5CUaNd9WYdSx/G9IkvfMNi17XJlmKeGXOFJrrGc4x
-	J2+l+gbJtkWl6/pxp1b6OkKcE6C+FKLgH/P+QygURKQDbMZYN8QnItaFmWV2zg==
-Date: Sun, 3 Aug 2025 03:31:09 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, iommu@lists.linux.dev,
-	linux-leds@vger.kernel.org, linux-mmc@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Ulf Hansson <ulf.hansson@linaro.org>, Lee Jones <lee@kernel.org>,
-	Thierry Reding <treding@nvidia.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: Re: [PATCH v2] dt-bindings: Correct indentation and style in DTS
- example
-Message-ID: <2025080301310992daa91a@mail.local>
-References: <20250725100241.120106-2-krzysztof.kozlowski@linaro.org>
+	id 1uiPrf-000000087rM-37lb
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Aug 2025 03:58:29 +0000
+Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-3e406ca2d22so10974465ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:58:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754193506; x=1754798306; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DMLk2rTO/k/ZvCq5mpXv9xnm8IkxOQH6hbAYPKMfY2Y=;
+        b=IbRfrTC/aJVIfSkgSRBQSJH7PlWlawILYMM7JCpS3STFcOG/VDr4n7SQzFc9hrFZtn
+         9glc40fkqOzppjzqYlxTmh6D+GeciA1LGzIWwknSHVaWNA5eqU3SGPnjUUPiYyck/yeB
+         r6ChI0bXGvTFFb4f4wA15Zi1v+OInKQlrYDyqEAxu3hU4b7MjenmtYFg+U9wekGDMRrZ
+         Kl38B8dqm6u+j8uFGV1Wy543UzF0bsOwrL72v9fwVDTK3QwFbxB9oVo529Gk0Birrn7T
+         4UYL2+7Rg9weIzQscQZQGfKOplfXqUltg05aQcd+MTa2K652v+9JzhlK6IweYCz9gmf0
+         Y+TA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754193506; x=1754798306;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DMLk2rTO/k/ZvCq5mpXv9xnm8IkxOQH6hbAYPKMfY2Y=;
+        b=FgFOrieU1KjOxrEFSsT9+L52eAMwu37cvLsQHjZaJ8vPWn6NtFjIIhPhNHd+qSS+rH
+         3Zckst4eMmVS2o5EwvcOOd/xcaxHWzqb5F7y0ZkaVYUH1OGgGiC0vVtW29IcSMk42fqG
+         QCeZy32UU2SXV4MLrrtQlsYV5OvvfQuEP9cdpu85V/h32NCdlCdq4c2r2Iju0EQ6agOr
+         tTBDe6kzhC+GxbXPYByrKx5Ez+dW4MhrNCYRN2WCxshRRH+r+tkGz5B3IFoa4YpRlRIt
+         9/im2ODAS9QTVMULSHPvC8QSGJ/QXFNaMB9UrqONnxM5PiG5sufVLZtbPqC+GXVH5BIH
+         xDrg==
+X-Forwarded-Encrypted: i=1; AJvYcCUNUCHjmgNivlpa8N5bnI+IfDRVmGpFQ0SsNNsgAhaqTKNl54zB/YL6jKJHcQvan6PJPFc5tjwIL7XE4ykQztYZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+cdDITjZNmMQCw7+jG3yVFWbCugdQ63JBvH8drPIfid37K6EZ
+	Ygndzi2cB0dwPWaoThe0fsmSG5tDHNKWVD3MW7Yx0bfOHnEA00H4xebT
+X-Gm-Gg: ASbGnctcumGyK0UKFeDQcsY84DVUOtFRveLqaW9iSjzXoBlIm0NEeP9vhrpCOYhrqNy
+	w7QLdm6ludGyo0MDTh06x72Sng58wkVpJGZmCZ+2NORdDvxMn9NfZtsSKNaI1p+sOrYBfJkusPo
+	LnVFfq9/iqVMA6/Xn9TRT5KuKmY2KkLBxwzMDVRR/vipZ0XFY07PZkrCI9/B5zB7zVDuDq2XnsY
+	WmtU/+K2vQrwgFcEvwlEh6l7VifjKbNSH/jEIaMTEKIeQtkeG+bX8BwglbCNUwd0lb9VJOnQcZC
+	tBoKZfiRzARwnwCi+MEIq7KIDTj1b+zrGqx6aox/p3/7hKmLNVhTXLqu4EOlnUWCz31AgIWuabz
+	reWY8EPxJ0w+ilo0WnamhUrCPGqyDQ9d4v+fyuh8zFEmTlTcZpjuMFqIebWIFbMUJ313gg5dOWU
+	ieIpCMhfAbabTi
+X-Google-Smtp-Source: AGHT+IFDXWcxeK0ansnvS8D6N8J4pmENlNHFL9Jokjsm9G5CrdL7bnhQGMlEMGxcgihYNzJFEiflTg==
+X-Received: by 2002:a92:c26c:0:b0:3e3:e78e:4dfd with SMTP id e9e14a558f8ab-3e41610ba62mr93262065ab.4.1754193506340;
+        Sat, 02 Aug 2025 20:58:26 -0700 (PDT)
+Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.58.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Aug 2025 20:58:25 -0700 (PDT)
+From: Jim Cromie <jim.cromie@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	jbaron@akamai.com,
+	gregkh@linuxfoundation.org,
+	ukaszb@chromium.org,
+	louis.chauvet@bootlin.com
+Cc: dri-devel@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	intel-gvt-dev@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	daniel.vetter@ffwll.ch,
+	tvrtko.ursulin@linux.intel.com,
+	jani.nikula@intel.com,
+	ville.syrjala@linux.intel.com,
+	seanpaul@chromium.org,
+	robdclark@gmail.com,
+	groeck@google.com,
+	yanivt@google.com,
+	bleung@google.com,
+	quic_saipraka@quicinc.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	quic_psodagud@quicinc.com,
+	maz@kernel.org,
+	arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	mingo@redhat.com,
+	jim.cromie@gmail.com
+Subject: [PATCH v4 00/58] fix CONFIG_DRM_USE_DYNAMIC_DEBUG=y
+Date: Sat,  2 Aug 2025 21:57:18 -0600
+Message-ID: <20250803035816.603405-1-jim.cromie@gmail.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250725100241.120106-2-krzysztof.kozlowski@linaro.org>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddutdekudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttddvnecuhfhrohhmpeetlhgvgigrnhgurhgvuceuvghllhhonhhiuceorghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepieejfefhffekjeeuheevueevjedvleevjeetudffheeutdffudefjeduffeuvddtnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegvtdgrmedvugemieefjedtmeejkegvtdemtgdtvgekmedvkedtieemkegrtgeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvugemieefjedtmeejkegvtdemtgdtvgekmedvkedtieemkegrtgeipdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehkrhiihihsiihtohhfrdhkohiilhhofihskhhisehlihhnrghrohdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgp
- dhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alexandre.belloni@bootlin.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_183114_155777_BA4B9E0F 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20250802_205827_792794_A52C7C75 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,968 +122,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/07/2025 12:02:42+0200, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
-> 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
-> 
-> Acked-by: Ulf Hansson <ulf.hansson@linaro.org> # For MMC
-> Acked-by: Lee Jones <lee@kernel.org>
-> Acked-by: Thierry Reding <treding@nvidia.com>
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be> # renesas
-> Link: https://lore.kernel.org/r/20250107131456.247610-1-krzysztof.kozlowski@linaro.org
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 
-> ---
-> 
-> Changes in v2:
-> 1. Rebase on latest Rob's for-next tree, collect tags.
-> 2. Patch also applies cleanly on next, so there are no cross tree
->    conflicts expected.
-> ---
->  .../arm/arm,trace-buffer-extension.yaml       |  10 +-
->  .../bindings/arm/stm32/st,mlahb.yaml          |  20 +-
->  .../bindings/dsp/mediatek,mt8195-dsp.yaml     |  42 ++--
->  ...ntel,ixp4xx-network-processing-engine.yaml |  52 ++---
->  .../bindings/fpga/xlnx,versal-fpga.yaml       |   2 +-
->  .../bindings/iommu/riscv,iommu.yaml           |   6 +-
->  .../devicetree/bindings/leds/leds-mt6360.yaml | 195 +++++++++---------
->  .../devicetree/bindings/mips/brcm/soc.yaml    |  42 ++--
->  .../misc/intel,ixp4xx-ahb-queue-manager.yaml  |   6 +-
->  .../devicetree/bindings/mmc/renesas,sdhi.yaml |  78 +++----
->  .../bindings/mtd/technologic,nand.yaml        |   2 +-
->  .../bindings/nvmem/amlogic,meson6-efuse.yaml  |   2 +-
->  .../bindings/pci/ti,j721e-pci-ep.yaml         |  34 +--
->  .../bindings/power/reset/qcom,pon.yaml        |  62 +++---
->  .../nvidia,tegra264-bpmp-shmem.yaml           |  15 +-
->  .../bindings/rtc/renesas,rzn1-rtc.yaml        |  22 +-
->  .../amlogic/amlogic,meson-gx-hhi-sysctrl.yaml |  26 +--
->  .../bindings/soc/qcom/qcom,eud.yaml           |  38 ++--
->  .../bindings/soc/ti/wkup-m3-ipc.yaml          |  32 +--
->  19 files changed, 343 insertions(+), 343 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,trace-buffer-extension.yaml b/Documentation/devicetree/bindings/arm/arm,trace-buffer-extension.yaml
-> index 87128e7b7d28..f5b54b4fc55d 100644
-> --- a/Documentation/devicetree/bindings/arm/arm,trace-buffer-extension.yaml
-> +++ b/Documentation/devicetree/bindings/arm/arm,trace-buffer-extension.yaml
-> @@ -41,10 +41,10 @@ additionalProperties: false
->  examples:
->  
->    - |
-> -   #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->  
-> -   trbe {
-> -     compatible = "arm,trace-buffer-extension";
-> -     interrupts = <GIC_PPI 15 IRQ_TYPE_LEVEL_HIGH>;
-> -   };
-> +    trbe {
-> +        compatible = "arm,trace-buffer-extension";
-> +        interrupts = <GIC_PPI 15 IRQ_TYPE_LEVEL_HIGH>;
-> +    };
->  ...
-> diff --git a/Documentation/devicetree/bindings/arm/stm32/st,mlahb.yaml b/Documentation/devicetree/bindings/arm/stm32/st,mlahb.yaml
-> index 3e996346b264..4970b9167d1c 100644
-> --- a/Documentation/devicetree/bindings/arm/stm32/st,mlahb.yaml
-> +++ b/Documentation/devicetree/bindings/arm/stm32/st,mlahb.yaml
-> @@ -55,17 +55,17 @@ unevaluatedProperties: false
->  examples:
->    - |
->      ahb {
-> -      compatible = "st,mlahb", "simple-bus";
-> -      #address-cells = <1>;
-> -      #size-cells = <1>;
-> -      ranges;
-> -      dma-ranges = <0x00000000 0x38000000 0x10000>,
-> -                   <0x10000000 0x10000000 0x60000>,
-> -                   <0x30000000 0x30000000 0x60000>;
-> +        compatible = "st,mlahb", "simple-bus";
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        ranges;
-> +        dma-ranges = <0x00000000 0x38000000 0x10000>,
-> +                     <0x10000000 0x10000000 0x60000>,
-> +                     <0x30000000 0x30000000 0x60000>;
->  
-> -      m4_rproc: m4@10000000 {
-> -       reg = <0x10000000 0x40000>;
-> -      };
-> +        m4_rproc: m4@10000000 {
-> +            reg = <0x10000000 0x40000>;
-> +        };
->      };
->  
->  ...
-> diff --git a/Documentation/devicetree/bindings/dsp/mediatek,mt8195-dsp.yaml b/Documentation/devicetree/bindings/dsp/mediatek,mt8195-dsp.yaml
-> index ca8d8661f872..abc52978be7a 100644
-> --- a/Documentation/devicetree/bindings/dsp/mediatek,mt8195-dsp.yaml
-> +++ b/Documentation/devicetree/bindings/dsp/mediatek,mt8195-dsp.yaml
-> @@ -81,25 +81,25 @@ examples:
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
->      #include <dt-bindings/interrupt-controller/irq.h>
->      dsp@10803000 {
-> -       compatible =  "mediatek,mt8195-dsp";
-> -       reg = <0x10803000  0x1000>,
-> -             <0x10840000  0x40000>;
-> -       reg-names = "cfg", "sram";
-> -       clocks = <&topckgen 10>, //CLK_TOP_ADSP
-> -                <&clk26m>,
-> -                <&topckgen 107>, //CLK_TOP_AUDIO_LOCAL_BUS
-> -                <&topckgen 136>, //CLK_TOP_MAINPLL_D7_D2
-> -                <&scp_adsp 0>, //CLK_SCP_ADSP_AUDIODSP
-> -                <&topckgen 34>; //CLK_TOP_AUDIO_H
-> -       clock-names = "adsp_sel",
-> -                     "clk26m_ck",
-> -                     "audio_local_bus",
-> -                     "mainpll_d7_d2",
-> -                     "scp_adsp_audiodsp",
-> -                     "audio_h";
-> -       memory-region = <&adsp_dma_mem_reserved>,
-> -                       <&adsp_mem_reserved>;
-> -       power-domains = <&spm 6>; //MT8195_POWER_DOMAIN_ADSP
-> -       mbox-names = "rx", "tx";
-> -       mboxes = <&adsp_mailbox0>, <&adsp_mailbox1>;
-> +        compatible =  "mediatek,mt8195-dsp";
-> +        reg = <0x10803000 0x1000>,
-> +              <0x10840000 0x40000>;
-> +        reg-names = "cfg", "sram";
-> +        clocks = <&topckgen 10>, //CLK_TOP_ADSP
-> +                 <&clk26m>,
-> +                 <&topckgen 107>, //CLK_TOP_AUDIO_LOCAL_BUS
-> +                 <&topckgen 136>, //CLK_TOP_MAINPLL_D7_D2
-> +                 <&scp_adsp 0>, //CLK_SCP_ADSP_AUDIODSP
-> +                 <&topckgen 34>; //CLK_TOP_AUDIO_H
-> +        clock-names = "adsp_sel",
-> +                      "clk26m_ck",
-> +                      "audio_local_bus",
-> +                      "mainpll_d7_d2",
-> +                      "scp_adsp_audiodsp",
-> +                      "audio_h";
-> +        memory-region = <&adsp_dma_mem_reserved>,
-> +                        <&adsp_mem_reserved>;
-> +        power-domains = <&spm 6>; //MT8195_POWER_DOMAIN_ADSP
-> +        mbox-names = "rx", "tx";
-> +        mboxes = <&adsp_mailbox0>, <&adsp_mailbox1>;
->      };
-> diff --git a/Documentation/devicetree/bindings/firmware/intel,ixp4xx-network-processing-engine.yaml b/Documentation/devicetree/bindings/firmware/intel,ixp4xx-network-processing-engine.yaml
-> index e6bed7d93e2d..50f1f08744a1 100644
-> --- a/Documentation/devicetree/bindings/firmware/intel,ixp4xx-network-processing-engine.yaml
-> +++ b/Documentation/devicetree/bindings/firmware/intel,ixp4xx-network-processing-engine.yaml
-> @@ -62,33 +62,33 @@ examples:
->      #include <dt-bindings/gpio/gpio.h>
->  
->      npe: npe@c8006000 {
-> -         compatible = "intel,ixp4xx-network-processing-engine";
-> -         reg = <0xc8006000 0x1000>, <0xc8007000 0x1000>, <0xc8008000 0x1000>;
-> -         #address-cells = <1>;
-> -         #size-cells = <0>;
-> +        compatible = "intel,ixp4xx-network-processing-engine";
-> +        reg = <0xc8006000 0x1000>, <0xc8007000 0x1000>, <0xc8008000 0x1000>;
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
->  
-> -         hss@0 {
-> -             compatible = "intel,ixp4xx-hss";
-> -             reg = <0>;
-> -             intel,npe-handle = <&npe 0>;
-> -             intel,queue-chl-rxtrig = <&qmgr 12>;
-> -             intel,queue-chl-txready = <&qmgr 34>;
-> -             intel,queue-pkt-rx = <&qmgr 13>;
-> -             intel,queue-pkt-tx = <&qmgr 14>, <&qmgr 15>, <&qmgr 16>, <&qmgr 17>;
-> -             intel,queue-pkt-rxfree = <&qmgr 18>, <&qmgr 19>, <&qmgr 20>, <&qmgr 21>;
-> -             intel,queue-pkt-txdone = <&qmgr 22>;
-> -             cts-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-> -             rts-gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
-> -             dcd-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
-> -             dtr-gpios = <&gpio_74 2 GPIO_ACTIVE_LOW>;
-> -             clk-internal-gpios = <&gpio_74 0 GPIO_ACTIVE_HIGH>;
-> -         };
-> +        hss@0 {
-> +            compatible = "intel,ixp4xx-hss";
-> +            reg = <0>;
-> +            intel,npe-handle = <&npe 0>;
-> +            intel,queue-chl-rxtrig = <&qmgr 12>;
-> +            intel,queue-chl-txready = <&qmgr 34>;
-> +            intel,queue-pkt-rx = <&qmgr 13>;
-> +            intel,queue-pkt-tx = <&qmgr 14>, <&qmgr 15>, <&qmgr 16>, <&qmgr 17>;
-> +            intel,queue-pkt-rxfree = <&qmgr 18>, <&qmgr 19>, <&qmgr 20>, <&qmgr 21>;
-> +            intel,queue-pkt-txdone = <&qmgr 22>;
-> +            cts-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-> +            rts-gpios = <&gpio0 14 GPIO_ACTIVE_LOW>;
-> +            dcd-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
-> +            dtr-gpios = <&gpio_74 2 GPIO_ACTIVE_LOW>;
-> +            clk-internal-gpios = <&gpio_74 0 GPIO_ACTIVE_HIGH>;
-> +        };
->  
-> -         crypto {
-> -             compatible = "intel,ixp4xx-crypto";
-> -             intel,npe-handle = <&npe 2>;
-> -             queue-rx = <&qmgr 30>;
-> -             queue-txready = <&qmgr 29>;
-> -         };
-> +        crypto {
-> +            compatible = "intel,ixp4xx-crypto";
-> +            intel,npe-handle = <&npe 2>;
-> +            queue-rx = <&qmgr 30>;
-> +            queue-txready = <&qmgr 29>;
-> +        };
->      };
->  ...
-> diff --git a/Documentation/devicetree/bindings/fpga/xlnx,versal-fpga.yaml b/Documentation/devicetree/bindings/fpga/xlnx,versal-fpga.yaml
-> index 80833462f620..41b368d54557 100644
-> --- a/Documentation/devicetree/bindings/fpga/xlnx,versal-fpga.yaml
-> +++ b/Documentation/devicetree/bindings/fpga/xlnx,versal-fpga.yaml
-> @@ -27,7 +27,7 @@ additionalProperties: false
->  examples:
->    - |
->      versal_fpga: versal-fpga {
-> -         compatible = "xlnx,versal-fpga";
-> +        compatible = "xlnx,versal-fpga";
->      };
->  
->  ...
-> diff --git a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> index 5d015eeb06d0..d4838c3b3741 100644
-> --- a/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/riscv,iommu.yaml
-> @@ -139,9 +139,9 @@ examples:
->  
->              /* The IOMMU programming interface uses slot 00:01.0 */
->              iommu0: iommu@1,0 {
-> -               compatible = "pci1efd,edf1", "riscv,pci-iommu";
-> -               reg = <0x800 0 0 0 0>;
-> -               #iommu-cells = <1>;
-> +                compatible = "pci1efd,edf1", "riscv,pci-iommu";
-> +                reg = <0x800 0 0 0 0>;
-> +                #iommu-cells = <1>;
->              };
->          };
->      };
-> diff --git a/Documentation/devicetree/bindings/leds/leds-mt6360.yaml b/Documentation/devicetree/bindings/leds/leds-mt6360.yaml
-> index d84e28e616d7..d2e1d8afc302 100644
-> --- a/Documentation/devicetree/bindings/leds/leds-mt6360.yaml
-> +++ b/Documentation/devicetree/bindings/leds/leds-mt6360.yaml
-> @@ -87,106 +87,105 @@ additionalProperties: false
->  
->  examples:
->    - |
-> -   #include <dt-bindings/leds/common.h>
-> -   led-controller {
-> -     compatible = "mediatek,mt6360-led";
-> -     #address-cells = <1>;
-> -     #size-cells = <0>;
-> +    #include <dt-bindings/leds/common.h>
-> +    led-controller {
-> +        compatible = "mediatek,mt6360-led";
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
->  
-> -     multi-led@0 {
-> -       reg = <0>;
-> -       function = LED_FUNCTION_INDICATOR;
-> -       color = <LED_COLOR_ID_RGB>;
-> -       led-max-microamp = <24000>;
-> -       #address-cells = <1>;
-> -       #size-cells = <0>;
-> -       led@0 {
-> -         reg = <0>;
-> -         color = <LED_COLOR_ID_RED>;
-> -       };
-> -       led@1 {
-> -         reg = <1>;
-> -         color = <LED_COLOR_ID_GREEN>;
-> -       };
-> -       led@2 {
-> -         reg = <2>;
-> -         color = <LED_COLOR_ID_BLUE>;
-> -       };
-> -     };
-> -     led@3 {
-> -       reg = <3>;
-> -       function = LED_FUNCTION_INDICATOR;
-> -       color = <LED_COLOR_ID_WHITE>;
-> -       led-max-microamp = <150000>;
-> -     };
-> -     led@4 {
-> -       reg = <4>;
-> -       function = LED_FUNCTION_FLASH;
-> -       color = <LED_COLOR_ID_WHITE>;
-> -       function-enumerator = <1>;
-> -       led-max-microamp = <200000>;
-> -       flash-max-microamp = <500000>;
-> -       flash-max-timeout-us = <1024000>;
-> -     };
-> -     led@5 {
-> -       reg = <5>;
-> -       function = LED_FUNCTION_FLASH;
-> -       color = <LED_COLOR_ID_WHITE>;
-> -       function-enumerator = <2>;
-> -       led-max-microamp = <200000>;
-> -       flash-max-microamp = <500000>;
-> -       flash-max-timeout-us = <1024000>;
-> -     };
-> -   };
-> +        multi-led@0 {
-> +            reg = <0>;
-> +            function = LED_FUNCTION_INDICATOR;
-> +            color = <LED_COLOR_ID_RGB>;
-> +            led-max-microamp = <24000>;
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            led@0 {
-> +                reg = <0>;
-> +                color = <LED_COLOR_ID_RED>;
-> +            };
-> +            led@1 {
-> +                reg = <1>;
-> +                color = <LED_COLOR_ID_GREEN>;
-> +            };
-> +            led@2 {
-> +                reg = <2>;
-> +                color = <LED_COLOR_ID_BLUE>;
-> +            };
-> +        };
-> +        led@3 {
-> +            reg = <3>;
-> +            function = LED_FUNCTION_INDICATOR;
-> +            color = <LED_COLOR_ID_WHITE>;
-> +            led-max-microamp = <150000>;
-> +        };
-> +        led@4 {
-> +            reg = <4>;
-> +            function = LED_FUNCTION_FLASH;
-> +            color = <LED_COLOR_ID_WHITE>;
-> +            function-enumerator = <1>;
-> +            led-max-microamp = <200000>;
-> +            flash-max-microamp = <500000>;
-> +            flash-max-timeout-us = <1024000>;
-> +        };
-> +        led@5 {
-> +            reg = <5>;
-> +            function = LED_FUNCTION_FLASH;
-> +            color = <LED_COLOR_ID_WHITE>;
-> +            function-enumerator = <2>;
-> +            led-max-microamp = <200000>;
-> +            flash-max-microamp = <500000>;
-> +            flash-max-timeout-us = <1024000>;
-> +        };
-> +    };
->  
->    - |
-> +    led-controller {
-> +        compatible = "mediatek,mt6360-led";
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
->  
-> -   led-controller {
-> -     compatible = "mediatek,mt6360-led";
-> -     #address-cells = <1>;
-> -     #size-cells = <0>;
-> -
-> -     led@0 {
-> -       reg = <0>;
-> -       function = LED_FUNCTION_INDICATOR;
-> -       color = <LED_COLOR_ID_RED>;
-> -       led-max-microamp = <24000>;
-> -     };
-> -     led@1 {
-> -       reg = <1>;
-> -       function = LED_FUNCTION_INDICATOR;
-> -       color = <LED_COLOR_ID_GREEN>;
-> -       led-max-microamp = <24000>;
-> -     };
-> -     led@2 {
-> -       reg = <2>;
-> -       function = LED_FUNCTION_INDICATOR;
-> -       color = <LED_COLOR_ID_BLUE>;
-> -       led-max-microamp = <24000>;
-> -     };
-> -     led@3 {
-> -       reg = <3>;
-> -       function = LED_FUNCTION_INDICATOR;
-> -       color = <LED_COLOR_ID_WHITE>;
-> -       led-max-microamp = <150000>;
-> -     };
-> -     led@4 {
-> -       reg = <4>;
-> -       function = LED_FUNCTION_FLASH;
-> -       color = <LED_COLOR_ID_WHITE>;
-> -       function-enumerator = <1>;
-> -       led-max-microamp = <200000>;
-> -       flash-max-microamp = <500000>;
-> -       flash-max-timeout-us = <1024000>;
-> -     };
-> -     led@5 {
-> -       reg = <5>;
-> -       function = LED_FUNCTION_FLASH;
-> -       color = <LED_COLOR_ID_WHITE>;
-> -       function-enumerator = <2>;
-> -       led-max-microamp = <200000>;
-> -       flash-max-microamp = <500000>;
-> -       flash-max-timeout-us = <1024000>;
-> -     };
-> -   };
-> +        led@0 {
-> +            reg = <0>;
-> +            function = LED_FUNCTION_INDICATOR;
-> +            color = <LED_COLOR_ID_RED>;
-> +            led-max-microamp = <24000>;
-> +        };
-> +        led@1 {
-> +            reg = <1>;
-> +            function = LED_FUNCTION_INDICATOR;
-> +            color = <LED_COLOR_ID_GREEN>;
-> +            led-max-microamp = <24000>;
-> +        };
-> +        led@2 {
-> +            reg = <2>;
-> +            function = LED_FUNCTION_INDICATOR;
-> +            color = <LED_COLOR_ID_BLUE>;
-> +            led-max-microamp = <24000>;
-> +        };
-> +        led@3 {
-> +            reg = <3>;
-> +            function = LED_FUNCTION_INDICATOR;
-> +            color = <LED_COLOR_ID_WHITE>;
-> +            led-max-microamp = <150000>;
-> +        };
-> +        led@4 {
-> +            reg = <4>;
-> +            function = LED_FUNCTION_FLASH;
-> +            color = <LED_COLOR_ID_WHITE>;
-> +            function-enumerator = <1>;
-> +            led-max-microamp = <200000>;
-> +            flash-max-microamp = <500000>;
-> +            flash-max-timeout-us = <1024000>;
-> +        };
-> +        led@5 {
-> +            reg = <5>;
-> +            function = LED_FUNCTION_FLASH;
-> +            color = <LED_COLOR_ID_WHITE>;
-> +            function-enumerator = <2>;
-> +            led-max-microamp = <200000>;
-> +            flash-max-microamp = <500000>;
-> +            flash-max-timeout-us = <1024000>;
-> +        };
-> +    };
->  ...
-> diff --git a/Documentation/devicetree/bindings/mips/brcm/soc.yaml b/Documentation/devicetree/bindings/mips/brcm/soc.yaml
-> index 0cc634482a6a..461a8c063313 100644
-> --- a/Documentation/devicetree/bindings/mips/brcm/soc.yaml
-> +++ b/Documentation/devicetree/bindings/mips/brcm/soc.yaml
-> @@ -92,29 +92,29 @@ additionalProperties: true
->  
->  examples:
->    - |
-> -     / {
-> -         compatible = "brcm,bcm3368";
-> -         #address-cells = <1>;
-> -         #size-cells = <1>;
-> -         model = "Broadcom 3368";
-> +    / {
-> +        compatible = "brcm,bcm3368";
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        model = "Broadcom 3368";
->  
-> -         cpus {
-> -           #address-cells = <1>;
-> -           #size-cells = <0>;
-> +        cpus {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
->  
-> -           mips-hpt-frequency = <150000000>;
-> +            mips-hpt-frequency = <150000000>;
->  
-> -           cpu@0 {
-> -             compatible = "brcm,bmips4350";
-> -             device_type = "cpu";
-> -             reg = <0>;
-> -           };
-> +            cpu@0 {
-> +                compatible = "brcm,bmips4350";
-> +                device_type = "cpu";
-> +                reg = <0>;
-> +            };
->  
-> -           cpu@1 {
-> -             compatible = "brcm,bmips4350";
-> -             device_type = "cpu";
-> -             reg = <1>;
-> -           };
-> -         };
-> -       };
-> +            cpu@1 {
-> +                compatible = "brcm,bmips4350";
-> +                device_type = "cpu";
-> +                reg = <1>;
-> +            };
-> +        };
-> +    };
->  ...
-> diff --git a/Documentation/devicetree/bindings/misc/intel,ixp4xx-ahb-queue-manager.yaml b/Documentation/devicetree/bindings/misc/intel,ixp4xx-ahb-queue-manager.yaml
-> index 36a9dbdf3f03..aab89946b04f 100644
-> --- a/Documentation/devicetree/bindings/misc/intel,ixp4xx-ahb-queue-manager.yaml
-> +++ b/Documentation/devicetree/bindings/misc/intel,ixp4xx-ahb-queue-manager.yaml
-> @@ -45,7 +45,7 @@ examples:
->      #include <dt-bindings/interrupt-controller/irq.h>
->  
->      qmgr: queue-manager@60000000 {
-> -         compatible = "intel,ixp4xx-ahb-queue-manager";
-> -         reg = <0x60000000 0x4000>;
-> -         interrupts = <3 IRQ_TYPE_LEVEL_HIGH>, <4 IRQ_TYPE_LEVEL_HIGH>;
-> +        compatible = "intel,ixp4xx-ahb-queue-manager";
-> +        reg = <0x60000000 0x4000>;
-> +        interrupts = <3 IRQ_TYPE_LEVEL_HIGH>, <4 IRQ_TYPE_LEVEL_HIGH>;
->      };
-> diff --git a/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml b/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
-> index ba15ccbda61a..c754ea71f51f 100644
-> --- a/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/renesas,sdhi.yaml
-> @@ -266,49 +266,49 @@ examples:
->      #include <dt-bindings/power/r8a7790-sysc.h>
->  
->      sdhi0: mmc@ee100000 {
-> -            compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> -            reg = <0xee100000 0x328>;
-> -            interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>;
-> -            clocks = <&cpg CPG_MOD 314>;
-> -            dmas = <&dmac0 0xcd>, <&dmac0 0xce>, <&dmac1 0xcd>, <&dmac1 0xce>;
-> -            dma-names = "tx", "rx", "tx", "rx";
-> -            max-frequency = <195000000>;
-> -            power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> -            resets = <&cpg 314>;
-> +        compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> +        reg = <0xee100000 0x328>;
-> +        interrupts = <GIC_SPI 165 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&cpg CPG_MOD 314>;
-> +        dmas = <&dmac0 0xcd>, <&dmac0 0xce>, <&dmac1 0xcd>, <&dmac1 0xce>;
-> +        dma-names = "tx", "rx", "tx", "rx";
-> +        max-frequency = <195000000>;
-> +        power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> +        resets = <&cpg 314>;
->      };
->  
->      sdhi1: mmc@ee120000 {
-> -             compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> -             reg = <0xee120000 0x328>;
-> -             interrupts = <GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>;
-> -             clocks = <&cpg CPG_MOD 313>;
-> -             dmas = <&dmac0 0xc9>, <&dmac0 0xca>, <&dmac1 0xc9>, <&dmac1 0xca>;
-> -             dma-names = "tx", "rx", "tx", "rx";
-> -             max-frequency = <195000000>;
-> -             power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> -             resets = <&cpg 313>;
-> +        compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> +        reg = <0xee120000 0x328>;
-> +        interrupts = <GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&cpg CPG_MOD 313>;
-> +        dmas = <&dmac0 0xc9>, <&dmac0 0xca>, <&dmac1 0xc9>, <&dmac1 0xca>;
-> +        dma-names = "tx", "rx", "tx", "rx";
-> +        max-frequency = <195000000>;
-> +        power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> +        resets = <&cpg 313>;
->      };
->  
->      sdhi2: mmc@ee140000 {
-> -             compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> -             reg = <0xee140000 0x100>;
-> -             interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>;
-> -             clocks = <&cpg CPG_MOD 312>;
-> -             dmas = <&dmac0 0xc1>, <&dmac0 0xc2>, <&dmac1 0xc1>, <&dmac1 0xc2>;
-> -             dma-names = "tx", "rx", "tx", "rx";
-> -             max-frequency = <97500000>;
-> -             power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> -             resets = <&cpg 312>;
-> -     };
-> -
-> -     sdhi3: mmc@ee160000 {
-> -              compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> -              reg = <0xee160000 0x100>;
-> -              interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> -              clocks = <&cpg CPG_MOD 311>;
-> -              dmas = <&dmac0 0xd3>, <&dmac0 0xd4>, <&dmac1 0xd3>, <&dmac1 0xd4>;
-> -              dma-names = "tx", "rx", "tx", "rx";
-> -              max-frequency = <97500000>;
-> -              power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> -              resets = <&cpg 311>;
-> +        compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> +        reg = <0xee140000 0x100>;
-> +        interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&cpg CPG_MOD 312>;
-> +        dmas = <&dmac0 0xc1>, <&dmac0 0xc2>, <&dmac1 0xc1>, <&dmac1 0xc2>;
-> +        dma-names = "tx", "rx", "tx", "rx";
-> +        max-frequency = <97500000>;
-> +        power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> +        resets = <&cpg 312>;
-> +    };
-> +
-> +    sdhi3: mmc@ee160000 {
-> +        compatible = "renesas,sdhi-r8a7790", "renesas,rcar-gen2-sdhi";
-> +        reg = <0xee160000 0x100>;
-> +        interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-> +        clocks = <&cpg CPG_MOD 311>;
-> +        dmas = <&dmac0 0xd3>, <&dmac0 0xd4>, <&dmac1 0xd3>, <&dmac1 0xd4>;
-> +        dma-names = "tx", "rx", "tx", "rx";
-> +        max-frequency = <97500000>;
-> +        power-domains = <&sysc R8A7790_PD_ALWAYS_ON>;
-> +        resets = <&cpg 311>;
->      };
-> diff --git a/Documentation/devicetree/bindings/mtd/technologic,nand.yaml b/Documentation/devicetree/bindings/mtd/technologic,nand.yaml
-> index f9d87c46094b..a3c316436317 100644
-> --- a/Documentation/devicetree/bindings/mtd/technologic,nand.yaml
-> +++ b/Documentation/devicetree/bindings/mtd/technologic,nand.yaml
-> @@ -40,6 +40,6 @@ examples:
->          #address-cells = <1>;
->          #size-cells = <0>;
->          nand@0 {
-> -           reg = <0>;
-> +            reg = <0>;
->          };
->      };
-> diff --git a/Documentation/devicetree/bindings/nvmem/amlogic,meson6-efuse.yaml b/Documentation/devicetree/bindings/nvmem/amlogic,meson6-efuse.yaml
-> index b5cf740f96fa..9879d521842e 100644
-> --- a/Documentation/devicetree/bindings/nvmem/amlogic,meson6-efuse.yaml
-> +++ b/Documentation/devicetree/bindings/nvmem/amlogic,meson6-efuse.yaml
-> @@ -53,6 +53,6 @@ examples:
->          };
->  
->          temperature_calib: calib@1f4 {
-> -             reg = <0x1f4 0x4>;
-> +            reg = <0x1f4 0x4>;
->          };
->      };
-> diff --git a/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml b/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml
-> index 97f2579ea908..29580cbd1767 100644
-> --- a/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml
-> +++ b/Documentation/devicetree/bindings/pci/ti,j721e-pci-ep.yaml
-> @@ -123,21 +123,21 @@ examples:
->          #size-cells = <2>;
->  
->          pcie0_ep: pcie-ep@d000000 {
-> -           compatible = "ti,j721e-pcie-ep";
-> -           reg = <0x00 0x02900000 0x00 0x1000>,
-> -                 <0x00 0x02907000 0x00 0x400>,
-> -                 <0x00 0x0d000000 0x00 0x00800000>,
-> -                 <0x00 0x10000000 0x00 0x08000000>;
-> -           reg-names = "intd_cfg", "user_cfg", "reg", "mem";
-> -           ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x4070>;
-> -           max-link-speed = <3>;
-> -           num-lanes = <2>;
-> -           power-domains = <&k3_pds 239 TI_SCI_PD_EXCLUSIVE>;
-> -           clocks = <&k3_clks 239 1>;
-> -           clock-names = "fck";
-> -           max-functions = /bits/ 8 <6>;
-> -           dma-coherent;
-> -           phys = <&serdes0_pcie_link>;
-> -           phy-names = "pcie-phy";
-> -       };
-> +            compatible = "ti,j721e-pcie-ep";
-> +            reg = <0x00 0x02900000 0x00 0x1000>,
-> +                  <0x00 0x02907000 0x00 0x400>,
-> +                  <0x00 0x0d000000 0x00 0x00800000>,
-> +                  <0x00 0x10000000 0x00 0x08000000>;
-> +            reg-names = "intd_cfg", "user_cfg", "reg", "mem";
-> +            ti,syscon-pcie-ctrl = <&pcie0_ctrl 0x4070>;
-> +            max-link-speed = <3>;
-> +            num-lanes = <2>;
-> +            power-domains = <&k3_pds 239 TI_SCI_PD_EXCLUSIVE>;
-> +            clocks = <&k3_clks 239 1>;
-> +            clock-names = "fck";
-> +            max-functions = /bits/ 8 <6>;
-> +            dma-coherent;
-> +            phys = <&serdes0_pcie_link>;
-> +            phy-names = "pcie-phy";
-> +        };
->      };
-> diff --git a/Documentation/devicetree/bindings/power/reset/qcom,pon.yaml b/Documentation/devicetree/bindings/power/reset/qcom,pon.yaml
-> index 3da3d02a6690..979a377cb4ff 100644
-> --- a/Documentation/devicetree/bindings/power/reset/qcom,pon.yaml
-> +++ b/Documentation/devicetree/bindings/power/reset/qcom,pon.yaml
-> @@ -115,40 +115,40 @@ allOf:
->  
->  examples:
->    - |
-> -   #include <dt-bindings/interrupt-controller/irq.h>
-> -   #include <dt-bindings/input/linux-event-codes.h>
-> -   #include <dt-bindings/spmi/spmi.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/input/linux-event-codes.h>
-> +    #include <dt-bindings/spmi/spmi.h>
->  
-> -   spmi@c440000 {
-> -     reg = <0x0c440000 0x1100>;
-> -     #address-cells = <2>;
-> -     #size-cells = <0>;
-> +    spmi@c440000 {
-> +        reg = <0x0c440000 0x1100>;
-> +        #address-cells = <2>;
-> +        #size-cells = <0>;
->  
-> -     pmic@0 {
-> -       reg = <0x0 SPMI_USID>;
-> -       #address-cells = <1>;
-> -       #size-cells = <0>;
-> +        pmic@0 {
-> +            reg = <0x0 SPMI_USID>;
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
->  
-> -       pon@800 {
-> -         compatible = "qcom,pm8998-pon";
-> -         reg = <0x800>;
-> +            pon@800 {
-> +                compatible = "qcom,pm8998-pon";
-> +                reg = <0x800>;
->  
-> -         pwrkey {
-> -            compatible = "qcom,pm8941-pwrkey";
-> -            interrupts = <0x0 0x8 0 IRQ_TYPE_EDGE_BOTH>;
-> -            debounce = <15625>;
-> -            bias-pull-up;
-> -            linux,code = <KEY_POWER>;
-> -         };
-> +                pwrkey {
-> +                    compatible = "qcom,pm8941-pwrkey";
-> +                    interrupts = <0x0 0x8 0 IRQ_TYPE_EDGE_BOTH>;
-> +                    debounce = <15625>;
-> +                    bias-pull-up;
-> +                    linux,code = <KEY_POWER>;
-> +                };
->  
-> -         resin {
-> -            compatible = "qcom,pm8941-resin";
-> -            interrupts = <0x0 0x8 1 IRQ_TYPE_EDGE_BOTH>;
-> -            debounce = <15625>;
-> -            bias-pull-up;
-> -            linux,code = <KEY_VOLUMEDOWN>;
-> -         };
-> -       };
-> -     };
-> -   };
-> +                resin {
-> +                    compatible = "qcom,pm8941-resin";
-> +                    interrupts = <0x0 0x8 1 IRQ_TYPE_EDGE_BOTH>;
-> +                    debounce = <15625>;
-> +                    bias-pull-up;
-> +                    linux,code = <KEY_VOLUMEDOWN>;
-> +                };
-> +            };
-> +        };
-> +    };
->  ...
-> diff --git a/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml b/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
-> index f9b2f0fdc282..4380f622f9a9 100644
-> --- a/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
-> +++ b/Documentation/devicetree/bindings/reserved-memory/nvidia,tegra264-bpmp-shmem.yaml
-> @@ -36,12 +36,13 @@ required:
->  examples:
->    - |
->      reserved-memory {
-> -       #address-cells = <2>;
-> -       #size-cells = <2>;
-> -       dram_cpu_bpmp_mail: shmem@f1be0000 {
-> -           compatible = "nvidia,tegra264-bpmp-shmem";
-> -           reg = <0x0 0xf1be0000 0x0 0x2000>;
-> -           no-map;
-> -       };
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        shmem@f1be0000 {
-> +            compatible = "nvidia,tegra264-bpmp-shmem";
-> +            reg = <0x0 0xf1be0000 0x0 0x2000>;
-> +            no-map;
-> +        };
->      };
->  ...
-> diff --git a/Documentation/devicetree/bindings/rtc/renesas,rzn1-rtc.yaml b/Documentation/devicetree/bindings/rtc/renesas,rzn1-rtc.yaml
-> index f6fdcc7090b6..1860f0e4c31a 100644
-> --- a/Documentation/devicetree/bindings/rtc/renesas,rzn1-rtc.yaml
-> +++ b/Documentation/devicetree/bindings/rtc/renesas,rzn1-rtc.yaml
-> @@ -61,14 +61,14 @@ examples:
->      #include <dt-bindings/interrupt-controller/arm-gic.h>
->      #include <dt-bindings/clock/r9a06g032-sysctrl.h>
->      rtc@40006000 {
-> -       compatible = "renesas,r9a06g032-rtc", "renesas,rzn1-rtc";
-> -       reg = <0x40006000 0x1000>;
-> -       interrupts = <GIC_SPI 66 IRQ_TYPE_EDGE_RISING>,
-> -                    <GIC_SPI 67 IRQ_TYPE_EDGE_RISING>,
-> -                    <GIC_SPI 68 IRQ_TYPE_EDGE_RISING>;
-> -       interrupt-names = "alarm", "timer", "pps";
-> -       clocks = <&sysctrl R9A06G032_HCLK_RTC>;
-> -       clock-names = "hclk";
-> -       power-domains = <&sysctrl>;
-> -       start-year = <2000>;
-> -     };
-> +        compatible = "renesas,r9a06g032-rtc", "renesas,rzn1-rtc";
-> +        reg = <0x40006000 0x1000>;
-> +        interrupts = <GIC_SPI 66 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 67 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 68 IRQ_TYPE_EDGE_RISING>;
-> +        interrupt-names = "alarm", "timer", "pps";
-> +        clocks = <&sysctrl R9A06G032_HCLK_RTC>;
-> +        clock-names = "hclk";
-> +        power-domains = <&sysctrl>;
-> +        start-year = <2000>;
-> +    };
-> diff --git a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
-> index 3dc66f1de023..f3a85c67ce8a 100644
-> --- a/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
-> +++ b/Documentation/devicetree/bindings/soc/amlogic/amlogic,meson-gx-hhi-sysctrl.yaml
-> @@ -186,22 +186,22 @@ examples:
->          };
->  
->          power-controller {
-> -           compatible = "amlogic,meson-axg-pwrc";
-> -           #power-domain-cells = <1>;
-> -           amlogic,ao-sysctrl = <&sysctrl_AO>;
-> +            compatible = "amlogic,meson-axg-pwrc";
-> +            #power-domain-cells = <1>;
-> +            amlogic,ao-sysctrl = <&sysctrl_AO>;
->  
-> -           resets = <&reset_viu>,
-> -                    <&reset_venc>,
-> -                    <&reset_vcbus>,
-> -                    <&reset_vencl>,
-> -                    <&reset_vid_lock>;
-> -           reset-names = "viu", "venc", "vcbus", "vencl", "vid_lock";
-> -           clocks = <&clk_vpu>, <&clk_vapb>;
-> -           clock-names = "vpu", "vapb";
-> +            resets = <&reset_viu>,
-> +                     <&reset_venc>,
-> +                     <&reset_vcbus>,
-> +                     <&reset_vencl>,
-> +                     <&reset_vid_lock>;
-> +            reset-names = "viu", "venc", "vcbus", "vencl", "vid_lock";
-> +            clocks = <&clk_vpu>, <&clk_vapb>;
-> +            clock-names = "vpu", "vapb";
->          };
->  
->          phy {
-> -           compatible = "amlogic,axg-mipi-pcie-analog-phy";
-> -           #phy-cells = <0>;
-> +            compatible = "amlogic,axg-mipi-pcie-analog-phy";
-> +            #phy-cells = <0>;
->          };
->      };
-> diff --git a/Documentation/devicetree/bindings/soc/qcom/qcom,eud.yaml b/Documentation/devicetree/bindings/soc/qcom/qcom,eud.yaml
-> index f2c5ec7e6437..84218636c0d8 100644
-> --- a/Documentation/devicetree/bindings/soc/qcom/qcom,eud.yaml
-> +++ b/Documentation/devicetree/bindings/soc/qcom/qcom,eud.yaml
-> @@ -55,25 +55,25 @@ additionalProperties: false
->  examples:
->    - |
->      eud@88e0000 {
-> -           compatible = "qcom,sc7280-eud", "qcom,eud";
-> -           reg = <0x88e0000 0x2000>,
-> -                 <0x88e2000 0x1000>;
-> +        compatible = "qcom,sc7280-eud", "qcom,eud";
-> +        reg = <0x88e0000 0x2000>,
-> +              <0x88e2000 0x1000>;
->  
-> -           ports {
-> -                   #address-cells = <1>;
-> -                   #size-cells = <0>;
-> -                   port@0 {
-> -                           reg = <0>;
-> -                           eud_ep: endpoint {
-> -                                   remote-endpoint = <&usb2_role_switch>;
-> -                           };
-> -                   };
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            port@0 {
-> +                reg = <0>;
-> +                eud_ep: endpoint {
-> +                    remote-endpoint = <&usb2_role_switch>;
-> +                };
-> +            };
->  
-> -                   port@1 {
-> -                           reg = <1>;
-> -                           eud_con: endpoint {
-> -                                   remote-endpoint = <&con_eud>;
-> -                           };
-> -                   };
-> -           };
-> +            port@1 {
-> +                reg = <1>;
-> +                eud_con: endpoint {
-> +                    remote-endpoint = <&con_eud>;
-> +                };
-> +            };
-> +        };
->      };
-> diff --git a/Documentation/devicetree/bindings/soc/ti/wkup-m3-ipc.yaml b/Documentation/devicetree/bindings/soc/ti/wkup-m3-ipc.yaml
-> index 0df41c4f60c1..56b16183c885 100644
-> --- a/Documentation/devicetree/bindings/soc/ti/wkup-m3-ipc.yaml
-> +++ b/Documentation/devicetree/bindings/soc/ti/wkup-m3-ipc.yaml
-> @@ -121,13 +121,13 @@ examples:
->          };
->  
->          wkup_m3_ipc@1324 {
-> -           compatible = "ti,am3352-wkup-m3-ipc";
-> -           reg = <0x1324 0x24>;
-> -           interrupts = <78>;
-> -           ti,rproc = <&wkup_m3>;
-> -           mboxes = <&am335x_mailbox &mbox_wkupm3>;
-> -           ti,vtt-gpio-pin = <7>;
-> -           firmware-name = "am335x-evm-scale-data.bin";
-> +            compatible = "ti,am3352-wkup-m3-ipc";
-> +            reg = <0x1324 0x24>;
-> +            interrupts = <78>;
-> +            ti,rproc = <&wkup_m3>;
-> +            mboxes = <&am335x_mailbox &mbox_wkupm3>;
-> +            ti,vtt-gpio-pin = <7>;
-> +            firmware-name = "am335x-evm-scale-data.bin";
->          };
->      };
->  
-> @@ -155,20 +155,20 @@ examples:
->              pinctrl-0 = <&ddr3_vtt_toggle_default>;
->  
->              ddr3_vtt_toggle_default: ddr_vtt_toggle_default {
-> -                 pinctrl-single,pins = <
-> +                pinctrl-single,pins = <
->                      0x25C (DS0_PULL_UP_DOWN_EN | PIN_OUTPUT_PULLUP | DS0_FORCE_OFF_MODE | MUX_MODE7)
-> -                 >;
-> +                >;
->              };
->          };
->  
->          wkup_m3_ipc@1324 {
-> -           compatible = "ti,am4372-wkup-m3-ipc";
-> -           reg = <0x1324 0x24>;
-> -           interrupts = <78>;
-> -           ti,rproc = <&wkup_m3>;
-> -           mboxes = <&am437x_mailbox &mbox_wkupm3>;
-> -           ti,set-io-isolation;
-> -           firmware-name = "am43x-evm-scale-data.bin";
-> +            compatible = "ti,am4372-wkup-m3-ipc";
-> +            reg = <0x1324 0x24>;
-> +            interrupts = <78>;
-> +            ti,rproc = <&wkup_m3>;
-> +            mboxes = <&am437x_mailbox &mbox_wkupm3>;
-> +            ti,set-io-isolation;
-> +            firmware-name = "am43x-evm-scale-data.bin";
->          };
->      };
->  
-> -- 
-> 2.48.1
-> 
-> 
+This series fixes dynamic-debug's support for DRM debug-categories.
+Classmaps-v1 evaded full review, and got committed in 2 chunks:
+
+  b7b4eebdba7b..6ea3bf466ac6    # core dyndbg changes
+  0406faf25fb1..ee7d633f2dfb    # drm adoption
+
+Then DRM-CI found a regression when booting with drm.debug=<initval>;
+the callsites' static-keys under the drm-dbgs in drm.ko got enabled,
+but those in drivers & helpers did not, since they weren't yet
+modprobed, and didn't yet exist.
+
+The fix is to retire DECLARE_DYNAMIC_DEBUG_CLASSMAP, and distinguish
+DYNAMIC_DEBUG_CLASSMAP_USEs from _DEFINEs, then adjust the drivers to
+_USE the CLASSMAP _DEFINEd by core drm.ko.  The _DEFINE exports the
+classmap, the _USE refs it, adding a linkage dependency, just like
+__drm_debug already does.
+
+rev3 is here:
+https://lore.kernel.org/lkml/20250402174156.1246171-1-jim.cromie@gmail.com/
+
+changes since are minor:
+ .rework several cleanup patches forward
+ .code/doc/commit-msg tweaks for Louis Chauvet feedback.
+ .refactor dyndbg dynamic-prefix to split TID from cacheable prefix
+ .cflags for drivers/accel borrowing DRM.debug
+
+Jim Cromie (58):
+  docs/dyndbg: update examples \012 to \n
+  docs/dyndbg: explain flags parse 1st
+  test-dyndbg: fixup CLASSMAP usage error
+  dyndbg: reword "class unknown," to "class:_UNKNOWN_"
+  dyndbg: make ddebug_class_param union members same size
+  dyndbg: drop NUM_TYPE_ARRAY
+  dyndbg: tweak pr_fmt to avoid expansion conflicts
+  dyndbg: reduce verbose/debug clutter
+  dyndbg: refactor param_set_dyndbg_classes and below
+  dyndbg: tighten fn-sig of ddebug_apply_class_bitmap
+  dyndbg: replace classmap list with a vector
+  dyndbg: macrofy a 2-index for-loop pattern
+  dyndbg,module: make proper substructs in _ddebug_info
+  dyndbg: hoist classmap-filter-by-modname up to ddebug_add_module
+  dyndbg: ddebug_table.mod_name down to _ddebug_info
+  dyndbg-API: remove DD_CLASS_TYPE_(DISJOINT|LEVEL)_NAMES and code
+  selftests-dyndbg: add a dynamic_debug run_tests target
+  dyndbg: change __dynamic_func_call_cls* macros into expressions
+  dyndbg-API: replace DECLARE_DYNDBG_CLASSMAP
+  dyndbg: detect class_id reservation conflicts
+  dyndbg: check DYNAMIC_DEBUG_CLASSMAP_DEFINE args at compile-time
+  dyndbg-test: change do_prints testpoint to accept a loopct
+  dyndbg-API: promote DYNAMIC_DEBUG_CLASSMAP_PARAM to API
+  dyndbg: treat comma as a token separator
+  dyndbg: split multi-query strings with %
+  selftests-dyndbg: add test_mod_submod
+  dyndbg: drop "protection" of class'd pr_debugs from legacy queries
+  dyndbg: restore classmap protection when theres a controlling_param
+  docs/dyndbg: add classmap info to howto
+  dyndbg: reserve flag-bit _DPRINTK_FLAGS_PREFIX_CACHED
+  dyndbg: add _DPRINTK_FLAGS_INCL_LOOKUP for +mfsl flags
+  dyndbg: refactor *dynamic_emit_prefix to split lookups
+  drm: use correct ccflags-y spelling
+  drm-dyndbg: adapt drm core to use dyndbg classmaps-v2
+  drm-dyndbg: adapt DRM to invoke DYNAMIC_DEBUG_CLASSMAP_PARAM
+  drm-print: fix config-dependent unused variable
+  drm-dyndbg: DRM_CLASSMAP_USE in amdgpu driver
+  drm-dyndbg: DRM_CLASSMAP_USE in i915 driver
+  drm-dyndbg: DRM_CLASSMAP_USE in drm_crtc_helper
+  drm-dyndbg: DRM_CLASSMAP_USE in drm_dp_helper
+  drm-dyndbg: DRM_CLASSMAP_USE in nouveau
+  drm-dyndbg: add DRM_CLASSMAP_USE to Xe driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to virtio_gpu
+  drm-dyndbg: add DRM_CLASSMAP_USE to simpledrm
+  drm-dyndbg: add DRM_CLASSMAP_USE to bochs
+  drm-dyndbg: add DRM_CLASSMAP_USE to etnaviv
+  drm-dyndbg: add DRM_CLASSMAP_USE to gma500 driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to radeon
+  drm-dyndbg: add DRM_CLASSMAP_USE to vmwgfx driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to vkms driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to udl driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to mgag200 driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to the gud driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to the qxl driver
+  drm-dyndbg: add DRM_CLASSMAP_USE to the drm_gem_shmem_helper driver
+  drm: restore CONFIG_DRM_USE_DYNAMIC_DEBUG un-BROKEN
+  amdxdna: add -DDYNAMIC_DEBUG_MODULE to cflags - RFC
+  accel: add -DDYNAMIC_DEBUG_MODULE to subdir-cflags - RFC
+
+ .../admin-guide/dynamic-debug-howto.rst       | 187 ++++-
+ MAINTAINERS                                   |   3 +-
+ drivers/accel/Makefile                        |   2 +
+ drivers/accel/amdxdna/Makefile                |   2 +
+ drivers/gpu/drm/Kconfig.debug                 |   1 -
+ drivers/gpu/drm/Makefile                      |   3 +-
+ drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c       |  12 +-
+ drivers/gpu/drm/display/drm_dp_helper.c       |  12 +-
+ drivers/gpu/drm/drm_crtc_helper.c             |  12 +-
+ drivers/gpu/drm/drm_gem_shmem_helper.c        |   1 +
+ drivers/gpu/drm/drm_print.c                   |  38 +-
+ drivers/gpu/drm/etnaviv/etnaviv_drv.c         |   2 +
+ drivers/gpu/drm/gma500/psb_drv.c              |   2 +
+ drivers/gpu/drm/gud/gud_drv.c                 |   2 +
+ drivers/gpu/drm/i915/i915_params.c            |  12 +-
+ drivers/gpu/drm/mgag200/mgag200_drv.c         |   2 +
+ drivers/gpu/drm/nouveau/nouveau_drm.c         |  12 +-
+ drivers/gpu/drm/qxl/qxl_drv.c                 |   2 +
+ drivers/gpu/drm/radeon/radeon_drv.c           |   2 +
+ drivers/gpu/drm/sysfb/simpledrm.c             |   2 +
+ drivers/gpu/drm/tiny/bochs.c                  |   2 +
+ drivers/gpu/drm/udl/udl_main.c                |   2 +
+ drivers/gpu/drm/virtio/virtgpu_drv.c          |   2 +
+ drivers/gpu/drm/vkms/vkms_drv.c               |   2 +
+ drivers/gpu/drm/vmwgfx/vmwgfx_drv.c           |   2 +
+ drivers/gpu/drm/xe/xe_drm_client.c            |   2 +
+ include/asm-generic/vmlinux.lds.h             |   5 +-
+ include/drm/drm_print.h                       |  12 +
+ include/linux/dynamic_debug.h                 | 254 +++++--
+ kernel/module/main.c                          |  15 +-
+ lib/Kconfig.debug                             |  24 +-
+ lib/Makefile                                  |   5 +
+ lib/dynamic_debug.c                           | 679 +++++++++++-------
+ lib/test_dynamic_debug.c                      | 203 ++++--
+ lib/test_dynamic_debug_submod.c               |  21 +
+ tools/testing/selftests/Makefile              |   1 +
+ .../testing/selftests/dynamic_debug/Makefile  |   9 +
+ tools/testing/selftests/dynamic_debug/config  |   7 +
+ .../dynamic_debug/dyndbg_selftest.sh          | 373 ++++++++++
+ 39 files changed, 1423 insertions(+), 508 deletions(-)
+ create mode 100644 lib/test_dynamic_debug_submod.c
+ create mode 100644 tools/testing/selftests/dynamic_debug/Makefile
+ create mode 100644 tools/testing/selftests/dynamic_debug/config
+ create mode 100755 tools/testing/selftests/dynamic_debug/dyndbg_selftest.sh
 
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.50.1
+
 
