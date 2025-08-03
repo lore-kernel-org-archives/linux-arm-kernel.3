@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37599C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 192FEC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elSrGuxO7Gdrr9JiYJ8JX6gnRfA3s/NTbfdze1JVBo8=; b=Mt1T5ltK9wd3DQ80G51+LRphZK
-	pyBDgGXw/A7eitb4esH9oGcL6poyzQNc1Ef43HTmQmWURZChzwZPHzto2FSzzqdYhtOzCIc3Jq6F4
-	4ZjQUET5sghjDzbJ0GuGznJ+QkNedCffOveh+CDC1a+tABqZPlE2zF7dKw8gZf7lD/PQuPX28svSK
-	ICNNatj7PxgjOu7gh6IgyTE1ik1Ahdk07aQ/ghR/7FKCffKSo/9k7QZ/h/C0PqL/q7W6NJlo65W8L
-	Rj2qZLOhhnsq3Lnjm1JJS0muXoh6eRLNneIj/Bq+KcRBpKsI1aWkT/SfVIg6YbNzPnQ/6sNXTSgoK
-	VUb0ctUg==;
+	bh=r2JGFRfrIhHONHk9F3zUV83hFGKQa8jTEAD0j3plUI0=; b=hZFVT0QH++6LG4/aiecFXyp0D7
+	1WdhuzP0KQV2GHkCOHrbLmN+puGhuEQZVycW51mi2wRhqS3a6SdCXxkewS8hg/4DDjfJ01RrHP3Gs
+	6riFraQ7YYg1u2z7F1Kheyu9DpzsD0hFan7+SZ6dc42xl7RTPYPMYbjbBKjwSeSrKPaITcze2whPe
+	oWAz0SvSwXP0ZLN4AJ29PI+2vhfKz6nIrzZlzjKtJh7xNe+aRm8Ay6lJ4R0w2mjceY1xz5uCLm7yl
+	ct8TfZmNI4DXyM7/Euolo942M5eRrpQX/dT1+4LL+CqCKES6uJ+yFh/3unImkyrTniv/7am5I9lec
+	nhqqo9Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiRvy-00000008QvX-0Chb;
-	Sun, 03 Aug 2025 06:11:02 +0000
+	id 1uiRyV-00000008R7H-3rO4;
+	Sun, 03 Aug 2025 06:13:39 +0000
 Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPsw-000000088n7-0EOJ
+	id 1uiPsx-000000088oS-1aE7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:59:47 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3e3d7b135c2so40564575ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:46 -0700 (PDT)
+	Sun, 03 Aug 2025 03:59:48 +0000
+Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3e3d0cba6a7so12047325ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193585; x=1754798385; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193587; x=1754798387; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=elSrGuxO7Gdrr9JiYJ8JX6gnRfA3s/NTbfdze1JVBo8=;
-        b=juLC8dV5VodtAQvQRIc9R/a3KHhYH7+dBcLqtiiAmbFzmRnSpIWRx/4Ux+3hsqCSYh
-         BPaKyv5hur0piZzP27TSgmoujADDiKsfkhx2VrPXi/ZWCF3CiTZ2HfeNoPe3VWjoNLLG
-         d/TzrVAvZEv8f9m8RNHXWY0gEaMXMzDxFZKJTX83eCZTps9BE8MDUFIdcsEPFkacsBDI
-         FlMNH0760h8lE+HIW/iflgzfi7lqI0NXdk4L/KFuFGv4ndAt4Ql5BNKDYmLHEm8PKVIo
-         HqCHdaFxXcMnjBlNQuEoEjZRzIlsjuS/su4SFoACyKjUtq8yP1sJpSncIk8h+NmI8Fbd
-         NhDA==
+        bh=r2JGFRfrIhHONHk9F3zUV83hFGKQa8jTEAD0j3plUI0=;
+        b=mmja55f2XMc63OUSx2r4mj/6+fnTJZ8A2/bRwIkDbn1z9JJELU70F39oIEFZHo78X0
+         eLASN4gjG3ad+ZYHZxjw6DWhaHW29EnnjHfiJTy02NSJVmJXbA7/KngajNJVkz7a48U4
+         1941GwFR2vcA7+HnLYcmSTQ4ntD2urI6Vm9iyw6oJFhl7eBE90LLdtETMsVWM+/9LH81
+         MuwnaJpk3PyD2fQbP/Js2aJwHDEkUn8Bo5rwZJV3FZRZkrRLnJprQfwKGU+gcqM2DJ5M
+         sGkIiocLibqS+VXfx3uCM5OUDoqdMCBRUUmSi+BZg7nKqPWVFehM4kf4p6A15U9Co11S
+         JuEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193585; x=1754798385;
+        d=1e100.net; s=20230601; t=1754193587; x=1754798387;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=elSrGuxO7Gdrr9JiYJ8JX6gnRfA3s/NTbfdze1JVBo8=;
-        b=h3tP8BHfAeL5PDb2af6BC3aHfTEA2K7pVvwMFBsygd5tVQ5/R1rHYkx93ogYvRZQNT
-         mkhat+6qipuXvCOcM6jEvCi48GbFH8WylBZTS+lzKqnA1K33y0ScVKKwTuPcKRchVWko
-         6CArqUodXtfWqGxlVnezzDNuH4clKE79sPLaHSuEPnXOqb6sBkXvkvJMReKbLdzQsaol
-         IL/hghPV95fuRfMLwJmZTPV290w3v+C5IBQsKOu0X9a+j8IwCPc+qBRw7a6xxJB9uOUu
-         oeWWy4ZSdjL7peygvFVJ8TLxSwiVIjTVAw7X6/Jzz7h6zSebNcy6WZFZIIx1zrGKw4Wy
-         t90Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWqu83qjKfOX1JVPjizYJJ7Pd1nEVtvq7KJHGoO/jf0sMmJLVjUD7uEjGQoAMOkJlVywSy8lCd2a9JVCw24Qjbb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGdc6U9DPoxhpFGD/TycyHLNVY6wUgR/1Pax3q27FB1tjIcJPH
-	TDF58OgIICy2GH6dqyjFDuIufEiG9ipyU/frZxaao3w8bU3lCPwNN2ec
-X-Gm-Gg: ASbGncuI698WE96Lueyycw/Xc3XzhoB198OE2qM1Eq/qCyom9LogKxM4vZIHEoOe+gC
-	jqGkyjilBTsST+GJBMl31JnyLQHKK3+rs0rOvcJD8XfEUkv3v6gecseee7amayRT6imASutAX5B
-	8ptlRlfbQAxgU/E0ocdY3Jkzth8+Qs1l5tiHyjiX+Us1UOs8kNSw7FjFJslKS3usjMRF4nIuFSu
-	J5UR/A7jkYsDg3Id9NzUMxxrm0KDcqXZBPYV7O4yVndc/z2onee5hQBpIfisKtEFGj4i2BujAAt
-	JvhJy/IMNnWc/nIG9arW6x7ps0mjFzvGnQjp+BG5Edf4jdIMlwNpvYOhoQ/cFr06rDxWDrZVa+F
-	QBI1kXDvVzM7Sl0pomxZZlL8GJbdL15rOPJVcqjaFW3aXPzzXuHgbYgYVaJ6+Nr9uaMMroG93zD
-	NJxw==
-X-Google-Smtp-Source: AGHT+IH2v/yHbrftOiZCv+3aNfsvxCzIweIV2VBjxfjxpqhUxRJcHX4wYrnxPDdmodWbE9uh3slotg==
-X-Received: by 2002:a05:6e02:1f0d:b0:3de:25cb:42cc with SMTP id e9e14a558f8ab-3e416192458mr92390555ab.10.1754193585333;
-        Sat, 02 Aug 2025 20:59:45 -0700 (PDT)
+        bh=r2JGFRfrIhHONHk9F3zUV83hFGKQa8jTEAD0j3plUI0=;
+        b=s0tG4nWzZ4qCs6YYHDlQoqRRAvk8tASveim1tbawjdjm5FUTmyfwtECs2BFnuPSNh1
+         59/oyHht9fivTdEe6Re1xx4BJml7dCEy7lQp6wP9XmIYPRIZ6beVU2MP+Ckb/azcIlZe
+         ItPUWLFQBwJhvyDJmMbGSaXt0kh143AO5of8Ify/A8p2AwYxWYpvLd+nxY9FiiD59kDO
+         qSOFEUE0ZSaxF5W9M69VzCPiGtnKJV2sUW/csEhMYFW9L0CSeeq3bXqvGsjUu8uHFrgf
+         88HVXGPYNDyM0sCCjNAVWQaEkwkFZPS7b7j6R+wncFecGSrwpA3MxlLUZmrIkPbjp6qx
+         shcg==
+X-Forwarded-Encrypted: i=1; AJvYcCW6NoOYjzcab3ICmFdfkGrRwR+xi3d8alllM07dC8nFuQT819IREXFOj3ganrV6xHyZEcXmsg+xRHWK+FrAnrpZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM1VqoSjFaNySm14F8fB+gqWgEN1EOojMFNzM8bbAhsL6OF+P2
+	2UCwoV0i/mM1TfbFKJ4dTPkP8+YDnb+jCT5U9qv/NnWzU1kjdZcmREck
+X-Gm-Gg: ASbGncvXGZqqZGsT2gKy8sCCobwU/ZwxxSBXbcHca6mErOxXJnBltT3MTbOlxknqQ2W
+	UWZVgNsw2ss/eiuCs8I5Ljat5rWnB5tyelHM01h+yADex91mWPIx/6UlxcdXhQTsZau8IoU6fNC
+	5NZ2N5V5CIGzXRXIzAWsshmw4+T4G33dKd0P7HJ0XNDcI0eeXV/YilQRYODEM8IIXM5zgRVYNZ8
+	wuMp0oQ2eAwGBtsbK2NF4eW9qoXwe6xTQsMeQWLgwcxEsjaIDzV2S1tbLDPFuoW6h3gy9Fc/Euf
+	J11eTccDg41SwJ4D7hXGncaiYgdnOwQVK/SRKJhpceN8f2o0VLy/LaySKLZ57yLbA/vjDOTTasi
+	UcZNhloOZz1GKJZH6piirOZt2hr0yS6Ztx1M4qLYgkzGYQ7FyNJlKxVhHC3QfFe+elGaIMjY6CM
+	uDsEJVr5XEK9A6
+X-Google-Smtp-Source: AGHT+IHqVFvq1DXgRalOAEJ4e6OJ3Wn8/7Lu6yNitZbnZoklyriFDbu+1seaMWuZezPTVSx6Id5Rjg==
+X-Received: by 2002:a05:6e02:3042:b0:3e3:ccdb:6ccc with SMTP id e9e14a558f8ab-3e4160fb7femr85375625ab.3.1754193586726;
+        Sat, 02 Aug 2025 20:59:46 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.44
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:59:45 -0700 (PDT)
+        Sat, 02 Aug 2025 20:59:46 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 49/58] drm-dyndbg: add DRM_CLASSMAP_USE to vmwgfx driver
-Date: Sat,  2 Aug 2025 21:58:07 -0600
-Message-ID: <20250803035816.603405-50-jim.cromie@gmail.com>
+Subject: [PATCH v4 50/58] drm-dyndbg: add DRM_CLASSMAP_USE to vkms driver
+Date: Sat,  2 Aug 2025 21:58:08 -0600
+Message-ID: <20250803035816.603405-51-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205946_091362_C37E3A59 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250802_205947_443700_CCA3FF65 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +124,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vmwgfx driver has a number of DRM_UT_* debugs, make them
+The vkms driver has a number of DRM_UT_* debugs, make them
 controllable when CONFIG_DRM_USE_DYNAMIC_DEBUG=y by telling dyndbg
 that the module uses them.
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- drivers/gpu/drm/vmwgfx/vmwgfx_drv.c | 2 ++
+ drivers/gpu/drm/vkms/vkms_drv.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c b/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c
-index 5205552b1970c..24e9f6fde1bbf 100644
---- a/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c
-+++ b/drivers/gpu/drm/vmwgfx/vmwgfx_drv.c
-@@ -259,6 +259,8 @@ static int vmw_probe(struct pci_dev *, const struct pci_device_id *);
- static int vmwgfx_pm_notifier(struct notifier_block *nb, unsigned long val,
- 			      void *ptr);
+diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
+index a24d1655f7b8e..29e47700688a9 100644
+--- a/drivers/gpu/drm/vkms/vkms_drv.c
++++ b/drivers/gpu/drm/vkms/vkms_drv.c
+@@ -37,6 +37,8 @@
+ 
+ static struct vkms_config *default_config;
  
 +DRM_CLASSMAP_USE(drm_debug_classes);
 +
- MODULE_PARM_DESC(restrict_iommu, "Try to limit IOMMU usage for TTM pages");
- module_param_named(restrict_iommu, vmw_restrict_iommu, int, 0600);
- MODULE_PARM_DESC(force_coherent, "Force coherent TTM pages");
+ static bool enable_cursor = true;
+ module_param_named(enable_cursor, enable_cursor, bool, 0444);
+ MODULE_PARM_DESC(enable_cursor, "Enable/Disable cursor support");
 -- 
 2.50.1
 
