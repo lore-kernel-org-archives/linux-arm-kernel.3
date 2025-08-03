@@ -4,211 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58071C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 17:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B602C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 18:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kiUErEqCA3v9gmXTeypINXvolsYPc4WYFjelQKUOBV4=; b=DzH3mBTFG70Mjrkucla6Il5Lht
-	YarvReFiaKm3RqTr3M+wW5SzF+yq2tGwPc6mOMjlTOLPsGa/HS5VdC8yvi142jAxk3MgAWIVJy609
-	StxccxAWufJiqRxMYDeNi8iXLmfyDAxVPoYtjCtCaxsb3zy3mz6G934jOztu3z3tUhtdOKbKr7tsD
-	WfHhUJRFnMY06gvluADomy/DNgGIHo0aj+2ouDpMBvJ2Puxh33vICt35PuKWOyjJU4OANFPJ8F7GN
-	h0w3nQZog5R65CwF3sN8PV8rvoiMdKqF1Ve64xRSbqA1pH1B6EQVp4YI0yRCL2a/lrWqz0BfQHe62
-	BhCOB+jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nAqOrU8mC0Z3rvF/se+5QTvub9P8PeKySL6x0gt1KT4=; b=cTX060gz201kQ4Kbfnyo7UPKz3
+	6XmEJUsQzuCXMy31QxX/rAeCFsF7LmPPg5kRuERtWq2xJ+KbAoTkv40KzZPbo/jRFLnS3qTpPmETk
+	resUgeP8WjorFfuFvEffwyzJyYqGI3J2uFHf9Ats6CrQJ/Gr1dug0dPcJLzokyEdrNB9S878oZu6f
+	x2NcyTVgFJCsWx0Rg3n0+Q1Ri/8gq1p9S02GjBl93iJxwNHmrw9nTFJ/ajzXZzAVbtn++6OL7oujM
+	Q0gB3EmkVlTI+/wgblWlRlJndEkLpbnWkC3msj4KbIF020xGNVa5eb+EOf1gc+dxxvpzeTRTFERUk
+	FujkIItQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uicl4-00000008uoV-2cYi;
-	Sun, 03 Aug 2025 17:44:30 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uid5f-00000008w6Z-2gzv;
+	Sun, 03 Aug 2025 18:05:47 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiciW-00000008ugd-21NW
+	id 1uid36-00000008vv8-00Pr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 17:41:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754242913; x=1785778913;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=vsKO6n8WE/XUdJKCdJjOMvLBggWnwLfVP5RqA+ysdYU=;
-  b=aM5kPg0QMXKLbKdofY23F2qO7p4RPtivhcsRnDm2HdzHcu+wORow0Ffs
-   E59/vgJt3yPMAXc5N58n8QJiR+EyHxubnz7cTMfFO3Bz3Y3jPhmnHZhvu
-   FYgRRcEOfSDB+QN7yaijxjb5r5sDTwGNR8qspyITSQqNndSe/y/B8I7Pm
-   VzePX199lEr9X4QZ+8AGjCm3nVRB7Qt8m+j5AfBUXGefyArDb88C9YK6W
-   cUrHX2i7h3sdTlEgNzeoqq0NKE2n35w/nBDeNXzNdo3WszmzZiqI0uE5H
-   lUn/GKlIx0URiM6b4uO7TmMoDDZNmlNsQThk59XSColPtM7zS1EX+ifxh
-   Q==;
-X-CSE-ConnectionGUID: 6tTI8ACmTtaAUSHPAiZNyg==
-X-CSE-MsgGUID: 37cKpNcuR62wFdyC0eV/Rw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11510"; a="79064597"
-X-IronPort-AV: E=Sophos;i="6.17,258,1747724400"; 
-   d="scan'208";a="79064597"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2025 10:41:51 -0700
-X-CSE-ConnectionGUID: 4mCMPN8BS4O7xSebv1NLpg==
-X-CSE-MsgGUID: V3UhMGW4Sjm364sRwCyAfw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,258,1747724400"; 
-   d="scan'208";a="201157953"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2025 10:41:50 -0700
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Sun, 3 Aug 2025 10:41:50 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26 via Frontend Transport; Sun, 3 Aug 2025 10:41:50 -0700
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com (40.107.96.88) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Sun, 3 Aug 2025 10:41:49 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hLGXJCDniQt6Wh5AX4g7tNNXdLClKt4qm8rmKwmjJ1eBzPfiV1xjJMO6nJ47eBUaH1RkNe6027JAUCaL6Qh29CdUcL9IgzOsSTUhtedKeYsBbeuXM2cdzU9COHLSkrYnl0PJjItbK20d94sorpNKZGs/HE+shazXilDyeaey+o6kfrmwgk/p8OTZUuIRTi2MzSwnzNoOwCs+ScnhsgZxKfiFylAHW+RaIFICkTdYXxAy/AZFK/3NwAcx0u4vuXQttejFl7XdFdrAyIq4nwnTyb7m0hoFFJe7c6NretGm1cHEjSLerA8rZfnEr5NWV/y1rQoBQqGSoTtRYatkCQOL1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kiUErEqCA3v9gmXTeypINXvolsYPc4WYFjelQKUOBV4=;
- b=bKZaIKus14ihkYB/awGtsKqJZHpEp5nJkjMEynPkAsN295Sse8yB7IkqVtd+HLKCchYuUqEHplkRdeeJAQ+UWRB//FoLDw8ysLAb49HGrFb/iHQP9UiZulwHAMxkE0l3PZ4f6H9a2Nk9dHLMGhu19HFmiRqhbRh4ybOUpk+hs+iwZUwuB7cci84uD5fX5ohEWgVZnNt3TIwdeQb/XCG6P8C7UHgs2fyHkPBMHecF6YU2Z/2q5o0cUC4caPVPY9ig4k6L7Y6caX4/GMViSuck5pFx/Qk7b1YfsTmFmeQnl1+t/BxqMS3eTQO5SUOcgRm4Zepx1Zj/emGtP5GGjZ2GYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by PH0PR11MB5143.namprd11.prod.outlook.com (2603:10b6:510:3f::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Sun, 3 Aug
- 2025 17:41:20 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::eeac:69b0:1990:4905]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::eeac:69b0:1990:4905%5]) with mapi id 15.20.8989.017; Sun, 3 Aug 2025
- 17:41:20 +0000
-Message-ID: <4269af34-e606-4096-ac9f-3a958e6983a7@intel.com>
-Date: Sun, 3 Aug 2025 20:41:14 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] KVM: TDX: Add sub-ioctl KVM_TDX_TERMINATE_VM
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Paolo Bonzini <pbonzini@redhat.com>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vishal Annapurve <vannapurve@google.com>,
-	Xiaoyao Li <xiaoyao.li@intel.com>, Rick Edgecombe
-	<rick.p.edgecombe@intel.com>, Nikolay Borisov <nik.borisov@suse.com>, "Yan Y
- Zhao" <yan.y.zhao@intel.com>, Kai Huang <kai.huang@intel.com>,
-	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>
-References: <20250729193341.621487-1-seanjc@google.com>
- <20250729193341.621487-6-seanjc@google.com>
- <b27f807e-b04f-487d-be13-74a8b0a61b42@intel.com>
- <aIzu4q_7yBmCIOWK@google.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <aIzu4q_7yBmCIOWK@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0306.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::16) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Sun, 03 Aug 2025 18:03:09 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 573I2NYB3665805;
+	Sun, 3 Aug 2025 13:02:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1754244143;
+	bh=nAqOrU8mC0Z3rvF/se+5QTvub9P8PeKySL6x0gt1KT4=;
+	h=From:To:CC:Subject:Date;
+	b=vNhKEvApxFut0oTKQW0GFUaQpvUcq70BEJzyqpq+iAvtV0UTsLREnvYRWq7pyQZrA
+	 Gs1gW6iCLmbPh2/5osMbTkZGnDzKaEZngfI8GxIIxXQgatUVAEOYJbTygKJaOAowNl
+	 wt8jbmoqY/1oZje8oTMjhTM5Mk1hcSFHcXHS52lk=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 573I2N3e2265990
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Sun, 3 Aug 2025 13:02:23 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Sun, 3
+ Aug 2025 13:02:22 -0500
+Received: from fllvem-mr08.itg.ti.com (10.64.41.88) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Sun, 3 Aug 2025 13:02:22 -0500
+Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
+	by fllvem-mr08.itg.ti.com (8.18.1/8.18.1) with ESMTP id 573I2MMp2180903;
+	Sun, 3 Aug 2025 13:02:22 -0500
+Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
+	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 573I2KpU005223;
+	Sun, 3 Aug 2025 13:02:21 -0500
+From: Meghana Malladi <m-malladi@ti.com>
+To: <namcao@linutronix.de>, <r-gunasekaran@ti.com>, <jacob.e.keller@intel.com>,
+        <m-malladi@ti.com>, <sdf@fomichev.me>, <john.fastabend@gmail.com>,
+        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
+        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net v2] net: ti: icssg-prueth: Fix skb handling for XDP_PASS
+Date: Sun, 3 Aug 2025 23:32:16 +0530
+Message-ID: <20250803180216.3569139-1-m-malladi@ti.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|PH0PR11MB5143:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb173d18-f57b-445e-c9dd-08ddd2b4f460
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VmNRKzM5OGNYYWY1QjRON2E3cDkzSTJna1hPbXJLalQ4eVZnNE05bFhEb2dQ?=
- =?utf-8?B?ejc5UnB6bWpnemhLVEJHNjZ0Vm1ncGpaUVJ1aWxoaUg0UUZMSnlaWUttZmpu?=
- =?utf-8?B?ZlF4RkNkRDJYaE9HemdlTXhoT205b2V6RGUwdVRIUVhmNjVzT1MyTndSVjBO?=
- =?utf-8?B?OHFRY1BXRlExMllvRE9QWFdSSUMyaUtyRHUwY1VHNHJEOTZsNFhkQzVHTnpD?=
- =?utf-8?B?Wnd1dCtVMWlMNDRQakhYMytqcnc2bGwzZE5FeXIrRVRTRi9rM3d3OFZIRmFu?=
- =?utf-8?B?UzhWaXprUG1PSzFOVEZPUDNETXRzaWVpU3crRWxGU1Ryb1Y2Q2RKdnZxOWl1?=
- =?utf-8?B?RUtSVmR1V1FHdlBZODYrdElQaWFReFh2cjV1Z2pTY0tZMmdNM3RTK3czL0Er?=
- =?utf-8?B?dVVLTUVySTExVStpc0lWaWt4OG5GdXorNEk5Z2JLQjBnbkFCSGU3S3NTWEhQ?=
- =?utf-8?B?aDU0b2ZBdFRTZkU0Z0JPaVVVQ3A3S1A5VG52eUM2ZDlnL3JSam1aTVdKUnBY?=
- =?utf-8?B?REVjNkRaMG1nalI4L2IrRXFheXVjenZwSjhIZlF1VVhPR2ZWREpUUEpoSEZI?=
- =?utf-8?B?dDFNYlVwWnQwN21nejQvVlVWenJIbXoxd0d5c3FRRngzYmxIbWRVUmNzQmFR?=
- =?utf-8?B?emFFR09iRXNFS1pSTXpLVmlxUVdQeTNjRktLYTFCMW01UGxmaE9tbGlWRG5u?=
- =?utf-8?B?V0pMUU9VeG5WSWNla3czRk1JY2p1aW5rZkNUMEgxVnlMSHdrY3VsU0ZUdE9R?=
- =?utf-8?B?alQrY25MSjhxc0hrdGZFSCtHYnY0MWlXOWZMT0k0aWlEOG1zWVl0cFJLa1lz?=
- =?utf-8?B?MUxNVlBmZE9BR1VlTGgzbloxb29OWVhPTFVYVWtLbWViM0RweDJqcENIVHNq?=
- =?utf-8?B?SjB6WmppQ0ZQaEdBaGRqWlovRTdpU1d5WDZ4SUQwQ0tDTUpNeDFXM0ZpNnVN?=
- =?utf-8?B?WWQ1QVo3dWdLSXhYWXhGQmR3Qi94Y0szZjltSEZXMFpiTkYrZWdJZkdoWm9C?=
- =?utf-8?B?ZElNTkk5MVV1dk5saGhPMmlSR2l6Q2o5SWp0aytTU3I1TlVxOTh3d3l5S0s1?=
- =?utf-8?B?ejVDMThMbWU2QlVpWjBpclFjdHU0TERadG9OQVB3TklrRVJRWXA0QkZjZ1c2?=
- =?utf-8?B?SGd4SDY1S0NVSDdJS2taNmdIOGU3WEdiYmpXRDNORCtEWUxiWWhuOXdmeElF?=
- =?utf-8?B?Sm9ob25xd0U0YmU1a2lzclRHK3J4cUJma1lnNVZNZWc5dzZPRGlSRjlMQVBF?=
- =?utf-8?B?QlEzVFRwaStST0tuak9Id0dUR1dsMUZBcTNJWTV1VHNUcWlDN0cxeVhPeVZt?=
- =?utf-8?B?aXBmMWpYYzdEUjVjS0ZrTjcwRU9MRzBxUmVMM3pJbDlLR2RrVUc3dTFLRHFG?=
- =?utf-8?B?dURRSm1IbzBZLzVlMEh4R3VZU2tlZDhidFlCRjFMbEpMYmdpUnM0MmJmNEJ6?=
- =?utf-8?B?RGw3NHN5b2JGczN3ZkdKVzU1UFdxSHY3OWRoMHVHTzEyUjRtTVpBcnpoUXdP?=
- =?utf-8?B?VzBUTEJ6RHFFOFZnSi91dkFyT2RYa1JxcWtuWWNqRFNYNWFFNVlGRUxaTHdl?=
- =?utf-8?B?WWxOdWFWaExmb1RxNWcvWFNzV3VETW43blFnaEFjTlNtSDlaYUpBOHJpTXZI?=
- =?utf-8?B?aFFFblhNT3hzbzdNVmE2aUZtRWkrT0I3aDFBK0VnN0cxQ1pJVjVjSm1vZXkw?=
- =?utf-8?B?a3pQNFREV1lRcGV5MHBaUkVsTmxENGJBR0tLOU9zTXNsMWFmUDRWTFpHUWxh?=
- =?utf-8?B?ZjExZVFaK2hmY1NQaWJyUUd2RGx5UU1JMzhnWCtnRytKYVVDTWFGSEc4Uk14?=
- =?utf-8?B?QTB5TUJYeWNsZ1JVYm9zeDhwZTVpQjBmSXBRdDBwTTMzU0V0d2FjYnVaTTRt?=
- =?utf-8?B?WDY2QzJKYkx5dk5VVktFZEJhNFFUV2JDK1BCb0NQbGM1KzlwZndjaFRQRS84?=
- =?utf-8?Q?Sfp6D/Am6Pc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2I3MHFzbUJqRHdzckdZanBKWWVUNkxEb3l2OGxJMmRyTkpWenZscmx1M24w?=
- =?utf-8?B?alRNT0d3cmJsL0ZtaEloaC90b3hWR3hEZG5TWmZCbVhlNi85NFB4ME1Jcmp1?=
- =?utf-8?B?aHNqQWMwL3FURnNNU2tMSUJXUTR2a3FibktzNnBHOWd4TnRGeWV4Um5mM2Vh?=
- =?utf-8?B?MkxObXFTMzd4YVpUV2ZLcHh2TXVhaDYya3dHa0YrN1NkR1ZoVllTS0N5NlNN?=
- =?utf-8?B?d2pCTWxPWWdPdC9Uem1neTVQZzZFZzhmQmF4ajlmQlBhbUlrVWdNSm56c2lj?=
- =?utf-8?B?SStYbDd4L0tscVBxZUhZMnUwSk5MbC9uNE1yWTZkRHozRHBPWWE1MEdmblJP?=
- =?utf-8?B?N0lsQWprb2hrTDEzK3pEdnVHNUtKMkl4K1dua2M2T3MwanlkZlZVY1ZQa3o3?=
- =?utf-8?B?QnByd2gyOE1VcDFwRDliSXZGczlid2RCK3Z2OUdCSHN5bE05MGM0ZWZ0TUVL?=
- =?utf-8?B?OFJQR2oycEx1MmRKM2hJcndLZnVDTVRqemZwdVNoMHdCbnJSNHNMcG05c2Uy?=
- =?utf-8?B?QlhWWm9XU1pLdFB1TXl6T1J1VjQwemVjcFgvUEpoQTNhNEtxcGh0OGZaejJu?=
- =?utf-8?B?cGxvQzhVSG52V3lSbURhckQzRFZPaE5wblZOeG1qZVZQK1JKNW5hVTU3OUR5?=
- =?utf-8?B?MGp4aldZVnBWS2Ftd3BsUGlmMStBVnpNSnJLYTB6TDh6YUp6L3ZwU0NXWWsr?=
- =?utf-8?B?TjRkUlFDWkR6NmMxd1NLOFh2bWtPYzBoazQraHM5cEFuV3J2eWNWWEZlRTJ1?=
- =?utf-8?B?Y2kvWGZIanVGNEczYnpqUHY1anRyWVBXR2VRL0EvSzE0dUV0MTF5a2kxTVhG?=
- =?utf-8?B?c25QR0todUxnS2RnQjRHb1pFRlpMSWJBbmNiWUVlbHpCZzZXa3ZRMW5GdE5E?=
- =?utf-8?B?MmcrUGdXODhJK1FkM0IzS2F6Z0JCVmNNcEtuZjlVVjhRL1ZTSXd5V2JIUTN0?=
- =?utf-8?B?SWlySXYvakVZWXVCU0tLMklXUmJPNW9ZRHp5M3FVK1JqZXdVSWpBY2ROeCsv?=
- =?utf-8?B?N2RUbTFwMzkwUmNmVHBYREl1TXh3MWpJTEluYmFhaGswakc3azlrL2I5ai80?=
- =?utf-8?B?YWRtUWxvem5pb2pDUXJ0bDNsN2ZFK2pzdHBhdUk4c1pYUkxydDF6VjhUTG4v?=
- =?utf-8?B?a2dGcVBvbEVoQTFZYkdoYThmY2liL25hOE1EZ1JjZndlMkVrSHlOQjFtWTdJ?=
- =?utf-8?B?UFR5Sko3SUhiRXlibys1dG9xRXMxUC9vWk15QXQ5dEhPZkJmSUt0K2dTMDcy?=
- =?utf-8?B?aW5VTk1Yam55aFVUcERBcms5VGpoN0ZZUjBNcjVMUUExT1JBSllwUEZ3TnZy?=
- =?utf-8?B?YUFSMmFMT2MwTEFLKzlxbWFpa3B0RVo0UE5hY00rMFZZUFdXRUtCeWNZS2ZG?=
- =?utf-8?B?QXVCR2x3M2RERXF4Zld3dlFhY0UxWnVIbXdjKzhqcG5QTkNOV2dWQW1pSzAy?=
- =?utf-8?B?ZUJZTVBFN2dDVGFOUTJ5NUwra0JaaGRDSDBlWUp3S05nZTZaYWpjblZxUGFB?=
- =?utf-8?B?WWJLMVhCTERLSFJMYmQ2QmtCZ1FJalZXc25ldVQxT2NOeEFLT21zQTYvZGZv?=
- =?utf-8?B?bWJzT0hSMWZ3Tmo2TUpwU2RaczI5MCs5U1dTc2dRMjIxYzArRGxSSkhITERI?=
- =?utf-8?B?Mjh6bVdLa1c5WVVWR29oQkN1UVJ5VEZWZko0anEzblZ1bm16NFZlSEw2a2tq?=
- =?utf-8?B?bzh3ZnJkaEVPWGNZMUFKU2tGcFFXOHNJUXg5RWM0bnVrTmhkZWZpdXI2d1pI?=
- =?utf-8?B?YStEUE9tWFBqdERsNGcxbXBXd1V3U1NEZFZQQzRTRk1xcW9tU3h5eXlWMHlX?=
- =?utf-8?B?NEpadWZDTTZaYVk5Z0lHaC9OdnlOR0pkOVJBL2Jhb1MzelRCWFpoR1ovNUx1?=
- =?utf-8?B?NllkU21BVUxVNDFxSlpkeGZPN1pDbUVJOTVEOHFaVW5Wajk0aVNJbUM1aExh?=
- =?utf-8?B?L1Uva0Jmd05ZYkU3Mk0yUzRoaVpndzhsQ3A4WmhhREdRK25FUGZnNWJpR2FK?=
- =?utf-8?B?bUhRd0MrdDEyVm00OHpVSlR1Y054TEdOWU1OSFRQSTN3QWk0UXJ5WjB3QWky?=
- =?utf-8?B?ZlpZeDZzczFycENCM1R3N3lOa0NVVlJHVDJOdndDOFA2RmRVRmdPSkR5eXhl?=
- =?utf-8?B?R1hrZVVaQm1qUDZhWVBtcm5RbUdOalF5dFpaRklmNzdFYk80WTdZRVhKWm9G?=
- =?utf-8?B?OXc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb173d18-f57b-445e-c9dd-08ddd2b4f460
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2025 17:41:19.9164
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l+owsXmwIrJIxoP/1Y3egE2tjlxME46kXAppSYYN+gf1Mmt2HYAQaHSbBwjAB4q9CY0Ttw7a+QI/ejw2LcQ7eg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB5143
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_104152_613880_02C7B22B 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20250803_110308_175386_514A1AF4 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,148 +91,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 19:44, Sean Christopherson wrote:
-> +Chao
-> 
-> On Fri, Aug 01, 2025, Adrian Hunter wrote:
->> On 29/07/2025 22:33, Sean Christopherson wrote:
->>> +static int tdx_terminate_vm(struct kvm *kvm)
->>> +{
->>> +	if (kvm_trylock_all_vcpus(kvm))
->>> +		return -EBUSY;
->>> +
->>> +	kvm_vm_dead(kvm);
->>> +	to_kvm_tdx(kvm)->vm_terminated = true;
->>> +
->>> +	kvm_unlock_all_vcpus(kvm);
->>> +
->>> +	tdx_mmu_release_hkid(kvm);
->>> +
->>> +	return 0;
->>> +}
->>
->> As I think I mentioned when removing vm_dead first came up,
->> I think we need more checks.  I spent some time going through
->> the code and came up with what is below:
->>
->> First, we need to avoid TDX VCPU sub-IOCTLs from racing with
->> tdx_mmu_release_hkid().  But having any TDX sub-IOCTL run after
->> KVM_TDX_TERMINATE_VM raises questions of what might happen, so
->> it is much simpler to understand, if that is not possible.
->> There are 3 options:
->>
->> 1. Require that KVM_TDX_TERMINATE_VM is valid only if
->> kvm_tdx->state == TD_STATE_RUNNABLE.  Since currently all
->> the TDX sub-IOCTLs are for initialization, that would block
->> the opportunity for any to run after KVM_TDX_TERMINATE_VM.
->>
->> 2. Check vm_terminated in tdx_vm_ioctl() and tdx_vcpu_ioctl()
->>
->> 3. Test KVM_REQ_VM_DEAD in tdx_vm_ioctl() and tdx_vcpu_ioctl()
->>
->> [ Note cannot check is_hkid_assigned() because that is racy ]
->>
->> Secondly, I suggest we avoid SEAMCALLs that will fail and
->> result in KVM_BUG_ON() if HKID has been released.
->>
->> There are 2 groups of those: MMU-related and TDVPS_ACCESSORS.
->>
->> For the MMU-related, the following 2 functions should return
->> an error immediately if vm_terminated:
->>
->> 	tdx_sept_link_private_spt()
->> 	tdx_sept_set_private_spte()
->>
->> For that not be racy, extra synchronization is needed so that
->> vm_terminated can be reliably checked when holding mmu lock
->> i.e.
->>
->> static int tdx_terminate_vm(struct kvm *kvm)
->> {
->> 	if (kvm_trylock_all_vcpus(kvm))
->> 		return -EBUSY;
->>
->> 	kvm_vm_dead(kvm);
->> +
->> +       write_lock(&kvm->mmu_lock);
->> 	to_kvm_tdx(kvm)->vm_terminated = true;
->> +       write_unlock(&kvm->mmu_lock);
->>
->> 	kvm_unlock_all_vcpus(kvm);
->>
->> 	tdx_mmu_release_hkid(kvm);
->>
->> 	return 0;
->> }
->>
->> Finally, there are 2 TDVPS_ACCESSORS that need avoiding:
->>
->> 	tdx_load_mmu_pgd()
->> 		skip td_vmcs_write64() if vm_terminated
->>
->> 	tdx_protected_apic_has_interrupt()
->> 		skip td_state_non_arch_read64() if vm_terminated
-> 
-> Oof.  And as Chao pointed out[*], removing the vm_dead check would allow creating
-> and running vCPUs in a dead VM, which is most definitely not desirable.  Squashing
-> the vCPU creation case is easy enough if we keep vm_dead but still generally allow
-> ioctls, and it's probably worth doing that no matter what (to plug the hole where
-> pending vCPU creations could succeed):
-> 
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index d477a7fda0ae..941d2c32b7dc 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -4207,6 +4207,11 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
->  
->         mutex_lock(&kvm->lock);
->  
-> +       if (kvm->vm_dead) {
-> +               r = -EIO;
-> +               goto unlock_vcpu_destroy;
-> +       }
-> +
->         if (kvm_get_vcpu_by_id(kvm, id)) {
->                 r = -EEXIST;
->                 goto unlock_vcpu_destroy;
-> 
-> And then to ensure vCPUs can't do anything, check KVM_REQ_VM_DEAD after acquiring
-> vcpu->mutex.
-> 
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 6c07dd423458..883077eee4ce 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -4433,6 +4433,12 @@ static long kvm_vcpu_ioctl(struct file *filp,
->  
->         if (mutex_lock_killable(&vcpu->mutex))
->                 return -EINTR;
-> +
-> +       if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu)) {
-> +               r = -EIO;
-> +               goto out;
-> +       }
-> +
->         switch (ioctl) {
->         case KVM_RUN: {
->                 struct pid *oldpid;
-> 
-> 
-> That should address all TDVPS paths (I hope), and I _think_ would address all
-> MMU-related paths as well?  E.g. prefault requires a vCPU.
-> 
-> Disallowing (most) vCPU ioctls but not all VM ioctls on vm_dead isn't great ABI
-> (understatement), but I think we need/want the above changes even if we keep the
-> general vm_dead restriction.  And given the extremely ad hoc behavior of taking
-> kvm->lock for VM ioctls, trying to enforce vm_dead for "all" VM ioctls seems like
-> a fool's errand.
-> 
-> So I'm leaning toward keeping "KVM: Reject ioctls only if the VM is bugged, not
-> simply marked dead" (with a different shortlog+changelog), but keeping vm_dead
-> (and not introducing kvm_tdx.vm_terminated).
-> 
-> Thoughts?
+emac_rx_packet() is a common function for handling traffic
+for both xdp and non-xdp use cases. Use common logic for
+handling skb with or without xdp to prevent any incorrect
+packet processing. This patch fixes ping working with
+XDP_PASS for icssg driver.
 
-That covers the cases I listed, so it is fine by me.
+Fixes: 62aa3246f4623 ("net: ti: icssg-prueth: Add XDP support")
+Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+---
+
+v2-v1:
+- Collected RB tag from Jacob Keller <jacob.e.keller@intel.com>
+- Populated headroom from xdp buffer instead of hardcoding as
+  pointed out by Jakub Kicinski <kuba@kernel.org>
+
+ drivers/net/ethernet/ti/icssg/icssg_common.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+index 12f25cec6255..57e5f1c88f50 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_common.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+@@ -706,9 +706,9 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
+ 	struct page_pool *pool;
+ 	struct sk_buff *skb;
+ 	struct xdp_buff xdp;
++	int headroom, ret;
+ 	u32 *psdata;
+ 	void *pa;
+-	int ret;
+ 
+ 	*xdp_state = 0;
+ 	pool = rx_chn->pg_pool;
+@@ -757,22 +757,23 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
+ 		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
+ 
+ 		*xdp_state = emac_run_xdp(emac, &xdp, page, &pkt_len);
+-		if (*xdp_state == ICSSG_XDP_PASS)
+-			skb = xdp_build_skb_from_buff(&xdp);
+-		else
++		if (*xdp_state != ICSSG_XDP_PASS)
+ 			goto requeue;
++		headroom = xdp.data - xdp.data_hard_start;
++		pkt_len = xdp.data_end - xdp.data;
+ 	} else {
+-		/* prepare skb and send to n/w stack */
+-		skb = napi_build_skb(pa, PAGE_SIZE);
++		headroom = PRUETH_HEADROOM;
+ 	}
+ 
++	/* prepare skb and send to n/w stack */
++	skb = napi_build_skb(pa, PAGE_SIZE);
+ 	if (!skb) {
+ 		ndev->stats.rx_dropped++;
+ 		page_pool_recycle_direct(pool, page);
+ 		goto requeue;
+ 	}
+ 
+-	skb_reserve(skb, PRUETH_HEADROOM);
++	skb_reserve(skb, headroom);
+ 	skb_put(skb, pkt_len);
+ 	skb->dev = ndev;
+ 
+
+base-commit: 759dfc7d04bab1b0b86113f1164dc1fec192b859
+-- 
+2.43.0
 
 
