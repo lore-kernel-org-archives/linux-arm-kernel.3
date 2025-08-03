@@ -4,82 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278C8C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 10:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4145CC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 11:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4oRnuP4jSrdJzDgvqaR3lx1iHlupn4sHr1B/8K6MSts=; b=qQqXU1QaV/XtNOXtebyFeHlTU4
-	jLKs+YZGNw91PtcBLftF2iLlgL1eF7XVWEgSUJWbhX4Hm3SdZ+Dv7eoIs/4kEI1dnNxp1pMlTGaJs
-	sw5cv81NYIxe1UTwlrDUIX070WKcjiE8Uk4ivqHuazy0dH1MgoE7NNtZIVtv61PYYnREYK1WYPi8w
-	Nl6kixv11S7Z4ob3z7YsiBL44L7/IDw0gxI/0gJ9m3SafOyEtw0YTxwFzKkmyIFJo3VZ/f0tLfOJt
-	izM0T2ycKaHr0q6L9T45U5cBAvn/ZFOmtDVh/KFu23Z1yfD4QykyOSWxuiwBvZD5JbSVqsafDIUNg
-	gwB+YeqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=13kqIIhvX8G/h4Zyb4Bf0SsyUcZjDX5f8XV6NFySlbc=; b=YQWndqfyYNksd7
+	FzV9shz2OCmThiXh1/b0T4T0GJ4oSaj+mrNEf0pV+Wg3nMzDOUvesQ14pEVorrLCtbbvgPTnBkKIA
+	oHuXsPn1d3OggEsSdkswHrb/EW2TpwSkDlDNUKMTvhZKcL124JgYYmnQQTyZvS3De3wp7yQ8VKl5s
+	bTcscg4Lkh6T4mMF30t25LPQY1sGudEKEV9j53daB9P14K6VKT/Y/i8MNUEAIbGq3FT3CtbEsXZRb
+	r+ybFF7m+lFJyKByUm8GAIjho8pNpYSwLUxfM9qHTw8tdA2Dpyuftux4WLc6TxGSLCrsq8gveyZsQ
+	hOTdPQCqe0Fz+yd+Cplg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiW4G-00000008bc2-1f2a;
-	Sun, 03 Aug 2025 10:35:52 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1uiXKV-00000008g23-1F07;
+	Sun, 03 Aug 2025 11:56:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiW1d-00000008bRO-1d6N;
-	Sun, 03 Aug 2025 10:33:10 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-af939afe5efso245969466b.2;
-        Sun, 03 Aug 2025 03:33:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754217187; x=1754821987; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=4oRnuP4jSrdJzDgvqaR3lx1iHlupn4sHr1B/8K6MSts=;
-        b=Sc9oQaZVTJMujt3EHlVCM8EmeW3h+BcbOP7tPEzFFoHUDqz+GAat5zfK1GF70OeOO4
-         10L+wKr2QgmjWo6ukbEGQhiLCL5JAY3iCNn1TXJU3YCFMaCwMKlRnCixNQFFl3hel6V+
-         XPmydn5/cWxs7yLVazqpmWCeE6YhEbfGMvklyH410pmSkjbnbQDqd5gkv+U2QzDog8Rk
-         RYbB63qc4XYp7KNsFovxJvL14bML7+X3O7PlAfkYxIrF40AfsRHCFXzWKdEzwn/gpnje
-         QHaTQhl8vYMXuVW9l7844SXjRJA4oTuN67nBmha/RJADNRBZH0X5nPO882tANNBgRMlV
-         kFZA==
+	id 1uiXHv-00000008fkZ-3kBw
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Aug 2025 11:54:05 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5739VJLe016492
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 3 Aug 2025 11:53:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=13kqIIhvX8G/h4Zyb4Bf0S
+	syUcZjDX5f8XV6NFySlbc=; b=iQCEe4UBn+zhy5xKBcGEWlR2jONw9So3CdetpX
+	BpfErIOkkwKR3hQkvFA+8niFS1/e73tzuV9Vv5XKDWEnXeM12hoo7HG9ME02InX+
+	nrmvch2r0vlubkl96JzBpFqC5ACIvESypeZVz0nNhvjLQp/OQxqKNbFX9/vfWGSH
+	vGzTsYCGY3yUN8mg2ZUSQIlIeFCZJkG7yFlYKCHv8UrOgixZah5tM0awNZL4CHzJ
+	Hi6h3RlmCX52GZYMlEwaS2CGLcgMjWsb5lRLeR+lmcjWNg68J3xXZbjFZWdfJT/e
+	CLr2V27/e1xHmODW/9iIWMjIKcHRfTywKdVxCRasguey/7iQ==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 489a91t9nq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 11:53:59 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4aedcff08fdso54258401cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 04:53:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754217187; x=1754821987;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4oRnuP4jSrdJzDgvqaR3lx1iHlupn4sHr1B/8K6MSts=;
-        b=ZjizvBquWGNXpS4jgy2n+k982wDYWJR3t6Y/VlkTvtDRICFEWCIpoxvC1xHDhav6ip
-         z/atwDF1oJVEgcLexG6fFsdxXHbYa7jhq+pkVu+d+GX8lxQI7y1gQFKe4ysyvcOb01Gw
-         UFv4NKKOhy3X+YOp38u6WT2u9zioA4Tp0VFNwJaM7yd55IEHDi7LSOkm/SrP9BqoPSpv
-         Kzlbns8M66y4Pl8OnumYhqUGx5xEenvaENeAZnCjRdzn8S1u0AD0K+Ecwqod22dF6lBk
-         eMn/xX7TAxyhPgOq9cPblf8diY5s19pdhTDiXihKV9Y0ThbV73TnHds16SQmS+021trk
-         OfJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbbUSKnaZYs1jT3vrgOhvxYUllcNQuKk5c3Ec/bhH4+T6FVt2XY32t3tmIQBdnASrOAbef9/ytVhmmWyHOtA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwR21XcumwrglCacuPG2LjUjS3YQ5mVsrL6IUjrKxUn4JJOjnQh
-	4PbbdRTrX8voFmTO1P4dTbXkebx+K5S9osDSsdHD3bWHEsZKAKIxQsoUkqlmSoH1yrQAVC6pbDj
-	NM0MekzByyAZtYmI3HglSpZcO+OaEDnIDnr1SwoJJxQ==
-X-Gm-Gg: ASbGnctptfjlCVpot8FA/VDBMAcYj/EXBOLnbNCCVHOWU/O9bzRuR+IZKFbZkR/6eVY
-	ZIU1Z8uoSKzERghXho2/SfMsw6BdtXl1lr8sqZ7OsNXS34MeYls7EbDb6AvJmSLYZDHrZs/CamZ
-	qm4aA0nQKmDd3e2/Tp1G7XJK6ZI2GDBBmeSKhN6o4b676CmWSWjzBVJGAgo4JQgprCUoFdXSEKD
-	y/e9wnXkPHMJeQ2EPzn1TTyPzpBLKUNfegizssCxA==
-X-Google-Smtp-Source: AGHT+IEsiLjMRyXYhncxuci92btZ+xh5rvmcRX5wKkTyopgH/WMz7bhDERZr/gb2/fxeD2QWq8Haa1xO8DxrAysRNyE=
-X-Received: by 2002:a17:907:7fa3:b0:af9:3d0a:f38f with SMTP id
- a640c23a62f3a-af93fd64bf3mr624693166b.0.1754217186911; Sun, 03 Aug 2025
- 03:33:06 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754222038; x=1754826838;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=13kqIIhvX8G/h4Zyb4Bf0SsyUcZjDX5f8XV6NFySlbc=;
+        b=K97X6+43rPd6wtZ2JyEeBal4f+awetX+51AAB0aFEOwXy7lQc0RLSLViQ0Zp5SMRjS
+         iKJVtbHMpfHQjUSwwM+wPagjQR8UXy0Qn/B3pEm+6qqV+npStFYfyEKr+LxbXmafrEj4
+         VQ5neuIEZMBneVzS8hqPi3WSzY5bysQPnuk5Kvh2PcV1k0J9V7N3QZO2qNOU3Qn8BsvK
+         XblBrAvBW5iZcHY5FAaGQpvWcpVDHP3GRPpxOvsbaiKrMYckLmh0lW/ZJ8wJX9UoJCFV
+         T0hD/oTosqgpmXybvTW6PFHDCojVrHAyv5v5rrDcKo0wSn+CNvLDtn0y1+0776gt8dxf
+         6Beg==
+X-Forwarded-Encrypted: i=1; AJvYcCU3JdbkFbOH6vP5io4RB6MQH5o44OFVOtPaBkwV8grB1AA8chkhv+M7Ji4DCQAcs+VIeiPi84HsdtvXitKeEJO3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3DFilISQcnxJr0OZ7BhwicOvfYEVsPxYAHTK119PNMPfylJbD
+	pxZx8HU2MOkfg/btLAFTjX7Schk8JnjEsIZpiSm3FfLaXFoYuGsJp/oizXlvCZhC2pJXEDZg8mt
+	84K1tfGHtBv5oMEFajPsu0lUyW4PRAtHmCnpyBX7wZnS4TN9mCuCGbqTJn/frQl/WYPJeZ76DiI
+	GPTw==
+X-Gm-Gg: ASbGncvXxDkA2Rhl7suunIgFfOSGr2uuQMm8A3VmtcNkII8x092pmBB82pVEZMiwusz
+	TY5Fis29nKAsBYy528uoQ6uEWuHvn+e1Jujmr1Tn/RncNvohPctqhWvuuA8mfn9PRwFqLsF1rko
+	NGPOnsRCpr/3GnTU88HExJ8nNx1o/Qak6snxcFTibskyYNXCHz/N3l6yD4qsOp0yFq7Il3SWj79
+	x3OYfeF1UUdsSJteGjX7QXnNA/SLsIYz00m1o0hYr+Lj+CWjzU9MuTgx31jUVUOiHyfcubgnmKk
+	W62Qh0Dl42//MKK2L1PrF2pMpgoxtNtKG9KX6E0GQ+aC5TIeOsvSjf9dEw4iC6h2olfV2u8Z+xV
+	NDNZ5+NRgeSDNLvC8KIS25J5nQI6qYT3pGwS4uezKbgTVcxCcniV+
+X-Received: by 2002:ac8:7c50:0:b0:4ab:63f7:9a80 with SMTP id d75a77b69052e-4af1098c10cmr109506331cf.13.1754222038494;
+        Sun, 03 Aug 2025 04:53:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF6F1gC3i9qNqPGQ2+U8UnWuUnVr8S0dL9Kp9yI/T0GmDv1re8BD8ymDZkfYLJgECcFcEOVzg==
+X-Received: by 2002:ac8:7c50:0:b0:4ab:63f7:9a80 with SMTP id d75a77b69052e-4af1098c10cmr109505841cf.13.1754222037990;
+        Sun, 03 Aug 2025 04:53:57 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-332382a6f74sm13281731fa.20.2025.08.03.04.53.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 03 Aug 2025 04:53:57 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: [PATCH RESEND 0/2] drm/bridge: lontium-lt9611uxc: switch to
+ DRM_BRIDGE_OP_HDMI_AUDIO
+Date: Sun, 03 Aug 2025 14:53:50 +0300
+Message-Id: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
 MIME-Version: 1.0
-From: Haru Zheng <towwy321@gmail.com>
-Date: Sun, 3 Aug 2025 18:32:55 +0800
-X-Gm-Features: Ac12FXzIOcl_0A4Ih1a8nY3gchgr3V34vE8-EiuwlXia7lYUBWk08DLPwS9N9FI
-Message-ID: <CACw2aoTa8KU-KkxqA10OeVK+yV7t-B94KDa4Odi1sbpY6qAENg@mail.gmail.com>
-Subject: [PATCH] drm/mediatek: dp: Fix suspend/resume training failure
-To: granquet@baylibre.com, "ck.hu@mediatek.com" <ck.hu@mediatek.com>, 
-	"msp@baylibre.com" <msp@baylibre.com>, 
-	"angelogioacchino.delregno@collabora.com" <angelogioacchino.delregno@collabora.com>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "simona@ffwll.ch" <simona@ffwll.ch>, 
-	"airlied@gmail.com" <airlied@gmail.com>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, chunkuang.hu@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	rex-bc.chen@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=970;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=8QWEbzhz2HbUL5CsjbPmWgU/3XJPnqot8B2ZA16nFWs=;
+ b=owGbwMvMwMXYbdNlx6SpcZXxtFoSQ0a/76XO+afzL5QKXQqM/OCzeVVFxIPW+vrJ85d3iq3S2
+ mJucD20k9GYhYGRi0FWTJHFp6Blasym5LAPO6bWwwxiZQKZwsDFKQAT2e/PwTDZzds4TCJ3dd13
+ K9typZKPcnseh78q7kk6VPCsvHrdXva/obn74nxnev78YTf/W9lKiT7Z061Olr38F3aqXL098ep
+ pZcXG5eau1/hnKbfeyjl9dIlqhfsHjisb7SvunUiT7pSwm3e7b4afq/J88xIu2+Aeqy9hscq/Kh
+ 7JX2LNrvM7wf7rYP5pWX6HM3tdNaclzvMIa9S6brW/+Nu73a9+83ewOyybL1ywbbVSiKq24sk2m
+ Y9VXCsP5ptdvmrka7avfYLBe+9HRxZOqeQ+umZ228ME37N6ApLPWtL/KPEpb0pvVug+7nae3fJP
+ e5O6RbHJtFSzH5GqLmuzovrMw2bVFT6wunHexnRnlqceAA==
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Proofpoint-ORIG-GUID: ctmkzukAO7wzg1wOwCawhZTRD4-OphJH
+X-Proofpoint-GUID: ctmkzukAO7wzg1wOwCawhZTRD4-OphJH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAzMDA4MCBTYWx0ZWRfX4WART4dZGdkD
+ XyYTToEpIOZamIPrKTWBgtAYIpHLpapAoOyAq6xpFdOabQiaOf5NxpioQwf0u3k8W55CnVDO2nA
+ xV2xzEbaa6HgNMUpNMZqvsUYg0TQqTBdQouzxOynhXAmGij5cUWvsMT7F7jtamX8cmtsQhRUBEz
+ nPpf9plDY6k1GrsoyFymbvgIpNWMOhSQLiYcdIW5CudNBN9pHW2fLg3utg6HyQMpkEFI05NtN1D
+ PvOS5HouZlkFm62ZqlUPGHCgdvo0rDSKSAbqkCgQKvUBYL15U5V2FILVPxf5/Cw82aMYMB8Dy5E
+ l2xpQYpLPBbZhRiRlPSXDVN++FI7yzUXrL40WlnHnIdtr57tdNJAoTXmD+gK5jqbkajG8Hx9/NW
+ xbTN10qzs4Dt/oHRmZDnhfQRG0QurGICboKO3zmQZvRrprpypDSCX6Jnfu0o4LvXSs5+BeU1
+X-Authority-Analysis: v=2.4 cv=UdpRSLSN c=1 sm=1 tr=0 ts=688f4dd7 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=viR3P9R_XIStfHs_oGYA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-03_03,2025-08-01_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 adultscore=0 spamscore=0 mlxlogscore=999
+ priorityscore=1501 impostorscore=0 bulkscore=0 clxscore=1015
+ lowpriorityscore=0 malwarescore=0 mlxscore=0 classifier=spam authscore=0
+ authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2508030080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_033309_449722_3CABBC8F 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20250803_045404_044928_98D3A356 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,228 +162,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From 4919bd858cd9cba8e4aadba7c3d1fd434ef3b09e Mon Sep 17 00:00:00 2001
-From: Haru Zheng <towwy321@gmail.com>
-Date: Wed, 18 Jun 2025 11:28:37 +0800
-Subject: [PATCH] drm/mediatek: dp: Fix suspend/resume training failure
+Use DRM HDMI audio helpers in order to implement HDMI audio support for
+Lontium LT9611UXC bridge.
 
-When suspending and resuming DisplayPort via Type-C,
-link training may fail.
-
-This patch backports the software IRQ handling for DP,
-as eDP uses hardware IRQ while DP uses software IRQ.
-Additionally, cable_plugged_in is flipped in
-mtk_dp_hpd_event to ensure correct hotplug detection
-during resume.
-
-These changes fix the DP training failure after suspend/resume.
-
-Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
-Tested-on: Genio G700 EVK
-Signed-off-by: Haru Zheng <towwy321@gmail.com>
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dp.c     | 100 ++++++++++++++++++++++++--
- drivers/gpu/drm/mediatek/mtk_dp_reg.h |   3 +
- 2 files changed, 96 insertions(+), 7 deletions(-)
+Dmitry Baryshkov (2):
+      drm/bridge: add connector argument to .hpd_notify callback
+      drm/bridge: lontium-lt9611uxc: switch to HDMI audio helpers
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c
-b/drivers/gpu/drm/mediatek/mtk_dp.c
-index bef6eeb30d3e..0cfe792bc36d 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1012,6 +1012,16 @@ static u32 mtk_dp_swirq_get_clear(struct mtk_dp *mtk_dp)
-  return irq_status;
- }
+ drivers/gpu/drm/bridge/lontium-lt9611uxc.c     | 125 ++++++++++---------------
+ drivers/gpu/drm/display/drm_bridge_connector.c |   2 +-
+ drivers/gpu/drm/meson/meson_encoder_hdmi.c     |   1 +
+ drivers/gpu/drm/msm/dp/dp_display.c            |   3 +-
+ drivers/gpu/drm/msm/dp/dp_drm.h                |   3 +-
+ drivers/gpu/drm/omapdrm/dss/hdmi4.c            |   1 +
+ include/drm/drm_bridge.h                       |   1 +
+ 7 files changed, 57 insertions(+), 79 deletions(-)
+---
+base-commit: 024e09e444bd2b06aee9d1f3fe7b313c7a2df1bb
+change-id: 20250718-lt9611uxc-hdmi-3dd96306cdff
 
-+static void mtk_dp_swirq_enable(struct mtk_dp *mtk_dp, bool enable)
-+{
-+ if (enable)
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C4, 0,
-+    SW_IRQ_FINAL_STATUS_DP_TRANS_P0_MASK);
-+ else
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C4, 0xFFFF,
-+    SW_IRQ_FINAL_STATUS_DP_TRANS_P0_MASK);
-+}
-+
- static u32 mtk_dp_hwirq_get_clear(struct mtk_dp *mtk_dp)
- {
-  u32 irq_status = (mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3418) &
-@@ -1751,6 +1761,8 @@ static int mtk_dp_parse_capabilities(struct
-mtk_dp *mtk_dp)
-      mtk_dp->train_info.sink_ssc)
-  return 0;
-
-+ memset(mtk_dp->rx_cap, 0, DP_RECEIVER_CAP_SIZE);
-+
-  ret = drm_dp_read_dpcd_caps(&mtk_dp->aux, mtk_dp->rx_cap);
-  if (ret < 0)
-  return ret;
-@@ -2031,8 +2043,8 @@ static irqreturn_t mtk_dp_hpd_event(int hpd, void *dev)
-  spin_unlock_irqrestore(&mtk_dp->irq_thread_lock, flags);
-
-  if (cable_sta_chg) {
-- if (!!(mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414) &
--        HPD_DB_DP_TRANS_P0_MASK))
-+ if (!(mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414) &
-+       HPD_DB_DP_TRANS_P0_MASK))
-  mtk_dp->train_info.cable_plugged_in = true;
-  else
-  mtk_dp->train_info.cable_plugged_in = false;
-@@ -2265,6 +2277,41 @@ static ssize_t mtk_dp_aux_transfer(struct
-drm_dp_aux *mtk_aux,
-  return ret;
- }
-
-+static void mtk_dp_swirq_hpd(struct mtk_dp *mtk_dp, u8 conn)
-+{
-+ u32 data;
-+
-+ data = mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414);
-+
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+    HPD_OVR_EN_DP_TRANS_P0_MASK,
-+    HPD_OVR_EN_DP_TRANS_P0_MASK);
-+
-+ if (conn)
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+    HPD_SET_DP_TRANS_P0_MASK,
-+    HPD_SET_DP_TRANS_P0_MASK);
-+ else
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+    0,
-+    HPD_SET_DP_TRANS_P0_MASK);
-+}
-+
-+static void mtk_dp_swirq_hpd_interrupt_set(struct mtk_dp *mtk_dp, u8 status)
-+{
-+ dev_info(mtk_dp->dev, "[DPTX] status:%d [2:DISCONNECT, 4:CONNECT]\n", status);
-+
-+ if (status == MTK_DP_HPD_CONNECT) {
-+ mtk_dp_init_port(mtk_dp);
-+ mtk_dp_swirq_hpd(mtk_dp, TRUE);
-+ } else {
-+ mtk_dp_swirq_hpd(mtk_dp, FALSE);
-+ }
-+
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C0, status,
-+    SW_IRQ_SET_DP_TRANS_P0_MASK);
-+}
-+
- static int mtk_dp_poweron(struct mtk_dp *mtk_dp)
- {
-  int ret;
-@@ -2534,7 +2581,7 @@ static int mtk_dp_bridge_atomic_check(struct
-drm_bridge *bridge,
-
-  dev_dbg(mtk_dp->dev, "input format 0x%04x, output format 0x%04x\n",
-  bridge_state->input_bus_cfg.format,
-- bridge_state->output_bus_cfg.format);
-+ bridge_state->output_bus_cfg.format);
-
-  if (input_bus_format == MEDIA_BUS_FMT_YUYV8_1X16)
-  mtk_dp->info.format = DP_PIXELFORMAT_YUV422;
-@@ -2552,6 +2599,30 @@ static int mtk_dp_bridge_atomic_check(struct
-drm_bridge *bridge,
-  return 0;
- }
-
-+static void mtk_dp_bridge_hpd_notify(struct drm_bridge *bridge,
-+      enum drm_connector_status status)
-+{
-+ struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
-+ struct mtk_dp_train_info *train_info = &mtk_dp->train_info;
-+
-+ if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
-+ if (mtk_dp->hpd_state != status) {
-+ if (status == connector_status_disconnected) {
-+ train_info->cable_plugged_in = false;
-+ } else {
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+    HPD_OVR_EN_DP_TRANS_P0_MASK,
-+    HPD_OVR_EN_DP_TRANS_P0_MASK);
-+ mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+    HPD_SET_DP_TRANS_P0_MASK,
-+    HPD_SET_DP_TRANS_P0_MASK);
-+ train_info->cable_plugged_in = true;
-+ }
-+ mtk_dp->hpd_state = status;
-+ }
-+ }
-+}
-+
- static const struct drm_bridge_funcs mtk_dp_bridge_funcs = {
-  .atomic_check = mtk_dp_bridge_atomic_check,
-  .atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-@@ -2801,7 +2872,8 @@ static int mtk_dp_probe(struct platform_device *pdev)
-  mtk_dp_power_enable(mtk_dp);
-
-  /* Disable HW interrupts: we don't need any for eDP */
-- mtk_dp_hwirq_enable(mtk_dp, false);
-+ mtk_dp_hwirq_enable(mtk_dp, true);
-+ mtk_dp_swirq_enable(mtk_dp, false);
-
-  /*
-  * Power on the AUX to allow reading the EDID from aux-bus:
-@@ -2829,6 +2901,9 @@ static int mtk_dp_probe(struct platform_device *pdev)
-  }
-  }
-  } else {
-+ mtk_dp_swirq_enable(mtk_dp, false);
-+ mtk_dp_hwirq_enable(mtk_dp, false);
-+ mtk_dp_swirq_enable(mtk_dp, true);
-  mtk_dp->bridge.ops = DRM_BRIDGE_OP_DETECT |
-       DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
-  ret = devm_drm_bridge_add(dev, &mtk_dp->bridge);
-@@ -2861,10 +2936,15 @@ static int mtk_dp_suspend(struct device *dev)
-  struct mtk_dp *mtk_dp = dev_get_drvdata(dev);
-
-  mtk_dp_power_disable(mtk_dp);
-- if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP)
-+
-+ if (mtk_dp->bridge.type == DRM_MODE_CONNECTOR_eDP) {
-  mtk_dp_hwirq_enable(mtk_dp, false);
-- pm_runtime_put_sync(dev);
-+ } else {
-+ mtk_dp_swirq_hpd_interrupt_set(mtk_dp, MTK_DP_HPD_DISCONNECT);
-+ mtk_dp_swirq_enable(mtk_dp, false);
-+ }
-
-+ pm_runtime_put_sync(dev);
-  return 0;
- }
-
-@@ -2874,8 +2954,14 @@ static int mtk_dp_resume(struct device *dev)
-
-  pm_runtime_get_sync(dev);
-  mtk_dp_init_port(mtk_dp);
-- if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP)
-+
-+ if (mtk_dp->bridge.type == DRM_MODE_CONNECTOR_eDP) {
-  mtk_dp_hwirq_enable(mtk_dp, true);
-+ } else {
-+ mtk_dp_swirq_hpd_interrupt_set(mtk_dp, MTK_DP_HPD_CONNECT);
-+ mtk_dp_swirq_enable(mtk_dp, true);
-+ }
-+
-  mtk_dp_power_enable(mtk_dp);
-
-  return 0;
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-index 8ad7a9cc259e..7c97e230be50 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-+++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-@@ -286,7 +286,10 @@
- #define POST_MISC_DATA_LANE1_OV_DP_TRANS_P0_MASK BIT(9)
- #define POST_MISC_DATA_LANE2_OV_DP_TRANS_P0_MASK BIT(10)
- #define POST_MISC_DATA_LANE3_OV_DP_TRANS_P0_MASK BIT(11)
-+#define MTK_DP_TRANS_P0_35C0 0x35c0
-+#define MTK_DP_TRANS_P0_35C4 0x35c4
- #define MTK_DP_TRANS_P0_35C8 0x35c8
-+#define SW_IRQ_SET_DP_TRANS_P0_MASK GENMASK(15, 0)
- #define SW_IRQ_CLR_DP_TRANS_P0_MASK GENMASK(15, 0)
- #define SW_IRQ_STATUS_DP_TRANS_P0_MASK GENMASK(15, 0)
- #define MTK_DP_TRANS_P0_35D0 0x35d0
+Best regards,
 -- 
-2.45.2
+With best wishes
+Dmitry
+
 
