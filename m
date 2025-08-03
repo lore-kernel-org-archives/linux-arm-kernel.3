@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3059C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:32:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8177C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:34:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ayWtPygJ2HBDiY24yxyRlwrUyqnG3sxcO8anqfHfeE=; b=D10TrG28UNqFakHNhmLDu19oQ6
-	4uO0czHpvpgWtuaEP1/faFfemwBCGpg1osWdOLv3h8ABMiTKCa4VPsr//kmF5m6YLUU0TFHRtP256
-	A0yOkKVoWV2ixoLlVOijSFXdCkkXwMlEGru3w2JJxTJ9dAvQQbS1C1CIQ5r3igUbhsuayjHK49ZZA
-	oVUqO8LP1jOHimikenSVeQ9YI+TUUpReVIUjQTvHIzq/vYvPs3JB7k8w04CaZaTyohyx0agVZoF59
-	x8G6Mi6V/wzdjCJD9SQ1K4RlcJdU8+3yqQmGKh6jgfmxDF588ICyWsX2fwX6yqyS+iBJw1YhZqlUi
-	kYNGuqYg==;
+	bh=p6zBJEgANuVffuY9NQJyHG8/+Xeax9coZJWuW6ZJ2WM=; b=KaQKtO2ymEuo6m9WHf8WYCXbRB
+	LaF+P3BQhBVX0kExY/0xbQ+MrAEvTlyQK5v6ujIBKRWpU2DSoApSwG+Jxq9rnU8v3+6kxdLT7T5w+
+	BLNWQzgbY9mX2OHPIwpQsdRRgkJdWZOOe27lIJFyRtmwHJHHY2H5vCKT5hlJndPmQXM6UUecnKN5N
+	ByZgY0eg0GlooSKkOasLPi4H15mbIvAnPOj2gLhBPtqbUWY1aSIRpW1f8tN95cxiJCZf5pq1QRCSW
+	4h/OweqJpARY8oBpN2wIWMyh2NHZLdkdEM3GobCcrZLoV/guYUqe/AUQj8VEnwofOp1B047pk/LWV
+	/stp+9xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiSGH-00000008S8r-3rJS;
-	Sun, 03 Aug 2025 06:32:01 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1uiSIp-00000008SH5-3Aaq;
+	Sun, 03 Aug 2025 06:34:39 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPt6-000000088ww-2Esf
+	id 1uiPt7-000000088yH-40fl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:59:57 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3da73df6b6bso9004355ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:56 -0700 (PDT)
+	Sun, 03 Aug 2025 03:59:59 +0000
+Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3da73df6b6bso9004425ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193596; x=1754798396; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193597; x=1754798397; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1ayWtPygJ2HBDiY24yxyRlwrUyqnG3sxcO8anqfHfeE=;
-        b=JHMPJm7w4zcwACp8mAzVvD0F07lEEv0geAHlsCksIiAOH7JDZHLnLtBG173yCXW/y2
-         qsrTdjfPLsYAAS6qbFyLm7mmnXVgPC/VNoOV6y4k8tBBwClxBTxcUwa42fpzMN8naqii
-         zPsSd7DK2uQxdEa54NNCvJppNOOF7yfYCesq/TUw/hcA20p/Uqa84JY0mn6e9Zhlb8Hz
-         ZlmQFfmQX6LGRnkjxBCS7CVRau1Lshb2dpjK8XxIZXWBflRFiWtlqdEhd+t4lufSBWoB
-         /dzs04QUkK41+nWSmux/Q9H7S9oswKGGVw5xY8dv1SI1nQ3QtooXGVTTjz1fObaRcKeW
-         b1bg==
+        bh=p6zBJEgANuVffuY9NQJyHG8/+Xeax9coZJWuW6ZJ2WM=;
+        b=JPrYGWqPPP3Ger3bpE9b9TcqrkrF7+15/rJO80CVMCYDTlHUil3vOpy+UYiAXcgOLw
+         o2q8UqazKh3FyXvfwanRrfe7bqgAL4IfWj2Z690pOhv9Kg/7jxk1jctoN3WXgb6LRTv2
+         E7a9qnxG7iiHOvoR4pRbm6H+fG1qUNlYColO+BBqNDqIopy1d3tR+w/IBDJEE+LKnqzV
+         o9xdE1JcAj8g4D91sUa1oVrJt+4xVJD90QxvC+KY39luPY9+krsexEEQA8fHYxYDUldc
+         aSNHfSrE9YW6tRk2OwM4QXbaYK46TwqKlo4Iof3kht/ui+8RRaeM8Woh3ooGqk/vLElP
+         /IxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193596; x=1754798396;
+        d=1e100.net; s=20230601; t=1754193597; x=1754798397;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1ayWtPygJ2HBDiY24yxyRlwrUyqnG3sxcO8anqfHfeE=;
-        b=hmc7b0RBCgjJcsHEdidjZ6xZr07nIKWD8tevnL5i5w0p4bnNivDGzBrPPtttyHkVzM
-         wNcKIOqaZgGvPrWNLGkFLj3h5r/8GMZtxruE/U9KTioFLljVCYqvYitknzJvfZHT0kTf
-         HU2FtsFzWvTdKRg3f/kbW3B6Xe/Gf1Fy27hDTAK+WC8p2iLuUw/EbcemrVr0nK9H77pt
-         +fxIA9OZ7KOOeJtFDJmwicuoUGO2fmpiC2nt5FB2lAh7Yp6/XD0lxwyHDgSoZQzSc0mj
-         lqaeE/+FkzPcgU+2bYCj3zDCmiEWJFkKAx69F/vAgU0J2HzfjFq4HQX1T4xRkNE+vpem
-         GO6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXemXWN65IImuyDF7TahKY++zOdhVpWuM1R6eJgS3OsKyFjWKFmLlOy4AIomuCi95M8NyGEebJRRlJL3Sx9qBOl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/blJ0/q6DnUYMR/wlVCS37HvAfQmqEmR+zGP3J6CaoQSwSO58
-	Xkrv4wahemUqGWxKiwtcvPbHxxmEtodAPR4TolM021Wqn2/O87nsDHM0
-X-Gm-Gg: ASbGnctwRQZABGO4Zc8+rL5e32/a7/xXR0Mo1F+BOlWvfpnWqxKLfKIfPGK5ZOTF6UN
-	/i/GfqRwmeSAvk6ruMajY+P90bmQ1TAQ7F0Hd1aB8mUGzTvKYRCPhSnDkK+dZ6lrA6nNigKd7qJ
-	9I9FXlajQzSMcG3w7GyL+nl+J5CLG+HpSowDyGaCQt8mcd9eKYF9OKBSyUi5+ZHuSd1/vgaRM+7
-	Rebk1U6JveDDM6AfveATRaHFDv7NLFR7hE6T+QIj0fBVXkJd0iGNpMIZwBdb5h+525aL75DUSNY
-	9bIKujDWN4wnhpqgOfmLXTMjejiH22GmjPVCsvM0eWVJT41apYOPKi3tLZwu4fbsIAfGOPMn4yx
-	1IoXX1InGil9sAyF3tPlbxbYUaLB8sZ2lQlq6S3Nd3bYkcP1zpwkeDDTl5pMF482Qt/MIys1Y0h
-	QOGmc6lsfvNtic
-X-Google-Smtp-Source: AGHT+IE//iz8Ix/2Qpq304M23ozJJJm9YUKRCP4zX/GxkzB5VUsrG11JTXPFJK78GVVmx4p1MZOr2A==
-X-Received: by 2002:a05:6e02:3093:b0:3e4:6d6:b436 with SMTP id e9e14a558f8ab-3e41618be54mr108220825ab.12.1754193595853;
-        Sat, 02 Aug 2025 20:59:55 -0700 (PDT)
+        bh=p6zBJEgANuVffuY9NQJyHG8/+Xeax9coZJWuW6ZJ2WM=;
+        b=CfTTZRE2Lbs0/5R9h3+LqKpr8cm8oDwobQpK5bDQPFFY96bgyLzlHwOvokvIDYohdz
+         RiEyrMATT1Hu//SV/QROeDKMHa3OFkGxG7FLs8ys19huN7P1iTplm8zbfGJ4mWCQbdac
+         cTwRDKivg4KDpjzJRDVmp1txuOmJF3jhSY8kRZLniGtimqeNnSw3KXgQOPeaDsuzecCa
+         Y3PSR2yb5SmTpffWCY62nHb8iemehVHP11OnucGRRYxDovi0wXhsYjENgWpsEU14mv3N
+         1XmuE43oWmmrf/TlqS4kPejnBL3WnbHbIDOyGG52cVXGDTLG5I0wgVaGuK6RX9NZVXvS
+         JysA==
+X-Forwarded-Encrypted: i=1; AJvYcCWN4+RvE7YJL7rokDIUFYQr/pt7YE46npr4tJ3+IeMxSptSttFncgk3V6dieRpEbOGwTilLT6mDNWHa5KGfoTOA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQPD8qBAPC3+Mve15NCjZvqbO1W98kvZwEe18kFAJ6+tZu4nFT
+	dyuWwiB+NyNCEz8mN9N75FSp1bJXOC1L/6CvVDVBVhWsvLYptD71pwuF
+X-Gm-Gg: ASbGncu5aX7d5wbtzJgQvYqgY/3R58mrmzMCNht/dC9l9DcGVx7fmgA11BbtRTLKq+8
+	xuCLzl0o0LuMZ6v9h6Z6hVw/nz16i8Z2ted7cuv5WF+VsAeLypPmtKW6k29fA7UKELiPpApHbVw
+	85tNHimS3Uj9XfZ3m/K+VIgr95xPmQUS/EHRHHG31+Os1vDDJgwxtgm2QzFIKxQb+Kl6Ce1TN6P
+	fFz1HeG7IeACY3JPjqX6yZmkCWlCJWuCE3NPhTj8MFp3Fkt+gLopKmNOAJtTVpROt0/m+oEzICk
+	9dW5bHHNgsJlLEjA+M4hp1A8mI/ELpWJHJ4egub6PpmObrjpTYExSKABznw2j8ZBQKahP4/2fqz
+	huhVgDmIN45JVTnzvcuJBMJezETHyZ2DsU02u+UmSmUseZWLX1RCZcX+VLiOyl+QGR0LCMxmP49
+	9wDmUzosg2rUON
+X-Google-Smtp-Source: AGHT+IGUOgHvStYGi2AGuiva7QKSCj6X9DfG9+bxlaldERvaqq+8SW2QK11YiYCBPzmbmAT64CKkJw==
+X-Received: by 2002:a05:6602:6c01:b0:881:4a70:4651 with SMTP id ca18e2360f4ac-88168309e74mr805665539f.3.1754193597187;
+        Sat, 02 Aug 2025 20:59:57 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.54
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:59:55 -0700 (PDT)
+        Sat, 02 Aug 2025 20:59:56 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -98,28 +98,18 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
-	jim.cromie@gmail.com,
-	kernel test robot <lkp@intel.com>,
-	Min Ma <min.ma@amd.com>,
-	Lizhi Hou <lizhi.hou@amd.com>,
-	Oded Gabbay <ogabbay@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Subject: [PATCH v4 57/58] amdxdna: add -DDYNAMIC_DEBUG_MODULE to cflags - RFC
-Date: Sat,  2 Aug 2025 21:58:15 -0600
-Message-ID: <20250803035816.603405-58-jim.cromie@gmail.com>
+	jim.cromie@gmail.com
+Subject: [PATCH v4 58/58] accel: add -DDYNAMIC_DEBUG_MODULE to subdir-cflags - RFC
+Date: Sat,  2 Aug 2025 21:58:16 -0600
+Message-ID: <20250803035816.603405-59-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205956_577974_41E2774A 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250802_205958_000642_D793B5B1 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,82 +124,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-with DRM_USE_DYNAMIC_DEBUG=y now un-BROKEN
+Currently amdxdna uses drm_dbg, so it needs this cflag in order to
+compile; it currently gets the cflag from its own Makefile.
 
-for configs like:
+If other accel modules want to use DRM.debug, they will need this flag
+too, so add it in accel/Makefile.
 
-  CONFIG_DRM_USE_DYNAMIC_DEBUG=y
-  # CONFIG_DYNAMIC_DEBUG is not set
-  CONFIG_DYNAMIC_DEBUG_CORE=y
+NOTE: ivpu has its own CLASS-ish dbg system:
 
-this module gets macro breakage:
+./drivers/accel/ivpu$ grep IVPU_DBG_ *
+ivpu_drv.c:MODULE_PARM_DESC(dbg_mask, "Driver debug mask. See IVPU_DBG_* macros.");
+ivpu_drv.h:#define IVPU_DBG_REG	 BIT(0)
+ivpu_drv.h:#define IVPU_DBG_IRQ	 BIT(1)
+ivpu_drv.h:#define IVPU_DBG_MMU	 BIT(2)
+ivpu_drv.h:#define IVPU_DBG_FILE	 BIT(3)
+ivpu_drv.h:#define IVPU_DBG_MISC	 BIT(4)
+ivpu_drv.h:#define IVPU_DBG_FW_BOOT BIT(5)
+ivpu_drv.h:#define IVPU_DBG_PM	 BIT(6)
+ivpu_drv.h:#define IVPU_DBG_IPC	 BIT(7)
+ivpu_drv.h:#define IVPU_DBG_BO	 BIT(8)
+ivpu_drv.h:#define IVPU_DBG_JOB	 BIT(9)
+ivpu_drv.h:#define IVPU_DBG_JSM	 BIT(10)
+ivpu_drv.h:#define IVPU_DBG_KREF	 BIT(11)
+ivpu_drv.h:#define IVPU_DBG_RPM	 BIT(12)
+ivpu_drv.h:#define IVPU_DBG_MMU_MAP BIT(13)
+ivpu_drv.h:	if (unlikely(IVPU_DBG_##type & ivpu_dbg_mask))                         \
 
-                 from ../drivers/accel/amdxdna/aie2_ctx.c:8:
-../drivers/accel/amdxdna/aie2_ctx.c: In function ‘aie2_hwctx_restart’:
-../include/drm/drm_print.h:578:9: error: implicit declaration of function ‘_dynamic_func_call_cls’ [-Wimplicit-function-declaration]
-  578 |         _dynamic_func_call_cls(cat, fmt, __drm_dev_dbg,         \
-      |         ^~~~~~~~~~~~~~~~~~~~~~
-../include/drm/drm_print.h:663:9: note: in expansion of macro ‘drm_dev_dbg’
-  663 |         drm_dev_dbg(__drm_to_dev(drm), DRM_UT_DRIVER, fmt, ##__VA_ARGS__)
-      |         ^~~~~~~~~~~
-../include/drm/drm_print.h:681:33: note: in expansion of macro ‘drm_dbg_driver’
-  681 | #define drm_dbg(drm, fmt, ...)  drm_dbg_driver(drm, fmt, ##__VA_ARGS__)
-      |                                 ^~~~~~~~~~~~~~
-../drivers/accel/amdxdna/amdxdna_pci_drv.h:15:41: note: in expansion of macro ‘drm_dbg’
-   15 | #define XDNA_DBG(xdna, fmt, args...)    drm_dbg(&(xdna)->ddev, fmt, ##args)
-      |                                         ^~~~~~~
-../drivers/accel/amdxdna/aie2_ctx.c:76:17: note: in expansion of macro ‘XDNA_DBG’
-   76 |                 XDNA_DBG(xdna, "hwctx is not ready, status %d", hwctx->status);
-      |                 ^~~~~~~~
+./drivers/accel/ivpu$ grep ivpu_dbg * | cut -f1,2 -d, | cut -d: -f2- | perl -pe 's/\s+/ /' | sort -u
+extern int ivpu_dbg_mask;
+ if (unlikely(IVPU_DBG_##type & ivpu_dbg_mask))                         \
+int ivpu_dbg_mask;
+ ivpu_dbg_bo(vdev, bo
+ ivpu_dbg(vdev, BO
+ ivpu_dbg(vdev, FILE
+ ivpu_dbg(vdev, FW_BOOT
+ ivpu_dbg(vdev, IPC
+ ivpu_dbg(vdev, IRQ
+ ivpu_dbg(vdev, JOB
+ ivpu_dbg(vdev, JSM
+ ivpu_dbg(vdev, KREF
+ ivpu_dbg(vdev, MISC
+ ivpu_dbg(vdev, MMU
+ ivpu_dbg(vdev, MMU_MAP
+ ivpu_dbg(vdev, PM
+ ivpu_dbg(vdev, REG
+module_param_named(dbg_mask, ivpu_dbg_mask
+static inline void ivpu_dbg_bo(struct ivpu_device *vdev, struct ivpu_bo *bo
 
-These sources include drm_print.h, which includes dynamic_debug.h and
-then checks DRM_USE_DYNAMIC_DEBUG, to decide if drm_dbg() rides on
-dynamic-debug underneath.
-
-DRM_USE_DYNAMIC_DEBUG is possible with DYNAMIC_DEBUG_CORE alone, but
-dynamic_debug.h also requires DYNAMIC_DEBUG_MODULE before defining
-those macros above.
-
-drm/Makefile adds this to cflags on behalf of all drivers, do so for
-this driver.  TBC: do subdir-cflags in drivers/accel/Makefile instead,
-for all accel/* modules.
-
-RFC: Maybe decouple from DRM, at least the DRM_USE_DYNAMIC_DEBUG
-itself (ie just CONFIG_DYNAMIC_DEBUG_CORE).  Its not obvious that
-XDNA_DBG should be categorized with DRM_UT_DRIVER by default.
-
-Do we need a new DRM_UT_ACCEL category ?
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202508012015.2l89ZOLg-lkp@intel.com/
-CC: Jason Baron <jbaron@akamai.com>
-CC: Min Ma <min.ma@amd.com>
-CC: Lizhi Hou <lizhi.hou@amd.com>
-CC: Oded Gabbay <ogabbay@kernel.org>
-CC: dri-devel@lists.freedesktop.org
-CC: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-CC: Maxime Ripard <mripard@kernel.org>
-CC: Thomas Zimmermann <tzimmermann@suse.de>
-CC: David Airlie <airlied@gmail.com>
-CC: Simona Vetter <simona@ffwll.ch>
+This looks readily convertible to a dyndbg classmap and controlling kparam.
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- drivers/accel/amdxdna/Makefile | 2 ++
+ drivers/accel/Makefile | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/drivers/accel/amdxdna/Makefile b/drivers/accel/amdxdna/Makefile
-index 0e9adf6890a01..800f81f5a7023 100644
---- a/drivers/accel/amdxdna/Makefile
-+++ b/drivers/accel/amdxdna/Makefile
+diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
+index a301fb6089d4c..e437549cba8ac 100644
+--- a/drivers/accel/Makefile
++++ b/drivers/accel/Makefile
 @@ -1,5 +1,7 @@
  # SPDX-License-Identifier: GPL-2.0-only
  
-+ccflags-$(CONFIG_DYNAMIC_DEBUG_CORE) += -DDYNAMIC_DEBUG_MODULE
++subdir-cflags-$(CONFIG_DYNAMIC_DEBUG_CORE) == -DDYNAMIC_DEBUG_MODULE
 +
- amdxdna-y := \
- 	aie2_ctx.o \
- 	aie2_error.o \
+ obj-$(CONFIG_DRM_ACCEL_AMDXDNA)		+= amdxdna/
+ obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
+ obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
 -- 
 2.50.1
 
