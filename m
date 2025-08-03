@@ -4,169 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54445C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0EF2C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZBOpHnUPvu1XSkJc5l7vxi1xEJZ24djbdSX+Rn/nmPo=; b=GiMdidCSCCq01FYiHSolac11hz
-	Mdm1Do2Jki4/R8NZu0sRtp6LqVIWjHMgcUPD2DjXBKnyA9Rs+HzzxJJlec1BUq+d+LuPdUW4Dsyeg
-	7Nu0w+S/2DOxwwozX8IgkWXiBGEe/x2mOJhAiBKIWreIA93+5L3a1lIq8JgQu08A9lcpwaFBOIQ1x
-	2WpYhx9MBE+3SaPba6eTgMWJyXHq+j2MPdtad74ok/7yjgAYi1Gtiniz9et/6zuqrlkRh4LfZz3n0
-	O4KdwWAH4KTcPYsA5S6EPzewSkbr+1/8JA739GFYHwR4WYxUZlWTBk4xIFAw50Gn2vkzeA9acpr9S
-	1gslZRVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vEUnRTvQ08kI5I5Akg5OcMZWx7icrdrdgfCIPtytf6Y=; b=2wC4MfSIuT56jUIGP7j55Fp8Oh
+	GpNi8mkuOs2mXJlAji3MdhY/W0GELqtJuVAyvVUmueX6q9U7/oKRLW8MZAH57XBaaFZwR9H8obdzv
+	rFkvHqlD/fRhyor9CRDM0n6AHcIoE/QYVVYliQ9YQ1vAkP0CHxY1RylcixxPOeJ0NBX5+r/v7eqMP
+	wOGd7L61GjwDpAtuMypjj22OJD7F9bn1khRARcGvJbIRuJ9ddzKZ6fLZiVZctYOG7G/MiMfuMfQWX
+	T8XUJRvLeLUpysfonkZiOXj+Yb31ly5dORX43oiKOrex7WI8bjB6CL+xRTtpmTz6VTxvxff8XQQtq
+	3dNBcbxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiSLi-00000008Set-17jW;
-	Sun, 03 Aug 2025 06:37:38 +0000
-Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
+	id 1uiSOH-00000008SpL-1jLk;
+	Sun, 03 Aug 2025 06:40:17 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiS0r-00000008RFN-0skx;
-	Sun, 03 Aug 2025 06:16:09 +0000
-Received: from pps.filterd (m0250810.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.8/8.18.1.8) with ESMTP id 5736FscD3642366;
-	Sat, 2 Aug 2025 23:15:54 -0700
-Received: from nam02-sn1-obe.outbound.protection.outlook.com (mail-sn1nam02on2064.outbound.protection.outlook.com [40.107.96.64])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 489dy10jck-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 02 Aug 2025 23:15:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D0A41/oiTSpayDBXzlkManml2z4BLNfI0bfPYH0AunNCi9DAGH58NAakt1zgzuwzduJNYZfzj++eAjAitP4qKOv5uN5nAuJxiK7+/9tlZT0jio+1VLI6BR0XZb7LO0i1pNnK20/cc4lKPX9v8Dv6VhL8oH4YiiG8JSnAMwj7reW2onh2ekH7E8TKkifRV9WI4r7ANfkKuLEjSlbWDGK0qCa67NJMFBI6vIYpnaeQYjeDjEXn9kESo1u1vND+BPAAamZUSwHTnIi9Z8U6Z+24mfVEZCSpD+7oHPQguSYNmFmojVyXZi5mctr8h6/zrJ4+Z7pxj2UMriI5O0tgQuxXYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZBOpHnUPvu1XSkJc5l7vxi1xEJZ24djbdSX+Rn/nmPo=;
- b=A3gw2LcCkECF4PLmecJ1YnZUdwtcguGXGTSRK0eD1dEvdHtAavT8p4hYFi9tsJivxLRjCO9hdmIHWKk/L6Yzragt1X/BCQeS7lFcLXUXXaG6g22O/ywWWcsAS6LJd4c42Vks45XbX7GZBEoKSML43Neq/L1Sy3PWgKstSgs5S6VytTEnZcVPLqSnWTvsgrbJlhpeQYmvSiU61kmaJ3M5FXHeCtHXPYvp3N4NMBmjleGkkJMs4W5vfc8FjM74jmUtf26JcYpOdCXBdgL8oukb90qbQsSaqkpFYICBgth1VD7GDDWJhO1jY6+OXC1iqaoemnd0KwW/O5P6Uke8LR+U6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Received: from IA0PR11MB7792.namprd11.prod.outlook.com (2603:10b6:208:409::16)
- by PH7PR11MB7002.namprd11.prod.outlook.com (2603:10b6:510:209::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.16; Sun, 3 Aug
- 2025 06:15:49 +0000
-Received: from IA0PR11MB7792.namprd11.prod.outlook.com
- ([fe80::385b:609e:4289:5e04]) by IA0PR11MB7792.namprd11.prod.outlook.com
- ([fe80::385b:609e:4289:5e04%5]) with mapi id 15.20.8989.017; Sun, 3 Aug 2025
- 06:15:49 +0000
-From: quanyang.wang@windriver.com
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Richard Zhu <hongxing.zhu@nxp.com>, Frank Li <Frank.Li@nxp.com>
-Cc: Quanyang Wang <quanyang.wang@windriver.com>, linux-phy@lists.infradead.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Subject: [PATCH v2] phy: freescale: imx8qm-hsio: Fix a use of uninitialized mutex
-Date: Sun,  3 Aug 2025 14:15:29 +0800
-Message-ID: <20250803061529.2303291-1-quanyang.wang@windriver.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2P153CA0023.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::10)
- To IA0PR11MB7792.namprd11.prod.outlook.com (2603:10b6:208:409::16)
+	id 1uiRuw-00000008Qmd-44pY
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Aug 2025 06:10:00 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-76bc5e68d96so2640048b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 23:09:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1754201397; x=1754806197; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vEUnRTvQ08kI5I5Akg5OcMZWx7icrdrdgfCIPtytf6Y=;
+        b=Sz53OdSur3ZDmPOlJjsI6RXEQjV61p4FaYZ/DZsCXBUtpgQTWBPpskFDNwkJ1ts2TJ
+         R+WTimvYz9pUWTUfCJ6EiAtPCheCvzYkpQKf4DCtHEvVdeF/ykU/12PeCfJZgN01AGuM
+         iCwaXg0O+cK1oqFNnE9mGcsBecqNJyrXeGZQslDADtWFgGsoXQAnVeatzOBW+WE7+5dt
+         YTn2OavTHoIjRWBARRLhb3x5ROj2+FTV7PRgJLYmlP6PC4Hen9GkQJdebiYIRyLoXf7b
+         YVk2EFXab6CmbWwLgEyD0aodSfV38CI/ra3Vp32fIt3ePnvLNkFA2tIlFgZ8dH+gI8CJ
+         qcYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754201397; x=1754806197;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vEUnRTvQ08kI5I5Akg5OcMZWx7icrdrdgfCIPtytf6Y=;
+        b=AZtO0FZpskIuNgymc0MVgnuXK+QybmGYXe9UifOV5BioLxEtlw6rlbfOdAWzBUzbao
+         +sn9dvu9KYN45tUgtCB8gh+xSqTNqewn2ugaOQ0LogmKV3/d0+Ro9B15Oz8Dn5QFdjsA
+         N7iZxo8FekF4hdt5y/hcRUgkr64nD3djgHitLBr80GCgxeEZe36RV5SCaDFsnJvHDKTY
+         T/wgo8WhpQMErZQ8lNLvEm2pTioqJ/SGR9KhEC3Zl7qIoDy+UqzHlXgSJaCTWa/2GI0a
+         Mh02d34loSEtzay8W+rj0hbVO4r+S6fXDrhGbtLZF03OqDQljzeG6rqsn50gSi0BENue
+         jEqw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTqU4DezouHp7rPTnGgttP+Ss1ak/bQD+kRZFupL649Ma2GOqYo37XJ8OFXKIHNGs6IhvryJJAeBnEQ9hHtmqH@lists.infradead.org
+X-Gm-Message-State: AOJu0YypUQXYrwu1kgZ7ICZcYop1bubjwOLcCZd3x7OlnrAw3WivfY6r
+	I0x4g8nK7T3khPp++AdiSB57DjjV6W4FpBFjQROsqXTEm9QGvpKdP/ZBhNNiyc+XHMVEHkMzFce
+	K7ClTEbJwOBJl77R++GP//rWn2diTyfJgSoMORSySAmdAn7mfYR8Zv/C1EtOUWE/c5tTbvw==
+X-Gm-Gg: ASbGncuGDTPDZ5bEynBmmXvHxsrpNLy/6nio0AoeJA3Y8RlKGLnpvczjDPZi1gDwLw8
+	FFFupAm6yVmoKB8dHM5Ibclhm0tzDfDCGcb5K5R0fHFGop7BUT71tUWB1uSGFNMD2nRHLcT4/id
+	7hGS5Y/4E8SfrqW8UY4Qvy4hYV6/Tw/lhz6tLH1gus5EkMyFMLVLmR+XqtFL8t1/CiD5ZwQzisH
+	g8JZmNa6/A8UByOm8biEgfw/fjDyc3ngjnvxRHGRVXsNTtU/G0QrWXispDHTjWIr+565h5jBihX
+	cGlteuKq0mDx8S9UIR0PnDaAGNL9cnuW8b3rKlHyYdGj/dfNnQFfR5yOpDudlesZtLoMAlIS87r
+	+9THwpf/5G/dj+80spUUal+TdyXW9NUMq4fqAfTSuv+B1K5Auf2Yslr3tJAH3j24NVikMd1w=
+X-Google-Smtp-Source: AGHT+IFX2BKlJOxqOQLOCKoNLPbIsC/9RtXyDmT1nriD6O07Iw2g1QDl1QbnMj8/V1anMVtcYFA7gA==
+X-Received: by 2002:a05:6a20:244a:b0:240:4d5:8fe1 with SMTP id adf61e73a8af0-24004d59411mr232493637.12.1754201397049;
+        Sat, 02 Aug 2025 23:09:57 -0700 (PDT)
+Received: from zenbook (1-162-100-196.dynamic-ip.hinet.net. [1.162.100.196])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b42306f1de3sm6304516a12.62.2025.08.02.23.09.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 02 Aug 2025 23:09:56 -0700 (PDT)
+Date: Sun, 3 Aug 2025 14:10:44 +0800
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, vdonnefort@google.com, qperret@google.com, 
+	sebastianene@google.com, keirf@google.com, smostafa@google.com
+Subject: Re: [PATCH v1 1/8] KVM: arm64: Rename pkvm.enabled to
+ pkvm.is_protected
+Message-ID: <szsqsx77mjo4kdawzcboud4eawuvz3sye4grmx5n74qzze26ap@xbfwc44ruetx>
+References: <20250729120014.2799359-1-tabba@google.com>
+ <20250729120014.2799359-2-tabba@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR11MB7792:EE_|PH7PR11MB7002:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32528e73-267f-4a13-2755-08ddd25530d4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Jed6ZaEmlNwioR0ijocRzh8L2dhO/jB0gsut7aQFQN2+3TuGNk08MSCUUIxH?=
- =?us-ascii?Q?scMGpU31mJ46pjWQommKkG9btznCNt+CJV6umZFmZAyyV7LeBqKMl5eJDZ+b?=
- =?us-ascii?Q?yvamxYLQkHKblOYwxKlAZYWYbMxDX72G2T1INn3DNRtnBL52qInuUt8JVsct?=
- =?us-ascii?Q?DsU1z7kwPO5MW1cS/3zoCT0a8IIAlf9mRprBO3Tw5+tw4x9YP7LvnVdp//6U?=
- =?us-ascii?Q?V9ijlosEes9ttWlAKk21oxTgjhXHaK4X3nHULHFAUIXmezQmIfpMYKsu7PH5?=
- =?us-ascii?Q?AXFGf4NPJ1UVIHGXslWIRVJInjh3EERweHCplgxvpI8jVJZLGh7odNzRz2eh?=
- =?us-ascii?Q?XCkUFSujFAglEfIzMXeQi8+hWm83vBYxHBSHrCQtT3yIxpknhXpuKnBZO8E8?=
- =?us-ascii?Q?mJ1eHb8oz83kBpyaBw8T2IpElAvGBTUD2KILfMkdd4fBxlHZcxGhd1v1+bDF?=
- =?us-ascii?Q?Z6zFD8fQ6XKuUX2PmcX70BBzs13BzwYCvf+9PKvr/TLBz1bl5Jjw3QcVbHUx?=
- =?us-ascii?Q?fa/UP+u6Coq1/XTFdY9kWWr4XcH+hDEEilfcgANyG6F62TlHxuD1I+3/ubVZ?=
- =?us-ascii?Q?6RjUtPUyUsEcKHREQ8kJ8fbNYFajnDbmh4pWeAcUCTbhJ8Vq2KAwVTTjBLeO?=
- =?us-ascii?Q?QjbL2itcSU7Y0zykaxYj7rXbBaT20OlYMI4myq5htBRvTmGT3fDMbtPfgw1Y?=
- =?us-ascii?Q?nth7p+ogflz12xvGyLciHT+T72lcXcOUAfKdGwFmkBAyWD5V1+8y1FSFsyrg?=
- =?us-ascii?Q?vi5ahQzpxc9Vl0rsFDSoGKCyaqMRvbU5KBeVCqhNU2GD4WwbexZRe6vr8gOE?=
- =?us-ascii?Q?LBfGmvOOQQSiSodpO5jIWi3V0oN+li6ni07COXtwBR++Hnndh3eRtEVGarjU?=
- =?us-ascii?Q?xyMdVCgB0qrq8uZPvc2vBYCGTR71GuTbglTNkQPZrxGb2mfFRAV9d0cJ7yf7?=
- =?us-ascii?Q?N573JMwlPEV6bNjjb2WlPaG2PiD0YmJc1V9psrQA3oRBRU4h1e9NaF0ptBPs?=
- =?us-ascii?Q?Ebexz2/JRdv05+FGTzbhWAyJKWs79JGe7QOLd3FZCZXWZS4d3W5UiJbtFnBs?=
- =?us-ascii?Q?NT7PftOTNwehPRf98mNJu9P2DGpTEncmMZ+HVLUHTlOWZARMAIwtzqydhSaw?=
- =?us-ascii?Q?0gwC1c4C6nMree3esom/wITVGQ2Fus9CajA9oUY4KoMSpQeKe8o/WpHgaAmD?=
- =?us-ascii?Q?9kwGi/aCjHGG+Q0idHaT9HDMxASl24aDKISI8rx2qK841WKdJEEPk7OoDsTG?=
- =?us-ascii?Q?jR+m4muUCrWJsgR04j1YOHv69edFucJwZJuH8fRMpPrO1EPBGxnkr9jcjEsA?=
- =?us-ascii?Q?khtlPO34AfysDf7UanDiQmOvAvh8bIf5mHzH0FXhs3ZP2pRZ074Z3DkYzEJs?=
- =?us-ascii?Q?Vth0rfPulPvrrHu3JK4vUyzo5EtIzxlQT4RfXbNcvagQVfhlU9UBPZP8M2oD?=
- =?us-ascii?Q?scAgizqKCosaM6/b+wKv+imzXrJC8pjqhaHjcbk+T92kB13zx+YSTFOuYm4U?=
- =?us-ascii?Q?9wQBo99j4q+Z8Io=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR11MB7792.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4XqwCKexG52rsyrBfWDe+q1zQ0HojmGsJ/etWzaZYAGA7et5W0KuWInT1MF9?=
- =?us-ascii?Q?l/0spu2gdeoNUH1Uvfryir0OAeNy9UsMbYDmrk7yA41I9Y49ADVV6EeDF+ob?=
- =?us-ascii?Q?2E7gYND3fF3zCZS0TPTW4VZA+EMesmbsRhqaS9ITaCmJhU+2xslG7gsZbObg?=
- =?us-ascii?Q?S10Zf7iUQXFJcHZerrjebf1Q3q6ecJfnGqRY3zMzWvVwVfGp3Hex2zV04JoM?=
- =?us-ascii?Q?tFhjrzv2BcqmPdgQfn/obxShofO6A+XSR8Cf0TAdkY8B/+8Se2lBFPFmEu1X?=
- =?us-ascii?Q?PMsFt11iouuDrF9brnECQmYUBxa5daDPcC1pQrhWHNXQ3X2swM+rTb4sxXsJ?=
- =?us-ascii?Q?/oxGp9wqmigdYF6HPK4SXuaFNaSgnnbcPeBj+YWNbUQkZPhqGbL8s4VDMXX3?=
- =?us-ascii?Q?fs6dHw9mlGbIFmaEf8oxcgj3ZISPm4HwTghkvpF2R301iFasqq2OozqW28al?=
- =?us-ascii?Q?s6q5nRzEbBUXC4t2dvEG5pla7EhlyjEgqx7hWniP6gy7CwetVEiyGaMIGRYY?=
- =?us-ascii?Q?6bNnzd6qhrQ6M8WycY/kRFRR3BgcsdruiNUSgrVUroIk3kcGnQi4MHrFY1Ek?=
- =?us-ascii?Q?B/EDmtnX2kowkIUReI7IKdt5WDNH7XXkg2jzsaen33uE/24N86RfSp2j7Kr3?=
- =?us-ascii?Q?9FXiXEsR0ww+jHX96z2obwWuiA1M9t08g5bp1wU3BmzzLxmi2QUx7ObiQN0T?=
- =?us-ascii?Q?2b+kEJMH5ckfIeNPV/Jis48A3MaVZ4+moIk/nViYObB+5GRFBE7YeIuVFB6Y?=
- =?us-ascii?Q?D4fHnY3nuecqqCqazIHwRAEbsXQAsIqjaj9aaVH70DRw0XRKrRJzBq9/WQuW?=
- =?us-ascii?Q?JFg9sic+kieiXZn0or0NQdZQcWcOtGgLwLXCdb7u4Y3VR4iTnW/xELPqpR4K?=
- =?us-ascii?Q?iuq+ESQu9iN4G8QIZaeLb8+3R8cRm7MGYR5K6GfGmEUhg12pByhn8BDsugoY?=
- =?us-ascii?Q?l3FSS4Qou2rmgsMRdKvBr6Te8REu9HgGEVBOLgrJuBCBtzCH2RX1DJg9AsPp?=
- =?us-ascii?Q?u4DEC7WX8SCtLBV8A7BVECmfhqLLvAJ21WbZdbYflonWrqTs5N9b6qMpFDJn?=
- =?us-ascii?Q?EqXOx+1kdo3aQyTrBt7HjxrOuNw2MMATyubaMqxJ+u8RI2LmeruYS+r6L/3X?=
- =?us-ascii?Q?+zfkHc1FHpsT6Q2Fd7gmz4GiWklNdQWZ1gebU7UUpebMZ2hnGNA2qMO060w1?=
- =?us-ascii?Q?v+6bOvAMIUNixWUcON5k0C1U5CoPwTaqVzjxLFeRXJLoP79BPcv5ev4WaM8o?=
- =?us-ascii?Q?nIVMcWDZUc7aVcxF3scHPi6pX4vlIAnK6VkAhiFhWf/AAWQLRk+cKhSK+bOK?=
- =?us-ascii?Q?seDMD7qrwiZiuTXIIWNjXRA56Em0PnhXjrf1LL0brvo6/XQs16P33qOfpYDi?=
- =?us-ascii?Q?1UTEoUwYDwcZ4d+mmBiid1u8Jr1RWfNr6t6ENJrKN4KvQYn4VfbpoodSIMqF?=
- =?us-ascii?Q?sK0qUyscu7FoKfO6kKjytUPr2wM3j1nMUP49E9l+CTnlmcH/YRMcl4/y0wv0?=
- =?us-ascii?Q?9lUfe/CZ9ims9X2W0lZEyucY6mlfSQTjmNp0jPob6V8YOoE6dFRpJy/wEmIT?=
- =?us-ascii?Q?lcMJC0MonDWwYu+rk6hr12SBYKDh4aI2vHQk+hlkcf+G6ZomDKVkqBiaJHxh?=
- =?us-ascii?Q?9g=3D=3D?=
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32528e73-267f-4a13-2755-08ddd25530d4
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR11MB7792.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2025 06:15:49.1495
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ct+EWS/uQwnFqeaNh+lorhO07+zCtvMlIRzPkae8o95+wKqqnWncZtM6J3M/01arfUIcp8USYMsm503tgXgwCRDP0SBXNwQMHgEK+vCHmUg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB7002
-X-Proofpoint-ORIG-GUID: Dz6xghd0qcxi_u3XJoXPiGjDlgcLEgJR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAzMDA0MCBTYWx0ZWRfX0KTrILCOsi4i
- z7aisPecwafYVlf0mZdy1Zn1+DUlSNSvec8u6n6/1EVKMmJPcyGpvkJAN9PecQ+JuaUYMO3CWv+
- viYj5/X/wxmIFVcp/I52oEuD/GtOiZh9FftEY/mSDzwCFcv0pAbC8MBq+enPc/duwf1Fjv12auF
- 2XCDjmVG4VydEoAe/xqexkTpNB3M8PmpXmzPfMTn1ig4/unL9ApKE35nbYg0RyvTIY6KHPB4lG0
- tXXvIeS9NvEXUgmrxk/HC+hyconZ3TRLZiXw1QTBecc9IRLMkj34UvkN8Xt1fUIx/gdphO3Ez6J
- ar44SJYVqnc2d8pKqvUxQgsQZ9YjNKkXryaylfiaBqGEgjprQ13CRl6dDAHFEh59N5P6Wg7TqPk
- yJ+6dAS3
-X-Proofpoint-GUID: Dz6xghd0qcxi_u3XJoXPiGjDlgcLEgJR
-X-Authority-Analysis: v=2.4 cv=LtOSymdc c=1 sm=1 tr=0 ts=688efe99 cx=c_pps
- a=/81dOUaqqWO4f6DVepChjA==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
- a=xqWC_Br6kY4A:10 a=2OwXVqhp2XgA:10 a=t7CeM3EgAAAA:8 a=QANj-dxJC74haVyuHsoA:9
- a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-03_02,2025-08-01_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 impostorscore=0 spamscore=0 bulkscore=0
- phishscore=0 priorityscore=1501 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2507210000 definitions=main-2508020059
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250729120014.2799359-2-tabba@google.com>
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_231605_262102_05F22E7E 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250802_230959_298143_654483FD 
+X-CRM114-Status: GOOD (  25.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,87 +105,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quanyang Wang <quanyang.wang@windriver.com>
+Hi Fuad,
 
-Using an uninitialized mutex leads to the following warning when
-CONFIG_DEBUG_MUTEXES is enabled.
+I am reading some pKVM code and would like to ask for help on some
+questions to make sure my understanding is correct:
 
- DEBUG_LOCKS_WARN_ON(lock->magic != lock)
- WARNING: CPU: 2 PID: 49 at kernel/locking/mutex.c:577 __mutex_lock+0x690/0x820
- Modules linked in:
- CPU: 2 UID: 0 PID: 49 Comm: kworker/u16:2 Not tainted 6.16.0-04405-g4b290aae788e #23 PREEMPT
- Hardware name: Freescale i.MX8QM MEK (DT)
- Workqueue: events_unbound deferred_probe_work_func
- pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
- pc : __mutex_lock+0x690/0x820
- lr : __mutex_lock+0x690/0x820
- sp : ffff8000830b3900
- x29: ffff8000830b3960 x28: ffff80008223bac0 x27: 0000000000000000
- x26: ffff000802fc4680 x25: ffff000800019a0d x24: 0000000000000000
- x23: ffff8000806f0d6c x22: 0000000000000002 x21: 0000000000000000
- x20: ffff8000830b3930 x19: ffff000802338090 x18: fffffffffffe6138
- x17: 67657220796d6d75 x16: 6420676e69737520 x15: 0000000000000038
- x14: 0000000000000000 x13: ffff8000822636f0 x12: 000000000000044a
- x11: 000000000000016e x10: ffff8000822bd940 x9 : ffff8000822636f0
- x8 : 00000000ffffefff x7 : ffff8000822bb6f0 x6 : 000000000000016e
- x5 : 000000000000016f x4 : 40000000fffff16e x3 : 0000000000000000
- x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0008003b8000
- Call trace:
-  __mutex_lock+0x690/0x820 (P)
-  mutex_lock_nested+0x24/0x30
-  imx_hsio_power_on+0x4c/0x764
-  phy_power_on+0x7c/0x12c
-  imx_sata_enable+0x1ec/0x488
-  imx_ahci_probe+0x1a4/0x560
-  platform_probe+0x5c/0x98
-  really_probe+0xac/0x298
-  __driver_probe_device+0x78/0x12c
-  driver_probe_device+0xd8/0x160
-  __device_attach_driver+0xb8/0x138
-  bus_for_each_drv+0x88/0xe8
-  __device_attach+0xa0/0x190
-  device_initial_probe+0x14/0x20
-  bus_probe_device+0xac/0xb0
-  deferred_probe_work_func+0x8c/0xc8
-  process_one_work+0x1e4/0x440
-  worker_thread+0x1b4/0x350
-  kthread+0x138/0x214
-  ret_from_fork+0x10/0x20
+While looking at the code I don't see pkvm.enabled, or now
+pkvm.is_protected really assigned, is pkvm development going to add the
+ability to let the user pick whether they want to start a protected VM
+(host EL1 can't access VM memory and registers, mostly) or not (like
+nVHE mode VMs) in the future?
 
-Fixes: 82c56b6dd24f ("phy: freescale: imx8qm-hsio: Add i.MX8QM HSIO PHY driver support")
-Signed-off-by: Quanyang Wang <quanyang.wang@windriver.com>
----
+Also, since when running pKVM (kvm-arm.mode=protected) the user can't
+yet choose the VM to be protected or not, the current state is that all
+VMs started by pKVM is protected, is that understanding correct?
 
-Changes in v2:
-* Use devm_mutex_init instead of mutex_init, as suggested by Frank
+Sorry if I missed anything.
 
- drivers/phy/freescale/phy-fsl-imx8qm-hsio.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Thanks,
+Wei-Lin Chang
 
-diff --git a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-index 5dca93cd325c8..348fefcfe7a5c 100644
---- a/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8qm-hsio.c
-@@ -534,6 +534,7 @@ static struct phy *imx_hsio_xlate(struct device *dev,
- static int imx_hsio_probe(struct platform_device *pdev)
- {
- 	int i;
-+	int ret;
- 	void __iomem *off;
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
-@@ -590,6 +591,10 @@ static int imx_hsio_probe(struct platform_device *pdev)
- 		phy_set_drvdata(phy, lane);
- 	}
- 
-+	ret = devm_mutex_init(dev, &priv->lock);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to initialize lock\n");
-+
- 	dev_set_drvdata(dev, priv);
- 	dev_set_drvdata(&pdev->dev, priv);
- 
--- 
-2.43.0
-
+On Tue, Jul 29, 2025 at 01:00:06PM +0100, Fuad Tabba wrote:
+> The 'pkvm.enabled' field in struct kvm_protected_vm is confusingly named.
+> Its purpose is to indicate whether a VM is a pKVM protected VM, not
+> whether the VM itself is enabled or running.
+> 
+> For a non-protected VM, the VM can be fully active, yet this field would
+> be false. This ambiguity can lead to incorrect assumptions about the VM's
+> operational state and makes the code harder to reason about.
+> 
+> Rename the field to 'is_protected' to make it unambiguous that the flag
+> tracks the protected status of the VM.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 4 ++--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c    | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 3e41a880b062..55dc7cd83e40 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -252,7 +252,7 @@ struct kvm_protected_vm {
+>  	pkvm_handle_t handle;
+>  	struct kvm_hyp_memcache teardown_mc;
+>  	struct kvm_hyp_memcache stage2_teardown_mc;
+> -	bool enabled;
+> +	bool is_protected;
+>  };
+>  
+>  struct kvm_mpidr_data {
+> @@ -1522,7 +1522,7 @@ struct kvm *kvm_arch_alloc_vm(void);
+>  
+>  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>  
+> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.enabled)
+> +#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
+>  
+>  #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 338505cb0171..6198c1d27b5b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -406,7 +406,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+>  	hyp_vm->host_kvm = host_kvm;
+>  	hyp_vm->kvm.created_vcpus = nr_vcpus;
+>  	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+> -	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
+> +	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
+>  	hyp_vm->kvm.arch.flags = 0;
+>  	pkvm_init_features_from_host(hyp_vm, host_kvm);
+>  }
+> -- 
+> 2.50.1.487.gc89ff58d15-goog
+> 
 
