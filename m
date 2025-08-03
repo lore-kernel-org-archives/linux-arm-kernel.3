@@ -4,153 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A034BC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 12:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B27C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 13:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OarMjpCIfYSkdkdW6bUdGi1fdmdKOoKfw0cvB3ckh4U=; b=O9hgcmntOR1ur76Jg5tyt54HSf
-	qy6JfKrjLovV/bBUNbK4hjWjb5q+S3Jl+5mEtj1HYzP/tDNPOzj5yRCN37M8Frei6Q9X8ggxA5dii
-	HSAUNMnlxvvhSRYXQv4hEzvqQwFa4KFDheSC2j2Mpb4XZVS4Gyiull/TgfH+DkzUsgcIoruuroPzX
-	FFGSB20tnccH2JE4sTBzn6Rq6MfNPUNdPcEV8LEyJyv40Ohb8SP17I1Z9dDhCJjfd493IlHEQPTmG
-	6YWuKbVHe8UH+BXBx+FrIjjby/8bTJ4ZgbTK8FuunPdq3TzX5958EW8t4QTTykyrzrAc0wZI4dLD/
-	1s2jeBHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7/n7ZskUfIeFvbmIe/VLVh1DBQLcTTicScvLBLe4ikI=; b=pNWbXHP3FTiOjICXJ2BnCIseNo
+	zvw1UO2OuSqH16y18xR4ueDi8R72JiEwiRkpqigX9SIUQNs7avBkuPpJ4VL1AcaiKrcmhtvkZwM4A
+	RbzzhVVyx1bDpR1ibvKAU7da5n1nETURDay9Wn6s8bkaQeuIj+PiZsm5G7BB2IvAqLL3CASgnN0BD
+	6fj+DtaYlyZoBuJUAqcqHvR5rKnRBTWSrYm8vbZYhICdqvlSAlyKsC4kwcZjmR9RWRjG1ujIUb12v
+	d6mpuTsdcpwi1L+JMJPd+lKJCRdn/89tzDGFoJ4eGwoj0TWM0AXChA0DscfScmkL9PA6rBpgC/a1q
+	dA0xpmww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiXPX-00000008gPY-1YhF;
-	Sun, 03 Aug 2025 12:01:55 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1uiZE9-00000008kkJ-3366;
+	Sun, 03 Aug 2025 13:58:17 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiXI0-00000008fmg-3iia
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 11:54:10 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 573AdkdK002562
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 3 Aug 2025 11:54:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OarMjpCIfYSkdkdW6bUdGi1fdmdKOoKfw0cvB3ckh4U=; b=oa1McpqSmnROzTG8
-	QRuna6UWkZoGedGlWV6YZR8aK0ASMJbjfkezkiyoRVkkGTEIeWoD4ieRfnSjhhsX
-	4Aj+239XFkNc3EndHgD+53KZMaLZBjW7hJTQJhTOhZgH+L3zgDgUDrN5AkTczz4D
-	QypwOYTHrh767djrJqj4zpRAKNGMEIh44Pcvz8qzgo6fD+X+vhQ4WrprShxWbbEr
-	m9WqVX25dd+me4PVYsMNsTfrRPb5QwSPbYPep81uaCu0M51iakOOvcCoebHBeoQa
-	drQhoWbJZOTC7OP90zReWtaMOZWXWQIN1Pc3476r1UaL+9Zj/kaycrIr3Qf75ZTj
-	Hswvbg==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48a2ke0a29-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 11:54:08 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-7073bfeef28so23017436d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 04:54:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754222047; x=1754826847;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OarMjpCIfYSkdkdW6bUdGi1fdmdKOoKfw0cvB3ckh4U=;
-        b=AYcihut9cp5pQtSy1ENLYQYyeFajto7rY5dQt0jVGDgTtCchAjeYGP0omZ783XkHUd
-         QU89TgH8uyhIhoyYRaTKgxymnfK32eslBmL7jNlR9mOBrQvSLW2YlZg6Cy10HHi3v5m8
-         A7sWdKEGZn9SYjl5dZ723tw8hYGFY82tcphl2gvY3X18hjwPfq2WjeOUOxemv/SEiLzW
-         GD5gWL64i/12Z/53gnICqmet2mLAsVJh0+OGrXNZ0Q8v6g9o8sK5gXl0osGK9VqHsWsj
-         0PCVpJb0qADQSMlcQNeny3wBYF7fFkS8+0MFXrwuCN68Mcj/mPeohksMmlbFCCnP8+re
-         xIMw==
-X-Forwarded-Encrypted: i=1; AJvYcCXQqDWLYVRPGfSnlwHB0yioNunACLkqHKH4Jl+AT7RBV5jYGPS+5Hfv5T/vho7c4uqxFhQS65JmtiFzUZZeXeeY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCRnfB5e8aKqp5JFKlMabGL4zCWGvGJlL5tG+cD0TOGBMN89/U
-	MBcOubLSpQYkcqtWvRgBVE2mWMlc/usx8uC+bM5mPRgxYH4p8eYzqHRjT/HP8/e4cB2uTEhlLNX
-	1ynYg20zb3Ux7WDBYE1cL+Hz1o/CD/mRO08R+95T+TRQkONfJELXmeK/HHzQx8PKqeNeA0hxyk3
-	6AcQ==
-X-Gm-Gg: ASbGncuupOuJM+QqC+FczN9jbSKVSinZYpycOx36Oz+lPstCqAywkTKMqP0AQcPsR1h
-	WCwhVFhnF3vd1SOqnzcHrYfkLhVXeE8ZUeHCxOwURTyZe4ZSZfCj/uTXSkiBAoVpK+qy80K9SA9
-	3VWyoEeIIQtJlVfcb80eOgzHFlVEaPCe3PwdOCfX/NpVU4GqGlBLHBMCJiwF7e8l+WE5igs5AqJ
-	lZyegcRp7wd+/hq5Ramr7u0b6mANZHKv4YgwkVQgcTb6V8/nXJbe1BPs7KUIauAWiFXyXGNVzCi
-	G67x5uZ0CzllUtHpq6ng/snXOSTfgzyqSoOSb+ZI0+elkkuteokjN4RvVWoMJLCxhJH4avklDwR
-	kS7c93/CPRjrNqToVHn1+hR1oBx4wwM7e5a73Wvsyeib9BFRUZrNf
-X-Received: by 2002:a05:6214:5294:b0:707:458a:a1d2 with SMTP id 6a1803df08f44-70935f0e68fmr68792686d6.8.1754222046902;
-        Sun, 03 Aug 2025 04:54:06 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGYJtAa3Jt0m4NRJ/zRiS+cHF+uv22QjpHfvokGO6es+edxh1sHS3nM88A/XbZxPix1pvJmiQ==
-X-Received: by 2002:a05:6214:5294:b0:707:458a:a1d2 with SMTP id 6a1803df08f44-70935f0e68fmr68792176d6.8.1754222046367;
-        Sun, 03 Aug 2025 04:54:06 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-332382a6f74sm13281731fa.20.2025.08.03.04.54.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Aug 2025 04:54:04 -0700 (PDT)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Sun, 03 Aug 2025 14:53:52 +0300
-Subject: [PATCH RESEND 2/2] drm/bridge: lontium-lt9611uxc: switch to HDMI
- audio helpers
+	id 1uiZBc-00000008kdi-3O30;
+	Sun, 03 Aug 2025 13:55:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xMTZKIrn71TSm2tQ0a6OaLyM77cFhPD0G/GvSK4JqeaOolE+2XlM989l+U6FPEOzpc6WcMLoGxTx4anK4+UhWNh8UPx0gNfgnJLg99X1xVORo/Swb0C8MZCzgAAWru765o9WvxwyqenZS3pPu9JLKtuusbxNPyzTOlW96r8IPO5khfK9VWj+t52OXUJsaTjwPVs8bGNcxqY5nJsb8sFQSzdoaPtaLTFf3GB3FLvtb4/IYxyNSea9Lib766OFFG5HzFl1FNEZU11ENT6WuMOwrznrbmhYPSjXI2VXMU8sYEvhRc7tZSihAqy0D3SVRVm+eVS6VGF0oX+pA+66pfKXUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7/n7ZskUfIeFvbmIe/VLVh1DBQLcTTicScvLBLe4ikI=;
+ b=PPe3xJ2Cyjq40Clgvrgs+oZbsphbTeIn9PNCWBMJB3M6fUJjXHkTkuuZcGt5bp0igbdTmDNL0NLM2F9y3e9zTHfKLusC5VNFmu9OMaUVO0WtaI24Ve82nz4oBt0wXvxg+3kyTIrK/buKjfHPbtIXAPr0DBD65mbjSofcSyYWwGpvdVQyZMWLPVaDPiSptge838sR9nh+EwdhPYx5/wtVnG/I9uYk8yHNZMiqAVUBX0KTWp/JoXBmHZpYNF7o4KXKypr/QnnOqr10DckPL3YF1LQvO69SjTlOtW5Qu28TikDoeH2hBehQA8yaA7kGQ9vyYBxXjM7TaA/5fYXDF8y4wA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7/n7ZskUfIeFvbmIe/VLVh1DBQLcTTicScvLBLe4ikI=;
+ b=f/Ru5bc3wSYNPww25Uj+pfO4gM9D0P7xnIOBJgzeaV2BJ0p5DNm4jGWRZaHXK74S5oWzP099p7wkZS/DLGb/5qtF9i0KmvqE24OXEShnBao3wvQ2k+tMCngUGS/RN/7FRPQk/pDNDzz8x2eRK7RkLxp6FKXWNyeXIXtDvZHEbPm2yDIUr6PGOy2i+7uN/4v5JDp719o5G4UewPsxX61SNE2KXIcKxFDAvDs0eIO4/Dd1GM9yFyn4RezQvaJtkB0Eevem2cqk/ytCcicK9Lh1RyaUAPn9JPRmNjn3gcu2gt0Ll5n+nHEmxhv1xPNAo8W+UWfFo+m3ilJwmhYrNmCgKA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) by
+ KL1PR0601MB5861.apcprd06.prod.outlook.com (2603:1096:820:bd::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Sun, 3 Aug
+ 2025 13:55:26 +0000
+Received: from SI2PR06MB5140.apcprd06.prod.outlook.com
+ ([fe80::468a:88be:bec:666]) by SI2PR06MB5140.apcprd06.prod.outlook.com
+ ([fe80::468a:88be:bec:666%4]) with mapi id 15.20.8989.017; Sun, 3 Aug 2025
+ 13:55:26 +0000
+From: Qianfeng Rong <rongqianfeng@vivo.com>
+To: Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Qianfeng Rong <rongqianfeng@vivo.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] media: mediatek: vcodec: use = { } instead of memset()
+Date: Sun,  3 Aug 2025 21:55:06 +0800
+Message-Id: <20250803135514.118892-1-rongqianfeng@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TYCP286CA0104.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:2b4::20) To SI2PR06MB5140.apcprd06.prod.outlook.com
+ (2603:1096:4:1af::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250803-lt9611uxc-hdmi-v1-2-cb9ce1793acf@oss.qualcomm.com>
-References: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
-In-Reply-To: <20250803-lt9611uxc-hdmi-v1-0-cb9ce1793acf@oss.qualcomm.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6559;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=Q7HopIOTnY6OvjIs/ZdbZ8AVdNk/D/2TLd7Vbpjb/sM=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBoj03ToPLH5Byq4lo7D85bCtTHS3XG0bPogIwUm
- /cQUERHctaJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaI9N0wAKCRCLPIo+Aiko
- 1cISCACQxo+ezbLEzR4+iHyyDF4DOdbCBE2hKG6Hc92ZzUWkMsqgNRYIUT6Y0Nwn7z8nzXnKPGz
- Sr1DlH5k7vW+iMx3htubJgM16nalVz/Ok5Z6u+nP40p/jJf6bhXs48L6dOgmSuVD40TTxeuGBsK
- jRXcFGWuJMlExM8CNm1rgGCGhSwIgtfR3yxlw4Jr4B6ahSAWv8MSduTARspo9R/jygywBJIUnE7
- /oRJ4ZmPppuoSdVLRkhn0grwm7GzpA5Ngcifv2AuRc5iqpCElMmCfehgYz/Dq6hqcD033zdAngt
- FXHGkjxPSJLtzYA6XEKD+3T4jbt5Hur7470I+jS0DmcQx8x9
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-ORIG-GUID: StiGC_L8YjuYDHKw--1ZCfnFM3Cqw0mT
-X-Authority-Analysis: v=2.4 cv=TMNFS0la c=1 sm=1 tr=0 ts=688f4de0 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=rji8DJjHHTBzgOBfyK4A:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAzMDA4MCBTYWx0ZWRfX5106Wv5wBIrW
- gqKYXPX+6VTtbdgm1nvNxte25Vh2U/qyuZnflWwzLd9Kp24N8nlHgmsPuPHR9G7JRCJsi4wj5Y8
- VHegzKQN6V/c+OzjZw/pamQR2bx7jBjOqvLHp/bf7J8pYoXEIkyW+c8BmAYg5rIQv2yIStItWtZ
- Yy74eMVR8wDQ22Ku0k0aybiGdfvogwVMKUduUhkLssk3D4obdz9djd9EdtqV/if1r5lsD2jFZgI
- sOWH3LwOCvkq98EJ3hh7PSQECoFgX82UdumeBaxFIqMDyR8VekTInjiVXRarOsMPAu5Ar2gukiE
- ff0mQbJt2Jf7/goKKWTuN5gNXzfsHDSnNKJDsMwkyRN9lMxRc4YSQI4c/FaWgMdCYKIMpN1MlzM
- IaFsWt1W7po72LJojlGIrVD2CXOz9IMCRM173KJ93Iui4Ydgsc2jA/SbqcGKUgyWYcqgClp7
-X-Proofpoint-GUID: StiGC_L8YjuYDHKw--1ZCfnFM3Cqw0mT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-03_03,2025-08-01_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 phishscore=0 malwarescore=0 clxscore=1015
- impostorscore=0 lowpriorityscore=0 adultscore=0 mlxlogscore=999 bulkscore=0
- priorityscore=1501 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2508030080
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SI2PR06MB5140:EE_|KL1PR0601MB5861:EE_
+X-MS-Office365-Filtering-Correlation-Id: e700253b-9583-4840-9a08-08ddd29565e6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?k4btojquFFcJbqYQKw0Dj30oY8lYw3yeHLsKGoJKtU0WGC6bdRxkosp9D5J7?=
+ =?us-ascii?Q?IdluzkkuLLc+Tmlcq1FfO/SrK42SA4zCSotXLA8KEhpwpGDyR4iPteiNZfZc?=
+ =?us-ascii?Q?iie7PuaPF4EdmBKTbPCz6+XzJfbTMP6OKqJGk9dyiYzlal1m2GHy1Eoklne8?=
+ =?us-ascii?Q?DUsU0LsYs23pqrJ/hrWivnXNhWUwTu2eO8vDlxzcz9h+y3sw++uS3FGXaDRK?=
+ =?us-ascii?Q?0uVHxydfcpL+MMtWmNjkU+jHZpD+GjKyfcBMBcwpKLZEfDmY9lTadIHk85Qf?=
+ =?us-ascii?Q?wMVZsSCW9YHk94GJdQFcbN5PYnGMLAwj49Mb1QGupvXWICcUc4x4vMqpEQ0l?=
+ =?us-ascii?Q?Ogq7hdV9r/tmb9vbxFcOK2JMOieRS8BBqic8YOG1m9vH/vaEYWnwoC0vCjeo?=
+ =?us-ascii?Q?Pi97EayW9SqviZoiNNE0SEgcmI0M6xTvyKSgJoMzmLeylU3izzPkgCdU1icO?=
+ =?us-ascii?Q?6klRAwcNq6+JC76rbOSn8GiC2DNt0I1WQUIWKJzsWqFbvUVM+KCOvRNDGJnS?=
+ =?us-ascii?Q?gEuovrmjzCgNHSn1vEa1QvtBjiI3PF7jRIR4m2eJVMjrOUSZa40h8a/4KT5l?=
+ =?us-ascii?Q?PH3F5ZZXBxTj4cxM4y6wfT7Deg2w34wdAJLz/o6SpH2ovqDFsiBEOE8febfD?=
+ =?us-ascii?Q?HiFbIvT0EGU4j8KtAZXd2hrUlJywnaznvkQsptqcQq59+IvfVozanOWUWzsN?=
+ =?us-ascii?Q?N4hUn7S8COU5b2Q+LA7TH+OifAB/4pnim2pihp4N62mJ/FEzXFaqw8eidu70?=
+ =?us-ascii?Q?I04nCs5JmuPOgvhN3Tu6nkrzk32h/EOVo0qSP03J7AZouzYhnWbj2aO2ueOq?=
+ =?us-ascii?Q?cKBTzhLoUIsmYuQHn6rVnZw85aTJ+lBvGXYViFnsn/yjeh6yniFax8xHobCN?=
+ =?us-ascii?Q?mrq/R1hKJp2VKwMtUqP4maZqyH2wkqYwniY9u6xPPjMcqdanRh9M2vaoKoqd?=
+ =?us-ascii?Q?zkmiUtqhP0e6aOgedH3/SeVmdVxpURWZks0IVbGc9CxvTjkNXMuNK86TsblN?=
+ =?us-ascii?Q?DZopenMzzI6grMg0fUKfPzrTaO0bqYuN7ZBIQD7+reIPnL1u6eR1+gsCNgjQ?=
+ =?us-ascii?Q?YdeG5Usv0mvMVTxZxoXhPDtgLgRg4mHTLDzurQqfXE6pU0zkuJ/bC9a7Tdg+?=
+ =?us-ascii?Q?RZFgmv/IuYas1epJJwB+FAE843t0BEA/ee2f7uRwVJy5N/yII80T7qD5exZV?=
+ =?us-ascii?Q?XZA07PTKgVx+ivT73yjVgsP97kbs1Daslyw9A4gf7xmtyS/nKDT7LyEmNCFv?=
+ =?us-ascii?Q?8H8hG5N/FBKlkV5jhUS2O+PEXgOQ/6X1uWuvOcCzlf/O3oSWyFaXgeN3WUAl?=
+ =?us-ascii?Q?1jrpckjLl9HfnVmNxHleqaAFrz4Il+wFoxywGZe93YRG8iYByG1UxYtJQ5PO?=
+ =?us-ascii?Q?YFSBBZ+i9f8jIrWyVfmhmPTgD9uJNIXJmaCFLjKTuVKGFc06ENhD2kmhNqqp?=
+ =?us-ascii?Q?NzIFUCxd7yHsocb6jMs7Gb46UtcITN8GmBA42U7R5r/eEyUWS7QVYXIdjqWZ?=
+ =?us-ascii?Q?KsA9WcTf3fgR7wzgiYGfHqkjojLeRs2Psp5o?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR06MB5140.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gXBmtWRuETsRj0q8rBbYinhTsSC1nHulPXtjjXxNeyVvL58ef/meHMmmvb3E?=
+ =?us-ascii?Q?OTw385YcV7DEWxpYCNqfXRwhbpsVK+RVC2Uo8zR7/aVwXNRorpnQ9pxNZm8J?=
+ =?us-ascii?Q?ufBbrvPLKS5+xfcfvYDbupK4iwRqwMvlJlk54Xb+dud1NYQJx5kuCBXrCuR9?=
+ =?us-ascii?Q?X01psuTSJZm2R8Wq2ElUcPFvQotED5GlbiMYta/0EEoFd1cojQC80N1kYueO?=
+ =?us-ascii?Q?L4KEBwOTcHWj3Tr1f97c8npJYGS994PPAlz5s7wB6ApSemmYhrio8KHoIvGI?=
+ =?us-ascii?Q?Sk57PwjtWvahiIUjHyqZpWhy9ebQJqw95ZPDYhq6wtV03Cv1mNcIpcqQ20N2?=
+ =?us-ascii?Q?cXXq5mK/Sz7CP5Xi7rkGGD19fehTtjHyyaURVbtWi6XQzV3HWjmbb05NCmwx?=
+ =?us-ascii?Q?O4wfcWgVa8t6EYSSM1FZH6uRK6fWefFdO3ZX1p9+lpv1vYSm/peYzr2Huh33?=
+ =?us-ascii?Q?2wkIqHut12rGyI+34nyLDOPdMKMjdbHw9P+C6nz/ybk+vtFFYsv+jGF5fUbg?=
+ =?us-ascii?Q?Rrgbby2sYmx8WotjhZJl76w3dAcI+DQXRiGdkl6biofvSK76Cpql22Dct6Nj?=
+ =?us-ascii?Q?EwiwHAvDvOGUuTpllO6muRbt59MP1yatc65AbjXfXpuLZoYybPLStyfWgQ2n?=
+ =?us-ascii?Q?+TT+ebOkNvoF8zx/YUkmo6gaD/rFfKSBP1QkVYSEHGysRaG0LJoOaNLt9mdQ?=
+ =?us-ascii?Q?sjhqrB9DYaVcMmFnP8kHrTuR533D2ZSCZU/P0lehOOcZJ6Q+G9imb0+VWOSI?=
+ =?us-ascii?Q?xLI+6viLWS9EXYN+pXaG+PPnVYE7z5EfmM5OCwLyD9Fjpz1tacK++jbuYJE2?=
+ =?us-ascii?Q?j+R9J7bIF6omF7PRXDmpl9cLJX1l1gPyP25QFScPCH1G172ZIODt2xXf5O/c?=
+ =?us-ascii?Q?3Z9o4b/ol6uI6aqqwb2w2cDEd/jTuQF0b3apyOKMWzSlZoAh2z/n2s+hV3WY?=
+ =?us-ascii?Q?8JTFQkO6nyPP5T3z2rQ4owYQe64kh6Km+Z2tH1E7BqN2NC63MLpPX6sh6/AW?=
+ =?us-ascii?Q?tv58X8bRWvAgL5dZdeTGAkLTFfIgJH2kwEwK8/QPpO2cold+RarAkPM/DZnH?=
+ =?us-ascii?Q?yGVyGsfplTrEq2HCj1YYH8lcB4awcsiHVwKDZDj/0LKcLlYRgFfP2oPBrsh/?=
+ =?us-ascii?Q?ea+LtyKHrJq7hkuWtMZ8xgM8M3ktoH/CXBN/+S3OpxqY/q8jmuejLK8eUj3Q?=
+ =?us-ascii?Q?g+UJRPpEOh0hnJH4qHI8a8XJ52VlFqRcCSZM620jZPHTU9ZTXQLnddyL2FNE?=
+ =?us-ascii?Q?ILuRctvyJ7hCJzA54s9S18160gzkGLfEJxwb4lBK5d3naYQ9juqmdOdC2WCP?=
+ =?us-ascii?Q?LQKLflytGfID2EiX9iEMidM8XWr8Y8yvfmGwV4rt5qBibEjZPqna/OtNFEXv?=
+ =?us-ascii?Q?UNx0OBupYIcAKZUy+l5c4iXlXx5pWdWfeSjYBZIfabmPGwv2CvttegBVns7f?=
+ =?us-ascii?Q?XwgBNVj3e8891HJ2T1DlcKfm+28j59gkXhLJeixrbsV4InYCsG+Fat5qjhic?=
+ =?us-ascii?Q?i7Ao7btHT32xbrRZT6SxAUnb/4MgSoIXgx9NVfZ0a3bZem0x6ZmNS0Nim45L?=
+ =?us-ascii?Q?yNL6A5s+Fo8DN+57tX0p7+RzeDIly0sX6/m407rz?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e700253b-9583-4840-9a08-08ddd29565e6
+X-MS-Exchange-CrossTenant-AuthSource: SI2PR06MB5140.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2025 13:55:26.4430
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tKes1wa+U0zEB9tJMUB9xATYQFKSMKJWsbZ05XoBn31uSXWdO1lYpfgYBciYgToTfSmyNP21t0sEDX5mqvO+2g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0601MB5861
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_045408_951188_177461BE 
-X-CRM114-Status: GOOD (  22.64  )
+X-CRM114-CacheID: sfid-20250803_065540_971195_3727DB1A 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,217 +165,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While LT9611UXC is a DSI-to-HDMI bridge, it implements all HDMI-related
-functions internally, in the firmware, thus it doesn't make sense to
-implement DRM_BRIDGE_OP_HDMI. However it is possible to implement
-DRM_BRIDGE_OP_HDMI_AUDIO, streamlining HDMI audio plumbing (which
-includes plugged notifications and ELD handling).
+Based on testing and recommendations by David Lechner et al. [1][2],
+using = { } to initialize a structure or array is the preferred way
+to do this in the kernel.
 
-Implement corresponding callbacks and trigger EDID read /
-drm_connector_hdmi_audio_plugged_notify() from the hpd_notify callback.
+This patch converts memset() to = { }, thereby:
+- Eliminating the risk of sizeof() mismatches.
+- Simplifying the code.
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+[1]: https://lore.kernel.org/linux-iio/202505090942.48EBF01B@keescook/
+[2]: https://lore.kernel.org/lkml/20250614151844.50524610@jic23-huawei/
+
+Signed-off-by: Qianfeng Rong <rongqianfeng@vivo.com>
 ---
- drivers/gpu/drm/bridge/lontium-lt9611uxc.c | 125 +++++++++++------------------
- 1 file changed, 49 insertions(+), 76 deletions(-)
+ .../mediatek/vcodec/decoder/vdec/vdec_vp9_if.c    |  3 +--
+ .../mediatek/vcodec/decoder/vdec_vpu_if.c         | 12 ++++--------
+ .../mediatek/vcodec/encoder/mtk_vcodec_enc.c      |  6 ++----
+ .../mediatek/vcodec/encoder/venc_vpu_if.c         | 15 +++++----------
+ 4 files changed, 12 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/lontium-lt9611uxc.c b/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-index 38fb8776c0f441ae433c60a7680aaa6501a8956e..11aab07d88df646a54fea287030a183eb823b26d 100644
---- a/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-+++ b/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-@@ -17,8 +17,6 @@
- #include <linux/wait.h>
- #include <linux/workqueue.h>
- 
--#include <sound/hdmi-codec.h>
--
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_edid.h>
-@@ -27,6 +25,8 @@
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- 
-+#include <drm/display/drm_hdmi_audio_helper.h>
-+
- #define EDID_BLOCK_SIZE	128
- #define EDID_NUM_BLOCKS	2
- 
-@@ -48,7 +48,6 @@ struct lt9611uxc {
- 	struct device_node *dsi1_node;
- 	struct mipi_dsi_device *dsi0;
- 	struct mipi_dsi_device *dsi1;
--	struct platform_device *audio_pdev;
- 
- 	struct gpio_desc *reset_gpio;
- 	struct gpio_desc *enable_gpio;
-@@ -429,12 +428,52 @@ static const struct drm_edid *lt9611uxc_bridge_edid_read(struct drm_bridge *brid
- 	return drm_edid_read_custom(connector, lt9611uxc_get_edid_block, lt9611uxc);
- }
- 
-+static void lt9611uxc_bridge_hpd_notify(struct drm_bridge *bridge,
-+					struct drm_connector *connector,
-+					enum drm_connector_status status)
-+{
-+	const struct drm_edid *drm_edid;
-+
-+	if (status == connector_status_disconnected) {
-+		drm_connector_hdmi_audio_plugged_notify(connector, false);
-+		drm_edid_connector_update(connector, NULL);
-+		return;
-+	}
-+
-+	drm_edid = lt9611uxc_bridge_edid_read(bridge, connector);
-+	drm_edid_connector_update(connector, drm_edid);
-+	drm_edid_free(drm_edid);
-+
-+	if (status == connector_status_connected)
-+		drm_connector_hdmi_audio_plugged_notify(connector, true);
-+}
-+
-+static int lt9611uxc_hdmi_audio_prepare(struct drm_bridge *bridge,
-+					struct drm_connector *connector,
-+					struct hdmi_codec_daifmt *fmt,
-+					struct hdmi_codec_params *hparms)
-+{
-+	/*
-+	 * LT9611UXC will automatically detect rate and sample size, so no need
-+	 * to setup anything here.
-+	 */
-+	return 0;
-+}
-+
-+static void lt9611uxc_hdmi_audio_shutdown(struct drm_bridge *bridge,
-+					  struct drm_connector *connector)
-+{
-+}
-+
- static const struct drm_bridge_funcs lt9611uxc_bridge_funcs = {
- 	.attach = lt9611uxc_bridge_attach,
- 	.mode_valid = lt9611uxc_bridge_mode_valid,
- 	.mode_set = lt9611uxc_bridge_mode_set,
- 	.detect = lt9611uxc_bridge_detect,
- 	.edid_read = lt9611uxc_bridge_edid_read,
-+	.hpd_notify = lt9611uxc_bridge_hpd_notify,
-+	.hdmi_audio_prepare = lt9611uxc_hdmi_audio_prepare,
-+	.hdmi_audio_shutdown = lt9611uxc_hdmi_audio_shutdown,
- };
- 
- static int lt9611uxc_parse_dt(struct device *dev,
-@@ -508,73 +547,6 @@ static int lt9611uxc_read_version(struct lt9611uxc *lt9611uxc)
- 	return ret < 0 ? ret : rev;
- }
- 
--static int lt9611uxc_hdmi_hw_params(struct device *dev, void *data,
--				    struct hdmi_codec_daifmt *fmt,
--				    struct hdmi_codec_params *hparms)
--{
--	/*
--	 * LT9611UXC will automatically detect rate and sample size, so no need
--	 * to setup anything here.
--	 */
--	return 0;
--}
--
--static void lt9611uxc_audio_shutdown(struct device *dev, void *data)
--{
--}
--
--static int lt9611uxc_hdmi_i2s_get_dai_id(struct snd_soc_component *component,
--					 struct device_node *endpoint,
--					 void *data)
--{
--	struct of_endpoint of_ep;
--	int ret;
--
--	ret = of_graph_parse_endpoint(endpoint, &of_ep);
--	if (ret < 0)
--		return ret;
--
--	/*
--	 * HDMI sound should be located as reg = <2>
--	 * Then, it is sound port 0
--	 */
--	if (of_ep.port == 2)
--		return 0;
--
--	return -EINVAL;
--}
--
--static const struct hdmi_codec_ops lt9611uxc_codec_ops = {
--	.hw_params	= lt9611uxc_hdmi_hw_params,
--	.audio_shutdown = lt9611uxc_audio_shutdown,
--	.get_dai_id	= lt9611uxc_hdmi_i2s_get_dai_id,
--};
--
--static int lt9611uxc_audio_init(struct device *dev, struct lt9611uxc *lt9611uxc)
--{
--	struct hdmi_codec_pdata codec_data = {
--		.ops = &lt9611uxc_codec_ops,
--		.max_i2s_channels = 2,
--		.i2s = 1,
--		.data = lt9611uxc,
--	};
--
--	lt9611uxc->audio_pdev =
--		platform_device_register_data(dev, HDMI_CODEC_DRV_NAME,
--					      PLATFORM_DEVID_AUTO,
--					      &codec_data, sizeof(codec_data));
--
--	return PTR_ERR_OR_ZERO(lt9611uxc->audio_pdev);
--}
--
--static void lt9611uxc_audio_exit(struct lt9611uxc *lt9611uxc)
--{
--	if (lt9611uxc->audio_pdev) {
--		platform_device_unregister(lt9611uxc->audio_pdev);
--		lt9611uxc->audio_pdev = NULL;
--	}
--}
--
- #define LT9611UXC_FW_PAGE_SIZE 32
- static void lt9611uxc_firmware_write_page(struct lt9611uxc *lt9611uxc, u16 addr, const u8 *buf)
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c
+index eb3354192853..80554b2c26c0 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_if.c
+@@ -548,10 +548,9 @@ static bool vp9_wait_dec_end(struct vdec_vp9_inst *inst)
+ static struct vdec_vp9_inst *vp9_alloc_inst(struct mtk_vcodec_dec_ctx *ctx)
  {
-@@ -858,11 +830,17 @@ static int lt9611uxc_probe(struct i2c_client *client)
- 	i2c_set_clientdata(client, lt9611uxc);
+ 	int result;
+-	struct mtk_vcodec_mem mem;
++	struct mtk_vcodec_mem mem = { };
+ 	struct vdec_vp9_inst *inst;
  
- 	lt9611uxc->bridge.of_node = client->dev.of_node;
--	lt9611uxc->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID;
-+	lt9611uxc->bridge.ops = DRM_BRIDGE_OP_DETECT |
-+		DRM_BRIDGE_OP_EDID |
-+		DRM_BRIDGE_OP_HDMI_AUDIO;
- 	if (lt9611uxc->hpd_supported)
- 		lt9611uxc->bridge.ops |= DRM_BRIDGE_OP_HPD;
- 	lt9611uxc->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
+-	memset(&mem, 0, sizeof(mem));
+ 	mem.size = sizeof(struct vdec_vp9_inst);
+ 	result = mtk_vcodec_mem_alloc(ctx, &mem);
+ 	if (result)
+diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
+index 145958206e38..d5e943f81c15 100644
+--- a/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
++++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec_vpu_if.c
+@@ -181,12 +181,11 @@ static int vcodec_vpu_send_msg(struct vdec_vpu_inst *vpu, void *msg, int len)
  
-+	lt9611uxc->bridge.hdmi_audio_dev = dev;
-+	lt9611uxc->bridge.hdmi_audio_max_i2s_playback_channels = 2;
-+	lt9611uxc->bridge.hdmi_audio_dai_port = 2;
-+
- 	drm_bridge_add(&lt9611uxc->bridge);
+ static int vcodec_send_ap_ipi(struct vdec_vpu_inst *vpu, unsigned int msg_id)
+ {
+-	struct vdec_ap_ipi_cmd msg;
++	struct vdec_ap_ipi_cmd msg = { };
+ 	int err = 0;
  
- 	/* Attach primary DSI */
-@@ -881,10 +859,6 @@ static int lt9611uxc_probe(struct i2c_client *client)
+ 	mtk_vdec_debug(vpu->ctx, "+ id=%X", msg_id);
+ 
+-	memset(&msg, 0, sizeof(msg));
+ 	msg.msg_id = msg_id;
+ 	if (vpu->fw_abi_version < 2)
+ 		msg.vpu_inst_addr = vpu->inst_addr;
+@@ -201,7 +200,7 @@ static int vcodec_send_ap_ipi(struct vdec_vpu_inst *vpu, unsigned int msg_id)
+ 
+ int vpu_dec_init(struct vdec_vpu_inst *vpu)
+ {
+-	struct vdec_ap_ipi_init msg;
++	struct vdec_ap_ipi_init msg = { };
+ 	int err;
+ 
+ 	init_waitqueue_head(&vpu->wq);
+@@ -225,7 +224,6 @@ int vpu_dec_init(struct vdec_vpu_inst *vpu)
  		}
  	}
  
--	ret = lt9611uxc_audio_init(dev, lt9611uxc);
--	if (ret)
--		goto err_remove_bridge;
--
- 	return 0;
+-	memset(&msg, 0, sizeof(msg));
+ 	msg.msg_id = AP_IPIMSG_DEC_INIT;
+ 	msg.ap_inst_addr = (unsigned long)vpu;
+ 	msg.codec_type = vpu->codec_type;
+@@ -245,7 +243,7 @@ int vpu_dec_init(struct vdec_vpu_inst *vpu)
  
- err_remove_bridge:
-@@ -908,7 +882,6 @@ static void lt9611uxc_remove(struct i2c_client *client)
+ int vpu_dec_start(struct vdec_vpu_inst *vpu, uint32_t *data, unsigned int len)
+ {
+-	struct vdec_ap_ipi_dec_start msg;
++	struct vdec_ap_ipi_dec_start msg = { };
+ 	int i;
+ 	int err = 0;
  
- 	free_irq(client->irq, lt9611uxc);
- 	cancel_work_sync(&lt9611uxc->work);
--	lt9611uxc_audio_exit(lt9611uxc);
- 	drm_bridge_remove(&lt9611uxc->bridge);
+@@ -254,7 +252,6 @@ int vpu_dec_start(struct vdec_vpu_inst *vpu, uint32_t *data, unsigned int len)
+ 		return -EINVAL;
+ 	}
  
- 	mutex_destroy(&lt9611uxc->ocm_lock);
-
+-	memset(&msg, 0, sizeof(msg));
+ 	msg.msg_id = AP_IPIMSG_DEC_START;
+ 	if (vpu->fw_abi_version < 2)
+ 		msg.vpu_inst_addr = vpu->inst_addr;
+@@ -273,7 +270,7 @@ int vpu_dec_start(struct vdec_vpu_inst *vpu, uint32_t *data, unsigned int len)
+ int vpu_dec_get_param(struct vdec_vpu_inst *vpu, uint32_t *data,
+ 		      unsigned int len, unsigned int param_type)
+ {
+-	struct vdec_ap_ipi_get_param msg;
++	struct vdec_ap_ipi_get_param msg = { };
+ 	int err;
+ 
+ 	if (len > ARRAY_SIZE(msg.data)) {
+@@ -281,7 +278,6 @@ int vpu_dec_get_param(struct vdec_vpu_inst *vpu, uint32_t *data,
+ 		return -EINVAL;
+ 	}
+ 
+-	memset(&msg, 0, sizeof(msg));
+ 	msg.msg_id = AP_IPIMSG_DEC_GET_PARAM;
+ 	msg.inst_id = vpu->inst_id;
+ 	memcpy(msg.data, data, sizeof(unsigned int) * len);
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+index a01dc25a7699..bc6435a7543f 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc.c
+@@ -1064,7 +1064,7 @@ static int mtk_venc_encode_header(void *priv)
+ 
+ static int mtk_venc_param_change(struct mtk_vcodec_enc_ctx *ctx)
+ {
+-	struct venc_enc_param enc_prm;
++	struct venc_enc_param enc_prm = { };
+ 	struct vb2_v4l2_buffer *vb2_v4l2 = v4l2_m2m_next_src_buf(ctx->m2m_ctx);
+ 	struct mtk_video_enc_buf *mtk_buf;
+ 	int ret = 0;
+@@ -1075,7 +1075,6 @@ static int mtk_venc_param_change(struct mtk_vcodec_enc_ctx *ctx)
+ 
+ 	mtk_buf = container_of(vb2_v4l2, struct mtk_video_enc_buf, m2m_buf.vb);
+ 
+-	memset(&enc_prm, 0, sizeof(enc_prm));
+ 	if (mtk_buf->param_change == MTK_ENCODE_PARAM_NONE)
+ 		return 0;
+ 
+@@ -1138,7 +1137,7 @@ static void mtk_venc_worker(struct work_struct *work)
+ 	struct mtk_vcodec_enc_ctx *ctx = container_of(work, struct mtk_vcodec_enc_ctx,
+ 				    encode_work);
+ 	struct vb2_v4l2_buffer *src_buf, *dst_buf;
+-	struct venc_frm_buf frm_buf;
++	struct venc_frm_buf frm_buf = { };
+ 	struct mtk_vcodec_mem bs_buf;
+ 	struct venc_done_result enc_result;
+ 	int ret, i;
+@@ -1168,7 +1167,6 @@ static void mtk_venc_worker(struct work_struct *work)
+ 		return;
+ 	}
+ 
+-	memset(&frm_buf, 0, sizeof(frm_buf));
+ 	for (i = 0; i < src_buf->vb2_buf.num_planes ; i++) {
+ 		frm_buf.fb_addr[i].dma_addr =
+ 				vb2_dma_contig_plane_dma_addr(&src_buf->vb2_buf, i);
+diff --git a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+index 51bb7ee141b9..55627b71348d 100644
+--- a/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
++++ b/drivers/media/platform/mediatek/vcodec/encoder/venc_vpu_if.c
+@@ -132,7 +132,7 @@ static int vpu_enc_send_msg(struct venc_vpu_inst *vpu, void *msg,
+ int vpu_enc_init(struct venc_vpu_inst *vpu)
+ {
+ 	int status;
+-	struct venc_ap_ipi_msg_init out;
++	struct venc_ap_ipi_msg_init out = { };
+ 
+ 	init_waitqueue_head(&vpu->wq_hd);
+ 	vpu->signaled = 0;
+@@ -148,7 +148,6 @@ int vpu_enc_init(struct venc_vpu_inst *vpu)
+ 		return -EINVAL;
+ 	}
+ 
+-	memset(&out, 0, sizeof(out));
+ 	out.msg_id = AP_IPIMSG_ENC_INIT;
+ 	out.venc_inst = (unsigned long)vpu;
+ 	if (vpu_enc_send_msg(vpu, &out, sizeof(out))) {
+@@ -191,11 +190,10 @@ int vpu_enc_set_param(struct venc_vpu_inst *vpu,
+ 	size_t msg_size = is_ext ?
+ 		sizeof(struct venc_ap_ipi_msg_set_param_ext) :
+ 		sizeof(struct venc_ap_ipi_msg_set_param);
+-	struct venc_ap_ipi_msg_set_param_ext out;
++	struct venc_ap_ipi_msg_set_param_ext out = { };
+ 
+ 	mtk_venc_debug(vpu->ctx, "id %d ->", id);
+ 
+-	memset(&out, 0, sizeof(out));
+ 	out.base.msg_id = AP_IPIMSG_ENC_SET_PARAM;
+ 	out.base.vpu_inst_addr = vpu->inst_addr;
+ 	out.base.param_id = id;
+@@ -258,11 +256,10 @@ static int vpu_enc_encode_32bits(struct venc_vpu_inst *vpu,
+ 	size_t msg_size = is_ext ?
+ 		sizeof(struct venc_ap_ipi_msg_enc_ext) :
+ 		sizeof(struct venc_ap_ipi_msg_enc);
+-	struct venc_ap_ipi_msg_enc_ext out;
++	struct venc_ap_ipi_msg_enc_ext out = { };
+ 
+ 	mtk_venc_debug(vpu->ctx, "bs_mode %d ->", bs_mode);
+ 
+-	memset(&out, 0, sizeof(out));
+ 	out.base.msg_id = AP_IPIMSG_ENC_ENCODE;
+ 	out.base.vpu_inst_addr = vpu->inst_addr;
+ 	out.base.bs_mode = bs_mode;
+@@ -302,12 +299,11 @@ static int vpu_enc_encode_34bits(struct venc_vpu_inst *vpu,
+ 				 struct mtk_vcodec_mem *bs_buf,
+ 				 struct venc_frame_info *frame_info)
+ {
+-	struct venc_ap_ipi_msg_enc_ext_34 out;
++	struct venc_ap_ipi_msg_enc_ext_34 out = { };
+ 	size_t msg_size = sizeof(struct venc_ap_ipi_msg_enc_ext_34);
+ 
+ 	mtk_venc_debug(vpu->ctx, "bs_mode %d ->", bs_mode);
+ 
+-	memset(&out, 0, sizeof(out));
+ 	out.msg_id = AP_IPIMSG_ENC_ENCODE;
+ 	out.vpu_inst_addr = vpu->inst_addr;
+ 	out.bs_mode = bs_mode;
+@@ -367,9 +363,8 @@ int vpu_enc_encode(struct venc_vpu_inst *vpu, unsigned int bs_mode,
+ 
+ int vpu_enc_deinit(struct venc_vpu_inst *vpu)
+ {
+-	struct venc_ap_ipi_msg_deinit out;
++	struct venc_ap_ipi_msg_deinit out = { };
+ 
+-	memset(&out, 0, sizeof(out));
+ 	out.msg_id = AP_IPIMSG_ENC_DEINIT;
+ 	out.vpu_inst_addr = vpu->inst_addr;
+ 	if (vpu_enc_send_msg(vpu, &out, sizeof(out))) {
 -- 
-2.39.5
+2.34.1
 
 
