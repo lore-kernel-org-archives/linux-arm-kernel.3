@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A6D2C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 08:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C18A5C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 08:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BI97gg9BH4RW2XX9u9zVLtVYIoqNCqceXRu1p8REoHA=; b=Kj2yYEJD1LLRlt0MGUcPZTuc4Q
-	jl2M+ZhxuGkyARWfC0dLtQjOfPq8ijtqtJDmlJuosLEbnEOXFgaqTyGVfzM9KNleTl1dVeZZppKEI
-	3CogVMF/KQo4LjmWtMH0df01fmf+wwD7nnWhaQ8CwU3VYIXU+xkSxNwE+tf7R3xLpAYrbkWb73swS
-	JTRDjkmVQQaOdJ2w4G194IOrlsNquydpetQLUaimJfqE7ltlXjMClmD1jm7D0vZZ85hWQI+gb9suq
-	K/Vs4cs7116TgLWqIj3exZNsc7nRc9KPE9dsjT2DjVWKKc+7WMbz58gqxSqqe6Nrtx9NCZ+Ls8RiU
-	J8s5Noqw==;
+	bh=xobj+0eDK21L89Lxe4+nHUUksdoaTf8Ke52r3BBJibY=; b=hpcMCwoiHXAY2oNA07S5qXGVHJ
+	Aj+E1e1QjZwmzbpbyM31H+oKusrgdK+1Ir0LQgCi3OIEjYWpa+Wi8ZpfNTKzgJuebGSbvBeh/Gm70
+	1V4PY1hMqcqZ/54u82LqY30jvkvk10E7XOPQkSSmhC+XN8x0wCrGTop8lu+Q4f420Lzhcyu4fZPLp
+	7FVAms15TyNH5Z4k5FZnICkjA7QgNxwtNiBIo99RZg1g9GxoAHvFMZomAhDF+vQD2mVJKuhsKwbqC
+	LpkDJKyNfmZWvvFOf3eMAM1ZWIf4vZPphZco3ZqVId8vhWyWGBIceQClllz3cFPlblceoxCv778wF
+	oHfM5CKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiTvJ-00000008WZb-0X3X;
-	Sun, 03 Aug 2025 08:18:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uiTxn-00000008Wlx-0eFr;
+	Sun, 03 Aug 2025 08:21:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiTsp-00000008WFw-0jD9;
-	Sun, 03 Aug 2025 08:15:55 +0000
+	id 1uiTuS-00000008WLc-2Bfn;
+	Sun, 03 Aug 2025 08:17:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 03B40601D4;
-	Sun,  3 Aug 2025 08:15:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FBD9C4CEEB;
-	Sun,  3 Aug 2025 08:15:49 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DD0405C52D0;
+	Sun,  3 Aug 2025 08:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D895C4CEF8;
+	Sun,  3 Aug 2025 08:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754208953;
-	bh=a+B5Pvv2XMw84hBjmHdDDrvrkZHaY0NB9xp/6axrcn8=;
+	s=k20201202; t=1754209047;
+	bh=dG5Q14Vv2tG8ILJ0dE05rABknNd8Pl7HaZzDqnCNezo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dw6baU3uEmA1DcRzroDg3t6hBVCoZ00yM8CBowicsYkWJ0xjZLkkGxMw1o2T8PKPV
-	 m9AAmKhTkIcJT/uOfnZWHtHRRXTV22wX+M7aIa0gYUEojNCiziDs5QYbCtA3ry6ue3
-	 yG1MJOnzcJwoNagZZ8VD7Aisnw4c8WGBmu4i7mvvOKm+3Dm0/+aQXbXBrLPU6S9K3K
-	 Oo0c0LXbJRNYHOfK9EABaJ/NSo1RZPbBs3LHz4A6QxiL3A0VPXItW8bQJuSmV8JgOc
-	 6eBotvvZ736ttai5riAYgCat8OzLlTZq5FfxIOgYEnXOTZUnbYmp71ThouS4RkuNpN
-	 Lx71Xo3AIc+ng==
-Message-ID: <46590c06-a9e5-4469-873a-ec312f70cc9a@kernel.org>
-Date: Sun, 3 Aug 2025 10:15:47 +0200
+	b=KmaIPYrn/8NwQLEGCvtM6+8llJX7vEXD820E83K7OaYX3+LF+MvRhDInEBUjAUF9l
+	 Nh3M9d3WwsKtr9oSZFqBuN2WPdAgnOV2J6VWT276fK3iHSSZYnyaObxp0G1JbAPMq2
+	 bYwmUHrXdurSc0kqW2R4BZlFeC/EX0+o/F2hRaXAK97TUwsoFjJ9wMG1ckJEpwF4Xg
+	 Zlf3GTusnBKNloEvNJAFPVY9s44pLpRhy6OAQ0fEDUMAbDyCwWscksyTLw3psO1PRe
+	 sgfP1C+KN++ZvilYyPucuG0V5Ni3RiEBQWFOl6sNg9sR1uh6SaO2VAqeP/8BHrHCcP
+	 20jsr6CI2zQSg==
+Message-ID: <fbe7b083-bc3f-4156-8056-e45c9adcb607@kernel.org>
+Date: Sun, 3 Aug 2025 10:17:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 09/27] dt-bindings: clock: mediatek: Describe MT8196
  clock controllers
-To: Laura Nao <laura.nao@collabora.com>, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- p.zabel@pengutronix.de, richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com, wenst@chromium.org,
+To: Rob Herring <robh@kernel.org>, Laura Nao <laura.nao@collabora.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, p.zabel@pengutronix.de,
+ richardcochran@gmail.com, guangjie.song@mediatek.com, wenst@chromium.org,
  linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
@@ -59,6 +59,7 @@ Cc: guangjie.song@mediatek.com, wenst@chromium.org,
  <nfraprado@collabora.com>
 References: <20250730105653.64910-1-laura.nao@collabora.com>
  <20250730105653.64910-10-laura.nao@collabora.com>
+ <20250801135604.GA3045005-robh@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250730105653.64910-10-laura.nao@collabora.com>
+In-Reply-To: <20250801135604.GA3045005-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250803_011736_635793_A3C5768D 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +125,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2025 12:56, Laura Nao wrote:
-> +
-> +  mediatek,hardware-voter:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description:
-> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
-> +      MCU manages clock and power domain control across the AP and other
-> +      remote processors. By aggregating their votes, it ensures clocks are
-> +      safely enabled/disabled and power domains are active before register
-> +      access.
+On 01/08/2025 15:57, Rob Herring wrote:
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  '#clock-cells':
+>> +    const: 1
+>> +
+>> +  '#reset-cells':
+>> +    const: 1
+>> +    description:
+>> +      Reset lines for PEXTP0/1 and UFS blocks.
+>> +
+>> +  mediatek,hardware-voter:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description:
+>> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
+>> +      MCU manages clock and power domain control across the AP and other
+>> +      remote processors. By aggregating their votes, it ensures clocks are
+>> +      safely enabled/disabled and power domains are active before register
+>> +      access.
+> 
+> I thought this was going away based on v2 discussion?
 
+Yes, I asked to drop it and do not include it in v3. There was also
+discussion clarifying review.
 
-No improvements, I already commented on this.
-
-I also said:
-
-"I already commented on this, so don't send v3 with the same."
-
-NAK
-
+I am really surprised that review meant nothing and code is still the same.
 
 Best regards,
 Krzysztof
