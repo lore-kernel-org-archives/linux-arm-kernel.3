@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F75C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 21:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56505C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 21:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyvEi5Z34Fc2FFvsydjcadDBnJjs2QvNRWwg/atbzJo=; b=NZ6Zc0XVLPxNYtc3EuCK9PfZTL
-	K8N2XLcJoffVJjGsYqFCdz+SPL9IJNruuLFIVU/DitEjY+qbgthq+bdacF14ZAaDwncWQTjMVJAWp
-	P3FppMD4K0ASR/qZ21AdvkV1nBhlxqYnmVxq8HbgiaRhWqYJselLYTaZgKfkrXznYO0UwBIPKNREl
-	yVO+DVD9k/GpOE4cIMbxyFviLEEPf4S4WgRKRR7gAk5XSP/Wsh99/7Fs0FqCKiRywWmeYPZw3kFRa
-	39wRTb4LUYvIXOgqQts32787hMFdPX0mpWtZvOB7CF8cCOUGBjw61HHBLNc7krjATZ6PKvropHSyA
-	HWsm9v3w==;
+	bh=kyvEi5Z34Fc2FFvsydjcadDBnJjs2QvNRWwg/atbzJo=; b=ySPcHzf/6sZ/AJttmf8IDuQ6xc
+	ULglRxYHq1GvyOG3ldq+yGkcCpjBc/skkCktjKNeShGeo98PdT5hTEHaQPSQsR1NtMH2sjtM0Vd4s
+	Qg3/MjtLRvrTMOd9nwHmr90WWVV8r33EoYEnVX2BTi+QQdrvS1xFslXXWmKtUdgO8TQ/C6EboX+LN
+	z8+o+Dy1ahgZ1oaJLerbHvuuG4YhrJddEqjIyzp410Yhh9VKGjCkYUr+PhgQyLMC0GaS1W1tavo2m
+	G1UPGDdElAIUxBBzHNPbHm9e7+1g4LVbOWyhK4n3JJX4XEKZiKaesoB3w71QWHh2pB1Z9MevCAoht
+	P8svxm5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uig8J-000000099qt-05Bo;
-	Sun, 03 Aug 2025 21:20:43 +0000
+	id 1uigAq-00000009AhH-0SXv;
+	Sun, 03 Aug 2025 21:23:20 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uig5i-000000099Fd-2dhM
+	id 1uig6e-000000099Sp-1nfM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 21:18:04 +0000
+	Sun, 03 Aug 2025 21:19:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0ED0FA548AA;
-	Sun,  3 Aug 2025 21:18:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3C62C4CEF9;
-	Sun,  3 Aug 2025 21:17:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BEA1DA54D06;
+	Sun,  3 Aug 2025 21:18:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0968C4CEEB;
+	Sun,  3 Aug 2025 21:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754255879;
+	s=k20201202; t=1754255939;
 	bh=zjzvpKgaq9EcwmEkID060i3LKylHiXcVHmm9IqxjqWE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HU55NRq+4YquclTo+DgvhM6C7pcnc3NOq1Gax5iAgh1vwO2i5skNl0ok9MA7ywfTe
-	 K7i6pEFaxXXbBdbS6z96e1VVleezfq52giiqlz66ik9woaArmd878XT2y2gWuWRIQF
-	 VIhrp77BsZgQ0tyVCR6H9BmNitneMoAOBGAHet0Y2P2sB0/J6vjuusyIXQlgTEacG+
-	 cEanm1tZoC4ErtRUxNUIqHPgRcAzp8jd+0lKAcbFtuW9n5DCtMC0nt3kq/cmqTfKpQ
-	 8J/Si7k8G6evDgnzIS54NecoaaxuiUM7BZNxyGD30QmDEl8R2yWDIQCqtHfqbfFY2f
-	 Zln9RXKIwsy/Q==
+	b=jjbHvHvCgGwX7PMiTK9/vOtVMdxSSEbN5PoVcUSQvcN0mp7tn6kO89PA1s4WjJ2Ty
+	 hguI3e9gWfFwGOelzbiAtvelYMoe6Ah5rR6z327X8jh5MePiiGOOzhvM/kNLGf31RB
+	 RQWtVXBqcNTID5806P0ndeF/BmAfOlk4WR2rMuKawJUWApBDzbKhKwOYfziTy/px81
+	 fwOC1rUK6EbdMlvylIoAqixjRD/Jug8X1PaWAMnIcjegXbuEYQOCC07SkBjmqVuwWO
+	 v8r7vofybjTIYC70XJwy8Cvig4vfaPYsnw9MUJ5FnJJPTnGWormsl5YX7cp2Pv9u1Z
+	 bAz54jf3fsxAA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -51,20 +51,20 @@ Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
 	Jarkko Sakkinen <jarkko@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16 09/35] firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall
-Date: Sun,  3 Aug 2025 17:17:09 -0400
-Message-Id: <20250803211736.3545028-9-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.15 09/34] firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall
+Date: Sun,  3 Aug 2025 17:18:11 -0400
+Message-Id: <20250803211836.3546094-9-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250803211736.3545028-1-sashal@kernel.org>
-References: <20250803211736.3545028-1-sashal@kernel.org>
+In-Reply-To: <20250803211836.3546094-1-sashal@kernel.org>
+References: <20250803211836.3546094-1-sashal@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.16
+X-stable-base: Linux 6.15.9
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_141802_800558_C9CDF1E3 
+X-CRM114-CacheID: sfid-20250803_141900_590760_60C026EC 
 X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
