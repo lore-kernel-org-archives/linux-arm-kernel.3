@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF52DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 04:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5E2C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 04:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbagXP4UXG28aliKh3hTngHCxH5FuTw+jOpgL0x5ekY=; b=d2S9pVuJf3gaxJ5jmINk6Kj6RT
-	ArUyjBEtwDHWSXgvHPbYbquSNyJStZ7vFFY7xAogzH82ZTP8qdNgCgFvdki7yggxtW4XLMWHoM20L
-	87BK7aX+rL5nCXRzur766CMuRlw6nJka4WTOXeq3zyf4JN7VswUcS5suUjuHoF1ShvtceIBLvxqKq
-	ay3Io3Jcm5GECXwr4Yu6BjTZRs62O3Yb+Pvi/Pzimm7A37uGRLuOKUX3s1hK/ClVMtgNa7taytqH4
-	Vrtm5ZzFFoq67xGDrmPi1aMC6q+SGxaAfyIYvT/MjP8cBV9kre+YKvIuPbynUNVnzMpR236beSqg7
-	N8m/zAtQ==;
+	bh=5LKFK2FQkGbRBipMPdzUP2qSKsnxzgWO8ffhfoPvu04=; b=O2iGCT1U+RV4jEfIFuBebz3OhS
+	QmA8kSvFWesfp6u6msKLDetBO1tEyN7YrG67oDlzoQ2iYWoH77pXBGtUjQjs12tJ/SvpXPLSXQcF4
+	yKkCEm5dH3e93O4znS+5LSj0lQXMvOUOeA0l4jsxsWJbqdMLouu3I85uhbWkAkEZ7HMQWKGd9dyTx
+	2ZL1noYZvfVEp8CZ2+6C4sCCtkgbg7t0aYwW+U06W5l5j1wk26U+37aR9lGDgyo5l/BFadzk6ulcM
+	b3NMnCzAePl5pZUQkLE4qNj6LGy5qwIhxtkuDMGKh1pwITKLyc0m+IIwvnYH5vZD+bYF3ivD/V1Gp
+	XFIw6yjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiQ9j-00000008BaI-3lfe;
-	Sun, 03 Aug 2025 04:17:07 +0000
-Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
+	id 1uiQCH-00000008BhU-2haL;
+	Sun, 03 Aug 2025 04:19:45 +0000
+Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPru-000000087zx-2ll8
+	id 1uiPrv-0000000880m-3hBY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:58:43 +0000
-Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3e3ea9e8154so15985475ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:58:42 -0700 (PDT)
+	Sun, 03 Aug 2025 03:58:45 +0000
+Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3e3c34a9b4cso38292835ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:58:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193522; x=1754798322; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193523; x=1754798323; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NbagXP4UXG28aliKh3hTngHCxH5FuTw+jOpgL0x5ekY=;
-        b=DYPe/q+PSq9WRvnU5r4yoLlNOcsdIvEKo0pdrP9YeeCoooNGOxjjMC32ePxUlZJRV9
-         WzhSZVvJnsqvcPL93Ic23q/lQ8cLFhZcWENIuUBhNwlhr+PjyNiT0bZruLkhzRf2PSKG
-         15jV422uXO1lMuPFyJ5lY5Hvq2pmLKDsjo6PdBvDReciHhSqy5tedTQf3BpSxVqefjuX
-         N9D/8tKH0y8r9l0MWMhQyt4MkrMwEMm7Ha643vpzkJJjMUN6wTIvnvbl5ckjjk2pmdu+
-         h4w6jlMK8E8a7bgGvbM8wIdNwMMrFsLz6mjyW4UmqYTLdRIU+VhfqXOX3UCc63yOsb+z
-         fZsQ==
+        bh=5LKFK2FQkGbRBipMPdzUP2qSKsnxzgWO8ffhfoPvu04=;
+        b=CUuUQ4iv+s0K6keZnkr8Jv+HkAGRA+xWYCFsw5WJQPazEKhO4mVQfBIfGEni6S1wPc
+         aadGjzHqdjaETh2HDOqYjsiSlr38GuVI4EzEq9Fg2LgMFEgVyyPf7RZowyj5BgPBHNlh
+         ou0DWTUH21FXcd83EgO90fziwPo01wdoexUTX/CjazjN7ESwMZei8pY/j3mvnE18jOJ+
+         BD4pZi5XQgiLTDX01od1aJss3p6WgzcgY+SeJ6lgrbhhufLHpfC5erm28L8b6C+Av3qs
+         PQ4CGZ7Z1adGC5Rp1ARM4vZv5bxGsqxmSDzzxqpHtHnaqnpIXz15H8SpxkisCtepMTmp
+         ZlKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193522; x=1754798322;
+        d=1e100.net; s=20230601; t=1754193523; x=1754798323;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=NbagXP4UXG28aliKh3hTngHCxH5FuTw+jOpgL0x5ekY=;
-        b=W4z76kZ7hTNtuQG0bjoIEJ7ltSzsWWCYKwxzU8ZiH1ZW4iCTrCSYxQV/NyUfPnw2ue
-         mlNhCd8uNVnx21yQiwmX5qq4XhRPTAIgeT0TTL6PF4aQ5yURHc8o8i4U2A4aGHiLa4rQ
-         W6/GiKOojutDwbOyNaI8FnsCpktb4dU/w/dAbH/cMvrPiWiAiMuhbiqhHh2ol0hVbGK0
-         aMGZCkNNcVsYoLYsFp7i4Yv0AuHGRlW65JhKt3V3VHMubVtqKMhbV9eF+qbmVOkyuZkJ
-         HeftwkE+Z+DA1d8K1iF+6pq3Uu/FU9mgyy3B2MS0qyyh1nvv/5pVJsUn9fuvCjybGp0H
-         wiiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVKXAZpjd04uZUMKsiOWWpMnRU2Vyl+tQdUJQfbH4THrYG3OwwcuY1qHvGcbk9VCikRijBNCvzm09xIhuonOr/+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+dJgPLioM0pMYPLJ9eAunam1Er3C8C1seWltAKEaUhGSph0Bz
-	+gpkPpN9oWP9+obG0ipWl57ISbSAKl+vFcnWgppwSh6MX8FFc5TlFCsK
-X-Gm-Gg: ASbGnctxdbFdBrbQ2pI+xWUz2O0UtF1FRrkHK5YkvF/5mWu+b11Qf2y64/TvcKnE23w
-	lT2FVdZGYKNtW0Q5xwj9S3sZ4btuUaZdF7wwVZCOvoFFFFXTW21Djxwpxzfy9YYRvrtsIEZD1TL
-	BD55ASw8xI0r7cskOotDiADJZ3/KiJaEyJcaasqAHg3ZWOeNVvTKPJbHIjr/IEJ/+s02uj+lE8V
-	K0tY6V9eyqME03TJwgAVAa0Jc1zvZZbviEjzUVJCYE/r7rVfPiO4rguodztmjiNZde9tNHeAL5G
-	r78mvBCsiu8l8C2NaCwILVxwQfgj68qRBOAkUzdUCIIp1Yde5j/xU0yNq7aBQvcNlERGlmphE9L
-	Kt5DEDFvmctnSJS+5ET/R045n3b2YcGAAGFxKUFZzQiMKQhkrC/dxQIwabyHCO1diVc/NBRVsbO
-	zCoQ==
-X-Google-Smtp-Source: AGHT+IEBPg9osrUDJ2eMDLZJ8n8wcDzvlf2PJNGm/kwan5N45OjUBgHKkKoWTIKMjcalGwUYti/UbA==
-X-Received: by 2002:a05:6e02:348c:b0:3e3:d674:6754 with SMTP id e9e14a558f8ab-3e4160fb6fcmr87580415ab.3.1754193521740;
-        Sat, 02 Aug 2025 20:58:41 -0700 (PDT)
+        bh=5LKFK2FQkGbRBipMPdzUP2qSKsnxzgWO8ffhfoPvu04=;
+        b=vOQWawlAtT28rUx1lGRLrDXvF2TzWlUgSnNyquXjraCOkctfihrQ31kMxejCqx8WB0
+         M9pEju99H6SrlRvhTbRVVgnzXyC8pMObNOvDmkZvhjc5zbUBhi+7E2QjqhA9JdoktmrS
+         sK3dImP1yygx9imjMwfZW5vkKxnW6vB3spqb0gPiTa0+D1k4YlFS58BWsQn6PaBArvV3
+         hK1d0NzAy60J5f53/xEWKywZeXwgqturfqmZc3C4DlziZmVSIhH66UIYnmuZCDPxonCl
+         ZKJyZ8665mONXWsg/PsRxZs08TBxpuAxVqZxc3yCFjDov7/EoWQBq4klueqj13yv0oaT
+         ql1w==
+X-Forwarded-Encrypted: i=1; AJvYcCU/YkNezZYjJCdxHVs1oqprqZYtP50Gfq9pH6Z2qiUAV1ido15CXu76W9m75jFNXvpH0G4RLz0sX4GNuGsq9zSr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx49OKT6C2h3nenQY9vzzcn40z6hgnUzUAKtJHNQepbrB45GBdZ
+	JrtBE4df3R7lq90dj7S6XNtV99HS1ngmGboFoiFKDzPi4lqGoNRZ4cuC
+X-Gm-Gg: ASbGncv3g8crNCwb+clWugidy4sq3YGeTaXdnyEN7M2Wqs7fa1Za4JcikbSJ8anizyr
+	8cp36akbOMHMWxs3gLMlGouvBsASiFEbOa2r66r6xAJ9WG0/FQKVOsEp5B9lXgvW2FXOPqnZpWJ
+	3b7boEsRl3U6kJsUwYKgPMIE0kOShZu+DaiquL7tm/QNN7kViiCaJEk8OjsMMzVLZzIlf6pYerU
+	CADtYPOVrzBheiUI816t1x36suCf9Wju9WnKNhZHWSvr41bkjotDm1yPrjqfwoiMb9aENHbGgsM
+	J3MvARgSuRz+tlVsxbwNaZ+HqNRahmf6fcGMc7F8Ys/y1pas1JDZitMAXxmT+1SlHU8lVYfSXNO
+	+XcetcCGNSsOrR9w4EHsxqhXr5pk8nvvfDZIn/MtmnpevpdlZa1VAcOq8HMwiYW4Uj1JCwwzdkh
+	0addSG/USfaJd1u0/QoE+BAQ4=
+X-Google-Smtp-Source: AGHT+IEK8/vwYm1R/fsAxFG9PU2vcozrYZR6RghCEJBk18PG9+D3j285L0ye3PQbY3Q2FqB5Lv0cRw==
+X-Received: by 2002:a05:6e02:2220:b0:3e4:1162:6761 with SMTP id e9e14a558f8ab-3e416128e06mr102803815ab.9.1754193523038;
+        Sat, 02 Aug 2025 20:58:43 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.58.40
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.58.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:58:41 -0700 (PDT)
+        Sat, 02 Aug 2025 20:58:42 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,18 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 06/58] dyndbg: drop NUM_TYPE_ARRAY
-Date: Sat,  2 Aug 2025 21:57:24 -0600
-Message-ID: <20250803035816.603405-7-jim.cromie@gmail.com>
+Subject: [PATCH v4 07/58] dyndbg: tweak pr_fmt to avoid expansion conflicts
+Date: Sat,  2 Aug 2025 21:57:25 -0600
+Message-ID: <20250803035816.603405-8-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205842_701886_8C5B7D9A 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250802_205843_942832_C8C47B26 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +124,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARRAY_SIZE works here, since array decl is complete.
+Disambiguate pr_fmt(fmt) arg, by changing it to _FMT_, to avoid naming
+confusion with many later macros also using that argname.
 
 no functional change
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- include/linux/dynamic_debug.h | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ lib/dynamic_debug.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/linux/dynamic_debug.h b/include/linux/dynamic_debug.h
-index b9afc7731b7ca..ac199293d2032 100644
---- a/include/linux/dynamic_debug.h
-+++ b/include/linux/dynamic_debug.h
-@@ -107,11 +107,9 @@ struct ddebug_class_map {
- 		.mod_name = KBUILD_MODNAME,				\
- 		.base = _base,						\
- 		.map_type = _maptype,					\
--		.length = NUM_TYPE_ARGS(char*, __VA_ARGS__),		\
-+		.length = ARRAY_SIZE(_var##_classnames),		\
- 		.class_names = _var##_classnames,			\
- 	}
--#define NUM_TYPE_ARGS(eltype, ...)				\
--        (sizeof((eltype[]){__VA_ARGS__}) / sizeof(eltype))
+diff --git a/lib/dynamic_debug.c b/lib/dynamic_debug.c
+index 55df35df093b0..2751056a5240d 100644
+--- a/lib/dynamic_debug.c
++++ b/lib/dynamic_debug.c
+@@ -11,7 +11,7 @@
+  * Copyright (C) 2013 Du, Changbin <changbin.du@gmail.com>
+  */
  
- /* encapsulate linker provided built-in (or module) dyndbg data */
- struct _ddebug_info {
+-#define pr_fmt(fmt) "dyndbg: " fmt
++#define pr_fmt(_FMT_) "dyndbg: " _FMT_
+ 
+ #include <linux/kernel.h>
+ #include <linux/module.h>
 -- 
 2.50.1
 
