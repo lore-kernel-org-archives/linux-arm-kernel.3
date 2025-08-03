@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD2ECC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 19:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C9BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 19:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPkkvVwxFYU+2Mr615PFvFXGtNmnnnpM8am4NYDPd7Y=; b=Gm9y3LO3/IGxi4DqouNPg5uYJY
-	OScoIsDU5BQfvi+PYrURSjzo7m/ul3XvTAYr7q1emAAYmdqJicAv+0Q85WwhHO4uwqjZgfcizX3rg
-	LJGX6nc/QS9sSZGDDgAK7cFIieHLaBA/i/h7ACrkqga24+rpyJ6bquOsd9OnZX6Cxd0oC995GkHSf
-	JUzCQniITwYaD9pCNN1NTa67jc+GOLnVOj48vZ0AnljvCYuQ44BYwn24g8UOQrIdjRMavcRuGDgQd
-	yOGTHFUlJ5ma7N3dlCge3StG9iQIL4Z5pGdQ3kCpreRyZfnNYJpOag0PdYn3EPmoOnhW6EkyqS1KS
-	weyRDqmQ==;
+	bh=5OquH3bzsfHd+3HPbbgh3jCNSZfVC5bnpDs/2otunY4=; b=dCeiaCljV4T+uBbojsjchr/ZHx
+	gov+mUxgy+iKW9afbo5X5jqvUQmcgh0MLZaCOGxWt2sohAiKddC/0zK/XLfj0Ok4elqG+Iyr672kq
+	4hv/jBe6x5V8LseidsQRdq9YKtnyB5DHIuR4vs01h7pU3y4MpGLgFATzeUoVxe/vd0+m85n6skviY
+	eshneHh8glEogt+atv40eSZCppCBoBocCK/M6VkfEyNbT2ouvA16YRfZjc+wYyo53HJJsR0gIB1B0
+	JXSv/e6VCkhRYdKMFvyjNqAFeo5ARjSgh8yh1YRr2NFYLOwRmlf+dlC2yLJwaDhiZlRMYaL8iMaz3
+	GFczLgCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uieTb-000000091h5-3ngs;
-	Sun, 03 Aug 2025 19:34:35 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1uieW8-000000091uj-2pua;
+	Sun, 03 Aug 2025 19:37:12 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uie6z-00000008zYl-2ue0
+	id 1uie70-00000008zZL-37BP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 19:11:14 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-3b7910123a0so3863507f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 12:11:13 -0700 (PDT)
+	Sun, 03 Aug 2025 19:11:15 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-458c063baeaso7306565e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 12:11:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754248272; x=1754853072; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754248273; x=1754853073; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=yPkkvVwxFYU+2Mr615PFvFXGtNmnnnpM8am4NYDPd7Y=;
-        b=OkhbWdlgXOz84Pu4bGgQd3xfLi840OQP1nP67LAIMk5yknqlndJTaa/qwcFDYwIdrq
-         c1Nh8pazkBRybZzclNfBJrzOOEKkIo048JcqtOHk+RIM5C7wlcfCvsF4rpF3VMocy5kH
-         SmYju/07JDUN2JFYbr26dmQVmyBsJFbobs7JWWO2DXkAIFRimC2du/eCtxhyED0njRKI
-         eD+JDrc1eV7f5bLjs6srd0jRcVGzMgdYNet8TvRBqymZ4Qda7UF/RGdXxVuH+mcwhmQQ
-         VOHr8i1XV6kJp93FHUdiBRSgWl3JvkXrVfXZkUCi8D9DSbc1iJTSa2PisotH7LzfWJLk
-         HAig==
+        bh=5OquH3bzsfHd+3HPbbgh3jCNSZfVC5bnpDs/2otunY4=;
+        b=RMOwQmufGDeRvAFXecI7xW1QqQp6v4lMJ0+JQPRhFRKTUtCGc4GI/olt5wYI728r1o
+         L76sbj45pvPAFHU2/9Qy51LEaGplehuEhRi+9rhEN9JAdn23WqB650KoyHBsVkrVE59Y
+         MYTcy03zgou9+5T2fW6BhUJxreLsEpTiGM2IQXXucJC3XBGy8KqiM+aUgy8BL3d+mUYT
+         90vhTumxlnbMrlUSphrxQ8OA34SPIHkoYzv2fQz4Lk4XrhSyXnpVfbE60apUZnR+Rrvl
+         /sb6BifGwa6RdQbc4wxhkHt5DixWySjWKKkzF8qJ4HcvVQFHUT45yXoyqnL8fzujOOEk
+         QkMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754248272; x=1754853072;
+        d=1e100.net; s=20230601; t=1754248273; x=1754853073;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=yPkkvVwxFYU+2Mr615PFvFXGtNmnnnpM8am4NYDPd7Y=;
-        b=v0xOpcM81vbGxIhFM935qGGxTjz3sxyLXwxWdPeOcn4PZQpGYDdaqXvGOgSguDTLIR
-         0BYah0V0fJjHWXGeUkoD1M0291/sqHkz0WraNzDbyAhj+LJJVZ4ffLITLI/xhSUbFTS8
-         FZFBk7oFNZWTQnQQbskPwPd40nY/QlYVJgS3CRVUQwP86DbuXKWprTRYOY0AMH64bbxx
-         +dWILbSu3GShblWelb6kqllEDGiipUUP90zWgLHpZPvL62QukHWAEmqFbw9UObmM5RV4
-         jaKxY06ErMW7bp3bsXahBY+X92RYIAT+PzQTCeIauZ0bStiYPVAHY4fHY9zukWqEng0q
-         b4hw==
-X-Forwarded-Encrypted: i=1; AJvYcCVQZvcKOjrQoe9OTW7ZqO5Gp1OwpWPoeyXm09uROkUJvjhxuxg0xzUPrOpiTSlAPeYDltOphRndapPOnr91RICi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwVs2z1Ycd66+QyJDFpA2iV3THjQptYz5jk3HpXJWr4HPHy4Gj
-	JEWGFb/7OTr2wCEPDZL+Qx7wLHEddieWtmX+3XpnnTiUrZ5q0NGpwSca
-X-Gm-Gg: ASbGncs43qPkDO2ZMSjSgKtaNzUvSzpLiPk1ouIsfxbTH5wiyS/FJHRbz3DrLt7Kb8s
-	cl62G68nId9PNGIfTqmPqmrJ9pyiUHp/Ts2HlMo4mMPMJ1g86ki2hznF3CFebl811sZFp/1qOE0
-	XPcMpel3wTsul4yPlHQ93KJrPhbFTJH4Z6137NASTpf92iFMh6Hf0NFMsoTWXRBsyRwvFborD5d
-	0RJwjPDrWXvK5qX9QlrDSb4PwVO4V09OmB28o6qEltUi2fLZjOPOalZ21mpaD9Ucwt7Dx+7KrMs
-	SP7L7bdmXvKXHMXn6WFePAwxxwJA511mMT7X0NHxo49K1+vvKgu/U71hY1J06+BYHUWaPc6vquE
-	miw1WiACH9UcZyMR3G9HzKokYSlJ2eZI+bQ==
-X-Google-Smtp-Source: AGHT+IE6MhL7+I58bcS8THCFfl9pcCuQ6d4eZ/cd8pKuwSLCaUyMm7M6/8UMIKCzZ6nMlHDZh0bvtw==
-X-Received: by 2002:a5d:5d0f:0:b0:3a3:65b5:51d7 with SMTP id ffacd0b85a97d-3b8d94838a3mr5271879f8f.26.1754248272003;
-        Sun, 03 Aug 2025 12:11:12 -0700 (PDT)
+        bh=5OquH3bzsfHd+3HPbbgh3jCNSZfVC5bnpDs/2otunY4=;
+        b=IWslrxm0yrnS5ZYC63AYd1VyrL1kmCV7i9y25sGKULl10Eq4EQ09dGFzRpT8vl//kB
+         BIITHwH61S6ErXCTCxoghLf8j8OBuv8/UVwzrkKyBfrAcsHHRiee5tRPYJUhTTd40/fR
+         wDAy3gTkA7SRL6q45eRbs3/z5KWZMqGUWy9t3RAo6F44XjBg3TrHdObbbIa2br4k1mfT
+         wUd8CPhkKjo0phnPtEmmmok58bzjNBrnIbj27ns3M3uW68/k+0XekmBdzAf5pJ111Wxv
+         Xg9RJQDTkK6tPtjC3AT6YCRg/Gk1cEzBwtvkMdPwX8VnCIzwkwTEoeXWCmpkcIk9RdFy
+         Civg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTcz/IhTV9cuWF+feuJGFzaMTQe34upRdU3nwqVJKv/tohlYbJVzZ0obF4v9RTiIsB9e8kCpgoRmuls4PzIk+Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1og4dlC+MnRP2h3PhDpJDCeFcxytR2YZb1GHbzRnUQ6JrA8hO
+	75CCwgfMn/3MQT9f/TFP+tLqOPly0GwyYi8mv4WrW98xYNyX9oTIWSXy
+X-Gm-Gg: ASbGnct8wW3NmiU1unWyLgyA/tmnvBAl4oSr1xBWP4m4y6PBhlOgR5Ste3bny1ocuwc
+	gqXNu73Ka14i0zvbsipDIf8lq42iem1RIVe9FXX3CJXc6kceUSf6wPgrqXOu/ya6cy8njt58LA7
+	j20EPYmI+V4cADvQFpxUh4bZvvfbYIcC1R5vZG2FXfghCVdiAu3uXWJ7jH1Th34rPwGimDp09sl
+	O30ykHUKnbpb2nsqtw+NyzG+qoZL3W9cZCwlYkfT2PC3txLEkCQTFndRjcZMulHlht9gGaQgoY1
+	SnyLMVe6hZWi9QF+Ifi3M9wGuRIlDtuuNuU+AxkLT5wLgA8Kj7UACzq0ewlj0pxD04928R7OL+J
+	CrhARrvWNQFNd0hBpmY0PO1ulEoY6pX8hiuECL3ksfb72
+X-Google-Smtp-Source: AGHT+IGpjk4CRmkJ8M4LqTsc8/ENOgpA5it89IFM3cfJG0O++/wGGjyhzDfblVGHm0OKLzdq4SaUOQ==
+X-Received: by 2002:a05:6000:2f85:b0:3a4:e68e:d33c with SMTP id ffacd0b85a97d-3b8d94c4caamr5017378f8f.47.1754248273270;
+        Sun, 03 Aug 2025 12:11:13 -0700 (PDT)
 Received: from ws-linux01 ([2a02:2f0e:ca0d:f700:1210:b727:adc8:716])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c45346asm13099210f8f.39.2025.08.03.12.11.10
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c45346asm13099210f8f.39.2025.08.03.12.11.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 03 Aug 2025 12:11:11 -0700 (PDT)
+        Sun, 03 Aug 2025 12:11:12 -0700 (PDT)
 From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
 To: clabbe.montjoie@gmail.com,
 	herbert@gondor.apana.org.au,
@@ -81,17 +81,17 @@ Cc: wens@csie.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Subject: [PATCH v2 8/9] crypto: sun8i-ce - save hash buffers and dma info to request context
-Date: Sun,  3 Aug 2025 22:10:28 +0300
-Message-ID: <20250803191029.3592987-9-ovidiu.panait.oss@gmail.com>
+Subject: [PATCH v2 9/9] crytpo: sun8i-ce - factor out prepare/unprepare from sun8i_ce_hash_run()
+Date: Sun,  3 Aug 2025 22:10:29 +0300
+Message-ID: <20250803191029.3592987-10-ovidiu.panait.oss@gmail.com>
 X-Mailer: git-send-email 2.50.0
 In-Reply-To: <20250803191029.3592987-1-ovidiu.panait.oss@gmail.com>
 References: <20250803191029.3592987-1-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_121113_733764_9714C355 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20250803_121114_806174_58562BF2 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,171 +106,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to sun8i-ce skcipher code, move all request-specific data to
-request context.
-
-This simplifies sun8i_ce_hash_run() and it eliminates the remaining
-kmalloc() calls from the digest path. It also makes it easier to split
-the monolithic sun8i_ce_hash_run() function in the next commit.
+In order to make the ahash code more clear and modular, split the
+monolithic sun8i_ce_hash_run() callback into two parts, prepare and
+unprepare (therefore aligning it with the sun8i-ce skcipher code).
 
 Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
 ---
- .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 56 +++++++------------
- drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h  | 17 ++++++
- 2 files changed, 38 insertions(+), 35 deletions(-)
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-hash.c | 62 ++++++++++++++-----
+ 1 file changed, 46 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-index df2acef9c679..e28100c07b86 100644
+index e28100c07b86..70c761baf847 100644
 --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
 +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-hash.c
-@@ -328,12 +328,9 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
+@@ -312,18 +312,15 @@ static u64 hash_pad(__le32 *buf, unsigned int bufsize, u64 padi, u64 byte_count,
+ 	return j;
+ }
+ 
+-int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
++static int sun8i_ce_hash_prepare(struct ahash_request *areq, struct ce_task *cet)
+ {
+-	struct ahash_request *areq = container_of(breq, struct ahash_request, base);
+ 	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
+ 	struct ahash_alg *alg = __crypto_ahash_alg(tfm->base.__crt_alg);
+ 	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx(areq);
+ 	struct sun8i_ce_alg_template *algt;
+ 	struct sun8i_ce_dev *ce;
+-	struct sun8i_ce_flow *chan;
+-	struct ce_task *cet;
+ 	struct scatterlist *sg;
+-	int nr_sgs, flow, err;
++	int nr_sgs, err;
+ 	unsigned int len;
  	u32 common;
  	u64 byte_count;
- 	__le32 *bf;
--	void *buf, *result;
- 	int j, i, todo;
- 	u64 bs;
- 	int digestsize;
--	dma_addr_t addr_res, addr_pad;
--	int ns = sg_nents_for_len(areq->src, areq->nbytes);
+@@ -344,18 +341,14 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
  
- 	algt = container_of(alg, struct sun8i_ce_alg_template, alg.hash.base);
- 	ce = algt->ce;
-@@ -345,19 +342,7 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 	if (digestsize == SHA384_DIGEST_SIZE)
- 		digestsize = SHA512_DIGEST_SIZE;
+ 	bf = (__le32 *)rctx->pad;
  
--	/* the padding could be up to two block. */
--	buf = kcalloc(2, bs, GFP_KERNEL | GFP_DMA);
--	if (!buf) {
--		err = -ENOMEM;
--		goto err_out;
--	}
--	bf = (__le32 *)buf;
+-	flow = rctx->flow;
+-	chan = &ce->chanlist[flow];
 -
--	result = kzalloc(digestsize, GFP_KERNEL | GFP_DMA);
--	if (!result) {
--		err = -ENOMEM;
--		goto err_free_buf;
--	}
-+	bf = (__le32 *)rctx->pad;
+ 	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+ 		algt->stat_req++;
  
- 	flow = rctx->flow;
- 	chan = &ce->chanlist[flow];
-@@ -378,11 +363,12 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 	cet->t_sym_ctl = 0;
- 	cet->t_asym_ctl = 0;
+ 	dev_dbg(ce->dev, "%s %s len=%d\n", __func__, crypto_tfm_alg_name(areq->base.tfm), areq->nbytes);
  
--	nr_sgs = dma_map_sg(ce->dev, areq->src, ns, DMA_TO_DEVICE);
-+	rctx->nr_sgs = sg_nents_for_len(areq->src, areq->nbytes);
-+	nr_sgs = dma_map_sg(ce->dev, areq->src, rctx->nr_sgs, DMA_TO_DEVICE);
- 	if (nr_sgs <= 0 || nr_sgs > MAX_SG) {
- 		dev_err(ce->dev, "Invalid sg number %d\n", nr_sgs);
- 		err = -EINVAL;
--		goto err_free_result;
-+		goto err_out;
- 	}
+-	cet = chan->tl;
+ 	memset(cet, 0, sizeof(struct ce_task));
  
- 	len = areq->nbytes;
-@@ -397,10 +383,13 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 		err = -EINVAL;
- 		goto err_unmap_src;
- 	}
--	addr_res = dma_map_single(ce->dev, result, digestsize, DMA_FROM_DEVICE);
--	cet->t_dst[0].addr = desc_addr_val_le32(ce, addr_res);
--	cet->t_dst[0].len = cpu_to_le32(digestsize / 4);
--	if (dma_mapping_error(ce->dev, addr_res)) {
-+
-+	rctx->result_len = digestsize;
-+	rctx->addr_res = dma_map_single(ce->dev, rctx->result, rctx->result_len,
-+					DMA_FROM_DEVICE);
-+	cet->t_dst[0].addr = desc_addr_val_le32(ce, rctx->addr_res);
-+	cet->t_dst[0].len = cpu_to_le32(rctx->result_len / 4);
-+	if (dma_mapping_error(ce->dev, rctx->addr_res)) {
- 		dev_err(ce->dev, "DMA map dest\n");
- 		err = -EINVAL;
- 		goto err_unmap_src;
-@@ -428,10 +417,12 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 		goto err_unmap_result;
- 	}
+-	cet->t_id = cpu_to_le32(flow);
++	cet->t_id = cpu_to_le32(rctx->flow);
+ 	common = ce->variant->alg_hash[algt->ce_algo_id];
+ 	common |= CE_COMM_INT;
+ 	cet->t_common_ctl = cpu_to_le32(common);
+@@ -433,22 +426,59 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
+ 	else
+ 		cet->t_dlen = cpu_to_le32(areq->nbytes / 4 + j);
  
--	addr_pad = dma_map_single(ce->dev, buf, j * 4, DMA_TO_DEVICE);
--	cet->t_src[i].addr = desc_addr_val_le32(ce, addr_pad);
-+	rctx->pad_len = j * 4;
-+	rctx->addr_pad = dma_map_single(ce->dev, rctx->pad, rctx->pad_len,
-+					DMA_TO_DEVICE);
-+	cet->t_src[i].addr = desc_addr_val_le32(ce, rctx->addr_pad);
- 	cet->t_src[i].len = cpu_to_le32(j);
--	if (dma_mapping_error(ce->dev, addr_pad)) {
-+	if (dma_mapping_error(ce->dev, rctx->addr_pad)) {
- 		dev_err(ce->dev, "DMA error on padding SG\n");
- 		err = -EINVAL;
- 		goto err_unmap_result;
-@@ -444,21 +435,16 @@ int sun8i_ce_hash_run(struct crypto_engine *engine, void *breq)
- 
- 	err = sun8i_ce_run_task(ce, flow, crypto_ahash_alg_name(tfm));
- 
--	dma_unmap_single(ce->dev, addr_pad, j * 4, DMA_TO_DEVICE);
-+	dma_unmap_single(ce->dev, rctx->addr_pad, rctx->pad_len, DMA_TO_DEVICE);
+-	err = sun8i_ce_run_task(ce, flow, crypto_ahash_alg_name(tfm));
+-
+-	dma_unmap_single(ce->dev, rctx->addr_pad, rctx->pad_len, DMA_TO_DEVICE);
++	return 0;
  
  err_unmap_result:
--	dma_unmap_single(ce->dev, addr_res, digestsize, DMA_FROM_DEVICE);
-+	dma_unmap_single(ce->dev, rctx->addr_res, rctx->result_len,
-+			 DMA_FROM_DEVICE);
- 	if (!err)
--		memcpy(areq->result, result, crypto_ahash_digestsize(tfm));
-+		memcpy(areq->result, rctx->result, crypto_ahash_digestsize(tfm));
+ 	dma_unmap_single(ce->dev, rctx->addr_res, rctx->result_len,
+ 			 DMA_FROM_DEVICE);
+-	if (!err)
+-		memcpy(areq->result, rctx->result, crypto_ahash_digestsize(tfm));
  
  err_unmap_src:
--	dma_unmap_sg(ce->dev, areq->src, ns, DMA_TO_DEVICE);
--
--err_free_result:
--	kfree(result);
--
--err_free_buf:
--	kfree(buf);
-+	dma_unmap_sg(ce->dev, areq->src, rctx->nr_sgs, DMA_TO_DEVICE);
+ 	dma_unmap_sg(ce->dev, areq->src, rctx->nr_sgs, DMA_TO_DEVICE);
  
  err_out:
- 	local_bh_disable();
-diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
-index 0d46531c475c..90b955787d37 100644
---- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
-+++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h
-@@ -110,6 +110,9 @@
- 
- #define MAXFLOW 4
- 
-+#define CE_MAX_HASH_DIGEST_SIZE		SHA512_DIGEST_SIZE
-+#define CE_MAX_HASH_BLOCK_SIZE		SHA512_BLOCK_SIZE
++	return err;
++}
 +
- /*
-  * struct ce_clock - Describe clocks used by sun8i-ce
-  * @name:	Name of clock needed by this variant
-@@ -304,9 +307,23 @@ struct sun8i_ce_hash_tfm_ctx {
-  * struct sun8i_ce_hash_reqctx - context for an ahash request
-  * @fallback_req:	pre-allocated fallback request
-  * @flow:	the flow to use for this request
-+ * @nr_sgs: number of entries in the source scatterlist
-+ * @result_len: result length in bytes
-+ * @pad_len: padding length in bytes
-+ * @addr_res: DMA address of the result buffer, returned by dma_map_single()
-+ * @addr_pad: DMA address of the padding buffer, returned by dma_map_single()
-+ * @result: per-request result buffer
-+ * @pad: per-request padding buffer (up to 2 blocks)
-  */
- struct sun8i_ce_hash_reqctx {
- 	int flow;
-+	int nr_sgs;
-+	size_t result_len;
-+	size_t pad_len;
-+	dma_addr_t addr_res;
-+	dma_addr_t addr_pad;
-+	u8 result[CE_MAX_HASH_DIGEST_SIZE] ____cacheline_aligned;
-+	u8 pad[2 * CE_MAX_HASH_BLOCK_SIZE] ____cacheline_aligned;
- 	struct ahash_request fallback_req; // keep at the end
- };
++static void sun8i_ce_hash_unprepare(struct ahash_request *areq,
++				    struct ce_task *cet)
++{
++	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx(areq);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
++	struct sun8i_ce_hash_tfm_ctx *ctx = crypto_ahash_ctx(tfm);
++	struct sun8i_ce_dev *ce = ctx->ce;
++
++	dma_unmap_single(ce->dev, rctx->addr_pad, rctx->pad_len, DMA_TO_DEVICE);
++	dma_unmap_single(ce->dev, rctx->addr_res, rctx->result_len,
++			 DMA_FROM_DEVICE);
++	dma_unmap_sg(ce->dev, areq->src, rctx->nr_sgs, DMA_TO_DEVICE);
++}
++
++int sun8i_ce_hash_run(struct crypto_engine *engine, void *async_req)
++{
++	struct ahash_request *areq = ahash_request_cast(async_req);
++	struct crypto_ahash *tfm = crypto_ahash_reqtfm(areq);
++	struct sun8i_ce_hash_tfm_ctx *ctx = crypto_ahash_ctx(tfm);
++	struct sun8i_ce_hash_reqctx *rctx = ahash_request_ctx(areq);
++	struct sun8i_ce_dev *ce = ctx->ce;
++	struct sun8i_ce_flow *chan;
++	int err;
++
++	chan = &ce->chanlist[rctx->flow];
++
++	err = sun8i_ce_hash_prepare(areq, chan->tl);
++	if (err)
++		return err;
++
++	err = sun8i_ce_run_task(ce, rctx->flow, crypto_ahash_alg_name(tfm));
++
++	sun8i_ce_hash_unprepare(areq, chan->tl);
++
++	if (!err)
++		memcpy(areq->result, rctx->result,
++		       crypto_ahash_digestsize(tfm));
++
+ 	local_bh_disable();
+-	crypto_finalize_hash_request(engine, breq, err);
++	crypto_finalize_hash_request(engine, async_req, err);
+ 	local_bh_enable();
  
+ 	return 0;
 -- 
 2.50.0
 
