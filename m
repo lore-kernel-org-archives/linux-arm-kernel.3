@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDBCC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 04:38:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF14C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 04:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=On0sP/gRX6jcjl/izeb41d+iaYm4WT2VrxWSOrwNZ0U=; b=QijW4UEJ3Z32I27noC4U7QFlPb
-	g+1fBEdBqbQaaZwYTTcVJ1atabFe46arFLaSOmJQJHX+JMI9UdsrpkQfcq/FPM1YTs2FL01eRYqs6
-	+fDmlQl+X98Zn789jONLLMRRrZ5cVq5R8G+8oI+LV7MAbVOCBz1Eq8bm3RG/tw+Z56Y7X5MRs9HDH
-	Mez5o46Ppk8f61Ek7teef+MP5/qGCwaAdqkehB9YQA+79tfU+ME/4oUaTUH7NuNeirjKgWCRTaEYy
-	8hKg4d5Cya3AQynpGymkXh8W1fcTOfX3dXp7XuHjuUI2WPr5uu9EIOJ+ScbZznGa9Mi3PNQ9cyb+t
-	4jqdKAmg==;
+	bh=ORK9k3QUZJtuVsIu7FqLBNLHVp4N+O4ijcv5dzF1jJc=; b=J78aWuweHMXraGP3gHBMpgj7hy
+	c83eeiKMjjjmyPG2tveFQtheBZRF0KmHxiIPY4dkczNl5+fL6+Gm+FsNzq8R7HeNBFxYrh8ENleSs
+	UD+WqS/ErGF6tdLxQ0y/bQ+ket5DSKL6o+6hVtLITvg0CmaEKug5q2flwYwh2zDc/UmMm5tHYi6ED
+	hmjj5VaTkjxGOPQadQjCvYpNx6IdSbKCOB8cJjLzowJUIokTdQ4amzwqNZ+FMD7rLAcahtCvJGf9/
+	ZV5xgSVWdbxFmCSi8wT8zACmWRyf3OPtoQ7tco2i3HS1yuBUfk/dO/oRRC6hSrhusulTDtI579DPP
+	MbbcxDgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiQUD-00000008EHk-3D4R;
-	Sun, 03 Aug 2025 04:38:17 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1uiQWm-00000008Eh4-2NkD;
+	Sun, 03 Aug 2025 04:40:56 +0000
+Received: from mail-il1-f171.google.com ([209.85.166.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPs6-0000000888W-3IGH
+	id 1uiPs8-000000088AV-2yNS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:58:56 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3e3f449fa6fso30579325ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:58:54 -0700 (PDT)
+	Sun, 03 Aug 2025 03:58:57 +0000
+Received: by mail-il1-f171.google.com with SMTP id e9e14a558f8ab-3e3d31a9ac7so12933965ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:58:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193534; x=1754798334; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193535; x=1754798335; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=On0sP/gRX6jcjl/izeb41d+iaYm4WT2VrxWSOrwNZ0U=;
-        b=avSB7smuG6nDwwcX9+VZMCJjU75qI9o1OABMrtX6SFPQtgnVcWgavv5rlVCTJlJymS
-         jUg9gkUS8QZdw2mYoPquuDOfQR53rhINhW///aSUJEAiZDOTbrFVHIklwwLu2KMKp0ms
-         Q9btpHyj7KLUXLzZAAT/fn4aJ2TepVs9emAqJ41xwR4EeIaCkSNUwyaW5GncnYCJSeug
-         JXdeMtx9io3q0sG0+w4gG2S764FByWOw7cmVZYpECk8RCoLI9TfC6fTv9u/YptIx6eoO
-         g52sRNyNL8/P5+P770Om7EG0bm2XaWyxflU5QkwEYB8L41C44mC/2U7lNGxDNwXJOy3x
-         xxXA==
+        bh=ORK9k3QUZJtuVsIu7FqLBNLHVp4N+O4ijcv5dzF1jJc=;
+        b=jcRG/Kco9WW01odryEaRFTUN41pIjZmX/nDtyloj52EpN5iHbMqc/qGbNtiPxrMCf9
+         GW9qEgb6Mtljv1fkbIT9UzM5N2Q767tAr5wxjhQbmDsLcURsVj3jbm2yQn1VAIJRUQnQ
+         CbozKvksJMbTWkeaVTnGG6IFdeEqGKpam1AXe9/grmVBvXXFA5MF/pUvhh7FS8Qdocvx
+         6EC5Oqec1mRjnAvJHH7Z5/bTWvumYbzcvV6+ClpAMsVS6Xun9Q7iQZCrTuBlkJLoejl5
+         fyhL1NJElvmq5tjl06AM7TBUc6VD0DYp92PCln9hJoAhEm8lF3PrSzZGjfhRd9F/SL9m
+         c21A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193534; x=1754798334;
+        d=1e100.net; s=20230601; t=1754193535; x=1754798335;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=On0sP/gRX6jcjl/izeb41d+iaYm4WT2VrxWSOrwNZ0U=;
-        b=gY06g8pMCjQQCcc2SdwCjx2ooCtF+mj6n9Gb42Yz2usVoXQqhRRryUBbwBTtYtus/C
-         ZSykfQblpo7w6MFVablRljGpaDkDi54ZCpFHpbyJju4cCnqvLdfvQ/BSr8H11n6Q8Fsp
-         HnuK1XeH+FJvoLNS7OzSrQw4D9pi2xV/CPC6qMk75CnW3jcc8nMPQ1ixx5kziAGmXS58
-         h9/YGRFAiXVUdYr2imQd7c2bk4Si84kI47lmanh8vuPp4tWi4wRZbMErPxO8TMMgEdo/
-         OYj3SJaHufjLpZoPLSKvDQKHQ7+0h8XkMKT3U1UrJsbmQwAJp94KUVyBGFYTOLhmvqhw
-         rNow==
-X-Forwarded-Encrypted: i=1; AJvYcCXxuohJRTBrXEgUHxIBUsv8DJukH7qARmmoM7m40IBJ38mVAKq/cZV5yh5coiwk66KdtA8M+IqBTCnXleLQA2Jf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyf8uIQ5Vuwd0RT0yvpKv0swo+5EF6B7WKarPGEgD+kE3fQz2Ql
-	YHFHLMKT3lCydG/A1JuzvLDp5PtjnC+x4vg4USMo0c25PAwVM2BFohOD
-X-Gm-Gg: ASbGncup0pZUNL1I5wB2JSo/CuU0kd4i95vK5Hu2DxIaep2x/aU0IdsVIXNcHGMEMme
-	75za/4xrd1jpyFgjlMtuDKLW6xDUqb3gneJ0WdFUKISIWxRq709D0CqY5R2vIh6W8vuxBqPARvR
-	PNoyfwHLnvnGNZP2cdOFqowcQr3GRWp8/oFofxSYqlJl83R4O+Snlo1c5VXTcOoKaEGLkQqrqoC
-	57Xl+5NldGRLS5AGj/w4eLaBiy+Tn8R9G0z/4GPFCpDYftnN9ppYKUAyKgAUdaevd0ykVS6XR+P
-	/YrFvDt0xmk6iNE2DFXcPUi/VJOVZSJ+TTdY9bG7nIEsCL39FDflpaJn3z5Zc4e+mFf2+cV3ipr
-	JCu1JnhWbWAcwh2d8fdoTPnWvMXINOO9avDgkWMQ5hfCuFBjqKYJU2Z6is+mm7+cbonB7zwluWY
-	Q/Pg==
-X-Google-Smtp-Source: AGHT+IFH+mtyxnkEPDbV4MUz0swiDqyakmO8hLW0D4nl3KXQPrEDdogoDGroqUg609kTHFJlSLTDsA==
-X-Received: by 2002:a05:6e02:e:b0:3e3:fd25:f6a with SMTP id e9e14a558f8ab-3e41618bf21mr94866305ab.11.1754193533929;
-        Sat, 02 Aug 2025 20:58:53 -0700 (PDT)
+        bh=ORK9k3QUZJtuVsIu7FqLBNLHVp4N+O4ijcv5dzF1jJc=;
+        b=WUt8vPePNrvc7ya4wTyl+eEz/yiG4HIh5vOeIBUssKo/6wgFm2OrJddALmnTq/5d2W
+         L44VOX5YyGj23+aUdvQiPsBlQwx6d9T1ZQMh1c85w+xRowhMIE5JnIfla/HwUbA4mpua
+         mchyf0UMhCMbPp2Xo14MPaXNH9fmKGmRvS3ct43fYqR/lHS0GCyVyK+pIG64YjZ1TVXh
+         iUIufnfuB5TN2QHr4tBlyA7wR2qYCZ51m/xMfd1vHasue6Q5+qUtXVl7OFtyQLcnaj1D
+         W02jCLKXT4D7UdKM10qwr1jMpyAqYzmjt8tIBMpALfNmLrTdO+Tz2SXKsTv9vnoUv/Y3
+         8yAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ8oDGGMC1q6Odug8aYCa05XviReK0HRNnXdHrYIcKp6woWVbOD0YZHGCLMRd/ApapDD3EfbyLv+YYHjDdLZJh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yws3wqZprz+Wn+Kcsu+8lI0fX/LPLYZmie6K00FkUsE9SM7BUjO
+	5ZgwXW+G4/zV6CaoMMhgAfvjyQDyNQamv9Sd2BEn/D6kB6jzMSWtWHht
+X-Gm-Gg: ASbGncvh31l5opYV4t7k9DXngzSSXuZGbaRttflI3zvuT8Ytg0NyS/K4WJvFz8XHm2+
+	lssmMDI1Z5QjbWAQM6pYGhVSydz8jqSZlw8R0G8ftlSAErhwbr23O2K879jcNKPuJ0YRT8AzoNe
+	LirSZVFeTR1CSg7eudsM8bYvca1tHjtHEsd0WeHvvZ2ob3sA3sAEjKZ0nS2Zx4WFx6pOAtp4THq
+	9Vmq0Wb0sHMANNs18x+PRyWMUj0MDEq7rthVallFQsrKQq8CRLay0WpBZLTREKjI9xWSdDqp1gR
+	xYG38ksw8MioTEgAWo21ZniSUjEsQlNzxe1zqGpuo2VZ73GzeHQ57U0jwQaityAnEilbFjyVtEs
+	yFQ6ca0PvadsvAzD8gyu7huAx5lDJH7u3TlRzRwST1nL76RkOUDDMze1uuUBQEwouoncUW0NtAr
+	INUA==
+X-Google-Smtp-Source: AGHT+IEbSdNNbc1zVnKCCJZUuETqTQtoaGj2TcDdJPLDVMJba4Vzk2kJH+A6WzY4odoJMJfDdZ0nxg==
+X-Received: by 2002:a92:ca4b:0:b0:3df:4159:8fe5 with SMTP id e9e14a558f8ab-3e4162bc725mr89515755ab.4.1754193535436;
+        Sat, 02 Aug 2025 20:58:55 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.58.52
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.58.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:58:53 -0700 (PDT)
+        Sat, 02 Aug 2025 20:58:55 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 14/58] dyndbg: hoist classmap-filter-by-modname up to ddebug_add_module
-Date: Sat,  2 Aug 2025 21:57:32 -0600
-Message-ID: <20250803035816.603405-15-jim.cromie@gmail.com>
+Subject: [PATCH v4 15/58] dyndbg: ddebug_table.mod_name down to _ddebug_info
+Date: Sat,  2 Aug 2025 21:57:33 -0600
+Message-ID: <20250803035816.603405-16-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205854_841602_C106158B 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20250802_205856_751419_E7E032E5 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,112 +124,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The body of ddebug_attach_module_classes() is dominated by a
-code-block that finds the contiguous subrange of classmaps matching on
-modname, and saves it into the ddebug_table's info record.
+struct _ddebug_info already has most of dyndbg's info for a module;
+push debug_table.mod_name down into it, finishing the encapsulation.
 
-Implement this block in a macro to accommodate different component
-vectors in the "box" (as named in the for_subvec macro).
+This allows refactoring several callchains, passing &_ddebug_info
+instead of &ddebug_table, and hoisting the "&dt->info" deref up.
 
-And hoist its invocation out of ddebug_attach_module_classes() up into
-ddebug_add_module().  This moves the filtering step up closer to
-dynamic_debug_init(), which effectively does the same for builtin
-pr_debug descriptors; segmenting them into subranges by modname.
+ddebug_table contains a _ddebug_info member, so its users keep access
+to mod_name, just now with "->info." added in.
+
+In static ddebug_add_module(&di), reinforce the cursor-model by
+dropping the modname arg, and setting di->mod_name at each caller.
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- lib/dynamic_debug.c | 56 ++++++++++++++++++++++++++-------------------
- 1 file changed, 32 insertions(+), 24 deletions(-)
+-v3 more s/dt/di/ internal interface changes
+---
+ include/linux/dynamic_debug.h |  1 +
+ lib/dynamic_debug.c           | 45 ++++++++++++++++++-----------------
+ 2 files changed, 24 insertions(+), 22 deletions(-)
 
+diff --git a/include/linux/dynamic_debug.h b/include/linux/dynamic_debug.h
+index 9d282e2444e18..f4d1d08cd5a7c 100644
+--- a/include/linux/dynamic_debug.h
++++ b/include/linux/dynamic_debug.h
+@@ -126,6 +126,7 @@ struct _ddebug_class_maps {
+ } __packed;
+ 
+ struct _ddebug_info {
++	const char *mod_name;
+ 	struct _ddebug_descs descs;
+ 	struct _ddebug_class_maps maps;
+ } __packed;
 diff --git a/lib/dynamic_debug.c b/lib/dynamic_debug.c
-index 53ce282554266..bbbdb8aba0716 100644
+index bbbdb8aba0716..09f19155d7f02 100644
 --- a/lib/dynamic_debug.c
 +++ b/lib/dynamic_debug.c
-@@ -161,8 +161,8 @@ static void vpr_info_dq(const struct ddebug_query *query, const char *msg)
- }
+@@ -46,7 +46,6 @@ extern struct _ddebug_class_map __stop___dyndbg_class_maps[];
  
- static struct _ddebug_class_map *ddebug_find_valid_class(struct ddebug_table const *dt,
--							const char *class_string,
--							int *class_id)
-+							 const char *class_string,
-+							 int *class_id)
+ struct ddebug_table {
+ 	struct list_head link;
+-	const char *mod_name;
+ 	struct _ddebug_info info;
+ };
+ 
+@@ -201,7 +200,7 @@ static int ddebug_change(const struct ddebug_query *query,
+ 
+ 		/* match against the module name */
+ 		if (query->module &&
+-		    !match_wildcard(query->module, dt->mod_name))
++		    !match_wildcard(query->module, dt->info.mod_name))
+ 			continue;
+ 
+ 		if (query->class_string) {
+@@ -269,7 +268,7 @@ static int ddebug_change(const struct ddebug_query *query,
+ #endif
+ 			v4pr_info("changed %s:%d [%s]%s %s => %s\n",
+ 				  trim_prefix(dp->filename), dp->lineno,
+-				  dt->mod_name, dp->function,
++				  dt->info.mod_name, dp->function,
+ 				  ddebug_describe_flags(dp->flags, &fbuf),
+ 				  ddebug_describe_flags(newflags, &nbuf));
+ 			dp->flags = newflags;
+@@ -1133,12 +1132,12 @@ static void *ddebug_proc_next(struct seq_file *m, void *p, loff_t *pos)
+ #define class_in_range(class_id, map)					\
+ 	(class_id >= map->base && class_id < map->base + map->length)
+ 
+-static const char *ddebug_class_name(struct ddebug_table *dt, struct _ddebug *dp)
++static const char *ddebug_class_name(struct _ddebug_info *di, struct _ddebug *dp)
  {
  	struct _ddebug_class_map *map;
- 	int i, idx;
-@@ -1224,30 +1224,34 @@ static const struct proc_ops proc_fops = {
+ 	int i;
+ 
+-	for_subvec(i, map, &dt->info, maps)
++	for_subvec(i, map, di, maps)
+ 		if (class_in_range(dp->class_id, map))
+ 			return map->class_names[dp->class_id - map->base];
+ 
+@@ -1166,13 +1165,13 @@ static int ddebug_proc_show(struct seq_file *m, void *p)
+ 
+ 	seq_printf(m, "%s:%u [%s]%s =%s \"",
+ 		   trim_prefix(dp->filename), dp->lineno,
+-		   iter->table->mod_name, dp->function,
++		   iter->table->info.mod_name, dp->function,
+ 		   ddebug_describe_flags(dp->flags, &flags));
+ 	seq_escape_str(m, dp->format, ESCAPE_SPACE, "\t\r\n\"");
+ 	seq_putc(m, '"');
+ 
+ 	if (dp->class_id != _DPRINTK_CLASS_DFLT) {
+-		class = ddebug_class_name(iter->table, dp);
++		class = ddebug_class_name(&iter->table->info, dp);
+ 		if (class)
+ 			seq_printf(m, " class:%s", class);
+ 		else
+@@ -1224,7 +1223,7 @@ static const struct proc_ops proc_fops = {
  
  static void ddebug_attach_module_classes(struct ddebug_table *dt, struct _ddebug_info *di)
  {
--	struct _ddebug_class_map *cm;
--	int i, nc = 0;
--
--	/*
--	 * Find this module's classmaps in a subrange/wholerange of
--	 * the builtin/modular classmap vector/section.  Save the start
--	 * and length of the subrange at its edges.
--	 */
--	for_subvec(i, cm, di, maps) {
--		if (!strcmp(cm->mod_name, dt->mod_name)) {
--			if (!nc) {
--				v2pr_info("start subrange, class[%d]: module:%s base:%d len:%d ty:%d\n",
--					  i, cm->mod_name, cm->base, cm->length, cm->map_type);
--				dt->info.maps.start = cm;
--			}
--			nc++;
--		}
--	}
--	if (nc) {
--		dt->info.maps.len = nc;
--		vpr_info("module:%s attached %d classes\n", dt->mod_name, nc);
--	}
-+	vpr_info("module:%s attached %d classes\n", dt->mod_name, dt->info.maps.len);
+-	vpr_info("module:%s attached %d classes\n", dt->mod_name, dt->info.maps.len);
++	vpr_info("module:%s attached %d classes\n", dt->info.mod_name, dt->info.maps.len);
  }
  
-+/*
-+ * Walk the @_box->@_vec member, over @_vec.start[0..len], and find
-+ * the contiguous subrange of elements matching on ->mod_name.  Copy
-+ * the subrange into @_dst.  This depends on vars defd by caller.
-+ *
-+ * @_i:   caller provided counter var, init'd by macro
-+ * @_sp:  cursor into @_vec.
-+ * @_box: contains member named @_vec
-+ * @_vec: an array-ref, with: .start .len fields.
-+ * @_dst: an array-ref: to remember the module's subrange
-+ */
-+#define dd_mark_vector_subrange(_i, _dst, _sp, _box, _vec) ({		\
-+	int nc = 0;							\
-+	for_subvec(_i, _sp, _box, _vec) {				\
-+		if (!strcmp((_sp)->mod_name, (_dst)->mod_name)) {	\
-+			if (!nc++)					\
-+				(_dst)->info._vec.start = (_sp);	\
-+		} else {						\
-+			if (nc)						\
-+				break; /* end of consecutive matches */ \
-+		}							\
-+	}								\
-+	(_dst)->info._vec.len = nc;					\
-+})
-+
  /*
+@@ -1241,7 +1240,7 @@ static void ddebug_attach_module_classes(struct ddebug_table *dt, struct _ddebug
+ #define dd_mark_vector_subrange(_i, _dst, _sp, _box, _vec) ({		\
+ 	int nc = 0;							\
+ 	for_subvec(_i, _sp, _box, _vec) {				\
+-		if (!strcmp((_sp)->mod_name, (_dst)->mod_name)) {	\
++		if (!strcmp((_sp)->mod_name, (_dst)->info.mod_name)) {	\
+ 			if (!nc++)					\
+ 				(_dst)->info._vec.start = (_sp);	\
+ 		} else {						\
+@@ -1256,7 +1255,7 @@ static void ddebug_attach_module_classes(struct ddebug_table *dt, struct _ddebug
   * Allocate a new ddebug_table for the given module
   * and add it to the global list.
-@@ -1255,6 +1259,8 @@ static void ddebug_attach_module_classes(struct ddebug_table *dt, struct _ddebug
- static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
+  */
+-static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
++static int ddebug_add_module(struct _ddebug_info *di)
  {
  	struct ddebug_table *dt;
-+	struct _ddebug_class_map *cm;
-+	int i;
- 
+ 	struct _ddebug_class_map *cm;
+@@ -1265,20 +1264,19 @@ static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
  	if (!di->descs.len)
  		return 0;
-@@ -1277,6 +1283,8 @@ static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
+ 
+-	v3pr_info("add-module: %s %d sites\n", modname, di->descs.len);
++	v3pr_info("add-module: %s %d sites\n", di->mod_name, di->descs.len);
+ 
+ 	dt = kzalloc(sizeof(*dt), GFP_KERNEL);
+ 	if (dt == NULL) {
+-		pr_err("error adding module: %s\n", modname);
++		pr_err("error adding module: %s\n", di->mod_name);
+ 		return -ENOMEM;
+ 	}
+ 	/*
+-	 * For built-in modules, name lives in .rodata and is
+-	 * immortal. For loaded modules, name points at the name[]
+-	 * member of struct module, which lives at least as long as
+-	 * this struct ddebug_table.
++	 * For built-in modules, name (as supplied in di by its
++	 * callers) lives in .rodata and is immortal. For loaded
++	 * modules, name points at the name[] member of struct module,
++	 * which lives at least as long as this struct ddebug_table.
+ 	 */
+-	dt->mod_name = modname;
+ 	dt->info = *di;
  
  	INIT_LIST_HEAD(&dt->link);
+@@ -1292,7 +1290,7 @@ static int ddebug_add_module(struct _ddebug_info *di, const char *modname)
+ 	list_add_tail(&dt->link, &ddebug_tables);
+ 	mutex_unlock(&ddebug_lock);
  
-+	dd_mark_vector_subrange(i, dt, cm, di, maps);
-+
- 	if (di->maps.len)
- 		ddebug_attach_module_classes(dt, di);
+-	vpr_info("%3u debug prints in module %s\n", di->descs.len, modname);
++	vpr_info("%3u debug prints in module %s\n", di->descs.len, di->mod_name);
+ 	return 0;
+ }
+ 
+@@ -1355,7 +1353,7 @@ static int ddebug_remove_module(const char *mod_name)
+ 
+ 	mutex_lock(&ddebug_lock);
+ 	list_for_each_entry_safe(dt, nextdt, &ddebug_tables, link) {
+-		if (dt->mod_name == mod_name) {
++		if (dt->info.mod_name == mod_name) {
+ 			ddebug_table_free(dt);
+ 			ret = 0;
+ 			break;
+@@ -1375,7 +1373,8 @@ static int ddebug_module_notify(struct notifier_block *self, unsigned long val,
+ 
+ 	switch (val) {
+ 	case MODULE_STATE_COMING:
+-		ret = ddebug_add_module(&mod->dyndbg_info, mod->name);
++		mod->dyndbg_info.mod_name = mod->name;
++		ret = ddebug_add_module(&mod->dyndbg_info);
+ 		if (ret)
+ 			WARN(1, "Failed to allocate memory: dyndbg may not work properly.\n");
+ 		break;
+@@ -1473,7 +1472,8 @@ static int __init dynamic_debug_init(void)
+ 			mod_ct++;
+ 			di.descs.len = mod_sites;
+ 			di.descs.start = iter_mod_start;
+-			ret = ddebug_add_module(&di, modname);
++			di.mod_name = modname;
++			ret = ddebug_add_module(&di);
+ 			if (ret)
+ 				goto out_err;
+ 
+@@ -1484,7 +1484,8 @@ static int __init dynamic_debug_init(void)
+ 	}
+ 	di.descs.len = mod_sites;
+ 	di.descs.start = iter_mod_start;
+-	ret = ddebug_add_module(&di, modname);
++	di.mod_name = modname;
++	ret = ddebug_add_module(&di);
+ 	if (ret)
+ 		goto out_err;
  
 -- 
 2.50.1
