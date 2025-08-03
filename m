@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D76C9C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D6FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9UXktWfyU/nC8G5w+/5cLAwZreh7IMfsApWH9fi/o5I=; b=H8HBuHlhLuZVKcnjoGaQK4kRZ0
-	fj5Zd2UkDrzav32yIvUDigvLK2Vsv+6Bw6Tw6AucGWymqajToUNax5REmtiDFGoa+79HIWtc+j+FL
-	oIcwDnB/lCO4ZfJ1Dp/0CcZjIFaxy63xYxAVmQoyJdbwb//KsU6vIIzvffgSnBQJf8Io1LiTwDuYd
-	a4U/7zgW/tmLkcnWtiSeZGkY5/WklqxWV+FxK6uDpnQ5JlabkpxtluZRFEz8Kd7ho0BMqvCwNMc+8
-	EQ/FrSj398tiT6qv7QO8BYyxrzWi2umZrmAM+7BQeCVf7pkBDDjiOiG/MaCk6k+wKdFk6TwrnUo4o
-	5S5tLQ4Q==;
+	bh=Ec8mexx4J8gKYlYC4pXrJdWhIH/flCkBKAIsxaGo12M=; b=IAG5D5BwULNoV6aXbi8FzspTMU
+	GpnTxwyRrGSuAKXk6cdSn7wO7X7Fco/gMnyZjwsGF8ejZrhOQGILV+zZooh52suvYMPnK0fyjij1o
+	Vgfxeafs4n/39DqVm1M2aGuwlJKiplIeiVoQIDWcmiAzx1cJWtCIiOKsE7wOKctnyV7Cc9PH1JPis
+	i+vIn3UR/xkVT64atrEiv4xLYfIoZx17eFWf4BctSHwJLzUR9F5MHRFU6FvKaNqV705ZTv8lXIZ+K
+	aF3d6MdtI2Qyu7f3XkSCugdQ9dvz1tbOF0b3MJWMqG54BO8bc2HXsnJ0pYXMcmVDvuSk1CDs0VCDf
+	fmmJ+QIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiS3b-00000008RPQ-2uFV;
-	Sun, 03 Aug 2025 06:18:55 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1uiS68-00000008RYj-1qSO;
+	Sun, 03 Aug 2025 06:21:32 +0000
+Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPsz-000000088rE-3Sf9
+	id 1uiPt1-000000088s1-0unB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:59:50 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3e3f0287842so27597495ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:49 -0700 (PDT)
+	Sun, 03 Aug 2025 03:59:53 +0000
+Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3e3f135bccdso15276345ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193589; x=1754798389; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193590; x=1754798390; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9UXktWfyU/nC8G5w+/5cLAwZreh7IMfsApWH9fi/o5I=;
-        b=fGN1M6SMnmko+3BEt9SziTGoTwCmnAPpDvj0AKA4FujgLr2SqoxaeZclBe/8BNYAqu
-         Hm7TXXXAYhkX+TT2gifNC8iGNbKDKVZXvfX2c/hzYawmvZl47jQyOF4fGZ+y12YE72Ui
-         F4nf0x0MVjw/4oew4BZRUiQX/LxUrEFm7FcuQur7Ik5bmzzNlQBivmM+lJt5O3xT6nCj
-         zGeWxu6z1O05TIAF95Irisr7zNonqkqB9QvtEuBjMcBa3Tl7ZBxeZ1Tlj9NAswvS9Y6n
-         OtEfFZNsIXiMq27dvR84CZJOdHFKFtBA++GAAdIXtO+a5B7FXAgL52AXb44IQoVr+zaF
-         lU3g==
+        bh=Ec8mexx4J8gKYlYC4pXrJdWhIH/flCkBKAIsxaGo12M=;
+        b=KMegGvRn35TidJEQiYD2khTCtTpmdWO8+s7WXG9Y3kdZ/HBAXL0N+B3MwaC3+IerU3
+         f+uADvpk+tWPTE0vmEBA2mlh5dgWIAZAjjoZvnbh6eSv382xGZq5M1kB+EMTabObh3mc
+         +BUs0UlGKu0U3bht686oRcCnunjK3NTLd+IGNCVKNqtYUY6sw9PbVO8TaLJDBx6UFIle
+         lDLN82L1qM5AH+rG+pbu2Rh7ivBxy+BaO5IhbMcQcIDXstiwNJJ6eN3/dzOZQ+FnNefR
+         /RSbrznsrDOsMsMC7YqAFCyvoPX8pwYaPfZpQe29kRG+lTcXGe22KU+cUsuIcreYZCAW
+         b52Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193589; x=1754798389;
+        d=1e100.net; s=20230601; t=1754193590; x=1754798390;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9UXktWfyU/nC8G5w+/5cLAwZreh7IMfsApWH9fi/o5I=;
-        b=rH7tj1pP4iGwIYa4w6m6PzF+Ef78LoGivncv4C1gX9BCnI9+Dfl330eCvqvMt+xM/E
-         3C5+g71dZzFQXG2bUwn76PW7G8tJToZekYmEPRnvVQ8rDkoOiFFjZAtToo5qXvs0CzgL
-         XfzoEw/GJHkAFU/APOA8nw9kqbQnbcZ+xpq2JnzwQGBD6IqQdFyDCzT88aC63xbZZPyY
-         TWJyy7V2MuHSFp5wByRBkt6bRRVovie0lepWmw4adDl7gGRzlrB+JdljaQB/jMmF+duH
-         dBahUXcoI67unWMPItJE6KeWokcMZo0LLwdhwfvubr7tLDS+X7L8VYDt0nDcgKC8LzZt
-         vV8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVUmum4/NI2Fn1c9MIR0zjp6JwHIkYbuItjMKqfId1rE3vS/u5Zf1hL+nA3iPKlWnURTtm2jqKnOKdPl4JLxTRI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVhOxscZXWD9XPnRdmIPitII4O+uVXdXdVwA/WjWh1shLlm4yR
-	VpQbkHS59HYk+/GP27nofW5vfOxaDkk+yq7drUDKtGrvDdl3HWgqE+Iu
-X-Gm-Gg: ASbGncud+bUY4BeDW2QGeohKXGS/2FzvO7GO0LugBpshu8ZX1Ed+EoN0X46d2C1akVh
-	pjauuwD44NxhdJ5PGuLJ+fpN051jvFJOzLDVrsb4wJoXQgTqy1FkRGnD1W+MMvPchMkfEYZ+8KN
-	V3+JdfZjPZdnbFkwoVk5RadwO13zvCjIR1wyUv/g3pcDeATCzZntEMESMwqFBcOSnRwOl/WRvLC
-	DUf28Jpd5pg1LjLeIdAHr0e43Kl3VhnZyn/pVVEISMre39Xt1divQvVO0SjR3IkvpPFseyZz+el
-	WJx2dWOq3mykfinttSsDLD08hlXYOwLVSGVPB22E3Nhn5ZCqTJWMd4xOvVdahym/wlRFm1VEwey
-	YDSPiTZ2WVZO8D/kBGy7LYHmtT9ZpYfOHdjNVJscL/gaKDzzFKQ1wwbraEFQ+kERn72dWazpLCF
-	+R+g==
-X-Google-Smtp-Source: AGHT+IHgubDEoBo5SwwKlV7BEp7xGRXkCfl1MA6t15Y/tj05GEqe4gbfRTAzanGZnInCRSiMQrumQQ==
-X-Received: by 2002:a05:6e02:2164:b0:3e3:d1ef:83f9 with SMTP id e9e14a558f8ab-3e416116d3fmr99926145ab.6.1754193589138;
-        Sat, 02 Aug 2025 20:59:49 -0700 (PDT)
+        bh=Ec8mexx4J8gKYlYC4pXrJdWhIH/flCkBKAIsxaGo12M=;
+        b=ewv8S2aDnOJ5UxDIb0bz1kR0935LpsoHAxxcdX+T7g/klmJEwolvrg56N/eVyJ/wOm
+         G+GsIdRi2+g98wC0HkgLTIxcMUkcwfkNfKLyhrHnpj8BcPzk7aS8O75BX8JZo1hGfpzY
+         NKvAvYetCMo8zg/KIv7tr4PiA882s8/QwI9Ts+fz/lDD7KIhIuN0HaPvnDvr8aGGjCT2
+         JaOgfIxPqhSALU7y1V9J49XW0qxs2WSPTovlR9e+OOeoOptFhraEYUaRT2eQJTJoIBWu
+         f7FOykOIfp57s/RXgDqxbC/JzMKAkQRFA9le0zQ6yKZmn0iirjc6o89vKB3Ffb0/9VL/
+         jRxg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtVYt92uIb4jeTpL4hNz1JmCnyWNmbEuYvdqPhtHaaQhEHgUgWweJ0Ua2Kb+4t7UZVOzJBlDkdJtYR9jjT016b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz19vpZLSE3mG14bddshzEa4RtH+T+V10Ff5s8t1sVWHhyDIBSZ
+	z3IAxGW/7eKHcpsoxvSNmRWw+zfFN6DtQA5x42086U6gzGbzxzQyWbil
+X-Gm-Gg: ASbGnct/2HwzlDsLKBlcUhuPjYEbu0jvFoIRq89ThAY7NR+U/xSDCviNJuuD0DNSWMV
+	NI0e8Y1a8OQYdfCvv6Kogr8zIlNt15ywYy/U+xP08yzmoLEVoI6ZVUHbmU9nA6cn2Ow4Gf6DRSr
+	NOwONAL2eNJ2v2bw6mR48XCG/kEadAP2xvklagVHvYoi1YnST5I6oKhXql9VND5yrRSx0N9YyZR
+	Lutp647VVTIxezubRE+Xa82T1S1fEzzylCuXAcDwaGIZ7C9x4+JmT14aMyK+BW8jN3jc3xpuLka
+	lI/UnfNRSQ4cfe3rHDTdcBwbZTLfEjpaqF6P5pMD1iSl/XwS2tql2RrAK8sTNMlUp/bQxLta+EK
+	z3CHvegAoevXnn/osO7KqgB3GrVBYKPAAGZ0OuGGBwvu3GE5hSak6a//O+DdQfxh3v+sep4Bx51
+	GtMg==
+X-Google-Smtp-Source: AGHT+IF/wtqWPX2Zi7GTVg1C35Kj0vqsIIXy5Rg7Uw34TkqPQk+fiEKJa0lSA2jtCZZXOMZn37J89w==
+X-Received: by 2002:a05:6e02:216d:b0:3e4:ba2:2cd1 with SMTP id e9e14a558f8ab-3e41617ffa8mr84699525ab.16.1754193590548;
+        Sat, 02 Aug 2025 20:59:50 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.48
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:59:48 -0700 (PDT)
+        Sat, 02 Aug 2025 20:59:50 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 52/58] drm-dyndbg: add DRM_CLASSMAP_USE to mgag200 driver
-Date: Sat,  2 Aug 2025 21:58:10 -0600
-Message-ID: <20250803035816.603405-53-jim.cromie@gmail.com>
+Subject: [PATCH v4 53/58] drm-dyndbg: add DRM_CLASSMAP_USE to the gud driver
+Date: Sat,  2 Aug 2025 21:58:11 -0600
+Message-ID: <20250803035816.603405-54-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205949_870378_98484051 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250802_205951_286462_4683C706 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +124,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mgag200 driver has a number of DRM_UT_* debugs, make them
+The gud driver has a number of DRM_UT_* debugs, make them
 controllable when CONFIG_DRM_USE_DYNAMIC_DEBUG=y by telling dyndbg
 that the module uses them.
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- drivers/gpu/drm/mgag200/mgag200_drv.c | 2 ++
+ drivers/gpu/drm/gud/gud_drv.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/mgag200/mgag200_drv.c b/drivers/gpu/drm/mgag200/mgag200_drv.c
-index 32cd8ac018c08..f0b5b57646727 100644
---- a/drivers/gpu/drm/mgag200/mgag200_drv.c
-+++ b/drivers/gpu/drm/mgag200/mgag200_drv.c
-@@ -27,6 +27,8 @@ static int mgag200_modeset = -1;
- MODULE_PARM_DESC(modeset, "Disable/Enable modesetting");
- module_param_named(modeset, mgag200_modeset, int, 0400);
+diff --git a/drivers/gpu/drm/gud/gud_drv.c b/drivers/gpu/drm/gud/gud_drv.c
+index 5385a2126e45f..5b6797b80ff01 100644
+--- a/drivers/gpu/drm/gud/gud_drv.c
++++ b/drivers/gpu/drm/gud/gud_drv.c
+@@ -32,6 +32,8 @@
+ 
+ #include "gud_internal.h"
  
 +DRM_CLASSMAP_USE(drm_debug_classes);
 +
- int mgag200_init_pci_options(struct pci_dev *pdev, u32 option, u32 option2)
- {
- 	struct device *dev = &pdev->dev;
+ /* Only used internally */
+ static const struct drm_format_info gud_drm_format_r1 = {
+ 	.format = GUD_DRM_FORMAT_R1,
 -- 
 2.50.1
 
