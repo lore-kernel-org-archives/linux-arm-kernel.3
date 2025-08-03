@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617F0C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 20:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F75C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 21:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5vm0SxJu7Lne/9TVu7ssZXea18OLLC2K5dYsygJBt9M=; b=ycwVA+2rDnggyl0n5Xq4WLj1hu
-	Naa5yBwPj/4MnvhwBHnZ6YwNlcJje/Niq8RqgLA3bK5heCnuHQowqxO6xMuwZD2mkiW1edCdzy59C
-	kE8nNvs+Cwl+E/dJPMAlphjOyCLBstfeetxgo+GT4T/Rk3C1+HjVURyWp8WOP8Ilb1SAeUMEkKjWr
-	OwTrs6/z/5l8YW85lRPfuyBG68Zhgt53ulG2wwPPyHV96sXst8LsOGWwGTrLEj/zmDk9iEgBBtH7Y
-	R5+5Vw5KTp44vwbX8cECJldcDXh4EYHcW7eDtfReoeusN/YvUI1K1eMp1OfPNKmyRmiA7aaqTE1qA
-	ZnZviuOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kyvEi5Z34Fc2FFvsydjcadDBnJjs2QvNRWwg/atbzJo=; b=NZ6Zc0XVLPxNYtc3EuCK9PfZTL
+	K8N2XLcJoffVJjGsYqFCdz+SPL9IJNruuLFIVU/DitEjY+qbgthq+bdacF14ZAaDwncWQTjMVJAWp
+	P3FppMD4K0ASR/qZ21AdvkV1nBhlxqYnmVxq8HbgiaRhWqYJselLYTaZgKfkrXznYO0UwBIPKNREl
+	yVO+DVD9k/GpOE4cIMbxyFviLEEPf4S4WgRKRR7gAk5XSP/Wsh99/7Fs0FqCKiRywWmeYPZw3kFRa
+	39wRTb4LUYvIXOgqQts32787hMFdPX0mpWtZvOB7CF8cCOUGBjw61HHBLNc7krjATZ6PKvropHSyA
+	HWsm9v3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uifXa-000000096SD-1CoH;
-	Sun, 03 Aug 2025 20:42:46 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1uig8J-000000099qt-05Bo;
+	Sun, 03 Aug 2025 21:20:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uifV1-000000096IE-39HI
+	id 1uig5i-000000099Fd-2dhM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 20:40:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=date:from:to:cc:subject:message-id
-	:references:mime-version:content-type:in-reply-to; s=k1; bh=5vm0
-	SxJu7Lne/9TVu7ssZXea18OLLC2K5dYsygJBt9M=; b=KKRVs//S+sQ92DcZ4KMq
-	u8nsdEZ9MfJ8tF9+2mIEnMKa16OXkFhageH6Q3dusOQHzpClzDFxFhQ6DqxKIqyK
-	Uf3NBHVB0NKgalwxkup9TG+R7v+ahB5EFSvjt8WEnHBdbEx3SmTO6JltOg3rUBQV
-	kx30VnagDoDnl085prpZDQkQPhnx3BeetweZr9+itITcepP1ErvhOlEutMUVlCMu
-	oG5ZgggbyNfeSyrs5j7AHZYstpvrNGAfHGIR7jUIcMYCfycsPBiiImpXM45eWsM9
-	un0A3l69l+xmhVFCkT05XjGxeQNA+OXeTC4vAwJOBCeZl7ifxDL/zHPzY62FsRnj
-	qA==
-Received: (qmail 1644961 invoked from network); 3 Aug 2025 22:40:01 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 3 Aug 2025 22:40:01 +0200
-X-UD-Smtp-Session: l3s3148p1@0xPE/ns7QIoujntd
-Date: Sun, 3 Aug 2025 22:40:01 +0200
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: Sven Peter <sven@kernel.org>
-Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Arnd Bergmann <arnd@arndb.de>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org,
-	iommu@lists.linux.dev, linux-input@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 05/11] i2c: apple: Drop default ARCH_APPLE in Kconfig
-Message-ID: <aI_JIZhHGg9GcD-D@shikoro>
-References: <20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org>
- <20250612-apple-kconfig-defconfig-v1-5-0e6f9cb512c1@kernel.org>
+	Sun, 03 Aug 2025 21:18:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0ED0FA548AA;
+	Sun,  3 Aug 2025 21:18:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3C62C4CEF9;
+	Sun,  3 Aug 2025 21:17:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754255879;
+	bh=zjzvpKgaq9EcwmEkID060i3LKylHiXcVHmm9IqxjqWE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HU55NRq+4YquclTo+DgvhM6C7pcnc3NOq1Gax5iAgh1vwO2i5skNl0ok9MA7ywfTe
+	 K7i6pEFaxXXbBdbS6z96e1VVleezfq52giiqlz66ik9woaArmd878XT2y2gWuWRIQF
+	 VIhrp77BsZgQ0tyVCR6H9BmNitneMoAOBGAHet0Y2P2sB0/J6vjuusyIXQlgTEacG+
+	 cEanm1tZoC4ErtRUxNUIqHPgRcAzp8jd+0lKAcbFtuW9n5DCtMC0nt3kq/cmqTfKpQ
+	 8J/Si7k8G6evDgnzIS54NecoaaxuiUM7BZNxyGD30QmDEl8R2yWDIQCqtHfqbfFY2f
+	 Zln9RXKIwsy/Q==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.16 09/35] firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall
+Date: Sun,  3 Aug 2025 17:17:09 -0400
+Message-Id: <20250803211736.3545028-9-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250803211736.3545028-1-sashal@kernel.org>
+References: <20250803211736.3545028-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250612-apple-kconfig-defconfig-v1-5-0e6f9cb512c1@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.16
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_134008_062368_840FB314 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250803_141802_800558_C9CDF1E3 
+X-CRM114-Status: GOOD (  18.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,15 +80,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 12, 2025 at 09:11:29PM +0000, Sven Peter wrote:
-> When the first driver for Apple Silicon was upstreamed we accidentally
-> included `default ARCH_APPLE` in its Kconfig which then spread to almost
-> every subsequent driver. As soon as ARCH_APPLE is set to y this will
-> pull in many drivers as built-ins which is not what we want.
-> Thus, drop `default ARCH_APPLE` from Kconfig.
-> 
-> Signed-off-by: Sven Peter <sven@kernel.org>
+From: Yeoreum Yun <yeoreum.yun@arm.com>
 
-Applied to for-next (for 6.17 mergewindow), thanks!
+[ Upstream commit 0e0546eabcd6c19765a8dbf5b5db3723e7b0ea75 ]
+
+The Linux IMA (Integrity Measurement Architecture) subsystem used for
+secure boot, file integrity, or remote attestation cannot be a loadable
+module for few reasons listed below:
+
+ o Boot-Time Integrity: IMA’s main role is to measure and appraise files
+ before they are used. This includes measuring critical system files during
+ early boot (e.g., init, init scripts, login binaries). If IMA were a
+ module, it would be loaded too late to cover those.
+
+ o TPM Dependency: IMA integrates tightly with the TPM to record
+ measurements into PCRs. The TPM must be initialized early (ideally before
+ init_ima()), which aligns with IMA being built-in.
+
+ o Security Model: IMA is part of a Trusted Computing Base (TCB). Making it
+ a module would weaken the security model, as a potentially compromised
+ system could delay or tamper with its initialization.
+
+IMA must be built-in to ensure it starts measuring from the earliest
+possible point in boot which inturn implies TPM must be initialised and
+ready to use before IMA.
+
+To enable integration of tpm_event_log with the IMA subsystem, the TPM
+drivers (tpm_crb and tpm_crb_ffa) also needs to be built-in. However with
+FF-A driver also being initialised at device initcall level, it can lead to
+an initialization order issue where:
+ - crb_acpi_driver_init() may run before tpm_crb_ffa_driver()_init and
+   ffa_init()
+ - As a result, probing the TPM device via CRB over FFA is deferred
+ - ima_init() (called as a late initcall) runs before deferred probe
+   completes, IMA fails to find the TPM and logs the below error:
+
+   |  ima: No TPM chip found, activating TPM-bypass!
+
+Eventually it fails to generate boot_aggregate with PCR values.
+
+Because of the above stated dependency, the ffa driver needs to initialised
+before tpm_crb_ffa module to ensure IMA finds the TPM successfully when
+present.
+
+[ jarkko: reformatted some of the paragraphs because they were going past
+  the 75 character boundary. ]
+
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: Mimi Zohar <zohar@linux.ibm.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+**Backport Status: YES**
+
+This commit should be backported to stable kernel trees for the
+following reasons:
+
+1. **Fixes a real bug affecting users**: The commit fixes a boot
+   initialization order issue where IMA (Integrity Measurement
+   Architecture) fails to find the TPM device when using TPM over FF-A
+   (Firmware Framework for Arm Architecture). Without this fix, systems
+   with TPM accessed via FF-A get the error "ima: No TPM chip found,
+   activating TPM-bypass!" and fail to generate boot_aggregate with PCR
+   values, breaking secure boot attestation.
+
+2. **Small and contained change**: The code change is minimal - just
+   changing `module_init(ffa_init)` to `rootfs_initcall(ffa_init)`. This
+   is a one-line change that only affects initialization timing.
+
+3. **No architectural changes**: This is purely an initialization order
+   fix that doesn't introduce new features or change the architecture of
+   the FF-A driver.
+
+4. **Security-critical fix**: IMA is a security subsystem used for
+   secure boot, file integrity, and remote attestation. The bug prevents
+   proper boot measurements from being recorded in the TPM, which is a
+   critical security failure for systems relying on measured boot.
+
+5. **Clear problem and solution**: The commit message clearly explains
+   the initialization order dependency between FF-A, TPM drivers
+   (tpm_crb_ffa), and IMA. The fix ensures FF-A initializes earlier (at
+   rootfs_initcall level) so the TPM is available when IMA initializes
+   (at late_initcall level).
+
+
+7. **Multiple reviewers**: The patch has been reviewed by relevant
+   maintainers including Mimi Zohar (IMA maintainer), Sudeep Holla (FF-A
+   maintainer), and Jarkko Sakkinen (TPM maintainer).
+
+The change meets all stable kernel criteria: it fixes an important bug,
+has minimal risk of regression, and is confined to fixing the specific
+initialization order issue without side effects.
+
+ drivers/firmware/arm_ffa/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 37eb2e6c2f9f..65bf1685350a 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -2059,7 +2059,7 @@ static int __init ffa_init(void)
+ 	kfree(drv_info);
+ 	return ret;
+ }
+-module_init(ffa_init);
++rootfs_initcall(ffa_init);
+ 
+ static void __exit ffa_exit(void)
+ {
+-- 
+2.39.5
 
 
