@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E73EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 05:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 652CFC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 05:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9PcjPUjmFrLewSvRSEJPDWXh0n51inHqjt5GPCorNY=; b=xGffOoVDiN3YY4HTT8m4TF+zpA
-	Z3WU+cYXIgL1i/6bR+ihD7x3WzQKOnd63l9b1afupqU4R5xkSqJ0qbuBlU/IeSqbq5wfq1vkTzAyX
-	t1zHR99iHYlKSzJPvgZc7lA/iWLfcJVo8Is3YAi13ANaDuU/Blih/70NkT6ywVq1I9Sb1lQVK1QXQ
-	5yufNfB4D7Z6JmJP9h25F2ZEYNqEAJ2CX1SgUiBHb32XdvaB2Hejsd5af7ognlDGZV2HDb7NZdiXb
-	nMrrPAvqRj1vrZnC5mkRrSt2lGTK7WQUR0yLZyDn9pyIPXucRVWi2uxj13+w9GnUS45lbgCgAdjX+
-	imKMwqiA==;
+	bh=qE6JxyQwiWHZBMKi6WQ8cp8jsc9voUk1gJ0tGlbbje4=; b=x7d0MHvxiQ67kk+a1f9JJ+gKmj
+	hqpEqeZAoyBH8QBqdHO4Jj8Lr4nf79KlNFB3UWH64mEFbfOedE3PChU/kEyJlMKWG7awP0+L2+eZW
+	QPrvQuCNI8XFNhDC53e6DWIFbKx7715QvcptQUPgWUP9dZaG30ZpDmYrnmV0C3B9lP+Hgve+LOpHM
+	7bd3/8pe7H1NpHogSEXmmXCGYavH3qsuyU+o1fAgG3DUXcXNL0wgjGbE9WXYyQVlQ6KGXte6cnWgc
+	zDrVMic3bbS1kC8tTGxbpbHizaZWGHPK2yFRG9IpXFeMySr1bgO5UZj+jn4kAd/28dKUJKgdemL6P
+	xlFt/00g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiRHE-00000008Ofj-2L6P;
-	Sun, 03 Aug 2025 05:28:56 +0000
-Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
+	id 1uiRJo-00000008P38-24TQ;
+	Sun, 03 Aug 2025 05:31:36 +0000
+Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPsZ-000000088Uo-435m
+	id 1uiPsb-000000088VZ-2PSq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:59:25 +0000
-Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3e3f152700fso12488305ab.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:23 -0700 (PDT)
+	Sun, 03 Aug 2025 03:59:27 +0000
+Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-87faacc4b8fso183460839f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193563; x=1754798363; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193565; x=1754798365; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=d9PcjPUjmFrLewSvRSEJPDWXh0n51inHqjt5GPCorNY=;
-        b=STYUrRRXT8EcUO3zzC6nyj6+PhmgYiAa8H+czQRoBOneo+d89MhOU3ziiRE6a4XH4O
-         EUy8cUX6ER5ecw0GcJe/VPkzTuIA1mOyg61RyuRJw916fSPkjkrlcd8cWE53WZLbFNdv
-         WrIoPHMpolz5FGud8mX3RxnusgnBD5uhjtsLuRg6pYR2Q9st39tuYzX1dgvGSz2DPc/f
-         HjMa23w6DKiQ9RhX5HM8TjK1qXOexGTouacjQeEdA3FQT0Na3fWcdqCZIB0PKlD7eUea
-         L9SHCm3460495SsMXS3Xw7Rh10b8sHq3q7FAzcIp5aVaXO31rZRXGh18zJ3SD9Xyk91y
-         gD/w==
+        bh=qE6JxyQwiWHZBMKi6WQ8cp8jsc9voUk1gJ0tGlbbje4=;
+        b=fL8Ox0qFEVLz8Hv89+huRYIsF/1THQ3dk/VWfcxF+ZMcizxIhNsj5wGs+wKhzJJXR8
+         BkmW+/ucMl3BNLcbf6Pa7isvNWZIK3WZS3yyqL4X+xio8pj7/2OY8rhfhrtf10CxIJyP
+         zBNOaDVfnGJ6vn8WqNoxTwwMXnw1RsQcv9Wm6/AYY6Hj7axIQbbvAgJ70a0+QF1Sp+E3
+         +w298a4DUc5g2E1Te5twhL1++6ZbyKuNSlJ5r/3lMYsFtD6REyHKdgfhGiUDKk895Dql
+         SBH+QH+bjnlN2u2aEfcgO0dwMS6Rww27wqnx91Molo7DzVEcotMU+BITpsHij6gIS7hK
+         sKnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193563; x=1754798363;
+        d=1e100.net; s=20230601; t=1754193565; x=1754798365;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=d9PcjPUjmFrLewSvRSEJPDWXh0n51inHqjt5GPCorNY=;
-        b=q9IpWTfXzpF287nw3QRy2oduJP00AescPYCWQrG8Ksw/fD4NArwfhWAe/0+mcIeGrp
-         tnlhjcQhj3YZgcI0oTk6kH+3BlFncRdLKjUjHozrsekWHOMFGpyZtj2acJgNFDTervph
-         8EkVhxN3flUfT3/AbfcN3YmoKrU/oK0qtcZ/PjEKffDva6tIUY2g0uUsvL3DZJZBp2gU
-         qeAsLGuUAoppWjKabV2wPplHfhWGIMxR8MDx6WoMFA4xez8lXqrL8o5D5RPb2wQ+pErp
-         /zL1i0xtUbZ1V9QFwCZagYnIhtZTnluxp1l2/QjsfXSGPM6EtfmaTnz0xaChIbRf+RdV
-         U5jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVbOpE/R7w6jGK5oKPonVAgSXV52wb3BgTELM5bxsElQsdzmG1NQNAGMr9wZpH8hB/PdyO7P0PMt7QR/4B4p+15@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrbNXRJ3IkktQ3Hmd/HoSyCsovIeYkMtSd0AMpHLTWM5f/qqmj
-	WQTLuUp7Z1KgfMY5cLmJnCRasSfwt+Nq3VCu9t0tRd2mN9zl01Dvax43
-X-Gm-Gg: ASbGncuOLquYwj79/olJPoNkVfqnwCXfXxCGb0gbKpxWpjaDKvJ2DCZtopAtY8yKu5r
-	lGk4QPYXKG0WsKMVFsHC6WQAHuzRiN6xbHkPZUz8ngOq+ArBkwyHxYGMqZGXNmRl0aFvvXDRkOm
-	cNkr1EG2xykN3Sp/UXnCeQ7VQI/wUrFwHKCWhgAnFyFRbxfrxARE8hmQ+3HlmR2Kt+TVCZ5p271
-	Y7qNasfivmXLdwIoFz1R0/ssbty7JUbQp5/WT5MEAnFLshJrSBCwzvxliTzQZzuYzXFgTPxfmhj
-	UlYPlwSb5k0iPpOOWt3kH4cFMLcvjG3QGCJENit0kAXxMJBUNW2dfFWCc6cik2HaYU3G/esIVy8
-	cfBA3+19wYAg16g/VtU3jj2MRipOesw5nNMW57ywP2iCI4Z7wMqamSt3B7j/xiauROJ8tVfmt+5
-	sWuA==
-X-Google-Smtp-Source: AGHT+IGHik12b+NzuHXdXH1TPCs7I43pZRfGChkNXR0L9WcmFgFx3EM2Cq+84hECD9IhAilvjxg83w==
-X-Received: by 2002:a05:6e02:1f85:b0:3e3:e78e:4e0a with SMTP id e9e14a558f8ab-3e41610d65cmr100228055ab.1.1754193563265;
-        Sat, 02 Aug 2025 20:59:23 -0700 (PDT)
+        bh=qE6JxyQwiWHZBMKi6WQ8cp8jsc9voUk1gJ0tGlbbje4=;
+        b=PUIBx+fJtFH9C9g86oQOWzVU5vYQcdXg2zyZ3uG4sCPd3+K6EDmgRnStxpiG8iUZcj
+         ACsnzfi3AKXsI+bvRMKK9qzgnUoWGUOciFgaNutSyKG2MMZXkTFUXwoU134bYFLXaMLp
+         0fnjESekEcqFdD23qgTlhLWNw44Y3kCvEYmp5rI3z5j1IrvrXmPsLI8nXEpU8h3otvhC
+         kiwz0zwARqYMr7SnnqCgPav3DyOuU0UOgEcWgBtcdGFDNagQpARYlKyL5nQfHy6ysIf9
+         h39+tj4HvExl/jC1o1eRchFUcZ36mmYit60FMw0JksnZEe69OtsZyctahTyxxbk/Vb/n
+         09Fg==
+X-Forwarded-Encrypted: i=1; AJvYcCUzsBt3XXRxcGU98l4dTptkD8vy009lb2BAsCY8NTuJX6oTLU22PV95yqnvuiR4DhhZEeZTgZXNqYKDvG7SVE2W@lists.infradead.org
+X-Gm-Message-State: AOJu0YzB2Umz2KX5ZoUqiQpMBr+JXO7v1Ksvm/FKswlmx3y2ZZDUHE57
+	PWkt56Qf2Rv7CzuDrN67juwVUpXqPScoLFsKh2S8zYRgvIP/kbtePy8A
+X-Gm-Gg: ASbGncviqLB6/SmtHDpEnrwb1L6REggMX2Moq7o3jr91yg6a62bHrLVkzTq3uvNBI20
+	1F32OAj55bFBx1CsQO68zwpRXQtjZ9kfzewULc+yOeydunSi7tnE7h8nwZI6j+ku/NYYFdhuh3W
+	lTcCv9z+N6a00NC+MxP0afcz1N/uBsrYz0LgtgmL52iWHjzY5Y1jLL61olPyCwEAMKD/TjFvTIk
+	qMrW6BfZzpa+PEWMJa8+iVkWOICbt8V+cEwemus80SJPnMavZXYoPsw15ffXlmTFArOxRSXUots
+	LC0BsF1Ln0uWddKvkwKo/37Os7RZ4UVcm8Fgu0gBGguPnAXQrzzEdJNVHmm9IGmCh275CQFXVjN
+	h1ySEaZdrgfskCpJey6Vn/DnRfuaeWSTDMEC1xto4SJsUTWDE5kEvHlGBo6PF4f+930Xg4EBxHh
+	8Flgcv/E7qIgs7
+X-Google-Smtp-Source: AGHT+IEcJd96ZbRdB8HACajO/EedKr9dmR2Fy+zza3wMWxlrICb3NJAXPqemd5+ww/dq/aKcOT0zCQ==
+X-Received: by 2002:a05:6e02:1485:b0:3e3:c6a6:2799 with SMTP id e9e14a558f8ab-3e4161e006dmr101903435ab.21.1754193564670;
+        Sat, 02 Aug 2025 20:59:24 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.21
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:59:22 -0700 (PDT)
+        Sat, 02 Aug 2025 20:59:24 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 33/58] drm: use correct ccflags-y spelling
-Date: Sat,  2 Aug 2025 21:57:51 -0600
-Message-ID: <20250803035816.603405-34-jim.cromie@gmail.com>
+Subject: [PATCH v4 34/58] drm-dyndbg: adapt drm core to use dyndbg classmaps-v2
+Date: Sat,  2 Aug 2025 21:57:52 -0600
+Message-ID: <20250803035816.603405-35-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205924_001991_D8C22B1D 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250802_205925_656307_A9E82C9A 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,36 +124,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Incorrectly spelled CFLAGS- failed to add -DDYNAMIC_DEBUG_MODULE,
-which disabled dynamic-debug in modules built with:
+dyndbg's CLASSMAP-v1 api was broken; DECLARE_DYNDBG_CLASSMAP tried to
+do too much.  Its replaced by DRM_CLASSMAP_DEFINE, which creates &
+EXPORTs a classmap (in DRM core), and DRM_CLASSMAP_USE which refers to
+the classmap defined elsewhere.
 
-CONFIG_DYNAMIC_DEBUG=n		# 1
-CONFIG_DYNAMIC_DEBUG_CORE=y	# 2
-CONFIG_DRM_USE_DYNAMIC_DEBUG=y	# 3
+The drivers still use DECLARE_DYNDBG_CLASSMAP for now, so they still
+redundantly re-declare the classmap, but we can convert the drivers
+later to DYNDBG_CLASSMAP_USE
 
-NB: this adds the flag (when 3) more often than strictly needed;
-modules built with CONFIG_DYNAMIC_DEBUG=y (!1) don't need the flag.
-
-Fixes: 84ec67288c10 ("drm_print: wrap drm_*_dbg in dyndbg descriptor factory macro")
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
+Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- drivers/gpu/drm/Makefile | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+this ignores a checkpatch
+ WARNING: Argument 'name' is not used in function-like macro
+ #70: FILE: include/drm/drm_print.h:148:
+ +#define DRM_CLASSMAP_USE(name)
 
-diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
-index 5050ac32bba26..96b57b34bc505 100644
---- a/drivers/gpu/drm/Makefile
-+++ b/drivers/gpu/drm/Makefile
-@@ -3,7 +3,8 @@
- # Makefile for the drm device driver.  This driver provides support for the
- # Direct Rendering Infrastructure (DRI) in XFree86 4.1.0 and higher.
+the macro is empty, and correct. only 1 arg is expected.
+---
+ drivers/gpu/drm/drm_print.c | 25 +++++++++++++------------
+ include/drm/drm_print.h     |  8 ++++++++
+ 2 files changed, 21 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/gpu/drm/drm_print.c b/drivers/gpu/drm/drm_print.c
+index 79517bd4418fe..a3b70d104afaa 100644
+--- a/drivers/gpu/drm/drm_print.c
++++ b/drivers/gpu/drm/drm_print.c
+@@ -55,18 +55,19 @@ MODULE_PARM_DESC(debug, "Enable debug output, where each bit enables a debug cat
+ #if !defined(CONFIG_DRM_USE_DYNAMIC_DEBUG)
+ module_param_named(debug, __drm_debug, ulong, 0600);
+ #else
+-/* classnames must match vals of enum drm_debug_category */
+-DECLARE_DYNDBG_CLASSMAP(drm_debug_classes, DD_CLASS_TYPE_DISJOINT_BITS, 0,
+-			"DRM_UT_CORE",
+-			"DRM_UT_DRIVER",
+-			"DRM_UT_KMS",
+-			"DRM_UT_PRIME",
+-			"DRM_UT_ATOMIC",
+-			"DRM_UT_VBL",
+-			"DRM_UT_STATE",
+-			"DRM_UT_LEASE",
+-			"DRM_UT_DP",
+-			"DRM_UT_DRMRES");
++/* classnames must match value-symbols of enum drm_debug_category */
++DRM_CLASSMAP_DEFINE(drm_debug_classes, DD_CLASS_TYPE_DISJOINT_BITS,
++		    DRM_UT_CORE,
++		    "DRM_UT_CORE",
++		    "DRM_UT_DRIVER",
++		    "DRM_UT_KMS",
++		    "DRM_UT_PRIME",
++		    "DRM_UT_ATOMIC",
++		    "DRM_UT_VBL",
++		    "DRM_UT_STATE",
++		    "DRM_UT_LEASE",
++		    "DRM_UT_DP",
++		    "DRM_UT_DRMRES");
  
--CFLAGS-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
-+ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)		+= -DDYNAMIC_DEBUG_MODULE
-+subdir-ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
+ static struct ddebug_class_param drm_debug_bitmap = {
+ 	.bits = &__drm_debug,
+diff --git a/include/drm/drm_print.h b/include/drm/drm_print.h
+index ab017b05e1751..03b0a2bbf91b3 100644
+--- a/include/drm/drm_print.h
++++ b/include/drm/drm_print.h
+@@ -141,6 +141,14 @@ enum drm_debug_category {
+ 	DRM_UT_DRMRES
+ };
  
- # Unconditionally enable W=1 warnings locally
- # --- begin copy-paste W=1 warnings from scripts/Makefile.extrawarn
++#ifdef CONFIG_DRM_USE_DYNAMIC_DEBUG
++#define DRM_CLASSMAP_DEFINE(...)    DYNAMIC_DEBUG_CLASSMAP_DEFINE(__VA_ARGS__)
++#define DRM_CLASSMAP_USE(name)      DYNAMIC_DEBUG_CLASSMAP_USE(name)
++#else
++#define DRM_CLASSMAP_DEFINE(...)
++#define DRM_CLASSMAP_USE(name)
++#endif
++
+ static inline bool drm_debug_enabled_raw(enum drm_debug_category category)
+ {
+ 	return unlikely(__drm_debug & BIT(category));
 -- 
 2.50.1
 
