@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC74FC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E08C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 06:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YE/O3uk9iB25GeoIbDmsvAu+mgQCi7QyigFWvEFq3Wk=; b=hTsxMvkaISi0ErszkJrDrK5vWz
-	mmi5QZALtehr7AGx8Meub02Vm+2cVerFSm1geSRvfVfQMx41DSdSWPfKnccLTiL3sBOf3MufBCtG3
-	RX9vYuQ16roOEhsuzjquIF0I2J8m+DOa37uZEa8Mv/6tycC8NoW2m7wDVMpURoEwf/mfDO6ZBVOK+
-	FP9HLbEfhpp87xUmysp2FMm9ttUmleSrj2ev0hazv7gXDhQl3b0DqtGFMs/xjCNJAJfb2uXly7rvD
-	RHy2LBEaja5mrpc2fDyFHMazaTwzbHDlRKCX1MMxYeYndOI2QUuCn8q3URMUcCCtZrlmM3XZWWSEG
-	tRlV9yNg==;
+	bh=Q2dm3Is+hmVrCyHRXfMeY87/RIu8WM4w64xIqHyRgwI=; b=FGGnV88D8E3rtDCvfJtf9u5bos
+	xvDwyuqleb2HIQAYrFxAO41OOcZd3GjpGip39IYdcWcRdU47nW4SWdRspz7aPib0NEWxoRlAiyl7J
+	Z5vMkyWNWxpgI1srZN5hYiDDIkDLLfQKYsDSNBaVY85+h73MBHLPmiCESD1Y0GXC+L6v3mTf28qAI
+	V2PcN4xhdX1wBhWHzI9UW6m2bda4wFFtXzHIrMZmT53yr4Ekb/qpl57WBHdGEdCWi41g5KJApnYoi
+	HUyMNRRRIyzHEwhUmEjcnQbP8MUi40Z3ny12Hlarx5jpnKDQe3zvp3ICkqTVfZ+haaR9kvDK+3Zim
+	XaZbcUGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiRlm-00000008QIV-3kCO;
-	Sun, 03 Aug 2025 06:00:30 +0000
-Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
+	id 1uiRoJ-00000008QPz-33mD;
+	Sun, 03 Aug 2025 06:03:07 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPsq-000000088is-27Dt
+	id 1uiPsr-000000088jH-2Mxz
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 03 Aug 2025 03:59:44 +0000
-Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3e3d94aa969so14697475ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:40 -0700 (PDT)
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3e40d006105so14220485ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193580; x=1754798380; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193581; x=1754798381; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=YE/O3uk9iB25GeoIbDmsvAu+mgQCi7QyigFWvEFq3Wk=;
-        b=bpHU0gudWnCav7HYkdGqAdmmoKXKV2tdBD/vYJjv385Q/L03F3vjrFpt1WBWg76Upt
-         fjkcexTZdr2m/JJyJ4DJfubsh7bpU3ANR28yOZA6fwsnfTBD7imcld6Fesd9Z1gVprFF
-         1PiUiyIxrp5ZC8IM4oY7gnVouk2pPyyCkwprXBJAC/d8tbZP8lacYfRixbl9G67WjXDN
-         MwLBIGoFQZAcHEJmsI8n+boz6ZonO7RXxzqUO9xmbja1eaVIS0TWjWxNs82AH4QVJkK7
-         GZRwjmDrvwlj7G+5IbJoLMzVJpi2esCTSBCA7MNdUlJrMUKMeQjA+NhZmQKXHRJwlnY+
-         0uYA==
+        bh=Q2dm3Is+hmVrCyHRXfMeY87/RIu8WM4w64xIqHyRgwI=;
+        b=kGTRaDXPtkMlf+3oZPSlotzCf3ozhvwCse5YgxubPvSw38iqMoRS3ScTyNoKVNlDb/
+         ZRSCLvfhlzv1rS4l3WTQXmXj6bEltdyh82PoAuIXCkvutFrlJhqSnFhlZC6J56EOHXcW
+         SqCvoJg/HfrMlmkPgSNZ3CnqzNmf+mBCySD5aquuD1wVTtwnPFaJS9VNFklMT9SNaUCo
+         +24CYEb2uIv1d9gdBW7MDmAPa7WkQ4CjdpeeBSdcwP+BaP+fx2Cju8ikINlsF2OwLmNS
+         rL15NYPNUe71HqZ7oTkUYwh9k4D5zIvqIjY5je2RFZny/78wHr+Dd1h6/sNhKQcbeaAE
+         BdiA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193580; x=1754798380;
+        d=1e100.net; s=20230601; t=1754193581; x=1754798381;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=YE/O3uk9iB25GeoIbDmsvAu+mgQCi7QyigFWvEFq3Wk=;
-        b=kI5ElsFfgKechO29B+smazP7jbxb+r0a1R6TmWizVrRR1y2D/ZoFzzVmO4o1fv/2R5
-         CIhbHKnWq3f4m+8geAqFpPoS6D1x3mLRkcRgjrlQ9XesJnPDK6pscHE9s4X7twm0ehIi
-         zUEtAl4emdNDswnLnCc7zXf5WHy7dZ9MCu6B0HWVGDE8yGsprAjCvIm6ZOjDKO3AOoiG
-         37+oG6EGVp8bOXNr/BPjJLVd6exjX0jersAgzszQIBRZFNr7u8a168iW8vsvenciAfFJ
-         RQAEmBwLqf6MF9XS1alMPusXrISPxY0IaTrI49314VwL+o/t1e3fHgRS6+5GfcJiffHV
-         pGPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/pGJCevK7z9++cfa7Ryfyggk/UjG2L4eegY8JRdfk3PU4brlVoxnGpyKUAuwfYxfGaJE4kkB3SQ7HIMb8dNfl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyChdkmdvg6WxRiowTjiOXSQPrk02Sr1XqPLdupGPFBmQc7PIZp
-	FOpgHEOqnhhYgq7kFn+Nz/P55Y0Br/PuviXeXlq/fCI9o0Uo/9Y3kJep
-X-Gm-Gg: ASbGncskaDD+M+wfTaZErDZt7xzj2dKD9R5PtqBJkAyGfhIpNPWzhl6YOMTPLSpjaVB
-	RTQLBjajEmU2jxGtEJt8bhaf7uwpNgD5IHpZ5FR2OBQ3q7PMYOJDHyXTfW+SLq+aHIO1wNRcfL+
-	1X+A48EdwaHI49I907Pz1zNQkP4miEKQsYKCOMoL55ehyYsPItUbHm59+gFAtgm5ybOTw6RarKC
-	n5aYlUh0FJSwkN/WiQJ8b8AVhC1F9qSsf8IZG67Ft01bAVD7Hg+zAkgzQhRG553X3Hv5o2La7Id
-	JKOB71w8u3rt9u7IgpfvKJbZvAM/7dQvxD6aspZkipFM56q6AUF6tMrzAKKBcigz5/uF8txgxxe
-	eDB/5U5W1CsPsZYQZ29gKND/VQ5/JzydJXLbRfnqdC/4EReTtoA/d7owB+MUunbKhen76mjWV5C
-	VDTje2dIGCgSRa
-X-Google-Smtp-Source: AGHT+IHMF0Stckwb4tgrilrVESFlmaGnVXMaPmoUxRg8HxQvWlfXjPvvkTeyvK1bWCUd/wSr8kLBNQ==
-X-Received: by 2002:a05:6e02:2707:b0:3e3:f9fa:2c8b with SMTP id e9e14a558f8ab-3e41610837bmr85829345ab.8.1754193579730;
-        Sat, 02 Aug 2025 20:59:39 -0700 (PDT)
+        bh=Q2dm3Is+hmVrCyHRXfMeY87/RIu8WM4w64xIqHyRgwI=;
+        b=BURMuYPGV7/zFLbGGjDEOJhRdSclthtvdDigrmgCyqnvOWbxdxTx/r8q/cC0Fb5EhW
+         vtW4o6Opzd6NuO1MgPUrLasoTmL2Jwh4Fx+a1HVG9srE9hWW2PB7qw26+utxA6CWf2IH
+         XOtaS2czq5i+XKRTjSEW0XHHy53tcqu5c1hoE7nBefkeirLmSowAO3vls50hsSeHR4GO
+         Yw4LDA5qrBYKlAQumKktKCxmFgMAYxA+L6lqTG8hHtipM73a5Tqa8zwSvRpeOe2ilWTu
+         N2ZYJj6w7Z9nroofLiwkxflXB4TPziJJOFGrt+IYPZ3vWWmgdweOZsiaAmYEls9E/GnB
+         E8tg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFElxPxee6HCA8KhNahzekZb53UWMdWCB8j1xQ9MtUl2QQwwb5wrPwF0IiSAB+oYRQIr2No4mxyUn4qGxlglrQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUPn15u5ljROunoQKBrWUxkK/gLZi2PQCacwqQ9SfRPoBf9lNs
+	u9sTYR2v4LjQ5hOk0t3jVkuCBpocyIa+TbfTrWlkBDVarB/K0tJV7fanpTpgznpeZZc=
+X-Gm-Gg: ASbGncvSasRvvsyEULiP4YuOgIMJIZ7cqSMcV3tJFp61WvnBGNv4nOeLGvS2blX9HcU
+	CjdYoGRbfqYThzYuPLwcdnpkf5euHyBwW1Jn7+fSwbI1/qQ88c1z4NncjJKXsKEzTR6ZXNy4loL
+	eDy7BiywWI+gUtL/BISSc0Kzw2amHbat6C727L7qv32KzwSMvugT63QtBlw24q30+OIutcf2lwP
+	ZkMwk3j+3ra2jbzlEOkqLzRDL47TzjsNamErzA9cO+Sw2MrOP5i4BS8FtLVYUFONw0/cv9BsxJf
+	59wIapGdZTf6hCkLN70nn2K2u0rgawbNS7F9UKYnJwKlYFEfy658iFLDV/KMwVvpekcARmu1Iru
+	NisLw3rwfU31AugCpxX3Jnf5DWvMRZcLcF3AZjgg3n7v60378zTaGQmWbSZf5KlO2OQaAi6kofn
+	gdqg==
+X-Google-Smtp-Source: AGHT+IHicophLwIo0f3Ezs0eOmSQt7ySKYvJ63NCgmDZPmmfZpDGy7DzzpgME8ux0Ifq1iE3S3f0yQ==
+X-Received: by 2002:a05:6e02:17cd:b0:3e3:d197:b567 with SMTP id e9e14a558f8ab-3e416117005mr96473805ab.9.1754193580921;
+        Sat, 02 Aug 2025 20:59:40 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.38
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:59:39 -0700 (PDT)
+        Sat, 02 Aug 2025 20:59:40 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 45/58] drm-dyndbg: add DRM_CLASSMAP_USE to bochs
-Date: Sat,  2 Aug 2025 21:58:03 -0600
-Message-ID: <20250803035816.603405-46-jim.cromie@gmail.com>
+Subject: [PATCH v4 46/58] drm-dyndbg: add DRM_CLASSMAP_USE to etnaviv
+Date: Sat,  2 Aug 2025 21:58:04 -0600
+Message-ID: <20250803035816.603405-47-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205941_937223_1863B4CC 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250802_205942_041757_E874DABB 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,28 +124,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tiny/bochs has 5 DRM_UT_* debugs, make them controllable when
+etnaviv has 5 DRM_UT_CORE debugs, make them controllable when
 CONFIG_DRM_USE_DYNAMIC_DEBUG=y by telling dyndbg that the module has
-class'd debugs.
+class'd debugs as well as plain-old pr_debug()s
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- drivers/gpu/drm/tiny/bochs.c | 2 ++
+ drivers/gpu/drm/etnaviv/etnaviv_drv.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/drivers/gpu/drm/tiny/bochs.c b/drivers/gpu/drm/tiny/bochs.c
-index 8706763af8fba..dbcc8ba70dfa5 100644
---- a/drivers/gpu/drm/tiny/bochs.c
-+++ b/drivers/gpu/drm/tiny/bochs.c
-@@ -59,6 +59,8 @@ static int bochs_modeset = -1;
- static int defx = 1024;
- static int defy = 768;
+diff --git a/drivers/gpu/drm/etnaviv/etnaviv_drv.c b/drivers/gpu/drm/etnaviv/etnaviv_drv.c
+index 3e91747ed3393..70759b7d338f9 100644
+--- a/drivers/gpu/drm/etnaviv/etnaviv_drv.c
++++ b/drivers/gpu/drm/etnaviv/etnaviv_drv.c
+@@ -25,6 +25,8 @@
+ #include "etnaviv_mmu.h"
+ #include "etnaviv_perfmon.h"
  
 +DRM_CLASSMAP_USE(drm_debug_classes);
 +
- module_param_named(modeset, bochs_modeset, int, 0444);
- MODULE_PARM_DESC(modeset, "enable/disable kernel modesetting");
- 
+ /*
+  * DRM operations:
+  */
 -- 
 2.50.1
 
