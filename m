@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E03FC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 05:26:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E73EC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 05:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WA9BT3YNmpiLht3dKaMvYWse8nMOfTq2XV6jwNxcq68=; b=LgaGfHEhsQXqISTwHTXlbUSEia
-	zkGdsMKlP0XxY4nz7UJWTFeW3oNHJRxAQxUXBuKhNDjhTzshZxgjFFC3D4lDMxyWyDz2OUKJe2kAD
-	G9awFJbXTqpabzIMjTCoZSrXs2hYY+YnnRR1Bh0y8XXblE0QSDP8n4KNQlgesADr7QI0RAHiuY7we
-	N1NbjnlH3pZpQ0dAiMphwi8eWf+tTr8855UwzgLfr3GQMNQVlW615BZF7egAAOtEuR5Q2xetSIVZ8
-	S8vbPqVeswQaRhlOrVp1k0AtJWp3yJU5Pptph0R8tshxyDNA5ZpZGcz4EEizpv1/0Du94/c+J+2F5
-	GXEV0JNA==;
+	bh=d9PcjPUjmFrLewSvRSEJPDWXh0n51inHqjt5GPCorNY=; b=xGffOoVDiN3YY4HTT8m4TF+zpA
+	Z3WU+cYXIgL1i/6bR+ihD7x3WzQKOnd63l9b1afupqU4R5xkSqJ0qbuBlU/IeSqbq5wfq1vkTzAyX
+	t1zHR99iHYlKSzJPvgZc7lA/iWLfcJVo8Is3YAi13ANaDuU/Blih/70NkT6ywVq1I9Sb1lQVK1QXQ
+	5yufNfB4D7Z6JmJP9h25F2ZEYNqEAJ2CX1SgUiBHb32XdvaB2Hejsd5af7ognlDGZV2HDb7NZdiXb
+	nMrrPAvqRj1vrZnC5mkRrSt2lGTK7WQUR0yLZyDn9pyIPXucRVWi2uxj13+w9GnUS45lbgCgAdjX+
+	imKMwqiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiREf-00000008O8j-3LOd;
-	Sun, 03 Aug 2025 05:26:17 +0000
-Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
+	id 1uiRHE-00000008Ofj-2L6P;
+	Sun, 03 Aug 2025 05:28:56 +0000
+Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiPsY-000000088TS-1pbP
+	id 1uiPsZ-000000088Uo-435m
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 03:59:23 +0000
-Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3e412f3a0f0so18938735ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:22 -0700 (PDT)
+	Sun, 03 Aug 2025 03:59:25 +0000
+Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3e3f152700fso12488305ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 02 Aug 2025 20:59:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754193562; x=1754798362; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754193563; x=1754798363; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WA9BT3YNmpiLht3dKaMvYWse8nMOfTq2XV6jwNxcq68=;
-        b=BLPAaiFVVQlcFLKGt7dc3mog/KVEW3xj498+14LpkGdotLOeZ+PV1KuUE+6+IRZ2fm
-         hnhVQ56VJDaTsThFYZZAZBHnRxgLtA+1Q0vjcN9ApaV1M1U0yoreCpuFdOtkBQJwdP6r
-         I5u8EWHIj+8S8yI1aSKmuYLOXx/1dN6LXV60R8Zb9ONvXvmkZlUUDsj+2PLK6LvzWToM
-         zfICh7zZ+ClZFQYcR9t5owOSfBJI6ZB8PSz2GRhXEIvb8jLffL4GORR6kg75SrDtyjyU
-         kSE93urMYRe2edEuWd64zQicGB8DI4FgvOd6U5oNAm3kAqTrlO8OhNvqTz6hCPdCKWsK
-         Om6w==
+        bh=d9PcjPUjmFrLewSvRSEJPDWXh0n51inHqjt5GPCorNY=;
+        b=STYUrRRXT8EcUO3zzC6nyj6+PhmgYiAa8H+czQRoBOneo+d89MhOU3ziiRE6a4XH4O
+         EUy8cUX6ER5ecw0GcJe/VPkzTuIA1mOyg61RyuRJw916fSPkjkrlcd8cWE53WZLbFNdv
+         WrIoPHMpolz5FGud8mX3RxnusgnBD5uhjtsLuRg6pYR2Q9st39tuYzX1dgvGSz2DPc/f
+         HjMa23w6DKiQ9RhX5HM8TjK1qXOexGTouacjQeEdA3FQT0Na3fWcdqCZIB0PKlD7eUea
+         L9SHCm3460495SsMXS3Xw7Rh10b8sHq3q7FAzcIp5aVaXO31rZRXGh18zJ3SD9Xyk91y
+         gD/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754193562; x=1754798362;
+        d=1e100.net; s=20230601; t=1754193563; x=1754798363;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=WA9BT3YNmpiLht3dKaMvYWse8nMOfTq2XV6jwNxcq68=;
-        b=iCuuvyY47n3IMtO9xJInzYzu9jO7meq/RCElAM0rMiGvnEJhsLuBa2IiUriEREUqme
-         sQ1N5NkXfDmi1Rb02QNO1MLXCDQL/Rn5F3ZBwZv/bFrG7ZR4CMVSB8UgSFza5+wtdH7+
-         UmrtORTzsnbSuLaK8yaJDqC36mdHvOzJwGDtX6639f/j5w7INh5t6FTk2Eh+y5BSKxI5
-         wHdNtpFagOcJhuMs9uqssPMycAdDUlT7FWNHrtTYI7yzuH2cABVyThGGIgIWSSmjnV58
-         kO3CDsP64GGWfV+FVb0EjBjpQu5wTry9jrbaBXeEFshFj/bgm98jE4/DFSeVGNbtCK2a
-         9fXA==
-X-Forwarded-Encrypted: i=1; AJvYcCXyPrbGRzMbvljLIN9HubezwH6eu+7Pt5LgbHvkA8s9RILv0bb9ee5UCwOeSnFgbmjEseZ3MAhoXidezqk4RrXk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yysu6oY+DnThmH3DhIAIh/p4RGtont6iZT2/HGYDVnZhK6jwgyR
-	Ops9emNmzwtx6WkTvE57ur7YTTtaQJxfdSi7/quW8XPoQ7IBcstt8tSg
-X-Gm-Gg: ASbGncufcoCl5xaV9O+qX2PXGk/OFG3GZ75jzTq20X09zB65lPXYE59KL7txUkeQ+XW
-	W1D0VVt027s5+I6qMv02BB6a3lJ2WJq9tOZsr76h3d73ny/N2ARwrIeEqYGwtjZVN7P70IBhRFx
-	QgPfLtt7orzZQn+hX1Zfl/3MPKvCPXJ+ryLjKKc3jmzi12z6/yrlk63RnAebSn0YpKjWN3Go19U
-	V9gaZO6NQjy69ZBovG1W9qBkOvp3H4nL1jIU2t4MRZJnUzywOJ1QwI58zLHHt0f4/i+t4n7ssXn
-	5gZd0BSjbxN0+4Ub3Jusk6aHRFfWcmxCSm3bXB2dIJwIUIGGbx87FOCSEPjnd0BdJEDnUaPXmIQ
-	CoFfbs1AbR7NhoCVhZ/ZYIJrk4TwrP1oqRuoYez7RpxHNPofU1rSZgasFNeEz6BrMYK88mrpqD4
-	XAtQ==
-X-Google-Smtp-Source: AGHT+IHkYA6Ve5qjyBOl298LajPA2dLsLYiKeEEffa0px/i/mFWvep0iac35UJUfFk5w3QjlIsT70Q==
-X-Received: by 2002:a05:6e02:2382:b0:3e2:a7a1:8cd8 with SMTP id e9e14a558f8ab-3e41611a075mr96109765ab.5.1754193561731;
-        Sat, 02 Aug 2025 20:59:21 -0700 (PDT)
+        bh=d9PcjPUjmFrLewSvRSEJPDWXh0n51inHqjt5GPCorNY=;
+        b=q9IpWTfXzpF287nw3QRy2oduJP00AescPYCWQrG8Ksw/fD4NArwfhWAe/0+mcIeGrp
+         tnlhjcQhj3YZgcI0oTk6kH+3BlFncRdLKjUjHozrsekWHOMFGpyZtj2acJgNFDTervph
+         8EkVhxN3flUfT3/AbfcN3YmoKrU/oK0qtcZ/PjEKffDva6tIUY2g0uUsvL3DZJZBp2gU
+         qeAsLGuUAoppWjKabV2wPplHfhWGIMxR8MDx6WoMFA4xez8lXqrL8o5D5RPb2wQ+pErp
+         /zL1i0xtUbZ1V9QFwCZagYnIhtZTnluxp1l2/QjsfXSGPM6EtfmaTnz0xaChIbRf+RdV
+         U5jQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVbOpE/R7w6jGK5oKPonVAgSXV52wb3BgTELM5bxsElQsdzmG1NQNAGMr9wZpH8hB/PdyO7P0PMt7QR/4B4p+15@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrbNXRJ3IkktQ3Hmd/HoSyCsovIeYkMtSd0AMpHLTWM5f/qqmj
+	WQTLuUp7Z1KgfMY5cLmJnCRasSfwt+Nq3VCu9t0tRd2mN9zl01Dvax43
+X-Gm-Gg: ASbGncuOLquYwj79/olJPoNkVfqnwCXfXxCGb0gbKpxWpjaDKvJ2DCZtopAtY8yKu5r
+	lGk4QPYXKG0WsKMVFsHC6WQAHuzRiN6xbHkPZUz8ngOq+ArBkwyHxYGMqZGXNmRl0aFvvXDRkOm
+	cNkr1EG2xykN3Sp/UXnCeQ7VQI/wUrFwHKCWhgAnFyFRbxfrxARE8hmQ+3HlmR2Kt+TVCZ5p271
+	Y7qNasfivmXLdwIoFz1R0/ssbty7JUbQp5/WT5MEAnFLshJrSBCwzvxliTzQZzuYzXFgTPxfmhj
+	UlYPlwSb5k0iPpOOWt3kH4cFMLcvjG3QGCJENit0kAXxMJBUNW2dfFWCc6cik2HaYU3G/esIVy8
+	cfBA3+19wYAg16g/VtU3jj2MRipOesw5nNMW57ywP2iCI4Z7wMqamSt3B7j/xiauROJ8tVfmt+5
+	sWuA==
+X-Google-Smtp-Source: AGHT+IGHik12b+NzuHXdXH1TPCs7I43pZRfGChkNXR0L9WcmFgFx3EM2Cq+84hECD9IhAilvjxg83w==
+X-Received: by 2002:a05:6e02:1f85:b0:3e3:e78e:4e0a with SMTP id e9e14a558f8ab-3e41610d65cmr100228055ab.1.1754193563265;
+        Sat, 02 Aug 2025 20:59:23 -0700 (PDT)
 Received: from frodo.raven-morpho.ts.net (c-67-165-245-5.hsd1.co.comcast.net. [67.165.245.5])
-        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.20
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-50a55df0940sm2268319173.106.2025.08.02.20.59.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 02 Aug 2025 20:59:21 -0700 (PDT)
+        Sat, 02 Aug 2025 20:59:22 -0700 (PDT)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v4 32/58] dyndbg: refactor *dynamic_emit_prefix to split lookups
-Date: Sat,  2 Aug 2025 21:57:50 -0600
-Message-ID: <20250803035816.603405-33-jim.cromie@gmail.com>
+Subject: [PATCH v4 33/58] drm: use correct ccflags-y spelling
+Date: Sat,  2 Aug 2025 21:57:51 -0600
+Message-ID: <20250803035816.603405-34-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250803035816.603405-1-jim.cromie@gmail.com>
 References: <20250803035816.603405-1-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250802_205922_478679_0700297A 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250802_205924_001991_D8C22B1D 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,101 +124,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Split dynamic_emit_prefix():
+Incorrectly spelled CFLAGS- failed to add -DDYNAMIC_DEBUG_MODULE,
+which disabled dynamic-debug in modules built with:
 
-1. keep dynamic_emit_prefix() static inline
-   check ANY flags before calling 2
+CONFIG_DYNAMIC_DEBUG=n		# 1
+CONFIG_DYNAMIC_DEBUG_CORE=y	# 2
+CONFIG_DRM_USE_DYNAMIC_DEBUG=y	# 3
 
-2. __dynamic_emit_prefix()
-   prints [TID] or <intr> if +t flag
-   check LOOKUP flags before calling 3
+NB: this adds the flag (when 3) more often than strictly needed;
+modules built with CONFIG_DYNAMIC_DEBUG=y (!1) don't need the flag.
 
-3. __dynamic_emit_lookup()
-   prints 1+ of: module, function, src-file, line
-
-Notes:
-
-With 3 only called when needed, print the trailing whitespace
-unconditionally, and drop the pos_after_tid var.
-
-By doing TID in 2, 3's output is cacheable in principle.
-
-A prefix cache would allow de-duplicating the redundant data in the
-_ddebug tables, and replacing them with space-efficient storage which
-is not fast enough for every-time pr_debugs, but would work to fill
-the cache the 1st time its enabled and invoked.
-
+Fixes: 84ec67288c10 ("drm_print: wrap drm_*_dbg in dyndbg descriptor factory macro")
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- lib/dynamic_debug.c | 40 +++++++++++++++++++++++++---------------
- 1 file changed, 25 insertions(+), 15 deletions(-)
+ drivers/gpu/drm/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/lib/dynamic_debug.c b/lib/dynamic_debug.c
-index c3e27637d9357..26261b5f99f05 100644
---- a/lib/dynamic_debug.c
-+++ b/lib/dynamic_debug.c
-@@ -824,19 +824,8 @@ static int remaining(int wrote)
- 	return 0;
- }
+diff --git a/drivers/gpu/drm/Makefile b/drivers/gpu/drm/Makefile
+index 5050ac32bba26..96b57b34bc505 100644
+--- a/drivers/gpu/drm/Makefile
++++ b/drivers/gpu/drm/Makefile
+@@ -3,7 +3,8 @@
+ # Makefile for the drm device driver.  This driver provides support for the
+ # Direct Rendering Infrastructure (DRI) in XFree86 4.1.0 and higher.
  
--static char *__dynamic_emit_prefix(const struct _ddebug *desc, char *buf)
-+static int __dynamic_emit_lookup(const struct _ddebug *desc, char *buf, int pos)
- {
--	int pos_after_tid;
--	int pos = 0;
--
--	if (desc->flags & _DPRINTK_FLAGS_INCL_TID) {
--		if (in_interrupt())
--			pos += snprintf(buf + pos, remaining(pos), "<intr> ");
--		else
--			pos += snprintf(buf + pos, remaining(pos), "[%d] ",
--					task_pid_vnr(current));
--	}
--	pos_after_tid = pos;
- 	if (desc->flags & _DPRINTK_FLAGS_INCL_MODNAME)
- 		pos += snprintf(buf + pos, remaining(pos), "%s:",
- 				desc->modname);
-@@ -849,8 +838,29 @@ static char *__dynamic_emit_prefix(const struct _ddebug *desc, char *buf)
- 	if (desc->flags & _DPRINTK_FLAGS_INCL_LINENO)
- 		pos += snprintf(buf + pos, remaining(pos), "%d:",
- 				desc->lineno);
--	if (pos - pos_after_tid)
--		pos += snprintf(buf + pos, remaining(pos), " ");
-+
-+	/* we have a non-empty prefix, add trailing space */
-+	if (remaining(pos))
-+		buf[pos++] = ' ';
-+
-+	return pos;
-+}
-+
-+static char *__dynamic_emit_prefix(struct _ddebug *desc, char *buf)
-+{
-+	int pos = 0;
-+
-+	if (desc->flags & _DPRINTK_FLAGS_INCL_TID) {
-+		if (in_interrupt())
-+			pos += snprintf(buf + pos, remaining(pos), "<intr> ");
-+		else
-+			pos += snprintf(buf + pos, remaining(pos), "[%d] ",
-+					task_pid_vnr(current));
-+	}
-+
-+	if (unlikely(desc->flags & _DPRINTK_FLAGS_INCL_LOOKUP))
-+		pos += __dynamic_emit_lookup(desc, buf, pos);
-+
- 	if (pos >= PREFIX_SIZE)
- 		buf[PREFIX_SIZE - 1] = '\0';
+-CFLAGS-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
++ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)		+= -DDYNAMIC_DEBUG_MODULE
++subdir-ccflags-$(CONFIG_DRM_USE_DYNAMIC_DEBUG)	+= -DDYNAMIC_DEBUG_MODULE
  
-@@ -859,7 +869,7 @@ static char *__dynamic_emit_prefix(const struct _ddebug *desc, char *buf)
- 
- static inline char *dynamic_emit_prefix(struct _ddebug *desc, char *buf)
- {
--	if (unlikely(desc->flags & _DPRINTK_FLAGS_INCL_ANY))
-+	if (desc->flags & _DPRINTK_FLAGS_INCL_ANY)
- 		return __dynamic_emit_prefix(desc, buf);
- 	return buf;
- }
+ # Unconditionally enable W=1 warnings locally
+ # --- begin copy-paste W=1 warnings from scripts/Makefile.extrawarn
 -- 
 2.50.1
 
