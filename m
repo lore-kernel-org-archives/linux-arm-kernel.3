@@ -4,109 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFFEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 08:23:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E569C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 10:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrsN1SEMB9wXYQI3VLgw4BZ2ysKD4gTH25LHrg2WSxs=; b=CRtYuEK0jVVNwLBnZd0WZJIxLh
-	gsHGEw/ufnLSKkNNdOscgo8ojsU8L2Nc4jGO3eN7Bz6T+VLI0/5xF/I5b91uwZSvKSWYV0cMfCIeV
-	K2QkQUKVHCqETF+VXciHkMkt55fs3zNkYpy67mlyFqYkHVHkQrF4HlZ5fYbcnMsWeU0TKplosdCHY
-	hylJ7At+173dRzfhLkWQU4jf47m34xx5gMfBgIHhteOSsl1TbQVXw3i7PDW7gBRDBbevD1e9H1iML
-	0gaDQ166ZlujzvL9Da8XfVd8b2AGBjORfMeG64vfkguOkIO3UpZatdzSfS97KjrN2FuKyZFsKiSsz
-	weO1scGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NV7+xIO18a9mpzCCbiQiR3u2YyXIZWJy7PXkPvbwt/g=; b=x/DSjyaArtcwLE8umtIwr/EHk0
+	T1vXuC+XozLQUmD0n0AcUsY8J6rmvKSPdM4A1xyemj/Ro+E+q08Hy8xyrkcQ4eX4WBCy9uiSYNwPg
+	LD+3cBAvCrehmbMQ10D7dSF6akYllpHhL3SHwHjC96wg1qrhB7YGCuKnigxy7se6+t+LeKiA1bone
+	VtbZKuDxPjTKaw2/ULSb5D0AfiF75oQeNtk+l0uVBBZGGEHn8WfsZr44qwHIyEth2vxr4hdemxnQz
+	yWwApqf9E+VZKSy7jD+Z4H39argGQLBY+vMtJLEw8SJicOfJMhacagGgwo8uZ4eoJ2b+xUJTftaHE
+	fWXYR5Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiU0G-00000008Wwv-18e1;
-	Sun, 03 Aug 2025 08:23:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uiVxb-00000008bCs-1SLK;
+	Sun, 03 Aug 2025 10:28:59 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiTvN-00000008Wba-1kCF;
-	Sun, 03 Aug 2025 08:18:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEF75601D4;
-	Sun,  3 Aug 2025 08:18:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01C59C4CEEB;
-	Sun,  3 Aug 2025 08:18:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754209112;
-	bh=H3Qe7OOM+iEVU40OI4Jad68EOrknCQC876wU3kNEge0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gmYmuOQglDHc8Dhub6N28oyK07r+M8hwy195nRQPR2a6MxstB3TmoI54lLCnm6E48
-	 vXOZTI3RxqQaoX1O3hxJSItiRyc9/tlSUn56pDi3BTODtmF390hnpZsF41ZcmAErhM
-	 JdB5aaCkE+8xzTD6eOMjKJXuNnnVV5CS9oI9xEq2j5gowBevj0udjY2tRmzi2NVB0d
-	 JzyJeG71sWBK2etj1XYQcir+ansxNEo0HjTwNz2zeYR72u7FrhgIiIzTHu8Gl2n5Ws
-	 mcyzv/zqYH43/L7V9imvR+/TMqrorE16HoX+RqJ0luNxb0UrRv2aRW6SG4+zJqa2ZS
-	 riSR+XOcziAug==
-Message-ID: <2889bb9d-8d0d-44a9-a224-0d04562b4a0f@kernel.org>
-Date: Sun, 3 Aug 2025 10:18:25 +0200
+	id 1uiVv0-00000008b2Q-3WXT
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 03 Aug 2025 10:26:20 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5739pRHn014688;
+	Sun, 3 Aug 2025 03:25:56 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=N
+	V7+xIO18a9mpzCCbiQiR3u2YyXIZWJy7PXkPvbwt/g=; b=bLMCQc+4Ql605/vw5
+	JAvQTXGo8T1O4Y+SfgghxRUQXu4a8NBVppEa/0yb2fFFXsiOqdkApYfJVqp+tHAG
+	x8OYVsx/hOtC8JIYcxvYBqnLmfkiNsCrAjXuZ6UEoiay4frE05lckelnvoPkpx/k
+	gRCN/MCwBorZV4YvzC17RbtGoWRDTxX2duzoM6SouTCBfBH3qlYNE+QQRc68DqBi
+	R90XMyblIwqP0/W89IxXi2GTHpMqQeYtwA1TdkPLUfOOTI11yOWqLQYv+yBb6ufN
+	8lcL4psFGKcFUEj8aMg+OmEhuyGdXrfDn5EjH+VHYZNjUWqnbQX4UFO2uZL6I8q2
+	J3dwA==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 489g1qhhtj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 03 Aug 2025 03:25:56 -0700 (PDT)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Sun, 3 Aug 2025 03:25:57 -0700
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Sun, 3 Aug 2025 03:25:57 -0700
+Received: from c1illp-saixps-016.eng.marvell.com (c1illp-saixps-016.eng.marvell.com [10.205.40.247])
+	by maili.marvell.com (Postfix) with ESMTP id ED5863F70A5;
+	Sun,  3 Aug 2025 03:25:52 -0700 (PDT)
+From: <enachman@marvell.com>
+To: <andrew@lunn.ch>, <gregory.clement@bootlin.com>,
+        <sebastian.hesselbarth@gmail.com>, <tglx@linutronix.de>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <enachman@marvell.com>
+Subject: [PATCH v2 1/1] irqchip/mvebu-gicp: clear pending irqs on init
+Date: Sun, 3 Aug 2025 13:25:48 +0300
+Message-ID: <20250803102548.669682-2-enachman@marvell.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250803102548.669682-1-enachman@marvell.com>
+References: <20250803102548.669682-1-enachman@marvell.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 9/9] dt-bindings: nvmem: mediatek: efuse: Add support
- for MT8196
-To: Laura Nao <laura.nao@collabora.com>, robh@kernel.org
-Cc: andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
- arnd@arndb.de, bchihi@baylibre.com, colin.i.king@gmail.com,
- conor+dt@kernel.org, daniel.lezcano@linaro.org, devicetree@vger.kernel.org,
- frank-w@public-files.de, kernel@collabora.com, krzk+dt@kernel.org,
- lala.lin@mediatek.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org, lukasz.luba@arm.com, matthias.bgg@gmail.com,
- nfraprado@collabora.com, rafael@kernel.org, rui.zhang@intel.com,
- srini@kernel.org, u.kleine-koenig@baylibre.com, wenst@chromium.org
-References: <20250730235451.GA1911689-robh@kernel.org>
- <20250731102650.145641-1-laura.nao@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250731102650.145641-1-laura.nao@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODAzMDA3MSBTYWx0ZWRfXzbftkW9BeKvO aHo7Uyq3G1tcNQ2x7+S4Zc+ZYSbPk5Vda2QgwM4nIaVuZPU3aceTPHSufO3ccH7XgP2CDn0DJ88 dobDQSYg5jNMGoVvobVK/7k0FTyJl4tkYsY0ivMcHXfCKkDLNMzqoiPRSrW+FmLhUdm9jPjOQDy
+ BdIZjhm2hBBAfMvtgNvGyWtZ2iLM2kyaMuJ6B3IjKntVfTxxrQHFmF/6yyqkaKofATl01Xcd4JM dXiHfPHflDeUyI0HtJKImIde4Dhh1zIaIiWXTtMR9zuS9k+ZEOE+OEan4wJSEDuIWoUrO+tgJ6u d0Si4Qx3Any8vYXAXNs00xoezDcRVWdvwXcqfBWZxve7EbmJZBRxJ1Xp1rVeAnkM9v5Yx+/c54d
+ pkMzXJdfmi1hZDMSrQKmMTdYtwdIxd+M6FWvt7OHviwIbDkmE1UnTwyJGb229dFdkCnooP1v
+X-Authority-Analysis: v=2.4 cv=PYD/hjhd c=1 sm=1 tr=0 ts=688f3934 cx=c_pps a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17 a=2OwXVqhp2XgA:10 a=M5GUcnROAAAA:8 a=2JhQ9zA4wheWbDJ3V88A:9 a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-GUID: I7M_gXO2ez6mLly5jGVvd1cvMhjTEhX1
+X-Proofpoint-ORIG-GUID: I7M_gXO2ez6mLly5jGVvd1cvMhjTEhX1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-03_03,2025-08-01_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250803_032618_885344_857FC52C 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,21 +94,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2025 12:26, Laura Nao wrote:
->>>        - items:
->>> +          - const: mediatek,mt8196-efuse
->>>            - const: mediatek,mt8188-efuse
->>>            - const: mediatek,mt8186-efuse
->>
->> You just broke mt8188 as it had 2 entries and now has 3. I think 
->> (based on the commit msg) you want to change 8188 entry to an enum with 
->> mediatek,mt8196-efuse and mediatek,mt8188-efuse.
->>
-> 
-> You're absolutely right, not sure how I missed that.
-Please test your bindings and DTS BEFORE you send. The testing would
-point you new warnings.
+From: Elad Nachman <enachman@marvell.com>
 
-Best regards,
-Krzysztof
+When a kexec'ed kernel boots up, there might be stale unhandled interrupts
+pending in the interrupt controller. These are delivered as spurious
+interrupts once the boot CPU enables interrupts.
+Clear all pending interrupts when the driver is initialized to prevent
+these spurious interrupts from locking the CPU in an endless loop.
+
+Signed-off-by: Elad Nachman <enachman@marvell.com>
+---
+ drivers/irqchip/irq-mvebu-gicp.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
+index d3232d6d8dce..4b2cad09bc71 100644
+--- a/drivers/irqchip/irq-mvebu-gicp.c
++++ b/drivers/irqchip/irq-mvebu-gicp.c
+@@ -178,6 +178,7 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
+ 	};
+ 	struct mvebu_gicp *gicp;
+ 	int ret, i;
++	void __iomem *base;
+ 
+ 	gicp = devm_kzalloc(&pdev->dev, sizeof(*gicp), GFP_KERNEL);
+ 	if (!gicp)
+@@ -236,6 +237,15 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	}
+ 
++	base = ioremap(gicp->res->start, gicp->res->end - gicp->res->start);
++	if (IS_ERR(base)) {
++		dev_err(&pdev->dev, "ioremap() failed. Unable to clear pending interrupts.\n");
++	} else {
++		for (i = 0; i < 64; i++)
++			writel(i, base + GICP_CLRSPI_NSR_OFFSET);
++		iounmap(base);
++	}
++
+ 	return msi_create_parent_irq_domain(&info, &gicp_msi_parent_ops) ? 0 : -ENOMEM;
+ }
+ 
+-- 
+2.25.1
+
 
