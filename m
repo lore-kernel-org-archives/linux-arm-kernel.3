@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47533C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 10:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E01AC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 10:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y3aOdYUexBGbOJykOZL7lgQJYbiSOshNG7yZBggHwiU=; b=t/2jBKqk1QEyUK1uP4r84npi4c
-	LCiDQxjHZPdbqaWQMacw8zN4l1fkqscbcbXAfXz6nSVolpwh9/ysIXLR/kqJJsRYLi9HWtHY1rPMm
-	Hl5LJxJOQA2pB0wFS6p2OXOY10fg99uwkpYdQs1TOBvC5py+v08KHLt+GPA1cG5Z1EWjZJKeZ0c8K
-	U2Unbs29PF1GF5lFkyxMJsXSEVdqtvfx/JTtwQq27AJfK3whIt4kLO4DjzAgzQ0LBEoOtZDg6JO+T
-	mUrZbSUh+NOjiPGX0PKOfTiwpZfrRlUD3UI6W5F/nx0gTyIJRxNhdNMfDYzzlumAHq7LF4qsR5D0R
-	iSiQ+nNA==;
+	bh=vO+gzdw0VPCTZES8Nl7pIIbrp5OoLtnXI+qurPvmUgE=; b=GRc8se9prPjAOZbuwRGVRwjIke
+	JU2zwZ5FG61suPjkXZb9fmOUI2twy3jBV79OClNB9dO6hZsbLy7B9GznPsADNQzMh7v7kLWZ38mzW
+	GSfX/u0jBL4WIq9nLszFToMcQ6rXtgAoPLJp8zjP0eiaqpg+0lOO530WHHYRCcw47g+vAeusK2z/G
+	B33BD7zO7jZDIYFOH9pPQAnDTgz/mqSAyWqB8vUA7zaW4fkPUqD95xwqHm1C0GvifWF5w/qXLXufU
+	rwC27M+P6IJR4DIHsx7VT8UC9mGI6cA9i59pRDsXX0DQvmW0bdVkZnbEVySqm/yNb4tQmokgzuCAX
+	oUL2HMhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uisbO-0000000ACXW-2LWO;
-	Mon, 04 Aug 2025 10:39:34 +0000
+	id 1uisdw-0000000ACvL-1Mle;
+	Mon, 04 Aug 2025 10:42:12 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uis34-0000000A921-3PBF
+	id 1uis35-0000000A92a-3Tpq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 10:04:08 +0000
+	Mon, 04 Aug 2025 10:04:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1754301846; x=1785837846;
+  t=1754301847; x=1785837847;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=Mijv1aZVie6s80Qf3VFPYS2QkPCgAnCI/m/Zfv+EXmE=;
-  b=fIEOAiO0FRBXzRINd4UF590WWzuE6abHUwm64sP+6cb3+Pt9wVv6z3q/
-   qEEKaPEKgf3aylprsppiilaCb7LJTXGK99e1GWCVQWgOBRzUtFtGEnbY+
-   KnF/SuxA9ULDKgwrz/3tvZccBK9RB507xIgLv04E7oDMnNfmo4okZbht7
-   WZoN35jRt/5hh7Qv9HnzXmlsJ9l8Cp55w43lIIZduCNsieLhXJaYMcgyL
-   QE0ULlSbg8t5VwtOKwKOsbic/dmPsWgVwOI1TMf6zKVrtQN8KJMzDcP82
-   K9X9QKhCDwed2TJKg+/VmVfPiUI+Boo3Jyj62KLDUi78lCjLzA8ukzv4o
+  bh=sNaoy8/stCR2oSveDjFYF8EHjZ9xs9dYDS7l9udDb0A=;
+  b=McNGfx5hUGssm/W8/MTmYZKoLwvQ14G2tUvuQdHDYRSElfVTZXfwV/c5
+   sb1qcor3yju6z1y/io/YuIDW//NCn1uoZ6XmmWCmskbFHt8VxqLAdjpgM
+   +MJtcwpe3lTprN2F+7IxEbIS6QCz7DepDV1C6WcrHpfL9PGCFKQ8BB3Ng
+   n7j9OBEAluFiU/IuRe6ad5WWj9093Uh3f7qAH4CqIZrNcXfdZLDQcKY5g
+   6XCzhyOeBwhqTj/i/wc63RJojLkN7hQfbQ4LcxqDuY1KsT8DZw0KLiCpZ
+   kwnsHOxtvyqRWngso3UeCP/63whP0zIv2/pknCralPZalwtn4U1O/YtjC
    g==;
 X-CSE-ConnectionGUID: +866aF0tQ+SVcfcIeqWRcg==
-X-CSE-MsgGUID: tLRJaqVOQH28qBNXOUi4Lg==
+X-CSE-MsgGUID: +JNh/NbuT3a9KNh0rf8oGw==
 X-IronPort-AV: E=Sophos;i="6.17,258,1747724400"; 
-   d="scan'208";a="44245552"
+   d="scan'208";a="44245556"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2025 03:04:05 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2025 03:04:06 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 4 Aug 2025 03:03:51 -0700
+ 15.1.2507.44; Mon, 4 Aug 2025 03:03:58 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Mon, 4 Aug 2025 03:03:45 -0700
+ 15.1.2507.44 via Frontend Transport; Mon, 4 Aug 2025 03:03:52 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <eugen.hristev@linaro.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -63,9 +63,9 @@ To: <eugen.hristev@linaro.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
 CC: <varshini.rajendran@microchip.com>
-Subject: [PATCH 13/15] ARM: dts: microchip: sama7d65: add cells for temperature calibration
-Date: Mon, 4 Aug 2025 15:32:17 +0530
-Message-ID: <20250804100219.63325-14-varshini.rajendran@microchip.com>
+Subject: [PATCH 14/15] ARM: dts: microchip: sama7d65: add temperature sensor
+Date: Mon, 4 Aug 2025 15:32:18 +0530
+Message-ID: <20250804100219.63325-15-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804100219.63325-1-varshini.rajendran@microchip.com>
 References: <20250804100219.63325-1-varshini.rajendran@microchip.com>
@@ -73,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_030406_921244_AD521C70 
-X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-CacheID: sfid-20250804_030407_937929_64421FAD 
+X-CRM114-Status: UNSURE (   8.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,26 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add NVMEM cell to ADC for temperature calibration data.
+Add temperature sensor node.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index 1d3708c76202..5d1f6684f64f 100644
+index 5d1f6684f64f..aefdd72cb59c 100644
 --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
 +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -226,6 +226,8 @@ adc: adc@e1000000 {
- 			atmel,trigger-edge-type = <IRQ_TYPE_EDGE_RISING>;
- 			atmel,startup-time-ms = <4>;
- 			#io-channel-cells = <1>;
-+			nvmem-cells = <&temperature_calib>;
-+			nvmem-cell-names = "temperature_calib";
- 			status = "disabled";
- 		};
+@@ -103,6 +103,13 @@ ns_sram: sram@100000 {
+ 		#size-cells = <1>;
+ 	};
  
++	thermal_sensor: thermal-sensor {
++		compatible = "generic-adc-thermal";
++		#thermal-sensor-cells = <0>;
++		io-channels = <&adc AT91_SAMA7G5_ADC_TEMP_CHANNEL>;
++		io-channel-names = "sensor-channel";
++	};
++
+ 	soc {
+ 		compatible = "simple-bus";
+ 		ranges;
 -- 
 2.34.1
 
