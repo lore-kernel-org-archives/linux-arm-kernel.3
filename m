@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F86BC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B821C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:00:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bOjuM2EQptwZIdCy1FbHhPFuJ3SevIU3rNwW7TmuMhU=; b=ES9fg4u+Llh2lcZkCWtUcWaRBT
-	m4ufpUazUBZc1VKGlxSITG7h+BByhhYUgoXtLSH+JrZowyNgusuhPqnG5dVjswX6zkONYwSwrjJZt
-	Jn5U1MncGP60E+vuT4C+6of9+FtzDhRq5cnumh+2BDrWrZsiF1wXtEDXRmgzMI5RITwAUdhwirkYE
-	1Rj17yiDqQpOC/0u9zHJSA6f6R4rXwTL/M3/jK6Lj0/0fu4/ZEKdnwEaMrLTdb8vgrz0DKg+t2bru
-	ZnLQ8BTK2ff3xC+c6DvNzV/Wx+VALSO4f/FIO/FpxREt37lyYr5+PBOnH6ITwNcIXSyN4AibL+iGJ
-	NksM/VAQ==;
+	bh=1RbMsOViwveRCYkE4QBif5f+VJEJqCwBELRRpJ5wszA=; b=bOUhSmSBQIkPRXrMvJAOb1BGrp
+	+hOEdxKMgJfrnPTw/uF5ACyslymDojdbZce6KHAjtj6LH41oUQdQIf2f/B57I4RxTOL+6KiHNrfls
+	n4VYsPjR4mM4v/WgHmyyp4gCEQSAHTeiWMJavJz+l1ko55EwUGFV3Uv1ChfDCf5/0ojjhuM6HSYJG
+	1Oz+NxSaeObwsqO+inemlxXD2R1YRZA2tghxfXtPaYwdf0m+x2C/n3A4kXJAzDj+GtDhxB+rfGUm1
+	G3nzGmTiE1QZt3QQm5QeKS/OtUayP/eXDl8hUZNnuLfd9cPUy7LmZPqqEdGasj51h2oqmSd1MJzGh
+	lSckj3Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijWQ-00000009Ntg-2xLT;
-	Mon, 04 Aug 2025 00:57:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uijYt-00000009O8y-0JB0;
+	Mon, 04 Aug 2025 01:00:23 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij4w-00000009LDj-2wmo
+	id 1uij6H-00000009LOg-1hKf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:29:27 +0000
+	Mon, 04 Aug 2025 00:30:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73F31440E3;
-	Mon,  4 Aug 2025 00:29:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE47C4CEF0;
-	Mon,  4 Aug 2025 00:29:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A90BAA507BD;
+	Mon,  4 Aug 2025 00:30:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CECE0C4CEEB;
+	Mon,  4 Aug 2025 00:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267366;
-	bh=oYzjt0pBPUFIGVDHgd1Ww6Ch3t3p6kCVfPtoExsa0k0=;
+	s=k20201202; t=1754267448;
+	bh=bfLHrI+KHBL420kB9LvWPzH5vg3kP5L2x0mod4WtyLQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JuVTPiv92COakHbbB9rGbhcUJmIc47Bq10ZtNoK3sp8F6G6g+j8qylOKLg0iOJEDH
-	 hLz+Ejedy9uGk9ug9tvL0wuxshlR4IEl4tbz5hNMF8hgdvpPuZMOJxaF1YEfdX+Vq6
-	 d8kOP2PsC9XeNGgS3FDG9dl1zYICpAvxUHVrEBCF20wqyEG6UDPcZQchZM/rq7tiHG
-	 xStMnB2Q3u+p7jrVjRIG8OqUSsWZkj9GGImwyQgpNJR45LV4I7/Ej7EtGNaR2uXUUM
-	 HwVnVwjM6Om5trzjjh/7Ta4kwYhsCeORo32dl5ZRnkGPaTaLLbOsY7RQ0yMlPd3etD
-	 CoIDJVlVIT/mw==
+	b=sl93khdJTo3Tchn0N73IuduQx7IFsH90c6N2LoSxWPAMLglJZ78rNMytJIntNhHm1
+	 qb5w20rVy7r7ntytmY17BDPNc8RzMwpExvX5xCrn50as9kDdR8oxi+VoYaxMLdkd5+
+	 wDceKIAUY+G3oVsr8V6Tnum6wa9xv0xd8w5XZx/AX1RkFTOdtuhV5oZc/8MvGoDsr8
+	 iKQYhi+7F7qwCankU7b9uPf9lvSFRVYmQfmXhPvsDIx3GAz0Ur+wlFvYokZRHnj44U
+	 fCnK/U4zltn84p5rsJoVuPAxmbh23DYREwlNNGfU+8f7c7P+H6dOWlaOAJ+JMJxUIu
+	 jUNmjY921eqBw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>,
-	arm-scmi@vger.kernel.org,
+	michal.simek@amd.com,
+	linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.15 38/80] firmware: arm_scmi: power_control: Ensure SCMI_SYSPOWER_IDLE is set early during resume
-Date: Sun,  3 Aug 2025 20:27:05 -0400
-Message-Id: <20250804002747.3617039-38-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.15 69/80] usb: dwc3: xilinx: add shutdown callback
+Date: Sun,  3 Aug 2025 20:27:36 -0400
+Message-Id: <20250804002747.3617039-69-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804002747.3617039-1-sashal@kernel.org>
 References: <20250804002747.3617039-1-sashal@kernel.org>
@@ -62,8 +64,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15.9
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_172926_772385_AFB189CD 
-X-CRM114-Status: GOOD (  21.89  )
+X-CRM114-CacheID: sfid-20250803_173049_566151_0A18D8EB 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 
-[ Upstream commit 9a0658d3991e6c82df87584b253454842f22f965 ]
+[ Upstream commit 70627bf82e36e61c40c3315e1206e4ea4c02e668 ]
 
-Fix a race condition where a second suspend notification from another
-SCMI agent wakes the system before SCMI_SYSPOWER_IDLE is set, leading
-to ignored suspend requests. This is due to interrupts triggering early
-execution of `scmi_userspace_notifier()` before the SCMI state is updated.
+Adds a shutdown callback to ensure that the XHCI stack is properly
+shutdown in reboot/shutdown path.
 
-To resolve this, set SCMI_SYSPOWER_IDLE earlier in the device resume
-path, prior to `thaw_processes()`. This ensures the SCMI state is
-correct when the notifier runs, allowing the system to suspend again
-as expected.
+In kexec flow, kernel_restart_prepare() performs actions necessary
+to prepare the system for a restart and invokes device_shutdown. To
+ensure proper shutdown attach the dwc3 shutdown implementation which
+mirrors the remove method.
 
-On some platforms using SCMI, SCP cannot distinguish between CPU idle
-and suspend since both result in cluster power-off. By explicitly setting
-the idle state early, the Linux SCMI agent can correctly re-suspend in
-response to external notifications.
+$ kexec -e
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Message-Id: <20250704-scmi-pm-v2-2-9316cec2f9cc@nxp.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+<snip>
+xhci-hcd xhci-hcd.0.auto: remove, state 1
+usb usb1: USB disconnect, device number 1
+usb 1-1: USB disconnect, device number 6
+xhci-hcd xhci-hcd.0.auto: USB bus 1 deregistered
+kexec_core: Starting new kernel
+
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Link: https://lore.kernel.org/r/1748977771-714153-1-git-send-email-radhey.shyam.pandey@amd.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -108,136 +113,79 @@ LLM Generated explanations, may be completely bogus:
 **Backport Status: YES**
 
 This commit should be backported to stable kernel trees. Here's my
-extensive analysis:
+detailed analysis:
 
-## 1. Bug Fix Nature
+## Analysis of the Commit
 
-The commit fixes a clear race condition bug that affects system
-suspend/resume functionality on SCMI-based platforms. Looking at the
-code changes:
+### 1. **Bug Fix Nature**
+This commit fixes a real bug where the USB XHCI stack is not properly
+shut down during kexec operations. The commit message explicitly shows
+the issue - when `kexec -e` is executed, the XHCI controller is removed
+but without a proper shutdown sequence, which can lead to:
+- Memory corruption if the controller continues DMA operations
+- System instability during kexec transitions
+- Potential crashes after kexec
 
-- **Original bug** (lines 325-333 in original code): The
-  `scmi_suspend_work_func` sets `sc->state = SCMI_SYSPOWER_IDLE` AFTER
-  `pm_suspend()` returns
-- **Race condition**: If another SCMI agent sends a suspend notification
-  while the system is resuming (after `pm_suspend()` returns but before
-  `SCMI_SYSPOWER_IDLE` is set), the `scmi_userspace_notifier` (line 305)
-  will see the state is still `SCMI_SYSPOWER_IN_PROGRESS` and ignore the
-  new suspend request
-- **Impact**: The system fails to re-suspend when it should, breaking
-  power management functionality
+### 2. **Simple and Contained Fix**
+The code change is minimal and low-risk:
+```diff
++       .shutdown       = dwc3_xlnx_remove,
+```
+It simply reuses the existing `dwc3_xlnx_remove` function as the
+shutdown callback. This is a common pattern in kernel drivers.
 
-## 2. Fix is Small and Contained
+### 3. **Follows Established Pattern**
+My analysis shows this follows an established pattern in the dwc3 driver
+family:
+- `dwc3-of-simple.c` uses its remove function for shutdown
+- `dwc3-rtk.c` has a dedicated shutdown function that calls similar
+  cleanup
+- The recent Tegra XUSB commit (3a3be3a1ebf0) added a shutdown callback
+  for similar reasons (preventing SMMU-related crashes)
 
-The fix is minimal and well-contained:
-- Adds PM ops structure with only a resume callback
-- Moves the state reset from work function to PM resume callback
-- Total change is about 20 lines of code
-- No API changes or architectural modifications
+### 4. **Clear Side Effects**
+The `dwc3_xlnx_remove` function performs standard cleanup:
+- Depopulates child devices (`of_platform_depopulate`)
+- Disables and unprepares clocks
+- Manages runtime PM state
 
-## 3. Clear User Impact
+These are all safe operations for shutdown context.
 
-The commit message explicitly states this affects real platforms: "On
-some platforms using SCMI, SCP cannot distinguish between CPU idle and
-suspend since both result in cluster power-off." This indicates actual
-hardware is affected by this bug.
+### 5. **Meets Stable Criteria**
+- **Fixes a real bug**: Prevents potential system instability during
+  kexec
+- **Small change**: Single line addition
+- **Low risk**: Reuses existing, tested code path
+- **No new features**: Pure bug fix
+- **Clear benefit**: Improves system reliability during reboot/kexec
+  operations
 
-## 4. Low Risk of Regression
+### 6. **Similar Issues in Other Drivers**
+The pattern of missing shutdown callbacks causing issues during
+kexec/reboot is well-documented in the kernel, particularly for devices
+that perform DMA operations.
 
-The changes are:
-- Limited to the SCMI power control driver
-- Only modifies the timing of when `SCMI_SYSPOWER_IDLE` is set
-- Uses standard PM callbacks (`dev_pm_ops`)
-- No changes to core logic or protocol handling
+The fix ensures proper hardware shutdown sequence during system
+reboot/shutdown, preventing the USB controller from accessing memory
+after the system has started transitioning to a new kernel or shutting
+down. This is especially important for systems using kexec for fast
+reboots or crash dump collection.
 
-## 5. Follows Stable Criteria
+ drivers/usb/dwc3/dwc3-xilinx.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-The fix meets stable kernel criteria:
-- Fixes a real bug (race condition in suspend/resume)
-- Small, focused change (~20 lines)
-- Already tested and merged upstream
-- Clear explanation of the problem and solution
-- No new features added
-
-## 6. Technical Correctness
-
-The fix is technically sound:
-- Setting `SCMI_SYSPOWER_IDLE` in the PM resume callback ensures it
-  happens before `thaw_processes()` completes
-- This guarantees the state is correct when interrupts are re-enabled
-  and the notifier can run
-- The use of `dev_set_drvdata()` and `dev_get_drvdata()` properly passes
-  the context to the PM callback
-
-This is a textbook example of a stable-worthy commit: it fixes a
-specific race condition bug with minimal code changes and clear impact
-on affected systems.
-
- .../firmware/arm_scmi/scmi_power_control.c    | 22 ++++++++++++++-----
- 1 file changed, 17 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/scmi_power_control.c b/drivers/firmware/arm_scmi/scmi_power_control.c
-index 21f467a92942..ab0cee0d4bec 100644
---- a/drivers/firmware/arm_scmi/scmi_power_control.c
-+++ b/drivers/firmware/arm_scmi/scmi_power_control.c
-@@ -46,6 +46,7 @@
- #include <linux/math.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
-+#include <linux/pm.h>
- #include <linux/printk.h>
- #include <linux/reboot.h>
- #include <linux/scmi_protocol.h>
-@@ -324,12 +325,7 @@ static int scmi_userspace_notifier(struct notifier_block *nb,
- 
- static void scmi_suspend_work_func(struct work_struct *work)
- {
--	struct scmi_syspower_conf *sc =
--		container_of(work, struct scmi_syspower_conf, suspend_work);
--
- 	pm_suspend(PM_SUSPEND_MEM);
--
--	sc->state = SCMI_SYSPOWER_IDLE;
- }
- 
- static int scmi_syspower_probe(struct scmi_device *sdev)
-@@ -354,6 +350,7 @@ static int scmi_syspower_probe(struct scmi_device *sdev)
- 	sc->required_transition = SCMI_SYSTEM_MAX;
- 	sc->userspace_nb.notifier_call = &scmi_userspace_notifier;
- 	sc->dev = &sdev->dev;
-+	dev_set_drvdata(&sdev->dev, sc);
- 
- 	INIT_WORK(&sc->suspend_work, scmi_suspend_work_func);
- 
-@@ -363,6 +360,18 @@ static int scmi_syspower_probe(struct scmi_device *sdev)
- 						       NULL, &sc->userspace_nb);
- }
- 
-+static int scmi_system_power_resume(struct device *dev)
-+{
-+	struct scmi_syspower_conf *sc = dev_get_drvdata(dev);
-+
-+	sc->state = SCMI_SYSPOWER_IDLE;
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops scmi_system_power_pmops = {
-+	SET_SYSTEM_SLEEP_PM_OPS(NULL, scmi_system_power_resume)
-+};
-+
- static const struct scmi_device_id scmi_id_table[] = {
- 	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
- 	{ },
-@@ -370,6 +379,9 @@ static const struct scmi_device_id scmi_id_table[] = {
- MODULE_DEVICE_TABLE(scmi, scmi_id_table);
- 
- static struct scmi_driver scmi_system_power_driver = {
-+	.driver	= {
-+		.pm = &scmi_system_power_pmops,
-+	},
- 	.name = "scmi-system-power",
- 	.probe = scmi_syspower_probe,
- 	.id_table = scmi_id_table,
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index 4ca7f6240d07..09c3c5c226ab 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -422,6 +422,7 @@ static const struct dev_pm_ops dwc3_xlnx_dev_pm_ops = {
+ static struct platform_driver dwc3_xlnx_driver = {
+ 	.probe		= dwc3_xlnx_probe,
+ 	.remove		= dwc3_xlnx_remove,
++	.shutdown	= dwc3_xlnx_remove,
+ 	.driver		= {
+ 		.name		= "dwc3-xilinx",
+ 		.of_match_table	= dwc3_xlnx_of_match,
 -- 
 2.39.5
 
