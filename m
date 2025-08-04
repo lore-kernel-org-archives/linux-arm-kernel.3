@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C55CC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 06:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D4EEC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 07:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLDlLSD9fZLuz5Yso1GjOxmc4NefvSELVejvScgC8Ko=; b=uW464RZ3x7OvTy6uiq3knN+cZ+
-	Nx8jsupe2A74g5kJkZeXlDb1kZceD7Odz+hA3V8sIUZR34vs6GP3SYYy0bHTiHW9vC3LXmyY8CMRi
-	pLdZmLu54cbQykrBAph9o6yyF6B91BKPy7i84JfhIssKoKtTz1vdLattr2iceM0WdCAMaXH1cH/zs
-	9R3Fmt28AuWNe6UQMTL/GOdLoeJu8Gf3YTjUvApowYZ8ya4/lwN4OZux4uJSPVOA1VD0qegJ0wP47
-	tAKrm2QzChiNc3k8cQMtShmlFry/uPRzGTFNxHWNgsuO8d226JhVklKnhwaq/Y4vTSwFmQ1OoNElE
-	8/xVdiDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RSHEYJX788VYHRiy4xhCclV7U8sQXRjHeZkuG3AFE8g=; b=VPTNlmJ9NrlYDzf2U65Fi6vMoa
+	UNAuQy/x7I/BumEi88cPX8di8rkRf4ll1tU54iNqWQhKSjgTvceumalwry9u4C1mp0f0xqgN56w/n
+	Px8admkWNeEfOyvWFKmriykmqZSrnlxh1Fufy6tNgYPZjrfEEPeeQdGHlsGA7PSoyE0Qol+sCIZjB
+	wrIrbB7fhD+JE47A7WLBbr5pPMBeOlPqkUDjQKY2lveGqk3TJwjYDB6+AAVROrL/pBEBeDtDflutI
+	gi9AnT241G2LjPlj+KubxtAh9GyETuYfhYQLraIiecEztPtwfHU/6JKvhkQ8iU61p1HtxIkUkqRBA
+	0BYjZSSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiomE-00000009k63-36XC;
-	Mon, 04 Aug 2025 06:34:30 +0000
-Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
+	id 1uipEq-00000009mNW-1Qpd;
+	Mon, 04 Aug 2025 07:04:04 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiojf-00000009jvl-00s4
+	id 1uipCH-00000009mCq-3VMd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 06:31:52 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E239144281;
-	Mon,  4 Aug 2025 06:31:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754289105;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gLDlLSD9fZLuz5Yso1GjOxmc4NefvSELVejvScgC8Ko=;
-	b=eDvTaZk3bkqgx1n26ovQ3mqqbNX48z5Xp6NQ1a7MgNuxqX8QJhrSPC/rmQaI8cPdTeWUVj
-	QtapNMe49PdRGEGnjJwPFju/rfQp2DnB3X5CcRau27QdUxQ3LrZEff5bL10NbtmKrnYqGI
-	PsgDXOxmYeZa39beHABjv6ByeKqoO9cwQzg3wOe7jcKE+Crdl/sLT6zMFeWSglChBiX+l1
-	/XfCBMx0wh62iVS/2RJmQ9AI/9o1hLJ9btsv2MkPtQ2jMWDi1EbBgE0gLk4dsRgqoRlENV
-	GiJZ2ju9VAVOs8cquXBs6ylBKq46ohHbekB6aQlPkgIkbkPhnIeErKS+PQTGEg==
-Date: Mon, 4 Aug 2025 08:31:36 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Philipp Zabel
- <p.zabel@pengutronix.de>, Hui Pu <Hui.Pu@gehealthcare.com>, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, Andy Shevchenko
- <andriy.shevchenko@linux.intel.com>, Andrew Morton
- <akpm@linux-foundation.org>, Zijun Hu <quic_zijuhu@quicinc.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH v2 0/9] drm/bridge: get/put the bridge returned by
- drm_bridge_get_next_bridge()
-Message-ID: <20250804083136.058353f9@booty>
-In-Reply-To: <1ebad5ca-26f3-4a5f-a812-8211129c764a@nxp.com>
-References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
-	<1ebad5ca-26f3-4a5f-a812-8211129c764a@nxp.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+	Mon, 04 Aug 2025 07:01:27 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4aef56cea5bso280021cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 00:01:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754290884; x=1754895684; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=RSHEYJX788VYHRiy4xhCclV7U8sQXRjHeZkuG3AFE8g=;
+        b=iGOF6U/lfd1vqlOpnA6MsQSYBT2gg0fRtIjbd4vAhRif/Piv5MFHefbzpAc7LZ+AIK
+         +BUZ9roIJ7RODX9PZzWLLOM71qxBBvojLIM96H/iiB34JDvZY+zF4OujeJJCXxPdcm8v
+         9k4756IJupL597eXVfK+c11hmmQHbq9i6T96Ari0BhhH+ntDyEu6tYkbTC7EoOg6oQAC
+         An7HBdXIdbTnns2wHGFTzcVxJJb3p5f6DJ5L0a9YLuEOKBHC8hQiwfUzFQtC+ugkkFmq
+         Ge4jdoS2tBgRoXwQbsFxTU8rrZOXRiF/m9kUeUDrdKDA+rJv8tBCE/+KKhkCZwRyl5xM
+         HeMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754290884; x=1754895684;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RSHEYJX788VYHRiy4xhCclV7U8sQXRjHeZkuG3AFE8g=;
+        b=bOMmCI9ljNbiM3GpV4BFd82MgkHTczGgBDHfBW9KJ4bFGJ+s2xFkVKvh/xnTFdMXzr
+         mvJ4kWpD293mWfisWCC8sh1j0neNN3DEyWS9Ic8nMw366tOeKHX/c5QCSThhSG3rAIzq
+         3BS2me8LmgN9oDKRqnluNofNNWOidT3GhNWeJsMzHJEOZ5ADJ7rBGDGqRccBexu3WmXL
+         kXje3bLNCF+iw+YIZYPfrH672lOKYphqSbLHCkvwu9HHJ+3zCWPz3OtTiucQKfjpX7wo
+         p3aa8mKHAJYJSm+1wH8XmoT2A6++gtAc3W90GUn332DPHz9leghzKVIGiJCZ/W9CNmcx
+         0s3w==
+X-Forwarded-Encrypted: i=1; AJvYcCVP8ICP3LE//7ByVPrztS2SsH2kUeOdA1U1VHDTr50rc079EkdK+xodBsfcenHl/Uxf3vOyAlNVkSCloFtkgjYO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmd/Pwk32LfuBBbk1Tf8P2RLkwwiPzIfi3pfH5vo7KaOWjTwSw
+	1YYMDUDRPO1ylsWK0kKyzV91o6MoqPnX1QhgRjEHvUkwCr/InMnENCqHUhhqUI0XMFe4UUsPgBW
+	l7+eP6YZaRIxQ3YCEwPygxkgR5YJXdwXvuLr1Ttdr
+X-Gm-Gg: ASbGncsZoKucAxKSqt88MPrbWzuG4ZXj+cwCNsb4bAFdIOihEXH08F96mBw5XhJeRfP
+	g7L2npYRt0Cim62bJ/sXMhDQ2VnfC6/fTOJ4QoLn7d0i4iqmvBr0oQpDFmZgf2n48vB1PuzvsiG
+	QW/VCXMNDhd0EWJoRM+7yM4Egk/kC+MIBMb4y/39MI5U5zDCZuftE78UPwfmpoB6pcQF3tpYB+7
+	gbAnL5G
+X-Google-Smtp-Source: AGHT+IGniHAA7FH+Eqd7YBUZA05anC+yqxu5yiEtg/S9Kxo9mx70xDcmXaV24SioouRxAn4eOORFllugMTauEdotgoE=
+X-Received: by 2002:a05:622a:15cb:b0:4af:103d:f71 with SMTP id
+ d75a77b69052e-4af12e2b2b0mr9053651cf.2.1754290883220; Mon, 04 Aug 2025
+ 00:01:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudduheekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvdegjeejveehhfeigffftefhtdeiffehfeevtdegkeetjefftdevudegiefhvdeknecuffhomhgrihhnpehfrhgvvgguvghskhhtohhprdhorhhgpdhkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepfeejrdduiedurdekiedrieehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepfeejrdduiedurdekiedrieehpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopehvihgtthhorhdrlhhiuhesnhigphdrtghomhdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrn
- hgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhm
+References: <20250729120014.2799359-1-tabba@google.com> <20250729120014.2799359-2-tabba@google.com>
+ <szsqsx77mjo4kdawzcboud4eawuvz3sye4grmx5n74qzze26ap@xbfwc44ruetx>
+In-Reply-To: <szsqsx77mjo4kdawzcboud4eawuvz3sye4grmx5n74qzze26ap@xbfwc44ruetx>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 4 Aug 2025 08:00:46 +0100
+X-Gm-Features: Ac12FXzPxlkyqKTxS6wmipvAxMngDbBJoOhGXmwgi5KEq_pfkUCqwpGRVI4eeuY
+Message-ID: <CA+EHjTxMoVD=ViS8rC+4oiLojQpobfnxHMBSx7qOLSwU_v_J=g@mail.gmail.com>
+Subject: Re: [PATCH v1 1/8] KVM: arm64: Rename pkvm.enabled to pkvm.is_protected
+To: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, mark.rutland@arm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, vdonnefort@google.com, 
+	qperret@google.com, sebastianene@google.com, keirf@google.com, 
+	smostafa@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_233151_181664_0198CD26 
-X-CRM114-Status: GOOD (  28.54  )
+X-CRM114-CacheID: sfid-20250804_000125_895113_6E131A66 
+X-CRM114-Status: GOOD (  31.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,120 +98,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
+Hi Wei-Lin,
 
-thanks for having reviewed this series.
+On Sun, 3 Aug 2025 at 07:09, Wei-Lin Chang <r09922117@csie.ntu.edu.tw> wrote:
+>
+> Hi Fuad,
+>
+> I am reading some pKVM code and would like to ask for help on some
+> questions to make sure my understanding is correct:
+>
+> While looking at the code I don't see pkvm.enabled, or now
+> pkvm.is_protected really assigned, is pkvm development going to add the
+> ability to let the user pick whether they want to start a protected VM
+> (host EL1 can't access VM memory and registers, mostly) or not (like
+> nVHE mode VMs) in the future?
+>
+> Also, since when running pKVM (kvm-arm.mode=protected) the user can't
+> yet choose the VM to be protected or not, the current state is that all
+> VMs started by pKVM is protected, is that understanding correct?
+>
+> Sorry if I missed anything.
 
-On Mon, 4 Aug 2025 12:02:48 +0800
-Liu Ying <victor.liu@nxp.com> wrote:
+You're absolutely right. We are in the process of upstreaming pKVM,
+especially support for protected VMs. As you've noticed, upstream code
+doesn't yet support that. This series is meant to help facilitate
+that.
 
-> Hi Luca,
->=20
-> On 08/01/2025, Luca Ceresoli wrote:
-> > Note: the cover in v1 was mentioning by mistake
-> > drm_bridge_get_last_bridge() instead of drm_bridge_get_next_bridge().
-> >                ^^^^
-> >=20
-> > This series adds drm_bridge_get/put() calls for DRM bridges returned by
-> > drm_bridge_get_next_bridge().
-> >=20
-> > This is part of the work towards removal of bridges from a still existi=
-ng
-> > DRM pipeline without use-after-free. The grand plan was discussed in [1=
-].
-> > Here's the work breakdown (=E2=9E=9C marks the current series):
-> >=20
-> >  1. =E2=9E=9C add refcounting to DRM bridges (struct drm_bridge)
-> >     (based on devm_drm_bridge_alloc() [0])
-> >     A. =E2=9C=94 add new alloc API and refcounting (in v6.16-rc1)
-> >     B. =E2=9C=94 convert all bridge drivers to new API (now in drm-misc=
--next)
-> >     C. =E2=9C=94 kunit tests (now in drm-misc-next)
-> >     D. =E2=9C=94 add get/put to drm_bridge_add/remove() + attach/detach=
-()
-> >          and warn on old allocation pattern (now in drm-misc-next)
-> >     E. =E2=9E=9C add get/put on drm_bridge accessors
-> >        1. =E2=9C=94 drm_bridge_chain_get_first_bridge() + add a cleanup=
- action
-> >        2. =E2=9C=94 drm_bridge_get_prev_bridge()
-> >        3. =E2=9E=9C drm_bridge_get_next_bridge()
-> >        4. =E2=80=A6 drm_for_each_bridge_in_chain()
-> >        5. drm_bridge_connector_init
-> >        6. of_drm_find_bridge
-> >        7. drm_of_find_panel_or_bridge, *_of_get_bridge
-> >     F. debugfs improvements
-> >  2. handle gracefully atomic updates during bridge removal
-> >  3. =E2=80=A6 avoid DSI host drivers to have dangling pointers to DSI d=
-evices
-> >  4. finish the hotplug bridge work, removing the "always-disconnected"
-> >     connector, moving code to the core and potentially removing the
-> >     hotplug-bridge itself (this needs to be clarified as points 1-3 are
-> >     developed)
-> >=20
-> > There are various users of drm_bridge_get_next_bridge() which cannot be
-> > converted easily. Luckily they are not really looking for the next brid=
-ge,
-> > but for something else, such as getting the last bridge in the encoder
-> > chain or checking whether a bridge is the last in the encoder chain. So
-> > introduce better functions for those users and use them instead of
-> > drm_bridge_get_next_bridge(), making the code cleaner at the same time.
-> >=20
-> > Finally add a drm_bridge_get() to drm_bridge_get_next_bridge() and
-> > drm_bridge_put() to the remaining, and legitimate, calls.
-> >=20
-> > [0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cc6aadd7fc=
-1e629b715ea3d1ba537ef2da95eec
-> > [1] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2=
-c9c3058@bootlin.com/t/#u
-> >=20
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To get an idea of what we hope to upstream, you could have a look at
+what we have in Android:
+
+https://android.googlesource.com/kernel/common/+/refs/heads/android16-6.12
+
+What we have in Android is a new VM type, KVM_VM_TYPE_ARM_PROTECTED,
+that you would set on VM creation (when running in protected mode) to
+designate a VM as protected. That would set is_protected (or enabled)
+to true.
+
+I hope this helps.
+
+Cheers,
+/fuad
+
+>
+> Thanks,
+> Wei-Lin Chang
+>
+> On Tue, Jul 29, 2025 at 01:00:06PM +0100, Fuad Tabba wrote:
+> > The 'pkvm.enabled' field in struct kvm_protected_vm is confusingly named.
+> > Its purpose is to indicate whether a VM is a pKVM protected VM, not
+> > whether the VM itself is enabled or running.
+> >
+> > For a non-protected VM, the VM can be fully active, yet this field would
+> > be false. This ambiguity can lead to incorrect assumptions about the VM's
+> > operational state and makes the code harder to reason about.
+> >
+> > Rename the field to 'is_protected' to make it unambiguous that the flag
+> > tracks the protected status of the VM.
+> >
+> > No functional change intended.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
 > > ---
-> > Changes in v2:
-> > - Use cleanup action in patches 4, 8 and 9
-> > - Fix: replace get_last -> get_next in cover
-> > - Link to v1: https://lore.kernel.org/r/20250709-drm-bridge-alloc-getpu=
-t-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com
-> >=20
-> > ---
-> > Luca Ceresoli (9):
-> >       list: add list_last_entry_or_null()
-> >       drm/bridge: add drm_bridge_chain_get_last_bridge()
-> >       drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()
-> >       drm/omapdrm: use drm_bridge_chain_get_last_bridge()
-> >       drm/bridge: add drm_bridge_is_last()
-> >       drm/display: bridge_connector: use drm_bridge_is_last()
-> >       drm/bridge: get the bridge returned by drm_bridge_get_next_bridge=
-()
-> >       drm/bridge: put the bridge returned by drm_bridge_get_next_bridge=
-()
-> >       drm/imx: parallel-display: put the bridge returned by drm_bridge_=
-get_next_bridge()
-> >=20
-> >  drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c    | 12 ++++------
-> >  drivers/gpu/drm/display/drm_bridge_connector.c |  5 ++--
-> >  drivers/gpu/drm/drm_bridge.c                   |  3 +--
-> >  drivers/gpu/drm/imx/ipuv3/parallel-display.c   |  4 ++--
-> >  drivers/gpu/drm/omapdrm/omap_drv.c             |  6 ++---
-> >  include/drm/drm_bridge.h                       | 32 ++++++++++++++++++=
-+++++++-
-> >  include/linux/list.h                           | 14 +++++++++++
-> >  7 files changed, 57 insertions(+), 19 deletions(-) =20
->=20
-> Looks like this one needs to be handled by this patch series?
->=20
-> drivers/gpu/drm/omapdrm/omap_encoder.c:101:
-> bridge =3D drm_bridge_get_next_bridge(bridge)) {
-
-This is handled in a better way in a separate series, converting the
-for_each loops around the bridges in an encoder chain:
-
-https://lore.kernel.org/all/20250723-drm-bridge-alloc-getput-for_each_bridg=
-e-v1-9-be8f4ae006e9@bootlin.com/
-
-Luca
-
---=20
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+> >  arch/arm64/include/asm/kvm_host.h | 4 ++--
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c    | 2 +-
+> >  2 files changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index 3e41a880b062..55dc7cd83e40 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -252,7 +252,7 @@ struct kvm_protected_vm {
+> >       pkvm_handle_t handle;
+> >       struct kvm_hyp_memcache teardown_mc;
+> >       struct kvm_hyp_memcache stage2_teardown_mc;
+> > -     bool enabled;
+> > +     bool is_protected;
+> >  };
+> >
+> >  struct kvm_mpidr_data {
+> > @@ -1522,7 +1522,7 @@ struct kvm *kvm_arch_alloc_vm(void);
+> >
+> >  #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+> >
+> > -#define kvm_vm_is_protected(kvm)     (is_protected_kvm_enabled() && (kvm)->arch.pkvm.enabled)
+> > +#define kvm_vm_is_protected(kvm)     (is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
+> >
+> >  #define vcpu_is_protected(vcpu)              kvm_vm_is_protected((vcpu)->kvm)
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > index 338505cb0171..6198c1d27b5b 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> > @@ -406,7 +406,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+> >       hyp_vm->host_kvm = host_kvm;
+> >       hyp_vm->kvm.created_vcpus = nr_vcpus;
+> >       hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+> > -     hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
+> > +     hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
+> >       hyp_vm->kvm.arch.flags = 0;
+> >       pkvm_init_features_from_host(hyp_vm, host_kvm);
+> >  }
+> > --
+> > 2.50.1.487.gc89ff58d15-goog
+> >
 
