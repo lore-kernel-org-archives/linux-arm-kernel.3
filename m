@@ -4,110 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9D2C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 07:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE20C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 07:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lWbm80QmwJXu9kmhxrN8s3X5kpDTaGiluWhynz+ZnQA=; b=XaniANuK7cDtsHJfAQp9IM4bdS
-	r0YPSR84Zpb6i9JWtlGgeAvXY81TUMxv3lRTBrcwixVvYHWbNP0B5CBgpw/OQQlxDmWyGffmZmUK4
-	QnaAub5ym6s8kR2XE3cRycehxzVHaCPFU39Lt6HKuJLeV/HiNqgKIg0hmLrEbiSuavmUP0TvFIENE
-	ymYgUk7Kk3tGxTTNLLPFepjFwe8QhdAOlb1cPLSKKED9hznZ2QI/lmXSUr0mV0CxkLaPQwu+9p4z0
-	ZfIO4GUE986g/mhdjXAcbohvBOpgTES1jYhUw/zwCFSbDYNarX+e+1PyCozn2rAPZU+VwRyWcshWa
-	43H+4LzQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CdSfNikpGH6BscsmZd/Rx5luzG62PFHqKEcL/imgz3o=; b=CQx8spmemrSSlCto66jocC1KS3
+	GNWpODgf4R1EWoEssVs+RXLE+P+NlUVrt7HS1F7Ccne5Dkjq5vJE+mlXuYDjLCZ2qI6hEWgUGSuVG
+	vZhnpgJyKnBWznD3kZM/lgATNdyw915C13FkGOyPHo9CxRKqAsGkOPf2SYahSeLcV4QZmzYcDklh/
+	ydaK0iR5L1EhFRlcahMm4V+A6K/BjU1qt/54s5SZ3f4S/aVgpOYfYpbXKmcL1CrCNCxjpJqqb7GJN
+	c0ECznpFCc/p4eTlctFhcHnjfjnBqnjhP70rslhtaJRP8sVmhVk+qGNtPVsIQY461uQB1V7ynsTY2
+	Fr4dgWvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uipj9-00000009pc0-1x1K;
-	Mon, 04 Aug 2025 07:35:23 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uipws-00000009rFw-1Lus;
+	Mon, 04 Aug 2025 07:49:34 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uipga-00000009pQ0-2bwg
+	id 1uipuJ-00000009qxr-1IP9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 07:32:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F0EEA5C5CAE;
-	Mon,  4 Aug 2025 07:32:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2CDCC4CEE7;
-	Mon,  4 Aug 2025 07:32:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754292763;
-	bh=wB6I/j32PkE+YUbjoUKC4S9/gwmEdIKjLTMub/MU7mo=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=s8xpDdSNmkV3PbR7bOx6S9BBBXrySDUbKg5GuviCeBHvZ2gDpjeGOnVvn51MrbNFh
-	 rPbKWfcAW8alQxpvpGvO2SHCijgh/SZnSOGzn//+HEoh2CCRPJ9TjX1Ym8xcILYxv+
-	 1kYycH5iFR3o+i0aHrvjOysdaXO3PQ/ufUmIgWWpH2/oKh916JWWfWPNGhf/cUZL/Q
-	 TzAnN/Z9bG4lX8TFbjZ7gDfA0flcM779qhGr0AjJOg0Gry25qp1J267tvgvrMRXOfP
-	 P2oSveIbo31VZwOIbfOpnzxBa1PumRfs0rTMlFthSzGMU6WWs0m5RlnWFe13DRc2A1
-	 7pCKetQJOqhPA==
-Message-ID: <19b91a3b-a330-41d5-ba45-39279185a2d1@kernel.org>
-Date: Mon, 4 Aug 2025 09:32:38 +0200
+	Mon, 04 Aug 2025 07:46:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1754293615; x=1785829615;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=CdSfNikpGH6BscsmZd/Rx5luzG62PFHqKEcL/imgz3o=;
+  b=TX6LGmB57Bp4bARfjqQJVmOIkUtCeONhtzp4EQQ63t6WVkJivOXXZ1AJ
+   +1mzaHj+W5q3Z2DzIbSEfDAIGH7bTD7CAPAN2Ovww7LiffcVAEamD5py1
+   ykVUEvzwc+CtdxXsQP/i3gfLtNZ3elu9SZq0fpriIWzZkjkd62nbaSds7
+   c4Hgf6vx3nuojlLyjGHbh2nXJ43qvmiL47saiTQD71N9LQ2JVYi7XNrcW
+   ERWNTOXGw5t4E/xW0wP3YiTzdDXe03sI/o+kvo/2zjypqtbrdkSkPsplx
+   +BaH1nnt+T0ptc7mjVuZUYTDX8VKreRoA50tssBcMAy3b1lFwDmvChYc2
+   A==;
+X-CSE-ConnectionGUID: HpCTta7TRG6yj4QOSCB+Lw==
+X-CSE-MsgGUID: Aeglv0tvTyugj3tAdvpArw==
+X-IronPort-AV: E=Sophos;i="6.17,258,1747692000"; 
+   d="scan'208";a="45562890"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Aug 2025 09:46:50 +0200
+X-CheckPoint: {6890656A-1C-BC5CDED5-F054443F}
+X-MAIL-CPID: 4AC64EF87B1BE66EB7BD5C8C8A82D21A_3
+X-Control-Analysis: str=0001.0A00210D.6890651C.0090,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B04091617E1;
+	Mon,  4 Aug 2025 09:46:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1754293606;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=CdSfNikpGH6BscsmZd/Rx5luzG62PFHqKEcL/imgz3o=;
+	b=ecKANMWNDiOVfAMTmVMafSHm/DT+1YcSONM7nAJtnCxEO+Ziaf5xmwr7oQZbcP/FdHjQZg
+	c9ItJju72cOUClS8/+/I1KwLI6Mx+6sRV/eDMCLIxGgiHGjd9s8h+vVlbt6f5IDiEfhNag
+	hobttP7S4HZq6MYU5tMCWE+d1yVUgWdDYi2dyd/yDI341E/PzSpE+DttX7gYALtPMihhFX
+	HqF0S1rfCDNd+Qb1CKFuITUKGft2Ml4cKgH+TCeFZ40mc21dbV+99v0bDJNYMFB1wI2CNk
+	jGOHyQsuc6l8ivt3B0btn6LjKlWBiKlyxzaMRqUqvV8IP/+P0AudxGNX6UgbPQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [Resend 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB driver
+Date: Mon,  4 Aug 2025 09:46:41 +0200
+Message-ID: <20250804074642.75072-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: interrupt-controller: aspeed: add
- AST2700 SCU IC compatibles
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Eddie James
- <eajames@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250804053445.1482749-1-ryan_chen@aspeedtech.com>
- <20250804053445.1482749-2-ryan_chen@aspeedtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250804053445.1482749-2-ryan_chen@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_003244_749343_5F6A414D 
-X-CRM114-Status: UNSURE (   7.86  )
+X-CRM114-CacheID: sfid-20250804_004655_832262_40110CC5 
+X-CRM114-Status: UNSURE (   7.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -123,17 +98,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 07:34, Ryan Chen wrote:
-> - Add "aspeed,ast2700-scu-ic0,1,2,3" to the compatible
->  list in aspeed,ast2500-scu-ic.yaml.
-> - Document support for AST27XX SCU interrupt controllers.
+This driver is used on imx93-tqma9352-mba91xxca.dts.
 
-We see that from the diff.  Explain the differences between them. Also,
-do not use lists - it seems you are mixing two independent tasks in one
-commit.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+Added IMX Maintainers
 
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index c7520e78b6a11..2271ce6079bbb 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -441,6 +441,7 @@ CONFIG_IWLMVM=m
+ CONFIG_MWIFIEX=m
+ CONFIG_MWIFIEX_SDIO=m
+ CONFIG_MWIFIEX_PCIE=m
++CONFIG_MWIFIEX_USB=m
+ CONFIG_MT7921E=m
+ CONFIG_RSI_91X=m
+ CONFIG_WL18XX=m
+-- 
+2.43.0
 
-Best regards,
-Krzysztof
 
