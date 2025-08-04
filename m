@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60568C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 15:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C603AC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 15:23:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rowLDWg2EH/vK2G1fIisCg8E4+PlZuh7zr+Dia5YY+U=; b=k3unmAuw2jMlI1BLNtWaQQ8wgw
-	0onX3E/tlCdiCv24pY5rXqtU9aEWaO6UMCerxpyXz4D2kSinhURyBoPIVq4eZj1WZrwL2OQ0+IDU5
-	au4EJgSHcti+/VVsTIY4E9jdr/As9ti4O7ByAbE9Du9IKIk6HVT8nNO8+LFrVA9/lKvAGvjbjoj2X
-	loZ/74hyKySbZWfV1jWvOhQA9FVylGBKuoJLjvwOb7Fk7ce0yFxW45JEM7HS4NBOCxdAjStcCMv9M
-	TMnb6RlLtXSsp8aaQ9W3/ocHmLZp8jqH9QYX7BRzq57xJdY1ghcNjHovsS6ok5izMfuACTN5Asq9N
-	nKIJw7nA==;
+	bh=qOTf6pV3LzmnQ02iE94Jg1OWbOXSh+fy/hEhVoUC5xk=; b=SQxAFQ6Yb5jWJpjUrZrXmiGzWk
+	4Z8dWc5jU46+KWJZHUiKnEkIRNNAqnR2Cw4B2m98Oiiv972y69Ix+8lAa9t4Fxvzr++kXcEV4Fgz8
+	hn2OZmgUPk1+jH+igdZa9AhS+huvdAidKsWmwpeNjRjmeGsp28yEQLbrcoJZeXV6krldB+B2US2BN
+	ctFBL1jyatMedunWvFHGQYy4rHSMRYZM7ZADv/Pr6Axlu6O+Hcmg8BkfBcDmymc5wnXgnogBgJI4J
+	QyhpFPv/QFtMatmGs4N0c7bAYpkceGbNkcwZS+yAASKGRcUKNwnpcfPNX1bXDlbPYJJDHMuVnIRZu
+	HXau37tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiwzM-0000000Am2y-1oAl;
-	Mon, 04 Aug 2025 15:20:36 +0000
+	id 1uix1s-0000000AmGi-2kcZ;
+	Mon, 04 Aug 2025 15:23:12 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiw86-0000000AfCZ-0PSR;
-	Mon, 04 Aug 2025 14:25:35 +0000
+	id 1uiwDU-0000000AfwG-1HaC;
+	Mon, 04 Aug 2025 14:31:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754317532;
-	bh=4w4UyDIzjxo+3JmIQukX+lOYpSKSPWdj2NvIBHpwDLs=;
+	s=mail; t=1754317866;
+	bh=4Ew1ywqUKPBO3FXPRYx2L2fqAw4faKlxhYE2ck+WihQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=L+twoUC0xA5IgdbWFl5hIHuXPsHMLJxr0wFn8/SYfhBCM1lxXB6W3iv+8Y3ew555Z
-	 iidpjcu9JxLy6g9AizgAnFCdZyRNQ9qhjihWqYIbhCCADWn8KxVQPnKwePzvf/d7P5
-	 pPbcvhN8fkHxiCVCnLc6jOkuQR2qP1pLyHuRKu9Re44KVSrfyfQHENP6SWoKWyhHAp
-	 nW62hGmQytUMWxI/a3E/GLo0ccxkfR2rFZ0akabORXAEHOeLu+vEAQ2LAEftTUsd3Q
-	 K6/YkB+4WagTbnSYIFlzQAwpr/c1vzmKPDPnn7sPy2po7t7a7dGDm7SavjWh5ic5qz
-	 pSv5yYrHoek3w==
+	b=U1/KmwBSdPRaTX6WxZkf4hn47f/lTLATOi+gjmN8tRShdeQG6k1GbH645vXQpUQ1r
+	 F0O9OIFMeooX6WriLO7TGJ0Id/o7NYW3Nckzy9qFOMTKBVbUyhYrDvJLvPxlI/7SL1
+	 g8kJz86jAvMVSaQXsNV4e3+Ypk9YAR4unNFP/0vR+0cgfJBYv1k0YhZen6NRqFnIQY
+	 E1ujbFBjsob7s1cpBuEqgOQnf5nft3fiLvpj39ezlEKqbxzZLJsWPHeQRBwFDaRbt2
+	 6ChluzgqH6pXw4UGNDH1TS61z3WMm6twxNOO9LbsJbn7BPPxRWt5IjjWotbSe7OLy0
+	 0DcScdV7Pqr4w==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 872B117E046C;
-	Mon,  4 Aug 2025 16:25:31 +0200 (CEST)
-Message-ID: <dfd6b5be-f28b-4451-b548-884043f9715a@collabora.com>
-Date: Mon, 4 Aug 2025 16:25:30 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A729517E0DD0;
+	Mon,  4 Aug 2025 16:31:05 +0200 (CEST)
+Message-ID: <3a499702-ba75-4d8a-b38d-222a62bffb34@collabora.com>
+Date: Mon, 4 Aug 2025 16:31:05 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 09/27] dt-bindings: clock: mediatek: Describe MT8196
@@ -65,16 +65,15 @@ References: <fbe7b083-bc3f-4156-8056-e45c9adcb607@kernel.org>
  <e9ee33b0-d6b0-4641-aeeb-9803b4d1658a@kernel.org>
  <00a12553-b248-4193-8017-22fea07ee196@collabora.com>
  <2555e9fe-3bc0-4f89-9d0b-2f7f946632e7@kernel.org>
- <62edb8e3-aff6-4225-b520-f4b73aef145d@collabora.com>
- <c16070db-c086-45b8-bc0d-9e3bc02924b6@kernel.org>
+ <ed0884fc-e43a-4f5b-8701-3645c406b37d@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <c16070db-c086-45b8-bc0d-9e3bc02924b6@kernel.org>
+In-Reply-To: <ed0884fc-e43a-4f5b-8701-3645c406b37d@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_072534_292251_D2246CB5 
-X-CRM114-Status: GOOD (  15.06  )
+X-CRM114-CacheID: sfid-20250804_073108_505298_B6967CB2 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,59 +88,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 04/08/25 16:21, Krzysztof Kozlowski ha scritto:
-> On 04/08/2025 16:15, AngeloGioacchino Del Regno wrote:
->> Il 04/08/25 15:58, Krzysztof Kozlowski ha scritto:
->>> On 04/08/2025 15:27, AngeloGioacchino Del Regno wrote:
->>>>
->>>> We discussed about aggregating votes, yes, in software - this instead is a
->>>> *broken* hardware that does the aggregation internally and does not require
->>>> nor want external drivers to do the aggregation.
->>>>
->>>>> Maybe it is just the name, so avoid all the confusing "votes" if this is
->>>>> not voting system. If this is a voting system, then don't use custom
->>>>> phandles.
->>>>
->>>> Being it fundamentally *broken*, this being a voting system is what the hardware
->>>> initially wanted to be - but effectively, since it requires YOU to:
->>>>     - Make sure that power supplies are turned on, if not, turn them on by "touching"
->>>>       HW registers (so, without any assistance from the voter MCU), if any;
->>>>     - Turn on parent clocks manually, if any, before using the "voter mcu" to try
->>>>       to ungate that clock; and
->>>>       - Enable the "FENC" manually, after the mcu says that the clock was ungated.
+Il 04/08/25 16:19, Krzysztof Kozlowski ha scritto:
+> On 04/08/2025 15:58, Krzysztof Kozlowski wrote:
 >>>
+>>> So, what should we do then?
 >>>
->>> I understand that "YOU" as Linux driver, when you want to do something
->>> (e.g. toggle) a clock?
->>
->> "you" == Linux driver, yes.
->>
->>> If so this looks a lot like power domain, although with some differences.
+>>> Change it to "mediatek,clock-hw-refcounter", and adding a comment to the binding
+>>> saying that this is called "Hardware Voter (HWV)" in the datasheets?
 >>>
+>>> Or is using the "interconnect" property without any driver in the interconnect API
+>>> actually legit? - Because to me it doesn't look like being legit (and if it is, it
+>>> shouldn't be, as I'm sure that everyone would expect an interconnect API driver
+>>> when encountering an "interconnect" property in DT), and if so, we should just add
 >>
->> A power domain ungates power to something.
+>> Why you would not add any interconnect driver for interconnect API?
+>> Look, the current phandle allows you to poke in some other MMIO space
+>> for the purpose of enabling the clock FOO? So interconnect or power
+>> domains or whatever allows you to have existing or new driver to receive
+>> xlate() and, when requested resources associated with clock FOO.
 > 
-> Does more, it is not a simple supply.
+> Something got here cut. Last sentence is supposed to be:
 > 
-
-Yes, does more, but still manages power, and not clocks.
-
+> "So interconnect or power
+> domains or whatever allows you to have existing or new driver to receive
+> xlate() and, when requested, toggle the resources associated with clock
+> FOO."
+> 
 >>
->> These are clocks, giving a (x) (M)Hz signal to something.
+>> Instead of the FOO clock driver poking resources, you do
+>> clk_prepare_enable() or pm_domain or icc_enable().
 > 
-> Your earlier message about "YOU" said:
+> I looked now at the driver and see your clock drivers poking via regmap
+> to other MMIO. That's exactly usecase of syscon and exactly the pattern
+> *we are usually discouraging*. It's limited, non-scalable and vendor-driven.
 > 
-> "   - Make sure that power supplies are turned on, if not, turn them on
-> by "touching"
->       HW registers (so, without any assistance from the voter MCU), if any;"
+
+If the HWV wasn't BROKEN, I'd be the first one to go for generic stuff, but
+since it is what it is, adding bloat to generic, non vendor-driven APIs would
+be bad.
+
+> If this was a power domain provider then:
+> 1. Your clock drivers would only do runtime PM.
+
+The clock drivers would have to get a list of power domain that is *equal to*
+(in their amount) the list of clocks.
+But then those are not power domains, as those registers in the MCU are ONLY
+ungating a clock and nothing else in the current state of the hardware.
+
+> 2. Your MCU would be the power domain controller doing whatever is
+> necessary - toggling these set/clr bits - when given clock is enabled.
+
+That MCU does support power domain voting (for two power domains in the main
+PD Controller, and for all power domains in the multimedia PD controller), and
+this is something completely separated from the *clock* controllers.
+
+Just to make the picture complete for you: the power domains that this MCU can
+manage are not in any way related to the clocks that it can manage. At all.
+
+> And it really looks like what you described...
 > 
-> so not a simple clocks stuff.
+> 
+> Best regards,
+> Krzysztof
 
-That's a characteristic of MediaTek's clock controllers: each hardware macroblock
-needs to be powered in order to be able to enable clocks.
-
-This is nothing new in MT8196/MT6991, it's how MediaTek SoCs have always been split
-by hardware, and it's like that since ages.
-
-Some other SoCs have the clock controllers always powered on - MediaTek doesn't.
 
