@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E76B4C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  3 Aug 2025 21:26:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E14C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mhos5SUiQ6Jgr/VerZBsvUPeGXCnJN+tlzYskIKK5Ik=; b=nYVrz2MF5vBNoCtPl8VsRXxoTj
-	7P6L+X/LYwVv+VKX8ZczEWLBVimQpiA+HIrodLKXe5YoLaX7K/jif2UshHadH8D7eTbPaibpcjOSG
-	T6uxy+kHGEinyoNrNux1gO4pnxQO8nIr+sQXo1eIQSQgq+Wr9hTlKaF1+Ab8spQDzFNXlU+PjRHut
-	Bzz3BbOt+byd4BKbDxRt7E8aFxp+9MC3y4BE1np+jZSYevSWtU3TbZewjhUmvMGf+GGtaP0za6JcV
-	BYUPMIb9NTxYq4PBza2Lkl3mGkcwWs29x/hwr0vc8XiOHu0Hq4BJ35+9W/IkxxB+9we+d3LqmYr+M
-	kdUEmeDQ==;
+	bh=37169W1Ki4gDro+G9vCve8/Qga0wmAAyicxFzAfVztc=; b=FY1Yo02jIX1JvnMrpKEKuo+LiK
+	0jb1xxQQgf/Tn8AFraPLj0zMcrVwU151daDDdqxe2Ca5GTk4ZsonzTPM1SB3xUSuuhA0fiMob+UOG
+	vAhH0dN5W8n2Zb+9jNl88CFF71nwPdGHO29XW7+9HkSulFvdyhKj+tTxMs2ymd8eZMd9u4dn1lXYq
+	hLqrlisNOPppNGm+B+XUqCRcOrMwzSeAcatj52ddo8oOgaPyuZQWyrtXTEtJemL8AFcVJ7x4Yq+U1
+	Tyj9mtPwT9IGlGDMw5lF4Nhzf15TWfJQFyIaNhUihp8g2EwQql0Z1AQH0pWPoJGdiZrYO4DiEYfGc
+	a2UeYTjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uigDP-00000009Bkk-1FbT;
-	Sun, 03 Aug 2025 21:25:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uij2p-00000009Kxw-0Q8u;
+	Mon, 04 Aug 2025 00:27:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uig7Y-000000099gR-1mrE
+	id 1uij0I-00000009Kdr-0lbu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 03 Aug 2025 21:19:56 +0000
+	Mon, 04 Aug 2025 00:24:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 568F6601E8;
-	Sun,  3 Aug 2025 21:19:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC06C4CEEB;
-	Sun,  3 Aug 2025 21:19:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 32E9245C56;
+	Mon,  4 Aug 2025 00:24:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE32EC4CEF8;
+	Mon,  4 Aug 2025 00:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754255995;
-	bh=dsFFt10BbQJYnX+TuufFrES91w5IxxNZcwePwelbtvs=;
+	s=k20201202; t=1754267076;
+	bh=HjWAoAuSaFtNiBbbcTEE4MGR3yJasz+eJZliM5YzOxQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dKoH8ioNQN5RGN4n3YcYzEEdLR4sU6D8Rb0vgFtBoiJZUtBqGGR7Flj9ieQpQvdYi
-	 Ovdn7tPNs1xRLtkbjCWphjQE7d423pGj34AX3mLyM9qAXxY1w9C0/9EqSuimRjNXsR
-	 +sTDP9AbRHGTbT+IxQGlbSVJPdTdiRnLO0OPsFD5nHPhvoRBTXCxRzMn3Tw0d5mZ4R
-	 Z8Php+kmjDA9hnBshg9wIxK5C3qRMDDpiS1MHjjZU+0LQxUaouoLkrsV+W7zIDMRhg
-	 I2pVFOImkkN29SDvAkLcOZ0odMOcD7Qqg/hsNKGKK9EandJ7jrhOxInhTz+WWPmC5/
-	 V62w4jz0e8ncw==
+	b=mv5hiRNaVxm4dzuyBMEg5zXDjhGKqgiDA5rqxXfTwv+AZuXcEcHKHHrZynbCg0foo
+	 Y5oenTK5ZOJMeQRiyYmN7h9UKLYM9n9A9NRTbvJk3rejG6e+Q4Iwyc6xBm/cBvJ0zu
+	 Bf0hoHcSDmP+jCjNWy2+ep9xoYANTPrj2cOca6m64j4397Ozu1Tau5kabIE1ggcyvy
+	 8TU5+/uzk6f6kuWmutJtBewTyHbt4rZPtub3vUw2BQ5tTWgj423iErcD7Wv4nAjw+n
+	 UDQMZQ1XfQnAUwIJl/YnHDeS+cvyFyUPne+XDO/WPHFSn/52TO83dXt94qJ05/UWfo
+	 D7Rc8EmeIs2EQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
+Cc: Hiago De Franco <hiago.franco@toradex.com>,
+	Peng Fan <peng.fan@nxp.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
+	andersson@kernel.org,
+	shawnguo@kernel.org,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 07/31] firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall
-Date: Sun,  3 Aug 2025 17:19:10 -0400
-Message-Id: <20250803211935.3547048-7-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.16 17/85] remoteproc: imx_rproc: skip clock enable when M-core is managed by the SCU
+Date: Sun,  3 Aug 2025 20:22:26 -0400
+Message-Id: <20250804002335.3613254-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250803211935.3547048-1-sashal@kernel.org>
-References: <20250803211935.3547048-1-sashal@kernel.org>
+In-Reply-To: <20250804002335.3613254-1-sashal@kernel.org>
+References: <20250804002335.3613254-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.41
+X-stable-base: Linux 6.16
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250803_172438_260207_96CC4650 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,119 +83,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yeoreum Yun <yeoreum.yun@arm.com>
+From: Hiago De Franco <hiago.franco@toradex.com>
 
-[ Upstream commit 0e0546eabcd6c19765a8dbf5b5db3723e7b0ea75 ]
+[ Upstream commit 496deecb020d14ba89ba7084fbc3024f91687023 ]
 
-The Linux IMA (Integrity Measurement Architecture) subsystem used for
-secure boot, file integrity, or remote attestation cannot be a loadable
-module for few reasons listed below:
+For the i.MX8X and i.MX8 family SoCs, when the Cortex-M core is powered
+up and started by the Cortex-A core using the bootloader (e.g., via the
+U-Boot bootaux command), both M-core and Linux run within the same SCFW
+(System Controller Firmware) partition. With that, Linux has permission
+to control the M-core.
 
- o Boot-Time Integrity: IMA’s main role is to measure and appraise files
- before they are used. This includes measuring critical system files during
- early boot (e.g., init, init scripts, login binaries). If IMA were a
- module, it would be loaded too late to cover those.
+But once the M-core is started by the bootloader, the SCFW automatically
+enables its clock and sets the clock rate. If Linux later attempts to
+enable the same clock via clk_prepare_enable(), the SCFW returns a
+'LOCKED' error, as the clock is already configured by the SCFW. This
+causes the probe function in imx_rproc.c to fail, leading to the M-core
+power domain being shut down while the core is still running. This
+results in a fault from the SCU (System Controller Unit) and triggers a
+system reset.
 
- o TPM Dependency: IMA integrates tightly with the TPM to record
- measurements into PCRs. The TPM must be initialized early (ideally before
- init_ima()), which aligns with IMA being built-in.
+To address this issue, ignore handling the clk for i.MX8X and i.MX8
+M-core, as SCFW already takes care of enabling and configuring the
+clock.
 
- o Security Model: IMA is part of a Trusted Computing Base (TCB). Making it
- a module would weaken the security model, as a potentially compromised
- system could delay or tamper with its initialization.
-
-IMA must be built-in to ensure it starts measuring from the earliest
-possible point in boot which inturn implies TPM must be initialised and
-ready to use before IMA.
-
-To enable integration of tpm_event_log with the IMA subsystem, the TPM
-drivers (tpm_crb and tpm_crb_ffa) also needs to be built-in. However with
-FF-A driver also being initialised at device initcall level, it can lead to
-an initialization order issue where:
- - crb_acpi_driver_init() may run before tpm_crb_ffa_driver()_init and
-   ffa_init()
- - As a result, probing the TPM device via CRB over FFA is deferred
- - ima_init() (called as a late initcall) runs before deferred probe
-   completes, IMA fails to find the TPM and logs the below error:
-
-   |  ima: No TPM chip found, activating TPM-bypass!
-
-Eventually it fails to generate boot_aggregate with PCR values.
-
-Because of the above stated dependency, the ffa driver needs to initialised
-before tpm_crb_ffa module to ensure IMA finds the TPM successfully when
-present.
-
-[ jarkko: reformatted some of the paragraphs because they were going past
-  the 75 character boundary. ]
-
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Mimi Zohar <zohar@linux.ibm.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
-Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+Suggested-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Link: https://lore.kernel.org/r/20250629172512.14857-3-hiagofranco@gmail.com
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
+
+Based on my analysis, I can now provide a definitive answer:
 
 **Backport Status: YES**
 
 This commit should be backported to stable kernel trees for the
 following reasons:
 
-1. **Fixes a real bug affecting users**: The commit fixes a boot
-   initialization order issue where IMA (Integrity Measurement
-   Architecture) fails to find the TPM device when using TPM over FF-A
-   (Firmware Framework for Arm Architecture). Without this fix, systems
-   with TPM accessed via FF-A get the error "ima: No TPM chip found,
-   activating TPM-bypass!" and fail to generate boot_aggregate with PCR
-   values, breaking secure boot attestation.
+1. **Critical bug fix preventing system reset**: The commit fixes a
+   serious issue where the probe function failure causes the M-core
+   power domain to be shut down while the core is still running,
+   resulting in a fault from the SCU and triggering a system reset. This
+   is a severe user-impacting bug that can cause unexpected system
+   reboots.
 
-2. **Small and contained change**: The code change is minimal - just
-   changing `module_init(ffa_init)` to `rootfs_initcall(ffa_init)`. This
-   is a one-line change that only affects initialization timing.
+2. **Minimal and contained change**: The fix is very simple - it just
+   adds `|| dcfg->method == IMX_RPROC_SCU_API` to an existing condition
+   in the `imx_rproc_clk_enable()` function. This is a one-line change
+   that only affects the clock handling logic for i.MX8X and i.MX8
+   family SoCs when using SCU API method.
 
-3. **No architectural changes**: This is purely an initialization order
-   fix that doesn't introduce new features or change the architecture of
-   the FF-A driver.
+3. **Clear root cause**: The commit message clearly explains the issue -
+   when the M-core is started by the bootloader, the SCFW automatically
+   enables its clock. If Linux later attempts to enable the same clock,
+   SCFW returns a 'LOCKED' error, causing probe failure and subsequent
+   power domain shutdown while the core is running.
 
-4. **Security-critical fix**: IMA is a security subsystem used for
-   secure boot, file integrity, and remote attestation. The bug prevents
-   proper boot measurements from being recorded in the TPM, which is a
-   critical security failure for systems relying on measured boot.
+4. **No architectural changes**: This is purely a bug fix that doesn't
+   introduce new features or change the driver architecture. It simply
+   skips clock operations for a specific configuration where the clock
+   is already managed by the SCFW.
 
-5. **Clear problem and solution**: The commit message clearly explains
-   the initialization order dependency between FF-A, TPM drivers
-   (tpm_crb_ffa), and IMA. The fix ensures FF-A initializes earlier (at
-   rootfs_initcall level) so the TPM is available when IMA initializes
-   (at late_initcall level).
+5. **Platform-specific fix with no regression risk**: The change only
+   affects i.MX8X and i.MX8 platforms using the SCU API method
+   (`IMX_RPROC_SCU_API`). Other platforms and methods are unaffected,
+   minimizing the risk of regression.
 
+6. **Prevents data corruption/loss**: System resets caused by this bug
+   could potentially lead to data loss or corruption, making this fix
+   important for system stability.
 
-7. **Multiple reviewers**: The patch has been reviewed by relevant
-   maintainers including Mimi Zohar (IMA maintainer), Sudeep Holla (FF-A
-   maintainer), and Jarkko Sakkinen (TPM maintainer).
+The specific code change in `imx_rproc_clk_enable()` at line 1033 simply
+extends the existing check from:
+```c
+if (dcfg->method == IMX_RPROC_NONE)
+```
+to:
+```c
+if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+```
 
-The change meets all stable kernel criteria: it fixes an important bug,
-has minimal risk of regression, and is confined to fixing the specific
-initialization order issue without side effects.
+This ensures that for SCU-managed cores, Linux doesn't attempt to enable
+clocks that are already controlled by the SCFW, preventing the probe
+failure and subsequent system reset.
 
- drivers/firmware/arm_ffa/driver.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/remoteproc/imx_rproc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 83dad9c2da06..9fdfccbc6479 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -1815,7 +1815,7 @@ static int __init ffa_init(void)
- 	kfree(drv_info);
- 	return ret;
- }
--module_init(ffa_init);
-+rootfs_initcall(ffa_init);
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 74299af1d7f1..627e57a88db2 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -1029,8 +1029,8 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+ 	struct device *dev = priv->dev;
+ 	int ret;
  
- static void __exit ffa_exit(void)
- {
+-	/* Remote core is not under control of Linux */
+-	if (dcfg->method == IMX_RPROC_NONE)
++	/* Remote core is not under control of Linux or it is managed by SCU API */
++	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+ 		return 0;
+ 
+ 	priv->clk = devm_clk_get(dev, NULL);
 -- 
 2.39.5
 
