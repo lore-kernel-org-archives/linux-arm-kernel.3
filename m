@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254E3C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B5DC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bh2VbEr4+GPS+zCP6PyGLcsH4RZmjBkc+JIVLTQNkVU=; b=QcHxAHyP2WMejgvFJv/v+NiA+w
-	nnR8Hu9yxzp/pM7Fh0kBrypdZRXgdvP7Y5UX9ULff/JPPy9n60Ak51eFo5kOMmsR9eV7jxGT0hsJO
-	5NFjQoJvkDmDlWN+CkSoFmhufXbDjL8bAwUu7xyRK7v6GtEaWJxwrth7TOwAtHofT17TbYYBYmPvv
-	3flqo+XInsszIrhe6POGShoTTvcuEo5e0pqwJBbg/T0AAS9oTtEj4dSJaMhFaL1pNddgQYmLHLb+c
-	PyngnOeHhn5D1OarSJjMkh05udaa22BLGCOsNM+aiLxywDMbS7AMwdBgywUKHkne7ObGWuwaqqhyB
-	qcxkKEAA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O2DygzAfPJi0lvSpnOuQWtkcvrpMgT2vd4yQUds60yE=; b=JJJmJAyK1DzeDH21WjyaXNMnll
+	cQfRhQgDFbVQqDaNYGleXBUTAh++37YIEBAnT3xBSN5UZxpiEzMjsNFf7uE4xU1XMmyaVJa58+b1L
+	k/je6FCWeravZsGhn0ltUt3bPwJwZ54mVC/KIP+XQBiUKL+U1bgbI3u3SiKHqhvgWrfHgZaNJJ7ne
+	QTV5wjg2x5OnckBOmFa4OcO8mmO9IKrNgkeXi+2JdAT443CR+ZKk9FXBf48nmOjHrkJOuKdraA5Zk
+	v9078KQqgxGTO4o0cGlOq7GlDW/qprksgnVW9IDrAsEXqDYtNgDJWZ7eLkLEgRud47ATs/gFcxsng
+	UtuamtFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiuoq-0000000ASsy-2WPL;
-	Mon, 04 Aug 2025 13:01:36 +0000
-Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
+	id 1uiurO-0000000ATRF-1xKI;
+	Mon, 04 Aug 2025 13:04:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiuJe-0000000ANNY-1Cve
+	id 1uiuRU-0000000AOBC-3Bmp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 12:29:23 +0000
-Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-af949bdf36cso332732266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 05:29:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754310561; x=1754915361; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Bh2VbEr4+GPS+zCP6PyGLcsH4RZmjBkc+JIVLTQNkVU=;
-        b=YL6zl0MHgoYV88ZeTWSxXwX5HP5kTVt0a6FFLGFdPkuwrwst7ZGgmitG7xGlA++6H0
-         ZKN2sKkFTzqVVAwaQL5j4VLwzp4y92dzEbAGQgxRcw2kxs8xErS7q5KwDigEM1opi9Ey
-         8UNccruUG8qbRs8xn866JGJGKhWnjeTPoBtQDEgt2FQHBgSzKq+O9Oc9zMYIBF/c7/h7
-         goyNAM4+7MmtPQKuCUVPL4+rfwRxcxqV3BIvYzN98Z+/mdu8pcUVRPVolW7fKBsx0H3B
-         BESPoR9j6bKzoFuexm4hh/kjlyij0LEvEwpgMulrbITKgytj0YotliaEdHxpfggF8saa
-         5aKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754310561; x=1754915361;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bh2VbEr4+GPS+zCP6PyGLcsH4RZmjBkc+JIVLTQNkVU=;
-        b=qhiTf4EquhEU9FBcrusMrxwCofn5x6MO480UHHd3/S9+zG4CwIexLCk1Ccm+0Ncy10
-         7jpZv+xMFU+MH07UNnyzoFiLHr+gOGiaPg+plPy0BEL44sV9cJc7pS/uzyjjuVhc2t8V
-         08Js8voPixNPxt/5Hb0KRIdZdV6MIN6ikAh36BTLgpV96Pz7TOZgFzFuaqSRAzJcNzyX
-         nplh70TfiV9jL+hy+bIhrKHENEAaiAdq9CZ2R/u+cnabluDAnkE8xSGQ/wI0lZB07CN9
-         iyMXa940pp183hJkEhPspcOP2juMsYZfOAThh81J8d/artV9dKh8g7ALy397Cchxv7XD
-         Dy2g==
-X-Forwarded-Encrypted: i=1; AJvYcCWkZwGMTnuF/VPd7MfOItnwpqv8/haHlRiDZD8UKEcGy4cRU9XMNJN36Fc7isrIP1zbqneN9VBErVd6+BNGQXQf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAiCwa3MCAvsuZYF3vUK2TYP3b2X4GSvgZ8bCCpetGpvLnebiq
-	pDeCDR2XJYDXIudU+VwUYpvF1WN87jfceDp07pdRBw+0cv1pJ2E7fmGc9nYkFRC7HY8=
-X-Gm-Gg: ASbGncsd6G6NHy204ZmDlBpcnhG3kL4GBJt5aZLfrldHPkF8jXHx4HCUWn3Vck1AgIK
-	idQ+zxWv2pnM3+Pe+SY84BluqzpiNEzzC1wgMvSJmEuu1HH/WIVq5c2pf4B6QZ7clfxU1VdWkDB
-	MD2p4UhSTh5ya3i7MG7Jb3nUG2E99r2G7DHtLZFF6+dAUpH1gfGmxz8Sagz8z/K8acUTHkrg6wc
-	ixjIjkHY8fiJmYbKjbTy+LAXRZjhWlxAep1jIlgkyDT3IdHBZDrsOsjD7tgzrVWm1fYXgEoX7xn
-	xzm6Z0+4NbUrsUUO9z21nLzSIWyUtMPZM3n8xFltI/kXiPMFjBc3BDhL6mx2z1A6619/0LHRM9s
-	IPzV+sgugwiQ9JjaDVBdgVcpHIlDijw==
-X-Google-Smtp-Source: AGHT+IEosZgeKp1ejcWL+SBts1B/aCmksQ8kDwupILaEdVqhNGaIFVMrjj1IxUFnhsLruybLH3boPw==
-X-Received: by 2002:a17:906:298c:b0:af9:68d5:118d with SMTP id a640c23a62f3a-af968d534d9mr304131066b.58.1754310560610;
-        Mon, 04 Aug 2025 05:29:20 -0700 (PDT)
-Received: from [192.168.0.33] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a0a38aasm730599066b.37.2025.08.04.05.29.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Aug 2025 05:29:20 -0700 (PDT)
-Message-ID: <f43a61b4-d302-4009-96ff-88eea6651e16@linaro.org>
-Date: Mon, 4 Aug 2025 15:29:18 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH v2 22/29] mm/numa: Register information into Kmemdump
-To: David Hildenbrand <david@redhat.com>, Michal Hocko <mhocko@suse.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
- jonechou@google.com, tudor.ambarus@linaro.org
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
- <20250724135512.518487-23-eugen.hristev@linaro.org>
- <ffc43855-2263-408d-831c-33f518249f96@redhat.com>
- <e66f29c2-9f9f-4b04-b029-23383ed4aed4@linaro.org>
- <751514db-9e03-4cf3-bd3e-124b201bdb94@redhat.com>
- <aJCRgXYIjbJ01RsK@tiehlicka>
- <e2c031e8-43bd-41e5-9074-c8b1f89e04e6@linaro.org>
- <23e7ec80-622e-4d33-a766-312c1213e56b@redhat.com>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <23e7ec80-622e-4d33-a766-312c1213e56b@redhat.com>
+	Mon, 04 Aug 2025 12:37:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C1FE745B71;
+	Mon,  4 Aug 2025 12:37:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94521C4CEE7;
+	Mon,  4 Aug 2025 12:37:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754311047;
+	bh=8364lKVjSLoE/C4yuz2dcYUZ0SL1p8n0c26MfIf5a78=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PCftZlo7iQ3hCmDco0y44Mw8TLIDghTi1MRqE3nS9mdUNuzwmQQ5Zg2hh96m/VUA1
+	 u9WkrQGn8SVWhZwMuBnV6T1qgpU7W2LXbMgiqY+/406oLEwdSB5iOlJMfY+ZtKZnd+
+	 KbZ9jMqZiLZMW/78ARACB/lYGX4T5wN+kpjW/W/J1lZMJtm9pgh0vzTmw+n01R7QD1
+	 xT8THOp7AxnRcBJASHIRePnWFTFqT7N6jns4vOnMZS4FZrsQB7kapbFncF6wBetHXe
+	 h2lxPkJ5N2O16hgbWL+Kh8cdpwwVIPoy+NDyuIKddrkZbkjCPui6317a1xaKVJajbs
+	 gGkUGDB7BYvVQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uiuRQ-003nlf-Th;
+	Mon, 04 Aug 2025 13:37:24 +0100
+Date: Mon, 04 Aug 2025 13:37:23 +0100
+Message-ID: <86qzxr6z5o.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	anshuman.khandual@arm.com,
+	robh@kernel.org,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	ry111@xry111.site,
+	Dave.Martin@arm.com,
+	ahmed.genidi@arm.com,
+	kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com,
+	mbenes@suse.cz,
+	james.clark@linaro.org,
+	frederic@kernel.org,
+	rafael@kernel.org,
+	pavel@kernel.org,
+	ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 00/11] support SCTLR2_ELx
+In-Reply-To: <20250804121724.3681531-1-yeoreum.yun@arm.com>
+References: <20250804121724.3681531-1-yeoreum.yun@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_052922_334777_F74D4C1D 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20250804_053728_837817_3AA1E0C5 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,63 +107,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 04 Aug 2025 13:17:13 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+>=20
+> This series introduces initial support for the SCTLR2_ELx registers in Li=
+nux.
+> The feature is optional starting from ARMv8.8/ARMv9.3,
+> and becomes mandatory from ARMv8.9/ARMv9.4.
+>=20
+> Currently, Linux has no strict need to modify SCTLR2_ELx=E2=80=94
+> at least assuming that firmware initializes
+> these registers to reasonable defaults.
+>=20
+> However, several upcoming architectural features will require configuring
+> control bits in these registers.
+> Notable examples include FEAT_PAuth_LR and FEAT_CPA2.
+>=20
+> This series is based on v6.16 and probably KVM-safe but
+> Not tested yet:
+>   - nVHE boot.
 
+"Probably" and "Not tested yet" are not exactly what we are looking
+for when looking at a series that adds support for a new architectural
+feature.
 
-On 8/4/25 15:18, David Hildenbrand wrote:
-> On 04.08.25 13:06, Eugen Hristev wrote:
->>
->>
->> On 8/4/25 13:54, Michal Hocko wrote:
->>> On Wed 30-07-25 16:04:28, David Hildenbrand wrote:
->>>> On 30.07.25 15:57, Eugen Hristev wrote:
->>> [...]
->>>>> Yes, registering after is also an option. Initially this is how I
->>>>> designed the kmemdump API, I also had in mind to add a flag, but, after
->>>>> discussing with Thomas Gleixner, he came up with the macro wrapper idea
->>>>> here:
->>>>> https://lore.kernel.org/lkml/87ikkzpcup.ffs@tglx/
->>>>> Do you think we can continue that discussion , or maybe start it here ?
->>>>
->>>> Yeah, I don't like that, but I can see how we ended up here.
->>>>
->>>> I also don't quite like the idea that we must encode here what to include in
->>>> a dump and what not ...
->>>>
->>>> For the vmcore we construct it at runtime in crash_save_vmcoreinfo_init(),
->>>> where we e.g., have
->>>>
->>>> VMCOREINFO_STRUCT_SIZE(pglist_data);
->>>>
->>>> Could we similar have some place where we construct what to dump similarly,
->>>> just not using the current values, but the memory ranges?
->>>
->>> All those symbols are part of kallsyms, right? Can we just use kallsyms
->>> infrastructure and a list of symbols to get what we need from there?
->>>
->>> In other words the list of symbols to be completely external to the code
->>> that is defining them?
->>
->> Some static symbols are indeed part of kallsyms. But some symbols are
->> not exported, for example patch 20/29, where printk related symbols are
->> not to be exported. Another example is with static variables, like in
->> patch 17/29 , not exported as symbols, but required for the dump.
->> Dynamic memory regions are not have to also be considered, have a look
->> for example at patch 23/29 , where dynamically allocated memory needs to
->> be registered.
->>
->> Do you think that I should move all kallsyms related symbols annotation
->> into a separate place and keep it for the static/dynamic regions in place ?
-> 
-> If you want to use a symbol from kmemdump, then make that symbol 
-> available to kmemdump.
+Also, a lot of the KVM patches are redundant now that we do have
+FEAT_SCTLR2 support in KVM (see what has been merged for 6.17). You
+probably want to rebase on -rc1 once it is released, which should cut
+the series by half.
 
-That's what I am doing, registering symbols with kmemdump.
-Maybe I do not understand what you mean, do you have any suggestion for
-the static variables case (symbols not exported) ?
+Thanks,
 
-> 
-> IOW, if we were to rip out kmemdump tomorrow, we wouldn't have to touch 
-> any non-kmemdump-specific files.
-> 
+	M.
 
+--=20
+Without deviation from the norm, progress is not possible.
 
