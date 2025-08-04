@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7ECC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 10:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80463C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 10:31:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a3jFcJ5v3Pwh0IDf/K6HMvoIIU/y9UuEX3r9bUtk0kU=; b=p+WAEc8lSyzBMWh4v5uRtXF5vA
-	MKh9WltlzSonkI60rRJk1BXIc0z6uVTSFDaxHFsRE/r7oVKhqNIfAor0LipcWivqswUdNel+oLzUb
-	3hD4wrYWRXnnnVMSLQcFHPzL3Fqqbt1blpNsVwqNYG/K5UO6T5ngN5cuRe1Nt8HafLMxglQmQykdH
-	4ljZW8rKTsmK3CRcP6bvq7JQSiuW8KK4VCBGscIVG2c6b+7SvDutXFZ/uuEjhM7HCWMC8N8jdt62i
-	0JfleCkFB5ZEwuU+/x/MPJr5vKIyiPjrzMYOYvJzhSwoyypkjUxggvi4KumCRPO+Lm3+8yrHp2Cgx
-	aPEsbVoQ==;
+	bh=vWSLguugg2fUU2kfGXsngJH4MFNEedH5m0ppgVfZA8M=; b=HifglSrTiulNlU27yLKJrJHZLM
+	cz5z+iL53uAhyiltTbOviL/OfTP867+QbdIoM3qyh/Dt4dasmFUdAND1omBmWVaRLrEHXiWeYOSHb
+	gtKdSHPc+/fj1CZO7/ew7lTlRSTSciVn+pwVRumK6GPDggIY6OHzio7G2HHEjzvviXE6Vkq+D3tze
+	26RfUTiuEP8WKbC5bc+a+IcTEkKq/APVROBrlmmjHJKb/a6Q2cbOGd7XG7K0WzSoRBu9UIHWczPa6
+	epE9NKRjdTIlr5DCSZtRx/iG8lOLuI2NRoMpcS1f6ZVuyg0RRM6N4x6oVsy+q9rTRsOeBFbv70KGO
+	GCxC/30Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uisRK-0000000ABop-0Ok2;
-	Mon, 04 Aug 2025 10:29:10 +0000
+	id 1uisTp-0000000AC40-3mxp;
+	Mon, 04 Aug 2025 10:31:45 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uis2g-0000000A8yz-0S5s
+	id 1uis31-0000000A921-3qXe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 10:03:43 +0000
+	Mon, 04 Aug 2025 10:04:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1754301821; x=1785837821;
+  t=1754301843; x=1785837843;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=6W4F2tMrJ4fQ3+1dSbKRAr9IS7Qo3RdtktFxwVVRt40=;
-  b=0nrTLnGDFR0ul6oiCv8I+/PJCgloR/97+eMDDMtgzE3puHW6XaJX+LwY
-   /Atwaljj+oxH+bxm2zFQ+k4R4CqClXZAyn3/RNJmZO0N1ZWo1BkOdYiz8
-   Ec+VJ6/2lvhbYM8euRZ7Q2W0ceBbXudblcNB6lrQn/sfnRms0QLv4H9zY
-   G4Rz2uu9twfV3RLQuo7XWBGxvHiOE+5HcCW7QuJwwKOro9BQj7GO4GBpI
-   Zk2hdQ8PRYB3RMNM01WhG73pbp789AY10Gf6bzEp9D/SUVM9ecqb1MGB9
-   qotjZu3JkDMdsCmB9qJ2wMVcm1RplSVBd1UPqtIleS4tU1jr/cIpnIEvp
-   w==;
-X-CSE-ConnectionGUID: E6rlgp6tRPCj0Q8ccA/Yqg==
-X-CSE-MsgGUID: nhnyn57ETHaYkg3E28HNcw==
+  bh=wSwA6wL4bDtKgaXwJ1S3APBLP/C0XSRWfQu/1acFsUE=;
+  b=YTakpBgWXkz9RgEc/TDG6V3ah2pMZV0VH150eBuh6tDOE56Ab/qwMVBP
+   tcyQkUfz71POe0QoRuBIvhbEfHIBNqSjSppnT/TD8CgWaOSJIAQowKiCM
+   KuXQSXf1dZLJURYQ64eC1zVFvwcfA0B5TBxmDrAwsoOb97HSQk2orRI4v
+   SdjyP1EuUPqlvs3iQTxZbLpoVz9370/sngiaBmAieAVL+BYX7nzMdI3qM
+   0Gf5jjvmDIk7j9/kM9+BAMFEfNQZ4gJwmSdv0R0WOYXR+KecZkxGMgIKP
+   ViSbGAHTZx4amAx4RhO/1Yn3Cw8kEk90Xp2fa6Czb6ZJcmVQHOFvnjCDE
+   A==;
+X-CSE-ConnectionGUID: +866aF0tQ+SVcfcIeqWRcg==
+X-CSE-MsgGUID: +YCYjADVTiWX8fEDnlqPuA==
 X-IronPort-AV: E=Sophos;i="6.17,258,1747724400"; 
-   d="scan'208";a="44245519"
+   d="scan'208";a="44245539"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2025 03:03:40 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2025 03:04:02 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 4 Aug 2025 03:03:25 -0700
+ 15.1.2507.44; Mon, 4 Aug 2025 03:03:32 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Mon, 4 Aug 2025 03:03:19 -0700
+ 15.1.2507.44 via Frontend Transport; Mon, 4 Aug 2025 03:03:26 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <eugen.hristev@linaro.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -62,10 +62,11 @@ To: <eugen.hristev@linaro.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<srini@kernel.org>, <linux-iio@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
-CC: <varshini.rajendran@microchip.com>
-Subject: [PATCH 09/15] iio: adc: at91-sama5d2_adc: adapt the driver for sama7d65
-Date: Mon, 4 Aug 2025 15:32:13 +0530
-Message-ID: <20250804100219.63325-10-varshini.rajendran@microchip.com>
+CC: <varshini.rajendran@microchip.com>, Romain Sioen
+	<romain.sioen@microchip.com>
+Subject: [PATCH 10/15] ARM: dts: microchip: sama7d65: add node for the ADC
+Date: Mon, 4 Aug 2025 15:32:14 +0530
+Message-ID: <20250804100219.63325-11-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804100219.63325-1-varshini.rajendran@microchip.com>
 References: <20250804100219.63325-1-varshini.rajendran@microchip.com>
@@ -73,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_030342_217123_BCD68D51 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20250804_030404_024492_FC380FF0 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,148 +90,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to sama7d65 ADC. The differences are highlighted with the
-compatible. The init and parsing of the temperature sensor and
-calibration indexes are the main differences.
+Add node for the ADC controller in sama7d65 SoC. Also add corresponding
+regulator and pinmux for the ADC.
 
+Signed-off-by: Romain Sioen <romain.sioen@microchip.com>
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- drivers/iio/adc/at91-sama5d2_adc.c | 94 ++++++++++++++++++++++++++++++
- 1 file changed, 94 insertions(+)
+ .../dts/microchip/at91-sama7d65_curiosity.dts | 23 +++++++++++++++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     | 29 +++++++++++++++++++
+ 2 files changed, 52 insertions(+)
 
-diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-index 916682e326c7..909841b84834 100644
---- a/drivers/iio/adc/at91-sama5d2_adc.c
-+++ b/drivers/iio/adc/at91-sama5d2_adc.c
-@@ -456,6 +456,8 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
- struct at91_adc_state;
- static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
- 				     struct device *dev);
-+static int at91_sama7d65_adc_temp_sensor_init(struct at91_adc_state *st,
-+					      struct device *dev);
+diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+index 7250823a6f59..7ecc748456ba 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+@@ -41,6 +41,14 @@ reg_5v: regulator-5v {
  
- /**
-  * struct at91_adc_platform - at91-sama5d2 platform information struct
-@@ -525,6 +527,20 @@ enum at91_adc_ts_clb_idx {
- 	AT91_ADC_TS_CLB_IDX_MAX = 18,
  };
  
-+/**
-+ * enum at91_sama7d65_adc_ts_clb_idx - calibration indexes in sama7d65 NVMEM buffer
-+ * @AT91_SAMA7D65_ADC_TS_CLB_IDX_P1: index for FT1_TEMP equivalent to P1 * (10 ^ 6)
-+ * @AT91_SAMA7D65_ADC_TS_CLB_IDX_P4: index for FT1_VPAT equivalent to P4
-+ * @AT91_SAMA7D65_ADC_TS_CLB_IDX_P6: index for FT2_VBG equivalent to P6
-+ * @AT91_SAMA7D65_ADC_TS_CLB_IDX_MAX: max index for temperature calibration packet in OTP
-+ */
-+enum at91_sama7d65_adc_ts_clb_idx {
-+	AT91_SAMA7D65_ADC_TS_CLB_IDX_P1 = 2,
-+	AT91_SAMA7D65_ADC_TS_CLB_IDX_P4 = 1,
-+	AT91_SAMA7D65_ADC_TS_CLB_IDX_P6 = 4,
-+	AT91_SAMA7D65_ADC_TS_CLB_IDX_MAX = 10,
++&adc {
++	vddana-supply = <&vddout25>;
++	vref-supply = <&vddout25>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_adc_default &pinctrl_adtrg_default>;
++	status = "okay";
 +};
 +
- /* Temperature sensor calibration - Vtemp voltage sensitivity to temperature. */
- #define AT91_ADC_TS_VTEMP_DT		(2080U)
- 
-@@ -764,6 +780,31 @@ static const struct at91_adc_platform sama7g5_platform = {
- 	.temp_init = at91_adc_temp_sensor_init,
+ &dma0 {
+ 	status = "okay";
+ };
+@@ -278,6 +286,16 @@ &main_xtal {
  };
  
-+static const struct at91_adc_platform sama7d65_platform = {
-+	.layout = &sama7g5_layout,
-+	.adc_channels = &at91_sama7g5_adc_channels,
-+#define AT91_SAMA7D65_SINGLE_CHAN_CNT	16
-+#define AT91_SAMA7D65_DIFF_CHAN_CNT	8
-+#define AT91_SAMA7D65_TEMP_CHAN_CNT	1
-+	.nr_channels = AT91_SAMA7D65_SINGLE_CHAN_CNT +
-+		       AT91_SAMA7D65_DIFF_CHAN_CNT +
-+		       AT91_SAMA7D65_TEMP_CHAN_CNT,
-+#define AT91_SAMA7D65_MAX_CHAN_IDX	(AT91_SAMA7D65_SINGLE_CHAN_CNT + \
-+					AT91_SAMA7D65_DIFF_CHAN_CNT + \
-+					AT91_SAMA7D65_TEMP_CHAN_CNT)
-+	.max_channels = ARRAY_SIZE(at91_sama7g5_adc_channels),
-+	.max_index = AT91_SAMA7D65_MAX_CHAN_IDX,
-+#define AT91_SAMA7G5_HW_TRIG_CNT	3
-+	.hw_trig_cnt = AT91_SAMA7G5_HW_TRIG_CNT,
-+	.osr_mask = GENMASK(18, 16),
-+	.oversampling_avail = { 1, 4, 16, 64, 256, },
-+	.oversampling_avail_no = 5,
-+	.chan_realbits = 16,
-+	.temp_sensor = true,
-+	.temp_chan = AT91_SAMA7G5_ADC_TEMP_CHANNEL,
-+	.temp_init = at91_sama7d65_adc_temp_sensor_init,
+ &pioa {
++	pinctrl_adc_default: adc_default {
++		pinmux = <PIN_PC5__GPIO>;
++		bias-disable;
++	};
++
++	pinctrl_adtrg_default: adtrg-default {
++		pinmux = <PIN_PB7__ADTRG>;
++		bias-pull-up;
++	};
++
+ 	pinctrl_gmac0_default: gmac0-default {
+ 		pinmux = <PIN_PA26__G0_TX0>,
+ 			 <PIN_PA27__G0_TX1>,
+@@ -373,3 +391,8 @@ input@0 {
+ &slow_xtal {
+ 	clock-frequency = <32768>;
+ };
++
++&vddout25 {
++	vin-supply = <&vdd_3v3>;
++	status = "okay";
 +};
-+
- static int at91_adc_chan_xlate(struct iio_dev *indio_dev, int chan)
- {
- 	int i;
-@@ -2319,6 +2360,56 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
- 	return ret;
- }
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index 2e20a7532c03..1f249323d08a 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/clock/at91.h>
+ #include <dt-bindings/dma/at91.h>
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/iio/adc/at91-sama5d2_adc.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/mfd/at91-usart.h>
+@@ -83,6 +84,16 @@ slow_xtal: clock-slowxtal {
+ 		};
+ 	};
  
-+static int at91_sama7d65_adc_temp_sensor_init(struct at91_adc_state *st,
-+					      struct device *dev)
-+{
-+	struct at91_adc_temp_sensor_clb *clb = &st->soc_info.temp_sensor_clb;
-+	struct nvmem_cell *temp_calib;
-+	u32 *buf = NULL;
-+	size_t len;
-+	int ret = 0;
++	vddout25: fixed-regulator-vddout25 {
++		compatible = "regulator-fixed";
 +
-+	if (!st->soc_info.platform->temp_sensor)
-+		return 0;
++		regulator-name = "VDDOUT25";
++		regulator-min-microvolt = <2500000>;
++		regulator-max-microvolt = <2500000>;
++		regulator-boot-on;
++		status = "disabled";
++	};
 +
-+	/* Get the calibration data from NVMEM. */
-+	temp_calib = devm_nvmem_cell_get(dev, "temperature_calib");
-+	if (IS_ERR(temp_calib)) {
-+		ret = PTR_ERR(temp_calib);
-+		if (ret != -ENOENT)
-+			dev_err(dev, "Failed to get temperature_calib cell!\n");
-+		return ret;
-+	}
+ 	ns_sram: sram@100000 {
+ 		compatible = "mmio-sram";
+ 		reg = <0x100000 0x20000>;
+@@ -199,6 +210,24 @@ chipid@e0020000 {
+ 			reg = <0xe0020000 0x8>;
+ 		};
+ 
++		adc: adc@e1000000 {
++			compatible = "microchip,sama7d65-adc";
++			reg = <0xe1000000 0x200>;
++			interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&pmc PMC_TYPE_GCK 25>;
++			assigned-clocks = <&pmc PMC_TYPE_GCK 25>;
++			assigned-clock-rates = <100000000>;
++			clock-names = "adc_clk";
++			dmas = <&dma0 AT91_XDMAC_DT_PERID(0)>;
++			dma-names = "rx";
++			atmel,min-sample-rate-hz = <200000>;
++			atmel,max-sample-rate-hz = <20000000>;
++			atmel,trigger-edge-type = <IRQ_TYPE_EDGE_RISING>;
++			atmel,startup-time-ms = <4>;
++			#io-channel-cells = <1>;
++			status = "disabled";
++		};
 +
-+	buf = nvmem_cell_read(temp_calib, &len);
-+	if (IS_ERR(buf)) {
-+		dev_err(dev, "Failed to read calibration data!\n");
-+		return PTR_ERR(buf);
-+	}
-+
-+	if (len < AT91_SAMA7D65_ADC_TS_CLB_IDX_MAX * sizeof(u32) ||
-+	    buf[0] != AT91_TEMP_CALIB_TAG) {
-+		dev_err(dev, "Invalid calibration data!\n");
-+		ret = -EINVAL;
-+		goto free_buf;
-+	}
-+
-+	/* Store calibration data for later use. */
-+	clb->p1 = buf[AT91_SAMA7D65_ADC_TS_CLB_IDX_P1];
-+	clb->p4 = buf[AT91_SAMA7D65_ADC_TS_CLB_IDX_P4];
-+	clb->p6 = buf[AT91_SAMA7D65_ADC_TS_CLB_IDX_P6];
-+
-+	/*
-+	 * We prepare here the conversion to milli from micro to avoid
-+	 * doing it on hotpath.
-+	 */
-+	clb->p1 = clb->p1 / 1000;
-+
-+free_buf:
-+	kfree(buf);
-+	return ret;
-+}
-+
- static int at91_adc_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -2633,6 +2724,9 @@ static const struct of_device_id at91_adc_dt_match[] = {
- 	}, {
- 		.compatible = "microchip,sama7g5-adc",
- 		.data = (const void *)&sama7g5_platform,
-+	}, {
-+		.compatible = "microchip,sama7d65-adc",
-+		.data = (const void *)&sama7d65_platform,
- 	}, {
- 		/* sentinel */
- 	}
+ 		dma2: dma-controller@e1200000 {
+ 			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
+ 			reg = <0xe1200000 0x1000>;
 -- 
 2.34.1
 
