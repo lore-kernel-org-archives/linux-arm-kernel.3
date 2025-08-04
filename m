@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B4ECA0EC2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 16:27:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D19C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 16:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=83y9HCM1NErNHhoDJvLNstKn3l9elWApgqOnhqoLDjY=; b=I8InJFsuVY+CCmsu6sssspzz6S
-	qnoysXzwX0uGnZ7vFNWeYYt8dJLDrVT7tXYfBhmvfMUUGtYb+RWAkQIRY4YHeAV6OqNEYqQ4SN4kw
-	+KK1yiai4W4Emy6AKzoI+KMYxgsrrnH48IkMl7QUU0SUsOl9VhO/Vx7M5fOJy0yQ1jRquSslPPCFN
-	ov9ncEO8bzYufo3L06QMAqwVduJuXAKzcCQ7XINSWq8F228oJy7Wk1Gs6etNG3c+l2SWb44pxdy1c
-	KdCbnuIU5abLVEtosYXFrDguUsaSkae83euw0j9kXIPOE+IroA8qyukz4neDwylIjlFvS6Gq6vh/N
-	bk7gHmsw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EuLKrEo/38TeccYm6/Zrtps7StZfzswaxcTtPYrzP+U=; b=seDq3lzpqyjq4F2idALBR47QRs
+	/mzZXX9edvBTuyTnYg8EVyjpWlOo75IJqCU3Uxx7GKshi2sYxUp8s2Jgon3ojKc39i+vXnC0Mxd5O
+	ptywwq21fmNqIjwbw4VVi+j+Dth08vgoOI/W/bvVwaYS/VGBqlthh8pp3vTMdz89ngUwOA8der5GA
+	flRNpM7yt8D93lZITz5OjBO2HlIsSojkyLRu00JYjN0mKFJRIzU+a2FWShmLpdCSn+Sjd+lnUewFb
+	3qsHUOR/F4nGn3SsQif48ZUymxthoa3ddxDX0JH/vKXEQ0Gk7oPMRjVMm7iu6BRoFqWhIAAAxbOwu
+	TK/Mt7DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiy1Y-0000000AyYO-3CFL;
-	Mon, 04 Aug 2025 16:26:56 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1uiy1Z-0000000AyYv-2rCu;
+	Mon, 04 Aug 2025 16:26:57 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uixbl-0000000AwO1-0Zic
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 16:00:18 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3b783d851e6so3979145f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 09:00:16 -0700 (PDT)
+	id 1uixfB-0000000Ax0R-3W5c;
+	Mon, 04 Aug 2025 16:03:51 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2402bbb4bf3so42034105ad.2;
+        Mon, 04 Aug 2025 09:03:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754323215; x=1754928015; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=83y9HCM1NErNHhoDJvLNstKn3l9elWApgqOnhqoLDjY=;
-        b=gDBuOxVmUalzeQzzlFVydn6wXAzbH93rPIdbLRPL/9OCncPGdM1FfyYx4rBSUMf9CD
-         RWKrMgeHLHmLxZCMbbp/t1lV7sPn+8U1jEKY+vSjYF6LjhofKSnwGDMAQRD1oF30daoC
-         0uxuG7GqgYbaJB7ih07p7m3UXSXFKzlQPPZF430NFfdmEt1q0rItRe8hEsz57FsXlzVH
-         +Vz2xzGJrKRChAhU9hL3i1hWRLbgA9lOA/0aLsqLYPtwGEFbQRor+jAeJd1l13D/orp2
-         mvNUtvxB80RTY7eGFUmRqPo8sXNIiIwddRq6AVKU+Lroj6LrX9x4Aqk5XuLvBYvMhTg4
-         B9OA==
+        d=gmail.com; s=20230601; t=1754323429; x=1754928229; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EuLKrEo/38TeccYm6/Zrtps7StZfzswaxcTtPYrzP+U=;
+        b=mCR2aj0fy51KLqhsavn9Z+r3KRruZKoAdc8LjgZu+113S20poQu+ng4al10g94ZbB1
+         JvQZAcEbs3BOS/Updv38XOLrz7h6O8Bg9MQuaaW3bUzJuKexe3l8VDhInGFLIQUCmLXS
+         ak/y7bULL464NZNwQDgy85cXEI7p+Ghju2qordPvdyosSL68NGmQdriUf4NYO5mk8iBN
+         A7TvrIihqvEauoMV3p7loyn56fWwELUyohvlRCTAlOvZ97v/dKt3aJWogm3v1W3txY64
+         iGaT+4F11Wh64raTdJtQRPN6nCNQFuTTjwBsgGHhU4/nGyqOoba/bI6RUTf7wiepH1MZ
+         3YWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754323215; x=1754928015;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=83y9HCM1NErNHhoDJvLNstKn3l9elWApgqOnhqoLDjY=;
-        b=WULYoSMUHsSz2XN5DxMgOcOZT+FyhrJsT+DUzhqTxkBhKURgrf+2XkMXbrnzulFK1z
-         0be2HpPYPAt7arLCnnT/YT721dxuHb9NHty+YQ4sFQ/PthPt3uw8qPc8U58dg/8nVYF2
-         AOXZ7/blmaVVvd38CC2oOsMycM2gYJ2Ms9zUg+8ogvOjcRCaIza+7bsx8723iP7ENMZj
-         kFbBbUIDAKobBPYEjBGK0gaIG70LlOBnyaH6ItoJdnTHIay62yJMp3Rir1Tpa9ScSZCC
-         M6mpVVJUqZ6/P7CsuWwte29jkD392bMZ1d6LaiKhqLzD+zKTelWP8DIHaTTOkBBvxnLB
-         /4Eg==
-X-Forwarded-Encrypted: i=1; AJvYcCVD3BadNrj55vr3vUz6XUR6LmNQj8hL9zpvMj/GAc/FJXKhj/rUWC12J+CCfYYfEXMWEAyazwzqB5ggLgoHYxZ8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxv1iI0dh0p8/v/ubhQwYQe0/SizFpEoexXAa2sTAyDkm4fHK0h
-	Km+HelkdGBhCe3zXCRpab7PVaUYrlbd9H5XzO50ziL0mQ1pipCnozmt9ikCDOMVO/tY=
-X-Gm-Gg: ASbGncsbdFiYvJlVB3fUWziAV8b2jSxpThSo1ggZRiAmgSswRBvtTTmaJUFvRWjM8R+
-	PW8Yef+k3aYrUlTjDLoWty76gk02w37nuu91pdffTI2IHNM/aZ8BEPTjAipmr+8p1x4CiDYjhDS
-	uiFrXe3UPsn/X3gxTgnyI/WfnDUxVe70m7K33jB9257dI/wM2yK5k3GbEZDyngSnrmLtPeOwmf4
-	v8VPlxysJ7rYumCQggGeisqTwVYu0M1XFJ8yEX95wM8pOPjWAkjHvhEY+f4Y2wJKapMf1iU8d4c
-	xQX+aC1bRzuIYRgumktP9TaeCb0ldTSZQyYqO114ptPmr7T6hbzvmsm/YkUG+2kw7f0U+U6VTha
-	mtuv/omIJ4wnG15Rjc3rtaPmkHsN4ca2SRPiIiw==
-X-Google-Smtp-Source: AGHT+IEauvx9FJ2JC6u71NHBH4w0cTSo3NvU8GY9XFshSKS1MeESuBlXTRuD0jWRGjF7fGT+6taYMQ==
-X-Received: by 2002:a05:6000:188f:b0:3b7:81a6:45c1 with SMTP id ffacd0b85a97d-3b8d946afacmr6958510f8f.6.1754323214722;
-        Mon, 04 Aug 2025 09:00:14 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b8e9464f46sm1848019f8f.19.2025.08.04.09.00.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Aug 2025 09:00:14 -0700 (PDT)
-Message-ID: <a492ccbf-6442-44dc-82c8-d2c8b1d5c56b@linaro.org>
-Date: Mon, 4 Aug 2025 17:00:13 +0100
+        d=1e100.net; s=20230601; t=1754323429; x=1754928229;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EuLKrEo/38TeccYm6/Zrtps7StZfzswaxcTtPYrzP+U=;
+        b=SBWbryki9QaHJOwZPnW7I6Xh4pCkkUVEfop53aIk/LiMCO8RQSyZcoAeF5R9rp2PIg
+         OqWStKARvlBoBM8451a4w9m7Y2Yv+K8SJ6lKP0t3zeCbn3ESQQUzXdVPjzYYiRfDWZC1
+         qjzojAS2qHy1qSM55JpOa+uM6EiIdlkARSn+SfpIrZEL9F9L9HGlceH6NNnjOs3olkSr
+         pUeD1JUK6ofg/M2zHtdJRkUU8eMJBhTVyP4SUXqAV2ouiCXxGrETCwP5IeiY34pUq8fZ
+         gYqj43dCxkij97fv2assYTngmNEWtl+HMW31lsvxLosFjfx3zu71OaOWpM8Y4EZOfeOL
+         zx+w==
+X-Forwarded-Encrypted: i=1; AJvYcCWpPgbB+RCtNVVbmOne8d2+Pr38glJDJtEoJ2S92byQXf7RhU26QGB3hTwWURS0B395rv/uaxWfM7HPkZV1ujdY@lists.infradead.org, AJvYcCXWSphOvOFADxoS/jtfEL0v6Wev1PlN4PBuSGdGkedRbzYrrGFdP3BsqlTVnFOqsai7yDC0sdMRkpYVGCR+OtI=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQrt1Zk2Ep9RugyljA7rbm+gcP4JnaWyBy2svSogU3v6QFJNqX
+	AI3cJNzrzW1YgIRisjlxJt2umkmQUBvmLCCIH3QtI6pH/G78ugORPtXv
+X-Gm-Gg: ASbGncsuna90lWI+sGhjgmIrE3bv4wWIi5w2z0D+oppnuloqEmjTYWUDiuN+Nawv/dh
+	7bklRDWfECcSfH0QZMpQrvcNwf288qboMIXH6glMaj4s3/eqB6M/B7gAX4Lj6eOLzXUX4BATXoK
+	aLnWyEYSx1gEHSRRBxOksTrhcrcztKli2LtckslC387JzlIDvLkn7tcb/cJpOaySMfbtuPnQoai
+	8N/jLvNyXO/TvTTeNNDInlP9hOmlEANkaNGo+jbhhncUrSBLHHX/vcrg+pDKHvfnmTBjei01Cea
+	BDyMcbR4GB6SmOpnlcKD/GFLuyVwRfUJ1rxVrJMm/Tb8X6NNNzTEF9PML3lkWPqn+oSylIC0Mfp
+	SN03oVpo3SdXbQKTLM+H9MpOJ6DfN35vbtIo6GI35vsYBxfIcnULnfwcIbuNWxsWXOI+/AuPbSj
+	8rNNiYIOUwHcZwTGueCzA5xVIgiYfgiMcu/THJT1ymS73ON7ijFuY3cGzjkA==
+X-Google-Smtp-Source: AGHT+IFpFHly+Ozf0EOVxfTWjc4+nDDGQgtb7fAKJmSeMzRkWUAP4gN7GeK0k4+gfh2wEmGHwbVPbg==
+X-Received: by 2002:a17:902:cecd:b0:240:2281:bd0e with SMTP id d9443c01a7336-24246f2d317mr137834605ad.2.1754323428265;
+        Mon, 04 Aug 2025 09:03:48 -0700 (PDT)
+Received: from localhost.localdomain (2001-b011-7005-5e00-dd65-4c2e-14df-36e2.dynamic-ip6.hinet.net. [2001:b011:7005:5e00:dd65:4c2e:14df:36e2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241e899adc3sm113990615ad.118.2025.08.04.09.03.44
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 04 Aug 2025 09:03:47 -0700 (PDT)
+From: Haru Zheng <towwy321@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Markus Schneider-Pargmann <msp@baylibre.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Guillaume Ranquet <granquet@baylibre.com>
+Cc: Bo-Chen Chen <rex-bc.chen@mediatek.com>,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Haru Zheng <towwy321@gmail.com>
+Subject: [PATCH v2] drm/mediatek: dp: Fix suspend/resume training failure
+Date: Tue,  5 Aug 2025 00:03:36 +0800
+Message-Id: <20250804160336.7615-1-towwy321@gmail.com>
+X-Mailer: git-send-email 2.23.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] perf: arm_spe: Add support for SPE VM interface
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anshuman Khandual <Anshuman.Khandual@arm.com>,
- Rob Herring <Rob.Herring@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
- Robin Murphy <Robin.Murphy@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <aIzA632hiAldjJQQ@raptor>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <aIzA632hiAldjJQQ@raptor>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_090017_183016_086DB0CE 
-X-CRM114-Status: GOOD (  50.70  )
+X-CRM114-CacheID: sfid-20250804_090349_886695_395B4D22 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,126 +107,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When suspending and resuming DisplayPort via Type-C,
+link training will be fail.
 
+This patch backports the software IRQ handling for DP,
+as eDP uses hardware IRQ while DP uses software IRQ.
+Additionally, cable_plugged_in is flipped in
+mtk_dp_hpd_event to ensure correct hotplug detection
+during resume.
 
-On 01/08/2025 2:28 pm, Alexandru Elisei wrote:
-> Hi,
-> 
-> On Tue, Jul 01, 2025 at 04:31:56PM +0100, James Clark wrote:
->> SPE can be used from within a guest as long as the driver adheres to the
->> new VM interface spec [1]. Because the driver should behave correctly
->> whether it's running in a guest or not, the first patches are marked as
->> a fix. Furthermore, in future versions of the architecture the PE will
->> be allowed to behave in the same way.
->>
->> The last patch adds new behavior to make it easier for guests to be
->> able to reserve large buffers. It's not strictly necessary, so it's not
->> marked as a fix.
-> 
-> I had a look at the patches, and they all look ok to me, so for the series:
-> 
-> Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> 
-> I also tested the series by hacking SPE virtualization support in KVM:
-> 
-> - without these changes, the SPE driver gets into an infinite loop because it
->    clears PMBSR_EL1.S before clearing PMBLIMITR_EL.E, and the hypervisor is
->    allowed to ignore the write to PMBSR_EL1.
-> 
-> - with these changes, that doesn't happen.
-> 
-> - ran perf for about a day in a loop in a virtual machine and didn't notice
->    anything out of the ordinary.
-> 
-> - ran perf for about a day in a loop on baremetal and similary everything looked
->    alright.
-> 
-> - checked that the SPE driver correctly decodes the maximum buffer size for
->    sizes 4M, 2M (2M is right at the boundary between the two encoding schemes)
->    and 1M; that's also correctly reflected in
->    /sys/devices/platform/<spe>/arm_spe_0/caps/max_buffer_size.
-> 
-> - checked that perf is not allowed to use a buffer larger than the maximum.
-> 
-> - checked that the SPE driver correctly detects a buffer size management event.
-> 
-> So:
-> 
-> Tested-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> 
-> While testing I noticed two things:
-> 
-> 1. When perf tries to use a buffer larger than the maximum, the error is EINVAL
-> (22):
-> 
-> # cat /sys/devices/platform/spe/arm_spe_0/caps/max_buff_size
-> 4194304
-> # perf record -ae arm_spe// -m,16M -- sleep 10
-> failed to mmap with 22 (Invalid argument)
-> 
-> (used 16M as the buffer size because what the driver ends up programming is half
-> that).
-> 
-> I would have expected to get back ENOMEM (12), that seems less ambiguous to me.
-> I had to hack the driver to print an error message to dmesg when the max buffer
-> size is exceed to make sure that's why I was seeing the error message in perf,
-> and it wasn't because of something else. I get that that's because .setup_aux()
-> can only return NULL on error, but feels like there's room for improvement here.
-> 
+These changes fix the DP training failure after suspend/resume.
 
-We could add an error code, rb_alloc_aux() already returns one and that 
-calls setup_aux(). But the scenarios would be either EINVAL or ENOMEM 
-and wouldn't give the user the exact reason ("need > 2 pages", "need 
-even number of pages", etc). So I'm not sure it would be enough of an 
-improvement over returning NULL to be worth it.
+Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
+Signed-off-by: Haru Zheng <towwy321@gmail.com>
 
-However I will add a warning into Perf if the user asks for more than 
-caps/max_buffer_size. That would be a useful message and Perf can do it 
-itself so it doesn't need to be in the driver changes.
+---
 
-> 2. A hypervisor is allowed to inject a buffer size event even though the buffer
-> set by the guest is smaller than the maximum advertised. For example, this can
-> happen if there isn't enough memory to pin the buffer, or if the limit on pinned
-> memory is exceeded in the hypervisor (implementation specific behaviour, not
-> mandated in DEN0154, of course).
-> 
-> In this situation, when the SPE driver gets a buffer size management event
-> injected by the hypervisor, there is no way for the driver to communicate it to
-> the perf instance, and the profiled process continues executing even though
-> profiling has stopped.
-> 
-> That's not different from what happens today with buffer management events, but
-> unlike the other events, which aren't under the control of userspace, the buffer
-> size event is potentially recoverable if userspace restarts perf with a smaller
-> buffer.
-> 
-> Do you think there's something that can be done to improve this situation?
-> 
-> Thanks,
-> Alex
-> 
+Changes since v1:
+- Fixed indentation to use tabs
+- Simplified swirq_enable() logic with ternary
+- Removed unnecessary memset()
+- Replaced dev_info() with dev_dbg()
+- Add mtk_dp_bridge_hpd_notify() declaration to struct drm_bridge_funcs mtk_dp_bridge_funcs
+- Removed IRQ enable from probe() to avoid enabling IRQ for eDP
+- Corrected HW/SW IRQ logic:
+  * eDP uses hardware IRQ, DP uses software IRQ
+  * Previously some logic was reversed causing issues
+- Fixed hotplug detection logic in mtk_dp_hpd_event:
+  * cable_plugged_in flag inverted to ensure correct detection on resume
 
-It doesn't look like there's currently anything that can stop an event 
-or signal to Perf that the event has gone bad.
+Code flow:
+- On suspend, DP disables training and IRQs accordingly.
+- On resume, IRQs for DP are re-enabled via software IRQ handler.
+- HPD events are processed with correct plug/unplug state, ensuring training succeeds.
 
-We could add something like "__u32 error" to struct 
-perf_event_mmap_page. But I'm not sure what you'd do with it. If Perf is 
-the parent of the process you wouldn't want to kill it in case anything 
-bad happens. So you're left with leaving it running anyway. If it's just 
-an error message that you want then there's already one in dmesg for 
-buffer management errors, and that string is a lot better than a single 
-code. Unless these new codes were detailed PMU specific ones? Actually 
-it's a whole page so why not make it a string...
+---
+ drivers/gpu/drm/mediatek/mtk_dp.c     | 94 ++++++++++++++++++++++++---
+ drivers/gpu/drm/mediatek/mtk_dp_reg.h |  3 +
+ 2 files changed, 87 insertions(+), 10 deletions(-)
 
-It's not a case of the samples ending randomly somewhere though, you'll 
-either get all of them or none of them. So it will be quite obvious to 
-the user that something has gone wrong. Secondly I think the scenario of 
-not being able to pin memory when asking for less than the limit would 
-be very rare. It's probably fine to leave it like this for now and we 
-can always add something later, maybe if people start to run into it for 
-real.
-
-James
-
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
+index bef6eeb30d3e..b0f96c7c279e 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp.c
++++ b/drivers/gpu/drm/mediatek/mtk_dp.c
+@@ -1012,6 +1012,12 @@ static u32 mtk_dp_swirq_get_clear(struct mtk_dp *mtk_dp)
+ 	return irq_status;
+ }
+ 
++static void mtk_dp_swirq_enable(struct mtk_dp *mtk_dp, bool enable)
++{
++	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C4, enable ? 0 : 0xFFFF,
++			   SW_IRQ_FINAL_STATUS_DP_TRANS_P0_MASK);
++}
++
+ static u32 mtk_dp_hwirq_get_clear(struct mtk_dp *mtk_dp)
+ {
+ 	u32 irq_status = (mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3418) &
+@@ -2031,8 +2037,8 @@ static irqreturn_t mtk_dp_hpd_event(int hpd, void *dev)
+ 	spin_unlock_irqrestore(&mtk_dp->irq_thread_lock, flags);
+ 
+ 	if (cable_sta_chg) {
+-		if (!!(mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414) &
+-		       HPD_DB_DP_TRANS_P0_MASK))
++		if (!(mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414) &
++		      HPD_DB_DP_TRANS_P0_MASK))
+ 			mtk_dp->train_info.cable_plugged_in = true;
+ 		else
+ 			mtk_dp->train_info.cable_plugged_in = false;
+@@ -2252,7 +2258,7 @@ static ssize_t mtk_dp_aux_transfer(struct drm_dp_aux *mtk_aux,
+ 					     to_access, &msg->reply);
+ 
+ 		if (ret) {
+-			dev_info(mtk_dp->dev,
++			dev_dbg(mtk_dp->dev,
+ 				 "Failed to do AUX transfer: %d\n", ret);
+ 			goto err;
+ 		}
+@@ -2265,6 +2271,35 @@ static ssize_t mtk_dp_aux_transfer(struct drm_dp_aux *mtk_aux,
+ 	return ret;
+ }
+ 
++static void mtk_dp_swirq_hpd(struct mtk_dp *mtk_dp, u8 conn)
++{
++	u32 data;
++
++	data = mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3414);
++
++	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
++			   HPD_OVR_EN_DP_TRANS_P0_MASK,
++			   HPD_OVR_EN_DP_TRANS_P0_MASK);
++
++	if (conn)
++		mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
++				   HPD_SET_DP_TRANS_P0_MASK,
++				   HPD_SET_DP_TRANS_P0_MASK);
++	else
++		mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
++				   0,
++				   HPD_SET_DP_TRANS_P0_MASK);
++}
++
++static void mtk_dp_swirq_hpd_interrupt_set(struct mtk_dp *mtk_dp, u8 status)
++{
++	dev_dbg(mtk_dp->dev, "[DPTX] status:%d [2:DISCONNECT, 4:CONNECT]\n", status);
++
++	mtk_dp_swirq_hpd(mtk_dp, status == MTK_DP_HPD_CONNECT ? TRUE : FALSE);
++	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C0, status,
++			   SW_IRQ_SET_DP_TRANS_P0_MASK);
++}
++
+ static int mtk_dp_poweron(struct mtk_dp *mtk_dp)
+ {
+ 	int ret;
+@@ -2326,7 +2361,13 @@ static int mtk_dp_bridge_attach(struct drm_bridge *bridge,
+ 	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
+ 		irq_clear_status_flags(mtk_dp->irq, IRQ_NOAUTOEN);
+ 		enable_irq(mtk_dp->irq);
++		/* eDP does use HW IRQs */
+ 		mtk_dp_hwirq_enable(mtk_dp, true);
++		mtk_dp_swirq_enable(mtk_dp, false);
++	} else {
++		/* DP does use SW IRQs */
++		mtk_dp_hwirq_enable(mtk_dp, false);
++		mtk_dp_swirq_enable(mtk_dp, true);
+ 	}
+ 
+ 	return 0;
+@@ -2534,7 +2575,7 @@ static int mtk_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 
+ 	dev_dbg(mtk_dp->dev, "input format 0x%04x, output format 0x%04x\n",
+ 		bridge_state->input_bus_cfg.format,
+-		 bridge_state->output_bus_cfg.format);
++		bridge_state->output_bus_cfg.format);
+ 
+ 	if (input_bus_format == MEDIA_BUS_FMT_YUYV8_1X16)
+ 		mtk_dp->info.format = DP_PIXELFORMAT_YUV422;
+@@ -2552,6 +2593,30 @@ static int mtk_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 	return 0;
+ }
+ 
++static void mtk_dp_bridge_hpd_notify(struct drm_bridge *bridge,
++				     enum drm_connector_status status)
++{
++	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
++	struct mtk_dp_train_info *train_info = &mtk_dp->train_info;
++
++	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
++		if (mtk_dp->hpd_state != status) {
++			if (status == connector_status_disconnected) {
++				train_info->cable_plugged_in = false;
++			} else {
++				mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
++						   HPD_OVR_EN_DP_TRANS_P0_MASK,
++						   HPD_OVR_EN_DP_TRANS_P0_MASK);
++				mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
++						   HPD_SET_DP_TRANS_P0_MASK,
++						   HPD_SET_DP_TRANS_P0_MASK);
++				train_info->cable_plugged_in = true;
++			}
++			mtk_dp->hpd_state = status;
++		}
++	}
++}
++
+ static const struct drm_bridge_funcs mtk_dp_bridge_funcs = {
+ 	.atomic_check = mtk_dp_bridge_atomic_check,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+@@ -2566,6 +2631,7 @@ static const struct drm_bridge_funcs mtk_dp_bridge_funcs = {
+ 	.mode_valid = mtk_dp_bridge_mode_valid,
+ 	.edid_read = mtk_dp_edid_read,
+ 	.detect = mtk_dp_bdg_detect,
++	.hpd_notify = mtk_dp_bridge_hpd_notify,
+ };
+ 
+ static void mtk_dp_debounce_timer(struct timer_list *t)
+@@ -2800,9 +2866,6 @@ static int mtk_dp_probe(struct platform_device *pdev)
+ 		mtk_dp_initialize_aux_settings(mtk_dp);
+ 		mtk_dp_power_enable(mtk_dp);
+ 
+-		/* Disable HW interrupts: we don't need any for eDP */
+-		mtk_dp_hwirq_enable(mtk_dp, false);
+-
+ 		/*
+ 		 * Power on the AUX to allow reading the EDID from aux-bus:
+ 		 * please note that it is necessary to call power off in the
+@@ -2861,10 +2924,15 @@ static int mtk_dp_suspend(struct device *dev)
+ 	struct mtk_dp *mtk_dp = dev_get_drvdata(dev);
+ 
+ 	mtk_dp_power_disable(mtk_dp);
+-	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP)
++
++	if (mtk_dp->bridge.type == DRM_MODE_CONNECTOR_eDP) {
+ 		mtk_dp_hwirq_enable(mtk_dp, false);
+-	pm_runtime_put_sync(dev);
++	} else {
++		mtk_dp_swirq_hpd_interrupt_set(mtk_dp, MTK_DP_HPD_DISCONNECT);
++		mtk_dp_swirq_enable(mtk_dp, false);
++	}
+ 
++	pm_runtime_put_sync(dev);
+ 	return 0;
+ }
+ 
+@@ -2874,8 +2942,14 @@ static int mtk_dp_resume(struct device *dev)
+ 
+ 	pm_runtime_get_sync(dev);
+ 	mtk_dp_init_port(mtk_dp);
+-	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP)
++
++	if (mtk_dp->bridge.type == DRM_MODE_CONNECTOR_eDP) {
+ 		mtk_dp_hwirq_enable(mtk_dp, true);
++	} else {
++		mtk_dp_swirq_hpd_interrupt_set(mtk_dp, MTK_DP_HPD_CONNECT);
++		mtk_dp_swirq_enable(mtk_dp, true);
++	}
++
+ 	mtk_dp_power_enable(mtk_dp);
+ 
+ 	return 0;
+diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+index 8ad7a9cc259e..7c97e230be50 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
++++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
+@@ -286,7 +286,10 @@
+ #define POST_MISC_DATA_LANE1_OV_DP_TRANS_P0_MASK		BIT(9)
+ #define POST_MISC_DATA_LANE2_OV_DP_TRANS_P0_MASK		BIT(10)
+ #define POST_MISC_DATA_LANE3_OV_DP_TRANS_P0_MASK		BIT(11)
++#define MTK_DP_TRANS_P0_35C0				0x35c0
++#define MTK_DP_TRANS_P0_35C4				0x35c4
+ #define MTK_DP_TRANS_P0_35C8				0x35c8
++#define SW_IRQ_SET_DP_TRANS_P0_MASK				GENMASK(15, 0)
+ #define SW_IRQ_CLR_DP_TRANS_P0_MASK				GENMASK(15, 0)
+ #define SW_IRQ_STATUS_DP_TRANS_P0_MASK				GENMASK(15, 0)
+ #define MTK_DP_TRANS_P0_35D0				0x35d0
+-- 
+2.23.0
 
 
