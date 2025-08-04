@@ -4,95 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA47EC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB63C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bAWjHZ/+eTJm1jwjVg8zDX1kaYFqtNJEh4o/jh5S/U=; b=o0gXsHbOrTG0ziLAqD2+Z6Yf1V
-	0lD1bHNoJuHGxATa1JGnAurkMy+dHhnPlC2MMbUJnf89kS7wuMLkGHfIq2+hIXOV0BbS5tgZo096R
-	a22fkYU5tkmt3W2N0Sdle2O+Vw5pFw9Md57gQxCEOEMdttnbR+rhRoSzm+TTRQ+Mtz0Jqv/hZQSmX
-	D8dn9FmnizWLwUrS0CpDlX7X6RPIWduXWVpxU3tTdWwNtNaK8raQ24fzJhTTZZpQFC5tfBXb82Fo8
-	G6dnPEWoqdnuIBlX1mQWbc2+GOHNTzgFOZmkhD2P2+UjqF6uyj46QATgcImI3la6CE3ymcVEgVxzK
-	zLKF0GYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Swft9UILAtkQmCs4YgSGLeRiuZYqDElcjNWNFS7cu68=; b=JDcdgnb+rEZrZ7Ot4QYzMPxlZP
+	YUNlfVmrVLIxDtYOd+nvNwweTz6bsHRV1Oz/QhtPVA0NX5obZ3Z8M69inzB69zzYMrHig8vAnNbRA
+	YdUQcNUgLEXSt7lbo4VGBnP0eqT7SDoXzxYh5Ig0gCHLC5FgOmBDSlEMXrDTR1C/N1lMdmxi5Q4c+
+	yqmjcW/FqutKNG3FNNVewrbMwxpsXSJrwEwGQPNw8mCAb7dGdK9xp/bGhRE3WLz2nMdQ0M8d59PvR
+	5EInIiU6P9LRFqJpVZUeI3NJJFE3YR5Hz39SpQrfcMQsqv81bcM9uyc84kesMDWIQxGn1BB8np9M8
+	w09OgWrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivJQ-0000000AXsx-2S3u;
-	Mon, 04 Aug 2025 13:33:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uivLy-0000000AYNk-20dn;
+	Mon, 04 Aug 2025 13:35:50 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiuyc-0000000AVDR-3RPJ
+	id 1uiuz3-0000000AVGM-341A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 13:11:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E79CAA55937;
-	Mon,  4 Aug 2025 13:11:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A357C4CEE7;
-	Mon,  4 Aug 2025 13:11:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754313101;
-	bh=TR4IynGlqh3xuGAPqNvGejeGuOim0a/t/2+l2ojuG3M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FWnA14Zr+PO8Dc7S1vSMyr5HSOBsd3ONJedoyeUL31soQ4u+qdF5zlJ1L+KssxKyX
-	 LGYOymZPSgU8XUqapDrdI4ABN9R2cYEl/PQn019vZhYuOfz7cXmJIKIQaMZrOKifAT
-	 QKWf3bPnPaG275SPQkSHQfbIr5kEkAMeHnsjdSS+Q7dd3fzzEpGS3zEJ19xdhuUjDk
-	 v+Qukmu9YNkJJ8hujmpT3ASfyqbFY3ilbA7GbhcFcgKJh/bbCkUx9ZiryFzE1FzBS7
-	 X/hZIXq32mN7o9PtTTdeSuSKeoA/6QTgn4e2nvO12g1nU5CsZTv1QgKffDNJZYMjcu
-	 Kq9udbFUKHq/g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uiuyY-003oWR-Ss;
-	Mon, 04 Aug 2025 14:11:39 +0100
-Date: Mon, 04 Aug 2025 14:11:38 +0100
-Message-ID: <86pldb6xkl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	anshuman.khandual@arm.com,
-	robh@kernel.org,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	ry111@xry111.site,
-	Dave.Martin@arm.com,
-	ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com,
-	mbenes@suse.cz,
-	james.clark@linaro.org,
-	frederic@kernel.org,
-	rafael@kernel.org,
-	pavel@kernel.org,
-	ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 10/11] KVM: arm64: nv: support SCTLR2_ELx on nv
-In-Reply-To: <20250804121724.3681531-11-yeoreum.yun@arm.com>
-References: <20250804121724.3681531-1-yeoreum.yun@arm.com>
-	<20250804121724.3681531-11-yeoreum.yun@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 04 Aug 2025 13:12:10 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ae35f36da9dso827292966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 06:12:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754313128; x=1754917928; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Swft9UILAtkQmCs4YgSGLeRiuZYqDElcjNWNFS7cu68=;
+        b=CgSCvC/QOKROHsb0OdvFSVbPOzWvBGM2inlTwc4/ljdAOBNHe2aYLH0tyC0nV1+xVS
+         IM96dqB4WphUT4xkfxTVcaqmYlQlTxz2iLzMrW3A34v+cbafLf9/knqXc9gudHi6PDsZ
+         CZePlGyXoDhggjM6JyO8GifM5gQMHqH74NK085rZVYNI/M/+Pj4ea06HqQDN1N5pjLEt
+         qiMMRBYPKV8YwhyZz9PjAdXda1ywj3ghWzf/qYPZzoUaG87iTf7gamKQlKwX0zj1QNhR
+         rUQatvYO7DcXoukA5n0/v4qKifbFJPt8Et6W+tUTAUMMTD07c1HiE7v34zy9XSTGmXEU
+         o5/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754313128; x=1754917928;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Swft9UILAtkQmCs4YgSGLeRiuZYqDElcjNWNFS7cu68=;
+        b=Kg4YsJwXCvtCxQzgDvfAhKRaFNySXU2QQVBuBH3pyxc15etGptGbhPiJYPpqrmIbfY
+         ycqDL3TmzguoWMmiqIfVBCfFfEdvWRUR68Jb+dVwoNfkpXX+eOou5AFjvn/j8iqgrk+o
+         MIjtsirjwCSekRn4guWHVnaQTwkD7xjEnsOl0yDCE8TGveBzSuc/IMgdgUooPZkF8zns
+         7lADthwO3gN7vauIQ316gWOW4UndmwxKAhbePmVnEOmC7yil0x/qNAJzpU/XdDmPJoEm
+         ZMiIarZ6yrZMj0oKlGNYlymxwqB1vpREa8HqfO7ad8J0UqqBBrvOjjjNBa99xmfRiT6+
+         ujmA==
+X-Forwarded-Encrypted: i=1; AJvYcCVmIzp9FwWAPwjm6enlwozTV3Yrns9pF1chlQzfvblEGa8gJZCbGt+34ZpK2kw5obMnHwDzA+fWQVjrpD6cjvPM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2ekgCXMz3RQMiZdD8jYJlww/Aou+js8u6L5/fQAIdVP+/OWiP
+	BKKc+1E74/WdLXPQ2LM3x0tjmfexXATKKh0/Nma1rNGLL2KIjTkOw1mqHsC0MEJwx39hkCRWKi0
+	uKJ130a41sCLNUrw3zWZt3kFBzfnAwog=
+X-Gm-Gg: ASbGncsK48GzVOhyZbej76Ye8G+fHNrjkthttLIQgJR92xYFooHtBL2yhOuE1rDJtEG
+	iNbicgZVeomQPXMJBzonujNT5JJ2wxItid/EjSkisdmnmQQAzK4LMG1leYvGxQmNodCB2Dw542S
+	hdZytISDaWm929Sf/QG7icsad5n5vvXdTo5WqxIyIUoNxhqzRA8hStNQ2L61XEzQAyP+8M8iHWS
+	rdoUUUmPA==
+X-Google-Smtp-Source: AGHT+IEHpdX2IDILP+rJpjx07e9XErIuO8k7iC1fwdeX+yStcAEloVb0r8iAfKXkonrvAZ/UiYSW7MHTXgCOPTKvHw8=
+X-Received: by 2002:a17:907:2da5:b0:af9:341b:7fd7 with SMTP id
+ a640c23a62f3a-af940230215mr810789666b.49.1754313127995; Mon, 04 Aug 2025
+ 06:12:07 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250804100219.63325-1-varshini.rajendran@microchip.com> <20250804100219.63325-5-varshini.rajendran@microchip.com>
+In-Reply-To: <20250804100219.63325-5-varshini.rajendran@microchip.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 4 Aug 2025 15:11:31 +0200
+X-Gm-Features: Ac12FXw0lMHcmKSaxDiokDDn22qbztJNg7JO29s19Gyej8dLjMMZT64fvF00ezs
+Message-ID: <CAHp75VesaDaMNpfdtxg_LSqjRL28YNKNFOBkCcdkF8B6Mp2J7Q@mail.gmail.com>
+Subject: Re: [PATCH 04/15] iio: adc: at91-sama5d2_adc: update calibration
+ index, validation condition
+To: Varshini Rajendran <varshini.rajendran@microchip.com>
+Cc: eugen.hristev@linaro.org, jic23@kernel.org, dlechner@baylibre.com, 
+	nuno.sa@analog.com, andy@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, nicolas.ferre@microchip.com, 
+	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, srini@kernel.org, 
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_061142_994100_D5797548 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20250804_061209_770383_881B8415 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,49 +100,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 Aug 2025 13:17:23 +0100,
-Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+On Mon, Aug 4, 2025 at 12:03=E2=80=AFPM Varshini Rajendran
+<varshini.rajendran@microchip.com> wrote:
+>
+> Add additional condition for validating the calibration data read from
+> the OTP through nvmem device interface. Adjust the calibration indexes
+> of sama7g5 according to the buffer received from the OTP memory.
 
-[...]
 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index dc1d26559bfa..a4d3b2d2fd80 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1704,6 +1704,19 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
->  			 TCR2_EL2_AMEC1 | TCR2_EL2_DisCH0 | TCR2_EL2_DisCH1);
->  	set_sysreg_masks(kvm, TCR2_EL2, res0, res1);
-> 
-> +	/*
-> +	 * SCTLR2_EL2 - until explicit support for each feature, set all as RES0.
-> +	 */
-> +	res0 = SCTLR2_EL2_RES0 | SCTLR2_EL2_EMEC;
-> +	res0 |= SCTLR2_EL2_EASE;
-> +	res0 |= SCTLR2_EL2_NMEA;
-> +	res0 |= (SCTLR2_EL2_EnADERR | SCTLR2_EL2_EnANERR);
-> +	res0 |= SCTLR2_EL2_EnIDCP128;
-> +	res0 |= (SCTLR2_EL2_CPTA | SCTLR2_EL2_CPTA0 |
-> +		 SCTLR2_EL2_CPTM | SCTLR2_EL2_CPTM0);
-> +	res1 = SCTLR2_EL2_RES1;
-> +	set_sysreg_masks(kvm, SCTLR2_EL2, res0, res1);
+> +/*
+> + * The calibration data has a TAG to recognize the packet
+> + * The tag has a constant value "ACST" with the ASCII
+> + * equivalent 0x41435354. This is used to validate the
+> + * calibration data obtained from the OTP.
+> + */
+> +#define AT91_TEMP_CALIB_TAG    0x41435354
 
-This patch is obsolete, but I'd like to point out that this is not the
-way we describe these things. Each bit of the register needs to be
-tracked against the feature it is part of, and not blindly added to
-the RES0 set. See
+Just add the ASCII representation into the definition name.
 
-https://lore.kernel.org/all/20250708172532.1699409-15-oliver.upton@linux.dev/
+For example,
 
-for the equivalent change.
+AT91_TAG_ACST
 
-You should *NEVER* describe a functional bit as RESx without
-considering whether the feature is exposed to the guest, irrespective
-of what the kernel supports.
+or
 
-Thanks,
+AT91_CALIB_TAG_ACST
 
-	M.
+or choose the better one, but with an ACST token in it.
 
--- 
-Without deviation from the norm, progress is not possible.
+...
+
+>  enum at91_adc_ts_clb_idx {
+> -       AT91_ADC_TS_CLB_IDX_P1 =3D 2,
+> -       AT91_ADC_TS_CLB_IDX_P4 =3D 5,
+> -       AT91_ADC_TS_CLB_IDX_P6 =3D 7,
+> -       AT91_ADC_TS_CLB_IDX_MAX =3D 19,
+> +       AT91_ADC_TS_CLB_IDX_P1 =3D 1,
+> +       AT91_ADC_TS_CLB_IDX_P4 =3D 4,
+> +       AT91_ADC_TS_CLB_IDX_P6 =3D 6,
+> +       AT91_ADC_TS_CLB_IDX_MAX =3D 18,
+
+This MAX naming with the trailing comma is odd. Either remove MAX, or
+remove trailing comma, or explain why moving from 19 to 18 has no side
+effects here.
+
+>  };
+
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
