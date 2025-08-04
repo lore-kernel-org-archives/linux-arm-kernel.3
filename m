@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F63C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DDBC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1RbMsOViwveRCYkE4QBif5f+VJEJqCwBELRRpJ5wszA=; b=f4E54hWMvsQR/tQGdz8c6kqexr
-	luzr+mpa+EONaSaYj/PyLxTi+F288Er1FpXB+iELHPL8BoBDd8ETgj/AtCJ6qHrJ7/h6T/Y6fHcNS
-	0WBKhRqhdl5N3IuN9fywVGBAAN4TKsoDTW+Mpk4VFaj4CLJGkq83YcKJFI00sQZ/6VoI3lS3GoMV6
-	sxZ5MBZzPmz3cIROk/102pHK/ngQewSHtEyv/1zPVSvb2TodBCSvDH3WPxa36C450usSp9MzKVNEq
-	+hViBmGvFOJ9BWLWl3b02m4vhd0f8ZoewaSV8fVfWRSK3XbtbRxdpirFIaVDbmXEcbh/pgPNbZAJK
-	bBFD1JzQ==;
+	bh=iZ521Stz+Up5mgvMvg3s7RqhbHnNd/nrGhr76yRoN94=; b=ttKrpVXg3MeMYLVG9XiDrH9i1H
+	Kb5ZBNtEN52RpW1kuWXCcWWTX5pu29D8rNR3hximks7gaIlNd7gdNLEdoJ5s3LKTtj1W1MmL8n3Vd
+	6lCIjnA01yEGOfeK7QZ6g/Mk4o2UAlqxQVK1uF2WCDdEe8NLR0M22anjs15D5F2Wfv6IYnwufwlo9
+	nRl36yMNlP+AHVtoz3aJGUtvL1DF8mLXK4Qhercm3JDMn/c8hSbRN3jwxVG0+jTcWRi5sS2ubP/4a
+	GgaTlXDKHVyNBfD3pUxXUkz+dYb4hf3R5BRBOP2Ba0wITJcCijQnqYyuTHwop70yJCGOJYqcT/MK6
+	FKg4+efw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijHe-00000009MmQ-3zOE;
-	Mon, 04 Aug 2025 00:42:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uijK7-00000009N10-39zv;
+	Mon, 04 Aug 2025 00:45:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij2q-00000009Ky6-3Qj6
+	id 1uij2w-00000009Kzp-3KPT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:27:18 +0000
+	Mon, 04 Aug 2025 00:27:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 25946A54EF2;
-	Mon,  4 Aug 2025 00:27:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 595CBC4CEEB;
-	Mon,  4 Aug 2025 00:27:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4A3645C4967;
+	Mon,  4 Aug 2025 00:27:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72B56C4CEF0;
+	Mon,  4 Aug 2025 00:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267235;
-	bh=bfLHrI+KHBL420kB9LvWPzH5vg3kP5L2x0mod4WtyLQ=;
+	s=k20201202; t=1754267242;
+	bh=/VnKxqTsZUjp0oPsOCnFP3YENWBFTjPtLvT3Noo6Qqk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vCz1pFdKep/vbP6kNZC4csa2RpxO1qUhal+fqT2nUH7aNloimtXucmSQWCGSgBHvV
-	 640qb9rLhASbiWJo2ni/MUw+FyPMSg3b1G66jgqA9RwMavyYtuxXso9W/rpVeHHoMv
-	 rKHTG0HWdM+WF3rMy4qo6uD+Ba2zVGb7Id3DhlUNV8J1UupPzve/WpJNxfGlQo0k/U
-	 /641xP96c5Sk4TLAeE/NJyGDyn2daHFG3sQhLSt/yGGVviKFJxBRkuJPsbCu8fs0Hv
-	 XK8OS5ry4GKpaMwvRNHYTVpvE7i2CDOSDuQDfhXi14Figrnls+JMqUvB+eLIVXVRld
-	 Lx8+mb5L9C2cg==
+	b=TWkiIXzUmxGhL/WAT/hghhJhdxv3hVKE9xgkSvpck+C2JDW77t6zWF/s35URWe2Ob
+	 mF4cqaZNyDMYrvpT9jwnLazpvbQhSppV+2LtPgMQBe5M5YkysMRoe2/xaiFONbafOT
+	 9x4xHNm5aQuaUrzQIXtNFZqz3C4inFgaL6mrWqgXek01JoPJdh+bEZ8Frw2PLHXLT4
+	 +Iavo1FZn7/w8xk5hAaUiO7/KBWrTA6lVz7nidMAGRVV2QIZF1gjx90FaufOaHvQLz
+	 mYdCxZx5t7JAVtlI97Hma1BS75z9NqK3LwYlnq98Y0Q7bLlsntq06aim9l26+9IZBF
+	 aqdBvimkQUgIQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: =?UTF-8?q?Krzysztof=20Ha=C5=82asa?= <khalasa@piap.pl>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
-	linux-usb@vger.kernel.org,
+	shawnguo@kernel.org,
+	peng.fan@nxp.com,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16 74/85] usb: dwc3: xilinx: add shutdown callback
-Date: Sun,  3 Aug 2025 20:23:23 -0400
-Message-Id: <20250804002335.3613254-74-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.16 76/85] imx8m-blk-ctrl: set ISI panic write hurry level
+Date: Sun,  3 Aug 2025 20:23:25 -0400
+Message-Id: <20250804002335.3613254-76-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804002335.3613254-1-sashal@kernel.org>
 References: <20250804002335.3613254-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.16
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_172716_985330_637AF174 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20250803_172722_911867_4368B587 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,112 +81,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+From: Krzysztof Hałasa <khalasa@piap.pl>
 
-[ Upstream commit 70627bf82e36e61c40c3315e1206e4ea4c02e668 ]
+[ Upstream commit c01fba0b4869cada5403fffff416cd1675dba078 ]
 
-Adds a shutdown callback to ensure that the XHCI stack is properly
-shutdown in reboot/shutdown path.
+Apparently, ISI needs cache settings similar to LCDIF.
+Otherwise we get artefacts in the image.
+Tested on i.MX8MP.
 
-In kexec flow, kernel_restart_prepare() performs actions necessary
-to prepare the system for a restart and invokes device_shutdown. To
-ensure proper shutdown attach the dwc3 shutdown implementation which
-mirrors the remove method.
-
-$ kexec -e
-
-<snip>
-xhci-hcd xhci-hcd.0.auto: remove, state 1
-usb usb1: USB disconnect, device number 1
-usb 1-1: USB disconnect, device number 6
-xhci-hcd xhci-hcd.0.auto: USB bus 1 deregistered
-kexec_core: Starting new kernel
-
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Link: https://lore.kernel.org/r/1748977771-714153-1-git-send-email-radhey.shyam.pandey@amd.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Krzysztof Hałasa <khalasa@piap.pl>
+Link: https://lore.kernel.org/r/m3ldr69lsw.fsf@t19.piap.pl
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
+Based on my analysis of the commit and the surrounding code:
+
 **Backport Status: YES**
 
-This commit should be backported to stable kernel trees. Here's my
-detailed analysis:
+This commit should be backported to stable kernel trees for the
+following reasons:
 
-## Analysis of the Commit
+1. **Fixes a real user-visible bug**: The commit fixes image artifacts
+   in the ISI (Image Sensor Interface) on i.MX8MP. This is a functional
+   bug that affects users of camera/image capture functionality.
 
-### 1. **Bug Fix Nature**
-This commit fixes a real bug where the USB XHCI stack is not properly
-shut down during kexec operations. The commit message explicitly shows
-the issue - when `kexec -e` is executed, the XHCI controller is removed
-but without a proper shutdown sequence, which can lead to:
-- Memory corruption if the controller continues DMA operations
-- System instability during kexec transitions
-- Potential crashes after kexec
+2. **Small and contained change**: The fix adds only 10 lines of code
+   that set ISI panic write hurry levels in the
+   `imx8mp_media_power_notifier` function. It's a minimal change
+   confined to the i.MX8MP media block controller.
 
-### 2. **Simple and Contained Fix**
-The code change is minimal and low-risk:
-```diff
-+       .shutdown       = dwc3_xlnx_remove,
-```
-It simply reuses the existing `dwc3_xlnx_remove` function as the
-shutdown callback. This is a common pattern in kernel drivers.
+3. **Follows established pattern**: The fix mirrors the existing LCDIF
+   panic read hurry level fix (commit 06a9a229b159) that was already
+   applied for display FIFO underflow issues. The ISI needs similar
+   cache settings to prevent artifacts.
 
-### 3. **Follows Established Pattern**
-My analysis shows this follows an established pattern in the dwc3 driver
-family:
-- `dwc3-of-simple.c` uses its remove function for shutdown
-- `dwc3-rtk.c` has a dedicated shutdown function that calls similar
-  cleanup
-- The recent Tegra XUSB commit (3a3be3a1ebf0) added a shutdown callback
-  for similar reasons (preventing SMMU-related crashes)
+4. **Hardware-specific fix**: The change only affects i.MX8MP hardware
+   and is guarded by the platform-specific power notifier function,
+   minimizing risk to other platforms.
 
-### 4. **Clear Side Effects**
-The `dwc3_xlnx_remove` function performs standard cleanup:
-- Depopulates child devices (`of_platform_depopulate`)
-- Disables and unprepares clocks
-- Manages runtime PM state
+5. **Clear problem and solution**: The commit message clearly states the
+   problem (image artifacts) and the solution (setting ISI panic write
+   hurry levels similar to LCDIF), making it a straightforward hardware
+   configuration fix.
 
-These are all safe operations for shutdown context.
+6. **No architectural changes**: This is purely a hardware register
+   configuration change during power-on sequences, not introducing new
+   features or changing kernel architecture.
 
-### 5. **Meets Stable Criteria**
-- **Fixes a real bug**: Prevents potential system instability during
-  kexec
-- **Small change**: Single line addition
-- **Low risk**: Reuses existing, tested code path
-- **No new features**: Pure bug fix
-- **Clear benefit**: Improves system reliability during reboot/kexec
-  operations
+The fix addresses a hardware-specific issue where the ISI (Image Sensor
+Interface) needs proper cache/priority settings to avoid image
+artifacts, similar to how the LCDIF (display interface) needs such
+settings to avoid display FIFO underflow. This is an important fix for
+anyone using camera functionality on i.MX8MP platforms.
 
-### 6. **Similar Issues in Other Drivers**
-The pattern of missing shutdown callbacks causing issues during
-kexec/reboot is well-documented in the kernel, particularly for devices
-that perform DMA operations.
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-The fix ensures proper hardware shutdown sequence during system
-reboot/shutdown, preventing the USB controller from accessing memory
-after the system has started transitioning to a new kernel or shutting
-down. This is especially important for systems using kexec for fast
-reboots or crash dump collection.
-
- drivers/usb/dwc3/dwc3-xilinx.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index 4ca7f6240d07..09c3c5c226ab 100644
---- a/drivers/usb/dwc3/dwc3-xilinx.c
-+++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -422,6 +422,7 @@ static const struct dev_pm_ops dwc3_xlnx_dev_pm_ops = {
- static struct platform_driver dwc3_xlnx_driver = {
- 	.probe		= dwc3_xlnx_probe,
- 	.remove		= dwc3_xlnx_remove,
-+	.shutdown	= dwc3_xlnx_remove,
- 	.driver		= {
- 		.name		= "dwc3-xilinx",
- 		.of_match_table	= dwc3_xlnx_of_match,
+diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+index 912802b5215b..5c83e5599f1e 100644
+--- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+@@ -665,6 +665,11 @@ static const struct imx8m_blk_ctrl_data imx8mn_disp_blk_ctl_dev_data = {
+ #define  LCDIF_1_RD_HURRY	GENMASK(15, 13)
+ #define  LCDIF_0_RD_HURRY	GENMASK(12, 10)
+ 
++#define ISI_CACHE_CTRL		0x50
++#define  ISI_V_WR_HURRY		GENMASK(28, 26)
++#define  ISI_U_WR_HURRY		GENMASK(25, 23)
++#define  ISI_Y_WR_HURRY		GENMASK(22, 20)
++
+ static int imx8mp_media_power_notifier(struct notifier_block *nb,
+ 				unsigned long action, void *data)
+ {
+@@ -694,6 +699,11 @@ static int imx8mp_media_power_notifier(struct notifier_block *nb,
+ 		regmap_set_bits(bc->regmap, LCDIF_ARCACHE_CTRL,
+ 				FIELD_PREP(LCDIF_1_RD_HURRY, 7) |
+ 				FIELD_PREP(LCDIF_0_RD_HURRY, 7));
++		/* Same here for ISI */
++		regmap_set_bits(bc->regmap, ISI_CACHE_CTRL,
++				FIELD_PREP(ISI_V_WR_HURRY, 7) |
++				FIELD_PREP(ISI_U_WR_HURRY, 7) |
++				FIELD_PREP(ISI_Y_WR_HURRY, 7));
+ 	}
+ 
+ 	return NOTIFY_OK;
 -- 
 2.39.5
 
