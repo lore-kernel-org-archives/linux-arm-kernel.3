@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C233C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 08:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C72C8C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 08:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/2bdOzQBD6OE3B8HPukuQQHvzhr/VcrWFjg7cYUY6A=; b=pKZWp5CnJNK1JZ12f2Ri0W82HD
-	UwkUT61TdKNVE4AxUWfKATYOArWI+YNX2q0/pq2N/GYqhVmCInh6+yKobJChypoiEZeQ8dHTCzgC5
-	7mG2snM8+2OSyJbC8zwYiTbg3cqx/gxzBXHTH7smemcR66UecapOx93YC1mPp2cQDFuT82xIuOJJN
-	dIhF+oaQWAaT6JgbEQjld10fp8NEcuFvhIfH5+nGbdo5oVA+fEUW91VAFoxZYqPXd4sgoRTZW3DTl
-	9RKXa/gH0C40B6Z1Z3NPnFERXzJNecp+Ceo2nfuCO+UvqHosE117+6M/UX1gUNI+YAjctQjv+upRc
-	QLJgjibA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ns7Rd2I1d72AXB8kng+GjJK57lfvUfm8lmZWt6dQs0k=; b=fW5MRGWFBj0gHsC0TMgYyAdCLC
+	409ZXl59IPS/fGg4Walt7RCqfasJAZhHfbwY873ZjquWHt1I0ccYHlJMNwDmVAxrhZRpiaJlQsAx/
+	OSm+DBOaVKDD2tghAs+Rb/UQq2+vwzTCbZg5S5Ley0mP4XvuzHmGKDz1uSBhjXq/eHvr9l5/tGICe
+	1DJCFLauefZu2dm98kHNIBZdmwi/vCgM7N6j7kea6ymC3eeSp1EzV5Pi7xjFbDd10zzGx5/1himqA
+	1pe/D4bg3f/V6SsQHFRi/UpICuJkjFXEKQVumI9al2j2ONt1fDy0UfUrtTPKBzrgYl0pSWHdorS7E
+	KTR9wSVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiqdY-00000009xJX-1por;
-	Mon, 04 Aug 2025 08:33:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1uiqg7-00000009xjJ-2gDy;
+	Mon, 04 Aug 2025 08:36:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiqCB-00000009tl4-2Yjd;
-	Mon, 04 Aug 2025 08:05:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754294722;
-	bh=FYLnhdEGvKvTuON4KAML6Oi2n8qm37XovUco3wVoE8Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CbCTfOD5k19H11a4u8Q/Woseup+CwmLYRS5HHnfKWg7HCiwgwh6as3K7nqjqmhFKi
-	 dixMcCmrIFnvDHVlV+ldfXa8C031R8gxmtAJYO6rfOkedswPQC9lBXxzUSAyBHfocn
-	 Y76UqLKPidiEh447HlFNPsj4Cz4VB2gI/5G5Ego6L6X77jBTNp0fdn5uLQ0E9A4utF
-	 xuqj/T9V2FN1w4VGto2+U+/FYRHFRPRXE7IbBl/b284iCjrdMxALFF2WqSXlaBJMzC
-	 SNySu9agllgUfSfCEoDG9fNGjIqNJp/aOXSukvimp4CZCJ03io549A8zlEkvE+NLQT
-	 gyaYO7/ct9n3w==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8410217E0DB9;
-	Mon,  4 Aug 2025 10:05:21 +0200 (CEST)
-Message-ID: <a9cd33f5-cc37-4a1d-b1fd-094761a146ed@collabora.com>
-Date: Mon, 4 Aug 2025 10:05:21 +0200
+	id 1uiqDR-00000009twI-0n52
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Aug 2025 08:06:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 77356601F8;
+	Mon,  4 Aug 2025 08:06:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9675CC4CEE7;
+	Mon,  4 Aug 2025 08:06:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754294800;
+	bh=LJsP3POugebwTfDcQDDyey0X+IAXbHHrUgRPsb8MIDA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WwrJapm8clxrbORWct74JESkw++nKBRizntME8+LH/8scwh8qPZGh+oXekE2a/hNq
+	 SC3dSBFesoKAwNeaW8ZYadGbrIor3viKN9Bh4vxmLItcbN/ELSJ7d9UHWKqE8TvI/C
+	 9SFH8AcFibn24rFyfIkxiKqIuwVLhghG7Eq7jsifJZpTG8pfs8jUq853vMf5ACThK7
+	 pGNJI/I8osPmv8XtGBvr+qB/GoyRn/no/CSJnTuHk7F8wwFKBdkGIGOtMra7vTxqA8
+	 cICuFZ9Gww8udA9nGwQBME2mWs2lul3h86ztNqtwjDP1DppAs1TiwefeTWlDjHfcKc
+	 SB2rP3vFLiPNw==
+Date: Mon, 4 Aug 2025 10:06:37 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Jyri Sarha <jyri.sarha@iki.fi>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sam Ravnborg <sam@ravnborg.org>, Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>, 
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Tero Kristo <kristo@kernel.org>, thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ti.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
+Message-ID: <20250804-tuscan-woodpecker-from-jupiter-9d290f@kuoka>
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+ <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] Input: mtk-pmic-keys - MT6359 has a specific release
- irq
-To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20250801-radxa-nio-12-l-gpio-v1-0-d0840f85d2c8@collabora.com>
- <20250801-radxa-nio-12-l-gpio-v1-1-d0840f85d2c8@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250801-radxa-nio-12-l-gpio-v1-1-d0840f85d2c8@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_010523_796685_A7A8D61A 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +77,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 01/08/25 15:16, Julien Massot ha scritto:
-> A recent commit in linux-next added support for key events.
-> However, the key release event is not properly handled: only key press events
-> are generated, leaving key states stuck in "pressed".
+On Wed, Jul 30, 2025 at 07:02:47PM +0200, Louis Chauvet wrote:
+> As stated in the AM62x Technical Reference Manual (SPRUIV7B), the data
+> sampling edge needs to be configured in two distinct registers: one in the
+> TIDSS IP and another in the memory-mapped control register modules. Since
+> the latter is not within the same address range, a phandle to a syscon
+> device is used to access the regmap.
 > 
-> This patch ensures that both key press and key release events are properly
-> emitted by handling the release logic correctly.
+> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
 > 
-> Note: the code was introduced in linux-next by commit
-> bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359 PMIC keys")
-> and is not yet present in mainline.
+> ---
 > 
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> Cc: stable@vger.kernel.org
 
-Well, you are effectively fixing the commit that you pointed out, so this needs
+Please read docs how to add stable tags.
 
-Fixes: bc25e6bf032e ("Input: mtk-pmic-keys - add support for MT6359 PMIC keys")
+> ---
+>  drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
+> index c0277fa36425ee1f966dccecf2b69a2d01794899..65ca7629a2e75437023bf58f8a1bddc24db5e3da 100644
+> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
+> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+> @@ -498,6 +498,7 @@ struct dispc_device {
+>  	const struct dispc_features *feat;
+>  
+>  	struct clk *fclk;
+> +	struct regmap *clk_ctrl;
+>  
+>  	bool is_enabled;
+>  
+> @@ -1267,6 +1268,11 @@ void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport,
+>  		       FLD_VAL(mode->vdisplay - 1, 27, 16));
+>  
+>  	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1, 0, 0);
+> +
+> +	if (dispc->clk_ctrl) {
+> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
+> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 0x000);
+> +	}
+>  }
+>  
+>  void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
+> @@ -3012,6 +3018,14 @@ int dispc_init(struct tidss_device *tidss)
+>  
+>  	dispc_init_errata(dispc);
+>  
+> +	dispc->clk_ctrl = syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
+> +								   "ti,clk-ctrl");
+> +	if (IS_ERR(dispc->clk_ctrl)) {
+> +		r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
+> +				  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
+> +		return r;
 
-and
+This breaks ABI. Commit msg mentions the reason but without
+justification - was everything broken? Nothing was working? Was it ever
+tested?
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+And anyway ABI impact must be clearly documented.
 
-Cheers,
-Angelo
 
+Best regards,
+Krzysztof
 
 
