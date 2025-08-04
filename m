@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB798C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 21:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C35D2C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 22:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+XB7C6/aVnnrbQ/dUBJlr2CzVvr6Wjm81eqZRGMZX1w=; b=aL52OuWY/8HlWbOOyXaXRVWx7Q
-	h0zunE4w6njQk+mzeTcTHZXQ9f6og9K5UunSNRm+ZbfaqeEvfkUrq0x6vjVTTpyPbgh54zRXPuuAj
-	Y/KPND1q9LwHQRFU0ixpwqmJcefatRtasYuIxGDfhtmJfp/WYsSyr4uj56i3Hv+vI00rqwcEcjvjC
-	ng37HtcwNa/Bw5XcSkAaGlx7/JBiQdS1+p20uaXv2lebgdQtQH8qtFMIFdL7EmCcaFAq2fJrOYcnL
-	4uhCYu4OanO4h77xaWomMK4Fh0eGb8W7QHRTPLMQPbsdNpOGrE0KrmDdppIEwqnMLYm52DIr+RULV
-	U4bUqdbA==;
+	bh=8rJEkvOzsQ6EFHSRcMaMoGcS2ovBd6hOPz5m8PrRwWI=; b=JKqQkj3bLh2NQAJIDxQqgsku1p
+	Aqwdbv5HBJuhsPDZMWtWzWq++caFBIbeNRHfc5erh1EgR1OdEoohh9Hk9taDd4lZ/zJdnGVX9Btq4
+	hCoQHLFxWilDB0l77sBlM//i85nb7bkSF/4piQGY83VNzLKK4jHJRwttDHJ8wK34VLGtMvMy4kpnD
+	pwfDbaO5svYINTuQSrx9MIdzNwqSzHXthu0lgHqjh5VyIprjvm3Ub+4op+g8vsLrxIL2cTXJaGv2h
+	nJ7A+j4yF55khS13nmBt4eNraNkgn+U41P0AF25UUaaH2AF08KcL9fPSgVzegdzaL9bHiU+uYwxy+
+	Y771+Q4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj367-0000000BMhU-0FDR;
-	Mon, 04 Aug 2025 21:51:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj33Y-0000000BMXw-2EP2
+	id 1uj3R4-0000000BO3x-2o0W;
+	Mon, 04 Aug 2025 22:13:38 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uj3OW-0000000BNv1-1R2r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 21:49:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AAD12574;
-	Mon,  4 Aug 2025 14:49:09 -0700 (PDT)
-Received: from [10.57.5.104] (unknown [10.57.5.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 591BE3F673;
-	Mon,  4 Aug 2025 14:49:15 -0700 (PDT)
-Message-ID: <e5193801-9160-4e05-8d02-eb129487437c@arm.com>
-Date: Mon, 4 Aug 2025 22:49:14 +0100
+	Mon, 04 Aug 2025 22:11:02 +0000
+Message-ID: <23d9f128-af95-41b1-a5b9-3c69d2df8ab8@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754345455;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8rJEkvOzsQ6EFHSRcMaMoGcS2ovBd6hOPz5m8PrRwWI=;
+	b=MQCzSAzM9MtpuH1VkSfE1ljT2IPHeHO7okXvjU9cogjVB4O6H2Q+YevKPEbGK2O/6DNpxS
+	G1vgw/qjx78W+LGLPAA+ZaMtM5+/UzfBOig78/IpeIUf04tywS8DZ+tul357p8/VuYEiQa
+	nv9zOBGf5D1+dyrGwXynyOjLIEBHMKE=
+Date: Mon, 4 Aug 2025 18:10:48 -0400
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] perf: arm_spe: Add support for SPE VM interface
-Content-Language: en-GB
-To: James Clark <james.clark@linaro.org>,
- Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Anshuman Khandual <Anshuman.Khandual@arm.com>,
- Rob Herring <Rob.Herring@arm.com>, Robin Murphy <Robin.Murphy@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>
-References: <20250701-james-spe-vm-interface-v1-0-52a2cd223d00@linaro.org>
- <aIzA632hiAldjJQQ@raptor> <a492ccbf-6442-44dc-82c8-d2c8b1d5c56b@linaro.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <a492ccbf-6442-44dc-82c8-d2c8b1d5c56b@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [BUG] pci: nwl: Unhandled AER correctable error
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-pci@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+ Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Michal Simek <michal.simek@amd.com>, Brian Norris
+ <briannorris@chromium.org>, Minghuan Lian <minghuan.Lian@nxp.com>,
+ Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>,
+ Frank Li <Frank.Li@nxp.com>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250804205702.GA3640524@bhelgaas>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20250804205702.GA3640524@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_144920_647250_3D1309D6 
-X-CRM114-Status: GOOD (  48.23  )
+X-CRM114-CacheID: sfid-20250804_151100_942298_44CCC0D4 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,161 +78,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 17:00, James Clark wrote:
+On 8/4/25 16:57, Bjorn Helgaas wrote:
+> [+cc more folks who might be interested in AER with non-standard
+> interrupts]
 > 
-> 
-> On 01/08/2025 2:28 pm, Alexandru Elisei wrote:
+> On Fri, Aug 01, 2025 at 01:43:19PM -0400, Sean Anderson wrote:
 >> Hi,
->>
->> On Tue, Jul 01, 2025 at 04:31:56PM +0100, James Clark wrote:
->>> SPE can be used from within a guest as long as the driver adheres to the
->>> new VM interface spec [1]. Because the driver should behave correctly
->>> whether it's running in a guest or not, the first patches are marked as
->>> a fix. Furthermore, in future versions of the architecture the PE will
->>> be allowed to behave in the same way.
->>>
->>> The last patch adds new behavior to make it easier for guests to be
->>> able to reserve large buffers. It's not strictly necessary, so it's not
->>> marked as a fix.
->>
->> I had a look at the patches, and they all look ok to me, so for the 
->> series:
->>
->> Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
->>
->> I also tested the series by hacking SPE virtualization support in KVM:
->>
->> - without these changes, the SPE driver gets into an infinite loop 
->> because it
->>    clears PMBSR_EL1.S before clearing PMBLIMITR_EL.E, and the 
->> hypervisor is
->>    allowed to ignore the write to PMBSR_EL1.
->>
->> - with these changes, that doesn't happen.
->>
->> - ran perf for about a day in a loop in a virtual machine and didn't 
->> notice
->>    anything out of the ordinary.
->>
->> - ran perf for about a day in a loop on baremetal and similary 
->> everything looked
->>    alright.
->>
->> - checked that the SPE driver correctly decodes the maximum buffer 
->> size for
->>    sizes 4M, 2M (2M is right at the boundary between the two encoding 
->> schemes)
->>    and 1M; that's also correctly reflected in
->>    /sys/devices/platform/<spe>/arm_spe_0/caps/max_buffer_size.
->>
->> - checked that perf is not allowed to use a buffer larger than the 
->> maximum.
->>
->> - checked that the SPE driver correctly detects a buffer size 
->> management event.
->>
->> So:
->>
->> Tested-by: Alexandru Elisei <alexandru.elisei@arm.com>
->>
->> While testing I noticed two things:
->>
->> 1. When perf tries to use a buffer larger than the maximum, the error 
->> is EINVAL
->> (22):
->>
->> # cat /sys/devices/platform/spe/arm_spe_0/caps/max_buff_size
->> 4194304
->> # perf record -ae arm_spe// -m,16M -- sleep 10
->> failed to mmap with 22 (Invalid argument)
->>
->> (used 16M as the buffer size because what the driver ends up 
->> programming is half
->> that).
->>
->> I would have expected to get back ENOMEM (12), that seems less 
->> ambiguous to me.
->> I had to hack the driver to print an error message to dmesg when the 
->> max buffer
->> size is exceed to make sure that's why I was seeing the error message 
->> in perf,
->> and it wasn't because of something else. I get that that's 
->> because .setup_aux()
->> can only return NULL on error, but feels like there's room for 
->> improvement here.
->>
+>> 
+>> AER correctable errors are pretty rare. I only saw one once before and
+>> came up with commit 78457cae24cb ("PCI: xilinx-nwl: Rate-limit misc
+>> interrupt messages") in response. I saw another today and,
+>> unfortunately, clearing the correctable AER bit in MSGF_MISC_STATUS is
+>> not sufficient to handle the IRQ. It gets immediately re-raised,
+>> preventing the system from making any other progress. I suspect that it
+>> needs to be cleared in PCI_ERR_ROOT_STATUS. But since the AER IRQ never
+>> gets delivered to aer_irq, those registers never get tickled.
+>> 
+>> The underlying problem is that pcieport thinks that the IRQ is going to
+>> be one of the MSIs or a legacy interrupt, but it's actually a native
+>> interrupt:
+>> 
+>>            CPU0       CPU1       CPU2       CPU3       
+>>  42:          0          0          0          0     GICv2 150 Level     nwl_pcie:misc
+>>  45:          0          0          0          0  nwl_pcie:legacy   0 Level     PCIe PME, aerdrv
+>>  46:         25          0          0          0  nwl_pcie:msi 524288 Edge      nvme0q0
+>>  47:          0          0          0          0  nwl_pcie:msi 524289 Edge      nvme0q1
+>>  48:          0          0          0          0  nwl_pcie:msi 524290 Edge      nvme0q2
+>>  49:         46          0          0          0  nwl_pcie:msi 524291 Edge      nvme0q3
+>>  50:          0          0          0          0  nwl_pcie:msi 524292 Edge      nvme0q4
+>> 
+>> In the above example, AER errors will trigger interrupt 42, not 45.
+>> Actually, there are a bunch of different interrupts in MSGF_MISC_STATUS,
+>> so maybe nwl_pcie_misc_handler should be an interrupt controller
+>> instead? But even then pcie_port_enable_irq_vec() won't figure out the
+>> correct IRQ. Any ideas on how to fix this?
+>> 
+>> Additionally, any tips on actually triggering AER/PME stuff in a
+>> consistent way? Are there any off-the-shelf cards for sending weird PCIe
+>> stuff over a link for testing? Right now all I have 
 > 
-> We could add an error code, rb_alloc_aux() already returns one and that 
-> calls setup_aux(). But the scenarios would be either EINVAL or ENOMEM 
-> and wouldn't give the user the exact reason ("need > 2 pages", "need 
-> even number of pages", etc). So I'm not sure it would be enough of an 
-> improvement over returning NULL to be worth it.
+> This is definitely a problem.  We have had some discussion about this
+> in the past, but haven't quite achieved critical mass to solve this in
+> a generic way.  Here are some links:
 > 
-> However I will add a warning into Perf if the user asks for more than 
-> caps/max_buffer_size. That would be a useful message and Perf can do it 
-> itself so it doesn't need to be in the driver changes.
-> 
->> 2. A hypervisor is allowed to inject a buffer size event even though 
->> the buffer
->> set by the guest is smaller than the maximum advertised. For example, 
->> this can
->> happen if there isn't enough memory to pin the buffer, or if the limit 
->> on pinned
->> memory is exceeded in the hypervisor (implementation specific 
->> behaviour, not
->> mandated in DEN0154, of course).
->>
->> In this situation, when the SPE driver gets a buffer size management 
->> event
->> injected by the hypervisor, there is no way for the driver to 
->> communicate it to
->> the perf instance, and the profiled process continues executing even 
->> though
->> profiling has stopped.
->>
->> That's not different from what happens today with buffer management 
->> events, but
->> unlike the other events, which aren't under the control of userspace, 
->> the buffer
->> size event is potentially recoverable if userspace restarts perf with 
->> a smaller
->> buffer.
->>
->> Do you think there's something that can be done to improve this 
->> situation?
->>
->> Thanks,
->> Alex
->>
-> 
-> It doesn't look like there's currently anything that can stop an event 
-> or signal to Perf that the event has gone bad.
-> 
-> We could add something like "__u32 error" to struct 
-> perf_event_mmap_page. But I'm not sure what you'd do with it. If Perf is 
-> the parent of the process you wouldn't want to kill it in case anything 
-> bad happens. So you're left with leaving it running anyway. If it's just 
-> an error message that you want then there's already one in dmesg for 
-> buffer management errors, and that string is a lot better than a single 
-> code. Unless these new codes were detailed PMU specific ones? Actually 
-> it's a whole page so why not make it a string...
-> 
-> It's not a case of the samples ending randomly somewhere though, you'll 
-> either get all of them or none of them. So it will be quite obvious to 
-> the user that something has gone wrong. Secondly I think the scenario of 
-> not being able to pin memory when asking for less than the limit would 
-> be very rare. It's probably fine to leave it like this for now and we 
-> can always add something later, maybe if people start to run into it for 
-> real.
+>   https://lore.kernel.org/linux-pci/20250702223841.GA1905230@bhelgaas/t/#u
+>   https://lore.kernel.org/linux-pci/1464242406-20203-1-git-send-email-po.liu@nxp.com/
 
-Do we get EMPTY AUX records in this case where there was no profiling
-data ? If so, why not convey the error via AUX record header flags ?
+Thanks for the links. Toggling PERST does seem to reliably cause
+correctable errors (however "correctable" they may actually be in
+practice). With the patch I posted on the other branch of this chain I
+now get
 
-Suzuk
+[   43.041610] pcieport 0000:00:00.0: AER: Multiple Corrected error message received from 0000:00:00.0
+[   43.050693] pcieport 0000:00:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)
+[   43.061477] pcieport 0000:00:00.0:   device [10ee:d011] error status/mask=00000001/0000e000
+[   43.069842] pcieport 0000:00:00.0:    [ 0] RxErr                 
 
-> 
-> James
-> 
-> 
+Whether or not that's the right fix, at least I can test things :)
 
+--Sean
 
