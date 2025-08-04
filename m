@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3DDBC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70433C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZ521Stz+Up5mgvMvg3s7RqhbHnNd/nrGhr76yRoN94=; b=ttKrpVXg3MeMYLVG9XiDrH9i1H
-	Kb5ZBNtEN52RpW1kuWXCcWWTX5pu29D8rNR3hximks7gaIlNd7gdNLEdoJ5s3LKTtj1W1MmL8n3Vd
-	6lCIjnA01yEGOfeK7QZ6g/Mk4o2UAlqxQVK1uF2WCDdEe8NLR0M22anjs15D5F2Wfv6IYnwufwlo9
-	nRl36yMNlP+AHVtoz3aJGUtvL1DF8mLXK4Qhercm3JDMn/c8hSbRN3jwxVG0+jTcWRi5sS2ubP/4a
-	GgaTlXDKHVyNBfD3pUxXUkz+dYb4hf3R5BRBOP2Ba0wITJcCijQnqYyuTHwop70yJCGOJYqcT/MK6
-	FKg4+efw==;
+	bh=37169W1Ki4gDro+G9vCve8/Qga0wmAAyicxFzAfVztc=; b=QnPcBZYpMv6od9Ln13kHL8eVNN
+	3Cc5cw+bBYrlBOuevHR4uiRDi9+h7IAmkHSGWU09qQvSJYqERSD4d7lHtX3HiL4xjuZZbXqCt+4xj
+	WiyKWaZOFJiC5Gn6Ff5++Dhth45obI9Re+LsleHIbUDyoSmULLIQwEDknYL3wAlnqSAaYf5f2Dcvq
+	hDK0yfOikDsIejVQSk8M8HN2nODrIa5WCx1wBvjdnQ7ZmzT/+k/fDpY8Wb61Hg/+Z1Z68zA32UVMy
+	/OHobEXEFJOnjDs8dDGC7RwdqqNmbxnJ3KtQjCLjKEpEu12NcAAVmMrJHl3c5YS9m8mW1iK4Q6Mt7
+	+qom4Nog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijK7-00000009N10-39zv;
-	Mon, 04 Aug 2025 00:45:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uijMb-00000009NFF-0psk;
+	Mon, 04 Aug 2025 00:47:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij2w-00000009Kzp-3KPT
+	id 1uij49-00000009L7o-3AmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:27:24 +0000
+	Mon, 04 Aug 2025 00:28:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A3645C4967;
-	Mon,  4 Aug 2025 00:27:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72B56C4CEF0;
-	Mon,  4 Aug 2025 00:27:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6CE2345021;
+	Mon,  4 Aug 2025 00:28:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62A2EC4CEF8;
+	Mon,  4 Aug 2025 00:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267242;
-	bh=/VnKxqTsZUjp0oPsOCnFP3YENWBFTjPtLvT3Noo6Qqk=;
+	s=k20201202; t=1754267317;
+	bh=HjWAoAuSaFtNiBbbcTEE4MGR3yJasz+eJZliM5YzOxQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TWkiIXzUmxGhL/WAT/hghhJhdxv3hVKE9xgkSvpck+C2JDW77t6zWF/s35URWe2Ob
-	 mF4cqaZNyDMYrvpT9jwnLazpvbQhSppV+2LtPgMQBe5M5YkysMRoe2/xaiFONbafOT
-	 9x4xHNm5aQuaUrzQIXtNFZqz3C4inFgaL6mrWqgXek01JoPJdh+bEZ8Frw2PLHXLT4
-	 +Iavo1FZn7/w8xk5hAaUiO7/KBWrTA6lVz7nidMAGRVV2QIZF1gjx90FaufOaHvQLz
-	 mYdCxZx5t7JAVtlI97Hma1BS75z9NqK3LwYlnq98Y0Q7bLlsntq06aim9l26+9IZBF
-	 aqdBvimkQUgIQ==
+	b=JYZ331HzB10QsQ0SSbR+X/ek7KyMDef1S3zfS8K8Wk1j0D4dW86lT+fwJg1yX1K2G
+	 rTZMEWedKoV7m7mYL1tx+nX94Hrry1ULyyeOQkspfphtM/7eN/hcmFO83E2J6Hya9s
+	 VoEu9+MGPX1uyp4/TJ15LIQTDlDJYqB8loP2uFEhwndDxWr0fTqamiKfydpxs2PJFy
+	 jzFTSagBgH3Z7L0EbKaC8UQ+qWkOHYPk3fUj36KVa00eY5qStRiet7IyNCHF7YuTtW
+	 6fHNh7z4blKRFnZ6E+68VV0hae6aSyPmZ/ppp9ZXGCd2EqXi4ft/W0hl2elIg31K5N
+	 mNvNOJ8278lvA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: =?UTF-8?q?Krzysztof=20Ha=C5=82asa?= <khalasa@piap.pl>,
+Cc: Hiago De Franco <hiago.franco@toradex.com>,
+	Peng Fan <peng.fan@nxp.com>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
+	andersson@kernel.org,
 	shawnguo@kernel.org,
-	peng.fan@nxp.com,
+	linux-remoteproc@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16 76/85] imx8m-blk-ctrl: set ISI panic write hurry level
-Date: Sun,  3 Aug 2025 20:23:25 -0400
-Message-Id: <20250804002335.3613254-76-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.15 16/80] remoteproc: imx_rproc: skip clock enable when M-core is managed by the SCU
+Date: Sun,  3 Aug 2025 20:26:43 -0400
+Message-Id: <20250804002747.3617039-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250804002335.3613254-1-sashal@kernel.org>
-References: <20250804002335.3613254-1-sashal@kernel.org>
+In-Reply-To: <20250804002747.3617039-1-sashal@kernel.org>
+References: <20250804002747.3617039-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.16
+X-stable-base: Linux 6.15.9
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_172722_911867_4368B587 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250803_172837_825180_D9526A39 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +83,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Krzysztof Hałasa <khalasa@piap.pl>
+From: Hiago De Franco <hiago.franco@toradex.com>
 
-[ Upstream commit c01fba0b4869cada5403fffff416cd1675dba078 ]
+[ Upstream commit 496deecb020d14ba89ba7084fbc3024f91687023 ]
 
-Apparently, ISI needs cache settings similar to LCDIF.
-Otherwise we get artefacts in the image.
-Tested on i.MX8MP.
+For the i.MX8X and i.MX8 family SoCs, when the Cortex-M core is powered
+up and started by the Cortex-A core using the bootloader (e.g., via the
+U-Boot bootaux command), both M-core and Linux run within the same SCFW
+(System Controller Firmware) partition. With that, Linux has permission
+to control the M-core.
 
-Signed-off-by: Krzysztof Hałasa <khalasa@piap.pl>
-Link: https://lore.kernel.org/r/m3ldr69lsw.fsf@t19.piap.pl
+But once the M-core is started by the bootloader, the SCFW automatically
+enables its clock and sets the clock rate. If Linux later attempts to
+enable the same clock via clk_prepare_enable(), the SCFW returns a
+'LOCKED' error, as the clock is already configured by the SCFW. This
+causes the probe function in imx_rproc.c to fail, leading to the M-core
+power domain being shut down while the core is still running. This
+results in a fault from the SCU (System Controller Unit) and triggers a
+system reset.
+
+To address this issue, ignore handling the clk for i.MX8X and i.MX8
+M-core, as SCFW already takes care of enabling and configuring the
+clock.
+
+Suggested-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+Acked-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Link: https://lore.kernel.org/r/20250629172512.14857-3-hiagofranco@gmail.com
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my analysis of the commit and the surrounding code:
+Based on my analysis, I can now provide a definitive answer:
 
 **Backport Status: YES**
 
 This commit should be backported to stable kernel trees for the
 following reasons:
 
-1. **Fixes a real user-visible bug**: The commit fixes image artifacts
-   in the ISI (Image Sensor Interface) on i.MX8MP. This is a functional
-   bug that affects users of camera/image capture functionality.
+1. **Critical bug fix preventing system reset**: The commit fixes a
+   serious issue where the probe function failure causes the M-core
+   power domain to be shut down while the core is still running,
+   resulting in a fault from the SCU and triggering a system reset. This
+   is a severe user-impacting bug that can cause unexpected system
+   reboots.
 
-2. **Small and contained change**: The fix adds only 10 lines of code
-   that set ISI panic write hurry levels in the
-   `imx8mp_media_power_notifier` function. It's a minimal change
-   confined to the i.MX8MP media block controller.
+2. **Minimal and contained change**: The fix is very simple - it just
+   adds `|| dcfg->method == IMX_RPROC_SCU_API` to an existing condition
+   in the `imx_rproc_clk_enable()` function. This is a one-line change
+   that only affects the clock handling logic for i.MX8X and i.MX8
+   family SoCs when using SCU API method.
 
-3. **Follows established pattern**: The fix mirrors the existing LCDIF
-   panic read hurry level fix (commit 06a9a229b159) that was already
-   applied for display FIFO underflow issues. The ISI needs similar
-   cache settings to prevent artifacts.
+3. **Clear root cause**: The commit message clearly explains the issue -
+   when the M-core is started by the bootloader, the SCFW automatically
+   enables its clock. If Linux later attempts to enable the same clock,
+   SCFW returns a 'LOCKED' error, causing probe failure and subsequent
+   power domain shutdown while the core is running.
 
-4. **Hardware-specific fix**: The change only affects i.MX8MP hardware
-   and is guarded by the platform-specific power notifier function,
-   minimizing risk to other platforms.
+4. **No architectural changes**: This is purely a bug fix that doesn't
+   introduce new features or change the driver architecture. It simply
+   skips clock operations for a specific configuration where the clock
+   is already managed by the SCFW.
 
-5. **Clear problem and solution**: The commit message clearly states the
-   problem (image artifacts) and the solution (setting ISI panic write
-   hurry levels similar to LCDIF), making it a straightforward hardware
-   configuration fix.
+5. **Platform-specific fix with no regression risk**: The change only
+   affects i.MX8X and i.MX8 platforms using the SCU API method
+   (`IMX_RPROC_SCU_API`). Other platforms and methods are unaffected,
+   minimizing the risk of regression.
 
-6. **No architectural changes**: This is purely a hardware register
-   configuration change during power-on sequences, not introducing new
-   features or changing kernel architecture.
+6. **Prevents data corruption/loss**: System resets caused by this bug
+   could potentially lead to data loss or corruption, making this fix
+   important for system stability.
 
-The fix addresses a hardware-specific issue where the ISI (Image Sensor
-Interface) needs proper cache/priority settings to avoid image
-artifacts, similar to how the LCDIF (display interface) needs such
-settings to avoid display FIFO underflow. This is an important fix for
-anyone using camera functionality on i.MX8MP platforms.
+The specific code change in `imx_rproc_clk_enable()` at line 1033 simply
+extends the existing check from:
+```c
+if (dcfg->method == IMX_RPROC_NONE)
+```
+to:
+```c
+if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+```
 
- drivers/pmdomain/imx/imx8m-blk-ctrl.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+This ensures that for SCU-managed cores, Linux doesn't attempt to enable
+clocks that are already controlled by the SCFW, preventing the probe
+failure and subsequent system reset.
 
-diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-index 912802b5215b..5c83e5599f1e 100644
---- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-+++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
-@@ -665,6 +665,11 @@ static const struct imx8m_blk_ctrl_data imx8mn_disp_blk_ctl_dev_data = {
- #define  LCDIF_1_RD_HURRY	GENMASK(15, 13)
- #define  LCDIF_0_RD_HURRY	GENMASK(12, 10)
+ drivers/remoteproc/imx_rproc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 74299af1d7f1..627e57a88db2 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -1029,8 +1029,8 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+ 	struct device *dev = priv->dev;
+ 	int ret;
  
-+#define ISI_CACHE_CTRL		0x50
-+#define  ISI_V_WR_HURRY		GENMASK(28, 26)
-+#define  ISI_U_WR_HURRY		GENMASK(25, 23)
-+#define  ISI_Y_WR_HURRY		GENMASK(22, 20)
-+
- static int imx8mp_media_power_notifier(struct notifier_block *nb,
- 				unsigned long action, void *data)
- {
-@@ -694,6 +699,11 @@ static int imx8mp_media_power_notifier(struct notifier_block *nb,
- 		regmap_set_bits(bc->regmap, LCDIF_ARCACHE_CTRL,
- 				FIELD_PREP(LCDIF_1_RD_HURRY, 7) |
- 				FIELD_PREP(LCDIF_0_RD_HURRY, 7));
-+		/* Same here for ISI */
-+		regmap_set_bits(bc->regmap, ISI_CACHE_CTRL,
-+				FIELD_PREP(ISI_V_WR_HURRY, 7) |
-+				FIELD_PREP(ISI_U_WR_HURRY, 7) |
-+				FIELD_PREP(ISI_Y_WR_HURRY, 7));
- 	}
+-	/* Remote core is not under control of Linux */
+-	if (dcfg->method == IMX_RPROC_NONE)
++	/* Remote core is not under control of Linux or it is managed by SCU API */
++	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+ 		return 0;
  
- 	return NOTIFY_OK;
+ 	priv->clk = devm_clk_get(dev, NULL);
 -- 
 2.39.5
 
