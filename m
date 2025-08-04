@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D0A5C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 14:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39AFC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 14:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTIRINgYoitHnaoAkXeOGbYRP3hdr9fcn0B1qbh2HyA=; b=rnwFJtpAeiep7luf4aiJnV7/bk
-	QjegfKWfNt+wYyBHvqBaRVtXvttPpW649iheSysWYdTbwWici6Xb5z4igylnEOm0CNUxSDoHYN0mq
-	smTQEFedCQ3DwbD7/X5pMj+Bkgj5t0hCSgBfltWJWjFRkKy2pchf4kKfpkRIKg6AlvRcvrBJawgfj
-	mzmVa9dBhuSTShDPqnA2eIvxzEVfuhOoXU/WM3T4/7tK+Q8CnjYz+5Gj4KHT70w7GVD+8TnIZ1v7P
-	VZxI/Eh8qg/ltX02YAg1SetfHZcfgMtT1rVO9ACqIhr3+qMTThglbRCgaJ35ICkxLwnShWKHtehep
-	8NJbJ8jg==;
+	bh=33C/cbbkFmBZEeMpAPusxnbTMNnhzWiivF3NeeXbwaQ=; b=4CSPOYyxdmPdRNa+h0Rb8iNIzS
+	/q68yfCF+vwU1mUUlD4lgJusruvhJP6L6A5ojwhn5KAbvRddeX8PbqJppjlk1ui57XxLtM2S2Zx4U
+	AU8q7KC3NXK4akq1i9vB7Z5N5Ln3/tyzQuTyvC8pn/rBCtsFwQZ3CTvGbupFWJjdoEWJCkTiDJyTv
+	2NB9m1HrwJ78uQAd9SMbHX29fcly0sQe80M0DEzRe+chPyoVq4BaMOa7FR+qygSwck044nSWDtcdr
+	MYed2YQL0kh1imdQkyCMQ2D3lUDbS9w2GiI3Nn69uLnJ+XYz+PWhjJVB/R+qwBvV45MI/G+RZ9rMR
+	4ZKyvnKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiwIQ-0000000Ageb-11J9;
-	Mon, 04 Aug 2025 14:36:14 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1uiwKw-0000000Ah2M-05sE;
+	Mon, 04 Aug 2025 14:38:50 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivS1-0000000AZNP-1G8l
+	id 1uivZZ-0000000AaPG-1wDS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 13:42:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D956D438D4;
-	Mon,  4 Aug 2025 13:41:58 +0000 (UTC)
+	Mon, 04 Aug 2025 13:49:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3FBCE205AF;
+	Mon,  4 Aug 2025 13:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754314923;
+	t=1754315391;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iTIRINgYoitHnaoAkXeOGbYRP3hdr9fcn0B1qbh2HyA=;
-	b=jHS+AlRT/xivxi8w6KVC4d7BOyw0a0dgZsgX3ZEe5gw7MPT2JoePgpFlx0mGhXRGGYjeJD
-	4V4WLk5m72CK5Cv96Bptp7YlKCve5UXkU/rF2uGZDPK3iOssi05yeSQClcUf9bT4SOF5I5
-	XhXXCTyjjM+NmxiEO/lFFQAmSousbTuoSTdq180BpubARulbWw3Tdd3jECazDhwhPuYxnH
-	C9OKxqDYfvwYOXdwxPl581LpcZuiW3U0RMabjsT8rNoB5IGHmisAxjZGfKcgGvj3DpCE2Y
-	g0uy/fOhfgVu5uirI/IQu6XMZoiTRzIXvmYwIzYx6i1ED/gltjuDRUja3ftPGA==
-Date: Mon, 4 Aug 2025 15:41:57 +0200
+	bh=33C/cbbkFmBZEeMpAPusxnbTMNnhzWiivF3NeeXbwaQ=;
+	b=LVsw/QWmBTRTbTaooY8OnHQGNxXtUmmo6v2YWzKw31V5RczfmrOkRZ4Bg5AzK69ZJPP3CO
+	efWANVtXHkcvmFzA/L/2olQwkjVVP1tLcZw2oHRlQH3VPKcgcMhQYkTSikD7sqHIPvWjAf
+	YbVouWp4BlIgk+vhlCPc5jfGlziUsNos286bNNxObY+TQlhqQf4lD5egqj+lFZiuAuq2dt
+	cSFFUhV25DvgSfFyIvXUHd0lACUzOUMcOjHV697dDEwF9IiiI92KjwGreFuTULR0eP3BiP
+	iC4H8DOXMbvHrk6/Ly803rdONV25L/DPTPpgv3WDaIgC9UDqrEJwEGea4GfueQ==
+Date: Mon, 4 Aug 2025 15:49:49 +0200
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
@@ -61,13 +61,13 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org,
  Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
  Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
  Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v10 04/15] net: phy: Introduce PHY ports
- representation
-Message-ID: <20250804154157.4c507cf9@fedora.home>
-In-Reply-To: <bec1b52f-d33d-4088-9d88-3345ecd0fa69@lunn.ch>
+Subject: Re: [PATCH net-next v10 07/15] net: phy: Introduce generic SFP
+ handling for PHY drivers
+Message-ID: <20250804154949.49cbed6f@fedora.home>
+In-Reply-To: <762dd1dd-0170-4f7d-b418-1997c48e7f95@lunn.ch>
 References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
-	<20250722121623.609732-5-maxime.chevallier@bootlin.com>
-	<bec1b52f-d33d-4088-9d88-3345ecd0fa69@lunn.ch>
+	<20250722121623.609732-8-maxime.chevallier@bootlin.com>
+	<762dd1dd-0170-4f7d-b418-1997c48e7f95@lunn.ch>
 Organization: Bootlin
 X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
@@ -75,12 +75,12 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddvgeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddvgeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
  hhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_064205_673004_57EFBC45 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20250804_064953_689762_9E83A95A 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,39 +95,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Jul 2025 22:38:32 +0200
+On Sat, 26 Jul 2025 23:05:33 +0200
 Andrew Lunn <andrew@lunn.ch> wrote:
 
-> > +static int phy_default_setup_single_port(struct phy_device *phydev)
-> > +{
-> > +	struct phy_port *port = phy_port_alloc();
-> > +
-> > +	if (!port)
-> > +		return -ENOMEM;
-> > +
-> > +	port->parent_type = PHY_PORT_PHY;
-> > +	port->phy = phydev;
-> > +
-> > +	/* Let the PHY driver know that this port was never described anywhere.
-> > +	 * This is the usual case, where we assume single-port PHY devices with
-> > +	 * no SFP. In that case, the port supports exactly the same thing as
-> > +	 * the PHY itself.  
+> On Tue, Jul 22, 2025 at 02:16:12PM +0200, Maxime Chevallier wrote:
+> > There are currently 4 PHY drivers that can drive downstream SFPs:
+> > marvell.c, marvell10g.c, at803x.c and marvell-88x2222.c. Most of the
+> > logic is boilerplate, either calling into generic phylib helpers (for
+> > SFP PHY attach, bus attach, etc.) or performing the same tasks with a
+> > bit of validation :
+> >  - Getting the module's expected interface mode
+> >  - Making sure the PHY supports it
+> >  - Optionnaly perform some configuration to make sure the PHY outputs  
 > 
-> I wounder if you should hook into __set_phy_supported() so that DT
-> max-speed, and the MAC driver calling phy_set_max_speed() are covered?
+> Too man n's.
+> 
+> > +static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
+> > +{
+> > +	struct phy_device *phydev = upstream;
+> > +	struct phy_port *port = phy_get_sfp_port(phydev);  
+> 
+> Strictly speeding, this is not allowed, reverse Christmas tree...
+> 
+> The assignment needs to move into the body of the function.
+> 
+> > +	if (linkmode_empty(sfp_support)) {
+> > +		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
+> > +		return -EINVAL;
+> > +	}
+> > +
+> > +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
+> > +
+> > +	/* Check that this interface is supported */
+> > +	if (!test_bit(iface, port->interfaces)) {
+> > +		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");  
+> 
+> Maybe make this string different to the previous one, so somebody
+> debugging issues knows which happened?
+> 
+> > +/**
+> > + * phy_get_sfp_port() - Returns the first valid SFP port of a PHY
+> > + * @phydev: pointer to the PHY device to get the SFP port from
+> > + *
+> > + * Returns: The first active SFP (serdes) port of a PHY device, NULL if none
+> > + * exist.
+> > + */
+> > +struct phy_port *phy_get_sfp_port(struct phy_device *phydev)
+> > +{
+> > +	struct phy_port *port;
+> > +
+> > +	list_for_each_entry(port, &phydev->ports, head)
+> > +		if (port->active && port->is_mii)  
+> 
+> Naming is hard, but this actually returns the first mii port.  Is
+> there a clear 1:1 mapping? I don't think i've ever seen it, but such a
+> SERDES port could be connected to a Ethernet switch? And when you get
+> further, add support for a MUX, could it be connected to a MUX?
 
-This code runs after of_set_phy_supported(), so any speed limitation
-enforced through the max-speed DT property will also apply to the
-ports's supported field. Hopefully, now that we have a port
-representation in DT we can get rid of some of the max-speed use-cases,
-such as a 1G PHY connected to a Fast Ethernet port :)
+Hmmm correct, that's a bit fragile. With a mux or a switch that could
+be different indeed. There may even be PHYs with 2 MII interfaces one
+day ?
 
-For phy_set_max_speed(), the phy device's supported field will be
-update, but not the port's. So indeed, I think we should update the
-port's supported upon calling phy_set_max_speed(), I'll add and test
-that for the next iteration.
+So yes it's most of a time a 1:1 mapping but it doesn't have to, I'll
+see how I can make that more reliable...
 
-Thanks,
+Thanks for the review,
 
-Maxime
+Maxim
+
 
