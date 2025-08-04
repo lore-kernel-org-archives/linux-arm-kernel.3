@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B344C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 23:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A471CC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 23:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pmVOSEsQ731UTS6S95FjRYGHWC6/pxuAi8DA4aZT314=; b=3kKcC9DY7nyPcIqIoZsMp9wrbs
-	4+UXcTqAKme7HVUIc2KBrU1EN8QIGi5TAu8c0vOtRoOTE7a4qZYKUrJ8dxyI0kc4Cmw6X7clRoA93
-	tkeUa8yy04wwBU+rY2W0TAMO873rID3GkqnP5N0I14GfKyYX+WjgpYNxQJHbu0DWdYxK63CvDiTvG
-	DGApm8UfRsSPrCbf1fXiD1B1KCvAM7nO7La9PV7vjmIsiOp/bTiFdIyzSwbn+mBvwSJMNcmYS2pyQ
-	I49cleB9Rsfx+LgbdnvXPRnYF2cAUMAmS7TOOxHCFPIWPj/U/KfByRzfyUc77SFdz6CYCuVHrnn/T
-	tTYYrq/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bTCJ9Udvi+qWk2MIOG8uDa8l9oTCcx88E8xFCmWuwPk=; b=WzHOP0baQJVxZeP7beklMnNTz3
+	CzGRmJHMJiFAFTlK7JTo/h8Ca9uYS/fwBr6VrTyCLuBLOkdomO+L47rNas48o/oNVSj17+nTQHqHT
+	/Ffgz9qB1n2p84dBSRgrCYzMT3h/iOQWW+V+6+4XQE8yUe2vWxJNAut5iNmTMtgiR63BfjwNHl7zR
+	movRy1HkpwrP9gc4Sjypg9pHHrVqWzdzZFIIkBoVRmMbH+i8Mqm7LYLmKAkgAC0w+CWbN+p/9TLm3
+	D+tIkBo3KS1zsu/QU+MECGpb3IoBHMNdYANieJ7SR+lR1FRrUI6AR97WgGkN8QKv1e4GCY+oiA5lL
+	bx2OPEmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj4WR-0000000BSgm-3zCZ;
-	Mon, 04 Aug 2025 23:23:15 +0000
-Received: from gentwo.org ([62.72.0.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj4Tu-0000000BSZt-0jTM
+	id 1uj4q0-0000000BUKk-0W9e;
+	Mon, 04 Aug 2025 23:43:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uj4nS-0000000BUCa-2dYP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 23:20:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1754349636;
-	bh=pmVOSEsQ731UTS6S95FjRYGHWC6/pxuAi8DA4aZT314=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=K6492FbGGXJ2Sm+Rukrl58+yxjSnKWD7e94Y4RPWSsJdMHXRFjgYookZgShFyU0V8
-	 1zZLXPPVCdWfWh6J93XbPnnvqLhS6DH7dZofph7+6f06wxaVfmYznmzEd9c7sIS0va
-	 JZxvpBgx4zxssaMnAJSmitVneDrm2nsErDcYd+CI=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id BC5104038E; Mon,  4 Aug 2025 16:20:36 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id B82524010D;
-	Mon,  4 Aug 2025 16:20:36 -0700 (PDT)
-Date: Mon, 4 Aug 2025 16:20:36 -0700 (PDT)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-cc: ryan.roberts@arm.com, will@kernel.org, catalin.marinas@arm.com, 
-    akpm@linux-foundation.org, Miko.Lenczewski@arm.com, dev.jain@arm.com, 
-    scott@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] arm64: cpufeature: add AmpereOne to BBML2 allow
- list
-In-Reply-To: <20250724221216.1998696-3-yang@os.amperecomputing.com>
-Message-ID: <a76994b0-88e4-da30-4524-c8450868763a@gentwo.org>
-References: <20250724221216.1998696-1-yang@os.amperecomputing.com> <20250724221216.1998696-3-yang@os.amperecomputing.com>
+	Mon, 04 Aug 2025 23:40:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 968431E4D;
+	Mon,  4 Aug 2025 16:40:39 -0700 (PDT)
+Received: from [10.163.95.192] (unknown [10.163.95.192])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C4F13F5A1;
+	Mon,  4 Aug 2025 16:40:42 -0700 (PDT)
+Message-ID: <261de805-2914-4172-85b4-69b5a5b1edf6@arm.com>
+Date: Tue, 5 Aug 2025 05:10:39 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: ptdump: Fix exec attribute printing
+To: Mark Rutland <mark.rutland@arm.com>,
+ Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+ Sebastian Ene <sebastianene@google.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+References: <20250802104021.3076621-1-r09922117@csie.ntu.edu.tw>
+ <d72b7928-8646-4616-a8f0-96b9d9bbaf09@arm.com>
+ <z2hmwwmtgbrio2wv3sj2pc4zhxdjioorlhnm45o2arcsjahjni@xod435q26jqq>
+ <aJDQHMbiNVToTbum@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <aJDQHMbiNVToTbum@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_162038_257437_ED2C4B04 
-X-CRM114-Status: UNSURE (   6.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250804_164050_775341_F678C51F 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,10 +73,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Jul 2025, Yang Shi wrote:
 
-> AmpereOne supports BBML2 without conflict abort, add to the allow list.
 
-Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+On 04/08/25 8:52 PM, Mark Rutland wrote:
+> On Mon, Aug 04, 2025 at 08:41:35PM +0800, Wei-Lin Chang wrote:
+>> Hi Anshuman,
+>>
+>> On Sun, Aug 03, 2025 at 07:33:04PM +0530, Anshuman Khandual wrote:
+>>>
+>>>
+>>> On 02/08/25 4:10 PM, Wei-Lin Chang wrote:
+>>>> Currently the guest stage-2 page table dump has the executable attribute
+>>>> printed in reverse, showing "X" for a non-executable region and showing
+>>>> " " for an executable one. This is caused by misjudgement of which
+>>>> string gets printed for the executable and non-executable case. Fix it
+>>>> by swapping the two strings.
+>>>>
+>>>> Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+>>>> ---
+>>>>  arch/arm64/kvm/ptdump.c | 4 ++--
+>>>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+>>>> index 098416d7e5c25..99fc13f1c11fb 100644
+>>>> --- a/arch/arm64/kvm/ptdump.c
+>>>> +++ b/arch/arm64/kvm/ptdump.c
+>>>> @@ -44,8 +44,8 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
+>>>>  	}, {
+>>>>  		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID,
+>>>>  		.val	= PTE_VALID,
+>>>> -		.set	= " ",
+>>>> -		.clear	= "X",
+>>>> +		.set	= "X",
+>>>> +		.clear	= " ",
+>>>>  	}, {
+> 
+> I think the big problem here is that we've included the 'PTE_VALID' bit
+> in the mask. We don't bother with that for the Stage-1 ptdump code, e.g.
+> 
+>         {
+>                 .mask   = PTE_PXN,
+>                 .val    = PTE_PXN,
+>                 .set    = "NX",
+>                 .clear  = "x ",
+>         },
+> 
+> .... so do we actually need to take the PTE_VALID bit into account here? Do
+> invalid Stage-2 entries have anything we don't want to report?
+> 
+> ... or can we change the Stage-2 ptdump code to have:
+> 
+> 	{
+> 		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN,
+> 		.val	= KVM_PTE_LEAF_ATTR_HI_S2_XN,
+> 		.set	= "NX",
+> 		.clear	= "x ",
+> 	},
+> 
+> ... and match the Stage-1 code?
+> 
+> Otherwise, maybe we can add a separate valid-only filter.
 
+Agreed.
+
+PTE_VALID should be removed from all these existing filters here
+and then add it back as a separate filter like Stage-1. Ohh, but
+it is already in there. Checking for PTE_VALID along with other
+intended filter masks does not make sense.
+
+> 
+>>>>  		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
+>>>>  		.val	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
+>>>
+>>> Is not KVM_PTE_LEAF_ATTR_HI_S2_XN already in the reverse semantics aka
+>>> XN (Execute Never). Hence when KVM_PTE_LEAF_ATTR_HI_S2_XN macro is set
+>>> that means the entry is not executable and vice versa.
+>>
+>> Yes you are correct. However in dump_prot() we have:
+>>
+>> if ((st->current_prot & bits->mask) == bits->val)
+>> 	s = bits->set;
+>> else
+>> 	s = bits->clear;
+>>
+>> Analysis:
+>>
+>> 1. region is executable:
+>>     - st->current_prot == PTE_VALID (ignore other bits)
+>>     - st->current_prot & bits->mask gets PTE_VALID
+>>     - if condition is true (.val is PTE_VALID)
+>>     - prints bits->set
+>>
+>> 2. region is not executable:
+>>     - st->current_prot == KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID
+>>     - st->current_prot & bits->mask gets (KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID)
+>>     - if condition is false
+>>     - prints bits->clear
+> 
+> As above, this is because the PTE_VALID bit has been placed into the
+> mask, and that's not how the ptdump code was intended to be used.
+> 
+>> Therefore we want .set = "X", and .clear = " ".
+> 
+> That'll work around the problem, but I'm not sure that's the right fix.
+> If nothing else, it's *very* confusing.
+> 
+> Mark.
 
