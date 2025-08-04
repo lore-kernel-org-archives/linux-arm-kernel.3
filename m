@@ -4,95 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B12CC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 11:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8A1C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 11:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jTfwzKdFO4Billpr1agzWiIuczhIZbl+uk2TO52W1Ms=; b=JOa6Fi6gWvjeo+RXIifSeJ15Rd
-	O2P0KCCW3rOei3RCVx64tz1Wcgjdo5QxBNYrQR5BYPj4F++mwW0EwPn2k4/L+hKHbw+1XARH0ALGR
-	hmrjWTqLvrnxqhqp3Ysa+oZOFRN5loge7/VpUyZqIRUJJ4jqXF/NBJlMasRoWVhlfzLl7Q4fMNUI1
-	GEUyQo6oghkOUVDDN6eODt24e3yUPjgTRYszyh5VxhOe4QmgSM5F+2n73iIEgoW8EaakSYh/mLuAO
-	kLkNd300MMqm+JMn07szJGcrJAnAKNgbKIn018YyEdf8pFqA4TrNu3oHn9CgEwj2vTyFYVvL/xSI7
-	XLg/rv+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jmqe/ZBEBlrP1T1bepn+6W97vg9czKOMLOLDcitW/Fc=; b=ojaRch0RVQ0JO5ESJeVQcXwmP6
+	ZI0rinvUX6yKKdOT3J07jTP/ItUkyIuJZDkwfO1bylJ5QwxfdgBOM5+GnUnQn2GIpdoONIrZzY5Bp
+	yzgTcddEbbcYMyvNp+6acPJOORHl8uOeSXIHKRZSR0GN1Mpb99oEUn8mTqUsf/6yr9yOYdQKkAVFP
+	IHvkxn8HqDwfcQDsJUszmf/abfABVoUsBiPSjMY7FncUOaETQjKYKAkJtzvtpTd7SLEFTTY74VmOb
+	AQE5sJibKKuFlM4pVY1JpagXjKdsc8beO1UzYuimruaA1oCoSjcVZ/7AppJJG3zndLEiKS02DY03j
+	X3QZXaXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uitAw-0000000AGuA-2FXG;
-	Mon, 04 Aug 2025 11:16:18 +0000
-Received: from mail-wm1-x344.google.com ([2a00:1450:4864:20::344])
+	id 1uitDV-0000000AHBE-1DRf;
+	Mon, 04 Aug 2025 11:18:57 +0000
+Received: from mail-am6eur05on20729.outbound.protection.outlook.com ([2a01:111:f403:2612::729] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uisqJ-0000000AEWj-44sk
+	id 1uisqS-0000000AEXq-1huS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 10:55:01 +0000
-Received: by mail-wm1-x344.google.com with SMTP id 5b1f17b1804b1-45994a72356so10241545e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 03:54:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1754304898; x=1754909698; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jTfwzKdFO4Billpr1agzWiIuczhIZbl+uk2TO52W1Ms=;
-        b=Ca0BawqDlEwYVgn86HkLmsJeomXrH3Dk7wNiPDTy/RwYFHMpm6QnjbLyUHx4tfTDCv
-         aERSjxGOkH5ShKBFZLYt/KMLg5SdEpvaGoxFyGN+4jzRUtiTx41tsiU8Fw1atV1I8jV1
-         jih3Z0HHnizLixE87BGssMpYpq0wuIOn3Sx3sm0a6CKP8PuZB2MQeqmU8zF81xjcAO3P
-         /mHqy+oTKie8tWowyh1I+ps+Rfq0Qj+sveK88gGcAW+WqRErkcKDfkU7oSWZuwkrUELA
-         nFij4iRFaQQkk0Zh2qZdYYvkMaFvpK2wwNrGStLMflr4JpZdcqLp9anmZJDtnbLMi1iR
-         C82Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754304898; x=1754909698;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jTfwzKdFO4Billpr1agzWiIuczhIZbl+uk2TO52W1Ms=;
-        b=ma6xHaFkBByiCw4IogmJLWbXnW9QFLJAtkT1zVtJoB8EX8eEpiCBSTVYIP7oNre6we
-         TiN52ck35v68rTB5OvuIigbbJ2R6Qjq0joSVSLtAxCVeOEGV9bj2wiW0dDdnpTEpz+B1
-         YUR1kLOqxC1AvJRbfuByyoYRPXnu4RjvGV6/6zgHFO/2U+9h5gQIfzYVIZxifb5qvXVi
-         pyBWkSfitRGHIeJFiBwU7WmLx9wHwrzhh6Clmi7L1yc2rSeav2czuA6JqqXXgcI/99dz
-         rSmkOYNtB/ki3wd6Jdjh2QUbESJDRqlJxsEy+eUnJiqMzi2ldYbyq86j0+dfR1DQnHYS
-         PM2A==
-X-Forwarded-Encrypted: i=1; AJvYcCXRwaBfYS1u5DJSJAHNiHtyaLDJ5YTpP2wLGbKxNYSzKJfS1WheNXG0fb/ItSrfGMoHZZD5erGatkczDTIuTelw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxS19uHcQr/oILn6jLaS8nxzZk3R/TZXmhDNtmKLGB9EZlyElTd
-	yhFNXCtNVF4UMNMjW/sNEPG8wXmyCqwK0VpPpFKfbbLsQ/iWvR6ct6bXB4EH1p0sy2s=
-X-Gm-Gg: ASbGncthyJUCZNyoqGflYZRAP+bYBmNzQ1dc7MB/HSwZ7wXNSdrMv2Ac+PDZLlgMcQV
-	hMjemSM9Kxk7Xrmmx1cJ1swJHaJnqS2XNTubp0RliOUn8Qgq5eLV7JGHy1IRkETmOeTJa64VBBs
-	rXN6PUEyTV+0bFx0q8y2QjyZBcDvtFtzKZMfr0/AKc5gMRKh52MdwTL768u/5NFcScMfd71q4GG
-	F7LTKQZQQYtZTijpMfROyWDNEypuytOfyc1o5mOM94WHfvat7MR0wFSt8s5FfWnB1eUcpMLdryl
-	edE4tDGMzjxI8u8HDuepaJ8iGTGeh/VETjbrRR6PoLod5mZwbTUc3RFTGNPDLKxdK8CYuxJz+n3
-	Gjt7kwOo08fKcmxQGVEPJThceixeVLRkzPKQbsoeSzizP08Hr0XGER3HkEqgLvKu50X/nJ9zkso
-	iSrXYVaS3toA==
-X-Google-Smtp-Source: AGHT+IHolr1jpSS8jZ3V5wzzwBRxkUohemu1Nv4CGTNmDUpUc5jSaT3JjX0JSbIFj/1+2LYoFZrMMw==
-X-Received: by 2002:a05:600c:5246:b0:456:1281:f8dd with SMTP id 5b1f17b1804b1-458b5f190f6mr71240945e9.12.1754304898475;
-        Mon, 04 Aug 2025 03:54:58 -0700 (PDT)
-Received: from localhost (dynamic-2a00-1028-8394-58e6-9e1a-64e5-71bf-cbcb.ipv6.o2.cz. [2a00:1028:8394:58e6:9e1a:64e5:71bf:cbcb])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b79c453d6esm15241180f8f.37.2025.08.04.03.54.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Aug 2025 03:54:58 -0700 (PDT)
-Date: Mon, 4 Aug 2025 12:54:57 +0200
-From: Michal Hocko <mhocko@suse.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: Eugen Hristev <eugen.hristev@linaro.org>, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
-	pmladek@suse.com, linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, corbet@lwn.net,
-	mojha@qti.qualcomm.com, rostedt@goodmis.org, jonechou@google.com,
-	tudor.ambarus@linaro.org
-Subject: Re: [RFC][PATCH v2 22/29] mm/numa: Register information into Kmemdump
-Message-ID: <aJCRgXYIjbJ01RsK@tiehlicka>
-References: <20250724135512.518487-1-eugen.hristev@linaro.org>
- <20250724135512.518487-23-eugen.hristev@linaro.org>
- <ffc43855-2263-408d-831c-33f518249f96@redhat.com>
- <e66f29c2-9f9f-4b04-b029-23383ed4aed4@linaro.org>
- <751514db-9e03-4cf3-bd3e-124b201bdb94@redhat.com>
+	Mon, 04 Aug 2025 10:55:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T2mx01KxlLL8KxlhWQIuE6VmdMMZzdzB81K0lYSERv9Lv8nh493voi14k6OZ451nOPtgoPxI+O8cEavj0ZqLMWzU5y8ZFp06fDZCFIv9Ld+jb1/aXcScyMdCXXkSC1vDzMRUSfkOq112nbzYL/BagvgogDzBzJtjegV15MixKaVt+HYyMqnmbeztalbC+UB9+PNdS/eTQagSaAsMUB5sU+n5p8UtGAEuDQt5YjgS8WbOpwh4cfDHNjGMUD/sQGViEHtmty1DXcUOyJsK6K75W4O61gDY08rlRMexuDYOU73gQn2VcR6QzqAnuJZRM6a/gV5jF7BMapn4gnuQ2xfx7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Jmqe/ZBEBlrP1T1bepn+6W97vg9czKOMLOLDcitW/Fc=;
+ b=iBAP6Uw932UZkCDFrzRj0Hqmku05a7pqHrGBceL8OUR7EUwISa67DVRVeBjLMnMUPcO2yEVDwfkjkMS5YlJcjI2rNPl1XL2Lh+bPNQbYNTNqFZpVB+lXc602kYqB5IYY4xUlKW2DCTawh41oaovV0UIK5m3SMZQNG8qhySXlv9zgKGskY75H0Un5UP6WmNQNIkHP18zj93H6I+UyWxlsOmdb+e6uQmK0p6T48O2+acPhC/eALjQWSQBip0KX7ksb9yEz9/RrEG6DLjw4q5vyn1ILbgl1grg7pH3Yb41NbePtno5W1O59vnFje/DUNSJWIvimlHfxuxP3izO66RfNVg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Jmqe/ZBEBlrP1T1bepn+6W97vg9czKOMLOLDcitW/Fc=;
+ b=n3VGFg6uYXtFEhxh1/KU//xqskR62Yz4Ksp/0Pmg0RI3cb+j63NU4N40j+seeAFE1SRd5JPA3UwLvpOQNPDX18Wi/43142eZ0Oc3vLffizBC9hNai4LSNT/Gx2hpwVvxYGxthp2I6nVRYwRQ0HFTFYP2so4RgTbBA2Y18eQaEyY//H4LrFLZuVSd8BLjALoA17ND26jsuM7Ho1jler1aEUUgWTtWbAvjesu0+DYHomKPo27SQR+UL4x2nSKOzSF5vkQi9B27Nq2QSXzU4ar8m9v13P4QromYMqJw9e5IttWiDgMTPHtIOEwfLCzM5wNlAiilssU6l+/mag7dw4VIvw==
+Received: from AM0PR02CA0156.eurprd02.prod.outlook.com (2603:10a6:20b:28d::23)
+ by PR3P195MB0713.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:32::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Mon, 4 Aug
+ 2025 10:54:59 +0000
+Received: from AM3PEPF0000A78D.eurprd04.prod.outlook.com
+ (2603:10a6:20b:28d:cafe::5e) by AM0PR02CA0156.outlook.office365.com
+ (2603:10a6:20b:28d::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.20 via Frontend Transport; Mon,
+ 4 Aug 2025 10:54:59 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Diagnostix.phytec.de (91.26.50.189) by
+ AM3PEPF0000A78D.mail.protection.outlook.com (10.167.16.116) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.9009.8 via Frontend Transport; Mon, 4 Aug 2025 10:54:58 +0000
+Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
+ (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Mon, 4 Aug
+ 2025 12:54:57 +0200
+Received: from phytec.de (172.25.0.51) by Florix.phytec.de (172.25.0.13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Mon, 4 Aug
+ 2025 12:54:57 +0200
+From: Wadim Egorov <w.egorov@phytec.de>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <obh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+Subject: [PATCH] arm64: dts: ti: k3-am642-phyboard-electra: Add ti,pa-stats property
+Date: Mon, 4 Aug 2025 12:54:50 +0200
+Message-ID: <20250804105450.2322647-1-w.egorov@phytec.de>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <751514db-9e03-4cf3-bd3e-124b201bdb94@redhat.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.0.51]
+X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
+ (172.25.0.13)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM3PEPF0000A78D:EE_|PR3P195MB0713:EE_
+X-MS-Office365-Filtering-Correlation-Id: 142400f5-0165-43f7-73c7-08ddd3455a78
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rGT3A+KcKY/9zC6sz8zJlQ9nfmAhDiUiPCq2irx8R00kKThgXyfXt1D/oP9K?=
+ =?us-ascii?Q?Id++C/sO56pS8sKQuoVzfWT3TxQNsozo8epI5WeVfuelHlScXUeIcVL5nrEA?=
+ =?us-ascii?Q?9uT69MEOmpgx/a68mMhv2Kjrq/kePpbKMx9ZtMwyQ0NCoIMf3YRUkmF06Xow?=
+ =?us-ascii?Q?L7rctow0A/7U97pXNo4ceHCZNniQve08EpXSBmcMtNQMvPB/rC/Vh/Lo4ZUu?=
+ =?us-ascii?Q?RK6Ttm1kerze+dAe4t90ZVWujbQttRwrq+b52/N2VCqQYAQfirLjm0Inv28v?=
+ =?us-ascii?Q?4mtI47U25QYsSebch1EgmoAHnbHVumLVRp4VHEaA2NxrD8Xos5kCkuqkXFhD?=
+ =?us-ascii?Q?1pi+38np/7tyli+ZnVR/s93jfoqFZ5KWZcu0yeg7BKlnC71AwqHKGAB4xhhJ?=
+ =?us-ascii?Q?1ez/Q5iWm2WiWrarueadgoRlJYtooHucdBehyJbrduT+yxgXL+1JE6ZEN3fI?=
+ =?us-ascii?Q?/qcnEEcWz4Rn+pwo9nFoynaSwxEXFpunZSnDIrCgu1aYnazJYBLxTm2FnUu+?=
+ =?us-ascii?Q?Eo78bYujZfZPc+U+GvoBMbKSxxTsuJbzsLRyOUyJnoT+XjXjWMbLEHCD26yf?=
+ =?us-ascii?Q?eVOyBX4DI0b0STdz8BZ1MnnIDiqwHYZwmBR5qoclfAH446SifmePG2Dxo2Kk?=
+ =?us-ascii?Q?ZdfgvnL5mAZ+OTLsAFLAy6YKpgZ+XxTLoLMDD9UVDm9KZUaeF4MtzAih6Zt3?=
+ =?us-ascii?Q?QGaUMcl0RmqDvoojNthkQjXtAH5czCONrFBgpCI/y0onwfL/gtShyLJShCdi?=
+ =?us-ascii?Q?EQIwjv0UeIeF7DMcBvAVu0dVZOma3EaaAK1bx2Tvyz8+7hCbXG9t3VASEVgW?=
+ =?us-ascii?Q?tM36gvqReqbV8SAAjOCJkt8nd5ENdaZ/A+JTKmZTmm/BO8/M+uNCvxew+PNc?=
+ =?us-ascii?Q?eEpGpdXWjw05rQfw4/UD1jxpXmwYrwfNuSUIVtTUgIkLYeM9vISTevugmNVR?=
+ =?us-ascii?Q?mOB37EXEM/lnHUyZ+m/6kI9Zx9M9XWEGB0Y2TD5Vdh18vNlcn+Tk1yWK7pw6?=
+ =?us-ascii?Q?DLjpofOq8Z2Ifcx5wODe5Pw2vr+NJVk5L76FSM92kVo17JB1if9XA0wcD/3k?=
+ =?us-ascii?Q?LEWZE/R0kEjIo7grc3+wSTsQ1mz3ZDrzUGCLBImbGlWp7r36Xjbhu8VICY94?=
+ =?us-ascii?Q?YChyiRxKLEb+TsOg6nidJ/315adKp/ZCZ+lnrbqnFwoNyPTlxnZO3h0jv80L?=
+ =?us-ascii?Q?ypWUSUpz+NakbZ7YT3myWhVCZW7NN8IHtWGyIQ/Qs4CSZmiPKzP/O/x/9e8k?=
+ =?us-ascii?Q?eKo+XTRuvFrXTefEDRIDeSuFfIGfyQpciTYeSsrj/Ajgf14ow5IDOA/cVcv5?=
+ =?us-ascii?Q?h/WraSfBo8JUItS8WXsr5KD8+SLkwyyqm1jxKsU74uefni5Ym21fRunID4mC?=
+ =?us-ascii?Q?8j6bNMAyo+gSovOTjWLq/3AvzvGlcczUGvQ+DX77PYc1/QKF853mJgEmi9SH?=
+ =?us-ascii?Q?4BTFdTDnNnXpMq/2NLm7s/LpP+WoFeGznbB08ekUiyXG51X3kbPKe6nYLW3C?=
+ =?us-ascii?Q?YZxNzhaAxPTMu3yuEs3XHRucvhVekd2ZR5P/?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2025 10:54:58.0094
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 142400f5-0165-43f7-73c7-08ddd3455a78
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A78D.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3P195MB0713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_035500_010116_C885900F 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250804_035508_761759_B515E46E 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +147,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 30-07-25 16:04:28, David Hildenbrand wrote:
-> On 30.07.25 15:57, Eugen Hristev wrote:
-[...]
-> > Yes, registering after is also an option. Initially this is how I
-> > designed the kmemdump API, I also had in mind to add a flag, but, after
-> > discussing with Thomas Gleixner, he came up with the macro wrapper idea
-> > here:
-> > https://lore.kernel.org/lkml/87ikkzpcup.ffs@tglx/
-> > Do you think we can continue that discussion , or maybe start it here ?
-> 
-> Yeah, I don't like that, but I can see how we ended up here.
-> 
-> I also don't quite like the idea that we must encode here what to include in
-> a dump and what not ...
-> 
-> For the vmcore we construct it at runtime in crash_save_vmcoreinfo_init(),
-> where we e.g., have
-> 
-> VMCOREINFO_STRUCT_SIZE(pglist_data);
-> 
-> Could we similar have some place where we construct what to dump similarly,
-> just not using the current values, but the memory ranges?
+Add ti,pa-stats phandles. This is a phandle to PA_STATS syscon regmap
+and will be used to dump IET related statistics for ICSSG Driver.
 
-All those symbols are part of kallsyms, right? Can we just use kallsyms
-infrastructure and a list of symbols to get what we need from there?
+Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
+---
+ arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-In other words the list of symbols to be completely external to the code
-that is defining them?
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+index 129524eb5b91..e4afa8c0a8ca 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
+@@ -100,6 +100,7 @@ ethernet {
+ 		ti,mii-g-rt = <&icssg0_mii_g_rt>;
+ 		ti,mii-rt = <&icssg0_mii_rt>;
+ 		ti,iep = <&icssg0_iep0>, <&icssg0_iep1>;
++		ti,pa-stats = <&icssg0_pa_stats>;
+ 
+ 		ethernet-ports {
+ 			#address-cells = <1>;
 -- 
-Michal Hocko
-SUSE Labs
+2.48.1
+
 
