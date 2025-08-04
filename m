@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BE0BC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5765BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MI2uiT3ItORnxcDb44ePnIK1LuygQhPRPLGgsvcTZ8w=; b=rhMy30nYFc+ZTNkeThQ7tJPuNB
-	rIytj6WfI6E36PN6JqCXvKNQBinDp64ZuiMpvAs76uUsZRTkLC/ZQ7vVbzlxS/soD4FsSDQHGzc09
-	5KNnONfCkj+OcRYaNGDo0QCzyCd+GZf3KjjRlXI/3Do9eofjtsSE4JH49HrNj41IZ6UeSWMHx0AqZ
-	5m0wtMMpsijEdjgIrRkbRPTZFsN2HKGat40SpF/mZ7mOIJQDnHmz0OKe3CviqaaQri4H5z43M7Cn7
-	OlITV1SJ/RmoQY+070ZHL+P4wAGl/NtBW7DdRmmvQZoisEWe9OSU3HGIUc0uCqzoj3a/zJXK/MRHr
-	Lmki+Vbg==;
+	bh=DtpCorXC+GJbQX3n4ecrat2Ls9nmYuwZIJdWGIAp89w=; b=2iQA69PiAX7JJPntVGFVaqpRF8
+	WcE2pQAx5w+W54/uPRCP3Oojh6K0QKze5IRuGLTWhxhY7GOU0bVbkaNanc91DqEI5xtOmO+t7rgdZ
+	PenCxTDgvhqj5lsZg/snmhuZW9He8/oDVqrtmbLyyNEm+n0KzCSp5euxMMUa8VS2FPGLsB4Vok9Nb
+	8CS+6QkCr9jM9KH/tcJFkpZYHqOROZLpahkJq1kdBka+/WDa4B5/HtJQuAAjXSbgCNpsmrz4fhRUL
+	cM4EFJYpV5jtavqScsVqvAUK2HG754RxEtac6AJjMQE4fjfYrpUh73M/FrmiwbgWSl0i+I4ZL6Wxv
+	U3ClphGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uikOZ-00000009Spw-03vI;
-	Mon, 04 Aug 2025 01:53:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uikR1-00000009T0B-0VQA;
+	Mon, 04 Aug 2025 01:56:19 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijGJ-00000009Mf6-2nYc;
-	Mon, 04 Aug 2025 00:41:13 +0000
+	id 1uijGS-00000009Mfy-35sa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Aug 2025 00:41:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B49A5A54F4E;
-	Mon,  4 Aug 2025 00:41:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00808C4CEF8;
-	Mon,  4 Aug 2025 00:41:08 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 342F75C4030;
+	Mon,  4 Aug 2025 00:41:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3349EC4CEEB;
+	Mon,  4 Aug 2025 00:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754268070;
-	bh=kEDFM1+saxL4i+9T7MBV1tuzA5+VObYzj4dtLR0QQbI=;
+	s=k20201202; t=1754268079;
+	bh=F90JFq2DA2hyVOvaTR4oDxz+L1hPDd0NDSpOfIUY/Ww=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=O9ayG9JmZI2AA3Ig0agVF934kGVHXRDeXFD69B/8BKThRsgIXjOexd94ICaar0c+V
-	 XcbxxiWoJukfNt+rhcn2ombYlN4a+ZvQ/e7AGRcJoaV8/G2GtqgEpBkVkHUmKOLlFv
-	 IaQt2kS5YtTsGrjCIAZJNG2pPEmcf7FXqyJQfLTBtfgEoDUwDDxvQNUDaBECfFag1n
-	 PdJBK/gerOQW0abrhL5yRi2ms/miQ5/U+gfZtvL0INET+PpV0znpAyWEaoJnp4yIz2
-	 ni6FpqCThNr5668NDAwc0Ikf1EwEoyr79oWyHh+so6tWmOmvNanlmGdfN6IphiqWe6
-	 B0GHHmbsYvVQQ==
+	b=KeM4a/mk/cWkEHVF4qeISSRRfekUlnMJI7BUkPx2Lr1C7PcwuPasGTt0aKCm4aaHx
+	 yFgLBqdkgeRlu4Tz8r9pWywHFsAac0kRohNDQm/ACV86kEX/XGBeie07SLkhCN0lrf
+	 mgAzCox6O9Jw8Yav2z1zcY9AwrF9YbHYCP6Or8Cm6cr3Flu4VrX0Kv9xpcP8qtQm6B
+	 37qkebZUWe2BfOxx4XfO8ydoZ8I4FmiVImXB6PgYCWcqCJ8SaA6luEvPs+uj7wbNyR
+	 XrdnSJagPVOmTf5olBjLhZbjPV7w5O+0hPM4DNFZmTe4sPHXBbp1qOy2YeeT/VUQe+
+	 rpTRFcmcA7pPA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Alexander Kochetkov <al.kochet@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+Cc: Aaron Kling <webgeek1234@gmail.com>,
+	Thierry Reding <treding@nvidia.com>,
 	Sasha Levin <sashal@kernel.org>,
+	thierry.reding@gmail.com,
+	jonathanh@nvidia.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 11/39] ARM: rockchip: fix kernel hang during smp initialization
-Date: Sun,  3 Aug 2025 20:40:13 -0400
-Message-Id: <20250804004041.3628812-11-sashal@kernel.org>
+	linux-tegra@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.10 15/39] ARM: tegra: Use I/O memcpy to write to IRAM
+Date: Sun,  3 Aug 2025 20:40:17 -0400
+Message-Id: <20250804004041.3628812-15-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804004041.3628812-1-sashal@kernel.org>
 References: <20250804004041.3628812-1-sashal@kernel.org>
@@ -61,8 +64,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 5.10.240
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_174111_832459_98596238 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20250803_174120_852759_6D478441 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,124 +80,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Kochetkov <al.kochet@gmail.com>
+From: Aaron Kling <webgeek1234@gmail.com>
 
-[ Upstream commit 7cdb433bb44cdc87dc5260cdf15bf03cc1cd1814 ]
+[ Upstream commit 398e67e0f5ae04b29bcc9cbf342e339fe9d3f6f1 ]
 
-In order to bring up secondary CPUs main CPU write trampoline
-code to SRAM. The trampoline code is written while secondary
-CPUs are powered on (at least that true for RK3188 CPU).
-Sometimes that leads to kernel hang. Probably because secondary
-CPU execute trampoline code while kernel doesn't expect.
+Kasan crashes the kernel trying to check boundaries when using the
+normal memcpy.
 
-The patch moves SRAM initialization step to the point where all
-secondary CPUs are powered down.
-
-That fixes rarely hangs on RK3188:
-[    0.091568] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-[    0.091996] rockchip_smp_prepare_cpus: ncores 4
-
-Signed-off-by: Alexander Kochetkov <al.kochet@gmail.com>
-Link: https://lore.kernel.org/r/20250703140453.1273027-1-al.kochet@gmail.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Aaron Kling <webgeek1234@gmail.com>
+Link: https://lore.kernel.org/r/20250522-mach-tegra-kasan-v1-1-419041b8addb@gmail.com
+Signed-off-by: Thierry Reding <treding@nvidia.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my analysis of the commit and the code context, here's my
-determination:
+Based on my analysis of this commit, here's my determination:
 
 **Backport Status: YES**
 
 This commit should be backported to stable kernel trees for the
 following reasons:
 
-1. **Fixes a real bug affecting users**: The commit explicitly mentions
-   that it "fixes rarely hangs on RK3188" during SMP initialization.
-   This is a critical boot-time issue that prevents the system from
-   functioning properly.
+1. **Fixes a real crash/bug**: The commit fixes a KASAN (Kernel Address
+   Sanitizer) crash that occurs when using regular `memcpy()` to write
+   to IRAM (Internal RAM). This is a functional bug that causes kernel
+   crashes when KASAN is enabled.
 
-2. **Small and contained fix**: The change is minimal - it only moves
-   the SRAM initialization code (`rockchip_smp_prepare_sram()`) to
-   execute after all secondary CPUs are powered down. The code movement
-   is straightforward:
-   - Lines 281-285 (old location) are moved to lines 321-325 (new
-     location)
-   - The fix is contained within a single function
-     (`rockchip_smp_prepare_cpus()`)
+2. **Small and contained fix**: The change is minimal - it simply
+   replaces `memcpy()` with `memcpy_toio()` on line 66 of arch/arm/mach-
+   tegra/reset.c. This is a one-line change that doesn't alter any logic
+   or introduce new features.
 
-3. **Clear root cause**: The commit message explains the race condition
-   clearly - secondary CPUs may execute trampoline code while it's being
-   written to SRAM, causing unpredictable behavior and hangs.
+3. **Follows proper I/O memory access patterns**: The fix is technically
+   correct. According to the kernel documentation in
+   Documentation/driver-api/device-io.rst, I/O memory regions (which
+   IRAM is mapped as via `IO_ADDRESS()`) should be accessed using
+   I/O-specific functions like `memcpy_toio()` rather than regular
+   `memcpy()`. The documentation explicitly states: "Do not use memset
+   or memcpy on IO addresses; they are not guaranteed to copy data in
+   order."
 
-4. **No architectural changes**: This is purely a timing/ordering fix
-   that doesn't introduce new features or change the architecture of the
-   code.
+4. **No architectural changes**: The commit doesn't introduce any
+   architectural changes or new functionality. It's purely a bug fix
+   that corrects improper memory access.
 
-5. **Critical subsystem**: SMP initialization is a critical kernel
-   subsystem. A hang during boot makes the system unusable, which is a
-   severe issue for affected users.
+5. **Minimal risk of regression**: Since this change only affects how
+   data is copied to IRAM during the Tegra CPU reset handler
+   initialization, and uses the proper kernel API for I/O memory access,
+   the risk of introducing new issues is very low.
 
-6. **Platform-specific fix**: The change only affects Rockchip ARM
-   platforms (specifically those with Cortex-A9 CPUs like RK3188),
-   limiting the scope of potential regressions.
+6. **Platform-specific but important**: While this fix is specific to
+   ARM Tegra platforms, it fixes a crash that would affect any Tegra
+   system running with KASAN enabled. This is important for developers
+   and users who rely on KASAN for debugging.
 
-7. **Follows stable tree rules**: The fix addresses an important bug
-   (boot hang), is small and self-contained, has minimal risk of
-   regression, and doesn't introduce new features.
+The fact that `iram_base` is obtained through `IO_ADDRESS()` macro
+clearly indicates this is I/O mapped memory that requires I/O-specific
+accessors. KASAN correctly identified this misuse and crashed to prevent
+potential issues. The fix properly uses `memcpy_toio()` which is
+designed for copying to I/O memory regions and won't trigger KASAN
+checks for regular memory access.
 
-The key insight from the code analysis is that the original code had a
-clear race condition where:
-1. Secondary CPUs were powered on (lines 287-288 in the original)
-2. Trampoline code was written to SRAM (line 282 in the original)
-3. Secondary CPUs could potentially execute incomplete/corrupted
-   trampoline code
+ arch/arm/mach-tegra/reset.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The fix ensures all secondary CPUs are powered down (lines 321-323)
-before writing the trampoline code to SRAM (lines 321-325 in the new
-version), eliminating the race condition.
-
- arch/arm/mach-rockchip/platsmp.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/platsmp.c
-index d60856898d97..17aee4701e81 100644
---- a/arch/arm/mach-rockchip/platsmp.c
-+++ b/arch/arm/mach-rockchip/platsmp.c
-@@ -279,11 +279,6 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
- 	}
+diff --git a/arch/arm/mach-tegra/reset.c b/arch/arm/mach-tegra/reset.c
+index d5c805adf7a8..ea706fac6358 100644
+--- a/arch/arm/mach-tegra/reset.c
++++ b/arch/arm/mach-tegra/reset.c
+@@ -63,7 +63,7 @@ static void __init tegra_cpu_reset_handler_enable(void)
+ 	BUG_ON(is_enabled);
+ 	BUG_ON(tegra_cpu_reset_handler_size > TEGRA_IRAM_RESET_HANDLER_SIZE);
  
- 	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
--		if (rockchip_smp_prepare_sram(node)) {
--			of_node_put(node);
--			return;
--		}
--
- 		/* enable the SCU power domain */
- 		pmu_set_power_domain(PMU_PWRDN_SCU, true);
+-	memcpy(iram_base, (void *)__tegra_cpu_reset_handler_start,
++	memcpy_toio(iram_base, (void *)__tegra_cpu_reset_handler_start,
+ 			tegra_cpu_reset_handler_size);
  
-@@ -316,11 +311,19 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
- 		asm ("mrc p15, 1, %0, c9, c0, 2\n" : "=r" (l2ctlr));
- 		ncores = ((l2ctlr >> 24) & 0x3) + 1;
- 	}
--	of_node_put(node);
- 
- 	/* Make sure that all cores except the first are really off */
- 	for (i = 1; i < ncores; i++)
- 		pmu_set_power_domain(0 + i, false);
-+
-+	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
-+		if (rockchip_smp_prepare_sram(node)) {
-+			of_node_put(node);
-+			return;
-+		}
-+	}
-+
-+	of_node_put(node);
- }
- 
- static void __init rk3036_smp_prepare_cpus(unsigned int max_cpus)
+ 	err = call_firmware_op(set_cpu_boot_addr, 0, reset_address);
 -- 
 2.39.5
 
