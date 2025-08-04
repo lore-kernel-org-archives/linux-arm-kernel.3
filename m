@@ -4,90 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37671C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A315C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O5z665d7ULd43whPiXaAaYwiZPV604txXYt7r582gyw=; b=KAzr9PrJfUNtt48mt0GrTPeiiM
-	AwM16kYjE3n+y/Q031uaKcFHzNtUeZlKTtbnaNyAlSl4vdgMMDyGmVypEDairQpSdHuDi/M3BIb8M
-	k16VZn9QSojXVpaO+myt4H5apiHdSMhqBzqDx72rtB9TVPkTpORkDH1z5yfPjV7Fz+4rlowhAo7OM
-	JV60rrn0H0TMBpm+N4igzjf2IHZgSoUAWmxIaKjlCSUjSt5t5VtekjAWRS1VWDze3M/BnC2K9cGvt
-	13/JMncU7SIjeWdplnev9GefqqFvzaP9Nky5CVJVKecOGZP7HTQxoUEe0GEMPy9EwB5G3HsCc45G0
-	+fu59KVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LQV/cJNV5hxJ+DGod/dRa68FMecLPmWBXGGj0NRUwiI=; b=Q2lqEAcVa9/zP+k72AreaWMCQ+
+	FY05NC5bwJFNJUkCzjrx+k43IKv1kFi+cSCykPiNXKzVk4xUon48kGEcC0PioHQQ1MiJnYHJ43VwY
+	A/xiYhRg4sdHF3APSbR7VT75+98aHBpzKG702LE+WPtVnqsLgdL3E93SJnyjez4QgwA1K8IwCBDHx
+	/I6vUeAqxhzPGKc6tCCBqHhp5m2ArRbcnWv3IskZU5zlF4dlM5aEfuM2TTlkyOmyux2/IFYCf0h6h
+	io6jFajvMF/OpvcRE3dQzf+wFNnEAVvrl8Qv42nKJ3KXLDa3Oc7ErYMz12fudfGQaHHXBBRhHT5cF
+	HrAcFxOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivR2-0000000AZE0-1xYc;
-	Mon, 04 Aug 2025 13:41:04 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1uivTZ-0000000AZYK-06hW;
+	Mon, 04 Aug 2025 13:43:41 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiv18-0000000AVZJ-2yHc
+	id 1uiv27-0000000AVkH-1JLW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 13:14:21 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3b79bddd604so2840306f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 06:14:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1754313257; x=1754918057; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=O5z665d7ULd43whPiXaAaYwiZPV604txXYt7r582gyw=;
-        b=gvLLV33fxNsJdVEngH6XdMqVRGVLW615V4xOMHHfcizEK8DKxZCYg5ZcS+83lteSqc
-         aUm2YG/caJL1DQ83HXpqxBeSq2/1L54SMCUie//xXNfJ4808EWjczsWLGSLP2dLCN5KX
-         CGBkVYZR6oDj1PJ5bWa7Jlg/NEx/B+uFPJvRtowQ+tjsm5K1caUnVOnJU/mwKM90rOvc
-         4fxHtzTE4R4bxR+nvQAFsYZXWbUbtLFDhDq/OWrqU+T4dw5qyyiLA92kmSncgH7iTHLR
-         TI+sS8t9oNM0KbwsaiAlovFwEQqZx1cnrfVaaF1cJZf4+oubCFIOxC5IzHSkEaygXJhT
-         arVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754313257; x=1754918057;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O5z665d7ULd43whPiXaAaYwiZPV604txXYt7r582gyw=;
-        b=XMY2Xvct1RnbDX3v17l2BOLpXi3iSTQUqY0ejWagHhoexf9dvLuguMMkClB90d3/os
-         u+KIp5c5vyKonsVnxiDSXyAK+lDKvS+XHnqlKvwvNG85dAL5aRohel/OVEjE4+Pgx/0J
-         CjYcmHy7+h7kX+zRiLGg89SNQpX4r1MI6R6bgcRMyv4zF9DWAYojGSGGQIysHAgV5mkU
-         aIi6vF5xXzzl3QSugcYWHTzxYsdLUvGYWMVXNX9eAHmEaF7rIoZj/s0aUaxS8Bq433dA
-         z19eJSN6Cz0W5taQtGnICAwoVIvzpKsQliH6Bp2/iyBsHk1qDlKNXvE/KlXCK9KolwsX
-         7o6A==
-X-Forwarded-Encrypted: i=1; AJvYcCUIfN7tP39pdo5MK0gWNK50n0JgC87EcG8iCaN2/2MzSEQaLl9GyfRCOzD98HloT4H9YN814NdKwcvm0yP2voQT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxONH4/qyKDfThIWSED9e0HeRUzk3IXShPV2Q5zXZvdmsCaX6ip
-	XcUp/6HszFqlurbil4FtTxnKFla91Rb2jzcD7TheFNRKuEpVoXudSPT1Exi3JOVTfls=
-X-Gm-Gg: ASbGncu4BUXCuqMHJbTb/+QTMcyQ+PwxAlv4ab91BAnFs7o1D/SCGXIZ5G8PPga7evo
-	POFHND1T5r3hyvzg0kOZgELx/PfDKswASUMecnqOufX49QnWTO1cuUKX8AjaeE200ROm4Y4VwWX
-	VEpGEZcV3j5A3ffr7E35qA1VLYCXJLbxUQbx4QsGuHHIE8w2kVZiQi+lv0fA1kNqElfuf8pYIz/
-	i/57fRQY9lI4+YwLnHuvanZec/fdBNUUJ0zlCa7lqOsAjCxT4i1f84YrmYF9EhVOFq4W0T09mAW
-	nf5ypdQZqVeL7CX+BYDe21ONtauhjoRrFgFe9lDTzQgUIbpe/jj2iGJwXYJbp5/qy6o94eqeJjf
-	hQsvp5VARO01F8xlsdf40lGQCtbXQgMSFZUKorD/3qGpYmBuz07yZWhyd55fXxpQr
-X-Google-Smtp-Source: AGHT+IFGBSFH04wTKs3VT00hlwsj4lQLGS9nZwv9teVWJYIP3DZgwC7WU4Vo/i6UgQoIBOTG3UlchQ==
-X-Received: by 2002:a5d:5f8b:0:b0:3b8:d4ad:6ae8 with SMTP id ffacd0b85a97d-3b8d94c9d0bmr5521600f8f.50.1754313256812;
-        Mon, 04 Aug 2025 06:14:16 -0700 (PDT)
-Received: from localhost (p200300f65f06ab0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f06:ab04::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-45895377708sm204872295e9.8.2025.08.04.06.14.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Aug 2025 06:14:16 -0700 (PDT)
-Date: Mon, 4 Aug 2025 15:14:14 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, linux-pwm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 1/8] pwm: mediatek: Simplify representation of channel
- offsets
-Message-ID: <fpgfnzx57qzr5jxfl7g7kwtjodw5pvpjz3z42fft5p6rtyzbro@hjgavja6numh>
-References: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
- <20250725154506.2610172-11-u.kleine-koenig@baylibre.com>
- <e3495f99-4a78-4910-9b67-6c25dfe7f989@collabora.com>
- <g4qrehzi44mgvmy76wnrhabmin454wwrngubvvikgjv3w5udl7@wmxrly3mxoiu>
+	Mon, 04 Aug 2025 13:15:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oxHlrEjT41/ZrUyLThpzuBNMTgtj1JXyeVtNslKVm1w9ntCvLB9BQU1GlWw4Q4jwNS6NrHWqflxFYOuDgRXoZelpcNKzkaChkQNjx86U+3ydmVCRmlXcfy9AcZJU0ikAGrhkped9jcHdttsgaycdHk3pMTr8X4Iq0NLwLG1xCwqtVZ0BP9jA+Tg+dUzEAHiWx7N/TQDAPTljWCNjdN03/sJSl6VK/Q+rNiue+ngkXN2bzLPlJD6YxZOAwKTHYPaApuIIbG/5TO0V/HSP+HNVoOKxTai5oyD++vUSdyhLPOoJVC3Plk2q2NISYQfMy4jISCkve4MWCZjJiaNiW8wS9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LQV/cJNV5hxJ+DGod/dRa68FMecLPmWBXGGj0NRUwiI=;
+ b=oaubWQGEqdJgOkZ5tglTx+gDp6Qhb5fVo61BezyWR42jVhF0PrCmypCe/GTMuVNwuQJ3S4WxU0RsXWUrjZ9T1K1443iqyPioNgD/NFCjRMpzGwVyFOQUaI5gvSz3lCy95GDV/t/CjgkWByAbiIdxmYu0OHZJK4RshbZ+81t5s7wI8pqqpg/VGkkywLyW2IsQes9p3mjh08Z4QDC2oLV5pPyZ592QuQQcCczi+28512su0aaquMvLkI9iKNGdNEYNd4bijLE4rUVUfd1bpr5KRySi6RxAbr3xLppCVqoUMgpC5leCapnX790W7qILF9Sa4McFFFsB1LvKPqZqALpYsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LQV/cJNV5hxJ+DGod/dRa68FMecLPmWBXGGj0NRUwiI=;
+ b=DjXcRfQzKyzfI/HuCIUbd5R2G+eJZuGgGRGCDSiyvFbJvYRH8eQeTanXgwaxuBzHgaco+oXQRWSKFPnfpIy5efhCS0sUxOM2wSQkO9+4eDE7dFVuSu9QDB8wWVNsQKsAy/I0TICxpAUy96536VbDwHS3BiyzlM8YuOf/cvrGhn4oiPPzTLrNzwf7Sg/nXkJd5EMk1lDahRcBMwM92nj+M7vK/icOnNLgzgnDJE/NM5O18uruZYojgOQHJIPlpaNOSFB3Tv32nTiW6kPmED0x/CTQtMOi37B4OzciyiaTG06/0By856bjAB3NdZ5FGQfR9DwrsH9prb6LXtVLowMFaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
+ by GV1PR04MB10349.eurprd04.prod.outlook.com (2603:10a6:150:1c6::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Mon, 4 Aug
+ 2025 13:15:11 +0000
+Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
+ ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.8989.018; Mon, 4 Aug 2025
+ 13:15:11 +0000
+From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: frank.li@nxp.com,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/2] clk: imx95-blk-ctl: Fix runtime PM issues
+Date: Mon,  4 Aug 2025 16:14:48 +0300
+Message-Id: <20250804131450.3918846-1-laurentiu.palcu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4PR10CA0008.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dc::10) To GV1PR04MB9135.eurprd04.prod.outlook.com
+ (2603:10a6:150:26::19)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4bimetohzlxl6fm2"
-Content-Disposition: inline
-In-Reply-To: <g4qrehzi44mgvmy76wnrhabmin454wwrngubvvikgjv3w5udl7@wmxrly3mxoiu>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|GV1PR04MB10349:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f3caccb-7380-4366-e09f-08ddd358f0f5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?21RGMjQ2+Q0J+XCXOV5gyySKRG1o/Ue3y/L6IGIwHLNFI+AuoPOoYDx7YjVU?=
+ =?us-ascii?Q?tS/1GS+ej8n/JbIRGLf2+4A5k5rd88k59Pc8WSquexs4KWDl6CcnDLFKfgh8?=
+ =?us-ascii?Q?hAGMIXLVBJWcGpNFUu7A3Z+5IXNumzm5I9bWmLwSXtLayOHD/YBxxdBPi3oR?=
+ =?us-ascii?Q?YyKc/Cw/ynjOoQo7agRskQNkuqKdL0LadT4EC5mSWv85kq5LwJ91adR58umG?=
+ =?us-ascii?Q?6Er15xFn/7RUGGYE3PEqUSZ+4T4+rlld0XaxNk5izmC42Q9VagEkNSJ6hYTy?=
+ =?us-ascii?Q?0eAWOh/Jh96J/Q5MJqxJqZZcSDVNqW5iac3SeQCfy8zm+BrLBfx55SafGBDL?=
+ =?us-ascii?Q?lcBlv/OPT5qTI8Tuqr3d9gnFjVPnmbLJQAeQ7oF/448jR1/bWGWl+kf5QDAf?=
+ =?us-ascii?Q?SuXmNhaHNLJr0uvYkdY2n+HR5JYV2HaK4LFkU3S+/J62cb1C6jtWW6v9wmc1?=
+ =?us-ascii?Q?COgQAjn+8QfnX/4ohvvGCrZmMYrNHlQscEBEfuiVdYanKyFVQ+Suq/MZUoBQ?=
+ =?us-ascii?Q?XBVpOh0gtXKe5I61KyCnMCrja5otgoUQoyH2Sv78dIFMwujnSm+B8lO0hH53?=
+ =?us-ascii?Q?IqY9j90TJH1S424F151OiTLHC44UUshpZfVCc1ylLUPUJxaLhq4BMhk93WBU?=
+ =?us-ascii?Q?ME+AH7RperS6VbSy0iqeOBmpTmrb/DTctYNCbQDW1QJVDEec40c4Rq20bjBB?=
+ =?us-ascii?Q?dVBnLk8kl1P3q2Vx6fcfnBQ9+y5qBUhc4TnhHcWFiRebtn7O+4OQCRCFog3m?=
+ =?us-ascii?Q?L1Skm8gYQTppbt3VxITBDdWN/wzibtxCeMnlepNUPnpZ/pFeFqWMXy16oD8W?=
+ =?us-ascii?Q?En3fYWWsg7Hw/sivmIYdybmd/hr/EANsODe7URcVm/hNs7P6mBWjMOmQNA1U?=
+ =?us-ascii?Q?oBjuLx2tS4AM29ju3WOgoX55+Wzy+ddCB6KKMxex9EOidVNSWK9zpjrpdHt+?=
+ =?us-ascii?Q?58MCgIB4ezJ8LBIpuQqu3eonCLmHeomLQ6AGsI+8F6vwSwBguxqJUR4cZzWj?=
+ =?us-ascii?Q?3HDB4p99/vk3ZG7+SHL1ZgvrUqh1w2bClSPHzj8Pc4Wv0TPhmbFbaJt+DHTL?=
+ =?us-ascii?Q?u6vbCQLUTz7eFreeMCXk+CJknPemR1U7NwrWdIUoFAZi4/UmwD0DT2dI3BiB?=
+ =?us-ascii?Q?0QY6ky6NMFFNmk8h+qlBSbMWSkOgfQvVHV8uq+LU1s9zOpH1RH2XtrZZohtH?=
+ =?us-ascii?Q?/tL2d8tyBH8Fjiwp0JCrDHhdEheN1hEFPFBIQWjZ5frI3EsTTmRvyUepaLVb?=
+ =?us-ascii?Q?W/PnBa4g1Z+1R3DsiCf8gF5yjE4MuWsfKOW+uzWKa4Nw0X6ePw8h/AOmT92m?=
+ =?us-ascii?Q?T3YaoL0LWH8NXaP1xD/kJw1mRu6qayhmi1lahABdRKc5fj7Ky6A+El4f1EAX?=
+ =?us-ascii?Q?NLhW/GQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?znj5wc+3eRKN+e9qmcyJOF42bebihXNZXg6cJSHDJ8kwguxZI9G8mwQxIe4D?=
+ =?us-ascii?Q?GWmhrFv69JFuOA6RoOnzVXbOOPKJd3rTC0nlMIljv9MZh7mKzpVXR+t+4zR9?=
+ =?us-ascii?Q?yGlz27qKjmUp+2TJTaD3PgfvnJ59Cbap4sryOf40dxZqoOw8jf4BkBRPODLl?=
+ =?us-ascii?Q?xKO+QUNLyz1Bf5yRt3fJSxfKL4Mt37ke4kJvQbv42PATcpVY729eoW+w9+HC?=
+ =?us-ascii?Q?iR2/gEjHTqMhbsGArkje7ubMTrqExY34e+36po/SNrGKJR9djZuumIx3Ybc2?=
+ =?us-ascii?Q?OlODY4ox89VBuTjeBSIHmpbFxvSzCYBsHESDH0ttTBHp5HKbIL+EjoQr1IjP?=
+ =?us-ascii?Q?ixyzvLvAMhHivR+z3MIbjDKRQ40uq9pDQU6RzjDEBSYMeRHE7wTl9cSWLEc8?=
+ =?us-ascii?Q?5B6z6q4fv2Qjr3eDGyCmltiMu+wH0lwuVe4D/Rath+Zxe1VEBHWRJblHcacX?=
+ =?us-ascii?Q?bkOVb3dpQV6hcKlcdXjWSotcZHEhIIRULLj+VTN3tUpxucvyihQuynvx0yrJ?=
+ =?us-ascii?Q?c0+RV/fvOknEnnnbpw/xU7Wbtm6Smv9DJqyXpydkzxbqEdODtSh+WcvULMpU?=
+ =?us-ascii?Q?qs5/DQDD1o7WR0qE7DMXbIYSeqs+/EbuI+Do3XzUlmvW8MtRnbxlcLFXC4XT?=
+ =?us-ascii?Q?EeNEBRcYUmU9AwW2RLzcHP+j6dKPwkXHrGR+0FjLLQW9EAG/0/NTAi+0Skdi?=
+ =?us-ascii?Q?wWm1uATi/AgirG0VPcKNEt6L5P74fJoSYvZ3RLDAwQ/zw9rBRI+TILhv6XOZ?=
+ =?us-ascii?Q?2Z9RY+8NscUdvMSYlF8Cj63rXuljjV6dkWeFU/x+pNRHUzBPPCKgdFp0+fxM?=
+ =?us-ascii?Q?as+ns/PSG6IAFJiH5WqJDnuEZLNxH3k2iB94sLf7EjoivdpY+3T/RSqrWpfR?=
+ =?us-ascii?Q?7p/l9V4Bjcwco9zmBy5TDEYak1/RNCOcsIsa5AjQBg6WZcpUKcSGFvAoIsKd?=
+ =?us-ascii?Q?5lWm9bgJqs3A4mrjNa+dq4PMaY9CTWh/617dPLe1DP+rj65oM30yE8oW91/d?=
+ =?us-ascii?Q?54xTNBX49BJx9PavRzeV4K9ptmSKj7VUpt+Vn59plgBrV2naE83/6of7YJzl?=
+ =?us-ascii?Q?tr+aT5U2cBszfdiT9hqiAx+tZEYvD09uHrsD9OUU+uS20cRen0bxFR6DkArO?=
+ =?us-ascii?Q?2JYjpUMmKNx7qAEumgN1KO4O79z03W0LhuHxc9qgXDNLuIOHzFnxbvB9u6V1?=
+ =?us-ascii?Q?AXgDXgafR6iTAP9nT4idHp1qZxO8ZKzi0RzmnFN4CiXXWBXYEIQ+XyigKn4T?=
+ =?us-ascii?Q?v0eXomODgWhYqonnGT8fNM0D1KdrIAqo4X9OCaACWRGkoq2gv0rIQT6dHWBf?=
+ =?us-ascii?Q?CRjDnBsEViVC2Oz1mR31x0z/tTFPsiyu37skZeykQ1Nkis39EE4VI8mWBOIm?=
+ =?us-ascii?Q?4w8Z+E28Vlj5TRR4SJN1ocRZUpb8Qn/b6Nuz0eeAxsytJZtd4tp7zgguJBhE?=
+ =?us-ascii?Q?vY0sK9fBMDDkQ59A2aMPhp31rJm7zUsHiczPH8igZC+2QDpJQSq2rjVmeJFs?=
+ =?us-ascii?Q?xLQiKQw8AUCH0sNzMoLFn5iPavZVny0NaOVTM4kfihajv6kweKitB3dOvEMZ?=
+ =?us-ascii?Q?wNJxUwaCJ+8pmMVkZbbtOSZ77R5WBKvMBpNcJkJmVGiceI2DvoNr4jejpr7D?=
+ =?us-ascii?Q?Lw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f3caccb-7380-4366-e09f-08ddd358f0f5
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2025 13:15:11.4099
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zhJnlJPjuSDEwNi1Raz27NWRQS5esB4Oi9quDIUoopHyxU+lpieeANyHIMipM5CB4AG7M0Kp8pkPHVJ7eGGH6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10349
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_061418_997753_B3DF4CE3 
-X-CRM114-Status: GOOD (  31.63  )
+X-CRM114-CacheID: sfid-20250804_061519_352418_76195A29 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,301 +169,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---4bimetohzlxl6fm2
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/8] pwm: mediatek: Simplify representation of channel
- offsets
-MIME-Version: 1.0
+These 2 patches belonged to a larger patch-set I sent a couple of weeks
+ago([1]) but I decided to break that set into smaller sets, where
+possible, as they will be easier to respin, to address any issues, and
+will probably be merged faster than the other one.
 
-On Mon, Aug 04, 2025 at 12:30:45PM +0200, Uwe Kleine-K=F6nig wrote:
-> Hallo AngeloGioacchino,
->=20
-> On Mon, Aug 04, 2025 at 10:50:01AM +0200, AngeloGioacchino Del Regno wrot=
-e:
-> > Il 25/07/25 17:45, Uwe Kleine-K=F6nig ha scritto:
-> > > The general register layout contains some per-chip registers starting=
- at
-> > > offset 0 and then at a higher address there are n nearly identical and
-> > > equidistant blocks for the registers of the n channels.
-> > >=20
-> > > This allows to represent the offsets of per-channel registers as $bas=
-e +
-> > > i * $width instead of listing all (or too many) offsets explicitly in=
- an
-> > > array. So for a small additional effort in pwm_mediatek_writel() the
-> > > three arrays with the channel offsets can be dropped.
-> > >=20
-> > > The size changes according to bloat-o-meter are:
-> > >=20
-> > > 	add/remove: 0/3 grow/shrink: 1/0 up/down: 12/-96 (-84)
-> > > 	Function                                     old     new   delta
-> > > 	pwm_mediatek_apply                           696     708     +12
-> > > 	mtk_pwm_reg_offset_v3                         32       -     -32
-> > > 	mtk_pwm_reg_offset_v2                         32       -     -32
-> > > 	mtk_pwm_reg_offset_v1                         32       -     -32
-> > > 	Total: Before=3D5347, After=3D5263, chg -1.57%
-> > >=20
-> > > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-> >=20
-> > What if we do, instead...
-> >=20
-> > struct pwm_mediatek_regs {
-> > 	u16 pwm_ck_26m_sel_reg;
-> > 	u16 chan_base;
-> > 	u16 chan_width;
-> > };
-> >=20
-> > struct pwm_mediatek_regs pwm_v1_reg_data =3D {
-> > 	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
-> > 	.chan_base =3D 0x10,
-> > 	.chan_width =3D 0x40,
-> > };
-> >=20
-> > static const struct pwm_mediatek_of_data mt7986_pwm_data =3D {
-> > 	....
-> > 	.reg_data =3D &pwm_v1_reg_data,
-> > };
-> >=20
-> > ...that should reduce the bloat even more :-)
->=20
-> Having the three u16 directly in pwm_mediatek_of_data is cheaper because
-> .reg_data is a pointer and so 64 bits wide (on arm64) and so bigger than
-> 3xu16. Also having the data directly in pwm_mediatek_of_data saves one
-> indirection and so it should also be slightly faster.
+Also, I addressed all the reviewers' comments received previously for
+these patches.
 
-I took the time to complete your patch suggestion and the bloat-o-meter
-output is:
+[1] https://lore.kernel.org/imx/20250716081519.3400158-1-laurentiu.palcu@oss.nxp.com/T/#t
 
-add/remove: 4/3 grow/shrink: 1/0 up/down: 56/-96 (-40)
-Function                                     old     new   delta
-pwm_mediatek_apply                           776     808     +32
-pwm_mediatek_v3_26m_reg_data                   -       6      +6
-pwm_mediatek_v2_reg_data                       -       6      +6
-pwm_mediatek_v1_reg_data                       -       6      +6
-pwm_mediatek_v1_26m_reg_data                   -       6      +6
-mtk_pwm_reg_offset_v3                         32       -     -32
-mtk_pwm_reg_offset_v2                         32       -     -32
-mtk_pwm_reg_offset_v1                         32       -     -32
-Total: Before=3D5427, After=3D5387, chg -0.74%
+Thanks,
+Laurentiu
 
-See below for the complete patch for reference.
+Changes in v2:
+ * Collected r-b tags for patch 1/2
+ * Changed patch 2/2 commit message to make it clearer;
 
-I tend to stick to my variant, also because then all info is in a single
-struct which is nice for both the human reader and the generated code
-(only on indirection).
+Laurentiu Palcu (2):
+  clk: imx95-blk-ctl: Save platform data in imx95_blk_ctl structure
+  clk: imx95-blk-ctl: Save/restore registers when RPM routines are
+    called
 
-Best regards
-Uwe
+ drivers/clk/imx/clk-imx95-blk-ctl.c | 57 ++++++++++++++---------------
+ 1 file changed, 28 insertions(+), 29 deletions(-)
 
----->8----
-diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-index e4b595fc5a5e..ae8fa561ce2c 100644
---- a/drivers/pwm/pwm-mediatek.c
-+++ b/drivers/pwm/pwm-mediatek.c
-@@ -34,11 +34,38 @@
-=20
- #define PWM_CLK_DIV_MAX		7
-=20
-+struct pwm_mediatek_regs {
-+	u16 pwm_ck_26m_sel_reg;
-+	u16 chan_base;
-+	u16 chan_width;
-+};
-+
-+struct pwm_mediatek_regs pwm_mediatek_v1_reg_data =3D {
-+        .chan_base =3D 0x10,
-+        .chan_width =3D 0x40,
-+};
-+
-+struct pwm_mediatek_regs pwm_mediatek_v1_26m_reg_data =3D {
-+        .pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
-+        .chan_base =3D 0x10,
-+        .chan_width =3D 0x40,
-+};
-+
-+struct pwm_mediatek_regs pwm_mediatek_v2_reg_data =3D {
-+        .chan_base =3D 0x80,
-+        .chan_width =3D 0x40,
-+};
-+
-+struct pwm_mediatek_regs pwm_mediatek_v3_26m_reg_data =3D {
-+        .pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL_V3,
-+        .chan_base =3D 0x100,
-+        .chan_width =3D 0x100,
-+};
-+
- struct pwm_mediatek_of_data {
- 	unsigned int num_pwms;
- 	bool pwm45_fixup;
--	u16 pwm_ck_26m_sel_reg;
--	const unsigned int *reg_offset;
-+	const struct pwm_mediatek_regs *reg_data;
- };
-=20
- /**
-@@ -57,19 +84,6 @@ struct pwm_mediatek_chip {
- 	const struct pwm_mediatek_of_data *soc;
- };
-=20
--static const unsigned int mtk_pwm_reg_offset_v1[] =3D {
--	0x0010, 0x0050, 0x0090, 0x00d0, 0x0110, 0x0150, 0x0190, 0x0220
--};
--
--static const unsigned int mtk_pwm_reg_offset_v2[] =3D {
--	0x0080, 0x00c0, 0x0100, 0x0140, 0x0180, 0x01c0, 0x0200, 0x0240
--};
--
--/* PWM IP Version 3.0.2 */
--static const unsigned int mtk_pwm_reg_offset_v3[] =3D {
--	0x0100, 0x0200, 0x0300, 0x0400, 0x0500, 0x0600, 0x0700, 0x0800
--};
--
- static inline struct pwm_mediatek_chip *
- to_pwm_mediatek_chip(struct pwm_chip *chip)
- {
-@@ -118,7 +132,7 @@ static inline void pwm_mediatek_writel(struct pwm_media=
-tek_chip *chip,
- 				       unsigned int num, unsigned int offset,
- 				       u32 value)
- {
--	writel(value, chip->regs + chip->soc->reg_offset[num] + offset);
-+	writel(value, chip->regs + chip->soc->reg_data->chan_base + num * chip->s=
-oc->reg_data->chan_width + offset);
- }
-=20
- static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *=
-pwm)
-@@ -162,8 +176,8 @@ static int pwm_mediatek_config(struct pwm_chip *chip, s=
-truct pwm_device *pwm,
- 	}
-=20
- 	/* Make sure we use the bus clock and not the 26MHz clock */
--	if (pc->soc->pwm_ck_26m_sel_reg)
--		writel(0, pc->regs + pc->soc->pwm_ck_26m_sel_reg);
-+	if (pc->soc->reg_data->pwm_ck_26m_sel_reg)
-+		writel(0, pc->regs + pc->soc->reg_data->pwm_ck_26m_sel_reg);
-=20
- 	/* Using resolution in picosecond gets accuracy higher */
- 	resolution =3D (u64)NSEC_PER_SEC * 1000;
-@@ -303,86 +317,79 @@ static int pwm_mediatek_probe(struct platform_device =
-*pdev)
- static const struct pwm_mediatek_of_data mt2712_pwm_data =3D {
- 	.num_pwms =3D 8,
- 	.pwm45_fixup =3D false,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt6795_pwm_data =3D {
- 	.num_pwms =3D 7,
- 	.pwm45_fixup =3D false,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7622_pwm_data =3D {
- 	.num_pwms =3D 6,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_26m_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7623_pwm_data =3D {
- 	.num_pwms =3D 5,
- 	.pwm45_fixup =3D true,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7628_pwm_data =3D {
- 	.num_pwms =3D 4,
- 	.pwm45_fixup =3D true,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7629_pwm_data =3D {
- 	.num_pwms =3D 1,
- 	.pwm45_fixup =3D false,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7981_pwm_data =3D {
- 	.num_pwms =3D 3,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
--	.reg_offset =3D mtk_pwm_reg_offset_v2,
-+	.reg_data =3D &pwm_mediatek_v1_26m_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7986_pwm_data =3D {
- 	.num_pwms =3D 2,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_26m_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt7988_pwm_data =3D {
- 	.num_pwms =3D 8,
- 	.pwm45_fixup =3D false,
--	.reg_offset =3D mtk_pwm_reg_offset_v2,
-+	.reg_data =3D &pwm_mediatek_v2_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt8183_pwm_data =3D {
- 	.num_pwms =3D 4,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_26m_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt8365_pwm_data =3D {
- 	.num_pwms =3D 3,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_26m_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt8516_pwm_data =3D {
- 	.num_pwms =3D 5,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL,
--	.reg_offset =3D mtk_pwm_reg_offset_v1,
-+	.reg_data =3D &pwm_mediatek_v1_26m_reg_data,
- };
-=20
- static const struct pwm_mediatek_of_data mt6991_pwm_data =3D {
- 	.num_pwms =3D 4,
- 	.pwm45_fixup =3D false,
--	.pwm_ck_26m_sel_reg =3D PWM_CK_26M_SEL_V3,
--	.reg_offset =3D mtk_pwm_reg_offset_v3,
-+	.reg_data =3D &pwm_mediatek_v3_26m_reg_data,
- };
-=20
- static const struct of_device_id pwm_mediatek_of_match[] =3D {
+-- 
+2.49.0
 
---4bimetohzlxl6fm2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmiQsiMACgkQj4D7WH0S
-/k7B6wf/W8Xkd+lg6Ku9HwlkEvcsnzcnunBcY0ZlpFUKSwUGGebEN76Ay5U2tWOz
-ND3ejlWJxiyBJ3e+zBUQ+znv8BaYVeYd0TkeSk/2Ys1v/yvI1MfnZKT6GW4Rx3MT
-VuCMgFhsYh37aGWftLcPtlD1KuqdNUNI4E2Fz7gQt1kKN4VMQV3+mzS72D90JIt9
-YytkRom9L1JoOCPKLT2xvuopLdc+eCaizTesxmVZsahglrxA+7eLqxMcpAwkNQ9r
-kA/AI1wdUwCaJ2f1S1pac5wFMqdaqMiHg1G8aQJbUb1nFcC8bbgqpp9gg5oMndrS
-oX+0PdYM4Dze3pLdDDUTGqSDQfbJ2Q==
-=ZI+Z
------END PGP SIGNATURE-----
-
---4bimetohzlxl6fm2--
 
