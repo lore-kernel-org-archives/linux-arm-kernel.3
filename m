@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39AFC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 14:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6544C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 14:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=33C/cbbkFmBZEeMpAPusxnbTMNnhzWiivF3NeeXbwaQ=; b=4CSPOYyxdmPdRNa+h0Rb8iNIzS
-	/q68yfCF+vwU1mUUlD4lgJusruvhJP6L6A5ojwhn5KAbvRddeX8PbqJppjlk1ui57XxLtM2S2Zx4U
-	AU8q7KC3NXK4akq1i9vB7Z5N5Ln3/tyzQuTyvC8pn/rBCtsFwQZ3CTvGbupFWJjdoEWJCkTiDJyTv
-	2NB9m1HrwJ78uQAd9SMbHX29fcly0sQe80M0DEzRe+chPyoVq4BaMOa7FR+qygSwck044nSWDtcdr
-	MYed2YQL0kh1imdQkyCMQ2D3lUDbS9w2GiI3Nn69uLnJ+XYz+PWhjJVB/R+qwBvV45MI/G+RZ9rMR
-	4ZKyvnKA==;
+	bh=hP+zIvyoBGYMCE15FD3haQLr1XBrKDkbsIDrg0+NHfc=; b=fseSoP2ex0wY8nQuyOiSW/+RHK
+	5Mf3V3ZX9WDC+6daq6Gv4n2R2XWZZ8DgSKOYj3LWk5ap33F6bBnAe1L980gIednUhzwbb5LK03AN/
+	A4frO9yN1od6h0XNw+P5yaUzFFeXx/DPmELdYq3+D/wkbw5UDKX4yltMQX+yx2Za7oWAxE/ovhTPY
+	vdI0HIEyu8FekEy73N4mgISs8zp/f0tQSScqo9Uj87/FfrD1c3NEuXe7FDCN26vUvsr7kxzoVSXg7
+	mga1/cQhXOARPcFIk7G++sVFZvcWLugzBQ6ijD8dyy4dvSm3kmEmxs4llpzOIajFq8nJiJ0te9YY9
+	EX6p3ELA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiwKw-0000000Ah2M-05sE;
-	Mon, 04 Aug 2025 14:38:50 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1uiwNS-0000000AhIQ-3rlU;
+	Mon, 04 Aug 2025 14:41:26 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivZZ-0000000AaPG-1wDS
+	id 1uivb1-0000000AaVk-1uW6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 13:49:54 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3FBCE205AF;
-	Mon,  4 Aug 2025 13:49:50 +0000 (UTC)
+	Mon, 04 Aug 2025 13:51:24 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 28CA242D7F;
+	Mon,  4 Aug 2025 13:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754315391;
+	t=1754315480;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=33C/cbbkFmBZEeMpAPusxnbTMNnhzWiivF3NeeXbwaQ=;
-	b=LVsw/QWmBTRTbTaooY8OnHQGNxXtUmmo6v2YWzKw31V5RczfmrOkRZ4Bg5AzK69ZJPP3CO
-	efWANVtXHkcvmFzA/L/2olQwkjVVP1tLcZw2oHRlQH3VPKcgcMhQYkTSikD7sqHIPvWjAf
-	YbVouWp4BlIgk+vhlCPc5jfGlziUsNos286bNNxObY+TQlhqQf4lD5egqj+lFZiuAuq2dt
-	cSFFUhV25DvgSfFyIvXUHd0lACUzOUMcOjHV697dDEwF9IiiI92KjwGreFuTULR0eP3BiP
-	iC4H8DOXMbvHrk6/Ly803rdONV25L/DPTPpgv3WDaIgC9UDqrEJwEGea4GfueQ==
-Date: Mon, 4 Aug 2025 15:49:49 +0200
+	bh=hP+zIvyoBGYMCE15FD3haQLr1XBrKDkbsIDrg0+NHfc=;
+	b=BnZFOCJH/+d+WMYUzst8s3sUTgn/XaS7tm0B2eDJh9galaxY99J9zWvefMBQEydZd61EMw
+	zfSmFBZ7gPuFdvl+ZIfFR6X/GRpKH9m7QRoozJ8OsF3VRtRnPaQvtadqCz5vqeIojhRkBW
+	1pZtykKv0y+HtV/JhvELF7yCkT21wpEJJEWxhzJPDXAKV32STBKZ5qPg3uNTHfgu5H76Q+
+	WIVjMsu7m17+jqaMdAQHjvq+JZYLLRRb9GSrGflPeJra96yjkawBeR6mnJUWcJNInWiKE5
+	lLydblU3gPYygdpL0/JchNuQesvgKJxvVW8U7zm/pmS9Wib4TgDGJFFOQPf9gg==
+Date: Mon, 4 Aug 2025 15:51:15 +0200
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Jakub Kicinski <kuba@kernel.org>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell
- King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>, Heiner
- Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
  =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
  =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
  <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
@@ -63,11 +63,11 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org,
  Dimitri Fedrau <dimitri.fedrau@liebherr.com>
 Subject: Re: [PATCH net-next v10 07/15] net: phy: Introduce generic SFP
  handling for PHY drivers
-Message-ID: <20250804154949.49cbed6f@fedora.home>
-In-Reply-To: <762dd1dd-0170-4f7d-b418-1997c48e7f95@lunn.ch>
+Message-ID: <20250804155115.4a301cdc@fedora.home>
+In-Reply-To: <aIX35MUxx-OkvX4G@shell.armlinux.org.uk>
 References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
 	<20250722121623.609732-8-maxime.chevallier@bootlin.com>
-	<762dd1dd-0170-4f7d-b418-1997c48e7f95@lunn.ch>
+	<aIX35MUxx-OkvX4G@shell.armlinux.org.uk>
 Organization: Bootlin
 X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
@@ -75,12 +75,12 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddvgeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
- hhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddvgeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlr
+ dhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_064953_689762_9E83A95A 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20250804_065123_652889_1DB5F171 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,72 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Jul 2025 23:05:33 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
+On Sun, 27 Jul 2025 10:56:52 +0100
+"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 
 > On Tue, Jul 22, 2025 at 02:16:12PM +0200, Maxime Chevallier wrote:
-> > There are currently 4 PHY drivers that can drive downstream SFPs:
-> > marvell.c, marvell10g.c, at803x.c and marvell-88x2222.c. Most of the
-> > logic is boilerplate, either calling into generic phylib helpers (for
-> > SFP PHY attach, bus attach, etc.) or performing the same tasks with a
-> > bit of validation :
-> >  - Getting the module's expected interface mode
-> >  - Making sure the PHY supports it
-> >  - Optionnaly perform some configuration to make sure the PHY outputs  
-> 
-> Too man n's.
-> 
 > > +static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
 > > +{
 > > +	struct phy_device *phydev = upstream;
-> > +	struct phy_port *port = phy_get_sfp_port(phydev);  
-> 
-> Strictly speeding, this is not allowed, reverse Christmas tree...
-> 
-> The assignment needs to move into the body of the function.
-> 
+> > +	struct phy_port *port = phy_get_sfp_port(phydev);
+> > +
+> > +	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
+> > +	DECLARE_PHY_INTERFACE_MASK(interfaces);
+> > +	phy_interface_t iface;
+> > +
+> > +	linkmode_zero(sfp_support);
+> > +
+> > +	if (!port)
+> > +		return -EINVAL;
+> > +
+> > +	sfp_parse_support(phydev->sfp_bus, id, sfp_support, interfaces);
+> > +
+> > +	if (phydev->n_ports == 1)
+> > +		phydev->port = sfp_parse_port(phydev->sfp_bus, id, sfp_support);
+> > +
+> > +	linkmode_and(sfp_support, port->supported, sfp_support);
+> > +
 > > +	if (linkmode_empty(sfp_support)) {
 > > +		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
 > > +		return -EINVAL;
 > > +	}
 > > +
-> > +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
-> > +
-> > +	/* Check that this interface is supported */
-> > +	if (!test_bit(iface, port->interfaces)) {
-> > +		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");  
+> > +	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);  
 > 
-> Maybe make this string different to the previous one, so somebody
-> debugging issues knows which happened?
+> I've been moving phylink away from using sfp_select_interface() because
+> it requires two stages of translation - one from the module capabilties
+> to linkmodes, and then linkmodes to interfaces.
 > 
-> > +/**
-> > + * phy_get_sfp_port() - Returns the first valid SFP port of a PHY
-> > + * @phydev: pointer to the PHY device to get the SFP port from
-> > + *
-> > + * Returns: The first active SFP (serdes) port of a PHY device, NULL if none
-> > + * exist.
-> > + */
-> > +struct phy_port *phy_get_sfp_port(struct phy_device *phydev)
-> > +{
-> > +	struct phy_port *port;
-> > +
-> > +	list_for_each_entry(port, &phydev->ports, head)
-> > +		if (port->active && port->is_mii)  
+> sfp_parse_support() now provides the interfaces that the optical module
+> supports, and the possible interfaces that a copper module _might_
+> support (but we don't know for certain about that until we discover a
+> PHY.)
 > 
-> Naming is hard, but this actually returns the first mii port.  Is
-> there a clear 1:1 mapping? I don't think i've ever seen it, but such a
-> SERDES port could be connected to a Ethernet switch? And when you get
-> further, add support for a MUX, could it be connected to a MUX?
+> The only place in phylink where this function continues to be used is
+> when there's an optical module which supports multiple different
+> speeds, and we need to select it based on the advertising mask provided
+> by userspace. Everywhere else shouldn't use this function, but should
+> instead use the interfaces returned from sfp_parse_support().
 
-Hmmm correct, that's a bit fragile. With a mux or a switch that could
-be different indeed. There may even be PHYs with 2 MII interfaces one
-day ?
+Thanks for the input, it'll make things even simpler so I'm all in for
+that. I'll rework this for the next iteration, thanks a lot for taking
+a look at this !
 
-So yes it's most of a time a 1:1 mapping but it doesn't have to, I'll
-see how I can make that more reliable...
+Maxime
 
-Thanks for the review,
-
-Maxim
+> 
 
 
