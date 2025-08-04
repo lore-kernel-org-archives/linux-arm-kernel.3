@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AACC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 08:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9B8C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 08:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NzwmlZtvFpg2AOez8m/hqypC64fc3dq0u0IIv+1djjI=; b=m7VWKxGwsGPHTosVjh2wg6p6pu
-	I00bcAkk+rd0+Ti9639A7TFgL7GX5OtOSx6RUhzHp8nHcQf1bDvHmybq2ekEl7rfCMiAc4CvLDFmx
-	gpptlXYR6RbDUomv+ukgDqQO2lFJEMH2qV2pP/cUNvh6Jmn8ORaIFPIp5PUHaGHdz/TOGkCJ96e88
-	ZgVih+Um5XmXal6VLvVoPSKMY14z83emfLszldej6X8r6qYuQnS25JeLCS4OjbpzUNsTh8nnxd4m0
-	Ec76aiUqN2t1l9xgA7hhQ//Rvm/99i1/FRX6QYWs95ZcxmqqRbU/FXwTWfPgGKLpe6g2xpqOF9pwg
-	nkDr4rtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2vLL9qcbrtL+UxiwI8F5L04GN0C3qqDKt9sOE8S+tZA=; b=so5vyP3Zsz6NmiFIJre5aXDUmb
+	DS/CRS8fFwYqknLtiCHH+Yx8ENqn7xcsa9ZZbr10uSwSUMS2PPkKFpZYH16mWwyV5MwmQqMFIC863
+	GIAwODRlypa/RzPOu8O99fa9AHdOAMiIdbHrLDjTo7svZvnkUBKXOTRMNRK9WXGOdt0N/jVERk/JM
+	ere7yjT8/OXrGUXmGJYCqwAYuFAY0X4K01anPku0DD938fM1eH+PSp0UYWBOKFUM6Cx6xJF792MJx
+	DrZxxPQlUcblNfB8yQxjEqTyqjS6++A/OxouDEXWlrRg4GOw2idBh6YPePQmCZ/oDZgWVEd2aJbhH
+	FSkREUIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiqTP-00000009vwF-1bra;
-	Mon, 04 Aug 2025 08:23:11 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uiqVx-00000009wJM-0n90;
+	Mon, 04 Aug 2025 08:25:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiq6g-00000009sUr-2RqZ;
-	Mon, 04 Aug 2025 07:59:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754294381;
-	bh=IBXZ7nSQOKi0kqZYEQGLEV58gS4Z53xGfxUWv08M4f8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ltw4DBWglDgA5GAc6JaQwwgXfzFmD0Ngc/7DTsm/ftT4OLSHJg+9t+fB2+eEAOp/G
-	 xp+aEw/HrAL2sTNdcXPUiePzn99rqHR3k6pLb2VZYwPH7YNbCBg2AJMrCnfcLz8RPk
-	 KF4qq4/BN3c9VnNtXCNNd5xGD6LQ8depQpJQdDE/xHgMDu7wM5Rn9koqEGs9/tsFDw
-	 9j+pn9SP2d/9O95CZa8fsAtz/TF4LHQJbwtVm7MmUT4fIpLSEMqBcSz3OcsUZklYhF
-	 pHMoeA7SJb1Clk5+sVZVN/WpyQeEhL1RkcYvUCFTkyd4ekJRVcTxYAUaRnp7N38Rj/
-	 V+GJHXPhHnUjA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1135E17E04DA;
-	Mon,  4 Aug 2025 09:59:40 +0200 (CEST)
-Message-ID: <ab97489a-9493-4005-9a1a-9f88ad970b05@collabora.com>
-Date: Mon, 4 Aug 2025 09:59:39 +0200
+	id 1uiqBg-00000009taz-01CM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Aug 2025 08:04:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 25354601F8;
+	Mon,  4 Aug 2025 08:04:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42524C4CEE7;
+	Mon,  4 Aug 2025 08:04:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754294690;
+	bh=0VuAiQf0Cv59dj4webRh41zL7rvvJGbD0h50qzSBf/E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hu2A4myVOFLEZ1l+8CKNrn6eHiM+py3XVDkIXHweOcOB2xEfwRq3CnMqqMvzUeyZh
+	 RHSkh/v7PvGQ3FWm9gmm3qBW6PolqxOe/KOoLCm6KMCMAWgaShAapuFroT6C7prGdL
+	 cOLydI5cnPK5/NaDfNgMzwg4GpUH0B4Niz+6oOsNF/3ljrgeQDMDY3hwBifM0cPEiz
+	 MHIaEgwlOREY+Eba/7cemGZvqIDkB6gaT+fLHXhi5UxykVEr1DsMGjL72OZ+2MMxZ8
+	 UVMGy3wZuTB8m7Yh98z+kivQSSVMDyvq7bL0NGazUu7m9KOfAh0tWbvJAV5h40REHf
+	 XyNkWWVk+eTlg==
+Date: Mon, 4 Aug 2025 10:04:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: Jyri Sarha <jyri.sarha@iki.fi>, 
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Sam Ravnborg <sam@ravnborg.org>, Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>, 
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+	Tero Kristo <kristo@kernel.org>, thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>, 
+	Tomi Valkeinen <tomi.valkeinen@ti.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH 2/4] dt-bindings: mfd: syscon: Add ti,am625-dss-clk-ctrl
+Message-ID: <20250804-industrious-neon-gorilla-2bbde6@kuoka>
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+ <20250730-fix-edge-handling-v1-2-1bdfb3fe7922@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] dt-bindings: clock: mediatek: Add power-domains
- property
-To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Ikjoon Jang <ikjn@chromium.org>,
- Enric Balletbo i Serra <eballetbo@kernel.org>,
- Chen-Yu Tsai <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>,
- Eugen Hristev <eugen.hristev@linaro.org>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Julien Massot <jmassot@collabora.com>, Sean Wang <sean.wang@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-gpio@vger.kernel.org
-References: <20250801-mtk-dtb-warnings-v1-0-6ba4e432427b@collabora.com>
- <20250801-mtk-dtb-warnings-v1-1-6ba4e432427b@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250801-mtk-dtb-warnings-v1-1-6ba4e432427b@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_005942_770909_0F45AEDB 
-X-CRM114-Status: GOOD (  14.79  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250730-fix-edge-handling-v1-2-1bdfb3fe7922@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 01/08/25 13:18, Julien Massot ha scritto:
-> The mt8183-mfgcfg node uses a power domain in its device tree node.
-> To prevent schema validation warnings, add the optional `power-domains`
-> property to the binding schema for mediatek syscon clocks.
+On Wed, Jul 30, 2025 at 07:02:45PM +0200, Louis Chauvet wrote:
+> The dt-bindings for the multi-function device (mfd) syscon need to include
+> ti,am625-dss-clk-ctrl. On AM625 chips, the display controller (tidss) has
+> external registers to control certain clock properties. These registers
+> are located in the device configuration registers, so they need to be
+> declared using syscon. They will later be used with a phandle in the tidss
+> node.
+
+I don't understand above commit msg. You add new compatible (new device)
+but entire commit msg describes something else - some sort of a fix.
+
 > 
-> Fixes: 1781f2c46180 ("arm64: dts: mediatek: mt8183: Add power-domains property to mfgcfg")
-> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
 
-Is MT8183 the only one?
+Heh? How? How adding a new driver needs fixes in the bindings?
 
-if:
-   properties:
-     compatible:
-       contains:
-         - const: mediatek,mt8183-mfgcfg
-         ^^^^^^^(if it's not just mt8183, this should be an enum)
+This is just confusing.
 
-then:
-   properties:
-     power-domains: true
-else:
-   properties:
-     power-domains: false
+> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> ---
+> 
+> Cc: stable@vger.kernel.org
 
-(check if the above is correct, don't blindly trust what I wrote! :P)
+That's not the way to add stable tag. See stable-kernel docs or any git
+log history.
 
-after which:
-
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-(if it's not only mt8183, keep the R-b on this commit regardless)
-
-Cheers,
-Angelo
 
 > ---
->   Documentation/devicetree/bindings/clock/mediatek,syscon.yaml | 3 +++
->   1 file changed, 3 insertions(+)
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/mediatek,syscon.yaml b/Documentation/devicetree/bindings/clock/mediatek,syscon.yaml
-> index a86a64893c675ac134af609b3a49242565db6ad8..1011bc46cfcb97b90b86019e95a7e4bc8a819342 100644
-> --- a/Documentation/devicetree/bindings/clock/mediatek,syscon.yaml
-> +++ b/Documentation/devicetree/bindings/clock/mediatek,syscon.yaml
-> @@ -76,6 +76,9 @@ properties:
->             - const: mediatek,mt2701-vdecsys
->             - const: syscon
->   
-> +  power-domains:
-> +    maxItems: 1
-> +
->     reg:
->       maxItems: 1
->   
-> 
+> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> index 27672adeb1fedb7c81b8ae86c35f4f3b26d5516f..afe4a2a19591e90c850c05ef5888f18bdb64eac9 100644
+> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> @@ -121,6 +121,7 @@ select:
+>            - ti,am62-opp-efuse-table
+>            - ti,am62-usb-phy-ctrl
+>            - ti,am625-dss-oldi-io-ctrl
+> +          - ti,am625-dss-clk-ctrl
 
+Don't break the order. o > c
+
+>            - ti,am62p-cpsw-mac-efuse
+>            - ti,am654-dss-oldi-io-ctrl
+>            - ti,j784s4-acspcie-proxy-ctrl
+> @@ -228,6 +229,7 @@ properties:
+>            - ti,am62-opp-efuse-table
+>            - ti,am62-usb-phy-ctrl
+>            - ti,am625-dss-oldi-io-ctrl
+> +          - ti,am625-dss-clk-ctrl
+
+Same here
+
+I don't understand also why you are adding clock to syscon. Clock
+controllers have their own bindings.
+
+Best regards,
+Krzysztof
 
 
