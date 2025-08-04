@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0D4CA0EC1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D43C87FDB
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 09:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TBqdAK2wImQ6chzArn5OMTXnUslTBO75AYgvACr+IEI=; b=Bn9BTCvzKg0Wa22QGN3gZJFdJh
-	DMG4WnN+JqRsJmDDYH3pIrHsq55uNhIbgP4jihjFX76FEtf01mrdzjkqm0nR68xO5dU7f9ptjaqWN
-	PxARgqf9ZVAvLBQiWTXi0a4Vg+vMxz5PPzKy02R+yXH5UAeU/mP8Siqu8oySiUbFxl1hdsKZAK67H
-	3D14NAJFMeaYSkW01JXhmhyWbbIgw2eN7a7WHqi9wh0suGpnYzEZk7/k7Uj9qsbOs1xUWGMUH6FcC
-	uDrPDG6xHSIzgd4IUwJ3ZBAobp5yopAKGst1BN/27/fpXF1lKe01D3gWnUCFyWHafOWoOem1GmclX
-	3D1dLLXw==;
+	bh=5cPsurSQCTJuh6URefwarH/f2msTgGmy2Fo3DfS7UiM=; b=rLdTJoWsANszerEfBkQmYhgeU8
+	jEs4e2no26Q+VovE3OEutgp2Y6wsgGDn8s1mE4bJkK1Eur/05JPISQCOeQ7pbd2W6OJ6ZX/a0+TYx
+	SjUiOSG3oXTCLn/iRJG6gRIw1E8gtsVnlckRAdpsJsnvjpaz6Bxm6dqWYH3TWb67aS5JrtSiMyG6Q
+	QQvOmjK6o34pRiRuAPobnINmHVeutDEpFCD+LcUbwkB2szrprhXwv8q5h04wRIlOsXOK7nBOxexqI
+	EWnPgLGp2b1BG3lt9S4Sdqp+3DLFT2Ecq0JGuIk4l1Rj7dtVGooDuTJkgaiQzVX4tZBVrYWtRf70G
+	OCsiJgtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uirSh-0000000A4gr-3tCY;
-	Mon, 04 Aug 2025 09:26:31 +0000
+	id 1uirSk-0000000A4jg-03mf;
+	Mon, 04 Aug 2025 09:26:34 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiqtP-0000000A0Ci-2Dt6;
-	Mon, 04 Aug 2025 08:50:06 +0000
+	id 1uir14-0000000A1Sm-2N2L;
+	Mon, 04 Aug 2025 08:57:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754297401;
-	bh=O7gwINFF5JtvjcF8qGuf6WqNIWL34MoiePTtqmNDuzg=;
+	s=mail; t=1754297877;
+	bh=BYlIvi6N1B4zZkudRep+yBSyFMv2TAT55xPmCHgg8Ts=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Cis9BLS7lAOWOYGwO45aiv7jtrV5JEhGMZQdVeargNQX+HL245tLkcmdCkn2qTxYq
-	 C4mrvZ7/W1usAmZqIKTglUyX6ZShpGx3rzcH0Jsr2S2wd2oXfJpftv2RSIJh6hjxjL
-	 ZOgQS13piqU9KLReCHD6etaYKKxmfqy2snuUHaqTMtV67ANDx8IfA8cIirHPDmpk2w
-	 YHFodujLYERMN4OqRTTHtToVoxaG2DaVTdBxEJTUzK4B9iKqrR3GZsu/3rNs6s3Gq0
-	 jND07F5aNWQ6Yd2P4qAGtBwWzn5Cu7Cu9J9mlmPvJwl0bPhD7YfosvwR+2gDXrTiC2
-	 g2NDY5EQJYL2Q==
+	b=UMeLnFLlhxIsDh+1vjILNaFUWz2Ao8Cj3nIdLdKn+tM+b5dPaOc2KNTNCHabvB/bZ
+	 f8PtG+ypH4ZuKB/MplnsrSYUU/nrqU+jdEsQ81s+4PFMHXiILEbtX8Xrf8V/3eyeeO
+	 PRW8B2Qu5X5Oe/EUIydBpfYbS35kF3JTFOsSt6xJ2tueuWJekO2lGUM523bOdXah4U
+	 uNZ3W5TAT0uur0BAcCfo+H3HufxnuNZJmLfFcNZBRYITI4aOyPgZ4ADCsNlMLpLA/k
+	 EbZ1Dj4H8ziFv9IgNnYlo/W5p+qyEYth2cp7k1iYO9xlNXdFitrlPh2HUSST/1iTc5
+	 iTKyI69Q7Gw7A==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F75717E0DB9;
-	Mon,  4 Aug 2025 10:50:01 +0200 (CEST)
-Message-ID: <e3495f99-4a78-4910-9b67-6c25dfe7f989@collabora.com>
-Date: Mon, 4 Aug 2025 10:50:01 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0B05917E04DA;
+	Mon,  4 Aug 2025 10:57:55 +0200 (CEST)
+Message-ID: <edaeb213-d1df-40bf-9538-9ea86198f3c2@collabora.com>
+Date: Mon, 4 Aug 2025 10:57:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/8] pwm: mediatek: Simplify representation of channel
- offsets
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-References: <20250725154506.2610172-10-u.kleine-koenig@baylibre.com>
- <20250725154506.2610172-11-u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v2 1/7] drm/mediatek: Add CCORR component support for
+ MT8196
+To: Jay Liu <jay.liu@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Hsin-Yi Wang <hsinyi@chromium.org>,
+ CK Hu <ck.hu@mediatek.com>, Yongqiang Niu <yongqiang.niu@mediatek.com>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250727071609.26037-1-jay.liu@mediatek.com>
+ <20250727071609.26037-2-jay.liu@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250725154506.2610172-11-u.kleine-koenig@baylibre.com>
+In-Reply-To: <20250727071609.26037-2-jay.liu@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_015003_802234_8204C4D3 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20250804_015758_758925_811022CB 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,213 +85,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 25/07/25 17:45, Uwe Kleine-König ha scritto:
-> The general register layout contains some per-chip registers starting at
-> offset 0 and then at a higher address there are n nearly identical and
-> equidistant blocks for the registers of the n channels.
+Il 27/07/25 09:15, Jay Liu ha scritto:
+> Add CCORR component support for MT8196.
 > 
-> This allows to represent the offsets of per-channel registers as $base +
-> i * $width instead of listing all (or too many) offsets explicitly in an
-> array. So for a small additional effort in pwm_mediatek_writel() the
-> three arrays with the channel offsets can be dropped.
+> CCORR is a hardware module that optimizes the visual effects of
+> images by adjusting the color matrix, enabling features such as
+> night light.
 > 
-> The size changes according to bloat-o-meter are:
+> The 8196 SoC has two CCORR hardware units, which must be chained
+> together in a fixed order in the display path to display the image
+> correctly. the `mtk_ccorr_ctm_set` API only utilizes one of these units.
+> To prevent the unused CCORR unit from inadvertently taking effect,
+> we need to block it in the mtk_crtc.c.
 > 
-> 	add/remove: 0/3 grow/shrink: 1/0 up/down: 12/-96 (-84)
-> 	Function                                     old     new   delta
-> 	pwm_mediatek_apply                           696     708     +12
-> 	mtk_pwm_reg_offset_v3                         32       -     -32
-> 	mtk_pwm_reg_offset_v2                         32       -     -32
-> 	mtk_pwm_reg_offset_v1                         32       -     -32
-> 	Total: Before=5347, After=5263, chg -1.57%
-> 
-> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+> Signed-off-by: 20220315152503 created <jay.liu@mediatek.com>
 
-What if we do, instead...
+Please, remove that bogus "20220315152503 created" user that does not exist.
 
-struct pwm_mediatek_regs {
-	u16 pwm_ck_26m_sel_reg;
-	u16 chan_base;
-	u16 chan_width;
-};
+After which:
 
-struct pwm_mediatek_regs pwm_v1_reg_data = {
-	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-	.chan_base = 0x10,
-	.chan_width = 0x40,
-};
-
-static const struct pwm_mediatek_of_data mt7986_pwm_data = {
-	....
-	.reg_data = &pwm_v1_reg_data,
-};
-
-...that should reduce the bloat even more :-)
-
-Cheers,
-Angelo
-
-> ---
->   drivers/pwm/pwm-mediatek.c | 58 ++++++++++++++++++++------------------
->   1 file changed, 30 insertions(+), 28 deletions(-)
-> 
-> diff --git a/drivers/pwm/pwm-mediatek.c b/drivers/pwm/pwm-mediatek.c
-> index 4460bbca2582..4dfe657957bf 100644
-> --- a/drivers/pwm/pwm-mediatek.c
-> +++ b/drivers/pwm/pwm-mediatek.c
-> @@ -38,7 +38,8 @@ struct pwm_mediatek_of_data {
->   	unsigned int num_pwms;
->   	bool pwm45_fixup;
->   	u16 pwm_ck_26m_sel_reg;
-> -	const unsigned int *reg_offset;
-> +	unsigned int chanreg_base;
-> +	unsigned int chanreg_width;
->   };
->   
->   /**
-> @@ -57,19 +58,6 @@ struct pwm_mediatek_chip {
->   	const struct pwm_mediatek_of_data *soc;
->   };
->   
-> -static const unsigned int mtk_pwm_reg_offset_v1[] = {
-> -	0x0010, 0x0050, 0x0090, 0x00d0, 0x0110, 0x0150, 0x0190, 0x0220
-> -};
-> -
-> -static const unsigned int mtk_pwm_reg_offset_v2[] = {
-> -	0x0080, 0x00c0, 0x0100, 0x0140, 0x0180, 0x01c0, 0x0200, 0x0240
-> -};
-> -
-> -/* PWM IP Version 3.0.2 */
-> -static const unsigned int mtk_pwm_reg_offset_v3[] = {
-> -	0x0100, 0x0200, 0x0300, 0x0400, 0x0500, 0x0600, 0x0700, 0x0800
-> -};
-> -
->   static inline struct pwm_mediatek_chip *
->   to_pwm_mediatek_chip(struct pwm_chip *chip)
->   {
-> @@ -118,7 +106,8 @@ static inline void pwm_mediatek_writel(struct pwm_mediatek_chip *chip,
->   				       unsigned int num, unsigned int offset,
->   				       u32 value)
->   {
-> -	writel(value, chip->regs + chip->soc->reg_offset[num] + offset);
-> +	writel(value, chip->regs + chip->soc->chanreg_base +
-> +	       num * chip->soc->chanreg_width + offset);
->   }
->   
->   static void pwm_mediatek_enable(struct pwm_chip *chip, struct pwm_device *pwm)
-> @@ -306,86 +295,99 @@ static int pwm_mediatek_probe(struct platform_device *pdev)
->   static const struct pwm_mediatek_of_data mt2712_pwm_data = {
->   	.num_pwms = 8,
->   	.pwm45_fixup = false,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt6795_pwm_data = {
->   	.num_pwms = 7,
->   	.pwm45_fixup = false,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7622_pwm_data = {
->   	.num_pwms = 6,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7623_pwm_data = {
->   	.num_pwms = 5,
->   	.pwm45_fixup = true,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7628_pwm_data = {
->   	.num_pwms = 4,
->   	.pwm45_fixup = true,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7629_pwm_data = {
->   	.num_pwms = 1,
->   	.pwm45_fixup = false,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7981_pwm_data = {
->   	.num_pwms = 3,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-> -	.reg_offset = mtk_pwm_reg_offset_v2,
-> +	.chanreg_base = 0x80,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7986_pwm_data = {
->   	.num_pwms = 2,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt7988_pwm_data = {
->   	.num_pwms = 8,
->   	.pwm45_fixup = false,
-> -	.reg_offset = mtk_pwm_reg_offset_v2,
-> +	.chanreg_base = 0x80,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt8183_pwm_data = {
->   	.num_pwms = 4,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt8365_pwm_data = {
->   	.num_pwms = 3,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt8516_pwm_data = {
->   	.num_pwms = 5,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL,
-> -	.reg_offset = mtk_pwm_reg_offset_v1,
-> +	.chanreg_base = 0x10,
-> +	.chanreg_width = 0x40,
->   };
->   
->   static const struct pwm_mediatek_of_data mt6991_pwm_data = {
->   	.num_pwms = 4,
->   	.pwm45_fixup = false,
->   	.pwm_ck_26m_sel_reg = PWM_CK_26M_SEL_V3,
-> -	.reg_offset = mtk_pwm_reg_offset_v3,
-> +	.chanreg_base = 0x100,
-> +	.chanreg_width = 0x100,
->   };
->   
->   static const struct of_device_id pwm_mediatek_of_match[] = {
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
 
