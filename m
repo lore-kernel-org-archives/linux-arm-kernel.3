@@ -4,93 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E72C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 02:54:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E4BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 02:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=; b=tkhyMezxIRHUDeRfUmNj+fQlBO
-	wwWwt9p6VV6e2sLDgNjthEoF7ob10nFvdTR0nl9z2Eb3UaOUvx4QAwBX6K5NyPmlAN1kd0SbiQyIl
-	GZtwp+OtcD+yr2+wn3XFClYDM/RZs3uMgMNmGrv86xNroETSm1VHQG3Px6klqShcWkgb+CgQSBasC
-	lQDiGl/TuII3fXRayxFzllX1zqf7/e/xYykoW8+v+FH7ghk9MrFYHdgOYy1WcNggafA6/mxk8qToP
-	cDMvZJAo13yMgBQmZoIucmLxwxPTnH7a6QMB1EnOoUv0SjE6S2yBBGsqiHgHYx/QXpabKo/RCGJNb
-	An1NNvAQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MI2uiT3ItORnxcDb44ePnIK1LuygQhPRPLGgsvcTZ8w=; b=YsnwtJx8me3Umhaje74yV27cTh
+	J7OlTsnM9E7QGFcsr1BaqnIb1CLqmSPkK/oT62wKsKh++DunA63oT0ChWNDwJanIhw0Bbus9F95E+
+	Lz1aGpDDBn0JcD9f6edIZFVC1C7SAigQoN8QId6V1p2qtqH/iAVIcDeGbcrlXzlmz+u2300L6h7gx
+	qZlcdHaWj5/rU167MtczZQejXgReIngpof37JCRb6Tm2M6LvNOnvNOkc68DLyHia+Dfcc9fl7apvU
+	1KgbPCeBdNCA2QQzW4BpebKdoYd+uWedpOeMQVRIHy72o+Ly8s//gYQa3rwkK6pq+c2rMGkGo+UMx
+	4NxRIshg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uilLE-00000009WGr-0CHj;
-	Mon, 04 Aug 2025 02:54:24 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1uilQC-00000009WVd-07pt;
+	Mon, 04 Aug 2025 02:59:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uilId-00000009W1k-0pno
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 02:51:45 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-76bdea88e12so1966108b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 19:51:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1754275898; x=1754880698; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=;
-        b=Nhk2bpHzGKP0pwcFLYFwajof0HZX0YQRLVi6LyEm0sdy8WnCTHwDmGF9EamRsdh6g7
-         vo7e2/OouTHhyx3ZKS6mKXaM9FWsfGNbY6/NEbBoUO/ytb7KUHuOfIAN0VeZA3IeM//s
-         N2WSzZjZpDPlscoDrtNbBO7JOhONPFbPREPJQdATjG+qL4bKmj5l3slphEJBN00hhacS
-         VHlMvTnISyA1MpRolSTerx6MmjOdNUIPV1L+f1CTFExoFH4rRWcEnYFS7KlUcVxdwFmX
-         tYsaBolns60ct2+yq5I7H/QWICPlRERNo+sre4Hcc5I3FIwAnakmlxvLiZtwYcZRPIHE
-         PxLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754275898; x=1754880698;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=;
-        b=r0FtLgXlWC3wqhEmiRRjlf9myAX76ajou26Nk0Ntese6m7PBrlBvrr3RSzdfSohZCy
-         6z4SvcqD81e0dQcO0NMljcoF6NeNxsvrs0YTBwIEDlgryhEDbnzIPFPnO3riQtpGUm0g
-         o3fAVCDYpxMObDbaEJX/ojGeNbF2XQIlN4fkAtYJgEMi9q3DX6ApMYZ9mZDvpP5K38j5
-         Wi6nqcm3JMcpFBQi/AmVFSnf0TrKrggifWSHPmZmvtHhzJllk0/uVSisRAxtNo9DppQJ
-         LO5mZ0Dd3h6e6Z4KqIUI/6NpzQC/t3e3ggxyoP+vl9kNDRK/C7Lx7FmQKcUMhZFzrXFG
-         MrtA==
-X-Forwarded-Encrypted: i=1; AJvYcCU8EUN/7NJ6+wzk1BhjdZnVM+vEafWOV4ydqscMF2jDrFyPmwE7tfKgYAWgS8kdTi0OwZlICxOdahhF0ig5Vs6Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPym1f/YFEfVsngryoPXQm8O7/LBgcmKY9SxmRamp6vH3I81dU
-	dLsn5RPGTxyj69MW+4mpaU2YensZ7Vw6WsdysToRLisMa5Z8TrtSGW0W18qTR1N50vI=
-X-Gm-Gg: ASbGnculIXqDPXd2x0PqCEDK9nXKaQGKQz0NNtlW7ZF2DGJtqKUeg2AZWh0DLFchDEX
-	RKtHgyDmW/hsbqqvQfc8raEHZIYozCiyACyfvSKtr26ilW6Ocb7TDgE78i+RbivfxaRxn2EeHX1
-	D+LnjXu3/H/kFGqC3GzQE9KJwETVJJqFLsNYt4bVX7bV7DGtDvE70LDTAn3M3pDz+3N9RQs9bfD
-	RI0tdzH0FH7UdUaCdMYG6QeuNdJNCgbfKBD6lBrTaCSAOJ6xMGg2OIFFv9F8om78tlKZyUhpo/+
-	ejyqXcuj5pNEfXi09pKZrN2O1R1nA2AiniMSWwZdz8IB2OjiyyZGEKZ33dZGkqXnWcXXQyk2p/1
-	/Vz8M+h9TMKBZY9parh1+IEZQ1174EtWUd07lqkhXAmXhvqxReclO/s5UHO4YBg==
-X-Google-Smtp-Source: AGHT+IGnAJTT+IrbnsWZCRCk+YCd+3FYDN3fJPd3vuAU12BnpRFJPFCkmur1SehfCljyn2rk7N6/hA==
-X-Received: by 2002:a05:6a00:9a5:b0:76b:c882:e0a with SMTP id d2e1a72fcca58-76bec30d23dmr8835977b3a.5.1754275898337;
-        Sun, 03 Aug 2025 19:51:38 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.246])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76be9143983sm5181960b3a.1.2025.08.03.19.51.33
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 03 Aug 2025 19:51:37 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: atish.patra@linux.dev,
-	anup@brainfault.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
+	id 1uijET-00000009MQe-2QYH;
+	Mon, 04 Aug 2025 00:39:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C4CB433A9;
+	Mon,  4 Aug 2025 00:39:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBBDAC4CEFA;
+	Mon,  4 Aug 2025 00:39:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754267957;
+	bh=kEDFM1+saxL4i+9T7MBV1tuzA5+VObYzj4dtLR0QQbI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=vMQBRgUyF2kFFfEId3O2b8vhtSvqjBr2Tpi4r8RlQsWgMDA0A9su7ha2V+AudJLOY
+	 HYsvXlxR6jA96vPwDIfowxP3wmWMYbDJp5oqXhyuzxVa44H8fq9aVaQViKkapHkm/g
+	 uCjYrPPmI9evvem+YyhtHy9HRXyIknu7wXpf2dEFeGFd00weG2LR6aJLjMx39LqJIH
+	 fXV0aeKWMK7ByfAmjl211F6S5dXOsB6/TJMzF++rFPZccliJFMyRtic4GCZugrFDPp
+	 Ox3VL2Z6zXwWVE6rxEPcrHaEcFx0vmlVuyPiozWBT2L9a2x6FNxrxH4/16/b8szgOL
+	 OTbEQtHQD3FTQ==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Alexander Kochetkov <al.kochet@gmail.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sasha Levin <sashal@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH] perf: riscv: skip empty batches in counter start
-Date: Mon,  4 Aug 2025 10:51:10 +0800
-Message-Id: <20250804025110.11088-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 11/44] ARM: rockchip: fix kernel hang during smp initialization
+Date: Sun,  3 Aug 2025 20:38:16 -0400
+Message-Id: <20250804003849.3627024-11-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250804003849.3627024-1-sashal@kernel.org>
+References: <20250804003849.3627024-1-sashal@kernel.org>
 MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 5.15.189
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_195143_232627_84AF219F 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250803_173917_659948_574C8750 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +77,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid unnecessary SBI calls when starting non-overflowed counters
-in pmu_sbi_start_ovf_ctrs_sbi() by checking ctr_start_mask.
+From: Alexander Kochetkov <al.kochet@gmail.com>
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+[ Upstream commit 7cdb433bb44cdc87dc5260cdf15bf03cc1cd1814 ]
+
+In order to bring up secondary CPUs main CPU write trampoline
+code to SRAM. The trampoline code is written while secondary
+CPUs are powered on (at least that true for RK3188 CPU).
+Sometimes that leads to kernel hang. Probably because secondary
+CPU execute trampoline code while kernel doesn't expect.
+
+The patch moves SRAM initialization step to the point where all
+secondary CPUs are powered down.
+
+That fixes rarely hangs on RK3188:
+[    0.091568] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.091996] rockchip_smp_prepare_cpus: ncores 4
+
+Signed-off-by: Alexander Kochetkov <al.kochet@gmail.com>
+Link: https://lore.kernel.org/r/20250703140453.1273027-1-al.kochet@gmail.com
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/perf/riscv_pmu_sbi.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 698de8ddf895b..3977f7488e4ef 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -877,8 +877,10 @@ static inline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
- 	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
- 		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
- 		/* Start all the counters that did not overflow in a single shot */
--		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG, ctr_start_mask,
--			0, 0, 0, 0);
-+		if (ctr_start_mask) {
-+			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
-+				  ctr_start_mask, 0, 0, 0, 0);
-+		}
+LLM Generated explanations, may be completely bogus:
+
+Based on my analysis of the commit and the code context, here's my
+determination:
+
+**Backport Status: YES**
+
+This commit should be backported to stable kernel trees for the
+following reasons:
+
+1. **Fixes a real bug affecting users**: The commit explicitly mentions
+   that it "fixes rarely hangs on RK3188" during SMP initialization.
+   This is a critical boot-time issue that prevents the system from
+   functioning properly.
+
+2. **Small and contained fix**: The change is minimal - it only moves
+   the SRAM initialization code (`rockchip_smp_prepare_sram()`) to
+   execute after all secondary CPUs are powered down. The code movement
+   is straightforward:
+   - Lines 281-285 (old location) are moved to lines 321-325 (new
+     location)
+   - The fix is contained within a single function
+     (`rockchip_smp_prepare_cpus()`)
+
+3. **Clear root cause**: The commit message explains the race condition
+   clearly - secondary CPUs may execute trampoline code while it's being
+   written to SRAM, causing unpredictable behavior and hangs.
+
+4. **No architectural changes**: This is purely a timing/ordering fix
+   that doesn't introduce new features or change the architecture of the
+   code.
+
+5. **Critical subsystem**: SMP initialization is a critical kernel
+   subsystem. A hang during boot makes the system unusable, which is a
+   severe issue for affected users.
+
+6. **Platform-specific fix**: The change only affects Rockchip ARM
+   platforms (specifically those with Cortex-A9 CPUs like RK3188),
+   limiting the scope of potential regressions.
+
+7. **Follows stable tree rules**: The fix addresses an important bug
+   (boot hang), is small and self-contained, has minimal risk of
+   regression, and doesn't introduce new features.
+
+The key insight from the code analysis is that the original code had a
+clear race condition where:
+1. Secondary CPUs were powered on (lines 287-288 in the original)
+2. Trampoline code was written to SRAM (line 282 in the original)
+3. Secondary CPUs could potentially execute incomplete/corrupted
+   trampoline code
+
+The fix ensures all secondary CPUs are powered down (lines 321-323)
+before writing the trampoline code to SRAM (lines 321-325 in the new
+version), eliminating the race condition.
+
+ arch/arm/mach-rockchip/platsmp.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/platsmp.c
+index d60856898d97..17aee4701e81 100644
+--- a/arch/arm/mach-rockchip/platsmp.c
++++ b/arch/arm/mach-rockchip/platsmp.c
+@@ -279,11 +279,6 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
  	}
  
- 	/* Reinitialize and start all the counter that overflowed */
+ 	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
+-		if (rockchip_smp_prepare_sram(node)) {
+-			of_node_put(node);
+-			return;
+-		}
+-
+ 		/* enable the SCU power domain */
+ 		pmu_set_power_domain(PMU_PWRDN_SCU, true);
+ 
+@@ -316,11 +311,19 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
+ 		asm ("mrc p15, 1, %0, c9, c0, 2\n" : "=r" (l2ctlr));
+ 		ncores = ((l2ctlr >> 24) & 0x3) + 1;
+ 	}
+-	of_node_put(node);
+ 
+ 	/* Make sure that all cores except the first are really off */
+ 	for (i = 1; i < ncores; i++)
+ 		pmu_set_power_domain(0 + i, false);
++
++	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
++		if (rockchip_smp_prepare_sram(node)) {
++			of_node_put(node);
++			return;
++		}
++	}
++
++	of_node_put(node);
+ }
+ 
+ static void __init rk3036_smp_prepare_cpus(unsigned int max_cpus)
 -- 
 2.39.5
 
