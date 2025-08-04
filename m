@@ -4,62 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC621C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 02:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E72C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 02:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0fmX2jpwV/gvmwq7SFAn/6INWSi5gMMueD8SBA981g=; b=TAc4m1hPn8/ZELcaC5+/VVjkmE
-	ioQRxRn47nOVosxeqnNPoZOQmcawNY5nNpdaCZIfH8KtRyqCb5PO0+2WdAi7+5/VeegaSPZhL7vk+
-	PQQxx0WvAN6ckQl6dC3OxdWecQfnw7vZS2ibNN09iY4bzobtFe83UUVTt1GN2TxgjROceu2Y5vC7x
-	8t2eeZAli5U6iTfSkRb6oVJNp+ljvVkIzYIZm3caGNgdmVWR3meTv+iUo6yu6qp/9ItLJG6vAmRG/
-	AkMCR1EV5ysROcoyBKuzGRwYYbU+MDTar2BQVRJFxLdhgyNlu47DZxHlFqHtr4+xviqj4TXByb5IW
-	MIR9umWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=; b=tkhyMezxIRHUDeRfUmNj+fQlBO
+	wwWwt9p6VV6e2sLDgNjthEoF7ob10nFvdTR0nl9z2Eb3UaOUvx4QAwBX6K5NyPmlAN1kd0SbiQyIl
+	GZtwp+OtcD+yr2+wn3XFClYDM/RZs3uMgMNmGrv86xNroETSm1VHQG3Px6klqShcWkgb+CgQSBasC
+	lQDiGl/TuII3fXRayxFzllX1zqf7/e/xYykoW8+v+FH7ghk9MrFYHdgOYy1WcNggafA6/mxk8qToP
+	cDMvZJAo13yMgBQmZoIucmLxwxPTnH7a6QMB1EnOoUv0SjE6S2yBBGsqiHgHYx/QXpabKo/RCGJNb
+	An1NNvAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uikYQ-00000009Tdb-2QmS;
-	Mon, 04 Aug 2025 02:03:58 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1uilLE-00000009WGr-0CHj;
+	Mon, 04 Aug 2025 02:54:24 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uik9w-00000009RZn-3rUQ
+	id 1uilId-00000009W1k-0pno
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 01:38:42 +0000
+	Mon, 04 Aug 2025 02:51:45 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-76bdea88e12so1966108b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 03 Aug 2025 19:51:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1754271513;
-	bh=K0fmX2jpwV/gvmwq7SFAn/6INWSi5gMMueD8SBA981g=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IoCV9S6HbSiiB7Te0cgkRtVTIjvsS7DCtdWqbWirzzDtD9Iic3sT/pwyTHnauvshR
-	 Bijw02uFdbBL9sDjji/iyVbfexp5n1r9EzLdfYwN3ofVi5zeXNknYPBXPxUKoYsMcQ
-	 rehrpPgqkK3P63R0kOGrYecXI93nHTA0y0RY0MP/4eUeG98CPuaB+KsJeOm6oOaYgg
-	 lE3Lg0bTnSLPnRFmmE+GCzf4y24t0nX9/FkOd9rQQIYkkBmFrgbuHXcTiENtxamUUZ
-	 NJgv3eqNxqKR6SkTgh0VBdSFtMD/TCJlUSeLqk4tuHwl2QpDU5sPdOqcHq+x2mEbeG
-	 gpi5U6yV2zbxQ==
-Received: from [192.168.68.112] (unknown [180.150.112.70])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id CD4BD67B49;
-	Mon,  4 Aug 2025 09:38:31 +0800 (AWST)
-Message-ID: <1afcfa0244bb2ad184fac49145fe6856b257c5af.camel@codeconstruct.com.au>
-Subject: Re: [PATCH 0/6] ASpeed FSI DT clean-ups
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: "Rob Herring (Arm)" <robh@kernel.org>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, Eddie
-	James <eajames@linux.ibm.com>, Ninad Palsule <ninad@linux.ibm.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-fsi@lists.ozlabs.org
-Date: Mon, 04 Aug 2025 11:08:30 +0930
-In-Reply-To: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
-References: <20250731-dt-fsi-cleanups-v1-0-e7b695a29fc3@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+        d=bytedance.com; s=google; t=1754275898; x=1754880698; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=;
+        b=Nhk2bpHzGKP0pwcFLYFwajof0HZX0YQRLVi6LyEm0sdy8WnCTHwDmGF9EamRsdh6g7
+         vo7e2/OouTHhyx3ZKS6mKXaM9FWsfGNbY6/NEbBoUO/ytb7KUHuOfIAN0VeZA3IeM//s
+         N2WSzZjZpDPlscoDrtNbBO7JOhONPFbPREPJQdATjG+qL4bKmj5l3slphEJBN00hhacS
+         VHlMvTnISyA1MpRolSTerx6MmjOdNUIPV1L+f1CTFExoFH4rRWcEnYFS7KlUcVxdwFmX
+         tYsaBolns60ct2+yq5I7H/QWICPlRERNo+sre4Hcc5I3FIwAnakmlxvLiZtwYcZRPIHE
+         PxLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754275898; x=1754880698;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Kppyljle9MoC1RO3HWHQlYBE2gQj+CD/61kPvhIKZUU=;
+        b=r0FtLgXlWC3wqhEmiRRjlf9myAX76ajou26Nk0Ntese6m7PBrlBvrr3RSzdfSohZCy
+         6z4SvcqD81e0dQcO0NMljcoF6NeNxsvrs0YTBwIEDlgryhEDbnzIPFPnO3riQtpGUm0g
+         o3fAVCDYpxMObDbaEJX/ojGeNbF2XQIlN4fkAtYJgEMi9q3DX6ApMYZ9mZDvpP5K38j5
+         Wi6nqcm3JMcpFBQi/AmVFSnf0TrKrggifWSHPmZmvtHhzJllk0/uVSisRAxtNo9DppQJ
+         LO5mZ0Dd3h6e6Z4KqIUI/6NpzQC/t3e3ggxyoP+vl9kNDRK/C7Lx7FmQKcUMhZFzrXFG
+         MrtA==
+X-Forwarded-Encrypted: i=1; AJvYcCU8EUN/7NJ6+wzk1BhjdZnVM+vEafWOV4ydqscMF2jDrFyPmwE7tfKgYAWgS8kdTi0OwZlICxOdahhF0ig5Vs6Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPym1f/YFEfVsngryoPXQm8O7/LBgcmKY9SxmRamp6vH3I81dU
+	dLsn5RPGTxyj69MW+4mpaU2YensZ7Vw6WsdysToRLisMa5Z8TrtSGW0W18qTR1N50vI=
+X-Gm-Gg: ASbGnculIXqDPXd2x0PqCEDK9nXKaQGKQz0NNtlW7ZF2DGJtqKUeg2AZWh0DLFchDEX
+	RKtHgyDmW/hsbqqvQfc8raEHZIYozCiyACyfvSKtr26ilW6Ocb7TDgE78i+RbivfxaRxn2EeHX1
+	D+LnjXu3/H/kFGqC3GzQE9KJwETVJJqFLsNYt4bVX7bV7DGtDvE70LDTAn3M3pDz+3N9RQs9bfD
+	RI0tdzH0FH7UdUaCdMYG6QeuNdJNCgbfKBD6lBrTaCSAOJ6xMGg2OIFFv9F8om78tlKZyUhpo/+
+	ejyqXcuj5pNEfXi09pKZrN2O1R1nA2AiniMSWwZdz8IB2OjiyyZGEKZ33dZGkqXnWcXXQyk2p/1
+	/Vz8M+h9TMKBZY9parh1+IEZQ1174EtWUd07lqkhXAmXhvqxReclO/s5UHO4YBg==
+X-Google-Smtp-Source: AGHT+IGnAJTT+IrbnsWZCRCk+YCd+3FYDN3fJPd3vuAU12BnpRFJPFCkmur1SehfCljyn2rk7N6/hA==
+X-Received: by 2002:a05:6a00:9a5:b0:76b:c882:e0a with SMTP id d2e1a72fcca58-76bec30d23dmr8835977b3a.5.1754275898337;
+        Sun, 03 Aug 2025 19:51:38 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.246])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76be9143983sm5181960b3a.1.2025.08.03.19.51.33
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 03 Aug 2025 19:51:37 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: atish.patra@linux.dev,
+	anup@brainfault.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Yunhui Cui <cuiyunhui@bytedance.com>
+Subject: [PATCH] perf: riscv: skip empty batches in counter start
+Date: Mon,  4 Aug 2025 10:51:10 +0800
+Message-Id: <20250804025110.11088-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_183841_310355_51B48BA0 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250803_195143_232627_84AF219F 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+Avoid unnecessary SBI calls when starting non-overflowed counters
+in pmu_sbi_start_ovf_ctrs_sbi() by checking ctr_start_mask.
 
-On Thu, 2025-07-31 at 17:12 -0500, Rob Herring (Arm) wrote:
-> There's a whole bunch of FSI related DT warnings on ASpeed platforms.
-> This series fixes most of them except some related to SBEFIFO.
->=20
-> The remaining SBEFIFO warnings are from some deprecated properties noted=
-=20
-> with 'remove when userspace is fixed'. Not sure if they can be removed=
-=20
-> now or soon. If not, perhaps the deprecated properties need to be=20
-> properly documented.
->=20
-> All the patches here are independent, so DTS changes can go via ASpeed=
-=20
-> tree and FSI bindings via FSI tree (or ack if you want me to take the
-> bindings instead).
->=20
-> Rob
->=20
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> Rob Herring (Arm) (6):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: Drop "no-gpio-delays"
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: Drop "fsi-master" compat=
-ibles
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ARM: dts: aspeed: Add missing "ibm,spi-fsi=
-" compatibles
+Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+---
+ drivers/perf/riscv_pmu_sbi.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Thanks for this. I've applied patches 1-3 to the BMC tree. I'll leave
-the binding changes for you to take as indicated by Eddie in his
-response on patch 1.
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 698de8ddf895b..3977f7488e4ef 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -877,8 +877,10 @@ static inline void pmu_sbi_start_ovf_ctrs_sbi(struct cpu_hw_events *cpu_hw_evt,
+ 	for (i = 0; i < BITS_TO_LONGS(RISCV_MAX_COUNTERS); i++) {
+ 		ctr_start_mask = cpu_hw_evt->used_hw_ctrs[i] & ~ctr_ovf_mask;
+ 		/* Start all the counters that did not overflow in a single shot */
+-		sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG, ctr_start_mask,
+-			0, 0, 0, 0);
++		if (ctr_start_mask) {
++			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, i * BITS_PER_LONG,
++				  ctr_start_mask, 0, 0, 0, 0);
++		}
+ 	}
+ 
+ 	/* Reinitialize and start all the counter that overflowed */
+-- 
+2.39.5
 
-Andrew
 
