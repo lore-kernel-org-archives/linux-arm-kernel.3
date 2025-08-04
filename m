@@ -4,61 +4,209 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CF3C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 09:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA2DC87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 09:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DE1vzrZeR4hIEuAQRgsWG+7Il6P7kNa71PWVFiOJGBI=; b=RvVW6dBlAMSa/nRwasRmn5UQIS
-	AEfxQYAZLruwEv8toRCB5VOO0pRSMIgBf2yRlosegvanQkhqAIReG8XsHuuzf0eHdG8Jhfug8mWkE
-	zCvLg/mujSXN0SKK/EL/kqt17wst7sZan5f/o7Ymr8qeUh2HLeXWYWbFdZOfUA4p/7TwBeUNNO48q
-	NVSp1JBCFqXfUsUmlrwR+3KMXX5wfyJlCWcJBH17EHrn3TGxfBKtAMIEzNYnxYZEtT5XNFF7WwhF4
-	QETbpK04jWEY2kv6pjW0syxqYB4DyAtoCMaYje2GRskcMnFPRZ2X7T+VLuSut/ESRSsSlyVf3PWQ5
-	97nbVxMA==;
+	bh=9HL5ff8v5GFRKL3zlcAaEChigKIAFEKWTAnvXjyMb/E=; b=nnQ6V6alpOqojljXYMYzumpV0c
+	dTALBFY0p3c6COL+3mNVBNelVzIUN/H73NzeXSGsfiSCAgrnHfpxTjZXZ6otOm+L/As9xnf46S5hi
+	NccE7+7KrgMhMbNI6eWrMupJDtPDqFtpw2m1xYaqxt3rvTqKieWERuKO2O9+RblSsMxvI/66BUXWj
+	p/HaxP0A8Nl2gim4oNldMzFVCoeVSHfcFaFwbRNIq3CUrzutvl6Z3itXaTWfJIMy41EWhSQ300eL0
+	oQ5BdRNB1qH32QHEKODFET8v+uRN19qRCAfS+Btt4KTgFifVR0mUM9vzKLmTNVZ3R3r3ssZDDaqcY
+	FGAWTtSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uirSn-0000000A4pR-2S7N;
-	Mon, 04 Aug 2025 09:26:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uirB2-0000000A32d-0r8h
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 09:08:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACBEF1C25;
-	Mon,  4 Aug 2025 02:08:06 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 516E03F673;
-	Mon,  4 Aug 2025 02:08:14 -0700 (PDT)
-Date: Mon, 4 Aug 2025 10:08:12 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Levi Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 02/28] coresight: etm4x: Always set tracer's device
- mode on target CPU
-Message-ID: <20250804090812.GI143191@e132581.arm.com>
-References: <20250701-arm_cs_pm_fix_v3-v2-0-23ebb864fcc1@arm.com>
- <20250701-arm_cs_pm_fix_v3-v2-2-23ebb864fcc1@arm.com>
- <09f9d195-7f3c-4cf1-95da-7e29c398ebcc@arm.com>
+	id 1uirSo-0000000A4qo-1aw2;
+	Mon, 04 Aug 2025 09:26:38 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uirCw-0000000A3Km-2UEa;
+	Mon, 04 Aug 2025 09:10:15 +0000
+X-UUID: cff86da4711211f09eb0dd999d3936bf-20250804
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=9HL5ff8v5GFRKL3zlcAaEChigKIAFEKWTAnvXjyMb/E=;
+	b=cgwKdCvQrPjNBrteHw5+ZPR7rmYdLNtsWv/v/6jUl+TbfR4msAeLlBZAO0ICoja1ftpHAAkStPBNYTsLJn1GaGCqsqNGyS4JFrWBNbNaFPDDaNNH57CmkBslfvoAt7xg3hohK7AR45RJ6NTtZP5Vgpx/2UnqzG6xfOdzzdaZv4k=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:9b107576-0dc1-4cd7-b4a5-c5045a7d0154,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:220b1809-aadc-4681-92d7-012627504691,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:-5,Conten
+	t:0|15|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:
+	0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: cff86da4711211f09eb0dd999d3936bf-20250804
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <huayu.zong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1882093638; Mon, 04 Aug 2025 02:10:06 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 4 Aug 2025 17:10:02 +0800
+Received: from TYPPR03CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 4 Aug 2025 17:10:03 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RT9p+02tjTmWhrvGyWm7q9nUVCdZyNz5bYkSW/FP9hvJJabTGsmk9c7alKvbvq3DSOpSs97iOrdgo22W/QmxCIKB3lmf2TjIDJXtBNVVuGzuntkwzR1zHkpMfusEUsEDLjqZKWseCHxAaJzhpQQSFu9yCYw42PuLwsfZSgo89vRm3pFJ49P2ERjWvge3QWft2zunbMuOq3mXFSdPri4E3iOHUb7WOh0SWf0mgP9XeyAiyNzR3rMxDwJLGJaw+t2xwuixTeK9C/CGUXpbf7XBSe6dZ9Hk/tPPE9IdfxAsM3hNmvyr/dKkL3+j1vf3YCv/QJ39JsYdw4/Prm6VfZzkHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9HL5ff8v5GFRKL3zlcAaEChigKIAFEKWTAnvXjyMb/E=;
+ b=aJ1SkFZoGP/qDvFbBETEdffkU1jIhiFcolfUEDrELYxn9qwZIx4vFhaqanj5DHBwJ3JiEDbs9cjwXexZsRmcKEr1BrOGYoO4UZor0sXFrzov6r5N37GC3lw/pKOTTuWHccgakYu4BSgGWC1UneWH9IEtz1UhvuLWFIpkM9O6bIE8R7F6G90CVn4UMpRJndP9qpo3UeKa8G5T1mzsRIcJ1JztVz/sn3dh4RB9/jmFpaZeWHNFEKNwsil2YRxY2ORxZ83157yi1fMDimpXHamaAksIw5kUKaA4xk5LXQDSbQeiE2MGU0c5Cn0jmxCbLbJUW1gZfvsLIFuteGsyoHAdAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9HL5ff8v5GFRKL3zlcAaEChigKIAFEKWTAnvXjyMb/E=;
+ b=bVeRoR+VqpfC9p3mKQ4q+uBmLkPtC9Q4H6Z+y6J57ImbtU/5Kqu9Q54kekNIKNitruuo1mvf3zn/g3iX23q2HmZaaCY4JBrhW6N5APm/C9YQOTnecdonAL7XXEV/4VrKdsc9UHC7VbfmeGvSSrXTRcymyApU1Q9lfJZZU5++tLg=
+Received: from KL1PR03MB5808.apcprd03.prod.outlook.com (2603:1096:820:81::12)
+ by TYSPR03MB7824.apcprd03.prod.outlook.com (2603:1096:400:47b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Mon, 4 Aug
+ 2025 09:10:01 +0000
+Received: from KL1PR03MB5808.apcprd03.prod.outlook.com
+ ([fe80::b75c:b0c5:893b:193]) by KL1PR03MB5808.apcprd03.prod.outlook.com
+ ([fe80::b75c:b0c5:893b:193%7]) with mapi id 15.20.8989.018; Mon, 4 Aug 2025
+ 09:10:00 +0000
+From: =?utf-8?B?SHVheXUgWm9uZyAo57q15Y2O5a6HKQ==?= <Huayu.Zong@mediatek.com>
+To: =?utf-8?B?VGluZ0hhbiBTaGVuICjmsojlu7fnv7Ap?= <TingHan.Shen@mediatek.com>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "andersson@kernel.org"
+	<andersson@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "mathieu.poirier@linaro.org"
+	<mathieu.poirier@linaro.org>
+CC: "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: Re: [PATCH 1/3] dt-bindings: remoteproc: mediatek: Add binding for
+ mt8189 scp
+Thread-Topic: [PATCH 1/3] dt-bindings: remoteproc: mediatek: Add binding for
+ mt8189 scp
+Thread-Index: AQHcADDoNZEn24Fdx0uTV8qr/L9vOLRSMtUAgAAL5IA=
+Date: Mon, 4 Aug 2025 09:10:00 +0000
+Message-ID: <054c15233e27eec29bb88f7839f99b9ccce9691b.camel@mediatek.com>
+References: <20250729023125.9036-1-huayu.zong@mediatek.com>
+	 <20250729023125.9036-2-huayu.zong@mediatek.com>
+	 <7aececf2-438a-4dbc-90e6-fd457a12ace6@collabora.com>
+In-Reply-To: <7aececf2-438a-4dbc-90e6-fd457a12ace6@collabora.com>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR03MB5808:EE_|TYSPR03MB7824:EE_
+x-ms-office365-filtering-correlation-id: dc31be76-5f6d-474d-a178-08ddd336b101
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?UjNBaHhCRjZoZjZ5TW9JWkxxSXcyT3FhK0F5dTBMOGFkVmtPdlg4RFFUZ0Zx?=
+ =?utf-8?B?MDZZWEFvaVovK1FrRGd1ODRveGNDZytyL3hqZGVSVFJoTEFqdlZPS0VKSEZB?=
+ =?utf-8?B?WGpjNFJJQXNBMUk1Ly9tY1VoVTF0MGFzTUdNZTdmbTRkRWJ5OWZiWS9CeW1W?=
+ =?utf-8?B?UllPSXNWRTRIS1BwSEFmREpUTVpZeUw3UnROM0FZWUhNZFYrZUJSVm9WOExn?=
+ =?utf-8?B?QTFHVEF5WkZOdkdLbXJCR2oxbHpSREZFMkhWZmFGaFVkRjB3aU9kYkMvU05s?=
+ =?utf-8?B?WE1mUTMxSnRNVnpDN3RqdVZhTmRZSzR1bVNIQ2JlcUVUaitUV3lISkwzV2pi?=
+ =?utf-8?B?UUhOYTVxV3FreTFGM2VkUUtzRklneXlTd2pXQmQweGQvMGhxa2NzK1ppT3Bu?=
+ =?utf-8?B?dmpaVTBzcjZBVmdteTRrWFVtY29OeHh5d2VBdGFnWUtoWTU5M1BaK0hwSS9N?=
+ =?utf-8?B?cHkwTXc2YVFDSHFtM2ZzclpXblJrZnRsQkMrQ3R4VHdMakhLK0cwVlhLb29N?=
+ =?utf-8?B?Q2ZFSVZKNWp6ZEhNekYrN1JSM1FudkRocUc2ZWsvQmhrc3VhQzA4eDFDTWNM?=
+ =?utf-8?B?c1JVZUtyQktFY3RPa25FY1FodnVoTEIyRGdNcForbkI1MnYyMTBYaGEzZFhO?=
+ =?utf-8?B?azc2dTVqUGhuQ3Y5d2VyTm5ob1ZjdG1MUDdWZ05jaFpWb0duaHZGOHRWSndG?=
+ =?utf-8?B?UCtSbUdHbVk3bFNjWVZUSWgzVXZnaXNxSVZTWDJzVlJUN2s4R3RNb1FoajhY?=
+ =?utf-8?B?RHFUZjRpZ0FrRmZZd3BKQUFVT1pnck5HdG00UjhJNGZDNkRSemg1dHEyeWZ4?=
+ =?utf-8?B?M25hOGU5b1RvcCt3dmxwU25zSlFsOWlaUTNlWCtwQTFqTjhBMzhsMWVRY01Y?=
+ =?utf-8?B?NVFpNFRhWm5PNHdwcnRkc1E5K3pSeDF2aVRNOHFDb3lncWNTaU04cW5qTTFo?=
+ =?utf-8?B?MlRnK01TZkZDVjdHd0graC9xbi9jSTg2Zmg3c3JUWTZNVWxTcTdDKzFyZ0Qy?=
+ =?utf-8?B?WmU3bXBCRVQvdjE5STUydFlseDVMVlJkNGg4OG9tTVlwR2hweUx3ZmNtYUt2?=
+ =?utf-8?B?SjUzY0RGL0FtUWNTbzI0S3NLbkg5RVl4UUpORjVFYnM0L0lyME1zanM3NmNy?=
+ =?utf-8?B?bjBxeU95cTBtSFRXVTdnM243Mk04N1lhRHNRbDZYSWh1d0hNUlU1VEV2MHZH?=
+ =?utf-8?B?YWZTSk1HV0RRL3V5VVBKRnlqZVFwUFZNMVR5QkhPanRkTHlzZ2VSWmNMbFRq?=
+ =?utf-8?B?K0poR2R1ZWU5RVAxUy9DemgzQld4N0pBOVZzMGxKZkZ4azFQUmtUM0lwZ1Np?=
+ =?utf-8?B?UHBWOC9PSm1ucHpyVGl2ZXdYZko3eS90aWVQd2dLNzdNSmFYTjJjcmo2dHc5?=
+ =?utf-8?B?bUhaZWdGV2NROW9VUUhVRklNQ2xKK2U2d3pucy9Bd0FhQ0p0ZExmNkdrZjlj?=
+ =?utf-8?B?emlkcGt6L3JsZGhidCt0UXA5ZVN6NkkxK0IzRjIvbjBDNmE1UElsVmJrd3Ri?=
+ =?utf-8?B?bmVGaFBZWHMyVm9DWkVFYnBkY1VsRVVlWTB1Q0xNNFhZL0VqdE5mZUNXQlc3?=
+ =?utf-8?B?QUJBblFyT204VXFmWVg4YnJCd1pQZDFqYlF4aWFKV3ZIM0taU1BQYWRVWlVG?=
+ =?utf-8?B?VnlMWGtMU2NOTWNSUTIyZTdyb2NyRWF3VjNKOW1aNThET3dvMDFlMm1pUWlV?=
+ =?utf-8?B?NUV3YUVVUjdQaWNaUTB2SS9xbWdLTXhmMGlpT09TQ1F6ekVwVXpDM3NZaUFl?=
+ =?utf-8?B?Yk9oQVVmQUJCaElHaXpCdlZlK0hqK3E0Wk9QYzZpTEt0d2xLZXJKdGFSK0tG?=
+ =?utf-8?B?SmxFK1lZdGVHVHB2RWVRQ2pGQ3RsNFFKTE85TWUwandYVlBtQktmaERNQXBv?=
+ =?utf-8?B?SHhKQTdzdWUreGNoMWVTSkxGVVNhZFBKdHU1eHJkYzByRVVZS0pkS0Q3Y2RD?=
+ =?utf-8?B?NGN5VklXRDJmaVhSbGcyL251bzFQei9oKy8yUWlyVHZobk1CQW15UWZPaTlD?=
+ =?utf-8?B?L3hxNXkzcXBnPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5808.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UnlMMkRJQS8vYkVKVXJWVlc3SHZRWFp2SkRoandqcjBaSW1OQWdlaGVmc3Zh?=
+ =?utf-8?B?TmpGM0VPd1I4NW9wMXpvNHh4cUgvczN5TUtnZEpJWnlJejJTckpZczMramlL?=
+ =?utf-8?B?U29qY0NIME85RHVHdXpuYlBlZ0NGMlVlYVZraGd1V1BOMTZFMWwyY0xJNXda?=
+ =?utf-8?B?TjFGTjNjeGdjMWd5aFBOWnl3V1hRVUJsb0J4Qmp5YXZBaGtoZ1d4VSt2c1F0?=
+ =?utf-8?B?YytDYlIzZkVvUWRpb04yTDc0djRrS0NuV3FLRWVvTjdkcEVsQUl5NksrYlNT?=
+ =?utf-8?B?TnBhK1M4SkhtbGVlYk0vQlZOME5EOElUdmNKN1ZFd3hEZ0ZnMzRCYkJxQXp6?=
+ =?utf-8?B?VU9qODh3YWp2NjZqSFNQUEErUTRmTkNsc1d2UVpIUkNkNzd4eHQ2ZnlUQkNU?=
+ =?utf-8?B?R1RYVS9WWTdHSkU0VWQwekhUbmQvTVlxVitUdHAyWDJ0S1h4LzBRTG9UdHRM?=
+ =?utf-8?B?ZjNwTlorRDRXTUtOdFc3cjI0MFgwcitsWWtVdlhJODg5WHpGZDVNL0NTYTVW?=
+ =?utf-8?B?Z055WGFVdlJBZ01ta1pZeTczRzQ0eWRad1NOS0E4WnNuZ3BQOUUxV1NWZUsz?=
+ =?utf-8?B?NDI1RDN1VXVYdDloM0VwaGtHTGNoMzlXOW1ZQVF3UkRycUpsb2NXTThDalBC?=
+ =?utf-8?B?aDhlbUNlR2xCOERmNXd0ckZobjFJZnlKd3JRRjNMbUJKcmZGQzZsQmVqaWxE?=
+ =?utf-8?B?dlN3TU03ZHdPelFhYUl4YzN3OGdFRVBza3Q3c0NidHJnUHgrbVBPZjVHSU1U?=
+ =?utf-8?B?UGp1ejl6VTM5SHUwbG9OMUpJUDZpNHlDU0ZsMERtcVllZHlOZ1FhQXdFUERx?=
+ =?utf-8?B?Nnh4VXBDSmsrSUl5a0tkYWQ2eklONjdBc09NajNPSi9iK0d0amZqbjczWmxt?=
+ =?utf-8?B?T2JBbXhRcDJMRGVzZXFYWlNLVzdaL2tBSlU4cjM1V3VXRHZCT1Y2MUI3aUV5?=
+ =?utf-8?B?YU5iOFA2cis3U21pRXZQMU5HSG9QSlZJZDBNUFR4T2J2Wkw5WDR4YWlxZ1li?=
+ =?utf-8?B?endwdXpoSEY5L0JaalBObTV3R2ZXZGs5UWxLVGJUVmxjZm4wbi9sL3R2SUVV?=
+ =?utf-8?B?U2xjL0ltMXFPZjN2cWV2T3g4OGFJZTNLZTQwdlc5V0FCbW0vb1dNY1IvRUNt?=
+ =?utf-8?B?SW1iVTlEeFBNMDBBRTJOL2licndIeUxIbXgrV3dHTnZEZFBMdTFSUHJOZDNE?=
+ =?utf-8?B?L3k3RlB0R2dYSFVsNFhiaFByY2FTanBZcXQ0VktNUGxnQnlyWVdsSEVIeldJ?=
+ =?utf-8?B?YjdrdFA1dTRnN1o4UzdBUkJCU29Wb29jdXdSejdPYmErUkxjb2FOVU8yQnBE?=
+ =?utf-8?B?dXluWlpNT2pCeWc1RFVPVVNWV3RneFhjc1hiOFNLbmdEbTlVRnp4amMwbTBD?=
+ =?utf-8?B?cCtqN3dXZWZyZ1U2V3FXOWY2SEhoNm5zYlNZSFVuNGRLTm5GREtCSEVqbnFG?=
+ =?utf-8?B?VDJ3V3dKWnQ2TENrcTlmYzBaSndUL2R1MmJpMWZ1aUQyUE9SdUZEZjArcUJ6?=
+ =?utf-8?B?dWlVQVJaZER2eEJXdXUxYUx4S1N2TFY3R2FtZGt6d256Ung0eVdkTU55N0Zt?=
+ =?utf-8?B?bVYweE9Yb214MGJCU3dLUVVUTTJrNUxDdWc5Ni92RDRycGt5akdGZ3ROcmV0?=
+ =?utf-8?B?ZEpFdVl4RllPWHF3cnpLVTRwQ1hXaFpqQVRyUXhLaWhqbXR4aWFNRUdaYnhT?=
+ =?utf-8?B?a0xNcGhFd1I5NzErNlFoa1pkZkFyTVNLRmlTWStEVmZTaldkMWQrMmpRYjBC?=
+ =?utf-8?B?dkFYWEMweks1NHcyRHl3YzRjSzNHTGJYcjVoNGQvaHZxbjd2UzUyNFZUa1hm?=
+ =?utf-8?B?MkhMN1hZYnU0ZDljRUNqdzg5RExwdlR2b09XaVVFSm1NMWJ6N2dTdkdhKzVL?=
+ =?utf-8?B?djV0RFFKb3kxRTVHbzRTZ2pma3ZyaUwrSEljelpuNjIzbW9vWGFsOVhjNCth?=
+ =?utf-8?B?S1IvWG0vTGNQamV4K1ArYkhiRjdjdmpFOTQ0SVhZVWMrazVoMmRVWS9XZ1hu?=
+ =?utf-8?B?bDNBWWRHVEJKUGx0QnU0a2Iwc2RmcUc5SWdHWmcwcGVYMFNMQmdVcENZSUQx?=
+ =?utf-8?B?eGtrUE81NUdxS3YzMGxDelU2ZkRQai92ZnJYUmZkQVJ6QzRTS21TeHlUOVNw?=
+ =?utf-8?B?UzQybG50MXRoWG9xL2o5NUhmeTVSTzdGaTczWXg3Z216WmY2cHh2UE5haW0z?=
+ =?utf-8?B?UWc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <5A0CFB6DABFDA8449D841F83C8D0DB7F@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <09f9d195-7f3c-4cf1-95da-7e29c398ebcc@arm.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5808.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc31be76-5f6d-474d-a178-08ddd336b101
+X-MS-Exchange-CrossTenant-originalarrivaltime: 04 Aug 2025 09:10:00.7530
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sM0RxlZK2NiY6WqDK+hhWcfIxG/HRe5Yw9ETuc/JPGDVgqxKwhpbUfRZZa7XTtsV2eOUgFFd8xG9rdpof6adAQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_020816_317020_8D315219 
-X-CRM114-Status: GOOD (  28.33  )
+X-CRM114-CacheID: sfid-20250804_021014_654175_86AC4825 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,84 +221,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 15, 2025 at 12:56:54PM +0530, Anshuman Khandual wrote:
-> 
-> On 01/07/25 8:23 PM, Leo Yan wrote:
-> > When enabling a tracer via SysFS interface, the device mode may be set
-> > by any CPU - not necessarily the target CPU. This can lead to race
-> > condition in SMP, and may result in incorrect mode values being read.
-> > 
-> > Consider the following example, where CPU0 attempts to enable the tracer
-> > on CPU1 (the target CPU):
-> > 
-> >  CPU0                                    CPU1
-> >  etm4_enable()
-> >   ` coresight_take_mode(SYSFS)
-> >   ` etm4_enable_sysfs()
-> >      ` smp_call_function_single() ---->  etm4_enable_hw_smp_call()
-> >      			                /
-> >                                        /  CPU idle:
-> >                                       /   etm4_cpu_save()
-> >                                      /     ` coresight_get_mode()
-> > 	       Failed to enable h/w /         ^^^
-> >   ` coresight_set_mode(DISABLED) <-'          Read the intermediate SYSFS mode
-> 
-> The problem is - CPU1's HW state and CPU1's sysfs mode state might not
-> remain in sync if CPU1 goes into idle state just after an unsuccessful
-> etm4_enable_sysfs() attempt from CPU0. In which case a subsequent read
-> coresight_get_mode() on CPU1 might erroneously give us DISABLED state,
-
-In this case, CPU1 reads an intermediate "SYSFS" state, even though it
-failed in etm4_enable_hw_smp_call(). The current code defers setting
-the state to DISABLED on CPU0. As a result, CPU1 will incorrectly save
-and restore the ETM context based on the intermediate "SYSFS" state.
-
-> which actually does not seem to be too bad as the earlier enablement
-> attempt had failed anyway. Just trying to understand what is the real
-> problem here.
-
-The problem is CPU1 might get an intermediate state, it turns out a
-stale value and might guide CPU idle flow to wrongly save and restore
-ETM context.
-
-> > In this case, CPU0 initiates the operation by taking the SYSFS mode to
-> > avoid conflicts with the Perf mode. It then sends an IPI to CPU1 to
-> > configure the tracer registers. If any error occurs during this process,
-> 
-> What kind of error can happen during this process ?
-
-So far, it might fail to claim a device and return an error.
-
-A similar issue might occur when CPU1 exits an idle state. For example,
-if CPU0 initiates the ETM enabling flow and sets the SYSFS mode in
-advance, once CPU1 is woken up from idle by an IPI, it reads the ETM
-state (SYSFS mode) and then restores and enables the ETM. This can
-happen even before CPU1 invokes etm4_enable_hw_smp_call() to complete
-the ETM enable flow.
-
-> > CPU0 rolls back by setting the mode to DISABLED.
-> 
-> Which seems OK.
-> 
-> > 
-> > However, if CPU1 enters an idle state during this time, it might read
-> > the intermediate SYSFS mode. As a result, the CPU PM flow could wrongly
-> > save and restore tracer context that is actually disabled.
-> 
-> Right but CPU0 had marked the CPU1' state as DISABLED after the enable
-> attempt had failed. So what is the problem ?
-
-There is a race condition between CPU0 writing the state and CPU1
-reading the state (during its CPU idle flow). CPU1 might read a state
-that is inconsistent with the actual ETM hardware state, which causes
-CPU1 to save and restore the ETM context incorrectly.
-
-A wider view is this series heavily relies on the ETM state to decide
-the linked path has been enabled and take action for saving and
-restoring all components on the path (not for ETM device only). We need
-a reliable state machine to reflect hardware state. To avoid any
-intermediate state, we always set the state on the target CPU.
-
-Thanks,
-Leo
+T24gTW9uLCAyMDI1LTA4LTA0IGF0IDEwOjI3ICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
+IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwNCj4geW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRl
+ciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBJbCAyOS8wNy8yNSAwNDozMSwgSHVheXUgWm9u
+ZyBoYSBzY3JpdHRvOg0KPiA+IEFkZCB0aGUgY29tcGF0aWJsZSBmb3IgbXQ4MTg5IFNDUCB0byB0
+aGUgYmluZGluZy4NCj4gPiANCj4gPiBTaWduZWQtb2ZmLWJ5OiBIdWF5dSBab25nIDxodWF5dS56
+b25nQG1lZGlhdGVrLmNvbT4NCj4gDQo+IElzIE1UODE4OSdzIFNDUCByZWFsbHkgc2luZ2xlLWNv
+cmU/DQo+IA0KPiBBbGwgb2YgdGhlIG5ldyBTb0NzIGhhdmUgdHdvIFNDUCBjb3JlcyAtIGl0J3Mg
+YSBiaXQgc3RyYW5nZSB0byBzZWUNCj4gdGhhdCA4MTg5IGhhcw0KPiBvbmx5IG9uZS4uLiBoZW5j
+ZSwgcGxlYXNlIHRyaXBsZSBjaGVjayBhbmQgY29uZmlybS4NCj4gDQo+IENoZWVycywNCj4gQW5n
+ZWxvDQo+IA0KDQp5ZXMuIE9uIHRoZSA4MTg5IHBsYXRmb3JtLCB0aGUgYXJjaGl0ZWN0dXJlIGRl
+c2lnbiBvZiBTQ1AgaXMgYSBzaW5nbGUNCmNvcmUuDQoNCj4gPiAtLS0NCj4gPiAgIERvY3VtZW50
+YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yZW1vdGVwcm9jL210ayxzY3AueWFtbCB8IDIgKysN
+Cj4gPiAgIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKykNCj4gPiANCj4gPiBkaWZmIC0t
+Z2l0DQo+ID4gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmVtb3RlcHJvYy9t
+dGssc2NwLnlhbWwNCj4gPiBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yZW1v
+dGVwcm9jL210ayxzY3AueWFtbA0KPiA+IGluZGV4IGFkYzZiM2YzNmZkZS4uODhlMjQwNDMwZjNm
+IDEwMDY0NA0KPiA+IC0tLSBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yZW1v
+dGVwcm9jL210ayxzY3AueWFtbA0KPiA+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9i
+aW5kaW5ncy9yZW1vdGVwcm9jL210ayxzY3AueWFtbA0KPiA+IEBAIC0yMCw2ICsyMCw3IEBAIHBy
+b3BlcnRpZXM6DQo+ID4gICAgICAgICAtIG1lZGlhdGVrLG10ODE4Ni1zY3ANCj4gPiAgICAgICAg
+IC0gbWVkaWF0ZWssbXQ4MTg4LXNjcA0KPiA+ICAgICAgICAgLSBtZWRpYXRlayxtdDgxODgtc2Nw
+LWR1YWwNCj4gPiArICAgICAgLSBtZWRpYXRlayxtdDgxODktc2NwDQo+ID4gICAgICAgICAtIG1l
+ZGlhdGVrLG10ODE5Mi1zY3ANCj4gPiAgICAgICAgIC0gbWVkaWF0ZWssbXQ4MTk1LXNjcA0KPiA+
+ICAgICAgICAgLSBtZWRpYXRlayxtdDgxOTUtc2NwLWR1YWwNCj4gPiBAQCAtMTY4LDYgKzE2OSw3
+IEBAIGFsbE9mOg0KPiA+ICAgICAgICAgICAgICAgLSBtZWRpYXRlayxtdDgxODMtc2NwDQo+ID4g
+ICAgICAgICAgICAgICAtIG1lZGlhdGVrLG10ODE4Ni1zY3ANCj4gPiAgICAgICAgICAgICAgIC0g
+bWVkaWF0ZWssbXQ4MTg4LXNjcA0KPiA+ICsgICAgICAgICAgICAtIG1lZGlhdGVrLG10ODE4OS1z
+Y3ANCj4gPiAgICAgICB0aGVuOg0KPiA+ICAgICAgICAgcHJvcGVydGllczoNCj4gPiAgICAgICAg
+ICAgcmVnOg0KPiANCj4gDQo+IA0K
 
