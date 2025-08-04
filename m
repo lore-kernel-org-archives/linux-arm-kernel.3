@@ -4,128 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98427C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 06:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C55CC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 06:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RukyBN40PONlQvCueCmqpoFDv23wRZpAVWtMPEeXZMc=; b=Evy9Hokhr18Q9IU29Uj2cQdSvT
-	ZIRbDadhIO5ycfIUJZ4LR0+KnV9BJN9L16wLNwzv3cKWcHR8PBUy1CFOM8bF7n3n43JlhQ1o1IZBj
-	7f0qUH6Kpwl//Dc71vLSj96Fdp+gh3xuOkEeafLIGVEko4cmxkkSUhVNRgN1hwBvtg0nvoeIUTDd1
-	owzsPve4C7f0PqWNlQF++1I+t0wgH/BeTJABw1eY0P1ebZCXbUMaFG5H7yJ2loWD5OKfp3VUWKcaU
-	4pDxNvbvUt8Avcc7sJTmkC1yLH6WAOpsqIPcmWEybpxbsXIvKIg2j+6z3bXZZoBFM2zNj2+0/V7RU
-	bBduQXDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gLDlLSD9fZLuz5Yso1GjOxmc4NefvSELVejvScgC8Ko=; b=uW464RZ3x7OvTy6uiq3knN+cZ+
+	Nx8jsupe2A74g5kJkZeXlDb1kZceD7Odz+hA3V8sIUZR34vs6GP3SYYy0bHTiHW9vC3LXmyY8CMRi
+	pLdZmLu54cbQykrBAph9o6yyF6B91BKPy7i84JfhIssKoKtTz1vdLattr2iceM0WdCAMaXH1cH/zs
+	9R3Fmt28AuWNe6UQMTL/GOdLoeJu8Gf3YTjUvApowYZ8ya4/lwN4OZux4uJSPVOA1VD0qegJ0wP47
+	tAKrm2QzChiNc3k8cQMtShmlFry/uPRzGTFNxHWNgsuO8d226JhVklKnhwaq/Y4vTSwFmQ1OoNElE
+	8/xVdiDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uioYr-00000009jCS-2G8r;
-	Mon, 04 Aug 2025 06:20:41 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1uiomE-00000009k63-36XC;
+	Mon, 04 Aug 2025 06:34:30 +0000
+Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uioWI-00000009iyZ-3Prz
+	id 1uiojf-00000009jvl-00s4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 06:18:04 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 85E80219D1;
-	Mon,  4 Aug 2025 06:17:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1754288279; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
+	Mon, 04 Aug 2025 06:31:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E239144281;
+	Mon,  4 Aug 2025 06:31:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1754289105;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RukyBN40PONlQvCueCmqpoFDv23wRZpAVWtMPEeXZMc=;
-	b=Nw3qtEMysFaBPKUPEx3SYETmskzrptg/DBQyWt8IBYdzUatqmiKCDuJ0+SvoSy1f8cYISd
-	/OIiZdnHWI9EdvnWuQmVoTgsFxAVeii5FGX0C6nUK8/m1bKKduzXp4lWvgYUyT8izg2hF4
-	EUCWD6SweV+vHHEkoERX/AzOnFAn3pY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1754288279;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RukyBN40PONlQvCueCmqpoFDv23wRZpAVWtMPEeXZMc=;
-	b=gRS8aiPHV6AUV4bSuv1najAf4hexbPW5pFqwlQnvXhoXPfKWU3yY+1fzDzCPWE+96ccpNa
-	YOHNMobcCxMRtbAg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Nw3qtEMy;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=gRS8aiPH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1754288279; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RukyBN40PONlQvCueCmqpoFDv23wRZpAVWtMPEeXZMc=;
-	b=Nw3qtEMysFaBPKUPEx3SYETmskzrptg/DBQyWt8IBYdzUatqmiKCDuJ0+SvoSy1f8cYISd
-	/OIiZdnHWI9EdvnWuQmVoTgsFxAVeii5FGX0C6nUK8/m1bKKduzXp4lWvgYUyT8izg2hF4
-	EUCWD6SweV+vHHEkoERX/AzOnFAn3pY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1754288279;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RukyBN40PONlQvCueCmqpoFDv23wRZpAVWtMPEeXZMc=;
-	b=gRS8aiPHV6AUV4bSuv1najAf4hexbPW5pFqwlQnvXhoXPfKWU3yY+1fzDzCPWE+96ccpNa
-	YOHNMobcCxMRtbAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3C40B13695;
-	Mon,  4 Aug 2025 06:17:59 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id f1ULDZdQkGi4RQAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Mon, 04 Aug 2025 06:17:59 +0000
-Date: Mon, 04 Aug 2025 08:17:58 +0200
-Message-ID: <87jz3j1ug9.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: wangdich9700@163.com
-Cc: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-kernel@vger.kernel.org,
-	alsa-devel@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	wangdicheng <wangdicheng@kylinos.cn>
-Subject: Re: [PATCH 1/2] ALSA: hda/realtek: Accelerate the front MIC charging and discharging of the 897 codec
-In-Reply-To: <20250804030518.424229-1-wangdich9700@163.com>
-References: <20250804030518.424229-1-wangdich9700@163.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: 85E80219D1
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Spamd-Result: default: False [-3.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	FREEMAIL_TO(0.00)[163.com];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[163.com,gmail.com];
-	FREEMAIL_CC(0.00)[gmail.com,kernel.org,perex.cz,suse.com,vger.kernel.org,alsa-project.org,lists.infradead.org,kylinos.cn];
-	RCVD_TLS_ALL(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_TWO(0.00)[2];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[]
+	bh=gLDlLSD9fZLuz5Yso1GjOxmc4NefvSELVejvScgC8Ko=;
+	b=eDvTaZk3bkqgx1n26ovQ3mqqbNX48z5Xp6NQ1a7MgNuxqX8QJhrSPC/rmQaI8cPdTeWUVj
+	QtapNMe49PdRGEGnjJwPFju/rfQp2DnB3X5CcRau27QdUxQ3LrZEff5bL10NbtmKrnYqGI
+	PsgDXOxmYeZa39beHABjv6ByeKqoO9cwQzg3wOe7jcKE+Crdl/sLT6zMFeWSglChBiX+l1
+	/XfCBMx0wh62iVS/2RJmQ9AI/9o1hLJ9btsv2MkPtQ2jMWDi1EbBgE0gLk4dsRgqoRlENV
+	GiJZ2ju9VAVOs8cquXBs6ylBKq46ohHbekB6aQlPkgIkbkPhnIeErKS+PQTGEg==
+Date: Mon, 4 Aug 2025 08:31:36 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Liu Ying <victor.liu@nxp.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Hui Pu <Hui.Pu@gehealthcare.com>, Thomas
+ Petazzoni <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Zijun Hu <quic_zijuhu@quicinc.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH v2 0/9] drm/bridge: get/put the bridge returned by
+ drm_bridge_get_next_bridge()
+Message-ID: <20250804083136.058353f9@booty>
+In-Reply-To: <1ebad5ca-26f3-4a5f-a812-8211129c764a@nxp.com>
+References: <20250801-drm-bridge-alloc-getput-drm_bridge_get_next_bridge-v2-0-888912b0be13@bootlin.com>
+	<1ebad5ca-26f3-4a5f-a812-8211129c764a@nxp.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudduheekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvdegjeejveehhfeigffftefhtdeiffehfeevtdegkeetjefftdevudegiefhvdeknecuffhomhgrihhnpehfrhgvvgguvghskhhtohhprdhorhhgpdhkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepfeejrdduiedurdekiedrieehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepfeejrdduiedurdekiedrieehpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopehvihgtthhorhdrlhhiuhesnhigphdrtghomhdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehrfhhoshhssehkvghrn
+ hgvlhdrohhrghdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepjhhonhgrsheskhifihgsohhordhsvgdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_231803_014947_5E42DAA1 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20250803_233151_181664_0198CD26 
+X-CRM114-Status: GOOD (  28.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,62 +93,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 Aug 2025 05:05:17 +0200,
-wangdich9700@163.com wrote:
-> 
-> From: wangdicheng <wangdicheng@kylinos.cn>
-> 
-> The front MIC capacitance of the Inspur board is too large, resulting in a longer charging and discharging time required,
-> which in turn prevents recording for 5 seconds before startup.
-> Therefore, software is used to increase the delay by 2 seconds to avoid this issue.
+Hello Liu,
 
-First off, the HD-audio code was replaced in the latest Linus tree to
-sound/hda/* directories, so please adapt the patches accordingly.
+thanks for having reviewed this series.
 
-About the code change:
+On Mon, 4 Aug 2025 12:02:48 +0800
+Liu Ying <victor.liu@nxp.com> wrote:
 
-- The 2.5 seconds wait is way too long and inappropriate to be put in
-  the resume callback.  It has to be fixed differently.
+> Hi Luca,
+>=20
+> On 08/01/2025, Luca Ceresoli wrote:
+> > Note: the cover in v1 was mentioning by mistake
+> > drm_bridge_get_last_bridge() instead of drm_bridge_get_next_bridge().
+> >                ^^^^
+> >=20
+> > This series adds drm_bridge_get/put() calls for DRM bridges returned by
+> > drm_bridge_get_next_bridge().
+> >=20
+> > This is part of the work towards removal of bridges from a still existi=
+ng
+> > DRM pipeline without use-after-free. The grand plan was discussed in [1=
+].
+> > Here's the work breakdown (=E2=9E=9C marks the current series):
+> >=20
+> >  1. =E2=9E=9C add refcounting to DRM bridges (struct drm_bridge)
+> >     (based on devm_drm_bridge_alloc() [0])
+> >     A. =E2=9C=94 add new alloc API and refcounting (in v6.16-rc1)
+> >     B. =E2=9C=94 convert all bridge drivers to new API (now in drm-misc=
+-next)
+> >     C. =E2=9C=94 kunit tests (now in drm-misc-next)
+> >     D. =E2=9C=94 add get/put to drm_bridge_add/remove() + attach/detach=
+()
+> >          and warn on old allocation pattern (now in drm-misc-next)
+> >     E. =E2=9E=9C add get/put on drm_bridge accessors
+> >        1. =E2=9C=94 drm_bridge_chain_get_first_bridge() + add a cleanup=
+ action
+> >        2. =E2=9C=94 drm_bridge_get_prev_bridge()
+> >        3. =E2=9E=9C drm_bridge_get_next_bridge()
+> >        4. =E2=80=A6 drm_for_each_bridge_in_chain()
+> >        5. drm_bridge_connector_init
+> >        6. of_drm_find_bridge
+> >        7. drm_of_find_panel_or_bridge, *_of_get_bridge
+> >     F. debugfs improvements
+> >  2. handle gracefully atomic updates during bridge removal
+> >  3. =E2=80=A6 avoid DSI host drivers to have dangling pointers to DSI d=
+evices
+> >  4. finish the hotplug bridge work, removing the "always-disconnected"
+> >     connector, moving code to the core and potentially removing the
+> >     hotplug-bridge itself (this needs to be clarified as points 1-3 are
+> >     developed)
+> >=20
+> > There are various users of drm_bridge_get_next_bridge() which cannot be
+> > converted easily. Luckily they are not really looking for the next brid=
+ge,
+> > but for something else, such as getting the last bridge in the encoder
+> > chain or checking whether a bridge is the last in the encoder chain. So
+> > introduce better functions for those users and use them instead of
+> > drm_bridge_get_next_bridge(), making the code cleaner at the same time.
+> >=20
+> > Finally add a drm_bridge_get() to drm_bridge_get_next_bridge() and
+> > drm_bridge_put() to the remaining, and legitimate, calls.
+> >=20
+> > [0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/0cc6aadd7fc=
+1e629b715ea3d1ba537ef2da95eec
+> > [1] https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-0-9d6f2=
+c9c3058@bootlin.com/t/#u
+> >=20
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > ---
+> > Changes in v2:
+> > - Use cleanup action in patches 4, 8 and 9
+> > - Fix: replace get_last -> get_next in cover
+> > - Link to v1: https://lore.kernel.org/r/20250709-drm-bridge-alloc-getpu=
+t-drm_bridge_get_next_bridge-v1-0-48920b9cf369@bootlin.com
+> >=20
+> > ---
+> > Luca Ceresoli (9):
+> >       list: add list_last_entry_or_null()
+> >       drm/bridge: add drm_bridge_chain_get_last_bridge()
+> >       drm/bridge: imx93-mipi-dsi: use drm_bridge_chain_get_last_bridge()
+> >       drm/omapdrm: use drm_bridge_chain_get_last_bridge()
+> >       drm/bridge: add drm_bridge_is_last()
+> >       drm/display: bridge_connector: use drm_bridge_is_last()
+> >       drm/bridge: get the bridge returned by drm_bridge_get_next_bridge=
+()
+> >       drm/bridge: put the bridge returned by drm_bridge_get_next_bridge=
+()
+> >       drm/imx: parallel-display: put the bridge returned by drm_bridge_=
+get_next_bridge()
+> >=20
+> >  drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c    | 12 ++++------
+> >  drivers/gpu/drm/display/drm_bridge_connector.c |  5 ++--
+> >  drivers/gpu/drm/drm_bridge.c                   |  3 +--
+> >  drivers/gpu/drm/imx/ipuv3/parallel-display.c   |  4 ++--
+> >  drivers/gpu/drm/omapdrm/omap_drv.c             |  6 ++---
+> >  include/drm/drm_bridge.h                       | 32 ++++++++++++++++++=
++++++++-
+> >  include/linux/list.h                           | 14 +++++++++++
+> >  7 files changed, 57 insertions(+), 19 deletions(-) =20
+>=20
+> Looks like this one needs to be handled by this patch series?
+>=20
+> drivers/gpu/drm/omapdrm/omap_encoder.c:101:
+> bridge =3D drm_bridge_get_next_bridge(bridge)) {
 
-- Does it apply really to all devices with 0x10ec1304?  It's Realtek's
-  vendor id, so this can match to many devices.
+This is handled in a better way in a separate series, converting the
+for_each loops around the bridges in an encoder chain:
 
-- Last but not least, it's not nice to have a code that depends on the
-  certain vendor id there.  Again, please implement in a different way
-  so that it can be handled in more device-specific code rather than
-  the common function.
+https://lore.kernel.org/all/20250723-drm-bridge-alloc-getput-for_each_bridg=
+e-v1-9-be8f4ae006e9@bootlin.com/
 
+Luca
 
-thanks,
-
-Takashi
-
-> 
-> Signed-off-by: wangdicheng <wangdicheng@kylinos.cn>
-> ---
->  sound/pci/hda/patch_realtek.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/sound/pci/hda/patch_realtek.c b/sound/pci/hda/patch_realtek.c
-> index 877137cb09ac..88675eae9447 100644
-> --- a/sound/pci/hda/patch_realtek.c
-> +++ b/sound/pci/hda/patch_realtek.c
-> @@ -1001,6 +1001,14 @@ static int alc_resume(struct hda_codec *codec)
->  	if (!spec->no_depop_delay)
->  		msleep(150); /* to avoid pop noise */
->  	codec->patch_ops.init(codec);
-> +
-> +	if (codec->core.subsystem_id == 0x10ec1304) {
-> +		snd_hda_codec_write(codec, 0x19, 0, AC_VERB_SET_PIN_WIDGET_CONTROL, 0x04);
-> +		msleep(50);
-> +		snd_hda_codec_write(codec, 0x19, 0, AC_VERB_SET_PIN_WIDGET_CONTROL, 0x44);
-> +		msleep(2000);
-> +		snd_hda_codec_write(codec, 0x19, 0, AC_VERB_SET_PIN_WIDGET_CONTROL, PIN_VREF80);
-> +	}
->  	snd_hda_regmap_sync(codec);
->  	hda_call_check_power_status(codec, 0x01);
->  	return 0;
-> -- 
-> 2.25.1
-> 
+--=20
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
