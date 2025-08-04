@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FCAAC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 12:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7005DC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 12:35:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmVaIaHi+ykyzzjiYxoP2UZDwgOpaqJhp67rNwzOVzE=; b=vSfGOC34n7+7lYd3WxW9gLQTk9
-	YHtQhMeMN8l2Vk6l2Q9zGPYtGtzlhy6WFKEqHIJsnczJSd/pgZ0If9+gCzxtl2Afuno2W5vcjEHNC
-	qSOvHzQbQ5CFDFeq0iX1whpWRnDB4xyL+ZLe03KzNG+hfZRFW5frrGIvZsdRHcnjunTS9DK80vyY8
-	4Gi1SL335AwY2pnNNGe/asnXhGj5nQiC4WTfjJGgGqBCWvNOqBjLyJjZiU+YKLj66OceMtS3rVifh
-	Nq0ux2QDKFu2S0ikfUBpqt6GhEbAMZcRuzmEUZbpmgIBV4MYCI/ZvNYmvC4yuX6E+wBnxEY31InHG
-	Sjn+OCFg==;
+	bh=vhslzfM0ZYWMc1NPVa1z0alQXYyJ5Qkf1DWKrzYmfQY=; b=zp/ZcaLuDAAy/TP7EVC+Oaj40b
+	M4wJrnW8uqxGg1CQSNww1LP/h1YDwCtrJmQhoEE7BrTI527CjET/YKujUgn7uMTyx9m0hLZVa6Pt+
+	YYZgXqQX0LoQXhvp7xXjdyWrEpiNoJ/DTBCMHE+lfkMsEMbim9uapJ4PphZI5suOGPm3bCjjEA3Rx
+	Qe7fCeJSgnD32iweBCUYgf8z4rhHkyTyEROShi+UXKRL3F2mUU+aX6wPrqA8xWIEwXRetJ8zQ4lzL
+	mc7qYS0lXe3lPooEKfdwYrycqmCxHsPPwCLj+e4sUOX2zbD9fGpuhHrjYbiMQU4Y5ce8AvE5OEfhe
+	WIjVf+QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiuMq-0000000ANhj-16sf;
-	Mon, 04 Aug 2025 12:32:40 +0000
+	id 1uiuPN-0000000ANzj-0Z9U;
+	Mon, 04 Aug 2025 12:35:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiu8Q-0000000ALnw-0dj3
+	id 1uiu8U-0000000ALoW-0WWc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 12:17:47 +0000
+	Mon, 04 Aug 2025 12:17:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0AFC150C;
-	Mon,  4 Aug 2025 05:17:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B31781C25;
+	Mon,  4 Aug 2025 05:17:41 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2E63A3F738;
-	Mon,  4 Aug 2025 05:17:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1DF073F738;
+	Mon,  4 Aug 2025 05:17:45 -0700 (PDT)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -61,17 +61,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-pm@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 04/11] arm64: cpufeature: add FEAT_SCTLR2 feature
-Date: Mon,  4 Aug 2025 13:17:17 +0100
-Message-Id: <20250804121724.3681531-5-yeoreum.yun@arm.com>
+Subject: [PATCH 05/11] arm64: save/restore SCTLR2_EL1 when cpu_suspend()/resume()
+Date: Mon,  4 Aug 2025 13:17:18 +0100
+Message-Id: <20250804121724.3681531-6-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250804121724.3681531-1-yeoreum.yun@arm.com>
 References: <20250804121724.3681531-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_051746_226158_510888BE 
-X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-CacheID: sfid-20250804_051750_204187_070AF8FA 
+X-CRM114-Status: UNSURE (   8.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,56 +87,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since Armv8.8 architecture FEAT_SCTLR2 is supported to provide
-extensions of top-level control system
-(i.e) FEAT_PAuth_LR, FEAT_CPA/CPA2, FEAT_MEC and etc.
-
-To use related system extensions in the future, add SCTLR2 feature.
+save/restore SCTLR2_EL1 when cpu_suspend()/resume().
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- arch/arm64/kernel/cpufeature.c | 8 ++++++++
- arch/arm64/tools/cpucaps       | 1 +
- 2 files changed, 9 insertions(+)
+ arch/arm64/include/asm/suspend.h |  2 +-
+ arch/arm64/mm/proc.S             | 26 ++++++++++++++++++--------
+ 2 files changed, 19 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index e151585c6cca..4aa83221a4a6 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -500,6 +500,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr3[] = {
- 	ARM64_FTR_BITS(FTR_VISIBLE_IF_IS_ENABLED(CONFIG_ARM64_POE),
- 		       FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64MMFR3_EL1_S1POE_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64MMFR3_EL1_S1PIE_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64MMFR3_EL1_SCTLRX_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64MMFR3_EL1_TCRX_SHIFT, 4, 0),
- 	ARM64_FTR_END,
- };
-@@ -3061,6 +3062,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_pmuv3,
- 	},
- #endif
-+	{
-+		.desc = "Secondary System Control Register (SCTLR2)",
-+		.capability = ARM64_HAS_SCTLR2,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_cpuid_feature,
-+		ARM64_CPUID_FIELDS(ID_AA64MMFR3_EL1, SCTLRX, IMP)
-+	},
- 	{},
- };
+diff --git a/arch/arm64/include/asm/suspend.h b/arch/arm64/include/asm/suspend.h
+index 0cde2f473971..eb60c9735553 100644
+--- a/arch/arm64/include/asm/suspend.h
++++ b/arch/arm64/include/asm/suspend.h
+@@ -2,7 +2,7 @@
+ #ifndef __ASM_SUSPEND_H
+ #define __ASM_SUSPEND_H
 
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 10effd4cff6b..a0184295c5d9 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -52,6 +52,7 @@ HAS_S1POE
- HAS_RAS_EXTN
- HAS_RNG
- HAS_SB
-+HAS_SCTLR2
- HAS_STAGE2_FWB
- HAS_TCR2
- HAS_TIDCP1
+-#define NR_CTX_REGS 13
++#define NR_CTX_REGS 14
+ #define NR_CALLEE_SAVED_REGS 12
+
+ /*
+diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+index 54dccfd6aa11..155d930b6d99 100644
+--- a/arch/arm64/mm/proc.S
++++ b/arch/arm64/mm/proc.S
+@@ -87,8 +87,14 @@ SYM_FUNC_START(cpu_do_suspend)
+ 	mrs	x9, mdscr_el1
+ 	mrs	x10, oslsr_el1
+ 	mrs	x11, sctlr_el1
+-	get_this_cpu_offset x12
+-	mrs	x13, sp_el0
++alternative_if_not ARM64_HAS_SCTLR2
++	mov	x12, xzr
++alternative_else
++	mrs_s	x12, SYS_SCTLR2_EL1
++alternative_endif
++	get_this_cpu_offset x13
++	mrs	x14, sp_el0
++
+ 	stp	x2, x3, [x0]
+ 	stp	x4, x5, [x0, #16]
+ 	stp	x6, x7, [x0, #32]
+@@ -99,7 +105,7 @@ SYM_FUNC_START(cpu_do_suspend)
+ 	 * Save x18 as it may be used as a platform register, e.g. by shadow
+ 	 * call stack.
+ 	 */
+-	str	x18, [x0, #96]
++	stp	x14, x18, [x0, #96]
+ 	ret
+ SYM_FUNC_END(cpu_do_suspend)
+
+@@ -120,8 +126,8 @@ SYM_FUNC_START(cpu_do_resume)
+ 	 * the buffer to minimize the risk of exposure when used for shadow
+ 	 * call stack.
+ 	 */
+-	ldr	x18, [x0, #96]
+-	str	xzr, [x0, #96]
++	ldp	x15, x18, [x0, #96]
++	str	xzr, [x0, #104]
+ 	msr	tpidr_el0, x2
+ 	msr	tpidrro_el0, x3
+ 	msr	contextidr_el1, x4
+@@ -136,8 +142,12 @@ SYM_FUNC_START(cpu_do_resume)
+ 	msr	mdscr_el1, x10
+
+ 	msr	sctlr_el1, x12
+-	set_this_cpu_offset x13
+-	msr	sp_el0, x14
++alternative_if ARM64_HAS_SCTLR2
++	msr_s	SYS_SCTLR2_EL1, x13
++alternative_else_nop_endif
++
++	set_this_cpu_offset x14
++	msr	sp_el0, x15
+ 	/*
+ 	 * Restore oslsr_el1 by writing oslar_el1
+ 	 */
+@@ -151,7 +161,7 @@ alternative_if ARM64_HAS_RAS_EXTN
+ 	msr_s	SYS_DISR_EL1, xzr
+ alternative_else_nop_endif
+
+-	ptrauth_keys_install_kernel_nosync x14, x1, x2, x3
++	ptrauth_keys_install_kernel_nosync x15, x1, x2, x3
+ 	isb
+ 	ret
+ SYM_FUNC_END(cpu_do_resume)
 --
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
