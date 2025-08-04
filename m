@@ -4,75 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D451C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 07:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858A2C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 07:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i18NPnv5eIUf6UbsI/khDMHH0nd6uxFV8xlsBSgXCP4=; b=dhF2zh4zZdu15RN2Vw4VCH3QdF
-	pyuJzthfdm6S2UL3AkmfSzrGANB+ONlIeACxQubfIFx+hNAUO8TN84wehiuJVlWIdg/86el/bf8Zy
-	dE+4E692oWYKa7eX1M7AVUXT+U9tCTnnZeJIZbIQXv20umcceDBYrmURrX2J0pLlimJv3IO+fpOOf
-	xvUn7G1ci9sM+swmGVNu/+wjm9vMD+ovnJ6FOA7KKXfcDDQkQtwIOm3vy54jmoW0QKzB4TYB9sz1u
-	9UoJROFWyQCUa8JfnUtkm798DLRGoDFJOktALs7xvxrblOCGSXXx56P1kQB/UsszBUzEdxvNlbpF8
-	JQjyDrAQ==;
+	bh=0gfyw4ZhC+BnBAzENBBSyVHiYtgtpxEsBTU9MjAkpwY=; b=JFfXi05QYTNZA06T1B26+pCt2Q
+	9j2wPFw4y2X/Nb0e/WeFMttQrSunDKcHokBffpZkpNTwVkLAdCFT/bxn1WJfLxzpr4onTOCUl3QO2
+	LvFmxK46JwnvIewHAIF1zbr0qqOHhtPZ6TuKxUKKWNWBuxFJiQ5OQUlnqbdazWVvA7RPQOL7slP3b
+	lPOVAdyAlSgWgu2aGflhgk7QTFzqgTIv8GirSqVhOO+mmmx0LCh6Sghmw/AeUlaZtNbHp1AMO8oOC
+	umXSI2pD2j2g5NCy++X8HSAJT2skvG+n0cyUxB+ZnAbd3ljfcRzQXONpQiTEr+jbSBhrgtGggWwZa
+	69LNImpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uipZc-00000009onM-1gIx;
-	Mon, 04 Aug 2025 07:25:32 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1uipdg-00000009p2A-1PH2;
+	Mon, 04 Aug 2025 07:29:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uipX3-00000009oZo-1a5d
+	id 1uipb7-00000009otv-0lZb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 07:22:54 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 31AA1438DF;
-	Mon,  4 Aug 2025 07:22:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754292169;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=i18NPnv5eIUf6UbsI/khDMHH0nd6uxFV8xlsBSgXCP4=;
-	b=pVPoUrdp9u9L5F0YNFRXy/hoYu5wW9UM+VQzEkzatsRDj/oy2153NEgYFKAZn5+SYkbz0w
-	57YrnYt01cllo/jlXfqOk1DgSyGgQq3NAWPfgR9PLKBJs5Bw9SM8xuAVpRj+c/RjnuAeLb
-	JRXqk0R0A2mwHD+stOhsLZNXHX1J+5/Jn80ttBZaDKcJV3HOKfVGD87dLh/wIvmiQLkS8W
-	jX+YslVsKZ2epzqSQQPWl8ZeBqUWAOh2XJeaWC1xN0UEOngtp7O/7mkAsd18bTeUsuiWCV
-	MxsxbSd62ml9mtLAP/hXA5GaVxWbuUXp3lYxbLKGLCdI4rAaUKxMCIPvAOFqcg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Rob Herring <robh@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>,  Gregory Clement
- <gregory.clement@bootlin.com>,  Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  "Rafael J.
- Wysocki" <rafael@kernel.org>,  Daniel Lezcano <daniel.lezcano@linaro.org>,
-  Zhang Rui <rui.zhang@intel.com>,  Lukasz Luba <lukasz.luba@arm.com>,
-  linux-arm-kernel@lists.infradead.org,  devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-pm@vger.kernel.org,  Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH] dt-binding: thermal: Convert
- marvell,armada-ap806-thermal to DT schema
-In-Reply-To: <CAL_Jsq+fV-W+PqZpvns5oFNyGXxKYYrHe1ipG7gj6dN-c2JJ6g@mail.gmail.com>
-	(Rob Herring's message of "Fri, 1 Aug 2025 15:22:20 -0500")
-References: <20250702230030.2892116-1-robh@kernel.org>
-	<87qzxv5d7z.fsf@bootlin.com>
-	<CAL_Jsq+fV-W+PqZpvns5oFNyGXxKYYrHe1ipG7gj6dN-c2JJ6g@mail.gmail.com>
-User-Agent: mu4e 1.12.7; emacs 30.1
-Date: Mon, 04 Aug 2025 09:22:47 +0200
-Message-ID: <877bzjo8jc.fsf@bootlin.com>
+	Mon, 04 Aug 2025 07:27:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B6B8C4497E;
+	Mon,  4 Aug 2025 07:27:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B49DFC4CEE7;
+	Mon,  4 Aug 2025 07:26:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754292424;
+	bh=fbeMNsknj1jfMdMlUI3wgsG87na3shk5ZcyK+AxPEUQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OjPij6bWmzP0LitMnDkrFzaaGn/cbOohwvU/4ZlF0cQ+i3b/jKxiDDRR4NHr/muzx
+	 a/7CnvlsggRtq1eBFysjnqUpBK6V+rCeyvFsT4xCC7bRwo0E4HvIcKWSbUFAxE/LQV
+	 5O4yt7bk7CyEpDSi3hvwoF0zyTT1312B3C/JFWuukVB4rbvQH2BlPdXSuIa/4ctFDB
+	 Eq+p4YDB9x+E6vYpQMj+eFXDpgvfHdWORFQBnras3qxGRYrYWAuDBuqzmpWIMPaTpH
+	 Kq/FjynfBBGvv2g5uGlaGH3IaCu9j0v+nlTl8cNP/YU70fNIDt/YuTUKhxS10NorlU
+	 DQm9AzjxdTSVg==
+Message-ID: <b5775270-5306-4eb7-9fe5-44b087b20c40@kernel.org>
+Date: Mon, 4 Aug 2025 09:26:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudduieekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduhedprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdprhgtphhtthhopehsvggsrghsthhirghnrdhhvghsshgvlhgsrghrthhhsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpt
- hhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrgh
-X-GND-Sasl: miquel.raynal@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 10/12] nvmem: s32g2_siul2: add NVMEM driver for SoC
+ information
+To: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>,
+ Arnd Bergmann <arnd@arndb.de>, Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ krzk+dt@kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>,
+ Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, aisheng.dong@nxp.com,
+ Jacky Bai <ping.bai@nxp.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>
+Cc: "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, NXP S32 Linux Team <s32@nxp.com>,
+ Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>,
+ Enric Balletbo <eballetb@redhat.com>, echanude@redhat.com,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev,
+ Vincent Guittot <vincent.guittot@linaro.org>
+References: <20250710142038.1986052-1-andrei.stefanescu@oss.nxp.com>
+ <20250710142038.1986052-11-andrei.stefanescu@oss.nxp.com>
+ <9d004ea4-0bb2-4a21-8501-82ecf3482c3e@app.fastmail.com>
+ <fa24772b-0038-4f51-87c6-15b810d8d454@oss.nxp.com>
+ <53bc13b9-365e-4212-84f9-85e67c23e067@oss.nxp.com>
+ <ed072356-6881-4466-a0c2-0f55b72f92c8@kernel.org>
+ <7902bac4-9f52-443c-995f-a15189102478@kernel.org>
+ <0973e6d1-2823-4bfb-be73-b532c6f86784@oss.nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <0973e6d1-2823-4bfb-be73-b532c6f86784@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_002253_556735_30FCFD82 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20250804_002705_264696_1D117AF7 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,96 +140,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/08/2025 at 15:22:20 -05, Rob Herring <robh@kernel.org> wrote:
+On 04/08/2025 09:12, Andrei Stefanescu wrote:
+> Hi Krzysztof,
+> 
+> Thank you for the quick response!
+> On 02/08/2025 11:32, Krzysztof Kozlowski wrote:
+>> On 02/08/2025 10:28, Krzysztof Kozlowski wrote:
+>>> On 01/08/2025 16:36, Andrei Stefanescu wrote:
+>>>> Apart from the proposed NVMEM driver, there is also an option of exporting
+>>>> a syscon regmap for the registers which provide information about the SoC.
+>>>>
+>>>> I have seen that typically NVMEM drivers export information read from fuses
+>>>> but I think having a NVMEM driver is nicer way to access the information
+>>>> instead of using a syscon regmap and manually extracting the needed bits. 
+>>>
+>>>
+>>> nvmem is not a syscon. Mixing these two means device is something
+>>> completely else.
+> 
+> Yes, I don't want to mix them. The driver will either be a NVMEM driver or
+> a syscon. These registers are read-only. I suggested NVMEM because it's a
 
-> On Fri, Aug 1, 2025 at 9:27=E2=80=AFAM Miquel Raynal <miquel.raynal@bootl=
-in.com> wrote:
->>
->> Hi Rob,
->>
->> Sorry for the delay, I don't know why I forgot these.
->>
->> ...
->>
->> > +properties:
->> > +  compatible:
->> > +    enum:
->> > +      - marvell,armada-ap806-thermal
->> > +      - marvell,armada-ap807-thermal
->> > +      - marvell,armada-cp110-thermal
->> > +
->> > +  reg:
->> > +    maxItems: 1
->> > +
->> > +  interrupts:
->> > +    description: overheat interrupt
->> > +    maxItems: 1
->> > +
->> > +  '#thermal-sensor-cells':
->> > +    description: Cell represents the channel ID. There is one sensor =
-per
->> > +      channel. O refers to the thermal IP internal channel.
->> > +    const: 1
->> > +
->> > +required:
->> > +  - compatible
->> > +  - reg
->> > +
->> > +additionalProperties: false
->>
->> IIRC on these Marvell designs, there was one (or more, I don't remember)
->> Application Processor (AP) and several Co-Processors (CP).
->>
->> [On the AP]
->> The AP8XX overheat interrupt was not directly wired to the GIC but was
->> going through another intermediate IRQ controller named SEI (System
->> Error Interrupt).
->>
->>       Thermal overheat IRQ -> SEI -> GIC
->>
->> [On the CP]
->> There was one interrupt controller per CP11X named ICU, which would be
->> connected to the top level GIC through MSIs. The ICU was however split
->> into several sub-controllers reaching different areas on the GIC.
->>
->>                                       MSI
->>       Thermal overheat IRQ -> ICU SEI -> GIC
->>
->> As the OS could not guess the internal connexions, I believe we had to
->> include in the bindings the parent IRQ chip we were connected to. In the
->> case of the thermal over heat interrupts, they were all going through an
->> SEI controller (System Error Interrupt) which, if I still remember
->> correctly, was not the default parent, hence the use of
->> interrupts-parent/interrupts-extended in the examples.
->>
->> This is all a bit cloudy in my mind, but I believe these properties
->> matter and with 'additionalProperties: false' and without
->> interrupts-parent/interrupts-extended allowed, a real world DT
->> snippet would not pass the binding checks.
->
-> 'interrupt-parent' is implicitly allowed anywhere. Who is the parent
-> is outside the scope of the binding given it can vary.
+We do not talk about drivers here, but hardware.
 
-Ok, good to know.
+> an abstraction layer which makes it easier for drivers which want to use
+> that information without knowing where to actually read it i.e. reg address,
+> bit mask.
 
->> > +examples:
->> > +  - |
->> > +    thermal-sensor@80 {
->> > +        compatible =3D "marvell,armada-ap806-thermal";
->> > +        reg =3D <0x80 0x10>;
->> > +        interrupts =3D <18>;
->>
->> I do not know how accurate the example must be, but maybe the example
->> shall reflect the SEI connection as well.
->
-> No one has cared about converting the Marvell bindings, so *shrug*.
+Sorry, but no. You design it for drivers, that's not the way. Describe
+properly the hardware.
 
-I was still mentioning the same interrupt-parent property here ("the SEI
-connection"), not how accurate the values were. So if we do not care
-about interrupt-parent because it is allowed anyway,
 
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
-
-Thanks for the conversion,
-Miqu=C3=A8l
+Best regards,
+Krzysztof
 
