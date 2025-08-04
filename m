@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56EF8C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 15:02:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE88C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 15:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AkCPPvu7Nl3/G6+HTVVt4vOqlFMbVu5Guq6wUVneWBQ=; b=gYo4Rr4+N6m2JkX1/AoB33Xvda
-	ewduA0pn3cvTNBoumEXNZXq5QYv83mEMdjtDA4XL/EdrCoL+PEfQBbu3rcvzyZ0zOO4y1gSTWxngA
-	+zhsXtaLWSq5qSnAFyJQ5PdNAK1MSob9P1ERYL0V8WIOYiW6QlNihpuKDmkdsW4EEhCzLZE6I7XIB
-	Z4lk/0yE79etS2L+I8NDC5PNivWFMVie4LyC/ncJz+QhDkQILBA0Xo0suKoDBHOg4Ru3gQq2dtGd3
-	4QS2dAIQznpwdh00XfS6OqnUnZg/+/OBCCh3TPEHg8VYS3LewE7Jycio9Z6AArhOLcl/l5/hXEofo
-	8pUq5HUw==;
+	bh=cOcSpQGkjekYmzTTJ25Wu7ILJc0aUS/cr5FdWEUb4a8=; b=SVEMKSE4brhY71wUMU8dp6LBD+
+	MSLTaj/2ohfWZsJ3E/73wdY5QPH1egDnv8kPeIcvxx+ucj/CVSQAwR41CAX41L8Vlf6LCUR21p6Q8
+	iRAFuBTJHsUe8tkJcjKjx5enynMHbp2TWFWJdAc3CywW/5+cNwkOR3vBWkUyqk62tkvvAZD7USVU6
+	MAcQBrwT7DZ81fLu/ME0K5w8tX3kaxzC7ATACObGv4uIqZiFjDQYzEAmJUSM270y5I1og5ZD0Am86
+	WYslCL/MklTja9U4czGHNP625eRq+r48dYAhouxMsxP2sMBYFKK7PjfNnh3E2HWlV1LV3Pm5fb1vE
+	2qzNoGHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiwhf-0000000Ajn4-2AFx;
-	Mon, 04 Aug 2025 15:02:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uiwkB-0000000Ak0w-2K0n;
+	Mon, 04 Aug 2025 15:04:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiw21-0000000AeBy-2Iqh;
-	Mon, 04 Aug 2025 14:19:17 +0000
+	id 1uiw4H-0000000AeTj-36Cd;
+	Mon, 04 Aug 2025 14:21:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0055E601EF;
-	Mon,  4 Aug 2025 14:19:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DA74C4CEE7;
-	Mon,  4 Aug 2025 14:19:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9A6265C0EF4;
+	Mon,  4 Aug 2025 14:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C83E2C4CEE7;
+	Mon,  4 Aug 2025 14:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754317156;
-	bh=SjJSeEYpC8XNqF4m5DqAU8lWdtGSO9pN6bQ0yYPAzdk=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=deNP3DnvHkJ2HSq68I0MNQfdiri4MkDm0lE+b0b8Haf2PfDnyij9j9+1u7N/dfglh
-	 W9yspUm5bXEPmtZn4P5v7oZfotQYBFZJEOTWN7LmaxUFiYiVlmjPvlGrBtGbR7i3WZ
-	 h5l/D4BSA5CkbXtc9WCfSk65924x71zlAxEmZFwp+EefKY0LctMis4XlgU3mOHVQ/9
-	 rvFzE3en6MYB9P1VytSn6hdgnyeVKcvjfoHHKTd55Dz9uCtpJtREqRpAvS0JKErgUm
-	 s/ODUfZdbeIeoPmq5LcB7DN25ZWTm4RphbTrZBeBGzTrIgkQ3gkz8VpdzqfpKyhWt4
-	 jXaTfTuM8ogPg==
-Message-ID: <ed0884fc-e43a-4f5b-8701-3645c406b37d@kernel.org>
-Date: Mon, 4 Aug 2025 16:19:10 +0200
+	s=k20201202; t=1754317296;
+	bh=THg8fAXPOZpcU1UGe5NLfNZG1W+ChsloJhTKXS2XCtU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=h3vhkvxabpJMXDlINEWLQk8ydeeUQRoRcThhCsg5uAbdxXPQbvYpZg5nRyu1GhkbH
+	 xsuhqcazwRf8jzExikPL24G7pd8R3A+M16x7zSGSccfClPUb5CdUSFZACV99cW4OwM
+	 Pg0lkkh+6B8JaE9n6NILQrWXifQkMzoENHQHlejpSMrXhbz90yDtmOEEXyBY6q4aqU
+	 3HkTXAxdODW73D2tUacw6/rNrYztKUSgXZ+pHPX3YG9QB14JFGOW3uDH8je1sOt8ra
+	 n+fuUtxXnIPUB4ArQkE5EloA0CL5QMZcPpzH8JZsUgIscFGshDWRWy79GeWTiCss0m
+	 3/nUg3sie37xA==
+Message-ID: <c16070db-c086-45b8-bc0d-9e3bc02924b6@kernel.org>
+Date: Mon, 4 Aug 2025 16:21:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 09/27] dt-bindings: clock: mediatek: Describe MT8196
  clock controllers
-From: Krzysztof Kozlowski <krzk@kernel.org>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Laura Nao <laura.nao@collabora.com>, wenst@chromium.org
 Cc: conor+dt@kernel.org, devicetree@vger.kernel.org,
@@ -64,6 +63,8 @@ References: <fbe7b083-bc3f-4156-8056-e45c9adcb607@kernel.org>
  <e9ee33b0-d6b0-4641-aeeb-9803b4d1658a@kernel.org>
  <00a12553-b248-4193-8017-22fea07ee196@collabora.com>
  <2555e9fe-3bc0-4f89-9d0b-2f7f946632e7@kernel.org>
+ <62edb8e3-aff6-4225-b520-f4b73aef145d@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -108,9 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <2555e9fe-3bc0-4f89-9d0b-2f7f946632e7@kernel.org>
+In-Reply-To: <62edb8e3-aff6-4225-b520-f4b73aef145d@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250804_072137_862991_4A61B1CB 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,45 +129,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 15:58, Krzysztof Kozlowski wrote:
+On 04/08/2025 16:15, AngeloGioacchino Del Regno wrote:
+> Il 04/08/25 15:58, Krzysztof Kozlowski ha scritto:
+>> On 04/08/2025 15:27, AngeloGioacchino Del Regno wrote:
+>>>
+>>> We discussed about aggregating votes, yes, in software - this instead is a
+>>> *broken* hardware that does the aggregation internally and does not require
+>>> nor want external drivers to do the aggregation.
+>>>
+>>>> Maybe it is just the name, so avoid all the confusing "votes" if this is
+>>>> not voting system. If this is a voting system, then don't use custom
+>>>> phandles.
+>>>
+>>> Being it fundamentally *broken*, this being a voting system is what the hardware
+>>> initially wanted to be - but effectively, since it requires YOU to:
+>>>    - Make sure that power supplies are turned on, if not, turn them on by "touching"
+>>>      HW registers (so, without any assistance from the voter MCU), if any;
+>>>    - Turn on parent clocks manually, if any, before using the "voter mcu" to try
+>>>      to ungate that clock; and
+>>>      - Enable the "FENC" manually, after the mcu says that the clock was ungated.
 >>
->> So, what should we do then?
 >>
->> Change it to "mediatek,clock-hw-refcounter", and adding a comment to the binding
->> saying that this is called "Hardware Voter (HWV)" in the datasheets?
->>
->> Or is using the "interconnect" property without any driver in the interconnect API
->> actually legit? - Because to me it doesn't look like being legit (and if it is, it
->> shouldn't be, as I'm sure that everyone would expect an interconnect API driver
->> when encountering an "interconnect" property in DT), and if so, we should just add
+>> I understand that "YOU" as Linux driver, when you want to do something
+>> (e.g. toggle) a clock?
 > 
-> Why you would not add any interconnect driver for interconnect API?
-> Look, the current phandle allows you to poke in some other MMIO space
-> for the purpose of enabling the clock FOO? So interconnect or power
-> domains or whatever allows you to have existing or new driver to receive
-> xlate() and, when requested resources associated with clock FOO.
+> "you" == Linux driver, yes.
+> 
+>> If so this looks a lot like power domain, although with some differences.
+>>
+> 
+> A power domain ungates power to something.
 
-Something got here cut. Last sentence is supposed to be:
-
-"So interconnect or power
-domains or whatever allows you to have existing or new driver to receive
-xlate() and, when requested, toggle the resources associated with clock
-FOO."
+Does more, it is not a simple supply.
 
 > 
-> Instead of the FOO clock driver poking resources, you do
-> clk_prepare_enable() or pm_domain or icc_enable().
+> These are clocks, giving a (x) (M)Hz signal to something.
 
-I looked now at the driver and see your clock drivers poking via regmap
-to other MMIO. That's exactly usecase of syscon and exactly the pattern
-*we are usually discouraging*. It's limited, non-scalable and vendor-driven.
+Your earlier message about "YOU" said:
 
-If this was a power domain provider then:
-1. Your clock drivers would only do runtime PM.
-2. Your MCU would be the power domain controller doing whatever is
-necessary - toggling these set/clr bits - when given clock is enabled.
-And it really looks like what you described...
+"   - Make sure that power supplies are turned on, if not, turn them on
+by "touching"
+     HW registers (so, without any assistance from the voter MCU), if any;"
 
+so not a simple clocks stuff.
 
 Best regards,
 Krzysztof
