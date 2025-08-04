@@ -4,110 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 410E2C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 11:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20468C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 11:24:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4kywHmwhqtqVz40iciKUMySmT4Bu2S53ZRukdyZDFc=; b=Xd4V0mCfYRUNmU0q9bfhzhzNAz
-	g2IfYdcSfzYFCyCIyePhDFp/MUG/4tm5GioPImP1S5JeJITEO1Dk/E1UFYgaSP5mLJ5hzdSXqPChN
-	1fxe93bzJQeyYZPvaKwceGLShE6Ds5cXhjd35JYQnJ6vFE2uOg//I2ThwHO5lI4Mnz0yWL/zQEkyO
-	1FnG1QTzlPnFSY6sFYqmDtCkHrUpEWYuu36mI+gTIOelSboqfKEAG+LYfPNtdctJqic5evElsqugr
-	bFEyMco35Wojit3yCkQ+/zeXPv9NYvHETCk/8s5sEFYpzWoIEaJsh/xG5/qYiqOgxlCWu10n/z7dk
-	EHxY4mkg==;
+	bh=AbCL33p6FgXvGTA+R2ME1gzKoUWjtIJjxxkRY3HfTrM=; b=18wrXShQRlBnQZOPoq+AaIxZJX
+	ruP6h1pdr8Q9aySpIe6grWLvkNX0OWs83GDyErbBAadH5tIFqduTPalKcbWHcQ8pjkmnPSI7aq6Ll
+	/KnaOd634c/Ei2oGUTPlc36B3lur9TNxZsvn2wRLK5isM7L03+ke0T7NS5WI1cujwbL2cc5tzP9II
+	DXsc8qQzVDWPIXNj6e5eCtDHC12zdiNWLx9M3cYNrX7yxMX4tbSxzFyh5vkiqnTgT0CAL2ou83jrR
+	LC3FqVoa8wb338148NKCQVnYnStaqje8r+W39g0mfm2dEPKhTC7GG17nfg8zp6iCzeimMlHTsAbze
+	rrYCSFPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uitG3-0000000AHTQ-0c2W;
-	Mon, 04 Aug 2025 11:21:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uitIn-0000000AHrB-0tDl;
+	Mon, 04 Aug 2025 11:24:25 +0000
+Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uisww-0000000AFFi-05eH;
-	Mon, 04 Aug 2025 11:01:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5225960008;
-	Mon,  4 Aug 2025 11:01:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C058AC4CEE7;
-	Mon,  4 Aug 2025 11:01:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754305309;
-	bh=7Vi2uJ7wlOkjGx9qtfXpPL/qV6tJLMJ0r02efBl/RdU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KFThwELH3T5ifPqtFbwqhyae5Q/2x1er0BGr0D97vm6NzpiJ/WdvYnIbiERaeBpEq
-	 9m4sl65ewl3Cpi3Dp0GrZlh6VEpjuV413JWUh39a5hPxgTsvSenPC9pQSS7jJdCzCD
-	 6KK/axvlSZzLtSBqsEvwVLoj8K/j1kW6HI0docMW3YcuwEEcQLJYpo83qPQu/sO1XI
-	 p68FfKqFr/Dlopctgu28HrZ5EHdC2SXYhnV7AiyDjWPL6W+Jlcc+gyNZ2zSpOTEvzz
-	 T5OUWeom4/ztyiSmX+SLsEynwPySjovcM1bpL4Eh5RMatBoE3g5pgshLnS8NZGdhtl
-	 LSkFYkBTgGugQ==
-Message-ID: <e9ee33b0-d6b0-4641-aeeb-9803b4d1658a@kernel.org>
-Date: Mon, 4 Aug 2025 13:01:42 +0200
+	id 1uit1D-0000000AFhR-36Pi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Aug 2025 11:06:17 +0000
+Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-af93150f7c2so528276566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 04:06:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754305574; x=1754910374; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=AbCL33p6FgXvGTA+R2ME1gzKoUWjtIJjxxkRY3HfTrM=;
+        b=yJkl1Avp4l1or2ECskK6KZYWZW7aQUL0wibrSLPREJnIAseMxRufZDXBtfSfJjX/hq
+         xrpiN+S42T5G3PQPiCSghbou8LvfECfmRVLA3/VcW9HOtaxOFtGktJ+aopybV+/YNAFy
+         9NHiM46xGeCGESKcir9ku8DYb5L8jpoSfGrW1ZNtnugb7c054c/GnfytUwGy6VAhVTpk
+         pHYWoMPVWjgpWINzSpZhzssyhyRDZCpzRH45id0VECXk0Cjcr9q9c3aBMJ2Qn/dTIZTR
+         wQ8sLJNG9RtgZjKeAjHoCYSuxsvrH5A217rxq3wSlsgqyLk9Cbnhi25qHfe6vOpHtdOr
+         BKtg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754305574; x=1754910374;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AbCL33p6FgXvGTA+R2ME1gzKoUWjtIJjxxkRY3HfTrM=;
+        b=IEQbzUks6vNtrttlTCfZVBdYE3UV3jZIS/uIJ9Dixkw6qEp+FUbxwkjBtiObWB01Sp
+         D7AzUGETT7dN5bVpcUAn0x+6IUMPnAkjKtMhJ0Wy8s0dW65gN8kNinOfyVMK0uwX9UWK
+         P/JCjjv2YTdjSt9AnzyGFuHR92rrVASgJmvvEET7fZawhR4urgpQv+RP06c+JwcX/ds4
+         O0oG5JEmEIL4nPE2FGOsYFiiHxkb0+S2DHTwbG0FTFYSz7YO3u8VLT9Oun+JVoORQkJa
+         i5cukiWUPqh0/K8/HZQS8lUNsx1rjzYbzZ4+H+hkq2A8X8VDoeSWcpPK9FfOMtW6kZ+3
+         2/+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUEqYvR5toFJF4+/YF7++GnXU7VjQZEJvIYlgozs1lKmNs5Ks/EcXersaHNK3OBjYoOenkjvp20LXgIWX831rNM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuBdaohK0KJaqkywlE6n9qB5XEZxlsYjIDVSuMYVKnZO+TRTxA
+	+CA6rsYXV0Kf/Hx7gCT6iRLLmkAI5gE9bUZBi2YpKFShNQVTmuHg+eP675JDfReb3ys=
+X-Gm-Gg: ASbGnctio23b4YNW/pW5peFvMMqMZ3JaowWVT3crMpv79u5NPmN5mQoBabahO+gfqID
+	+bMG6BwTw7lC6jOl1IP3lLBokSq8AcRakjnGE9rKqvXHS6StN+itPan8NfxpU1ywgvPALMBW1nn
+	R0ZYT8erppx35eMXKu2szlwguiFxyJpPz+8C+HIc9ByiE2r8hbfLRBH8YCr7SBujMLd3mvHuBX6
+	JhvgWQWIau4TEXpHQY3uX34wWQDnYhQvoY6L3Jgl8gJWCT9h6Mbs6i6aTQeL0xZ9DjG0OaYV57o
+	iG379IL4YfodzkFQWlMBc3Vu+B0fARgNd+ydC3Cm15aIZtDk25JS2vxi7cQU8MP+D3kU+uGpiKf
+	1pyjtXfUZlTdAFO8tp1Ku1m185cuddQ==
+X-Google-Smtp-Source: AGHT+IE4XPeXZCbPPTnUeGFh37dBHmQZ35wpgsW3hiGwLGtsXzKowOSWjqCke7T73Fj9hT1fEebjmg==
+X-Received: by 2002:a17:907:3f2a:b0:ae3:8c9b:bd61 with SMTP id a640c23a62f3a-af93ffa2d63mr907152566b.12.1754305573593;
+        Mon, 04 Aug 2025 04:06:13 -0700 (PDT)
+Received: from [192.168.0.33] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a076409sm721053666b.12.2025.08.04.04.06.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 Aug 2025 04:06:13 -0700 (PDT)
+Message-ID: <e2c031e8-43bd-41e5-9074-c8b1f89e04e6@linaro.org>
+Date: Mon, 4 Aug 2025 14:06:11 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 09/27] dt-bindings: clock: mediatek: Describe MT8196
- clock controllers
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Laura Nao <laura.nao@collabora.com>, wenst@chromium.org
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org,
- guangjie.song@mediatek.com, kernel@collabora.com, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- matthias.bgg@gmail.com, mturquette@baylibre.com, netdev@vger.kernel.org,
- nfraprado@collabora.com, p.zabel@pengutronix.de, richardcochran@gmail.com,
- robh@kernel.org, sboyd@kernel.org
-References: <fbe7b083-bc3f-4156-8056-e45c9adcb607@kernel.org>
- <20250804083540.19099-1-laura.nao@collabora.com>
- <373f44c3-8a6a-4d52-ba6b-4c9484e2eac1@kernel.org>
- <1db77784-a59a-49bd-89b5-9e81e6d3bafc@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [RFC][PATCH v2 22/29] mm/numa: Register information into Kmemdump
+To: Michal Hocko <mhocko@suse.com>, David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ corbet@lwn.net, mojha@qti.qualcomm.com, rostedt@goodmis.org,
+ jonechou@google.com, tudor.ambarus@linaro.org
+References: <20250724135512.518487-1-eugen.hristev@linaro.org>
+ <20250724135512.518487-23-eugen.hristev@linaro.org>
+ <ffc43855-2263-408d-831c-33f518249f96@redhat.com>
+ <e66f29c2-9f9f-4b04-b029-23383ed4aed4@linaro.org>
+ <751514db-9e03-4cf3-bd3e-124b201bdb94@redhat.com>
+ <aJCRgXYIjbJ01RsK@tiehlicka>
+From: Eugen Hristev <eugen.hristev@linaro.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <1db77784-a59a-49bd-89b5-9e81e6d3bafc@collabora.com>
+In-Reply-To: <aJCRgXYIjbJ01RsK@tiehlicka>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250804_040615_795267_FAB2A7DA 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,92 +109,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 11:27, AngeloGioacchino Del Regno wrote:
-> Il 04/08/25 11:16, Krzysztof Kozlowski ha scritto:
->> On 04/08/2025 10:35, Laura Nao wrote:
->>> Hi,
->>>
->>> On 8/3/25 10:17, Krzysztof Kozlowski wrote:
->>>> On 01/08/2025 15:57, Rob Herring wrote:
->>>>>> +  reg:
->>>>>> +    maxItems: 1
->>>>>> +
->>>>>> +  '#clock-cells':
->>>>>> +    const: 1
->>>>>> +
->>>>>> +  '#reset-cells':
->>>>>> +    const: 1
->>>>>> +    description:
->>>>>> +      Reset lines for PEXTP0/1 and UFS blocks.
->>>>>> +
->>>>>> +  mediatek,hardware-voter:
->>>>>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>>>>> +    description:
->>>>>> +      On the MT8196 SoC, a Hardware Voter (HWV) backed by a fixed-function
->>>>>> +      MCU manages clock and power domain control across the AP and other
->>>>>> +      remote processors. By aggregating their votes, it ensures clocks are
->>>>>> +      safely enabled/disabled and power domains are active before register
->>>>>> +      access.
->>>>>
->>>>> I thought this was going away based on v2 discussion?
->>>>
->>>> Yes, I asked to drop it and do not include it in v3. There was also
->>>> discussion clarifying review.
->>>>
->>>> I am really surprised that review meant nothing and code is still the same.
->>>>
->>>
->>> This has been re-submitted as-is, following the outcome of the discussion
->>> here: https://lore.kernel.org/all/242bf682-cf8f-4469-8a0b-9ec982095f04@collabora.com/
->>>
->>> We haven't found a viable alternative to the current approach so far, and
->>> the thread outlines why other options don’t apply. I'm happy to continue
->>> the discussion there if anyone has further suggestions or ideas on how
->>> to address this.
->>>
+
+
+On 8/4/25 13:54, Michal Hocko wrote:
+> On Wed 30-07-25 16:04:28, David Hildenbrand wrote:
+>> On 30.07.25 15:57, Eugen Hristev wrote:
+> [...]
+>>> Yes, registering after is also an option. Initially this is how I
+>>> designed the kmemdump API, I also had in mind to add a flag, but, after
+>>> discussing with Thomas Gleixner, he came up with the macro wrapper idea
+>>> here:
+>>> https://lore.kernel.org/lkml/87ikkzpcup.ffs@tglx/
+>>> Do you think we can continue that discussion , or maybe start it here ?
 >>
->> And where is any of that resolution/new facts in the commit msg? You
->> must clearly reflect long discussions like that in the commit msg.
-> 
-> On that, I agree. That's a miss.
-> 
+>> Yeah, I don't like that, but I can see how we ended up here.
 >>
->> There was no objection from Chen to use clocks or power domains as I
->> requested.
+>> I also don't quite like the idea that we must encode here what to include in
+>> a dump and what not ...
+>>
+>> For the vmcore we construct it at runtime in crash_save_vmcoreinfo_init(),
+>> where we e.g., have
+>>
+>> VMCOREINFO_STRUCT_SIZE(pglist_data);
+>>
+>> Could we similar have some place where we construct what to dump similarly,
+>> just not using the current values, but the memory ranges?
 > 
-> Sorry Krzysztof, but now I really think that you don't understand the basics of
-> MediaTek SoCs and how they're split in hardware - and I'm sorry again, but to me
-> it really looks like that you're not even trying to understand it.
-
-There is no DTS here. No diagrams or some simplified drawings to help me
-understand.
-
+> All those symbols are part of kallsyms, right? Can we just use kallsyms
+> infrastructure and a list of symbols to get what we need from there?
 > 
->> The objection was about DUPLICATING interfaces or nodes.
-> 
-> I don't see that duplication. The interface to each clock controller for each
-> of the hardware subdomains of each controller is scattered all around the (broken
-> by hardware and by concept, if you missed that in the discussion) HW Voter MMIO.
-> 
-> There are multiple clock controllers in the hardware.
-> Each of those has its own interface to the HWV.
-> 
-> And there are some that require you to write to both its HWV interface and to the
-> clock controller specific MMIO at the same time for the same operation. I explained
-> that in the big discussion that Laura linked.
+> In other words the list of symbols to be completely external to the code
+> that is defining them?
 
-That's not what property description says. I discussed that part. Your
-description says - to aggregate votes.
+Some static symbols are indeed part of kallsyms. But some symbols are
+not exported, for example patch 20/29, where printk related symbols are
+not to be exported. Another example is with static variables, like in
+patch 17/29 , not exported as symbols, but required for the dump.
+Dynamic memory regions are not have to also be considered, have a look
+for example at patch 23/29 , where dynamically allocated memory needs to
+be registered.
 
-Above you say that control is split between two different MMIO blocks.
+Do you think that I should move all kallsyms related symbols annotation
+into a separate place and keep it for the static/dynamic regions in place ?
 
-Aggregating votes is exactly what we discussed last time and you should
-not use custom phandle for it.
-
-Maybe it is just the name, so avoid all the confusing "votes" if this is
-not voting system. If this is a voting system, then don't use custom
-phandles.
-
-Best regards,
-Krzysztof
+Thanks for looking into my patch,
+Eugen
 
