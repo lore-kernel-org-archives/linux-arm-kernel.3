@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F5BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94972C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZ2GTvtdLR4dKtuUYv6XmG3B25FHcvC5Jt/WkbqgpN0=; b=U59HYMDSUsuGyqLd94CbaVtxRW
-	QChIv+xRtQNb0whUs/pnDHOk1Z4eJ/2GniEg/PrljBH72UhMafrYOcKE0ahPq9e8nQHR4uobi6VRf
-	d2bpX3xFt5f9SHKz6ATOxBwkOn5LoTvyS21pSoTDrQBMEbfTN731oiyrN4R8WmwdSSxbgjDkdaNV3
-	xVioEtgf2Nb9yzuXr0Mm/pAM36hjsxR9WEH+EEiYR4gACbSVD1MKQHfQLfGHvD231TR8b9z+29/+f
-	6bk6BLF6Oi5c7yGwtoZC54zaCuHnDupgxEwgY14uiHJ7Mu9jf/f1f7nuGDo8NggW3fF2FsjNHlpM9
-	nLop58Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PzAYNFM0YbNIgEXU86pu40f0EmUKX69iyQPHWDKTzo8=; b=wPJarnf6eOSOfZa2p2SSVwyFYj
+	5CC1PMEqsST8lKndiNS79/Ys/7vX6mX11hfiBOU7pxT73kJMnPbwBpJI5wTAhFSLmgRtIrIpGfHMi
+	PMCsB8L34eKBmffcY+2p1EUWB2D7w/+1uzwjQq+Q5EXi64vdCCfz8B/vwu+EiwoKxaTJYp3ZchCLf
+	0z6lF+L7tm1WCJKmNpe78O8jVhsgbhOBUukXiuDOepblQNBqQxutteAy/5mORrDqAHSJnMaGXzxqJ
+	kKLmL0l5eB+6uecwUL8iU5N2uwhdbrYJFG3QRRQzdf99XqB1ls76RwIC3LqTK3j6SO38b04aiAC6a
+	mvwYrzYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijq3-00000009PYk-3w0N;
-	Mon, 04 Aug 2025 01:18:08 +0000
-Received: from thorn.bewilderbeest.net ([71.19.156.171])
+	id 1uijsV-00000009Pha-3fds;
+	Mon, 04 Aug 2025 01:20:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij8Z-00000009Lh6-1C2X
+	id 1uij9C-00000009LkO-0XbA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:33:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bewilderbeest.net;
-	s=thorn; t=1754267587;
-	bh=rZ2GTvtdLR4dKtuUYv6XmG3B25FHcvC5Jt/WkbqgpN0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m+4UT2bm2WHVQ46yE1uRgn0S4VP9FzC0oNr5wheu+bDu1L8wmbe7jR+n2sjbi6pCo
-	 p6SKJ9JiagEp4DE4NOWOOTeHERCb3/dafxI/GDL8dyQP/FpuKO62aK6r8T7lhmNZ16
-	 jS9Du+WwNr6ych95GqYrsyGZ/1g9IRdoleKWod2k=
-Received: from hatter.bewilderbeest.net (unknown [IPv6:2602:61:7e5f:8500::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: zev)
-	by thorn.bewilderbeest.net (Postfix) with ESMTPSA id EA55D198;
-	Sun,  3 Aug 2025 17:33:06 -0700 (PDT)
-Date: Sun, 3 Aug 2025 17:33:05 -0700
-From: Zev Weiss <zev@bewilderbeest.net>
-To: Tan Siewert <tan@siewert.io>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/4] ARM: dts: aspeed: Convert remaining ASRock systems
- to NVMEM layout syntax
-Message-ID: <4a58b9cd-8c1f-4a93-8c84-e8f625e1b6c2@hatter.bewilderbeest.net>
-References: <20250803151822.68080-1-tan@siewert.io>
+	Mon, 04 Aug 2025 00:33:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F848601DD;
+	Mon,  4 Aug 2025 00:33:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C092AC4CEF0;
+	Mon,  4 Aug 2025 00:33:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754267629;
+	bh=LLFYyJFuqp7hu3TZqJ6tl1Ccy4wRKO/b0BqGtZFrxLI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MU9tuX7IhlKNOM7NQImjksMnPEiuhXt1ZrpxxgVfiKQMJocw+X5ltGE5QH4jR0p6J
+	 R4b8ZtxooyWBuvN13clgiLdOSCNcM7I1x1jg6v7EZUBhf0QbR2epmia1i9vEDZhFJy
+	 yJgqGsbI5r6Iu6BYJY4xaZAPZ6zxiLhwF+mS2YSJCz4ouri01TSSZOel7q/8r5i5v4
+	 iZdjw0yv+2zyEgiU42ogMlqYCGisy3Ff5osHdvxQxWQ6RJK7OPZujGPqY4mvPXr342
+	 BLijlLsB4R/uhilUaF4VnUAR67KB/ZAlK/UmBSYR79UcC+oBSsroCsVAM/5KsgZqeA
+	 TtrXl8I7+8IBg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: =?UTF-8?q?Krzysztof=20Ha=C5=82asa?= <khalasa@piap.pl>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Sasha Levin <sashal@kernel.org>,
+	shawnguo@kernel.org,
+	peng.fan@nxp.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 60/69] imx8m-blk-ctrl: set ISI panic write hurry level
+Date: Sun,  3 Aug 2025 20:31:10 -0400
+Message-Id: <20250804003119.3620476-60-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250804003119.3620476-1-sashal@kernel.org>
+References: <20250804003119.3620476-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20250803151822.68080-1-tan@siewert.io>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_173311_467919_7B752F66 
-X-CRM114-Status: GOOD (  12.22  )
+Content-Type: text/plain; charset=UTF-8
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.12.41
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +78,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 03, 2025 at 08:18:16AM PDT, Tan Siewert wrote:
->Hi,
->
->While investigating an issue with an ASRock Rack platform, I noticed
->that most of the ASPEED device trees using NVMEM cells to populate
->MAC addresses still rely on a deprecated NVMEM binding syntax.
->As a result, the MAC addresses are not populated from the
->device tree/NVMEM cells properly, and an address from "the chip" is
->being used instead.
->
->Commit 76c5533925434 ("ARM: dts: aspeed: convert ASRock SPC621D8HM3
->NVMEM content to layout syntax") was the only system that had previously
->been converted to the new layout syntax.
->
->This patch series converts all remaining ASRock Rack systems in the ASPEED
->device trees to use the new NVMEM layout syntax.
->
->Tan Siewert (4):
->  ARM: dts: aspeed: e3c246d4i: convert NVMEM content to layout syntax
->  ARM: dts: aspeed: e3c256d4i: convert NVMEM content to layout syntax
->  ARM: dts: aspeed: romed8hm3: convert NVMEM content to layout syntax
->  ARM: dts: aspeed: x570d4u: convert NVMEM content to layout syntax
->
-> .../dts/aspeed/aspeed-bmc-asrock-e3c246d4i.dts | 12 ++++++++----
-> .../dts/aspeed/aspeed-bmc-asrock-e3c256d4i.dts | 12 ++++++++----
-> .../dts/aspeed/aspeed-bmc-asrock-romed8hm3.dts | 12 ++++++++----
-> .../dts/aspeed/aspeed-bmc-asrock-x570d4u.dts   | 18 +++++++++++-------
-> 4 files changed, 35 insertions(+), 19 deletions(-)
->
->-- 
->2.43.0
->
->
+From: Krzysztof Hałasa <khalasa@piap.pl>
 
-For the series,
+[ Upstream commit c01fba0b4869cada5403fffff416cd1675dba078 ]
 
-Reviewed-by: Zev Weiss <zev@bewilderbeest.net>
+Apparently, ISI needs cache settings similar to LCDIF.
+Otherwise we get artefacts in the image.
+Tested on i.MX8MP.
 
-Thanks Tan!
+Signed-off-by: Krzysztof Hałasa <khalasa@piap.pl>
+Link: https://lore.kernel.org/r/m3ldr69lsw.fsf@t19.piap.pl
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+Based on my analysis of the commit and the surrounding code:
+
+**Backport Status: YES**
+
+This commit should be backported to stable kernel trees for the
+following reasons:
+
+1. **Fixes a real user-visible bug**: The commit fixes image artifacts
+   in the ISI (Image Sensor Interface) on i.MX8MP. This is a functional
+   bug that affects users of camera/image capture functionality.
+
+2. **Small and contained change**: The fix adds only 10 lines of code
+   that set ISI panic write hurry levels in the
+   `imx8mp_media_power_notifier` function. It's a minimal change
+   confined to the i.MX8MP media block controller.
+
+3. **Follows established pattern**: The fix mirrors the existing LCDIF
+   panic read hurry level fix (commit 06a9a229b159) that was already
+   applied for display FIFO underflow issues. The ISI needs similar
+   cache settings to prevent artifacts.
+
+4. **Hardware-specific fix**: The change only affects i.MX8MP hardware
+   and is guarded by the platform-specific power notifier function,
+   minimizing risk to other platforms.
+
+5. **Clear problem and solution**: The commit message clearly states the
+   problem (image artifacts) and the solution (setting ISI panic write
+   hurry levels similar to LCDIF), making it a straightforward hardware
+   configuration fix.
+
+6. **No architectural changes**: This is purely a hardware register
+   configuration change during power-on sequences, not introducing new
+   features or changing kernel architecture.
+
+The fix addresses a hardware-specific issue where the ISI (Image Sensor
+Interface) needs proper cache/priority settings to avoid image
+artifacts, similar to how the LCDIF (display interface) needs such
+settings to avoid display FIFO underflow. This is an important fix for
+anyone using camera functionality on i.MX8MP platforms.
+
+ drivers/pmdomain/imx/imx8m-blk-ctrl.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+index ca942d7929c2..8b7b175f5896 100644
+--- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+@@ -665,6 +665,11 @@ static const struct imx8m_blk_ctrl_data imx8mn_disp_blk_ctl_dev_data = {
+ #define  LCDIF_1_RD_HURRY	GENMASK(15, 13)
+ #define  LCDIF_0_RD_HURRY	GENMASK(12, 10)
+ 
++#define ISI_CACHE_CTRL		0x50
++#define  ISI_V_WR_HURRY		GENMASK(28, 26)
++#define  ISI_U_WR_HURRY		GENMASK(25, 23)
++#define  ISI_Y_WR_HURRY		GENMASK(22, 20)
++
+ static int imx8mp_media_power_notifier(struct notifier_block *nb,
+ 				unsigned long action, void *data)
+ {
+@@ -694,6 +699,11 @@ static int imx8mp_media_power_notifier(struct notifier_block *nb,
+ 		regmap_set_bits(bc->regmap, LCDIF_ARCACHE_CTRL,
+ 				FIELD_PREP(LCDIF_1_RD_HURRY, 7) |
+ 				FIELD_PREP(LCDIF_0_RD_HURRY, 7));
++		/* Same here for ISI */
++		regmap_set_bits(bc->regmap, ISI_CACHE_CTRL,
++				FIELD_PREP(ISI_V_WR_HURRY, 7) |
++				FIELD_PREP(ISI_U_WR_HURRY, 7) |
++				FIELD_PREP(ISI_Y_WR_HURRY, 7));
+ 	}
+ 
+ 	return NOTIFY_OK;
+-- 
+2.39.5
 
 
