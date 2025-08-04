@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B5DC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38649C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 13:07:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O2DygzAfPJi0lvSpnOuQWtkcvrpMgT2vd4yQUds60yE=; b=JJJmJAyK1DzeDH21WjyaXNMnll
-	cQfRhQgDFbVQqDaNYGleXBUTAh++37YIEBAnT3xBSN5UZxpiEzMjsNFf7uE4xU1XMmyaVJa58+b1L
-	k/je6FCWeravZsGhn0ltUt3bPwJwZ54mVC/KIP+XQBiUKL+U1bgbI3u3SiKHqhvgWrfHgZaNJJ7ne
-	QTV5wjg2x5OnckBOmFa4OcO8mmO9IKrNgkeXi+2JdAT443CR+ZKk9FXBf48nmOjHrkJOuKdraA5Zk
-	v9078KQqgxGTO4o0cGlOq7GlDW/qprksgnVW9IDrAsEXqDYtNgDJWZ7eLkLEgRud47ATs/gFcxsng
-	UtuamtFw==;
+	bh=YKCj6FOnfKnqynF1p18ufhjCbVSDwmBzNnZjJrqA/Zs=; b=pqHrkJGmXOF72s1o8+msVZj5OP
+	aPc4AHueLVLe42M9LTceA27UdFgesLP5U+l0UA2jb0HZ/c/GdPCEKprM4+ng9B2pSd7AIu66gEvvt
+	wPPK49ZD0K/Bgf31SizfS+qqWJNXJ9ll4YUTRGyP3y7XICLNpPCBsVtqSStC7Dy7iz3nj9e4X/jN+
+	rcwtK7cAYNsiMT7R31FhCVzh3hOCHzwlv7rcCruWVPUps6DZwL3hRiwIFis5A89DzQLWilSV7/oQL
+	EI/8UyaV0y6LJtR0Vb+MrwDhiLcC7YkJaUDkoEYsHBAMbS+nIAfy1880EhlflA/t+q1XqZHl5C9mg
+	X8+Hqzdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiurO-0000000ATRF-1xKI;
-	Mon, 04 Aug 2025 13:04:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uiutx-0000000AU0g-1SIp;
+	Mon, 04 Aug 2025 13:06:53 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiuRU-0000000AOBC-3Bmp
+	id 1uiuT2-0000000AOJf-1PC7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 12:37:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1FE745B71;
-	Mon,  4 Aug 2025 12:37:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94521C4CEE7;
-	Mon,  4 Aug 2025 12:37:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754311047;
-	bh=8364lKVjSLoE/C4yuz2dcYUZ0SL1p8n0c26MfIf5a78=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PCftZlo7iQ3hCmDco0y44Mw8TLIDghTi1MRqE3nS9mdUNuzwmQQ5Zg2hh96m/VUA1
-	 u9WkrQGn8SVWhZwMuBnV6T1qgpU7W2LXbMgiqY+/406oLEwdSB5iOlJMfY+ZtKZnd+
-	 KbZ9jMqZiLZMW/78ARACB/lYGX4T5wN+kpjW/W/J1lZMJtm9pgh0vzTmw+n01R7QD1
-	 xT8THOp7AxnRcBJASHIRePnWFTFqT7N6jns4vOnMZS4FZrsQB7kapbFncF6wBetHXe
-	 h2lxPkJ5N2O16hgbWL+Kh8cdpwwVIPoy+NDyuIKddrkZbkjCPui6317a1xaKVJajbs
-	 gGkUGDB7BYvVQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uiuRQ-003nlf-Th;
-	Mon, 04 Aug 2025 13:37:24 +0100
-Date: Mon, 04 Aug 2025 13:37:23 +0100
-Message-ID: <86qzxr6z5o.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	anshuman.khandual@arm.com,
-	robh@kernel.org,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	ry111@xry111.site,
-	Dave.Martin@arm.com,
-	ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com,
-	mbenes@suse.cz,
-	james.clark@linaro.org,
-	frederic@kernel.org,
-	rafael@kernel.org,
-	pavel@kernel.org,
-	ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 00/11] support SCTLR2_ELx
-In-Reply-To: <20250804121724.3681531-1-yeoreum.yun@arm.com>
-References: <20250804121724.3681531-1-yeoreum.yun@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 04 Aug 2025 12:39:05 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-32128c1bf32so1592626a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 05:39:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=csie.ntu.edu.tw; s=google; t=1754311143; x=1754915943; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=YKCj6FOnfKnqynF1p18ufhjCbVSDwmBzNnZjJrqA/Zs=;
+        b=KjKxqDVFtNeTSy7WOHo5/f3DM5OX62xdy+eEZSEju0CtXozYdTvh70LI0vXycVgofs
+         +afVRMW3ugOGaXUd543xD/aA4rS84WgQMGhOvHyyUXa0+RPFWLsJtyh1E2zDAqkX9tBu
+         yoZvBOXVXpdhNO2TAB78Fu6zj9hD22OFcsQwwCPkI+jCqgLo4PGmoXzc5BOWp304wZ45
+         eeA2lnXReF2H68uUphZAb4ouL6w3X5JUe3+66IhUETrYyFuaQXks2D5z2EnnEC/NGqFZ
+         rZl5ePPVo4J51ie8IJFqn0SbDkAadlW6OsUUk+8GP1dA+wSWj4xx0nBzxed91dOSrAOJ
+         HKPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754311143; x=1754915943;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YKCj6FOnfKnqynF1p18ufhjCbVSDwmBzNnZjJrqA/Zs=;
+        b=mYfcLLNEsTc3eqXWebVnvDK5UlBknkF+ovyUHWpXQGUit0V23pMem2E9VWyn9j4b9f
+         t61epehsubbNfcrclnotl24AQcvIOKj4Pj1ArSW3BVIb1QLX019Sf+3ygeif1sGcgtJ9
+         QKVpy87uUemVC20SOc5Uw0jLf+j7YHYgyMGuFGYhij8CJCw74iyN8fYK4ztnnPzb97w4
+         +BydULQTyPErV6vAG4N2tO6kYrmNwKQzMcszuFC+zzXf32lXZZp3mGTCY1i9Elv/b7bi
+         CrGWQhwMwKTRalQQ1KA5NGOACrW7IWoSQ7QHUyY0rTni8fEINdToiM7koLZd3c9JRHP8
+         99fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXQPgdjJ0/d4QoO0hkQTJENg8Uh/7sUsbX1y90vwI4v627FMTkCtyFOyupd2rMedDPpQtQzQN8pzBlb/xGw0c13@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4IVQ9jtEYSOV4SbDpynA7Q/UHZmS1YqZEwcRRmhf7Ltw8UrQD
+	Pijw6eT7xpb2boepj5Di2TpAhxBIv0io2Fn03sqXs1j5mRG0Ld5RoQSpsHehOsKIQgyebOl1LG+
+	WYqhscVBe4RB+zXOtQTLox5AzunwBelnU6I4ee2LbA38OphjPACpueycRavBRbY9SgjyFYg==
+X-Gm-Gg: ASbGncua0sAr6u9+mmN6/DVNXWxNinZyqI71etPyxCShZz3ua5UQQ/agAs+2wPdMq1p
+	eU3zBmy9+GPuw5poZ6t2RygFOHwB9kLryvr8MZdjBRihdzVAmDne0iGhNi8qZkvPFbXCGr3ZMZa
+	YnEcUZAQ0avSdnu8007JS3lgWXcrqy2tZS6Q/kVNFor8m96g/V0YQTsbLlnj21PvVap+2/BMcHb
+	+WMgkCRwA49U2EKMkt3dyZklyEol0iLD42HifWyhTElaGqa+0KDy1O4fDhnFDnVc1WZ/D74gd3i
+	TXMkSWAWAmmOFzznwSWuSkQEwZ4fqfaVnDZlnlVDueW0vy9dJdCHlY1duD48MLLi3lBy/eOJpIL
+	+XLR4wMEMTFWE8Cfs0vbbZrhCzGgu0QndsB0fZ98UzuD1kKqLh8xtM4W5zgXHcDzhD2ogtxE=
+X-Google-Smtp-Source: AGHT+IFzfwXuQNe+jvCRtHRgBNrc6qR/ahRDyVponjDa59epA2QL+D64gAB3pXkW9DcRv6GRw24e4g==
+X-Received: by 2002:a17:90b:1d8a:b0:313:1e60:584e with SMTP id 98e67ed59e1d1-321161ec88fmr13406605a91.9.1754311143029;
+        Mon, 04 Aug 2025 05:39:03 -0700 (PDT)
+Received: from zenbook (1-162-100-196.dynamic-ip.hinet.net. [1.162.100.196])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f63ee49e0sm14418422a91.24.2025.08.04.05.39.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Aug 2025 05:39:02 -0700 (PDT)
+Date: Mon, 4 Aug 2025 20:41:35 +0800
+From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+To: Anshuman Khandual <anshuman.khandual@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Sebastian Ene <sebastianene@google.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] KVM: arm64: ptdump: Fix exec attribute printing
+Message-ID: <z2hmwwmtgbrio2wv3sj2pc4zhxdjioorlhnm45o2arcsjahjni@xod435q26jqq>
+References: <20250802104021.3076621-1-r09922117@csie.ntu.edu.tw>
+ <d72b7928-8646-4616-a8f0-96b9d9bbaf09@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d72b7928-8646-4616-a8f0-96b9d9bbaf09@arm.com>
+X-Gm-Spam: 0
+X-Gm-Phishy: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_053728_837817_3AA1E0C5 
-X-CRM114-Status: GOOD (  17.44  )
+X-CRM114-CacheID: sfid-20250804_053904_377393_B7E7E82A 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +104,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 04 Aug 2025 13:17:13 +0100,
-Yeoreum Yun <yeoreum.yun@arm.com> wrote:
->=20
-> This series introduces initial support for the SCTLR2_ELx registers in Li=
-nux.
-> The feature is optional starting from ARMv8.8/ARMv9.3,
-> and becomes mandatory from ARMv8.9/ARMv9.4.
->=20
-> Currently, Linux has no strict need to modify SCTLR2_ELx=E2=80=94
-> at least assuming that firmware initializes
-> these registers to reasonable defaults.
->=20
-> However, several upcoming architectural features will require configuring
-> control bits in these registers.
-> Notable examples include FEAT_PAuth_LR and FEAT_CPA2.
->=20
-> This series is based on v6.16 and probably KVM-safe but
-> Not tested yet:
->   - nVHE boot.
+Hi Anshuman,
 
-"Probably" and "Not tested yet" are not exactly what we are looking
-for when looking at a series that adds support for a new architectural
-feature.
+On Sun, Aug 03, 2025 at 07:33:04PM +0530, Anshuman Khandual wrote:
+> 
+> 
+> On 02/08/25 4:10 PM, Wei-Lin Chang wrote:
+> > Currently the guest stage-2 page table dump has the executable attribute
+> > printed in reverse, showing "X" for a non-executable region and showing
+> > " " for an executable one. This is caused by misjudgement of which
+> > string gets printed for the executable and non-executable case. Fix it
+> > by swapping the two strings.
+> > 
+> > Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
+> > ---
+> >  arch/arm64/kvm/ptdump.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> > index 098416d7e5c25..99fc13f1c11fb 100644
+> > --- a/arch/arm64/kvm/ptdump.c
+> > +++ b/arch/arm64/kvm/ptdump.c
+> > @@ -44,8 +44,8 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
+> >  	}, {
+> >  		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID,
+> >  		.val	= PTE_VALID,
+> > -		.set	= " ",
+> > -		.clear	= "X",
+> > +		.set	= "X",
+> > +		.clear	= " ",
+> >  	}, {
+> >  		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
+> >  		.val	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
+> 
+> Is not KVM_PTE_LEAF_ATTR_HI_S2_XN already in the reverse semantics aka
+> XN (Execute Never). Hence when KVM_PTE_LEAF_ATTR_HI_S2_XN macro is set
+> that means the entry is not executable and vice versa.
 
-Also, a lot of the KVM patches are redundant now that we do have
-FEAT_SCTLR2 support in KVM (see what has been merged for 6.17). You
-probably want to rebase on -rc1 once it is released, which should cut
-the series by half.
+Yes you are correct. However in dump_prot() we have:
+
+if ((st->current_prot & bits->mask) == bits->val)
+	s = bits->set;
+else
+	s = bits->clear;
+
+Analysis:
+
+1. region is executable:
+    - st->current_prot == PTE_VALID (ignore other bits)
+    - st->current_prot & bits->mask gets PTE_VALID
+    - if condition is true (.val is PTE_VALID)
+    - prints bits->set
+
+2. region is not executable:
+    - st->current_prot == KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID
+    - st->current_prot & bits->mask gets (KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID)
+    - if condition is false
+    - prints bits->clear
+
+Therefore we want .set = "X", and .clear = " ".
 
 Thanks,
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Wei-Lin Chang
 
