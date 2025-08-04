@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06CACC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 14:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FA3C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 14:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vK03/ClP3Z1gJdh/kyt8u3OXDFk4NFNUdrwFRyRxZZQ=; b=ilBJ+z1umW9g7phNZ7mzXGuZyq
-	WJ/VUkMzmBfkw4h7wBTdENRsij/8Qon4evHSwfy7x06QM0XF9Nc59M4z1jmOJ+d7aqp/3TcqyKRqk
-	VCznCGxIB3rjHu76/S6xuDJpbHojSc0KuadTwo8sBXA0tXTtTavyoyE27RA0TYr+Vb6xn9EWpyCWo
-	+eWNaVW7WjcIiVT4Cu5KaRDLnMmEBXkQ1W/oSVnz4c122KYIj5fAVLrbTicgw6Zrf9aymZixLxUsx
-	/EqySz+DYSSbCJG8hxcIPDt6mwrRISMUVydf5FePQznYTU4NS43Yxr2KO3d4wyzHFIZFRZ9b7loNK
-	cG7mvIyw==;
+	bh=3GWaCWfMGOeVLl+TC602dyEUg8hYPmCqnXlyFHBYtbE=; b=hdR258UUVIa4sBz9Xyec83HQZh
+	I/7Kgw1/tNaAeu1e4gMJfPXomsPumw/KpDpkOJq7qSI72zYGlF83xxVNM63ZwttkO6A3qM6TVud0n
+	V7ARPfFI1jiySzt2lr+VHUG39YU7aEIjiQKjv7uN0JcPW5RwE+OwwNmcqN7nBDJs2EDeQHITVnX8V
+	KoAFn2yzeERAQ0t3Vxne/59TlKdzoZD14z+CJaWRfBP6fu1zy0axu0/P//+5l4bFwqFmoPHg6c9Hz
+	5D7TgRDFdIHtX/VWtTsP8kRdk/k4Thyx/zCfEzV1szentZ0IjO4ITPR/MeEXsfuYh7dMJNDCXrr87
+	EADTkwsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uiwSV-0000000AhoP-2BRb;
-	Mon, 04 Aug 2025 14:46:39 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1uiwV1-0000000AhzB-1DpO;
+	Mon, 04 Aug 2025 14:49:15 +0000
+Received: from relay16.mail.gandi.net ([2001:4b98:dc4:8::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uivdI-0000000Aarv-0OiB
+	id 1uivgE-0000000Ab5L-23zN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 13:53:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 88439438D2;
-	Mon,  4 Aug 2025 13:53:40 +0000 (UTC)
+	Mon, 04 Aug 2025 13:56:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id A67CC44987;
+	Mon,  4 Aug 2025 13:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754315622;
+	t=1754315804;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vK03/ClP3Z1gJdh/kyt8u3OXDFk4NFNUdrwFRyRxZZQ=;
-	b=H7Ys0e/Y9qB93J31DMjdL6CVpmejuWfKnqIYDFFM/51zT1PsPsdPIiRsXYwVGKJDMXPesD
-	DnQrJs1TiwGoQA2q5IcYOaHe0XQuRI7lSiyx0JWVL6NqtLvpyU2dPBBvGRpImVu4D+vjzA
-	ydoGpHtb4lD9vqSQ/TVG7SbWHRc395TrZNCgNlxv7mrrVJwT8OYQbRYiPKewh0orJ8UNhx
-	YgW/9HyUPP0VVuVkd48W2S00XUUhMAp9chYG25BiHGqjQT2YXcDu9RTd/nImFDCjcXrVJT
-	Gk85eps7Z7Jxa96ejGV5w6+QHjrd1YT5soXryUYxdQdiTxBka9h+a3M+Yc3qMw==
-Date: Mon, 4 Aug 2025 15:53:39 +0200
+	bh=3GWaCWfMGOeVLl+TC602dyEUg8hYPmCqnXlyFHBYtbE=;
+	b=if8Cno+pLmFsNTLP9iO4kurwuCoJS+SM7SNnUVQRcbIXkBglBAdWaO3TqC/NeSnvZRiz7U
+	70SgMt2IDllHWTN9fVAtnCknmWDz4bSfyyHW4fuG+rd2W59h5QTAsBTxNP9QkEPoHYsvTw
+	dLwvquxfVQ71NstbxTN+136qyBeoOkzKr7QGRktAlQ2SP2GJ8i+bgSsZs2VkwEoOk6878m
+	2cJFd9uJsod2ohNYPYwsq9FqKWCMawJfypBtQ330aSBCgIlnCbtonIBaeVOsloYQxsZ7Vt
+	1sZUXqZ8/hBK330il1NmzhQCw75BQpCtRg6zlzqZkYr8W6gMLDXEL+9+KRF/XQ==
+Date: Mon, 4 Aug 2025 15:56:41 +0200
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
@@ -61,13 +61,13 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org,
  Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
  Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
  Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v10 10/15] net: phy: marvell10g: Support SFP
- through phy_port
-Message-ID: <20250804155339.1131365f@fedora.home>
-In-Reply-To: <b6498944-0d06-459f-9668-26813f037166@lunn.ch>
+Subject: Re: [PATCH net-next v10 11/15] net: phy: at803x: Support SFP
+ through phy_port interface
+Message-ID: <20250804155641.176a64f7@fedora.home>
+In-Reply-To: <67dd0a3e-12ac-49ab-aec1-f238db7030e6@lunn.ch>
 References: <20250722121623.609732-1-maxime.chevallier@bootlin.com>
-	<20250722121623.609732-11-maxime.chevallier@bootlin.com>
-	<b6498944-0d06-459f-9668-26813f037166@lunn.ch>
+	<20250722121623.609732-12-maxime.chevallier@bootlin.com>
+	<67dd0a3e-12ac-49ab-aec1-f238db7030e6@lunn.ch>
 Organization: Bootlin
 X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
@@ -75,12 +75,11 @@ Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddvgeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduuddvgeejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtp
  hhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_065344_282440_90BF2172 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250804_065646_692191_650A018D 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Jul 2025 23:17:11 +0200
+On Sat, 26 Jul 2025 23:24:36 +0200
 Andrew Lunn <andrew@lunn.ch> wrote:
 
-> > +	} else if (port->not_described) {
-> > +		/* This PHY can do combo-ports, i.e. 2 MDI outputs, usually one
-> > +		 * of them going to an SFP and the other one to a RJ45
-> > +		 * connector. If we don't have any representation for the port
-> > +		 * in DT, and we are dealing with a non-SFP port, then we
-> > +		 * mask the port's capabilities to report BaseT-only modes
-> > +		 */
-> > +		port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
-> > +
-> > +		phy_port_filter_supported(port);  
+> On Tue, Jul 22, 2025 at 02:16:16PM +0200, Maxime Chevallier wrote:
+> > Convert the at803x driver to use the generic phylib SFP handling, via a
+> > dedicated .attach_port() callback, populating the supported interfaces.
+> > 
+> > As these devices are limited to 1000BaseX, a workaround is used to also
+> > support, in a very limited way, copper modules. This is done by
+> > supporting SGMII but limiting it to 1G full duplex (in which case it's
+> > somwhat compatible with 1000BaseX).  
 > 
-> That seems a little bit error prone. Maybe add a helper to set
-> port->mediums, which also makes the phy_port_filter_supported() call?
+> Missing e
+> 
+> > +static int at8031_attach_port(struct phy_device *phydev, struct phy_port *port)
+> >  {  
+> 
+> ...
+> 
+> > +	if (!port->is_mii)
+> > +		return 0;  
+> 
+> That seems common to all these drivers? Can it be pulled into the
+> core?
 
-Good point, as this will always have to be done in similar situations
-for other drivers.
+If we pull that into the core, we'll need to add specialised
+.attach_port() callbacks in phy_driver, such as
 
-I'll add that, thanks !
+	.attach_mii_port() or .attach_serdes_port()
+	.attach_mdi_port()
+
+I'm perfectly OK with that though :)
+
+> 
+> > -	if (iface == PHY_INTERFACE_MODE_SGMII)
+> > -		dev_warn(&phydev->mdio.dev, "module may not function if 1000Base-X not supported\n");  
+> 
+> I think we need to keep this warning. I don't remember the details,
+> but i think this is the kernel saying the hardware is broken, this
+> might not work, we will give it a go, but don't blame me if it does
+> not work. We need to keep this disclaimer.
+
+Sure thing, looking at it now I'm not sure why I removed that...
+
+I'll add it back,
 
 Maxime
 
