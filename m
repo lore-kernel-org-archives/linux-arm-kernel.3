@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE1FDC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:08:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979FDC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2h+msSwB37cIutRMpSTDoGXpSycPtsmQovPsuONXx+Q=; b=WEkDS4ML5chcH2GEAfv6Q1h0Uq
-	8wntw+PPdt1WsbwhkGVZ5IcB26mlbYynWKscTMKOUeqggYOPs3/5Uym86FYpfMDkfIu07tgGl1Ws8
-	HnQ9UpJU+1G9TnmZsJ/Bjt26Dc3ZJfUiRtMtp7ThiSA6C/4xr0CgXXS7JR0ywqwMOKKXQftgxq2xa
-	ARMOTRYqfHZbicHMWqpw0YPHyIKriNKnbjemZnLEdKDvpB7946D+V0g+QWNcGnlIPwf0TXRvrQnHW
-	iGUmOf1F7J15t+zdQGEgxUYsVVy/o6EYHz76n3PdZ/lEQHV5L8WiXJE7ldhxre968UGA18NnzQIQa
-	weWzNKLA==;
+	bh=bKbaMBRtyfMYRuJnjJMtns6EIsrcGd4fFj7KU0v+KzA=; b=htmbLMIKbf8dQAHF1To3YogDxa
+	dT5+P4+/08zb4ALgFbb19hadcMNPO7RFbAfPuLGIknnwZHri6V1JmYXPcPk0ZRspNjxgYQCkaksae
+	9bKhsLraMssPs7cmXlXIOw/+sfkMHOI36f0fnNfczwBY3NKW1y6t4jf534L7fF4hXRj1nMOwA2/LA
+	jJmH1SteAV44AB2GYwFhaJpNiTQcphPx9cf+1uvHRrN5AeGbkQKoG6i2yOci9ZlKVKmGkibj64fgX
+	d2PN8sEixhN45yTAf/2RuO80CnhJY/0/QOnDO7abpfpaCGnZXG3E5KrZNLpm+wfLQ2yg+18DeNGpY
+	F9AT4iAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijgD-00000009Oip-3w8H;
-	Mon, 04 Aug 2025 01:07:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uijig-00000009OuD-0bEW;
+	Mon, 04 Aug 2025 01:10:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij7b-00000009LY9-12bz;
-	Mon, 04 Aug 2025 00:32:11 +0000
+	id 1uij7f-00000009LYt-0VPx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 04 Aug 2025 00:32:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA773601E8;
-	Mon,  4 Aug 2025 00:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D46FC4CEF8;
-	Mon,  4 Aug 2025 00:32:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B0E5143FAD;
+	Mon,  4 Aug 2025 00:32:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18F8FC4CEF0;
+	Mon,  4 Aug 2025 00:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267530;
-	bh=xfIDBkosaUm8UJ4nUT5Fdx0QMC4jhRR/FYER00pacDk=;
+	s=k20201202; t=1754267534;
+	bh=+HclrGza1I5iT30ioKePx75fGodf1wyXTWLeKKyC8+I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o7CWAicxHhSdBdZ5VEtkm1ptA6tkpLAXop70e/a/Y2SB2hgCNNTxRb219uNCJ++YO
-	 jEH0UgJDRIO4Ff0I62fs4NT7CfyQ3d9mEpW+FODI+ZrmWpTmc55qbAzRWOvGwDtbl2
-	 v2x3NI3dA8fnyTzV+MgxOkJV2K7eFhpzKKeDWQsr2kH8hs83s34dQzLe+SXzNnWHDx
-	 w5sZd5aQ71ArnZrXFyHmnvcOmOn8/KUG3hTUP0qDGTF9A4IkQAxzaeXitYXOnBCfCh
-	 j7XsJyAn895FTPQGa9/mCno+YAmfO/NJtRaAQIFKYwUP81NT333iDSgLr2gpW0b506
-	 Zb53q4Xp8jlrA==
+	b=NdGLVTiO/42l7m/IugGEp7pou4sbyjULcghsSRpBoC8AjW+yrnLWp4Twe/QGYq9A2
+	 O6/hxUrFYRKdvjZRK33TW8T9JG8mXY6kFSYxE1PzPTrHj8YHPcJM7vsOQFtPru28gV
+	 IDPPWrHDy7uB5Ri2kiG6c7LV7o+38oQF9OTj5bckiQGwMYmqJHUc069ENGR9yPGvWm
+	 uXkbEdZ+UOKO0MefEcA68oyZ3LL50sSmHLsmDRm7DJtKQq9cUzeDMqXvD8GhX+M0lb
+	 nAbaW+1Tjs7VM/ToxVWUL/+5dwPSYKIg1wtI05bl+AcOWUD325gN3xyJ+x7Plz2EgB
+	 DnejJYYyzzC7w==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Alexander Kochetkov <al.kochet@gmail.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+	Borislav Petkov <bp@alien8.de>,
 	Sasha Levin <sashal@kernel.org>,
+	michal.simek@amd.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 19/69] ARM: rockchip: fix kernel hang during smp initialization
-Date: Sun,  3 Aug 2025 20:30:29 -0400
-Message-Id: <20250804003119.3620476-19-sashal@kernel.org>
+	linux-edac@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.12 21/69] EDAC/synopsys: Clear the ECC counters on init
+Date: Sun,  3 Aug 2025 20:30:31 -0400
+Message-Id: <20250804003119.3620476-21-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804003119.3620476-1-sashal@kernel.org>
 References: <20250804003119.3620476-1-sashal@kernel.org>
@@ -59,7 +61,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.41
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250803_173215_204181_1909A47F 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,124 +80,266 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Kochetkov <al.kochet@gmail.com>
+From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 
-[ Upstream commit 7cdb433bb44cdc87dc5260cdf15bf03cc1cd1814 ]
+[ Upstream commit b1dc7f097b78eb8d25b071ead2384b07a549692b ]
 
-In order to bring up secondary CPUs main CPU write trampoline
-code to SRAM. The trampoline code is written while secondary
-CPUs are powered on (at least that true for RK3188 CPU).
-Sometimes that leads to kernel hang. Probably because secondary
-CPU execute trampoline code while kernel doesn't expect.
+Clear the ECC error and counter registers during initialization/probe to avoid
+reporting stale errors that may have occurred before EDAC registration.
 
-The patch moves SRAM initialization step to the point where all
-secondary CPUs are powered down.
+For that, unify the Zynq and ZynqMP ECC state reading paths and simplify the
+code.
 
-That fixes rarely hangs on RK3188:
-[    0.091568] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-[    0.091996] rockchip_smp_prepare_cpus: ncores 4
+  [ bp: Massage commit message.
+    Fix an -Wsometimes-uninitialized warning as reported by
+    Reported-by: kernel test robot <lkp@intel.com>
+    Closes: https://lore.kernel.org/oe-kbuild-all/202507141048.obUv3ZUm-lkp@intel.com ]
 
-Signed-off-by: Alexander Kochetkov <al.kochet@gmail.com>
-Link: https://lore.kernel.org/r/20250703140453.1273027-1-al.kochet@gmail.com
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
+Link: https://lore.kernel.org/20250713050753.7042-1-shubhrajyoti.datta@amd.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my analysis of the commit and the code context, here's my
-determination:
-
 **Backport Status: YES**
 
-This commit should be backported to stable kernel trees for the
-following reasons:
+This commit is suitable for backporting to stable kernel trees based on
+the following analysis:
 
-1. **Fixes a real bug affecting users**: The commit explicitly mentions
-   that it "fixes rarely hangs on RK3188" during SMP initialization.
-   This is a critical boot-time issue that prevents the system from
-   functioning properly.
+## Bug Fix Nature
+The commit fixes a clear bug where the EDAC driver could report stale
+ECC errors from before the driver was initialized. This is evident from
+the commit message: "Clear the ECC error and counter registers during
+initialization/probe to avoid reporting stale errors that may have
+occurred before EDAC registration."
 
-2. **Small and contained fix**: The change is minimal - it only moves
-   the SRAM initialization code (`rockchip_smp_prepare_sram()`) to
-   execute after all secondary CPUs are powered down. The code movement
-   is straightforward:
-   - Lines 281-285 (old location) are moved to lines 321-325 (new
-     location)
-   - The fix is contained within a single function
-     (`rockchip_smp_prepare_cpus()`)
+## Code Changes Analysis
 
-3. **Clear root cause**: The commit message explains the race condition
-   clearly - secondary CPUs may execute trampoline code while it's being
-   written to SRAM, causing unpredictable behavior and hangs.
+1. **Problem Being Fixed**:
+   - The driver wasn't clearing ECC error counters during initialization
+   - This could lead to false error reports from pre-boot or pre-driver-
+     load errors
+   - Users could see incorrect ECC error counts that don't reflect
+     actual runtime errors
 
-4. **No architectural changes**: This is purely a timing/ordering fix
-   that doesn't introduce new features or change the architecture of the
-   code.
+2. **Solution Implementation**:
+   - The patch consolidates the ECC state checking into a single
+     `get_ecc_state()` function
+   - Adds counter clearing logic for both Zynq and ZynqMP platforms:
+     ```c
+     // For Zynq:
+     clearval = ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_UE_ERR;
+     writel(clearval, priv->baseaddr + ECC_CTRL_OFST);
+     writel(0x0, priv->baseaddr + ECC_CTRL_OFST);
 
-5. **Critical subsystem**: SMP initialization is a critical kernel
-   subsystem. A hang during boot makes the system unusable, which is a
-   severe issue for affected users.
+     // For ZynqMP:
+     clearval = readl(priv->baseaddr + ECC_CLR_OFST) |
+     ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_CE_ERRCNT |
+     ECC_CTRL_CLR_UE_ERR | ECC_CTRL_CLR_UE_ERRCNT;
+     writel(clearval, priv->baseaddr + ECC_CLR_OFST);
+     ```
 
-6. **Platform-specific fix**: The change only affects Rockchip ARM
-   platforms (specifically those with Cortex-A9 CPUs like RK3188),
-   limiting the scope of potential regressions.
+3. **Scope and Risk Assessment**:
+   - Changes are confined to the synopsys_edac driver
+   - No API changes or interface modifications
+   - The refactoring simplifies code by removing duplicate
+     `zynq_get_ecc_state()` and `zynqmp_get_ecc_state()` functions
+   - Adds platform type enum for cleaner platform identification
+   - Risk is minimal as it only affects initialization path
 
-7. **Follows stable tree rules**: The fix addresses an important bug
-   (boot hang), is small and self-contained, has minimal risk of
-   regression, and doesn't introduce new features.
+4. **Stable Tree Criteria Compliance**:
+   - ✓ Fixes a real bug (stale error reporting)
+   - ✓ Small and contained changes (~150 lines)
+   - ✓ No new features added
+   - ✓ No architectural changes
+   - ✓ Low regression risk
+   - ✓ Clear fix for a specific problem
 
-The key insight from the code analysis is that the original code had a
-clear race condition where:
-1. Secondary CPUs were powered on (lines 287-288 in the original)
-2. Trampoline code was written to SRAM (line 282 in the original)
-3. Secondary CPUs could potentially execute incomplete/corrupted
-   trampoline code
+5. **Additional Evidence**:
+   - The maintainer (Borislav Petkov) accepted and massaged the patch
+   - Fixed a compiler warning caught by kernel test robot
+   - The bug could affect production systems by showing false ECC errors
 
-The fix ensures all secondary CPUs are powered down (lines 321-323)
-before writing the trampoline code to SRAM (lines 321-325 in the new
-version), eliminating the race condition.
+This is a textbook example of a stable-worthy patch: it fixes a specific
+bug (stale ECC error reporting) with minimal, focused changes that don't
+introduce new functionality or risk.
 
- arch/arm/mach-rockchip/platsmp.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
+ drivers/edac/synopsys_edac.c | 97 +++++++++++++++++-------------------
+ 1 file changed, 46 insertions(+), 51 deletions(-)
 
-diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/platsmp.c
-index 36915a073c23..f432d22bfed8 100644
---- a/arch/arm/mach-rockchip/platsmp.c
-+++ b/arch/arm/mach-rockchip/platsmp.c
-@@ -279,11 +279,6 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
- 	}
+diff --git a/drivers/edac/synopsys_edac.c b/drivers/edac/synopsys_edac.c
+index d7416166fd8a..ec3ed5e2b2d7 100644
+--- a/drivers/edac/synopsys_edac.c
++++ b/drivers/edac/synopsys_edac.c
+@@ -332,20 +332,26 @@ struct synps_edac_priv {
+ #endif
+ };
  
- 	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
--		if (rockchip_smp_prepare_sram(node)) {
--			of_node_put(node);
--			return;
--		}
--
- 		/* enable the SCU power domain */
- 		pmu_set_power_domain(PMU_PWRDN_SCU, true);
- 
-@@ -316,11 +311,19 @@ static void __init rockchip_smp_prepare_cpus(unsigned int max_cpus)
- 		asm ("mrc p15, 1, %0, c9, c0, 2\n" : "=r" (l2ctlr));
- 		ncores = ((l2ctlr >> 24) & 0x3) + 1;
- 	}
--	of_node_put(node);
- 
- 	/* Make sure that all cores except the first are really off */
- 	for (i = 1; i < ncores; i++)
- 		pmu_set_power_domain(0 + i, false);
++enum synps_platform_type {
++	ZYNQ,
++	ZYNQMP,
++	SYNPS,
++};
 +
-+	if (read_cpuid_part() == ARM_CPU_PART_CORTEX_A9) {
-+		if (rockchip_smp_prepare_sram(node)) {
-+			of_node_put(node);
-+			return;
-+		}
-+	}
-+
-+	of_node_put(node);
+ /**
+  * struct synps_platform_data -  synps platform data structure.
++ * @platform:		Identifies the target hardware platform
+  * @get_error_info:	Get EDAC error info.
+  * @get_mtype:		Get mtype.
+  * @get_dtype:		Get dtype.
+- * @get_ecc_state:	Get ECC state.
+  * @get_mem_info:	Get EDAC memory info
+  * @quirks:		To differentiate IPs.
+  */
+ struct synps_platform_data {
++	enum synps_platform_type platform;
+ 	int (*get_error_info)(struct synps_edac_priv *priv);
+ 	enum mem_type (*get_mtype)(const void __iomem *base);
+ 	enum dev_type (*get_dtype)(const void __iomem *base);
+-	bool (*get_ecc_state)(void __iomem *base);
+ #ifdef CONFIG_EDAC_DEBUG
+ 	u64 (*get_mem_info)(struct synps_edac_priv *priv);
+ #endif
+@@ -720,51 +726,38 @@ static enum dev_type zynqmp_get_dtype(const void __iomem *base)
+ 	return dt;
  }
  
- static void __init rk3036_smp_prepare_cpus(unsigned int max_cpus)
+-/**
+- * zynq_get_ecc_state - Return the controller ECC enable/disable status.
+- * @base:	DDR memory controller base address.
+- *
+- * Get the ECC enable/disable status of the controller.
+- *
+- * Return: true if enabled, otherwise false.
+- */
+-static bool zynq_get_ecc_state(void __iomem *base)
++static bool get_ecc_state(struct synps_edac_priv *priv)
+ {
++	u32 ecctype, clearval;
+ 	enum dev_type dt;
+-	u32 ecctype;
+-
+-	dt = zynq_get_dtype(base);
+-	if (dt == DEV_UNKNOWN)
+-		return false;
+ 
+-	ecctype = readl(base + SCRUB_OFST) & SCRUB_MODE_MASK;
+-	if ((ecctype == SCRUB_MODE_SECDED) && (dt == DEV_X2))
+-		return true;
+-
+-	return false;
+-}
+-
+-/**
+- * zynqmp_get_ecc_state - Return the controller ECC enable/disable status.
+- * @base:	DDR memory controller base address.
+- *
+- * Get the ECC enable/disable status for the controller.
+- *
+- * Return: a ECC status boolean i.e true/false - enabled/disabled.
+- */
+-static bool zynqmp_get_ecc_state(void __iomem *base)
+-{
+-	enum dev_type dt;
+-	u32 ecctype;
+-
+-	dt = zynqmp_get_dtype(base);
+-	if (dt == DEV_UNKNOWN)
+-		return false;
+-
+-	ecctype = readl(base + ECC_CFG0_OFST) & SCRUB_MODE_MASK;
+-	if ((ecctype == SCRUB_MODE_SECDED) &&
+-	    ((dt == DEV_X2) || (dt == DEV_X4) || (dt == DEV_X8)))
+-		return true;
++	if (priv->p_data->platform == ZYNQ) {
++		dt = zynq_get_dtype(priv->baseaddr);
++		if (dt == DEV_UNKNOWN)
++			return false;
++
++		ecctype = readl(priv->baseaddr + SCRUB_OFST) & SCRUB_MODE_MASK;
++		if (ecctype == SCRUB_MODE_SECDED && dt == DEV_X2) {
++			clearval = ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_UE_ERR;
++			writel(clearval, priv->baseaddr + ECC_CTRL_OFST);
++			writel(0x0, priv->baseaddr + ECC_CTRL_OFST);
++			return true;
++		}
++	} else {
++		dt = zynqmp_get_dtype(priv->baseaddr);
++		if (dt == DEV_UNKNOWN)
++			return false;
++
++		ecctype = readl(priv->baseaddr + ECC_CFG0_OFST) & SCRUB_MODE_MASK;
++		if (ecctype == SCRUB_MODE_SECDED &&
++		    (dt == DEV_X2 || dt == DEV_X4 || dt == DEV_X8)) {
++			clearval = readl(priv->baseaddr + ECC_CLR_OFST) |
++			ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_CE_ERRCNT |
++			ECC_CTRL_CLR_UE_ERR | ECC_CTRL_CLR_UE_ERRCNT;
++			writel(clearval, priv->baseaddr + ECC_CLR_OFST);
++			return true;
++		}
++	}
+ 
+ 	return false;
+ }
+@@ -934,18 +927,18 @@ static int setup_irq(struct mem_ctl_info *mci,
+ }
+ 
+ static const struct synps_platform_data zynq_edac_def = {
++	.platform = ZYNQ,
+ 	.get_error_info	= zynq_get_error_info,
+ 	.get_mtype	= zynq_get_mtype,
+ 	.get_dtype	= zynq_get_dtype,
+-	.get_ecc_state	= zynq_get_ecc_state,
+ 	.quirks		= 0,
+ };
+ 
+ static const struct synps_platform_data zynqmp_edac_def = {
++	.platform = ZYNQMP,
+ 	.get_error_info	= zynqmp_get_error_info,
+ 	.get_mtype	= zynqmp_get_mtype,
+ 	.get_dtype	= zynqmp_get_dtype,
+-	.get_ecc_state	= zynqmp_get_ecc_state,
+ #ifdef CONFIG_EDAC_DEBUG
+ 	.get_mem_info	= zynqmp_get_mem_info,
+ #endif
+@@ -957,10 +950,10 @@ static const struct synps_platform_data zynqmp_edac_def = {
+ };
+ 
+ static const struct synps_platform_data synopsys_edac_def = {
++	.platform = SYNPS,
+ 	.get_error_info	= zynqmp_get_error_info,
+ 	.get_mtype	= zynqmp_get_mtype,
+ 	.get_dtype	= zynqmp_get_dtype,
+-	.get_ecc_state	= zynqmp_get_ecc_state,
+ 	.quirks         = (DDR_ECC_INTR_SUPPORT | DDR_ECC_INTR_SELF_CLEAR
+ #ifdef CONFIG_EDAC_DEBUG
+ 			  | DDR_ECC_DATA_POISON_SUPPORT
+@@ -1390,10 +1383,6 @@ static int mc_probe(struct platform_device *pdev)
+ 	if (!p_data)
+ 		return -ENODEV;
+ 
+-	if (!p_data->get_ecc_state(baseaddr)) {
+-		edac_printk(KERN_INFO, EDAC_MC, "ECC not enabled\n");
+-		return -ENXIO;
+-	}
+ 
+ 	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
+ 	layers[0].size = SYNPS_EDAC_NR_CSROWS;
+@@ -1413,6 +1402,12 @@ static int mc_probe(struct platform_device *pdev)
+ 	priv = mci->pvt_info;
+ 	priv->baseaddr = baseaddr;
+ 	priv->p_data = p_data;
++	if (!get_ecc_state(priv)) {
++		edac_printk(KERN_INFO, EDAC_MC, "ECC not enabled\n");
++		rc = -ENODEV;
++		goto free_edac_mc;
++	}
++
+ 	spin_lock_init(&priv->reglock);
+ 
+ 	mc_init(mci, pdev);
 -- 
 2.39.5
 
