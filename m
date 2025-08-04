@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3046EC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F86BC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DtpCorXC+GJbQX3n4ecrat2Ls9nmYuwZIJdWGIAp89w=; b=rvmrt6/U+SuXnLvf/dBgqqwX80
-	iXvyqwrqJZw3PBvtDY+ifrWVrT+fPyV/Cm75kyu1FyRbwF/hzfFswu5yPDkoilenkjSukQZ2StBPd
-	JMgFgjwxD1wQiAVJO9zWnQHHpzehQPU6cTLQox6x2jwY2ruAGmsr/EX/SxsuzsgnGgaivapVBWLKF
-	8N5KigQl6GfONYcM5VSFSYdvAHPVPvGtVqkXpPUsHKgvpJtnhEelvgBlCpDlUp/YnG09r5zBB26no
-	Qr5/DJ0v8LcYJzz+iwJ3D/eCzAZN7Wb6UlKopR/3vbHz5P0/KrmnCVNRyy+qW9HSKnmnLTHJz13lk
-	EQtB02Ow==;
+	bh=bOjuM2EQptwZIdCy1FbHhPFuJ3SevIU3rNwW7TmuMhU=; b=ES9fg4u+Llh2lcZkCWtUcWaRBT
+	m4ufpUazUBZc1VKGlxSITG7h+BByhhYUgoXtLSH+JrZowyNgusuhPqnG5dVjswX6zkONYwSwrjJZt
+	Jn5U1MncGP60E+vuT4C+6of9+FtzDhRq5cnumh+2BDrWrZsiF1wXtEDXRmgzMI5RITwAUdhwirkYE
+	1Rj17yiDqQpOC/0u9zHJSA6f6R4rXwTL/M3/jK6Lj0/0fu4/ZEKdnwEaMrLTdb8vgrz0DKg+t2bru
+	ZnLQ8BTK2ff3xC+c6DvNzV/Wx+VALSO4f/FIO/FpxREt37lyYr5+PBOnH6ITwNcIXSyN4AibL+iGJ
+	NksM/VAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijTy-00000009Nlu-45xZ;
-	Mon, 04 Aug 2025 00:55:18 +0000
+	id 1uijWQ-00000009Ntg-2xLT;
+	Mon, 04 Aug 2025 00:57:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij4n-00000009LD3-2Icq
+	id 1uij4w-00000009LDj-2wmo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:29:18 +0000
+	Mon, 04 Aug 2025 00:29:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4390B44E77;
-	Mon,  4 Aug 2025 00:29:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F72CC4CEF0;
-	Mon,  4 Aug 2025 00:29:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 73F31440E3;
+	Mon,  4 Aug 2025 00:29:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DE47C4CEF0;
+	Mon,  4 Aug 2025 00:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267357;
-	bh=F90JFq2DA2hyVOvaTR4oDxz+L1hPDd0NDSpOfIUY/Ww=;
+	s=k20201202; t=1754267366;
+	bh=oYzjt0pBPUFIGVDHgd1Ww6Ch3t3p6kCVfPtoExsa0k0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=apHlnnyC9TLgBg7GI1Fz3Xx2UYWUX+e8ZRu0QXGqSSiQHUvbXMcWiAJ8qg9t2PD1F
-	 molk5jN6/lyuG21Ia9fKp+QEbkmMQumZM4vX2pYQEk9MVXa/4J08IQga+SWycc7Ond
-	 uKnWm7U3AYo8qjBOiJtWiPdTQMemCia0KV46fhDyl2SXur1UAJ4KexLpC2gGl8hpsv
-	 QTbR2u8L3v/5/Ofep1gP/xCpper7KQOBYqZWbM/yGEVbC/DT+qVJ5meAy79ZzNizce
-	 ire+Fmaio5JLNhAzbd/de17wriglRCVeWZzSqPh/tlsnzd5ef2ehbncZOVcKfEmBvg
-	 iNZnyAFbuQOJQ==
+	b=JuVTPiv92COakHbbB9rGbhcUJmIc47Bq10ZtNoK3sp8F6G6g+j8qylOKLg0iOJEDH
+	 hLz+Ejedy9uGk9ug9tvL0wuxshlR4IEl4tbz5hNMF8hgdvpPuZMOJxaF1YEfdX+Vq6
+	 d8kOP2PsC9XeNGgS3FDG9dl1zYICpAvxUHVrEBCF20wqyEG6UDPcZQchZM/rq7tiHG
+	 xStMnB2Q3u+p7jrVjRIG8OqUSsWZkj9GGImwyQgpNJR45LV4I7/Ej7EtGNaR2uXUUM
+	 HwVnVwjM6Om5trzjjh/7Ta4kwYhsCeORo32dl5ZRnkGPaTaLLbOsY7RQ0yMlPd3etD
+	 CoIDJVlVIT/mw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Aaron Kling <webgeek1234@gmail.com>,
-	Thierry Reding <treding@nvidia.com>,
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	thierry.reding@gmail.com,
-	jonathanh@nvidia.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.15 34/80] ARM: tegra: Use I/O memcpy to write to IRAM
-Date: Sun,  3 Aug 2025 20:27:01 -0400
-Message-Id: <20250804002747.3617039-34-sashal@kernel.org>
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.15 38/80] firmware: arm_scmi: power_control: Ensure SCMI_SYSPOWER_IDLE is set early during resume
+Date: Sun,  3 Aug 2025 20:27:05 -0400
+Message-Id: <20250804002747.3617039-38-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804002747.3617039-1-sashal@kernel.org>
 References: <20250804002747.3617039-1-sashal@kernel.org>
@@ -64,8 +62,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.15.9
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_172917_616989_DDA10E68 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250803_172926_772385_AFB189CD 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,84 +78,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aaron Kling <webgeek1234@gmail.com>
+From: Peng Fan <peng.fan@nxp.com>
 
-[ Upstream commit 398e67e0f5ae04b29bcc9cbf342e339fe9d3f6f1 ]
+[ Upstream commit 9a0658d3991e6c82df87584b253454842f22f965 ]
 
-Kasan crashes the kernel trying to check boundaries when using the
-normal memcpy.
+Fix a race condition where a second suspend notification from another
+SCMI agent wakes the system before SCMI_SYSPOWER_IDLE is set, leading
+to ignored suspend requests. This is due to interrupts triggering early
+execution of `scmi_userspace_notifier()` before the SCMI state is updated.
 
-Signed-off-by: Aaron Kling <webgeek1234@gmail.com>
-Link: https://lore.kernel.org/r/20250522-mach-tegra-kasan-v1-1-419041b8addb@gmail.com
-Signed-off-by: Thierry Reding <treding@nvidia.com>
+To resolve this, set SCMI_SYSPOWER_IDLE earlier in the device resume
+path, prior to `thaw_processes()`. This ensures the SCMI state is
+correct when the notifier runs, allowing the system to suspend again
+as expected.
+
+On some platforms using SCMI, SCP cannot distinguish between CPU idle
+and suspend since both result in cluster power-off. By explicitly setting
+the idle state early, the Linux SCMI agent can correctly re-suspend in
+response to external notifications.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Message-Id: <20250704-scmi-pm-v2-2-9316cec2f9cc@nxp.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my analysis of this commit, here's my determination:
-
 **Backport Status: YES**
 
-This commit should be backported to stable kernel trees for the
-following reasons:
+This commit should be backported to stable kernel trees. Here's my
+extensive analysis:
 
-1. **Fixes a real crash/bug**: The commit fixes a KASAN (Kernel Address
-   Sanitizer) crash that occurs when using regular `memcpy()` to write
-   to IRAM (Internal RAM). This is a functional bug that causes kernel
-   crashes when KASAN is enabled.
+## 1. Bug Fix Nature
 
-2. **Small and contained fix**: The change is minimal - it simply
-   replaces `memcpy()` with `memcpy_toio()` on line 66 of arch/arm/mach-
-   tegra/reset.c. This is a one-line change that doesn't alter any logic
-   or introduce new features.
+The commit fixes a clear race condition bug that affects system
+suspend/resume functionality on SCMI-based platforms. Looking at the
+code changes:
 
-3. **Follows proper I/O memory access patterns**: The fix is technically
-   correct. According to the kernel documentation in
-   Documentation/driver-api/device-io.rst, I/O memory regions (which
-   IRAM is mapped as via `IO_ADDRESS()`) should be accessed using
-   I/O-specific functions like `memcpy_toio()` rather than regular
-   `memcpy()`. The documentation explicitly states: "Do not use memset
-   or memcpy on IO addresses; they are not guaranteed to copy data in
-   order."
+- **Original bug** (lines 325-333 in original code): The
+  `scmi_suspend_work_func` sets `sc->state = SCMI_SYSPOWER_IDLE` AFTER
+  `pm_suspend()` returns
+- **Race condition**: If another SCMI agent sends a suspend notification
+  while the system is resuming (after `pm_suspend()` returns but before
+  `SCMI_SYSPOWER_IDLE` is set), the `scmi_userspace_notifier` (line 305)
+  will see the state is still `SCMI_SYSPOWER_IN_PROGRESS` and ignore the
+  new suspend request
+- **Impact**: The system fails to re-suspend when it should, breaking
+  power management functionality
 
-4. **No architectural changes**: The commit doesn't introduce any
-   architectural changes or new functionality. It's purely a bug fix
-   that corrects improper memory access.
+## 2. Fix is Small and Contained
 
-5. **Minimal risk of regression**: Since this change only affects how
-   data is copied to IRAM during the Tegra CPU reset handler
-   initialization, and uses the proper kernel API for I/O memory access,
-   the risk of introducing new issues is very low.
+The fix is minimal and well-contained:
+- Adds PM ops structure with only a resume callback
+- Moves the state reset from work function to PM resume callback
+- Total change is about 20 lines of code
+- No API changes or architectural modifications
 
-6. **Platform-specific but important**: While this fix is specific to
-   ARM Tegra platforms, it fixes a crash that would affect any Tegra
-   system running with KASAN enabled. This is important for developers
-   and users who rely on KASAN for debugging.
+## 3. Clear User Impact
 
-The fact that `iram_base` is obtained through `IO_ADDRESS()` macro
-clearly indicates this is I/O mapped memory that requires I/O-specific
-accessors. KASAN correctly identified this misuse and crashed to prevent
-potential issues. The fix properly uses `memcpy_toio()` which is
-designed for copying to I/O memory regions and won't trigger KASAN
-checks for regular memory access.
+The commit message explicitly states this affects real platforms: "On
+some platforms using SCMI, SCP cannot distinguish between CPU idle and
+suspend since both result in cluster power-off." This indicates actual
+hardware is affected by this bug.
 
- arch/arm/mach-tegra/reset.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+## 4. Low Risk of Regression
 
-diff --git a/arch/arm/mach-tegra/reset.c b/arch/arm/mach-tegra/reset.c
-index d5c805adf7a8..ea706fac6358 100644
---- a/arch/arm/mach-tegra/reset.c
-+++ b/arch/arm/mach-tegra/reset.c
-@@ -63,7 +63,7 @@ static void __init tegra_cpu_reset_handler_enable(void)
- 	BUG_ON(is_enabled);
- 	BUG_ON(tegra_cpu_reset_handler_size > TEGRA_IRAM_RESET_HANDLER_SIZE);
+The changes are:
+- Limited to the SCMI power control driver
+- Only modifies the timing of when `SCMI_SYSPOWER_IDLE` is set
+- Uses standard PM callbacks (`dev_pm_ops`)
+- No changes to core logic or protocol handling
+
+## 5. Follows Stable Criteria
+
+The fix meets stable kernel criteria:
+- Fixes a real bug (race condition in suspend/resume)
+- Small, focused change (~20 lines)
+- Already tested and merged upstream
+- Clear explanation of the problem and solution
+- No new features added
+
+## 6. Technical Correctness
+
+The fix is technically sound:
+- Setting `SCMI_SYSPOWER_IDLE` in the PM resume callback ensures it
+  happens before `thaw_processes()` completes
+- This guarantees the state is correct when interrupts are re-enabled
+  and the notifier can run
+- The use of `dev_set_drvdata()` and `dev_get_drvdata()` properly passes
+  the context to the PM callback
+
+This is a textbook example of a stable-worthy commit: it fixes a
+specific race condition bug with minimal code changes and clear impact
+on affected systems.
+
+ .../firmware/arm_scmi/scmi_power_control.c    | 22 ++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/firmware/arm_scmi/scmi_power_control.c b/drivers/firmware/arm_scmi/scmi_power_control.c
+index 21f467a92942..ab0cee0d4bec 100644
+--- a/drivers/firmware/arm_scmi/scmi_power_control.c
++++ b/drivers/firmware/arm_scmi/scmi_power_control.c
+@@ -46,6 +46,7 @@
+ #include <linux/math.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
++#include <linux/pm.h>
+ #include <linux/printk.h>
+ #include <linux/reboot.h>
+ #include <linux/scmi_protocol.h>
+@@ -324,12 +325,7 @@ static int scmi_userspace_notifier(struct notifier_block *nb,
  
--	memcpy(iram_base, (void *)__tegra_cpu_reset_handler_start,
-+	memcpy_toio(iram_base, (void *)__tegra_cpu_reset_handler_start,
- 			tegra_cpu_reset_handler_size);
+ static void scmi_suspend_work_func(struct work_struct *work)
+ {
+-	struct scmi_syspower_conf *sc =
+-		container_of(work, struct scmi_syspower_conf, suspend_work);
+-
+ 	pm_suspend(PM_SUSPEND_MEM);
+-
+-	sc->state = SCMI_SYSPOWER_IDLE;
+ }
  
- 	err = call_firmware_op(set_cpu_boot_addr, 0, reset_address);
+ static int scmi_syspower_probe(struct scmi_device *sdev)
+@@ -354,6 +350,7 @@ static int scmi_syspower_probe(struct scmi_device *sdev)
+ 	sc->required_transition = SCMI_SYSTEM_MAX;
+ 	sc->userspace_nb.notifier_call = &scmi_userspace_notifier;
+ 	sc->dev = &sdev->dev;
++	dev_set_drvdata(&sdev->dev, sc);
+ 
+ 	INIT_WORK(&sc->suspend_work, scmi_suspend_work_func);
+ 
+@@ -363,6 +360,18 @@ static int scmi_syspower_probe(struct scmi_device *sdev)
+ 						       NULL, &sc->userspace_nb);
+ }
+ 
++static int scmi_system_power_resume(struct device *dev)
++{
++	struct scmi_syspower_conf *sc = dev_get_drvdata(dev);
++
++	sc->state = SCMI_SYSPOWER_IDLE;
++	return 0;
++}
++
++static const struct dev_pm_ops scmi_system_power_pmops = {
++	SET_SYSTEM_SLEEP_PM_OPS(NULL, scmi_system_power_resume)
++};
++
+ static const struct scmi_device_id scmi_id_table[] = {
+ 	{ SCMI_PROTOCOL_SYSTEM, "syspower" },
+ 	{ },
+@@ -370,6 +379,9 @@ static const struct scmi_device_id scmi_id_table[] = {
+ MODULE_DEVICE_TABLE(scmi, scmi_id_table);
+ 
+ static struct scmi_driver scmi_system_power_driver = {
++	.driver	= {
++		.pm = &scmi_system_power_pmops,
++	},
+ 	.name = "scmi-system-power",
+ 	.probe = scmi_syspower_probe,
+ 	.id_table = scmi_id_table,
 -- 
 2.39.5
 
