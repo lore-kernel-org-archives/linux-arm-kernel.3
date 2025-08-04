@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6590C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C97C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 01:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VOnfmiVpWQZ7efaGFqaPTnXW4RnO5bUcN3yVQ9/0j3c=; b=g5fI1p+xYQu7qfAEZ/RSGb4a4y
-	af9Wu30O/+/I4BkqdF+5QBmXZnvXW299IMNm+RbP297qJNvOddZFJCPPTVd5nvgEPGIy77xl5cGaW
-	ZaxR5LR9859aWFedMKhmh4AYxFsj0Tl7ZOB/IihxPMkrgSg+10Ekl/lPGo+VCn32d6GCa6rtV5pB1
-	3lFnu73RJL03Gvi7yDT84XyMZfeSPj9tN7vZZxtF79hbgEhRVo/OEQnAG4dUeNAXwmbpZ5CdlC4Jv
-	8ZktFqTMkgoXAghgXLeSknjdkFzyL+hGhraWwdwiuA6CNfGFAtKdCz93dx2IKE3cPK7BazjSzbysA
-	koMjBEGw==;
+	bh=DtpCorXC+GJbQX3n4ecrat2Ls9nmYuwZIJdWGIAp89w=; b=DV1CbsdI1Yodw7yP+WRBNzWchZ
+	DbZXfqTzgO0erhvwhfWqDfiNe67kgv7SrNpfUEq3GNlPIinFyqAtP5ORk2P+33g+vrybfN4b5qw8O
+	QQqMpzbUaEO8kgyuMNJN2AVNQF2No+Ux9K/HhenSVP8pBmuoBvF7CAJhqJQvL7aHwpQQZwU5QmAvV
+	fSeHnjYYpYHfCEsKyAGFpVNx7qjMoFLe6tayqffKREuYn59t1WpASxqiL+ZAPfWXp5XdZP+uaIf1R
+	U27SeGVOE40dXj9QDbVPCSWYAyJKFWw/H+Skbim+kP2qteNtNlKwt0QUKRRh7xAkzGU8lhyAsBwKT
+	s0bh+WjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uikJd-00000009SQe-3MW5;
-	Mon, 04 Aug 2025 01:48:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uikM6-00000009SZ2-2HvT;
+	Mon, 04 Aug 2025 01:51:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijEZ-00000009MRy-0Kyv
+	id 1uijEi-00000009MSy-0SHN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:39:24 +0000
+	Mon, 04 Aug 2025 00:39:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C35743DC5;
-	Mon,  4 Aug 2025 00:39:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5CDFC4CEF0;
-	Mon,  4 Aug 2025 00:39:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D30484470E;
+	Mon,  4 Aug 2025 00:39:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3726BC4CEEB;
+	Mon,  4 Aug 2025 00:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267961;
-	bh=EmwIn8yPAs/Pd7o5rJuRYCENvfZYU49E6gb1YFvXVrk=;
+	s=k20201202; t=1754267971;
+	bh=F90JFq2DA2hyVOvaTR4oDxz+L1hPDd0NDSpOfIUY/Ww=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WvQFbo+PYVLUF5yMtXkx0LRkBECR6lOsJZpI727+QHtu9mc072IIRpfM5A1GtzvRD
-	 Z13BR+ooABIa+Da0MOr4HjeKD05cjT68BKcljTM92zXmVlvEq8/Wtg+Cc6lbSgsecW
-	 gDRhk0JwE6IIffAn7qjd7d0iCIFiLEfgQLs9ikukwCurOTIxQm1Kthy6U+7je5Aavh
-	 z5Yz6JPqIR7wxa6CpD0fR3fuY4cFJH5Yz4B3fy3CAZ1+UQBuJNMroy2Z9k/gh8BhnQ
-	 3FTdukNeagXv6PyYEf0lrJMHw0M1u6sGLrdRxsZ9c7OhIzhYHd7xixauQfV1XOWkrk
-	 DSFUvQLbgn32A==
+	b=TlAaQL2xnLhVzmmeosn2dFahbFk82Ul7KptwtINRaeilAuuLke2tY9/oAxOVcG8OJ
+	 0gDSh0GvI7l6h/TrdlyTle5AvqytvuQ2CFk3GR4lFh94bi7Mur3oU2lwEfcGmCVup0
+	 z72NbaiTFxuzrbWjd1csGKwlhc1hC9aQ4unaDbPZ9qqJr5r0P8MMZEAmNX5Ci6e0qj
+	 GPNjJJR7W7/PLWF5T8e9m8QfRst724HQJL1Vyf88DZsAOcI9a8X9rPfW/ADknvdZkt
+	 f+UyDAY0VnDveZUTpSijEus635QYCziq0EkI6yn9brfVre3Lh4YuC+9QfEGpKPsP8o
+	 9IpbLFp38pkZQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Borislav Petkov <bp@alien8.de>,
+Cc: Aaron Kling <webgeek1234@gmail.com>,
+	Thierry Reding <treding@nvidia.com>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
+	thierry.reding@gmail.com,
+	jonathanh@nvidia.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-edac@vger.kernel.org
-Subject: [PATCH AUTOSEL 5.15 13/44] EDAC/synopsys: Clear the ECC counters on init
-Date: Sun,  3 Aug 2025 20:38:18 -0400
-Message-Id: <20250804003849.3627024-13-sashal@kernel.org>
+	linux-tegra@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.15 18/44] ARM: tegra: Use I/O memcpy to write to IRAM
+Date: Sun,  3 Aug 2025 20:38:23 -0400
+Message-Id: <20250804003849.3627024-18-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804003849.3627024-1-sashal@kernel.org>
 References: <20250804003849.3627024-1-sashal@kernel.org>
@@ -61,11 +62,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 5.15.189
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_173923_167871_C74CC98A 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20250803_173932_178246_CB81C854 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,266 +80,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+From: Aaron Kling <webgeek1234@gmail.com>
 
-[ Upstream commit b1dc7f097b78eb8d25b071ead2384b07a549692b ]
+[ Upstream commit 398e67e0f5ae04b29bcc9cbf342e339fe9d3f6f1 ]
 
-Clear the ECC error and counter registers during initialization/probe to avoid
-reporting stale errors that may have occurred before EDAC registration.
+Kasan crashes the kernel trying to check boundaries when using the
+normal memcpy.
 
-For that, unify the Zynq and ZynqMP ECC state reading paths and simplify the
-code.
-
-  [ bp: Massage commit message.
-    Fix an -Wsometimes-uninitialized warning as reported by
-    Reported-by: kernel test robot <lkp@intel.com>
-    Closes: https://lore.kernel.org/oe-kbuild-all/202507141048.obUv3ZUm-lkp@intel.com ]
-
-Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Link: https://lore.kernel.org/20250713050753.7042-1-shubhrajyoti.datta@amd.com
+Signed-off-by: Aaron Kling <webgeek1234@gmail.com>
+Link: https://lore.kernel.org/r/20250522-mach-tegra-kasan-v1-1-419041b8addb@gmail.com
+Signed-off-by: Thierry Reding <treding@nvidia.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
+Based on my analysis of this commit, here's my determination:
+
 **Backport Status: YES**
 
-This commit is suitable for backporting to stable kernel trees based on
-the following analysis:
+This commit should be backported to stable kernel trees for the
+following reasons:
 
-## Bug Fix Nature
-The commit fixes a clear bug where the EDAC driver could report stale
-ECC errors from before the driver was initialized. This is evident from
-the commit message: "Clear the ECC error and counter registers during
-initialization/probe to avoid reporting stale errors that may have
-occurred before EDAC registration."
+1. **Fixes a real crash/bug**: The commit fixes a KASAN (Kernel Address
+   Sanitizer) crash that occurs when using regular `memcpy()` to write
+   to IRAM (Internal RAM). This is a functional bug that causes kernel
+   crashes when KASAN is enabled.
 
-## Code Changes Analysis
+2. **Small and contained fix**: The change is minimal - it simply
+   replaces `memcpy()` with `memcpy_toio()` on line 66 of arch/arm/mach-
+   tegra/reset.c. This is a one-line change that doesn't alter any logic
+   or introduce new features.
 
-1. **Problem Being Fixed**:
-   - The driver wasn't clearing ECC error counters during initialization
-   - This could lead to false error reports from pre-boot or pre-driver-
-     load errors
-   - Users could see incorrect ECC error counts that don't reflect
-     actual runtime errors
+3. **Follows proper I/O memory access patterns**: The fix is technically
+   correct. According to the kernel documentation in
+   Documentation/driver-api/device-io.rst, I/O memory regions (which
+   IRAM is mapped as via `IO_ADDRESS()`) should be accessed using
+   I/O-specific functions like `memcpy_toio()` rather than regular
+   `memcpy()`. The documentation explicitly states: "Do not use memset
+   or memcpy on IO addresses; they are not guaranteed to copy data in
+   order."
 
-2. **Solution Implementation**:
-   - The patch consolidates the ECC state checking into a single
-     `get_ecc_state()` function
-   - Adds counter clearing logic for both Zynq and ZynqMP platforms:
-     ```c
-     // For Zynq:
-     clearval = ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_UE_ERR;
-     writel(clearval, priv->baseaddr + ECC_CTRL_OFST);
-     writel(0x0, priv->baseaddr + ECC_CTRL_OFST);
+4. **No architectural changes**: The commit doesn't introduce any
+   architectural changes or new functionality. It's purely a bug fix
+   that corrects improper memory access.
 
-     // For ZynqMP:
-     clearval = readl(priv->baseaddr + ECC_CLR_OFST) |
-     ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_CE_ERRCNT |
-     ECC_CTRL_CLR_UE_ERR | ECC_CTRL_CLR_UE_ERRCNT;
-     writel(clearval, priv->baseaddr + ECC_CLR_OFST);
-     ```
+5. **Minimal risk of regression**: Since this change only affects how
+   data is copied to IRAM during the Tegra CPU reset handler
+   initialization, and uses the proper kernel API for I/O memory access,
+   the risk of introducing new issues is very low.
 
-3. **Scope and Risk Assessment**:
-   - Changes are confined to the synopsys_edac driver
-   - No API changes or interface modifications
-   - The refactoring simplifies code by removing duplicate
-     `zynq_get_ecc_state()` and `zynqmp_get_ecc_state()` functions
-   - Adds platform type enum for cleaner platform identification
-   - Risk is minimal as it only affects initialization path
+6. **Platform-specific but important**: While this fix is specific to
+   ARM Tegra platforms, it fixes a crash that would affect any Tegra
+   system running with KASAN enabled. This is important for developers
+   and users who rely on KASAN for debugging.
 
-4. **Stable Tree Criteria Compliance**:
-   - ✓ Fixes a real bug (stale error reporting)
-   - ✓ Small and contained changes (~150 lines)
-   - ✓ No new features added
-   - ✓ No architectural changes
-   - ✓ Low regression risk
-   - ✓ Clear fix for a specific problem
+The fact that `iram_base` is obtained through `IO_ADDRESS()` macro
+clearly indicates this is I/O mapped memory that requires I/O-specific
+accessors. KASAN correctly identified this misuse and crashed to prevent
+potential issues. The fix properly uses `memcpy_toio()` which is
+designed for copying to I/O memory regions and won't trigger KASAN
+checks for regular memory access.
 
-5. **Additional Evidence**:
-   - The maintainer (Borislav Petkov) accepted and massaged the patch
-   - Fixed a compiler warning caught by kernel test robot
-   - The bug could affect production systems by showing false ECC errors
+ arch/arm/mach-tegra/reset.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This is a textbook example of a stable-worthy patch: it fixes a specific
-bug (stale ECC error reporting) with minimal, focused changes that don't
-introduce new functionality or risk.
-
- drivers/edac/synopsys_edac.c | 97 +++++++++++++++++-------------------
- 1 file changed, 46 insertions(+), 51 deletions(-)
-
-diff --git a/drivers/edac/synopsys_edac.c b/drivers/edac/synopsys_edac.c
-index e8ddb029f10d..cbc40f57b27b 100644
---- a/drivers/edac/synopsys_edac.c
-+++ b/drivers/edac/synopsys_edac.c
-@@ -346,20 +346,26 @@ struct synps_edac_priv {
- #endif
- };
+diff --git a/arch/arm/mach-tegra/reset.c b/arch/arm/mach-tegra/reset.c
+index d5c805adf7a8..ea706fac6358 100644
+--- a/arch/arm/mach-tegra/reset.c
++++ b/arch/arm/mach-tegra/reset.c
+@@ -63,7 +63,7 @@ static void __init tegra_cpu_reset_handler_enable(void)
+ 	BUG_ON(is_enabled);
+ 	BUG_ON(tegra_cpu_reset_handler_size > TEGRA_IRAM_RESET_HANDLER_SIZE);
  
-+enum synps_platform_type {
-+	ZYNQ,
-+	ZYNQMP,
-+	SYNPS,
-+};
-+
- /**
-  * struct synps_platform_data -  synps platform data structure.
-+ * @platform:		Identifies the target hardware platform
-  * @get_error_info:	Get EDAC error info.
-  * @get_mtype:		Get mtype.
-  * @get_dtype:		Get dtype.
-- * @get_ecc_state:	Get ECC state.
-  * @get_mem_info:	Get EDAC memory info
-  * @quirks:		To differentiate IPs.
-  */
- struct synps_platform_data {
-+	enum synps_platform_type platform;
- 	int (*get_error_info)(struct synps_edac_priv *priv);
- 	enum mem_type (*get_mtype)(const void __iomem *base);
- 	enum dev_type (*get_dtype)(const void __iomem *base);
--	bool (*get_ecc_state)(void __iomem *base);
- #ifdef CONFIG_EDAC_DEBUG
- 	u64 (*get_mem_info)(struct synps_edac_priv *priv);
- #endif
-@@ -734,51 +740,38 @@ static enum dev_type zynqmp_get_dtype(const void __iomem *base)
- 	return dt;
- }
+-	memcpy(iram_base, (void *)__tegra_cpu_reset_handler_start,
++	memcpy_toio(iram_base, (void *)__tegra_cpu_reset_handler_start,
+ 			tegra_cpu_reset_handler_size);
  
--/**
-- * zynq_get_ecc_state - Return the controller ECC enable/disable status.
-- * @base:	DDR memory controller base address.
-- *
-- * Get the ECC enable/disable status of the controller.
-- *
-- * Return: true if enabled, otherwise false.
-- */
--static bool zynq_get_ecc_state(void __iomem *base)
-+static bool get_ecc_state(struct synps_edac_priv *priv)
- {
-+	u32 ecctype, clearval;
- 	enum dev_type dt;
--	u32 ecctype;
--
--	dt = zynq_get_dtype(base);
--	if (dt == DEV_UNKNOWN)
--		return false;
- 
--	ecctype = readl(base + SCRUB_OFST) & SCRUB_MODE_MASK;
--	if ((ecctype == SCRUB_MODE_SECDED) && (dt == DEV_X2))
--		return true;
--
--	return false;
--}
--
--/**
-- * zynqmp_get_ecc_state - Return the controller ECC enable/disable status.
-- * @base:	DDR memory controller base address.
-- *
-- * Get the ECC enable/disable status for the controller.
-- *
-- * Return: a ECC status boolean i.e true/false - enabled/disabled.
-- */
--static bool zynqmp_get_ecc_state(void __iomem *base)
--{
--	enum dev_type dt;
--	u32 ecctype;
--
--	dt = zynqmp_get_dtype(base);
--	if (dt == DEV_UNKNOWN)
--		return false;
--
--	ecctype = readl(base + ECC_CFG0_OFST) & SCRUB_MODE_MASK;
--	if ((ecctype == SCRUB_MODE_SECDED) &&
--	    ((dt == DEV_X2) || (dt == DEV_X4) || (dt == DEV_X8)))
--		return true;
-+	if (priv->p_data->platform == ZYNQ) {
-+		dt = zynq_get_dtype(priv->baseaddr);
-+		if (dt == DEV_UNKNOWN)
-+			return false;
-+
-+		ecctype = readl(priv->baseaddr + SCRUB_OFST) & SCRUB_MODE_MASK;
-+		if (ecctype == SCRUB_MODE_SECDED && dt == DEV_X2) {
-+			clearval = ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_UE_ERR;
-+			writel(clearval, priv->baseaddr + ECC_CTRL_OFST);
-+			writel(0x0, priv->baseaddr + ECC_CTRL_OFST);
-+			return true;
-+		}
-+	} else {
-+		dt = zynqmp_get_dtype(priv->baseaddr);
-+		if (dt == DEV_UNKNOWN)
-+			return false;
-+
-+		ecctype = readl(priv->baseaddr + ECC_CFG0_OFST) & SCRUB_MODE_MASK;
-+		if (ecctype == SCRUB_MODE_SECDED &&
-+		    (dt == DEV_X2 || dt == DEV_X4 || dt == DEV_X8)) {
-+			clearval = readl(priv->baseaddr + ECC_CLR_OFST) |
-+			ECC_CTRL_CLR_CE_ERR | ECC_CTRL_CLR_CE_ERRCNT |
-+			ECC_CTRL_CLR_UE_ERR | ECC_CTRL_CLR_UE_ERRCNT;
-+			writel(clearval, priv->baseaddr + ECC_CLR_OFST);
-+			return true;
-+		}
-+	}
- 
- 	return false;
- }
-@@ -948,18 +941,18 @@ static int setup_irq(struct mem_ctl_info *mci,
- }
- 
- static const struct synps_platform_data zynq_edac_def = {
-+	.platform = ZYNQ,
- 	.get_error_info	= zynq_get_error_info,
- 	.get_mtype	= zynq_get_mtype,
- 	.get_dtype	= zynq_get_dtype,
--	.get_ecc_state	= zynq_get_ecc_state,
- 	.quirks		= 0,
- };
- 
- static const struct synps_platform_data zynqmp_edac_def = {
-+	.platform = ZYNQMP,
- 	.get_error_info	= zynqmp_get_error_info,
- 	.get_mtype	= zynqmp_get_mtype,
- 	.get_dtype	= zynqmp_get_dtype,
--	.get_ecc_state	= zynqmp_get_ecc_state,
- #ifdef CONFIG_EDAC_DEBUG
- 	.get_mem_info	= zynqmp_get_mem_info,
- #endif
-@@ -971,10 +964,10 @@ static const struct synps_platform_data zynqmp_edac_def = {
- };
- 
- static const struct synps_platform_data synopsys_edac_def = {
-+	.platform = SYNPS,
- 	.get_error_info	= zynqmp_get_error_info,
- 	.get_mtype	= zynqmp_get_mtype,
- 	.get_dtype	= zynqmp_get_dtype,
--	.get_ecc_state	= zynqmp_get_ecc_state,
- 	.quirks         = (DDR_ECC_INTR_SUPPORT | DDR_ECC_INTR_SELF_CLEAR
- #ifdef CONFIG_EDAC_DEBUG
- 			  | DDR_ECC_DATA_POISON_SUPPORT
-@@ -1406,10 +1399,6 @@ static int mc_probe(struct platform_device *pdev)
- 	if (!p_data)
- 		return -ENODEV;
- 
--	if (!p_data->get_ecc_state(baseaddr)) {
--		edac_printk(KERN_INFO, EDAC_MC, "ECC not enabled\n");
--		return -ENXIO;
--	}
- 
- 	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
- 	layers[0].size = SYNPS_EDAC_NR_CSROWS;
-@@ -1429,6 +1418,12 @@ static int mc_probe(struct platform_device *pdev)
- 	priv = mci->pvt_info;
- 	priv->baseaddr = baseaddr;
- 	priv->p_data = p_data;
-+	if (!get_ecc_state(priv)) {
-+		edac_printk(KERN_INFO, EDAC_MC, "ECC not enabled\n");
-+		rc = -ENODEV;
-+		goto free_edac_mc;
-+	}
-+
- 	spin_lock_init(&priv->reglock);
- 
- 	mc_init(mci, pdev);
+ 	err = call_firmware_op(set_cpu_boot_addr, 0, reset_address);
 -- 
 2.39.5
 
