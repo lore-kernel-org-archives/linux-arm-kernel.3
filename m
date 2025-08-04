@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C810C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 03:14:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F43C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 03:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9XEaU/CLJ530FZN2d/lKZlC5TxydfxwNCLreFw+FezU=; b=XKZG7Gh6s8SmdfCUb0+N+VJP54
-	chz7kFFYLcRHsZUTjSIrpTZKFhki8QFFLIz9FOu22Pa/Bj0y5qRrJhKjpmNBLC9U75/oIvgzNRY9F
-	0064YyqFXC5JJ/KkNOK/9GayJF9dRDGF5GlMj4iXnqJ5S64s0/CtsjalzMRE+3E9IebmXA56Z1Ny6
-	wuWrHBPZdjW3zm79swR3RQnWD5JH8vB+PtFEvOMAtvY/iXn0etSDacU2XjCmg7kWjcCf9uurPlAs/
-	70aLgrPLwMlsZRwnlO8iDphMuZSbeg2N9FxFxEAW02PV3ul6x4AbVFzsAJBultlD4aS5Sj/kLiW0R
-	3+rKSkcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hCSJQUPk49ff/9BMF1sJEd7Q29NI+un6RLbOjGpw9p0=; b=VIiEYiXCvpJ5MWFTfZOydACSuN
+	PlyG+qEF/7SpDj/L7P62M9rnPF8ndVMilqDL9vn7OOduk3aALbbSQWKKS6K6xiImzoCqlEhxkZ74Q
+	XwlOOXqz7oVSWERX0HICQe5Jw7H+nhqoTHGZkc6KsW6JyeR+9d2DTVzwrnHZILT8TlZKsYFYhh1xd
+	zvTSYbkXWH5F4E3l6dJNaXlIL7mJ1XNf+JDNy7o2rUYr2JHj+onJka51ZDW8HkeGKFKuvkFaPwN7Z
+	fakiw4UcOSuwa9iWOHuYvp5UjvDXsGpHexbZnB1QhmJS8Q4S6cXl26cyBz4ROryYxNZ/N/Sb7GwW2
+	/QLM+fPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uileA-00000009Xme-0QtL;
-	Mon, 04 Aug 2025 03:13:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uilts-00000009YnK-3Mzi;
+	Mon, 04 Aug 2025 03:30:12 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uilZz-00000009XXT-0a8Q
+	id 1uilrJ-00000009YcM-072j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 03:09:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 24012A551ED;
-	Mon,  4 Aug 2025 03:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A306CC4CEEB;
-	Mon,  4 Aug 2025 03:09:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754276977;
-	bh=voCsL460D8V6dc8thN7QJQy/hbr0f8CssRhZcgxCPn4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=bPJjFPrgobqxRaL7nNB4qwHkkdlWle3vvvMb4jHmIngMqsLNBptON5X9EEA+wizye
-	 haR2jeB82up0BVka2d9lkyPW38vdE8wRr0uF4/fPtD9jdiwpKE/XY2PEL6UIxAlSez
-	 6HcVVy8Y8Ax1KwoAcvfKOsgmXrcekVwg7Q4cw4yMh2mHqpVDq2cHTAa4MiuA0YpCFs
-	 P8Xl+5EIcJJnoV1DNhP3WJZ/m7VrwHkuVWDY+e+YxS75tooCRnursXYYDwDETO2TvT
-	 PiTGk2RFmnDCjFdDMzJgMASjDTHeE31u6BDkG2+R2I5kNtMTT37VAvcTL/BTHYp1dD
-	 ZpCtsrgW/chFg==
-Date: Sun, 03 Aug 2025 22:09:36 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 04 Aug 2025 03:27:35 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4bwMPJ40Tfz23jf6;
+	Mon,  4 Aug 2025 11:24:52 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6D25E1A0188;
+	Mon,  4 Aug 2025 11:27:20 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 4 Aug 2025 11:27:19 +0800
+Subject: Re: Question on the scheduling of timer interrupt and FIO interrupt
+To: Marc Zyngier <maz@kernel.org>
+CC: wangwudi <wangwudi@hisilicon.com>, Thomas Gleixner <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<yangwei24@huawei.com>, <yaohongshi@hisilicon.com>, Zenghui Yu
+	<zenghui.yu@linux.dev>
+References: <8c6eb963-0a3a-8b75-8ab4-a0b2e10f3d40@hisilicon.com>
+ <86y0s36yjh.wl-maz@kernel.org>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <917dfd6e-b8be-03b0-bfda-ce1108693bc2@huawei.com>
+Date: Mon, 4 Aug 2025 11:27:14 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: joel@jms.id.au, p.k.lee@quantatw.com, linux-kernel@vger.kernel.org, 
- Jason-Hsu@quantatw.com, linux-aspeed@lists.ozlabs.org, 
- devicetree@vger.kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
- yang.chen@quantatw.com, Jerry.Lin@quantatw.com, patrick@stwcx.xyz, 
- linux-arm-kernel@lists.infradead.org, andrew@codeconstruct.com.au
-To: "P.K. Lee" <pkleequanta@gmail.com>
-In-Reply-To: <20250801141131.2238599-1-pkleequanta@gmail.com>
-References: <20250801141131.2238599-1-pkleequanta@gmail.com>
-Message-Id: <175427693317.1227278.3466107434143462265.robh@kernel.org>
-Subject: Re: [PATCH v10 0/2] Add Meta (Facebook) Ventura BMC (AST2600)
+In-Reply-To: <86y0s36yjh.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_200939_328216_2B051F73 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20250803_202733_265466_7AF2FBBC 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,155 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marc,
 
-On Fri, 01 Aug 2025 22:11:29 +0800, P.K. Lee wrote:
-> Add Linux device tree entry related to Meta (Facebook) Ventura specific
-> devices connected to the BMC (AST2600) SoC. The purpose of Ventura is to
-> detect liquid leakage from all compute trays, switch trays and rack
-> sensors within the rack, log the events, and take necessary actions
-> accordingly.
+On 2025/8/1 20:01, Marc Zyngier wrote:
+> + Zenghui, in case he has seen this before.
+
+I haven't heard of it before.
+
+> On Fri, 01 Aug 2025 07:26:20 +0100,
+> wangwudi <wangwudi@hisilicon.com> wrote:
+> >
+> > Hi, all
+> > When running some FIO tests on ARM64 server(Kunpeng), frequent NVMe interrupts occupy the
+> > CPU, and the CPU's hardirq load is 100%. The watchdog feed interrupt arch_timer cannot be
+> > responded, triggering the hardlockup.
 > 
-> ---
-> v1:
->     1. Create ventura dts file.
->     2. Add commit msg.
->     3. Use format-patch to generate patch.
->     4. Add subject prefixes matching the subsystem.
-> ---
-> v2:
->     1. Modify email content.
-> ---
-> v3:
->     1. Add mail list.
-> ---
-> v4:
->     1. Apply git send-email --thread option.
->     2. Sort nodes in the dts alphanumerically.
-> ---
-> v5:
->     1. Run scripts/checkpatch.pl and fix reported warnings.
->     2. Remove unnecessary 88E6393X CONFIG FRU.
-> ---
-> v6:
->     1. Add a new stage for the DTS change.
->     2. Run scripts/checkpatch.pl and fix reported error.
->     3. Fix the issue in a separate patch.
-> ---
-> v7:
->     1. Fix broken indentation in the device tree file.
->     2. Sort nodes alphabetically, then by address if equal.
->     3. Rename fan sensor nodes from 'hwmon' to 'fan-controller'.
-> ---
-> v8:
->     1. This patch series has significant changes compared to
->        previous versions, and quite some time has passed since the last
->        submission.Therefore, previously received Acked-by/Reviewed-by/Tested-by
->        tags are not included in this version.
->        If needed, tags can be added again after review of thisnew version.
-> ---
-> v9:
->     1. Reordered the node sequence under i2c5.
->     2. Added a description of the platform's intended use to the commit
->        messages.
->     3. Added 3 GPIO expanders to i2c10 and defined the necessary GPIO
->        line names.
-> ---
-> v10:
->     1. Added IRQ support in GPIO expanders under i2c10 to handle edge-triggered
->        events.
->     2. Reordered the nodes.
-> ---
-> P.K. Lee (2):
->   dt-bindings: arm:aspeed add Meta Ventura board
->   ARM: dts: aspeed: ventura: add Meta Ventura BMC
+> I am extremely surprised that even with a screaming NVMe (or even
+> several of them), you end up in a situation where you don't have the
+> resource to take the timer interrupt.
+
++1. I will probably have an offline discussion with Wudi today, or a bit
+later, to dig out more clues about it.
+
+> > GIC driver uses GICV3_PRIO_IRQ to set the same priority for arch_timer interrupt and NVMe
+> > interrupt. In GIC spec, "If, on a particular CPU interface, multiple pending interrupts
+> > have the same priority, and have sufficient priority for the interface to signal them to
+> > the PE, it is IMPLEMENTATION DEFINED how the interface selects which interrupt to signal."
+> > Shell we consider setting a higher priority for the arch_timer interrupt to fix this case?
 > 
->  .../bindings/arm/aspeed/aspeed.yaml           |    1 +
->  arch/arm/boot/dts/aspeed/Makefile             |    1 +
->  .../aspeed/aspeed-bmc-facebook-ventura.dts    | 1578 +++++++++++++++++
->  3 files changed, 1580 insertions(+)
->  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dts
+> Linux only deals with two priorities: the normal interrupt priority,
+> and NMI, where the NMI can preempt any other interrupt. obviously, we
+> don't want to make the timer an NMI, as it would break a lot of
+> things.
 > 
-> --
-> 2.43.0
+> Which means that even if you were to give the timer a higher priority,
+> it should not be allowed to preempt any other interrupt. Which means
+> that you'd need to set the binary point so that both the NVMe and
+> timer priorities fall into the same preemption bucket.
 > 
+> But it also means that you now are eating into the few bits of
+> priority that we have, and that will cause problems with the NMI
+> priority. Also, how to you decide what interrupts should be of a
+> higher priority?
 > 
+> I find it surprising that your GIC doesn't have some form of
+> round-robin scheme to pick the next HPPI, because that's clearly a
+> fairness problem, and punting that on SW is pretty ugly.
 > 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250801 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250801141131.2238599-1-pkleequanta@gmail.com:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: timer (arm,armv7-timer): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: bus@1e600000 (aspeed,ast2600-ahbc): compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
-	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: syscon@1e6e2000 (aspeed,ast2600-scu): 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^pinctrl-[0-9]+$', '^silicon-id@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9000 (aspeed,ast2600-adc0): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: adc@1e6e9100 (aspeed,ast2600-adc1): 'interrupts' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: crypto@1e6fa000 (aspeed,ast2600-acry): 'aspeed,ahbc' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): reg-io-width: 4 is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: lpc@1e789000 (aspeed,ast2600-lpc-v2): lpc-snoop@80: 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@24 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@28 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@2c (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: kcs@114 (aspeed,ast2500-kcs-bmc-v2): 'clocks' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: sdc@1e740000 (aspeed,ast2600-sd-controller): sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
-	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/bus@1e78a000/i2c@200/i2c-mux@77/i2c@5/pwm@20: failed to match any schema with compatible: ['max31790']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: i2c@400 (aspeed,ast2600-i2c-bus): Unevaluated properties are not allowed ('aspeed,hw-timeout-ms' was unexpected)
-	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/bus@1e78a000/i2c@580/power-monitor@69: failed to match any schema with compatible: ['pmbus']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b000 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: fsi@1e79b100 (aspeed,ast2600-fsi-master): compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
-	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura.dtb: /ahb/apb/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
-arch/arm/boot/dts/aspeed/aspeed-bmc-inspur-on5263m5.dtb: fan@0: aspeed,fan-tach-ch: b'\x00\x01' is not of type 'object', 'integer', 'array', 'boolean', 'null'
-	from schema $id: http://devicetree.org/schemas/dt-core.yaml#
-
-
-
-
-
+> Thanks,
+> 
+> 	M.
+> 
 
