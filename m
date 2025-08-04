@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0074DC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F63C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  4 Aug 2025 00:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yw1VPgMBgAwGTCcaQICaDn9HZX+xFRXrKg6AtEO7n8E=; b=fmaDOvd0DKdyr3qN4jDTM6H34I
-	l7bIRxYjWq0s0Eschsl/s+Wfx8kaYh49DrcLDbkhEUPKBWrJ5PMYHexluKrjwcw2XV/nvlaSXTUVN
-	gwilb7bddfU+62Kp1znEhnBxvn3T6BYAda5HsS3xxMefjKzJnd72fYikM5tYJ/aLOEQh2z2QGkGp9
-	kel49WWzAp0AWX53vTMvByfnAfft30eIJU/eJTyFmOrfBbZoYBFB/A9r7zMO+qQm7cI98b6u/N9/N
-	u4j8kxCFSrpSewOFnGgxMrwYexlvqWHyPM0m/9HIq3ByJLZ36sp6tt8FQ7NNxXh47J9ruYXkJ7RlV
-	sztu6DPA==;
+	bh=1RbMsOViwveRCYkE4QBif5f+VJEJqCwBELRRpJ5wszA=; b=f4E54hWMvsQR/tQGdz8c6kqexr
+	luzr+mpa+EONaSaYj/PyLxTi+F288Er1FpXB+iELHPL8BoBDd8ETgj/AtCJ6qHrJ7/h6T/Y6fHcNS
+	0WBKhRqhdl5N3IuN9fywVGBAAN4TKsoDTW+Mpk4VFaj4CLJGkq83YcKJFI00sQZ/6VoI3lS3GoMV6
+	sxZ5MBZzPmz3cIROk/102pHK/ngQewSHtEyv/1zPVSvb2TodBCSvDH3WPxa36C450usSp9MzKVNEq
+	+hViBmGvFOJ9BWLWl3b02m4vhd0f8ZoewaSV8fVfWRSK3XbtbRxdpirFIaVDbmXEcbh/pgPNbZAJK
+	bBFD1JzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uijFB-00000009MXb-0hVL;
-	Mon, 04 Aug 2025 00:40:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uijHe-00000009MmQ-3zOE;
+	Mon, 04 Aug 2025 00:42:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uij2D-00000009Ksl-0pYx
+	id 1uij2q-00000009Ky6-3Qj6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 04 Aug 2025 00:26:38 +0000
+	Mon, 04 Aug 2025 00:27:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1FD2A5C58AC;
-	Mon,  4 Aug 2025 00:26:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE53AC4CEEB;
-	Mon,  4 Aug 2025 00:26:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 25946A54EF2;
+	Mon,  4 Aug 2025 00:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 595CBC4CEEB;
+	Mon,  4 Aug 2025 00:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754267195;
-	bh=Ai7ovGIQerXkAsNVRPPimO6sukyYoDbm6mm8ZOgM/W0=;
+	s=k20201202; t=1754267235;
+	bh=bfLHrI+KHBL420kB9LvWPzH5vg3kP5L2x0mod4WtyLQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GHD45dBKJLgQ6lyZqW2gNYhZ5/A6DBoietAwwAleoZr3SlU7VNMzz+ztVb4UfvAEA
-	 pfzqncVFv1GwkCJSczJ44Hl8Y4xjemp9jPdn+bXS4PRqiTgX1xB2yNnSX/FT2+i/RV
-	 jTfZqq2qn/U9GOYPgAnZpymc43VhufBKHnZ+GK3lOxLPNIqpC8HcMaYI/cNiheUsfc
-	 RJXn2OfIWb0lucshH30oLsWckPryhOGA/jvX/1lstkQYuKq+DUJCmT1mPh0+OfdiQy
-	 uauZn082j5WR0rTDtVQEl40r60msO64T1jIx/gKfwG8CzfcPA73u7hFwmhF9dWJstB
-	 WucbDAagp4MgA==
+	b=vCz1pFdKep/vbP6kNZC4csa2RpxO1qUhal+fqT2nUH7aNloimtXucmSQWCGSgBHvV
+	 640qb9rLhASbiWJo2ni/MUw+FyPMSg3b1G66jgqA9RwMavyYtuxXso9W/rpVeHHoMv
+	 rKHTG0HWdM+WF3rMy4qo6uD+Ba2zVGb7Id3DhlUNV8J1UupPzve/WpJNxfGlQo0k/U
+	 /641xP96c5Sk4TLAeE/NJyGDyn2daHFG3sQhLSt/yGGVviKFJxBRkuJPsbCu8fs0Hv
+	 XK8OS5ry4GKpaMwvRNHYTVpvE7i2CDOSDuQDfhXi14Figrnls+JMqUvB+eLIVXVRld
+	 Lx8+mb5L9C2cg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Haibo Chen <haibo.chen@nxp.com>,
-	Luke Wang <ziniu.wang_1@nxp.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>,
-	adrian.hunter@intel.com,
-	shawnguo@kernel.org,
-	linux-mmc@vger.kernel.org,
-	imx@lists.linux.dev,
-	s32@nxp.com,
+	michal.simek@amd.com,
+	linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16 58/85] mmc: sdhci-esdhc-imx: Don't change pinctrl in suspend if wakeup source
-Date: Sun,  3 Aug 2025 20:23:07 -0400
-Message-Id: <20250804002335.3613254-58-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.16 74/85] usb: dwc3: xilinx: add shutdown callback
+Date: Sun,  3 Aug 2025 20:23:23 -0400
+Message-Id: <20250804002335.3613254-74-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250804002335.3613254-1-sashal@kernel.org>
 References: <20250804002335.3613254-1-sashal@kernel.org>
@@ -67,8 +64,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.16
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250803_172637_404265_24BF4CFF 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20250803_172716_985330_637AF174 
+X-CRM114-Status: GOOD (  16.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,26 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Haibo Chen <haibo.chen@nxp.com>
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 
-[ Upstream commit 031d9e30d569ca15ca32f64357c83eee6488e09d ]
+[ Upstream commit 70627bf82e36e61c40c3315e1206e4ea4c02e668 ]
 
-The pinctrl sleep state may config the pin mux to certain function to save
-power in system suspend. Unfortunately this doesn't work if usdhc is used
-as a wakeup source, like waking up on SDIO irqs or card-detect irqs. In
-these cases, we need pin mux to be configured to usdhc function pad.
+Adds a shutdown callback to ensure that the XHCI stack is properly
+shutdown in reboot/shutdown path.
 
-The issue is found on imx93-11x11-evk board, where WiFI over SDIO with
-in-band irqs fails to wakeup the system, because the DATA[1] pin has been
-set to GPIO function.
+In kexec flow, kernel_restart_prepare() performs actions necessary
+to prepare the system for a restart and invokes device_shutdown. To
+ensure proper shutdown attach the dwc3 shutdown implementation which
+mirrors the remove method.
 
-To fix the problem, don't change the pinctrl state in suspend if there is a
-system wakeup enabled.
+$ kexec -e
 
-Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-Link: https://lore.kernel.org/r/20250521033134.112671-1-ziniu.wang_1@nxp.com
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+<snip>
+xhci-hcd xhci-hcd.0.auto: remove, state 1
+usb usb1: USB disconnect, device number 1
+usb 1-1: USB disconnect, device number 6
+xhci-hcd xhci-hcd.0.auto: USB bus 1 deregistered
+kexec_core: Starting new kernel
+
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Link: https://lore.kernel.org/r/1748977771-714153-1-git-send-email-radhey.shyam.pandey@amd.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -110,78 +112,80 @@ LLM Generated explanations, may be completely bogus:
 
 **Backport Status: YES**
 
-This commit should be backported to stable kernel trees for the
-following reasons:
+This commit should be backported to stable kernel trees. Here's my
+detailed analysis:
 
-1. **Fixes a real user-impacting bug**: The commit fixes a regression
-   where SDIO WiFi devices fail to wake up the system from suspend. This
-   is a functional regression that directly impacts users' ability to
-   use WiFi wake-on-WLAN functionality on i.MX platforms.
+## Analysis of the Commit
 
-2. **Small and contained fix**: The change is minimal - it simply moves
-   the `pinctrl_pm_select_sleep_state()` call inside the else block of
-   the wakeup check. The logic change is:
-   - Before: Always switch to sleep pinctrl state during suspend
-   - After: Only switch to sleep pinctrl state if the device is NOT a
-     wakeup source
+### 1. **Bug Fix Nature**
+This commit fixes a real bug where the USB XHCI stack is not properly
+shut down during kexec operations. The commit message explicitly shows
+the issue - when `kexec -e` is executed, the XHCI controller is removed
+but without a proper shutdown sequence, which can lead to:
+- Memory corruption if the controller continues DMA operations
+- System instability during kexec transitions
+- Potential crashes after kexec
 
-3. **Low risk of regression**: The fix is conservative and only affects
-   the suspend path when the device is configured as a wakeup source.
-   The normal suspend behavior (non-wakeup case) remains unchanged.
+### 2. **Simple and Contained Fix**
+The code change is minimal and low-risk:
+```diff
++       .shutdown       = dwc3_xlnx_remove,
+```
+It simply reuses the existing `dwc3_xlnx_remove` function as the
+shutdown callback. This is a common pattern in kernel drivers.
 
-4. **Fixes a specific regression**: The bug was introduced when wakeup
-   support was added in commit f62f7bcc827f ("mmc: sdhci-esdhc-imx:
-   Enable support for system wakeup for SDIO") in v5.14. The original
-   implementation didn't account for the conflict between pinctrl sleep
-   states and wakeup functionality.
+### 3. **Follows Established Pattern**
+My analysis shows this follows an established pattern in the dwc3 driver
+family:
+- `dwc3-of-simple.c` uses its remove function for shutdown
+- `dwc3-rtk.c` has a dedicated shutdown function that calls similar
+  cleanup
+- The recent Tegra XUSB commit (3a3be3a1ebf0) added a shutdown callback
+  for similar reasons (preventing SMMU-related crashes)
 
-5. **Clear problem description**: The commit message clearly explains
-   that on imx93-11x11-evk board, the DATA[1] pin being reconfigured to
-   GPIO function during suspend prevents SDIO interrupts from waking the
-   system.
+### 4. **Clear Side Effects**
+The `dwc3_xlnx_remove` function performs standard cleanup:
+- Depopulates child devices (`of_platform_depopulate`)
+- Disables and unprepares clocks
+- Manages runtime PM state
 
-6. **Subsystem-specific fix**: The change is confined to the i.MX-
-   specific SDHCI driver and doesn't touch core MMC/SDHCI code,
-   minimizing the risk of broader impacts.
+These are all safe operations for shutdown context.
 
-The fix addresses a fundamental incompatibility between power-saving
-pinctrl configurations and wakeup functionality - a common issue in
-embedded systems that needs to be properly handled. This makes it a
-strong candidate for stable backporting to ensure SDIO wakeup
-functionality works correctly on affected i.MX platforms.
+### 5. **Meets Stable Criteria**
+- **Fixes a real bug**: Prevents potential system instability during
+  kexec
+- **Small change**: Single line addition
+- **Low risk**: Reuses existing, tested code path
+- **No new features**: Pure bug fix
+- **Clear benefit**: Improves system reliability during reboot/kexec
+  operations
 
- drivers/mmc/host/sdhci-esdhc-imx.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+### 6. **Similar Issues in Other Drivers**
+The pattern of missing shutdown callbacks causing issues during
+kexec/reboot is well-documented in the kernel, particularly for devices
+that perform DMA operations.
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index ac187a8798b7..05dd2b563c02 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -2039,12 +2039,20 @@ static int sdhci_esdhc_suspend(struct device *dev)
- 		ret = sdhci_enable_irq_wakeups(host);
- 		if (!ret)
- 			dev_warn(dev, "Failed to enable irq wakeup\n");
-+	} else {
-+		/*
-+		 * For the device which works as wakeup source, no need
-+		 * to change the pinctrl to sleep state.
-+		 * e.g. For SDIO device, the interrupt share with data pin,
-+		 * but the pinctrl sleep state may config the data pin to
-+		 * other function like GPIO function to save power in PM,
-+		 * which finally block the SDIO wakeup function.
-+		 */
-+		ret = pinctrl_pm_select_sleep_state(dev);
-+		if (ret)
-+			return ret;
- 	}
- 
--	ret = pinctrl_pm_select_sleep_state(dev);
--	if (ret)
--		return ret;
--
- 	ret = mmc_gpio_set_cd_wake(host->mmc, true);
- 
- 	/*
+The fix ensures proper hardware shutdown sequence during system
+reboot/shutdown, preventing the USB controller from accessing memory
+after the system has started transitioning to a new kernel or shutting
+down. This is especially important for systems using kexec for fast
+reboots or crash dump collection.
+
+ drivers/usb/dwc3/dwc3-xilinx.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index 4ca7f6240d07..09c3c5c226ab 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -422,6 +422,7 @@ static const struct dev_pm_ops dwc3_xlnx_dev_pm_ops = {
+ static struct platform_driver dwc3_xlnx_driver = {
+ 	.probe		= dwc3_xlnx_probe,
+ 	.remove		= dwc3_xlnx_remove,
++	.shutdown	= dwc3_xlnx_remove,
+ 	.driver		= {
+ 		.name		= "dwc3-xilinx",
+ 		.of_match_table	= dwc3_xlnx_of_match,
 -- 
 2.39.5
 
