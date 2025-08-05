@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7548EC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 18:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62ADFC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 18:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X2swtaHdhXWfvIclHSWcoW+PrlEVsSzZetD7/hSILy8=; b=FsW2nTSJidr5z6a/4f/gLSPsbN
-	RSFf4pA70xZQPnUx/+TJ0HHnYQ0uMgDa7tnhFzettIMCHP4vyKIJsMmvYmQn8XpRJ5AsSyeeQQ+R2
-	IB2II0uq5P4MuG/0gtnBipA8ke/lj7IL9IJ0rceC/jhqEe+3YZzToRt7WBzH2Tn1pjDZT9HJcRzGI
-	s+0x7bKpWUcvBm/FAFWIcHQwtcrimuFY8OQNC3S3CXJN5pcd6PWDzDk2I6FN32+JfzDU5pBlMdq6v
-	ROHmQ1WwFaAmkSvi3CpoIrfpJ46fG+bZiw5+9zEexqB+ffDl5QNgxCLmCWoJCoRiPPhfKXaA/JQyX
-	33oddZXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s18WFXX2xFpugqPWrdba5WWTH+gIceXYCJkxr6yDshY=; b=0PRBScxPcodqCww04sopf8PiIv
+	6h/aqNgECNHaw4NbhQF92chMnKvU4DGJZwmq91LNCwPnDlloyIvjSDVGC2IymvWy3lr3J1hdfgsaU
+	TtuA9UiF2N6BoANVcP/7Rzof9at8yZc9H+IO6gnPCiMLNeZlgSi3V2axTxXRa1L6IkZuRThVMBmKs
+	JMQhpgKrOChWz2YjfVbMTAoozFz4B9e0YRrtIF0Ek/zQ0a2o/LNZc6pgJJH2Di+CPvC9t+0ySq7ba
+	y6AyyVfPaII60s893eZTlsU7NiCxLLFEhIeATB2hMsirehW+9nDmieEmQIrJtOe6Y+N4zzwEDQaLl
+	EpMZ0CYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujM6v-0000000DVxO-0ABi;
-	Tue, 05 Aug 2025 18:10:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ujMWx-0000000DYRX-03Ds;
+	Tue, 05 Aug 2025 18:36:59 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujLUU-0000000DRCg-048Q
+	id 1ujLcE-0000000DS5K-2PDC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 17:30:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1D2B7A566FA;
-	Tue,  5 Aug 2025 17:30:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 670F6C4CEF0;
-	Tue,  5 Aug 2025 17:30:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754415020;
-	bh=/7nI/nFMBCqqPJr0KHlHQkyrVvjhz2A4KlK5ky+gyPM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZQl5nzOH7H7yc13+o4AXaaOt18vkoI1CMoW3e+XusZB5efoiDA1ob6bCF4OAhHYj6
-	 BgFNUfCV2ttKaY8FwXq4IPhqClFeqc8hQg/vZ/BTzrN+bmbdxO/UKldRXn2Fk6khGW
-	 /Onrgpg0t85c9MmQ4YcJCyj0r4zhcsfcYnm4HfOBLiE18+SxQRVvb/OeNjhGmqAGuV
-	 5WWfAd3H8DI/8qZvn4OmEfLXSdvokOg2lNpghAeNHVySwGjMUJmxUi70Gw3mY4oi4N
-	 G9F9UrnRWrJ1DytXLZ9mKciORLYcZPhP1qJt+6o9mIdR1eVMctQ92I7bwTWgw93lWG
-	 xWwNNjRz959GA==
-Date: Tue, 5 Aug 2025 23:00:11 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, linux-pci@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Mahesh J Salgaonkar <mahesh@linux.ibm.com>, Oliver O'Halloran <oohall@gmail.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Michal Simek <michal.simek@amd.com>, 
-	Brian Norris <briannorris@chromium.org>, Minghuan Lian <minghuan.Lian@nxp.com>, 
-	Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>, Frank Li <Frank.Li@nxp.com>, 
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [BUG] pci: nwl: Unhandled AER correctable error
-Message-ID: <emkdycgknxqoovellr3b7ugud4nmqzj5h4o454asafcdvpaczq@x3st2smyvegg>
-References: <20250804205702.GA3640524@bhelgaas>
- <23d9f128-af95-41b1-a5b9-3c69d2df8ab8@linux.dev>
- <g4w5tcasa4ka24rqhgmbrmrua5a23dytgcbsqkuoyzekgmv43f@2wjltdepyizc>
- <666b06a8-fd9a-428b-a9dd-c2f09710aa14@linux.dev>
+	Tue, 05 Aug 2025 17:38:24 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575HcGwF4130069;
+	Tue, 5 Aug 2025 12:38:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1754415496;
+	bh=s18WFXX2xFpugqPWrdba5WWTH+gIceXYCJkxr6yDshY=;
+	h=From:To:CC:Subject:Date;
+	b=IF/5BKLIxqUHocK/Eyo1I3g7NMfHDeWgt9GIsAyYzA2z6eOJhQFn5YkgvMLXEH4xz
+	 d9fIvB22KouUuxr2IV7ARBf5hiIAmYi0QI/9Ku2+of5GCG/mDEbMf91k8HrMKI6lSH
+	 IB0Mi2w5BU0nvW6ppPvkxLNKIuzW5wViUW8CgnvU=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575HcGN12467066
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 5 Aug 2025 12:38:16 -0500
+Received: from DLEE102.ent.ti.com (157.170.170.32) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
+ Aug 2025 12:38:15 -0500
+Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 5 Aug 2025 12:38:15 -0500
+Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
+	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575HcFDs4145821;
+	Tue, 5 Aug 2025 12:38:15 -0500
+Received: from localhost (danish-tpc.dhcp.ti.com [172.24.231.152])
+	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 575HcETT003958;
+	Tue, 5 Aug 2025 12:38:15 -0500
+From: MD Danish Anwar <danishanwar@ti.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
+	<m-malladi@ti.com>,
+        Himanshu Mittal <h-mittal1@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: [PATCH net v3] net: ti: icssg-prueth: Fix emac link speed handling
+Date: Tue, 5 Aug 2025 23:08:12 +0530
+Message-ID: <20250805173812.2183161-1-danishanwar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <666b06a8-fd9a-428b-a9dd-c2f09710aa14@linux.dev>
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_103022_190227_41C84C67 
-X-CRM114-Status: GOOD (  39.02  )
+X-CRM114-CacheID: sfid-20250805_103822_782986_74548A3E 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +94,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 10:02:39AM GMT, Sean Anderson wrote:
-> On 8/5/25 06:42, Manivannan Sadhasivam wrote:
-> > On Mon, Aug 04, 2025 at 06:10:48PM GMT, Sean Anderson wrote:
-> >> On 8/4/25 16:57, Bjorn Helgaas wrote:
-> >> > [+cc more folks who might be interested in AER with non-standard
-> >> > interrupts]
-> >> > 
-> >> > On Fri, Aug 01, 2025 at 01:43:19PM -0400, Sean Anderson wrote:
-> >> >> Hi,
-> >> >> 
-> >> >> AER correctable errors are pretty rare. I only saw one once before and
-> >> >> came up with commit 78457cae24cb ("PCI: xilinx-nwl: Rate-limit misc
-> >> >> interrupt messages") in response. I saw another today and,
-> >> >> unfortunately, clearing the correctable AER bit in MSGF_MISC_STATUS is
-> >> >> not sufficient to handle the IRQ. It gets immediately re-raised,
-> >> >> preventing the system from making any other progress. I suspect that it
-> >> >> needs to be cleared in PCI_ERR_ROOT_STATUS. But since the AER IRQ never
-> >> >> gets delivered to aer_irq, those registers never get tickled.
-> >> >> 
-> >> >> The underlying problem is that pcieport thinks that the IRQ is going to
-> >> >> be one of the MSIs or a legacy interrupt, but it's actually a native
-> >> >> interrupt:
-> >> >> 
-> >> >>            CPU0       CPU1       CPU2       CPU3       
-> >> >>  42:          0          0          0          0     GICv2 150 Level     nwl_pcie:misc
-> >> >>  45:          0          0          0          0  nwl_pcie:legacy   0 Level     PCIe PME, aerdrv
-> >> >>  46:         25          0          0          0  nwl_pcie:msi 524288 Edge      nvme0q0
-> >> >>  47:          0          0          0          0  nwl_pcie:msi 524289 Edge      nvme0q1
-> >> >>  48:          0          0          0          0  nwl_pcie:msi 524290 Edge      nvme0q2
-> >> >>  49:         46          0          0          0  nwl_pcie:msi 524291 Edge      nvme0q3
-> >> >>  50:          0          0          0          0  nwl_pcie:msi 524292 Edge      nvme0q4
-> >> >> 
-> >> >> In the above example, AER errors will trigger interrupt 42, not 45.
-> >> >> Actually, there are a bunch of different interrupts in MSGF_MISC_STATUS,
-> >> >> so maybe nwl_pcie_misc_handler should be an interrupt controller
-> >> >> instead? But even then pcie_port_enable_irq_vec() won't figure out the
-> >> >> correct IRQ. Any ideas on how to fix this?
-> >> >> 
-> >> >> Additionally, any tips on actually triggering AER/PME stuff in a
-> >> >> consistent way? Are there any off-the-shelf cards for sending weird PCIe
-> >> >> stuff over a link for testing? Right now all I have 
-> >> > 
-> >> > This is definitely a problem.  We have had some discussion about this
-> >> > in the past, but haven't quite achieved critical mass to solve this in
-> >> > a generic way.  Here are some links:
-> >> > 
-> >> >   https://lore.kernel.org/linux-pci/20250702223841.GA1905230@bhelgaas/t/#u
-> >> >   https://lore.kernel.org/linux-pci/1464242406-20203-1-git-send-email-po.liu@nxp.com/
-> >> 
-> >> Thanks for the links. Toggling PERST does seem to reliably cause
-> >> correctable errors (however "correctable" they may actually be in
-> >> practice). With the patch I posted on the other branch of this chain I
-> >> now get
-> >> 
-> >> [   43.041610] pcieport 0000:00:00.0: AER: Multiple Corrected error message received from 0000:00:00.0
-> >> [   43.050693] pcieport 0000:00:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)
-> >> [   43.061477] pcieport 0000:00:00.0:   device [10ee:d011] error status/mask=00000001/0000e000
-> >> [   43.069842] pcieport 0000:00:00.0:    [ 0] RxErr                 
-> >> 
-> >> Whether or not that's the right fix, at least I can test things :)
-> > 
-> > Could you please check if INTX is working for AER? You can just pass the cmdline
-> > parameter, "pcie_pme=nomsi" and observe if the IRQ is getting triggered.
-> 
-> I don't really understand what you want me to check. As shown above, pme
-> and aer are already assigned to INTA, not an MSI. This of course never
-> gets triggered.
-> 
+When link settings are changed emac->speed is populated by
+emac_adjust_link(). The link speed and other settings are then written into
+the DRAM. However if both ports are brought down after this and brought up
+again or if the operating mode is changed and a firmware reload is needed,
+the DRAM is cleared by icssg_config(). As a result the link settings are
+lost.
 
-Sorry, my bad. I misread the MSI interrupts assigned to NVMe queues as AER.
+Fix this by calling emac_adjust_link() after icssg_config(). This re
+populates the settings in the DRAM after a new firmware load.
 
-> Figure 30-5 in UG1085 [1] shows the interrupt architecture, and I think
-> it's clear from that diagram that there's no pathway for root port
-> errors to trigger an MSI or a legacy interrupt.
-> 
+Fixes: 9facce84f406 ("net: ti: icssg-prueth: Fix firmware load sequence.")
+Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+---
+v2 - v3: Dropped the if check as it was not needed.
+v2: https://lore.kernel.org/all/20250801121948.1492261-1-danishanwar@ti.com/ 
 
-Then we really need to plug aer_irq with the platform interrupt with the help of
-the controller driver. It is not on top of my priority list, so someone with the
-bandwidth and motivation should look into it.
+ drivers/net/ethernet/ti/icssg/icssg_prueth.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-- Mani
+diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+index 2b973d6e2341..6c7d776ae4ee 100644
+--- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
++++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+@@ -50,6 +50,8 @@
+ /* CTRLMMR_ICSSG_RGMII_CTRL register bits */
+ #define ICSSG_CTRL_RGMII_ID_MODE                BIT(24)
+ 
++static void emac_adjust_link(struct net_device *ndev);
++
+ static int emac_get_tx_ts(struct prueth_emac *emac,
+ 			  struct emac_tx_ts_response *rsp)
+ {
+@@ -229,6 +231,10 @@ static int prueth_emac_common_start(struct prueth *prueth)
+ 		ret = icssg_config(prueth, emac, slice);
+ 		if (ret)
+ 			goto disable_class;
++
++		mutex_lock(&emac->ndev->phydev->lock);
++		emac_adjust_link(emac->ndev);
++		mutex_unlock(&emac->ndev->phydev->lock);
+ 	}
+ 
+ 	ret = prueth_emac_start(prueth);
 
+base-commit: 4eabe4cc0958e28ceaf592bbb62c234339642e41
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
