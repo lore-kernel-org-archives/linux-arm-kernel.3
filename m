@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D713C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AB54C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7rwdEYUVlByJHPIkkgUSD/l/Bx2xS797H5pUKRApluM=; b=Lj3B0yGjs+DIs9gCZmkVCMcAOP
-	9JmtL8rbhPc0z0nTpxN2tl1rykQZlNFZO+882izW0yfWnmgz7Y4t2W5rtAHyZs5hl/y4yQvtlQmNS
-	W8glVm/UjB8XeaZi4RRpsRvHQw7CiC/lRZ4zkd/TYmi2Nw4f75EdroKyUJ3Z4Ro2+oDK+bGavsX6E
-	Mx+iYLjdWQ+d+KvMzfLkSCzicn4YPB8a0fmij6xJYvUpzv2rvjfzYlAIVKLMRivYLBF6OHlxprqN4
-	Ndm1iddjr0s54LWZ4NWAbOSaOOcYiOzIV97otljDMOvyez7jdUz/fX5BUsDP4jNGgDI53+5+N15j2
-	BLXnL2pw==;
+	bh=datT6Fd6IFFmFFfqGG381FQSaFzuKnTNvtwC+oLmUVI=; b=LUbmilirI5SxzSOEluz/+HWXLw
+	+h4YAs+QNt2L5wc93ouvb27I+Ry3DT6+ysYyJqhYDvmno2mLtEzBxbUPQnorkbu27e4//3RWNeupI
+	KrkL9PzB7ubrqU3BzU2dBp7Qiy7k+Uy+/6D/qL9gpZIym82OQXiuGKO3kOt8qVMH8GDPLBue4BA8b
+	CnoH0i8Yfvk7mt4Yttn1fL/Gd+NV3R25i6tvlkqnKr/m63cblongdHPvLLbyLOVYjEwKTBPv/ulOc
+	4rAZRH+RDGbYy5RSKpRGbVowflB0tkdIZP3GDr0OT+G73R87xD8KJZExJkSHgQNOAmyvA+fEaJb23
+	LaldUYOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHiB-0000000CqM0-32vI;
-	Tue, 05 Aug 2025 13:28:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ujHks-0000000CqhW-3Uh2;
+	Tue, 05 Aug 2025 13:31:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHSG-0000000CnkA-0ngX
+	id 1ujHST-0000000CnlF-0X9h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 13:11:48 +0000
+	Tue, 05 Aug 2025 13:12:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0D7D60204;
-	Tue,  5 Aug 2025 13:11:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEEA9C4CEFE;
-	Tue,  5 Aug 2025 13:11:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5FF75A5638F;
+	Tue,  5 Aug 2025 13:12:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52499C4CEF0;
+	Tue,  5 Aug 2025 13:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754399503;
-	bh=dSsKft6R8Ur2qdOcK2P58eAK0xJaJB/wuxX5XnU1Ktg=;
+	s=k20201202; t=1754399520;
+	bh=G30icMWKligdm4rxiwBEu77y6DCF8r1SkJgxI7mqJcY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NGBm2yp/TA7x/KtUo7ySEXK8aBVficvdSnm4NxBpBV37xVQPMMvkWhm6A1BPEpQwu
-	 XMGnaqW7vnpw54jxYBcMCRbQjHKwd1bnn3eoh23eT1xWMu0XHf1qQF9Dm0HGA6ltT9
-	 ZtkuqRBsko5HSwdteOhChQ47X9DlL0D2tdm5ZTNaeqIvs9oB0GvIxt7RVKrd2sUk7K
-	 uhD37NngEXGe9SJix2FpxeWwG4tE0gBl7GEe9B3iSQd/+Y5WTeeCcsejEAwvRSg+mq
-	 1bvrv1WfWJpZGqC8R9NAs6yNsovb+cCGJEuWD/AFUlo7KPnzxnvUpLMHTjdb2RAUmJ
-	 F+V7JXD/61IOw==
+	b=b8gUxI89iTZY585tV6CRrJinpRw/RwYN10j4A/GyfrEZYY/wb6xBTcCokTWVMjhnd
+	 w9UCTKcACkEGjhSJBlLH1AsWvHk5wpv3LSXRb+dmumzD2l1akLDRdrOj0yOiVV/UG1
+	 QjEAk8629TADCwRiiU2jcbJKX7ajlLgfaUjw5X4XTyjxNAs4lxfOkJC4oSVgBY4Njr
+	 b9ud7AWKasjWLQmhTjAnuMMPXbWGrptrXvBJKIyXtaQfhciIqs1qKMZz6jZpM2oWhk
+	 p2uGVDgnXqQjRLuOs2o5Ici23hENbL2Hk8H39KnYZtYVcPhD4C71+NpgGojeL3dqLU
+	 YFWHHZFBqKKag==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Vinod Koul <vkoul@kernel.org>,
+Cc: Marc Zyngier <maz@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
 	Sasha Levin <sashal@kernel.org>,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	dmaengine@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	toan@os.amperecomputing.com,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16-6.1] dmaengine: stm32-dma: configure next sg only if there are more than 2 sgs
-Date: Tue,  5 Aug 2025 09:09:27 -0400
-Message-Id: <20250805130945.471732-52-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.16-6.6] PCI: xgene-msi: Resend an MSI racing with itself on a different CPU
+Date: Tue,  5 Aug 2025 09:09:34 -0400
+Message-Id: <20250805130945.471732-59-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250805130945.471732-1-sashal@kernel.org>
 References: <20250805130945.471732-1-sashal@kernel.org>
@@ -63,7 +64,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.16
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250805_061201_299021_2810DD83 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,124 +83,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+From: Marc Zyngier <maz@kernel.org>
 
-[ Upstream commit e19bdbaa31082b43dab1d936e20efcebc30aa73d ]
+[ Upstream commit 3cc8f625e4c6a0e9f936da6b94166e62e387fe1d ]
 
-DMA operates in Double Buffer Mode (DBM) when the transfer is cyclic and
-there are at least two periods.
-When DBM is enabled, the DMA toggles between two memory targets (SxM0AR and
-SxM1AR), indicated by the SxSCR.CT bit (Current Target).
-There is no need to update the next memory address if two periods are
-configured, as SxM0AR and SxM1AR are already properly set up before the
-transfer begins in the stm32_dma_start_transfer() function.
-This avoids unnecessary updates to SxM0AR/SxM1AR, thereby preventing
-potential Transfer Errors. Specifically, when the channel is enabled,
-SxM0AR and SxM1AR can only be written if SxSCR.CT=1 and SxSCR.CT=0,
-respectively. Otherwise, a Transfer Error interrupt is triggered, and the
-stream is automatically disabled.
+Since changing the affinity of an MSI really is about changing
+the target address and that it isn't possible to mask an individual
+MSI, it is completely possible for an interrupt to race with itself,
+usually resulting in a lost interrupt.
 
-Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Link: https://lore.kernel.org/r/20250624-stm32_dma_dbm_fix-v1-1-337c40d6c93e@foss.st.com
-Signed-off-by: Vinod Koul <vkoul@kernel.org>
+Paper over the design blunder by informing the core code of this
+sad state of affairs.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Link: https://lore.kernel.org/r/20250708173404.1278635-11-maz@kernel.org
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-Based on my comprehensive analysis of the commit and the STM32 DMA
-driver code, here's my assessment:
-
 **Backport Status: YES**
 
-This commit should be backported to stable kernel trees. Here's an
-extensive explanation based on the code analysis:
+This commit should be backported to stable kernel trees. Here's my
+detailed analysis:
 
-## Bug Being Fixed
+## Key Evidence for Backporting:
 
-The commit fixes a **Transfer Error interrupt** issue in the STM32 DMA
-driver when operating in Double Buffer Mode (DBM) with exactly two
-periods. The bug manifests as follows:
+1. **Fixes a Real Bug - Lost Interrupts**: The commit addresses a race
+   condition where MSI interrupts can be lost when CPU affinity changes
+   occur. The commit message explicitly states this results in "a lost
+   interrupt" which is a serious issue that can cause system malfunction
+   or hangs.
 
-1. **The Problem**: When DBM is enabled with exactly 2 scatter-gather
-   segments (periods), the driver was unnecessarily calling
-   `stm32_dma_configure_next_sg()` in the interrupt handler (line 748 of
-   stm32_dma_handle_chan_done).
+2. **Minimal and Contained Change**: The fix consists of a single line
+   addition:
+  ```c
+  irqd_set_resend_when_in_progress(irq_get_irq_data(virq));
+  ```
+  This is an extremely small, targeted fix that only affects the xgene-
+  msi driver's interrupt allocation path.
 
-2. **Hardware Constraint**: As explained in the commit message, when the
-   channel is enabled, the memory address registers (SxM0AR and SxM1AR)
-   can only be written when specific conditions are met:
-   - SxM0AR can only be written when CT (Current Target) = 1
-   - SxM1AR can only be written when CT = 0
-   - Writing at the wrong time triggers a Transfer Error interrupt
+3. **Part of a Broader Fix Pattern**: This commit follows the same
+   pattern established for other interrupt controllers:
+   - Commit 9c15eeb5362c4 introduced this mechanism for fasteoi handlers
+     in 2023
+   - Commit 2c9e7f857400 extended it to handle_simple_irq() flow
+   - This commit applies the same proven workaround to the xgene-msi
+     driver
 
-3. **The Fix**: The simple addition of `&& chan->desc->num_sgs > 2`
-   condition prevents unnecessary updates when there are exactly 2
-   periods, as the hardware automatically toggles between the two pre-
-   configured buffers.
+4. **Addresses Hardware Design Limitation**: The commit message
+   describes this as papering over a "design blunder" - the hardware
+   inability to mask individual MSIs combined with affinity changes
+   creates an unavoidable race condition. This is not a new feature but
+   a critical workaround for existing hardware defects.
 
-## Why This Is a Good Backport Candidate
+5. **History of Race Conditions in This Driver**: The xgene-msi driver
+   has had race condition issues before (commit a93c00e5f975 fixed a
+   different race in 2021), indicating this subsystem needs these types
+   of fixes for stability.
 
-1. **Clear Bug Fix**: This fixes a specific hardware-related bug that
-   causes Transfer Error interrupts, which can disrupt DMA operations
-   and potentially cause system instability.
+6. **No Architecture Changes**: The fix uses existing kernel
+   infrastructure (irqd_set_resend_when_in_progress) without introducing
+   new APIs or changing kernel architecture.
 
-2. **Minimal and Safe Change**: The fix is a single-line conditional
-   check that adds `&& chan->desc->num_sgs > 2` to line 747. This is:
-   - Very small in scope (1 line change)
-   - Low risk of regression
-   - Only affects the specific case of DBM with 2 periods
+7. **Low Risk of Regression**: The change only affects the specific
+   xgene-msi driver and only adds a resend mechanism when interrupts are
+   already in progress - it doesn't change the normal interrupt handling
+   path.
 
-3. **Hardware-Specific Fix**: The change addresses a specific STM32 DMA
-   hardware behavior documented in the reference manual, making it
-   necessary for proper operation on affected hardware.
+## Stable Tree Criteria Met:
+- ✅ Fixes a real bug (lost interrupts)
+- ✅ Small change (1 line)
+- ✅ Not a new feature
+- ✅ Isolated to specific driver
+- ✅ Uses established kernel mechanisms
+- ✅ Addresses hardware limitation that affects deployed systems
 
-4. **No Architectural Changes**: The commit doesn't introduce new
-   features or change the driver's architecture - it simply prevents an
-   unnecessary operation that violates hardware constraints.
+The fix prevents interrupt loss during CPU affinity changes on X-Gene
+MSI controllers, which is exactly the type of bug fix that stable
+kernels should receive to maintain system reliability.
 
-5. **Production Impact**: Transfer Error interrupts can cause DMA
-   streams to be automatically disabled (as mentioned in the commit
-   message), leading to data transfer failures in production systems
-   using cyclic DMA with 2 periods.
+ drivers/pci/controller/pci-xgene-msi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-6. **Clear Error Path**: Looking at the interrupt handler (lines
-   804-809), unhandled status bits including TEI (Transfer Error
-   Interrupt) result in error messages and potential channel disabling,
-   which this fix prevents.
-
-## Code Analysis Confirms the Fix
-
-From the code analysis:
-- Line 1207 shows DBM is enabled for multi-period cyclic transfers
-- Lines 593-595 show initial setup correctly configures both SM0AR and
-  SM1AR
-- Line 606 shows `stm32_dma_configure_next_sg()` is called during
-  initial transfer setup
-- The problematic line 748 (now 747) was updating memory addresses
-  unnecessarily for 2-period DBM transfers
-
-The fix ensures that for 2-period DBM transfers, the hardware's
-automatic toggling mechanism is used without software intervention,
-preventing Transfer Error interrupts while maintaining correct operation
-for transfers with more than 2 periods.
-
- drivers/dma/stm32/stm32-dma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/dma/stm32/stm32-dma.c b/drivers/dma/stm32/stm32-dma.c
-index 917f8e922373..0e39f99bce8b 100644
---- a/drivers/dma/stm32/stm32-dma.c
-+++ b/drivers/dma/stm32/stm32-dma.c
-@@ -744,7 +744,7 @@ static void stm32_dma_handle_chan_done(struct stm32_dma_chan *chan, u32 scr)
- 		/* cyclic while CIRC/DBM disable => post resume reconfiguration needed */
- 		if (!(scr & (STM32_DMA_SCR_CIRC | STM32_DMA_SCR_DBM)))
- 			stm32_dma_post_resume_reconfigure(chan);
--		else if (scr & STM32_DMA_SCR_DBM)
-+		else if (scr & STM32_DMA_SCR_DBM && chan->desc->num_sgs > 2)
- 			stm32_dma_configure_next_sg(chan);
- 	} else {
- 		chan->busy = false;
+diff --git a/drivers/pci/controller/pci-xgene-msi.c b/drivers/pci/controller/pci-xgene-msi.c
+index b05ec8b0bb93..50647fa14e69 100644
+--- a/drivers/pci/controller/pci-xgene-msi.c
++++ b/drivers/pci/controller/pci-xgene-msi.c
+@@ -200,6 +200,7 @@ static int xgene_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ 	irq_domain_set_info(domain, virq, msi_irq,
+ 			    &xgene_msi_bottom_irq_chip, domain->host_data,
+ 			    handle_simple_irq, NULL, NULL);
++	irqd_set_resend_when_in_progress(irq_get_irq_data(virq));
+ 
+ 	return 0;
+ }
 -- 
 2.39.5
 
