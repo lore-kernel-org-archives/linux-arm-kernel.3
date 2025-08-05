@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50102C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 06:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80A8C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 06:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OBvhoezUSc7NI8tAcl9t1xhx6CLTBuvUQsqUuAHfhvo=; b=0vFWheecPj1G53kchjbf3c+/+P
-	fPQkWcP7TzJ+dNFTNdHCuJKEzdRkrcNk5/g4Og4i427YhLT1OYXHB3QzamLpUUpVacae4Iganuu4X
-	27QhnqqvtV4MfNCHkPkGXdCPObxviG9FEv653h0TJnUggO7AsfjSZa0/34ORDVnd5Db3ySOjkRf+x
-	iExhBs4mPw8jENwn8PMYER8tWi3EoyAjhdixCP1NP2Inms6vxyUVWTIPxknAlSvFsNra21Vckn/ZH
-	JgxFHrGbOfK9eQrKFq2avHoTJF1Xf0w3kps4f09N/FwDRaRxpGtGXtFo9yPqs+QnyOJdW014rjQc3
-	nV0oBb0g==;
+	bh=dmW4G/dSThg9ZBkHAW+AbvRZ4hrRjUh0tEwVOukRU1I=; b=O+LTwD0BUAOhgA6QTvo8Ghhk3m
+	Iy5PwbCg5NRfJqFw47sl8VNRGovlP9OCM975aDCj88VVKuP7Ll35pFAG5T4Kpgu2je6MWFIOpmCXX
+	g4tpA8lldo9LM+qeYkwUzcrh1va0vMQzRoQ2F1IFr7ouDxHeazrITiYIgAbKV24qEDDjd6ZBjrkku
+	NUGegiAdY0y654N4g1ex8/Tg5xf6iU9cLlLZ7qj26B6xIk4IK8J2JOVETJpRPn9MdMXbMWKLQli25
+	Q9vzywh1k48hfJqwAvstNY6C3CmiErjTEbie+iVyOHteSD4t80wm2a6dEr0A1Vb4MWxtNWc3Lk997
+	OzyxIbfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujBLi-0000000Buxh-3mCH;
-	Tue, 05 Aug 2025 06:40:38 +0000
-Received: from mail-m3268.qiye.163.com ([220.197.32.68])
+	id 1ujBPO-0000000BvIS-3KV4;
+	Tue, 05 Aug 2025 06:44:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujBDs-0000000BuBj-05N5;
-	Tue, 05 Aug 2025 06:32:34 +0000
-Received: from [172.16.12.153] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1e545294d;
-	Tue, 5 Aug 2025 14:32:18 +0800 (GMT+08:00)
-Message-ID: <f726862a-bd18-43ee-b307-8daef2451e6b@rock-chips.com>
-Date: Tue, 5 Aug 2025 14:32:17 +0800
+	id 1ujBEX-0000000BuJc-1Crf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 06:33:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B40FA5C5DC7;
+	Tue,  5 Aug 2025 06:33:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB39AC4CEF4;
+	Tue,  5 Aug 2025 06:33:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754375592;
+	bh=FD0dbOI0Ps6FpAVxL7mG/7bxhDlNoH/uuOhQ3n2KokA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uct6gb6Kbuk0u+fjQzJhhWhZjfIfQcI1uPXbIFKk0iDQ2jawvxdLy7RPiehxDQZZT
+	 HblaeAGRjThMMBABgXkuTd9GqpRrjOp0NrxT7GOtwEA8UHeHo8PO0nVkqSh9VPesxF
+	 nyAKO+U32sJ3hSftavkgIkL70eFvgjXqQq81oksavXatFnKn7Ho7v9d4mB3odDskuO
+	 wBAXVspduUjk8ivNH98Bye/KuT2liJJ+LYQYarYwjPTWR6KszWS0aYmPv+t/DPttnl
+	 q3kB2e0AXsGl3LziUvR3b4Hmxk7bCfN/RxzLdsr7anpJCPWoSGbGR20M/tq9/1zfZC
+	 HRr9kA5U6K4GA==
+Message-ID: <f51b1915-1739-4d9f-a8ff-6bf7dc4b09c9@kernel.org>
+Date: Tue, 5 Aug 2025 08:33:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] Add Type-C DP support for RK3399 EVB IND board
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org
-References: <20250729090032.97-1-kernel@airkyi.com>
- <3kefqzjewmsyzfvyi33kvlgjd6jphjg3fsnixb3of7yb3xkgs2@hgi6xfkgd653>
- <63ec11cf-7927-431a-995e-a5fc35ef1ba7@rock-chips.com>
- <pk5wecbbpxn7v4bdwtghhdnm76fmrmglelytljwfb4cgvpu2i6@rk5turgyt5xq>
- <0207826d-a987-4464-b306-29bdbfac45bc@rock-chips.com>
- <3e880194-5ac8-4056-929c-ac103bedc737@oss.qualcomm.com>
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <3e880194-5ac8-4056-929c-ac103bedc737@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9878ee449203abkunm21aca6f168f34c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGR1OQlZNGE9ITU9JS0kYThhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=HLMeHboFPO9wilguf8Zww8hXY4kbZfK9VFChLUgfBMO8X5hUaMfgVTyd06GEiVyB5KDQckmsuLy2uIYRxl3vsF4giA/oylz5ntb+gbaaVKjwwRowlrEkDLe/4llvgSnl7ioQdUFDYOTlUb1y1uFWNDDmWoAcEGyenpvv0wyxVLo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=OBvhoezUSc7NI8tAcl9t1xhx6CLTBuvUQsqUuAHfhvo=;
-	h=date:mime-version:subject:message-id:from;
+Subject: Re: [Resend 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB driver
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20250804074642.75072-1-alexander.stein@ew.tq-group.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250804074642.75072-1-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_233232_559260_ED7D0B54 
-X-CRM114-Status: GOOD (  34.77  )
+X-CRM114-CacheID: sfid-20250804_233313_536074_D7CC8D06 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,133 +119,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+On 04/08/2025 09:46, Alexander Stein wrote:
+> This driver is used on imx93-tqma9352-mba91xxca.dts.
 
-On 8/5/2025 12:26 PM, Dmitry Baryshkov wrote:
-> On 05/08/2025 09:13, Chaoyi Chen wrote:
->> Hi Dmitry,
->>
->> On 8/2/2025 5:55 PM, Dmitry Baryshkov wrote:
->>
->> [...]
->>
->>
->>>> Currently, the software simply selects the first available port. So 
->>>> if user
->>>> plugs in DP dongles in both USB-C ports, the DP driver will select 
->>>> the first
->>>> port. This process is implemented in cdn_dp_connected_port() .
->>>>
->>> I think Stephen Boyd has been looking on similar issues for 
->>> Chromebooks,
->>> which were sharing DP controller between several USB-C ports. I don't
->>> remember what was his last status. I think there it was easier since 
->>> the
->>> bifurcation point was the EC.
->>
->> I think the latest progress should be here: [0]. It seems that it 
->> hasn't been updated for a while.
->
-> Might be :-(
->
->>
->> [0]: https://lore.kernel.org/all/20240901040658.157425-1- 
->> swboyd@chromium.org/
->>
->>
->>>
->>> I think, CDN-DP needs to register up to two encoders and up to two
->>> connectors, having a separate drm_bridge chain for each of the DP
->>> signals paths (in the end, you can not guarantee that both branches 
->>> will
->>> have the same simple CDN-DP -> PHY -> USB-C configuration: there can be
->>> different retimers, etc).
->>>
->>> Both encoders should list the same CRTC in possible_crtcs, etc. Of
->>> course, it should not be possible to enable both of them.
->>>
->>> This way if the user plugs in two DP dongles, it would be possible to
->>> select, which output actually gets a signal.
->>
->> That makes sense, but this might make the DP driver quite complex. I 
->> will see if I can make it happen.
->
-> I think it's trading one burden for another, because CDN-DP currently 
-> has a complication of calling cdn_dp_get_port_lanes() / 
-> cdn_dp_enable_phy() in a loop rather than just enabling one instance.
+Hm, where or how exactly? That's USB WiFi, not built-in.
 
-Yep, I will give it a try.
+> 
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+> Added IMX Maintainers
+> 
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index c7520e78b6a11..2271ce6079bbb 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -441,6 +441,7 @@ CONFIG_IWLMVM=m
+>  CONFIG_MWIFIEX=m
+>  CONFIG_MWIFIEX_SDIO=m
+>  CONFIG_MWIFIEX_PCIE=m
+> +CONFIG_MWIFIEX_USB=m
 
 
->
->>
->>
->>>
->>>>
->>>>>> BTW, one of the important things to do is to implement extcon-like
->>>>>> notifications. I found include/drm/bridge/aux-bridge.h , but if the
->>>>>> aux-bridge is used, the bridge chain would look like this:
->>>>>>
->>>>>> PHY0 aux-bridge ---+
->>>>>>                      | ----> CDN-DP bridge
->>>>>> PHY1 aux-bridge ---+
->>>>>>
->>>>>> Oh, CDN-DP bridge has two previous aux-bridge!
->>>>>>
->>>>>> Now, I try to use drm_connector_oob_hotplug_event() to notify HPD
->>>>>> state between PHY and CDN-DP controller.
->>>>> Does it actually work? The OOB HPD event will be repoted for the 
->>>>> usb-c
->>>>> connector's fwnode, but the DP controller isn't connected to that 
->>>>> node
->>>>> anyhow. If I'm not mistaken, the HPD signal will not reach DP 
->>>>> driver in
->>>>> this case.
->>>> Yes.  What you mentioned is the case in
->>>> drivers/usb/typec/altmodes/displayport.c . I have also added a new 
->>>> OOB event
->>>> notify in the PHY driver in Patch 3, where the expected fwnode is 
->>>> used in
->>>> the PHY. So now we have two OOB HPD events, one from altmodes/ 
->>>> displayport.c
->>>> and the other from PHY. Only the HPD from PHY is eventually passed 
->>>> to the DP
->>>> driver.
->>> This way you will loose IRQ_HPD pulse events from the DP. They are used
->>> by DPRX (aka DP Sink) to signal to DPTX (DP Source) that there was a
->>> change on the DPRX side and the DPTX should reread link params and 
->>> maybe
->>> retrain the link.
->>
->> Sorry, I still don't quite understand your point. I think the entire 
->> notification path is as follows:
->>
->> Type-C mux callback -> RK3399 USBDP PHY -> PHY calls 
->> drm_connector_oob_hotplug_event() -> DP driver
->>
->> Are you concerned that the IRQ_HPD event is not being handled 
->> somewhere along the path? Is it that the Type-C mux callback didn't 
->> notify the PHY, or that after the PHY passed the event to the DP 
->> driver via the OOB event, the DP driver didn't handle it?
->
-> The IRQ_HPD is an event coming from DPRX, it is delivered as a part of 
-> the attention VDM, see DP_STATUS_IRQ_HPD. It's being handled by the 
-> altmode displayport.c driver and is then delivered as an OOB hotplug 
-> call. However, it's not a mux event, so it is not (and it should not) 
-> being broadcasted over the typec_mux devices.
->
-> The way we were handling that is by having a chain of drm_aux_bridges 
-> for all interim devices, ending up with a drm_dp_hpd_bridge registered 
-> by the TCPM. This way when the DPRX triggers the IRQ_HPD event, it is 
-> being handled by the displayport.c and then delivered through that 
-> bridge to the DP driver.
-
-I think the issue goes back to the beginning. The key is to reuse the 
-logic in displayport.c, and the previous approach of directly setting 
-the fwnode has already been rejected. Is it a good idea to register the 
-aux hpd bridge in displayport.c? In this way, we don't need to register 
-it with a bunch of PD drivers (such as fusb302), which seems like a more 
-generic solution.
-
-
+Best regards,
+Krzysztof
 
