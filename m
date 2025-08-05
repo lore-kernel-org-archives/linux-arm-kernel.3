@@ -4,85 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071E1C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 05:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389FEC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 06:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+VTpc+4yMWsn0h4j0qC+icyeqYURleBo3nXl9IU2OF4=; b=kQpe7dCbjyFxNdoHFvUtxV/g3m
-	9hvfs15PjCU64twK6yA5JH3bTeNC63QFJgD5RgiebGqN32hH132lT44t9YM+pztE3ujDeCVYoe7N5
-	FZwkUMWxw2WJ0qFskCo3oj1PhAGpRXWpkHIREbqavBvd/YwBxFFXRBD8GIK2b8QaWW9CMHhoVYa/e
-	rykDyBhyoUq7gSX/InWzFSuApOuA9bEANKzJdI/os1UnUgHmYPEkpdSM4fV8uooIipMu8SJU1g76q
-	urSgGG/l21aB34ppmszJV2TipYKXqDGV8WoJPDz4+Y3UQJSc4DvrePia46QLizkZOvXl05sRdf7bD
-	hdh7gGuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=95adhiCyJGSP0NNJz+SWF3fmYOKDXZLRe3b8Jezgjx4=; b=zbQHrHdDpcFfB7YYOwzlG6Db5b
+	xoO51XsPz9EK4W47UDuxjBM4nOXUoz0HqMw5H235hi+wkxTQ+LlEa1n9ilojZfDBeNF8l+05uwk9B
+	3NZY3e59FqgShla2sA+IX7E82CYCgRyHUji1+GWwrD2qYrkDtU7G88GfnUROXyliP1c27jX2w7NRr
+	qivV/jylaSJu+iMhN+6w72gDR08RNt8JHM085iAOMnOr4oQeX2FMjdXA/nwXH2dXVLmmrHhbGCdsl
+	Cv4XbIVVZYqyOffwFx2OxGATquD3MvGQ6qPD7oUUUyq7dR8kBOEmhS7YgjUsLpQzHUt95x4wxBGOe
+	6u6BzquA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujAbP-0000000BpxK-21vf;
-	Tue, 05 Aug 2025 05:52:47 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1ujAke-0000000BqbJ-3lg2;
+	Tue, 05 Aug 2025 06:02:20 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujAYt-0000000BppU-2EvL
+	id 1ujAi8-0000000BqJY-43q5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 05:50:13 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5755o3L6269191;
-	Tue, 5 Aug 2025 00:50:03 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754373003;
-	bh=+VTpc+4yMWsn0h4j0qC+icyeqYURleBo3nXl9IU2OF4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=JTWjNN8tga4OF9jxDBbqtfN4ilgOhDzSsip3w7+sS7Yvkvqeh/bpgVzTDvtwO5kZV
-	 FDif0DZ/CKOZLV0ztlSlMYHviTN7Swc7RZVtVDGnBohuugZpgILAVQsJje2M0gQwLD
-	 VoUAjQFcNXAnWshIUXG+5lpBnmIViv3CIKJNjnRw=
-Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5755o2lR2071154
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 5 Aug 2025 00:50:02 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE102.ent.ti.com
- (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
- Aug 2025 00:50:02 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 5 Aug 2025 00:50:02 -0500
-Received: from [172.24.231.152] (danish-tpc.dhcp.ti.com [172.24.231.152])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5755nvfM1325571;
-	Tue, 5 Aug 2025 00:49:58 -0500
-Message-ID: <40a7cc6c-363e-4516-847d-9ac6164203ef@ti.com>
-Date: Tue, 5 Aug 2025 11:19:57 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix emac link speed
- handling
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Meghana Malladi
-	<m-malladi@ti.com>,
-        Himanshu Mittal <h-mittal1@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>
-References: <20250801121948.1492261-1-danishanwar@ti.com>
- <be848373-4b7f-4205-b1e4-b08fe161d689@lunn.ch>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <be848373-4b7f-4205-b1e4-b08fe161d689@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Tue, 05 Aug 2025 05:59:46 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 13DE61F38C;
+	Tue,  5 Aug 2025 05:59:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1754373583; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=95adhiCyJGSP0NNJz+SWF3fmYOKDXZLRe3b8Jezgjx4=;
+	b=Tug+H6ceJR8vm3tU+efCFaCzr96j/s1nLL2/WggUlxTKgD31WMWhvXdLI2j7nWl1LR3ZgR
+	7Su5I6BdNuX3TOXtSELG2+ih/cYGHi5CoHvFNWsJgHxRDcbxIrW8FUF8CzS906QIKceo/T
+	t2YT9KcYNX3zS9VGzl7RXtM4h0/nU0k=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1754373583;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=95adhiCyJGSP0NNJz+SWF3fmYOKDXZLRe3b8Jezgjx4=;
+	b=H8q0KLd3PporL8GiyYupV0VD3Y1AdExROpi6Ck5rPM6k9ltPqQkfywiDXp2u6R87uwiXQp
+	cHxZ3CpOM7KO6dCw==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1754373583; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=95adhiCyJGSP0NNJz+SWF3fmYOKDXZLRe3b8Jezgjx4=;
+	b=Tug+H6ceJR8vm3tU+efCFaCzr96j/s1nLL2/WggUlxTKgD31WMWhvXdLI2j7nWl1LR3ZgR
+	7Su5I6BdNuX3TOXtSELG2+ih/cYGHi5CoHvFNWsJgHxRDcbxIrW8FUF8CzS906QIKceo/T
+	t2YT9KcYNX3zS9VGzl7RXtM4h0/nU0k=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1754373583;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=95adhiCyJGSP0NNJz+SWF3fmYOKDXZLRe3b8Jezgjx4=;
+	b=H8q0KLd3PporL8GiyYupV0VD3Y1AdExROpi6Ck5rPM6k9ltPqQkfywiDXp2u6R87uwiXQp
+	cHxZ3CpOM7KO6dCw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 60DBC13A55;
+	Tue,  5 Aug 2025 05:59:42 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id yO5XFs6dkWiwBgAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Tue, 05 Aug 2025 05:59:42 +0000
+Date: Tue, 05 Aug 2025 07:59:42 +0200
+Message-ID: <87h5ym1f75.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Joris Verhaegen <verhaegen@google.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	kernel-team@android.com,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	patches@opensource.cirrus.com,
+	linux-arm-msm@vger.kernel.org,
+	sound-open-firmware@alsa-project.org,
+	linux-arm-kernel@lists.infradead.org,
+	Miller Liang <millerliang@google.com>
+Subject: Re: [PATCH v4 2/3] ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64 ioctl
+In-Reply-To: <aJGM2zXS6hOLDFm1@vaman>
+References: <20250801092720.1845282-1-verhaegen@google.com>
+	<20250801092720.1845282-3-verhaegen@google.com>
+	<aJGM2zXS6hOLDFm1@vaman>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/27.2 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-1.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[27];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[google.com,perex.cz,suse.com,gmail.com,kernel.org,intel.com,linux.intel.com,linux.dev,nxp.com,linux.alibaba.com,socionext.com,android.com,vger.kernel.org,opensource.cirrus.com,alsa-project.org,lists.infradead.org];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLtwg9tyn6faipwn1aqsxq4m86)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_225011_752077_CEF33FAD 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250804_225945_371671_D69785E6 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,71 +156,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-On 04/08/25 10:19 pm, Andrew Lunn wrote:
-> On Fri, Aug 01, 2025 at 05:49:48PM +0530, MD Danish Anwar wrote:
->> When link settings are changed emac->speed is populated by
->> emac_adjust_link(). The link speed and other settings are then written into
->> the DRAM. However if both ports are brought down after this and brought up
->> again or if the operating mode is changed and a firmware reload is needed,
->> the DRAM is cleared by icssg_config(). As a result the link settings are
->> lost.
->>
->> Fix this by calling emac_adjust_link() after icssg_config(). This re
->> populates the settings in the DRAM after a new firmware load.
->>
->> Fixes: 9facce84f406 ("net: ti: icssg-prueth: Fix firmware load sequence.")
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> ---
->> v1 - v2: Added phydev lock before calling emac_adjust_link() as suggested
->> by Andrew Lunn <andrew@lunn.ch>
->> v1 https://lore.kernel.org/all/20250731120812.1606839-1-danishanwar@ti.com/
->>
->>  drivers/net/ethernet/ti/icssg/icssg_prueth.c | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> index 2b973d6e2341..58aec94b7771 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
->> @@ -50,6 +50,8 @@
->>  /* CTRLMMR_ICSSG_RGMII_CTRL register bits */
->>  #define ICSSG_CTRL_RGMII_ID_MODE                BIT(24)
->>  
->> +static void emac_adjust_link(struct net_device *ndev);
->> +
->>  static int emac_get_tx_ts(struct prueth_emac *emac,
->>  			  struct emac_tx_ts_response *rsp)
->>  {
->> @@ -229,6 +231,12 @@ static int prueth_emac_common_start(struct prueth *prueth)
->>  		ret = icssg_config(prueth, emac, slice);
->>  		if (ret)
->>  			goto disable_class;
->> +
->> +		if (emac->ndev->phydev) {
->> +			mutex_lock(&emac->ndev->phydev->lock);
->> +			emac_adjust_link(emac->ndev);
->> +			mutex_unlock(&emac->ndev->phydev->lock);
->> +		}
+On Tue, 05 Aug 2025 06:47:59 +0200,
+Vinod Koul wrote:
 > 
-> What about the else case? The link settings are lost, and the MAC does
-> not work?
+> On 01-08-25, 10:27, Joris Verhaegen wrote:
+> > The previous patch introduced the internal infrastructure for handling
+> > 64-bit timestamps. This patch exposes this capability to user-space.
+> > 
+> > Define the new ioctl command SNDRV_COMPRESS_TSTAMP64, which allows
+> > applications to fetch the overflow-safe struct snd_compr_tstamp64.
+> > 
+> > The ioctl dispatch table is updated to handle the new command by
+> > calling a new snd_compr_tstamp64 handler, while the legacy path is
+> > renamed to snd_compr_tstamp32 for clarity.
+> > 
+> > This patch bumps the SNDRV_COMPRESS_VERSION to 0.4.0.
+> > 
+> > Reviewed-by: Miller Liang <millerliang@google.com>
+> > Tested-by: Joris Verhaegen <verhaegen@google.com>
+> > Signed-off-by: Joris Verhaegen <verhaegen@google.com>
+> > ---
+> >  include/uapi/sound/compress_offload.h |  5 +++--
+> >  sound/core/compress_offload.c         | 19 +++++++++++++------
+> >  2 files changed, 16 insertions(+), 8 deletions(-)
+> > 
+> > diff --git a/include/uapi/sound/compress_offload.h b/include/uapi/sound/compress_offload.h
+> > index abd0ea3f86ee..70b8921601f9 100644
+> > --- a/include/uapi/sound/compress_offload.h
+> > +++ b/include/uapi/sound/compress_offload.h
+> > @@ -13,8 +13,7 @@
+> >  #include <sound/asound.h>
+> >  #include <sound/compress_params.h>
+> >  
+> > -
+> > -#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 3, 0)
+> > +#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 4, 0)
+> >  /**
+> >   * struct snd_compressed_buffer - compressed buffer
+> >   * @fragment_size: size of buffer fragment in bytes
+> > @@ -208,6 +207,7 @@ struct snd_compr_task_status {
+> >   * Note: only codec params can be changed runtime and stream params cant be
+> >   * SNDRV_COMPRESS_GET_PARAMS: Query codec params
+> >   * SNDRV_COMPRESS_TSTAMP: get the current timestamp value
+> > + * SNDRV_COMPRESS_TSTAMP64: get the current timestamp value in 64 bit format
+> >   * SNDRV_COMPRESS_AVAIL: get the current buffer avail value.
+> >   * This also queries the tstamp properties
+> >   * SNDRV_COMPRESS_PAUSE: Pause the running stream
+> > @@ -230,6 +230,7 @@ struct snd_compr_task_status {
+> >  						 struct snd_compr_metadata)
+> >  #define SNDRV_COMPRESS_TSTAMP		_IOR('C', 0x20, struct snd_compr_tstamp)
+> >  #define SNDRV_COMPRESS_AVAIL		_IOR('C', 0x21, struct snd_compr_avail)
+> > +#define SNDRV_COMPRESS_TSTAMP64		_IOR('C', 0x22, struct snd_compr_tstamp64)
+> >  #define SNDRV_COMPRESS_PAUSE		_IO('C', 0x30)
+> >  #define SNDRV_COMPRESS_RESUME		_IO('C', 0x31)
+> >  #define SNDRV_COMPRESS_START		_IO('C', 0x32)
+> > diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
+> > index d3164aa07158..445220fdb6a0 100644
+> > --- a/sound/core/compress_offload.c
+> > +++ b/sound/core/compress_offload.c
+> > @@ -736,18 +736,23 @@ snd_compr_set_metadata(struct snd_compr_stream *stream, unsigned long arg)
+> >  	return retval;
+> >  }
+> >  
+> > -static inline int
+> > -snd_compr_tstamp(struct snd_compr_stream *stream, unsigned long arg)
+> > +static inline int snd_compr_tstamp(struct snd_compr_stream *stream,
+> > +				   unsigned long arg, bool is_32bit)
+> >  {
+> >  	struct snd_compr_tstamp64 tstamp64 = { 0 };
+> >  	struct snd_compr_tstamp tstamp32 = { 0 };
+> > +	const void *copy_from = &tstamp64;
+> > +	size_t copy_size = sizeof(tstamp64);
+> >  	int ret;
+> >  
+> >  	ret = snd_compr_update_tstamp(stream, &tstamp64);
+> >  	if (ret == 0) {
+> > -		snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
+> > -		ret = copy_to_user((struct snd_compr_tstamp __user *)arg,
+> > -				   &tstamp32, sizeof(tstamp32)) ?
+> > +		if (is_32bit) {
+> > +			snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
+> > +			copy_from = &tstamp32;
+> > +			copy_size = sizeof(tstamp32);
+> > +		}
 > 
+> Most of the applications and people would be 32bit right now and we
+> expect this to progressively change, but then this imposes a penalty as
+> default path is 64 bit, since we expect this ioctl to be called very
+> frequently, should we do this optimization for 64bit here?
 
-Actually this if else is not needed at all. If phydev == NULL, the
-driver would have already returned -ENODEV in emac_phy_connect() and the
-device's probe would have failed.
+Through a quick glance over the patch, I don't think you'll hit the
+significant performance loss.  It's merely a few bytes of extra copies
+before copy_to_user(), after all.  But, of course, it'd be more
+convincing if anyone can test and give the actual numbers.
 
-If we have reached this point that means phydev is not null and there is
-no need for this check.
 
-I will drop this if check and send a v3.
+thanks,
 
-> 	Andrew
-
--- 
-Thanks and Regards,
-Danish
-
+Takashi
 
