@@ -4,158 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078ABC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 07:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9448BC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 07:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cubuDjsic/p/WxTvs2JbonkfRAnjZVHQX/vvR5slJRk=; b=r3UXwfpGU3PpSR6MauGTCNZga2
-	Eum7uzhhWz6UcPa4hSpi25toDF26wF/+jY72C+a3ZoW6M7B5cCcbe+g1/5S/OGNWZFx4nvc5G7JsM
-	2H78itm7lMLEaA8tfCQVG686C65oCKrbxw/B4zeiVmJP5IbDyEYVNYJHokLk/BDHLwQkQAcKzs9Y6
-	6Tt9SyhG6/OwUuzORfZS4nwjEnd8bX2qWaMGVFS1Su/LjKYbJ2YTYbIKilWIFLx74iDDYqQKobpPd
-	O1Q0tVh0AV781FnWHtTDFs5pLQ1TCYB2gMVfLvrDJBPkdrRJLyOMECT7yd4Xvu7XQv85RnaIfnOEL
-	5OCW4W7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LLt3pZSNwp/Iozyqay3NMtUYSSaQpFcEZxczhdMZ6+c=; b=i6hUkdaxqfXTQQ+O0sxIXy3s84
+	xVzrTpdM2QdFL66ITbqtmOAJ2NJ2cx/1jIlwPwyrseLz+fGSilwCpqrKa7OetBgyzxBXzYG630vQ6
+	WweeTwjvtJwM/uPgX5aDLAjXuEpjPD26k/6UgYhr7JZOvgMK0LHbEkuO2KZOzQd2NfaFlWkLPqPPR
+	7X512P0wnZhoPrNL91BcaXaprqsySNVO0pIYkOUcjr8gWvfMam6NGerK5kx0ghlhrBnVH6XDCbtaJ
+	FWcjQDec09xu6ULWNgnTBGel19X1fBDz3wAQN6D6saFunUCbN5iUmuVnmPCpDNYGKuocwG8/sw6TH
+	1hJjyu/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujCUw-0000000C5V8-0fS9;
-	Tue, 05 Aug 2025 07:54:14 +0000
-Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1ujCXW-0000000C5pB-35GE;
+	Tue, 05 Aug 2025 07:56:54 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujCOQ-0000000C3qf-06X1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 07:47:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XUP6t/cGf5PRtvLDeHnOCUe4gkKEcPl3IrwSV1Lnib+bFn3w4ebMoWdewRlCTjQgMF8yOmZsKZ0rVCzOp8Q4mjAH1rbpzQGML1uwIt2ZgL5+EGaGgfjIslnoXdsusHE+YD3r9fdmWJsWWwW4mZChywqy7jXHb4Hw/Fvgnq03rUSXE+4aPzEeY7h0wGJTT/gVkMPYNPUYfLibl2rE6cXpSbCCbOYiZg+XfmDq81l9eiW/WbyeVRmp+SP+CJPL7C8V4SuNg5ztxLz4HvrmcZcAS32PDpLf7C0Hn0h/gFRdbDbal8QNMNBLZ9ILWMalybhrRfVFw46Gzwz6VCVCiTqaFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cubuDjsic/p/WxTvs2JbonkfRAnjZVHQX/vvR5slJRk=;
- b=gPHuvW3Ut66p4fsVToE7VWZt0B7XI2Lcf9duBPnTuxjEn0x1UTVT6QlxeB69j4i+0Uz08A5XIGFLm/XX64QznfgR3lq9+wCqSsHgsTTYQfBxPkMESqkRMZhsUugZaBFfcRyhHqhp5U6Ye07pj2qWlQRroVijZgU18Ku6bnt19qjfANRSJvVv58mIC1T6woq8fck5DXEClzjrdDIoJkh0NULSj+DaoZSIxEkFLwVRvExX8Y9mGiMV0BslWUratBpIkP8POvb3q0Lv+c0kWlrXPePaulJi6qRkzgr7rfSPLYKE1EZHeiIJpDhv/VKfDDH4qVdwF5WwBqUt1FwXPFI3mQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cubuDjsic/p/WxTvs2JbonkfRAnjZVHQX/vvR5slJRk=;
- b=KFugIkEH3BODi3880BjSVkfLaGZHOXJie/QgO7FLBNNNInBb1RaAYkWXmcsWDB3qQutdw9vqK3vcXGVcZC7oV5JCr5pmUgN7eBRbHCNmdmJtpn/Fx5kd1sFiCDOnhMMzxoly6FKraVvoOpg4QgC+Qp72nQb8mK4glBSqsPKphjUTcRxQ2BfLidn1emyh0/rEjv30xfD5B4hZJm/C8ZZvPWsW/T69fNSni94Up7sxByvhDipD/Ngz5KKcs1TZ687n4OX1wxduA70kcsNPoA9xxgoGZVAtFzvvad1yGsbg7aNCmpb7T6VEYpV1brUHOgPwLXNka1Bn0lsJOrqtXHLCHQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from SEZPR06MB5576.apcprd06.prod.outlook.com (2603:1096:101:c9::14)
- by KU2PPF022ABE738.apcprd06.prod.outlook.com (2603:1096:d18::484) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Tue, 5 Aug
- 2025 07:47:23 +0000
-Received: from SEZPR06MB5576.apcprd06.prod.outlook.com
- ([fe80::5c0a:2748:6a72:99b6]) by SEZPR06MB5576.apcprd06.prod.outlook.com
- ([fe80::5c0a:2748:6a72:99b6%5]) with mapi id 15.20.8989.020; Tue, 5 Aug 2025
- 07:47:23 +0000
-From: Liao Yuanhong <liaoyuanhong@vivo.com>
-To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	dri-devel@lists.freedesktop.org (open list:NXP i.MX 8MQ DCSS DRIVER),
-	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Liao Yuanhong <liaoyuanhong@vivo.com>
-Subject: [PATCH 3/4] drm/imx: Remove goto label that are only used once
-Date: Tue,  5 Aug 2025 15:46:18 +0800
-Message-Id: <20250805074645.625911-4-liaoyuanhong@vivo.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250805074645.625911-1-liaoyuanhong@vivo.com>
-References: <20250805074645.625911-1-liaoyuanhong@vivo.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR02CA0017.apcprd02.prod.outlook.com
- (2603:1096:4:194::17) To SEZPR06MB5576.apcprd06.prod.outlook.com
- (2603:1096:101:c9::14)
+	id 1ujCPV-0000000C45L-3bHo;
+	Tue, 05 Aug 2025 07:48:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1754380116;
+	bh=dfz9GEQtGUBOq+4N1TmCcfkFU6ARoozvcEdCqiVMSXg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Odn44y4uCkUytDBo/oOSHQ7Idxe70sJ2w8swzbeUWboeYTHjT/CsidZXMOuT+Dz9x
+	 0IJC8XC8Bpd0b6dmKLumrBFue826zqygwgJGH7itTCDFn8xkj0NMBRWHQ4DkwdgDN2
+	 NOmPMQLG3v3Bjcisl1wcX2tG+iaXbzcUTS0Q2c5oF/AYdtTS7+UafYfCuPXRFwi3ha
+	 aC/YeUbGdMf+JFc5+mJ21QF0bVJungC5MpQsWpPPbemOdacMQclz8vLGy+yx4Pd5SU
+	 7X4Xh0j82ip32kfhOI7pIh+ISaqH7ku2XYYTKmjzyqUzBO3ue7vfIB2il1Sz/JLJS6
+	 WZC6R43AR4kJw==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5175D17E01F5;
+	Tue,  5 Aug 2025 09:48:35 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	ulf.hansson@linaro.org,
+	y.oudjana@protonmail.com,
+	fshao@chromium.org,
+	wenst@chromium.org,
+	lihongbo22@huawei.com,
+	mandyjh.liu@mediatek.com,
+	mbrugger@suse.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	kernel@collabora.com
+Subject: [PATCH v3 00/10] pmdomain: Partial refactor, support modem and RTFF
+Date: Tue,  5 Aug 2025 09:47:36 +0200
+Message-ID: <20250805074746.29457-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5576:EE_|KU2PPF022ABE738:EE_
-X-MS-Office365-Filtering-Correlation-Id: b32027af-10e3-49e1-8da3-08ddd3f45038
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FVRtc1Q2vgNYLIlXd+F6wdU+Qnab9W/fluFnxmjs5EdJWi5Pu9mT21cM3DRD?=
- =?us-ascii?Q?QotmbIYkrnpA1qQ7oET2ycJWfJJ6A/H57hHXDSt1Q/yXTssCbxMFJOgjL8po?=
- =?us-ascii?Q?TSRJHQn1XZ5oAPbB1YLaEB0spIubzXWt0mLfr47oCjXImS/SPWQuetPVk6fe?=
- =?us-ascii?Q?7IT/iCdMNxIuKv+raCsei5oPOS+koRMFbV0fN+2TO8wuMelpyJBN/kYasOCt?=
- =?us-ascii?Q?VyrHyy2NdrdUkeyKpIYRtdTYB4yUwwvJ5Fwq23rDxRQV4zk65SL/BR1wzdTa?=
- =?us-ascii?Q?dbe7Sjk0OeadIOvHMHSnjfJL8l6BBPN/d53JlUlbLqtSEdlJCB2KCtcSXifp?=
- =?us-ascii?Q?3/0AknKJ9uQgQDfnP9Kg6xx//wJlVRtpTu0BO3pjbP4fcAO3Ht6RMAA0zVaB?=
- =?us-ascii?Q?SJajMRXJuYKhwQlW2rKgX+/MX06wy+yPURbEj4XGc8j7fyINgsRcubwWeZ4D?=
- =?us-ascii?Q?z6SY/KTisAEGYNhWl0xvOKgk9HynoRVIW3yt/hdOoFoxw/nw9bpazrJfb5ep?=
- =?us-ascii?Q?QjIfJKhfx3ZK14fB8MBtZ7+hxQOMG1Zx621/TQ5KGgHDcz+GbuBxSYZrOT/v?=
- =?us-ascii?Q?B9GqaP/H0seXBbGY9GbNs2/4jsMTzP5z6FEjFau1A5bt9qh+3neFPwfe2DVw?=
- =?us-ascii?Q?DuSsKgCBXMvS1+NDyZ2mNldANxGoj/uD8Ptn2E2c2vDzZMRGGXA7nV98J5qZ?=
- =?us-ascii?Q?XbLqbtU8+38XS2urDw820/OdNgcTceF8lCjGw8rUPw/FlBCmomgZYhlgLlwZ?=
- =?us-ascii?Q?EfX+inS0c9JklZgzJeRXZabEImlzRG4sD4sXpXVQSGY9r6H1jvEnfqB25wKl?=
- =?us-ascii?Q?4sSAWvtUSlKUhYiZ6tNkuK8WAHopg6R7QgE5qMj/zPuYWU5V3FKitLFUHXsk?=
- =?us-ascii?Q?0Fc1WIUG3INEKgKEuQy5tVg5VIeHtflUOfMbtLCALjO6Y+5rM0Qds0086n/y?=
- =?us-ascii?Q?CCvyl/Uj/5WQr5n4F9ZN1ULqiCWsv8JUszuWD+efyslxlJtOj4/JZ5pQSLmB?=
- =?us-ascii?Q?aSdOJaSqTa3dEFBtTtzmDb+8e+UD0QBe5LHq2i+pnuG59J2+hsdD1K0bRmvh?=
- =?us-ascii?Q?qCCicni31Q2kc08pJfvBcYfRg7pWkaifr/f7jwAznHzxproJX1A8XJ3+P9FC?=
- =?us-ascii?Q?mYooX25ZjMQmcU6aP72ijqpKP/PSzQJbTNt8aHAnwUPeLMmcwyZrlITvb9+T?=
- =?us-ascii?Q?ZggZu2iFpow1kEEQeCY/Z6A+VNMt4P9LsSaM1BmKcPnLMCptQVtXDqxxLEWZ?=
- =?us-ascii?Q?0gxUWokuCP3c0iYF7urb9yjjOD2pu5j7nUD1Zkf276r4M9oqSWSXrc/iUnJA?=
- =?us-ascii?Q?5/DA65nOzqSvPJ2Mg3lKZbSS9MhXCkW6RrkTM/eumN2gLEhF1GQl4O6jsXCt?=
- =?us-ascii?Q?AZndSzQJbwdEabOD7AmotJVmun2DySqaCXCbxztGxliWH7u2K/ZKL8p+Bpkg?=
- =?us-ascii?Q?SaGYMQVid7FzYk5c4zamqfKICPu3UuYorXL5AaBGRhXCNEz4spTvJQBhaXGJ?=
- =?us-ascii?Q?ShUvlH/rDP77yyI=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5576.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uMWKmQ6JKOxcikCN4aZPWfQ8V9ei03wPnR47dsbGhTpYYxLg9hOeJeL1eKLs?=
- =?us-ascii?Q?VLg35XgbzXLuZi2gx4u3ZMVs4qk46lwAjn1lSx+Uy0YnSo10r8HyVIteQNRt?=
- =?us-ascii?Q?YQXQU+u6tXl22Bsb2sZL+xZD5HYv6sdUF6Dl1/nvHZRiPJ7gWpuH4dDRnyPi?=
- =?us-ascii?Q?ckDZUhOjwRtyb5Coxsc/0fRBtprEAdEOrvaX41OSN6657eD44f7ltUqt+PJG?=
- =?us-ascii?Q?mMMbkHpWFV7fMiAArJQHKaHT2LRln3lRgaJtZonIN0OkgqWhLwcY8TDlVg0b?=
- =?us-ascii?Q?dA/JqAYXQ69gXzyQb/vbwuQv4dMfNGEG6p1ufhOxgx2HyYDIbTxC+C2aAS4x?=
- =?us-ascii?Q?Pd236KdpuHEdzfer1srUFdtG1yS+ajCBMT+cg+IOal04H9Go6E2amp6qyKd6?=
- =?us-ascii?Q?ugQpss4niiOLd9kOHVkwr2Xk+lLzLYCgAqjo5DsIPBQCJaUCk3LGydoInuVO?=
- =?us-ascii?Q?qZDWBHqf9xHO9wsIeranP+VIfE6SneTY4FrV/JCj3fHpBu/AYgv3ByZR8j83?=
- =?us-ascii?Q?xYbNsc3darP7KbsavtUo9vM+AxA80/3bFERTwsje6UJif5t0Ga6wl0Yr3yyy?=
- =?us-ascii?Q?ru/BteYDAhSjFxZ0zrvH0GBj7chr12SU8Vmsw05FaKQsTF+uPJ0c4GsidPqS?=
- =?us-ascii?Q?wI0hmbUpg1hSnjSJ0PQb5XkslhG9c6BgUA9TxpitUZCm2dJ/9rkzlWGoCpLs?=
- =?us-ascii?Q?+vFAVWo+r5NSpiXQNNfotVUIzX3mb0JRh+FI89QIC0pp6BPOGQaQmQQUQC+O?=
- =?us-ascii?Q?I6Zoc+cvqJ3iOtSBxX7M+q6XTRBQqHha5vNoQJZjnNyRuMMXYkg5Pg/Il8CH?=
- =?us-ascii?Q?8zM/5/rzD1HHfd9qFN7dLB5mQ3+ROgL+oz0C9MLXXD4X8RxBkZ3sBkcN/106?=
- =?us-ascii?Q?p/WCnosg23qkMkzvPaW0QVdRRzP0bHU6T4dV/N6w8kQ+V1vBfLRUnJnXChPP?=
- =?us-ascii?Q?QpTAi/qY49C00o2LN4pFDcDAPtwcjC6fbGUCHbKHFlhqAikn29YzgFzHmhwA?=
- =?us-ascii?Q?JbQAzf8iMsAZL73zSqRhPnmWaWq83tvp3USCW5nuFg+c0k6WDY+3nCh8keBr?=
- =?us-ascii?Q?jIzwazQwAH0SqEGAJNIiMIZBcaUMugG2l4QZWg4Uxbc/OQw6viAIeY9Icqz3?=
- =?us-ascii?Q?l0O/V6HuM2IDUs8ebbF+NZAiqFYNsuaV2caBBXbmgZA2qfXdLsg1pmdgNeY0?=
- =?us-ascii?Q?dx8hIENfEQVnwTHQBNMsPKklOuNxZHlUGuyqcyb4+jTlyIMO6lP8zXk+6vOL?=
- =?us-ascii?Q?lPdHZ8LPBCMWH0C+DEHhAoS4zImWsjQqBSXV6MgMld/crR6ZEnRKtCw6z2wn?=
- =?us-ascii?Q?zB01VkDL8HH+ktCgaGMf6WkUV832nTpPgn+zyTqZ7O0/DLGmH0Zd54jN4pCr?=
- =?us-ascii?Q?tqYiXVQFq5Gmb0olyTg6QlNsDbDwJ3GQlFqUxbyQdoTMz6rC08ThsZpBORQK?=
- =?us-ascii?Q?I0OiacJNwIJ8LBdV1EedaEAC+c2oblO/afdqW+y8XAjuUSdKZ+f2ziwsRv7h?=
- =?us-ascii?Q?GWObmxV0N1xfaLClqBRVwicWEk5xFlAJHCvst9R/Y7ohXarR8s4SSKAGjT2+?=
- =?us-ascii?Q?lYXInjxU8c8yZXLIxoK6UKsvR5m/Sl4bPGQfx4Dk?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b32027af-10e3-49e1-8da3-08ddd3f45038
-X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5576.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 07:47:23.0060
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WWkQKMVU/lI2GBvNhWH/MwhP8loQjvTTuqFTu4XTCaABgEGmvglzXXbGt1JJd6Ow8WhDeW56aB8lKF1BgFtRhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPF022ABE738
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_004730_116045_7E43E0F5 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250805_004838_128969_D6574C35 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,36 +86,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary goto labels to improve code readability. 
+Changes in v3:
+ - Dropped specified items for cells restriction as suggested by Rob
+ - Fixed an issue in patch 4 still referencing "mediatek,bus-protection"
+   as it is entirely replaced by "access-controllers"
 
-Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
----
- drivers/gpu/drm/imx/dcss/dcss-drv.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+Changes in v2:
+ - Added #access-controller-cells allowance for MT8188/95 infracfg_ao
 
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-drv.c b/drivers/gpu/drm/imx/dcss/dcss-drv.c
-index 19b027cc1dc4..3df060a2f6bf 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-drv.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-drv.c
-@@ -65,15 +65,11 @@ static int dcss_drv_platform_probe(struct platform_device *pdev)
- 	if (IS_ERR(mdrv->kms)) {
- 		err = PTR_ERR(mdrv->kms);
- 		dev_err_probe(dev, err, "Failed to initialize KMS\n");
--		goto dcss_shutoff;
-+		dcss_dev_destroy(mdrv->dcss);
-+		return err;
- 	}
- 
- 	return 0;
--
--dcss_shutoff:
--	dcss_dev_destroy(mdrv->dcss);
--
--	return err;
- }
- 
- static void dcss_drv_platform_remove(struct platform_device *pdev)
+This series is a subset of [1], leaving out the Hardware Voter specific
+bits for MT8196 until the discussion around it reaches a conclusion.
+
+Even though the proposed code was born as a preparation to support the
+MT8196/MT6991 SoCs power domain controllers, it is a necessary cleanup
+for all power domain controllers of all of the currently supported SoCs
+from MediaTek.
+
+You may also notice the addition of support for modem power sequences:
+this was brought up 6 months ago (or more) by community contributors
+(mainly Yassine Oudjana) that were trying to upstream the MediaTek
+MT6735 Smartphone SoC and needed support to provide power to the MD
+subsystem - so, even though in this specific series the code for the
+modem power sequence is not yet triggered by any SoC, please please
+please, let it in.
+Besides, "a bunch" of upstream supported SoCs do have the MD power
+domain even though it wasn't added to their drivers (because if there
+was no support in the driver, it would just crash the system); the
+addition is something that I plan to do at some point, but definitely
+not now as I have no bandwidth for that (bar MT8196, which will have
+this domain).
+
+Compared to v1 in [1]:
+ - Changed mediatek,bus-protection to access-controllers
+   as suggested by Rob (thanks!)
+ - Added commits to document #access-controller-cells on all of
+   the access control providers
+
+In the meanwhile.... relevant excerpt from the old series:
+
+This series refactors the bus protection regmaps retrieval to avoid
+searching in all power domain devicetree subnodes for vendor properties
+to get syscons for different busses, and adds a new property which is
+located in the power controller root node containing handles to the same.
+
+Retrocompatibility is retained and was tested on multiple SoCs in the
+Collabora lab - specifically, on Genio 350/510/700/1200, and manually
+on MT6795 Helio (Xperia M5 Smartphone), MT8186, MT8192 and MT8195
+Chromebooks.
+
+This was tested *three times*:
+ - Before the per-SoC conversion in drivers/pmdomain/mediatek
+ - With per-SoC conversion code but with *legacy* devicetree
+ - With per-SoC conversion code and with *new* devicetree conversion
+
+All of those tests were successful on all of the aforementioned SoCs.
+
+This also adds support for:
+ - Modem power domain for both old and new MediaTek SoCs, useful for
+   bringing up the GSM/3G/4G/5G modem for both laptop and smartphone use
+ - RTFF MCU HW, as found in MT8196 Chromebooks and MT6991 Dimensity 9400
+
+...and prepares the pmdomain code to accomodate only the directly
+controlled power domains for MT8196 (HW Voter support was left out).
+
+[1] https://lore.kernel.org/all/20250623120154.109429-1-angelogioacchino.delregno@collabora.com
+
+AngeloGioacchino Del Regno (10):
+  dt-bindings: memory: mtk-smi: Document #access-controller-cells
+  dt-bindings: clock: mediatek: Document #access-controller-cells
+  dt-bindings: power: mediatek: Document access-controllers property
+  pmdomain: mediatek: Refactor bus protection regmaps retrieval
+  pmdomain: mediatek: Handle SoCs with inverted SRAM power-down bits
+  pmdomain: mediatek: Move ctl sequences out of power_on/off functions
+  pmdomain: mediatek: Add support for modem power sequences
+  pmdomain: mediatek: Add support for RTFF Hardware in MT8196/MT6991
+  pmdomain: mediatek: Convert all SoCs to new style regmap retrieval
+  arm64: dts: mediatek: Convert all SoCs to use access-controllers
+
+ .../bindings/clock/mediatek,infracfg.yaml     |   3 +
+ .../clock/mediatek,mt8186-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8188-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8192-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8195-sys-clock.yaml      |  15 +
+ .../clock/mediatek,mt8365-sys-clock.yaml      |  15 +
+ .../mediatek,smi-common.yaml                  |  16 +
+ .../power/mediatek,power-controller.yaml      |  37 ++
+ arch/arm64/boot/dts/mediatek/mt6795.dtsi      |   5 +-
+ arch/arm64/boot/dts/mediatek/mt8167.dtsi      |   6 +-
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi      |   4 +-
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi      |  17 +-
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi      |  12 +-
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  23 +-
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi      |  13 +-
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi      |  20 +-
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi      |  16 +-
+ drivers/pmdomain/mediatek/mt6795-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8167-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8173-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8183-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8186-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8188-pm-domains.h |   6 +
+ drivers/pmdomain/mediatek/mt8192-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8195-pm-domains.h |   5 +
+ drivers/pmdomain/mediatek/mt8365-pm-domains.h |  14 +-
+ drivers/pmdomain/mediatek/mtk-pm-domains.c    | 399 +++++++++++++++---
+ drivers/pmdomain/mediatek/mtk-pm-domains.h    |  74 +++-
+ 28 files changed, 594 insertions(+), 181 deletions(-)
+
 -- 
-2.34.1
+2.50.1
 
 
