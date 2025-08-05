@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEE53C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 10:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7F4C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 10:41:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Ar0NLemVcS8Q0eL1gYpaDXHf8V6Ud9JA+Ifa04irXg=; b=Yobu+3QjCmBtlK/Re9endD1Cj2
-	12DSt52aYctFpqx3E0yMAr3c6PHzKJFgd5vx7KnZZSvKavF2NoX+Z4LvMwWL3X85zBcj60i7mCNm2
-	7hENaUbyhooG/axBZdQ+UGxcgpt2rmc9MECD/u6CfTfEVNhs7osEcesx/OUmKkSybZhIylJX3aL4Q
-	LW/wzpBf43KNV1UvYRVaXu2GlZYoozHWiB0LbKUb09aWHGIXQckQl8/hvEVetlaDHHkv+hkAEvUgA
-	igYrxZ1dbs5+yI1n3w2gUnD4HEN/yeiRCZftv72CyKkf+9t3YteR8MAZ6DnTY243ExKGZFpm5vIPP
-	+Omcz4uw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oLmTxcOtpQetRauLXWOZCRRLrXNtljDrfMzipV98NVw=; b=R0BS8aaOhPLCM+4oPu3AbLeUDH
+	P4ti+AXNfHI5sh9DsvQaCDkhKWXxzZamifC4DX94AixoLW8au9/g9nHAMM1VbPOhV/sv+2SmgB433
+	7KKRRqdhahBXJMwzLMtr/BfNkS4YLF8ywkUQi2m406O4fLc229akgOnqIfCLoKuX0/08RHleYZHhT
+	zLn0yVhTGZqm2I2TS6pBbQ5pqYtMTeSSXfEte3tQbfefbRdSz0tWrVJNb+Wwr4KOlRgiyaTxXE5Zb
+	r+3XJjtojdmOf+DdO7juabieeVl5GTM7+bVOpPOkjQ7OwB63sgqHtWAh8rvNl0dTvwDLx8bXVHOkv
+	1BU1kTFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujF3x-0000000CVZ9-1Ukn;
-	Tue, 05 Aug 2025 10:38:33 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1ujF78-0000000CWA9-1yrD;
+	Tue, 05 Aug 2025 10:41:50 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujEhd-0000000CSnb-2OxF
+	id 1ujErS-0000000CU86-0m4H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 10:15:30 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-af95ecfbd5bso397276566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 03:15:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754388928; x=1754993728; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=8Ar0NLemVcS8Q0eL1gYpaDXHf8V6Ud9JA+Ifa04irXg=;
-        b=cwRm3Up2aq7/hLu852FdSI34Iemq0D/i5YOZNoIbe6ihShiDQCncwmI/M5d2zOtQuj
-         Ha+IsnBcz7ruv67pzMvOJgu4wdLGd/i9ebog+uTuxy8xlHgvebKuTzWtLrILN38sFLki
-         VmIOypTJlYGoHZ5ArgyVu2YFWEVDiJT5rCKOFgjRrCNV0N6zG6hrfJGhHcqZlp+3rxHT
-         ocwc2QuywihNhyZi+HQx8MB1Ua8A6ZzbkQ847LQ0ZsUvJ+u1XmyV/TakikUYJsoSdmre
-         US+/HZmR4KtkQM5Z8yIEtoa4QscM5KQ9mdkre9xlq8Ld6vQQ6ttjQyKrRpg8thJxRGSX
-         qvsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754388928; x=1754993728;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8Ar0NLemVcS8Q0eL1gYpaDXHf8V6Ud9JA+Ifa04irXg=;
-        b=i88DMfet+4OtOT8i6DWLTsyAPzRIY1sx2DdIIE+wP2q4P2tSpy4vhj5/0yMxLmWsbI
-         E2O5Wt6llM9kOvznGmz4pZGaHka/KRqGvQokDPp5D4dKeHnVQ8Oi5G9alsBPn3VG3l1R
-         rvOsuZ66ieNyw8v91SGzqt7pAVBSaDSzDdrgjfIKYaSkvpfTubemJDRFQcmM03BvEZqq
-         A5yICvON2lK7dkyyg1n3LnIbFsaygEfBy6dUpEbQszH1UHUacI0rteT5VqkLNoBh1m/c
-         fPhPjKE2emT+JMg/PAVyUQSgVZwEEpKdAm9GAYcruG4CNQf4t5FJD5QJanydbGspnZWQ
-         aCIg==
-X-Forwarded-Encrypted: i=1; AJvYcCVlG+a9GbOHbfLCVtOj62v3c++5epZEAIMsitw0Iwo7grjBncjk88D9rCqo1/N1HbSdrk//sJyhXh8aberHtQux@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKomVor4kO5CAcqyfz0WaWk4gBs/96RC7TRJXiapUEluK26R+B
-	LXvctsVJVJsbCGNQpSpd6v3aSfO95LF+f4sJbSTtBnwjil1g6V6m3A2yr4yQjv974fyueurosVD
-	NRsftnoN71qkOmIMkP5s56aDNA3kgCUxv2spP0uNoHw==
-X-Gm-Gg: ASbGnctCpcKXinWqIw8Aiw7VzdUtEDiHMtIJt2Nsc0lGF23qYNT4RYm2leGh4RjvVz4
-	TP4IMsweyq199g5P2q95zP8eSOhzuN+oFzfHqniePIHuMsfDsUMWk8qXOIL+N1S9hQzIwu0v1XS
-	Che2lmzMz1Rjb2YLrzWzVE3VX3vFbkXS9fZd4usXwGXtV69Y9F2Gl2ST51G31RZ0mbLgCw6ZOUq
-	GgVwQ==
-X-Google-Smtp-Source: AGHT+IHJC0OEe85WEW+uZTa05xouWEVU5GyBHg1A8HxJHnuylCsAviNXR5p7OpzyynSGKKmz7seq3XWzPEvfHkexNis=
-X-Received: by 2002:a17:907:9408:b0:ae3:f903:e41 with SMTP id
- a640c23a62f3a-af9402574b3mr1323967366b.54.1754388923827; Tue, 05 Aug 2025
- 03:15:23 -0700 (PDT)
+	Tue, 05 Aug 2025 10:25:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1754389537; x=1785925537;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=/hLTx8DnHTD5nKVwpN/tqzkn2H4ZOTqkf/3P6143jtk=;
+  b=HEpwL5PC1S4bnUT/beYhOL9yoSx23001/5zfG2E0+F7YmWkghr4mozo8
+   p5YKCEDHuWq+m7hA2JxaZ1b9unTLiUdQqcOyp0G4EgwkdHqLHfZDrmqpv
+   g/gVOifnNAJMgS14WZrA1uJKjcA5e1jxFGW5m+qQBmUG7X0f20zA9dKTz
+   W7r1XIKzc1yCnoXwYHjBGhJ5MTiUr+T1BjgEw6NCflLHTWDeuEIONjRtU
+   BSlW/eJmggkrmuWycg7ZgCM2ytFrbTNFA+pShYW5TvAgmvR3zZjVl23V7
+   zwef6XJz5Jwl3wNDlf1iS7ThkHYQCWlBqn6e9UkS7O76d9IvfAOcwQ1oK
+   Q==;
+X-CSE-ConnectionGUID: CC5+32jcTAyMHulNICypyQ==
+X-CSE-MsgGUID: aRRWOeUKS3em5aoeRe+qYw==
+X-IronPort-AV: E=Sophos;i="6.17,265,1747724400"; 
+   d="scan'208";a="44291422"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Aug 2025 03:25:35 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Tue, 5 Aug 2025 03:25:29 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Tue, 5 Aug 2025 03:25:24 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <broonie@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<ryan.wanner@microchip.com>, <tudor.ambarus@linaro.org>,
+	<linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <manikandan.m@microchip.com>
+Subject: [PATCH v3 0/3] spi: atmel: Add GCLK support and simplify MR update
+Date: Tue, 5 Aug 2025 15:55:07 +0530
+Message-ID: <20250805102510.36507-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250725100806.1157-1-jie.gan@oss.qualcomm.com> <20250725100806.1157-4-jie.gan@oss.qualcomm.com>
-In-Reply-To: <20250725100806.1157-4-jie.gan@oss.qualcomm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 5 Aug 2025 11:15:10 +0100
-X-Gm-Features: Ac12FXxr456QPb-g62XeDYWEW4C_Du37eJm8f_7Mmf5ggFk2nh7e_omeT6qcdRU
-Message-ID: <CAJ9a7VijwFKiaZzKsSKPynWapA3ik9d7JLeE+yVNFB0T62iH-Q@mail.gmail.com>
-Subject: Re: [PATCH v4 03/10] coresight: tmc: add etr_buf_list to store
- allocated etr_buf
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Jinlong Mao <jinlong.mao@oss.qualcomm.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, Jie Gan <quic_jiegan@quicinc.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_031529_640066_23587966 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20250805_032538_494834_3649B437 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,95 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+This patch series introduces support for using the Generic Clock (GCLK)
+as a clock source in the Atmel SPI controller, and also includes a small
+cleanup to simplify MR register handling in cs_activate().
 
-On Fri, 25 Jul 2025 at 11:08, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->
-> Add a list to store allocated etr_buf.
->
-> The byte-cntr functionality requires two etr_buf to receive trace data.
-> The active etr_buf collects the trace data from source device, while the
-> byte-cntr reading function accesses the deactivated etr_buf after is
-> has been filled and synced, transferring data to the userspace.
->
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  .../hwtracing/coresight/coresight-tmc-core.c  |  1 +
->  drivers/hwtracing/coresight/coresight-tmc.h   | 19 +++++++++++++++++++
->  2 files changed, 20 insertions(+)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index be964656be93..4d249af93097 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -830,6 +830,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
->                 idr_init(&drvdata->idr);
->                 mutex_init(&drvdata->idr_mutex);
->                 dev_list = &etr_devs;
-> +               INIT_LIST_HEAD(&drvdata->etr_buf_list);
->                 break;
->         case TMC_CONFIG_TYPE_ETF:
->                 desc.groups = coresight_etf_groups;
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index 6541a27a018e..52ee5f8efe8c 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -208,6 +208,21 @@ struct tmc_resrv_buf {
->         s64             len;
->  };
->
-> +/**
-> + * @sysfs_buf: Allocated sysfs_buf.
-> + * @is_free:   Indicates whether the buffer is free to choose.
-> + * @reading:   Indicates whether the buffer is reading.
-> + * @pos:       Position of the buffer.
-> + * @node:      Node in etr_buf_list.
-> + */
-> +struct etr_buf_node {
-> +       struct etr_buf          *sysfs_buf;
-> +       bool                    is_free;
-> +       bool                    reading;
-> +       loff_t                  pos;
-> +       struct list_head        node;
-> +};
-> +
->  /**
->   * struct tmc_drvdata - specifics associated to an TMC component
->   * @pclk:      APB clock if present, otherwise NULL
-> @@ -242,6 +257,8 @@ struct tmc_resrv_buf {
->   *             (after crash) by default.
->   * @crash_mdata: Reserved memory for storing tmc crash metadata.
->   *              Used by ETR/ETF.
-> + * @etr_buf_list: List that is used to manage allocated etr_buf.
-> + * @reading_node: Available buffer for byte-cntr reading.
->   */
->  struct tmc_drvdata {
->         struct clk              *pclk;
-> @@ -271,6 +288,8 @@ struct tmc_drvdata {
->         struct etr_buf          *perf_buf;
->         struct tmc_resrv_buf    resrv_buf;
->         struct tmc_resrv_buf    crash_mdata;
-> +       struct list_head        etr_buf_list;
-> +       struct etr_buf_node     *reading_node;
+On platforms like the SAM9X7 SoC, the SPI peripheral clock can run at
+266 MHz. This can exceed the maximum value supported by the Serial Clock
+Baud Rate (SCBR) divider, leading to SPI transfer failures. To address
+this, the Atmel SPI controller can use an alternate clock source — the
+Generic Clock (GCLK) — for SPCK generation.
 
-Potential simplification:-
-do you need both reading_node here and reading in the etr_buf_node?
-reading_node handles the logic for which buffer is being read, while
-is_free handles the empty/full logic - reading seems unneeded?
+--------
+changes in v3:
+- Add cover letter
+- 2/3 - add explanation for the spi_gclk addition
 
->  };
->
->  struct etr_buf_operations {
-> --
-> 2.34.1
->
+changes in v2:
+- 1/3 - Fixed mail threading
+--------
 
-regards
+Manikandan Muralidharan (3):
+  spi: atmel: simplify MR register update in cs_activate()
+  spi: dt-bindings: atmel,at91rm9200-spi: Add support for optional
+    'spi_gclk' clock
+  spi: atmel: Add support for handling GCLK as a clock source
 
-Mike
+ .../bindings/spi/atmel,at91rm9200-spi.yaml    | 11 ++-
+ drivers/spi/spi-atmel.c                       | 78 ++++++++++++++-----
+ 2 files changed, 66 insertions(+), 23 deletions(-)
 
+
+base-commit: 7e161a991ea71e6ec526abc8f40c6852ebe3d946
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+2.25.1
+
 
