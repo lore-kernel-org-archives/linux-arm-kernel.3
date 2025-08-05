@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCC5C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A34DC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w/auADTZf57vdDvNnTOht1gIs0Ij1FRUC+wCoKdxz3w=; b=DsYOFo480aXkuiUDxTO6zddIW6
-	CzuKBgIArw6oc0dkHAnfsM13eRfKEnubl9+np9niBbIUvipAcXEn8rKh/xAOQC0DmL6G5CBsng/6p
-	qXiiObkv1LOxG7LUJ+ahn/zAzdEPMNYrWjOmbgnAcIGNsk7fSKwiZQ3C5fkCexN4PdJKlrjW3BE8G
-	3ILoxBUhMZ9G7t3aN1eHy/a5l9RSMoLGTq3PdlF345QV9/ZQuafC7Xg/OrVBirDk0C4ZxNrWS5XPb
-	u4LT9mVxqnaICAO5/QNHL96m4CgFFTd1P5OVWsFUrWRG22Q/8PkVkh3ESf4OO9G8JrKSQoUvqNZ+Q
-	IEJLzS7A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DhOxquyStsE5O79YeXSosHHFUYZj/A8kL5bEloNlApM=; b=brgxw7/TGIvqOD/Kx9NvYSkIaa
+	XT53ryXjDl8wdDX4RFk1Un3mPygD9hUzGZqMdQiY4KLHmwVyCZW6CWD2XHDrmHmHZv/fUtKDSvci/
+	W6Uv56hL3Gk4vgnhaR0Pdi2MmibgqUBHQpLQHfVRVWxUjJSJuiK0HIDyY98hXF0cdGMlelSHMzyON
+	iPlj0mWoGMP9OCV5KTTFcJAplMmOipdhukwSsygIsuQDNqqnoHI1BJ1Pf84wtfpfE/0QenHQlLXcn
+	6OWTtt0dlw/C13N6qzxGYR9MHOgpOpXZntcxEU215NBZhevkp5uY4xmXV6+FXI8jv8NjADXIem0+Q
+	HT503YuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujI39-0000000CtFD-1XKk;
-	Tue, 05 Aug 2025 13:49:55 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ujI5l-0000000Ctee-0xG7;
+	Tue, 05 Aug 2025 13:52:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHoj-0000000CrNg-16MJ
+	id 1ujHok-0000000CrOI-21wA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 13:35:02 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575DYuhe4087700;
-	Tue, 5 Aug 2025 08:34:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754400896;
-	bh=w/auADTZf57vdDvNnTOht1gIs0Ij1FRUC+wCoKdxz3w=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Z7OPCWI1pmjwLwolY5Lx0NUNULPI+7gmZQE/Kb2MrMxdaYtgMtttpDeGwjo5RmFBR
-	 1jp1slPfZBSH0LoRuy/chTgT8xUEus3IZPdtdfzqg+uFUG8BPTzKETVHOjCLgdF3Q5
-	 fQb8uN/HfDlyXDrEuYCi9UkzjftnI3cK2fCOU7d0=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575DYuvj3615752
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 5 Aug 2025 08:34:56 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
- Aug 2025 08:34:56 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 5 Aug 2025 08:34:56 -0500
-Received: from [10.249.34.164] ([10.249.34.164])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575DYtLF2186580;
-	Tue, 5 Aug 2025 08:34:55 -0500
-Message-ID: <b52fd6d4-b907-44dd-bd9b-e15c3321ad79@ti.com>
-Date: Tue, 5 Aug 2025 08:34:55 -0500
+	Tue, 05 Aug 2025 13:35:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E673C5C6205;
+	Tue,  5 Aug 2025 13:35:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C45BC4CEF7;
+	Tue,  5 Aug 2025 13:34:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754400901;
+	bh=/0ZE234TeSw9xjJpsbQakcX1dsGmzNxtfI+WMMXz2Kk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lU+lLa4Zrpe/uj+pWg2ZxX89B5r4JrzaxePFTDj8FhpjrDcq3CfN5sbou/RNgS0pJ
+	 7jLrGu10EEKOou8IK+saOPLUuu5vIp2E0ynNnoM7IYXL9hDm1YeYhUVhm31lisHfdt
+	 dtZwexUTb4hGIdQVru11j6aIKVCoyrpCtMwZfqymeBHOpKmnZeJHWL3AJYlCFjMkjR
+	 4jZLhZzJmCbSKAILgJRPQ+atWOY4PJ2kWNDpFhKdVDPc+2lvF47AVAqD2NWlTF13lM
+	 KDyU8JmdoRgMv8lmA6UUd/rDY8Pu/X38IYSDL/87TpfGbBtd53uMVnhuDtF0QF0HnB
+	 Vc/PzUijScXxg==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH] of/irq: Convert of_msi_map_id() callers to of_msi_xlate()
+Date: Tue,  5 Aug 2025 15:34:43 +0200
+Message-ID: <20250805133443.936955-1-lpieralisi@kernel.org>
+X-Mailer: git-send-email 2.48.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
-To: Krzysztof Kozlowski <krzk@kernel.org>, <linux-kernel@vger.kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        Devarsh
- Thakkar <devarsht@ti.com>, Udit Kumar <u-kumar1@ti.com>,
-        Darren Etheridge
-	<detheridge@ti.com>
-References: <20250804180106.2393256-1-b-brnich@ti.com>
- <b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org>
-Content-Language: en-US
-From: Brandon Brnich <b-brnich@ti.com>
-In-Reply-To: <b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_063501_477062_857794B8 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250805_063502_605830_7D04438F 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,63 +73,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+With the introduction of the of_msi_xlate() function, the OF layer
+provides an API to map a device ID and retrieve the MSI controller
+node the ID is mapped to with a single call.
 
-Thanks for the review.
+of_msi_map_id() is currently used to map a deviceID to a specific
+MSI controller node; of_msi_xlate() can be used for that purpose
+too, there is no need to keep the two functions.
 
-On 8/5/2025 1:02 AM, Krzysztof Kozlowski wrote:
-> On 04/08/2025 20:01, Brandon Brnich wrote:
->> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
->> present in J722s SoC, supporting baseline encoding of semiplanar based
->> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
->> supported from 64x64 to 8kx8k.
->>
->> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
->> ---
->>
->> Changes in v2:
->>    - remove invalid clock-names attribute
->>
->>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 10 ++++++++++
->>   1 file changed, 10 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->> index 5cfa7bf36641..fb24c14614b4 100644
->> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->> @@ -385,6 +385,16 @@ c7x_1: dsp@7e200000 {
->>   		ti,sci-proc-ids = <0x31 0xff>;
->>   		status = "disabled";
->>   	};
->> +
->> +	e5010: e5010@fd20000 {
-> 
-> Node names should be generic. See also an explanation and list of
-> examples (not exhaustive) in DT specification:
-> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+Convert of_msi_map_id() to of_msi_xlate() calls and update the
+of_msi_xlate() documentation to describe how the struct device_node
+pointer passed in should be set-up to either provide the MSI controller
+node target or receive its pointer upon mapping completion.
 
-I got this name from the already present node in the am62a device 
-tree[0]. Should I replace both of these with more generic name such as 
-jpegenc?
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+---
+As suggested by RobH:
 
-> 
-> 
->> +		compatible = "img,e5010-jpeg-enc";
-> 
-> Wrong compatible. This is TI, not IMG.
+https://lore.kernel.org/lkml/20250627213241.GA168190-robh@kernel.org/
 
-Devarsh has pointed out the same, I will update compatible that matches 
-TI version in v3.
+ drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c |  2 +-
+ drivers/of/irq.c                            | 25 +++++----------------
+ drivers/pci/msi/irqdomain.c                 |  2 +-
+ include/linux/of_irq.h                      |  6 -----
+ 4 files changed, 7 insertions(+), 28 deletions(-)
 
-Best,
-Brandon
-
-[0]: 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi#n1149
-
-> 
-> 
-> Best regards,
-> Krzysztof
+diff --git a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+index 11549d85f23b..b5785472765a 100644
+--- a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
++++ b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+@@ -30,7 +30,7 @@ static u32 fsl_mc_msi_domain_get_msi_id(struct irq_domain *domain,
+ 	u32 out_id;
+ 
+ 	of_node = irq_domain_get_of_node(domain);
+-	out_id = of_node ? of_msi_map_id(&mc_dev->dev, of_node, mc_dev->icid) :
++	out_id = of_node ? of_msi_xlate(&mc_dev->dev, &of_node, mc_dev->icid) :
+ 			iort_msi_map_id(&mc_dev->dev, mc_dev->icid);
+ 
+ 	return out_id;
+diff --git a/drivers/of/irq.c b/drivers/of/irq.c
+index 74aaea61de13..e7c12abd10ab 100644
+--- a/drivers/of/irq.c
++++ b/drivers/of/irq.c
+@@ -673,13 +673,14 @@ void __init of_irq_init(const struct of_device_id *matches)
+ /**
+  * of_msi_xlate - map a MSI ID and find relevant MSI controller node
+  * @dev: device for which the mapping is to be done.
+- * @msi_np: Pointer to store the MSI controller node
++ * @msi_np: Pointer to target MSI controller node
+  * @id_in: Device ID.
+  *
+  * Walk up the device hierarchy looking for devices with a "msi-map"
+- * property. If found, apply the mapping to @id_in. @msi_np pointed
+- * value must be NULL on entry, if an MSI controller is found @msi_np is
+- * initialized to the MSI controller node with a reference held.
++ * property. If found, apply the mapping to @id_in.
++ * If @msi_np points to a non-NULL device node pointer, only entries targeting
++ * that node will be matched; if it points to a NULL value, it will receive the
++ * device node of the first matching target phandle, with a reference held.
+  *
+  * Returns: The mapped MSI id.
+  */
+@@ -699,22 +700,6 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
+ 	return id_out;
+ }
+ 
+-/**
+- * of_msi_map_id - Map a MSI ID for a device.
+- * @dev: device for which the mapping is to be done.
+- * @msi_np: device node of the expected msi controller.
+- * @id_in: unmapped MSI ID for the device.
+- *
+- * Walk up the device hierarchy looking for devices with a "msi-map"
+- * property.  If found, apply the mapping to @id_in.
+- *
+- * Return: The mapped MSI ID.
+- */
+-u32 of_msi_map_id(struct device *dev, struct device_node *msi_np, u32 id_in)
+-{
+-	return of_msi_xlate(dev, &msi_np, id_in);
+-}
+-
+ /**
+  * of_msi_map_get_device_domain - Use msi-map to find the relevant MSI domain
+  * @dev: device for which the mapping is to be done.
+diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
+index 0938ef7ebabf..555c61b1fc36 100644
+--- a/drivers/pci/msi/irqdomain.c
++++ b/drivers/pci/msi/irqdomain.c
+@@ -422,7 +422,7 @@ u32 pci_msi_domain_get_msi_rid(struct irq_domain *domain, struct pci_dev *pdev)
+ 	pci_for_each_dma_alias(pdev, get_msi_id_cb, &rid);
+ 
+ 	of_node = irq_domain_get_of_node(domain);
+-	rid = of_node ? of_msi_map_id(&pdev->dev, of_node, rid) :
++	rid = of_node ? of_msi_xlate(&pdev->dev, &of_node, rid) :
+ 			iort_msi_map_id(&pdev->dev, rid);
+ 
+ 	return rid;
+diff --git a/include/linux/of_irq.h b/include/linux/of_irq.h
+index a480063c9cb1..1db8543dfc8a 100644
+--- a/include/linux/of_irq.h
++++ b/include/linux/of_irq.h
+@@ -55,7 +55,6 @@ extern struct irq_domain *of_msi_map_get_device_domain(struct device *dev,
+ 							u32 bus_token);
+ extern void of_msi_configure(struct device *dev, const struct device_node *np);
+ extern u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in);
+-u32 of_msi_map_id(struct device *dev, struct device_node *msi_np, u32 id_in);
+ #else
+ static inline void of_irq_init(const struct of_device_id *matches)
+ {
+@@ -105,11 +104,6 @@ static inline u32 of_msi_xlate(struct device *dev, struct device_node **msi_np,
+ {
+ 	return id_in;
+ }
+-static inline u32 of_msi_map_id(struct device *dev,
+-				 struct device_node *msi_np, u32 id_in)
+-{
+-	return id_in;
+-}
+ #endif
+ 
+ #if defined(CONFIG_OF_IRQ) || defined(CONFIG_SPARC)
+-- 
+2.48.0
 
 
