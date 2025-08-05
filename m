@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 829A0C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 23:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4DEC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 23:55:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWll8aXw8aHwO/nZCoAePnctU5zQKd6s1MSx1yOQJ/c=; b=sjHI/y3FcXKdRkQnZ5+CWq/ZaZ
-	Htjbch1h5uF8sd/CqLfwI4GtotAa8UVtcYUhUrl9SIEQoJFzsdvlL5nZn3On/b4qZTmTKzBcb2iO6
-	vcOXeA9rNz5ureGEIqLi04ey43TRf6R++vCA3d1bbmTPQGN5FvqzVT0bIR84pHxaL6fWQ1oGuwIS9
-	BazxvZGpRdQe28iSOxMbdETB878vkParrmVqtXnUe8OUsZF2QvnaWt8JKdLTFnTwkDSptEKMPzCvh
-	eptqShT/QYY0hCRlasODpHdYL7CnRGRx/H97qaSZmCac+vLsLiWTn2y1V+EWbzDIBiMeNXLOSOSnN
-	OT2vcUIQ==;
+	bh=Gl7PKzkulptD9jdg8xbxrt81Qiymr7y0BydPiYTY5VY=; b=ZrK1V5ymln2SE6HBg5gLq1kIR9
+	tpKRPuVgrfIlrCjX+qqSmc9+oZiykSy25GKbzinGRs8/tkWZECF1Bwb/GClGwxIvz6beTvnS3Z8eR
+	p1qVwmxBeg0vWiC9iOx0pZlHlaUwzLRQx5UMyBQVqrmQEWHc14Wtbcq4wteFe8Kr52FyhS4xl988f
+	xEdaMYa3XsseRQfgsnXGWf/OnhcbsXTgDRrbMqrUi3z3nMeTDduWwJfEZy6qqwkhrxLqlzdJRaNvv
+	fEGyrqk8ZPOnSwlRa/iJF9OdDFPSZ/xPoN/CX4rQL5KJjSxzLhS8nO/E66pBeohOt04+adAcSHfPo
+	XuQE4s+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRSR-0000000E1Kb-0iCM;
-	Tue, 05 Aug 2025 23:52:39 +0000
+	id 1ujRUz-0000000E1XN-3yM3;
+	Tue, 05 Aug 2025 23:55:17 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRPq-0000000E11W-07p1
+	id 1ujRPp-0000000E11U-3HM8
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 05 Aug 2025 23:49:59 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575NnpVa387998;
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575Nnprk388002;
 	Tue, 5 Aug 2025 18:49:51 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1754437791;
-	bh=OWll8aXw8aHwO/nZCoAePnctU5zQKd6s1MSx1yOQJ/c=;
+	bh=Gl7PKzkulptD9jdg8xbxrt81Qiymr7y0BydPiYTY5VY=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=bIsXxALNZCxgM9MZpL8IVa3U7/riBpqlbzXjh+MAmq05d3w1mVfrqxgkhISs2Jbpr
-	 3EuRvOOaRRhgFNMuSPQOFKdhxxXi8keEzUivJFii73yYtpQ0s/twmw1VkR4biyZto3
-	 FIrFjpiHRWI+RcVs5FjDmHqJ8NtC/AuUjBwcsqyM=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575NnpOp3149163
+	b=ICKE89S83xU20iJr2JZfj7Ezr65u3Z7W+PWT7TVtKNyhrwimSL+2KitaZrmOsvZbb
+	 oDJ3XW+4wyIEbdVF7jBsyqU3kWlDuNljyW+0KAD1P+frqQWFHRk7kW4b1h3sblsTvZ
+	 raFFHzK2JFfYFGc2zRGUXj1x6cGNJST3cu5Z9Qp4=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575Nnpn63796006
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
 	Tue, 5 Aug 2025 18:49:51 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
- Aug 2025 18:49:50 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 18:49:51 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
  Frontend Transport; Tue, 5 Aug 2025 18:49:50 -0500
 Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575Nno6n2624898;
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575Nno6q2624898;
 	Tue, 5 Aug 2025 18:49:50 -0500
 From: Judith Mendez <jm@ti.com>
 To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
@@ -67,9 +67,9 @@ CC: Vignesh Raghavendra <vigneshr@ti.com>,
 	<ssantosh@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>
-Subject: [PATCH 1/4] dt-bindings: hwinfo: Add second register range for GP_SW
-Date: Tue, 5 Aug 2025 18:49:47 -0500
-Message-ID: <20250805234950.3781367-2-jm@ti.com>
+Subject: [PATCH 4/4] arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add GP_SW reg range to chipid node
+Date: Tue, 5 Aug 2025 18:49:50 -0500
+Message-ID: <20250805234950.3781367-5-jm@ti.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250805234950.3781367-1-jm@ti.com>
 References: <20250805234950.3781367-1-jm@ti.com>
@@ -78,8 +78,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_164958_152411_F42D8AB1 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250805_164957_976339_55EEC2FD 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,44 +94,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds a second register range in ti,k3-socinfo. This register
-range can also be used to detect silicon revisions.
-
-AM62px SR1.0, SR1.1, and SR1.2 can only be distinguished with GP_SW
-registers, so increase maximum items to 2 for reg property and update
-the example.
+This adds GP_SW register range to k3-am62p-j722s-common-wakeup which
+will be used to determine SoC revision.
 
 Signed-off-by: Judith Mendez <jm@ti.com>
 ---
- .../devicetree/bindings/hwinfo/ti,k3-socinfo.yaml        | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml b/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
-index dada28b47ea0..3b656fc0cb5a 100644
---- a/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
-+++ b/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
-@@ -24,7 +24,8 @@ properties:
-       - const: ti,am654-chipid
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+index 6757b37a9de3..48778c49d8fc 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
+@@ -18,7 +18,8 @@ wkup_conf: bus@43000000 {
  
-   reg:
--    maxItems: 1
-+    maxItems: 2
-+    minItems: 1
+ 		chipid: chipid@14 {
+ 			compatible = "ti,am654-chipid";
+-			reg = <0x14 0x4>;
++			reg = <0x14 0x4>,
++			      <0x230 0x10>;
+ 			bootph-all;
+ 		};
  
- required:
-   - compatible
-@@ -34,7 +35,9 @@ additionalProperties: false
- 
- examples:
-   - |
--    chipid@43000014 {
-+    chipid@14 {
-         compatible = "ti,am654-chipid";
--        reg = <0x43000014 0x4>;
-+        reg = <0x43000014 0x4>,
-+              <0x43000230 0x10>;
-+        bootph-all;
-     };
 -- 
 2.49.0
 
