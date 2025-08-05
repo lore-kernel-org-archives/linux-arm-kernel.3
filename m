@@ -4,137 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FEA2C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 09:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4689AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 09:28:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XsbbhY0O+SUEUcKMvq8evyOiowKd+kjZi0OfQ+Da9js=; b=uDzID+sN1A+CQ7QfFKkxBqsfO6
-	Kw1BxsI2wUEJ1KvF8UPGfZNXRVMjgd7ARFsesqr7PHt5skueHLnXT6Rchd4AeCEdl+LKYOro+kVuG
-	JEWx2dZUVUVk7FVpHoJSx3/8GP+0HOh+FAfG38CuocE872FFeXFNsz2AFDwHOSNWwSf4BS9z0Q6tm
-	GShIgrak3QX0SO3ItjSDZA6IdoOzquaDDgTVfMzaEGTMydAvKV4JUX23CKIUCTmsEcMMg/vJ8dPac
-	zSWWRBSskapkR+eE8WY04pckwSfu4REEY8RlDcWxGN8671EGpIcnWNnbXWJF25s0RFtJHpYC0I7ed
-	igCGD0hg==;
+	bh=cD9EpZaivAm90NanCD9PITPxQrEU4Vgfy1ahi2/aJ+A=; b=SuAYnqp8CSTyF9y4JP2SVQzSjT
+	D46+QevA9TpAbDbPz4EH4bh2ZfhHA3iqT3ktcQVVY10aDTJ03qbKV6C/MDoPF0M0t7AAE2XzBSHxO
+	j6afFudg9mF7UOlzb/ICv3oPYJ2+jVGY9uItVktvgiWgJ6Snod6HLiEhT/WtywMq3JUKJjLXtdL61
+	SzuawYgjSRWfTrUI86VaW7iqJMAkUrD4xc6cCsEmQQqnnXqw3CeK0wst/TBz/RJyQk1M0MTKDpUu3
+	Xroz2HKK+eACdGL2batL2gnqgl7ZKy9yN6MG4DodBKmSKG+2cHFY5NOJMUJRjeqVS/OLXGzFCjJap
+	i/nkM58g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujDvM-0000000CLYA-0Az8;
-	Tue, 05 Aug 2025 09:25:36 +0000
-Received: from mail-am6eur05on20725.outbound.protection.outlook.com ([2a01:111:f403:2612::725] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1ujDxv-0000000CLtD-42XI;
+	Tue, 05 Aug 2025 09:28:15 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujDXH-0000000CHqS-2uj5
+	id 1ujCxu-0000000C9Xn-2Stm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 09:00:45 +0000
+	Tue, 05 Aug 2025 08:24:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VE1PaYJLnDuvWcKhbLoQUJacEZsME50JSBwgV2kGmadgkdWriliQ7e3pXkF0SjS+2rTSFlwN1PdHYByPNhBt5oBY9GLzsz6TX9oUQnxACrWa4+2AXqDwKd1CkHkqXb5ak0V3PJ6MpZ3wgJu34kTtt4t0xwOBqqry7DAT7kKwthgRYlPLp0tz9Z5w93Ka3vpfBV8nvbNNkg2cNUao6ravm/GfD3IDQoBGJn8J2Xc7TSbaGtmqTTrov+G5qECOd7QKfrt8xAB4n6FSoCmUDvSQGJX5qznUc7HC52jh+nTLSJ3Q63v3ngaBCLuHgwuEf3nHY9xuopUATTgWxunOs8bwvQ==
+ b=xMOnK0Kvb1lj/TVz4+GUmaL3BZ7Zwpch/cES81zp6IclLSMrtgrIV81ngw6Ut7Z94mSkt6B3N+JKcPVPPmzBKfhOQk7D6ep+17Vldh9zUJzKy+kFilhBCb8DhuswaIS2OB0BeR6bsf8OucParW/JPo8KlRFl34/TR4wu6GN9J5GTjNwzagfnTbHHwMB31STd7kJVYf5xghv49237aG94O7GUZ0vNCH+1uMBaUgiOhBg4Bt1zEnSQGG6zoyWN4R09qtDnjjrkQQelo1zMx7tV+6Q95CT0s3w6hrBi5b7vOVKUlROGCVkHeGdnewkKv4f9zGdNlI1dAcow+lH1a/uZsg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XsbbhY0O+SUEUcKMvq8evyOiowKd+kjZi0OfQ+Da9js=;
- b=vpuGytD8S2cq0NKqX3XDkDJnXGa7KKVZTqtboQlLg0/jg4/0863+LA+ONLJwIznIDJ044sxM/tlI46mIn8nF/iD7CeRGwnsNO2n63h/tgGZpnSCAY77VTQSdE9OTXnVLraVjfzmLbjFUUHa5EBmHIe/pVB4rN1locrKiD4KISTL1RUqiMFL7zZjaIjEqGGMukIUd2vfxyuG9+axbbkyJg8FHreNzlYN09DICFWGiYZ4B6IrkZHeK9hlZMnERvoF3IgjlTsXKO6dao9b6hSEG521pWaxE6e0J0zu6bkJT8GXLh7tKjX9YwR33yOmcp60nQIDeIglztH+3QAPTAfUkWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
+ bh=cD9EpZaivAm90NanCD9PITPxQrEU4Vgfy1ahi2/aJ+A=;
+ b=Y04BXAdrgY7I/vqSAgdfsvGZgJVLnDAxYr0atsgUkwWRJ1LtdnAht/Rp96fc/EH9vX66wvRcpER0wdtXVVIpw0QVlojHASmG+gzhiZjduZ+cP11jAZCHzHOqhB25zyYtqun5Qzf3ZvsxF5g0c91+VfNg5lMV9RGGYsLeVMFOK/B2D0bomyxa5oUG5yaZBMHtvmVTpB9Leooa56MRZccs32jgnjyrmcF8+HihuN34P/LEww75h5juNGoGYSlovAHLReprm7BDa6K2R+ZZ0ZcD6R9Mpqa6CL3juz5KopA7LoOmER7DdqB8QI/lUtsIQZzDERgyFZdYnu15/DNFoQtwYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=uclouvain.be; dmarc=pass action=none header.from=uclouvain.be;
+ dkim=pass header.d=uclouvain.be; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uclouvain.be;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XsbbhY0O+SUEUcKMvq8evyOiowKd+kjZi0OfQ+Da9js=;
- b=AuRxc6znRuLqYHmG8RWeechDsjAzSI3cwArksr6B8kPDpbHQkM23VQJvq1Z/3amJ7tHfzW10NiTjw7qkKCI7AAcmNGmDg+Q0pTu4dMD8AER13pTAKwV3GmfTEixHQQLL1Rr80w4rKJWNiycWJNFxRqqAXdqjXAvlaaaldQO2W8ZHLMuQoWRsdHunW3X+mcRyn6QBQSJjwSVEBjEG80HRslH+EUOh4ikUqLucJHe79K+uAb1anbFrGbCuX/DWgCWve3/F2F0rSGPK0HyH3fLmXMvdabKa6h7vuSgt1L+F25mQoj7i0+WaRNFvzGJmSYuf5aYbohXUXDEeIE+sJLsktw==
-Received: from AS4P191CA0036.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:657::18)
- by GVXP195MB2502.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:1b6::21) with
+ bh=cD9EpZaivAm90NanCD9PITPxQrEU4Vgfy1ahi2/aJ+A=;
+ b=VscHYmxcAYuTohcrnDTEBIBK5hM5DX+p8VDpcQvdaLejR1xwQUnjZlg0BU6QpVfQ6L5IEzNDFgKTylHg55zt6jf5b/B0Z0K9M76BwVCV2QvsqlXauh+Do0hWm97IRd7ndMYTzPq2Lqlnv2ca/2h0jCeAMGoF7YEPyeyn7zmkGPOAHoXwHrHQhBB/QSFipZDZMMV4sS3suFT+6nLlhGKjtrEzZz2gNmlCURHS/bImxBc6vI7Z4v9n8T5yaqQvdNm1hUqC+tnqP7/o7+hbx2xr7pAZi2xvWEVg4qDruAOXwfq7D/bNrwfaIZqOAQMOYD8w2WP/+5M8fIN/GS4gbvp45Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=uclouvain.be;
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com (2603:10a6:20b:5b6::13)
+ by AS2PR03MB9491.eurprd03.prod.outlook.com (2603:10a6:20b:599::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Tue, 5 Aug
- 2025 09:00:32 +0000
-Received: from AMS1EPF0000003F.eurprd04.prod.outlook.com
- (2603:10a6:20b:657:cafe::9a) by AS4P191CA0036.outlook.office365.com
- (2603:10a6:20b:657::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.21 via Frontend Transport; Tue,
- 5 Aug 2025 09:00:32 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- AMS1EPF0000003F.mail.protection.outlook.com (10.167.16.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9009.8 via Frontend Transport; Tue, 5 Aug 2025 09:00:31 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 5 Aug
- 2025 11:00:29 +0200
-Received: from phytec.de (172.25.0.51) by Florix.phytec.de (172.25.0.13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Tue, 5 Aug
- 2025 11:00:29 +0200
-From: Wadim Egorov <w.egorov@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH] arm64: dts: ti: k3-am62a-phycore-som: Add 1.4GHz opp entry
-Date: Tue, 5 Aug 2025 11:00:21 +0200
-Message-ID: <20250805090021.1407753-2-w.egorov@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250805090021.1407753-1-w.egorov@phytec.de>
-References: <20250805090021.1407753-1-w.egorov@phytec.de>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Tue, 5 Aug
+ 2025 08:20:58 +0000
+Received: from AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c]) by AS8PR03MB9047.eurprd03.prod.outlook.com
+ ([fe80::c90e:deef:6dcf:538c%7]) with mapi id 15.20.9009.013; Tue, 5 Aug 2025
+ 08:20:56 +0000
+Message-ID: <e63913df-6808-4822-a3a4-870b650f10d9@uclouvain.be>
+Date: Tue, 5 Aug 2025 10:23:14 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/4] gs101: MAX77759 Fuel Gauge driver support and
+ enablement
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sebastian Reichel
+ <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Dimitri Fedrau <dima.fedrau@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250804-b4-gs101_max77759_fg-v5-0-03a40e6c0e3d@uclouvain.be>
+ <42de1ed3-073a-4058-971b-a9a8c473d9a0@kernel.org>
+Content-Language: en-US
+From: Thomas Antoine <t.antoine@uclouvain.be>
+In-Reply-To: <42de1ed3-073a-4058-971b-a9a8c473d9a0@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PA7P264CA0157.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:102:36c::10) To AS8PR03MB9047.eurprd03.prod.outlook.com
+ (2603:10a6:20b:5b6::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.0.51]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS1EPF0000003F:EE_|GVXP195MB2502:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87efe482-6a17-4bc3-bfa5-08ddd3fe8868
+X-MS-TrafficTypeDiagnostic: AS8PR03MB9047:EE_|AS2PR03MB9491:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3bebd21-d4f9-425d-6714-08ddd3f90095
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fA0GOdKfAeQmRGtov7kfQFQ6NSvMgLwUS9MFgXMXzy6afmIRWucNZWQaaA/9?=
- =?us-ascii?Q?+uVamPPsR0QVaFgUBKbupDMKVDXb4k1HeLwM08XBv3hxZPPMQuRYmQRq8nZw?=
- =?us-ascii?Q?OPxtQy1qW+LbW70/AZszMEW0SyLNpYyzrudi/0lDlxU871b5QirVtCpt4qdG?=
- =?us-ascii?Q?5thTnXZGDHtdU6/CeYETAjt/CMIrGt7DKBGp2JOSy9/47TLH8B6h7yXhFgLC?=
- =?us-ascii?Q?/RwX0T0Aa6tVaiLYhbjwuxP6k0YAfMRR2VnkMuCXW0YIIZkXmUWygYSCeZ6B?=
- =?us-ascii?Q?zOIf1FesAeZAqeHi56TzK69NzCliptkhGB0ODEXVq1I+iiR2j+8i8BaWktSh?=
- =?us-ascii?Q?unYkswaqI+X3RzVtT+PTJREw6Z2sJeQlkWO9WDSq6fEaav8w4tAXvrHDYVco?=
- =?us-ascii?Q?xIwmB1kok+FnOdzeAFZ2do1/5uRm5OzFA3EkSvPwonRp7X+Wep8N/Yg3e6+z?=
- =?us-ascii?Q?tx/Jl7QacuSMAZc60qxJigwCZ1qf4o/jDgLByncB4Y9Hpb2Dtf08kzMUHdU8?=
- =?us-ascii?Q?AiyxVBVGbnLajPDFRK0s/Pw53NI60XlCxIo8AULh/+wVVY4cM5dHnnCKULIm?=
- =?us-ascii?Q?7B4oq0i2cTF42Cq0XsT27+m14O1OOQ4y3i6b5pYo5udOZyVk+h4Jf2aY9YMT?=
- =?us-ascii?Q?eLOU1m+MPVym4+GjLXdJ30OKhU7CVmsnDzNHrB+2awnzYVd8QVcKhUb2v/2N?=
- =?us-ascii?Q?T++FPIQFtWcUyCA1W1f+uYZAHNKuavMcetDjnM4zTuoY0g6IMZV2QsrsiqZe?=
- =?us-ascii?Q?o18IQnGjDcbcv0Mme9+b2oGrGqgsPg2Nad+selFWAujz7tqHYri4xIheRmNP?=
- =?us-ascii?Q?nzeg5U2UCM/V7aTvU1oV29ilJozwMBHEQMJdHM2Pk83TjfCCPG/3PpD5UDk8?=
- =?us-ascii?Q?hGgNn/xvGot1oBGQd4WlxizvtfyZ2ZfkMYtghN5At1CzaGSRl8AbuIDoHr3V?=
- =?us-ascii?Q?LbHIqQzYqvbVlwjdMubZJ3b87/bIJ7YYSGzdU6QlIBxfhce6hvLiru3wuVtF?=
- =?us-ascii?Q?C/yxT7B5hYgokNStlvcdleZj+Jkk6+ZcVEMXpCXG9BoMkeDtt9TaZF7Qr9gU?=
- =?us-ascii?Q?YIEHLIot35xObObDcZxlz1Jn+IoVg345CycT6geQOnl78jyeUfvAgyviPR6z?=
- =?us-ascii?Q?73tpl73x7nKSfucajtq3a9G57IGQzAJEII1NVECmHI+TdET0UyT0aF8fKbj4?=
- =?us-ascii?Q?eV01tpqsc2RKSqACdRYtl0QyctZb3K1uD9tAZKjWGYIco564Rj+pKwW3SJTN?=
- =?us-ascii?Q?QLb+sH9nFfy8XGAxsv+zCOFBZUDhxd9b0Xey8ludd7nxV1aOXLdUXWTI+Kvi?=
- =?us-ascii?Q?Z31nEcF9qszgHtlGWD7BTUrsiX7Kc1IbkSKbduWBOC+dL9HfAQxqoAgMUIf9?=
- =?us-ascii?Q?BT5Dbw9r00ioc+mm6UoD0bt06iJzgVaUOhz4yKKuwM7alUG/Ih9om2FB7z/b?=
- =?us-ascii?Q?b9fQP3rJlxFkDJSvLWifwz0zidvMimFPRB+/YZXXxlLFGE4SRdR/hSqTbHGC?=
- =?us-ascii?Q?ysl2d+FKtJKH9UU9WyRELoKeqa8jk9IppftO?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 09:00:31.5883
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|366016|1800799024|376014|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SHY2bzRsZ3BnWnhRc2w4OXlOR3NPYllxN01KYmhRbXdQK1B3K0FpU1FSUXUv?=
+ =?utf-8?B?ajVOTUwrOG1yeEVJbE9YLzBkTmpzbTNhNDI5QVdUdnB6eEJ4SkdIUkNhbkpH?=
+ =?utf-8?B?SXZjVUpnM2RJdVdWQlozOFh6a2pLb0xqb1E3V29VaUdieWhuSjRKd1lxNTBG?=
+ =?utf-8?B?TjNIN0swOWQ4cXNUN2JuMkpSOS8wMlRiWGU5aVFHQnlDeUdFL3NvSEpxdUM5?=
+ =?utf-8?B?aTZJMFJia0UzVGx6YU9Sdlg3YTJlcDNFUFFxOEVqUnlwUEVqeWxvU3Z2R2tE?=
+ =?utf-8?B?UTQ4bVVhTmdIa1ArR1BZS3Y1M0xuV3locmg1QlFHT2RoQm5VYkNJYzR1VkNu?=
+ =?utf-8?B?T1IwSUZ1WGZpSmZKTzRTR1dPaVdTTjRxSGErcVRObVRSQVJyMUo3K0dSMWhl?=
+ =?utf-8?B?S2lWMnRWNHg5NkdvcTZ1ak52VVVsbW5rb0ZIVEpXWDVmVG1wMUtDUEVJdHhQ?=
+ =?utf-8?B?Smx4b2MwL1lyMjkwaEQwK25ZekN0RkJ4R0dZMWdpRXltbStLQi8vZGZ3K3RJ?=
+ =?utf-8?B?MUk2TUZBb0NSWFZpYkJaU3hKNzVURUlySVhPMW8zeTkzdTFQbDZpcU5JZlhv?=
+ =?utf-8?B?TDh3eWk1KzF0L1dETXRKYVNyYTVWSld0Nm54U1hWdFBkVW1FVXlweWlnY2kx?=
+ =?utf-8?B?WTRjNFdlVTE5Y1RVd1JybDRtNjdiS0Y5ZlNGZmpxM0Nkbm0vcnduU0FmdjN2?=
+ =?utf-8?B?UkxOMDNaamxidTFSQ2Y5a0VIZUpwbWd2WkEvSEdpWFArSlZCd0tOcGJUazly?=
+ =?utf-8?B?S3hXQUQzQ1pGWjlTcVNjQ3NGVEM4TnVScXFzMjZtWU1zcDQ5QjI0UUZGdFM5?=
+ =?utf-8?B?R2N2bzlwL0Z3UUZYRmtqZnVjakdFWW5PWWoxQWdzTHp5WHp4NnhpSzVOQzNq?=
+ =?utf-8?B?R3l0ejcwOHgyd0NMckdLbnA2dlkvVTNGYWlmRDZjaFQxOUN1MVBlLy9sSHlZ?=
+ =?utf-8?B?blVXWHNoRmdrajZwSHExdVVJOUlkRXB5Q0VPc2h3MnppMURGU1RHT01sU21D?=
+ =?utf-8?B?dU9TdnJLOS9FOGpjckZpeFBsR3VYVlJHNlZISFNUUEc1Rm8xWjUyWFVJOVVh?=
+ =?utf-8?B?NzBqdWFOY0F5akF0U1Y4WC9nWnV1VldBcnluK3ZCUFk0V3BJZXZPUkgrT1Rv?=
+ =?utf-8?B?dkJDeVVyUWVHbVZuWDZxVWNETWRGbEMrR25WbHpVa1ZHUVBSS28xV0JUTGVW?=
+ =?utf-8?B?OWpoUVpVMW1jakRzMEpMR3o0Z2pOazk5ZG1yMGFrN3dPZWdYbk1mN2JGaHgz?=
+ =?utf-8?B?UDY2Qnloa1RLKzJQd2FSd2RYVy95RXRoQVZWenRaMTV1MlRJcmRVckRwY0VG?=
+ =?utf-8?B?bHVJckdBNkQxdU9KWnYzMmxLb0VMK2xld3ptSmZhQ3dUZTdmcFlsbVB2NGpL?=
+ =?utf-8?B?dFRWMFhUTTdDRjFhL3RNbms1Z250MzJFdkNVdEEzZHhsZGpHRUtlWUE2aEVO?=
+ =?utf-8?B?SGh5cERqWWpjRjJJa0VEb2tTZm5kMWJFM0JQbldBY09mdHNyck5pQ29nV0po?=
+ =?utf-8?B?b0RRdnVaSVdSeGtVcXEra0JidzdwS29xNy9HR21zVmpRM1NNVXp5YnFuUUFJ?=
+ =?utf-8?B?MFkxclVCc21SUmtJV2Z4OUZzQnJyeE1aRVJvNDc0ZTgwdnQwbVRMcURsRE8z?=
+ =?utf-8?B?TjJhZTlEYTZ0dzdvWWljZTRUWkQrWnRzWTZJeEZGL3MyRVBxUWdtSEVQZjhG?=
+ =?utf-8?B?WTF5c08yTGpJc1RPem9NWTVycjdkNFpUbHNXc1pvdDF2bHBGbXh6M1lNa1JJ?=
+ =?utf-8?B?dDVFUmlMV0JjNEdkNDk4YUVkVlhOdXMvWWRBcnI1bStlZ3RDdlVxUjRCblJt?=
+ =?utf-8?B?WHpNclk3RUFhMU9ZMGk3ZzNOU3l1T1diZFlCTko4VHhVSGxHOWNQc2Jpemd5?=
+ =?utf-8?B?K3JGYTBoNDZ0cHZEN0RYT1FsMUtBekN2OHVYRXdONERWaWUxV3FVcFpodWxG?=
+ =?utf-8?B?RnptTmh4ZUlIbkU2d21UaVppOUFvcnAzdlJWZC9lT21Nb1pKOWx1NnZWcTRM?=
+ =?utf-8?B?TmZNVU42QUd3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR03MB9047.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(366016)(1800799024)(376014)(7416014)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bUZrMS95QTFYY1lGMTBjUFo4dWRvYVJ1a2E3ZDU0LytVcVZpalh0dmEwMDlr?=
+ =?utf-8?B?dW9Ud2JnTjRCNk1JUDhMRngwdWNOMEN1NjBnY1ZucFQ5NGIwVUl2Ulc2WFBY?=
+ =?utf-8?B?MytmSnNYQks4VjNHWEtLU2xiNnh0TjhtM3pWWUpHamhIMmdBcS9GZjhud0JQ?=
+ =?utf-8?B?amowOHBWUUkydDlwSFBOM0QvNGowK1J4aWsxR3lqTzdvaGd3Q2pqL0t2TVdZ?=
+ =?utf-8?B?d3hhbTQ4S2hmTXBHRXlTSk8vamxwYzgxUng5blFjbGJyMXQ0djRTc2xDWlNa?=
+ =?utf-8?B?dmN4YVNOYjN2Vk8rVEJDS0p2SWVJRnZuUm1lRXZyWkY0bWZXUVB2SFk3Y2Ja?=
+ =?utf-8?B?TC9xdDNXREkrSm9CK2kralZCbGlkZm1wbzNUTi8xaDBLajJJRVZNYWFuVndC?=
+ =?utf-8?B?VjFka3NDV0U1bmVyeXhEUTZXanJVcUIwbnJ5blh3dy80a3phQVFscFpsdjAx?=
+ =?utf-8?B?T0dndTRUZmVMVzVPKzBOOVB0emEvdzViVDU2eDdqRUorUUtnT0RrNkozWGlG?=
+ =?utf-8?B?TFFnZnJNSTI5bXVxU1FKV3p4bUp2NENSQVc3emh6MXZHcEtsNUROVU1abGtM?=
+ =?utf-8?B?aGdtT0x6elFFVEJCK3BCSTVJVFRLTExMSzY4SzZMSC90YlNYWG4zNCtTWWZi?=
+ =?utf-8?B?dUhHMzg1cHNCYXdLT1RnQkVCQmpqNWM0TVM0Q3dSU1d1K0kxcmo0QmZFQTVv?=
+ =?utf-8?B?d2ZQQ1RDWFRtMVdDamtDaHFnMytTdktZeGNKS2loOGNxR2wzZUprMUx4N3E0?=
+ =?utf-8?B?aFVNcXFmUVhjVXR4aVpHbmtjcG94TGRjK3YwcFRtR0M2VFlLTjVxekl5TDBF?=
+ =?utf-8?B?SUVDR25JanFHWVNydEFFZTk5SUxpM0VlU0t3T1JlaC9EQ0FYT3VxZjVCMTlm?=
+ =?utf-8?B?UlU4Ri9xcHZZQ0R3aWdEckpRWTlHSjNucjhNRVFUOWxJSnNmSHVWNXplUnB6?=
+ =?utf-8?B?K0x0RE9ZWmF4M2tud1dyTytQOGQxYmxLM0pYVCt4bGcxa0hLazgveUErcWFH?=
+ =?utf-8?B?dFg1QldrOXdNUXQrRXVya1NIWmxrSGF6SVp3SkY1bzVVUitLR0l5RHo2Zm0v?=
+ =?utf-8?B?Y3dRcHQ4dTdNNTdld09SMVE4SEl1SFZyNU90RTBTeE96M25idUxzUXV4R2Yy?=
+ =?utf-8?B?Q25hU3N5SG92VnRpMHIxQURTamJReTRoaXRhTC8veXFrdG5vejRuTG1lcnJM?=
+ =?utf-8?B?SVh3eGhWSHg0OHhsRTcwSTVOalQwTFVpR0hFR2wyNkJSQWhSTExYY0dxNEZQ?=
+ =?utf-8?B?RWhlUW5oamtydEVTTXZjODZBdW84T05hdkxvNnVOMjlRSkhrUDd1NlFPRTlE?=
+ =?utf-8?B?YTRIWkpsZVZ2aFFaeDh2Wm4wUHhIRSswcTh0UUJ3VkVJR21ZOWJKaXZrMnFU?=
+ =?utf-8?B?QlZIckhvMjBZWGR0WGd3WWRDV3hqMW1xTm1QNEtGWXBiSGxCUlJ2ZVVEc2xQ?=
+ =?utf-8?B?Umk0NmhERVgzSER1eWJOZldrcWtIYk9ydEQvWTVhR3gwTmpzU0YwSVoyMzdi?=
+ =?utf-8?B?NjVSS1ZuZFRTSXVzendGVjIzRzlMbVlvZlM0ZlRwSTlKeEdLSS8wOTJuZnlj?=
+ =?utf-8?B?aExtYUlsOGZHYUNMem9SaFRyZGFzTUkySktCNDQ3ckJXZmhnNVM2d1JZdzhu?=
+ =?utf-8?B?SXJhSU81U1RqSEJySk5WUy9BS2MyM0xyN1RBS1hpc0liTzVnR0oydmJMUW1L?=
+ =?utf-8?B?T0NWRy9jeU90RHIvVlFKWC8rSlZUMElFUEJqUlFqZHNmM0p3T2ZaQkYxMVdo?=
+ =?utf-8?B?VG1OeU13Y29SYk9ha3FmWEczRkVLMFhGU3RyaTNkWEJybjZUOEVNVTNqT0VZ?=
+ =?utf-8?B?bkRiV3ZYem1TcDFWU283RlI5REpCc2hhQzJZd2lOWFBVR1ZKMDQ1RlE2MlNR?=
+ =?utf-8?B?OWwwK3BFMkFIZWo3eVE3YjdSbTF4cWhaL3hMME5iWmJmREJtSDMrMmVJVWUr?=
+ =?utf-8?B?Vm8yS0t4OFIrcTNhM1gvVjkxeGJEK01uSzhDc084VkhrczNlMEN2czk0dzJs?=
+ =?utf-8?B?UzJTeElmRUl4N2F6T3JBM09WeFJKYUJuU0VCTGNTTExkL0tTN2ppSmp4V2Jq?=
+ =?utf-8?B?R3VYWjJuVTJYa0k3a3p1Rm1aRHhFR09zRlJsKy9ZMUNQRSt6RVNld0dvb3V1?=
+ =?utf-8?B?Vml4Z2lIQUlqUklCMm1Gb0xkUUpla1Z3YzAvOGNiWlBQbVBMdHFNWEFLTUxG?=
+ =?utf-8?B?bWRlSUdKVGMvTHZPSE1MMyt2dCt0NUFDeTBmNnVPUU9YQUNtdDBVZllxRk9y?=
+ =?utf-8?B?WkEwTDNEUUc5UUt0OGNJT0ZpYzB3PT0=?=
+X-OriginatorOrg: uclouvain.be
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3bebd21-d4f9-425d-6714-08ddd3f90095
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR03MB9047.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 08:20:56.8191
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87efe482-6a17-4bc3-bfa5-08ddd3fe8868
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000003F.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXP195MB2502
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ab090d4-fa2e-4ecf-bc7c-4127b4d582ec
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GgPYdK/4bd+IALGkdZCmaH4oA7g0YF33G8hxYzp48lMdQHp3I78viocPgeR9eMnkZtB3zI0YA7PmFCCx/5xq+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR03MB9491
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_020043_729981_4D31B7EB 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250805_012410_635039_EE518BA3 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,39 +189,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The phyCORE-AM62Ax is capable of supplying 0v85 to the VDD_CORE
-which allows the Cortex-A53s to operate at 1.4GHz according to chapter
-7.5 of the SoC's data sheet[0]. Append the 1.4Ghz entry to the OPP table
-to enable this OPP
+Hello,
 
-[0] https://www.ti.com/lit/ds/symlink/am62a3.pdf
+On 8/5/25 8:20 AM, Krzysztof Kozlowski wrote:
+> On 04/08/2025 16:26, Thomas Antoine via B4 Relay wrote:
+>> The gs101-oriole (Google Pixel 6) and gs101-raven (Google Pixel 6 Pro)
+>> have a Maxim MAX77759 which provides a fuel gauge functionnality based
+>> on the MAX M5 fuel gauge.
+>>
+>> Add a driver for fuel gauge of the the Maxim MAX77759 based on the
+>> one for the Maxim MAX1720x which also uses the MAX M5 fuel gauge.
+>> Enable it for the gs101-oriole and gs101-raven boards.
+>>
+>> Signed-off-by: Thomas Antoine <t.antoine@uclouvain.be>
+>> ---
+>> Hi everyone,
+>> I decided to completely separate the MAX77759 and the MAX1720x. The
+>> reason I had just modified the MAX1720x initially was because I
+>> thought at the time that their difference were much less important
+>> than they ended up being.
+>>
+>> Their common parts could be put in a common MAX M5 files which could
+>> prove useful if more chips using the MAX M5 are to be added.
+>>
+>> Changes in v5:
+>> - Separate MAX77759 from MAX1720x for clarity
+>> - Remove voltage reporting
+>> - Add initialization of the chip
+>> - Add device dependent initialization data
+>> - Add access to eeprom for access to non-volatile backup data.
+>> - Link to v4: https://lore.kernel.org/r/20250523-b4-gs101_max77759_fg-v4-0-b49904e35a34@uclouvain.be
+> 
+> No changes in the bindings? There were errors posted due to lack of testing.
 
-Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
----
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index 5dc5d2cb20cc..207ca00630d1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -200,6 +200,15 @@ AM62AX_IOPAD(0x1f4, PIN_INPUT, 0) /* (D16) EXTINTn */
- 	};
- };
+The binding has changed a lot due to it being separated from
+the MAX17201 binding. I tested the new binding and found no error and no
+bot was triggered as far as I know. Sorry if the changes were unclear.
  
-+&a53_opp_table {
-+	/* Requires VDD_CORE at 0v85 */
-+	opp-1400000000 {
-+		opp-hz = /bits/ 64 <1400000000>;
-+		opp-supported-hw = <0x01 0x0004>;
-+		clock-latency-ns = <6000000>;
-+	};
-+};
-+
- &c7x_0 {
- 	mboxes = <&mailbox0_cluster1 &mbox_c7x_0>;
- 	memory-region = <&c7x_0_dma_memory_region>,
--- 
-2.48.1
+> Best regards,
+> Krzysztof
 
+Best regards,
+Thomas
 
