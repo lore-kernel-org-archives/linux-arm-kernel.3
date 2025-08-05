@@ -4,60 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B24EC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 11:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53BB1C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 11:26:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rmBoYGuRK5q2HjzLN0y9eQNcEdHftHtp0SB2orr/+jY=; b=cVTtIjIr/AUEA+bXgvquPKe5xV
-	KsPdlPIXOwXvPIiLM5cVjSzgAtcoPia748igP2FEaLk5JXes1W+iJar1J6CO+4oknUMGEXFtREX2R
-	KtzQ8yBnOQMDLLqMG1pjpUxaJySTySWkVqK4sir5pTykHAGP6R0gmcdZa6tmMfi2apOHBG1qHAABw
-	dnYds8voUPYborBk87omvV9tMbDS6whgC+PUJ1BYT2avwV3grYpIfL+epW56/Wyv+iEhSJm1IzxwC
-	pNAX2D2Mei6ONvjnsOF78MIgnPPwmUC4pDYq1VAdEe4UOed8qCUoB9KpQdH8Sv0UX73t7NQ54JQHc
-	LV6Gb2Eg==;
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4udjhVtkPvpeQ4By44W9lTmmyaXV2fwWY0xc+9IIdSA=; b=Jll55G7l12J+hGjflBTVJQzUUQ
+	m7PGMd4W7K+T3+hEwBhleFdd/r+AkrxgO+GkvbZcgJB6V5h7byeLxbOO2JzLiu6DB4JLkbKM9go21
+	ne30LWC4dQ+ahw3pEShPDmrwhVa4k8tSAdtjh4lBK5rM0KA/wvO1oqJqQ1fhiiCH4pKxyb/0UCUui
+	dwyS5iAYaiNak8t4grw5rDK5HDaQ9ZrTSHxgtECA1tZkaAQEls4wDAZ4iuOCVdPgRKbtFTW7kIa3Y
+	llpyOv5iCegx3l2LmqgzbKnhjnIf7FlU3dIM7W9WgEYqIWXUyRJfZa+wksS/t9rtVc7ZJFDz31hYY
+	vMk68VAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujFhx-0000000CalZ-2xfd;
-	Tue, 05 Aug 2025 11:19:53 +0000
-Received: from ni.piap.pl ([195.187.100.5])
+	id 1ujFoH-0000000CbHK-1hvv;
+	Tue, 05 Aug 2025 11:26:25 +0000
+Received: from mail.capitalcraft.pl ([57.129.67.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujFbS-0000000CZu0-2WNK;
-	Tue, 05 Aug 2025 11:13:11 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id C8DC9C3EEAC9;
-	Tue,  5 Aug 2025 13:13:08 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl C8DC9C3EEAC9
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,  Heiko Stuebner <heiko@sntech.de>,
-  Paul Elder <paul.elder@ideasonboard.com>,  Jacopo Mondi
- <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
-  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption
-In-Reply-To: <m34iumujcs.fsf@t19.piap.pl> ("Krzysztof =?utf-8?Q?Ha=C5=82as?=
- =?utf-8?Q?a=22's?= message of
-	"Tue, 05 Aug 2025 12:57:07 +0200")
-References: <m3h5zbxkc6.fsf@t19.piap.pl> <m38qknx939.fsf@t19.piap.pl>
-	<175308758352.3134829.9472501038683860006@localhost>
-	<m31pq9y98z.fsf@t19.piap.pl>
-	<175326599663.2811177.16620980968274114885@localhost>
-	<m3h5z2vw12.fsf@t19.piap.pl>
-	<175344176070.2811177.10693943493658922992@localhost>
-	<m3qzxyug1s.fsf@t19.piap.pl> <m3cy9futcj.fsf@t19.piap.pl>
-	<m34iumujcs.fsf@t19.piap.pl>
-Date: Tue, 05 Aug 2025 13:13:08 +0200
-Message-ID: <m3zfcet41n.fsf@t19.piap.pl>
+	id 1ujFld-0000000Cb7u-3eoM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 11:23:43 +0000
+Received: by mail.capitalcraft.pl (Postfix, from userid 1002)
+	id 9160D27059; Tue,  5 Aug 2025 07:46:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=capitalcraft.pl;
+	s=mail; t=1754379969;
+	bh=4udjhVtkPvpeQ4By44W9lTmmyaXV2fwWY0xc+9IIdSA=;
+	h=Date:From:To:Subject:From;
+	b=YlkG2QajLJOYyXuLOMlNgK6MUVxvFTgnD60fKWUT0tX7wPzvdRq0QAq33bqKc6IKn
+	 ybaPhnTD9G1G3MZ8+s8IRtpuMu7RnYcEw5ERRt+0Inq3PwO/f3KszjQpcHN6NoAtXF
+	 2vZTRt/RGIzkep8FG5GW99MK5UmCFjtrkKYd+uKtZqbiPsTXN+QRYivyEU2CDQZf4S
+	 1a2HqCQM7Zba8ZJxHFiKw9NWdPOThCfo1iSHaywnam9QMIMAaNIOQ7nKlXuTvw61I5
+	 veXByu/79ICanYeZCtb+jKGvMRg9xZjTeuiDxyuaJ3XBOIe/mUGBXh5ua1Zz00SmXa
+	 JAwQ9hsYa20rQ==
+Received: by mail.capitalcraft.pl for <linux-arm-kernel@lists.infradead.org>; Tue,  5 Aug 2025 07:46:05 GMT
+Message-ID: <20250805064500-0.1.3u.s6xd.0.osoop4q42r@capitalcraft.pl>
+Date: Tue,  5 Aug 2025 07:46:05 GMT
+From: "Karolina Dylkiewicz" <karolina.dylkiewicz@capitalcraft.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Prawo pracy - zmiany 
+X-Mailer: mail.capitalcraft.pl
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_041310_798998_DCF9B74B 
-X-CRM114-Status: UNSURE (   3.60  )
+X-CRM114-CacheID: sfid-20250805_042342_207381_C0D600FD 
+X-CRM114-Status: UNSURE (   2.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,15 +67,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof Ha=C5=82asa <khalasa@piap.pl> writes:
+Szanowni Pa=C5=84stwo,
 
-> SError Interrupt on CPU3, code 0x00000000bf000002 -- SError
+obs=C5=82uga prawna w zakresie prawa pracy to nie tylko dba=C5=82o=C5=9B=C4=
+=87 o dokumenty i zgodno=C5=9B=C4=87 z przepisami. To przede wszystkim re=
+alne wsparcie w codziennym funkcjonowaniu firmy i bezpiecze=C5=84stwo org=
+anizacyjne.
 
-Could have been PEBKAC, though.
---=20
-Krzysztof "Chris" Ha=C5=82asa
+W ramach wsp=C3=B3=C5=82pracy oferujemy m.in.:
+=E2=80=A2 przygotowywanie i negocjowanie um=C3=B3w oraz kontrakt=C3=B3w,
+=E2=80=A2 wsparcie przy zatrudnianiu i legalizacji pracy cudzoziemc=C3=B3=
+w,
+=E2=80=A2 doradztwo w procesach restrukturyzacyjnych,
+=E2=80=A2 przeprowadzanie audyt=C3=B3w prawno-pracowniczych (due diligenc=
+e),
+=E2=80=A2 reprezentacj=C4=99 w sporach z ZUS oraz pracownikami.
 
-Sie=C4=87 Badawcza =C5=81ukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+Dzi=C4=99ki wieloletniemu do=C5=9Bwiadczeniu w obs=C5=82udze firm z podob=
+nej bran=C5=BCy rozumiemy Pa=C5=84stwa potrzeby i proponujemy rozwi=C4=85=
+zania dopasowane do rzeczywistych wyzwa=C5=84 biznesowych.
+
+Z przyjemno=C5=9Bci=C4=85 przedstawi=C4=99 szczeg=C3=B3=C5=82y =E2=80=93 =
+czy znajd=C4=85 Pa=C5=84stwo chwil=C4=99 na rozmow=C4=99 lub spotkanie?
+
+
+Pozdrawiam
+Karolina Dylkiewicz
 
