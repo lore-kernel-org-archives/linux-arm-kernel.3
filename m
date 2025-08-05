@@ -4,66 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC33C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 01:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 290E5C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 02:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVPVE9HygUoPNngYy3+GJxic66B5L1QffNiGeXc3OFw=; b=u4D89COJRx2hMzdHm5DaiBnxvf
-	0Su+D0S4HEWBf1t5aLnd6UrZPHaQYbIXzs6EGWhY8mhKogAproph+o+0Dq3t1DHhNfdHGmHV7Re+f
-	UjbTorSzdCQzPNDXoLQTDtbhyW8vRTLmxpYjyrA9l4pvjAsKSH3GXwDmFOTnYypFx2wguO5Rrl6MI
-	JnOvJ0GsalsylZM8dYlbCD7NUxNK7My3GYBLX7xU2iYGPdco0M+/KeDVfYSbIpwpTJhVU21cx0h+e
-	0QnRcuW3jlDbypL56Om081jkcln0SdIbs8OmEpXijNblFRz1qdJRMBghUB2uj6Mnu+N2AZIaAGRUn
-	pcx9n8NQ==;
+	bh=L2lMJIGQ2wZkzoNhGgGAp72JyXMQq+SgmtR2nOQ+WF8=; b=UhpZpwQLYg/doIyUKhVZOpY00k
+	uufbUVeys5UYJkV9Zc8aaLRW7frdyD9ANT7gmsU8M8wFZvV34N8ncIN2Kz0MnEaVk6OYmLd2/aZ9d
+	EabGMZ2tuWiS7/JUS6jEjkcccBEpFmw4V+kxU1ZMki6U+CME5qBfqGSz8vcOkBhTxwoP7O8k3hP35
+	oOxDhdRlKudDEbgSUficj8cMguCNUr7o5IdgU4ybbpl2bP2iiddfhxqE4pivmseehaqz5Roe/1iaS
+	qyfSUGcYHn5DZh2kra427YSNCjtV7tcv9X6HVNa1/R1vTY1G/zV+nuNR12/mJs2wOMANWpFSl0t2i
+	nF1n78Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj6tj-0000000Bbmm-00SE;
-	Tue, 05 Aug 2025 01:55:27 +0000
-Received: from mo-csw1122.securemx.jp ([210.130.202.158] helo=mo-csw.securemx.jp)
+	id 1uj7sP-0000000BedW-3d5z;
+	Tue, 05 Aug 2025 02:58:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj6m2-0000000BbKa-1NVg
+	id 1uj7pn-0000000BeXT-33ai
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 01:47:33 +0000
-DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:Cc
-	:Subject:Date:Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
-	Content-Transfer-Encoding;i=nobuhiro1.iwamatsu@toshiba.co.jp;s=key1.smx;t=
-	1754358429;x=1755568029;bh=neqNdmldpuryoEt/oE6B8kqds2SPXVzEpnErBn3Sfl8=;b=hkc
-	qAktrHSKIeHwLotuGz+96E0/DN4RHBPlo15vuTkxvTWLd3nsYBfRtuKsIrUnyzPl3N51TUKNiS9O8
-	HugPBk5MSKNJK/yRCR1/+sz94qdmthneJiN3W7x8B7PJwggTXjHLNK9xDbxz5XihLR/tJxecaQ5pw
-	Vi2HEZJ9uqk1TiGGjKifRBnK6mlSYoVVqZUJt04X9PQi+0o5IR9+V3ocBeNmxgaHVuIG5TnXloCPh
-	uSc1J4WFJosSa73NCQa7j7u5BmVyrOBAYQL/2s0+FwQ4vIUXKGuYTWOqJEdSC7exAjsRaZeMoEVvF
-	15rSc9EZGBYwUnfILyTggWHXvaXo4vQ==;
-Received: by mo-csw.securemx.jp (mx-mo-csw1122) id 5751l9in3375490; Tue, 5 Aug 2025 10:47:09 +0900
-X-Iguazu-Qid: 2rWhiV7hVXNSACf7DB
-X-Iguazu-QSIG: v=2; s=0; t=1754358428; q=2rWhiV7hVXNSACf7DB; m=ZCdzXZWspI31Vh8pxQP/gZUZi5imt8ps7npCWydkgF8=
-Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
-	by relay.securemx.jp (mx-mr1121) id 5751l7Jc3436609
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 5 Aug 2025 10:47:07 +0900
-From: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-To: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-        bhelgaas@google.com
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-        yuji2.ishikawa@toshiba.co.jp,
-        Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-Subject: [PATCH v2 1/2] arm64: dts: toshiba: Update SoC and PCIe ranges to reflect hardware behavior
-Date: Tue,  5 Aug 2025 10:47:00 +0900
-X-TSB-HOP2: ON
-Message-Id: <1754358421-12578-2-git-send-email-nobuhiro1.iwamatsu@toshiba.co.jp>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <1754358421-12578-1-git-send-email-nobuhiro1.iwamatsu@toshiba.co.jp>
-References: <1754358421-12578-1-git-send-email-nobuhiro1.iwamatsu@toshiba.co.jp>
+	Tue, 05 Aug 2025 02:55:29 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 574E2AWT026093;
+	Tue, 5 Aug 2025 02:55:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	L2lMJIGQ2wZkzoNhGgGAp72JyXMQq+SgmtR2nOQ+WF8=; b=W4tLOclKhFzdJ7TY
+	p1hlSh7RUdotHoFcssmqkAuoB8qHv10Amc08xArT1J2Dt5oVwVng+qD3dkjtLyeq
+	4YYVI+JRUtn/Prz+pcrTnHzUI26B7I2sc5KDB9ngWupi9qLO2kdGlTAGFErOQ9bq
+	eScXdJ+fgd1oNuCzizmljkgxNvsU2ZVvMdHaVIKiicZqOoF/RA3GziLVOrsuYChi
+	8S4pOa1r0Vjt/PAebWZsNYZ18WHOGkZqvwIIqjr/RVKQgesa/Mj9wCkYQgRCHlkD
+	EQyKP03E2kMR2Nh7YDzhxXhWuPPaHe2kXHctUqmWzu0xxwn+/F7seh5PbGQQ+LZT
+	KNtm/w==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48avvu9yeh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 05 Aug 2025 02:55:16 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5752tFDl016636
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 5 Aug 2025 02:55:15 GMT
+Received: from [10.133.33.160] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 4 Aug
+ 2025 19:55:12 -0700
+Message-ID: <13cd5f5c-99a8-483b-a722-86dd636e092e@quicinc.com>
+Date: Tue, 5 Aug 2025 10:55:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 0/2] coresight: Add label sysfs node support
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
+References: <20250717125343.3820505-1-quic_jinlmao@quicinc.com>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <20250717125343.3820505-1-quic_jinlmao@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA1MDAxNiBTYWx0ZWRfX+Qr43J75r3TG
+ HCF035D1DuIckO3bcKgRL+sDnns8Dpjuu3DCBLmaOMtzWU/CxxJHi6VPwPLwXz1aR6KhMe76gl4
+ ByM6iejaJ9vWs9AglB/dkpH4YCNbpFnCuEMITsYrfOoOmn6qV+FWaq2WpHSZsrC96rKJgaABMu/
+ IxD8aewS0Msai/tnFXqnbaYrlz9FslrD9KfHfiuOpqUi5G2EWW4vubaYlG9ktrYVzk33Ox0SATf
+ LFrqUQFvOdU5hxAcPj50pq8A4ArIunOkjL9TZeV4O9IMkHsAuZwyagsN33BjuCq47qCXz26mTfi
+ 37dGhALa6ABhTlYMaUGeZDKq+b72rf2E8xcR+cFiFrlmG9QSVNqnLMXsrK2v1M/OD2+ZzQaC8Wh
+ a3cXszeEFSw32dYTVETuuNDJlMjc5OSAUt+8LwwNmoCJ5ntzt2/YbMl8Jjb2KKXWKjostcUA
+X-Proofpoint-GUID: l2AN4s8sIN7w-plOzh3hZP6lef8ODsAx
+X-Authority-Analysis: v=2.4 cv=OYKYDgTY c=1 sm=1 tr=0 ts=68917294 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=D19gQVrFAAAA:8
+ a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=z2QAkc51omxNimOJtHIA:9 a=QEXdDO2ut3YA:10
+ a=W4TVW4IDbPiebHqcZpNg:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: l2AN4s8sIN7w-plOzh3hZP6lef8ODsAx
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-04_10,2025-08-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ priorityscore=1501 mlxlogscore=999 malwarescore=0 adultscore=0 suspectscore=0
+ clxscore=1015 mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2508050016
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_184730_704050_09E48FD0 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250804_195527_929466_3254382E 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,131 +123,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
 
-tmpv7708 trim address bit[31:30] in tmpv7708 before passing to the PCIe
-controller. Since only PCIe controller needs to convert the address range
-0x40000000 - 0x80000000, add a bus definition, describe the ranges in it,
-and move the PCIe definition.
+On 7/17/2025 8:53 PM, Mao Jinlong wrote:
+> Change since V8:
+> 1. Add label in all documentations of coresight components.
+> 2. Add control of the visibility of the label sysfs attribute.
+> V8 link: https://lkml.org/lkml/2025/7/3/985
 
-Prepare for the removal of the driver’s cpu_addr_fixup().
+Gentle reminder for the review of V9.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
-Suggested-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-Signed-off-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
----
-v2:
-  Update commit message.
-  Fix range.
-  Set true to use_parent_dt_ranges in pcie-visconti.c.
-  move pcie under the dedicated sub-bus.
-
- arch/arm64/boot/dts/toshiba/tmpv7708.dtsi  | 75 +++++++++++++---------
- drivers/pci/controller/dwc/pcie-visconti.c |  2 +
- 2 files changed, 47 insertions(+), 30 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-index 39806f0ae5133..b754965a76ca6 100644
---- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-+++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-@@ -478,37 +478,52 @@ pwm: pwm@241c0000 {
- 			status = "disabled";
- 		};
- 
--		pcie: pcie@28400000 {
--			compatible = "toshiba,visconti-pcie";
--			reg = <0x0 0x28400000 0x0 0x00400000>,
--			      <0x0 0x70000000 0x0 0x10000000>,
--			      <0x0 0x28050000 0x0 0x00010000>,
--			      <0x0 0x24200000 0x0 0x00002000>,
--			      <0x0 0x24162000 0x0 0x00001000>;
--			reg-names = "dbi", "config", "ulreg", "smu", "mpu";
--			device_type = "pci";
--			bus-range = <0x00 0xff>;
--			num-lanes = <2>;
--			num-viewport = <8>;
--
--			#address-cells = <3>;
-+		pcie_bus: bus@24000000 {
-+			compatible = "simple-bus";
-+			#address-cells = <2>;
- 			#size-cells = <2>;
--			#interrupt-cells = <1>;
--			ranges = <0x81000000 0 0x40000000 0 0x40000000 0 0x00010000
--				  0x82000000 0 0x50000000 0 0x50000000 0 0x20000000>;
--			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
--				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "msi", "intr";
--			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map =
--				<0 0 0 1 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
--				 0 0 0 2 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
--				 0 0 0 3 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
--				 0 0 0 4 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
--			max-link-speed = <2>;
--			clocks = <&extclk100mhz>, <&pismu TMPV770X_CLK_PCIE_MSTR>, <&pismu TMPV770X_CLK_PCIE_AUX>;
--			clock-names = "ref", "core", "aux";
--			status = "disabled";
-+			ranges = /* register 1:1 map */
-+				 <0x0 0x24000000 0x0 0x24000000 0x0 0x0C000000>,
-+				 /*
-+				  * bus fabric mask address bit 30 and 31 to 0
-+				  * before send to PCIe controller.
-+				  *
-+				  * PCIe map address 0 to cpu's 0x40000000
-+				  */
-+				 <0x0 0x00000000 0x0 0x40000000 0x0 0x40000000>;
-+
-+			pcie: pcie@28400000 {
-+				compatible = "toshiba,visconti-pcie";
-+				reg = <0x0 0x28400000 0x0 0x00400000>,
-+				      <0x0 0x30000000 0x0 0x10000000>,
-+				      <0x0 0x28050000 0x0 0x00010000>,
-+				      <0x0 0x24200000 0x0 0x00002000>,
-+				      <0x0 0x24162000 0x0 0x00001000>;
-+				reg-names = "dbi", "config", "ulreg", "smu", "mpu";
-+				device_type = "pci";
-+				bus-range = <0x00 0xff>;
-+				num-lanes = <2>;
-+				num-viewport = <8>;
-+
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				#interrupt-cells = <1>;
-+				ranges = <0x81000000 0 0x00000000 0 0x00000000 0 0x00010000
-+					  0x82000000 0 0x10000000 0 0x10000000 0 0x20000000>;
-+				interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
-+					     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
-+				interrupt-names = "msi", "intr";
-+				interrupt-map-mask = <0 0 0 7>;
-+				interrupt-map =
-+					<0 0 0 1 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-+					 0 0 0 2 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-+					 0 0 0 3 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-+					 0 0 0 4 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
-+				max-link-speed = <2>;
-+				clocks = <&extclk100mhz>, <&pismu TMPV770X_CLK_PCIE_MSTR>, <&pismu TMPV770X_CLK_PCIE_AUX>;
-+				clock-names = "ref", "core", "aux";
-+				status = "disabled";
-+			};
- 		};
- 	};
- };
-diff --git a/drivers/pci/controller/dwc/pcie-visconti.c b/drivers/pci/controller/dwc/pcie-visconti.c
-index cdeac6177143c..2a724ab587f78 100644
---- a/drivers/pci/controller/dwc/pcie-visconti.c
-+++ b/drivers/pci/controller/dwc/pcie-visconti.c
-@@ -310,6 +310,8 @@ static int visconti_pcie_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, pcie);
- 
-+	pci->use_parent_dt_ranges = true;
-+
- 	return visconti_add_pcie_port(pcie, pdev);
- }
- 
--- 
-2.49.0
-
+> 
+> Change since V7:
+> 1. Update the conflict when apply to coresight next.
+> 2. Update the Date and version in ABI file.
+> V7 link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250226121926.2687497-3-quic_jinlmao@quicinc.com/
+> 
+> Change since V6:
+> 1. Update the date and verison in ABI file.
+> 
+> Change since V5:
+> 1. Update the kernel version of ABI files.
+> 2. Add link of different patch versions.
+> V5 link: https://patchwork.kernel.org/project/linux-arm-msm/cover/20241210122253.31926-1-quic_jinlmao@quicinc.com/
+> 
+> Change since V4:
+> 1. Add label in DT and add label sysfs node for each coresight device.
+> V4 link: https://patchwork.kernel.org/project/linux-arm-msm/cover/20240703122340.26864-1-quic_jinlmao@quicinc.com/
+> 
+> Change since V3:
+> 1. Change device-name to arm,cs-dev-name.
+> 2. Add arm,cs-dev-name to only CTI and sources' dt-binding.
+> V3 link: https://patchwork.kernel.org/project/linux-arm-msm/cover/20240131082628.6288-1-quic_jinlmao@quicinc.com/
+> 
+> Change since V2:
+> 1. Fix the error in coresight core.
+> drivers/hwtracing/coresight/coresight-core.c:1775:7: error: assigning to 'char *' from 'const char *' discards qualifiers
+> 
+> 2. Fix the warning when run dtbinding check.
+> Documentation/devicetree/bindings/arm/arm,coresight-cpu-debug.yaml: device-name: missing type definition
+> V2 link: https://patchwork.kernel.org/project/linux-arm-msm/cover/20240115164252.26510-1-quic_jinlmao@quicinc.com/
+> 
+> Change since V1:
+> 1. Change coresight-name to device name.
+> 2. Add the device-name in coresight dt bindings.
+> V1 link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20230208110716.18321-1-quic_jinlmao@quicinc.com/#25231737
+> 
+> Mao Jinlong (2):
+>    dt-bindings: arm: Add label in the coresight components
+>    coresight: Add label sysfs node support
+> 
+>   .../testing/sysfs-bus-coresight-devices-cti   |  6 ++
+>   .../sysfs-bus-coresight-devices-dummy-source  |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-etb10 |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-etm3x |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-etm4x |  6 ++
+>   .../sysfs-bus-coresight-devices-funnel        |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-stm   |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-tmc   |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++
+>   .../testing/sysfs-bus-coresight-devices-trbe  |  6 ++
+>   .../bindings/arm/arm,coresight-cti.yaml       |  4 ++
+>   .../arm/arm,coresight-dummy-sink.yaml         |  4 ++
+>   .../arm/arm,coresight-dummy-source.yaml       |  4 ++
+>   .../arm/arm,coresight-dynamic-funnel.yaml     |  4 ++
+>   .../arm/arm,coresight-dynamic-replicator.yaml |  4 ++
+>   .../bindings/arm/arm,coresight-etb10.yaml     |  4 ++
+>   .../bindings/arm/arm,coresight-etm.yaml       |  4 ++
+>   .../arm/arm,coresight-static-funnel.yaml      |  4 ++
+>   .../arm/arm,coresight-static-replicator.yaml  |  4 ++
+>   .../bindings/arm/arm,coresight-tmc.yaml       |  4 ++
+>   .../bindings/arm/arm,coresight-tpiu.yaml      |  4 ++
+>   .../bindings/arm/qcom,coresight-ctcu.yaml     |  4 ++
+>   .../arm/qcom,coresight-remote-etm.yaml        |  4 ++
+>   .../bindings/arm/qcom,coresight-tpda.yaml     |  4 ++
+>   .../bindings/arm/qcom,coresight-tpdm.yaml     |  4 ++
+>   drivers/hwtracing/coresight/coresight-sysfs.c | 71 ++++++++++++++++++-
+>   26 files changed, 189 insertions(+), 2 deletions(-)
+> 
 
 
