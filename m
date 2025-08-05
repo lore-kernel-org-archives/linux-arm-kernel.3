@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C416C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 10:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA555C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 10:14:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kqOH/YydyeFepQj4djKoRufGWAHZEIvnHzq3g2f3Mz0=; b=LB9HK58PBLLWBnV4u47onhunGk
-	eyUV+9k682Co/ssY8twrGNV+dbixxXLu7F799jV2Tfw2LrfCat8biFlvhKkc/8ytiHbTTSzmM0GsZ
-	oB/f6Pim3XgP3euUkrsFa1TRmPii0Z8QHYYLLvHtJ3s/MMY4QJ5+24HGOPCVWpohbl6bizAnzuugf
-	8nQWQF8zbc+7UFNvqOfaG38Bm+mNzvYoTvd6fSWRFDQx9tnJyjRw59d2sJ5VYgWRIm/SzVz050Nqv
-	XP1EHWhxuR+mqATbVfxM6p8d4+V+Z8d5M8Un6ywK2WCCjsJRAHZqRr5C6+YyvkVBorIC6jQ1+eoRm
-	2CBcgx4g==;
+	bh=CQUJ+NctrS5XnN4MvLnb/JYO8sbKwmo81SB44CL6l5A=; b=asAjWK2ujkyJX4ekr3akixMh7v
+	lDhndKytDLAh9EU9poqp3n/wgCANm9vZMkRYgskX/MpBwo7SpIL45frFWP+X7OE4ehekqOM2nv8Ct
+	IGFBpcERO+cjjWheDdQGG0MQMMhL7QNxGyySmTfpzhuKjAqEsGt8kGjIsYirc5xVAbRhl6ctVEDuj
+	wlKWRywT8mvCOklK4+A316Z7YUnoQe2vC5SnWYG+1QKiIyuWWcqS9oMqf9sEb3naZYCC8lsEbrDC6
+	JJpJqFBrStiV6yj0K8FJm2kY5woy/eZEg0X1VxDuwK4HxsrBBHvm6NDe52Bx17eVLazEguTmv83Oz
+	48DTVS8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujEdh-0000000CSQr-1XMg;
-	Tue, 05 Aug 2025 10:11:25 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1ujEgL-0000000CSfK-0vz4;
+	Tue, 05 Aug 2025 10:14:09 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujEMf-0000000CQKJ-1MaW
+	id 1ujEO3-0000000CQX7-2e2X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 09:53:50 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-879d2e419b9so3364304a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 02:53:49 -0700 (PDT)
+	Tue, 05 Aug 2025 09:55:16 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-76bd202ef81so5848114b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 02:55:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754387628; x=1754992428; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1754387715; x=1754992515; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=kqOH/YydyeFepQj4djKoRufGWAHZEIvnHzq3g2f3Mz0=;
-        b=i3df79HBM6BP98RmzHgKPcHHkjKcVvPe1JOaYcUtnj5d9n/3SgP1oLckcIlbGzchWD
-         e5iB+0LhlFegK6o0jPeInbSfjnDQS+N4ysXrqbR+tfRRwqxjKA0JxlrAV/OolEq5WhHV
-         aP8lJqv5h6wMBkrZoJAIOi32vXLt1EtrLpAo8vzgDLKjM8asP7SY9jCRREyBVItFEKgh
-         eyyw4L019+glzpvfiIcjVtkze039QA38jao7ltJ/g2mPqe6qXlzO7LCgx3W9JlsRvvjd
-         31yfp/qYvx88WhrXrjk4shJhDfivL0Vx3+U0ZZu3dke7MfgdtG12ClaXtTCKGU5ZV88o
-         iO5g==
+        bh=CQUJ+NctrS5XnN4MvLnb/JYO8sbKwmo81SB44CL6l5A=;
+        b=b8eZRBc0q2wm+gU8ksZHm/R9CFl4pkQP3e6BhSuQXDMrR4y585jhMlQHgvWEQRvroI
+         yVKgu2c4vSi8GVOgPX2AEs0cw6eQxWX+/mK3ObZ1EulB2c3RC5PPAJ+34V8w9J6I1NLu
+         9wQi9L1IPf5+xfLqO1ZjShO/RtU4Zc4XbHgM0IxvPAPEUGNKhgaZFri81JKDyU06AxE6
+         LpaWjnQkkEvq0B2U/15ndXDLnfPk/LKPEMKOmJVmhyu2ryD1SOC7VxAz3G1yFAVYoQBJ
+         pk5lMdkQEGpx5PW+JOisqs0lTEcHb8hY3rG2pOSw8jZw80I1iPZqKuS2RLq9h7w4AiPU
+         rQ8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754387628; x=1754992428;
+        d=1e100.net; s=20230601; t=1754387715; x=1754992515;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kqOH/YydyeFepQj4djKoRufGWAHZEIvnHzq3g2f3Mz0=;
-        b=mX9M5enD0gFkWL/LT3kdmiOxGMYyoQZw2+mw/fVaDi0FSZUH5v6eJZhZHdwjtCSMhG
-         S8EuXLNS2avdsNiEERVZDb0MU+nF2vSUenkM8s9bXoZbj9V+cePVIYKvGc7mdLIjQZDU
-         UcRI00yiaSLsJGKcbbJZqyssHItUwMhqIc6B+PdTmOnM/vvTDLWo/OR6TOis+a0e6iIP
-         HWywKqOnp6b6TcBbbwPETird0smeWtDZWyEaLzbBnoW/p9ISkQTe5gCqX3MwT3az7U9M
-         +unYBZ13MiwxhsfWL4DS5RAa7AC+1UMGByW0JHvGfEs6tLwIRhX9KVzsYVZSramnfTZN
-         qQrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVeIq2nwxuIpbx7dJAhYo8MS/9ta3ZkSiCw4tBdYPBG3w2vUa1yVa1VSZK3qqdN7S/St0wD5zW6Xk7d7+Sc98AW@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg0pW7dl6ddm4yh3+w/vPYYWl+RhArQY+D7RWU0cJPu9jEtvXk
-	fYLy0jvSOMa+NghhshiujIWWhiyZgSFgPMU6M02CqzBgEij7Ne11i8LHLPYGpaJlyOJN6xWrtk5
-	jkkCjgZQXlBcMeE/uimsBd7c8Y/nDBVtpqW6c3bXJ7A==
-X-Gm-Gg: ASbGnctyOqQORnhyd2VaLk9qTv2CjzE286VeAvoguLyDjnqYe6fRK36uuDc/ZLLCTiU
-	+l1xsGaI7MwlwUhHMJbCVc0b7nTgxLgY0JDGBT25vWELMVRLIgsdbc8hvuTzth0be253O7fy+6R
-	jVI/DiZhlAPMMC3MB2K8izH9o5o6uyFDBHpoQSqJOBXrzNgek94d/MKctMd6QMV9ivQgc8eh3Nv
-	ojOFg==
-X-Google-Smtp-Source: AGHT+IEzHAmi0MSWAu1rgQfjhSryD3cFVQRd7ATB9s5pY8kjz8u84GpsLjOHEKwVBL1zb+hkERMs+dO7ax4ayrjHp+c=
-X-Received: by 2002:a17:90b:33ce:b0:31f:4a91:4e94 with SMTP id
- 98e67ed59e1d1-321162d2237mr15476293a91.30.1754387628536; Tue, 05 Aug 2025
- 02:53:48 -0700 (PDT)
+        bh=CQUJ+NctrS5XnN4MvLnb/JYO8sbKwmo81SB44CL6l5A=;
+        b=l84FJSmHmnCXCDOB9tkxxNkJbZ3v6+feNgij/5wKS4VrqozWiWqnVhJ5IJl7pit3ea
+         FKbsYk82+7RTbE2B+91tBPPdiObHRIqonfziN0oxNfaYJ/H2Tum+k9QLCGBMSw/hcpjp
+         K0XlIoZ5whwwhFubqLWCG0RGvFBDHhU9tk1tvrWDvCYxv39kvsQSORG/ZgZiIJWqtyqI
+         uvOLGz2r8czPNOQ2d6x23At+p/ei/oeXqPzH3ljVrpYayfvdWrLyZ5/kO4ik1krsvUdS
+         sK6oAsaQYDp37jJKSQg2+sjq95AljXJTkCLXos0j3f42ExIRhS6mDqu/KPHO/O961Sqb
+         vaoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVSKPw0nNG6tkNsvpogALowUAGR+/9eS0Q/nXOaJ2jWIh6IWJWGW+UDLWbT6r6Lmtbnu7cU5z88rnJgrDoUmkU+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzRvOyjhMjhS2xRuJ0GG6wNHOQvfSaTxQQCzM45tfdw7cPl2Ly
+	D760Ymb0bqjKvNm7H9CJjHtYi6b7fKAPHxTkyIm5bArfu/BArHfuS5YmKalMWlaFSkIjbORIUfV
+	knws8J7aJqLbT72lw3niFFdg09Cp8zLDW8WNx+dv6HQ==
+X-Gm-Gg: ASbGncsv7bSotJ6pjsA0L5KKqRue/NvUYSOYA44c60IglTK6hIKsZCePYcpS8BtCDMK
+	Z5TPOL4gAzumuQdQuinn5WYRP9YzkGfcpXT16g/i5uGD6FoG3XAgHh8T0gSRglycWiXJ4R9EaxR
+	hL59sz5jT/938bAP2lpwU7UmOsd3AQ5Y6kB4tPDCYrSSNNUanTyxTAjmaTEcF4XFPQcH1ZPl5Gt
+	P7mxQ==
+X-Google-Smtp-Source: AGHT+IHfcD82/iX99lJflKhjf/q/ameBxbpugvuC2ABURfKeJyVve0DWx3ORf+DO9750X+uIrgMuC05+de0uLf7bNMM=
+X-Received: by 2002:a05:6a00:2188:b0:748:e585:3c42 with SMTP id
+ d2e1a72fcca58-76bec48fab6mr13243864b3a.15.1754387714705; Tue, 05 Aug 2025
+ 02:55:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
- <c7cca483-f1d3-45b4-abef-ec5019ad57dd@oss.qualcomm.com> <c6f74d55-6ea8-498f-a05a-000599f93ac6@oss.qualcomm.com>
- <b5f8fce0-afe8-409b-b43d-fa9f413cd442@oss.qualcomm.com>
-In-Reply-To: <b5f8fce0-afe8-409b-b43d-fa9f413cd442@oss.qualcomm.com>
+References: <20250725100806.1157-1-jie.gan@oss.qualcomm.com> <20250725100806.1157-2-jie.gan@oss.qualcomm.com>
+In-Reply-To: <20250725100806.1157-2-jie.gan@oss.qualcomm.com>
 From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 5 Aug 2025 10:53:37 +0100
-X-Gm-Features: Ac12FXwafHZ88AWPsVnZmJsBajP70fc8s8ykZSQl042YjN088WSulIMKoD4bYuE
-Message-ID: <CAJ9a7VgZ61oL4LLxKSon3LXsYDtaHaPcGNxW=cwzhSOs3ea1PQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Enable CTCU device for QCS8300
+Date: Tue, 5 Aug 2025 10:55:04 +0100
+X-Gm-Features: Ac12FXyp4ZO5j-vKmsroGEkmGSaZdhjZTYW6dd1otj-TM37lG1iabpz7_60enUM
+Message-ID: <CAJ9a7VhSMf43_GPhVf=He1S2J_Tn4XLi5cOadbCn+K0St+gdfg@mail.gmail.com>
+Subject: Re: [PATCH v4 01/10] coresight: core: Refactoring ctcu_get_active_port
+ and make it generic
 To: Jie Gan <jie.gan@oss.qualcomm.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Jinlong Mao <jinlong.mao@oss.qualcomm.com>, 
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org, Jie Gan <quic_jiegan@quicinc.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_025349_379569_503DEBA2 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250805_025515_676778_541DE8C6 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,76 +100,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+On Fri, 25 Jul 2025 at 11:08, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>
+> Remove ctcu_get_active_port from CTCU module and add it to the core
+> framework.
+>
+> The port number is crucial for the CTCU device to identify which ETR
+> it serves. With the port number we can correctly get required parameters
+> of the CTCU device in TMC module.
+>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-core.c  | 24 +++++++++++++++++++
+>  .../hwtracing/coresight/coresight-ctcu-core.c | 19 +--------------
+>  drivers/hwtracing/coresight/coresight-priv.h  |  2 ++
+>  3 files changed, 27 insertions(+), 18 deletions(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 1accd7cbd54b..042c4fa39e55 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -580,6 +580,30 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
+>  }
+>  EXPORT_SYMBOL_GPL(coresight_get_sink);
+>
+> +/**
+> + * coresight_get_in_port_dest: get the in-port number of the dest device
+> + * that is connected to the src device.
+> + *
+> + * @src: csdev of the source device.
+> + * @dest: csdev of the destination device.
+> + *
+> + * Return: port number upon success or -EINVAL for fail.
+> + */
+> +int coresight_get_in_port_dest(struct coresight_device *src,
+> +                              struct coresight_device *dest)
+> +{
+> +       struct coresight_platform_data *pdata = dest->pdata;
+> +       int i;
+> +
+> +       for (i = 0; i < pdata->nr_inconns; ++i) {
+> +               if (pdata->in_conns[i]->src_dev == src)
+> +                       return pdata->in_conns[i]->dest_port;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +EXPORT_SYMBOL_GPL(coresight_get_in_port_dest);
+> +
+>  u32 coresight_get_sink_id(struct coresight_device *csdev)
+>  {
+>         if (!csdev->ea)
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index c6bafc96db96..3bdedf041390 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -118,23 +118,6 @@ static int __ctcu_set_etr_traceid(struct coresight_device *csdev, u8 traceid, in
+>         return 0;
+>  }
+>
+> -/*
+> - * Searching the sink device from helper's view in case there are multiple helper devices
+> - * connected to the sink device.
+> - */
+> -static int ctcu_get_active_port(struct coresight_device *sink, struct coresight_device *helper)
+> -{
+> -       struct coresight_platform_data *pdata = helper->pdata;
+> -       int i;
+> -
+> -       for (i = 0; i < pdata->nr_inconns; ++i) {
+> -               if (pdata->in_conns[i]->src_dev == sink)
+> -                       return pdata->in_conns[i]->dest_port;
+> -       }
+> -
+> -       return -EINVAL;
+> -}
+> -
+>  static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight_path *path,
+>                                 bool enable)
+>  {
+> @@ -147,7 +130,7 @@ static int ctcu_set_etr_traceid(struct coresight_device *csdev, struct coresight
+>                 return -EINVAL;
+>         }
+>
+> -       port_num = ctcu_get_active_port(sink, csdev);
+> +       port_num = coresight_get_in_port_dest(sink, csdev);
+>         if (port_num < 0)
+>                 return -EINVAL;
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index 33e22b1ba043..e51b22b8ebde 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -156,6 +156,8 @@ void coresight_remove_links(struct coresight_device *orig,
+>  u32 coresight_get_sink_id(struct coresight_device *csdev);
+>  void coresight_path_assign_trace_id(struct coresight_path *path,
+>                                    enum cs_mode mode);
+> +int coresight_get_in_port_dest(struct coresight_device *src,
+> +                              struct coresight_device *dest);
+>
+>  #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
+>  int etm_readl_cp14(u32 off, unsigned int *val);
+> --
+> 2.34.1
+>
 
-On Tue, 5 Aug 2025 at 05:11, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->
->
->
-> On 7/28/2025 9:08 AM, Jie Gan wrote:
-> >
-> >
-> > On 7/15/2025 8:41 AM, Jie Gan wrote:
-> >>
-> >>
-> >> On 6/24/2025 5:59 PM, Jie Gan wrote:
-> >>> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in
-> >>> binding to utilize
-> >>> the compitable of the SA8775p platform becuase the CTCU for QCS8300
-> >>> shares same
-> >>> configurations as SA8775p platform.
-> >>
-> >> Gentle ping.
-> >
-> > Gentle ping.
->
-> Gentle ping.
-> Hi Coresight maintainers,
->
-> Can you please help to review the patch?
->
-> Thanks,
-> Jie
->
-> >
-> > Thanks,
-> > Jie
-> >
-> >>
-> >> Hi Suzuki, Mike, James, Rob
-> >>
-> >> Can you plz help to review the patch from Coresight view?
-> >>
-> >> Thanks,
-> >> Jie
-> >>
-> >>>
-> >>> Changes in V2:
-> >>> 1. Add Krzysztof's R-B tag for dt-binding patch.
-> >>> 2. Add Konrad's Acked-by tag for dt patch.
-> >>> 3. Rebased on tag next-20250623.
-> >>> 4. Missed email addresses for coresight's maintainers in V1, loop them.
-> >>> Link to V1 - https://lore.kernel.org/all/20250327024943.3502313-1-
-> >>> jie.gan@oss.qualcomm.com/
-> >>>
-> >>> Jie Gan (2):
-> >>>    dt-bindings: arm: add CTCU device for QCS8300
-> >>>    arm64: dts: qcom: qcs8300: Add CTCU and ETR nodes
-> >>>
-> >>>   .../bindings/arm/qcom,coresight-ctcu.yaml     |   9 +-
-> >>>   arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 153 ++++++++++++++++++
-> >>>   2 files changed, 160 insertions(+), 2 deletions(-)
-> >>>
-> >>
-> >>
-> >
->
+Reviewed by: Mike Leach <mike.leach@linaro.org>
 
-You need to send a new patch addressing the comments made by Krzysztof..
-
-Regards
-
-Mike
 -- 
 Mike Leach
 Principal Engineer, ARM Ltd.
