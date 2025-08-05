@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BC41C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:14:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F5AC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZFtem5ebUjYfHi+i54eZiZFM2KXuBAa+LchkumXljE=; b=vPLqcHSBBxzm6hqGDnqtPQ4xKc
-	P6KRVRPtwzt/rgJcDL0b8fcBWwQoGz0r5C41SaVQ3mMWHOpWV9YDr7tb6WoptK4w2mY+nf+95boVR
-	qh1szbs1okicBgBUIocCod9IL5lm1yZogo0E9rHdn6ksNJKsNXD0mqshCzQK/miAY061v+ENECyde
-	Pyzs4payyCqyp1wIqtboDrRaubFhuUrSLfurfd2hA9WfqJe5ctxIX0JZtQsW2R4bKl6hjuwnHh2Rz
-	Re5fBHiKmpvR/emAH/LXzFJBi0QZc2FAcPlK+nxGqTrCawnEcZPxRerUF/Q0J5e6lPQn7v+bo8L1o
-	4D7G3KVA==;
+	bh=3nflyV/OUEirGFpfjv/l3J1car85Sz3zM5ezzDUPESA=; b=L3OloFsiIlL1crah48pPHG8oiT
+	LQlla+eWthoIuPV7VQBVE0gPW7T6K5HBnlH9+dKm7ZtWNt8Lo4zVVgl4O0aMRBeHqKylMlc8YbBhU
+	kSmaDcp0tDLkJBUT0NxHlx7rKfp5UIyMLKSqOSfz5ZfteaZGMUBZ4756cWk7faJw+X8hpREvnZ+Jr
+	wLSrHNbW/FqAHBLW8qyu6QhUgYP2U2Ln2CNGaHqoQYP+lJBxrnSXos/RFJhh6Bd9X16kIUawa4b0D
+	RTVR+t59dGNBwsOVoBL/SEubp+duYKy2TuHT08FgYbDKq3IsqY5Fq7Y1LctXkhSgp8jcUtId0bbWJ
+	1BduyZPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHVC-0000000CoFg-04s5;
-	Tue, 05 Aug 2025 13:14:50 +0000
+	id 1ujHXn-0000000Coix-1oFB;
+	Tue, 05 Aug 2025 13:17:31 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHQT-0000000CnQR-4BQs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 13:09:58 +0000
+	id 1ujHQX-0000000CnRx-45tI;
+	Tue, 05 Aug 2025 13:10:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 18B3A601D9;
-	Tue,  5 Aug 2025 13:09:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 396ACC4CEF0;
-	Tue,  5 Aug 2025 13:09:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 56660601FC;
+	Tue,  5 Aug 2025 13:10:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B202C4CEF4;
+	Tue,  5 Aug 2025 13:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754399396;
-	bh=Qyw2Seyv99FKHqkQGzgzhkf96Afcfp/hz1VcHx8L4aU=;
+	s=k20201202; t=1754399401;
+	bh=PDR9udD4+zShHPUvTwKjzJ4kWssWjHhepo+x0VPHa78=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oa90mp6nH2jmdGDeDx1W6U4hN+VoFrpFYw8lSlcVrLD7Kstvd5GNfHl2W+ARRl/Ga
-	 55iTAvlm8ApdzRQ+/YVnX8SVLD5+zeItIpXqmnm9PHBhyo6w6VD0e7isyWKeAhvnmL
-	 b9mkh/z15OXSaT1aXtGJXO4bEYanDb6m5SHhIQ8r0gRg6EW8HjdXG1s7WY+JBf5oPv
-	 gKkXplf0G9px9l1bT0u/WECjJcj3mJnKuUtAt1UuMeUdulH0Tt1NBglRnjfG5DcT0n
-	 /ZHhp79srmnIb7ZleUdNF+3WYWlbreS9Kv58xWxnJCOq30ArtYOqmiSiEW9hIEC/QS
-	 DBUCEBVdOEDxw==
+	b=H7ifMCo4Rmb2Glx5yJy9yn+QDDYC541n4Ts8YkGZFEicAzDIEDqRPTT5s+6x+KrGs
+	 C26sUMrnTBnPq6nEOXtIpBGGUhAA2Q3G3HYI0WeSptKPxEhpsVPBcdJgkMDMUf31f6
+	 RbUvKUJ7jAn7mRUrT4F/oxgaAixyTvCT5V01hkAT/OsiYZuhVWkLOJKptuIJ2zpoc+
+	 jjwkjNWRc2EUwjgSaQgLDv79ckUFBmw3vZxnn1v1oYq00EuYkcLQ7lRJT3Z2+38Cl3
+	 VDv3oA2Fnf4p5n6licWisPvpsMbTwDMbpoTo66/DVrr9IJt1jgLb9wtrVJwKVPRubL
+	 eok/eCp7ddtrw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Cheick Traore <cheick.traore@foss.st.com>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Niklas Cassel <cassel@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
 	Sasha Levin <sashal@kernel.org>,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16-5.4] pinctrl: stm32: Manage irq affinity settings
-Date: Tue,  5 Aug 2025 09:08:40 -0400
-Message-Id: <20250805130945.471732-5-sashal@kernel.org>
+	heiko@sntech.de,
+	kwilczynski@kernel.org,
+	shawn.lin@rock-chips.com,
+	18255117159@163.com,
+	jirislaby@kernel.org,
+	didi.debian@cknow.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.16] PCI: dw-rockchip: Delay link training after hot reset in EP mode
+Date: Tue,  5 Aug 2025 09:08:41 -0400
+Message-Id: <20250805130945.471732-6-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250805130945.471732-1-sashal@kernel.org>
 References: <20250805130945.471732-1-sashal@kernel.org>
@@ -78,96 +82,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cheick Traore <cheick.traore@foss.st.com>
+From: Wilfred Mallawa <wilfred.mallawa@wdc.com>
 
-[ Upstream commit 4c5cc2f65386e22166ce006efe515c667aa075e4 ]
+[ Upstream commit c0b93754547dde16c8370b8fdad5f396e7786647 ]
 
-Trying to set the affinity of the interrupts associated to stm32
-pinctrl results in a write error.
+RK3588 TRM, section "11.6.1.3.3 Hot Reset and Link-Down Reset" states that:
 
-Fill struct irq_chip::irq_set_affinity to use the default helper
-function.
+  If you want to delay link re-establishment (after reset) so that you can
+  reprogram some registers through DBI, you must set app_ltssm_enable =0
+  immediately after core_rst_n as shown in above. This can be achieved by
+  enable the app_dly2_en, and end-up the delay by assert app_dly2_done.
 
-Signed-off-by: Cheick Traore <cheick.traore@foss.st.com>
-Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
-Link: https://lore.kernel.org/20250610143042.295376-3-antonio.borneo@foss.st.com
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+I.e. setting app_dly2_en will automatically deassert app_ltssm_enable on
+a hot reset, and setting app_dly2_done will re-assert app_ltssm_enable,
+re-enabling link training.
+
+When receiving a hot reset/link-down IRQ when running in EP mode, we will
+call dw_pcie_ep_linkdown(), which may update registers through DBI. Unless
+link training is inhibited, these register updates race with the link
+training.
+
+To avoid the race, set PCIE_LTSSM_APP_DLY2_EN so the controller never
+automatically trains the link after a link-down or hot reset interrupt.
+That way any DBI updates done in the dw_pcie_ep_linkdown() path will happen
+while the link is still down.  Then allow link training by setting
+PCIE_LTSSM_APP_DLY2_DONE
+
+Co-developed-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Wilfred Mallawa <wilfred.mallawa@wdc.com>
+Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Manivannan Sadhasivam <mani@kernel.org>
+[bhelgaas: commit log]
+Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+Link: https://patch.msgid.link/20250613101908.2182053-2-cassel@kernel.org
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
-
-Based on my analysis, here's my assessment:
 
 **Backport Status: YES**
 
 This commit should be backported to stable kernel trees for the
 following reasons:
 
-1. **Fixes a real bug**: The commit message explicitly states "Trying to
-   set the affinity of the interrupts associated to stm32 pinctrl
-   results in a write error." This is a functional bug that affects
-   users trying to configure IRQ affinity on STM32 platforms.
+## 1. Fixes a Clear Race Condition Bug
 
-2. **Small and contained fix**: The change is minimal - just adding a
-   single line:
-  ```c
-  .irq_set_affinity = IS_ENABLED(CONFIG_SMP) ?
-  irq_chip_set_affinity_parent : NULL,
-  ```
-  This is a one-line fix that adds the missing callback to the irq_chip
-  structure.
+The commit fixes a race condition between link training and DBI register
+updates after a hot reset in EP mode. As stated in the commit message
+and evidenced by the code changes:
 
-3. **Follows established patterns**: My analysis shows that other
-   GPIO/pinctrl drivers already implement this callback in the same way:
-   - `drivers/pinctrl/renesas/pinctrl-rzg2l.c`
-   - `drivers/gpio/gpio-thunderx.c`
-   - `drivers/gpio/gpio-msc313.c`
+- **Line 485-487** (original): When `PCIE_LINK_REQ_RST_NOT_INT`
+  interrupt occurs, `dw_pcie_ep_linkdown()` is called which updates
+  registers through DBI
+- Without this fix, these DBI updates race with automatic link re-
+  training after reset
+- The RK3588 TRM explicitly documents this race condition and the proper
+  mitigation
 
-   The STM32 driver was missing this standard callback that other
-similar drivers have.
+## 2. Small and Contained Fix
 
-4. **No architectural changes**: This is purely a bug fix that enables
-   existing kernel functionality (IRQ affinity setting) to work
-   properly. It doesn't introduce new features or change any
-   architecture.
+The changes are minimal and well-contained:
+- Adds only 2 new bit definitions (`PCIE_LTSSM_APP_DLY2_EN` and
+  `PCIE_LTSSM_APP_DLY2_DONE`)
+- Modifies 3 locations with simple bit operations:
+  - **Line 477**: Changes variable declaration to add `val`
+  - **Lines 488-491**: Adds 3 lines to re-enable link training after DBI
+    updates
+  - **Lines 574-577**: Modifies initialization to enable automatic delay
 
-5. **Minimal regression risk**: The fix uses the standard
-   `irq_chip_set_affinity_parent` helper function that's already well-
-   tested in the kernel. The conditional compilation with
-   `IS_ENABLED(CONFIG_SMP)` ensures it's only enabled on SMP systems
-   where it's relevant.
+## 3. Affects User-Visible Functionality
 
-6. **Related to known issues**: My search found related commits like
-   `3e17683ff4a8` ("irqchip/stm32-exti: Fix irq_set_affinity return
-   value") showing that the STM32 platform has had IRQ affinity issues
-   that needed fixing.
+Without this fix, EP mode operation can experience:
+- Corrupted register updates during hot reset scenarios
+- Unpredictable behavior when the host performs hot reset
+- Potential link training failures
 
-7. **Clear user impact**: Without this fix, users cannot set IRQ
-   affinity for GPIO interrupts on STM32 platforms, which can impact
-   system performance optimization and interrupt load balancing on
-   multi-core STM32 systems.
+## 4. Recent Feature with Active Bug Fixes
 
-The commit meets all the stable tree criteria: it fixes an important
-bug, is small and self-contained, has minimal risk, and doesn't
-introduce new functionality. This is exactly the type of fix that should
-be backported to ensure stable kernels have proper functionality.
+EP mode support was only added in commit e242f26f6320 (June 2024),
+making this a relatively new feature that's still being stabilized. The
+driver has seen multiple recent fixes:
+- 286ed198b899: Fixed PHY function call sequence
+- 7d9b5d611553: Fixed link up check
+- 28b8d7793b85: Fixed PERST# GPIO value
 
- drivers/pinctrl/stm32/pinctrl-stm32.c | 1 +
- 1 file changed, 1 insertion(+)
+## 5. Hardware-Documented Issue
 
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index ba49d48c3a1d..e6ad63df82b7 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -411,6 +411,7 @@ static struct irq_chip stm32_gpio_irq_chip = {
- 	.irq_set_wake	= irq_chip_set_wake_parent,
- 	.irq_request_resources = stm32_gpio_irq_request_resources,
- 	.irq_release_resources = stm32_gpio_irq_release_resources,
-+	.irq_set_affinity = IS_ENABLED(CONFIG_SMP) ? irq_chip_set_affinity_parent : NULL,
- };
+This isn't a theoretical bug - it's explicitly documented in the RK3588
+TRM section 11.6.1.3.3, providing clear hardware documentation that this
+sequence is required for correct operation.
+
+## 6. No Architectural Changes
+
+The fix:
+- Doesn't introduce new features
+- Doesn't change APIs or interfaces
+- Only ensures proper hardware sequencing per vendor documentation
+- Has minimal risk of regression (only affects RK3588 EP mode operation)
+
+The commit meets all criteria for stable backporting: it fixes a real
+bug that affects users, is small and contained, doesn't introduce
+features, and has minimal regression risk.
+
+ drivers/pci/controller/dwc/pcie-dw-rockchip.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+index 93171a392879..cd1e9352b21f 100644
+--- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
++++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+@@ -58,6 +58,8 @@
  
- static int stm32_gpio_domain_translate(struct irq_domain *d,
+ /* Hot Reset Control Register */
+ #define PCIE_CLIENT_HOT_RESET_CTRL	0x180
++#define  PCIE_LTSSM_APP_DLY2_EN		BIT(1)
++#define  PCIE_LTSSM_APP_DLY2_DONE	BIT(3)
+ #define  PCIE_LTSSM_ENABLE_ENHANCE	BIT(4)
+ 
+ /* LTSSM Status Register */
+@@ -474,7 +476,7 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ 	struct rockchip_pcie *rockchip = arg;
+ 	struct dw_pcie *pci = &rockchip->pci;
+ 	struct device *dev = pci->dev;
+-	u32 reg;
++	u32 reg, val;
+ 
+ 	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
+ 	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
+@@ -485,6 +487,10 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
+ 	if (reg & PCIE_LINK_REQ_RST_NOT_INT) {
+ 		dev_dbg(dev, "hot reset or link-down reset\n");
+ 		dw_pcie_ep_linkdown(&pci->ep);
++		/* Stop delaying link training. */
++		val = HIWORD_UPDATE_BIT(PCIE_LTSSM_APP_DLY2_DONE);
++		rockchip_pcie_writel_apb(rockchip, val,
++					 PCIE_CLIENT_HOT_RESET_CTRL);
+ 	}
+ 
+ 	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+@@ -566,8 +572,11 @@ static int rockchip_pcie_configure_ep(struct platform_device *pdev,
+ 		return ret;
+ 	}
+ 
+-	/* LTSSM enable control mode */
+-	val = HIWORD_UPDATE_BIT(PCIE_LTSSM_ENABLE_ENHANCE);
++	/*
++	 * LTSSM enable control mode, and automatically delay link training on
++	 * hot reset/link-down reset.
++	 */
++	val = HIWORD_UPDATE_BIT(PCIE_LTSSM_ENABLE_ENHANCE | PCIE_LTSSM_APP_DLY2_EN);
+ 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
+ 
+ 	rockchip_pcie_writel_apb(rockchip, PCIE_CLIENT_EP_MODE,
 -- 
 2.39.5
 
