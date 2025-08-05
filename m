@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A4DEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 23:55:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A864CC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 23:58:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gl7PKzkulptD9jdg8xbxrt81Qiymr7y0BydPiYTY5VY=; b=ZrK1V5ymln2SE6HBg5gLq1kIR9
-	tpKRPuVgrfIlrCjX+qqSmc9+oZiykSy25GKbzinGRs8/tkWZECF1Bwb/GClGwxIvz6beTvnS3Z8eR
-	p1qVwmxBeg0vWiC9iOx0pZlHlaUwzLRQx5UMyBQVqrmQEWHc14Wtbcq4wteFe8Kr52FyhS4xl988f
-	xEdaMYa3XsseRQfgsnXGWf/OnhcbsXTgDRrbMqrUi3z3nMeTDduWwJfEZy6qqwkhrxLqlzdJRaNvv
-	fEGyrqk8ZPOnSwlRa/iJF9OdDFPSZ/xPoN/CX4rQL5KJjSxzLhS8nO/E66pBeohOt04+adAcSHfPo
-	XuQE4s+w==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=++94R41tQyeJMdud8WPd0oi+7jsV3EpN/nsCDMPrqME=; b=vI0EkLD3Uo6IZNjN3ChBCTQ9fs
+	Bdxkaj13327r8MJcWWVpy274D0WUyR2pWjqe+Vknfutu8YIcl0YrzGwqB1199KpJSSKAr1uDYgWL2
+	fxK0yFJ0ACqnJCtwrciEccxEwJTG0ImHnrujt+Y5TYVQ7p3Mi7+Wg5r/o2w9VbWl96bH/GqIUiVwn
+	qYQbSBENTTtd2j81Qhna8SdXLjxaBkzh3waqKcReY/aHKHyv60nt+AxIQYAiy0AaRlmn9tYDqoyrR
+	D5USWpwl+lD3bzd8QU0BVANnwLAl5IfeMX6Eq3L2bH+gAqWkDVmeK+aLVydqAy4ucdOKfJNx6YzYf
+	X+x3nVyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRUz-0000000E1XN-3yM3;
-	Tue, 05 Aug 2025 23:55:17 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1ujRXY-0000000E1h6-3Mwm;
+	Tue, 05 Aug 2025 23:57:56 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRPp-0000000E11U-3HM8
+	id 1ujRPw-0000000E13E-0qGN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 23:49:59 +0000
+	Tue, 05 Aug 2025 23:50:05 +0000
 Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575Nnprk388002;
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575NnpKh4185345;
 	Tue, 5 Aug 2025 18:49:51 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1754437791;
-	bh=Gl7PKzkulptD9jdg8xbxrt81Qiymr7y0BydPiYTY5VY=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ICKE89S83xU20iJr2JZfj7Ezr65u3Z7W+PWT7TVtKNyhrwimSL+2KitaZrmOsvZbb
-	 oDJ3XW+4wyIEbdVF7jBsyqU3kWlDuNljyW+0KAD1P+frqQWFHRk7kW4b1h3sblsTvZ
-	 raFFHzK2JFfYFGc2zRGUXj1x6cGNJST3cu5Z9Qp4=
-Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575Nnpn63796006
+	bh=++94R41tQyeJMdud8WPd0oi+7jsV3EpN/nsCDMPrqME=;
+	h=From:To:CC:Subject:Date;
+	b=w2Qiwep7h4n2O+tFZMAhFUwlz/41MguqHiKzfPVXbZcznSLPSmM/1qapo2t2ePHRd
+	 q2sEw508wmFZD0lmkDHgNuumaqBp0ChVC9QYUn3o4x30f+mL9tmz2y3K6HLs8FMJwi
+	 K2hQnxAtXhioMzZMH9bM4wmlOx5Jn+xbGXVNqo/s=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575NnpPu3796004
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
 	Tue, 5 Aug 2025 18:49:51 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE108.ent.ti.com
- (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
- Aug 2025 18:49:51 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 18:49:50 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
  Frontend Transport; Tue, 5 Aug 2025 18:49:50 -0500
 Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575Nno6q2624898;
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575Nno6m2624898;
 	Tue, 5 Aug 2025 18:49:50 -0500
 From: Judith Mendez <jm@ti.com>
 To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
@@ -67,19 +67,17 @@ CC: Vignesh Raghavendra <vigneshr@ti.com>,
 	<ssantosh@kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>
-Subject: [PATCH 4/4] arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add GP_SW reg range to chipid node
-Date: Tue, 5 Aug 2025 18:49:50 -0500
-Message-ID: <20250805234950.3781367-5-jm@ti.com>
+Subject: [PATCH 0/4] Add support for AM62P SR1.2
+Date: Tue, 5 Aug 2025 18:49:46 -0500
+Message-ID: <20250805234950.3781367-1-jm@ti.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250805234950.3781367-1-jm@ti.com>
-References: <20250805234950.3781367-1-jm@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_164957_976339_55EEC2FD 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20250805_165004_284577_2786A402 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,28 +92,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds GP_SW register range to k3-am62p-j722s-common-wakeup which
-will be used to determine SoC revision.
+This patch series adds support for the AM62P SR1.2 silicon revision by
+adding logic in k3-socinfo to detect AM62P variants. Also update binding
+doc to account for second register range GP_SW.
 
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+This also disables HS400 support for AM62P SR1.0 and SR1.1 in sdhci host
+driver and enable by default for AM62P SR1.2.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-index 6757b37a9de3..48778c49d8fc 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-@@ -18,7 +18,8 @@ wkup_conf: bus@43000000 {
- 
- 		chipid: chipid@14 {
- 			compatible = "ti,am654-chipid";
--			reg = <0x14 0x4>;
-+			reg = <0x14 0x4>,
-+			      <0x230 0x10>;
- 			bootph-all;
- 		};
- 
+Tested against AM62P SR1.2, SR1.1, SR1.0 and AM62X SK.
+Log for AM62P SR1.2:
+https://gist.github.com/jmenti/5d06c60a94104a476eda9371ab6c7f37
+
+Judith Mendez (4):
+  dt-bindings: hwinfo: Add second register range for GP_SW
+  soc: ti: k3-socinfo: Add support for AM62P variants
+  mmc: sdhci_am654: Disable HS400 for AM62P SR1.0 and SR1.1
+  arm64: dts: ti: k3-am62p-j722s-common-wakeup: Add GP_SW reg range to
+    chipid node
+
+ .../bindings/hwinfo/ti,k3-socinfo.yaml        |  9 +-
+ .../dts/ti/k3-am62p-j722s-common-wakeup.dtsi  |  3 +-
+ drivers/mmc/host/sdhci_am654.c                | 16 ++++
+ drivers/soc/ti/k3-socinfo.c                   | 82 +++++++++++++++++--
+ 4 files changed, 98 insertions(+), 12 deletions(-)
+
 -- 
 2.49.0
 
