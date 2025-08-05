@@ -4,141 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF4BBC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92971C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oOc6z05PE+JQqEEqbcSZYn5GdoipElasSOcBl/QC7mg=; b=KDegRGZ5ADokThRGkYOIugWXAE
-	h4BKWcBKiuXux9o1AuclBJxVmn8vbmrJFpnWpsYTTRr58ZUIfh3rxfwDRJFSC0nf+L+joViynuE7/
-	9wLrbODlVDSKFJTg6vnfePJwAhMoZqk1LmxjzQPFYvUes+BUCOtKdRwAjsCBnuRycvCHqhA0re8Yy
-	eWe84zpBuMNzjnOmbFsX/1ONwT/hqcJrUYfqB/BtfxNwp7XEDB6K1680Gdgafyoy9uQjmjFHBrugD
-	8UAcX7tkLoQyczfw+YiTid6KnSLNya8tOoX4ZWtRIVrLrTGcZeNBZeGYNZa8ePqxGhYevWan4kvwx
-	M1YIYQUg==;
+	bh=iXPfazU7cIbMUIyerGOFfz8XN/djYB2vzUoaHbctEVo=; b=1zvqg91AE92sEdOW1zFHJKUr7Q
+	wkjT3th+xS5TdfzVzsVb77H31TAKpGp8flexFhOEqttA20SImmVvsrV80wC2M6pCkuMCaBK/ha03l
+	mGWEfYO8lPCHBvx5W9V1/TOFAQUvMliZIVmGTzUyhTbeclTBoUqI9W4IYjJDskEyy0cRzu841sJpC
+	j/MBVVCYcUPiqKSz0PZZjckYKbB7DdpzUoiYKD8DXhZQ/9090WfNYwWvfRL6MQ21VyionHGLdDgXD
+	KOESduCLsZ2fW3wr0rLibW1LIJSE6HkjaXaxXcvm5geybarohygODnMpHmR/6ob6tzVPohKZjVBL0
+	KLNwg/Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9KL-0000000BkeJ-2ZS4;
-	Tue, 05 Aug 2025 04:31:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1uj9cV-0000000Blfc-3e9x;
+	Tue, 05 Aug 2025 04:49:51 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9GZ-0000000BkMq-0cyZ
+	id 1uj9a0-0000000BlVz-09mI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 04:27:12 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5751T0GG013729
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 Aug 2025 04:27:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	oOc6z05PE+JQqEEqbcSZYn5GdoipElasSOcBl/QC7mg=; b=kThrxO3mtDNyptln
-	ENj7Vn4UHb1q8h4R/1TPBHteW6nAWsKccbCxgqx3M2Tsp5BF4lbQSBXdzn7Y8CvX
-	unP4tP0f7Eg8v9agYfX/RG4oyuQLzYthdK/1fTVj1Dmgn2zvDqhovuJL+k4ZlIQN
-	l65RRm8cSYq7nQspXUEBeRnUflH/zkRDomKPWp9LrQhQGNVwtM5pEhUipo4AXWUr
-	Z7Jw2K2YJI3/NRya0dPmhBGmELtQy4/iCNm56LtqumsWlbB09EjccwrVPXSlt3pe
-	CIA0lIWAnYImH0wM/Jbf6oMIYuvZC1xMWW9ArpYQaqrKIzlzmK1fo3y5k8d0O2S3
-	Z2U1Qg==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48b8ag0cg8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 04:27:09 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-76be6f0bbfdso4750369b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 21:27:09 -0700 (PDT)
+	Tue, 05 Aug 2025 04:47:17 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2401b855980so38392285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 21:47:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754369235; x=1754974035; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=iXPfazU7cIbMUIyerGOFfz8XN/djYB2vzUoaHbctEVo=;
+        b=Qz2Nc8kGRSpKOOLTPofZp70E7zzrDttKluznolEn495Mnjx4YurCPsoXYSpSG4R+IH
+         VLHfjoemKz7KZNuO56x5rtTUyouoa5l7fVOPCFYkaWN9g2VxpHrv9cZGIx7uAvfqb3tS
+         RMqNTHoYxg8+raq9Z5n5j9hNXviPmqT3bqHg51wtqfCVG38v9dRsiW6fDWuuaH4fOKIc
+         8fmQdRcqibc8OROm/xb5SP3+LiSekhsuC2YXm8i8K24+Inr+eTf5wbMKpzjBy+envw0C
+         bpnNTzI3Ue8BUN8giJQLxBy+BHD0AagFDAPuF3wzXAue1lIxu2YccNlT79L1sk7nxu1d
+         4HpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754368028; x=1754972828;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=oOc6z05PE+JQqEEqbcSZYn5GdoipElasSOcBl/QC7mg=;
-        b=mvieEamyXVEHPkpl7YFApa7jsEr2vvKLiMWnCYMT+2b4YoIwK1GMSaSpdwUcd2vwVA
-         6EAHD4YhzawHc6M9XL8DsWGUv+KkgKU2gO65FmlUngl+3knStPXw4o7wGhNyMkggF8I1
-         /L7vk75jIrPFyNkCj8JxwTjuprB/aVSELJXv4z9bS1EToO+krg6XglmIIl5Z0jZwJ/KT
-         aiVbSm2d+HoiB/vA3FvXuhSnuo3AGP09avqq/Kbkw7i+4Xy+eP/payV64bUImntuO0z3
-         qFVhEP9tZJQ8/dPmv3GzRd+LRVUe0Rpppt50NFIfOZw2/wwAUI3SZyqxh1A4VDBUE+aK
-         aoHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUGZGELx9umprlcDVzPwONYDhlQWU4ki5k9B6xzlPAe20kIK9xhrfhBMyCrOwefYgmN26SlJyKsBc4RPnDB8vkc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDY9BoUGZkwHeRWawlcHmYKQuWuuHRgr4jcs+KBD2ZNHIc5m0a
-	PcXYAIA1hTB8YTiiRcRVfjLmmvlIMrfZDpkWt3mSnoW+eL6+rd6FasqZECmemGiCm123TV9im4l
-	GlwR2pC5n17vhq0vJix716tdSHKwPVMJFHVYAPFDuIo63KezsIzxixVFeZgfrCeTK5i8z0ooPXC
-	S3cw==
-X-Gm-Gg: ASbGncsx/UBKxcc+Nr4HaKuiXH6FmzzSv4bPQMNFGysNRHMIJRNhbvOZPlbyvVL83Pw
-	p5soVWK5EVENobygJVnhGcVlsjMpd/+JuYhPu46kdVrcp/GlAu3LKNMU+oPWTpRnCVOLIna6EUI
-	suAk50/jiCqPSz1HeS1XexpyIKOSlyNc6eUeaiIIBtopmYSIA8jnk4IvzfogWFWZeBk7W+nb34U
-	Nvna5esuinsRSnMVryUeNCpwQKhzjqWwaFKOFuHpzGzDVKftG8+53pN6i1E+9orl+w4eXSPF1Do
-	PyAI/ovg++n9d2/elHMvwtEtiZcdejdHHncIfnaXrL/AD007LE6CK/dUbmg=
-X-Received: by 2002:a05:6a00:21d4:b0:74e:ab93:422b with SMTP id d2e1a72fcca58-76bec2f304fmr16590710b3a.4.1754368028224;
-        Mon, 04 Aug 2025 21:27:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFw0pS+Af4/vl57IxtwquJOBQTfIqG+DV8SuowUeMiLkLhA25xCUY8PxbXrQoBIQT63gbcfpA==
-X-Received: by 2002:a05:6a00:21d4:b0:74e:ab93:422b with SMTP id d2e1a72fcca58-76bec2f304fmr16590676b3a.4.1754368027830;
-        Mon, 04 Aug 2025 21:27:07 -0700 (PDT)
-Received: from [10.5.16.15] ([14.99.203.242])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bccfd4893sm11746425b3a.107.2025.08.04.21.26.59
+        d=1e100.net; s=20230601; t=1754369235; x=1754974035;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iXPfazU7cIbMUIyerGOFfz8XN/djYB2vzUoaHbctEVo=;
+        b=tvPhtYrvPmO13bhHGZ0zhyE5bAa34+JPA8gvWvDG3es3fBQc9ZF5MXpCtxrJTuV7L/
+         fp3lQE6MNHUjx8U+xIAqwNzdCsg+udeAHV3H39jEU56LLTk0wa/1yOCtaJ4kOC37+Xxt
+         KSUeRO6mkTBFGfFXcFeJmePvzLDUuBd4NM3wriGcDuDJ6rKL0ggCSTMXqJPpbJNeeRzO
+         uT8zq6Me0qpJVs8Va3UjMQxHFzNUkhgC8V4oqmtoUV1LjLtfLxmxK1PZzv2cFf320y2R
+         uP2Nb5hswRn0wGoXZsiNGVEMpXVveG0JVXR/bFtK/TqJTJmofxe4QCfskrSGpceKrBbs
+         iyQA==
+X-Forwarded-Encrypted: i=1; AJvYcCUWLXqtu0ZXhS8bGqOEYg/oYRitCpYH29ngo8+A02thH6PcasUFWiclVfBHTIWS4OiBGQnPsTi/gYHc62+SAZp9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxh7BNZ2zUz82iW3bmZWEpJODja8L/X4zG461tNBZcTtUOjq91p
+	nI+qLsa49ZQJb+lYMrhx7Kc9d7/CC7Nyi0OqYz+B32ThfO3Cghm5mbEZ
+X-Gm-Gg: ASbGncvIn3itogYe0ZVlMGl31ZdGeML0j3rFE9RGkbeNdQCsNkzayLV1xbovEwaQEE5
+	mUB2aKSTcd1riGaERY11Y+MSvqkcWVhQ14kI3MfTIyg8r27Zle5u2DK3j5f7Xp4TLlih8GDd/v6
+	ayMBc+AqWhFpKUB/KfaaDGN3j78hkKlyvh3NRLvMplVigl4RjCos3xokyVSlnwaOKvs+ziTTtaQ
+	a+qtfNU5gzAiE6BP4shtP86vsyEceNJjLianATNaQXEyf6G01ZdmqlGty5pWaYxTEuKAdcQxs4l
+	yVD3UIWSRg87O74nZNouwF2ynEA3U4+cjk534cRMGAXuaNZRtQDInfl0UwedpeZ0CjqpYGLjQba
+	ZWoRxglGPhczFNap8cG1M1zbLKbAzrIdMO0awsXbeLUB3IwBJ6RWsm440YrtFyGYb5qNNh+IzgD
+	85R1OIQQ==
+X-Google-Smtp-Source: AGHT+IFRmiQ7ZlIJtTOEEwOYYDOIvHRJnWLaM4H23tvUN6aEoH8QKnC0VXtgR0x8R9QnCygL2zeloQ==
+X-Received: by 2002:a17:903:187:b0:236:9726:7264 with SMTP id d9443c01a7336-24246f3ecf0mr201885345ad.5.1754369234567;
+        Mon, 04 Aug 2025 21:47:14 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241e8aaadadsm123348155ad.156.2025.08.04.21.47.13
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Aug 2025 21:27:07 -0700 (PDT)
-Message-ID: <3e880194-5ac8-4056-929c-ac103bedc737@oss.qualcomm.com>
-Date: Tue, 5 Aug 2025 09:56:57 +0530
+        Mon, 04 Aug 2025 21:47:13 -0700 (PDT)
+Message-ID: <18adfcd0-e955-4c3f-a68a-6a2f75ebd24d@roeck-us.net>
+Date: Mon, 4 Aug 2025 21:47:12 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] Add Type-C DP support for RK3399 EVB IND board
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20250729090032.97-1-kernel@airkyi.com>
- <3kefqzjewmsyzfvyi33kvlgjd6jphjg3fsnixb3of7yb3xkgs2@hgi6xfkgd653>
- <63ec11cf-7927-431a-995e-a5fc35ef1ba7@rock-chips.com>
- <pk5wecbbpxn7v4bdwtghhdnm76fmrmglelytljwfb4cgvpu2i6@rk5turgyt5xq>
- <0207826d-a987-4464-b306-29bdbfac45bc@rock-chips.com>
+Subject: Re: [PATCH v4 2/4] watchdog: s3c2410_wdt: Fix max_timeout being
+ calculated larger
+To: sw617.shin@samsung.com, 'Sam Protsenko' <semen.protsenko@linaro.org>
+Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
+ khwan.seo@samsung.com, dongil01.park@samsung.com,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <CGME20250724081336epcas2p38e95932ddc5c702e05a6436f05582993@epcas2p3.samsung.com>
+ <20250724080854.3866566-1-sw617.shin@samsung.com>
+ <20250724080854.3866566-3-sw617.shin@samsung.com>
+ <CAPLW+4nRh9DEnkhunG68xvGdaNJswC8fN4v4uBA1Aaao_5pxfw@mail.gmail.com>
+ <000a01dc05c0$9f0ab110$dd201330$@samsung.com>
 Content-Language: en-US
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-In-Reply-To: <0207826d-a987-4464-b306-29bdbfac45bc@rock-chips.com>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <000a01dc05c0$9f0ab110$dd201330$@samsung.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: 38AQPeg4LHkuGyDiGSwBMqUog4XdtqFM
-X-Proofpoint-GUID: 38AQPeg4LHkuGyDiGSwBMqUog4XdtqFM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA1MDAyNyBTYWx0ZWRfXxHAZ01tpAkAC
- OZQYbjxEi23pZZUtgAI++TwSYB/W6Al3nXM2r9di26BKRVgTQmayPbn+RcCW16lzCoePPt+7QEz
- iejGM3M3wRXSVjcww2Ces26FxxI2Ghd68iQ68Hbwk59ZKOLjQcw5HZ2INYqIVx4Lwwc8XvqynCM
- 3Kbw0iXNzLKpBq3Dcs0/248w5+6HLtQSOoUBlHyE7QbVEvb5mKAUUfJqqnjmDNzMs5qblpfP3JT
- 8Gu7A18AMmfssLfv0EDJ0xqL4VbMMJ/mspeMNY0/xgqTjY5NrkHB84l6QN03Cu5YhDIaXNMQ6hA
- yYq1w2vzUmJS1sMpYYWvbGwicfekFbX8XFaNmBlRbRlsFWPluQ8BwmGjmZG1TFxrOxB3Gr9hC07
- TyBuZDWgv8OH6F7zmkZrLP9KE2npu2F8HVqXaNQFM/UaxVU6JXeAelUYoS8mL5vdICZrO8sm
-X-Authority-Analysis: v=2.4 cv=aJvwqa9m c=1 sm=1 tr=0 ts=6891881d cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=BCJAbJEDZziWQyy0sFgk6w==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=VwQbUJbxAAAA:8 a=cm27Pg_UAAAA:8
- a=lJfCAnFZCnoPuUJW_CAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-04_10,2025-08-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 suspectscore=0 mlxscore=0 adultscore=0
- priorityscore=1501 mlxlogscore=999 spamscore=0 impostorscore=0 clxscore=1015
- bulkscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505280000
- definitions=main-2508050027
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_212711_317865_DC93EAD8 
-X-CRM114-Status: GOOD (  39.77  )
+X-CRM114-CacheID: sfid-20250804_214716_210179_07D1BA0E 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,114 +152,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/08/2025 09:13, Chaoyi Chen wrote:
-> Hi Dmitry,
+On 8/4/25 21:22, sw617.shin@samsung.com wrote:
+> On Saturday, August 2, 2025 at 1:12 PM Sam Protsenko <semen.protsenko@linaro.org> wrote:
 > 
-> On 8/2/2025 5:55 PM, Dmitry Baryshkov wrote:
-> 
-> [...]
-> 
-> 
->>> Currently, the software simply selects the first available port. So 
->>> if user
->>> plugs in DP dongles in both USB-C ports, the DP driver will select 
->>> the first
->>> port. This process is implemented in cdn_dp_connected_port() .
->>>
->> I think Stephen Boyd has been looking on similar issues for Chromebooks,
->> which were sharing DP controller between several USB-C ports. I don't
->> remember what was his last status. I think there it was easier since the
->> bifurcation point was the EC.
-> 
-> I think the latest progress should be here: [0]. It seems that it hasn't 
-> been updated for a while.
-
-Might be :-(
-
-> 
-> [0]: https://lore.kernel.org/all/20240901040658.157425-1- 
-> swboyd@chromium.org/
-> 
-> 
+>> How about something like this instead?
 >>
->> I think, CDN-DP needs to register up to two encoders and up to two
->> connectors, having a separate drm_bridge chain for each of the DP
->> signals paths (in the end, you can not guarantee that both branches will
->> have the same simple CDN-DP -> PHY -> USB-C configuration: there can be
->> different retimers, etc).
+>> 8<--------------------------------------------------------------------->8
+>> static inline unsigned int s3c2410wdt_max_timeout(unsigned long freq) {
+>>      const u64 div_max = (S3C2410_WTCON_PRESCALE_MAX + 1) *
+>>                  S3C2410_WTCON_MAXDIV; /* 32768 */
+>>      const u64 n_max = S3C2410_WTCNT_MAXCNT * div_max;
+>>      u64 t_max = n_max / freq;
 >>
->> Both encoders should list the same CRTC in possible_crtcs, etc. Of
->> course, it should not be possible to enable both of them.
+>>      if (t_max > UINT_MAX)
+>>          t_max = UINT_MAX;
 >>
->> This way if the user plugs in two DP dongles, it would be possible to
->> select, which output actually gets a signal.
-> 
-> That makes sense, but this might make the DP driver quite complex. I 
-> will see if I can make it happen.
-
-I think it's trading one burden for another, because CDN-DP currently 
-has a complication of calling cdn_dp_get_port_lanes() / 
-cdn_dp_enable_phy() in a loop rather than just enabling one instance.
-
-> 
-> 
+>>      return (unsigned int)t_max;
+>> }
+>> 8<--------------------------------------------------------------------->8
 >>
->>>
->>>>> BTW, one of the important things to do is to implement extcon-like
->>>>> notifications. I found include/drm/bridge/aux-bridge.h , but if the
->>>>> aux-bridge is used, the bridge chain would look like this:
->>>>>
->>>>> PHY0 aux-bridge ---+
->>>>>                      | ----> CDN-DP bridge
->>>>> PHY1 aux-bridge ---+
->>>>>
->>>>> Oh, CDN-DP bridge has two previous aux-bridge!
->>>>>
->>>>> Now, I try to use drm_connector_oob_hotplug_event() to notify HPD
->>>>> state between PHY and CDN-DP controller.
->>>> Does it actually work? The OOB HPD event will be repoted for the usb-c
->>>> connector's fwnode, but the DP controller isn't connected to that node
->>>> anyhow. If I'm not mistaken, the HPD signal will not reach DP driver in
->>>> this case.
->>> Yes.  What you mentioned is the case in
->>> drivers/usb/typec/altmodes/displayport.c . I have also added a new 
->>> OOB event
->>> notify in the PHY driver in Patch 3, where the expected fwnode is 
->>> used in
->>> the PHY. So now we have two OOB HPD events, one from altmodes/ 
->>> displayport.c
->>> and the other from PHY. Only the HPD from PHY is eventually passed to 
->>> the DP
->>> driver.
->> This way you will loose IRQ_HPD pulse events from the DP. They are used
->> by DPRX (aka DP Sink) to signal to DPTX (DP Source) that there was a
->> change on the DPRX side and the DPTX should reread link params and maybe
->> retrain the link.
+>> This implementation's result:
+>>    - is never greater than real timeout, as it loses the decimal part after
+>> integer division in t_max
+>>    - much closer to the real timeout value, as it benefits from very big
+>> n_max in the numerator (this is the main trick here)
+>>    - prepared for using 32-bit max counter value in your next patch, as it
+>> uses u64 type for calculations
+>>
+>> For example, at the clock frequency of 33 kHz:
+>>    - real timeout is: 65074.269 sec
+>>    - old function returns: 65535 sec
+>>    - your function returns: 32767 sec
+>>    - the suggested function returns: 65074 sec
 > 
-> Sorry, I still don't quite understand your point. I think the entire 
-> notification path is as follows:
+> Thank you for your feedback.
+> I'll make the code changes as follows in the next patch set:
 > 
-> Type-C mux callback -> RK3399 USBDP PHY -> PHY calls 
-> drm_connector_oob_hotplug_event() -> DP driver
+> static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
+>   {
+>          const unsigned long freq = s3c2410wdt_get_freq(wdt);
+> +       const u64 div_max = (S3C2410_WTCON_PRESCALE_MAX + 1) *
+> +                       S3C2410_WTCON_MAXDIV;
+> +       const u64 n_max = S3C2410_WTCNT_MAXCNT * div_max;
+
+Not sure if splitting this expression adds any value. Why not just the following ?
+
+const u64 n_max = (u64)(S3C2410_WTCON_PRESCALE_MAX + 1) *
+                    S3C2410_WTCON_MAXDIV * S3C2410_WTCNT_MAXCNT;
+
+Or just use a define ?
+
+> +       u64 t_max = n_max / freq;
 > 
-> Are you concerned that the IRQ_HPD event is not being handled somewhere 
-> along the path? Is it that the Type-C mux callback didn't notify the 
-> PHY, or that after the PHY passed the event to the DP driver via the OOB 
-> event, the DP driver didn't handle it?
 
-The IRQ_HPD is an event coming from DPRX, it is delivered as a part of 
-the attention VDM, see DP_STATUS_IRQ_HPD. It's being handled by the 
-altmode displayport.c driver and is then delivered as an OOB hotplug 
-call. However, it's not a mux event, so it is not (and it should not) 
-being broadcasted over the typec_mux devices.
+Make sure this compiles on 32-bit builds.
 
-The way we were handling that is by having a chain of drm_aux_bridges 
-for all interim devices, ending up with a drm_dp_hpd_bridge registered 
-by the TCPM. This way when the DPRX triggers the IRQ_HPD event, it is 
-being handled by the displayport.c and then delivered through that 
-bridge to the DP driver.
+> -       return S3C2410_WTCNT_MAXCNT / (freq / (S3C2410_WTCON_PRESCALE_MAX + 1)
+> -                                      / S3C2410_WTCON_MAXDIV);
+> +       if (t_max > UINT_MAX)
+> +               t_max = UINT_MAX;
+> +
+> +       return (unsigned int)t_max;
 
--- 
-With best wishes
-Dmitry
+I am quite sure that this typecast is unnecessary.
+
+Guenter
+
 
