@@ -4,60 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD75EC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 07:49:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA93FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 07:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTA6NMGe3J/SdtCqQms09qzjpveV0fohdbFwic3NX9w=; b=szBQ9beaON0xtKG3XCG7LE1WHH
-	/Ud3YBiEXIuubOTNTRr0XMzvXik+lWfE1sxxgG9yfSW4PjSMgbLRMLloWgnp6fAZKwHFPWmdUPLPr
-	C+gQPobwMydGmD0lv/mSNog+8j4K7liTaxPH5at6G+V8pKtbjqATqUqN6qBDLIMRAxLvH40jfaBzu
-	0R0+Q3lpRBv0CNp6T6dzjHorbK51aBXigJ6kt11e6a1sN6lcZ4032e40jTR4qCfqO1ycHtaa7caNK
-	nn4mbbObw9/a+Pgy+zVy7gLLz0asJwR3gFmfAuUHMGhqrPdzm7el6Rw7I6aE+9zf4CjdDzErSg5sP
-	nHy+WKhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kn4sW4IhzAA+ke7p+V3NUwe4u5d14gCPB2MCmX0wfkI=; b=CInKbnCAhAznma26ClEALdBS3R
+	lKxQb4o+w+5kDOATNkDaaa/JExFYl/N87mJt95zCfJumG4EmTwMw+HmRnFcHVeDggtDV/AFO5m5af
+	4JxNXBsERWwOaXI2OjYQd170wyKprVgJJamZTFmBOyfCA7wstLc98ek1bD8Zgp1iVBBIWkNsh4Pcg
+	iChx+6gmB6nGcZSBzGAkcXl1T5tJ8jFY5wzmFtT/d2Sld3NJ5MRlK1a8KLOfqIkZxgVpbUVmTtCpB
+	q100cUdGBK6BoE5bBaCulYfp6gRC0ef0rvXkKkc7DUMT2DiFwVJsbHFjRJUPEdEUbmYNiHmIxpJir
+	5QP/qDLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujCPl-0000000C4BN-2VXa;
-	Tue, 05 Aug 2025 07:48:53 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ujCSM-0000000C4tK-2oJE;
+	Tue, 05 Aug 2025 07:51:34 +0000
+Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujCN4-0000000C3iF-0i50
+	id 1ujCO6-0000000C3nP-0B5J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 07:46:12 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5DE7E3997;
-	Tue,  5 Aug 2025 09:45:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754379914;
-	bh=gnPMY+bjgJHtePly1Zpr7RSgl4DEQB09mIpl2nUlJXE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W0MHZPoWJxeiDNr6pGXUIx4n+v9t1ZJcFgrD/YrMJtreLAP1CEpy3rPggTEH0sZXe
-	 drIdCgE8tK0tQgE/QCvUkfjlMVvh+t9V0+Ny8PSAzSabBY84DuvIyD552iNxIaUFxg
-	 lFUun0GQ8vzCJe54NIT4sIjGAd/mRhCVb1lRvkc8=
-Date: Tue, 5 Aug 2025 09:45:57 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, 
-	nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jerome.forissier@linaro.org, 
-	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Subject: Re: [PATCH v11 01/19] media: mc: entity: Add
- pipeline_started/stopped ops
-Message-ID: <wgve5k52jxfiscon77trvg6iyyc3k7ud6agz7czydgefmbvpha@56jbro6w4yqa>
-References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
- <20250714-c55-v11-1-bc20e460e42a@ideasonboard.com>
+	Tue, 05 Aug 2025 07:47:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jj2R8cHBWepoXr5slSaVZfLbrENfplhEJLqdGhsKfoPwqQf9Kz6ZMvcoUvEoy5EtqcKgo3A6u756trzYQmOzgHDkJiT9nB7RI7hY1P+cbzzAsdIXscM4MV8F/CWJerSizby2mh7/0aiERQkYsRxZyjjJ48hwav9zpcPCCCYzi42lotGrb9vaPj9EISNcGcr27Jy1rfFnFXW/d4LSiKIY7iX1eR+/5Jpw96w7cxRywyiNsVrnD8KN/myFwiAhlkCw/a+PJFG949CcHWZQBbwPKSotxID9NFGM4WJQdJLwxIbMMeyTrE/Pify6Dm3/xpdy40kvlbhq4A2vBX6shqVgoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kn4sW4IhzAA+ke7p+V3NUwe4u5d14gCPB2MCmX0wfkI=;
+ b=xK2RtZ6stDE/h4hOZkBf8zxZLi2XHM6GJUF0MnCvK4Qv98DypMKqeGcrVTPsbgahSnlN2SOzJZgwadAiK9/vbWOWDewbGpX6T9wfehjt/JQT4MTeyUs8xq/2H7y7LYQ5F0Zh19DNqLjyK9xqTj3aXoMx2s5leQvJ+213q+AqrnyoeIg/NyzJn6wN5fANIc+aNbEWMtIl13t96j8lQU5CWAGwSp12L07HK3w6NNQYBM8vgsogNTA9GyQ+0SIbk1h7NB7424mPcNq6vYVNq91Flvw30Faoe5VSp4cnBG1rrZVJM40P76TCbZjDwHO8KFzSjVhDV1FSEefydp7K84zD7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kn4sW4IhzAA+ke7p+V3NUwe4u5d14gCPB2MCmX0wfkI=;
+ b=MuoADmWTmL332aS4vl10wt17c8eyZ+r355vhnFWuFEjtPrOA5DAjQNewqteWsSvVjHa+9WTFk6vWJl3hcb4W2HyGtLXCLoELaLC8Ppc+mb32BGzlt5ST8q0m4QDqMrBnbmZLqI2xLj1hn+apvz7kEG31KxpjyjaI4NBCiR42EFkOKjFHK23vXWJ/PwXjP8SKyu1eaxTT7txpS23AhrZuy8D0qSj2brhnW//mkRB3GLfm1avjuzzyIXxrfFxphSOavjRPRnUw7rPjduRVTrwPD1GYQf6kk8IkUXsL2OuuNtHE6eNc7jPDqhXH23o4EWHWIYPkfmqKNLM/qE+RbH6NWQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5576.apcprd06.prod.outlook.com (2603:1096:101:c9::14)
+ by OSQPR06MB7278.apcprd06.prod.outlook.com (2603:1096:604:29c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Tue, 5 Aug
+ 2025 07:47:02 +0000
+Received: from SEZPR06MB5576.apcprd06.prod.outlook.com
+ ([fe80::5c0a:2748:6a72:99b6]) by SEZPR06MB5576.apcprd06.prod.outlook.com
+ ([fe80::5c0a:2748:6a72:99b6%5]) with mapi id 15.20.8989.020; Tue, 5 Aug 2025
+ 07:47:02 +0000
+From: Liao Yuanhong <liaoyuanhong@vivo.com>
+To: Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <quic_jesszhan@quicinc.com>,
+	Nitin Gote <nitin.r.gote@intel.com>,
+	Krzysztof Niemiec <krzysztof.niemiec@intel.com>,
+	Liao Yuanhong <liaoyuanhong@vivo.com>,
+	dri-devel@lists.freedesktop.org (open list:DRM DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE)
+Subject: [PATCH 0/4] drm: Remove goto label that are only used once
+Date: Tue,  5 Aug 2025 15:46:15 +0800
+Message-Id: <20250805074645.625911-1-liaoyuanhong@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0017.apcprd02.prod.outlook.com
+ (2603:1096:4:194::17) To SEZPR06MB5576.apcprd06.prod.outlook.com
+ (2603:1096:101:c9::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250714-c55-v11-1-bc20e460e42a@ideasonboard.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5576:EE_|OSQPR06MB7278:EE_
+X-MS-Office365-Filtering-Correlation-Id: a5bc8477-80d7-45e6-29af-08ddd3f443a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HgO203TYbMWzwAKZ86y/G2dQmcfj6S2AO3E0lftGOZ+/KQb7kxO1jIGbWi9y?=
+ =?us-ascii?Q?AR/YdDlMZNEElFoHYkZLyc8SqyvcJN9lEkdiaEguE4/C3OE6n6D9nsENv6O5?=
+ =?us-ascii?Q?MSaUk7r7UL4StCH2kmdfcyzJTOJMrF75Bms8r1Wf5e2i0Qgc3ymCIv8uZTc9?=
+ =?us-ascii?Q?283czI9lQdEulI8jTZA0B4ZCpk2xs7F6eE6wFbO0deXJuv0P2CWfw5J53GZF?=
+ =?us-ascii?Q?3eR4iFW7V0snyShVFJN2Lsv4kgP3dvu1pf+OAKpbf2S/z0Lqnb0bR4ksjF2b?=
+ =?us-ascii?Q?jnUEMxJWnIz88bWK7hyYN5df8LK1jIguJkwQaZCSsv3t3Ej7egQf88zyViRN?=
+ =?us-ascii?Q?0HQoiiv1W2a2eCbQHQLC32ctJJ2IRNBdoc+FUIy9Z5rXcTG081F1LkbWck/v?=
+ =?us-ascii?Q?16onCwzhnLfnzWpqzSrMExWpQ1RELiptmIYZwY4u0zw2W76ItQcMWT1kNg7d?=
+ =?us-ascii?Q?4U/vJIOnB3oXTJviGvr1aGsdWU60CnSA3YKuwGFMzCvN5jm5qJjloRLUBjlx?=
+ =?us-ascii?Q?hh1YShgQefSUwJtEk0m5JqSkbK0tOj0F8DPCm4eytsxrRPZcb9VUrJJgOHnn?=
+ =?us-ascii?Q?uRGgNTSD66UTOmCdsbJMOPGV94b1FbAcHjTEi295cYoQ6iixH989t3c9b/o8?=
+ =?us-ascii?Q?jzWzTkQjCpaC2imWLLW/VhaeoKiX+OwqLcK01sVtPOAHrz6KQRwysXxKrHj2?=
+ =?us-ascii?Q?lcZPdpPGh76aVMQaJoTiEylmyt3z/QaVXMtKieKOu1qV8g9EN+0QawvyWhW7?=
+ =?us-ascii?Q?Mm+WXNN9vsx002vbBBul8DN3d7GROoMTo/GzJUy1E9zIr1je7lk7KKETgz1K?=
+ =?us-ascii?Q?4T2/e/FkvapqLgsay3MLQ8r3wy2BOGw8tVQvmjwQIYFc7VeBc5liZ+jxC0+2?=
+ =?us-ascii?Q?QeA9/6Gh+QBbs/7NdTLsEWO8Q5nNSQ9vqDcUJWbd5WqhqgVs6lQC4DsxNCKp?=
+ =?us-ascii?Q?NfhijyUTdptHT8tVaBSxNaIOi8dp1yzoPXOfmJRfY74UeWqq8cN9fadmrU5r?=
+ =?us-ascii?Q?drWRPED7eMaPcsIbdkmA/UGpFY0vmVKvyZ4nuty+1x1+d9JjzHVlKzHLZ40h?=
+ =?us-ascii?Q?zLjD4QYaVai4WaabZCxVUVm49OTP2W8WZhuRDykhIpqEJYGKMU0k9yj0pFfq?=
+ =?us-ascii?Q?DObeMtUnnWctLJIVZSMxTqgNRCn1C5akixpjH5WM2mDiQkMsfth8KmbgAceb?=
+ =?us-ascii?Q?5j1Dnksg++XkWeVYdpTe4M7KD2K1DS1EWej86qpryq6itErh7a1kx709ntPv?=
+ =?us-ascii?Q?jVEfE43t/el6+7QvP0Bg2yftMyF71XiVTehAQxU0sGW6aaXs3GWGL6kzRhQE?=
+ =?us-ascii?Q?+vb+8sCsx2KTwtI+y6tUdDn+Tl78/lqdiB28LWhdlma8fRcgtt4R4l0OEKUw?=
+ =?us-ascii?Q?zzDZ2MiS2eL0UjP7bglg7yFlCOqCmGXROQ5iT23yh/JhD9dI/uiUyUZ0gImw?=
+ =?us-ascii?Q?8ucdJzBAKILncAhx5GoMgPiwWyCi5nIwaw5a7eG+ZfLm9WPdTSnV4vY6zhfv?=
+ =?us-ascii?Q?ldQl76rj8AvOSnU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5576.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jkytGuB0iN78wvbAyci/IsOuVcdMmvHpYCTX0A5ALVkKyAguA3WMHWULBzyQ?=
+ =?us-ascii?Q?yU7Yqg10mfj6MM2HkqronAz7jOL5N4JeT3MBo1QcYZ5iDuEXQ3prb5KFzoLN?=
+ =?us-ascii?Q?RzgevZ+AvvEEB5wTuoa4BhmAgY/5TX/QMxlgZfda/kwJkRCIR/1b+L/N/vyo?=
+ =?us-ascii?Q?mMUO66dvxSQ12MwprSQ54HRe4SLYxaILIUzCMAwXWXpBo1Hl3R2CJ/uvzXvc?=
+ =?us-ascii?Q?lbZHcgd98tVsXrPjT3drNESferUqle+QD34FqVfKPFvZNuv/+SRKLbvwU4Tl?=
+ =?us-ascii?Q?4/azV+bXt0g0wbAjnceqqjCjHI2dT47dL9nMLghc1r/9j0UI0mnf4fxarLCF?=
+ =?us-ascii?Q?K57PpfVxgFK2bY4tVfzM6kPkvO6rrkRm0VyKqKZpSf/DcAcBoNc39DyIqyGV?=
+ =?us-ascii?Q?+ZVxm96wMpybvwnJ96ZnFvxn3atj7PDbTB/ROoKHBmqYUjqAm+A48CE2A80g?=
+ =?us-ascii?Q?MQXpQAVXYm8upWwcsNfZHnQZgJ/xIIpG02II7lcUUxgvkAaFSi+K/wAWaohk?=
+ =?us-ascii?Q?QFJ38KfWUpTIBQB33SA2IhufkwQMormP6Lg4V/cqJdDv/rOIl1Wk9HL6YOwn?=
+ =?us-ascii?Q?jorEaYg7g/HYcjYW1lB1I77TMVc/vA6Fl4KfHKXMwW91c9g9XF0NOq7rUl7m?=
+ =?us-ascii?Q?TLh1zaSItz2w/O3F5eM1vVNzKhe+e+PHJelnUjJDkCWz7yiO4g3k445Yz2HY?=
+ =?us-ascii?Q?CXJczMccNyQ6TnOZdM43i067RtLbkQHNONrFYnfvwzlB9tn7IqE2HxbzVSEf?=
+ =?us-ascii?Q?XhsOqLprQngp9llKtt8ZNXfW/NdAAw0Nsz2LvAZ01vDasO0wyg5J9h5rPlge?=
+ =?us-ascii?Q?hSHDeWRLEL1TQYCUria5IQ2KK/CW1gckSxm0pjpzJYqBCB2TVYPZdaPgOYG1?=
+ =?us-ascii?Q?8eRmXUz2/efC3ac/eGFf9iaenBV2yV2iERP0MOs550hSa7cNFXhMMQdt5exf?=
+ =?us-ascii?Q?uDckFA+chox12K6vKs3K7cbf0C+QZ8QuWGh610l0gc1+idgSaD3Y+V05MpPj?=
+ =?us-ascii?Q?TvGL6I9xzsinVnc69b/BoJc0qM1/sw1Wg2bG/xjlaiY/da6Z38EHnidqljad?=
+ =?us-ascii?Q?5wwtANM6SE5BXpkZWV66/6UZTkiZRc4CL8e5SZLFOd8eV5n/AMdUiMrAxpwj?=
+ =?us-ascii?Q?BdogmkBixmOKHIrStgNs+33jVy7VGN0R5Ad/tMvoOzxUL3FvOY5EziFvgJWp?=
+ =?us-ascii?Q?zP+WosJRvbQHeZaPb98NOqTEgiJX6QRuJRK7e5s/fJR+ZnJKCgR/sI0CfO2Y?=
+ =?us-ascii?Q?hqbMLiRziBlPVRnsogWtDzaRou/uKlufd+Bu6UBJdaUbDFPlZAX043YCdi0w?=
+ =?us-ascii?Q?jqKo+orfiXFGfOktAGfyCg1DhVFS0Z3vTXc0AHzGGXTDTprjCVSfd6MzzTCJ?=
+ =?us-ascii?Q?mybRCFDvVgfWqGhjgMtnHtY7VPhIUlO3z2u6a5SSrFiJYOg9czquDPYExCTV?=
+ =?us-ascii?Q?qZb0K6hf/GAkut5SztnpFID5QLJCU3eMlblnLm4gttT7jfDazE7yjeHwqnRl?=
+ =?us-ascii?Q?jMHhk/CuMJW19Rfky3drxEREcoMW9ts9sldYht8+ew6YkrATrX+4VNHXYx0e?=
+ =?us-ascii?Q?ebCVytsUs+3DWYwJB+HqCsRWxlrn9aUAieHXN2OQ?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a5bc8477-80d7-45e6-29af-08ddd3f443a7
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5576.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 07:47:01.9380
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ur2c35Q/0MwkLrob5uCGgxUkOzSghNk24qwDBsfZDIbW9fYMJNNqqCERA3/hyd0ivATgv43ukWNlik1nBEk1fg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSQPR06MB7278
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_004606_359744_13EF8437 
-X-CRM114-Status: GOOD (  35.51  )
+X-CRM114-CacheID: sfid-20250805_004710_291532_542618D4 
+X-CRM114-Status: UNSURE (   6.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,219 +179,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
+Remove unnecessary goto labels to improve code readability.
 
-On Mon, Jul 14, 2025 at 04:06:27PM +0100, Daniel Scally wrote:
-> Add two new members to struct media_entity_operations, along with new
-> functions in media-entity.c to traverse a media pipeline and call the
-> new operations. The new functions are intended to be used to signal
-> to a media pipeline that it has fully started, with the entity ops
-> allowing drivers to define some action to be taken when those
-> conditions are met.
->
-> The combination of the new functions and operations allows drivers
-> which are part of a multi-driver pipeline to delay actually starting
-> streaming until all of the conditions for streaming succcessfully are
-> met across all drivers.
->
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> ---
-> Changes in v5:
->
-> 	- Update kerneldoc comments with Optional statement in the
-> 	  right place
->
-> Changes in v4:
->
-> 	- Reverted to having the iter variable
->
-> Changes in v3:
->
-> 	- Dropped the iter variable now that the pipeline entity
-> 	  iterator functions don't need it.
-> 	- Updated documentation to specify Optional and return
-> 	  values
->
-> Changes in v2:
->
-> 	- Refactored media_pipeline_started() such that the cleanup
-> 	  function for media_pipeline_entity_iter is unconditionally
-> 	  called
-> 	- Avoided using media_entity_call() helper for operation that
-> 	  has return type void to avoid compiler warnings
-> ---
->  drivers/media/mc/mc-entity.c | 46 ++++++++++++++++++++++++++++++++++++++++++++
->  include/media/media-entity.h | 29 ++++++++++++++++++++++++++++
->  2 files changed, 75 insertions(+)
->
-> diff --git a/drivers/media/mc/mc-entity.c b/drivers/media/mc/mc-entity.c
-> index 045590905582054c46656e20463271b1f93fa6b4..d3443537d4304e12cb015630101efba22375c011 100644
-> --- a/drivers/media/mc/mc-entity.c
-> +++ b/drivers/media/mc/mc-entity.c
-> @@ -1053,6 +1053,52 @@ __media_pipeline_entity_iter_next(struct media_pipeline *pipe,
->  }
->  EXPORT_SYMBOL_GPL(__media_pipeline_entity_iter_next);
->
-> +int media_pipeline_started(struct media_pipeline *pipe)
-> +{
-> +	struct media_pipeline_entity_iter iter;
-> +	struct media_entity *entity;
-> +	int ret;
-> +
-> +	ret = media_pipeline_entity_iter_init(pipe, &iter);
-> +	if (ret)
-> +		return ret;
-> +
-> +	media_pipeline_for_each_entity(pipe, &iter, entity) {
-> +		ret = media_entity_call(entity, pipeline_started);
-> +		if (ret && ret != -ENOIOCTLCMD)
-> +			break;
-> +	}
-> +
-> +	media_pipeline_entity_iter_cleanup(&iter);
-> +
-> +	ret = ret == -ENOIOCTLCMD ? 0 : ret;
-> +	if (ret)
-> +		media_pipeline_stopped(pipe);
-> +
-> +	return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(media_pipeline_started);
-> +
-> +int media_pipeline_stopped(struct media_pipeline *pipe)
-> +{
-> +	struct media_pipeline_entity_iter iter;
-> +	struct media_entity *entity;
-> +	int ret;
-> +
-> +	ret = media_pipeline_entity_iter_init(pipe, &iter);
-> +	if (ret)
-> +		return ret;
-> +
-> +	media_pipeline_for_each_entity(pipe, &iter, entity)
-> +		if (entity->ops && entity->ops->pipeline_stopped)
-> +			entity->ops->pipeline_stopped(entity);
+Liao Yuanhong (4):
+  drm/i915/gem: Remove goto label that are only used once
+  drm/imagination: Remove goto label that are only used once
+  drm/imx: Remove goto label that are only used once
+  drm/panel: Remove goto label that are only used once
 
-I was sure I asked this already, but I wasn't able to find any
-reference to this in the review of the previous version, so I'll
-re-ask (sorry if it's the second time):
+ drivers/gpu/drm/i915/gem/i915_gem_region.c       | 10 ++++------
+ drivers/gpu/drm/imagination/pvr_cccb.c           |  8 ++------
+ drivers/gpu/drm/imagination/pvr_fw_startstop.c   | 13 +++++--------
+ drivers/gpu/drm/imx/dcss/dcss-drv.c              |  8 ++------
+ drivers/gpu/drm/panel/panel-innolux-ej030na.c    |  7 ++-----
+ drivers/gpu/drm/panel/panel-orisetech-ota5601a.c |  7 ++-----
+ 6 files changed, 17 insertions(+), 36 deletions(-)
 
-why can't you use media_entity_call() here as well ?
+-- 
+2.34.1
 
-> +
-> +	media_pipeline_entity_iter_cleanup(&iter);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(media_pipeline_stopped);
-> +
->  /* -----------------------------------------------------------------------------
->   * Links management
->   */
-> diff --git a/include/media/media-entity.h b/include/media/media-entity.h
-> index 64cf590b11343f68a456c5870ca2f32917c122f9..1e1026f65f2050bb9aa39bde68794da8d2d0a669 100644
-> --- a/include/media/media-entity.h
-> +++ b/include/media/media-entity.h
-> @@ -269,6 +269,10 @@ struct media_pad {
->   *			media_entity_has_pad_interdep().
->   *			Optional: If the operation isn't implemented all pads
->   *			will be considered as interdependent.
-> + * @pipeline_started:	Optional: Notify this entity that the pipeline it is a
-> + *			part of has been started.
-> + * @pipeline_stopped:	Optional: Notify this entity that the pipeline it is a
-> + *			part of has been stopped.
-
-Why not use the same style as the other entries ?
-
- * @get_fwnode_pad:	Return the pad number based on a fwnode endpoint or
- *			a negative value on error. This operation can be used
- *			to map a fwnode to a media pad number. Optional.
-
- Or
- * @has_pad_interdep:	Return whether two pads of the entity are
- *			interdependent. If two pads are interdependent they are
- *			part of the same pipeline and enabling one of the pads
- *			means that the other pad will become "locked" and
- *			doesn't allow configuration changes. pad0 and pad1 are
- *			guaranteed to not both be sinks or sources. Never call
- *			the .has_pad_interdep() operation directly, always use
- *			media_entity_has_pad_interdep().
- *			Optional: If the operation isn't implemented all pads
- *			will be considered as interdependent.
-
-Also, the existing doc uses "the entity" and not "this entity"
-
-
-These would then be
-
-* @pipeline_started:	Notify the entity that the pipeline it is a
-*			part of has been started. Optional.
-* @pipeline_stopped:	Notify the entity that the pipeline it is a
-*			part of has been stopped. Optional
-
-Question from a non-native speaker: "it is a part of" or "it is part
-of" ?
-
->   *
->   * .. note::
->   *
-> @@ -284,6 +288,8 @@ struct media_entity_operations {
->  	int (*link_validate)(struct media_link *link);
->  	bool (*has_pad_interdep)(struct media_entity *entity, unsigned int pad0,
->  				 unsigned int pad1);
-> +	int (*pipeline_started)(struct media_entity *entity);
-> +	void (*pipeline_stopped)(struct media_entity *entity);
->  };
->
->  /**
-> @@ -1261,6 +1267,29 @@ __media_pipeline_entity_iter_next(struct media_pipeline *pipe,
->  	     entity != NULL;							\
->  	     entity = __media_pipeline_entity_iter_next((pipe), iter, entity))
->
-> +/**
-> + * media_pipeline_started - Inform entities in a pipeline that it has started
-> + * @pipe:	The pipeline
-> + *
-> + * Iterate on all entities in a media pipeline and call their pipeline_started
-> + * member of media_entity_operations.
-> + *
-> + * Return: zero on success, or a negative error code passed through from an
-> + * entity's .pipeline_started() operation.
-
-If you don't have specific return codes to document you could consider
-a simpler
-
- * Returns zero on success or a negative error code otherwise.
-
-Up to you on this one.
-
-With the above documentation aligned to the existing one and a
-clarification on the media_entity_call usage:
-
-Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-
-Thanks
-
-> + */
-> +int media_pipeline_started(struct media_pipeline *pipe);
-> +
-> +/**
-> + * media_pipeline_stopped - Inform entities in a pipeline that it has stopped
-> + * @pipe:	The pipeline
-> + *
-> + * Iterate on all entities in a media pipeline and call their pipeline_stopped
-> + * member of media_entity_operations.
-> + *
-> + * Return: zero on success, or -ENOMEM if the iterator initialisation failed.
-> + */
-> +int media_pipeline_stopped(struct media_pipeline *pipe);
-> +
->  /**
->   * media_pipeline_alloc_start - Mark a pipeline as streaming
->   * @pad: Starting pad
->
-> --
-> 2.34.1
->
->
 
