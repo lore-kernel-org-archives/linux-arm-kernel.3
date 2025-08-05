@@ -4,77 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2933DC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 08:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6314C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 08:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvLuBMVc6TzeP6upsa7Gnje48JWtnnjTrc9LmxatE5g=; b=AFRcyRyaA6DGiq3dxygj/ZExck
-	FaOr+rE9aCL/3DpKmfdoLsfwZZmQReVxrLAdToeBNbKwPCeRwh83S+VIUxwXUZoKw85en8VNTDTp1
-	OxVVHDAc/t493eApBAbhdxkYfHD97vHrvsHy4+wB0+vfZjEfhW+vontj00iCnbb4qkm8JxzCs6mNw
-	VeXAUV6Ll2P9VBDDLdWYlefrL4zGL7ZzMNEOKbsQpxH2nri9YliPKT71NV1ef2BJXOgCXz7fClMuh
-	3HQHCrTyPaRKSifHejVQerlA6xGbldwrm3l/QguHpboC5jJJHBhNRcT7Qi58BDmvhmBdNE8bldRAF
-	Ldjx1LTg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y5c5Wvn9Xfov/UlHYeyZaoi4e6MfhEbcDokHFHi3cs4=; b=dPTncfYogOLawYOtfowi8eRrfz
+	vXArX/bappH4QmjXHuuw9teTZBfU/MlZwOA6pS2zumuAlWSUhtjTqfOssNzsNEK99NZ/3Sao6LY6C
+	ZODfzLlB/E/M6FQSlMGIEmBYcernf7UgJRTOTfy1qQGxncO9iUH/UUf+e9uBkGrIuCJdWGCtgSjUF
+	HiSHB9QrzPYdzFf+FAVA8tidRiJfQVYItQOcZ0XR4tlS1Pf2gSB7lNtMUbJ1Gr7EqmqU/kh39Cr/p
+	H6Hzq8O+PWes/UB45JiZ3rhXMVcLhPpdNd6dB8m325Du5lOyEbRUI+50+urwRzuX2GuvRvEtivtAv
+	CS2yTkWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujDI0-0000000CEIQ-1gzf;
-	Tue, 05 Aug 2025 08:44:56 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujCjt-0000000C73q-46Rr;
-	Tue, 05 Aug 2025 08:09:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754381379;
-	bh=gaVaqlpEy9JGIrozx4nrkj/qEnklxwdTi9HgO+2XAYU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hw7sU0cccyUdgfhf7BXoruo35ahJU0Pu0fKx773jOM4nkHLG3CGZl6iwX3jDlw1TA
-	 6tVTvEPDRpww5Ni1J3sHJBo2OnBDV4Tx3xk73RqUm1NMVwlCAriQ+k8HTbIb65l2ho
-	 5I2WO15dyW8dJHG0wVFs0i9lwKOKCjv2Fa16m38XClCrHaLrLbWpZmGE8kCTDW3Qwa
-	 PoCLJAc213IKLrTaP4lnBatFfcVs9j0xZJC11Qm/KdG1syD8knlF7BISgyGeEor7Qd
-	 gFfx3MVmnYOXxN+ho4XYTLfNVFSGZjImtvpxoYFX1YGcntN8nRKn016rZmQsKY+PeY
-	 5Uf2OHkal4YlQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2B6EA17E0593;
-	Tue,  5 Aug 2025 10:09:39 +0200 (CEST)
-Message-ID: <4801f911-c453-4ee1-83b5-ee2ae6087488@collabora.com>
-Date: Tue, 5 Aug 2025 10:09:38 +0200
+	id 1ujDKb-0000000CF7o-2ywi;
+	Tue, 05 Aug 2025 08:47:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujCo5-0000000C7YG-3aZC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 08:14:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8EAAD1424;
+	Tue,  5 Aug 2025 01:13:52 -0700 (PDT)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FF6F3F673;
+	Tue,  5 Aug 2025 01:13:59 -0700 (PDT)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Yang Shi <yang@os.amperecomputing.com>,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	akpm@linux-foundation.org,
+	Miko.Lenczewski@arm.com,
+	dev.jain@arm.com,
+	scott@os.amperecomputing.com,
+	cl@gentwo.org
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v6 0/4] arm64: support FEAT_BBM level 2 and large block mapping when rodata=full
+Date: Tue,  5 Aug 2025 09:13:45 +0100
+Message-ID: <20250805081350.3854670-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/2] memory: mtk-smi: mt8188: Add SMI reset and clamp
- for MT8188
-To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "krzk@kernel.org" <krzk@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250804125215.23076-1-friday.yang@mediatek.com>
- <20250804125215.23076-3-friday.yang@mediatek.com>
- <bc8d1bdc-8e19-4a1d-b5f4-d0e463e22dc9@collabora.com>
- <c45b8ffa0a5538b8170b3bae7b8c5a098b9677b9.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <c45b8ffa0a5538b8170b3bae7b8c5a098b9677b9.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_010942_179047_7E8E21C8 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250805_011401_997361_E0DD7853 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,299 +68,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/08/25 09:59, Friday Yang (杨阳) ha scritto:
-> On Mon, 2025-08-04 at 15:08 +0200, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> Il 04/08/25 14:51, Friday Yang ha scritto:
->>> To prevent handling glitch signals during MTCMOS on/off
->>> transitions,
->>> SMI requires clamp and reset operations. Parse the reset settings
->>> for
->>> SMI LARBs and the clamp settings for the SMI Sub-Common. Register
->>> genpd callback for the SMI LARBs located in image, camera and IPE
->>> subsystems, and apply reset and clamp operations within the
->>> callback.
->>>
->>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
->>> ---
->>>    drivers/memory/mtk-smi.c | 131
->>> +++++++++++++++++++++++++++++++++++++++
->>>    1 file changed, 131 insertions(+)
->>>
->>> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
->>> index 733e22f695ab..8c1bd245aac9 100644
->>> --- a/drivers/memory/mtk-smi.c
->>> +++ b/drivers/memory/mtk-smi.c
->>> @@ -10,11 +10,15 @@
->>>    #include <linux/err.h>
->>>    #include <linux/io.h>
->>>    #include <linux/iopoll.h>
->>> +#include <linux/mfd/syscon.h>
->>>    #include <linux/module.h>
->>>    #include <linux/of.h>
->>>    #include <linux/of_platform.h>
->>>    #include <linux/platform_device.h>
->>> +#include <linux/pm_domain.h>
->>>    #include <linux/pm_runtime.h>
->>> +#include <linux/regmap.h>
->>> +#include <linux/reset.h>
->>>    #include <linux/soc/mediatek/mtk_sip_svc.h>
->>>    #include <soc/mediatek/smi.h>
->>>    #include <dt-bindings/memory/mt2701-larb-port.h>
->>> @@ -34,6 +38,8 @@
->>>    #define SMI_FIFO_TH1                        0x238
->>>    #define SMI_FIFO_TH2                        0x23c
->>>    #define SMI_DCM                             0x300
->>> +#define SMI_COMMON_CLAMP_EN_SET              0x3c4
->>> +#define SMI_COMMON_CLAMP_EN_CLR              0x3c8
->>>    #define SMI_DUMMY                   0x444
->>>
->>>    /* SMI LARB */
->>> @@ -134,6 +140,7 @@ struct mtk_smi_larb_gen {
->>>        unsigned int                    larb_direct_to_common_mask;
->>>        unsigned int                    flags_general;
->>>        const
->>> u8                        (*ostd)[SMI_LARB_PORT_NR_MAX];
->>> +     const u8                        *clamp_port;
->>>    };
->>>
->>>    struct mtk_smi {
->>> @@ -150,6 +157,7 @@ struct mtk_smi {
->>>    };
->>>
->>>    struct mtk_smi_larb { /* larb: local arbiter */
->>> +     struct device                   *dev;
->>>        struct mtk_smi                  smi;
->>>        void __iomem                    *base;
->>>        struct device                   *smi_common_dev; /* common or
->>> sub-common dev */
->>> @@ -157,6 +165,10 @@ struct mtk_smi_larb { /* larb: local arbiter
->>> */
->>>        int                             larbid;
->>>        u32                             *mmu;
->>>        unsigned char                   *bank;
->>> +     struct regmap                   *smi_comm_syscon; /* smi-comm
->>> or sub-comm */
->>> +     u8                              smi_comm_inport_id; /* smi-
->>> comm or sub-comm */
->>
->> one nit nere: smi_comm_in_port_id
->>
-> Ok, I will rename 'smi_comm_inport_id' to 'smi_comm_in_port_id'.
-> 
->>> +     struct notifier_block           nb;
->>> +     struct reset_control            *rst_con;
->>>    };
->>>
->>>    static int
->>> @@ -478,6 +490,19 @@ static const u8
->>> mtk_smi_larb_mt8195_ostd[][SMI_LARB_PORT_NR_MAX] = {
->>>        [28] = {0x1a, 0x0e, 0x0a, 0x0a, 0x0c, 0x0e, 0x10,},
->>>    };
->>>
->>> +static const u8 mtk_smi_larb_clamp_port_mt8188[MTK_LARB_NR_MAX] =
->>> {
->>> +     [9]     = BIT(1), /* larb10 */
->>> +     [10]    = BIT(2), /* larb11a */
->>> +     [11]    = BIT(2), /* larb11b */
->>> +     [12]    = BIT(3), /* larb11c */
->>> +     [13]    = BIT(0), /* larb12 */
->>> +     [16]    = BIT(1), /* larb15 */
->>> +     [17]    = BIT(2), /* larb16a */
->>> +     [18]    = BIT(2), /* larb16b */
->>> +     [19]    = BIT(3), /* larb17a */
->>> +     [20]    = BIT(3), /* larb17b */
->>> +};
->>> +
->>>    static const struct mtk_smi_larb_gen mtk_smi_larb_mt2701 = {
->>>        .port_in_larb = {
->>>                LARB0_PORT_OFFSET, LARB1_PORT_OFFSET,
->>> @@ -531,6 +556,7 @@ static const struct mtk_smi_larb_gen
->>> mtk_smi_larb_mt8188 = {
->>>        .flags_general              = MTK_SMI_FLAG_THRT_UPDATE |
->>> MTK_SMI_FLAG_SW_FLAG |
->>>                                      MTK_SMI_FLAG_SLEEP_CTL |
->>> MTK_SMI_FLAG_CFG_PORT_SEC_CTL,
->>>        .ostd                       = mtk_smi_larb_mt8188_ostd,
->>> +     .clamp_port                 = mtk_smi_larb_clamp_port_mt8188,
->>>    };
->>>
->>>    static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 = {
->>> @@ -582,6 +608,45 @@ static void
->>> mtk_smi_larb_sleep_ctrl_disable(struct mtk_smi_larb *larb)
->>>        writel_relaxed(0, larb->base + SMI_LARB_SLP_CON);
->>>    }
->>>
->>> +static int mtk_smi_larb_clamp_protect_enable(struct device *dev,
->>> bool enable)
->>> +{
->>> +     struct mtk_smi_larb *larb = dev_get_drvdata(dev);
->>> +     u32 reg;
->>> +     int ret;
->>> +
->>> +     /* smi_comm_syscon may be NULL if the subsys doesn't have bus
->>> glitch issues */
->>> +     if (!larb->smi_comm_syscon)
->>> +             return -EINVAL;
->>> +
->>> +     reg = enable ? SMI_COMMON_CLAMP_EN_SET :
->>> SMI_COMMON_CLAMP_EN_CLR;
->>> +
->>> +     ret = regmap_write(larb->smi_comm_syscon, reg, larb-
->>>> smi_comm_inport_id);
->>> +     if (ret)
->>> +             dev_err(dev, "Unable to %s clamp for input port %d:
->>> %d\n",
->>> +                     enable ? "enable" : "disable",
->>> +                     larb->smi_comm_inport_id, ret);
->>> +
->>> +     return ret;
->>> +}
->>> +
->>> +static int mtk_smi_genpd_callback(struct notifier_block *nb,
->>> +                               unsigned long flags, void *data)
->>> +{
->>> +     struct mtk_smi_larb *larb = container_of(nb, struct
->>> mtk_smi_larb, nb);
->>> +     struct device *dev = larb->dev;
->>> +
->>> +     if (flags == GENPD_NOTIFY_PRE_ON || flags ==
->>> GENPD_NOTIFY_PRE_OFF) {
->>> +             /* disable related SMI sub-common port */
->>> +             mtk_smi_larb_clamp_protect_enable(dev, true);
->>> +     } else if (flags == GENPD_NOTIFY_ON) {
->>> +             /* enable related SMI sub-common port */
->>> +             reset_control_reset(larb->rst_con);
->>> +             mtk_smi_larb_clamp_protect_enable(dev, false);
->>> +     }
->>> +
->>> +     return NOTIFY_OK;
->>> +}
->>> +
->>>    static int mtk_smi_device_link_common(struct device *dev, struct
->>> device **com_dev)
->>>    {
->>>        struct platform_device *smi_com_pdev;
->>> @@ -638,6 +703,53 @@ static int mtk_smi_dts_clk_init(struct device
->>> *dev, struct mtk_smi *smi,
->>>        return ret;
->>>    }
->>>
->>> +static int mtk_smi_larb_parse_clamp_optional(struct mtk_smi_larb
->>> *larb)
->>> +{
->>> +     struct device *dev = larb->dev;
->>> +     const struct mtk_smi_larb_gen *larb_gen = larb->larb_gen;
->>> +     u32 larb_id;
->>> +     int ret;
->>> +
->>> +     /*
->>> +      * Only SMI LARBs in camera, image and IPE subsys need to
->>> +      * apply clamp and reset operations, others can be skipped.
->>> +      */
->>> +     ret = of_property_read_u32(dev->of_node, "mediatek,larb-id",
->>> &larb_id);
->>> +     if (ret)
->>> +             return -EINVAL;
->>
->> This looks wrong.
->>
-> I will change to 'return 0' here.
-> 
->>> +     if (!larb_gen->clamp_port || !larb_gen->clamp_port[larb_id])
->>> +             return 0;
->>> +
->>> +     larb->smi_comm_inport_id = larb_gen->clamp_port[larb_id];
->>> +     larb->smi_comm_syscon = syscon_regmap_lookup_by_phandle(dev-
->>>> of_node,
->>> +                                                             "medi
->>> atek,smi");
->>> +     if (IS_ERR(larb->smi_comm_syscon)) {
->>> +             larb->smi_comm_syscon = NULL;
->>> +             return dev_err_probe(dev, -EINVAL,
->>> +                                  "Unknown clamp port for larb
->>> %d\n", larb_id);
->>> +     }
->>> +
->>> +     return 0;
->>> +}
->>> +
->>> +static int mtk_smi_larb_parse_reset_optional(struct mtk_smi_larb
->>> *larb)
->>> +{
->>> +     struct device *dev = larb->dev;
->>> +     int ret;
->>> +
->>> +     larb->rst_con =
->>> devm_reset_control_get_optional_exclusive(dev, "larb");
->>> +     if (!larb->rst_con)
->>> +             return 0;
->>> +
->>> +     larb->nb.notifier_call = mtk_smi_genpd_callback;
->>> +     ret = dev_pm_genpd_add_notifier(dev, &larb->nb);
->>> +     if (ret)
->>> +             return dev_err_probe(dev, -EINVAL,
->>> +                                  "Failed to add genpd callback
->>> %d\n", ret);
->>> +
->>> +     return 0;
->>> +}
->>> +
->>>    static int mtk_smi_larb_probe(struct platform_device *pdev)
->>>    {
->>>        struct mtk_smi_larb *larb;
->>> @@ -648,6 +760,7 @@ static int mtk_smi_larb_probe(struct
->>> platform_device *pdev)
->>>        if (!larb)
->>>                return -ENOMEM;
->>>
->>> +     larb->dev = dev;
->>>        larb->larb_gen = of_device_get_match_data(dev);
->>>        larb->base = devm_platform_ioremap_resource(pdev, 0);
->>>        if (IS_ERR(larb->base))
->>> @@ -664,6 +777,14 @@ static int mtk_smi_larb_probe(struct
->>> platform_device *pdev)
->>>        if (ret < 0)
->>>                return ret;
->>>
->>> +     ret = mtk_smi_larb_parse_clamp_optional(larb);
->>> +     if (ret)
->>> +             goto err_link_remove;
->>
->> That's optional, right?
->>
->> In function mtk_smi_larb_parse_clamp_optional(), you're returning
->> -EINVAL
->> and here you're failing probe, so that's not optional anymore.
->>
->> Regards,
->> Angelo
->>
-> Yes, this clamp setting is optional. Not all smi larbs require it, only
-> those within the ISP subsystem do. I understand your point that
-> optional settings should not cause the probe to fail. Therefore, I
-> could modify the code to 'return 0' if it fails to get 'larb_id',
-> similar to when 'larb_gen->clamp_port' is NULL or 'larb_gen-
-> clamp_port[larb_id]' is zero. Is this acceptable for you?
-> Thanks.
+Hi All,
 
-Yes, that's ok.
+This is a new version built on top of Yang Shi's work at [1]. Yang and I have
+been discussing (disagreeing?) about the best way to implement the last 2
+patches. So I've reworked them and am posting as RFC to illustrate how I think
+this feature should be implemented, but I've retained Yang as primary author
+since it is all based on his work. I'd appreciate feedback from Catalin and/or
+Will on whether this is the right approach, so that hopefully we can get this
+into shape for 6.18.
 
-Cheers,
-Angelo
+The first 2 patches are unchanged from Yang's v5; the first patch comes from Dev
+and the rest of the series depends upon it.
 
-> 
->>> +
->>> +     ret = mtk_smi_larb_parse_reset_optional(larb);
->>> +     if (ret)
->>> +             goto err_link_remove;
->>> +
->>>        pm_runtime_enable(dev);
->>>        platform_set_drvdata(pdev, larb);
->>>        ret = component_add(dev, &mtk_smi_larb_component_ops);
+I've tested this on an AmpereOne system (a VM with 12G RAM) in all 3 possible
+modes by hacking the BBML2 feature detection code:
 
+  - mode 1: All CPUs support BBML2 so the linear map uses large mappings
+  - mode 2: Boot CPU does not support BBML2 so linear map uses pte mappings
+  - mode 3: Boot CPU supports BBML2 but secondaries do not so linear map
+    initially uses large mappings but is then repainted to use pte mappings
+
+In all cases, mm selftests run and no regressions are observed. In all cases,
+ptdump of linear map is as expected:
+
+Mode 1:
+=======
+---[ Linear Mapping start ]---
+0xffff000000000000-0xffff000000200000           2M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000000200000-0xffff000000210000          64K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000000210000-0xffff000000400000        1984K PTE       ro NX SHD AF            UXN    MEM/NORMAL
+0xffff000000400000-0xffff000002400000          32M PMD       ro NX SHD AF        BLK UXN    MEM/NORMAL
+0xffff000002400000-0xffff000002550000        1344K PTE       ro NX SHD AF            UXN    MEM/NORMAL
+0xffff000002550000-0xffff000002600000         704K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000002600000-0xffff000004000000          26M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000004000000-0xffff000040000000         960M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
+0xffff000040000000-0xffff000140000000           4G PUD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000140000000-0xffff000142000000          32M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
+0xffff000142000000-0xffff000142120000        1152K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000142120000-0xffff000142128000          32K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142128000-0xffff000142159000         196K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142159000-0xffff000142160000          28K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142160000-0xffff000142240000         896K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000142240000-0xffff00014224e000          56K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff00014224e000-0xffff000142250000           8K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142250000-0xffff000142260000          64K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142260000-0xffff000142280000         128K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000142280000-0xffff000142288000          32K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142288000-0xffff000142290000          32K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142290000-0xffff0001422a0000          64K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff0001422a0000-0xffff000142465000        1812K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142465000-0xffff000142470000          44K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000142470000-0xffff000142600000        1600K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000142600000-0xffff000144000000          26M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000144000000-0xffff000180000000         960M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
+0xffff000180000000-0xffff000181a00000          26M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000181a00000-0xffff000181b90000        1600K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000181b90000-0xffff000181b9d000          52K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181b9d000-0xffff000181c80000         908K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181c80000-0xffff000181c90000          64K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181c90000-0xffff000181ca0000          64K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000181ca0000-0xffff000181dbd000        1140K PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181dbd000-0xffff000181dc0000          12K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181dc0000-0xffff000181e00000         256K PTE       RW NX SHD AF    CON     UXN    MEM/NORMAL-TAGGED
+0xffff000181e00000-0xffff000182000000           2M PMD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000182000000-0xffff0001c0000000         992M PMD       RW NX SHD AF    CON BLK UXN    MEM/NORMAL-TAGGED
+0xffff0001c0000000-0xffff000300000000           5G PUD       RW NX SHD AF        BLK UXN    MEM/NORMAL-TAGGED
+0xffff000300000000-0xffff008000000000         500G PUD
+0xffff008000000000-0xffff800000000000      130560G PGD
+---[ Linear Mapping end ]---
+
+Mode 3:
+=======
+---[ Linear Mapping start ]---
+0xffff000000000000-0xffff000000210000        2112K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000000210000-0xffff000000400000        1984K PTE       ro NX SHD AF            UXN    MEM/NORMAL
+0xffff000000400000-0xffff000002400000          32M PMD       ro NX SHD AF        BLK UXN    MEM/NORMAL
+0xffff000002400000-0xffff000002550000        1344K PTE       ro NX SHD AF            UXN    MEM/NORMAL
+0xffff000002550000-0xffff000143a61000     5264452K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000143a61000-0xffff000143c61000           2M PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000143c61000-0xffff000181b9a000     1015012K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181b9a000-0xffff000181d9a000           2M PTE       ro NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000181d9a000-0xffff000300000000     6261144K PTE       RW NX SHD AF            UXN    MEM/NORMAL-TAGGED
+0xffff000300000000-0xffff008000000000         500G PUD
+0xffff008000000000-0xffff800000000000      130560G PGD
+---[ Linear Mapping end ]---
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250724221216.1998696-1-yang@os.amperecomputing.com/
+
+Thanks,
+Ryan
+
+Dev Jain (1):
+  arm64: Enable permission change on arm64 kernel block mappings
+
+Yang Shi (3):
+  arm64: cpufeature: add AmpereOne to BBML2 allow list
+  arm64: mm: support large block mapping when rodata=full
+  arm64: mm: split linear mapping if BBML2 unsupported on secondary CPUs
+
+ arch/arm64/include/asm/cpufeature.h |   2 +
+ arch/arm64/include/asm/mmu.h        |   4 +
+ arch/arm64/include/asm/pgtable.h    |   5 +
+ arch/arm64/kernel/cpufeature.c      |  17 +-
+ arch/arm64/mm/mmu.c                 | 368 +++++++++++++++++++++++++++-
+ arch/arm64/mm/pageattr.c            | 161 +++++++++---
+ arch/arm64/mm/proc.S                |  25 +-
+ include/linux/pagewalk.h            |   3 +
+ mm/pagewalk.c                       |  24 ++
+ 9 files changed, 566 insertions(+), 43 deletions(-)
+
+--
+2.43.0
 
 
