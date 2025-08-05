@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2C8C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5DCC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHsvp+/Bjkz0VzpOPnAgeOspoQjUaCKpxCXn8goA7qE=; b=xWlmG7WHn1TDBwUcvoBu9qHAur
-	RdT5583iyg54sZMgJrKxhqwQRjOFla4YvtBQxvmHgCFQrwxPo3hjKdLbFhU6v96CrfktaxAWLEYiS
-	9Og3F3/tnjviC8qtaMooOw7LE+vngieMAi6p92dNy8hPM41G6J6DKYZai4wWjZu+Z9LEbqgddONQE
-	2X7awT7qdlFJmKlqrg+nY76POiFnerxrHgbAlUhePHD+w9w0C5l9hqS4J+XA5Ur2v202/aw9IufDE
-	Ij3RiOOnNp1azjY/m2YeDYWr4O5ar3HrOaEH9KJYc13jlrcZBaW05OxzqGaeYO0Dugi+4DMs2Agd1
-	YBGxiVRQ==;
+	bh=2AMuHuMUUqi+dic2soAVUk4mURTrMtDGqMr1EfN8y4s=; b=r2VbBIINnRvKSnvD2JEFkVcBiK
+	F/1FfKlvVDC04qi+G5t3IKIoIaXLHCeBKO6x2UsCzOX20A363cB/qLKo9fxFbYZmi+xfmG1bj8Au4
+	hG2G0NsF+h6qpk6aXVD2HjDQ83ihxi7pM4X1yX2u8vW8+oKHuZkv6qh+I7ox2IYwoA/uuDb87zE6U
+	plK6p0aXBHUZHWaMhi/TndgcTi68QM3KCcJ9o8j7IsihK5NCyYFYjDx03KyRlNcXtDPaDPOx6ycba
+	dSNG7tbx/eST4j/r5H/qbKQJF6OWvRD764hSjUcyum5VW2Rln/aYASd1eyQxhbuMIHUNqHMX8ckwI
+	Fv/uEvyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJXB-0000000D8Sl-0UBX;
-	Tue, 05 Aug 2025 15:25:01 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1ujJZm-0000000D8qr-3rWm;
+	Tue, 05 Aug 2025 15:27:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujI9Q-0000000CuPH-0v1f
+	id 1ujICR-0000000Cv6z-34rI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 13:56:25 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-45359bfe631so22982065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 06:56:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754402182; x=1755006982; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=nHsvp+/Bjkz0VzpOPnAgeOspoQjUaCKpxCXn8goA7qE=;
-        b=UeBjL6rTH+Jur0Ennrr6BfB2MZKKv+ogtidwxNi5zZQMjebwolmw3zAlVnDbX7u52M
-         DGP8yeCyG6fx9cuObS8G5vgLP2L5JPNu3S6JKIfhWAmYRtor+0/pYr7Xy4RYAC3Ix9AT
-         ohZ53N4hUc+HV1EN0g5FqiIdQe8c+vY4wGqLjQKREaW9sFtQsBmXr53ZoRx1sH3OIg1u
-         +V1pPH3DmZEVnZbp1cHVlaBcqmUilyro8jWGTZPO87yKML9JlnyyiEvcIa4LjN2YFNR/
-         cXjRe24p/G8aW6MeFAUJkAytbLIUnzh5Sa6TAOxhkdt1kevCv76JvdwDgKhoSo5g7DZD
-         H4Sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754402182; x=1755006982;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nHsvp+/Bjkz0VzpOPnAgeOspoQjUaCKpxCXn8goA7qE=;
-        b=nKwU2fQm2Vfr8+lJzdqiGwVbJ5BhrKaRfv7klYRopudoJJKqEWGS6qKjkLrJVqYY6s
-         dBo3UGFKwDT4T4eLur6bDM2y7fSJxgvEOeoJ7gp0/KMousbeiA2PujTyO32tg8HnDZ0e
-         gjIb9HhstWd7NB/YFrKb2t6qUWNzW7Y8zxqY58gC/hZZ43QAYtjS3h23HMZdeu+vCng6
-         95iV7x7l6mULLbg44i/tgql+WLjKNii4xz8Be+6/HEpnRf//gPfz5raMh5fboYd76Gpg
-         lwVgunbp5OBhIquDk77hgmwPEtP+5Ybqvjkm1D/3rfSUtaodXcHofy5IJwi61IlMSpqm
-         Le+g==
-X-Forwarded-Encrypted: i=1; AJvYcCXIIM3XTOGX+n3UJ8EXmVW34nrnhSw7t8PyLbmeMnd3UKpug6dD8lq4Pg2eWfOFn9aCUysS9LWLn58E3yUE1m/R@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNSMvs7K6lj99I8OvipZQLNMfQOmNQGfzIxA8amtQ0NwRs0Xkz
-	4ghT/YZ+NfAkbs0NnvQv7d1FHnx1mbc/B2ZmiDahhG2BryAYEmwzmj99gOMzSDN/eS4YugPfREl
-	n6A==
-X-Google-Smtp-Source: AGHT+IFWoGupfBIVH1rgX2yqjUwby0fXRVsDyp5fe2CHGq1F+B7GPhaYB69SziWlO39eO56tzXt31ZlbBA==
-X-Received: from wmtg1.prod.google.com ([2002:a05:600c:8b51:b0:459:dcaa:ec9e])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1c02:b0:459:e35e:a90d
- with SMTP id 5b1f17b1804b1-459e35eab8amr16052345e9.27.1754402182673; Tue, 05
- Aug 2025 06:56:22 -0700 (PDT)
-Date: Tue,  5 Aug 2025 14:56:17 +0100
-In-Reply-To: <20250805135617.831971-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20250805135617.831971-1-tabba@google.com>
-X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250805135617.831971-5-tabba@google.com>
-Subject: [PATCH v1 4/4] arm64: vgic-v2: Fix guest endianness check in hVHE mode
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, vdonnefort@google.com, qperret@google.com, 
-	sebastianene@google.com, keirf@google.com, smostafa@google.com, 
-	tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 05 Aug 2025 13:59:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 77D765C49E2;
+	Tue,  5 Aug 2025 13:59:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6031C4CEF0;
+	Tue,  5 Aug 2025 13:59:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754402370;
+	bh=4V5dBQ+eBPCJ1smNjnAgZUg0T+QL4DB32r+LUoylzy0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=C+msLCQbJWncbbFJjxOGuHXbektWQ58Zvp45zhgaQzMpnkHSZ2xCeZuWcw1DzgacE
+	 D6vkoQycXuMJZrNOS8IZH+cGe6O6m5hOEVEinLUVzNNwCFqvdclDd/ztaH6f5NzFLe
+	 xKIwv5Tk5jsQyAontMhaPkrHI2TCLgRo776taGXBe+Elqu0bbqXDr6WhAg85KpyJcY
+	 Oi+Y6VS8rFsoRQTqtGwfsOd1pA+g+ME+x0yWYakW5uDjczwXMMQLIUSBGH9DbtvH1D
+	 Tgn7bYwqbrJPd6NP5qK0n34074NDyHK5/3VMpDXFvbigSWZefKkFeWNHUVXQlXwaAV
+	 HQj3URE/YfcIA==
+Date: Tue, 5 Aug 2025 09:59:27 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: patches@lists.linux.dev, stable@vger.kernel.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, toan@os.amperecomputing.com,
+	kwilczynski@kernel.org, mani@kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH AUTOSEL 6.16-6.6] PCI: xgene-msi: Resend an MSI racing
+ with itself on a different CPU
+Message-ID: <aJIOP1GO8LumDZOJ@lappy>
+References: <20250805130945.471732-1-sashal@kernel.org>
+ <20250805130945.471732-59-sashal@kernel.org>
+ <86fre5aoqz.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <86fre5aoqz.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_065624_262491_17D59D65 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250805_065931_813632_CF760416 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In hVHE when running at the hypervisor, SCTLR_EL1 refers to the
-hypervisor's System Control Register rather than the guest's. Make sure
-to access the guest's register to determine its endianness.
+On Tue, Aug 05, 2025 at 02:20:52PM +0100, Marc Zyngier wrote:
+>On Tue, 05 Aug 2025 14:09:34 +0100,
+>Sasha Levin <sashal@kernel.org> wrote:
+>>
+>> From: Marc Zyngier <maz@kernel.org>
+>>
+>> [ Upstream commit 3cc8f625e4c6a0e9f936da6b94166e62e387fe1d ]
+>>
+>> Since changing the affinity of an MSI really is about changing
+>> the target address and that it isn't possible to mask an individual
+>> MSI, it is completely possible for an interrupt to race with itself,
+>> usually resulting in a lost interrupt.
+>>
+>> Paper over the design blunder by informing the core code of this
+>> sad state of affairs.
+>>
+>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+>> Signed-off-by: Bjorn Helgaas <bhelgaas@google.com>
+>> Link: https://lore.kernel.org/r/20250708173404.1278635-11-maz@kernel.org
+>> Signed-off-by: Sasha Levin <sashal@kernel.org>
+>> ---
+>>
+>> LLM Generated explanations, may be completely bogus:
+>
+>s/may be//. It is an amusing read though, specially when quoting
+>totally unrelated patches, so thumbs up for the comical value.
 
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yeah, it's still very much at the "junior engineer" level, but honestly
+I think that just the boolean yes/no answers out of it provides a better
+noise to signal ratio than the older AUTOSEL.
 
-diff --git a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
-index 87a54375bd6e..78579b31a420 100644
---- a/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
-+++ b/arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c
-@@ -20,7 +20,7 @@ static bool __is_be(struct kvm_vcpu *vcpu)
- 	if (vcpu_mode_is_32bit(vcpu))
- 		return !!(read_sysreg_el2(SYS_SPSR) & PSR_AA32_E_BIT);
- 
--	return !!(read_sysreg(SCTLR_EL1) & SCTLR_ELx_EE);
-+	return !!(read_sysreg_el1(SYS_SCTLR) & SCTLR_ELx_EE);
- }
- 
- /*
+>But I'm not even going to entertain explaining *why* backporting this
+>patch on its own is nonsense. Reading the original series should be
+>enlightening enough.
+
+Sadly it doesn't have the context to understand that that specific
+conmit is part of a larger series. That information just disappears when
+patches are applied into git.
+
+I'll drop it, thanks!
+
 -- 
-2.50.1.565.gc32cd1483b-goog
-
+Thanks,
+Sasha
 
