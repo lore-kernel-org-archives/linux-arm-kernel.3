@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886CAC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 23:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736C6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 23:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p9WzFixiTpCTIWr0ZV67Jeot+hj3yHkwSAjBMtJ3im0=; b=cG0ozzgg+UytEBikuLuLsD2twM
-	aCFgl2IlkJkglySjZCvJiIcUzNYN/zHrPcgoHTi1JQHhTgT4cR4fmlnZ3bhw4X1gQb/l7TCAJPdRa
-	yUTTHbRJbWl0nuZ80uk+Qmxoy423tOjQ90j8GV96CsQ0C83wfPHFrbuYie3nAWtHjOuaHVU6ib2NB
-	5U32nCMlk1ozKqBqjHaQltgr6FU/yfrU3i1yqNSRel5DnHsqrENdfGzBnoXJkwuvQ7tIvJBl08t9i
-	FjBqj3h29sSAM7/PkYbV0Xue+us9BOzxFsCizjLNWInlMQRTaZ2OHYLlLLjZIBh4iTXh9XZh6sFFY
-	raGDUgOQ==;
+	bh=g+xAcYRTZJZzodXONfxHNRwFFZ6m6WuR73EzWyK1lxA=; b=jmssYhfUX4Kwt3C7vtDPajdeCK
+	GWLw4NI4CHLJbWUoUgqt6aXrxCvR3Lq4ZgSx8lSzATMiC6eYDBD2x+bbG6XW85I2IeLGbWjy8MkPq
+	b3aVJix7IvogJBsQPQfNkdhtHv9B95AXrlnQicAbtNuTXNwieLc2OrC9AL0z3VrSAtUUVaokSUYDk
+	t3iP7ut8zG9+VE2rtqNSbkHJGaaRf+IKZaG+wX1WZ94BugCTXLNH0xn+rhOAUdXtXXyuiWEH4RI9y
+	skOvttBzWaoDm8P/v7jGDxAvcbxXrppPO7yNQXBBZSRSa6pNymD6CZd2a3lYesc1wdNM1Fg9+O1o8
+	dB872cEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujR9e-0000000DziB-1jjb;
-	Tue, 05 Aug 2025 23:33:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ujRCC-0000000Dzvd-0sTd;
+	Tue, 05 Aug 2025 23:35:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujR22-0000000DyQM-44ce
+	id 1ujR2B-0000000DyS5-06c0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 23:25:23 +0000
+	Tue, 05 Aug 2025 23:25:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0822E601D5;
-	Tue,  5 Aug 2025 23:25:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95A15C4CEF0;
-	Tue,  5 Aug 2025 23:25:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id ED7D1A56817;
+	Tue,  5 Aug 2025 23:25:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81958C4CEF0;
+	Tue,  5 Aug 2025 23:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754436321;
-	bh=pSW8iCs3751+4sUebaIwymfRB47Os5fTm5JvQh78ULY=;
+	s=k20201202; t=1754436329;
+	bh=8O1t4GcNNQJ+9+rv4EOXP/qKQx9JxTdazTJ0tkj+WmY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=jIwhLOdX0c9P1uXB2PZuiGdLBMFSnXcqqk6jTQTikYnzaiNkn7s51jnqq8PpM2tbz
-	 eyY/5IH6wG01xg84t1PtKulNbPiWyH3cnEiM+cu/shULSn1LOWB175L8XnzKTrLdmM
-	 ydEoVJzJc7Syuy49CuIPDa7Qh8Zchojf2o7JQr8Hv2E55B9k/k8gw0yXIMZ0/X+922
-	 ouOcrfvUJ6yMEnSIt8wiF2XkGmf+qKxU8Uv69GDjZcn7U7OzZlzg1Qlxo1hQ0XXubh
-	 PcjbSgfs2Xd9DHKX5GxIhnaVOlSqGOP+yRqEWO+lRyL+o45OJ397fuxj0c59/0kxGu
-	 Cmnz64BRp5rWQ==
+	b=U3BrmVN/M3cwf0DjtQacC8wtZomGEAJ0EUOInZ0PkDJzDi2U/LS9sKWotnEU8v99+
+	 eFN0V7PK1BGlGA+9GwyeiuPNAgodqj8noncM3QqEh2XNaIbqm4c57srxTiecHwhOBS
+	 IpX6dwgmXqSqavhPl2oG7oG24BiUd91wi0whiZCEG6l757ftBvZUehRThq3F48HgKG
+	 h1KTmFfeKWKd/XMCchCw7KGKh9KrcDP/04DRXcPpZeH3iYqNg8zdxMxD9uBOSO30WM
+	 2DNeVvhU2FrO8q/TvY2YPWFiHhF3qvqkNTe9M+8wWYh/4m5VhjdYBL9qG2kikQBxpi
+	 1p2HER+IFFdBQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Gregory Clement <gregory.clement@bootlin.com>,
@@ -51,12 +51,15 @@ To: Andrew Lunn <andrew@lunn.ch>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: arm: marvell: Convert marvell,armada390 boards to DT schema
-Date: Tue,  5 Aug 2025 18:25:17 -0500
-Message-ID: <20250805232518.2828268-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: arm: marvell: Convert marvell,kirkwood boards to DT schema
+Date: Tue,  5 Aug 2025 18:25:25 -0500
+Message-ID: <20250805232527.2828521-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250805_162531_203472_3FC7A819 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,66 +74,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert Marvell Armada-390 based boards to DT schema format.
+Convert Marvell Kirkwood based boards to DT schema format.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/arm/marvell/armada-39x.txt       | 31 ------------------
- .../arm/marvell/marvell,armada390.yaml        | 32 +++++++++++++++++++
- 2 files changed, 32 insertions(+), 31 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/arm/marvell/armada-39x.txt
- create mode 100644 Documentation/devicetree/bindings/arm/marvell/marvell,armada390.yaml
+ .../bindings/arm/marvell/kirkwood.txt         |  27 --
+ .../bindings/arm/marvell/marvell,kirkwood.txt | 105 -------
+ .../arm/marvell/marvell,kirkwood.yaml         | 266 ++++++++++++++++++
+ 3 files changed, 266 insertions(+), 132 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/arm/marvell/kirkwood.txt
+ delete mode 100644 Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.txt
+ create mode 100644 Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.yaml
 
-diff --git a/Documentation/devicetree/bindings/arm/marvell/armada-39x.txt b/Documentation/devicetree/bindings/arm/marvell/armada-39x.txt
+diff --git a/Documentation/devicetree/bindings/arm/marvell/kirkwood.txt b/Documentation/devicetree/bindings/arm/marvell/kirkwood.txt
 deleted file mode 100644
-index 89468664f6ea..000000000000
---- a/Documentation/devicetree/bindings/arm/marvell/armada-39x.txt
+index 98cce9a653eb..000000000000
+--- a/Documentation/devicetree/bindings/arm/marvell/kirkwood.txt
 +++ /dev/null
-@@ -1,31 +0,0 @@
--Marvell Armada 39x Platforms Device Tree Bindings
---------------------------------------------------
+@@ -1,27 +0,0 @@
+-Marvell Kirkwood Platforms Device Tree Bindings
+------------------------------------------------
 -
--Boards with a SoC of the Marvell Armada 39x family shall have the
--following property:
--
--Required root node property:
--
-- - compatible: must contain "marvell,armada390"
--
--In addition, boards using the Marvell Armada 395 SoC shall have the
--following property before the common "marvell,armada390" one:
+-Boards with a SoC of the Marvell Kirkwood
+-shall have the following property:
 -
 -Required root node property:
 -
--compatible: must contain "marvell,armada395"
+-compatible: must contain "marvell,kirkwood";
+-
+-In order to support the kirkwood cpufreq driver, there must be a node
+-cpus/cpu@0 with three clocks, "cpu_clk", "ddrclk" and "powersave",
+-where the "powersave" clock is a gating clock used to switch the CPU
+-between the "cpu_clk" and the "ddrclk".
 -
 -Example:
 -
--compatible = "marvell,a395-gp", "marvell,armada395", "marvell,armada390";
+-	cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
 -
--Boards using the Marvell Armada 398 SoC shall have the following
--property before the common "marvell,armada390" one:
+-		cpu@0 {
+-		      device_type = "cpu";
+-		      compatible = "marvell,sheeva-88SV131";
+-		      clocks = <&core_clk 1>, <&core_clk 3>, <&gate_clk 11>;
+-		      clock-names = "cpu_clk", "ddrclk", "powersave";
+-		};
+diff --git a/Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.txt b/Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.txt
+deleted file mode 100644
+index 7d28fe4bf654..000000000000
+--- a/Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.txt
++++ /dev/null
+@@ -1,105 +0,0 @@
+-Marvell Kirkwood SoC Family Device Tree Bindings
+-------------------------------------------------
 -
--Required root node property:
+-Boards with a SoC of the Marvell Kirkwook family, eg 88f6281
 -
--compatible: must contain "marvell,armada398"
+-* Required root node properties:
+-compatible: must contain "marvell,kirkwood"
 -
--Example:
+-In addition, the above compatible shall be extended with the specific
+-SoC. Currently known SoC compatibles are:
 -
--compatible = "marvell,a398-db", "marvell,armada398", "marvell,armada390";
-diff --git a/Documentation/devicetree/bindings/arm/marvell/marvell,armada390.yaml b/Documentation/devicetree/bindings/arm/marvell/marvell,armada390.yaml
+-"marvell,kirkwood-88f6192"
+-"marvell,kirkwood-88f6281"
+-"marvell,kirkwood-88f6282"
+-"marvell,kirkwood-88f6283"
+-"marvell,kirkwood-88f6702"
+-"marvell,kirkwood-98DX4122"
+-
+-And in addition, the compatible shall be extended with the specific
+-board. Currently known boards are:
+-
+-"buffalo,linkstation-lsqvl"
+-"buffalo,linkstation-lsvl"
+-"buffalo,linkstation-lswsxl"
+-"buffalo,linkstation-lswxl"
+-"buffalo,linkstation-lswvl"
+-"buffalo,lschlv2"
+-"buffalo,lsxhl"
+-"buffalo,lsxl"
+-"cloudengines,pogo02"
+-"cloudengines,pogoplugv4"
+-"dlink,dns-320"
+-"dlink,dns-320-a1"
+-"dlink,dns-325"
+-"dlink,dns-325-a1"
+-"dlink,dns-kirkwood"
+-"excito,b3"
+-"globalscale,dreamplug-003-ds2001"
+-"globalscale,guruplug"
+-"globalscale,guruplug-server-plus"
+-"globalscale,sheevaplug"
+-"globalscale,sheevaplug"
+-"globalscale,sheevaplug-esata"
+-"globalscale,sheevaplug-esata-rev13"
+-"iom,iconnect"
+-"iom,iconnect-1.1"
+-"iom,ix2-200"
+-"keymile,km_kirkwood"
+-"lacie,cloudbox"
+-"lacie,inetspace_v2"
+-"lacie,laplug"
+-"lacie,nas2big"
+-"lacie,netspace_lite_v2"
+-"lacie,netspace_max_v2"
+-"lacie,netspace_mini_v2"
+-"lacie,netspace_v2"
+-"marvell,db-88f6281-bp"
+-"marvell,db-88f6282-bp"
+-"marvell,mv88f6281gtw-ge"
+-"marvell,rd88f6281"
+-"marvell,rd88f6281"
+-"marvell,rd88f6281-a0"
+-"marvell,rd88f6281-a1"
+-"mpl,cec4"
+-"mpl,cec4-10"
+-"netgear,readynas"
+-"netgear,readynas"
+-"netgear,readynas-duo-v2"
+-"netgear,readynas-nv+-v2"
+-"plathome,openblocks-a6"
+-"plathome,openblocks-a7"
+-"raidsonic,ib-nas6210"
+-"raidsonic,ib-nas6210-b"
+-"raidsonic,ib-nas6220"
+-"raidsonic,ib-nas6220-b"
+-"raidsonic,ib-nas62x0"
+-"seagate,dockstar"
+-"seagate,goflexnet"
+-"synology,ds109"
+-"synology,ds110jv10"
+-"synology,ds110jv20"
+-"synology,ds110jv30"
+-"synology,ds111"
+-"synology,ds209"
+-"synology,ds210jv10"
+-"synology,ds210jv20"
+-"synology,ds212"
+-"synology,ds212jv10"
+-"synology,ds212jv20"
+-"synology,ds212pv10"
+-"synology,ds409"
+-"synology,ds409slim"
+-"synology,ds410j"
+-"synology,ds411"
+-"synology,ds411j"
+-"synology,ds411slim"
+-"synology,ds413jv10"
+-"synology,rs212"
+-"synology,rs409"
+-"synology,rs411"
+-"synology,rs812"
+-"usi,topkick"
+-"usi,topkick-1281P2"
+-"zyxel,nsa310"
+-"zyxel,nsa310a"
+diff --git a/Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.yaml b/Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.yaml
 new file mode 100644
-index 000000000000..5ff6a5439525
+index 000000000000..120784066833
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/marvell/marvell,armada390.yaml
-@@ -0,0 +1,32 @@
++++ b/Documentation/devicetree/bindings/arm/marvell/marvell,kirkwood.yaml
+@@ -0,0 +1,266 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/arm/marvell/marvell,armada390.yaml#
++$id: http://devicetree.org/schemas/arm/marvell/marvell,kirkwood.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Marvell Armada 39x Platforms
++title: Marvell Kirkwood SoC Family
 +
 +maintainers:
 +  - Andrew Lunn <andrew@lunn.ch>
@@ -142,18 +254,252 @@ index 000000000000..5ff6a5439525
 +  compatible:
 +    oneOf:
 +      - items:
-+          - const: marvell,a390-db
-+          - const: marvell,armada390
++          - enum:
++              - qnap,ts219
++              - qnap,ts419
++              - synology,ds110
++              - synology,ds111
++              - synology,ds209
++              - synology,ds409slim
++              - synology,ds411j
++              - synology,ds411slim
++              - synology,rs212
++              - synology,rs409
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds109
++          - const: synology,ds110jv20
++          - const: synology,ds110
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds110jv10
++          - const: synology,ds110jv30
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds210jv10
++          - const: synology,ds210jv20
++          - const: synology,ds210jv30
++          - const: synology,ds211j
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds212jv10
++          - const: synology,ds212jv20
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds212
++          - const: synology,ds212pv10
++          - const: synology,ds212pv10
++          - const: synology,ds212pv20
++          - const: synology,ds213airv10
++          - const: synology,ds213v10
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds409
++          - const: synology,ds410j
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,ds411
++          - const: synology,ds413jv10
++          - const: marvell,kirkwood
++
++      - items:
++          - const: synology,rs411
++          - const: synology,rs812
++          - const: marvell,kirkwood
++
 +      - items:
 +          - enum:
-+              - marvell,a398-db
-+          - const: marvell,armada398
-+          - const: marvell,armada390
++              - cloudengines,pogoplugv4
++              - lacie,laplug
++              - lacie,netspace_lite_v2
++              - lacie,netspace_mini_v2
++              - marvell,rd88f6192
++              - seagate,blackarmor-nas220
++          - enum:
++              - marvell,kirkwood-88f6192
++          - const: marvell,kirkwood
++
 +      - items:
 +          - enum:
-+              - marvell,a395-gp
-+          - const: marvell,armada395
-+          - const: marvell,armada390
++              - buffalo,lswsxl
++              - buffalo,lswxl
++              - checkpoint,l-50
++              - cloudengines,pogoe02
++              - ctera,c200-v1
++              - dlink,dir-665
++              - endian,4i-edge-200
++              - excito,b3
++              - globalscale,sheevaplug
++              - hp,t5325
++              - iom,ix2-200
++              - lacie,inetspace_v2
++              - lacie,netspace_v2
++              - lacie,netspace_max_v2
++              - marvell,db-88f6281-bp
++              - marvell,mv88f6281gtw-ge
++              - seagate,dockstar
++              - seagate,goflexnet
++              - zyxel,nsa310
++              - zyxel,nsa320
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - buffalo,lschlv2
++              - buffalo,lsxhl
++          - const: buffalo,lsxl
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: dlink,dns-320-a1
++          - const: dlink,dns-320
++          - const: dlink,dns-kirkwood
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: dlink,dns-325-a1
++          - const: dlink,dns-325
++          - const: dlink,dns-kirkwood
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: globalscale,dreamplug-003-ds2001
++          - const: globalscale,dreamplug
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: globalscale,guruplug-server-plus
++          - const: globalscale,guruplug
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: globalscale,sheevaplug-esata-rev13
++          - const: globalscale,sheevaplug-esata
++          - const: globalscale,sheevaplug
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: iom,iconnect-1.1
++          - const: iom,iconnect
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: lacie,d2net_v2
++          - const: lacie,netxbig
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++      - items:
++          - enum:
++              - lacie,net2big_v2
++              - lacie,net5big_v2
++          - const: lacie,netxbig
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - marvell,openrd-base
++              - marvell,openrd-client
++              - marvell,openrd-ultimate
++          - const: marvell,openrd
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - marvell,rd88f6281-a
++              - marvell,rd88f6281-z0
++          - const: marvell,rd88f6281
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: mpl,cec4-10
++          - const: mpl,cec4
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: raidsonic,ib-nas6210-b
++          - const: raidsonic,ib-nas6220-b
++          - const: raidsonic,ib-nas6210
++          - const: raidsonic,ib-nas6220
++          - const: raidsonic,ib-nas62x0
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - const: zyxel,nsa310a
++          - const: zyxel,nsa310
++          - const: marvell,kirkwood-88f6281
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - buffalo,lsqvl
++              - buffalo,lsvl
++              - buffalo,lswvl
++              - linksys,viper
++              - marvell,db-88f6282-bp
++              - zyxel,nsa325
++          - const: marvell,kirkwood-88f6282
++          - const: marvell,kirkwood
++
++      - items:
++          - const: lacie,nas2big
++          - const: lacie,netxbig
++          - const: marvell,kirkwood-88f6282
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - netgear,readynas-duo-v2
++              - netgear,readynas-nv+-v2
++          - const: netgear,readynas
++          - const: marvell,kirkwood-88f6282
++          - const: marvell,kirkwood
++
++      - items:
++          - const: usi,topkick-1281P2
++          - const: usi,topkick
++          - const: marvell,kirkwood-88f6282
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - plathome,openblocks-a6
++              - plathome,openblocks-a7
++          - const: marvell,kirkwood-88f6283
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - lacie,cloudbox
++              - zyxel,nsa310s
++          - const: marvell,kirkwood-88f6702
++          - const: marvell,kirkwood
++
++      - items:
++          - enum:
++              - keymile,km_fixedeth
++              - keymile,km_kirkwood
++          - const: marvell,kirkwood-98DX4122
++          - const: marvell,kirkwood
 +
 +additionalProperties: true
 -- 
