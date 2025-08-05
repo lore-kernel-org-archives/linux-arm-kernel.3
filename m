@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878E5C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 21:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3479BC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 21:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWDHZJrVWOBu48yVTIxq5bN4KAAfsVdHWzf5NjnxC7c=; b=MdrcXDcBWM3EZPejWY7YszoQvF
-	vs741ACQNpdoV2707pglYUns3Co//E7yXf3SA4M3T/VfDoEBSd+YnabqbDJuam3Krl4so/zEJT7va
-	F5qWNbIU+/TknOCjtRmVwJ50Zdctpflx01QrmEBjQ9sg3zAKrsb6JsAA7aGjlzX7hrGAODETixVt4
-	Red0d9k3upgMoECJI2ajd9VsIALWU5WK0ji3oDQv8/EtQbl/LRkJEjeT4ql2H0U/RFWMCR3903XEC
-	s2glhmYxYXaXMM/OthaXt9akpr3sOHrusU3nb8QtOOj5zBmVwiAoPQZT707V4PPD+Hns0A8HjY92D
-	hQDzh1DQ==;
+	bh=H8qKwlV/hGv5lXljo6J7UpddwhWoZfFMWWWFX7P5heg=; b=3/cA3rcm5cs6QuPo1drrv5zAw6
+	FVOUo6h2oy+Q7+Onl5n9aHiqjYDqr5+bs2nH2O4RLbGEyw1588NGRvjN8+ew2wsaY7pd4OTnHj8HT
+	bsqrdEMMdK8dkB9t48jzgbZXZ5U2y1czXp3FDlSISzRfMwECyusyeG/BTNJ7QXQDwrdjYydQ32Das
+	BqLA4VnpfD9pQsjvvGges3Oo+SatvkGvHE/2+NBth1G35v9r3UIjmxgl6HOAqmIHF3ZQRRY7cCMW1
+	bZ3emfBETxnpPaPk6cRyON34NVFXp7GalzKt3PYNrXsBaL10OERyyiYtu7qdV5YKYQ8h7dnV8FtGE
+	todFolIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujOnO-0000000Dn85-21Qt;
-	Tue, 05 Aug 2025 21:02:06 +0000
+	id 1ujOsF-0000000DnSt-1yqB;
+	Tue, 05 Aug 2025 21:07:07 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujOkn-0000000Dmx7-0Rlg
+	id 1ujOpd-0000000DnGX-3st1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 20:59:26 +0000
+	Tue, 05 Aug 2025 21:04:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NWDHZJrVWOBu48yVTIxq5bN4KAAfsVdHWzf5NjnxC7c=; b=4I88P4kotaghdXCFOSfBkDGC4o
-	sFk7rBF3W7vefj3i0SNWceKobbrdFPCKJTu/qjhMpVIKEay54XbYVhw36DjvMzcbQXud9S/1azxVe
-	DKiXLr4lfR3hUd95y8E2leibqEeB+DIWUzcOBwhsW++6DVWlfhakmsiW/XhrQgM65Tsw=;
+	bh=H8qKwlV/hGv5lXljo6J7UpddwhWoZfFMWWWFX7P5heg=; b=cuTvHbccrdF6uQOVkpI9+6yMTm
+	c2jJLLpXWFVZ4/z3K6/6omlILczdzxF/Gh1fFX9GmKtoxu2P57NfoX7PutyO8kwQuJ0DMwlh9WD73
+	ErW8ZeQUOlW9PgY6X8YS+4YG+8p2XkbqBAdbF3JFEXbAD1TGOQhRog5WPyQa9H8smwOs=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1ujOkZ-003pEJ-6T; Tue, 05 Aug 2025 22:59:11 +0200
-Date: Tue, 5 Aug 2025 22:59:11 +0200
+	id 1ujOpa-003pIO-6B; Tue, 05 Aug 2025 23:04:22 +0200
+Date: Tue, 5 Aug 2025 23:04:22 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Sean Anderson <sean.anderson@linux.dev>
 Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
@@ -50,20 +50,19 @@ Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	linux-kernel@vger.kernel.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Michal Simek <michal.simek@amd.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Suraj Gupta <suraj.gupta2@amd.com>
-Subject: Re: [PATCH net-next v4 1/7] net: axienet: Fix resource release
- ordering
-Message-ID: <9572f798-d294-4f24-8acb-c7972c1db247@lunn.ch>
+	Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH net-next v4 2/7] net: axienet: Use ioread32/iowrite32
+ directly
+Message-ID: <972847fe-53a2-49a6-9e87-31c5ac845289@lunn.ch>
 References: <20250805153456.1313661-1-sean.anderson@linux.dev>
- <20250805153456.1313661-2-sean.anderson@linux.dev>
+ <20250805153456.1313661-3-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250805153456.1313661-2-sean.anderson@linux.dev>
+In-Reply-To: <20250805153456.1313661-3-sean.anderson@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_135925_164634_456AC5F8 
-X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-CacheID: sfid-20250805_140425_970372_212171DB 
+X-CRM114-Status: UNSURE (   7.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,33 +78,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +static void axienet_disable_misc(void *clocks)
-> +{
-> +	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, clocks);
-> +}
-> +
+> -	return readx_poll_timeout(axinet_ior_read_mcr, lp,
+> +	return readx_poll_timeout(ioread32, lp->regs + XAE_MDIO_MCR_OFFSET,
+>  				  val, val & XAE_MDIO_MCR_READY_MASK,
+>  				  1, 20000);
 
-...
+I think this change makes axinet_ior_read_mcr() redundant? So it would
+be good to remove it.
 
->  	ret = devm_clk_bulk_get_optional(&pdev->dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
->  	if (ret)
-> -		goto cleanup_clk;
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "could not get misc. clocks\n");
->  
->  	ret = clk_bulk_prepare_enable(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
->  	if (ret)
-> -		goto cleanup_clk;
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "could not enable misc. clocks\n");
-> +
-> +	ret = devm_add_action_or_reset(&pdev->dev, axienet_disable_misc,
-> +				       lp->misc_clks);
-
-It seems like it would be better to add
-devm_clk_bulk_get_optional_enable(). There is already an
-devm_clk_bulk_get_all_enabled() so it does not seem like too big a
-step.
-
-	Andrew
+   Andrew
 
