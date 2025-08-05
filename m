@@ -4,167 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBBEC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 17:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37DAFC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 17:18:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/9b8Jjx9AKdlaRhtRJ2sXJYh70EDIf+RteQNhWv8XTg=; b=yH9bWTc3u9kBpnwURLj+JfXiCr
-	uCbusX6GZUybAbBRkQCeEVOmv35JZm3oX3hDR549ZZRncmeg7lKamYENOdlFkEYpMR+Zu2QWJ4Vlx
-	xf+UuHMf8aY7NxZ6lAmsBN26dLj6fOUO9r3fJgORAHBhwosStu33hRlxQVQcKoR8xax2ipovF6Cij
-	BYN2mstE+pl3L/FPkIDL6Sd5KmXoWrvYNAWsBWRBMBspk8rT5SILOdSyJTsMtuEbZ4MDQ20Eo5mPf
-	LEJvRBb2N1RnF2wIJBSzHttMGUnA4v18fQdk3XPvoMq9cCa3QIqz3fEcseqMUq9Fcfuoclv4y2FYE
-	oW3Xcz4g==;
+	bh=l0RxCTsXFF8391IAhRwoPNmaelsxs5V8yAF1l14fxkk=; b=a7Rbm5Dw1YWEdVIWEsRF7Jscge
+	8iJndv/2wmT6nLAX4wCqscV8tJokUr+5WZZlfoZDy7hJCneLZ2XMBVarHkFNTLKmrS50K6QCOXtWx
+	gQsDIBH1u58oHSoOriKDfjrRU8NCzJKSJeWAadiRZZVdgY1AZ5DVsphTpeVftBkYrVixA/iJ22eBD
+	23UuxBCCg3N/fMGg8BcTxSOGKFQe8HdR2sUcJdNy5W7RBlNvqPxwtkM/R9f24IEnqaDnL9uspMlSw
+	oftE3/bA7c1OnYK0Ulj7VJiIiZlsdYuUz8TIgwsxv16ecbYOzWyQS8b1P+ZviKXANhAluwoheRkmv
+	7EN9mRvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujLGj-0000000DP2w-0mNQ;
-	Tue, 05 Aug 2025 17:16:09 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1ujLJK-0000000DPTU-0KXd;
+	Tue, 05 Aug 2025 17:18:50 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujKmI-0000000DKdj-0GtS
+	id 1ujKoF-0000000DKwT-3KdF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 16:44:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E8dkE6KZUjtp1py8BqrFzoByDcOtnIGX4HQN31C5gn9JXqghArlfC/HDsUDmNYvskmyVmhOX9TXBS2qWN5JlW7C8F39bOBdG7RsLG/e2uFE9FMithQfsWmH78U3ma2nbZbfm7rdlNj8NK87N14EFb8P2f6YzyNxbS4eldkMx3mvhjp4Y6lL8nbvou68rbAv+lSvPC4dHTuu3YgNF2xfQlyHDxQyXWHs9FNL7wRpiW4Mlxb1h8uC5I9zdv+SMlAu4xkz1p+zGdu9ynLPe6qvAw8tlxWhBd/+apAlwTR6J7RIa/7jqpmV67GHeyhICAhmAjiSd7P5kSKv7Wth3yqWxBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/9b8Jjx9AKdlaRhtRJ2sXJYh70EDIf+RteQNhWv8XTg=;
- b=MkxNYPDUfXxTXmt2HldOpWyUOoeuKahKPWsSk3vFzTMTdQFPMkR9qXPjPlnnP+yLwE9J6lI/obRU104nyDPhZu96d8v+djz/0M2fIfFYiDZUdSCWA4NfB+LLg790XM/HuPKnsRw/X8cPiiAEuRA28bdOia9utH4QbO9lXNHxyYTz5E6jBQKWwzRs6sZajE2lSUCtDrtVx42oMhZ/5JIMTipjSO1msiTftbPuL9M1xC7KP+igNH61teZMX4HlUlWA4srC+b8IpjMdoEb3okrpF7hG1eRksdQkVYhny3zbaebNmd9z2ZgQ0x/4tQyM9LIKuZp9CP+zdTI7BRD6ou0lAQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/9b8Jjx9AKdlaRhtRJ2sXJYh70EDIf+RteQNhWv8XTg=;
- b=TeJQp+tBrGEGk6jYbviuO3p6hBmNgmzJt3myo8h91JxHAndNw6Rf0usNn7K8LUreLuyFUDU9PUGV2Nibc2HZnLFWdkzmWwIpl7rlxQ2FcIikVnVn6DLKWlft1Gq3JNrSzSigf4vHs9ZOkuSbQxrbhKL7WKYEz42b65sRlpAq1mbJYaIlD1GWsEY2EEDKg6WyZaRsamfVZx/HLR1paiFnzkgSc5fmPfswWagTsW+IBYP4RwcTEmra1BBLTksiU18CX2y39eENXB9ExUIKviefnaKmRuBb2KjyOpCaFy1OpXgd8i0N0z9vntYf+w4utC2dl/a0Rg3mqGxKL9jKxPKL9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB8PR04MB6972.eurprd04.prod.outlook.com (2603:10a6:10:11c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Tue, 5 Aug
- 2025 16:44:38 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8989.018; Tue, 5 Aug 2025
- 16:44:38 +0000
-Date: Tue, 5 Aug 2025 12:44:30 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	bhelgaas@google.com, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, yuji2.ishikawa@toshiba.co.jp
-Subject: Re: [PATCH v2 1/2] arm64: dts: toshiba: Update SoC and PCIe ranges
- to reflect hardware behavior
-Message-ID: <aJI07hBmKNrsGFv9@lizhi-Precision-Tower-5810>
-References: <1754358421-12578-1-git-send-email-nobuhiro1.iwamatsu@toshiba.co.jp>
- <1754358421-12578-2-git-send-email-nobuhiro1.iwamatsu@toshiba.co.jp>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1754358421-12578-2-git-send-email-nobuhiro1.iwamatsu@toshiba.co.jp>
-X-ClientProxiedBy: SJ0PR05CA0158.namprd05.prod.outlook.com
- (2603:10b6:a03:339::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Tue, 05 Aug 2025 16:46:45 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-240708ba498so2595ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 09:46:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754412403; x=1755017203; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l0RxCTsXFF8391IAhRwoPNmaelsxs5V8yAF1l14fxkk=;
+        b=Fl/E54D+bBWEaaxt9+gU55NA2Rkx5UUPd9hfMiY2tlhXmIfOsS0yrmFQ6rQ8T24TRe
+         p0IBfQvG/f3KO1KzsCgmjLlArUU7LHsoaADHgAWV36t21HOdTh9HQKgiFLoTH6zV6WS6
+         QfonLYoaQ5VxcsW1sP1tShFFelSxXKzGPqMCUgWzHLR6OJ7eae27kLCBw3r6IhCzy8Go
+         WButdJycen1YYFnUwGSV2nr6vUOPYl4zD7425acDjPhOMegRHoVw4zid4nJdrIgUnrEl
+         02I21SptX1peAnOjXdGVDjx4QKTvus9iiYj6zTRv0P8qj/uY6Ar//gCzyQFMYlYu0Z3q
+         lwPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754412403; x=1755017203;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l0RxCTsXFF8391IAhRwoPNmaelsxs5V8yAF1l14fxkk=;
+        b=JxlMp7Oot6cmuMn3TXOf1ELyi2ersS+7ghe1TsE5gvpJp+IRSco6myaaUGocddVyOJ
+         yLO7hXj4xphL1G5SVqMjrDineP4mjf5haimVzcKKpEiNIbtoeP77NsTWXVCUm1Ze3mfb
+         8sqYUGq+A+HIs9JRgxmGG9tUlj8EvM54LQstLbu1WmNxxjU2diMdpAT9T23G1NX5fS+5
+         ouHC8av7wQGnEnKijnKuWB3B5zL6bRoi1A/XFGBbSxIsCmnWykGf12pljfyFfDM1K3yc
+         q8Qz8JY7vfMZ2V4bLzAi4LIeX1LzBleU2wTnacFJx/GTxexnTRGO4Nyb62DPrZeymqiM
+         kj0w==
+X-Forwarded-Encrypted: i=1; AJvYcCVEGFVOOtWZ98+S2MHUN6ausgowSMAO9iY634G3CH+Fid2ODIPr60KnOlwJtNpbLQmYARFtckSBa7D3kPdOF+Fx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfSEu8adERITfx5nyCWabaVrMnKdj+cvP38ejJUmUeC4uxr4dm
+	BOcUW+IRTaojYV8rJRdnJKLZ6TSwr0s5F68/Fuk4Z2ZiZQpYYFVGWrb9x4FvsBSXgxQXALx6oii
+	AUNVpmgiFb8uZl2SWPe+Hl/KvyTcdulq75lHa9cQ4
+X-Gm-Gg: ASbGncsazbX2GNWbM+ZqqTRyvjdSVRnylCXECcItIfYRAkw9VEw2HbFyQTNTXvVky8O
+	NXP9RaA5tOpoujx1L1QO732xSAWKj19NeYyII1bDcHQsQP3O83EWggi7YP/Y+MoOu3/v0LkN3Er
+	aGGxhhbKhzU0ce2rWQ+iMxGyLfFQzChYzDJPmIbBrvpeziaLkJLWG720d3nB8h5blO+JFzoksaN
+	qLlV7dH+JfbbrSDZrLJO3m2gsK/RbIGRfZ4OdW/
+X-Google-Smtp-Source: AGHT+IFbtH6J0AjO4QU4T/tefsfeSE0rL1OzSJr1N/DUHjvBaYU77HeoyM1+WKB2X0d+93TslMU104SV+ZAQGFLorx8=
+X-Received: by 2002:a17:902:ea02:b0:234:afcf:d9e8 with SMTP id
+ d9443c01a7336-2428e9ca60bmr3484235ad.7.1754412402595; Tue, 05 Aug 2025
+ 09:46:42 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB8PR04MB6972:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e3d1d37-757a-4ca2-6efa-08ddd43f5df3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZmFQbEdad2RaNnNORkxxaVBKSmRNSnVuTWErVEZDa04xQ2FWTFpyV1lOT3FS?=
- =?utf-8?B?bnZMdjE4WU9vS2tRWkdKT2hTZnhJbmhqSngzclphTjFkekpBYkdWd0lXcC9T?=
- =?utf-8?B?b3dzY05NRTFEdCtQK2w0ZENjL3A4a0tUeTJLQXpjdmt3blBGOGEzL2llZG4z?=
- =?utf-8?B?c0xlTjlMY0NQamZxY2ZtUzVuTFUrRkFLWXlvcHV6QnltTWxGTlI4YSt5a3Bh?=
- =?utf-8?B?TEpxaVVYUWdnRzVwSWVXbXh6NWk4RTZMVlpkMk5jSDBrWlYrekVoQ3NiL2tk?=
- =?utf-8?B?OHZhckl0M2VpUHJJV3RMWllveVB3TmZFNkNnaXZNbUtjUk1wYnd5LzFSb3Ux?=
- =?utf-8?B?dDJPZlBnRC9FWXZKV0liVjJOT0lkVUhVZ0U3ZllpUEdzbks0SXFaSjNkYlMy?=
- =?utf-8?B?UUlBb0JWcWNXK3ZPZklua2JxTnpXS252N00rWE1aUUpCbXZESC8zdURQdWxk?=
- =?utf-8?B?V1BPcEFBQ0c2NnJhVHpGayswUDVQTXNuREFGQ24wOHB0Z0ZvdmR3SGZUdEYv?=
- =?utf-8?B?YndPR1NpbHVVbmZhNTd6WWFzNVIrTU9wQ0kyUVBNbGxpWE9FN0hacFZ3K3Mz?=
- =?utf-8?B?dUdMd01ZcGg2bndvSGlzQk50UE0yYS9PRmVJSWRGWGwxTVM4aGRMWHhPSkNs?=
- =?utf-8?B?R2ttYk1KcjlLeGc1Szh0d3ViK1Q0M0t1TENUWTFTenJrWFVOdFBZakozZitQ?=
- =?utf-8?B?WFJhb1BacGp3cXZISWpzVmNiTjR4dkU4Y2FpZVM0N3dDa0dwUDczNURDazEv?=
- =?utf-8?B?S2U3dnc3MW9XZHdVK1JIcTFKaGJNRU13S3JjV3JXZ3VBUEQ3QlpSUEw2cUo4?=
- =?utf-8?B?Nlp2N1JVc2pCTWZDdDhJaUZRb2dqK0hjZWtxcC9qWE5Ud1ZlM3pQSVpCVHZG?=
- =?utf-8?B?c3F4ajNXWmtOTWU2RkR4cWtVU3ZpZGs4T1M4WGFRdTFSUDU3T2xUVVhGVkgz?=
- =?utf-8?B?Q3JGcS9EaGh6WDc4d0lxV283VE5sVnNnb3hJWGNudGhZVkpFSlN1cFhZcWJG?=
- =?utf-8?B?S1lvL0hOaEk3dGdPakRsVmtwTlFablM3OFJ4Z3hHRFpUZzJxcmdZd0NvTFdU?=
- =?utf-8?B?Q3lIL21ybnMxL0tOYkdib2pDdWExVEgzaGhLakYvM1c0ZUlGaDI1Zy94SWVH?=
- =?utf-8?B?ckpuVFpTSUUwOGxsaHQ4Y1ozWmR1cnEwY0dQYmxDRnJzT0NwYmVwN2llU0hL?=
- =?utf-8?B?QXdSSmpJeTV2bE1UMmZtRk1TN1VyYlEwaTJucUs4bFlTZXhreFlkUXdwVW5y?=
- =?utf-8?B?K2lXUnFIUnJTeHlpTkExVGNPcmNHMUo4ZG1DMzVnNWc2NDhadEpMWFZZMmlZ?=
- =?utf-8?B?WXJOZWx1TFNUOURYSWFiS2EzWlBiUW5PUVJuOGo3Tzlmb2JTS2czZmxQOUZr?=
- =?utf-8?B?V2JRSCtpK0o1ZlU3K2QwbGdYS053Z2tmTTVhOVducmZiY3NwNDZBb1RTSkpQ?=
- =?utf-8?B?T3E1OVFnRmtwYjlUeDhFVW5HZlBJMCt2a3djQ2Y5dTF0TUQxRDNaTmc3SWtq?=
- =?utf-8?B?eUVOTVFxNVBtRGpJd0JlSDhjSk1aUXlqRGExanl5aGF3VnFCYTNiS055emxn?=
- =?utf-8?B?Qll2QmIwR1JBWlVCZ0Y0SGNJb2lRQ3psWDZjeG9vV1lNVnJ2MXJseFlONXYy?=
- =?utf-8?B?aEhCaXpzUktPL3cybTRhSklzU3lWZlRrTitxbktzak9hdXp4QVQ0dG5sRzVD?=
- =?utf-8?B?QURrL2lXalE4Tk05d3ZudGRhL2x0b2ZoTXVyN24wNkxyWVFVVGhkbFdnV0Mz?=
- =?utf-8?B?M2FMdTFCa0NVWkovcS9zMEJyTDlwODJUL3VLM0Fhb05ISC94eTg1OVQvbVFS?=
- =?utf-8?B?YzEvL1ZVNXFITVhKNmpqdjBxSjJ3RzFjWUUrcGsvdmlLMXora1J3WWUvRnNy?=
- =?utf-8?B?NFE1UUdoVzltbXBTVFh3ckF0T3ZtUmxqRE1MRDl3aHFoSWRpbFlRUlZoY2F5?=
- =?utf-8?B?YytwQzdseHBkVWZZZDVkNXRPdzM2cnM0VnBHa0NYd1U1d3dwYTJQMjRGSCsr?=
- =?utf-8?B?RnZrOHh6OXBRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RXpUVFJSeS9KT2cxYkxWcFVjWHhzaVM4bG5CQzQ2b0lFRjdjYnZSQTdrWnAz?=
- =?utf-8?B?eTJLdkRtaVg2bExPR2psd1NWOEFnL0oyUStRUG5ZSktNOUJPd2JhM2xaa1BI?=
- =?utf-8?B?c0dSa2FQT2htakY3OHMxWEw1VlM5bklRUUc2VnBEMGk0MWlEbjdBSndvMzli?=
- =?utf-8?B?SkNZUHlGbDRPYS8xVHpEQkVCYmRIM3ZaTWF2Y2ZxNXNnZjF0NXozdjc3aXhx?=
- =?utf-8?B?UXU1dUhweG03QTl2UXBWQkw4Wk1tZkJhYTVGeDF4cUZiMWFBTDg2V1RGOUFz?=
- =?utf-8?B?SG5ha1dmSTNKRHJKVVVNL1UwVVhWOFQ5YjlVYy9CVS80Q2IzT3JIbVZPMHA3?=
- =?utf-8?B?TUpBMkFTdzREMWZvYXc1dWlKS3A3ZUlQSjlsT3p6Q0dBODRXRDloZm5YZGNK?=
- =?utf-8?B?U3VnVzQvUERRYUROSm03aklHV0U0UTc5OXJWWVhkaHUyS3FNKzlBUEYyYVJQ?=
- =?utf-8?B?dVd2RXM0N2ZOVlJuTk9uRzE3WVJHTlpORU1ZU0pzR2FZRkR5bGFrY0hVUVQr?=
- =?utf-8?B?Tk10UW1PaDhTREJZNFZkRmxsRWZCVG1PQjAwd3psV2ZBb0wwbzM2TlA3cVFh?=
- =?utf-8?B?SGpaTzB3VnZFSDRBajVPWE85dU1FWitKcmFleHlXMjV0TFljc2kxZWZMc1No?=
- =?utf-8?B?djY4WmJDVkczODNaakJTWk1RVFFsQWx5R1N4N2ZiWW05MDYvdEZ3VEZzamJm?=
- =?utf-8?B?S2prR2VaQTBqQjdkYko3ZHRzMXBZdlhWbGRUUUQ2NmtrbWpCVkRDYXRFdU1N?=
- =?utf-8?B?OFNkeCtjUEg0Mlp4WDYxQUh0MnZIL2k5dkJjOTkxYTdxUkJGZnNCbTNpNjZO?=
- =?utf-8?B?UjhuOUdUaEc0QzNtUnA1UUZwUDhSQ3d5TW1pYXY5R0VPcmtUd1pmSy9zSmlV?=
- =?utf-8?B?MzdoNDJmRjdteDdqamtXd2lxTzRTbHlKRnFGWFFWUkVZYXFmYVY5N0ZYakhH?=
- =?utf-8?B?ZC8ydWE3UTBUWExGanhFR1RHOXpiejJPTE01a2ZUQlhhQUlsdCtaZUplOTFQ?=
- =?utf-8?B?cXU1WnVSa3pRL0pLQm90NDMzQXgxTkdjQ3RUNzlyeWFvWk93WklKbGRNdnV6?=
- =?utf-8?B?K0xqY0V2VkFESjE3NnZ3a1d4a1Jnb3BGSDhPdmhZaTQ4YzJ5MXM2NEY5b05M?=
- =?utf-8?B?M2RYOGRITldwdG9qaExidm5GRXg3WXdiQ3N0R2prT3ZtclpNQmppTjgxZjlv?=
- =?utf-8?B?ZGhyVHJZOWRWQWlPU0hPMGJONEFaMEFRVzNrMlE5dUZqVys4K0QxeXNhL3Fu?=
- =?utf-8?B?WUhoaW96M3lxc3NPMWZzYUliOHR6dG50ZVQ0TzNaRkUwNEdpaVYxbmppREI1?=
- =?utf-8?B?V2o1ZXoyT0FiODY4ZE1vWDRtVkpXeTc5ZWs4cERTUklxUTNuUUN3WVI4WFlq?=
- =?utf-8?B?RzBJSDRQeUtpb24zSDdCUTc3Z2RRTE1BQkMwcUh6VzlmcXcvZVRhL1prK2Jt?=
- =?utf-8?B?Nm10V3dJaGJFSmFZWUh2SEprWVBLWHJ0c3Npc2dzd0t2Z3BNUTVOcm12OHlp?=
- =?utf-8?B?c3hLSi8zOXRwUjk2eTdGeVBsdTFyZGViUEdGRGFrcGNYOXFlNEVsUnFvZEwv?=
- =?utf-8?B?bFZuZ1JGb1ZvVDlRMTNwU0FuZW5tcVF0dmZhUjJWRUFGd2cyNnFlMU1oSjV4?=
- =?utf-8?B?bTlFNWtTWEFhNk12RDFpNjgrKzF5YklpQzkzekRXYy9VYWlLRHl2ZXhBT24r?=
- =?utf-8?B?K3prOTY1bTI2L20wSCtSVERvaUJIM0o5Sm82VlczaWpWNjd6cFR0dlhIYTQz?=
- =?utf-8?B?a0VwTkRQcTBFT1cxYWxCRSt6bWY2MExpWTl3T2JSdGx0VWtqUEhCSGdkbjRF?=
- =?utf-8?B?NkF6alc2SWJvcit5cFkwSFhENXNNTExrc0RFR0ZWUGlrN0N4ZE9hb25SblFB?=
- =?utf-8?B?cU1NbGY0UDl5V2xOMlhjUVovSS80bGhFUlRPUSs0Nk1sTEFCbnFqZ05ML2tE?=
- =?utf-8?B?V1Fua0ZQWjhwOVFyRXMvRHNmc2JvWFhvU0pHMzJUSDMxUkE4YmNLTjFQOGxL?=
- =?utf-8?B?cEgwTHU5UlV3K25hTU1NT3lJQnR0RWc3U0RvZlo1NDNIQWtxS2U2T3Q1MWU2?=
- =?utf-8?B?WUhSdGFkWnpTVHBJdTZTVk96Y0NMSXJKdXJIc1NvZ3BrSjQ2eVN0Slo2UHRL?=
- =?utf-8?Q?3R6M=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e3d1d37-757a-4ca2-6efa-08ddd43f5df3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 16:44:38.2742
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: crRPNGD18UuJye0/pWPDs4B9Jr6Kgs84xz4gPJA4T3wdTEJfPPxNLHmrYFWmR0EynPkfEvi7CKnKrdX4TKAj0w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6972
+References: <CAJDx_rgzkZognxWzOXJ-ZxdTtUaM3FT6bmpkwxMz03XiX3fKAQ@mail.gmail.com>
+ <d395b14a-9a84-4f25-b4f0-45e8500fc5fe@redhat.com> <CAJDx_rgrp1TpOt-iDcsSGRTL=qZZsK_dpKL1bSkyunPGcGXt5g@mail.gmail.com>
+ <4566222d-6b91-4789-bdd6-61e3769f5dbf@suse.cz>
+In-Reply-To: <4566222d-6b91-4789-bdd6-61e3769f5dbf@suse.cz>
+From: Juan Yescas <jyescas@google.com>
+Date: Tue, 5 Aug 2025 09:46:30 -0700
+X-Gm-Features: Ac12FXy4BT6ZbkseE6fl0wteJa2HqcPFNTVMsUS4ZZOo4qkH5jwtMaLF9Pp-ohE
+Message-ID: <CAJDx_rjxGff38aS_MBwgh6LpDqp6G4zjUvg6tr73KU0HYfGvXA@mail.gmail.com>
+Subject: Re: [RFC PATCH] mm/page_alloc: Add PCP list for THP CMA
+To: Vlastimil Babka <vbabka@suse.cz>
+Cc: David Hildenbrand <david@redhat.com>, akash.tyagi@mediatek.com, 
+	Andrew Morton <akpm@linux-foundation.org>, angelogioacchino.delregno@collabora.com, 
+	hannes@cmpxchg.org, Brendan Jackman <jackmanb@google.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, 
+	Linux Memory Management List <linux-mm@kvack.org>, matthias.bgg@gmail.com, Michal Hocko <mhocko@suse.com>, 
+	Suren Baghdasaryan <surenb@google.com>, wsd_upstream@mediatek.com, Zi Yan <ziy@nvidia.com>, 
+	Kalesh Singh <kaleshsingh@google.com>, "T.J. Mercier" <tjmercier@google.com>, 
+	Isaac Manjarres <isaacmanjarres@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_094442_253260_AA8C6C79 
-X-CRM114-Status: GOOD (  23.81  )
+X-CRM114-CacheID: sfid-20250805_094643_844042_532BD641 
+X-CRM114-Status: GOOD (  39.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,138 +104,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 10:47:00AM +0900, Nobuhiro Iwamatsu wrote:
-> From: Frank Li <Frank.Li@nxp.com>
+On Tue, Aug 5, 2025 at 2:52=E2=80=AFAM Vlastimil Babka <vbabka@suse.cz> wro=
+te:
 >
-> tmpv7708 trim address bit[31:30] in tmpv7708 before passing to the PCIe
-> controller. Since only PCIe controller needs to convert the address range
-> 0x40000000 - 0x80000000, add a bus definition, describe the ranges in it,
-> and move the PCIe definition.
+> On 8/5/25 3:22 AM, Juan Yescas wrote:
+> > On Mon, Aug 4, 2025 at 11:50=E2=80=AFAM David Hildenbrand <david@redhat=
+.com> wrote:
+> >>
+> >> On 04.08.25 20:20, Juan Yescas wrote:
+> >>> Hi David/Zi,
+> >>>
+> >>> Is there any reason why the MIGRATE_CMA pages are not in the PCP list=
+s?
+> >>>
+> >>> There are many devices that need fast allocation of MIGRATE_CMA pages=
+,
+> >>> and they have to get them from the buddy allocator, which is a bit
+> >>> slower in comparison to the PCP lists.
+> >>>
+> >>> We also have cases where the MIGRATE_CMA memory requirements are big.
+> >>> For example, GPUs need MIGRATE_CMA memory in the ranges of 30MiB to 5=
+00MiBs.
+> >>> These cases would benefit if we have THPs for CMAs.
+> >>>
+> >>> Could we add the support for MIGRATE_CMA pages on the PCP and THP lis=
+ts?
+> >>
+> >> Remember how CMA memory is used:
+> >>
+> >> The owner allocates it through cma_alloc() and friends, where the CMA
+> >> allocator will try allocating *specific physical memory regions* using
+> >> alloc_contig_range(). It doesn't just go ahead and pick a random CMA
+> >> page from the buddy (or PCP) lists. Doesn't work (just imagine having
+> >> different CMA areas etc).
+> >>
+> >> Anybody else is free to use CMA pages for MOVABLE allocations. So we
+> >> treat them as being MOVABLE on the PCP.
+> >>
+> >> Having a separate CMA PCP list doesn't solve or speedup anything, real=
+ly.
+> >>
+> >
+> > Thanks David for the quick overview.
+> >
+> >> I still have no clue what this patch here tried to solve: it doesn't
+> >> make any sense.
+> >>
+> >
+> > The story started with this out of tree patch that is part of Android.
+> >
+> > https://lore.kernel.org/lkml/cover.1604282969.git.cgoldswo@codeaurora.o=
+rg/T/#u
+> >
+> > This patch introduced the __GFP_CMA flag that allocates pages from
+> > MIGRATE_MOVABLE
+> > or MIGRATE_CMA.
 >
-> Prepare for the removal of the driver’s cpu_addr_fixup().
+> What kinds of allocations would then use __GFP_CMA? (let me try guess
+> one - zswap backend?)
 >
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> Suggested-by: Yuji Ishikawa <yuji2.ishikawa@toshiba.co.jp>
-> Signed-off-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-> ---
-> v2:
->   Update commit message.
->   Fix range.
->   Set true to use_parent_dt_ranges in pcie-visconti.c.
->   move pcie under the dedicated sub-bus.
+> > What it happens then, it is that the MIGRATE_MOVABLE
+> > pages in the
+> > PCP lists were consumed pretty fast. To solve this issue, the PCP
+> > MIGRATE_CMA list was added.
+> > This list is initialized by rmqueue_bulk() when it is empty. That's
+> > how we end up with the PCP MIGRATE_CMA list
+> > in Android. In addition to this, the THP list for MIGRATE_MOVABLE was
+> > allowed to contain
+> > MIGRATE_CMA pages. This is causing THP MIGRATE_CMA pages to be used
+> > for THP MIGRATE_MOVABLE
+> > making later allocations from THP MIGRATE_CMA to fail.
 >
->  arch/arm64/boot/dts/toshiba/tmpv7708.dtsi  | 75 +++++++++++++---------
->  drivers/pci/controller/dwc/pcie-visconti.c |  2 +
->  2 files changed, 47 insertions(+), 30 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-> index 39806f0ae5133..b754965a76ca6 100644
-> --- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
-> @@ -478,37 +478,52 @@ pwm: pwm@241c0000 {
->  			status = "disabled";
->  		};
->
-> -		pcie: pcie@28400000 {
-> -			compatible = "toshiba,visconti-pcie";
-> -			reg = <0x0 0x28400000 0x0 0x00400000>,
-> -			      <0x0 0x70000000 0x0 0x10000000>,
-> -			      <0x0 0x28050000 0x0 0x00010000>,
-> -			      <0x0 0x24200000 0x0 0x00002000>,
-> -			      <0x0 0x24162000 0x0 0x00001000>;
-> -			reg-names = "dbi", "config", "ulreg", "smu", "mpu";
-> -			device_type = "pci";
-> -			bus-range = <0x00 0xff>;
-> -			num-lanes = <2>;
-> -			num-viewport = <8>;
-> -
-> -			#address-cells = <3>;
-> +		pcie_bus: bus@24000000 {
-> +			compatible = "simple-bus";
-> +			#address-cells = <2>;
->  			#size-cells = <2>;
-> -			#interrupt-cells = <1>;
-> -			ranges = <0x81000000 0 0x40000000 0 0x40000000 0 0x00010000
-> -				  0x82000000 0 0x50000000 0 0x50000000 0 0x20000000>;
-> -			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
-> -				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
-> -			interrupt-names = "msi", "intr";
-> -			interrupt-map-mask = <0 0 0 7>;
-> -			interrupt-map =
-> -				<0 0 0 1 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-> -				 0 0 0 2 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-> -				 0 0 0 3 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-> -				 0 0 0 4 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
-> -			max-link-speed = <2>;
-> -			clocks = <&extclk100mhz>, <&pismu TMPV770X_CLK_PCIE_MSTR>, <&pismu TMPV770X_CLK_PCIE_AUX>;
-> -			clock-names = "ref", "core", "aux";
-> -			status = "disabled";
-> +			ranges = /* register 1:1 map */
-> +				 <0x0 0x24000000 0x0 0x24000000 0x0 0x0C000000>,
-> +				 /*
-> +				  * bus fabric mask address bit 30 and 31 to 0
-> +				  * before send to PCIe controller.
-> +				  *
-> +				  * PCIe map address 0 to cpu's 0x40000000
-> +				  */
-> +				 <0x0 0x00000000 0x0 0x40000000 0x0 0x40000000>;
-> +
-> +			pcie: pcie@28400000 {
-> +				compatible = "toshiba,visconti-pcie";
-> +				reg = <0x0 0x28400000 0x0 0x00400000>,
-> +				      <0x0 0x30000000 0x0 0x10000000>,
-> +				      <0x0 0x28050000 0x0 0x00010000>,
-> +				      <0x0 0x24200000 0x0 0x00002000>,
-> +				      <0x0 0x24162000 0x0 0x00001000>;
-> +				reg-names = "dbi", "config", "ulreg", "smu", "mpu";
-> +				device_type = "pci";
-> +				bus-range = <0x00 0xff>;
-> +				num-lanes = <2>;
-> +				num-viewport = <8>;
-> +
-> +				#address-cells = <3>;
-> +				#size-cells = <2>;
-> +				#interrupt-cells = <1>;
-> +				ranges = <0x81000000 0 0x00000000 0 0x00000000 0 0x00010000
-> +					  0x82000000 0 0x10000000 0 0x10000000 0 0x20000000>;
-> +				interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
-> +					     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
-> +				interrupt-names = "msi", "intr";
-> +				interrupt-map-mask = <0 0 0 7>;
-> +				interrupt-map =
-> +					<0 0 0 1 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-> +					 0 0 0 2 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-> +					 0 0 0 3 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH
-> +					 0 0 0 4 &gic GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
-> +				max-link-speed = <2>;
-> +				clocks = <&extclk100mhz>, <&pismu TMPV770X_CLK_PCIE_MSTR>, <&pismu TMPV770X_CLK_PCIE_AUX>;
-> +				clock-names = "ref", "core", "aux";
-> +				status = "disabled";
-> +			};
->  		};
->  	};
->  };
-> diff --git a/drivers/pci/controller/dwc/pcie-visconti.c b/drivers/pci/controller/dwc/pcie-visconti.c
-> index cdeac6177143c..2a724ab587f78 100644
-> --- a/drivers/pci/controller/dwc/pcie-visconti.c
-> +++ b/drivers/pci/controller/dwc/pcie-visconti.c
-> @@ -310,6 +310,8 @@ static int visconti_pcie_probe(struct platform_device *pdev)
->
->  	platform_set_drvdata(pdev, pcie);
->
-> +	pci->use_parent_dt_ranges = true;
-> +
+> If you don't want THP's to use the large (THP-sized) MIGRATE_CMA pages,
+> what kind of such large allocations would be ok to use MIGRATE_CMA then?
 
-This change belong to PATCH 2. It still works with old driver after add
-pci-bus in dts, just a warning will print.
+The large THP MIGRATE_CMA allocs are used by GPUs or devices that require
+large chunks of memory (have many cameras for example).
 
-Frank
 
->  	return visconti_add_pcie_port(pcie, pdev);
->  }
->
-> --
-> 2.49.0
->
+> > These workarounds are mainly because we need to solve this issue upstre=
+am:
+> >
+> > - When devices reserve big blocks of MIGRATE_CMA pages, the
+> > underutilized MIGRATE_CMA
+> > can fall back to MIGRATE_MOVABLE and these pages can be pinned, so if
+> > we require MIGRATE_CMA
+> > pages, the allocations might fail.
+> >
+> > I remember that you presented the problem in LPC. Were you able to
+> > make some progress on that?
+> >
+> > Thanks
+> > Juan
+> >
+> >
+> >
+> >
+> >
+> >> --
+> >> Cheers,
+> >>
+> >> David / dhildenb
+> >>
 >
 
