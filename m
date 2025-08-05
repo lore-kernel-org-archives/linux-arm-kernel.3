@@ -4,128 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBC3C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDCC5C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OttJ4edm8UFQhTOi4nJFKmsxngrug/VcNMIUMJ3K4dQ=; b=ILTmd0nj3kHIKHIid1MyPfxL7k
-	xSlRswD8RBOb4rn7qLCWt+m935k1kXy5RVyx5t03fPsGu8DaDRrkfU1y+jlU1HkQ5QiV6k3t7Aywc
-	6k+JFPWBvk+zwXhSTasW6/It+boyOnjGvjfOijQYC7zXVqQK3n33p55iDUtLWB3ynPjz0k59q3EWG
-	f87GNBOMVOKg7lH+1rY1TWWV/LMKQxRQjNAhnmxspu1W7ycQ9DoXB66e7wH/X+E8aCJEVdzje9zEU
-	gKVm8s2XmWvPrY1EoTMWQwn4i8NIKLBoE+AkfEadRN8+N0d1hAu1wK6sGfS1WVeAfGD1pkde+wD7y
-	sl81smuA==;
+	bh=w/auADTZf57vdDvNnTOht1gIs0Ij1FRUC+wCoKdxz3w=; b=DsYOFo480aXkuiUDxTO6zddIW6
+	CzuKBgIArw6oc0dkHAnfsM13eRfKEnubl9+np9niBbIUvipAcXEn8rKh/xAOQC0DmL6G5CBsng/6p
+	qXiiObkv1LOxG7LUJ+ahn/zAzdEPMNYrWjOmbgnAcIGNsk7fSKwiZQ3C5fkCexN4PdJKlrjW3BE8G
+	3ILoxBUhMZ9G7t3aN1eHy/a5l9RSMoLGTq3PdlF345QV9/ZQuafC7Xg/OrVBirDk0C4ZxNrWS5XPb
+	u4LT9mVxqnaICAO5/QNHL96m4CgFFTd1P5OVWsFUrWRG22Q/8PkVkh3ESf4OO9G8JrKSQoUvqNZ+Q
+	IEJLzS7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujI0W-0000000Cspt-19pl;
-	Tue, 05 Aug 2025 13:47:12 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1ujI39-0000000CtFD-1XKk;
+	Tue, 05 Aug 2025 13:49:55 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHnE-0000000Cr1j-3xII;
-	Tue, 05 Aug 2025 13:33:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1754400772; x=1755005572; i=markus.elfring@web.de;
-	bh=OttJ4edm8UFQhTOi4nJFKmsxngrug/VcNMIUMJ3K4dQ=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=G6TtpqkNvB3Q3Gz372yIbeu/K1PNbDqqRXwITVh5qQIJxs0zn4LO1g1WMINqTolD
-	 j+0awfjBMPG1Pyycizwkzeuf9lnIBuJroZPa6QzhWl5PJlIszpZYIORBhCaa9rhSF
-	 0aYbMYaDQVBw6C+6O8GmTqDFHJzy3OPmEvYhiyd1fjYk6iN2Mipp1N+dCjhIR2WIr
-	 RpRPi12sINVx+Pvr4yYFlHItTT8stjr4XCIEJNNk5mWFVxSxmEoE5225KscWmxiJx
-	 hR8G7rBdHLsX8XEi0VgelmTEtomWweTgnlxhlNwNoSBsCJ2tEq/C5yhTPA6JJtAth
-	 O90C8+6DpBt2OvviDg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.92.245]) by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MMGuC-1v1Vgq15sc-00QOIc; Tue, 05
- Aug 2025 15:32:50 +0200
-Message-ID: <887bfbac-0e16-491b-ab0b-a0997890ff2d@web.de>
-Date: Tue, 5 Aug 2025 15:32:45 +0200
+	id 1ujHoj-0000000CrNg-16MJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 13:35:02 +0000
+Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575DYuhe4087700;
+	Tue, 5 Aug 2025 08:34:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1754400896;
+	bh=w/auADTZf57vdDvNnTOht1gIs0Ij1FRUC+wCoKdxz3w=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=Z7OPCWI1pmjwLwolY5Lx0NUNULPI+7gmZQE/Kb2MrMxdaYtgMtttpDeGwjo5RmFBR
+	 1jp1slPfZBSH0LoRuy/chTgT8xUEus3IZPdtdfzqg+uFUG8BPTzKETVHOjCLgdF3Q5
+	 fQb8uN/HfDlyXDrEuYCi9UkzjftnI3cK2fCOU7d0=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575DYuvj3615752
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 5 Aug 2025 08:34:56 -0500
+Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
+ Aug 2025 08:34:56 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 5 Aug 2025 08:34:56 -0500
+Received: from [10.249.34.164] ([10.249.34.164])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575DYtLF2186580;
+	Tue, 5 Aug 2025 08:34:55 -0500
+Message-ID: <b52fd6d4-b907-44dd-bd9b-e15c3321ad79@ti.com>
+Date: Tue, 5 Aug 2025 08:34:55 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: media: mediatek: vcodec: use = { } instead of memset()
-To: Qianfeng Rong <rongqianfeng@vivo.com>, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
- Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Hans Verkuil <hverkuil@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Tiffany Lin <tiffany.lin@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>
-References: <20250803135514.118892-1-rongqianfeng@vivo.com>
- <9f0b868c-47f9-4c98-ac99-86bfbc6a432d@web.de>
- <e3903e95-3659-4d68-86ef-0f3d6b2c8d90@vivo.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <e3903e95-3659-4d68-86ef-0f3d6b2c8d90@vivo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:ZHESRNeUe+wthbJ4102OINdJusMUaOy4eDlPqpCyT6lm7AKnqel
- G8olTU6WYK67JQND2h7POtsw+vi1yuTmeBMHR3yiUBInSoGXQ9RESgtrvW2hZ+u3rDC20ko
- OpfydNnZVfwZuqTadwUJkUztLcNxNsvbWDHngxtAUnaavwCsgj6SiVS2v1gA40StMF2F+9J
- XnSC+c/rb3yW9sF56MvmA==
-UI-OutboundReport: notjunk:1;M01:P0:50KokDcRDK0=;9eF2ETINOePgtV0+qm/X3cjEOC8
- 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
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
+To: Krzysztof Kozlowski <krzk@kernel.org>, <linux-kernel@vger.kernel.org>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        Devarsh
+ Thakkar <devarsht@ti.com>, Udit Kumar <u-kumar1@ti.com>,
+        Darren Etheridge
+	<detheridge@ti.com>
+References: <20250804180106.2393256-1-b-brnich@ti.com>
+ <b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org>
+Content-Language: en-US
+From: Brandon Brnich <b-brnich@ti.com>
+In-Reply-To: <b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_063329_273231_01FCF19F 
-X-CRM114-Status: UNSURE (   5.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250805_063501_477062_857794B8 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,16 +94,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> =E2=80=A6
->>> This patch converts =E2=80=A6
->> See also once more:
->> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
-/Documentation/process/submitting-patches.rst?h=3Dv6.16#n94
-> I don't think your point is a problem here. =E2=80=A6
+Hi Krzysztof,
 
-Will any contributors care more for the usage of imperative mood
-also according to improved change descriptions?
+Thanks for the review.
 
-Regards,
-Markus
+On 8/5/2025 1:02 AM, Krzysztof Kozlowski wrote:
+> On 04/08/2025 20:01, Brandon Brnich wrote:
+>> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
+>> present in J722s SoC, supporting baseline encoding of semiplanar based
+>> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
+>> supported from 64x64 to 8kx8k.
+>>
+>> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+>> ---
+>>
+>> Changes in v2:
+>>    - remove invalid clock-names attribute
+>>
+>>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 10 ++++++++++
+>>   1 file changed, 10 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+>> index 5cfa7bf36641..fb24c14614b4 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+>> @@ -385,6 +385,16 @@ c7x_1: dsp@7e200000 {
+>>   		ti,sci-proc-ids = <0x31 0xff>;
+>>   		status = "disabled";
+>>   	};
+>> +
+>> +	e5010: e5010@fd20000 {
+> 
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+I got this name from the already present node in the am62a device 
+tree[0]. Should I replace both of these with more generic name such as 
+jpegenc?
+
+> 
+> 
+>> +		compatible = "img,e5010-jpeg-enc";
+> 
+> Wrong compatible. This is TI, not IMG.
+
+Devarsh has pointed out the same, I will update compatible that matches 
+TI version in v3.
+
+Best,
+Brandon
+
+[0]: 
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi#n1149
+
+> 
+> 
+> Best regards,
+> Krzysztof
+
 
