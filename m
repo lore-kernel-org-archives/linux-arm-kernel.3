@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D675C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 12:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77906C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 12:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gqy8zIbPIRA2NX4AxX/zIjHwhaA8zCfusY9CcosIz6c=; b=I6kP7x4pWIo2yImH8QTnqhz8Eq
-	O+xQIlYNnCpZz7p3kbntY3g/PKvHrCnG1V6Oc8oyQUL/o4BPj2meDHht92ICKF2Zp4R0OPZ3nWEZy
-	R/TNIjSzh0bCb/ZDNNPad4VIYYUaunzvwd87HA/+VB1qEs2PYsiulgtLEB8RbwBVET2w3EE6kquQ1
-	DaWD5EdIfhpC9+LLYJGfB0Ca0q96ak47CHJe6TQTV95Y7YCzwQaYilF69/rea9P1TQb+A66x0iesB
-	9zVPP74Es65D/pjEiQtc+h18fDfSLZ7MMLBX6AeILDiMjLzDr0plG0GU2oZLAvE60SBdFiqsvpDpD
-	kK43+7Tw==;
+	bh=EeXX6jeupm7Vic2eUmHsAHkIrdRfYKN4wX7kRI/0PP4=; b=WHRvZ5ap3S33kieUh7TG8UQcwn
+	9ZqO3uqmG2GrBGCPQGYxEASeQSrJxrIjgMizdKa0RVE4VF05W1B7NPDLmdOVZtC7UA666PCTsgBZF
+	lXO+2DcMKpeUFrsjlpiIAKLIAcpbR7jgR+JkeOf2kkRnewl4/0RLe05NxFirsAmGeureo6rybymu/
+	Q6VRva5nRAn4pyhFKgclXUCu5LeB8/z0Uczs0Mq7lSh79d8sU3xB6q6rniPayrcobIwksAszciS5r
+	JzjSEIoxyAfEujr40OX0yFu5BhyA8oWierjoh9eiZpOYmnkIl1cX7LZB6dUQuX7Cnsh8+0zIibWlJ
+	K7Y6koaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujGsC-0000000Cj2h-3O5q;
-	Tue, 05 Aug 2025 12:34:32 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ujGun-0000000CjFs-1NUc;
+	Tue, 05 Aug 2025 12:37:13 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujGHr-0000000Cdl7-0gBC;
-	Tue, 05 Aug 2025 11:57:00 +0000
+	id 1ujGHr-0000000Cdlc-36jZ;
+	Tue, 05 Aug 2025 11:57:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754395017;
-	bh=xMXen/bHQmq8eILCFZkOq3t0CKOepKADVu7/ZOwpRaE=;
+	s=mail; t=1754395018;
+	bh=bp4iTMMXFPRXflfykpaGgYvkE2CTcqAwfQDDkjecYdA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hBRYKf5xtHx5sucEvqK4GD538m/d/Y5W5uoF0SNFq2XenO30SQSs0/oUg9TtkxhrO
-	 ddFsvwxiZszzR51Uo+3MEdgbtaXBeuJWnsru/lxGeJ+EugIaUmauagRBHs69gcrbGH
-	 GbVQWL+ijOSF8B8PwlkECi3lUDA/gcH8l6McdKmILSWqLDWPCghhelk6PABV0050Sm
-	 W7Ivyk29NpYcgp3IZHhqvHntSNcmKc0Ibi/aQnMFSZ93dyFIYgo5J5lRi++IQMBHWu
-	 vRV7lo2tOUVs5kVP6XTtzB6ugt9wpvUv7UOyaESrjnzahoYKiPXg2djS01wvv3O1Gs
-	 BbTAN3DLOHQvg==
+	b=CJYsxgfekHUT8q3qrbUQpxkbOdCIUKhR9RoFXPRyiZXy8aYkETGlRk9d2uaUteIre
+	 9fG66ndegzhzJxYTPaOiC1MAZK77DLciAoGP5Wz7fLiXBzHE9IH+atS3iKoqugggEj
+	 L7BVObIen51uP337iLcWgji4kTnu8TjlFlgYPovvOX8xwtKQAaWbKMiVVKA+pc1k73
+	 ZBlL8cRXFE2russu8bjg8XvZS08/DwkWCi/gttke3sLfHKHGj+IZP8offPlo5o/U1F
+	 6bO8TR0xb88Tn9wx7YYK92ebbRqGYZHUD1e3ItljbqbUg1KEqGVcK32hgRzxwDF2xu
+	 e5Rqy8Mb1t0vw==
 Received: from localhost (unknown [82.79.138.60])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 69E8C17E0202;
-	Tue,  5 Aug 2025 13:56:57 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 3FE2F17E04DA;
+	Tue,  5 Aug 2025 13:56:58 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 05 Aug 2025 14:56:55 +0300
-Subject: [PATCH v2 13/14] phy: rockchip: samsung-hdptx: Extend
- rk_hdptx_phy_verify_hdmi_config() helper
+Date: Tue, 05 Aug 2025 14:56:56 +0300
+Subject: [PATCH v2 14/14] phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250805-phy-hdptx-frl-v2-13-d118bd4b6e0b@collabora.com>
+Message-Id: <20250805-phy-hdptx-frl-v2-14-d118bd4b6e0b@collabora.com>
 References: <20250805-phy-hdptx-frl-v2-0-d118bd4b6e0b@collabora.com>
 In-Reply-To: <20250805-phy-hdptx-frl-v2-0-d118bd4b6e0b@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -62,8 +62,8 @@ Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_045659_391684_1C6EFEC1 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250805_045700_351086_3339283C 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,113 +78,618 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to facilitate introduction of HDMI 2.1 FRL support and to avoid
-recomputing the link rate after verifying the HDMI configuration given
-as input, extend rk_hdptx_phy_verify_hdmi_config() by providing an
-optional output parameter to store the validated configuration.
+The PHY is capable of handling four HDMI 2.1 Fixed Rate Link (FRL)
+lanes, and each one can operate at any of the rates of 3Gbps, 6Gbps,
+8Gbps, 10Gbps or 12Gbps.
 
-For improved code readability, also rename the existing hdmi input
-parameter.
+Add the necessary driver changes to support the feature.
 
+Co-developed-by: Algea Cao <algea.cao@rock-chips.com>
+Signed-off-by: Algea Cao <algea.cao@rock-chips.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 35 ++++++++++++-----------
- 1 file changed, 18 insertions(+), 17 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 432 ++++++++++++++++++++--
+ 1 file changed, 409 insertions(+), 23 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index a44614bc73e9461d4d38663776f547f595169c3b..58eac67cc3b21c17939c303bbea3fcdc5e6b0518 100644
+index 58eac67cc3b21c17939c303bbea3fcdc5e6b0518..d63b248f173268936e88399f21479fff80dc9c11 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1472,25 +1472,24 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
+@@ -22,6 +22,7 @@
+ #include <linux/reset.h>
+ 
+ #define GRF_HDPTX_CON0			0x00
++#define LC_REF_CLK_SEL			BIT(11)
+ #define HDPTX_I_PLL_EN			BIT(7)
+ #define HDPTX_I_BIAS_EN			BIT(6)
+ #define HDPTX_I_BGR_EN			BIT(5)
+@@ -322,6 +323,9 @@
+ 
+ #define HDMI14_MAX_RATE			340000000
+ #define HDMI20_MAX_RATE			600000000
++#define FRL_8G4L_RATE			3200000000
++#define FRL_6G3L_RATE			1800000000
++#define FRL_3G3L_RATE			900000000
+ 
+ enum dp_link_rate {
+ 	DP_BW_RBR,
+@@ -329,6 +333,37 @@ enum dp_link_rate {
+ 	DP_BW_HBR2,
+ };
+ 
++struct lcpll_config {
++	unsigned long long rate;
++	u8 lcvco_mode_en;
++	u8 pi_en;
++	u8 clk_en_100m;
++	u8 pms_mdiv;
++	u8 pms_mdiv_afc;
++	u8 pms_pdiv;
++	u8 pms_refdiv;
++	u8 pms_sdiv;
++	u8 pi_cdiv_rstn;
++	u8 pi_cdiv_sel;
++	u8 sdm_en;
++	u8 sdm_rstn;
++	u8 sdc_frac_en;
++	u8 sdc_rstn;
++	u8 sdm_deno;
++	u8 sdm_num_sign;
++	u8 sdm_num;
++	u8 sdc_n;
++	u8 sdc_n2;
++	u8 sdc_num;
++	u8 sdc_deno;
++	u8 sdc_ndiv_rstn;
++	u8 ssc_en;
++	u8 ssc_fm_dev;
++	u8 ssc_fm_freq;
++	u8 ssc_clk_div_sel;
++	u8 cd_tx_ser_rate_sel;
++};
++
+ struct ropll_config {
+ 	unsigned long long rate;
+ 	u8 pms_mdiv;
+@@ -415,6 +450,19 @@ struct rk_hdptx_phy {
+ 	unsigned int lanes;
+ };
+ 
++static const struct lcpll_config rk_hdptx_frl_lcpll_cfg[] = {
++	{ 4800000000ULL, 1, 0, 0, 0x7d, 0x7d, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2,
++	  0, 0x13, 0x18, 1, 0, 0x20, 0x0c, 1, 0, },
++	{ 4000000000ULL, 1, 1, 0, 0x68, 0x68, 1, 1, 0, 0, 0, 1, 1, 1, 1, 9, 0, 1, 1,
++	  0, 2, 3, 1, 0, 0x20, 0x0c, 1, 0, },
++	{ 2400000000ULL, 1, 0, 0, 0x7d, 0x7d, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2,
++	  0, 0x13, 0x18, 1, 0, 0x20, 0x0c, 1, 0, },
++	{ 1800000000ULL, 1, 0, 0, 0x7d, 0x7d, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2,
++	  0, 0x13, 0x18, 1, 0, 0x20, 0x0c, 1, 0, },
++	{ 900000000ULL, 1, 0, 0, 0x7d, 0x7d, 1, 1, 3, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2,
++	  0, 0x13, 0x18, 1, 0, 0x20, 0x0c, 1, 0, },
++};
++
+ static const struct ropll_config rk_hdptx_tmds_ropll_cfg[] = {
+ 	{ 594000000ULL, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
+ 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
+@@ -532,6 +580,110 @@ static const struct reg_sequence rk_hdptx_common_cmn_init_seq[] = {
+ 	REG_SEQ0(CMN_REG(009a), 0x11),
+ };
+ 
++static const struct reg_sequence rk_hdptx_frl_lcpll_cmn_init_seq[] = {
++	REG_SEQ0(CMN_REG(0011), 0x00),
++	REG_SEQ0(CMN_REG(0017), 0x00),
++	REG_SEQ0(CMN_REG(0025), 0x10),
++	REG_SEQ0(CMN_REG(0026), 0x53),
++	REG_SEQ0(CMN_REG(0027), 0x01),
++	REG_SEQ0(CMN_REG(0028), 0x0d),
++	REG_SEQ0(CMN_REG(002e), 0x02),
++	REG_SEQ0(CMN_REG(002f), 0x0d),
++	REG_SEQ0(CMN_REG(0030), 0x00),
++	REG_SEQ0(CMN_REG(0031), 0x20),
++	REG_SEQ0(CMN_REG(0032), 0x30),
++	REG_SEQ0(CMN_REG(0033), 0x0b),
++	REG_SEQ0(CMN_REG(0034), 0x23),
++	REG_SEQ0(CMN_REG(003d), 0x00),
++	REG_SEQ0(CMN_REG(0042), 0xb8),
++	REG_SEQ0(CMN_REG(0046), 0xff),
++	REG_SEQ0(CMN_REG(0048), 0x44),
++	REG_SEQ0(CMN_REG(004e), 0x14),
++	REG_SEQ0(CMN_REG(0051), 0x00),
++	REG_SEQ0(CMN_REG(0055), 0x00),
++	REG_SEQ0(CMN_REG(0059), 0x11),
++	REG_SEQ0(CMN_REG(005a), 0x03),
++	REG_SEQ0(CMN_REG(005c), 0x05),
++	REG_SEQ0(CMN_REG(005d), 0x0c),
++	REG_SEQ0(CMN_REG(005e), 0x07),
++	REG_SEQ0(CMN_REG(0060), 0x01),
++	REG_SEQ0(CMN_REG(0064), 0x07),
++	REG_SEQ0(CMN_REG(0065), 0x00),
++	REG_SEQ0(CMN_REG(0069), 0x00),
++	REG_SEQ0(CMN_REG(006b), 0x04),
++	REG_SEQ0(CMN_REG(006c), 0x00),
++	REG_SEQ0(CMN_REG(0070), 0x01),
++	REG_SEQ0(CMN_REG(0073), 0x30),
++	REG_SEQ0(CMN_REG(0074), 0x00),
++	REG_SEQ0(CMN_REG(0081), 0x09),
++	REG_SEQ0(CMN_REG(0086), 0x01),
++	REG_SEQ0(CMN_REG(0087), 0x0c),
++	REG_SEQ0(CMN_REG(0089), 0x02),
++	REG_SEQ0(CMN_REG(0095), 0x00),
++	REG_SEQ0(CMN_REG(0097), 0x00),
++	REG_SEQ0(CMN_REG(0099), 0x00),
++	REG_SEQ0(CMN_REG(009b), 0x10),
++};
++
++static const struct reg_sequence rk_hdptx_frl_lcpll_ropll_cmn_init_seq[] = {
++	REG_SEQ0(CMN_REG(0008), 0xd0),
++	REG_SEQ0(CMN_REG(0011), 0x00),
++	REG_SEQ0(CMN_REG(0017), 0x00),
++	REG_SEQ0(CMN_REG(001e), 0x35),
++	REG_SEQ0(CMN_REG(0020), 0x6b),
++	REG_SEQ0(CMN_REG(0021), 0x6b),
++	REG_SEQ0(CMN_REG(0022), 0x11),
++	REG_SEQ0(CMN_REG(0024), 0x00),
++	REG_SEQ0(CMN_REG(0025), 0x10),
++	REG_SEQ0(CMN_REG(0026), 0x53),
++	REG_SEQ0(CMN_REG(0027), 0x15),
++	REG_SEQ0(CMN_REG(0028), 0x0d),
++	REG_SEQ0(CMN_REG(002a), 0x09),
++	REG_SEQ0(CMN_REG(002b), 0x01),
++	REG_SEQ0(CMN_REG(002c), 0x02),
++	REG_SEQ0(CMN_REG(002d), 0x02),
++	REG_SEQ0(CMN_REG(002e), 0x0d),
++	REG_SEQ0(CMN_REG(002f), 0x61),
++	REG_SEQ0(CMN_REG(0030), 0x00),
++	REG_SEQ0(CMN_REG(0031), 0x20),
++	REG_SEQ0(CMN_REG(0032), 0x30),
++	REG_SEQ0(CMN_REG(0033), 0x0b),
++	REG_SEQ0(CMN_REG(0034), 0x23),
++	REG_SEQ0(CMN_REG(0037), 0x00),
++	REG_SEQ0(CMN_REG(003d), 0xc0),
++	REG_SEQ0(CMN_REG(0042), 0xb8),
++	REG_SEQ0(CMN_REG(0046), 0xff),
++	REG_SEQ0(CMN_REG(0048), 0x44),
++	REG_SEQ0(CMN_REG(004e), 0x14),
++	REG_SEQ0(CMN_REG(0054), 0x19),
++	REG_SEQ0(CMN_REG(0058), 0x19),
++	REG_SEQ0(CMN_REG(0059), 0x11),
++	REG_SEQ0(CMN_REG(005b), 0x30),
++	REG_SEQ0(CMN_REG(005c), 0x25),
++	REG_SEQ0(CMN_REG(005d), 0x14),
++	REG_SEQ0(CMN_REG(005e), 0x0e),
++	REG_SEQ0(CMN_REG(0063), 0x01),
++	REG_SEQ0(CMN_REG(0064), 0x0e),
++	REG_SEQ0(CMN_REG(0068), 0x00),
++	REG_SEQ0(CMN_REG(0069), 0x02),
++	REG_SEQ0(CMN_REG(006b), 0x00),
++	REG_SEQ0(CMN_REG(006f), 0x00),
++	REG_SEQ0(CMN_REG(0073), 0x02),
++	REG_SEQ0(CMN_REG(0074), 0x00),
++	REG_SEQ0(CMN_REG(007a), 0x00),
++	REG_SEQ0(CMN_REG(0081), 0x09),
++	REG_SEQ0(CMN_REG(0086), 0x11),
++	REG_SEQ0(CMN_REG(0087), 0x0c),
++	REG_SEQ0(CMN_REG(0089), 0x00),
++	REG_SEQ0(CMN_REG(0095), 0x03),
++	REG_SEQ0(CMN_REG(0097), 0x00),
++	REG_SEQ0(CMN_REG(0099), 0x00),
++	REG_SEQ0(CMN_REG(009b), 0x10),
++	REG_SEQ0(CMN_REG(009e), 0x03),
++	REG_SEQ0(CMN_REG(009f), 0xff),
++	REG_SEQ0(CMN_REG(00a0), 0x60),
++};
++
+ static const struct reg_sequence rk_hdptx_tmds_cmn_init_seq[] = {
+ 	REG_SEQ0(CMN_REG(0008), 0x00),
+ 	REG_SEQ0(CMN_REG(0011), 0x01),
+@@ -585,6 +737,16 @@ static const struct reg_sequence rk_hdptx_common_sb_init_seq[] = {
+ 	REG_SEQ0(SB_REG(0117), 0x00),
+ };
+ 
++static const struct reg_sequence rk_hdptx_frl_lntop_init_seq[] = {
++	REG_SEQ0(LNTOP_REG(0200), 0x04),
++	REG_SEQ0(LNTOP_REG(0201), 0x00),
++	REG_SEQ0(LNTOP_REG(0202), 0x00),
++	REG_SEQ0(LNTOP_REG(0203), 0xf0),
++	REG_SEQ0(LNTOP_REG(0204), 0xff),
++	REG_SEQ0(LNTOP_REG(0205), 0xff),
++	REG_SEQ0(LNTOP_REG(0206), 0x05),
++};
++
+ static const struct reg_sequence rk_hdptx_tmds_lntop_highbr_seq[] = {
+ 	REG_SEQ0(LNTOP_REG(0201), 0x00),
+ 	REG_SEQ0(LNTOP_REG(0202), 0x00),
+@@ -656,6 +818,38 @@ static const struct reg_sequence rk_hdptx_common_lane_init_seq[] = {
+ 	REG_SEQ0(LANE_REG(0620), 0xa0),
+ };
+ 
++static const struct reg_sequence rk_hdptx_frl_lane_init_seq[] = {
++	REG_SEQ0(LANE_REG(0312), 0x3c),
++	REG_SEQ0(LANE_REG(0412), 0x3c),
++	REG_SEQ0(LANE_REG(0512), 0x3c),
++	REG_SEQ0(LANE_REG(0612), 0x3c),
++	REG_SEQ0(LANE_REG(0303), 0x2f),
++	REG_SEQ0(LANE_REG(0403), 0x2f),
++	REG_SEQ0(LANE_REG(0503), 0x2f),
++	REG_SEQ0(LANE_REG(0603), 0x2f),
++	REG_SEQ0(LANE_REG(0305), 0x03),
++	REG_SEQ0(LANE_REG(0405), 0x03),
++	REG_SEQ0(LANE_REG(0505), 0x03),
++	REG_SEQ0(LANE_REG(0605), 0x03),
++	REG_SEQ0(LANE_REG(0306), 0xfc),
++	REG_SEQ0(LANE_REG(0406), 0xfc),
++	REG_SEQ0(LANE_REG(0506), 0xfc),
++	REG_SEQ0(LANE_REG(0606), 0xfc),
++	REG_SEQ0(LANE_REG(0305), 0x4f),
++	REG_SEQ0(LANE_REG(0405), 0x4f),
++	REG_SEQ0(LANE_REG(0505), 0x4f),
++	REG_SEQ0(LANE_REG(0605), 0x4f),
++	REG_SEQ0(LANE_REG(0304), 0x14),
++	REG_SEQ0(LANE_REG(0404), 0x14),
++	REG_SEQ0(LANE_REG(0504), 0x14),
++	REG_SEQ0(LANE_REG(0604), 0x14),
++	/* Keep Inter-Pair Skew in the limits */
++	REG_SEQ0(LANE_REG(031e), 0x02),
++	REG_SEQ0(LANE_REG(041e), 0x02),
++	REG_SEQ0(LANE_REG(051e), 0x02),
++	REG_SEQ0(LANE_REG(061e), 0x02),
++};
++
+ static const struct reg_sequence rk_hdptx_tmds_lane_init_seq[] = {
+ 	REG_SEQ0(LANE_REG(0312), 0x00),
+ 	REG_SEQ0(LANE_REG(0412), 0x00),
+@@ -820,7 +1014,12 @@ static int rk_hdptx_post_enable_lane(struct rk_hdptx_phy *hdptx)
+ 	       HDPTX_I_BIAS_EN | HDPTX_I_BGR_EN;
+ 	regmap_write(hdptx->grf, GRF_HDPTX_CON0, val);
+ 
+-	regmap_write(hdptx->regmap, LNTOP_REG(0207), 0x0f);
++	/* 3 lanes FRL mode */
++	if (hdptx->hdmi_cfg.rate == FRL_6G3L_RATE ||
++	    hdptx->hdmi_cfg.rate == FRL_3G3L_RATE)
++		regmap_write(hdptx->regmap, LNTOP_REG(0207), 0x07);
++	else
++		regmap_write(hdptx->regmap, LNTOP_REG(0207), 0x0f);
+ 
+ 	ret = regmap_read_poll_timeout(hdptx->grf, GRF_HDPTX_STATUS, val,
+ 				       (val & HDPTX_O_PHY_RDY) &&
+@@ -964,6 +1163,80 @@ static bool rk_hdptx_phy_clk_pll_calc(unsigned long long rate,
+ 	return true;
  }
  
- static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
--					   struct phy_configure_opts_hdmi *hdmi)
-+					   struct phy_configure_opts_hdmi *hdmi_in,
-+					   struct rk_hdptx_hdmi_cfg *hdmi_out)
++static int rk_hdptx_frl_lcpll_cmn_config(struct rk_hdptx_phy *hdptx)
++{
++	const struct lcpll_config *cfg = NULL;
++	int i;
++
++	dev_dbg(hdptx->dev, "%s rate=%llu\n", __func__, hdptx->hdmi_cfg.rate);
++
++	for (i = 0; i < ARRAY_SIZE(rk_hdptx_frl_lcpll_cfg); i++) {
++		if (hdptx->hdmi_cfg.rate == rk_hdptx_frl_lcpll_cfg[i].rate) {
++			cfg = &rk_hdptx_frl_lcpll_cfg[i];
++			break;
++		}
++	}
++
++	if (!cfg) {
++		dev_err(hdptx->dev, "%s cannot find pll cfg for rate=%llu\n",
++			__func__, hdptx->hdmi_cfg.rate);
++		return -EINVAL;
++	}
++
++	rk_hdptx_pre_power_up(hdptx);
++
++	regmap_write(hdptx->grf, GRF_HDPTX_CON0, LC_REF_CLK_SEL << 16);
++
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_common_cmn_init_seq);
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_frl_lcpll_cmn_init_seq);
++
++	regmap_update_bits(hdptx->regmap, CMN_REG(0008),
++			   LCPLL_EN_MASK | LCPLL_LCVCO_MODE_EN_MASK,
++			   FIELD_PREP(LCPLL_EN_MASK, 1) |
++			   FIELD_PREP(LCPLL_LCVCO_MODE_EN_MASK, cfg->lcvco_mode_en));
++
++	regmap_update_bits(hdptx->regmap, CMN_REG(001e),
++			   LCPLL_PI_EN_MASK | LCPLL_100M_CLK_EN_MASK,
++			   FIELD_PREP(LCPLL_PI_EN_MASK, cfg->pi_en) |
++			   FIELD_PREP(LCPLL_100M_CLK_EN_MASK, cfg->clk_en_100m));
++
++	regmap_write(hdptx->regmap, CMN_REG(0020), cfg->pms_mdiv);
++	regmap_write(hdptx->regmap, CMN_REG(0021), cfg->pms_mdiv_afc);
++	regmap_write(hdptx->regmap, CMN_REG(0022),
++		     (cfg->pms_pdiv << 4) | cfg->pms_refdiv);
++	regmap_write(hdptx->regmap, CMN_REG(0023),
++		     (cfg->pms_sdiv << 4) | cfg->pms_sdiv);
++	regmap_write(hdptx->regmap, CMN_REG(002a), cfg->sdm_deno);
++	regmap_write(hdptx->regmap, CMN_REG(002b), cfg->sdm_num_sign);
++	regmap_write(hdptx->regmap, CMN_REG(002c), cfg->sdm_num);
++
++	regmap_update_bits(hdptx->regmap, CMN_REG(002d), LCPLL_SDC_N_MASK,
++			   FIELD_PREP(LCPLL_SDC_N_MASK, cfg->sdc_n));
++
++	regmap_update_bits(hdptx->regmap, CMN_REG(0086), PLL_PCG_POSTDIV_SEL_MASK,
++			   FIELD_PREP(PLL_PCG_POSTDIV_SEL_MASK, cfg->pms_sdiv));
++	regmap_update_bits(hdptx->regmap, CMN_REG(0086), PLL_PCG_CLK_SEL_MASK,
++			   FIELD_PREP(PLL_PCG_CLK_SEL_MASK, (hdptx->hdmi_cfg.bpc - 8) >> 1));
++
++	return rk_hdptx_post_enable_pll(hdptx);
++}
++
++static int rk_hdptx_frl_lcpll_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
++{
++	dev_dbg(hdptx->dev, "%s rate=%llu\n", __func__, hdptx->hdmi_cfg.rate);
++
++	rk_hdptx_pre_power_up(hdptx);
++
++	/* ROPLL input reference clock from LCPLL (cascade mode) */
++	regmap_write(hdptx->grf, GRF_HDPTX_CON0,
++		     (LC_REF_CLK_SEL << 16) | LC_REF_CLK_SEL);
++
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_common_cmn_init_seq);
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_frl_lcpll_ropll_cmn_init_seq);
++
++	return rk_hdptx_post_enable_pll(hdptx);
++}
++
+ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ {
+ 	const struct ropll_config *cfg = NULL;
+@@ -995,6 +1268,8 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 
+ 	rk_hdptx_pre_power_up(hdptx);
+ 
++	regmap_write(hdptx->grf, GRF_HDPTX_CON0, LC_REF_CLK_SEL << 16);
++
+ 	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_common_cmn_init_seq);
+ 	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_tmds_cmn_init_seq);
+ 
+@@ -1033,6 +1308,28 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 	return rk_hdptx_post_enable_pll(hdptx);
+ }
+ 
++static int rk_hdptx_pll_cmn_config(struct rk_hdptx_phy *hdptx)
++{
++	if (hdptx->hdmi_cfg.rate <= HDMI20_MAX_RATE)
++		return rk_hdptx_tmds_ropll_cmn_config(hdptx);
++
++	if (hdptx->hdmi_cfg.rate == FRL_8G4L_RATE)
++		return rk_hdptx_frl_lcpll_ropll_cmn_config(hdptx);
++
++	return rk_hdptx_frl_lcpll_cmn_config(hdptx);
++}
++
++static int rk_hdptx_frl_lcpll_mode_config(struct rk_hdptx_phy *hdptx)
++{
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_common_sb_init_seq);
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_frl_lntop_init_seq);
++
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_common_lane_init_seq);
++	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_frl_lane_init_seq);
++
++	return rk_hdptx_post_enable_lane(hdptx);
++}
++
+ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
+ {
+ 	rk_hdptx_multi_reg_write(hdptx, rk_hdptx_common_sb_init_seq);
+@@ -1109,7 +1406,7 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx)
+ 	if (mode == PHY_MODE_DP) {
+ 		rk_hdptx_dp_reset(hdptx);
+ 	} else {
+-		ret = rk_hdptx_tmds_ropll_cmn_config(hdptx);
++		ret = rk_hdptx_pll_cmn_config(hdptx);
+ 		if (ret)
+ 			goto dec_usage;
+ 	}
+@@ -1410,7 +1707,7 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 	int ret, lane;
+ 
+ 	if (mode != PHY_MODE_DP) {
+-		if (!hdptx->hdmi_cfg.rate) {
++		if (!hdptx->hdmi_cfg.rate && mode != PHY_MODE_HDMI_FRL) {
+ 			/*
+ 			 * FIXME: Temporary workaround to setup TMDS char rate
+ 			 * from the RK DW HDMI QP bridge driver.
+@@ -1456,7 +1753,11 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 		regmap_write(hdptx->grf, GRF_HDPTX_CON0,
+ 			     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
+ 
+-		ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
++		if (mode == PHY_MODE_HDMI_FRL)
++			ret = rk_hdptx_frl_lcpll_mode_config(hdptx);
++		else
++			ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
++
+ 		if (ret)
+ 			rk_hdptx_phy_consumer_put(hdptx, true);
+ 	}
+@@ -1477,16 +1778,49 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
  {
  	int i;
  
--	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
-+	if (!hdmi_in->tmds_char_rate || hdmi_in->tmds_char_rate > HDMI20_MAX_RATE)
- 		return -EINVAL;
+-	if (!hdmi_in->tmds_char_rate || hdmi_in->tmds_char_rate > HDMI20_MAX_RATE)
+-		return -EINVAL;
++	if (phy_get_mode(hdptx->phy) == PHY_MODE_HDMI_FRL) {
++		unsigned long long frl_rate = 100000000ULL * hdmi_in->frl.lanes *
++					      hdmi_in->frl.rate_per_lane;
  
- 	for (i = 0; i < ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg); i++)
--		if (hdmi->tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate)
-+		if (hdmi_in->tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate)
+-	for (i = 0; i < ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg); i++)
+-		if (hdmi_in->tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate)
++		switch (hdmi_in->frl.rate_per_lane) {
++		case 3:
++		case 6:
++		case 8:
++		case 10:
++		case 12:
  			break;
++		default:
++			return -EINVAL;
++		}
  
- 	if (i == ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg) &&
--	    !rk_hdptx_phy_clk_pll_calc(hdmi->tmds_char_rate, NULL))
-+	    !rk_hdptx_phy_clk_pll_calc(hdmi_in->tmds_char_rate, NULL))
- 		return -EINVAL;
+-	if (i == ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg) &&
+-	    !rk_hdptx_phy_clk_pll_calc(hdmi_in->tmds_char_rate, NULL))
+-		return -EINVAL;
++		if (!hdmi_in->frl.lanes || hdmi_in->frl.lanes > 4)
++			return -EINVAL;
++
++		if (frl_rate != FRL_8G4L_RATE) {
++			for (i = 0; i < ARRAY_SIZE(rk_hdptx_frl_lcpll_cfg); i++)
++				if (frl_rate == rk_hdptx_frl_lcpll_cfg[i].rate)
++					break;
++			if (i == ARRAY_SIZE(rk_hdptx_frl_lcpll_cfg))
++				return -EINVAL;
++		}
++
++		if (hdmi_out)
++			hdmi_out->rate = frl_rate;
++	} else {
++		if (!hdmi_in->tmds_char_rate || hdmi_in->tmds_char_rate > HDMI20_MAX_RATE)
++			return -EINVAL;
++
++		for (i = 0; i < ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg); i++)
++			if (hdmi_in->tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate)
++				break;
++
++		if (i == ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg) &&
++		    !rk_hdptx_phy_clk_pll_calc(hdmi_in->tmds_char_rate, NULL))
++			return -EINVAL;
++
++		if (hdmi_out)
++			hdmi_out->rate = hdmi_in->tmds_char_rate;
++	}
  
--	if (!hdmi->bpc)
--		hdmi->bpc = 8;
--
--	switch (hdmi->bpc) {
-+	switch (hdmi_in->bpc) {
-+	case 0:
- 	case 8:
- 	case 10:
- 	case 12:
-@@ -1500,6 +1499,11 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+ 	switch (hdmi_in->bpc) {
+ 	case 0:
+@@ -1499,10 +1833,8 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
  		return -EINVAL;
  	}
  
-+	if (hdmi_out) {
-+		hdmi_out->rate = hdmi_in->tmds_char_rate;
-+		hdmi_out->bpc = hdmi_in->bpc ?: 8;
-+	}
-+
+-	if (hdmi_out) {
+-		hdmi_out->rate = hdmi_in->tmds_char_rate;
++	if (hdmi_out)
+ 		hdmi_out->bpc = hdmi_in->bpc ?: 8;
+-	}
+ 
  	return 0;
  }
+@@ -1857,17 +2189,62 @@ static void rk_hdptx_phy_clk_unprepare(struct clk_hw *hw)
  
-@@ -1765,17 +1769,15 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
- 	int ret;
+ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ {
++	struct lcpll_config lcpll_hw;
+ 	struct ropll_config ropll_hw;
+ 	u64 fout, sdm;
+ 	u32 mode, val;
+-	int ret;
++	int ret, i;
  
- 	if (mode != PHY_MODE_DP) {
--		ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi);
-+		ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi, &hdptx->hdmi_cfg);
- 		if (ret) {
- 			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
- 		} else {
--			hdptx->hdmi_cfg.rate = opts->hdmi.tmds_char_rate;
--			hdptx->hdmi_cfg.bpc = opts->hdmi.bpc;
- 			hdptx->restrict_rate_change = true;
-+			dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
-+				hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
- 		}
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0008), &mode);
+ 	if (ret)
+ 		return 0;
  
--		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
--			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
- 		return ret;
- 	}
- 
-@@ -1819,7 +1821,7 @@ static int rk_hdptx_phy_validate(struct phy *phy, enum phy_mode mode,
- 	struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
- 
- 	if (mode != PHY_MODE_DP)
--		return rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi);
-+		return rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi, NULL);
- 
- 	return rk_hdptx_phy_verify_dp_config(hdptx, &opts->dp);
- }
-@@ -1959,12 +1961,11 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
- 		struct phy_configure_opts_hdmi hdmi = {
- 			.tmds_char_rate = rate,
- 		};
--		int ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &hdmi);
+-	if (mode & LCPLL_LCVCO_MODE_EN_MASK)
++	if (mode & LCPLL_LCVCO_MODE_EN_MASK) {
++		ret = regmap_read(hdptx->regmap, CMN_REG(0020), &val);
++		if (ret)
++			return 0;
++		lcpll_hw.pms_mdiv = val;
 +
-+		int ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &hdmi, &hdptx->hdmi_cfg);
++		ret = regmap_read(hdptx->regmap, CMN_REG(0023), &val);
++		if (ret)
++			return 0;
++		lcpll_hw.pms_sdiv = val & 0xf;
++
++		ret = regmap_read(hdptx->regmap, CMN_REG(002B), &val);
++		if (ret)
++			return 0;
++		lcpll_hw.sdm_num_sign = val;
++
++		ret = regmap_read(hdptx->regmap, CMN_REG(002C), &val);
++		if (ret)
++			return 0;
++		lcpll_hw.sdm_num = val;
++
++		ret = regmap_read(hdptx->regmap, CMN_REG(002A), &val);
++		if (ret)
++			return 0;
++		lcpll_hw.sdm_deno = val;
++
++		ret = regmap_read(hdptx->regmap, CMN_REG(002D), &val);
++		if (ret)
++			return 0;
++		lcpll_hw.sdc_n = (val & LCPLL_SDC_N_MASK) >> 1;
++
++		for (i = 0; i < ARRAY_SIZE(rk_hdptx_frl_lcpll_cfg); i++) {
++			const struct lcpll_config *cfg = &rk_hdptx_frl_lcpll_cfg[i];
++
++			if (cfg->pms_mdiv == lcpll_hw.pms_mdiv &&
++			    cfg->pms_sdiv == lcpll_hw.pms_sdiv &&
++			    cfg->sdm_num_sign == lcpll_hw.sdm_num_sign &&
++			    cfg->sdm_num == lcpll_hw.sdm_num &&
++			    cfg->sdm_deno == lcpll_hw.sdm_deno &&
++			    cfg->sdc_n == lcpll_hw.sdc_n)
++				return cfg->rate;
++		}
++
++		dev_dbg(hdptx->dev, "%s no FRL match found\n", __func__);
+ 		return 0;
++	}
  
- 		if (ret)
- 			return ret;
--
--		hdptx->hdmi_cfg.rate = rate;
+ 	ret = regmap_read(hdptx->regmap, CMN_REG(0051), &val);
+ 	if (ret)
+@@ -1944,6 +2321,9 @@ static unsigned long rk_hdptx_phy_clk_recalc_rate(struct clk_hw *hw,
+ 
+ 	rate = rk_hdptx_phy_clk_calc_rate_from_pll_cfg(hdptx);
+ 
++	if (phy_get_mode(hdptx->phy) == PHY_MODE_HDMI_FRL)
++		return rate;
++
+ 	return DIV_ROUND_CLOSEST_ULL(rate * 8, hdptx->hdmi_cfg.bpc);
+ }
+ 
+@@ -1952,6 +2332,9 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+ {
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
+ 
++	if (phy_get_mode(hdptx->phy) == PHY_MODE_HDMI_FRL)
++		return hdptx->hdmi_cfg.rate;
++
+ 	/*
+ 	 * FIXME: Temporarily allow altering TMDS char rate via CCF.
+ 	 * To be dropped as soon as the RK DW HDMI QP bridge driver
+@@ -1980,23 +2363,26 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 				     unsigned long parent_rate)
+ {
+ 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
+-	unsigned long long tmds_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
++	unsigned long long link_rate = rate;
++
++	if (phy_get_mode(hdptx->phy) != PHY_MODE_HDMI_FRL)
++		link_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
+ 
+-	/* Revert any unlikely TMDS char rate change since round_rate() */
+-	if (hdptx->hdmi_cfg.rate != tmds_rate) {
++	/* Revert any unlikely link rate change since round_rate() */
++	if (hdptx->hdmi_cfg.rate != link_rate) {
+ 		dev_warn(hdptx->dev, "Reverting unexpected rate change from %llu to %llu\n",
+-			 tmds_rate, hdptx->hdmi_cfg.rate);
+-		hdptx->hdmi_cfg.rate = tmds_rate;
++			 link_rate, hdptx->hdmi_cfg.rate);
++		hdptx->hdmi_cfg.rate = link_rate;
  	}
  
  	/*
+-	 * The TMDS char rate would be normally programmed in HW during
++	 * The link rate would be normally programmed in HW during
+ 	 * phy_ops.power_on() or clk_ops.prepare() callbacks, but it might
+ 	 * happen that the former gets fired too late, i.e. after this call,
+ 	 * while the latter being executed only once, i.e. when clock remains
+ 	 * in the prepared state during rate changes.
+ 	 */
+-	return rk_hdptx_tmds_ropll_cmn_config(hdptx);
++	return rk_hdptx_pll_cmn_config(hdptx);
+ }
+ 
+ static const struct clk_ops hdptx_phy_clk_ops = {
 
 -- 
 2.50.0
