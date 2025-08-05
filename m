@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80A8C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 06:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FCEC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 06:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmW4G/dSThg9ZBkHAW+AbvRZ4hrRjUh0tEwVOukRU1I=; b=O+LTwD0BUAOhgA6QTvo8Ghhk3m
-	Iy5PwbCg5NRfJqFw47sl8VNRGovlP9OCM975aDCj88VVKuP7Ll35pFAG5T4Kpgu2je6MWFIOpmCXX
-	g4tpA8lldo9LM+qeYkwUzcrh1va0vMQzRoQ2F1IFr7ouDxHeazrITiYIgAbKV24qEDDjd6ZBjrkku
-	NUGegiAdY0y654N4g1ex8/Tg5xf6iU9cLlLZ7qj26B6xIk4IK8J2JOVETJpRPn9MdMXbMWKLQli25
-	Q9vzywh1k48hfJqwAvstNY6C3CmiErjTEbie+iVyOHteSD4t80wm2a6dEr0A1Vb4MWxtNWc3Lk997
-	OzyxIbfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZHOhb8fLvm5l9s1ySum6mhWfmDizuVTRTPmFOv/E41c=; b=B5B/mTJO+W2vfA9AXMGXgvbxom
+	kjMAnLB8JEHFBpCX+HAUbzebLWKYWzbX10eNzPkmawhJsnbI/QbA2O2hhmqRohVW3y7oGInxzh9lu
+	UTmuuNxJ1PBuqMInbsGsHRmsBsvsO529+Scen3EcJubyCfdwmjuaJ0IM2QCZwNplA+bOjWay74ccv
+	nftyJjkPwnXvDp9qD9+RB7PYhwiT70J159djbDQ5rc/bxsatRGXRWOuNi56UWXnVDAfcTe/zNR08y
+	ORwcFWzXE53DQ/dGE+jyqF7BUssg44b9/DC+5z8CQEoxvP2wCWVp3JuzggKGyZMxv6t3NXQqXub5f
+	RYeWg2TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujBPO-0000000BvIS-3KV4;
-	Tue, 05 Aug 2025 06:44:26 +0000
+	id 1ujBS9-0000000Bw1f-1QIn;
+	Tue, 05 Aug 2025 06:47:17 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujBEX-0000000BuJc-1Crf
+	id 1ujBHG-0000000BuWP-0CmT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 06:33:14 +0000
+	Tue, 05 Aug 2025 06:36:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B40FA5C5DC7;
-	Tue,  5 Aug 2025 06:33:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB39AC4CEF4;
-	Tue,  5 Aug 2025 06:33:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 01DC25C646D;
+	Tue,  5 Aug 2025 06:36:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEB18C4CEF4;
+	Tue,  5 Aug 2025 06:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754375592;
-	bh=FD0dbOI0Ps6FpAVxL7mG/7bxhDlNoH/uuOhQ3n2KokA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uct6gb6Kbuk0u+fjQzJhhWhZjfIfQcI1uPXbIFKk0iDQ2jawvxdLy7RPiehxDQZZT
-	 HblaeAGRjThMMBABgXkuTd9GqpRrjOp0NrxT7GOtwEA8UHeHo8PO0nVkqSh9VPesxF
-	 nyAKO+U32sJ3hSftavkgIkL70eFvgjXqQq81oksavXatFnKn7Ho7v9d4mB3odDskuO
-	 wBAXVspduUjk8ivNH98Bye/KuT2liJJ+LYQYarYwjPTWR6KszWS0aYmPv+t/DPttnl
-	 q3kB2e0AXsGl3LziUvR3b4Hmxk7bCfN/RxzLdsr7anpJCPWoSGbGR20M/tq9/1zfZC
-	 HRr9kA5U6K4GA==
-Message-ID: <f51b1915-1739-4d9f-a8ff-6bf7dc4b09c9@kernel.org>
-Date: Tue, 5 Aug 2025 08:33:07 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Resend 1/1] arm64: defconfig: Enable Marvell WiFi-Ex USB driver
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20250804074642.75072-1-alexander.stein@ew.tq-group.com>
+	s=k20201202; t=1754375760;
+	bh=sIHPITH9zG/L0PbzCUmZDWaszbXx38hkA/bHt1tkCsY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=vOetwG6wjPaFORrkROIrDOatq5ormVU2vdtjv/cTfRt7ABu2cGpYaG7vuXplt88PO
+	 eKnp/n+o346f6/YG8oB0r+bYIfWKNkbsnmX+moad9d9FBnPPpmHy/EUXFx4NgLHNtx
+	 ucu3PxmCL14qKSC1XJlI9SENNJMRxUivtYlWFKW+ongQ7WgRYC9uAtSV41x2PE8zHP
+	 m/Lz5HNXUpJPaTn7ZgTHnrUFAF8qwvfwH4HGRn7Vrm+Z+7NUxXbpxVBjhaL/zzqzdc
+	 IQfC4RvRWmK8w2Hq2+tZKGZ9PNcDLQCQ/t08gO4s/GcwGBq4BWIthFB+6lAEzlJ+jY
+	 BGGAuyxnJFixg==
+Date: Tue, 5 Aug 2025 08:35:58 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250804074642.75072-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
+	simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
+	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
+	shengjiu.wang@gmail.com, perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] dt-bindings: display: imx: add HDMI PAI for
+ i.MX8MP
+Message-ID: <20250805-realistic-hawk-of-merriment-f84ef2@kuoka>
+References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
+ <20250804104722.601440-2-shengjiu.wang@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250804104722.601440-2-shengjiu.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_233313_536074_D7CC8D06 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250804_233602_388440_66F9801A 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,30 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 09:46, Alexander Stein wrote:
-> This driver is used on imx93-tqma9352-mba91xxca.dts.
-
-Hm, where or how exactly? That's USB WiFi, not built-in.
-
+On Mon, Aug 04, 2025 at 06:47:17PM +0800, Shengjiu Wang wrote:
+> Add binding for the i.MX8MP HDMI parallel Audio interface block.
 > 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
+> acts as the bridge between the Audio Subsystem to the HDMI TX Controller.
+> This IP block is found in the HDMI subsystem of the i.MX8MP SoC.
+> 
+> Aud2htx module in Audio Subsystem, HDMI PAI module and HDMI TX
+> Controller compose the HDMI audio pipeline.
+> 
+> In fsl,imx8mp-hdmi-tx.yaml, add port@2 that is linked to pai_to_hdmi_tx.
+> 
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
 > ---
-> Added IMX Maintainers
-> 
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index c7520e78b6a11..2271ce6079bbb 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -441,6 +441,7 @@ CONFIG_IWLMVM=m
->  CONFIG_MWIFIEX=m
->  CONFIG_MWIFIEX_SDIO=m
->  CONFIG_MWIFIEX_PCIE=m
-> +CONFIG_MWIFIEX_USB=m
+>  .../display/bridge/fsl,imx8mp-hdmi-tx.yaml    | 12 ++++
+>  .../display/imx/fsl,imx8mp-hdmi-pai.yaml      | 69 +++++++++++++++++++
+>  2 files changed, 81 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx8mp-hdmi-pai.yaml
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
+
 
