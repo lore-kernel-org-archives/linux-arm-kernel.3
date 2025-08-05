@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BAB1C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 11:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DDF6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 11:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WxQzj4b08HEq9ylXDLbY6hFTOp3xqWxmF1DfwS8tWj0=; b=GsctrJlgNQ8U23P3T3UaQuU+Lr
-	e+fSl6ENuPudw8sTrAAoYujH1xTURWt5vBbBM2zpHE+MRDlw1T70ryoz2vYLYtd3G5pQdkCNorYLh
-	bqTpph2fJlwTnSBRdgxCDx9wx9OZSdJ4UrysDj2oD9FHwGnyTpSud1YJz79F6YGsaS10KZ/lfPZWF
-	vuzsQsy8W5yNb2RbG9wRYJXERVljxKxVZV91dUIpJzOug0ApO5ve8GaMfU4uF0G8fsNJ4MZhoz3OZ
-	JRzanqWqzk7ct968JtZTOLcoPAu8bNoWiH5x13bEICBv9SjSLQD7a/rv3dmjVYd8A7onQmkSaeXNW
-	LOy1zTYA==;
+	bh=tDSem0VEHhNCiFbhAejGqkNC7DQu7KRaDbsToqiPuSI=; b=di+8QvqUBBdXnyl6kri/dUpiRL
+	lWU+AteVFvNRCOzQNGPzN1pcJnp/+4tQ0DI382XA4Lwgnozo5ni8cjjRRAGqfdh5YMSvI4Zbmhe9K
+	JvoyOA1RTUI8XXIHLo/vM/pRgVCOmysDt/S5X9I5ViJGIVHGXBeigSyuO284zk2ydNJuyht6Fy+4I
+	8wkrm+s5ywwBnKGfgLff1IDnLG/19HzSJpURE6Ze/BUhF+UbkrEs08FRvWFa08/bLyrChS9nq3U37
+	HVQ09Toy7WvBsXYTPxETYNAXWIGt1Rh9FMQ/ZGS6ZPtp+C5c8lzXAZqvGHnd1y/2tP9Z01Mh+mLLq
+	kmwZZudg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujFs2-0000000CbXk-39JY;
-	Tue, 05 Aug 2025 11:30:18 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ujG7q-0000000CcYM-0feQ;
+	Tue, 05 Aug 2025 11:46:38 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujFpQ-0000000CbNy-2DY3
+	id 1ujG5D-0000000CcLi-3vpq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 11:27:37 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8BED6176B;
-	Tue,  5 Aug 2025 13:26:46 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754393206;
-	bh=5bV8swrKPxegKK0V/mNd74UNbap2bZYh8I72lHpL+Vw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=esY4Z7jqJWLMvcBaNXYvl51W8rWBxFbzwoLBY4qyHtWcnjV+sCE1gMwuUPMqXFC9R
-	 2Ug840vA0qJSCa95LhWNI1sY5hjDKNSjAlYTzRagcGHrtxNO1n3X3UMNaAOn7ekPp7
-	 vi0M22xqyt+llU+rA+WD7V+F/ZDTEOX8KWCjnJwA=
-Date: Tue, 5 Aug 2025 13:27:30 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Daniel Scally <dan.scally@ideasonboard.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com, 
-	nayden.kanchev@arm.com, robh+dt@kernel.org, mchehab@kernel.org, 
-	krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, jerome.forissier@linaro.org, 
-	kieran.bingham@ideasonboard.com, laurent.pinchart@ideasonboard.com, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Subject: Re: [PATCH v11 08/19] media: uapi: Add controls for Mali-C55 ISP
-Message-ID: <rixk2meihmzkixemu7uygd6ebojhwgxi5xfgcwbamydzk25yt5@j4t4eliandqq>
-References: <20250714-c55-v11-0-bc20e460e42a@ideasonboard.com>
- <20250714-c55-v11-8-bc20e460e42a@ideasonboard.com>
+	Tue, 05 Aug 2025 11:43:57 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-31ecd40352fso4633380a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 04:43:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754394235; x=1754999035; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tDSem0VEHhNCiFbhAejGqkNC7DQu7KRaDbsToqiPuSI=;
+        b=C63fY5h46830OkARbRTTIfmAn4Yod1++YzA5/6JhemqPJcLJw0b4/kbyF/XjsO+Voc
+         DUcEk2lhbzWcY1/wO1qHl61Dg2wj4RRITcQWRRCUY+rI5aqsJ8o86r0KRJG/C5POMLpR
+         GSYVzFr0fffT+Bs5k58LlZlsvnzDm1SXfQQ+m4PeFgb+6HPiD/P56Lz9N/uK6uNQSx3I
+         9neKTCaEm6sSARkozMiz5qMOI2O9lSevLanigRLCrkrVGCiuAGDKXmioyahhm81yOs6P
+         S2ee49TePJSonkWOV8qn90XNF8Vg64fRG73nKe9CL7QVTbbjOgbUQK2IbTH+rchfzKzi
+         HAow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754394235; x=1754999035;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tDSem0VEHhNCiFbhAejGqkNC7DQu7KRaDbsToqiPuSI=;
+        b=s7/+LJQacsfLSqe7BzVKsraLAwDyqXKDMBlyiFECaT4i5Wx4/a6C+MaLfYctVk6Met
+         7bt8gmoxwT33QWe50eud87I1hY722cPWt73uMVc3AOAwbbVIeyf90n7+a2sHknOQ6Mkq
+         vv/+E5W1fBpFG5CL+t52ABI7JEhbVZhhcDuDXJ621IWBcWJFYzgaxEbBypmfysrYWnD+
+         +mO+BGHr2FG1OweqFGUdU8SP+9pf0Rv1Qq3L6d/CuzeSzVOdbekth//ETQJ0sJSIUEtn
+         gASB8P6ZEIMYCk1Qg4MDUxjbg9GjBuaLwGKbLIDgk9ZEoFy1485Y31pn39LV1P0lTpb2
+         o5mA==
+X-Forwarded-Encrypted: i=1; AJvYcCUc68oIjVqJhbrAtDD5YPnp+L/c3z6CIgvHNzcUqDLnYOase7wP1nCGlAcuY/lxfjC2K4LFlv03D/F7NRREgdiE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz6wOEd8lFq+vPhCpLZf8wryWJOBsyhfWOt7XSqjTrcARkqXKb
+	hN2dkV8ud88RSB/CTalqYW0FCfPyzpjRrLdc8M24kf3gIODz8WPWXBPWTBkMeCdNrM6lChOqWnV
+	+d5Agn5kySze8CsKOrASUREyktXoI6thq2ogUOgvPaA==
+X-Gm-Gg: ASbGncu0mJJz3j2E5Tkvec+XFscl5DJ/T4NRcAf0ak1NTZnWcj2gpMylhOPYUXj/mvw
+	RBKx0itZBh4DyUGdHxEODBl89qooY4OvYEoCD+OgdyDjzVWLVGxNn55AF1WcJnKiDxUbto2DhyN
+	udfhqKXnUb/cSosIqEnBcGGCG92vqlW1EFEuio4wppaCp+GN4GLBaydEsJaLIMGJebW2csuQsQp
+	lmK39G1ih0C0LOy
+X-Google-Smtp-Source: AGHT+IGQh1IHldLd0Xsa7DV3WGgE48Y3oh+lMpkw5CWGb+Xj011SVcOFfY2rdo3TaHAT5I0VaX6ImgYZfxqtKmD2FQg=
+X-Received: by 2002:a17:90b:3146:b0:313:15fe:4c13 with SMTP id
+ 98e67ed59e1d1-321162c9366mr18968548a91.27.1754394234942; Tue, 05 Aug 2025
+ 04:43:54 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250714-c55-v11-8-bc20e460e42a@ideasonboard.com>
+References: <20250717125343.3820505-1-quic_jinlmao@quicinc.com> <20250717125343.3820505-3-quic_jinlmao@quicinc.com>
+In-Reply-To: <20250717125343.3820505-3-quic_jinlmao@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 5 Aug 2025 12:43:43 +0100
+X-Gm-Features: Ac12FXwQ6TRr8fi74oMe-Ptz9AMCTyfI7J3MuYdWjVEh0hc8XNY3WysaB9ylgCw
+Message-ID: <CAJ9a7ViD6MqOrtBp6LYnEg-rs6x0c9HuGfy4pWHG1iW67OdT=g@mail.gmail.com>
+Subject: Re: [PATCH v9 2/2] coresight: Add label sysfs node support
+To: Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_042736_712177_72DBCAFA 
-X-CRM114-Status: GOOD (  30.30  )
+X-CRM114-CacheID: sfid-20250805_044355_989341_D9EDC45A 
+X-CRM114-Status: GOOD (  28.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,175 +97,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan
+Hi
 
-On Mon, Jul 14, 2025 at 04:06:34PM +0100, Daniel Scally wrote:
-> Add definitions and documentation for the custom control that will
-> be needed by the Mali-C55 ISP driver. This will be a read only
-> bitmask of the driver's capabilities, informing userspace of which
-> blocks are fitted and which are absent.
+On Thu, 17 Jul 2025 at 13:54, Mao Jinlong <quic_jinlmao@quicinc.com> wrote:
 >
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> For some coresight components like CTI and TPDM, there could be
+> numerous of them. From the node name, we can only get the type and
+> register address of the component. We can't identify the HW or the
+> system the component belongs to. Add label sysfs node support for
+> showing the intuitive name of the device.
+>
+> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
 > ---
-> Changes in v11:
+>  .../testing/sysfs-bus-coresight-devices-cti   |  6 ++
+>  .../sysfs-bus-coresight-devices-dummy-source  |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-etb10 |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-etm3x |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-etm4x |  6 ++
+>  .../sysfs-bus-coresight-devices-funnel        |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-stm   |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-tmc   |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++
+>  .../testing/sysfs-bus-coresight-devices-trbe  |  6 ++
+>  drivers/hwtracing/coresight/coresight-sysfs.c | 71 ++++++++++++++++++-
+>  11 files changed, 129 insertions(+), 2 deletions(-)
 >
-> 	- Reserve 16 controls in line with other drivers
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+> index a97b70f588da..55367bbc696f 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+> @@ -239,3 +239,9 @@ Date:               March 2020
+>  KernelVersion: 5.7
+>  Contact:       Mike Leach or Mathieu Poirier
+>  Description:   (Write) Clear all channel / trigger programming.
+> +
+> +What:           /sys/bus/coresight/devices/<cti-name>/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+> index 0830661ef656..9a11bd5b15cc 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+> @@ -13,3 +13,9 @@ KernelVersion:        6.14
+>  Contact:       Mao Jinlong <quic_jinlmao@quicinc.com>
+>  Description:   (R) Show the trace ID that will appear in the trace stream
+>                 coming from this trace entity.
+> +
+> +What:           /sys/bus/coresight/devices/dummy_source<N>/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10 b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
+> index 9a383f6a74eb..ff1f89795188 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
+> @@ -19,6 +19,12 @@ Description: (RW) Disables write access to the Trace RAM by stopping the
+>                 into the Trace RAM following the trigger event is equal to the
+>                 value stored in this register+1 (from ARM ETB-TRM).
 >
-> Changes in v10:
+> +What:           /sys/bus/coresight/devices/<memory_map>.etb/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> +
+>  What:          /sys/bus/coresight/devices/<memory_map>.etb/mgmt/rdp
+>  Date:          March 2016
+>  KernelVersion: 4.7
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+> index 271b57c571aa..743f26619c69 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+> @@ -251,6 +251,12 @@ KernelVersion:     4.4
+>  Contact:       Mathieu Poirier <mathieu.poirier@linaro.org>
+>  Description:   (RO) Holds the cpu number this tracer is affined to.
 >
-> 	- None
+> +What:           /sys/bus/coresight/devices/<memory_map>.[etm|ptm]/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> +
+>  What:          /sys/bus/coresight/devices/<memory_map>.[etm|ptm]/mgmt/etmccr
+>  Date:          September 2015
+>  KernelVersion: 4.4
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
+> index a0425d70d009..e6a584a4b040 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
+> @@ -329,6 +329,12 @@ Contact:   Mathieu Poirier <mathieu.poirier@linaro.org>
+>  Description:   (RW) Access the selected single show PE comparator control
+>                 register.
 >
-> Changes in v9:
+> +What:           /sys/bus/coresight/devices/etm<N>/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> +
+>  What:          /sys/bus/coresight/devices/etm<N>/mgmt/trcoslsr
+>  Date:          April 2015
+>  KernelVersion: 4.01
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+> index d75acda5e1b3..5578fa5f6f02 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+> @@ -10,3 +10,9 @@ Date:         November 2014
+>  KernelVersion: 3.19
+>  Contact:       Mathieu Poirier <mathieu.poirier@linaro.org>
+>  Description:   (RW) Defines input port priority order.
+> +
+> +What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
+> index 53e1f4815d64..c3a81978e30b 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
+> @@ -51,3 +51,9 @@ KernelVersion:        4.7
+>  Contact:       Mathieu Poirier <mathieu.poirier@linaro.org>
+>  Description:   (RW) Holds the trace ID that will appear in the trace stream
+>                 coming from this trace entity.
+> +
+> +What:           /sys/bus/coresight/devices/<memory_map>.stm/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
+> index 339cec3b2f1a..9554f4f453a3 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
+> @@ -107,3 +107,9 @@ Contact:    Anshuman Khandual <anshuman.khandual@arm.com>
+>  Description:   (RW) Current Coresight TMC-ETR buffer mode selected. But user could
+>                 only provide a mode which is supported for a given ETR device. This
+>                 file is available only for TMC ETR devices.
+> +
+> +What:           /sys/bus/coresight/devices/<memory_map>.tmc/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+> index a341b08ae70b..e6d935e83042 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+> @@ -272,3 +272,9 @@ KernelVersion       6.15
+>  Contact:       Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
+>  Description:
+>                 (RW) Set/Get the enablement of the individual lane.
+> +
+> +What:           /sys/bus/coresight/devices/<tpdm-name>/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
+> index ad3bbc6fa751..2a5868ba3d6b 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
+> @@ -12,3 +12,9 @@ Contact:      Anshuman Khandual <anshuman.khandual@arm.com>
+>  Description:   (Read) Shows if TRBE updates in the memory are with access
+>                 and dirty flag updates as well. This value is fetched from
+>                 the TRBIDR register.
+> +
+> +What:           /sys/bus/coresight/devices/trbe<cpu>/label
+> +Date:           Jul 2025
+> +KernelVersion   6.17
+> +Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+> +Description:    (Read) Show hardware context information of device.
+> diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+> index feadaf065b53..f7a0c9056854 100644
+> --- a/drivers/hwtracing/coresight/coresight-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/device.h>
+>  #include <linux/idr.h>
+>  #include <linux/kernel.h>
+> +#include <linux/property.h>
 >
-> 	- New patch
-> ---
->  .../userspace-api/media/drivers/index.rst          |  1 +
->  .../userspace-api/media/drivers/mali-c55.rst       | 55 ++++++++++++++++++++++
->  include/uapi/linux/media/arm/mali-c55-config.h     | 26 ++++++++++
->  include/uapi/linux/v4l2-controls.h                 |  6 +++
->  4 files changed, 88 insertions(+)
+>  #include "coresight-priv.h"
+>  #include "coresight-trace-id.h"
+> @@ -371,17 +372,81 @@ static ssize_t enable_source_store(struct device *dev,
+>  }
+>  static DEVICE_ATTR_RW(enable_source);
 >
-> diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
-> index d706cb47b1122b6e145a02ab826eb3ecc7997c2b..02967c9b18d6e90f414ccc1329c09bffee895e68 100644
-> --- a/Documentation/userspace-api/media/drivers/index.rst
-> +++ b/Documentation/userspace-api/media/drivers/index.rst
-> @@ -32,6 +32,7 @@ For more details see the file COPYING in the source distribution of Linux.
->  	cx2341x-uapi
->  	dw100
->  	imx-uapi
-> +	mali-c55
->  	max2175
->  	npcm-video
->  	omap3isp-uapi
-> diff --git a/Documentation/userspace-api/media/drivers/mali-c55.rst b/Documentation/userspace-api/media/drivers/mali-c55.rst
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..e8519da77d737b91a931bbe47920af707eebf110
-> --- /dev/null
-> +++ b/Documentation/userspace-api/media/drivers/mali-c55.rst
-> @@ -0,0 +1,55 @@
-> +.. SPDX-License-Identifier: GPL-2.0-only
+> +static ssize_t label_show(struct device *dev,
+> +               struct device_attribute *attr, char *buf)
+> +{
 > +
-> +Arm Mali-C55 ISP driver
-> +=======================
+> +       const char *str;
+> +       int ret;
 > +
-> +The Arm Mali-C55 ISP driver implements a single driver-specific control:
-> +
-> +``V4L2_CID_MALI_C55_CAPABILITIES``
-> +    Detail the capabilities of the ISP by giving detail about the fitted blocks.
+> +       ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
+> +       if (ret == 0)
+> +               return scnprintf(buf, PAGE_SIZE, "%s\n", str);
 
-This doesn't tell what is the control type. Just add "(bitmask)" to the
-control name
+sysfs_emit() here.
 
-``V4L2_CID_MALI_C55_CAPABILITIES (bitmask)``
-
+> +       else
+> +               return ret;
+> +}
+> +static DEVICE_ATTR_RO(label);
 > +
-> +    .. flat-table:: Bitmask meaning definitions
-> +	:header-rows: 1
-> +	:widths: 2 4 8
+> +static umode_t label_is_visible(struct kobject *kobj,
+> +                                  struct attribute *attr, int n)
+> +{
+> +       struct device *dev = kobj_to_dev(kobj);
 > +
-> +	* - Bit
-> +	  - Macro
-> +	  - Meaning
-> +        * - 0
-> +          - MALI_C55_GPS_PONG_FITTED
-
-Do we want "_FITTED" in the control values ?
-
-> +          - Pong configuration space is fitted in the ISP
-> +        * - 1
-> +          - MALI_C55_GPS_WDR_FITTED
-> +          - WDR Framestitch, offset and gain is fitted in the ISP
-> +        * - 2
-> +          - MALI_C55_GPS_COMPRESSION_FITTED
-> +          - Temper compression is fitted in the ISP
-> +        * - 3
-> +          - MALI_C55_GPS_TEMPER_FITTED
-> +          - Temper is fitted in the ISP
-> +        * - 4
-> +          - MALI_C55_GPS_SINTER_LITE_FITTED
-> +          - Sinter Lite is fitted in the ISP instead of the full Sinter version
-> +        * - 5
-> +          - MALI_C55_GPS_SINTER_FITTED
-> +          - Sinter is fitted in the ISP
-> +        * - 6
-> +          - MALI_C55_GPS_IRIDIX_LTM_FITTED
-> +          - Iridix local tone mappine is fitted in the ISP
-> +        * - 7
-> +          - MALI_C55_GPS_IRIDIX_GTM_FITTED
-> +          - Iridix global tone mapping is fitted in the ISP
-> +        * - 8
-> +          - MALI_C55_GPS_CNR_FITTED
-> +          - Colour noise reduction is fitted in the ISP
-> +        * - 9
-> +          - MALI_C55_GPS_FRSCALER_FITTED
-> +          - The full resolution pipe scaler is fitted in the ISP
-> +        * - 10
-> +          - MALI_C55_GPS_DS_PIPE_FITTED
-> +          - The downscale pipe is fitted in the ISP
+> +       if (attr == &dev_attr_label.attr) {
+> +               if (fwnode_property_present(dev_fwnode(dev), "label"))
+> +                       return attr->mode;
+> +               else
+> +                       return 0;
+> +       }
 > +
-> +    The Mali-C55 ISP can be configured in a number of ways to include or exclude
-> +    blocks which may not be necessary. This control provides a way for the
-> +    driver to communicate to userspace which of the blocks are fitted in the
-> +    design.
-> \ No newline at end of file
-> diff --git a/include/uapi/linux/media/arm/mali-c55-config.h b/include/uapi/linux/media/arm/mali-c55-config.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..2bd60a0d78786be368c2e51b1a0a63fd2a5f690b
-> --- /dev/null
-> +++ b/include/uapi/linux/media/arm/mali-c55-config.h
-> @@ -0,0 +1,26 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> +/*
-> + * ARM Mali-C55 ISP Driver - Userspace API
-> + *
-> + * Copyright (C) 2023 Ideas on Board Oy
-> + */
+> +       return attr->mode;
+> +}
 > +
-> +#ifndef __UAPI_MALI_C55_CONFIG_H
-> +#define __UAPI_MALI_C55_CONFIG_H
+>  static struct attribute *coresight_sink_attrs[] = {
+>         &dev_attr_enable_sink.attr,
+> +       &dev_attr_label.attr,
+>         NULL,
+>  };
+> -ATTRIBUTE_GROUPS(coresight_sink);
 > +
-> +#include <linux/v4l2-controls.h>
-> +
-> +#define V4L2_CID_MALI_C55_CAPABILITIES		(V4L2_CID_USER_MALI_C55_BASE + 0x0)
-> +#define MALI_C55_GPS_PONG_FITTED		BIT(0)
-
-afaik you can't use BIT() in uapi headers. Use (1U << 0)
-
-> +#define MALI_C55_GPS_WDR_FITTED			BIT(1)
-> +#define MALI_C55_GPS_COMPRESSION_FITTED		BIT(2)
-> +#define MALI_C55_GPS_TEMPER_FITTED		BIT(3)
-> +#define MALI_C55_GPS_SINTER_LITE_FITTED		BIT(4)
-> +#define MALI_C55_GPS_SINTER_FITTED		BIT(5)
-> +#define MALI_C55_GPS_IRIDIX_LTM_FITTED		BIT(6)
-> +#define MALI_C55_GPS_IRIDIX_GTM_FITTED		BIT(7)
-> +#define MALI_C55_GPS_CNR_FITTED			BIT(8)
-> +#define MALI_C55_GPS_FRSCALER_FITTED		BIT(9)
-> +#define MALI_C55_GPS_DS_PIPE_FITTED		BIT(10)
-> +
-> +#endif /* __UAPI_MALI_C55_CONFIG_H */
-> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-> index f836512e9debbc65d62a9fe04069b056be42f7b2..9f07d80d7af1dfb347fca6e2c65b25bc2cb86af1 100644
-> --- a/include/uapi/linux/v4l2-controls.h
-> +++ b/include/uapi/linux/v4l2-controls.h
-> @@ -228,6 +228,12 @@ enum v4l2_colorfx {
->   */
->  #define V4L2_CID_USER_RKISP1_BASE		(V4L2_CID_USER_BASE + 0x1220)
+> +static struct attribute_group coresight_sink_group = {
+> +       .attrs = coresight_sink_attrs,
+> +       .is_visible = label_is_visible,
+> +};
+> +__ATTRIBUTE_GROUPS(coresight_sink);
 >
-> +/*
-> + * The base for the Arm Mali-C55 ISP driver controls.
-> + * We reserve 8 controls for this driver
-
-Doesn't the commit message says 16 ?
-
-> + */
-> +#define V4L2_CID_USER_MALI_C55_BASE		(V4L2_CID_USER_BASE + 0x1230)
+>  static struct attribute *coresight_source_attrs[] = {
+>         &dev_attr_enable_source.attr,
+> +       &dev_attr_label.attr,
+>         NULL,
+>  };
+> -ATTRIBUTE_GROUPS(coresight_source);
 > +
->  /* MPEG-class control IDs */
->  /* The MPEG controls are applicable to all codec controls
->   * and the 'MPEG' part of the define is historical */
+> +static struct attribute_group coresight_source_group = {
+> +       .attrs = coresight_source_attrs,
+> +       .is_visible = label_is_visible,
+> +};
+> +__ATTRIBUTE_GROUPS(coresight_source);
+> +
+> +static struct attribute *coresight_link_attrs[] = {
+> +       &dev_attr_label.attr,
+> +       NULL,
+> +};
+> +
+> +static struct attribute_group coresight_link_group = {
+> +       .attrs = coresight_link_attrs,
+> +       .is_visible = label_is_visible,
+> +};
+> +__ATTRIBUTE_GROUPS(coresight_link);
+> +
+> +static struct attribute *coresight_helper_attrs[] = {
+> +       &dev_attr_label.attr,
+> +       NULL,
+> +};
+> +
+> +static struct attribute_group coresight_helper_group = {
+> +       .attrs = coresight_helper_attrs,
+> +       .is_visible = label_is_visible,
+> +};
+> +__ATTRIBUTE_GROUPS(coresight_helper);
 >
+>  const struct device_type coresight_dev_type[] = {
+>         [CORESIGHT_DEV_TYPE_SINK] = {
+> @@ -390,6 +455,7 @@ const struct device_type coresight_dev_type[] = {
+>         },
+>         [CORESIGHT_DEV_TYPE_LINK] = {
+>                 .name = "link",
+> +               .groups = coresight_link_groups,
+>         },
+>         [CORESIGHT_DEV_TYPE_LINKSINK] = {
+>                 .name = "linksink",
+> @@ -401,6 +467,7 @@ const struct device_type coresight_dev_type[] = {
+>         },
+>         [CORESIGHT_DEV_TYPE_HELPER] = {
+>                 .name = "helper",
+> +               .groups = coresight_helper_groups,
+>         }
+>  };
+>  /* Ensure the enum matches the names and groups */
 > --
-> 2.34.1
+> 2.25.1
 >
->
+
+with the above change
+
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
