@@ -4,66 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0880C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:44:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBC3C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tO3Qn0tssIlttjgTOIC8IugjDIoRT4cFYZnqkbBl38U=; b=WzQZqyAjPEB2QqMgnHpJ6Ba2jt
-	xrHIBNONQwuCyk9Z0/WFNQsJpFyRnHHoqQW78aXKI9QkHi55q/j88oqqskUDysHISk5huyAmfDXQo
-	NRhzhDRiaMIz3C1BQUTSK3/Dvx5LaqsABgX29KGLksnCRFvuYTOE+KZbkEo6qL5NEi+co5+a8NRnH
-	puoPVAhWNuU36M2deGK0keB9a22WKILyiGXLNvvAea1TS8RrZt4synKw2bwbZDgQgqI/0PHxEYf4b
-	SlRChqg1OWFXuMV2kRAN22wMqCqk3XL/kFH2s+hx8tRoIsvn4Kd3QI8yNoavdFRunwCzKKEE37EOj
-	Pd+H3MSQ==;
+	bh=OttJ4edm8UFQhTOi4nJFKmsxngrug/VcNMIUMJ3K4dQ=; b=ILTmd0nj3kHIKHIid1MyPfxL7k
+	xSlRswD8RBOb4rn7qLCWt+m935k1kXy5RVyx5t03fPsGu8DaDRrkfU1y+jlU1HkQ5QiV6k3t7Aywc
+	6k+JFPWBvk+zwXhSTasW6/It+boyOnjGvjfOijQYC7zXVqQK3n33p55iDUtLWB3ynPjz0k59q3EWG
+	f87GNBOMVOKg7lH+1rY1TWWV/LMKQxRQjNAhnmxspu1W7ycQ9DoXB66e7wH/X+E8aCJEVdzje9zEU
+	gKVm8s2XmWvPrY1EoTMWQwn4i8NIKLBoE+AkfEadRN8+N0d1hAu1wK6sGfS1WVeAfGD1pkde+wD7y
+	sl81smuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHxv-0000000Csc1-1bci;
-	Tue, 05 Aug 2025 13:44:31 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ujI0W-0000000Cspt-19pl;
+	Tue, 05 Aug 2025 13:47:12 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHmc-0000000CqvA-0WOd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 13:32:52 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bxDkZ54MSz14MHM;
-	Tue,  5 Aug 2025 21:27:50 +0800 (CST)
-Received: from kwepemh100008.china.huawei.com (unknown [7.202.181.93])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8C040180487;
-	Tue,  5 Aug 2025 21:32:46 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemh100008.china.huawei.com
- (7.202.181.93) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 5 Aug
- 2025 21:32:45 +0800
-Message-ID: <7586dd30-74b5-4e23-9ee2-bb82d3cb8bd4@huawei.com>
-Date: Tue, 5 Aug 2025 21:32:45 +0800
+	id 1ujHnE-0000000Cr1j-3xII;
+	Tue, 05 Aug 2025 13:33:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1754400772; x=1755005572; i=markus.elfring@web.de;
+	bh=OttJ4edm8UFQhTOi4nJFKmsxngrug/VcNMIUMJ3K4dQ=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=G6TtpqkNvB3Q3Gz372yIbeu/K1PNbDqqRXwITVh5qQIJxs0zn4LO1g1WMINqTolD
+	 j+0awfjBMPG1Pyycizwkzeuf9lnIBuJroZPa6QzhWl5PJlIszpZYIORBhCaa9rhSF
+	 0aYbMYaDQVBw6C+6O8GmTqDFHJzy3OPmEvYhiyd1fjYk6iN2Mipp1N+dCjhIR2WIr
+	 RpRPi12sINVx+Pvr4yYFlHItTT8stjr4XCIEJNNk5mWFVxSxmEoE5225KscWmxiJx
+	 hR8G7rBdHLsX8XEi0VgelmTEtomWweTgnlxhlNwNoSBsCJ2tEq/C5yhTPA6JJtAth
+	 O90C8+6DpBt2OvviDg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.92.245]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MMGuC-1v1Vgq15sc-00QOIc; Tue, 05
+ Aug 2025 15:32:50 +0200
+Message-ID: <887bfbac-0e16-491b-ab0b-a0997890ff2d@web.de>
+Date: Tue, 5 Aug 2025 15:32:45 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] cpufreq: Add a new function to get cpufreq policy
- without checking if the CPU is online
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <viresh.kumar@linaro.org>,
-	<beata.michalska@arm.com>, <sudeep.holla@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <vincent.guittot@linaro.org>,
-	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <linhongye@h-partners.com>
-References: <20250805093330.3715444-1-zhenglifeng1@huawei.com>
- <20250805093330.3715444-3-zhenglifeng1@huawei.com>
- <CAJZ5v0h3XKXAGHSrx50vt1Aho3uchiJ2kjQa7qCM8jCr03YKTA@mail.gmail.com>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <CAJZ5v0h3XKXAGHSrx50vt1Aho3uchiJ2kjQa7qCM8jCr03YKTA@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemh100008.china.huawei.com (7.202.181.93)
+Subject: Re: media: mediatek: vcodec: use = { } instead of memset()
+To: Qianfeng Rong <rongqianfeng@vivo.com>, linux-media@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Hans Verkuil <hverkuil@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Tiffany Lin <tiffany.lin@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>
+References: <20250803135514.118892-1-rongqianfeng@vivo.com>
+ <9f0b868c-47f9-4c98-ac99-86bfbc6a432d@web.de>
+ <e3903e95-3659-4d68-86ef-0f3d6b2c8d90@vivo.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <e3903e95-3659-4d68-86ef-0f3d6b2c8d90@vivo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:ZHESRNeUe+wthbJ4102OINdJusMUaOy4eDlPqpCyT6lm7AKnqel
+ G8olTU6WYK67JQND2h7POtsw+vi1yuTmeBMHR3yiUBInSoGXQ9RESgtrvW2hZ+u3rDC20ko
+ OpfydNnZVfwZuqTadwUJkUztLcNxNsvbWDHngxtAUnaavwCsgj6SiVS2v1gA40StMF2F+9J
+ XnSC+c/rb3yW9sF56MvmA==
+UI-OutboundReport: notjunk:1;M01:P0:50KokDcRDK0=;9eF2ETINOePgtV0+qm/X3cjEOC8
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_063250_476697_C047AD73 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250805_063329_273231_01FCF19F 
+X-CRM114-Status: UNSURE (   5.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,75 +140,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/5 20:57, Rafael J. Wysocki wrote:
+>> =E2=80=A6
+>>> This patch converts =E2=80=A6
+>> See also once more:
+>> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree=
+/Documentation/process/submitting-patches.rst?h=3Dv6.16#n94
+> I don't think your point is a problem here. =E2=80=A6
 
-> On Tue, Aug 5, 2025 at 11:34 AM Lifeng Zheng <zhenglifeng1@huawei.com> wrote:
->>
->> cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
->> policy->cpus mask, which means the CPU is already online. But in some
->> cases, the policy is needed before the CPU is added to cpus mask. Add a
->> function to get the policy in these cases.
->>
->> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
->> ---
->>  drivers/cpufreq/cpufreq.c | 11 +++++++++++
->>  include/linux/cpufreq.h   |  1 +
->>  2 files changed, 12 insertions(+)
->>
->> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
->> index fc7eace8b65b..2de76a072893 100644
->> --- a/drivers/cpufreq/cpufreq.c
->> +++ b/drivers/cpufreq/cpufreq.c
->> @@ -198,6 +198,17 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
->>  }
->>  EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
->>
->> +struct cpufreq_policy *cpufreq_cpu_get_raw_no_check(unsigned int cpu)
-> 
-> This is not a particularly nice name.  Maybe call it cpufreq_cpu_policy()?
+Will any contributors care more for the usage of imperative mood
+also according to improved change descriptions?
 
-Thanks for giving a better one.
-
-> 
->> +{
->> +       struct cpufreq_policy *policy = per_cpu(cpufreq_cpu_data, cpu);
->> +
->> +       if (policy)
->> +               return policy;
->> +
->> +       return NULL;
-> 
-> This could just be a one-liner with this statement in the function body:
-> 
->   return per_cpu(cpufreq_cpu_data, cpu);
-> 
-> Can't it?
-> 
-> In which case it can be called in all places reading cpufreq_cpu_data
-> for a given CPU.
-
-Yes, it can be done in one line. Thanks.
-
-> 
->> +}
->> +EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw_no_check);
->> +
->>  unsigned int cpufreq_generic_get(unsigned int cpu)
->>  {
->>         struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
->> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
->> index 95f3807c8c55..02ad8173dc10 100644
->> --- a/include/linux/cpufreq.h
->> +++ b/include/linux/cpufreq.h
->> @@ -205,6 +205,7 @@ struct cpufreq_freqs {
->>
->>  #ifdef CONFIG_CPU_FREQ
->>  struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
->> +struct cpufreq_policy *cpufreq_cpu_get_raw_no_check(unsigned int cpu);
->>  struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
->>  void cpufreq_cpu_put(struct cpufreq_policy *policy);
->>  #else
->> --
-> 
-
+Regards,
+Markus
 
