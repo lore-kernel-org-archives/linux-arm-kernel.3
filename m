@@ -4,86 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7CDC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 11:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF50C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 11:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Sk7TSDHZ12oeQjPDIch1Xju/yd7kRHFeB3e3HyOuU0=; b=0bGn46xR0H8+kCgdbb5uEF1kEN
-	1FFSooCZI/GUQ+ctlKyLUtz52XdNKv07tA/OZbZVSM15mtsAbNm27mBrEhXgch2VArA6zXBA1+iXI
-	An+AJeE/2xRU6QZ/QFKgonIRzfLArEc2sABEPDRpVUkMMm97j8OzCll5a+BKxhY7WSK1ZH+T+gYtq
-	yUXm62CgDep3zPrnnKzQZtqppuPWGQ4Mv4FgfL8jOLZY879ePZmhkLepWqh5NXrN4u27tL4LsuQ5o
-	mPrRPNjhAJRjmgBJ3l1ixKH2KKgmcxgyt6zFpgRd8Xd6V//r3jsqdK4QzQcLQLqDBRwp6k16lC4vA
-	Llg/D+GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HQj3FZoctR5ZS2xg/dOfzXuT0Dr0fvmcc9XZPTdXy0Y=; b=qbBUfz8rlJ0BeAy5pUMTkIza2D
+	xVPVuE0JSHeUtjv6vxDT4R1OEkA3w6bFUmF/mPOdeFKTmoJQlCGNDBlpXUXm6uz5zXOmZYTRObGvx
+	9qthAe0DDYOmwsJdnuiXU/VQ2zVimHDq+gQ7gZkVvPpvjo6CEHxW2AofZC3N3YjOTJ21lv8gpoS/H
+	kRc3kwB5t44K1uU/0J2pgDP6/yW/wCj+eYKy5RjwyyBe/SnJj1Ra8eyWNwxQYeToYWDZXygShr6ZC
+	1zSnrf43HM01g6JhLx78nDFxQ6MH7e02Fofu9DmaJlTpGanLwD9/3BQ7Rdth9FWbfQIooV8t7vAcF
+	0/7++pXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujFPb-0000000CYGT-1ZBf;
-	Tue, 05 Aug 2025 11:00:55 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1ujFSP-0000000CYgI-3BwV;
+	Tue, 05 Aug 2025 11:03:49 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujF69-0000000CW3f-2nYI
+	id 1ujF9u-0000000CWRN-1g8u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 10:40:51 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-556fd896c99so4013377e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 03:40:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1754390448; x=1754995248; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+Sk7TSDHZ12oeQjPDIch1Xju/yd7kRHFeB3e3HyOuU0=;
-        b=YqJtyNma+7DbLrJaLYf8A65M9h0tK5QxFHsZkhrneSn5nv6+duueOlSR5++R39muWh
-         f09eyoA4qnrIw2QGZFQqIgFIcl4thgKgivRCHyZSUBPVO5qUlF/WXwKSe1lJHh0/rJzk
-         noCvt5E7cJF8hasVQPdsl1tGf0EV8RCU+snwM=
+	Tue, 05 Aug 2025 10:44:44 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 575AJHCd016093
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 5 Aug 2025 10:44:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HQj3FZoctR5ZS2xg/dOfzXuT0Dr0fvmcc9XZPTdXy0Y=; b=D0/F8yS6/OcIy9ah
+	7YaYrsXNvAazegfh/GMt3/QvEy/j3/9zjhmhDdSZN5eOoxX0//gOc93vmKCwwaio
+	tuQrFNy8O1HrQHG+Ye3CNeQqk2LaLBk00aHITaNjZm9dy6BCLlC2vhe614Pgqm/H
+	IsBydYHwgenHTj0I2Ffgd36qePbfRXGL34H7NhfPxok74Q5WUhg7qpasftnYSMPG
+	dmQJO7tUjBd5FtDTP8CcORgTyjhKfOpWBJWxLmrxA5oNclvJjLAvJCoJPE7U8Md1
+	iKB+ndNvnLf99f4CTyG4cDWhe9YRVij8SDgNTVpAkEC/M9eY1nlKQzoUc2CpNKqW
+	JMxy1w==
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48aqyv4e3n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 10:44:41 +0000 (GMT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-7073140087aso94713236d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 03:44:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754390448; x=1754995248;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+Sk7TSDHZ12oeQjPDIch1Xju/yd7kRHFeB3e3HyOuU0=;
-        b=Fahw1dOf3EiEMWpbwiaSf/Eff+NsAStEtIEAwNCy4BRFzkXYp70i/EeWq586bPF6Xg
-         3mHV/wWBXCYrzZxC7/PaSrQGOF0Wee1IqydjRYKAuP/6NxEciOhM8XTZyHlk5hd1B5rk
-         TYxAgMKBUMDnodddXJi0FssxwXIyJHij+W7Nv7Ou/oOdksXE2EGbsTvn+u5dN4wpanDI
-         4pP76WCLbAxgKhNO+oqSSSag9nMCwsYhHAD2Q+q602zXBjsFxbg01SGu7+4htPw82+vP
-         Hewy+2XU1itm7iysAtT7g3R+MKuFoPFyLYoKq5ZnLa3xZx/w0QwgvRh0VykUSdOV7qO8
-         7zBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWils7dw+NJ2fEiGWvUra19Is7W9CTnVbG0IxpmDa62jfq1UI/HNEIdkb+5Jvn61mm2s39QAipPB+GMomsqeRed@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1ZbXETHQdYAjda9/vVkXFTD9tm504C1uKvDTyWKnHBLgY6gCt
-	0WrGsQMBvAe9rEZTI6mbkpClDb/D03VEBzPQ8YtrfNIGuAhXKNBVMn1yKEf/I/Bhr3gybhjhMRW
-	sbOOaFXYeMzPmV4QMy5B/t7Jcb7GYUOMPpuBjL+l+
-X-Gm-Gg: ASbGncsYQxjaBsPfe2P2jTUfLGbpMGfqVp10xxiDQOl1J0l1LsAaTaPuXSkRzqZ19T6
-	+7LcR1ZkOR7bGrgsyXpeq4a0hrdh00bpv9BVoj06DMgVAYvUKuh8jXyWUOCp1vpm2mGTvc4s6w8
-	UMpg92QVR1Gu2x3dEccjKGCbNMReg43wmC85uUIDs8+YTNLiXHQsq+nY+0NPUEVCHdfBIlYGc6t
-	gFzfQVK8+UQd7po8/Ofa6t++zdN+HsXq80xeBPlr6sJ
-X-Google-Smtp-Source: AGHT+IFp/hAtlnbTp2dlSGA9A0YTIzGvzg7plcAE/SEL2yeZe/hex5wW7qm8ilxK5zLLL9cewMaMKoIw6//bu3jrXsM=
-X-Received: by 2002:a05:6512:6d3:b0:55b:89ce:8b18 with SMTP id
- 2adb3069b0e04-55b97b50f74mr4501550e87.32.1754390447284; Tue, 05 Aug 2025
- 03:40:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754390680; x=1754995480;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HQj3FZoctR5ZS2xg/dOfzXuT0Dr0fvmcc9XZPTdXy0Y=;
+        b=radOrZepiJAbrAxSw4jYwx7ZFs35tQeyRC0AfSz6iG1uhu9GxTaw9Pki+ghh2/WClA
+         8NiFeyJpysgZyZlXmp7fEdgrPG3i+qtcnK9VvBM4Wn8eMllzm3w5z+lTNmqszaeDipAh
+         NPPit9Bgm+T0RvXZ3LcaJvLuBV77wyNnsSm0l/qXiFmnLoqfnRUzICWEgeyyhuNoFfpc
+         FjWb13kq3x4l4T9vEfnj1n3WUXqc4jK72vJe0wLyRdalhzHFt4FTFbCaRgi+elFaPeHp
+         UwS1AUQo5GzNJsYZHdyUxdKOATXsEj06HDIUGt4brkWyrQ4ktCHUSZGACRWDdEnJN5qo
+         s++A==
+X-Forwarded-Encrypted: i=1; AJvYcCVzVx87cdVcfbvNZEwtNJIGRwyz83kAQAL3rAzE93opIrfUuvrE0VOfmx0lRUy5RHc4KPlajyMNtuKf3e9h0M9F@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+y8lFgA0krmAS87bPUEi+DHok24M2Fsx1Ucta4jVJ1U5xHKhY
+	pg/6ldZk+EsnMaE+5rSYF78M8uqABpcKcVzutFSooMQL1YelU9UpOzqZRmCv6Vp4SIAA1jiwU8L
+	Ps3Le1xVt9ZgldEFRyGRSSfhNCe93VOf9RJbaptOasoynt+9nerVZcV1kfKgwcJXYWb2xgqAPei
+	dJEQ==
+X-Gm-Gg: ASbGncsdBwsKRBRm9dXdGpaQwHI/d/ZpMdjw2a9WTd6rZJF41gPtGDxPRMKE0QC350M
+	EaDtEcjOHKfly1pBU7qUA6NsWbxwBGq48chVVeuLnCjzqOX05IYtwwa7ycszwHBDb651J/W/BpI
+	75cSGOXEJC02QzYkLYX4duthChb/fKOha0YJ+SfSumT0HH1tQpByJiZw0+m3EaaTPgbJNK4IJ5d
+	GovoK9QozxyreQD0PN+gZ/FJeSYVAiyGjHhzVza/qarGZy0XLnYWmFyqp+62059slfvDrLXfKzc
+	GXi9eWdxRPpvFDtnarzLJFOQe6o2DXvrYe7G52WJBac52SfXsR68zZ7sfnP+3nUxqOHMVszmi6Y
+	MWr7flIHzghwes+bB9j9sf4TDIjl5qRr1nNqC841jnvYci3eH0smi
+X-Received: by 2002:a05:6214:5001:b0:707:6425:23fc with SMTP id 6a1803df08f44-709362430abmr166448926d6.26.1754390680315;
+        Tue, 05 Aug 2025 03:44:40 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG+lMiAsbHz8RoaMN5eHDsdtapu2Nr4qMF3fZ3qhDMKzwzlcVX/R3oTueoOHY1lwn3LqnbIIg==
+X-Received: by 2002:a05:6214:5001:b0:707:6425:23fc with SMTP id 6a1803df08f44-709362430abmr166448516d6.26.1754390679809;
+        Tue, 05 Aug 2025 03:44:39 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-332389807eesm19601341fa.88.2025.08.05.03.44.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Aug 2025 03:44:38 -0700 (PDT)
+Date: Tue, 5 Aug 2025 13:44:37 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Yubing Zhang <yubing.zhang@rock-chips.com>,
+        Frank Wang <frank.wang@rock-chips.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Amit Sunil Dhamne <amitsd@google.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+        Diederik de Haas <didi.debian@cknow.org>,
+        Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v3 0/5] Add Type-C DP support for RK3399 EVB IND board
+Message-ID: <6nfmxwtwcvuyo2jaao7fele7jcgcykfpy7czbcbjmjxv7cs5sc@dmbtot73kw63>
+References: <20250729090032.97-1-kernel@airkyi.com>
+ <3kefqzjewmsyzfvyi33kvlgjd6jphjg3fsnixb3of7yb3xkgs2@hgi6xfkgd653>
+ <63ec11cf-7927-431a-995e-a5fc35ef1ba7@rock-chips.com>
+ <pk5wecbbpxn7v4bdwtghhdnm76fmrmglelytljwfb4cgvpu2i6@rk5turgyt5xq>
+ <0207826d-a987-4464-b306-29bdbfac45bc@rock-chips.com>
+ <3e880194-5ac8-4056-929c-ac103bedc737@oss.qualcomm.com>
+ <f726862a-bd18-43ee-b307-8daef2451e6b@rock-chips.com>
 MIME-Version: 1.0
-References: <20250708111806.3992-1-darren.ye@mediatek.com> <20250708111806.3992-8-darren.ye@mediatek.com>
-In-Reply-To: <20250708111806.3992-8-darren.ye@mediatek.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 5 Aug 2025 18:40:35 +0800
-X-Gm-Features: Ac12FXxE8BnunJ4TDsDybFXheCCr5-60a02YDs1KEAqtd87v1W6dS5FlyPNTkYk
-Message-ID: <CAGXv+5EqVekZ9xoWt7ZGYYStnvDOzHfSNe9ar9XkYAjawYMpjg@mail.gmail.com>
-Subject: Re: [PATCH v6 07/10] ASoC: mediatek: mt8196: add platform driver
-To: "Darren.Ye" <darren.ye@mediatek.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, 
-	Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f726862a-bd18-43ee-b307-8daef2451e6b@rock-chips.com>
+X-Proofpoint-GUID: 0qEdm2uMXpOQOW_MxxSXfkgEjalYzU6Y
+X-Authority-Analysis: v=2.4 cv=F/xXdrhN c=1 sm=1 tr=0 ts=6891e099 cx=c_pps
+ a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
+ a=2OwXVqhp2XgA:10 a=rd-FPC7Uua5lUePm5bYA:9 a=3ZKOabzyN94A:10
+ a=wPNLvfGTeEIA:10 a=1HOtulTD9v-eNWfpl4qZ:22
+X-Proofpoint-ORIG-GUID: 0qEdm2uMXpOQOW_MxxSXfkgEjalYzU6Y
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA1MDA3NCBTYWx0ZWRfXziBrrqs/Wnq+
+ 6+GlaE0y+XmsbDORVbBALp8hDoP+Q94HouG+dwlKTdfhhX0SCeWR+TX3A1HFhw/g8KPOqcULkh3
+ J5XxB61YJvEUiN7VOlS/clfK0wBr28LGi+UmOoDGcAv17r9NOM9Y2fE2DmqWZ75G3LUKtuvLLu1
+ LKSJdOqJNNvwoLhgfsX+AcZ4ZM0xIcTLFJyHCLBoszrlQSh5dQELOhai5u/b7/ZWC5RHCJSxwAU
+ rGRqNdAxkaBX169+P7YRG6WS2TrdMqBmUKiQz27z2K9zTSOq3htay315Ly3Avqr8JReKwzbHewj
+ WNjzdTq9TCpXz2sQjRxn36jlSXa2kx4/MjiKOu0kl/22UZ6XXgayRtddzVf0z9Lp7UgZzE92t88
+ 0u+XEGABa6MTGdlE/Tto7jdR3Ij6L0jg0kQ0MRKHaAZHpPfd+HpMR8Rb9mfxzVVKWq0ontiG
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-05_03,2025-08-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 mlxscore=0 phishscore=0 bulkscore=0 adultscore=0
+ clxscore=1015 mlxlogscore=999 priorityscore=1501 impostorscore=0
+ malwarescore=0 lowpriorityscore=0 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2505280000 definitions=main-2508050074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_034049_761653_62C75E57 
-X-CRM114-Status: GOOD (  36.95  )
+X-CRM114-CacheID: sfid-20250805_034442_436829_7C0F749C 
+X-CRM114-Status: GOOD (  49.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,1491 +153,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 8, 2025 at 7:34=E2=80=AFPM Darren.Ye <darren.ye@mediatek.com> w=
-rote:
->
-> From: Darren Ye <darren.ye@mediatek.com>
->
-> Add mt8196 platform driver.
->
-> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
-> ---
->  sound/soc/mediatek/Kconfig                 |   10 +
->  sound/soc/mediatek/Makefile                |    1 +
->  sound/soc/mediatek/mt8196/Makefile         |   15 +
->  sound/soc/mediatek/mt8196/mt8196-afe-pcm.c | 2632 ++++++++++++++++++++
->  4 files changed, 2658 insertions(+)
->  create mode 100644 sound/soc/mediatek/mt8196/Makefile
->  create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
->
-> diff --git a/sound/soc/mediatek/Kconfig b/sound/soc/mediatek/Kconfig
-> index 10ca8bccabdd..7003d71b847c 100644
-> --- a/sound/soc/mediatek/Kconfig
-> +++ b/sound/soc/mediatek/Kconfig
-> @@ -322,4 +322,14 @@ config SND_SOC_MT8365_MT6357
->           Select Y if you have such device.
->           If unsure select "N".
->
-> +config SND_SOC_MT8196
-> +       tristate "ASoC support for Mediatek MT8196 chip"
-> +       depends on ARCH_MEDIATEK
-> +       select SND_SOC_MEDIATEK
-> +       help
-> +         This adds ASoC driver for Mediatek MT8196 boards
-> +         that can be used with other codecs.
-> +         Select Y if you have such device.
-> +         If unsure select "N".
-> +
->  endmenu
-> diff --git a/sound/soc/mediatek/Makefile b/sound/soc/mediatek/Makefile
-> index 4b55434f2168..11d7c484a5d3 100644
-> --- a/sound/soc/mediatek/Makefile
-> +++ b/sound/soc/mediatek/Makefile
-> @@ -10,3 +10,4 @@ obj-$(CONFIG_SND_SOC_MT8188) +=3D mt8188/
->  obj-$(CONFIG_SND_SOC_MT8192) +=3D mt8192/
->  obj-$(CONFIG_SND_SOC_MT8195) +=3D mt8195/
->  obj-$(CONFIG_SND_SOC_MT8365) +=3D mt8365/
-> +obj-$(CONFIG_SND_SOC_MT8196) +=3D mt8196/
-> diff --git a/sound/soc/mediatek/mt8196/Makefile b/sound/soc/mediatek/mt81=
-96/Makefile
-> new file mode 100644
-> index 000000000000..af41ece87672
-> --- /dev/null
-> +++ b/sound/soc/mediatek/mt8196/Makefile
-> @@ -0,0 +1,15 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +# common include path
-> +subdir-ccflags-y +=3D -I$(srctree)/sound/soc/mediatek/common
-
-Please avoid using include paths. Simply use the relative path in
-each include statement.
-
-> +
-> +# platform driver
-> +snd-soc-mt8196-afe-objs +=3D \
-> +       mt8196-afe-pcm.o \
-> +       mt8196-afe-clk.o \
-> +       mt8196-dai-adda.o \
-> +       mt8196-dai-i2s.o \
-> +       mt8196-dai-tdm.o
-
-There's no need to have just one entry per line.
-
-> +
-> +obj-$(CONFIG_SND_SOC_MT8196) +=3D snd-soc-mt8196-afe.o
-> +
-> diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/media=
-tek/mt8196/mt8196-afe-pcm.c
-> new file mode 100644
-> index 000000000000..41a48ba89b95
-> --- /dev/null
-> +++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-> @@ -0,0 +1,2632 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + *  Mediatek ALSA SoC AFE platform driver for 8196
-> + *
-> + *  Copyright (c) 2024 MediaTek Inc.
-
-Please update to 2025.
-
-> + *  Author: Darren Ye <darren.ye@mediatek.com>
-> + */
-> +
-> +#include <linux/delay.h>
-> +#include <linux/dma-mapping.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
-> +#include <linux/of_device.h>
-> +#include <sound/soc.h>
-> +#include <linux/of_reserved_mem.h>
-
-Please sort, and also split out the sound header to a separate group.
-
-> +
-> +#include "mt8196-afe-clk.h"
-> +#include "mt8196-afe-common.h"
-> +#include "mtk-afe-fe-dai.h"
-> +#include "mtk-afe-platform-driver.h"
-> +#include "mt8196-interconnection.h"
-> +
-> +static const struct snd_pcm_hardware mt8196_afe_hardware =3D {
-
-You should directly include <sound/pcm.h> for the definition of this
-structure.
-
-> +       .info =3D (SNDRV_PCM_INFO_MMAP |
-> +                SNDRV_PCM_INFO_NO_PERIOD_WAKEUP |
-> +                SNDRV_PCM_INFO_INTERLEAVED |
-> +                SNDRV_PCM_INFO_MMAP_VALID),
-> +       .formats =3D (SNDRV_PCM_FMTBIT_S16_LE |
-> +                   SNDRV_PCM_FMTBIT_S24_LE |
-> +                   SNDRV_PCM_FMTBIT_S32_LE),
-> +       .period_bytes_min =3D 96,
-> +       .period_bytes_max =3D 4 * 48 * 1024,
-> +       .periods_min =3D 2,
-> +       .periods_max =3D 256,
-> +       .buffer_bytes_max =3D 256 * 1024,
-> +       .fifo_size =3D 0,
-> +};
-> +
-> +static unsigned int mt8196_rate_transform(struct device *dev,
-> +                                         unsigned int rate)
-> +{
-> +       switch (rate) {
-> +       case 8000:
-> +               return MTK_AFE_IPM2P0_RATE_8K;
-> +       case 11025:
-> +               return MTK_AFE_IPM2P0_RATE_11K;
-> +       case 12000:
-> +               return MTK_AFE_IPM2P0_RATE_12K;
-> +       case 16000:
-> +               return MTK_AFE_IPM2P0_RATE_16K;
-> +       case 22050:
-> +               return MTK_AFE_IPM2P0_RATE_22K;
-> +       case 24000:
-> +               return MTK_AFE_IPM2P0_RATE_24K;
-> +       case 32000:
-> +               return MTK_AFE_IPM2P0_RATE_32K;
-> +       case 44100:
-> +               return MTK_AFE_IPM2P0_RATE_44K;
-> +       case 48000:
-> +               return MTK_AFE_IPM2P0_RATE_48K;
-> +       case 88200:
-> +               return MTK_AFE_IPM2P0_RATE_88K;
-> +       case 96000:
-> +               return MTK_AFE_IPM2P0_RATE_96K;
-> +       case 176400:
-> +               return MTK_AFE_IPM2P0_RATE_176K;
-> +       case 192000:
-> +               return MTK_AFE_IPM2P0_RATE_192K;
-> +       /* not support 260K */
-> +       case 352800:
-> +               return MTK_AFE_IPM2P0_RATE_352K;
-> +       case 384000:
-> +               return MTK_AFE_IPM2P0_RATE_384K;
-> +       default:
-> +               dev_err(dev, "rate %u invalid, use %d!!!\n",
-> +                       rate, MTK_AFE_IPM2P0_RATE_48K);
-> +               return MTK_AFE_IPM2P0_RATE_48K;
-> +       }
-> +}
-> +
-> +static void mt8196_set_cm_rate(struct mtk_base_afe *afe, int id, unsigne=
-d int rate)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +
-> +       afe_priv->cm_rate[id] =3D rate;
-> +}
-
-This is only one line, and only used once. I would just inline it directly.
-
-> +
-> +static inline int mt8196_convert_cm_ch(unsigned int ch)
-> +{
-> +       return ch - 1;
-
-This is only one line and only used once. Just inline it.
-
-> +}
-> +
-> +static unsigned int calculate_cm_update(unsigned int rate, unsigned int =
-ch)
-> +{
-> +       return (((26000000 / rate) - 10) / (ch / 2)) - 1;
-
-This is only one line and only used once. Just inline it.
-
-> +}
-> +
-> +static int mt8196_set_cm(struct mtk_base_afe *afe, int id,
-> +                        bool update, bool swap, unsigned int ch)
-> +{
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       unsigned int rate =3D afe_priv->cm_rate[id];
-> +       unsigned int rate_val =3D mt8196_rate_transform(afe->dev, rate);
-> +       unsigned int update_val =3D update ? calculate_cm_update(rate, ch=
-) : 0x64;
-> +       int reg =3D AFE_CM0_CON0 + 0x10 * id;
-> +
-> +       dev_dbg(afe->dev, "CM%d, rate %d, update %d, swap %d, ch %d\n",
-> +               id, rate, update, swap, ch);
-> +
-> +       /* update cnt */
-> +       regmap_update_bits(afe->regmap,
-> +                          reg,
-
-This can be one the first line. Same for the other calls in this function.
-
-> +                          AFE_CM_UPDATE_CNT_MASK << AFE_CM_UPDATE_CNT_SF=
-T,
-> +                          update_val << AFE_CM_UPDATE_CNT_SFT);
-> +
-> +       /* rate */
-> +       regmap_update_bits(afe->regmap,
-> +                          reg,
-> +                          AFE_CM_1X_EN_SEL_FS_MASK << AFE_CM_1X_EN_SEL_F=
-S_SFT,
-> +                          rate_val << AFE_CM_1X_EN_SEL_FS_SFT);
-> +
-> +       /* ch num */
-> +       ch =3D mt8196_convert_cm_ch(ch);
-> +       regmap_update_bits(afe->regmap,
-> +                          reg,
-> +                          AFE_CM_CH_NUM_MASK << AFE_CM_CH_NUM_SFT,
-> +                          ch << AFE_CM_CH_NUM_SFT);
-> +
-> +       /* swap */
-> +       regmap_update_bits(afe->regmap,
-> +                          reg,
-> +                          AFE_CM_BYTE_SWAP_MASK << AFE_CM_BYTE_SWAP_SFT,
-> +                          swap << AFE_CM_BYTE_SWAP_SFT);
-> +
-> +       return 0;
-> +}
-> +
-> +static int mt8196_enable_cm_bypass(struct mtk_base_afe *afe, int id, boo=
-l en)
-> +{
-> +       return regmap_update_bits(afe->regmap,
-> +                          AFE_CM0_CON0 + 0x10 * id,
-> +                          AFE_CM_BYPASS_MODE_MASK << AFE_CM_BYPASS_MODE_=
-SFT,
-> +                          en << AFE_CM_BYPASS_MODE_SFT);
-
-Please align the start of the line with the left parenthesis.
-
-> +}
-> +
-> +static int mt8196_fe_startup(struct snd_pcm_substream *substream,
-> +                            struct snd_soc_dai *dai)
-> +{
-> +       struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(subs=
-tream);
-> +       struct mtk_base_afe *afe =3D snd_soc_dai_get_drvdata(dai);
-> +       struct snd_pcm_runtime *runtime =3D substream->runtime;
-> +       struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> +       int memif_num =3D cpu_dai->id;
-> +       struct mtk_base_afe_memif *memif =3D &afe->memif[memif_num];
-> +       const struct snd_pcm_hardware *mtk_afe_hardware =3D afe->mtk_afe_=
-hardware;
-> +       int ret;
-> +
-> +       dev_dbg(afe->dev, "memif_num: %d.\n", memif_num);
-> +
-> +       memif->substream =3D substream;
-> +
-> +       snd_pcm_hw_constraint_step(substream->runtime, 0,
-> +                                  SNDRV_PCM_HW_PARAM_BUFFER_BYTES, 16);
-> +
-> +       snd_soc_set_runtime_hwparams(substream, mtk_afe_hardware);
-> +
-> +       ret =3D snd_pcm_hw_constraint_integer(runtime,
-> +                                           SNDRV_PCM_HW_PARAM_PERIODS);
-> +       if (ret < 0)
-> +               dev_info(afe->dev, "snd_pcm_hw_constraint_integer failed\=
-n");
-
-This should be a warning at least. Otherwise just ignore any error.
-
-> +
-> +       /* dynamic allocate irq to memif */
-> +       if (memif->irq_usage < 0) {
-> +               int irq_id =3D mtk_dynamic_irq_acquire(afe);
-> +
-> +               if (irq_id !=3D afe->irqs_size) {
-> +                       /* link */
-> +                       memif->irq_usage =3D irq_id;
-> +               } else {
-> +                       dev_err(afe->dev, "no more asys irq\n");
-> +                       ret =3D -EBUSY;
-> +               }
-> +       }
-> +       return ret;
-> +}
-> +
-> +static void mt8196_fe_shutdown(struct snd_pcm_substream *substream,
-> +                              struct snd_soc_dai *dai)
-> +{
-> +       struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(subs=
-tream);
-> +       struct mtk_base_afe *afe =3D snd_soc_dai_get_drvdata(dai);
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> +       int memif_num =3D cpu_dai->id;
-> +       struct mtk_base_afe_memif *memif =3D &afe->memif[memif_num];
-> +       int irq_id =3D memif->irq_usage;
-> +
-> +       dev_dbg(afe->dev, "memif_num: %d.\n", memif_num);
-> +
-> +       memif->substream =3D NULL;
-> +       afe_priv->irq_cnt[memif_num] =3D 0;
-> +       afe_priv->xrun_assert[memif_num] =3D 0;
-> +
-> +       if (!memif->const_irq) {
-> +               mtk_dynamic_irq_release(afe, irq_id);
-> +               memif->irq_usage =3D -1;
-> +               memif->substream =3D NULL;
-> +       }
-> +}
-> +
-> +static int mt8196_fe_hw_params(struct snd_pcm_substream *substream,
-> +                              struct snd_pcm_hw_params *params,
-> +                              struct snd_soc_dai *dai)
-> +{
-> +       struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(subs=
-tream);
-> +       struct mtk_base_afe *afe =3D snd_soc_dai_get_drvdata(dai);
-> +       unsigned int channels =3D params_channels(params);
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       int id =3D snd_soc_rtd_to_cpu(rtd, 0)->id;
-> +       struct mtk_base_afe_memif *memif =3D &afe->memif[id];
-> +       const struct mtk_base_memif_data *data =3D memif->data;
-> +
-> +       afe_priv->cm_channels =3D channels;
-> +
-> +       /* set channels */
-> +       if (data->ch_num_shift >=3D 0) {
-> +               regmap_update_bits(afe->regmap, data->ch_num_reg,
-> +                                  data->ch_num_maskbit << data->ch_num_s=
-hift,
-> +                                  channels << data->ch_num_shift);
-> +       }
-> +
-> +       return mtk_afe_fe_hw_params(substream, params, dai);
-> +}
-> +
-> +static int mt8196_fe_trigger(struct snd_pcm_substream *substream, int cm=
-d,
-> +                            struct snd_soc_dai *dai)
-> +{
-> +       struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(subs=
-tream);
-> +       struct snd_pcm_runtime *const runtime =3D substream->runtime;
-> +       struct mtk_base_afe *afe =3D snd_soc_dai_get_drvdata(dai);
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> +       int id =3D cpu_dai->id;
-> +       struct mtk_base_afe_memif *memif =3D &afe->memif[id];
-> +       int irq_id =3D memif->irq_usage;
-> +       struct mtk_base_afe_irq *irqs =3D &afe->irqs[irq_id];
-> +       const struct mtk_base_irq_data *irq_data =3D irqs->irq_data;
-> +       unsigned int counter =3D runtime->period_size;
-> +       unsigned int rate =3D runtime->rate;
-> +       unsigned int tmp_reg;
-> +       int fs;
-> +       int ret;
-> +
-> +       dev_info(afe->dev, "%s cmd %d, irq_id %d\n",
-> +                memif->data->name, cmd, irq_id);
-
-Make it debug level.
-
-> +
-> +       switch (cmd) {
-> +       case SNDRV_PCM_TRIGGER_START:
-> +       case SNDRV_PCM_TRIGGER_RESUME:
-> +               dev_dbg(afe->dev, "%s cmd %d, id %d\n",
-> +                       memif->data->name, cmd, id);
-> +               ret =3D mtk_memif_set_enable(afe, id);
-> +               if (ret) {
-> +                       dev_err(afe->dev, "id %d, memif enable fail.\n", =
-id);
-> +                       return ret;
-> +               }
-> +
-> +               /*
-> +                * for small latency record
-> +                * ul memif need read some data before irq enable
-> +                */
-> +               if (substream->stream =3D=3D SNDRV_PCM_STREAM_CAPTURE) {
-> +                       if ((runtime->period_size * 1000) / rate <=3D 10)
-> +                               udelay(300);
-> +               }
-
-Curly braces are not needed here.
-
-Also, please consider generalizing this part. This is the only difference
-between this version and the common FE trigger function. The MT8189 driver
-also contains this, so this should somehow be shared.
-
-Maybe add .capture_prefill_* fields to |struct mtk_base_afe| to model it.
-
-> +
-> +               /* set irq counter */
-> +               if (afe_priv->irq_cnt[id] > 0)
-> +                       counter =3D afe_priv->irq_cnt[id];
-> +
-> +               regmap_update_bits(afe->regmap,
-> +                                  irq_data->irq_cnt_reg,
-> +                                  irq_data->irq_cnt_maskbit << irq_data-=
->irq_cnt_shift,
-> +                                  counter << irq_data->irq_cnt_shift);
-> +
-> +               /* set irq fs */
-> +               fs =3D afe->irq_fs(substream, runtime->rate);
-> +               if (fs < 0)
-> +                       return -EINVAL;
-
-Return `fs` directly, since it should be a valid error number?
-
-Also, please add an error message.
-
-> +
-> +               if (irq_data->irq_fs_reg >=3D 0)
-> +                       regmap_update_bits(afe->regmap,
-> +                                          irq_data->irq_fs_reg,
-> +                                          irq_data->irq_fs_maskbit << ir=
-q_data->irq_fs_shift,
-> +                                          fs << irq_data->irq_fs_shift);
-> +
-> +               /* enable interrupt */
-> +               regmap_update_bits(afe->regmap,
-> +                                  irq_data->irq_en_reg,
-> +                                  1 << irq_data->irq_en_shift,
-> +                                  1 << irq_data->irq_en_shift);
-> +
-> +               return 0;
-> +       case SNDRV_PCM_TRIGGER_STOP:
-> +       case SNDRV_PCM_TRIGGER_SUSPEND:
-> +               ret =3D mtk_memif_set_disable(afe, id);
-> +               if (ret) {
-> +                       dev_warn(afe->dev,
-> +                                "id %d, memif disable fail\n", id);
-> +               }
-
-Curly braces not needed.
-
-> +
-> +               /* disable interrupt */
-> +               regmap_update_bits(afe->regmap,
-> +                                  irq_data->irq_en_reg,
-> +                                  1 << irq_data->irq_en_shift,
-> +                                  0 << irq_data->irq_en_shift);
-> +
-> +               /* clear pending IRQ */
-> +               regmap_read(afe->regmap, irq_data->irq_clr_reg, &tmp_reg)=
-;
-> +               regmap_update_bits(afe->regmap, irq_data->irq_clr_reg,
-> +                                  AFE_IRQ_CLR_CFG_MASK_SFT | AFE_IRQ_MIS=
-S_FLAG_CLR_CFG_MASK_SFT,
-> +                                  tmp_reg ^ (AFE_IRQ_CLR_CFG_MASK_SFT |
-> +                                  AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT));
-
-Why is this an XOR?
-
-> +
-> +               return ret;
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +}
-> +
-> +static int mt8196_memif_fs(struct snd_pcm_substream *substream,
-> +                          unsigned int rate)
-> +{
-> +       struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(subs=
-tream);
-> +       struct snd_soc_component *component =3D
-> +               snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
-> +       struct mtk_base_afe *afe =3D NULL;
-> +       struct snd_soc_dai *cpu_dai =3D snd_soc_rtd_to_cpu(rtd, 0);
-> +       int id =3D cpu_dai->id;
-> +       unsigned int rate_reg;
-> +       int cm;
-> +
-> +       if (!component)
-> +               return -EINVAL;
-> +
-> +       afe =3D snd_soc_component_get_drvdata(component);
-> +
-> +       if (!afe)
-> +               return -EINVAL;
-> +
-> +       rate_reg =3D mt8196_rate_transform(afe->dev, rate);
-> +
-> +       switch (id) {
-> +       case MT8196_MEMIF_VUL8:
-> +       case MT8196_MEMIF_VUL_CM0:
-> +               cm =3D CM0;
-> +               break;
-> +       case MT8196_MEMIF_VUL9:
-> +       case MT8196_MEMIF_VUL_CM1:
-> +               cm =3D CM1;
-> +               break;
-> +       case MT8196_MEMIF_VUL10:
-> +       case MT8196_MEMIF_VUL_CM2:
-> +               cm =3D CM2;
-> +               break;
-> +       default:
-> +               cm =3D CM0;
-> +               break;
-> +       }
-> +
-> +       mt8196_set_cm_rate(afe, cm, rate);
-
-Please move the CM parts to mt8196_fe_hw_params(). You already have
-a custom version of .hw_params. The .memif_fs callback is supposed
-to be a pure (no side effect) function that converts one value to
-another.
-
-> +
-> +       return rate_reg;
-> +}
-> +
-> +static int mt8196_get_dai_fs(struct mtk_base_afe *afe,
-> +                            int dai_id, unsigned int rate)
-> +{
-> +       return mt8196_rate_transform(afe->dev, rate);
-> +}
-> +
-> +static int mt8196_irq_fs(struct snd_pcm_substream *substream, unsigned i=
-nt rate)
-> +{
-> +       struct snd_soc_pcm_runtime *rtd =3D snd_soc_substream_to_rtd(subs=
-tream);
-> +       struct snd_soc_component *component =3D
-> +               snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
-> +       struct mtk_base_afe *afe =3D NULL;
-> +
-> +       if (!component)
-> +               return -EINVAL;
-> +       afe =3D snd_soc_component_get_drvdata(component);
-> +       return mt8196_rate_transform(afe->dev, rate);
-> +}
-> +
-> +static int mt8196_get_memif_pbuf_size(struct snd_pcm_substream *substrea=
-m)
-> +{
-> +       struct snd_pcm_runtime *runtime =3D substream->runtime;
-> +
-> +       if ((runtime->period_size * 1000) / runtime->rate > 10)
-> +               return MT8196_MEMIF_PBUF_SIZE_256_BYTES;
-> +       else
-> +               return MT8196_MEMIF_PBUF_SIZE_32_BYTES;
-> +}
-> +
-> +/* FE DAIs */
-> +static const struct snd_soc_dai_ops mt8196_memif_dai_ops =3D {
-> +       .startup        =3D mt8196_fe_startup,
-> +       .shutdown       =3D mt8196_fe_shutdown,
-> +       .hw_params      =3D mt8196_fe_hw_params,
-> +       .hw_free        =3D mtk_afe_fe_hw_free,
-> +       .prepare        =3D mtk_afe_fe_prepare,
-> +       .trigger        =3D mt8196_fe_trigger,
-> +};
-> +
-> +#define MTK_PCM_RATES (SNDRV_PCM_RATE_8000_48000 |\
-
-Please add a space betwee '|' and '\'. Same for the next few blocks.
-
-> +                      SNDRV_PCM_RATE_88200 |\
-> +                      SNDRV_PCM_RATE_96000 |\
-> +                      SNDRV_PCM_RATE_176400 |\
-> +                      SNDRV_PCM_RATE_192000)
-> +
-> +#define MTK_PCM_DAI_RATES (SNDRV_PCM_RATE_8000 |\
-> +                          SNDRV_PCM_RATE_16000 |\
-> +                          SNDRV_PCM_RATE_32000 |\
-> +                          SNDRV_PCM_RATE_48000)
-> +
-> +#define MTK_PCM_FORMATS (SNDRV_PCM_FMTBIT_S16_LE |\
-> +                        SNDRV_PCM_FMTBIT_S24_LE |\
-> +                        SNDRV_PCM_FMTBIT_S32_LE)
-> +
-
-[...]
-
-> +static const struct snd_kcontrol_new mt8196_pcm_kcontrols[] =3D {
-> +};
-
-Drop the empty variable.
-
-> +enum {
-> +       CM0_MUX_VUL8_2CH,
-> +       CM0_MUX_VUL8_8CH,
-> +       CM0_MUX_MASK,
-> +};
-> +
-> +enum {
-> +       CM1_MUX_VUL9_2CH,
-> +       CM1_MUX_VUL9_16CH,
-> +       CM1_MUX_MASK,
-> +};
-> +
-> +enum {
-> +       CM2_MUX_VUL10_2CH,
-> +       CM2_MUX_VUL10_32CH,
-> +       CM2_MUX_MASK,
-> +};
-
-As mentioned below, these aren't needed.
-
-> +static int ul_cm0_event(struct snd_soc_dapm_widget *w,
-> +                       struct snd_kcontrol *kcontrol,
-> +                       int event)
-> +{
-> +       struct snd_soc_component *cmpnt =3D snd_soc_dapm_to_component(w->=
-dapm);
-> +       struct mtk_base_afe *afe =3D snd_soc_component_get_drvdata(cmpnt)=
-;
-> +       struct mt8196_afe_private *afe_priv =3D afe->platform_priv;
-> +       unsigned int channels =3D afe_priv->cm_channels;
-> +
-> +       dev_dbg(afe->dev, "event 0x%x, name %s, channels %u\n",
-> +               event, w->name, channels);
-> +
-> +       switch (event) {
-> +       case SND_SOC_DAPM_PRE_PMU:
-> +               mt8196_enable_cm_bypass(afe, CM0, 0x0);
-
-The last parameter is of type bool. Please use "true" or "false".
-
-> +               mt8196_set_cm(afe, CM0, true, false, channels);
-> +               regmap_update_bits(afe->regmap, AUDIO_TOP_CON0,
-> +                                  PDN_CM0_MASK_SFT, 0 << PDN_CM0_SFT);
-> +               break;
-> +       case SND_SOC_DAPM_PRE_PMD:
-
-Why is it PRE_PMD and not POST_PMD? Seems out of sequence.
-
-> +               mt8196_enable_cm_bypass(afe, CM0, 0x1);
-> +               regmap_update_bits(afe->regmap, AUDIO_TOP_CON0,
-> +                                  PDN_CM0_MASK_SFT, 1 << PDN_CM0_SFT);
-> +               break;
-> +       default:
-> +               break;
-> +       }
-
-Add an empty line here.
-
-Above comments apply to the other CM event callbacks below.
-
-> +       return 0;
-> +}
-
-[...]
-
-> +
-> +/* dma widget & routes*/
-
-You should mention in a comment here and in the commit message that the
-mixer controls and routes are by no means fully implemented; only the
-ones that are intended to be used are, as other wise a fully interconnected
-switch bar mixer would introduce way too many unused controls.
-
-[...]
-
-> +static const char * const cm0_mux_map[] =3D {
-> +       "CM0_8CH_PATH",
-> +       "UL8_2CH_PATH",
-> +};
-> +
-> +static const char * const cm1_mux_map[] =3D {
-> +       "CM1_16CH_PATH",
-> +       "UL9_2CH_PATH",
-> +};
-> +
-> +static const char * const cm2_mux_map[] =3D {
-> +       "CM2_32CH_PATH",
-> +       "UL10_2CH_PATH",
-> +};
-> +
-> +static int cm0_mux_map_value[] =3D {
-> +       CM0_MUX_VUL8_8CH,
-> +       CM0_MUX_VUL8_2CH,
-> +};
-> +
-> +static int cm1_mux_map_value[] =3D {
-> +       CM1_MUX_VUL9_16CH,
-> +       CM1_MUX_VUL9_2CH,
-> +};
-> +
-> +static int cm2_mux_map_value[] =3D {
-> +       CM2_MUX_VUL10_32CH,
-> +       CM2_MUX_VUL10_2CH,
-> +};
-> +
-> +static SOC_VALUE_ENUM_SINGLE_DECL(ul_cm0_mux_map_enum,
-> +                                 AFE_CM0_CON0,
-> +                                 AFE_CM0_OUTPUT_MUX_SFT,
-> +                                 AFE_CM0_OUTPUT_MUX_MASK,
-> +                                 cm0_mux_map,
-> +                                 cm0_mux_map_value);
-
-Since the values are just 0 and 1, the simplified version can be used here:
-
-static SOC_ENUM_SINGLE_DECL(ul_cm0_mux_map_enum, AFE_CM0_CON0,
-                            AFE_CM0_OUTPUT_MUX_SFT, cm0_mux_map);
-
-The enum for the values and mask, and the map_value array can then be dropp=
-ed.
-Same thing applies to CM1 and CM2.
-
-> +static SOC_VALUE_ENUM_SINGLE_DECL(ul_cm1_mux_map_enum,
-> +                                 AFE_CM1_CON0,
-> +                                 AFE_CM1_OUTPUT_MUX_SFT,
-> +                                 AFE_CM1_OUTPUT_MUX_MASK,
-> +                                 cm1_mux_map,
-> +                                 cm1_mux_map_value);
-> +static SOC_VALUE_ENUM_SINGLE_DECL(ul_cm2_mux_map_enum,
-> +                                 AFE_CM2_CON0,
-> +                                 AFE_CM2_OUTPUT_MUX_SFT,
-> +                                 AFE_CM2_OUTPUT_MUX_MASK,
-> +                                 cm2_mux_map,
-> +                                 cm2_mux_map_value);
-> +
-> +static const struct snd_kcontrol_new ul_cm0_mux_control =3D
-> +       SOC_DAPM_ENUM("CM0_UL_MUX Route", ul_cm0_mux_map_enum);
-> +
-> +static const struct snd_kcontrol_new ul_cm1_mux_control =3D
-> +       SOC_DAPM_ENUM("CM1_UL_MUX Route", ul_cm1_mux_map_enum);
-> +
-> +static const struct snd_kcontrol_new ul_cm2_mux_control =3D
-> +       SOC_DAPM_ENUM("CM2_UL_MUX Route", ul_cm2_mux_map_enum);
-> +
-> +static const struct snd_soc_dapm_widget mt8196_memif_widgets[] =3D {
-
-[...]
-
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH1", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch1_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch1_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH2", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch2_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch2_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH3", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch3_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch3_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH4", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch4_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch4_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH5", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch5_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch5_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH6", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch6_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch6_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH7", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch7_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch7_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM0_CH8", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm0_ch8_mix, ARRAY_SIZE(memif_ul_cm0_=
-ch8_mix)),
-> +       SND_SOC_DAPM_MUX("CM0_UL_MUX", SND_SOC_NOPM, 0, 0,
-> +                        &ul_cm0_mux_control),
-
-Please add an empty line here for separation.
-
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH1", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch1_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch1_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH2", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch2_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch2_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH3", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch3_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch3_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH4", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch4_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch4_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH5", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch5_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch5_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH6", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch6_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch6_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH7", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch7_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch7_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH8", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch8_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch8_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH9", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch9_mix, ARRAY_SIZE(memif_ul_cm1_=
-ch9_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH10", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch10_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch10_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH11", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch11_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch11_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH12", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch12_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch12_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH13", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch13_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch13_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH14", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch14_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch14_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH15", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch15_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch15_mix)),
-> +       SND_SOC_DAPM_MIXER("UL_CM1_CH16", SND_SOC_NOPM, 0, 0,
-> +                          memif_ul_cm1_ch16_mix, ARRAY_SIZE(memif_ul_cm1=
-_ch16_mix)),
-> +       SND_SOC_DAPM_MUX("CM1_UL_MUX", SND_SOC_NOPM, 0, 0,
-> +                        &ul_cm1_mux_control),
-
-And here as well.
-
-[...]
-
-> +       SND_SOC_DAPM_MIXER("SOF_DMA_UL0", SND_SOC_NOPM, 0, 0, NULL, 0),
-> +       SND_SOC_DAPM_MIXER("SOF_DMA_UL1", SND_SOC_NOPM, 0, 0, NULL, 0),
-> +       SND_SOC_DAPM_MIXER("SOF_DMA_UL2", SND_SOC_NOPM, 0, 0, NULL, 0),
-> +};
-> +
-> +static const struct snd_soc_dapm_route mt8196_memif_routes[] =3D {
-> +       {"UL0", NULL, "UL0_CH1"},
-> +       {"UL0", NULL, "UL0_CH2"},
-> +       /* Normal record */
-> +       {"UL0_CH1", "ADDA_UL_CH1", "ADDA_UL_Mux"},
-> +       {"UL0_CH2", "ADDA_UL_CH2", "ADDA_UL_Mux"},
-> +       /* SOF Uplink */
-> +       {"SOF_DMA_UL0", NULL, "UL0_CH1"},
-> +       {"SOF_DMA_UL0", NULL, "UL0_CH2"},
-
-Somehow this is weird. SOF_DMA_UL0 is a dummy widget created above,
-while SOF somehow creates a widget named AFE2.IN which goes to the
-same SOF buffer widget. The AFE2.IN widget remains unused.
-
-> +
-> +       {"UL1", NULL, "UL1_CH1"},
-> +       {"UL1", NULL, "UL1_CH2"},
-> +       {"UL1_CH1", "I2SIN4_CH1", "I2SIN4"},
-> +       {"UL1_CH2", "I2SIN4_CH2", "I2SIN4"},
-> +       {"UL1_CH1", "I2SIN6_CH1", "I2SIN6"},
-> +       {"UL1_CH2", "I2SIN6_CH2", "I2SIN6"},
-> +       /* SOF Uplink */
-> +       {"SOF_DMA_UL1", NULL, "UL1_CH1"},
-> +       {"SOF_DMA_UL1", NULL, "UL1_CH2"},
-> +
-> +       {"UL2", NULL, "UL2_CH1"},
-> +       {"UL2", NULL, "UL2_CH2"},
-> +       {"UL2_CH1", "ADDA_UL_CH3", "ADDA_CH34_UL_Mux"},
-> +       {"UL2_CH2", "ADDA_UL_CH4", "ADDA_CH34_UL_Mux"},
-> +       /* SOF Uplink */
-> +       {"SOF_DMA_UL2", NULL, "UL2_CH1"},
-> +       {"SOF_DMA_UL2", NULL, "UL2_CH2"},
-
-[...]
-
-> +       {"UL8", NULL, "CM0_UL_MUX"},
-> +       {"CM0_UL_MUX", "UL8_2CH_PATH", "UL8_CH1"},
-> +       {"CM0_UL_MUX", "UL8_2CH_PATH", "UL8_CH2"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH1"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH2"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH3"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH4"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH5"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH6"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH7"},
-> +       {"CM0_UL_MUX", "CM0_8CH_PATH", "UL_CM0_CH8"},
-> +       {"UL_CM0_CH1", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH2", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH3", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH4", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH5", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH6", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH7", NULL, "CM0_Enable"},
-> +       {"UL_CM0_CH8", NULL, "CM0_Enable"},
-
-As mentioned in the review of another patch, you can tie "CM0_Enable"
-to "UL_CM0", the widget for the DAI, which actually maps to a hardware
-engine. This also reduces the number of routes needed.
-
-Same goes for all the other MEMIFs.
-
-[...]
-
-> +#define MT8183_AFE_IRQ_BASE(_id, _fs_reg, _fs_shift, _fs_maskbit)      \
-> +       [MT8183_IRQ_##_id] =3D {  \
-> +               .id =3D MT8183_IRQ_##_id,                 \
-> +               .irq_cnt_reg =3D AFE_IRQ_MCU_CNT##_id,    \
-> +               .irq_cnt_shift =3D 0,                     \
-> +               .irq_cnt_maskbit =3D 0x3ffff,             \
-> +               .irq_fs_reg =3D _fs_reg,                  \
-> +               .irq_fs_shift =3D _fs_shift,              \
-> +               .irq_fs_maskbit =3D _fs_maskbit,          \
-> +               .irq_en_reg =3D AFE_IRQ_MCU_CON0,         \
-> +               .irq_en_shift =3D IRQ##_id##_MCU_ON_SFT,  \
-> +               .irq_clr_reg =3D AFE_IRQ_MCU_CLR,         \
-> +               .irq_clr_shift =3D IRQ##_id##_MCU_CLR_SFT,        \
-> +       }
-
-Please remove. This seems like it was copied over as a reference?
-
-[...]
-
-> +static irqreturn_t mt8196_afe_irq_handler(int irq_id, void *dev)
-> +{
-> +       struct mtk_base_afe *afe =3D dev;
-> +       struct mtk_base_afe_irq *irq;
-> +       unsigned int status;
-> +       unsigned int status_mcu;
-> +       unsigned int mcu_en;
-> +       unsigned int cus_status;
-> +       unsigned int cus_status_mcu;
-> +       unsigned int cus_mcu_en;
-> +       unsigned int tmp_reg;
-> +       int ret, cus_ret;
-> +       int i;
-> +       struct timespec64 ts64;
-> +       unsigned long long t1, t2;
-> +       /* one interrupt period =3D 5ms */
-> +       const unsigned long long timeout_limit =3D 5000000;
-> +
-> +       /* get irq that is sent to MCU */
-> +       regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &mcu_en);
-> +       regmap_read(afe->regmap, AFE_CUSTOM_IRQ_MCU_EN, &cus_mcu_en);
-> +
-> +       ret =3D regmap_read(afe->regmap, AFE_IRQ_MCU_STATUS, &status);
-> +       cus_ret =3D regmap_read(afe->regmap, AFE_CUSTOM_IRQ_MCU_STATUS, &=
-cus_status);
-> +       /* only care IRQ which is sent to MCU */
-> +       status_mcu =3D status & mcu_en & AFE_IRQ_STATUS_BITS;
-> +       cus_status_mcu =3D cus_status & cus_mcu_en & AFE_IRQ_STATUS_BITS;
-> +       if ((ret || !status_mcu) &&
-> +           (cus_ret || !cus_status_mcu)) {
-
-This can be on the same line.
-
-> +               dev_err(afe->dev, "ret %d, sat 0x%x, en 0x%x,csat 0x%x, c=
-en 0x%x\n",
-> +                       ret, status, mcu_en, cus_status_mcu, cus_mcu_en);
-> +               goto err_irq;
-
-Just return IRQ_NONE here, because nothing was handled.
-
-> +       }
-> +
-> +       ktime_get_ts64(&ts64);
-> +       t1 =3D timespec64_to_ns(&ts64);
-
-u64 t1 =3D ktime_get_ns();
-
-Maybe t1 should be at the start of the function, if the time limit
-is for the whole interrupt handler, which I think it is?
-
-> +       for (i =3D 0; i < MT8196_MEMIF_NUM; i++) {
-> +               struct mtk_base_afe_memif *memif =3D &afe->memif[i];
-> +
-> +               if (!memif->substream)
-> +                       continue;
-> +
-> +               if (memif->irq_usage < 0)
-> +                       continue;
-> +               irq =3D &afe->irqs[memif->irq_usage];
-> +
-> +               if (i =3D=3D MT8196_MEMIF_HDMI) {
-> +                       if (cus_status_mcu & (0x1 << irq->irq_data->id))
-
-Please use BIT(x).
-
-> +                               snd_pcm_period_elapsed(memif->substream);
-> +               } else {
-> +                       if (status_mcu & (0x1 << irq->irq_data->id))
-
-BIT(irq->irq_data->id)
-
-> +                               snd_pcm_period_elapsed(memif->substream);
-> +               }
-> +       }
-> +
-> +       ktime_get_ts64(&ts64);
-> +       t2 =3D timespec64_to_ns(&ts64);
-
-u64 t2 =3D ktime_get_ns();
-
-> +       t2 =3D t2 - t1; /* in ns (10^9) */
-> +
-> +       if (t2 > timeout_limit) {
-> +               dev_warn(afe->dev, "mcu_en 0x%x, cus_mcu_en 0x%x, timeout=
- %llu, limit %llu, ret %d\n",
-
-Please make the message more meaningful, such as
-
-         dev_warn(afe->dev, "IRQ handler exceeded time limit by %llu ns",
-                  t2 - timeout_limit);
-
-Also, ret's value probably doesn't factor in here, so I don't think it need=
-s
-to be included in the message.
-
-> +                        mcu_en, cus_mcu_en,
-> +                        t2, timeout_limit, ret);
-> +       }
-
-Curly braces are not required here.
-
-> +
-> +err_irq:
-> +       /* clear irq */
-> +       for (i =3D 0; i < MT8196_IRQ_NUM; ++i) {
-> +               /* cus_status_mcu only bit0 is used for TDM */
-> +               if ((status_mcu & (0x1 << i)) || (cus_status_mcu & 0x1)) =
-{
-
-BIT(i)
-
-> +                       regmap_read(afe->regmap, irq_data[i].irq_clr_reg,=
- &tmp_reg);
-> +                       regmap_update_bits(afe->regmap, irq_data[i].irq_c=
-lr_reg,
-> +                                          AFE_IRQ_CLR_CFG_MASK_SFT |
-> +                                          AFE_IRQ_MISS_FLAG_CLR_CFG_MASK=
-_SFT,
-> +                                          tmp_reg ^ (AFE_IRQ_CLR_CFG_MAS=
-K_SFT |
-> +                                          AFE_IRQ_MISS_FLAG_CLR_CFG_MASK=
-_SFT));
-
-Same question as the trigger callback. Why is it XOR?
-
-> +               }
-> +       }
-> +
-> +       return IRQ_HANDLED;
-> +}
-> +
-> +static int mt8196_afe_runtime_suspend(struct device *dev)
-> +{
-> +       struct mtk_base_afe *afe =3D dev_get_drvdata(dev);
-> +       unsigned int value;
-> +       unsigned int tmp_reg;
-> +       int ret, i;
-> +
-> +       if (!afe->regmap) {
-> +               dev_err(afe->dev, "skip regmap\n");
-> +               goto skip_regmap;
-> +       }
-> +
-> +       /* disable AFE */
-> +       mt8196_afe_disable_main_clock(afe);
-> +
-> +       ret =3D regmap_read_poll_timeout(afe->regmap,
-> +                                      AUDIO_ENGEN_CON0_MON,
-> +                                      value,
-> +                                      (value & AUDIO_ENGEN_MON_SFT) =3D=
-=3D 0,
-> +                                      20,
-> +                                      1 * 1000 * 1000);
-
-This timeout is a bit long.
-
-> +       dev_dbg(afe->dev, "read_poll ret %d\n", ret);
-> +       if (ret)
-> +               dev_info(afe->dev, "ret %d\n", ret);
-> +
-> +       /* make sure all irq status are cleared */
-> +       for (i =3D 0; i < MT8196_IRQ_NUM; ++i) {
-> +               regmap_read(afe->regmap, irq_data[i].irq_clr_reg, &tmp_re=
-g);
-> +               regmap_update_bits(afe->regmap, irq_data[i].irq_clr_reg,
-> +                                  AFE_IRQ_CLR_CFG_MASK_SFT | AFE_IRQ_MIS=
-S_FLAG_CLR_CFG_MASK_SFT,
-> +                                  tmp_reg ^ (AFE_IRQ_CLR_CFG_MASK_SFT |
-
-Same thing here about the XOR.
-
-> +                                  AFE_IRQ_MISS_FLAG_CLR_CFG_MASK_SFT));
-> +       }
-> +
-> +       /* reset audio 26M request */
-> +       regmap_update_bits(afe->regmap,
-> +                          AFE_SPM_CONTROL_REQ, 0x1, 0x0);
-> +
-> +       /* cache only */
-> +       regcache_cache_only(afe->regmap, true);
-> +       regcache_mark_dirty(afe->regmap);
-> +
-> +skip_regmap:
-> +       mt8196_afe_disable_reg_rw_clk(afe);
-> +       return 0;
-> +}
-> +
-> +static int mt8196_afe_runtime_resume(struct device *dev)
-> +{
-> +       struct mtk_base_afe *afe =3D dev_get_drvdata(dev);
-> +       int ret =3D 0;
-> +
-> +       ret =3D mt8196_afe_enable_reg_rw_clk(afe);
-> +       if (ret)
-> +               return ret;
-> +
-> +       if (!afe->regmap) {
-> +               dev_warn(afe->dev, "skip regmap\n");
-> +               goto skip_regmap;
-> +       }
-> +       regcache_cache_only(afe->regmap, false);
-> +       regcache_sync(afe->regmap);
-> +
-> +       /* set audio 26M request */
-> +       regmap_update_bits(afe->regmap, AFE_SPM_CONTROL_REQ, 0x1, 0x1);
-> +       regmap_update_bits(afe->regmap, AFE_CBIP_CFG0, 0x1, 0x1);
-> +
-> +       /* force cpu use 8_24 format when writing 32bit data */
-> +       regmap_update_bits(afe->regmap, AFE_MEMIF_CON0,
-> +                          CPU_HD_ALIGN_MASK_SFT, 0 << CPU_HD_ALIGN_SFT);
-> +
-> +       /* enable AFE */
-> +       mt8196_afe_enable_main_clock(afe);
-> +
-> +skip_regmap:
-> +       return 0;
-> +}
-> +
-> +static int mt8196_afe_component_probe(struct snd_soc_component *componen=
-t)
-> +{
-> +       struct mtk_base_afe *afe =3D snd_soc_component_get_drvdata(compon=
-ent);
-> +
-> +       if (component) {
-> +               /* enable clock for regcache get default value from hw */
-> +               pm_runtime_get_sync(afe->dev);
-> +               mtk_afe_add_sub_dai_control(component);
-> +               pm_runtime_put_sync(afe->dev);
-> +       }
-> +       return 0;
-> +}
-> +
-> +static int mt8196_afe_pcm_open(struct snd_soc_component *component,
-> +                              struct snd_pcm_substream *substream)
-> +{
-> +       /* set the wait_for_avail to 2 sec*/
-> +       substream->wait_time =3D msecs_to_jiffies(2 * 1000);
-> +
-> +       return 0;
-> +}
-> +
-> +static void mt8196_afe_pcm_free(struct snd_soc_component *component, str=
-uct snd_pcm *pcm)
-> +{
-> +       snd_pcm_lib_preallocate_free_for_all(pcm);
-> +}
-> +
-> +static const struct snd_soc_component_driver mt8196_afe_component =3D {
-> +       .name =3D AFE_PCM_NAME,
-> +       .probe =3D mt8196_afe_component_probe,
-> +       .pcm_construct =3D mtk_afe_pcm_new,
-> +       .pcm_destruct =3D mt8196_afe_pcm_free,
-> +       .open =3D mt8196_afe_pcm_open,
-> +       .pointer =3D mtk_afe_pcm_pointer,
-> +};
-> +
-> +static int mt8196_dai_memif_register(struct mtk_base_afe *afe)
-> +{
-> +       struct mtk_base_afe_dai *dai;
-> +
-> +       dai =3D devm_kzalloc(afe->dev, sizeof(*dai), GFP_KERNEL);
-> +       if (!dai)
-> +               return -ENOMEM;
-> +
-> +       list_add(&dai->list, &afe->sub_dais);
-> +
-> +       dai->dai_drivers =3D mt8196_memif_dai_driver;
-> +       dai->num_dai_drivers =3D ARRAY_SIZE(mt8196_memif_dai_driver);
-> +
-> +       dai->controls =3D mt8196_pcm_kcontrols;
-> +       dai->num_controls =3D ARRAY_SIZE(mt8196_pcm_kcontrols);
-> +       dai->dapm_widgets =3D mt8196_memif_widgets;
-> +       dai->num_dapm_widgets =3D ARRAY_SIZE(mt8196_memif_widgets);
-> +       dai->dapm_routes =3D mt8196_memif_routes;
-> +       dai->num_dapm_routes =3D ARRAY_SIZE(mt8196_memif_routes);
-> +       return 0;
-> +}
-> +
-> +typedef int (*dai_register_cb)(struct mtk_base_afe *);
-> +static const dai_register_cb dai_register_cbs[] =3D {
-> +       mt8196_dai_adda_register,
-> +       mt8196_dai_i2s_register,
-> +       mt8196_dai_tdm_register,
-> +       mt8196_dai_memif_register,
-> +};
-> +
-> +static const struct reg_sequence mt8196_cg_patch[] =3D {
-> +       { AUDIO_TOP_CON4, 0x361c },
-> +};
-> +
-> +static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
-> +{
-> +       int ret, i;
-> +       unsigned int tmp_reg;
-> +       int irq_id;
-> +       struct mtk_base_afe *afe;
-> +       struct mt8196_afe_private *afe_priv;
-> +       struct device *dev =3D &pdev->dev;
-> +
-> +       ret =3D dma_set_mask_and_coherent(dev, DMA_BIT_MASK(34));
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret =3D of_reserved_mem_device_init(dev);
-> +       if (ret)
-> +               dev_err(dev, "failed to assign memory region: %d\n", ret)=
-;
-> +
-> +       afe =3D devm_kzalloc(dev, sizeof(*afe), GFP_KERNEL);
-> +       if (!afe)
-> +               return -ENOMEM;
-> +
-> +       platform_set_drvdata(pdev, afe);
-> +
-> +       afe->platform_priv =3D devm_kzalloc(dev, sizeof(*afe_priv),
-> +                                         GFP_KERNEL);
-> +       if (!afe->platform_priv)
-> +               return -ENOMEM;
-> +
-> +       afe_priv =3D afe->platform_priv;
-> +       afe->dev =3D dev;
-> +
-> +       afe->base_addr =3D devm_platform_ioremap_resource(pdev, 0);
-> +       if (IS_ERR(afe->base_addr))
-> +               return dev_err_probe(dev, PTR_ERR(afe->base_addr),
-> +                                    "AFE base_addr not found\n");
-> +
-> +       /* init audio related clock */
-> +       ret =3D mt8196_init_clock(afe);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "init clock error.\n");
-> +
-> +       /* init memif */
-> +       /* IPM2.0 no need banding */
-> +       afe->memif_32bit_supported =3D 1;
-> +       afe->memif_size =3D MT8196_MEMIF_NUM;
-> +       afe->memif =3D devm_kcalloc(dev, afe->memif_size, sizeof(*afe->me=
-mif),
-> +                                 GFP_KERNEL);
-> +
-> +       if (!afe->memif)
-> +               return -ENOMEM;
-> +
-> +       for (i =3D 0; i < afe->memif_size; i++) {
-> +               afe->memif[i].data =3D &memif_data[i];
-> +               afe->memif[i].irq_usage =3D memif_irq_usage[i];
-> +               afe->memif[i].const_irq =3D 1;
-> +       }
-> +
-> +       mutex_init(&afe->irq_alloc_lock);
-> +
-> +       /* init irq */
-> +       afe->irqs_size =3D MT8196_IRQ_NUM;
-> +       afe->irqs =3D devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs=
-),
-> +                                GFP_KERNEL);
-> +
-> +       if (!afe->irqs)
-> +               return -ENOMEM;
-> +
-> +       for (i =3D 0; i < afe->irqs_size; i++)
-> +               afe->irqs[i].irq_data =3D &irq_data[i];
-> +
-> +       /* request irq */
-> +       irq_id =3D platform_get_irq(pdev, 0);
-> +       if (irq_id < 0)
-> +               return dev_err_probe(dev, irq_id, "no irq found");
-> +
-> +       ret =3D devm_request_irq(dev, irq_id, mt8196_afe_irq_handler,
-> +                              IRQF_TRIGGER_NONE,
-
-Just pass zero.
-
-> +                              "Afe_ISR_Handle", (void *)afe);
-
-Cast to void * is not necessary.
-
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "could not request_irq for=
- Afe_ISR_Handle\n");
-> +
-> +       ret =3D enable_irq_wake(irq_id);
-
-This needs a matching disable_irq_wake() in the error path and remove path.
-
-Also, is this even valid? What in the audio block would trigger a wakeup?
-
-> +       if (ret < 0)
-> +               dev_warn(dev, "enable_irq_wake %d ret: %d\n", irq_id, ret=
-);
-> +
-> +       /* init sub_dais */
-> +       INIT_LIST_HEAD(&afe->sub_dais);
-> +
-> +       for (i =3D 0; i < ARRAY_SIZE(dai_register_cbs); i++) {
-> +               ret =3D dai_register_cbs[i](afe);
-> +               if (ret)
-> +                       return dev_err_probe(dev, ret, "dai register i %d=
- fail\n", i);
-> +       }
-> +
-> +       /* init dai_driver and component_driver */
-> +       ret =3D mtk_afe_combine_sub_dai(afe);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "mtk_afe_combine_sub_dai f=
-ail\n");
-> +
-> +       /* others */
-> +       afe->mtk_afe_hardware =3D &mt8196_afe_hardware;
-> +       afe->memif_fs =3D mt8196_memif_fs;
-> +       afe->irq_fs =3D mt8196_irq_fs;
-> +       afe->get_dai_fs =3D mt8196_get_dai_fs;
-> +       afe->get_memif_pbuf_size =3D mt8196_get_memif_pbuf_size;
-> +
-> +       afe->runtime_resume =3D mt8196_afe_runtime_resume;
-> +       afe->runtime_suspend =3D mt8196_afe_runtime_suspend;
-> +
-> +       ret =3D devm_pm_runtime_enable(dev);
-> +       if (ret)
-> +               return ret;
-> +
-> +       /* Audio device is part of genpd.
-> +        * Set audio as syscore device to prevent
-> +        * genpd automatically power off audio
-> +        * device when suspend
-
-Multi-line comment blocks should start with /* empty line. Comment text
-starts on the second line, i.e. the opening and closing /* */ should
-not have text on the same line.
-
-This needs more context. Why can't it be powered off?
-
-Please reformat the comment and make it wider.
-
-> +        */
-> +       dev_pm_syscore_device(dev, true);
-> +
-> +       /* enable clock for regcache get default value from hw */
-> +       pm_runtime_get_sync(dev);
-> +
-> +       afe->regmap =3D devm_regmap_init_mmio(dev, afe->base_addr,
-> +                                           &mt8196_afe_regmap_config);
-> +       if (IS_ERR(afe->regmap))
-> +               return PTR_ERR(afe->regmap);
-> +
-> +       ret =3D regmap_register_patch(afe->regmap, mt8196_cg_patch,
-> +                                   ARRAY_SIZE(mt8196_cg_patch));
-> +       if (ret < 0) {
-> +               dev_info(dev, "Failed to apply cg patch\n");
-
-This should be an error message.
-
-> +               goto err_pm_disable;
-> +       }
-> +
-> +       regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
-> +       regmap_write(afe->regmap, AFE_IRQ_MCU_EN, 0xffffffff);
-> +       regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
-> +
-> +       pm_runtime_put_sync(dev);
-> +
-> +       regcache_cache_only(afe->regmap, true);
-> +       regcache_mark_dirty(afe->regmap);
-> +
-> +       /* register component */
-> +       ret =3D devm_snd_soc_register_component(dev,
-> +                                             &mt8196_afe_component,
-> +                                             afe->dai_drivers,
-> +                                             afe->num_dai_drivers);
-> +       if (ret) {
-> +               dev_warn(dev, "afe component err\n");
-
-This should be an error message.
-
-> +               goto err_pm_disable;
-> +       }
-> +
-> +       return 0;
-> +
-> +err_pm_disable:
-> +       pm_runtime_disable(dev);
-
-This is not needed since you use the devm version above. What you do need
-to do is
-
-    pm_runtime_put_sync(dev);
-
-when jumping from devm_regmap_init_mmio() or regmap_register_patch()
-failures.
-
-> +       return ret;
-> +}
-> +
-> +static void mt8196_afe_pcm_dev_remove(struct platform_device *pdev)
-> +{
-> +       struct mtk_base_afe *afe =3D platform_get_drvdata(pdev);
-> +       struct device *dev =3D &pdev->dev;
-> +
-> +       pm_runtime_disable(dev);
-
-Not needed since it is enabled with devm version.
-
-> +       if (!pm_runtime_status_suspended(dev))
-> +               mt8196_afe_runtime_suspend(dev);
-> +
-> +       /* disable afe clock */
-> +       mt8196_afe_disable_reg_rw_clk(afe);
-> +       mt8196_afe_disable_main_clock(afe);
-
-It is generally not a good idea to mix devm and non-devm stuff. The
-release functions of devm get called _after_ the remove function returns,
-so it is very easy to do things out of order and cause errors or lockups.
-
-Also I wonder if this is necessary, but I'm not that familiar with runtime
-PM. I would think that since ASoC is the only entry point into this driver
-and ASoC does power sequencing, it shouldn't leave components enabled on
-removal.
-
-> +}
-> +
-> +static const struct of_device_id mt8196_afe_pcm_dt_match[] =3D {
-> +       { .compatible =3D "mediatek,mt8196-afe", },
-> +       { /* sentinel */ },
-> +};
-> +MODULE_DEVICE_TABLE(of, mt8196_afe_pcm_dt_match);
-> +
-> +static const struct dev_pm_ops mt8196_afe_pm_ops =3D {
-> +       SET_RUNTIME_PM_OPS(mt8196_afe_runtime_suspend,
-> +                          mt8196_afe_runtime_resume, NULL)
-> +};
-> +
-> +static struct platform_driver mt8196_afe_pcm_driver =3D {
-> +       .driver =3D {
-> +               .name =3D "mt8196-afe",
-> +               .of_match_table =3D mt8196_afe_pcm_dt_match,
-> +#if IS_ENABLED(CONFIG_PM)
-
-Drop the #if around this. The field is always available.
-
-> +               .pm =3D &mt8196_afe_pm_ops,
-> +#endif
-> +       },
-> +       .probe =3D mt8196_afe_pcm_dev_probe,
-> +       .remove =3D mt8196_afe_pcm_dev_remove,
-> +};
-> +
-
-Don't need this empty line.
-
-> +module_platform_driver(mt8196_afe_pcm_driver);
-> +
-> +MODULE_DESCRIPTION("Mediatek ALSA SoC AFE platform driver for 8196");
-> +MODULE_AUTHOR("Darren Ye <darren.ye@mediatek.com>");
-> +MODULE_LICENSE("GPL");
-
-
-Thanks
-ChenYu
-
-> --
-> 2.45.2
->
->
+On Tue, Aug 05, 2025 at 02:32:17PM +0800, Chaoyi Chen wrote:
+> Hi Dmitry,
+> 
+> On 8/5/2025 12:26 PM, Dmitry Baryshkov wrote:
+> > On 05/08/2025 09:13, Chaoyi Chen wrote:
+> > > Hi Dmitry,
+> > > 
+> > > On 8/2/2025 5:55 PM, Dmitry Baryshkov wrote:
+> > > 
+> > > [...]
+> > > 
+> > > 
+> > > > > > > BTW, one of the important things to do is to implement extcon-like
+> > > > > > > notifications. I found include/drm/bridge/aux-bridge.h , but if the
+> > > > > > > aux-bridge is used, the bridge chain would look like this:
+> > > > > > > 
+> > > > > > > PHY0 aux-bridge ---+
+> > > > > > >                      | ----> CDN-DP bridge
+> > > > > > > PHY1 aux-bridge ---+
+> > > > > > > 
+> > > > > > > Oh, CDN-DP bridge has two previous aux-bridge!
+> > > > > > > 
+> > > > > > > Now, I try to use drm_connector_oob_hotplug_event() to notify HPD
+> > > > > > > state between PHY and CDN-DP controller.
+> > > > > > Does it actually work? The OOB HPD event will be repoted
+> > > > > > for the usb-c
+> > > > > > connector's fwnode, but the DP controller isn't
+> > > > > > connected to that node
+> > > > > > anyhow. If I'm not mistaken, the HPD signal will not
+> > > > > > reach DP driver in
+> > > > > > this case.
+> > > > > Yes.  What you mentioned is the case in
+> > > > > drivers/usb/typec/altmodes/displayport.c . I have also added
+> > > > > a new OOB event
+> > > > > notify in the PHY driver in Patch 3, where the expected
+> > > > > fwnode is used in
+> > > > > the PHY. So now we have two OOB HPD events, one from
+> > > > > altmodes/ displayport.c
+> > > > > and the other from PHY. Only the HPD from PHY is eventually
+> > > > > passed to the DP
+> > > > > driver.
+> > > > This way you will loose IRQ_HPD pulse events from the DP. They are used
+> > > > by DPRX (aka DP Sink) to signal to DPTX (DP Source) that there was a
+> > > > change on the DPRX side and the DPTX should reread link params
+> > > > and maybe
+> > > > retrain the link.
+> > > 
+> > > Sorry, I still don't quite understand your point. I think the entire
+> > > notification path is as follows:
+> > > 
+> > > Type-C mux callback -> RK3399 USBDP PHY -> PHY calls
+> > > drm_connector_oob_hotplug_event() -> DP driver
+> > > 
+> > > Are you concerned that the IRQ_HPD event is not being handled
+> > > somewhere along the path? Is it that the Type-C mux callback didn't
+> > > notify the PHY, or that after the PHY passed the event to the DP
+> > > driver via the OOB event, the DP driver didn't handle it?
+> > 
+> > The IRQ_HPD is an event coming from DPRX, it is delivered as a part of
+> > the attention VDM, see DP_STATUS_IRQ_HPD. It's being handled by the
+> > altmode displayport.c driver and is then delivered as an OOB hotplug
+> > call. However, it's not a mux event, so it is not (and it should not)
+> > being broadcasted over the typec_mux devices.
+> > 
+> > The way we were handling that is by having a chain of drm_aux_bridges
+> > for all interim devices, ending up with a drm_dp_hpd_bridge registered
+> > by the TCPM. This way when the DPRX triggers the IRQ_HPD event, it is
+> > being handled by the displayport.c and then delivered through that
+> > bridge to the DP driver.
+> 
+> I think the issue goes back to the beginning. The key is to reuse the logic
+> in displayport.c, and the previous approach of directly setting the fwnode
+> has already been rejected. Is it a good idea to register the aux hpd bridge
+> in displayport.c? In this way, we don't need to register it with a bunch of
+> PD drivers (such as fusb302), which seems like a more generic solution.
+
+displayport.c comes into play only when you actually attach a DP dongle,
+which is too late for bringing up the display pipeline. But your point
+is valid, it might be worth moving drm_dp_hpd registration to
+typec_port_register_altmode().
+
+-- 
+With best wishes
+Dmitry
 
