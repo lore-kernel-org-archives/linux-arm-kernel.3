@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F8EC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFD8C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cT/hBjEevkq2Mteug+1FOv3W118GQQs36fW0SWyNl98=; b=XUnyfkr2lHYUoNZHgeOgO/YlER
-	wYRWPDcN4rVf6k9hfmko7d+Wk9ftmfAXUh0Su/x8EvLv/tElnT4kD4fN2OCNPu9o05jx5qU1etkiF
-	HCC/wep4kp37ATTyqI6qDObvFf6gPko/RRUlDSyCFMAc+sukQZTy3YAkppZRVsG0+nnGAW4cCRFmN
-	S9FZtA3NZBRrDUAVeLxBF0zDkNUuMJQH3F5Rfbs3yTZQe2aAbTrhFTJMbFNMvkoTSUqMJfNFjSwWz
-	ma2/N3prnO8NyqEuJ4V7WJE57Rm3vn8hz0jHi5BTbUqiggFsTM8aqU+nWK+Brjty/aYzpj/GBRVcH
-	utwCkXGw==;
+	bh=OHOt0dbWY0I5h08dQMMNYHSjuD4YM32n0OpeahZ9uKE=; b=BzfWTkwYvjylhSzusIt1X7QuQm
+	lelFCrNry/r1VCSLdAlxNcA4LA1KFvw+E969VMe5P2SE7Rr/mJ+6ZLQdkf9N8bjL7iQMOpV50dpAu
+	tV4YrZvwHSH56BlR8896WzNcEqIxENasAQiMytjkmvbMtJUIRhldi2jrcAHGYMNosMNZl6qS9P9e/
+	1+0lCewt/EzXS99Fob2pzMoZP6NF9zLICJOodctLFCizgpWKw/h6mkLsxNgyqaWojUUKjO6t3NscI
+	4SeJuJXbE5FZQ364oa5RFsb6XE2fx7SomVbjlXDfjIVbWQtkhC+c10V86eEaiRD3HWv0rGIlU5c8O
+	OjGgUzzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHcz-0000000CpXJ-1TML;
-	Tue, 05 Aug 2025 13:22:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ujHfb-0000000Cpxj-2Say;
+	Tue, 05 Aug 2025 13:25:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHQs-0000000CnUh-1mqz;
-	Tue, 05 Aug 2025 13:10:23 +0000
+	id 1ujHRU-0000000CnaT-1QYe;
+	Tue, 05 Aug 2025 13:11:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B4C35A56343;
-	Tue,  5 Aug 2025 13:10:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC6CAC4CEF0;
-	Tue,  5 Aug 2025 13:10:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA2305C5F05;
+	Tue,  5 Aug 2025 13:10:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CE29C4CEFA;
+	Tue,  5 Aug 2025 13:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754399421;
-	bh=OtL0BvKJrFQvW7Ox0KkmTvFHyapror2XBcqcthYyGek=;
+	s=k20201202; t=1754399459;
+	bh=QskGx90TLZ/5pqOHB+wiX359YHfKw0zfYQpYucfOY3o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QU+N3ybq0GG/icLAmX/HjG7d0buXSJuti1IZGRHl7rqbNmum7g45J6EkcEeBlJcB8
-	 MQsoWv3Yhf9PAROxZ6FC+WC72TVR4T5KSjoZbSkoWslyfwPFfSlBQTYsixl7Oa4Fg3
-	 cuehlDcmxwRRmF/TnPDIJFj02DGQN+7c0eB0g3Pi2IydxmzQVZcNI3LhWCLC07KC5r
-	 kEG7BLiHa30ARhVLXunUInei+CnOOa+yLrxsm7qwpKJBOAXLCHPqs7UMX/Ez0yDeNJ
-	 cyGUj91dw7ayObMPJ6dB/R0zGoG0/fx59ricFILwHbx7nZ2dbdSCbI+ftc+NeW9a1G
-	 8gCZ1ZQiMMSjA==
+	b=LdwAM3bUC/15rEWjQoDUmbJuK+KflxbdIqjXlsNfiqDYT6wCimXaSI0QCmnVlcLzg
+	 TC7XWcNfjkklEy/XK5TZlc32stdgNY6CemK+pd3yU191eDrRSIXZ3leL0cvtSIuJdM
+	 HaQuLp5mvvlNjX5Szb0PKDe2jTCUBe5uOHiYCEuCI5McnWbVcHZfSMGdTNVSWY8Dnz
+	 44OsKu3793J2oOF6JdsRqXanvBbtT6CqXGp1vl7SJYPUwhOEt64jji4DOXTE7oJhbZ
+	 xPnTnOWbNm2RrrNCsjBlgWUbvtvOWRa4WVQNS8I2wH/0iYSjXEK+8vUInepixGo5e0
+	 skrUdcveMSv4Q==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
+Cc: Valmantas Paliksa <walmis@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Geraldo Nascimento <geraldogabriel@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	kernel-list@raspberrypi.com,
-	florian.fainelli@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16-6.15] media: raspberrypi: cfe: Fix min_reqbufs_allocation
-Date: Tue,  5 Aug 2025 09:08:51 -0400
-Message-Id: <20250805130945.471732-16-sashal@kernel.org>
+	heiko@sntech.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.16-6.15] phy: rockchip-pcie: Enable all four lanes if required
+Date: Tue,  5 Aug 2025 09:09:08 -0400
+Message-Id: <20250805130945.471732-33-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250805130945.471732-1-sashal@kernel.org>
 References: <20250805130945.471732-1-sashal@kernel.org>
@@ -63,8 +65,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.16
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_061022_619762_EDD127D1 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250805_061100_463589_8A0E3DB2 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+From: Valmantas Paliksa <walmis@gmail.com>
 
-[ Upstream commit 57b5a302b5d529db96ddc52fbccec005092ebb3d ]
+[ Upstream commit c3fe7071e196e25789ecf90dbc9e8491a98884d7 ]
 
-The driver checks if "vq->max_num_buffers + *nbuffers < 3", but
-vq->max_num_buffers is (by default) 32, so the check is never true. Nor
-does the check make sense.
+Current code enables only Lane 0 because pwr_cnt will be incremented on
+first call to the function. Let's reorder the enablement code to enable
+all 4 lanes through GRF.
 
-The original code in the BSP kernel was "vq->num_buffers + *nbuffers <
-3", but got mangled along the way to upstream. The intention was to make
-sure that at least 3 buffers are allocated.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
 
-Fix this by removing the bad lines and setting q->min_reqbufs_allocation
-to three.
-
-Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Reviewed-by: Hans Verkuil <hverkuil@xs4all.nl>
-Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
+Signed-off-by: Valmantas Paliksa <walmis@gmail.com>
+Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Link: https://lore.kernel.org/r/16b610aab34e069fd31d9f57260c10df2a968f80.1751322015.git.geraldogabriel@gmail.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
@@ -104,73 +105,91 @@ LLM Generated explanations, may be completely bogus:
 
 **Backport Status: YES**
 
-This commit should be backported to stable kernel trees for the
-following reasons:
+This commit fixes a significant bug in the Rockchip PCIe PHY driver
+where only Lane 0 was being enabled instead of all required lanes.
+Here's my detailed analysis:
 
-1. **Clear Bug Fix**: This fixes a logic bug where the condition
-   `vq->max_num_buffers + *nbuffers < 3` could never be true since
-   `vq->max_num_buffers` defaults to 32. The original BSP kernel code
-   was `vq->num_buffers + *nbuffers < 3`, which got incorrectly
-   translated during upstreaming.
+## Bug Description
+The original code had a critical logic error in
+`rockchip_pcie_phy_power_on()`. The lane enable operation (writing to
+`pcie_laneoff` register) was placed AFTER the `pwr_cnt++` check at line
+170. Since `pwr_cnt` is a reference counter that tracks how many times
+the PHY has been powered on, the first call would increment it from 0 to
+1 and continue with initialization. However, subsequent calls for other
+lanes (Lane 1, 2, 3) would hit the early return at line 171 (`goto
+err_out`), preventing those lanes from being enabled.
 
-2. **Functional Impact**: The bug prevents the driver from ensuring a
-   minimum of 3 buffers are allocated, which could lead to buffer
-   underruns or improper operation of the Raspberry Pi Camera Front End
-   (CFE) driver. This directly affects users of Raspberry Pi cameras.
+## The Fix
+The commit moves the lane enable operation (lines 184-188 in original)
+to BEFORE the `pwr_cnt++` check. This ensures that each lane gets
+properly enabled through the GRF (General Register File) regardless of
+the power reference count state.
 
-3. **Simple and Contained Fix**: The fix is minimal - it removes 2
-   problematic lines and adds 1 line setting `q->min_reqbufs_allocation
-   = 3`. This is the proper V4L2 videobuf2 API way to ensure minimum
-   buffer allocation rather than manually adjusting buffer counts.
+## Why This Should Be Backported
 
-4. **Low Risk**: The change is confined to a single driver file
-   (`drivers/media/platform/raspberrypi/rp1-cfe/cfe.c`) and uses the
-   standard V4L2 framework mechanism (`min_reqbufs_allocation`)
-   properly. There's minimal risk of regression since it's replacing
-   broken code with the correct API usage.
+1. **Fixes a Real Bug**: This fixes a functional bug where PCIe devices
+   requiring multiple lanes (x2, x4 configurations) would only have Lane
+   0 enabled, severely impacting performance or causing complete failure
+   to operate.
 
-5. **Recent Driver**: The rp1-cfe driver was added relatively recently
-   (commit 6edb685abb2a), and this bug was introduced during the
-   upstreaming process. Users running stable kernels with this driver
-   would benefit from having the correct behavior.
+2. **Small and Contained Fix**: The change is minimal - just reordering
+   5 lines of code within a single function. No architectural changes or
+   new features are introduced.
 
-6. **Meets Stable Criteria**: This satisfies the stable kernel rules as
-   it:
-   - Fixes a real bug that affects users
-   - Is obviously correct (uses proper V4L2 API)
-   - Has been reviewed and signed-off by subsystem maintainers
-   - Is small and self-contained
+3. **Low Risk**: The fix simply ensures the lane enable register write
+   happens for all lanes, which was clearly the original intent. The
+   moved code block remains identical.
 
-The commit properly uses the videobuf2 framework's
-`min_reqbufs_allocation` field which is designed specifically for this
-purpose - ensuring a minimum number of buffers are allocated when
-VIDIOC_REQBUFS is called.
+4. **Hardware Functionality Impact**: PCIe lane configuration is
+   critical for proper hardware operation. Devices expecting x4 links
+   but only getting x1 would experience significant performance
+   degradation (75% bandwidth loss).
 
- drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+5. **Clear Root Cause**: The bug mechanism is straightforward - the
+   reference counter was preventing lanes 1-3 from being configured due
+   to early return.
 
-diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-index fcadb2143c88..62dca76b468d 100644
---- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-+++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
-@@ -1024,9 +1024,6 @@ static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
- 	cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
- 		node->buffer_queue.type);
+6. **No Side Effects**: The change doesn't introduce new behavior, it
+   just fixes the existing broken behavior to work as originally
+   intended.
+
+This is exactly the type of bug fix that stable kernels should receive -
+it's a clear functional regression fix with minimal code changes and low
+risk of introducing new issues.
+
+ drivers/phy/rockchip/phy-rockchip-pcie.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
+index 63e88abc66c6..4e2dfd01adf2 100644
+--- a/drivers/phy/rockchip/phy-rockchip-pcie.c
++++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
+@@ -159,6 +159,12 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
  
--	if (vq->max_num_buffers + *nbuffers < 3)
--		*nbuffers = 3 - vq->max_num_buffers;
+ 	guard(mutex)(&rk_phy->pcie_mutex);
+ 
++	regmap_write(rk_phy->reg_base,
++		     rk_phy->phy_data->pcie_laneoff,
++		     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
++				   PHY_LANE_IDLE_MASK,
++				   PHY_LANE_IDLE_A_SHIFT + inst->index));
++
+ 	if (rk_phy->pwr_cnt++) {
+ 		return 0;
+ 	}
+@@ -175,12 +181,6 @@ static int rockchip_pcie_phy_power_on(struct phy *phy)
+ 				   PHY_CFG_ADDR_MASK,
+ 				   PHY_CFG_ADDR_SHIFT));
+ 
+-	regmap_write(rk_phy->reg_base,
+-		     rk_phy->phy_data->pcie_laneoff,
+-		     HIWORD_UPDATE(!PHY_LANE_IDLE_OFF,
+-				   PHY_LANE_IDLE_MASK,
+-				   PHY_LANE_IDLE_A_SHIFT + inst->index));
 -
- 	if (*nplanes) {
- 		if (sizes[0] < size) {
- 			cfe_err(cfe, "sizes[0] %i < size %u\n", sizes[0], size);
-@@ -1998,6 +1995,7 @@ static int cfe_register_node(struct cfe_device *cfe, int id)
- 	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
- 	q->lock = &node->lock;
- 	q->min_queued_buffers = 1;
-+	q->min_reqbufs_allocation = 3;
- 	q->dev = &cfe->pdev->dev;
- 
- 	ret = vb2_queue_init(q);
+ 	/*
+ 	 * No documented timeout value for phy operation below,
+ 	 * so we make it large enough here. And we use loop-break
 -- 
 2.39.5
 
