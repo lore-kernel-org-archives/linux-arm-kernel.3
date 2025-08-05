@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40212C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB24CC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PsV5TuUWJZfRV+UX3IJEalcMvDNfAPiOTqfFz7RTrvQ=; b=VI4Gxfl1SQcFTplCvHCL0bpqaD
-	fWKWxQrGiUCpNFSsR5GsW220HX1lgNNYvKBqr6RM8nPCbECw9TZA1n5co16z9XOBNw9wfia/bDQx6
-	rH+0F8HDnIiuufYwiSmB9dgWPoobIi174ckO/ceCVWt8/1ySHmVodXgjtUhohZuKeznUbgkdLUcg3
-	BRncmvP3hRwm9iO+qsot3szHuZpQ0RNvbtwbyt2kIVDsUye2IOxON0q6PEkj9/US1TrQFdf+OdszN
-	l0dLyo/VHC6JEGJ4mWoeGjWH02uDsu4O/VPkvawRxcjmoVWl0FBJTfmArWxVo+pIuYMIlqEd/Lj8K
-	vwTm10og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v+V5afcNzjmQTBS8vhpoJ2KI1ZaPZAnRYb5xq/a2u/M=; b=A3hLkpdSsX0xWDTmo/KQUTdg97
+	eOWPWdq7WZYlVnY/gQY0fPRhLy1EWXFLtfqBIJccAKG6FXlTEAeZh/nZDsJcgd6ADO6iVTCb2XYT/
+	CtmkrW2mUzaMKZDifvhh1HTy0Xy10PLZghbQep/+Ql4phFFjgxWFmWXiFzr0BAXFGVgSsuiLjrBSJ
+	0HCXVVhe6sHcVYNzmSRTre3sU/VrJZpPnPyopvmiCgWo2as7qGUFlJEPv+iTbOq/Eg48LrLx+3WZX
+	8rAHgoRCVVrzAmZGa1lguLaRxII1nzhpJgDkf5A4ZqKPD1m4gMEmdeneuGm6AHAyKo7qjBnk+11/A
+	zv0NX7SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJK8-0000000D70k-2RQy;
-	Tue, 05 Aug 2025 15:11:32 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ujJMk-0000000D7Bl-3MUl;
+	Tue, 05 Aug 2025 15:14:14 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujI9D-0000000CuLc-2f3S;
-	Tue, 05 Aug 2025 13:56:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754402170;
-	bh=r8H3+YDpCtjw639WiP3nv8ipbljLkDAhnSg6tlf/o6A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SThfW0P9ZoshXuL+4uS/4MulcWJEuYvtt3gHK6xZzvc3+RnuCwPcToKJ4Z8IlLhBD
-	 I4S/BkZ3P1vrmBgM8v/bK03aOFTy4dBOChGwz2QJ73/9SLSmeDhhKjse/nPlHAOiqj
-	 O2p6La2680Mpi+vs88fhYeiMa4ExOUgyODDviqGbKxmsr66/jDS/opdBt9x7vK/l8L
-	 Eb2Glw9fI7NmxE/IPSXdnxq4teoBS+8bauncwq9jonv3gybfy1jO1C3zNc/RDIAW1w
-	 BDyq+NF4J4trMXEAZT7fTWZ7IgCgt7PKCtsk65Hbj8t7+GSRmTlAD8KGJdlvjqrcAg
-	 Lw9R0obsr88aw==
-Received: from laura.lan (unknown [IPv6:2001:b07:646b:e2:1976:d3fe:e682:e398])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laura.nao)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 70F8A17E04DA;
-	Tue,  5 Aug 2025 15:56:09 +0200 (CEST)
-From: Laura Nao <laura.nao@collabora.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	p.zabel@pengutronix.de,
-	richardcochran@gmail.com
-Cc: guangjie.song@mediatek.com,
-	wenst@chromium.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	kernel@collabora.com,
-	Laura Nao <laura.nao@collabora.com>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>
-Subject: [PATCH v4 27/27] clk: mediatek: Add MT8196 vencsys clock support
-Date: Tue,  5 Aug 2025 15:54:47 +0200
-Message-Id: <20250805135447.149231-28-laura.nao@collabora.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250805135447.149231-1-laura.nao@collabora.com>
-References: <20250805135447.149231-1-laura.nao@collabora.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	id 1ujI9M-0000000CuNf-33JB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 13:56:21 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-458a31421a3so21057725e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 06:56:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754402178; x=1755006978; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=v+V5afcNzjmQTBS8vhpoJ2KI1ZaPZAnRYb5xq/a2u/M=;
+        b=g1dTxEmfU0nBhraNsP1sCJSVsrqdopv0osMJ1kh3RFAWLtth2btfBdOiZ1wzQ/dFPE
+         5JZ0vc4P1ymgN8yLXd/l4DMhmDcEJlAUIiz4j/DX9NccBfpP8Reuh5liPF7ntuCE/C2d
+         +vNnGGvgbP/iT2wTNcHDvVHQzlmT3K3ztCpU+kbXgcZg7AyZKM/1h9BB/jeWAhd/4UNB
+         ZT47UApfLBK5m5j0h6KHWMPIkEQrlo+4vTifCuI1v8/ajWtJh7QpVStqCQT3hC8LrKW2
+         IpshN+kzy0L7ISVG6tdt0PxiTgEDUoNNRbaB/3dzcggt/fq5ikJT1i4iDACngyNtpWKh
+         Arng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754402178; x=1755006978;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=v+V5afcNzjmQTBS8vhpoJ2KI1ZaPZAnRYb5xq/a2u/M=;
+        b=TK6Ai7PvcV/QqWrU2ziSzMlgzD964LqeTNvxMxuSPysxf00HJyzPxWr0lYWuKHisvT
+         RsvGj5ncNZP7/3NbpRNtbIt6al4y+JGDraC8Mvu2jQv2h5z/pz8Av53DwW5oLhO+zBdl
+         8Lmik9r0//F+tPV/eTNhjXdzoeypU18i7PwyyFI7DIVmhY3DTqeuvCc3D9tUj8W7B+Ei
+         6W6Z7bVAy9Okao3yc9GuzhQ6zKYCr1RZfdWZ/pXxLlmtSXIRucsQGMnk8YceWRaunMX+
+         Hp6ptORvzINOYsEQHQGEUqILfv2ENhfWbLeb0o/3ewwZ2LjO0zx68oao3T/CIqRQNsSW
+         erhw==
+X-Forwarded-Encrypted: i=1; AJvYcCX2+2FIeNCOQUDkGVntNpHRZp+BEARrJ7Qa+AxFdD6eFYI//WOk6zDpiAoI7Ej13gFeR+pWlGfKDIxm+aqxjB/p@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy34q2ln/eDucIvSlpGlYSc5B94tkeC1oSBaib0272xHHSps/v9
+	S/sPFdzefF8mEjdsb+UMFl5pg+tyFZVpP9/CeZpSUDJcLTbSDfW6LABZRGd6mIOnyVhx00pIjpW
+	8gg==
+X-Google-Smtp-Source: AGHT+IEv5Jetv/aXeCICi/z2t2gF4WBR54hMEQMLieFPQ9MiysPpZWHtfVuZ/f9eWtdzqFWO5hblP1TNWA==
+X-Received: from wmbbi26.prod.google.com ([2002:a05:600c:3d9a:b0:458:b8ca:551])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1c81:b0:458:c002:6888
+ with SMTP id 5b1f17b1804b1-458c0027a9cmr82212805e9.32.1754402178529; Tue, 05
+ Aug 2025 06:56:18 -0700 (PDT)
+Date: Tue,  5 Aug 2025 14:56:13 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
+Message-ID: <20250805135617.831971-1-tabba@google.com>
+Subject: [PATCH v1 0/4] KVM: arm64: Fixes to handling of restricted registers
+ for protected VMs
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, vdonnefort@google.com, qperret@google.com, 
+	sebastianene@google.com, keirf@google.com, smostafa@google.com, 
+	tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_065611_824244_AEDD0F4B 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20250805_065620_766476_C6117EA8 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,291 +91,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8196 vencsys clock controller, which provides
-clock gate control for the video encoder.
+This patch series is mainly about fixing issues we've encountered in
+pKVM (in downstream Android code), related to the handling of protected
+VM access to restricted registers and injecting undefined exceptions
+into a protected guest.
 
-Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Laura Nao <laura.nao@collabora.com>
----
- drivers/clk/mediatek/Kconfig           |   7 +
- drivers/clk/mediatek/Makefile          |   1 +
- drivers/clk/mediatek/clk-mt8196-venc.c | 235 +++++++++++++++++++++++++
- 3 files changed, 243 insertions(+)
- create mode 100644 drivers/clk/mediatek/clk-mt8196-venc.c
+The last patch isn't pKVM specific, but a fix to the vgic-v2 code
+encountered while fixing the issues in this series. The issue it fixes
+was indirectly introduced into the code with hVHE.
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 12d32bc03fc6..a76344cb74a1 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -1066,6 +1066,13 @@ config COMMON_CLK_MT8196_VDECSYS
- 	help
- 	  This driver supports MediaTek MT8196 vdecsys clocks.
- 
-+config COMMON_CLK_MT8196_VENCSYS
-+	tristate "Clock driver for MediaTek MT8196 vencsys"
-+	depends on COMMON_CLK_MT8196
-+	default m
-+	help
-+	  This driver supports MediaTek MT8196 vencsys clocks.
-+
- config COMMON_CLK_MT8365
- 	tristate "Clock driver for MediaTek MT8365"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 131582b12783..d8736a060dbd 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -162,6 +162,7 @@ obj-$(CONFIG_COMMON_CLK_MT8196_MMSYS) += clk-mt8196-disp0.o clk-mt8196-disp1.o c
- obj-$(CONFIG_COMMON_CLK_MT8196_PEXTPSYS) += clk-mt8196-pextp.o
- obj-$(CONFIG_COMMON_CLK_MT8196_UFSSYS) += clk-mt8196-ufs_ao.o
- obj-$(CONFIG_COMMON_CLK_MT8196_VDECSYS) += clk-mt8196-vdec.o
-+obj-$(CONFIG_COMMON_CLK_MT8196_VENCSYS) += clk-mt8196-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8365) += clk-mt8365-apmixedsys.o clk-mt8365.o
- obj-$(CONFIG_COMMON_CLK_MT8365_APU) += clk-mt8365-apu.o
- obj-$(CONFIG_COMMON_CLK_MT8365_CAM) += clk-mt8365-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8196-venc.c b/drivers/clk/mediatek/clk-mt8196-venc.c
-new file mode 100644
-index 000000000000..ecbd42629e9f
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8196-venc.c
-@@ -0,0 +1,235 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Guangjie Song <guangjie.song@mediatek.com>
-+ * Copyright (c) 2025 Collabora Ltd.
-+ *                    Laura Nao <laura.nao@collabora.com>
-+ */
-+#include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-gate.h"
-+#include "clk-mtk.h"
-+
-+static const struct mtk_gate_regs ven10_cg_regs = {
-+	.set_ofs = 0x4,
-+	.clr_ofs = 0x8,
-+	.sta_ofs = 0x0,
-+};
-+
-+static const struct mtk_gate_regs ven10_hwv_regs = {
-+	.set_ofs = 0x00b8,
-+	.clr_ofs = 0x00bc,
-+	.sta_ofs = 0x2c5c,
-+};
-+
-+static const struct mtk_gate_regs ven11_cg_regs = {
-+	.set_ofs = 0x10,
-+	.clr_ofs = 0x14,
-+	.sta_ofs = 0x10,
-+};
-+
-+static const struct mtk_gate_regs ven11_hwv_regs = {
-+	.set_ofs = 0x00c0,
-+	.clr_ofs = 0x00c4,
-+	.sta_ofs = 0x2c60,
-+};
-+
-+#define GATE_VEN10(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr_inv,	\
-+	}
-+
-+#define GATE_HWV_VEN10_FLAGS(_id, _name, _parent, _shift, _flags) {	\
-+		.id = _id,						\
-+		.name = _name,						\
-+		.parent_name = _parent,					\
-+		.regs = &ven10_cg_regs,					\
-+		.hwv_regs = &ven10_hwv_regs,				\
-+		.shift = _shift,					\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,		\
-+		.flags = (_flags) |					\
-+			 CLK_OPS_PARENT_ENABLE,				\
-+	}
-+
-+#define GATE_HWV_VEN10(_id, _name, _parent, _shift)	\
-+	GATE_HWV_VEN10_FLAGS(_id, _name, _parent, _shift, 0)
-+
-+#define GATE_HWV_VEN11(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven11_cg_regs,			\
-+		.hwv_regs = &ven11_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE		\
-+	}
-+
-+static const struct mtk_gate ven1_clks[] = {
-+	/* VEN10 */
-+	GATE_HWV_VEN10(CLK_VEN1_CKE0_LARB, "ven1_larb", "venc", 0),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE1_VENC, "ven1_venc", "venc", 4),
-+	GATE_VEN10(CLK_VEN1_CKE2_JPGENC, "ven1_jpgenc", "venc", 8),
-+	GATE_VEN10(CLK_VEN1_CKE3_JPGDEC, "ven1_jpgdec", "venc", 12),
-+	GATE_VEN10(CLK_VEN1_CKE4_JPGDEC_C1, "ven1_jpgdec_c1", "venc", 16),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE5_GALS, "ven1_gals", "venc", 28),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE29_VENC_ADAB_CTRL, "ven1_venc_adab_ctrl",
-+			"venc", 29),
-+	GATE_HWV_VEN10_FLAGS(CLK_VEN1_CKE29_VENC_XPC_CTRL,
-+			      "ven1_venc_xpc_ctrl", "venc", 30,
-+			      CLK_IGNORE_UNUSED),
-+	GATE_HWV_VEN10(CLK_VEN1_CKE6_GALS_SRAM, "ven1_gals_sram", "venc", 31),
-+	/* VEN11 */
-+	GATE_HWV_VEN11(CLK_VEN1_RES_FLAT, "ven1_res_flat", "venc", 0),
-+};
-+
-+static const struct mtk_clk_desc ven1_mcd = {
-+	.clks = ven1_clks,
-+	.num_clks = ARRAY_SIZE(ven1_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct mtk_gate_regs ven20_hwv_regs = {
-+	.set_ofs = 0x00c8,
-+	.clr_ofs = 0x00cc,
-+	.sta_ofs = 0x2c64,
-+};
-+
-+static const struct mtk_gate_regs ven21_hwv_regs = {
-+	.set_ofs = 0x00d0,
-+	.clr_ofs = 0x00d4,
-+	.sta_ofs = 0x2c68,
-+};
-+
-+#define GATE_VEN20(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,			\
-+		.shift = _shift,			\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+		.ops = &mtk_clk_gate_ops_setclr_inv,	\
-+	}
-+
-+#define GATE_HWV_VEN20(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,			\
-+		.hwv_regs = &ven20_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_HWV_VEN21(_id, _name, _parent, _shift) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven11_cg_regs,			\
-+		.hwv_regs = &ven21_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags = CLK_OPS_PARENT_ENABLE		\
-+	}
-+
-+static const struct mtk_gate ven2_clks[] = {
-+	/* VEN20 */
-+	GATE_HWV_VEN20(CLK_VEN2_CKE0_LARB, "ven2_larb", "venc", 0),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE1_VENC, "ven2_venc", "venc", 4),
-+	GATE_VEN20(CLK_VEN2_CKE2_JPGENC, "ven2_jpgenc", "venc", 8),
-+	GATE_VEN20(CLK_VEN2_CKE3_JPGDEC, "ven2_jpgdec", "venc", 12),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE5_GALS, "ven2_gals", "venc", 28),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE29_VENC_XPC_CTRL, "ven2_venc_xpc_ctrl", "venc", 30),
-+	GATE_HWV_VEN20(CLK_VEN2_CKE6_GALS_SRAM, "ven2_gals_sram", "venc", 31),
-+	/* VEN21 */
-+	GATE_HWV_VEN21(CLK_VEN2_RES_FLAT, "ven2_res_flat", "venc", 0),
-+};
-+
-+static const struct mtk_clk_desc ven2_mcd = {
-+	.clks = ven2_clks,
-+	.num_clks = ARRAY_SIZE(ven2_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct mtk_gate_regs ven_c20_hwv_regs = {
-+	.set_ofs = 0x00d8,
-+	.clr_ofs = 0x00dc,
-+	.sta_ofs = 0x2c6c,
-+};
-+
-+static const struct mtk_gate_regs ven_c21_hwv_regs = {
-+	.set_ofs = 0x00e0,
-+	.clr_ofs = 0x00e4,
-+	.sta_ofs = 0x2c70,
-+};
-+
-+#define GATE_HWV_VEN_C20(_id, _name, _parent, _shift) {\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven10_cg_regs,		\
-+		.hwv_regs = &ven_c20_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr_inv,\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+#define GATE_HWV_VEN_C21(_id, _name, _parent, _shift) {\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &ven11_cg_regs,		\
-+		.hwv_regs = &ven_c21_hwv_regs,		\
-+		.shift = _shift,			\
-+		.ops = &mtk_clk_gate_hwv_ops_setclr,	\
-+		.flags = CLK_OPS_PARENT_ENABLE,		\
-+	}
-+
-+static const struct mtk_gate ven_c2_clks[] = {
-+	/* VEN_C20 */
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE0_LARB, "ven_c2_larb", "venc", 0),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE1_VENC, "ven_c2_venc", "venc", 4),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE5_GALS, "ven_c2_gals", "venc", 28),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE29_VENC_XPC_CTRL, "ven_c2_venc_xpc_ctrl",
-+			  "venc", 30),
-+	GATE_HWV_VEN_C20(CLK_VEN_C2_CKE6_GALS_SRAM, "ven_c2_gals_sram", "venc", 31),
-+	/* VEN_C21 */
-+	GATE_HWV_VEN_C21(CLK_VEN_C2_RES_FLAT, "ven_c2_res_flat", "venc", 0),
-+};
-+
-+static const struct mtk_clk_desc ven_c2_mcd = {
-+	.clks = ven_c2_clks,
-+	.num_clks = ARRAY_SIZE(ven_c2_clks),
-+	.need_runtime_pm = true,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8196_venc[] = {
-+	{ .compatible = "mediatek,mt8196-vencsys", .data = &ven1_mcd },
-+	{ .compatible = "mediatek,mt8196-vencsys-c1", .data = &ven2_mcd },
-+	{ .compatible = "mediatek,mt8196-vencsys-c2", .data = &ven_c2_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_venc);
-+
-+static struct platform_driver clk_mt8196_venc_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8196-venc",
-+		.of_match_table = of_match_clk_mt8196_venc,
-+	},
-+};
-+module_platform_driver(clk_mt8196_venc_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8196 Video Encoders clocks driver");
-+MODULE_LICENSE("GPL");
+Based on Linux 6.16.
+
+Cheers,
+/fuad
+
+Fuad Tabba (4):
+  KVM: arm64: Handle AIDR_EL1 and REVIDR_EL1 in host for protected VMs
+  KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
+  KVM: arm64: Sync protected guest VBAR_EL1 on injecting an undef
+    exception
+  arm64: vgic-v2: Fix guest endianness check in hVHE mode
+
+ arch/arm64/include/asm/kvm_emulate.h     | 184 +++++++++++++++++++++++
+ arch/arm64/include/asm/kvm_host.h        |   3 -
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c       |   5 +
+ arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c |   2 +-
+ arch/arm64/kvm/sys_regs.c                | 184 -----------------------
+ 5 files changed, 190 insertions(+), 188 deletions(-)
+
+
+base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
 -- 
-2.39.5
+2.50.1.565.gc32cd1483b-goog
 
 
