@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85455C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F8EC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9p5hJOFJmORKeIUrvS9SS3XXjAT2mdEK7agSKoUqt8=; b=24CVA8HkxmcW3SsLXG/bE3DCSi
-	C5hPofFzuePqc0u76/TBaMLTKjKnau3BlDbNnYouf8ei2+N3frYzhan7NQXoYRWprWAQcgfA3716o
-	kaUg++EkKsErPMUQuog9Yj+c4xdwJY8JSaMTHLiIRpClvHW9bnh+5titnVe28/aCXaQrzh0ayav8W
-	oADxyxayvxqO7ZQ/f2lsXaLOi9P5IQ4AyqXldWmrC2eRqbPX7C4+4C5iDIBYmN2nsLNhX6n55pXMs
-	XDAUL7fnbOxPGAwXmbinINBtS/phh/u/53y5XyTMDGmGX52Vsp5MRmdM9BkDB9NK6KwpEi/rdluKW
-	BLrnXl8w==;
+	bh=cT/hBjEevkq2Mteug+1FOv3W118GQQs36fW0SWyNl98=; b=XUnyfkr2lHYUoNZHgeOgO/YlER
+	wYRWPDcN4rVf6k9hfmko7d+Wk9ftmfAXUh0Su/x8EvLv/tElnT4kD4fN2OCNPu9o05jx5qU1etkiF
+	HCC/wep4kp37ATTyqI6qDObvFf6gPko/RRUlDSyCFMAc+sukQZTy3YAkppZRVsG0+nnGAW4cCRFmN
+	S9FZtA3NZBRrDUAVeLxBF0zDkNUuMJQH3F5Rfbs3yTZQe2aAbTrhFTJMbFNMvkoTSUqMJfNFjSwWz
+	ma2/N3prnO8NyqEuJ4V7WJE57Rm3vn8hz0jHi5BTbUqiggFsTM8aqU+nWK+Brjty/aYzpj/GBRVcH
+	utwCkXGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHaO-0000000Cp8a-3fSw;
-	Tue, 05 Aug 2025 13:20:12 +0000
+	id 1ujHcz-0000000CpXJ-1TML;
+	Tue, 05 Aug 2025 13:22:53 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHQa-0000000CnSW-2blq;
-	Tue, 05 Aug 2025 13:10:06 +0000
+	id 1ujHQs-0000000CnUh-1mqz;
+	Tue, 05 Aug 2025 13:10:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6902BA56373;
-	Tue,  5 Aug 2025 13:10:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4F3C4CEF0;
-	Tue,  5 Aug 2025 13:10:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B4C35A56343;
+	Tue,  5 Aug 2025 13:10:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC6CAC4CEF0;
+	Tue,  5 Aug 2025 13:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754399403;
-	bh=j7U811MvCczKTPp55NF7aXier6/JUb9EwI1J0Ri83Gg=;
+	s=k20201202; t=1754399421;
+	bh=OtL0BvKJrFQvW7Ox0KkmTvFHyapror2XBcqcthYyGek=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PXegbcCQ2G0703osutbs6z8KjMDuVP3o9t8QXaN1TjpoaRtfu6ilLPqDoZoqaZhow
-	 2IZmF6wdTwo6PImNx2GBRF/7QxLAg+0V7HIbR3uwtz5ivW0yYXQRaWf2yp6Kxev6JN
-	 FmgwuJirhWvg5Z+vxCcZS+YgtTKcrguOgyjn+3EXINm6bWV8aKDMnmkcMgj8LaiZFO
-	 9QIdOWFSgm5Vs1rYnexe0x6W2cytxJ/wq9BkB8Frx3IxsRvsn1ci7qzYSbniEFYpra
-	 GhddW1USILHWdqqvgeNtBRVNThtEEKnYlkRhNATxgnnIEJMlu6KWackTAS7C2CXZ8t
-	 8NoSnDthFgrmA==
+	b=QU+N3ybq0GG/icLAmX/HjG7d0buXSJuti1IZGRHl7rqbNmum7g45J6EkcEeBlJcB8
+	 MQsoWv3Yhf9PAROxZ6FC+WC72TVR4T5KSjoZbSkoWslyfwPFfSlBQTYsixl7Oa4Fg3
+	 cuehlDcmxwRRmF/TnPDIJFj02DGQN+7c0eB0g3Pi2IydxmzQVZcNI3LhWCLC07KC5r
+	 kEG7BLiHa30ARhVLXunUInei+CnOOa+yLrxsm7qwpKJBOAXLCHPqs7UMX/Ez0yDeNJ
+	 cyGUj91dw7ayObMPJ6dB/R0zGoG0/fx59ricFILwHbx7nZ2dbdSCbI+ftc+NeW9a1G
+	 8gCZ1ZQiMMSjA==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Geraldo Nascimento <geraldogabriel@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Vinod Koul <vkoul@kernel.org>,
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
 	Sasha Levin <sashal@kernel.org>,
-	heiko@sntech.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.16-6.6] phy: rockchip-pcie: Properly disable TEST_WRITE strobe signal
-Date: Tue,  5 Aug 2025 09:08:42 -0400
-Message-Id: <20250805130945.471732-7-sashal@kernel.org>
+	kernel-list@raspberrypi.com,
+	florian.fainelli@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.16-6.15] media: raspberrypi: cfe: Fix min_reqbufs_allocation
+Date: Tue,  5 Aug 2025 09:08:51 -0400
+Message-Id: <20250805130945.471732-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250805130945.471732-1-sashal@kernel.org>
 References: <20250805130945.471732-1-sashal@kernel.org>
@@ -61,11 +61,10 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.16
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_061004_800174_2099FBE9 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20250805_061022_619762_EDD127D1 
+X-CRM114-Status: GOOD (  17.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,108 +79,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
-[ Upstream commit 25facbabc3fc33c794ad09d73f73268c0f8cbc7d ]
+[ Upstream commit 57b5a302b5d529db96ddc52fbccec005092ebb3d ]
 
-pcie_conf is used to touch TEST_WRITE strobe signal. This signal should
-be enabled, a little time waited, and then disabled. Current code clearly
-was copy-pasted and never disables the strobe signal. Adjust the define.
-While at it, remove PHY_CFG_RD_MASK which has been unused since
-64cdc0360811 ("phy: rockchip-pcie: remove unused phy_rd_cfg function").
+The driver checks if "vq->max_num_buffers + *nbuffers < 3", but
+vq->max_num_buffers is (by default) 32, so the check is never true. Nor
+does the check make sense.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-Link: https://lore.kernel.org/r/d514d5d5627680caafa8b7548cbdfee4307f5440.1751322015.git.geraldogabriel@gmail.com
-Signed-off-by: Vinod Koul <vkoul@kernel.org>
+The original code in the BSP kernel was "vq->num_buffers + *nbuffers <
+3", but got mangled along the way to upstream. The intention was to make
+sure that at least 3 buffers are allocated.
+
+Fix this by removing the bad lines and setting q->min_reqbufs_allocation
+to three.
+
+Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Reviewed-by: Hans Verkuil <hverkuil@xs4all.nl>
+Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Backport Status: YES
+**Backport Status: YES**
 
 This commit should be backported to stable kernel trees for the
 following reasons:
 
-### Bug Analysis
-The commit fixes a clear programming bug where `PHY_CFG_WR_DISABLE` was
-incorrectly defined as `1` instead of `0`. Looking at the code in
-`phy_wr_cfg()` function (lines 100-120), the sequence is:
-1. Write data and address to the configuration register
-2. Wait 1 microsecond
-3. Enable the TEST_WRITE strobe signal by writing `PHY_CFG_WR_ENABLE`
-   (value 1)
-4. Wait 1 microsecond
-5. Intended to disable the strobe signal with `PHY_CFG_WR_DISABLE`
+1. **Clear Bug Fix**: This fixes a logic bug where the condition
+   `vq->max_num_buffers + *nbuffers < 3` could never be true since
+   `vq->max_num_buffers` defaults to 32. The original BSP kernel code
+   was `vq->num_buffers + *nbuffers < 3`, which got incorrectly
+   translated during upstreaming.
 
-However, since both `PHY_CFG_WR_ENABLE` and `PHY_CFG_WR_DISABLE` were
-defined as `1`, the strobe signal was never actually disabled. This
-means the PHY configuration writes were leaving the strobe signal
-permanently enabled, which is incorrect hardware programming.
+2. **Functional Impact**: The bug prevents the driver from ensuring a
+   minimum of 3 buffers are allocated, which could lead to buffer
+   underruns or improper operation of the Raspberry Pi Camera Front End
+   (CFE) driver. This directly affects users of Raspberry Pi cameras.
 
-### Impact Assessment
-1. **Real bug affecting users**: This is a functional bug that affects
-   all Rockchip PCIe PHY operations. The strobe signal being left
-   enabled could cause:
-   - Incorrect PHY configuration behavior
-   - Potential power consumption issues
-   - Possible hardware state corruption
-   - Unpredictable PCIe link behavior
+3. **Simple and Contained Fix**: The fix is minimal - it removes 2
+   problematic lines and adds 1 line setting `q->min_reqbufs_allocation
+   = 3`. This is the proper V4L2 videobuf2 API way to ensure minimum
+   buffer allocation rather than manually adjusting buffer counts.
 
-2. **Small and contained fix**: The change is minimal - just changing
-   one define from `1` to `0`. This is exactly the type of targeted fix
-   suitable for stable.
+4. **Low Risk**: The change is confined to a single driver file
+   (`drivers/media/platform/raspberrypi/rp1-cfe/cfe.c`) and uses the
+   standard V4L2 framework mechanism (`min_reqbufs_allocation`)
+   properly. There's minimal risk of regression since it's replacing
+   broken code with the correct API usage.
 
-3. **Clear correctness**: The fix is obviously correct - a disable
-   operation should use value `0`, not `1`. The bug appears to be a
-   copy-paste error from the initial driver introduction in 2016 (commit
-   fcffee3d54fca).
+5. **Recent Driver**: The rp1-cfe driver was added relatively recently
+   (commit 6edb685abb2a), and this bug was introduced during the
+   upstreaming process. Users running stable kernels with this driver
+   would benefit from having the correct behavior.
 
-4. **Long-standing issue**: This bug has existed since the driver was
-   first introduced in 2016, affecting all kernel versions with this
-   driver.
+6. **Meets Stable Criteria**: This satisfies the stable kernel rules as
+   it:
+   - Fixes a real bug that affects users
+   - Is obviously correct (uses proper V4L2 API)
+   - Has been reviewed and signed-off by subsystem maintainers
+   - Is small and self-contained
 
-5. **No architectural changes**: The fix doesn't introduce new features
-   or change the driver architecture - it simply corrects an incorrect
-   constant value.
+The commit properly uses the videobuf2 framework's
+`min_reqbufs_allocation` field which is designed specifically for this
+purpose - ensuring a minimum number of buffers are allocated when
+VIDIOC_REQBUFS is called.
 
-6. **Low regression risk**: Changing the disable value from 1 to 0 is
-   the correct behavior according to typical hardware programming
-   patterns. The risk of regression is minimal since this fixes
-   incorrect behavior rather than changing working functionality.
+ drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-### Additional Context
-The commit also removes the unused `PHY_CFG_RD_MASK` define as cleanup,
-which was left over from commit 64cdc0360811. This is harmless cleanup
-that doesn't affect the backport decision.
-
-The commit message clearly describes the issue: the TEST_WRITE strobe
-signal should follow a pattern of enable→wait→disable, but the current
-code never actually disables it due to the incorrect define value.
-
-This meets all the criteria for stable backports: it fixes a real bug,
-is small and self-contained, has minimal risk, and corrects clearly
-incorrect behavior that has been present since driver introduction.
-
- drivers/phy/rockchip/phy-rockchip-pcie.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-pcie.c b/drivers/phy/rockchip/phy-rockchip-pcie.c
-index bd44af36c67a..63e88abc66c6 100644
---- a/drivers/phy/rockchip/phy-rockchip-pcie.c
-+++ b/drivers/phy/rockchip/phy-rockchip-pcie.c
-@@ -30,9 +30,8 @@
- #define PHY_CFG_ADDR_SHIFT    1
- #define PHY_CFG_DATA_MASK     0xf
- #define PHY_CFG_ADDR_MASK     0x3f
--#define PHY_CFG_RD_MASK       0x3ff
- #define PHY_CFG_WR_ENABLE     1
--#define PHY_CFG_WR_DISABLE    1
-+#define PHY_CFG_WR_DISABLE    0
- #define PHY_CFG_WR_SHIFT      0
- #define PHY_CFG_WR_MASK       1
- #define PHY_CFG_PLL_LOCK      0x10
+diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+index fcadb2143c88..62dca76b468d 100644
+--- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
++++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+@@ -1024,9 +1024,6 @@ static int cfe_queue_setup(struct vb2_queue *vq, unsigned int *nbuffers,
+ 	cfe_dbg(cfe, "%s: [%s] type:%u\n", __func__, node_desc[node->id].name,
+ 		node->buffer_queue.type);
+ 
+-	if (vq->max_num_buffers + *nbuffers < 3)
+-		*nbuffers = 3 - vq->max_num_buffers;
+-
+ 	if (*nplanes) {
+ 		if (sizes[0] < size) {
+ 			cfe_err(cfe, "sizes[0] %i < size %u\n", sizes[0], size);
+@@ -1998,6 +1995,7 @@ static int cfe_register_node(struct cfe_device *cfe, int id)
+ 	q->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_MONOTONIC;
+ 	q->lock = &node->lock;
+ 	q->min_queued_buffers = 1;
++	q->min_reqbufs_allocation = 3;
+ 	q->dev = &cfe->pdev->dev;
+ 
+ 	ret = vb2_queue_init(q);
 -- 
 2.39.5
 
