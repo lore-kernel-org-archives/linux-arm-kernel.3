@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEEDC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 16:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B884C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 16:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SgEzWtcjDyKuxbmCqKV4hy0KTKvQ/vKyVEQYqrgBHyY=; b=XbwKGm3C8rNZBD1mpyNaiUmMXM
-	it1kpDzUR4HtFd+Ml7h0xCwkIzbfxEIZX4kWCfM2JoAANzjtN273ZsFbav5qtFHrV1E3/Iz35YAvB
-	f+oythAJqnaesQTxp10W+UtOTh1DwTg0nRNKY7LhR3YN9+nE0R7L0yM/6DRuP7xevXra/ArFUW7zV
-	iDhMcgONMmibvD0zhzHyW/YkEjJ9LcounV2W6HcVETcDUaToM6YPDxPhLOpdgFJziAErrYxkYw5tw
-	RmgHV9brpSkR3DrqPMQl4f45fqB+BHd6MCt6D8TFZ6D8TRwkOjP8px/1Mss+oDLxRdWU1rM4y/w5S
-	m66VMyxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y5cgNoeJdpoM4VQYvEYC5EosBRNndPbA0Cc9v1Wuchs=; b=L3sSbAyiO/LXR4054P5MbxovMX
+	2Vlbmu9bNyO5DNAMDT6QgXy5YwyXBjQTB+uWOZjYmSQnbzUwf+espGDNr5UFaBXsFviHjCnrinnnW
+	n7X8PFf/FTLSama83WYxyyGAfJDvs9kxsvV7FmZlYbj4BcZYz2SVmjYPdlmf7ZIyZgThFUcjNtLOT
+	JxsMIRQBeGKHUpGOf0zg+4iCGlxUGsibrPkbxB7ioRTFcyqD4fMdplqOH9W5FYBNTyE/qS5uzY8q8
+	DTErvmXHu63j++va4kh0vUoRUQExdJMrzTpV/IPWOUZ/QgXCasZCE5FgFyxjJ8flHY+bjVozhmoat
+	MFCf+gow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujKdb-0000000DJON-0paR;
-	Tue, 05 Aug 2025 16:35:43 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1ujKgD-0000000DJtO-2TVy;
+	Tue, 05 Aug 2025 16:38:25 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJcM-0000000D90y-1S5V;
-	Tue, 05 Aug 2025 15:30:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6530C43A0E;
-	Tue,  5 Aug 2025 15:30:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754407819;
+	id 1ujJh4-0000000D9di-2Bjy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 15:35:16 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754408111;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SgEzWtcjDyKuxbmCqKV4hy0KTKvQ/vKyVEQYqrgBHyY=;
-	b=pgUOwV3ki0x/OqoP8gQIxOi/isGPmWOV76dFtkEXV+TRXpoHunlxrIRxHGPgqisHsTEJx7
-	xooSvd5EkjdxOhz2p8XGcG7qnHFeLP8ovBJ1RCP9hy92NnIxjxJq/05hbSGMvhdlCQDKHw
-	LxvcYugBw+2nhYzfuBqmxU2mv5tOw6sOi43GzDeN9tan1gpYH7dcQDdTqqn97cdYsye68c
-	Rb2hS2ElRdng1BobEiNXBwy0XLVVyP1RA/qUFM4Hp98k1tBQQEVJ/IwrrNZcssi+o3a/oZ
-	LdxY/vWLvk4pDG3VBNBLafNe+BiVf4vdZna5sUWeMSyPVUkAgG8KC+WTsDMicg==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Lorenzo Bianconi <lorenzo@kernel.org>,  Ray Liu
- <ray.liu@airoha.com>,  Mark Brown <broonie@kernel.org>,  Tudor Ambarus
- <tudor.ambarus@linaro.org>,  Martin Kurbanov
- <mmkurbanov@salutedevices.com>,  Takahiro Kuwano
- <Takahiro.Kuwano@infineon.com>,  Cheng Ming Lin
- <chengminglin@mxic.com.tw>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
-  linux-spi@vger.kernel.org
-Subject: Re: [PATCH 2/4] drivers: mtd: spi-nand: try a regular dirmap if
- creating a dirmap for continuous reading fails
-In-Reply-To: <20250804192132.1406387-3-mikhail.kshevetskiy@iopsys.eu> (Mikhail
-	Kshevetskiy's message of "Mon, 4 Aug 2025 22:21:30 +0300")
-References: <20250804192132.1406387-1-mikhail.kshevetskiy@iopsys.eu>
-	<20250804192132.1406387-3-mikhail.kshevetskiy@iopsys.eu>
-User-Agent: mu4e 1.12.7; emacs 30.1
-Date: Tue, 05 Aug 2025 17:30:16 +0200
-Message-ID: <87jz3hhjlj.fsf@bootlin.com>
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Y5cgNoeJdpoM4VQYvEYC5EosBRNndPbA0Cc9v1Wuchs=;
+	b=j9QuLMVWNdNp8fd20wM7ipE8AXgk2H2WC2QLVVLF1CsNmsIriCxjnzFuiB1wfzSeK3WsDK
+	iEInsfRhVUTAT/D2aaTAkija6ws6ieD0Rw06ZYf8XwUisHb8oM8WV65w6Uxg/3piu7LjT9
+	T1yJmG8kkphlJixzWR/kWl9Bss7NbqM=
+From: Sean Anderson <sean.anderson@linux.dev>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Sean Anderson <sean.anderson@linux.dev>
+Subject: [PATCH net-next v4 0/7] net: axienet: Fix deferred probe loop
+Date: Tue,  5 Aug 2025 11:34:49 -0400
+Message-Id: <20250805153456.1313661-1-sean.anderson@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduudehheefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtsehttdertddtredtnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhephfelkedvveffleeuhfeigfdvvefhgfejgffghfeiteegteeiudegfedtjeehkeefnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudegpdhrtghpthhtohepmhhikhhhrghilhdrkhhshhgvvhgvthhskhhihiesihhophhshihsrdgvuhdprhgtphhtthhopehrihgthhgrrhgusehnohgurdgrthdprhgtphhtthhopehvihhgnhgvshhhrhesthhirdgtohhmpdhrtghpthhtoheplhhorhgvnhiioheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhgrhidrlhhiuhesrghirhhohhgrrdgtohhmpdhrtghpthhtohepsghrohhonhhivgesk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhuughorhdrrghmsggrrhhusheslhhinhgrrhhordhorhhgpdhrtghpthhtohepmhhmkhhurhgsrghnohhvsehsrghluhhtvgguvghvihgtvghsrdgtohhm
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_083022_881588_3821A58A 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20250805_083514_709875_45B13643 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +75,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2025 at 22:21:30 +03, Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu> wrote:
+Fix a deferred-probe loop by splitting the MAC and MDIO functionality
+into separate drivers. Please refer to the last patch for an extended
+look at the problem this series is attempting to solve.
 
-> Continuous reading may result in multiple flash pages reading in one
-> operation. Typically only one flash page has read/written (a little bit
-> more than 2-4 Kb), but continuous reading requires the spi-controller
-> to read up to 512 Kb in one operation without togling CS in beetween.
->
-> Roughly speaking spi-controllers can be divided on 2 categories:
->  * spi-controllers without dirmap acceleration support
->  * spi-controllers with dirmap acceleration support
->
-> Usually, first of them have no issues with large reading support.
-> Second group often supports acceleration of single page only reading.
-> Thus enabling of continuous reading can break flash reading.
+This is a rather large fix for a rather rare bug, so I have sent it
+for net-next. The first patch is a smaller fix, however, and could go
+via net.
 
-I would be more conservative, I believe it is very implementation
-dependent; many controller drivers do not even advertise a max size.
+Changes in v4:
+- Fix documentation for axienet_mdio_enable
+- Fix platform_driver_register in exit
 
-I agree though that controllers with dirmap support may express
-limitations such as the mapped size which may lead to splitting
-operations into smaller chunks, possibly leading to CS changes which
-would break the continuous read mode on the chip's side.
+Changes in v3:
+- Use ioread32/iowrite32 directly in MDIO
+- Use MDIO bus device in prints
+- Use device variable to probe
+- Rework to use a separate axienet_common structure, as netdevs cannot
+  be reused once registered.
+- Use ida_alloc for aux id
 
-> This patch tries to create dirmap for continuous reading first and
-> fallback to regular reading if spi-controller refuses to create it.
+Changes in v2:
+- Fix building as a module
+- Expand commit message with much more info on the problem and possible
+  solutions
 
-no '-'                              ^
+Sean Anderson (7):
+  net: axienet: Fix resource release ordering
+  net: axienet: Use ioread32/iowrite32 directly
+  net: axienet: Use MDIO bus device in prints
+  net: axienet: Simplify axienet_mdio_setup
+  net: axienet: Use device variable in probe
+  net: axienet: Rearrange lifetime functions
+  net: axienet: Split into MAC and MDIO drivers
 
->
-> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-> ---
->  drivers/mtd/nand/spi/core.c | 29 +++++++++++++++++++++++++----
->  1 file changed, 25 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/mtd/nand/spi/core.c b/drivers/mtd/nand/spi/core.c
-> index b42c42ec58a4..ff6a1e2fcfdc 100644
-> --- a/drivers/mtd/nand/spi/core.c
-> +++ b/drivers/mtd/nand/spi/core.c
-> @@ -1114,11 +1114,32 @@ static int spinand_create_dirmap(struct spinand_device *spinand,
->  
->  	spinand->dirmaps[plane].wdesc = desc;
->  
-> -	if (spinand->cont_read_possible)
-> +	desc = NULL;
-> +	if (spinand->cont_read_possible) {
-> +		/*
-> +		 * spi-controllers may return an error if info.length is
-> +		 * too large
-> +		 */
->  		info.length = nanddev_eraseblock_size(nand);
-> -	info.op_tmpl = *spinand->op_templates.read_cache;
-> -	desc = devm_spi_mem_dirmap_create(&spinand->spimem->spi->dev,
-> -					  spinand->spimem, &info);
-> +		info.op_tmpl = *spinand->op_templates.read_cache;
-> +		desc = devm_spi_mem_dirmap_create(&spinand->spimem->spi->dev,
-> +						  spinand->spimem, &info);
-> +	}
-> +
-> +	if (IS_ERR_OR_NULL(desc)) {
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |  45 +-
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 383 +++++++++++-------
+ .../net/ethernet/xilinx/xilinx_axienet_mdio.c | 158 ++++----
+ 4 files changed, 350 insertions(+), 237 deletions(-)
 
-Here if the problem is continuous reading, I expect an error and not a
-NULL pointer.
+-- 
+2.35.1.1320.gc452695387.dirty
 
-> +		/*
-> +		 * continuous reading is not supported by flash or
-
-Not by the flash, here if we get an error, it is the spi controller
-(still without '-' ;) ) that fails (please fix the comment).
-
-> +		 * its spi-controller, try regular reading
-> +		 */
-> +		spinand->cont_read_possible = false;
-> +
-> +		info.length = nanddev_page_size(nand) +
-> +			      nanddev_per_page_oobsize(nand);
-> +		info.op_tmpl = *spinand->op_templates.read_cache;
-> +		desc = devm_spi_mem_dirmap_create(&spinand->spimem->spi->dev,
-> +						  spinand->spimem, &info);
-> +	}
-> +
->  	if (IS_ERR(desc))
->  		return PTR_ERR(desc);
 
