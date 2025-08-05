@@ -4,140 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92971C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17D0C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXPfazU7cIbMUIyerGOFfz8XN/djYB2vzUoaHbctEVo=; b=1zvqg91AE92sEdOW1zFHJKUr7Q
-	wkjT3th+xS5TdfzVzsVb77H31TAKpGp8flexFhOEqttA20SImmVvsrV80wC2M6pCkuMCaBK/ha03l
-	mGWEfYO8lPCHBvx5W9V1/TOFAQUvMliZIVmGTzUyhTbeclTBoUqI9W4IYjJDskEyy0cRzu841sJpC
-	j/MBVVCYcUPiqKSz0PZZjckYKbB7DdpzUoiYKD8DXhZQ/9090WfNYwWvfRL6MQ21VyionHGLdDgXD
-	KOESduCLsZ2fW3wr0rLibW1LIJSE6HkjaXaxXcvm5geybarohygODnMpHmR/6ob6tzVPohKZjVBL0
-	KLNwg/Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vSiSJhAWfiAbzSiuuDOoDC1y//lJzXGPsNhqlmku/1Q=; b=XXbkVyczXcfVzE6iCeupKQRcpe
+	+wyA2WKN+FP7MWkcrnwsA2/kX5pqCl+LUmQxKy175efVC0asPSQ3K1S8Iwtpu3/jvdtSEB3midii/
+	m3yKY6buU2jlWhB9bAooIRR8IXRLpn/8D8HzwAWiPgy0pmDVtm8ypvY4iTUN54B42jy/JxEuaid4q
+	jHE9Q6zEX5D4sm7kfhW/NLNYsuF8IWHnhuPcoY0tVJLev4zfgAZzAf81IjtL5n4hkiiCBiD4a8LDu
+	Gu1FKsFn/j+OTSxutLfPi6ezgF9qaiMFiK4KC/a0VbgB0q+1B3nSVH9kxG0hEbPEuuiFllg5Nus+e
+	Fm4NZqVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9cV-0000000Blfc-3e9x;
-	Tue, 05 Aug 2025 04:49:51 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1uj9ez-0000000BlyV-2oO0;
+	Tue, 05 Aug 2025 04:52:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9a0-0000000BlVz-09mI
+	id 1uj9ao-0000000BlZl-28DB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 04:47:17 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2401b855980so38392285ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 21:47:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754369235; x=1754974035; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=iXPfazU7cIbMUIyerGOFfz8XN/djYB2vzUoaHbctEVo=;
-        b=Qz2Nc8kGRSpKOOLTPofZp70E7zzrDttKluznolEn495Mnjx4YurCPsoXYSpSG4R+IH
-         VLHfjoemKz7KZNuO56x5rtTUyouoa5l7fVOPCFYkaWN9g2VxpHrv9cZGIx7uAvfqb3tS
-         RMqNTHoYxg8+raq9Z5n5j9hNXviPmqT3bqHg51wtqfCVG38v9dRsiW6fDWuuaH4fOKIc
-         8fmQdRcqibc8OROm/xb5SP3+LiSekhsuC2YXm8i8K24+Inr+eTf5wbMKpzjBy+envw0C
-         bpnNTzI3Ue8BUN8giJQLxBy+BHD0AagFDAPuF3wzXAue1lIxu2YccNlT79L1sk7nxu1d
-         4HpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754369235; x=1754974035;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iXPfazU7cIbMUIyerGOFfz8XN/djYB2vzUoaHbctEVo=;
-        b=tvPhtYrvPmO13bhHGZ0zhyE5bAa34+JPA8gvWvDG3es3fBQc9ZF5MXpCtxrJTuV7L/
-         fp3lQE6MNHUjx8U+xIAqwNzdCsg+udeAHV3H39jEU56LLTk0wa/1yOCtaJ4kOC37+Xxt
-         KSUeRO6mkTBFGfFXcFeJmePvzLDUuBd4NM3wriGcDuDJ6rKL0ggCSTMXqJPpbJNeeRzO
-         uT8zq6Me0qpJVs8Va3UjMQxHFzNUkhgC8V4oqmtoUV1LjLtfLxmxK1PZzv2cFf320y2R
-         uP2Nb5hswRn0wGoXZsiNGVEMpXVveG0JVXR/bFtK/TqJTJmofxe4QCfskrSGpceKrBbs
-         iyQA==
-X-Forwarded-Encrypted: i=1; AJvYcCUWLXqtu0ZXhS8bGqOEYg/oYRitCpYH29ngo8+A02thH6PcasUFWiclVfBHTIWS4OiBGQnPsTi/gYHc62+SAZp9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh7BNZ2zUz82iW3bmZWEpJODja8L/X4zG461tNBZcTtUOjq91p
-	nI+qLsa49ZQJb+lYMrhx7Kc9d7/CC7Nyi0OqYz+B32ThfO3Cghm5mbEZ
-X-Gm-Gg: ASbGncvIn3itogYe0ZVlMGl31ZdGeML0j3rFE9RGkbeNdQCsNkzayLV1xbovEwaQEE5
-	mUB2aKSTcd1riGaERY11Y+MSvqkcWVhQ14kI3MfTIyg8r27Zle5u2DK3j5f7Xp4TLlih8GDd/v6
-	ayMBc+AqWhFpKUB/KfaaDGN3j78hkKlyvh3NRLvMplVigl4RjCos3xokyVSlnwaOKvs+ziTTtaQ
-	a+qtfNU5gzAiE6BP4shtP86vsyEceNJjLianATNaQXEyf6G01ZdmqlGty5pWaYxTEuKAdcQxs4l
-	yVD3UIWSRg87O74nZNouwF2ynEA3U4+cjk534cRMGAXuaNZRtQDInfl0UwedpeZ0CjqpYGLjQba
-	ZWoRxglGPhczFNap8cG1M1zbLKbAzrIdMO0awsXbeLUB3IwBJ6RWsm440YrtFyGYb5qNNh+IzgD
-	85R1OIQQ==
-X-Google-Smtp-Source: AGHT+IFRmiQ7ZlIJtTOEEwOYYDOIvHRJnWLaM4H23tvUN6aEoH8QKnC0VXtgR0x8R9QnCygL2zeloQ==
-X-Received: by 2002:a17:903:187:b0:236:9726:7264 with SMTP id d9443c01a7336-24246f3ecf0mr201885345ad.5.1754369234567;
-        Mon, 04 Aug 2025 21:47:14 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241e8aaadadsm123348155ad.156.2025.08.04.21.47.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Aug 2025 21:47:13 -0700 (PDT)
-Message-ID: <18adfcd0-e955-4c3f-a68a-6a2f75ebd24d@roeck-us.net>
-Date: Mon, 4 Aug 2025 21:47:12 -0700
+	Tue, 05 Aug 2025 04:48:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01EEB45349;
+	Tue,  5 Aug 2025 04:48:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D26AC4CEF4;
+	Tue,  5 Aug 2025 04:48:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754369283;
+	bh=LoCncB0T59vM/YkkVlcIhEh0yb/IFkNXHSj+2ArsmPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NJMyP2nVjI/Ojpw0jHVvM/d0xQcdh27oI035+1DsLhGY/TKIo32vUwNMs4ckKFHc4
+	 axcsxLeAv1bXze6etwdJ4n1hWERU64YNBZjPSK4RjpRLHi8snQOIaUITjlfPWWTYbr
+	 p4TicsKIwuOPmfSsgbcCioAdOEVvzDjKREzufyx7LRuaBbczue4ZMejrKlnmJkyL2a
+	 v2SFWE/b8yvpjsSqQNzz2/gA/ArQxTIL+cD2nutLf/7cHWWJm5u1v1Gfg25SMyYpQA
+	 qfE/TbBlQmYuEd5VmJSDV9BN9vfFctr+aV4yq5XpbisNCX59O06ylNJFbt4DRHhYEz
+	 uSKUrKmO2twSw==
+Date: Tue, 5 Aug 2025 10:17:59 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Joris Verhaegen <verhaegen@google.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Cezary Rojewski <cezary.rojewski@intel.com>,
+	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+	Bard Liao <yung-chuan.liao@linux.intel.com>,
+	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
+	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
+	sound-open-firmware@alsa-project.org,
+	linux-arm-kernel@lists.infradead.org,
+	Miller Liang <millerliang@google.com>
+Subject: Re: [PATCH v4 2/3] ALSA: compress_offload: Add
+ SNDRV_COMPRESS_TSTAMP64 ioctl
+Message-ID: <aJGM2zXS6hOLDFm1@vaman>
+References: <20250801092720.1845282-1-verhaegen@google.com>
+ <20250801092720.1845282-3-verhaegen@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] watchdog: s3c2410_wdt: Fix max_timeout being
- calculated larger
-To: sw617.shin@samsung.com, 'Sam Protsenko' <semen.protsenko@linaro.org>
-Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
- khwan.seo@samsung.com, dongil01.park@samsung.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <CGME20250724081336epcas2p38e95932ddc5c702e05a6436f05582993@epcas2p3.samsung.com>
- <20250724080854.3866566-1-sw617.shin@samsung.com>
- <20250724080854.3866566-3-sw617.shin@samsung.com>
- <CAPLW+4nRh9DEnkhunG68xvGdaNJswC8fN4v4uBA1Aaao_5pxfw@mail.gmail.com>
- <000a01dc05c0$9f0ab110$dd201330$@samsung.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <000a01dc05c0$9f0ab110$dd201330$@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250801092720.1845282-3-verhaegen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_214716_210179_07D1BA0E 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250804_214806_718093_96C9823D 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,70 +92,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/4/25 21:22, sw617.shin@samsung.com wrote:
-> On Saturday, August 2, 2025 at 1:12 PM Sam Protsenko <semen.protsenko@linaro.org> wrote:
+On 01-08-25, 10:27, Joris Verhaegen wrote:
+> The previous patch introduced the internal infrastructure for handling
+> 64-bit timestamps. This patch exposes this capability to user-space.
 > 
->> How about something like this instead?
->>
->> 8<--------------------------------------------------------------------->8
->> static inline unsigned int s3c2410wdt_max_timeout(unsigned long freq) {
->>      const u64 div_max = (S3C2410_WTCON_PRESCALE_MAX + 1) *
->>                  S3C2410_WTCON_MAXDIV; /* 32768 */
->>      const u64 n_max = S3C2410_WTCNT_MAXCNT * div_max;
->>      u64 t_max = n_max / freq;
->>
->>      if (t_max > UINT_MAX)
->>          t_max = UINT_MAX;
->>
->>      return (unsigned int)t_max;
->> }
->> 8<--------------------------------------------------------------------->8
->>
->> This implementation's result:
->>    - is never greater than real timeout, as it loses the decimal part after
->> integer division in t_max
->>    - much closer to the real timeout value, as it benefits from very big
->> n_max in the numerator (this is the main trick here)
->>    - prepared for using 32-bit max counter value in your next patch, as it
->> uses u64 type for calculations
->>
->> For example, at the clock frequency of 33 kHz:
->>    - real timeout is: 65074.269 sec
->>    - old function returns: 65535 sec
->>    - your function returns: 32767 sec
->>    - the suggested function returns: 65074 sec
+> Define the new ioctl command SNDRV_COMPRESS_TSTAMP64, which allows
+> applications to fetch the overflow-safe struct snd_compr_tstamp64.
 > 
-> Thank you for your feedback.
-> I'll make the code changes as follows in the next patch set:
+> The ioctl dispatch table is updated to handle the new command by
+> calling a new snd_compr_tstamp64 handler, while the legacy path is
+> renamed to snd_compr_tstamp32 for clarity.
 > 
-> static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
->   {
->          const unsigned long freq = s3c2410wdt_get_freq(wdt);
-> +       const u64 div_max = (S3C2410_WTCON_PRESCALE_MAX + 1) *
-> +                       S3C2410_WTCON_MAXDIV;
-> +       const u64 n_max = S3C2410_WTCNT_MAXCNT * div_max;
-
-Not sure if splitting this expression adds any value. Why not just the following ?
-
-const u64 n_max = (u64)(S3C2410_WTCON_PRESCALE_MAX + 1) *
-                    S3C2410_WTCON_MAXDIV * S3C2410_WTCNT_MAXCNT;
-
-Or just use a define ?
-
-> +       u64 t_max = n_max / freq;
+> This patch bumps the SNDRV_COMPRESS_VERSION to 0.4.0.
 > 
+> Reviewed-by: Miller Liang <millerliang@google.com>
+> Tested-by: Joris Verhaegen <verhaegen@google.com>
+> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
+> ---
+>  include/uapi/sound/compress_offload.h |  5 +++--
+>  sound/core/compress_offload.c         | 19 +++++++++++++------
+>  2 files changed, 16 insertions(+), 8 deletions(-)
+> 
+> diff --git a/include/uapi/sound/compress_offload.h b/include/uapi/sound/compress_offload.h
+> index abd0ea3f86ee..70b8921601f9 100644
+> --- a/include/uapi/sound/compress_offload.h
+> +++ b/include/uapi/sound/compress_offload.h
+> @@ -13,8 +13,7 @@
+>  #include <sound/asound.h>
+>  #include <sound/compress_params.h>
+>  
+> -
+> -#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 3, 0)
+> +#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 4, 0)
+>  /**
+>   * struct snd_compressed_buffer - compressed buffer
+>   * @fragment_size: size of buffer fragment in bytes
+> @@ -208,6 +207,7 @@ struct snd_compr_task_status {
+>   * Note: only codec params can be changed runtime and stream params cant be
+>   * SNDRV_COMPRESS_GET_PARAMS: Query codec params
+>   * SNDRV_COMPRESS_TSTAMP: get the current timestamp value
+> + * SNDRV_COMPRESS_TSTAMP64: get the current timestamp value in 64 bit format
+>   * SNDRV_COMPRESS_AVAIL: get the current buffer avail value.
+>   * This also queries the tstamp properties
+>   * SNDRV_COMPRESS_PAUSE: Pause the running stream
+> @@ -230,6 +230,7 @@ struct snd_compr_task_status {
+>  						 struct snd_compr_metadata)
+>  #define SNDRV_COMPRESS_TSTAMP		_IOR('C', 0x20, struct snd_compr_tstamp)
+>  #define SNDRV_COMPRESS_AVAIL		_IOR('C', 0x21, struct snd_compr_avail)
+> +#define SNDRV_COMPRESS_TSTAMP64		_IOR('C', 0x22, struct snd_compr_tstamp64)
+>  #define SNDRV_COMPRESS_PAUSE		_IO('C', 0x30)
+>  #define SNDRV_COMPRESS_RESUME		_IO('C', 0x31)
+>  #define SNDRV_COMPRESS_START		_IO('C', 0x32)
+> diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
+> index d3164aa07158..445220fdb6a0 100644
+> --- a/sound/core/compress_offload.c
+> +++ b/sound/core/compress_offload.c
+> @@ -736,18 +736,23 @@ snd_compr_set_metadata(struct snd_compr_stream *stream, unsigned long arg)
+>  	return retval;
+>  }
+>  
+> -static inline int
+> -snd_compr_tstamp(struct snd_compr_stream *stream, unsigned long arg)
+> +static inline int snd_compr_tstamp(struct snd_compr_stream *stream,
+> +				   unsigned long arg, bool is_32bit)
+>  {
+>  	struct snd_compr_tstamp64 tstamp64 = { 0 };
+>  	struct snd_compr_tstamp tstamp32 = { 0 };
+> +	const void *copy_from = &tstamp64;
+> +	size_t copy_size = sizeof(tstamp64);
+>  	int ret;
+>  
+>  	ret = snd_compr_update_tstamp(stream, &tstamp64);
+>  	if (ret == 0) {
+> -		snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
+> -		ret = copy_to_user((struct snd_compr_tstamp __user *)arg,
+> -				   &tstamp32, sizeof(tstamp32)) ?
+> +		if (is_32bit) {
+> +			snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
+> +			copy_from = &tstamp32;
+> +			copy_size = sizeof(tstamp32);
+> +		}
 
-Make sure this compiles on 32-bit builds.
+Most of the applications and people would be 32bit right now and we
+expect this to progressively change, but then this imposes a penalty as
+default path is 64 bit, since we expect this ioctl to be called very
+frequently, should we do this optimization for 64bit here?
 
-> -       return S3C2410_WTCNT_MAXCNT / (freq / (S3C2410_WTCON_PRESCALE_MAX + 1)
-> -                                      / S3C2410_WTCON_MAXDIV);
-> +       if (t_max > UINT_MAX)
-> +               t_max = UINT_MAX;
-> +
-> +       return (unsigned int)t_max;
+> +		ret = copy_to_user((void __user *)arg, copy_from, copy_size) ?
+>  			      -EFAULT :
+>  			      0;
+>  	}
+> @@ -1327,7 +1332,9 @@ static long snd_compr_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
+>  
+>  	switch (cmd) {
+>  	case SNDRV_COMPRESS_TSTAMP:
+> -		return snd_compr_tstamp(stream, arg);
+> +		return snd_compr_tstamp(stream, arg, true);
+> +	case SNDRV_COMPRESS_TSTAMP64:
+> +		return snd_compr_tstamp(stream, arg, false);
+>  	case SNDRV_COMPRESS_AVAIL:
+>  		return snd_compr_ioctl_avail(stream, arg);
+>  	case SNDRV_COMPRESS_PAUSE:
+> -- 
+> 2.50.1.565.gc32cd1483b-goog
 
-I am quite sure that this typecast is unnecessary.
-
-Guenter
-
+-- 
+~Vinod
 
