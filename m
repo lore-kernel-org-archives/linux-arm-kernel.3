@@ -4,145 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6979C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC309C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OhrmX+VbZyfEClCyV8Hc7TX19PG0jza5H7iQ8Gy4srE=; b=0Pawd3DTLK//bU4nI2XdmOwuDb
-	wnivndy1USckGjFfRpDTSI9aeI7s3HrQkB0lYkFQJA5dKpfF2Ki4gsJtxXSEafijUnMptfdV1N/yd
-	qw1Tm70aoWT77pxdjD9pekyN0ASeYDi908NrEWuVBiSQS9BnXYdvQ6djtzE0bRiwjGh+f7JLoXlEu
-	1/hDHKb3PcHHYy4PTi0a26P7h8KzETVmpxmP4Z+SvC9Cwsj6sbEp2KWeQR2oSVG4c2rNsSts0NZib
-	MtQZSYfN7JjL0FolQ2LRO221IVSvvIsM4KEH6PWK7Xce0E7pCnl5oohdvoemg0fSSxdVgD+5lgv2o
-	mHq5NNaA==;
+	bh=JeWkOlMpD/ZKftryfglYqZoj0Efx+cBsF10Eo0rrTYw=; b=vPr4aDOJnYsPkTKk+xKRCDe/jk
+	lZvMtGqXXDRBsOSOwZAl9/wWUMgV/PJPfiEJA4bI58U1DfJoC3hFrMtouIYTCdViJ+/lL6bJYO0n5
+	DarE+wSj5umzLd4EqXe1MwcZmzk7uIjIV65B4AtrBQyOgF0LjbGiOHS357klNv07KjLeq1kBciiBD
+	euvWTHHrzU1tCbgLQeZ3sNA+AqHx1QY49sb0FN1Hl9G3800A45D4xhwLm0mvEkT4oPfLuEFUbOsKB
+	/UdEkzM9k3ffowysv0hUiOXbQFzQK+PC02L8kpuIZmAj3LvpYYXxjn7mmUg3udnjbx9/qL2ZnNyeE
+	GNktTvTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJcO-0000000D91n-0aaJ;
-	Tue, 05 Aug 2025 15:30:24 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1ujJez-0000000D9FK-3vZf;
+	Tue, 05 Aug 2025 15:33:07 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujIE3-0000000CvRg-04DM;
-	Tue, 05 Aug 2025 14:01:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gE/ldy0FDTt7IC49M5CbfUyy2b5R6vprrDYK+RoAW8E+2Av20tLRQYxSlFmEVVTNpa7z05sENLfK0pAuYn4A+sZAnK4SATyY89kWo4VwG7NgJyRS0Bxb2Dv86V6Lj/PN6y163jP2UEoNYcRru6CIFuWTxxQyPDOPJ71Z/cR9ABG3TgsKDu7ok4OkgU3nK2a0iHP4FZ5wT070/Gt0QpZa1lkUYcJGU7aEBx1HT2vWQhhJAdnEPPmW9ltJkFJTsHUfrFh5Ut7yy/4nZbvW4dkyQ0gvQIIRS9A2wBZECZ3EAPqG3c4Lql66lDavjyUeSdLjoHApV8t/V9x+Q0g8NXeV0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OhrmX+VbZyfEClCyV8Hc7TX19PG0jza5H7iQ8Gy4srE=;
- b=sh3baCP+/AVdRKk3ca6LmgEeiDTvjJRnvtUn3DKHGKRC5c6nXo+Jt3bGY2LYhdKHqU6mzZKVKJzOcXss8Ios8lUMbM1Jo3yW8zeBskijE5aKu34pBu+0uZOhi8D9Ebu6I7XPqq5gOitoYeHP0vTwJS4zc4gNjVjRQR7ugLpFW2UCaTrVewrsmEInu9fv8ccics5zwOVr+O8BpdaYV3fCNYG0y6QRixzMLCpdI3gFZPBKKkRTtq2KdMtcStwpoANouqzhghGKbviaYVmbJ1ywJCc0EGHZ9noHprnDNe+oX71HtFEskaYaCnWSstZdXOZo83+d1z8C6VKNARPIfLRxpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axis.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OhrmX+VbZyfEClCyV8Hc7TX19PG0jza5H7iQ8Gy4srE=;
- b=NvuHngQ81Wju2d3/ohcEpW5o3aQ0028R3YIzUofm3v8XPYB42u1h/EvFclEcA4uDMPIpaKRnsFDWSRNLJhetTKjg65nNrIn99WoOR7Q/XHs/AtHLmV1kBphgRmo5CscwDr0YDwa1/PMOm3O+R3/dZZX/Z7OHv+f73wkSK3Jb61k=
-Received: from AM0PR01CA0118.eurprd01.prod.exchangelabs.com
- (2603:10a6:208:168::23) by AS4PR02MB8670.eurprd02.prod.outlook.com
- (2603:10a6:20b:58d::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Tue, 5 Aug
- 2025 14:01:02 +0000
-Received: from AMS0EPF000001AF.eurprd05.prod.outlook.com
- (2603:10a6:208:168:cafe::d6) by AM0PR01CA0118.outlook.office365.com
- (2603:10a6:208:168::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.20 via Frontend Transport; Tue,
- 5 Aug 2025 14:01:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
- smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- AMS0EPF000001AF.mail.protection.outlook.com (10.167.16.155) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9009.8 via Frontend Transport; Tue, 5 Aug 2025 14:01:01 +0000
-Received: from pc52311-2249 (10.4.0.13) by se-mail01w.axis.com (10.20.40.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 5 Aug
- 2025 16:00:48 +0200
-From: Waqar Hameed <waqar.hameed@axis.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
-	<khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, <kernel@axis.com>,
-	<linux-pwm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-amlogic@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] pwm: meson: Remove error print for
- devm_add_action_or_reset()
-In-Reply-To: <sveurgnigarzdjreweoibcxkkl7rekcpufuwqr7bxcrdx7zdrd@kz4ohstmfyjh>
-	("Uwe =?utf-8?Q?Kleine-K=C3=B6nig=22's?= message of "Tue, 5 Aug 2025
- 15:23:12 +0200")
-References: <pndwm7ikt8v.a.out@axis.com>
-	<sveurgnigarzdjreweoibcxkkl7rekcpufuwqr7bxcrdx7zdrd@kz4ohstmfyjh>
-User-Agent: a.out
-Date: Tue, 5 Aug 2025 16:00:48 +0200
-Message-ID: <pndcy99lvfz.a.out@axis.com>
+	id 1ujIFf-0000000CvrP-3s91
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 05 Aug 2025 14:02:54 +0000
+Message-ID: <666b06a8-fd9a-428b-a9dd-c2f09710aa14@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754402568;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JeWkOlMpD/ZKftryfglYqZoj0Efx+cBsF10Eo0rrTYw=;
+	b=JRiKIZIedtkBWLyxLlW93RK2Nrz8xJ8otUXoMVIHRCEZzBxPWm7HYUuuzxoDPhArgpKtoM
+	EEVBtfMrSc2SzoUX6IRfeUnqikCFxexOOhqpeyvqDWRNWyZi7aQLZrVasgKgR9fBE24BOd
+	BZxnM9WNTq2/AQfFER4ugZOZ6y38iXU=
+Date: Tue, 5 Aug 2025 10:02:39 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-Originating-IP: [10.4.0.13]
-X-ClientProxiedBy: se-mail02w.axis.com (10.20.40.8) To se-mail01w.axis.com
- (10.20.40.7)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF000001AF:EE_|AS4PR02MB8670:EE_
-X-MS-Office365-Filtering-Correlation-Id: 459f408e-5f37-4d04-4919-08ddd428829e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WFJmdXRmMEVKMDI5M2RLcVpYY09PUEFsMnlrRS9PV2VlMEp4UDk5cHFrUTl1?=
- =?utf-8?B?UHVyQ0JkTVRpSlBzRDV3QTR5alJ0S0ljK0pCWUFXYkJ3NTR3eUw1TXRWWjg5?=
- =?utf-8?B?U3RUbExhcGd0djZSSnNtVWJIa21kYnVJZmd4OU9oclZqdWNFTjdsRDVvNnVw?=
- =?utf-8?B?Z0dBTFJnam5JSnRIMjArSWdYWTBvdlRhS0p0enlHM1cxbGRpbnlOWTFnQzBY?=
- =?utf-8?B?WXUzRmp4ZUlyQ05VNlRBVTBzU1ZJNVVrZUF4U3ViZVIzNjNIMUpPRDl6dElu?=
- =?utf-8?B?dmh5RTUrQnJMclAwcDZDUzFKTlcwUmxCL1pBanhNV2RIOStUT1A3MlNvQkEy?=
- =?utf-8?B?SG9xZHFVY3Y0N0ttSmI4MnJBRXZKY2daOG5pQllVZ3lGNTA4WG5zTDAyMVps?=
- =?utf-8?B?SjZhOE5mb2h2cm04QnJEelJOeWFyVGo3UlFZejFpK040T3g3S1lZaEx3UytJ?=
- =?utf-8?B?SnFZZy9Wd0pQMW90SUVKQjVZZTYyeGxYVG95MFlqaUtHM0M1WkkzZVllRlhv?=
- =?utf-8?B?MkZuamE2b0JUVFlPUFhhekJ5MlRhaE9TS3k4WmhLTnB2L2xvRzQ4SGxOL3hj?=
- =?utf-8?B?M2RBL3ZRQUdKL0RnVGNBTUxNYXR2WS9XdDJnZ0xrdCtSMWVscE5wVkZabGpv?=
- =?utf-8?B?L2IreGkrRFFpU05GTG9jdUR3eHNPNmltcm9DVHhrajFiSmlqU2JWZ1d3eDdK?=
- =?utf-8?B?MXBDb2ZOdFBCWjJ6STl5dXZPK3BzbEhWY2VNMlB2TmljZTJHNFpaUmNrVHJZ?=
- =?utf-8?B?OFl5Rm1FdHVuaDFPaEUweVpqWTdJTlJMN0k0dGI3VXlJTGVhUC81T2gyNjhJ?=
- =?utf-8?B?cGVEb0tYZ2pPdDQ2LzhjMU1oaTYxUDYySnRnanV4THc3eTBCYVlqMi8rT0NQ?=
- =?utf-8?B?UmpqL1ZCWThLZXZQTjRrYWxVYzNZWmZ5ZWVxbENzS0tmbUxHd3h1MGorWEdK?=
- =?utf-8?B?MVhxdFZpTkVKMzJjS3NhMUN1NTlxRWlLQmlHWGthMk1PNGU1eXROVythRjhF?=
- =?utf-8?B?UDYvaTRhTGxDeTVVMXFzVHJOYzBkOENWQ2hGVkFqSW9KQytEeHhvWW4yNUtP?=
- =?utf-8?B?OWV5eFhDZUF3ZlR0U1VxNmNOT2xWUXY3MThIVGhDc0NwQnpOVFh1VXZXNGNi?=
- =?utf-8?B?bHAvYlpMTkVMOU9LcXpJR1VmdWJOcWIrZS9HTEdZY3NGeG5USjJ2ZXZrZXJH?=
- =?utf-8?B?VUxUWkZLVnh1ZEhsN2FhNnBGQ3J3eFM3Ni90R1czYkROck9nVzBHYkZ4SWk1?=
- =?utf-8?B?NW95a2NOYVMvTEJCNHMxUkVMblZoblZiTEF6TW15Sjltc3hOMkdOZGtmU0lU?=
- =?utf-8?B?OGZ5TlQxV0xKU1FyWUxPa2pab3NkbklTdXR6dmg1REpsV0JmU0VqU1V5UmNt?=
- =?utf-8?B?dkpzRmpFRnJlZ21FNGozLzFUYUZwRnUvOHFUSkVxRS9NbWxUOVJjR1B1QWlu?=
- =?utf-8?B?eGZxTm5QVENEdEtoeDBWYWZFUXlPTXlLYWR5YzNuUDNYK01OV2ZJaWIwNDR1?=
- =?utf-8?B?ODFDcE15cWFySVVnZVVBWFkvb0hydFRDek41VGF4UTZnUFhodXM4VnJlV1FP?=
- =?utf-8?B?ZnYxNFM4NDJwaUpkUFNvdUcwU2NjcTBiQXlRZlFiZEFJSTRDMDh1dSt0aWNp?=
- =?utf-8?B?S05nVnhtQXJ4S2MzOERERStncjBRMmtUZVpRSjdFbnJ6ZDRvbXdSYWRGYVZp?=
- =?utf-8?B?ZUFqUkpRRUFUTXdsUGh0dVROYU8vQ2NtOFFFajgzdkZZa042aXNpejFCVlNS?=
- =?utf-8?B?My9vaVdxVldmSGROdXhEYnJQM2MyaVRLU3d0RlVZY1VET0ZEaGdld1Zla3Rx?=
- =?utf-8?B?bFU2OVcrekVIR3JoZGRpTVVBQkNIWG5CbjJFTmlxTlVkVFVKeGthdENqRm05?=
- =?utf-8?B?QWZRN1A2QW1iakhPa0w1R0laYUxmMEtmSCtVMGQzWENDSVdkMkxJU1JVUmtu?=
- =?utf-8?B?NHZxcnoyVWhhQmVpbmE2UEN3N3UxWnR3YjV2N1NEY2pzOWR6dVBtZFhFdXl4?=
- =?utf-8?B?b2dvWUdtQUNBPT0=?=
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2025 14:01:01.1246
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 459f408e-5f37-4d04-4919-08ddd428829e
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AF.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR02MB8670
+Subject: Re: [BUG] pci: nwl: Unhandled AER correctable error
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Bjorn Helgaas <helgaas@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ linux-pci@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+ Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Michal Simek <michal.simek@amd.com>, Brian Norris
+ <briannorris@chromium.org>, Minghuan Lian <minghuan.Lian@nxp.com>,
+ Mingkai Hu <mingkai.hu@nxp.com>, Roy Zang <roy.zang@nxp.com>,
+ Frank Li <Frank.Li@nxp.com>, Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250804205702.GA3640524@bhelgaas>
+ <23d9f128-af95-41b1-a5b9-3c69d2df8ab8@linux.dev>
+ <g4w5tcasa4ka24rqhgmbrmrua5a23dytgcbsqkuoyzekgmv43f@2wjltdepyizc>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <g4w5tcasa4ka24rqhgmbrmrua5a23dytgcbsqkuoyzekgmv43f@2wjltdepyizc>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_070111_102831_4FDD3D57 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20250805_070252_568143_DE23332E 
+X-CRM114-Status: GOOD (  30.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,85 +81,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 15:23 +0200 Uwe Kleine-K=C3=B6nig <ukleinek@kernel.=
-org> wrote:
+On 8/5/25 06:42, Manivannan Sadhasivam wrote:
+> On Mon, Aug 04, 2025 at 06:10:48PM GMT, Sean Anderson wrote:
+>> On 8/4/25 16:57, Bjorn Helgaas wrote:
+>> > [+cc more folks who might be interested in AER with non-standard
+>> > interrupts]
+>> > 
+>> > On Fri, Aug 01, 2025 at 01:43:19PM -0400, Sean Anderson wrote:
+>> >> Hi,
+>> >> 
+>> >> AER correctable errors are pretty rare. I only saw one once before and
+>> >> came up with commit 78457cae24cb ("PCI: xilinx-nwl: Rate-limit misc
+>> >> interrupt messages") in response. I saw another today and,
+>> >> unfortunately, clearing the correctable AER bit in MSGF_MISC_STATUS is
+>> >> not sufficient to handle the IRQ. It gets immediately re-raised,
+>> >> preventing the system from making any other progress. I suspect that it
+>> >> needs to be cleared in PCI_ERR_ROOT_STATUS. But since the AER IRQ never
+>> >> gets delivered to aer_irq, those registers never get tickled.
+>> >> 
+>> >> The underlying problem is that pcieport thinks that the IRQ is going to
+>> >> be one of the MSIs or a legacy interrupt, but it's actually a native
+>> >> interrupt:
+>> >> 
+>> >>            CPU0       CPU1       CPU2       CPU3       
+>> >>  42:          0          0          0          0     GICv2 150 Level     nwl_pcie:misc
+>> >>  45:          0          0          0          0  nwl_pcie:legacy   0 Level     PCIe PME, aerdrv
+>> >>  46:         25          0          0          0  nwl_pcie:msi 524288 Edge      nvme0q0
+>> >>  47:          0          0          0          0  nwl_pcie:msi 524289 Edge      nvme0q1
+>> >>  48:          0          0          0          0  nwl_pcie:msi 524290 Edge      nvme0q2
+>> >>  49:         46          0          0          0  nwl_pcie:msi 524291 Edge      nvme0q3
+>> >>  50:          0          0          0          0  nwl_pcie:msi 524292 Edge      nvme0q4
+>> >> 
+>> >> In the above example, AER errors will trigger interrupt 42, not 45.
+>> >> Actually, there are a bunch of different interrupts in MSGF_MISC_STATUS,
+>> >> so maybe nwl_pcie_misc_handler should be an interrupt controller
+>> >> instead? But even then pcie_port_enable_irq_vec() won't figure out the
+>> >> correct IRQ. Any ideas on how to fix this?
+>> >> 
+>> >> Additionally, any tips on actually triggering AER/PME stuff in a
+>> >> consistent way? Are there any off-the-shelf cards for sending weird PCIe
+>> >> stuff over a link for testing? Right now all I have 
+>> > 
+>> > This is definitely a problem.  We have had some discussion about this
+>> > in the past, but haven't quite achieved critical mass to solve this in
+>> > a generic way.  Here are some links:
+>> > 
+>> >   https://lore.kernel.org/linux-pci/20250702223841.GA1905230@bhelgaas/t/#u
+>> >   https://lore.kernel.org/linux-pci/1464242406-20203-1-git-send-email-po.liu@nxp.com/
+>> 
+>> Thanks for the links. Toggling PERST does seem to reliably cause
+>> correctable errors (however "correctable" they may actually be in
+>> practice). With the patch I posted on the other branch of this chain I
+>> now get
+>> 
+>> [   43.041610] pcieport 0000:00:00.0: AER: Multiple Corrected error message received from 0000:00:00.0
+>> [   43.050693] pcieport 0000:00:00.0: PCIe Bus Error: severity=Corrected, type=Physical Layer, (Receiver ID)
+>> [   43.061477] pcieport 0000:00:00.0:   device [10ee:d011] error status/mask=00000001/0000e000
+>> [   43.069842] pcieport 0000:00:00.0:    [ 0] RxErr                 
+>> 
+>> Whether or not that's the right fix, at least I can test things :)
+> 
+> Could you please check if INTX is working for AER? You can just pass the cmdline
+> parameter, "pcie_pme=nomsi" and observe if the IRQ is getting triggered.
 
-> Hello Waqar,
->
-> On Tue, Aug 05, 2025 at 11:33:36AM +0200, Waqar Hameed wrote:
->> When `devm_add_action_or_reset()` fails, it is due to a failed memory
->> allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
->> anything when error is `-ENOMEM`. Therefore, remove the useless call to
->> `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
->> return the value instead.
->>=20
->> Signed-off-by: Waqar Hameed <waqar.hameed@axis.com>
->> ---
->> Changes in v2:
->>=20
->> * Split the patch to one seperate patch for each sub-system.
->>=20
->> Link to v1: https://lore.kernel.org/all/pnd7c0s6ji2.fsf@axis.com/
->>=20
->>  drivers/pwm/pwm-meson.c | 3 +--
->>  1 file changed, 1 insertion(+), 2 deletions(-)
->>=20
->> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
->> index 8c6bf3d49753..e90d37d4f956 100644
->> --- a/drivers/pwm/pwm-meson.c
->> +++ b/drivers/pwm/pwm-meson.c
->> @@ -520,8 +520,7 @@ static int meson_pwm_init_channels_s4(struct pwm_chi=
-p *chip)
->>  		ret =3D devm_add_action_or_reset(dev, meson_pwm_s4_put_clk,
->>  					       meson->channels[i].clk);
->>  		if (ret)
->> -			return dev_err_probe(dev, ret,
->> -					     "Failed to add clk_put action\n");
->> +			return ret;
->
-> On the other hand the call to dev_err_probe() also doesn't hurt, right?
-> And when we keep it, it is clear that this error path is correctly
-> handled without having to know that devm_add_action_or_reset() can only
-> return success or -ENOMEM and we don't have to watch
-> devm_add_action_or_reset() to not grow something like
->
-> diff --git a/include/linux/device/devres.h b/include/linux/device/devres.h
-> index ae696d10faff..0876cce68776 100644
-> --- a/include/linux/device/devres.h
-> +++ b/include/linux/device/devres.h
-> @@ -156,6 +156,9 @@ static inline int __devm_add_action_or_reset(struct d=
-evice *dev, void (*action)(
->  {
->  	int ret;
->=20=20
-> +	if (IS_ERR_OR_NULL(dev))
-> +		return -EINVAL;
-> +
->  	ret =3D __devm_add_action(dev, action, data, name);
->  	if (ret)
->  		action(data);
->
-> From a subsystem maintainer's POV it would be great if it was easy to
-> notice if a given function needs an error message or not. One excellent
-> way to cover functions that can only return -ENOMEM on failure is to
-> optimize out the small overhead of the devm_add_action_or_reset() call.
->
-> See
-> https://lore.kernel.org/all/ylr7cuxldwb24ccenen4khtyddzq3owgzzfblbohkdxb7=
-p7eeo@qpuddn6wrz3x/
-> for a prototype of what I imagine. Oh, you were the addressee of that
-> mail, so you already know.
->
-> To make my position here explicit: This is a nack.
+I don't really understand what you want me to check. As shown above, pme
+and aer are already assigned to INTA, not an MSI. This of course never
+gets triggered.
 
-I fully understand your point and agree that there should not be a
-mental burden of knowing the exact return values from a function. That
-should be handled automatically, e.g. by the compiler or other tools.
+Figure 30-5 in UG1085 [1] shows the interrupt architecture, and I think
+it's clear from that diagram that there's no pathway for root port
+errors to trigger an MSI or a legacy interrupt.
 
-There was no real consensus in the previous thread (Jonathan Cameron
-even CC:ed some checkpatch-people to get some input for automatic
-detection from tools, but with no response). I hope that we can have
-some good way of solving these in the future, because this currently
-doesn't scale well and I'm fairly sure another driver in the future will
-hit this exact situation again...
+--Sean
+
+[1] https://docs.amd.com/api/khub/documents/xzMsp_c5sG9J6A3u7NkJYQ/content?Ft-Calling-App=ft%2Fturnkey-portal&Ft-Calling-App-Version=5.1.38#G32.381770
+
+> We have a desire to add platform IRQs for AER, but before doing that we need to
+> make sure that the platform doesn't support both MSI and INTx.
+> 
+> - Mani
+> 
 
