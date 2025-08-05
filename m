@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA66C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 01:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228EBC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 01:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UR2wfIsxgI/WXxfNcnrFl4tqPIFZzMOsYTfomE3dfGw=; b=RgtSGSjAkTHoz4SRcVfYDbP4Wg
-	aqiOt407q9s09z4heu93F8QllFn8ge9vRFnnQuteJNxGhvpJWeBPKaqsF0GDAK4FUJLhVilLOoAmJ
-	htDW1X5qCn5Cpnsobuj9+UuFjvZsP1pY2GO918ZDdMfrZXXs7k9Rc+9qz5KpDXd3N6/HP3jfnPBs6
-	qOcs2AP+Np/ia8EYo8C8w9Hi2LUCWcdXpTSnF4f7XfgmR1GB97usFPfPx9rwh1p6JPZKUqdYdmOUh
-	i9KBj1X7YTbL1AeeDKEjI/GUtR9MssabLfxk5oodOuV4+UhCKLoLhyT+mCdRhWlCMIrxBQ0/Y8UxL
-	gjNiifYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hAJ4RHocJtdCibwUW7vMzbUCC5UcCNRUv+aRR+ZSOM4=; b=Vg0rFVwv+o2gBXeZ1C4QxXCeEZ
+	kLFS/NPFcToG9RrYnf5V/kbON8VuJgKnWldbbKcBwE8xltCVrFRAjV/tNqaZDiskXsBuNBqWVnqrH
+	4vbsk5N/czsAs6IYsu888XGzI1t6NzceGcMSZVE0mSzIbnwT32XEhCIz71407uuYqU/G2zekY92z/
+	PIWDvRp2twbz/j9o1Ef5cdhjjud1XzgLvrXbDf1C1G1AMvnzVXxp6IawDvuMNSUz2uKT5vbhu1OkD
+	9ABYolldVM+aZMVVMULiT4G8YintiS/jz4jd8W5M2rAo3ryN9I1IejQPit7Yqrw43PDlZCPO2wIyc
+	gwqnquSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj6D0-0000000BZ2S-2vgP;
-	Tue, 05 Aug 2025 01:11:18 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1uj6QV-0000000BZha-3Y0T;
+	Tue, 05 Aug 2025 01:25:15 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj6AQ-0000000BYsY-0gU7
+	id 1uj6Nu-0000000BZWs-2vu9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 01:08:39 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8AEC31775;
-	Tue,  5 Aug 2025 03:07:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754356068;
-	bh=HRK77S8jj98fxjdYajHbsWPldKElX/RjHec2I/UjYD8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OCj9KBCayppPj1P1bSZyw8bSVTMcSmTyEs7pPkLC/y9oSKN/RiCxM8DHX8xHF9DT1
-	 ntGfR6Rm6AFub/qKEuhdfR5QYghYPJ8KWEhDSF0ISH5hAgdzYKN8xJvh/layVF1/l/
-	 Gr39JmEt0BsUqq/TJQI/06JcyIwuTYunZ8StyC3I=
-Date: Tue, 5 Aug 2025 04:08:22 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Martin Kepplinger <martink@posteo.de>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	Alice Yuan <alice.yuan@nxp.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Robert Chiras <robert.chiras@nxp.com>,
-	Zhipeng Wang <zhipeng.wang_1@nxp.com>
-Subject: Re: [PATCH v4 0/5] media: imx8qxp: add parallel camera support
-Message-ID: <20250805010822.GC24627@pendragon.ideasonboard.com>
-References: <20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com>
+	Tue, 05 Aug 2025 01:22:36 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-240718d5920so61315ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 18:22:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754356954; x=1754961754; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hAJ4RHocJtdCibwUW7vMzbUCC5UcCNRUv+aRR+ZSOM4=;
+        b=U31ezm8HJZL/RN57P0A/iwC/ScRVlxgzD8L/dSBeuIOKUcRjMlUGGOcTXyBsbFCMXs
+         2aWvP+AZNdU3U5+u4FXOsku5k2R/PJOITXFnX1jeLXzuaoiYQvHHe4DVAi7yLAdRrU6P
+         wg6I2qCtgen+fFCuzGGBwgrv3WP8dmhBkLT1o9spZs4QxKdY4jX+Ch47fUN5PV3ulRtW
+         uOoUyU8p2g5Z4vXSKDCZFXy7Z8Oux/1Qn1EMvTM88jpz8jUbdEXch+8Y3QGXEZGov0yi
+         mRmToIkXFtvFXS7kJCMSQNnM/8QSD0jjfwU7SagGOd0g2f6cDjPJ/WFs3cpIn3Z+nGW7
+         pA+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754356954; x=1754961754;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hAJ4RHocJtdCibwUW7vMzbUCC5UcCNRUv+aRR+ZSOM4=;
+        b=QzGuTYuR3hkWzXvJ+eluymb1wLYeB3zTx0MoEneeVRcRV81N7m+zRf2YdNg24L1MmT
+         JY7CT4Hk3UtyJENi21yGegbzkac/gPsqS++NjPdSa9iDxB5OdCGiKK9FtNoNVGIzPsaZ
+         oIzQX60xBS0BT/gzHulBmY0DZIUgxmoSusqraiKi7pueng5+TwRtxw7xO7lSu53QrCXy
+         dL21Vreyudfbix2F9r4uo0XFvy1wnDDX3s2Vc5QfhyaBYckZiWsefItcZmW1kIEdDS4H
+         9aAhZ44PTjATqYefEU+Qlc+8/rmy7BGyXyEVBMaAi3ESX3F/O4xRp1DgOzlJuNcUGhBX
+         8nPg==
+X-Forwarded-Encrypted: i=1; AJvYcCUewSaTl+14MPSSR8D13mSLw4PIvQzeBepREoL5TI7d33clBrCV8yDnFR9iB8mOezhKbJvfiap7g9QQXIsgsK39@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKrRrCPbG07cG8JcYX1o5Mw2s2ZuCZCqIqBUQWMdp8/jASS5kW
+	qKO9TMsU+0OXrek6o3fV02j3H2dSvwwFYJr06C9egizVmAigvja96ireLsFch4fLtkidYVYBkIq
+	X1O55PwubZ4vOtzkKa9qtXyNHMR9Z2lZtnX++RTWj
+X-Gm-Gg: ASbGncuSaJTNUw3R+BYrP5cmTl080ErH0MaqYvEeznf+P4BylZsi39pJ8UH/+UUG3hn
+	VYhtdeleCJRqtRPkrpjj1mmrg5Pyl/KUAE9QTW3QRgesp6N8g0TE086g2MS34ZxtZg0GmOtMbwi
+	em0mDYwPNP4e1QmV1DLliuEE5yTj66XhCV5K1b9W1W+eHV1QXvYzADvXqBVXnurrqo7sz0XrCda
+	a87E0eYtKj0wiO81o4H+8SDnQITD0xJgIir6aHm
+X-Google-Smtp-Source: AGHT+IHUNdtQwZDC9iJcA9U28t/KjMRhfY0lm9oTiYDKuEahIO/YtsfurNp2t+vB8T6wdGKdYuKho7IuX7hBOXsBD6M=
+X-Received: by 2002:a17:902:d50b:b0:223:ff93:322f with SMTP id
+ d9443c01a7336-2428e9b08e0mr357745ad.2.1754356953205; Mon, 04 Aug 2025
+ 18:22:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com>
+References: <CAJDx_rgzkZognxWzOXJ-ZxdTtUaM3FT6bmpkwxMz03XiX3fKAQ@mail.gmail.com>
+ <d395b14a-9a84-4f25-b4f0-45e8500fc5fe@redhat.com>
+In-Reply-To: <d395b14a-9a84-4f25-b4f0-45e8500fc5fe@redhat.com>
+From: Juan Yescas <jyescas@google.com>
+Date: Mon, 4 Aug 2025 18:22:20 -0700
+X-Gm-Features: Ac12FXz6D7iBBMFZt4PN7BOj1xXY8Im3BiqcIN-p29imUt-Q6tjBh8yWlEWjeZQ
+Message-ID: <CAJDx_rgrp1TpOt-iDcsSGRTL=qZZsK_dpKL1bSkyunPGcGXt5g@mail.gmail.com>
+Subject: Re: [RFC PATCH] mm/page_alloc: Add PCP list for THP CMA
+To: David Hildenbrand <david@redhat.com>
+Cc: akash.tyagi@mediatek.com, Andrew Morton <akpm@linux-foundation.org>, 
+	angelogioacchino.delregno@collabora.com, hannes@cmpxchg.org, 
+	Brendan Jackman <jackmanb@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	Linux Memory Management List <linux-mm@kvack.org>, matthias.bgg@gmail.com, Michal Hocko <mhocko@suse.com>, 
+	Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@suse.cz>, wsd_upstream@mediatek.com, 
+	Zi Yan <ziy@nvidia.com>, Kalesh Singh <kaleshsingh@google.com>, 
+	"T.J. Mercier" <tjmercier@google.com>, Isaac Manjarres <isaacmanjarres@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_180838_345576_8AE12F1B 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20250804_182234_730127_5DF1EE28 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,79 +102,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Mon, Aug 4, 2025 at 11:50=E2=80=AFAM David Hildenbrand <david@redhat.com=
+> wrote:
+>
+> On 04.08.25 20:20, Juan Yescas wrote:
+> > Hi David/Zi,
+> >
+> > Is there any reason why the MIGRATE_CMA pages are not in the PCP lists?
+> >
+> > There are many devices that need fast allocation of MIGRATE_CMA pages,
+> > and they have to get them from the buddy allocator, which is a bit
+> > slower in comparison to the PCP lists.
+> >
+> > We also have cases where the MIGRATE_CMA memory requirements are big.
+> > For example, GPUs need MIGRATE_CMA memory in the ranges of 30MiB to 500=
+MiBs.
+> > These cases would benefit if we have THPs for CMAs.
+> >
+> > Could we add the support for MIGRATE_CMA pages on the PCP and THP lists=
+?
+>
+> Remember how CMA memory is used:
+>
+> The owner allocates it through cma_alloc() and friends, where the CMA
+> allocator will try allocating *specific physical memory regions* using
+> alloc_contig_range(). It doesn't just go ahead and pick a random CMA
+> page from the buddy (or PCP) lists. Doesn't work (just imagine having
+> different CMA areas etc).
+>
+> Anybody else is free to use CMA pages for MOVABLE allocations. So we
+> treat them as being MOVABLE on the PCP.
+>
+> Having a separate CMA PCP list doesn't solve or speedup anything, really.
+>
 
-Thank you for the patches.
+Thanks David for the quick overview.
 
-I've quite busy these days, and I don't believe I will have time to
-review this series before coming back from OSS Europe at the beginning
-of September. Let's see if anyone on CC could volunteer.
+> I still have no clue what this patch here tried to solve: it doesn't
+> make any sense.
+>
 
-On Tue, Jul 29, 2025 at 12:06:21PM -0400, Frank Li wrote:
-> Add parallel camera support for i.MX8 chips.
-> 
-> The below patch to add new format support to test ov5640 sensor
->    media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
-> 
-> The bindings and driver for parallel CSI
->    dt-bindings: media: add i.MX parallel csi support
->    media: nxp: add V4L2 subdev driver for parallel CSI
-> 
-> DTS part need depend on previous MIPI CSI patches.
->   https://lore.kernel.org/imx/20250522-8qxp_camera-v5-13-d4be869fdb7e@nxp.com/
-> 
->   arm64: dts: imx8: add parellel csi nodes
->   arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Changes in v4:
-> - remove imx93 driver support since have not camera sensor module to do test now.
->   Add it later
-> - Add new patch
->   media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
-> - See each patche's change log for detail.
-> - Link to v3: https://lore.kernel.org/r/20250708-imx8qxp_pcam-v3-0-c8533e405df1@nxp.com
-> 
-> Changes in v3:
-> - replace CSI with CPI.
-> - detail change see each patch's change logs
-> - Link to v2: https://lore.kernel.org/r/20250703-imx8qxp_pcam-v2-0-188be85f06f1@nxp.com
-> 
-> Changes in v2:
-> - remove patch media: nxp: isi: add support for UYVY8_2X8 and YUYV8_2X8 bus codes
->   because pcif controller convert 2x8 to 1x16 to match isi's input
-> - rename comaptible string to fsl,imx8qxp-pcif
-> - See each patches's change log for detail
-> - Link to v1: https://lore.kernel.org/r/20250630-imx8qxp_pcam-v1-0-eccd38d99201@nxp.com
-> 
-> ---
-> Alice Yuan (2):
->       dt-bindings: media: add i.MX parallel CPI support
->       media: nxp: add V4L2 subdev driver for camera parallel interface (CPI)
-> 
-> Frank Li (3):
->       media: v4l2-common: Add helper function v4l_get_required_align_by_bpp()
->       arm64: dts: imx8: add camera parallel interface (CPI) node
->       arm64: dts: imx8qxp-mek: add parallel ov5640 camera support
-> 
->  .../devicetree/bindings/media/fsl,imx93-pcif.yaml  | 126 ++++
->  MAINTAINERS                                        |   2 +
->  arch/arm64/boot/dts/freescale/Makefile             |   3 +
->  arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi     |  13 +
->  .../boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso |  83 +++
->  arch/arm64/boot/dts/freescale/imx8qxp-ss-img.dtsi  |  27 +
->  drivers/media/platform/nxp/Kconfig                 |  11 +
->  drivers/media/platform/nxp/Makefile                |   1 +
->  drivers/media/platform/nxp/imx-parallel-cpi.c      | 728 +++++++++++++++++++++
->  include/media/v4l2-common.h                        |  30 +
->  10 files changed, 1024 insertions(+)
-> ---
-> base-commit: 37a294c6211bea9deb14bedd2dcce498935cbd4e
-> change-id: 20250626-imx8qxp_pcam-d851238343c3
+The story started with this out of tree patch that is part of Android.
 
--- 
-Regards,
+https://lore.kernel.org/lkml/cover.1604282969.git.cgoldswo@codeaurora.org/T=
+/#u
 
-Laurent Pinchart
+This patch introduced the __GFP_CMA flag that allocates pages from
+MIGRATE_MOVABLE
+or MIGRATE_CMA. What it happens then, it is that the MIGRATE_MOVABLE
+pages in the
+PCP lists were consumed pretty fast. To solve this issue, the PCP
+MIGRATE_CMA list was added.
+This list is initialized by rmqueue_bulk() when it is empty. That's
+how we end up with the PCP MIGRATE_CMA list
+in Android. In addition to this, the THP list for MIGRATE_MOVABLE was
+allowed to contain
+MIGRATE_CMA pages. This is causing THP MIGRATE_CMA pages to be used
+for THP MIGRATE_MOVABLE
+making later allocations from THP MIGRATE_CMA to fail.
+
+These workarounds are mainly because we need to solve this issue upstream:
+
+- When devices reserve big blocks of MIGRATE_CMA pages, the
+underutilized MIGRATE_CMA
+can fall back to MIGRATE_MOVABLE and these pages can be pinned, so if
+we require MIGRATE_CMA
+pages, the allocations might fail.
+
+I remember that you presented the problem in LPC. Were you able to
+make some progress on that?
+
+Thanks
+Juan
+
+
+
+
+
+> --
+> Cheers,
+>
+> David / dhildenb
+>
 
