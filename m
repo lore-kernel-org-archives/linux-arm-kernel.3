@@ -4,132 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82DC6C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 10:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C416C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 10:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDpfwfDj8mWUuSG1LdS+ozLLdWjJmIOisHydIRxuvwI=; b=4Q16LMqMWYC+G6kOHRAi1ydZ7x
-	5ADvxpCtQwgaFldhPh7GlvBjXeCxUJWQ4SINknb99EjsPDRr4LpeFiNllyHWKuqk2z/4eL3tynO1w
-	XcDoLySSaUeFdsdQp+PkBX3F0/yKVfNuow9QQ/y2N82fVxcClGg3zOnod5iiPJzmUlpuiNCH9GAPb
-	reL2eMfOVCu9+0MnvfrfnZ9DrgYkCxL8hTGT33IEqcaDKx+6JsEC6LTWhSA0nI8WgXZKhY2c2+ApW
-	D2WfSmnQSGNV405r6bC/DeDXN3VVUpX6e9EV5IFiIH4bAfyNPXpUy8gkNuiK1oRm/c57iqlHL7ocv
-	0QdXJk/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kqOH/YydyeFepQj4djKoRufGWAHZEIvnHzq3g2f3Mz0=; b=LB9HK58PBLLWBnV4u47onhunGk
+	eyUV+9k682Co/ssY8twrGNV+dbixxXLu7F799jV2Tfw2LrfCat8biFlvhKkc/8ytiHbTTSzmM0GsZ
+	oB/f6Pim3XgP3euUkrsFa1TRmPii0Z8QHYYLLvHtJ3s/MMY4QJ5+24HGOPCVWpohbl6bizAnzuugf
+	8nQWQF8zbc+7UFNvqOfaG38Bm+mNzvYoTvd6fSWRFDQx9tnJyjRw59d2sJ5VYgWRIm/SzVz050Nqv
+	XP1EHWhxuR+mqATbVfxM6p8d4+V+Z8d5M8Un6ywK2WCCjsJRAHZqRr5C6+YyvkVBorIC6jQ1+eoRm
+	2CBcgx4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujEb5-0000000CS6f-0mQn;
-	Tue, 05 Aug 2025 10:08:43 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1ujEdh-0000000CSQr-1XMg;
+	Tue, 05 Aug 2025 10:11:25 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujELg-0000000CQBe-48TW
+	id 1ujEMf-0000000CQKJ-1MaW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 09:52:50 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 00B87211A3;
-	Tue,  5 Aug 2025 09:52:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1754387566; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CDpfwfDj8mWUuSG1LdS+ozLLdWjJmIOisHydIRxuvwI=;
-	b=MbzDK56WATBzpYvm36PNRjnPakyEpA0LxY05vXUpaJh9MMuMEMri4LNxqixWXpZE0ujwi2
-	L+GUGKQmmq3DdmYrQpdZknuq0a52XYiGsEWfKKMuTvrp4/SSXHFbSTNHI1MRqoWx7xx6IB
-	QSBtK4dDay15AfV7AmP8sn0DPxz98k8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1754387566;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CDpfwfDj8mWUuSG1LdS+ozLLdWjJmIOisHydIRxuvwI=;
-	b=DhVywzYJxBPrz+KzmpiM4/Q2zxvwVcCLxQF6f+fvfGe2r69RE6DlgZiHiEs1FXmPkvD5tA
-	jHuaVAUJKfDbmjCQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1754387566; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CDpfwfDj8mWUuSG1LdS+ozLLdWjJmIOisHydIRxuvwI=;
-	b=MbzDK56WATBzpYvm36PNRjnPakyEpA0LxY05vXUpaJh9MMuMEMri4LNxqixWXpZE0ujwi2
-	L+GUGKQmmq3DdmYrQpdZknuq0a52XYiGsEWfKKMuTvrp4/SSXHFbSTNHI1MRqoWx7xx6IB
-	QSBtK4dDay15AfV7AmP8sn0DPxz98k8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1754387566;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CDpfwfDj8mWUuSG1LdS+ozLLdWjJmIOisHydIRxuvwI=;
-	b=DhVywzYJxBPrz+KzmpiM4/Q2zxvwVcCLxQF6f+fvfGe2r69RE6DlgZiHiEs1FXmPkvD5tA
-	jHuaVAUJKfDbmjCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id DEFC013A55;
-	Tue,  5 Aug 2025 09:52:45 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id LolANm3UkWi+VAAAD6G6ig
-	(envelope-from <vbabka@suse.cz>); Tue, 05 Aug 2025 09:52:45 +0000
-Message-ID: <4566222d-6b91-4789-bdd6-61e3769f5dbf@suse.cz>
-Date: Tue, 5 Aug 2025 11:54:43 +0200
+	Tue, 05 Aug 2025 09:53:50 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-879d2e419b9so3364304a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 02:53:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754387628; x=1754992428; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=kqOH/YydyeFepQj4djKoRufGWAHZEIvnHzq3g2f3Mz0=;
+        b=i3df79HBM6BP98RmzHgKPcHHkjKcVvPe1JOaYcUtnj5d9n/3SgP1oLckcIlbGzchWD
+         e5iB+0LhlFegK6o0jPeInbSfjnDQS+N4ysXrqbR+tfRRwqxjKA0JxlrAV/OolEq5WhHV
+         aP8lJqv5h6wMBkrZoJAIOi32vXLt1EtrLpAo8vzgDLKjM8asP7SY9jCRREyBVItFEKgh
+         eyyw4L019+glzpvfiIcjVtkze039QA38jao7ltJ/g2mPqe6qXlzO7LCgx3W9JlsRvvjd
+         31yfp/qYvx88WhrXrjk4shJhDfivL0Vx3+U0ZZu3dke7MfgdtG12ClaXtTCKGU5ZV88o
+         iO5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754387628; x=1754992428;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kqOH/YydyeFepQj4djKoRufGWAHZEIvnHzq3g2f3Mz0=;
+        b=mX9M5enD0gFkWL/LT3kdmiOxGMYyoQZw2+mw/fVaDi0FSZUH5v6eJZhZHdwjtCSMhG
+         S8EuXLNS2avdsNiEERVZDb0MU+nF2vSUenkM8s9bXoZbj9V+cePVIYKvGc7mdLIjQZDU
+         UcRI00yiaSLsJGKcbbJZqyssHItUwMhqIc6B+PdTmOnM/vvTDLWo/OR6TOis+a0e6iIP
+         HWywKqOnp6b6TcBbbwPETird0smeWtDZWyEaLzbBnoW/p9ISkQTe5gCqX3MwT3az7U9M
+         +unYBZ13MiwxhsfWL4DS5RAa7AC+1UMGByW0JHvGfEs6tLwIRhX9KVzsYVZSramnfTZN
+         qQrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVeIq2nwxuIpbx7dJAhYo8MS/9ta3ZkSiCw4tBdYPBG3w2vUa1yVa1VSZK3qqdN7S/St0wD5zW6Xk7d7+Sc98AW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg0pW7dl6ddm4yh3+w/vPYYWl+RhArQY+D7RWU0cJPu9jEtvXk
+	fYLy0jvSOMa+NghhshiujIWWhiyZgSFgPMU6M02CqzBgEij7Ne11i8LHLPYGpaJlyOJN6xWrtk5
+	jkkCjgZQXlBcMeE/uimsBd7c8Y/nDBVtpqW6c3bXJ7A==
+X-Gm-Gg: ASbGnctyOqQORnhyd2VaLk9qTv2CjzE286VeAvoguLyDjnqYe6fRK36uuDc/ZLLCTiU
+	+l1xsGaI7MwlwUhHMJbCVc0b7nTgxLgY0JDGBT25vWELMVRLIgsdbc8hvuTzth0be253O7fy+6R
+	jVI/DiZhlAPMMC3MB2K8izH9o5o6uyFDBHpoQSqJOBXrzNgek94d/MKctMd6QMV9ivQgc8eh3Nv
+	ojOFg==
+X-Google-Smtp-Source: AGHT+IEzHAmi0MSWAu1rgQfjhSryD3cFVQRd7ATB9s5pY8kjz8u84GpsLjOHEKwVBL1zb+hkERMs+dO7ax4ayrjHp+c=
+X-Received: by 2002:a17:90b:33ce:b0:31f:4a91:4e94 with SMTP id
+ 98e67ed59e1d1-321162d2237mr15476293a91.30.1754387628536; Tue, 05 Aug 2025
+ 02:53:48 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] mm/page_alloc: Add PCP list for THP CMA
-To: Juan Yescas <jyescas@google.com>, David Hildenbrand <david@redhat.com>
-Cc: akash.tyagi@mediatek.com, Andrew Morton <akpm@linux-foundation.org>,
- angelogioacchino.delregno@collabora.com, hannes@cmpxchg.org,
- Brendan Jackman <jackmanb@google.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- Linux Memory Management List <linux-mm@kvack.org>, matthias.bgg@gmail.com,
- Michal Hocko <mhocko@suse.com>, Suren Baghdasaryan <surenb@google.com>,
- wsd_upstream@mediatek.com, Zi Yan <ziy@nvidia.com>,
- Kalesh Singh <kaleshsingh@google.com>, "T.J. Mercier"
- <tjmercier@google.com>, Isaac Manjarres <isaacmanjarres@google.com>
-References: <CAJDx_rgzkZognxWzOXJ-ZxdTtUaM3FT6bmpkwxMz03XiX3fKAQ@mail.gmail.com>
- <d395b14a-9a84-4f25-b4f0-45e8500fc5fe@redhat.com>
- <CAJDx_rgrp1TpOt-iDcsSGRTL=qZZsK_dpKL1bSkyunPGcGXt5g@mail.gmail.com>
-From: Vlastimil Babka <vbabka@suse.cz>
-Content-Language: en-US
-In-Reply-To: <CAJDx_rgrp1TpOt-iDcsSGRTL=qZZsK_dpKL1bSkyunPGcGXt5g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[mediatek.com,linux-foundation.org,collabora.com,cmpxchg.org,google.com,lists.infradead.org,vger.kernel.org,kvack.org,gmail.com,suse.com,nvidia.com];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:mid,imap1.dmz-prg2.suse.org:helo]
+References: <20250624095905.7609-1-jie.gan@oss.qualcomm.com>
+ <c7cca483-f1d3-45b4-abef-ec5019ad57dd@oss.qualcomm.com> <c6f74d55-6ea8-498f-a05a-000599f93ac6@oss.qualcomm.com>
+ <b5f8fce0-afe8-409b-b43d-fa9f413cd442@oss.qualcomm.com>
+In-Reply-To: <b5f8fce0-afe8-409b-b43d-fa9f413cd442@oss.qualcomm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 5 Aug 2025 10:53:37 +0100
+X-Gm-Features: Ac12FXwafHZ88AWPsVnZmJsBajP70fc8s8ykZSQl042YjN088WSulIMKoD4bYuE
+Message-ID: <CAJ9a7VgZ61oL4LLxKSon3LXsYDtaHaPcGNxW=cwzhSOs3ea1PQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] Enable CTCU device for QCS8300
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_025249_181336_98A9D7CF 
-X-CRM114-Status: GOOD (  31.40  )
+X-CRM114-CacheID: sfid-20250805_025349_379569_503DEBA2 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,91 +99,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/5/25 3:22 AM, Juan Yescas wrote:
-> On Mon, Aug 4, 2025 at 11:50 AM David Hildenbrand <david@redhat.com> wrote:
->>
->> On 04.08.25 20:20, Juan Yescas wrote:
->>> Hi David/Zi,
->>>
->>> Is there any reason why the MIGRATE_CMA pages are not in the PCP lists?
->>>
->>> There are many devices that need fast allocation of MIGRATE_CMA pages,
->>> and they have to get them from the buddy allocator, which is a bit
->>> slower in comparison to the PCP lists.
->>>
->>> We also have cases where the MIGRATE_CMA memory requirements are big.
->>> For example, GPUs need MIGRATE_CMA memory in the ranges of 30MiB to 500MiBs.
->>> These cases would benefit if we have THPs for CMAs.
->>>
->>> Could we add the support for MIGRATE_CMA pages on the PCP and THP lists?
->>
->> Remember how CMA memory is used:
->>
->> The owner allocates it through cma_alloc() and friends, where the CMA
->> allocator will try allocating *specific physical memory regions* using
->> alloc_contig_range(). It doesn't just go ahead and pick a random CMA
->> page from the buddy (or PCP) lists. Doesn't work (just imagine having
->> different CMA areas etc).
->>
->> Anybody else is free to use CMA pages for MOVABLE allocations. So we
->> treat them as being MOVABLE on the PCP.
->>
->> Having a separate CMA PCP list doesn't solve or speedup anything, really.
->>
-> 
-> Thanks David for the quick overview.
-> 
->> I still have no clue what this patch here tried to solve: it doesn't
->> make any sense.
->>
-> 
-> The story started with this out of tree patch that is part of Android.
-> 
-> https://lore.kernel.org/lkml/cover.1604282969.git.cgoldswo@codeaurora.org/T/#u
-> 
-> This patch introduced the __GFP_CMA flag that allocates pages from
-> MIGRATE_MOVABLE
-> or MIGRATE_CMA.
+Hi Jie,
 
-What kinds of allocations would then use __GFP_CMA? (let me try guess
-one - zswap backend?)
+On Tue, 5 Aug 2025 at 05:11, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>
+>
+>
+> On 7/28/2025 9:08 AM, Jie Gan wrote:
+> >
+> >
+> > On 7/15/2025 8:41 AM, Jie Gan wrote:
+> >>
+> >>
+> >> On 6/24/2025 5:59 PM, Jie Gan wrote:
+> >>> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in
+> >>> binding to utilize
+> >>> the compitable of the SA8775p platform becuase the CTCU for QCS8300
+> >>> shares same
+> >>> configurations as SA8775p platform.
+> >>
+> >> Gentle ping.
+> >
+> > Gentle ping.
+>
+> Gentle ping.
+> Hi Coresight maintainers,
+>
+> Can you please help to review the patch?
+>
+> Thanks,
+> Jie
+>
+> >
+> > Thanks,
+> > Jie
+> >
+> >>
+> >> Hi Suzuki, Mike, James, Rob
+> >>
+> >> Can you plz help to review the patch from Coresight view?
+> >>
+> >> Thanks,
+> >> Jie
+> >>
+> >>>
+> >>> Changes in V2:
+> >>> 1. Add Krzysztof's R-B tag for dt-binding patch.
+> >>> 2. Add Konrad's Acked-by tag for dt patch.
+> >>> 3. Rebased on tag next-20250623.
+> >>> 4. Missed email addresses for coresight's maintainers in V1, loop them.
+> >>> Link to V1 - https://lore.kernel.org/all/20250327024943.3502313-1-
+> >>> jie.gan@oss.qualcomm.com/
+> >>>
+> >>> Jie Gan (2):
+> >>>    dt-bindings: arm: add CTCU device for QCS8300
+> >>>    arm64: dts: qcom: qcs8300: Add CTCU and ETR nodes
+> >>>
+> >>>   .../bindings/arm/qcom,coresight-ctcu.yaml     |   9 +-
+> >>>   arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 153 ++++++++++++++++++
+> >>>   2 files changed, 160 insertions(+), 2 deletions(-)
+> >>>
+> >>
+> >>
+> >
+>
 
-> What it happens then, it is that the MIGRATE_MOVABLE
-> pages in the
-> PCP lists were consumed pretty fast. To solve this issue, the PCP
-> MIGRATE_CMA list was added.
-> This list is initialized by rmqueue_bulk() when it is empty. That's
-> how we end up with the PCP MIGRATE_CMA list
-> in Android. In addition to this, the THP list for MIGRATE_MOVABLE was
-> allowed to contain
-> MIGRATE_CMA pages. This is causing THP MIGRATE_CMA pages to be used
-> for THP MIGRATE_MOVABLE
-> making later allocations from THP MIGRATE_CMA to fail.
+You need to send a new patch addressing the comments made by Krzysztof..
 
-If you don't want THP's to use the large (THP-sized) MIGRATE_CMA pages,
-what kind of such large allocations would be ok to use MIGRATE_CMA then?
-> These workarounds are mainly because we need to solve this issue upstream:
-> 
-> - When devices reserve big blocks of MIGRATE_CMA pages, the
-> underutilized MIGRATE_CMA
-> can fall back to MIGRATE_MOVABLE and these pages can be pinned, so if
-> we require MIGRATE_CMA
-> pages, the allocations might fail.
-> 
-> I remember that you presented the problem in LPC. Were you able to
-> make some progress on that?
-> 
-> Thanks
-> Juan
-> 
-> 
-> 
-> 
-> 
->> --
->> Cheers,
->>
->> David / dhildenb
->>
+Regards
 
+Mike
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
