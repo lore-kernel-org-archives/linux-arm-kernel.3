@@ -4,53 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05641C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16F9C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8EafCVUwqhrlw+H4cY7Zgjr8E2tMajz3iJ1Uuzn/og=; b=sixNS8I0ETyWbNndczNZQ58Uid
-	/HtQcH2eSvqXy6U3hvNwDI+mJ2/sVN+ZwSvdSD3cRM01WjCroBkBKjlBfdPQb+J1BBOwluuLW1yzW
-	gWjvFG7iQNgbH76LWmLyitjg8dbxayuANCyjTZPbN0GA3GtLgH9KoybzmF6MRr4w/kvzM5MRlSmKP
-	T4K4Vxw9mOBD7MP4pj7EaoOrvUJv5C23ZQ+0ylm95nu68V47C4bwI86rfXx6oeSpKiAXFlM6n7BIc
-	s4Bg0ReHuMU7Oj+k2zCGBd9tsrGJk6p3DWeZHRAJuBpQqC7zxG+xYIPOSHNB+ED3vpvyy1F1jZXTE
-	3P9zeiRQ==;
+	bh=BS1Nv3IYXc7ptZpLu1XliiOyDJC9I4rHv8nqrIr3qLU=; b=WmgdjWa/8EiJre5CSj4o7jzToe
+	wE8QB+SWyYkwPHGkqjDuCiK7lXEqMVTTkZu86m7n8hEnSAPB+2i0GP5mPq/O3NPsxLIzzhdoEzt4I
+	DtfAJgtm1qrXPILnXjFJ+4v9LvT6xq29N/egYUEhjlyCybxuA/ErmXNnaCPoc+KK5qOjKt27lFXlC
+	Xy+hxpm1aSIqbxn539XV+T9yXE0luaXcDnus97ieSNRJANxuXXFlcJGCAo6/dJ4YQJSRv8PtDMbw+
+	gpU8a61spOUPAVH1As9USkQj1OXqcdddbbez5pziCvAbL7tzHjjwKvxGO1zzgQPBL7z+jy63o9TDU
+	dzPlivLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJv2-0000000DCUe-0P3q;
-	Tue, 05 Aug 2025 15:49:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ujJxc-0000000DCgu-40Zn;
+	Tue, 05 Aug 2025 15:52:20 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujIp4-0000000D2cq-1J2X
+	id 1ujIpM-0000000D2im-3E8U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 14:39:27 +0000
+	Tue, 05 Aug 2025 14:39:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 69F785C55C1;
-	Tue,  5 Aug 2025 14:39:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4ED10C4CEF0;
-	Tue,  5 Aug 2025 14:39:23 +0000 (UTC)
-Date: Tue, 5 Aug 2025 15:39:20 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
-	akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
-	dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v6 0/4] arm64: support FEAT_BBM level 2 and large
- block mapping when rodata=full
-Message-ID: <aJIXmIgCGlWlHDNK@arm.com>
-References: <20250805081350.3854670-1-ryan.roberts@arm.com>
- <985f9d53-ea5e-4da0-9427-106a58be7f26@arm.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1B0E9A5654C;
+	Tue,  5 Aug 2025 14:39:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4453BC4CEF0;
+	Tue,  5 Aug 2025 14:39:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754404783;
+	bh=zDU15c/0SyS63Ve+P/xgIY3O2R3OtWuKg0khyFNpS0c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QiA8RnhbuUV+U394qNTDHAlY1LIU8/+1wR6oCHm2LO+o9jq2kFxVXE+1SpLfudqQF
+	 BUHK6SHRnPACdpYoWgQqiOWEd74Uisk5TvAoHkbO4T+xS0A4kYKX5TryyUtcFnJZPx
+	 h7XE0tcRxpVCBHz6OpClkpA8pScSfM6k4y1egE1N0KC8FiayWiojJ5XgkXa13JfuUZ
+	 J69buYgraPGMEgnscbaCLiXHgwFbQoJ1itVl7JmgJEsC8EdhQgPw/1b9vysbGGH3VO
+	 yDQoC5kxZUfVbGPTrAVYPmoVDkKD08aUV6OQumx7lPfqB3Q2bn9jhR8wU5u033ihmc
+	 rGIoXGR8DNcAw==
+Date: Tue, 5 Aug 2025 15:39:38 +0100
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, vdonnefort@google.com, qperret@google.com,
+	sebastianene@google.com, keirf@google.com, smostafa@google.com
+Subject: Re: [PATCH v1 0/4] KVM: arm64: Fixes to handling of restricted
+ registers for protected VMs
+Message-ID: <aJIXqmv1_0djt82y@willie-the-truck>
+References: <20250805135617.831971-1-tabba@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <985f9d53-ea5e-4da0-9427-106a58be7f26@arm.com>
+In-Reply-To: <20250805135617.831971-1-tabba@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_073926_396440_A1D51DB6 
-X-CRM114-Status: GOOD (  18.34  )
+X-CRM114-CacheID: sfid-20250805_073944_874791_FD625167 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,25 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 09:16:31AM +0100, Ryan Roberts wrote:
-> On 05/08/2025 09:13, Ryan Roberts wrote:
-> > This is a new version built on top of Yang Shi's work at [1]. Yang and I have
-> > been discussing (disagreeing?) about the best way to implement the last 2
-> > patches. So I've reworked them and am posting as RFC to illustrate how I think
-> > this feature should be implemented, but I've retained Yang as primary author
-> > since it is all based on his work. I'd appreciate feedback from Catalin and/or
-> > Will on whether this is the right approach, so that hopefully we can get this
-> > into shape for 6.18.
+Hi Fuad,
+
+On Tue, Aug 05, 2025 at 02:56:13PM +0100, Fuad Tabba wrote:
+> This patch series is mainly about fixing issues we've encountered in
+> pKVM (in downstream Android code), related to the handling of protected
+> VM access to restricted registers and injecting undefined exceptions
+> into a protected guest.
 > 
-> I forgot to mention that it applies on Linus's current master (it depends upon
-> mm and arm64 changes that will first appear in v6.17-rc1 and are already merged
-> in master). I'm using 89748acdf226 as the base.
+> The last patch isn't pKVM specific, but a fix to the vgic-v2 code
+> encountered while fixing the issues in this series. The issue it fixes
+> was indirectly introduced into the code with hVHE.
+> 
+> Based on Linux 6.16.
 
-It's fine as an RFC but, for upstream, please rebase on top of -rc1
-rather than a random commit in the middle of the merging window. Also
-note that many maintainers ignore new series posted during the merging
-window.
+Thanks for putting this together so quickly.
 
--- 
-Catalin
+I left some small comments on patches 2 and 3 but, for the sake of
+transparency (I already mentioned the GIC thing to Marc), please can
+you add:
+
+Reported-by: Will Deacon <will@kernel.org>
+
+on patches 1 and 4?
+
+Cheers,
+
+Will
 
