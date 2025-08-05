@@ -4,88 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A80C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 03:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144C2C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 03:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wwKF8zU5dP+B8D7+Ra6l9PAIkPkCoCFD7l4115nJcKw=; b=D9CTpKR61hFYpV+FXvpd4Bvx1C
-	qhl984hEJoDZY8aGONbcxPV0sx6zW5n805N5zZzZmwW2O+FF665D8n07kQ2dtV4MerL+5IiGfZzbP
-	kKJpdVnDIa69r3jyE5Sm2bmqx9FSpqCTP4LTfCxMaJBdLsvFO2lApWoQw2wDy+P4VdMK9DoWMeG8v
-	qVRYDPxKGjZxtEkhsLzQZmSX0/uHY9TcVuU+F/XL7msczNTdoJ3z93vIQbq0w56BXaqXY0PmWsNuu
-	WaT1Nx32xjwDoqLCFXNiWPy+iHlSM8zNC0NAVqCdSJAUZQiwyLsMilTZNE4IwjAqNBBuXggUx4tuB
-	mjDJk9+g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=28swiPqyhJ+wqthzGqPRfqoTRJZZiDtTt4jtzU7sc6A=; b=rhMszGcBSPVpitYg5vnfBPqzZJ
+	72RtZyJpSK2DnX8HTQYHpGp7AgAGuo4A30lhnZy2U7KPQbp/Y7JRuSF6nVeG1whbqErfzYT/gJaxj
+	+D4xoPfvxJIjNWmtbCxwoTrXU7V+zeD3Jl7Lc//IWQx5ipmhdrla1GDxlWZqQbMPWGaitSz+2n14u
+	pC/3zZ+o+aE3j0qyCnKNK7XZW+cuFHwBP8/KzA5g9IiIuWItC6CfscPAWuaUhcsSOTPgU72+27vGU
+	Lvh3y/W23UoH5quhVzF75WhAO8gHUdOrDWXHkGT5hKrs86gFz/G3LHXhCuIbVTwgcW2Vs5/MKsKxA
+	FXO2FwoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj80u-0000000Bf51-0TvJ;
-	Tue, 05 Aug 2025 03:06:56 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1uj8cv-0000000BhlU-1m64;
+	Tue, 05 Aug 2025 03:46:13 +0000
+Received: from mail-m32118.qiye.163.com ([220.197.32.118])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj7yG-0000000BevF-1uFZ;
-	Tue, 05 Aug 2025 03:04:13 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-24099fade34so41160815ad.0;
-        Mon, 04 Aug 2025 20:04:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754363052; x=1754967852; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=wwKF8zU5dP+B8D7+Ra6l9PAIkPkCoCFD7l4115nJcKw=;
-        b=jHvAh31OakeQQWJQiZEIfW3tGtZmKCAW4K+gu9O0lJBUYkD89v3F1OSNBna3Qh1UyX
-         f7TknA+aA8sX9FoOncYGiWxjGPpelw2afpRM6eab4WZjORzrBNF++OJi7vD5vbQdK5pA
-         yo1+S7kkQrgb4zFtJ1zt0mdkx5S6dB9BJCsYs4SSybqsvOHg997F20nku0toTFYOpbuD
-         /M3OFlrmMYp2IUHSvO7X+lWwjSzQn9YgyFyefXKkv3aRex5ke7rH2s9WGfQsKb/44xk9
-         +RsAdqDnlXIpTDWCWpcZKNiZBoNIvK9hS9QduP2HZkgw0jGjPF00pKV0aRIfIKDUeemx
-         ewlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754363052; x=1754967852;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wwKF8zU5dP+B8D7+Ra6l9PAIkPkCoCFD7l4115nJcKw=;
-        b=NkYxsdWJSmQBftHTvuwhN1BZ6tOHsbJO4muz9EOf/kt79EFZ34RqqoRBg9yqFWoyfK
-         P5peG7i1L13iYQQ3u+Z9AG0KKN0ykj5kukCl+bYWt+k5aY+E8uywkeYqKt+tExZ1yBy1
-         gzhgujc5gUxzAV6DSLZSzts5wIAybX4xWifHpxnu2rwmMEiodHBRrChUYsIYKSXTQZGy
-         DhgkeLuQHqkpw+HswkZaris+l6VvX8mtj7BeWrVEVTgZS5mYt8SGzB19x+b3diIWJjNh
-         75BxqqttJgu7ZdSkHEUw10Zt/u/YKJrtMdUll93HsZMhja7EIPLc5/6sU7YGWTr++MbS
-         3jKw==
-X-Forwarded-Encrypted: i=1; AJvYcCVMTCBgiDXPMl21Wgv96etOoKrpbzQO4Mi3gde2lCn/1YuNGoqvI3iF49tt7SemmBf95zudkP1zTQ0/98c5ZsdG@lists.infradead.org, AJvYcCVuD99ma1MxEZxUyj2VGHlCxw+47+4K+Ob6qLd7sKWxGkjOgEkBJZM1ot+4gRGJ2hm43dIFOsKTvgfiJzzi744=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4aSJqr6hE+urSmdL9BtvYWHNXki4DSKRJatAcbooPAi7IVS6v
-	pLrzi9qnLFhGKVRBzQTelji0p4MNB2o+ATx8RrjQK0VBiNAX/yty6oUK
-X-Gm-Gg: ASbGnct4MHtKL91+tQROIe8inuJxNbWT8Ipa6WMeSuf2R/ok3ZixakplUzMHuf7aPWF
-	E6hNw0p//z6M14fekqia40SleVeIPvJvUWrkaunWI78AC3IoY4YdE1RINEmz6GPmShtSfkAsP9l
-	cwotQblugKpt1EzET8ShtCRNZx9LGZEbuVPwjcy4QKgnop2Rkf8hmQc8TZG2skLcbPEzdzbV22P
-	fwpCdkR+30qqi1tVdjHlevV0ofZ8JsjRY2Tvj/W4vn98abXb5ZSNIQFh2hdl6JSiVVuYxPgwTk/
-	TDePHMn47jxepnyMIwIdVx84k86dqFeWywWUGYZWhwX1TQI4ecK0g/0LFYJ0KbeJ5XXOiMV8g1t
-	GI2LrvSVMk9fyTZS5+Lil
-X-Google-Smtp-Source: AGHT+IEbc9AVFakYZpbdR7rVCLvCec18sXj2vaHTDGV6a2A64i6B073BsLEms/87izlJzKkm/8wFgQ==
-X-Received: by 2002:a17:902:d487:b0:240:4d19:8797 with SMTP id d9443c01a7336-24246f8c70amr191050325ad.22.1754363051610;
-        Mon, 04 Aug 2025 20:04:11 -0700 (PDT)
-Received: from c45b92c47440.. ([202.120.234.58])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-31f63f0cb39sm15390881a91.30.2025.08.04.20.04.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 04 Aug 2025 20:04:11 -0700 (PDT)
-From: Miaoqian Lin <linmq006@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: linmq006@gmail.com
-Subject: [PATCH] clk: rockchip: Fix error pointer check after rockchip_clk_register_gate_link()
-Date: Tue,  5 Aug 2025 07:03:58 +0400
-Message-Id: <20250805030358.3665878-1-linmq006@gmail.com>
-X-Mailer: git-send-email 2.25.1
+	id 1uj8aJ-0000000BhWv-2Tyz;
+	Tue, 05 Aug 2025 03:43:33 +0000
+Received: from [172.16.12.153] (gy-adaptive-ssl-proxy-3-entmail-virt135.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1e4f07c8f;
+	Tue, 5 Aug 2025 11:43:07 +0800 (GMT+08:00)
+Message-ID: <0207826d-a987-4464-b306-29bdbfac45bc@rock-chips.com>
+Date: Tue, 5 Aug 2025 11:43:05 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/5] Add Type-C DP support for RK3399 EVB IND board
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ dri-devel@lists.freedesktop.org
+References: <20250729090032.97-1-kernel@airkyi.com>
+ <3kefqzjewmsyzfvyi33kvlgjd6jphjg3fsnixb3of7yb3xkgs2@hgi6xfkgd653>
+ <63ec11cf-7927-431a-995e-a5fc35ef1ba7@rock-chips.com>
+ <pk5wecbbpxn7v4bdwtghhdnm76fmrmglelytljwfb4cgvpu2i6@rk5turgyt5xq>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <pk5wecbbpxn7v4bdwtghhdnm76fmrmglelytljwfb4cgvpu2i6@rk5turgyt5xq>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a987853630a03abkunm29211595654c93
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkIYH1ZIHUhDHktITkoaTklWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=DcW3YuHAeSLpncKSFOsCLJAbVOk5HpVT5YoVQRKf2eexdA+SyxwhHdv7unhzrVeAYJNonLSqdn2TPVQJEo0QQ0LepLQK0eyqWM9QYGQ0JxsTI9aypW6Li4QgId8ZTAt7SiRbhIqshpUL9ue/FelgdhYiOgTqQcnB5jG5DlqWBv8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=28swiPqyhJ+wqthzGqPRfqoTRJZZiDtTt4jtzU7sc6A=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_200412_563541_A8EEA4F8 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20250804_204331_810397_6014F887 
+X-CRM114-Status: GOOD (  27.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +88,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace NULL check with IS_ERR_OR_NULL() check after calling
-rockchip_clk_register_gate_link() since this function
-returns error pointers (ERR_PTR).
+Hi Dmitry,
 
-Fixes: c62fa612cfa6 ("clk: rockchip: implement linked gate clock support")
-Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
----
- drivers/clk/rockchip/clk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 8/2/2025 5:55 PM, Dmitry Baryshkov wrote:
 
-diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
-index 19caf26c991b..2d30b1e24f01 100644
---- a/drivers/clk/rockchip/clk.c
-+++ b/drivers/clk/rockchip/clk.c
-@@ -693,7 +693,7 @@ void rockchip_clk_register_late_branches(struct device *dev,
- 			break;
- 		}
- 
--		if (!pdev)
-+		if (IS_ERR_OR_NULL(pdev))
- 			dev_err(dev, "failed to register device for clock %s\n", list->name);
- 	}
- }
--- 
-2.25.1
+[...]
+
+
+>> Currently, the software simply selects the first available port. So if user
+>> plugs in DP dongles in both USB-C ports, the DP driver will select the first
+>> port. This process is implemented in cdn_dp_connected_port() .
+>>
+> I think Stephen Boyd has been looking on similar issues for Chromebooks,
+> which were sharing DP controller between several USB-C ports. I don't
+> remember what was his last status. I think there it was easier since the
+> bifurcation point was the EC.
+
+I think the latest progress should be here: [0]. It seems that it hasn't 
+been updated for a while.
+
+[0]: 
+https://lore.kernel.org/all/20240901040658.157425-1-swboyd@chromium.org/
+
+
+>
+> I think, CDN-DP needs to register up to two encoders and up to two
+> connectors, having a separate drm_bridge chain for each of the DP
+> signals paths (in the end, you can not guarantee that both branches will
+> have the same simple CDN-DP -> PHY -> USB-C configuration: there can be
+> different retimers, etc).
+>
+> Both encoders should list the same CRTC in possible_crtcs, etc. Of
+> course, it should not be possible to enable both of them.
+>
+> This way if the user plugs in two DP dongles, it would be possible to
+> select, which output actually gets a signal.
+
+That makes sense, but this might make the DP driver quite complex. I 
+will see if I can make it happen.
+
+
+>
+>>
+>>>> BTW, one of the important things to do is to implement extcon-like
+>>>> notifications. I found include/drm/bridge/aux-bridge.h , but if the
+>>>> aux-bridge is used, the bridge chain would look like this:
+>>>>
+>>>> PHY0 aux-bridge ---+
+>>>>                      | ----> CDN-DP bridge
+>>>> PHY1 aux-bridge ---+
+>>>>
+>>>> Oh, CDN-DP bridge has two previous aux-bridge!
+>>>>
+>>>> Now, I try to use drm_connector_oob_hotplug_event() to notify HPD
+>>>> state between PHY and CDN-DP controller.
+>>> Does it actually work? The OOB HPD event will be repoted for the usb-c
+>>> connector's fwnode, but the DP controller isn't connected to that node
+>>> anyhow. If I'm not mistaken, the HPD signal will not reach DP driver in
+>>> this case.
+>> Yes.  What you mentioned is the case in
+>> drivers/usb/typec/altmodes/displayport.c . I have also added a new OOB event
+>> notify in the PHY driver in Patch 3, where the expected fwnode is used in
+>> the PHY. So now we have two OOB HPD events, one from altmodes/displayport.c
+>> and the other from PHY. Only the HPD from PHY is eventually passed to the DP
+>> driver.
+> This way you will loose IRQ_HPD pulse events from the DP. They are used
+> by DPRX (aka DP Sink) to signal to DPTX (DP Source) that there was a
+> change on the DPRX side and the DPTX should reread link params and maybe
+> retrain the link.
+
+Sorry, I still don't quite understand your point. I think the entire 
+notification path is as follows:
+
+Type-C mux callback -> RK3399 USBDP PHY -> PHY calls 
+drm_connector_oob_hotplug_event() -> DP driver
+
+Are you concerned that the IRQ_HPD event is not being handled somewhere 
+along the path? Is it that the Type-C mux callback didn't notify the 
+PHY, or that after the PHY passed the event to the DP driver via the OOB 
+event, the DP driver didn't handle it?
 
 
