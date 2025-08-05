@@ -4,83 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 607ACC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE342C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 15:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5pqwMScuPTwzx0lyuc5MF37k0uqjqh5/S7oN85LSRqI=; b=hUTPuLVdUQmP84OhXuRriN7voT
-	/okHiX9+SG+tgivChAjSa+09ZMfaRc2Z8KG+eFBS23u4zm+LbZBhkt9HWctCy4DCZprYGpuBF9RUw
-	ZsTO7eDOXgjqMdA7TCI2VRj4nIKtHVClS0Tus/VsgYuIikSjYc7qc9lq60q4hDFWj4ysWPietbcnL
-	Wl8pCDi3MZBqGDB7v1XGakWcMRoeWOyw5Jnf8wh/TbgRxmlKYaQS0SAr7pZLoqV8iPN9hnDSoT1Y3
-	snPFI1rveAMXIT6GTsKS/sPbOXUIGmWWPhkw+OlgmUZF7rHlG37Bl7wqqvGH6JJmKc4R/i+hE4npi
-	FPumedTA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=afTZ9f/1Kv9hLZur/SAw85tGhYSHNDRknQv5QNz4kF0=; b=oXSuMX6WdLHoCTsE3odhH2tbD/
+	VbLc++6GD5sIi+xYTEdr3KFAvYnLpfNlyqxOrf1G77ZVqoYosJNNHpCIsynkFam4uE0GQOCAw+ZGO
+	9sgBTet8TyPuVAk7F9z7F1h+62D6ACyDTtMllq0HpxHnZiPZdu/OgjbRrK006Bbl+sZyfiMo336Ap
+	XsIsbzAf0QPlLuhNaodzQ8jIA5fX/uDrxcFOeaRok3GVDlwmYiUyMnErSobQKlVurq2RijiFMx7/8
+	M1JX+saOr+3VHnNLtNfxhv4cB3AVnXL8lhfi7coCGxXbiAyW6mdi6dpHAQRh4vGOH85rkGrHPu9oY
+	eKOie7dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujJhr-0000000D9s0-3F4N;
-	Tue, 05 Aug 2025 15:36:03 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1ujJkU-0000000DAVN-1TuK;
+	Tue, 05 Aug 2025 15:38:46 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujIIk-0000000CwUY-1d5c
+	id 1ujIZu-0000000CzzU-35jE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 14:06:07 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 575E5wPf4055648;
-	Tue, 5 Aug 2025 09:05:58 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754402758;
-	bh=5pqwMScuPTwzx0lyuc5MF37k0uqjqh5/S7oN85LSRqI=;
-	h=Date:Subject:From:To:CC:References:In-Reply-To;
-	b=timMHIc8NKwRvpd+gXcAFdjLUIPylpbG6DYc1V3fi+tmzewXaCGClsKpRHs2v0Tef
-	 Fw+UetwtQBW5POwb2L+5/jjdA6rvCpfL+vssv0gn5GPdB4umxQTfxZSyWNRhLNJvpI
-	 YdEpgnZzBvzEdqIuZhxkAdAWKU3+B+S4r1+rIqsY=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 575E5wjF3496847
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 5 Aug 2025 09:05:58 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 5
- Aug 2025 09:05:57 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Tue, 5 Aug 2025 09:05:57 -0500
-Received: from [10.249.34.164] ([10.249.34.164])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 575E5uk02223144;
-	Tue, 5 Aug 2025 09:05:56 -0500
-Message-ID: <f28d866d-3123-4484-9524-054442fa3cec@ti.com>
-Date: Tue, 5 Aug 2025 09:05:56 -0500
+	Tue, 05 Aug 2025 14:23:48 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 575DgDPJ007975;
+	Tue, 5 Aug 2025 14:23:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=afTZ9f/1Kv9hLZur/SAw85tGhYSHN
+	DRknQv5QNz4kF0=; b=WNf7mjPRwYXEuMJ8oPvRUarImm+QynhcB1S/QQ8whnn8o
+	GAZ9B3CwtFziH2qhBaq7LcsfA4rW/MtLhfzpYM88cNiRbCM7Ge8NqhMDi6Z9wtbH
+	xb5rqwI44ND9mPhdgHweRM9Fl//aqEsLFej+5DrMHiG6TP8N5Jl06TQmvjCnseqq
+	BBnjj/TScWMHoPrn6V8Oa4QU92MiD5PmxJ+lX0TqxRuvSWWNTevsVSmKgjunW1dE
+	YqfaxYcqEck5IMmCp5AxY37CoMPLNIk/pFiAptz949mIaN3o7P1A8hBTs/K/tLvn
+	RGH7MBgsQtdavZ07bu2gTrXhaOmUYo97KdYbutzvw==
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.appoci.oracle.com [130.35.100.223])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48993fvtyj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 05 Aug 2025 14:23:37 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 575DsDGD017843;
+	Tue, 5 Aug 2025 14:23:37 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48a7jx9vst-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 05 Aug 2025 14:23:37 +0000
+Received: from iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 575ENaPP025936;
+	Tue, 5 Aug 2025 14:23:36 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by iadpaimrmta01.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 48a7jx9vjp-1;
+	Tue, 05 Aug 2025 14:23:36 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: danishanwar@ti.com, rogerq@kernel.org, m-malladi@ti.com,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+        kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+        netdev@vger.kernel.org
+Cc: alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net] net: ti: icss-iep: Fix incorrect type for return value in extts_enable()
+Date: Tue,  5 Aug 2025 07:23:18 -0700
+Message-ID: <20250805142323.1949406-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
-From: Brandon Brnich <b-brnich@ti.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, <linux-kernel@vger.kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        Devarsh
- Thakkar <devarsht@ti.com>, Udit Kumar <u-kumar1@ti.com>,
-        Darren Etheridge
-	<detheridge@ti.com>
-References: <20250804180106.2393256-1-b-brnich@ti.com>
- <b5ba5a22-dc0a-423b-963f-5db6c7e04665@kernel.org>
- <b52fd6d4-b907-44dd-bd9b-e15c3321ad79@ti.com>
-Content-Language: en-US
-In-Reply-To: <b52fd6d4-b907-44dd-bd9b-e15c3321ad79@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-05_04,2025-08-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 bulkscore=0
+ mlxlogscore=999 suspectscore=0 malwarescore=0 phishscore=0 mlxscore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2505160000 definitions=main-2508050105
+X-Proofpoint-ORIG-GUID: 47hjl_cP3wqkod0xnF_R4HHUsI-V0keY
+X-Authority-Analysis: v=2.4 cv=bYxrUPPB c=1 sm=1 tr=0 ts=689213e9 b=1 cx=c_pps
+ a=zPCbziy225d3KhSqZt3L1A==:117 a=zPCbziy225d3KhSqZt3L1A==:17
+ a=ZQReVaAHnRrKmcKX:21 a=2OwXVqhp2XgA:10 a=yPCof4ZbAAAA:8
+ a=QfqS0IvoF7k-OVw7uH4A:9 cc=ntf awl=host:12065
+X-Proofpoint-GUID: 47hjl_cP3wqkod0xnF_R4HHUsI-V0keY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA1MDEwNCBTYWx0ZWRfXyw9K4j3TG5QY
+ 3qD2MYzORrEbWcXC887dEEp/QVTkNUg7FC+8Ou5/r78tChIyWYfBU7x3eddudVWHRLA32XeVIeW
+ TRMrRHXUALYLKu/vzL8xMt2RRemfNstkDInyZdUKzYUD8+w5oqpj9O73OuyG8xBjL53Grzl1SR9
+ Im2A7+orlhxFGnDJJtND8zmnFNThRBjkkxg45wZnI1KAqe9eL0QSjxkkPcRQh03YFuYh/S9xh/J
+ XoJ+vCqfEzZvOeBaiCpLdLHLCLBv6pARt7SiSN967SR+JSlu+hRhXTGWrWqqpOX06Ey7hkjRKeI
+ p53y4qg3BGpZD+/Gx3JZOcAQB+39plC+rpk9tVRmEzmyJ3ylAuoRzaUb/jjc3peEnM498GwOFYC
+ oRoDBjNfwIkWuwfc96Fj8tkI3YNf4qm6v0p7x9j4AkohBfxvwU2QhNfzPf6u1KHu7gMr3pFY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_070602_681627_B283879C 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20250805_072346_908026_FE95963F 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,78 +105,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+The variable ret in icss_iep_extts_enable() was incorrectly declared
+as u32, while the function returns int and may return negative error
+codes. This will cause sign extension issues and incorrect error
+propagation. Update ret to be int to fix error handling.
 
-On 8/5/2025 8:34 AM, Brandon Brnich wrote:
-> Hi Krzysztof,
-> 
-> Thanks for the review.
-> 
-> On 8/5/2025 1:02 AM, Krzysztof Kozlowski wrote:
->> On 04/08/2025 20:01, Brandon Brnich wrote:
->>> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
->>> present in J722s SoC, supporting baseline encoding of semiplanar based
->>> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
->>> supported from 64x64 to 8kx8k.
->>>
->>> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
->>> ---
->>>
->>> Changes in v2:
->>>    - remove invalid clock-names attribute
->>>
->>>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 10 ++++++++++
->>>   1 file changed, 10 insertions(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/ 
->>> boot/dts/ti/k3-j722s-main.dtsi
->>> index 5cfa7bf36641..fb24c14614b4 100644
->>> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->>> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
->>> @@ -385,6 +385,16 @@ c7x_1: dsp@7e200000 {
->>>           ti,sci-proc-ids = <0x31 0xff>;
->>>           status = "disabled";
->>>       };
->>> +
->>> +    e5010: e5010@fd20000 {
->>
->> Node names should be generic. See also an explanation and list of
->> examples (not exhaustive) in DT specification:
->> https://devicetree-specification.readthedocs.io/en/latest/chapter2- 
->> devicetree-basics.html#generic-names-recommendation
-> 
-> I got this name from the already present node in the am62a device 
-> tree[0]. Should I replace both of these with more generic name such as 
-> jpegenc?
+This change corrects the declaration to avoid potential type mismatch.
 
-Please ignore above comment, I was thinking about the label and not the 
-node name. I understand node name needs to be jpeg-encoder.
+Fixes: c1e0230eeaab ("net: ti: icss-iep: Add IEP driver")
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
+---
+ drivers/net/ethernet/ti/icssg/icss_iep.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Should label also be more generic? I see a few examples where the label 
-is jpegenc or something more generic than the specific part name. But I 
-don't see any specific rules in the devicetree specs on labels.
-
-
-> 
->>
->>
->>> +        compatible = "img,e5010-jpeg-enc";
->>
->> Wrong compatible. This is TI, not IMG.
-> 
-> Devarsh has pointed out the same, I will update compatible that matches 
-> TI version in v3.
-> 
-> Best,
-> Brandon
-> 
-> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/ 
-> tree/arch/arm64/boot/dts/ti/k3-am62a-main.dtsi#n1149
-> 
->>
->>
->> Best regards,
->> Krzysztof
-> 
+diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
+index 2a1c43316f46..6d31c274281f 100644
+--- a/drivers/net/ethernet/ti/icssg/icss_iep.c
++++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
+@@ -621,7 +621,8 @@ static int icss_iep_pps_enable(struct icss_iep *iep, int on)
+ 
+ static int icss_iep_extts_enable(struct icss_iep *iep, u32 index, int on)
+ {
+-	u32 val, cap, ret = 0;
++	u32 val, cap;
++	int ret = 0;
+ 
+ 	mutex_lock(&iep->ptp_clk_mutex);
+ 
+-- 
+2.47.1
 
 
