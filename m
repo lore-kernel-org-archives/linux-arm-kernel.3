@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD06C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCD6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 13:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1rbOUcYQrQRFck19CzFKNta/DwzEnD+NbdO8sB6uKMc=; b=dhdamn8Y3Hm/sPtgNC4FosGZww
-	qoheO7AEqbgYWeeYHg8G6/b+GiWPIfHShjW8GqMIaDGW81LHumCO5P0AN5zt1MIFdPEhV69lb7Loh
-	PtxL5n9+49z9aVhzbwhb1DNWedyLfMxRCnL5k9G7afqd0LLXHupYXcX3tFXwu7gmI1p4apRWiv0zM
-	pFW6EIlbsgHfIMb4W8+fj1lUCob9IHFdmF77GnYvR+CUPjmn5aHqZYhVtOGl7L8jmIH6Ac6Bpw32A
-	EAq8cRkrTliqrwh/eFcJXKK2qDXoRllGub9JIOsDLj3AlhfriWtLkGqvuWHqvDbgjDcgKKvbRP/Tw
-	NZSjdiag==;
+	bh=MAh02TkFyzgFFZr3oxHjXV6dZOI2X7cgUfbU3vh9k5M=; b=zS4kci53UoUgpso0eQow9T0xUG
+	U9PFjo/h2peZJCP1zBFIX+N3ZiNG+ILWLGj+frvIIZNDbOA0bdvkXjPJAS8K6MDSYprmi8hyMhSJl
+	q8JhCNnj+W/lebxGuvs125JNs3NQI8uAVE9CJjdMUrZvVMWA4Z9Px/2ciqNhOmxsROxnwzCvYF3ht
+	XUZsOao0p93q+QuIr9ISnxPizAN7KcrThRPfp/JGpz4ViRKfAffOoTMZ4iq9NxYl8rxUSLt+ebYWG
+	PRKKPVnhSwQOgepezz+jS5E+5Bweb47Vgp/TLFf6YdvOitwtR5RrKZf6LxDBTpKeVb0Lq9kNVOUuV
+	eRNwZwmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHH5-0000000Cm5f-38t5;
-	Tue, 05 Aug 2025 13:00:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ujHPx-0000000CnLX-3PpN;
+	Tue, 05 Aug 2025 13:09:25 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujHES-0000000ClpS-3zR0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 12:57:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C32A9A557CA
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 Aug 2025 12:57:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69DFDC4CEFB
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  5 Aug 2025 12:57:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754398651;
-	bh=/Q154M5fKuJcthmk/dvqUU0hQH0vyCaiY74Qs2fJRZE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fjqhAvNu6oOujJJPY0OdviGQKVb3TNu2d//ilddXsZp4FBOBpAtlYXxGw98C+HxHZ
-	 wKhSDzHsXGDcAXRIbL5n6A4fx8LiwVsOKGFY9D4AQvVwvQZZdFyTgZiGXVUIqAs65Y
-	 k83ET/LcdINebn86n086KqwVlSvNq3dlZ/XNebjrSJ7NllWqnb8RS4YW/ByjeTCqeW
-	 KUaa9pk9HOhCvyqM3T2Iq9qsFWcHzRsRaZpweEx8BhDYpQyFbAV9bGgAAy5YlxBxJS
-	 gEIcPDRacEaq8xsP/Av7AIivlNiN8aF5yS8BAYZbUxqFqxPZVBTG1QyCK2h5IteTMs
-	 bxA1qDKsW9zMQ==
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-301a83477e5so4624561fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 05:57:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWosmFYPvXL1oVOozvx7avuKTt9Z4GpBc05EH/IAzaoMT/4So4364+V4r3lSy8hM6fw3l1rzpm0HrQTU6sZ7ZRS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeVWbjxCR7tH+3kOLiu759qA4nACPJAqbv5GguAI+XNpr4NRfL
-	QpNejmg6mzIAoW2dJCGTJ6cgfE4HXgz+x5EWB8jIvS0eU8hSwruYA7msdddl3HRUGmj4Oiaj1he
-	27mLHFz+4tV+QsKvIwxE3Mn2AsCYnb/Y=
-X-Google-Smtp-Source: AGHT+IFPAZyhywgLQvoskIOmz2VU+10EYz63YwRwlyu84oAH2UchHeV7tpu0Rg/EeQb9g6axbf5sa7qF+zrfyTHq6AA=
-X-Received: by 2002:a05:6870:b001:b0:2ff:9224:b1c8 with SMTP id
- 586e51a60fabf-30b67a46c62mr7931975fac.36.1754398650648; Tue, 05 Aug 2025
- 05:57:30 -0700 (PDT)
+	id 1ujHNJ-0000000Cn4G-1tRL;
+	Tue, 05 Aug 2025 13:06:42 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-af96d097df5so374750466b.3;
+        Tue, 05 Aug 2025 06:06:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754399199; x=1755003999; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MAh02TkFyzgFFZr3oxHjXV6dZOI2X7cgUfbU3vh9k5M=;
+        b=em8+1WRhmPZPt4Y66SvlRUXXZiC8eAzU8UIvI2ZX3kc3lQMC839NOXMKpftsQ7zRmx
+         I4kIMZSqa4yxDGrM28akD5zc5bkprCMD1qWL7W9ezCrU+oFHsFEghEhU5hksSSaUHER8
+         iBk41YJAg/uHLigAvRuoZVhuvybLi57lTqeI83VBxHg+d05fEsg2bUU5gDoRK0Cj9RUE
+         M8RbxU76saHbxe2ImqItzf9blvD905PEMfIJdm4VlFvk33nG9S6ZjJMmjvkC15dVvIMT
+         bGF81yEA1DTxeSETCcM2h5zQPFlR+gDM7arMPq84laNNkmkQsbZqw2WRV9FY/NucBUV/
+         Pqrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754399199; x=1755003999;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MAh02TkFyzgFFZr3oxHjXV6dZOI2X7cgUfbU3vh9k5M=;
+        b=TunhO/Ckb9aWRH/5Vw1uDUZdLR6R1bR9gj2wWeg8hWkcxf0YHr3bMisviSSa2ZNVzK
+         /KLw1kWV4ZMFvmZZU52gATKgJRYEuAsN/S1P62abW3ZUoO+hnAcpiigoYIOSLG03kIXL
+         4k+oTXte5fWX5zbn321VskPsVfE3QIR1CfA8/7MhCEJCxO4PcGpTXEVVTX4HtfLCTEdN
+         xCWTz4az6Y9381Jbl4M6cwiY30+noVb2GZ/AArpxV9ElQpf8LvuixlpY6i8AKyIM8yM9
+         Fjfgtxr7pool1qG6n4ZxAi7DR204obQP7S6ScY+b3wHMz8OT/yryCSV3+mFtn+C/RXwj
+         cEXg==
+X-Forwarded-Encrypted: i=1; AJvYcCUnYXvY1DibOrXLh5ShTuy64lhjgXX0WywtUdRtpteUb2UyKbaQgppWgO1TqOsdklEkRjEo7KyHBoZVR2BdziA=@lists.infradead.org, AJvYcCWgMjOItWwJm1TgWN1iuoPx3j7vr+zXZ0yECfKFUkRMvYhe0YuEpdCs4+bK0ewjbsalVKvoGWv2wyiTwfil2ilU@lists.infradead.org, AJvYcCWu6LnPxjN62XsOtlT9HG6esECOYMyMgkI1+b0N++AQTSLN3Myx9c7ZwGdlL2HQUfqzZTocbPkkFX8G8GruF3A=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP61JizpLtx804Vo03LURnrRJfMNpjh5lLy4GYzGac9v0SXHkj
+	Cgwm4dAiJzbLn9njhQBJjr6pMH43qL9os8NdCNgOrF8QDxk2xRCn+vQbVoAN7TeuIn+f36JYlCT
+	roVN1M1UAI+W/WMWPBL99TWLPv8S2uj8=
+X-Gm-Gg: ASbGncvPJ876qndu8ADDXEJ2tQLzYAatplUmhTDDqRHKssd0L+167AlBS80DCMlLc5p
+	RVBzzjUy/j3QALkONs465qwLjJa/2n7ns/krJUh084F8ZmbrUpIkt+fkg4SXxQ2LBFdhgrzpxen
+	IHXzMg/fEEUmHSTxyHxKyXp6eWWGi82Nw9ppXq7H/aqwAN0tzehUm5i+0Zfa3mLFefta4tavqwW
+	YMVp+ST9Q==
+X-Google-Smtp-Source: AGHT+IG+UhvnR8PgL0a0Zufs5S7y3V5pfr4M4F2QIupH8Wrp93UHwXEqXJVmQMM5LOZynRuY87KMSNBR1QBwOUx0aD8=
+X-Received: by 2002:a17:907:6e8f:b0:af9:3a3a:227e with SMTP id
+ a640c23a62f3a-af9401bb461mr1278298266b.38.1754399199235; Tue, 05 Aug 2025
+ 06:06:39 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250805093330.3715444-1-zhenglifeng1@huawei.com> <20250805093330.3715444-3-zhenglifeng1@huawei.com>
-In-Reply-To: <20250805093330.3715444-3-zhenglifeng1@huawei.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 5 Aug 2025 14:57:18 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0h3XKXAGHSrx50vt1Aho3uchiJ2kjQa7qCM8jCr03YKTA@mail.gmail.com>
-X-Gm-Features: Ac12FXz_6f4R8OhJ2KEpzWPYtfA52SizmFoqZrcEiv1xQxt4mcznPwed7XSItvs
-Message-ID: <CAJZ5v0h3XKXAGHSrx50vt1Aho3uchiJ2kjQa7qCM8jCr03YKTA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] cpufreq: Add a new function to get cpufreq policy
- without checking if the CPU is online
-To: Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, 
-	viresh.kumar@linaro.org, beata.michalska@arm.com, sudeep.holla@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linuxarm@huawei.com, 
-	jonathan.cameron@huawei.com, vincent.guittot@linaro.org, 
-	yangyicong@hisilicon.com, zhanjie9@hisilicon.com, lihuisong@huawei.com, 
-	yubowen8@huawei.com, linhongye@h-partners.com
+References: <pndectqm7te.a.out@axis.com>
+In-Reply-To: <pndectqm7te.a.out@axis.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 5 Aug 2025 15:06:02 +0200
+X-Gm-Features: Ac12FXzfhgsKY1Z4mDhPlXC5tTUlolIHxAiCVq_7VMItomP-88jysmgI3xJFCTw
+Message-ID: <CAHp75VeGvgv6TAYRRtEySmESkjygW79ms-Yd64h08_+7JjJMJw@mail.gmail.com>
+Subject: Re: [PATCH v2] iio: Remove error prints for devm_add_action_or_reset()
+To: Waqar Hameed <waqar.hameed@axis.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+	Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich <Michael.Hennerich@analog.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Matteo Martelli <matteomartelli3@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Francesco Dolcini <francesco@dolcini.it>, 
+	=?UTF-8?Q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>, 
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>, Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>, 
+	Mudit Sharma <muditsharma.info@gmail.com>, Gerald Loacker <gerald.loacker@wolfvision.net>, 
+	Song Qiang <songqiang1304521@gmail.com>, Crt Mori <cmo@melexis.com>, kernel@axis.com, 
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_055733_119260_9F79EAF2 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20250805_060641_492882_2BB0EE83 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,67 +107,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 11:34=E2=80=AFAM Lifeng Zheng <zhenglifeng1@huawei.c=
-om> wrote:
+On Tue, Aug 5, 2025 at 11:33=E2=80=AFAM Waqar Hameed <waqar.hameed@axis.com=
+> wrote:
 >
-> cpufreq_cpu_get_raw() gets cpufreq policy only if the CPU is in
-> policy->cpus mask, which means the CPU is already online. But in some
-> cases, the policy is needed before the CPU is added to cpus mask. Add a
-> function to get the policy in these cases.
->
-> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-> ---
->  drivers/cpufreq/cpufreq.c | 11 +++++++++++
->  include/linux/cpufreq.h   |  1 +
->  2 files changed, 12 insertions(+)
->
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index fc7eace8b65b..2de76a072893 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -198,6 +198,17 @@ struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned =
-int cpu)
->  }
->  EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw);
->
-> +struct cpufreq_policy *cpufreq_cpu_get_raw_no_check(unsigned int cpu)
+> When `devm_add_action_or_reset()` fails, it is due to a failed memory
+> allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
+> anything when error is `-ENOMEM`. Therefore, remove the useless call to
+> `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
+> return the value instead.
 
-This is not a particularly nice name.  Maybe call it cpufreq_cpu_policy()?
+Even more, the devm has tracepoints in case somebody really wants to
+investigate failures.
 
-> +{
-> +       struct cpufreq_policy *policy =3D per_cpu(cpufreq_cpu_data, cpu);
-> +
-> +       if (policy)
-> +               return policy;
-> +
-> +       return NULL;
+Fully in support of this change.
+Reviewed-by: Andy Shevchenko <andy@kernel.org>
 
-This could just be a one-liner with this statement in the function body:
-
-  return per_cpu(cpufreq_cpu_data, cpu);
-
-Can't it?
-
-In which case it can be called in all places reading cpufreq_cpu_data
-for a given CPU.
-
-> +}
-> +EXPORT_SYMBOL_GPL(cpufreq_cpu_get_raw_no_check);
-> +
->  unsigned int cpufreq_generic_get(unsigned int cpu)
->  {
->         struct cpufreq_policy *policy =3D cpufreq_cpu_get_raw(cpu);
-> diff --git a/include/linux/cpufreq.h b/include/linux/cpufreq.h
-> index 95f3807c8c55..02ad8173dc10 100644
-> --- a/include/linux/cpufreq.h
-> +++ b/include/linux/cpufreq.h
-> @@ -205,6 +205,7 @@ struct cpufreq_freqs {
->
->  #ifdef CONFIG_CPU_FREQ
->  struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu);
-> +struct cpufreq_policy *cpufreq_cpu_get_raw_no_check(unsigned int cpu);
->  struct cpufreq_policy *cpufreq_cpu_get(unsigned int cpu);
->  void cpufreq_cpu_put(struct cpufreq_policy *policy);
->  #else
-> --
+--=20
+With Best Regards,
+Andy Shevchenko
 
