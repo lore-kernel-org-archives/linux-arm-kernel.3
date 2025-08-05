@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2399FC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73893C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yrD2NJgYOQaM3oEh5Vg/hUSun0wpE7HeUiqSHhTdJCA=; b=zx/qTauhwyIl7XUT0WeqwhkfwB
-	yQRnqUlnvPKmZ24Ja1miDJ5eS3KUzddas/7GjwbVkbdHC+qSkwP/nU4UxP2FAcDmaDjptsrQob8NA
-	FcZnO0kHj+zYYwX48tlOt6r+YTLL2FHRB2XsArmeJI5N/lI6p/2kd/tXgGqxLpQa9lhKioOkDgrdL
-	dBTAbOzg97m4wY+AagdnyY4gy36psAqUvwEDR8oh9Zj6f4qRGO1JcaGS5w31O4fnSvYSzZWBMi2TC
-	m1eQzR0wXCOUs4vN0MiKP5a1sSvW2IcSzyrdmxDXFXqR3X1Evmk6z8S/SaxT1tWO75okOClBTwMbD
-	nLxuAQIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=goRDbiInExYlg2FZrZ7REiNXbKoKaAvkFCx3YBMBwsw=; b=N64AaVtxqcC+fNsvQKKcnXFq+R
+	VgiTSn0X7O8CJG2pAkikLt3zdZdx6txqRHfCDqhv4CFdPfHEJoruvD2zLNGh8oxbapyTr0iy0qR5r
+	bsoq2xTulanZ1KG+x9fwafTQl5OHWA6zkBA4MkVvzKfFGiTXwfwBNupMVuMgo1ohvBGE7vrLjaQMx
+	elmY4hNZCfkyhSAqyd+0Aev1nTfJ1WbSagIyUiP0p08dUxwm0TmWVVturjEnqllO/TWLcJwJYKlFM
+	0kE5d5TbfApje3K931Klc9ewnY/2pez5CJ5OVa7q2StdBAEYWEzLMJuVWKJ5IiiMw4cul0+pmqBI4
+	q6fnxTOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9hT-0000000Bm77-2GsC;
-	Tue, 05 Aug 2025 04:54:59 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uj9jw-0000000BmHF-1c9k;
+	Tue, 05 Aug 2025 04:57:32 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9cu-0000000Blmj-36HG
+	id 1uj9dp-0000000BluT-0Bnj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 04:50:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 84157A5598F;
-	Tue,  5 Aug 2025 04:50:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703CAC4CEF4;
-	Tue,  5 Aug 2025 04:50:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754369415;
-	bh=lULS2E6RBkVGFWW3aExebEAX+iEu+9RQVxkr5znckPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NYFALg3ncbPPhdfOwyjtX2Tx3pDsJ8R/8B/oam59S/XzVqJIXhD4WttdKR/Anw86N
-	 GxxzOJaa9nixOHvIIIoA4iSdei7hsZH64inIBibHcBZ7wGENenUgp1EPxjLTMU+KWn
-	 wOGX3ZNbA/PhUkOLxvC3wYAG9WQ7D94NsOpOPDuz5HOACi5zci8NuKomTIFVmUU7a1
-	 QQOi1yJK9efcBZNR13Upa21BWPj7UDMYqzjeio36rBRYHhqrjsb/OIVqKFSbSlKx2Z
-	 +ar30LUWFVG0yy8zZ7if7aHLlggkUPTIvDN3L7rOkidcCsv5cZm+DxhaJfRps52IPE
-	 qA8fn7GJes8Cg==
-Date: Tue, 5 Aug 2025 10:20:10 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Joris Verhaegen <verhaegen@google.com>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Cezary Rojewski <cezary.rojewski@intel.com>,
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
-	Bard Liao <yung-chuan.liao@linux.intel.com>,
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>, kernel-team@android.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	patches@opensource.cirrus.com, linux-arm-msm@vger.kernel.org,
-	sound-open-firmware@alsa-project.org,
-	linux-arm-kernel@lists.infradead.org,
-	Miller Liang <millerliang@google.com>
-Subject: Re: [PATCH v4 3/3] ALSA: compress_offload: Add
- SNDRV_COMPRESS_AVAIL64 ioctl
-Message-ID: <aJGNgphPCTuE7FFD@vaman>
-References: <20250801092720.1845282-1-verhaegen@google.com>
- <20250801092720.1845282-4-verhaegen@google.com>
+	Tue, 05 Aug 2025 04:51:14 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-717b580ff2aso46551107b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 04 Aug 2025 21:51:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754369471; x=1754974271; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=goRDbiInExYlg2FZrZ7REiNXbKoKaAvkFCx3YBMBwsw=;
+        b=Pm1Z8BA+kl4Y1B/RculMiEQ14Vdga8BvyroJ6cos7n1IfuIVbTwnWVns0kjE/aBXe8
+         fRPP8gmzEYGNZPdUDypxFM0OXZcXhphp4jZMchxz4xGp7bhZb5SXbUxA2d70tt1LUrtj
+         qME1beUbsrBwGlmTPqM+sX7S/0PAJo5kZYb9UXh6lsTVq1L4CH+qAII8N5aibNNffGZF
+         5pEipZ9sryw3KuhrTnP69izQEs7HhJTZHnDWbVOLby33a9ALyrNRbUPDz173TUIl9GNF
+         6FXcEzo7dE70HFvohFjtJXD1hhcgVXci4QG0GgA2z4WVNoKctjWkHdab+BbGi6uZi3Ac
+         7Trw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754369471; x=1754974271;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=goRDbiInExYlg2FZrZ7REiNXbKoKaAvkFCx3YBMBwsw=;
+        b=hjfgiyzuQVkkjOrKaop14CTnvMKgc84QcBqE0+C++MhQHU7anaiBY1f4Uz6joJuIAQ
+         ymLmXBUFAaYVeIeTOguptUmpIbuGxStWD+v9517YRwzgCvta7tnF74aqPkITf+jJi2aq
+         xTgP4Xd5LHgc5adPP1WYbdODz+B611ylRY8KKgIRhlaB0zoo3WjmcCPb8W5tmfi7PCbR
+         Qdi8lPdeQONTh+iZ7xhoIna84gkuH0K1dk2XtBrpx8/lZ4SWoSjvDNv21xhaiM0QexMU
+         mwtizkIs7pwCMkz3gPwyPxzeXoRfAvixB3/SzQ0bISpsWZFRdSRmcgcIvUiWuXS8kv5o
+         xl9g==
+X-Forwarded-Encrypted: i=1; AJvYcCVCCnyyaYRo00fjHa9NbRv71gYfmPjI6Z4UzDz5zJoz96Av7ZY+7nDKV69SGoPyRUjkTol0n2gefNI0MmFbkFfn@lists.infradead.org
+X-Gm-Message-State: AOJu0YynbsnnO+3Sp7t2Wv4BMKaqOIbdjT5Z70SR8puTj/xWNKGKh5Lr
+	GaeMn7il/L1FeAVu6OWuWQyxAkDXZFDWhOwm3SdWdLjEDWMDPd7cbA1t86tUb+7MG2T4hjehrX3
+	FfQbveLFNfiW/Tadg5UUl4eh3YQq5ekTBsz8v0aRh9yDAJFKNecMGWUE=
+X-Gm-Gg: ASbGncsC5a9kVLcY27Iv5Y8nswuywl+seaYviYeGFb6qJSUSMWz8LVe95ZLmHsO/ivT
+	t/MfEs2Rmu+crAOOhIBQsA8wMZqm/K82nBz0JVX0VyPcmfGRvvCrHYD6tnhI80KEoT4oBd7s+Eq
+	HvQhnukYAm72oSwCLYQA2l/q/Jwy979shKaa4H8698lbZ6gBOjdt+dxRYZCUmVCiHjlkNGXmI/v
+	9O1jw==
+X-Google-Smtp-Source: AGHT+IHeQ9gjfgM8r8LCqDBzIZurZmcUaTL4L7HOV3CKVzHJvHoNvkFagl++11B+nx8hPTcRNP2NnteS7qwpSI1JFek=
+X-Received: by 2002:a05:690c:14:b0:70e:7ae4:5a21 with SMTP id
+ 00721157ae682-71b7f0c56fbmr121732557b3.4.1754369471580; Mon, 04 Aug 2025
+ 21:51:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250801092720.1845282-4-verhaegen@google.com>
+References: <CGME20250724081337epcas2p31f594b6e9ab87e24c94f11dea4070956@epcas2p3.samsung.com>
+ <20250724080854.3866566-1-sw617.shin@samsung.com> <20250724080854.3866566-4-sw617.shin@samsung.com>
+ <CAPLW+4mo-Fw5+KmwHdZGAM4uNpOWL6QakTgP-wMSxR=+dMGqsQ@mail.gmail.com> <000b01dc05c0$a50f5f20$ef2e1d60$@samsung.com>
+In-Reply-To: <000b01dc05c0$a50f5f20$ef2e1d60$@samsung.com>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Mon, 4 Aug 2025 23:51:00 -0500
+X-Gm-Features: Ac12FXxJPNFLaHj5nje0A_AcDG6Ll1OXb556rCVkvn6Yb_8cbt1jdRu-9Ss-iOU
+Message-ID: <CAPLW+4=sJM4UwsqfC8t=swzhGU=BdRn3T6GjJje0unZSgNg-ng@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] watchdog: s3c2410_wdt: Increase max timeout value
+ of watchdog
+To: sw617.shin@samsung.com
+Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org, 
+	linux@roeck-us.net, khwan.seo@samsung.com, dongil01.park@samsung.com, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_215016_914301_5207E9AC 
-X-CRM114-Status: GOOD (  27.91  )
+X-CRM114-CacheID: sfid-20250804_215113_125687_DDE65F74 
+X-CRM114-Status: GOOD (  29.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,158 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01-08-25, 10:27, Joris Verhaegen wrote:
-> The previous patch introduced a 64-bit timestamp ioctl
-> (SNDRV_COMPRESS_TSTAMP64). To provide a consistent API, this patch
-> adds a corresponding 64-bit version of the SNDRV_COMPRESS_AVAIL ioctl.
-> 
-> A new struct snd_compr_avail64 is added to the UAPI, which includes
-> the 64-bit timestamp. The existing ioctl implementation is refactored
-> to handle both the 32-bit and 64-bit variants.
-> 
-> Reviewed-by: Miller Liang <millerliang@google.com>
-> Tested-by: Joris Verhaegen <verhaegen@google.com>
-> Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> ---
->  include/uapi/sound/compress_offload.h | 11 +++++++
->  sound/core/compress_offload.c         | 45 +++++++++++++++++----------
->  2 files changed, 40 insertions(+), 16 deletions(-)
-> 
-> diff --git a/include/uapi/sound/compress_offload.h b/include/uapi/sound/compress_offload.h
-> index 70b8921601f9..26f756cc2e62 100644
-> --- a/include/uapi/sound/compress_offload.h
-> +++ b/include/uapi/sound/compress_offload.h
-> @@ -84,6 +84,16 @@ struct snd_compr_avail {
->  	struct snd_compr_tstamp tstamp;
->  } __attribute__((packed, aligned(4)));
->  
-> +/**
-> + * struct snd_compr_avail64 - avail descriptor with tstamp in 64 bit format
-> + * @avail: Number of bytes available in ring buffer for writing/reading
-> + * @tstamp: timestamp information
-> + */
-> +struct snd_compr_avail64 {
-> +	__u64 avail;
-> +	struct snd_compr_tstamp64 tstamp;
-> +} __attribute__((packed, aligned(4)));
-> +
->  enum snd_compr_direction {
->  	SND_COMPRESS_PLAYBACK = 0,
->  	SND_COMPRESS_CAPTURE,
-> @@ -231,6 +241,7 @@ struct snd_compr_task_status {
->  #define SNDRV_COMPRESS_TSTAMP		_IOR('C', 0x20, struct snd_compr_tstamp)
->  #define SNDRV_COMPRESS_AVAIL		_IOR('C', 0x21, struct snd_compr_avail)
->  #define SNDRV_COMPRESS_TSTAMP64		_IOR('C', 0x22, struct snd_compr_tstamp64)
-> +#define SNDRV_COMPRESS_AVAIL64		_IOR('C', 0x23, struct snd_compr_avail64)
->  #define SNDRV_COMPRESS_PAUSE		_IO('C', 0x30)
->  #define SNDRV_COMPRESS_RESUME		_IO('C', 0x31)
->  #define SNDRV_COMPRESS_START		_IO('C', 0x32)
-> diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
-> index 445220fdb6a0..4d3cf49c0c47 100644
-> --- a/sound/core/compress_offload.c
-> +++ b/sound/core/compress_offload.c
-> @@ -203,13 +203,10 @@ static int snd_compr_update_tstamp(struct snd_compr_stream *stream,
->  }
->  
->  static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
-> -		struct snd_compr_avail *avail)
-> +				   struct snd_compr_avail64 *avail)
->  {
-> -	struct snd_compr_tstamp64 tstamp64 = { 0 };
-> -
->  	memset(avail, 0, sizeof(*avail));
-> -	snd_compr_update_tstamp(stream, &tstamp64);
-> -	snd_compr_tstamp32_from_64(&avail->tstamp, &tstamp64);
-> +	snd_compr_update_tstamp(stream, &avail->tstamp);
->  	/* Still need to return avail even if tstamp can't be filled in */
->  
->  	if (stream->runtime->total_bytes_available == 0 &&
-> @@ -233,32 +230,47 @@ static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
->  	}
->  
->  	avail->avail = stream->runtime->total_bytes_available -
-> -			stream->runtime->total_bytes_transferred;
-> +		       stream->runtime->total_bytes_transferred;
+On Mon, Aug 4, 2025 at 11:23=E2=80=AFPM <sw617.shin@samsung.com> wrote:
+>
+> On Saturday, August 2, 2025 at 1:37 PM Sam Protsenko <semen.protsenko@lin=
+aro.org> wrote:
+> > Not a strong point, but I'd break this patch into two:
+> >   1. Add 32-bit counter feature (without enabling it in exynosautov920
+> > implementation)
+> >   2. Enable 32-bit counter feature in exynosautov920
+> >
+>
+> I'll break this patch into two in the next patch set.
+>
+> > >  #define S3C2410_WTCNT_MAXCNT   0xffff
+> >
+> > Suggest renaming this to S3C2410_WTCNT_MAXCNT_16, to emphasize the fact
+> > this value is for 16-bit counters. And for consistency with the below o=
+ne.
+> >
+> > > +#define S3C2410_WTCNT_MAXCNT_32        0xffffffff
+> > >
+>
+> I'll rename this to S3C2410_WTCNT_MAXCNT_16 in the next patch set.
+>
+> > > + * %QUIRK_HAS_32BIT_MAXCNT: WTDAT and WTCNT are 32-bit registers.
+> > > + With these
+> >
+> > Why not name it like QUIRK_HAS_32BIT_CNT or QUIRK_HAS_32BIT_COUNTER?
+> > As I understand, the quirk means that the chip has 32-bit counter, so M=
+AX
+> > bit is not really needed?
+> >
+> > > + * 32-bit registers, larger values to be set, which means that large=
+r
+> > > + timeouts
+> >
+> > Spelling: "to be set" -> "will be set" (or "have to be set").
+>
+> I'll modify this in the next patch set.
+>
+> > > +       unsigned int            max_cnt;
+> >
+> > Maybe make it u32? It definitely refers to a 32-bit register value, so
+> > will be more explicit that way. Not a strong opinion though.
+> >
+>
+> I'll change this to u32 in the next patch set.
+>
+> > >  };
+> > >
+> > >  static const struct s3c2410_wdt_variant drv_data_s3c2410 =3D {
+> > > @@ -349,7 +356,7 @@ static const struct s3c2410_wdt_variant
+> > drv_data_exynosautov920_cl0 =3D {
+> > >         .cnt_en_bit =3D 8,
+> > >         .quirks =3D QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET=
+ |
+> > >                   QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
+> > > -                 QUIRK_HAS_DBGACK_BIT,
+> > > +                 QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_MAXCNT,
+> > >  };
+> > >
+> > >  static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 =
+=3D {
+> > > @@ -362,7 +369,7 @@ static const struct s3c2410_wdt_variant
+> > drv_data_exynosautov920_cl1 =3D {
+> > >         .cnt_en_bit =3D 8,
+> > >         .quirks =3D QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET=
+ |
+> > >                   QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
+> > > -                 QUIRK_HAS_DBGACK_BIT,
+> > > +                 QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_MAXCNT,
+> >
+> > Yeah, I think it would be easier to review and handle further if this
+> > exynosautov920 enablement is extracted into a separate patch.
+> >
+>
+> I'll break this patch into two in the next patch set.
+>
+> > >
+> > > -       if (count >=3D 0x10000) {
+> > > -               divisor =3D DIV_ROUND_UP(count, 0xffff);
+> > > +       if (count > wdt->max_cnt) {
+> >
+> > wdt->max_cnt + 1?
+> >
+>
+> Yes, 0x10000 represented 'wdt->max_cnt + 1.'
+> Would you like to suggest any revisions?
+>
 
-Lets not do formatting changes in current patch please
+Ah, sorry, I didn't notice you also changed >=3D to just >. All well and
+good, no change is needed here!
 
->  	if (stream->direction == SND_COMPRESS_PLAYBACK)
->  		avail->avail = stream->runtime->buffer_size - avail->avail;
->  
-> -	pr_debug("ret avail as %llu\n", avail->avail);
-> +	pr_debug("ret avail as %zu\n", (size_t)avail->avail);
->  	return avail->avail;
->  }
->  
->  static inline size_t snd_compr_get_avail(struct snd_compr_stream *stream)
->  {
-> -	struct snd_compr_avail avail;
-> +	struct snd_compr_avail64 avail;
->  
->  	return snd_compr_calc_avail(stream, &avail);
->  }
->  
-> -static int
-> -snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
-> +static void snd_compr_avail32_from_64(struct snd_compr_avail *avail32,
-> +				      const struct snd_compr_avail64 *avail64)
->  {
-> -	struct snd_compr_avail ioctl_avail;
-> +	avail32->avail = avail64->avail;
-> +	snd_compr_tstamp32_from_64(&avail32->tstamp, &avail64->tstamp);
-> +}
-> +
-> +static int snd_compr_ioctl_avail(struct snd_compr_stream *stream,
-> +				 unsigned long arg, bool is_32bit)
-> +{
-> +	struct snd_compr_avail64 ioctl_avail64;
-> +	struct snd_compr_avail ioctl_avail32;
->  	size_t avail;
-> +	const void *copy_from = &ioctl_avail64;
-> +	size_t copy_size = sizeof(ioctl_avail64);
->  
->  	if (stream->direction == SND_COMPRESS_ACCEL)
->  		return -EBADFD;
->  
-> -	avail = snd_compr_calc_avail(stream, &ioctl_avail);
-> -	ioctl_avail.avail = avail;
-> +	avail = snd_compr_calc_avail(stream, &ioctl_avail64);
-> +	ioctl_avail64.avail = avail;
-> +	if (is_32bit) {
-> +		snd_compr_avail32_from_64(&ioctl_avail32, &ioctl_avail64);
-> +		copy_from = &ioctl_avail32;
-> +		copy_size = sizeof(ioctl_avail32);
-> +	}
-
-Same comment as previous patch
-
->  
->  	switch (stream->runtime->state) {
->  	case SNDRV_PCM_STATE_OPEN:
-> @@ -269,8 +281,7 @@ snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
->  		break;
->  	}
->  
-> -	if (copy_to_user((__u64 __user *)arg,
-> -				&ioctl_avail, sizeof(ioctl_avail)))
-> +	if (copy_to_user((__u64 __user *)arg, copy_from, copy_size))
->  		return -EFAULT;
->  	return 0;
->  }
-> @@ -1336,7 +1347,9 @@ static long snd_compr_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
->  	case SNDRV_COMPRESS_TSTAMP64:
->  		return snd_compr_tstamp(stream, arg, false);
->  	case SNDRV_COMPRESS_AVAIL:
-> -		return snd_compr_ioctl_avail(stream, arg);
-> +		return snd_compr_ioctl_avail(stream, arg, true);
-> +	case SNDRV_COMPRESS_AVAIL64:
-> +		return snd_compr_ioctl_avail(stream, arg, false);
->  	case SNDRV_COMPRESS_PAUSE:
->  		return snd_compr_pause(stream);
->  	case SNDRV_COMPRESS_RESUME:
-> -- 
-> 2.50.1.565.gc32cd1483b-goog
-
--- 
-~Vinod
+> > > +       wdt->max_cnt =3D S3C2410_WTCNT_MAXCNT;
+> > > +       if ((wdt->drv_data->quirks & QUIRK_HAS_32BIT_MAXCNT))
+> >
+> > Double braces don't seem to be needed.
+> >
+> > > +               wdt->max_cnt =3D S3C2410_WTCNT_MAXCNT_32;
+> > > +
+> >
+> > Style (minor nitpick): this block can be more explicit, i.e.:
+> >
+> >        if ((wdt->drv_data->quirks & QUIRK_HAS_32BIT_MAXCNT))
+> >                wdt->max_cnt =3D S3C2410_WTCNT_MAXCNT_32;
+> >        else
+> >                wdt->max_cnt =3D S3C2410_WTCNT_MAXCNT;
+> >
+>
+> I'll fix these in the next patch set.
+>
+>
+>
 
