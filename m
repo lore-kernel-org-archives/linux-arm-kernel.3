@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F597C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 20:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF06C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 20:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmPvL1G/SJkTVSbv717HV7syA+sbLMTJb+XLtvOZDRs=; b=K6lzIZZyGL+2wlXH432FIV7ktz
-	E9Z9k7DDG8jJFE+xOsFEOYDDemGEmF0HVXVaVUkxDgiNoXQ/kEj+TiY4GmjxIqpn5QgJjKvP8aYep
-	rtMyXKAvScKptciuLnnIXP1IaaWN0AuuV6YHv63KYZXcnADaFPo/U0qLRn9GigsZRbzed2FNzbCRi
-	fc/PqbCDqEidBHDGCw//YVoUZYAPh04ci0gax3FuUoEL0YUj3QnAGaEXVWejsDkIP55zhLwU/NZHg
-	Mz4FGLqteZ8wQr95fApDrpCGo/1Rc1Gts0BjZUYaNzilo9sAHh3zQ45Cm/B/K57onbPYjf2bg+KLl
-	w6faFCRQ==;
+	bh=IbozQ5eb6PcVUwBolIHH3QT1e0huwx5MzGVQtjAVjFs=; b=NwnrvLQ1QyZCZTABZd4E81rt5U
+	IOPgvnBpE0+nrm8oqdRdycVgvBlvEQldtaEq+TJc2g/Z5QjAFD53ubt7ig8QkxGFrjTs8H9HrXOIA
+	fEAYL2++Vu6cm4kwQC9I9UA3RqkTfTIi/bTbppQCoBpaBBwN3MorvN9JyssfjpHkKMM7HONvpPvwm
+	qMj/jxeBQJhbb4odTEd0PJPdtghOPDI8AviSpNtCU3fbzH+QW/PH0N+j5b0rjxA9TU7Rm9mljpGJf
+	0wM2laq9ZRL1e5vSDlZKnfiRfKbLZLRvhPehP+W0MYh6XbjddflLiHWEwwCtpwGTfrEJDPzMXUHYj
+	9A5EvuQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujOQ1-0000000Dlej-3vQi;
-	Tue, 05 Aug 2025 20:37:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ujOTu-0000000DlyR-3apQ;
+	Tue, 05 Aug 2025 20:41:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujONS-0000000DlWR-31hI
+	id 1ujORK-0000000Dlkb-0lgM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 20:35:18 +0000
+	Tue, 05 Aug 2025 20:39:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9BE0601D1;
-	Tue,  5 Aug 2025 20:35:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09ED3C4CEF0;
-	Tue,  5 Aug 2025 20:35:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BC95CA5672E;
+	Tue,  5 Aug 2025 20:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 071A7C4CEF0;
+	Tue,  5 Aug 2025 20:39:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754426117;
-	bh=H7XBzeHOQOWgEm/QZ/dcl/A1X93j8DES9QPGT5ycjQQ=;
+	s=k20201202; t=1754426356;
+	bh=VC9sMCvyq68QKkGDQO5hx+0ig5esATmGOVbDNnZWolQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jguyKfFRngCsfxtTBVg9jfUJEm7kC1fyxOpx391NO16IENeqSaSB52VWkQwixQ957
-	 Ae1WShk034ikx8OFnD2Emzk3b/Q2CJPLPqyzEYhHVOBJHz3QxVGbflkz5TnOJRe/jT
-	 4Rh9cXIUYqKx9wukGjT9PdpQT3nEvSpVs1dyMV0V2UhyGFL0y6OegzKqu+wz2kIfzR
-	 SwMmsRXLpPOa9ahHaieVdoQgkV7a49vPoX088Nftf8/67r5V4bESpwWeh1jVqkfh0r
-	 43dLfk6+VcU0PZEuv+MuhtOrDazwrKKMmC7hImcMFNpM4PVZuUBGuBDNgBcHu2peT0
-	 03GAlKSL/uVng==
-Date: Tue, 5 Aug 2025 21:35:12 +0100
+	b=ri6Zp74nT46FUbiLR+aaF791iBqAIektiiglVIX3fe2E/4UfAV9nH0toKROhO/swk
+	 GQbqDMw6bDNyW/cMs55U8fZaFdSXVneaKyoeneYYe5OECAXd7YUo2m+lppas/4dfH+
+	 lNdFXgn/KCiau605XR1FMYrrxdJdWOu3Z6TS3hhOa6/4JhISFXdtxlHARbe4+AOJrI
+	 HCXHFo/wzPdQtzClZ1RhC2Vo9VU3aLXN42leZlVAjhcrqfs/uAARMhlNqqKb5LlpWO
+	 3ul5jSm5+E4LEmvvVmgrKk4NYJb+PcvRMYHaUuijNFWOHZVU/vPt3xWwcTAX9bevNw
+	 LvNJ6P6LlK0Pw==
+Date: Tue, 5 Aug 2025 21:39:12 +0100
 From: Simon Horman <horms@kernel.org>
 To: Sean Anderson <sean.anderson@linux.dev>
 Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
@@ -55,14 +55,18 @@ Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Michal Simek <michal.simek@amd.com>,
 	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH net-next v4 4/7] net: axienet: Simplify axienet_mdio_setup
-Message-ID: <20250805203512.GD61519@horms.kernel.org>
+Subject: Re: [PATCH net-next v4 6/7] net: axienet: Rearrange lifetime
+ functions
+Message-ID: <20250805203912.GE61519@horms.kernel.org>
 References: <20250805153456.1313661-1-sean.anderson@linux.dev>
- <20250805153456.1313661-5-sean.anderson@linux.dev>
+ <20250805153456.1313661-7-sean.anderson@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250805153456.1313661-5-sean.anderson@linux.dev>
+In-Reply-To: <20250805153456.1313661-7-sean.anderson@linux.dev>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250805_133918_293948_16B3A412 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 11:34:53AM -0400, Sean Anderson wrote:
-> We always put the mdio_node and disable the bus after probing, so
-> perform these steps unconditionally.
+On Tue, Aug 05, 2025 at 11:34:55AM -0400, Sean Anderson wrote:
+> Rearrange the lifetime functions (probe, remove, etc.) in preparation
+> for the next commit. No functional change intended.
 > 
 > Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-> ---
-> 
-> (no changes since v1)
-> 
->  drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c | 15 +++++----------
->  1 file changed, 5 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c b/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-> index dd5f961801dc..1903a1d50b05 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_mdio.c
-> @@ -302,19 +302,14 @@ int axienet_mdio_setup(struct axienet_local *lp)
->  	ret = axienet_mdio_enable(bus, mdio_node);
->  	if (ret < 0)
->  		goto unregister;
-> +
->  	ret = of_mdiobus_register(bus, mdio_node);
-> -	if (ret)
-> -		goto unregister_mdio_enabled;
->  	of_node_put(mdio_node);
->  	axienet_mdio_mdc_disable(lp);
-> -	return 0;
-> -
-> -unregister_mdio_enabled:
-> -	axienet_mdio_mdc_disable(lp);
-> -unregister:
 
-Hi Sean,
+...
 
-This function still has code that jumps to unregister.
-So this causes a compile error.
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
 
-This does appear to be addressed in patch 6/7.
-So I guess it is just an artefact of refactoring the patches
-or something like that.
+...
 
-> -	of_node_put(mdio_node);
-> -	mdiobus_free(bus);
-> -	lp->mii_bus = NULL;
-> +	if (ret) {
-> +		mdiobus_free(bus);
-> +		lp->mii_bus = NULL;
-> +	}
->  	return ret;
->  }
+>  /**
+>   * struct axienet_local - axienet private per device data
+>   * @ndev:	Pointer for net_device to which it will be attached.
+> @@ -549,6 +572,7 @@ struct skbuf_dma_descriptor {
+>  struct axienet_local {
+>  	struct net_device *ndev;
+>  	struct device *dev;
+> +	struct axienet_common *cp;
 
-## Form letter - net-next-closed
+nit: Please add cp to, and remove axi_clk and regs_start from
+     the Kernel doc for this structure.
 
-The merge window for v6.17 has begun and therefore net-next is closed
-for new drivers, features, code refactoring and optimizations. We are
-currently accepting bug fixes only.
+     Flagged by ./scripts/kernel-doc -none
 
-Please repost when net-next reopens after 11th August.
+>  
+>  	struct phylink *phylink;
+>  	struct phylink_config phylink_config;
+> @@ -558,13 +582,11 @@ struct axienet_local {
+>  
+>  	bool switch_x_sgmii;
+>  
+> -	struct clk *axi_clk;
+>  	struct clk_bulk_data misc_clks[XAE_NUM_MISC_CLOCKS];
+>  
+>  	struct mii_bus *mii_bus;
+>  	u8 mii_clk_div;
+>  
+> -	resource_size_t regs_start;
+>  	void __iomem *regs;
+>  	void __iomem *dma_regs;
+>  
 
-RFC patches sent for review only are obviously welcome at any time.
-
-See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
-
--- 
-pw-bot: defer
+...
 
