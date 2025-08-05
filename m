@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E17D0C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2399FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  5 Aug 2025 04:55:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vSiSJhAWfiAbzSiuuDOoDC1y//lJzXGPsNhqlmku/1Q=; b=XXbkVyczXcfVzE6iCeupKQRcpe
-	+wyA2WKN+FP7MWkcrnwsA2/kX5pqCl+LUmQxKy175efVC0asPSQ3K1S8Iwtpu3/jvdtSEB3midii/
-	m3yKY6buU2jlWhB9bAooIRR8IXRLpn/8D8HzwAWiPgy0pmDVtm8ypvY4iTUN54B42jy/JxEuaid4q
-	jHE9Q6zEX5D4sm7kfhW/NLNYsuF8IWHnhuPcoY0tVJLev4zfgAZzAf81IjtL5n4hkiiCBiD4a8LDu
-	Gu1FKsFn/j+OTSxutLfPi6ezgF9qaiMFiK4KC/a0VbgB0q+1B3nSVH9kxG0hEbPEuuiFllg5Nus+e
-	Fm4NZqVg==;
+	bh=yrD2NJgYOQaM3oEh5Vg/hUSun0wpE7HeUiqSHhTdJCA=; b=zx/qTauhwyIl7XUT0WeqwhkfwB
+	yQRnqUlnvPKmZ24Ja1miDJ5eS3KUzddas/7GjwbVkbdHC+qSkwP/nU4UxP2FAcDmaDjptsrQob8NA
+	FcZnO0kHj+zYYwX48tlOt6r+YTLL2FHRB2XsArmeJI5N/lI6p/2kd/tXgGqxLpQa9lhKioOkDgrdL
+	dBTAbOzg97m4wY+AagdnyY4gy36psAqUvwEDR8oh9Zj6f4qRGO1JcaGS5w31O4fnSvYSzZWBMi2TC
+	m1eQzR0wXCOUs4vN0MiKP5a1sSvW2IcSzyrdmxDXFXqR3X1Evmk6z8S/SaxT1tWO75okOClBTwMbD
+	nLxuAQIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9ez-0000000BlyV-2oO0;
-	Tue, 05 Aug 2025 04:52:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uj9hT-0000000Bm77-2GsC;
+	Tue, 05 Aug 2025 04:54:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uj9ao-0000000BlZl-28DB
+	id 1uj9cu-0000000Blmj-36HG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 05 Aug 2025 04:48:07 +0000
+	Tue, 05 Aug 2025 04:50:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01EEB45349;
-	Tue,  5 Aug 2025 04:48:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D26AC4CEF4;
-	Tue,  5 Aug 2025 04:48:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 84157A5598F;
+	Tue,  5 Aug 2025 04:50:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703CAC4CEF4;
+	Tue,  5 Aug 2025 04:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754369283;
-	bh=LoCncB0T59vM/YkkVlcIhEh0yb/IFkNXHSj+2ArsmPw=;
+	s=k20201202; t=1754369415;
+	bh=lULS2E6RBkVGFWW3aExebEAX+iEu+9RQVxkr5znckPw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NJMyP2nVjI/Ojpw0jHVvM/d0xQcdh27oI035+1DsLhGY/TKIo32vUwNMs4ckKFHc4
-	 axcsxLeAv1bXze6etwdJ4n1hWERU64YNBZjPSK4RjpRLHi8snQOIaUITjlfPWWTYbr
-	 p4TicsKIwuOPmfSsgbcCioAdOEVvzDjKREzufyx7LRuaBbczue4ZMejrKlnmJkyL2a
-	 v2SFWE/b8yvpjsSqQNzz2/gA/ArQxTIL+cD2nutLf/7cHWWJm5u1v1Gfg25SMyYpQA
-	 qfE/TbBlQmYuEd5VmJSDV9BN9vfFctr+aV4yq5XpbisNCX59O06ylNJFbt4DRHhYEz
-	 uSKUrKmO2twSw==
-Date: Tue, 5 Aug 2025 10:17:59 +0530
+	b=NYFALg3ncbPPhdfOwyjtX2Tx3pDsJ8R/8B/oam59S/XzVqJIXhD4WttdKR/Anw86N
+	 GxxzOJaa9nixOHvIIIoA4iSdei7hsZH64inIBibHcBZ7wGENenUgp1EPxjLTMU+KWn
+	 wOGX3ZNbA/PhUkOLxvC3wYAG9WQ7D94NsOpOPDuz5HOACi5zci8NuKomTIFVmUU7a1
+	 QQOi1yJK9efcBZNR13Upa21BWPj7UDMYqzjeio36rBRYHhqrjsb/OIVqKFSbSlKx2Z
+	 +ar30LUWFVG0yy8zZ7if7aHLlggkUPTIvDN3L7rOkidcCsv5cZm+DxhaJfRps52IPE
+	 qA8fn7GJes8Cg==
+Date: Tue, 5 Aug 2025 10:20:10 +0530
 From: Vinod Koul <vkoul@kernel.org>
 To: Joris Verhaegen <verhaegen@google.com>
 Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
@@ -66,18 +66,18 @@ Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
 	sound-open-firmware@alsa-project.org,
 	linux-arm-kernel@lists.infradead.org,
 	Miller Liang <millerliang@google.com>
-Subject: Re: [PATCH v4 2/3] ALSA: compress_offload: Add
- SNDRV_COMPRESS_TSTAMP64 ioctl
-Message-ID: <aJGM2zXS6hOLDFm1@vaman>
+Subject: Re: [PATCH v4 3/3] ALSA: compress_offload: Add
+ SNDRV_COMPRESS_AVAIL64 ioctl
+Message-ID: <aJGNgphPCTuE7FFD@vaman>
 References: <20250801092720.1845282-1-verhaegen@google.com>
- <20250801092720.1845282-3-verhaegen@google.com>
+ <20250801092720.1845282-4-verhaegen@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250801092720.1845282-3-verhaegen@google.com>
+In-Reply-To: <20250801092720.1845282-4-verhaegen@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250804_214806_718093_96C9823D 
-X-CRM114-Status: GOOD (  25.69  )
+X-CRM114-CacheID: sfid-20250804_215016_914301_5207E9AC 
+X-CRM114-Status: GOOD (  27.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,106 +93,154 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 01-08-25, 10:27, Joris Verhaegen wrote:
-> The previous patch introduced the internal infrastructure for handling
-> 64-bit timestamps. This patch exposes this capability to user-space.
+> The previous patch introduced a 64-bit timestamp ioctl
+> (SNDRV_COMPRESS_TSTAMP64). To provide a consistent API, this patch
+> adds a corresponding 64-bit version of the SNDRV_COMPRESS_AVAIL ioctl.
 > 
-> Define the new ioctl command SNDRV_COMPRESS_TSTAMP64, which allows
-> applications to fetch the overflow-safe struct snd_compr_tstamp64.
-> 
-> The ioctl dispatch table is updated to handle the new command by
-> calling a new snd_compr_tstamp64 handler, while the legacy path is
-> renamed to snd_compr_tstamp32 for clarity.
-> 
-> This patch bumps the SNDRV_COMPRESS_VERSION to 0.4.0.
+> A new struct snd_compr_avail64 is added to the UAPI, which includes
+> the 64-bit timestamp. The existing ioctl implementation is refactored
+> to handle both the 32-bit and 64-bit variants.
 > 
 > Reviewed-by: Miller Liang <millerliang@google.com>
 > Tested-by: Joris Verhaegen <verhaegen@google.com>
 > Signed-off-by: Joris Verhaegen <verhaegen@google.com>
 > ---
->  include/uapi/sound/compress_offload.h |  5 +++--
->  sound/core/compress_offload.c         | 19 +++++++++++++------
->  2 files changed, 16 insertions(+), 8 deletions(-)
+>  include/uapi/sound/compress_offload.h | 11 +++++++
+>  sound/core/compress_offload.c         | 45 +++++++++++++++++----------
+>  2 files changed, 40 insertions(+), 16 deletions(-)
 > 
 > diff --git a/include/uapi/sound/compress_offload.h b/include/uapi/sound/compress_offload.h
-> index abd0ea3f86ee..70b8921601f9 100644
+> index 70b8921601f9..26f756cc2e62 100644
 > --- a/include/uapi/sound/compress_offload.h
 > +++ b/include/uapi/sound/compress_offload.h
-> @@ -13,8 +13,7 @@
->  #include <sound/asound.h>
->  #include <sound/compress_params.h>
+> @@ -84,6 +84,16 @@ struct snd_compr_avail {
+>  	struct snd_compr_tstamp tstamp;
+>  } __attribute__((packed, aligned(4)));
 >  
-> -
-> -#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 3, 0)
-> +#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 4, 0)
->  /**
->   * struct snd_compressed_buffer - compressed buffer
->   * @fragment_size: size of buffer fragment in bytes
-> @@ -208,6 +207,7 @@ struct snd_compr_task_status {
->   * Note: only codec params can be changed runtime and stream params cant be
->   * SNDRV_COMPRESS_GET_PARAMS: Query codec params
->   * SNDRV_COMPRESS_TSTAMP: get the current timestamp value
-> + * SNDRV_COMPRESS_TSTAMP64: get the current timestamp value in 64 bit format
->   * SNDRV_COMPRESS_AVAIL: get the current buffer avail value.
->   * This also queries the tstamp properties
->   * SNDRV_COMPRESS_PAUSE: Pause the running stream
-> @@ -230,6 +230,7 @@ struct snd_compr_task_status {
->  						 struct snd_compr_metadata)
+> +/**
+> + * struct snd_compr_avail64 - avail descriptor with tstamp in 64 bit format
+> + * @avail: Number of bytes available in ring buffer for writing/reading
+> + * @tstamp: timestamp information
+> + */
+> +struct snd_compr_avail64 {
+> +	__u64 avail;
+> +	struct snd_compr_tstamp64 tstamp;
+> +} __attribute__((packed, aligned(4)));
+> +
+>  enum snd_compr_direction {
+>  	SND_COMPRESS_PLAYBACK = 0,
+>  	SND_COMPRESS_CAPTURE,
+> @@ -231,6 +241,7 @@ struct snd_compr_task_status {
 >  #define SNDRV_COMPRESS_TSTAMP		_IOR('C', 0x20, struct snd_compr_tstamp)
 >  #define SNDRV_COMPRESS_AVAIL		_IOR('C', 0x21, struct snd_compr_avail)
-> +#define SNDRV_COMPRESS_TSTAMP64		_IOR('C', 0x22, struct snd_compr_tstamp64)
+>  #define SNDRV_COMPRESS_TSTAMP64		_IOR('C', 0x22, struct snd_compr_tstamp64)
+> +#define SNDRV_COMPRESS_AVAIL64		_IOR('C', 0x23, struct snd_compr_avail64)
 >  #define SNDRV_COMPRESS_PAUSE		_IO('C', 0x30)
 >  #define SNDRV_COMPRESS_RESUME		_IO('C', 0x31)
 >  #define SNDRV_COMPRESS_START		_IO('C', 0x32)
 > diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
-> index d3164aa07158..445220fdb6a0 100644
+> index 445220fdb6a0..4d3cf49c0c47 100644
 > --- a/sound/core/compress_offload.c
 > +++ b/sound/core/compress_offload.c
-> @@ -736,18 +736,23 @@ snd_compr_set_metadata(struct snd_compr_stream *stream, unsigned long arg)
->  	return retval;
+> @@ -203,13 +203,10 @@ static int snd_compr_update_tstamp(struct snd_compr_stream *stream,
 >  }
 >  
-> -static inline int
-> -snd_compr_tstamp(struct snd_compr_stream *stream, unsigned long arg)
-> +static inline int snd_compr_tstamp(struct snd_compr_stream *stream,
-> +				   unsigned long arg, bool is_32bit)
+>  static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
+> -		struct snd_compr_avail *avail)
+> +				   struct snd_compr_avail64 *avail)
 >  {
->  	struct snd_compr_tstamp64 tstamp64 = { 0 };
->  	struct snd_compr_tstamp tstamp32 = { 0 };
-> +	const void *copy_from = &tstamp64;
-> +	size_t copy_size = sizeof(tstamp64);
->  	int ret;
+> -	struct snd_compr_tstamp64 tstamp64 = { 0 };
+> -
+>  	memset(avail, 0, sizeof(*avail));
+> -	snd_compr_update_tstamp(stream, &tstamp64);
+> -	snd_compr_tstamp32_from_64(&avail->tstamp, &tstamp64);
+> +	snd_compr_update_tstamp(stream, &avail->tstamp);
+>  	/* Still need to return avail even if tstamp can't be filled in */
 >  
->  	ret = snd_compr_update_tstamp(stream, &tstamp64);
->  	if (ret == 0) {
-> -		snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
-> -		ret = copy_to_user((struct snd_compr_tstamp __user *)arg,
-> -				   &tstamp32, sizeof(tstamp32)) ?
-> +		if (is_32bit) {
-> +			snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
-> +			copy_from = &tstamp32;
-> +			copy_size = sizeof(tstamp32);
-> +		}
-
-Most of the applications and people would be 32bit right now and we
-expect this to progressively change, but then this imposes a penalty as
-default path is 64 bit, since we expect this ioctl to be called very
-frequently, should we do this optimization for 64bit here?
-
-> +		ret = copy_to_user((void __user *)arg, copy_from, copy_size) ?
->  			      -EFAULT :
->  			      0;
+>  	if (stream->runtime->total_bytes_available == 0 &&
+> @@ -233,32 +230,47 @@ static size_t snd_compr_calc_avail(struct snd_compr_stream *stream,
 >  	}
-> @@ -1327,7 +1332,9 @@ static long snd_compr_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
 >  
->  	switch (cmd) {
->  	case SNDRV_COMPRESS_TSTAMP:
-> -		return snd_compr_tstamp(stream, arg);
-> +		return snd_compr_tstamp(stream, arg, true);
-> +	case SNDRV_COMPRESS_TSTAMP64:
-> +		return snd_compr_tstamp(stream, arg, false);
+>  	avail->avail = stream->runtime->total_bytes_available -
+> -			stream->runtime->total_bytes_transferred;
+> +		       stream->runtime->total_bytes_transferred;
+
+Lets not do formatting changes in current patch please
+
+>  	if (stream->direction == SND_COMPRESS_PLAYBACK)
+>  		avail->avail = stream->runtime->buffer_size - avail->avail;
+>  
+> -	pr_debug("ret avail as %llu\n", avail->avail);
+> +	pr_debug("ret avail as %zu\n", (size_t)avail->avail);
+>  	return avail->avail;
+>  }
+>  
+>  static inline size_t snd_compr_get_avail(struct snd_compr_stream *stream)
+>  {
+> -	struct snd_compr_avail avail;
+> +	struct snd_compr_avail64 avail;
+>  
+>  	return snd_compr_calc_avail(stream, &avail);
+>  }
+>  
+> -static int
+> -snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
+> +static void snd_compr_avail32_from_64(struct snd_compr_avail *avail32,
+> +				      const struct snd_compr_avail64 *avail64)
+>  {
+> -	struct snd_compr_avail ioctl_avail;
+> +	avail32->avail = avail64->avail;
+> +	snd_compr_tstamp32_from_64(&avail32->tstamp, &avail64->tstamp);
+> +}
+> +
+> +static int snd_compr_ioctl_avail(struct snd_compr_stream *stream,
+> +				 unsigned long arg, bool is_32bit)
+> +{
+> +	struct snd_compr_avail64 ioctl_avail64;
+> +	struct snd_compr_avail ioctl_avail32;
+>  	size_t avail;
+> +	const void *copy_from = &ioctl_avail64;
+> +	size_t copy_size = sizeof(ioctl_avail64);
+>  
+>  	if (stream->direction == SND_COMPRESS_ACCEL)
+>  		return -EBADFD;
+>  
+> -	avail = snd_compr_calc_avail(stream, &ioctl_avail);
+> -	ioctl_avail.avail = avail;
+> +	avail = snd_compr_calc_avail(stream, &ioctl_avail64);
+> +	ioctl_avail64.avail = avail;
+> +	if (is_32bit) {
+> +		snd_compr_avail32_from_64(&ioctl_avail32, &ioctl_avail64);
+> +		copy_from = &ioctl_avail32;
+> +		copy_size = sizeof(ioctl_avail32);
+> +	}
+
+Same comment as previous patch
+
+>  
+>  	switch (stream->runtime->state) {
+>  	case SNDRV_PCM_STATE_OPEN:
+> @@ -269,8 +281,7 @@ snd_compr_ioctl_avail(struct snd_compr_stream *stream, unsigned long arg)
+>  		break;
+>  	}
+>  
+> -	if (copy_to_user((__u64 __user *)arg,
+> -				&ioctl_avail, sizeof(ioctl_avail)))
+> +	if (copy_to_user((__u64 __user *)arg, copy_from, copy_size))
+>  		return -EFAULT;
+>  	return 0;
+>  }
+> @@ -1336,7 +1347,9 @@ static long snd_compr_ioctl(struct file *f, unsigned int cmd, unsigned long arg)
+>  	case SNDRV_COMPRESS_TSTAMP64:
+>  		return snd_compr_tstamp(stream, arg, false);
 >  	case SNDRV_COMPRESS_AVAIL:
->  		return snd_compr_ioctl_avail(stream, arg);
+> -		return snd_compr_ioctl_avail(stream, arg);
+> +		return snd_compr_ioctl_avail(stream, arg, true);
+> +	case SNDRV_COMPRESS_AVAIL64:
+> +		return snd_compr_ioctl_avail(stream, arg, false);
 >  	case SNDRV_COMPRESS_PAUSE:
+>  		return snd_compr_pause(stream);
+>  	case SNDRV_COMPRESS_RESUME:
 > -- 
 > 2.50.1.565.gc32cd1483b-goog
 
