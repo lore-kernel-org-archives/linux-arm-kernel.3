@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FE6C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB8AC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 20:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6wGRYdz0Cv8uWZ2+02RhdxmJBe/Md6fIzXGBOwD4e80=; b=E8UX8lqhbuB2+YEf82Q6zaK9Ft
-	l35JYb/k4UXnGVZDwTVYecwiKsmkaZ4S8mx3yaJ7+WHZ/L9FQ1HwhGD+rSAkbAJa1x/5E+ShNxSQM
-	uCzIcBMnp/C+Lw659EZhLwe5sr2pwKfculIogY46Le1y+sxGbijZnrEeU+c7faGLy9eSp18uwNtPW
-	1b2gL4sdB9x2LY691TCViBFCjBGRcPdE09UHPzo1CtWniPxInf+EWnraZmPLqZp8r2urbGEdxXLph
-	wrIFMVZFkOybOvjJvEOwKkF23np12IMagzQ7JBztzUBn9zdADWIJMT+L6R6zHB30uyQXZ5b5ctkqO
-	kqCHb/Ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YiSAi80MlZj2ytBXJIndfL/QD0SGw7awSa7/LhzXfd4=; b=URqZxn9U0bhyPk2FYji1fU5ZHB
+	+zFsKyeqF7RVvfViocJhoQ2CC+8fiCPLCWoTCgRq3KxctzaXcfvBk0L8mkPd09wbNkzyrg440+GBe
+	J4w76Ic7qwIt4NFStTY0bAsTcrMK6SuoZogE7gLqGGJE4XaFWAykYi35NtsalxrsT03GFJHtmBYVk
+	7esHDjT3a3afq99nvbQ/g4wsCtH8qcxuPCkdjgqJG7tbiYZc/wP8F2UXl1pcFD+CGDZWZDOg1+MPe
+	G5ncxYHkSHjc72Cd+yuf7bAnsCja+79GXy/tsNrX0uHGgGmnlYriM1WcJbWHpPMmiCQdYGzkJPR25
+	4Bq/l9Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkHB-0000000GGhg-0XQV;
-	Wed, 06 Aug 2025 19:58:17 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ujkJj-0000000GI4z-1UJq;
+	Wed, 06 Aug 2025 20:00:55 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkEb-0000000GFgA-4A2g;
-	Wed, 06 Aug 2025 19:55:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=6wGRYdz0Cv8uWZ2+02RhdxmJBe/Md6fIzXGBOwD4e80=; b=ImcDchd/oVlIFLMNyzxZdk2UZg
-	B+wd/K7+/Jt6ER+SO/baS0lzf3kiQLMTy9UzsIvwRdNfnZlr0WJZeeVLjxH74KEGl3Me7ciKV2Jwx
-	RxmumiXlKY4ajD/w4zWoQZ+bMKAG7PxXLSGErbY4BSA73yNV7FioBKaMltNZ6bUDkbeH4bgcZ9r1g
-	XvzOPMjSrf4uoiATYwFmbvNkClPgjjbFFF9CU9IYyoOrPO+GNuUBNmZ0mUUSvGCjutpB5xIWPjhgA
-	KcZwYcZFuOVcjYexZf8j0lZLF7lwSQfIq4naLYOZIKv63oGqyrqGWiB/1rDRs8woNPnrygBtOPnrr
-	9QdGKXyg==;
-Received: from i53875ab1.versanet.de ([83.135.90.177] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ujkDq-00021U-4e; Wed, 06 Aug 2025 21:54:50 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge helper for
- the Analogix DP driver
-Date: Wed, 06 Aug 2025 21:54:48 +0200
-Message-ID: <38992177.XM6RcZxFsP@diego>
-In-Reply-To: <1cf4bc1b-d7f3-4a88-b8d8-d2f681dce370@rock-chips.com>
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <c73fa024-fdd0-4f62-9c8a-11e7eee3c475@rock-chips.com>
- <1cf4bc1b-d7f3-4a88-b8d8-d2f681dce370@rock-chips.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	id 1ujkGP-0000000GG1l-3xIp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Aug 2025 19:57:31 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-31f74a64da9so297925a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:57:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754510249; x=1755115049; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YiSAi80MlZj2ytBXJIndfL/QD0SGw7awSa7/LhzXfd4=;
+        b=TM/jxCvJUPJRpfAcPigNWUpx1SOSfMplZS7C/isfHCFmtSx3UkghgHg4uVIyjuaq17
+         RnpSUvQsqAGs7EpFOrJttf0zvUdmYbJF0fU5Ovsr8jh4W48nIboOPat8Fc898kBTa2mO
+         7fY4qCaSh9sdc1+eLfzRnFxZDiauAyceOyMWQ8P0ZDBCILus98SB4kL07ABCG5AsQEYR
+         drHVqQL8eAgscLvbxkqHP1uS8p1D9HY8QNEK1VQdnacK7hQYlR6ziMLbGz4rqkbfVkz9
+         LhJyX0pAiLCkDi91ZVmf5hImMGlConw1dB0f6kmB8CNs3w3ck9Lr5H2SL108XUxhOskM
+         J/bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754510249; x=1755115049;
+        h=cc:to:from:subject:message-id:mime-version:date:reply-to
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YiSAi80MlZj2ytBXJIndfL/QD0SGw7awSa7/LhzXfd4=;
+        b=wK70UOJldqIDffSIOKCb7D01335Q48Uu+l3GRtA9b984/+5XrZA2PrpT7FVztucGKR
+         QDvn3YD0PpSHD9sK4EfblJ9rThTJsJwzwK+leE1pWbUZG5cTUL2fnUXLgR7Ib9gCQUpu
+         7IxTaun6Fk0vA1b0tVxuYzZA81sl/MFmdS5/QJ6RQ7Njr+xf8HhzbU669tElTTEjV6ON
+         Mkq//+SiARp/ImboZhn8q+NeIU5pX2zv0i/XWq8cSDC/FUhszNg7pvB3Tr+dRjxK6i8g
+         /8iNmC0AgYWG5we8d8FQ1+IYBd84sNXKAbVgCUPoruwvYo/hXewZJ5NK+zdd2h2buKrQ
+         L0+w==
+X-Gm-Message-State: AOJu0YyKRcbRr1+fUcEeLpiM5Iv8cQzsfgdAvkHSoKZeTjTwZ2512mCl
+	9vEUl/mrfhH1tMK6Cf+qq2UlG6DqSj+Ki/xK90JV4O8j7JwO1NbRa1nH9QYjjASDlHBere7urjd
+	EckM1Og==
+X-Google-Smtp-Source: AGHT+IEiZF4ZVXP/srLo4kntXv21eK34Ewron2VGf18IaFFGcm86hQQPlcpG9BeCZl+mVxBNNadcXtcYKE4=
+X-Received: from pjoa3.prod.google.com ([2002:a17:90a:8c03:b0:312:14e5:174b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e7c2:b0:31c:15d9:8aa
+ with SMTP id 98e67ed59e1d1-32166cd17a9mr5063314a91.34.1754510248842; Wed, 06
+ Aug 2025 12:57:28 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:22 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
+Message-ID: <20250806195706.1650976-1-seanjc@google.com>
+Subject: [PATCH v5 00/44] KVM: x86: Add support for mediated vPMUs
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, Kan Liang <kan.liang@linux.intel.com>, 
+	Yongwei Ma <yongwei.ma@intel.com>, Mingwei Zhang <mizhang@google.com>, 
+	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125538_178756_2A9883F5 
-X-CRM114-Status: GOOD (  26.75  )
+X-CRM114-CacheID: sfid-20250806_125729_993963_1CE1182F 
+X-CRM114-Status: GOOD (  27.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,228 +95,225 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Damon,
+This series is based on the fastpath+PMU cleanups series[*] (which is based on
+kvm/queue), but the non-KVM changes apply cleanly on v6.16 or Linus' tree.
+I.e. if you only care about the perf changes, I would just apply on whatever
+branch is convenient and stop when you hit the KVM changes.
 
-Am Dienstag, 29. Juli 2025, 05:16:27 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Damon Ding:
-> On 2025/7/29 11:02, Damon Ding wrote:
-> > On 2025/7/26 3:45, Heiko St=C3=BCbner wrote:
-> >> Am Freitag, 25. Juli 2025, 04:15:06 Mitteleurop=C3=A4ische Sommerzeit=
-=20
-> >> schrieb Damon Ding:
-> >>> On 2025/7/24 21:10, Heiko St=C3=BCbner wrote:
-> >>>> Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleurop=C3=A4ische Sommer=
-zeit=20
-> >>>> schrieb Damon Ding:
-> >>>>> PATCH 1 is a small format optimization for struct analogid_dp_devic=
-e.
-> >>>>> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enab=
-le.
-> >>>>> PATCH 3 is to apply a better API for the encoder initialization.
-> >>>>> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
-> >>>>> PATCH 8 is to apply the drm_bridge_connector helper.
-> >>>>> PATCH 9-11 are to move the panel/bridge parsing to the Analogix sid=
-e.
-> >>>>> PATCH 12-13 are preparations for apply panel_bridge helper.
-> >>>>> PATCH 14 is to apply the panel_bridge helper.
-> >>>>
-> >>>> for future revisions, please provide a changelog on what changed sin=
-ce
-> >>>> the previous version, I guess ideally here in the cover-letter.
-> >>>>
-> >>>>
-> >>>> On my rk3588-tiger-displayport-carrier this works like a charm
-> >>>> Tested-by: Heiko Stuebner <heiko@sntech.de>
-> >>>>
-> >>>>
-> >>>>
-> >>>>
-> >>>
-> >>> Glad to see your review and test. :-)
-> >>>
-> >>> I will include the version-to-version changelogs (v2 -> v3 and v3 -> =
-v4)
-> >>> in the next iteration.
-> >>
-> >> I have to amend that a bit, sadly. When doing a reboot with the edp
-> >> running, I see logs like:
-> >>
-> >> [...]
-> >> [  139.614749] systemd-shutdown[1]: Syncing filesystems and block=20
-> >> devices.
-> >> [  139.622201] systemd-shutdown[1]: Rebooting.
-> >> [  139.684845] ------------[ cut here ]------------
-> >> [  139.690050] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-=20
-> >> iommu.c:989 rk_iommu_identity_attach+0xac/0xbc
-> >> [  139.701175] Modules linked in: panthor rockchip_vdec rocket=20
-> >> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper=20
-> >> v4l2_mem2mem gpu_sched rng_core fuse
-> >> [  139.717685] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Not tainted=20
-> >> 6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
-> >> [  139.728799] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger=
-=20
-> >> Displayport Carrier v1 (DT)
-> >> [  139.738548] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS=20
-> >> BTYPE=3D--)
-> >> [  139.746351] pc : rk_iommu_identity_attach+0xac/0xbc
-> >> [  139.751821] lr : rk_iommu_identity_attach+0x70/0xbc
-> >> [  139.757290] sp : ffff800080e4b7c0
-> >> [  139.761001] x29: ffff800080e4b7c0 x28: ffff0001f6f98080 x27:=20
-> >> ffff0001f0a4b010
-> >> [  139.769006] x26: ffff0001f6f98e58 x25: 0000000000000000 x24:=20
-> >> 0000000000000000
-> >> [  139.777010] x23: 0000000000000000 x22: ffffdbf23c0485e0 x21:=20
-> >> ffff0001f0e9cc10
-> >> [  139.785014] x20: ffff0001f0df17a0 x19: ffff0001f0e2cb80 x18:=20
-> >> 0000000000000038
-> >> [  139.793018] x17: 0002550800000009 x16: 0000046c0446043e x15:=20
-> >> 0438000008ca080c
-> >> [  139.801021] x14: 07d008ca07800780 x13: 0438000008ca080c x12:=20
-> >> 07d0078000025508
-> >> [  139.809024] x11: 0002550800000009 x10: 0000046c0446043e x9 :=20
-> >> ffffdbf23c137000
-> >> [  139.817031] x8 : 0000000000000438 x7 : 0000000000000000 x6 :=20
-> >> 0000000000000000
-> >> [  139.825034] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 :=20
-> >> ffff0001f0df1780
-> >> [  139.833038] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 :=20
-> >> 00000000ffffffea
-> >> [  139.841042] Call trace:
-> >> [  139.843780]  rk_iommu_identity_attach+0xac/0xbc (P)
-> >> [  139.849252]  rk_iommu_attach_device+0x54/0x134
-> >> [  139.854236]  __iommu_device_set_domain+0x7c/0x110
-> >> [  139.859510]  __iommu_group_set_domain_internal+0x60/0x134
-> >> [  139.865561]  __iommu_attach_group+0x88/0x9c
-> >> [  139.870250]  iommu_attach_device+0x68/0xa0
-> >> [  139.874841]  rockchip_drm_dma_attach_device+0x28/0x7c
-> >> [  139.880508]  vop2_crtc_atomic_enable+0x620/0xaa0
-> >> [  139.885678]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
-> >> [  139.892413]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
-> >> [  139.898369]  commit_tail+0xa0/0x1a0
-> >> [  139.902279]  drm_atomic_helper_commit+0x17c/0x1b0
-> >> [  139.907552]  drm_atomic_commit+0x8c/0xcc
-> >> [  139.911951]  drm_client_modeset_commit_atomic+0x228/0x298
-> >> [  139.918005]  drm_client_modeset_commit_locked+0x5c/0x188
-> >> [  139.923960]  drm_client_modeset_commit+0x2c/0x58
-> >> [  139.929137]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
-> >> [  139.936164]  drm_fb_helper_hotplug_event+0xe8/0xf8
-> >> [  139.941526]  drm_fbdev_client_hotplug+0x24/0xe0
-> >> [  139.946605]  drm_client_hotplug+0x48/0xc4
-> >> [  139.951100]  drm_client_dev_hotplug+0x9c/0xd4
-> >> [  139.955984]  drm_kms_helper_connector_hotplug_event+0x20/0x30
-> >> [  139.962426]  drm_bridge_connector_hpd_cb+0x88/0xa0
-> >> [  139.967790]  drm_bridge_hpd_notify+0x3c/0x60
-> >> [  139.972577]  display_connector_hpd_irq+0x30/0xa4
-> >> [  139.978835]  irq_thread_fn+0x2c/0xb0
-> >> [  139.983894]  irq_thread+0x170/0x304
-> >> [  139.988833]  kthread+0x12c/0x204
-> >> [  139.993468]  ret_from_fork+0x10/0x20
-> >> [  139.998486] ---[ end trace 0000000000000000 ]---
-> >> [  140.004737] ------------[ cut here ]------------
-> >> [  140.010884] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-=20
-> >> iommu.c:1040 rk_iommu_attach_device+0x114/0x134
-> >> [  140.023079] Modules linked in: panthor rockchip_vdec rocket=20
-> >> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper=20
-> >> v4l2_mem2mem gpu_sched rng_core fuse
-> >> [  140.040577] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Tainted:=20
-> >> G        W           6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
-> >> [  140.054457] Tainted: [W]=3DWARN
-> >> [  140.058804] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger=
-=20
-> >> Displayport Carrier v1 (DT)
-> >> [  140.069595] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS=20
-> >> BTYPE=3D--)
-> >> [  140.078454] pc : rk_iommu_attach_device+0x114/0x134
-> >> [  140.084989] lr : rk_iommu_attach_device+0x98/0x134
-> >> [  140.091423] sp : ffff800080e4b7e0
-> >> [  140.096197] x29: ffff800080e4b7e0 x28: ffff0001f6f98080 x27:=20
-> >> ffff0001f0a4b010
-> >> [  140.105270] x26: ffff0001f6f98e58 x25: 0000000000000000 x24:=20
-> >> 0000000000000000
-> >> [  140.114351] x23: ffff0001f6f843e0 x22: ffffdbf23c0485e0 x21:=20
-> >> ffff0001f0e9cc10
-> >> [  140.123425] x20: ffff0001f0e2cb80 x19: ffff0001f6f843c0 x18:=20
-> >> 0000000000000038
-> >> [  140.132489] x17: 0002550800000009 x16: 0000046c0446043e x15:=20
-> >> 0438000008ca080c
-> >> [  140.141552] x14: 07d008ca07800780 x13: 0438000008ca080c x12:=20
-> >> 07d0078000025508
-> >> [  140.150623] x11: 0002550800000009 x10: 0000046c0446043e x9 :=20
-> >> ffffdbf23c137000
-> >> [  140.159701] x8 : 0000000000000438 x7 : 0000000000000000 x6 :=20
-> >> 0000000000000000
-> >> [  140.168772] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 :=20
-> >> ffff0001f0e2cbe0
-> >> [  140.177825] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 :=20
-> >> 00000000ffffffea
-> >> [  140.186858] Call trace:
-> >> [  140.190627]  rk_iommu_attach_device+0x114/0x134 (P)
-> >> [  140.197124]  __iommu_device_set_domain+0x7c/0x110
-> >> [  140.203417]  __iommu_group_set_domain_internal+0x60/0x134
-> >> [  140.210492]  __iommu_attach_group+0x88/0x9c
-> >> [  140.216203]  iommu_attach_device+0x68/0xa0
-> >> [  140.221802]  rockchip_drm_dma_attach_device+0x28/0x7c
-> >> [  140.228479]  vop2_crtc_atomic_enable+0x620/0xaa0
-> >> [  140.234664]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
-> >> [  140.242400]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
-> >> [  140.249349]  commit_tail+0xa0/0x1a0
-> >> [  140.254246]  drm_atomic_helper_commit+0x17c/0x1b0
-> >> [  140.260496]  drm_atomic_commit+0x8c/0xcc
-> >> [  140.265866]  drm_client_modeset_commit_atomic+0x228/0x298
-> >> [  140.272885]  drm_client_modeset_commit_locked+0x5c/0x188
-> >> [  140.279791]  drm_client_modeset_commit+0x2c/0x58
-> >> [  140.285914]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
-> >> [  140.293889]  drm_fb_helper_hotplug_event+0xe8/0xf8
-> >> [  140.300214]  drm_fbdev_client_hotplug+0x24/0xe0
-> >> [  140.306248]  drm_client_hotplug+0x48/0xc4
-> >> [  140.311695]  drm_client_dev_hotplug+0x9c/0xd4
-> >> [  140.317531]  drm_kms_helper_connector_hotplug_event+0x20/0x30
-> >> [  140.324930]  drm_bridge_connector_hpd_cb+0x88/0xa0
-> >> [  140.331248]  drm_bridge_hpd_notify+0x3c/0x60
-> >> [  140.336990]  display_connector_hpd_irq+0x30/0xa4
-> >> [  140.343120]  irq_thread_fn+0x2c/0xb0
-> >> [  140.348081]  irq_thread+0x170/0x304
-> >> [  140.352937]  kthread+0x12c/0x204
-> >> [  140.357501]  ret_from_fork+0x10/0x20
-> >> [  140.362453] ---[ end trace 0000000000000000 ]---
-> >>
-> >>
-> >> After some minutes of hanging it does reboot afterall.
-> >>
-> >> Heiko
-> >>
-> >>
-> >=20
-> > Could you please help confirm whether the same error still occurs with=
-=20
-> > this patch series under the same conditions?
->=20
-> Careless, what I want to express should be '...without this patch=20
-> series...'. :-)
+My hope/plan is that the perf changes will go through the tip tree with a
+stable tag/branch, and the KVM changes will go the kvm-x86 tree.
 
-sorry this took a tad longer for me to get back to this topic, but I was
-now able to run a number of scenarios:
+Non-x86 KVM folks, y'all are getting Cc'd due to minor changes in "KVM: Add a
+simplified wrapper for registering perf callbacks".
 
-So I ran a number of variants and interestingly as the board I do eDP
-tests on does not have any PCIe parts, I enountered an issue with
-the PCIe SMMU [0].
+The full set is also available at:
 
-When I disable the SMMU node, I also cannot reproduce the error from
-above. So I've rebooted so many times today both with and without the
-SMMU, and encountered the log from above only ever with the dangling
-SMMU. So I'd assume, the Analogix series is actually innocent :-) .
+  https://github.com/sean-jc/linux.git tags/mediated-vpmu-v5
 
+Add support for mediated vPMUs in KVM x86, where "mediated" aligns with the
+standard definition of intercepting control operations (e.g. event selectors),
+while allowing the guest to perform data operations (e.g. read PMCs, toggle
+counters on/off) without KVM getting involed.
 
-Heiko
+For an in-depth description of the what and why, please see the cover letter
+from the original RFC:
+
+  https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
+
+All KVM tests pass (or fail the same before and after), and I've manually
+verified MSR/PMC are passed through as expected, but I haven't done much at all
+to actually utilize the PMU in a guest.  I'll be amazed if I didn't make at
+least one major goof.
+
+Similarly, I tried to address all feedback, but there are many, many changes
+relative to v4.  If I missed something, I apologize in advance.
+
+In other words, please thoroughly review and test.
+
+[*] https://lore.kernel.org/all/20250805190526.1453366-1-seanjc@google.com
+
+v5:
+ - Add a patch to call security_perf_event_free() from __free_event()
+   instead of _free_event() (necessitated by the __cleanup() changes).
+ - Add CONFIG_PERF_GUEST_MEDIATED_PMU to guard the new perf functionality.
+ - Ensure the PMU is fully disabled in perf_{load,put}_guest_context() when
+   when switching between guest and host context. [Kan, Namhyung]
+ - Route the new system IRQ, PERF_GUEST_MEDIATED_PMI_VECTOR, through perf,
+   not KVM, and play nice with FRED.
+ - Rename and combine perf_{guest,host}_{enter,exit}() to a single set of
+   APIs, perf_{load,put}_guest_context().
+ - Rename perf_{get,put}_mediated_pmu() to perf_{create,release}_mediated_pmu()
+   to (hopefully) better differentiate them from perf_{load,put}_guest_context().
+ - Change the param to the load/put APIs from "u32 guest_lvtpc" to
+   "unsigned long data" to decouple arch code as much as possible.  E.g. if
+   a non-x86 arch were to ever support a mediated vPMU, @data could be used
+   to pass a pointer to a struct.
+ - Use pmu->version to detect if a vCPU has a mediated PMU.
+ - Use a kvm_x86_ops hook to check for mediated PMU support.
+ - Cull "passthrough" from as many places as I could find.
+ - Improve the changelog/documentation related to RDPMC interception.
+ - Check harware capabilities, not KVM capabilities, when calculating
+   MSR and RDPMC intercepts.
+ - Rework intercept (re)calculation to use a request and the existing (well,
+   will be existing as of 6.17-rc1) vendor hooks for recalculating intercepts.
+ - Always read PERF_GLOBAL_CTRL on VM-Exit if writes weren't intercepted while
+   running the vCPU.
+ - Call setup_vmcs_config() before kvm_x86_vendor_init() so that the golden
+   VMCS configuration is known before kvm_init_pmu_capability() is called.
+ - Keep as much refresh/init code in common x86 as possible.
+ - Context switch PMCs and event selectors in common x86, not vendor code.
+ - Bail from the VM-Exit fastpath if the guest is counting instructions
+   retired and the mediated PMU is enabled (because guest state hasn't yet
+   been synchronized with hardware).
+ - Don't require an userspace to opt-in via KVM_CAP_PMU_CAPABILITY, and instead
+   automatically "create" a mediated PMU on the first KVM_CREATE_VCPU call if
+   the VM has an in-kernel local APIC.
+ - Add entries in kernel-parameters.txt for the PMU params.
+ - Add a patch to elide PMC writes when possible.
+ - Many more fixups and tweaks...
+
+v4:
+ - https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
+ - Rebase whole patchset on 6.14-rc3 base.
+ - Address Peter's comments on Perf part.
+ - Address Sean's comments on KVM part.
+   * Change key word "passthrough" to "mediated" in all patches
+   * Change static enabling to user space dynamic enabling via KVM_CAP_PMU_CAPABILITY.
+   * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
+     save/retore list support for GLOBAL_CTRL, thus the support of mediated
+     vPMU is constrained to SapphireRapids and later CPUs on Intel side.
+   * Merge some small changes into a single patch.
+ - Address Sandipan's comment on invalid pmu pointer.
+ - Add back "eventsel_hw" and "fixed_ctr_ctrl_hw" to avoid to directly
+   manipulate pmc->eventsel and pmu->fixed_ctr_ctrl.
+
+v3: https://lore.kernel.org/all/20240801045907.4010984-1-mizhang@google.com
+v2: https://lore.kernel.org/all/20240506053020.3911940-1-mizhang@google.com
+v1: https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
+
+Dapeng Mi (15):
+  KVM: x86/pmu: Start stubbing in mediated PMU support
+  KVM: x86/pmu: Implement Intel mediated PMU requirements and
+    constraints
+  KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
+  KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h header
+  KVM: VMX: Add helpers to toggle/change a bit in VMCS execution
+    controls
+  KVM: x86/pmu: Disable RDPMC interception for compatible mediated vPMU
+  KVM: x86/pmu: Load/save GLOBAL_CTRL via entry/exit fields for mediated
+    PMU
+  KVM: x86/pmu: Use BIT_ULL() instead of open coded equivalents
+  KVM: x86/pmu: Disable interception of select PMU MSRs for mediated
+    vPMUs
+  KVM: x86/pmu: Bypass perf checks when emulating mediated PMU counter
+    accesses
+  KVM: x86/pmu: Reprogram mediated PMU event selectors on event filter
+    updates
+  KVM: x86/pmu: Load/put mediated PMU context when entering/exiting
+    guest
+  KVM: x86/pmu: Handle emulated instruction for mediated vPMU
+  KVM: nVMX: Add macros to simplify nested MSR interception setting
+  KVM: x86/pmu: Expose enable_mediated_pmu parameter to user space
+
+Kan Liang (7):
+  perf: Skip pmu_ctx based on event_type
+  perf: Add generic exclude_guest support
+  perf: Add APIs to create/release mediated guest vPMUs
+  perf: Clean up perf ctx time
+  perf: Add a EVENT_GUEST flag
+  perf: Add APIs to load/put guest mediated PMU context
+  perf/x86/intel: Support PERF_PMU_CAP_MEDIATED_VPMU
+
+Mingwei Zhang (3):
+  perf/x86/core: Plumb mediated PMU capability from x86_pmu to
+    x86_pmu_cap
+  KVM: x86/pmu: Introduce eventsel_hw to prepare for pmu event filtering
+  KVM: nVMX: Disable PMU MSR interception as appropriate while running
+    L2
+
+Sandipan Das (3):
+  perf/x86/core: Do not set bit width for unavailable counters
+  perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for AMD host
+  KVM: x86/pmu: Always stuff GuestOnly=1,HostOnly=0 for mediated PMCs on
+    AMD
+
+Sean Christopherson (15):
+  perf: Move security_perf_event_free() call to __free_event()
+  perf: core/x86: Register a new vector for handling mediated guest PMIs
+  perf/x86: Switch LVTPC to/from mediated PMI vector on guest load/put
+    context
+  KVM: VMX: Setup canonical VMCS config prior to kvm_x86_vendor_init()
+  KVM: SVM: Check pmu->version, not enable_pmu, when getting PMC MSRs
+  KVM: Add a simplified wrapper for registering perf callbacks
+  KVM: x86/pmu: Snapshot host (i.e. perf's) reported PMU capabilities
+  KVM: x86/pmu: Implement AMD mediated PMU requirements
+  KVM: x86: Rework KVM_REQ_MSR_FILTER_CHANGED into a generic
+    RECALC_INTERCEPTS
+  KVM: x86: Use KVM_REQ_RECALC_INTERCEPTS to react to CPUID updates
+  KVM: x86/pmu: Move initialization of valid PMCs bitmask to common x86
+  KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed PMCs, and PEBS to
+    PMU v2+
+  KVM: x86/pmu: Disallow emulation in the fastpath if mediated PMCs are
+    active
+  KVM: nSVM: Disable PMU MSR interception as appropriate while running
+    L2
+  KVM: x86/pmu: Elide WRMSRs when loading guest PMCs if values already
+    match
+
+Xiong Zhang (1):
+  KVM: x86/pmu: Register PMI handler for mediated vPMU
+
+ .../admin-guide/kernel-parameters.txt         |  49 ++
+ arch/arm64/kvm/arm.c                          |   2 +-
+ arch/loongarch/kvm/main.c                     |   2 +-
+ arch/riscv/kvm/main.c                         |   2 +-
+ arch/x86/entry/entry_fred.c                   |   1 +
+ arch/x86/events/amd/core.c                    |   2 +
+ arch/x86/events/core.c                        |  32 +-
+ arch/x86/events/intel/core.c                  |   5 +
+ arch/x86/include/asm/hardirq.h                |   3 +
+ arch/x86/include/asm/idtentry.h               |   6 +
+ arch/x86/include/asm/irq_vectors.h            |   4 +-
+ arch/x86/include/asm/kvm-x86-ops.h            |   2 +-
+ arch/x86/include/asm/kvm-x86-pmu-ops.h        |   4 +
+ arch/x86/include/asm/kvm_host.h               |   7 +-
+ arch/x86/include/asm/msr-index.h              |  17 +-
+ arch/x86/include/asm/perf_event.h             |   1 +
+ arch/x86/include/asm/vmx.h                    |   1 +
+ arch/x86/kernel/idt.c                         |   3 +
+ arch/x86/kernel/irq.c                         |  19 +
+ arch/x86/kvm/Kconfig                          |   1 +
+ arch/x86/kvm/cpuid.c                          |   2 +
+ arch/x86/kvm/pmu.c                            | 272 ++++++++-
+ arch/x86/kvm/pmu.h                            |  37 +-
+ arch/x86/kvm/svm/nested.c                     |  18 +-
+ arch/x86/kvm/svm/pmu.c                        |  51 +-
+ arch/x86/kvm/svm/svm.c                        |  54 +-
+ arch/x86/kvm/vmx/capabilities.h               |  11 +-
+ arch/x86/kvm/vmx/main.c                       |  14 +-
+ arch/x86/kvm/vmx/nested.c                     |  65 ++-
+ arch/x86/kvm/vmx/pmu_intel.c                  | 169 ++++--
+ arch/x86/kvm/vmx/pmu_intel.h                  |  15 +
+ arch/x86/kvm/vmx/vmx.c                        | 143 +++--
+ arch/x86/kvm/vmx/vmx.h                        |  11 +-
+ arch/x86/kvm/vmx/x86_ops.h                    |   2 +-
+ arch/x86/kvm/x86.c                            |  69 ++-
+ arch/x86/kvm/x86.h                            |   1 +
+ include/linux/kvm_host.h                      |  11 +-
+ include/linux/perf_event.h                    |  38 +-
+ init/Kconfig                                  |   4 +
+ kernel/events/core.c                          | 521 ++++++++++++++----
+ .../beauty/arch/x86/include/asm/irq_vectors.h |   3 +-
+ virt/kvm/kvm_main.c                           |   6 +-
+ 42 files changed, 1385 insertions(+), 295 deletions(-)
 
 
-
-[0] https://lore.kernel.org/linux-rockchip/4400329.mogB4TqSGs@diego/T/#m590=
-1974351b7c11e34f29a02b4f7f69b6ef29b2f
-
-
+base-commit: 53d61a43a7973f812caa08fa922b607574befef4
+-- 
+2.50.1.565.gc32cd1483b-goog
 
 
