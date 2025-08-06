@@ -4,152 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD03BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA20C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2Wt9GQr/rxbLZPv3uiNfIyDvLjZmJLqsw7j0kAAjaQ=; b=d/o1p9YcgpkNas/wFG3Mu4eT9a
-	5xX2hu0Q/n4VBtgXG1Oq7zeZWpd6PHbCNwVkWzDv3pAKZmq3Eb+2y/4O8DzvHdVUZMrc0o6ti5nJU
-	XE8/tH0AxuCFIdZt3BPikYxu8euOwq50+VMQrNYMe0mZDxTS6YrOza846448wxQKp0uGI+1gG839Z
-	mVmU8lEmyDTI6i7h/8fOfLYlw9QQ1kDOCKNSKb4Y/oUvdP39DDZsHhtAq+aSBObIBhilZIooP/DvB
-	8k7np5zJX2RLirKGh/JHXCmdBcaVdqX7WSX+o565hjLdSKn0Tfms6Us5PgJfNxTHV5864rVpHoYH7
-	jXnwsvqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uDkF0BLoXFgSE926je2WgpTyIl4N2UFYP5ht23EU0t4=; b=sCHzqbLGB5eDiDA47bPCP6jg0n
+	cZzAVeF8o6h1vt6UJ3dSyK3mx5XkKGZMmkI5LXcHLQYd0GFfyThXjieLltyQw/TXX/09fbDd07PVk
+	/776vS0jsxRnPLKykztJBqT/w96FswVRRe+Nm3AQ2Si9YTGsejKnWblrVMRPlNQ6qkBxpcSn4rSdz
+	RpDSMd+GbfyDI/VjThexIyw3zXCby+gM+rKW/Ea3vQ9yvlQosl8RiHt7eXbiZlg/L+oydrXO+jI3E
+	1L18qYhFHTZKfYWjLxVjMOftjEPL7bNpV+sATlvtbvK8xIK26UAtrxIWB/8DC9m9IsLQZ4en8fw3b
+	ocgA03jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujacp-0000000EnWZ-0EDz;
-	Wed, 06 Aug 2025 09:39:59 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1ujafG-0000000Eo3g-40nS;
+	Wed, 06 Aug 2025 09:42:30 +0000
+Received: from mail-vk1-f169.google.com ([209.85.221.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujaWg-0000000EmdX-3COu
+	id 1ujaYX-0000000EmqD-0Fu8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 09:33:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J75CM5QXpG6ndko2MW176/NHnHaW308JZKNjfvmxexPvFEitFizQbj/Qpe1z6RmNuhDoBNiM04MT4XSrf3JE71OEg4jYASfr25pktmNoj5/iam6V6ujfBOeLg2kv3LmmPEMKkEfeR4zAtiu3IIZkzgnD1rSzk0nE/7042RUk9iFZ6rX2c+9IE5vzhvkW2d/2CW1BYm8JcUXQePbpsbDyvbo1YtQd1EwjOO+zZ5X7Izum2c4wVBv3OhEfWCO/GrtFuZc1px29neLbW8iCuYcdPazN/CTCwAMOeyzQZffHGivSCCRUwSFdhqGqk82nBdnxNu2gLDA7CK5fWxJYzOhB3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l2Wt9GQr/rxbLZPv3uiNfIyDvLjZmJLqsw7j0kAAjaQ=;
- b=yjNtJd/CvgHmznibKFZL+IAGYaEeGyTfKhHwl6Ji5xBQrMDmj+8i2NBXYX1vdHKFlORhjsPMewi3F99vBLKdpjmjeAvr5wTFU4odB+DwZbXU9+3W3lqAU60/30S1SfRYkOfHqPXP2MB/Om4u4MGqxu+TuELcHCJ4lS6yrV1xAxOlOo2913NOVT678g1d/9Q46cVtr7fzgXRIKfXTWmrI+yu/ci23B6Gsgq6TO5SKbeMzl4Ti8RQv2ViT0PHWG+1uY6Zs2CY3LKbW+loywl5zLyfqFHehA1cSYsDLfZfndWYlrcMh24txtVdPWcXp5tLvgyD8/YneazXAjl9w+fFEfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l2Wt9GQr/rxbLZPv3uiNfIyDvLjZmJLqsw7j0kAAjaQ=;
- b=Wofn30h0XNO9GsYVXdrPfG3v5PmBQfO8147h+197fb1xz6fR5XbZbFY9XMULhFsxNIzYsouZk3ABBzaGjGijfM/JfnTFvSGQkdoUsWWNgz8gbUSEuBkLSJDkUKfgQKswqRZ/iYjm3RHdytZHxhk21NkpXEWNE4qc+GEc+4vJ498crd6oxoEr728kmNWKm7fIxEPF7sN6Cvh8XM9LkXDM5IzjbshCfiFUMn9ymriUjg0eCC0zb2z/qcaU1uCAphC2i/ScK3q+6JU377i4mlB5IWpJquTq5n5St2pRHvgeNgESWfMXD0KMIzY1pbEU9LENcaxzDPi8Xhdos1skWcSg+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by DU2PR04MB8726.eurprd04.prod.outlook.com (2603:10a6:10:2dd::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Wed, 6 Aug
- 2025 09:33:34 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%4]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
- 09:33:34 +0000
-Date: Wed, 6 Aug 2025 17:28:08 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Peng Fan <peng.fan@nxp.com>, jun.li@nxp.com
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
-	Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	imx@lists.linux.dev, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/3] usb: chipidea: ci_hdrc_imx: Set out of band
- wakeup for i.MX95
-Message-ID: <zdzpddjjdj2ezkkfh5jjnnjvkvu4gb6vqmhkdlnnc2ioamvcuk@ftmezbyxrhfb>
-References: <20250801-pm-v2-0-97c8fb2a433c@nxp.com>
- <20250801-pm-v2-2-97c8fb2a433c@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250801-pm-v2-2-97c8fb2a433c@nxp.com>
-X-ClientProxiedBy: SG2PR02CA0102.apcprd02.prod.outlook.com
- (2603:1096:4:92::18) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Wed, 06 Aug 2025 09:35:34 +0000
+Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5393a970209so3368579e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 02:35:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754472932; x=1755077732;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uDkF0BLoXFgSE926je2WgpTyIl4N2UFYP5ht23EU0t4=;
+        b=TiyG/BqIP7hHqAEE+ZywB3+WM5wGeamvO60gCT+l9CV5mCVez15nQybgJm6YK2yOqr
+         L1/SX69BEnzth2mXa5Y7cNPqcnV2Ampa2naeuSpVSjNcdtSlQl+/y9ZCHVYU4OofEaer
+         aUQG2JBfS8rJ3DHH0fctQtDNNIPNCSmjZAbqzuwGNoHEnXj7Ei6F0EhpNyTz8yiWum2I
+         pUZ87PZlSGO/AN1CkbF1DxAB1JgFQCE3K6Y/33O24KlcGRoukOBj86upfvPqefpAwkV0
+         FuLpFKXGekdIR6J+VRy7W8YqmCTsgB++iG9/1fg+GXOArQHlbeFLA9AItv1mNzJLmFPd
+         yoMA==
+X-Gm-Message-State: AOJu0YxfjqRYjU8P8zI0/glD8/wF1fzYmgRuEYqpa+I3LcSvXeiVTrFJ
+	/EdF+QjHxMimFg1l1bgmyMgs7UcFvtbD0Ua7DM/tlG6lYW/XVQG/6RG6NA+Jo6L+
+X-Gm-Gg: ASbGnctHm24PTui8qItUNTP3YsdH0cmwQYGyog4vVf4S08V225MbLOn7g1YDzB9MOof
+	9nEpLj0cFVEd6wlsCcI0pA5BN6TbKA8ghUxeIBs1L9k+C6Uk2/HAhfdqD50ZKmrQc0mh/+nHVU5
+	Yi095iKyH70fEGt8ON8MInXG9rNNzEs11kXJjAmJHfqQ7aK1l4qUHZzwyWtLBJCr1ThYHrZ7LFI
+	Nx4tAVmACO1v+RFI+LURI2BzoyCBNF4s6u5D3kVxjiftiKgfMyswxNy09fQrqTCpwobyBvlpT4v
+	OZvCzLIh8IsDCVEV5lmX515tA1AIBscSB22ueqqnqOBhCmTukk40BlqpHjFAd3+09XVMDVTcmcS
+	2vzLgBAa6SQ8VmrqlBJ9P1J3Bow8JUeLZfD2LvivD0/vkklVgAxGvtEfLaNH/
+X-Google-Smtp-Source: AGHT+IGi7OqP3fUVfFzLjmX4wTun4gl+NT13JUeMchbzeU3Ialx/2vpq2+KNBEFL5Exuo2BK+jJLLg==
+X-Received: by 2002:a05:6122:7c8:b0:537:642b:45fd with SMTP id 71dfb90a1353d-539a03a4494mr879190e0c.2.1754472931418;
+        Wed, 06 Aug 2025 02:35:31 -0700 (PDT)
+Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53936b5909asm4101969e0c.8.2025.08.06.02.35.30
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Aug 2025 02:35:31 -0700 (PDT)
+Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-4fe7712bedaso3534968137.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 02:35:30 -0700 (PDT)
+X-Received: by 2002:a67:e715:0:b0:4e5:fe5e:2be4 with SMTP id
+ ada2fe7eead31-50374836fa4mr834200137.22.1754472930463; Wed, 06 Aug 2025
+ 02:35:30 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|DU2PR04MB8726:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0df92b39-0886-4768-5dd2-08ddd4cc5010
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|19092799006|38350700014|27256017;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D17XFT/UAgmfkzQW4RZHAbawmIUpU7kLQLmMvShcbNyPtsen8iOtuWSQb7cd?=
- =?us-ascii?Q?dyBhQAij/0rUODshWOZH7EEUGuBKJU7/u+k40QWX57XhIGuM9NdIuJCjBOFP?=
- =?us-ascii?Q?E7L0N5TYjMMzaxFnSAEp+LE20OGmQw1SOTcAF+DGNUjv90EK3bZL6ULGBr2w?=
- =?us-ascii?Q?kp0Teavq/mlS5TVwBESM+z31VI83DjBKV0nKG2xuUK1DttSSodJbM1tdw/J+?=
- =?us-ascii?Q?B4jvton4UB5s4EBQfr82A9ymhsKKC4fWmY5mc1ltYOAd2ZIQX6/JhejwlblJ?=
- =?us-ascii?Q?8fA2vGc9J63N5VokAzyPfFLLdybYW+9yGLzGfsqNQycZGC8PqZobQEAuyXMG?=
- =?us-ascii?Q?v1twg13h7L4kCBYRPuzIte+19oGAEQtOC6ou+KjH+qfRlXWAneWj8pbpKsj1?=
- =?us-ascii?Q?iIY+ZHwxHQs+l7YbfsN3bjycm/Ex2qYXeXTqLv3+kvGovWnd4hiq06mmI7ir?=
- =?us-ascii?Q?0aRUs5jt3wtAD80YjSyIQzmipzcaf/eavfykmC2xK9eyhdQ8V7Mph1isZjm9?=
- =?us-ascii?Q?X/dXL0w/ERdVP3bg50KsAKKeDrIKQuxnsp2ULhyxTRkAHuJ990+znFHIBV6D?=
- =?us-ascii?Q?F0hHbsZFRZI+KIOKatCLWu4ZY59qedmCFkthV18SBSwzUTl1/MgaGachjKRT?=
- =?us-ascii?Q?oViwHg/PPEKlfncOexzZP6vTzaw5vUo/YxG5PNdKojcimL3fl/WXTueARIu4?=
- =?us-ascii?Q?CQkdQAneQW+bUwohThM3yF2Es1PVOafzM90avK2UrDtOAvqJCY4UZenXtrQZ?=
- =?us-ascii?Q?CveIMV1Cv/GF5uXFVQ7D+HLq2+mtplyqGkm7z1pHjBuTO3DRyw752LRPs1k2?=
- =?us-ascii?Q?R/pQd42nQc3B0Mvn3/wvxR+DJ5mBIWT6dkq6Z8KH5X21nCImg658+fYYMpT8?=
- =?us-ascii?Q?46HJHzw3JlUIReN55hada8ZHl6CIbxJ+46gwqSEjArd9yt+O/sIu1e57MTq4?=
- =?us-ascii?Q?ULTjaRN/Yn76b7fw4KigeQzXtLYpcdN3icXP+Rsnux2UnDbbawz3l7qL5ZbN?=
- =?us-ascii?Q?En6DiK7W4iWRae6nAmOn/lk4hK+QKFMztPlGQIf6zDmJjtvKUqtCdYfR4pFf?=
- =?us-ascii?Q?Y5GvIEeoEbqnB65u70JFi3dhxt+B1PQ7enP9diw5Ae1DA9QLPSKrE6aBLyDQ?=
- =?us-ascii?Q?kVXBzyMw7xxlsEAzhQ3nqVmlSGRd7eCnFpgPoPiyU8yPmQypcGKC1OshG4wa?=
- =?us-ascii?Q?ex5oOUQKkG7T5AkqXOlAvKHJ/JXoFiJ6G0QeXhW3wbKpEl3wS3JB7q3jdavb?=
- =?us-ascii?Q?PPiRzvodR/+pNIOU2iebrGj+JO28ziO4ni9X4xYVhC/CK0ar98mqLQPTBICG?=
- =?us-ascii?Q?2mFiE7bN47BOKE9VIk+8vWGG69yJK6nKIaoAizH0hBjETcj8p731rhyFLmlz?=
- =?us-ascii?Q?nGcPUHQdnm9I0znvVQfPDBr5ldrFjwIoGkfzC5hxCH7O3l3c94VBSjgb9FWY?=
- =?us-ascii?Q?sPqi/YzXjKmPB49k7KXYUNhEHe6CN/67U7lxEH1sPpHkAZnX9XCrT6ElffRI?=
- =?us-ascii?Q?kLc0mlWSsSPIRYJXUbZVOtWJZWKAn8Ht5Zuz?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(19092799006)(38350700014)(27256017);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KJoDYC5IQIHElRT8BIMB9HUvfhsC2/gQ1eLq3iKRXPn28Nflv+7kKluL8iLt?=
- =?us-ascii?Q?1DNydHJIp32PXeCHrbJomGmM+lGdc34v7akhcUF8kZZyVf1R9wyQbEzo3VOu?=
- =?us-ascii?Q?8XOdaQTuJpK6VSwen4aBQviN9yh0N+S+82jhBt38S3pXQYsh9+uMq4cDRPQQ?=
- =?us-ascii?Q?3UCyJ7RK6aKkY9KF8Tjxma9xFYihAFnXvZ1n8s+3SHhYO4hs/gdVHffqscu5?=
- =?us-ascii?Q?Ek5HB1o8isla0hEa00+1p4wmQdiYDAMpnhcMLgn+7n7zYyZFrnxbrtK7bSRb?=
- =?us-ascii?Q?1QGXMU+Kk4cqjgWGMPBBSEaHM+YZ+Qb2vXWGQxOsijen34/1D/LRTT+ISSJt?=
- =?us-ascii?Q?J6vfRJ/3VJyJiJlabhJXg7ipwHexa4TDxSPORJmOhIuxLkdJqlI45V9E2By9?=
- =?us-ascii?Q?4S9N+Rq8frl0kcoBKTQwOUA0LUDMXjTLPGrKOiWF5CLifskojytS+TdZgCCE?=
- =?us-ascii?Q?D2dCNoLUTFWAzb2zUFIOkPsEn+BEWz5sFsLbAn7+c1XdS4sidKxpER+ALX/Q?=
- =?us-ascii?Q?1sAEtrrIKM22dbnvRe1oLoBOl6ep4ZhshhYZqF2uQdBVQYz8un42WNqT4eLp?=
- =?us-ascii?Q?ak7tGzmiEeJYCo8RSXCLvk7MzA5cMwSnT+z71ZntfN32C1d8UGPCHQPpXWri?=
- =?us-ascii?Q?bAxda560j4JKF3hVA5GXNEDHHF7IDriuQANCnp7EYEB0OSRCfMkyxGvpzkm1?=
- =?us-ascii?Q?n+qPHOoMm5a37iANWkQYGl+IaPt1EDHc1kSzn65ByfzlsSoljcDvNXcHDLtd?=
- =?us-ascii?Q?eBzk9crFzGznWHKX3/lb4dEIVjEpuU+w38i+Uhg5mOyU9tbIc1RRS1DIJYtq?=
- =?us-ascii?Q?UmIn+YXFneOwbtVcN4A3mKcusYLazUUvpYGlrHIxMKrGFIL2Ij1P8ypN7AP1?=
- =?us-ascii?Q?J25xvvpv2kcYkc4J8WkSFvhOUn9xI07blUvTdySAgLn2PY+TKJ5GlQxePIFF?=
- =?us-ascii?Q?J3M0avl+N0QbWD7XF+LxOO8JVpPnyA58bhZiZPLtHlGtuPfvoBwZ+7vYRExC?=
- =?us-ascii?Q?1jw8+kojPq5vlPs7tJ4Gag75uhRQKesq8hmwWTIHMk921qe2wGN+5GX3i6lL?=
- =?us-ascii?Q?QLeN3JQxE8zadvwZNXkg+Z7da76+Ni1QiUUe4/g/Z18g2uT+XohloIycUA3/?=
- =?us-ascii?Q?WCX58sBqJnhREhDlixEpWG4OZTeANHcum3oC3WXv1oynXuz+GGK7QL3IKnD1?=
- =?us-ascii?Q?nP/2iLW8GncKLpSDRhjrbfy3zRNo2L/DSDsPm0XY1NxbUJQrnJUHo2qfV23a?=
- =?us-ascii?Q?EIKCzsURdiX9yAd05FMfIOVQ5MZiLSnnTpBxZ/92MAZidbNnLUDNM9Mgos3d?=
- =?us-ascii?Q?ws6FxdS7csWfBipbW/hwGnSlrUUMwX3MKVmy0crdZsHa8fYwpDa+uxbDZ9SM?=
- =?us-ascii?Q?8Rb4Qe5CtEsWC+z43cTrrwv0p1W87DPOEJHSwqd/6fNRY1cjdGXTagu8orV5?=
- =?us-ascii?Q?IamXHtf90xHQ+0/gl2QqR1mj1YRACjDUSq4iRNuWxt3znlGSoNmKrqb+aZxC?=
- =?us-ascii?Q?Zck4q7WNT6rhYElPXubLz+ZMXmJWvixNKaJchiR2zdaZj6YABeSRWixq6vI3?=
- =?us-ascii?Q?2RNxTM0lLXwgtqpimfTdCRc3BWur2JjTLMQb8yGN?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0df92b39-0886-4768-5dd2-08ddd4cc5010
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 09:33:34.0316
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IxsbmvM71bDbpt1tQzgB4NmYWXNbq6wXRYz96GxHeMfP21jd4LzKqntqdt4qHjOWT0DQRBQ4/UP2c2iAV1rPBw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8726
+References: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 6 Aug 2025 11:35:19 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV3=c24KxO_Sbt50FGsFnNVYNnHAUhk-yoa+nM1f+7+kA@mail.gmail.com>
+X-Gm-Features: Ac12FXxkFhtyguB3aGvA7SYrNZpS8Rh9K4bGzADHoB8_URkfClNeKozYh9_ZFkU
+Message-ID: <CAMuHMdV3=c24KxO_Sbt50FGsFnNVYNnHAUhk-yoa+nM1f+7+kA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Update thermal trip points
+ on V4H Sparrow Hawk
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_023338_805050_F36D5B5B 
-X-CRM114-Status: GOOD (  27.44  )
+X-CRM114-CacheID: sfid-20250806_023533_106840_D6C43F9A 
+X-CRM114-Status: GOOD (  27.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,99 +97,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+Hi Marek,
 
-On Fri, Aug 01, 2025 at 12:34:23PM +0800, Peng Fan wrote:
-> i.MX95 USB2 inside HSIOMIX could still wakeup Linux, even if HSIOMIX
-> power domain(Digital logic) is off. There is still always on logic
-> have the wakeup capability which is out band wakeup capbility.
-> 
-> So use device_set_out_band_wakeup for i.MX95 to make sure usb2 could
-> wakeup system even if HSIOMIX power domain is in off state.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/usb/chipidea/ci_hdrc_imx.c | 8 ++++++++
->  include/linux/usb/chipidea.h       | 1 +
->  2 files changed, 9 insertions(+)
-> 
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index e1ec9b38f5b9ba0568101b51fbf16b99461b6ee2..7a3360d8a0fd065394393de829108a12c27c85b9 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -79,6 +79,10 @@ static const struct ci_hdrc_imx_platform_flag imx8ulp_usb_data = {
->  		CI_HDRC_HAS_PORTSC_PEC_MISSED,
+On Wed, 25 Jun 2025 at 12:03, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Since the Sparrow Hawk has a smaller PCB than the White Hawk, it tends
+> to generate more heat. To prevent potential damage to the board, adjust
+> the temperature trip points.
+>
+> Add four "passive" trip points which increasingly throttle the CPU to
+> prevent overheating. The first trip point at 68=C2=B0C disables the 1.8 G=
+Hz
+> and 1.7 GHz modes and limits the CPU to 1.5 GHz frequency. The second
+> trip point at 72=C2=B0C disables the 1.5 GHz mode and limits the CPU to 1=
+.0
+> GHz frequency. The third trip point at 76=C2=B0C uses thermal-idle to sta=
+rt
+> inserting idle cycles into the CPU instruction stream to cool the CPU
+> cores down. The fourth and last trip point at 80=C2=B0C disables the 1.0 =
+GHz
+> mode and limits the CPU to 500 MHz frequency.
+>
+> In case the SoC heats up further, in case either of the thermal sensors
+> readings passes the 100=C2=B0C, a thermal shutdown is triggered to preven=
+t
+> any damage to the hardware.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+
+Thanks for your patch!
+
+> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
+> @@ -38,6 +38,7 @@
+>
+>  /dts-v1/;
+>  #include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/thermal/thermal.h>
+>
+>  #include "r8a779g3.dtsi"
+>
+> @@ -797,3 +798,139 @@ &rwdt {
+>  &scif_clk {    /* X12 */
+>         clock-frequency =3D <24000000>;
 >  };
->  
-> +static const struct ci_hdrc_imx_platform_flag imx95_usb_data = {
-> +	.flags = CI_HDRC_SUPPORTS_RUNTIME_PM | CI_HDRC_OUT_BAND_WAKEUP,
+> +
+> +/* thermal-idle cooling for all SoC cores */
+> +&a76_0 {
+
+Please keep nodes sorted (alphabetically by label).
+
+> +       #cooling-cells =3D <2>;
+
+This is only present for the first CPU core, and map{0,1,3} refer
+only to a76_0, because all four CPU cores are driven by a single clock
+(Z0), right?
+
+> +
+> +       a76_0_thermal_idle: thermal-idle {
+> +               #cooling-cells =3D <2>;
+> +               duration-us =3D <10000>;
+> +               exit-latency-us =3D <500>;
+> +       };
 > +};
+
+> +/* THS sensor in SoC near CA76 cores does more progressive cooling. */
+> +&sensor_thermal_ca76 {
+> +       critical-action =3D "shutdown";
 > +
->  static const struct ci_hdrc_imx_platform_flag s32g_usb_data = {
->  	.flags = CI_HDRC_DISABLE_HOST_STREAMING,
->  };
-> @@ -94,6 +98,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
->  	{ .compatible = "fsl,imx7d-usb", .data = &imx7d_usb_data},
->  	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
->  	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
-> +	{ .compatible = "fsl,imx95-usb", .data = &imx95_usb_data},
->  	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
->  	{ /* sentinel */ }
->  };
-> @@ -569,6 +574,9 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  
->  	device_set_wakeup_capable(dev, true);
->  
-> +	if (pdata.flags & CI_HDRC_OUT_BAND_WAKEUP)
-> +		device_set_out_band_wakeup(dev, true);
+> +       cooling-maps {
+> +               /*
+> +                * The cooling-device minimum and maximum parameters inve=
+rsely
+> +                * match opp-table-0 {} node entries in r8a779g0.dtsi, in=
+ other
+> +                * words, 0 refers to 1.8 GHz OPP and 4 refers to 500 MHz=
+ OPP.
+> +                * This is because they refer to cooling levels, where ma=
+ximum
+> +                * cooling level happens at 500 MHz OPP, when the CPU cor=
+e is
+> +                * running slowly and therefore generates least heat.
+
+That applies to cooling-device =3D <&a76_[0-3] ...>...
+
+> +                */
+> +               map0 {
+> +                       /* At 68C, inhibit 1.7 GHz and 1.8 GHz modes */
+> +                       trip =3D <&sensor3_passive_low>;
+> +                       cooling-device =3D <&a76_0 2 4>;
+> +                       contribution =3D <128>;
+> +               };
 > +
+> +               map1 {
+> +                       /* At 72C, inhibit 1.5 GHz mode */
+> +                       trip =3D <&sensor3_passive_mid>;
+> +                       cooling-device =3D <&a76_0 3 4>;
+> +                       contribution =3D <256>;
+> +               };
+> +
+> +               map2 {
+> +                       /* At 76C, start injecting idle states */
+> +                       trip =3D <&sensor3_passive_hi>;
+> +                       cooling-device =3D <&a76_0_thermal_idle 0 80>,
+> +                                        <&a76_1_thermal_idle 0 80>,
+> +                                        <&a76_2_thermal_idle 0 80>,
+> +                                        <&a76_3_thermal_idle 0 80>;
 
-In current design, ci_hdrc_imx_probe() will create another platform
-device B which will be a child of current device A. Furthermore, device
-A and device B will attached to a same power domain. In this case, some
-conflict setting may happen. For example, if the user wants to enable
-wakeup for this USB port, they may echo "enabled" to wakeup file for
-both device A and device B as before. As a result, device A is out
-band wakeup so it doesn't depend on power domain on, but device B has
-also enabled wakeup so the power domain will keep on finally. Actually,
-the power domain needs to be off for imx95.
+... but what do "0 80" refer to? I couldn't find in the thermal-idle
+bindings what exactly are the minimum and maximum cooling states here.
 
-So I think only letting the parent device A itself attach to power domain
-should be enough. If it's the right way, then below change needs to be
-included to avoid potential misbehavior.
+> +                       contribution =3D <512>;
+> +               };
 
-diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
-index 694b4a8e4e1d..c2ca81fe5e09 100644
---- a/drivers/usb/chipidea/core.c
-+++ b/drivers/usb/chipidea/core.c
-@@ -915,6 +915,8 @@ struct platform_device *ci_hdrc_add_device(struct device *dev,
-        if (ret)
-                goto err;
+The rest LGTM, so with the sort order fixed, and the thermal-idle
+states clarified:
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-+       dev_pm_domain_detach(&pdev->dev, false);
-+
-        return pdev;
+Gr{oetje,eeting}s,
 
-Thanks,
-Xu Yang
+                        Geert
 
->  	return 0;
->  
->  disable_device:
-> diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
-> index e17ebeee24e3ecc4b1c2d153d9ea9b656b5a3d35..c6451191d2de68607a9380482701d11f949d0ff7 100644
-> --- a/include/linux/usb/chipidea.h
-> +++ b/include/linux/usb/chipidea.h
-> @@ -66,6 +66,7 @@ struct ci_hdrc_platform_data {
->  #define CI_HDRC_HAS_PORTSC_PEC_MISSED	BIT(17)
->  #define CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS	BIT(18)
->  #define	CI_HDRC_HAS_SHORT_PKT_LIMIT	BIT(19)
-> +#define	CI_HDRC_OUT_BAND_WAKEUP		BIT(20)
->  	enum usb_dr_mode	dr_mode;
->  #define CI_HDRC_CONTROLLER_RESET_EVENT		0
->  #define CI_HDRC_CONTROLLER_STOPPED_EVENT	1
-> 
-> -- 
-> 2.37.1
-> 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
