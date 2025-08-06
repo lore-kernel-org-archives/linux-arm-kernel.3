@@ -4,68 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714B1C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8393C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=V2k+UePl5Mlbv7jOKAs6GCQvbTPhPO+6f6TtH5eukNk=; b=yLMcrd8qTq0BAR
-	xtPiJ0snXBD7JdYPNMiZOTht2fuYwf5OyBInxXVGsQTACgwpUEP7elQMDN4s2htLDxQuMrFSbpL4J
-	dyq8NRKKoQJxW5cGnjXymW7Aktd7GiiIPQQF412Onb6hkxUB6kqM7kVoNqAGOmhQd1raSM0txS2vQ
-	GW+GSLdBKIuKGu4MVgLMgAE3mjptzRcpg1dv8d13Fd82bCWD9d0EeHEik6g0hy9l5y8hG1mp04V3z
-	vLM9lLv8TU4+S/dklzFJVVA3ZwCY5SBylawsy2R4T3s6xIOGnhaLBvkr9zlkQ7rrR8/BLf5tnzZqZ
-	nE+fEWAtG2Ol6oRt+75w==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GBDfuMrxk6DJFHLax7MwNo1WiAe7zL+KD2q1/rhV2lA=; b=p2b7R5ugVZuFhD+BVwLIgaF+Du
+	ab9fdAFoBVpRSzOtWLUrtD1dHEMSIWXGezALN/jAkInidwm59P0mIi1drOESugnZfA/8CvAdxY1pZ
+	6R2SmBbJur3lRqKysILPmKz+CiCxcs307TrrbuCfyFJ98833E7UPg83ZjuT6uf3LICVM9jc0fYFUv
+	qOmwKZ2gDSdQmvCT0FJ5eJlc5JrB1JKJVmKRyn+My+IfE3SrVO8MJ/j36V2VImZPZBkpUFi93uXbr
+	Ucr03qU8psmmQqO+GdpaIC42hcM5HVjK//ffwl6HRBvFAV7vgaFN/cYEdp13P/DYqXgZfT2P2IkAA
+	1yk/DU3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjgF-0000000GBjG-15kx;
-	Wed, 06 Aug 2025 19:20:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ujjil-0000000GC3l-2Mts;
+	Wed, 06 Aug 2025 19:22:43 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjbC-0000000GB4F-1SLe;
-	Wed, 06 Aug 2025 19:14:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE51A45848;
-	Wed,  6 Aug 2025 19:14:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1B8C4CEE7;
-	Wed,  6 Aug 2025 19:14:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754507693;
-	bh=tcS5mr/jyRzpJT28O3H86kSEfCRhVdzq9mLUNr4HIQU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=L3EyHDOhYlQXCwEdaUOACa9al3j1Fv008lfjM0z7NFb5a+sLm5fA32epknU/YBtD3
-	 RVu/35dPvEbBFfedgEUg/FgtQpWOlzn/BAyOxtZW1Yh0Tbx3KcRWnBX3wXgkftahGV
-	 c9ZMPNj5uGYuJJzr3mHlQSJjrwbtmYrgWRYpMNg5kdgkwE8W3GPky9ie8H0bx3AHRm
-	 +Ivdfy4C+RYqgxZJETkD/2f9BomUpPzybctn8P9rwtwwJt5xXRIcZPUFtZTawvxVa1
-	 gD3qsbjl6DjlkT3Ugj0xkdWxjR3gjea9I2kpWy/GSvjCjcvAnYxJEOtS8TT81YaVfE
-	 D4gWckA5JM29A==
-Date: Wed, 6 Aug 2025 14:14:52 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
-Message-ID: <20250806191452.GA8313@bhelgaas>
+	id 1ujjcd-0000000GBHu-0YNu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Aug 2025 19:16:24 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-61521cd7be2so299493a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:16:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1754507781; x=1755112581; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GBDfuMrxk6DJFHLax7MwNo1WiAe7zL+KD2q1/rhV2lA=;
+        b=YKTayNVipeTSxigSMxzP71gYCofL016/aTZbeJlgs6BLc8qV3BwA1L0L5GR1AN874r
+         czBmJuoKzm6OOSUSLhoxFHNW6/CLLwtN86AKsMoN08HJ1SH0h8c0Zz1Lmhp2meO7L/iJ
+         Bg3SjBQ8mEfmnQoLQTMvaUOGeEq0+/UjLfrzk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754507781; x=1755112581;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=GBDfuMrxk6DJFHLax7MwNo1WiAe7zL+KD2q1/rhV2lA=;
+        b=Sh8QoQjTUpP0LDHfVsdqAOObkD3Rc4kczUdS2rLOVC7yIC9MJfRVSfMkHQVM5nctCC
+         HBl92OKDDn4EWyVGQx2LeCkeRQGijP1RHT+bAmR/DeZrBiR8utt3V6DPh4t/Kh7NQWRh
+         SU7XSxjU5dX9c+CAQvDOlDimF7xdzrbdJGElQcsrtmnuqBt0KpDzQx1KhPf8Vz0h85P3
+         pejrxDuQQjGoQVhstOF0vvsliYTAzmAPBYlhgzd53CGoNtb8pTEejujQAyjowqV9HMgg
+         SxGd+RH1r/OAvh9iM5RClhFjqTU7MqJlqdomRxQ0p/NfjbMKuqNZY3X4DHutHkQIVd0v
+         qv/w==
+X-Forwarded-Encrypted: i=1; AJvYcCXvsbrCXDR8tIFV+/EnF9w36XA3RlLLfyIl+xQPDrPzxqIoHdrvdvNxUZ/4FR+LbTUY87LvT4nFTPoWtdfg/z6w@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgLsUTg342TkoJi7Vm9IspgMwIcDhTIIJRb+lQDM9U81O8P289
+	2xOPSuXcrNT1SD9I7DCbpfbosKLhm1zEA6h/mwSn7bjREBn/+FZBoIMwfKTQb+vAU93xaiJVpeb
+	uaDD63WC2rC4YvrH9wfBmpFP65Su1+UOeamO9Aks/
+X-Gm-Gg: ASbGnct4OFHpQdsPtzE7yXi3kqsagmKfhjTChCP4Ss9L7/LgC5hPH6rtS7sjWHRXgR+
+	2/QW/8mlvQcIE4td61vWjxGys8Br0RCeJAPaiY769k8H1cvvuhYjvvGm+x401rJOKi9VN2TqxJn
+	fBqZxwSVH1hNkJUuPPgvqKe5i7utBdKk5bzxEtJMuzRZVyiGCI+I4uvuG+R/JD+jHT68yJBneW+
+	NPJuEFW
+X-Google-Smtp-Source: AGHT+IG5PgMiPi5vTsTJMpsSD9exe2HPclqAjzu7clyfZBo+ywIxmAmWVqAXxbQw2TJXnXncFsVAt6+lEBs9JVJhcuY=
+X-Received: by 2002:a17:907:6096:b0:af4:148:e51f with SMTP id
+ a640c23a62f3a-af992a37d1fmr341409266b.2.1754507781367; Wed, 06 Aug 2025
+ 12:16:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250613220843.698227-3-james.quinlan@broadcom.com>
+References: <CA+-6iNzq_BV_fK9T4LK0ncZuufqp9E9+DUyFU3jKCnSCjN8n-w@mail.gmail.com>
+ <20250806185051.GA10150@bhelgaas>
+In-Reply-To: <20250806185051.GA10150@bhelgaas>
+From: Jim Quinlan <james.quinlan@broadcom.com>
+Date: Wed, 6 Aug 2025 15:16:07 -0400
+X-Gm-Features: Ac12FXyBLfo1yVe-yTHEhU5KFOqY5PdlkvhxinBq3xRZvzWmEfqkV1u6Ov1u_vQ
+Message-ID: <CA+-6iNzAUpMfP8z=zXbQsz=4=YMYgxdSbpDucchECieqpzAzwg@mail.gmail.com>
+Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+	Cyril Brulebois <kibi@debian.org>, bcm-kernel-feedback-list@broadcom.com, 
+	jim2101024@gmail.com, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="00000000000017f6f0063bb72dce"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_121454_428406_BD13E052 
-X-CRM114-Status: GOOD (  32.64  )
+X-CRM114-CacheID: sfid-20250806_121623_232868_7E8D8B98 
+X-CRM114-Status: GOOD (  38.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,262 +99,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 06:08:43PM -0400, Jim Quinlan wrote:
-> Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
-> by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
-> 7216 and its descendants -- have new HW that identifies error details.
-> 
-> This simple handler determines if the PCIe controller was the cause of the
-> abort and if so, prints out diagnostic info.  Unfortunately, an abort still
-> occurs.
-> 
-> Care is taken to read the error registers only when the PCIe bridge is
-> active and the PCIe registers are acceptable.  Otherwise, a "die" event
-> caused by something other than the PCIe could cause an abort if the PCIe
-> "die" handler tried to access registers when the bridge is off.
+--00000000000017f6f0063bb72dce
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-s/acceptable/accessible/ ?
+On Wed, Aug 6, 2025 at 2:50=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.org> w=
+rote:
+>
+> On Wed, Aug 06, 2025 at 02:38:12PM -0400, Jim Quinlan wrote:
+> > On Wed, Aug 6, 2025 at 2:15=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.or=
+g> wrote:
+> > >
+> > > On Fri, Jun 13, 2025 at 06:08:43PM -0400, Jim Quinlan wrote:
+> > > > Whereas most PCIe HW returns 0xffffffff on illegal accesses and the=
+ like,
+> > > > by default Broadcom's STB PCIe controller effects an abort.  Some S=
+oCs --
+> > > > 7216 and its descendants -- have new HW that identifies error detai=
+ls.
+> > >
+> > > What's the long term plan for this?  This abort is a huge problem tha=
+t
+> > > we're seeing across arm64 platforms.  Forcing a panic and reboot for
+> > > every uncorrectable error is pretty hard to deal with.
+> >
+> > Are you referring to STB/CM systems, Rpi, or something else altogether?
+>
+> Just in general.  I saw this recently with a Nuvoton NPCM8xx PCIe
+> controller.  I'm not an arm64 guy, but I've been told that these
+> aborts are basically unrecoverable from a kernel perspective.  For
+> some reason several PCIe controllers intended for arm64 seem to raise
+> aborts on PCIe errors.  At the moment, that means we can't recover
+> from errors like surprise unplugs and other things that *should* be
+> recoverable (perhaps at the cost of resetting or disabling a PCIe
+> device).
+FWIW, our original RC controller was paired with MIPs, so it could be
+that a number of non-x86 camps just went with the panic-y behavior.
 
-> Example error output:
->   brcm-pcie 8b20000.pcie: Error: Mem Acc: 32bit, Read, @0x38000000
->   brcm-pcie 8b20000.pcie:  Type: TO=0 Abt=0 UnspReq=1 AccDsble=0 BadAddr=0
+I believe that the PCIe spec allows this rude behavior, or doesn't
+specifically disallow it.  I also remember that there is an ARM
+standard initiative for ARM-based systems that requires the PCIe
+error-gets-0xffffffff behavior.  We obviously don't conform.   At any
+rate, I will send an email now to the HW folks I know to remind them
+that we need this behavior, at least as a configurable option.
 
-Ugly that we have to do this at all, but since I guess it's the best
-we can do, looks ok to me.
+Regards,
+Jim Quinlan
+Broadcom STB/CM
+>
+> > > Is there a plan to someday recover from these aborts?  Or change the
+> > > hardware so it can at least be configured to return ~0 data after
+> > > logging the error in the hardware registers?
+> >
+> > Some of our upcoming chips will have the ability to do nothing on
+> > errant PCIe writes and return 0xffffffff on errant PCIe reads.   But
+> > none of our STB/CM chips do this currently.   I've been asking for
+> > this behavior for years but I have limited influence on what happens
+> > in HW.
+>
+> Fingers crossed for either that or some other way to make these things
+> recoverable.
+>
+> > > > This simple handler determines if the PCIe controller was the
+> > > > cause of the abort and if so, prints out diagnostic info.
+> > > > Unfortunately, an abort still occurs.
+> > > >
+> > > > Care is taken to read the error registers only when the PCIe
+> > > > bridge is active and the PCIe registers are acceptable.
+> > > > Otherwise, a "die" event caused by something other than the PCIe
+> > > > could cause an abort if the PCIe "die" handler tried to access
+> > > > registers when the bridge is off.
+> > >
+> > > Checking whether the bridge is active is a "mostly-works"
+> > > situation since it's always racy.
+> >
+> > I'm not sure I understand the "racy" comment.  If the PCIe bridge is
+> > off, we do not read the PCIe error registers.  In this case, PCIe is
+> > probably not the cause of the panic.   In the rare case the PCIe
+> > bridge is off  and it was the PCIe that caused the panic, nothing
+> > gets reported, and this is where we are without this commit.
+> > Perhaps this is what you mean by "mostly-works".  But this is the
+> > best that can be done with SW given our HW.
+>
+> Right, my fault.  The error report registers don't look like standard
+> PCIe things, so I suppose they are on the host side, not the PCIe
+> side, so they're probably guaranteed to be accessible and non-racy
+> unless the bridge is in reset.
+>
+> Bjorn
 
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
-> ---
->  drivers/pci/controller/pcie-brcmstb.c | 155 +++++++++++++++++++++++++-
->  1 file changed, 154 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 400854c893d8..abc56acad1fe 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -13,15 +13,18 @@
->  #include <linux/ioport.h>
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
-> +#include <linux/kdebug.h>
->  #include <linux/kernel.h>
->  #include <linux/list.h>
->  #include <linux/log2.h>
->  #include <linux/module.h>
->  #include <linux/msi.h>
-> +#include <linux/notifier.h>
->  #include <linux/of_address.h>
->  #include <linux/of_irq.h>
->  #include <linux/of_pci.h>
->  #include <linux/of_platform.h>
-> +#include <linux/panic_notifier.h>
->  #include <linux/pci.h>
->  #include <linux/pci-ecam.h>
->  #include <linux/printk.h>
-> @@ -151,6 +154,39 @@
->  #define  MSI_INT_MASK_SET		0x10
->  #define  MSI_INT_MASK_CLR		0x14
->  
-> +/* Error report registers */
-> +#define PCIE_OUTB_ERR_TREAT				0x6000
-> +#define  PCIE_OUTB_ERR_TREAT_CONFIG_MASK		0x1
-> +#define  PCIE_OUTB_ERR_TREAT_MEM_MASK			0x2
-> +#define PCIE_OUTB_ERR_VALID				0x6004
-> +#define PCIE_OUTB_ERR_CLEAR				0x6008
-> +#define PCIE_OUTB_ERR_ACC_INFO				0x600c
-> +#define  PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK		0x01
-> +#define  PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK		0x02
-> +#define  PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK		0x04
-> +#define  PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK		0x10
+--00000000000017f6f0063bb72dce
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
 
-Including "MASK" in these names seems kind of pointless since they're
-all single bits.  Some drivers don't bother with "MASK" even for the
-multi-bit fields, since uses read pretty naturally without it.  But I
-suppose this is following the existing brcmstb style.
-
-> +#define  PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK		0xff00
-> +#define PCIE_OUTB_ERR_ACC_ADDR				0x6010
-> +#define PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK			0xff00000
-> +#define PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK			0xf8000
-> +#define PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK		0x7000
-> +#define PCIE_OUTB_ERR_ACC_ADDR_REG_MASK			0xfff
-> +#define PCIE_OUTB_ERR_CFG_CAUSE				0x6014
-> +#define  PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK		0x40
-> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK		0x20
-> +#define  PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK	0x10
-> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK	0x4
-> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK	0x2
-> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK	0x1
-> +#define PCIE_OUTB_ERR_MEM_ADDR_LO			0x6018
-> +#define PCIE_OUTB_ERR_MEM_ADDR_HI			0x601c
-> +#define PCIE_OUTB_ERR_MEM_CAUSE				0x6020
-> +#define  PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK		0x40
-> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK		0x20
-> +#define  PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK	0x10
-> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK	0x2
-> +#define  PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK		0x1
-> +
->  #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
->  #define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
->  
-> @@ -301,6 +337,8 @@ struct brcm_pcie {
->  	struct subdev_regulators *sr;
->  	bool			ep_wakeup_capable;
->  	const struct pcie_cfg_data	*cfg;
-> +	struct notifier_block	die_notifier;
-> +	struct notifier_block	panic_notifier;
->  	bool			bridge_on;
->  	spinlock_t		bridge_lock;
->  };
-> @@ -1711,6 +1749,115 @@ static int brcm_pcie_resume_noirq(struct device *dev)
->  	return ret;
->  }
->  
-> +/* Dump out PCIe errors on die or panic */
-> +static int _brcm_pcie_dump_err(struct brcm_pcie *pcie,
-> +			       const char *type)
-
-Fits on one line.
-
-> +{
-> +	void __iomem *base = pcie->base;
-> +	int i, is_cfg_err, is_mem_err, lanes;
-> +	char *width_str, *direction_str, lanes_str[9];
-> +	u32 info, cfg_addr, cfg_cause, mem_cause, lo, hi;
-> +	unsigned long flags;
-> +
-> +	spin_lock_irqsave(&pcie->bridge_lock, flags);
-> +	/* Don't access registers when the bridge is off */
-> +	if (!pcie->bridge_on || readl(base + PCIE_OUTB_ERR_VALID) == 0) {
-> +		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
-> +		return NOTIFY_DONE;
-> +	}
-> +
-> +	/* Read all necessary registers so we can release the spinlock ASAP */
-> +	info = readl(base + PCIE_OUTB_ERR_ACC_INFO);
-> +	is_cfg_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK);
-> +	is_mem_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK);
-> +	if (is_cfg_err) {
-> +		cfg_addr = readl(base + PCIE_OUTB_ERR_ACC_ADDR);
-> +		cfg_cause = readl(base + PCIE_OUTB_ERR_CFG_CAUSE);
-> +	}
-> +	if (is_mem_err) {
-> +		mem_cause = readl(base + PCIE_OUTB_ERR_MEM_CAUSE);
-> +		lo = readl(base + PCIE_OUTB_ERR_MEM_ADDR_LO);
-> +		hi = readl(base + PCIE_OUTB_ERR_MEM_ADDR_HI);
-> +	}
-> +	/* We've got all of the info, clear the error */
-> +	writel(1, base + PCIE_OUTB_ERR_CLEAR);
-> +	spin_unlock_irqrestore(&pcie->bridge_lock, flags);
-> +
-> +	dev_err(pcie->dev, "handling %s error notification\n", type);
-> +	width_str = (info & PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK) ? "64bit" : "32bit";
-> +	direction_str = (info & PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK) ? "Write" : "Read";
-> +	lanes = FIELD_GET(PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK, info);
-> +	for (i = 0, lanes_str[8] = 0; i < 8; i++)
-> +		lanes_str[i] = (lanes & (1 << i)) ? '1' : '0';
-> +
-> +	if (is_cfg_err) {
-> +		int bus = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK, cfg_addr);
-> +		int dev = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK, cfg_addr);
-> +		int func = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK, cfg_addr);
-> +		int reg = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_REG_MASK, cfg_addr);
-> +
-> +		dev_err(pcie->dev, "Error: CFG Acc, %s, %s, Bus=%d, Dev=%d, Fun=%d, Reg=0x%x, lanes=%s\n",
-> +			width_str, direction_str, bus, dev, func, reg, lanes_str);
-> +		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccTO=%d AccDsbld=%d Acc64bit=%d\n",
-> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK),
-> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK),
-> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK),
-> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK),
-> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK),
-> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK));
-> +	}
-> +
-> +	if (is_mem_err) {
-> +		u64 addr = ((u64)hi << 32) | (u64)lo;
-> +
-> +		dev_err(pcie->dev, "Error: Mem Acc, %s, %s, @0x%llx, lanes=%s\n",
-> +			width_str, direction_str, addr, lanes_str);
-> +		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccDsble=%d BadAddr=%d\n",
-> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK),
-> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK),
-> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK),
-> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK),
-> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK));
-> +	}
-> +
-> +	return NOTIFY_OK;
-> +}
-> +
-> +static int brcm_pcie_die_notify_cb(struct notifier_block *self,
-> +				   unsigned long v, void *p)
-> +{
-> +	struct brcm_pcie *pcie =
-> +		container_of(self, struct brcm_pcie, die_notifier);
-> +
-> +	return _brcm_pcie_dump_err(pcie, "Die");
-> +}
-> +
-> +static int brcm_pcie_panic_notify_cb(struct notifier_block *self,
-> +				     unsigned long v, void *p)
-> +{
-> +	struct brcm_pcie *pcie =
-> +		container_of(self, struct brcm_pcie, panic_notifier);
-> +
-> +	return _brcm_pcie_dump_err(pcie, "Panic");
-> +}
-> +
-> +static void brcm_register_die_notifiers(struct brcm_pcie *pcie)
-> +{
-> +	pcie->panic_notifier.notifier_call = brcm_pcie_panic_notify_cb;
-> +	atomic_notifier_chain_register(&panic_notifier_list,
-> +				       &pcie->panic_notifier);
-> +
-> +	pcie->die_notifier.notifier_call = brcm_pcie_die_notify_cb;
-> +	register_die_notifier(&pcie->die_notifier);
-> +}
-> +
-> +static void brcm_unregister_die_notifiers(struct brcm_pcie *pcie)
-> +{
-> +	unregister_die_notifier(&pcie->die_notifier);
-> +	atomic_notifier_chain_unregister(&panic_notifier_list,
-> +					 &pcie->panic_notifier);
-> +}
-> +
->  static void __brcm_pcie_remove(struct brcm_pcie *pcie)
->  {
->  	brcm_msi_remove(pcie);
-> @@ -1729,6 +1876,9 @@ static void brcm_pcie_remove(struct platform_device *pdev)
->  
->  	pci_stop_root_bus(bridge->bus);
->  	pci_remove_root_bus(bridge->bus);
-> +	if (pcie->cfg->has_err_report)
-> +		brcm_unregister_die_notifiers(pcie);
-> +
->  	__brcm_pcie_remove(pcie);
->  }
->  
-> @@ -1829,6 +1979,7 @@ static const struct pcie_cfg_data bcm7216_cfg = {
->  	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_7278,
->  	.has_phy	= true,
->  	.num_inbound_wins = 3,
-> +	.has_err_report = true,
->  };
->  
->  static const struct pcie_cfg_data bcm7712_cfg = {
-> @@ -2003,8 +2154,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->  
-> -	if (pcie->cfg->has_err_report)
-> +	if (pcie->cfg->has_err_report) {
->  		spin_lock_init(&pcie->bridge_lock);
-> +		brcm_register_die_notifiers(pcie);
-> +	}
->  
->  	return 0;
->  
-> -- 
-> 2.34.1
-> 
+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
+mOAplh6h3nMZUZxBguxG3g2p3iD4EgibUYneEzqOQafIQB/naf2uetKb8y9jKgWJxq2Y4y8Jqg2u
+uVIO1AyOJjWwqdgN+QhuIlat+qZd03P48Gim9ZPEMDUCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQE
+AwIFoDCBowYIKwYBBQUHAQEEgZYwgZMwTgYIKwYBBQUHMAKGQmh0dHA6Ly9zZWN1cmUuZ2xvYmFs
+c2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNydDBBBggrBgEFBQcw
+AYY1aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAw
+TQYDVR0gBEYwRDBCBgorBgEEAaAyASgKMDQwMgYIKwYBBQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2Jh
+bHNpZ24uY29tL3JlcG9zaXRvcnkvMAkGA1UdEwQCMAAwSQYDVR0fBEIwQDA+oDygOoY4aHR0cDov
+L2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcmwwJQYDVR0R
+BB4wHIEaamFtZXMucXVpbmxhbkBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYD
+VR0jBBgwFoAUljPR5lgXWzR1ioFWZNW+SN6hj88wHQYDVR0OBBYEFGx/E27aeGBP2eJktrILxlhK
+z8f6MA0GCSqGSIb3DQEBCwUAA4IBAQBdQQukiELsPfse49X4QNy/UN43dPUw0I1asiQ8wye3nAuD
+b3GFmf3SZKlgxBTdWJoaNmmUFW2H3HWOoQBnTeedLtV9M2Tb9vOKMncQD1f9hvWZR6LnZpjBIlKe
++R+v6CLF07qYmBI6olvOY/Rsv9QpW9W8qZYk+2RkWHz/fR5N5YldKlJHP0NDT4Wjc5fEzV+mZC8A
+AlT80qiuCVv+IQP08ovEVSLPhUp8i1pwsHT9atbWOfXQjbq1B/ditFIbPzwmwJPuGUc7n7vpmtxB
+75sSFMj27j4JXl5W9vORgHR2YzuPBzfzDJU1ul0DIofSWVF6E1dx4tZohRED1Yl/T/ZGMYICYDCC
+AlwCAQEwazBbMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UE
+AxMoR2xvYmFsU2lnbiBHQ0MgUjMgUGVyc29uYWxTaWduIDIgQ0EgMjAyMAIMSO43VW7D5NP1X/KD
+MA0GCWCGSAFlAwQCAQUAoIHHMC8GCSqGSIb3DQEJBDEiBCCkGeYeIHmyIv+2G9CO8ooLbCNTgqYA
+UtRwlgVUD/MWyTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNTA4
+MDYxOTE2MjFaMFwGCSqGSIb3DQEJDzFPME0wCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglg
+hkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATANBgkqhkiG9w0B
+AQEFAASCAQAEAI1ZkIT6Lu5PsxJrIWKb/MLYzg2fXvl3fDLACcuGtYg5EQFMpBkPNWxqya3bfOw8
+wyIUWatND/rQRjFBzXNeQzF9LwdqnbEhYdX4tClJh1Ysh+EBDwsfUPnXX0W4pbWNkfEDN8vz7LkU
+sJAkkgurBOAe2uBizQSx76zwFZEcwRvPUhkAwfABi9G3qstpTRe7+yavpCMuu2iC3/MuFGlaFlmu
+AXo9o8yYJ4M5QHdM7cJlOBb1FmpZ/XSK+Pz55JqBDa5hHe23YD2Hog8zHbzkLUlczlcEnfIWtZmn
+xDnc2R4SKzoObQIB3RmKeexewUbm8NaouI4Nq2HnUrgUZ1JX
+--00000000000017f6f0063bb72dce--
 
