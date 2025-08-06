@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714A0C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 07:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C337FC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 07:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YF//15yqZSlqqumHm5+I1dKqkACpOoAiiur9eCb1Jyo=; b=cC7dHMn9cftfYSW2+F5B9WyUJs
-	J7IvnbBIlQLIp1XYniTjRX4E99pObeZVnzEGa+ARtS2JVDiKl/dVSP2Z1/P3KHDUfEp1do/RHKfg2
-	qXjDQbOpOXV70ECE+v/XT6TLr0qgRe+DjuL6qRFAax+p1+BTxvhI/z/WFNfIxWecsrDK7X3xM2aqU
-	jZoRKpM1kmrTNJEVeXDG4imDJAao7LYH8beCa+ftHIuMjAsl7DYdrb9SH+7h5Vx3QSE8TuyqsDuU/
-	G+5EXzcRE83Q8xObkoQzWcep9iX8tAu1DvbX8wSmfMcNSgqc/TvNZcxWGKB8lALWwL682cxHJ2VxL
-	VV+GpHPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aHbaLa1p4qZyPhPEnTq8y5p/uCoZ0EF+Ce12DX6d5ec=; b=k9VGTGri3nrLeYFCq8RzAxO/vF
+	YSkJqnl1yQ7hpUH1kzHg057mqv089s6DNI2GrtVq0wcwfAgJl+3O/yNio4I1K5lhosaYsqLP6v4yK
+	melKgfTwuMn1cV9RUTud/sxl/o/wOM1i3NZmuK92S8Z+z1JElJ3cRxKH+3RKNTd9p99oDoF/Zhs0L
+	l4QRWPKRN6JPW1NuNOm1pFHNDEAwNjlKsd4Z/rBYarmCu3rXWAamMKQyxPxJ0U527Zy2M3Hu4J6/b
+	ZnknR2Xm8mQs74qWv1KsiBu3PpOL0qrJf7AD8PX0R6c1dvnSspiCNoIRk8Tk4Bj0oqAsuOC8WUsjR
+	fbJG6YuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujYBD-0000000ET5A-2krF;
-	Wed, 06 Aug 2025 07:03:19 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1ujYDg-0000000ETYZ-3s2a;
+	Wed, 06 Aug 2025 07:05:52 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujY4q-0000000ERzm-2sUb
+	id 1ujY79-0000000ESIM-35sA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 06:56:45 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-76bc5e68e26so6410676b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 23:56:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754463404; x=1755068204; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YF//15yqZSlqqumHm5+I1dKqkACpOoAiiur9eCb1Jyo=;
-        b=TDmrg5bcXwKMT5y1l/rPePMhQGPLD6phpD29/eUrpFWZ9bSsEHaE1Ph1JCBiWpit+r
-         sVXlvHiwumyL0uQYOnA28FNtTPJAjTcyBt5fcWUUQzV1kqiz2T12i9oFRbS886qi8+Cj
-         ZgKK7McGwI785xuAP48t1r/rMuZRZXiODWCDqaqzT2bzWOYEP9AO9MFGrYgsrrJXZLfq
-         Box5je9zNW2BjjIsAc0Ytc2BTvj3y1Y1BHvOiLYdLKVUGkc3j7J870TpGGu+mwjIJLX9
-         Vftm4KM7WIv8PaW9LEfvqrLGz228+Ld569mLBALP+v/GM/JE3zaJDSf427SoXHisuzSo
-         Ti2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754463404; x=1755068204;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YF//15yqZSlqqumHm5+I1dKqkACpOoAiiur9eCb1Jyo=;
-        b=L0syOf75qHLeIDNZwhXac8q/8gTtk3S8M5dx4uvPHk40rlvRZUygTHz66RrnHr4aua
-         b3/Jq6AngHIAuKdEpqjV7ddYN0OLUJ08nLaiZuIX09R5tOspwZQgqhzCyyUDIyjdF2gn
-         VEoiCv23h8+YoSTTIQC0EEVZcg3h5ylCmcWisACvwSMc1dJ0h5iDaBLdX3rJHRdJWI7u
-         7LxnA7WgOT5gfG251kHTBJzQce5TnSEZpy2Zx8sCM+VdWcxV2PW3qcrTuRy4SBDsIrOY
-         48jVE0hT9E0S3/8nvGw/N2a40L3AmWRwx3Gdlv/nVRnSR36VKCU903u8+pd07OD7/rac
-         FCdg==
-X-Forwarded-Encrypted: i=1; AJvYcCUtKI8oIxeXXnYr1qE10Sywxd6UXDtTQx40umsWRDAw6CixBla4kjKZyYdeNLD8VDbZOIhtLK+KQHtE/y3L9pFB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkPNy+/5+JM/vvlF26EELBTC1Vrx5MMa9KfKItz9AVasolaxb/
-	vv3HYp8C8dLGtPDLdN227tWHmcSjra2LSudeBor/73xzLWEZWtgEdY+b/pjyRxXMHQLJ4HKEg/+
-	m5ZyjBPx/9Ph8dBvSIRqNY9LM+eTxSWopJu1KH9XPig==
-X-Gm-Gg: ASbGncuRJaEuHV++e519W2YG9ZN4eHXuN3w0py3Av1t9+hwOUb3fnZ4H+T60LUIyEIz
-	eui6Pye1QbqLEeADpR9bElyDsBsYIz6w1AynyQwaw83MoHDCIFMsF+/c/Jty7JIyfsVvt03FWwq
-	ObFqYgoojJItUhz59PNrn1RLFWpao8ZNkufOJ8GwRnz7H9mPR2J9l16sJvylXsdBueK8mgdqxg+
-	wqx1IrF/onIdU2W/y20SHchABCND+OLHlIfLTp0
-X-Google-Smtp-Source: AGHT+IG/NnFO90EFyREBzeUJTQVnE81eCptHFDA8wq6F7FCqcH2EFp5FH3fAorJsFe129JIXWBiwYYR+36/rIKv43Tg=
-X-Received: by 2002:a05:6a21:339c:b0:233:927b:3ffa with SMTP id
- adf61e73a8af0-2403131d8b2mr2874171637.12.1754463403646; Tue, 05 Aug 2025
- 23:56:43 -0700 (PDT)
+	Wed, 06 Aug 2025 06:59:09 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bxgxp47LNz14MD9;
+	Wed,  6 Aug 2025 14:54:06 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id C2CAE140155;
+	Wed,  6 Aug 2025 14:59:02 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 6 Aug 2025 14:59:01 +0800
+Message-ID: <8972d8b9-ced3-f207-9c00-91b544d8ecc8@huawei.com>
+Date: Wed, 6 Aug 2025 14:59:00 +0800
 MIME-Version: 1.0
-References: <20250725100806.1157-1-jie.gan@oss.qualcomm.com>
- <20250725100806.1157-6-jie.gan@oss.qualcomm.com> <CAJ9a7VgYTUsBn8=qtfwmkoS6Lib-8LgESLBDxXrRVqLnScLKZA@mail.gmail.com>
- <70bf0c0c-4a78-4caa-ab86-76a2c99c113a@oss.qualcomm.com>
-In-Reply-To: <70bf0c0c-4a78-4caa-ab86-76a2c99c113a@oss.qualcomm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 6 Aug 2025 07:56:32 +0100
-X-Gm-Features: Ac12FXwaby67uLz0_UOrF1Ong2A1ayI6v2u4tME5WMfEjkOI4dnPs8iNbSSg6cs
-Message-ID: <CAJ9a7VjTYSePycUrL7jODLD7Vgj-qFHz0rUtfBPDhgKx59xKJA@mail.gmail.com>
-Subject: Re: [PATCH v4 05/10] coresight: tmc: Introduce tmc_read_ops to wrap
- read operations
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Jinlong Mao <jinlong.mao@oss.qualcomm.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH -next v7 7/7] arm64: entry: Switch to generic IRQ entry
+Content-Language: en-US
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<sstabellini@kernel.org>, <mark.rutland@arm.com>, <puranjay@kernel.org>,
+	<broonie@kernel.org>, <mbenes@suse.cz>, <ryan.roberts@arm.com>,
+	<akpm@linux-foundation.org>, <chenl311@chinatelecom.cn>,
+	<anshuman.khandual@arm.com>, <kristina.martsenko@arm.com>,
+	<liaochang1@huawei.com>, <ardb@kernel.org>, <leitao@debian.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<xen-devel@lists.xenproject.org>
+References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
+ <20250729015456.3411143-8-ruanjinjie@huawei.com>
+ <fb0b7a92-09e8-41b2-9ae7-09fb9b453961@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <fb0b7a92-09e8-41b2-9ae7-09fb9b453961@arm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_235644_733386_DDEFB917 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20250805_235908_094801_DD5E932D 
+X-CRM114-Status: GOOD (  40.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,204 +80,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 Aug 2025 at 07:30, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->
->
->
-> On 8/5/2025 6:55 PM, Mike Leach wrote:
-> > Hi
-> >
-> > On Fri, 25 Jul 2025 at 11:08, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
-> >>
-> >> Introduce tmc_read_ops as a wrapper, wrap read operations, for reading
-> >> trace data from the TMC buffer.
-> >>
-> >> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> >> ---
-> >>   .../hwtracing/coresight/coresight-tmc-core.c  | 50 +++++++++----------
-> >>   drivers/hwtracing/coresight/coresight-tmc.h   | 17 +++++++
-> >>   2 files changed, 40 insertions(+), 27 deletions(-)
-> >>
-> >> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> >> index 4d249af93097..f668047c5df4 100644
-> >> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> >> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> >> @@ -232,17 +232,10 @@ static int tmc_read_prepare(struct tmc_drvdata *drvdata)
-> >>   {
-> >>          int ret = 0;
-> >>
-> >> -       switch (drvdata->config_type) {
-> >> -       case TMC_CONFIG_TYPE_ETB:
-> >> -       case TMC_CONFIG_TYPE_ETF:
-> >> -               ret = tmc_read_prepare_etb(drvdata);
-> >> -               break;
-> >> -       case TMC_CONFIG_TYPE_ETR:
-> >> -               ret = tmc_read_prepare_etr(drvdata);
-> >> -               break;
-> >> -       default:
-> >> +       if (drvdata->read_ops)
-> >> +               ret = drvdata->read_ops->read_prepare(drvdata);
-> >> +       else
-> >>                  ret = -EINVAL;
-> >> -       }
-> >>
-> >>          if (!ret)
-> >>                  dev_dbg(&drvdata->csdev->dev, "TMC read start\n");
-> >> @@ -254,17 +247,10 @@ static int tmc_read_unprepare(struct tmc_drvdata *drvdata)
-> >>   {
-> >>          int ret = 0;
-> >>
-> >> -       switch (drvdata->config_type) {
-> >> -       case TMC_CONFIG_TYPE_ETB:
-> >> -       case TMC_CONFIG_TYPE_ETF:
-> >> -               ret = tmc_read_unprepare_etb(drvdata);
-> >> -               break;
-> >> -       case TMC_CONFIG_TYPE_ETR:
-> >> -               ret = tmc_read_unprepare_etr(drvdata);
-> >> -               break;
-> >> -       default:
-> >> +       if (drvdata->read_ops)
-> >> +               ret = drvdata->read_ops->read_unprepare(drvdata);
-> >> +       else
-> >>                  ret = -EINVAL;
-> >> -       }
-> >>
-> >>          if (!ret)
-> >>                  dev_dbg(&drvdata->csdev->dev, "TMC read end\n");
-> >> @@ -291,13 +277,8 @@ static int tmc_open(struct inode *inode, struct file *file)
-> >>   static ssize_t tmc_get_sysfs_trace(struct tmc_drvdata *drvdata, loff_t pos, size_t len,
-> >>                                     char **bufpp)
-> >>   {
-> >> -       switch (drvdata->config_type) {
-> >> -       case TMC_CONFIG_TYPE_ETB:
-> >> -       case TMC_CONFIG_TYPE_ETF:
-> >> -               return tmc_etb_get_sysfs_trace(drvdata, pos, len, bufpp);
-> >> -       case TMC_CONFIG_TYPE_ETR:
-> >> -               return tmc_etr_get_sysfs_trace(drvdata, pos, len, bufpp);
-> >> -       }
-> >> +       if (drvdata->read_ops)
-> >> +               return drvdata->read_ops->get_trace_data(drvdata, pos, len, bufpp);
-> >>
-> >>          return -EINVAL;
-> >>   }
-> >> @@ -769,6 +750,18 @@ static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
-> >>                          "Valid crash tracedata found\n");
-> >>   }
-> >>
-> >> +static const struct tmc_read_ops tmc_etb_read_ops = {
-> >> +       .read_prepare   = tmc_read_prepare_etb,
-> >> +       .read_unprepare = tmc_read_unprepare_etb,
-> >> +       .get_trace_data = tmc_etb_get_sysfs_trace,
-> >> +};
-> >> +
-> >> +static const struct tmc_read_ops tmc_etr_read_ops = {
-> >> +       .read_prepare   = tmc_read_prepare_etr,
-> >> +       .read_unprepare = tmc_read_unprepare_etr,
-> >> +       .get_trace_data = tmc_etr_get_sysfs_trace,
-> >> +};
-> >> +
-> >>   static int __tmc_probe(struct device *dev, struct resource *res)
-> >>   {
-> >>          int ret = 0;
-> >> @@ -818,6 +811,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
-> >>                  desc.subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
-> >>                  desc.ops = &tmc_etb_cs_ops;
-> >>                  dev_list = &etb_devs;
-> >> +               drvdata->read_ops = &tmc_etb_read_ops;
-> >>                  break;
-> >>          case TMC_CONFIG_TYPE_ETR:
-> >>                  desc.groups = coresight_etr_groups;
-> >> @@ -831,6 +825,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
-> >>                  mutex_init(&drvdata->idr_mutex);
-> >>                  dev_list = &etr_devs;
-> >>                  INIT_LIST_HEAD(&drvdata->etr_buf_list);
-> >> +               drvdata->read_ops = &tmc_etr_read_ops;
-> >>                  break;
-> >>          case TMC_CONFIG_TYPE_ETF:
-> >>                  desc.groups = coresight_etf_groups;
-> >> @@ -839,6 +834,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
-> >>                  desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_FIFO;
-> >>                  desc.ops = &tmc_etf_cs_ops;
-> >>                  dev_list = &etf_devs;
-> >> +               drvdata->read_ops = &tmc_etb_read_ops;
-> >>                  break;
-> >>          default:
-> >>                  pr_err("%s: Unsupported TMC config\n", desc.name);
-> >> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> >> index 3cb8ba9f88f5..2ad8e288c94b 100644
-> >> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> >> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> >> @@ -223,6 +223,8 @@ struct etr_buf_node {
-> >>          struct list_head        node;
-> >>   };
-> >>
-> >> +struct tmc_read_ops;
-> >> +
-> >
-> > declare the entire structure here rather than later.
->
-> There is an issue of declare the entire structure here because the
-> function pointer needs use the struct tmc_drvdata which is not defined
-> at this point and it will cause a compile error.
->
 
-Understood.
 
-Mike
+On 2025/8/5 23:07, Ada Couprie Diaz wrote:
+> Hi Jinjie,
+> 
+> The code changes look good to me, just a small missing clean up I believe.
+> 
+> On 29/07/2025 02:54, Jinjie Ruan wrote:
+> 
+>> Currently, x86, Riscv, Loongarch use the generic entry. Convert arm64
+>> to use the generic entry infrastructure from kernel/entry/*.
+>> The generic entry makes maintainers' work easier and codes
+>> more elegant.
+>>
+>> Switch arm64 to generic IRQ entry first, which removed duplicate 100+
+>> LOC. The next patch serise will switch to generic entry completely later.
+>> Switch to generic entry in two steps according to Mark's suggestion
+>> will make it easier to review.
+> 
+> I think the commit message could be clearer, especially since now this
+> series
+> only moves arm64 to generic IRQ entry and not the complete generic entry.
+> 
+> What do you think of something like below ? It repeats a bit less and I
+> think
+> it helps understanding what is going on in this specific commit, as you
+> already
+> have details on the larger plans in the cover.
+> 
+>     Currently, x86, Riscv and Loongarch use the generic entry code,
+> which makes
+>     maintainer's work easier and code more elegant.
+>     Start converting arm64 to use the generic entry infrastructure
+>     from kernel/entry/* by switching it to generic IRQ entry, which
+> removes 100+
+>     lines of duplicate code.
+>     arm64 will completely switch to generic entry in a later series.
+> 
 
+Yes, this is more concise and accurate, and make the motivation more
+clearer.
+
+>> The changes are below:
+>>   - Remove *enter_from/exit_to_kernel_mode(), and wrap with generic
+>>     irqentry_enter/exit(). Also remove *enter_from/exit_to_user_mode(),
+>>     and wrap with generic enter_from/exit_to_user_mode() because they
+>>     are exactly the same so far.
+> Nit : "so far" can be removed
+>>   - Remove arm64_enter/exit_nmi() and use generic
+>> irqentry_nmi_enter/exit()
+>>     because they're exactly the same, so the temporary arm64 version
+>>     irqentry_state can also be removed.
+>>
+>>   - Remove PREEMPT_DYNAMIC code, as generic entry do the same thing
+>>     if arm64 implement arch_irqentry_exit_need_resched().
+> This feels unrelated, given that the part that needs
+> `arch_irqentry_exit_need_resched()`
+> is called whether or not PREEMPT_DYNAMIC is enabled ?
+
+Yes, the language here needs to be reorganized in conjunction with your
+comments from the fifth patch.
+
+> 
+> Given my comments on patch 5, I feel that the commit message should mention
+> explicitly the implementation of `arch_irqentry_exit_need_resched()` and
+> why,
+> even though it was already mentioned in patch 5.
+> (This is what I was referencing in patch 5 : as I feel it's useful to
+> mention again
+> the reasons when implementing it, it doesn't feel too out of place to
+> introduce
+> the generic part at the same time. But again, I might be wrong here.)
+> 
+> Then you can have another point explaining that
+> `raw_irqentry_exit_cond_resched()`
+> and the PREEMPT_DYNAMIC code is removed because they are identical to the
+> generic entry code, similarly to your other points.
+>> Tested ok with following test cases on Qemu virt platform:
+>>   - Perf tests.
+>>   - Different `dynamic preempt` mode switch.
+>>   - Pseudo NMI tests.
+>>   - Stress-ng CPU stress test.
+>>   - MTE test case in
+>> Documentation/arch/arm64/memory-tagging-extension.rst
+>>     and all test cases in tools/testing/selftests/arm64/mte/*.
+> Nit : I'm not sure if the commit message is the best place for this,
+> given you
+> already gave some details in the cover ?
+> But I don't have much experience here, so I'll leave it up to you and
+> others !
+
+Yes, this can be removed as the cover letter already has it.
+
+>> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>> [...]
+>> diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
+>> index db3f972f8cd9..1110eeb21f57 100644
+>> --- a/arch/arm64/kernel/signal.c
+>> +++ b/arch/arm64/kernel/signal.c
+>> @@ -9,6 +9,7 @@
+>>   #include <linux/cache.h>
+>>   #include <linux/compat.h>
+>>   #include <linux/errno.h>
+>> +#include <linux/irq-entry-common.h>
+>>   #include <linux/kernel.h>
+>>   #include <linux/signal.h>
+>>   #include <linux/freezer.h>
+>> @@ -1576,7 +1577,7 @@ static void handle_signal(struct ksignal *ksig,
+>> struct pt_regs *regs)
+>>    * the kernel can handle, and then we build all the user-level
+>> signal handling
+>>    * stack-frames in one go after that.
+>>    */
+>> -void do_signal(struct pt_regs *regs)
+>> +void arch_do_signal_or_restart(struct pt_regs *regs)
+> Given that `do_signal(struct pt_regs *regs)` is defined in
+> `arch/arm64/include/asm/exception.h`,
+> and that there remains no users of `do_signal()`, I think it should be
+> removed there.
+
+Good catch! I'll remove it.
+
+> 
 > Thanks,
-> Jie
->
-> >
-> >>   /**
-> >>    * struct tmc_drvdata - specifics associated to an TMC component
-> >>    * @pclk:      APB clock if present, otherwise NULL
-> >> @@ -259,6 +261,7 @@ struct etr_buf_node {
-> >>    *              Used by ETR/ETF.
-> >>    * @etr_buf_list: List that is used to manage allocated etr_buf.
-> >>    * @reading_node: Available buffer for byte-cntr reading.
-> >> + * @tmc_read_ops: Read operations for TMC device.
-> >>    */
-> >>   struct tmc_drvdata {
-> >>          struct clk              *pclk;
-> >> @@ -290,6 +293,20 @@ struct tmc_drvdata {
-> >>          struct tmc_resrv_buf    crash_mdata;
-> >>          struct list_head        etr_buf_list;
-> >>          struct etr_buf_node     *reading_node;
-> >> +       const struct tmc_read_ops       *read_ops;
-> >
-> > probably should be named sysfs_read_ops to be consistent with the
-> > perf/sysfs differentiation within the rest of the structure
-> >
-> >> +};
-> >> +
-> >> +/**
-> >> + * struct tmc_read_ops - read operations for TMC and its helper devices
-> >> + * @read_prepare:      prepare operation.
-> >> + * @read_unprepare:    unprepare operation.
-> >> + * @get_trace_data:    read operation.
-> >> + */
-> >> +struct tmc_read_ops {
-> >> +       int (*read_prepare)(struct tmc_drvdata *drvdata);
-> >> +       int (*read_unprepare)(struct tmc_drvdata *drvdata);
-> >> +       ssize_t (*get_trace_data)(struct tmc_drvdata *drvdata, loff_t pos,
-> >> +                                 size_t len, char **bufpp);
-> >>   };
-> >>
-> >>   struct etr_buf_operations {
-> >> --
-> >> 2.34.1
-> >>
-> >
-> > with the above changes:-
-> >
-> > Reviewed-by: Mike Leach <mike.leach@linaro.org>
-> >
->
-
-
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+> Ada
+> 
 
