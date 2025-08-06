@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCC1C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 22:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDCBCA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 22:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glTBN0gK8JzuKNFmUVBerpGSAN/NNkoZdW5K4p+ABi4=; b=oI9p6s1q5DebZVVYue6NKwUXGK
-	gUQgSqPD0Q7nfr3Elct/ArAMLDQsWjLnjKzQOqiOSx32ZY5hEz6EJ5H6vtF5TWTI80F0m+hWIzBEe
-	Hl7WxAzjOvhBGGqTMr68x7ZnoIh5rDjwKvtf1VttTXA0AM37WOAG+UsnlhET7EeD/FpCHz8dN5x5e
-	y2vy37/iLhhuKHvEAjFMBp9VoHxAOL5q9uFZy65gV2S1J0jxK3217mSbZ06Lrdo3rYJ4UjraEArNZ
-	4Uou6MlagOIiZRlqVxFlFuv6JJHJlj7zp+zyC0AmY0xw5keYdCsUqY10PEni/SSpX99Gc9Om77UAL
-	uqKwsavw==;
+	bh=I4KPqQMNJiob4xQ680shjgCKcMsOL7wxmLpd2hZ8prQ=; b=3PJhEMuwQDEOe1mlyQBM1WzmqN
+	LBSx7AipVNICYBH0LFb4kbmE77iwqTpHI5n+lyBjN/Jm/fGJkdpJBMKUc2tBIA9eIz+1FrBm4Kc+B
+	uSyLeb0xbCZVGQo9CkcIJXfNJPSLjLxfZLra2h8m+qnL0ABy5iLtQPIGdMJ3OlTMWIrGwUFgjm5H8
+	E2RUCzuqib7YFFBWs9dty9x0OSj37XDsEn9geDB9aFXFbgRpIhfOIFWJqto0jo+CsuuNBb727NbAp
+	oXT0VCMcD4EDcMOgAnVDxO+6KMyWIaztb1E7dhj1UwfJ0xWm/YZyO0X3meln8W84KwQYbhtqtI9gj
+	HUMYEdWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujmch-0000000GjA1-3DAr;
-	Wed, 06 Aug 2025 22:28:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ujmdv-0000000GjQe-1ne1;
+	Wed, 06 Aug 2025 22:29:55 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujmaB-0000000GivU-3uWw
+	id 1ujkHK-0000000GGrs-1kCl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 22:26:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6024F60203;
-	Wed,  6 Aug 2025 22:26:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 487F9C4CEE7;
-	Wed,  6 Aug 2025 22:26:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754519163;
-	bh=wSP/FnjATYBkD9tjSijm87GKcLGQ9Dv8hJCzfo90h/s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iZVZtpHcJ84kPEusQRbGh0yw0RjPpg0xx99EEBSWIBT7fatVExcSR13RCFr0P/Am9
-	 f2rvIpIy9szjA5QOgilFY47ledEhI6DZBUnBeVsHIa6foNSKny7oPvL/byTHW/fhTr
-	 UnwXixzezWxz5XRhtEWzuk1Ypp9tdH5bYTc9opJToSJ/fx2bbRqIebIzkKbNENvG1W
-	 NJsvHnXcqdajLfRfpjWXrBzmSSTm5hIwNg4NCzwwUmkZyCA8zHEis15KZ4E///gMeC
-	 XEO+0WBvsRRHw7PazG7Z22ryiE+ERSdb085I8LV78NiNdQmClZ/9uAxCOAHac92DHo
-	 97Th+tup2Yegw==
-Date: Wed, 6 Aug 2025 15:25:57 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Justin Stitt <justinstitt@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Tom Rix <trix@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 6.1.y] KVM: arm64: sys_regs: disable
- -Wuninitialized-const-pointer warning
-Message-ID: <20250806222557.GA1654483@ax162>
-References: <20250728-stable-disable-unit-ptr-warn-v1-1-958be9b66520@google.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250728-stable-disable-unit-ptr-warn-v1-1-958be9b66520@google.com>
+	Wed, 06 Aug 2025 19:58:27 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31eac278794so251890a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:58:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1754510305; x=1755115105; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=I4KPqQMNJiob4xQ680shjgCKcMsOL7wxmLpd2hZ8prQ=;
+        b=ewcPf1AJfxEAJAnkrTxTKBcC3jOwGfrh7ud0bZs8/E+7eb2SBMLGmYIS0xZ0YaZrmH
+         EAg1Ly8uJ9ngtqwISI9rLk472dZoDL/huDpfuOsKfBjedWexLd+xg1Yxs3jN3Bp+SqP3
+         QsVeWA/Dy1eWx5kZI99F8O542Ql3ZHtxoePvREHwynon8cqc36j4KCLQ4APTztnvnfdJ
+         WnaMBJg+L441ZW5iJ1xmAj1khFqevBJmY0V4kL4hn9kOb2l1S82tKBM+DuzkLuW90g7J
+         ax3y7c/QOIAXuyciEMwnzRLb+aXvvF7myIr6Hl+eKETd/U6EdhB2+/r+4zCKQGBNGooL
+         aKbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754510305; x=1755115105;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=I4KPqQMNJiob4xQ680shjgCKcMsOL7wxmLpd2hZ8prQ=;
+        b=mo2GrXi3HHf/XXreQ8DPrzrdGxlYK38OCk7eF+KsR94dppLJlAV/HsWUE9hGlq1zY4
+         Jg1PTSUKT7OeKtqzwVr0NWjkS1uRV3ggyj8ogbcwIc8qkbNYFNawD/AMkpCAAOVxZ58s
+         FJBU7G6VhNAXJF29DvFiePs5DdybdTseCmFJRY9N0qjzEJI6DMf1YeL9tl1poJ5Dy5My
+         3yKUO9xYUyubbHXP46UMpHjvsp1uL9iHwjknLEvCEwgyXTTXY8kxfWYN0U0InIJ7uhjR
+         b5M6rAgs+KRZf5TnDpOkEQuWlCW0l+g4CBnaIEVUjdXLNFQ45NSICxIfOMcQnJ6wlyID
+         6uJA==
+X-Gm-Message-State: AOJu0YwD0FM+yLJ+lsN7lo3NGEELqL53Hd/wlhE3dZPtNeysor3CoMyv
+	MbbYyT8eD7aa+W85iiM7x3uXv5tTWrzahYWF7VLv95sV4Lp6MDQ+2aRTIkwnzpxEcDt0QjFhrjH
+	uk1opUg==
+X-Google-Smtp-Source: AGHT+IEv/lsCJTvAMTt82qYQ74YEmuDhqDy/AIKEkMbUihLXDbLqrOMm3UgmKM47ElROS0wMJkdtmjAP5S0=
+X-Received: from pjbsn13.prod.google.com ([2002:a17:90b:2e8d:b0:30a:31eb:ec8e])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:554e:b0:31e:ff97:75a1
+ with SMTP id 98e67ed59e1d1-32166c19241mr5583048a91.3.1754510305634; Wed, 06
+ Aug 2025 12:58:25 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:53 -0700
+In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250806195706.1650976-1-seanjc@google.com>
+X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
+Message-ID: <20250806195706.1650976-32-seanjc@google.com>
+Subject: [PATCH v5 31/44] KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed
+ PMCs, and PEBS to PMU v2+
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, Kan Liang <kan.liang@linux.intel.com>, 
+	Yongwei Ma <yongwei.ma@intel.com>, Mingwei Zhang <mizhang@google.com>, 
+	Xiong Zhang <xiong.y.zhang@linux.intel.com>, Sandipan Das <sandipan.das@amd.com>, 
+	Dapeng Mi <dapeng1.mi@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250806_125826_500640_A4B72530 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,62 +99,93 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 28, 2025 at 02:07:36PM -0700, Justin Stitt wrote:
-> A new warning in Clang 22 [1] complains that @clidr passed to
-> get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
-> doesn't really care since it casts away the const-ness anyways -- it is
-> a false positive.
-> 
-> |  ../arch/arm64/kvm/sys_regs.c:2978:23: warning: variable 'clidr' is uninitialized when passed as a const pointer argument here [-Wuninitialized-const-pointer]
-> |   2978 |         get_clidr_el1(NULL, &clidr); /* Ugly... */
-> |        |                              ^~~~~
-> 
-> Disable this warning for sys_regs.o with an iron fist as it doesn't make
-> sense to waste maintainer's time or potentially break builds by
-> backporting large changelists from 6.2+.
-> 
-> This patch isn't needed for anything past 6.1 as this code section was
-> reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache
-> configuration").
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
-> Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
-> Signed-off-by: Justin Stitt <justinstitt@google.com>
-> ---
+Restrict support for GLOBAL_CTRL, GLOBAL_STATUS, fixed PMCs, and PEBS to
+v2 or later vPMUs.  The SDM explicitly states that GLOBAL_{CTRL,STATUS} and
+fixed counters were introduced with PMU v2, and PEBS has hard dependencies
+on fixed counters and the bitmap MSR layouts established by PMU v2.
 
-Yes, I think this is an appropriate way to address this for stable.
+Reported-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ arch/x86/kvm/vmx/pmu_intel.c | 51 ++++++++++++++++++------------------
+ 1 file changed, 25 insertions(+), 26 deletions(-)
 
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+index 1de94a39ca18..779b4e64acac 100644
+--- a/arch/x86/kvm/vmx/pmu_intel.c
++++ b/arch/x86/kvm/vmx/pmu_intel.c
+@@ -541,16 +541,33 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+ 				      kvm_pmu_cap.events_mask_len);
+ 	pmu->available_event_types = ~entry->ebx & (BIT_ULL(eax.split.mask_length) - 1);
+ 
+-	if (pmu->version == 1) {
+-		pmu->nr_arch_fixed_counters = 0;
+-	} else {
+-		pmu->nr_arch_fixed_counters = min_t(int, edx.split.num_counters_fixed,
+-						    kvm_pmu_cap.num_counters_fixed);
+-		edx.split.bit_width_fixed = min_t(int, edx.split.bit_width_fixed,
+-						  kvm_pmu_cap.bit_width_fixed);
+-		pmu->counter_bitmask[KVM_PMC_FIXED] = BIT_ULL(edx.split.bit_width_fixed) - 1;
++	entry = kvm_find_cpuid_entry_index(vcpu, 7, 0);
++	if (entry &&
++	    (boot_cpu_has(X86_FEATURE_HLE) || boot_cpu_has(X86_FEATURE_RTM)) &&
++	    (entry->ebx & (X86_FEATURE_HLE|X86_FEATURE_RTM))) {
++		pmu->reserved_bits ^= HSW_IN_TX;
++		pmu->raw_event_mask |= (HSW_IN_TX|HSW_IN_TX_CHECKPOINTED);
+ 	}
+ 
++	perf_capabilities = vcpu_get_perf_capabilities(vcpu);
++	if (intel_pmu_lbr_is_compatible(vcpu) &&
++	    (perf_capabilities & PERF_CAP_LBR_FMT))
++		memcpy(&lbr_desc->records, &vmx_lbr_caps, sizeof(vmx_lbr_caps));
++	else
++		lbr_desc->records.nr = 0;
++
++	if (lbr_desc->records.nr)
++		bitmap_set(pmu->all_valid_pmc_idx, INTEL_PMC_IDX_FIXED_VLBR, 1);
++
++	if (pmu->version == 1)
++		return;
++
++	pmu->nr_arch_fixed_counters = min_t(int, edx.split.num_counters_fixed,
++					    kvm_pmu_cap.num_counters_fixed);
++	edx.split.bit_width_fixed = min_t(int, edx.split.bit_width_fixed,
++					  kvm_pmu_cap.bit_width_fixed);
++	pmu->counter_bitmask[KVM_PMC_FIXED] = BIT_ULL(edx.split.bit_width_fixed) - 1;
++
+ 	intel_pmu_enable_fixed_counter_bits(pmu, INTEL_FIXED_0_KERNEL |
+ 						 INTEL_FIXED_0_USER |
+ 						 INTEL_FIXED_0_ENABLE_PMI);
+@@ -571,24 +588,6 @@ static void intel_pmu_refresh(struct kvm_vcpu *vcpu)
+ 		pmu->global_status_rsvd &=
+ 				~MSR_CORE_PERF_GLOBAL_OVF_CTRL_TRACE_TOPA_PMI;
+ 
+-	entry = kvm_find_cpuid_entry_index(vcpu, 7, 0);
+-	if (entry &&
+-	    (boot_cpu_has(X86_FEATURE_HLE) || boot_cpu_has(X86_FEATURE_RTM)) &&
+-	    (entry->ebx & (X86_FEATURE_HLE|X86_FEATURE_RTM))) {
+-		pmu->reserved_bits ^= HSW_IN_TX;
+-		pmu->raw_event_mask |= (HSW_IN_TX|HSW_IN_TX_CHECKPOINTED);
+-	}
+-
+-	perf_capabilities = vcpu_get_perf_capabilities(vcpu);
+-	if (intel_pmu_lbr_is_compatible(vcpu) &&
+-	    (perf_capabilities & PERF_CAP_LBR_FMT))
+-		memcpy(&lbr_desc->records, &vmx_lbr_caps, sizeof(vmx_lbr_caps));
+-	else
+-		lbr_desc->records.nr = 0;
+-
+-	if (lbr_desc->records.nr)
+-		bitmap_set(pmu->all_valid_pmc_idx, INTEL_PMC_IDX_FIXED_VLBR, 1);
+-
+ 	if (perf_capabilities & PERF_CAP_PEBS_FORMAT) {
+ 		if (perf_capabilities & PERF_CAP_PEBS_BASELINE) {
+ 			pmu->pebs_enable_rsvd = counter_rsvd;
+-- 
+2.50.1.565.gc32cd1483b-goog
 
-> ---
->  arch/arm64/kvm/Makefile | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-> index 5e33c2d4645a..5fdb5331bfad 100644
-> --- a/arch/arm64/kvm/Makefile
-> +++ b/arch/arm64/kvm/Makefile
-> @@ -24,6 +24,9 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
->  
->  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
->  
-> +# Work around a false positive Clang 22 -Wuninitialized-const-pointer warning
-> +CFLAGS_sys_regs.o := $(call cc-disable-warning, uninitialized-const-pointer)
-> +
->  always-y := hyp_constants.h hyp-constants.s
->  
->  define rule_gen_hyp_constants
-> 
-> ---
-> base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-> change-id: 20250728-stable-disable-unit-ptr-warn-281fee82539c
-> 
-> Best regards,
-> --
-> Justin Stitt <justinstitt@google.com>
-> 
 
