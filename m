@@ -4,228 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ADCFC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 17:25:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E2FC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 17:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OyeQp5xMad6j0CTKQ6u1FPL8F3o+kuUVBpOiQ5TjQn4=; b=JZV1LPG+2QWWXGXD2qmbeKXOE8
-	HVuE6Zn2yFgU5ktpHHnnQtiYVFFhXNG47o+lt1skoFiQwwuvGOyqrlgIArfvtxCssU2j/PnrjhH+X
-	Gd0tBgAJU1XRg/q+djTMkG+GrtJ/NN0MHtS1Etf10xsdiiR9Phs/TFukcoVLDbmoedXJ5XJQB3m1R
-	GcsWnnxcjJM5sKgiLSDX806fQINM9zujDJXzyOlbdpB1aUb80/659Ais0oioyXM6a72TooCKo24/N
-	UNmIqK92agiGQYHtNfdSzIn6c09Pe0Bdq1ObR6CUE+WWB1tWVieW7Qx2Vk4/cmwbd229VZ4pfDWtj
-	Nvu3BxBg==;
+	bh=LXEzdvjKc1frf74KZZ2Dk9UeoT9Qj8s/haDO00iYsCY=; b=XAzBPes6b7AubzKNpyxkHaM8r5
+	9RQWjphB0Y1SlYgHYZ2pNgljTeFM1X9BmZMbWpl1V4HRxkjMgtSr7ksoaeX+DhMvwD2tnDl7DDfR9
+	dwxFEN2R3KDGK0HVSS9Igzt4R+qv/LOc64pSrRcFjMCGAY7BBkGYJcLApMWtRQ0XGN7/zRsRuOKp7
+	+gwT08fHQ5wI3dy9408eJkKIYvKBCgzZb6dezRLrYhVPwaDkkqVgL8QWJkT1otk7MowoUsHvjZv8O
+	ZSPyaAh1RxsSaxGl/J2LoYfWjQddJvGZsgUzD3/a9xPa+q1nbxHUV1jkBYJ8zv/E76vnY7EMCfT8u
+	++5cK68Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhsp-0000000Fv4y-1s84;
-	Wed, 06 Aug 2025 17:24:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ujhvK-0000000Fvey-2Fib;
+	Wed, 06 Aug 2025 17:27:34 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhoh-0000000FuFg-3jvq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 06 Aug 2025 17:20:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=OyeQp5xMad6j0CTKQ6u1FPL8F3o+kuUVBpOiQ5TjQn4=; b=ZG1Mpw/a2tT0aZHP3JzEM0pSMY
-	hWUZR9sh9AOCnCbdbRGsmtqCar0aXEpR12VRpk1HSm5T5qOMae0iZRgX9vEUaLzVwBAd5Z3jHAJNY
-	hFvXy9X4jUs89BaqRNbbU1SjMola8bym5sergHc4x35ilhIJrx3gx+3pnOUirWi0AlYzr0XbaY5Lv
-	SboQZGCoXsBkuHSjUL4oo/pKggeRDc4F9q4+1mHax1xIpgv33lwQWexjDCj9UIsCfJ1QmMsSamUfF
-	gE/Y65iWdpsio07M9FcVNlYWaPHbU948ykUvm8Mqpq8F+3KYXjSIMMSJi8nk2MJuajlPSnS/dLQ2r
-	yMsGqb5g==;
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhoe-0000000EKse-0Kx3
+	id 1ujhpA-0000000FucK-1RdD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 17:20:42 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=r+Y/Ew4ct/SsBEOydjTcdN5H37xpWD/EAheNxKoJiAKVL2yS/wa/3luQ/V3vN8yeEY38F5nIfc685XtIyTGy5CtscpQj2x+pGvoLwgymPCN/j3w2QmNyMAvJs09XBR/arm82OZvcxGo9A5Urm7C7gfLBEs5eRIFJDzzI4OPkOJmDwa9l6P7yQOQtZubbcOu5mRqhzTolqJSOplVDUdGMn+L+lExG0732sdc/ilAsxclprriZT8JfYDpx5BJyPD06bMbkARATBpMask0Vs3BK8A6jllC2WQjNx9frvAYcaNcmTSBNzbM4kSjIbjWXC8vtMYm0ikdPwyG9wP912SMg5w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OyeQp5xMad6j0CTKQ6u1FPL8F3o+kuUVBpOiQ5TjQn4=;
- b=RbKE3rqsmpUMl0fBZhr7PekKnJInqUNhr3Z7w8bN05JbJYXtWRD3qQKvtksBXhZnmib00L1eCMzIH4hbNj4JpdGaOOx+w9Zo/m+uVigrQWSM2Kx7MfMXBcaBZZMRVIorGVkyOMXCKYzOOhb/pckxKtCrTGWcQUloNBn9IxQ9K9OOE+F8l6mTxmFrr5mTWsiCOAn9V7P8sucmSEEOaqiKxzqcauVb5m1WRA28auv4ZpdSV7RPcrczYWZs3klxmYZYlUlJulrcngZl0uEshDY17SfGvjpjtcXJ4m4Eb1JELASjXN8FWXksF9Jn7Lyp9R0gr9Mt0HxZeurRYUo8+7fRCQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=oracle.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OyeQp5xMad6j0CTKQ6u1FPL8F3o+kuUVBpOiQ5TjQn4=;
- b=XjvXTQVOCO0Ym/kzw5205qXt31u0T3z+RdhBa61tXQ9FAE01Z1DPozLxYfbS6M5T7Mm3XNXNV7w8PbZ18PdLi3vc0fnfVML55zouerRSQ/9vej2WYR+xaTv1Sxn2ou6YpVa721SkMLJstHst7XWAIwUuHEgohOpquhM5XgXsIX4=
-Received: from AS9PR06CA0195.eurprd06.prod.outlook.com (2603:10a6:20b:45d::20)
- by GV2PR08MB8390.eurprd08.prod.outlook.com (2603:10a6:150:bc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Wed, 6 Aug
- 2025 17:20:29 +0000
-Received: from AMS0EPF00000199.eurprd05.prod.outlook.com
- (2603:10a6:20b:45d:cafe::64) by AS9PR06CA0195.outlook.office365.com
- (2603:10a6:20b:45d::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8989.21 via Frontend Transport; Wed,
- 6 Aug 2025 17:20:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF00000199.mail.protection.outlook.com (10.167.16.245) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.8
- via Frontend Transport; Wed, 6 Aug 2025 17:20:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uIQm568eV3xfW85/hsWFN1pYKOhAXNic4kKAM5mV4UQreF2W556wWwwkDkBDe/fst6xdiHMZMEy4mWI4DN3IJzl4xiJKXArJOfsg/+B6A7OidMbA3S7i2fpxr9ZSe0Ama16RmmcVuED3ZzwBq/9OriJR6AyPHMUzuRDEJl06vdc7Xkq8rWeYTxfGu3IOjM4dm6Q0fddiZpTjtqNS8HBi8/1S50f/6NbwAu8bVe+5C1zGZ0l6h82X376ABWAkMiQbzYLYhvNLNX2RQB3GVFOoCmAcHL08dzqJSqx6yiF/cY0ZyovuhUXU2uaGGXJYDjP5R0MDp9oXwqR09U7RvC7QZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OyeQp5xMad6j0CTKQ6u1FPL8F3o+kuUVBpOiQ5TjQn4=;
- b=jAThgTDRZegLaFpzUP1UtH2W212l+Ds7R3E9aZWk4e3Dh2yuxRegVUcDm0U03Qpmuc3m2sIiD5RcPC/+VUz0JC72JKleoUuC7DssWVZlr7mJuQ23nl0fbQmzeJG77Wo8F9WWmgIXRSx/eCZJ7KFU/m4UWfPtYjpACt9AqHE7in6ZX8cl16mbz0TWvkcj2kSHGvJlD7Oe+8AdktkWn9QPGIZrwFeBbxu4JPw7EN7SbhB16fgOr3292omnja7Z+ttDCKlnV/eCUd15I70GkBM7FT1ukEu0BvhQ0LX1cX9Vo7L/BQ6Url2JGnt+XbH7CiHB0scicJomp7JPX0FItFgYjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OyeQp5xMad6j0CTKQ6u1FPL8F3o+kuUVBpOiQ5TjQn4=;
- b=XjvXTQVOCO0Ym/kzw5205qXt31u0T3z+RdhBa61tXQ9FAE01Z1DPozLxYfbS6M5T7Mm3XNXNV7w8PbZ18PdLi3vc0fnfVML55zouerRSQ/9vej2WYR+xaTv1Sxn2ou6YpVa721SkMLJstHst7XWAIwUuHEgohOpquhM5XgXsIX4=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by AS4PR08MB7580.eurprd08.prod.outlook.com (2603:10a6:20b:4ff::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Wed, 6 Aug
- 2025 17:19:55 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
- 17:19:55 +0000
-Message-ID: <78922f87-dc5c-4652-a5c3-869d1bca1d88@arm.com>
-Date: Wed, 6 Aug 2025 22:49:46 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mm-hotfixes-unstable] mm: Pass page directly instead of
- using folio_page
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
- willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com,
- syzbot+57bcc752f0df8bb1365c@syzkaller.appspotmail.com
-References: <20250806145611.3962-1-dev.jain@arm.com>
- <acee52bf-4f19-4e85-8d69-15d6cda54e95@lucifer.local>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <acee52bf-4f19-4e85-8d69-15d6cda54e95@lucifer.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA0PR01CA0081.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ae::8) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
+	Wed, 06 Aug 2025 17:21:15 +0000
+Date: Wed, 6 Aug 2025 10:20:55 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754500867;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LXEzdvjKc1frf74KZZ2Dk9UeoT9Qj8s/haDO00iYsCY=;
+	b=VtkQ++7b2u/bXmsWSk18w3r7GM1P5JVR7OF9qYXkJUdtUAb1xF+174eBKK9E0p7iYnpU9o
+	qMZ/Jn24nSr9r2S/3tLcPCdxS8TX5DhSvQ3mumqS7+RSehNtdiprcMvvWdydZeJAT64sl/
+	DZOMHF4WOTVO1Lqo5qTY5dzVsOhTh5M=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC v2 1/2] KVM: arm64: PMU: Introduce
+ KVM_ARM_VCPU_PMU_V3_COMPOSITION
+Message-ID: <aJOO99xUrhsrvLwl@linux.dev>
+References: <20250806-hybrid-v2-0-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <20250806-hybrid-v2-1-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|AS4PR08MB7580:EE_|AMS0EPF00000199:EE_|GV2PR08MB8390:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5be86c86-bdeb-42d2-8de4-08ddd50d8a1a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?SVFlU2trRUwvcERONzkrODJrTm90Q1BrbVR5R3dUWjQrSG1JbmpwRVdOUEJz?=
- =?utf-8?B?Sm03RzlGN2JUbUk1WGoxNDYxalBIRmsrWC9qYWlueTM2TlA4L1h5bWhRQ29Y?=
- =?utf-8?B?TTR4ejRyMjlMazNjNG9DTDBUSFc1ZzB1a3p2V2IraENvd2tVbThZSWc4SG1a?=
- =?utf-8?B?andXUlYrVTB6N240cXdWN1B6QXYwVWRrVlhTM3JhNUhvQ1dlSlh6MzlCUmdM?=
- =?utf-8?B?OG9IVHIyU0NjSkQzUUIwQ0kvcFpsWGhyM3MvOHZhUGxlY1J3dldON0hOdWVa?=
- =?utf-8?B?UE8rUW96Mk9SaFpFYzMzL2Myakd0YWVab1Z6Rm9BYW5yWjBIQXVXbmNGMlRu?=
- =?utf-8?B?SUIvYThBQ2Y1bjVzRVNxaUswbDVVL3RLWkwwSkhmSnNGNFpBNHdWclk0eHV5?=
- =?utf-8?B?ZnltVmlqS1NpOVJaL0s0UDZFdk5OVzhNYlppcTZ1QWlaMkpoR2hxNUhreXJq?=
- =?utf-8?B?MDFIN2dsS0VzcW5BN3RHd25PK21hNTZMK0xGU2wzWWxNYkVvNElLbHdjU2xT?=
- =?utf-8?B?ckE4ZWNTZFBTVDg2akc1TGtPVXdZN2ZNWUlnYjZ6ejlrTHVaS205OE4vU2Fz?=
- =?utf-8?B?TllYWkVWQmplelBGRjdYUUM0Zm00ZDFsWHhCWWVXZXBjOTRjZTlTRVdIOFlq?=
- =?utf-8?B?V2hzYnI2MW1iSGFnNlBsS0hRanJodkx3c28rV0kxVG5KRmpRaG4vQjVoQmxG?=
- =?utf-8?B?eUZRNzJCem9qbndkM3k2RkZRd0VIRFBOQzFnVmJ3Uk94N25FZG13RGxCQzNn?=
- =?utf-8?B?OUJPUnVVQnVUTDcvNEV2UjVDZnNjdWxQV081eklnOEFkY09yNUpDaG1pb3dP?=
- =?utf-8?B?NEsrbGIrNzF3NVgrZ29qaVVyMERScDdWd24xRXBRVGVxQWNyMGxsUGFyaEIy?=
- =?utf-8?B?UVFYM1VpSy9pck9mVmxyVUZWRmllTHV2SW16enlFR1NqZmRuekgzNmRuRkRG?=
- =?utf-8?B?WWhBR2EzcVdZU0d5blM1WTBZcElOajBkMExrYTl4eHozL1hjODJFT2xVdDdJ?=
- =?utf-8?B?Q1hHdmFCTm84aW5BWi9od2ZyclVGSTVLVzdzSWtJajk5OWgvL21ST05JVlRE?=
- =?utf-8?B?UG9KanNUUG9DL2lQTS9QbTZPL2FSQWxFOVNabGlzdUJyYStVMEV3RHZEZ0dX?=
- =?utf-8?B?TG83K3AvcGwzY1YyZVA5blJTMzRCZGtkSXJTMHFqbHBST205RDNsT25EbGVG?=
- =?utf-8?B?RjJ2V0ZsaUI1NDNnQ2FyQWpwVDFxci9tdkUzMHM3K0ZSeTc0U1RCQ29SbFlB?=
- =?utf-8?B?OWFMdjZxN0ZCS29STmszVFpQYlVnWWh6NGV6b1BNL2luZllIc2RXaFhiaStP?=
- =?utf-8?B?US9oSWpUaFNoN0srUlowamM5bTBZTzc4SFlvWlF6RXpkbjNHZTdGeGxZWVZG?=
- =?utf-8?B?TjZXbXc2QUQxOHJQWUZEaEQ0TDNBNFdtaVhqS1RBOHozSDRyeGJCVEZmRmJ1?=
- =?utf-8?B?Q3ZqMytDd3AyZHF5anBDSEFlVUExQ0ZTWk1jNXJYYlc5Mk9FczNXK2FwOURt?=
- =?utf-8?B?cVpOZi9La0RHcVB2K0FYVkZVakZmR3BURTJOTHpjSy8vdUxLZlZMdjNEN20x?=
- =?utf-8?B?ODdiS0tFQkgwTFNpNDJYeVJSVkpna1hqelI1MkFDandaZ0tBZlVoTFV2bHls?=
- =?utf-8?B?bjdyYzRJYjVoOVFteHhMNHJwc0FDdjlpTXBya0NLaFIxanZMa0NwVDM1RDFL?=
- =?utf-8?B?UGwxdzV5MVowMzB2YXRpWVFScnFpby91a0QrU1d3WThaWHdObFJrYlE3TWR1?=
- =?utf-8?B?eG10a29FUVJEdmFXaFh2YmIrTEtRMUg4MmQ2RVNYOXM1K1RBUXdvL0lrY1Ra?=
- =?utf-8?B?MkFuL0dkYUdacWlXK0FrRm9LUXlrQU90cU9rNzEzcGZGakY3VUFHSXJNMnlh?=
- =?utf-8?B?ai9xSmpGS2pHWmtGNUhiT08rUHpMREx0SDVnNHJZaExRaXc9PQ==?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB7580
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF00000199.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ceef3f17-fa33-4566-966e-08ddd50d75ee
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|7416014|14060799003|35042699022|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L0Rid0k4QlJNVWRka1gxdUtTNHREc3lZalhKR0ptZEJiOVNISExQRWZOUU11?=
- =?utf-8?B?K0ZRQkFvN0lRWXBqYWY2TXZVS2JHOThwQjlEM0pUcEpEdkFLNCsrb0FZNDRp?=
- =?utf-8?B?dW52WEJmczdWTkRRWVJUQkZnSmh0SmxDOFZ6MU5uM014bUllK0lYWVJtTWdF?=
- =?utf-8?B?M0RLN1dJZEJLSnBMeDMramJPWURvQlRBcE5oYVN0ZGEwTEtBenVMbzlybnll?=
- =?utf-8?B?cVFTNFZoL1lkRVVFdlgyS2Uyb1N0OS9vLy9mbVROTmFZZTN4UllWeFF1K09i?=
- =?utf-8?B?clBpZENTN0VLZEhqTXlYb1ViWXQ1VlZoOG9LY1RxRDJPRWRQUTlwZEs2STVP?=
- =?utf-8?B?VG1JRWgrVk0zbVJ0d2FNNHNEOStlbTZaMVp0UHBVOVF5OUVyOW02L2dvZ2h3?=
- =?utf-8?B?bld5MEpOeFdFVlUxeHU0ZE9yZ0FwYitWb0dJYW9yM2txdE9VeHlPK0NhRVVW?=
- =?utf-8?B?ZlRNT2c4dGFwTk9nZm1TOEZqallzWG9iSUdJaWd5Nms4NG9DUDZpdmdJNXVt?=
- =?utf-8?B?czNVaVJIcWpOaXJaR0dmYWxZTzdYSktOSjBVNllqWklaYVU4RTk1bEZLTytV?=
- =?utf-8?B?RzQyVHJuUVpyR2R6bE5JMlVBeThhM3hVY0RsMWROc0NRQ09XOTJYR01LSUts?=
- =?utf-8?B?TTd5SFVQTEtnejFwcW92SEVIWFA4dGRYb1RBN25QTklHL0Y5VjRZV2RPNzNR?=
- =?utf-8?B?K09TMEZRaTdLeEk5MC9nd20zVjZCT05rK2FNYjdFTHY3SCtndENFWFNORDRw?=
- =?utf-8?B?RGwvenpoWG5nK212bUVzVEVTSmdlMzdIMmxTRE5kdWFoVXpqNURZbW9mb2JQ?=
- =?utf-8?B?WTQxaGtLQzB4QzBKSUwyZ3FZUFZkQ2JXTlkxbHdsZkV4OFdLVFNlRGkzU3g5?=
- =?utf-8?B?dDh4aWUyWGdxbURkTDZwbm1vc0hDT0JQWlpjaXh0bklIM00rQXZRTC9RTS8x?=
- =?utf-8?B?RUFFcnRXbG91Zlovb0ZrT3NxOUo1WUN0YXlpWW9KN2J1U0tnR2I2amNra3hy?=
- =?utf-8?B?SDd5eFQ5OEFoQi92c2tza3NwYkdONjdacUljQ1dkZXVmSE1XaTBiRUlrU2dR?=
- =?utf-8?B?NERBRFB3Y211bGFmTmZCODVCV2h0QXBBdlk2YW9wcXIxQlRldlhHa2JyR295?=
- =?utf-8?B?ZkRXMHpRYk44aEkyTkh4WFNYb2xKSC9RcVVMNFIwcEFwaE5zTlc1cFMvSjVO?=
- =?utf-8?B?c0JrTm5ZSHhvckY1TWFhcnUxTGk1bE9BUWRrWEpGUCtnM0UrOWVaS0JSclI0?=
- =?utf-8?B?UlJMOUJFQlkyZkZ4MkJRbTczRUFPSDZ6VUdhZ1ZhR09vWmpwbDdqMW9uTjNn?=
- =?utf-8?B?WmNWeDVtYWJyWi9Za1pHcnBVNk1zTWdXOXdZdy9FdEJ4Mkl0akh6N1ZIa2pl?=
- =?utf-8?B?Nlc1aHFqdGRpUlByRkVpSDk3c0Q0UDNHb3lLeWVCN21sTTNENmJGaUhkV0Y1?=
- =?utf-8?B?TVF6dkxBWkg3ZTg3WUpWSFpDdkJJVDhISStoWHAyQ3pXWmNaZmpQcGsyQWYx?=
- =?utf-8?B?aHhIWUVycS96eS9keXg4UE41T1padUljWkh4ODVObkF4N0t1UEcwdTQ3K0Nq?=
- =?utf-8?B?Z2lJdHN0U0VIZnprbzdXMmNwSDdpL0NleDBWMlplZmNqcHJZbHpQemtOcHkw?=
- =?utf-8?B?aGFmTkEzRUlRS04vbEIrS1I4UkxlWjVQSzduTkpIZTF6d2JvS0NZbVNnTkE4?=
- =?utf-8?B?S1M1cFc1cERBNWNxWmhJY21QeEdRWFdCakkxVUtLZkZIeFNML1oxYkRSNWd0?=
- =?utf-8?B?U0ZrOXJuV2JyOWVCUVVDWlJ3QllYUE03ZlJtRk1BTnA0ZTdoZ2J1Sy9KbXVI?=
- =?utf-8?B?SGNzQ0hublhBcE9IbXFZRTdqMGZvdkM1RjM2djVTQjV3SDBqdUtaTzVGNm9x?=
- =?utf-8?B?bnJQY2tDZkJ3cmRzTFkzbUNRck1EaUkxa3ZxQXBSQWlBTGt1T3R4TlFQaDkr?=
- =?utf-8?B?WEljRGNhR3YvQmpTOEQ1UFNvWjR5bGk1TXdJLzR2RllGL2ZqcmIyWXVXMmlD?=
- =?utf-8?B?R2tzWHRGZFF4NmxZeGhLd2pneGdKM1JhQmljc3g3SjVWdVc2M25ab2x4MG5l?=
- =?utf-8?Q?3cHdy6?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(7416014)(14060799003)(35042699022)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 17:20:28.3669
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5be86c86-bdeb-42d2-8de4-08ddd50d8a1a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000199.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8390
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250806-hybrid-v2-1-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_182040_554678_ABC24C66 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250806_102112_979642_D5BC1E07 
+X-CRM114-Status: GOOD (  27.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -240,144 +79,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Akihiko,
 
-On 06/08/25 10:10 pm, Lorenzo Stoakes wrote:
-> On Wed, Aug 06, 2025 at 08:26:11PM +0530, Dev Jain wrote:
->> In commit_anon_folio_batch(), we iterate over all pages pointed to by the
->> PTE batch. Therefore we need to know the first page of the batch;
->> currently we derive that via folio_page(folio, 0), but, that takes us
->> to the first (head) page of the folio instead - our PTE batch may lie
->> in the middle of the folio, leading to incorrectness.
->>
->> Bite the bullet and throw away the micro-optimization of reusing the
->> folio in favour of code simplicity. Derive the page and the folio in
->> change_pte_range, and pass the page too to commit_anon_folio_batch to
->> fix the aforementioned issue.
->>
->> Reported-by: syzbot+57bcc752f0df8bb1365c@syzkaller.appspotmail.com
->> Fixes: cac1db8c3aad ("mm: optimize mprotect() by PTE batching")
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> This looks reasonable, fixes the problem and compiles/works on my machine so:
->
-> Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+This is an unreasonably large patch that needs to be broken down into
+smaller patches, ideally one functional change per patch. We need this
+even for an RFC for the sake of reviews.
 
-Thanks.
+On Wed, Aug 06, 2025 at 06:09:54PM +0900, Akihiko Odaki wrote:
+> +static u64 kvm_pmu_get_pmc_value(struct kvm_vcpu *vcpu, u8 idx)
+>  {
+> -	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+> +	struct kvm_pmc *pmc = *kvm_vcpu_idx_to_pmc(vcpu, idx);
+>  	u64 counter, reg, enabled, running;
+> +	unsigned int i;
+>  
+> -	reg = counter_index_to_reg(pmc->idx);
+> +	reg = counter_index_to_reg(idx);
+>  	counter = __vcpu_sys_reg(vcpu, reg);
+>  
+>  	/*
+>  	 * The real counter value is equal to the value of counter register plus
+>  	 * the value perf event counts.
+>  	 */
+> -	if (pmc->perf_event)
+> -		counter += perf_event_read_value(pmc->perf_event, &enabled,
+> -						 &running);
+> +	if (pmc)
+> +		for (i = 0; i < pmc->nr_perf_events; i++)
+> +			counter += perf_event_read_value(pmc->perf_events[i],
+> +							 &enabled, &running);
 
->
-> This badly needs refactoring as 13 parameters being passed to a function is
+I'm concerned that this array of events concept you're introducing is
+going to be error-prone. An approach that reallocates a new PMU event in
+the case of a vCPU migrating to a new PMU implementation would be
+desirable.
 
-Which function are you talking about?
+> +static void reset_sample_period(struct perf_event *perf_event)
+> +{
+> +	struct kvm_pmc **pmc = perf_event->overflow_handler_context;
+> +	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+> +	struct arm_pmu *cpu_pmu = to_arm_pmu(perf_event->pmu);
+> +	u64 period;
+> +
+> +	cpu_pmu->pmu.stop(perf_event, PERF_EF_UPDATE);
+> +
+> +	/*
+> +	 * Reset the sample period to the architectural limit,
+> +	 * i.e. the point where the counter overflows.
+> +	 */
+> +	period = compute_period(pmc, kvm_pmu_get_pmc_value(vcpu, (*pmc)->idx));
+> +
+> +	local64_set(&perf_event->hw.period_left, 0);
+> +	perf_event->attr.sample_period = period;
+> +	perf_event->hw.sample_period = period;
+> +
+> +	cpu_pmu->pmu.start(perf_event, PERF_EF_RELOAD);
+> +}
 
-> ridiculous, but we can do that later.
->
-> Let's get this in as a hotfix asap.
->
->> ---
->>   mm/mprotect.c | 23 ++++++++++-------------
->>   1 file changed, 10 insertions(+), 13 deletions(-)
->>
->> diff --git a/mm/mprotect.c b/mm/mprotect.c
->> index 78bded7acf79..113b48985834 100644
->> --- a/mm/mprotect.c
->> +++ b/mm/mprotect.c
->> @@ -120,9 +120,8 @@ static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
->>
->>   static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->>   			   pte_t oldpte, pte_t *pte, int target_node,
->> -			   struct folio **foliop)
->> +			   struct folio *folio)
->>   {
->> -	struct folio *folio = NULL;
->>   	bool ret = true;
->>   	bool toptier;
->>   	int nid;
->> @@ -131,7 +130,6 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->>   	if (pte_protnone(oldpte))
->>   		goto skip;
->>
->> -	folio = vm_normal_folio(vma, addr, oldpte);
->>   	if (!folio)
->>   		goto skip;
->>
->> @@ -173,7 +171,6 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
->>   		folio_xchg_access_time(folio, jiffies_to_msecs(jiffies));
->>
->>   skip:
->> -	*foliop = folio;
->>   	return ret;
->>   }
->>
->> @@ -231,10 +228,9 @@ static int page_anon_exclusive_sub_batch(int start_idx, int max_len,
->>    * retrieve sub-batches.
->>    */
->>   static void commit_anon_folio_batch(struct vm_area_struct *vma,
->> -		struct folio *folio, unsigned long addr, pte_t *ptep,
->> +		struct folio *folio, struct page *first_page, unsigned long addr, pte_t *ptep,
->>   		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
->>   {
->> -	struct page *first_page = folio_page(folio, 0);
->>   	bool expected_anon_exclusive;
->>   	int sub_batch_idx = 0;
->>   	int len;
->> @@ -251,7 +247,7 @@ static void commit_anon_folio_batch(struct vm_area_struct *vma,
->>   }
->>
->>   static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
->> -		struct folio *folio, unsigned long addr, pte_t *ptep,
->> +		struct folio *folio, struct page *page, unsigned long addr, pte_t *ptep,
->>   		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
->>   {
->>   	bool set_write;
->> @@ -270,7 +266,7 @@ static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
->>   				       /* idx = */ 0, set_write, tlb);
->>   		return;
->>   	}
->> -	commit_anon_folio_batch(vma, folio, addr, ptep, oldpte, ptent, nr_ptes, tlb);
->> +	commit_anon_folio_batch(vma, folio, page, addr, ptep, oldpte, ptent, nr_ptes, tlb);
->>   }
->>
->>   static long change_pte_range(struct mmu_gather *tlb,
->> @@ -305,15 +301,19 @@ static long change_pte_range(struct mmu_gather *tlb,
->>   			const fpb_t flags = FPB_RESPECT_SOFT_DIRTY | FPB_RESPECT_WRITE;
->>   			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
->>   			struct folio *folio = NULL;
->> +			struct page *page;
->>   			pte_t ptent;
->>
->> +			page = vm_normal_page(vma, addr, oldpte);
->> +			if (page)
->> +				folio = page_folio(page);
->>   			/*
->>   			 * Avoid trapping faults against the zero or KSM
->>   			 * pages. See similar comment in change_huge_pmd.
->>   			 */
->>   			if (prot_numa) {
->>   				int ret = prot_numa_skip(vma, addr, oldpte, pte,
->> -							 target_node, &folio);
->> +							 target_node, folio);
->>   				if (ret) {
->>
->>   					/* determine batch to skip */
->> @@ -323,9 +323,6 @@ static long change_pte_range(struct mmu_gather *tlb,
->>   				}
->>   			}
->>
->> -			if (!folio)
->> -				folio = vm_normal_folio(vma, addr, oldpte);
->> -
->>   			nr_ptes = mprotect_folio_pte_batch(folio, pte, oldpte, max_nr_ptes, flags);
->>
->>   			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
->> @@ -351,7 +348,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->>   			 */
->>   			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>   			     !pte_write(ptent))
->> -				set_write_prot_commit_flush_ptes(vma, folio,
->> +				set_write_prot_commit_flush_ptes(vma, folio, page,
->>   				addr, pte, oldpte, ptent, nr_ptes, tlb);
->>   			else
->>   				prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
->> --
->> 2.30.2
->>
+No, we can't start calling into the internal driver interfaces. The fact
+that we have a pointer to the PMU is an ugly hack and shouldn't be used
+like this.
+
+> @@ -725,8 +729,8 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+>  	attr.type = arm_pmu->pmu.type;
+>  	attr.size = sizeof(attr);
+>  	attr.pinned = 1;
+> -	attr.disabled = !kvm_pmu_counter_is_enabled(pmc);
+> -	attr.exclude_user = !kvm_pmc_counts_at_el0(pmc);
+> +	attr.disabled = !kvm_pmu_counter_is_enabled(vcpu, (*pmc)->idx);
+> +	attr.exclude_user = !kvm_pmc_counts_at_el0(vcpu, (*pmc)->idx);
+>  	attr.exclude_hv = 1; /* Don't count EL2 events */
+>  	attr.exclude_host = 1; /* Don't count host events */
+>  	attr.config = eventsel;
+
+Can we just special-case the fixed CPU cycle counter to use
+PERF_TYPE_HARDWARE / PERF_COUNT_HW_CPU_CYCLES? That _should_ have the
+intended effect of opening an event on the PMU for this CPU.
+
+> +	/*
+> +	 * If we have a filter in place and that the event isn't allowed, do
+> +	 * not install a perf event either.
+> +	 */
+> +	if (vcpu->kvm->arch.pmu_filter &&
+> +	    !test_bit(eventsel, vcpu->kvm->arch.pmu_filter))
+> +		return;
+> +
+> +	if (arm_pmu) {
+> +		*pmc = kvm_pmu_alloc_pmc(idx, 1);
+> +		if (!*pmc)
+> +			goto err;
+> +
+> +		kvm_pmu_create_perf_event(pmc, arm_pmu, eventsel);
+> +	} else {
+> +		guard(mutex)(&arm_pmus_lock);
+
+This is a system-wide lock, the need for which is eliminated if you go
+for the reallocation approach I mention.
+
+> +static int kvm_arm_pmu_v3_set_pmu_composition(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm *kvm = vcpu->kvm;
+> +	struct arm_pmu_entry *entry;
+> +	struct arm_pmu *arm_pmu;
+> +
+> +	lockdep_assert_held(&kvm->arch.config_lock);
+> +
+> +	if (kvm_vm_has_ran_once(kvm) ||
+> +	    (kvm->arch.pmu_filter && !kvm->arch.nr_composed_host_pmus))
+> +		return -EBUSY;
+
+I'm not sure there's much value in preventing the user from configuring
+the PMU event filter. Even in the case of the fixed CPU cycle counter we
+allow userspace to filter the event.
+
+It is much more important to have mutual exclusion between this UAPI and
+userspace explicitly selecting a PMU implementation.
+
+> @@ -1223,6 +1328,8 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  
+>  		return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
+>  	}
+> +	case KVM_ARM_VCPU_PMU_V3_COMPOSITION:
+> +		return kvm_arm_pmu_v3_set_pmu_composition(vcpu);
+
+I'd prefer naming this something like 'KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY'.
+We will have the fixed instruction counter eventually which is another
+event we could potentially provide system-wide.
+
+Thanks,
+Oliver
 
