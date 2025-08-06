@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21210C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 15:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17FAC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 15:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptD7RqG2Wfwe8QvHULRB9jljjN5BIARVY3LM/DAzOSM=; b=aocNlP5aSljFgGb252+BTkqanw
-	+hzxRc6EowEvQ11l2bGJniGTPXbyaYaGBmyxVkViWJ0oa5IZg2r/Bb3BSpvsUC51Bk2mhymgYgQrJ
-	R1w7S3EO2jsrW5CUc79aYCpNM6B7H0Lu4HbDPCXoCY51G5OD45z1ryACmNw7x0HjyZDRPbWVGgGem
-	hVUrfsmsJDRQPP5cvkBQqT7iZmmW4t/bF0hXK/wE3PlxNYHCyCMifrudgfBOoAktCjTWEVNB7rFW7
-	eY6iRgBQU6SQq8rJcl76TMSYWQkkrgobTd31NKG6VoznM0X8s/nUegCmaiM2Cu2P3SIGZhfO4sq/h
-	D3KFj0Kg==;
+	bh=7RsgK39bZGGSX6h47xkhxWwFZ1ITqr8yrpYQjfJ5U7g=; b=iiWNSjnkNKFCNo91bJXSDwS8Ck
+	prua2Dpldmit10ELS+cCy0y4F4rUmyBv611Pp1jlhJK1w0fbbwtePN20jEQ4tLRaS1xwafKHWPJM6
+	ejGFRRxzhNpCvnId3Gua8mmxi8WnPH1okPWzB3UVVQbt6FgQ+GBrodIXXQgRrafBlYomOFElienLZ
+	MAWbXidFQEPLw+qRLj6vDFmqzmoMa39nTY3qHbPIhoIRqPTKqYFgeI6x4F6wZtNq0yugFimpevSnW
+	eEPYMdwZOsUoOu8tLR7cl9CvZMYWAo0/QQLPwTdqv0pdw48823aCgaAjEX8zx0Fmy+D8FbaBwurlI
+	o5Y524RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujgCz-0000000Fd4q-0N4K;
-	Wed, 06 Aug 2025 15:37:41 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1ujgFT-0000000FdQ8-3u2i;
+	Wed, 06 Aug 2025 15:40:15 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujfzR-0000000Fb21-3370
+	id 1ujg0I-0000000Fb8s-1XWd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 15:23:42 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4bxvFf4ZzLz9t1D;
-	Wed,  6 Aug 2025 17:23:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1754493814;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ptD7RqG2Wfwe8QvHULRB9jljjN5BIARVY3LM/DAzOSM=;
-	b=rINUDcKIArXUARYoVU8YTwFTGj6+5V7Wja6notBfGvVBFgdJPGZUoRKKNqv2AX00eR22MG
-	HBrK/1y+6/MO/nuqE/PumgQKLzRJ3rdtqmbTlR4Q+SOpfDxcHQrwRF2ItT8ubDRcT96Eu1
-	0JMzWe8H8aXIik/IrF4yuMmtaFXD08WxmpHc06zsSda7Ddym+cQCK6w9Kon2yX9vn3Lqaf
-	xMw1jbKz+JhwBf3pKSmocCVHP2ZWC1ZF6gdEx3kxfNK1c9EeEBuN+PPbARvILHUP6eAVnG
-	MwUE2Gbr6TcZD9QykA1Pv1A0QexP/376JN20RP5CoW3T3HFwZw4a/U9clUp2Kg==
-Message-ID: <e1d465f7-43d7-471b-b8a7-7d24428bac4c@mailbox.org>
-Date: Wed, 6 Aug 2025 17:23:31 +0200
+	Wed, 06 Aug 2025 15:24:36 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 576FORiO603713;
+	Wed, 6 Aug 2025 10:24:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1754493867;
+	bh=7RsgK39bZGGSX6h47xkhxWwFZ1ITqr8yrpYQjfJ5U7g=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=hzsO1BXe0Wzvoo9dSBV6u7zuoy/ZcmqIENibhejADzSxWaFki3CNbIurssoKE8dD4
+	 Ia5BMXZdr87A0hKdGXlE82F8wmtPzv+nShj5MkTPS76O2m22G0hikaTcLgN1w82z81
+	 YLuGVEo/iKGes8G1thXOAJTRimOpXrbKPf+J7cI0=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 576FOQe7122291
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Wed, 6 Aug 2025 10:24:26 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 6
+ Aug 2025 10:24:26 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Wed, 6 Aug 2025 10:24:26 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 576FOQI53740880;
+	Wed, 6 Aug 2025 10:24:26 -0500
+Message-ID: <e9394117-996c-4134-b9f2-50accf633601@ti.com>
+Date: Wed, 6 Aug 2025 10:24:26 -0500
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Update thermal trip points
- on V4H Sparrow Hawk
-To: Geert Uytterhoeven <geert@linux-m68k.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm
- <magnus.damm@gmail.com>, =?UTF-8?Q?Niklas_S=C3=B6derlund?=
- <niklas.soderlund@ragnatech.se>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdV3=c24KxO_Sbt50FGsFnNVYNnHAUhk-yoa+nM1f+7+kA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: hwinfo: Add second register range for
+ GP_SW
+To: Krzysztof Kozlowski <krzk@kernel.org>, Nishanth Menon <nm@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Adrian
+ Hunter <adrian.hunter@intel.com>,
+        Ulf Hansson <ulf.hansson@linaro.org>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>
+References: <20250805234950.3781367-1-jm@ti.com>
+ <20250805234950.3781367-2-jm@ti.com>
+ <0f1cbec6-6032-48f6-8887-e526484c0d20@kernel.org>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <CAMuHMdV3=c24KxO_Sbt50FGsFnNVYNnHAUhk-yoa+nM1f+7+kA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <0f1cbec6-6032-48f6-8887-e526484c0d20@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: a0bef3196f4fbcb220b
-X-MBO-RS-META: ahbupiudatrs3ous6js5scw7o1xdhufs
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_082341_908656_184F34D1 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250806_082434_548254_764BA817 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,72 +98,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/6/25 11:35 AM, Geert Uytterhoeven wrote:
-> Hi Marek,
+Hi Krystoff,
 
-Hi,
-
->> +       #cooling-cells = <2>;
+On 8/6/25 1:40 AM, Krzysztof Kozlowski wrote:
+> On 06/08/2025 01:49, Judith Mendez wrote:
+>> This adds a second register range in ti,k3-socinfo. This register
 > 
-> This is only present for the first CPU core, and map{0,1,3} refer
-> only to a76_0, because all four CPU cores are driven by a single clock
-> (Z0), right?
+> Please do not use "This commit/patch/change", but imperative mood. See
+> longer explanation here:
+> https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
 
-That seems correct.
+I can reword this.
 
->> +
->> +       a76_0_thermal_idle: thermal-idle {
->> +               #cooling-cells = <2>;
->> +               duration-us = <10000>;
->> +               exit-latency-us = <500>;
->> +       };
->> +};
 > 
->> +/* THS sensor in SoC near CA76 cores does more progressive cooling. */
->> +&sensor_thermal_ca76 {
->> +       critical-action = "shutdown";
->> +
->> +       cooling-maps {
->> +               /*
->> +                * The cooling-device minimum and maximum parameters inversely
->> +                * match opp-table-0 {} node entries in r8a779g0.dtsi, in other
->> +                * words, 0 refers to 1.8 GHz OPP and 4 refers to 500 MHz OPP.
->> +                * This is because they refer to cooling levels, where maximum
->> +                * cooling level happens at 500 MHz OPP, when the CPU core is
->> +                * running slowly and therefore generates least heat.
 > 
-> That applies to cooling-device = <&a76_[0-3] ...>...
-
-Do you want me to add this line into the comment ?
-
->> +                */
->> +               map0 {
->> +                       /* At 68C, inhibit 1.7 GHz and 1.8 GHz modes */
->> +                       trip = <&sensor3_passive_low>;
->> +                       cooling-device = <&a76_0 2 4>;
->> +                       contribution = <128>;
->> +               };
->> +
->> +               map1 {
->> +                       /* At 72C, inhibit 1.5 GHz mode */
->> +                       trip = <&sensor3_passive_mid>;
->> +                       cooling-device = <&a76_0 3 4>;
->> +                       contribution = <256>;
->> +               };
->> +
->> +               map2 {
->> +                       /* At 76C, start injecting idle states */
->> +                       trip = <&sensor3_passive_hi>;
->> +                       cooling-device = <&a76_0_thermal_idle 0 80>,
->> +                                        <&a76_1_thermal_idle 0 80>,
->> +                                        <&a76_2_thermal_idle 0 80>,
->> +                                        <&a76_3_thermal_idle 0 80>;
+>> range can also be used to detect silicon revisions.
+>>
+>> AM62px SR1.0, SR1.1, and SR1.2 can only be distinguished with GP_SW
+>> registers, so increase maximum items to 2 for reg property and update
+>> the example.
+>>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>>   .../devicetree/bindings/hwinfo/ti,k3-socinfo.yaml        | 9 ++++++---
+>>   1 file changed, 6 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml b/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
+>> index dada28b47ea0..3b656fc0cb5a 100644
+>> --- a/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
+>> +++ b/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
+>> @@ -24,7 +24,8 @@ properties:
+>>         - const: ti,am654-chipid
+>>   
+>>     reg:
+>> -    maxItems: 1
+>> +    maxItems: 2
+>> +    minItems: 1
 > 
-> ... but what do "0 80" refer to? I couldn't find in the thermal-idle
-> bindings what exactly are the minimum and maximum cooling states here.
-The comments in drivers/thermal/cpuidle_cooling.c clarify that, it is 
-the idle injection rate in percent, in this case the cooling can inject 
-idle states up to 80% of time.
+> They always come with reversed order... but anyway, you instead must
+> list the items with minItems.
+> 
+> another problem is that this is not supposed to be per register. I
+> already complained more than once about some of TI bindings: stop
+> creating device nodes or address spaces per register.
+> 
+> That's one address space.
 
-+CC Daniel in case they want to chime in on that.
+That does not really make sense. Registers jtag vs gp_sw have a
+different back-end, one from silicon and another from efuse. Not even
+sure if the memory map will always be the same across processors.
+
+> 
+>>   
+>>   required:
+>>     - compatible
+>> @@ -34,7 +35,9 @@ additionalProperties: false
+>>   
+>>   examples:
+>>     - |
+>> -    chipid@43000014 {
+>> +    chipid@14 {
+> 
+> And this was never even checked :/ You have clear warnings here.
+
+I will double check this.
+
+
+~ Judith
+
 
