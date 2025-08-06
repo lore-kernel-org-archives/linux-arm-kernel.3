@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878E0C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAD5C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A5XWDwVGnEQiGkPjEIEkwbmBvjSkcaLou9hrLpEti5Y=; b=4mGhoRNCCHpCF8PHwGYBbw/eBz
-	q07J9yxJO1ChDR4sefOsH8BLouEvW+Zc3Cg/gM9sMMnec0j+xAJGhA0qt0rnTlPVrW/aUE5DVlotB
-	8w8K+wEbYSEiRZoLcRSBqB6YcPxnVwwirqo+5IyKGHrx5TSPyZBOMMbjRAmrB4lUSn31pA30xZYdw
-	0aST1PqRbqnjO9lQKNv4s1e4/06RY6eTCZQhHd1g69l0d1gXYc6z02BwiP+1KUE8YN+QbZfFgjihq
-	7zHNEgdpcESr+gBinvbKwa6pWG8mwVAr11MAVaRiL/VtSU7c4WsegMMAA5sfGwzTxhSnKocA2faaq
-	USOE3Erw==;
+	bh=fECPVy3IuVBfNDIk74uuTR+IW83emNPZTN1XtAlaT68=; b=GGUe0MWQRC64CSI35e7adEqluC
+	DF8eiGxVYDXLpBZyERWH6gJeis4+fqousSmo7nqklHqJHwT52yxzrp74f+5M5n/1fdEQHX2tlmxpU
+	Rl9d3xyAMpAk7RlqK7Ai5AQhyEpwqE0QLjgTrUriU2P8yRRKoLrF4uA8Q8m74ZYjp2eK59HN+mUWh
+	dezJpEUSlsEcw5+p5ORCKysctGwZZZb61BA9P+9eobIzLVNfSmo+6X75g3Vzj3z3GAKcyHHf9LBvf
+	PPMwOMXYh0pLWBAIOzuQu6UaL0w6lcjOyut0XTxcx5PZleinaFbD61kByk59CCalR1HkYOVPCe3bl
+	x1UtZAwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uja2R-0000000Ehe9-33HQ;
-	Wed, 06 Aug 2025 09:02:23 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uja4s-0000000EiBa-2MmU;
+	Wed, 06 Aug 2025 09:04:54 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZzV-0000000Eh0k-2AAD
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:59:23 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1ujZzS-000236-FS
-	for linux-arm-kernel@lists.infradead.org; Wed, 06 Aug 2025 10:59:18 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1ujZzS-00CBCf-0u
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 10:59:18 +0200
-Received: from dspam.blackshift.org (localhost [127.0.0.1])
-	by bjornoya.blackshift.org (Postfix) with SMTP id E0BE6451D8C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:59:17 +0000 (UTC)
-Received: from hardanger.blackshift.org (unknown [172.20.34.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by bjornoya.blackshift.org (Postfix) with ESMTPS id 8355F451D86;
-	Wed, 06 Aug 2025 08:59:16 +0000 (UTC)
-Received: from hardanger.blackshift.org (localhost [::1])
-	by hardanger.blackshift.org (OpenSMTPD) with ESMTP id 00ed67c6;
-	Wed, 6 Aug 2025 08:59:15 +0000 (UTC)
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-Date: Wed, 06 Aug 2025 10:59:12 +0200
-Subject: [PATCH] ARM: dts: stm32: add resets property to m_can nodes in the
- stm32mp153
+	id 1uja0B-0000000Eh9u-3vAP;
+	Wed, 06 Aug 2025 09:00:05 +0000
+X-UUID: b8ff1e8a72a311f09eb0dd999d3936bf-20250806
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=fECPVy3IuVBfNDIk74uuTR+IW83emNPZTN1XtAlaT68=;
+	b=ahnJKbrn8RuVXZNguz7Kpi/sfjAh1+XPzODEIAeushiIJ5lv7NXOaI27DmNUG9SVT3YLUfXIy5EkRkaI5CvEs8Ihr5OJ2oc1S5l+2q5gmfrw5no43E0LGsjQz2j0Lm3jrcuMsxLo2SNLXJNC2gX7oQtVWlucRDQGHDUhEbk6OBM=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.2,REQID:85462eff-9fa1-4b08-ab22-6ca0c531999d,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:9eb4ff7,CLOUDID:e492910f-6968-429c-a74d-a1cce2b698bd,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: b8ff1e8a72a311f09eb0dd999d3936bf-20250806
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <friday.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 801064581; Wed, 06 Aug 2025 01:59:55 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 6 Aug 2025 16:59:52 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 6 Aug 2025 16:59:51 +0800
+From: Friday Yang <friday.yang@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: Friday Yang <friday.yang@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v10 0/2] Add SMI reset and clamp for MediaTek MT8188 SoC
+Date: Wed, 6 Aug 2025 16:59:34 +0800
+Message-ID: <20250806085946.11383-1-friday.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250806-stm32mp15-m_can-add-reset-v1-1-9d81f9c29d65@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAF8Zk2gC/x3MTQqDMBBA4avIrDuQn2qLVylS0smos0iUjIgg3
- r3B5bd47wTlIqzQNycU3kVlyRX20QDNIU+MEqvBGdeat+lQt+RdWm2L6UshY4gRCytvSDTS8+W
- s/wUPtV8Lj3Lc789wXX+e+odgawAAAA==
-X-Change-ID: 20250806-stm32mp15-m_can-add-reset-ccfc47213ba3
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@pengutronix.de, Marc Kleine-Budde <mkl@pengutronix.de>
-X-Mailer: b4 0.15-dev-e44bb
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1268; i=mkl@pengutronix.de;
- h=from:subject:message-id; bh=/UzzYtavlagWyGGtegXWanhdJH6wLaCLupCcryhZtHg=;
- b=owEBbQGS/pANAwAKAQx0Zd/5kJGcAcsmYgBokxlgVg8zS2uNYYWdg1S46Cypmh+yR3HopVysb
- +06kIcnXIKJATMEAAEKAB0WIQSf+wzYr2eoX/wVbPMMdGXf+ZCRnAUCaJMZYAAKCRAMdGXf+ZCR
- nOfyB/0ev9RiEJlbXX/m469X//l77QlSs4AudFDZQX1cvyMLVeUwBYvT1kJ26UI6wIW2RTc1Ntx
- mFhprYlW4a6KmvMZ2CW5GCKRnhziKFn2Zvlk8ll6dVAb+QerxknCiv6CrD98PKRG79UzWcUOZWb
- Nu6TDg5xjooAsu6SByoVFwojnFckxQ0Wm1iEqZJJIQss1hxbGgJ4gFXGOUkmDtmF/3RCCwISwn6
- RKElfRPKK7coK+aF9Cymz+1MLOobBT9/ngQ3MbJM5YI7BwYTnb913KHqMG7SJm1UtgCoPR5O0k+
- dAEPydAYN9EyctqPSTwrldXtpi9EdTzCGsjkvYp7+r1VFLvh
-X-Developer-Key: i=mkl@pengutronix.de; a=openpgp;
- fpr=C1400BA0B3989E6FBC7D5B5C2B5EE211C58AEA54
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_015921_555862_BF48A18C 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250806_020003_992432_01E1B687 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +88,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the STM32MP153 the m_cam IP cores (a.k.a. FDCAN) have an external
-shared reset in the RCC. Add the reset to both m_can nodes.
+Based on tag: next-20250805, linux-next/master
 
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
----
- arch/arm/boot/dts/st/stm32mp153.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+On the MediaTek MT8188 SoC platform, we encountered power-off failures
+and SMI bus hang issues during camera stress tests. The issue arises
+because bus glitches are sometimes produced when MTCMOS powers on or
+off. While this is fairly normal, the software must handle these
+glitches to avoid mistaking them for transaction signals. What's
+more, this issue emerged only after the initial upstreaming of SMI
+driver.
 
-diff --git a/arch/arm/boot/dts/st/stm32mp153.dtsi b/arch/arm/boot/dts/st/stm32mp153.dtsi
-index 4640dafb1598..92794b942ab2 100644
---- a/arch/arm/boot/dts/st/stm32mp153.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp153.dtsi
-@@ -40,6 +40,7 @@ m_can1: can@4400e000 {
- 		interrupt-names = "int0", "int1";
- 		clocks = <&rcc CK_HSE>, <&rcc FDCAN_K>;
- 		clock-names = "hclk", "cclk";
-+		resets = <&rcc FDCAN_R>;
- 		bosch,mram-cfg = <0x0 0 0 32 0 0 2 2>;
- 		access-controllers = <&etzpc 62>;
- 		status = "disabled";
-@@ -54,6 +55,7 @@ m_can2: can@4400f000 {
- 		interrupt-names = "int0", "int1";
- 		clocks = <&rcc CK_HSE>, <&rcc FDCAN_K>;
- 		clock-names = "hclk", "cclk";
-+		resets = <&rcc FDCAN_R>;
- 		bosch,mram-cfg = <0x1400 0 0 32 0 0 2 2>;
- 		access-controllers = <&etzpc 62>;
- 		status = "disabled";
+The software solutions can be summarized as follows:
+
+1. Use CLAMP to disable the SMI sub-common port after turning off the
+   LARB CG and before turning off the LARB MTCMOS.
+2. Use CLAMP to disable/enable the SMI sub-common port.
+3. Implement an AXI reset for SMI LARBs.
 
 ---
-base-commit: 1a32f7427eb3d1248bc64cd745b93f88cc838933
-change-id: 20250806-stm32mp15-m_can-add-reset-ccfc47213ba3
+Changes in v10:
+- Rename 'smi_comm_inport_id' to 'smi_comm_in_port_id'.
+- Return 0 when it fails to get 'larb_id' in
+  'mtk_smi_larb_parse_clamp_optional'.
 
-Best regards,
---  
-Marc Kleine-Budde <mkl@pengutronix.de>
+Changes in v9:
+- Add 'dev_pm_genpd_remove_notifier' in 'mtk_smi_larb_remove'.
+- Remove unused macros.
+- Rename 'sub_comm_syscon' to 'smi_comm_syscon'.
+- Rename 'sub_comm_inport_id' to 'smi_comm_inport_id'.
+- Add more detailed descriptions in change log.
+- Fix incorrect tags.
 
+Changes in v8:
+- Fix incorrect tags.
+
+Changes in v7:
+- We replaced 'pm_runtime_enable' with 'devm_pm_runtime_enable' in the
+  v6 patch. This changed the order of cleanup, and reviewers expressed
+  concerns that it could introduce unexpected issues. So v7 discard this
+  change and continue using 'pm_runtime_enable'. We need to conduct
+  further investigation to determine if there are any issues related
+  to the cleanup order. This might be resolved in the future, but for
+  now, we just maintain the current status.
+
+Changes in v6:
+- Fix coding style.
+- Add another patch to replace 'pm_runtime_enable' with
+  'devm_pm_runtime_enable'.
+
+Changes in v5:
+- Use 'devm_pm_runtime_enable' instead of 'pm_runtime_enable'.
+- Remove 'pm_runtime_disable' in 'mtk_smi_common_remove' and
+  'mtk_smi_larb_remove'.
+
+Changes in v4:
+- Use 'devm_reset_control_get_optional_exclusive' instead of
+  'devm_reset_control_get'.
+
+Changes in v3:
+- Remove redundant descriptions for 'resets' and 'reset-names'.
+- Modify the requirements for 'resets' and 'reset-names'.
+- Rename 'mtk_smi_larb_parse_clamp' to 'mtk_smi_larb_parse_clamp_optional'.
+- Rename 'mtk_smi_larb_parse_reset' to 'mtk_smi_larb_parse_reset_optional'.
+- Merge 'mtk_smi_larb_clamp_protect_enable' and
+  'mtk_smi_larb_clamp_protect_disble' into one function.
+- Modify the definition for mtk_smi_larb_clamp_port_mt8188,
+  use 'larbid' as the index of the array.
+- Use 'syscon_regmap_lookup_by_phandle' instead of 'device_node_to_regmap'.
+- Do Not parse 'resets', just check the return value of
+  'devm_reset_control_get'.
+- Add 'has_gals' flag for 'mtk_smi_sub_common_mt8188'.
+
+Changes in v2:
+- According to previous discussions in v1, divided these four
+  patches into two topic separately.
+- Modify the description for 'resets' in binding.
+- Add const value 'larb' for 'reset-names' in binding.
+- Modify requirement for 'resets' and 'reset-names' in binding.
+- Delete 'mediatek,smi-sub-comm' in binding.
+- Delete 'mediatek,smi-sub-comm-in-portid' in binding.
+- Modify the example in binding.
+- Add 'mtk_smi_larb_clamp_port_mt8188' definition in SMI driver.
+- Change the way to parse the 'resets' in driver.
+- Change label from 'err_pm_disable' to 'err_link_remove'.
+
+---
+
+Friday Yang (2):
+  dt-bindings: memory: mediatek: Add SMI reset and clamp for MT8188
+  memory: mtk-smi: mt8188: Add SMI reset and clamp for MT8188
+
+ .../mediatek,smi-common.yaml                  |   2 +
+ .../memory-controllers/mediatek,smi-larb.yaml |  19 +++
+ drivers/memory/mtk-smi.c                      | 129 ++++++++++++++++++
+ 3 files changed, 150 insertions(+)
+
+-- 
+2.46.0
 
 
