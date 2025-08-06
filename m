@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE08C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714B1C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=GxuHH36kKrrdCJx6MEJVIMq7VxyJ/matkiWk7a2/pqM=; b=aGB1+jtt353kBD
-	wxigfr63mc3sQdTMaqC9sKzeO1YANKReFg5MKGK/Q/z5gSTN7o+tBgOA/+4MV7ysuNQjWOXAHX5CC
-	B5x8G+pPdWc7cGWkDbV1IIEc1tCYDhC7BPuOAo5oGaA4hrEDGSAWAZylP1UK7owztoipeHLA3pwAE
-	XeRbht6hm8CD5u1o5WicApt/wLze0MFUZ+STcBD2lTuIHeB3JK5DUeazsu7Gsps096DFhqlNExyzv
-	szCL0/6UqDRCHl1DTCzqw4gOfAYawPpwu34Y4pzPR5fkeL+V+8F1jcLxW+Qs8+meDQ2C1y+g545It
-	dbRlxYQDKJUG3YmNIRng==;
+	List-Owner; bh=V2k+UePl5Mlbv7jOKAs6GCQvbTPhPO+6f6TtH5eukNk=; b=yLMcrd8qTq0BAR
+	xtPiJ0snXBD7JdYPNMiZOTht2fuYwf5OyBInxXVGsQTACgwpUEP7elQMDN4s2htLDxQuMrFSbpL4J
+	dyq8NRKKoQJxW5cGnjXymW7Aktd7GiiIPQQF412Onb6hkxUB6kqM7kVoNqAGOmhQd1raSM0txS2vQ
+	GW+GSLdBKIuKGu4MVgLMgAE3mjptzRcpg1dv8d13Fd82bCWD9d0EeHEik6g0hy9l5y8hG1mp04V3z
+	vLM9lLv8TU4+S/dklzFJVVA3ZwCY5SBylawsy2R4T3s6xIOGnhaLBvkr9zlkQ7rrR8/BLf5tnzZqZ
+	nE+fEWAtG2Ol6oRt+75w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjdj-0000000GBRo-0Khz;
-	Wed, 06 Aug 2025 19:17:31 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ujjgF-0000000GBjG-15kx;
+	Wed, 06 Aug 2025 19:20:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjb9-0000000GB3k-2mai;
-	Wed, 06 Aug 2025 19:14:52 +0000
+	id 1ujjbC-0000000GB4F-1SLe;
+	Wed, 06 Aug 2025 19:14:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D2105A55BC0;
-	Wed,  6 Aug 2025 19:14:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 614E5C4CEE7;
-	Wed,  6 Aug 2025 19:14:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BE51A45848;
+	Wed,  6 Aug 2025 19:14:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A1B8C4CEE7;
+	Wed,  6 Aug 2025 19:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754507690;
-	bh=ydQo/qDZK3xKlXT0YMaYteDL2FGoGeQkbdadaVZY63M=;
+	s=k20201202; t=1754507693;
+	bh=tcS5mr/jyRzpJT28O3H86kSEfCRhVdzq9mLUNr4HIQU=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=MQdhWvEgHPdVSeTX/z+JUajRTvqoAcxHTNRJqIhduPRIbyO2lWvEBIax3jQJ3Nfd6
-	 sNrjSeQogRo3tjlaW6l3W9YFqW4FnDYFldaNOqVh/rPv1MGPhTIKcQUx2iSUKMj7ea
-	 XDXGge1JXnyfYsabfYt0Q90qq646oQU6PvRW1ghNTYI19CR4UP8+1Zy5HxvAkX+13n
-	 iiacjk6d58Dxb4fHt24A/dJCeElI/hXAMa9H74VFIm5glVxjrCaAtH1COi+9hma/I7
-	 sYEaOFAM+w3kdKihYX2J7rRd9KUjvy91oQbPIkalAj4Cps/j4SQQuUUOJX5Ps7DpYS
-	 7WUel1/hOmzYA==
-Date: Wed, 6 Aug 2025 14:14:48 -0500
+	b=L3EyHDOhYlQXCwEdaUOACa9al3j1Fv008lfjM0z7NFb5a+sLm5fA32epknU/YBtD3
+	 RVu/35dPvEbBFfedgEUg/FgtQpWOlzn/BAyOxtZW1Yh0Tbx3KcRWnBX3wXgkftahGV
+	 c9ZMPNj5uGYuJJzr3mHlQSJjrwbtmYrgWRYpMNg5kdgkwE8W3GPky9ie8H0bx3AHRm
+	 +Ivdfy4C+RYqgxZJETkD/2f9BomUpPzybctn8P9rwtwwJt5xXRIcZPUFtZTawvxVa1
+	 gD3qsbjl6DjlkT3Ugj0xkdWxjR3gjea9I2kpWy/GSvjCjcvAnYxJEOtS8TT81YaVfE
+	 D4gWckA5JM29A==
+Date: Wed, 6 Aug 2025 14:14:52 -0500
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Jim Quinlan <james.quinlan@broadcom.com>
 Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
@@ -57,16 +57,15 @@ Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
 	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
 	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
 	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/2] PCI: brcmstb: Add a way to indicate if PCIe bridge
- is active
-Message-ID: <20250806191448.GA8432@bhelgaas>
+Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
+Message-ID: <20250806191452.GA8313@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250613220843.698227-2-james.quinlan@broadcom.com>
+In-Reply-To: <20250613220843.698227-3-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_121451_848701_084E44C8 
-X-CRM114-Status: GOOD (  35.80  )
+X-CRM114-CacheID: sfid-20250806_121454_428406_BD13E052 
+X-CRM114-Status: GOOD (  32.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,166 +80,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 13, 2025 at 06:08:42PM -0400, Jim Quinlan wrote:
-> In a future commit, a new handler will be introduced that in part does
-> reads and writes to some of the PCIe registers.  When this handler is
-> invoked, it is paramount that it does not do these register accesses when
-> the PCIe bridge is inactive, as this will cause CPU abort errors.
+On Fri, Jun 13, 2025 at 06:08:43PM -0400, Jim Quinlan wrote:
+> Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
+> by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
+> 7216 and its descendants -- have new HW that identifies error details.
 > 
-> To solve this we keep a spinlock that guards a variable which indicates
-> whether the bridge is on or off.  When the bridge is on, access of the PCIe
-> HW registers may proceed.
+> This simple handler determines if the PCIe controller was the cause of the
+> abort and if so, prints out diagnostic info.  Unfortunately, an abort still
+> occurs.
 > 
-> Since there are multiple ways to reset the bridge, we introduce a general
-> function to obtain the spinlock, call the specific function that is used
-> for the specific SoC, sets the bridge active indicator variable, and
-> releases the spinlock.
-> 
+> Care is taken to read the error registers only when the PCIe bridge is
+> active and the PCIe registers are acceptable.  Otherwise, a "die" event
+> caused by something other than the PCIe could cause an abort if the PCIe
+> "die" handler tried to access registers when the bridge is off.
+
+s/acceptable/accessible/ ?
+
+> Example error output:
+>   brcm-pcie 8b20000.pcie: Error: Mem Acc: 32bit, Read, @0x38000000
+>   brcm-pcie 8b20000.pcie:  Type: TO=0 Abt=0 UnspReq=1 AccDsble=0 BadAddr=0
+
+Ugly that we have to do this at all, but since I guess it's the best
+we can do, looks ok to me.
+
 > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 > ---
->  drivers/pci/controller/pcie-brcmstb.c | 40 +++++++++++++++++++++++----
->  1 file changed, 35 insertions(+), 5 deletions(-)
+>  drivers/pci/controller/pcie-brcmstb.c | 155 +++++++++++++++++++++++++-
+>  1 file changed, 154 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 92887b394eb4..400854c893d8 100644
+> index 400854c893d8..abc56acad1fe 100644
 > --- a/drivers/pci/controller/pcie-brcmstb.c
 > +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -29,6 +29,7 @@
->  #include <linux/reset.h>
->  #include <linux/sizes.h>
->  #include <linux/slab.h>
-> +#include <linux/spinlock.h>
->  #include <linux/string.h>
->  #include <linux/types.h>
+> @@ -13,15 +13,18 @@
+>  #include <linux/ioport.h>
+>  #include <linux/irqchip/chained_irq.h>
+>  #include <linux/irqdomain.h>
+> +#include <linux/kdebug.h>
+>  #include <linux/kernel.h>
+>  #include <linux/list.h>
+>  #include <linux/log2.h>
+>  #include <linux/module.h>
+>  #include <linux/msi.h>
+> +#include <linux/notifier.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_irq.h>
+>  #include <linux/of_pci.h>
+>  #include <linux/of_platform.h>
+> +#include <linux/panic_notifier.h>
+>  #include <linux/pci.h>
+>  #include <linux/pci-ecam.h>
+>  #include <linux/printk.h>
+> @@ -151,6 +154,39 @@
+>  #define  MSI_INT_MASK_SET		0x10
+>  #define  MSI_INT_MASK_CLR		0x14
 >  
-> @@ -254,6 +255,7 @@ struct pcie_cfg_data {
->  	int (*perst_set)(struct brcm_pcie *pcie, u32 val);
->  	int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
->  	int (*post_setup)(struct brcm_pcie *pcie);
-> +	bool has_err_report;
+> +/* Error report registers */
+> +#define PCIE_OUTB_ERR_TREAT				0x6000
+> +#define  PCIE_OUTB_ERR_TREAT_CONFIG_MASK		0x1
+> +#define  PCIE_OUTB_ERR_TREAT_MEM_MASK			0x2
+> +#define PCIE_OUTB_ERR_VALID				0x6004
+> +#define PCIE_OUTB_ERR_CLEAR				0x6008
+> +#define PCIE_OUTB_ERR_ACC_INFO				0x600c
+> +#define  PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK		0x01
+> +#define  PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK		0x02
+> +#define  PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK		0x04
+> +#define  PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK		0x10
 
-It doesn't look worth it to me to add this.  It only avoids locking in
-a non-performance path.
+Including "MASK" in these names seems kind of pointless since they're
+all single bits.  Some drivers don't bother with "MASK" even for the
+multi-bit fields, since uses read pretty naturally without it.  But I
+suppose this is following the existing brcmstb style.
 
->  };
+> +#define  PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK		0xff00
+> +#define PCIE_OUTB_ERR_ACC_ADDR				0x6010
+> +#define PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK			0xff00000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK			0xf8000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK		0x7000
+> +#define PCIE_OUTB_ERR_ACC_ADDR_REG_MASK			0xfff
+> +#define PCIE_OUTB_ERR_CFG_CAUSE				0x6014
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK		0x40
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK		0x20
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK	0x10
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK	0x4
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK	0x2
+> +#define  PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK	0x1
+> +#define PCIE_OUTB_ERR_MEM_ADDR_LO			0x6018
+> +#define PCIE_OUTB_ERR_MEM_ADDR_HI			0x601c
+> +#define PCIE_OUTB_ERR_MEM_CAUSE				0x6020
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK		0x40
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK		0x20
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK	0x10
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK	0x2
+> +#define  PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK		0x1
+> +
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
 >  
->  struct subdev_regulators {
-> @@ -299,6 +301,8 @@ struct brcm_pcie {
+> @@ -301,6 +337,8 @@ struct brcm_pcie {
 >  	struct subdev_regulators *sr;
 >  	bool			ep_wakeup_capable;
 >  	const struct pcie_cfg_data	*cfg;
-> +	bool			bridge_on;
-> +	spinlock_t		bridge_lock;
+> +	struct notifier_block	die_notifier;
+> +	struct notifier_block	panic_notifier;
+>  	bool			bridge_on;
+>  	spinlock_t		bridge_lock;
 >  };
->  
->  static inline bool is_bmips(const struct brcm_pcie *pcie)
-> @@ -306,6 +310,24 @@ static inline bool is_bmips(const struct brcm_pcie *pcie)
->  	return pcie->cfg->soc_base == BCM7435 || pcie->cfg->soc_base == BCM7425;
->  }
->  
-> +static inline int brcm_pcie_bridge_sw_init_set(struct brcm_pcie *pcie, u32 val)
-> +{
-> +	unsigned long flags;
-> +	int ret;
-> +
-> +	if (pcie->cfg->has_err_report)
-> +		spin_lock_irqsave(&pcie->bridge_lock, flags);
-> +
-> +	ret = pcie->cfg->bridge_sw_init_set(pcie, val);
-> +	if (ret)
-> +		pcie->bridge_on = !val;
-
-AFAICT, .bridge_sw_init_set(1) asserts reset, .bridge_sw_init_set(0)
-deasserts reset, and it returns 0 for success, so I'm confused about
-this.  If either assert or deassert failed (ret != 0), I guess we
-don't know the state of the bridge and can't assume it's active, so I
-would have expected something like:
-
-  ret = pcie->cfg->bridge_sw_init_set(pcie, val);
-  if (ret)
-    pcie->bridge_on = false;
-  else
-    pcie->bridge_on = !val;
-
-Tangent: the last "return ret" in brcm_pcie_bridge_sw_init_set_generic()
-should be "return 0" and drop the unnecessary initialization of "ret".
-
-And the code there would be vastly improved by using FIELD_PREP() or
-u32p_replace_bits() and getting rid of the shifting.
-
-> +	if (pcie->cfg->has_err_report)
-> +		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
-> +
-> +	return ret;
-> +}
-> +
->  /*
->   * This is to convert the size of the inbound "BAR" region to the
->   * non-linear values of PCIE_X_MISC_RC_BAR[123]_CONFIG_LO.SIZE
-> @@ -1078,7 +1100,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
->  	int memc, ret;
->  
->  	/* Reset the bridge */
-> -	ret = pcie->cfg->bridge_sw_init_set(pcie, 1);
-> +	ret = brcm_pcie_bridge_sw_init_set(pcie, 1);
->  	if (ret)
->  		return ret;
->  
-> @@ -1094,7 +1116,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
->  	usleep_range(100, 200);
->  
->  	/* Take the bridge out of reset */
-> -	ret = pcie->cfg->bridge_sw_init_set(pcie, 0);
-> +	ret = brcm_pcie_bridge_sw_init_set(pcie, 0);
->  	if (ret)
->  		return ret;
->  
-> @@ -1545,7 +1567,7 @@ static int brcm_pcie_turn_off(struct brcm_pcie *pcie)
->  
->  	if (!(pcie->cfg->quirks & CFG_QUIRK_AVOID_BRIDGE_SHUTDOWN))
->  		/* Shutdown PCIe bridge */
-> -		ret = pcie->cfg->bridge_sw_init_set(pcie, 1);
-> +		ret = brcm_pcie_bridge_sw_init_set(pcie, 1);
->  
+> @@ -1711,6 +1749,115 @@ static int brcm_pcie_resume_noirq(struct device *dev)
 >  	return ret;
 >  }
-> @@ -1633,7 +1655,9 @@ static int brcm_pcie_resume_noirq(struct device *dev)
->  		goto err_reset;
 >  
->  	/* Take bridge out of reset so we can access the SERDES reg */
-> -	pcie->cfg->bridge_sw_init_set(pcie, 0);
-> +	ret = brcm_pcie_bridge_sw_init_set(pcie, 0);
-> +	if (ret)
-> +		goto err_reset;
->  
->  	/* SERDES_IDDQ = 0 */
->  	tmp = readl(base + HARD_DEBUG(pcie));
-> @@ -1901,7 +1925,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->  	if (ret)
->  		return dev_err_probe(&pdev->dev, ret, "could not enable clock\n");
->  
-> -	pcie->cfg->bridge_sw_init_set(pcie, 0);
-> +	ret = brcm_pcie_bridge_sw_init_set(pcie, 0);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "could not un-reset the bridge\n");
+> +/* Dump out PCIe errors on die or panic */
+> +static int _brcm_pcie_dump_err(struct brcm_pcie *pcie,
+> +			       const char *type)
 
-"un-reset" doesn't mean anything to me.  Is this the same as "could
-not take the bridge out of reset"?  Or maybe "could not deassert
-bridge reset"?
+Fits on one line.
 
->  	if (pcie->swinit_reset) {
->  		ret = reset_control_assert(pcie->swinit_reset);
-> @@ -1976,6 +2003,9 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+> +{
+> +	void __iomem *base = pcie->base;
+> +	int i, is_cfg_err, is_mem_err, lanes;
+> +	char *width_str, *direction_str, lanes_str[9];
+> +	u32 info, cfg_addr, cfg_cause, mem_cause, lo, hi;
+> +	unsigned long flags;
+> +
+> +	spin_lock_irqsave(&pcie->bridge_lock, flags);
+> +	/* Don't access registers when the bridge is off */
+> +	if (!pcie->bridge_on || readl(base + PCIE_OUTB_ERR_VALID) == 0) {
+> +		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+> +		return NOTIFY_DONE;
+> +	}
+> +
+> +	/* Read all necessary registers so we can release the spinlock ASAP */
+> +	info = readl(base + PCIE_OUTB_ERR_ACC_INFO);
+> +	is_cfg_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_CFG_ERR_MASK);
+> +	is_mem_err = !!(info & PCIE_OUTB_ERR_ACC_INFO_MEM_ERR_MASK);
+> +	if (is_cfg_err) {
+> +		cfg_addr = readl(base + PCIE_OUTB_ERR_ACC_ADDR);
+> +		cfg_cause = readl(base + PCIE_OUTB_ERR_CFG_CAUSE);
+> +	}
+> +	if (is_mem_err) {
+> +		mem_cause = readl(base + PCIE_OUTB_ERR_MEM_CAUSE);
+> +		lo = readl(base + PCIE_OUTB_ERR_MEM_ADDR_LO);
+> +		hi = readl(base + PCIE_OUTB_ERR_MEM_ADDR_HI);
+> +	}
+> +	/* We've got all of the info, clear the error */
+> +	writel(1, base + PCIE_OUTB_ERR_CLEAR);
+> +	spin_unlock_irqrestore(&pcie->bridge_lock, flags);
+> +
+> +	dev_err(pcie->dev, "handling %s error notification\n", type);
+> +	width_str = (info & PCIE_OUTB_ERR_ACC_INFO_TYPE_64_MASK) ? "64bit" : "32bit";
+> +	direction_str = (info & PCIE_OUTB_ERR_ACC_INFO_DIR_WRITE_MASK) ? "Write" : "Read";
+> +	lanes = FIELD_GET(PCIE_OUTB_ERR_ACC_INFO_BYTE_LANES_MASK, info);
+> +	for (i = 0, lanes_str[8] = 0; i < 8; i++)
+> +		lanes_str[i] = (lanes & (1 << i)) ? '1' : '0';
+> +
+> +	if (is_cfg_err) {
+> +		int bus = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_BUS_MASK, cfg_addr);
+> +		int dev = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_DEV_MASK, cfg_addr);
+> +		int func = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_FUNC_MASK, cfg_addr);
+> +		int reg = FIELD_GET(PCIE_OUTB_ERR_ACC_ADDR_REG_MASK, cfg_addr);
+> +
+> +		dev_err(pcie->dev, "Error: CFG Acc, %s, %s, Bus=%d, Dev=%d, Fun=%d, Reg=0x%x, lanes=%s\n",
+> +			width_str, direction_str, bus, dev, func, reg, lanes_str);
+> +		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccTO=%d AccDsbld=%d Acc64bit=%d\n",
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_TIMEOUT_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ABORT_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_UNSUPP_REQ_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_TIMEOUT_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_DISABLED_MASK),
+> +			!!(cfg_cause & PCIE_OUTB_ERR_CFG_CAUSE_ACC_64BIT__MASK));
+> +	}
+> +
+> +	if (is_mem_err) {
+> +		u64 addr = ((u64)hi << 32) | (u64)lo;
+> +
+> +		dev_err(pcie->dev, "Error: Mem Acc, %s, %s, @0x%llx, lanes=%s\n",
+> +			width_str, direction_str, addr, lanes_str);
+> +		dev_err(pcie->dev, " Type: TO=%d Abt=%d UnsupReq=%d AccDsble=%d BadAddr=%d\n",
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_TIMEOUT_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ABORT_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_UNSUPP_REQ_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_ACC_DISABLED_MASK),
+> +			!!(mem_cause & PCIE_OUTB_ERR_MEM_CAUSE_BAD_ADDR_MASK));
+> +	}
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+> +static int brcm_pcie_die_notify_cb(struct notifier_block *self,
+> +				   unsigned long v, void *p)
+> +{
+> +	struct brcm_pcie *pcie =
+> +		container_of(self, struct brcm_pcie, die_notifier);
+> +
+> +	return _brcm_pcie_dump_err(pcie, "Die");
+> +}
+> +
+> +static int brcm_pcie_panic_notify_cb(struct notifier_block *self,
+> +				     unsigned long v, void *p)
+> +{
+> +	struct brcm_pcie *pcie =
+> +		container_of(self, struct brcm_pcie, panic_notifier);
+> +
+> +	return _brcm_pcie_dump_err(pcie, "Panic");
+> +}
+> +
+> +static void brcm_register_die_notifiers(struct brcm_pcie *pcie)
+> +{
+> +	pcie->panic_notifier.notifier_call = brcm_pcie_panic_notify_cb;
+> +	atomic_notifier_chain_register(&panic_notifier_list,
+> +				       &pcie->panic_notifier);
+> +
+> +	pcie->die_notifier.notifier_call = brcm_pcie_die_notify_cb;
+> +	register_die_notifier(&pcie->die_notifier);
+> +}
+> +
+> +static void brcm_unregister_die_notifiers(struct brcm_pcie *pcie)
+> +{
+> +	unregister_die_notifier(&pcie->die_notifier);
+> +	atomic_notifier_chain_unregister(&panic_notifier_list,
+> +					 &pcie->panic_notifier);
+> +}
+> +
+>  static void __brcm_pcie_remove(struct brcm_pcie *pcie)
+>  {
+>  	brcm_msi_remove(pcie);
+> @@ -1729,6 +1876,9 @@ static void brcm_pcie_remove(struct platform_device *pdev)
+>  
+>  	pci_stop_root_bus(bridge->bus);
+>  	pci_remove_root_bus(bridge->bus);
+> +	if (pcie->cfg->has_err_report)
+> +		brcm_unregister_die_notifiers(pcie);
+> +
+>  	__brcm_pcie_remove(pcie);
+>  }
+>  
+> @@ -1829,6 +1979,7 @@ static const struct pcie_cfg_data bcm7216_cfg = {
+>  	.bridge_sw_init_set = brcm_pcie_bridge_sw_init_set_7278,
+>  	.has_phy	= true,
+>  	.num_inbound_wins = 3,
+> +	.has_err_report = true,
+>  };
+>  
+>  static const struct pcie_cfg_data bcm7712_cfg = {
+> @@ -2003,8 +2154,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
 >  		return ret;
 >  	}
 >  
-> +	if (pcie->cfg->has_err_report)
-> +		spin_lock_init(&pcie->bridge_lock);
-> +
+> -	if (pcie->cfg->has_err_report)
+> +	if (pcie->cfg->has_err_report) {
+>  		spin_lock_init(&pcie->bridge_lock);
+> +		brcm_register_die_notifiers(pcie);
+> +	}
+>  
 >  	return 0;
 >  
->  fail:
 > -- 
 > 2.34.1
 > 
