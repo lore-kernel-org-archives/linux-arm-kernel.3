@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6B9C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 13:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC9CC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 13:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=; b=XXSqE+4A9C0xo2pKAVS+v1Hju1
-	DuqrSw0yv+buO/sCBOziHDYlBVMGApQ2Ctf6g+AbXub4UCvylC7mCC30/Ow6NMr2gFlL2hD8i11Ua
-	QwMBbeITFVICYjO6ShtX6Zg5BDfRpIx4GIbW7RxSBWu1JrZUd6UOzVfZx+SWRXc3ktsWr8J8yKATo
-	ocKoY45hQxJeAuMbVjP73MLfkYw3OPcQxV4MMGAExI8lTr3mf29V2XXFNsMIrSM+82EjIrzDo5WFf
-	R0LL/rdqFMzvooDB0/qXvzWVzTvt1BhS2pxR85P1iceaDQH9OHs4did+gObu+QEnxWZ1aW0r9kMsg
-	5nO39Xog==;
+	bh=c50RyBPgQdPr/4DUil1KpdDvS+9hJu/6Tk48lrLYEFk=; b=1rObrHSffSEo+TN0tdBX7/JzPn
+	B/RZlT4MtFx8bofBwAVGZ6pS8GrqUmGRVmH/4AOk7Qst4dPKT5uSPgx3jbXcFZLyRLgqqGNV1BaJJ
+	+U3AbGldhod7S1HtT6XiKBHx6+aynml0LUkySW84aOwnMWu0pSdYsu3b2nim97Vwon8e75UdiKYVU
+	IFoIGWgYYfA3o+S48UQasem7lsS5Hfo2nDAZnh1E/dWhkXJK+OUMdHBYANSE7o8VnOH/xmBWyveP4
+	8cM2jdKcsydi7/kDu5j0SFZ2PxVAejXBLNpIhyMNWLd918iMayG/MLxrus+/FCwJ5qRpnRD+dXFIl
+	FvQuFuKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujeTB-0000000FKgL-00db;
-	Wed, 06 Aug 2025 13:46:17 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1ujeVf-0000000FL0R-30bZ;
+	Wed, 06 Aug 2025 13:48:51 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujeLi-0000000FJeW-2IjX;
-	Wed, 06 Aug 2025 13:38:36 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6156463fae9so1696796a12.0;
-        Wed, 06 Aug 2025 06:38:34 -0700 (PDT)
+	id 1ujeLk-0000000FJfd-40aF;
+	Wed, 06 Aug 2025 13:38:38 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-af9611d8ff7so199098866b.1;
+        Wed, 06 Aug 2025 06:38:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754487513; x=1755092313; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754487515; x=1755092315; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=;
-        b=YdDH88+ABIJoX7aZ1H+ASXdCBQsrRvPyjwezfZmwwCwJe4aaWCnlC3odZU0FgB2AqV
-         YJFXlb7VaYUucJz1QNTWr3KDy97VRP0V7zIQEM3Ad9zWS8GILgPjYJB7fAtgfIXdcUtH
-         FUjNJFbmYVoXCLO701vDYR1aemt0PsSHPZ2ntkNYVQfJ0TIoubNm0oH3G66H5CeSCWcP
-         4ExcDNE+IayVUBLZo7tHw9IrINbOl1ZiCIi876+KSAO98K3Fz52+bGmG8X/wy7SjahDG
-         YG+DFAbInYWaUml/O5HBUY+Pdu4RIBRjalhla/R+RQhcBFGIjr/FP8EtQMzCFzGXXQbf
-         /ROg==
+        bh=c50RyBPgQdPr/4DUil1KpdDvS+9hJu/6Tk48lrLYEFk=;
+        b=kUL+PHOs5ewiIAxTaYZ+dFp1QosmHJjS0W9IPt4UunGwd8W9FZn4GUK1V60l+QNUS2
+         9So4dXKqkujVx9BLUzZm2xYyCCoLWtBBMm6xCnQfGcI0xtPytOVFykw87Of3a9PdpwsF
+         VRthYVFyadwmfTPza3mm+fWn+MS+5IMY0MBoQtX22aDYuSH3YDHLGnaE6Df+oDFuJIjM
+         IO0PsbkjBO8nOPMMdfeXUWEH8szcZ+/vVZ55vSeKVX222+awcpqtyYRh4PhxLn0nt5CW
+         OhTZOsdG03acLClaqj6I6hlNLq6r5Yp7JgjatBhiqBveX+uItGLtCjueTlOGViGhYz3N
+         TIwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754487513; x=1755092313;
+        d=1e100.net; s=20230601; t=1754487515; x=1755092315;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=F/mHAbC8hGHbBSwhAq1pRep/z7r7zHvPcOOX2+I5dO8=;
-        b=NP9xpbesXfhQXyB8yqg5aldeOhCFnFapO+3AC368I2uI7xfJUDA4NvPt5Mq9shW60e
-         RHJIHEOP5sHqg2LpiGfW5hr7xyqTyf0QzqhKcynn/KdBcvXBpEckws8BS+Sx47IQVXfZ
-         /pzDNVZUGspdiOkjx00YRxpaXIaLAp4PSQxWQ/bguv4USai965cXSz7brhFVHs/Ao5cD
-         09ceLSOgjAgU1Tuu5iFiv3o2H9RO9AouAs6/AXkBCN+U8b/G1dbbL9yvwNZtXmdxWYtu
-         vZl/2SL/tOO7HsyYUMYdBNArPg4vcQkvSpuTrds+GU7v2U5/2+UefnSy5MtLRNuXF06C
-         csAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhPlLDnQ7ewScYiekdhJfVVN/5g7nq2FAjFE+jh8CGGeAHGTo4CcLCrj1LU33wmL05ex72Hu7Z8r6rgNm0xIk=@lists.infradead.org, AJvYcCWexsYau7tFwqZ4QpcU2asMybsNCpnciimhANQJzdAQka9gJUXh3xc+1mkmXqtSKgLtWAK6130OpEoQGaARVUQJ@lists.infradead.org, AJvYcCXgyqfphmV/sWSjg5trQ/RDzJl5VI/UFp1oQ1hijUT4JyFgvQEVKOlXAuYnDphERs5SGl1inZ0Pn5At@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJhbQVpFoj89FwteF/ugorJlqTdhRAc7W2H1QDaex1sbnNB8Pm
-	QWtug9cd9DaWSndQB95PXtnd/Grcy7RCrIca3ls2oxvDH0p0qJQZiZrZqfiPEQ37
-X-Gm-Gg: ASbGncvqIUdP9BjvZ5lGDRAc0oNKW/ce1v9pDwacYUHeM90ChY+K8C6ASS6vAef9AMf
-	BErsFp0Nn0/eTTUyFF6jpP8XMSYhlaBEHlazyFFLwc2FdekDCq78bbwwGb9NGU3lZtNOI8CKcKi
-	tJP6wtWc4PLVcgwrgDcL2wl3IwHhorfGgYakCQf5GTvU0yftiuRpZuqdgDBUFk091gI9I4HCdjs
-	M2TH3M+h0eqx/ihBsw7egutSSAfc/kCotX5cr7corF8kZilxyvXrZUAyEdDkan6U32z/Z/5AeEl
-	bSg6RV0sUbgSUUSeUlnO+cM7Uve9mbDwvRuSCtjQBjyLCAwXhXU3DGHO0RW/G3DO6R8hD4hUKmg
-	Voih7QY2bRBZvKq97dWUvfyaHPa3pKBLTuSK6sVul6dM4rkRC
-X-Google-Smtp-Source: AGHT+IGEIzwVD1kQWngECBW/TE86WqdjSZGBNfA0QX7gMqVVKSneWxDBN1wo61EMHfeOMI2G9SeP6A==
-X-Received: by 2002:a17:906:7316:b0:af9:8739:10ca with SMTP id a640c23a62f3a-af99099f240mr290124866b.28.1754487512787;
-        Wed, 06 Aug 2025 06:38:32 -0700 (PDT)
+        bh=c50RyBPgQdPr/4DUil1KpdDvS+9hJu/6Tk48lrLYEFk=;
+        b=s+OEggF5gY+2OBnrTawPci6X0Qg8W1xnxlPD//6gDepzfe5p6SsjhKFw+4qSkHDYKJ
+         CGH4qx7tGXuIuaZNs6dl27Nw1W4qDRX83KuX8AYYx3yJCreJaL39kpM4M9kzq/5sZvIG
+         UKVFvjZmSAhZe6GVc0efUKch+mYF4tx+UGj72e2Mix4qBejrNYc+Hk8Vb8m7yDA8fFUQ
+         jKqRsLwtYg5m1h5EOW2M2sXGszbPFKsKgFuSthp/1WEXOE9p52KOPqol/13HckpmRgH9
+         xTFPIGWhMzQGj8FyhDnrZjDEUntv8Hkw7ptKXpFqJZkgHATRKOyB0VKnSvOLFS4+z2S+
+         TL/w==
+X-Forwarded-Encrypted: i=1; AJvYcCUXBxm6xWwpTcno0W3qW5EZG7qnTL2Ikm56yoNLQPnmafDFj12+zXu73U7WMv2hXjYUuGNY0oBkR9iW0rlZXJM=@lists.infradead.org, AJvYcCVaZ0oZ2CmhLiFhy1MhmLliQ2js6+76L8pQvOe1LpR06hm1Dft5ax0YvgTCWPzVI5myYfHaC/fwsP39iVtD9DEq@lists.infradead.org, AJvYcCWVa02lZPsg5RpwYoQUAIEiy6HrwJ8Godcb+KDxyxjNbwtjTyAtJv8SEZuxAAtCX8yBRUTr+CN3BdU/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUcCTTp0EYjFiStMOgnWwzOEvfL67jrpIXV9dQS7Qgdrqb1LZb
+	YjlYOMg4EmonzHAx4owPftVYIEvNrDxntlTvimoakheHFgf4gq0KtFsT
+X-Gm-Gg: ASbGncvTQsZB5NnmUEh0gqZYbVSf/BZQRnRvFkq5JfhVI44GKGJ8edGBzqMBln7r2Oq
+	bKSvN6oUGCNZR9OLzQIK3vf9W+S31NaDrOPbmDTlIFVsnFybSPJTqEBa0f+E/aQRP9EyYV78kGj
+	Kv9PNmZv8dwsCPDlM0I78v/9Ih/y0Eb4RCgyLC21scAHwz66vlgovMtYAtZzD9msSwZ8wxJjHsj
+	FyyLwdyklHxs8TjXMZW4Y9Jtz/7uvc09QAZO8L+q0n8I2yy+9NAi6Oro+ztWYTgDKTDW8CxUagC
+	24n2E75T/RAhxTP7gaV7gGLduB3XVSYFKNB1KgiFxHWOIUH0TyPOTjbYxAjyCx+wgunuO7b2wC5
+	YzVKZV+JL+bd90jEjHclZee+bEgbrLD987jPukKmZQWMMSMr7
+X-Google-Smtp-Source: AGHT+IECRHTOqH1pMckrQTVJ2vn4wcB0MM2YxMCUNqlzmwxmnXRr2ua/O3tsfNjUQBkMU3gTEe+wCw==
+X-Received: by 2002:a17:907:9687:b0:af9:41a4:25b3 with SMTP id a640c23a62f3a-af9909a55efmr267368466b.29.1754487515061;
+        Wed, 06 Aug 2025 06:38:35 -0700 (PDT)
 Received: from A13PC04R.einet.ad.eivd.ch ([185.144.39.75])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a21c10asm1113170666b.116.2025.08.06.06.38.31
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a21c10asm1113170666b.116.2025.08.06.06.38.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Aug 2025 06:38:32 -0700 (PDT)
+        Wed, 06 Aug 2025 06:38:34 -0700 (PDT)
 From: Rick Wertenbroek <rick.wertenbroek@gmail.com>
 To: 
 Cc: rick.wertenbroek@heig-vd.ch,
@@ -85,17 +85,17 @@ Cc: rick.wertenbroek@heig-vd.ch,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] phy: rockchip-snps-pcie3: add support for rockchip,phy-ref-use-pad
-Date: Wed,  6 Aug 2025 15:38:22 +0200
-Message-Id: <20250806133824.525871-3-rick.wertenbroek@gmail.com>
+Subject: [PATCH v2 3/3] dt-bindings: phy: rockchip,pcie3-phy: add rockchip,phy-ref-use-pad
+Date: Wed,  6 Aug 2025 15:38:23 +0200
+Message-Id: <20250806133824.525871-4-rick.wertenbroek@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250806133824.525871-1-rick.wertenbroek@gmail.com>
 References: <20250806133824.525871-1-rick.wertenbroek@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_063834_582237_36C57949 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20250806_063836_991640_AA65B1F1 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,80 +162,30 @@ rk3588-base.dtsi) and PHY1 uses the external pad (the default):
 
 Signed-off-by: Rick Wertenbroek <rick.wertenbroek@gmail.com>
 ---
- .../phy/rockchip/phy-rockchip-snps-pcie3.c    | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ .../devicetree/bindings/phy/rockchip,pcie3-phy.yaml    | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-index 4e8ffd173096..0859c7960167 100644
---- a/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-+++ b/drivers/phy/rockchip/phy-rockchip-snps-pcie3.c
-@@ -33,6 +33,8 @@
- /* Register for RK3588 */
- #define PHP_GRF_PCIESEL_CON			0x100
- #define RK3588_PCIE3PHY_GRF_CMN_CON0		0x0
-+#define RK3588_PCIE3PHY_GRF_PHY0_CONTROL6	0x118
-+#define RK3588_PCIE3PHY_GRF_PHY1_CONTROL6	0x218
- #define RK3588_PCIE3PHY_GRF_PHY0_STATUS1	0x904
- #define RK3588_PCIE3PHY_GRF_PHY1_STATUS1	0xa04
- #define RK3588_PCIE3PHY_GRF_PHY0_LN0_CON1	0x1004
-@@ -44,6 +46,8 @@
- #define RK3588_BIFURCATION_LANE_0_1		BIT(0)
- #define RK3588_BIFURCATION_LANE_2_3		BIT(1)
- #define RK3588_LANE_AGGREGATION		BIT(2)
-+#define RK3588_PHY_REF_USE_PAD_EN		((BIT(2) << 16 | BIT(2)))
-+#define RK3588_PHY_REF_USE_PAD_DIS		((BIT(2) << 16))
- #define RK3588_RX_CMN_REFCLK_MODE_EN		((BIT(7) << 16) |  BIT(7))
- #define RK3588_RX_CMN_REFCLK_MODE_DIS		(BIT(7) << 16)
- #define RK3588_PCIE1LN_SEL_EN			(GENMASK(1, 0) << 16)
-@@ -67,6 +71,7 @@ struct rockchip_p3phy_priv {
- 	int num_lanes;
- 	u32 lanes[4];
- 	u32 rx_cmn_refclk_mode[4];
-+	u32 phy_ref_use_pad[2];
- };
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml
+index b747930b18f1..d9b9d7eabb81 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip,pcie3-phy.yaml
+@@ -67,6 +67,16 @@ properties:
+       minimum: 0
+       maximum: 1
  
- struct rockchip_p3phy_ops {
-@@ -157,6 +162,14 @@ static int rockchip_p3phy_rk3588_init(struct rockchip_p3phy_priv *priv)
- 		     priv->rx_cmn_refclk_mode[3] ? RK3588_RX_CMN_REFCLK_MODE_EN :
- 		     RK3588_RX_CMN_REFCLK_MODE_DIS);
- 
-+	/* Select PHY reference clock, external pad or internal clock */
-+	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY0_CONTROL6,
-+		     priv->phy_ref_use_pad[0] ? RK3588_PHY_REF_USE_PAD_EN :
-+		     RK3588_PHY_REF_USE_PAD_DIS);
-+	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_PHY1_CONTROL6,
-+		     priv->phy_ref_use_pad[1] ? RK3588_PHY_REF_USE_PAD_EN :
-+		     RK3588_PHY_REF_USE_PAD_DIS);
++  rockchip,phy-ref-use-pad:
++    description: which PHY should use the external pad as PCIe reference clock.
++      1 means use pad (default), 0 means use internal clock (PLL_PPLL).
++    $ref: /schemas/types.yaml#/definitions/uint32-array
++    minItems: 2
++    maxItems: 2
++    items:
++      minimum: 0
++      maximum: 1
 +
- 	/* Deassert PCIe PMA output clamp mode */
- 	regmap_write(priv->phy_grf, RK3588_PCIE3PHY_GRF_CMN_CON0, BIT(8) | BIT(24));
- 
-@@ -312,6 +325,25 @@ static int rockchip_p3phy_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	ret = of_property_read_variable_u32_array(dev->of_node,
-+						  "rockchip,phy-ref-use-pad",
-+						  priv->phy_ref_use_pad, 1,
-+						  ARRAY_SIZE(priv->phy_ref_use_pad));
-+
-+	/*
-+	 * if no rockhip,phy-use-internal-clk, assume PHY uses pad for the
-+	 * reference clock in order to be DT backwards compatible. (Since HW
-+	 * reset val is enabled.)
-+	 */
-+	if (ret == -EINVAL) {
-+		for (int i = 0; i < ARRAY_SIZE(priv->phy_ref_use_pad); i++)
-+			priv->phy_ref_use_pad[i] = 1;
-+	} else if (ret < 0) {
-+		dev_err(dev, "failed to read rockchip,phy-ref-use-pad property %d\n",
-+			ret);
-+		return ret;
-+	}
-+
- 	priv->phy = devm_phy_create(dev, NULL, &rockchip_p3phy_ops);
- 	if (IS_ERR(priv->phy)) {
- 		dev_err(dev, "failed to create combphy\n");
+ required:
+   - compatible
+   - reg
 -- 
 2.25.1
 
