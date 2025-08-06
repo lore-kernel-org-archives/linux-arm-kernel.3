@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0E1C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 05:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA429C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 06:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHauIS8VslQcBTCDTTdkK4LmnH1Wk0DYHNjYnbBqri4=; b=vdH7RxV2w5ZIpTuBjNNxh+k66X
-	dzS+JJaYRDTgzTmleaNMaDbB2CVf8ZIC76oH67C4/ECqxgxGFhfAxZJisD3hMLfwKMG9JNNBu1pSE
-	aqkKJTBuma113KzC30BuS8xr6WgUTLVQBBf4soMwExjrEa8fjee1ONCevHFT/xm7ojj3nS2Z3xtP/
-	6BP3wvokaDK0Z162pM2Ew5IMe/Ce4P5mNSsZgdwB0xsA0rdfuDdCV3TE4VgGiyBrKqdxerlePmjtG
-	c6y4RpEjasnvP/kccqN7/cizxs1+GJaWson9I1i1jl/Wig/WKoKjjSy1+9sa8UyWuQIcTm6Z5yK9q
-	8GeVFC4g==;
+	bh=7LOjQGBKez5S1iGyBaU0i1tLauar5otkV86mmIjmqK0=; b=anLCdybyz4Ie6bpD1dLAeTg+qH
+	UJB+K8vBYHOnV0Wlpj/LTGSTWMrY6je+zeHGnUxgJbbjjRXJWK019aepoABkrKlNSgQDVoAU53RO3
+	U1R5usu8TyDga4U2Wwg6013c1j6+/kN7Dm761RFf1/SwVwcz76q7cAohgD+/YM5hW4AbxbgQ18kmi
+	LwRBstlCFbLa2Ak+MbEUuo8poWzI3oZbUH40b9jl/F/WEU2Fvqr62K+VmYgtNnl3TepItPUPtmZNA
+	+/qAeDhstYREQO7l7ZkdpaQMHc0qBUauDnNImifYHczjRuGAbkDwT1gB9SpS+nPK6CAWdudHlrljs
+	GBXDWrYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujWzh-0000000EM2o-3FAm;
-	Wed, 06 Aug 2025 05:47:21 +0000
-Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
+	id 1ujXEs-0000000EN8N-3Tl5;
+	Wed, 06 Aug 2025 06:03:02 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujWv7-0000000ELgF-0GdX
+	id 1ujXCM-0000000EMxU-28DP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 05:42:38 +0000
-Received: by mail-io1-xd34.google.com with SMTP id ca18e2360f4ac-8818be8d6e4so186266139f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 22:42:36 -0700 (PDT)
+	Wed, 06 Aug 2025 06:00:27 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-87999c368e9so455258639f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 23:00:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754458956; x=1755063756; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1754460025; x=1755064825; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QHauIS8VslQcBTCDTTdkK4LmnH1Wk0DYHNjYnbBqri4=;
-        b=XvEaWoF9pla9zr0pQddzC4JTA+E99tyAkDayyL1XArm/5K7AYDR9lPqehFyYLNoinp
-         erJx6UQT4GA4WsFC9KtyIzDENpPHrLwBDBATWv6l6OOiD4tZCEXcRP9K93DwPZaZejHP
-         1lP4lzgEC+MZ8L4ndgC6FW0VTRAHrIuSZOD+8NMvcFazwhT65yQhNtD34eC9EioXCuub
-         BDbb5/wSKhNYhxa9mrCDPQJowU9j7gX92otVNGnRVp0X5NeQp2EKt0WyZJi9SAEUJDRw
-         UoBNvSRQcaBoIokzklk4Lbm62AmbQ2PE9wFnNVjJGhqYRawaQEfqNtiIrTJQ0UsBME/6
-         KJyw==
+        bh=7LOjQGBKez5S1iGyBaU0i1tLauar5otkV86mmIjmqK0=;
+        b=XNtTQHUYoqgroNeGHJPExEmQirquQc9WCUyBWGhfsA/PaEYNrpmU0puiFOg6loal/2
+         dN/G+Zvn+9IWjSX5toU7pAGvKYcTsUZLOlfdK89sdaNpnyqX8ebjOFd2cubJaYo3+0h4
+         /VVLd2mIi0UCcLczAiJGOLvBpGnyZxu55JoZijeoPgKRr/7BlPFsc5AQN9kUiNB41lHy
+         cY/oSumPHXTyHqEGP4QK6nPEn/+xseZdsmvK7OA3vKzitpLlOZIaocMB5ZrskD5OP8cd
+         NxB4PZ7iFLVMtdESMhjlZiFGAUHFgYVLBqja6ac2fLlR6is68dsO8ZXJMtYpygEiFiwL
+         vgEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754458956; x=1755063756;
+        d=1e100.net; s=20230601; t=1754460025; x=1755064825;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QHauIS8VslQcBTCDTTdkK4LmnH1Wk0DYHNjYnbBqri4=;
-        b=Ol4fr8DziREI+weepoSZQxKCA7sQ04TntXooNiw7wXpCiKd7Lso2YxEVJYmY6NNjrR
-         8NcMtKZNqiFxihaPtaEdg8jpeAaUy4PoKT68xI4E78/y+Vcz/ido5UIaCxJz3A7FjYB0
-         IJYE1lSoz6E8NjEsonXlXx09z/lm62UZwVkRPBhQXgdgTFJvxcMeNejaPr2mopbnpFmJ
-         p3VC0zRYJEf0PShKBFdAVYfiBgqL0OmK+3QnfHaY5e6WrPTSsyuCxz2wIHtq2xfjzeYX
-         Rhj7mZirzZfbi7jS2/5C0mZg9TLVhcQwiuxUtG0W4fbdrCc63OOGbevBRTBxMkJsAJ01
-         dI/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVPeBeyiuOanJaszEdR4ZjKuVGF0t7v5A5L54Ciw4+whsLllFmj5dLZMUx1N++yjTa8fkHhbbkvlIGhDUTr6SR9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3f8lWtqobsVEL6TuHDftYJyBuevXjWNwvmqeTLRR/zdjHIgrg
-	HgcmNAY9eye6tmK8uHOXsATnFsET82yNLb82oW01fZXFFlZ5/3pQGurmveNAo1dGAK61M2OL6o+
-	C1/Vd8aLWI+9byyYuKZz1c1pipe8zVUE=
-X-Gm-Gg: ASbGnctKqVoGiftQb1D/7eDAHPF6ts+WyaMahw3H9UiNjcLWBfDqX8cMsQ+NtB88MDe
-	ZmN82gI3+zouzghNPmc0E110qElBwbHte0Q+RlrbtvzXHi4NUqxx4QOmHdvaFT1zzuKSPtBSnHC
-	7uAhWUa4FtmZObHhTqAojIukUPiL7f6Ig1U8C6pYQXzlrMI1EnDHilsDN+XRZfVofo97pBRwRnF
-	DvSleg=
-X-Google-Smtp-Source: AGHT+IECmzK2OYEDadcx1xb2ZQCI3OV3aypgzNJvM+m1QQlytd+LfV9SXOQitTe7El49SPBkrrzfxhGitycgVD/2o3g=
-X-Received: by 2002:a05:6602:3fd3:b0:881:9412:c917 with SMTP id
- ca18e2360f4ac-8819eda4411mr351161239f.0.1754458955859; Tue, 05 Aug 2025
- 22:42:35 -0700 (PDT)
+        bh=7LOjQGBKez5S1iGyBaU0i1tLauar5otkV86mmIjmqK0=;
+        b=ZZaac2S5bNA1RDdcxsWgn9PSUIDLMdLsYvwZVdtPkuTs/8I6LjDBM+aZ9eau0vpbSQ
+         zQ7mN0WKpzpi2XgUalDGhP52KaI3QFiVxW/pTxFekJ7GMU+POki5m/Ra5uvMxh1tvSM5
+         E+uBwH1NO95vK31/fDEW/27IStRaAUcpecW2rXY72KRH2Wx8LNHOB6/Z7PSVSdoXkB1C
+         zYGdrvnmlkCx30qm3lmu1KpxDD9roGyktc8y4ihfiTnFFPZdr8hsSXFCP55T1jkAzYpG
+         u1aWPXRKnz3OSvpH3ZHHtl/+V80EE9rZ7ofDUC4dM3/B8ja3cXdhV1Sjm2weMrl2BcSP
+         sRQA==
+X-Forwarded-Encrypted: i=1; AJvYcCVecvAikn/b0xx7qTTKSnSO1CjjeCVy/BVV8mdQ0P7qbYxu2hB0Vyy+s057pWOrLhCR6R+3We1kRFS27o/95yiS@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiKdaXrlrWvvQMp0x4vdIZKhUMEqr/gJuP2BUpyzS5P+cxqKnr
+	FTG2lCPIDmQ0HBT9wes02XzZGIa4bq4BoB1ORXd64tsCcdzYAwtCIa4HMbcAG6JAMgg9ERePZML
+	WBQMbY+tkUi+6M/O/ozHycIKnsOhX+ks=
+X-Gm-Gg: ASbGncvQke2qWdw6HXXuqoMKt1Uit4IXgD5jibZxc5XsGOLy4PWJo3WIAW+p4SXTxi+
+	oaA3e6rU1zyn9LOairtEZ92YwfazRJFrMhMRF8LlPL1gIDW9WqawxVjN6Q22D1LU1z625BEyeeW
+	rAoBIbmy3k51A7xmanEwk3GHwl9XCJKtbeRlB34LlHPRIKy1uREijS+ZZUkXsGTP7NGfqEYyt8n
+	c7A/DQ=
+X-Google-Smtp-Source: AGHT+IGXTd343+VF/DxWVcdW2rLvvEJ8x/TFUG5Tpo/FEQ7fHX2BzAtVcAbQoY4hyy1ohYC0jFv/9H1yMpGG0tLM+1M=
+X-Received: by 2002:a05:6602:6c14:b0:87c:30d4:65f2 with SMTP id
+ ca18e2360f4ac-8819f2dc2f6mr259724639f.3.1754460025324; Tue, 05 Aug 2025
+ 23:00:25 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
  <20250804104722.601440-6-shengjiu.wang@nxp.com> <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
 In-Reply-To: <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
 From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 6 Aug 2025 13:42:16 +0800
-X-Gm-Features: Ac12FXzE8ELOd9wvaEtNxu_4hqBHJ1GNH1m_A1__IZXWyAfic17tlm42XJMvvFE
-Message-ID: <CAA+D8AN4n0H6M_0EqX4z_37ViSCyThKbmtMgqPmipintJ8Wtwg@mail.gmail.com>
+Date: Wed, 6 Aug 2025 14:00:05 +0800
+X-Gm-Features: Ac12FXw0nnoM3OTdXQVUBKMi5kWO9s__PdvorJUHLc_FVvpTTZTj4ms-phKQiNs
+Message-ID: <CAA+D8AN9Ay8jnSS=h3G_Kepc_5WYQRAUrWmtu5N056GsnvGrTA@mail.gmail.com>
 Subject: Re: [PATCH v3 5/6] drm/bridge: imx: add driver for HDMI TX Parallel
  Audio Interface
 To: Liu Ying <victor.liu@nxp.com>
@@ -91,8 +91,8 @@ Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_224237_111873_819374E7 
-X-CRM114-Status: GOOD (  43.01  )
+X-CRM114-CacheID: sfid-20250805_230026_561310_ED5C2BB1 
+X-CRM114-Status: GOOD (  43.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,6 +162,10 @@ nd
 >
 > select REGMAP
 > select REGMAP_MMIO
+
+
+will add them.
+
 >
 > > +     help
 > > +       Choose this to enable support for the internal HDMI TX Parallel
@@ -202,6 +206,8 @@ ge/imx/Makefile
 > > +#include <linux/platform_device.h>
 >
 > #include <linux/regmap.h>
+
+ok,
 >
 > > +#include <drm/bridge/dw_hdmi.h>
 > > +#include <sound/asoundef.h>
@@ -216,6 +222,9 @@ ge/imx/Makefile
 >
 > Add NUM_CH(n) and use it when programming HTX_PAI_CTRL_EXT.
 > #define NUM_CH(n)                       FIELD_PREP(NUM_CH_MASK, (n - 1))
+
+Ok, will add it.
+
 >
 > > +#define   WTMK_HIGH(n)                       FIELD_PREP(WTMK_HIGH_MASK=
 , (n))
@@ -228,6 +237,9 @@ ge/imx/Makefile
 > > +#define   END_SEL                    BIT(29)
 >
 > The above 3 bits are unused.  Drop.
+
+Ok.
+
 >
 > > +#define   PRE_SEL                    GENMASK(28, 24)
 > > +#define   D_SEL                              GENMASK(23, 20)
@@ -242,6 +254,9 @@ ge/imx/Makefile
 > > +#define HTX_PAI_IRQ_MASK             0x18
 >
 > The above 4 registers are not pratically used.  Drop.
+
+They are used by regmap to make a full definition.
+
 >
 > > +
 > > +struct imx8mp_hdmi_pai {
@@ -261,6 +276,8 @@ ata->priv_audio;
 >
 > I don't think you need to convert type explicitly.  Same for the other
 > explicit conversions in this driver.
+
+ok, can be removed.
 >
 > > +     int val;
 > > +
@@ -293,6 +310,18 @@ _MASK));
 > > +             val =3D FIELD_PREP(D_SEL, width - 24);
 >
 > Why 'width - 24'?  Can it be expressed by a helper or macro?
+
+                /*
+                 * The allowed width are 24bit and 32bit, as they are
+supported by
+                 * aud2htx module.
+                 * for 24bit, D_SEL =3D 0, select all the bits.
+                 * for 32bit, D_SEL =3D 8, select the MSB.
+                 */
+will add such comments.
+
+best regards
+Shengjiu wang
 >
 > > +     }
 > > +
@@ -340,18 +369,6 @@ master, void *data)
 > > +     plat_data->priv_audio =3D NULL;
 >
 > Do you really need to set these ptrs to NULL?
-
-yes.  below code in dw-hdmi.c use the pdata->enable_audio as condition.
-
-        if (pdata->enable_audio)
-                pdata->enable_audio(hdmi,
-                                    hdmi->channels,
-                                    hdmi->sample_width,
-                                    hdmi->sample_rate,
-                                    hdmi->sample_non_pcm,
-                                    hdmi->sample_iec958);
-
-
 >
 > > +}
 > > +
@@ -436,11 +453,6 @@ tx
 all
 > the other stuff to bind() callback to avoid unnecessary things being done=
  here.
-
-component helper functions don't have such dependency that the aggregate
-driver or component driver must be probed or not.  if imx8mp-hdmi-tx is not
-enabled, there is no problem, just the bind() callback is not called.
-
 >
 > > +}
 > > +
@@ -508,10 +520,6 @@ _ops =3D {
 > As component_bind_all() would bind imx8mp-hdmi-pai and hence set
 > {enable,disable}_audio callbacks, you need to call dw_hdmi_probe() after
 > component_bind_all() instead of too early in probe() callback.
-
-There is no such dependency.
-Maybe you mixed the hdmi->enable_audio() with pdata->enable_audio().
-
 >
 > > +
 > > +     return 0;
@@ -558,9 +566,6 @@ vice *pdev)
 > > +     if (remote && of_device_is_available(remote)) {
 >
 > Doesn't of_graph_get_remote_node() ensure that remote is avaiable?
-
-No.  'remote' is the node,  not the 'device'.
-
 >
 > > +             drm_of_component_match_add(dev, &match, component_compare=
 _of, remote);
@@ -581,17 +586,6 @@ play.
 > No, since PAI node is available here, it has to be bound.  Yet you still =
 need
 > to properly handle the case where PAI node is inavailable.
-
-This is for aggregate driver registration,  not for bind()
-
-The bind() is called after both drivers have been registered.  again there =
-is no
-dependency for both aggregate driver and component driver should be
-registered or probed.
-
-best regards
-shengjiu wang
-
 >
 > > +              */
 > > +     }
