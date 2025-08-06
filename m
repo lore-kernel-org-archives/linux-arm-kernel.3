@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B467C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 15:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A57FC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 15:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8idSeLj0k9V+7xL+wl7mu5nbsyyJQs8y+AkCxOVjYl8=; b=qGgKfHqNE92N2KdCNrI7H2UZ4C
-	G36qOIv0uaL4QXNSMYTUxYL68GhFZSLn86mtTDu9UXBYUgsZvQSGl8JGn6UOXc0ej1y7h/NmbzzMQ
-	AnDUx6JzC9xIIsubGqaVRW9s7moEOHf8e/UgtMSxMXFpKzTcvottQuhOAJ+hZ62x7jfjfx1JybqV6
-	79Ay+ljHTvLEQBU/D6NUpM8CXPE1HlxPUZsxjZ8xMq50H95opwVowpyt46HJ2IaUi/29tH9BhwduR
-	P9MpBAnSGmYyetIH1M3ZkHMzJmAmXd8itbPbhl2Pbgi2P+3z31cM1bw2ynQ1drEFj8J2DuyVj1Xfc
-	CJOwYh0Q==;
+	bh=ob+wZFgLLDZJ43IatvkYFPa2ZO5eiOMoVFYqdV+7TU0=; b=UpRjKJfA0ZErn3fLiQyfZYmoR7
+	Hlwp5o2Ce/sE0xElE+iKdbhZqLGRNxNE9k/OP1d5Ssrw/yKDTZOTGUjaTGS501+Ez5A2APb3cApY+
+	++/L0c0XLj21bvrx41Bf0pXkudSWKCSbPROdWHMArSbHRlNkl1X9GU6K19RL9zTOQmMY8DffO+qWK
+	4RGUHJw13O2OV85iynSqzVci7ExmIKpavuqtcCXaO4JVM/sNponuc68KBTcIF8tnuvHJEJ9J7T4gm
+	XYRe11wS+G42ORfBgqzbko9sq50ToUX0xvM5I/F0bATzpgaccq37R7wvKzNVmuI6eCD026E8Lj+W0
+	XbFHrhuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujg7y-0000000FcJU-3590;
-	Wed, 06 Aug 2025 15:32:30 +0000
-Received: from mail-ua1-f50.google.com ([209.85.222.50])
+	id 1ujgAT-0000000FcgG-2EjW;
+	Wed, 06 Aug 2025 15:35:05 +0000
+Received: from mail-vk1-f175.google.com ([209.85.221.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujfon-0000000FZ33-3Ogc
+	id 1ujfpW-0000000FZFO-3BtT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 15:12:42 +0000
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-87f04817bf6so4760937241.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:12:41 -0700 (PDT)
+	Wed, 06 Aug 2025 15:13:27 +0000
+Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-5397d436dccso741370e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:13:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754493160; x=1755097960;
+        d=1e100.net; s=20230601; t=1754493205; x=1755098005;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8idSeLj0k9V+7xL+wl7mu5nbsyyJQs8y+AkCxOVjYl8=;
-        b=jaisawOJ3DfmU0ggjBy6xwuxss2PpThypRbTKNZXOFt16Dj+RuImYmcwdkGsOl7dUI
-         ZsCT95UGXj9tyxmsj4o9ksiNmNl0xRwbFtN6edLggEJKtWFAy39DiTvahyyeQdPLK/1O
-         Vp5iI8/qnCHqpwrhujThw/SbMfpLVkB8/GBXE2b7r37gl4iRKM5SY/TMsfjcnneOBwmp
-         IQzaHmASBppglpaG8NuA6cM7WInl/RcwMcbBZSCAs0pfrdzH+YW1R9WagwB/ojW9UgMt
-         /oVS46sN7dVl5VJ/csU2KP1rOdXUqhL6xJ5YJ2/g38dNlTb/RYCmQhAaATbdrct8TiAU
-         POsQ==
-X-Gm-Message-State: AOJu0Yyo1g7pgvddoz8SL3vLx4FB3hEENN4gVW6Khk2ZQmRUgHAm7h+Z
-	yIhNRLweHnsq5ZKJPKuakwBwITUClgdIrxt2CT1igDgXaCTlkG6ddT/t7d6j3DHk5l8=
-X-Gm-Gg: ASbGncszyTubeZku9Fk06++aGfgdpsFFDkqYsUY7Pk3jENEZFnYCgK1HysCX4tOUyDJ
-	Cjzan2SM34NkISWXH/4TrleCrdfwKsn5iwjZ8G3rcnfN2n+FCaG3eZj3ISF2ssWz7Ow2ahBYzc0
-	0KNX11VNtXfqyAydDehmqFWPeT4VL9WAr4yaBuVJdFQBTb9bgb5IsvdMnCJSI4zdnNtOnRgSBV9
-	zgZ1j84LAq7fbu71eeRFiFTXDSgnPUnAeEEnXWjthXIoeme+EShBCUOT8FxcUrjOUkgCxXeI40V
-	sNN5Tt4KEKZ5FekyMt9yFAPesEBrfFH+Nydx2nAPEwCIrGa+yl1Of0BMIs85Uoaq4ANdzYCjyUo
-	1cGl/7hs5tn5S2wnNrJKGID6oarhUd82vRtFOCvAVOc+RnEQWi2OGFBtad5srp0D3dyCPZkk=
-X-Google-Smtp-Source: AGHT+IELzZF/ZnVHy1qUFCEQPN4cxA3v6yyJi/fG1PdkqSQJI3XvG90bV8jseijj0RspqdSQrNFhzA==
-X-Received: by 2002:a05:6102:d8e:b0:4ec:c548:ee2a with SMTP id ada2fe7eead31-50373e1d917mr1727294137.17.1754493160326;
-        Wed, 06 Aug 2025 08:12:40 -0700 (PDT)
-Received: from mail-vs1-f46.google.com (mail-vs1-f46.google.com. [209.85.217.46])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-88da99162dfsm2822829241.21.2025.08.06.08.12.39
+        bh=ob+wZFgLLDZJ43IatvkYFPa2ZO5eiOMoVFYqdV+7TU0=;
+        b=Hw0JVk3NSUeqy37woX2mBUB8slGywJRE+nY2pSCj4K7e8oGQRaV9yvZYlH6ySev2Db
+         K5+Ju1CoDkdFeA1Y9Ss3cMkxj2tBc7hSEXrH3PgYZLZxUpqrj8y+TdOK0U8y4mOWeUO5
+         ZNsoS7htM82CB2KSVA9TrgLrO1VjhUb7QvaXpGtky1Mog0Sx3ETWYWemoWZUa3tYuE9D
+         TEbA4bcmxPNJ9WznIxjhwo6SZeYMP0zQrnM0haJUYHd4a0N61v3rMDA1SZbnKB7quYAW
+         QX1E2h8AYRUo9gXe1lnechOYe79TbpVpX+Sv4E8gtw3krJsPzzFZr0jEMATzUfb/iLcc
+         e3Mw==
+X-Gm-Message-State: AOJu0Yz0CIT8LLfZXneBPuIaTWMhscsoooCw732DnjCQITrnzOd3CJMD
+	Cnd8Uj87I7V2OtbVyfDaN0CyUurCh621vklD+ZKIgOHVU3cr5v2q9D6BZnnKWJ13xbA=
+X-Gm-Gg: ASbGncsZT2RtthwK+85vtDoXYR/bjJcuYHloMWi0gsdbz1faxw4qfE4tQS31CUM6pGp
+	wVPR0xagstjxgl3HkYnNB58LW4mzxPvM5p7I3PQs++VgEldaPrJiK8yL9E5H9u4XzCMRYzQDiZ5
+	UJRgqODGVpPTk3HS6sIJ2Qa3ruNFbcZaOEJyRme/chIA8nhJsscZK3ag17C6HqfpSlZiWizyxoi
+	/htm/S5Fs8/nDDs5X1QeDXqRvGjhNOG5Lul2+sTXw3X/J/x/GZ5C+THFOoeAOT3tEXluBgLa2eu
+	bYh1v5V2S7aQAfe/bGHZDNpY3kZ3WlpJIL7m0/4yqsq+gVXHAOq6/CxWerPXjFm/yMpC5audmg2
+	CTBaZkfQi6p3DGxcUCet+07R9iZzCYM109uc0WJZc8MvJK9d75td8izQGa1Vj
+X-Google-Smtp-Source: AGHT+IF9GYGvJ+vWSNt3Zf+AjLXQqrl89IYngpaEDsy28uQ+cwXOHoagRVTwilWlRJ8FArqhzmtEgA==
+X-Received: by 2002:a05:6122:c84:b0:530:7e05:2029 with SMTP id 71dfb90a1353d-539a05206c8mr1521472e0c.6.1754493205474;
+        Wed, 06 Aug 2025 08:13:25 -0700 (PDT)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53936b980aesm4288138e0c.13.2025.08.06.08.13.25
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Aug 2025 08:12:39 -0700 (PDT)
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-4fc1094c24eso15581137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:12:39 -0700 (PDT)
-X-Received: by 2002:a05:6102:1620:b0:4e5:9c40:824d with SMTP id
- ada2fe7eead31-50373e1e391mr1744378137.16.1754493159652; Wed, 06 Aug 2025
- 08:12:39 -0700 (PDT)
+        Wed, 06 Aug 2025 08:13:25 -0700 (PDT)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-4fe2e89d055so1037001137.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:13:25 -0700 (PDT)
+X-Received: by 2002:a05:6102:b10:b0:4f4:af8f:589b with SMTP id
+ ada2fe7eead31-50369c4b172mr1682169137.10.1754493204657; Wed, 06 Aug 2025
+ 08:13:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250629220502.935717-1-marek.vasut+renesas@mailbox.org>
- <CAMuHMdVUscsQEOiVUdwszM8LsiSx4FScHC+MY8hH7B_xtQHcUA@mail.gmail.com> <99ffa8fd-d2b5-402f-8a59-59d60ab49afd@mailbox.org>
-In-Reply-To: <99ffa8fd-d2b5-402f-8a59-59d60ab49afd@mailbox.org>
+References: <20250806150448.9669-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250806150448.9669-1-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Aug 2025 17:12:27 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWJDBVJHGruL_kCssVC9n44pbYGDiZK3ks2D00NCp87Vw@mail.gmail.com>
-X-Gm-Features: Ac12FXxwMUfhcnL6gXfoRu0Fr2bYb2TG-DcGkDV_8GtDXgKEbO9nbJMpzliWA74
-Message-ID: <CAMuHMdWJDBVJHGruL_kCssVC9n44pbYGDiZK3ks2D00NCp87Vw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: renesas: Add boot phase tags marking to Renesas RZ/A1
-To: Marek Vasut <marek.vasut@mailbox.org>
+Date: Wed, 6 Aug 2025 17:13:13 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXgEXmT4S8Xo_FE3QeBiBHvG4VmnfPGK461=Asj+ov+0w@mail.gmail.com>
+X-Gm-Features: Ac12FXwQoExk4huWs_17rN7WL6louaDbB_hlfPguV1KepD9kIFWu1LusOmMdzc4
+Message-ID: <CAMuHMdXgEXmT4S8Xo_FE3QeBiBHvG4VmnfPGK461=Asj+ov+0w@mail.gmail.com>
+Subject: Re: [PATCH v2] ARM: dts: renesas: Add boot phase tags marking to
+ Renesas RZ/A1
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
 	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_081241_849194_889881E4 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20250806_081326_799563_F1AF06CD 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,23 +95,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Wed, 6 Aug 2025 at 17:05, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> bootph-all as phase tag was added to dt-schema (dtschema/schemas/bootph.yaml)
+> to describe various node usage during boot phases with DT. Add bootph-all for
+> all nodes that are used in the bootloader on Renesas RZ/A1 SoC.
+>
+> All SoC require BSC bus, PFC pin control and OSTM0 timer access during all
+> stages of the boot process, those are marked using bootph-all property, and
+> so is the SoC bus node which contains the PFC and OSTM IPs.
+>
+> Each board console UART is also marked as bootph-all to make it available in
+> all stages of the boot process.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-On Wed, 6 Aug 2025 at 17:06, Marek Vasut <marek.vasut@mailbox.org> wrote:
-> On 8/6/25 11:11 AM, Geert Uytterhoeven wrote:
-> >> @@ -639,6 +643,7 @@ ostm0: timer@fcfec000 {
-> >>                          interrupts = <GIC_SPI 102 IRQ_TYPE_EDGE_RISING>;
-> >>                          clocks = <&mstp5_clks R7S72100_CLK_OSTM0>;
-> >>                          power-domains = <&cpg_clocks>;
-> >> +                       bootph-all;
-> >
-> > Please move this to the board-specific .dts files, where this node
-> > is enabled.
-> Shouldn't we rather enable OSTM0 by default , it is enabled in all RZA1
-> upstream board DTs it seems.
+> V2: Drop blank newline arount bootph-all , move ostm bootph-all to board DTs
 
-Perhaps.  We used to have issues with enabling all timers by default,
-as some may be used by (secure) firmware or another OS.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.18.
 
 Gr{oetje,eeting}s,
 
