@@ -4,156 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40F6C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 16:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 807F6C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 16:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPS3sOzrIfP3sCcZ8/IhKRjJg7Ada0og1yH2AZu1dVE=; b=1v+cOwE5PcaB4dHswlbl54x/cE
-	d5Y+va0Iqs8oLM4mnIr70nAFAgvPaCeq8YW3fwGKnSy1WZWl91T0Gx/h7703G1bORU9rsMo7YGmnc
-	KXQDHTIiG9QY8qLDqpBu0i6R+Pi5YO9y58KWt2Dl07i+B6WiIp6B5du6LKxkeodOg4PY5rsuniP5w
-	kIoCyqhwNDiCnHGEeJ7C8ZZzui1+i4Mqq7RdadBwwBDFpUhGGwB3PLoVEK5f6b4yINfdn8kbgHqGS
-	F91B3bXkdSELsXzplv0fHg4wMCwbiJ9Aj52IbKmq7IQv8xlrnvmpv9dPYX+Yc/RY1vJD8J2i9TAsm
-	R/kASYcg==;
+	bh=lSAeQ8xKPoGHZfbgMhDEnJIjE+pmVuNSBbErMj5IbBU=; b=cZEC99vuhAK5tFtV+DoOxp/zNf
+	A5LAIztNLfcyIcH8RcSjd7LoNEWSymLFnQQ/V2c4a8/jR4kJMiEDgCiLyEsRzKdbR0UedgQy9kpky
+	VU7dbmqOE/DrpuMMcgsBsGnJ2k2RIHsYYrhojNapSOCi1TiIdfXrYvElaZhvSJ0H2GdJ5ma+y8KoG
+	5SerE2OmkDc3asbtc1BT+bDNp8bYN4EvdIJEZCirWNnEFtYskea6X2bZ5EN9LhIMDpNmynLbRW6yb
+	36amdHxDfBsZAQ9LDNXotPlA0zwJLd0CAgxPdSpA4P+DHk1XZ4C53yLKZolMj+YFiPM8jXMKFJYaJ
+	fEztPBKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujgm0-0000000FjO3-1KQd;
-	Wed, 06 Aug 2025 16:13:52 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1ujgoV-0000000Fjbt-0T1c;
+	Wed, 06 Aug 2025 16:16:27 +0000
+Received: from mail-ed1-f43.google.com ([209.85.208.43])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujgR2-0000000FfqE-18Jn
+	id 1ujgSQ-0000000Fg7D-3CTA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 15:52:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QgQxbSIwnqXYuXXdaMnMy8n6FFZbrh9e0JjbJ3mahr9szgThGoH5AnFNJsAy2t9VUcQaXC1QEpWu3CxoLo89+0wDhqJtSACHkRWMno2ogbSoW1n7Mix/IkNd4aRZUARsyCP52NDSkBEYAGAOE2uotCBuf/NGqclGd5WFOjhBwzcksRujmM55yM8DmXi+e58798b75/H7lfxAhMEAszRpeLv4S7HTNMJ6fWBQ37hvBr2Obc8TeiTzzFpFeytoQzM8DI00v4s2jO5iTGsP1eq6eMIT40cAnHvExTTTBFPxAoef3ZYN9d0E/SsOJfTd+Ghk4W4s/IQ1XnsGBk1KTXydZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YPS3sOzrIfP3sCcZ8/IhKRjJg7Ada0og1yH2AZu1dVE=;
- b=e5LaEdr4f0YjcKrDXC9RPYv65aUMRusZHoMNiMR4VT1XBwYFw7bjqlr8pE6Nq63/aBhBbhgGGQ5iFTgO0zDEAF8xzGgbjgtUoCVFvAWup4nHw20WncneQnWDEiQ/tN5Cnw5C5jtCffn9h1Stv9sLlO06+xaKwNEtE3+nn7GfIU+b5t2llGEE/MPg0XiVGF93OsQtA5Fk1RvjNDvAyC7DMFLEWZeyabYKqQvzoBoTR2Yw0sCv8kp7a1buWTkuZ60a4tU2zFQKQHjvLc99vdHnsk/UJYTXlq3g25bTqfsP6kKhxk3jYBoK2rQ9BoG976NH4fBpKvTzrmVMQWSmxQnV8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YPS3sOzrIfP3sCcZ8/IhKRjJg7Ada0og1yH2AZu1dVE=;
- b=H21vPT7X3CPNtBjW7FO390PtiZfJF4mAvJKdx1N8fD/hLUrgBEo+lOrO5+4RXguZIZT3Dja1hNZbv6ZgL0jpkykUjp63rfnV43aH3PpZf4B+U4xN+XLn8Nqekre0lSVxML9ln4wf87GEkRkwFT81ngHYkRo9h1gcOyiJsf3fPirFPqE79wXGkzmdwutnSOA8Q+15Er0RmjuluhHfDx4l7f2v8wQmdeeAaaM5bdYu2OGEWk0R5eCpEYcotHe9bY/DgCZZ83e9raX0ERKCi8QTvWkywyedJizFh20pACXXLtjPuGrGY8VOIM03UOHJm4sh4hpBTga/heTzbePAOZkWDA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VE1PR04MB7471.eurprd04.prod.outlook.com (2603:10a6:800:1a7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Wed, 6 Aug
- 2025 15:52:05 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
- 15:52:05 +0000
-Date: Wed, 6 Aug 2025 11:51:54 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Joy Zou <joy.zou@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, peng.fan@nxp.com, richardcochran@gmail.com,
-	catalin.marinas@arm.com, will@kernel.org, ulf.hansson@linaro.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, frieder.schrempf@kontron.de,
-	primoz.fiser@norik.com, othacehe@gnu.org,
-	Markus.Niebel@ew.tq-group.com, alexander.stein@ew.tq-group.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com, netdev@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v8 10/11] pmdomain: imx93-blk-ctrl: mask DSI and PXP PD
- domain register on i.MX91
-Message-ID: <aJN6GozZ9c/apcdP@lizhi-Precision-Tower-5810>
-References: <20250806114119.1948624-1-joy.zou@nxp.com>
- <20250806114119.1948624-11-joy.zou@nxp.com>
+	Wed, 06 Aug 2025 15:53:40 +0000
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-61592ff5ebbso36594a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:53:38 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754495617; x=1755100417;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lSAeQ8xKPoGHZfbgMhDEnJIjE+pmVuNSBbErMj5IbBU=;
+        b=IcheL6etxzbT//7iwNSXkzkk96SEmT8kvm1qnW9aSY1iHvS8YyTnxwMDuBl2dTnj9E
+         AX+2MkpLKwPYdLKT7Eh9xJzBybMQy5xPdcwCDeDT1nl1XmdEM7iJOhif1Q8p3y2D9fWS
+         QzZbIlvce/JwtqRFoaz1bXqjPBrfHxYNUyi+HO4GFn+qu4U4OEBobUexkjtzdOp2YaYU
+         BC3Rgx6OrppQH/jdFMja7afpTNsC3p8lRNLrKOtKePUT5oNpT+8D4EC679PaUKupxcZE
+         Mf867iBAkmqi3Xw3V3ieFYnOeErrUEP5mjAAVkkPn+TJ1T/wcx6l0Sea1rxj8e+7Zsuo
+         N2nw==
+X-Forwarded-Encrypted: i=1; AJvYcCWOMu4BAl99vIDWZRNdZA0K0zVWz7VTxnptoSwe92aPpucsu2lx//qplPNeaN6Wq6cXu2qp9/TwKZOMtcaRpe/E@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYKptV7ENAV+IF1hhlRCPLwsvaV0vubrEO4PyIQf2caVqz2SgE
+	DJ2jcdd+voj348oDX2uxuXKIAoG9X4dSziq1876B+y4vLicSkFuUFL9c
+X-Gm-Gg: ASbGnctWZT32ii3BpJnBADonq/bwALP3es4qr/JzFhh3gfGXsWylsKWEUHlCFq/YUsV
+	al4RsqXgZIcUeEP66hYCYLaJMbKKpnERR3MRcQ84HCQpQnFh3w0iUHWUWgbj3vfBDTD+f7LSqgu
+	fLx2ylforR6dcSk4Qn7DJBaMU02kTRUV6VUJ9Ne5LeGleSvMsun+WHeb7E44KG++ko91nK7ZeRM
+	dbj4aKm3VpQJWhMABrTI/Jjur1CtCyDJaF04Jo9lXJqALMvtEvWWdKQSEXnY2rVSKMx4bop1Vq1
+	UlgS9OsyuZqsjv1ZNWdC5H7CNLpe9GrNiRV4CKfImm5Au2m494n2UdsBqvTt42cewtjr4Ol9xpd
+	BzXfF5q0SOgIK
+X-Google-Smtp-Source: AGHT+IHuBBGXbLT6LQjSZys1BSvev5Nwmr6rX2z0GgBOu+Uy6QESOe3NVaVXCJ6mKYT5g9BD1FbwFA==
+X-Received: by 2002:a05:6402:1d49:b0:615:78c6:7aed with SMTP id 4fb4d7f45d1cf-617961be368mr2723204a12.32.1754495616673;
+        Wed, 06 Aug 2025 08:53:36 -0700 (PDT)
+Received: from gmail.com ([2a03:2880:30ff:6::])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8ffd72esm10214364a12.55.2025.08.06.08.53.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Aug 2025 08:53:36 -0700 (PDT)
+Date: Wed, 6 Aug 2025 08:53:33 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Nirmoy Das <nirmoyd@nvidia.com>
+Cc: catalin.marinas@arm.com, cov@codeaurora.org, leo.yan@arm.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
+	mark.rutland@arm.com, paulmck@kernel.org, rmikey@meta.com, rmk+kernel@armlinux.org.uk, 
+	usamaarif642@gmail.com
+Subject: Re: arm64: csdlock at early boot due to slow serial (?)
+Message-ID: <d6frpsfybjhdu6m77icrduuiqu6p7zfx3sbzfz62dvafkpaj56@sa5y7lvbvivu>
+References: <aGVn/SnOvwWewkOW@gmail.com>
+ <20250806114441.1605047-1-nirmoyd@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250806114119.1948624-11-joy.zou@nxp.com>
-X-ClientProxiedBy: PH0PR07CA0079.namprd07.prod.outlook.com
- (2603:10b6:510:f::24) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VE1PR04MB7471:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9acf3a41-6a3c-496a-4efe-08ddd501310c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZCWmXBfb2KXY/MZEIufyMdDW2TFiP3s2yGSpaCs1XvLTU+rmjym52AbyWiLa?=
- =?us-ascii?Q?lXT7rmyqMXcqc2sTCsto6J+Hd0zvKYr5ROo/1XUssgw6NiawuVgE7bxdgtG7?=
- =?us-ascii?Q?9y6ovNpjTPHBlyOIeWJg7e3DtbQIDhguI0Mqlt+KQqrLOJr89E2qkAAAA7Mi?=
- =?us-ascii?Q?FjZj138bOSl34kDdeoONktyr6Rd8MNA2blcprt1vsrLhjfe2UP+hjj8Q44pJ?=
- =?us-ascii?Q?Yy/PINb4/W/jvYjDuRdyaDUrldcbKv7AjO0ImohROPYIEGuAkNzuPMOQMilm?=
- =?us-ascii?Q?rchyoudPQFTKDL++A2CeAKvu+Rnt1d+W7HVBysBjYyEmJ/UrH9n+PkkP8SDu?=
- =?us-ascii?Q?bU1XAHzyVaxCmqPXK0EDFA2tb6juczMmpbY/rtJXJ8AvUM2gb2QUsh1z1/cA?=
- =?us-ascii?Q?fGvxsBe84GDkqFCtfm3X7ylaT5uYGD0EYvixguwk276I7nLSGGfchxhb7w+E?=
- =?us-ascii?Q?LQ/4RdzznroJB0sZxmkh2O3PdSj3+hRD0TrA5U1upWofeIp7HoDb9SmeBiBU?=
- =?us-ascii?Q?JHgvdvu0+5Qgf/A9educ+1H0HtldH3zZ3CIzpOdQgnwsbruaosEK8NLF0TdJ?=
- =?us-ascii?Q?6xoZBRfxAqbHqwJfZUM7aFivejCa/HiYNBf5JQEiMTnIMb3OvhEHj4DW2yAU?=
- =?us-ascii?Q?GdI37W4Pwn+JlSSwo6KJu2ov9XVbX1Nmx18RWroYTQrsxvImcz+hmF/izYwK?=
- =?us-ascii?Q?lmM6UrCOuuQPT/smPGegcIIPdTEQrlKhGh5qRTwWwvTwFl7sYvqFLI5iu+rB?=
- =?us-ascii?Q?G4uYShstAGKipqVQN69DC9YwBfY2/xMft3VIWcj76TqU1mvhXTjqkdcjxeko?=
- =?us-ascii?Q?bgDQLgEiEGZNbuADnfckQYC/YB7ueAXMKQ2lN7ZNZ+RRsa36a10hecj/QV7C?=
- =?us-ascii?Q?I6gdbcPx0v5aVSQ2zttNS4lpDW2XveeXv6GvUVMgXmPuI9UzsnY+74jWyFgz?=
- =?us-ascii?Q?iqYJ8PFpSSk0EfR4PQot755MCfPNMa9nOFlPNL+mPZPREQl/NGxsZhLYhhnZ?=
- =?us-ascii?Q?UlMs8FCmC9t2rYTz+GzEaa5oNg3TPT1VINagYOhkL5QuYDMtrV1ZBn0KVTjT?=
- =?us-ascii?Q?sdxw7xUT2gOvjV8OTvEZ3vW/rNdXw7LZhFJY/NaYpjppteskBdw70gNxxdKR?=
- =?us-ascii?Q?pt3p1XaSU9jP6B8wEHAofXKu36V5eSrM/cvzuiRUk8rPvyYHkbTwEZkF1edD?=
- =?us-ascii?Q?GAgUAkuarjBgvY1cEJjxa4RGXdY30Wr94OvFtSe4+//9pmefG/tryfDSpwPA?=
- =?us-ascii?Q?3VSnLtGLTWY80VXsKVNxK75uDkF+8u7nXMlEydL97Q33CCcGk6/pJNqMxzUo?=
- =?us-ascii?Q?Msr8nBlnOy2DTTZ10hoQfGwMFqKmp+PAgoZdkZjOLXRgYHJQhSHBNNG8hJN/?=
- =?us-ascii?Q?66TZyE++xFVEjWiMTirontdaMl54EpUX3mimWRrtYikG99+5w3foXFBJh6Ns?=
- =?us-ascii?Q?hwaEoby2W8qISCF7J+8HKvewldeC07KyICZcG73UgMub/Us4k1aVQw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Rs+Aku7NtDqZvBWAQ/sFSpz2Ptn5cyeKhopLuj6XN5zmMq3F3aKASJuyl39M?=
- =?us-ascii?Q?UvdxI8Tm41eYy17CMOJJYmNDDR3BnOjmrxSLfYA4MCwiqmno224KHd1v8Hkb?=
- =?us-ascii?Q?DBhJ+vGgrZ27o9+Ba97L9IbTrNsWu/AjH+rCFlyeoPhPGLWmE30bAn4Wadqa?=
- =?us-ascii?Q?LaUyRWxDENIRpbdBgzw2EuljK6u+MayTevURJHJ+EI0PYMUFsAaTi3rB6uxu?=
- =?us-ascii?Q?qOTd+1t0hJVHFr4wDbqZrdEf1nC5siJJYuqK2rVolOXnbXbXswzqHXbRdemn?=
- =?us-ascii?Q?SMFsVJZjtdf/N4TkhbtuAA4Xll0xOSSZilqx6M9B4QtTMIKYkl5xh0VUi7Vj?=
- =?us-ascii?Q?6jIuptJlDMsDRrGdyc1tQmM2iuQjGKl5h3C8wfp3xTSPNnupqoumHC1AWyGT?=
- =?us-ascii?Q?UmT1odtGQpUkQJOmwfsIV+Hq2AT1GeNmnOH0FmRy/DUjakhyN9sxwsKa2em8?=
- =?us-ascii?Q?yTrdDyYtrQqAqomUhFtjeXkloLdAexb/nRd+ml4m2UU4FQJ1OmDbNNiFlIJ6?=
- =?us-ascii?Q?mOZNwnB9edo/s6sUxXrUyKoBt2EbcQ5G+571U5AWoatsTCGwcWdwpIxdINpE?=
- =?us-ascii?Q?GnTerSPPtdLwRUyisOEoPP+Naf4gzfJ7+AoKI8vs+vKLPXFZ9nj+bZ5xt8K9?=
- =?us-ascii?Q?mEEZKH8NOvBr0gkpQW3V4xVvUgtUIhbRpihWQy/fqQCiAac7sTJiX/5Ma4wH?=
- =?us-ascii?Q?u7YokwulxlvXi7kSghlBdIAy6HbwSwx0eEyRvIuw1wEwB93XSL472xbb5PSm?=
- =?us-ascii?Q?0wYyFC4V0kAFfkfzpVskrhtJKHAf+NrowIl55MpT9t3RGaZR5MFpIkmSEEMa?=
- =?us-ascii?Q?xjnQjFxWfo+AiJS34RNYaeisO++XVMk65DTamqE8o6Ck4ETzzcIP0bkC3EuU?=
- =?us-ascii?Q?i3StuhUOJO5mjMGPMEYbaX4xIVXjKDwKYKW36zGw1KU9KPNe37/HyAPUY+nR?=
- =?us-ascii?Q?eYB/iJOl9Sef3rZyrbmXmUYZKT49Psr5LfujHYfP6OPT1xemdafXD5BrcuO6?=
- =?us-ascii?Q?QBKy9nEmcbWa92EccfgKxZ4FJMozgxzdnipHfzgcrtfM8LqlE0s4HUwIvKX1?=
- =?us-ascii?Q?E/0gfSpsMi+dO7rZT9uM+Z6wsKQeTUl+gRuJrBmgpC5L4gZ7OwNEu9YWNl6l?=
- =?us-ascii?Q?tFq3g8BVhM3tA2DMEWo+3w8me31cOwyAoWH4fcrlC78dJPmC7KAEDgEBOCWk?=
- =?us-ascii?Q?ujxbPyYqUjBa8Vb5APQSgt5WnvoKFHshTQcFX+iUNdkJQiW/xmvn+DSJVcvO?=
- =?us-ascii?Q?nzYsHKqXqmrrq5QM4M7SHrP96aboKdVYHE1XKlCPqNothEIqc8sWp3n1vM10?=
- =?us-ascii?Q?1yloIBBP96XgH0zND4SNiJ6wo5O3e8H65+uj4mzbX6FRidRTIUA2VVjW4/sG?=
- =?us-ascii?Q?vL9yRZS0zMh/mM2I64Anpo/4Xvd5f+BoRuHOmJJRgIxBUV8liO8WohoithIX?=
- =?us-ascii?Q?WNL5En2YSUu8AmprjjlRA1CZMD//E3h4aKvbJNBJqgfBGMn7Gn2UQswC5vOW?=
- =?us-ascii?Q?8vdsyDKxk3CO2wLyht5qQQdN/lvCNuhwnZFGXdmhCnmditifgNGW+1/stsQo?=
- =?us-ascii?Q?ydSor6UkugVgQimlPSI=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9acf3a41-6a3c-496a-4efe-08ddd501310c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 15:52:05.2571
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /JL3ryB9Dr76hp/8ndM50h4BbV06J3RVKRXOVsvnhcyoII0npTS/ufwY+ZSfenZ0MeD9SXeYJBKX0JC4Y/KBhQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7471
+In-Reply-To: <20250806114441.1605047-1-nirmoyd@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_085212_311151_4850C0B6 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20250806_085338_799092_B0CBB8C9 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,77 +89,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 07:41:18PM +0800, Joy Zou wrote:
-> The i.MX91 is derived from i.MX93, but there is no DSI and PXP in i.MX91,
-> Add skip_mask in struct imx93_blk_ctrl_data, then skip DSI and PXP for
-> i.MX91 Soc.
->
-> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+Hello Nirmoy,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Wed, Aug 06, 2025 at 04:44:41AM -0700, Nirmoy Das wrote:
+> Hi Breno,
+> 
+> I tried the latest kernel which seems to contain a fix. Bisecting it led me to https://patch.msgid.link/20250604142045.253301-1-pmladek@suse.com and that indeed fixes it for me.
+> Could you please give it a try.
 
-> ---
-> Changes for v8:
-> 1. modify commit message.
->
-> Changes for v7:
-> 1. Optimize i.MX91 num_clks hardcode with ARRAY_SIZE().
->
-> Changes for v5:
-> 1. The i.MX91 has different PD domain compared to i.MX93,
->    so add new imx91 dev_data.
-> ---
->  drivers/pmdomain/imx/imx93-blk-ctrl.c | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
->
-> diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> index 1dcb84593e01..e094fe5a42bf 100644
-> --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> @@ -86,6 +86,7 @@ struct imx93_blk_ctrl_domain {
->
->  struct imx93_blk_ctrl_data {
->  	const struct imx93_blk_ctrl_domain_data *domains;
-> +	u32 skip_mask;
->  	int num_domains;
->  	const char * const *clk_names;
->  	int num_clks;
-> @@ -250,6 +251,8 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
->  		int j;
->
->  		domain->data = data;
-> +		if (bc_data->skip_mask & BIT(i))
-> +			continue;
->
->  		for (j = 0; j < data->num_clks; j++)
->  			domain->clks[j].id = data->clk_names[j];
-> @@ -422,6 +425,15 @@ static const char * const media_blk_clk_names[] = {
->  	"axi", "apb", "nic"
->  };
->
-> +static const struct imx93_blk_ctrl_data imx91_media_blk_ctl_dev_data = {
-> +	.domains = imx93_media_blk_ctl_domain_data,
-> +	.skip_mask = BIT(IMX93_MEDIABLK_PD_MIPI_DSI) | BIT(IMX93_MEDIABLK_PD_PXP),
-> +	.num_domains = ARRAY_SIZE(imx93_media_blk_ctl_domain_data),
-> +	.clk_names = media_blk_clk_names,
-> +	.num_clks = ARRAY_SIZE(media_blk_clk_names),
-> +	.reg_access_table = &imx93_media_blk_ctl_access_table,
-> +};
-> +
->  static const struct imx93_blk_ctrl_data imx93_media_blk_ctl_dev_data = {
->  	.domains = imx93_media_blk_ctl_domain_data,
->  	.num_domains = ARRAY_SIZE(imx93_media_blk_ctl_domain_data),
-> @@ -432,6 +444,9 @@ static const struct imx93_blk_ctrl_data imx93_media_blk_ctl_dev_data = {
->
->  static const struct of_device_id imx93_blk_ctrl_of_match[] = {
->  	{
-> +		.compatible = "fsl,imx91-media-blk-ctrl",
-> +		.data = &imx91_media_blk_ctl_dev_data
-> +	}, {
->  		.compatible = "fsl,imx93-media-blk-ctrl",
->  		.data = &imx93_media_blk_ctl_dev_data
->  	}, {
-> --
-> 2.37.1
->
+That is awesome. I've played a little bit with it, and I see it solving
+my problem as well.
+
+The machine is booting very fast now, taking 0.8 seconds to hit init.
+
+	[    0.811320] Run /init as init process
+
+Thanks for the heads-up!
+--breno
 
