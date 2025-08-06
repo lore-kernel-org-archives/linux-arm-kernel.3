@@ -4,78 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196FAC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 03:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE4BC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 03:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tr7NN2jphfR6xHA/UzGXZWi6sl0YOUmnWotym5mZwz4=; b=ewug3e3IHgE+T3PcyZIuNQpRsP
-	DcXucFA/9kKe/lGV0RNtn4rEMnpH/NJjA7Wf669d7PJkIkgohI3zSitAsY05AVeVrw8g/0DW0jjuf
-	qwW3HBs2ZWO6ARAwWbxWgMF9AWk82XYbMB1jtEe+mEGdtNpUvM92uwgOrFwY4yaKLS5EaUXw3omB/
-	7sK3oc0FuKPm4vAMg4ip1mprGg5E2QLqpAsXGWEQP+bFv+dA19khWJPzmxf7WliRVQH52BhVawqY+
-	XOzfYdp78GJCRo3w8H2qTeYBRoElZ8/49qz9AgMH8ltcqavFPtw6bFhPU40tZvKaIRfQy7TcKNKLa
-	u8yq+JJQ==;
+	bh=oJH5KNGSYO4/UiYFErjzDJ3fGQHDSZzhyyZv4ILcihA=; b=ST3YoZj38dmIV/of+KKEtGea+u
+	LfXvE4W3S2oZXOGG2yse8RSSNq5zfrvSPTVvSFaRcyOke2zXwzya/tLB9FRiwyOQeBYtC3CVKgz8Y
+	4LjV1zJ3+DtG3NlKlP1HQgOEmWCab6frGmpYfmFni/6B2LERm/FiMKzR8cOlkqNqaGSlBWvFxpBih
+	dtOkVmyGWfsalvArgiSOeDGVZ8+PoCWgLOoVZdDcUObFem9A9USKfNmvQNVDP/Pp/joqqqKCH2o5V
+	QOOQYaOX7RPntTT73n28DHoRuIBHzqniKHGY+VPLXLXHIjNDcEKEFYl4CZviBWfgR++DnGW6a6ATQ
+	LORWMx4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujUTu-0000000ED9i-2gRb;
-	Wed, 06 Aug 2025 03:06:22 +0000
+	id 1ujUf8-0000000EDyZ-2Xmb;
+	Wed, 06 Aug 2025 03:17:58 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujURJ-0000000ECmu-2YPI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 03:03:42 +0000
+	id 1ujUcW-0000000EDn3-2Tmt;
+	Wed, 06 Aug 2025 03:15:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Tr7NN2jphfR6xHA/UzGXZWi6sl0YOUmnWotym5mZwz4=; b=w+3l+DsiNEdtl4SdPo25MfoSwx
-	6zeqoaeDGmSxgzZ9JnskLH7Dz9SULlis8/dRT0QOqH/Y1EtVKBrEC3uQEsYfEYxYKm1c3ZEDnWwk5
-	DHX5iBtN23GQB1oNZdi/GBgRSA0gned3RSnZrlzpkmj1vuZxQlxck5hyU2fafIu61at4=;
+	bh=oJH5KNGSYO4/UiYFErjzDJ3fGQHDSZzhyyZv4ILcihA=; b=ygHclmUzWU8YQkMYad2J6FVTlp
+	rUSjmHiKNbUM3zFdh2+Cr9HummLeuNCQeaMp54HaQLsBKPxPNYl8OB31xcn4Rs8dfWGiQnmQWJyLW
+	SDVh7XiHYTklCXvRZTXoEZM6QYcghtI1jXvF5e3dmNc79c3zpvvUGqGSTt9B8AJa2PnY=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1ujUR3-003qp3-Fc; Wed, 06 Aug 2025 05:03:25 +0200
-Date: Wed, 6 Aug 2025 05:03:25 +0200
+	id 1ujUcD-003quH-UA; Wed, 06 Aug 2025 05:14:57 +0200
+Date: Wed, 6 Aug 2025 05:14:57 +0200
 From: Andrew Lunn <andrew@lunn.ch>
-To: Mo Elbadry <elbadrym@google.com>
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Rom Lemarchand <romlem@google.com>,
-	William Kennington <wak@google.com>,
-	Yuxiao Zhang <yuxiaozhang@google.com>,
-	"wthai@nvidia.com" <wthai@nvidia.com>,
-	"leohu@nvidia.com" <leohu@nvidia.com>,
-	"dkodihalli@nvidia.com" <dkodihalli@nvidia.com>,
-	"spuranik@nvidia.com" <spuranik@nvidia.com>
-Subject: Re: [PATCH v12 3/3] clk: aspeed: add AST2700 clock driver
-Message-ID: <e53edafb-bfb0-45ab-8224-7b393af4e0ad@lunn.ch>
-References: <20250708052909.4145983-1-ryan_chen@aspeedtech.com>
- <20250708052909.4145983-4-ryan_chen@aspeedtech.com>
- <OS8PR06MB7541E7FCB367AE610EBBE121F249A@OS8PR06MB7541.apcprd06.prod.outlook.com>
- <CAOO6b=tEigCRXZ47BMgsTvxiZdO0P32+jFhQ313O044VALgaWA@mail.gmail.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Jonas Karlman <jonas@kwiboo.se>, David Wu <david.wu@rock-chips.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: [PATCH] net: ethernet: stmmac: dwmac-rk: Make the clk_phy could
+ be used for external phy
+Message-ID: <3c401e82-169f-4540-9c12-175798ac72a6@lunn.ch>
+References: <20250806011405.115-1-kernel@airkyi.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAOO6b=tEigCRXZ47BMgsTvxiZdO0P32+jFhQ313O044VALgaWA@mail.gmail.com>
+In-Reply-To: <20250806011405.115-1-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_200341_646792_318B6B6A 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250805_201516_634372_84DD43B0 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > +static const struct clk_div_table ast2700_rgmii_div_table[] = {
-> > > +     { 0x0, 4 },
-> > > +     { 0x1, 4 },
-> > > +     { 0x2, 6 },
-> > > +     { 0x3, 8 },
-> > > +     { 0x4, 10 },
-> > > +     { 0x5, 12 },
-> > > +     { 0x6, 14 },
-> > > +     { 0x7, 16 },
-> > > +     { 0 }
-> > > +};
+On Wed, Aug 06, 2025 at 09:14:05AM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> For external phy, clk_phy should be optional, and some external phy
+> need the clock input from clk_phy. This patch adds support for setting
+> clk_phy for external phy.
+> 
+> Signed-off-by: David Wu <david.wu@rock-chips.com>
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-> > > +     DIVIDER_CLK(SCU1_CLK_RGMII, "rgmii", soc1_hpll,
-> > > +                 SCU1_CLK_SEL1, 25, 3, ast2700_rgmii_div_table),
+Please take a read of:
+
+https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+
+net-next is closed at the moment for the merge window.
+
+You also need the indicate the tree in the Subject: line.
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 16 ++++++++++++----
+>  1 file changed, 12 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 700858ff6f7c..703b4b24f3bc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -1558,6 +1558,7 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
+>  	struct device *dev = &bsp_priv->pdev->dev;
+>  	int phy_iface = bsp_priv->phy_iface;
+>  	int i, j, ret;
+> +	unsigned int rate;
+
+Reverse Christmas tree. Longest to shortest.
+
+>  
+>  	bsp_priv->clk_enabled = false;
+>  
+> @@ -1595,12 +1596,19 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
+>  		clk_set_rate(bsp_priv->clk_mac, 50000000);
+>  	}
+>  
+> -	if (plat->phy_node && bsp_priv->integrated_phy) {
+> +	if (plat->phy_node) {
+>  		bsp_priv->clk_phy = of_clk_get(plat->phy_node, 0);
+>  		ret = PTR_ERR_OR_ZERO(bsp_priv->clk_phy);
+> -		if (ret)
+> -			return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+> -		clk_set_rate(bsp_priv->clk_phy, 50000000);
+> +		/* If it is not integrated_phy, clk_phy is optional */
+> +		if (bsp_priv->integrated_phy) {
+> +			if (ret)
+> +				return dev_err_probe(dev, ret, "Cannot get PHY clock\n");
+> +
+> +			ret = of_property_read_u32(plat->phy_node, "clock-frequency", &rate);
+
+Is this property already in the DT binding?
 
 
-Historically, aspeed has got RGMII delays wrong. Could you confirm
-this has nothing to do with the 2ns delay needed by RGMII.
+    Andrew
 
-What exactly is this clock used for? RGMII needs 2.5MHz, 25MHz and
-125MHz, which none of these dividers seems to provide.
-
-	Andrew
+---
+pw-bot: cr
 
