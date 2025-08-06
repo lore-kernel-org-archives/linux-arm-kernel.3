@@ -4,131 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD8CC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93C9C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sZg/cH9V84fbvCx+qHXp4RLK/JgQElkoHDrmp3FDrGc=; b=bvGxSZqkdMfqA+wm1gHlYk9l8J
-	b1c54Tr87DuzAiyIPIXj0vO15VLKUF96A0L06/4S4wHQRG6rPygYGG/cOGI6WryMe8cRUBkCNpOMg
-	9uX4uqAW6mBwnuz0aJb4dLPoT/oYPrWroSOG3hxNT1Or3FDtV77sE0V4sZklFD9Tb8P91Vl+HlwaK
-	sBT4jE8dBedR4WMP3S0TkcUZv7/WXAfknv8iZOysrMYfEfH/D+glhUqnDssEIPKFr2XFmRjXe0eWu
-	I4DAfaogC1DqvUufGe/ODywDvHyTlZ6w/Hts0RyR/4WKLSKJU6GdJgVj1KOkRWjXqDW7dsBMDkjP4
-	N5UBN8kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=67NaUlX10oTgepae7uOpNwDzs2oEs7i1yEI/7g9wvX0=; b=vhCzXN2YOt0ILRROS05xXrSJ3Q
+	UklbtTAivzWFf0n8HBNmXwGKDEiHYzMtva5cKjw7KblpYD0wNpwommxHN8hRZouJ+R+z/B+xSf0DB
+	rjOY0BQbQVM8JHtN3LOussb/FCeWtDZLQ5uspvzLWGI4tWGFPEJVmv6aj6z2xivj6GSLfKDS1VgS1
+	lWm1zp4PTMpj1MPsYnkYBfwzhmcDSLGGoyw8JRWAXKVM2K7BqRrGi+V+0ZKP07w3b4bt2U2MFhzZk
+	q173QnWJ8t9qc6/wPpQcEZHMSFMbwhCkJEwumRkX04kHQtmU48WZtRTX6JDUlcHYspb8ExpbGIhun
+	mGfm+95A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZhg-0000000Ef2N-2ZL5;
-	Wed, 06 Aug 2025 08:40:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ujZtg-0000000EgKv-0HFF;
+	Wed, 06 Aug 2025 08:53:20 +0000
+Received: from mail-vk1-f179.google.com ([209.85.221.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZdT-0000000EeWy-2Nmg
+	id 1ujZrC-0000000Eg5t-20z7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:36:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 292D7431FE;
-	Wed,  6 Aug 2025 08:36:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EA69C4CEF6;
-	Wed,  6 Aug 2025 08:36:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754469395;
-	bh=2vwmHfFUjvP9cAgG8fEZyvs48df+B/ns2gsYriOZ+u4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=YsUQtvZ5pRJAcnvzdkIcHGT59XQwKXvQUS9noMo5dvbrK1UFWaX+8a0enDW3+tmKE
-	 GYP7gb38xGpXnJZ+RaApC4tlOCjJV9q6Gh3zcWtueQiQlwYnauKgmfHvso8Vc7c1Rz
-	 bmvQwDFR3+Xp95zdtbE2sXczUUg/1Rwpr+6qTWQF38V01kwfYWsyNE9Oe6eUDi8ex5
-	 2085h3ygdrQWsTaYwSWfzWS6suhhmtsJDd6L+LFyZC/ZgVgRIkh+a/yX3EJ8q/PXZJ
-	 EuRZE7m9zzIHEku2JP/ioDiB0X//4pYmCKbS6EOPwE65oO7UTWPSMrOu2quputKxIC
-	 ttOsqV0WXt5Pg==
-Message-ID: <e334f106-d9f3-4a21-8cdd-e9d23dd2755d@kernel.org>
-Date: Wed, 6 Aug 2025 10:36:25 +0200
+	Wed, 06 Aug 2025 08:50:47 +0000
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-5396c1d72dbso2591686e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 01:50:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754470245; x=1755075045;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=67NaUlX10oTgepae7uOpNwDzs2oEs7i1yEI/7g9wvX0=;
+        b=ZBXmGUW3utD9Oh5YVzmcI/1QLSab6V7vseX3rSr13dZ8z0iAz2HrBEBJgvIKVNvMLf
+         S945LFOKT0OkutGy7Fkn8pTVoarofePLywJxCTaY7t99Mwtp+T8Lg9d5WLjwrw/H5D6j
+         IRqnx450+0sO01Ke/FfoWE6gBypECPEKEZkAj1Z0V36IzPvpgEuimLw9q4slkNSjrnxL
+         KVYb/WPKusrnzpNenDI+5r9ubD4p3NxqB8LI2APW1aiQR6GVxWvBE2eXixDA5u6kjGID
+         lJcJrMmWkByJl2pXdLdVNZ+vWDAzY9/MJHNWRDo7xFq3o3yZTrIp/eFTOFPBHtrhPasP
+         Q0Yw==
+X-Gm-Message-State: AOJu0Yzir+tKmhqdIL1HZm44bvAf18pKCpc4ObcF/b5S65EZ8x+QHj1a
+	oHWfQyGent2+xeK/pptc00Ikqk5P3kRjfs0JzH9QKqVPKa7Qk1EC7nWAnAnX/KFU
+X-Gm-Gg: ASbGnctws9fcrLfXh2H/uJj9OYPAu3t6a20vkSP16CosWwcuokby02kz1jRgly/h0tk
+	gXq4vlEGszxZhj57CSgUuZxEXFhTdw49fXxaZ6SYs2gHjhMHk7pda5GrmBuHB92zeEbtBnfg/a8
+	Y33L9X+NHaxXlkgYAN0zkW7HuehBdvvEcwQD1A2+JHove+02yRgf4/XhzYNRRHm+eO+XUpec63e
+	UerF4NbSXv2M2YLNCJOOmqFHUWm1UIYGeBRPG7S6b3I1HXWw0a1st9uIEynpKNnnO83yPQcDVaW
+	aVDvhj068RE8ErgCz3DbXGb7oRFpUXmsjU5Z/tvfcRmnsgLyjO3CjTKAnQyj6ScnQx8NZk2L7iy
+	3fINgChpQLYHsS/Zc44JbOpcQTw5gef/q8Y3J6/PGoC1im5WRmsl5QV9nAI7b
+X-Google-Smtp-Source: AGHT+IGr2rAK+WsBGVBWxQTOBwt03NrkvJBQMaPHg52y/lcMBTGEaXncVot/ARSK4xe2rSKonCRJbg==
+X-Received: by 2002:a05:6122:4f83:b0:539:8b51:fbe8 with SMTP id 71dfb90a1353d-539a0239a91mr838683e0c.0.1754470243673;
+        Wed, 06 Aug 2025 01:50:43 -0700 (PDT)
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53936cbbc29sm4082881e0c.19.2025.08.06.01.50.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Aug 2025 01:50:43 -0700 (PDT)
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-4fc05b4a25eso4092182137.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 01:50:43 -0700 (PDT)
+X-Received: by 2002:a05:6102:2910:b0:4e5:9c06:39d8 with SMTP id
+ ada2fe7eead31-503722a56bbmr726573137.5.1754470242932; Wed, 06 Aug 2025
+ 01:50:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
-To: Pankaj Dubey <pankaj.dubey@samsung.com>,
- 'SeonGu Kang' <ksk4725@coasia.com>,
- 'Jesper Nilsson' <jesper.nilsson@axis.com>,
- 'Michael Turquette' <mturquette@baylibre.com>,
- 'Stephen Boyd' <sboyd@kernel.org>, 'Rob Herring' <robh@kernel.org>,
- 'Krzysztof Kozlowski' <krzk+dt@kernel.org>,
- 'Conor Dooley' <conor+dt@kernel.org>,
- 'Sylwester Nawrocki' <s.nawrocki@samsung.com>,
- 'Chanwoo Choi' <cw00.choi@samsung.com>,
- 'Alim Akhtar' <alim.akhtar@samsung.com>,
- 'Linus Walleij' <linus.walleij@linaro.org>,
- 'Tomasz Figa' <tomasz.figa@gmail.com>,
- 'Catalin Marinas' <catalin.marinas@arm.com>, 'Will Deacon'
- <will@kernel.org>, 'Arnd Bergmann' <arnd@arndb.de>
-Cc: 'kenkim' <kenkim@coasia.com>, 'Jongshin Park' <pjsin865@coasia.com>,
- 'GunWoo Kim' <gwk1013@coasia.com>, 'HaGyeong Kim' <hgkim05@coasia.com>,
- 'GyoungBo Min' <mingyoungbo@coasia.com>, 'SungMin Park'
- <smn1196@coasia.com>, 'Shradha Todi' <shradha.t@samsung.com>,
- 'Ravi Patel' <ravi.patel@samsung.com>, 'Inbaraj E' <inbaraj.e@samsung.com>,
- 'Swathi K S' <swathi.ks@samsung.com>, 'Hrishikesh'
- <hrishikesh.d@samsung.com>, 'Dongjin Yang' <dj76.yang@samsung.com>,
- 'Sang Min Kim' <hypmean.kim@samsung.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@axis.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, soc@lists.linux.dev
-References: <20250710002047.1573841-1-ksk4725@coasia.com>
- <847e908b-1073-46ea-93f3-1f36cc93d8b8@kernel.org>
- <bfdc2eddde554e1d1808dd8399bc6a693f681c9b.camel@coasia.com>
- <CGME20250721064006epcas5p4617b0450e69f72c94d2b3ae7b1d200e7@epcas5p4.samsung.com>
- <99977f38-f055-46ed-8eb0-4b757da2bcdd@kernel.org>
- <000501dc06ab$37f09440$a7d1bcc0$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <000501dc06ab$37f09440$a7d1bcc0$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250720194756.413341-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250720194756.413341-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 6 Aug 2025 10:50:31 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX9LzH6zqZTmitwmBpLCqLn+=MK8LxJGdBBp6uABwH67A@mail.gmail.com>
+X-Gm-Features: Ac12FXxrT45x6X7YTOqNpVc_gzzfmkQ9G50H_zgTu-Yqdf2-Oq5tksnUmX_Lqj8
+Message-ID: <CAMuHMdX9LzH6zqZTmitwmBpLCqLn+=MK8LxJGdBBp6uABwH67A@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Describe generic SPI NOR
+ support on Retronix R-Car V4H Sparrow Hawk board
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_013635_658900_8E7A6A96 
-X-CRM114-Status: GOOD (  30.76  )
+X-CRM114-CacheID: sfid-20250806_015046_517055_DED36067 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,162 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2025 10:22, Pankaj Dubey wrote:
-> 
-> 
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Monday, July 21, 2025 12:10 PM
->> To: SeonGu Kang <ksk4725@coasia.com>; Jesper Nilsson
->> <jesper.nilsson@axis.com>; Michael Turquette <mturquette@baylibre.com>;
->> Stephen Boyd <sboyd@kernel.org>; Rob Herring <robh@kernel.org>;
->> Krzysztof Kozlowski <krzk+dt@kernel.org>; Conor Dooley
->> <conor+dt@kernel.org>; Sylwester Nawrocki <s.nawrocki@samsung.com>;
->> Chanwoo Choi <cw00.choi@samsung.com>; Alim Akhtar
->> <alim.akhtar@samsung.com>; Linus Walleij <linus.walleij@linaro.org>;
->> Tomasz Figa <tomasz.figa@gmail.com>; Catalin Marinas
->> <catalin.marinas@arm.com>; Will Deacon <will@kernel.org>; Arnd Bergmann
->> <arnd@arndb.de>
->> Cc: kenkim <kenkim@coasia.com>; Jongshin Park <pjsin865@coasia.com>;
->> GunWoo Kim <gwk1013@coasia.com>; HaGyeong Kim
->> <hgkim05@coasia.com>; GyoungBo Min <mingyoungbo@coasia.com>;
->> SungMin Park <smn1196@coasia.com>; Pankaj Dubey
->> <pankaj.dubey@samsung.com>; Shradha Todi <shradha.t@samsung.com>;
->> Ravi Patel <ravi.patel@samsung.com>; Inbaraj E <inbaraj.e@samsung.com>;
->> Swathi K S <swathi.ks@samsung.com>; Hrishikesh
->> <hrishikesh.d@samsung.com>; Dongjin Yang <dj76.yang@samsung.com>;
->> Sang Min Kim <hypmean.kim@samsung.com>; linux-kernel@vger.kernel.org;
->> linux-arm-kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org;
->> linux-arm-kernel@axis.com; linux-clk@vger.kernel.org;
->> devicetree@vger.kernel.org; linux-gpio@vger.kernel.org; soc@lists.linux.dev
->> Subject: Re: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
->>
->> On 21/07/2025 06:50, SeonGu Kang wrote:
->>> 2025-07-10 (목), 09:07 +0200, Krzysztof Kozlowski:
->>>> On 10/07/2025 02:20, ksk4725@coasia.com wrote:
->>>>> From: SeonGu Kang <ksk4725@coasia.com>
->>>>>
->>>>> Add basic support for the Axis ARTPEC-8 SoC.
->>>>> This SoC contains four Cortex-A53 CPUs and other several IPs.
->>>>>
->>>>> Patches 1 to 10 provide the support for the clock controller, which
->>>>> is similar to other Samsung SoCs.
->>>>>
->>>> You should explain here (and in DTS patches or the bindings) the
->>>> hardware, that this is Samsung SoC.
->>>>
->>>> You could also explain the differences from Exynos and proposed
->>>> handling of patches (because this is odd)
->>>>
->>>> Also, entire patchset has wrong and incomplete SoBs. Your SoB is
->>>> missing everywhere, others have wrong order.
->>>>
->>>> Please read submitting patches first.
->>>>
->>>
->>> This Custom SoC is owned by the Axis (OEM) and manufactured by the
->>> Samsung (ODM). It has standard Samsung specific IP blocks.
->>
->>
->> It is designed by Samsung. It is Samsung SoC.
->>
->> Anyway, don't explain to me, but in your patchset.
-> 
-> Hi Krzysztof,
-> 
-> Thank you for your review comments on the ARTPEC-8 platform patches.
-> I'd like to add more context about the ARTPEC-8 SoC to help clarify its
-> relationship with Exynos.
-> 
-> Here are the key details about ARTPEC-8:
->    - Manufactured by Samsung Foundry
->    - SoC architecture is owned by Axis Communications
-> 	- On similar model as Tesla's FSD chip owned by Tesla and 
->               manufactured and  by Samsung
->    - IPs from both Samsung and Axis Communications
-> 
-> Samsung-provided IPs:
->   - UART
->   - Ethernet (Vendor: Synopsys)
->        - Same IP has been integrated as integrated in FSD Chip
->   - SDIO
->   - SPI
->   - HSI2C
->   - I2S
->   - CMU (Clock Management Unit)
->        Follows same CMU HW architecture as Exynos SoC have
->   - Pinctrl (GPIO)
->   - PCIe (Vendor: Synopsys)
->        Though Exynos, FSD, ARTPEC have same DesignWare Controller, 
->        the glue/wrapper layer around DWC Core has differences across
->        these SoCs. All manufactured by Samsung, but differences are there
->        in HW design and for different products. For the same reason PCIe patch
->        refactoring effort is being put by us [1] to streamline single Exynos driver
->        which can support all Samsung manufactured SoCs having DWC PCIe controller.
->       [1]: https://patchwork.ozlabs.org/project/linux-pci/patch/20250625165229.3458-2-shradha.t@samsung.com/
+Hi Marek,
 
-So entire base of the SoC is Samsung.
+Thanks for your patch!
 
-> 
-> Axis-provided IPs:
->     - VIP (Image Sensor Processing IP)
->     - VPP (Video Post Processing)
->     - GPU
->     - CDC (Video Encoder)
-> 
-> As part of the upstreaming effort, Samsung and Coasia (DSP) team will work together
-> to upstream basic SoC support and Samsung IPs support.
-> The Axis team will be the primary maintainer for the ARTPEC-8 SoC codebase.
+On Sun, 20 Jul 2025 at 21:48, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Retronix R-Car V4H Sparrow Hawk EVTA1 is populated with Spansion S25FS512S,
+> EVTB1 is populated with Winbond W77Q51NW. Describe the SPI NOR using generic
+> "spi-flash" compatible, because both flashes can be auto-detected based on
 
-Don't know what do you mean by "primary", but I want to be clear: this
-classifies as Samsung SoC, so I will be maintaining and overlooking it
-just like I maintain and take care about all Samsung SoCs. Otherwise you
-will be introducing errors and warnings or, in best case different
-style. And this already happened if I did not object!
+s/spi-flash/jedec,spi-nor/
 
-Also SAME strict DT compliance profile will be applied. (see more on
-that below)
+> their built-in IDs.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-> 
-> Given that ARTPEC-8 is a distinct SoC with its own set of IPs, we believe it's reasonable
-> to create a separate directory for it, similar to FSD.
+LGTM (I don't have EVTB1 schematics), so
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.18.
 
-No. It was a mistake for FSD to keep it separate why? Because there is
-no single non-Samsung stuff there. I am afraid exactly the same will
-happen there.
+Gr{oetje,eeting}s,
 
-Based on above list of blocks this should be done like Google is done,
-so it goes as subdirectory of samsung (exynos). Can be called axis or
-artpec-8.
+                        Geert
 
-To clarify: Only this SoC, not others which are not Samsung.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-> 
-> We will remove Samsung and Coasia teams from the maintainers list in v2 and only
-> Axis team will be maintainer.
-
-A bit unexpected or rather: just use names of people who WILL be
-maintaining it. If this is Jesper and Lars, great. Just don't add
-entries just because they are managers.
-
-> 
-> Maintainer list for previous generation of Axis chips (ARM based) is already present,
-> so this will be merged into that.
-
-Existing Artpec entry does not have tree mentioned, so if you choose
-above, you must not add the tree, since the tree is provided by Samsung SoC.
-
-OTOH, how are you going to add there strict DT compliance? Existing axis
-is not following this, but artpec-8, as a Samsung derivative, MUST
-FOLLOW strict DT compliance. And this should be clearly marked in
-maintainer entry, just like everywhere else.
-
-
-> 
-> Please let us know if this explanation addresses your concerns. 
-> We'll update the commit message and cover letter accordingly.
-
-
-Best regards,
-Krzysztof
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
