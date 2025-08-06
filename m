@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19BEC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 20:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 571D6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 20:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZMeMFDLZr+yCjindHzAam67OkhMlNf3hlQ7J9N+n2w=; b=T0WgWoSc/KVzLbQ7NN2yQD4Gpd
-	39D3f6e3p+Rt1rnVYpsEjWKOMwUbr3f8bQJAI33fj6m9esjFWyx8XZzOMhndvCnI/8+h4Y6Pb74Hr
-	xJr+8wn6BLbEHd4nkWXQhr+Kec8qEIl0iT1qzkt685TqOZsQuWxmysnaDX5S2jQPep/evZM7E03XN
-	3bhCXt6fn15jAkXj49MvpJILxhi59dsnqPySaKvVW77UlFGW0B3TeNVWJHaV68dSZmHNMKmw3f6so
-	kOPZt/loaeYH0W9C2ofKzYO0dfAChEy/8EdFOT8VcNTa9XGmr5g+gVAGcXdXC+DSa571ieB9VKrip
-	G1wXiAcA==;
+	bh=kcswufqwZeiVbOah5oR7VRWteUmksZlp7f05xG34s+k=; b=NezxlKfFdaKKG7gsmNzE8Sg6gl
+	HusWLLgyAytC3Valcq1nvp+xPAL6/cJaTLatMOfaE6KRtkEQZ0MM7HkzCAeWAVuwfBMJGK597H4K5
+	rTYvRNi8lVimMwldgS2aRAlqoVysCjNyTUtyL8gYHG8CH3opue6Sb8nBAIvesAUmKtBSWFo/zp2jZ
+	uiRbIeX1epzrDSfXkPhSo/H1FsLT02HP2x6B/f4IrIspUR6qzuki6bcP3pBP29Au0sN9GXd2IONzV
+	hSaZb9XBeluggxTlnmIGMa3zvt4ZTJLW7GD2/frbQTWZhz1ME38+20Ln//gg83IJ2hDD1K5w3qZAX
+	6iEZPzGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkqP-0000000GPi2-218N;
-	Wed, 06 Aug 2025 20:34:41 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1ujkvR-0000000GQlb-0ZTd;
+	Wed, 06 Aug 2025 20:39:53 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkGn-0000000GGNZ-3LdP
+	id 1ujkGr-0000000GGQs-1s2k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 19:57:55 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b4227d86246so128123a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:57:53 -0700 (PDT)
+	Wed, 06 Aug 2025 19:57:58 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-23ff063d087so1424755ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:57:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510272; x=1755115072; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510276; x=1755115076; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=YZMeMFDLZr+yCjindHzAam67OkhMlNf3hlQ7J9N+n2w=;
-        b=f87NkBd7OfImcCpQeX3diUmsVfiaFPyYZVPWE7Qrj3mTzjRbbMo3mK6xJp6Ylw3kIx
-         Y/FW3i/w75YqRTGZFmczXyk++Q8A8/aKx86X/zwuDu43wYKaRBo1wFvwCBTNS5l/eHb8
-         cB1wOGXXG1NvccTnZBzTHuA0PKAhRhgXYbagd0eigxyru8DZ7eBf5QhQLvo3Ylfl42H6
-         GWjSQtujBVYaIt1nkk75msPkD5Jl0vstQHjSSI2UEEWlCLWs1jpJyjuKyEyi3vmbVuZD
-         Wb7T3Gu9+cpoEyKNluFUQi5TSQdAeWbEQyKhtHuWogfK9p1IRVJRjZ96M4Ejt4+McZko
-         7y4w==
+        bh=kcswufqwZeiVbOah5oR7VRWteUmksZlp7f05xG34s+k=;
+        b=fkf07r+t95VqMQbIOIeYOp+1QSTQLdyVkG9KKQHdfwZWYxYjt/PjQj7VTZ0wrVDAWp
+         8I6ifPdPaNualeMEuXKnQSKcaiSCup/E7f3oE3mvvMw+CENc9MSDaohyBwlnHJrafoso
+         fDP23jqfv50TMPyNzZ5zGOwmlVsMLe58Yw9WXxf2h12gaupecPBmuNWqNs8wT0FpDREc
+         hPMq2zpUEI0L6hQClmCKuWh8UGkyUbOaHIYSPB60Z/sCDv+USaZh0aACZRrgjAnZCIf+
+         HSPfuunaZ5gYa3bWYUs3aH3sZglsqE8qFe4SNPkAkA/O8ksmqTwvSpMu/tWF8G1qLBjm
+         4CBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510272; x=1755115072;
+        d=1e100.net; s=20230601; t=1754510276; x=1755115076;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=YZMeMFDLZr+yCjindHzAam67OkhMlNf3hlQ7J9N+n2w=;
-        b=suKTRdQ4RbDxmf3O3JwMUbB9rN9oQD99RQ0KZ5lEa+2KuXr/sG310+7jYgb08ZCMul
-         edJ6Y/L9boN5WYNPNm8Fb9i7wnLF+d2AjHwAm99pOqiXtLm/i4e7wtZ7RRanJPLlE0rX
-         nizFsMdHCbOWUPymCisXb2rqQ8e5/YzCBKwZ0mBbVbwjuNyghsLqRB9VDrGJH/7Q1w3O
-         WJmj3q1p81qoGg1jgugNRBMcm1i55jg6nG0YDIAaVr9S7OAAZjL66Oxq3F8jdVm50XOv
-         FpEccC7UqeWU3DUiW1fx9SywIXU1ThQKipTj5SC/boUj2tX5rMv8jqitbrDKmQIe8CWu
-         hl0A==
-X-Gm-Message-State: AOJu0YxETu4jSFCTSqdJHJZ/PGCVgZKyyY1LfRyAkBPEUNMxX8jbc198
-	miE7BaKrijVWHAALkaWMj8QoMPyMUBHnKcLrY2eN0TKr0Qgeq+sW5gXcSjEF5Ik4EnIgswLnwBF
-	Z2geutw==
-X-Google-Smtp-Source: AGHT+IFt32OpTUGU6us4Rz359zlOuJVL+j3ifqAbqQAET68s3resGqbQqEcv8vf6Ss5FatBMSRwumXjkA8M=
-X-Received: from pjbso3.prod.google.com ([2002:a17:90b:1f83:b0:311:1a09:11ff])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e784:b0:240:9f9:46a0
- with SMTP id d9443c01a7336-242b1aa312cmr4180365ad.38.1754510272385; Wed, 06
- Aug 2025 12:57:52 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:35 -0700
+        bh=kcswufqwZeiVbOah5oR7VRWteUmksZlp7f05xG34s+k=;
+        b=fKh9EUGTFTs9X/g9JZtrk0iYBJovwoGVjYIw/LOlrNrJqaBMTpoYg7Gk09dvUYUPOF
+         7fQKH+rVsNHQhHS8FfMl7PU8SLc4I/bdRb2QrOEKavCFXm1qTXpWte0DsxAx1oBjSUgq
+         ZcDxVs1KcPTxcqTehKQ+faD91vTV4kZyMMsfmr4xJUBbv/fx2TTIfQ93CkyYIG58Z8DD
+         7hmYFGBFLQQfVcYLlIY0CkToKxXIhG52z3UwnkopkqvnHnCFwisLBf29VDZEvfRud0He
+         hX8yiADQ7ISNubxqD8dVKnAwRhCOk5bM5Nknbb949JzVwsYF5Sd07Vjqwgd9bbSh5T3Y
+         RB5Q==
+X-Gm-Message-State: AOJu0YyCPYiSe4kqCGku7SutQq3JxHbbCHDMdO8SDM+kH/kr6iMF09ac
+	zTRadSC8GR0JmjhYGVJgK9eQFTIso+IWO5Y+ywyo+1FTR1Bl8N2XY4dB6DAQPWJ9JE9U9dNNebk
+	RiJ66gA==
+X-Google-Smtp-Source: AGHT+IE/UqkBVmIsYHo+3//+Db76eNFThoPapPb1lJatPNoq0GTt8I/qj7Zd+31YDzfBkj++w1pCOc8gls4=
+X-Received: from pjbnd14.prod.google.com ([2002:a17:90b:4cce:b0:31f:2a78:943])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ec8e:b0:235:ef67:b5a0
+ with SMTP id d9443c01a7336-242a0b3e6f7mr55163055ad.36.1754510276193; Wed, 06
+ Aug 2025 12:57:56 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:37 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-14-seanjc@google.com>
-Subject: [PATCH v5 13/44] perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for
- AMD host
+Message-ID: <20250806195706.1650976-16-seanjc@google.com>
+Subject: [PATCH v5 15/44] KVM: SVM: Check pmu->version, not enable_pmu, when
+ getting PMC MSRs
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -86,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125753_856107_34E5B5AD 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250806_125757_497865_CB65CC82 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +103,40 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sandipan Das <sandipan.das@amd.com>
+Gate access to PMC MSRs based on pmu->version, not on kvm->arch.enable_pmu,
+to more accurately reflect KVM's behavior.  This is a glorified nop, as
+pmu->version and pmu->nr_arch_gp_counters can only be non-zero if
+amd_pmu_refresh() is reached, kvm_pmu_refresh() invokes amd_pmu_refresh()
+if and only if kvm->arch.enable_pmu is true, and amd_pmu_refresh() forces
+pmu->version to be 1 or 2.
 
-Apply the PERF_PMU_CAP_MEDIATED_VPMU flag for version 2 and later
-implementations of the core PMU. Aside from having Global Control and
-Status registers, virtualizing the PMU using the mediated model requires
-an interface to set or clear the overflow bits in the Global Status MSRs
-while restoring or saving the PMU context of a vCPU.
+I.e. the following holds true:
 
-PerfMonV2-capable hardware has additional MSRs for this purpose, namely
-PerfCntrGlobalStatusSet and PerfCntrGlobalStatusClr, thereby making it
-suitable for use with mediated vPMU.
+  !pmu->nr_arch_gp_counters || kvm->arch.enable_pmu == (pmu->version > 0)
 
-Signed-off-by: Sandipan Das <sandipan.das@amd.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
+and so the only way for amd_pmu_get_pmc() to return a non-NULL value is if
+both kvm->arch.enable_pmu and pmu->version evaluate to true.
+
+No real functional change intended.
+
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/events/amd/core.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/x86/kvm/svm/pmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/x86/events/amd/core.c b/arch/x86/events/amd/core.c
-index b20661b8621d..8179fb5f1ee3 100644
---- a/arch/x86/events/amd/core.c
-+++ b/arch/x86/events/amd/core.c
-@@ -1433,6 +1433,8 @@ static int __init amd_core_pmu_init(void)
+diff --git a/arch/x86/kvm/svm/pmu.c b/arch/x86/kvm/svm/pmu.c
+index 288f7f2a46f2..7b8577f3c57a 100644
+--- a/arch/x86/kvm/svm/pmu.c
++++ b/arch/x86/kvm/svm/pmu.c
+@@ -41,7 +41,7 @@ static inline struct kvm_pmc *get_gp_pmc_amd(struct kvm_pmu *pmu, u32 msr,
+ 	struct kvm_vcpu *vcpu = pmu_to_vcpu(pmu);
+ 	unsigned int idx;
  
- 		amd_pmu_global_cntr_mask = x86_pmu.cntr_mask64;
+-	if (!vcpu->kvm->arch.enable_pmu)
++	if (!pmu->version)
+ 		return NULL;
  
-+		x86_get_pmu(smp_processor_id())->capabilities |= PERF_PMU_CAP_MEDIATED_VPMU;
-+
- 		/* Update PMC handling functions */
- 		x86_pmu.enable_all = amd_pmu_v2_enable_all;
- 		x86_pmu.disable_all = amd_pmu_v2_disable_all;
+ 	switch (msr) {
 -- 
 2.50.1.565.gc32cd1483b-goog
 
