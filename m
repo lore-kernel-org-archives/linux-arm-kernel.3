@@ -4,206 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E73C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA2CC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVzD43Ib6t0O2VxnUQ9GA47hnqizEds3mIrS0OTKYuU=; b=b2gr/mwcnukD2SLtyLd9i0obQH
-	G95SFIKU22F8Cs5z1DmQWsq/HDe4HXbOn7XVxBn5KXJ1lXTzsq0IwRTwzw/w29DFWwwgLxfGTL+JS
-	xsJQbewunHz6E5lu9gETG/ISaR/z6YmBdH3dbOSfsBQe19WT0DS+0KJ4NCmiLMCRz9iJ0wpQVtFsB
-	YY7sO+yzjkLV+WCXxPyuEB+rpXTNcs5eFqRXOlbiK80VFnSgVMhouwPmWj5iDI+HJOYdf+GC1rdUE
-	lgjEN6AjZVx0w2aLVM5v0DEhMcAWNwY22sGA2fEyK9efpfNYjO4PHmTWrwkc4+7x7PFUSF++nTLhp
-	mx5VFMLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gGmcOe3qZ6FTWLrDgajIMhIq39XDR1i6v2FE59lQbLc=; b=qM+wL5VdF1Bva1IPTPkhMwO8vj
+	i368jVxWwXLy6S6yKpnwfG1B2GYnBIYcwg6uRjB8oeJSLiXiAwZhNdhyYrbHYKMywKBHNQtEr7KRh
+	aOBz0FbqmGD4IFILCaKrao1ciTpQNf+N36IEe04dI9/YxLLc7zBPIcMqIlmftG4hczoXxIDwcLu08
+	Hos8x11JJ3EOpqGkOV2OwxL19z5r+esabQ/hGRFSYJt6TX+ovPeGjXqNoWuoSoJajT6GmECod9KwJ
+	Pet8nz/M1f6/UjQZq7Zha0JcR7w/hkp1hm+26P+A4bHbbFJYqYzELjdNFhCbYMwYw0LXCWlUTypiW
+	I8N8VWGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujaqg-0000000EpdF-2jEg;
-	Wed, 06 Aug 2025 09:54:18 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujaoD-0000000EpUU-30Aa
+	id 1ujauZ-0000000Eq3P-2HnG;
+	Wed, 06 Aug 2025 09:58:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujas6-0000000EpkE-0UvC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 09:51:46 +0000
-Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5768RZHS002490;
-	Wed, 6 Aug 2025 09:51:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=sVzD43Ib6t0O2VxnUQ9GA47hnqizEds3mIrS0OTKYuU=; b=
-	ASxaEVSnHdNiM1xuhYk0wl9HsZ9dUgCp97ONlFIIWWaWQKQIgBm5306GFxlByQC+
-	JZ5g/jKL4F8rTAhPpo9pdNW+lR+qmoYNYIZK1dprnaMMNbtYRkDps3PdG64E0sJf
-	tvsTY8Y5b1l3sYc0IOtdydd2Dey7d6rUneArPeJeoVRi+ZEdZCDME6WGuVj75nd8
-	80PXmUAZF3rMDpZ68n4OvA8bxluzGqBKqD0jyV80XxvuWv4djMErrYaXA05JGu7K
-	h29ovhFvvGs2j91ijISBS5W6QeYoFzUK8Xy/pcWv1IATxHuYwgLAIjAEQFMpbMhB
-	+uswIFQZvDf/KUzG7+TvsQ==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48bpvjs75p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 06 Aug 2025 09:51:18 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5769VSe8032038;
-	Wed, 6 Aug 2025 09:51:07 GMT
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11012032.outbound.protection.outlook.com [40.93.200.32])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48bpwqac9w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 06 Aug 2025 09:51:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D60L6EAtRYt9B02yDQd4eBBKRqIArn/DokOfWH9Js9bBuCUZumEkCan9uWDvX71q8xWZA2IU/i6wiKbvfX6eCrhItR69d4xY3CThj0svVEM+C5oyOAVFWIkvD6eeak62ldRpzVoeRbZKwybpMF496HEOMGNHmsX/mAmXCEjxrXbiMJqgWJ/noiLHUK582FGgH3ySKJkxgWFXgirpFK+NTa+aGBZ3pk2ssx1+0SCqUpU8IzYCycu6UxN7f3F81kAkX8kA6e4bM6kNH8wSVPqkdfi3TSTPSPi8T6EJOV9JJCFrxgR5ooNJC5NM2ovF1s2d6Y/YslGeNbA+7l6V+sMO8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=68YZqsjj469etaWY7OGyfBwu1Rcb3Lve4Qx1s6aw+lg=;
- b=ntmmg0+96+9SCWV6SaFuhx5QUIQJH3S0atjXX7zMJUVl/WnDgfw+gKkWSNqbyRDJTXFZ2e78Jnxl9l3X4IiW79q+onmvmUuvKw0SZ/n2F9RDz6v1rdVjbaN51GrRre1dXdjDevsyx1a1pQD/NKLREEoJKXvfbbRLl+A4QpTmYV4rgrEjz/UD4s3svxVswlRQN3ph5kKU5AOx0ewf6NUSNwgU/rXtoRK1VGSC/x/g5kuPeFwrigUKJls8HBBl8b518EPCPgm4mXcfLbRRSCypSdEfvILz8Bi1qDEf5hee4VtEbw+ibvtS7tZMOgexGHTH5fUp7yRUPaP/ZFDKRsJnwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=68YZqsjj469etaWY7OGyfBwu1Rcb3Lve4Qx1s6aw+lg=;
- b=pQGDqmXkdrtT6vgdTGyRul2XGH/8+wJYhMzBOriu5W6y6/EC+vh8XuaADzcN0wbCv1n22Ozgf9KILUQMfYQm75SOQjoMlmTLPAf4WgLuTEGFZHEHORix42pqZlZBoosxI61tEQV+u2I/2eYt5Ktu/tKVZPLREA/SUPSiM8OLRPo=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by DM6PR10MB4267.namprd10.prod.outlook.com (2603:10b6:5:214::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Wed, 6 Aug
- 2025 09:51:04 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
- 09:51:03 +0000
-Date: Wed, 6 Aug 2025 10:50:55 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: David Hildenbrand <david@redhat.com>, akpm@linux-foundation.org,
-        ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
-        linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
-        Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
-        anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
-        ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
-        quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
-        yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
-        hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
-Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
-Message-ID: <9cbe9c6a-0013-4239-9347-bf5d43021fe3@lucifer.local>
-References: <20250718090244.21092-1-dev.jain@arm.com>
- <20250718090244.21092-7-dev.jain@arm.com>
- <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
- <9552ddff-d778-4934-9349-37c7237cbb78@lucifer.local>
- <54ee1971-d91a-4fe6-90b8-16212c8568d1@redhat.com>
- <0d52d680-f3d3-454f-8c12-602f650469ab@arm.com>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0d52d680-f3d3-454f-8c12-602f650469ab@arm.com>
-X-ClientProxiedBy: MM0P280CA0105.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:190:9::14) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+	Wed, 06 Aug 2025 09:55:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 585BD1E8D;
+	Wed,  6 Aug 2025 02:55:37 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 75E0B3F738;
+	Wed,  6 Aug 2025 02:55:40 -0700 (PDT)
+Date: Wed, 6 Aug 2025 11:55:24 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Lifeng Zheng <zhenglifeng1@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
+	viresh.kumar@linaro.org, sudeep.holla@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
+	yangyicong@hisilicon.com, zhanjie9@hisilicon.com,
+	lihuisong@huawei.com, yubowen8@huawei.com, linhongye@h-partners.com
+Subject: Re: [PATCH v3 3/3] arm64: topology: Setup AMU FIE for online CPUs
+ only
+Message-ID: <aJMmjKenJaDnRskH@arm.com>
+References: <20250805093330.3715444-1-zhenglifeng1@huawei.com>
+ <20250805093330.3715444-4-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DM6PR10MB4267:EE_
-X-MS-Office365-Filtering-Correlation-Id: c708c98d-fbe5-4e52-919d-08ddd4cec18c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?FXIbir67Li3c0Orlxfp3SrN8ODTUqhDhmF1bOTrDgdXsrUzUEItSNdl3jI?=
- =?iso-8859-1?Q?j7JmSMAjhGu5f3yQUzSixBvzU9ez3A+9DGnHTWi6p9JB1JSKAB1aiCUNuR?=
- =?iso-8859-1?Q?PyhLVdpxhc1lTVe/m12SR/+qcraE26sElGIeiJcALcWWB/wD7UF+m7HCnG?=
- =?iso-8859-1?Q?RZO5RSj6PJi4iCS7VmIHCn8CLqYXzJ9jbBcwlKh09foQKSTTjjHyDiADOi?=
- =?iso-8859-1?Q?MEMiYTPA1mU3z0xOlddcnIujKkdtYCyGNws74PxQtEl89vAyVviJePWCKy?=
- =?iso-8859-1?Q?aCSPHBXyIdMCEaf2RiAPFhMftHJPXuqBJ3AgEs/GHu5jvvQ+jg5aCiO9Kl?=
- =?iso-8859-1?Q?/Uxer9B74/xIwY+XZT/0ccWNs7FdsOBtuyW1IyUihEVvo+DXrpU4vgqR+V?=
- =?iso-8859-1?Q?eFuvyIYwhlieWny2Xiu5wzNE8u6BSzOvcBPNsL198TctTkMccFcie0sY0L?=
- =?iso-8859-1?Q?R4wKYOwsSTkYwaQfk/KSy6a0iBF4HdmLvT7tmMQnmEoFVyGA5H+VXM3iZ1?=
- =?iso-8859-1?Q?BXiCQHa8SRT3ty2XKcFwvVpSPuTky9EBJNslpN7iyU7rzwA6sxTP9NbYxS?=
- =?iso-8859-1?Q?dzA9Sz8q0AViEM7VM6aDvprM4vg1fUXnRNTDB2gK0Qju+34+f6SItzbV6Z?=
- =?iso-8859-1?Q?uxW9+8d9k5nFkclxBGAYBAovNLAy+WBXI3LcjhVSYej4gAHehYiQqXOE0Q?=
- =?iso-8859-1?Q?2QThzrlToL/4FwLu6EjccEHVmr7eKvbDh0SUWbYSuacDIQSCOvmi9kI5HN?=
- =?iso-8859-1?Q?nDsTtsv9p5gVdxXSLkzh+L+MEa3NKk1stdSzhbrNqBXMdqi47WB8+FxUi0?=
- =?iso-8859-1?Q?TSlSbiI02Kd7K+0hyxiQduwdp/Sek+q+RztlgoVrb5yjS4w2ifTCe+SmxK?=
- =?iso-8859-1?Q?V8dZViF9NqrxXvmCdXDcRHyC7sJEObvbR6FhBGmCT7Qzn0MsTNSkrMq/Aw?=
- =?iso-8859-1?Q?GCrLyZRZG6O1f6dOZC0Fhs3PhEMCLWKK02FQVdhCBp6ey+VL9J5fiYuNlu?=
- =?iso-8859-1?Q?FXBfbEa6d620e9+C0AsFRc6mNZdJhYOAoNfiRk45mECzzsZ0LZNcpDcHAw?=
- =?iso-8859-1?Q?vog8rDa/ixKMKLIQk2WafTa/jcEPBKvL+XLXcfKJ5suGBwo2m9thYn1tda?=
- =?iso-8859-1?Q?anppiYixQYfcHtXzl28pGXCEzZp0Gv5j0pkA3lZIwGZku5iP3j65HYLhXi?=
- =?iso-8859-1?Q?N6+yePrU2MfrhmsB6w8fA301p45QcbZJOhO59sXX7z/mUBoLo7ysl7lSfP?=
- =?iso-8859-1?Q?1WCGj4pi+0DQx7tuD+xNHQzbDulQuUpxPzSr2y8J3GEq5RBmRmCs3Y12R1?=
- =?iso-8859-1?Q?1etfCUIciWDIK1AKaHs2GR9YZgGdmqcx7oM0gpA1ecmOIeOJrmAw2OEbgd?=
- =?iso-8859-1?Q?hNAgTUS4sURGa8dY8lUP5pddMD16EqfVKl9TVKvk2MHx4P7gXrlYiSTkpc?=
- =?iso-8859-1?Q?lwuPgkBElAECmAAUhOf269XFrEyXIthEmKszSA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?FWS5L5+ql4QudbIrz+l5rKcWcu0+AUrkLiZhCRzM+5JGA4UZ3+KD2/eb7c?=
- =?iso-8859-1?Q?Bf/9oT5LxpWCmyq3ZQhB6t7J2g17/qlI9yVsbMCfIpE8enTBCNQ5JvWoTx?=
- =?iso-8859-1?Q?mFb/Hl6T/pLEPhcfBOJBwkcsk90OrbGTjjREmLPlYB8WWB0aSoq/BdpWSq?=
- =?iso-8859-1?Q?04l3nDKCBERM3jLgRwoaoYocOM5puOCtXc4gOJsd5JlE3of4blEpmW28pV?=
- =?iso-8859-1?Q?fY6PkxNXOMN8k0hJLhxZatyizHXYgGELARIWzHoC/7dC6JF/g16EhsEPdK?=
- =?iso-8859-1?Q?mCwYOBnsjfNc0di50h8CQoJ+TfQ6qvS5v4QmRY3E5LP7sJITxWDw9oDZZ1?=
- =?iso-8859-1?Q?x+LAi//Oiy6jDnNnIoAjgYBR+AZIvY+Jt2CrSidK1LrqOA1cJ89zPdO4vO?=
- =?iso-8859-1?Q?yEojBu+/V2lvELqf/gt4exV5eFlUQ52pFcpX9/wLdCcf98rQ9js4eqZ1oP?=
- =?iso-8859-1?Q?Fb2Kb823Hj+Y/bSC4+Cg3mqgg1lJLGl+9TaeGlEf+z4LrMPV6XaSHQl0ug?=
- =?iso-8859-1?Q?B4mEWuy8mck5WbbGsqFf6JNmV7lgjcVdm1bkhsFrbpzRGgFyNVO4MA0Pjn?=
- =?iso-8859-1?Q?GO+2I2pgHbppGVHnqa1TSUKkw3IuaqWa+7lWqjeTp+Dx571oTarlcWKCG+?=
- =?iso-8859-1?Q?EHU0MLZnAmHgtzztzaVdCuWW5eUhfGB20QqrhK2620UUjSMTEC9xs5day1?=
- =?iso-8859-1?Q?llavb1ZOmNkQuSGyqiYMD3AqkWEe+kCKZn7BmPkNUXn7PWW3MYGp0W6/Ys?=
- =?iso-8859-1?Q?MRBQSGi+5tHDg0mcR+T+cjGTlf7201MxZZ1gVTcMvyD/qEjGOT6cAYJtFn?=
- =?iso-8859-1?Q?3N2qOcFZgYfdBGMbvsenCIyJlbpmkokuoqAMF0KEYGvyKjXdlcqfogjhSf?=
- =?iso-8859-1?Q?kL6AdpveiMTovNlsihdJ5Y82BgSw4yxX2P4sJ9hTzGMK1oa4ZLyYKyz6Rj?=
- =?iso-8859-1?Q?9shts6+jbvBnZidkVCjDtNEzouvq+KveQfT+6qgC6beNSlO9FFZJvBS+Gi?=
- =?iso-8859-1?Q?4InFI6qT7YapbUJTvgV9P0CKFB8rCXraWEgiZpdkunvsYmqIE45nHeX22Q?=
- =?iso-8859-1?Q?qcblgPM4yTc2hCv6OE0TcOWmwwlbDWIXcom5syS6HIIhabEqDptV8S8KOX?=
- =?iso-8859-1?Q?m3HtdCjy8yYRdO+eJBIsbkw7EhilCMf1OtGpF1WxR/RiC9R0ChKAKuEJRt?=
- =?iso-8859-1?Q?gtgRX4rjONHhr0hry/Yk41bPtE+36wqv0dR8TiQVG3gwvL+/K1/m7O/58U?=
- =?iso-8859-1?Q?QQvxwljQT5ILCs9gmqMlxKv0pS71bmI4ROtHTDLWlNI5Ke57/fnBXB79JX?=
- =?iso-8859-1?Q?kBZPHthm2CCWLlvvLBZ3CENYA1MDxRowwyAiBURxL2mtv7nYPDKFIa4x7n?=
- =?iso-8859-1?Q?AQVmis6i+BQFTJGajJBot7r6TnE4SqmmqoLYSxm/Lc4qWTiuGlAlWPANLa?=
- =?iso-8859-1?Q?yqNMHk3PCKGjVvBIZSLl4reA/e1GIhdokLY2Sbx56Ytm7Lw4YrU/4UbLOK?=
- =?iso-8859-1?Q?i1w82VQ0FBOdX3ZWMNhfKI/YaPkZoJJN4QPvM6R2qjW+ua+Cu3nrk77nvk?=
- =?iso-8859-1?Q?e/nSYdb5YX9Gtoc1vcUMPFvDshaSU7vBLahEt/BW2DOR/9mNcNjBpjfs++?=
- =?iso-8859-1?Q?Mo/TEtr9go+BFSO9avQlJecYpt6eDiCkGXwgz8yMBp5ym1vDdeDHE1xA?=
- =?iso-8859-1?Q?=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: OewJ6tF2weCL2B4wFd6ktPcQhyXwrO4VR3jEk/siqb770LIzinuLOvRFHr6gElyq5eU4uW2aKBV+qRuoyuVN4yXXJ/gWgbF8Ys2wOtfRCqihAshJezUEqZiH8ESCTcflIU/jLW5KyscA1JvIoxcwYtJmnnPm4VBehVmgK8UbXfiveh9M1Ts9PVYDx/H6Jyj0NjUaOPtkEOLdD7KzG9vfIDSXAks3UKe+l8v6z6SXBWe1Pv6tlYXqjN/rn7cIGVn7S25GUI3wR4l2MNo/ZJW3TuvsZcpwdNRi/nUlI2lhFJACrKdnLXYLngWsY/A3Z45T4LxGqjo68UpJgI8r6iFuTdKtbM2EtJHEj4Bb8sBAEhfNqgQk0EcyPihZEwI662pnVqTxI/VbTbaxyu0ASql5ndPNzpnbyJl6OGbftY+vIii2u1TTKHd2BEIf8hlMaIe2DxIhZWYPySA3m53J9Szwjlne0XvLpT/ZmqDjVuhNfsPlUpLCs0KmmTRjE/7J2Gu9D3oYEH+gpDJTj2BPvGlV07hC0A7Mruovh4MAajqIiDQGi4hZEk8iTI+VaG32C3HnsMrYuHQyVv6ZESL62uliDcpGev5B9Xfz7qsYTyRkfzo=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c708c98d-fbe5-4e52-919d-08ddd4cec18c
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 09:51:03.2667
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GRLpduzVeMGpY+Ae4mPam2vIrz4WX/dHE+N5Z3EUBz/BQ1S0UhxyvQJB90i9qrXiGyTzxcATyhO4Bhg7lp67wLy1reznv7grqqbS/g3a4hw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4267
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-06_02,2025-08-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 suspectscore=0
- phishscore=0 mlxscore=0 malwarescore=0 bulkscore=0 mlxlogscore=931
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2507300000 definitions=main-2508060060
-X-Proofpoint-ORIG-GUID: JsTPOCUhkQrEfdygDMmSB8Zlx6nmEMrR
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDA2MSBTYWx0ZWRfX8gB6EE8gEDDI
- ILZvacXYJ3X4ZdzgYv9ODKuqTW/Fehoo5glLcwWXMoJoB7inMSWVGl9jU04D374dIj/dB/MJpAp
- Z2OtEH1SNQsUv6mFKTGPKzBxm6/Q+X1jhrqHHsSp0BhzZRwTaIuyIBMjKVD3Y+2XwBpQY2XAwCw
- UvwanDI8ZdML4T4a/PMnfntXfBcgMN5k+Zbwz2Y5tGfCdJ4iU+Gjecd2jJzK5lOiyp0WTOVEhji
- EVk0fYpRFEQk34ltR3yAPs0qbxG+THmnURSCuRQ9cMjwcA8OSMwK+TbK7V/1tXz/471MoVGpAMP
- gDYUAbgx2+uiUxoLFsaj+0bcdqKeTCkzepvQ5n8Cbk5G/9KXo4AX2gh2fFUqZhvoIMTPZfkXFdM
- AdpWnbfB0lxAI3MZDoSL9KPw4x2H3sqpUPO1pAp62cj+3+fd79vk7LSMzHvkgG1Cu91TRBpP
-X-Authority-Analysis: v=2.4 cv=dobbC0g4 c=1 sm=1 tr=0 ts=68932596 b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=2OwXVqhp2XgA:10 a=GoEa3M9JfhUA:10 a=dRvm-PZzbjhcwBgFCbcA:9
- a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10 cc=ntf awl=host:13596
-X-Proofpoint-GUID: JsTPOCUhkQrEfdygDMmSB8Zlx6nmEMrR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250805093330.3715444-4-zhenglifeng1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_025145_758155_DBE8B1B7 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20250806_025546_238868_E222D0BB 
+X-CRM114-Status: GOOD (  40.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,65 +69,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 03:07:49PM +0530, Dev Jain wrote:
-> > >
-> > > You mean in _this_ PTE of the batch right? As we're invoking these
-> > > on each part
-> > > of the PTE table.
-> > >
-> > > I mean I guess we can simply do:
-> > >
-> > >     struct page *first_page = pte_page(ptent);
-> > >
-> > > Right?
-> >
-> > Yes, but we should forward the result from vm_normal_page(), which does
-> > exactly that for you, and increment the page accordingly as required,
-> > just like with the pte we are processing.
->
-> Makes sense, so I guess I will have to change the signature of
-> prot_numa_skip()
->
-> to pass a double ptr to a page instead of folio and derive the folio in the
-> caller,
->
-> and pass down both the folio and the page to
-> set_write_prot_commit_flush_ptes.
+On Tue, Aug 05, 2025 at 05:33:30PM +0800, Lifeng Zheng wrote:
+> When boot with maxcpu=1 restrict, and LPI(Low Power Idle States) is on,
+> only CPU0 will go online. The support AMU flag of CPU0 will be set but the
+> flags of other CPUs will not. This will cause AMU FIE set up fail for CPU0
+> when it shares a cpufreq policy with other CPU(s). After that, when other
+> CPUs are finally online and the support AMU flags of them are set, they'll
+> never have a chance to set up AMU FIE, even though they're eligible.
+> 
+> To solve this problem, the process of setting up AMU FIE needs to be
+> modified as follows:
+> 
+> 1. Set up AMU FIE only for the online CPUs.
+> 
+> 2. Try to set up AMU FIE each time a CPU goes online and do the
+> freq_counters_valid() check. If this check fails, clear scale freq source
+> of all the CPUs related to the same policy, in case they use different
+> source of the freq scale.
+> 
+> Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
+> ---
+>  arch/arm64/kernel/topology.c | 54 ++++++++++++++++++++++++++++++++++--
+>  1 file changed, 52 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index 9317a618bb87..b68621b3c071 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -385,7 +385,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
+>  	struct cpufreq_policy *policy = data;
+>  
+>  	if (val == CPUFREQ_CREATE_POLICY)
+> -		amu_fie_setup(policy->related_cpus);
+> +		amu_fie_setup(policy->cpus);
+I think my previous comment still stands.
+This will indeed set the AMU FIE support for online cpus.
+Still, on each frequency change, arch_set_freq_scale will be called with
+`related_cpus`, and that mask will be used to verify support for AMU counters,
+and it will report there is none as 'related_cpus' won't be a subset of
+`scale_freq_counters_mask`. As a consequence, new scale will be set, as seen by
+the cpufreq. Now this will be corrected on next tick but it might cause
+disruptions. So this change should also be applied to cpufreq - if feasible, or
+at least be proven not to be an issue. Unless I am missing smth.
+>  
+>  	/*
+>  	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
+> @@ -404,10 +404,60 @@ static struct notifier_block init_amu_fie_notifier = {
+>  	.notifier_call = init_amu_fie_callback,
+>  };
+>  
+> +static int cpuhp_topology_online(unsigned int cpu)
+> +{
+> +	struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
+> +
+> +	/*
+> +	 * If the online CPUs are not all AMU FIE CPUs or the new one is already
+> +	 * an AMU FIE one, no need to set it.
+> +	 */
+> +	if (!policy || !cpumask_available(amu_fie_cpus) ||
+> +	    !cpumask_subset(policy->cpus, amu_fie_cpus) ||
+> +	    cpumask_test_cpu(cpu, amu_fie_cpus))
+> +		return 0;
+This is getting rather cumbersome as the CPU that is coming online might belong
+to a policy that is yet to be created. Both AMU FIE support, as well as cpufreq,
+rely on dynamic hp state so, in theory, we cannot be certain that the cpufreq
+callback will be fired first (although that seems to be the case).
+If that does not happen, the policy will not exist, and as such given CPU
+will not use AMUs for FIE. The problem might be hypothetical but it at least
+deservers a comment I think.
+Second problem is cpumask_available use: this might be the very fist CPU that
+might potentially rely on AMUs for frequency invariance so that mask may not be
+available yet. That does not mean AMUs setup should be skipped. Not just yet,
+at least. Again more hypothetical.
+BTW, there should be `amu_fie_cpu_supported'.
+> +
+> +	/*
+> +	 * If the new online CPU cannot pass this check, all the CPUs related to
+> +	 * the same policy should be clear from amu_fie_cpus mask, otherwise they
+> +	 * may use different source of the freq scale.
+> +	 */
+> +	if (!freq_counters_valid(cpu)) {
+> +		topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
+> +						 policy->related_cpus);
+> +		cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
+I think it might deserve a warning as this probably should not happen.
 
-I already don't love how we psas the folio back from there for very dubious
-benefit. I really hate the idea of having a struct **page parameter...
-
-I wonder if we should just have a quick fixup for hotfix, and refine this more
-later?
-
-I foresee some debate otherwise...
-
->
->
-> >
-> > ...
-> >
-> > > >
-> > > > > +            else
-> > > > > +                prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
-> > > > > +                    nr_ptes, /* idx = */ 0, /* set_write =
-> > > > > */ false, tlb);
-> > > >
-> > > > Semi-broken intendation.
-> > >
-> > > Because of else then 2 lines after?
-> >
-> > prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
-> >                nr_ptes, /* idx = */ 0, /* set_write = */ false, tlb);
-> >
-> > Is what I would have expected.
-> >
-> >
-> > I think a smart man once said, that if you need more than one line per
-> > statement in
-> > an if/else clause, a set of {} can aid readability. But I don't
-> > particularly care :)
-> >
-
-Can do this in follow up too.
+---
+BR
+Beata
+> +		return 0;
+> +	}
+> +
+> +	cpumask_set_cpu(cpu, amu_fie_cpus);
+> +
+> +	topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
+> +
+> +	pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
+> +
+> +	return 0;
+> +}
+> +
+>  static int __init init_amu_fie(void)
+>  {
+> -	return cpufreq_register_notifier(&init_amu_fie_notifier,
+> +	int ret;
+> +
+> +	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
+>  					CPUFREQ_POLICY_NOTIFIER);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+> +					"arm64/topology:online",
+> +					cpuhp_topology_online,
+> +					NULL);
+> +	if (ret < 0) {
+> +		cpufreq_unregister_notifier(&init_amu_fie_notifier,
+> +					    CPUFREQ_POLICY_NOTIFIER);
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+>  }
+>  core_initcall(init_amu_fie);
+>  
+> -- 
+> 2.33.0
+> 
 
