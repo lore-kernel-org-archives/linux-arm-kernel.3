@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BE79C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 23:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA7AC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 23:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CZfnUWwxdxJN9955pgQFuv1T6J84459tvn2v5OJo7mg=; b=KVvJm3dARcROJfb5jIFaBatVN+
-	jdl91XpCCudgWlpTAy3QF/zU5cbjg2miLHPRh+OJyO6IEoQWxkFSzXn5eced/T7ZmhMQ0G7ZmEKk1
-	J9yv95g1ciNQLvevMsAX72BGjwOvcGMZ4i0pYv60IzERZYcnZa/CZfNUJXEUgWXE0I/5FF9RtrlaL
-	DbDJvV1sNL/dydh5zUqax3BwY8fSfXjwKrNh9t9IoCUNATwsqbdWItvtvReZroDLKufk1M3bq7ZUr
-	3QrVt0et+a5Y/5pbNtEjAHXhg5wG43tx3scdVOM+6I8V7Vv2DY2lgkb7F7tK3tjXDXdk/jlkFle5x
-	N/h3sKiA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vLwQExKUfK4JzXgNc/MSuz/ip/toJprM4tvNXBkEa0c=; b=dkB3Pbe8ecF+fG86PGLbj5YnBQ
+	KggHa4gT1ULD+bilqWQ2xK8/e+kOCygVGN/NPZZeL/AjjzkMcvdg6bod+FDs0rhflUiXpr+p4FZ0U
+	leyTVsMZaAdv78CD82gccqeL+nxM/zicJ05OqzeoC9CjwEJziUY9U+luj0DOOgZTwPbvn6pM+EqYe
+	oMfxMHVy3pIuKSSnJBMKKAH7prx1zpn5A40HbX8qlFT2U9/4wrKYWVEIfcncnT4HivhUtqhCPsOim
+	AQa8lIor0WIUA/PZya+m845H3H/4i+K1TZPh+cMPo5r4XX9C62M9Jj5IwMiHxbMpXw+/WTg1x9kef
+	X+5s5LkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujnLV-0000000GnjL-0uxi;
-	Wed, 06 Aug 2025 23:14:57 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujm6x-0000000GecN-35gg
+	id 1ujnLT-0000000Gniv-2uyx;
+	Wed, 06 Aug 2025 23:14:55 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujkvB-0000000GQiB-3bF3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 21:55:53 +0000
-Received: from thinkpad-p16sg1.corp.microsoft.com (unknown [40.65.108.177])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DB4B7201BC85;
-	Wed,  6 Aug 2025 14:55:49 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DB4B7201BC85
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1754517350;
-	bh=CZfnUWwxdxJN9955pgQFuv1T6J84459tvn2v5OJo7mg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nY3Trcvs//X2Tf79PjOTOC2zzQiT48wYcGdOOJR66n9wdprAOc7jUohX6jkfsNMBT
-	 u1xaaRzXmn7yO5VRXXvmvJbCkKTh/lOJPgrTpUzcpFg23rm2r6gC5bceLtPHokRw5t
-	 3l8aS0kmSExWgR4JviCBxlPhDhWg/tCeYqqcU7qY=
-From: Shyam Saini <shyamsaini@linux.microsoft.com>
-To: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev
-Cc: jgg@ziepe.ca,
-	will@kernel.org,
-	jacob.pan@linux.microsoft.com,
-	eric.auger@redhat.com,
-	code@tyhicks.com,
-	eahariha@linux.microsoft.com,
-	vijayb@linux.microsoft.com,
-	bboscaccy@linux.microsoft.com
-Subject: [PATCH v3 3/3] arm-smmu: select suitable MSI IOVA
-Date: Wed,  6 Aug 2025 14:55:39 -0700
-Message-Id: <20250806215539.1240561-4-shyamsaini@linux.microsoft.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
-References: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
+	Wed, 06 Aug 2025 20:39:38 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b423b13e2c3so163734a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 13:39:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754512776; x=1755117576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vLwQExKUfK4JzXgNc/MSuz/ip/toJprM4tvNXBkEa0c=;
+        b=e61PL6e7b0VO5LRXuPYNovy/TPRkrr89jc8K4xazQTFQJyGyHkJ4ZBNGNYnRe21otC
+         bUGsWVh5SbtjEw81kNw/sy/Au4ohpuhUomE6Li0OOfocqFE4i3ad96uF3xSnviNvTfUl
+         U/9CpFp4iccJ8OjJ8Zr3bdfQiRWF+S1XHkxY3k6lWkwX0i/jZ0fl7btc1tfqzynK0RCa
+         1LhBlz+HR3uWvl/BLW4cJEjYzPOc7LdHj+HxojKUnt7H9ao4EBc4uxQ+WW8DLfLyFbpc
+         qMvaGdtjdr7rpRNIU2MrByxHo0waAsYXShgTE2HiZOLnKWC6NYgp3j5ULy04LK/A6iQ8
+         sttg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754512776; x=1755117576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vLwQExKUfK4JzXgNc/MSuz/ip/toJprM4tvNXBkEa0c=;
+        b=CEexpYs88dghuJ+LXkoijD4W0BHh3Iu2SHPv7dkbA0mwhrosVAtkh66dJqqgNH3hzG
+         nmVtiJOd3xVtUb5p0Mwf4c1Sjw4SXKmmtmlqBnKFwgRBEbippXAHLdsEKtK3oP4nHDvR
+         itwg0o33sgYLwkp69UPQTfiPWsVWis7Cv5QHtywlg6qW+zp5hNuxiG8GLUyQwwxXVArt
+         BpXEsDr/1XFuVBXFDTqiKhq5fYDU7uDC34r+97Bvh4aFciLH2YyoRkcJ6AhkDElB2Jq2
+         KiQmA2ypX7M4Ftw/4uOfkbOUzrpsInskWM7v4wMjQiVsUTddWiRWD/4ZpRN+dCxHDuqy
+         /rUQ==
+X-Gm-Message-State: AOJu0Yzd3QbK5bjbbVMhFb+PvH+IAfvLgGzr+MbUgKsNcOICvtNkv1JT
+	zXu707pDe5w01zt2Ap2ZU/eL3MeJqUS74HpGgroQKjUNrHen703VA2cch4gdzoGxzQQ=
+X-Gm-Gg: ASbGnctoFqcGekyIAhoQX7l++4FZWNgUi2dYzA68MMugrnAUA/MUXfCcJYfszA6gMFi
+	2XyL4UNKGV1WL6H0MDxR3+KUvx+0FWQ0b/aqCBy5hujMzt6IllSquT+Q+Y2qebfMYobwbj4gQF0
+	ssQ9DSY+iDLkvsfb88A9EqA7zdFrQXqxmZ8T1hjhbBj/KmQz7Bll9W5EiixJ+gbwHAbmvtr2mG9
+	222jvJbYU5jgSHsXhUSzYFytsWVS5hJ3ROj5eKAKE8BFtzer8nq7JZ9eUThuJgIAo290Tf30CQg
+	7ezmMLLHSnJCpbhrrN9Gwoj0qxcWk2yoZzZDgEFPH/vFiE0OIfbqRbCEF6ge5mO6mZNSj2vPF7J
+	3SvDRyiP5cmh7KeRJ6/Lux3AvrUIfoxOw
+X-Google-Smtp-Source: AGHT+IF8wHNHuQVZKKSQQIRqVPww/m8v+NrnrInpYnTghu2nm8e4+4Nb4DI4QQXkDMw2EhctprCEdg==
+X-Received: by 2002:a17:903:19f0:b0:242:9bbc:c773 with SMTP id d9443c01a7336-242a0bc9f41mr56677965ad.54.1754512776231;
+        Wed, 06 Aug 2025 13:39:36 -0700 (PDT)
+Received: from server.. ([103.251.57.138])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1ef67a3sm166407345ad.15.2025.08.06.13.39.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Aug 2025 13:39:35 -0700 (PDT)
+From: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH] selftests: arm64: Fix -Waddress warning in tpidr2 test
+Date: Thu,  7 Aug 2025 02:09:26 +0530
+Message-ID: <20250806203928.168365-1-reddybalavignesh9979@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_145551_831108_CA7E8E99 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20250806_133937_895479_0512A344 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,167 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently ARM SMMU drivers hardcode PCI MSI IOVA address.
-Not all the platform have same memory mappings and some platform
-could have this address already being mapped for something else.
-This can lead to collision and as a consequence the MSI IOVA addr
-range is never reserved.
+Resolve compiler warning about always true condition in ksft_test_result
+in tpidr2, passing actual function.
 
-Fix this by reserving faulty IOVA range and selecting alternate MSI_IOVA
-suitable for the intended platform.
+This silences -Waddress warning while maintaining test functionality.
 
-Example of reserving faulty IOVA range for PCIE device in the DTS:
-
-reserved-memory {
-	#address-cells = <2>;
-	#size-cells = <2>;
-	faulty_iova: resv_faulty {
-		iommu-addresses = <&pcieX 0x0 0x8000000 0x0 0x100000>;
-	};
-};
-
-&pcieX {
-	memory-region = <&faulty_iova>;
-};
-
-Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-Link: https://lore.kernel.org/linux-iommu/20250416181759.GF493866@ziepe.ca/
-Signed-off-by: Shyam Saini <shyamsaini@linux.microsoft.com>
+Signed-off-by: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 27 +++++++++++++++------
- drivers/iommu/arm/arm-smmu/arm-smmu.c       | 27 +++++++++++++++------
- include/linux/iommu.h                       | 25 +++++++++++++++++++
- 3 files changed, 65 insertions(+), 14 deletions(-)
+ tools/testing/selftests/arm64/abi/tpidr2.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 5f46140a8f3fa..0dfb522e173f0 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3642,17 +3642,30 @@ static int arm_smmu_of_xlate(struct device *dev,
- static void arm_smmu_get_resv_regions(struct device *dev,
- 				      struct list_head *head)
- {
--	struct iommu_resv_region *region;
- 	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+diff --git a/tools/testing/selftests/arm64/abi/tpidr2.c b/tools/testing/selftests/arm64/abi/tpidr2.c
+index f58a9f89b952..4c89ab0f1010 100644
+--- a/tools/testing/selftests/arm64/abi/tpidr2.c
++++ b/tools/testing/selftests/arm64/abi/tpidr2.c
+@@ -227,10 +227,10 @@ int main(int argc, char **argv)
+ 	ret = open("/proc/sys/abi/sme_default_vector_length", O_RDONLY, 0);
+ 	if (ret >= 0) {
+ 		ksft_test_result(default_value(), "default_value\n");
+-		ksft_test_result(write_read, "write_read\n");
+-		ksft_test_result(write_sleep_read, "write_sleep_read\n");
+-		ksft_test_result(write_fork_read, "write_fork_read\n");
+-		ksft_test_result(write_clone_read, "write_clone_read\n");
++		ksft_test_result(write_read(), "write_read\n");
++		ksft_test_result(write_sleep_read(), "write_sleep_read\n");
++		ksft_test_result(write_fork_read(), "write_fork_read\n");
++		ksft_test_result(write_clone_read(), "write_clone_read\n");
  
--	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
--					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
--	if (!region)
--		return;
--
--	list_add_tail(&region->list, head);
-+	static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
- 
- 	iommu_dma_get_resv_regions(dev, head);
-+
-+	/*
-+	 * Use the first msi_base that does not intersect with a platform
-+	 * reserved region. The SW MSI base selection is entirely arbitrary.
-+	 */
-+	for (int i = 0; i != ARRAY_SIZE(msi_bases); i++) {
-+		struct iommu_resv_region *region;
-+
-+		if (resv_region_intersects(msi_bases[i], MSI_IOVA_LENGTH, head))
-+			continue;
-+
-+		region = iommu_alloc_resv_region(msi_bases[i], MSI_IOVA_LENGTH, prot,
-+						 IOMMU_RESV_SW_MSI, GFP_KERNEL);
-+		if (!region)
-+			return;
-+
-+		list_add_tail(&region->list, head);
-+		return;
-+	}
- }
- 
- /*
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 4a07650911991..84b74b8519386 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -1600,17 +1600,30 @@ static int arm_smmu_of_xlate(struct device *dev,
- static void arm_smmu_get_resv_regions(struct device *dev,
- 				      struct list_head *head)
- {
--	struct iommu_resv_region *region;
- 	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
- 
--	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
--					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
--	if (!region)
--		return;
--
--	list_add_tail(&region->list, head);
-+	static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
- 
- 	iommu_dma_get_resv_regions(dev, head);
-+
-+	/*
-+	 * Use the first msi_base that does not intersect with a platform
-+	 * reserved region. The SW MSI base selection is entirely arbitrary.
-+	 */
-+	for (int i = 0; i != ARRAY_SIZE(msi_bases); i++) {
-+		struct iommu_resv_region *region;
-+
-+		if (resv_region_intersects(msi_bases[i], MSI_IOVA_LENGTH, head))
-+			continue;
-+
-+		region = iommu_alloc_resv_region(msi_bases[i], MSI_IOVA_LENGTH, prot,
-+						 IOMMU_RESV_SW_MSI, GFP_KERNEL);
-+		if (!region)
-+			return;
-+
-+		list_add_tail(&region->list, head);
-+		return;
-+	}
- }
- 
- static int arm_smmu_def_domain_type(struct device *dev)
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index 517f908296436..6750ecdebaa94 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -1509,14 +1509,39 @@ static inline void iommu_debugfs_setup(void) {}
- 
- #ifdef CONFIG_IOMMU_DMA
- #define MSI_IOVA_BASE        0x8000000
-+#define MSI_IOVA_BASE2       0xA0000000
- #define MSI_IOVA_LENGTH      0x100000
- 
-+static inline bool resv_region_intersects(phys_addr_t msi_base, size_t length,
-+					  struct list_head *resv_region_list)
-+{
-+	struct iommu_resv_region *region;
-+	phys_addr_t start, end, resv_region_end;
-+
-+	start = msi_base;
-+	end = start + length - 1;
-+	list_for_each_entry(region, resv_region_list, list) {
-+		resv_region_end = region->start + region->length - 1;
-+		/* overlap detected */
-+		if (!(start > resv_region_end || end < region->start))
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
- int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
- #else /* CONFIG_IOMMU_DMA */
- static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
- {
- 	return -ENODEV;
- }
-+
-+static inline bool resv_region_intersects(phys_addr_t msi_base, size_t length,
-+					  struct list_head *resv_region_list)
-+{
-+	return false;
-+}
- #endif	/* CONFIG_IOMMU_DMA */
- 
- /*
+ 	} else {
+ 		ksft_print_msg("SME support not present\n");
 -- 
-2.34.1
+2.43.0
 
 
