@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A86EEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 10:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85B5C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 10:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qh2edeS0ZaNzvwBPknu4B1s/vixn92FnvJSgkjVQa5Q=; b=GOnlEMUPCNdKasJdSyQ4pN1+9v
-	d40w7qJ0rYYEyUFYLXdkrkjNrweaPtRhyAZMUZBA0D5fRvD4X3uELl/oS6974AZH4tPTfKK5jzzub
-	yF/5HKuzJpkifXKOf62yXNSDiwJxCHbwsBZ2eY8wcES/hZc6i/i7Onhk1ENL76a26mZSL+7+DSdv6
-	h6tzaQrX7+U6JhbCW1hzvlDQgva5C6fJkCcODbmQx5OBeG5KZ/P1iaILeqlWy0i1f0iURl5mSyW0e
-	1eAexNsgPvMrkFz3NPpb8assYQrNovB5+QeLzh9ZoxM9ctlNZtX6c7o8h6ecmoCJxSN0Nk4a3foAB
-	zT/LyPmw==;
+	bh=nKNoeRnJQHE9xlWRNjmXu0K+b82kSOJOZJ1O9/cC1ug=; b=z1eiLEBIgSywlK+zCxqMXK0RO0
+	ijYMBI3N5kTvhNn+ydVsP0ZBuWSdzBBW3MvannrA8xq5vwT3pvoaTfcZINxRwoMyxh5exjVEWfu5I
+	9QUGYrekqLhyRmL575PmdtSVgyG0spTj34zZUWceGyipjeQvW7wUkSa6TEwmrnLctCe7o49D2Jdbu
+	jKP4iweBPx9lSGyVXiSe1zTaf9nWMFwFrOozj70H5PIjKDONXHmLQmVUMyoeZG6QWqZGhejb69iSq
+	1kahgjE6EcnvHoOh4fmHo8ur3hs08yjemKd/Jn1fzCmmtNkl5HuZbD0dPrqtHPUE85Whz7Rvj3lLY
+	fJFilHCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujbA0-0000000Ermh-2cm2;
-	Wed, 06 Aug 2025 10:14:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ujbCS-0000000Es26-1ubV;
+	Wed, 06 Aug 2025 10:16:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujb7V-0000000ErX7-1RRX
+	id 1ujb8e-0000000Erem-3yi2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 10:11:42 +0000
+	Wed, 06 Aug 2025 10:12:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754475099;
+	s=mimecast20190719; t=1754475171;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qh2edeS0ZaNzvwBPknu4B1s/vixn92FnvJSgkjVQa5Q=;
-	b=ctjYqBdlsY4Suv9th8QI8wRibkVHahxyio8I8cICxD9ThXqBBossLkStKS5P4+e7bCyojR
-	lRp670cba5gXfTBhpFkIo58YWKOJOQKtNFkDKJXjBqyhgBsH4F2SZAv0V5ZC710brfs77G
-	7FTjZu8ZYo5Wv3spWN6XVCq+Rw8YVcA=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=nKNoeRnJQHE9xlWRNjmXu0K+b82kSOJOZJ1O9/cC1ug=;
+	b=LFsNEfJwrFdYgMKmoEoGSQ8/vZOF+QQBzT1ijjx9h+K/taTPgDTJLm30ZbGN5g3Dc8zJ/W
+	fc3VesgVAaMAzjKjTTAUlXdZqafzxbsBypU54z6kwDX/Bvmct0BWfDWU3W08YZFR6RbOzr
+	7eghnG6UtOvRPkWgfkO+MOO75M4Ro5I=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-659-IszuwhjAP1-3VkJtiS4prA-1; Wed, 06 Aug 2025 06:11:38 -0400
-X-MC-Unique: IszuwhjAP1-3VkJtiS4prA-1
-X-Mimecast-MFC-AGG-ID: IszuwhjAP1-3VkJtiS4prA_1754475097
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-459de8f00cfso10318155e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 03:11:37 -0700 (PDT)
+ us-mta-582-YSkCHwHmO22p-OL56Nsrmw-1; Wed, 06 Aug 2025 06:12:50 -0400
+X-MC-Unique: YSkCHwHmO22p-OL56Nsrmw-1
+X-Mimecast-MFC-AGG-ID: YSkCHwHmO22p-OL56Nsrmw_1754475169
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3b7865dc367so3934377f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 03:12:50 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754475097; x=1755079897;
+        d=1e100.net; s=20230601; t=1754475169; x=1755079969;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=qh2edeS0ZaNzvwBPknu4B1s/vixn92FnvJSgkjVQa5Q=;
-        b=NtilIXnQBROYWxgyDOisPebLf2jLuXVSRcytoFtqAGzH9v7TISD8Wgu58FwS4tvTiH
-         Kd9MKFALrKVtN9FRXtXJyndGeCR6QHljlaDzK2VLMQOVRayvBJ8aTzTh9jfMOF4zqprr
-         ZIQwRdHdqQlCnlicXLO3lbolg46X1ApcGJ1LzyHCr/wvpW9qHbeVWIbrBaX6LTGlXZF8
-         m+le036Gk9JJSbgPo2FgGEfuCQl5mI2+EmSmsM9cn6OjgKTZcq8eGG9E0JM5QUnsURKK
-         Rh5IGU1UTxCPhonl4aMzR9kT7O/Ost57+ZcKwe2WdRkB/I0dGNs9a3QqJcayFKd22n4J
-         tfoA==
-X-Forwarded-Encrypted: i=1; AJvYcCVlGD8/tXXByuLAMHohjpdeKkV2g5FvuQlmosO/syoZ4wCfmQKGeLe1eP7Mg2F8zvzeMG2szE5+7UqaUEJXbP8C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/8qJP1P+EzXNEcO83d8d8fNxXqdaIf5c/h4Is3XvwOfsK486S
-	KkVbBll8nxHRYKW9cgb0XzmxV0kCAdI7Ib4gCXy/sahNiE9vTK6YzMThUDacxbo+iX8FRR//xbP
-	cESknN7iDWPA74e4WDSpTnjL0R5Gi3Z2WE9hPoIdPgtQdKwfQUEz52p1F6xFa5gES7lZ5gB8Q5L
-	oo
-X-Gm-Gg: ASbGncv9IlCeTuCwTiScm6naFd1cX/NalXxkTi0hMV6EAEH9HH1oB/fie67mroCalo+
-	q0RMpCNTd3lmCpI+2/cEpuNZ438xQ4RiXSH4qUnGedpQVLxXKyRoHt4RjEgeoBqK6a0g3LopJk0
-	lGY3Mn00Y2dvfdhDDAkGO340ieLvw3VXqQJFUb7uYebUMHw3mxZ9s+zkbwtuaWOTzc7aCYwWP8U
-	lRu/X+tg67MgkICFh5gLbHiJlEnm/eNzTqJzoZx39zuNqL0bYzZT04kAipSbM3UGQR6P3iTlfQZ
-	83XI9osx8SZ4ZR7DLlkjoiSWg3NHXlV1V3k0oHAbV1rZfPeCQRcIkfvinL/8aOFobtyCrX3hltn
-	zL5VU1f6MD8mtiwbuvn/gszLXDsGi8vk9FqhnSxwmRtXw3DQ9G58uZt0ieA1JBOrBUqI=
-X-Received: by 2002:a05:600c:4ecd:b0:458:a850:f857 with SMTP id 5b1f17b1804b1-459e711e5f5mr22019465e9.31.1754475096637;
-        Wed, 06 Aug 2025 03:11:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IECB8a+B/TWDtQecrYAbY89V39jfBkap9mCeJXvk++JnuEAN8c3eY64Hf3618Dec9c0Z5BLKw==
-X-Received: by 2002:a05:600c:4ecd:b0:458:a850:f857 with SMTP id 5b1f17b1804b1-459e711e5f5mr22018795e9.31.1754475096051;
-        Wed, 06 Aug 2025 03:11:36 -0700 (PDT)
+        bh=nKNoeRnJQHE9xlWRNjmXu0K+b82kSOJOZJ1O9/cC1ug=;
+        b=OjxrbecYKBXi5w9uRzyqJK3EKWpKKcbO+ApTLuOtsiNVzXxJJasmx/1hWiETMlw6A3
+         ZRBcCQ6+f4XI0fql2xtlQM1XTvBi9/FynssssB3VCOmYRGFB4yvtNBl+YfoEzvDOFf3Z
+         nxbYtf8pMYSIDsGrkZmfWpYJcFD2do0b3OyAAEaJb8EuPaStj87B0q99Ai8nz9aPX4gq
+         KstQzTL4+TeqnfIfLBM8PdbVL5PmVuIvGBZNAdHQ5c1EAPDfqdHq+pi5rbLwnl9BoA5V
+         6OKjRTaoL3u9CQJ83sBJfT7iNtgctP43HdwqUWiNfvjKxt2d30bVLoLrE28tgQ5btQko
+         IPpg==
+X-Forwarded-Encrypted: i=1; AJvYcCVwqBvOvZGEWhb96Ao0IRB2iTXMo1x24TRiD03lnrCsnnC5OW9mCHYSX3ob0A1EZ5+vW3WHQLiU7HVpS0DSnUFN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBuRdegCxArx4mwhO9IPWS4CcB82oC/Ojq3Tjb4QX4jWbmecXe
+	5djHydkNtlfYMUYQZqzI/qWFQDbkjMV8CEP/vyz8FOnR9RIDyrsZdh98tD77BA9TKTqeG3T6KQ0
+	Lfj1bS6rn2nYdz1AL7D6FDU2Vp5aLBbG49+so9bKLr+2eESWbgmvoitph/1DaGDzIgfg3nzgUtO
+	NE
+X-Gm-Gg: ASbGncvM7cxuTK5rvqhYA9kd3i7UZFiT+xU76L3WZONbMNS9QCki6CzOUpqNtbCDBQw
+	8So/m0JZYj264TXeT2ZGgME0JW8hLl3Lv3wVUFlxD+2TRxebf1Np0va1S6NMnEtB9/2dsxD1l3B
+	bFg39vd0eyNZbbrBVj3v0tWmu6sVOfYDSbVL3bBReMque0xNVNjs2PVZbSEsSXwnKXEk77N6Zc2
+	Xl2+KLqh4HKlmbGdsjdQcRbTJ/CUGkkQoGtFVnL0zA0t2tHi6fe6hlhQOFNikF9Hwr1IXGti/Av
+	xiUykq6uduxiKb2lY+peP1i9dMYdF+9wgpluGDXoHBhfVyPgNbz3JBzQpoCOnBMvpYw99Ise5FN
+	xThhlTYyf3GT7QweWN0/pC/nZWCwPfvYEkElzIiE/Z7wh+biHqNWyH+khP+buLA53/RA=
+X-Received: by 2002:a5d:5d0c:0:b0:3b5:e2ca:1c2 with SMTP id ffacd0b85a97d-3b8f41595c0mr1938064f8f.2.1754475169363;
+        Wed, 06 Aug 2025 03:12:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGMTciqXottdcIXxB+Q4n4Az73fuhye2kzUIBiQJuGVEgLhsIdk2Fj8My1CS4lJuGy9WxthHg==
+X-Received: by 2002:a5d:5d0c:0:b0:3b5:e2ca:1c2 with SMTP id ffacd0b85a97d-3b8f41595c0mr1938017f8f.2.1754475168846;
+        Wed, 06 Aug 2025 03:12:48 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f35:8a00:42f7:2657:34cc:a51f? (p200300d82f358a0042f7265734cca51f.dip0.t-ipconnect.de. [2003:d8:2f35:8a00:42f7:2657:34cc:a51f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c4a2187sm23345507f8f.70.2025.08.06.03.11.34
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e5d0b1afsm38474915e9.26.2025.08.06.03.12.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Aug 2025 03:11:35 -0700 (PDT)
-Message-ID: <e3d13396-8408-49c0-9ec9-1b02790959aa@redhat.com>
-Date: Wed, 6 Aug 2025 12:11:33 +0200
+        Wed, 06 Aug 2025 03:12:48 -0700 (PDT)
+Message-ID: <e7a52474-784f-4c7b-b4b5-d8dba30ddd75@redhat.com>
+Date: Wed, 6 Aug 2025 12:12:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Dev Jain <dev.jain@arm.com>
+To: Dev Jain <dev.jain@arm.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, willy@infradead.org,
  linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
  will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
@@ -99,6 +99,7 @@ References: <20250718090244.21092-1-dev.jain@arm.com>
  <54ee1971-d91a-4fe6-90b8-16212c8568d1@redhat.com>
  <0d52d680-f3d3-454f-8c12-602f650469ab@arm.com>
  <9cbe9c6a-0013-4239-9347-bf5d43021fe3@lucifer.local>
+ <1b3d4799-2a57-4f16-973b-82fc7b438862@arm.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -145,16 +146,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  WBe5lqcozu9LpNDH/brVSzHCSb7vjNGvvSVESDuoiHK8gNlf0v+epy5WYd7CGAgODPvDShGN
  g3eXuA==
 Organization: Red Hat
-In-Reply-To: <9cbe9c6a-0013-4239-9347-bf5d43021fe3@lucifer.local>
+In-Reply-To: <1b3d4799-2a57-4f16-973b-82fc7b438862@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: e-1QS4tMnv2Sy8oyJFP8VfsBA_XvCtgfJ0IC3mRIZG4_1754475097
+X-Mimecast-MFC-PROC-ID: RHu9tcoPa_diJVFq26d9-_wUjejTHoN_AxBvFzvAnt8_1754475169
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_031141_450289_06F8B715 
-X-CRM114-Status: GOOD (  22.34  )
+X-CRM114-CacheID: sfid-20250806_031253_064556_5012CB71 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,157 +170,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06.08.25 11:50, Lorenzo Stoakes wrote:
-> On Wed, Aug 06, 2025 at 03:07:49PM +0530, Dev Jain wrote:
->>>>
->>>> You mean in _this_ PTE of the batch right? As we're invoking these
->>>> on each part
->>>> of the PTE table.
->>>>
->>>> I mean I guess we can simply do:
->>>>
->>>>      struct page *first_page = pte_page(ptent);
->>>>
->>>> Right?
+On 06.08.25 12:04, Dev Jain wrote:
+> 
+> On 06/08/25 3:20 pm, Lorenzo Stoakes wrote:
+>> On Wed, Aug 06, 2025 at 03:07:49PM +0530, Dev Jain wrote:
+>>>>> You mean in _this_ PTE of the batch right? As we're invoking these
+>>>>> on each part
+>>>>> of the PTE table.
+>>>>>
+>>>>> I mean I guess we can simply do:
+>>>>>
+>>>>>      struct page *first_page = pte_page(ptent);
+>>>>>
+>>>>> Right?
+>>>> Yes, but we should forward the result from vm_normal_page(), which does
+>>>> exactly that for you, and increment the page accordingly as required,
+>>>> just like with the pte we are processing.
+>>> Makes sense, so I guess I will have to change the signature of
+>>> prot_numa_skip()
 >>>
->>> Yes, but we should forward the result from vm_normal_page(), which does
->>> exactly that for you, and increment the page accordingly as required,
->>> just like with the pte we are processing.
+>>> to pass a double ptr to a page instead of folio and derive the folio in the
+>>> caller,
+>>>
+>>> and pass down both the folio and the page to
+>>> set_write_prot_commit_flush_ptes.
+>> I already don't love how we psas the folio back from there for very dubious
+>> benefit. I really hate the idea of having a struct **page parameter...
 >>
->> Makes sense, so I guess I will have to change the signature of
->> prot_numa_skip()
+>> I wonder if we should just have a quick fixup for hotfix, and refine this more
+>> later?
 >>
->> to pass a double ptr to a page instead of folio and derive the folio in the
->> caller,
->>
->> and pass down both the folio and the page to
->> set_write_prot_commit_flush_ptes.
+>> I foresee some debate otherwise...
 > 
-> I already don't love how we psas the folio back from there for very dubious
-> benefit. I really hate the idea of having a struct **page parameter...
+> Yup I would personally prefer that. Although if you would like to see the churn, here
+> it is (based on mm-hotfixes-unstable, untested):
 > 
-> I wonder if we should just have a quick fixup for hotfix, and refine this more
-> later?
+> ---
+> mm/mprotect.c | 27 ++++++++++++++++-----------
+> 1 file changed, 16 insertions(+), 11 deletions(-)
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 78bded7acf79..0735870e89ab 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -120,9 +120,10 @@ static int mprotect_folio_pte_batch(struct folio 
+> *folio, pte_t *ptep,
+> static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
+> pte_t oldpte, pte_t *pte, int target_node,
+> - struct folio **foliop)
+> + struct page **pagep)
+> {
+> struct folio *folio = NULL;
+> + struct page *page = NULL;
+> bool ret = true;
+> bool toptier;
+> int nid;
+> @@ -131,7 +132,9 @@ static bool prot_numa_skip(struct vm_area_struct 
+> *vma, unsigned long addr,
+> if (pte_protnone(oldpte))
+> goto skip;
+> - folio = vm_normal_folio(vma, addr, oldpte);
+> + page = vm_normal_page(vma, addr, oldpte);
+> + if (page)
+> + folio = page_folio(page);
 
-This is not an issue in any released kernel, so we can do this properly.
-
-We should just remove that nested vm_normal_folio().
-
-Untested, but should give an idea what we can do.
-
-
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index 78bded7acf795..4e0a22f7db495 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -120,7 +120,7 @@ static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
-  
-  static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
-  			   pte_t oldpte, pte_t *pte, int target_node,
--			   struct folio **foliop)
-+			   struct folio *folio)
-  {
-  	struct folio *folio = NULL;
-  	bool ret = true;
-@@ -131,7 +131,6 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
-  	if (pte_protnone(oldpte))
-  		goto skip;
-  
--	folio = vm_normal_folio(vma, addr, oldpte);
-  	if (!folio)
-  		goto skip;
-  
-@@ -172,8 +171,6 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
-  	if (folio_use_access_time(folio))
-  		folio_xchg_access_time(folio, jiffies_to_msecs(jiffies));
-  
--skip:
--	*foliop = folio;
-  	return ret;
-  }
-  
-@@ -231,10 +228,9 @@ static int page_anon_exclusive_sub_batch(int start_idx, int max_len,
-   * retrieve sub-batches.
-   */
-  static void commit_anon_folio_batch(struct vm_area_struct *vma,
--		struct folio *folio, unsigned long addr, pte_t *ptep,
-+		struct folio *folio, struct page *first_page, unsigned long addr, pte_t *ptep,
-  		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
-  {
--	struct page *first_page = folio_page(folio, 0);
-  	bool expected_anon_exclusive;
-  	int sub_batch_idx = 0;
-  	int len;
-@@ -243,7 +239,7 @@ static void commit_anon_folio_batch(struct vm_area_struct *vma,
-  		expected_anon_exclusive = PageAnonExclusive(first_page + sub_batch_idx);
-  		len = page_anon_exclusive_sub_batch(sub_batch_idx, nr_ptes,
-  					first_page, expected_anon_exclusive);
--		prot_commit_flush_ptes(vma, addr, ptep, oldpte, ptent, len,
-+		prot_commit_flush_ptes(vma, addr, ptep, page, oldpte, ptent, len,
-  				       sub_batch_idx, expected_anon_exclusive, tlb);
-  		sub_batch_idx += len;
-  		nr_ptes -= len;
-@@ -251,7 +247,7 @@ static void commit_anon_folio_batch(struct vm_area_struct *vma,
-  }
-  
-  static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
--		struct folio *folio, unsigned long addr, pte_t *ptep,
-+		struct folio *folio, struct page *page, unsigned long addr, pte_t *ptep,
-  		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
-  {
-  	bool set_write;
-@@ -270,7 +266,7 @@ static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
-  				       /* idx = */ 0, set_write, tlb);
-  		return;
-  	}
--	commit_anon_folio_batch(vma, folio, addr, ptep, oldpte, ptent, nr_ptes, tlb);
-+	commit_anon_folio_batch(vma, folio, page, addr, ptep, oldpte, ptent, nr_ptes, tlb);
-  }
-  
-  static long change_pte_range(struct mmu_gather *tlb,
-@@ -305,15 +301,20 @@ static long change_pte_range(struct mmu_gather *tlb,
-  			const fpb_t flags = FPB_RESPECT_SOFT_DIRTY | FPB_RESPECT_WRITE;
-  			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
-  			struct folio *folio = NULL;
-+			struct page *page;
-  			pte_t ptent;
-  
-+			page = vm_normal_folio(vma, addr, oldpte);
-+			if (page)
-+				folio = page_folio(page);
-+
-  			/*
-  			 * Avoid trapping faults against the zero or KSM
-  			 * pages. See similar comment in change_huge_pmd.
-  			 */
-  			if (prot_numa) {
-  				int ret = prot_numa_skip(vma, addr, oldpte, pte,
--							 target_node, &folio);
-+							 target_node, folio);
-  				if (ret) {
-  
-  					/* determine batch to skip */
-@@ -323,9 +324,6 @@ static long change_pte_range(struct mmu_gather *tlb,
-  				}
-  			}
-  
--			if (!folio)
--				folio = vm_normal_folio(vma, addr, oldpte);
--
-  			nr_ptes = mprotect_folio_pte_batch(folio, pte, oldpte, max_nr_ptes, flags);
-  
-  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
-@@ -351,7 +349,7 @@ static long change_pte_range(struct mmu_gather *tlb,
-  			 */
-  			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
-  			     !pte_write(ptent))
--				set_write_prot_commit_flush_ptes(vma, folio,
-+				set_write_prot_commit_flush_ptes(vma, folio, page,
-  				addr, pte, oldpte, ptent, nr_ptes, tlb);
-  			else
-  				prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
--- 
-2.50.1
+See the draft I just send, where we move that vm_normal_page() into the 
+caller.
 
 
 -- 
