@@ -4,69 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7D6C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 01:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF98FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 01:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ta93+O3VNCeHUmtBSm8wfFh7jKjOCUWjMFjZKVmwyuY=; b=C9sqn8lnPbrwHhM3CObzVSWGhg
-	2/NgNCWr7EQ6klsxux9UWuh960otM6K2+VRKPtGcmpNJRYFXk0Oh+rKjRYDkIs4RTkTF7quEHdp2R
-	YQ2gE7U5Kp9eiXkN3utLvZCm2yAwfA1TLka661V3MU+OHvlWmcs7nxeH4A4mDh+JcF+Z98/4EYiHf
-	GPRDiSe3WolEKJ1uzVXE71y6rqFjkdpU1toZ7ELC2ywsEHfzM3rvaEYwDtM8RtM6HEJ9fyJwDm66p
-	IJKMVL/e+4W9IwdPMXAsGUr276uCR2ex9vBi0iPiXQJ6/G2y6cjykuo+wvCoRzyYbzfTocLsKWFYe
-	T9iSEI+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q16sqgrcDh4TW6b6QGnthsd0Rh9/8L6NGJ8pTp9TjsQ=; b=R/zyBw357MSqvGWWvWMD3w3U/z
+	tck2JIj7EYwubNeetqWWI2Jpi/Puw630WTfMtGSCOy7+fznJDGP2aJWinGHp1Kg3qkEVy0VUdvYi+
+	iwhWUMq/QAU3WYd+kHMy6x8NLzqf9FBEu3mRzSF+dLqUOGWT8lHFltpwkU8sOmqAmjmvgpO0GZikh
+	YJ9FpXvQIqNfWimMHGSp/UVLynT0a+Ugrn/i5kJXxK/5X/m6yz2OWToRQnFlSL8PKUMffGaFE/66C
+	PKjPrMAf5N9/Qvu7BMjL1q4j7fANkbAcOs8F4qPOLxhj7VgiGEFvWuafargacA/g5Hg777znU2Yho
+	61npzzjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujSjd-0000000E6gB-1Tbp;
-	Wed, 06 Aug 2025 01:14:29 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ujSnB-0000000E6yj-116j;
+	Wed, 06 Aug 2025 01:18:09 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujSfA-0000000E6LB-3cj5
+	id 1ujSka-0000000E6o3-1rON
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 01:09:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CB071A55AFD;
-	Wed,  6 Aug 2025 01:09:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78DB8C4CEF0;
-	Wed,  6 Aug 2025 01:09:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754442591;
-	bh=3tS+wAYkpgkrdZK8wc8gi2qjSh3qJT1gxLr9GvDEwzk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dDrN3ZD1bGqoaFM+Gf+3bitCrKEpCCziRcLWeryBJwSEb3gBFROAzfP7KEw6BUv9N
-	 ZaofsK6a6POIWdPqaNSQbNOWElYwXhspku7WSGmpqHAD0jeXSHA7Te4XwjwoqCJwol
-	 cJiQhZuqvglmb1YjOOmWzXjm6MTKYbY4EgRl8xQbnp+AM4zDkJzdcseRSdrRNmkt3X
-	 vB4YwtVq8mkzBTGdo/isbMLj4QFZ93x6m1ew8GsjOFsRz0nXaHU4vhRJ37imxv0g49
-	 754KDDnuqM0cR4RX6pZOSdezTj9+W6lNsBgpgRuyPSZdNMfdZfATdAG2Y7J39r7Wvn
-	 5wvltn+iaZYHw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADCB1383BF63;
-	Wed,  6 Aug 2025 01:10:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Wed, 06 Aug 2025 01:15:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1754442926;
+	bh=q16sqgrcDh4TW6b6QGnthsd0Rh9/8L6NGJ8pTp9TjsQ=;
+	h=Subject:From:To:Date:In-Reply-To:References;
+	b=Phvbf0Z9KeOg7rHlR0UiPwm32b3qtbFS8lDlSG/PwVIw4TIwlThELZnZVwv+O6ILz
+	 DrGVUl+Oo9PkULcyyHBgHV/Wxa6mm2kAnT4DFA4XmRKSLhNZjY9jueaPe0k+BRYCFZ
+	 xzO6UTEgpsVjY7r0A47KjJ/sF8+1S0OU1pIT9xO4qg43tHsc0yjekRvw0KgrCOu8gP
+	 tm3yN/TCZVdQisfqQjPwKvySpr15wYSZjXPpnzlpd6xRUzwE5abW2vJH/h8eNR3Y4c
+	 NK5rjs88ErIgU/GaeIrxy4ybhMXj4ZeJLqYsAFcKFNriwC1LrBuANg3qP+ldg4M9xm
+	 Zqo4VangpeT/w==
+Received: from [192.168.68.112] (unknown [180.150.112.70])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 544F06BFF3;
+	Wed,  6 Aug 2025 09:15:26 +0800 (AWST)
+Message-ID: <182db4f2848dc7b8c110d45bb606e6219983c237.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] drivers/soc/aspeed: Add AST27XX SoC ID support
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ryan Chen <ryan_chen@aspeedtech.com>, Joel Stanley <joel@jms.id.au>, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 06 Aug 2025 10:45:25 +0930
+In-Reply-To: <20250805063957.1452653-1-ryan_chen@aspeedtech.com>
+References: <20250805063957.1452653-1-ryan_chen@aspeedtech.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: ti: icssg-prueth: Fix skb handling for
- XDP_PASS
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175444260551.2227515.8563697587474144829.git-patchwork-notify@kernel.org>
-Date: Wed, 06 Aug 2025 01:10:05 +0000
-References: <20250803180216.3569139-1-m-malladi@ti.com>
-In-Reply-To: <20250803180216.3569139-1-m-malladi@ti.com>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: namcao@linutronix.de, r-gunasekaran@ti.com, jacob.e.keller@intel.com,
- sdf@fomichev.me, john.fastabend@gmail.com, hawk@kernel.org,
- daniel@iogearbox.net, ast@kernel.org, pabeni@redhat.com, kuba@kernel.org,
- edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
- rogerq@kernel.org, danishanwar@ti.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_180952_965834_BDF8C1D6 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250805_181528_683574_26A90DC0 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +70,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Ryan,
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Regarding the patch subject, can you please follow the patterns
+established by other commits under drivers/soc ?
 
-On Sun, 3 Aug 2025 23:32:16 +0530 you wrote:
-> emac_rx_packet() is a common function for handling traffic
-> for both xdp and non-xdp use cases. Use common logic for
-> handling skb with or without xdp to prevent any incorrect
-> packet processing. This patch fixes ping working with
-> XDP_PASS for icssg driver.
-> 
-> Fixes: 62aa3246f4623 ("net: ti: icssg-prueth: Add XDP support")
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> 
-> [...]
+Separately, can we concentrate efforts on trying to get the platform
+definition bits upstream for the AST2700? Arnd's recent newsoc PR adds
+several new SoCs (as the tag name suggests), which is a helpful
+reference:
 
-Here is the summary with links:
-  - [net,v2] net: ti: icssg-prueth: Fix skb handling for XDP_PASS
-    https://git.kernel.org/netdev/net/c/d942fe13f72b
+https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/log/?h=3Dsoc-ne=
+wsoc-6.17
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Cheers,
 
+Andrew
+
+On Tue, 2025-08-05 at 14:39 +0800, Ryan Chen wrote:
+> Extend the ASPEED SoC info driver to support AST27XX silicon IDs.
+>=20
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+> ---
+> =C2=A0drivers/soc/aspeed/aspeed-socinfo.c | 4 ++++
+> =C2=A01 file changed, 4 insertions(+)
+>=20
+> diff --git a/drivers/soc/aspeed/aspeed-socinfo.c b/drivers/soc/aspeed/asp=
+eed-socinfo.c
+> index 3f759121dc00..67e9ac3d08ec 100644
+> --- a/drivers/soc/aspeed/aspeed-socinfo.c
+> +++ b/drivers/soc/aspeed/aspeed-socinfo.c
+> @@ -27,6 +27,10 @@ static struct {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0{ "AST2620", 0x05010203 }=
+,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0{ "AST2605", 0x05030103 }=
+,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0{ "AST2625", 0x05030403 }=
+,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0/* AST2700 */
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0{ "AST2750", 0x06000003 },
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0{ "AST2700", 0x06000103 },
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0{ "AST2720", 0x06000203 },
+> =C2=A0};
+> =C2=A0
+> =C2=A0static const char *siliconid_to_name(u32 siliconid)
 
 
