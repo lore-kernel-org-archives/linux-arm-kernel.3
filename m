@@ -4,95 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA429C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 06:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B52C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 06:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LOjQGBKez5S1iGyBaU0i1tLauar5otkV86mmIjmqK0=; b=anLCdybyz4Ie6bpD1dLAeTg+qH
-	UJB+K8vBYHOnV0Wlpj/LTGSTWMrY6je+zeHGnUxgJbbjjRXJWK019aepoABkrKlNSgQDVoAU53RO3
-	U1R5usu8TyDga4U2Wwg6013c1j6+/kN7Dm761RFf1/SwVwcz76q7cAohgD+/YM5hW4AbxbgQ18kmi
-	LwRBstlCFbLa2Ak+MbEUuo8poWzI3oZbUH40b9jl/F/WEU2Fvqr62K+VmYgtNnl3TepItPUPtmZNA
-	+/qAeDhstYREQO7l7ZkdpaQMHc0qBUauDnNImifYHczjRuGAbkDwT1gB9SpS+nPK6CAWdudHlrljs
-	GBXDWrYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rBXSyvBYnRLDq3IqifQdk1Nhhx4BZ0P0e5sajOn4fbY=; b=sEiMWROJSpA7Hi2vuT8kpvwInk
+	HNIsh/5kNNCaluEWmtDbvhvufrYwhaaqlsDVWg31MGyMN8qLtR7vouwLW0V5jK1Yu9T0Q8rXjAYrU
+	LCptex7Od+iRBHYYpEpGHOl65TO7/ohO3++oTVHk8EiczIOgqm7zAODPoqevFCk5LlxsVtSaAB5Wk
+	WnQeRupgh9KC5T+Apo19NfSnNmJLqHc95zoMvLp5jN7/P01RnLUkAjwA/ej/350wbXVsyuOvIZH2R
+	DILe3+jmRuUWKzZ0jwhV/5rYKRS27MHjwLEC8B44WEkbhZl0yLlkEj+jfTLeXgebjhZ78Ii7CGjWt
+	8IeRLqOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujXEs-0000000EN8N-3Tl5;
-	Wed, 06 Aug 2025 06:03:02 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1ujXL7-0000000ENvW-3w1X;
+	Wed, 06 Aug 2025 06:09:29 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujXCM-0000000EMxU-28DP
+	id 1ujXIX-0000000ENNB-2IBU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 06:00:27 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-87999c368e9so455258639f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 23:00:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754460025; x=1755064825; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7LOjQGBKez5S1iGyBaU0i1tLauar5otkV86mmIjmqK0=;
-        b=XNtTQHUYoqgroNeGHJPExEmQirquQc9WCUyBWGhfsA/PaEYNrpmU0puiFOg6loal/2
-         dN/G+Zvn+9IWjSX5toU7pAGvKYcTsUZLOlfdK89sdaNpnyqX8ebjOFd2cubJaYo3+0h4
-         /VVLd2mIi0UCcLczAiJGOLvBpGnyZxu55JoZijeoPgKRr/7BlPFsc5AQN9kUiNB41lHy
-         cY/oSumPHXTyHqEGP4QK6nPEn/+xseZdsmvK7OA3vKzitpLlOZIaocMB5ZrskD5OP8cd
-         NxB4PZ7iFLVMtdESMhjlZiFGAUHFgYVLBqja6ac2fLlR6is68dsO8ZXJMtYpygEiFiwL
-         vgEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754460025; x=1755064825;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7LOjQGBKez5S1iGyBaU0i1tLauar5otkV86mmIjmqK0=;
-        b=ZZaac2S5bNA1RDdcxsWgn9PSUIDLMdLsYvwZVdtPkuTs/8I6LjDBM+aZ9eau0vpbSQ
-         zQ7mN0WKpzpi2XgUalDGhP52KaI3QFiVxW/pTxFekJ7GMU+POki5m/Ra5uvMxh1tvSM5
-         E+uBwH1NO95vK31/fDEW/27IStRaAUcpecW2rXY72KRH2Wx8LNHOB6/Z7PSVSdoXkB1C
-         zYGdrvnmlkCx30qm3lmu1KpxDD9roGyktc8y4ihfiTnFFPZdr8hsSXFCP55T1jkAzYpG
-         u1aWPXRKnz3OSvpH3ZHHtl/+V80EE9rZ7ofDUC4dM3/B8ja3cXdhV1Sjm2weMrl2BcSP
-         sRQA==
-X-Forwarded-Encrypted: i=1; AJvYcCVecvAikn/b0xx7qTTKSnSO1CjjeCVy/BVV8mdQ0P7qbYxu2hB0Vyy+s057pWOrLhCR6R+3We1kRFS27o/95yiS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiKdaXrlrWvvQMp0x4vdIZKhUMEqr/gJuP2BUpyzS5P+cxqKnr
-	FTG2lCPIDmQ0HBT9wes02XzZGIa4bq4BoB1ORXd64tsCcdzYAwtCIa4HMbcAG6JAMgg9ERePZML
-	WBQMbY+tkUi+6M/O/ozHycIKnsOhX+ks=
-X-Gm-Gg: ASbGncvQke2qWdw6HXXuqoMKt1Uit4IXgD5jibZxc5XsGOLy4PWJo3WIAW+p4SXTxi+
-	oaA3e6rU1zyn9LOairtEZ92YwfazRJFrMhMRF8LlPL1gIDW9WqawxVjN6Q22D1LU1z625BEyeeW
-	rAoBIbmy3k51A7xmanEwk3GHwl9XCJKtbeRlB34LlHPRIKy1uREijS+ZZUkXsGTP7NGfqEYyt8n
-	c7A/DQ=
-X-Google-Smtp-Source: AGHT+IGXTd343+VF/DxWVcdW2rLvvEJ8x/TFUG5Tpo/FEQ7fHX2BzAtVcAbQoY4hyy1ohYC0jFv/9H1yMpGG0tLM+1M=
-X-Received: by 2002:a05:6602:6c14:b0:87c:30d4:65f2 with SMTP id
- ca18e2360f4ac-8819f2dc2f6mr259724639f.3.1754460025324; Tue, 05 Aug 2025
- 23:00:25 -0700 (PDT)
+	Wed, 06 Aug 2025 06:06:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754460410; x=1785996410;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=IaEVB6Bm+orMAyTrDBPkbyXVR0sqPT5kiKuKM9wWwpM=;
+  b=UHDPxekS88oOhsJrJZ+6HuKhHzhLOQ/pZGG1IivjsQKUu5AoPERz2cFx
+   K8/jzMc+e+cQlBCujQ8Ns9MNMjEol6PRHpEFYv/tv87f2V/RGL9N6HEHl
+   Sw9qD3hY78CaOCxaaR0kvjaJYg3uJevYFRJspE0WBFNJ8RfD+YuTrWMog
+   pFhXQNvVaHagrIy7rPP15wN8VQj8hRAmrjg+uRzqRd6CceGYvIeiOBtCP
+   Fy6EaZI0J/wok4VRVYOp8fIqY64iXcF/wUfM9v4c9SOk+ig9hJB9YCan9
+   UX0TObjiuiRbwz1EZuhZdBc4AbBSls0N5nJpoGFd1ecx7jrTZdpsry8MN
+   A==;
+X-CSE-ConnectionGUID: b9xUHcAmRfWw+bAZyEI6Fw==
+X-CSE-MsgGUID: 3PgnmMU4SMyEprtfhwK70w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11513"; a="56910695"
+X-IronPort-AV: E=Sophos;i="6.17,268,1747724400"; 
+   d="scan'208";a="56910695"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Aug 2025 23:06:46 -0700
+X-CSE-ConnectionGUID: JsAA5uJgSM2v/9F94MsZkg==
+X-CSE-MsgGUID: 8WXOBm1HSG+dPOrHH+2sdg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,268,1747724400"; 
+   d="scan'208";a="195523709"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Aug 2025 23:06:46 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Tue, 5 Aug 2025 23:06:45 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26 via Frontend Transport; Tue, 5 Aug 2025 23:06:45 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (40.107.237.48)
+ by edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Tue, 5 Aug 2025 23:06:45 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tONbkTz06t0+fkkfbPoWDDOOlyqf464hpsfxvjnoh3ZvLYjwfdcxHmfalzuMxrPH64hHbZbGu6EgfukwbtNmyTO0lvzAZXrr4ITX40/BUO973SpiZEpEuidW2RgQ9EB2ONJPbPylYHINKZgN8JEBy9paZY+z6zZSOr/cEiIKlsDuEQDHyVXnrvB7bhkNJRwyqpNVMfVowCoCEDGJBHY/0WJ6D+kj1rEgNfDm6c5qXiovuxW/xsbpMKN9YRkmPeXDHI1npLfw8mdyTcKwPcwZLfnpdBJuRjl5cEAXpFPZiV0JEH9nPwj1BORRaeR3Ef4kXpSvFzenHIIjHngwEozSRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rBXSyvBYnRLDq3IqifQdk1Nhhx4BZ0P0e5sajOn4fbY=;
+ b=xrlI4eNVsqhDvOrAHcILRScDO81i4TEeI/9Xn48vOkvaUFkFa9rR/Co7bCyW9RywCuhFXdAEbdmWa+Kk+h2F6PpG5O4bKUMeIxQfJeNrataFujl3kwBZnXyA/FLY59NfUieGSsffAHj4MQpYDppZnAbwpY2IHnggb9qAaf69JO96xBbtkXZA0BnXo1XIRMgPu7TIO45dGKVg9Krl4I7ikZw7n8MsSDndptWZmATeJn7fiR6eXnajZoSZJibRCZCjEJLBlV2dv9XbKpsEamPcmF4StWwlGAyP05Zhh/FXVSlRfRBL28QdAx78dpg9uc9siU9QgIATb/aLIcmFT2YZkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CH3PR11MB8660.namprd11.prod.outlook.com (2603:10b6:610:1ce::13)
+ by SA3PR11MB7534.namprd11.prod.outlook.com (2603:10b6:806:305::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Wed, 6 Aug
+ 2025 06:06:43 +0000
+Received: from CH3PR11MB8660.namprd11.prod.outlook.com
+ ([fe80::cfad:add4:daad:fb9b]) by CH3PR11MB8660.namprd11.prod.outlook.com
+ ([fe80::cfad:add4:daad:fb9b%4]) with mapi id 15.20.8989.018; Wed, 6 Aug 2025
+ 06:06:43 +0000
+Date: Wed, 6 Aug 2025 14:06:31 +0800
+From: Chao Gao <chao.gao@intel.com>
+To: Sean Christopherson <seanjc@google.com>
+CC: Adrian Hunter <adrian.hunter@intel.com>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Vishal Annapurve
+	<vannapurve@google.com>, Xiaoyao Li <xiaoyao.li@intel.com>, Rick Edgecombe
+	<rick.p.edgecombe@intel.com>, Nikolay Borisov <nik.borisov@suse.com>, "Yan Y
+ Zhao" <yan.y.zhao@intel.com>, Kai Huang <kai.huang@intel.com>,
+	"binbin.wu@linux.intel.com" <binbin.wu@linux.intel.com>
+Subject: Re: [PATCH 5/5] KVM: TDX: Add sub-ioctl KVM_TDX_TERMINATE_VM
+Message-ID: <aJLwFaJ5g2WaMwql@intel.com>
+References: <20250729193341.621487-1-seanjc@google.com>
+ <20250729193341.621487-6-seanjc@google.com>
+ <b27f807e-b04f-487d-be13-74a8b0a61b42@intel.com>
+ <aIzu4q_7yBmCIOWK@google.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aIzu4q_7yBmCIOWK@google.com>
+X-ClientProxiedBy: SI2PR06CA0001.apcprd06.prod.outlook.com
+ (2603:1096:4:186::21) To CH3PR11MB8660.namprd11.prod.outlook.com
+ (2603:10b6:610:1ce::13)
 MIME-Version: 1.0
-References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
- <20250804104722.601440-6-shengjiu.wang@nxp.com> <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
-In-Reply-To: <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 6 Aug 2025 14:00:05 +0800
-X-Gm-Features: Ac12FXw0nnoM3OTdXQVUBKMi5kWO9s__PdvorJUHLc_FVvpTTZTj4ms-phKQiNs
-Message-ID: <CAA+D8AN9Ay8jnSS=h3G_Kepc_5WYQRAUrWmtu5N056GsnvGrTA@mail.gmail.com>
-Subject: Re: [PATCH v3 5/6] drm/bridge: imx: add driver for HDMI TX Parallel
- Audio Interface
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com, 
-	neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
-	perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR11MB8660:EE_|SA3PR11MB7534:EE_
+X-MS-Office365-Filtering-Correlation-Id: 55679909-3594-41e7-39d9-08ddd4af6ace
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?r1H+7OavHH6ZFGwYrcibGRR38mjFCL1O6Js1nb1j3ZmkJ4zSSdmgzuMgHb11?=
+ =?us-ascii?Q?s3XDG584NrabWmo4Tq8rTqNd+elSb3uXqPiINnlrWV4sNinYlqiUhyqphfKv?=
+ =?us-ascii?Q?5sol1JCIpq1iR9nLpFIJ0EPJ8BODVbkbzHdePUIa5cSdb2ebGLpErv0+RjCi?=
+ =?us-ascii?Q?RG0wta9yd+L0be5PkE+YUmEZ4Jf2Xl4Z3UnzcBFox8cuSGD+i5384MB/ClP7?=
+ =?us-ascii?Q?dNq9zkzNJtCt4jJp0+e3ZMZcgza1o2uYeeOSWrDLrpR/l3juuqQpB2Dwu8zn?=
+ =?us-ascii?Q?KtwB1MN2S3MHpwzyIjg3jlNROptlkvvoHHASfmwX95F45QhyaXTnRIjQKmqC?=
+ =?us-ascii?Q?KwBHXC17Slk8YBF1xYOD3X80+sOVauqfjNANhFXJJNEng7SDruiuPzpLcjGa?=
+ =?us-ascii?Q?n3z2N9ou1all6PEG7MogSLHSKsygFgKYx4j3LbsKlE3JtRm9s6dhi5FEAVwl?=
+ =?us-ascii?Q?92GBbB4CO7cpiI/jUg4hur3YhnxH2WTcfP/R/Zmk+C46Q8mktGfIkMAE4y7/?=
+ =?us-ascii?Q?nuxK/4KXxKw4bPQ1ADzNwnXmeujzzw7wLacxKSAGhDJSCU1A3FMFSLQYE5sW?=
+ =?us-ascii?Q?lC4mMpj1tJYr6NLFe3F90++xkvThmF9lH9MDBplZ7/kon91mP1MtRH0Uk10o?=
+ =?us-ascii?Q?FArCGUmEbq5zas5Jg6AlXlvuUGGVwAzpre4urIksKd08XRyBGM9zDTJ9fkRK?=
+ =?us-ascii?Q?QU2WCFafF9Vnzd53RBlOCJKuvgO22cjhI8PEsAoe25kA0lje7mtJA2f17GKx?=
+ =?us-ascii?Q?wnbTvLR13OQlo77YGIdTBTzDLwD7f0owpfA4hW5Eiva0hnHB6gbcBqKrPLRO?=
+ =?us-ascii?Q?TalaETTg5xVqpQNH+nSrYr6du+qAzObkJwgjafmSEOLgx8FY8i2XvW8rT1iQ?=
+ =?us-ascii?Q?jlHre/tMMoCxdeDMILhxF8K5uTyTFcgwndlucvPFcaVnvHdCoXlt4uc5Xxgs?=
+ =?us-ascii?Q?1GRqyDXq4WRWKUbUUoJAeshp7rBbK1QXk6wNSXTthEAAoP6OqZmu4tSQtOwn?=
+ =?us-ascii?Q?k01o8MdoVCsILxvXhmzetYUk66trQgDcQmrdFhCJvnJlltln06G5SetfOYpA?=
+ =?us-ascii?Q?WGIYMgXo3wUDFPOvgdMBiExcNadVZWxIYxQQfqOqUu/1MEhHupWNB03RQDpu?=
+ =?us-ascii?Q?vcCua28tA/j/kYSkVUWumOcxl1c3ftXoSmR0MRCyY4tLKCIoPx7xk+p/Kn4H?=
+ =?us-ascii?Q?tZdutVGYtiLc3XSx4A+sVs6CRPM40gnY5C7dU0HSYU2QD71a0R6QZrpRufsp?=
+ =?us-ascii?Q?y8dGCrIwxVRQ+z0PLCzU+BmafFYOw2zTzDD6ZKIQctr6TJVnhr7K/AltAumJ?=
+ =?us-ascii?Q?0z/OZUHtmpRZkH8Js/12A6aGBfJwWfWbrUKY9lwIRHBzbsmgS6hkFDkDMKML?=
+ =?us-ascii?Q?CiylDHNmcm5itw2NVnRLhMwWsmI7EXFRYkrIo+O5yJszj9CQdNJ6IETO/FQf?=
+ =?us-ascii?Q?qSRNxnFg1AI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR11MB8660.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8hJ57mip4jf/oKwuYpPhkm/5WJtYZ+zuB84QINWLxIYpu9igR2UG+rZrTw8U?=
+ =?us-ascii?Q?ocJlyMBUmOH1UI6g08lCOYKTBVOLTUa3d/DUuWB9tbtEnyxMjfWtzBiHakN2?=
+ =?us-ascii?Q?SI0kiLEP0sFvz/6UHZJPt61jrXAuloZzs25HDhCvmdrxV185rh380LfUGHOn?=
+ =?us-ascii?Q?YOPL6XSA7+FAJKg+FsN7kjFskuDDw5KTWvU23RHMyp5AKQ3/aIDoMANoMM7h?=
+ =?us-ascii?Q?h/vf3e8k2RtcTUYzOQX0qsxMCgphW+qH3uXtu1zTIJh5tTuQMJdi1OOsJYnb?=
+ =?us-ascii?Q?CP4ACzePUOdjWx1HQT0H3YzR89d8NhTGHxuTnUujL8by/LZ1mk55/IVmi4MH?=
+ =?us-ascii?Q?NYzgcoEV7w7ou5/D/Y5QlT0nua0vt+BA2UcFCFAIpYNXN+9EtrxSD4assSw1?=
+ =?us-ascii?Q?NmpdPnFfA8CSVPCpUVDpjdzlZRa6kjcQH3wo4v3PlhoXFUk/kQReNq+PIzRI?=
+ =?us-ascii?Q?EJjQBjvgrAZbNM4yjxc6nFOFvMii7YFqNlNfq/vNpchR6PdTjVSy8Y0QIY2s?=
+ =?us-ascii?Q?x8xgh6jNtKNMAOh0jt0GQ1876RZgVBXHbg/G8hlLhtulxSvACSW/uZ8dJ1VT?=
+ =?us-ascii?Q?Uc4oS56iz/e5AmEAWZNYhTd4Zqau7zTnHF3fdQycPbGijAIZEWdPjHm+iXAl?=
+ =?us-ascii?Q?xM67842bm7jHMebgSpwX9SzNtv9ZlkVkutLLQQBawGxsq59Pwyx+nZQH6qhr?=
+ =?us-ascii?Q?wIwxI89wZSNaVAflemSyHaV5UWNkTQ4t03qKi9zr+RdJy77MJGxDBXJHK9fG?=
+ =?us-ascii?Q?z6V+GQ3oywRQWVnwltdK6P5LfpTiyyPl4Wm4XUu8fxoJdV6o2bFtfBCYXsUh?=
+ =?us-ascii?Q?OZokPVy5eQ0K2wGJD9fPOshmqjkLCDXPBkPpvoa50dKMOIU1rEIFYHgoUH71?=
+ =?us-ascii?Q?6IF2whwWPo01XGwbXKlf0ItIbYyoOrll3TLkOibJWNtxSUhCo9u7W723spAL?=
+ =?us-ascii?Q?NQBrPTFAW69UcqwsH4KZEKoykQVA63fv3hqcm0pg5H1CbCWAoH/VROf7M+16?=
+ =?us-ascii?Q?0IllHFeJKumLzhBQpC87JNmnMhv7yhB1QNQCLclXSzMMQXUeJF94AKVjTuaa?=
+ =?us-ascii?Q?jjkJ+5sEYrD+saEvk1jjWX+zT6vKTCL5snxfwZwTkFOdZJ3XByuYKVVb/MV4?=
+ =?us-ascii?Q?j8vssPPiK00LSVhK0bNw8PzPPhon16SAnXUbZDDChqAY5GpOirzT77P5BWnW?=
+ =?us-ascii?Q?weSDn/jN4obMvlh0Oe4D3iAwe7WgFpHtuViErKk45MKXpAlhJ0ljULXmsYuz?=
+ =?us-ascii?Q?x7kShvZ0vr18y3+BbAXt0U0QHS7ERB6OWueXrbxIoiTGqyjjTDarNsPeSRlT?=
+ =?us-ascii?Q?rZ6GVyk2syJImTE3CG8cYB3d5dpiFjnkGbJuMeEIKTCv2OPMmhNDtWFGmT6t?=
+ =?us-ascii?Q?KgxbCEAFnMJep2TlSJf2KCPeuO5TnuJN89gJI1iQw3pO0tnsUP4tGYFNrzkO?=
+ =?us-ascii?Q?r6rEro0xUNB6aBpTREkAVzc+C/dsW7EbaobLKOA8K7Eu3sgV/gajNtNOb/76?=
+ =?us-ascii?Q?P0BrytbUu309TtDQ/s5+t5MGHdCBnRruHdmQrK5VEZsqdDaO+flgufLrHwIp?=
+ =?us-ascii?Q?W5yP1zqWT2wacR2iZNYPb8VFAiP4iWXMwvlqdK9y?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55679909-3594-41e7-39d9-08ddd4af6ace
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR11MB8660.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 06:06:43.4525
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: P4pCGihqESFT79S70dhlTVbnX3hc4dIFNmvzusvW3qxPbqHe9YOjP6jO0RhEEHmrPktLE8MGEo5YfLYtUhaZtg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB7534
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_230026_561310_ED5C2BB1 
-X-CRM114-Status: GOOD (  43.12  )
+X-CRM114-CacheID: sfid-20250805_230649_630922_28FF2A3C 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,527 +200,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 4:55=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote:
+>Oof.  And as Chao pointed out[*], removing the vm_dead check would allow creating
+>and running vCPUs in a dead VM, which is most definitely not desirable.  Squashing
+>the vCPU creation case is easy enough if we keep vm_dead but still generally allow
+>ioctls, and it's probably worth doing that no matter what (to plug the hole where
+>pending vCPU creations could succeed):
 >
-> On 08/04/2025, Shengjiu Wang wrote:
-> > The HDMI TX Parallel Audio Interface (HTX_PAI) is a digital module that
-> > acts as the bridge between the Audio Subsystem to the HDMI TX Controlle=
-r.
-> > This IP block is found in the HDMI subsystem of the i.MX8MP SoC.
-> >
-> > Data received from the audio subsystem can have an arbitrary component
-> > ordering. The HTX_PAI block has integrated muxing options to select whi=
-ch
-> > sections of the 32-bit input data word will be mapped to each IEC60958
-> > field. The HTX_PAI_FIELD_CTRL register contains mux selects to
-> > individually select P,C,U,V,Data, and Preamble.
-> >
-> > Use component helper that imx8mp-hdmi-tx will be aggregate driver,
->
-> s/that/so that/
->
-> > imx8mp-hdmi-pai will be component driver, then imx8mp-hdmi-pai can use
-> > bind() ops to get the plat_data from imx8mp-hdmi-tx device.
-> >
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > ---
-> >  drivers/gpu/drm/bridge/imx/Kconfig           |   8 +
-> >  drivers/gpu/drm/bridge/imx/Makefile          |   1 +
-> >  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c | 205 +++++++++++++++++++
-> >  drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c  |  55 +++++
-> >  include/drm/bridge/dw_hdmi.h                 |   6 +
-> >  5 files changed, 275 insertions(+)
-> >  create mode 100644 drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
-> >
-> > diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridg=
-e/imx/Kconfig
-> > index 9a480c6abb85..6c1a8bc5d4a0 100644
-> > --- a/drivers/gpu/drm/bridge/imx/Kconfig
-> > +++ b/drivers/gpu/drm/bridge/imx/Kconfig
-> > @@ -18,12 +18,20 @@ config DRM_IMX8MP_DW_HDMI_BRIDGE
-> >       depends on OF
-> >       depends on COMMON_CLK
-> >       select DRM_DW_HDMI
-> > +     imply DRM_IMX8MP_HDMI_PAI
-> >       imply DRM_IMX8MP_HDMI_PVI
-> >       imply PHY_FSL_SAMSUNG_HDMI_PHY
-> >       help
-> >         Choose this to enable support for the internal HDMI encoder fou=
-nd
-> >         on the i.MX8MP SoC.
-> >
-> > +config DRM_IMX8MP_HDMI_PAI
-> > +     tristate "Freescale i.MX8MP HDMI PAI bridge support"
-> > +     depends on OF
->
-> select REGMAP
-> select REGMAP_MMIO
+>diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+>index d477a7fda0ae..941d2c32b7dc 100644
+>--- a/virt/kvm/kvm_main.c
+>+++ b/virt/kvm/kvm_main.c
+>@@ -4207,6 +4207,11 @@ static int kvm_vm_ioctl_create_vcpu(struct kvm *kvm, unsigned long id)
+> 
+>        mutex_lock(&kvm->lock);
+> 
+>+       if (kvm->vm_dead) {
+>+               r = -EIO;
+>+               goto unlock_vcpu_destroy;
+>+       }
+>+
 
+yes. this addresses my concern.
 
-will add them.
+>        if (kvm_get_vcpu_by_id(kvm, id)) {
+>                r = -EEXIST;
+>                goto unlock_vcpu_destroy;
+>
+>And then to ensure vCPUs can't do anything, check KVM_REQ_VM_DEAD after acquiring
+>vcpu->mutex.
+>
+>diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+>index 6c07dd423458..883077eee4ce 100644
+>--- a/virt/kvm/kvm_main.c
+>+++ b/virt/kvm/kvm_main.c
+>@@ -4433,6 +4433,12 @@ static long kvm_vcpu_ioctl(struct file *filp,
+> 
+>        if (mutex_lock_killable(&vcpu->mutex))
+>                return -EINTR;
+>+
+>+       if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu)) {
+>+               r = -EIO;
+>+               goto out;
+>+       }
+>+
+>        switch (ioctl) {
+>        case KVM_RUN: {
+>                struct pid *oldpid;
+>
+>
+>That should address all TDVPS paths (I hope), and I _think_ would address all
+>MMU-related paths as well?  E.g. prefault requires a vCPU.
+>
+>Disallowing (most) vCPU ioctls but not all VM ioctls on vm_dead isn't great ABI
+>(understatement), but I think we need/want the above changes even if we keep the
+>general vm_dead restriction.  And given the extremely ad hoc behavior of taking
+>kvm->lock for VM ioctls, trying to enforce vm_dead for "all" VM ioctls seems like
+>a fool's errand.
+>
+>So I'm leaning toward keeping "KVM: Reject ioctls only if the VM is bugged, not
+>simply marked dead" (with a different shortlog+changelog), but keeping vm_dead
+>(and not introducing kvm_tdx.vm_terminated).
 
->
-> > +     help
-> > +       Choose this to enable support for the internal HDMI TX Parallel
-> > +       Audio Interface found on the Freescale i.MX8MP SoC.
-> > +
-> >  config DRM_IMX8MP_HDMI_PVI
-> >       tristate "Freescale i.MX8MP HDMI PVI bridge support"
-> >       depends on OF
-> > diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/brid=
-ge/imx/Makefile
-> > index dd5d48584806..8d01fda25451 100644
-> > --- a/drivers/gpu/drm/bridge/imx/Makefile
-> > +++ b/drivers/gpu/drm/bridge/imx/Makefile
-> > @@ -1,6 +1,7 @@
-> >  obj-$(CONFIG_DRM_IMX_LDB_HELPER) +=3D imx-ldb-helper.o
-> >  obj-$(CONFIG_DRM_IMX_LEGACY_BRIDGE) +=3D imx-legacy-bridge.o
-> >  obj-$(CONFIG_DRM_IMX8MP_DW_HDMI_BRIDGE) +=3D imx8mp-hdmi-tx.o
-> > +obj-$(CONFIG_DRM_IMX8MP_HDMI_PAI) +=3D imx8mp-hdmi-pai.o
-> >  obj-$(CONFIG_DRM_IMX8MP_HDMI_PVI) +=3D imx8mp-hdmi-pvi.o
-> >  obj-$(CONFIG_DRM_IMX8QM_LDB) +=3D imx8qm-ldb.o
-> >  obj-$(CONFIG_DRM_IMX8QXP_LDB) +=3D imx8qxp-ldb.o
-> > diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c b/drivers/gpu=
-/drm/bridge/imx/imx8mp-hdmi-pai.c
-> > new file mode 100644
-> > index 000000000000..9002974073ca
-> > --- /dev/null
-> > +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-pai.c
-> > @@ -0,0 +1,205 @@
-> > +// SPDX-License-Identifier: GPL-2.0+
-> > +/*
-> > + * Copyright 2025 NXP
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/component.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of_platform.h>
-> > +#include <linux/platform_device.h>
->
-> #include <linux/regmap.h>
+Sounds good to me.
 
-ok,
->
-> > +#include <drm/bridge/dw_hdmi.h>
-> > +#include <sound/asoundef.h>
-> > +
-> > +#define HTX_PAI_CTRL                 0x00
-> > +#define   ENABLE                     BIT(0)
-> > +
-> > +#define HTX_PAI_CTRL_EXT             0x04
-> > +#define   WTMK_HIGH_MASK             GENMASK(31, 24)
-> > +#define   WTMK_LOW_MASK                      GENMASK(23, 16)
-> > +#define   NUM_CH_MASK                        GENMASK(10, 8)
->
-> Add NUM_CH(n) and use it when programming HTX_PAI_CTRL_EXT.
-> #define NUM_CH(n)                       FIELD_PREP(NUM_CH_MASK, (n - 1))
-
-Ok, will add it.
-
->
-> > +#define   WTMK_HIGH(n)                       FIELD_PREP(WTMK_HIGH_MASK=
-, (n))
-> > +#define   WTMK_LOW(n)                        FIELD_PREP(WTMK_LOW_MASK,=
- (n))
-> > +
-> > +#define HTX_PAI_FIELD_CTRL           0x08
-> > +#define   B_FILT                     BIT(31)
-> > +#define   PARITY_EN                  BIT(30)
-> > +#define   END_SEL                    BIT(29)
->
-> The above 3 bits are unused.  Drop.
-
-Ok.
-
->
-> > +#define   PRE_SEL                    GENMASK(28, 24)
-> > +#define   D_SEL                              GENMASK(23, 20)
-> > +#define   V_SEL                              GENMASK(19, 15)
-> > +#define   U_SEL                              GENMASK(14, 10)
-> > +#define   C_SEL                              GENMASK(9, 5)
-> > +#define   P_SEL                              GENMASK(4, 0)
-> > +
-> > +#define HTX_PAI_STAT                 0x0c
-> > +#define HTX_PAI_IRQ_NOMASK           0x10
-> > +#define HTX_PAI_IRQ_MASKED           0x14
-> > +#define HTX_PAI_IRQ_MASK             0x18
->
-> The above 4 registers are not pratically used.  Drop.
-
-They are used by regmap to make a full definition.
-
->
-> > +
-> > +struct imx8mp_hdmi_pai {
-> > +     struct device   *dev;
-> > +     struct regmap   *regmap;
-> > +};
-> > +
-> > +static void imx8mp_hdmi_pai_enable(struct dw_hdmi *dw_hdmi, int channe=
-l,
-> > +                                int width, int rate, int non_pcm,
-> > +                                int iec958)
-> > +{
-> > +     const struct dw_hdmi_plat_data *pdata =3D dw_hdmi_to_plat_data(dw=
-_hdmi);
-> > +     struct imx8mp_hdmi_pai *hdmi_pai =3D (struct imx8mp_hdmi_pai *)pd=
-ata->priv_audio;
->
-> I don't think you need to convert type explicitly.  Same for the other
-> explicit conversions in this driver.
-
-ok, can be removed.
->
-> > +     int val;
-> > +
-> > +     /* PAI set control extended */
-> > +     val =3D  WTMK_HIGH(3) | WTMK_LOW(3);
-> > +     val |=3D FIELD_PREP(NUM_CH_MASK, channel - 1);
-> > +     regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL_EXT, val);
-> > +
-> > +     /* IEC60958 format */
-> > +     if (iec958) {
-> > +             val =3D FIELD_PREP_CONST(P_SEL,
-> > +                                    __bf_shf(IEC958_SUBFRAME_PARITY));
-> > +             val |=3D FIELD_PREP_CONST(C_SEL,
-> > +                                     __bf_shf(IEC958_SUBFRAME_CHANNEL_=
-STATUS));
-> > +             val |=3D FIELD_PREP_CONST(U_SEL,
-> > +                                     __bf_shf(IEC958_SUBFRAME_USER_DAT=
-A));
-> > +             val |=3D FIELD_PREP_CONST(V_SEL,
-> > +                                     __bf_shf(IEC958_SUBFRAME_VALIDITY=
-));
-> > +             val |=3D FIELD_PREP_CONST(D_SEL,
-> > +                                     __bf_shf(IEC958_SUBFRAME_SAMPLE_2=
-4_MASK));
-> > +             val |=3D FIELD_PREP_CONST(PRE_SEL,
-> > +                                     __bf_shf(IEC958_SUBFRAME_PREAMBLE=
-_MASK));
-> > +     } else {
-> > +             /* PCM choose 24bit*/
-> > +             val =3D FIELD_PREP(D_SEL, width - 24);
->
-> Why 'width - 24'?  Can it be expressed by a helper or macro?
-
-                /*
-                 * The allowed width are 24bit and 32bit, as they are
-supported by
-                 * aud2htx module.
-                 * for 24bit, D_SEL =3D 0, select all the bits.
-                 * for 32bit, D_SEL =3D 8, select the MSB.
-                 */
-will add such comments.
-
-best regards
-Shengjiu wang
->
-> > +     }
-> > +
-> > +     regmap_write(hdmi_pai->regmap, HTX_PAI_FIELD_CTRL, val);
-> > +
-> > +     /* PAI start running */
-> > +     regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL, ENABLE);
-> > +}
-> > +
-> > +static void imx8mp_hdmi_pai_disable(struct dw_hdmi *dw_hdmi)
-> > +{
-> > +     const struct dw_hdmi_plat_data *pdata =3D dw_hdmi_to_plat_data(dw=
-_hdmi);
-> > +     struct imx8mp_hdmi_pai *hdmi_pai =3D (struct imx8mp_hdmi_pai *)pd=
-ata->priv_audio;
-> > +
-> > +     /* Stop PAI */
-> > +     regmap_write(hdmi_pai->regmap, HTX_PAI_CTRL, 0);
-> > +}
-> > +
-> > +static int imx8mp_hdmi_pai_bind(struct device *dev, struct device *mas=
-ter, void *data)
-> > +{
-> > +     struct dw_hdmi_plat_data *plat_data =3D (struct dw_hdmi_plat_data=
- *)data;
-> > +     struct imx8mp_hdmi_pai *hdmi_pai;
-> > +
-> > +     hdmi_pai =3D dev_get_drvdata(dev);
-> > +
-> > +     plat_data->enable_audio =3D imx8mp_hdmi_pai_enable;
-> > +     plat_data->disable_audio =3D imx8mp_hdmi_pai_disable;
-> > +     plat_data->priv_audio =3D hdmi_pai;
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void imx8mp_hdmi_pai_unbind(struct device *dev, struct device *=
-master, void *data)
-> > +{
-> > +     struct dw_hdmi_plat_data *plat_data =3D (struct dw_hdmi_plat_data=
- *)data;
-> > +
-> > +     plat_data->enable_audio =3D NULL;
-> > +     plat_data->disable_audio =3D NULL;
-> > +     plat_data->priv_audio =3D NULL;
->
-> Do you really need to set these ptrs to NULL?
->
-> > +}
-> > +
-> > +static const struct component_ops imx8mp_hdmi_pai_ops =3D {
-> > +     .bind   =3D imx8mp_hdmi_pai_bind,
-> > +     .unbind =3D imx8mp_hdmi_pai_unbind,
-> > +};
-> > +
-> > +static bool imx8mp_hdmi_pai_volatile_reg(struct device *dev, unsigned =
-int reg)
-> > +{
-> > +     switch (reg) {
-> > +     case HTX_PAI_IRQ_NOMASK:
-> > +     case HTX_PAI_IRQ_MASKED:
-> > +             return true;
-> > +     default:
-> > +             return false;
-> > +     }
-> > +}
-> > +
-> > +static bool imx8mp_hdmi_pai_writeable_reg(struct device *dev, unsigned=
- int reg)
-> > +{
-> > +     switch (reg) {
-> > +     case HTX_PAI_CTRL:
-> > +     case HTX_PAI_CTRL_EXT:
-> > +     case HTX_PAI_FIELD_CTRL:
-> > +     case HTX_PAI_IRQ_NOMASK:
-> > +     case HTX_PAI_IRQ_MASKED:
-> > +     case HTX_PAI_IRQ_MASK:
-> > +             return true;
-> > +     default:
-> > +             return false;
-> > +     }
-> > +}
-> > +
-> > +static const struct regmap_config imx8mp_hdmi_pai_regmap_config =3D {
-> > +     .reg_bits =3D 32,
-> > +     .reg_stride =3D 4,
-> > +     .val_bits =3D 32,
-> > +     .max_register =3D HTX_PAI_IRQ_MASK,
-> > +     .volatile_reg =3D imx8mp_hdmi_pai_volatile_reg,
-> > +     .writeable_reg =3D imx8mp_hdmi_pai_writeable_reg,
-> > +};
-> > +
-> > +static int imx8mp_hdmi_pai_probe(struct platform_device *pdev)
-> > +{
-> > +     struct device *dev =3D &pdev->dev;
-> > +     struct imx8mp_hdmi_pai *hdmi_pai;
-> > +     struct resource *res;
-> > +     void __iomem *base;
-> > +
-> > +     hdmi_pai =3D devm_kzalloc(dev, sizeof(*hdmi_pai), GFP_KERNEL);
-> > +     if (!hdmi_pai)
-> > +             return -ENOMEM;
-> > +
-> > +     base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> > +     if (IS_ERR(base))
-> > +             return PTR_ERR(base);
-> > +
-> > +     hdmi_pai->dev =3D dev;
-> > +
-> > +     hdmi_pai->regmap =3D devm_regmap_init_mmio(dev, base, &imx8mp_hdm=
-i_pai_regmap_config);
->
-> Now that DT binding says there is an APB clock, use devm_regmap_init_mmio=
-_clk()
-> to ensure registers can be accessed with clock enabled even via debugfs.
->
-> > +     if (IS_ERR(hdmi_pai->regmap)) {
-> > +             dev_err(dev, "regmap init failed\n");
-> > +             return PTR_ERR(hdmi_pai->regmap);
-> > +     }
-> > +
-> > +     dev_set_drvdata(dev, hdmi_pai);
-> > +
-> > +     return component_add(dev, &imx8mp_hdmi_pai_ops);
->
-> Imagine that users could enable this driver without enabling imx8mp-hdmi-=
-tx
-> driver, you may add the component in this probe() callback only and move =
-all
-> the other stuff to bind() callback to avoid unnecessary things being done=
- here.
->
-> > +}
-> > +
-> > +static void imx8mp_hdmi_pai_remove(struct platform_device *pdev)
-> > +{
-> > +     component_del(&pdev->dev, &imx8mp_hdmi_pai_ops);
-> > +}
-> > +
-> > +static const struct of_device_id imx8mp_hdmi_pai_of_table[] =3D {
-> > +     { .compatible =3D "fsl,imx8mp-hdmi-pai" },
-> > +     { /* Sentinel */ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, imx8mp_hdmi_pai_of_table);
-> > +
-> > +static struct platform_driver imx8mp_hdmi_pai_platform_driver =3D {
-> > +     .probe          =3D imx8mp_hdmi_pai_probe,
-> > +     .remove         =3D imx8mp_hdmi_pai_remove,
-> > +     .driver         =3D {
-> > +             .name   =3D "imx8mp-hdmi-pai",
-> > +             .of_match_table =3D imx8mp_hdmi_pai_of_table,
-> > +     },
-> > +};
-> > +module_platform_driver(imx8mp_hdmi_pai_platform_driver);
-> > +
-> > +MODULE_DESCRIPTION("i.MX8MP HDMI PAI driver");
-> > +MODULE_LICENSE("GPL");
-> > diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c b/drivers/gpu/=
-drm/bridge/imx/imx8mp-hdmi-tx.c
-> > index 1e7a789ec289..ee08084d2394 100644
-> > --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> > +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> > @@ -5,11 +5,13 @@
-> >   */
-> >
-> >  #include <linux/clk.h>
-> > +#include <linux/component.h>
-> >  #include <linux/mod_devicetable.h>
-> >  #include <linux/module.h>
-> >  #include <linux/platform_device.h>
-> >  #include <drm/bridge/dw_hdmi.h>
-> >  #include <drm/drm_modes.h>
-> > +#include <drm/drm_of.h>
-> >
-> >  struct imx8mp_hdmi {
-> >       struct dw_hdmi_plat_data plat_data;
-> > @@ -79,11 +81,46 @@ static const struct dw_hdmi_phy_ops imx8mp_hdmi_phy=
-_ops =3D {
-> >       .update_hpd     =3D dw_hdmi_phy_update_hpd,
-> >  };
-> >
-> > +static int imx8mp_dw_hdmi_bind(struct device *dev)
-> > +{
-> > +     struct dw_hdmi_plat_data *plat_data;
-> > +     struct imx8mp_hdmi *hdmi;
-> > +     int ret;
-> > +
-> > +     hdmi =3D dev_get_drvdata(dev);
-> > +     plat_data =3D &hdmi->plat_data;
-> > +
-> > +     ret =3D component_bind_all(dev, plat_data);
-> > +     if (ret)
-> > +             return dev_err_probe(dev, ret, "component_bind_all failed=
-!\n");
->
-> As component_bind_all() would bind imx8mp-hdmi-pai and hence set
-> {enable,disable}_audio callbacks, you need to call dw_hdmi_probe() after
-> component_bind_all() instead of too early in probe() callback.
->
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static void imx8mp_dw_hdmi_unbind(struct device *dev)
-> > +{
-> > +     struct dw_hdmi_plat_data *plat_data;
-> > +     struct imx8mp_hdmi *hdmi;
-> > +
-> > +     hdmi =3D dev_get_drvdata(dev);
-> > +     plat_data =3D &hdmi->plat_data;
-> > +
-> > +     component_unbind_all(dev, plat_data);
-> > +}
-> > +
-> > +static const struct component_master_ops imx8mp_dw_hdmi_ops =3D {
-> > +     .bind   =3D imx8mp_dw_hdmi_bind,
-> > +     .unbind =3D imx8mp_dw_hdmi_unbind,
-> > +};
-> > +
-> >  static int imx8mp_dw_hdmi_probe(struct platform_device *pdev)
-> >  {
-> >       struct device *dev =3D &pdev->dev;
-> >       struct dw_hdmi_plat_data *plat_data;
-> > +     struct component_match *match;
->
-> As Alexander pointed out, this needs to be set to NULL.
-> See how other drivers which are component masters do.
->
-> > +     struct device_node *remote;
-> >       struct imx8mp_hdmi *hdmi;
-> > +     int ret;
-> >
-> >       hdmi =3D devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
-> >       if (!hdmi)
-> > @@ -108,6 +145,22 @@ static int imx8mp_dw_hdmi_probe(struct platform_de=
-vice *pdev)
-> >
-> >       platform_set_drvdata(pdev, hdmi);
-> >
-> > +     /* port@2 is for hdmi_pai device */
-> > +     remote =3D of_graph_get_remote_node(pdev->dev.of_node, 2, 0);
-> > +     if (remote && of_device_is_available(remote)) {
->
-> Doesn't of_graph_get_remote_node() ensure that remote is avaiable?
->
-> > +             drm_of_component_match_add(dev, &match, component_compare=
-_of, remote);
-> > +
-> > +             of_node_put(remote);
-> > +
-> > +             ret =3D component_master_add_with_match(dev, &imx8mp_dw_h=
-dmi_ops, match);
-> > +             if (ret)
-> > +                     dev_warn(dev, "Unable to register aggregate drive=
-r\n");
-> > +             /*
-> > +              * This audio function is optional for avoid blocking dis=
-play.
-> > +              * So just print warning message and no error is returned=
-.
->
-> No, since PAI node is available here, it has to be bound.  Yet you still =
-need
-> to properly handle the case where PAI node is inavailable.
->
-> > +              */
-> > +     }
-> > +
-> >       return 0;
-> >  }
-> >
-> > @@ -115,6 +168,8 @@ static void imx8mp_dw_hdmi_remove(struct platform_d=
-evice *pdev)
-> >  {
-> >       struct imx8mp_hdmi *hdmi =3D platform_get_drvdata(pdev);
-> >
-> > +     component_master_del(&pdev->dev, &imx8mp_dw_hdmi_ops);
-> > +
-> >       dw_hdmi_remove(hdmi->dw_hdmi);
-> >  }
-> >
-> > diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.=
-h
-> > index 095cdd9b7424..336f062e1f9d 100644
-> > --- a/include/drm/bridge/dw_hdmi.h
-> > +++ b/include/drm/bridge/dw_hdmi.h
-> > @@ -143,6 +143,12 @@ struct dw_hdmi_plat_data {
-> >                                          const struct drm_display_info =
-*info,
-> >                                          const struct drm_display_mode =
-*mode);
-> >
-> > +     /*
-> > +      * priv_audio is specially used for additional audio device to ge=
-t
-> > +      * driver data through this dw_hdmi_plat_data.
-> > +      */
-> > +     void *priv_audio;
-> > +
-> >       /* Platform-specific audio enable/disable (optional) */
-> >       void (*enable_audio)(struct dw_hdmi *hdmi, int channel,
-> >                            int width, int rate, int non_pcm, int iec958=
-);
->
->
-> --
-> Regards,
-> Liu Ying
+With kvm_tdx.vm_terminated removed, we should consider adding a comment above
+the is_hkid_assigned() check in tdx_sept_remove_private_spte() to clarify that
+!is_hkid_assigned() indicates the guest has been terminated, allowing private
+pages to be reclaimed directly without zapping.
 
