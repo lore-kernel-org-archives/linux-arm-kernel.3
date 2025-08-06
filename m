@@ -4,152 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A46C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5FFC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=idlUt3rsM+yBY2pffT/6Us1aEZrNslTr2qkjcKhWpWM=; b=1dhu+l3ZhktuQY6YK1VJKntBXA
-	xBfZ+D8gtiZeLVAkJ0KGJcV6lI8B/PMrfebFJPmkVlwNvfZAT/9Mhz+xJU1qYncrY3coCSja/BOqU
-	T22tN554/8ByqyzSi6JZk4HZ9tXOFYdFPMzvSr/OAnmSYl6VxHoyd7OR2WmpwqT0BE7xgOSe2awKm
-	xU00CS6zSyRha/PaQ10KB8Zmw1U3Sxi6RghTEun4Fx9b9y/41Q/R1fCIltxGPXasvBYZ0uvrQdaFm
-	rFjKIQBd//X9OiSW/gD3Zazqo8DoP4BvfohWWiL5V1U5X7wO6Lc9hEQPYIzztp9XWoZl5fPUOHxTc
-	5XrFNYhA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=knUnYiygC/glMirhYnFsBNISXjfP0z20npG9dhmwKMM=; b=wG/yh2tLjskMZeIFv8SJBp51S0
+	4ePZpRlLeZ0Jy9wEFw3kH4JNXwnE2GI656NfDyaiTEFH5Kd++XLnEkEVPmaMrEeHEUAFYrn2Xe0GN
+	54nSmvaVCk4cVOg7i7i6D5Zl1lnweot/opzMqMv801ScejDds0ys3JpK/0uAAnh043bE2SGDVOHHH
+	3utIHp3VrOAlSt3v9dWBFhb/AxCpxj+JaWS/3F94DDsFlJHBakopxXaM2uXhu0/nt91vAe24ZDSry
+	H5JNjeZcuf4HDtUuco1XbJh/j6PR3zWEjWvJjz5jN9uk15iFM8aZ3NvutwA62Zef8GiV2igfF2MSW
+	2mhb/Kmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZEz-0000000EbHH-1qno;
-	Wed, 06 Aug 2025 08:11:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ujZHS-0000000Ebgg-0u9w;
+	Wed, 06 Aug 2025 08:13:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZCS-0000000Eb1P-0yhC
+	id 1ujZDN-0000000EbAW-3ukH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:08:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754467718;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=idlUt3rsM+yBY2pffT/6Us1aEZrNslTr2qkjcKhWpWM=;
-	b=AmDrYEvo9vgs5+Eii0UAt5YAoL+K9eQxeCqd59LtcMMUyKHiZanb8o+GNkTlQvjOL+9YU3
-	6Dd9i/zxzK3tVdbvX6xA2gZkmDnj8qAP8l7r3EABq+pVJNjvCo1Xa8+FApIIT4nzhyUuyc
-	4aRC5bc9UwEbadX2xkgzE2XBhH3pG1w=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-378-ljXH1fCUNKuedSI5kOqmKw-1; Wed, 06 Aug 2025 04:08:37 -0400
-X-MC-Unique: ljXH1fCUNKuedSI5kOqmKw-1
-X-Mimecast-MFC-AGG-ID: ljXH1fCUNKuedSI5kOqmKw_1754467716
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-459de0d5fb1so21026675e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 01:08:37 -0700 (PDT)
+	Wed, 06 Aug 2025 08:09:39 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5766P57U030765
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 Aug 2025 08:09:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=knUnYiygC/glMirhYnFsBNISXjfP0z20npG
+	9dhmwKMM=; b=Hewp2yjevG0elzb/Zof7MlkZNhDoXAm7hnHiZ7Gw7jsWIr3JNZT
+	bCZeKtAieTgWvpX8hEv7esFEPQYb+U4kMc0EeQ8sea2hMqA1TXD1xL28t1de+xZ5
+	Njk5lMf6djDj5qAnB4rwHIVHDFjLCkMvJYKLBqk+y2fuYjwuxLtHnwDX/QT6g4Wa
+	ZSeenNdAcRYDV3qyWs44UR2CGfT/cQjIvf6ejiqPsI0TOPpwmvizFop4T+DCud/N
+	CdieQgtUs5rt73x2dgGmOLY2JF8w9430lyJJFn9pdaPpA3nusVN+Uub5B25YEbVy
+	j/pBkbj0sD2Yjc8X0r6FAusfLM3MRBiUiNg==
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48bpycsvjc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:09:37 +0000 (GMT)
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b42218e4a59so4400176a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 01:09:37 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754467716; x=1755072516;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=idlUt3rsM+yBY2pffT/6Us1aEZrNslTr2qkjcKhWpWM=;
-        b=Ms0jFKdd36DCKQQz4w4gKIP66SJP6wnh00PJ7QXtRz60qrMR/jx18i9jUHNWbwIBg2
-         BAxmDLfPA5GzUMQjCUNBVGRkVAbxnz5XQUa7dngmGOURZC7XlGCxbGB2SGXjrRZcc9/F
-         WsgidJpzyiRdbi7TUCnl5fZyxkmcmuinPAAyzJ8wzSFcL45sH63/niPCx5dWGSV/0bEL
-         BpETIS0F4eIsTql2RSn6wFU0+8gdPDkYeQMtT8nVSDKGRb5/MCP/heUXLcZWqyRsfKH8
-         qsXlAHwsJmvkaseEI3msdsPC0cZiO89Rl2kE3ZZI4K3zMPAusIMO70NFD9Yb9Lewds7e
-         X8TQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWfeeIy2dIvPjleKnm6cZVZf0YtJU4fIKUSfDom1z+K3JubCeC/JiQ4mTCWoY77qZT3IadGNTsn8JerRpr3GnC7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNJ7ksTajSDhq71T5+5ohEoUNheUtNJzWI2EH3oCPt+lb9ywqY
-	nSaBdGrLRgzR4jKUMqosz9NFfknlNOFlJrzFpoI9vDTCx8nn/4Y6s8FJfB4AT8trTXYr8k/ZKDn
-	LpAYxptAYv11hgyggxWl21rswHTkgPNI5ONopkMGH8gQuaX6+QuXWs30uVsmV7g4Sf8QuSmNOvk
-	bF
-X-Gm-Gg: ASbGnctWFE9BGyDtBsrgx0Yyzk/FeuzK6CvOqJwH6xbO3EPe7u8hp7F55ovSEBIrqH6
-	SZ3WIdRboRFu6HvDZasgjvOCmPZ6ufh7fOU6UGZ1Vsoa4wQJaW5TGZ0uUq3d7vOAMB7XeKHEfU1
-	dqoa9yMYflJtu75JbWKlezVEtPxmXlf+q6lF/iw5/knJzPtIkzXAwgxPKrlDSOwGiWompWH/n4H
-	h7sMiKeBSsSY1FbSJSXSQoW+nGBMDf5kWVouGwOVvKu9OukQjKqueOz0Utf4b2/gJcWPoiUoXKN
-	CVyXl7GIpEFbIM9Z00BVsyiOaALrcCl7d/Uu3k28vm103c8ZzfpI0KmaUTnlf79ZD619Z/c=
-X-Received: by 2002:a05:600c:5307:b0:459:dde3:1a56 with SMTP id 5b1f17b1804b1-459e7e4cbbdmr10990955e9.28.1754467716127;
-        Wed, 06 Aug 2025 01:08:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFnF+JC70Y+wij7D0xhvmStL7sg8B0/W7PEfpWoYIUbNo5rKcmTj513UkofaGh3WuFA13jIvg==
-X-Received: by 2002:a05:600c:5307:b0:459:dde3:1a56 with SMTP id 5b1f17b1804b1-459e7e4cbbdmr10990605e9.28.1754467715584;
-        Wed, 06 Aug 2025 01:08:35 -0700 (PDT)
-Received: from [192.168.3.141] (p4fe0ffa9.dip0.t-ipconnect.de. [79.224.255.169])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e58400f5sm35850175e9.2.2025.08.06.01.08.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Aug 2025 01:08:34 -0700 (PDT)
-Message-ID: <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
-Date: Wed, 6 Aug 2025 10:08:33 +0200
+        d=1e100.net; s=20230601; t=1754467776; x=1755072576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=knUnYiygC/glMirhYnFsBNISXjfP0z20npG9dhmwKMM=;
+        b=jR6tnCHVKN0mfYIXeYGH978M4qObmXtL7rs1s4fA5AdOpRGxbmG8TbEWanoPDmvZa+
+         ek7DJSU3x5xaZohZhBGdS2M3pwqGIqQ6der8uUMMRiQ7ihi5hIbEMUfFo22QTT2xhqe6
+         8PZ9r5ymFz+reewgn5m7TpNvoI2eHVoJ5Z8m8oU5Glv8zOFINPw4akDoawuWKcSkyXap
+         /TB0qQ8SxRqD7AIlmYoe2QzTwb939gUMZKEyaRE2jQNJawJbkXOZxrxC7DVQNFCeBt3/
+         +eMN0RbCueAz1Q771ojdVnqe7bFLRuJLWG9w9mwYyPyG+d875KK4YV89aHhrHTEhdCUV
+         Hx8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUF+uoYUMsBy5kdjKPzjG0PruG+ywYqybWLQodxEUibFUS42UMmI6p2jmyZPQCgQojt9VykZC8INhZuAUcos6dd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwC6YLE21TuDWXk2Vnzjez2KHUHlEVvtuku8Ho0WF4C2cWG4INM
+	jspnQibfZcNPQlVlL/esQW8EdCcwt/PP9dCGm8qDtn5RrtT55eAJbYF7eG4/Ri91zLKULnieK+Q
+	SGAfuKFJpnsaP96sqyz/bkbrEQbx50h52kSk3OA3jz0V9gzOwDkBBI2ZEsCcijac4FeEcQ9oeV9
+	SfPA==
+X-Gm-Gg: ASbGncvxPDjJ490fqO1AAZVqTAbu1ItUsqRE6SV4E6DL+dJc6CAjTmZZHznC3QhkoB+
+	iQ4wbyF+svPuirHe1MQFXIxJxhulmLoUn36YxcZbIeIEEOi79ck094/SR0mglXrlq2M2IVvL6mH
+	zMg0dV9s5DxS1ojWa+YHqRNxO2qOy4HyVMkgqIjzLJeFxfGVM/un5HjD/QU9WCA3NeNM+3Eu1mz
+	g2WDw1BPbnq0zx0k10Fui1H7axwQROkbXhUIVuUZZy5qtdSsqcN6OG3dzGKEK4Sl271t6cTQSWw
+	plI3DDi830T5zc1vi8B/nqE18qm92VDxkEx4qowJ7J9bTAHMqoq2/m0cEOrIT5yQYr8M4YlpQEQ
+	PuosoW7+Y+sj8sGpmtBc=
+X-Received: by 2002:a05:6a20:1584:b0:240:1e63:2dfd with SMTP id adf61e73a8af0-240314b5221mr3282863637.29.1754467776491;
+        Wed, 06 Aug 2025 01:09:36 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGO/5kf0TugUCngV86DUYMPF7cCHvVqLqvFAR0R+lx9ixwaYadjeYK63pbWIUa3NO/Pp3Vw4g==
+X-Received: by 2002:a05:6a20:1584:b0:240:1e63:2dfd with SMTP id adf61e73a8af0-240314b5221mr3282829637.29.1754467776090;
+        Wed, 06 Aug 2025 01:09:36 -0700 (PDT)
+Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bcce6f319sm14856195b3a.18.2025.08.06.01.09.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Aug 2025 01:09:35 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tao Zhang <quic_taozha@quicinc.com>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: tingwei.zhang@oss.qualcomm.com, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org
+Subject: [PATCH v1] coresight: tpda: fix the logic to setup the element size
+Date: Wed,  6 Aug 2025 16:09:31 +0800
+Message-Id: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250718090244.21092-1-dev.jain@arm.com>
- <20250718090244.21092-7-dev.jain@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzSREYXZpZCBIaWxk
- ZW5icmFuZCA8ZGF2aWRAcmVkaGF0LmNvbT7CwZgEEwEIAEICGwMGCwkIBwMCBhUIAgkKCwQW
- AgMBAh4BAheAAhkBFiEEG9nKrXNcTDpGDfzKTd4Q9wD/g1oFAmgsLPQFCRvGjuMACgkQTd4Q
- 9wD/g1o0bxAAqYC7gTyGj5rZwvy1VesF6YoQncH0yI79lvXUYOX+Nngko4v4dTlOQvrd/vhb
- 02e9FtpA1CxgwdgIPFKIuXvdSyXAp0xXuIuRPQYbgNriQFkaBlHe9mSf8O09J3SCVa/5ezKM
- OLW/OONSV/Fr2VI1wxAYj3/Rb+U6rpzqIQ3Uh/5Rjmla6pTl7Z9/o1zKlVOX1SxVGSrlXhqt
- kwdbjdj/csSzoAbUF/duDuhyEl11/xStm/lBMzVuf3ZhV5SSgLAflLBo4l6mR5RolpPv5wad
- GpYS/hm7HsmEA0PBAPNb5DvZQ7vNaX23FlgylSXyv72UVsObHsu6pT4sfoxvJ5nJxvzGi69U
- s1uryvlAfS6E+D5ULrV35taTwSpcBAh0/RqRbV0mTc57vvAoXofBDcs3Z30IReFS34QSpjvl
- Hxbe7itHGuuhEVM1qmq2U72ezOQ7MzADbwCtn+yGeISQqeFn9QMAZVAkXsc9Wp0SW/WQKb76
- FkSRalBZcc2vXM0VqhFVzTb6iNqYXqVKyuPKwhBunhTt6XnIfhpRgqveCPNIasSX05VQR6/a
- OBHZX3seTikp7A1z9iZIsdtJxB88dGkpeMj6qJ5RLzUsPUVPodEcz1B5aTEbYK6428H8MeLq
- NFPwmknOlDzQNC6RND8Ez7YEhzqvw7263MojcmmPcLelYbfOwU0EVcufkQEQAOfX3n0g0fZz
- Bgm/S2zF/kxQKCEKP8ID+Vz8sy2GpDvveBq4H2Y34XWsT1zLJdvqPI4af4ZSMxuerWjXbVWb
- T6d4odQIG0fKx4F8NccDqbgHeZRNajXeeJ3R7gAzvWvQNLz4piHrO/B4tf8svmRBL0ZB5P5A
- 2uhdwLU3NZuK22zpNn4is87BPWF8HhY0L5fafgDMOqnf4guJVJPYNPhUFzXUbPqOKOkL8ojk
- CXxkOFHAbjstSK5Ca3fKquY3rdX3DNo+EL7FvAiw1mUtS+5GeYE+RMnDCsVFm/C7kY8c2d0G
- NWkB9pJM5+mnIoFNxy7YBcldYATVeOHoY4LyaUWNnAvFYWp08dHWfZo9WCiJMuTfgtH9tc75
- 7QanMVdPt6fDK8UUXIBLQ2TWr/sQKE9xtFuEmoQGlE1l6bGaDnnMLcYu+Asp3kDT0w4zYGsx
- 5r6XQVRH4+5N6eHZiaeYtFOujp5n+pjBaQK7wUUjDilPQ5QMzIuCL4YjVoylWiBNknvQWBXS
- lQCWmavOT9sttGQXdPCC5ynI+1ymZC1ORZKANLnRAb0NH/UCzcsstw2TAkFnMEbo9Zu9w7Kv
- AxBQXWeXhJI9XQssfrf4Gusdqx8nPEpfOqCtbbwJMATbHyqLt7/oz/5deGuwxgb65pWIzufa
- N7eop7uh+6bezi+rugUI+w6DABEBAAHCwXwEGAEIACYCGwwWIQQb2cqtc1xMOkYN/MpN3hD3
- AP+DWgUCaCwtJQUJG8aPFAAKCRBN3hD3AP+DWlDnD/4k2TW+HyOOOePVm23F5HOhNNd7nNv3
- Vq2cLcW1DteHUdxMO0X+zqrKDHI5hgnE/E2QH9jyV8mB8l/ndElobciaJcbl1cM43vVzPIWn
- 01vW62oxUNtEvzLLxGLPTrnMxWdZgxr7ACCWKUnMGE2E8eca0cT2pnIJoQRz242xqe/nYxBB
- /BAK+dsxHIfcQzl88G83oaO7vb7s/cWMYRKOg+WIgp0MJ8DO2IU5JmUtyJB+V3YzzM4cMic3
- bNn8nHjTWw/9+QQ5vg3TXHZ5XMu9mtfw2La3bHJ6AybL0DvEkdGxk6YHqJVEukciLMWDWqQQ
- RtbBhqcprgUxipNvdn9KwNpGciM+hNtM9kf9gt0fjv79l/FiSw6KbCPX9b636GzgNy0Ev2UV
- m00EtcpRXXMlEpbP4V947ufWVK2Mz7RFUfU4+ETDd1scMQDHzrXItryHLZWhopPI4Z+ps0rB
- CQHfSpl+wG4XbJJu1D8/Ww3FsO42TMFrNr2/cmqwuUZ0a0uxrpkNYrsGjkEu7a+9MheyTzcm
- vyU2knz5/stkTN2LKz5REqOe24oRnypjpAfaoxRYXs+F8wml519InWlwCra49IUSxD1hXPxO
- WBe5lqcozu9LpNDH/brVSzHCSb7vjNGvvSVESDuoiHK8gNlf0v+epy5WYd7CGAgODPvDShGN
- g3eXuA==
-Organization: Red Hat
-In-Reply-To: <20250718090244.21092-7-dev.jain@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: HckynwqwwrCpwbOxSLxHD7ZrN4LT9HEtUDzUTIh-rpw_1754467716
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: _kQ6k43xTl7dCAJHthkC4EBvvd9nBWta
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDAwOCBTYWx0ZWRfX7+fTDV8sd5lW
+ pLGgfKZOvVJHTugyqc75UAHvzL+86CX7aCCyv3kmo67n/iru+c05hQ2a3avKa5zA5EFDuglui9q
+ l9rd4cD25Ng4vTk+dvGzJ5BB/tVFXid4Duh2PD4TqPHN0daXVjOd08Xzun080ly5QdEIcgw++7k
+ OaD9Ldemi1oWvgH60fRtX1TWF6zbIQj+WJRPWCJA0bqXvmzsqP+RE5s2nx0soPU5qnZl/5BN35g
+ s7r0BrySgXOe4wSq/yNOwntisP22YXXRzKt5jrI4ePORsz1Wl/Oq6OLOQ8p5z4zt0d5Rs/QvS+e
+ vWn5ixpAO2meZ4daSAoyUxWlweGvjkCTosUsCW4mDpKsIlFAsKbP5e3UbG6b5Jd9+5dyIeQP0ti
+ 95dScjiJ
+X-Authority-Analysis: v=2.4 cv=JIo7s9Kb c=1 sm=1 tr=0 ts=68930dc1 cx=c_pps
+ a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=eYArMgjR2MFx1z2CNlUA:9
+ a=x9snwWr2DeNwDh03kgHS:22
+X-Proofpoint-GUID: _kQ6k43xTl7dCAJHthkC4EBvvd9nBWta
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-06_01,2025-08-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 clxscore=1015 impostorscore=0 suspectscore=0
+ bulkscore=0 malwarescore=0 phishscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508060008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_010840_422371_F703C247 
-X-CRM114-Status: GOOD (  46.22  )
+X-CRM114-CacheID: sfid-20250806_010937_971393_CCDB4B58 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,202 +131,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18.07.25 11:02, Dev Jain wrote:
-> Use folio_pte_batch to batch process a large folio. Note that, PTE
-> batching here will save a few function calls, and this strategy in certain
-> cases (not this one) batches atomic operations in general, so we have
-> a performance win for all arches. This patch paves the way for patch 7
-> which will help us elide the TLBI per contig block on arm64.
-> 
-> The correctness of this patch lies on the correctness of setting the
-> new ptes based upon information only from the first pte of the batch
-> (which may also have accumulated a/d bits via modify_prot_start_ptes()).
-> 
-> Observe that the flag combination we pass to mprotect_folio_pte_batch()
-> guarantees that the batch is uniform w.r.t the soft-dirty bit and the
-> writable bit. Therefore, the only bits which may differ are the a/d bits.
-> So we only need to worry about code which is concerned about the a/d bits
-> of the PTEs.
-> 
-> Setting extra a/d bits on the new ptes where previously they were not set,
-> is fine - setting access bit when it was not set is not an incorrectness
-> problem but will only possibly delay the reclaim of the page mapped by
-> the pte (which is in fact intended because the kernel just operated on this
-> region via mprotect()!). Setting dirty bit when it was not set is again
-> not an incorrectness problem but will only possibly force an unnecessary
-> writeback.
-> 
-> So now we need to reason whether something can go wrong via
-> can_change_pte_writable(). The pte_protnone, pte_needs_soft_dirty_wp,
-> and userfaultfd_pte_wp cases are solved due to uniformity in the
-> corresponding bits guaranteed by the flag combination. The ptes all
-> belong to the same VMA (since callers guarantee that [start, end) will
-> lie within the VMA) therefore the conditional based on the VMA is also
-> safe to batch around.
-> 
-> Since the dirty bit on the PTE really is just an indication that the folio
-> got written to - even if the PTE is not actually dirty but one of the PTEs
-> in the batch is, the wp-fault optimization can be made. Therefore, it is
-> safe to batch around pte_dirty() in can_change_shared_pte_writable()
-> (in fact this is better since without batching, it may happen that
-> some ptes aren't changed to writable just because they are not dirty,
-> even though the other ptes mapping the same large folio are dirty).
-> 
-> To batch around the PageAnonExclusive case, we must check the corresponding
-> condition for every single page. Therefore, from the large folio batch,
-> we process sub batches of ptes mapping pages with the same
-> PageAnonExclusive condition, and process that sub batch, then determine
-> and process the next sub batch, and so on. Note that this does not cause
-> any extra overhead; if suppose the size of the folio batch is 512, then
-> the sub batch processing in total will take 512 iterations, which is the
-> same as what we would have done before.
-> 
-> For pte_needs_flush():
-> 
-> ppc does not care about the a/d bits.
-> 
-> For x86, PAGE_SAVED_DIRTY is ignored. We will flush only when a/d bits
-> get cleared; since we can only have extra a/d bits due to batching,
-> we will only have an extra flush, not a case where we elide a flush due
-> to batching when we shouldn't have.
-> 
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+Some TPDM devices support both CMB and DSB datasets, requiring
+the system to enable the port with both corresponding element sizes.
 
+Currently, the logic treats tpdm_read_element_size as successful if
+the CMB element size is retrieved correctly, regardless of whether
+the DSB element size is obtained. This behavior causes issues
+when parsing data from TPDM devices that depend on both element sizes.
 
-I wanted to review this, but looks like it's already upstream and I 
-suspect it's buggy (see the upstream report I cc'ed you on)
+To address this, the function should explicitly fail if the DSB
+element size cannot be read correctly.
 
-[...]
+Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB element")
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+---
+ drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-> +
-> +/*
-> + * This function is a result of trying our very best to retain the
-> + * "avoid the write-fault handler" optimization. In can_change_pte_writable(),
-> + * if the vma is a private vma, and we cannot determine whether to change
-> + * the pte to writable just from the vma and the pte, we then need to look
-> + * at the actual page pointed to by the pte. Unfortunately, if we have a
-> + * batch of ptes pointing to consecutive pages of the same anon large folio,
-> + * the anon-exclusivity (or the negation) of the first page does not guarantee
-> + * the anon-exclusivity (or the negation) of the other pages corresponding to
-> + * the pte batch; hence in this case it is incorrect to decide to change or
-> + * not change the ptes to writable just by using information from the first
-> + * pte of the batch. Therefore, we must individually check all pages and
-> + * retrieve sub-batches.
-> + */
-> +static void commit_anon_folio_batch(struct vm_area_struct *vma,
-> +		struct folio *folio, unsigned long addr, pte_t *ptep,
-> +		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
-> +{
-> +	struct page *first_page = folio_page(folio, 0);
-
-Who says that we have the first page of the folio mapped into the first 
-PTE of the batch?
-
-> +	bool expected_anon_exclusive;
-> +	int sub_batch_idx = 0;
-> +	int len;
-> +
-> +	while (nr_ptes) {
-> +		expected_anon_exclusive = PageAnonExclusive(first_page + sub_batch_idx);
-> +		len = page_anon_exclusive_sub_batch(sub_batch_idx, nr_ptes,
-> +					first_page, expected_anon_exclusive);
-> +		prot_commit_flush_ptes(vma, addr, ptep, oldpte, ptent, len,
-> +				       sub_batch_idx, expected_anon_exclusive, tlb);
-> +		sub_batch_idx += len;
-> +		nr_ptes -= len;
-> +	}
-> +}
-> +
-> +static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
-> +		struct folio *folio, unsigned long addr, pte_t *ptep,
-> +		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
-> +{
-> +	bool set_write;
-> +
-> +	if (vma->vm_flags & VM_SHARED) {
-> +		set_write = can_change_shared_pte_writable(vma, ptent);
-> +		prot_commit_flush_ptes(vma, addr, ptep, oldpte, ptent, nr_ptes,
-> +				       /* idx = */ 0, set_write, tlb);
-> +		return;
-> +	}
-> +
-> +	set_write = maybe_change_pte_writable(vma, ptent) &&
-> +		    (folio && folio_test_anon(folio));
-> +	if (!set_write) {
-> +		prot_commit_flush_ptes(vma, addr, ptep, oldpte, ptent, nr_ptes,
-> +				       /* idx = */ 0, set_write, tlb);
-> +		return;
-> +	}
-> +	commit_anon_folio_batch(vma, folio, addr, ptep, oldpte, ptent, nr_ptes, tlb);
-> +}
-> +
->   static long change_pte_range(struct mmu_gather *tlb,
->   		struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
->   		unsigned long end, pgprot_t newprot, unsigned long cp_flags)
-> @@ -206,8 +302,9 @@ static long change_pte_range(struct mmu_gather *tlb,
->   		nr_ptes = 1;
->   		oldpte = ptep_get(pte);
->   		if (pte_present(oldpte)) {
-> +			const fpb_t flags = FPB_RESPECT_SOFT_DIRTY | FPB_RESPECT_WRITE;
->   			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
-> -			struct folio *folio;
-> +			struct folio *folio = NULL;
->   			pte_t ptent;
->   
->   			/*
-> @@ -221,11 +318,16 @@ static long change_pte_range(struct mmu_gather *tlb,
->   
->   					/* determine batch to skip */
->   					nr_ptes = mprotect_folio_pte_batch(folio,
-> -						  pte, oldpte, max_nr_ptes);
-> +						  pte, oldpte, max_nr_ptes, /* flags = */ 0);
->   					continue;
->   				}
->   			}
->   
-> +			if (!folio)
-> +				folio = vm_normal_folio(vma, addr, oldpte);
-> +
-> +			nr_ptes = mprotect_folio_pte_batch(folio, pte, oldpte, max_nr_ptes, flags);
-> +
->   			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
->   			ptent = pte_modify(oldpte, newprot);
->   
-> @@ -248,14 +350,13 @@ static long change_pte_range(struct mmu_gather *tlb,
->   			 * COW or special handling is required.
->   			 */
->   			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
-> -			    !pte_write(ptent) &&
-> -			    can_change_pte_writable(vma, addr, ptent))
-> -				ptent = pte_mkwrite(ptent, vma);
-> -
-> -			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr_ptes);
-> -			if (pte_needs_flush(oldpte, ptent))
-> -				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
-> -			pages++;
-> +			     !pte_write(ptent))
-> +				set_write_prot_commit_flush_ptes(vma, folio,
-> +				addr, pte, oldpte, ptent, nr_ptes, tlb);
-
-While staring at this:
-
-Very broken indentation.
-
-> +			else
-> +				prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
-> +					nr_ptes, /* idx = */ 0, /* set_write = */ false, tlb);
-
-Semi-broken intendation.
-
-> +			pages += nr_ptes;
->   		} else if (is_swap_pte(oldpte)) {
->   			swp_entry_t entry = pte_to_swp_entry(oldpte);
->   			pte_t newpte;
-
-
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+index 0633f04beb24..333b3cb23685 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.c
++++ b/drivers/hwtracing/coresight/coresight-tpda.c
+@@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+ 	if (tpdm_data->dsb) {
+ 		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
+ 				"qcom,dsb-element-bits", &drvdata->dsb_esize);
++		if (rc)
++			goto out;
+ 	}
+ 
+ 	if (tpdm_data->cmb) {
+@@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
+ 				"qcom,cmb-element-bits", &drvdata->cmb_esize);
+ 	}
+ 
++out:
+ 	if (rc)
+ 		dev_warn_once(&csdev->dev,
+ 			"Failed to read TPDM Element size: %d\n", rc);
 -- 
-Cheers,
-
-David / dhildenb
+2.34.1
 
 
