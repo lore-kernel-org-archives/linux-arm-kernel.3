@@ -4,101 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C17C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 14:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC1AC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 14:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8t5HFUqc+uUOq+DP418Q40OKNx1R/fQImmMod37+pg=; b=K016IaNw975YAA8lGTx3dkA17l
-	KnCixKSRcNUvVPI8hSxKq+tW5K5Tn3ZmLm32arVp87BVXhdzADDB54pvuNPi+ZPMt9MeER0J5Yw7b
-	fYTpyrS3DLoeGAAQlnp8UsknTOsoGOWSJlXR0GcgldpFB/XTHHkSdNF9SseEMCfseAJXebiWE4/NH
-	LFtuXu/sXJ7SsHjUhIBdcCxOoP2Pd9Ah+/8n9kRxV7MILSj3cA+6J8R/sO8sTvto8Od7PK9iH5ZQL
-	Uw9NDtpy+1R1ZUMxzGsILxRlZSqCJY/wBXbEySJ26e3z1WaVzb9OqEmMs5HezZUYThjLChuXwdvFj
-	PVfbMyfw==;
+	bh=Rss9DgkKC4tUBJW8jUoutVhG0+BlmoDiH60X7ZNrfpo=; b=Ulnc+382LLqpkL2WmLjhpAhMCK
+	13HzNeR4zWrCAo9bD7IYkimyiX70Lfjqwq00+K7IdGjLugS4p72FogZFsigGOTGLbd2VRG7MyvukO
+	h5jhmQ3KPQ0njx6GSpsBEzC2BMKrCtotUDqP/gS3KTFWt5anvK5EtTXK5CeE+B7Bf6Dn9OJoY9sQN
+	LF2baKzNre8Jl5fbjYEeSMAvamJdf695x5F6TnOCQZ90G9FxJUikxEi/O0tyOHw8gGQk9XSQOFm5G
+	Iopj/KzUz6vS8LP6h8oN5WgMz/CUqm1I4+aKYzuzatnQ3e3b6KC54hUndHWkimI7ei0wMq0JSHRt8
+	50vOM9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujexJ-0000000FQFs-3huq;
-	Wed, 06 Aug 2025 14:17:25 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1ujf0a-0000000FQwN-0fAC;
+	Wed, 06 Aug 2025 14:20:48 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujeqo-0000000FPEA-1geS
+	id 1ujey2-0000000FQQX-3pl5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 14:10:43 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-459e497776cso90545e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 07:10:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754489440; x=1755094240; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=S8t5HFUqc+uUOq+DP418Q40OKNx1R/fQImmMod37+pg=;
-        b=yKRJo5VFI/eMFmal4gEiRHflIsqSQYz+FlDHbcnzkVfU95XLTulpTZlcManKZDFBNd
-         6fhI2b+AAEMGBXpYJoIB4vv/JoZINxVujfbV+Yjd1TVCU595UtnS8hIW1JYLLk2rilwL
-         0/b1m3MBupjrgBdznwyobLre2IYVG6VSoVCgAiHyDtbm7p1PFMsMuaTWNzlU2Ox2TIte
-         fFkhc3lVPlYEMdWIpGcaS+bd5Hc3mroVsLnH9hi2hnOgWbE7t9WNyneAyPtnlAHP1tJg
-         ps8FR6OtloqJQWLU+up4q1XCTxx3mJL8bUIIfePSMuI4Bws3TLsmM7Tx0KZzroFVlQ/H
-         7KFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754489440; x=1755094240;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=S8t5HFUqc+uUOq+DP418Q40OKNx1R/fQImmMod37+pg=;
-        b=QHpgJ1hSQ2qdOzWEOYtvdcaSqkNvFZ71UmiVfWE0xYIgbIdJR2ycd6VCfGZpA5jkWy
-         s3xrO7cyLTOkDwYanN6T4CnYoNl1Zd8do540Ecd+uuZppikJnDbkRsHQB1ATlDPWXXDs
-         aI4UPsBz1BLSY+Kxd7qLOfxv8qyE8qr0j9cWkjRnn6JcmOfZF4IywEZycGyZKyG2TyyJ
-         LbftrhrLZ0cQW7xjKv8G1iJe0L7PfvBYUso9EY3fa88KjUi33WV+4V/j0q4ZjrdMRuMS
-         IchP9OcN2QqgQ3tlqv03AJvzx2NkFqvzmtpFYVitfstY77l8++5B/R5xjzzxgRQnOMu5
-         pwpg==
-X-Forwarded-Encrypted: i=1; AJvYcCWqcNBqS40MduxiaXemxoPZl4+8wJwxcNzH7s8vL/Rja/5Z4UXLIXYRoBmkgji1YqIPyWkMx6wgpU+oEBEn3/1g@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWqYOhPV63tXQMa6HU5OMq1DpZDLqDNlKiMJHZq56go+Zu8Fk8
-	e1OV6jqhjX7FcB4R3vk7HliFB2DOj/1Qsecr7nIAw76WqosptX4Z6DRHgwjR/Ufslg==
-X-Gm-Gg: ASbGncv1OevCFL9BIKgR9u9K/aSZOrV8tuuklaAXFHXTP++nGod3tTmmlu1VSS9Ibm2
-	j9yV4tFQtnecekmljGvjKMoLxsTBplvM8CRaCd2h7NF3JfXnJNQgpUocJjoOAP3lJ/7agKZZ4Ei
-	yNaUY+N2ppYZoNZMaVJg8fkZ1Mvmq1b5KGN7o+zxD2gAMYjTO6TNzaIU9609fot8AaJ1EwxVPbg
-	rBkO+Cy0eXtWll/ILqE0IOf8PPj8kXNVwf/Ch83AVeWAsjMgalW11C+ADwN7HtJ4DfItl741psl
-	DhUgurFLKePEp43oWU7M3IuhsxZn1d4N8W9jsjB/1mLN1O8BCuM9pBF+Hz9qwUt4zxnQrx0zxRX
-	OZerWd0o3wgIY9FtOR+uFOGq7tuKyNAP9a7neWRcsfKWO+BAFThrTagVLjp+IOzc7BQ==
-X-Google-Smtp-Source: AGHT+IHFwOHplPeniFX/OYHA6MsJidP9FSVHfWws6kd04FRGtTTr89FlkYU0XPDUkpq8hanIQWmrxQ==
-X-Received: by 2002:a05:600c:1f10:b0:456:e94:466c with SMTP id 5b1f17b1804b1-459e74b4543mr1411575e9.3.1754489439774;
-        Wed, 06 Aug 2025 07:10:39 -0700 (PDT)
-Received: from google.com (110.121.148.146.bc.googleusercontent.com. [146.148.121.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e5843021sm58288915e9.3.2025.08.06.07.10.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Aug 2025 07:10:38 -0700 (PDT)
-Date: Wed, 6 Aug 2025 14:10:35 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
-Message-ID: <aJNiW48DdXIAFz8r@google.com>
-References: <20250728175316.3706196-30-smostafa@google.com>
- <20250730144253.GM26511@ziepe.ca>
- <aIo1ImP7R7VhRpVE@google.com>
- <20250730164752.GO26511@ziepe.ca>
- <aIt67bOzp6XS_yO-@google.com>
- <20250731165757.GZ26511@ziepe.ca>
- <aIurlx5QzEtjpFLd@google.com>
- <20250801185930.GH26511@ziepe.ca>
- <aJDGm02ihZyrBalY@google.com>
- <20250805175753.GY26511@ziepe.ca>
+	Wed, 06 Aug 2025 14:18:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XRLYYMzhKyLnmzEenJc6xgjI1P5J+jE0Jawu0EFfDOQa7sWVZ2hO2MPlvR146lE1+1U5SXRrN+CxyHEyusAcKBOQ/fhRvmByppWHmJz55HP4OZVeGWZnow78vJWMctKb4MZDN2vlMTZe4Kry1KED06HPLDwYIVzC6RRs9uFWLoA6sgjChqEn05d2UhMEPYe/xUdquPObl+wlhaobRm+EoDVtMHMXJ0tSZcLCHTy0VEYfyAnbZEV8OBXc3mFwgv+u+UGn0tLkBkRv4ua2cQagkPnUroM3AF2zFj6oAWjdjJaKYM6gbcQg0DcY7QADkIZKeWRNNnf+m866CuyP70w6Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rss9DgkKC4tUBJW8jUoutVhG0+BlmoDiH60X7ZNrfpo=;
+ b=gzX03UgWFmggKqU1TO39GgmswwTYgZcQxW0swvd6RkR/iMeA5wv0mI3vNU6fKLrN6qa1IssUI5Oq1LkcdTwM2ajiU30c6RE8wKEwi7fTIm1QP3XRVvyKn8k+M8Pr5RU8jIoH8iLTh9xIRZG42LJaG3Y+ri9lCHyyZwHhym8v7hYmrScXGN43LlQPCcKkbjm8WipZGcADEffuKO4Gpav0JPwsL3rCDsOFvVy6RJIoMewfUJ0C8sptaOqo8Yr+X8HUeN1cZp4PMH1lR9t2cK6KqHSRzzAr2mH3g399Z5FLWlvyP9/JOgenCssGWUbVRELzbwC8+fqvaf5iafT93O4EUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=epam.com; dmarc=pass action=none header.from=epam.com;
+ dkim=pass header.d=epam.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=epam.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rss9DgkKC4tUBJW8jUoutVhG0+BlmoDiH60X7ZNrfpo=;
+ b=YqmCBJ34d3R0T8MoFtVwAW3YqK/CJesrhe1W6YoxFS98MI3NBRtGyquC5QoI1BZxT7AnDjACyFABKkYM7qcPAAlzpgPYslZJzIqcZ840ckfIghmwTKXDJUbt+NcrR9cuH7E+/YaR485VRpWZcild1U2NHLsg4v4kNVrblrUJCccjlDMo/iGRWPNiMHAYfMjoEQS48Xnl4YHylgBXRtJhrIE07S1iZ+EM4hUAZKPdyyv7t1TX5ErPrCpH1QkVMbBUh4iNL603hee1iCqeP7NCfr8YePaKfVCz7QSaxd6UvpbrrmCXPPhWbyeLikjvBjnqmW9J/bSBziieUAXsWQjz7g==
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ (2603:10a6:150:16a::21) by GV2PR03MB8803.eurprd03.prod.outlook.com
+ (2603:10a6:150:b7::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.20; Wed, 6 Aug
+ 2025 14:17:55 +0000
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e]) by GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
+ 14:17:55 +0000
+From: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>, Marc Zyngier
+	<maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly
+	<joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+	<yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>
+Subject: [PATCH v1 1/2] KVM: arm64: nv: fix S2 translation for nVHE guests
+Thread-Topic: [PATCH v1 1/2] KVM: arm64: nv: fix S2 translation for nVHE
+ guests
+Thread-Index: AQHcBtzmN7VC96uQ9UewPbGjpVfSjA==
+Date: Wed, 6 Aug 2025 14:17:55 +0000
+Message-ID: <20250806141707.3479194-2-volodymyr_babchuk@epam.com>
+References: <20250806141707.3479194-1-volodymyr_babchuk@epam.com>
+In-Reply-To: <20250806141707.3479194-1-volodymyr_babchuk@epam.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.50.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=epam.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV1PR03MB10456:EE_|GV2PR03MB8803:EE_
+x-ms-office365-filtering-correlation-id: 9ef1bf12-a236-4229-371c-08ddd4f4097f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|42112799006|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?qL5mqiCD6uMdDb0B1PIMjLazCIHdTcfw6CQNu9zjwEf54RLqf9ZKLYb7PX?=
+ =?iso-8859-1?Q?B9rkDYOi0/TYmn2TTXOFR9r1phuIVcUM09zXudncZXJsJbyA4bXDLHl9Dd?=
+ =?iso-8859-1?Q?j1/S/o9J8Qstgs0FwV4KutjghRGR82vdDtVOmwui4Yg8KTR0dmqodf4+Eh?=
+ =?iso-8859-1?Q?FzyM5RG3+ysUrO5wwsJhR31MilnU5P2YFIGjBPkQG6TUasX8Ao+neEFN1Q?=
+ =?iso-8859-1?Q?+Q1jKccr0Ef10zz8I5PitPgooH/zRod4Y/ck+SuOBR1UFyRmVG+bcomKHd?=
+ =?iso-8859-1?Q?791mGClTgewKa2J9ccSOzTnMBIScc35Wy6dGKzsXyyojRnuf6P8RxT4wS4?=
+ =?iso-8859-1?Q?ERZUGqQrXMbqYnzpIsadY8K9TaXwQZQW+zheMQXAZkxMzgjBOjRTOy0/AZ?=
+ =?iso-8859-1?Q?FzUjAs6TIUGB1igZEZgPSjIcyGOauSZx1vQWRapXxejP1VdCP8+G5kl21p?=
+ =?iso-8859-1?Q?BBNUcAvMCkSdddZGfiz8j0MoRZX3GyqYwY/Lv8Zn/Wj5yZbep/AU+/MCNQ?=
+ =?iso-8859-1?Q?MzIe/kMd8JgZiwdewOM2AIjksjavmdlS+Q6mey+TTxEOOwp5ph9P+Khphy?=
+ =?iso-8859-1?Q?bm329eIc95uyX8Um2HzQlPZdDvWpiU890fkp5F85h1w11ub2Iv2UJca17g?=
+ =?iso-8859-1?Q?sghV6TxpiaRJFBHxQKZcJJn/4dGLJN8j+OJNbACbnT4hQJeqXIWiQirVaE?=
+ =?iso-8859-1?Q?+FNBfTZ275DJnFQbpEBPWDK7NrxFMnf+ebIeIhD8hI3KxIonBOJRA6EaNQ?=
+ =?iso-8859-1?Q?aS10XJN84Mqq0yr8MmGM7CftqdNADUWAeMfKAnnk/aGvwO0yx8iGe4Nktm?=
+ =?iso-8859-1?Q?NKJVY5JpVAensQlaQy8He35fKyfvJXRfe8B+vX3Unx+T/EpC+RwJAqEXjN?=
+ =?iso-8859-1?Q?i8zHKZlkBXyqUPnjVNpKAeWwZOlZCY9PceP2u7NOiH+1SPyJouoWoPHzhH?=
+ =?iso-8859-1?Q?6U7ajkwi/gpCtmIU5s3ciAkHVZFWNmdDUeXcvOCZO+2W+7ju9ZsoydaHbc?=
+ =?iso-8859-1?Q?Cwt440ok9O2kxCZyGb+EehY2C+Q3fPaJZ+8Ae+fb4m25pHQI3syMG+2xoU?=
+ =?iso-8859-1?Q?A6bAYyMHopqyeVj/rRqZRU1vvSLVjcZZYZkscQRSrKJfE4rqjYymMlu0hx?=
+ =?iso-8859-1?Q?rncxf00ljrRLMCq5rGODypI6VFhM7tjS3mkoWyOrKBFiCiN0g+emG+EfuW?=
+ =?iso-8859-1?Q?sMkhsE9K+E1R3IQpOO4BwRo28H1wigqzO0tnYw5gLszO+CR/RQQonAsjap?=
+ =?iso-8859-1?Q?ZC2UOzR19BqIhSOxs8a4+p132k1cIdDuV2tWg1mCVLNYbkjKlNTONPn9H6?=
+ =?iso-8859-1?Q?Jw4JboORA5f4NiU9LOgyFtjupgSB9LEk7lRqbo6YefMFRen4YFqOHUoicH?=
+ =?iso-8859-1?Q?rUiyJtCTebI8v/zruqwILooPb11i/fOlHvzYj481ZUoci8uwLZu5oKiyop?=
+ =?iso-8859-1?Q?0shcFv5w5EMW6KYOOwUhboW+ca2OeyExLijxzXqNI1ExvpN6+N3d8iH6lv?=
+ =?iso-8859-1?Q?2sym5wfgzeVAzP2YLhLOZDBI0aWmks9hJ19Z/zecX/Cg=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR03MB10456.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(42112799006)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?j2h2we1BVAVAtm7+U9Z9dGcL8IZklxFu/bWJvumGSK7oJ01hjDNTZIsxKG?=
+ =?iso-8859-1?Q?RZGoJfIFT1XdGYmwqDKhrwY/FYCzen69unCVs6Wlq+WK84G/2ZQ21cSjme?=
+ =?iso-8859-1?Q?Udq4Pz6cd73siawdXQ+ET4AlC3AUclPt9oJlXc/jjoAlFaf/I4fLoIsp8E?=
+ =?iso-8859-1?Q?LO7LPWZI41ixh1d9D5HHa9zCmWWf/3+bFeEI3Qzvgo1q3jdczSIOajhgt2?=
+ =?iso-8859-1?Q?4iKI2t+5q343aP30rpateJC0pItEPs1wMeDa+Y6/ACYetMyQos2DZbSi/H?=
+ =?iso-8859-1?Q?8Gx+SBqJOczsZnhQNduCIJPUNGVhpZ3Ts3T0tGcBNf0k6Q+zvLK4m3sGl4?=
+ =?iso-8859-1?Q?GyRAv3DbGpmXdHmRopRx+26ssATUFiyhF1m4+puhZoE3ltQzsr1JKo8Mb2?=
+ =?iso-8859-1?Q?/BSJOqXDc+//DRJzF95waSQGiC0yRYsO8I13EKp2q+toqEPj1fODBF6EqR?=
+ =?iso-8859-1?Q?2kcj0uMo1nFgu+maUf7uhSa5UpymOeGzP18yPSfF7fVzQNpQFSkTJvgnqt?=
+ =?iso-8859-1?Q?SH/yNwInhm+02DO2WiP12yDpuyS3iBkZLKhV+IcSfMaJBiKf7vWu6W1yLe?=
+ =?iso-8859-1?Q?Z/b88iZnQ/yhjUm4QmBN0fJ3CqqVNtYzOPUWJUPiiw27Frja+lvlvB8/Bk?=
+ =?iso-8859-1?Q?WLyY3PpWcdwB2rgOkpZyktHwm0tnGGQxzU/9mT66v/KmdKHl7kObG0R0I2?=
+ =?iso-8859-1?Q?o5+rtP0Qj4Em1BjEE8mK5NsNyBdOXrBdMGoiFKEByRbqI0sdP14jJQglZd?=
+ =?iso-8859-1?Q?AjIHz5DjYveznAfekvgrSKaC2p9MZpJGdx385tNFXEOXnJfkSn+jg4XgAq?=
+ =?iso-8859-1?Q?O640iawCeQ9jrapsZdayj3gOwmo3VplLfmx/pVHmmqwapgm7JjZtEnBDEE?=
+ =?iso-8859-1?Q?yn34ZgNEqcmGk4CouN6XPulIMxOdmC7t6UxbpmuZj6Ks92+LecoYm0SLwd?=
+ =?iso-8859-1?Q?FvRdo9EWlYAun6pibpu4K8mcMl7/8oln81duplPvOjvMmeKf/dw+TAf8vs?=
+ =?iso-8859-1?Q?zpgCzON4R+NDaq0f51hmF8cGnuvszs9491TB5SAj/BVV+p9oKtQbxgYDI8?=
+ =?iso-8859-1?Q?Xhg4/NAuVLiZc4QWeKdIyD92Dz7jujjHy0va0QIWOAS0OcDjEqhvNRqodb?=
+ =?iso-8859-1?Q?dZQhpvQoY5EkKG2ACoe37uVa6cd3S3Q6qIWG3tTcJtGnvKbSdbTpIMz1qM?=
+ =?iso-8859-1?Q?BwUhtouDrVOoUsY+s7Y+K06PODG14NecSMrWBuppzW6ry7pLtmxo+kXWAq?=
+ =?iso-8859-1?Q?pmcwepg0LYcWN3HwO1I1uQQHHcEgimzph2VNR9pFx9NbpfiLVX4q0QHyQr?=
+ =?iso-8859-1?Q?hl/OmBTQ8n9PChkiL6KLbIdH/aVfOkTowO51m52ySgDWEOef99iOxkjvBm?=
+ =?iso-8859-1?Q?9OsXGiwiG+2BYHznQ3BOwjwozrU2d2+F9d6CcbcNoj0PUhhrIx86pZ+WyI?=
+ =?iso-8859-1?Q?R+RjloCiRj3s0L8StmYBZZ05r7fm2n3AfYUy5uXSTa1dSno0JTU9igmFwg?=
+ =?iso-8859-1?Q?kT4fP5kzmOKgNHFhp9HSA8YZpEveI+raz+gn3kJHL94g07u9k6DSxZudfp?=
+ =?iso-8859-1?Q?qlI8ix0yL9fenmmF+OVUGgfZPvfmkJ4HvyGxOiLd82WhSJIe/+MIGmXoYy?=
+ =?iso-8859-1?Q?SyqRU0595fZr6Mq5xCtGRXDQ/6DnUSJSGfgE+KZTU8FCXVdhiquVFL7g?=
+ =?iso-8859-1?Q?=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250805175753.GY26511@ziepe.ca>
+X-OriginatorOrg: epam.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR03MB10456.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ef1bf12-a236-4229-371c-08ddd4f4097f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Aug 2025 14:17:55.2401
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b41b72d0-4e9f-4c26-8a69-f949f367c91d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: vamFS989o8lwJg5VzB5xQuGetLbZNC0va1FY8q3R4wTl2Se6PeMnziBEjRBQMaCBqLyOoix0h8yOsDsS3W3D5z+p1a/fB2M0LHvxfoXeAeA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR03MB8803
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_071042_443486_6190D9DF 
-X-CRM114-Status: GOOD (  57.54  )
+X-CRM114-CacheID: sfid-20250806_071810_953973_F1C18882 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,176 +169,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 02:57:53PM -0300, Jason Gunthorpe wrote:
-> On Mon, Aug 04, 2025 at 02:41:31PM +0000, Mostafa Saleh wrote:
-> > > Are you saying the event queue is left behind for the kernel? How does
-> > > that work if it doesn't have access to the registers?
-> > 
-> > The evtq itself will be owned by the kernel, However, MMIO access would be
-> > trapped and emulated, here the PoC for part-2 of this series (as mentioned in
-> > the cover letter) This is very close to how nesting will work.
-> > https://android-kvm.googlesource.com/linux/+/refs/heads/for-upstream/pkvm-smmu-v3-part-2/drivers/iommu/arm/arm-smmu-v3/pkvm/arm-smmu-v3.c#744
-> 
-> Oh weird, but Ok.
-> 
-> > > In other words you have two cleanly seperate concerns here, an "pkvm
-> > > iommu subsystem" that lets pkvm control iommu HW - and the current
-> > > "iommu subsystem" that lets the kernel control iommu HW. The same
-> > > driver should not register to both.
-> > > 
-> > 
-> > I am not sure how that would work exactly, for example how would probe_device
-> > work, xlate... in a generic way?
-> 
-> Well, I think it is not so bad actually.
-> 
-> You just need to call iommu_device_register
-> 
-> 	ret = iommu_device_register(&smmu->iommu, &arm_smmu_ops, dev);
-> 
-> Where 'dev' is always the smmu struct device, even if your current
-> probing driver is not the smmu device. That will capture all the iommu
-> activity the ACPI/DT says is linked to that dev.
-> 
-> From there you just make a normal small iommu driver with no
-> connection back to the SMMUv3.
-> 
-> Eg you could spawn an aux device from smmuv3 to do this with a far
-> cleaner separation.
-> 
-> xlate is just calling iommu_fwspec_add_ids() it is one line.
+According to ARM architecture specification (ARM DDI 0487 L.a, section
+C5.4.3), Stage 2 translation should be skipped when VHE is active, or,
+in other words, E2H bit is set. Fix the code by inverting both check
+and comment.
 
-I am not sure I understand, the SMMU driver will register its IOMMU
-ops to probe the devices, then faux devices would also register
-IOMMU ops for the KVM HVCs?
-But that means that all DMA operations would still go through the
-SMMU one?
+Signed-off-by: Volodymyr Babchuk <volodymyr_babchuk@epam.com>
+---
+ arch/arm64/kvm/at.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> 
-> > same for other ops. We can make some of these
-> > functions (hypercalls wrappers) in a separate file. 
-> 
-> What other ops are you worried about?
-> 
-> static struct iommu_ops arm_smmu_ops = {
-> 	.identity_domain	= &arm_smmu_identity_domain,
-> 	.blocked_domain		= &arm_smmu_blocked_domain,
-> 	.release_device		= arm_smmu_release_device,
-> 	.domain_alloc_paging_flags = arm_smmu_domain_alloc_paging_flags,
-> 
-> 	^^ Those are all your new domain type that does the hypercalls
-> 
-> 	.probe_device		= arm_smmu_probe_device,
-> 	.get_resv_regions	= arm_smmu_get_resv_regions,
-> 
->   	^^ These are pretty empty
-> 
-> 	.device_group		= arm_smmu_device_group,
-> 	.of_xlate		= arm_smmu_of_xlate,
-> 
->         ^^ Common code
-> 
-> Don't need these:
-> 
-> 	.capable		= arm_smmu_capable,
-> 	.hw_info		= arm_smmu_hw_info,
-> 	.domain_alloc_sva       = arm_smmu_sva_domain_alloc,
-> 	.page_response		= arm_smmu_page_response,
-> 	.def_domain_type	= arm_smmu_def_domain_type,
-> 	.get_viommu_size	= arm_smmu_get_viommu_size,
-> 	.viommu_init		= arm_vsmmu_init,
-> 	.user_pasid_table	= 1,
-> 	.pgsize_bitmap		= -1UL, /* Restricted during device attach */
-> 	.owner			= THIS_MODULE,
-
-Makes sense, thanks for the detailed explanation.
-
-> 
-> > Also I am not sure how that
-> > looks from the kernel perspective (do we have 2 struct devices per SMMU?)
-> 
-> I think you'd want to have pkvm bound to the physical struct device
-> and then spawn new faux, aux or something devices for the virtualized
-> IOMMUs that probes the new paravirt driver. This driver would be fully
-> self contained.
-
-I think it’s hard to reason about this as 2 devices, from my pov it seems
-that the pKVM HVCs are a library that can be part of separate common file,
-then called from drivers. (with common ops)
-Instead of having extra complexity of 2 drivers (KVM and IOMMU PV).
-However, I can see the value of that as it totally abstracts the iommu ops
-outside the device specific code, I will give it more thought.
-But it feels that might be more suitable for a full fledged PV
-implementation (as in RFC v1 and v2).
-
-> 
-> > I think we are on the same page about how that will look at the end.
-> > For nesting there will be a pKVM driver (as mentioned in the cover letter)
-> > to probe register the SMMUs, then it will unbind itself to let the
-> > current
-> 
-> That sounds a little freaky to me. I guess it can be made to work, and
-> is maybe the best option, but if this is the longterm plan then
-> starting out with a non-iommu subsystem pkvm driver seems like a good
-> idea.
-> 
-> Today the pkvm driver would do enough to boot up pkvm in this limited
-> mode, and maybe you have some small code duplications with the iommu
-> driver. It forks off a aux device to create the para-virt pkvm iommu
-> subsystem driver.
-> 
-> Tomorrow you further shrink down the pkvm driver and remove the
-> para-virt driver, then just somehow bind/unbind the pkvm one at early
-> boot.
-> 
-> Minimal changes to the existing smmu driver in either case.
-> 
-> > Then the hypervisor driver will use trap and emulate to handle SMMU access
-> > to the MMIO, providing an architecturally accurate SMMUv3 emualation, and
-> > it will not register iommu_ops.
-> 
-> Well, it registers normal smmuv3 ops only, I think you mean.
-
-I mean when nesting is added, the arm-smmu-v3-kvm, will not call
-“iommu_device_register”
-
-> 
-> > So, I will happily drop the hypercalls and the iommu_ops from this series,
-> > if there is a better way to enlighten the hypervisor about the SIDs to be
-> > in identity.
-> 
-> The iommu ops are a reasonable and appropriate way to do this.
-> 
-> But since pkvm is all so special anyhow maybe you could hook
-> pci_enable_device() and do your identity hypercall there? Do you
-> already trap the config write to catch Bus Master Enable? Can pkvm
-> just set identity when BME=1 and ABORT when BME=0?
-
-pKVM doesn’t trap actual device access, also we have to support
-platform devices, so it would be better to rely on existing
-abstractions as “probe_device”
-
-
-I had an offline discussion with Will and Robin and they believe it might
-be better if we get rid of the kernel KVM SMMUv3 driver at all, and just
-rely on ARM_SMMU_V3 + extra hooks, so there is a single driver managing
-the SMMUs in the system.
-This way we don’t need to split current SMMUv3 or have different IOMMU ops,
-and reduces some of the duplication, also that avoids the need for a fake device.
-
-Then we have an extra file for KVM with some of the hooks (similar to the
-hooks in arm_smmu_impl_ops we have for tegra)
-
-And that might be more suitable for nesting also, to avoid the bind/unbind flow.
-
-I will investigate that and if feasible I will send v4 (hopefully
-shortly) based on this idea, otherwise I will see if we can separate
-KVM code and SMMU bootstrap code.
-
-
-Thanks,
-Mostafa
-
-> 
-> Jason
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index a25be111cd8f8..5e7c3fb01273c 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -1412,10 +1412,10 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u6=
+4 vaddr)
+ 		return;
+=20
+ 	/*
+-	 * If we only have a single stage of translation (E2H=3D0 or
++	 * If we only have a single stage of translation (E2H=3D1 or
+ 	 * TGE=3D1), exit early. Same thing if {VM,DC}=3D=3D{0,0}.
+ 	 */
+-	if (!vcpu_el2_e2h_is_set(vcpu) || vcpu_el2_tge_is_set(vcpu) ||
++	if (vcpu_el2_e2h_is_set(vcpu) || vcpu_el2_tge_is_set(vcpu) ||
+ 	    !(vcpu_read_sys_reg(vcpu, HCR_EL2) & (HCR_VM | HCR_DC)))
+ 		return;
+=20
+--=20
+2.50.1
 
