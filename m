@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07D4C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963B8C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=hnCMNG0/3rF8Iu0XS2mnY9CpBY/jnWu0X3RBk+8zXF0=; b=PSKRQqoR9NACMWlkGVQtF0mR4D
-	Cyhwf4IBo6RU27qUnhPoXzUfUNWU+rcUyvjpMf9J6mFJT0xG2P4canw/rExkjGB/zdjB6GjPTol0Q
-	qgpQudeEzicADFQGLqcOwV30yDbiPeYPIOHZ6/EVzoYLe293QokGTurxpktilS2xfPySa2B3rbfG+
-	u90bvnqpYJ2j5OO8AWtAIZhjGjjzPhJpm+wTR4s4F97rVvvrQITzyusWmJ1G+i5TMf3/7Wlsi1ja+
-	zpSBMdu2lsZn4DOPQPl36mKYtPNhLOb2jNYQi/vDCBvKY1E9nnSmKjXnnPvHDJwTYg3WrH/WZZ4mS
-	awW3ojlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hhUZCtksJ+hyH3WiEydSN1GE2wQHlKztpYeqRz+1MhE=; b=eSziPjyrue/PL+7Ye1MIuLIoha
+	z5ldCm45dSdL/dXAKQeMY38G3x+xMs2o7b5B3cPt7VxH1yh3zRI2nsL9aBtrGEQQBqqchDAMgvnIM
+	dL5us/y2jwyQsOtQYgGM8vaXxKFyowHd+4d4l7apEe5yPZo6+QrAnKg0kH4urTXl9fVc4Hljtim6O
+	ngKVd5X1XeL2Yr8+AibT0qK3N1urhG8B/lgTCNuZWSvqE++596shjPmFBkongn4tRHPBCYJkY2woc
+	b64KMUc8YNldRFnFWZeHEpnsVRhmcePLFDZLQHoy8aQgNobPTVbgAXIil9C3+rOSIeOi96EIwRfee
+	xbVAGekQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjIb-0000000G8NT-0DGK;
-	Wed, 06 Aug 2025 18:55:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ujjMK-0000000G98N-3opb;
+	Wed, 06 Aug 2025 18:59:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjDy-0000000G7ol-1z01;
-	Wed, 06 Aug 2025 18:50:55 +0000
+	id 1ujjJl-0000000G8WY-3Pt2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Aug 2025 18:56:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D8DC43B70;
-	Wed,  6 Aug 2025 18:50:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD03C4CEE7;
-	Wed,  6 Aug 2025 18:50:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B786F5C28F6;
+	Wed,  6 Aug 2025 18:56:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ECA3C4CEE7;
+	Wed,  6 Aug 2025 18:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754506253;
-	bh=kEM5vhXrSGvpRyllOZTd+MbG9Yt0asgCP/TMhfdeB48=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=BzWAfBgnwZpfljD/W+CsHOSwzED3vJWVnHj6/SK/MH3U9Wv4RpRV6oxiCtte0LY3C
-	 yJBDmwZa2u2+nad+38+KrVw//p1RFTwpzlU7WdtGoPifWOIgJA+zlfRF9eFPg3EuDw
-	 k32XLonHhU5Iqy6hmeDzKf1ZidUwKDUQFOOZwUHxUegZrCMI/R0BjbAlxqN3T6FzHb
-	 /T/EmUJBnHVcvpNmyCEJY7E0gMo3VQmTwucIVB33R1BsQAgWZkXO+NdrwR1YYnOia3
-	 hPZVUp8e12wRkxTOrGJ0wU3xugkQafUNoTL0Sw3dtMIsWqKoP7q0Rlz9UIalcj+GRJ
-	 PYgVcLbQYzrJg==
-Date: Wed, 6 Aug 2025 13:50:51 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
-Message-ID: <20250806185051.GA10150@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+-6iNzq_BV_fK9T4LK0ncZuufqp9E9+DUyFU3jKCnSCjN8n-w@mail.gmail.com>
+	s=k20201202; t=1754506612;
+	bh=om1aWa/B7Oy/fsSLhs55XzyydC9EjqsVE/7K+ztsDSs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sb5UxwWMSQUxbLB7MzB5pEw56XpOE1zygr73grW+FdGaVGx2g3qeoP/jp+H8oqTK+
+	 pQXnW7KR5mKYtvtBZLmlSOUpLMa0jTStxgV6peAMyAOFeIrjpOT/BWtVOJxLQfqYlg
+	 85vb4+xbkeOoM9PREQGug3Gi3lpLzv5n7QKk0HrVlTbZEGD1JosaDjpJHJH4yX+YgB
+	 wsgFbZCMfGmb04wRyMGkbWEGM+G59T+zB+tg6Ew/EA9EnlPk4S6G9SVCFSVGB1SgN5
+	 VlU4JiQ5zoCrudWrWmjkwQS7He0ehkVGdoN63KR+XD5R9qtx79BuHhTjPigr5Af45c
+	 AWZYis9BefrDQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ujjJi-004by9-1y;
+	Wed, 06 Aug 2025 19:56:50 +0100
+Date: Wed, 06 Aug 2025 19:56:49 +0100
+Message-ID: <865xf09t3i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly
+	<joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+	<yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will
+ Deacon <will@kernel.org>
+Subject: Re: [PATCH v1 2/2] KVM: arm64: nv: update CPU register PAR_EL1 after 'at s*'
+In-Reply-To: <20250806141707.3479194-3-volodymyr_babchuk@epam.com>
+References: <20250806141707.3479194-1-volodymyr_babchuk@epam.com>
+	<20250806141707.3479194-3-volodymyr_babchuk@epam.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Volodymyr_Babchuk@epam.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_115054_551991_3D27D001 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20250806_115653_930866_3EC4417E 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,67 +97,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 02:38:12PM -0400, Jim Quinlan wrote:
-> On Wed, Aug 6, 2025 at 2:15 PM Bjorn Helgaas <helgaas@kernel.org> wrote:
-> >
-> > On Fri, Jun 13, 2025 at 06:08:43PM -0400, Jim Quinlan wrote:
-> > > Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
-> > > by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
-> > > 7216 and its descendants -- have new HW that identifies error details.
-> >
-> > What's the long term plan for this?  This abort is a huge problem that
-> > we're seeing across arm64 platforms.  Forcing a panic and reboot for
-> > every uncorrectable error is pretty hard to deal with.
+On Wed, 06 Aug 2025 15:17:55 +0100,
+Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
 > 
-> Are you referring to STB/CM systems, Rpi, or something else altogether?
-
-Just in general.  I saw this recently with a Nuvoton NPCM8xx PCIe
-controller.  I'm not an arm64 guy, but I've been told that these
-aborts are basically unrecoverable from a kernel perspective.  For
-some reason several PCIe controllers intended for arm64 seem to raise
-aborts on PCIe errors.  At the moment, that means we can't recover
-from errors like surprise unplugs and other things that *should* be
-recoverable (perhaps at the cost of resetting or disabling a PCIe
-device).
-
-> > Is there a plan to someday recover from these aborts?  Or change the
-> > hardware so it can at least be configured to return ~0 data after
-> > logging the error in the hardware registers?
+> Previously this code update only vCPU's in-memory value, which is good,
+> but not enough, as there will be no context switch after exiting
+> exception handler, so in-memory value will not get into actual
+> register.
 > 
-> Some of our upcoming chips will have the ability to do nothing on
-> errant PCIe writes and return 0xffffffff on errant PCIe reads.   But
-> none of our STB/CM chips do this currently.   I've been asking for
-> this behavior for years but I have limited influence on what happens
-> in HW.
+> It worked good enough for VHE guests because KVM code tried fast path,
+> which of course updated real PAR_EL1.
 
-Fingers crossed for either that or some other way to make these things
-recoverable.
+Nothing to do with VHE, I'm afraid. We can take the slow path for any
+odd reason, even on VHE. This is more of a structural problem, see
+below.
 
-> > > This simple handler determines if the PCIe controller was the
-> > > cause of the abort and if so, prints out diagnostic info.
-> > > Unfortunately, an abort still occurs.
-> > >
-> > > Care is taken to read the error registers only when the PCIe
-> > > bridge is active and the PCIe registers are acceptable.
-> > > Otherwise, a "die" event caused by something other than the PCIe
-> > > could cause an abort if the PCIe "die" handler tried to access
-> > > registers when the bridge is off.
-> >
-> > Checking whether the bridge is active is a "mostly-works"
-> > situation since it's always racy.
 > 
-> I'm not sure I understand the "racy" comment.  If the PCIe bridge is
-> off, we do not read the PCIe error registers.  In this case, PCIe is
-> probably not the cause of the panic.   In the rare case the PCIe
-> bridge is off  and it was the PCIe that caused the panic, nothing
-> gets reported, and this is where we are without this commit.
-> Perhaps this is what you mean by "mostly-works".  But this is the
-> best that can be done with SW given our HW.
+> Signed-off-by: Volodymyr Babchuk <volodymyr_babchuk@epam.com>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 7b8a0a6f26468..ab2b5e261d312 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -3463,6 +3463,9 @@ static bool handle_at_s1e2(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>  
+>  	__kvm_at_s1e2(vcpu, op, p->regval);
+>  
+> +	/* No context switch happened, so we need to update PAR_EL1 manually */
+> +	write_sysreg(vcpu_read_sys_reg(vcpu, PAR_EL1), par_el1);
+> +
 
-Right, my fault.  The error report registers don't look like standard
-PCIe things, so I suppose they are on the host side, not the PCIe
-side, so they're probably guaranteed to be accessible and non-racy
-unless the bridge is in reset.
+This looks like the wrong fix, as it papers over another issue.
 
-Bjorn
+The core problem is vcpu_write_sys_reg() (resp. read) does the wrong
+thing with registers such as PAR_EL1, which are not translated between
+EL1 and EL2, and therefore are always live, no matter what.
+
+Can you please try the hack below? I don't like it, but at least it
+shows where the actual problem lies.
+
+Thanks,
+
+	M.
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ad25484772574..167f0d411a708 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -95,7 +95,13 @@ static bool write_to_read_only(struct kvm_vcpu *vcpu,
+ 		return true;						\
+ 	}
+ 
+-static bool get_el2_to_el1_mapping(unsigned int reg,
++#define COMMON_SYSREG(r)						\
++	case r: {							\
++		 *el1r = __INVALID_SYSREG__;				\
++		 return is_hyp_ctxt(vcpu);					\
++	}
++
++static bool get_el2_to_el1_mapping(const struct kvm_vcpu *vcpu, unsigned int reg,
+ 				   unsigned int *el1r, u64 (**xlate)(u64))
+ {
+ 	switch (reg) {
+@@ -119,6 +125,7 @@ static bool get_el2_to_el1_mapping(unsigned int reg,
+ 		PURE_EL2_SYSREG(  HAFGRTR_EL2	);
+ 		PURE_EL2_SYSREG(  CNTVOFF_EL2	);
+ 		PURE_EL2_SYSREG(  CNTHCTL_EL2	);
++		COMMON_SYSREG(	  PAR_EL1	);
+ 		MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
+ 				  translate_sctlr_el2_to_sctlr_el1	     );
+ 		MAPPED_EL2_SYSREG(CPTR_EL2,    CPACR_EL1,
+@@ -158,7 +165,7 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
+ 	if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU))
+ 		goto memory_read;
+ 
+-	if (unlikely(get_el2_to_el1_mapping(reg, &el1r, &xlate))) {
++	if (unlikely(get_el2_to_el1_mapping(vcpu, reg, &el1r, &xlate))) {
+ 		if (!is_hyp_ctxt(vcpu))
+ 			goto memory_read;
+ 
+@@ -219,7 +226,7 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
+ 	if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU))
+ 		goto memory_write;
+ 
+-	if (unlikely(get_el2_to_el1_mapping(reg, &el1r, &xlate))) {
++	if (unlikely(get_el2_to_el1_mapping(vcpu, reg, &el1r, &xlate))) {
+ 		if (!is_hyp_ctxt(vcpu))
+ 			goto memory_write;
+ 
+
+-- 
+Without deviation from the norm, progress is not possible.
 
