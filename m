@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF17CC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 20:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B623AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 20:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tP9GWyHDKyhyNham1AJeXmzoVBEhNFAEzN5Uklpk9I0=; b=VEFi1r1ZL5i7cy5zZrmr/V7Amu
-	ACDEx9g5KwzHcFNcOnZ5r5fsKxjzzqax8LOCr1ngt9AL/Pjp6pS0/Nz+0sBmNqw1wRBzzdVdZost5
-	P1Qevb8r+70gD92xXDxhFv9K4OMdudxN/M7dozf4RIf6pZLY5q1KT3ypWl0pOeqYO8iEkwoSA9a5y
-	j25E+CPUhepCyIYAyr3KMB1XuWTU/EVf7iRS7YHqwsMFly35qZc15PdtNTLN2QhU7AxZwnWkkCazF
-	je77kGpNWDLdwYyDGqz51pJaX+7ZkejxrYMsSCKvsCJDZIvvjRxUBNB0x+TRV+gOWzXPnGTlW3TkU
-	89WT+28w==;
+	bh=rYhmmFtojtIGRiNFVnTHHWtxjI2pG0Wx0DryIldmwBo=; b=4WV4o63d2eTbCGJfPoywuFEvUy
+	8kkjKVpK8ck4syyQ0aj0ZYej3z4wKcBZQX1ZsE9wxH5k9kCClrvxapXNTKWmtnExC6/0dA/weXE2a
+	PUr8ZlemyRCXT+7AjxbNo6N+jvunNJ7yt9mz8ZvgYLlN+rU7oueQEz8EUVBfjic6KufPe16ao7JT+
+	3OfYCivn7xi/OIa5qsLUEagdoZDKFOibfi54lp+P9sqaVENOXH82Cxo+ok7eYcJfDPjrX7PcTjiGg
+	QgLi0uzUX+AxLafyBPuHQFog+hjjHAT1R81H19KrdVcFVZWne0/Q/6wfM/xAJNO8zIjIs0DPYuNEt
+	AnQfwEYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkRH-0000000GKWm-3ibM;
-	Wed, 06 Aug 2025 20:08:43 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1ujkTo-0000000GLQT-2rpp;
+	Wed, 06 Aug 2025 20:11:20 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujkGV-0000000GG5x-0Xoz
+	id 1ujkGX-0000000GG7X-0APQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 19:57:36 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b3f33295703so236422a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:57:34 -0700 (PDT)
+	Wed, 06 Aug 2025 19:57:38 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-31332dc2b59so326465a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 12:57:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754510254; x=1755115054; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1754510255; x=1755115055; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=tP9GWyHDKyhyNham1AJeXmzoVBEhNFAEzN5Uklpk9I0=;
-        b=VmByWW2FsMtZOhK366pwG9UV6CLu82P0XWQvhu7+9QRESrLZrY5XsCF2YCWfqk3Uz5
-         MeEI3bJFl6Ozs8ogutd1MDB6eVjvn+Ka6iv1chhC7GSA1zXaxqb8Hxw6T+NfGicbvRmH
-         NrBxYz6Zgajx/fcWGJYW0nL3gkrX34Bl39v4jwHyEkv/FnxkeQg16vtoNa8/MIOjgzgy
-         x63gCjAQh2Kjx5bBuhRbEM3djTx9zXG9uGfbb/ss2dF90PD0tpESUTcuIP+mq7MyOc0l
-         yLel0tlOX05zhHMxIxXCIdkb2JVOtasRKaIoV4vHDBYk78598USbDM+OSUJA+Gx1nwvX
-         Hmgg==
+        bh=rYhmmFtojtIGRiNFVnTHHWtxjI2pG0Wx0DryIldmwBo=;
+        b=1hkUl9oZMZ7GTjvvsczRbQZW0C1UmatqowzN7VxNXYm1r4DsEBGlR6IXOivutDw/GC
+         8+f7jiMcFqjrkzIjLQi2KXsLnHgd7S/NqFRnA0+HIlmGa3BfD4lENeG70ikLSrvoyLV6
+         uxOrvYH2TMpf1k9/uiyP/cvSzLQjtul854/boHqOEtBHU3VoR/jQgE0gtgNm8QK2ryu3
+         6ztbUm59iTScipYrqrpK8kBHghMjbdYSwxfy/T8NgnGr7z8dwflue49xt6w1pnRaYPEI
+         nh1RGmtmMvEiKPC7gDoLsVBM33tuq4ZlX3re4ZbdSdkMmBefU5F+kyUwxd60O33sAc0r
+         VJmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754510254; x=1755115054;
+        d=1e100.net; s=20230601; t=1754510255; x=1755115055;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tP9GWyHDKyhyNham1AJeXmzoVBEhNFAEzN5Uklpk9I0=;
-        b=rSzspWYxD8ySiJv3VyolDqVs6sR+LGS76+ZNqLCIrBEz+q2ufNhDubtMHHblXf3Zwr
-         Ik0UBd7RDPoFh/RRhpkaR3XDN0BCDFPqTwzkhFYwWpA0ejNFSARggeCRgZGlC9lDfefg
-         KhYsWazAooad06s3yM42hg8XkV/T7OHbvVOcPvN3DL7RuJQ2EJQHytK2xu+pmln+ZP0E
-         1FJdstKjNJkI4BAuEphX5ktJHxHZxtAFISHM4/n8zXweMAR2aWreoxWlmTdO8o4HG6Nb
-         +yVZobV3nmwOLMoGEtEyrybN6Mk/T+DK51vfCs0eYU14wMGQqWJ6c0emabJ85itJ6Jat
-         3S7Q==
-X-Gm-Message-State: AOJu0YwGRJBm4sdrVFlIOLUlmEIB8Bd0BrWpjK5NE2hQIspt15hnhEIz
-	IeRgLkDD44Br8n8F8D7S9V3KWjh/Sm0HxAI+sQCS2z2ZdtsUtvVBTJr1kbbW67VVUzSOGtLy1Lv
-	nZAzP+g==
-X-Google-Smtp-Source: AGHT+IE0CEB3xtAs9hI54+H7B1IyMBLcepknW0FCY+2mxv/eXxKsKgLhnBmg0Z6EMAhWWlTkD97yQMZQQo8=
-X-Received: from pgg21.prod.google.com ([2002:a05:6a02:4d95:b0:b42:3ec5:d919])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:5493:b0:220:aea6:2154
- with SMTP id adf61e73a8af0-2403125bcacmr7040722637.17.1754510253905; Wed, 06
- Aug 2025 12:57:33 -0700 (PDT)
-Date: Wed,  6 Aug 2025 12:56:25 -0700
+        bh=rYhmmFtojtIGRiNFVnTHHWtxjI2pG0Wx0DryIldmwBo=;
+        b=kJAALAKvT1cKoS6Vd/DXvZGTkNabNMzt9rebjkdQo+dHGZ/Pq4JkcwLrBb7ElH+32p
+         qGXBlq/btOKYRL57oVP18Gwmo7zXTxFzg6+N2TJqH46El9Fr6eOED8+1BDBjH16eilnN
+         j8V5CK9bWUQVsNNrK/9AOgGA/1XyJZmrSnr5kGCwErgP82T2DT1Eq0437qBd+InRARXb
+         LvPJ3xIurEx94Vhk19ypWr5viWkfpNw9JB8fpV600HjEwNdeWrNnK0s0tjW/BEsdme2H
+         hOGiVej9UBSfpH7u3UC732B6HrfzKI9wd/zGiguSpl+URk7snQbOfO7cF1CezRqGzcii
+         aAJw==
+X-Gm-Message-State: AOJu0YzZ31/avIbuYor6Od8jcaoI/dcj0UQReOyeSTM0nTqrecLfqpr6
+	+dMlCjZGzmqaXzSrEYfFFhEDUr2Jmc6ovjLQAxUDrC++UvLl99mWIUfGQPR4cj0SzdNg4o+lisW
+	PtOr+LA==
+X-Google-Smtp-Source: AGHT+IE1JXMzx+3+mEhB/aRAtKWF6tsabKOHfV9vXr8D6RhEuIeRQytpFLmD0EN42AoRsIYuN8o0xUeAxdE=
+X-Received: from pjbso3.prod.google.com ([2002:a17:90b:1f83:b0:311:1a09:11ff])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4ac1:b0:31e:f193:1822
+ with SMTP id 98e67ed59e1d1-32166ccac82mr5176638a91.28.1754510255466; Wed, 06
+ Aug 2025 12:57:35 -0700 (PDT)
+Date: Wed,  6 Aug 2025 12:56:26 -0700
 In-Reply-To: <20250806195706.1650976-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20250806195706.1650976-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250806195706.1650976-4-seanjc@google.com>
-Subject: [PATCH v5 03/44] perf: Move security_perf_event_free() call to __free_event()
+Message-ID: <20250806195706.1650976-5-seanjc@google.com>
+Subject: [PATCH v5 04/44] perf: Add APIs to create/release mediated guest vPMUs
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Dapeng Mi <dapeng1.mi@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_125735_191308_619CB1DF 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20250806_125737_094320_05DAA99D 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,43 +102,226 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the freeing of any security state associated with a perf event from
-_free_event() to __free_event(), i.e. invoke security_perf_event_free() in
-the error paths for perf_event_alloc().  This will allow adding potential
-error paths in perf_event_alloc() that can occur after allocating security
-state.
+From: Kan Liang <kan.liang@linux.intel.com>
 
-Note, kfree() and thus security_perf_event_free() is a nop if
-event->security is NULL, i.e. calling security_perf_event_free() even if
-security_perf_event_alloc() fails or is never reached is functionality ok.
+Currently, exposing PMU capabilities to a KVM guest is done by emulating
+guest PMCs via host perf events, i.e. by having KVM be "just" another user
+of perf.  As a result, the guest and host are effectively competing for
+resources, and emulating guest accesses to vPMU resources requires
+expensive actions (expensive relative to the native instruction).  The
+overhead and resource competition results in degraded guest performance
+and ultimately very poor vPMU accuracy.
 
+To address the issues with the perf-emulated vPMU, introduce a "mediated
+vPMU", where the data plane (PMCs and enable/disable knobs) is exposed
+directly to the guest, but the control plane (event selectors and access
+to fixed counters) is managed by KVM (via MSR interceptions).  To allow
+host perf usage of the PMU to (partially) co-exist with KVM/guest usage
+of the PMU, KVM and perf will coordinate to a world switch between host
+perf context and guest vPMU context near VM-Enter/VM-Exit.
+
+Add two exported APIs, perf_{create,release}_mediated_pmu(), to allow KVM
+to create and release a mediated PMU instance (per VM).  Because host perf
+context will be deactivated while the guest is running, mediated PMU usage
+will be mutually exclusive with perf analysis of the guest, i.e. perf
+events that do NOT exclude the guest will not behave as expected.
+
+To avoid silent failure of !exclude_guest perf events, disallow creating a
+mediated PMU if there are active !exclude_guest events, and on the perf
+side, disallowing creating new !exclude_guest perf events while there is
+at least one active mediated PMU.
+
+Exempt PMU resources that do not support mediated PMU usage, i.e. that are
+outside the scope/view of KVM's vPMU and will not be swapped out while the
+guest is running.
+
+Guard mediated PMU with a new kconfig to help readers identify code paths
+that are unique to mediated PMU support, and to allow for adding arch-
+specific hooks without stubs.  KVM x86 is expected to be the only KVM
+architecture to support a mediated PMU in the near future (e.g. arm64 is
+trending toward a partitioned PMU implementation), and KVM x86 will select
+PERF_GUEST_MEDIATED_PMU unconditionally, i.e. won't need stubs.
+
+Immediately select PERF_GUEST_MEDIATED_PMU when KVM x86 is enabled so that
+all paths are compile tested.  Full KVM support is on its way...
+
+Suggested-by: Sean Christopherson <seanjc@google.com>
+Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
+Signed-off-by: Mingwei Zhang <mizhang@google.com>
+[sean: add kconfig and WARNing, rewrite changelog, swizzle patch ordering]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- kernel/events/core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/x86/kvm/Kconfig       |  1 +
+ include/linux/perf_event.h |  6 +++
+ init/Kconfig               |  4 ++
+ kernel/events/core.c       | 82 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 93 insertions(+)
 
+diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
+index 2c86673155c9..ee67357b5e36 100644
+--- a/arch/x86/kvm/Kconfig
++++ b/arch/x86/kvm/Kconfig
+@@ -37,6 +37,7 @@ config KVM_X86
+ 	select SCHED_INFO
+ 	select PERF_EVENTS
+ 	select GUEST_PERF_EVENTS
++	select PERF_GUEST_MEDIATED_PMU
+ 	select HAVE_KVM_MSI
+ 	select HAVE_KVM_CPU_RELAX_INTERCEPT
+ 	select HAVE_KVM_NO_POLL
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index ec9d96025683..63097beb5f02 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -305,6 +305,7 @@ struct perf_event_pmu_context;
+ #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
+ #define PERF_PMU_CAP_AUX_PAUSE		0x0200
+ #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
++#define PERF_PMU_CAP_MEDIATED_VPMU	0x0800
+ 
+ /**
+  * pmu::scope
+@@ -1914,6 +1915,11 @@ extern int perf_event_account_interrupt(struct perf_event *event);
+ extern int perf_event_period(struct perf_event *event, u64 value);
+ extern u64 perf_event_pause(struct perf_event *event, bool reset);
+ 
++#ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
++int perf_create_mediated_pmu(void);
++void perf_release_mediated_pmu(void);
++#endif
++
+ #else /* !CONFIG_PERF_EVENTS: */
+ 
+ static inline void *
+diff --git a/init/Kconfig b/init/Kconfig
+index 666783eb50ab..1e3c90c3f24f 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -1955,6 +1955,10 @@ config GUEST_PERF_EVENTS
+ 	bool
+ 	depends on HAVE_PERF_EVENTS
+ 
++config PERF_GUEST_MEDIATED_PMU
++	bool
++	depends on GUEST_PERF_EVENTS
++
+ config PERF_USE_VMALLOC
+ 	bool
+ 	help
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 3a98e11d8efc..1753a97638a3 100644
+index 1753a97638a3..bf0347231bd9 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -5596,6 +5596,8 @@ static void __free_event(struct perf_event *event)
- {
- 	struct pmu *pmu = event->pmu;
+@@ -5651,6 +5651,8 @@ static void __free_event(struct perf_event *event)
+ 	call_rcu(&event->rcu_head, free_event_rcu);
+ }
  
-+	security_perf_event_free(event);
++static void mediated_pmu_unaccount_event(struct perf_event *event);
 +
- 	if (event->attach_state & PERF_ATTACH_CALLCHAIN)
- 		put_callchain_buffers();
+ DEFINE_FREE(__free_event, struct perf_event *, if (_T) __free_event(_T))
  
-@@ -5659,8 +5661,6 @@ static void _free_event(struct perf_event *event)
+ /* vs perf_event_alloc() success */
+@@ -5660,6 +5662,7 @@ static void _free_event(struct perf_event *event)
+ 	irq_work_sync(&event->pending_disable_irq);
  
  	unaccount_event(event);
++	mediated_pmu_unaccount_event(event);
  
--	security_perf_event_free(event);
--
  	if (event->rb) {
  		/*
- 		 * Can happen when we close an event with re-directed output.
+@@ -6182,6 +6185,81 @@ u64 perf_event_pause(struct perf_event *event, bool reset)
+ }
+ EXPORT_SYMBOL_GPL(perf_event_pause);
+ 
++#ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
++static atomic_t nr_include_guest_events __read_mostly;
++
++static atomic_t nr_mediated_pmu_vms __read_mostly;
++static DEFINE_MUTEX(perf_mediated_pmu_mutex);
++
++/* !exclude_guest event of PMU with PERF_PMU_CAP_MEDIATED_VPMU */
++static inline bool is_include_guest_event(struct perf_event *event)
++{
++	if ((event->pmu->capabilities & PERF_PMU_CAP_MEDIATED_VPMU) &&
++	    !event->attr.exclude_guest)
++		return true;
++
++	return false;
++}
++
++static int mediated_pmu_account_event(struct perf_event *event)
++{
++	if (!is_include_guest_event(event))
++		return 0;
++
++	guard(mutex)(&perf_mediated_pmu_mutex);
++
++	if (atomic_read(&nr_mediated_pmu_vms))
++		return -EOPNOTSUPP;
++
++	atomic_inc(&nr_include_guest_events);
++	return 0;
++}
++
++static void mediated_pmu_unaccount_event(struct perf_event *event)
++{
++	if (!is_include_guest_event(event))
++		return;
++
++	atomic_dec(&nr_include_guest_events);
++}
++
++/*
++ * Currently invoked at VM creation to
++ * - Check whether there are existing !exclude_guest events of PMU with
++ *   PERF_PMU_CAP_MEDIATED_VPMU
++ * - Set nr_mediated_pmu_vms to prevent !exclude_guest event creation on
++ *   PMUs with PERF_PMU_CAP_MEDIATED_VPMU
++ *
++ * No impact for the PMU without PERF_PMU_CAP_MEDIATED_VPMU. The perf
++ * still owns all the PMU resources.
++ */
++int perf_create_mediated_pmu(void)
++{
++	guard(mutex)(&perf_mediated_pmu_mutex);
++	if (atomic_inc_not_zero(&nr_mediated_pmu_vms))
++		return 0;
++
++	if (atomic_read(&nr_include_guest_events))
++		return -EBUSY;
++
++	atomic_inc(&nr_mediated_pmu_vms);
++	return 0;
++}
++EXPORT_SYMBOL_GPL(perf_create_mediated_pmu);
++
++void perf_release_mediated_pmu(void)
++{
++	if (WARN_ON_ONCE(!atomic_read(&nr_mediated_pmu_vms)))
++		return;
++
++	atomic_dec(&nr_mediated_pmu_vms);
++}
++EXPORT_SYMBOL_GPL(perf_release_mediated_pmu);
++#else
++static int mediated_pmu_account_event(struct perf_event *event) { return 0; }
++static void mediated_pmu_unaccount_event(struct perf_event *event) {}
++#endif
++
+ /*
+  * Holding the top-level event's child_mutex means that any
+  * descendant process that has inherited this event will block
+@@ -13024,6 +13102,10 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
+ 	if (err)
+ 		return ERR_PTR(err);
+ 
++	err = mediated_pmu_account_event(event);
++	if (err)
++		return ERR_PTR(err);
++
+ 	/* symmetric to unaccount_event() in _free_event() */
+ 	account_event(event);
+ 
 -- 
 2.50.1.565.gc32cd1483b-goog
 
