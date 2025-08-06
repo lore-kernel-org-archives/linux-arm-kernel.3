@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06F1C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A45C5C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eiBqAJCa26fLYnY/QisCN/KcRSoxvAwMH/ZwmLRCiV0=; b=gZZqSUTeIOxymVk6O/Vhuf/5gY
-	wUnmKk2PcbAv9+UrX/jleWMq2mILc2S2gmK69QmXPhJ1tOYHqMb0cWCrNq+Z0lYE3vJH+hdBp2zKY
-	yWYxqd+Bx9TjBLtPpY0xJ7M07SRO/h9teY/Cvv2A4pHnhuYzZ77HX8bG0Tm7SQRy4jC3NmGHuZxWQ
-	/w8PaRyOv0nudnIRf9e2rmJwHwPeQcpvVDbi8ABtYF8bE0crPDi0tZMujRjx6oEQGYnE6tn1kl5jT
-	C1kcYMAUIO2pD78NBzUcJHmmhE0TridweTm2NtOdzIu/w82SIqFB53uBvX5biBoFJnJ30sJX02yIB
-	l/yLFYmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D0JXxe51jAlql+TRKu9VBSbtOQNrlasC1vvH39bvxbs=; b=34pLH2TGOvU2YM8341sdhhtbF9
+	GoiJ4+j4NjoVokXmnwR9U+hvLtGWsjeADhVnKErOpTxaLnZqxukRs9fFTu1D32xcLD8GA+62/hCLu
+	uVgyty1kP9IPLHJgTXar6AwTK3m+MA38BroKg/5rFlgOdwWS+vt3A8ivbLysLLekg7uFPPuYjqWbU
+	VGe5NVnFDW72zdyETm1+w1FMVt5wqV6j41h1X7oaMxxLureWGdOalggII6r7eE4U9YHwSa+ftBjd1
+	axPjxy/qwkvfFFU3rGZHDEZkpndRP9ts1rMphuBQTGjlcjnvaqKxa9DqFxiPUrWuPq5OU4RRPkYcS
+	49DHQp2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZRx-0000000Ed9z-1H7D;
-	Wed, 06 Aug 2025 08:24:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZJ7-0000000Ec4I-4BzD
+	id 1ujZUX-0000000EdPh-0gRB;
+	Wed, 06 Aug 2025 08:27:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujZJZ-0000000Ec9S-3feH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:15:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 426D81756;
-	Wed,  6 Aug 2025 01:15:25 -0700 (PDT)
-Received: from [10.57.88.107] (unknown [10.57.88.107])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9FBFA3F5A1;
-	Wed,  6 Aug 2025 01:15:30 -0700 (PDT)
-Message-ID: <ea41f07b-a758-4944-8b80-37b3f20032c2@arm.com>
-Date: Wed, 6 Aug 2025 09:15:29 +0100
+	Wed, 06 Aug 2025 08:16:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 064AC600BB;
+	Wed,  6 Aug 2025 08:16:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E2A4C4CEE7;
+	Wed,  6 Aug 2025 08:15:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754468160;
+	bh=Fbs+mcsucsTbbAfdd4KqOVe7ihhq3xMWZSnPSsrgkFQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tzUYNT8Xalxuyjn5JF7yGta6JqVi66uQJ+BbyjUmL04iS+TZaM/+LppSVJAnVg4pQ
+	 kYzdfZco3vWBTi95h50psAZoaikqE/wlh0X9bNUSdH3lLHLgF5qBIdMhdEndhaQHah
+	 u4RVYMufQmBtCcm58SIX17ENIcivOMPkNLbYClBIRRsB2vmrb1Vhbkabj9M+BgOVGg
+	 KT5U0lCMuUdvKQ4DYyNgKEK2sQMYGctCc2oMdYXLYR3gib/bXVucP9/FZ7KEAthQo0
+	 4bEU+t8p+/SqmpMlR7X8gMfI7HmKNT9UqMfV5MXQDCeiUymAXDLn56Osq3IAoMpddH
+	 bsogXwSP11smA==
+Date: Wed, 6 Aug 2025 09:15:53 +0100
+From: Will Deacon <will@kernel.org>
+To: David Hildenbrand <david@redhat.com>
+Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org,
+	ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+	Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
+	jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
+	joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
+	kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+	christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org, hughd@google.com,
+	yang@os.amperecomputing.com, ziy@nvidia.com
+Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
+Message-ID: <aJMPOTripINrafxh@willie-the-truck>
+References: <20250718090244.21092-1-dev.jain@arm.com>
+ <20250718090244.21092-7-dev.jain@arm.com>
+ <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 4/4] arm64: mm: split linear mapping if BBML2
- unsupported on secondary CPUs
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
- dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250805081350.3854670-1-ryan.roberts@arm.com>
- <20250805081350.3854670-5-ryan.roberts@arm.com>
- <6d32bdf5-ccde-4779-a2df-08b6859dbf8e@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <6d32bdf5-ccde-4779-a2df-08b6859dbf8e@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_011534_153045_8BA02AFE 
-X-CRM114-Status: GOOD (  39.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,478 +78,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/08/2025 19:14, Yang Shi wrote:
+On Wed, Aug 06, 2025 at 10:08:33AM +0200, David Hildenbrand wrote:
+> On 18.07.25 11:02, Dev Jain wrote:
+> > Use folio_pte_batch to batch process a large folio. Note that, PTE
+> > batching here will save a few function calls, and this strategy in certain
+> > cases (not this one) batches atomic operations in general, so we have
+> > a performance win for all arches. This patch paves the way for patch 7
+> > which will help us elide the TLBI per contig block on arm64.
+> > 
+> > The correctness of this patch lies on the correctness of setting the
+> > new ptes based upon information only from the first pte of the batch
+> > (which may also have accumulated a/d bits via modify_prot_start_ptes()).
+> > 
+> > Observe that the flag combination we pass to mprotect_folio_pte_batch()
+> > guarantees that the batch is uniform w.r.t the soft-dirty bit and the
+> > writable bit. Therefore, the only bits which may differ are the a/d bits.
+> > So we only need to worry about code which is concerned about the a/d bits
+> > of the PTEs.
+> > 
+> > Setting extra a/d bits on the new ptes where previously they were not set,
+> > is fine - setting access bit when it was not set is not an incorrectness
+> > problem but will only possibly delay the reclaim of the page mapped by
+> > the pte (which is in fact intended because the kernel just operated on this
+> > region via mprotect()!). Setting dirty bit when it was not set is again
+> > not an incorrectness problem but will only possibly force an unnecessary
+> > writeback.
+> > 
+> > So now we need to reason whether something can go wrong via
+> > can_change_pte_writable(). The pte_protnone, pte_needs_soft_dirty_wp,
+> > and userfaultfd_pte_wp cases are solved due to uniformity in the
+> > corresponding bits guaranteed by the flag combination. The ptes all
+> > belong to the same VMA (since callers guarantee that [start, end) will
+> > lie within the VMA) therefore the conditional based on the VMA is also
+> > safe to batch around.
+> > 
+> > Since the dirty bit on the PTE really is just an indication that the folio
+> > got written to - even if the PTE is not actually dirty but one of the PTEs
+> > in the batch is, the wp-fault optimization can be made. Therefore, it is
+> > safe to batch around pte_dirty() in can_change_shared_pte_writable()
+> > (in fact this is better since without batching, it may happen that
+> > some ptes aren't changed to writable just because they are not dirty,
+> > even though the other ptes mapping the same large folio are dirty).
+> > 
+> > To batch around the PageAnonExclusive case, we must check the corresponding
+> > condition for every single page. Therefore, from the large folio batch,
+> > we process sub batches of ptes mapping pages with the same
+> > PageAnonExclusive condition, and process that sub batch, then determine
+> > and process the next sub batch, and so on. Note that this does not cause
+> > any extra overhead; if suppose the size of the folio batch is 512, then
+> > the sub batch processing in total will take 512 iterations, which is the
+> > same as what we would have done before.
+> > 
+> > For pte_needs_flush():
+> > 
+> > ppc does not care about the a/d bits.
+> > 
+> > For x86, PAGE_SAVED_DIRTY is ignored. We will flush only when a/d bits
+> > get cleared; since we can only have extra a/d bits due to batching,
+> > we will only have an extra flush, not a case where we elide a flush due
+> > to batching when we shouldn't have.
+> > 
+> > Signed-off-by: Dev Jain <dev.jain@arm.com>
 > 
 > 
-> On 8/5/25 1:13 AM, Ryan Roberts wrote:
->> From: Yang Shi <yang@os.amperecomputing.com>
->>
->> The kernel linear mapping is painted in very early stage of system boot.
->> The cpufeature has not been finalized yet at this point. So the linear
->> mapping is determined by the capability of boot CPU only.  If the boot
->> CPU supports BBML2, large block mappings will be used for linear
->> mapping.
->>
->> But the secondary CPUs may not support BBML2, so repaint the linear
->> mapping if large block mapping is used and the secondary CPUs don't
->> support BBML2 once cpufeature is finalized on all CPUs.
->>
->> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
->> same BBML2 capability with the boot CPU, repainting the linear mapping
->> is not needed.
->>
->> Repainting is implemented by the boot CPU, which we know supports BBML2,
->> so it is safe for the live mapping size to change for this CPU. The
->> linear map region is walked using the pagewalk API and any discovered
->> large leaf mappings are split to pte mappings using the existing helper
->> functions. Since the repainting is performed inside of a stop_machine(),
->> we must use GFP_ATOMIC to allocate the extra intermediate pgtables. But
->> since we are still early in boot, it is expected that there is plenty of
->> memory available so we will never need to sleep for reclaim, and so
->> GFP_ATOMIC is acceptable here.
->>
->> The secondary CPUs are all put into a waiting area with the idmap in
->> TTBR0 and reserved map in TTBR1 while this is performed since they
->> cannot be allowed to observe any size changes on the live mappings.
->>
->> Co-developed-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->> ---
->>   arch/arm64/include/asm/mmu.h   |   3 +
->>   arch/arm64/kernel/cpufeature.c |   8 ++
->>   arch/arm64/mm/mmu.c            | 151 ++++++++++++++++++++++++++++++---
->>   arch/arm64/mm/proc.S           |  25 +++++-
->>   4 files changed, 172 insertions(+), 15 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->> index 98565b1b93e8..966c08fd8126 100644
->> --- a/arch/arm64/include/asm/mmu.h
->> +++ b/arch/arm64/include/asm/mmu.h
->> @@ -56,6 +56,8 @@ typedef struct {
->>    */
->>   #define ASID(mm)    (atomic64_read(&(mm)->context.id) & 0xffff)
->>   +extern bool linear_map_requires_bbml2;
->> +
->>   static inline bool arm64_kernel_unmapped_at_el0(void)
->>   {
->>       return alternative_has_cap_unlikely(ARM64_UNMAP_KERNEL_AT_EL0);
->> @@ -72,6 +74,7 @@ extern void create_pgd_mapping(struct mm_struct *mm,
->> phys_addr_t phys,
->>   extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
->>   extern void mark_linear_text_alias_ro(void);
->>   extern int split_kernel_leaf_mapping(unsigned long addr);
->> +extern int linear_map_split_to_ptes(void *__unused);
->>     /*
->>    * This check is triggered during the early boot before the cpufeature
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index f28f056087f3..11392c741e48 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -85,6 +85,7 @@
->>   #include <asm/insn.h>
->>   #include <asm/kvm_host.h>
->>   #include <asm/mmu_context.h>
->> +#include <asm/mmu.h>
->>   #include <asm/mte.h>
->>   #include <asm/hypervisor.h>
->>   #include <asm/processor.h>
->> @@ -2013,6 +2014,12 @@ static int __init __kpti_install_ng_mappings(void
->> *__unused)
->>       return 0;
->>   }
->>   +static void __init linear_map_maybe_split_to_ptes(void)
->> +{
->> +    if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort())
->> +        stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
->> +}
->> +
->>   static void __init kpti_install_ng_mappings(void)
->>   {
->>       /* Check whether KPTI is going to be used */
->> @@ -3930,6 +3937,7 @@ void __init setup_system_features(void)
->>   {
->>       setup_system_capabilities();
->>   +    linear_map_maybe_split_to_ptes();
->>       kpti_install_ng_mappings();
->>         sve_setup();
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index f6cd79287024..5b5a84b34024 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -27,6 +27,7 @@
->>   #include <linux/kfence.h>
->>   #include <linux/pkeys.h>
->>   #include <linux/mm_inline.h>
->> +#include <linux/pagewalk.h>
->>     #include <asm/barrier.h>
->>   #include <asm/cputype.h>
->> @@ -483,11 +484,11 @@ void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t
->> phys, unsigned long virt,
->>     #define INVALID_PHYS_ADDR    -1
->>   -static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->> +static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->>                          enum pgtable_type pgtable_type)
->>   {
->>       /* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->> -    struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO,
->> 0);
->> +    struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
->>       phys_addr_t pa;
->>         if (!ptdesc)
->> @@ -514,9 +515,9 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->>   }
->>     static phys_addr_t
->> -try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
->> +try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
->>   {
->> -    return __pgd_pgtable_alloc(&init_mm, pgtable_type);
->> +    return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
->>   }
->>     static phys_addr_t __maybe_unused
->> @@ -524,7 +525,7 @@ pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
->>   {
->>       phys_addr_t pa;
->>   -    pa = __pgd_pgtable_alloc(&init_mm, pgtable_type);
->> +    pa = __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
->>       BUG_ON(pa == INVALID_PHYS_ADDR);
->>       return pa;
->>   }
->> @@ -534,7 +535,7 @@ pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
->>   {
->>       phys_addr_t pa;
->>   -    pa = __pgd_pgtable_alloc(NULL, pgtable_type);
->> +    pa = __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
->>       BUG_ON(pa == INVALID_PHYS_ADDR);
->>       return pa;
->>   }
->> @@ -548,7 +549,7 @@ static void split_contpte(pte_t *ptep)
->>           __set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
->>   }
->>   -static int split_pmd(pmd_t *pmdp, pmd_t pmd)
->> +static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
->>   {
->>       pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
->>       unsigned long pfn = pmd_pfn(pmd);
->> @@ -557,7 +558,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd)
->>       pte_t *ptep;
->>       int i;
->>   -    pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE);
->> +    pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
->>       if (pte_phys == INVALID_PHYS_ADDR)
->>           return -ENOMEM;
->>       ptep = (pte_t *)phys_to_virt(pte_phys);
->> @@ -590,7 +591,7 @@ static void split_contpmd(pmd_t *pmdp)
->>           set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
->>   }
->>   -static int split_pud(pud_t *pudp, pud_t pud)
->> +static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp)
->>   {
->>       pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
->>       unsigned int step = PMD_SIZE >> PAGE_SHIFT;
->> @@ -600,7 +601,7 @@ static int split_pud(pud_t *pudp, pud_t pud)
->>       pmd_t *pmdp;
->>       int i;
->>   -    pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD);
->> +    pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
->>       if (pmd_phys == INVALID_PHYS_ADDR)
->>           return -ENOMEM;
->>       pmdp = (pmd_t *)phys_to_virt(pmd_phys);
->> @@ -688,7 +689,7 @@ int split_kernel_leaf_mapping(unsigned long addr)
->>       if (!pud_present(pud))
->>           goto out;
->>       if (pud_leaf(pud)) {
->> -        ret = split_pud(pudp, pud);
->> +        ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL);
->>           if (ret)
->>               goto out;
->>       }
->> @@ -713,7 +714,7 @@ int split_kernel_leaf_mapping(unsigned long addr)
->>            */
->>           if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->>               goto out;
->> -        ret = split_pmd(pmdp, pmd);
->> +        ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL);
->>           if (ret)
->>               goto out;
->>       }
->> @@ -738,6 +739,112 @@ int split_kernel_leaf_mapping(unsigned long addr)
->>       return ret;
->>   }
->>   +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->> +                   unsigned long next, struct mm_walk *walk)
->> +{
->> +    pud_t pud = pudp_get(pudp);
->> +    int ret = 0;
->> +
->> +    if (pud_leaf(pud))
->> +        ret = split_pud(pudp, pud, GFP_ATOMIC);
->> +
->> +    return ret;
->> +}
->> +
->> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->> +                   unsigned long next, struct mm_walk *walk)
->> +{
->> +    pmd_t pmd = pmdp_get(pmdp);
->> +    int ret = 0;
->> +
->> +    if (pmd_leaf(pmd)) {
->> +        if (pmd_cont(pmd))
->> +            split_contpmd(pmdp);
->> +        ret = split_pmd(pmdp, pmd, GFP_ATOMIC);
->> +    }
->> +
->> +    return ret;
->> +}
->> +
->> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->> +                   unsigned long next, struct mm_walk *walk)
->> +{
->> +    pte_t pte = __ptep_get(ptep);
->> +
->> +    if (pte_cont(pte))
->> +        split_contpte(ptep);
->> +
->> +    return 0;
->> +}
-> 
-> IIUC pgtable walker API walks the page table PTE by PTE, so it means the split
-> function is called on every PTE even though it has been split. This is not very
-> efficient. But it may be ok since repainting is just called once at boot time.
+> I wanted to review this, but looks like it's already upstream and I suspect
+> it's buggy (see the upstream report I cc'ed you on)
 
-Good point. I think this could be improved, while continuing to use the walker API.
+Please excuse my laziness, but do you have a link to the report? I've
+been looking at some oddities on arm64 coming back from some of the CI
+systems and was heading in the direction of a recent mm regression
+judging by the first-known-bad-build in linux-next.
 
-Currently I'm splitting leaf puds to cont-pmds, then cont-pmds to pmds, then
-pmds to cont-ptes then cont-ptes to ptes. And we therefore need to visit each
-pte (or technically 1 in 16 ptes) to check if they are cont-mapped. I did it
-this way to reuse the existing split logic without modification.
+https://lore.kernel.org/r/CA+G9fYumD2MGjECCv0wx2V_96_FKNtFQpT63qVNrrCmomoPYVQ@mail.gmail.com
 
-But we could provide a flag to the split logic to tell it to "bypass split to
-cont-pte" so that we then have puds to cont-pmds, cont-pmds to pmds and pmds to
-ptes. And in that final case we can avoid walking any ptes that we already split
-from pmds because we know they can't be cont-mapped. We can do that with
-ACTION_CONTINUE when returning from the pmd handler. We would still visit every
-pte that was already mapped at pte level because we would still need to check
-for cont-pte. The API doesn't provide a way for us to skip forward by 16 ptes at
-a time.
-
-Something like this, perhaps:
-
----8<---
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 5b5a84b34024..f0066ecbe6b2 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -549,7 +549,7 @@ static void split_contpte(pte_t *ptep)
- 		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
- }
-
--static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
-+static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont_pte)
- {
- 	pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
- 	unsigned long pfn = pmd_pfn(pmd);
-@@ -567,7 +567,8 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
- 		tableprot |= PMD_TABLE_PXN;
-
- 	prot = __pgprot((pgprot_val(prot) & ~PTE_TYPE_MASK) | PTE_TYPE_PAGE);
--	prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-+	if (to_cont_pte)
-+		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-
- 	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
- 		__set_pte(ptep, pfn_pte(pfn, prot));
-@@ -714,7 +715,7 @@ int split_kernel_leaf_mapping(unsigned long addr)
- 		 */
- 		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
- 			goto out;
--		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL);
-+		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL, true);
- 		if (ret)
- 			goto out;
- 	}
-@@ -760,7 +761,8 @@ static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned
-long addr,
- 	if (pmd_leaf(pmd)) {
- 		if (pmd_cont(pmd))
- 			split_contpmd(pmdp);
--		ret = split_pmd(pmdp, pmd, GFP_ATOMIC);
-+		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
-+		walk->action = ACTION_CONTINUE;
- 	}
-
- 	return ret;
----8<---
-
-Thanks,
-Ryan
-
-
-> 
-> Thanks,
-> Yang
-> 
->> +
->> +static const struct mm_walk_ops split_to_ptes_ops = {
->> +    .pud_entry    = split_to_ptes_pud_entry,
->> +    .pmd_entry    = split_to_ptes_pmd_entry,
->> +    .pte_entry    = split_to_ptes_pte_entry,
->> +};
->> +
->> +extern u32 repaint_done;
->> +
->> +int __init linear_map_split_to_ptes(void *__unused)
->> +{
->> +    /*
->> +     * Repainting the linear map must be done by CPU0 (the boot CPU) because
->> +     * that's the only CPU that we know supports BBML2. The other CPUs will
->> +     * be held in a waiting area with the idmap active.
->> +     */
->> +    if (!smp_processor_id()) {
->> +        unsigned long lstart = _PAGE_OFFSET(vabits_actual);
->> +        unsigned long lend = PAGE_END;
->> +        unsigned long kstart = (unsigned long)lm_alias(_stext);
->> +        unsigned long kend = (unsigned long)lm_alias(__init_begin);
->> +        int ret;
->> +
->> +        /*
->> +         * Wait for all secondary CPUs to be put into the waiting area.
->> +         */
->> +        smp_cond_load_acquire(&repaint_done, VAL == num_online_cpus());
->> +
->> +        /*
->> +         * Walk all of the linear map [lstart, lend), except the kernel
->> +         * linear map alias [kstart, kend), and split all mappings to
->> +         * PTE. The kernel alias remains static throughout runtime so
->> +         * can continue to be safely mapped with large mappings.
->> +         */
->> +        ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->> +                        &split_to_ptes_ops, NULL);
->> +        if (!ret)
->> +            ret = walk_kernel_page_table_range_lockless(kend, lend,
->> +                        &split_to_ptes_ops, NULL);
->> +        if (ret)
->> +            panic("Failed to split linear map\n");
->> +        flush_tlb_kernel_range(lstart, lend);
->> +
->> +        /*
->> +         * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
->> +         * before any page table split operations.
->> +         */
->> +        WRITE_ONCE(repaint_done, 0);
->> +    } else {
->> +        typedef void (repaint_wait_fn)(void);
->> +        extern repaint_wait_fn bbml2_wait_for_repainting;
->> +        repaint_wait_fn *wait_fn;
->> +
->> +        wait_fn = (void *)__pa_symbol(bbml2_wait_for_repainting);
->> +
->> +        /*
->> +         * At least one secondary CPU doesn't support BBML2 so cannot
->> +         * tolerate the size of the live mappings changing. So have the
->> +         * secondary CPUs wait for the boot CPU to make the changes
->> +         * with the idmap active and init_mm inactive.
->> +         */
->> +        cpu_install_idmap();
->> +        wait_fn();
->> +        cpu_uninstall_idmap();
->> +    }
->> +
->> +    return 0;
->> +}
->> +
->>   /*
->>    * This function can only be used to modify existing table entries,
->>    * without allocating new levels of table. Note that this permits the
->> @@ -857,6 +964,8 @@ static inline void arm64_kfence_map_pool(phys_addr_t
->> kfence_pool, pgd_t *pgdp) {
->>     #endif /* CONFIG_KFENCE */
->>   +bool linear_map_requires_bbml2;
->> +
->>   static inline bool force_pte_mapping(void)
->>   {
->>       bool bbml2 = system_capabilities_finalized() ?
->> @@ -892,6 +1001,8 @@ static void __init map_mem(pgd_t *pgdp)
->>         early_kfence_pool = arm64_kfence_alloc_pool();
->>   +    linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
->> +
->>       if (force_pte_mapping())
->>           flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->>   @@ -1025,7 +1136,8 @@ void __pi_map_range(u64 *pgd, u64 start, u64 end, u64
->> pa, pgprot_t prot,
->>               int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
->>     static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->> __ro_after_init,
->> -      kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->> __ro_after_init;
->> +      kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->> __ro_after_init,
->> +      bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->> __ro_after_init;
->>     static void __init create_idmap(void)
->>   {
->> @@ -1050,6 +1162,19 @@ static void __init create_idmap(void)
->>                      IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->>                      __phys_to_virt(ptep) - ptep);
->>       }
->> +
->> +    /*
->> +     * Setup idmap mapping for repaint_done flag.  It will be used if
->> +     * repainting the linear mapping is needed later.
->> +     */
->> +    if (linear_map_requires_bbml2) {
->> +        u64 pa = __pa_symbol(&repaint_done);
->> +
->> +        ptep = __pa_symbol(bbml2_ptes);
->> +        __pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
->> +                   IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->> +                   __phys_to_virt(ptep) - ptep);
->> +    }
->>   }
->>     void __init paging_init(void)
->> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->> index 8c75965afc9e..dbaac2e824d7 100644
->> --- a/arch/arm64/mm/proc.S
->> +++ b/arch/arm64/mm/proc.S
->> @@ -416,7 +416,29 @@ alternative_else_nop_endif
->>   __idmap_kpti_secondary:
->>       /* Uninstall swapper before surgery begins */
->>       __idmap_cpu_set_reserved_ttbr1 x16, x17
->> +    b scondary_cpu_wait
->>   +    .unreq    swapper_ttb
->> +    .unreq    flag_ptr
->> +SYM_FUNC_END(idmap_kpti_install_ng_mappings)
->> +    .popsection
->> +#endif
->> +
->> +    .pushsection    ".data", "aw", %progbits
->> +SYM_DATA(repaint_done, .long 1)
->> +    .popsection
->> +
->> +    .pushsection ".idmap.text", "a"
->> +SYM_TYPED_FUNC_START(bbml2_wait_for_repainting)
->> +    /* Must be same registers as in idmap_kpti_install_ng_mappings */
->> +    swapper_ttb    .req    x3
->> +    flag_ptr    .req    x4
->> +
->> +    mrs     swapper_ttb, ttbr1_el1
->> +    adr_l   flag_ptr, repaint_done
->> +    __idmap_cpu_set_reserved_ttbr1 x16, x17
->> +
->> +scondary_cpu_wait:
->>       /* Increment the flag to let the boot CPU we're ready */
->>   1:    ldxr    w16, [flag_ptr]
->>       add    w16, w16, #1
->> @@ -436,9 +458,8 @@ __idmap_kpti_secondary:
->>         .unreq    swapper_ttb
->>       .unreq    flag_ptr
->> -SYM_FUNC_END(idmap_kpti_install_ng_mappings)
->> +SYM_FUNC_END(bbml2_wait_for_repainting)
->>       .popsection
->> -#endif
->>     /*
->>    *    __cpu_setup
-> 
-
+Will
 
