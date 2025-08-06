@@ -4,156 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BB9C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE143C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=znF6IF91Kjh9fOW1blnmEZLQNQBHGQn5QAy7B3RNZ1o=; b=nGQwIt2EFabeJXRF5ynAPVg7H0
-	Vn22Tn5n6uvVGp1dCzHYFRayygn2iBGQVEhuBoMWSrunNB+RKbbEgsIAKnIX9N1Gx5EErqntUW1g2
-	T3HuToB6iEhoaGK1cR2OE4Id4jyZRGJofxVphcJUxWw2GTTfpHT4DlbOs8LXI/+RlV4mhdO2B5aCp
-	nZqt2MxTVDP3/QesHOzlongazkbGYwIeX93ykFwMohUFoKfst7fKlu79PmsVKkfL6GnTOG4tV08Fm
-	4LaeYi43wMTqJzCHdxLUSZGPtH9kZnsYiV2A7rB9pZBZGOE96uHQy1uxwuk6lAguQDQQ9ha45fVRQ
-	m8fo5MIQ==;
+	bh=m7sqR9B0NN86kX0PoItCJADw/zIvrr2/IE+k7Ve7aao=; b=DVh3xIZZl0oZ+cO6CZGuO0jGEH
+	4iDyi/kriNNW8d4dZ4+vIcokLIQvroS67HlvvycYBnojafi0DPVRYUYbnnPhD3RsCJ0j2OAqq1V5C
+	GGZkXD3oi0Isw83JXeorXPQgbYbi9sv2YBcQxuyDzwqFGhr5hwgj5GP+OsRNk7q8TbcKsIgMscC7y
+	crg2lHXny7AZZvSKnxUMWXuMeR0Nb9rQnHKgqI8ZDG7O2o12GWYrqUpKS5ZFd+gAszVIn9A6fUejC
+	IRpnLwnwUcOaWJYg+oFr36kphXAqNjqpnar7avGMLD1IKS3P0g3TKHWhHFpM1hVAk7sOE+ux1OcOO
+	xybN/jtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZXE-0000000Edqr-2z5a;
-	Wed, 06 Aug 2025 08:30:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ujZZp-0000000Ee9G-2OQU;
+	Wed, 06 Aug 2025 08:32:49 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZMa-0000000EcX8-45vD
+	id 1ujZPk-0000000Ecut-3d5X
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:19:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754468348;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=znF6IF91Kjh9fOW1blnmEZLQNQBHGQn5QAy7B3RNZ1o=;
-	b=eNeGzRi3idP6u3rOalXcbgOoDxl4mOfjxlwP/yl8D0kf81Fqy5curit5ela/fX0k7/F3tI
-	8F0+DR/rPmjpkT7aq2+subdfAv6ql6E4ZO9Z9foMZz54i5vwgtZ8aiYSkLRhwfkRLp5qFi
-	ZpsSJssgrhzZjn/L6LI9XdsrnR+wOW8=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-611-0_WAcJY4OYO3MbpUWYArsw-1; Wed, 06 Aug 2025 04:19:06 -0400
-X-MC-Unique: 0_WAcJY4OYO3MbpUWYArsw-1
-X-Mimecast-MFC-AGG-ID: 0_WAcJY4OYO3MbpUWYArsw_1754468345
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-459d5f50a07so16700555e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 01:19:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754468345; x=1755073145;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=znF6IF91Kjh9fOW1blnmEZLQNQBHGQn5QAy7B3RNZ1o=;
-        b=lmpkKSbmsKc+QGCTZ18N/1UlP+DSQ7DtgBqIrJBkn5vNfO3XhUZZzbxyFwEUP3EMRy
-         xff6pSoCP+L7sv6RIWWGSXA/Z/gHnYLQqJmmNn/CpMHk69QJjiaUtOiGeb3YyJVZePB2
-         +JfbbVIE9NoXK+mDcSNExUOOqb8ri4i081CF8pq6E69Y7s9sqZFY+dg6UNujTzN/+HQf
-         /3eHeXuF5hQSlHbEa3UR0xj57lMm8nT5Kl5QM1QcTaWioNryHUk2ltulPCIKwwcYbPG2
-         BX4p53sZhWj/g3EJpsXgcnwufprHYB4qV+owlNnbGExU/d6dfo1GIW5+e6peT59LUZ0U
-         5U9g==
-X-Forwarded-Encrypted: i=1; AJvYcCWew9DuonM+HuuW2WnuSvfehO/cRwIHrd85esUKuYg2pD74TGN017p3juX2Sh9Gw2l/ygs3GqK7JrYxeXL2j3FF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAoWreLAmC6rZBHEk8uWzDr0F6W4keGL5m3JsaJs2huc/fvNQp
-	H8jHYgxPAoZHvo3APjQRQp+8pq+zRl7gCj25Z4OQ3R5fkvBHa0X+K6zqfRi4TVCFbCAIxOx2sxO
-	6X0CMyUTXH2baPTrJbYMYDIEkFpjI+nHwgp4XU/z5HPVvxfwnw0YoNTnTm8I1O+HcY+W9X5tmZN
-	iA
-X-Gm-Gg: ASbGnctOJqajCdXAa5OIqThopPGFWGMcBAfK+yi7CcuKIm6H7uLgWb1MYw3YaceD2cM
-	Xi24M/otCzqY+Db7Dt//sU5zNhDUyK67ejA9lhgIOphPVF8yHZ+9YYI5hxYD7FCVJlv6SWnNccB
-	Rs5ZsgVH1P+IcpA+sfv+Oo2AuJBjZ/OOYB3njJFkIcjhVKUijPhYH59eMNK8Ev65h/HHO1kXFr+
-	Xaa5buosglo94OoC2fXocZKu12mWgiSGZ5fKRhoQWYtAbNYqcDkD3FBKHIJa6z8xqmJWMSMXGnk
-	93kQqCksYGFgYOSRMbRTKcGVPES1tll8J14pXmmk4VL8ZHaCmLg53KcaaFkMyjssGFQJSi8xBg/
-	ZxY7FQdcvLQr+2pB24Roab86oD2Zab+/sc3wsGKsYwuDGHIp/3sNF0ctRa/Zfjw==
-X-Received: by 2002:a05:600c:35c6:b0:453:5c30:a1fd with SMTP id 5b1f17b1804b1-459e7087704mr18138905e9.8.1754468345079;
-        Wed, 06 Aug 2025 01:19:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGgROVHMEZgh0TP3BOKWjmCZln6savk2PzpCHP5awcCjYqYMP2QVJ3P1DIDcRnVzvlbVHqAlA==
-X-Received: by 2002:a05:600c:35c6:b0:453:5c30:a1fd with SMTP id 5b1f17b1804b1-459e7087704mr18138545e9.8.1754468344556;
-        Wed, 06 Aug 2025 01:19:04 -0700 (PDT)
-Received: from ?IPV6:2003:d8:2f1e:2200:30f4:30:4011:370e? (p200300d82f1e220030f400304011370e.dip0.t-ipconnect.de. [2003:d8:2f1e:2200:30f4:30:4011:370e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458953cfd10sm300498035e9.21.2025.08.06.01.19.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Aug 2025 01:19:04 -0700 (PDT)
-Message-ID: <2d213b5c-555e-4a4c-92bc-58ca8480ca64@redhat.com>
-Date: Wed, 6 Aug 2025 10:19:02 +0200
+	Wed, 06 Aug 2025 08:22:27 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250806082219epoutp036bd411d634c608843ff1339bd9f8b157~ZH9c7wFHx0978609786epoutp03H
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  6 Aug 2025 08:22:19 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250806082219epoutp036bd411d634c608843ff1339bd9f8b157~ZH9c7wFHx0978609786epoutp03H
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1754468539;
+	bh=m7sqR9B0NN86kX0PoItCJADw/zIvrr2/IE+k7Ve7aao=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=gEmTUuxmCfuWXNYVyJZg2seg6+c/BelnYnxR4CcGOhNf17X7Hue/dVeyWjq4tx8xE
+	 2tvbG55Uw39nHba6Ar3DhTzhReZ/rWsaxONqjFRVJGEJ/ahww82P+ZQDLQTV8jVhlW
+	 x86fXNbvlvlPvKNqe1PXIUWR/jDTszJgLSl1WU7w=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250806082218epcas5p33aecd08f1649afbc6048ea4b3067297c~ZH9b645E70885208852epcas5p3z;
+	Wed,  6 Aug 2025 08:22:18 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4bxjvX6p3sz2SSKY; Wed,  6 Aug
+	2025 08:22:16 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250806082216epcas5p2976661d5f4c9a10835fe831e97cf7fd1~ZH9aWh2GV0281802818epcas5p2V;
+	Wed,  6 Aug 2025 08:22:16 +0000 (GMT)
+Received: from INBRO001561 (unknown [107.122.12.6]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250806082211epsmtip1d80097c73b45e759d745e4b959969147~ZH9V88NzW1683116831epsmtip1R;
+	Wed,  6 Aug 2025 08:22:11 +0000 (GMT)
+From: "Pankaj Dubey" <pankaj.dubey@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'SeonGu Kang'"
+	<ksk4725@coasia.com>, "'Jesper Nilsson'" <jesper.nilsson@axis.com>,
+	"'Michael Turquette'" <mturquette@baylibre.com>, "'Stephen Boyd'"
+	<sboyd@kernel.org>, "'Rob Herring'" <robh@kernel.org>, "'Krzysztof
+ Kozlowski'" <krzk+dt@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
+	"'Sylwester Nawrocki'" <s.nawrocki@samsung.com>, "'Chanwoo Choi'"
+	<cw00.choi@samsung.com>, "'Alim Akhtar'" <alim.akhtar@samsung.com>, "'Linus
+ Walleij'" <linus.walleij@linaro.org>, "'Tomasz Figa'"
+	<tomasz.figa@gmail.com>, "'Catalin Marinas'" <catalin.marinas@arm.com>,
+	"'Will Deacon'" <will@kernel.org>, "'Arnd Bergmann'" <arnd@arndb.de>
+Cc: "'kenkim'" <kenkim@coasia.com>, "'Jongshin Park'" <pjsin865@coasia.com>,
+	"'GunWoo	Kim'" <gwk1013@coasia.com>, "'HaGyeong Kim'" <hgkim05@coasia.com>,
+	"'GyoungBo Min'" <mingyoungbo@coasia.com>, "'SungMin Park'"
+	<smn1196@coasia.com>, "'Shradha Todi'" <shradha.t@samsung.com>, "'Ravi
+ Patel'" <ravi.patel@samsung.com>, "'Inbaraj E'" <inbaraj.e@samsung.com>,
+	"'Swathi K S'" <swathi.ks@samsung.com>, "'Hrishikesh'"
+	<hrishikesh.d@samsung.com>, "'Dongjin Yang'" <dj76.yang@samsung.com>, "'Sang
+ Min Kim'" <hypmean.kim@samsung.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-arm-kernel@axis.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<soc@lists.linux.dev>
+In-Reply-To: <99977f38-f055-46ed-8eb0-4b757da2bcdd@kernel.org>
+Subject: RE: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
+Date: Wed, 6 Aug 2025 13:52:10 +0530
+Message-ID: <000501dc06ab$37f09440$a7d1bcc0$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
-To: Will Deacon <will@kernel.org>
-Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org,
- ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250718090244.21092-1-dev.jain@arm.com>
- <20250718090244.21092-7-dev.jain@arm.com>
- <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
- <aJMPOTripINrafxh@willie-the-truck>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- g3eXuA==
-Organization: Red Hat
-In-Reply-To: <aJMPOTripINrafxh@willie-the-truck>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 2s1EitVuL5uO2IkVt931blZCi4nBWaxuKWPlKzDsdA0_1754468345
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQGJY/8wx4BImu0YLFPVfwpfqUmFNgKXZrJuAgeQag4A83Fv2QHBXkcOtL/uTdA=
+Content-Language: en-us
+X-CMS-MailID: 20250806082216epcas5p2976661d5f4c9a10835fe831e97cf7fd1
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250721064006epcas5p4617b0450e69f72c94d2b3ae7b1d200e7
+References: <20250710002047.1573841-1-ksk4725@coasia.com>
+	<847e908b-1073-46ea-93f3-1f36cc93d8b8@kernel.org>
+	<bfdc2eddde554e1d1808dd8399bc6a693f681c9b.camel@coasia.com>
+	<CGME20250721064006epcas5p4617b0450e69f72c94d2b3ae7b1d200e7@epcas5p4.samsung.com>
+	<99977f38-f055-46ed-8eb0-4b757da2bcdd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_011909_097314_0CA7AAA4 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20250806_012225_230018_E5C2F984 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,91 +114,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06.08.25 10:15, Will Deacon wrote:
-> On Wed, Aug 06, 2025 at 10:08:33AM +0200, David Hildenbrand wrote:
->> On 18.07.25 11:02, Dev Jain wrote:
->>> Use folio_pte_batch to batch process a large folio. Note that, PTE
->>> batching here will save a few function calls, and this strategy in certain
->>> cases (not this one) batches atomic operations in general, so we have
->>> a performance win for all arches. This patch paves the way for patch 7
->>> which will help us elide the TLBI per contig block on arm64.
->>>
->>> The correctness of this patch lies on the correctness of setting the
->>> new ptes based upon information only from the first pte of the batch
->>> (which may also have accumulated a/d bits via modify_prot_start_ptes()).
->>>
->>> Observe that the flag combination we pass to mprotect_folio_pte_batch()
->>> guarantees that the batch is uniform w.r.t the soft-dirty bit and the
->>> writable bit. Therefore, the only bits which may differ are the a/d bits.
->>> So we only need to worry about code which is concerned about the a/d bits
->>> of the PTEs.
->>>
->>> Setting extra a/d bits on the new ptes where previously they were not set,
->>> is fine - setting access bit when it was not set is not an incorrectness
->>> problem but will only possibly delay the reclaim of the page mapped by
->>> the pte (which is in fact intended because the kernel just operated on this
->>> region via mprotect()!). Setting dirty bit when it was not set is again
->>> not an incorrectness problem but will only possibly force an unnecessary
->>> writeback.
->>>
->>> So now we need to reason whether something can go wrong via
->>> can_change_pte_writable(). The pte_protnone, pte_needs_soft_dirty_wp,
->>> and userfaultfd_pte_wp cases are solved due to uniformity in the
->>> corresponding bits guaranteed by the flag combination. The ptes all
->>> belong to the same VMA (since callers guarantee that [start, end) will
->>> lie within the VMA) therefore the conditional based on the VMA is also
->>> safe to batch around.
->>>
->>> Since the dirty bit on the PTE really is just an indication that the folio
->>> got written to - even if the PTE is not actually dirty but one of the PTEs
->>> in the batch is, the wp-fault optimization can be made. Therefore, it is
->>> safe to batch around pte_dirty() in can_change_shared_pte_writable()
->>> (in fact this is better since without batching, it may happen that
->>> some ptes aren't changed to writable just because they are not dirty,
->>> even though the other ptes mapping the same large folio are dirty).
->>>
->>> To batch around the PageAnonExclusive case, we must check the corresponding
->>> condition for every single page. Therefore, from the large folio batch,
->>> we process sub batches of ptes mapping pages with the same
->>> PageAnonExclusive condition, and process that sub batch, then determine
->>> and process the next sub batch, and so on. Note that this does not cause
->>> any extra overhead; if suppose the size of the folio batch is 512, then
->>> the sub batch processing in total will take 512 iterations, which is the
->>> same as what we would have done before.
->>>
->>> For pte_needs_flush():
->>>
->>> ppc does not care about the a/d bits.
->>>
->>> For x86, PAGE_SAVED_DIRTY is ignored. We will flush only when a/d bits
->>> get cleared; since we can only have extra a/d bits due to batching,
->>> we will only have an extra flush, not a case where we elide a flush due
->>> to batching when we shouldn't have.
->>>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>
->>
->> I wanted to review this, but looks like it's already upstream and I suspect
->> it's buggy (see the upstream report I cc'ed you on)
-> 
-> Please excuse my laziness, but do you have a link to the report?
 
-I was lazy :)
 
-https://lkml.kernel.org/r/68930511.050a0220.7f033.003a.GAE@google.com
-
-> I've
-> been looking at some oddities on arm64 coming back from some of the CI
-> systems and was heading in the direction of a recent mm regression
-> judging by the first-known-bad-build in linux-next.
-> 
-> https://lore.kernel.org/r/CA+G9fYumD2MGjECCv0wx2V_96_FKNtFQpT63qVNrrCmomoPYVQ@mail.gmail.com
-
-Hm, mprotect seems to be involved. So it might or might not correlate.
-
--- 
-Cheers,
-
-David / dhildenb
-
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: Monday, July 21, 2025 12:10 PM
+> To: SeonGu Kang <ksk4725=40coasia.com>; Jesper Nilsson
+> <jesper.nilsson=40axis.com>; Michael Turquette <mturquette=40baylibre.com=
+>;
+> Stephen Boyd <sboyd=40kernel.org>; Rob Herring <robh=40kernel.org>;
+> Krzysztof Kozlowski <krzk+dt=40kernel.org>; Conor Dooley
+> <conor+dt=40kernel.org>; Sylwester Nawrocki <s.nawrocki=40samsung.com>;
+> Chanwoo Choi <cw00.choi=40samsung.com>; Alim Akhtar
+> <alim.akhtar=40samsung.com>; Linus Walleij <linus.walleij=40linaro.org>;
+> Tomasz Figa <tomasz.figa=40gmail.com>; Catalin Marinas
+> <catalin.marinas=40arm.com>; Will Deacon <will=40kernel.org>; Arnd Bergma=
+nn
+> <arnd=40arndb.de>
+> Cc: kenkim <kenkim=40coasia.com>; Jongshin Park <pjsin865=40coasia.com>;
+> GunWoo Kim <gwk1013=40coasia.com>; HaGyeong Kim
+> <hgkim05=40coasia.com>; GyoungBo Min <mingyoungbo=40coasia.com>;
+> SungMin Park <smn1196=40coasia.com>; Pankaj Dubey
+> <pankaj.dubey=40samsung.com>; Shradha Todi <shradha.t=40samsung.com>;
+> Ravi Patel <ravi.patel=40samsung.com>; Inbaraj E <inbaraj.e=40samsung.com=
+>;
+> Swathi K S <swathi.ks=40samsung.com>; Hrishikesh
+> <hrishikesh.d=40samsung.com>; Dongjin Yang <dj76.yang=40samsung.com>;
+> Sang Min Kim <hypmean.kim=40samsung.com>; linux-kernel=40vger.kernel.org;
+> linux-arm-kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.o=
+rg;
+> linux-arm-kernel=40axis.com; linux-clk=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-gpio=40vger.kernel.org; soc=40lists.l=
+inux.dev
+> Subject: Re: =5BPATCH 00/16=5D Add support for the Axis ARTPEC-8 SoC
+>=20
+> On 21/07/2025 06:50, SeonGu Kang wrote:
+> > 2025-07-10 (=EB=AA=A9),=2009:07=20+0200,=20Krzysztof=20Kozlowski:=0D=0A=
+>=20>>=20On=2010/07/2025=2002:20,=20ksk4725=40coasia.com=20wrote:=0D=0A>=20=
+>>>=20From:=20SeonGu=20Kang=20<ksk4725=40coasia.com>=0D=0A>=20>>>=0D=0A>=20=
+>>>=20Add=20basic=20support=20for=20the=20Axis=20ARTPEC-8=20SoC.=0D=0A>=20>=
+>>=20This=20SoC=20contains=20four=20Cortex-A53=20CPUs=20and=20other=20sever=
+al=20IPs.=0D=0A>=20>>>=0D=0A>=20>>>=20Patches=201=20to=2010=20provide=20the=
+=20support=20for=20the=20clock=20controller,=20which=0D=0A>=20>>>=20is=20si=
+milar=20to=20other=20Samsung=20SoCs.=0D=0A>=20>>>=0D=0A>=20>>=20You=20shoul=
+d=20explain=20here=20(and=20in=20DTS=20patches=20or=20the=20bindings)=20the=
+=0D=0A>=20>>=20hardware,=20that=20this=20is=20Samsung=20SoC.=0D=0A>=20>>=0D=
+=0A>=20>>=20You=20could=20also=20explain=20the=20differences=20from=20Exyno=
+s=20and=20proposed=0D=0A>=20>>=20handling=20of=20patches=20(because=20this=
+=20is=20odd)=0D=0A>=20>>=0D=0A>=20>>=20Also,=20entire=20patchset=20has=20wr=
+ong=20and=20incomplete=20SoBs.=20Your=20SoB=20is=0D=0A>=20>>=20missing=20ev=
+erywhere,=20others=20have=20wrong=20order.=0D=0A>=20>>=0D=0A>=20>>=20Please=
+=20read=20submitting=20patches=20first.=0D=0A>=20>>=0D=0A>=20>=0D=0A>=20>=
+=20This=20Custom=20SoC=20is=20owned=20by=20the=20Axis=20(OEM)=20and=20manuf=
+actured=20by=20the=0D=0A>=20>=20Samsung=20(ODM).=20It=20has=20standard=20Sa=
+msung=20specific=20IP=20blocks.=0D=0A>=20=0D=0A>=20=0D=0A>=20It=20is=20desi=
+gned=20by=20Samsung.=20It=20is=20Samsung=20SoC.=0D=0A>=20=0D=0A>=20Anyway,=
+=20don't=20explain=20to=20me,=20but=20in=20your=20patchset.=0D=0A=0D=0AHi=
+=20Krzysztof,=0D=0A=0D=0AThank=20you=20for=20your=20review=20comments=20on=
+=20the=20ARTPEC-8=20platform=20patches.=0D=0AI'd=20like=20to=20add=20more=
+=20context=20about=20the=20ARTPEC-8=20SoC=20to=20help=20clarify=20its=0D=0A=
+relationship=20with=20Exynos.=0D=0A=0D=0AHere=20are=20the=20key=20details=
+=20about=20ARTPEC-8:=0D=0A=20=20=20-=20Manufactured=20by=20Samsung=20Foundr=
+y=0D=0A=20=20=20-=20SoC=20architecture=20is=20owned=20by=20Axis=20Communica=
+tions=0D=0A=09-=20On=20similar=20model=20as=20Tesla's=20FSD=20chip=20owned=
+=20by=20Tesla=20and=20=0D=0A=20=20=20=20=20=20=20=20=20=20=20=20=20=20manuf=
+actured=20and=20=20by=20Samsung=0D=0A=20=20=20-=20IPs=20from=20both=20Samsu=
+ng=20and=20Axis=20Communications=0D=0A=0D=0ASamsung-provided=20IPs:=0D=0A=
+=20=20-=20UART=0D=0A=20=20-=20Ethernet=20(Vendor:=20Synopsys)=0D=0A=20=20=
+=20=20=20=20=20-=20Same=20IP=20has=20been=20integrated=20as=20integrated=20=
+in=20FSD=20Chip=0D=0A=20=20-=20SDIO=0D=0A=20=20-=20SPI=0D=0A=20=20-=20HSI2C=
+=0D=0A=20=20-=20I2S=0D=0A=20=20-=20CMU=20(Clock=20Management=20Unit)=0D=0A=
+=20=20=20=20=20=20=20Follows=20same=20CMU=20HW=20architecture=20as=20Exynos=
+=20SoC=20have=0D=0A=20=20-=20Pinctrl=20(GPIO)=0D=0A=20=20-=20PCIe=20(Vendor=
+:=20Synopsys)=0D=0A=20=20=20=20=20=20=20Though=20Exynos,=20FSD,=20ARTPEC=20=
+have=20same=20DesignWare=20Controller,=20=0D=0A=20=20=20=20=20=20=20the=20g=
+lue/wrapper=20layer=20around=20DWC=20Core=20has=20differences=20across=0D=
+=0A=20=20=20=20=20=20=20these=20SoCs.=20All=20manufactured=20by=20Samsung,=
+=20but=20differences=20are=20there=0D=0A=20=20=20=20=20=20=20in=20HW=20desi=
+gn=20and=20for=20different=20products.=20For=20the=20same=20reason=20PCIe=
+=20patch=0D=0A=20=20=20=20=20=20=20refactoring=20effort=20is=20being=20put=
+=20by=20us=20=5B1=5D=20to=20streamline=20single=20Exynos=20driver=0D=0A=20=
+=20=20=20=20=20=20which=20can=20support=20all=20Samsung=20manufactured=20So=
+Cs=20having=20DWC=20PCIe=20controller.=0D=0A=20=20=20=20=20=20=5B1=5D:=20ht=
+tps://patchwork.ozlabs.org/project/linux-pci/patch/20250625165229.3458-2-sh=
+radha.t=40samsung.com/=0D=0A=0D=0AAxis-provided=20IPs:=0D=0A=20=20=20=20-=
+=20VIP=20(Image=20Sensor=20Processing=20IP)=0D=0A=20=20=20=20-=20VPP=20(Vid=
+eo=20Post=20Processing)=0D=0A=20=20=20=20-=20GPU=0D=0A=20=20=20=20-=20CDC=
+=20(Video=20Encoder)=0D=0A=0D=0AAs=20part=20of=20the=20upstreaming=20effort=
+,=20Samsung=20and=20Coasia=20(DSP)=20team=20will=20work=20together=0D=0Ato=
+=20upstream=20basic=20SoC=20support=20and=20Samsung=20IPs=20support.=0D=0AT=
+he=20Axis=20team=20will=20be=20the=20primary=20maintainer=20for=20the=20ART=
+PEC-8=20SoC=20codebase.=0D=0A=0D=0AGiven=20that=20ARTPEC-8=20is=20a=20disti=
+nct=20SoC=20with=20its=20own=20set=20of=20IPs,=20we=20believe=20it's=20reas=
+onable=0D=0Ato=20create=20a=20separate=20directory=20for=20it,=20similar=20=
+to=20FSD.=0D=0A=0D=0AWe=20will=20remove=20Samsung=20and=20Coasia=20teams=20=
+from=20the=20maintainers=20list=20in=20v2=20and=20only=0D=0AAxis=20team=20w=
+ill=20be=20maintainer.=0D=0A=0D=0AMaintainer=20list=20for=20previous=20gene=
+ration=20of=20Axis=20chips=20(ARM=20based)=20is=20already=20present,=0D=0As=
+o=20this=20will=20be=20merged=20into=20that.=0D=0A=0D=0APlease=20let=20us=
+=20know=20if=20this=20explanation=20addresses=20your=20concerns.=20=0D=0AWe=
+'ll=20update=20the=20commit=20message=20and=20cover=20letter=20accordingly.=
+=0D=0A=0D=0AThanks,=0D=0APankaj=20Dubey=0D=0A=0D=0A>=20=0D=0A>=20Best=20reg=
+ards,=0D=0A>=20Krzysztof=0D=0A=0D=0A
 
