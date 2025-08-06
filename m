@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04768C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA631C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HXxUnDHaYNU0mMmrMfCxsActTXfb2hYKcIpCLaZtg2c=; b=O+FqMv22DAnCNP+msd01jEjSEf
-	HCSuYdkKNTlmsInYSUDvTrm89xDYiAfwjT1HCBOdSVqHHJNdZi1rUdJtyfna4Fzu3Ks6eJ8Tnp1ky
-	rIZYXNfO1Z+NqtKbx2l4/acAfvtQa5+pRJtsF+/soiHWsWNC4mxXfsFLaGiUY9J704dJtv5Yqbhfc
-	X+GjxClckvPoTBr7t+vtV1Et1+Yyi4svznUxzFldeSfz4WwY4znrEOEYV85wP2NYj0O4B2hCrZ6yJ
-	d35HInWVn5sdDWFnGB4qkjqAH0vbHLt7iwoRvBJaCGBDXGyexupmHIK6fjwY/wUZDmPsSIkJHvU0q
-	/31TfHQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9N7+uAZkEN5ICi/bEpu3VTQA6hJVii3ReUztOEBsYHY=; b=VUJdzIdWDdq8wsvMSk0bHLSF7p
+	Yxz6u/c/AjzAa7qr2vOPrRlzZjljomLxqh/TS9MYJ/U3XkH9DPxpWFQemRw/U0DDeDkuZ3Gpanyrm
+	JMLX/bUWdYm8oeOm7OU/jEhsy1dQ6LFJHvdBbF8NMubEIYJkxa6CqVQ9xVdClVslanEFYkXc7JWbj
+	/0FxGEBpwb35E+GvQwcu2eZg0V4izuG4bGsLsYK70nylOLerrwnjHFDGBakeTg4YBwgHjFF3k/6Mz
+	1aUJRv9/1LNtlo5vpTf7909UelDxDMDn8XCIb16KHF+sLr20H7HUOa4y710gwKdaaJHsZSuNYn5k4
+	lj6eBbmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZK0-0000000EcET-3TbU;
-	Wed, 06 Aug 2025 08:16:28 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ujZMi-0000000EcZO-2psb;
+	Wed, 06 Aug 2025 08:19:16 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZEz-0000000EbHD-1baB
+	id 1ujZF7-0000000EbIO-3abZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:11:19 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5767po1t012123;
-	Wed, 6 Aug 2025 10:11:09 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=HXxUnDHaYNU0mMmrMfCxsA
-	ctTXfb2hYKcIpCLaZtg2c=; b=m6DaK9YeW5mfl4x4oa5iLccXPZ6A4nrBkmmftK
-	12qzjCQ77d+4m6uWsyhI9k9oSCojdH90GjG66kwHlcI0Ncm2xsRd/P2LmxjRruqk
-	TQWfZidTKkXYmyj7Kh/YRGMZPB3KTMmE04nP2/kcS+jF9//a14fEJQ1rHd9jC5d3
-	d8blssokPrpQJZjbtV8XtAraQO5HlIrRZm71ZhIJwyGlT40KCMYSoaRdxbjfngLA
-	5r9OPmNDUo4DhvsQiKqHQwpgazDLS2Ryr+6ZR7wbVZzaffmhcMkE9cUADBn+ppuf
-	kDj3CZY+w5goj8bM7mcmnnk9UAUlpDJ+0nsN6f+j+E6d5LKg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48bpx8ac4c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 06 Aug 2025 10:11:09 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B1CBA4004B;
-	Wed,  6 Aug 2025 10:10:15 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8DD2B767CC2;
-	Wed,  6 Aug 2025 10:09:37 +0200 (CEST)
-Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 6 Aug
- 2025 10:09:37 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Wed, 6 Aug 2025 10:09:35 +0200
-Subject: [PATCH] arm64: dts: st: Add memory-region-names property for
- stm32mp257f-ev1
+	Wed, 06 Aug 2025 08:11:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4bxjYD0qPnz14ML1;
+	Wed,  6 Aug 2025 16:06:24 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 55C9114022F;
+	Wed,  6 Aug 2025 16:11:20 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 6 Aug 2025 16:11:19 +0800
+Message-ID: <94757d00-5a8e-ac6b-f832-030f33ccf771@huawei.com>
+Date: Wed, 6 Aug 2025 16:11:18 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH -next v7 0/7] arm64: entry: Convert to generic irq entry
+Content-Language: en-US
+To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<sstabellini@kernel.org>, <mark.rutland@arm.com>, <puranjay@kernel.org>,
+	<broonie@kernel.org>, <mbenes@suse.cz>, <ryan.roberts@arm.com>,
+	<akpm@linux-foundation.org>, <chenl311@chinatelecom.cn>,
+	<anshuman.khandual@arm.com>, <kristina.martsenko@arm.com>,
+	<liaochang1@huawei.com>, <ardb@kernel.org>, <leitao@debian.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<xen-devel@lists.xenproject.org>
+References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
+ <6bd09b5b-9830-42b4-ad9e-9ad1e153e564@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <6bd09b5b-9830-42b4-ad9e-9ad1e153e564@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250806-upstream_fix_dts_omm-v1-1-e68c15ed422d@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAL4Nk2gC/x2M0QpAQBAAf0X77GpdXPgV6cLtsQ+HbpGSf3d5n
- KaZB4Qik0CbPRDpYuFtTVDkGUzLsM6k2CUGjbrCGo06dzkiDcF6vq07xG4hqAnRjKbBUvsCUrp
- HSvrfdv37fk1vT8RmAAAA
-X-Change-ID: 20250806-upstream_fix_dts_omm-c006b69042f1
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <stable@vger.kernel.org>,
-        Patrice Chotard <patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-06_01,2025-08-04_01,2025-03-28_01
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_011118_006073_7B0E5CD7 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250806_011126_058392_8E67E75B 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +79,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add memory-region-names property for stm32mp257f-ev1.
-This allows to identify and check memory-map area's configuration.
 
-Cc: stable@vger.kernel.org
-Fixes: cad2492de91c ("arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board")
 
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 1 +
- 1 file changed, 1 insertion(+)
+On 2025/8/5 23:08, Ada Couprie Diaz wrote:
+> Hi Jinjie,
+> 
+> On 29/07/2025 02:54, Jinjie Ruan wrote:
+> 
+>> Since commit a70e9f647f50 ("entry: Split generic entry into generic
+>> exception and syscall entry") split the generic entry into generic irq
+>> entry and generic syscall entry, it is time to convert arm64 to use
+>> the generic irq entry. And ARM64 will be completely converted to generic
+>> entry in the upcoming patch series.
+> Note : I had to manually cherry-pick a70e9f647f50 when pulling the series
+> on top of the Linux Arm Kernel for-next/core branch, but there might be
+> something I'm missing here.
+>>
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-index 2f561ad4066544445e93db78557bc4be1c27095a..16309029758cf24834f406f5203046ded371a8f9 100644
---- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-+++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
-@@ -197,6 +197,7 @@ &i2c8 {
- 
- &ommanager {
- 	memory-region = <&mm_ospi1>;
-+	memory-region-names = "mm_ospi1";
- 	pinctrl-0 = <&ospi_port1_clk_pins_a
- 		     &ospi_port1_io03_pins_a
- 		     &ospi_port1_cs0_pins_a>;
+It seems that it is now in mainline v6.16-rc1 and linux-next but not
+Linux Arm Kernel for-next/core branch.
 
----
-base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
-change-id: 20250806-upstream_fix_dts_omm-c006b69042f1
+[...]
 
-Best regards,
--- 
-Patrice Chotard <patrice.chotard@foss.st.com>
+> I'll spend some time testing the series now, specifically given patch 6's
+> changes, but other than that everything I saw made sense and didn't look
+> like it would be of concern to me.
 
+Thank you for the test and review.
+
+> 
+> Thanks,
+> Ada
+> 
 
