@@ -4,211 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FF8C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 07:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714A0C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 07:03:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ckj5cNming19g5xVmH00/Jwu6VqXlZVAkYCMrg2FR5M=; b=lIYVrHG6AC0EoZyUYCpgTlPGQy
-	21qoX70N5GwC9wTDHJV4bJBSiUlTL0cg/7EM+DA58imcmg4DB+kSEnjjG/yGx6suhOTYc0qwPpmAx
-	FAnq8Nx8Ee8dFcBW3QjLSqMCxEeGyuzF2mXx7nbYQs59zGVfCemxfdCOQ+wv1yI910i9CZ5Kj9HHP
-	YcTQOuqop6AT/mBnoCyA25bcjU1tIrSHOniEBMhsD6crmMmOGSnvsMKInjs49xwT0uR41VFiTg4tz
-	Fm9IzKYu9OW8IDRj2xND9b2gG7+AsTZYfdzxdRR/E6txCztgheaxcSDOCRot3T42zQ2MXQrbQ/YmJ
-	gh8yqvog==;
+	bh=YF//15yqZSlqqumHm5+I1dKqkACpOoAiiur9eCb1Jyo=; b=cC7dHMn9cftfYSW2+F5B9WyUJs
+	J7IvnbBIlQLIp1XYniTjRX4E99pObeZVnzEGa+ARtS2JVDiKl/dVSP2Z1/P3KHDUfEp1do/RHKfg2
+	qXjDQbOpOXV70ECE+v/XT6TLr0qgRe+DjuL6qRFAax+p1+BTxvhI/z/WFNfIxWecsrDK7X3xM2aqU
+	jZoRKpM1kmrTNJEVeXDG4imDJAao7LYH8beCa+ftHIuMjAsl7DYdrb9SH+7h5Vx3QSE8TuyqsDuU/
+	G+5EXzcRE83Q8xObkoQzWcep9iX8tAu1DvbX8wSmfMcNSgqc/TvNZcxWGKB8lALWwL682cxHJ2VxL
+	VV+GpHPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujY8m-0000000ESc5-1DZI;
-	Wed, 06 Aug 2025 07:00:48 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1ujYBD-0000000ET5A-2krF;
+	Wed, 06 Aug 2025 07:03:19 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujY23-0000000ERnB-2NyB;
-	Wed, 06 Aug 2025 06:53:52 +0000
-X-UUID: 19ac52a0729211f09eb0dd999d3936bf-20250805
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=Ckj5cNming19g5xVmH00/Jwu6VqXlZVAkYCMrg2FR5M=;
-	b=jH9NacwpyvHfGT6U3bTa1XnLcnnYVKDkNLtw6DFltoK5HNeXBs7gHRpEeq3fVtpj5Bd95dyJpJeASuTesw46GBOfX3ylylbnT/C7BbnjIMoKYFIIqxMk1S7R8/9z6vjB5dh9kTETrCAiJYhKBWK2ViBBIQd7zI72ijD45JKFFPQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:a98793bb-8012-48d9-8819-d43a76bf238e,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:a928900f-6968-429c-a74d-a1cce2b698bd,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:-5,Conten
-	t:0|15|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:
-	0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 19ac52a0729211f09eb0dd999d3936bf-20250805
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 805162012; Tue, 05 Aug 2025 23:53:46 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Wed, 6 Aug 2025 14:53:43 +0800
-Received: from TYPPR03CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Wed, 6 Aug 2025 14:53:43 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sqgtWyE9UfTlB7Gx3nAH4vizWvldCO8rK/KoTbswN3uKzSzumVZd3HsBnsi6mXgjsltRWp3tYYSZDn0nbF1cDkcsPwPy9V3NdiejQDPKXaBTaNn+4IihzkX9YpCQ1ajQfD04XalRZoh+5dQoILj73BRyuxD80Hf4S8lqsIIkos2q8okSHIgB+8Bh6AFkozJL8aKb+Jqfnj/v5LqSeUbdziPsEjmYSq4g+M/7nE8wz2KrYQ/TBS7htgaSdaHUIUo2GxO6yjxPzKYlYyScsrw4nc9EFP8+pTMZJNXygGfgPH3YLqfao+8ovEbymQafEgPzII/LI7qShO1tVz0JiU7J7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ckj5cNming19g5xVmH00/Jwu6VqXlZVAkYCMrg2FR5M=;
- b=Y2rQAjCH4gz8jbzEbmv7XYLKQPZJDkIRlUjLQejGdQWPLumvPY+cH6kYt3PGzMGQ8lsSUJYCXrzo0f0omZqy2ubaWUEZRoFfXuUbaPveUtBpx4Ysy8VhE1i+yRqAL45nt5mI2lRztzCdFk2XMc2qGkLpbXj60Djc7Uq8IgClobUZLVNOIBdTXAJr4zqa9QpRwENK60a9wAxQMqqPEb4xBo7b5Yi2HHTuXRughkcW/j4KKGuvTuICP8ElU0u5EGVNHNB7ST2BWVNUuHGIFD0BAXPGoMvK9G79eKKea63CWTDLTDa9+boj1BbDn6PgBBTAPDg09Kq4Um5guG+OEYzK7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1ujY4q-0000000ERzm-2sUb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 06 Aug 2025 06:56:45 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-76bc5e68e26so6410676b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 23:56:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ckj5cNming19g5xVmH00/Jwu6VqXlZVAkYCMrg2FR5M=;
- b=GxB/dRSC5Bv0iNc3LCkV76zSVAcfWZy61VGZT0xpc9yJaUdmgHAlX7ZM032YG1ZVmNK4Cu4IjCVvVzYYigCyvvozrIhSIcMAB4bY4En+McXJAJgrioP2FehP5fRS26cE9Gjf7X6fwF1mX/6mpRDTbYw7fwX1u2yn5pqI0hROYtI=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by SEZPR03MB7123.apcprd03.prod.outlook.com (2603:1096:101:e3::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Wed, 6 Aug
- 2025 06:53:39 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%4]) with mapi id 15.20.8989.018; Wed, 6 Aug 2025
- 06:53:39 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "tzimmermann@suse.de"
-	<tzimmermann@suse.de>, "simona@ffwll.ch" <simona@ffwll.ch>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>,
-	=?utf-8?B?SmF5IExpdSAo5YiY5Y2aKQ==?= <Jay.Liu@mediatek.com>,
-	"airlied@gmail.com" <airlied@gmail.com>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
-	"mripard@kernel.org" <mripard@kernel.org>, "hsinyi@chromium.org"
-	<hsinyi@chromium.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	=?utf-8?B?WW9uZ3FpYW5nIE5pdSAo54mb5rC45by6KQ==?= <yongqiang.niu@mediatek.com>
-CC: "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 6/7] dt-bindings: display: mediatek: dither: Add
- support for MT8196
-Thread-Topic: [PATCH v2 6/7] dt-bindings: display: mediatek: dither: Add
- support for MT8196
-Thread-Index: AQHb/sZ56NVpqEdavk285pFHdUctvrRVQB8A
-Date: Wed, 6 Aug 2025 06:53:39 +0000
-Message-ID: <3f7add11f15ab49ab3cb3f60164fcaa0cacf3ecc.camel@mediatek.com>
-References: <20250727071609.26037-1-jay.liu@mediatek.com>
-	 <20250727071609.26037-7-jay.liu@mediatek.com>
-In-Reply-To: <20250727071609.26037-7-jay.liu@mediatek.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|SEZPR03MB7123:EE_
-x-ms-office365-filtering-correlation-id: 1c32ebf5-89db-477a-72fd-08ddd4b5f966
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|42112799006|7416014|376014|1800799024|38070700018|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?L2VHQ2NMdnloOHJRbU8rVEtWeWdoWTlQMys2NURNUStqQSs5ZzdaNGlhYW5v?=
- =?utf-8?B?UjZNNHB4dXNmMUpTRXJ0TnFQOE9TMll0QTZlUDdkSFNNUVVmUkZRMy9sTCtT?=
- =?utf-8?B?QXdWVTIvcld6ZXc5Y0JQN2RQd3owMEZ0UlFYM2FzUmlEblgxc0JGQ0YzQkRZ?=
- =?utf-8?B?aHZkN3JhTjRCZFYxTmhWVlJPNFU5TW9iTW94Y3Y1aE9JZVMzYlRDMHp1aGF2?=
- =?utf-8?B?aWtCN3hCWktuR3lIcjdzdENlVkpiS21rWHVvU1dlbk5JeW83V1dSdTZReXdo?=
- =?utf-8?B?OUxyNDVLekZOVFQxNHhLT1dXYVRyVzBLSWVnb2x4U2kwWGxpaUIvQWQyMHlF?=
- =?utf-8?B?dlZ5a1RRRVNFWVB2SFZycHFUZllaMzg3UEptc09HRjVoNVVuNVlMRnMycUVp?=
- =?utf-8?B?eWNvU2M3ZytZSHkvWHRRY05mMjAyaFE1c0gyaHQ5a0VBVVdkRG5Ka1h4Qmlw?=
- =?utf-8?B?TmtFUnF2U1BuY1g3T0RoQ1EwMEJGVGtTNlBzUTZsSENUNjhuK3grV3AwcWFD?=
- =?utf-8?B?RlNtREtoTmVib255UENvSTBwOURHVXkzVGFHMGswZnEzK1ppQXFUNnZia3Vt?=
- =?utf-8?B?ZFNISkUyNU1VK2xFTVB5QkFNVjVDUHk3T0FQbnZ2M0wvWjhmcEZHS2V4V2x1?=
- =?utf-8?B?QnBvRUg0OWwxSXlIZmVWYlZ5V1pJOVdkMWZLZHJ1U3pGMyt5L245V21WWFQ2?=
- =?utf-8?B?OG9lNktrVW9SYngxUGx0QkpLemJmZlVzZ3FueGV4eDVucGo0SDRMbEJZMXlp?=
- =?utf-8?B?K21RQ3h6M2tPTHEwdzdEN2hIbk9KaWNyNTVpRmF3d3NoemE3cVF2WnZxOTBB?=
- =?utf-8?B?elJEV0hzUXF6RkYzSlVNa1EzVmpRL1d6YmJOekhYQzhHdmdzSXVnVWJYWlp4?=
- =?utf-8?B?b3hEM2FDakNNdFk0YzZDMzlEcGtJSXZTTWRzMitCZzZsNVBqbkJ4eVpUNS9Q?=
- =?utf-8?B?Q0o3Sk84YUV3cWNOZzZPbm9BdWk5WjRmL0J4TmVKblg5d1AwVEIxSmVrOTZx?=
- =?utf-8?B?aXZMbDJJSlhGZ0dLa0JqUjBVYi9RSmc1SVB1YmVpZW9NbmRoWERkMEFPWjRR?=
- =?utf-8?B?dERZNmZTUE1RM21DSTBFUDVkSEZTNi9ydGl2YVk5Y3FTb0F1SUVYV2hmV1dY?=
- =?utf-8?B?aWRZaE02Ujl1TkpCNlU5MGZabDN3dWRJWEpDTDVLSGxmeE1BZmh1VHR1a0Fw?=
- =?utf-8?B?K3lZOEJHcVdibnlCbFhxZENNWWUwNUdEZWh3ZTEvNkJRTE5uZndidzgrdEJj?=
- =?utf-8?B?em1oQ1RSNFdPYUpRNFNZSWVJNG53RjRWcmFTVE9XbURhWW02WXZtZ2MrWFBY?=
- =?utf-8?B?Wmpib2lMbnliZm0zNUJZcXNqbUcxM0l5UUl5ejk4TUlOVStmVEg4dkdreE5K?=
- =?utf-8?B?Wkd0SWtwNzdLTFVFaUZkRFNSbFNYVTVTdWZFMHhld3VWTG1XTjNpbDVxNEpN?=
- =?utf-8?B?R3Z6aytGZ3BEZlFNTThjdHptRkNjN1kzZmlkTTZ4UnArY0FsMVlvSUR0Zjkz?=
- =?utf-8?B?MnAzN2tKYWlHcjNUbTVPUUhETFg3dlQwQU13WE1na21seGI5ejRBc2ZUVDRn?=
- =?utf-8?B?cWg5NUw1TThBeGtZRUora01ySHZGTzAwSnh0Wk4yVHVMUlVOMERvMmdzWTc0?=
- =?utf-8?B?L2loMHVzV3dWZ1dvYitQcFlSZThPdmFRUUJxeDhoSisyaTRJL0R4Z25QT21y?=
- =?utf-8?B?Z1dOS2twMmJEaFFDbGNoMCtRR05sQUgwczRRVDNnSGY1azJHbVVURHhGSnM1?=
- =?utf-8?B?UnNkdGMwcXJkOW9NVEFpdzB3Z1JBOUh3azVHbU5wZ0NtNXFCOGpVVjZOckFP?=
- =?utf-8?B?L1pySkczNk9ja0RXOW1NeUJZQVpSazRoWDdkNzFUK2tOZ1laUUFZMVBWN3pW?=
- =?utf-8?B?bnBMQVlzT1FFdUJPcWVCMU5iSDdGRURDRVN0dTdpOXRrU1o5Ui82cEhMTjh2?=
- =?utf-8?B?VlpkeGRrMmNBczVycHQyNXVoRzEwZDJFc3IxZ1RvSXhkR3ZZVHkrVFNrZGdF?=
- =?utf-8?Q?mwP96PbSjPyHj1GN/T+dPF2ySG5Xdo=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(42112799006)(7416014)(376014)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Njd6K28rT3lNeG1oMzI0dkhBeXBQOE1TSHpRclh0aFN0UmZITVhXOHB6NGYv?=
- =?utf-8?B?TzluWXk2dStpUUVpRURVbVpTOGYvcXBmbTR4MzRwUzI3UnRlTkNjcjk5N1Va?=
- =?utf-8?B?VlFNdTBxVm5xWlhERllXN0F2bkRrV01ZZVQvNE8xMGhtdEJMSThKQWtLSjZF?=
- =?utf-8?B?WGIreG9TQmQ1RzMxekJKdXl3bjVuWElwQmRWdVhHeUlOKy9mRnpvWnJzTC9R?=
- =?utf-8?B?dVRSQUYraGJya0lWY1ovSk5VZ0U2eDFpeXlTNG1zY0Vqcm50cjUvY3pOekND?=
- =?utf-8?B?a0VIdmVaSGFkYlpXeVBTSWhnLzA3RVp5dlY4Wmhic1E4dmhpVmFBdUMwNHp4?=
- =?utf-8?B?RmNuMmRzUzdjcldKNjY2SGpRNGVOd3NWTUNxZDgwQmhLL3NrSTBTcDFxQWli?=
- =?utf-8?B?SDduQ201eXNYZjh5bW1nZGxPVzk1OHBJSHFxQ3VVQi9rMDNkMHcxZEdTYWZ6?=
- =?utf-8?B?dFQ2TXc0Tm83ZWhVZVJtQWo0bmN0MS9SdmlmWWVIZUZ4Nyt5c2x5OHluMmhT?=
- =?utf-8?B?UmZUbkFoMW1tdmdUOTNISWhHNE8vUFg2VHBxYWEvZ1J4NkFhSzIvdnllaTA0?=
- =?utf-8?B?VHJaS0xtcUVGS3Q4UVZ3ZkxEMk9mNFRybFR6UzhYNFovYnFZQ0FhRThoNDVE?=
- =?utf-8?B?OHBLbTU2WjZHSEJDa0hUMjduTzVhVXEwRW5WblIyekdlcjFBbmFRbUo2bEZL?=
- =?utf-8?B?TEVwWkEvSVUzMFhGZUR6MTFySFd6c0tWZjZOMk9PNGs5bitVMTRkeU56bXFK?=
- =?utf-8?B?YkhCZW4raXhqT21aWlVEVjV2YWZlZ3J2RkpXc28xTDIrdnVTUVJWa0hlQmht?=
- =?utf-8?B?N2tnNEwrQ2Y1MTZ0RXlYd2NwQ0NZdjBwVUdJajhscnFsQSt1cXRJWm9LQmx0?=
- =?utf-8?B?bVNyRmJmNUhDdVFkL0xCM0I0dFN4ZjVla0xBN2Y0TUhtOE9BeUtmM0xNSmhH?=
- =?utf-8?B?aTZUd2R5Z2lOWEgvbE9Qb3hhbGd0K2tkNmR4Y2NmZmF6NURESlptQkQ1dVRH?=
- =?utf-8?B?SHQ4SVNXMHR6ZzNFWllHVWJBMmRLQjhhQnVlMzFZa2VlMG9na1l1RHdYRGtL?=
- =?utf-8?B?cEtQNWlhci9rR3JXaENmTkp1OHVWdU42UVpuK1l6OFZ1cmxkTURnRmtHaS9F?=
- =?utf-8?B?a3Q5SzAvaHdqQWNBRHFGeUNTTGFKdU5lVm4rUmpCaFNNWm51Wmt5UzFIMGY4?=
- =?utf-8?B?Z3d0Q2pmYVZaMXhnZ0hVWldGVmdOZFZ6UTJsME5FM0FhanhRYWhWRFlaaWVE?=
- =?utf-8?B?TTlVdE5IMjczNWYvSVZ5dFZlSnVXRTA0ZlNrUjR3ZXdUeXBLS1MzQmVRYmMv?=
- =?utf-8?B?WXQ3ZE9tWDVpMFExenNBU3J6RXR4ZWZFdXNXME01R0lHQzEvVG9xM1hhd3J6?=
- =?utf-8?B?Ty91ZXJJM1kzK1AzV3EyYnFjUEZNUFVScjdNdStLdUorQ3BKQ056VHJjSFdB?=
- =?utf-8?B?TEZiRjYwWHF5Z2owb2VGeU1jeEFwbzRMWnEwQyswRGZXWkhuWlYzUDl1OWhx?=
- =?utf-8?B?TGk4VHhBc3RwWlUvbDRLeEVXbUdla0ZZcEdzWnJmeGxTRkg5RjM5amQ0cHNz?=
- =?utf-8?B?a1l2bTRCUUExdkZqRlZJcFFWWE4vSGtJS09XcXVmdXYyMWJGZUV4bnArbVhP?=
- =?utf-8?B?alZ3VFRZZCtDbzZTTjNQM0VsUkJHd1dTU0gyTnZlMHpnczFOZmVOV3VUN0tt?=
- =?utf-8?B?RDNnV3lIS295c1RwdkMxd082ZUJJSTJ3QndNelBPSFZ1eStjZ3B3YVB2K043?=
- =?utf-8?B?ZGFZblpxL1dmckFESENFdjNIaWFEZzNiaFQ2VG81aysySnhFNkRVT1V4bWZ3?=
- =?utf-8?B?RTBFejBwbDVwWU95RnRZVXFmM29mY0tGbjY5a3YrY3RveGxHRGs0UE10K3U1?=
- =?utf-8?B?UzZrV1hBTTgvZUQ0cVNNelZTazlRdzZGTUtTNEIyTmFYMW5CcCtwbjZ1NHdP?=
- =?utf-8?B?RnNTQmhzZmt3SFdEWnR4d1NjOUFmNmtLdXplMDdGSXlDRGtpSE85RDMvN0RH?=
- =?utf-8?B?R2lyTm90YUtNQys1MjQzbGxjSFhmN2c2ekFQS3Q0TWVwaDhlUWFZQmRPUHk5?=
- =?utf-8?B?OEUrd3NpeEdUWWxkdUVNYWxHOUZwUUdHZ3VEZzFDQXR2Qm1DTWJvTUdNSkxK?=
- =?utf-8?Q?qLm0VfPtq/7YvNPaua4oXdAwn?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <92AE4EA9F5226F4F8F2357B207F3A281@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=linaro.org; s=google; t=1754463404; x=1755068204; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YF//15yqZSlqqumHm5+I1dKqkACpOoAiiur9eCb1Jyo=;
+        b=TDmrg5bcXwKMT5y1l/rPePMhQGPLD6phpD29/eUrpFWZ9bSsEHaE1Ph1JCBiWpit+r
+         sVXlvHiwumyL0uQYOnA28FNtTPJAjTcyBt5fcWUUQzV1kqiz2T12i9oFRbS886qi8+Cj
+         ZgKK7McGwI785xuAP48t1r/rMuZRZXiODWCDqaqzT2bzWOYEP9AO9MFGrYgsrrJXZLfq
+         Box5je9zNW2BjjIsAc0Ytc2BTvj3y1Y1BHvOiLYdLKVUGkc3j7J870TpGGu+mwjIJLX9
+         Vftm4KM7WIv8PaW9LEfvqrLGz228+Ld569mLBALP+v/GM/JE3zaJDSf427SoXHisuzSo
+         Ti2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754463404; x=1755068204;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YF//15yqZSlqqumHm5+I1dKqkACpOoAiiur9eCb1Jyo=;
+        b=L0syOf75qHLeIDNZwhXac8q/8gTtk3S8M5dx4uvPHk40rlvRZUygTHz66RrnHr4aua
+         b3/Jq6AngHIAuKdEpqjV7ddYN0OLUJ08nLaiZuIX09R5tOspwZQgqhzCyyUDIyjdF2gn
+         VEoiCv23h8+YoSTTIQC0EEVZcg3h5ylCmcWisACvwSMc1dJ0h5iDaBLdX3rJHRdJWI7u
+         7LxnA7WgOT5gfG251kHTBJzQce5TnSEZpy2Zx8sCM+VdWcxV2PW3qcrTuRy4SBDsIrOY
+         48jVE0hT9E0S3/8nvGw/N2a40L3AmWRwx3Gdlv/nVRnSR36VKCU903u8+pd07OD7/rac
+         FCdg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtKI8oIxeXXnYr1qE10Sywxd6UXDtTQx40umsWRDAw6CixBla4kjKZyYdeNLD8VDbZOIhtLK+KQHtE/y3L9pFB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkPNy+/5+JM/vvlF26EELBTC1Vrx5MMa9KfKItz9AVasolaxb/
+	vv3HYp8C8dLGtPDLdN227tWHmcSjra2LSudeBor/73xzLWEZWtgEdY+b/pjyRxXMHQLJ4HKEg/+
+	m5ZyjBPx/9Ph8dBvSIRqNY9LM+eTxSWopJu1KH9XPig==
+X-Gm-Gg: ASbGncuRJaEuHV++e519W2YG9ZN4eHXuN3w0py3Av1t9+hwOUb3fnZ4H+T60LUIyEIz
+	eui6Pye1QbqLEeADpR9bElyDsBsYIz6w1AynyQwaw83MoHDCIFMsF+/c/Jty7JIyfsVvt03FWwq
+	ObFqYgoojJItUhz59PNrn1RLFWpao8ZNkufOJ8GwRnz7H9mPR2J9l16sJvylXsdBueK8mgdqxg+
+	wqx1IrF/onIdU2W/y20SHchABCND+OLHlIfLTp0
+X-Google-Smtp-Source: AGHT+IG/NnFO90EFyREBzeUJTQVnE81eCptHFDA8wq6F7FCqcH2EFp5FH3fAorJsFe129JIXWBiwYYR+36/rIKv43Tg=
+X-Received: by 2002:a05:6a21:339c:b0:233:927b:3ffa with SMTP id
+ adf61e73a8af0-2403131d8b2mr2874171637.12.1754463403646; Tue, 05 Aug 2025
+ 23:56:43 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c32ebf5-89db-477a-72fd-08ddd4b5f966
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Aug 2025 06:53:39.4290
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: tHJrGMnBkNWNbqQmOhxje0ezGu83Za+mPFEz+GU10SuX87ppX8rjNw+FO1cZm/oC2OF4UYe0WZPBy8wmBeNNzA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7123
+References: <20250725100806.1157-1-jie.gan@oss.qualcomm.com>
+ <20250725100806.1157-6-jie.gan@oss.qualcomm.com> <CAJ9a7VgYTUsBn8=qtfwmkoS6Lib-8LgESLBDxXrRVqLnScLKZA@mail.gmail.com>
+ <70bf0c0c-4a78-4caa-ab86-76a2c99c113a@oss.qualcomm.com>
+In-Reply-To: <70bf0c0c-4a78-4caa-ab86-76a2c99c113a@oss.qualcomm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 6 Aug 2025 07:56:32 +0100
+X-Gm-Features: Ac12FXwaby67uLz0_UOrF1Ong2A1ayI6v2u4tME5WMfEjkOI4dnPs8iNbSSg6cs
+Message-ID: <CAJ9a7VjTYSePycUrL7jODLD7Vgj-qFHz0rUtfBPDhgKx59xKJA@mail.gmail.com>
+Subject: Re: [PATCH v4 05/10] coresight: tmc: Introduce tmc_read_ops to wrap
+ read operations
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Jinlong Mao <jinlong.mao@oss.qualcomm.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_235351_608670_F20138A6 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20250805_235644_733386_DDEFB917 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,27 +102,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gU3VuLCAyMDI1LTA3LTI3IGF0IDE1OjE1ICswODAwLCBKYXkgTGl1IHdyb3RlOg0KPiBBZGQg
-YSBjb21wYXRpYmxlIHN0cmluZyBmb3IgdGhlIERJVEhFUiBJUCBmb3VuZCBpbiB0aGUgTVQ4MTk2
-IFNvQy4NCj4gRWFjaCBESVRIRVIgSVAgb2YgdGhpcyBTb0MgaXMgZnVsbHkgY29tcGF0aWJsZSB3
-aXRoIHRoZSBvbmVzIGZvdW5kDQo+IGluIE1UODE4My4NCj4gDQo+IFJldmlld2VkLWJ5OiBBbmdl
-bG9HaW9hY2NoaW5vIERlbCBSZWdubyA8YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJv
-cmEuY29tPg0KPiBTaWduZWQtb2ZmLWJ5OiBKYXkgTGl1IDxqYXkubGl1QG1lZGlhdGVrLmNvbT4N
-Cj4gU2lnbmVkLW9mZi1ieTogMjAyMjAzMTUxNTI1MDMgY3JlYXRlZCA8amF5LmxpdUBtZWRpYXRl
-ay5jb20+DQo+IC0tLQ0KPiAgLi4uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRl
-ay9tZWRpYXRlayxkaXRoZXIueWFtbCAgICB8IDEgKw0KPiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5z
-ZXJ0aW9uKCspDQo+IA0KPiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
-bmRpbmdzL2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0ZWssZGl0aGVyLnlhbWwgYi9Eb2N1bWVudGF0
-aW9uL2RldmljZXRyZWUvYmluZGluZ3MvZGlzcGxheS9tZWRpYXRlay9tZWRpYXRlayxkaXRoZXIu
-eWFtbA0KPiBpbmRleCBhYmFmMjc5MTZkMTMuLjFmMTcxOTIyOGI1ZCAxMDA2NDQNCj4gLS0tIGEv
-RG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0
-ZWssZGl0aGVyLnlhbWwNCj4gKysrIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdz
-L2Rpc3BsYXkvbWVkaWF0ZWsvbWVkaWF0ZWssZGl0aGVyLnlhbWwNCj4gQEAgLTMxLDYgKzMxLDcg
-QEAgcHJvcGVydGllczoNCj4gICAgICAgICAgICAgICAgLSBtZWRpYXRlayxtdDgxOTItZGlzcC1k
-aXRoZXINCj4gICAgICAgICAgICAgICAgLSBtZWRpYXRlayxtdDgxOTUtZGlzcC1kaXRoZXINCj4g
-ICAgICAgICAgICAgICAgLSBtZWRpYXRlayxtdDgzNjUtZGlzcC1kaXRoZXINCj4gKyAgICAgICAg
-ICAgICAgLSBtZWRpYXRlayxtdDgxOTYtZGlzcC1kaXRoZXINCg0KTGV0IHRoZSBudW1iZXIgZnJv
-bSBzbWFsbCB0byBsYXJnZSBpbiBvcmRlci4NCg0KUmVnYXJkcywNCkNLDQoNCj4gICAgICAgICAg
-ICAtIGNvbnN0OiBtZWRpYXRlayxtdDgxODMtZGlzcC1kaXRoZXINCj4gIA0KPiAgICByZWc6DQoN
-Cg==
+On Wed, 6 Aug 2025 at 07:30, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>
+>
+>
+> On 8/5/2025 6:55 PM, Mike Leach wrote:
+> > Hi
+> >
+> > On Fri, 25 Jul 2025 at 11:08, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+> >>
+> >> Introduce tmc_read_ops as a wrapper, wrap read operations, for reading
+> >> trace data from the TMC buffer.
+> >>
+> >> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> >> ---
+> >>   .../hwtracing/coresight/coresight-tmc-core.c  | 50 +++++++++----------
+> >>   drivers/hwtracing/coresight/coresight-tmc.h   | 17 +++++++
+> >>   2 files changed, 40 insertions(+), 27 deletions(-)
+> >>
+> >> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> >> index 4d249af93097..f668047c5df4 100644
+> >> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
+> >> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
+> >> @@ -232,17 +232,10 @@ static int tmc_read_prepare(struct tmc_drvdata *drvdata)
+> >>   {
+> >>          int ret = 0;
+> >>
+> >> -       switch (drvdata->config_type) {
+> >> -       case TMC_CONFIG_TYPE_ETB:
+> >> -       case TMC_CONFIG_TYPE_ETF:
+> >> -               ret = tmc_read_prepare_etb(drvdata);
+> >> -               break;
+> >> -       case TMC_CONFIG_TYPE_ETR:
+> >> -               ret = tmc_read_prepare_etr(drvdata);
+> >> -               break;
+> >> -       default:
+> >> +       if (drvdata->read_ops)
+> >> +               ret = drvdata->read_ops->read_prepare(drvdata);
+> >> +       else
+> >>                  ret = -EINVAL;
+> >> -       }
+> >>
+> >>          if (!ret)
+> >>                  dev_dbg(&drvdata->csdev->dev, "TMC read start\n");
+> >> @@ -254,17 +247,10 @@ static int tmc_read_unprepare(struct tmc_drvdata *drvdata)
+> >>   {
+> >>          int ret = 0;
+> >>
+> >> -       switch (drvdata->config_type) {
+> >> -       case TMC_CONFIG_TYPE_ETB:
+> >> -       case TMC_CONFIG_TYPE_ETF:
+> >> -               ret = tmc_read_unprepare_etb(drvdata);
+> >> -               break;
+> >> -       case TMC_CONFIG_TYPE_ETR:
+> >> -               ret = tmc_read_unprepare_etr(drvdata);
+> >> -               break;
+> >> -       default:
+> >> +       if (drvdata->read_ops)
+> >> +               ret = drvdata->read_ops->read_unprepare(drvdata);
+> >> +       else
+> >>                  ret = -EINVAL;
+> >> -       }
+> >>
+> >>          if (!ret)
+> >>                  dev_dbg(&drvdata->csdev->dev, "TMC read end\n");
+> >> @@ -291,13 +277,8 @@ static int tmc_open(struct inode *inode, struct file *file)
+> >>   static ssize_t tmc_get_sysfs_trace(struct tmc_drvdata *drvdata, loff_t pos, size_t len,
+> >>                                     char **bufpp)
+> >>   {
+> >> -       switch (drvdata->config_type) {
+> >> -       case TMC_CONFIG_TYPE_ETB:
+> >> -       case TMC_CONFIG_TYPE_ETF:
+> >> -               return tmc_etb_get_sysfs_trace(drvdata, pos, len, bufpp);
+> >> -       case TMC_CONFIG_TYPE_ETR:
+> >> -               return tmc_etr_get_sysfs_trace(drvdata, pos, len, bufpp);
+> >> -       }
+> >> +       if (drvdata->read_ops)
+> >> +               return drvdata->read_ops->get_trace_data(drvdata, pos, len, bufpp);
+> >>
+> >>          return -EINVAL;
+> >>   }
+> >> @@ -769,6 +750,18 @@ static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
+> >>                          "Valid crash tracedata found\n");
+> >>   }
+> >>
+> >> +static const struct tmc_read_ops tmc_etb_read_ops = {
+> >> +       .read_prepare   = tmc_read_prepare_etb,
+> >> +       .read_unprepare = tmc_read_unprepare_etb,
+> >> +       .get_trace_data = tmc_etb_get_sysfs_trace,
+> >> +};
+> >> +
+> >> +static const struct tmc_read_ops tmc_etr_read_ops = {
+> >> +       .read_prepare   = tmc_read_prepare_etr,
+> >> +       .read_unprepare = tmc_read_unprepare_etr,
+> >> +       .get_trace_data = tmc_etr_get_sysfs_trace,
+> >> +};
+> >> +
+> >>   static int __tmc_probe(struct device *dev, struct resource *res)
+> >>   {
+> >>          int ret = 0;
+> >> @@ -818,6 +811,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+> >>                  desc.subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
+> >>                  desc.ops = &tmc_etb_cs_ops;
+> >>                  dev_list = &etb_devs;
+> >> +               drvdata->read_ops = &tmc_etb_read_ops;
+> >>                  break;
+> >>          case TMC_CONFIG_TYPE_ETR:
+> >>                  desc.groups = coresight_etr_groups;
+> >> @@ -831,6 +825,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+> >>                  mutex_init(&drvdata->idr_mutex);
+> >>                  dev_list = &etr_devs;
+> >>                  INIT_LIST_HEAD(&drvdata->etr_buf_list);
+> >> +               drvdata->read_ops = &tmc_etr_read_ops;
+> >>                  break;
+> >>          case TMC_CONFIG_TYPE_ETF:
+> >>                  desc.groups = coresight_etf_groups;
+> >> @@ -839,6 +834,7 @@ static int __tmc_probe(struct device *dev, struct resource *res)
+> >>                  desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_FIFO;
+> >>                  desc.ops = &tmc_etf_cs_ops;
+> >>                  dev_list = &etf_devs;
+> >> +               drvdata->read_ops = &tmc_etb_read_ops;
+> >>                  break;
+> >>          default:
+> >>                  pr_err("%s: Unsupported TMC config\n", desc.name);
+> >> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> >> index 3cb8ba9f88f5..2ad8e288c94b 100644
+> >> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> >> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> >> @@ -223,6 +223,8 @@ struct etr_buf_node {
+> >>          struct list_head        node;
+> >>   };
+> >>
+> >> +struct tmc_read_ops;
+> >> +
+> >
+> > declare the entire structure here rather than later.
+>
+> There is an issue of declare the entire structure here because the
+> function pointer needs use the struct tmc_drvdata which is not defined
+> at this point and it will cause a compile error.
+>
+
+Understood.
+
+Mike
+
+> Thanks,
+> Jie
+>
+> >
+> >>   /**
+> >>    * struct tmc_drvdata - specifics associated to an TMC component
+> >>    * @pclk:      APB clock if present, otherwise NULL
+> >> @@ -259,6 +261,7 @@ struct etr_buf_node {
+> >>    *              Used by ETR/ETF.
+> >>    * @etr_buf_list: List that is used to manage allocated etr_buf.
+> >>    * @reading_node: Available buffer for byte-cntr reading.
+> >> + * @tmc_read_ops: Read operations for TMC device.
+> >>    */
+> >>   struct tmc_drvdata {
+> >>          struct clk              *pclk;
+> >> @@ -290,6 +293,20 @@ struct tmc_drvdata {
+> >>          struct tmc_resrv_buf    crash_mdata;
+> >>          struct list_head        etr_buf_list;
+> >>          struct etr_buf_node     *reading_node;
+> >> +       const struct tmc_read_ops       *read_ops;
+> >
+> > probably should be named sysfs_read_ops to be consistent with the
+> > perf/sysfs differentiation within the rest of the structure
+> >
+> >> +};
+> >> +
+> >> +/**
+> >> + * struct tmc_read_ops - read operations for TMC and its helper devices
+> >> + * @read_prepare:      prepare operation.
+> >> + * @read_unprepare:    unprepare operation.
+> >> + * @get_trace_data:    read operation.
+> >> + */
+> >> +struct tmc_read_ops {
+> >> +       int (*read_prepare)(struct tmc_drvdata *drvdata);
+> >> +       int (*read_unprepare)(struct tmc_drvdata *drvdata);
+> >> +       ssize_t (*get_trace_data)(struct tmc_drvdata *drvdata, loff_t pos,
+> >> +                                 size_t len, char **bufpp);
+> >>   };
+> >>
+> >>   struct etr_buf_operations {
+> >> --
+> >> 2.34.1
+> >>
+> >
+> > with the above changes:-
+> >
+> > Reviewed-by: Mike Leach <mike.leach@linaro.org>
+> >
+>
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
