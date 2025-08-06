@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170CBC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 13:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46845C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 14:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=inE9cqX/MHPPWEi+D4aKwkVrXLTIpin3butlDuonrBc=; b=fLdAiNJIRcqSaeXhmy1kjWVRmN
-	H0hKfxUsUy/LxMfpFsoRqTDARj9LN8QkFFLzyVxYNipJemWPvMk2VdI2SS2b3kOLNqGENrot078YC
-	mRElIt/0QI+AsGBTGHo3vcteDRU7yfHDosgaoPhKRKKz5H1rDzkQ9fcaDUytKtbudW0Gi8nTFGV5I
-	SQdCw+eczMhaanyogza2O0Rvz4HtQI/GD6fkRHhFVTD2U4kuYrvbBKIqPW+mC3vf2d94QTL1345fC
-	6rtp3lZQYlsI94Xn3oJVescZHngAdGsC9C4FzZL7m8OPmVpuM2Q4ks0jo05oA1Z3AyaHrYIXDyW1A
-	a3JUBrCw==;
+	bh=Hx75GfJBE17gahFtByj409jMkcTDImb3a5kJ8Lf/J/o=; b=VlyAm0mir2T/ZZW1k53BdDVXtf
+	vVHevROKQt0N0JpCKWI4MxktWK65jsWpANccwpJioevwVTjsr4MRDiHIV3c5KR4lOcmWHpa5yTb3Q
+	zuCvyJ/Qyn8EYhh2+tW5YROqGe4id0arPuxo5UI2wYhoGIMFx9sWKyhmo5JsSxJps1X6uB8AHP6QI
+	tBn+2gSfrIZmAkKvw8Zu0+TkJMXHxU50+uHHE4i+q8vnEqp+ckZSxdy8xR4uYFHtkrzBhMreuD2Vo
+	ozXEhZ3qy73F5n2g6pgtne0GRcSO8Z+r+0oOCvu2dEVAvtxiKBVfGbZS1BDkOP8t20FE3MMQW9XEc
+	olVn5zsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujefh-0000000FMdf-2nt6;
-	Wed, 06 Aug 2025 13:59:13 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1ujeiF-0000000FNCn-1sVm;
+	Wed, 06 Aug 2025 14:01:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujeSp-0000000FKcC-2ps0
+	id 1ujeYH-0000000FL67-399a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 13:45:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754487956; x=1786023956;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1sfomC6Anx2G3kwiN6eoDsR68zgbKNy3CnQTk1f/Eq0=;
-  b=ei+7cGJIIoHYNhW3r9meYgdsOJa8XwJ7ZGjsilSKBe030X9q/nJ6n04x
-   U04j9WLBKAJ072CdWnfKMzxmYxazq3wVTPKhlBNz46WMPI9zfKKmwp16L
-   AAF5OCSEtInwIgRbeGiP/9zwqSdZVlc/T5IZCxDkFd1lAUVfTutAogNk5
-   GQ826AO/K/jqzFPM6gbpSBfLxRZkoUX6YngayF/rzZh1VbrJkwomYvhGI
-   8iHPzRibkSib242tDd6IJOZKunjhvwGiK89ka+rEzJp4QxNotV4LvnjxV
-   sRNDCspj0GfrOZyeics75BiAUEfkPD1ZxCQWC8oo5eLZ58Dyvv58vQ9PV
-   A==;
-X-CSE-ConnectionGUID: PxTeV7IBTp+h+ECCSKGdyw==
-X-CSE-MsgGUID: t4PXuxHWSfmWSEYK3o+gUA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="74264623"
-X-IronPort-AV: E=Sophos;i="6.17,268,1747724400"; 
-   d="scan'208";a="74264623"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2025 06:45:56 -0700
-X-CSE-ConnectionGUID: i3961c/oSFSE2YkkPNUf9Q==
-X-CSE-MsgGUID: Ybf5pxqFQPy79FSvKv7tNw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,268,1747724400"; 
-   d="scan'208";a="164791096"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 06 Aug 2025 06:45:51 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ujeSf-0001jk-0w;
-	Wed, 06 Aug 2025 13:45:46 +0000
-Date: Wed, 6 Aug 2025 21:45:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Lifeng Zheng <zhenglifeng1@huawei.com>, catalin.marinas@arm.com,
-	will@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
-	beata.michalska@arm.com, sudeep.holla@arm.com
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linuxarm@huawei.com, jonathan.cameron@huawei.com,
-	vincent.guittot@linaro.org, yangyicong@hisilicon.com,
-	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
-	linhongye@h-partners.com, zhenglifeng1@huawei.com
-Subject: Re: [PATCH v3 3/3] arm64: topology: Setup AMU FIE for online CPUs
- only
-Message-ID: <202508062150.aKsrWjHB-lkp@intel.com>
-References: <20250805093330.3715444-4-zhenglifeng1@huawei.com>
+	Wed, 06 Aug 2025 13:51:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Hx75GfJBE17gahFtByj409jMkcTDImb3a5kJ8Lf/J/o=; b=HIj33Esb5PfQk7IBwUmIlHkHUA
+	LRuy+nHOQx2DwWZCk/jisqrsCt8fo5S8Jx/N+tYAAJKTWiLXwROaNNmqInc9CviRg+tof3dzGs5df
+	tcaakCTGvzKPOHUt37VX4VWBIJ7ljBcud31mWEagk93ylSie7vhn0KKS+ZuX3MU+jiJfUZ+h0hbQi
+	AEJYzuP68hqbqsRS/o0ARTZSSW3K5taUDByDOaKPBHdQeZ6idA4TwSfkeTO143/Mf5Qk/ScIqS6y4
+	FfNbZ3L41f3L5G9icNbagOYuj/QeTQ5IG/KYt5CUa+DuFW1MwxPXdRYRBTXj5piPS85kyD3WjjYWZ
+	L8TU60yQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54790)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ujeVb-0004cA-2P;
+	Wed, 06 Aug 2025 14:48:47 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ujeVV-00079n-1X;
+	Wed, 06 Aug 2025 14:48:41 +0100
+Date: Wed, 6 Aug 2025 14:48:41 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Joy Zou <joy.zou@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, peng.fan@nxp.com, richardcochran@gmail.com,
+	catalin.marinas@arm.com, will@kernel.org, ulf.hansson@linaro.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, frieder.schrempf@kontron.de,
+	primoz.fiser@norik.com, othacehe@gnu.org,
+	Markus.Niebel@ew.tq-group.com, alexander.stein@ew.tq-group.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com, netdev@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	Frank.Li@nxp.com
+Subject: Re: [PATCH v8 11/11] net: stmmac: imx: add i.MX91 support
+Message-ID: <aJNdOTZHfyG7fMgE@shell.armlinux.org.uk>
+References: <20250806114119.1948624-1-joy.zou@nxp.com>
+ <20250806114119.1948624-12-joy.zou@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250805093330.3715444-4-zhenglifeng1@huawei.com>
+In-Reply-To: <20250806114119.1948624-12-joy.zou@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_064555_752517_034568E6 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20250806_065133_793445_EE5B8CBF 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +92,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lifeng,
+On Wed, Aug 06, 2025 at 07:41:19PM +0800, Joy Zou wrote:
+> Add i.MX91 specific settings for EQoS.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Joy Zou <joy.zou@nxp.com>
 
-kernel test robot noticed the following build warnings:
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-[auto build test WARNING on arm64/for-next/core]
-[also build test WARNING on rafael-pm/linux-next rafael-pm/bleeding-edge arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v6.16 next-20250806]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Lifeng-Zheng/arm64-topology-Set-scale-freq-source-only-for-the-CPUs-that-have-not-been-set-before/20250806-101537
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
-patch link:    https://lore.kernel.org/r/20250805093330.3715444-4-zhenglifeng1%40huawei.com
-patch subject: [PATCH v3 3/3] arm64: topology: Setup AMU FIE for online CPUs only
-config: arm64-randconfig-003-20250806 (https://download.01.org/0day-ci/archive/20250806/202508062150.aKsrWjHB-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 9.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250806/202508062150.aKsrWjHB-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508062150.aKsrWjHB-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   arch/arm64/kernel/topology.c: In function 'cpuhp_topology_online':
-   arch/arm64/kernel/topology.c:409:34: error: implicit declaration of function 'cpufreq_cpu_get_raw_no_check'; did you mean 'cpufreq_cpu_get_raw'? [-Werror=implicit-function-declaration]
-     409 |  struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
-         |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                                  cpufreq_cpu_get_raw
->> arch/arm64/kernel/topology.c:409:34: warning: initialization of 'struct cpufreq_policy *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-   cc1: some warnings being treated as errors
-
-
-vim +409 arch/arm64/kernel/topology.c
-
-   406	
-   407	static int cpuhp_topology_online(unsigned int cpu)
-   408	{
- > 409		struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
-   410	
-   411		/*
-   412		 * If the online CPUs are not all AMU FIE CPUs or the new one is already
-   413		 * an AMU FIE one, no need to set it.
-   414		 */
-   415		if (!policy || !cpumask_available(amu_fie_cpus) ||
-   416		    !cpumask_subset(policy->cpus, amu_fie_cpus) ||
-   417		    cpumask_test_cpu(cpu, amu_fie_cpus))
-   418			return 0;
-   419	
-   420		/*
-   421		 * If the new online CPU cannot pass this check, all the CPUs related to
-   422		 * the same policy should be clear from amu_fie_cpus mask, otherwise they
-   423		 * may use different source of the freq scale.
-   424		 */
-   425		if (!freq_counters_valid(cpu)) {
-   426			topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
-   427							 policy->related_cpus);
-   428			cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
-   429			return 0;
-   430		}
-   431	
-   432		cpumask_set_cpu(cpu, amu_fie_cpus);
-   433	
-   434		topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
-   435	
-   436		pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
-   437	
-   438		return 0;
-   439	}
-   440	
+Thanks!
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
