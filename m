@@ -4,100 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E694AC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 00:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A67C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 00:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWxTVsldVxx1WswkyHYD0GCVmGgL66ul9t+8EJPnmh8=; b=wGEUGpiMYmbddnrSGheJVdZPDc
-	oJt2MpdnMoYIEkM/yySPOdlnbzI/OVesalSU4VHDWQo23852trFopAt7Ub49/JXSPi1QmUm0Gidlw
-	w/+4HW6u/eMJakjGkPqGfAeJQqRySz+jFwFrrbtLlsE6hu5q4ML9K1HfYZErzK1bwY79wYfWX6ePe
-	1CFB008OLtWJwVVy9ZOUIWkseL6+/g9nCDi+Iy8sBMxZm6MtmRa3/yxSuJlag1HKxleuRl3LoX50N
-	3LIjacAUec/7MBxxyAsfxo/dsAu56A5+A0yF/mbl52GUyaOII0AZPJPUwg15xowL0V+i7OCt+zl1d
-	1SZOnbWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yr1ueE33JqE26w+PGMk64vAUvV0H6HytF6WXJpr3hZA=; b=n4hPE5N0VBfUF/QO/FQ/jABodO
+	uZdXERrVTNGDo8zdac2iqWZQ9UipgqUwqlnrMiosyBFtuz/1hZ/ITw2YRdXWXr+surm7SY0zot2q+
+	jz8ktNVLxPkuaNKQxPYTFrYi1/pjD39aK0WhFZwIHU5PK+u8zobvJVK2u0SY2BaNxBDUBNB3ElDGa
+	vhBkylZrUKqmRSDJ/nwprtKxJdTNzLHc3Oj0maO+qz079hgn/sok6pkYM/Q23zGE9jsqstki+sx/8
+	NRjH0CY8UVubgC2j4bc1QScfvxRmMlNd8NUAbDM3rqbsoMqoAn3RL+vi97d9JhgXKSJu3a/Keav/Z
+	Ce4C6zlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRho-0000000E2a0-0XwJ;
-	Wed, 06 Aug 2025 00:08:32 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1ujRm4-0000000E2zM-04Ja;
+	Wed, 06 Aug 2025 00:12:56 +0000
+Received: from mail-co1nam11on20700.outbound.protection.outlook.com ([2a01:111:f403:2416::700] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujRbN-0000000E29W-3Hbk
+	id 1ujRjS-0000000E2iw-27gR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 00:01:55 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-458ba079338so2678315e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 17:01:53 -0700 (PDT)
+	Wed, 06 Aug 2025 00:10:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=giiJKdyh394/UlXzxRY6oazRNlH67ZV4N3MQ0x9Y8+Xlegchkcw2BiIwc2gQ62paD6/LAmnsWky4RKBDz1YpR1SOQt4woZDxGYvODd7RkhCSPfuEx6EhoHMETpFT7Xgr1H9HIYxuNomD0GUhX6Gu3Mjk/2aXbgoQGCayvzrLxh9bci/mXY8ALzsvYRlPpuTwc4VVlM2u/HT9iiLP8Ra5bbt4Qw6HpF1ZOvLRzSsvNJFWq0m4KQXshhzea0F82r2JGzuzTD1r9pyZNPuZFwcS8PuGcWCwPiimJNumcxSZ1U1cFsNWEf7yspv3GzP8j8eUqRQPSh6JzLiXz29zABBz1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yr1ueE33JqE26w+PGMk64vAUvV0H6HytF6WXJpr3hZA=;
+ b=u4tUXY/GqWYYe6N+1XUuo4amjRzSzxkm/UfAUzWvYhEhwydI2XJYUWs9gefGF3GeJI2CVQ5Em5rPa6Nju0pg7lwM6ELEabGC7DMO+6QJrikKdf4x0FE7IiXBvwAs1TpUnp7c3gdHSUWuXwXsmSsveRAccX+l8bbkPRrUyO3+PWZjL2s1ZYD80ESomwNtCvGfd4pafS8cOl5AASIGOeOcHnnqTLNv70fv9/VrklGha+rgxm8TV1o7M7aI11uOjV2rM1ojXz1CBUCZi49JHay1jQSVyKNPGbmfKHvzU1ZZZuSnhwgW96GoxIaoZmJ0KxemZkeXylUQizly/oxWysobww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754438512; x=1755043312; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kWxTVsldVxx1WswkyHYD0GCVmGgL66ul9t+8EJPnmh8=;
-        b=VZuMmLujvlHSUccBgCMIwfkl2COqvIKeU/h6kHkjPRV9BxFy+VpYYbGg5146a3BNSG
-         ryKvpL9Ym1Ue39TvxInxiXYhf15UChjtEc77477Ac8dQ70gZ/hW9L5v3KmidTPNL4d69
-         ch4TI7OZdt+Q+lqiVoMU4k2SciV+2WFinzt9MNTbfYVgZksPZnnyd/X2feOdjPUZdFkk
-         59U6lwoaB9EaH81KzAsVcq5613C1YDesmSBD5w7XYlQBbRKonyDEHSszdJpbJTozthIr
-         IWJphSkZdvf1TRHv8F+VbXQLJrsTE8EAFp5TW4oVmf6LdcRwy+jlPtpqgtj8IyeanXqG
-         0iiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754438512; x=1755043312;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kWxTVsldVxx1WswkyHYD0GCVmGgL66ul9t+8EJPnmh8=;
-        b=Nczr5JgzWol0K7ekYobfjFJAniVOW+/vtmyt9h2giIk9+4cnMtKJyUe0BAUVFC+xgH
-         y9pMhVa7zceGdxRrZV9bXu/Hq1d+xthH+0schBTHRPubMjXquaDdqoP9lwkYCc8LC1JW
-         hN1IQrti7pchJduxuD1k3dS3TXzcNUxNkJNRWa1wE6dQM/Fip/KGcLdMRbB6uG6IQ2uH
-         WLNDSQPukZVLrwpg9L678rJVpQPsrvskzJ7SuZmCeJ5EpHMNuEHiBgO2mfQbr15HR+a6
-         icMd2R9wSRI/5OboNwWmovGsFUOXapEH1jswY57yOzJ3P9Zozm8z/U1wInnxLsxqqvCq
-         YJIA==
-X-Forwarded-Encrypted: i=1; AJvYcCXqhgan/QGRyXtql3zG3T/XqtkYwi/XQQ/2v1H9GEB28Qc6f7HVlSOMrRA0ZUJY3pMH8BDKTOIHhd6FZwim0OOW@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMW+qkuQ2ur+ew38RFy/YfQjPob57Xd2xfI6kqLlIirVRmL5Im
-	myVM+EJviuPpaf5oPANay6wFppbRY+VC/KOcboBwl/ScaWHoLuyU4ger
-X-Gm-Gg: ASbGncuGAINxjsLl8RaMB9symvu0IBjbVwQTqXE9JJzCOi/P8jcc4Ke7xkBfWrkzu91
-	xluuXnigPn3XDoDFCbBPRLHI5ONq7j2kmCuHqumYlj1ScTWaRF4jhZzAK7CsE+11c+wz3q9JTpp
-	rOEaqhbHujqr1D08CRUSi+gf1qjd8jsI0agJWZ0kg6hjYxOJEB66nrW3gbDIqnNRR5Bs1FTmoyy
-	YGSrbF/WSdMgkH8iQzcJdsnOPAdzC+Taos+k7YWOjQHHTuerxwI1nnM8HhlGK67aR69ZDH+RHIe
-	c1Z8ACE5JENAFy+MHmkblnqi1OHT7Yc8JNVx+whwRO+QS/ar2UZxO7K6qq+6FX9RyDl/HrhYpY6
-	i/G3oZ4UvHX9EZY358IRC1Fjgbq3HZQtK6lKKrXmixMG26hWMA6HMhYJkslRG5MKeC6hCnWlfiu
-	A=
-X-Google-Smtp-Source: AGHT+IEDdNkX149qz3TCB/Qgkq29opwy3tW2MdUYG2GFjtBGUVl+T+HdF5Y7cY/QC3lCsm9WXVX1Sg==
-X-Received: by 2002:a05:600c:354c:b0:456:1157:59ac with SMTP id 5b1f17b1804b1-459e70898e6mr5767675e9.7.1754438512144;
-        Tue, 05 Aug 2025 17:01:52 -0700 (PDT)
-Received: from ekhafagy-ROG-Zephyrus-M16-GU603HR-GU603HR.. ([156.204.172.189])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458b55b4b4bsm89085205e9.1.2025.08.05.17.01.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Aug 2025 17:01:51 -0700 (PDT)
-From: Eslam Khafagy <eslam.medhat1993@gmail.com>
-To: 
-Cc: skhan@linuxfoundation.com,
-	Eslam Khafagy <eslam.medhat1993@gmail.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
-	Dharma Balasubiramani <dharma.b@microchip.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] drm: atmel-hlcdc: replace dev_* print funtions with drm_* variants
-Date: Wed,  6 Aug 2025 03:01:25 +0300
-Message-ID: <20250806000141.239753-2-eslam.medhat1993@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250805235928.236248-1-eslam.medhat1993@gmail.com>
-References: <20250805235928.236248-1-eslam.medhat1993@gmail.com>
-MIME-Version: 1.0
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yr1ueE33JqE26w+PGMk64vAUvV0H6HytF6WXJpr3hZA=;
+ b=eyHhcPJ0U9C113y7ppfVV3oisR//SFhAhNJ74EsGneKyQPs3bwl4ano8/ZKd9fiVPIpeMXc1zP/lNrJvdIS6CC6sZUcTCY1GqzLd31vJfAqkpf7ebhvgLQ1T+ZfgWHYDjiKIlEVjv8JW6RNKXbo2zeTSaFvnOWzBasgomMjAU3Y=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ MW4PR01MB6404.prod.exchangelabs.com (2603:10b6:303:72::6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8989.21; Wed, 6 Aug 2025 00:10:05 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
+ 00:10:05 +0000
+Message-ID: <c23f7ecf-78f6-4ec8-8f00-b92e98fa95a3@os.amperecomputing.com>
+Date: Tue, 5 Aug 2025 17:10:01 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: mm: support large block mapping when
+ rodata=full
+From: Yang Shi <yang@os.amperecomputing.com>
+To: Dev Jain <dev.jain@arm.com>, ryan.roberts@arm.com, will@kernel.org,
+ catalin.marinas@arm.com, akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
+ scott@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250724221216.1998696-1-yang@os.amperecomputing.com>
+ <20250724221216.1998696-4-yang@os.amperecomputing.com>
+ <d9960dbc-376d-4d33-9334-e4eb546b69ae@arm.com>
+ <da766ad7-143b-4c7c-b296-f18df8380643@os.amperecomputing.com>
+Content-Language: en-US
+In-Reply-To: <da766ad7-143b-4c7c-b296-f18df8380643@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CY5PR15CA0154.namprd15.prod.outlook.com
+ (2603:10b6:930:67::21) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|MW4PR01MB6404:EE_
+X-MS-Office365-Filtering-Correlation-Id: f9dcc1cb-9417-4912-d63e-08ddd47d983c
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NnNkZ0x3L29oTEovT0Z2SThyWHpTMGgxTDM1TXd4cExKZFdJWjVubjFOdVY4?=
+ =?utf-8?B?Q3FGdmtIZzJyWXo0UGYwZlQzOFBJQS94LzdGcDdSWkdzZmNFRlU1UGdJV2VI?=
+ =?utf-8?B?dm8xN0JBaDFObDR5cjlOSm01TDFnQVJmQUQwMXBkSFhpbmlFYlNyV0ZSRmQ5?=
+ =?utf-8?B?RmJTcnNUL3RxdUZwUVVSeThma1lXNExlMkt5a2czNlM0d1V4WWk2STRjcmw0?=
+ =?utf-8?B?eUF1Z2FseWZOdVJoNHMwZ3V0T0NFSm5YWkgyd1A5MWpjMTdtZGh1ZWJwRTdh?=
+ =?utf-8?B?UFVXa2J1SEtPekF2aVNsMlBXemhkamlrTlVwQTZJVnRZYXhqZjRCeUdXeFhE?=
+ =?utf-8?B?UGhDc21iaVh6Q21uWmhRa0Q4UlRwNDFkVE9RSlJwLzhFZW1vOWxKSThkSjkr?=
+ =?utf-8?B?ZzdEWmJ5YU16dlhSZUYxUmhmdEZKeERFUVo0Y004clBVODlZSk1KcFVlNTNt?=
+ =?utf-8?B?Sk1tWmh1UDAyZ2hnY3NIUDJma0xyZFllSzBmTDZxWUM1YTRjTW1PM0toM3Nx?=
+ =?utf-8?B?M0dWSS81RFJPSU5wRDRwUk4xazBiZEhFV2lpU1VObnV5dk9LaWRyYWthTyt2?=
+ =?utf-8?B?dnVvZ1JhbEhNZW9RR2VGYk9hWm43R3lDMVJoT1U5MjlWWklpdXNnUlplVTZQ?=
+ =?utf-8?B?eExGcFZycE1IS3lsdExIOGRpQ0VBck9UWnBoRzdkQ00zaFE4M29Gcks1SVZy?=
+ =?utf-8?B?Wi95TXlmaGNTSE5lTnNzaTIrVkx4VXdieTZsOU9GM0l5VzQ0dUc2bjQvQVJI?=
+ =?utf-8?B?WThGT1AxejFuSVFKMG1zbW0vZVpHcVd0V3p6cGdmQjRVYUprK2FBMVhOSURI?=
+ =?utf-8?B?S25Dbm5zQmpUV3NRN0I0amRMaDVpZWI4ZzgwT1QyMEdFUk1VY0xUMThqSzhy?=
+ =?utf-8?B?VDZHa05qbm85aXFESGR3ZzNJOHVQQ3FsR3RLeHM1TGw3a1laWUhNZStXc1h6?=
+ =?utf-8?B?dGdCT1RPVlY4Y0pNQjRRL2p3VmU5Z1JLWGZIUFBUQ0d0dmV0NmN2U1dLTDNB?=
+ =?utf-8?B?OU9Ca3ZPL2puL3g1S2xYWFBudiswVmEzU2RzUi9qQTJOMWd1MEYwZXpGWkNs?=
+ =?utf-8?B?aDl6dlFEMXlsT0hoVENNYmtsUFNSbXJyai9sQnpKeis2d0JXM2hBYlBBOUVw?=
+ =?utf-8?B?eFUwMmhDRUxpejVXUWdyVVFKNTNxNVk3R2cwVUVOVU1QVVhMdjdVbkhiMDly?=
+ =?utf-8?B?aC8wbmVVVE5wVkNSWjdzV0QzTVFFYmhRc3JvNm9ZUWwxWTJOTTVSSFhlN3Fr?=
+ =?utf-8?B?cTd1NTUyMWNxLzFCRVpNcHBFM2RPZ24zT1dPSVdoRU9SZkVDSHpReElvYlN3?=
+ =?utf-8?B?cjNxVkRLd3dWQ0x1YmhyenZEK2tJYWpWd3dRUjk1NGlaMVNFa1F1aHU0alU2?=
+ =?utf-8?B?UEd1QTNlTWdNeVFXZVlUZFFhSGlaWSs5U0RKSDJwVngwNEwrTFlMZDJiRFQ4?=
+ =?utf-8?B?M0xMKzc5ZVdUUjNSeXJ4MXlEV2grL21kSUNWNE4rSmUxY2R0YVNEb1RqQUds?=
+ =?utf-8?B?bU5rVmhzazZjc0hwNFBOeHRidGhNN1JLQ3F3UHVKVGhqYXNyOGtwL1NVdHMw?=
+ =?utf-8?B?VW5CSmtCN3hmRW4vUG5QRTZoNVp0dXozN2V3eXNGMXFVZVVpbGFaME9ENEpG?=
+ =?utf-8?B?SVNKdE1oOU5YdEZQNGRBejJmNjdFTG5RUXZFckZQQk9iUHNpWTdIL2IwRy9U?=
+ =?utf-8?B?WG5ZWWVjTmx6Qmxmc3ZyY2puZ25CMVpqRXNZR1E4K3QrQUszcGtVajlQYllI?=
+ =?utf-8?B?V2JYRGJlOXFWUWJYSVBLcHNVNXo2bXdrdUsxdW5vbXdrVk50YlpKbTdHeHd1?=
+ =?utf-8?B?Y1VvaHp4SkF4SnBrTHU1Vk9wM1FxUGtGVDFIcHhYZjZ1ZDVmZm5ScmJ2NzMv?=
+ =?utf-8?B?QUIwRGRQVkJFQytDUUtkREQ1Y000dEMvT2ZLS3I1OWdjRkVmNjYrSmZhbEVl?=
+ =?utf-8?Q?DIr5VpIUf44=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QlQ5SWFHQ1JSRENQLzY2ZVpqSXFzQTVBUW5zd3BsejZmSFFVWGhURUJlUTM3?=
+ =?utf-8?B?Z0h3OUdjRnQ4aktpNHh5T0w5UG03WnlJNzlOS2ZhdnA2dHppYnB0TGZSTUtm?=
+ =?utf-8?B?Z2ZzMllta3F3bHltTWk0SGlwcFZ6Z2ozUSt2bUVlY3AvMklTb0RmL1YveEQ0?=
+ =?utf-8?B?L0wzeG9CU0lnWkRuL3BWaUlpZ24zUlpoa1F3UVRnRTMyZnk5YXJiY3pjdXAz?=
+ =?utf-8?B?WUNBNnNBaUFyd0h1TzdDQWo3bHJTOFRnN0psUC9QVTJibmRxQ1I1VXhwZkNS?=
+ =?utf-8?B?dEhJRTRWcUUvQm96UEd4eWdXem9FcUoreTF1VC91cDVndS80amNBUWNPY0VK?=
+ =?utf-8?B?ZHhBVE1VTlM4Rk1NN2dPUUkvcTBrTWZxNldnTU5nZmNiVEhkY2IvMHRXSXhX?=
+ =?utf-8?B?SlZTTUNhcmpDMHRjK1dpczdPRkhMQnUxWVM4Q1JSZEpTZWNvUHJKdjJzbWl5?=
+ =?utf-8?B?Y2I0V2ZsRzd2bjYzR1V6T2xNcmwyU3Y3bWFncFFlWHY3SkpCSm9MM3dGaGdy?=
+ =?utf-8?B?cU8ydXRzbkJVRitYREgxZTRQYTVFRys5VDJWeTdpWEFWdjQ2VnFwcFVyTjI5?=
+ =?utf-8?B?QVVnVXdlMlNmc2hWek1VdWdvUjlVU0hqdG5MNk5SclN0Y1ZzYkhXc2t1ck5Z?=
+ =?utf-8?B?RlJ2N2FlQjg4Z0IvUksvQldob0NQZXBRTHFUOUJrU1FTWHNjcklhcVFSa1Q3?=
+ =?utf-8?B?UTVTdUhmOWhkOCtsMmxIUFg5dHVvYTg1YjdoZUYrV3dkQUNFNEM1WmZwc2x4?=
+ =?utf-8?B?aWRVNTJERnVaOGdpVm5kUkI3N0lKTG9DaW5aSkREK1hrOGptWm1HUjRrVThC?=
+ =?utf-8?B?QnJDY1F2UTJhektvVWZNbWxybzVBd1R4d0xFdzZzdzdqUUZzSjBnL3pTZWVK?=
+ =?utf-8?B?V3BNVWJJcGlxd0gweGtXVjRMMmo4WHVrT3RwelZkaFlScGFpU0pSaXplZmNE?=
+ =?utf-8?B?TitET0VJdklLOTNKdTVjSG45QjhkdFFWNmpIVk1kck80VFAwZHJiZTYzT291?=
+ =?utf-8?B?V2N2OWxSMDQvWUNsOG5LMEVab25MdmMwM2FNMVMxWkx3VEhDWnI0bmRNZFVN?=
+ =?utf-8?B?Z21MZUNwTHFMc2paMmt3bzNXVnQvNTR0ZEVXRmVrMGkwOUJjSStOdlU2NWZN?=
+ =?utf-8?B?cktjZ1VoNWVYN2FvODJobjEzVGtDV3ZLOTA4NEVZajlzYWxBV1lSODQva0My?=
+ =?utf-8?B?dU1rUVA0TDRXODN5alhNUG1FQXd5TFc3b3NBQ0ZkbUxrMnVkQVFkVDBQeFJK?=
+ =?utf-8?B?enVCV0crRENHUmdFczh1UkFGL3VIcEpJS1RLYmpaTTBtTDNrdVBpZWRKNzM4?=
+ =?utf-8?B?QUo4Y0daYzAzbzhlbnFvL2Eyb0J2ako1WTl3ZjJ0bkNvVm90bEhlUU9tUHpV?=
+ =?utf-8?B?YVNpaVZtZkdTRytLZVRkKzd6USsramlkeFMyQmM3RHlYYWZZcjdtdXRVclJN?=
+ =?utf-8?B?dGdFeVpWOGJLY1N0V0hWMEoxS3NhVjlhNWtJU1BpRyt1T0tERldTd3ozaGt2?=
+ =?utf-8?B?blIrMU1Rck85U0hacGQzRUZKa0F1NVBoYm15OHh4NU5CRGRHenJtc2FQZ1Zq?=
+ =?utf-8?B?ekdXRU55aXJFbWN5elJZVFdlRzBGQ0paOUxZUnhkMGlRS2o4Y1puM3E4Y1py?=
+ =?utf-8?B?d0tKam42NVVIUXg4OS9LUllVU1ppSDh0N0owY2pxZm1GN1B5dmVXeGtReWRa?=
+ =?utf-8?B?TmZORE10YlB1bUpCL3NsQWZwVWNGMy83WDhhOU02YmlKd3U1NDBOb2F4LzNV?=
+ =?utf-8?B?MUZHUmdzOEhpYTdZQW5BcVhpdXdNdnhkTzhpbkl3b1MwUlJJNWxrVGIrR3lY?=
+ =?utf-8?B?UURQK2hZdHRnTyt4SWc0MGdyaHlQdWowdHFIN040cUlCMCsxblhQcDdrZEl4?=
+ =?utf-8?B?b2p1ak1UYU1FdGI3K3RpMlU0TDJYS2dSc095RE4vdnVRdDAydGZRUnRCbXFv?=
+ =?utf-8?B?Y0pxNXdXbUNqUEEydFU4T1VkYkZsbW56UWFjaUZ1YkF4OUwzUnMwdmIraS9N?=
+ =?utf-8?B?K0lyaGM5VS9GT0VLUmtOUTlkZE1EN2FIdDU4aUkvdTlHVzh3VUJxT1BkNmEz?=
+ =?utf-8?B?a3MrQzQ2WmQyTGxZMGplZjFuTmluaUxpKzVSNHZ5UVdxZ0hsbk9UbkhNUFRY?=
+ =?utf-8?B?SWZqSk9aUmdFSjAxWFBJdUNhbUh4cS9oWjM2RW9DRjVUbERUYzk4dFEyS3p3?=
+ =?utf-8?Q?BP7lUPFWmT92APk6ddYqYz4=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f9dcc1cb-9417-4912-d63e-08ddd47d983c
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 00:10:05.5029
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +FbwUDm/f61OCCJXtD6KsEFf437Q3ImIjAbreLVl9i77obGNdctCBucT4V73HdzXJa89t+NpWbF83YfgDCsRSFUU4lczMWlXuD8Vopo1vww=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6404
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_170153_830940_E97D2612 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250805_171014_559841_E2E85D18 
+X-CRM114-Status: GOOD (  22.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,187 +182,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to documentation[1] drm_* variants are preferred over dev_*
-print functions.
+>>
+>> --- snip ---
+>>
+>> I'm afraid I'll have to agree with Ryan :) Looking at the signature 
+>> of split_kernel_pgtable_mapping,
+>> one would expect that this function splits all block mappings in this 
+>> region. But that is just a
+>> nit; it does not seem right to me that we are iterating over the 
+>> entire space when we know *exactly* where
+>> we have to make the split, just to save on pgd/p4d/pud loads - the 
+>> effect of which is probably cancelled
+>> out by unnecessary iterations your approach takes to skip the 
+>> intermediate blocks.
+>
+> The implementation is aimed to reuse the split code for repainting. We 
+> have to split all leaf mappings down to PTEs for repainting.
+>
+> Now Ryan suggested use pgtable walk API for repainting, it made the 
+> duplicate code problem gone. We had some discussion in the other series.
+>
+>>
+>> If we are concerned that most change_memory_common() operations are 
+>> for a single page, then
+>> we can do something like:
+>>
+>> unsigned long size = end - start;
+>> bool end_split, start_split = false;
+>>
+>> if (start not aligned to block mapping)
+>>     start_split = split(start);
+>>
+>> /*
+>>  * split the end only if the start wasn't split, or
+>>  * if it cannot be guaranteed that start and end lie
+>>  * on the same contig block
+>>  */
+>> if (!start_split || (size > CONT_PTE_SIZE))
+>>     end_split = split(end);
+>
+> Thanks for the suggestion. It works for some cases, but I don't think 
+> it can work if the range is cross page table IIUC. For example, start 
+> is in a PMD, but end is in another PMD.
 
-[1] https://docs.kernel.org/gpu/todo.html#convert-logging-to-drm-functions-with-drm-device-parameter
+I think we have to call split_mapping(end) if size is greater than page 
+size, i.e.
 
-Signed-off-by: Eslam Khafagy <eslam.medhat1993@gmail.com>
----
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 20 +++++++++----------
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c  | 14 ++++++-------
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c  |  2 +-
- .../gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c   |  2 +-
- 4 files changed, 19 insertions(+), 19 deletions(-)
+split_mapping(start);
+if (size > PAGE_SIZE)
+     split_mapping(end);
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-index 0f7ffb3ced20..da94ab0540bb 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
-@@ -215,32 +215,32 @@ static void atmel_hlcdc_crtc_atomic_disable(struct drm_crtc *c,
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     !(status & ATMEL_XLCDC_CM),
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register CMSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register CMSTS timeout\n");
- 
- 		regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_XLCDC_SD);
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     status & ATMEL_XLCDC_SD,
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register SDSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register SDSTS timeout\n");
- 	}
- 
- 	regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_HLCDC_DISP);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     !(status & ATMEL_HLCDC_DISP),
- 				    10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register DISPSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register DISPSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_HLCDC_SYNC);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     !(status & ATMEL_HLCDC_SYNC),
- 				    10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register LCDSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register LCDSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_DIS, ATMEL_HLCDC_PIXEL_CLK);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     !(status & ATMEL_HLCDC_PIXEL_CLK),
- 				    10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register CLKSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register CLKSTS timeout\n");
- 
- 	clk_disable_unprepare(crtc->dc->hlcdc->sys_clk);
- 	pinctrl_pm_select_sleep_state(dev->dev);
-@@ -269,32 +269,32 @@ static void atmel_hlcdc_crtc_atomic_enable(struct drm_crtc *c,
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     status & ATMEL_HLCDC_PIXEL_CLK,
- 				     10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register CLKSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register CLKSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_HLCDC_SYNC);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     status & ATMEL_HLCDC_SYNC,
- 				     10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register LCDSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register LCDSTS timeout\n");
- 
- 	regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_HLCDC_DISP);
- 	if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 				     status & ATMEL_HLCDC_DISP,
- 				     10, 1000))
--		dev_warn(dev->dev, "Atmel LCDC status register DISPSTS timeout\n");
-+		drm_warn(dev, "Atmel LCDC status register DISPSTS timeout\n");
- 
- 	if (crtc->dc->desc->is_xlcdc) {
- 		regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_XLCDC_CM);
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     status & ATMEL_XLCDC_CM,
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register CMSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register CMSTS timeout\n");
- 
- 		regmap_write(regmap, ATMEL_HLCDC_EN, ATMEL_XLCDC_SD);
- 		if (regmap_read_poll_timeout(regmap, ATMEL_HLCDC_SR, status,
- 					     !(status & ATMEL_XLCDC_SD),
- 					     10, 1000))
--			dev_warn(dev->dev, "Atmel LCDC status register SDSTS timeout\n");
-+			drm_warn(dev, "Atmel LCDC status register SDSTS timeout\n");
- 	}
- 
- 	pm_runtime_put_sync(dev->dev);
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-index fa8ad94e431a..acb017a2486b 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-@@ -724,19 +724,19 @@ static int atmel_hlcdc_dc_modeset_init(struct drm_device *dev)
- 
- 	ret = atmel_hlcdc_create_outputs(dev);
- 	if (ret) {
--		dev_err(dev->dev, "failed to create HLCDC outputs: %d\n", ret);
-+		drm_err(dev, "failed to create HLCDC outputs: %d\n", ret);
- 		return ret;
- 	}
- 
- 	ret = atmel_hlcdc_create_planes(dev);
- 	if (ret) {
--		dev_err(dev->dev, "failed to create planes: %d\n", ret);
-+		drm_err(dev, "failed to create planes: %d\n", ret);
- 		return ret;
- 	}
- 
- 	ret = atmel_hlcdc_crtc_create(dev);
- 	if (ret) {
--		dev_err(dev->dev, "failed to create crtc\n");
-+		drm_err(dev, "failed to create crtc\n");
- 		return ret;
- 	}
- 
-@@ -778,7 +778,7 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 
- 	ret = clk_prepare_enable(dc->hlcdc->periph_clk);
- 	if (ret) {
--		dev_err(dev->dev, "failed to enable periph_clk\n");
-+		drm_err(dev, "failed to enable periph_clk\n");
- 		return ret;
- 	}
- 
-@@ -786,13 +786,13 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 
- 	ret = drm_vblank_init(dev, 1);
- 	if (ret < 0) {
--		dev_err(dev->dev, "failed to initialize vblank\n");
-+		drm_err(dev, "failed to initialize vblank\n");
- 		goto err_periph_clk_disable;
- 	}
- 
- 	ret = atmel_hlcdc_dc_modeset_init(dev);
- 	if (ret < 0) {
--		dev_err(dev->dev, "failed to initialize mode setting\n");
-+		drm_err(dev, "failed to initialize mode setting\n");
- 		goto err_periph_clk_disable;
- 	}
- 
-@@ -802,7 +802,7 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 	ret = atmel_hlcdc_dc_irq_install(dev, dc->hlcdc->irq);
- 	pm_runtime_put_sync(dev->dev);
- 	if (ret < 0) {
--		dev_err(dev->dev, "failed to install IRQ handler\n");
-+		drm_err(dev, "failed to install IRQ handler\n");
- 		goto err_periph_clk_disable;
- 	}
- 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
-index 50fee6a93964..945a475c33ac 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_output.c
-@@ -92,7 +92,7 @@ static int atmel_hlcdc_attach_endpoint(struct drm_device *dev, int endpoint)
- 	output->bus_fmt = atmel_hlcdc_of_bus_fmt(ep);
- 	of_node_put(ep);
- 	if (output->bus_fmt < 0) {
--		dev_err(dev->dev, "endpoint %d: invalid bus width\n", endpoint);
-+		drm_err(dev, "endpoint %d: invalid bus width\n", endpoint);
- 		return -EINVAL;
- 	}
- 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-index 4a7ba0918eca..e55e54d52219 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_plane.c
-@@ -1140,7 +1140,7 @@ static void atmel_hlcdc_plane_reset(struct drm_plane *p)
- 	if (state) {
- 		if (atmel_hlcdc_plane_alloc_dscrs(p, state)) {
- 			kfree(state);
--			dev_err(p->dev->dev,
-+			drm_err(p->dev,
- 				"Failed to allocate initial plane state\n");
- 			return;
- 		}
--- 
-2.43.0
+This can avoid walking page table twice for page size range, which 
+should be the most case in the current kernel.
+
+Thanks,
+Yang
+
+>
+> Regards,
+> Yang
+>
+>>
+>>
+>>
+>
 
 
