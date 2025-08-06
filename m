@@ -4,133 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDD8C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD03BC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmNtmNaGuf1MBoX5YYoNpQolP/kFATeXJjhsO68f2RM=; b=1KWApdvQ6CLrZOAY4IttvuBpq+
-	HfRxyWDm2L6WRK+XbZK9obj6lCR+Z784kYiXFx1Xg4C08rT0vu356E3o0g413RDJhlGUKYDlBReNH
-	uJ2IUr/Ad/CNWb2UIf0R8BM0XgQEVZH77aKawqbMsf0EOxamKSfs0yj03h38c6UU1CdPFFgye1ILt
-	shTasY703y3LK2L0lhOIW+85CgN53x0MVngzT3IA1YM0SZzSBUKLyCAvpaTXpfM10oWf6al39Anv4
-	4nccM21AlKeDFuzasQgNZ5W9/spLWqux0kijIV4wWowS83AXy++XMp5Kwp6IuIJnRINel6zXu8dRo
-	VT+B2/aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2Wt9GQr/rxbLZPv3uiNfIyDvLjZmJLqsw7j0kAAjaQ=; b=d/o1p9YcgpkNas/wFG3Mu4eT9a
+	5xX2hu0Q/n4VBtgXG1Oq7zeZWpd6PHbCNwVkWzDv3pAKZmq3Eb+2y/4O8DzvHdVUZMrc0o6ti5nJU
+	XE8/tH0AxuCFIdZt3BPikYxu8euOwq50+VMQrNYMe0mZDxTS6YrOza846448wxQKp0uGI+1gG839Z
+	mVmU8lEmyDTI6i7h/8fOfLYlw9QQ1kDOCKNSKb4Y/oUvdP39DDZsHhtAq+aSBObIBhilZIooP/DvB
+	8k7np5zJX2RLirKGh/JHXCmdBcaVdqX7WSX+o565hjLdSKn0Tfms6Us5PgJfNxTHV5864rVpHoYH7
+	jXnwsvqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujaaO-0000000En2N-0MdT;
-	Wed, 06 Aug 2025 09:37:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ujacp-0000000EnWZ-0EDz;
+	Wed, 06 Aug 2025 09:39:59 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujaMt-0000000ElI7-3Dnt
+	id 1ujaWg-0000000EmdX-3COu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 09:23:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1897EA567EA;
-	Wed,  6 Aug 2025 09:23:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 538D7C4CEE7;
-	Wed,  6 Aug 2025 09:23:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754472210;
-	bh=Hwk7vf4HuAvJ7UE5NKvVA2XssqjK1pHzEDmND+upm+w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i6GNOto+ufwZENyRkRe/0U2+uH/1sJM9g0wsZ61Ffeoees9k2birWd0oPEd/qr7QX
-	 1tErIhLbKSjseupyE4qMugARknExUz+FDgWq06s5mJgRN+me57kwAzEVm0KZYfg66X
-	 JR/AN8nU2UsLuJZ5fJiaHI5tnfKTm7F/R+/2ZfwkjBA/orFv19vzXWuh/lNh6qXWqq
-	 KOqOS37KyZXWVmoYqRuvUXX4Okpne/HTVHYwLhGJnGcRx9DR2UCyrdy7sLTroDbI1c
-	 VcexKBfRy5HQB8mHPo/seo5c8xMfa9x8ETmEaKwUcoC160BsgykC0u6Ke6n1wA9v7c
-	 etW7oMX8cjHZw==
-Message-ID: <ef3b8e12-0677-4e49-bf2c-b8136c9a6908@kernel.org>
-Date: Wed, 6 Aug 2025 11:23:21 +0200
+	Wed, 06 Aug 2025 09:33:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J75CM5QXpG6ndko2MW176/NHnHaW308JZKNjfvmxexPvFEitFizQbj/Qpe1z6RmNuhDoBNiM04MT4XSrf3JE71OEg4jYASfr25pktmNoj5/iam6V6ujfBOeLg2kv3LmmPEMKkEfeR4zAtiu3IIZkzgnD1rSzk0nE/7042RUk9iFZ6rX2c+9IE5vzhvkW2d/2CW1BYm8JcUXQePbpsbDyvbo1YtQd1EwjOO+zZ5X7Izum2c4wVBv3OhEfWCO/GrtFuZc1px29neLbW8iCuYcdPazN/CTCwAMOeyzQZffHGivSCCRUwSFdhqGqk82nBdnxNu2gLDA7CK5fWxJYzOhB3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l2Wt9GQr/rxbLZPv3uiNfIyDvLjZmJLqsw7j0kAAjaQ=;
+ b=yjNtJd/CvgHmznibKFZL+IAGYaEeGyTfKhHwl6Ji5xBQrMDmj+8i2NBXYX1vdHKFlORhjsPMewi3F99vBLKdpjmjeAvr5wTFU4odB+DwZbXU9+3W3lqAU60/30S1SfRYkOfHqPXP2MB/Om4u4MGqxu+TuELcHCJ4lS6yrV1xAxOlOo2913NOVT678g1d/9Q46cVtr7fzgXRIKfXTWmrI+yu/ci23B6Gsgq6TO5SKbeMzl4Ti8RQv2ViT0PHWG+1uY6Zs2CY3LKbW+loywl5zLyfqFHehA1cSYsDLfZfndWYlrcMh24txtVdPWcXp5tLvgyD8/YneazXAjl9w+fFEfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l2Wt9GQr/rxbLZPv3uiNfIyDvLjZmJLqsw7j0kAAjaQ=;
+ b=Wofn30h0XNO9GsYVXdrPfG3v5PmBQfO8147h+197fb1xz6fR5XbZbFY9XMULhFsxNIzYsouZk3ABBzaGjGijfM/JfnTFvSGQkdoUsWWNgz8gbUSEuBkLSJDkUKfgQKswqRZ/iYjm3RHdytZHxhk21NkpXEWNE4qc+GEc+4vJ498crd6oxoEr728kmNWKm7fIxEPF7sN6Cvh8XM9LkXDM5IzjbshCfiFUMn9ymriUjg0eCC0zb2z/qcaU1uCAphC2i/ScK3q+6JU377i4mlB5IWpJquTq5n5St2pRHvgeNgESWfMXD0KMIzY1pbEU9LENcaxzDPi8Xhdos1skWcSg+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by DU2PR04MB8726.eurprd04.prod.outlook.com (2603:10a6:10:2dd::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Wed, 6 Aug
+ 2025 09:33:34 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%4]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
+ 09:33:34 +0000
+Date: Wed, 6 Aug 2025 17:28:08 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>, jun.li@nxp.com
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	Peter Chen <peter.chen@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	imx@lists.linux.dev, arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/3] usb: chipidea: ci_hdrc_imx: Set out of band
+ wakeup for i.MX95
+Message-ID: <zdzpddjjdj2ezkkfh5jjnnjvkvu4gb6vqmhkdlnnc2ioamvcuk@ftmezbyxrhfb>
+References: <20250801-pm-v2-0-97c8fb2a433c@nxp.com>
+ <20250801-pm-v2-2-97c8fb2a433c@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250801-pm-v2-2-97c8fb2a433c@nxp.com>
+X-ClientProxiedBy: SG2PR02CA0102.apcprd02.prod.outlook.com
+ (2603:1096:4:92::18) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
-To: Pankaj Dubey <pankaj.dubey@samsung.com>,
- 'SeonGu Kang' <ksk4725@coasia.com>,
- 'Jesper Nilsson' <jesper.nilsson@axis.com>,
- 'Michael Turquette' <mturquette@baylibre.com>,
- 'Stephen Boyd' <sboyd@kernel.org>, 'Rob Herring' <robh@kernel.org>,
- 'Krzysztof Kozlowski' <krzk+dt@kernel.org>,
- 'Conor Dooley' <conor+dt@kernel.org>,
- 'Sylwester Nawrocki' <s.nawrocki@samsung.com>,
- 'Chanwoo Choi' <cw00.choi@samsung.com>,
- 'Alim Akhtar' <alim.akhtar@samsung.com>,
- 'Linus Walleij' <linus.walleij@linaro.org>,
- 'Tomasz Figa' <tomasz.figa@gmail.com>,
- 'Catalin Marinas' <catalin.marinas@arm.com>, 'Will Deacon'
- <will@kernel.org>, 'Arnd Bergmann' <arnd@arndb.de>
-Cc: 'kenkim' <kenkim@coasia.com>, 'Jongshin Park' <pjsin865@coasia.com>,
- 'GunWoo Kim' <gwk1013@coasia.com>, 'HaGyeong Kim' <hgkim05@coasia.com>,
- 'GyoungBo Min' <mingyoungbo@coasia.com>, 'SungMin Park'
- <smn1196@coasia.com>, 'Shradha Todi' <shradha.t@samsung.com>,
- 'Ravi Patel' <ravi.patel@samsung.com>, 'Inbaraj E' <inbaraj.e@samsung.com>,
- 'Swathi K S' <swathi.ks@samsung.com>, 'Hrishikesh'
- <hrishikesh.d@samsung.com>, 'Dongjin Yang' <dj76.yang@samsung.com>,
- 'Sang Min Kim' <hypmean.kim@samsung.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@axis.com, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, soc@lists.linux.dev
-References: <20250710002047.1573841-1-ksk4725@coasia.com>
- <847e908b-1073-46ea-93f3-1f36cc93d8b8@kernel.org>
- <bfdc2eddde554e1d1808dd8399bc6a693f681c9b.camel@coasia.com>
- <CGME20250721064006epcas5p4617b0450e69f72c94d2b3ae7b1d200e7@epcas5p4.samsung.com>
- <99977f38-f055-46ed-8eb0-4b757da2bcdd@kernel.org>
- <000501dc06ab$37f09440$a7d1bcc0$@samsung.com>
- <e334f106-d9f3-4a21-8cdd-e9d23dd2755d@kernel.org>
- <002001dc06b1$540dc980$fc295c80$@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <002001dc06b1$540dc980$fc295c80$@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|DU2PR04MB8726:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0df92b39-0886-4768-5dd2-08ddd4cc5010
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|19092799006|38350700014|27256017;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?D17XFT/UAgmfkzQW4RZHAbawmIUpU7kLQLmMvShcbNyPtsen8iOtuWSQb7cd?=
+ =?us-ascii?Q?dyBhQAij/0rUODshWOZH7EEUGuBKJU7/u+k40QWX57XhIGuM9NdIuJCjBOFP?=
+ =?us-ascii?Q?E7L0N5TYjMMzaxFnSAEp+LE20OGmQw1SOTcAF+DGNUjv90EK3bZL6ULGBr2w?=
+ =?us-ascii?Q?kp0Teavq/mlS5TVwBESM+z31VI83DjBKV0nKG2xuUK1DttSSodJbM1tdw/J+?=
+ =?us-ascii?Q?B4jvton4UB5s4EBQfr82A9ymhsKKC4fWmY5mc1ltYOAd2ZIQX6/JhejwlblJ?=
+ =?us-ascii?Q?8fA2vGc9J63N5VokAzyPfFLLdybYW+9yGLzGfsqNQycZGC8PqZobQEAuyXMG?=
+ =?us-ascii?Q?v1twg13h7L4kCBYRPuzIte+19oGAEQtOC6ou+KjH+qfRlXWAneWj8pbpKsj1?=
+ =?us-ascii?Q?iIY+ZHwxHQs+l7YbfsN3bjycm/Ex2qYXeXTqLv3+kvGovWnd4hiq06mmI7ir?=
+ =?us-ascii?Q?0aRUs5jt3wtAD80YjSyIQzmipzcaf/eavfykmC2xK9eyhdQ8V7Mph1isZjm9?=
+ =?us-ascii?Q?X/dXL0w/ERdVP3bg50KsAKKeDrIKQuxnsp2ULhyxTRkAHuJ990+znFHIBV6D?=
+ =?us-ascii?Q?F0hHbsZFRZI+KIOKatCLWu4ZY59qedmCFkthV18SBSwzUTl1/MgaGachjKRT?=
+ =?us-ascii?Q?oViwHg/PPEKlfncOexzZP6vTzaw5vUo/YxG5PNdKojcimL3fl/WXTueARIu4?=
+ =?us-ascii?Q?CQkdQAneQW+bUwohThM3yF2Es1PVOafzM90avK2UrDtOAvqJCY4UZenXtrQZ?=
+ =?us-ascii?Q?CveIMV1Cv/GF5uXFVQ7D+HLq2+mtplyqGkm7z1pHjBuTO3DRyw752LRPs1k2?=
+ =?us-ascii?Q?R/pQd42nQc3B0Mvn3/wvxR+DJ5mBIWT6dkq6Z8KH5X21nCImg658+fYYMpT8?=
+ =?us-ascii?Q?46HJHzw3JlUIReN55hada8ZHl6CIbxJ+46gwqSEjArd9yt+O/sIu1e57MTq4?=
+ =?us-ascii?Q?ULTjaRN/Yn76b7fw4KigeQzXtLYpcdN3icXP+Rsnux2UnDbbawz3l7qL5ZbN?=
+ =?us-ascii?Q?En6DiK7W4iWRae6nAmOn/lk4hK+QKFMztPlGQIf6zDmJjtvKUqtCdYfR4pFf?=
+ =?us-ascii?Q?Y5GvIEeoEbqnB65u70JFi3dhxt+B1PQ7enP9diw5Ae1DA9QLPSKrE6aBLyDQ?=
+ =?us-ascii?Q?kVXBzyMw7xxlsEAzhQ3nqVmlSGRd7eCnFpgPoPiyU8yPmQypcGKC1OshG4wa?=
+ =?us-ascii?Q?ex5oOUQKkG7T5AkqXOlAvKHJ/JXoFiJ6G0QeXhW3wbKpEl3wS3JB7q3jdavb?=
+ =?us-ascii?Q?PPiRzvodR/+pNIOU2iebrGj+JO28ziO4ni9X4xYVhC/CK0ar98mqLQPTBICG?=
+ =?us-ascii?Q?2mFiE7bN47BOKE9VIk+8vWGG69yJK6nKIaoAizH0hBjETcj8p731rhyFLmlz?=
+ =?us-ascii?Q?nGcPUHQdnm9I0znvVQfPDBr5ldrFjwIoGkfzC5hxCH7O3l3c94VBSjgb9FWY?=
+ =?us-ascii?Q?sPqi/YzXjKmPB49k7KXYUNhEHe6CN/67U7lxEH1sPpHkAZnX9XCrT6ElffRI?=
+ =?us-ascii?Q?kLc0mlWSsSPIRYJXUbZVOtWJZWKAn8Ht5Zuz?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(19092799006)(38350700014)(27256017);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KJoDYC5IQIHElRT8BIMB9HUvfhsC2/gQ1eLq3iKRXPn28Nflv+7kKluL8iLt?=
+ =?us-ascii?Q?1DNydHJIp32PXeCHrbJomGmM+lGdc34v7akhcUF8kZZyVf1R9wyQbEzo3VOu?=
+ =?us-ascii?Q?8XOdaQTuJpK6VSwen4aBQviN9yh0N+S+82jhBt38S3pXQYsh9+uMq4cDRPQQ?=
+ =?us-ascii?Q?3UCyJ7RK6aKkY9KF8Tjxma9xFYihAFnXvZ1n8s+3SHhYO4hs/gdVHffqscu5?=
+ =?us-ascii?Q?Ek5HB1o8isla0hEa00+1p4wmQdiYDAMpnhcMLgn+7n7zYyZFrnxbrtK7bSRb?=
+ =?us-ascii?Q?1QGXMU+Kk4cqjgWGMPBBSEaHM+YZ+Qb2vXWGQxOsijen34/1D/LRTT+ISSJt?=
+ =?us-ascii?Q?J6vfRJ/3VJyJiJlabhJXg7ipwHexa4TDxSPORJmOhIuxLkdJqlI45V9E2By9?=
+ =?us-ascii?Q?4S9N+Rq8frl0kcoBKTQwOUA0LUDMXjTLPGrKOiWF5CLifskojytS+TdZgCCE?=
+ =?us-ascii?Q?D2dCNoLUTFWAzb2zUFIOkPsEn+BEWz5sFsLbAn7+c1XdS4sidKxpER+ALX/Q?=
+ =?us-ascii?Q?1sAEtrrIKM22dbnvRe1oLoBOl6ep4ZhshhYZqF2uQdBVQYz8un42WNqT4eLp?=
+ =?us-ascii?Q?ak7tGzmiEeJYCo8RSXCLvk7MzA5cMwSnT+z71ZntfN32C1d8UGPCHQPpXWri?=
+ =?us-ascii?Q?bAxda560j4JKF3hVA5GXNEDHHF7IDriuQANCnp7EYEB0OSRCfMkyxGvpzkm1?=
+ =?us-ascii?Q?n+qPHOoMm5a37iANWkQYGl+IaPt1EDHc1kSzn65ByfzlsSoljcDvNXcHDLtd?=
+ =?us-ascii?Q?eBzk9crFzGznWHKX3/lb4dEIVjEpuU+w38i+Uhg5mOyU9tbIc1RRS1DIJYtq?=
+ =?us-ascii?Q?UmIn+YXFneOwbtVcN4A3mKcusYLazUUvpYGlrHIxMKrGFIL2Ij1P8ypN7AP1?=
+ =?us-ascii?Q?J25xvvpv2kcYkc4J8WkSFvhOUn9xI07blUvTdySAgLn2PY+TKJ5GlQxePIFF?=
+ =?us-ascii?Q?J3M0avl+N0QbWD7XF+LxOO8JVpPnyA58bhZiZPLtHlGtuPfvoBwZ+7vYRExC?=
+ =?us-ascii?Q?1jw8+kojPq5vlPs7tJ4Gag75uhRQKesq8hmwWTIHMk921qe2wGN+5GX3i6lL?=
+ =?us-ascii?Q?QLeN3JQxE8zadvwZNXkg+Z7da76+Ni1QiUUe4/g/Z18g2uT+XohloIycUA3/?=
+ =?us-ascii?Q?WCX58sBqJnhREhDlixEpWG4OZTeANHcum3oC3WXv1oynXuz+GGK7QL3IKnD1?=
+ =?us-ascii?Q?nP/2iLW8GncKLpSDRhjrbfy3zRNo2L/DSDsPm0XY1NxbUJQrnJUHo2qfV23a?=
+ =?us-ascii?Q?EIKCzsURdiX9yAd05FMfIOVQ5MZiLSnnTpBxZ/92MAZidbNnLUDNM9Mgos3d?=
+ =?us-ascii?Q?ws6FxdS7csWfBipbW/hwGnSlrUUMwX3MKVmy0crdZsHa8fYwpDa+uxbDZ9SM?=
+ =?us-ascii?Q?8Rb4Qe5CtEsWC+z43cTrrwv0p1W87DPOEJHSwqd/6fNRY1cjdGXTagu8orV5?=
+ =?us-ascii?Q?IamXHtf90xHQ+0/gl2QqR1mj1YRACjDUSq4iRNuWxt3znlGSoNmKrqb+aZxC?=
+ =?us-ascii?Q?Zck4q7WNT6rhYElPXubLz+ZMXmJWvixNKaJchiR2zdaZj6YABeSRWixq6vI3?=
+ =?us-ascii?Q?2RNxTM0lLXwgtqpimfTdCRc3BWur2JjTLMQb8yGN?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0df92b39-0886-4768-5dd2-08ddd4cc5010
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 09:33:34.0316
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IxsbmvM71bDbpt1tQzgB4NmYWXNbq6wXRYz96GxHeMfP21jd4LzKqntqdt4qHjOWT0DQRBQ4/UP2c2iAV1rPBw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8726
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_022331_944240_EFE416B4 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20250806_023338_805050_F36D5B5B 
+X-CRM114-Status: GOOD (  27.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,109 +164,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2025 11:05, Pankaj Dubey wrote:
+Hi Peng,
+
+On Fri, Aug 01, 2025 at 12:34:23PM +0800, Peng Fan wrote:
+> i.MX95 USB2 inside HSIOMIX could still wakeup Linux, even if HSIOMIX
+> power domain(Digital logic) is off. There is still always on logic
+> have the wakeup capability which is out band wakeup capbility.
 > 
->> Also SAME strict DT compliance profile will be applied. (see more on
->> that below)
->>
->>>
->>> Given that ARTPEC-8 is a distinct SoC with its own set of IPs, we believe it's
->> reasonable
->>> to create a separate directory for it, similar to FSD.
->>
->> No. It was a mistake for FSD to keep it separate why? Because there is
->> no single non-Samsung stuff there. I am afraid exactly the same will
->> happen there.
->>
+> So use device_set_out_band_wakeup for i.MX95 to make sure usb2 could
+> wakeup system even if HSIOMIX power domain is in off state.
 > 
-> I am not sure, why you are saying this as a mistake, in case next version of FSD
-
-
-My mistake that I agreed on that, based on promise that "there will be
-non Samsung stuff" and that "non Samsung stuff" never happened.
-
-> or ARTPEC is manufactured (ODM) by another vendor in that case, won't it
-> create problems? 
-
-
-No problems here. Non-Samsung Artpec/Axis soc will not go there. It will
-go the top-level axis directory, just like artpec-6
-
-
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/usb/chipidea/ci_hdrc_imx.c | 8 ++++++++
+>  include/linux/usb/chipidea.h       | 1 +
+>  2 files changed, 9 insertions(+)
 > 
-> For example ARTPEC-6/7 (ARM based) have their own directories as "arch/arm/boot/dts/axis/"
-> These were not Samsung (ODM) manufactures SoCs. 
-> 
-> But ARTPEC-8/9 (ARM64) based SoCs are samsung manufactured. What if the next version say
-> ARTPEC-10 is not samsung manufactured, so different version of products (SoCs) from
-> same vendor (OEM), in this case Axis, will have code in separate directories and with different maintainers? 
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index e1ec9b38f5b9ba0568101b51fbf16b99461b6ee2..7a3360d8a0fd065394393de829108a12c27c85b9 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -79,6 +79,10 @@ static const struct ci_hdrc_imx_platform_flag imx8ulp_usb_data = {
+>  		CI_HDRC_HAS_PORTSC_PEC_MISSED,
+>  };
+>  
+> +static const struct ci_hdrc_imx_platform_flag imx95_usb_data = {
+> +	.flags = CI_HDRC_SUPPORTS_RUNTIME_PM | CI_HDRC_OUT_BAND_WAKEUP,
+> +};
+> +
+>  static const struct ci_hdrc_imx_platform_flag s32g_usb_data = {
+>  	.flags = CI_HDRC_DISABLE_HOST_STREAMING,
+>  };
+> @@ -94,6 +98,7 @@ static const struct of_device_id ci_hdrc_imx_dt_ids[] = {
+>  	{ .compatible = "fsl,imx7d-usb", .data = &imx7d_usb_data},
+>  	{ .compatible = "fsl,imx7ulp-usb", .data = &imx7ulp_usb_data},
+>  	{ .compatible = "fsl,imx8ulp-usb", .data = &imx8ulp_usb_data},
+> +	{ .compatible = "fsl,imx95-usb", .data = &imx95_usb_data},
+>  	{ .compatible = "nxp,s32g2-usb", .data = &s32g_usb_data},
+>  	{ /* sentinel */ }
+>  };
+> @@ -569,6 +574,9 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  
+>  	device_set_wakeup_capable(dev, true);
+>  
+> +	if (pdata.flags & CI_HDRC_OUT_BAND_WAKEUP)
+> +		device_set_out_band_wakeup(dev, true);
+> +
 
-It will be the same with Google Pixel for whatever they decide in the
-future. dts/exynos/google/ + dts/google/.
+In current design, ci_hdrc_imx_probe() will create another platform
+device B which will be a child of current device A. Furthermore, device
+A and device B will attached to a same power domain. In this case, some
+conflict setting may happen. For example, if the user wants to enable
+wakeup for this USB port, they may echo "enabled" to wakeup file for
+both device A and device B as before. As a result, device A is out
+band wakeup so it doesn't depend on power domain on, but device B has
+also enabled wakeup so the power domain will keep on finally. Actually,
+the power domain needs to be off for imx95.
 
-I know that this is not ideal, but for me grouping samsung stuff
-together is far more important, because there is much, much more to
-share between two SoCs designed by Samsung, than Axis-9 and future
-non-Samsung Axis-10. And I have `git grep` as argument:
-git grep compatible -- arch/arm64/boot/dts/tesla/
+So I think only letting the parent device A itself attach to power domain
+should be enough. If it's the right way, then below change needs to be
+included to avoid potential misbehavior.
 
-and point me to any Tesla IP. Zero results.
+diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+index 694b4a8e4e1d..c2ca81fe5e09 100644
+--- a/drivers/usb/chipidea/core.c
++++ b/drivers/usb/chipidea/core.c
+@@ -915,6 +915,8 @@ struct platform_device *ci_hdrc_add_device(struct device *dev,
+        if (ret)
+                goto err;
 
++       dev_pm_domain_detach(&pdev->dev, false);
++
+        return pdev;
 
-> 
->> Based on above list of blocks this should be done like Google is done,
->> so it goes as subdirectory of samsung (exynos). Can be called axis or
->> artpec-8.
-> 
-> I will suggest to keep axis, knowing the fact that sooner after artpec-8 patches gets approved and merged
-> we have plan to upstream artpec-9 (ARM64, Samsung manufactured) as well.
-> 
->>
->> To clarify: Only this SoC, not others which are not Samsung.
->>
->>>
->>> We will remove Samsung and Coasia teams from the maintainers list in v2
->> and only
->>> Axis team will be maintainer.
->>
->> A bit unexpected or rather: just use names of people who WILL be
->> maintaining it. If this is Jesper and Lars, great. Just don't add
->> entries just because they are managers.
-> 
-> AFAIK, Jesper will be taking care. 
-> 
->>
->>>
->>> Maintainer list for previous generation of Axis chips (ARM based) is already
->> present,
->>> so this will be merged into that.
->>
->> Existing Artpec entry does not have tree mentioned, so if you choose
->> above, you must not add the tree, since the tree is provided by Samsung SoC.
->>
-> 
-> OK
-> 
->> OTOH, how are you going to add there strict DT compliance? Existing axis
->> is not following this, but artpec-8, as a Samsung derivative, MUST
->> FOLLOW strict DT compliance. And this should be clearly marked in
->> maintainer entry, just like everywhere else.
->>
-> 
-> As I said this is tricky situation, though artpec-8 is derivative of samsung, we can't confirm 
-> if future versions (> 9) will be samsung derivative. 
-> 
-> But this would be case for all such custom ASIC manufactured by samsung, so I would like to
-> understand how this will be handled? 
+Thanks,
+Xu Yang
 
-
-I suggest to do the same as Google and when I say Google in this email,
-I mean Pixel/GS101. Google was easier because there was no prior entry
-and Axis has, so you will have two Axis entries. But I don't see how we
-can add clean-dts profiles to the existing Axis entry, if you decide to
-include Artpec-8 in that one.
-
-
-Best regards,
-Krzysztof
+>  	return 0;
+>  
+>  disable_device:
+> diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
+> index e17ebeee24e3ecc4b1c2d153d9ea9b656b5a3d35..c6451191d2de68607a9380482701d11f949d0ff7 100644
+> --- a/include/linux/usb/chipidea.h
+> +++ b/include/linux/usb/chipidea.h
+> @@ -66,6 +66,7 @@ struct ci_hdrc_platform_data {
+>  #define CI_HDRC_HAS_PORTSC_PEC_MISSED	BIT(17)
+>  #define CI_HDRC_FORCE_VBUS_ACTIVE_ALWAYS	BIT(18)
+>  #define	CI_HDRC_HAS_SHORT_PKT_LIMIT	BIT(19)
+> +#define	CI_HDRC_OUT_BAND_WAKEUP		BIT(20)
+>  	enum usb_dr_mode	dr_mode;
+>  #define CI_HDRC_CONTROLLER_RESET_EVENT		0
+>  #define CI_HDRC_CONTROLLER_STOPPED_EVENT	1
+> 
+> -- 
+> 2.37.1
+> 
 
