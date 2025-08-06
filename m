@@ -4,217 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7F9C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 10:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142D8C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 10:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+nkFD3zrF6Pwy/WTBUVkzIG1Xpa1ORR7mGu5TZ0atc=; b=H8fu2vn4R2sYClnhfxK7ZfqFyJ
-	54ttUdB18L7+JDMejCDwERiCB7KRbOc4eAhxXtzIJ9giuu1jFCcGDMOS/BMoZjaVN+F/ai4ehPapE
-	E58lu8RRSJpkHJfYWOXlmMGr0XHFCCtcRGGjaBKAFzg3wm6oKi9wWTYl4WHBd9Qe4iFPQDvBz+mjR
-	ukFCp+SgTXUvxQSfsFNeE0NfB+BBAHHlSKHzf4oFMsdXQyLSJfA3GxwnJUkolPIt1bDViefj/ZmHI
-	sypkHUkbBdVHmIhPl6J5ztgDSm6Vh5/9pkOcXIP7LZvd3XM5llmjm850fu9Qfw6FeLPSdqVUU/WUN
-	D1TrhB+g==;
+	bh=DW4b37uIH7FvakOuSRW4Gj04OfaHZK+d6mA+RJ87dAA=; b=sXrktZkH5ML5Pa7Dx+0o3b+exD
+	5y6cnC1vUbSc5/2nAoZ3xoWZXgwm5/TotAzugNwGzwGVoLvaIy7mUinBkq4hTioq3IHalzeI9bqBD
+	+UwyZS3FnQ6MV1fN3cRPEXS6RcuDjXcHWsFsmhYXAOVpdPiQR3NtbIeXbwidoF1I4Keko8W8T3fzl
+	HXsZZYKmCdBHrpNiQ5B4rl95vWjqU14eZb9IUHF2piI2Lih1Mz7gsS6cfVJp5cQhytRBsEiwnpP8W
+	u2jUjIsm2AwrPHrTEuBccM7XitWNtr8K2yksxZCIonmb8VcREiMyUufl7iEsA72Wh+JhX1cg8y3BF
+	pYekPiEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujbKm-0000000Et8x-2sbI;
-	Wed, 06 Aug 2025 10:25:24 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1ujbP7-0000000Etl0-1NG3;
+	Wed, 06 Aug 2025 10:29:53 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujbGc-0000000Ese5-2sme
+	id 1ujbMd-0000000EtRv-1Dvx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 10:21:08 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=jBr+0mu1JcyNiQ2SxL2V4SrCzJUherwEVnoCQYAg0Nj11ygE5m1AteTDvh8BevjglIv0EMo/tisyJuBkjvZTHi6xUSiuWUTFVncE1fpHf2Ow/FEmBTvAPpvYDayBJpy6co9dyTzSfaHG/Gj384jUafMAhWImlJstrq+Fe9edV4I7SP1MBbPIUjnXzh1naFsM0h9S1Z+5869YXPe/jo8QTJ/33VGgjrAVLjMr+AUnnNOYEK+dTQPMB6JFlrIxf26Ve6KTXXgRIdf7ap/LBq7JEUBmIokjFVJ0eS5wFaZHhRiKl7aS57kDGwW8FdXpogqPr0pEbOBLReiEpWApvSUfRw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e+nkFD3zrF6Pwy/WTBUVkzIG1Xpa1ORR7mGu5TZ0atc=;
- b=Ax7s5FD6DRB+tnJIk1C8VEouEXKt7Gs3Jo3TH8qkfvb74bGagTfQ3ZTzEfYLCCF7Y3mSHX2t0R1SEaFfZ1tKYdv+euJtR7DZ9vnwizfpDZPJ97xgNW4TChQ7ux/DFd6bEJOaj0JDU2wLZ94TE9gfPie47H0gCUG2GIicQO1Q6l2UIk9tFyOOhU93gLSWFQvkxG9e6uGX2dpf3obwnnIopHw6gEzBA6oRqKsCyCkLczwACCkorvnyB3W21FhEtmMuU08VLO269sZz/9bARCG5+sBOitTtIFHLJR2nLsVNiy1dtVIk+iQirR8qLHqFdlCX19eXH76j6snlcwXCFvZg2w==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e+nkFD3zrF6Pwy/WTBUVkzIG1Xpa1ORR7mGu5TZ0atc=;
- b=Fe/6lZW2kY40QJA5O6QO/tHfQgX1zjZKGf+xMLXSTx4Q+O0wlw2zCJXO/U5UO6cw/QDpwpdG2iGyG1KzTXXLDVWswML196en72aaPVq8aVmvLYmvM1bBdl1/OkQdTzuBMni+Dal5iZBDTE9oHp0SAJ/xjlyRktNruSNYvj8BYRQ=
-Received: from DU2PR04CA0226.eurprd04.prod.outlook.com (2603:10a6:10:2b1::21)
- by AM8PR08MB6355.eurprd08.prod.outlook.com (2603:10a6:20b:363::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.15; Wed, 6 Aug
- 2025 10:21:01 +0000
-Received: from DU6PEPF00009528.eurprd02.prod.outlook.com
- (2603:10a6:10:2b1:cafe::27) by DU2PR04CA0226.outlook.office365.com
- (2603:10a6:10:2b1::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.15 via Frontend Transport; Wed,
- 6 Aug 2025 10:21:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF00009528.mail.protection.outlook.com (10.167.8.9) with Microsoft SMTP
- Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.8 via
- Frontend Transport; Wed, 6 Aug 2025 10:21:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PG6bqQhH+XRDH8TdP4deOe7w84Bbrm80j8Xx1VSe78sVOR8bxJ7YHj7qpCS7Z7ZDzEA06R+PMT/V8bmINE9AJroZFJoPlOg1ZNkoO5oP6kzhWZa8Y/wPYJZU6haPiAalGMGzfheribOb1q/R00XMx/3DZX5h2u/LLV+oi47+5ZeMWW5WbVRzkWhNtsAWbVeghqzlrdGJ9s7Q1yJFI+AaGPUBc+FxkwQXY2uICpmxz3caFkIYnpcKr8t9DHeBZU3/gvFNFSmmiqn8UiBPeNHvqB6obgYDoQmBCsA6q57qpkLXx3//6wRwTScI7/SvJkN5Lh8LsqiH5nkgw9LZtrrl5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e+nkFD3zrF6Pwy/WTBUVkzIG1Xpa1ORR7mGu5TZ0atc=;
- b=r92liqQlVK0DxHGOY8mikOFwaEWJfWB0rqYXnUKw1gCjzJDuUMESouPvUlq4Ow02poD25KHnJ4f4tJxJUzbFu682RckURoeaX1l5nxAsjP+YqArUzIJwra5vELB9TrU4XOFusFIh28BSBocpDrWoCsY2/aepi0EHma9AQ+gltbmpBwYoIXLvunwmfAffUPsscG+UbUdNgdv2KJka+REmDQab5GnNefnBp5wHhH5Il7qKu4UyS+Dn3h5f879rRBmffH3KA7Qk8VJ0UV7UbEMBGLHLi0MpHLOXwOsrASTzaZmHOiJ1RxBkRgEeOXL2OMmggCnKGUEFkHetG8kDHfV1QA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e+nkFD3zrF6Pwy/WTBUVkzIG1Xpa1ORR7mGu5TZ0atc=;
- b=Fe/6lZW2kY40QJA5O6QO/tHfQgX1zjZKGf+xMLXSTx4Q+O0wlw2zCJXO/U5UO6cw/QDpwpdG2iGyG1KzTXXLDVWswML196en72aaPVq8aVmvLYmvM1bBdl1/OkQdTzuBMni+Dal5iZBDTE9oHp0SAJ/xjlyRktNruSNYvj8BYRQ=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
- by DB9PR08MB6555.eurprd08.prod.outlook.com (2603:10a6:10:257::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Wed, 6 Aug
- 2025 10:20:28 +0000
-Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
- ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
- 10:20:28 +0000
-Message-ID: <2d0d58a4-bd27-41ac-9b25-1cd989c02383@arm.com>
-Date: Wed, 6 Aug 2025 15:50:21 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
-To: David Hildenbrand <david@redhat.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
- anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
- ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
- quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
- yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
- hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250718090244.21092-1-dev.jain@arm.com>
- <20250718090244.21092-7-dev.jain@arm.com>
- <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
- <9552ddff-d778-4934-9349-37c7237cbb78@lucifer.local>
- <54ee1971-d91a-4fe6-90b8-16212c8568d1@redhat.com>
- <0d52d680-f3d3-454f-8c12-602f650469ab@arm.com>
- <9cbe9c6a-0013-4239-9347-bf5d43021fe3@lucifer.local>
- <e3d13396-8408-49c0-9ec9-1b02790959aa@redhat.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <e3d13396-8408-49c0-9ec9-1b02790959aa@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0016.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:179::6) To AM9PR08MB7120.eurprd08.prod.outlook.com
- (2603:10a6:20b:3dc::22)
+	Wed, 06 Aug 2025 10:27:20 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5769ekJH032246;
+	Wed, 6 Aug 2025 10:27:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	DW4b37uIH7FvakOuSRW4Gj04OfaHZK+d6mA+RJ87dAA=; b=jM2LmUURWYXHXyI9
+	Hh5fdgs3w6erBv4tUtgg4inQ9APJzXJk/wBGo0oC9Ll76ntBNsDrFZaNFzBmRvA0
+	gHWGZYhfeOOwJS4K+F/230g9EVjHgOMRWRjdGQwv1I1N3Dz37oh+J3vwz11kgVQB
+	KDL46gURQBTJZzqjHeetke+YjjLA7Qk0cyPKy0QopqtIiCcLgW5iS9y0P1W8xthn
+	ZWVVdsj/csGe5DnRgg2QW/73v1AJN5/FCEhv8Z8mu4j6WZkc4Ot0py5KAJoOlXDc
+	533YYxOdptOLnWCSHl1ddFe/3QY4ouTeCGF+8FV8YQ0N9VBJDhsfVa2gehCzDEPB
+	Y8wEtQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48bpw2tf5r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 Aug 2025 10:27:13 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 576ARCnY008346
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 6 Aug 2025 10:27:12 GMT
+Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Wed, 6 Aug 2025 03:27:11 -0700
+From: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+        Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Mao Jinlong <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>
+Subject: [PATCH v10 2/2] coresight: Add label sysfs node support
+Date: Wed, 6 Aug 2025 03:26:58 -0700
+Message-ID: <20250806102658.536683-3-quic_jinlmao@quicinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250806102658.536683-1-quic_jinlmao@quicinc.com>
+References: <20250806102658.536683-1-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DB9PR08MB6555:EE_|DU6PEPF00009528:EE_|AM8PR08MB6355:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c1f138e-f4fd-4257-5cb9-08ddd4d2f167
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?dlgrKzVoUlhNY1VMNnJnTUVJM2dUYmdINEdRUU5ZcC94Q3AwMDF4MEI2RHQr?=
- =?utf-8?B?ZGZxQUdCcXRXdWFEL01yanJKb2ZSU0k4VW1XRUdtSk5lUXRzcUI1YW5UTktj?=
- =?utf-8?B?dFJzb3RMSVNZNzl6cytmYklxSlBxRktDRFBnbXlCRkFkU0pvN0oxMDkycWtU?=
- =?utf-8?B?c2M2enRidW9VZEFGejVjSG1iUG0ydDcvclpQbThWSm5RNzBsMXhsU24vM3hz?=
- =?utf-8?B?blZIK1VBNnIydFRJcWdjSitkbEVzNGVUZGkxcGRLQ2k5SFBzVzFsaitjZzRE?=
- =?utf-8?B?UzZKbzNMQmNwdzJJakZLTFZBK1RTeHNHK2lrT0dZQUJteHhxdHliYXN1NUd2?=
- =?utf-8?B?SGsvMjFZNnJEUk10YlI4RzgyTU5wa3NxK1hlNHc4eGNLL0pSOFhmZkRpa2Ix?=
- =?utf-8?B?bzlxeTRWZ3M0QU5zVVBoSnNhZFhWb3d4WUVoQTEzUDRHamhVOWN2bXg4VWhK?=
- =?utf-8?B?dHRuQ3hrMnR4M3FJR1hYWjFxOGxUY2o5am1EbGk3ZThxM1VOdHo0bG5Cc1hu?=
- =?utf-8?B?cVlwYTl1MEJaNGlkRGtvaVJXN0laNnNsSDV3eFNWM2RLZGFyT0EyUW90a3dU?=
- =?utf-8?B?VnZlc2dZOGRaelhWa2x5QmU3TWRUYUlEak1YRmtxSVM2cE85QVNZNGE4Q3Bi?=
- =?utf-8?B?UjIrdzRMdDRYQXRsS25wRHhrSDZ2S1krOU1wSDZneml4K3o3akVzUWplUFdP?=
- =?utf-8?B?dTg3bGVBSG4vNkUvOUNua0VQNFArM2xhYk5aN0JlV0I4eVR1VDM2cE5wV2tn?=
- =?utf-8?B?QytsaG51eVRNWkZ0eG40cDA5SnJncTdmazBQY2xXQnhhUlNtdTZsMjRHQ1Ju?=
- =?utf-8?B?SW5mT09oTUpaZVMrNGNMby94WDE2QXRta2NsSUthamVFZjFOU1RaVlI1UTFI?=
- =?utf-8?B?UFNXRXJYR0k2Z0pFdU5iUUZKTXAxNnBORnpFbDZBcTVocEV1MlRlMk56K0FG?=
- =?utf-8?B?L0RMNG9PdEVVdmFxdUg1QTRydlR2SXh3TmVKZkZrMTMwUkdVSEhmL2ZVQSs4?=
- =?utf-8?B?MVB3UkI2UUlzTmY0MVBaVHgxNTVBV05NZkpWQU9adzYyc1BBeFM0bHQ0bGcz?=
- =?utf-8?B?dGJtRFQ1RGZuQlkwckhpOS8vdTNBU2FwMk1YMDdHeFd2MXFMZlFNMTMvTTkv?=
- =?utf-8?B?WHRaR3FwL3RKeW5LR3NZY3JqVktKWGRMZ1pWTWJFaHBxVWVZREluNFpFOXhH?=
- =?utf-8?B?MUdsVEIzdktvcHVmdnhSanh6QllvSnIwS3RyTXdMbWhiVWdzYmRHRVoxcUZU?=
- =?utf-8?B?QVc2TFVtSGp3U0ZOZnJZQUNJRFI2eFVIRjFWYnVBVGxFS0JHUVVzc3BsNUh5?=
- =?utf-8?B?L0x5STRGTEJZQzFoL1hXdW1pdXV6T3JNRDBoZ1c1OVc3cG54dEwzcHV4OXh5?=
- =?utf-8?B?RkYweEdVc3JhYUdURTVVZjJycGtHQUNRU2h3TXFqZVRvUHVjVkpYY2VYWXhZ?=
- =?utf-8?B?dnpGTlBFMG9KanZvcktJUW9tNXVjMmVUYWEzWE5pUFU0dFA4WXR5VTNpaEVh?=
- =?utf-8?B?SVRXWWs0UEZIZEF0TnhZVW1CZSt2VDRiaFhMcDV4dUlEMkRCYTZGWHRzSXJX?=
- =?utf-8?B?NzAzTVYwNkJqUmlwQnYwNXJBeGhNelIxYWFEL3pKNWhJeDE5T0xlMFBmejNE?=
- =?utf-8?B?ZGV0VXdvYXVITVc4MUpVRWtNQzdHMzg4Y0MrOXdMR2RXL216TnVlbkpCMGh6?=
- =?utf-8?B?QmtHSzBwNWV3TjRWSEliWnRVTlZTVUpvSGxHTkllODY4UGFRTS95TGhsUTls?=
- =?utf-8?B?aVdKZEFGTmZrZkVyelhOREl4cGxjYXNZb0Zvc0NFbHNFOU1tVUxkYzBtNW1M?=
- =?utf-8?B?YXhkY0RhbXpYeTV0V3Uzd1AzWWFURmtTaXg3MlhQMWpYS0V3ZFl2bXNVS3pl?=
- =?utf-8?B?ZSs4VXpma0hELytYRDF0ZlY4Z1diRldESjBJN1kxd2E0b0E9PQ==?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6555
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF00009528.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ffd81b27-2ba9-49d0-7ca5-08ddd4d2ddbb
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|36860700013|35042699022|376014|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZUNkYzhjcFZIMStmZjZhQVBQekgwNE1hYjNQUHBEU2w4cTFiZmgzZEREempZ?=
- =?utf-8?B?Q3FmN2xwVW1CY0RNZ0t0NGtTSU9qWE1ITklVK0E0dStBdkhzZ051QVpLVndC?=
- =?utf-8?B?aEw1Nmk4Q0ZaQUpxZ0tOSTBHQUVVYTVUS0QrUHZaaUtSUEZYbU9NV3JnM2NB?=
- =?utf-8?B?dThaQTVvcmVHQXhGSTNsSUk3NWlWdHBxeDJmMnpQanBQMVJYQ29PRkxWTzdm?=
- =?utf-8?B?SFFYQ2hZRmJQd2FYWlNKaUFLSk5sWkRKK2l2SVBOdmI1dnhNWXRwbVljOGZr?=
- =?utf-8?B?MVFJdSszbWFFK1l6M2tRQWE1Yk9DZzVtcjE3aysycXFqaGRnajloUHExOEpV?=
- =?utf-8?B?Vzk1VXhFOGhCUTFGVXRhVzYrR2pBNHBvTzVzeHRLWTVDUlR0S3VFSFBoTEV3?=
- =?utf-8?B?UWJQbUJBM3JvRlh6Y0g5YWJjY3lsaFNtUS9YYmJoL1RyQ25hL1RJOUdhLy9Z?=
- =?utf-8?B?TXdZOHlHcExBNkg2US9TaitVcFR3OEt0UHZiOTZ5WHJPWExIR0hZQVpESXFv?=
- =?utf-8?B?UkNuZnlqSlN4QTdQSVh5VUhLT202eFJSZDJmMHZ2RWoyb1hyNGw2VUFYaVht?=
- =?utf-8?B?SFdaZlFWWWNtOUk0ZSt6UlBSMG5HRUVVUDZTQlVmTFNNb0Q0N09LK2IrRDcy?=
- =?utf-8?B?eWhVSEx5cWhYMVVySEJPZ2NtQXBoYUVnU1FBMnBuRWpuVW5NdGN3ckc4VW11?=
- =?utf-8?B?N2cwZEFuYkM1ZnN2MnBDQzE3NWVYdktiWEJGbDR4TzkrNFBkY0NJVmhwOXNw?=
- =?utf-8?B?LzFmaGtGaHh4MVo5Y3h2ZllER3U2K0pZb2ZOcXRwK0dTVW9hcTB5M0JxSDIw?=
- =?utf-8?B?cHhKZFhUZHNyb0ZLclFPRlhNUXUrSlpuOTRlU1AyZXhqNFhWM0oxZ2JhWmlh?=
- =?utf-8?B?d1B2WC9IUkRuVkd6eUtsNThubWE0OGRaS2F3ZnBva3czZjRmT0plbFZoSCtV?=
- =?utf-8?B?TnozT2hkM3RYNnNsRmVZZDcxMlJKZk1rdDlwNFVsM0htT0M0aUNmdmh0L1h1?=
- =?utf-8?B?VHRaUnV4cHc0bmdzclhla0JFWVpNc3pYQTQ5VXpDZUJaa0kzUFUrZCt4TTkz?=
- =?utf-8?B?dXpEWDJlelF2ZGMwTzh6ZTlFODM2WU11WWUwOUZqV2lUdk13Sm9OTkw0N0Rr?=
- =?utf-8?B?TVFUdmtrZmlpekd6eVRJSlQ5a3MwWXlFSlBzQXFXcjRwRjVLNi9vcDlmZkdu?=
- =?utf-8?B?T2tkeVV3cVZLVENXM09Na0dGMVRQNHlTb2N1Qm5wNnAzQktuU1BzV1gxVkV4?=
- =?utf-8?B?NTkxMW5qQ3VieDljRjFoZ1dsRXJrQWdTak16U1Y3QVljSWIvVkxHRkdlTmxk?=
- =?utf-8?B?RnZWZ2c2ZGtXRksrdEwvNVJUMGtjNTllbzFIUERmbnFkNmE1djhQWUdXbmRJ?=
- =?utf-8?B?YUs4VkN4bkpNV1pwMUhoUDdUQWErQVc4V1d5c1NRRUJYcjZXUUl4MndUcXpF?=
- =?utf-8?B?Y1VRbFJHWmthQmoyZnlLOUdpRWpENVRKNGQrQ1BDS2swSGZkRU1ReVBrcnNR?=
- =?utf-8?B?TnVleC9Fa29WVEdvaWdZS2VGTTBCM0E4c09SbUZOVEFwU3I2aGZnZWhOeGhZ?=
- =?utf-8?B?WVJ0eDdzQkZLd1M3RWxZdytiYXR1VEgyMURQeE5TeWxqRkFpbHlaRWdtTFE2?=
- =?utf-8?B?TFV2eUdodEJ5WmxDcE40Y2Z3RUhjbWFkdG9jTXNsZW1DMmVaemllSURPWFRE?=
- =?utf-8?B?YUVOdmhtb2EycVFpZlgwbUdNczc4TVlSU0lRTjErWDdVQldnVkNZMkhpREFj?=
- =?utf-8?B?RUhRY28vSE5ERjhUcmtjZXdNVldnN1hMZnR4dDR5NGFBWC9GWHBrL2lNekZI?=
- =?utf-8?B?Zms2Y0FYdVNjQjJ2aC9idVQxRTJFVC9FSjVMeWxqN2ZWM3pwYnk0NlNMaVZl?=
- =?utf-8?B?em1RTVpsTzJ0UENnQWtUWHF6VFpqaGlXQUlRQXlrSVZ0Zjh1anBkRXNmNyt3?=
- =?utf-8?B?T1Q5Y25uZ1RpbEpmRWc2N2NwdXVBU3NNVjFwWlIwMmlQVDczSG1XcU1ZaGhY?=
- =?utf-8?B?c1BvVWdncTNvcjkwdmU4Y2dOZWNHUVFGS3RKRWhwaVZvT1lNdFNRY3FkSDZo?=
- =?utf-8?Q?47Vubl?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(36860700013)(35042699022)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 10:21:01.3665
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c1f138e-f4fd-4257-5cb9-08ddd4d2f167
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009528.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR08MB6355
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.49.16.6]
+X-ClientProxiedBy: nalasex01b.na.qualcomm.com (10.47.209.197) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=Vbz3PEp9 c=1 sm=1 tr=0 ts=68932e01 cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=3H110R4YSZwA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8
+ a=7CQSdrXTAAAA:8 a=TYLdrY_46NNtcs5PGGUA:9 a=TjNXssC_j7lpFel5tvFf:22
+ a=cvBusfyB2V15izCimMoJ:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: pyjaQ6l-TGUmGu5MGwA5swW56i376AO5
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDAwOCBTYWx0ZWRfXwssf7RSmzttW
+ nXyTgf7/mq1Kqw+j70ZeEBnBq6c20B1WfXVvL5oJjXiOIKAuD0Z+DGRhvz0FUhcOkALo6GQsU/C
+ fsLE5nM0JQnrN31JDx3zqlHsS9+2LUFq6yMkkE3rNvH/MmX9EbXlQ9dGQM1Tnl1cQ2igHdsE5RL
+ /Ir8gLfEKWs2vRaTx1mcVo0e7vAsTHuVqtxYJvRaYQrhRwZIXg4w0CP0UE41sf4qKeI1+vxfWOn
+ 4OVxGkPdRJLfkNJPLA8s3gtDFMdDfD37Vg3VMj3Emwwo1uAGw1ASHlonAxn14Zc66G75CZJD2EZ
+ ZeTR0sqXmycpUP4T/hEZfFz8CzCe3zI9XX3Ru+hjZHi+ZgpGLIsaC59AsoNMSVzvMjLdVfw62kP
+ 5Wvfcl4T
+X-Proofpoint-GUID: pyjaQ6l-TGUmGu5MGwA5swW56i376AO5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-06_02,2025-08-04_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 adultscore=0 suspectscore=0 bulkscore=0
+ phishscore=0 priorityscore=1501 spamscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508060008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_032106_881402_E73BF78E 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20250806_032719_457308_B1D5241D 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -229,189 +121,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+For some coresight components like CTI and TPDM, there could be
+numerous of them. From the node name, we can only get the type and
+register address of the component. We can't identify the HW or the
+system the component belongs to. Add label sysfs node support for
+showing the intuitive name of the device.
 
-On 06/08/25 3:41 pm, David Hildenbrand wrote:
-> On 06.08.25 11:50, Lorenzo Stoakes wrote:
->> On Wed, Aug 06, 2025 at 03:07:49PM +0530, Dev Jain wrote:
->>>>>
->>>>> You mean in _this_ PTE of the batch right? As we're invoking these
->>>>> on each part
->>>>> of the PTE table.
->>>>>
->>>>> I mean I guess we can simply do:
->>>>>
->>>>>      struct page *first_page = pte_page(ptent);
->>>>>
->>>>> Right?
->>>>
->>>> Yes, but we should forward the result from vm_normal_page(), which 
->>>> does
->>>> exactly that for you, and increment the page accordingly as required,
->>>> just like with the pte we are processing.
->>>
->>> Makes sense, so I guess I will have to change the signature of
->>> prot_numa_skip()
->>>
->>> to pass a double ptr to a page instead of folio and derive the folio 
->>> in the
->>> caller,
->>>
->>> and pass down both the folio and the page to
->>> set_write_prot_commit_flush_ptes.
->>
->> I already don't love how we psas the folio back from there for very 
->> dubious
->> benefit. I really hate the idea of having a struct **page parameter...
->>
->> I wonder if we should just have a quick fixup for hotfix, and refine 
->> this more
->> later?
->
-> This is not an issue in any released kernel, so we can do this properly.
->
-> We should just remove that nested vm_normal_folio().
->
-> Untested, but should give an idea what we can do.
+Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+---
+ .../testing/sysfs-bus-coresight-devices-cti   |  6 ++
+ .../sysfs-bus-coresight-devices-dummy-source  |  6 ++
+ .../testing/sysfs-bus-coresight-devices-etb10 |  6 ++
+ .../testing/sysfs-bus-coresight-devices-etm3x |  6 ++
+ .../testing/sysfs-bus-coresight-devices-etm4x |  6 ++
+ .../sysfs-bus-coresight-devices-funnel        |  6 ++
+ .../testing/sysfs-bus-coresight-devices-stm   |  6 ++
+ .../testing/sysfs-bus-coresight-devices-tmc   |  6 ++
+ .../testing/sysfs-bus-coresight-devices-tpdm  |  6 ++
+ .../testing/sysfs-bus-coresight-devices-trbe  |  6 ++
+ drivers/hwtracing/coresight/coresight-sysfs.c | 71 ++++++++++++++++++-
+ 11 files changed, 129 insertions(+), 2 deletions(-)
 
-This puts the overhead of vm_normal_folio() unconditionally into the 
-pte_present path.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+index a97b70f588da..5f609c0f50c6 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+@@ -239,3 +239,9 @@ Date:		March 2020
+ KernelVersion:	5.7
+ Contact:	Mike Leach or Mathieu Poirier
+ Description:	(Write) Clear all channel / trigger programming.
++
++What:           /sys/bus/coresight/devices/<cti-name>/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+index 0830661ef656..46c091f5951b 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-dummy-source
+@@ -13,3 +13,9 @@ KernelVersion:	6.14
+ Contact:	Mao Jinlong <quic_jinlmao@quicinc.com>
+ Description:	(R) Show the trace ID that will appear in the trace stream
+ 		coming from this trace entity.
++
++What:           /sys/bus/coresight/devices/dummy_source<N>/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10 b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
+index 9a383f6a74eb..ff2143558044 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etb10
+@@ -19,6 +19,12 @@ Description:	(RW) Disables write access to the Trace RAM by stopping the
+ 		into the Trace RAM following the trigger event is equal to the
+ 		value stored in this register+1 (from ARM ETB-TRM).
+ 
++What:           /sys/bus/coresight/devices/<memory_map>.etb/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
++
+ What:		/sys/bus/coresight/devices/<memory_map>.etb/mgmt/rdp
+ Date:		March 2016
+ KernelVersion:	4.7
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+index 271b57c571aa..bcd804085306 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm3x
+@@ -251,6 +251,12 @@ KernelVersion:	4.4
+ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+ Description:	(RO) Holds the cpu number this tracer is affined to.
+ 
++What:           /sys/bus/coresight/devices/<memory_map>.[etm|ptm]/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
++
+ What:		/sys/bus/coresight/devices/<memory_map>.[etm|ptm]/mgmt/etmccr
+ Date:		September 2015
+ KernelVersion:	4.4
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
+index a0425d70d009..4af7d5e1754e 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-etm4x
+@@ -329,6 +329,12 @@ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+ Description:	(RW) Access the selected single show PE comparator control
+ 		register.
+ 
++What:           /sys/bus/coresight/devices/etm<N>/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
++
+ What:		/sys/bus/coresight/devices/etm<N>/mgmt/trcoslsr
+ Date:		April 2015
+ KernelVersion:	4.01
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+index d75acda5e1b3..e77c1fb9e795 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-funnel
+@@ -10,3 +10,9 @@ Date:		November 2014
+ KernelVersion:	3.19
+ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+ Description:	(RW) Defines input port priority order.
++
++What:           /sys/bus/coresight/devices/<memory_map>.funnel/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
+index 53e1f4815d64..10e9410cfe38 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-stm
+@@ -51,3 +51,9 @@ KernelVersion:	4.7
+ Contact:	Mathieu Poirier <mathieu.poirier@linaro.org>
+ Description:	(RW) Holds the trace ID that will appear in the trace stream
+ 		coming from this trace entity.
++
++What:           /sys/bus/coresight/devices/<memory_map>.stm/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
+index 339cec3b2f1a..d270174d9bb2 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tmc
+@@ -107,3 +107,9 @@ Contact:	Anshuman Khandual <anshuman.khandual@arm.com>
+ Description:	(RW) Current Coresight TMC-ETR buffer mode selected. But user could
+ 		only provide a mode which is supported for a given ETR device. This
+ 		file is available only for TMC ETR devices.
++
++What:           /sys/bus/coresight/devices/<memory_map>.tmc/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+index a341b08ae70b..b0eae1fcff7d 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpdm
+@@ -272,3 +272,9 @@ KernelVersion	6.15
+ Contact:	Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Tao Zhang (QUIC) <quic_taozha@quicinc.com>
+ Description:
+ 		(RW) Set/Get the enablement of the individual lane.
++
++What:           /sys/bus/coresight/devices/<tpdm-name>/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
+index ad3bbc6fa751..3c0bc754576f 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-trbe
+@@ -12,3 +12,9 @@ Contact:	Anshuman Khandual <anshuman.khandual@arm.com>
+ Description:	(Read) Shows if TRBE updates in the memory are with access
+ 		and dirty flag updates as well. This value is fetched from
+ 		the TRBIDR register.
++
++What:           /sys/bus/coresight/devices/trbe<cpu>/label
++Date:           Aug 2025
++KernelVersion   6.17
++Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
++Description:    (Read) Show hardware context information of device.
+diff --git a/drivers/hwtracing/coresight/coresight-sysfs.c b/drivers/hwtracing/coresight/coresight-sysfs.c
+index feadaf065b53..5e52324aa9ac 100644
+--- a/drivers/hwtracing/coresight/coresight-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-sysfs.c
+@@ -7,6 +7,7 @@
+ #include <linux/device.h>
+ #include <linux/idr.h>
+ #include <linux/kernel.h>
++#include <linux/property.h>
+ 
+ #include "coresight-priv.h"
+ #include "coresight-trace-id.h"
+@@ -371,17 +372,81 @@ static ssize_t enable_source_store(struct device *dev,
+ }
+ static DEVICE_ATTR_RW(enable_source);
+ 
++static ssize_t label_show(struct device *dev,
++		struct device_attribute *attr, char *buf)
++{
++
++	const char *str;
++	int ret;
++
++	ret = fwnode_property_read_string(dev_fwnode(dev), "label", &str);
++	if (ret == 0)
++		return sysfs_emit(buf, "%s\n", str);
++	else
++		return ret;
++}
++static DEVICE_ATTR_RO(label);
++
++static umode_t label_is_visible(struct kobject *kobj,
++				   struct attribute *attr, int n)
++{
++	struct device *dev = kobj_to_dev(kobj);
++
++	if (attr == &dev_attr_label.attr) {
++		if (fwnode_property_present(dev_fwnode(dev), "label"))
++			return attr->mode;
++		else
++			return 0;
++	}
++
++	return attr->mode;
++}
++
+ static struct attribute *coresight_sink_attrs[] = {
+ 	&dev_attr_enable_sink.attr,
++	&dev_attr_label.attr,
+ 	NULL,
+ };
+-ATTRIBUTE_GROUPS(coresight_sink);
++
++static struct attribute_group coresight_sink_group = {
++	.attrs = coresight_sink_attrs,
++	.is_visible = label_is_visible,
++};
++__ATTRIBUTE_GROUPS(coresight_sink);
+ 
+ static struct attribute *coresight_source_attrs[] = {
+ 	&dev_attr_enable_source.attr,
++	&dev_attr_label.attr,
+ 	NULL,
+ };
+-ATTRIBUTE_GROUPS(coresight_source);
++
++static struct attribute_group coresight_source_group = {
++	.attrs = coresight_source_attrs,
++	.is_visible = label_is_visible,
++};
++__ATTRIBUTE_GROUPS(coresight_source);
++
++static struct attribute *coresight_link_attrs[] = {
++	&dev_attr_label.attr,
++	NULL,
++};
++
++static struct attribute_group coresight_link_group = {
++	.attrs = coresight_link_attrs,
++	.is_visible = label_is_visible,
++};
++__ATTRIBUTE_GROUPS(coresight_link);
++
++static struct attribute *coresight_helper_attrs[] = {
++	&dev_attr_label.attr,
++	NULL,
++};
++
++static struct attribute_group coresight_helper_group = {
++	.attrs = coresight_helper_attrs,
++	.is_visible = label_is_visible,
++};
++__ATTRIBUTE_GROUPS(coresight_helper);
+ 
+ const struct device_type coresight_dev_type[] = {
+ 	[CORESIGHT_DEV_TYPE_SINK] = {
+@@ -390,6 +455,7 @@ const struct device_type coresight_dev_type[] = {
+ 	},
+ 	[CORESIGHT_DEV_TYPE_LINK] = {
+ 		.name = "link",
++		.groups = coresight_link_groups,
+ 	},
+ 	[CORESIGHT_DEV_TYPE_LINKSINK] = {
+ 		.name = "linksink",
+@@ -401,6 +467,7 @@ const struct device_type coresight_dev_type[] = {
+ 	},
+ 	[CORESIGHT_DEV_TYPE_HELPER] = {
+ 		.name = "helper",
++		.groups = coresight_helper_groups,
+ 	}
+ };
+ /* Ensure the enum matches the names and groups */
+-- 
+2.25.1
 
-Although I am guessing that is already happening assuming prot_numa case 
-is not the
-
-hot path. This is fine by me. So I guess I shouldn't have done that 
-"reuse the folio
-
-from prot_numa case if possible" thingy at all :)
-
-
->
->
-> diff --git a/mm/mprotect.c b/mm/mprotect.c
-> index 78bded7acf795..4e0a22f7db495 100644
-> --- a/mm/mprotect.c
-> +++ b/mm/mprotect.c
-> @@ -120,7 +120,7 @@ static int mprotect_folio_pte_batch(struct folio 
-> *folio, pte_t *ptep,
->
->  static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long 
-> addr,
->                 pte_t oldpte, pte_t *pte, int target_node,
-> -               struct folio **foliop)
-> +               struct folio *folio)
->  {
->      struct folio *folio = NULL;
->      bool ret = true;
-> @@ -131,7 +131,6 @@ static bool prot_numa_skip(struct vm_area_struct 
-> *vma, unsigned long addr,
->      if (pte_protnone(oldpte))
->          goto skip;
->
-> -    folio = vm_normal_folio(vma, addr, oldpte);
->      if (!folio)
->          goto skip;
->
-> @@ -172,8 +171,6 @@ static bool prot_numa_skip(struct vm_area_struct 
-> *vma, unsigned long addr,
->      if (folio_use_access_time(folio))
->          folio_xchg_access_time(folio, jiffies_to_msecs(jiffies));
->
-> -skip:
-> -    *foliop = folio;
->      return ret;
->  }
->
-> @@ -231,10 +228,9 @@ static int page_anon_exclusive_sub_batch(int 
-> start_idx, int max_len,
->   * retrieve sub-batches.
->   */
->  static void commit_anon_folio_batch(struct vm_area_struct *vma,
-> -        struct folio *folio, unsigned long addr, pte_t *ptep,
-> +        struct folio *folio, struct page *first_page, unsigned long 
-> addr, pte_t *ptep,
->          pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
->  {
-> -    struct page *first_page = folio_page(folio, 0);
->      bool expected_anon_exclusive;
->      int sub_batch_idx = 0;
->      int len;
-> @@ -243,7 +239,7 @@ static void commit_anon_folio_batch(struct 
-> vm_area_struct *vma,
->          expected_anon_exclusive = PageAnonExclusive(first_page + 
-> sub_batch_idx);
->          len = page_anon_exclusive_sub_batch(sub_batch_idx, nr_ptes,
->                      first_page, expected_anon_exclusive);
-> -        prot_commit_flush_ptes(vma, addr, ptep, oldpte, ptent, len,
-> +        prot_commit_flush_ptes(vma, addr, ptep, page, oldpte, ptent, 
-> len,
->                         sub_batch_idx, expected_anon_exclusive, tlb);
->          sub_batch_idx += len;
->          nr_ptes -= len;
-> @@ -251,7 +247,7 @@ static void commit_anon_folio_batch(struct 
-> vm_area_struct *vma,
->  }
->
->  static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
-> -        struct folio *folio, unsigned long addr, pte_t *ptep,
-> +        struct folio *folio, struct page *page, unsigned long addr, 
-> pte_t *ptep,
->          pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
->  {
->      bool set_write;
-> @@ -270,7 +266,7 @@ static void 
-> set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
->                         /* idx = */ 0, set_write, tlb);
->          return;
->      }
-> -    commit_anon_folio_batch(vma, folio, addr, ptep, oldpte, ptent, 
-> nr_ptes, tlb);
-> +    commit_anon_folio_batch(vma, folio, page, addr, ptep, oldpte, 
-> ptent, nr_ptes, tlb);
->  }
->
->  static long change_pte_range(struct mmu_gather *tlb,
-> @@ -305,15 +301,20 @@ static long change_pte_range(struct mmu_gather 
-> *tlb,
->              const fpb_t flags = FPB_RESPECT_SOFT_DIRTY | 
-> FPB_RESPECT_WRITE;
->              int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
->              struct folio *folio = NULL;
-> +            struct page *page;
->              pte_t ptent;
->
-> +            page = vm_normal_folio(vma, addr, oldpte);
-> +            if (page)
-> +                folio = page_folio(page);
-> +
->              /*
->               * Avoid trapping faults against the zero or KSM
->               * pages. See similar comment in change_huge_pmd.
->               */
->              if (prot_numa) {
->                  int ret = prot_numa_skip(vma, addr, oldpte, pte,
-> -                             target_node, &folio);
-> +                             target_node, folio);
->                  if (ret) {
->
->                      /* determine batch to skip */
-> @@ -323,9 +324,6 @@ static long change_pte_range(struct mmu_gather *tlb,
->                  }
->              }
->
-> -            if (!folio)
-> -                folio = vm_normal_folio(vma, addr, oldpte);
-> -
->              nr_ptes = mprotect_folio_pte_batch(folio, pte, oldpte, 
-> max_nr_ptes, flags);
->
->              oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
-> @@ -351,7 +349,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->               */
->              if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->                   !pte_write(ptent))
-> -                set_write_prot_commit_flush_ptes(vma, folio,
-> +                set_write_prot_commit_flush_ptes(vma, folio, page,
->                  addr, pte, oldpte, ptent, nr_ptes, tlb);
->              else
->                  prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
 
