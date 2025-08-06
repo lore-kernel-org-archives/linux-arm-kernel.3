@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963B8C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD54DC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hhUZCtksJ+hyH3WiEydSN1GE2wQHlKztpYeqRz+1MhE=; b=eSziPjyrue/PL+7Ye1MIuLIoha
-	z5ldCm45dSdL/dXAKQeMY38G3x+xMs2o7b5B3cPt7VxH1yh3zRI2nsL9aBtrGEQQBqqchDAMgvnIM
-	dL5us/y2jwyQsOtQYgGM8vaXxKFyowHd+4d4l7apEe5yPZo6+QrAnKg0kH4urTXl9fVc4Hljtim6O
-	ngKVd5X1XeL2Yr8+AibT0qK3N1urhG8B/lgTCNuZWSvqE++596shjPmFBkongn4tRHPBCYJkY2woc
-	b64KMUc8YNldRFnFWZeHEpnsVRhmcePLFDZLQHoy8aQgNobPTVbgAXIil9C3+rOSIeOi96EIwRfee
-	xbVAGekQ==;
+	bh=Nk/NtPzT86RvfSy3wCaq27ueR84lhfa0HPjx8Nfqi2k=; b=gpT7ZqfKwB9F1PN7riV68cRJ3N
+	AgfOhhISsFUxTgJ5lj9Hgi8bOLqOtMlqnK+SK8SY++wAW/AFuyJxuXADtTpL0tK9herSCB+zwmxS2
+	ifkq/UI9HHryhOqOd3HVGFSUHVqctq6vcy422YzpIGtt9bXfRzck+OhQ8UyDHhDh8OjFHvaAtxK/D
+	G5TYyoeZr9HmCFIZ5zCbB6muLjTvisFhcZBiVeOUvdZBiHwG7LYFuO2XnJ9J9aUPxYlm1KF9E3f2z
+	dbSnLUGD9Hi5uB3f9S6nriFxjVBI60ZUKB8exiXRk9otNvj3kOwA6thWfP/ArhPXApP+niGfKqeKm
+	a10Jf0zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjMK-0000000G98N-3opb;
-	Wed, 06 Aug 2025 18:59:32 +0000
+	id 1ujjMf-0000000G9C2-1vqm;
+	Wed, 06 Aug 2025 18:59:53 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjJl-0000000G8WY-3Pt2
+	id 1ujiCd-0000000FyI5-3L1R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 18:56:55 +0000
+	Wed, 06 Aug 2025 17:45:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B786F5C28F6;
-	Wed,  6 Aug 2025 18:56:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ECA3C4CEE7;
-	Wed,  6 Aug 2025 18:56:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 54F015C6A4E;
+	Wed,  6 Aug 2025 17:45:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0B65C4CEE7;
+	Wed,  6 Aug 2025 17:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754506612;
-	bh=om1aWa/B7Oy/fsSLhs55XzyydC9EjqsVE/7K+ztsDSs=;
+	s=k20201202; t=1754502327;
+	bh=YArr/JaGktAlQo2hhqkApDSBj81iHH0IBqI1ORILAs8=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sb5UxwWMSQUxbLB7MzB5pEw56XpOE1zygr73grW+FdGaVGx2g3qeoP/jp+H8oqTK+
-	 pQXnW7KR5mKYtvtBZLmlSOUpLMa0jTStxgV6peAMyAOFeIrjpOT/BWtVOJxLQfqYlg
-	 85vb4+xbkeOoM9PREQGug3Gi3lpLzv5n7QKk0HrVlTbZEGD1JosaDjpJHJH4yX+YgB
-	 wsgFbZCMfGmb04wRyMGkbWEGM+G59T+zB+tg6Ew/EA9EnlPk4S6G9SVCFSVGB1SgN5
-	 VlU4JiQ5zoCrudWrWmjkwQS7He0ehkVGdoN63KR+XD5R9qtx79BuHhTjPigr5Af45c
-	 AWZYis9BefrDQ==
+	b=tYpRT03mnnqOtMQ6R+vTn0wc835RggQSPt2fZIIQU/Zadp9aQR37hlIWpF7NgLmmk
+	 EfOjr7sjJ8DWAdunY/eEKRyDrc/BTIMvMWb2NeNdzzsMJ7pGlW2IM043kefpikqybc
+	 SiMNkhCJHosIcnMW9hdeefRWzJnknD7UIBSSwta4YmqOf8fgjqwMx6LoxjEr5Pg7Oq
+	 973bucMF1cSsK6xrWSdlFLH/EnG0KG71bYmcLEnUBVSg0plctwjEu/fsPftkMzOh/B
+	 YIAq4mJVWA7LSaASTYeZVP6zqldY9uft2xbA7ulUze5vgOlxhEbftg8pl0hvWinyMg
+	 sZbwIDQFLNM8w==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1ujjJi-004by9-1y;
-	Wed, 06 Aug 2025 19:56:50 +0100
-Date: Wed, 06 Aug 2025 19:56:49 +0100
-Message-ID: <865xf09t3i.wl-maz@kernel.org>
+	id 1ujiCb-004acx-0S;
+	Wed, 06 Aug 2025 18:45:25 +0100
+Date: Wed, 06 Aug 2025 18:45:24 +0100
+Message-ID: <868qjw9wej.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
 Cc: "linux-arm-kernel@lists.infradead.org"
@@ -67,10 +67,10 @@ Cc: "linux-arm-kernel@lists.infradead.org"
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will
  Deacon <will@kernel.org>
-Subject: Re: [PATCH v1 2/2] KVM: arm64: nv: update CPU register PAR_EL1 after 'at s*'
-In-Reply-To: <20250806141707.3479194-3-volodymyr_babchuk@epam.com>
+Subject: Re: [PATCH v1 1/2] KVM: arm64: nv: fix S2 translation for nVHE guests
+In-Reply-To: <20250806141707.3479194-2-volodymyr_babchuk@epam.com>
 References: <20250806141707.3479194-1-volodymyr_babchuk@epam.com>
-	<20250806141707.3479194-3-volodymyr_babchuk@epam.com>
+	<20250806141707.3479194-2-volodymyr_babchuk@epam.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -81,8 +81,8 @@ X-SA-Exim-Rcpt-To: Volodymyr_Babchuk@epam.com, linux-arm-kernel@lists.infradead.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_115653_930866_3EC4417E 
-X-CRM114-Status: GOOD (  26.38  )
+X-CRM114-CacheID: sfid-20250806_104527_911608_9B7D99BC 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,96 +97,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Volodymyr,
+
+Thanks for looking into this.
+
 On Wed, 06 Aug 2025 15:17:55 +0100,
 Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
 > 
-> Previously this code update only vCPU's in-memory value, which is good,
-> but not enough, as there will be no context switch after exiting
-> exception handler, so in-memory value will not get into actual
-> register.
-> 
-> It worked good enough for VHE guests because KVM code tried fast path,
-> which of course updated real PAR_EL1.
-
-Nothing to do with VHE, I'm afraid. We can take the slow path for any
-odd reason, even on VHE. This is more of a structural problem, see
-below.
-
+> According to ARM architecture specification (ARM DDI 0487 L.a, section
+> C5.4.3), Stage 2 translation should be skipped when VHE is active, or,
+> in other words, E2H bit is set. Fix the code by inverting both check
+> and comment.
 > 
 > Signed-off-by: Volodymyr Babchuk <volodymyr_babchuk@epam.com>
 > ---
->  arch/arm64/kvm/sys_regs.c | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  arch/arm64/kvm/at.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 7b8a0a6f26468..ab2b5e261d312 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -3463,6 +3463,9 @@ static bool handle_at_s1e2(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index a25be111cd8f8..5e7c3fb01273c 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -1412,10 +1412,10 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+>  		return;
 >  
->  	__kvm_at_s1e2(vcpu, op, p->regval);
->  
-> +	/* No context switch happened, so we need to update PAR_EL1 manually */
-> +	write_sysreg(vcpu_read_sys_reg(vcpu, PAR_EL1), par_el1);
-> +
+>  	/*
+> -	 * If we only have a single stage of translation (E2H=0 or
+> +	 * If we only have a single stage of translation (E2H=1 or
+>  	 * TGE=1), exit early. Same thing if {VM,DC}=={0,0}.
+>  	 */
+> -	if (!vcpu_el2_e2h_is_set(vcpu) || vcpu_el2_tge_is_set(vcpu) ||
+> +	if (vcpu_el2_e2h_is_set(vcpu) || vcpu_el2_tge_is_set(vcpu) ||
+>  	    !(vcpu_read_sys_reg(vcpu, HCR_EL2) & (HCR_VM | HCR_DC)))
+>  		return;
 
-This looks like the wrong fix, as it papers over another issue.
+The code we have here is clearly bogus, but what you are suggesting
+doesn't look correct to me either. Here's what the spec says:
 
-The core problem is vcpu_write_sys_reg() (resp. read) does the wrong
-thing with registers such as PAR_EL1, which are not translated between
-EL1 and EL2, and therefore are always live, no matter what.
+<quote>
 
-Can you please try the hack below? I don't like it, but at least it
-shows where the actual problem lies.
+Performs stage 1 and 2 address translation, with permissions as if
+reading from the given virtual address from EL1, or from EL2 if the
+Effective value of HCR_EL2.{E2H, TGE} is {1, 1}, using the following
+translation regime:
+
+  * When EL2 is implemented and enabled in the Security state
+    described by the current Effective value of SCR_EL3.{NSE, NS}:
+
+    - If the Effective value of HCR_EL2.{E2H, TGE} is not {1, 1}, the
+      EL1&0 translation regime, accessed from EL1.
+
+    - If the Effective value of HCR_EL2.{E2H, TGE} is {1, 1}, the
+      EL2&0 translation regime, accessed from EL2.
+
+  * Otherwise, the EL1&0 translation regime, accessed from EL1.
+
+</quote>
+
+We're obviously in the first bullet, so we need to work out whether
+this is applying to the EL1&0 or the EL2&0 translation regime. By the
+letter of the spec, we need to check for E2H+TGE being both set to
+elide the S2 final walk.
+
+I suspect what you really want is the hack below, though I think the
+DC handling has always been broken (who cares anyway?).
 
 Thanks,
 
 	M.
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index ad25484772574..167f0d411a708 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -95,7 +95,13 @@ static bool write_to_read_only(struct kvm_vcpu *vcpu,
- 		return true;						\
- 	}
+diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+index 0e56105339493..3e591979f947e 100644
+--- a/arch/arm64/kvm/at.c
++++ b/arch/arm64/kvm/at.c
+@@ -1420,10 +1420,10 @@ void __kvm_at_s12(struct kvm_vcpu *vcpu, u32 op, u64 vaddr)
+ 		return;
  
--static bool get_el2_to_el1_mapping(unsigned int reg,
-+#define COMMON_SYSREG(r)						\
-+	case r: {							\
-+		 *el1r = __INVALID_SYSREG__;				\
-+		 return is_hyp_ctxt(vcpu);					\
-+	}
-+
-+static bool get_el2_to_el1_mapping(const struct kvm_vcpu *vcpu, unsigned int reg,
- 				   unsigned int *el1r, u64 (**xlate)(u64))
- {
- 	switch (reg) {
-@@ -119,6 +125,7 @@ static bool get_el2_to_el1_mapping(unsigned int reg,
- 		PURE_EL2_SYSREG(  HAFGRTR_EL2	);
- 		PURE_EL2_SYSREG(  CNTVOFF_EL2	);
- 		PURE_EL2_SYSREG(  CNTHCTL_EL2	);
-+		COMMON_SYSREG(	  PAR_EL1	);
- 		MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
- 				  translate_sctlr_el2_to_sctlr_el1	     );
- 		MAPPED_EL2_SYSREG(CPTR_EL2,    CPACR_EL1,
-@@ -158,7 +165,7 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
- 	if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU))
- 		goto memory_read;
- 
--	if (unlikely(get_el2_to_el1_mapping(reg, &el1r, &xlate))) {
-+	if (unlikely(get_el2_to_el1_mapping(vcpu, reg, &el1r, &xlate))) {
- 		if (!is_hyp_ctxt(vcpu))
- 			goto memory_read;
- 
-@@ -219,7 +226,7 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
- 	if (!vcpu_get_flag(vcpu, SYSREGS_ON_CPU))
- 		goto memory_write;
- 
--	if (unlikely(get_el2_to_el1_mapping(reg, &el1r, &xlate))) {
-+	if (unlikely(get_el2_to_el1_mapping(vcpu, reg, &el1r, &xlate))) {
- 		if (!is_hyp_ctxt(vcpu))
- 			goto memory_write;
+ 	/*
+-	 * If we only have a single stage of translation (E2H=0 or
+-	 * TGE=1), exit early. Same thing if {VM,DC}=={0,0}.
++	 * If we only have a single stage of translation ({E2H,TGE}={1,1}),
++	 * exit early. Same thing if {VM,DC}=={0,0}.
+ 	 */
+-	if (!vcpu_el2_e2h_is_set(vcpu) || vcpu_el2_tge_is_set(vcpu) ||
++	if ((vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu)) ||
+ 	    !(vcpu_read_sys_reg(vcpu, HCR_EL2) & (HCR_VM | HCR_DC)))
+ 		return;
  
 
 -- 
