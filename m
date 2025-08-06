@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E25C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 17:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EDD8C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 17:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v37aMytRxJRUwVZQ6D4Ti9+dE6x2fcVzdRHeu4aJs3Q=; b=XkXZUlPD8lXysIzpzUodWMk5LM
-	R1w/nJbg2l7BA6ak3KR3tgFaw7KU+fNwdHxte6ZP8zIbtlr3PrLpM72Bp+5AP1z6tGrEjB7WaYbH7
-	SkzHQIflviK8qYUbq91kEwMr9d3pj1Sbe1q6uN4n4RZmtq9kIAGQqIBGOha21427MiPZoUcvN3EVP
-	GEPY3dYoHfF3pTrBCVByAwgerEeKR2P7SC/DdJLRUrTq1xZW+Lte54fEQ+z5gbWedrJggUd1BXpuS
-	OKIeX2ZFxtfWou9A+fia8+7Fq+IrrA0VHmRIxjpVhK8jALKceO0ZA5dyWoO0Ki0EIdJT6211xySH9
-	S46nNcbQ==;
+	bh=e0QNMhV/M9OVqh2YUk+/5GFzaAlej2BfgiyW1K3U5NE=; b=wNTZOuB3fuJGGqcvJiOS3f2uvD
+	l2F0dUNmaDwAajdSlvV6FKQW43jb4Mm2HYlc9K/JRkZW4huj7BCWxxrdgNAStBIrozwbeOXlL/2Aj
+	U8nRVEVYRhgRK502anD/sRDQDlQ/D7sFoPq5ltU26sYhJ3O/wlxFAJuX+E3hozLoyqD/VcCIp37dD
+	TbYEEUuu+0GXZADhIe8EJuRKMWIb2MUZBvrdoVtfzoPh3fXW4VjllAmHDk1xNN5g3ZfmuZcdyTeqW
+	DxLs1bk7ZAznLe9eCfM+TK364SgpYq8klvoF1sQ8PPW3pDkl5eVHJ+Cc/TyB9XnmJKxEcz67DyGS1
+	8eCuXD9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhYo-0000000FqLQ-2oXD;
-	Wed, 06 Aug 2025 17:04:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ujhbJ-0000000Fqh3-1lTm;
+	Wed, 06 Aug 2025 17:06:53 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhRH-0000000Fopa-2AC4
+	id 1ujhRH-0000000FopZ-3LVU
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 06 Aug 2025 16:56:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E42FD455D1;
+	by dfw.source.kernel.org (Postfix) with ESMTP id CAB995C6A28;
 	Wed,  6 Aug 2025 16:56:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C291EC4CEFA;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71176C4CEF1;
 	Wed,  6 Aug 2025 16:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754499390;
-	bh=JaFSWJU85Fpq1EgbXnM5BHKfbOjbYmhuKh/TLmUtnBE=;
+	bh=eANUx6yTarI1XjY5Wc/aBHqOLih6GMKUKHwFun94n8E=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gPt+sa2HevfnRmwWNIN0+KH5gVnOEjbirwxNxZ+emt54Z0n7ezlnI93RQW6rFzeq4
-	 cBpveHLAVbvrHkgqsvTFqOu/MrCe5QBWmaO7Ll8het7GUjjAf8p0THgSw7zJPwIxsi
-	 oprDAq884JCL+VmRS66CXMS82KVZg+D9YUpVqs4wVJgJZlz7LFkAFp3l12ifbhD86G
-	 q4ArwTgFLQ9LRKJ+SqVtlxdB1A1AYW8GXA8VkZg5kcrefK22WY3gbiOta12uqLDHdP
-	 dlHwCv2rUfWoZWa5ueN+li18DosrGaFHrz3Cyul+jxOLeOQdc5Dl/fly9wY+x3pJaP
-	 5VG1hJ6Ft6Q5Q==
+	b=rYnisNZRRK/wMN2mccykAAboqPGygUcsGkaFhGuIIb5ctY22+4UdkBsHg6A0gHMBj
+	 aVV2eLK2FKSK4FS66AIo747V4FzAibPmDStsgdjtDsbUdKUUZwzTD+ENhsHIhnN7CH
+	 Wdlheqe7IdcCByY48UVmcaa3y3CI1GJ0KMe5phO9kS+oYIPDFNhKw8J3Of9Djz5F6Q
+	 jtlRveSPD4QTCcizu5WGh9ojIbiAX7GCCRbeBcGvPhyez3sy2tNaWL+J6QqjOTLj7S
+	 TOgW0a+oQDgMixfiHGFkevc2DX8rK9QV0nYNwJ+Ie/Iet//h7LqRRG3E1myP8Q2st8
+	 76TU28duIYOTw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1ujhRE-004ZQV-P7;
+	id 1ujhRE-004ZQV-Af;
 	Wed, 06 Aug 2025 17:56:28 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Cornelia Huck <cohuck@redhat.com>
-Subject: [PATCH v2 5/5] KVM: arm64: Make ID_AA64PFR0_EL1.RAS writable
-Date: Wed,  6 Aug 2025 17:56:15 +0100
-Message-Id: <20250806165615.1513164-6-maz@kernel.org>
+Subject: [PATCH v2 3/5] KVM: arm64: Ignore HCR_EL2.FIEN set by L1 guest's EL2
+Date: Wed,  6 Aug 2025 17:56:13 +0100
+Message-Id: <20250806165615.1513164-4-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250806165615.1513164-1-maz@kernel.org>
 References: <20250806165615.1513164-1-maz@kernel.org>
@@ -72,8 +72,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_095631_574699_38E92429 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250806_095631_873865_32C2CAC7 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make ID_AA64PFR0_EL1.RAS writable so that we can restore a VM from
-a system without RAS to a RAS-equipped machine (or disable RAS
-in the guest).
+An EL2 guest can set HCR_EL2.FIEN, which gives access to the RASv1p1
+fault injection mechanism. This would allow an EL1 guest to inject
+error records into the system, which does sound like a terrible idea.
+
+Prevent this situation by added FIEN to the list of bits we silently
+exclude from being inserted into the host configuration.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/kvm/hyp/vhe/switch.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 66e5a733e9628..3a50ade091491 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2951,7 +2951,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 		    ~(ID_AA64PFR0_EL1_AMU |
- 		      ID_AA64PFR0_EL1_MPAM |
- 		      ID_AA64PFR0_EL1_SVE |
--		      ID_AA64PFR0_EL1_RAS |
- 		      ID_AA64PFR0_EL1_AdvSIMD |
- 		      ID_AA64PFR0_EL1_FP)),
- 	ID_FILTERED(ID_AA64PFR1_EL1, id_aa64pfr1_el1,
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index e482181c66322..0998ad4a25524 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -43,8 +43,11 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_vector);
+  *
+  * - API/APK: they are already accounted for by vcpu_load(), and can
+  *   only take effect across a load/put cycle (such as ERET)
++ *
++ * - FIEN: no way we let a guest have access to the RAS "Common Fault
++ *   Injection" thing, whatever that does
+  */
+-#define NV_HCR_GUEST_EXCLUDE	(HCR_TGE | HCR_API | HCR_APK)
++#define NV_HCR_GUEST_EXCLUDE	(HCR_TGE | HCR_API | HCR_APK | HCR_FIEN)
+ 
+ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+ {
 -- 
 2.39.2
 
