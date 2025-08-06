@@ -4,69 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCF8C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 06:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7C0C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 06:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QBTKq9BOeE7V0EOWtitFy4uBx5c1QsTVmDutVFqDEPo=; b=qPnx4QjAwo4i3shIgda1dkG2cH
-	ge3SGX6sNGCXqU5dRmix9IOvIQLGrl275rOHVhOwyCfRnVxDQk65lUqMpnP4P8E8ie0oCXVsTGS0Q
-	kILyYpbpLlEWi/8u/+wtC7+gjydtlQR2WsAPu6K0S930dPCqo7spemOhEiGQLlfUi5xAjqkBFafot
-	QZ292/gEExSxY4qSGTaGgIp8HBlnaRG6JVvyuk5lOd8sCBcInE87Hy7QoCVyBCvGwfY/grAa/HTmK
-	0RITki5ADGUEsduPbmzirTgN2Cf7pJkSrpNnDPlWd4UN+O3+hqgiSFB/EMc7g7hNkCscu4sVy0Wkc
-	ciSGOsqQ==;
+	bh=Df61sAaigOVJnPC03FE24XVRerpCkKDGMZsjIcLym+U=; b=s+2cSS7M5g0r7D+ZNh9naqNoq8
+	ilgdL1dE6l/ndeDaXkF7bAxfD6fSmqiUKAT+RSGJFtIcZs5xTDevfGvcJ2jpE7G6xu91Pp7lF72i5
+	/zHUX6H4zLZ0mWzyV6nZ8doxJMJr/kGSzXewhAFRok5nsQM9Ki9E6MKz+K2pZhf7Af2N1KgbidHnA
+	3wbIroS+kpqwdYA39Qu03g7ML2ZYQEWWoV2Z2cgTU4MgyjHI51NHyfj4DZu3QjlQtirvp0YBE02H+
+	/ZPQQ+stVgZ7lr/kismlsAyPJP7GwGle3rejmFvrpPZS3kzpON7omoT5rJIxDY8k4zYZ937hvJ4TU
+	l8r+spDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujXu1-0000000EQnt-060q;
-	Wed, 06 Aug 2025 06:45:33 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1ujXwT-0000000EQzh-38Jb;
+	Wed, 06 Aug 2025 06:48:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujXoR-0000000EQKh-48mC
+	id 1ujXpc-0000000EQSG-0iT4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 06:39:49 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4bxgfJ29swz27g4j;
-	Wed,  6 Aug 2025 14:40:40 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8B11A140119;
-	Wed,  6 Aug 2025 14:39:37 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 6 Aug 2025 14:39:36 +0800
-Message-ID: <bedb35be-100b-95fb-64e4-b38edd3cd327@huawei.com>
-Date: Wed, 6 Aug 2025 14:39:35 +0800
+	Wed, 06 Aug 2025 06:41:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 500C044256;
+	Wed,  6 Aug 2025 06:40:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1D0AC4CEFB;
+	Wed,  6 Aug 2025 06:40:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754462459;
+	bh=bv6SL8zTbN9CYXKmH50FRGh3j+YHsT0RhPhBJxUuKow=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a8uVsGY2B6rZU13J8Se1fgqQe6Kafv+wi/T4CNVC7cpOjXWBLrule8LfKAdTuvq7g
+	 kmxnrG85VUJsFluqq3JaxW5C3Std0CI9l7+vQ6AJqO5qJlrkhsg558JWIyZlVNT1XG
+	 oitmnSM+ZQ2punzwx4ccykveBFTtZbCHUCGNdE7AEHo7OMD4B/ETAiKeAPi+d4IaaF
+	 tgcY70R+4+NSFFmcDMQAu3eVZNAQBV15+I5JO24ZHcOtd5IZ6yOmBM3TwsLa4Lt2ma
+	 d/GWWyK8zAtwxv4tj2+YCXLvTazj+6zpZbt8VFn3R0uq1Mf89nUBqpqzLteREjTEEg
+	 4KkZZ8DEBq+5w==
+Message-ID: <0f1cbec6-6032-48f6-8887-e526484c0d20@kernel.org>
+Date: Wed, 6 Aug 2025 08:40:54 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH -next v7 5/7] arm64: entry: Refactor
- preempt_schedule_irq() check code
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: hwinfo: Add second register range for
+ GP_SW
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
+References: <20250805234950.3781367-1-jm@ti.com>
+ <20250805234950.3781367-2-jm@ti.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
-	<sstabellini@kernel.org>, <mark.rutland@arm.com>, <puranjay@kernel.org>,
-	<broonie@kernel.org>, <mbenes@suse.cz>, <ryan.roberts@arm.com>,
-	<akpm@linux-foundation.org>, <chenl311@chinatelecom.cn>,
-	<anshuman.khandual@arm.com>, <kristina.martsenko@arm.com>,
-	<liaochang1@huawei.com>, <ardb@kernel.org>, <leitao@debian.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<xen-devel@lists.xenproject.org>
-References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
- <20250729015456.3411143-6-ruanjinjie@huawei.com>
- <44fd646c-4e31-4ca6-9e22-f715ad19e0d7@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <44fd646c-4e31-4ca6-9e22-f715ad19e0d7@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250805234950.3781367-2-jm@ti.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_233948_340191_8F6A59B4 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20250805_234100_252259_794743C0 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,107 +124,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 06/08/2025 01:49, Judith Mendez wrote:
+> This adds a second register range in ti,k3-socinfo. This register
+
+Please do not use "This commit/patch/change", but imperative mood. See
+longer explanation here:
+https://elixir.bootlin.com/linux/v5.17.1/source/Documentation/process/submitting-patches.rst#L95
 
 
-On 2025/8/5 23:06, Ada Couprie Diaz wrote:
-> Hi Jinjie,
+> range can also be used to detect silicon revisions.
 > 
-> On 29/07/2025 02:54, Jinjie Ruan wrote:
->> ARM64 requires an additional check whether to reschedule on return
->> from interrupt. So add arch_irqentry_exit_need_resched() as the default
->> NOP implementation and hook it up into the need_resched() condition in
->> raw_irqentry_exit_cond_resched(). This allows ARM64 to implement
->> the architecture specific version for switching over to
->> the generic entry code.
-> I was a bit confused by this, as I didn't see the link with the generic
-> entry
-> given you implement `raw_irqentry_exit_cond_resched()` in arch/arm64
-> as well in this patch : I expected the arm64 implementation to be added.
-> I share more thoughts below.
+> AM62px SR1.0, SR1.1, and SR1.2 can only be distinguished with GP_SW
+> registers, so increase maximum items to 2 for reg property and update
+> the example.
 > 
-> What do you think about something along those lines ?
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>  .../devicetree/bindings/hwinfo/ti,k3-socinfo.yaml        | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
 > 
->     Compared to the generic entry code, arm64 does additional checks
->     when deciding to reschedule on return from an interrupt.
->     Introduce arch_irqentry_exit_need_resched() in the need_resched()
-> condition
->     of the generic raw_irqentry_exit_cond_resched(), with a NOP default.
->     This will allow arm64 to implement its architecture specific checks
-> when
->     switching over to the generic entry code.
-> 
->> [...]
->> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
->> index b82032777310..4aa9656fa1b4 100644
->> --- a/kernel/entry/common.c
->> +++ b/kernel/entry/common.c
->> @@ -142,6 +142,20 @@ noinstr irqentry_state_t irqentry_enter(struct
->> pt_regs *regs)
->>       return ret;
->>   }
->>   +/**
->> + * arch_irqentry_exit_need_resched - Architecture specific need
->> resched function
->> + *
->> + * Invoked from raw_irqentry_exit_cond_resched() to check if need
->> resched.
-> Very nit : "to check if resched is needed." ?
->> + * Defaults return true.
->> + *
->> + * The main purpose is to permit arch to skip preempt a task from an
->> IRQ.
-> If feel that "to avoid preemption of a task" instead of "to skip preempt
-> a task"
-> would make this much clearer, what do you think ?
->> + */
->> +static inline bool arch_irqentry_exit_need_resched(void);
->> +
->> +#ifndef arch_irqentry_exit_need_resched
->> +static inline bool arch_irqentry_exit_need_resched(void) { return
->> true; }
->> +#endif
->> +
-> 
-> I've had some trouble reviewing this patch : on the one hand because
-> I didn't notice `arch_irqentry_exit_need_resched()` was added in
-> the common entry code, which is on me !
-> On the other hand, I felt that the patch itself was a bit disconnected :
-> we add `arch_irqentry_exit_need_resched()` in the common entry code,
-> with a default NOP, but in the same function we add to arm64,
-> while mentioning that this is for arm64's additional checks,
-> which we only implement in patch 7.
+> diff --git a/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml b/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
+> index dada28b47ea0..3b656fc0cb5a 100644
+> --- a/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
+> +++ b/Documentation/devicetree/bindings/hwinfo/ti,k3-socinfo.yaml
+> @@ -24,7 +24,8 @@ properties:
+>        - const: ti,am654-chipid
+>  
+>    reg:
+> -    maxItems: 1
+> +    maxItems: 2
+> +    minItems: 1
 
-Yes, it does.
+They always come with reversed order... but anyway, you instead must
+list the items with minItems.
 
-> 
-> Would it make sense to move the `arch_irqentry_exit_need_resched()`
-> part of the patch to patch 7, so that the introduction and
-> arch-specific implementation appear together ?
-> To me it seems easier to wrap my head around, as it would look like
-> "Move arm64 to generic entry, but it does additional checks : add a new
-> arch-specific function controlling re-scheduling, defaulting to true,
-> and implement it for arm64". I feel it could help making patch 7's
-> commit message clearer as well.
-> 
-> From what I gathered on the archive `arch_irqentry_exit_need_resched()`
-> being added here was suggested previously, so others might not have the
-> same opinion.
+another problem is that this is not supposed to be per register. I
+already complained more than once about some of TI bindings: stop
+creating device nodes or address spaces per register.
 
-Yes, introduce `arch_irqentry_exit_need_resched()` here may help
-understand the patch's refactoring purpose.
+That's one address space.
 
-> 
-> Maybe improving the commit message and comment for this would be enough
-> as well, as per my suggestions above.
+>  
+>  required:
+>    - compatible
+> @@ -34,7 +35,9 @@ additionalProperties: false
+>  
+>  examples:
+>    - |
+> -    chipid@43000014 {
+> +    chipid@14 {
 
-Thank you! I'll improve the commit message and comment.
+And this was never even checked :/ You have clear warnings here.
 
-> 
-> 
-> Otherwise the changes make sense and I don't see any functional issues !
-> 
-> Thanks,
-> Ada
-> 
-> 
+Best regards,
+Krzysztof
 
