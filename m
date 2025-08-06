@@ -4,119 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A5FFC87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04768C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 08:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=knUnYiygC/glMirhYnFsBNISXjfP0z20npG9dhmwKMM=; b=wG/yh2tLjskMZeIFv8SJBp51S0
-	4ePZpRlLeZ0Jy9wEFw3kH4JNXwnE2GI656NfDyaiTEFH5Kd++XLnEkEVPmaMrEeHEUAFYrn2Xe0GN
-	54nSmvaVCk4cVOg7i7i6D5Zl1lnweot/opzMqMv801ScejDds0ys3JpK/0uAAnh043bE2SGDVOHHH
-	3utIHp3VrOAlSt3v9dWBFhb/AxCpxj+JaWS/3F94DDsFlJHBakopxXaM2uXhu0/nt91vAe24ZDSry
-	H5JNjeZcuf4HDtUuco1XbJh/j6PR3zWEjWvJjz5jN9uk15iFM8aZ3NvutwA62Zef8GiV2igfF2MSW
-	2mhb/Kmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HXxUnDHaYNU0mMmrMfCxsActTXfb2hYKcIpCLaZtg2c=; b=O+FqMv22DAnCNP+msd01jEjSEf
+	HCSuYdkKNTlmsInYSUDvTrm89xDYiAfwjT1HCBOdSVqHHJNdZi1rUdJtyfna4Fzu3Ks6eJ8Tnp1ky
+	rIZYXNfO1Z+NqtKbx2l4/acAfvtQa5+pRJtsF+/soiHWsWNC4mxXfsFLaGiUY9J704dJtv5Yqbhfc
+	X+GjxClckvPoTBr7t+vtV1Et1+Yyi4svznUxzFldeSfz4WwY4znrEOEYV85wP2NYj0O4B2hCrZ6yJ
+	d35HInWVn5sdDWFnGB4qkjqAH0vbHLt7iwoRvBJaCGBDXGyexupmHIK6fjwY/wUZDmPsSIkJHvU0q
+	/31TfHQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZHS-0000000Ebgg-0u9w;
-	Wed, 06 Aug 2025 08:13:50 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ujZK0-0000000EcET-3TbU;
+	Wed, 06 Aug 2025 08:16:28 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujZDN-0000000EbAW-3ukH
+	id 1ujZEz-0000000EbHD-1baB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 08:09:39 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5766P57U030765
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 6 Aug 2025 08:09:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=knUnYiygC/glMirhYnFsBNISXjfP0z20npG
-	9dhmwKMM=; b=Hewp2yjevG0elzb/Zof7MlkZNhDoXAm7hnHiZ7Gw7jsWIr3JNZT
-	bCZeKtAieTgWvpX8hEv7esFEPQYb+U4kMc0EeQ8sea2hMqA1TXD1xL28t1de+xZ5
-	Njk5lMf6djDj5qAnB4rwHIVHDFjLCkMvJYKLBqk+y2fuYjwuxLtHnwDX/QT6g4Wa
-	ZSeenNdAcRYDV3qyWs44UR2CGfT/cQjIvf6ejiqPsI0TOPpwmvizFop4T+DCud/N
-	CdieQgtUs5rt73x2dgGmOLY2JF8w9430lyJJFn9pdaPpA3nusVN+Uub5B25YEbVy
-	j/pBkbj0sD2Yjc8X0r6FAusfLM3MRBiUiNg==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48bpycsvjc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 08:09:37 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b42218e4a59so4400176a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 01:09:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754467776; x=1755072576;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=knUnYiygC/glMirhYnFsBNISXjfP0z20npG9dhmwKMM=;
-        b=jR6tnCHVKN0mfYIXeYGH978M4qObmXtL7rs1s4fA5AdOpRGxbmG8TbEWanoPDmvZa+
-         ek7DJSU3x5xaZohZhBGdS2M3pwqGIqQ6der8uUMMRiQ7ihi5hIbEMUfFo22QTT2xhqe6
-         8PZ9r5ymFz+reewgn5m7TpNvoI2eHVoJ5Z8m8oU5Glv8zOFINPw4akDoawuWKcSkyXap
-         /TB0qQ8SxRqD7AIlmYoe2QzTwb939gUMZKEyaRE2jQNJawJbkXOZxrxC7DVQNFCeBt3/
-         +eMN0RbCueAz1Q771ojdVnqe7bFLRuJLWG9w9mwYyPyG+d875KK4YV89aHhrHTEhdCUV
-         Hx8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUF+uoYUMsBy5kdjKPzjG0PruG+ywYqybWLQodxEUibFUS42UMmI6p2jmyZPQCgQojt9VykZC8INhZuAUcos6dd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC6YLE21TuDWXk2Vnzjez2KHUHlEVvtuku8Ho0WF4C2cWG4INM
-	jspnQibfZcNPQlVlL/esQW8EdCcwt/PP9dCGm8qDtn5RrtT55eAJbYF7eG4/Ri91zLKULnieK+Q
-	SGAfuKFJpnsaP96sqyz/bkbrEQbx50h52kSk3OA3jz0V9gzOwDkBBI2ZEsCcijac4FeEcQ9oeV9
-	SfPA==
-X-Gm-Gg: ASbGncvxPDjJ490fqO1AAZVqTAbu1ItUsqRE6SV4E6DL+dJc6CAjTmZZHznC3QhkoB+
-	iQ4wbyF+svPuirHe1MQFXIxJxhulmLoUn36YxcZbIeIEEOi79ck094/SR0mglXrlq2M2IVvL6mH
-	zMg0dV9s5DxS1ojWa+YHqRNxO2qOy4HyVMkgqIjzLJeFxfGVM/un5HjD/QU9WCA3NeNM+3Eu1mz
-	g2WDw1BPbnq0zx0k10Fui1H7axwQROkbXhUIVuUZZy5qtdSsqcN6OG3dzGKEK4Sl271t6cTQSWw
-	plI3DDi830T5zc1vi8B/nqE18qm92VDxkEx4qowJ7J9bTAHMqoq2/m0cEOrIT5yQYr8M4YlpQEQ
-	PuosoW7+Y+sj8sGpmtBc=
-X-Received: by 2002:a05:6a20:1584:b0:240:1e63:2dfd with SMTP id adf61e73a8af0-240314b5221mr3282863637.29.1754467776491;
-        Wed, 06 Aug 2025 01:09:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGO/5kf0TugUCngV86DUYMPF7cCHvVqLqvFAR0R+lx9ixwaYadjeYK63pbWIUa3NO/Pp3Vw4g==
-X-Received: by 2002:a05:6a20:1584:b0:240:1e63:2dfd with SMTP id adf61e73a8af0-240314b5221mr3282829637.29.1754467776090;
-        Wed, 06 Aug 2025 01:09:36 -0700 (PDT)
-Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bcce6f319sm14856195b3a.18.2025.08.06.01.09.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Aug 2025 01:09:35 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tao Zhang <quic_taozha@quicinc.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>
-Cc: tingwei.zhang@oss.qualcomm.com, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Subject: [PATCH v1] coresight: tpda: fix the logic to setup the element size
-Date: Wed,  6 Aug 2025 16:09:31 +0800
-Message-Id: <20250806080931.14322-1-jie.gan@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 06 Aug 2025 08:11:19 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5767po1t012123;
+	Wed, 6 Aug 2025 10:11:09 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=HXxUnDHaYNU0mMmrMfCxsA
+	ctTXfb2hYKcIpCLaZtg2c=; b=m6DaK9YeW5mfl4x4oa5iLccXPZ6A4nrBkmmftK
+	12qzjCQ77d+4m6uWsyhI9k9oSCojdH90GjG66kwHlcI0Ncm2xsRd/P2LmxjRruqk
+	TQWfZidTKkXYmyj7Kh/YRGMZPB3KTMmE04nP2/kcS+jF9//a14fEJQ1rHd9jC5d3
+	d8blssokPrpQJZjbtV8XtAraQO5HlIrRZm71ZhIJwyGlT40KCMYSoaRdxbjfngLA
+	5r9OPmNDUo4DhvsQiKqHQwpgazDLS2Ryr+6ZR7wbVZzaffmhcMkE9cUADBn+ppuf
+	kDj3CZY+w5goj8bM7mcmnnk9UAUlpDJ+0nsN6f+j+E6d5LKg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48bpx8ac4c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 Aug 2025 10:11:09 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B1CBA4004B;
+	Wed,  6 Aug 2025 10:10:15 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8DD2B767CC2;
+	Wed,  6 Aug 2025 10:09:37 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 6 Aug
+ 2025 10:09:37 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Wed, 6 Aug 2025 10:09:35 +0200
+Subject: [PATCH] arm64: dts: st: Add memory-region-names property for
+ stm32mp257f-ev1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: _kQ6k43xTl7dCAJHthkC4EBvvd9nBWta
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDAwOCBTYWx0ZWRfX7+fTDV8sd5lW
- pLGgfKZOvVJHTugyqc75UAHvzL+86CX7aCCyv3kmo67n/iru+c05hQ2a3avKa5zA5EFDuglui9q
- l9rd4cD25Ng4vTk+dvGzJ5BB/tVFXid4Duh2PD4TqPHN0daXVjOd08Xzun080ly5QdEIcgw++7k
- OaD9Ldemi1oWvgH60fRtX1TWF6zbIQj+WJRPWCJA0bqXvmzsqP+RE5s2nx0soPU5qnZl/5BN35g
- s7r0BrySgXOe4wSq/yNOwntisP22YXXRzKt5jrI4ePORsz1Wl/Oq6OLOQ8p5z4zt0d5Rs/QvS+e
- vWn5ixpAO2meZ4daSAoyUxWlweGvjkCTosUsCW4mDpKsIlFAsKbP5e3UbG6b5Jd9+5dyIeQP0ti
- 95dScjiJ
-X-Authority-Analysis: v=2.4 cv=JIo7s9Kb c=1 sm=1 tr=0 ts=68930dc1 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=eYArMgjR2MFx1z2CNlUA:9
- a=x9snwWr2DeNwDh03kgHS:22
-X-Proofpoint-GUID: _kQ6k43xTl7dCAJHthkC4EBvvd9nBWta
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250806-upstream_fix_dts_omm-v1-1-e68c15ed422d@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAL4Nk2gC/x2M0QpAQBAAf0X77GpdXPgV6cLtsQ+HbpGSf3d5n
+ KaZB4Qik0CbPRDpYuFtTVDkGUzLsM6k2CUGjbrCGo06dzkiDcF6vq07xG4hqAnRjKbBUvsCUrp
+ HSvrfdv37fk1vT8RmAAAA
+X-Change-ID: 20250806-upstream_fix_dts_omm-c006b69042f1
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <stable@vger.kernel.org>,
+        Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-06_01,2025-08-04_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 clxscore=1015 impostorscore=0 suspectscore=0
- bulkscore=0 malwarescore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508060008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_010937_971393_CCDB4B58 
-X-CRM114-Status: GOOD (  15.74  )
+X-CRM114-CacheID: sfid-20250806_011118_006073_7B0E5CD7 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,45 +99,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some TPDM devices support both CMB and DSB datasets, requiring
-the system to enable the port with both corresponding element sizes.
+Add memory-region-names property for stm32mp257f-ev1.
+This allows to identify and check memory-map area's configuration.
 
-Currently, the logic treats tpdm_read_element_size as successful if
-the CMB element size is retrieved correctly, regardless of whether
-the DSB element size is obtained. This behavior causes issues
-when parsing data from TPDM devices that depend on both element sizes.
+Cc: stable@vger.kernel.org
+Fixes: cad2492de91c ("arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board")
 
-To address this, the function should explicitly fail if the DSB
-element size cannot be read correctly.
-
-Fixes: e6d7f5252f73 ("coresight-tpda: Add support to configure CMB element")
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- drivers/hwtracing/coresight/coresight-tpda.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index 0633f04beb24..333b3cb23685 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -71,6 +71,8 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
- 	if (tpdm_data->dsb) {
- 		rc = fwnode_property_read_u32(dev_fwnode(csdev->dev.parent),
- 				"qcom,dsb-element-bits", &drvdata->dsb_esize);
-+		if (rc)
-+			goto out;
- 	}
+diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
+index 2f561ad4066544445e93db78557bc4be1c27095a..16309029758cf24834f406f5203046ded371a8f9 100644
+--- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
++++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
+@@ -197,6 +197,7 @@ &i2c8 {
  
- 	if (tpdm_data->cmb) {
-@@ -78,6 +80,7 @@ static int tpdm_read_element_size(struct tpda_drvdata *drvdata,
- 				"qcom,cmb-element-bits", &drvdata->cmb_esize);
- 	}
- 
-+out:
- 	if (rc)
- 		dev_warn_once(&csdev->dev,
- 			"Failed to read TPDM Element size: %d\n", rc);
+ &ommanager {
+ 	memory-region = <&mm_ospi1>;
++	memory-region-names = "mm_ospi1";
+ 	pinctrl-0 = <&ospi_port1_clk_pins_a
+ 		     &ospi_port1_io03_pins_a
+ 		     &ospi_port1_cs0_pins_a>;
+
+---
+base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+change-id: 20250806-upstream_fix_dts_omm-c006b69042f1
+
+Best regards,
 -- 
-2.34.1
+Patrice Chotard <patrice.chotard@foss.st.com>
 
 
