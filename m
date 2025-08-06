@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C441C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 03:54:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 996DBC87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 04:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w3i5QRO+5MfhCKu77ANJ3jBdCFtUPuCB3IIfNSEzuAM=; b=wmSwe031ou1+1T1iWhK3A+iOzk
-	MAYildBL4Shz1QoyStjpx/xsoFPuvU5/9jWHtbtH11nF4TtXxsur3xVA7YXa+zAKp3K4ZIUjFR0SJ
-	FROShtCiNMafmiv49hxwDLT2X06Xq0CKHtoxotG5ww4En+mMUYSpbLSaLWWHGtfSYCqjep2UV8bi6
-	bzAkca00hha3R8RyahzVmT7B2TwypBjRNsMFxY/yb6HBupiyHkL9xKtybo1hYxodH3bb1zEad/dBW
-	jpOJDPu7T9reOAIc9E5Jp55do9x86an/50T4d/aU4hZShEK9t1TDH+PK5+pN75/jXijnovgfGnmI4
-	YpPiVG8A==;
+	bh=YU3uFobEDt7UCHiGq89i23dmZccxqlh+VM2cnKCVKRQ=; b=DrZrFpeFfb6jLE8/qcZ1hzCJcU
+	0ndsAoSf5P0+ONKEbVbYRYE8Racs6QCSRoN59E0BztacmAIAYeGNauFOYIRyYeYTcXAJXZrOXBctI
+	ahhGCPJ/m3ir7eVX+DmOpwA1JNJfNnUIdFnE6LZrlGkhD3xwzBaLmemRIO6yvGK4UfPDrvqoqt3ud
+	QJEmCdPYq85CzQsdvxoGl7bdkgGRMtWn6l4QrOKe6/sVQ5UtbSUqaBHPozJoLISFhvs5XTwUG/8xW
+	o3986XYyPJHtXbJEdQhPmoMA4p6gPUdpo35fpwtANNcnLv2hwkCgWCsV0YqVFZQspF84nU5SAqirE
+	WwxI5UPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujVEl-0000000EG0Y-1ydX;
-	Wed, 06 Aug 2025 03:54:47 +0000
-Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
+	id 1ujW9y-0000000EIJA-1oBu;
+	Wed, 06 Aug 2025 04:53:54 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujVAP-0000000EFjZ-3O57
+	id 1ujW7Q-0000000EIEg-06Yd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 03:50:19 +0000
-Received: by mail-io1-xd34.google.com with SMTP id ca18e2360f4ac-8821c8a14bdso1846439f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 05 Aug 2025 20:50:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754452217; x=1755057017; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w3i5QRO+5MfhCKu77ANJ3jBdCFtUPuCB3IIfNSEzuAM=;
-        b=SnylszGDzmueNAfzHwVnUE3bJAl/SjEEo0S+tGhJq+ucFTkMvoJWqM7Q3mRX3JB/e6
-         a3lkkkFsyFx8tNPnuI02t6fAu7ezhcwHUYYw5r/l4tKqxH7qgHzZ2ReXahwNnkKdzX8t
-         BNBI5ICSW1DvZ4Vb//+mfMWSQmt1y5fJVUjQbBzmeX65Nn+IsIhjaZzfQlwGpPwgXNWv
-         E0vvR//JjRAos0YzLGKBle5U994WO73l5BF1B1sBsfpzX2RrCQZ3Y2397vO8ZuxomaF8
-         ptnjAFv7rLVhEj57m/uxmdwiT/EYDyjjtUkzF+bePN6zUD9m+5jad25wSmmKDYYKaVS2
-         D7FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754452217; x=1755057017;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w3i5QRO+5MfhCKu77ANJ3jBdCFtUPuCB3IIfNSEzuAM=;
-        b=efSTlCox11vxmEN5atqnOEiW2QH0jot6lH2RpZ7Meig3g72r/m3yeESX4x1OzvBREF
-         bSNRuZ1cYP2a++0pUCpLN0kEGaclP9kN1hLOcUMeK0N95tsDkHGW9RLECK4xGGIp6JCx
-         CVALDJ1AipWKm7BeQhOHwj+7tOxDg3L8zkS+MpCBgyUUEMlLyPwg0r1E1EyKse8Xmt/T
-         VVRrSRvhDqMO8Ho1pFKKJMqGLtNk8gg+EXQiH5upQBsj8hwAI0fL2FQONda/Mkapyo/7
-         k4HbnQcpLEqQzgqyKiWozd5BjIVcsBeRqfW7lBTlonjYSaBJfikQEvwIqoR5eCXF0N3j
-         UFug==
-X-Forwarded-Encrypted: i=1; AJvYcCWHQXw+C90A8icHrHqWz4zOa8xpvmIRcxGEw74jq7ZzDRCYAuSjCXbAz0KxdbWuTLwwRlUjjgFzwjzlCSfaEHVi@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyW6ENTLUvEAfSkNHcaeKMvkkc8uWBhAXLXrRumASOX7VaQpD/
-	6XfKb4jRwPd1MkvUGMXfL8qBtQamWsDecgnGYjDPkz1HjL6N9Xbc3NgpUxZmLHu8t0EgJSo66eq
-	y4ME88C5dNl4T//i+qWjUXwWPJ1ehzBQ=
-X-Gm-Gg: ASbGncvoMmT6HZxday8JXf6/47aFtcZA2co4aTBdc+C4X7DphcVeDpdnl6+c+qgWAB6
-	WYccNhzJSuvim1NI5EULPbJHE57q3b0LQ/0MfHyeazdgl3N3/5ru5y2K/FjIMoZqcAk6tgzRXYg
-	vvli98w2TfGhbiQZq8ZZQuQC5SdjfhRGJuZ5MAw3b2kHvyxpLfkh2Kah062nWOk5smtdTEqhmqq
-	ux1jgQ=
-X-Google-Smtp-Source: AGHT+IFCQESUgdKuGOqs444QSzygbhrbLJwY9iG/XD2Q5CtWib3hxKckGgR3Hyw/Y4VQLjfx/NuyfuaWMxWrok5dFkc=
-X-Received: by 2002:a05:6602:2b07:b0:881:7e3a:4a37 with SMTP id
- ca18e2360f4ac-8819f065f0bmr265326839f.6.1754452216814; Tue, 05 Aug 2025
- 20:50:16 -0700 (PDT)
+	Wed, 06 Aug 2025 04:51:19 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250806045102epoutp04192603621eaa893e8be5a4b6e31ceda4~ZFE-Ch1w-2466024660epoutp04U
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  6 Aug 2025 04:51:02 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250806045102epoutp04192603621eaa893e8be5a4b6e31ceda4~ZFE-Ch1w-2466024660epoutp04U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1754455862;
+	bh=YU3uFobEDt7UCHiGq89i23dmZccxqlh+VM2cnKCVKRQ=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=jr5wS6qoyXUUUyapJtuC/sEXHT6KHoIOpku1UzgGlPod23OVYzctfcMV1B/KX66iq
+	 8kHWfekH2qCnwX9GWez0Dkpv1RaeoNxUBjfzZDuEAbGltQzltfm3Xm7Vfy5QukAVvU
+	 SwKypBpZKDPD1xzsgIvQNSkrb8+xb0p6mwtPyECk=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250806045101epcas2p3f00ba8fa50537d7010600e037a49d7bc~ZFE_XFbdR2005420054epcas2p3-;
+	Wed,  6 Aug 2025 04:51:01 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.36.68]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4bxdCn40Vxz3hhT9; Wed,  6 Aug
+	2025 04:51:01 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250806045100epcas2p4f12e6b71c1d6e474e049a9c22f4c9e3d~ZFE9Uzwwh0063400634epcas2p4q;
+	Wed,  6 Aug 2025 04:51:00 +0000 (GMT)
+Received: from KORCO180836 (unknown [12.36.150.245]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250806045100epsmtip27d9e91b14160102a5feba58a6b8eb732~ZFE9Q6bIV0726907269epsmtip2G;
+	Wed,  6 Aug 2025 04:51:00 +0000 (GMT)
+From: <sw617.shin@samsung.com>
+To: "'Sam Protsenko'" <semen.protsenko@linaro.org>
+Cc: "'Guenter Roeck'" <linux@roeck-us.net>, <krzk@kernel.org>,
+	<alim.akhtar@samsung.com>, <wim@linux-watchdog.org>,
+	<khwan.seo@samsung.com>, <dongil01.park@samsung.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-watchdog@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <CAPLW+4mNejXUMW0VqZW8hieNUFmDqS_-qqE=p+bV4TnwM_TWgw@mail.gmail.com>
+Subject: RE: [PATCH v4 2/4] watchdog: s3c2410_wdt: Fix max_timeout being
+ calculated larger
+Date: Wed, 6 Aug 2025 13:51:00 +0900
+Message-ID: <01e001dc068d$b4b94b70$1e2be250$@samsung.com>
 MIME-Version: 1.0
-References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
- <20250804104722.601440-7-shengjiu.wang@nxp.com> <1932645.tdWV9SEqCh@steina-w>
-In-Reply-To: <1932645.tdWV9SEqCh@steina-w>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Wed, 6 Aug 2025 11:49:57 +0800
-X-Gm-Features: Ac12FXyh9zIEFgIR4jwpAfqlHLcCdIoWysUI9X5TL5LXhlIGHinLI0hUpNeMIog
-Message-ID: <CAA+D8AM7hEcyVaZF7MHN-jY_NOS+cdhrXGdTXeQ48-WV=bnLMA@mail.gmail.com>
-Subject: Re: [PATCH v3 6/6] arm64: dts: imx8mp: Add hdmi parallel audio
- interface node
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org, 
-	l.stach@pengutronix.de, perex@perex.cz, tiwai@suse.com, 
-	linux-sound@vger.kernel.org, Shengjiu Wang <shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQH0xghtQJzMk6eIf2JQ+3VnAplQzQKQWbtpAWsaNKYBwwrfwwEQ7YR8A5N0zr4BpLWR/AENAjt5APhqm1WzsyI8gA==
+Content-Language: ko
+X-CMS-MailID: 20250806045100epcas2p4f12e6b71c1d6e474e049a9c22f4c9e3d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,N
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250724081336epcas2p38e95932ddc5c702e05a6436f05582993
+References: <CGME20250724081336epcas2p38e95932ddc5c702e05a6436f05582993@epcas2p3.samsung.com>
+	<20250724080854.3866566-1-sw617.shin@samsung.com>
+	<20250724080854.3866566-3-sw617.shin@samsung.com>
+	<CAPLW+4nRh9DEnkhunG68xvGdaNJswC8fN4v4uBA1Aaao_5pxfw@mail.gmail.com>
+	<000a01dc05c0$9f0ab110$dd201330$@samsung.com>
+	<18adfcd0-e955-4c3f-a68a-6a2f75ebd24d@roeck-us.net>
+	<CAPLW+4kVMo68DAO0y_=m3k81Xeh4wYV9+KX3fg=5S7xwOh0O7Q@mail.gmail.com>
+	<008501dc05da$36362600$a2a27200$@samsung.com>
+	<CAPLW+4mNejXUMW0VqZW8hieNUFmDqS_-qqE=p+bV4TnwM_TWgw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250805_205017_850425_0CB09311 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20250805_215116_370814_7454F3F2 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,119 +104,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 5, 2025 at 3:10=E2=80=AFPM Alexander Stein
-<alexander.stein@ew.tq-group.com> wrote:
->
-> Am Montag, 4. August 2025, 12:47:22 CEST schrieb Shengjiu Wang:
-> > The HDMI TX Parallel Audio Interface (HTX_PAI) is a bridge between the
-> > Audio Subsystem to the HDMI TX Controller.
-> >
-> > Shrink register map size of hdmi_pvi to avoid overlapped hdmi_pai devic=
-e.
-> >
-> > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp-evk.dts |  4 +++
-> >  arch/arm64/boot/dts/freescale/imx8mp.dtsi    | 28 +++++++++++++++++++-
->
-> Please separate commits for SoC and board files. Thanks
+On Wednesday, August 6, 2025 at 7:53 AM Sam Protsenko <semen.protsenko=40li=
+naro.org> wrote:
 
-Ok.
+>=20
+> I don't mind, although it's quite easy to fix the code I suggested by
+> replacing this line:
+>=20
+>     u64 t_max =3D n_max / freq;
+>=20
+> with this one:
+>=20
+>     u64 t_max =3D div64_ul(n_max, freq);
+>=20
+> from <math64.h>, as Guenter suggested. But I'm totally fine with your
+> implementation as well.
 
-Best regards
-Shengjiu Wang
->
-> Best regards,
-> Alexander
->
-> >  2 files changed, 31 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/=
-boot/dts/freescale/imx8mp-evk.dts
-> > index c0cc5611048e..cc9351a5bd65 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
-> > @@ -442,6 +442,10 @@ &flexcan2 {
-> >       status =3D "disabled";/* can2 pin conflict with pdm */
-> >  };
-> >
-> > +&hdmi_pai {
-> > +     status =3D "okay";
-> > +};
-> > +
-> >  &hdmi_pvi {
-> >       status =3D "okay";
-> >  };
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boo=
-t/dts/freescale/imx8mp.dtsi
-> > index 841d155685ee..00d8474bd1b1 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > @@ -2066,7 +2066,7 @@ irqsteer_hdmi: interrupt-controller@32fc2000 {
-> >
-> >                       hdmi_pvi: display-bridge@32fc4000 {
-> >                               compatible =3D "fsl,imx8mp-hdmi-pvi";
-> > -                             reg =3D <0x32fc4000 0x1000>;
-> > +                             reg =3D <0x32fc4000 0x800>;
-> >                               interrupt-parent =3D <&irqsteer_hdmi>;
-> >                               interrupts =3D <12>;
-> >                               power-domains =3D <&hdmi_blk_ctrl IMX8MP_=
-HDMIBLK_PD_PVI>;
-> > @@ -2092,6 +2092,24 @@ pvi_to_hdmi_tx: endpoint {
-> >                               };
-> >                       };
-> >
-> > +                     hdmi_pai: audio-bridge@32fc4800 {
-> > +                             compatible =3D "fsl,imx8mp-hdmi-pai";
-> > +                             reg =3D <0x32fc4800 0x800>;
-> > +                             interrupt-parent =3D <&irqsteer_hdmi>;
-> > +                             interrupts =3D <14>;
-> > +                             clocks =3D <&clk IMX8MP_CLK_HDMI_APB>;
-> > +                             clock-names =3D "apb";
-> > +                             power-domains =3D <&hdmi_blk_ctrl IMX8MP_=
-HDMIBLK_PD_PAI>;
-> > +                             status =3D "disabled";
-> > +
-> > +                             port {
-> > +
-> > +                                     pai_to_hdmi_tx: endpoint {
-> > +                                             remote-endpoint =3D <&hdm=
-i_tx_from_pai>;
-> > +                                     };
-> > +                             };
-> > +                     };
-> > +
-> >                       lcdif3: display-controller@32fc6000 {
-> >                               compatible =3D "fsl,imx8mp-lcdif";
-> >                               reg =3D <0x32fc6000 0x1000>;
-> > @@ -2143,6 +2161,14 @@ port@1 {
-> >                                               reg =3D <1>;
-> >                                               /* Point endpoint to the =
-HDMI connector */
-> >                                       };
-> > +
-> > +                                     port@2 {
-> > +                                             reg =3D <2>;
-> > +
-> > +                                             hdmi_tx_from_pai: endpoin=
-t {
-> > +                                                     remote-endpoint =
-=3D <&pai_to_hdmi_tx>;
-> > +                                             };
-> > +                                     };
-> >                               };
-> >                       };
-> >
-> >
->
->
-> --
-> TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Ge=
-rmany
-> Amtsgericht M=C3=BCnchen, HRB 105018
-> Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan S=
-chneider
-> http://www.tq-group.com/
->
->
+Sam Protsenko and Guenter Roeck, thank you for your kind advice.
+As you mentioned, I will proceed with the following code for the next patch=
+ set.
+
+=40=40 -27,6 +27,7 =40=40
+ =23include <linux/mfd/syscon.h>
+ =23include <linux/regmap.h>
+ =23include <linux/delay.h>
++=23include <linux/math64.h>
+
+ =23define S3C2410_WTCON          0x00
+ =23define S3C2410_WTDAT          0x04
+=40=40 -410,9 +411,13 =40=40 static inline unsigned long s3c2410wdt_get_fre=
+q(struct s3c2410_wdt *wdt)
+ static inline unsigned int s3c2410wdt_max_timeout(struct s3c2410_wdt *wdt)
+ =7B
+        const unsigned long freq =3D s3c2410wdt_get_freq(wdt);
++       //(S3C2410_WTCON_PRESCALE_MAX + 1) * S3C2410_WTCON_MAXDIV =3D 0x800=
+0
++       u64 t_max =3D div64_ul((u64)S3C2410_WTCNT_MAXCNT * 0x8000, freq);
+
+-       return S3C2410_WTCNT_MAXCNT / (freq / (S3C2410_WTCON_PRESCALE_MAX +=
+ 1)
+-                                      / S3C2410_WTCON_MAXDIV);
++       if (t_max > UINT_MAX)
++               t_max =3D UINT_MAX;
++
++       return t_max;
+ =7D
+
 
