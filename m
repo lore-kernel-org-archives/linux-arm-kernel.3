@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E103C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B4AAC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zeiw/igg3VRkIFQpTb1DWvr2tgsyqZV4hPeCuzYTAzA=; b=VkwICRhG29i4QZL/BNBnBViGJj
-	wJnF10qZgO6wht4KvUXABpoWSNz/v6AJXb48cf9jMAbqwKYNmQ6IAXzfjJlVpM6/nJMJuCEPR0JOO
-	r+keuz/HwMSFc98gxLoSBNQnQ/sJZnpzvcRnWvajVT+5v5GoBQl3aV28OOOM7St4vPWvFV+lW+xgm
-	GIV6KHsMvQLF68jHdf3H9xRUgzXiQK8rcJdrkuOmhcpLWYpt7Q5nZVA+6vrD4+o8EXtTgTIUvFVp5
-	Dt5AVriIBmlugExvwHMIV89StEtk0cuajmjEwAuxsjPkmLjcJPDl08oQo8JbgViFlpggqIm9tOjEh
-	7eSZuTYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=g9PQ/sp6KKPyStekp1Uy2DsIXXCH8jL99vsXOTuF8n4=; b=txTfTJOY1a1orC
+	UcBoACXjjACRTQrnBT1QRc9W9ycHIBiVTd5/WSSU8+tTdF14G3hNoNgQhUpUtsKXRw2Zt5Da+c9Vj
+	uYZeIUIJ3Jxdr+pS+65bgAHGKHwb8wnLRYUV8M8JN7ywLnODuQts+/GanorvZb2GUy+L2JWzsmuC6
+	b2DnnYsUl5wt73Fmzw9Zk8CUPlKF6XFFF21d4yIzJOrRN6Uv4b6bZVdIrcXlyhQLQmGvcGWJbiHdJ
+	r31pZdzxqM1k3LSf5jvS89X3537Fi25oNZous1nwvtcgcgLdcgIr5Av8wd4OekT+310vvDM9FlR4n
+	UZrcESDYBvgnBrFZlgVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujivm-0000000G50m-1ZBr;
-	Wed, 06 Aug 2025 18:32:06 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1ujiyH-0000000G5IO-2hhO;
+	Wed, 06 Aug 2025 18:34:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujiYm-0000000G1lr-3joF
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 18:08:21 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e8ffb1c5f3cso163798276.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 11:08:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754503700; x=1755108500; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zeiw/igg3VRkIFQpTb1DWvr2tgsyqZV4hPeCuzYTAzA=;
-        b=JL1qlM5f+PPXpbQe4jY4J6zAd3SfvRLLrW0i38rvWrlKCjYMJrNPc+ldE+Rq9zWidx
-         XzOwdUc2tkN98K7qzlYRUlD+eIv72XbJzx/jrCZY4YJs8dUJbM6pTe+rs3Aio3X0Nagg
-         Yk8GtKhg2rBNlZk+g2Ecmsg/2qCF1zIbgForZ2y4Wb+QtULXHw7Z61uTK5R8CYcRPvVN
-         ZoLe/bQ2rOxHI7wFMiEir0YaOzSQKTVl2NaBGUrj2CzcWco1clr291GojdiDEclyTAh1
-         CkbOAPa2KCe+1V9jBZ61S4Xe9lqdqY+wZZehIkfrfzEmtSoVkuJj71az7n6ZLdYrQ9Va
-         OtJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754503700; x=1755108500;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zeiw/igg3VRkIFQpTb1DWvr2tgsyqZV4hPeCuzYTAzA=;
-        b=u6EmowG3F+7b8HBteh9ASHewa4tgIFKMvq0C4AhWYBH6I9REYW8L5FX1cuYWxpa/T7
-         FvY9vsRneweS+loqqqUJOeHZsOLWe9VXaMUzrm8q3MM0umVlk1Uc/MgX3tYR9JIR4Zq4
-         o09XcpPlZUsLFEoxL5l7Iohk0C9VzWJwnLXle883mGw14gTd91pXztemPbzQu805x6uc
-         O0uEDbH0u95CL2nNK69JmxtwdweFVdjySQOfN1DhLcmcUselvABUBpl7hzdYoGC94lSJ
-         Ki9HFFjnSjHSWcZFvp5QtPZfjHVT6DqD9VrmOqwZjxKiFrgIeu0WGsLU1iroDfSHxB/h
-         HcNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUMDkcvENYsNStWuoIFJmVdC+Z9dpD7di6GOadsDWBhW4qE6/Ac7mpo+v8d9bc0lAoEXwX/UO0DiUJKmdwM6MN9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8r2NnK5Nd3+zls++44HEUqxH0ibkGWZv6zIgp2/hfHR9MeGxU
-	FuXyiBijvuI2/nzYJUUs/jsYpAShxXVGnsaMO28pncLyDBmaqJcHVX9BbUVwHagbIc9IbUCD4zY
-	4pnL5L+Q4QHGLaS9mDFRdC/9oLpCCnpUjnW7Mag1jxw==
-X-Gm-Gg: ASbGncsUcJwoWR9LMEICYW7XuZqqNcY03WlBlapsNVK3KeoktDCNZRaKQ0o20/ht7jQ
-	FL4l6cxxCEVI0tfZ972+C2t/XPYSyaetaujwqu4l6DXb8WYT18t7vwr0PW9OxpFKskOq0tCKwXZ
-	k3VrkSqhjORzCzd/B8NZCvqZb0q7IDHt5kw4ApBun/l1TPBqP/Gj4gqYX77KMY65PnDIFRPVqME
-	ggqFA==
-X-Google-Smtp-Source: AGHT+IFljVcbKKiD4Y8odlIXjBBnYAePfAKr/sOc5LqjcBRdGaAhcUOQ5sCog6SPAwBGoi0fdvXwkpzJhgdnQl3q8ms=
-X-Received: by 2002:a05:6902:4310:b0:e85:ea52:8b with SMTP id
- 3f1490d57ef6-e902abde969mr3799149276.22.1754503699782; Wed, 06 Aug 2025
- 11:08:19 -0700 (PDT)
+	id 1ujig1-0000000G2ZR-0K8g;
+	Wed, 06 Aug 2025 18:15:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=g9PQ/sp6KKPyStekp1Uy2DsIXXCH8jL99vsXOTuF8n4=; b=kMdzp+S4TvoKx2ptalIODKhCdt
+	Vt//HBXqlWT46PkDSj6z+tLX6Tde54SENnQWhUvOKCgEoNY6vuwNjAP4VpdHj1YXvSUP3bIE7Yqia
+	mHAI247nNSMqN0+NKXd7F3vf1tUskRU2bA+68WanELpTrm8BD457HJY8SapqLYeHM34DN6azLSmDa
+	bZtbLEOA2M6TKTh5r3A63wD4KmmVopb5RC+v6of3YdqbS/smQMehmsUKqQylA0354Z8oPicCjlvbN
+	rd1JnpPWmyzQvDh3yMF823vdCKtXxPX8mXgfdmx5VcOk9fCapXXigZ+xLHkwxtA2vT7eZYIDVl6xK
+	TmRZ2gNg==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujify-0000000EMnv-0PPP;
+	Wed, 06 Aug 2025 18:15:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB27C440F7;
+	Wed,  6 Aug 2025 18:15:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9517DC4CEE7;
+	Wed,  6 Aug 2025 18:15:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754504141;
+	bh=YenbEi95ht30tqGvYsUcW/iuqIr6ntv4AaPCVyIWjKk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Kh1E9NLODFAYRkV2jJl5UxGQfHDp/VYvJz9snIu0KlC0BLt45MtiIGlWUlg8Qh62u
+	 6v3Ytq11UOaCtwfAYSaWFqGSlrL54FeA8j2dPXj95qsvG72tuD1RdmR6PUI0XPLdcz
+	 asbLfqDGi1KMwYVQf4lzcGSH18It7/7cqgn9XFkSwbTMtUXpL7Gt8nxItWVsfE/u7R
+	 zI5TskldXNQ02Jlin6O7hiv1H2umRdvwTYjzLTQ9plWAsLTGunj3/ALSlp0XLY1UgR
+	 joRyNNz3NntvTIXKqzZevfDiMhwmLD3t1SdydA7AAnU0eZ6fpFpNRD0foYPuLIFn3c
+	 Rzf/Upj23IbKw==
+Date: Wed, 6 Aug 2025 13:15:40 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
+Message-ID: <20250806181540.GA8692@bhelgaas>
 MIME-Version: 1.0
-References: <CGME20250806070030epcas2p3f2b0c36b6c492629e50e76be469b2db3@epcas2p3.samsung.com>
- <20250806065514.3688485-1-sw617.shin@samsung.com> <20250806065514.3688485-5-sw617.shin@samsung.com>
-In-Reply-To: <20250806065514.3688485-5-sw617.shin@samsung.com>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Wed, 6 Aug 2025 13:08:08 -0500
-X-Gm-Features: Ac12FXwS1WG6f5yuQagZd9mQDHAbqfGJ1tb9fpDSgy50MD5AWOvIXyjEOgbaPAg
-Message-ID: <CAPLW+4m2S5jAJ4xas_r69AUHFENOrr=4-ZYUgtrqQ5aJgetDng@mail.gmail.com>
-Subject: Re: [PATCH v5 4/5] watchdog: s3c2410_wdt: exynosautov920: Enable QUIRK_HAS_32BIT_CNT
-To: Sangwook Shin <sw617.shin@samsung.com>
-Cc: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org, 
-	linux@roeck-us.net, dongil01.park@samsung.com, khwan.seo@samsung.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250613220843.698227-3-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_110820_927801_A70CE9F3 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250806_191546_432720_4A3CD9A1 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,46 +94,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 6, 2025 at 2:00=E2=80=AFAM Sangwook Shin <sw617.shin@samsung.co=
-m> wrote:
->
-> Enable QUIRK_HAS_32BIT_CNT to ExynosAutov920 SoC which has 32-bit WTCNT.
->
-> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
-> ---
+On Fri, Jun 13, 2025 at 06:08:43PM -0400, Jim Quinlan wrote:
+> Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
+> by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
+> 7216 and its descendants -- have new HW that identifies error details.
 
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+What's the long term plan for this?  This abort is a huge problem that
+we're seeing across arm64 platforms.  Forcing a panic and reboot for
+every uncorrectable error is pretty hard to deal with.
 
->  drivers/watchdog/s3c2410_wdt.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wd=
-t.c
-> index 673ab6768688..541870b4d01a 100644
-> --- a/drivers/watchdog/s3c2410_wdt.c
-> +++ b/drivers/watchdog/s3c2410_wdt.c
-> @@ -357,7 +357,7 @@ static const struct s3c2410_wdt_variant drv_data_exyn=
-osautov920_cl0 =3D {
->         .cnt_en_bit =3D 8,
->         .quirks =3D QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
->                   QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
-> -                 QUIRK_HAS_DBGACK_BIT,
-> +                 QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_CNT,
->  };
->
->  static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 =3D =
-{
-> @@ -370,7 +370,7 @@ static const struct s3c2410_wdt_variant drv_data_exyn=
-osautov920_cl1 =3D {
->         .cnt_en_bit =3D 8,
->         .quirks =3D QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
->                   QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
-> -                 QUIRK_HAS_DBGACK_BIT,
-> +                 QUIRK_HAS_DBGACK_BIT | QUIRK_HAS_32BIT_CNT,
->  };
->
->  static const struct of_device_id s3c2410_wdt_match[] =3D {
-> --
-> 2.25.1
->
+Is there a plan to someday recover from these aborts?  Or change the
+hardware so it can at least be configured to return ~0 data after
+logging the error in the hardware registers?
+
+> This simple handler determines if the PCIe controller was the cause of the
+> abort and if so, prints out diagnostic info.  Unfortunately, an abort still
+> occurs.
+> 
+> Care is taken to read the error registers only when the PCIe bridge is
+> active and the PCIe registers are acceptable.  Otherwise, a "die" event
+> caused by something other than the PCIe could cause an abort if the PCIe
+> "die" handler tried to access registers when the bridge is off.
+
+Checking whether the bridge is active is a "mostly-works" situation
+since it's always racy.
+
+> Example error output:
+>   brcm-pcie 8b20000.pcie: Error: Mem Acc: 32bit, Read, @0x38000000
+>   brcm-pcie 8b20000.pcie:  Type: TO=0 Abt=0 UnspReq=1 AccDsble=0 BadAddr=0
 
