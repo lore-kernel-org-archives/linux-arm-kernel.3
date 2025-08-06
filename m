@@ -4,118 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0987FC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 13:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26D7C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 13:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UsBIchovt9EWpZnlUinnSrJBmdoMS/ZpDSRkPsV+mc=; b=XSjI5XGEUZY3IJUnQBiQUVcfiO
-	QwciiJnJsmjSxQa3RJ7tTxowl7y3UBSNXcJ5ZeFABY70Qgux4ZZRGkSk7qMvBbcjpsbKHjWk0Fexn
-	Sj0bO3zBggom8yn3JwsIyrVj4N7mQZMU4+ZEG/vULcwMZX5ZdG+GgXbqFNr39Bvf5vHtbuaUV6Wr8
-	/Mjr5N50hqwDUvq6hyTgdyjuQMzrr3rj1G/6nF1rtSW+IenhP1xFbFTvSNk0EZwpurUU2pQzEw5Ep
-	JwUQPliyxa/DhcIDeSekJpUoMeBE0b8/772rCheEypMlD726SsQ4wj/VBNhmUT0/iPI410KOgmAeE
-	3T5GZ/3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t8FbjT4GSlSw8W6nievZxeSNjRWFdwLvZQgZyjz2Zzo=; b=mgaDdrkmDem6jIQw+871hgOS98
+	sosz5Oho2lJ2ZZ3FhxXoIzt3UN9/F7G86n49pxhRihAOSkwUjb93XBB4dMhESKRKCFPejNm7sxNb/
+	CgFOv/uWeG0ozi+MG7eQ9dH2GZPyUYdcMbhHvb4SxPqwOQz2mOfPgBa62QFa7RnMpzyIvpFhxVdXx
+	D+GlOMTY/cL2neokVzJtqQkMJwY0OB9XLIGPvFF6YVAOzYyu6TgIoNrmNZ1Sopn7DMyh5P4D7IkL/
+	hmLWDV6jvxkTzqAeZ5OuCE7fxlCrJBjpmxedeENMKlMk6xFq1EauM1qSC19wBNczYiwGtwKFdxCOg
+	BC/HEuxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujeag-0000000FLkj-2r3b;
-	Wed, 06 Aug 2025 13:54:03 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1ujedC-0000000FMHx-3kqa;
+	Wed, 06 Aug 2025 13:56:38 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujePC-0000000FKFp-1QKK
+	id 1ujeSn-0000000FKcC-1ctI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 13:42:11 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5766tEDi019425;
-	Wed, 6 Aug 2025 13:41:33 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=5UsBIc
-	hovt9EWpZnlUinnSrJBmdoMS/ZpDSRkPsV+mc=; b=jzhBVf2tz7dmcXmdxLW//p
-	tQ4Z1/yiGokejR4HzByaiH/p14eIsA2q2NYwTpi+hmAvtwcP1u4nZAg8g5RrhCQa
-	1CpKICj+5SWrf5gXZNio6i3FCIfbGn9nKjFTfd+pDdOk6kabsSjZVnhYnoN+aLtu
-	JJwuJchu6LdopLu3GjgmxuK+hix8VeHFaREs0FxssHvsoyBTvbaeNgG4EARq8s02
-	viNn779538X6SSDKPgXx4bEZEfyhHI5nW1iKKKoabckjPYwYw3yChiSOfcQgNHfQ
-	zpJKcxeN1sFa9MXJzUYAuJOabmx8g7dDgMWfI2uWECmVg+/aNNXCDCQpuU1+jp1Q
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 48c26tss7m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 06 Aug 2025 13:41:33 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 576CUqlQ022699;
-	Wed, 6 Aug 2025 13:41:31 GMT
-Received: from smtprelay07.wdc07v.mail.ibm.com ([172.16.1.74])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 48bpwqbthk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 06 Aug 2025 13:41:31 +0000
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay07.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 576DfVsB20447790
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 6 Aug 2025 13:41:31 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2EDA85805E;
-	Wed,  6 Aug 2025 13:41:31 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D323558059;
-	Wed,  6 Aug 2025 13:41:30 +0000 (GMT)
-Received: from [9.61.84.78] (unknown [9.61.84.78])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Wed,  6 Aug 2025 13:41:30 +0000 (GMT)
-Message-ID: <5c46082a-c31b-4d12-a1d6-f315c8ce7aaa@linux.ibm.com>
-Date: Wed, 6 Aug 2025 08:41:30 -0500
+	Wed, 06 Aug 2025 13:45:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754487954; x=1786023954;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=W9p7lNlR9UDJHq46lD4UdctIx+KlNLY66BAzzSRyZyk=;
+  b=Z3vKgT379rjgBfzfHMvbP3ka1gBHWf0j5nhWFYss6a/EQlgrLr5Wt38A
+   0K+jROMKApgBMitzneSQ/hukDxFWi+LbMSaWebxge/XiPETBueh4bThkI
+   xoylnjUtPOP5P61La9+1EcoWACjNrju1HDlmv3DFq07DYuLnLfNmbHM0Y
+   VUsY85ZNm72QPjdw1l81SoElvcA18c9Ch9qkB/xJixmMI54F63ZjKyjlz
+   nglLdcH2WEc76WA33FWfmfopdQh9CqYc2XT6mbDT9mMpNtiPC6j1OqAEH
+   Qofva434r3nlZh8toNv7ELex6KiAfLGBdsGyar2s/AZTesVo+Z+rYFXZc
+   A==;
+X-CSE-ConnectionGUID: VuSE1HUnS3KjwT75J9wlCQ==
+X-CSE-MsgGUID: euseIvPCRDmhBu5ZhFxavw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="74264609"
+X-IronPort-AV: E=Sophos;i="6.17,268,1747724400"; 
+   d="scan'208";a="74264609"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2025 06:45:53 -0700
+X-CSE-ConnectionGUID: pGuvjIo4SRy6fG1YYkdKKw==
+X-CSE-MsgGUID: bC/BIyiKTGusgbhlEwx5lw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,268,1747724400"; 
+   d="scan'208";a="164791072"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 06 Aug 2025 06:45:47 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ujeSc-0001ji-0N;
+	Wed, 06 Aug 2025 13:45:43 +0000
+Date: Wed, 6 Aug 2025 21:45:27 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lifeng Zheng <zhenglifeng1@huawei.com>, catalin.marinas@arm.com,
+	will@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
+	beata.michalska@arm.com, sudeep.holla@arm.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
+	yangyicong@hisilicon.com, zhanjie9@hisilicon.com,
+	lihuisong@huawei.com, yubowen8@huawei.com, linhongye@h-partners.com,
+	zhenglifeng1@huawei.com
+Subject: Re: [PATCH v3 3/3] arm64: topology: Setup AMU FIE for online CPUs
+ only
+Message-ID: <202508062127.qvRnTPvH-lkp@intel.com>
+References: <20250805093330.3715444-4-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] irqchip/aspeed-scu-ic: Add support for AST2700 SCU
- interrupt controllers
-To: Ryan Chen <ryan_chen@aspeedtech.com>, Rob Herring <robh@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250804053445.1482749-1-ryan_chen@aspeedtech.com>
- <20250804053445.1482749-3-ryan_chen@aspeedtech.com>
- <20250805153908.GA1807801-robh@kernel.org>
- <OS8PR06MB75414ECA0290018D5D113B62F22DA@OS8PR06MB7541.apcprd06.prod.outlook.com>
-Content-Language: en-US
-From: Eddie James <eajames@linux.ibm.com>
-In-Reply-To: <OS8PR06MB75414ECA0290018D5D113B62F22DA@OS8PR06MB7541.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 03D1pbTw5JGzcyddECfokn0F8WPMrqqq
-X-Authority-Analysis: v=2.4 cv=F/xXdrhN c=1 sm=1 tr=0 ts=68935b8d cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=V2NxCb60AAAA:8 a=VnNF1IyMAAAA:8
- a=nVsl0sAMtunpyIQNhTUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=3L6qF29SlnrayQqPM2jZ:22
-X-Proofpoint-GUID: 03D1pbTw5JGzcyddECfokn0F8WPMrqqq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDA4NSBTYWx0ZWRfXz8LNxi6u9BlM
- fB+NgT8RZjvtebALNZ94xA6LJKBfnjWS/kVpYubo2dT7ak9l2QDVI0Xgtahnv7OwcRQ6S0DKoNj
- rl2NId7uCA4xBW9phCE2EVFOygPyWl0WQFzWlJbh85FaDiem46UElmOWsoP+aJiP6Fp5lfTOj2P
- vWATmvoJ/2iPsJ6cN4MnNqOv1wzhdOMNb8sN2yqrYL/4TBh8iW1n1+dcgR2WH5ArowDalu8XtX4
- Q4HI4z81AdJfIdPDQLsv8yVMmNm7t4jN6Tzrs4Dsn41F0I1UGOESNJzdRwR0ijFKQOofJVZlBOb
- H6efciLeE2l/tzedZCj6sGU+cDhAbDfuxhOhQzZuSKL1sQ+Vavvmfr/UmgXmVaeih8qxCr/+hpe
- ON2jMI9vK76TPUWHzW1IByGCkr0o+/7gY49X4O4tcPyOHBtQuIUJEH8QGqpxedD9cRlzoUNo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-06_03,2025-08-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- mlxscore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
- clxscore=1011 spamscore=0 bulkscore=0 adultscore=0 mlxlogscore=999
- malwarescore=0 phishscore=0 suspectscore=0 classifier=spam authscore=0
- authtc=n/a authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2507300000 definitions=main-2508060085
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250805093330.3715444-4-zhenglifeng1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_064210_384699_FAA45496 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250806_064553_497513_A25E8734 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,100 +95,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Lifeng,
 
-On 8/6/25 2:14 AM, Ryan Chen wrote:
->> Subject: Re: [PATCH 2/2] irqchip/aspeed-scu-ic: Add support for AST2700 SCU
->> interrupt controllers
->>
->> On Mon, Aug 04, 2025 at 01:34:45PM +0800, Ryan Chen wrote:
->>> The AST2700 SoC follows the multi-instance interrupt controller
->>> architecture introduced in the AST2600, where each SCU interrupt group
->>> (IC0–IC3) is treated as an independent interrupt domain.
->>>
->>> Unlike the AST2600, which uses a combined register for interrupt
->>> enable and status bits, the AST2700 separates these into distinct
->>> registers: one for interrupt enable (IER) and another for interrupt
->>> status (ISR). This architectural change requires explicit handling of split
->> registers for interrupt control.
->>> - Register definitions and configuration for AST2700 SCU IC instances
->>>    (compatible: aspeed,ast2700-scu-ic0/1/2/3)
->>> - Initialization logic for handling split IER/ISR registers
->>> - Chained IRQ handling and mask/unmask logic
->>> - Table-driven registration using IRQCHIP_DECLARE per compatible
->>>
->>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
->>> ---
->>>   drivers/irqchip/irq-aspeed-scu-ic.c | 240
->>> ++++++++++++++++++++++------
->>>   1 file changed, 195 insertions(+), 45 deletions(-)
->>>
->>> diff --git a/drivers/irqchip/irq-aspeed-scu-ic.c
->>> b/drivers/irqchip/irq-aspeed-scu-ic.c
->>> index 1c7045467c48..b6f3ba269c5b 100644
->>> --- a/drivers/irqchip/irq-aspeed-scu-ic.c
->>> +++ b/drivers/irqchip/irq-aspeed-scu-ic.c
->>> @@ -1,6 +1,6 @@
->>>   // SPDX-License-Identifier: GPL-2.0-or-later
->>>   /*
->>> - * Aspeed AST24XX, AST25XX, and AST26XX SCU Interrupt Controller
->>> + * Aspeed AST24XX, AST25XX, AST26XX, AST27XX SCU Interrupt Controller
->>>    * Copyright 2019 IBM Corporation
->>>    *
->>>    * Eddie James <eajames@linux.ibm.com> @@ -34,11 +34,42 @@
->>>   	GENMASK(5, ASPEED_AST2600_SCU_IC1_SHIFT)
->>>   #define ASPEED_AST2600_SCU_IC1_NUM_IRQS	2
->>>
->>> +#define ASPEED_AST2700_SCU_IC0_EN_REG	0x1d0
->>> +#define ASPEED_AST2700_SCU_IC0_STS_REG	0x1d4
->>> +#define ASPEED_AST2700_SCU_IC0_SHIFT	0
->>> +#define ASPEED_AST2700_SCU_IC0_ENABLE	\
->>> +	GENMASK(3, ASPEED_AST2700_SCU_IC0_SHIFT)
->>> +#define ASPEED_AST2700_SCU_IC0_NUM_IRQS	4
->>> +
->>> +#define ASPEED_AST2700_SCU_IC1_EN_REG	0x1e0
->>> +#define ASPEED_AST2700_SCU_IC1_STS_REG	0x1e4
->>> +#define ASPEED_AST2700_SCU_IC1_SHIFT	0
->>> +#define ASPEED_AST2700_SCU_IC1_ENABLE	\
->>> +	GENMASK(3, ASPEED_AST2700_SCU_IC1_SHIFT)
->>> +#define ASPEED_AST2700_SCU_IC1_NUM_IRQS	4
->>> +
->>> +#define ASPEED_AST2700_SCU_IC2_EN_REG	0x104
->>> +#define ASPEED_AST2700_SCU_IC2_STS_REG	0x100
->>> +#define ASPEED_AST2700_SCU_IC2_SHIFT	0
->>> +#define ASPEED_AST2700_SCU_IC2_ENABLE	\
->>> +	GENMASK(3, ASPEED_AST2700_SCU_IC2_SHIFT)
->>> +#define ASPEED_AST2700_SCU_IC2_NUM_IRQS	4
->>> +
->>> +#define ASPEED_AST2700_SCU_IC3_EN_REG	0x10c
->>> +#define ASPEED_AST2700_SCU_IC3_STS_REG	0x108
->>> +#define ASPEED_AST2700_SCU_IC3_SHIFT	0
->>> +#define ASPEED_AST2700_SCU_IC3_ENABLE	\
->>> +	GENMASK(1, ASPEED_AST2700_SCU_IC3_SHIFT)
->>> +#define ASPEED_AST2700_SCU_IC3_NUM_IRQS	2
->>> +
->> The reason for ic0/ic1 compatibles before was the enable field was different.
->> Now it's at least at the same shift. Do you really need a different value for IC3?
->>
-> OK, I can remove this define.
->
->> The register addresses should come from "reg". I don't understand why they
->> are hardcoded in the driver.
-> The original code register is come from parent. scu_ic->scu = syscon_node_to_regmap(node->parent);
-> I keep the original code logic, and add AST2700.
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on arm64/for-next/core]
+[also build test ERROR on rafael-pm/linux-next rafael-pm/bleeding-edge arm/for-next arm/fixes kvmarm/next soc/for-next linus/master v6.16 next-20250806]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Lifeng-Zheng/arm64-topology-Set-scale-freq-source-only-for-the-CPUs-that-have-not-been-set-before/20250806-101537
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20250805093330.3715444-4-zhenglifeng1%40huawei.com
+patch subject: [PATCH v3 3/3] arm64: topology: Setup AMU FIE for online CPUs only
+config: arm64-randconfig-002-20250806 (https://download.01.org/0day-ci/archive/20250806/202508062127.qvRnTPvH-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250806/202508062127.qvRnTPvH-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508062127.qvRnTPvH-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/arm64/kernel/topology.c:409:34: error: call to undeclared function 'cpufreq_cpu_get_raw_no_check'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     409 |         struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
+         |                                         ^
+   arch/arm64/kernel/topology.c:409:34: note: did you mean 'cpufreq_cpu_get_raw'?
+   include/linux/cpufreq.h:212:38: note: 'cpufreq_cpu_get_raw' declared here
+     212 | static inline struct cpufreq_policy *cpufreq_cpu_get_raw(unsigned int cpu)
+         |                                      ^
+>> arch/arm64/kernel/topology.c:409:25: error: incompatible integer to pointer conversion initializing 'struct cpufreq_policy *' with an expression of type 'int' [-Wint-conversion]
+     409 |         struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
+         |                                ^        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   2 errors generated.
 
 
-Hi Ryan,
+vim +/cpufreq_cpu_get_raw_no_check +409 arch/arm64/kernel/topology.c
 
+   406	
+   407	static int cpuhp_topology_online(unsigned int cpu)
+   408	{
+ > 409		struct cpufreq_policy *policy = cpufreq_cpu_get_raw_no_check(cpu);
+   410	
+   411		/*
+   412		 * If the online CPUs are not all AMU FIE CPUs or the new one is already
+   413		 * an AMU FIE one, no need to set it.
+   414		 */
+   415		if (!policy || !cpumask_available(amu_fie_cpus) ||
+   416		    !cpumask_subset(policy->cpus, amu_fie_cpus) ||
+   417		    cpumask_test_cpu(cpu, amu_fie_cpus))
+   418			return 0;
+   419	
+   420		/*
+   421		 * If the new online CPU cannot pass this check, all the CPUs related to
+   422		 * the same policy should be clear from amu_fie_cpus mask, otherwise they
+   423		 * may use different source of the freq scale.
+   424		 */
+   425		if (!freq_counters_valid(cpu)) {
+   426			topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
+   427							 policy->related_cpus);
+   428			cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
+   429			return 0;
+   430		}
+   431	
+   432		cpumask_set_cpu(cpu, amu_fie_cpus);
+   433	
+   434		topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
+   435	
+   436		pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
+   437	
+   438		return 0;
+   439	}
+   440	
 
-How much is common with 2500/2600? I wonder if it would be easier to 
-just create a new driver only for AST2700, instead of all in the same 
-file/driver?
-
-
-Thanks,
-
-Eddie
-
-
->> Rob
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
