@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31A8C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 15:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A30BC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 15:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=av1dZ903Qe5cH7xNjzzbX6LUsXwx6HoGx9FOcTx68sE=; b=wHsBaIV5ManqojnZi5RmULiJZ4
-	LL6SMcQMjazeHdhQQFUvmAB5jSY1b6ySQsoi2qCDWhnkFHNN+KQZePQZre5jTrwEKeFC+fzLhrJPA
-	GGKDLhLKgiG5U087r6KqhVlI9FX/BcgPofgPHTBLfoo3skkwP7k2/ciPiFQXJkGGBKuEf4d66tphq
-	PWmZ76bHfBh4+P5kAIVNd9LU8BQ95M/cw1E65q0Foa2/FJwVQJII6fqzRcfTlUwlL7DMmeLZalknY
-	5ANSlK7Qw5goBLSyqTqiGBWymEhuyAn1O7UI3mMsghBND3c3Yj04sJifw9WeVGL3EFiZOgTQz/2yN
-	fK/lMkkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VGM4i/YY8L3GxVbjbzZ+E1wPLPAJDd6KHMtwpJhsXpg=; b=cWGAt/nDs8RWFY+QqKja/30kVP
+	glZP3k/C7JZE7ETVe4Mw7KDUffD0COE7JFlRQtoTY61txaeM8PLCtzDh5mhIgVXxdUSiOdRGFghjX
+	4OIwjeRlwa5iXrDQEK3AtyibzgqkXviVbgC56f0oaetXMh/e8rBhUiJmuaaOlarESWS2IrKymzQWu
+	1k5kRcgV4C3vlBXD1E4itxcIqAFMrpwmtjt7z2qcth1V1l13t63qpyQpoygsO+zJIi/dSU/IXirg7
+	dp7qE8G7ug604N477ufbuar90AYkGbZ3fUUmf4lAmbgyWED89vLztmXVtK+NxwjZaxCSE5Ug7LcjB
+	pa5D925Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujgN0-0000000Ff0Z-1gAR;
-	Wed, 06 Aug 2025 15:48:02 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1ujgPW-0000000FfV5-0cKR;
+	Wed, 06 Aug 2025 15:50:38 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujg7L-0000000FcDN-2Cka
+	id 1ujg9l-0000000FcWj-1Izx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 15:31:53 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4bxvKr1Stxz6GDGT;
-	Wed,  6 Aug 2025 23:27:12 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id ACBF314037D;
-	Wed,  6 Aug 2025 23:31:45 +0800 (CST)
-Received: from localhost (10.81.207.60) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Wed, 6 Aug
- 2025 17:31:44 +0200
-Date: Wed, 6 Aug 2025 16:31:41 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Varshini Rajendran <varshini.rajendran@microchip.com>
-CC: <eugen.hristev@linaro.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
-	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<srini@kernel.org>, <linux-iio@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 09/15] iio: adc: at91-sama5d2_adc: adapt the driver for
- sama7d65
-Message-ID: <20250806163141.00005d83@huawei.com>
-In-Reply-To: <20250804100219.63325-10-varshini.rajendran@microchip.com>
-References: <20250804100219.63325-1-varshini.rajendran@microchip.com>
-	<20250804100219.63325-10-varshini.rajendran@microchip.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 06 Aug 2025 15:34:22 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 576FTZjq001991;
+	Wed, 6 Aug 2025 17:34:12 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=VGM4i/YY8L3GxVbjbzZ+E1
+	wPLPAJDd6KHMtwpJhsXpg=; b=skleuEToU7r5Casj+OZTYun99QOB8DFNTFQ4gF
+	yLZwcardz6CLAhXNpoFWCTjttw94meQyIvM0uUQQLkFzq0RLYX7Eh2QldUct1v1U
+	LH5M7mMW7AUO2ceaRvyXOTuQmZsPChxoKmryoh5QA1okx2yKksGkG2Tx3oDVJItv
+	SBxhNnvMiMKvUhecO0siRRIm4A9jcFl6+EGhd5Hdy8g+ufpHewostoxOEaaimwT9
+	EDCVS3EApwDVWtrv3Sr7PwcF7J/RHT9MApWwNcl8QPilLpumde8stW2lxMSKsP5L
+	apKUvkID04kAmGSIijAdsB47yYTqP6d8B447BtSxoVP8defg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48bpx8c1b1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 06 Aug 2025 17:34:12 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 551D240053;
+	Wed,  6 Aug 2025 17:33:13 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 1A45D7385C3;
+	Wed,  6 Aug 2025 17:32:43 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 6 Aug
+ 2025 17:32:42 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Wed, 6 Aug 2025 17:32:42 +0200
+Subject: [PATCH] memory: stm32_omm: Fix req2ack update test
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.81.207.60]
-X-ClientProxiedBy: lhrpeml500001.china.huawei.com (7.191.163.213) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Message-ID: <20250806-upstream_omm_fix_req2ack_test_condition-v1-1-4879a1d7f794@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAJl1k2gC/x2N0QrCMAwAf2Xk2UJX0RV/RSTUNtMgbWfSiTD27
+ xYfD467DZSESeEybCD0YeVaOoyHAeIzlAcZTp3BWXey3p7NumgTChlrzjjzF4XeLsQXNtKGsZb
+ ErTfMNJGf7zaNx+Sh1xahbv9P19u+/wBG27kLeQAAAA==
+X-Change-ID: 20250806-upstream_omm_fix_req2ack_test_condition-77e8fb0d13d8
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christophe Kerello <christophe.kerello@foss.st.com>
+CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        <linux-kernel@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <stable@vger.kernel.org>,
+        Patrice
+ Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-06_04,2025-08-06_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_083151_852605_37DCA3A2 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20250806_083421_828180_86B42FC2 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +99,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 Aug 2025 15:32:13 +0530
-Varshini Rajendran <varshini.rajendran@microchip.com> wrote:
+Fix test which allows to compute req2ack value.
 
-> Add support to sama7d65 ADC. The differences are highlighted with the
-> compatible. The init and parsing of the temperature sensor and
-> calibration indexes are the main differences.
-> 
-> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-...
+Cc: stable@vger.kernel.org
+Fixes: 8181d061dcff ("memory: Add STM32 Octo Memory Manager driver")
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+---
+ drivers/memory/stm32_omm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
->  static int at91_adc_chan_xlate(struct iio_dev *indio_dev, int chan)
->  {
->  	int i;
-> @@ -2319,6 +2360,56 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
->  	return ret;
->  }
->  
-> +static int at91_sama7d65_adc_temp_sensor_init(struct at91_adc_state *st,
-> +					      struct device *dev)
-> +{
-> +	struct at91_adc_temp_sensor_clb *clb = &st->soc_info.temp_sensor_clb;
-> +	struct nvmem_cell *temp_calib;
-> +	u32 *buf = NULL;
+diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
+index 79ceb1635698f6bc8bd4a39fdeaced1ec318e1f6..9efc56a85b5ecca49eb6dfc0ef83880f89591cd1 100644
+--- a/drivers/memory/stm32_omm.c
++++ b/drivers/memory/stm32_omm.c
+@@ -247,7 +247,7 @@ static int stm32_omm_configure(struct device *dev)
+ 		if (mux & CR_MUXEN) {
+ 			ret = of_property_read_u32(dev->of_node, "st,omm-req2ack-ns",
+ 						   &req2ack);
+-			if (!ret && !req2ack) {
++			if (!ret && req2ack) {
+ 				req2ack = DIV_ROUND_UP(req2ack, NSEC_PER_SEC / clk_rate_max) - 1;
+ 
+ 				if (req2ack > 256)
 
-As per earlier comment and I see Andy raised it as well. __free()
-magic dust is useful here.
+---
+base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+change-id: 20250806-upstream_omm_fix_req2ack_test_condition-77e8fb0d13d8
 
-> +	size_t len;
-> +	int ret = 0;
-> +
-> +	if (!st->soc_info.platform->temp_sensor)
-> +		return 0;
-> +
-> +	/* Get the calibration data from NVMEM. */
-> +	temp_calib = devm_nvmem_cell_get(dev, "temperature_calib");
-> +	if (IS_ERR(temp_calib)) {
-> +		ret = PTR_ERR(temp_calib);
-> +		if (ret != -ENOENT)
-> +			dev_err(dev, "Failed to get temperature_calib cell!\n");
-> +		return ret;
-> +	}
-> +
-> +	buf = nvmem_cell_read(temp_calib, &len);
-> +	if (IS_ERR(buf)) {
-> +		dev_err(dev, "Failed to read calibration data!\n");
-> +		return PTR_ERR(buf);
-> +	}
-> +
-> +	if (len < AT91_SAMA7D65_ADC_TS_CLB_IDX_MAX * sizeof(u32) ||
-> +	    buf[0] != AT91_TEMP_CALIB_TAG) {
-> +		dev_err(dev, "Invalid calibration data!\n");
-> +		ret = -EINVAL;
-> +		goto free_buf;
-> +	}
-> +
-> +	/* Store calibration data for later use. */
-> +	clb->p1 = buf[AT91_SAMA7D65_ADC_TS_CLB_IDX_P1];
-> +	clb->p4 = buf[AT91_SAMA7D65_ADC_TS_CLB_IDX_P4];
-> +	clb->p6 = buf[AT91_SAMA7D65_ADC_TS_CLB_IDX_P6];
+Best regards,
+-- 
+Patrice Chotard <patrice.chotard@foss.st.com>
 
-only these indexes and the MAX check above make this different from
-the existing function.  Maybe we could just store those instead
-of a function pointer in the device type specific structure.
-
-> +
-> +	/*
-> +	 * We prepare here the conversion to milli from micro to avoid
-> +	 * doing it on hotpath.
-> +	 */
-> +	clb->p1 = clb->p1 / 1000;
-> +
-> +free_buf:
-> +	kfree(buf);
-> +	return ret;
-> +}
 
