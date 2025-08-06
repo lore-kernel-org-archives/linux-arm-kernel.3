@@ -4,146 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31DDC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 16:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8A0C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 16:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K3LQpO2npOEp+xwsNPirQutqFBm5c8swK8zM2nt5Bro=; b=iXbzQ7uU2d0Mtvm56I/0RHMCZZ
-	0qpHCqNd2ANt+fo0uHKfBx9ZJS92pFmx6JZ0psokTYhIa8r3uTY8XSiqxt9+hGblQIYps9rTxnRKY
-	55N9Oad2l4iyym4A6YhWwQKyzi4H0lB9W5eH+OzeG7bXdPgcHRPrnr9hVxo7KyUcDwKzbZzhHILKF
-	GklkmFQCp+rWN+Pb9VNaHVDyjzB+mV7CqH2ulovScZpNlWPhXCOj/24YBH6wqYfA9gy8D1HerBW6Y
-	WZBe2/X6GJ71z156Cua2S+jCRJVkrRXzSNqqKYzy9t07O2i74DIE/yMHo5phrNkueu4ZnkdyaYIlf
-	B25bxNcQ==;
+	bh=Mdo7Po7g82blixnHIWt93445HcumDLHsfdO/giBrtsQ=; b=DfXXDaDcIdQaO59aVLHlpfqvJg
+	AiwTm8Gcva0ZmOGBBJ/t+Q+ubnxFMKFW1+UaO5Hi2WOe0XcI4EWPU1LKUVA2DMHMiCCfL+Zef9cwl
+	KUgvLFG6ExLhCXPdK8yqfa4KTIhdLvgdMdMCzbAoGZp1kyIpXDpx+84oAB+83G9NLJYE91h+/ZgY9
+	dJpermtDiMdVPvUeCTRknN5QTQRpCH/XzRWgB6KLjiOVEy1Fc3baLn+LGMsxtjTA8GcLdPZobrwdd
+	e3BpQFZB7hOborUDE3Y6lF5K4LhWNl2BXw6HJd6dqY34TCwIG7wtnYvMRixFnSXWzUmxSyKJ/x4hO
+	FvEOE5LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujgqy-0000000Fjul-31tB;
-	Wed, 06 Aug 2025 16:19:00 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1ujhFU-0000000Fn7S-3n1f;
+	Wed, 06 Aug 2025 16:44:20 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujgb6-0000000FhvV-0SzU
+	id 1ujhCy-0000000Fml7-1Utf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 16:02:37 +0000
+	Wed, 06 Aug 2025 16:41:45 +0000
+Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 576GROC6025015;
+	Wed, 6 Aug 2025 16:40:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=Mdo7Po7g82blixnHIW
+	t93445HcumDLHsfdO/giBrtsQ=; b=LLm8fqWYeQjBt4o9g96boFEfPHJmMC4y5u
+	wkwT6xMNOm653tRe1vwGpTOeLp+Or9GJEN+EIrVL952vHfTDaXNEGnyhetB0qKBV
+	FHSgLYca0WbxUmjO6oEJSN6Zj1nayGsc9SE9n/O8uGZeXRFlQkuQLSBNgO7TbTEH
+	uZ1WXpwmA/Vm+pihH3yWSjiSLsX3EDSpud00/33AaiBYUqo1zvFCLY/s3pWVbomU
+	Dxp3vudi3uE4H0cS5b4DGeAmx9A5DiTT8O8XG9TqNZcjGevkGQFVF0hLl6rMOPyW
+	HLu9k3h6O2S/4O8D9W/VGtsS4aPWlrUkiA/3HpeTYa2q06xRpb+Q==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48bpve26c7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 06 Aug 2025 16:40:36 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 576FGopM028197;
+	Wed, 6 Aug 2025 16:40:35 GMT
+Received: from nam11-dm6-obe.outbound.protection.outlook.com (mail-dm6nam11on2063.outbound.protection.outlook.com [40.107.223.63])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 48bpwmgpxj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 06 Aug 2025 16:40:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QfrfJq0lui8tbfwLuJVvn7L+NyoKubTFa2Nfs6VRqQzC+sqSku1EIKGYND3Gt7+GTNOt8m+N9Tmq2+iVvj7qSMshqxMZjfeEiIEJrqI0aZaEBx49BBUqBlwxHYr+kYGPTRo8ed4SILbDXLuQ87IpEc+NFrReX9KtX6TL/7kG8+NFhd/HxVWWYA8ZPLx/+XxeF8pWyhWdlbASwcjIu6vrPr7X7Cw6xUqoqfWOKfERFoUbkLtjjAu11JurAF0tiezda2uECv8ZtW4aN4Mlt1Qo5ayc3aBBdj9ZrAFn7VCxbsE65MBCQ0HroUgwUkrKXhcKztCk9hR7h/WTYvUhHa8smw==
+ b=fjZmZkWy33ViOh4OmE+Hg6ju6ip60Yyvv3HGNqFrVMRNO8XS1HHZo76ozMPcGrS2T3I1JoLxOejMLasSiZ6ylUaeNuu1N1I4Z5hmTxCNpPGkOcGAu/kutPPW6m8NIjN4K9y3uNSRwzyGC+toP/IIqGQ52Jakg5wwzXhr8VBnTWN27YChkt5dMsNDslDX2ykQqwRxnZmdN1/Gj++oCjyS6kSB++ZAdJZjxYt23QpHcGY9yXijeL2AjF8aLW6WynfUINcJ1Jlo8uQ8aUfO4/vptduBEi7Gs6/NnfdgKLhvNJ2y6RZFJROOfr8Ir+Whro/X/C0QgwB3BjhtsSJWxtYVYg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K3LQpO2npOEp+xwsNPirQutqFBm5c8swK8zM2nt5Bro=;
- b=UFSVixtwfULDxEuy1E1E4BquK5NSZuRE6KWba2UaHIGPzYUZ7viytpSqzXFU2cNcS++Iuu8R36LANhr42a4Mc2Hkc+su9albQ84xa+hsmT9Grrt50/oun+YVQ7EGe12UdTOTPKdOv3+oMDMPakvpcIjf60aJ3VF+p/K3I1HRM/WE0NuCBlPR3FL+/hRdjV3w/YO2hSc3aH9FMc30lm1d+aPV/MQjtYNorazRpf8X7Nzh9auJZ+3NFBf7V/5wRhuwCGK6EjZ46A7ibWIIUpbaEMGdMdPntXu67HMqc3cuJDRtx+Dp/QWU4uq1Dfkfs8bdXWun6ioHIDdg8gcAxIHGsg==
+ bh=Mdo7Po7g82blixnHIWt93445HcumDLHsfdO/giBrtsQ=;
+ b=cBF08UzRJJgC1FC6LRJ53WTlTHacFY7YregoNpBTW3TeRfb2+ki09pMb7TZl7PfueG6MO4gAVm950vd5Ffm2JTDChAjij3xGLD1bIDFS0PZdI77sm5yapsD/pNX8XNkhiX0bMBlqGem/gNItJRpeI5pNXuXCf0VOHUDToZJrAbenlQ0nWIa71eMx3ACzuREggbPuIJlzE2XgZEitW7CN4TojmVRFbC9H7I7ACo1hG8QAZLNbkY47L9AlM4NgaO0PYASzZHe3dr6K1VcuLuPlJ26d891soBkYiiKOxGsDLggY+kvJEGvQoiCPW/ZIhm86QTzmRdVOXXNc/IOZx6F58Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K3LQpO2npOEp+xwsNPirQutqFBm5c8swK8zM2nt5Bro=;
- b=DF6TA5tn2ox10wSAg+dXaBN7B7lhs9UOzEO6ve5e+fKUxXJsA5x6vw2eBwB3P9D3u2MRHMM62f9oJj5pnBKdoSL1CGiY+FOSPB4Ehw7uhRMVkjuT8F5aaOgmyULwGLXmiI5qm1+MJK3gxFDKtCfd0HMd11tGTb9oluhFluafRzWhdsstmgh4fF2T5W2meYcwXBu/oRx5ghEWyJeUrSae29IOsQxFxYPLuOjQ51AnvDBmtrKATEiXtATlqJrQutPUe0PmMspssNhXy+KUxqJ2f03I+f1JeThs9uR8P5LvPCeNpGg3V+iq4EWU20OYgJfKOPfEy5wxZ5tRD7m5peiP5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM9PR04MB8322.eurprd04.prod.outlook.com (2603:10a6:20b:3e3::9) with
+ bh=Mdo7Po7g82blixnHIWt93445HcumDLHsfdO/giBrtsQ=;
+ b=yEBahx22RTb89FdHlxm6imCfSzA6Tia+ottm7cZpSZJY8KeFR9SAGk2+EvTLQjpNRUmzYS+wMAikBbMfxyd/VQ95KyK05TK7dlw/uv3v4vHpuP2Ow5ZBtWR64MQdlc2wxTaJQ5shRwWAhMjRh+JPseZNzP9ibWAc+8NKe5QgHck=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by MN2PR10MB4239.namprd10.prod.outlook.com (2603:10b6:208:1d5::23) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.14; Wed, 6 Aug
- 2025 16:02:27 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
- 16:02:27 +0000
-Date: Wed, 6 Aug 2025 12:02:20 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] of/irq: Convert of_msi_map_id() callers to of_msi_xlate()
-Message-ID: <aJN8jOQ8VeDjmwil@lizhi-Precision-Tower-5810>
-References: <20250805133443.936955-1-lpieralisi@kernel.org>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Wed, 6 Aug
+ 2025 16:40:31 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
+ 16:40:31 +0000
+Date: Wed, 6 Aug 2025 17:40:28 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
+        willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+        linux-arm-kernel@lists.infradead.org, hughd@google.com,
+        yang@os.amperecomputing.com, ziy@nvidia.com,
+        syzbot+57bcc752f0df8bb1365c@syzkaller.appspotmail.com
+Subject: Re: [PATCH mm-hotfixes-unstable] mm: Pass page directly instead of
+ using folio_page
+Message-ID: <acee52bf-4f19-4e85-8d69-15d6cda54e95@lucifer.local>
+References: <20250806145611.3962-1-dev.jain@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250805133443.936955-1-lpieralisi@kernel.org>
-X-ClientProxiedBy: PH7P221CA0089.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:328::7) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+In-Reply-To: <20250806145611.3962-1-dev.jain@arm.com>
+X-ClientProxiedBy: AM0PR04CA0129.eurprd04.prod.outlook.com
+ (2603:10a6:208:55::34) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8322:EE_
-X-MS-Office365-Filtering-Correlation-Id: d7ad327c-3209-4501-e4c8-08ddd502a3ca
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|MN2PR10MB4239:EE_
+X-MS-Office365-Filtering-Correlation-Id: d23f2a94-373c-49a4-770d-08ddd507f57e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|1800799024|366016|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?E5ze58Ypv9actzr8VZrCpG8l0fjymavIc8juMbZL8CVC5NK8VlMnup23Q8tQ?=
- =?us-ascii?Q?iz6HIzCyLMbmBid7dLMfA8KPAz8QDIyNx0IEpP7ytQ9lWDnKff6Rv3tp2jKt?=
- =?us-ascii?Q?y9VPPJ+rM+QlSfQwTNhk6aV5Wgc9+i7cw13tkxpAExd3clhUGJfruw6MnNjX?=
- =?us-ascii?Q?JNokxZkvq91Ib6gHh0e9sHSsMEuj/s+00GdIlULuJAhQoO1BSPSPCtJ0cksf?=
- =?us-ascii?Q?VXeDUI1cmHJmx1GjNh6hkCFJVJA1FMdofEe1Z05BYXUsN2lD3ffZ/3FNETh/?=
- =?us-ascii?Q?n40IKpoBb/jFv1CEl1PwbGcc6ADtJT/Ci9uWgXKPK43jNub8JVJa7efWG2o+?=
- =?us-ascii?Q?oRcT2x7nkG15nUYazpRhvo72nDtm1bN1bB+Ek7pAYOTUoDYk+WsJgH+ARhKj?=
- =?us-ascii?Q?SRjsY/iZneIpmbXR1JiSdcgSv4J2u4YO/ZmiSGTjem7cWhJbBPDIH/YvkpMW?=
- =?us-ascii?Q?1WmPql0/UNlniAA98F84GJ+bPY8rcrgc14JiJWE7IOiONyGSuT55lR0NsVDZ?=
- =?us-ascii?Q?N+hPUkIDuNYSNQaUtr8am2XVTg+Oj9TWqpKP1LK8XYGDOJ+q9YnwrVszJejt?=
- =?us-ascii?Q?bQ7SE/pS8YD3zTMcJF5kXsNkIl3F8kJFJOMGpn1QATx7dDZG+J0NPzCXMrA5?=
- =?us-ascii?Q?juGc8EDZIP1PNiGXaETTaWPM/DZIBuxlP97DDJtUMIONY4I+dbeG7k5r3I9O?=
- =?us-ascii?Q?0xASHP0kya/nV9Euk6ytcuAwrlI5LWrAm7D+4CqNDyj+6w8HS7Z1DHlVpWdJ?=
- =?us-ascii?Q?amHyGNVupbrgr271T3uV9dlT7xeyeEJ/JHUkv+JIUa6Tm7D0zl5I95OZl6Fu?=
- =?us-ascii?Q?VXQZHBtOJ4dn/xSSGNmpCVp9VK6vDfH9AmN7/cb5h9hNUHJaFYqw5hEF5CS6?=
- =?us-ascii?Q?IthGEI+kMKPY+ye7BXgX/J+1vQ27vqmLFiWJwk55rf3CFzNfmg71eR+x/ObB?=
- =?us-ascii?Q?cHNsbEK8hDlsK4cgODv4DTZtJfgK4sk7cmctYhVBrLt4BwGidqgR0akUipEQ?=
- =?us-ascii?Q?GHT1impzFQUEeSSJoI8lF4VXEJUpvb5s+pUW3AAdw4CJc4P+yTNzjcmtXgJQ?=
- =?us-ascii?Q?1mroz4YeODbMGD+KOTJfftArw5kc0Ij4NJ1V2xLVGpaw8OX8LKtB4Ijt/D6H?=
- =?us-ascii?Q?bfE82Dm+GTmNEcW1myjXtnjCQssovTAhtoBavtdszhhh+oj7tXYS82BsIbFa?=
- =?us-ascii?Q?VIe4JlsSMI4/MSUurLRRKfO685wuxGYVgCb1i28XjiWv7vS0+pZFUY2dGjeo?=
- =?us-ascii?Q?MqMIq3Ndz6QlnfW88FFEHt8KgwiC6XabistXU9JKCniyQj9FiG/rlvw100C7?=
- =?us-ascii?Q?SJ7gqc2ypfjit4zcIuJnuFC0aUZ3S2iVYksYDZlKH/DTApSe+lrbiKl5G9k+?=
- =?us-ascii?Q?Q3ORjBIYI6/40wXQtIe6RLHnCGsLimfY9fxfZ1t8taiyJqSXDUBse5s1M5Rl?=
- =?us-ascii?Q?1HTwFH7bW5woJZTHkJWI+NJ9HY8tFwjPXa1Om2siN2959pzPoyhwkLM52lYE?=
- =?us-ascii?Q?7CoDyAGT6dkYKzw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(1800799024)(366016)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rey5kvDowH9+zWw7XxihOjIvzHlUpcLJHyJ76v6Ux1eU6vCjYX4EiEhC/QMV?=
+ =?us-ascii?Q?vdSamBx/mQ5eQ6eDQ9ff8Neua38J8rvq+6X5QKHaING++79c2+zbtUh5/pca?=
+ =?us-ascii?Q?itg9mova/lj2kPAG0YQrcstgofnJnPdqXylRzuIUlgKcvzjY3qH7x3siFQ52?=
+ =?us-ascii?Q?21YqJlrDLolOq48FAHFR+5OyU1S81hbolQyuo90FrBYnzD4uFUKQlTaB43sZ?=
+ =?us-ascii?Q?5rtuvO7jeYbgy1FKu5hGWqJgcBIUaFhi1K5rDnG6n2vJj/O08Pze9FqKNbU6?=
+ =?us-ascii?Q?IgPFO6e7y6l5clxezHAHaQ/uru7eLyN7YDYMHk+HDPuFR3l30Py4JfWerGbb?=
+ =?us-ascii?Q?62q523j/mmI6tyMyE3Fye8Fnze3UPBqSUvsbTJbarGSzJHQ/1JEla+ndWJie?=
+ =?us-ascii?Q?eN9S5NIs3ch72OHDNZ+VVW4+Ge2v1OSQj0Bj/PTkyijGupup3DNjTpEwdcTL?=
+ =?us-ascii?Q?kimyhxZmYZOayoaDru3+Ubs3N6XgZ6fq83tvjGRx4nA32qGnfY57FZHr6bxA?=
+ =?us-ascii?Q?TNXvHCc2iyaRQ1sp4k8jG5kkZmbeK8+4bQKhDApE/Y/IYympo4bw5AgvV8nn?=
+ =?us-ascii?Q?KQL1msvrVQV2D0VGDnO2ZKsaXp9CR0tZC+FiGE/R3CI/20aH/EzGjZmYhaOB?=
+ =?us-ascii?Q?3/CcgqqvLOYRqDzUY2w2FxFugL0rFN2tz3ox373TZlmvVkg855HmTGpJzCqq?=
+ =?us-ascii?Q?H9xtaxNqv52UGry9Lkij3SgL4f/Ry1uvvpKw6jShUERNfo+RPB4ZaR2FwoOD?=
+ =?us-ascii?Q?8a5owGhso1VDXfJHycQQt2OJVGFQz0lENObR6hI8/i9EA1uTJzZfMCGt3mWR?=
+ =?us-ascii?Q?ifGECdKqw8kU29461cinR3bN8GXU1nqdVQ/BWwnPRn0mfRDUBm2yDyQqwI1L?=
+ =?us-ascii?Q?ec0kkBTgwJ5ssp4fiaysa4o5WcHfmGPmrEJitTHVKd9jnrmxxffKFQIz3dyv?=
+ =?us-ascii?Q?XDooG1IQE97tLr/87rtZmXmjDuZPIh0bGbVB9Gph3lorbQJotB4A5TWRGsG5?=
+ =?us-ascii?Q?xrSUgGXvlDo3lI1YIUvdAhSDjNIXqNv/nwpjAktnBL+18R0ciI+58Jt6dGDl?=
+ =?us-ascii?Q?DT+k/R0evhkN/fUyymxdPZkX8QKBVkQQIU4L4YsKt6QkWvoGGj+ak7I5Vudb?=
+ =?us-ascii?Q?9PWLh+7MpRLj2DC9z5al1/JxypzG5hDfhhl6GYnD6GonGsO9QFcY+QVhTv3E?=
+ =?us-ascii?Q?P7yz6NGyImLdV1A7vWLrdwgDgCQMUhlQ8JIaE8VcSygSb+Nam0vMtj09bBWy?=
+ =?us-ascii?Q?m5wLR07eV2DoqajoAsytO2sBe5yIQaoJkTj47VejzMCEqFgzDnkQeNoDm3ns?=
+ =?us-ascii?Q?5dloxM/Gqkjuzzn55N3bIzQhZTDwpnMuconM2SnalOk5oGEg+4w2PZnxARZ/?=
+ =?us-ascii?Q?hGGKhdHBHNZIKff4fxsCBLn+bVJL5zb7hKfmszly78xdo6TOiw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bqks+UQxcC6WZC31tSMtRVujrUDQJbMLJXSk4pFAGbIHVEvLNCx7OeKAjWKg?=
- =?us-ascii?Q?auiFzaFsmNYYwd3DTZLK3bXZ0R4u17Fc7Wcn+YlqBdBLKx5OEuvmle8E5mNV?=
- =?us-ascii?Q?f5F45dUD/LZJxWusjee6qdaxFLPkGtmP+dn8cuF9iJGBC3zjJy2l9L8V4Kjj?=
- =?us-ascii?Q?+LDXQejHnHvAWA46ZdQTmS3NXR0h/DiMfGD2F/YhN6oMcpxyOU72Tvk7KTxz?=
- =?us-ascii?Q?h1yxg80+Vr9474k1H7rFpHANTGZfR1bkwGN5nnHPva8O3QK6gkWDWTMVJBH7?=
- =?us-ascii?Q?fd3M9jTFplR/d/9ZZ9Hl2u05Md/tlAE+tkoRKOSvkRdHV68ucGtXjNgOHtI+?=
- =?us-ascii?Q?P9zto4arAsZ0bbiQ7/N5FDpqzlVyVfQcMyuyQEMu+wCcvWyBTRMTHEb4recW?=
- =?us-ascii?Q?U+FWNl216mJq0S6x/Ij3Lkq5g0Rw6sfor0dJlZyhGgyM6mtJ2Qhpx0qhQ0Vz?=
- =?us-ascii?Q?KTa1eSdRT9ykP7O2wqRXeIR3iC02xI4PDMaeGfTiv+SmL39TOHp+bk5kMaie?=
- =?us-ascii?Q?U4BpvVAo7shQdDF1Bt9bFgZtqvXrWQgMIIVXZWR6rZgbuN9BONXDXPShWl1O?=
- =?us-ascii?Q?PMksG9x3q6U7r2tfa94Qoh8DPRRM9f6SX9P55LLQe3I9CxiwwZKYGzBe09Ek?=
- =?us-ascii?Q?4wp+YERAkmlcb+0mR4UO7VDJLOwiBg2IBHDKs2ZOv9XYds/zg5siJcuuO1iT?=
- =?us-ascii?Q?89aRIIFtLcUf2ObGgyow2W68yi9STJlB9a9MLlVf2AMvbraq5IFUxxEMc6D7?=
- =?us-ascii?Q?HRNL4tW80amXEsPwhLJXfWESw5R3yMw1/GIiyDh/uU+N9OQu6rLhk2u0uyLY?=
- =?us-ascii?Q?HDTXmQfFZHKOhx5rLvDzIpQW/d4DBmQcXgdlVYz/qTYSBiK1oV3sdABWAMNJ?=
- =?us-ascii?Q?v2aEb3Y/sbwZ/rzH4mEV27+9l6lChiA15LtCOPVrA3MKe08ewjb+ga/hXOGS?=
- =?us-ascii?Q?CFlFH8dn0IlMTAHDnnGtcLRQCB1Zdp+awjdOxfotcspc2MhvFXDqddHvM77h?=
- =?us-ascii?Q?s9rE/nnu+A3cNGXSXpYNKEJmHEufb2HJw2fQr9qE5zoAxgu5ftWAS0s+eCRA?=
- =?us-ascii?Q?K4OzUjqUv+laGTXJ3nBF37WbmJ5NsDmklNwMt9bhghn0LpP6xSWzj01325vN?=
- =?us-ascii?Q?Fqo/moeTYM2JRRnGdWeKm7CTstLsc2kRE7YE829EyKhzVzr16+osecUR/Za0?=
- =?us-ascii?Q?I1+Z24HLObMLNs6AaFBSw5E2SQz3yIMkEJvt0S/ly1RV3kpu4FQuP8eWk7Ry?=
- =?us-ascii?Q?z9IP/r84YApQ674jTFy2XpbfC32CbgxbbfBRyrB39zLi0mirqN28PTyr+YCx?=
- =?us-ascii?Q?t4NXsGhptaJ3/o50e0JZIygaiikhq1GssULV28GTQtNPWGywnso6JWeGY09R?=
- =?us-ascii?Q?6nmtF4dL0ys0nbJNxLix4sOTxSjx3ejoHkGEDqXmAccf2wd/l7uH5HfjP6v+?=
- =?us-ascii?Q?K84d3GjV+Z6QOEY1naFrD/q/TU/mZhG5b5KRXrWccxJ67jZ+qYRmTE8LxOqp?=
- =?us-ascii?Q?1+NkrI7b12gae8QoUEuhGZyrmG9xIETiR+qGicqlB0v/wqxHzPKxd2FXQMMi?=
- =?us-ascii?Q?pqYA1BZyJaytauVWA9d8rzhvO2Oxrab6qCgM1glx?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d7ad327c-3209-4501-e4c8-08ddd502a3ca
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?k2/tVypdLTSYws07xx5MDcAqcWgxwKw1EogJFUKESFY2KF05SG1Hk3w5nD70?=
+ =?us-ascii?Q?nCAQNIY5k5ybJ0tqakDBKxO48lgsfcm+NXTGl/Ijxb/mn3J576SWR9NZbQ1U?=
+ =?us-ascii?Q?hKJdFO4e+vRKVGXRIAwprlIcLTxEWfJp+M/5yYFvRBCMXhT9eLXpYm2TNMm7?=
+ =?us-ascii?Q?wmJgiNG+XX+75PB5iKt1v6WBYAFVd/MrRzqnHW813ni6Qrt5/382pCGEFjEM?=
+ =?us-ascii?Q?9mCA+RhzHwGemfJdxpoz24SpF09J4v4BYTVNHHp1FDLFFYffHCV8oQ14Rn8+?=
+ =?us-ascii?Q?pag+84Cs8+WiQvobu/c9Oz7KagtWECCYv6h4/zFJ5OL1wPNHIIFRG7dj/0ma?=
+ =?us-ascii?Q?OHtHPZtxpfpNfHpIAhz+TMXiryiZM7dcRZlbUxso7hyUUHdNDfi41KSHHsD2?=
+ =?us-ascii?Q?GpyqzSOP1TpRIdHMcJiu28Flmp5eJv79wsPYr/4wb/bPfgJTuAKukZ6Wk7V6?=
+ =?us-ascii?Q?VgSJlXcxiX7MVfvuJsgBWPC2cF/SBmWIfmjQZ2e9x8rJmlDAWdS7eQLEgdE9?=
+ =?us-ascii?Q?4R8rnSjDZ62J6WfR0KziWTbW1OkgvrRlnffOYn8alLlkPefECZ5UCzS0eATG?=
+ =?us-ascii?Q?DKcRc8wsJNKZXSTMd18UO8VSyBIJ3tM3MRqjuJU6EPmyR/pdp4dEhO4LLD+N?=
+ =?us-ascii?Q?wfIvv1Lx2Js2FFRNVpN+q0c8TzR9NuTwtIPBiR43F+hRsabBhcxz7f4cWwqo?=
+ =?us-ascii?Q?kUizWC2E4pzUa4rf0+MyYI5mRxa7Mqj54t+kbSrR3w1G7nYYWvF8gLoxjtlm?=
+ =?us-ascii?Q?xBg9esHGFuxQwpcg10nrbQJVhAt3XIYpyZ3k3Tz3eq40ujRdoSZT+NGcipMJ?=
+ =?us-ascii?Q?7Uo7EK6QHHrWsuaOLNajgod2KjQrPfdMxJLr9IlGl6O4hf9GwIVHmg69qZsO?=
+ =?us-ascii?Q?cWPmyi4cAFPIe7ZLxPBXOhIgLUBiXD+dDpn2oKxYQg/28Y9XVh08Z/gA5xai?=
+ =?us-ascii?Q?xKhZjB4Ny37kABolNhFo0giNZDMU+S1fp8E+CK7w6kMX9lIuCSoaNR5OqaMZ?=
+ =?us-ascii?Q?Eg5OwpikrfWFatzJo+qDRrOr/6X+98Xh9IhGyQjU62IMf10g+xjjk0EcGURI?=
+ =?us-ascii?Q?ymUe3NPd2NHqoh+Vj5XuCBxOARQHl4e2yrYrpYN5wqL1L3sLdQ1Acf9HWckO?=
+ =?us-ascii?Q?t8RIkxjIeTxZWFJ2ynBPM+M6+OM+RraLO1MDj32uXcnijNTOLJ0Elw91rTii?=
+ =?us-ascii?Q?4UXAsw0O4IqH7dBrLArtNOEHTwBg6uQvyof75hSYtXXVzcs5Agnk+jc+4ea3?=
+ =?us-ascii?Q?KF+WcR0pMJATm45gj1Hwd4x0zqZ5mNGheI7A19saV9QV1j+suwqsEfEP64NB?=
+ =?us-ascii?Q?cvXWcxSaRZqiNk+Hc1zsod9qLeUTb3kzvuXJDmlBC0W2wXZWuvBDvH1/XzQk?=
+ =?us-ascii?Q?cnzEG7NrKQ8XmtGs1X2C1jrPqEYhto5jU03DtlWJ3uSa7f8bmNzmizpDYgCJ?=
+ =?us-ascii?Q?4iISMajhpCsrlnOEHAuZhxmbHnHCVQosCPOHbmkSPnmi1R7HinmIUsaWwbkN?=
+ =?us-ascii?Q?pqmayZ1ZCDDIS8VGrJBFJs91FeUK4H7u2nxbdmsx6nUU0ZL0GYsgQ8h337Vv?=
+ =?us-ascii?Q?ru+RgZRFHOPKeGHaiTew/JDBZBHWaEf9VCfkFlfJ/Os8rI4aRDqpw+bfqTxK?=
+ =?us-ascii?Q?HQ=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: NBwy3POidFm1s3diUDeZbpX2FUect0o/oIMjWzeNtqSWD9ayV75rhFStspsTsaldj5L4+05YUxrUPabBmP2m2df4+WkRfyvlS0LbC8686wGq75/86jXMTY9JnfvOuPWq6GbpIy1SnRweMyr0kR5RaAWUB6RZJ1xRtg6LFWJf0FUb0rg9sH1cf5e+R/tvWv1Q2xxUUI3TO1xNbqQnEcDnMtvEI3RKhSvuaOLN0Gzy/CllMi1CMQ9uDRd5PlAzQaIb7nsqJZqkWq0tRb9Ht2LJVLkfakDM4a1f7F6hYDP1/tl27/AwNsvVUYs3BT+wmM6jr+BPpJ2m2xzHb2ZzPeizJt43cUp8trFXwDb3ql3otJ7vHgVinVcjSpCxwvcQtI5M477fzjBpot32DoAM7h4AVGUdbuI0gd0yiPWRRS6pkinJt0mS5cmsKDiM/PqgE557nWozkVzTYUdof+weWDb+4gAq+oOff//dkJ0d/VxRY3TGDALA7FHWbdav9mccwRKETrmfWwXqr2hBjlspb7eS63Jwp9wi7EsKC+vmTA0Vq0nfFhPKSezV2q039tf+eEaCVbotw27caykNfV+7IedRX35Qz29FrhERT9qChZ8G3vM=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d23f2a94-373c-49a4-770d-08ddd507f57e
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 16:02:27.3355
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 16:40:31.7374
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gA0u0JZ7bVtuuwGIQEVfmC3NFUm4uX01MI4NfwaFcUE1qs6JhGnqgW1Xqkav05PSZki0tduRREJVxJZxXbN6hw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8322
+X-MS-Exchange-CrossTenant-UserPrincipalName: vXPSKzTQdye1NJHAbrLXjwOsLL7R/AbbT2kgv9kR39L0ZxaKG7VcFFyREkxP2PNoBufDK3t4F8StirF50kEvuYBbeCedZwYbSdZXhl5+sJw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4239
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-06_04,2025-08-06_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 mlxlogscore=999
+ malwarescore=0 spamscore=0 bulkscore=0 suspectscore=0 adultscore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2507300000 definitions=main-2508060106
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDEwNiBTYWx0ZWRfXyjE6oxiJ254D
+ 6Z8zVGiCwQ7GXLQIE1/zkI/w0jwejKNV3g4kEgRPCwyu1ldAkXUwqscjLNd2H1eEiFAKlPUSAXD
+ HGWWYtQK0yf6nSxhqjWvRQ0LQqVeYTVC/4NeJ2U+Rrw2FATdOtnIosT2wG1zABIvqc7G8YX1qLQ
+ PBnFPSQ40YQ/tcioSQnrjTT4j5mGqNl21awtf7M39w6bDeY7D569avhg6spIzwivCcdTtXLDPcm
+ 0pzVf94bQtl/W5og+rIZJ/qVAZsy4bn++v3d3RqOyqqzF0vBrjn6f/dHJJDNkU5lLnEkvfHkD8L
+ FJo0/PTcM1297ROFoFMWn78TdoBs+KvHyNrx/eh2sfnQaq17xTMztHS5/WrHgBWOQymmFkgxIHg
+ D6N91my/rC2zdb0DbgcSwPfuFw9qq86qXxH/P6L+nCom0UaaJysXCI6KgxQab3iW246HA2xn
+X-Authority-Analysis: v=2.4 cv=ApPu3P9P c=1 sm=1 tr=0 ts=68938584 b=1 cx=c_pps
+ a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=2OwXVqhp2XgA:10 a=GoEa3M9JfhUA:10 a=hSkVLCK3AAAA:8 a=7CQSdrXTAAAA:8
+ a=yPCof4ZbAAAA:8 a=zQGhVfqZdAqpKRLXF9YA:9 a=CjuIK1q_8ugA:10
+ a=cQPPKAXgyycSBL8etih5:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: C2wyhOZKp6VbR8t2mo8p7fNNBLdl0zun
+X-Proofpoint-GUID: C2wyhOZKp6VbR8t2mo8p7fNNBLdl0zun
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_090236_154918_E902AEA2 
-X-CRM114-Status: GOOD (  29.49  )
+X-CRM114-CacheID: sfid-20250806_094144_515098_D3EE8180 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,135 +212,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 03:34:43PM +0200, Lorenzo Pieralisi wrote:
-> With the introduction of the of_msi_xlate() function, the OF layer
-> provides an API to map a device ID and retrieve the MSI controller
-> node the ID is mapped to with a single call.
+On Wed, Aug 06, 2025 at 08:26:11PM +0530, Dev Jain wrote:
+> In commit_anon_folio_batch(), we iterate over all pages pointed to by the
+> PTE batch. Therefore we need to know the first page of the batch;
+> currently we derive that via folio_page(folio, 0), but, that takes us
+> to the first (head) page of the folio instead - our PTE batch may lie
+> in the middle of the folio, leading to incorrectness.
 >
-> of_msi_map_id() is currently used to map a deviceID to a specific
-> MSI controller node; of_msi_xlate() can be used for that purpose
-> too, there is no need to keep the two functions.
+> Bite the bullet and throw away the micro-optimization of reusing the
+> folio in favour of code simplicity. Derive the page and the folio in
+> change_pte_range, and pass the page too to commit_anon_folio_batch to
+> fix the aforementioned issue.
 >
-> Convert of_msi_map_id() to of_msi_xlate() calls and update the
-> of_msi_xlate() documentation to describe how the struct device_node
-> pointer passed in should be set-up to either provide the MSI controller
-> node target or receive its pointer upon mapping completion.
->
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
+> Reported-by: syzbot+57bcc752f0df8bb1365c@syzkaller.appspotmail.com
+> Fixes: cac1db8c3aad ("mm: optimize mprotect() by PTE batching")
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This looks reasonable, fixes the problem and compiles/works on my machine so:
+
+Reviewed-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+
+This badly needs refactoring as 13 parameters being passed to a function is
+ridiculous, but we can do that later.
+
+Let's get this in as a hotfix asap.
 
 > ---
-> As suggested by RobH:
+>  mm/mprotect.c | 23 ++++++++++-------------
+>  1 file changed, 10 insertions(+), 13 deletions(-)
 >
-> https://lore.kernel.org/lkml/20250627213241.GA168190-robh@kernel.org/
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 78bded7acf79..113b48985834 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -120,9 +120,8 @@ static int mprotect_folio_pte_batch(struct folio *folio, pte_t *ptep,
 >
->  drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c |  2 +-
->  drivers/of/irq.c                            | 25 +++++----------------
->  drivers/pci/msi/irqdomain.c                 |  2 +-
->  include/linux/of_irq.h                      |  6 -----
->  4 files changed, 7 insertions(+), 28 deletions(-)
+>  static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
+>  			   pte_t oldpte, pte_t *pte, int target_node,
+> -			   struct folio **foliop)
+> +			   struct folio *folio)
+>  {
+> -	struct folio *folio = NULL;
+>  	bool ret = true;
+>  	bool toptier;
+>  	int nid;
+> @@ -131,7 +130,6 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
+>  	if (pte_protnone(oldpte))
+>  		goto skip;
 >
-> diff --git a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
-> index 11549d85f23b..b5785472765a 100644
-> --- a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
-> +++ b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
-> @@ -30,7 +30,7 @@ static u32 fsl_mc_msi_domain_get_msi_id(struct irq_domain *domain,
->  	u32 out_id;
+> -	folio = vm_normal_folio(vma, addr, oldpte);
+>  	if (!folio)
+>  		goto skip;
 >
->  	of_node = irq_domain_get_of_node(domain);
-> -	out_id = of_node ? of_msi_map_id(&mc_dev->dev, of_node, mc_dev->icid) :
-> +	out_id = of_node ? of_msi_xlate(&mc_dev->dev, &of_node, mc_dev->icid) :
->  			iort_msi_map_id(&mc_dev->dev, mc_dev->icid);
+> @@ -173,7 +171,6 @@ static bool prot_numa_skip(struct vm_area_struct *vma, unsigned long addr,
+>  		folio_xchg_access_time(folio, jiffies_to_msecs(jiffies));
 >
->  	return out_id;
-> diff --git a/drivers/of/irq.c b/drivers/of/irq.c
-> index 74aaea61de13..e7c12abd10ab 100644
-> --- a/drivers/of/irq.c
-> +++ b/drivers/of/irq.c
-> @@ -673,13 +673,14 @@ void __init of_irq_init(const struct of_device_id *matches)
->  /**
->   * of_msi_xlate - map a MSI ID and find relevant MSI controller node
->   * @dev: device for which the mapping is to be done.
-> - * @msi_np: Pointer to store the MSI controller node
-> + * @msi_np: Pointer to target MSI controller node
->   * @id_in: Device ID.
->   *
->   * Walk up the device hierarchy looking for devices with a "msi-map"
-> - * property. If found, apply the mapping to @id_in. @msi_np pointed
-> - * value must be NULL on entry, if an MSI controller is found @msi_np is
-> - * initialized to the MSI controller node with a reference held.
-> + * property. If found, apply the mapping to @id_in.
-> + * If @msi_np points to a non-NULL device node pointer, only entries targeting
-> + * that node will be matched; if it points to a NULL value, it will receive the
-> + * device node of the first matching target phandle, with a reference held.
->   *
->   * Returns: The mapped MSI id.
+>  skip:
+> -	*foliop = folio;
+>  	return ret;
+>  }
+>
+> @@ -231,10 +228,9 @@ static int page_anon_exclusive_sub_batch(int start_idx, int max_len,
+>   * retrieve sub-batches.
 >   */
-> @@ -699,22 +700,6 @@ u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in)
->  	return id_out;
+>  static void commit_anon_folio_batch(struct vm_area_struct *vma,
+> -		struct folio *folio, unsigned long addr, pte_t *ptep,
+> +		struct folio *folio, struct page *first_page, unsigned long addr, pte_t *ptep,
+>  		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
+>  {
+> -	struct page *first_page = folio_page(folio, 0);
+>  	bool expected_anon_exclusive;
+>  	int sub_batch_idx = 0;
+>  	int len;
+> @@ -251,7 +247,7 @@ static void commit_anon_folio_batch(struct vm_area_struct *vma,
 >  }
 >
-> -/**
-> - * of_msi_map_id - Map a MSI ID for a device.
-> - * @dev: device for which the mapping is to be done.
-> - * @msi_np: device node of the expected msi controller.
-> - * @id_in: unmapped MSI ID for the device.
-> - *
-> - * Walk up the device hierarchy looking for devices with a "msi-map"
-> - * property.  If found, apply the mapping to @id_in.
-> - *
-> - * Return: The mapped MSI ID.
-> - */
-> -u32 of_msi_map_id(struct device *dev, struct device_node *msi_np, u32 id_in)
-> -{
-> -	return of_msi_xlate(dev, &msi_np, id_in);
-> -}
+>  static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
+> -		struct folio *folio, unsigned long addr, pte_t *ptep,
+> +		struct folio *folio, struct page *page, unsigned long addr, pte_t *ptep,
+>  		pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather *tlb)
+>  {
+>  	bool set_write;
+> @@ -270,7 +266,7 @@ static void set_write_prot_commit_flush_ptes(struct vm_area_struct *vma,
+>  				       /* idx = */ 0, set_write, tlb);
+>  		return;
+>  	}
+> -	commit_anon_folio_batch(vma, folio, addr, ptep, oldpte, ptent, nr_ptes, tlb);
+> +	commit_anon_folio_batch(vma, folio, page, addr, ptep, oldpte, ptent, nr_ptes, tlb);
+>  }
+>
+>  static long change_pte_range(struct mmu_gather *tlb,
+> @@ -305,15 +301,19 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  			const fpb_t flags = FPB_RESPECT_SOFT_DIRTY | FPB_RESPECT_WRITE;
+>  			int max_nr_ptes = (end - addr) >> PAGE_SHIFT;
+>  			struct folio *folio = NULL;
+> +			struct page *page;
+>  			pte_t ptent;
+>
+> +			page = vm_normal_page(vma, addr, oldpte);
+> +			if (page)
+> +				folio = page_folio(page);
+>  			/*
+>  			 * Avoid trapping faults against the zero or KSM
+>  			 * pages. See similar comment in change_huge_pmd.
+>  			 */
+>  			if (prot_numa) {
+>  				int ret = prot_numa_skip(vma, addr, oldpte, pte,
+> -							 target_node, &folio);
+> +							 target_node, folio);
+>  				if (ret) {
+>
+>  					/* determine batch to skip */
+> @@ -323,9 +323,6 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  				}
+>  			}
+>
+> -			if (!folio)
+> -				folio = vm_normal_folio(vma, addr, oldpte);
 > -
->  /**
->   * of_msi_map_get_device_domain - Use msi-map to find the relevant MSI domain
->   * @dev: device for which the mapping is to be done.
-> diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
-> index 0938ef7ebabf..555c61b1fc36 100644
-> --- a/drivers/pci/msi/irqdomain.c
-> +++ b/drivers/pci/msi/irqdomain.c
-> @@ -422,7 +422,7 @@ u32 pci_msi_domain_get_msi_rid(struct irq_domain *domain, struct pci_dev *pdev)
->  	pci_for_each_dma_alias(pdev, get_msi_id_cb, &rid);
+>  			nr_ptes = mprotect_folio_pte_batch(folio, pte, oldpte, max_nr_ptes, flags);
 >
->  	of_node = irq_domain_get_of_node(domain);
-> -	rid = of_node ? of_msi_map_id(&pdev->dev, of_node, rid) :
-> +	rid = of_node ? of_msi_xlate(&pdev->dev, &of_node, rid) :
->  			iort_msi_map_id(&pdev->dev, rid);
->
->  	return rid;
-> diff --git a/include/linux/of_irq.h b/include/linux/of_irq.h
-> index a480063c9cb1..1db8543dfc8a 100644
-> --- a/include/linux/of_irq.h
-> +++ b/include/linux/of_irq.h
-> @@ -55,7 +55,6 @@ extern struct irq_domain *of_msi_map_get_device_domain(struct device *dev,
->  							u32 bus_token);
->  extern void of_msi_configure(struct device *dev, const struct device_node *np);
->  extern u32 of_msi_xlate(struct device *dev, struct device_node **msi_np, u32 id_in);
-> -u32 of_msi_map_id(struct device *dev, struct device_node *msi_np, u32 id_in);
->  #else
->  static inline void of_irq_init(const struct of_device_id *matches)
->  {
-> @@ -105,11 +104,6 @@ static inline u32 of_msi_xlate(struct device *dev, struct device_node **msi_np,
->  {
->  	return id_in;
->  }
-> -static inline u32 of_msi_map_id(struct device *dev,
-> -				 struct device_node *msi_np, u32 id_in)
-> -{
-> -	return id_in;
-> -}
->  #endif
->
->  #if defined(CONFIG_OF_IRQ) || defined(CONFIG_SPARC)
+>  			oldpte = modify_prot_start_ptes(vma, addr, pte, nr_ptes);
+> @@ -351,7 +348,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>  			 */
+>  			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+>  			     !pte_write(ptent))
+> -				set_write_prot_commit_flush_ptes(vma, folio,
+> +				set_write_prot_commit_flush_ptes(vma, folio, page,
+>  				addr, pte, oldpte, ptent, nr_ptes, tlb);
+>  			else
+>  				prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
 > --
-> 2.48.0
+> 2.30.2
 >
 
