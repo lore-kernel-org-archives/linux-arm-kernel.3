@@ -4,112 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C38C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 12:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E958C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 13:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgEsWUuM3iEGX1f9rcTGlfVTpetJSdGQqhCUeNVP+dA=; b=1qd+8ACtZe5yaOFWK+4EAkfsbG
-	I3Jqic22qPLldRTnNOwbiAPz1WoCtHEO/MI4IrTMP80h0M4MyLVwDG7UEBXpb0ikctymepgKANtki
-	srW9g3P63GXQWMTzpAjtcAMkAnainF1I2iixLhjDey+zqolRBqUjtUn1Me3Olan94LADlk2rsRIfO
-	NmNj057tAISAjraR8/qMf/330rsQBrKA96a3x+Cgss65eq33Q8hjY2K7hEohjaLCDM2Go+WAql1ma
-	sRy3qkbOXeKtqEOneJID7kroNp3URZy1azMzTaVDt0ZN0KxZ9YFX9cgqml/DrFCj69K+b/U7KkDdM
-	mPiZSWQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B0RLpH07Ee+0r2Wbo7lTsuBuWM+B3z1D1H42m5UQNHM=; b=NDnizSlXUiJiWwwHgqe3wDeQB/
+	teMP+iyQMWF8slQOO7RecUIrvHFcHoq2EXkSXieSsb4K6wX5bvMLYTQM0O4+THjBaKjianImmEW19
+	M4oDpry/Crz8mOYaWv0xy5idvIQiPHA+vLu18aFQdqUmagAcK2BK+4nkkgQNFfmJCl0YpPboURU5Y
+	wuGgeaF7gCGJMiVYe513yVY7Rjzy4XGsoOxEMXsGvKyRdWRwC93bcvRi0pbc/ntWVMOHKujCVa3AW
+	tMt51z1pbIIdtxDspdNQrfDC/+b3NgCetJcn/yh7RZFf2i2eMOkqysWDa0BZByoLNBmOWVoRLj7DY
+	+Yn9NDiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujdXx-0000000FCUt-3Y39;
-	Wed, 06 Aug 2025 12:47:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ujeDR-0000000FIuU-0Fbm;
+	Wed, 06 Aug 2025 13:30:01 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujdVO-0000000FC3d-0CHv
+	id 1ujeAt-0000000FIeO-2ATb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 12:44:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9845842B98;
-	Wed,  6 Aug 2025 12:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0372AC4CEE7;
-	Wed,  6 Aug 2025 12:44:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754484269;
-	bh=AYcRRwKF83d6LifD+7Ls/YkkCIq9XeoyHMqkAJL4NGI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q+gAZvNkgUJt1dE1E6dFZvaCdhTsYQ+Bw3KQkycMgrK9q7Fi58ABXyt8PefsEbcop
-	 NQFjj1NrJcbkVh1Mh2yHioHw0uHpSKkXjxGxa4vHXHU1e8mWgb+8tLMK0RJOE34jgJ
-	 mTgFzVG4lxGlND4uggyCZfQGzTyTVj+h69xIF+FjAu5hPNdTcuTLtNZSa5whx3KdWl
-	 KJKPJkdedMT3Qqs0sfVytds9dAZZ1Sb7j/4/oSC3vsIys/qrTe7kLi10VBazxUdzQd
-	 WREem4YR4QuTaVp12ifuPTwjsVjcLqhNqLnwBzWD2gEJlVdljHmO6g5snDnFKAXGM0
-	 oyJ4YUdfAl+1Q==
-Message-ID: <5924a691-2533-4856-a169-d16c3e577c42@kernel.org>
-Date: Wed, 6 Aug 2025 14:44:25 +0200
+	Wed, 06 Aug 2025 13:27:24 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ujeAY-0007wq-Ev; Wed, 06 Aug 2025 15:27:02 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ujeAX-00CDWu-2f;
+	Wed, 06 Aug 2025 15:27:01 +0200
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1ujeAX-00CH9C-2J;
+	Wed, 06 Aug 2025 15:27:01 +0200
+Date: Wed, 6 Aug 2025 15:27:01 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [EXT] Re: [PATCH v18 3/7] firmware: imx: add driver for NXP
+ EdgeLock Enclave
+Message-ID: <20250806132701.fouikyuqtzdsxqwh@pengutronix.de>
+References: <20250619-imx-se-if-v18-3-c98391ba446d@nxp.com>
+ <20250625105546.pxuatcnfpe7mssgs@pengutronix.de>
+ <AM9PR04MB8604611B8D91B5526C9704E69545A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20250627084653.6vgwnm3llf3zknlp@pengutronix.de>
+ <b02055bb-0995-4fd8-99f3-4ca5146eedd4@kontron.de>
+ <20250630121722.wviidlggt7hguyt7@pengutronix.de>
+ <087b8689-7443-4720-a94c-160edd31a5da@kontron.de>
+ <AM9PR04MB8604C05882605EDB4913DA089549A@AM9PR04MB8604.eurprd04.prod.outlook.com>
+ <20250714094124.e6fnkrocnqagbm22@pengutronix.de>
+ <AM9PR04MB8604EFCC5400DEBB7DF0CF49952DA@AM9PR04MB8604.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: st: Add memory-region-names property for
- stm32mp257f-ev1
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20250806-upstream_fix_dts_omm-v1-1-e68c15ed422d@foss.st.com>
- <9e0c5453-b8f4-4d0a-8e8d-82014aac67dd@kernel.org>
- <832fb088-8862-4bd7-82a4-0e7ad58efe76@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <832fb088-8862-4bd7-82a4-0e7ad58efe76@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <AM9PR04MB8604EFCC5400DEBB7DF0CF49952DA@AM9PR04MB8604.eurprd04.prod.outlook.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_054430_129344_B37AF447 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20250806_062723_709563_3F6476AF 
+X-CRM114-Status: GOOD (  56.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +96,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2025 14:36, Patrice CHOTARD wrote:
->>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
->>> ---
->>>  arch/arm64/boot/dts/st/stm32mp257f-ev1.dts | 1 +
->>>  1 file changed, 1 insertion(+)
->>>
->>> diff --git a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
->>> index 2f561ad4066544445e93db78557bc4be1c27095a..16309029758cf24834f406f5203046ded371a8f9 100644
->>> --- a/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
->>> +++ b/arch/arm64/boot/dts/st/stm32mp257f-ev1.dts
->>> @@ -197,6 +197,7 @@ &i2c8 {
->>>  
->>>  &ommanager {
->>>  	memory-region = <&mm_ospi1>;
->>> +	memory-region-names = "mm_ospi1";
->>
->> It does not look like you tested the DTS against bindings. Please run
->> `make dtbs_check W=1` (see
-> 
-> My bad, i am preparing the v2.
-Why? I claim this is not needed according to your description. You said
-it is necessary to identify "memory-map area's configuration." but
-memory-region already tells that. What exactly is not identified?
+On 25-08-06, Pankaj Gupta wrote:
+> > On 25-07-09, Pankaj Gupta wrote:
+> > > > Am 30.06.25 um 14:17 schrieb Marco Felsch:
 
-Best regards,
-Krzysztof
+...
+
+> > Lockdown: For a verified boot setup you need to burn an eFuse at some
+> point,
+> > to tell the bootROM to boot only correct verified firmware images.
+> > 
+> > After this lockdown it's no longer possible to burn eFuses from the REE
+> albeit
+> > the production line setup still requires the support.
+> > 
+> Understood. ELE access from both secure and non-secure world is fixed in Q3
+> release.
+> User can be able to modify eFuses via OPTEE.
+
+Splitting the read and write between two drivers is even worse.
+
+Can you please point out why you can't just move the driver parts into
+the tee? I do see many advantages if only op-tee is used:
+
+ + Minimize the maintainer effort, because only one driver
+   implementation is used.
+ + TEE code could be reused by other OSes
+ + You could already start adding the support for it to OP-TEE because
+   no ELE-FW update is required.
+ + TEE is used anyway for new projects due to CRA and friends
+ + Concurrent access handling is done by the TEE core
+
+The only downside of this approach is the integration effort for the
+TEE, but this shouldn't be an excuse. Mostly all well known buildsystems
+like: Yocto/OE, buildroot, ptxdist do have mainline support for OP-TEE.
+
+> > > >>  - With new regulations like the EU CRA I think we need some sort of
+> > > >>    secure-enclave anyway.
+> > >
+> > > > Probably some sort of, yes. But not necessarily in the form of TEE
+> > > > or TrustZone, I guess.
+> > > To use ELE features through Linux, there is no dependency on OPTEE-OS.
+> > 
+> > Once again, still no fix available and if your system requires a TEE
+> you're forced
+> > to move the ELE communication into the TEE (at least until now).
+> > 
+> > Also the eFuse R/W access is not possible from the REE/Linux after doing
+> the
+> > device lockdown.
+> > 
+> ELE access from both secure and non-secure world will be fixed in Q3
+> release.
+> User can be able to modify eFuses via OPTEE.
+
+NACK, please see my comment above.
+
+> > > >>  - Making it optional cause more paths of potential errors e.g. by
+> not
+> > > >>    including the correct "secure.dtsi". Multiple paths also require
+> more
+> > > >>    maintain- and testing effort. IMHO I do think that one of the
+> paths
+> > > >>    get unmaintened at some point but we would need to keep it for
+> > > >>    backward compatibility.
+> > > >>
+> > > >>    Having one implementation eliminates this since.
+> > > >>
+> > > >>  - All above points assume that the ELE-FW and -HW is capable of
+> talking
+> > > >>    to both world, which is not the case. As we learned NXP doesn't
+> have
+> > > >>    a fix for the 2-MUs ELE yet and even more important there are 1-MU
+> > > >>    ELE-IPs.
+> > >
+> > > For i.MX9x SoC(s) there is at least one dedicated ELE MU(s) for each
+> > > world - Linux(one or more) and OPTEE-OS (one or more), that needs to
+> > > be shared between them.
+> > 
+> > Please mention this within your commit message.
+> Accepted & mentioned.
+> 
+> > 
+> > > As mentioned earlier, there is an issue of using MUs simultaneously,
+> > > from both worlds. Fix is in progress.
+> > 
+> > So until now no fix available and i.MX93 based products which do use a TEE
+> > are forced to move the communication into OP-TEE.
+> > 
+> > > >> I do see the (minimal) drawback of having +1 FW but I think this is
+> > > >> more an integration problem.
+> > > >> Speaking of FW files, for the new i.MX9* you already have plenty fo
+> > > >> them: bootloader, TF-A, ele-fw, scu-fw (i.MX95). So your integation
+> > > >> needs to handle multiple firmware files already.
+> > >
+> > > > Sure, but I really like to keep the complexity and therefore the
+> > > > number of FW files as low as possible. I'm not sure what has more
+> > > > weight in terms of
+> > > > security: shipping an additional firmware and therefore increasing
+> > > > the attack surface or maintaining an additional code-path.
+> > >
+> > > There is no +1 firmware in case of i.MX93.
+> > >
+> > > >>
+> > > >>> Anyway, I see your point of having a single implementation for the
+> > > >>> ELE API in the "right" place. But as far as I know other platforms
+> > > >>> like
+> > > >>> STM32MP1 also implement both ways for the HWRNG, secure access via
+> > > >>> OPTEE and non-secure access via kernel directly.
+> > > >>
+> > > >> I'm not a STM32MP1 expert but here you have this setup with the
+> > > >> *-scmi.dtsi. So you have two code paths which needs to be
+> > > >> maintained and tested. Also if one customer of yours want to use
+> > > >> OP-TEE you need the integration anyway, so you (Kontron) needs to
+> > > >> maintain multiple configuration as well. I don't see the added value.
+> > > >>
+> > > >> I think for STM32MP1 the *-scmi.dtsi support was added later
+> > > >> because it required a lot effort to support it. This is not the
+> > > >> case for the
+> > > >> i.MX9* series.
+> > >
+> > > > Anyway, thanks for elaborating. Your points are all valid and
+> > > > basically I
+> > > agree. I'm fine with either way. But I'm afraid that implementing the
+> > > ELE API in OP-TEE only will cause another tremendous delay for having
+> > > ELE access in the kernel, especially seeing how slow NXP seems to be
+> > > working on these topics right now.
+> > >
+> > > To use ELE features through Linux, there is no dependency on OPTEE-OS.
+> > 
+> > How exactly do you provide the eFuse write access after the device was
+> locked
+> > down?
+> As mentioned above by you. It will be done via OPTEE-OS (or may be via TFA).
+
+Why TF-A? Please see my comments above.
+
+At the moment I don't see why the ELE must be a Linux driver. You could
+start adding a TEE driver now, because there is no need to wait 3 months
+for a ELE-FW fix.
+
+IMHO having a dedicated normal-world driver makes only sense for
+bootlaoders which don't have support for the TEE communication but need
+access to the ELE. This is not the case for the kernel.
+
+Regards,
+  Marco
 
