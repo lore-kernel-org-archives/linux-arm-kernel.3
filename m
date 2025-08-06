@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45501C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07D4C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 18:55:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZK5V3MersSIii614/5r6OgvzTxwXRniwWTH6RVoqVU=; b=A8X7M3yB7ZlnPLZdw899MawKYk
-	V+LZVGeTdMLNx483FZHXMnUxLMNDAPzwDBtjn4TJua9O49saav6AvG14C5kqxQKdjDbQD4FUs+FaK
-	qyPAYS+sazkNdB21D+ULdK1sTZdl8RVF4kyMTJm8R/0cwQ2xF9cA78v2ghSd/XnBQzYOjMNlsv48T
-	mRXWa3Hp7J72Z49qKDRqgrz/3yVHftXC375pQzk0kemJQrX552iblo6wA13SVf10L3rUJo85bI5+h
-	UemfqY218GNLtlUXgZmO5aSEkJmN0NWJvevV0x1yko+/KmaIn7Fx4pClBrKVL7c2m0wcI1ETh6f6g
-	2xR2WzWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=hnCMNG0/3rF8Iu0XS2mnY9CpBY/jnWu0X3RBk+8zXF0=; b=PSKRQqoR9NACMWlkGVQtF0mR4D
+	Cyhwf4IBo6RU27qUnhPoXzUfUNWU+rcUyvjpMf9J6mFJT0xG2P4canw/rExkjGB/zdjB6GjPTol0Q
+	qgpQudeEzicADFQGLqcOwV30yDbiPeYPIOHZ6/EVzoYLe293QokGTurxpktilS2xfPySa2B3rbfG+
+	u90bvnqpYJ2j5OO8AWtAIZhjGjjzPhJpm+wTR4s4F97rVvvrQITzyusWmJ1G+i5TMf3/7Wlsi1ja+
+	zpSBMdu2lsZn4DOPQPl36mKYtPNhLOb2jNYQi/vDCBvKY1E9nnSmKjXnnPvHDJwTYg3WrH/WZZ4mS
+	awW3ojlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjG6-0000000G86V-0tom;
-	Wed, 06 Aug 2025 18:53:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ujjIb-0000000G8NT-0DGK;
+	Wed, 06 Aug 2025 18:55:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjD0-0000000G7dj-0B2F
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 18:49:54 +0000
+	id 1ujjDy-0000000G7ol-1z01;
+	Wed, 06 Aug 2025 18:50:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 273FE60204;
-	Wed,  6 Aug 2025 18:49:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBEFDC4CEE7;
-	Wed,  6 Aug 2025 18:49:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D8DC43B70;
+	Wed,  6 Aug 2025 18:50:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BD03C4CEE7;
+	Wed,  6 Aug 2025 18:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754506192;
-	bh=Fq3lCenJdcFbBPGsBCYGH9j0A7GaUKJaPYK+8MGwrFU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hBNshinW1rnUFB0o4Si2zgGSOP/IP78XUiCJDginX06F1KGRNz1j55sJezeLHVZIT
-	 w+XFGy1HU53pbqmwxSShdWT3x289hy8VECUD9Zf43WDu2qCF3NGLZVxi1+m9+8JThv
-	 5K7L1sIXatNl/G8UJrHzynyblSrCuZFBFqybQYJbRefZinuKj5YetQfpLqELxQ6feP
-	 29TV8wgGKDELrFcxNoX47IQAZsxN3QtIdqhXHgYLhiL8sKtB0KnpeWBV6k1OQTCDsn
-	 GUmic3fO/zrqiTDlMFdS5HNG0098MbM6KHCy4HyFbUUhLG67uYNf3It4jNRfBmMXzD
-	 FtrRyybW8m0Tw==
-Message-ID: <fab1f878-f174-4b21-985c-abd2e6369847@kernel.org>
-Date: Wed, 6 Aug 2025 20:49:48 +0200
+	s=k20201202; t=1754506253;
+	bh=kEM5vhXrSGvpRyllOZTd+MbG9Yt0asgCP/TMhfdeB48=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=BzWAfBgnwZpfljD/W+CsHOSwzED3vJWVnHj6/SK/MH3U9Wv4RpRV6oxiCtte0LY3C
+	 yJBDmwZa2u2+nad+38+KrVw//p1RFTwpzlU7WdtGoPifWOIgJA+zlfRF9eFPg3EuDw
+	 k32XLonHhU5Iqy6hmeDzKf1ZidUwKDUQFOOZwUHxUegZrCMI/R0BjbAlxqN3T6FzHb
+	 /T/EmUJBnHVcvpNmyCEJY7E0gMo3VQmTwucIVB33R1BsQAgWZkXO+NdrwR1YYnOia3
+	 hPZVUp8e12wRkxTOrGJ0wU3xugkQafUNoTL0Sw3dtMIsWqKoP7q0Rlz9UIalcj+GRJ
+	 PYgVcLbQYzrJg==
+Date: Wed, 6 Aug 2025 13:50:51 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
+Message-ID: <20250806185051.GA10150@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mfd: macsmc: Remove error prints for
- devm_add_action_or_reset()
-To: Waqar Hameed <waqar.hameed@axis.com>, Janne Grunau <j@jannau.net>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>,
- Lee Jones <lee@kernel.org>
-Cc: kernel@axis.com, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <pnd8qjym7td.a.out@axis.com>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <pnd8qjym7td.a.out@axis.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+-6iNzq_BV_fK9T4LK0ncZuufqp9E9+DUyFU3jKCnSCjN8n-w@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250806_115054_551991_3D27D001 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05.08.25 11:33, Waqar Hameed wrote:
-> When `devm_add_action_or_reset()` fails, it is due to a failed memory
-> allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
-> anything when error is `-ENOMEM`. Therefore, remove the useless call to
-> `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
-> return the value instead.
+On Wed, Aug 06, 2025 at 02:38:12PM -0400, Jim Quinlan wrote:
+> On Wed, Aug 6, 2025 at 2:15 PM Bjorn Helgaas <helgaas@kernel.org> wrote:
+> >
+> > On Fri, Jun 13, 2025 at 06:08:43PM -0400, Jim Quinlan wrote:
+> > > Whereas most PCIe HW returns 0xffffffff on illegal accesses and the like,
+> > > by default Broadcom's STB PCIe controller effects an abort.  Some SoCs --
+> > > 7216 and its descendants -- have new HW that identifies error details.
+> >
+> > What's the long term plan for this?  This abort is a huge problem that
+> > we're seeing across arm64 platforms.  Forcing a panic and reboot for
+> > every uncorrectable error is pretty hard to deal with.
 > 
-> Signed-off-by: Waqar Hameed <waqar.hameed@axis.com>
-> ---
+> Are you referring to STB/CM systems, Rpi, or something else altogether?
 
-Reviewed-by: Sven Peter <sven@kernel.org>
+Just in general.  I saw this recently with a Nuvoton NPCM8xx PCIe
+controller.  I'm not an arm64 guy, but I've been told that these
+aborts are basically unrecoverable from a kernel perspective.  For
+some reason several PCIe controllers intended for arm64 seem to raise
+aborts on PCIe errors.  At the moment, that means we can't recover
+from errors like surprise unplugs and other things that *should* be
+recoverable (perhaps at the cost of resetting or disabling a PCIe
+device).
 
+> > Is there a plan to someday recover from these aborts?  Or change the
+> > hardware so it can at least be configured to return ~0 data after
+> > logging the error in the hardware registers?
+> 
+> Some of our upcoming chips will have the ability to do nothing on
+> errant PCIe writes and return 0xffffffff on errant PCIe reads.   But
+> none of our STB/CM chips do this currently.   I've been asking for
+> this behavior for years but I have limited influence on what happens
+> in HW.
 
-Thanks,
+Fingers crossed for either that or some other way to make these things
+recoverable.
 
-Sven
+> > > This simple handler determines if the PCIe controller was the
+> > > cause of the abort and if so, prints out diagnostic info.
+> > > Unfortunately, an abort still occurs.
+> > >
+> > > Care is taken to read the error registers only when the PCIe
+> > > bridge is active and the PCIe registers are acceptable.
+> > > Otherwise, a "die" event caused by something other than the PCIe
+> > > could cause an abort if the PCIe "die" handler tried to access
+> > > registers when the bridge is off.
+> >
+> > Checking whether the bridge is active is a "mostly-works"
+> > situation since it's always racy.
+> 
+> I'm not sure I understand the "racy" comment.  If the PCIe bridge is
+> off, we do not read the PCIe error registers.  In this case, PCIe is
+> probably not the cause of the panic.   In the rare case the PCIe
+> bridge is off  and it was the PCIe that caused the panic, nothing
+> gets reported, and this is where we are without this commit.
+> Perhaps this is what you mean by "mostly-works".  But this is the
+> best that can be done with SW given our HW.
 
+Right, my fault.  The error report registers don't look like standard
+PCIe things, so I suppose they are on the host side, not the PCIe
+side, so they're probably guaranteed to be accessible and non-racy
+unless the bridge is in reset.
+
+Bjorn
 
