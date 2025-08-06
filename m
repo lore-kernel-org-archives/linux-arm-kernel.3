@@ -4,95 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DC7C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 11:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78196C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 11:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bWQWyYoXiLLkZAoiIB5sdcKmoITnPW5rVyw8e/6D4rw=; b=UInCjrjiLkCVFJsMkJ5KqrSpFE
-	x0GVviFvnfolzEdqdt3xICS2090sjoJauz75XCklF5x8U+8qcglLU+38V3/J0pzUWqxH4CdanlbWh
-	2/amj9U4MVVAWNuB35R4HWxvwGvHaXKgBnoeTaxMvDpkPww5eBAYCiEvkcpeUz+0EPn1HrVokzNfW
-	RqlKg8tTY4LyX6qIXclMoKV8a2knhr7IW0Mnc/g0OQaqolHPasoxkjrovpPUEqeoAOzrdTBLMHpwx
-	Of7/XWm1l+PiW6bRC3Py/g2NG6VkSiqiuXZBhMSNuad76UFLBEmghfq3nYzUigYvncYtJK8J4RQUY
-	4YzNWx7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rqKHWw1mwSPS9FPjSAMko+hyTgzgjMm5s7ZkeYCv9jQ=; b=EAyqPdY6iZtbkvV3iriXzKZox6
+	KIJg3QRzc7lxi53dfby/97YyI995JhRM5BS6m7vVJ0eA7FWs2yHXP4rdCEONQH6pKgoHcn7Idr+ut
+	knCkVMPDk0FBW+p1Reqz2V3LLdWgRzplyTwWcp8xPSylkvL0ie4GTrejT7T1Oiiqgdj6lVTGMMo8w
+	pJmY1Lt2RkrgCxnxDU6dVM1pxXYcsRBpLUur601ze8nEtnKLTdrCpDzXpzlE8hov8S0mavFLr48XU
+	RL+W1PkQ2X4QtKT2bi7/cumD6xBln233dgOAL0K0bX0oZEtElMb+AzrnZyCY4gj1ftzhLkvGSBuWC
+	Dc+Pxe8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujcSw-0000000F1ky-0u3S;
-	Wed, 06 Aug 2025 11:37:56 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1ujcZk-0000000F2or-0h3F;
+	Wed, 06 Aug 2025 11:44:56 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujcQM-0000000F1X1-2yih
+	id 1ujcXB-0000000F2Bw-1XEe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 11:35:15 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-76bc68cc9e4so5795311b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 04:35:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754480113; x=1755084913; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bWQWyYoXiLLkZAoiIB5sdcKmoITnPW5rVyw8e/6D4rw=;
-        b=trKZjLVzp68novJ6m1BrTkQZHV57cSYnYIRAc9vi+UIKpdFWcmfYGgTrietBUPcgN4
-         v2DqY+yFXlf+Khx64qpnCm9ub6SyNN5xxzdM+ZY7Il5HfJEregx93kJd3M2EfuvtAKe2
-         9dQs+QmWBrtMDk1yUERK2swIuAZkK54czNohYdT3NonGfsQNtEJ/ptkkxiAez78NXnVc
-         MlZ7l8wu9ocWhZbSRAsZuRAAEcY5P2RnRbyevx945MOvxhICfH50fM+4U+euoULKSoXX
-         /0vE+XUfUSR5V0naMw/F4s4iTHgn+0v69zlB0cGy1qkk9PyIpy8es2xpPY5DzzTSGGBn
-         Bt1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754480113; x=1755084913;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bWQWyYoXiLLkZAoiIB5sdcKmoITnPW5rVyw8e/6D4rw=;
-        b=irltwXOcXtSgcLbCnQM2yay9MfQer51ANRNGZnn4MpiaC7HE95BW1lK4VFDjgSUrdo
-         opyNh1aFLdu6oyAbvhclopqXK1fsTvIlkXeaw985pxrZIZl1G/zGO9l75rc/H6JzNd5S
-         mkhPqBCH3UGhb/T/THfm/itZn3VkRqiXHr8ilydeyTUznaEoZJs1FZNu0Q9n4RMNzPcu
-         WWcffj7JgCXdKkhNrWK1i1cldP8JcH1YZMinXxHAVPoa4rEAVKG6hUpGX1l0cPivE4jc
-         AarePZJ6+kZo0fq7wlbI1FeG8lYSQ1/Cnv9C9ADKmwVHMJ7DgD4ZJe4HKiQ7xstdwhqm
-         F+lw==
-X-Forwarded-Encrypted: i=1; AJvYcCVVUnyfxK9jYaS6c1DfUWSc9L2wAqE+0cVi4B8mR4YuQYsvIF+GyzR7T84jbdx24cWGsHaUCu34aBs0XWEen5CQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys2JNblWdmVS0CXLs5zjYeB3wgl+XPVUP9yeW7UhJHrkL6jzby
-	FrEULDtaqTyHkJJ90vhc5EHmfgSx/6nbFruk12gkwWo8IzKqUQUnrAfjFaLWIkTKNxws7uLPIqO
-	/IS6Zya9qmaFgn/DuPQwr08xFMBG36rdqBhHZAOih
-X-Gm-Gg: ASbGncu6MEtci6dtSWmKEs/OKAdl+WlMss5iwJX7W8eZCc8aoZ8ymE8ME3857a38HQ4
-	/EwLkYW11qZvRykbZMjTCnCvZF/UENT1W/yVz7UvwrHeviPNem4qpP+NrnwbAp3/Ghl1P8oFpkg
-	1UylbvOrdypzXpHvyXHgWGsEidXWm+cqu4QCKqUyagrcMfUT4vCm1L/zywzYni+cD8+1J30dio2
-	x3suCnHMu48eeEzFYpAKxH3t4jUXhzuyGuY8FHn7PuC2Lu2WyU=
-X-Google-Smtp-Source: AGHT+IHC937rfNHLj2Ketv7dG7aNMCiksImoAukkEKJ9dvpFLVmtwt42vPOJP0hdb3k7rsxJhY51EU50UuhO23sAjZg=
-X-Received: by 2002:a17:902:f543:b0:23f:f96d:7581 with SMTP id
- d9443c01a7336-2429f57624bmr34189925ad.20.1754480112491; Wed, 06 Aug 2025
- 04:35:12 -0700 (PDT)
+	Wed, 06 Aug 2025 11:42:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RxGUIARjq4CZMMqQk27QqdjuQFMXf1BELXF0YDn/sqkSCWoBrWey8yQy2pGMyzjIMX2Bsv2/h6NSvpZSD6FCKhofdBCKR8Wj0QGbSw8mqEFSgHWC8lWsLpJAkaVYGlXdidX6lplxwlv17IYGMnOIkDXilwQLqre6r4M3gGpjOQ4AQgHgUmBBihHIao5oI7BYLfJwzx5J5f8iTp0Q8/7kzIaCuKUDVu0qESswXcGMxkOJTyEjvI5RT1Zoretf/0LVpL74GhIs843y0TRXdjEIgwcUgQXfWq/h+pB0YJWPE4TaBq/HykoU3VSEARihPTllf5bHJwvSt6fVtWLibnUIpw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rqKHWw1mwSPS9FPjSAMko+hyTgzgjMm5s7ZkeYCv9jQ=;
+ b=d0UZV+avoFhXHkTfPG1WGuYlONrrR4GoTtd65czrMlOLchruQz3VrMZs7XcbiisJvTQczSofqnhjt3Mvqugeh8AXCpK63Z8j29NoX7zqjipGdgCzGF1ibU8Wc1bzLOHO+MMTlsHZDHihelC1mk5Hn509bMCw1B21WKRvg23v4CUNSsikeCB7kyb/Nj74CWsCiqHCiZnq2tL3Xo8x86t0PWPg1UY3C1jVW8gvBIiRBAq4GZtNg7wUsmBSPv4jqPLp6NR3XDGZ0knExikjWx6yYXBclyQboZ8W/nreIGAjaWvpmcLX4dxVSM7ntQrPUHFuaFau7KSoj++EKl1UVCHLNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rqKHWw1mwSPS9FPjSAMko+hyTgzgjMm5s7ZkeYCv9jQ=;
+ b=cS2ZX9H9Q4000B829iMQ5kPwosO4T8+3LSbBLjPfhFOIN4sA5Z0LIwG6VFOygq55vCApSpFnDzpBW1znp9COssioi0blEbCoEhiKdZRdeb93itR693WkXjMrHjeen6786yvjJDy4K5poltibBkghmghBz8yThJywtybq4+DO9pT4hi3mcFjHq/NZ1rfApUnl1+MJufuQdg14ASg3/ljAg38ICDZr7nS45KozDezoIIL/wrPFWh2+bkKutV3s9fBwdG1BMYJoC/YRznX5idqkLnYAUQhTQmzOot0H/3I3EnaelrTzqqy8U4KITwA4rwGSw0I85dyeCexO6QbAPunxUA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com (2603:10a6:20b:4e9::8)
+ by AS8PR04MB8312.eurprd04.prod.outlook.com (2603:10a6:20b:3f1::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Wed, 6 Aug
+ 2025 11:42:08 +0000
+Received: from AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c]) by AS4PR04MB9386.eurprd04.prod.outlook.com
+ ([fe80::261e:eaf4:f429:5e1c%7]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
+ 11:42:07 +0000
+From: Joy Zou <joy.zou@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	peng.fan@nxp.com,
+	richardcochran@gmail.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	ulf.hansson@linaro.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	frieder.schrempf@kontron.de,
+	primoz.fiser@norik.com,
+	othacehe@gnu.org,
+	Markus.Niebel@ew.tq-group.com,
+	alexander.stein@ew.tq-group.com
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	netdev@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Frank.Li@nxp.com
+Subject: [PATCH v8 00/11] Add i.MX91 platform support
+Date: Wed,  6 Aug 2025 19:41:08 +0800
+Message-Id: <20250806114119.1948624-1-joy.zou@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0031.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::11) To AS4PR04MB9386.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4e9::8)
 MIME-Version: 1.0
-References: <20250801092720.1845282-1-verhaegen@google.com>
- <20250801092720.1845282-3-verhaegen@google.com> <aJGM2zXS6hOLDFm1@vaman>
-In-Reply-To: <aJGM2zXS6hOLDFm1@vaman>
-From: George Verhaegen <verhaegen@google.com>
-Date: Wed, 6 Aug 2025 12:34:46 +0100
-X-Gm-Features: Ac12FXxWf93J7w4DWWOw2n4oH9fFRZLDWbJIwgwctng7o16PPG-OqeOwbdPfDf8
-Message-ID: <CAAntYmLYVeMEpEtzhhMZ_kyAuwqv5suQK=rjF4ixgu1QH3yk=w@mail.gmail.com>
-Subject: Re: [PATCH v4 2/3] ALSA: compress_offload: Add SNDRV_COMPRESS_TSTAMP64
- ioctl
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Cezary Rojewski <cezary.rojewski@intel.com>, 
-	Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
-	Bard Liao <yung-chuan.liao@linux.intel.com>, 
-	Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
-	Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, Srinivas Kandagatla <srini@kernel.org>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	kernel-team@android.com, linux-sound@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
-	linux-arm-msm@vger.kernel.org, sound-open-firmware@alsa-project.org, 
-	linux-arm-kernel@lists.infradead.org, Miller Liang <millerliang@google.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9386:EE_|AS8PR04MB8312:EE_
+X-MS-Office365-Filtering-Correlation-Id: b537854b-4377-49cc-ce7d-08ddd4de45c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|7416014|376014|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZhTpALJwGdWzAUzrpO4Xso5/pS5jOJz0QG8ndbuzznsfAJBpRcb4xWALcAZF?=
+ =?us-ascii?Q?J/8QSjTzXi72vUNzWvs0JzoxxZJhdzhcUb2MqXMgleDiLW9VRBqHoYKoLima?=
+ =?us-ascii?Q?P6AMxvnHB1xN/mWbhZ9nbzL1So9W08aNGhL4Fs3rOxuO3/75k0eArL2okS82?=
+ =?us-ascii?Q?O3MhQQEDQXHsvOCQIr6OALSh9PH1DNdrXicB4ik1tXJXCSfqqCg6sB8TerzL?=
+ =?us-ascii?Q?MqSFNjG15uv8V5UAU0TucXHPoCcPo+a4CZB2fnokynv3z4CNevatOHy09As5?=
+ =?us-ascii?Q?OQ3Sqn0zHySuXus0V4gYto+QG9TGrwis8cCKwZg2jYg8PgwQBiiEumjj5uMF?=
+ =?us-ascii?Q?qe1rSkod//iKvmmddMzrsS9SkaQvDt+It7oEZajnRZuIEv3k9jpltJOgE5vJ?=
+ =?us-ascii?Q?2jPO8sBqlBqpvd528tm+xZ6KDjj58V/uPdGOkTwU5YzLHwIO93If2HIMLhnI?=
+ =?us-ascii?Q?bzVQqw/VRDqfQo+23YxW4F0CWo9WV/xL7rcRb4bmwJM5vYASHgLCINHSONi+?=
+ =?us-ascii?Q?oZpTmrhR69QACgSe57pZVJ1IAX/DJaxHVNJmLDy0/qxQAGul6wn0tUD3CO8A?=
+ =?us-ascii?Q?b/M7SKWhq5IlRA5z3I/nBqgnU8wH7SIe9hf0LAwdnIRNLI+50jJbfDvzgdIy?=
+ =?us-ascii?Q?VrZxVXHusKDpeDxasXPLa7i2c6T2zwdsSCg+yG5+kcfRphZTXoW4Ax1aq4XB?=
+ =?us-ascii?Q?Or3OCbyylAY6A/K9w2H2nh7XZTbpiwUAjD/CVN+zrgFkwrLEozBxhtM9ZETF?=
+ =?us-ascii?Q?LX2Nq/AHOwVxQqf402CXbAUOCs+CZKaf/KshxzEyPUOk/GlLZoMwKnVPO2mI?=
+ =?us-ascii?Q?ddtK+pID7Dc4P7f2D4opu96rQUBWazFjGQ5hSwhhmWBtkG9qBP1RHehqafwa?=
+ =?us-ascii?Q?blmdON/KhtFpcTetRyqvZxL9tu9N7qg5sZ9hDVbnKBLjkIUfVcdklsphHkrQ?=
+ =?us-ascii?Q?joeTNQdBZc2njXKJ2caVyiyDIG/mZbB6+x8195VbXg8h03izgmY6jS0EoAGs?=
+ =?us-ascii?Q?Rv7alg+OurOnpVAKXsXL+vhWcNSB+LXyeXlFK6IK4jczPp2zCgZRls+A/AgL?=
+ =?us-ascii?Q?21BQRmvOQv6Xj37pnOjLtUjTDH19S42rcCC8tJ7gnlVfGtbdPhAz6g+ohxFB?=
+ =?us-ascii?Q?cBFLVgvWjSjrqAymV3f2Rs7hfvTxrLwooFSeEPXalFAi9Rx0bEKA48hBEFyf?=
+ =?us-ascii?Q?6r3oCUo7QKuxhmt9Wi1X33eU/uL3dFpEaFH2WXeIKiEN4rR2pjQJa9/PTfkv?=
+ =?us-ascii?Q?2xOOj2wBv+E5p1u17I0HmkdFm0L9xKL4NSKwinTHfrr3R68gBUtFVn+zvEKF?=
+ =?us-ascii?Q?WmYix7R3NyqDCn63E7BD9h+veWNZCVvqE9vWY2cHCtE0BEZZH/RLl5b0eg21?=
+ =?us-ascii?Q?LZf5Duc065OKO03r+I5XjVZO+zcm6Pn2mzhEhz8OKfYL00sOLtDse/vnb3nv?=
+ =?us-ascii?Q?Ovrs8cg72O1F/Qqyb04MfaQGvtuqynH2?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9386.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(7416014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MHEprWjcmExKaDTYKNjTKgJ9iO4I2g0qYQwF/bcdeOVu0eeGPrn5P9j4M+6C?=
+ =?us-ascii?Q?pmbxWSgyntq605ulPlWjmT6NGpHG0/7866uNErIy/oVuXKE2QdQXo7TTL46l?=
+ =?us-ascii?Q?4DDzHVpPZCYReZvcBTedmroMsokwhTGSKR2xF+SxcX9S2T4eC3Zjm4VFZy4g?=
+ =?us-ascii?Q?nEuaU0AMFvlwXxc9rz7yfpdnHHZEuFcN/o6ESyMHaxU8Og4dY4x4bkOfWrO5?=
+ =?us-ascii?Q?e+UR89zV0PWDZ6fY9gUx9NN3ZYsKY3OG9p//LzTKfWbfjpmj/fjynbJL5K0C?=
+ =?us-ascii?Q?DuayVpd26KaHp80ssKipjHh3bGHd9rx1m9Uiemf+L4gf4mmk/crN5AjH3RK+?=
+ =?us-ascii?Q?8aEs8Mozc0/eBJnzHl/bcLOBYEQ517+B7qhpk0U/bYncvDp0Qqp8dHF4Xw+l?=
+ =?us-ascii?Q?C/zbBlpSHBsmhm9qZsQumtlX3efI/vX1XN4ADNlUCh05oBZniuzbDZrdA+bO?=
+ =?us-ascii?Q?wTTs1RuIqvjPUf5oZ4iLzE7mDgI528DSyvzMQZ0vmV0u1KlYV58VqRvExT5a?=
+ =?us-ascii?Q?144CpKqKJDPYOFzdVGFLmY6ZaPq3oHQTVqsNLCsdjn9YDGwhYaeX3gq5qPSs?=
+ =?us-ascii?Q?c+7JXsM85daBtANafO71YPh1e/CpJRieuvCq+vek4umYOVfwmLIjKWiOdo6J?=
+ =?us-ascii?Q?IhStqIKsvwOorFncYPT9ERx5XBRuzA1zonmHrA8TaQq9MJBBI7gmQB75Hq/W?=
+ =?us-ascii?Q?ouJtLhtGDC5YqshtdlKQpHwRPq88oABzitd5Dci/u4lxAaQQ1S01b0zhE7Qr?=
+ =?us-ascii?Q?ZVxikqrlYasO9U65n8TPvJXDL1cEapt0yEaUqTsfsIKAVbR1+GqrxP61034F?=
+ =?us-ascii?Q?pUKsC8G5fmiv5FuBR3kG67CYtLThMcUPnYtn9ZrkYGL4cGKh7OeQYc32Y/st?=
+ =?us-ascii?Q?iUi0D/SEbwiDAMr/oE0X0/cowl8vvcOBcHYN+3mUKHkSckXmBG0Kx/AFnt9H?=
+ =?us-ascii?Q?ZYy5dQ9Z2EIlckAQk+7FbVGNrXFVV6GV9B0UYUDjl/99AGusCr//FwIsxQ7i?=
+ =?us-ascii?Q?aoSnFPnq20L+kB7qLMnAX9y7RJ+Fwrq9T3vTbzl3NmieYRv+YZLhRJG0PKR/?=
+ =?us-ascii?Q?LcQnnTP8JA5jIDkfkKx2Iy2MD/79juo0HTUUZWbh/MJ0NL0pxDElCUbjNXz+?=
+ =?us-ascii?Q?XLeeE7ElE6l8kMBW3OHhPB/psLybamyP6A8hvz2pMcQLjd+/9rP2jGEOn1iK?=
+ =?us-ascii?Q?5Hv1kJUlzdfVk2m2tWYIQz7WPtAb087leC+NbCOF9YlwGOtfMTUIUleKLf/V?=
+ =?us-ascii?Q?k0hH3buDe9FtItWealMI3tSk2TjJLhhB25cwc+AEsCxOqmsSx8o/ags7g9NE?=
+ =?us-ascii?Q?vBvhSmPootTowxQ7fkaNumCPqtM3HL7LMeA6oB0Ov3wJyr5Dd7PIoyY0PlHn?=
+ =?us-ascii?Q?It/b2VmCEI6/vxeOt5uvDS60VpcBrxnAQdn44JFQhQaS+1SRWz5JTf56YBKd?=
+ =?us-ascii?Q?lk1KF9VQwKiK3AYCauSlQI1tIWCNaIE25rAFsEO3yhw2q81OAe2olSIf+RnN?=
+ =?us-ascii?Q?LcRzGw8UdVaRvQKWEXaS3jt+uw+jBovw7LCz7+JQNCueG1eORL75PoZOxBUR?=
+ =?us-ascii?Q?p/1UWvVvqdo6bPUKRXf9QkJPmTEKCE8CvQqjpKjV?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b537854b-4377-49cc-ce7d-08ddd4de45c1
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9386.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 11:42:07.7403
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: my6sGuj44jZYkpfxnGNXmCgcZsXt1wUPNb8A8SgTsSmfSLlILeLIrXSUCFHLyexD
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8312
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_043514_805000_D0C36FF8 
-X-CRM114-Status: GOOD (  31.28  )
+X-CRM114-CacheID: sfid-20250806_044217_593610_152BBB7B 
+X-CRM114-Status: GOOD (  21.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +184,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 Aug 2025 06:47:59 +0200,
-Vinod Koul wrote:
->
-> On 01-08-25, 10:27, Joris Verhaegen wrote:
-> > The previous patch introduced the internal infrastructure for handling
-> > 64-bit timestamps. This patch exposes this capability to user-space.
-> >
-> > Define the new ioctl command SNDRV_COMPRESS_TSTAMP64, which allows
-> > applications to fetch the overflow-safe struct snd_compr_tstamp64.
-> >
-> > The ioctl dispatch table is updated to handle the new command by
-> > calling a new snd_compr_tstamp64 handler, while the legacy path is
-> > renamed to snd_compr_tstamp32 for clarity.
-> >
-> > This patch bumps the SNDRV_COMPRESS_VERSION to 0.4.0.
-> >
-> > Reviewed-by: Miller Liang <millerliang@google.com>
-> > Tested-by: Joris Verhaegen <verhaegen@google.com>
-> > Signed-off-by: Joris Verhaegen <verhaegen@google.com>
-> > ---
-> >  include/uapi/sound/compress_offload.h |  5 +++--
-> >  sound/core/compress_offload.c         | 19 +++++++++++++------
-> >  2 files changed, 16 insertions(+), 8 deletions(-)
-> >
-> > diff --git a/include/uapi/sound/compress_offload.h b/include/uapi/sound/compress_offload.h
-> > index abd0ea3f86ee..70b8921601f9 100644
-> > --- a/include/uapi/sound/compress_offload.h
-> > +++ b/include/uapi/sound/compress_offload.h
-> > @@ -13,8 +13,7 @@
-> >  #include <sound/asound.h>
-> >  #include <sound/compress_params.h>
-> >
-> > -
-> > -#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 3, 0)
-> > +#define SNDRV_COMPRESS_VERSION SNDRV_PROTOCOL_VERSION(0, 4, 0)
-> >  /**
-> >   * struct snd_compressed_buffer - compressed buffer
-> >   * @fragment_size: size of buffer fragment in bytes
-> > @@ -208,6 +207,7 @@ struct snd_compr_task_status {
-> >   * Note: only codec params can be changed runtime and stream params cant be
-> >   * SNDRV_COMPRESS_GET_PARAMS: Query codec params
-> >   * SNDRV_COMPRESS_TSTAMP: get the current timestamp value
-> > + * SNDRV_COMPRESS_TSTAMP64: get the current timestamp value in 64 bit format
-> >   * SNDRV_COMPRESS_AVAIL: get the current buffer avail value.
-> >   * This also queries the tstamp properties
-> >   * SNDRV_COMPRESS_PAUSE: Pause the running stream
-> > @@ -230,6 +230,7 @@ struct snd_compr_task_status {
-> >                                              struct snd_compr_metadata)
-> >  #define SNDRV_COMPRESS_TSTAMP              _IOR('C', 0x20, struct snd_compr_tstamp)
-> >  #define SNDRV_COMPRESS_AVAIL               _IOR('C', 0x21, struct snd_compr_avail)
-> > +#define SNDRV_COMPRESS_TSTAMP64            _IOR('C', 0x22, struct snd_compr_tstamp64)
-> >  #define SNDRV_COMPRESS_PAUSE               _IO('C', 0x30)
-> >  #define SNDRV_COMPRESS_RESUME              _IO('C', 0x31)
-> >  #define SNDRV_COMPRESS_START               _IO('C', 0x32)
-> > diff --git a/sound/core/compress_offload.c b/sound/core/compress_offload.c
-> > index d3164aa07158..445220fdb6a0 100644
-> > --- a/sound/core/compress_offload.c
-> > +++ b/sound/core/compress_offload.c
-> > @@ -736,18 +736,23 @@ snd_compr_set_metadata(struct snd_compr_stream *stream, unsigned long arg)
-> >     return retval;
-> >  }
-> >
-> > -static inline int
-> > -snd_compr_tstamp(struct snd_compr_stream *stream, unsigned long arg)
-> > +static inline int snd_compr_tstamp(struct snd_compr_stream *stream,
-> > +                              unsigned long arg, bool is_32bit)
-> >  {
-> >     struct snd_compr_tstamp64 tstamp64 = { 0 };
-> >     struct snd_compr_tstamp tstamp32 = { 0 };
-> > +   const void *copy_from = &tstamp64;
-> > +   size_t copy_size = sizeof(tstamp64);
-> >     int ret;
-> >
-> >     ret = snd_compr_update_tstamp(stream, &tstamp64);
-> >     if (ret == 0) {
-> > -           snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
-> > -           ret = copy_to_user((struct snd_compr_tstamp __user *)arg,
-> > -                              &tstamp32, sizeof(tstamp32)) ?
-> > +           if (is_32bit) {
-> > +                   snd_compr_tstamp32_from_64(&tstamp32, &tstamp64);
-> > +                   copy_from = &tstamp32;
-> > +                   copy_size = sizeof(tstamp32);
-> > +           }
->
-> Most of the applications and people would be 32bit right now and we
-> expect this to progressively change, but then this imposes a penalty as
-> default path is 64 bit, since we expect this ioctl to be called very
-> frequently, should we do this optimization for 64bit here?
+The design of i.MX91 platform is very similar to i.MX93.
+Extracts the common parts in order to reuse code.
 
-Valid point about optimizing the common path. But since the underlying
-.pointer op was changed in the patch V3 to always return a 64-bit
-snd_compr_tstamp64, there is no longer a "native" 32-bit path to fetch.
+The mainly difference between i.MX91 and i.MX93 is as follows:
+- i.MX91 removed some clocks and modified the names of some clocks.
+- i.MX91 only has one A core.
+- i.MX91 has different pinmux.
 
-Any call to the legacy SNDRV_COMPRESS_TSTAMP ioctl must fetch the 64-bit
-value and then truncate it down. The current patch reflects this by sharing the
-common 64-bit fetch and then conditionally performing the truncation to 32-bit.
-Splitting the function would result in two functions that both call
-snd_compr_update_tstamp() to get the 64-bit data, so there would be code
-duplication with no performance gain.
+---
+Changes for v8:
+- add Reviewed-by tag for patch #2/3/4/5/6/7/8/9/11.
+- modify commit message for patch #10.
+- move imx91 before imx93 in Makefile for patch #6.
+- modify the commit message to keep wrap at 75 chars for patch #5.
+- Link to v7: https://lore.kernel.org/imx/20250728071438.2332382-1-joy.zou@nxp.com/
 
-Thanks,
-George
+Changes for v7:
+- Optimize i.MX91 num_clks hardcode with ARRAY_SIZE()for patch #10.
+- Add new patch in order to optimize i.MX93 num_clks hardcode
+  with ARRAY_SIZE() for patch #9.
+- remove this unused comments for patch #6.
+- align all pinctrl value to the same column for patch #6.
+- add aliases because remove aliases from common dtsi for patch #6.
+- remove fec property eee-broken-1000t from imx91 and imx93 board dts
+  for patch #6 and #7.
+- The aliases are removed from common.dtsi because the imx93.dtsi
+  aliases are removed for patch #4.
+- Add new patch that move aliases from imx93.dtsi to board dts for
+  patch #3.
+- These aliases aren't common, so need to drop in imx93.dtsi for patch #3.
+- Only add aliases using to imx93 board dts for patch #3.
+- patch #3 changes come from review comments:
+  https://lore.kernel.org/imx/4e8f2426-92a1-4c7e-b860-0e10e8dd886c@kernel.org/
+- add clocks constraints in the if-else branch for patch #2.
+- reorder the imx93 and imx91 if-else branch for patch #2.
+- patch #2 changes come from review comments:
+  https://lore.kernel.org/imx/urgfsmkl25woqy5emucfkqs52qu624po6rd532hpusg3fdnyg3@s5iwmhnfsi26/
+- add Reviewed-by tag for patch #2.
+- Link to v6: https://lore.kernel.org/imx/20250623095732.2139853-1-joy.zou@nxp.com/
+
+Changes for v6:
+- add changelog in per patch.
+- correct commit message spell for patch #1.
+- merge rename imx93.dtsi to imx91_93_common.dtsi and move i.MX93
+  specific part from imx91_93_common.dtsi to imx93.dtsi for patch #3.
+- modify the commit message for patch #3.
+- restore copyright time and add modification time for common dtsi for
+  patch #3.
+- remove unused map0 label in imx91_93_common.dtsi for patch #3.
+- remove tmu related node for patch #4.
+- remove unused regulators and pinctrl settings for patch #5.
+- add new modification for aliases change patch #6.
+- Link to v5: https://lore.kernel.org/imx/20250613100255.2131800-1-joy.zou@nxp.com/
+
+Changes for v5:
+- rename imx93.dtsi to imx91_93_common.dtsi.
+- move imx93 specific part from imx91_93_common.dtsi to imx93.dtsi.
+- modify the imx91.dtsi to use imx91_93_common.dtsi.
+- add new the imx93-blk-ctrl binding and driver patch for imx91 support.
+- add new net patch for imx91 support.
+- change node name codec and lsm6dsm into common name audio-codec and
+  inertial-meter, and add BT compatible string for imx91 board dts.
+- Link to v4: https://lore.kernel.org/imx/20250121074017.2819285-1-joy.zou@nxp.com/
+
+Changes for v4:
+- Add one imx93 patch that add labels in imx93.dtsi
+- modify the references in imx91.dtsi
+- modify the code alignment
+- remove unused newline
+- delete the status property
+- align pad hex values
+- Link to v3: https://lore.kernel.org/imx/20241120094945.3032663-1-pengfei.li_1@nxp.com/
+
+Changes for v3:
+- Add Conor's ack on patch #1
+- format imx91-11x11-evk.dts with the dt-format tool
+- add lpi2c1 node
+- Link to v2: https://lore.kernel.org/imx/20241118051541.2621360-1-pengfei.li_1@nxp.com/
+
+Changes for v2:
+- change ddr node pmu compatible
+- remove mu1 and mu2
+- change iomux node compatible and enable 91 pinctrl
+- refine commit message for patch #2
+- change hex to lowercase in pinfunc.h
+- ordering nodes with the dt-format tool
+- Link to v1: https://lore.kernel.org/imx/20241108022703.1877171-1-pengfei.li_1@nxp.com/
+
+Joy Zou (10):
+  dt-bindings: soc: imx-blk-ctrl: add i.MX91 blk-ctrl compatible
+  arm64: dts: freescale: move aliases from imx93.dtsi to board dts
+  arm64: dts: freescale: rename imx93.dtsi to imx91_93_common.dtsi and
+    modify them
+  arm64: dts: imx91: add i.MX91 dtsi support
+  arm64: dts: freescale: add i.MX91 11x11 EVK basic support
+  arm64: dts: imx93-11x11-evk: remove fec property eee-broken-1000t
+  arm64: defconfig: enable i.MX91 pinctrl
+  pmdomain: imx93-blk-ctrl: use ARRAY_SIZE() instead of hardcode number
+  pmdomain: imx93-blk-ctrl: mask DSI and PXP PD domain register on
+    i.MX91
+  net: stmmac: imx: add i.MX91 support
+
+Pengfei Li (1):
+  dt-bindings: arm: fsl: add i.MX91 11x11 evk board
+
+ .../devicetree/bindings/arm/fsl.yaml          |    6 +
+ .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     |   59 +-
+ arch/arm64/boot/dts/freescale/Makefile        |    1 +
+ .../boot/dts/freescale/imx91-11x11-evk.dts    |  674 ++++++++
+ arch/arm64/boot/dts/freescale/imx91-pinfunc.h |  770 +++++++++
+ arch/arm64/boot/dts/freescale/imx91.dtsi      |   71 +
+ .../{imx93.dtsi => imx91_93_common.dtsi}      |  176 +-
+ .../boot/dts/freescale/imx93-11x11-evk.dts    |   20 +-
+ .../boot/dts/freescale/imx93-14x14-evk.dts    |   15 +
+ .../boot/dts/freescale/imx93-9x9-qsb.dts      |   18 +
+ .../dts/freescale/imx93-kontron-bl-osm-s.dts  |   21 +
+ .../dts/freescale/imx93-phyboard-nash.dts     |   21 +
+ .../dts/freescale/imx93-phyboard-segin.dts    |    9 +
+ .../freescale/imx93-tqma9352-mba91xxca.dts    |   11 +
+ .../freescale/imx93-tqma9352-mba93xxca.dts    |   25 +
+ .../freescale/imx93-tqma9352-mba93xxla.dts    |   25 +
+ .../dts/freescale/imx93-var-som-symphony.dts  |   17 +
+ arch/arm64/boot/dts/freescale/imx93.dtsi      | 1512 ++---------------
+ arch/arm64/configs/defconfig                  |    1 +
+ .../net/ethernet/stmicro/stmmac/dwmac-imx.c   |    2 +
+ drivers/pmdomain/imx/imx93-blk-ctrl.c         |   23 +-
+ 21 files changed, 1938 insertions(+), 1539 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-pinfunc.h
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91.dtsi
+ copy arch/arm64/boot/dts/freescale/{imx93.dtsi => imx91_93_common.dtsi} (90%)
+ rewrite arch/arm64/boot/dts/freescale/imx93.dtsi (97%)
+
+-- 
+2.37.1
+
 
