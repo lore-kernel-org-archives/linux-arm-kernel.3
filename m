@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7AEC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 17:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E25C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 17:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q2kZkcTMd/diszjVjH6nMHcWsgfUi0yBw/MyAi/FdEc=; b=lEtBC6oaY3H/26DcAeylq/AyHM
-	EvMGB7Znak3mNwLw3RcJ5r8YVjfwx3sBgf61/zvgQ0KkeEnTCDkNRIWcxeml6ZRPeMZ8Dak8w8U6g
-	wGBRVBYeRnXYU2E0PHufU1r3AxPQhbSZQFbhtNMAeV7gIp2o0lHSm28JfRL9v+kVqu35ygRMMhxaq
-	/0uR/t25+4dIYwIlo2sfIFjzE4zMSbioo1d+JPoajPQZlRakaKQYOaPJdWaUzHxihhvpdUTIAJhLj
-	O4dhxRNEnYdoLbDa3STAS6rGcH83f49LqjjwvLoCSs8ch+SbUoaNh43XMnfybaAghAT7elirGp8HD
-	Ki8rQytw==;
+	bh=v37aMytRxJRUwVZQ6D4Ti9+dE6x2fcVzdRHeu4aJs3Q=; b=XkXZUlPD8lXysIzpzUodWMk5LM
+	R1w/nJbg2l7BA6ak3KR3tgFaw7KU+fNwdHxte6ZP8zIbtlr3PrLpM72Bp+5AP1z6tGrEjB7WaYbH7
+	SkzHQIflviK8qYUbq91kEwMr9d3pj1Sbe1q6uN4n4RZmtq9kIAGQqIBGOha21427MiPZoUcvN3EVP
+	GEPY3dYoHfF3pTrBCVByAwgerEeKR2P7SC/DdJLRUrTq1xZW+Lte54fEQ+z5gbWedrJggUd1BXpuS
+	OKIeX2ZFxtfWou9A+fia8+7Fq+IrrA0VHmRIxjpVhK8jALKceO0ZA5dyWoO0Ki0EIdJT6211xySH9
+	S46nNcbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhWI-0000000Fpuh-3WaM;
-	Wed, 06 Aug 2025 17:01:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ujhYo-0000000FqLQ-2oXD;
+	Wed, 06 Aug 2025 17:04:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujhRG-0000000Fop8-3P52
+	id 1ujhRH-0000000Fopa-2AC4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 16:56:30 +0000
+	Wed, 06 Aug 2025 16:56:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CAD4601DC;
+	by sea.source.kernel.org (Postfix) with ESMTP id E42FD455D1;
 	Wed,  6 Aug 2025 16:56:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B95C4CEED;
-	Wed,  6 Aug 2025 16:56:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C291EC4CEFA;
+	Wed,  6 Aug 2025 16:56:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754499390;
-	bh=YEmVwPQjLOW9AhsCHd1XFPDOLKbGa7o1Hrl0pImw/FY=;
+	bh=JaFSWJU85Fpq1EgbXnM5BHKfbOjbYmhuKh/TLmUtnBE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VlOXsmI3gQrqPekiSxttvvjw400qsbOlcDQL/puVxlrWh3INTzziK4RYPFAKzBkZl
-	 kD8gEbZ3KED/S8+bWesqa39uEwQPqyRn+xp8kom42SYObQyjf4paLky9kt7w9e1rzB
-	 rYLGoHgf8f4uiGp/BvcijTz+wciS818dDJuaC0zTlwf+HdQp9mwwzWvRbDPwrSPHot
-	 525xwXVYLgcqXu6NGTpj5Q7mxOa4soGCrM6lXv6oRshMVm+LrG8XAT0frajVKNS/X0
-	 wraZb4Ew4QzgXZTVOf3bWl97dthsDO1s4M9BihTnZHWIK9jB7M6o2Wzgc9qq2jUspG
-	 6eTcppy4g3soA==
+	b=gPt+sa2HevfnRmwWNIN0+KH5gVnOEjbirwxNxZ+emt54Z0n7ezlnI93RQW6rFzeq4
+	 cBpveHLAVbvrHkgqsvTFqOu/MrCe5QBWmaO7Ll8het7GUjjAf8p0THgSw7zJPwIxsi
+	 oprDAq884JCL+VmRS66CXMS82KVZg+D9YUpVqs4wVJgJZlz7LFkAFp3l12ifbhD86G
+	 q4ArwTgFLQ9LRKJ+SqVtlxdB1A1AYW8GXA8VkZg5kcrefK22WY3gbiOta12uqLDHdP
+	 dlHwCv2rUfWoZWa5ueN+li18DosrGaFHrz3Cyul+jxOLeOQdc5Dl/fly9wY+x3pJaP
+	 5VG1hJ6Ft6Q5Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1ujhRD-004ZQV-Sh;
-	Wed, 06 Aug 2025 17:56:27 +0100
+	id 1ujhRE-004ZQV-P7;
+	Wed, 06 Aug 2025 17:56:28 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -59,9 +59,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Cornelia Huck <cohuck@redhat.com>
-Subject: [PATCH v2 1/5] arm64: Add capability denoting FEAT_RASv1p1
-Date: Wed,  6 Aug 2025 17:56:11 +0100
-Message-Id: <20250806165615.1513164-2-maz@kernel.org>
+Subject: [PATCH v2 5/5] KVM: arm64: Make ID_AA64PFR0_EL1.RAS writable
+Date: Wed,  6 Aug 2025 17:56:15 +0100
+Message-Id: <20250806165615.1513164-6-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250806165615.1513164-1-maz@kernel.org>
 References: <20250806165615.1513164-1-maz@kernel.org>
@@ -71,6 +71,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, cohuck@redhat.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250806_095631_574699_38E92429 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,74 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Detecting FEAT_RASv1p1 is rather complicated, as there are two
-ways for the architecture to advertise the same thing (always a
-delight...).
+Make ID_AA64PFR0_EL1.RAS writable so that we can restore a VM from
+a system without RAS to a RAS-equipped machine (or disable RAS
+in the guest).
 
-Add a capability that will advertise this in a synthetic way to
-the rest of the kernel.
-
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/cpufeature.c | 24 ++++++++++++++++++++++++
- arch/arm64/tools/cpucaps       |  1 +
- 2 files changed, 25 insertions(+)
+ arch/arm64/kvm/sys_regs.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 4dece9ca68bc6..22a94e548362d 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2235,6 +2235,24 @@ static void cpu_clear_disr(const struct arm64_cpu_capabilities *__unused)
- 	/* Firmware may have left a deferred SError in this register. */
- 	write_sysreg_s(0, SYS_DISR_EL1);
- }
-+static bool has_rasv1p1(const struct arm64_cpu_capabilities *__unused, int scope)
-+{
-+	const struct arm64_cpu_capabilities rasv1p1_caps[] = {
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, V1P1)
-+		},
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
-+		},
-+		{
-+			ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, RAS_frac, RASv1p1)
-+		},
-+	};
-+
-+	return (has_cpuid_feature(&rasv1p1_caps[0], scope) ||
-+		(has_cpuid_feature(&rasv1p1_caps[1], scope) &&
-+		 has_cpuid_feature(&rasv1p1_caps[2], scope)));
-+}
- #endif /* CONFIG_ARM64_RAS_EXTN */
- 
- #ifdef CONFIG_ARM64_PTR_AUTH
-@@ -2653,6 +2671,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.cpu_enable = cpu_clear_disr,
- 		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, RAS, IMP)
- 	},
-+	{
-+		.desc = "RASv1p1 Extension Support",
-+		.capability = ARM64_HAS_RASV1P1_EXTN,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_rasv1p1,
-+	},
- #endif /* CONFIG_ARM64_RAS_EXTN */
- #ifdef CONFIG_ARM64_AMU_EXTN
- 	{
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 115161dd9a24d..eb7f1f5622a8f 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -52,6 +52,7 @@ HAS_S1PIE
- HAS_S1POE
- HAS_SCTLR2
- HAS_RAS_EXTN
-+HAS_RASV1P1_EXTN
- HAS_RNG
- HAS_SB
- HAS_STAGE2_FWB
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 66e5a733e9628..3a50ade091491 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2951,7 +2951,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 		    ~(ID_AA64PFR0_EL1_AMU |
+ 		      ID_AA64PFR0_EL1_MPAM |
+ 		      ID_AA64PFR0_EL1_SVE |
+-		      ID_AA64PFR0_EL1_RAS |
+ 		      ID_AA64PFR0_EL1_AdvSIMD |
+ 		      ID_AA64PFR0_EL1_FP)),
+ 	ID_FILTERED(ID_AA64PFR1_EL1, id_aa64pfr1_el1,
 -- 
 2.39.2
 
