@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E556C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FE6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 19:58:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXUIq0KBN45e4elJmxMkBPbWGLA75j5v+eWYJ6VU5Hg=; b=d9HEovPsSzfMaxH9oaYPkCjriG
-	NAs/03vBNStDiGJoECRyFtjQJQ+k/ilKXPTV00oNNJHKPT+g1PU+2OaufrPXoPNrOdvrIYVBPSXDj
-	t7CxcxgCmWU9JWIAPfKlLvsFZvkfpgUEGEeUOI00607ecsglhCTjaeSChCx0rne5Lq16818YY2sJG
-	Mergr6mzwpyxIPKKVxm/1d6/pEArLQ+SirRqdt4WO5zuvSxYBuARQavuMamb2kD8gdLfRSqHVtVVy
-	GXFYQSCSJ/h4Q/aKcYRyI+2eLFX8X7LjbAgwwqXRqpuRZ7KYEVW8XNSjj22W9dSlbdCVIeBv/RcG5
-	Oykk6nOQ==;
+	bh=6wGRYdz0Cv8uWZ2+02RhdxmJBe/Md6fIzXGBOwD4e80=; b=E8UX8lqhbuB2+YEf82Q6zaK9Ft
+	l35JYb/k4UXnGVZDwTVYecwiKsmkaZ4S8mx3yaJ7+WHZ/L9FQ1HwhGD+rSAkbAJa1x/5E+ShNxSQM
+	uCzIcBMnp/C+Lw659EZhLwe5sr2pwKfculIogY46Le1y+sxGbijZnrEeU+c7faGLy9eSp18uwNtPW
+	1b2gL4sdB9x2LY691TCViBFCjBGRcPdE09UHPzo1CtWniPxInf+EWnraZmPLqZp8r2urbGEdxXLph
+	wrIFMVZFkOybOvjJvEOwKkF23np12IMagzQ7JBztzUBn9zdADWIJMT+L6R6zHB30uyQXZ5b5ctkqO
+	kqCHb/Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjyY-0000000GDwx-3afP;
-	Wed, 06 Aug 2025 19:39:02 +0000
+	id 1ujkHB-0000000GGhg-0XQV;
+	Wed, 06 Aug 2025 19:58:17 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujjw2-0000000GDdt-0Kf7;
-	Wed, 06 Aug 2025 19:36:27 +0000
+	id 1ujkEb-0000000GFgA-4A2g;
+	Wed, 06 Aug 2025 19:55:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=nXUIq0KBN45e4elJmxMkBPbWGLA75j5v+eWYJ6VU5Hg=; b=C+v1w9mq23BhAT46TsD4d0k8Bj
-	SYUMJtNqh+gf51YtjcmQRljFVtHduyBsjvh7DFGU9CwzM3YrPQkMedjxjy5w4OEiTN3OPgO9rP1U5
-	ZbUyYfhutAr2b1PT8HQNjdFhrsGSX16wSoDBW2pR/6/mLWbTuHtq+g8JKpsU47MmbRLRsc96bWF9S
-	6VsTeYfaAqQQamk99wQz3cNvnWU6XRILV8Nve1lhtoJ7pKQJ+BxM8I7mj5SFbo2dcs/OE0D1bAtYL
-	P2k+8g9nsBkB+WxxjBOI2qUj8MFlCNBNdg1CzeEbQ7lmpuSmVJOH80zJ0LN2ELkMAxAEB4K/P0/4q
-	X5ygWAYA==;
+	bh=6wGRYdz0Cv8uWZ2+02RhdxmJBe/Md6fIzXGBOwD4e80=; b=ImcDchd/oVlIFLMNyzxZdk2UZg
+	B+wd/K7+/Jt6ER+SO/baS0lzf3kiQLMTy9UzsIvwRdNfnZlr0WJZeeVLjxH74KEGl3Me7ciKV2Jwx
+	RxmumiXlKY4ajD/w4zWoQZ+bMKAG7PxXLSGErbY4BSA73yNV7FioBKaMltNZ6bUDkbeH4bgcZ9r1g
+	XvzOPMjSrf4uoiATYwFmbvNkClPgjjbFFF9CU9IYyoOrPO+GNuUBNmZ0mUUSvGCjutpB5xIWPjhgA
+	KcZwYcZFuOVcjYexZf8j0lZLF7lwSQfIq4naLYOZIKv63oGqyrqGWiB/1rDRs8woNPnrygBtOPnrr
+	9QdGKXyg==;
 Received: from i53875ab1.versanet.de ([83.135.90.177] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1ujjvm-0001uY-RB; Wed, 06 Aug 2025 21:36:10 +0200
+	id 1ujkDq-00021U-4e; Wed, 06 Aug 2025 21:54:50 +0200
 From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Niklas Cassel <cassel@kernel.org>, Robin Murphy <robin.murphy@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Damien Le Moal <dlemoal@kernel.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Niklas Cassel <cassel@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: enable the mmu600_pcie IOMMU on the rk3588
- SoC
-Date: Wed, 06 Aug 2025 21:36:10 +0200
-Message-ID: <4400329.mogB4TqSGs@diego>
-In-Reply-To: <20241107123732.1160063-2-cassel@kernel.org>
-References: <20241107123732.1160063-2-cassel@kernel.org>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Damon Ding <damon.ding@rock-chips.com>
+Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
+ kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
+ hjc@rock-chips.com, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
+ dianders@chromium.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge helper for
+ the Analogix DP driver
+Date: Wed, 06 Aug 2025 21:54:48 +0200
+Message-ID: <38992177.XM6RcZxFsP@diego>
+In-Reply-To: <1cf4bc1b-d7f3-4a88-b8d8-d2f681dce370@rock-chips.com>
+References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
+ <c73fa024-fdd0-4f62-9c8a-11e7eee3c475@rock-chips.com>
+ <1cf4bc1b-d7f3-4a88-b8d8-d2f681dce370@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_123626_149658_CF640285 
-X-CRM114-Status: GOOD (  28.57  )
+X-CRM114-CacheID: sfid-20250806_125538_178756_2A9883F5 
+X-CRM114-Status: GOOD (  26.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +81,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+Hi Damon,
 
-Am Donnerstag, 7. November 2024, 13:37:33 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Niklas Cassel:
-> Commit cd81d3a0695c ("arm64: dts: rockchip: add rk3588 pcie and php
-> IOMMUs") added the rk3588 SoC's pcie IOMMU and php IOMMU as disabled.
+Am Dienstag, 29. Juli 2025, 05:16:27 Mitteleurop=C3=A4ische Sommerzeit schr=
+ieb Damon Ding:
+> On 2025/7/29 11:02, Damon Ding wrote:
+> > On 2025/7/26 3:45, Heiko St=C3=BCbner wrote:
+> >> Am Freitag, 25. Juli 2025, 04:15:06 Mitteleurop=C3=A4ische Sommerzeit=
+=20
+> >> schrieb Damon Ding:
+> >>> On 2025/7/24 21:10, Heiko St=C3=BCbner wrote:
+> >>>> Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleurop=C3=A4ische Sommer=
+zeit=20
+> >>>> schrieb Damon Ding:
+> >>>>> PATCH 1 is a small format optimization for struct analogid_dp_devic=
+e.
+> >>>>> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enab=
+le.
+> >>>>> PATCH 3 is to apply a better API for the encoder initialization.
+> >>>>> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
+> >>>>> PATCH 8 is to apply the drm_bridge_connector helper.
+> >>>>> PATCH 9-11 are to move the panel/bridge parsing to the Analogix sid=
+e.
+> >>>>> PATCH 12-13 are preparations for apply panel_bridge helper.
+> >>>>> PATCH 14 is to apply the panel_bridge helper.
+> >>>>
+> >>>> for future revisions, please provide a changelog on what changed sin=
+ce
+> >>>> the previous version, I guess ideally here in the cover-letter.
+> >>>>
+> >>>>
+> >>>> On my rk3588-tiger-displayport-carrier this works like a charm
+> >>>> Tested-by: Heiko Stuebner <heiko@sntech.de>
+> >>>>
+> >>>>
+> >>>>
+> >>>>
+> >>>
+> >>> Glad to see your review and test. :-)
+> >>>
+> >>> I will include the version-to-version changelogs (v2 -> v3 and v3 -> =
+v4)
+> >>> in the next iteration.
+> >>
+> >> I have to amend that a bit, sadly. When doing a reboot with the edp
+> >> running, I see logs like:
+> >>
+> >> [...]
+> >> [  139.614749] systemd-shutdown[1]: Syncing filesystems and block=20
+> >> devices.
+> >> [  139.622201] systemd-shutdown[1]: Rebooting.
+> >> [  139.684845] ------------[ cut here ]------------
+> >> [  139.690050] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-=20
+> >> iommu.c:989 rk_iommu_identity_attach+0xac/0xbc
+> >> [  139.701175] Modules linked in: panthor rockchip_vdec rocket=20
+> >> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper=20
+> >> v4l2_mem2mem gpu_sched rng_core fuse
+> >> [  139.717685] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Not tainted=20
+> >> 6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
+> >> [  139.728799] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger=
+=20
+> >> Displayport Carrier v1 (DT)
+> >> [  139.738548] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS=20
+> >> BTYPE=3D--)
+> >> [  139.746351] pc : rk_iommu_identity_attach+0xac/0xbc
+> >> [  139.751821] lr : rk_iommu_identity_attach+0x70/0xbc
+> >> [  139.757290] sp : ffff800080e4b7c0
+> >> [  139.761001] x29: ffff800080e4b7c0 x28: ffff0001f6f98080 x27:=20
+> >> ffff0001f0a4b010
+> >> [  139.769006] x26: ffff0001f6f98e58 x25: 0000000000000000 x24:=20
+> >> 0000000000000000
+> >> [  139.777010] x23: 0000000000000000 x22: ffffdbf23c0485e0 x21:=20
+> >> ffff0001f0e9cc10
+> >> [  139.785014] x20: ffff0001f0df17a0 x19: ffff0001f0e2cb80 x18:=20
+> >> 0000000000000038
+> >> [  139.793018] x17: 0002550800000009 x16: 0000046c0446043e x15:=20
+> >> 0438000008ca080c
+> >> [  139.801021] x14: 07d008ca07800780 x13: 0438000008ca080c x12:=20
+> >> 07d0078000025508
+> >> [  139.809024] x11: 0002550800000009 x10: 0000046c0446043e x9 :=20
+> >> ffffdbf23c137000
+> >> [  139.817031] x8 : 0000000000000438 x7 : 0000000000000000 x6 :=20
+> >> 0000000000000000
+> >> [  139.825034] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 :=20
+> >> ffff0001f0df1780
+> >> [  139.833038] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 :=20
+> >> 00000000ffffffea
+> >> [  139.841042] Call trace:
+> >> [  139.843780]  rk_iommu_identity_attach+0xac/0xbc (P)
+> >> [  139.849252]  rk_iommu_attach_device+0x54/0x134
+> >> [  139.854236]  __iommu_device_set_domain+0x7c/0x110
+> >> [  139.859510]  __iommu_group_set_domain_internal+0x60/0x134
+> >> [  139.865561]  __iommu_attach_group+0x88/0x9c
+> >> [  139.870250]  iommu_attach_device+0x68/0xa0
+> >> [  139.874841]  rockchip_drm_dma_attach_device+0x28/0x7c
+> >> [  139.880508]  vop2_crtc_atomic_enable+0x620/0xaa0
+> >> [  139.885678]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
+> >> [  139.892413]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
+> >> [  139.898369]  commit_tail+0xa0/0x1a0
+> >> [  139.902279]  drm_atomic_helper_commit+0x17c/0x1b0
+> >> [  139.907552]  drm_atomic_commit+0x8c/0xcc
+> >> [  139.911951]  drm_client_modeset_commit_atomic+0x228/0x298
+> >> [  139.918005]  drm_client_modeset_commit_locked+0x5c/0x188
+> >> [  139.923960]  drm_client_modeset_commit+0x2c/0x58
+> >> [  139.929137]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
+> >> [  139.936164]  drm_fb_helper_hotplug_event+0xe8/0xf8
+> >> [  139.941526]  drm_fbdev_client_hotplug+0x24/0xe0
+> >> [  139.946605]  drm_client_hotplug+0x48/0xc4
+> >> [  139.951100]  drm_client_dev_hotplug+0x9c/0xd4
+> >> [  139.955984]  drm_kms_helper_connector_hotplug_event+0x20/0x30
+> >> [  139.962426]  drm_bridge_connector_hpd_cb+0x88/0xa0
+> >> [  139.967790]  drm_bridge_hpd_notify+0x3c/0x60
+> >> [  139.972577]  display_connector_hpd_irq+0x30/0xa4
+> >> [  139.978835]  irq_thread_fn+0x2c/0xb0
+> >> [  139.983894]  irq_thread+0x170/0x304
+> >> [  139.988833]  kthread+0x12c/0x204
+> >> [  139.993468]  ret_from_fork+0x10/0x20
+> >> [  139.998486] ---[ end trace 0000000000000000 ]---
+> >> [  140.004737] ------------[ cut here ]------------
+> >> [  140.010884] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-=20
+> >> iommu.c:1040 rk_iommu_attach_device+0x114/0x134
+> >> [  140.023079] Modules linked in: panthor rockchip_vdec rocket=20
+> >> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper=20
+> >> v4l2_mem2mem gpu_sched rng_core fuse
+> >> [  140.040577] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Tainted:=20
+> >> G        W           6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
+> >> [  140.054457] Tainted: [W]=3DWARN
+> >> [  140.058804] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger=
+=20
+> >> Displayport Carrier v1 (DT)
+> >> [  140.069595] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS=20
+> >> BTYPE=3D--)
+> >> [  140.078454] pc : rk_iommu_attach_device+0x114/0x134
+> >> [  140.084989] lr : rk_iommu_attach_device+0x98/0x134
+> >> [  140.091423] sp : ffff800080e4b7e0
+> >> [  140.096197] x29: ffff800080e4b7e0 x28: ffff0001f6f98080 x27:=20
+> >> ffff0001f0a4b010
+> >> [  140.105270] x26: ffff0001f6f98e58 x25: 0000000000000000 x24:=20
+> >> 0000000000000000
+> >> [  140.114351] x23: ffff0001f6f843e0 x22: ffffdbf23c0485e0 x21:=20
+> >> ffff0001f0e9cc10
+> >> [  140.123425] x20: ffff0001f0e2cb80 x19: ffff0001f6f843c0 x18:=20
+> >> 0000000000000038
+> >> [  140.132489] x17: 0002550800000009 x16: 0000046c0446043e x15:=20
+> >> 0438000008ca080c
+> >> [  140.141552] x14: 07d008ca07800780 x13: 0438000008ca080c x12:=20
+> >> 07d0078000025508
+> >> [  140.150623] x11: 0002550800000009 x10: 0000046c0446043e x9 :=20
+> >> ffffdbf23c137000
+> >> [  140.159701] x8 : 0000000000000438 x7 : 0000000000000000 x6 :=20
+> >> 0000000000000000
+> >> [  140.168772] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 :=20
+> >> ffff0001f0e2cbe0
+> >> [  140.177825] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 :=20
+> >> 00000000ffffffea
+> >> [  140.186858] Call trace:
+> >> [  140.190627]  rk_iommu_attach_device+0x114/0x134 (P)
+> >> [  140.197124]  __iommu_device_set_domain+0x7c/0x110
+> >> [  140.203417]  __iommu_group_set_domain_internal+0x60/0x134
+> >> [  140.210492]  __iommu_attach_group+0x88/0x9c
+> >> [  140.216203]  iommu_attach_device+0x68/0xa0
+> >> [  140.221802]  rockchip_drm_dma_attach_device+0x28/0x7c
+> >> [  140.228479]  vop2_crtc_atomic_enable+0x620/0xaa0
+> >> [  140.234664]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
+> >> [  140.242400]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
+> >> [  140.249349]  commit_tail+0xa0/0x1a0
+> >> [  140.254246]  drm_atomic_helper_commit+0x17c/0x1b0
+> >> [  140.260496]  drm_atomic_commit+0x8c/0xcc
+> >> [  140.265866]  drm_client_modeset_commit_atomic+0x228/0x298
+> >> [  140.272885]  drm_client_modeset_commit_locked+0x5c/0x188
+> >> [  140.279791]  drm_client_modeset_commit+0x2c/0x58
+> >> [  140.285914]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
+> >> [  140.293889]  drm_fb_helper_hotplug_event+0xe8/0xf8
+> >> [  140.300214]  drm_fbdev_client_hotplug+0x24/0xe0
+> >> [  140.306248]  drm_client_hotplug+0x48/0xc4
+> >> [  140.311695]  drm_client_dev_hotplug+0x9c/0xd4
+> >> [  140.317531]  drm_kms_helper_connector_hotplug_event+0x20/0x30
+> >> [  140.324930]  drm_bridge_connector_hpd_cb+0x88/0xa0
+> >> [  140.331248]  drm_bridge_hpd_notify+0x3c/0x60
+> >> [  140.336990]  display_connector_hpd_irq+0x30/0xa4
+> >> [  140.343120]  irq_thread_fn+0x2c/0xb0
+> >> [  140.348081]  irq_thread+0x170/0x304
+> >> [  140.352937]  kthread+0x12c/0x204
+> >> [  140.357501]  ret_from_fork+0x10/0x20
+> >> [  140.362453] ---[ end trace 0000000000000000 ]---
+> >>
+> >>
+> >> After some minutes of hanging it does reboot afterall.
+> >>
+> >> Heiko
+> >>
+> >>
+> >=20
+> > Could you please help confirm whether the same error still occurs with=
+=20
+> > this patch series under the same conditions?
 >=20
-> The mmu600_pcie is connected with the five PCIe controllers.
-> See 8.2 Block Diagram, in rk3588 TRM (Technical Reference Manual).
->=20
-> The five PCIe controllers are:
-> pcie3x4, pcie3x2, pcie2x1l0, pcie2x1l1, pcie2x1l2.
->=20
-> pcie3x4 can run in either Root Complex mode or Endpoint mode, the other
-> four PCIe controllers can only run in Root Complex mode. To describe this
-> we thus have six different device nodes in the device tree.
->=20
-> A PCIe controller in Root Complex mode needs to specify an iommu-map, such
-> that the device knows how to convert a Requester ID (PCI BDF) to an IOMMU
-> master ID (stream ID). (A PCIe controller in Endpoint mode should use the
-> iommus property, just like a regular device.)
->=20
-> If you look at the device tree bindings for msi-map and iommu-map, you can
-> see that the conversion from Requester ID to MSI-specifier data is the sa=
-me
-> as the conversion from Requester ID to IOMMU specifier data. Thus it is
-> sensible to define the iommu-map property value similar to the msi-map,
-> such that the conversion will be identical.
->=20
-> Add the proper iommu device tree properties for these six device nodes
-> connected to the mmu600_pcie, so that we can enable the mmu600_pcie IOMMU.
-> (The mmu600_php IOMMU is not touched, so it is still disabled.)
->=20
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> Careless, what I want to express should be '...without this patch=20
+> series...'. :-)
 
-I've run into a bit of a problem with this patch and v6.16 today :-( .
+sorry this took a tad longer for me to get back to this topic, but I was
+now able to run a number of scenarios:
 
-It seems the SMMU currently does not play well, if has no users. With
-this patch the pcie smmu is always probed, even if nothing is using it.
-(or in fact the PCIe controller driver defers probing for whatever reason).
+So I ran a number of variants and interestingly as the board I do eDP
+tests on does not have any PCIe parts, I enountered an issue with
+the PCIe SMMU [0].
 
-But in all cases the SMMU's shutdown callback will be called when needed.
-
-So test-case:
-=2D probe pcie-smmu, but do not probe PCIe ... hit reboot
-  The smmu shutdown function will hang for a bit, and at least my two
-  test boards  did reboot after hanging about 30 seconds
-  (I did trace that down to the arm_smmu_shutdown function)
-=2D probe pcie-smmu and probe PCIe - creating a user for the smmu
-  Reboot happens without hang/delay
-
-Likely the SMMU is missing either a clock or its power-domain.
-
-Just adding the power-domain to the node, did keep the domain on, but
-did not solve the hang for me.
-
-Strangely enough, additionally forcing all clocks to stay permanently on,
-also didn't help (or I messed up somewhere) .
-I'm not sure if the PCIe controller does cause the SMMU to do some more
-initialization, that would be missing otherwise.
-
-
-Robin did point out that there is ongoing runtime-pm work for the
-SMMU [0], but just adding the power-domain does keep it on, so this is
-likely not related.
-
-
-As you have spent so much time on PCIe topics, maybe you have a better
-idea of what to poke :-)
+When I disable the SMMU node, I also cannot reproduce the error from
+above. So I've rebooted so many times today both with and without the
+SMMU, and encountered the log from above only ever with the dangling
+SMMU. So I'd assume, the Analogix series is actually innocent :-) .
 
 
 Heiko
 
 
-[0] https://lore.kernel.org/linux-iommu/20250616203149.2649118-1-praan@goog=
-le.com/
+
+[0] https://lore.kernel.org/linux-rockchip/4400329.mogB4TqSGs@diego/T/#m590=
+1974351b7c11e34f29a02b4f7f69b6ef29b2f
+
 
 
 
