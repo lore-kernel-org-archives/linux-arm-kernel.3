@@ -4,85 +4,214 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA20C87FD1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD99C87FD1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  6 Aug 2025 09:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDkF0BLoXFgSE926je2WgpTyIl4N2UFYP5ht23EU0t4=; b=sCHzqbLGB5eDiDA47bPCP6jg0n
-	cZzAVeF8o6h1vt6UJ3dSyK3mx5XkKGZMmkI5LXcHLQYd0GFfyThXjieLltyQw/TXX/09fbDd07PVk
-	/776vS0jsxRnPLKykztJBqT/w96FswVRRe+Nm3AQ2Si9YTGsejKnWblrVMRPlNQ6qkBxpcSn4rSdz
-	RpDSMd+GbfyDI/VjThexIyw3zXCby+gM+rKW/Ea3vQ9yvlQosl8RiHt7eXbiZlg/L+oydrXO+jI3E
-	1L18qYhFHTZKfYWjLxVjMOftjEPL7bNpV+sATlvtbvK8xIK26UAtrxIWB/8DC9m9IsLQZ4en8fw3b
-	ocgA03jQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bdxin3BSq9DLcrtFa+Vibwc7mGe8xRqde6g68/MoAoY=; b=0vbuzzRe7s0iWSNRnYhsdUIN2U
+	IMEs7s7r40aZ8Tm2qWeXC9hwET06Wr197YGHQxeAuLbo7XmP+ptZ6bHVhAYAnCmQNCV2XrBkA5I3/
+	VwHyXJMeZBUCncDovNMyCsX2HZb1DPa4hPsmIJ+UBponCHMDM/jTwQT/f1cHaroPBHi9k/nPGKaFk
+	iSj8V3gPhh5parVfwk2iu8VxYwdMldz2Auz8ktR2fSIUNxJ7dhEqoXMNYgt2CaP9Pf0gQL+NOVCES
+	kcnmSUgmkmfqKOizrXfL3UWi9fTcf/XinTi4169rEA7+0wK2NnpSriwzItzEkYvz5ms2uRR1eyZEJ
+	mmUG2v7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujafG-0000000Eo3g-40nS;
-	Wed, 06 Aug 2025 09:42:30 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	id 1ujahi-0000000EoTN-0Lxk;
+	Wed, 06 Aug 2025 09:45:02 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujaYX-0000000EmqD-0Fu8
+	id 1ujabS-0000000EnHh-37Mu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 06 Aug 2025 09:35:34 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5393a970209so3368579e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 02:35:32 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754472932; x=1755077732;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uDkF0BLoXFgSE926je2WgpTyIl4N2UFYP5ht23EU0t4=;
-        b=TiyG/BqIP7hHqAEE+ZywB3+WM5wGeamvO60gCT+l9CV5mCVez15nQybgJm6YK2yOqr
-         L1/SX69BEnzth2mXa5Y7cNPqcnV2Ampa2naeuSpVSjNcdtSlQl+/y9ZCHVYU4OofEaer
-         aUQG2JBfS8rJ3DHH0fctQtDNNIPNCSmjZAbqzuwGNoHEnXj7Ei6F0EhpNyTz8yiWum2I
-         pUZ87PZlSGO/AN1CkbF1DxAB1JgFQCE3K6Y/33O24KlcGRoukOBj86upfvPqefpAwkV0
-         FuLpFKXGekdIR6J+VRy7W8YqmCTsgB++iG9/1fg+GXOArQHlbeFLA9AItv1mNzJLmFPd
-         yoMA==
-X-Gm-Message-State: AOJu0YxfjqRYjU8P8zI0/glD8/wF1fzYmgRuEYqpa+I3LcSvXeiVTrFJ
-	/EdF+QjHxMimFg1l1bgmyMgs7UcFvtbD0Ua7DM/tlG6lYW/XVQG/6RG6NA+Jo6L+
-X-Gm-Gg: ASbGnctHm24PTui8qItUNTP3YsdH0cmwQYGyog4vVf4S08V225MbLOn7g1YDzB9MOof
-	9nEpLj0cFVEd6wlsCcI0pA5BN6TbKA8ghUxeIBs1L9k+C6Uk2/HAhfdqD50ZKmrQc0mh/+nHVU5
-	Yi095iKyH70fEGt8ON8MInXG9rNNzEs11kXJjAmJHfqQ7aK1l4qUHZzwyWtLBJCr1ThYHrZ7LFI
-	Nx4tAVmACO1v+RFI+LURI2BzoyCBNF4s6u5D3kVxjiftiKgfMyswxNy09fQrqTCpwobyBvlpT4v
-	OZvCzLIh8IsDCVEV5lmX515tA1AIBscSB22ueqqnqOBhCmTukk40BlqpHjFAd3+09XVMDVTcmcS
-	2vzLgBAa6SQ8VmrqlBJ9P1J3Bow8JUeLZfD2LvivD0/vkklVgAxGvtEfLaNH/
-X-Google-Smtp-Source: AGHT+IGi7OqP3fUVfFzLjmX4wTun4gl+NT13JUeMchbzeU3Ialx/2vpq2+KNBEFL5Exuo2BK+jJLLg==
-X-Received: by 2002:a05:6122:7c8:b0:537:642b:45fd with SMTP id 71dfb90a1353d-539a03a4494mr879190e0c.2.1754472931418;
-        Wed, 06 Aug 2025 02:35:31 -0700 (PDT)
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-53936b5909asm4101969e0c.8.2025.08.06.02.35.30
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Aug 2025 02:35:31 -0700 (PDT)
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-4fe7712bedaso3534968137.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 06 Aug 2025 02:35:30 -0700 (PDT)
-X-Received: by 2002:a67:e715:0:b0:4e5:fe5e:2be4 with SMTP id
- ada2fe7eead31-50374836fa4mr834200137.22.1754472930463; Wed, 06 Aug 2025
- 02:35:30 -0700 (PDT)
+	Wed, 06 Aug 2025 09:38:36 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=H5D1xFJz+lbphAGlp8RaiihF2twXy0fhEEIMPWKBC38PuNXCF9L1ViRpLQmgLIYMuNBgGpzeXj5njH/fmy8wyS0x5683WOzddS6aVcxsFaHCbUGsyo+3ez7fZ2peVJWFrqtZbb26QetfWspxMkz8uyyyiVriaVZbL067gV5TfHkis3fJhJ7Z/T1W/V57U17hmLIJVbX//zbMZ+Te9/1OIWZHBPQzey4RKL4CSAWSC7sKDJubI8bzWy6Hki2TsUDqnTyC+le13RQv0LqtkwgU1hrT3Q9zu8BtgrTaxtj8thazvvMMAV+a2Ub6+SAnrKeyQSv6v1KMP3ZdkyEaFA2PmQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bdxin3BSq9DLcrtFa+Vibwc7mGe8xRqde6g68/MoAoY=;
+ b=L9NF+9UT6AT135fgrY/PrBx1YHcIoQ5/fjJHlWSBHBDRU+FLLvxQc4B9P8i7p6Nghz3OVF5HOCZz2micV3qtkE5h3Oy+vlt5nRtsyDsZnQPj6m9ttNTx+n6UxpvTZ5KAH77G0QKSKM2lE3R9TPWlDdP958EGifBK/TyS3VgjNbe/no+ZcO/0gv5KwR3fQ5heCWkd7fDXN76XdYBu0ffgwzfG1GLSi+38VKK1QI6GIHMxWuWdiw3B6ZlqWdb9QD7O+jj+SyxOy2RX04zH/Sk1oTvWQx3dBhPRzvMbghAJBz2hBN9tmH1xKvglIEhA0Eus8Q8s3MCvraZr4Okmi+9XyA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Bdxin3BSq9DLcrtFa+Vibwc7mGe8xRqde6g68/MoAoY=;
+ b=l2n7GAiWUaUIt7GXFIC4YfavsKr7Wn3kC4J1SD+1rsvWxww6tieuyFf77zUB6G7FHgzqNR0XhUaLjt+fwwZ/3ir0m4hajtJjbpAytfYLzbgv/Y8IlvujueF9Y5RUuStOM1rM+4E+gA8x/EFFWs6XYwFKAEaOvBnYQ8g2W2fZjqM=
+Received: from PAZP264CA0041.FRAP264.PROD.OUTLOOK.COM (2603:10a6:102:1fc::12)
+ by DU0PR08MB9001.eurprd08.prod.outlook.com (2603:10a6:10:466::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Wed, 6 Aug
+ 2025 09:38:30 +0000
+Received: from AM1PEPF000252DB.eurprd07.prod.outlook.com
+ (2603:10a6:102:1fc:cafe::a4) by PAZP264CA0041.outlook.office365.com
+ (2603:10a6:102:1fc::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.14 via Frontend Transport; Wed,
+ 6 Aug 2025 09:38:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM1PEPF000252DB.mail.protection.outlook.com (10.167.16.53) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9009.8
+ via Frontend Transport; Wed, 6 Aug 2025 09:38:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fWn52IkLUo7y95QfsWcLA504g3xjuNzxa1/T//I3CTdj/rkaKF1b/b690r+qcw4dn1rKqpDwvffFiP+qOkN/hseP/Kxa1Xsypx6OsV6a+jATOzIM58tVfnNpRdMUdglBv+ZTowkoRE+iVfPpBhgf4uUa8BsMpw11PkkmR1NRId7UwSQV89PECBwa15gQz531BPkNEU638PMlX1rdhPHVrpiqjl1sPd0bkZ96xY0PDtchAJm7/exNUFk1ph3IVRS0YwSCvpSQ/vnO29JHRuH2Wx9OnsXl7YZ1Ikvdkt5xMXAZjzNGmo4OAujjZ4/NJoa+2frZI3PtPYLsNf+a/Hnakg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bdxin3BSq9DLcrtFa+Vibwc7mGe8xRqde6g68/MoAoY=;
+ b=kAIcS55A1yN+iE5ptdVR2zyBXF2XhjzsTGXJ9VqX1cKPYeejhiNCROzxbT2ze5F+xDltEM6WGb7/VNTEyWHT0nfXDSN674KgYhE3+gIwIDqVzJmnq/TQO67iij+CsfsHJVlpUgOCYxC6ue6TsLyt9XhP8bVeLrdLB+VcaIl8tW6AKcx+gjLqFR2u0GOiYmo4rnoxFRQqQQZfuoesrpjt9XdQspGg99Z5dm6jC5UIZ83lOMXMonkB1AED3q7eINtLi3T8Cb3O59Q2lYdIc6saM1JYpfCTmoq1e9KKR3uLr1Jk4t0cuQxEtb49ITcSkP1wv/IZ9luVpMRxVXkeJQLcDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Bdxin3BSq9DLcrtFa+Vibwc7mGe8xRqde6g68/MoAoY=;
+ b=l2n7GAiWUaUIt7GXFIC4YfavsKr7Wn3kC4J1SD+1rsvWxww6tieuyFf77zUB6G7FHgzqNR0XhUaLjt+fwwZ/3ir0m4hajtJjbpAytfYLzbgv/Y8IlvujueF9Y5RUuStOM1rM+4E+gA8x/EFFWs6XYwFKAEaOvBnYQ8g2W2fZjqM=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com (2603:10a6:20b:3dc::22)
+ by DBBPR08MB10842.eurprd08.prod.outlook.com (2603:10a6:10:533::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Wed, 6 Aug
+ 2025 09:37:56 +0000
+Received: from AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e]) by AM9PR08MB7120.eurprd08.prod.outlook.com
+ ([fe80::2933:29aa:2693:d12e%5]) with mapi id 15.20.9009.013; Wed, 6 Aug 2025
+ 09:37:56 +0000
+Message-ID: <0d52d680-f3d3-454f-8c12-602f650469ab@arm.com>
+Date: Wed, 6 Aug 2025 15:07:49 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 6/7] mm: Optimize mprotect() by PTE batching
+To: David Hildenbrand <david@redhat.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
+ anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250718090244.21092-1-dev.jain@arm.com>
+ <20250718090244.21092-7-dev.jain@arm.com>
+ <7567c594-7588-49e0-8b09-2a591181b24d@redhat.com>
+ <9552ddff-d778-4934-9349-37c7237cbb78@lucifer.local>
+ <54ee1971-d91a-4fe6-90b8-16212c8568d1@redhat.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <54ee1971-d91a-4fe6-90b8-16212c8568d1@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0093.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ae::20) To AM9PR08MB7120.eurprd08.prod.outlook.com
+ (2603:10a6:20b:3dc::22)
 MIME-Version: 1.0
-References: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250625100330.7629-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Aug 2025 11:35:19 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV3=c24KxO_Sbt50FGsFnNVYNnHAUhk-yoa+nM1f+7+kA@mail.gmail.com>
-X-Gm-Features: Ac12FXxkFhtyguB3aGvA7SYrNZpS8Rh9K4bGzADHoB8_URkfClNeKozYh9_ZFkU
-Message-ID: <CAMuHMdV3=c24KxO_Sbt50FGsFnNVYNnHAUhk-yoa+nM1f+7+kA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: renesas: r8a779g3: Update thermal trip points
- on V4H Sparrow Hawk
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: AM9PR08MB7120:EE_|DBBPR08MB10842:EE_|AM1PEPF000252DB:EE_|DU0PR08MB9001:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2265a10e-7299-4f89-0fa6-08ddd4ccffe3
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?UFRadzZIdVdwamNSekJxdVdLYnJpTklEUnVSNzRCMytoQmZ1TEpVaVVXZFQ3?=
+ =?utf-8?B?dVBrbExTOGltZHJwTmIxOVBnVnhzeDkzdGF2MHNicFlrVGo3alM0RlFZYThG?=
+ =?utf-8?B?Nm93NmpMck9rSW9NTGVPeGJ5dE5CMDBlUTM1SzM4MG5mbThTYVNUaHgwb0Rq?=
+ =?utf-8?B?VU5IeXo0VzFqRS9GZ3lnTFR1SndxR0JYQzlaRXBmcEdFb0ZtRUtGZUFxendm?=
+ =?utf-8?B?UWFBcjVEN0hCOEt0MDhzc3VMclUvY1M3ZUlxb2xuc0tIUHhQMUlKbG5oTTli?=
+ =?utf-8?B?VlFXSUxjOVB0dGF2dVZyQWgzdCtSVHh2SUl5MkMvaG5hTVRZYXlvS3NGNTBm?=
+ =?utf-8?B?ZURVYm56d1J4STVaOU1rREtnM2ZrVUd0RkloNFdtdEJXZG1VTjdMa1ZiMFJ4?=
+ =?utf-8?B?VnFvNlBMNHhxeEdwVmI1ZGNBK0tyUGRaTS9SVkZKSzZ5QTQvTWpGYWJYN3Vt?=
+ =?utf-8?B?N3BhRkZ1WXZDZEtJWWRwSXRTRWNITEZvOXcxWUt1UklnUGdaQXAybTE2Nldm?=
+ =?utf-8?B?MGZ2VE9LcmxiOFE3QTlvOVFIa0VWWmthdnByZmVVNUtQVUhKKzlhUjhaVXY2?=
+ =?utf-8?B?WWJHcmlYY1dUa1dlbGdRNU9FQTBtbHhFYWtmdWUwSUJsQVU1SW0rUlN4NnFM?=
+ =?utf-8?B?QXYxcXVoZm5xY0Y0SGFvSUJvRytDOUk0OVU2bC92S3ZJMklHMkw4QTBtdldp?=
+ =?utf-8?B?Wmd0OExvWFAxSlExNVJYZEdydVlLaEJTSWdsVUt1c3dESnAzS21idXZLRm9E?=
+ =?utf-8?B?WENXaXRkMEhDamhqblVyZXBWUm1oUXhWRUk1KzRZb3RtWHZRbThnWFAyVHdM?=
+ =?utf-8?B?Wk93d3E5cGtSckxUVWROQnRhdW4wdXlpY2FzNzRxcDJWenR4SVIvRy96TlNU?=
+ =?utf-8?B?SjlhMnhWZVZ5dmorYXIxbGZvSVpIU2J2QmYrci9aYWErNEFGZ0VVVXdVZmpa?=
+ =?utf-8?B?SkFhSGtyb1UvbENRQ2RPYzd3RVRVcVVTL3A5R1lhVGhIV09ROG96YnJnK2tn?=
+ =?utf-8?B?T3FtaXdVSjhjQ2h2ZFlYMlN5RkVoa3NoRzRsaUtQajJ0VjhtVUVMaHJDeVdp?=
+ =?utf-8?B?bDRtclJ6MUtEbmEyVDRBb01wTEhqc0puTVRxTlZka3pZVzVGMmpsMTZlQ2Fp?=
+ =?utf-8?B?VzJNWTV5YlRza3RVVkFiNVNnTnJTMzFxMDBCWmpaSnNyRGhEVFVLTENiVVIv?=
+ =?utf-8?B?MUc4djFGTlJGK1R3MTNNTkFTTEJ0RnJlZldJRVZlYmZyNkhHN0s0MmFacjMv?=
+ =?utf-8?B?MzZiUkFNUy9OS2dlWWdoMmUyS1V5RlJIOXJtdWVXZWdGT0E0MkFSQXBzSU1D?=
+ =?utf-8?B?M0tRalptL0p1YWhVbkgxZktEMEJMLzFRMEM3RTFWbjd6VUw1VktDMmpSUGpT?=
+ =?utf-8?B?U3lzNUsya0hXTWdCMzY3MWs5bU51R2FycGErdE5WVEJrWVZRM2cxU3NFTnpO?=
+ =?utf-8?B?UjYrR2pnNHBPT2RsK1JmeFV6L3l2UEpIb2MvWFJvUFMyblpsZnJCQi9kQ05B?=
+ =?utf-8?B?VFVFckRkczRrS2pkWWZlR3ZrejQyZkdLNjJVMjJjYVZMekYxckFZTHY0eVZS?=
+ =?utf-8?B?MFY4c0Z5L05sckRUdXFVa0lPaGNyTTVlYWpJY0dOWW5ubEk4U2FodHFFT2lX?=
+ =?utf-8?B?VUg1TFVpME9wWk5LcnBzTExoMkYvWGpodS9QeE8zY3BuR2FoTGZObWhTNWZm?=
+ =?utf-8?B?OXZKaHBqUDJGTExPc09RSCs5YU12TlFsdllNRndYMjZLWFJEYS9yRU16Uyth?=
+ =?utf-8?B?YjRPa05FVFJRZ1U1Ym9NU2NvNlgyYUFpSWdpSHVMWUFEVU5OaDUvSnZMNlJR?=
+ =?utf-8?B?UndWeWtma21vdWd1d3F0bXhNYml5cEpNbzlNbjVBRnh3K1orVk9jZkhITFVr?=
+ =?utf-8?B?TnFrTEtjQjY3Rnh3R21UOWRSQVg4TVgvMm95T2YzblBaOVE9PQ==?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR08MB7120.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB10842
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM1PEPF000252DB.eurprd07.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: e138de5c-3968-43cb-434d-08ddd4ccec96
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700013|14060799003|35042699022;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WXVzdVVETUZQWDRJOERvTnR4MENEYTZWd0pvNWl0QnlRR2kzK3M2aUlOQjNm?=
+ =?utf-8?B?dzhNeTl3UXR0Q2Vib0wwMHkxZks3RmN6ZFBvSlZESi9TcHpjSWFGR3I4V0E3?=
+ =?utf-8?B?VHNpZjV6VSt5N2RYMFpadkVuQmpJVUxPNENLd3BZVTlmQjduaHJldnk4Z244?=
+ =?utf-8?B?bklHSlJIeFp6ZmxoTUhoUkdRd1ZsandocjJ3aklYYkZYS3NMNU1MYnFLRzg0?=
+ =?utf-8?B?S1UvMnV1OEIrVzhkblh6T000Y2RESDBQWlBRdC8vZkdQRGNnK2JYNlNjVGE4?=
+ =?utf-8?B?US9wYzVpSXo3MHF6SFZwbkVUdGt6Y2xWVExGeFhBRVFWL2xKcFhVS3Q4UExo?=
+ =?utf-8?B?aGFBcVovSU40eHA4SUMzaUwzRm5RNjE4TUN1U3N5cjFqUk9sa1dYcWJ3dDRz?=
+ =?utf-8?B?NmpmaVFHYWZZWUszbGJJdW9TVVlJcVlkeWhuSU9Oa0pva0Flbi9abnp0ZWJu?=
+ =?utf-8?B?STduYmhQeURzSUZvdGpFRC9uTFJsVXRLMzFjQ2h5aTUraEVqOFh2blVsQzd5?=
+ =?utf-8?B?Vlh0TU4vNUxrUm1MMytiRDZGVWczQjVVWW1QelVFSkRhTytZc0pCMlA2Z0dv?=
+ =?utf-8?B?R2pYUUpTL3A2T1g2YkxMazNZMEhMcCtjNXNQS2I2dlJrMllQajdWd0tMdnFF?=
+ =?utf-8?B?ejJrdjZhMGE5cG9DbkNJNkNzY2JoRG9nQTJSdmZPMjd6U0pCeW5hSGFzdGNJ?=
+ =?utf-8?B?RUszRnNZVGZ0WEltSEF0VjZGZTRna2VUa0h1U3FFeCtPT1JFNmRaZ2JrNXh5?=
+ =?utf-8?B?MSttbnB1M3RYYUpaOUM5d2tydmRoTTdsQWtidElYTU4rdExRTGUzLzMyNEYz?=
+ =?utf-8?B?UXNQNVVVa0RyWDhZWDVSVEhHQlNDeDhDazREemxVckJ1bDhrbVdDUTJMV0hz?=
+ =?utf-8?B?Mk1SSWJ2Wm1sWFRSOUo3dDdINHlxNHZkYmdORmlYeis0dmhMU3hVOUhkUmNY?=
+ =?utf-8?B?V2cwcmpBcm5DKzBaZUQyTStFMkh4MmFqN2JLTTZBNzZIMUtabDc3REpmb1VI?=
+ =?utf-8?B?aW1GcHRwLzJZVnNxa092UjRzQXYvVG4vREVGM29mKytsMWd5RTNMWDZhR3k5?=
+ =?utf-8?B?b2xmaVdma3FDZkk3em51YjBpU2QzQWpxODB2VHpxY25DeGFqNmlMWGdyKzhy?=
+ =?utf-8?B?VmJGQmRQcStQQ2Q5K1k5MVdJbll4WUFheWIzQUM1MFl6QTk2cm8ydm8wN00x?=
+ =?utf-8?B?RURFR1B5TGpTZzQ0ZXl3QktkV3cwR00rMS8zdDV3WkVtZFNIMHpZbUNQYnQw?=
+ =?utf-8?B?dElpbUFMVEp3akJxcS9kVTdJcVdkZjVEeTlCRFZaU2UzajV2YTREa0FNQUQ4?=
+ =?utf-8?B?R21OMjM4aVRCRWtBc0JmUUR5d1JTTEFmaDMveUgrRGRXalRZNXQ3MjBTaUJx?=
+ =?utf-8?B?eEZFODJqNldmUlZpaUgvQkxEbGhhUUFlM1F2OTFOWVBHdXVtcExsKzV0TmlO?=
+ =?utf-8?B?SGQwNlZ0K1VXVVFNTUkvdm81VFVBaU52THJ3bndYdHdYcXBHL1l0ckRpdUMw?=
+ =?utf-8?B?TU5sWmN0R0U1Yk5XVER3REtrZ2NSeE41ZldjdXRIOXV6NFJBR0JBbHUyODdy?=
+ =?utf-8?B?ak4xb01vRUFNNkxLdFQrRWxhb01USzc4ZXQyajA1ZVhPSnhFdWZyd2dBaWN3?=
+ =?utf-8?B?LzFwWW9VME0rRlVnZUd6ZExYTnJONENUN3o5SmdJaDlDbGVGQ0NtT3Y2UTN4?=
+ =?utf-8?B?L0lKOHBhdFFieVJsL3lrMmExVXF4b041d2U2YWwvWEF1bERMMzFFVlk3SFVq?=
+ =?utf-8?B?eTg3bzR1a2tRVHBRbnZYR25lRVNzTDVUL3pURW9CZTB1czBKS3JIbkIrMWRz?=
+ =?utf-8?B?eGk0MENrUHBiaVg3SGpQbW9YZXAvVkZhdlE1Ylk1ZUJzMG1qWlB5bkhBRlk1?=
+ =?utf-8?B?RmE0U0dFc3pTdnpOZURCMktiTUNvRnRQZk9ib2xtK2FEdTBadXI4d1Z3MTMr?=
+ =?utf-8?B?NmxxUVhBcXZhNUZmSXJzblhJY1gxNC9qYlFybmgwYkswOGpjTU50YXk0b1pm?=
+ =?utf-8?B?MEhhUHRXOE9naVdhQzBpcUFYMGh4Vi9qTFlGLzU0cGJNemlVZDNMMjluRisv?=
+ =?utf-8?Q?c3/byH?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700013)(14060799003)(35042699022);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2025 09:38:28.7074
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2265a10e-7299-4f89-0fa6-08ddd4ccffe3
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252DB.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_023533_106840_D6C43F9A 
-X-CRM114-Status: GOOD (  27.58  )
+X-CRM114-CacheID: sfid-20250806_023834_931483_BD4B7E24 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,134 +226,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-On Wed, 25 Jun 2025 at 12:03, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Since the Sparrow Hawk has a smaller PCB than the White Hawk, it tends
-> to generate more heat. To prevent potential damage to the board, adjust
-> the temperature trip points.
+On 06/08/25 2:51 pm, David Hildenbrand wrote:
+> On 06.08.25 11:12, Lorenzo Stoakes wrote:
+>> On Wed, Aug 06, 2025 at 10:08:33AM +0200, David Hildenbrand wrote:
+>>> On 18.07.25 11:02, Dev Jain wrote:
+>>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>>
+>>>
+>>> I wanted to review this, but looks like it's already upstream and I 
+>>> suspect
+>>> it's buggy (see the upstream report I cc'ed you on)
+>>>
+>>> [...]
+>>>
+>>>> +
+>>>> +/*
+>>>> + * This function is a result of trying our very best to retain the
+>>>> + * "avoid the write-fault handler" optimization. In 
+>>>> can_change_pte_writable(),
+>>>> + * if the vma is a private vma, and we cannot determine whether to 
+>>>> change
+>>>> + * the pte to writable just from the vma and the pte, we then need 
+>>>> to look
+>>>> + * at the actual page pointed to by the pte. Unfortunately, if we 
+>>>> have a
+>>>> + * batch of ptes pointing to consecutive pages of the same anon 
+>>>> large folio,
+>>>> + * the anon-exclusivity (or the negation) of the first page does 
+>>>> not guarantee
+>>>> + * the anon-exclusivity (or the negation) of the other pages 
+>>>> corresponding to
+>>>> + * the pte batch; hence in this case it is incorrect to decide to 
+>>>> change or
+>>>> + * not change the ptes to writable just by using information from 
+>>>> the first
+>>>> + * pte of the batch. Therefore, we must individually check all 
+>>>> pages and
+>>>> + * retrieve sub-batches.
+>>>> + */
+>>>> +static void commit_anon_folio_batch(struct vm_area_struct *vma,
+>>>> +        struct folio *folio, unsigned long addr, pte_t *ptep,
+>>>> +        pte_t oldpte, pte_t ptent, int nr_ptes, struct mmu_gather 
+>>>> *tlb)
+>>>> +{
+>>>> +    struct page *first_page = folio_page(folio, 0);
+>>>
+>>> Who says that we have the first page of the folio mapped into the 
+>>> first PTE
+>>> of the batch?
+>>
+>> Yikes, missed this sorry. Got too tied up in alogrithm here.
+>>
+>> You mean in _this_ PTE of the batch right? As we're invoking these on 
+>> each part
+>> of the PTE table.
+>>
+>> I mean I guess we can simply do:
+>>
+>>     struct page *first_page = pte_page(ptent);
+>>
+>> Right?
 >
-> Add four "passive" trip points which increasingly throttle the CPU to
-> prevent overheating. The first trip point at 68=C2=B0C disables the 1.8 G=
-Hz
-> and 1.7 GHz modes and limits the CPU to 1.5 GHz frequency. The second
-> trip point at 72=C2=B0C disables the 1.5 GHz mode and limits the CPU to 1=
-.0
-> GHz frequency. The third trip point at 76=C2=B0C uses thermal-idle to sta=
-rt
-> inserting idle cycles into the CPU instruction stream to cool the CPU
-> cores down. The fourth and last trip point at 80=C2=B0C disables the 1.0 =
-GHz
-> mode and limits the CPU to 500 MHz frequency.
+> Yes, but we should forward the result from vm_normal_page(), which does
+> exactly that for you, and increment the page accordingly as required,
+> just like with the pte we are processing.
+
+Makes sense, so I guess I will have to change the signature of 
+prot_numa_skip()
+
+to pass a double ptr to a page instead of folio and derive the folio in 
+the caller,
+
+and pass down both the folio and the page to 
+set_write_prot_commit_flush_ptes.
+
+
 >
-> In case the SoC heats up further, in case either of the thermal sensors
-> readings passes the 100=C2=B0C, a thermal shutdown is triggered to preven=
-t
-> any damage to the hardware.
+> ...
 >
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-Thanks for your patch!
-
-> --- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-> @@ -38,6 +38,7 @@
+>>>
+>>>> +            else
+>>>> +                prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
+>>>> +                    nr_ptes, /* idx = */ 0, /* set_write = */ 
+>>>> false, tlb);
+>>>
+>>> Semi-broken intendation.
+>>
+>> Because of else then 2 lines after?
 >
->  /dts-v1/;
->  #include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/thermal/thermal.h>
+> prot_commit_flush_ptes(vma, addr, pte, oldpte, ptent,
+>                nr_ptes, /* idx = */ 0, /* set_write = */ false, tlb);
 >
->  #include "r8a779g3.dtsi"
+> Is what I would have expected.
 >
-> @@ -797,3 +798,139 @@ &rwdt {
->  &scif_clk {    /* X12 */
->         clock-frequency =3D <24000000>;
->  };
-> +
-> +/* thermal-idle cooling for all SoC cores */
-> +&a76_0 {
-
-Please keep nodes sorted (alphabetically by label).
-
-> +       #cooling-cells =3D <2>;
-
-This is only present for the first CPU core, and map{0,1,3} refer
-only to a76_0, because all four CPU cores are driven by a single clock
-(Z0), right?
-
-> +
-> +       a76_0_thermal_idle: thermal-idle {
-> +               #cooling-cells =3D <2>;
-> +               duration-us =3D <10000>;
-> +               exit-latency-us =3D <500>;
-> +       };
-> +};
-
-> +/* THS sensor in SoC near CA76 cores does more progressive cooling. */
-> +&sensor_thermal_ca76 {
-> +       critical-action =3D "shutdown";
-> +
-> +       cooling-maps {
-> +               /*
-> +                * The cooling-device minimum and maximum parameters inve=
-rsely
-> +                * match opp-table-0 {} node entries in r8a779g0.dtsi, in=
- other
-> +                * words, 0 refers to 1.8 GHz OPP and 4 refers to 500 MHz=
- OPP.
-> +                * This is because they refer to cooling levels, where ma=
-ximum
-> +                * cooling level happens at 500 MHz OPP, when the CPU cor=
-e is
-> +                * running slowly and therefore generates least heat.
-
-That applies to cooling-device =3D <&a76_[0-3] ...>...
-
-> +                */
-> +               map0 {
-> +                       /* At 68C, inhibit 1.7 GHz and 1.8 GHz modes */
-> +                       trip =3D <&sensor3_passive_low>;
-> +                       cooling-device =3D <&a76_0 2 4>;
-> +                       contribution =3D <128>;
-> +               };
-> +
-> +               map1 {
-> +                       /* At 72C, inhibit 1.5 GHz mode */
-> +                       trip =3D <&sensor3_passive_mid>;
-> +                       cooling-device =3D <&a76_0 3 4>;
-> +                       contribution =3D <256>;
-> +               };
-> +
-> +               map2 {
-> +                       /* At 76C, start injecting idle states */
-> +                       trip =3D <&sensor3_passive_hi>;
-> +                       cooling-device =3D <&a76_0_thermal_idle 0 80>,
-> +                                        <&a76_1_thermal_idle 0 80>,
-> +                                        <&a76_2_thermal_idle 0 80>,
-> +                                        <&a76_3_thermal_idle 0 80>;
-
-... but what do "0 80" refer to? I couldn't find in the thermal-idle
-bindings what exactly are the minimum and maximum cooling states here.
-
-> +                       contribution =3D <512>;
-> +               };
-
-The rest LGTM, so with the sort order fixed, and the thermal-idle
-states clarified:
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+>
+> I think a smart man once said, that if you need more than one line per 
+> statement in
+> an if/else clause, a set of {} can aid readability. But I don't 
+> particularly care :)
+>
 
