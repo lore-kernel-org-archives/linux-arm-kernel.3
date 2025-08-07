@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F18FC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 17:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0437BC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 17:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=89lt97KFuZW4IPtsnBj++K4Y2vg1Z9hid7I47qBXrLc=; b=BLfSvpS/kgOnU1jssqiVXUk0HR
-	qaV9AZufpJZM/SYPr4mlK5b8gm/7wYLeoOUN9Toq0RjKKSxSvez+MIRJlQGN2ggU0KWkEciHRc98x
-	LzIIgw85lL2Tqn4gfAh1U0dnGdOEViUUN20nt6WWvGtU+s5dlBUNTBytMee9ZjhFzUTZWKGMshmwR
-	iEFMoV+2F3R1BKyATVZCX5pWZbM2CtMBSO1Fk5ZfMH5jxZMO7DAkWQ41XhA6uAkn8mIhZJ/zNlewa
-	tc+Raxi8Xsbf/hQQ4FXKddC4V/bW+yQGAuW0yrXa2oZKObOcKgQhoA9y9plxBCZ8YIHAIuGf1PLKe
-	R6zeOalA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBOhBVWA2iJlN/jrlTTjbw0KVjEZC6FA+Ov+Aj8ZBxo=; b=OxYAs8rbwTiErgAMc+LEhYhudH
+	7nb6FKuRY10b5c6Oq9DyajP9YCC+Jqy+1HFFl/fAXblCbKT+zjT+6V/hhf6iFa2P5lfkcUOcVZdPZ
+	eXAdyelnMCdCuTqd6tlVywkt8rV2lqiBlMNbXn+KfoMadR1Hnmdg8qdHd2xA3+3y14nuZa6jDtclE
+	tlz30/3SG3RypdyCrkhzOJ27hOYhAanUQWkaOUrKSe1x4iff3uZ5kKdEi/F54LHYaQyS0dYcF16EP
+	JmH+uyl5DQ/pfDoNphGpLvQHqMQoiDbYD1Xx+OF3sE95UnWbbsSV5oIPGBr7NSkuNzOUEP7xUlO2+
+	uaWw+S3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk4Tn-00000001FjW-2aRn;
-	Thu, 07 Aug 2025 17:32:39 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uk4o9-00000001H5D-3OuP;
+	Thu, 07 Aug 2025 17:53:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk4Pa-00000001FRR-2zIl
+	id 1uk4la-00000001GqT-3rwy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 17:28:20 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 577HSB66362525;
-	Thu, 7 Aug 2025 12:28:11 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754587692;
-	bh=89lt97KFuZW4IPtsnBj++K4Y2vg1Z9hid7I47qBXrLc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=AECQ4PUtPmJiO6IeeDPUTS5sO6f4VxviGDeHQrSZ/dbw1QxsFC3u8z/j+sBsTbg9R
-	 47fcL35z3TAg/irpCaBjcjCNQMNmEbJ96I1ANtZgIX2MsEonNVT0Gj88kB7Q34oTf2
-	 RERLvLx2P/LHx8GbmBc9R9C+bVLnKyEYIK78wV0Y=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 577HSBNG1037376
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 7 Aug 2025 12:28:11 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 7
- Aug 2025 12:28:11 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 7 Aug 2025 12:28:11 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 577HSA1R1420821;
-	Thu, 7 Aug 2025 12:28:10 -0500
-Message-ID: <1f424bbd-3830-41f9-af4b-9d17af42edaa@ti.com>
-Date: Thu, 7 Aug 2025 12:28:10 -0500
+	Thu, 07 Aug 2025 17:51:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C97A545BE8;
+	Thu,  7 Aug 2025 17:51:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AE72C4CEEB;
+	Thu,  7 Aug 2025 17:51:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754589061;
+	bh=TVtbE9kVJdMS2hhy+Qd4ctRjeI4jf6YH6bnt9QQv+rw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EcJ1w67zQ3hkBcXpfn9hT64Dv+mNegPMjPBOfjeCZdr97PvQTnC+3hGuaCvttgiS5
+	 nvckqJuQE2UfnQIWROUiu9gpH3kzrRymSK0g4reXzzEo3w4Vj9IpDj2skQN7HWIBjm
+	 c1GG4oqePnI2Zl2f3gp0h/Lo3gtqaJRn3dJgAIqybANnLVpqpTiiIpMWFX84q2rw+3
+	 XgV1zKPcgscXM9dWWA5r7fUmj+l32acTytAaCJJzKd+a6secrHImxk1LqEO+BgKs/a
+	 F8I384W5gcl/uz99ywXsx80EM7ROEnDJ0aK/jI1/F+fy6ruYlTpTlsDCz2QOGW/AaO
+	 OjMhkP1QII2mg==
+Date: Thu, 7 Aug 2025 10:50:59 -0700
+From: Drew Fustini <fustini@kernel.org>
+To: James Morse <james.morse@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Rohit Mathew <rohit.mathew@arm.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	Lecopzer Chen <lecopzerc@nvidia.com>,
+	Carl Worth <carl@os.amperecomputing.com>,
+	shameerali.kolothum.thodi@huawei.com,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	lcherian@marvell.com, bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com, baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+	dfustini@baylibre.com, amitsinght@marvell.com,
+	David Hildenbrand <david@redhat.com>,
+	Rex Nie <rex.nie@jaguarmicro.com>,
+	Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+Subject: Re: [RFC PATCH 13/36] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+Message-ID: <aJTng8R9eJmGR6/W@x1>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-14-james.morse@arm.com>
+ <aIIiazUK4S_G6loe@arm.com>
+ <6a77726d-1881-4590-8021-623c877bb5d7@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] mmc: sdhci_am654: Disable HS400 for AM62P SR1.0 and
- SR1.1
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Tero Kristo
-	<kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Adrian Hunter
-	<adrian.hunter@intel.com>,
-        Ulf Hansson <ulf.hansson@linaro.org>
-CC: Vignesh Raghavendra <vigneshr@ti.com>,
-        Santosh Shilimkar
-	<ssantosh@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-mmc@vger.kernel.org>
-References: <20250805234950.3781367-1-jm@ti.com>
- <20250805234950.3781367-4-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250805234950.3781367-4-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6a77726d-1881-4590-8021-623c877bb5d7@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_102818_844019_1362E840 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250807_105103_012793_C759995D 
+X-CRM114-Status: GOOD (  29.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,71 +91,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/5/25 6:49 PM, Judith Mendez wrote:
-> This adds SDHCI_AM654_QUIRK_DISABLE_HS400 quirk which shall be used
-> to disable HS400 support. AM62P SR1.0 and SR1.1 do not support HS400
-> due to errata i2458 [0] so disable HS400 for these SoC revisions.
+On Wed, Aug 06, 2025 at 07:04:09PM +0100, James Morse wrote:
+> Hi Catalin,
 > 
-> [0] https://www.ti.com/lit/er/sprz574a/sprz574a.pdf
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
->   drivers/mmc/host/sdhci_am654.c | 16 ++++++++++++++++
->   1 file changed, 16 insertions(+)
+> On 24/07/2025 13:09, Catalin Marinas wrote:
+> > On Fri, Jul 11, 2025 at 06:36:25PM +0000, James Morse wrote:
+> >> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+> >> only be accessible from those CPUs, and they may not be online.
+> >> Touching the hardware early is pointless as MPAM can't be used until
+> >> the system-wide common values for num_partid and num_pmg have been
+> >> discovered.
+> >>
+> >> Start with driver probe/remove and mapping the MSC.
 > 
-> diff --git a/drivers/mmc/host/sdhci_am654.c b/drivers/mmc/host/sdhci_am654.c
-> index e4fc345be7e5..b7d2adff3277 100644
-> --- a/drivers/mmc/host/sdhci_am654.c
-> +++ b/drivers/mmc/host/sdhci_am654.c
-> @@ -156,6 +156,7 @@ struct sdhci_am654_data {
->   
->   #define SDHCI_AM654_QUIRK_FORCE_CDTEST BIT(0)
->   #define SDHCI_AM654_QUIRK_SUPPRESS_V1P8_ENA BIT(1)
-> +#define SDHCI_AM654_QUIRK_DISABLE_HS400 BIT(2)
->   };
->   
->   struct window {
-> @@ -820,6 +821,9 @@ static int sdhci_am654_init(struct sdhci_host *host)
->   	if (ret)
->   		goto err_cleanup_host;
->   
-> +	if (sdhci_am654->quirks & SDHCI_AM654_QUIRK_DISABLE_HS400)
-> +		host->mmc->caps2 &= ~(MMC_CAP2_HS400 | MMC_CAP2_HS400_ES);
-> +
->   	ret = __sdhci_add_host(host);
->   	if (ret)
->   		goto err_cleanup_host;
-> @@ -883,6 +887,12 @@ static int sdhci_am654_get_of_property(struct platform_device *pdev,
->   	return 0;
->   }
->   
-> +static const struct soc_device_attribute sdhci_am654_descope_hs400[] = {
-> +	{ .family = "AM62PX", .revision = "SR1.0" },
-> +	{ .family = "AM62PX", .revision = "SR1.1" },
-> +	{ /* sentinel */ }
-> +};
-> +
->   static const struct of_device_id sdhci_am654_of_match[] = {
->   	{
->   		.compatible = "ti,am654-sdhci-5.1",
-> @@ -970,6 +980,12 @@ static int sdhci_am654_probe(struct platform_device *pdev)
->   	if (ret)
->   		return dev_err_probe(dev, ret, "parsing dt failed\n");
->   
-> +	soc = soc_device_match(sdhci_am654_descope_hs400);
-> +	if (soc) {
-> +		dev_err(dev, "Disable descoped HS400 mode for this silicon revision\n");
+> >>  arch/arm64/Kconfig                          |   1 +
+> >>  drivers/platform/arm64/Kconfig              |   1 +
+> >>  drivers/platform/arm64/Makefile             |   1 +
+> >>  drivers/platform/arm64/mpam/Kconfig         |  10 +
+> >>  drivers/platform/arm64/mpam/Makefile        |   4 +
+> >>  drivers/platform/arm64/mpam/mpam_devices.c  | 336 ++++++++++++++++++++
+> >>  drivers/platform/arm64/mpam/mpam_internal.h |  62 ++++
+> >>  7 files changed, 415 insertions(+)
+> >>  create mode 100644 drivers/platform/arm64/mpam/Kconfig
+> >>  create mode 100644 drivers/platform/arm64/mpam/Makefile
+> >>  create mode 100644 drivers/platform/arm64/mpam/mpam_devices.c
+> >>  create mode 100644 drivers/platform/arm64/mpam/mpam_internal.h
+> 
+> > Bikeshedding: why not drivers/resctrl to match fs/resctrl? We wouldn't
+> > need the previous patch either to move the arm64 platform drivers.
+> 
+> Initially because I don't see any other architecture having an MMIO interface to this
+> stuff, and didn't want a 'top level' driver directory for a single driver. But, re-reading
+> RISC-Vs CBQRI[0] it turns out that theirs is memory mapped...
 
-Not really an error, use dev_info() or dev_warn(). Also this message
-should go up in the init function when the caps are actually removed,
-and only printed if the caps were set in the first place.
+Yeah, all the cpus (e.g. harts) can access all the registers of the QoS
+controllers per the CBQRI spec [1].
 
-Andrew
+The memory map for the example SoC in the proof-of-concept [2]:
 
-> +		sdhci_am654->quirks |= SDHCI_AM654_QUIRK_DISABLE_HS400;
-> +	}
-> +
->   	host->mmc_host_ops.start_signal_voltage_switch = sdhci_am654_start_signal_voltage_switch;
->   	host->mmc_host_ops.execute_tuning = sdhci_am654_execute_tuning;
->   
+  Base addr  Size
+  0x4820000  4KB  Cluster 0 L2 cache controller
+  0x4821000  4KB  Cluster 1 L2 cache controller
+  0x4828000  4KB  Memory controller 0
+  0x4829000  4KB  Memory controller 1
+  0X482a000  4KB  Memory controller 2
+  0X482b000  4KB  Shared LLC cache controller
 
+> > I'm not an expert on resctrl but the MPAM code looks more like a backend
+> > for the resctrl support, so it makes more sense to do as we did for
+> > other drivers like irqchip, iommu.
+> 
+> Only because there are many irqchip or iommu. I'm not a fan of drivers/mpam, but
+> drivers/resctrl would suit RISC-V too. (I'll check with Drew)
+
+I think that is reasonable. In the proof-of-concept, I had the following
+structure, but I think there is a lot of room for improvement. 
+
+arch/riscv/kernel/qos/qos_resctrl.c
+ Implementation of the register interface described in the CBQRI spec
+ along with the resctrl implementation. I should probably break this up
+ into separate files for the CBQRI operations and the resctrl interface.
+
+drivers/soc/foobar/foobar_cbqri_cache.c
+  DT-based driver for SoC cache controller that implements CBQRI
+
+drivers/soc/foobar/foobar_cbqri_memory.c
+  DT-based driver for SoC memory controller that implements CBQRI
+
+With all the great upstream progress, I've been meaning to rebase the
+RISC-V CBQRI support and post an RFC as its been a really long time.
+There is no public silicon yet that implements CBQRI but I think the
+possibility is getting closer. I've also been working on integrating
+ACPI support [3] using the new RQSC table, and I've been meaning to post
+an RFC for that too.
+
+Thanks,
+Drew
+
+[1] https://github.com/riscv-non-isa/riscv-cbqri/releases/download/v1.0/riscv-cbqri.pdf
+[2] https://lore.kernel.org/linux-riscv/20230419111111.477118-1-dfustini@baylibre.com/
+[3] https://lf-rise.atlassian.net/wiki/spaces/HOME/pages/433291272/ACPI+RQSC+Proof+of+Concept
 
