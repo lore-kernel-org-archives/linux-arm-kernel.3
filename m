@@ -4,112 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 058B9C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 08:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7722C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 08:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hJrvHW6fN1Qptj5n8OB+a3Rbaun+4FthVgHKbyQZyZc=; b=bgo7KCm4SqCU+CHhoC00ujBPDe
-	o8PO5aGSTY9ZxWaN2jbKL5ePO7SjtcOQ46KiSwDUKGXazvrVSvs3cEiMiazsjriDt4LqmOzH4HJ3d
-	WMhbI0Sj1e++jwElU9TlOl0v1M+AdNrlOFcAzy7e3nvARmyEHiCQ83zbCY/4EDMai+FgZTngbgH5u
-	IUdrbMVNpgAuvsAe+YniMpURzerqlD1cm9gh0IxES9QSoN3qH+6SSeucOTvX93Ex0NJM0cBtI2roS
-	aUFYZFLclMKqWAUSnXt9/FS8Otc14jlR421x+I6p8cFHgLFltDfawMbZ1BauXhupJrVBb4K3/qurf
-	27OyP5ww==;
+	bh=DDU4mUfLGa/kC/rD4398PtK/yjh8S6aRiKIZIanDiL0=; b=3VC3FgZuHV3egjLMIrJDyBiPys
+	hg/cL4EZDucVYwYrciePB3LTfW8CO+RwD0mj3fA/G+hUH53HMSeAonO1BIgovlWX4DLmNnqve3gLA
+	KGILB34Bwb3NzTYt3reoOEmk/MUTb/7D/6RHE+DCbvXxxdYPLs4Q2wboe7W2aA8s+CHyDPkeDmJv4
+	We3GYNvaHTJ0POYQgfrJyJcUrwvoi0b/MHF5bwDL3PkGrVgWM/aHlhG6c3916hfqFHOTA3MFWXuPq
+	rlHIa6xGVfKOT3gH1nVTF8lAwo+KtSMZ5ibOOT/d/7uG3q3N6WXTIk2jUBxZRQ153+m6O9oBToKln
+	tKKFRntQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujvY2-0000000HXbg-3Qux;
-	Thu, 07 Aug 2025 08:00:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ujvaY-0000000HXry-1hUM;
+	Thu, 07 Aug 2025 08:03:02 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujvTV-0000000HWYM-1S2i;
-	Thu, 07 Aug 2025 07:55:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B5A0D5C63A9;
-	Thu,  7 Aug 2025 07:55:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12E76C4CEED;
-	Thu,  7 Aug 2025 07:55:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754553344;
-	bh=dEHgSM22sblspxi3jWP8fT7feJl+4lJSdt4mMsidWVg=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=b2QNJUW1gu0rDpVOR96PxHKl9OZIm7k8Y3Fs3xoK+/rHSjMyIMBSxl1dhAxO3GcM5
-	 zWmtS/7NgRELMQybHJOJl3ZNPOWn244yZPkyoA1H8YJMGWYMEY5l57NjNRWXuiJG1D
-	 ud6BSNmpSwDvZjTjHNpARJEQ+SQ08gViJAlGJ1c327gmb2JhorHepdPeT4xidGZz/E
-	 NZPcR8OVzWJEj+G05j6GQGKYAPTYSxed0B//qfna0qPyJdpPgxFfMlFabn73D3iKBT
-	 xripiokRCKj9mnZL6tkk2VwGAWsuactaIfP4rAWabgCWpqw0HM8cSjhHrcLDRH9P0V
-	 vUHFdCJORAYqw==
-Message-ID: <c86bcdf0-f692-4263-a597-f8e36a53e8d9@kernel.org>
-Date: Thu, 7 Aug 2025 09:55:39 +0200
+	id 1ujvWS-0000000HX9g-3ZXE;
+	Thu, 07 Aug 2025 07:58:49 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-70a57a8ffc3so6817397b3.0;
+        Thu, 07 Aug 2025 00:58:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754553528; x=1755158328; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DDU4mUfLGa/kC/rD4398PtK/yjh8S6aRiKIZIanDiL0=;
+        b=jXukStQVA7a0dluYjh5Enk9gp/Du4aRN7Q7FLkqaU9HOtrgTAjQC/kg+LBUj16tJ8J
+         9L4gebhnLpDdNIf3wnVm5qcU+5ViMxdIlcQoeFZqKnE1rEIrp4r/xvXd1ie4HiZCjzNl
+         SlO3H+yxdoD5oDwcCJEbX28a1sIqvDjt3KB+lPiqJcxmQIp1PJDT2qhzu2DEuar9U/9i
+         PXkHOog0z28wSmCixCTHRs82mTbxVqE/2lLhetZ00u6B80AWM/WedYNSTR30Tiwmnj5j
+         zWeGNjRwal7CVfRpIa6npswgKOEv1TBXW0GRvHmdtDFqCqTBOuQe3dZLWJJ2dEf2H+Ta
+         xKXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754553528; x=1755158328;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DDU4mUfLGa/kC/rD4398PtK/yjh8S6aRiKIZIanDiL0=;
+        b=Puh4pcu5ExqpDydiWQsHvqjihHWLVFs5rpw/SIsO/InGwrlXi7N+1QxWGXfmRjo95H
+         EgiDlGI6Gftm9Kq4cJnR7J5jIjFf/ZDzMTPGVVN2e/6+8DISrsNCTgq4vsUDFtjsBRI0
+         gxvpg3KIccNSSeZ+8ordZfqb0rzbGDyNx7uVnc+mO734rvekT/0FjberEqdz6s3i4uRc
+         7huTlN9kftIF3SpPGE1Iz9Z0kFAQKf5Qi9WA7w8x27t/PFeEaBJp5I9ot6RUB3f+7l++
+         +XixhwVIyugmfGnZJCoIvYJU23rhS2qlSoIrWimqYF6/w3qNITNo/+lERubvijg4CddH
+         hvBg==
+X-Forwarded-Encrypted: i=1; AJvYcCUTkhD3tszwE61uH+jrxw8qZGDRhd3yYRw/mS/O2G9rnP5ReTuV+4Yjv32GZ428YHhjyZrhxawKs2Mh@lists.infradead.org, AJvYcCVa1ARuuaMeOtdUusz+gmfSNXZ3NaaHrdVwhjstdBMIM6eEvaK+8P6vpMkPnyoudDXT19yLg+1qLqLlPp/WHWA=@lists.infradead.org, AJvYcCVwpdS1/R/WP9qVRLgdbsjHAJRE5bdEBl0b8N+lPPh5MUVX6//O/t609hXBFY9Oze1f8K/IYgDZ7A7PaTrvYkDm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtVcn5Brq+LZg7K5nOWnEXgDmxpjvT5rfRyLFhaLENCj0FToIQ
+	WpAYE3oY3TnPXsyFnzMxuLDUw7Iq7q+dnW6aIPlC+rxoANwLsIXvvhYwklA4tBQOxHKIt0Q5GaJ
+	2GjwCXH3+YSVT0PKgmumaOU1AlRKPj7s=
+X-Gm-Gg: ASbGncsxC040MC+3AWjZF7Gbd5tvLw/F6wt5HVMztDTwetAp3vIa1lK12qGSZhEUmW1
+	oho80CxrJG4YON916HS5NPqDPQpkDWe2nvmUL7CrC8PcVJ5bdUzskN/4DlCzMopsjjm5SxDWf8l
+	8cW/yTsMb8t4j2UI3mQaYXkfnPSG7QkIhATTTi/W1yktMMl7dmxo7ag3czQODNDvzoOm+h86Unb
+	9hPPrstBpurc2Dz9GJtZsGR3S+7k8KK9MV0mcU=
+X-Google-Smtp-Source: AGHT+IGZKz1tpSwZENVH7eq2lbQKS/ckKC1RJ5Elh7kv3TzcssZgVYBUSlfRHCr803DVDFTPFP0Xzi7enXaZL6INYzQ=
+X-Received: by 2002:a05:690c:6d8b:b0:718:3b9f:f1f0 with SMTP id
+ 00721157ae682-71bc991cebdmr84514327b3.26.1754553527739; Thu, 07 Aug 2025
+ 00:58:47 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] dt-bindings: phy: rockchip,pcie3-phy: add
- rockchip,phy-ref-use-pad
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rick Wertenbroek <rick.wertenbroek@gmail.com>
-Cc: rick.wertenbroek@heig-vd.ch, dlemoal@kernel.org,
- alberto.dassatti@heig-vd.ch, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
 References: <20250806133824.525871-1-rick.wertenbroek@gmail.com>
- <20250806133824.525871-4-rick.wertenbroek@gmail.com>
- <20250807-inquisitive-speedy-rooster-0a8488@kuoka>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250807-inquisitive-speedy-rooster-0a8488@kuoka>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+ <20250806133824.525871-2-rick.wertenbroek@gmail.com> <20250807-amphibian-fanatic-muskrat-b1365b@kuoka>
+ <7ea03b71-d36d-49a4-b848-34eba4c1620d@kernel.org>
+In-Reply-To: <7ea03b71-d36d-49a4-b848-34eba4c1620d@kernel.org>
+From: Rick Wertenbroek <rick.wertenbroek@gmail.com>
+Date: Thu, 7 Aug 2025 09:58:11 +0200
+X-Gm-Features: Ac12FXykZEwvQuAbP1opdqmWRhEGs-r5-vMCR-fxkqHt9AuoJgwdnEGvT3Iy_Qg
+Message-ID: <CAAEEuhpZGbuGkAKRiYQouAwDwnJbP+9ppi7BtrZekKpp20iOgQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: rockchip,pcie3-phy: add optional
+ differential phy clocks
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: rick.wertenbroek@heig-vd.ch, dlemoal@kernel.org, 
+	alberto.dassatti@heig-vd.ch, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_005545_466788_93599688 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20250807_005848_895534_808925DF 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,70 +102,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2025 09:54, Krzysztof Kozlowski wrote:
-> On Wed, Aug 06, 2025 at 03:38:23PM +0200, Rick Wertenbroek wrote:
->> >From the RK3588 Technical Reference Manual, Part1,
->> section 6.19 PCIe3PHY_GRF Register Description: "ref_use_pad"
->>
->> "Select reference clock connected to ref_pad_clk_p/ref_pad_clk_m.
->> Selects the external ref_pad_clk_p and ref_pad_clk_m inputs as the
->> reference clock source when asserted. When de-asserted, ref_alt_clk_p
->> and ref_alt_clk_m are the sources of the reference clock."
->>
->> The hardware reset value for this field is 0x1 (enabled).
->> Note that this register field is only available on RK3588, not on RK3568.
-> 
-> Then you miss restricting it (:false) in one of if:then: blocks.
-> 
-> Also, binding cannot be after the user. You need to reorder patches.
-> 
-> ...
-> 
->>  
->> +  rockchip,phy-ref-use-pad:
->> +    description: which PHY should use the external pad as PCIe reference clock.
->> +      1 means use pad (default), 0 means use internal clock (PLL_PPLL).
-> 
-> Can't you deduce it from the presence of clock inputs? IOW, if the
-> clocks are physically connected, is it even reasonable or possible to
-> use internal clock?
-> 
->> +    $ref: /schemas/types.yaml#/definitions/uint32-array
->> +    minItems: 2
->> +    maxItems: 2
->> +    items:
->> +      minimum: 0
->> +      maximum: 1
-> 
-> More precise:
-> 
-> items:
->   - description: PHY0 reference clock config
->   - description: PHY1 reference clock config
->   enum: [ 0, 1 ]
+On Thu, Aug 7, 2025 at 9:44=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
+>
+> On 07/08/2025 09:42, Krzysztof Kozlowski wrote:
+> > On Wed, Aug 06, 2025 at 03:38:21PM +0200, Rick Wertenbroek wrote:
+> >> Both PHYs can use an alternate reference differential clock, add the c=
+locks
+> >
+> > I do not see any changes in rockchip,rk3588-pcie3-phy, so your "both" i=
+s
+>
+> I meant 3568, the other one.
+>
 
-Eh, no, rather if this stays as int:
+By "both" I meant both PHYs of the RK3588 as the rk3588-pcie-phy is
+actually a dual PHY (PHY0 and PHY1 which both can use independent
+clocks).
 
-    items:
-      - description: PHY0 reference clock config
-        enum: [ 0, 1 ]
-      - description: PHY1 reference clock config
-        enum: [ 0, 1 ]
-    default: [ 1, 1 ]
+The RK3588 PHY is a dual PHY with two independent PCIe 3.0 x2
+interfaces (that can be combined into an x4 or used independently).
+The RK3568 PHY is a single PHY with one PCIe 3.0 x2 interface.
 
+The RK3568 already has the bindings for the extra differential clock
+for its PHY, but the RK3588 did not, so I added them.
 
-> default: [ 1, 1 ]
-> 
-> Anyway, default 1, 1 is pretty non-obvious, so this should be just
-> non-unique-string-array (and property should be like
-> rockchip,phy-ref-clk-source/sel).
-> 
-> 
+I should maybe rephrase this to make it clearer it applies only to the
+RK3588 and that by both PHYs I mean RK3588 PHY0 and PHY1
+
+> > either incorrect or ambiguous.
+> >
+> > ...
+> >
+> >> to the DT bindings
+> >>
+>
 > Best regards,
 > Krzysztof
-> 
-
-
-Best regards,
-Krzysztof
 
