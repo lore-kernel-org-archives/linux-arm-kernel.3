@@ -4,96 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88AD0C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6483CC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tWMOA3+MxqIET7zOeogQlZpQrCQ4ulH5geagIzb9wU=; b=tPR+uhqVMCC9DVng9djc2kj/hn
-	sYegUS0ie8Y7z3T3Q34HGiBo3qA5AbLY3tZuuPx1v3n3bbcFvA3WVP7X8lYYxLeG9t3Gnfi9BLvOJ
-	R3hasZHm95hWrutvx1af2n5Ijs/YCzO/D7JOupIa8Hwc9JO9NvY08WifuafWNE2Fv//v+qmsS5Tih
-	5RjPOtDQj2dV02gJkP0GznGjb4xnRkZv1I8ZD35cktHwQ/ouxePbaiNgyOnRTQXyMd9PlgKu6Hu0S
-	BsLHBMIsH9h/zzTtJnYHZut0WyvDTHW1dnpCcfu0UvMQRqdtGp72uoNU7pTEi4FCZUP26C1pePCOV
-	labf2A1A==;
+	bh=IvMfOW0K5+CfylFuc8dQRU5yL7iRaqNXhwYAoS6QuGs=; b=f5R2t0xlyeCPIUZoBQhtTQPq5d
+	NWxY96YvjG+npdwPAlOFmtl4wJKJd4FBHIHDkjeyrZiJkkUys2juar0ALT0wrZ0rdaM+INQfTp50D
+	CEvfZ+Xuklsd7/mzglL3j1RRAL9YSScP9sVJ57/DS3WXLXK6GnDQSF90TrRU2qepsmWQtJzOtIkRN
+	Bh74KNySkkO6BECghsEd8pnQTJN7QgmxeW3fTn6Y+hKXMTex1rPzEsFFGDJ2O7HvW7Oordtzd4oOW
+	rnk0g/mCRdgSOjlQWYuVXonggSjT0kMMKQ7c7RAJCTCnc7qszcTH1jFZRtlDlzOQmpG5e3H218AMt
+	DeTWhm9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujygd-00000000MFZ-1Sqp;
-	Thu, 07 Aug 2025 11:21:31 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1ujyj5-00000000Mar-0n3c;
+	Thu, 07 Aug 2025 11:24:03 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujyKL-00000000J10-2vUM
+	id 1ujyLR-00000000JMN-3i1x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 10:58:30 +0000
-Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3e51a12f1a0so2882895ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 03:58:29 -0700 (PDT)
+	Thu, 07 Aug 2025 10:59:39 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6155527ab87so104646a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 03:59:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754564308; x=1755169108; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8tWMOA3+MxqIET7zOeogQlZpQrCQ4ulH5geagIzb9wU=;
-        b=U7WT/PEZx8ToHDUb1maBn84e7RdKyXhlpjjPFaIRDQlbED5XPuQ7VLXv/Os7OhI/bO
-         I9HQFJ9etYuzPyplf8lC5mXGNflDSGQHVv2GGjZgz4pTkT+FAH4fDSicPy4EpTKAXna9
-         yhONI/NDS/8HE5RASFmY6O3W3p8hgwTUFJWnbExLdI5w5ngkdSjYU9eXGBsaHMZy+wzO
-         MWXjnuMiFN5T+SQ0LFljD+m9acLTSYV48Qa0nxWdu8n1V5XfxPIPkOqhYEhtZM5wP9jb
-         xL4mlhXRLsZnPbCdcSFTf6ZukxVu19GdDDCNDNdntRrBjX6dyDs4bcx5EjFQiZmEFzi0
-         5E2A==
+        d=linaro.org; s=google; t=1754564376; x=1755169176; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=IvMfOW0K5+CfylFuc8dQRU5yL7iRaqNXhwYAoS6QuGs=;
+        b=Zf3ItoCdVdE5GRJxdQaSKn8onun9F+RcW+SHht56aK9Y0S+62a8IYYEbI9W1hNSMvp
+         FwvzG8ie0NLg023rOfloaR+2HtSLFO2kPSvHYmiT+J7Ny7b3mEGabGBbHlVkbjxkw1nL
+         FuIXGP7zHEePPD6hIgAPZu9ZLl7zEygmcmC9h+K3F/12x7Mel40II5Yoa8ExeR3F9uxV
+         HwZ+hpwu8aVV4rI6SUI/MHKX5XMz7SmR7ErWwyX5Qodjd8g2YWuKqW29uOVq8/tU22S0
+         +xH9OgXM1plw2knxN0kQEUUxl2MrpUhggucg/Tu1wpkym9LRFxrT2SRoBC+GAxdAgS3E
+         reQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754564308; x=1755169108;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8tWMOA3+MxqIET7zOeogQlZpQrCQ4ulH5geagIzb9wU=;
-        b=MEHQe9puOCqpeHb/kHKGYengDchGKHD9NnZ64RLsjkZ2iyXjvzGEi586VskNaFpFjv
-         nb8hYlJBPbduMkdWgDLCG/30jDggqEOME0rGDAbPjUAVSSAgS8zrA3KacZKPBqy1lfBT
-         4PB0Mo7dRizPd9d/kYMgMPoFwKK5MxmrIdkEBHc7D1oRppGOTHdqsTEsN6zjAVsDeqeG
-         6K9LqgnvyMuDHcc//5GXcBZ+8LOOmFk2JYgX8/ZHulGo+pf+db6D6VCDZLQRLrJOGXgj
-         WiLvyQVnj9ltvHXvBJQ4NHsm39736xNFjRS5up4WuXnQNhqr0lEfQd35Ez/1DkfyZz6n
-         tSMg==
-X-Forwarded-Encrypted: i=1; AJvYcCUGAmlkLiUdcGKr2nHO2fLB0tcjdD3NUHxtBnjydX94XcVNRH0gsLddYYh4a46l60hHu7yf8X1ETvmuAzI15EoD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz24CcvRhuFvRrhi04/ao39RiRqujIVYvmllIr+Ncv0RsFKNmRH
-	8kJQ0w9xmRUfMXw8u7gFodN57HEGNOZ6e0uCB0hqLhwPUYqGV8MYnhynQezeuhDIHPfIWc0CbJt
-	aKszOe/ScaUYFcjIdLMmg3MRJuEZXSkk=
-X-Gm-Gg: ASbGncsfV+cz86hI2er0FZH+ONvrXkJz46VRPjGSPVkTEHkHOltV6V9qQd2auTFsoDT
-	q+57GGUayEWJCk28htHPuxOtcXOExK9KKDtRbC1UG44XX8fg4zKWn06+LU9kACektWi7vHcKn1d
-	hno45V0Uf1JXKyNRN58qqrDBSzu8I2kQ3GAIFvOhNMm2jJFVPT6Hl6by5+0ti0aPZlF54MPAquQ
-	JZej3c=
-X-Google-Smtp-Source: AGHT+IHFyEqQlwA4nzQRnsXvPUsGwZOgKB36m7+Ke65jmW1lXiVYvMW77eXhUFaYX4r2OmzVe+1dFNu46sXVYvnzZ80=
-X-Received: by 2002:a05:6e02:18c7:b0:3df:3598:7688 with SMTP id
- e9e14a558f8ab-3e51b93cc8dmr120096585ab.21.1754564308346; Thu, 07 Aug 2025
- 03:58:28 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754564376; x=1755169176;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IvMfOW0K5+CfylFuc8dQRU5yL7iRaqNXhwYAoS6QuGs=;
+        b=jGKZG/aJ3IhM5P79PtMSILQXccOrqBTre2swLf2mfJc+qJMfsdQ03pGYla0vgxRvXm
+         47BtgXxR4qHR/PZ/Q7gTr69uc8nf0pBZZJNm+4hBDgAEaYfyVdiSBEjKcNfRLha8wht3
+         XIeaqp2xAbSO69kgBEFrHZSeNzj7dSatUZnL0j1ZrmqiJQfNmULbvMGklWHbMLOWmPZ4
+         aPxDJnTN9T2c9sPnu42OiMRF1/tQf5L+Hdv6UOHWjLXWxeZpWtJXiRWq5eDB9OaEVQBs
+         0tCAVzLFXTy7CZ90StWUe5gsmLJnatnHNILwN8U/VJXxckjoj7idvQTasvhk3XnSU57+
+         6c9w==
+X-Forwarded-Encrypted: i=1; AJvYcCXY8F7zT7FpP0TBJzVJbQsSbEWs56Kwdj80OJSbKhBUfGwwVUzKgp0xBV6Qho0EryDhQd7o98he644Qa/gWu64V@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcm2ejXn3kOBjL5UTAfhWCPIPFvOTEulZ+UpBCxtgqJ0oMob4Q
+	89A10zsNZkqeXPRDv3FOFDSLaR0jqh7enKEf8+BPkvEnu4FW7rRqFOQHfU9pr2LH6ts=
+X-Gm-Gg: ASbGncvlGr1G3SZ6dXjxpB5AnmIWTfsYEHFTE3tJni25LmXH7pjkneqWG2eOYKMRAmI
+	YiBCJ/LFYdn30dU3TIPDwxE5I6EmiomfJiM5/fsb/jv/9N8UfSxDRq37VWOt6okhIrqi4QjHItp
+	Hnb9dw9Nt+xB5OxI0UV8Qhtl2rbQHCgYIy/4VNYjaUmWLCjSW/ik3Zqz9hA01PtPHvjczKPl77o
+	FLm2LOzSr2NEnVWmp+/9lPiPbq9SkzWHwUG02/qeKHUBFHL6CX1xDgqBuTQSXPG/w9HBAf96Qil
+	0xHG0aW60qp4tNmc+tPFCthUpN5JcxCJ6pxPLetSIBEZnQYIpB2fqXnxkc6t8zlN1TZ5pTlQfJm
+	mbzDe04mIX2GqsPjVaMW0S/9Rv3e5pkCypEi5HpcEJes=
+X-Google-Smtp-Source: AGHT+IEvJ6td6iNd7e94Kkjtwe3tYixKx3u6KXJTp/O1bo37Zy/totEk9IAx2HyLhWP8NfTXAJGFxA==
+X-Received: by 2002:a05:6402:40cf:b0:612:b3fd:4b35 with SMTP id 4fb4d7f45d1cf-6179619204amr2008731a12.6.1754564375986;
+        Thu, 07 Aug 2025 03:59:35 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.218.223])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8fe79a0sm11627165a12.39.2025.08.07.03.59.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 Aug 2025 03:59:34 -0700 (PDT)
+Message-ID: <419c8b19-da07-4972-892c-9f8a55a546c5@linaro.org>
+Date: Thu, 7 Aug 2025 12:59:32 +0200
 MIME-Version: 1.0
-References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
- <20250804104722.601440-6-shengjiu.wang@nxp.com> <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
- <CAA+D8AN4n0H6M_0EqX4z_37ViSCyThKbmtMgqPmipintJ8Wtwg@mail.gmail.com> <ba02693b-8ad2-4297-ab89-5b39d5c4315f@nxp.com>
-In-Reply-To: <ba02693b-8ad2-4297-ab89-5b39d5c4315f@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Thu, 7 Aug 2025 18:58:15 +0800
-X-Gm-Features: Ac12FXwUPM-Znt5cq2SUHVDzi6o3wmoQ462FD5iaVLkULQVZBddMO5yf_2W0GwQ
-Message-ID: <CAA+D8AN3VzFx1g=8wyxJROw96xS2-qoVs3X4vUfFnJtUCqFj_w@mail.gmail.com>
-Subject: Re: [PATCH v3 5/6] drm/bridge: imx: add driver for HDMI TX Parallel
- Audio Interface
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com, 
-	neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
-	perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/10] ARM: dts: samsung: exynos4: Use SoC-specific
+ compatible string for MFC
+To: Aakarsh Jain <aakarsh.jain@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+ linux-kernel@vger.kernel.org, m.szyprowski@samsung.com,
+ andrzej.hajda@intel.com, mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+ alim.akhtar@samsung.com, robh@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org
+Cc: linux-samsung-soc@vger.kernel.org, aswani.reddy@samsung.com,
+ anindya.sg@samsung.com
+References: <20250807032449.92770-1-aakarsh.jain@samsung.com>
+ <CGME20250807032508epcas5p416a3af567faba6a4fe3d6f6af5c0dd80@epcas5p4.samsung.com>
+ <20250807032449.92770-3-aakarsh.jain@samsung.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250807032449.92770-3-aakarsh.jain@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_035829_739538_5DF319AF 
-X-CRM114-Status: GOOD (  45.01  )
+X-CRM114-CacheID: sfid-20250807_035937_938348_8B5E223C 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,287 +153,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 6, 2025 at 2:52=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote:
->
-> On 08/06/2025, Shengjiu Wang wrote:
-> > On Tue, Aug 5, 2025 at 4:55=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wr=
-ote:
-> >>
-> >> On 08/04/2025, Shengjiu Wang wrote:
->
-> [...]
->
-> >>> +static int imx8mp_hdmi_pai_bind(struct device *dev, struct device *m=
-aster, void *data)
-> >>> +{
-> >>> +     struct dw_hdmi_plat_data *plat_data =3D (struct dw_hdmi_plat_da=
-ta *)data;
-> >>> +     struct imx8mp_hdmi_pai *hdmi_pai;
-> >>> +
-> >>> +     hdmi_pai =3D dev_get_drvdata(dev);
-> >>> +
-> >>> +     plat_data->enable_audio =3D imx8mp_hdmi_pai_enable;
-> >>> +     plat_data->disable_audio =3D imx8mp_hdmi_pai_disable;
-> >>> +     plat_data->priv_audio =3D hdmi_pai;
-> >>> +
-> >>> +     return 0;
-> >>> +}
-> >>> +
-> >>> +static void imx8mp_hdmi_pai_unbind(struct device *dev, struct device=
- *master, void *data)
-> >>> +{
-> >>> +     struct dw_hdmi_plat_data *plat_data =3D (struct dw_hdmi_plat_da=
-ta *)data;
-> >>> +
-> >>> +     plat_data->enable_audio =3D NULL;
-> >>> +     plat_data->disable_audio =3D NULL;
-> >>> +     plat_data->priv_audio =3D NULL;
-> >>
-> >> Do you really need to set these ptrs to NULL?
-> >
-> > yes.  below code in dw-hdmi.c use the pdata->enable_audio as condition.
->
-> Note that this is all about tearing down components.
-> If this is done properly as the below snippet of pseudo-code, then
-> hdmi->{enable,disable}_audio() and pdata->{enable,disable}_audio() won't =
-be
-> called after audio device is removed by dw_hdmi_remove().  So, it's unnec=
-essary
-> to set these pointers to NULL here.
->
-> imx8mp_dw_hdmi_unbind()
-> {
->    dw_hdmi_remove(); // platform_device_unregister(hdmi->audio);
->    component_unbind_all(); //imx8mp_hdmi_pai_unbind()
-> }
->
-> BTW, I suggest the below snippet[1] to bind components.
->
-> imx8mp_dw_hdmi_bind()
-> {
->    component_bind_all(); // imx8mp_hdmi_pai_bind()
->                          //   set pdata->{enable,disable}_audio
->    dw_hdmi_probe(); // hdmi->audio =3D platform_device_register_full(&pde=
-vinfo);
-> }
+On 07/08/2025 05:24, Aakarsh Jain wrote:
+> Modify the MFC device tree node to use a SoC-specific
+> compatible string instead of a generic one.
 
-Looks like we should use dw_hdmi_bind() here to make unbind -> bind work.
-But can't get the encoder pointer.  the encoder pointer is from lcdif_drv.c=
-,
-the probe sequence of lcdif, pvi, dw_hdmi should be dw_hdmi first, then pvi=
-,
-then lcdif, because current implementation in lcdif and pvi driver.
+Why?
 
-Should the lcdif and pvi driver be modified to use component helper?
-This seems out of the scope of this patch set.
+> 
+> Signed-off-by: Aakarsh Jain <aakarsh.jain@samsung.com>
+> ---
+>  arch/arm/boot/dts/samsung/exynos4.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm/boot/dts/samsung/exynos4.dtsi b/arch/arm/boot/dts/samsung/exynos4.dtsi
+> index ed47d0ce04e1..a2f15fbe98cb 100644
+> --- a/arch/arm/boot/dts/samsung/exynos4.dtsi
+> +++ b/arch/arm/boot/dts/samsung/exynos4.dtsi
+> @@ -435,7 +435,7 @@ i2s2: i2s@13970000 {
+>  		};
+>  
+>  		mfc: codec@13400000 {
+> -			compatible = "samsung,mfc-v5";
+> +			compatible = "samsung,exynos4-mfc";
 
-Best regards
-Shengjiu Wang
->
-> >
-> >         if (pdata->enable_audio)
-> >                 pdata->enable_audio(hdmi,
-> >                                     hdmi->channels,
-> >                                     hdmi->sample_width,
-> >                                     hdmi->sample_rate,
-> >                                     hdmi->sample_non_pcm,
-> >                                     hdmi->sample_iec958);
-> >
-> >
-> >>
->
-> [...]
->
-> >>> +     return component_add(dev, &imx8mp_hdmi_pai_ops);
-> >>
-> >> Imagine that users could enable this driver without enabling imx8mp-hd=
-mi-tx
-> >> driver, you may add the component in this probe() callback only and mo=
-ve all
-> >> the other stuff to bind() callback to avoid unnecessary things being d=
-one here.
-> >
-> > component helper functions don't have such dependency that the aggregat=
-e
-> > driver or component driver must be probed or not.  if imx8mp-hdmi-tx is=
- not
-> > enabled, there is no problem, just the bind() callback is not called.
->
-> I meant I'd write imx8mp_hdmi_pai_probe() as below snippet and do all the
-> other stuff in imx8mp_hdmi_pai_bind().  This ensures minimum things are d=
-one
-> in imx8mp_hdmi_pai_probe() if imx8mp-hdmi-tx doesn't probe.
->
-> static int imx8mp_hdmi_pai_probe(struct platform_device *pdev)
-> {
->         return component_add(&pdev->dev, &imx8mp_hdmi_pai_ops);
-> }
->
-> >
-> >>
-> >>> +}
-> >>> +
-> >>> +static void imx8mp_hdmi_pai_remove(struct platform_device *pdev)
-> >>> +{
-> >>> +     component_del(&pdev->dev, &imx8mp_hdmi_pai_ops);
-> >>> +}
-> >>> +
-> >>> +static const struct of_device_id imx8mp_hdmi_pai_of_table[] =3D {
-> >>> +     { .compatible =3D "fsl,imx8mp-hdmi-pai" },
-> >>> +     { /* Sentinel */ }
-> >>> +};
-> >>> +MODULE_DEVICE_TABLE(of, imx8mp_hdmi_pai_of_table);
-> >>> +
-> >>> +static struct platform_driver imx8mp_hdmi_pai_platform_driver =3D {
-> >>> +     .probe          =3D imx8mp_hdmi_pai_probe,
-> >>> +     .remove         =3D imx8mp_hdmi_pai_remove,
-> >>> +     .driver         =3D {
-> >>> +             .name   =3D "imx8mp-hdmi-pai",
-> >>> +             .of_match_table =3D imx8mp_hdmi_pai_of_table,
-> >>> +     },
-> >>> +};
-> >>> +module_platform_driver(imx8mp_hdmi_pai_platform_driver);
-> >>> +
-> >>> +MODULE_DESCRIPTION("i.MX8MP HDMI PAI driver");
-> >>> +MODULE_LICENSE("GPL");
-> >>> diff --git a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c b/drivers/gp=
-u/drm/bridge/imx/imx8mp-hdmi-tx.c
-> >>> index 1e7a789ec289..ee08084d2394 100644
-> >>> --- a/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> >>> +++ b/drivers/gpu/drm/bridge/imx/imx8mp-hdmi-tx.c
-> >>> @@ -5,11 +5,13 @@
-> >>>   */
-> >>>
-> >>>  #include <linux/clk.h>
-> >>> +#include <linux/component.h>
-> >>>  #include <linux/mod_devicetable.h>
-> >>>  #include <linux/module.h>
-> >>>  #include <linux/platform_device.h>
-> >>>  #include <drm/bridge/dw_hdmi.h>
-> >>>  #include <drm/drm_modes.h>
-> >>> +#include <drm/drm_of.h>
-> >>>
-> >>>  struct imx8mp_hdmi {
-> >>>       struct dw_hdmi_plat_data plat_data;
-> >>> @@ -79,11 +81,46 @@ static const struct dw_hdmi_phy_ops imx8mp_hdmi_p=
-hy_ops =3D {
-> >>>       .update_hpd     =3D dw_hdmi_phy_update_hpd,
-> >>>  };
-> >>>
-> >>> +static int imx8mp_dw_hdmi_bind(struct device *dev)
-> >>> +{
-> >>> +     struct dw_hdmi_plat_data *plat_data;
-> >>> +     struct imx8mp_hdmi *hdmi;
-> >>> +     int ret;
-> >>> +
-> >>> +     hdmi =3D dev_get_drvdata(dev);
-> >>> +     plat_data =3D &hdmi->plat_data;
-> >>> +
-> >>> +     ret =3D component_bind_all(dev, plat_data);
-> >>> +     if (ret)
-> >>> +             return dev_err_probe(dev, ret, "component_bind_all fail=
-ed!\n");
-> >>
-> >> As component_bind_all() would bind imx8mp-hdmi-pai and hence set
-> >> {enable,disable}_audio callbacks, you need to call dw_hdmi_probe() aft=
-er
-> >> component_bind_all() instead of too early in probe() callback.
-> >
-> > There is no such dependency.
-> > Maybe you mixed the hdmi->enable_audio() with pdata->enable_audio().
->
-> As the above snippet[1] shows, once dw_hdmi_probe() registers audio devic=
-e,
-> the audio device could be functional soon after audio driver probes, henc=
-e
-> hdmi->enable_audio() would be called and hence pdata->enable_audio() woul=
-d
-> be called. So, you need to set pdata->enable_audio() before dw_hdmi_probe=
-()
-> is called, otherwise pdata->enable_audio could be NULL when is called by
-> audio driver.
->
-> [...]
->
-> >>> +     remote =3D of_graph_get_remote_node(pdev->dev.of_node, 2, 0);
-> >>> +     if (remote && of_device_is_available(remote)) {
-> >>
-> >> Doesn't of_graph_get_remote_node() ensure that remote is avaiable?
-> >
-> > No.  'remote' is the node,  not the 'device'.
->
-> See of_device_is_available() is called by of_graph_get_remote_node():
->
-> struct device_node *of_graph_get_remote_node(const struct device_node *no=
-de,
->                                              u32 port, u32 endpoint)
-> {
->         struct device_node *endpoint_node, *remote;
->
->         endpoint_node =3D of_graph_get_endpoint_by_regs(node, port, endpo=
-int);
->         if (!endpoint_node) {
->                 pr_debug("no valid endpoint (%d, %d) for node %pOF\n",
->                          port, endpoint, node);
->                 return NULL;
->         }
->
->         remote =3D of_graph_get_remote_port_parent(endpoint_node);
->         of_node_put(endpoint_node);
->         if (!remote) {
->                 pr_debug("no valid remote node\n");
->                 return NULL;
->         }
->
->         if (!of_device_is_available(remote)) {
->              ^~~~~~~~~~~~~~~~~~~~~~
->                 pr_debug("not available for remote node\n");
->                 of_node_put(remote);
->                 return NULL;
->         }
->
->         return remote;
-> }
-> EXPORT_SYMBOL(of_graph_get_remote_node);
->
-> >
-> >>
-> >>> +             drm_of_component_match_add(dev, &match, component_compa=
-re_of, remote);
-> >>> +
-> >>> +             of_node_put(remote);
-> >>> +
-> >>> +             ret =3D component_master_add_with_match(dev, &imx8mp_dw=
-_hdmi_ops, match);
-> >>> +             if (ret)
-> >>> +                     dev_warn(dev, "Unable to register aggregate dri=
-ver\n");
-> >>> +             /*
-> >>> +              * This audio function is optional for avoid blocking d=
-isplay.
-> >>> +              * So just print warning message and no error is return=
-ed.
-> >>
-> >> No, since PAI node is available here, it has to be bound.  Yet you sti=
-ll need
-> >> to properly handle the case where PAI node is inavailable.
-> >
-> > This is for aggregate driver registration,  not for bind()
-> >
-> > The bind() is called after both drivers have been registered.  again th=
-ere is no
-> > dependency for both aggregate driver and component driver should be
-> > registered or probed.
->
-> Sorry for not being clear about my previous wording.  I meant since PAI n=
-ode is
-> available here, component_master_add_with_match() must be called to regis=
-ter
-> the master and if it fails to register it, imx8mp_dw_hdmi_probe() should =
-return
-> proper error code, not 0.
->
-> --
-> Regards,
-> Liu Ying
+There are so many things wrong here...
+
+1. This breaks all users
+2. Not a correct compatible - there is no exynos4 (see writing bindings)
+3. Commit msg does not explain why breaking users is reasonable
+
+
+Best regards,
+Krzysztof
 
