@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85727C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 10:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B958C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 10:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+jqpfHFtr9RJd+Rj5jDYwLXh+hHq7pFdE9Sw57Atqmk=; b=xPHoXVW3YMvGD7r9EP7aLmq5fj
-	4GlaaRRuBhIBvdnbJKRkBGO7j5l7TpoMTaDqy6mQ6LvsU4O2AF40pGej/C3goCXmsIehBYKtHUmz0
-	XO+XXIHO8aBCCt1uOwR9sF/sf3bU2ZeMscgRxG09NJKT4yAC53UO/a8JD8mWm1AmSuqeljsTj2BF2
-	o37YaJ3nsH9WJ0Rsjaq9bJ3J3DmfR601Gy03eb3nqBc2+iJh5+iW4IPGfuysE/OXIlC5dHggiRnUL
-	AluaYZlygiuNXEqKS2XucZRgvR+jZiIm4Wf3UFdlpoGfEgcVYRphxklJRsy6CUxZKrh+dsRLAGcKL
-	7BOSL81A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=9EFIJet6GwguCOgHXt373HO19RdNPt1XWJDM2bajplk=; b=B38B3EafmVV5kP6ANas0bPXZJd
+	7GuXYycbK6TljhKtJLs/O1wg0brxSAKZICOwHYDQuuFH0drJfKF2Qgn9sjo4m6WXUiEVfb+rT8aTB
+	9hK9/if6Y0KLjCujWAx2lAI6vfcZ256uRo8mNtfdWLdg4IbVeuwUwro1r+GdKsO3KUoaqTQtSV8c/
+	OJw7tpYo5eOaj9ozVKt2Z3dKjDshVVcgMGMo4NODD+pAL9H+WZZVRqnFKbJ9NchKvoJIBy8xa+OCB
+	mfZiOLC5SKILfXZoSBVPdyK0HWLM8z84nn3+WfpYxTODnkLf0DEFRSs3pT0TpdLV2QZ/g2brDBKkq
+	JyXhTUsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujy01-00000000FsB-3aIw;
-	Thu, 07 Aug 2025 10:37:29 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1ujyFd-00000000IHn-0gWk;
+	Thu, 07 Aug 2025 10:53:37 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxxX-00000000FX6-0Ufy
+	id 1ujyD6-00000000Hom-0VBY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 10:34:56 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3b8d0f1fb49so431470f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 03:34:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754562893; x=1755167693; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+jqpfHFtr9RJd+Rj5jDYwLXh+hHq7pFdE9Sw57Atqmk=;
-        b=zPcoD4jV7kAnKCCawXY9bskLt+7d+MA1/l5Fzcn8MjV9IprfMVbfPTe7YYdC154wEm
-         TkZwsWDD8wVr3csADKsBtx+xt7kwrvnCl8vHqOUH39G6OdBFR57QMZSxo77tLxtjxrK2
-         DrGo97DWExCrgAWP6Dr03j99oCg66mJ33sIKPs9BdvNlUNFAmYFzud1KLRv7xo6L4QjD
-         dx+NiNQevZp5bli47SHIC/bbsF+qu1U860E5hFPVCWn+HqP4S7+9x3Y1bIG9J0IcmU0B
-         b8JS6MaTjk89ttCk1PEMW9td73F9U+bPYKERcfsIpfz8S1KC/OoICQtccAn3XQquSFfM
-         crkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754562893; x=1755167693;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+jqpfHFtr9RJd+Rj5jDYwLXh+hHq7pFdE9Sw57Atqmk=;
-        b=uatVJX9S+sLg0HyNZoki1Sij5OdEnsqhUzGs+ZfGQ+P81ytbIAy/fHPEcunUvtApKC
-         nWsERwn3sJDhtT41PQWWubu7OD6Yw9uL5MNmMT9mlAJh3DHIqJUbPvJ9O3B7RoBviI3+
-         sXSQr3IM8YeDgw7nVq3wIsXrgKB1vsnW8mdYhyZ7GGmpSQmJ44MCSgjkuDUlvxJKE82z
-         /Crxwcbd3kPIr+nvTfRAt922jTKjb6mY4uZOsQaGFPbHXl+gfPxx2pmhoa/zxc4OW35/
-         E3FZYWTG9b1aHqItaswmFZ3Niyyap5yMPTxUnRAPj1aINSaCH7rrdkuB1u9fqdxnPAnv
-         iFKg==
-X-Forwarded-Encrypted: i=1; AJvYcCV7E9ZRxw/0ozBYcYeF4y8cS9AkdGfPsdWZtVzLeMqgLnSJew3ULpR8HpKsrG80REUQBIMiIX0MCE1VxwfDekpI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxssjAukVFaOlAWXSVBO66hmrqeNnymfRVBkhFVgCSxfe3auwPF
-	YTz+5cutYgyy3EMcCLTygtUYgpD8cMBJrGj/LPH+NGN/t42t1HtH5qILD3xmNxJgbuI=
-X-Gm-Gg: ASbGncvUSMTro0o+3lUGX1fIFxg7Gt8cNHZLaU/iQwSn/QbHWYNq6tdv7DuRnV9nrM6
-	vaEGSp/BllMSZm9ze/zXGA8HIj61rquLxd3K1WAbZVctORPwfBMKVxgZ0zCMxsjSPBL7L/3GuJ/
-	h89d6BE8JXZCM6RWSaqBt0gwJ08RhCjBuCmKRzqfxt+mg6+LhjZIoqrq1x5SC/H3TrTlaZ0GrDr
-	R1rAsU4To35Oua8VHGf7vf/GjFqNWf8RX2ecU9Ud7le44KhBLZ+dzoppSebu+tqzd3J2rMxfTMs
-	u3Umx9DjdjqG9EO9kazqesHFgrnqXF4DpeO0Rj/3R5QnJMJnfh4cRlU0++yRKZa2vAM40JGx9PZ
-	AB/fggR/1xhWil6FGbZTP99r/JJw=
-X-Google-Smtp-Source: AGHT+IEJZFFSnC6OyV3Ckz3ldGk5h0RG3Okc+NeFrocarUAZUjxcjd1haqhnntbT67+wRuAV6TUqug==
-X-Received: by 2002:a05:6000:2f86:b0:3a0:b84d:60cc with SMTP id ffacd0b85a97d-3b8f41a837fmr5055520f8f.2.1754562892893;
-        Thu, 07 Aug 2025 03:34:52 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b8ff860acbsm70000f8f.51.2025.08.07.03.34.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 03:34:52 -0700 (PDT)
-Date: Thu, 7 Aug 2025 13:34:48 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Chenyuan Yang <chenyuan0y@gmail.com>
-Cc: Maxime Ripard <mripard@kernel.org>, wens@csie.org,
-	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de,
-	airlied@gmail.com, simona@ffwll.ch, jernej.skrabec@gmail.com,
-	samuel@sholland.org, neil.armstrong@linaro.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/sun4i: backend: Fix error pointers in
- sun4i_backend_atomic_check
-Message-ID: <aJSBSLvIeSpvaYpK@stanley.mountain>
-References: <20250314012029.668306-1-chenyuan0y@gmail.com>
- <20250314-prophetic-attentive-platypus-3ab214@houat>
- <CALGdzurT1_fY_o8Hv92j4+XFQHu1iHRzqVtZAM8upHYBPfA1BA@mail.gmail.com>
+	Thu, 07 Aug 2025 10:51:04 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250807105046epoutp03a162d0957d3fbd09843694a59686832f~ZdoWtLi_I0649906499epoutp03H
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 Aug 2025 10:50:46 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250807105046epoutp03a162d0957d3fbd09843694a59686832f~ZdoWtLi_I0649906499epoutp03H
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1754563846;
+	bh=9EFIJet6GwguCOgHXt373HO19RdNPt1XWJDM2bajplk=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=ppYXl6BUAVAeVZr16oTAuTzCiqe7yhCZS+FFgZzvF4nkidEBipqlnZylkV4VUzezu
+	 CB2MBnBBTia4sRLvv5W4Z5g3ZJs3fIBqTRcepasnE5PQZyLIRAwSA7oHHnQdsqBTIM
+	 W4HRgZNEHXl+bbwWKiLK/xzlWe3vfYCA3lEUb/6E=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250807105045epcas5p200483d0bdac63cb3b323ff857f67fdc1~ZdoWNaOIH1874618746epcas5p2P;
+	Thu,  7 Aug 2025 10:50:45 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4byP8P11ymz2SSKf; Thu,  7 Aug
+	2025 10:50:45 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22~ZXjJEevMZ2629026290epcas5p1A;
+	Thu,  7 Aug 2025 03:24:59 +0000 (GMT)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250807032457epsmtip217c0a672ffd1a22f97b647b84be6597d~ZXjHGrzJG1346113461epsmtip29;
+	Thu,  7 Aug 2025 03:24:57 +0000 (GMT)
+From: Aakarsh Jain <aakarsh.jain@samsung.com>
+To: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, m.szyprowski@samsung.com,
+	andrzej.hajda@intel.com, mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
+	alim.akhtar@samsung.com, robh@kernel.org, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org
+Cc: linux-samsung-soc@vger.kernel.org, aswani.reddy@samsung.com,
+	anindya.sg@samsung.com, Aakarsh Jain <aakarsh.jain@samsung.com>
+Subject: [PATCH 00/10] Use SoC-specific compatible string for Samsung MFC
+Date: Thu,  7 Aug 2025 08:54:39 +0530
+Message-ID: <20250807032449.92770-1-aakarsh.jain@samsung.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALGdzurT1_fY_o8Hv92j4+XFQHu1iHRzqVtZAM8upHYBPfA1BA@mail.gmail.com>
+X-CMS-MailID: 20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22
+References: <CGME20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22@epcas5p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_033455_189542_A027FD38 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20250807_035100_460538_C8FF152A 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,88 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 11:00:26AM -0500, Chenyuan Yang wrote:
-> HI Maxime.
-> 
-> Thanks so much for pointing that out!
-> 
-> How about such a patch?
-> 
+This patch series modifies the samsung MFC version compatible to
+SoC-specific compatible.
 
-This patch is corrupted so we can't review it.
+Aakarsh Jain (10):
+  ARM: dts: samsung: exynos3250: Use SoC-specific compatible string for
+    MFC
+  ARM: dts: samsung: exynos4: Use SoC-specific compatible string for MFC
+  ARM: dts: samsung: exynos5250: Use SoC-specific compatible string for
+    MFC
+  ARM: dts: samsung: exynos5420: Use SoC-specific compatible string for
+    MFC
+  ARM: dts: samsung: exynos5800: Use SoC-specific compatible string for
+    MFC
+  ARM: dts: samsung: s5pv210: Use SoC-specific compatible string for MFC
+  media: s5p-mfc: Modify compatible string check for SoC-specific
+    support
+  media: s5p-mfc: Add new compatible string corresponding to S5pv210 SoC
+  dt-bindings: media: s5p-mfc: Modify compatible string check for
+    SoC-specific support
+  dt-bindings: media: s5p-mfc: Add SoC-specific compatible for
+    'samsung,mfc-v5'
 
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c
-> b/drivers/gpu/drm/sun4i/sun4i_backend.c
-> index 2dded3b828df..5ad0e90d3e6b 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_backend.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
-> @@ -490,9 +490,14 @@ static int sun4i_backend_atomic_check(struct
-> sunxi_engine *engine,
->   drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
->   struct drm_plane_state *plane_state =
->   drm_atomic_get_plane_state(state, plane);
-> - struct sun4i_layer_state *layer_state =
-> - state_to_sun4i_layer_state(plane_state);
-> - struct drm_framebuffer *fb = plane_state->fb;
-> + struct sun4i_layer_state *layer_state = NULL;
-> + struct drm_framebuffer *fb = NULL;
+ .../bindings/media/samsung,s5p-mfc.yaml       | 24 ++++++++++---------
+ arch/arm/boot/dts/samsung/exynos3250.dtsi     |  2 +-
+ arch/arm/boot/dts/samsung/exynos4.dtsi        |  2 +-
+ arch/arm/boot/dts/samsung/exynos5250.dtsi     |  2 +-
+ arch/arm/boot/dts/samsung/exynos5420.dtsi     |  2 +-
+ arch/arm/boot/dts/samsung/exynos5800.dtsi     |  2 +-
+ arch/arm/boot/dts/samsung/s5pv210.dtsi        |  2 +-
+ .../media/platform/samsung/s5p-mfc/s5p_mfc.c  | 13 ++++++----
+ 8 files changed, 27 insertions(+), 22 deletions(-)
 
-No need to initialize things like this.  NULL isn't a valid pointer.
-This just disables static checker tools from finding uninitialized
-variable warnings so all the expense of writing the checker tools is
-now wasted.
+-- 
+2.49.0
 
-regards,
-dan carpenter
-
-> +
-> + if (IS_ERR(plane_state))
-> + return PTR_ERR(plane_state);
-> +
-> + layer_state = state_to_sun4i_layer_state(plane_state);
-> + fb = plane_state->fb;
-> 
->   if (!sun4i_backend_plane_is_supported(plane_state,
->         &layer_state->uses_frontend))
-> -- 
-> 
-> -Chenyuan
-> 
-> On Fri, Mar 14, 2025 at 2:17 AM Maxime Ripard <mripard@kernel.org> wrote:
-> >
-> > Hi,
-> >
-> > On Thu, Mar 13, 2025 at 08:20:29PM -0500, Chenyuan Yang wrote:
-> > > The function sun4i_backend_atomic_check was dereferencing pointers
-> > > returned by drm_atomic_get_plane_state without checking for errors. This
-> > > could lead to undefined behavior if the function returns an error pointer.
-> > >
-> > > This commit adds checks using IS_ERR to ensure that plane_state is
-> > > valid before dereferencing them.
-> > >
-> > > Similar to commit da29abe71e16
-> > > ("drm/amd/display: Fix error pointers in amdgpu_dm_crtc_mem_type_changed").
-> > >
-> > > Fixes: 96180dde23b7 ("drm/sun4i: backend: Add a custom atomic_check for the frontend")
-> > > Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-> > > ---
-> > >  drivers/gpu/drm/sun4i/sun4i_backend.c | 4 ++++
-> > >  1 file changed, 4 insertions(+)
-> > >
-> > > diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c b/drivers/gpu/drm/sun4i/sun4i_backend.c
-> > > index 2dded3b828df..a8e0e2123764 100644
-> > > --- a/drivers/gpu/drm/sun4i/sun4i_backend.c
-> > > +++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
-> > > @@ -490,6 +490,10 @@ static int sun4i_backend_atomic_check(struct sunxi_engine *engine,
-> > >       drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
-> > >               struct drm_plane_state *plane_state =
-> > >                       drm_atomic_get_plane_state(state, plane);
-> > > +
-> > > +             if (IS_ERR(plane_state))
-> > > +                     return PTR_ERR(plane_state);
-> > > +
-> >
-> > This introduces a build warning. You shouldn't mix declarations and code.
-> >
-> > Maxime
 
