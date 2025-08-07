@@ -4,187 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6384C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 12:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7112FC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 13:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uYOJEPdVLLTn7KYojoNujaBs0UWzNNL/ldR7pIOubzU=; b=uCQVXM5yWRMPGoQjrCvoZQxNpp
-	yp12w2RHWZCeb/cfHjq7Mf9tntjyckbpwAGtm2N8Mh13rwe3FHiQ4nC6AkiQWFnldBc4eFHWGV4zD
-	S7URjdL5Z+IEZZNZYNn4PBA5IjZ2YJj03PkEn9kq4XzGm+lKauOef6HggFiOMWfigazG2ulq+PCtb
-	maPHxPxmIK3Pf/RbJh35pSqfz212pTnVH8ZPOtfVX/epmkPdvCVQjszU/eThGFgbNMY911VnVZKwJ
-	datWCOgZ6soxmlTOOlYoWg8ah3+kfBdSsq9t6xeYsBl4wdFXTu7V1o/A1BV58xXOUcTqTpdfVuCox
-	EB3wqX2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y9yyMjJ6Z+ujgBsWuyrsPhhrjWzJPw1UoObDzyEPgL4=; b=HH+TJPwX5h2g75jsmEqsZ+VnXz
+	TaG+bwgnaKBKID3kSnjcMyxSAJGbTEIQhcgFptCMYizvlElU7iyPubstLDi4KAxIWo0KYvT+O3Agx
+	xr79e+40N33L8WukNmftrnkBc5iOiMl8xIK9VFwVtaJzE/aWG5d8owUiqa6MsA641Cb9Dj24dvx5x
+	hK/5+Om8W6kqBMg01tfbcIZ9CMA8r6oenWFROi84WtCzoucysG5NCDesQmPLrZ33eXxy7ZOTFG5xe
+	14Icy4jooV9TeYzr9KZmTg+XbFT3gjyb+4AwXaQPXt7+XarGFEf0gOZJi4URdSPHdczlHBtb+Lfoy
+	NM5Uq3yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk0CH-00000000cj0-3q5k;
-	Thu, 07 Aug 2025 12:58:17 +0000
-Received: from mail-am0eur02on2070c.outbound.protection.outlook.com ([2a01:111:f403:2606::70c] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1uk0En-00000000d2U-47Du;
+	Thu, 07 Aug 2025 13:00:54 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk07U-00000000biY-04dQ
+	id 1uk07y-00000000brV-28R4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 12:53:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WXNClSQNogmZZLGt9wCpIr18wl6i1nRIICa1twi4VoxihUiv615FaXsy85NoR+tuF5OP4UtHKgjsAVCo60aQAhpBqvdH1L1V8OgyTh2epDei58xoLL3si+7nqc2BVrwIRfaUNLAY1MQP8TIpcaz4wIYpfHpQYRplggHLbWDnxOByC5z5LqCstfzUi6NYDF92YTlCJyhsaABGAdGxv9d6yWRUrWv3CbFH9O5P0V8sS6j/Xs3p1yqgtyZAwA45LFrIbnnRXFvCTfNsKnrM0DPe88FtJ2wd6WXKzTcOFBmV35wMKcAFybD9clIiIgrL9Fy6JBN64YMkRZ8uPXjfVvaW5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uYOJEPdVLLTn7KYojoNujaBs0UWzNNL/ldR7pIOubzU=;
- b=QtFTo2TaPO2wuTnXe+JlOLcRwVmIDzP7PcsjzQtkWut8ZrM85rRLwhQVAKTeO2IVchS2n96JhM3xTFNV+mt+dfgkiKoK8X/YCKQImrYqxgi5iOjyklUzJ68aYrQqPa2hoJEcBXHya3SipC+JR8X7c6ZHbw9jHZOzp8YRTpRfoapQwI0CdVk5iBQ6aADRQ8nBPj5odyedcwCzL2iHJLCf1yzLBdeAV25B6HPPpUfZuFF1Sa8y8UKNUx1CpKU+k4E0mALoyXJr/7ebAnwrRPAQ2k36qT/g59rLxUETqr274GB/K5GcbD8EnEkdVXDffxbI9D5KtGzZdcs9bnYt9VDjKg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uYOJEPdVLLTn7KYojoNujaBs0UWzNNL/ldR7pIOubzU=;
- b=s7VB1wuw37lWTFu4Mpw5t9W4Ywy37x5zAdp1W4XDYzMutNwYmWiQRXBV54MF9BPNikRhCREs29WA/H2VQSbwNcYCpqfCCknCpd6Ypip3X43FMQXz3tNX34EvH9KL/nuyTjwKlDW/wP+ndPG7twBAcAqlmvE7X9jOFmvc4D+8GeBKpI73OeBCREplwYI6RRTVk/h22ZxtkMJPqkybpjlbVQq2e0Qa5hAHsz1Wja5V7L8AwgktioZSaZCzQZnA2o23qYC64UtFKz7y8mSZBxUSCjQMGTC+Td8jXmRq6ecksTVMWJwnSN05aKvKpTEewkxEYYcIEfDE0LxMjpeT2YCKjw==
-Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:294::16)
- by FRWP195MB2852.EURP195.PROD.OUTLOOK.COM (2603:10a6:d10:187::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.15; Thu, 7 Aug
- 2025 12:53:09 +0000
-Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
- ([fe80::2d26:fa56:5972:5247]) by DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
- ([fe80::2d26:fa56:5972:5247%6]) with mapi id 15.20.9009.013; Thu, 7 Aug 2025
- 12:53:09 +0000
-From: Christoph Stoidner <C.Stoidner@phytec.de>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-CC: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
-	<upstream@lists.phytec.de>, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
- imx93-phycore-som: Delay the phy reset by a gpio
-Thread-Topic: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
- imx93-phycore-som: Delay the phy reset by a gpio
-Thread-Index: AQHbzJ5IkKiCUrqPH06p42f/+549BbPiDcKAgAJsSwCAAChcgIAABDUAgAALOQCAACRcAIADjdKAgAAQWYCAAsNAAIAD9cmAgAChPwCAAAtVAIA4UzkAgBBNlwCAHyBqAA==
-Date: Thu, 7 Aug 2025 12:53:09 +0000
-Message-ID: <39243f47f601253ebf6e7ef30475f70ec2a932a4.camel@phytec.de>
-References: <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
-		 <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
-		 <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
-		 <bf0eb48fc72f4b0abbf62077c2f1fe4438579746.camel@phytec.de>
-		 <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
-		 <517be266ebc3b55da53372a76a139245f8945cd8.camel@phytec.de>
-		 <5afa6d62-4a3f-4c28-8165-363075ac36d8@lunn.ch>
-		 <a948b903766a82897e5fc17a840ab40e29f5eda4.camel@phytec.de>
-		 <8e448625-b4ad-4bf1-8930-6fecdedb1d8d@lunn.ch>
-		 <78ec24d09d129d52d3442f6319cf1ef5b6ce7f3d.camel@phytec.de>
-		 <739f93d0-4cb4-4f1a-8792-84502d4beefe@lunn.ch>
-		 <626bca58-e481-4d6f-9bb7-252c040f4b3b@norik.com>
-	 <ad5e7450c5cf3a2f9a5d3c23f7219eb08be31062.camel@phytec.de>
-In-Reply-To: <ad5e7450c5cf3a2f9a5d3c23f7219eb08be31062.camel@phytec.de>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9P195MB1212:EE_|FRWP195MB2852:EE_
-x-ms-office365-filtering-correlation-id: f34a0b45-7460-414f-29fb-08ddd5b15c91
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|4022899009|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?b3RLby9vTmd3dDRsQ0hqbXAvM2o0Q3hUazh0aDN2YzYwWmplbk5haDNWWFFi?=
- =?utf-8?B?eXJ4eVcxOHRhWVZOaDN4YmQzb0h3cHNEdS85ZFQwRHVJMCtVdTRQVUw3NnRL?=
- =?utf-8?B?WnljeGxPV2F0aHljR3hCNjNNb1RIYVBNTGJmNFRoVTlrUlg1ejZoL3lCNHRV?=
- =?utf-8?B?cnU2OHY0NGFwMkdwMmlOTnlONTI3ZXlBY05Ea3h5ZG1sY0dVWHpWQWNqNEZF?=
- =?utf-8?B?TGdPS1BhTloyN0ptUnRTZlRFNHRLM2NnZVgwNmRTb29KYmdxNlhtZGFZeHgz?=
- =?utf-8?B?U0E1WVZVaGwrMkFlb2tWZEFtSE9rOXIxREJOZ2dPRSttSDdSVHk0b1BWMTFj?=
- =?utf-8?B?OTdKS0kyZ040OGNvemlXVWNxMjZJNDJ4c1FlUmE0dVRKS1pDK3RURnNhL3NZ?=
- =?utf-8?B?cE9CLzFSNVBnWTB4eS9SSVUyY2duZE5Xc0krRjR2a0lqNyttZHdwWnJyRzFF?=
- =?utf-8?B?dUQrdXVTSTFCeGVkVUdLNFJYbTc5eWdaMVJ1ZTJid1NiZm9JUE5wazNwQ3R4?=
- =?utf-8?B?QjhMUUNGSnpwMWZLbDdqTzJXOW9NWE1LMTBhanpzcnpuUkZkdUZoTTc2S0pD?=
- =?utf-8?B?YUhGMlNsMEY0NllVRmtuZDVZL29zQ1Nlb0VsUnFvUEpNYWdiU0JIQmtHempS?=
- =?utf-8?B?cDFwMjJIc2pXL1NHeWcwUEdoU2tWN251SFg5eDluNklTVGZkejNnUUdaWTdi?=
- =?utf-8?B?czhKZExUWUQwdWpZd2lZSjhjV3o2a3U3N1BOK1lhcHJWdDZndUNrK2M3M3px?=
- =?utf-8?B?YmhMcEduU1RoMXJEeHJmVFI3RmNyejBwcTVDVlg0d3FDME95aUpKVXo5R0FB?=
- =?utf-8?B?dk5PLzVlVlpSNyt4Ui9ZRTkvRE1iR2lRMElyR0tMcjNwTzZsMGNFdHpTZ2VR?=
- =?utf-8?B?Ykl4MzhMYlowZ2k3RURvalRCUDFrRTlVNlZhclQ2NnRWMEg5S05PT1hLVjN5?=
- =?utf-8?B?Z3VqUFJSaCtjZURZdFFnYlZGUWt0NXllQmhyVkszd1lSam0rQUNvdnA3VzdH?=
- =?utf-8?B?NVBPSUZFYU9FTGIyNzkwbG1kWkxTeTZxVEIwT21mREtEYXpodGhNN2YyVHRU?=
- =?utf-8?B?OVZaM3ZneGR3K2p6Mnkvd2FJTVViUVRNMjg0ME1VOHR3QlJuMlRyR3dPN3di?=
- =?utf-8?B?K1oyWlFFR3VRTHpCWFp5SnRJeVA2aTRSNFYwaHZadTIzdVE2b3Z0MmNEeFlQ?=
- =?utf-8?B?WVNsUHB6bXhpYm11OXhYZ05WemlWUFFxY1hMTTRNZDRFbjVkMmw2Z1l5Kzk0?=
- =?utf-8?B?VlQvRndYcVQwWWlkY1VEd2xCRXVWa0xzNEVQSzBjS1FaOVdKQ3ovNVg0UHRn?=
- =?utf-8?B?TUFNMkRYa3ZWTWw3Y2JEejVvTjFBTFk3QTMrMEdicko4cTFHcHNJRzJjOWNt?=
- =?utf-8?B?bEJqc05HekorTlQ5UFZ5QXU3WFkxRDVXQ1JpQktldDFxVkkwVkRaRjNkcjlX?=
- =?utf-8?B?bFpYMlFnN202dFdueHJPZkZWU0JPYTMvVEViQnI5dkdhbTlscWZGa2djUC9D?=
- =?utf-8?B?VEd2UW9LN1B1VFVWa0xpWExOWWhSVVo1RkgrdGJBNkRmY0J0OUgreDZlK2Y0?=
- =?utf-8?B?NHhUSUY5T0NHL0RaUlpqd0MyVUlSYUhwTlZSV2RxZGtIbzBCUVl0Lzd6TzJS?=
- =?utf-8?B?SDh2UTNXZWJVQVpxRlBSQ3JNN29kM3Rla2JvNU85aGkzeTByWDFjWUI4WUM3?=
- =?utf-8?B?YnlaalJrTUZ5Yk1MWWM1bFJEajdPQzRBSjVuWlQyY1p6eHdNSWpyWldGMkRs?=
- =?utf-8?B?VGZrYXZ5YmtLTzVldlBLZFRkdTlxVFMwd21UU29FTXVLNmZoalJCbEI4dE1X?=
- =?utf-8?B?a2hBUGRad0dpSmV1NElTaFlZSm9XaTZhRmFVaUo0UFprQmVFWVFBTkIvVXpE?=
- =?utf-8?B?bGRibXRraUhzSGxiRzg5Rm8zRXl4aHNidVIzdjhXQllweUQ5R2tqOHIvZlZC?=
- =?utf-8?B?c1hueDF6SGY5UDQ2NXRCMmU3a0Q3N0tZMEM1RHNPbVFURlJla1g3Rk1pSjhh?=
- =?utf-8?B?cDFFWFMwQnl3PT0=?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9P195MB1212.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(4022899009)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MWV5Y3JIK2xwNHl3d2E3bnNKVXNxNGdyNzMyYm9KYXBkSUNyNUJWOUVqKzk3?=
- =?utf-8?B?ai9xSENMUTRFY3p1dVc0TEV1T2ZBNjNhTXlRdlpQU2dQaHBKZXRWQXFKbDdF?=
- =?utf-8?B?dDMvdFpJUlBXRC9tNTlNMUdEMEp1TkxGUzJFRjJEdlgvUGR6TWQ5bEJPWE5h?=
- =?utf-8?B?L2tvQnFyT3VmelpVc3I2M2dUN2Jod3JxWE1SeVJkd2tQUzVvamUwdUMrdW03?=
- =?utf-8?B?clNhOHVKcEtqMkdIZFpkU0p2VXhoNmk3UWRPelJyZExPYUo2bGdnN3hPRm1q?=
- =?utf-8?B?TEJ2b3BmTzlILy94YmdSRXdtTEdDUEw0QUxJN0tHWDdnMTFNQVpiS1VtcFNj?=
- =?utf-8?B?WUJSS05RemxBdDlmQUZNcjlTRERGZ1U3ZDRuN0FjRmJPOUh5N0czSnFyUldE?=
- =?utf-8?B?QWxPYmFMWmlrTEdDYmRPaFBZcHA1WG1jVlE3bkdyZGZRNHlkZUZPaVJBWjJV?=
- =?utf-8?B?Tnl5aGI4LytSUERlNkxSK20yNmU5K0l6TVduNklsUG4yOGtvYm5IaHlMeFZp?=
- =?utf-8?B?TmRmL2JieWIrcU8rVTRHZE9jSDVkZnBHdVJNMjRTYmsrSDV4K0MyR09ySkE0?=
- =?utf-8?B?RGtjbk9VdnY2WnZ4aXJYc0VTcVNJMHRhRG8zY1B6aFU5MVZ5dHZWYzJRdElD?=
- =?utf-8?B?ZnpZNEFSSWlxNkNSYkkzSkN5dGI5YWhwM1dkcS9QK2FjaGU4SjNNZVZaUWNV?=
- =?utf-8?B?UTkrM29uQlQzRUtiVnlQM3h3d3ZPdzNRczhVcC84SGxHLzVIK3V0REIwMVNa?=
- =?utf-8?B?U3h3aTQxUzB2ZjFRQTJkclkzZTEyK0FMTkovOVFKbWY1OUdycHZ1VUlPbVZj?=
- =?utf-8?B?bXFBTXlZZ1p6YTZMMlNRKzg2R1pxY3BEUmtMdmJrVFZXdHJkc3c2NmNISHNt?=
- =?utf-8?B?Y1ZIb2kvTFZvMGcrNVg2QWZnQmVUcHpUekE1VnlIZ2FvRmxSZEhZaCtPNDcr?=
- =?utf-8?B?YmZ5OS9Zb1VXY0tydzRnblhJb2N1ZFNxYXdJMnNocFhRZ2NnaERDQ3lXNHlY?=
- =?utf-8?B?WHNOK043RUVkUjZxVDFVNURxUlJyOHZWbWhZc0R0SWRhdFdjanBMdjM5Q0Mr?=
- =?utf-8?B?d3lzaGxMSWtrTHNWQlJNcFllQ1Nqd09NNFhwTXpiNGpYZnc5ZjRWbXU2MG1H?=
- =?utf-8?B?TVdLUU5qMnp6UWlQRkxuYXcvODU1NHlHcVR5c3d0eEhJYmRhUUVEUmlycTZJ?=
- =?utf-8?B?RVBPbXZrWVJncWhGK1VDS2RnRVRJbUJDRmllT2tUVWN1MGo4Z2tscmErWkFM?=
- =?utf-8?B?cFVRaVd0clRiNklaRTN1RXJyRVhJejRYVi9QNnE4N2xtdHg2VEtGRDRTUHdN?=
- =?utf-8?B?ajBXOE56OTdaVGhEQ3RRUkZ3OXUxMFN1OHh2Tm5OS3hKa3RZWVpBSENOZmlY?=
- =?utf-8?B?M0FBMEJGbi9VWkxWVm1Qc2hhZU1rZWNwSitlUWtTWlF5SXVvY2RiTVNIWDhs?=
- =?utf-8?B?SC9rNjM5Q2d0a25CNXNpdW9nQ2lpclZkclI5bXVHZVNkSzVXc2YvMDZwckRs?=
- =?utf-8?B?MUl0WW1NVTJQRmdCempFUWlhNldHMmlQWmpBNnRNZlpOb2w3Q3Nnd25LeGN2?=
- =?utf-8?B?bGxIcFFYQ082aEU1UVpaWkE0eVY3YmJKWlI5RG44aEpLaHNYdjVoajltd3U4?=
- =?utf-8?B?L1RGZEo1VVFxRWRtNDFiTzkzUzZpUkF5WUR2VXpqUmgycExmRDVvODNyK00z?=
- =?utf-8?B?cGhLN3VyZ3d0K2krQm9aV3NqeVBaYm5xV2haZGVCZThMbkhrdGxZUDlmNmRZ?=
- =?utf-8?B?U2dnVW40MThSWjZ5NWlCcFk5NW9rNXB6cFJ3RXI1MFVnM2hjdWx2ZjcwWGZB?=
- =?utf-8?B?ZktKZlRneFJKNXNtSVVWYnVRU25PTVArNGJSdmY5dWtZQmhmZnZYazlwYzI5?=
- =?utf-8?B?cW5OSEN6ZkcrRS8vTWVLWGNwczZWa255Y08zcyt4ZStoSytXaGQ3b0QrRlRh?=
- =?utf-8?B?c3dNd0ZpeXZDU0tIRUpXdE5JY1cwQi8rejJTYTF1K0N2cEpCbW9YeEJnalVE?=
- =?utf-8?B?aXNGR3RQMG56Skt6Zi9HWkpxd2F0cm5MTnFaQVc3eHU0NWZKWWpRY3p1bWNI?=
- =?utf-8?B?NEtrR1ZFdEhuaUEyVnFwUENMVk1xeW9IbHptREZtSU5venowZ0NxMy9WU0tC?=
- =?utf-8?Q?c1hUAM14YzCw8cMc9VkTvMZcs?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <F526776F9345814DBCA257E739BE124C@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Thu, 07 Aug 2025 12:53:52 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250807125343epoutp033e2f22d8b94fa2251e54fa2608ef0383~ZfTs-LK7_2178021780epoutp03r
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 Aug 2025 12:53:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250807125343epoutp033e2f22d8b94fa2251e54fa2608ef0383~ZfTs-LK7_2178021780epoutp03r
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1754571223;
+	bh=Y9yyMjJ6Z+ujgBsWuyrsPhhrjWzJPw1UoObDzyEPgL4=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=E9pOdQfq4Qa2TdxuASOp5se5gRtcVeNTzuHVeusffcLZYFYKZ35xpBKe+dkW8KY4b
+	 gCleL7e6RdpthnFxPvyOLofetQwtL6bb/zX8TGGa3qNXHMJQVw5N4lNZys1ePsuVQG
+	 QweD9NdVskdjUHUsAw0OVN8eQdUVW4FQsWRlRYiA=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250807125342epcas5p4cdf059b042ae879c14d7be75965eb1e8~ZfTsXP8_y2236622366epcas5p4G;
+	Thu,  7 Aug 2025 12:53:42 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4byRtF4R8Cz2SSKX; Thu,  7 Aug
+	2025 12:53:41 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250807122107epcas5p3978bf8e0b47f7d228a5c54d5bfe0a243~Ze3PYb-jU2564125641epcas5p3K;
+	Thu,  7 Aug 2025 12:21:07 +0000 (GMT)
+Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250807122103epsmtip110f44008e2ef1b2699b700ad35390c96~Ze3MRHzto2980529805epsmtip1D;
+	Thu,  7 Aug 2025 12:21:03 +0000 (GMT)
+From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
+To: "'Rob Herring'" <robh@kernel.org>
+Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
+	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
+	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
+	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
+In-Reply-To: <20250806234217.GA2030512-robh@kernel.org>
+Subject: RE: [PATCH v5 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+Date: Thu, 7 Aug 2025 17:51:02 +0530
+Message-ID: <000001dc0795$c0432660$40c97320$@samsung.com>
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: f34a0b45-7460-414f-29fb-08ddd5b15c91
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Aug 2025 12:53:09.5173
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: J6bM+Yc258FspAnJeWdhjbxMttk+0WUhInqRnsujq+CG6UmJDd7M1aCqjltgJd1Ctn+cgtzR52ZtOav6vsAehg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWP195MB2852
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJ+ZgWj3OwstM5ZbwFL0KmcSzrOlQJdB2aaAjkoxRUCiVKxNbLZYP5A
+Content-Language: en-in
+X-CMS-MailID: 20250807122107epcas5p3978bf8e0b47f7d228a5c54d5bfe0a243
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250805114306epcas5p37782c02ae0ddc6b77094786c90af247a
+References: <20250805115216.3798121-1-pritam.sutar@samsung.com>
+	<CGME20250805114306epcas5p37782c02ae0ddc6b77094786c90af247a@epcas5p3.samsung.com>
+	<20250805115216.3798121-2-pritam.sutar@samsung.com>
+	<20250806234217.GA2030512-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_055320_364463_1A53658F 
-X-CRM114-Status: GOOD (  37.90  )
+X-CRM114-CacheID: sfid-20250807_055351_191417_8E1799F9 
+X-CRM114-Status: GOOD (  18.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -199,45 +104,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gU2hhd24sCgpzb3JyeSBmb3IgYm90aGVyaW5nLgoKQ2FuIHlvdSB0ZWxsIG1lIGlmIHRo
-ZXJlJ3MgYW55dGhpbmcgbWlzc2luZyBvciB3cm9uZyB3aXRoIHRoaXMgcGF0Y2gsCm9yIGlmIHRo
-ZXJlJ3MgYW55dGhpbmcgZWxzZSBJIGNhbiBkbyBzbyB0aGF0IGl0IGJlY29tZXMgYXBwbGllZD8K
-ClRoYW5rcyBhbmQgcmVnYXJkcywKQ2hyaXN0b3BoCgpPbiBGciwgMjAyNS0wNy0xOCBhdCAxNzoz
-MyArMDAwMCwgQ2hyaXN0b3BoIFN0b2lkbmVyIHdyb3RlOgo+IE9uIERpLCAyMDI1LTA3LTA4IGF0
-IDEwOjM1ICswMjAwLCBQcmltb3ogRmlzZXIgd3JvdGU6Cj4gPiBIaSBhbGwsCj4gPiAKPiA+IGlz
-IHRoZXJlIHNvbWV0aGluZyBob2xkaW5nIHVwIHRoaXMgcGF0Y2g/Cj4gCj4gSSBkb250IHNlZSBh
-bnkgYmxvY2tlci4KPiBATWFpbnRhaW5lcnM6IElmIHRoZXJlIGlzIGFueSBtaXNzaW5nL2Jsb2Nr
-aW5nIHBvaW50LCBjb3VsZCB5b3UKPiBwbGVhc2XCoGNvbW1lbnQuCj4gCj4gVGhhbmtzLAo+IENo
-cmlzdG9waAo+IAo+ID4gCj4gPiBCUiwKPiA+IFByaW1vego+ID4gCj4gPiBPbiAyLiAwNi4gMjUg
-MTQ6MjYsIEFuZHJldyBMdW5uIHdyb3RlOgo+ID4gPiA+ID4gSSBhZ3JlZSBpdCBpcyBsb25nIGVu
-b3VnaCwgYnV0IGknbSBhbHNvIHN1cnByaXNlZCBob3cgc2xvdwo+ID4gPiA+ID4gdGhlCj4gPiA+
-ID4gPiBrZXJuZWwKPiA+ID4gPiA+IHdhcy4gQXJlIHlvdSB1c2luZyBhIGZpeGVkIElQIGFkZHJl
-c3MsIG9yIGRoY3A/Cj4gPiA+ID4gCj4gPiA+ID4gSSB1c2UgYSBmaXhlZCBJUCBhZGRyZXNzLgo+
-ID4gPiA+IAo+ID4gPiA+IEJ1dCBpc24ndCB0aGUgYnJpbmd1cCBvZiBldGhlcm5ldCtwaHkgaW50
-ZXJmYWNlIG9uZSBvZiB0aGUgbGFzdAo+ID4gPiA+IHRoaW5ncwo+ID4gPiA+IHRoYXQgaGFwcGVu
-cyBkdXJpbmcgdGhlIGtlcm5lbCBib290LXVwPwo+ID4gPiAKPiA+ID4gTW91bnRpbmcgdGhlIHJv
-b3RmcyBpcyBzb21ld2hhdCB0b3dhcmRzIHRoZSBlbmQgb2YgdGhlIGNvcmUKPiA+ID4ga2VybmVs
-LiBCdXQgaWYgeW91IGhhdmUgYW4gaW5pdHJhbWZzLCB0aGVyZSBjYW4gYmUgbW9kdWxlcyBsb2Fk
-ZWQKPiA+ID4gYm90aAo+ID4gPiBiZWZvcmUgYW5kIGFmdGVyd2FyZHMsIGFuZCBvbmNlIHRoZSBy
-b290ZnMgaGFzIGJlZW4gbW91bnRlZCwgeWV0Cj4gPiA+IG1vcmUKPiA+ID4gbW9kdWxlcyBjYW4g
-YmUgbG9hZGVkLgo+ID4gPiAKPiA+ID4gPiBIb3dldmVyLCB3aGF0IHRpbWluZyB3b3VsZCB5b3Ug
-ZXhwZWN0Pwo+ID4gPiAKPiA+ID4gSSd2ZSBzZWVuIGludGVyZmFjZXMgY29uZmlndXJlZCB1cCBm
-cm9tIGRlZXAgd2l0aGluCj4gPiA+IHJlZ2lzdGVyX25ldGRldigpLiBJIGRvbid0IHJlbWVtYmVy
-IHRoZSBleGFjdCBjb25maWd1cmF0aW9uLCBidXQKPiA+ID4gaQo+ID4gPiB0aG91Z2h0IGl0IHdh
-cyBORlMgcm9vdC4gSXQgbWlnaHQgYmUgaW4gY29tYmluYXRpb24gd2l0aAo+ID4gPiBpbml0cmFt
-ZnMuCj4gPiA+IElmCj4gPiA+IHlvdSBoYXZlIHRoZSBFdGhlcm5ldCBkcml2ZXIgYXMgYSBtb2R1
-bGUgaW4gdGhlIGluaXRyYW1mcywgYW5kCj4gPiA+IGFyZQo+ID4gPiB1c2luZyB0aGUgInJvb3R3
-YWl0IiBvcHRpb24sIGl0IGNvdWxkIGJlIHRoYXQgeW91IGFyZSBhbHJlYWR5Cj4gPiA+IHBhc3QK
-PiA+ID4gdGhlCj4gPiA+IHBvaW50IGl0IHdvdWxkIGZpcnN0IG1vdW50IHRoZSByb290ZnMsIGFu
-ZCB3aXRoIGV2ZXJ5IG5ldyBkZXZpY2UKPiA+ID4gcG9wcGluZyBpbnRvIGV4aXN0ZW5jZSBpdCBp
-cyB0cnlpbmcgdG8gc2VlIGlmIHRoZSBqdXN0IGNyZWF0ZWQKPiA+ID4gZGV2aWNlCj4gPiA+IGFs
-bG93cyBpdCB0byBkbyB0aGUgbW91bnQuIEF0IHRoYXQgcG9pbnQsIHJlZ2lzdGVyX25ldGRldigp
-IGlzCj4gPiA+IGdvaW5nCj4gPiA+IHRvIHRyaWdnZXIgYWN0aW9ucy4KPiA+ID4gCj4gPiA+IMKg
-QW5kcmV3Cj4gPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCj4gPiA+IHVwc3RyZWFtIG1haWxpbmcgbGlzdCAtLSB1cHN0cmVhbUBsaXN0cy5waHl0ZWMu
-ZGUKPiA+ID4gVG8gdW5zdWJzY3JpYmUgc2VuZCBhbiBlbWFpbCB0byB1cHN0cmVhbS1sZWF2ZUBs
-aXN0cy5waHl0ZWMuZGUKPiA+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj4gdXBzdHJlYW0gbWFpbGluZyBsaXN0IC0tIHVwc3RyZWFtQGxpc3RzLnBo
-eXRlYy5kZQo+IFRvIHVuc3Vic2NyaWJlIHNlbmQgYW4gZW1haWwgdG8gdXBzdHJlYW0tbGVhdmVA
-bGlzdHMucGh5dGVjLmRlCg==
+Hi Rob, 
+
+> -----Original Message-----
+> From: Rob Herring <robh@kernel.org>
+> Sent: 07 August 2025 05:12 AM
+> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> Cc: vkoul@kernel.org; kishon@kernel.org; krzk+dt@kernel.org;
+> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
+> peter.griffin@linaro.org; kauschluss@disroot.org;
+> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
+> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
+> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> samsung-soc@vger.kernel.org; rosa.pila@samsung.com;
+> dev.tailor@samsung.com; faraz.ata@samsung.com;
+> muhammed.ali@samsung.com; selvarasu.g@samsung.com
+> Subject: Re: [PATCH v5 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+> ExynosAutov920 HS phy compatible
+> 
+> On Tue, Aug 05, 2025 at 05:22:11PM +0530, Pritam Manohar Sutar wrote:
+> > This SoC has USB2.0 phy and supports only UTMI+ interface. This phy
+> > requires two clocks, named as "phy" and "ref". The required supplies
+> > for this phy are vdd075_usb20(0.75v), vdd18_usb20(1.8v),
+> vdd33_usb20(3.3v).
+> >
+> > Add a dedicated compatible string for USB HS phy found in this SoC.
+> >
+> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> > ---
+> >  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 19
+> +++++++++++++++++++
+> >  1 file changed, 19 insertions(+)
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> > b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
+> > index e906403208c0..1932a2272ef9 100644
+> > --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-
+> phy.yaml
+> > +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-
+> phy.yaml
+> > @@ -34,6 +34,7 @@ properties:
+> >        - samsung,exynos7870-usbdrd-phy
+> >        - samsung,exynos850-usbdrd-phy
+> >        - samsung,exynos990-usbdrd-phy
+> > +      - samsung,exynosautov920-usbdrd-phy
+> >
+> >    clocks:
+> >      minItems: 1
+> > @@ -110,6 +111,12 @@ properties:
+> >    vddh-usbdp-supply:
+> >      description: VDDh power supply for the USB DP phy.
+> >
+> > +  dvdd075-usb20-supply:
+> > +    description: 0.75V power supply for the USB 2.0 phy.
+> > +
+> > +  vdd18-usb20-supply:
+> > +    description: 1.8V power supply for the USB 2.0 phy.
+> > +
+> >  required:
+> >    - compatible
+> >    - clocks
+> > @@ -219,6 +226,7 @@ allOf:
+> >                - samsung,exynos7870-usbdrd-phy
+> >                - samsung,exynos850-usbdrd-phy
+> >                - samsung,exynos990-usbdrd-phy
+> > +              - samsung,exynosautov920-usbdrd-phy
+> >      then:
+> >        properties:
+> >          clocks:
+> > @@ -235,6 +243,17 @@ allOf:
+> >
+> >          reg-names:
+> >            maxItems: 1
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            enum:
+> > +              - samsung,exynosautov920-usbdrd-phy
+> > +    then:
+> > +      required:
+> > +        - dvdd075-usb20-supply
+> > +        - vdd18-usb20-supply
+> > +        - vdd33-usb20-supply
+> 
+> Presumably the existing devices don't have these new supplies, so:
+> 
+> else:
+>   properties:
+>     dvdd075-usb20-supply: false
+>     vdd18-usb20-supply: false
+
+Appreciated for the suggestion. Will add this change in next version (v6) of
+the patch-set. 
+Snippet will look as mentioned below.
+
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - samsung,exynosautov920-usbdrd-phy
++    then:
++      required:
++        - dvdd075-usb20-supply
++        - vdd18-usb20-supply
++        - vdd33-usb20-supply
++
++    else:
++      properties:
++        dvdd075-usb20-supply: false
++        vdd18-usb20-supply: false
+
+Thank you.
+
+Regards,
+Pritam
+
 
