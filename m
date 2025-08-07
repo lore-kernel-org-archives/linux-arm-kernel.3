@@ -4,114 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F784C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0EC4C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+vAYAORzrriPUdJ+Q/oYHNyyItcYIcDJcqMoO5EPZgA=; b=BgvK73jhtzlLFxwWFJ2KvoKaf/
-	WY/UUEjTaSxtbySOu4dGL0c3GYUnMagy5tfvViErbRGP4srqrdqS6qlcjWeQueNHtBQ4opV31bBnq
-	E8IhsslH+YBGf0Zg6J0LSEzz3IiD+3pySAb41LdrSKZmXBkXb0S2p9ygPNQD0RdgoANRCEnMrU8eM
-	LWlY2ga915sV8jsjHSDynWRYVvEdIt33x5CIc2DgngzFp7LN6J1cN2nx2UG6kBcv61IvWxrARWAK7
-	b9H8Qescz83xmyMvprIxKttPih1IA7V/CIOkxwA27VP3WoD9ptI4CWtv38ulDay/QrIN34CYto92e
-	UeHR+n1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eB9zD81KQilmhdNesSPvpH9grlYSNJGlKfwnZysMtz4=; b=lBjKe6JOQ6LqqwLh5iWNqSfSwr
+	krKZX1bYm8HpJo+6z2yPxXafoKBMUGOs83dz91klXhpAcQq7jKW0ferRteolLwaBJ02FRA016a1Uk
+	MqNux24SjiLUaJ5BPF1iV5wigjRtcYUtYyInsamw6blgUXuBwXYXwKKQcmGQl8WCl6pmuQyfuF7jC
+	Bqjxzr6JWG73J31lF9iSB3A1YO976VbXE155Pdcw5xaAOoZ6UJJ9bPnpL60pSnj5RtdrtuVB5SOQz
+	M8Togb4+d0nRYHnDG5yPHhA0xt6YW23i+9Hyz4ZmCJPoD13F3M2Yv9RXeh/CEoTNwGMb8AoBwLtUx
+	RAUg1zlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujuFv-0000000HNsw-3c0x;
-	Thu, 07 Aug 2025 06:37:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1ujuNF-0000000HOHo-0OIF;
+	Thu, 07 Aug 2025 06:45:13 +0000
+Received: from asrmicro.com ([210.13.118.86] helo=spam.asrmicro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujuD8-0000000HNef-2zo0
+	id 1ujuKi-0000000HOBc-2iHO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 06:34:48 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5776CoqW032244;
-	Thu, 7 Aug 2025 06:34:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+vAYAORzrriPUdJ+Q/oYHNyyItcYIcDJcqMoO5EPZgA=; b=hKXse06KhM1knT5j
-	7RDvqPzGg5IJlXPGU0Lk0Vjxa76n3FvZ7RLOz83tx/HjuKDb5+s3KuipR42A/dTG
-	gkH11ouP2gg9iTEPb3Med1Mf9tpWtZlv6F8Ncw2oSnBi7tMPV3O/lZy4T1pktRHo
-	8YsWmZyP5V3NH2CrlR3TiYu9dR4e/H98GVEO/URPHikCnZumDZhfShvxhe5USXSk
-	O8auAORkY6K8PuCmcv4/4NSwZs3AMuJQnYLvhx5d8kydcUvalk6SvF2OQNFapLAS
-	45gh4A11AILgb7/hITijqajWzGOAbHnFL8//rXkrnDglHbXvXqzL1G8GUNFAfNPQ
-	07XcIA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48bpw2wbgx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 07 Aug 2025 06:34:37 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5776Yaer005536
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 7 Aug 2025 06:34:36 GMT
-Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 6 Aug
- 2025 23:34:32 -0700
-Message-ID: <fbb693a7-224a-4155-88a2-67e05faaf21e@quicinc.com>
-Date: Thu, 7 Aug 2025 14:34:29 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] stm: class: Add MIPI OST protocol support
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Steven Rostedt
-	<rostedt@goodmis.org>,
-        Masami Hiramatsu <mhiramat@kernel.org>,
-        "Jonathan
- Corbet" <corbet@lwn.net>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Tingwei Zhang
-	<quic_tingweiz@quicinc.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-trace-kernel@vger.kernel.org>,
-        <linux-doc@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
+	Thu, 07 Aug 2025 06:42:39 +0000
+Received: from exch03.asrmicro.com (exch03.asrmicro.com [10.1.24.118])
+	by spam.asrmicro.com with ESMTPS id 5776g0dF041366
+	(version=TLSv1 cipher=ECDHE-RSA-AES256-SHA bits=256 verify=FAIL);
+	Thu, 7 Aug 2025 14:42:00 +0800 (GMT-8)
+	(envelope-from chizhang@asrmicro.com)
+Received: from localhost (10.26.130.253) by exch03.asrmicro.com (10.1.24.118)
+ with Microsoft SMTP Server (TLS) id 15.0.847.32; Thu, 7 Aug 2025 14:42:02
+ +0800
+From: Chi Zhang <chizhang@asrmicro.com>
+To: <tony@atomide.com>
+CC: <haojian.zhuang@linaro.org>, <linus.walleij@linaro.org>,
         <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>,
-        Tao Zhang
-	<quic_taozha@quicinc.com>,
-        Hao Zhang <quic_hazha@quicinc.com>
-References: <20230419141328.37472-1-quic_jinlmao@quicinc.com>
- <87cz3yyiqf.fsf@ubik.fi.intel.com>
-Content-Language: en-US
-From: Jinlong Mao <quic_jinlmao@quicinc.com>
-In-Reply-To: <87cz3yyiqf.fsf@ubik.fi.intel.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=Vbz3PEp9 c=1 sm=1 tr=0 ts=689448fd cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=COk6AnOGAAAA:8
- a=b55CFHG7iiXKeY8L-hQA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: -GOc8sAEv-RcYJ75lxStY_8IBQuYJA7m
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA2MDAwOCBTYWx0ZWRfX8M/trCRHG0r3
- 5InmPPFyj/YFls1zisGC/cSV4Ri1xxORfGM0HhTk40jMhQDArESBAKDrtE7Uqz3av8Sa1JS8/wb
- bKA31BrUs/QDF0n5tBJ2WfY5RzIP+EMmt4GDHGLj0XBjkbz7StqaForb4jkasBW9CvPahEtEoQ4
- BaCHl5JUg+oMWMFnS0pbZJpAmDuvB1olc7ri5cs7I5EeSbW6VYBlk/XSe03wgFvjAkWzpOiyhTA
- Grbg24ViW8GIOXpD5eQz173OFHAC0WR/DiqKIcRVZ2bbnkDmTCOt4iXBogfjLMNsGosj3ESMjsm
- 8HjL5WMdio9db7ECoBoVPcEv3o9rPpoHpNBQJTETlZCIaeddo/tTZ33h1mLhuIUZs5YOenk13uN
- +ncssL07
-X-Proofpoint-GUID: -GOc8sAEv-RcYJ75lxStY_8IBQuYJA7m
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-06_05,2025-08-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1011 malwarescore=0 adultscore=0 suspectscore=0 bulkscore=0
- phishscore=0 priorityscore=1501 spamscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2507300000 definitions=main-2508060008
+        Chi Zhang <chizhang@asrmicro.com>
+Subject: [PATCH] pinctrl: single: fix bias pull up/down handling in pin_config_set
+Date: Thu, 7 Aug 2025 14:20:38 +0800
+Message-ID: <20250807062038.13610-1-chizhang@asrmicro.com>
+X-Mailer: git-send-email 2.17.1
+MIME-Version: 1.0
+Content-Type: text/plain
+X-Originating-IP: [10.26.130.253]
+X-ClientProxiedBy: exch02.asrmicro.com (10.1.24.122) To exch03.asrmicro.com
+ (10.1.24.118)
+X-DNSRBL: 
+X-MAIL: spam.asrmicro.com 5776g0dF041366
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_233446_891348_773C600D 
-X-CRM114-Status: GOOD (  44.49  )
+X-CRM114-CacheID: sfid-20250806_234237_278252_CD572DCE 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,233 +68,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In the pin_config_set function, when handling PIN_CONFIG_BIAS_PULL_DOWN or
+PIN_CONFIG_BIAS_PULL_UP, the function calls pcs_pinconf_clear_bias()
+which writes the register. However, the subsequent operations continue
+using the stale 'data' value from before the register write, effectively
+causing the bias clear operation to be overwritten and not take effect.
 
+Fix this by reading the 'data' value from the register after calling
+pcs_pinconf_clear_bias().
 
-On 4/20/2023 6:02 PM, Alexander Shishkin wrote:
-> Mao Jinlong <quic_jinlmao@quicinc.com> writes:
-> 
->> Add MIPI OST(Open System Trace) protocol support for stm to format
->> the traces. OST over STP packet consists of Header/Payload/End. In
->> header, there will be STARTSIMPLE/VERSION/ENTITY/PROTOCOL. STARTSIMPLE
->> is used to signal the beginning of a simplified OST base protocol
->> packet.The Entity ID field is a one byte unsigned number that identifies
->> the source. FLAG packet is used for END token.
-> 
-> We'd need a better explanation of what OST is, maybe a link to the spec
-> if one exists.
-> 
-Hi Alexander,
+This bug seems to have existed when this code was first merged in commit
+9dddb4df90d1 ("pinctrl: single: support generic pinconf").
 
-Checked with different internal teams. Spec is not public. We need to 
-upstream these codes. We can add more explanation into the commit
-text. Is that ok for your ?
+Signed-off-by: Chi Zhang <chizhang@asrmicro.com>
+---
+ drivers/pinctrl/pinctrl-single.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Thanks
-Jinlong Mao
-
-
-
-> Another thing that this patch does is adding source identification,
-> which needs to be described better.
-> 
-> [...]
-> 
->> +CONFIG_STM_PROTO_OST is for p_ost driver enablement. Once this config
->> +is enabled, you can select the p_ost protocol by command below:
->> +
->> +# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy
->> +
->> +The policy name format is extended like this:
->> +    <device_name>:<protocol_name>.<policy_name>
->> +
->> +With coresight-stm device, it will be look like "stm0:p_ost.policy".
-> 
-> The part about protocol selection should probably be in stm.rst
-> instead.
-> 
->> +You can check if the protocol is set successfully by:
->> +# cat /sys/kernel/config/stp-policy/stm0:p_ost.policy/protocol
->> +p_ost
-> 
-> A successful mkdir is technically enough.
-> 
->> +With MIPI OST protocol driver, the attributes for each protocol node is:
->> +# mkdir /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
->> +# ls /sys/kernel/config/stp-policy/stm0:p_ost.policy/default
->> +channels  entity    masters
-> 
-> Where's "entity_available"?
-> 
->> +The entity here is the set the entity that p_ost supports. Currently
->> +p_ost supports ftrace and console entity.
->> +
->> +Get current available entity that p_ost supports:
->> +# cat /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity_available
->> +ftrace console
->> +
->> +Set entity:
->> +# echo 'ftrace' > /sys/kernel/config/stp-policy/stm0:p_ost.policy/default/entity
-> 
-> This is not a very good example, as it will flag everything that goes
-> through STM as "ftrace", which is probably not what anybody wants.
-> 
-> The bigger question is, why do we need to set the source type (for
-> which "entity" is not a very good name, btw) in the configfs when
-> corresponding stm source drivers already carry this information.
-> There should be a way to propagate the source type from stm source
-> driver to the protocol driver without relying on the user to set it
-> correctly.
-> 
->> +See Documentation/ABI/testing/configfs-stp-policy-p_ost for more details.
->> diff --git a/drivers/hwtracing/stm/Kconfig b/drivers/hwtracing/stm/Kconfig
->> index eda6b11d40a1..daa4aa09f64d 100644
->> --- a/drivers/hwtracing/stm/Kconfig
->> +++ b/drivers/hwtracing/stm/Kconfig
->> @@ -40,6 +40,20 @@ config STM_PROTO_SYS_T
->>   
->>   	  If you don't know what this is, say N.
->>   
->> +config STM_PROTO_OST
->> +	tristate "MIPI OST STM framing protocol driver"
->> +	default CONFIG_STM
->> +	help
->> +	  This is an implementation of MIPI OST protocol to be used
->> +	  over the STP transport. In addition to the data payload, it
->> +	  also carries additional metadata for entity, better
->> +	  means of trace source identification, etc.
-> 
-> What does "entity" mean here?
-> 
-> [...]
-> 
->> +#define OST_TOKEN_STARTSIMPLE		(0x10)
->> +#define OST_VERSION_MIPI1		(0x10 << 8)
-> 
-> Either write them as bits (BIT(12)) or as a hex value (0x1000).
-> 
->> +/* entity id to identify the source*/
->> +#define OST_ENTITY_FTRACE		(0x01 << 16)
->> +#define OST_ENTITY_CONSOLE		(0x02 << 16)
->> +
->> +#define OST_CONTROL_PROTOCOL		(0x0 << 24)
-> 
-> Zero, really? At this point I'm wondering if this code has even been
-> tested.
-> 
-> [...]
-> 
->> +static ssize_t
->> +ost_t_policy_entity_store(struct config_item *item, const char *page,
->> +			size_t count)
->> +{
->> +	struct mutex *mutexp = &item->ci_group->cg_subsys->su_mutex;
->> +	struct ost_policy_node *pn = to_pdrv_policy_node(item);
->> +	char str[10] = "";
->> +
->> +	mutex_lock(mutexp);
->> +	if (sscanf(page, "%s", str) != 1)
->> +		return -EINVAL;
->> +	mutex_unlock(mutexp);
-> 
-> You forgot to release the mutex in the error path.
-> Also, why do you need a mutex around sscanf() in the first place?
-> Also, the sscanf() can overrun str.
-> 
->> +	if (!strcmp(str, str_ost_entity_type[OST_ENTITY_TYPE_FTRACE]))
->> +		pn->entity_type = OST_ENTITY_TYPE_FTRACE;
->> +	else if (!strcmp(str, str_ost_entity_type[OST_ENTITY_TYPE_CONSOLE]))
->> +		pn->entity_type = OST_ENTITY_TYPE_CONSOLE;
-> 
-> Why can't you strcmp() on the page directly?
-> Also, this is where you do want to hold the mutex.
-> Also, what if there are more source types?
-> 
->> +	else
->> +		return -EINVAL;
->> +	return count;
->> +}
->> +CONFIGFS_ATTR(ost_t_policy_, entity);
->> +
->> +static ssize_t ost_t_policy_entity_available_show(struct config_item *item,
->> +				char *page)
->> +{
->> +	return scnprintf(page, PAGE_SIZE, "%s\n", "ftrace console");
-> 
-> Don't hardcode these.
-> 
->> +}
->> +CONFIGFS_ATTR_RO(ost_t_policy_, entity_available);
->> +
->> +static struct configfs_attribute *ost_t_policy_attrs[] = {
->> +	&ost_t_policy_attr_entity,
->> +	&ost_t_policy_attr_entity_available,
->> +	NULL,
->> +};
->> +
->> +static ssize_t notrace ost_write(struct stm_data *data,
->> +		struct stm_output *output, unsigned int chan,
->> +		const char *buf, size_t count)
->> +{
->> +	unsigned int c = output->channel + chan;
->> +	unsigned int m = output->master;
->> +	const unsigned char nil = 0;
->> +	u32 header = DATA_HEADER;
->> +	u8 trc_hdr[16];
->> +	ssize_t sz;
->> +
->> +	struct ost_output *op = output->pdrv_private;
-> 
-> As said above, the stm source driver that calls here already knows its
-> own source type, there's no need to store it separately.
-> 
->> +
->> +	/*
->> +	 * Identify the source by entity type.
->> +	 * If entity type is not set, return error value.
->> +	 */
->> +	if (op->node.entity_type == OST_ENTITY_TYPE_FTRACE) {
->> +		header |= OST_ENTITY_FTRACE;
->> +	} else if (op->node.entity_type == OST_ENTITY_TYPE_CONSOLE) {
->> +		header |= OST_ENTITY_CONSOLE;
->> +	} else {
->> +		pr_debug("p_ost: Entity must be set for trace data.");
-> 
-> You forgot a newline.
-> Also, this message seems to be quite useless: it's either a nop or a
-> dmesg storm. In general, it's a bad idea to printk() in the write
-> callback.
-> 
->> +		return -EINVAL;
->> +	}
->> +
->> +	/*
->> +	 * STP framing rules for OST frames:
->> +	 *   * the first packet of the OST frame is marked;
->> +	 *   * the last packet is a FLAG with timestamped tag.
->> +	 */
->> +	/* Message layout: HEADER / DATA / TAIL */
->> +	/* HEADER */
->> +	sz = data->packet(data, m, c, STP_PACKET_DATA, STP_PACKET_MARKED,
->> +			  4, (u8 *)&header);
->> +	if (sz <= 0)
->> +		return sz;
->> +
->> +	/* DATA */
->> +	*(u16 *)(trc_hdr) = STM_MAKE_VERSION(0, 4);
->> +	*(u16 *)(trc_hdr + 2) = STM_HEADER_MAGIC;
->> +	*(u32 *)(trc_hdr + 4) = raw_smp_processor_id();
->> +	*(u64 *)(trc_hdr + 8) = task_tgid_nr(get_current());
-> 
-> What's the value in exporting PIDs when there are PID namespaces? How is
-> this useful? Also, neither console nor ftrace are required to come in a
-> task context.
-> 
-> I already asked in the previous version, why is trc_hdr not a struct?
-> 
-> There also used to be a timestamp field in trc_hdr, what happened to it?
-> 
-> Regards,
-> --
-> Alex
+diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
+index 5cda6201b60f..8aedee2720bc 100644
+--- a/drivers/pinctrl/pinctrl-single.c
++++ b/drivers/pinctrl/pinctrl-single.c
+@@ -589,8 +589,10 @@ static int pcs_pinconf_set(struct pinctrl_dev *pctldev,
+ 			/* 4 parameters */
+ 			case PIN_CONFIG_BIAS_PULL_DOWN:
+ 			case PIN_CONFIG_BIAS_PULL_UP:
+-				if (arg)
++				if (arg) {
+ 					pcs_pinconf_clear_bias(pctldev, pin);
++					data = pcs->read(pcs->base + offset);
++				}
+ 				fallthrough;
+ 			case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
+ 				data &= ~func->conf[i].mask;
+-- 
+2.17.1
 
 
