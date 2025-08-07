@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 952BAC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEE9C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0rKaft9+XU83BazRufG1bMpf0DcHNm09LrzRYaslGhI=; b=f2DoSeemCXQREvCAirg7zaGXY+
-	Kbi8llIHswrYNop75Vvt+LGaXKEeORUMhA+14Jn7AWDYTGaXxSaISGv03pHqldoj+BkGSw+7o8tKR
-	lxDYO+r1GBwRya/Df8XfRmAfR9R+sm9EUkm8/f7qxSKEPmatSXqB8cQaCe8aLUjHvNKkJwFt6knuD
-	77ckj9ntCFwfOPlNzVSIFeXfmW7KppZSpRy/v+s4tdETJ7kXQ98BB8Q0CfiGPu4COS/2ajSftS8bR
-	bf87sGqGeUjybmMjurRv3qaOfMtq8KDnS/CNiKLOYX01LWhUDSrNaF4R/6PROXVMvpY1+JVdThTdk
-	/J8QY/BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wHe3DXGlkhpE+u7X0kbUMzSWfFvMMwSfNOW+GmRvtBc=; b=O/W12MDOYEKOLQVmSgQK41n1WD
+	0nSYm8Q+IIsE+Pmwtd9ViLN7P9LnDwRoM4iEhsvKqigGVLd50epibb6vOR24aVNqwRXorXkt8g6tH
+	NpSPaqQV4K/EvFRFNjTFxniTEheoRo8onJmJJ0f/8IqH6YjB2bqiiaTg0YVr6uythxXPfDpIJMXEv
+	4Qi/GackcNX0UY0IHLTga+s1/lo329oagi5ltYGNtr2cZsZ6AEsjM4Y1xdob+eG33o83m2AsRsfTD
+	q0nZxLRuaF/1EIJu3PMIvzRcVZvIb/QyspTPN4zgKF/aWIRvA1UVTOg+Yhe9WlSX2diEifp59bE/8
+	IPIt8Ohw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk1Tr-00000000o6Z-1X9h;
-	Thu, 07 Aug 2025 14:20:31 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uk1jP-00000000pbK-3AiL;
+	Thu, 07 Aug 2025 14:36:35 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk1RJ-00000000nia-2tiL
+	id 1uk1gn-00000000pFx-1gFr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 14:17:55 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 577DQaY4023128;
-	Thu, 7 Aug 2025 16:17:42 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	0rKaft9+XU83BazRufG1bMpf0DcHNm09LrzRYaslGhI=; b=jcNwdx4nFkb1smh5
-	h5I16w88LgIWv9EFwVomPh41WuDDm3tU7puXrvrzQiVSR1tvJRm7DCk5cFWC7Eom
-	Qwg1OwWGqvZUyjm07/BYReQSQo79lSF1dhIf9oKjstVoB9bWPfvACu2Oc8xw+84f
-	Zlhh5p0bqDLXFK4VJlhOPKdkrUwW/7pfYQgC0sTAs4EcR8+RFeBT/dMkUzmzxZM+
-	uFyOQ0dhCccbAYgg8w3+HpWrxjhMOq43zPfM/MXN8fF5kXMtitJph28y9NgOhd5d
-	G6m1tRUZsRJ5bc4Nm4yfONACvLJTSu0R4A7uIAQ+f/XpTOuDer4E7FPtzm2ZfWkL
-	L9UTIw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48bpx083p2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 07 Aug 2025 16:17:41 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0A04840046;
-	Thu,  7 Aug 2025 16:16:34 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5DA2371582F;
-	Thu,  7 Aug 2025 16:15:42 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Aug
- 2025 16:15:41 +0200
-Message-ID: <cb76e0da-f4c9-4aaf-8e0b-4666738d238e@foss.st.com>
-Date: Thu, 7 Aug 2025 16:15:39 +0200
+	Thu, 07 Aug 2025 14:33:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754577233; x=1786113233;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Wb1Mj5eB9a3PVIkwcblhXlBnzqloEY/YGjLzscQcGsI=;
+  b=UnG4kWmC/btmo/hWah90Cq/ORjgCe5R+fNmZNrJs6pO2NeD2jVMgoECo
+   ifFN9DVIEVB8PWLhobx5ifJrVfXK0EKVKGu8jT9owSNKsBHxJ30SidzsO
+   K49TyOU+E8ag75fLEbQ+me9zjm+REAoplrv0KJdbqTZexTFNjcxl7j+L8
+   GySpK9ft2XMOT6L5TYoS/afVUbAK2aoBZD5D5IaOgUuTXqtbUM2fR7ABm
+   bvWGYYC/WSamPTWEeR/GQL6lRpboGv46QW9KdAnJc4Zi9/K+lpHTLFCAa
+   S7l67tbNIv5hxafhGlpkT3zyIuvS3d5A5GY5piwAEl3cjiEbkcoh91JVS
+   g==;
+X-CSE-ConnectionGUID: PUWwnbJ6Tly3dJZDyT6i0Q==
+X-CSE-MsgGUID: BnP7vw2ZQyGVIEIJWPH9qQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="68288324"
+X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
+   d="scan'208";a="68288324"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 07:33:47 -0700
+X-CSE-ConnectionGUID: 9Us8bKFQSI+xgOF3SRwvCA==
+X-CSE-MsgGUID: JQBwjP7BRQusc2Djw8PMcg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
+   d="scan'208";a="169281764"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa003.jf.intel.com with ESMTP; 07 Aug 2025 07:33:44 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uk1gb-0002sw-1Q;
+	Thu, 07 Aug 2025 14:33:41 +0000
+Date: Thu, 7 Aug 2025 22:32:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev, jgg@ziepe.ca, will@kernel.org,
+	jacob.pan@linux.microsoft.com, eric.auger@redhat.com,
+	code@tyhicks.com, eahariha@linux.microsoft.com,
+	vijayb@linux.microsoft.com, bboscaccy@linux.microsoft.com
+Subject: Re: [PATCH v3 1/3] arm-smmu: move MSI_IOVA macro definitions
+Message-ID: <202508072221.zOvuARaV-lkp@intel.com>
+References: <20250806215539.1240561-2-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH 0/2] Add pinctrl_pm_select_init_state helper
- function
-From: Christian Bruel <christian.bruel@foss.st.com>
-To: Bjorn Helgaas <helgaas@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <linux-pci@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>
-References: <20250723210753.GA2911683@bhelgaas>
- <99737d4f-488d-4208-91aa-83ce52957147@foss.st.com>
-Content-Language: en-US
-In-Reply-To: <99737d4f-488d-4208-91aa-83ce52957147@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-07_03,2025-08-06_01,2025-03-28_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250806215539.1240561-2-shyamsaini@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_071754_261686_57AE3005 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20250807_073353_458466_0B9701FC 
+X-CRM114-Status: GOOD (  12.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,105 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping,
+Hi Shyam,
 
-Maybe the best for Linus is to apply only 1/2 on his pinctrl tree.
+kernel test robot noticed the following build errors:
 
-I'll rebase 2/2 stm32 PCIe part after the merge to mainline and respin 
-for the PCI tree
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.16 next-20250807]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Best Regards
+url:    https://github.com/intel-lab-lkp/linux/commits/Shyam-Saini/arm-smmu-move-MSI_IOVA-macro-definitions/20250807-055741
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250806215539.1240561-2-shyamsaini%40linux.microsoft.com
+patch subject: [PATCH v3 1/3] arm-smmu: move MSI_IOVA macro definitions
+config: um-randconfig-r071-20250807 (https://download.01.org/0day-ci/archive/20250807/202508072221.zOvuARaV-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250807/202508072221.zOvuARaV-lkp@intel.com/reproduce)
 
-Christian
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508072221.zOvuARaV-lkp@intel.com/
 
-On 7/24/25 15:36, Christian Bruel wrote:
-> 
-> 
-> On 7/23/25 23:07, Bjorn Helgaas wrote:
->> On Wed, Jul 23, 2025 at 01:32:52PM +0200, Linus Walleij wrote:
->>> On Thu, Jul 17, 2025 at 8:33 AM Christian Bruel
->>> <christian.bruel@foss.st.com> wrote:
->>>
->>>> We have the helper functions pinctrl_pm_select_default_state and
->>>> pinctrl_pm_select_sleep_state.
->>>> This patch adds the missing pinctrl_pm_select_init_state function.
->>>>
->>>> The STM32MP2 needs to set the pinctrl to an initial state during
->>>> pm_resume, just like in probe. To achieve this, the function
->>>> pinctrl_pm_select_init_state is added.
->>>>
->>>> This allows a driver to balance pinctrl_pm_select_sleep_state()
->>>> with pinctrl_pm_select_default_state() and
->>>> pinctrl_pm_select_init_state() in pm_runtime_suspend and 
->>>> pm_runtime_resume.
->>>>
->>>> Christian Bruel (2):
->>>>    pinctrl: Add pinctrl_pm_select_init_state helper function
->>>>    PCI: stm32: use pinctrl_pm_select_init_state() in
->>>>      stm32_pcie_resume_noirq()
->>>
->>> If Bjorn Helgaas is OK with it I can apply this to the pinctrl tree.
->>>
->>> Otherwise I can also just apply patch 1/2, but that doesn't solve
->>> any problem.
->>
->> The stm32 driver has been posted and is on this branch of the PCI
->> tree:
->>
->>    https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/? 
->> h=controller/dwc-stm32&id=5a972a01e24b
->>
->> but it's not in mainline (or even in pci/next) yet, so you would only
->> be able to apply patch 2/2 if you took the whole driver, which is
->> probably more than you would want to do.
->>
->> I haven't put it in pci/next yet because it doesn't build when
->> CONFIG_PINCTRL is not defined:
->>
->>    https://lore.kernel.org/r/20250716192418.GA2550861@bhelgaas
->>
->> I don't know enough about pinctrl to know why stm32 needs this when
->> nobody else seems to.  I doubt it's really unique, so maybe it's just
->> not doing the right thing here.
-> 
-> The STM32MP2 is unique because the core clock is gated on CLKREQ#. 
-> Consequently, it is not possible to access the core registers from DBI 
-> when no card is attached, causing the board to freeze. I don't know 
-> another platform with this limitation
-> 
-> To fix this, we use a GPIO to de-assert CLKREQ# during probe and restore 
-> the pin to its default AF mode afterward. This works perfectly for 
-> probe, but we lack functionality for PM resume unless we explicitly 
-> select the state with pinctrl_pm_select_XXX_state().
-> 
-> For reference, the init_state functionality was introduced in
-> https://lkml.org/lkml/2015/10/21/1
-> 
-> If we prefer not to extend the pinctrl API in patch 1/2, I can fix the 
-> case in patch 2/2 only with something like:
-> 
-> in stm32_pcie_probe()
->       pinctrl = devm_pinctrl_get(dev);
-> 
->       if(pinctrl!= -ENODEV) // PINCTRL is defined
->            pinctrl_init = pinctrl_lookup_state(stm32_pcie>pinctrl, 
-> PINCTRL_STATE_IN
-> 
-> in stm32_pcie_resume_noirq()
->     if (pinctrl) {
->            ret = pinctrl_select_state(stm32_pcie->pinctrl, stm32_pcie- 
->  >pinctrl_init);
-> 
-> What do you advise ?
-> 
-> thank you
-> 
-> Christian
-> 
-> 
-> 
->>
->> Bjorn
-> 
+All errors (new ones prefixed by >>):
 
+   In file included from drivers/iommu/arm/arm-smmu/arm-smmu.c:24:
+   In file included from include/linux/dma-mapping.h:8:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/um/include/asm/io.h:24:
+   include/asm-generic/io.h:1175:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+    1175 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+         |                                                   ~~~~~~~~~~ ^
+>> drivers/iommu/arm/arm-smmu/arm-smmu.c:1603:35: error: use of undeclared identifier 'MSI_IOVA_BASE'
+    1603 |         region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+         |                                          ^~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu/arm-smmu.c:1603:50: error: use of undeclared identifier 'MSI_IOVA_LENGTH'
+    1603 |         region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+         |                                                         ^~~~~~~~~~~~~~~
+   1 warning and 2 errors generated.
+
+
+vim +/MSI_IOVA_BASE +1603 drivers/iommu/arm/arm-smmu/arm-smmu.c
+
+021bb8420d44cf drivers/iommu/arm-smmu.c              Robin Murphy 2016-09-14  1596  
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1597  static void arm_smmu_get_resv_regions(struct device *dev,
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1598  				      struct list_head *head)
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1599  {
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1600  	struct iommu_resv_region *region;
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1601  	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1602  
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19 @1603  	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
+0251d0107cfb0b drivers/iommu/arm/arm-smmu/arm-smmu.c Lu Baolu     2022-10-19  1604  					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1605  	if (!region)
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1606  		return;
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1607  
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1608  	list_add_tail(&region->list, head);
+273df9635385b2 drivers/iommu/arm-smmu.c              Robin Murphy 2017-03-16  1609  
+273df9635385b2 drivers/iommu/arm-smmu.c              Robin Murphy 2017-03-16  1610  	iommu_dma_get_resv_regions(dev, head);
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1611  }
+f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1612  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
