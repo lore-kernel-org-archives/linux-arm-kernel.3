@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B958C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 10:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BACC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 10:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=9EFIJet6GwguCOgHXt373HO19RdNPt1XWJDM2bajplk=; b=B38B3EafmVV5kP6ANas0bPXZJd
-	7GuXYycbK6TljhKtJLs/O1wg0brxSAKZICOwHYDQuuFH0drJfKF2Qgn9sjo4m6WXUiEVfb+rT8aTB
-	9hK9/if6Y0KLjCujWAx2lAI6vfcZ256uRo8mNtfdWLdg4IbVeuwUwro1r+GdKsO3KUoaqTQtSV8c/
-	OJw7tpYo5eOaj9ozVKt2Z3dKjDshVVcgMGMo4NODD+pAL9H+WZZVRqnFKbJ9NchKvoJIBy8xa+OCB
-	mfZiOLC5SKILfXZoSBVPdyK0HWLM8z84nn3+WfpYxTODnkLf0DEFRSs3pT0TpdLV2QZ/g2brDBKkq
-	JyXhTUsQ==;
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ioc6BaEAneSnl+Cdv2fwifMYhZKSVyPMsPMvf293bv4=; b=UznalsECZ9msbBvx+fCQKBIBQZ
+	ZjrVE1fwSj2nnmuoabzlbxGYi+ilBGFlnyH0z3qfi/I3YxHYYvUSNmgOnzIBCpZ6UjQxmwzmHR+yQ
+	EvNx7sLxMZoof3NpqFiDWcyso6ZqFt9nZpTuOXinpGw0BHYaKUaxo0mwu2v/CUhmekaj8etCfnzTV
+	dTwzEg1dFo8tFaOQn3z4CpRFgZz7fPSeZZ+xlG1az4uk1y5/Hed35zaSoKoqlawCUjcU/f+S+E2jB
+	hrIGx0sVLVCqbhuTQkBWnRq/qf0EwddMmBCGit9aV1+m6wrdfL/YEWiTSgUC3d5EMB++yBur7FkkJ
+	xjvFNRpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujyFd-00000000IHn-0gWk;
-	Thu, 07 Aug 2025 10:53:37 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1ujyI5-00000000Ij6-3tSx;
+	Thu, 07 Aug 2025 10:56:10 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujyD6-00000000Hom-0VBY
+	id 1ujyD7-00000000HpQ-24Fu
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 07 Aug 2025 10:51:04 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250807105046epoutp03a162d0957d3fbd09843694a59686832f~ZdoWtLi_I0649906499epoutp03H
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 Aug 2025 10:50:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250807105046epoutp03a162d0957d3fbd09843694a59686832f~ZdoWtLi_I0649906499epoutp03H
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250807105052epoutp0435bfdea272b8a2f7e979d7c027bee0a0~ZdocT1sqq0205702057epoutp04R
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 Aug 2025 10:50:52 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250807105052epoutp0435bfdea272b8a2f7e979d7c027bee0a0~ZdocT1sqq0205702057epoutp04R
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1754563846;
-	bh=9EFIJet6GwguCOgHXt373HO19RdNPt1XWJDM2bajplk=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=ppYXl6BUAVAeVZr16oTAuTzCiqe7yhCZS+FFgZzvF4nkidEBipqlnZylkV4VUzezu
-	 CB2MBnBBTia4sRLvv5W4Z5g3ZJs3fIBqTRcepasnE5PQZyLIRAwSA7oHHnQdsqBTIM
-	 W4HRgZNEHXl+bbwWKiLK/xzlWe3vfYCA3lEUb/6E=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250807105045epcas5p200483d0bdac63cb3b323ff857f67fdc1~ZdoWNaOIH1874618746epcas5p2P;
-	Thu,  7 Aug 2025 10:50:45 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.88]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4byP8P11ymz2SSKf; Thu,  7 Aug
-	2025 10:50:45 +0000 (GMT)
+	s=mail20170921; t=1754563852;
+	bh=ioc6BaEAneSnl+Cdv2fwifMYhZKSVyPMsPMvf293bv4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=LP/OfGQxcXE2D4Qns7gmK8vdu7x64LFH1trgS4uByFWqnsBt7oUCjaX30kJ4YgcCk
+	 8eX376fABstAVms/EpvoED2P6OHWA/GLWpHshmRDYhJbZ9BMEGF4TUDwPWhh2mrZRX
+	 51ILpTWyZ8tC0N83ZZ8p/eRXuXnjIyGgNXgRQ+Pc=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250807105051epcas5p42b0c95f525547338291284002c134f6c~Zdob1frPR3070930709epcas5p4q;
+	Thu,  7 Aug 2025 10:50:51 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.94]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4byP8V5RdKz6B9m4; Thu,  7 Aug
+	2025 10:50:50 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22~ZXjJEevMZ2629026290epcas5p1A;
-	Thu,  7 Aug 2025 03:24:59 +0000 (GMT)
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250807032506epcas5p3a05a916da73778cce6a310bafbe1ebba~ZXjPWFEUQ0696906969epcas5p3B;
+	Thu,  7 Aug 2025 03:25:06 +0000 (GMT)
 Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250807032457epsmtip217c0a672ffd1a22f97b647b84be6597d~ZXjHGrzJG1346113461epsmtip29;
-	Thu,  7 Aug 2025 03:24:57 +0000 (GMT)
+	20250807032504epsmtip2ff987802e05ceff0bc5f5af8cdfaa31e~ZXjNXG3TE1491114911epsmtip2V;
+	Thu,  7 Aug 2025 03:25:04 +0000 (GMT)
 From: Aakarsh Jain <aakarsh.jain@samsung.com>
 To: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
 	linux-kernel@vger.kernel.org, m.szyprowski@samsung.com,
@@ -61,25 +61,27 @@ To: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org
 Cc: linux-samsung-soc@vger.kernel.org, aswani.reddy@samsung.com,
 	anindya.sg@samsung.com, Aakarsh Jain <aakarsh.jain@samsung.com>
-Subject: [PATCH 00/10] Use SoC-specific compatible string for Samsung MFC
-Date: Thu,  7 Aug 2025 08:54:39 +0530
-Message-ID: <20250807032449.92770-1-aakarsh.jain@samsung.com>
+Subject: [PATCH 01/10] ARM: dts: samsung: exynos3250: Use SoC-specific
+ compatible string for MFC
+Date: Thu,  7 Aug 2025 08:54:40 +0530
+Message-ID: <20250807032449.92770-2-aakarsh.jain@samsung.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250807032449.92770-1-aakarsh.jain@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22
+X-CMS-MailID: 20250807032506epcas5p3a05a916da73778cce6a310bafbe1ebba
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: REQ_APPROVE
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-541,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22
-References: <CGME20250807032459epcas5p1d6bd796f5b654c92372bdcc8a7926c22@epcas5p1.samsung.com>
+X-CMS-RootMailID: 20250807032506epcas5p3a05a916da73778cce6a310bafbe1ebba
+References: <20250807032449.92770-1-aakarsh.jain@samsung.com>
+	<CGME20250807032506epcas5p3a05a916da73778cce6a310bafbe1ebba@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_035100_460538_C8FF152A 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250807_035101_683264_4E1E51E0 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +96,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series modifies the samsung MFC version compatible to
-SoC-specific compatible.
+Modify the MFC device tree node to use a SoC-specific
+compatible string instead of a generic one.
 
-Aakarsh Jain (10):
-  ARM: dts: samsung: exynos3250: Use SoC-specific compatible string for
-    MFC
-  ARM: dts: samsung: exynos4: Use SoC-specific compatible string for MFC
-  ARM: dts: samsung: exynos5250: Use SoC-specific compatible string for
-    MFC
-  ARM: dts: samsung: exynos5420: Use SoC-specific compatible string for
-    MFC
-  ARM: dts: samsung: exynos5800: Use SoC-specific compatible string for
-    MFC
-  ARM: dts: samsung: s5pv210: Use SoC-specific compatible string for MFC
-  media: s5p-mfc: Modify compatible string check for SoC-specific
-    support
-  media: s5p-mfc: Add new compatible string corresponding to S5pv210 SoC
-  dt-bindings: media: s5p-mfc: Modify compatible string check for
-    SoC-specific support
-  dt-bindings: media: s5p-mfc: Add SoC-specific compatible for
-    'samsung,mfc-v5'
+Signed-off-by: Aakarsh Jain <aakarsh.jain@samsung.com>
+---
+ arch/arm/boot/dts/samsung/exynos3250.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- .../bindings/media/samsung,s5p-mfc.yaml       | 24 ++++++++++---------
- arch/arm/boot/dts/samsung/exynos3250.dtsi     |  2 +-
- arch/arm/boot/dts/samsung/exynos4.dtsi        |  2 +-
- arch/arm/boot/dts/samsung/exynos5250.dtsi     |  2 +-
- arch/arm/boot/dts/samsung/exynos5420.dtsi     |  2 +-
- arch/arm/boot/dts/samsung/exynos5800.dtsi     |  2 +-
- arch/arm/boot/dts/samsung/s5pv210.dtsi        |  2 +-
- .../media/platform/samsung/s5p-mfc/s5p_mfc.c  | 13 ++++++----
- 8 files changed, 27 insertions(+), 22 deletions(-)
-
+diff --git a/arch/arm/boot/dts/samsung/exynos3250.dtsi b/arch/arm/boot/dts/samsung/exynos3250.dtsi
+index b6c3826a9424..1fd99c4ccca8 100644
+--- a/arch/arm/boot/dts/samsung/exynos3250.dtsi
++++ b/arch/arm/boot/dts/samsung/exynos3250.dtsi
+@@ -657,7 +657,7 @@ gpu: gpu@13000000 {
+ 		};
+ 
+ 		mfc: codec@13400000 {
+-			compatible = "samsung,exynos3250-mfc", "samsung,mfc-v7";
++			compatible = "samsung,exynos3250-mfc", "samsung,exynos5420-mfc";
+ 			reg = <0x13400000 0x10000>;
+ 			interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+ 			clock-names = "mfc", "sclk_mfc";
 -- 
 2.49.0
 
