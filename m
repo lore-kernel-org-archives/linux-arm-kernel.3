@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC504C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 05:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AAFFC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Doin5RX+mHx/tlBVKvAwlyWUssfKw5pohKFsWpz9HM=; b=mCXkV1jxVQAKqp1ex+v7XK8ytS
-	lVnMEyspC5CuaC7KiABLrG4ZdA8WuWmiCNyN7TIIVnM+E0q0/fkqhKus/js3zgucSoHFwjn7T/xgT
-	K/nVsbx+kLXev65CwWZGA0WyztWBBhFp7XwkSFWEGw3gttOqRX4/1r2qiqqSZif8bGBikjwu1azNl
-	134UanDClviXDCjcBYJ4ZzqwRrWS5N4uefE268fK3KnagMILRlzsd/D/Tieq0EgHyF4Qm97SFPYVf
-	Wf8XvAohTh4mBQ9ZKLNoQlxo0CSXEbZ4FjNSnmsaf2se1RnmMZGEL8wQvFSEOYZw8sk82pH8aMKQT
-	OWbkwqbA==;
+	bh=CAu1sUOPcz3T7gbcKI2eVA7LldC5pR14VxKq3Bw6qwE=; b=s0TNaG/p2ZpKjU//44DV/xiqvX
+	MCvF9FhSrTs218IxXcIUgOTxz33ULCXU2YoDYw3Wl73jMSZ1SxyXeJdiqoZ7kaW51arlfia1zqaUI
+	qq+7iDAi5Lb+01YAF5EwQ2G9npQL7znWcVBrTJZ7VfOGzDnIInjr00En+QbOcPqJM80cycPKflxFv
+	vU16hg5ytvVi9ONsWA4WpYrFInAXNL6ge3kxJUIhtPh0Sa4n2HZDGY8D82wM3XqAbdfpk5kXAI2V+
+	CnRqkpRvSRcwyK2oZVDKGwq4Md4QmYkphj1M+ltEFvFIULIoXDcBw1H62oOHQBN7RIEDfSbUWs3P9
+	GqPhSIAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujtdY-0000000HL2i-2tEB;
-	Thu, 07 Aug 2025 05:58:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ujtiX-0000000HLS3-2tJY;
+	Thu, 07 Aug 2025 06:03:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujtb2-0000000HKo3-0n5C
+	id 1ujtg2-0000000HLM3-32tX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 05:55:25 +0000
+	Thu, 07 Aug 2025 06:00:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC4E641B03;
-	Thu,  7 Aug 2025 05:55:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EC24C4CEEB;
-	Thu,  7 Aug 2025 05:55:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9CA5CA557C7;
+	Thu,  7 Aug 2025 06:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD96AC4CEEB;
+	Thu,  7 Aug 2025 06:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754546123;
-	bh=0L0sd/76t43LtUTRmCTvP+plbdbtnRyA2Xx0ZsuPr2M=;
+	s=k20201202; t=1754546433;
+	bh=CAu1sUOPcz3T7gbcKI2eVA7LldC5pR14VxKq3Bw6qwE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UDJCg12qTAr5ODjsx4MYXb2LdqLMOZmNuSM+QwZuP1M5zusSt/fmdoZdw0AwTwk1H
-	 apf2uKbNT6a7shVkZJvLDDyzjoySRF6ZsIFwo2HdmrA4J5i+kgAuZ8VrpUoHA/hGov
-	 iGk7LuPxIsTJgEmw7ft0RJNUo3zSxcl0Jw6Jj43x+XW17l1oRzqeuV2W5NC77I6zKR
-	 7QAAhGM6OfgsIoIdRxPUfx3tK5TtmJH8wBMPhu7gJ9ZKQn01vvTrzmEWMLAVddke9o
-	 8gSj0SI7+b9Sq1UGEFf87o5/sv2T7ygEuls3i2iMi1Dc6eEliIodIzO1+RWAzbmGxt
-	 qwKT0ZaevbJqw==
-Message-ID: <459e8576-d1e5-496e-bb23-076dccc15ff0@kernel.org>
-Date: Thu, 7 Aug 2025 07:55:20 +0200
+	b=oUouaPnvnCwc7Z/NUUsaf2+g+UitVd8aPwIPKARvt7T3Hncx8p6U/7Obz0zd4Y0jX
+	 YbcxVIsOMBSvbPElyl7+dpJvtRXQ8+jtsBz6G6Dm0tP/dT4uUYVpWC+MSuucFQ7r/B
+	 y3mOijkOzYTtEQcbiX0BTcXMQMPi717fXh2KI28nhjMaY0dWrKnQcJqskZ5WFfk7ZA
+	 kxTP1mvqhKC7Aoj3uuCoS66a5jjFbmvg8tBcT1MbvebQWKkO8cPEgUNoZK4iFBBzpb
+	 Km3CZM7SJhLDBG1fjoWfTRZ9zPtG6U2HpSy1oCABMMkBgh5N5U3wKmQ/w2rEOx5S/P
+	 prWu/qnXg9eaw==
+Message-ID: <0bea04df-1099-4317-9f24-f81008325315@kernel.org>
+Date: Thu, 7 Aug 2025 08:00:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND][PATCH] arm: s3c: use string choices helper
-To: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org
-Cc: patches@armlinux.org.uk
-References: <87wm7gca05.wl-kuninori.morimoto.gx@renesas.com>
+Subject: Re: [PATCH] memory: stm32_omm: Fix req2ack update test
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christophe Kerello <christophe.kerello@foss.st.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+References: <20250806-upstream_omm_fix_req2ack_test_condition-v1-1-4879a1d7f794@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <87wm7gca05.wl-kuninori.morimoto.gx@renesas.com>
+In-Reply-To: <20250806-upstream_omm_fix_req2ack_test_condition-v1-1-4879a1d7f794@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_225524_277301_00DE03DC 
-X-CRM114-Status: UNSURE (   5.44  )
+X-CRM114-CacheID: sfid-20250806_230034_904975_D5463515 
+X-CRM114-Status: UNSURE (   4.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,13 +121,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2025 01:20, Kuninori Morimoto wrote:
-> We can use string choices helper, let's use it.
-> It also tidyup printk(KERN_INFO, ...) to pr_info(...).
-> 
-> Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+On 06/08/2025 17:32, Patrice Chotard wrote:
+> Fix test which allows to compute req2ack value.
 
-Same review as last time.
+What is the bug, how does it affect users? Please read stable kernel
+rules and submitting patches.
 
 Best regards,
 Krzysztof
