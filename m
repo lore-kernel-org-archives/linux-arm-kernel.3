@@ -4,94 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A548C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60A3C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Sx8JUyM3/4H7bRCB9wNV/IluDw2UIz1vKgHRy/QEVw=; b=MfQaNmwJ6qq7HEH7DTg2sSQZC+
-	qb/wQBZegP2d17OFcs9ERZvObRTk1FMX11t+4nVW9WvFNVqrnk6t1m4pMjz1w8TzghrYTTLFkjnvc
-	SQicprHaxws8tTsScUwaed0HaIYGQ6RFw+2xOgeWw9Tb8JJ+WaEAiUcjGnw273SUTxXXhwQ8S9R5I
-	4NQdTq37oVwZPdWX/FncPF34bCeDRvs3RfSPIQq0RgGMG/ZvtGjRL2iofdzOGmslP6yr4QCv3yMRe
-	HlTTex3dUYHC8eXhEm9hILcLGm1BTgmz9tpBgm0afuQMiHLFY1ySuq6dbx3IItkeHyZZUejFgNrNw
-	dq8AqhKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0tHwYlbjNv+IOAqOwfpjCekQ4CCu0rh6z3eMye582FE=; b=rv6uGR/vXGnWx8vMI0QoGYVtjE
+	Rb6NDQUtmeGp+Vm8h6KIDsDjFBUXa5YNuO8NNWMXAkIs5e4IQL13v9HTDfC1EZG3BjlbGJmU4bt6j
+	kgYRilyv3ccFHuaWj9w2AT2pgBc1e/tb9q6ww6R/zsuaV6dsdVKKN69UEAW/63WZIbBbZbg8543is
+	jY8IIwxM37WNsPSXNMPkYsoMQIagXvMmipyy7Rx7nH3yVvHXgtsBXo1TlkhodBCGR7bcHry9VDWxA
+	r5EHj9aJwnzYd4IkzqerY2MCTUJhnGQljXO0GR+tHyMtLgevo5uKhw1s60F4b+Zyfj7v1/cg6r8jz
+	uBlYBi/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujuTS-0000000HOlP-0z2M;
-	Thu, 07 Aug 2025 06:51:38 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1ujub6-0000000HPXb-1sfI;
+	Thu, 07 Aug 2025 06:59:32 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujuQt-0000000HOSP-3zp9
+	id 1ujuYY-0000000HPCU-1qgf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 06:49:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1754549340; x=1786085340;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=7Sx8JUyM3/4H7bRCB9wNV/IluDw2UIz1vKgHRy/QEVw=;
-  b=qF35v6uNpYb1eYQhwxY126WMDaqOUqx5CBTFCmw9hC0BZ1LdWAFJwVtM
-   r1n5eG6lwnlkQldhIug+z42mMmY83UBKjl9VJbxAKE/L5sTT+RVK9VjGq
-   pB28a677lqC/xc3j4oCnZCvJZcDLZU8etihKKwQXpM/xf3w9XSPt67FX8
-   jw9UwvP76bwf/mXqy8wDegrpOW3uJYobTdZr1kpDIEQllCH7gVRZYKiyu
-   9e0sjvUmSiFQcPQy3nRlSLELPFb04wENKZv0gJgH/+Hfo9Ip8/L/L2xbN
-   9nXsrIbNLYDBD48DXWUPMKObXFjAjwoHs3vubskGWM+L/zEMQxUOKwiPu
-   Q==;
-X-CSE-ConnectionGUID: I2PmyxDYScSuTRFw+H5RPw==
-X-CSE-MsgGUID: XDJruS2UTWOZejcJYgaFyQ==
-X-IronPort-AV: E=Sophos;i="6.17,271,1747692000"; 
-   d="scan'208";a="45628058"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 07 Aug 2025 08:48:51 +0200
-X-CheckPoint: {68944C53-3-299FBAB0-EF52EDE7}
-X-MAIL-CPID: 9B87D54F7B707BEEAED780E1C71972C8_5
-X-Control-Analysis: str=0001.0A002116.68944C87.0028,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 509341613DA;
-	Thu,  7 Aug 2025 08:48:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1754549326;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7Sx8JUyM3/4H7bRCB9wNV/IluDw2UIz1vKgHRy/QEVw=;
-	b=mrGZMwTtVtjo5kHwbg35IQX/P5TNnTWBQcIxNa9iUC7uSo7rTQLbuzsOAR0XdkbAgHVYVL
-	jhBCsFQ9GwQKTzxzFPGU93q2evcLKB7X2GV5sLvGVSMBpjyhMaVcnVV/rYGDshvdUVR1aY
-	2Yr7vXdhMvML4A8B1d0fq+SM2JIoHoGGPg5LifurXToqn06YRqsdSb21SAOEInEIwqMk0B
-	FooH5azD929SoI3ZX6geUNC3FRIAAorL18g5SBmBcTIs88LaVBmxpepG81KTLhjPbZWHHe
-	v6eTmkjeBRyGiFoqWRFob27/ZWAQLxM6SzAIhAMo6/mr1j/iTjRKpAZKOAuMnA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org,
- cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
- l.stach@pengutronix.de, perex@perex.cz, tiwai@suse.com,
- linux-sound@vger.kernel.org, Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: Re: [PATCH v3 5/6] drm/bridge: imx: add driver for HDMI TX Parallel Audio
- Interface
-Date: Thu, 07 Aug 2025 08:48:35 +0200
-Message-ID: <3006103.e9J7NaK4W3@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <CAA+D8AMqBqfRuR7oGLwH4CUrAdY4q1XGmnPXGQYUGndY0eS=yw@mail.gmail.com>
-References: <20250804104722.601440-1-shengjiu.wang@nxp.com> <2380862.ElGaqSPkdT@steina-w>
- <CAA+D8AMqBqfRuR7oGLwH4CUrAdY4q1XGmnPXGQYUGndY0eS=yw@mail.gmail.com>
+	Thu, 07 Aug 2025 06:56:56 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250807065647epoutp043a844cdfa92b73be14129d2b4335c090~ZacDkQ6ud0084900849epoutp04U
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 Aug 2025 06:56:47 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250807065647epoutp043a844cdfa92b73be14129d2b4335c090~ZacDkQ6ud0084900849epoutp04U
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1754549807;
+	bh=0tHwYlbjNv+IOAqOwfpjCekQ4CCu0rh6z3eMye582FE=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=YIPPEn/6tzYnoC0dr0ncPgF6DHzVE5UwPkucWuTHP+PvLngOhnXKfFpvzOJNvsTEc
+	 2EtCMCs9m59R9uGm9EagqckaCdcjNv08McNBsfcd1YANyyn8nVMZXu9/xvhWxLqXNt
+	 BSpxbf7A8MKBigow3FVNEoa1e8aVZaRPHmYas3CU=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250807065646epcas5p17687f208b8b43806346e6bc2c9967e99~ZacCrN9OP0038200382epcas5p1W;
+	Thu,  7 Aug 2025 06:56:46 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.92]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4byHyP0GMqz6B9m5; Thu,  7 Aug
+	2025 06:56:45 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250807065644epcas5p125fc65c6d04e995d92f2afd90b7b1ade~ZacA7TA-d2200722007epcas5p1A;
+	Thu,  7 Aug 2025 06:56:44 +0000 (GMT)
+Received: from INBRO001561 (unknown [107.122.12.6]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250807065638epsmtip203f2ebd5a413ef0d6985fa5abfd83190~Zab8DqqO-1646416464epsmtip2T;
+	Thu,  7 Aug 2025 06:56:38 +0000 (GMT)
+From: "Pankaj Dubey" <pankaj.dubey@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'SeonGu Kang'"
+	<ksk4725@coasia.com>, "'Jesper Nilsson'" <jesper.nilsson@axis.com>,
+	"'Michael	Turquette'" <mturquette@baylibre.com>, "'Stephen Boyd'"
+	<sboyd@kernel.org>, "'Rob Herring'" <robh@kernel.org>, "'Krzysztof
+ Kozlowski'" <krzk+dt@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
+	"'Sylwester Nawrocki'" <s.nawrocki@samsung.com>, "'Chanwoo Choi'"
+	<cw00.choi@samsung.com>, "'Alim	Akhtar'" <alim.akhtar@samsung.com>, "'Linus
+ Walleij'" <linus.walleij@linaro.org>, "'Tomasz Figa'"
+	<tomasz.figa@gmail.com>, "'Catalin	Marinas'" <catalin.marinas@arm.com>,
+	"'Will Deacon'" <will@kernel.org>, "'Arnd	Bergmann'" <arnd@arndb.de>
+Cc: "'kenkim'" <kenkim@coasia.com>, "'Jongshin Park'" <pjsin865@coasia.com>,
+	"'GunWoo Kim'" <gwk1013@coasia.com>, "'HaGyeong Kim'" <hgkim05@coasia.com>,
+	"'GyoungBo Min'" <mingyoungbo@coasia.com>, "'SungMin Park'"
+	<smn1196@coasia.com>, "'Shradha Todi'" <shradha.t@samsung.com>, "'Ravi
+ Patel'" <ravi.patel@samsung.com>, "'Inbaraj E'" <inbaraj.e@samsung.com>,
+	"'Swathi K S'" <swathi.ks@samsung.com>, "'Hrishikesh'"
+	<hrishikesh.d@samsung.com>, "'Dongjin	Yang'" <dj76.yang@samsung.com>, "'Sang
+ Min Kim'" <hypmean.kim@samsung.com>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-arm-kernel@axis.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<soc@lists.linux.dev>
+In-Reply-To: <ef3b8e12-0677-4e49-bf2c-b8136c9a6908@kernel.org>
+Subject: RE: [PATCH 00/16] Add support for the Axis ARTPEC-8 SoC
+Date: Thu, 7 Aug 2025 12:26:27 +0530
+Message-ID: <013301dc0768$6f58dc40$4e0a94c0$@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="UTF-8"
-X-Last-TLS-Session-Version: TLSv1.3
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQGJY/8wx4BImu0YLFPVfwpfqUmFNgKXZrJuAgeQag4A83Fv2QHBXkcOAZGX7yoCWvFQXwHgUMUuAOJp+3+0i+6vkA==
+Content-Language: en-us
+X-CMS-MailID: 20250807065644epcas5p125fc65c6d04e995d92f2afd90b7b1ade
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250721064006epcas5p4617b0450e69f72c94d2b3ae7b1d200e7
+References: <20250710002047.1573841-1-ksk4725@coasia.com>
+	<847e908b-1073-46ea-93f3-1f36cc93d8b8@kernel.org>
+	<bfdc2eddde554e1d1808dd8399bc6a693f681c9b.camel@coasia.com>
+	<CGME20250721064006epcas5p4617b0450e69f72c94d2b3ae7b1d200e7@epcas5p4.samsung.com>
+	<99977f38-f055-46ed-8eb0-4b757da2bcdd@kernel.org>
+	<000501dc06ab$37f09440$a7d1bcc0$@samsung.com>
+	<e334f106-d9f3-4a21-8cdd-e9d23dd2755d@kernel.org>
+	<002001dc06b1$540dc980$fc295c80$@samsung.com>
+	<ef3b8e12-0677-4e49-bf2c-b8136c9a6908@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_234900_486452_F87F5ACD 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20250806_235655_132941_8B8F686B 
+X-CRM114-Status: GOOD (  37.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,184 +118,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Am Mittwoch, 6. August 2025, 05:49:13 CEST schrieb Shengjiu Wang:
-> On Tue, Aug 5, 2025 at 3:09=E2=80=AFPM Alexander Stein
-> <alexander.stein@ew.tq-group.com> wrote:
-> [snip]
-> > > +static int imx8mp_dw_hdmi_bind(struct device *dev)
-> > > +{
-> > > +     struct dw_hdmi_plat_data *plat_data;
-> > > +     struct imx8mp_hdmi *hdmi;
-> > > +     int ret;
-> > > +
-> > > +     hdmi =3D dev_get_drvdata(dev);
-> > > +     plat_data =3D &hdmi->plat_data;
-> > > +
-> > > +     ret =3D component_bind_all(dev, plat_data);
-> >
-> > Do you really need plat_data variable?
+> Subject: Re: =5BPATCH 00/16=5D Add support for the Axis ARTPEC-8 SoC
 >=20
-> yes,  it is used in imx8mp_hdmi_pai_bind()
-
-Sorry for not being clear. I'm not talking about struct dw_hdmi_plat_data, =
-but
-the local variable plat_data. You can use
-
-ret =3D component_bind_all(dev, &hdmi->plat_data);
-
-directly.
-
->=20
+> On 06/08/2025 11:05, Pankaj Dubey wrote:
 > >
-> > > +     if (ret)
-> > > +             return dev_err_probe(dev, ret, "component_bind_all fail=
-ed!\n");
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > > +static void imx8mp_dw_hdmi_unbind(struct device *dev)
-> > > +{
-> > > +     struct dw_hdmi_plat_data *plat_data;
-> > > +     struct imx8mp_hdmi *hdmi;
-> > > +
-> > > +     hdmi =3D dev_get_drvdata(dev);
-> > > +     plat_data =3D &hdmi->plat_data;
-> > > +
-> > > +     component_unbind_all(dev, plat_data);
+> >> Also SAME strict DT compliance profile will be applied. (see more on
+> >> that below)
+> >>
+> >>>
+> >>> Given that ARTPEC-8 is a distinct SoC with its own set of IPs, we bel=
+ieve
+> it's
+> >> reasonable
+> >>> to create a separate directory for it, similar to FSD.
+> >>
+> >> No. It was a mistake for FSD to keep it separate why? Because there is
+> >> no single non-Samsung stuff there. I am afraid exactly the same will
+> >> happen there.
+> >>
 > >
-> > Do you really need plat_data variable?
+> > I am not sure, why you are saying this as a mistake, in case next versi=
+on of
+> FSD
 >=20
-> yes,  it is used by imx8mp_hdmi_pai_unbind()
+>=20
+> My mistake that I agreed on that, based on promise that =22there will be
+> non Samsung stuff=22 and that =22non Samsung stuff=22 never happened.
+>=20
 
-Same as above. Call
+I am not authorized to comment on FSD's non Samsung stuff at this moment.
+But I got your point.
 
-component_unbind_all(dev, &hdmi->plat_data)
+> > or ARTPEC is manufactured (ODM) by another vendor in that case, won't i=
+t
+> > create problems?
+>=20
+>=20
+> No problems here. Non-Samsung Artpec/Axis soc will not go there. It will
+> go the top-level axis directory, just like artpec-6
+>=20
 
-directly. Also consider assigning struct imx8mp_hdmi *hdmi =3D dev_get_drvd=
-ata(dev);
-directly.
-
-Best regards,
-Alexander
+Okay, understood. I assume Axis team will be fine with this approach.
+Let me align with them internally and address all the review comments in v2=
+.=20
 
 >=20
 > >
-> > > +}
-> > > +
-> > > +static const struct component_master_ops imx8mp_dw_hdmi_ops =3D {
-> > > +     .bind   =3D imx8mp_dw_hdmi_bind,
-> > > +     .unbind =3D imx8mp_dw_hdmi_unbind,
-> > > +};
-> > > +
-> > >  static int imx8mp_dw_hdmi_probe(struct platform_device *pdev)
-> > >  {
-> > >       struct device *dev =3D &pdev->dev;
-> > >       struct dw_hdmi_plat_data *plat_data;
-> > > +     struct component_match *match;
+> > For example ARTPEC-6/7 (ARM based) have their own directories as
+> =22arch/arm/boot/dts/axis/=22
+> > These were not Samsung (ODM) manufactures SoCs.
 > >
-> > Set match =3D NULL for drm_of_component_match_add (and subcalls) to all=
-ocate memory.
+> > But ARTPEC-8/9 (ARM64) based SoCs are samsung manufactured. What if
+> the next version say
+> > ARTPEC-10 is not samsung manufactured, so different version of products
+> (SoCs) from
+> > same vendor (OEM), in this case Axis, will have code in separate direct=
+ories
+> and with different maintainers?
 >=20
-> Ok.
+> It will be the same with Google Pixel for whatever they decide in the
+> future. dts/exynos/google/ + dts/google/.
 >=20
-> best regards
-> Shengjiu wang.
+> I know that this is not ideal, but for me grouping samsung stuff
+> together is far more important, because there is much, much more to
+> share between two SoCs designed by Samsung, than Axis-9 and future
+> non-Samsung Axis-10. And I have =60git grep=60 as argument:
+> git grep compatible -- arch/arm64/boot/dts/tesla/
+>=20
+> and point me to any Tesla IP. Zero results.
+>=20
+>=20
 > >
-> > Best regards
-> > Alexander
+> >> Based on above list of blocks this should be done like Google is done,
+> >> so it goes as subdirectory of samsung (exynos). Can be called axis or
+> >> artpec-8.
 > >
-> > > +     struct device_node *remote;
-> > >       struct imx8mp_hdmi *hdmi;
-> > > +     int ret;
-> > >
-> > >       hdmi =3D devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
-> > >       if (!hdmi)
-> > > @@ -108,6 +145,22 @@ static int imx8mp_dw_hdmi_probe(struct platform_=
-device *pdev)
-> > >
-> > >       platform_set_drvdata(pdev, hdmi);
-> > >
-> > > +     /* port@2 is for hdmi_pai device */
-> > > +     remote =3D of_graph_get_remote_node(pdev->dev.of_node, 2, 0);
-> > > +     if (remote && of_device_is_available(remote)) {
-> > > +             drm_of_component_match_add(dev, &match, component_compa=
-re_of, remote);
-> > > +
-> > > +             of_node_put(remote);
-> > > +
-> > > +             ret =3D component_master_add_with_match(dev, &imx8mp_dw=
-_hdmi_ops, match);
-> > > +             if (ret)
-> > > +                     dev_warn(dev, "Unable to register aggregate dri=
-ver\n");
-> > > +             /*
-> > > +              * This audio function is optional for avoid blocking d=
-isplay.
-> > > +              * So just print warning message and no error is return=
-ed.
-> > > +              */
-> > > +     }
-> > > +
-> > >       return 0;
-> > >  }
-> > >
-> > > @@ -115,6 +168,8 @@ static void imx8mp_dw_hdmi_remove(struct platform=
-_device *pdev)
-> > >  {
-> > >       struct imx8mp_hdmi *hdmi =3D platform_get_drvdata(pdev);
-> > >
-> > > +     component_master_del(&pdev->dev, &imx8mp_dw_hdmi_ops);
-> > > +
-> > >       dw_hdmi_remove(hdmi->dw_hdmi);
-> > >  }
-> > >
-> > > diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdm=
-i.h
-> > > index 095cdd9b7424..336f062e1f9d 100644
-> > > --- a/include/drm/bridge/dw_hdmi.h
-> > > +++ b/include/drm/bridge/dw_hdmi.h
-> > > @@ -143,6 +143,12 @@ struct dw_hdmi_plat_data {
-> > >                                          const struct drm_display_inf=
-o *info,
-> > >                                          const struct drm_display_mod=
-e *mode);
-> > >
-> > > +     /*
-> > > +      * priv_audio is specially used for additional audio device to =
-get
-> > > +      * driver data through this dw_hdmi_plat_data.
-> > > +      */
-> > > +     void *priv_audio;
-> > > +
-> > >       /* Platform-specific audio enable/disable (optional) */
-> > >       void (*enable_audio)(struct dw_hdmi *hdmi, int channel,
-> > >                            int width, int rate, int non_pcm, int iec9=
-58);
-> > >
+> > I will suggest to keep axis, knowing the fact that sooner after artpec-=
+8
+> patches gets approved and merged
+> > we have plan to upstream artpec-9 (ARM64, Samsung manufactured) as
+> well.
 > >
+> >>
+> >> To clarify: Only this SoC, not others which are not Samsung.
+> >>
+> >>>
+> >>> We will remove Samsung and Coasia teams from the maintainers list in
+> v2
+> >> and only
+> >>> Axis team will be maintainer.
+> >>
+> >> A bit unexpected or rather: just use names of people who WILL be
+> >> maintaining it. If this is Jesper and Lars, great. Just don't add
+> >> entries just because they are managers.
 > >
-> > --
-> > TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, =
-Germany
-> > Amtsgericht M=C3=BCnchen, HRB 105018
-> > Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan=
- Schneider
-> > http://www.tq-group.com/
+> > AFAIK, Jesper will be taking care.
 > >
+> >>
+> >>>
+> >>> Maintainer list for previous generation of Axis chips (ARM based) is
+> already
+> >> present,
+> >>> so this will be merged into that.
+> >>
+> >> Existing Artpec entry does not have tree mentioned, so if you choose
+> >> above, you must not add the tree, since the tree is provided by Samsun=
+g
+> SoC.
+> >>
 > >
+> > OK
+> >
+> >> OTOH, how are you going to add there strict DT compliance? Existing ax=
+is
+> >> is not following this, but artpec-8, as a Samsung derivative, MUST
+> >> FOLLOW strict DT compliance. And this should be clearly marked in
+> >> maintainer entry, just like everywhere else.
+> >>
+> >
+> > As I said this is tricky situation, though artpec-8 is derivative of sa=
+msung, we
+> can't confirm
+> > if future versions (> 9) will be samsung derivative.
+> >
+> > But this would be case for all such custom ASIC manufactured by samsung=
+,
+> so I would like to
+> > understand how this will be handled?
+>=20
+>=20
+> I suggest to do the same as Google and when I say Google in this email,
+> I mean Pixel/GS101. Google was easier because there was no prior entry
+> and Axis has, so you will have two Axis entries. But I don't see how we
+> can add clean-dts profiles to the existing Axis entry, if you decide to
+> include Artpec-8 in that one.
 >=20
 
+Okay we will have separate dts profile aligned with Exynos DT compliance fo=
+r
+ARM64 based Axis SoCs which are manufactured by Samsung at this moment.=20
 
-=2D-=20
-TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
-any
-Amtsgericht M=C3=BCnchen, HRB 105018
-Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
-neider
-http://www.tq-group.com/
-
+>=20
+> Best regards,
+> Krzysztof
 
 
