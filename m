@@ -4,104 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A82C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486D9C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7EcW2IB/Hoo31JQCi+ZPT/KI3YtuMNEtsU4Q0qj9Ds0=; b=l/0CW2lHV0PH25L7sxSu34l3Yu
-	IRCZmGkmdJNj52ktUNVTG200J7VvVhYPZogQOX5BI3nhgbar5w0wSp6ujanTHSodzDGDkglUN22Gn
-	ZYMd62m4WO4kLGFphoyWNVdZg9H98qOaSlPkK6AXuq0j+TMVxoPZtcaoEHg0Jp5195bEpslO6dFsl
-	ab1ja4zaTK1o/4OqNVPwxNG4Ij5IqTLl3loXkesfZEiTtpIGT5iX//SD4JSLXfndn3XR73B5rKyVa
-	w9SS8j42utm40iKXdxqq8f0uhXA0f2kkGpTzRWRmmcTE6QDm2YOVH8IMIR3Fb9jUPZ7nx1oGFsZBC
-	tWLG3Lzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=frNa2nBmhsFWjChnvqTYWMGE1qrm7ecsPfV2Lh8SkAY=; b=qQerUxSxd4pp0rZ4w//Wifyj5m
+	0Ulpg66zedSOEFOJ06h2L92KCGYeeLzfdlUrxO8kc0qc/rYTOT4q95xFcrSLK2bCI+Dr2gN0RwH2T
+	ExNueY+H+6rCMxn+dDPVB8iuIxW2HoGMW+Lnf2aGIlLvXo6Kc65KlO910CmMoenYT234f9Ls799k3
+	JtIeiuvm7PQ2wp8DOo3kkYZaTEpoA+6319NxozA+h3X+QnMCnZG1hwF2H67drBe1g0YrMz1pFOfM8
+	+fuQ7Kaf7qYrDEnADDZRi47/qElBqwjqqHt8IaFtVw3VpQWDmbnneYUlTz1kCDLdD3J6Hwdx2jyac
+	/jmvjecQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujz8l-00000000QsL-3QQL;
-	Thu, 07 Aug 2025 11:50:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ujzBF-00000000RNb-1Mmc;
+	Thu, 07 Aug 2025 11:53:09 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujz4m-00000000QJO-2qXF
+	id 1ujz80-00000000QiZ-21y4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 11:46:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63940601DB;
-	Thu,  7 Aug 2025 11:46:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8F9BC4CEEB;
-	Thu,  7 Aug 2025 11:46:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754567187;
-	bh=7EcW2IB/Hoo31JQCi+ZPT/KI3YtuMNEtsU4Q0qj9Ds0=;
-	h=Date:From:Subject:To:From;
-	b=VcHSl8IdZT7wDopZTf+iv0npq2wRAQi355OQWzi+WBefsthauEB/DbLwlD3OR7eMb
-	 qmWE2vIqmWgxnXmiGeBhmdGcqfCrusNHHr9rR+6T/WfuPcaQohSOhTMzaLsEAoq6fe
-	 c1SkmJ+zoaOFGp2O2dEY1XH1dZbHyv3lwITplV4osbd7pNMl5eMin9qDneXjCmGPeH
-	 L4TYR+r2dE46kaFcLF8SHzB1zO1J2LWEGjoyEuTybgTd7KGRii/4L9i0VpOkct8V8r
-	 Ynxso2jBXIIZkVgx4ANEaShHYW+K3dgLSPHzv3y1Kk/0LS9uwH04awKsl/9Siu10AF
-	 MqUWPQSz877KA==
-Message-ID: <8c59ef9a-7b5c-4fec-b630-ac84218ed955@kernel.org>
-Date: Thu, 7 Aug 2025 13:46:18 +0200
+	Thu, 07 Aug 2025 11:49:50 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5779orbi011575;
+	Thu, 7 Aug 2025 13:49:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=frNa2nBmhsFWjChnvqTYWM
+	GE1qrm7ecsPfV2Lh8SkAY=; b=1SEAdqomI6QeZCcCa/1A9G2A0MPtbf3ABTp7TG
+	nHaKWPw7ZTirAUS+EDyu/dL8FvPSg4bnlT/LBNNMQNGcS367UJwFHrA2W2p9wEwd
+	1j/GEvh1GBB9zprn1d7I4XB86LKjfOhCmVRvNYwY8t5IDtbgxkOoFBqBM2qwg5B5
+	+Dkzh+8NOZS4YNul6LWVP/JBfP114Hdl3pCfHWfjSvwQVOu0hmSFzNBm2iI1LEbB
+	RyI39NhXp0QRVkzkBswGJvI0GixmrJeNuYWMVLuo2SnfDV9ljyoZY4+iUcM8R/70
+	0HLsloN2j5JDi9TexUo7kZcbQX9gHXOCJ+Xh0haVEjypPZEA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48c7mcutra-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 07 Aug 2025 13:49:25 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id B0E4140048;
+	Thu,  7 Aug 2025 13:48:36 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 16AEA71FDA0;
+	Thu,  7 Aug 2025 13:48:14 +0200 (CEST)
+Received: from localhost (10.130.77.120) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Aug
+ 2025 13:48:13 +0200
+From: Christian Bruel <christian.bruel@foss.st.com>
+To: <maz@kernel.org>, <tglx@linutronix.de>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <fabrice.gasnier@foss.st.com>, <mani@kernel.org>,
+        Christian Bruel
+	<christian.bruel@foss.st.com>
+Subject: [PATCH] irqchip: gic-v2m: Handle multiple MSI base IRQ mis-alignment
+Date: Thu, 7 Aug 2025 13:47:58 +0200
+Message-ID: <20250807114759.3966195-1-christian.bruel@foss.st.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [ANNOUNCEMENT / CFP] LPC 2025 Devicetree Microconference CFP
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-To: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- linux-arm-msm <linux-arm-msm@vger.kernel.org>, Rob Herring
- <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- devicetree-compiler@vger.kernel.org, devicetree-spec@vger.kernel.org
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.130.77.120]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-07_02,2025-08-06_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250807_044948_899797_FDB9707C 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,39 +89,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There will be a dedicated Devicetree Microconference on Linux Plumbers
-2025 in December in Tokyo and Call For Papers is currently open.
+The PCI Local Bus Specification (section 6.8.3.4 in Rev 3) allows modifying
+the low-order bits of the MSI Message Data to encode the interrupt number.
+However, the base SPI used for allocation may not be aligned to the
+requested number of irqs.
 
-The Devicetree Microconference focuses on discussing and solving
-problems present in the systems using Devicetree as firmware
-representation. Primarily this will be Linux kernel and U-Boot, but also
-can cover topics relevant to Zephyr or System Devicetrees.
+For instance, on STM32MP25 with an initial MSI_TYPER base SPI of 0x16A,
+allocating a multiple MSI of size 8 with the first two slots reserved, the
+offset returned is 8, resulting in an MSI DATA base of 0x172.
+This causes the endpoint device to send a wrong interrupt number:
 
-Topics suggested for discussion include, but are not limited to:
-1. DTS validation against DT schema,
-2. Style checking/linting for DTS,
-3. Using the Linux kernel DTS in U-Boot or other projects,
-4. DTB selection on EFI systems like arm64 laptops,
-5. Hot-pluggable hardware with Devicetree overlay,
-6. Common incorrect or problematic patterns of using OF Linux API, e.g.
-impossible to disable unconditional device_init_wakeup().
+1st MSI = 0x172 | 0x0 = 0x172
+2nd MSI = 0x172 | 0x1 = 0x173
+3rd MSI = 0x172 | 0x2 = 0x172 wrongly triggers the 1st MSI
 
-Feel welcomed to bring any other topics I am not aware of. Few more
-ideas for discussions are mentioned on DT MC abstract page:
-https://lpc.events/event/19/sessions/237/
+The alignment offset can be computed in the gicv2m driver:
+replacing bitmap_find_free_region() with bitmap_find_next_zero_area_off()
+to accommodate the required alignment.
 
+Without this fix, the workaround is to force the alignment in the DT
+within the MSI range (if 32 MSIs are mapped from 362 to 393):
+arm,msi-base-spi = <368>
+arm,msi-num-spis = <26>
+with the effect of reducing the number of available MSIs.
 
-CFP ends on: 14th of September 2025
+Change-Id: I316a580755cd1b1684929d2540295f4a45f0532d
+Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
+---
+ drivers/irqchip/irq-gic-v2m.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
-Proposals can be submitted here:
-
-https://lpc.events/event/19/abstracts/
-
-
-This email has a list of people in Bcc. It is far from being complete,
-so feel free to forward it further.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/irqchip/irq-gic-v2m.c b/drivers/irqchip/irq-gic-v2m.c
+index 24ef5af569fe..21a14d15e7a9 100644
+--- a/drivers/irqchip/irq-gic-v2m.c
++++ b/drivers/irqchip/irq-gic-v2m.c
+@@ -153,14 +153,18 @@ static int gicv2m_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+ {
+ 	msi_alloc_info_t *info = args;
+ 	struct v2m_data *v2m = NULL, *tmp;
+-	int hwirq, offset, i, err = 0;
++	int hwirq, i, err = 0;
++	unsigned long align_mask = (1 << get_count_order(nr_irqs)) - 1;
++	unsigned long align_off, offset;
+ 
+ 	spin_lock(&v2m_lock);
+ 	list_for_each_entry(tmp, &v2m_nodes, entry) {
+-		offset = bitmap_find_free_region(tmp->bm, tmp->nr_spis,
+-						 get_count_order(nr_irqs));
+-		if (offset >= 0) {
++		align_off = tmp->spi_start & info->desc->pci.msi_attrib.multiple;
++		offset = bitmap_find_next_zero_area_off(tmp->bm, tmp->nr_spis, 0,
++							nr_irqs, align_mask, align_off);
++		if (offset < tmp->nr_spis) {
+ 			v2m = tmp;
++			bitmap_set(v2m->bm, offset, nr_irqs);
+ 			break;
+ 		}
+ 	}
+-- 
+2.34.1
 
 
