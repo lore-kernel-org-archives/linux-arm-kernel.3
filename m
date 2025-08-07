@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0E8C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:32:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1461EC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 06:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vUfnPMjh3ORlMC99kXhouUlL3mdR5KwSI8789NU/fZU=; b=g4eOCYpWyMwKDIK7xINccA5q9K
-	orAWpABllu/zCYYnVJay+xTsA6qQ5p3PhsAYvd1TMcuXWm+uJ9Wd0w/8bAWVQSnzVCboK5e89gLOb
-	qyR17mcndQFL4pdOdP99UOPCZ88K+RnhYmpu/Vbkg7zj/exLoQCC6bwxampri81oeRjDSIxQqx9rR
-	fiKU41ETFsR+zr5MieH2XcnDJpGByV1mxGMhW0CyRxaKrROkNlP/TXNLvuNxqowgFz+h7sKv++ao2
-	Y+5euiHETUNK9A37xrLIWVPvaT1eYnRB3C1+9EVcEmbwz3Xa8bMLQWQ3YY6TW7iCpZIpqtEl+98kP
-	ANZYOhvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o4Ha1FVFN2uUU+67c9KnfECEJZ9OCvPmJ/d97dfxDMA=; b=nmjykKXAuRSzTwXUQRL9iBJ6rV
+	drWvzhfKt1Chehqcq/7AHErbmkKQe/+fiqtpFA2nS76/wwRgq+wM0sSUyrR6t85BmT4DkIKh8juRS
+	bhig39nFtDpWtjyfaowyt2bUjF6fsDqqYjkCaWhJuqaE/RjFuapqei2zB8TaIf6SZD8weUhY2XBhp
+	nlGy3t8aF5mMGg42pu7ULUZyKx/1yk5s0IZ+HazklOdto+yfbLE2cyHU4wsRj96Kpxb1sMofwwdTm
+	TxUHsW4M44M1d6Q7gAPtGxIjx19KDktZ9RTHkUrvmUMc5e8cr+y3Qjq+jGyO4KlAlgpHcHqmBkzS1
+	c5NgKSmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujuAw-0000000HNTs-2Zrp;
-	Thu, 07 Aug 2025 06:32:30 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1ujuDR-0000000HNh3-03Js;
+	Thu, 07 Aug 2025 06:35:05 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uju8Q-0000000HNJy-1pI2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 06:29:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754548195; x=1786084195;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=y34S+d8WZvm8Zu/5uu6eGoIVsdJ8ZWOUIyg7hIYg0Oc=;
-  b=mgrb8SpzG5ckjXFjY/BnjiEr5I/HFMTqMBKjdQP3Q+WcZyyctoJ/O9Gr
-   RlBPpyHJneOlQ/d9ptYIly5KkTrzyfmrTm4wgjxxmZCTwWFYIoCHiPN/S
-   bGWn/7NPmL75VQgbd/u+hnbSyw6XqNci6hemiGcLOoLIFJsT0Vj++ctnM
-   Uqd8PoJHG0Jz3Id5babf7KpPGyAx2jNc31wihT2PQIfrPwLsBxo6BR9PF
-   Y0GzifTN78ZYAb3FlKbL8G9EkCFyywx6JKaBidXrHP8uSr6NEQJBxbaNC
-   WrNsAEeJo2u80wEgAlwpld6DbuToDQg1HID0xnr1LunHJiSqfzGX69Z5h
-   w==;
-X-CSE-ConnectionGUID: e2ZISS+1SSCO4Z3c5jgjXQ==
-X-CSE-MsgGUID: TzjBL8zORHGtiLa0MAXW6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="82319863"
-X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
-   d="scan'208";a="82319863"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2025 23:29:51 -0700
-X-CSE-ConnectionGUID: ae0tlmdAS4mx/bpdpuY/HA==
-X-CSE-MsgGUID: 6FS3vc4qThSbwOi4C3rrYg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
-   d="scan'208";a="165391496"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by fmviesa008.fm.intel.com with ESMTP; 06 Aug 2025 23:29:49 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uju8J-0002Sg-0a;
-	Thu, 07 Aug 2025 06:29:47 +0000
-Date: Thu, 7 Aug 2025 14:29:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:hack/arch_timer_mmio 4/5]
- drivers/clocksource/arm_arch_timer.c:1083:34: warning: 'arch_timer_of_match'
- defined but not used
-Message-ID: <202508071417.nnMhOekL-lkp@intel.com>
+	id 1uju9N-0000000HNOZ-1xQl;
+	Thu, 07 Aug 2025 06:30:55 +0000
+Received: from amadeus-Vostro-3710.lan (unknown [119.122.212.7])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1e971c1a0;
+	Thu, 7 Aug 2025 14:30:44 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: ziyao@disroot.org
+Cc: amadeus@jmu.edu.cn,
+	conor+dt@kernel.org,
+	cristian.ciocaltea@collabora.com,
+	detlev.casanova@collabora.com,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	jonas@kwiboo.se,
+	kishon@kernel.org,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	neil.armstrong@linaro.org,
+	shresthprasad7@gmail.com,
+	vkoul@kernel.org
+Subject: Re: [PATCH v5 5/6] phy: rockchip: naneng-combphy: Add RK3528 support
+Date: Thu,  7 Aug 2025 14:30:36 +0800
+Message-Id: <20250807063036.480766-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250728102947.38984-7-ziyao@disroot.org>
+References: <20250728102947.38984-7-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a98833990b803a2kunm2e2160d534958b
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZS09DVh0dSRhNTU1NTE9IQlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKSVVMWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09LVUpLS1VLWQ
+	Y+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_232954_485407_A317BD96 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250806_233053_695435_6455DAB6 
+X-CRM114-Status: UNSURE (   4.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/arch_timer_mmio
-head:   4b341bbc18d791b6c5a6bc373d303c4d3b35434a
-commit: d094e2d0772b8f22c47c9d3e7ab908c82ade83bf [4/5] clocksource/drivers/arm_arch_timer_mmio: Switch over to standalone driver
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20250807/202508071417.nnMhOekL-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250807/202508071417.nnMhOekL-lkp@intel.com/reproduce)
+Hi,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508071417.nnMhOekL-lkp@intel.com/
+> Rockchip RK3528 integrates one naneng-combphy that is able to operate in
+> PCIe and USB3 mode. The control logic is similar to previous variants of
+> naneng-combphy but the register layout is apperantly different from the
+> RK3568 one.
 
-All warnings (new ones prefixed by >>):
+Is this a typo? apperantly -> apparently
 
->> drivers/clocksource/arm_arch_timer.c:1083:34: warning: 'arch_timer_of_match' defined but not used [-Wunused-const-variable=]
-    1083 | static const struct of_device_id arch_timer_of_match[] __initconst = {
-         |                                  ^~~~~~~~~~~~~~~~~~~
+Thanks,
+Chukun
+
+--
+2.25.1
 
 
-vim +/arch_timer_of_match +1083 drivers/clocksource/arm_arch_timer.c
-
-8a4da6e36c582f Mark Rutland 2012-11-12  1082  
-220069945b298d Stephen Boyd 2013-07-18 @1083  static const struct of_device_id arch_timer_of_match[] __initconst = {
-220069945b298d Stephen Boyd 2013-07-18  1084  	{ .compatible   = "arm,armv7-timer",    },
-220069945b298d Stephen Boyd 2013-07-18  1085  	{ .compatible   = "arm,armv8-timer",    },
-220069945b298d Stephen Boyd 2013-07-18  1086  	{},
-220069945b298d Stephen Boyd 2013-07-18  1087  };
-220069945b298d Stephen Boyd 2013-07-18  1088  
-
-:::::: The code at line 1083 was first introduced by commit
-:::::: 220069945b298d3998c6598b081c466dca259929 clocksource: arch_timer: Add support for memory mapped timers
-
-:::::: TO: Stephen Boyd <sboyd@codeaurora.org>
-:::::: CC: Daniel Lezcano <daniel.lezcano@linaro.org>
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
