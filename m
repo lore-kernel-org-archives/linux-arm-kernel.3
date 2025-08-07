@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5114C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 00:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86311C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 00:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NfZihU+EHSyexOawfjrlJmQ3o4zHa3J479zkdhz7U7A=; b=UKLogc7tsbHAdobzFj076cJ3uw
-	UnIKF/0SHq0e7IWkJq7ZynV/3w+Jv+p+lg6LS19Or3imfBuDj8ikRXKG4cTOQP/fCip8O4K8kbZ7I
-	GnGvun0y9k+16UoKCajAJHtWlY58HN5KBrjZjxXtsSqQ1IGfjgR/qpRRgZTWpQT5hwH+j2VspWFAH
-	X1G3Ef6TDo9mECjZrN0pIIqOD4S+pHtdJ2+FDDK9qmlilfWPKYDTkXFb6LUHpXWtPJQTrpMwZF8LX
-	6ME3axWuPccJKK2nh1xg2n79F0/cU5jcIq4Mi9tbTTLjlPt7P9vIAEHqIqOFiLBuUpxi0aj2tsWzl
-	QFvckntw==;
+	bh=hjWwcl7tNgcmLA/P++PShJdEX5xVzopDrEaNHCPWoNQ=; b=Un5kEx6m0NXHlv5vQsqGUxTP99
+	e5zSFd+bpeWEjJW/Mzg6tvW3lxSwm1+PFiZZJdArf8G5c7maRS06mtStE6b3IjOH6XbbqxvgZcl85
+	VHNvugmqesjX9ilvAiSGes9z1r/IANwOoYAuJW6B9sQk01+kQJYXoR0J6TLOK9iA9iJ432OqdDNx9
+	KylnMqR/DPX3pRX0kG9N7QModfMiDBBoqHfRqXI1bl9flvrzTVZFAN1o208H2olNQFeFcxkplB6qx
+	f8Q8suLd464Ygpb5vtibIkb20MlfI4AhhUryaDVYl2GeUlCrneBOCqPqmwpjWGO9sv7nBLPe9pC9z
+	e53vS4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujoYC-0000000GvQf-1QWQ;
-	Thu, 07 Aug 2025 00:32:08 +0000
-Received: from mail-dm6nam12on2071d.outbound.protection.outlook.com ([2a01:111:f403:2417::71d] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1ujomb-0000000GwZK-0BsL;
+	Thu, 07 Aug 2025 00:47:01 +0000
+Received: from mail-dm6nam12on2070e.outbound.protection.outlook.com ([2a01:111:f403:2417::70e] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujoVe-0000000Gv6A-3Rqf
+	id 1ujok4-0000000GwJC-0frG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 00:29:32 +0000
+	Thu, 07 Aug 2025 00:44:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QISRCmwsXeWAq8VL+MYYX5sbjhALXJeg7jr7iaZJZbr6updSNvG60WbjRldsZzh76K5HRmB6lTU13YX4W2p7yGOYq3MeipfR+xdQjIt8Gc5XdUx8Uo+eGAHcqlKjSRFwvhCoJhw6d+26tz6KmCM4wuwdalKc9dTpFPRBuN0txzc80ROwvM/qmitT5G5B7MstKj/fbPvyJ7eoAGcDcUCVv487qPKmNoLJXWksRuPOH9QFwQNPZk2VpPkowsDJiRr1HTZt1sYqpoFthkYju41/gXjDhI9rDmajJDI66H4g73yMfxJvNWDGlw7uXf25aEm/6rix0XyI+KLcIcVHiWcWNg==
+ b=OB0Y/MEoNFTwc45GaC0lcHXRBMUtMWf/SyVbAq1GmX+d9PNBZoEPrEUicPh1X72sSOd/L9n45moBbAJ0ibeOKDyctHdYqK0+/a7JVKFgCvqHuxAyaNpUqXjBNOFCMTAxIOF9DRGrawNP5UtyDQEHtvvp4FOJ6JUDZzRp8pTfOAlL9dV0VdUWMJS+8ZPteeyx02kImsf0+19x2XjgyIjuSIUGVxUnH18kOTdPiBXdKK2rXbEmqY6gCM6GuhJC4oXcJQjC52LaIzpQqnEdPgm+bUwDd4ZVVXeNZdbLlCsVN7HnTtgkXQ7y69FpR0ij24ygYXRNrjYeB9CBeMeu2XVpJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NfZihU+EHSyexOawfjrlJmQ3o4zHa3J479zkdhz7U7A=;
- b=JzRPWAJ1iHWPvFKc1HAUaqKgF4juqS2GbjA8/q7aY5jpO9TxccQE22Z73WdrkHxY1T3Gr1/pU+YWo8AQSJDVrgrpPZkm86ZBju5RJB0+K3ft4d+8oO9Y9bpIREt2RxiT1d2F9OJe4/Hh0JkFGIfkWm/Gc0+Tve+/Syk0XbYScsKLpNLeJ3jOcPdJMQxyd/uGvMcBV+dd3IV3jjWGlgs81q9isuZG90uXIQIh7O91FzYa0ZF+g44/zlLXYr+1vA2KLVAZsVqog45HkQ9XL/RRFIp98AviJIblfSJeuEa5si1me8Fi2R6ldtUlZunhqXojMw8xF3PT/A3MXBVearmVnA==
+ bh=hjWwcl7tNgcmLA/P++PShJdEX5xVzopDrEaNHCPWoNQ=;
+ b=k2dssdMlf6mrO+d1ErQaeuwWRSalD7vM7yYFiAXU51QNSDS0N7MpqkN3vsAVgOF6wd9XMVFwbjbPrh+M83w4PkVauGPEXT6J5JI8mvXPybE13Jjweu+L/9ZiQ7TbVq37MDqb8AhuT98uzT7TR56LHY+gmKb5rlv+jUzPWnzNuZchx2RFJVOynr8APlJKEfuInZkCqcsin5onz7rtLtc9oOvlY4pPzX/nuOjZ7LZMDLgALhOsZIXhkMperBYloXtzUChyTg+ZbfJcUfy6sPTxBAY1bsbifh51su159zJphyvnNHcW//7m6BgY8etBlbc72y2sErA01068tedGp4xVQw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,133 +41,133 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NfZihU+EHSyexOawfjrlJmQ3o4zHa3J479zkdhz7U7A=;
- b=qrM508kbIH5vEfxQBYdVv2qJp7/IH4rWHvdYeAUg0lY15U8fFxHthaslLtlww3430OBoMKNgz9oujQSbGvszafYr7o/DlCUCSuHioezM+6/MV/cdQ6JdzJPdAM4bf+6hAhiNZb+I5vdGYtoJO482kWTBU3nNQLq8Zb2I5LIthGw=
+ bh=hjWwcl7tNgcmLA/P++PShJdEX5xVzopDrEaNHCPWoNQ=;
+ b=AsvgfU+aWLWn5aJS6aPUeLTNqcCUS6bzexfTfl7Gun+40lrDOHUoUhbgOHIaxLpU5rqTzSpbUP5FN4Zk8MHu+K61vSx/oro0WcrJqukxe1OXeh6y0IWbbFiFCVUH0qbocgzK18qyDLIBcg1SmNsk4Ogp9KEVl2ESUiA1kzkJT40=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- SA1PR01MB6591.prod.exchangelabs.com (2603:10b6:806:1ab::16) with Microsoft
+ LV2PR01MB7671.prod.exchangelabs.com (2603:10b6:408:174::7) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9009.15; Thu, 7 Aug 2025 00:29:16 +0000
+ 15.20.9009.14; Thu, 7 Aug 2025 00:44:19 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.9009.013; Thu, 7 Aug 2025
- 00:29:16 +0000
-Message-ID: <d564ad05-efda-439d-a9c0-9eba21d4ae90@os.amperecomputing.com>
-Date: Wed, 6 Aug 2025 17:29:12 -0700
+ 00:44:19 +0000
+Message-ID: <e1283b35-dcab-4d0c-a1e0-3ef938fa496a@os.amperecomputing.com>
+Date: Wed, 6 Aug 2025 17:44:16 -0700
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 4/4] arm64: mm: split linear mapping if BBML2
- unsupported on secondary CPUs
+Subject: Re: [PATCH 3/4] arm64: mm: support large block mapping when
+ rodata=full
 To: Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org,
  catalin.marinas@arm.com, akpm@linux-foundation.org, Miko.Lenczewski@arm.com,
  dev.jain@arm.com, scott@os.amperecomputing.com, cl@gentwo.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250805081350.3854670-1-ryan.roberts@arm.com>
- <20250805081350.3854670-5-ryan.roberts@arm.com>
- <6d32bdf5-ccde-4779-a2df-08b6859dbf8e@os.amperecomputing.com>
- <ea41f07b-a758-4944-8b80-37b3f20032c2@arm.com>
+References: <20250724221216.1998696-1-yang@os.amperecomputing.com>
+ <20250724221216.1998696-4-yang@os.amperecomputing.com>
+ <0e86671e-18bb-4f3b-9294-c583299ad49e@arm.com>
+ <e65ed11d-68ef-4b9c-80ad-7e880743b3d3@os.amperecomputing.com>
+ <b2d3e684-e3dc-41b5-9708-ca5926c55ebf@arm.com>
 Content-Language: en-US
 From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <ea41f07b-a758-4944-8b80-37b3f20032c2@arm.com>
+In-Reply-To: <b2d3e684-e3dc-41b5-9708-ca5926c55ebf@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SJ0PR03CA0036.namprd03.prod.outlook.com
- (2603:10b6:a03:33e::11) To CH0PR01MB6873.prod.exchangelabs.com
+X-ClientProxiedBy: SJ0PR03CA0229.namprd03.prod.outlook.com
+ (2603:10b6:a03:39f::24) To CH0PR01MB6873.prod.exchangelabs.com
  (2603:10b6:610:112::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|SA1PR01MB6591:EE_
-X-MS-Office365-Filtering-Correlation-Id: e40eaf06-eb91-469a-67ab-08ddd54970d0
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV2PR01MB7671:EE_
+X-MS-Office365-Filtering-Correlation-Id: 177146ce-b512-43d3-20ee-08ddd54b8b55
 X-MS-Exchange-AtpMessageProperties: SA
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?emJCZ2hvZDd4RE1RZzlsV3NPeUxhWXZwOWpqS0FYSmtHNEVYTU1NdkR0bE1I?=
- =?utf-8?B?ekpQMXp4RWNrWTdPNlF6Vk12ZFhmbDlXK2R2UmIwVDdVVHBDUWpKRTB3Y3VP?=
- =?utf-8?B?N0hlbFdRcVZnd1N1c1JGNUx0bnlLOHI1MklTeTJGWHpNZ2hhcE04RzFabDBy?=
- =?utf-8?B?cDh0TXNFVmpBK1crd0owbHZIR3U3TUdEeURONVVuaThxVUdaY3dzZmNqTDhk?=
- =?utf-8?B?eVdGaFlsb1I1Y2JTbUQ5NTZSeWhsMmtNTVRKMS84alZ5VU5nQ0dIYkhJVktS?=
- =?utf-8?B?ZlZaaElRb3k0WndPM0gxSTlCZjVHbkVqNDZzOWRJVUVYUUlYTjBqYlhZR3kr?=
- =?utf-8?B?WEFVUHB6VTd2QUZQUHJWdnh2M0xzazFwZWk0cjBEa2ZIcGI4b01NYjRUUGl4?=
- =?utf-8?B?MGxINEhjemt2TkJnT0daKzJlQ3l4ajRhQ2V6TWlROE14em1LNG82NGNESC9r?=
- =?utf-8?B?SmQxdmtra2xwRm5FbXl4WWZVaE1rZ0ZuV1BhZHJHYUl1N05mSm56UkdydnlI?=
- =?utf-8?B?WThDeHBoU3lTYlFjMVU1UHBzL3ZmVDNoeG9iOTEvQWVONGg4Y1FCdTJ2MFBh?=
- =?utf-8?B?SVlXRml1SXBZVjM5U2VsMmgrRmJEL2pPc0pEMTFWVHpMWEx4ZFR6OTFkcFBS?=
- =?utf-8?B?enZ5SXJpNDdVMzc1SGVwd2xHbEtvRW4wcmVqTGZzMnRlY0haTjdVWVVUaHlO?=
- =?utf-8?B?MndkR3hBMGN0dDg4ZWdEL2pRMWQ1Q0hoaUFrWDRHTjRBMVVYQTJMS3lHb0hI?=
- =?utf-8?B?c3BFZ2ZsRExDYjJXN3I1UURuK3ZBdUJKRXp0OHRQc3dqdnBMQzN2cnQ2dWNX?=
- =?utf-8?B?bU5Jd0lnRUdNZnBCR1RMWHJGb2FFdHlMN2RNdXAvaGJOdUxGQ0xRUG5ZTjVO?=
- =?utf-8?B?VEFRdWZrcmRFY2tFdnhrV1lsSC9PaGtSb21PM1RXdm5Bb29Pb0NCRm9ZSzBE?=
- =?utf-8?B?aUE1K1JDUXNBOHlSd2VJZS9YaGlPQWM4Uk51b0tnRHRKMDNuSGVwMXJBV3Vo?=
- =?utf-8?B?VVVIV2hKUXNLSzk4YnhmS3lEeHgvREVXWDlEbEN4eENWSXNvY0JyN0hMMzJn?=
- =?utf-8?B?N2s2cFBhL2taUEdLU0lEVEdmZFdkMjB6Vit5ZHF4UjVaOUk2cjFsTmg2SS9o?=
- =?utf-8?B?Zmk3ZVErQitJd210MHJtNzVjRjF1aDhlUFBRWUN1bkR1blM2QTBMTEFRODJL?=
- =?utf-8?B?UzkwaWFFZGZoc3dQOUx1cnJ4YWUxdjNKNDY3S3hkT3ZpWUthakhjWDFjVXpR?=
- =?utf-8?B?U1FzM3dTQkhONDc1cEpoeEkrclVHbmVyOFRzcFNwWWozNDB3ZmZuWlh3aEZC?=
- =?utf-8?B?cjBlK1VlN2RXbEkzdVJGOVNQbVVqNlRmdUhEUWlNMGIvYlU5aGFnZ3czVW90?=
- =?utf-8?B?WnNXU0NMUlNIVU55USs2bWxQS0JwTjBYRGQ1SlNXSVp0ci8vSEF3QTRMcVMz?=
- =?utf-8?B?YjRCTWZIWUpxcHRlVWRhTklmL1dNV1RUVnNXelBzb0ZkQzNZUU52eDR3L0J1?=
- =?utf-8?B?bmtPbUk5S3FlWEhCYUd0ektSWlRsRUpGVFhXL1lHUDB0TGI1WjRBZ0dhTXN3?=
- =?utf-8?B?V0RDdDRhUEd1NmpQdzZqTHFDVUp6azgvKzFnUTZaTkgwSWpDdmQ0OUxxZ3Jr?=
- =?utf-8?B?OG81K01rbTRhdmlZUTgzT2xhNkFTZXlVUzF1V3V2ZVJ0cmYxYmovUlVjdGps?=
- =?utf-8?B?YTNvakROVzRDNU1wd1FFVVF3TFU2M3RrcWdHMk1uWlQ0NGlQOHduQUJMVkNO?=
- =?utf-8?B?S1lUUSsvWmdJKzU4OGJpYVZORjV5M0xqQVRaTGpPM3RDQkEvdnViYUYyS3Iy?=
- =?utf-8?B?QjdMVjEvdmRSZE00cmJLbUVGZ3hLeUdZaHJNTTZ0S3h0dkIxZkRDRTJJQjFa?=
- =?utf-8?B?WWxrbzNwYnpDL1krUGJIbUd5dUd5VG1iTGl3bzNIWFVza09wOUVSMUVKbFZ0?=
- =?utf-8?Q?kSZO+LL9zNw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?d1RNZUhPMjJ4Y0JDM2d4cFBSSzhoNDJYWHVHZmtYSzMwUEdlb0xzck02T012?=
+ =?utf-8?B?ejZUb0dNbWJqQ3d5VncwVXdpVDE0emhweVJDRFBDMVRBS1QvOTBkYmlGNDBE?=
+ =?utf-8?B?UkpTc08wSjNHWWVIdnk2bEdwQUovMVg2MW5sSWluNFI0bHRWK3lpcFphOCtl?=
+ =?utf-8?B?eEhzZGtQdjVyOG50SWFYQ0NDZzNYUnBqbnRwcitXUFUyWmVRSzRaUmFOZG1r?=
+ =?utf-8?B?bldLcUo4WjNDNnhPNW9MUEJsVm1PdDFtZ1ZGK2s3OCtJTTVBeisxQ2JSejhH?=
+ =?utf-8?B?LzI2dHFxNW1xSGdrMVhTVVl1aWxuT3RSaWlXbGtHb2ZMRFRvWlA3VmJXekt5?=
+ =?utf-8?B?Ni9Ecm5HK0daUHhKbmd3U3hMTE4vVStvTkVhdG4rSm9BUm1xYnVtcGhDWHhU?=
+ =?utf-8?B?TExxMWtXL3I2Q3M4cWh0REd6ZEp6OFZvbjBqWEdMbDgxTDBnOWV3ejl2Q1h5?=
+ =?utf-8?B?Zjh5K2pNbkRjMzM4VVlyTWJwRS9ENUxhTTR4T0hySlJLMGpzeWxxZzk2Ynkv?=
+ =?utf-8?B?NkxWUFg4aGNFSzlvbXFLK0hpbVJMOSsweHI3OVkza3RDNkxvV1R5TjMxeUxn?=
+ =?utf-8?B?SU9SdlNDejE3MGZmVG82Q2xOdC9CeUFRTVpyLzBGUTMzSEFuSkRuR1pkTllF?=
+ =?utf-8?B?cllZUEtGbDZDNFhCdHpwV3NvTHMycm95b0FEcVBNRjltS3k1MnQzT1dndlVR?=
+ =?utf-8?B?VzFRTUFoRU9mNjRkY2F1MXdZT2piN3BXVmFkZk9yRmJvaGlpR3Y3Qzd3bEVq?=
+ =?utf-8?B?WVcvNkYwZDRScDRjWmNQeU5iTXNGWlRHOCtmT0N5dmRSZFdYVUlVa1pDL0tt?=
+ =?utf-8?B?bm9yVTkvVmRVVjFadHdwaWFpNlRNOUVOemI1QjhIRFV3a0p3MUtEZlk3NDBG?=
+ =?utf-8?B?djNuV3ZyVEhMNEtQQ2ZuWXlINHYxclYxUCt3MUl1Wlp6M1UvVDN5aC9XRmlw?=
+ =?utf-8?B?ZFRIZUdJdWlEakZKN3M0THZPZ0g3cXMrTyt6aWkxbzhqbGh1enczcUtxOG1Y?=
+ =?utf-8?B?bXl6RlY3bDFiWklnU1VwdUdnUlRYRHcxWGdrZHZBYm03VU5EMWFrM3cvRnpE?=
+ =?utf-8?B?UStKakVhSkNwclFMUTJSTWlEcHpKMWlMRXp3YTVTQlVOYUtYN2hGTHlMdjBF?=
+ =?utf-8?B?WjBDTDZEQU85djVUQm5ucE9KdlhNQldYbHM4RGNvM2FMMXB5YmlQQ0xpOGZu?=
+ =?utf-8?B?N09ndVhOQ1A5UWxaSEMwOEwxYXMyK1AvSVNBTDIvTFN3bnFjVzdvQkRVMGRp?=
+ =?utf-8?B?b3BxTW1UeGpPTWZTcVd3UUsrRTJMU0lveGFXU2N6YmQrTmVJaFl6eVpOckxk?=
+ =?utf-8?B?bkU2WmFROUZqR0Z6ZzFHenZFRVlLVXZxeUdNbHRhRzJPdys2OW1iaCt4MnRW?=
+ =?utf-8?B?Y3YwVXQvRGswdGY3NnY5dmMzaXZhWG5vYS9RdHBqRmlVTlA0bzgvK2RjWmEx?=
+ =?utf-8?B?UXNyK2JiUjRiS1hINDdZWlBlZUpYbVRwejBLRXRGcWNsaytKK1NSZDRPbkNS?=
+ =?utf-8?B?SXJaSkdQNVJEdWhjamZzcVFsSXZGU25YYUlmYnBwZ1EzYkloOHZsMFh4Ym4r?=
+ =?utf-8?B?OFR5eVVLTkd2aWt6N2VaUGlqMzh2K0wrTFdRekZuUWpoK1VBeEhiM3V4dHdV?=
+ =?utf-8?B?dkZwY2wrMDBzTlVONGJmb0p2b2lvelZFM3B6b245ZEZ3SFpZS3hUUXpzcXRI?=
+ =?utf-8?B?VS92b21oajZaL2RWZ2g3TmkyTjlMdi8reFhSZWJ4cUI2Zk5GdWNSNWlTQ055?=
+ =?utf-8?B?Y0xpSlpQY1RUUTBuOG1jWG85QiswWStsZVduVWM4YjR4dkhlVzQ0SHRXdTJj?=
+ =?utf-8?B?VGIzVkUyQW1LelRKakRCa2hyQVpickVXYVl2OUNtbnlxc0RDR0pTSDhObWJB?=
+ =?utf-8?B?aitpbUN1Z3ZxWEdVTEdHN0MweGw0V2NRazlPZElST1U5Y0E9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDZTekI0K3FQMFRualA0dTlpVGpGcFd4SFRSd2Z0YTJhQTFwN0hxZnF0V1Bv?=
- =?utf-8?B?b3BwbVZvTEJkcE1iQnN2N0ZwY3c3WmVQM0tnWnE5eHhUdHY5Y3F4czhPbEx2?=
- =?utf-8?B?UkhWMUI4amJMYTRuVTV5Q29lZE9qc0NQRVQwaG5aaUtJUy9pbzF0MUJFZ1Av?=
- =?utf-8?B?MzBRcnZZM3E1aU1PUHdjcnM4dVFqOVNzTDhlbEdQYllQSUoraE5mamhDZkhN?=
- =?utf-8?B?OFdlRjBqNnpvUFdrMm56S1laTFhHOHlPaHllSmtGaTdGVXppWExVQzdOa09W?=
- =?utf-8?B?bGlPczFRT1JiZ3dLejhZaVd1b29VQ0pzZGJXK0xaY0hpWmpHNXQ4ZHNUSllE?=
- =?utf-8?B?d0p3aVIydDMrTGF6THlHZ1VlY21zVm5CaG9XZC9oQ0I5b09sV1F0SGtWZlBi?=
- =?utf-8?B?WEdzc1dKR0JuU1ozRGFmSlFzbTVuYnNWZno3Z2lFWktjZVFMVGN1UTZBVGZs?=
- =?utf-8?B?VVRlSi9FU0FhZWE3THpKMTdQa2Vrc3VveVQ5K1hPT2xUV0hDazhBMnBoZEM1?=
- =?utf-8?B?OURJWkxyNXN3azhuQ0lrV3hoVHl0K1RscWFrQkp3ajNzcTZaMGdVYlZGNjlu?=
- =?utf-8?B?cHhqTC9idzV3cVVlTzRHaEFCekFpczBOSHgwUGkxSXBiZ1RNU1lCazh0bWJv?=
- =?utf-8?B?bVhucUMvT1FNQkxoc2hxUHJnWnFma1d4ekNsOXQxeVVKY0c0ZWtUdG0wYXlF?=
- =?utf-8?B?dnZ5RXJqM0w4ZzdmNVZUdWdIWjhMak9aVTRNK2tHNHAyejdaMHVPcHJDMWtZ?=
- =?utf-8?B?d0FYNTlkR01DYjFCRlphaVJWRHQyZGMweEYyaGZ6NHBFcnR2M1dTY1hyZ3Bp?=
- =?utf-8?B?YzE2MkVHd1BuQXA5VGhuR29ZVWRBWjZ6UXJSM2ZicFUyZ0QyM0NMSzJxa3Iy?=
- =?utf-8?B?cDY2b2dhNnhhT0xFeklpaEpjWW5rV0h4Q2E4bEN3d0NIWWJCOXJUTXhIYWVP?=
- =?utf-8?B?bXMyS2dBWXVweW5ZUFM1VlM2NUd3VlQ3TFFvNGU4cTFaQlF4QlcyTHFoUWJX?=
- =?utf-8?B?ei92OVNSeUZNUGZobmhIR1VDSVgrT3pZNGpPSTJYcFlRbzJTMjJkeVowNHdx?=
- =?utf-8?B?SENOU042UWx6SWhBbWMzejdZY3REMTRrYkNKNWVwa0FvcFFlbU1BQ2NxSXEr?=
- =?utf-8?B?aXRqVDQrUTNIamRPc3JNMnFienN4cWZxQVlhUTV6aytWOXN2ZytWeFlaR2wz?=
- =?utf-8?B?MzRtMWQvZEIzZ3hCM2JzN00wNm5vbzBPQ2JRdlBrTGdxbFV3M09JVnlGakRD?=
- =?utf-8?B?OWlGKytvRWh0MzQ1SlBMQWl3TERQMGhNeXpUd1ZtY2tEK0NZMXhzTGJWdjFQ?=
- =?utf-8?B?YVVOV0p1Z1FZQWlDdzRiK3l0TFBwUDhHTThScHp6dmdBajlmaFJQUzlxU0ln?=
- =?utf-8?B?QUtrVWM2YllVZHVSRUlJWFRIb3RrcFB4ZXk3M3lUZEE2eU5uSzgwWXNibmNm?=
- =?utf-8?B?NGUrRjZmUVphR3ZLTWhIL3NuS2ZpOTFMUHd2dDcva1hlL3JUUEN0ZnEyOWVW?=
- =?utf-8?B?SWtDMVVnYTFjS0FZK1pxWTl5cWEvVW1DLy9XK1Q3dlpOa2tlOWN5eFJ2SWV6?=
- =?utf-8?B?d3dndzNkLy9HNXRyZGlYT2swa3RtalcyMVZUTWdKc1dDM1dYdzE4TmRoT2hH?=
- =?utf-8?B?em1rNDJEcGhyMERYZmhnS2poSzh3QTVMU2k2WW4xWkM3MFZsblVkdDdsV1Fs?=
- =?utf-8?B?eEZWa3l5YTZ5U3gxY3VrSE92WVZybzJsb3h0Zk1sYng1UlVvcnJyT0psblhN?=
- =?utf-8?B?VEFHMTlvRjdRQStCWTVVYkR2MVpjK3BLQk1QSmkzM3V6RlV6R0cwRUo5bi9U?=
- =?utf-8?B?NWRSSWdIYWhqa1E3bUVHUTRSVk5IbDE1cU01Mm03OUljd2JIK1lhTkNscWJh?=
- =?utf-8?B?S1pQYVArNVBuSEhZSG40Tnk0M3djcU9vd1U5anZia1NPSEZqdG9vd3MwN0Jw?=
- =?utf-8?B?MnVaRnFjeTJmcU44dzRpQ1daazVwd0JlS2hqM1JBNEJaM3dYb1ZSTFBSWFd6?=
- =?utf-8?B?b2dhbHM3WThycmtRS2tWWjh6cU0zR2tiekFjeVYvRWEyS094YnhiVXpTbHNZ?=
- =?utf-8?B?YWc3aFlXSG0rVjhKU2hxM2xhT0o0VjZXcmVyNnphWFhhMHJ0VVJVR05ZUmU4?=
- =?utf-8?B?QWlaZFI0Z05NajJsRFd5UTltb29GdDY1T2pYUkdRNGdpaEExY25LNzVublRj?=
- =?utf-8?Q?/038xnSSfMoaKI1WfPGnoJ0=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bzBGOGExVmV3WXdxeDZUd3dudTJwYTJnd2RkTWNOUWpvRzBYRVh0ejVBb2Ja?=
+ =?utf-8?B?WDlveEFXMUphUGNhYVFaYjJ6eTJBN0s2bXdJYW5FdkxsdVA0UjVkWGdHS1Na?=
+ =?utf-8?B?QUMwejlxTEpXVkVBbEgzeXh5QzY4UGNGVTB0TGJtcENaQ0h3dEtaWXI5eTAx?=
+ =?utf-8?B?N0xhcHUzVmNwbXA1aG8wUHNHbnB2ZTc5WWFNRFNSaGsreDdVZlEwTG5ZQ3U2?=
+ =?utf-8?B?WFNidDVzaXMrSmZvMGVKNW5NVjU1Wkp3eXgvZitPcTVrQk9ydTM1MjhWNkwr?=
+ =?utf-8?B?dnBIcnJDYys2OFNIUFJOUmJEVEJWd0gvN0xoTVRlYU5jWEVXaU4xVmVMUmdV?=
+ =?utf-8?B?SEo0K1JPSWtldExkd2lqRitTa3hiSjAyV0pTaUMzN2VvY3JrbkJCa21heitj?=
+ =?utf-8?B?bWlQekI4cHNwcTh3QXFQRktBa2F1bFVTY3NnaEhjQ3lYM0lVa2N2bUNrbENm?=
+ =?utf-8?B?d04ySnJIT0JOV1NmZ3hiZ1F6Ni9QM0czWmkyS2RJckxubUFpbnBFNjl1RGFG?=
+ =?utf-8?B?eVAzQnZjdkF6OVJFQWxXUG51K1IvSUhJY3A0RXZ1ekJLU1lLRzZ5QVQyVENh?=
+ =?utf-8?B?Z2RPUm5Qa3QyaWdVL21CaEk1bVVuME5HMmE4ZG5KTFlTejA4WThwNDh1dXlo?=
+ =?utf-8?B?cDQ0SC9nR1VlVFliWVJna0Mva2c2a0lqWnk0S2FYanJiRFM3c1VudTNiTVJj?=
+ =?utf-8?B?Z0xDNmp2Mkw5amxhQ0ljWStFUmRuQWZGd0NYbmhBNis4b05RU1QrSlU0Vzdp?=
+ =?utf-8?B?T0Zza2xsazcvY2JDOU1BNWUzSWY5b2dLT0RYSzIzNm9RK1ZLRFZ6TVZsb1ow?=
+ =?utf-8?B?bVFuUUJSaldReVltZGlnZFJXc2JnaFVrcjhHMWxxMHRpMFBSUDFGZnMwV2JE?=
+ =?utf-8?B?TFVNUWRnZGhjRjIvNUFzRFNORTJYMWlPdEc3T2M2UExPNlYrVWNoN1dHdkEy?=
+ =?utf-8?B?RmlvUXhNTUFKa1lRdEhwUjlhdjNKNEs1bEJWRTdwUlpCVmRlVVJyWlBTMGZP?=
+ =?utf-8?B?TENXYzZ6UHJ4NU1HRHQvdnpmMG1jbFp2bTkwS2xuS1pLQjUzUEpHQjFMd0V4?=
+ =?utf-8?B?UWxVYUdzRWFvL3lFQ0Z4RkZKNm1JeXJvZW5PV1JNSDBJMldXTXR0S282ZHVB?=
+ =?utf-8?B?TWx6aW9KckNkd1NHWGZIQVp4RUV4Wm1DSWJxeG1XZWIxWFYxcThaclNKckY1?=
+ =?utf-8?B?OWZzUWc5OHM0MGRHMW9uK2FJak5IOGp0dWFlNWIrdFhLcWxkekNZNTZhYXo0?=
+ =?utf-8?B?TmRtQ1EyTWkzQnpSMUROVXN0bnJnNnRvT0MyWFgzTmFUcGlNSnRVSXFxKy8v?=
+ =?utf-8?B?R0hyNldoblVPZ2N1dmtzRE1WM2tHa1BEajZiOFk3N3kxSHA4OWRrVTA5R00v?=
+ =?utf-8?B?M01nYWp1cytXaExEL0w0M0JsQWhHdzdoNEw3TVlXL1hlWlpzdGhUYkhLcjFa?=
+ =?utf-8?B?MkVNRDlNNFNnbVMxU1pzWnFLY1ZoTHBVV1hnNkx1NE5zRUd1QW4zTVR3aGNm?=
+ =?utf-8?B?cVMrS3UxbC80YVZkRWVFazV3REg4M2YvaXN0M25saHk3RndyNGc3aDluTHFq?=
+ =?utf-8?B?TzFQbXpJNWphZWNTdWFnM0FEOHRCWmFtSDBReDRXZ0JTamVacnExcndNSEpS?=
+ =?utf-8?B?U3lNVmFvUW9rSG1YdURTTHJQM0xkMElZa2NIZ1QwcDlsL1ZhK1dFUnY5UWlU?=
+ =?utf-8?B?Wm90U2Z1L0ptRkkrNDczZ0l5SGxmUVRCak5EZXRPZ3BPRDYzWTVsU205VkZs?=
+ =?utf-8?B?NlZZa25qTjUxU0JHaWNVT1NaTU5iY25zVFc5TE9haXYxN2R2UHdEMzlaNTR5?=
+ =?utf-8?B?RUdRRy9rOGk4YUkwQ3dJdmp5RTNyWk5JRVVnQSs0SnZ0UzhwVkdNc1lNM1VI?=
+ =?utf-8?B?cVR3YytITU5QQXpFczFpbG8zekVkMkFmZ2s5NUtHdThWeUdsT2VRZzFQT05D?=
+ =?utf-8?B?Q21GcGxNdkM3WlVQS1BpTlk3UTB3WHpGanJwZlpmc0NLemJURXQzSHBwdjhR?=
+ =?utf-8?B?UXQzYVcrUjVHYURBcDV2SmpkcVMwQ3R2WURlQ2pZb01tWmdqZ01CRkhYakNw?=
+ =?utf-8?B?aWdiKzJqYnpadHVPSjByTE9qUC9yT3lYWW5RQ2R0cXR3ZHJwd3VVM0ZyNk1G?=
+ =?utf-8?B?OHlaTGhPdlBqRlRRQnJpT3BYN1BkSjJsVm1DSzhFcjVEZ1JZUTJxOEh6akJl?=
+ =?utf-8?Q?sarjYnV7mSWHMgmnCaJ5jz8=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e40eaf06-eb91-469a-67ab-08ddd54970d0
+X-MS-Exchange-CrossTenant-Network-Message-Id: 177146ce-b512-43d3-20ee-08ddd54b8b55
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2025 00:29:16.0554
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2025 00:44:19.6609
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jAVERKnLSOIh8RrSg0OAbanAV7mtyEpEE8NZ6gnT2VMNsdASCTZ8Ddey553guX4KXOIWJMFme/TlLjsi1T0u3zcH2K1SMBUt46URFTQ9ba0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB6591
+X-MS-Exchange-CrossTenant-UserPrincipalName: +kbXiei7pZZaF6QIELJpeJPg2lFSd70Y1TkEQ6ifIi9nwB/Aa2VhLpobNS4o2kXojTUtEVPbwYQAkrjF0vTY8CfgzWoc6ixAmGAZ45airus=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_172930_913528_CE6FB6AC 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20250806_174424_201920_81E842C6 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,485 +184,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 8/6/25 1:15 AM, Ryan Roberts wrote:
-> On 05/08/2025 19:14, Yang Shi wrote:
->>
->> On 8/5/25 1:13 AM, Ryan Roberts wrote:
->>> From: Yang Shi <yang@os.amperecomputing.com>
->>>
->>> The kernel linear mapping is painted in very early stage of system boot.
->>> The cpufeature has not been finalized yet at this point. So the linear
->>> mapping is determined by the capability of boot CPU only.  If the boot
->>> CPU supports BBML2, large block mappings will be used for linear
->>> mapping.
->>>
->>> But the secondary CPUs may not support BBML2, so repaint the linear
->>> mapping if large block mapping is used and the secondary CPUs don't
->>> support BBML2 once cpufeature is finalized on all CPUs.
->>>
->>> If the boot CPU doesn't support BBML2 or the secondary CPUs have the
->>> same BBML2 capability with the boot CPU, repainting the linear mapping
->>> is not needed.
->>>
->>> Repainting is implemented by the boot CPU, which we know supports BBML2,
->>> so it is safe for the live mapping size to change for this CPU. The
->>> linear map region is walked using the pagewalk API and any discovered
->>> large leaf mappings are split to pte mappings using the existing helper
->>> functions. Since the repainting is performed inside of a stop_machine(),
->>> we must use GFP_ATOMIC to allocate the extra intermediate pgtables. But
->>> since we are still early in boot, it is expected that there is plenty of
->>> memory available so we will never need to sleep for reclaim, and so
->>> GFP_ATOMIC is acceptable here.
->>>
->>> The secondary CPUs are all put into a waiting area with the idmap in
->>> TTBR0 and reserved map in TTBR1 while this is performed since they
->>> cannot be allowed to observe any size changes on the live mappings.
->>>
->>> Co-developed-by: Ryan Roberts <ryan.roberts@arm.com>
->>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->>> ---
->>>    arch/arm64/include/asm/mmu.h   |   3 +
->>>    arch/arm64/kernel/cpufeature.c |   8 ++
->>>    arch/arm64/mm/mmu.c            | 151 ++++++++++++++++++++++++++++++---
->>>    arch/arm64/mm/proc.S           |  25 +++++-
->>>    4 files changed, 172 insertions(+), 15 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
->>> index 98565b1b93e8..966c08fd8126 100644
->>> --- a/arch/arm64/include/asm/mmu.h
->>> +++ b/arch/arm64/include/asm/mmu.h
->>> @@ -56,6 +56,8 @@ typedef struct {
->>>     */
->>>    #define ASID(mm)    (atomic64_read(&(mm)->context.id) & 0xffff)
->>>    +extern bool linear_map_requires_bbml2;
->>> +
->>>    static inline bool arm64_kernel_unmapped_at_el0(void)
->>>    {
->>>        return alternative_has_cap_unlikely(ARM64_UNMAP_KERNEL_AT_EL0);
->>> @@ -72,6 +74,7 @@ extern void create_pgd_mapping(struct mm_struct *mm,
->>> phys_addr_t phys,
->>>    extern void *fixmap_remap_fdt(phys_addr_t dt_phys, int *size, pgprot_t prot);
->>>    extern void mark_linear_text_alias_ro(void);
->>>    extern int split_kernel_leaf_mapping(unsigned long addr);
->>> +extern int linear_map_split_to_ptes(void *__unused);
->>>      /*
->>>     * This check is triggered during the early boot before the cpufeature
->>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>> index f28f056087f3..11392c741e48 100644
->>> --- a/arch/arm64/kernel/cpufeature.c
->>> +++ b/arch/arm64/kernel/cpufeature.c
->>> @@ -85,6 +85,7 @@
->>>    #include <asm/insn.h>
->>>    #include <asm/kvm_host.h>
->>>    #include <asm/mmu_context.h>
->>> +#include <asm/mmu.h>
->>>    #include <asm/mte.h>
->>>    #include <asm/hypervisor.h>
->>>    #include <asm/processor.h>
->>> @@ -2013,6 +2014,12 @@ static int __init __kpti_install_ng_mappings(void
->>> *__unused)
->>>        return 0;
->>>    }
->>>    +static void __init linear_map_maybe_split_to_ptes(void)
->>> +{
->>> +    if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort())
->>> +        stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
->>> +}
->>> +
->>>    static void __init kpti_install_ng_mappings(void)
->>>    {
->>>        /* Check whether KPTI is going to be used */
->>> @@ -3930,6 +3937,7 @@ void __init setup_system_features(void)
->>>    {
->>>        setup_system_capabilities();
->>>    +    linear_map_maybe_split_to_ptes();
->>>        kpti_install_ng_mappings();
->>>          sve_setup();
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index f6cd79287024..5b5a84b34024 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -27,6 +27,7 @@
->>>    #include <linux/kfence.h>
->>>    #include <linux/pkeys.h>
->>>    #include <linux/mm_inline.h>
->>> +#include <linux/pagewalk.h>
->>>      #include <asm/barrier.h>
->>>    #include <asm/cputype.h>
->>> @@ -483,11 +484,11 @@ void create_kpti_ng_temp_pgd(pgd_t *pgdir, phys_addr_t
->>> phys, unsigned long virt,
->>>      #define INVALID_PHYS_ADDR    -1
->>>    -static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->>> +static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->>>                           enum pgtable_type pgtable_type)
->>>    {
->>>        /* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->>> -    struct ptdesc *ptdesc = pagetable_alloc(GFP_PGTABLE_KERNEL & ~__GFP_ZERO,
->>> 0);
->>> +    struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
->>>        phys_addr_t pa;
->>>          if (!ptdesc)
->>> @@ -514,9 +515,9 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
->>>    }
->>>      static phys_addr_t
->>> -try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
->>> +try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
->>>    {
->>> -    return __pgd_pgtable_alloc(&init_mm, pgtable_type);
->>> +    return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
->>>    }
->>>      static phys_addr_t __maybe_unused
->>> @@ -524,7 +525,7 @@ pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
->>>    {
->>>        phys_addr_t pa;
->>>    -    pa = __pgd_pgtable_alloc(&init_mm, pgtable_type);
->>> +    pa = __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
->>>        BUG_ON(pa == INVALID_PHYS_ADDR);
->>>        return pa;
->>>    }
->>> @@ -534,7 +535,7 @@ pgd_pgtable_alloc_special_mm(enum pgtable_type pgtable_type)
->>>    {
->>>        phys_addr_t pa;
->>>    -    pa = __pgd_pgtable_alloc(NULL, pgtable_type);
->>> +    pa = __pgd_pgtable_alloc(NULL, GFP_PGTABLE_KERNEL, pgtable_type);
->>>        BUG_ON(pa == INVALID_PHYS_ADDR);
->>>        return pa;
->>>    }
->>> @@ -548,7 +549,7 @@ static void split_contpte(pte_t *ptep)
->>>            __set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
->>>    }
->>>    -static int split_pmd(pmd_t *pmdp, pmd_t pmd)
->>> +static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
->>>    {
->>>        pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
->>>        unsigned long pfn = pmd_pfn(pmd);
->>> @@ -557,7 +558,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd)
->>>        pte_t *ptep;
->>>        int i;
->>>    -    pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE);
->>> +    pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
->>>        if (pte_phys == INVALID_PHYS_ADDR)
->>>            return -ENOMEM;
->>>        ptep = (pte_t *)phys_to_virt(pte_phys);
->>> @@ -590,7 +591,7 @@ static void split_contpmd(pmd_t *pmdp)
->>>            set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
->>>    }
->>>    -static int split_pud(pud_t *pudp, pud_t pud)
->>> +static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp)
->>>    {
->>>        pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
->>>        unsigned int step = PMD_SIZE >> PAGE_SHIFT;
->>> @@ -600,7 +601,7 @@ static int split_pud(pud_t *pudp, pud_t pud)
->>>        pmd_t *pmdp;
->>>        int i;
->>>    -    pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD);
->>> +    pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
->>>        if (pmd_phys == INVALID_PHYS_ADDR)
->>>            return -ENOMEM;
->>>        pmdp = (pmd_t *)phys_to_virt(pmd_phys);
->>> @@ -688,7 +689,7 @@ int split_kernel_leaf_mapping(unsigned long addr)
->>>        if (!pud_present(pud))
->>>            goto out;
->>>        if (pud_leaf(pud)) {
->>> -        ret = split_pud(pudp, pud);
->>> +        ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL);
->>>            if (ret)
->>>                goto out;
->>>        }
->>> @@ -713,7 +714,7 @@ int split_kernel_leaf_mapping(unsigned long addr)
->>>             */
->>>            if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->>>                goto out;
->>> -        ret = split_pmd(pmdp, pmd);
->>> +        ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL);
->>>            if (ret)
->>>                goto out;
->>>        }
->>> @@ -738,6 +739,112 @@ int split_kernel_leaf_mapping(unsigned long addr)
->>>        return ret;
->>>    }
->>>    +static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->>> +                   unsigned long next, struct mm_walk *walk)
->>> +{
->>> +    pud_t pud = pudp_get(pudp);
->>> +    int ret = 0;
->>> +
->>> +    if (pud_leaf(pud))
->>> +        ret = split_pud(pudp, pud, GFP_ATOMIC);
->>> +
->>> +    return ret;
->>> +}
->>> +
->>> +static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->>> +                   unsigned long next, struct mm_walk *walk)
->>> +{
->>> +    pmd_t pmd = pmdp_get(pmdp);
->>> +    int ret = 0;
->>> +
->>> +    if (pmd_leaf(pmd)) {
->>> +        if (pmd_cont(pmd))
->>> +            split_contpmd(pmdp);
->>> +        ret = split_pmd(pmdp, pmd, GFP_ATOMIC);
->>> +    }
->>> +
->>> +    return ret;
->>> +}
->>> +
->>> +static int split_to_ptes_pte_entry(pte_t *ptep, unsigned long addr,
->>> +                   unsigned long next, struct mm_walk *walk)
->>> +{
->>> +    pte_t pte = __ptep_get(ptep);
->>> +
->>> +    if (pte_cont(pte))
->>> +        split_contpte(ptep);
->>> +
->>> +    return 0;
->>> +}
->> IIUC pgtable walker API walks the page table PTE by PTE, so it means the split
->> function is called on every PTE even though it has been split. This is not very
->> efficient. But it may be ok since repainting is just called once at boot time.
-> Good point. I think this could be improved, while continuing to use the walker API.
+On 8/6/25 12:20 AM, Ryan Roberts wrote:
+> On 05/08/2025 19:53, Yang Shi wrote:
 >
-> Currently I'm splitting leaf puds to cont-pmds, then cont-pmds to pmds, then
-> pmds to cont-ptes then cont-ptes to ptes. And we therefore need to visit each
-> pte (or technically 1 in 16 ptes) to check if they are cont-mapped. I did it
-> this way to reuse the existing split logic without modification.
+> [...]
 >
-> But we could provide a flag to the split logic to tell it to "bypass split to
-> cont-pte" so that we then have puds to cont-pmds, cont-pmds to pmds and pmds to
-> ptes. And in that final case we can avoid walking any ptes that we already split
+>>>> +    arch_enter_lazy_mmu_mode();
+>>>> +    ret = split_pgd(pgd_offset_k(start), start, end);
+>>> My instinct still remains that it would be better not to iterate over the range
+>>> here, but instead call a "split(start); split(end);" since we just want to split
+>>> the start and end. So the code would be simpler and probably more performant if
+>>> we get rid of all the iteration.
+>> It should be more performant for splitting large range, especially the range
+>> includes leaf mappings at different levels. But I had some optimization to skip
+>> leaf mappings in this version, so it should be close to your implementation from
+>> performance perspective. And it just walks the page table once instead of twice.
+>> It should be more efficient for small split, for example, 4K.
+> I guess this is the crux of our disagreement. I think the "walks the table once
+> for 4K" is a micro optimization, which I doubt we would see on any benchmark
+> results. In the absence of data, I'd prefer the simpler, smaller, easier to
+> understand version.
 
-Why do you need to split pud to cont-pmds, then cont-pmds to pmds? Can't 
-we just split pud to pmds for this case?
+I did a simple benchmark with module stressor from stress-ng. I used the 
+below command line:
+stress-ng --module 1 --module-name loop --module-ops 1000
 
-> from pmds because we know they can't be cont-mapped. We can do that with
-> ACTION_CONTINUE when returning from the pmd handler. We would still visit every
-> pte that was already mapped at pte level because we would still need to check
-> for cont-pte. The API doesn't provide a way for us to skip forward by 16 ptes at
-> a time.
-
-Yes, page table walk API advances by one PTE. My implementation can skip 
-forward by 16 ptes. :-)
+It basically loads loop module 1000 times. I saw a slight slowdown (2% - 
+3% slowdown, average time spent in 5 iterations) with your 
+implementation on my AmpereOne machine. It shouldn't result in any 
+noticeable slowdown for real life workloads per the data.
 
 Thanks,
 Yang
 
 >
-> Something like this, perhaps:
->
-> ---8<---
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 5b5a84b34024..f0066ecbe6b2 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -549,7 +549,7 @@ static void split_contpte(pte_t *ptep)
->   		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
->   }
->
-> -static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
-> +static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont_pte)
->   {
->   	pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
->   	unsigned long pfn = pmd_pfn(pmd);
-> @@ -567,7 +567,8 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp)
->   		tableprot |= PMD_TABLE_PXN;
->
->   	prot = __pgprot((pgprot_val(prot) & ~PTE_TYPE_MASK) | PTE_TYPE_PAGE);
-> -	prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-> +	if (to_cont_pte)
-> +		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->
->   	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
->   		__set_pte(ptep, pfn_pte(pfn, prot));
-> @@ -714,7 +715,7 @@ int split_kernel_leaf_mapping(unsigned long addr)
->   		 */
->   		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->   			goto out;
-> -		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL);
-> +		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL, true);
->   		if (ret)
->   			goto out;
->   	}
-> @@ -760,7 +761,8 @@ static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned
-> long addr,
->   	if (pmd_leaf(pmd)) {
->   		if (pmd_cont(pmd))
->   			split_contpmd(pmdp);
-> -		ret = split_pmd(pmdp, pmd, GFP_ATOMIC);
-> +		ret = split_pmd(pmdp, pmd, GFP_ATOMIC, false);
-> +		walk->action = ACTION_CONTINUE;
->   	}
->
->   	return ret;
-> ---8<---
+> Both implementations are on list now; perhaps the maintainers can steer us.
 >
 > Thanks,
 > Ryan
->
->
->> Thanks,
->> Yang
->>
->>> +
->>> +static const struct mm_walk_ops split_to_ptes_ops = {
->>> +    .pud_entry    = split_to_ptes_pud_entry,
->>> +    .pmd_entry    = split_to_ptes_pmd_entry,
->>> +    .pte_entry    = split_to_ptes_pte_entry,
->>> +};
->>> +
->>> +extern u32 repaint_done;
->>> +
->>> +int __init linear_map_split_to_ptes(void *__unused)
->>> +{
->>> +    /*
->>> +     * Repainting the linear map must be done by CPU0 (the boot CPU) because
->>> +     * that's the only CPU that we know supports BBML2. The other CPUs will
->>> +     * be held in a waiting area with the idmap active.
->>> +     */
->>> +    if (!smp_processor_id()) {
->>> +        unsigned long lstart = _PAGE_OFFSET(vabits_actual);
->>> +        unsigned long lend = PAGE_END;
->>> +        unsigned long kstart = (unsigned long)lm_alias(_stext);
->>> +        unsigned long kend = (unsigned long)lm_alias(__init_begin);
->>> +        int ret;
->>> +
->>> +        /*
->>> +         * Wait for all secondary CPUs to be put into the waiting area.
->>> +         */
->>> +        smp_cond_load_acquire(&repaint_done, VAL == num_online_cpus());
->>> +
->>> +        /*
->>> +         * Walk all of the linear map [lstart, lend), except the kernel
->>> +         * linear map alias [kstart, kend), and split all mappings to
->>> +         * PTE. The kernel alias remains static throughout runtime so
->>> +         * can continue to be safely mapped with large mappings.
->>> +         */
->>> +        ret = walk_kernel_page_table_range_lockless(lstart, kstart,
->>> +                        &split_to_ptes_ops, NULL);
->>> +        if (!ret)
->>> +            ret = walk_kernel_page_table_range_lockless(kend, lend,
->>> +                        &split_to_ptes_ops, NULL);
->>> +        if (ret)
->>> +            panic("Failed to split linear map\n");
->>> +        flush_tlb_kernel_range(lstart, lend);
->>> +
->>> +        /*
->>> +         * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
->>> +         * before any page table split operations.
->>> +         */
->>> +        WRITE_ONCE(repaint_done, 0);
->>> +    } else {
->>> +        typedef void (repaint_wait_fn)(void);
->>> +        extern repaint_wait_fn bbml2_wait_for_repainting;
->>> +        repaint_wait_fn *wait_fn;
->>> +
->>> +        wait_fn = (void *)__pa_symbol(bbml2_wait_for_repainting);
->>> +
->>> +        /*
->>> +         * At least one secondary CPU doesn't support BBML2 so cannot
->>> +         * tolerate the size of the live mappings changing. So have the
->>> +         * secondary CPUs wait for the boot CPU to make the changes
->>> +         * with the idmap active and init_mm inactive.
->>> +         */
->>> +        cpu_install_idmap();
->>> +        wait_fn();
->>> +        cpu_uninstall_idmap();
->>> +    }
->>> +
->>> +    return 0;
->>> +}
->>> +
->>>    /*
->>>     * This function can only be used to modify existing table entries,
->>>     * without allocating new levels of table. Note that this permits the
->>> @@ -857,6 +964,8 @@ static inline void arm64_kfence_map_pool(phys_addr_t
->>> kfence_pool, pgd_t *pgdp) {
->>>      #endif /* CONFIG_KFENCE */
->>>    +bool linear_map_requires_bbml2;
->>> +
->>>    static inline bool force_pte_mapping(void)
->>>    {
->>>        bool bbml2 = system_capabilities_finalized() ?
->>> @@ -892,6 +1001,8 @@ static void __init map_mem(pgd_t *pgdp)
->>>          early_kfence_pool = arm64_kfence_alloc_pool();
->>>    +    linear_map_requires_bbml2 = !force_pte_mapping() && can_set_direct_map();
->>> +
->>>        if (force_pte_mapping())
->>>            flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
->>>    @@ -1025,7 +1136,8 @@ void __pi_map_range(u64 *pgd, u64 start, u64 end, u64
->>> pa, pgprot_t prot,
->>>                int level, pte_t *tbl, bool may_use_cont, u64 va_offset);
->>>      static u8 idmap_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->>> __ro_after_init,
->>> -      kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->>> __ro_after_init;
->>> +      kpti_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->>> __ro_after_init,
->>> +      bbml2_ptes[IDMAP_LEVELS - 1][PAGE_SIZE] __aligned(PAGE_SIZE)
->>> __ro_after_init;
->>>      static void __init create_idmap(void)
->>>    {
->>> @@ -1050,6 +1162,19 @@ static void __init create_idmap(void)
->>>                       IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->>>                       __phys_to_virt(ptep) - ptep);
->>>        }
->>> +
->>> +    /*
->>> +     * Setup idmap mapping for repaint_done flag.  It will be used if
->>> +     * repainting the linear mapping is needed later.
->>> +     */
->>> +    if (linear_map_requires_bbml2) {
->>> +        u64 pa = __pa_symbol(&repaint_done);
->>> +
->>> +        ptep = __pa_symbol(bbml2_ptes);
->>> +        __pi_map_range(&ptep, pa, pa + sizeof(u32), pa, PAGE_KERNEL,
->>> +                   IDMAP_ROOT_LEVEL, (pte_t *)idmap_pg_dir, false,
->>> +                   __phys_to_virt(ptep) - ptep);
->>> +    }
->>>    }
->>>      void __init paging_init(void)
->>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->>> index 8c75965afc9e..dbaac2e824d7 100644
->>> --- a/arch/arm64/mm/proc.S
->>> +++ b/arch/arm64/mm/proc.S
->>> @@ -416,7 +416,29 @@ alternative_else_nop_endif
->>>    __idmap_kpti_secondary:
->>>        /* Uninstall swapper before surgery begins */
->>>        __idmap_cpu_set_reserved_ttbr1 x16, x17
->>> +    b scondary_cpu_wait
->>>    +    .unreq    swapper_ttb
->>> +    .unreq    flag_ptr
->>> +SYM_FUNC_END(idmap_kpti_install_ng_mappings)
->>> +    .popsection
->>> +#endif
->>> +
->>> +    .pushsection    ".data", "aw", %progbits
->>> +SYM_DATA(repaint_done, .long 1)
->>> +    .popsection
->>> +
->>> +    .pushsection ".idmap.text", "a"
->>> +SYM_TYPED_FUNC_START(bbml2_wait_for_repainting)
->>> +    /* Must be same registers as in idmap_kpti_install_ng_mappings */
->>> +    swapper_ttb    .req    x3
->>> +    flag_ptr    .req    x4
->>> +
->>> +    mrs     swapper_ttb, ttbr1_el1
->>> +    adr_l   flag_ptr, repaint_done
->>> +    __idmap_cpu_set_reserved_ttbr1 x16, x17
->>> +
->>> +scondary_cpu_wait:
->>>        /* Increment the flag to let the boot CPU we're ready */
->>>    1:    ldxr    w16, [flag_ptr]
->>>        add    w16, w16, #1
->>> @@ -436,9 +458,8 @@ __idmap_kpti_secondary:
->>>          .unreq    swapper_ttb
->>>        .unreq    flag_ptr
->>> -SYM_FUNC_END(idmap_kpti_install_ng_mappings)
->>> +SYM_FUNC_END(bbml2_wait_for_repainting)
->>>        .popsection
->>> -#endif
->>>      /*
->>>     *    __cpu_setup
 
 
