@@ -4,88 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E14BC87FCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAC9C87FDA
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 07:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TrfZdnEzM8YI3DydNQ0/utFTCYg5k0TRMMcoKD0jcS8=; b=EOcO1rH/mGZZnCG4+4Ofy9tsXo
-	QoNFxVARPN05r6HWWlbfqVA9iQzcsxLToCZQAvXnLHlBNhM21NObqCwX66j8kxvQsuam2uikN2NAA
-	6bY1ot6gtJFmq+CR4Rz9QaZu1qrjKyCtOBhfxW8agU6iOtYHvePk6LmihPBPgifaVMzW2WduNjA8a
-	xPFBUM3/cH15ujj8fAolSktCu9qIz6NnoT0x3Olmw+oqusIzxJhymJi5xWYEUNxvVLeaE91mVLHst
-	p0km3FHTLk95KCMzSbYbBEWla1lfTj9n6tB7kdOiJ3O8k7ubiHt85GlT2pNhvafmuUHHIkMwBIBry
-	nnmBuKCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K2tuHcrzTCjC6XtZmOmGV8ku7xQicRREc1BpWHeDuik=; b=j2JR96z/VWFFrAGoOzTODfAkF0
+	eD6Eg7jc9dqvhKQI4ygkE+c7Kah2YriZSwarkgqFS+CQmA7iazGEL4KinjZHYOaOr4EgPtMu4NX01
+	whuaAPRk5rIlfia37Se8l8vSWE8y373jT564zYzxEDfJU7/N60gWqJdT8FBOv06+Vgm5UAMTbeXyv
+	ujNNnIaX8XBNGo590A5E9YXtlyFJvYIRgsvAIeR0BWMjff5wSG1U/nBqwqm9XfnKKfZCvK/MsnDiL
+	rnc8gueMOslqmUPLYcQiULlsEQHmc7BrFmlVdHMNgPvKoTMg8aZvoFytE4kwB/meGXZh4SzPl8UKf
+	Jvfgi2xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujvEE-0000000HTyM-21O6;
-	Thu, 07 Aug 2025 07:39:58 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujvA7-0000000HTZ4-005L
+	id 1ujvEB-0000000HTwQ-0NnN;
+	Thu, 07 Aug 2025 07:39:55 +0000
+Received: from m16.mail.163.com ([117.135.210.5])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ujv20-0000000HSlT-2o1k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 07:35:44 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5776Y6k6008798;
-	Thu, 7 Aug 2025 09:35:26 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=TrfZdnEzM8YI3DydNQ0/ut
-	FTCYg5k0TRMMcoKD0jcS8=; b=15WPNXIqawe1InQtQS6TSQ7l19vx8wRzokD1YL
-	JX3/zXFuyzz5TtJrOWn2Xp66pICNI8wj98GWT3UZ7WYqw2bjZ2Dk8Fk23dOO9oDF
-	jCn39Tkb0mpexYUSFm1r38PeLTP0B4WYP/DjQqxlsYOEx/RElBTWflhMj5Rj1Iog
-	KG4nK4TYItqmOS4zJgFWL+lEoM5KXMuVkHj8vPYcqIpQ3dG2oYb3Iszy1LZFyCFF
-	P5FGPzk/JuN9yOFEGdolwa6TS/rFj+deMJR4hcDE3ukiRmX9roLV7PF4WGncL6eY
-	AZ8f8rF+A2LMpVJcergbpPDF3H4kSox0TZnLvU91k6cZAKCg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48cq00g955-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 07 Aug 2025 09:35:26 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D4AC94005B;
-	Thu,  7 Aug 2025 09:34:36 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0AEF871860B;
-	Thu,  7 Aug 2025 09:34:11 +0200 (CEST)
-Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 7 Aug
- 2025 09:34:10 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Thu, 7 Aug 2025 09:34:09 +0200
-Subject: [PATCH v2] memory: stm32_omm: Fix req2ack update test
+	Thu, 07 Aug 2025 07:27:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=K2
+	tuHcrzTCjC6XtZmOmGV8ku7xQicRREc1BpWHeDuik=; b=p1n8lpg7453JSnznV9
+	ZweXVC461jhN3EXL1EYmTYWR7AlJXCOwDGfvHZRm5Vba+E8clLzrBupRyhTX4Ms4
+	mwx+mFtYoH4frMFyQpyxTNj8cbEUV31bdP9eRAlfIbtkIx3EI3KaIAlZiADfrPTx
+	M+Q2w2Ix3DrHAmhafz+doUSlg=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgDnOhxGVZRoUEhPDA--.562S2;
+	Thu, 07 Aug 2025 15:27:03 +0800 (CST)
+From: fanqincui@163.com
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	fanqincui@163.com,
+	Fanqin Cui <cuifq1@chinatelecom.cn>
+Subject: [PATCH] arm64/module: Support for patching modules during runtime
+Date: Thu,  7 Aug 2025 03:27:00 -0400
+Message-Id: <20250807072700.348514-1-fanqincui@163.com>
+X-Mailer: git-send-email 2.27.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250807-upstream_omm_fix_req2ack_test_condition-v2-1-d7df4af2b48b@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAPBWlGgC/5WNQQ7CIBQFr2JYSwNYhbryHqYhCB9LDKXysdE0v
- bvYG7icl5eZhSDkAEjOu4VkmAOGNFYQ+x2xgxnvQIOrTAQTR6bYib4mLBlM1ClG7cNbZ3gKYx+
- 6ABZt0+hCqQ4qJSh/Y44fnCLVNmWo76107SsPAUvKny0889/6f2PmlNNWyc5wJ73s2otPiA2Wx
- qZI+nVdvyRBBrTgAAAA
-X-Change-ID: 20250806-upstream_omm_fix_req2ack_test_condition-77e8fb0d13d8
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Christophe Kerello <christophe.kerello@foss.st.com>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Patrice Chotard
-	<patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-06_05,2025-08-06_01,2025-03-28_01
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: QCgvCgDnOhxGVZRoUEhPDA--.562S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7tFW7GF1kXryUKFWUAry7Wrg_yoW8trykpF
+	n8Crn5GrZ5Xwn3Cay8twn8WF15C398Can8KFy8W3sFyw1Yqr98AF1DKry5CFyUGr45Z3y8
+	WF18Gw1jq3WUA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UD73PUUUUU=
+X-Originating-IP: [123.112.16.66]
+X-CM-SenderInfo: 5idq1xpqfxxqqrwthudrp/1tbiOgqipWiUUrpNrgAAsA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_003543_466241_125A848D 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250807_002721_096663_167B1F1F 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If "st,omm-req2ack-ns" property is found and its value is not 0,
-the current test doesn't allow to compute and set req2ack value,
-Fix this test.
+From: Fanqin Cui <cuifq1@chinatelecom.cn>
 
-Fixes: 8181d061dcff ("memory: Add STM32 Octo Memory Manager driver")
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
-Changes in v2:
-- Add more detail in commit message
-- Remove "Cc: <stable@vger.kernel.org>" tag as the fixed patch is not part of a LTS.
-- Link to v1: https://lore.kernel.org/r/20250806-upstream_omm_fix_req2ack_test_condition-v1-1-4879a1d7f794@foss.st.com
----
- drivers/memory/stm32_omm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+If use the ALTERNATIVE_CB interface in a kernel module to
+patch code, the kernel will crash. The relevant log is as follows:
 
-diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
-index 79ceb1635698f6bc8bd4a39fdeaced1ec318e1f6..9efc56a85b5ecca49eb6dfc0ef83880f89591cd1 100644
---- a/drivers/memory/stm32_omm.c
-+++ b/drivers/memory/stm32_omm.c
-@@ -247,7 +247,7 @@ static int stm32_omm_configure(struct device *dev)
- 		if (mux & CR_MUXEN) {
- 			ret = of_property_read_u32(dev->of_node, "st,omm-req2ack-ns",
- 						   &req2ack);
--			if (!ret && !req2ack) {
-+			if (!ret && req2ack) {
- 				req2ack = DIV_ROUND_UP(req2ack, NSEC_PER_SEC / clk_rate_max) - 1;
+ Mem abort info:
+   ESR = 0x000000008600000f
+   EC = 0x21: IABT (current EL), IL = 32 bits
+   SET = 0, FnV = 0
+   EA = 0, S1PTW = 0
+   FSC = 0x0f: level 3 permission fault
+ swapper pgtable: 4k pages, 48-bit VAs, pgdp=00000013cfbed000
+ [ffff80007b0b0000] pgd=0000000000000000, p4d=10000013d0d03003,
+pud=1000000103175403, pmd=1000000115804403, pte=0068000116b77703
+ Internal error: Oops: 000000008600000f [#1]  SMP
+
+ Call trace:
+  0xffff80007b0b0000 (P)
+  apply_alternatives_module+0x48/0x7c
+  module_finalize+0xc0/0x134
+  load_module+0x15c0/0x1c08
+  init_module_from_file+0x8c/0xcc
+  __arm64_sys_finit_module+0x1c0/0x2d4
+  invoke_syscall+0x48/0x110
+  el0_svc_common.constprop.0+0xc0/0xe0
+  do_el0_svc+0x1c/0x28
+  el0_svc+0x34/0xf0
+  el0t_64_sync_handler+0xa0/0xe4
+  el0t_64_sync+0x198/0x19c
+ Code: 00000000 00000000 00000000 00000000 (d503233f)
+ ---[ end trace 0000000000000000 ]---
+
+To avoid this problem, this commit supports add a new section.
+When the module is loading, this section will be found and the
+page table attributes will be set to executable state in advance.
+
+Signed-off-by: Fanqin Cui <cuifq1@chinatelecom.cn>
+---
+ arch/arm64/kernel/module.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/kernel/module.c b/arch/arm64/kernel/module.c
+index 40148d2725ce..2160b2877935 100644
+--- a/arch/arm64/kernel/module.c
++++ b/arch/arm64/kernel/module.c
+@@ -24,6 +24,7 @@
+ #include <asm/scs.h>
+ #include <asm/sections.h>
+ #include <asm/text-patching.h>
++#include <asm-generic/set_memory.h>
  
- 				if (req2ack > 256)
-
----
-base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
-change-id: 20250806-upstream_omm_fix_req2ack_test_condition-77e8fb0d13d8
-
-Best regards,
+ enum aarch64_reloc_op {
+ 	RELOC_OP_NONE,
+@@ -477,6 +478,9 @@ int module_finalize(const Elf_Ehdr *hdr,
+ 	const Elf_Shdr *s;
+ 	int ret;
+ 
++	s = find_section(hdr, sechdrs, ".text.alternative_cb");
++	if (s && s->sh_size > PAGE_SIZE && PAGE_ALIGNED(s->sh_addr))
++		set_memory_x(s->sh_addr, s->sh_size >> PAGE_SHIFT);
+ 	s = find_section(hdr, sechdrs, ".altinstructions");
+ 	if (s)
+ 		apply_alternatives_module((void *)s->sh_addr, s->sh_size);
 -- 
-Patrice Chotard <patrice.chotard@foss.st.com>
+2.27.0
 
 
