@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28099C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 12:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E45EC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 12:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NJvDev6JiarMJWMxcbrKmT0EeRzHRecrSUf9b1TXS7Y=; b=yR/lfHauo59uEsnmP3Ij8LzNTy
-	xk3tFnXdRkOxOS1gu6ZoV6XXGK96jro0d3kEb/vse7ATBHfAJsSnks2NvfD4q4IpyFP/VzZpXtCvb
-	RpEFP9DdGpKhhZvA/vBj3oGZuby43XenslN86xkytcHJfdoqCIULbs6gIFlpPevKj6eJbqPc1HoSe
-	J3refBBTXjgQcYNlm6oCcY8u83arMUPpUc6OyfWR2eKGTF1fCbS/NIrp6n+qG5dQX3hQDfXfI2tQK
-	sv8F3i0nLOaxN01sXxoikcBzNJTJK+EdBuJn5NwJvyOi8RPDRIeMiS5r09GudynvX5eLNsQ00YCpf
-	yyv56oOA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MmEFD0EBHHCbQjRU4Ho1kLwGkicc5ODUkU4+n5Gkins=; b=mh+8bm1m9PRZ1cZlmltIoa1s5V
+	T5+g3Mly18GcCdiWOoL/ODCFY6NrDNTEFpl55i/47fqyzmnXj52Q/PPLqNEfl7YW3qu8Ln9Cqgn8i
+	7yfZIKiBgoftnjBTURZYyiZiRWIosHdoLKKgIKJIqI05eLkO6NjmX9kfFwVeqBMxlFbfk7h9z6Kin
+	bKtaTZy2TqEto0F3GU0xcOZUmpZgU3hpqlBLgnHzQjn31hOvdJmYScvnaGHA4KaRMZLszAHXeT4ly
+	OkyTNHBYe/mjAfSeLK1Uwhol4WYBveA/HsfkO2e5VahpV1KVxwr5lufKozHdWQTRnLt7jdAfeN+Fo
+	+grbehxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujzLu-00000000T3D-24g3;
-	Thu, 07 Aug 2025 12:04:10 +0000
+	id 1ujzOM-00000000TIy-0nif;
+	Thu, 07 Aug 2025 12:06:42 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujzJP-00000000Snj-44tR
+	id 1ujzJS-00000000SoZ-3zFs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 12:01:37 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-459e6c564fdso4075655e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 05:01:35 -0700 (PDT)
+	Thu, 07 Aug 2025 12:01:39 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-459e0f54c88so4720655e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 05:01:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754568094; x=1755172894; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=NJvDev6JiarMJWMxcbrKmT0EeRzHRecrSUf9b1TXS7Y=;
-        b=E2hsuxrZ3WqeSiFs/R+dzNp19g0wUUO/p1gIs/OAmpFwrhJIxdIVY++g4PGke/amjX
-         vbZatfWHjq54sQh90mvFVVUh3Zge+P7+mpJAtTRm7qIWIiEyQ0mxx3LyeIYOTl6Nms4t
-         RQ00MwjKgN6wkP0fo8xtMfT8eAKsWi4MImq2CoaFDfev25aCxYQ/0lSCGzubVpRYZunG
-         nQF7ZwymhGwBfNiS196I1DmzDQ5H/DprzxQNYwC5KrxphXtsgqWsK/vmvVL6arViw+18
-         pJzX6QVJsuZgG1e5BKwc4P2VRqF830hIGBDyeuMa8V7WU7+VKgghzWV338B7gOmpmMzk
-         VU0A==
+        d=google.com; s=20230601; t=1754568096; x=1755172896; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=MmEFD0EBHHCbQjRU4Ho1kLwGkicc5ODUkU4+n5Gkins=;
+        b=Eu4uqcgdTs+WkGyx8/lbqLtNeJ7hKei+h0gFsylOiEK07VMWipSgKcHFM2S0Ixm/6L
+         G3VxfhHmXlRD/5h2+2Om7qJgYv+mCgrVuZl2IZAHtMKlQCFOIJF0Vq0Mo77svHMTw9dP
+         BxdQaY1iwCEip3OgSa9mQAgc8upgTX6YDmsWbQRGmbo95VfM/SWXE8XotcrHJAbZsblJ
+         uHb5nK550dE5pzNCEWM5Czkef+HML3XGe4fhkdUR3lcDgh8KtIFuv26iYXYNDxSoiyCU
+         MroLusSjaJIOcWiOyIw5Zs5wL6QHXO2MuSVKVgx4irn5JH0pQpsTz5HyAZAcRjqQ/utM
+         4cxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754568094; x=1755172894;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NJvDev6JiarMJWMxcbrKmT0EeRzHRecrSUf9b1TXS7Y=;
-        b=TGbcus7eNur3HEnivhDzZPFY0UaDEBuho4i+zg+1uGGn/NfCtzqWBXIigYmF/BLKWM
-         MfQpbiO6qojE2sNv2w5O5unOLbOelKOc45xcRM3PDYsx4zetCk0PAbLZKAC4Tp7t5MUv
-         xagEG6l7UYkCrZK+jIMybrM5KtZFEapUeCyQfSGXFO27ticHDVOQ3k+CiJjUDJdlZBpu
-         a1Uekmppb472feeGUy+YmcBesUELc9KhUpOv+Fpfjxrx9A9OUhh/np8F62fQooxogyOc
-         GoZK1VWjEj5VW0KU1/B1GcXC2/OLr3Y+zkzn6Q/GEX5ZLWuEzxVQnRQeEHsmgXiTQsWI
-         ALVA==
-X-Forwarded-Encrypted: i=1; AJvYcCUcARGCQ8xPPd4Wbqj+GEIaylxpx27CvJEHRL2HAziFmCIFX7x1BifRdKRw6yHYh7KwnjnPFy/rakHGoGBzZ+/N@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6RlKV6Pe37BGki08BFJzfyBnHliNhsHE2rLneuGLnXke1kXCI
-	tq/jPH1jkr/AT69FZiYLQGoC3rBBlO/UeisSHhR1zGRLhifeDbFPqeuvLRpfAmcBCgfGZ+cjcJ1
-	c2w==
-X-Google-Smtp-Source: AGHT+IF1zofXBCVZFK4r7lqTfARStajWiSiUpki2EYDcpjB2YB3WeHi7UsQXh6wQgWjdJzGmiZaDkDz8vw==
-X-Received: from wmbdr26.prod.google.com ([2002:a05:600c:609a:b0:459:df20:248e])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:c0c3:20b0:456:2698:d4d9
- with SMTP id 5b1f17b1804b1-459e73a9797mr46541875e9.3.1754568094066; Thu, 07
- Aug 2025 05:01:34 -0700 (PDT)
-Date: Thu,  7 Aug 2025 13:01:30 +0100
+        d=1e100.net; s=20230601; t=1754568096; x=1755172896;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MmEFD0EBHHCbQjRU4Ho1kLwGkicc5ODUkU4+n5Gkins=;
+        b=BmGQJ46tHD7TochoSTLOBHQAxD1cqVjVQC1XQrd80KASthOKB4Hatz5i1VW4MoqxBz
+         sJBN9q81DEFFbUvlPb5GgLju2bNBFznnGVJ9f8WcKJHlugWatzvlM5c7+sQQgDEHJCY3
+         0BImWXdYeAWtuTwmDXZNBu4NfQm2bnoSkTKnqF0ZmFejBD0FO/DYgSt01YfO/XzneFS7
+         3bERJR0a4VVq/kWMyMeEtQG39QL0gMMKnrB9bCmaNpb1NcujjwR4QQBTJAtReX9zhCF+
+         jTq9p/zt82ZdSzQpfyAkOSHW8e+s9u9KWuirOKHik+H41bbEVA7WBDE+nVPDbnbN+/VT
+         iNjA==
+X-Forwarded-Encrypted: i=1; AJvYcCXQt0Sc6bYSpt6sZc8QstYIhOBBRmyF8VvjN10hHAezg8cdTv7nk5+jjE7fQcT8xZzxm7+VLT3X0KfFTEwgFZ5C@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyijoqxQNaRSU6Sf04H/a+FWiUbGJaF4sbS2KboE1lBKMdi2TC
+	LeZgmLUJ2JlkQ2ozUOkuuX7DdQLSL3xermCpdTtH4Qn4+6Rd4gpufrR6CpEKYjVEhIOlic3Zvkz
+	PjQ==
+X-Google-Smtp-Source: AGHT+IEmpiZ2nf55Jh9uJTfBQmAxp4UNraapK34c6dr71U4u9eBljMgOdK7u/bo0AUdVstmW33UDMvX8rQ==
+X-Received: from wmsd10.prod.google.com ([2002:a05:600c:3aca:b0:459:da33:b20c])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f46:b0:458:d289:3e26
+ with SMTP id 5b1f17b1804b1-459ede86e31mr32019695e9.2.1754568096496; Thu, 07
+ Aug 2025 05:01:36 -0700 (PDT)
+Date: Thu,  7 Aug 2025 13:01:32 +0100
+In-Reply-To: <20250807120133.871892-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20250807120133.871892-1-tabba@google.com>
 X-Mailer: git-send-email 2.50.1.565.gc32cd1483b-goog
-Message-ID: <20250807120133.871892-1-tabba@google.com>
-Subject: [PATCH v2 0/3] KVM: arm64: Fixes to handling of restricted registers
- for protected VMs
+Message-ID: <20250807120133.871892-3-tabba@google.com>
+Subject: [PATCH v2 2/3] KVM: arm64: Sync protected guest VBAR_EL1 on injecting
+ an undef exception
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -75,8 +77,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_050136_011710_AA6F6700 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250807_050138_987631_473F4D59 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,38 +93,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series mainly fixes issues we've encountered in pKVM (in
-downstream Android code), related to the handling of protected VM access
-to restricted registers and injecting undefined exceptions into a
-protected guest.
+In pKVM, a race condition can occur if a guest updates its VBAR_EL1
+register and, before a vCPU exit synchronizes this change, the
+hypervisor needs to inject an undefined exception into a protected
+guest.
 
-The last patch in this series isn't pKVM specific, but a fix to the
-vgic-v2 code encountered while fixing the issues in this series. The
-issue it fixes was indirectly introduced into the code with hVHE.
+In this scenario, the vCPU still holds the stale VBAR_EL1 value from
+before the guest's update. When pKVM injects the exception, it ends up
+using the stale value.
 
-Changes from v1 [1]:
-- Dropped the refactoring patch.
-- Added Reported-by tags.
+Explicitly read the live value of VBAR_EL1 from the guest and update the
+vCPU value immediately before pending the exception. This ensures the
+vCPU's value is the same as the guest's and that the exception will be
+handled at the correct address upon resuming the guest.
 
-Based on Linux 6.16.
+Reported-by: Keir Fraser <keirf@google.com>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20250805135617.831971-1-tabba@google.com/
-
-Fuad Tabba (3):
-  KVM: arm64: Handle AIDR_EL1 and REVIDR_EL1 in host for protected VMs
-  KVM: arm64: Sync protected guest VBAR_EL1 on injecting an undef
-    exception
-  arm64: vgic-v2: Fix guest endianness check in hVHE mode
-
- arch/arm64/kvm/hyp/nvhe/sys_regs.c       | 5 +++++
- arch/arm64/kvm/hyp/vgic-v2-cpuif-proxy.c | 2 +-
- 2 files changed, 6 insertions(+), 1 deletion(-)
-
-
-base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
+diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+index bbd60013cf9e..71d2fc97f004 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
++++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+@@ -253,6 +253,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
+ 
+ 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
+ 	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
++	__vcpu_assign_sys_reg(vcpu, read_sysreg_el1(SYS_VBAR), VBAR_EL1);
+ 
+ 	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
+ 
 -- 
 2.50.1.565.gc32cd1483b-goog
 
