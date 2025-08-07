@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE9CC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 13:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31304C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJjmQ4a3Ouz3YNYkZSgRMItKTn83OC5OVjYzGwSkUxg=; b=L1JCy2XEmMXn9gcoMDVNrYFu6A
-	NON1k67JxQGqErhBZZCMqy8DPRhb02qR5NdY/kJcwZK78al1115xh22JvVfXclfjPqB1dlJj0xY4r
-	gOnzyFa0l8TrmAZbPSe+nG7jOq57HOYfet6Hm4YxvqQAGTMk+h47hfYN1ueA6TPrH8geYPCtQm6Gl
-	aUxrj1tufDhCi6l6q1lIOw9fvBNkTyQEPicbFARkHBpE3MbavQulBF23z8LLg/E4LYkUrHBc6kmcc
-	ONyzKges0AyIrwk81N9+vbila5QDoisJuUjW/B1bNeu4pXRNS0GjbWrSc3xqIV/1aLhfpm087OrtI
-	sEi35hEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i7iE/7SX2gO6QBT2EKt/EXBIxabMBibRZNzbUQmAwfg=; b=1uVzlknoubOdJZtdmy4jIv4ari
+	2GHmcJ3b6rxR/ZFj+yVg2PNFhYPHg3gxHsEa0F+SlymS9wtQxzPdZbNaec3hNYxbFPeghQ0VbModu
+	yN32zD+6Rn81omT3VDJvnb5dgL59BIs4ZNzAZMJVqIVqfWQpB1cJ4FpvwhNP8gzCoDWjycWyG8G1m
+	/3SNJYDkWEQBc5R2p/hs2+U6MxJkUKqXVACfoi4r/6pUScTth73/WlfYy8q1NITwDjWor57fxUlTw
+	ZhNeu4UGOit8puM+07dcf2HMb7PQheKc+SUnWyOqP4aO8loDWhg/oOEhWw8OKTsB5YVsOmkVAmJGT
+	1yPFBjGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk14A-00000000krU-0zOW;
-	Thu, 07 Aug 2025 13:53:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uk1Jb-00000000mqv-1qQI;
+	Thu, 07 Aug 2025 14:09:55 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk11d-00000000kSA-3iiw
+	id 1uk1H3-00000000mZi-3Zs4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 13:51:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 29655600B0;
-	Thu,  7 Aug 2025 13:51:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2FADC4CEEB;
-	Thu,  7 Aug 2025 13:51:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754574680;
-	bh=ThfZI8md9CrWZXrgTa6/c+SU3B836P9u3EP0N0TYPVA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=K3bhKNAyofngSo0q4FYjTFuJ4a+/xREwldMHlQbBr0Y/Z2NJXnFcpf7APS4qRM164
-	 iyWJcKH2bC6GqE1137p59HkJBm43BYf/+36HNhvmv/4aYdtJ//AYDjLYOBUFFyQV8B
-	 PdX/tw8eRoArAHN1JP4xGyvWgmnK6bi39xHvKzAQAkGWVrj9dBcoCKGq5Gop+lN4uw
-	 VQektz4b5PfZoM5HR50mVBwH7UTBQv2A3FIy09KQfzCMGPP+cYakrqgBmmXYYtVNYt
-	 oEGL5HSJjYXbBYkN0LMDXHbTaY9BVMFTBQA9D6Fc53UH41Y6sVPw0FAOxAMnqWi1dw
-	 YNU7G1SLtwZjQ==
-Date: Thu, 7 Aug 2025 15:51:13 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 22/31] irqchip/gic-v5: Add GICv5 LPI/IPI support
-Message-ID: <aJSvUWRqLEiARDIW@lpieralisi>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
- <20250703-gicv5-host-v7-22-12e71f1b3528@kernel.org>
- <cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com>
+	Thu, 07 Aug 2025 14:07:19 +0000
+Received: from [192.168.10.111] (p865013-ipoe.ipoe.ocn.ne.jp [153.242.222.12])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 577E6LlB000918
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 7 Aug 2025 23:06:21 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=i7iE/7SX2gO6QBT2EKt/EXBIxabMBibRZNzbUQmAwfg=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=Message-ID:Date:Subject:To:From;
+        s=rs20250326; t=1754575582; v=1;
+        b=wHpaSRxJE1Sxz4oyxTr3tKGmb4Jo1/LL0dOVh4CtMYBkyuY+Nc4cEjg8BfgFfk4m
+         GlO70nONuAf3bqAlG1Pd0+yeAZ+VqxsQ4xOOWcoTdCNf1R84yWPWilddv5sdwqcE
+         8tXz1EgvguhKzp1Oov9ypd8bZrbUnf894eFL7lJK44ehZIuIwdvoCDQFWYfIQ5yP
+         Rv1KOztHFGVRzoq1XVKneYqnMNI/uKyCRICiylBQ9BrZWs+d0l5EXPuKuXM1+x0J
+         3C/diag1x4lfCjqlii+SyHolIsB654VtvOIUdWsYS8xm5QrPCihlgMHmMRVD6OGm
+         oY80A1gZ1HqxCNI2QdCwcw==
+Message-ID: <62494f54-13c6-4b9f-86a1-9a19ce58e91f@rsg.ci.i.u-tokyo.ac.jp>
+Date: Thu, 7 Aug 2025 23:06:21 +0900
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 1/2] KVM: arm64: PMU: Introduce
+ KVM_ARM_VCPU_PMU_V3_COMPOSITION
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu
+ <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20250806-hybrid-v2-0-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <20250806-hybrid-v2-1-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <aJOO99xUrhsrvLwl@linux.dev>
+ <276fdfb8-f1ca-44ad-b310-a811684b265a@rsg.ci.i.u-tokyo.ac.jp>
+ <aJQJdElbZJ6KzQxD@linux.dev>
+Content-Language: en-US
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <aJQJdElbZJ6KzQxD@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250807_070718_128120_A38BF998 
+X-CRM114-Status: GOOD (  57.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,302 +89,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 07, 2025 at 07:52:58PM +0800, Jinjie Ruan wrote:
+On 2025/08/07 11:03, Oliver Upton wrote:
+> On Thu, Aug 07, 2025 at 03:24:43AM +0900, Akihiko Odaki wrote:
+>> On 2025/08/07 2:20, Oliver Upton wrote:
+>>> Hi Akihiko,
+>>>
+>>> This is an unreasonably large patch that needs to be broken down into
+>>> smaller patches, ideally one functional change per patch. We need this
+>>> even for an RFC for the sake of reviews.
+>>>
+>>> On Wed, Aug 06, 2025 at 06:09:54PM +0900, Akihiko Odaki wrote:
+>>>> +static u64 kvm_pmu_get_pmc_value(struct kvm_vcpu *vcpu, u8 idx)
+>>>>    {
+>>>> -	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+>>>> +	struct kvm_pmc *pmc = *kvm_vcpu_idx_to_pmc(vcpu, idx);
+>>>>    	u64 counter, reg, enabled, running;
+>>>> +	unsigned int i;
+>>>> -	reg = counter_index_to_reg(pmc->idx);
+>>>> +	reg = counter_index_to_reg(idx);
+>>>>    	counter = __vcpu_sys_reg(vcpu, reg);
+>>>>    	/*
+>>>>    	 * The real counter value is equal to the value of counter register plus
+>>>>    	 * the value perf event counts.
+>>>>    	 */
+>>>> -	if (pmc->perf_event)
+>>>> -		counter += perf_event_read_value(pmc->perf_event, &enabled,
+>>>> -						 &running);
+>>>> +	if (pmc)
+>>>> +		for (i = 0; i < pmc->nr_perf_events; i++)
+>>>> +			counter += perf_event_read_value(pmc->perf_events[i],
+>>>> +							 &enabled, &running);
+>>>
+>>> I'm concerned that this array of events concept you're introducing is
+>>> going to be error-prone. An approach that reallocates a new PMU event in
+>>> the case of a vCPU migrating to a new PMU implementation would be
+>>> desirable.
+>>
+>> I avoided allocation at migration because I was worried with disabled
+>> preemption. perf_event_create_kernel_counter() internally takes a mutex so
+>> it cannot be used if preemption is disabled.
+>>
+>> I wonder if it is guaranteed that kvm_arch_vcpu_load() executes with
+>> preemption. If so, I can add a hook there to call
+>> perf_event_create_kernel_counter().
 > 
-> 
-> On 2025/7/3 18:25, Lorenzo Pieralisi wrote:
-> > An IRS supports Logical Peripheral Interrupts (LPIs) and implement
-> > Linux IPIs on top of it.
-> > 
-> > LPIs are used for interrupt signals that are translated by a
-> > GICv5 ITS (Interrupt Translation Service) but also for software
-> > generated IRQs - namely interrupts that are not driven by a HW
-> > signal, ie IPIs.
-> > 
-> > LPIs rely on memory storage for interrupt routing and state.
-> > 
-> > LPIs state and routing information is kept in the Interrupt
-> > State Table (IST).
-> > 
-> > IRSes provide support for 1- or 2-level IST tables configured
-> > to support a maximum number of interrupts that depend on the
-> > OS configuration and the HW capabilities.
-> > 
-> > On systems that provide 2-level IST support, always allow
-> > the maximum number of LPIs; On systems with only 1-level
-> > support, limit the number of LPIs to 2^12 to prevent
-> > wasting memory (presumably a system that supports a 1-level
-> > only IST is not expecting a large number of interrupts).
-> > 
-> > On a 2-level IST system, L2 entries are allocated on
-> > demand.
-> > 
-> > The IST table memory is allocated using the kmalloc() interface;
-> > the allocation required may be smaller than a page and must be
-> > made up of contiguous physical pages if larger than a page.
-> > 
-> > On systems where the IRS is not cache-coherent with the CPUs,
-> > cache mainteinance operations are executed to clean and
-> > invalidate the allocated memory to the point of coherency
-> > making it visible to the IRS components.
-> > 
-> > On GICv5 systems, IPIs are implemented using LPIs.
-> > 
-> > Add an LPI IRQ domain and implement an IPI-specific IRQ domain created
-> > as a child/subdomain of the LPI domain to allocate the required number
-> > of LPIs needed to implement the IPIs.
-> > 
-> > IPIs are backed by LPIs, add LPIs allocation/de-allocation
-> > functions.
-> > 
-> > The LPI INTID namespace is managed using an IDA to alloc/free LPI INTIDs.
-> > 
-> > Associate an IPI irqchip with IPI IRQ descriptors to provide
-> > core code with the irqchip.ipi_send_single() method required
-> > to raise an IPI.
-> > 
-> > Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-> > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Reviewed-by: Marc Zyngier <maz@kernel.org>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Thomas Gleixner <tglx@linutronix.de>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/include/asm/smp.h       |  17 ++
-> >  arch/arm64/include/asm/sysreg.h    |   6 +
-> >  arch/arm64/kernel/smp.c            |  17 --
-> >  drivers/irqchip/irq-gic-v5-irs.c   | 364 +++++++++++++++++++++++++++++++++++++
-> >  drivers/irqchip/irq-gic-v5.c       | 299 +++++++++++++++++++++++++++++-
-> >  include/linux/irqchip/arm-gic-v5.h |  63 ++++++-
-> >  6 files changed, 746 insertions(+), 20 deletions(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-> > index d6fd6efb66a6..d48ef6d5abcc 100644
-> > --- a/arch/arm64/include/asm/smp.h
-> > +++ b/arch/arm64/include/asm/smp.h
-> > @@ -50,6 +50,23 @@ struct seq_file;
-> >   */
-> >  extern void smp_init_cpus(void);
-> >  
-> > +enum ipi_msg_type {
-> > +	IPI_RESCHEDULE,
-> > +	IPI_CALL_FUNC,
-> > +	IPI_CPU_STOP,
-> > +	IPI_CPU_STOP_NMI,
-> > +	IPI_TIMER,
-> > +	IPI_IRQ_WORK,
-> > +	NR_IPI,
-> > +	/*
-> > +	 * Any enum >= NR_IPI and < MAX_IPI is special and not tracable
-> > +	 * with trace_ipi_*
-> > +	 */
-> > +	IPI_CPU_BACKTRACE = NR_IPI,
-> > +	IPI_KGDB_ROUNDUP,
-> > +	MAX_IPI
-> > +};
-> > +
-> >  /*
-> >   * Register IPI interrupts with the arch SMP code
-> >   */
-> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> > index efd2e7a1fbe2..948007cd3684 100644
-> > --- a/arch/arm64/include/asm/sysreg.h
-> > +++ b/arch/arm64/include/asm/sysreg.h
-> > @@ -1088,6 +1088,7 @@
-> >  #define GICV5_OP_GIC_CDAFF		sys_insn(1, 0, 12, 1, 3)
-> >  #define GICV5_OP_GIC_CDDI		sys_insn(1, 0, 12, 2, 0)
-> >  #define GICV5_OP_GIC_CDDIS		sys_insn(1, 0, 12, 1, 0)
-> > +#define GICV5_OP_GIC_CDHM		sys_insn(1, 0, 12, 2, 1)
-> >  #define GICV5_OP_GIC_CDEN		sys_insn(1, 0, 12, 1, 1)
-> >  #define GICV5_OP_GIC_CDEOI		sys_insn(1, 0, 12, 1, 7)
-> >  #define GICV5_OP_GIC_CDPEND		sys_insn(1, 0, 12, 1, 4)
-> > @@ -1115,6 +1116,11 @@
-> >  #define GICV5_GIC_CDEN_TYPE_MASK	GENMASK_ULL(31, 29)
-> >  #define GICV5_GIC_CDEN_ID_MASK		GENMASK_ULL(23, 0)
-> >  
-> > +/* Definitions for GIC CDHM */
-> > +#define GICV5_GIC_CDHM_HM_MASK		BIT_ULL(32)
-> > +#define GICV5_GIC_CDHM_TYPE_MASK	GENMASK_ULL(31, 29)
-> > +#define GICV5_GIC_CDHM_ID_MASK		GENMASK_ULL(23, 0)
-> > +
-> >  /* Definitions for GIC CDPEND */
-> >  #define GICV5_GIC_CDPEND_PENDING_MASK	BIT_ULL(32)
-> >  #define GICV5_GIC_CDPEND_TYPE_MASK	GENMASK_ULL(31, 29)
-> > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> > index 2c501e917d38..4797e2c70014 100644
-> > --- a/arch/arm64/kernel/smp.c
-> > +++ b/arch/arm64/kernel/smp.c
-> > @@ -64,23 +64,6 @@ struct secondary_data secondary_data;
-> >  /* Number of CPUs which aren't online, but looping in kernel text. */
-> >  static int cpus_stuck_in_kernel;
-> >  
-> > -enum ipi_msg_type {
-> > -	IPI_RESCHEDULE,
-> > -	IPI_CALL_FUNC,
-> > -	IPI_CPU_STOP,
-> > -	IPI_CPU_STOP_NMI,
-> > -	IPI_TIMER,
-> > -	IPI_IRQ_WORK,
-> > -	NR_IPI,
-> > -	/*
-> > -	 * Any enum >= NR_IPI and < MAX_IPI is special and not tracable
-> > -	 * with trace_ipi_*
-> > -	 */
-> > -	IPI_CPU_BACKTRACE = NR_IPI,
-> > -	IPI_KGDB_ROUNDUP,
-> > -	MAX_IPI
-> > -};
-> > -
-> >  static int ipi_irq_base __ro_after_init;
-> >  static int nr_ipi __ro_after_init = NR_IPI;
-> >  
-> > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> > index fba8efceb26e..f00a4a6fece7 100644
-> > --- a/drivers/irqchip/irq-gic-v5-irs.c
-> > +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> > @@ -5,12 +5,20 @@
-> >  
-> >  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
-> >  
-> > +#include <linux/log2.h>
-> >  #include <linux/of.h>
-> >  #include <linux/of_address.h>
-> >  
-> >  #include <linux/irqchip.h>
-> >  #include <linux/irqchip/arm-gic-v5.h>
-> >  
-> > +/*
-> > + * Hardcoded ID_BITS limit for systems supporting only a 1-level IST
-> > + * table. Systems supporting only a 1-level IST table aren't expected
-> > + * to require more than 2^12 LPIs. Tweak as required.
-> > + */
-> > +#define LPI_ID_BITS_LINEAR		12
-> > +
-> >  #define IRS_FLAGS_NON_COHERENT		BIT(0)
-> >  
-> >  static DEFINE_PER_CPU_READ_MOSTLY(struct gicv5_irs_chip_data *, per_cpu_irs_data);
-> > @@ -28,6 +36,331 @@ static void irs_writel_relaxed(struct gicv5_irs_chip_data *irs_data,
-> >  	writel_relaxed(val, irs_data->irs_base + reg_offset);
-> >  }
-> >  
-> > +static u64 irs_readq_relaxed(struct gicv5_irs_chip_data *irs_data,
-> > +			     const u32 reg_offset)
-> > +{
-> > +	return readq_relaxed(irs_data->irs_base + reg_offset);
-> > +}
-> > +
-> > +static void irs_writeq_relaxed(struct gicv5_irs_chip_data *irs_data,
-> > +			       const u64 val, const u32 reg_offset)
-> > +{
-> > +	writeq_relaxed(val, irs_data->irs_base + reg_offset);
-> > +}
-> > +
-> > +/*
-> > + * The polling wait (in gicv5_wait_for_op_s_atomic()) on a GIC register
-> > + * provides the memory barriers (through MMIO accessors)
-> > + * required to synchronize CPU and GIC access to IST memory.
-> > + */
-> > +static int gicv5_irs_ist_synchronise(struct gicv5_irs_chip_data *irs_data)
-> > +{
-> > +	return gicv5_wait_for_op_atomic(irs_data->irs_base, GICV5_IRS_IST_STATUSR,
-> > +					GICV5_IRS_IST_STATUSR_IDLE, NULL);
-> > +}
-> > +
-> > +static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data,
-> > +					    unsigned int lpi_id_bits,
-> > +					    unsigned int istsz)
-> > +{
-> > +	size_t l2istsz;
-> > +	u32 n, cfgr;
-> > +	void *ist;
-> > +	u64 baser;
-> > +	int ret;
-> > +
-> > +	/* Taken from GICv5 specifications 10.2.1.13 IRS_IST_BASER */
-> > +	n = max(5, lpi_id_bits + 1 + istsz);
-> > +
-> > +	l2istsz = BIT(n + 1);
-> > +	/*
-> > +	 * Check memory requirements. For a linear IST we cap the
-> > +	 * number of ID bits to a value that should never exceed
-> > +	 * kmalloc interface memory allocation limits, so this
-> > +	 * check is really belt and braces.
-> > +	 */
-> > +	if (l2istsz > KMALLOC_MAX_SIZE) {
-> > +		u8 lpi_id_cap = ilog2(KMALLOC_MAX_SIZE) - 2 + istsz;
-> > +
-> > +		pr_warn("Limiting LPI ID bits from %u to %u\n",
-> > +			lpi_id_bits, lpi_id_cap);
-> > +		lpi_id_bits = lpi_id_cap;
-> > +		l2istsz = KMALLOC_MAX_SIZE;
-> > +	}
-> > +
-> > +	ist = kzalloc(l2istsz, GFP_KERNEL);
-> 
-> 
-> When kmemleak is on, There is a memory leak occurring as below:
-> 
-> 
-> unreferenced object 0xffff00080039a000 (size 4096):
->   comm "swapper/0", pid 0, jiffies 4294892296
->   hex dump (first 32 bytes):
->     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
->     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
->   backtrace (crc 0):
->     kmemleak_alloc+0x34/0x40
->     __kmalloc_noprof+0x320/0x464
->     gicv5_irs_iste_alloc+0x1a4/0x484
->     gicv5_irq_lpi_domain_alloc+0xe4/0x194
->     irq_domain_alloc_irqs_parent+0x78/0xd8
->     gicv5_irq_ipi_domain_alloc+0x180/0x238
->     irq_domain_alloc_irqs_locked+0x238/0x7d4
->     __irq_domain_alloc_irqs+0x88/0x114
->     gicv5_of_init+0x284/0x37c
->     of_irq_init+0x3b8/0xb18
->     irqchip_init+0x18/0x40
->     init_IRQ+0x104/0x164
->     start_kernel+0x1a4/0x3d4
->     __primary_switched+0x8c/0x94
+> You don't need to allocate the event at vcpu_load(). The only guarantee
+> we need is that an event has been attached to the PMC prior to entering
+> the guest, for which the KVM_REQ_* infrastructure is quite useful.
 
-Thank you for reporting it.
+I see that kvm_arch_vcpu_load() makes a KVM_REQ_RECORD_STEAL request. 
+Indeed I can add another request for PMC handling.
 
-It should be a false positive, we hand over the memory to the GIC but
-never store the pointer anywhere (only its PA).
+I'm a bit concerned with the overhead of allocation, but perhaps 
+migration between heterogeneous cores is rare.
 
-Patch below should "fix" it - well, it is obvious, we are telling
-kmemleak to ignore the pointer value:
+> 
+>>>
+>>>> +static void reset_sample_period(struct perf_event *perf_event)
+>>>> +{
+>>>> +	struct kvm_pmc **pmc = perf_event->overflow_handler_context;
+>>>> +	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+>>>> +	struct arm_pmu *cpu_pmu = to_arm_pmu(perf_event->pmu);
+>>>> +	u64 period;
+>>>> +
+>>>> +	cpu_pmu->pmu.stop(perf_event, PERF_EF_UPDATE);
+>>>> +
+>>>> +	/*
+>>>> +	 * Reset the sample period to the architectural limit,
+>>>> +	 * i.e. the point where the counter overflows.
+>>>> +	 */
+>>>> +	period = compute_period(pmc, kvm_pmu_get_pmc_value(vcpu, (*pmc)->idx));
+>>>> +
+>>>> +	local64_set(&perf_event->hw.period_left, 0);
+>>>> +	perf_event->attr.sample_period = period;
+>>>> +	perf_event->hw.sample_period = period;
+>>>> +
+>>>> +	cpu_pmu->pmu.start(perf_event, PERF_EF_RELOAD);
+>>>> +}
+>>>
+>>> No, we can't start calling into the internal driver interfaces. The fact
+>>> that we have a pointer to the PMU is an ugly hack and shouldn't be used
+>>> like this.
+>>
+>> This function was extracted from kvm_pmu_perf_overflow() and is not a new
+>> addition (which should have been clear if I would have split the patch as
+>> you noted).
+> 
+> Yuck, then forgive my whining.
+> 
+>> I thought of replacing it with perf_event_period(), but there is a catch: it
+>> returns -EINVAL if the 63th bit of the sample period number is set. Perhaps
+>> we can just specify ((1ULL << 63) - 1) if the sample period is going to be
+>> so long, but I conservatively avoided that. I can change it if you prefer
+>> that way or have an alternative idea.
+> 
+> Let's keep it as-is then. Sorry about the noise.
+> 
+>>> Can we just special-case the fixed CPU cycle counter to use
+>>> PERF_TYPE_HARDWARE / PERF_COUNT_HW_CPU_CYCLES? That _should_ have the
+>>> intended effect of opening an event on the PMU for this CPU.
+>>
+>> I have an impression that perhaps this emulation can be more generic by
+>> converting eventsel to PERF_COUNT_HW_* numbers with armv8_pmuv3_perf_map in
+>> drivers/perf/arm_pmuv3.c, but it is not in scope of this change. The current
+>> code is sufficient for now.
+> 
+> The only cross-PMU events we will support are the fixed counters, my
+> strong preference is that we do not reverse-map architectural events to
+> generic perf events for all counters.
 
--- >8 --
-diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index ad1435a858a4..e8a576f66366 100644
---- a/drivers/irqchip/irq-gic-v5-irs.c
-+++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt)	"GICv5 IRS: " fmt
- 
-+#include <linux/kmemleak.h>
- #include <linux/log2.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
- 		kfree(ist);
- 		return ret;
- 	}
-+	kmemleak_ignore(ist);
- 
- 	return 0;
- }
-@@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
- 		kfree(l2ist);
- 		return ret;
- 	}
-+	kmemleak_ignore(l2ist);
- 
- 	/*
- 	 * Make sure we invalidate the cache line pulled before the IRS
+I wonder if there is a benefit to special case PERF_COUNT_HW_CPU_CYCLES 
+then; the current logic of kvm_map_pmu_event() looks sufficient for me.
+
+> 
+>>> I'm not sure there's much value in preventing the user from configuring
+>>> the PMU event filter. Even in the case of the fixed CPU cycle counter we
+>>> allow userspace to filter the event.
+>>
+>> It is possible to configure the PMU event filter, but it needs to be done
+>> after setting the attribute. This behavior is aligned with
+>> KVM_ARM_VCPU_PMU_V3_SET_PMU.
+> 
+> That's fine then, I missed that detail.
+> 
+>> They are mutually exclusive and the latest configuration takes effect.
+>>
+>> If you set SET_PMU after COMPOSITION, SET_PMU will take effect.
+>> If you set COMPOSITION after SET_PMU, COMPOSITION will take effect.
+>>
+>> I'll note that in the documentation.
+> 
+> This isn't what I meant. What I mean is that userspace either can use
+> the SET_PMU ioctl or the COMPOSITION ioctl. Once one of them has been
+> used the other ioctl returns an error.
+> 
+> We're really bad at getting ioctl ordering / interleaving right and
+> syzkaller has a habit of finding these mistakes. There's zero practical
+> value in using both of these ioctls on the same VM, let's prevent it.
+
+The corresponding RFC series for QEMU uses KVM_ARM_VCPU_PMU_V3_SET_PMU 
+to probe host PMUs, and falls back to KVM_ARM_VCPU_PMU_V3_COMPOSITION if 
+none covers all CPUs. Switching between SET_PMU and COMPOSITION is 
+useful during such probing.
+
+COMPOSITION is designed to behave like just another host PMU that is set 
+with SET_PMU. SET_PMU allows setting a different host PMU even if 
+SET_PMU has already been invoked so it is also allowed to set a host PMU 
+even if COMPOSITION has already been invoked, maintaining consistency 
+with non-composed PMUs.
+
+You can find the QEMU patch at:
+https://lore.kernel.org/qemu-devel/20250806-kvm-v1-1-d1d50b7058cd@rsg.ci.i.u-tokyo.ac.jp/
+
+(look up KVM_ARM_VCPU_PMU_V3_SET_PMU for the probing code)
+
+> 
+>>>> +	case KVM_ARM_VCPU_PMU_V3_COMPOSITION:
+>>>> +		return kvm_arm_pmu_v3_set_pmu_composition(vcpu);
+>>>
+>>> I'd prefer naming this something like 'KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY'.
+>>> We will have the fixed instruction counter eventually which is another
+>>> event we could potentially provide system-wide.
+>>
+>> The design decision to expose the cycle counter is driven by the motivation
+>> to satisfy FEAT_PMU for the guest rather than the host capability.
+>>
+>> When we implement FEAT_PMUv3_ICNTR in the future, I think we will need to
+>> add KVM_ARM_VCPU_PMU_V3_COMPOSITION_ICNTR or something. The resultig
+>> emulated PMU will work only on host CPUs that have instruction counters; a
+>> host CPU may lack one because it doesn't implement FEAT_PMUv3_ICNTR or has a
+>> third-party PMU like apple-m1-cpu-pmu (this particular PMU has an
+>> instruction counter fortunately).
+> 
+> No, this is at odds with the way we handle CPU features in KVM/arm64.
+> 
+> Ignoring this ioctl, the goal is that after KVM_ARM_VCPU_INIT the vCPU
+> is initialized to the maximum possible feature set. If userspace wants
+> to de-feature the VM it can do so by modifying the ID registers.
+> 
+> OTOH, your ioctl is dealing with something structural in how we
+> support PMUs on the system. It should be defined as exposing all fixed
+> counters that we support on a given piece of hardware. On systems
+> without FEAT_PMUv3_ICNTR, the result should be a vPMU that only has the
+> CPU cycle counter.
+> 
+> On a system that has FEAT_PMUv3_ICNTR, userspace can still use this
+> ioctl and explicitly de-feature ICNTR by writing to the ID register
+> after initialization.
+
+Now I understand better.
+
+Currently, KVM_ARM_VCPU_PMU_V3_COMPOSITION sets supported_cpus to ones 
+that have cycle counters compatible with PMU emulation.
+
+If FEAT_PMUv3_ICNTR is set to the ID register, I guess 
+KVM_ARM_VCPU_PMU_V3_COMPOSITION will set supported_cpus to ones that 
+have compatible cycle and instruction counters. If so, the naming 
+KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY indeed makes sense.
+
+Regards,
+Akihiko Odaki
 
