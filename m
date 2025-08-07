@@ -4,154 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F019AC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 12:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6384C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 12:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXhGu7DSw+lWVuk0fnG1niZZTcohKIvpkIp+cUHmVxk=; b=U0oMZWuQl7WGgDBaomBV8l13yp
-	bUKCPpnjtcw5CxWvz+SusxvBQYAAABjaZcPxD7xSw7c1IS397ZCqxXRZwKKbLWf4ybs5zZBvYY4W1
-	KizRFC0QXJQFapnhPymIZ/loXlg/lXgzsLuTB7rJ7WD63nV6kXCpHZPUof5KuJM4B4zO0b7wuxNp2
-	Hb1tYXVHIdnNAxavmuSz+3IQ8j+Inh6aiWfAYlTBqE4pBrZxEDwhky6WGRbxwMtOkeWhNXsjVir4R
-	wlQJJ6uiHAsu7lYMr0i70jJz0Cn/3v5xQP6Dfa1bcSyY8G6V08zDXqnUCsSNuWgJ1zORk4LyfM86i
-	eXla5JRg==;
+	bh=uYOJEPdVLLTn7KYojoNujaBs0UWzNNL/ldR7pIOubzU=; b=uCQVXM5yWRMPGoQjrCvoZQxNpp
+	yp12w2RHWZCeb/cfHjq7Mf9tntjyckbpwAGtm2N8Mh13rwe3FHiQ4nC6AkiQWFnldBc4eFHWGV4zD
+	S7URjdL5Z+IEZZNZYNn4PBA5IjZ2YJj03PkEn9kq4XzGm+lKauOef6HggFiOMWfigazG2ulq+PCtb
+	maPHxPxmIK3Pf/RbJh35pSqfz212pTnVH8ZPOtfVX/epmkPdvCVQjszU/eThGFgbNMY911VnVZKwJ
+	datWCOgZ6soxmlTOOlYoWg8ah3+kfBdSsq9t6xeYsBl4wdFXTu7V1o/A1BV58xXOUcTqTpdfVuCox
+	EB3wqX2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk09l-00000000c90-3jGw;
-	Thu, 07 Aug 2025 12:55:41 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uk0CH-00000000cj0-3q5k;
+	Thu, 07 Aug 2025 12:58:17 +0000
+Received: from mail-am0eur02on2070c.outbound.protection.outlook.com ([2a01:111:f403:2606::70c] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujzrn-00000000Z9P-1XyZ
+	id 1uk07U-00000000biY-04dQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 12:37:09 +0000
+	Thu, 07 Aug 2025 12:53:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QTejgkyxPJEhL9zstCvcEo5UNAHC2frq3n8yNlNaP1S97YYb2Oc0q2pNwFlI6CA/9ZnUrE9lI5OaBakIVIIRZNreZ7Rttr50HrQV3vZcIp57O2+AAeRkopIeQXmCBO/YKpEsP5sKTuVP7j4RRlY015B9Pk7xeMy8NPaqWLWw9qBNLzNLZoipeWnj0gVPtlyW5/LFo2D9WpEedPLP4PcfbHAkr8tMhAd0lXu1qLNRUDNbGPwhhEbfpw7OrG7oqAfgcDNE6e3gb4DxJX4lzcP/pUjURRNlRi/Gd+ismKU7Kmc3cv4dSRWyi2Y7RBn711YVeW267esOTqRYDp5Ym7m7Hg==
+ b=WXNClSQNogmZZLGt9wCpIr18wl6i1nRIICa1twi4VoxihUiv615FaXsy85NoR+tuF5OP4UtHKgjsAVCo60aQAhpBqvdH1L1V8OgyTh2epDei58xoLL3si+7nqc2BVrwIRfaUNLAY1MQP8TIpcaz4wIYpfHpQYRplggHLbWDnxOByC5z5LqCstfzUi6NYDF92YTlCJyhsaABGAdGxv9d6yWRUrWv3CbFH9O5P0V8sS6j/Xs3p1yqgtyZAwA45LFrIbnnRXFvCTfNsKnrM0DPe88FtJ2wd6WXKzTcOFBmV35wMKcAFybD9clIiIgrL9Fy6JBN64YMkRZ8uPXjfVvaW5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kXhGu7DSw+lWVuk0fnG1niZZTcohKIvpkIp+cUHmVxk=;
- b=pFlYAxfPyjVZ/XAHr2zwOm9iFDRmGw8zPx0hZ+kXlyEXZqY1bmeYjf4bZGFNeacTRfivH0WbPDSTGNGnLX5bHoiPCbWS/wSdKGDKcrLBlI2qihQYtjwu/6pOCnOHIfWBWTAN91yBiJXIDXf6l56e/U5ttqKoGQtfOlUZh0Xby11SGYrTKJi+CmYAZFz4XE1QZGcdZK3hCb62XwfAhnZoeZ8VXeAojlLgjx/LOZVerVHEh80tKs7++CQG2LQ9lyH9WdjyYwwlH0j33bvuc4iEyoclvYlrrXxcPtD/9GM5I+eFIYekJtd2tgu/HfhAGBF4HcsbTntJ9imur172BtNEmw==
+ bh=uYOJEPdVLLTn7KYojoNujaBs0UWzNNL/ldR7pIOubzU=;
+ b=QtFTo2TaPO2wuTnXe+JlOLcRwVmIDzP7PcsjzQtkWut8ZrM85rRLwhQVAKTeO2IVchS2n96JhM3xTFNV+mt+dfgkiKoK8X/YCKQImrYqxgi5iOjyklUzJ68aYrQqPa2hoJEcBXHya3SipC+JR8X7c6ZHbw9jHZOzp8YRTpRfoapQwI0CdVk5iBQ6aADRQ8nBPj5odyedcwCzL2iHJLCf1yzLBdeAV25B6HPPpUfZuFF1Sa8y8UKNUx1CpKU+k4E0mALoyXJr/7ebAnwrRPAQ2k36qT/g59rLxUETqr274GB/K5GcbD8EnEkdVXDffxbI9D5KtGzZdcs9bnYt9VDjKg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kXhGu7DSw+lWVuk0fnG1niZZTcohKIvpkIp+cUHmVxk=;
- b=Bsf0gRj3W/FNaVjYh81gIUVvUXLZOPdz2zA0w1x8dQEx9k4SHeyTI7BTU2PYl+zwLJtAlkpw47DSt9GLBl+x9qC4EliK1jKPdERe665VaM0OrUR+6m+TRwvUhRAhYrV8suBi1AwUEZ6Olr3clQYoSj1qx5d09yT1ipnU7bS6Z/jJKjH2ntIW0x3TOLvii39UFndRE9dSR4fo6UJpwP7amHd1Boqk69mmRSUUgx2ox3XQhHc9a0ENCAMazpnf6q+zWYGbOPOEataQTxJO2jSp5myuEDW1+kzriaINbUv/eEICYhEt4gvUF9sY8ZakbpeBqQQktassWddPDyskSIVuuA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com (2603:10a6:150:26::19)
- by AM9PR04MB8178.eurprd04.prod.outlook.com (2603:10a6:20b:3e3::8) with
+ bh=uYOJEPdVLLTn7KYojoNujaBs0UWzNNL/ldR7pIOubzU=;
+ b=s7VB1wuw37lWTFu4Mpw5t9W4Ywy37x5zAdp1W4XDYzMutNwYmWiQRXBV54MF9BPNikRhCREs29WA/H2VQSbwNcYCpqfCCknCpd6Ypip3X43FMQXz3tNX34EvH9KL/nuyTjwKlDW/wP+ndPG7twBAcAqlmvE7X9jOFmvc4D+8GeBKpI73OeBCREplwYI6RRTVk/h22ZxtkMJPqkybpjlbVQq2e0Qa5hAHsz1Wja5V7L8AwgktioZSaZCzQZnA2o23qYC64UtFKz7y8mSZBxUSCjQMGTC+Td8jXmRq6ecksTVMWJwnSN05aKvKpTEewkxEYYcIEfDE0LxMjpeT2YCKjw==
+Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:294::16)
+ by FRWP195MB2852.EURP195.PROD.OUTLOOK.COM (2603:10a6:d10:187::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.16; Thu, 7 Aug
- 2025 12:37:02 +0000
-Received: from GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442]) by GV1PR04MB9135.eurprd04.prod.outlook.com
- ([fe80::b1f6:475e:de5d:8442%5]) with mapi id 15.20.9009.013; Thu, 7 Aug 2025
- 12:37:01 +0000
-Date: Thu, 7 Aug 2025 15:36:58 +0300
-From: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: imx@lists.linux.dev, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Sandor Yu <sandor.yu@nxp.com>, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 5/9] drm/imx: Add support for i.MX94 DCIF
-Message-ID: <rinow6t73wgrmu6hj5jailefeol4bh2tn2vyash7vta6hkunta@66x2rcxcubti>
-References: <20250806150521.2174797-1-laurentiu.palcu@oss.nxp.com>
- <20250806150521.2174797-6-laurentiu.palcu@oss.nxp.com>
- <aJN4Ns+Vt20Q2UIj@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aJN4Ns+Vt20Q2UIj@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: FR2P281CA0111.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9c::15) To GV1PR04MB9135.eurprd04.prod.outlook.com
- (2603:10a6:150:26::19)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.15; Thu, 7 Aug
+ 2025 12:53:09 +0000
+Received: from DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
+ ([fe80::2d26:fa56:5972:5247]) by DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
+ ([fe80::2d26:fa56:5972:5247%6]) with mapi id 15.20.9009.013; Thu, 7 Aug 2025
+ 12:53:09 +0000
+From: Christoph Stoidner <C.Stoidner@phytec.de>
+To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
+CC: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
+	<upstream@lists.phytec.de>, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
+ imx93-phycore-som: Delay the phy reset by a gpio
+Thread-Topic: [Upstream] Re: [PATCH v3] arm64: dts: freescale:
+ imx93-phycore-som: Delay the phy reset by a gpio
+Thread-Index: AQHbzJ5IkKiCUrqPH06p42f/+549BbPiDcKAgAJsSwCAAChcgIAABDUAgAALOQCAACRcAIADjdKAgAAQWYCAAsNAAIAD9cmAgAChPwCAAAtVAIA4UzkAgBBNlwCAHyBqAA==
+Date: Thu, 7 Aug 2025 12:53:09 +0000
+Message-ID: <39243f47f601253ebf6e7ef30475f70ec2a932a4.camel@phytec.de>
+References: <b2ea6b7f-3623-4486-82a0-cab97053a53e@gmx.net>
+		 <34a4441d4b4ed8db7cac585ce93ec2357738cc11.camel@phytec.de>
+		 <7f6d7199-0a20-4370-a8b0-1d05326af052@gmx.net>
+		 <bf0eb48fc72f4b0abbf62077c2f1fe4438579746.camel@phytec.de>
+		 <967484d9-4165-4b75-bbb7-a203c36e8beb@gmx.net>
+		 <517be266ebc3b55da53372a76a139245f8945cd8.camel@phytec.de>
+		 <5afa6d62-4a3f-4c28-8165-363075ac36d8@lunn.ch>
+		 <a948b903766a82897e5fc17a840ab40e29f5eda4.camel@phytec.de>
+		 <8e448625-b4ad-4bf1-8930-6fecdedb1d8d@lunn.ch>
+		 <78ec24d09d129d52d3442f6319cf1ef5b6ce7f3d.camel@phytec.de>
+		 <739f93d0-4cb4-4f1a-8792-84502d4beefe@lunn.ch>
+		 <626bca58-e481-4d6f-9bb7-252c040f4b3b@norik.com>
+	 <ad5e7450c5cf3a2f9a5d3c23f7219eb08be31062.camel@phytec.de>
+In-Reply-To: <ad5e7450c5cf3a2f9a5d3c23f7219eb08be31062.camel@phytec.de>
+Accept-Language: de-DE, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DB9P195MB1212:EE_|FRWP195MB2852:EE_
+x-ms-office365-filtering-correlation-id: f34a0b45-7460-414f-29fb-08ddd5b15c91
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|4022899009|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?b3RLby9vTmd3dDRsQ0hqbXAvM2o0Q3hUazh0aDN2YzYwWmplbk5haDNWWFFi?=
+ =?utf-8?B?eXJ4eVcxOHRhWVZOaDN4YmQzb0h3cHNEdS85ZFQwRHVJMCtVdTRQVUw3NnRL?=
+ =?utf-8?B?WnljeGxPV2F0aHljR3hCNjNNb1RIYVBNTGJmNFRoVTlrUlg1ejZoL3lCNHRV?=
+ =?utf-8?B?cnU2OHY0NGFwMkdwMmlOTnlONTI3ZXlBY05Ea3h5ZG1sY0dVWHpWQWNqNEZF?=
+ =?utf-8?B?TGdPS1BhTloyN0ptUnRTZlRFNHRLM2NnZVgwNmRTb29KYmdxNlhtZGFZeHgz?=
+ =?utf-8?B?U0E1WVZVaGwrMkFlb2tWZEFtSE9rOXIxREJOZ2dPRSttSDdSVHk0b1BWMTFj?=
+ =?utf-8?B?OTdKS0kyZ040OGNvemlXVWNxMjZJNDJ4c1FlUmE0dVRKS1pDK3RURnNhL3NZ?=
+ =?utf-8?B?cE9CLzFSNVBnWTB4eS9SSVUyY2duZE5Xc0krRjR2a0lqNyttZHdwWnJyRzFF?=
+ =?utf-8?B?dUQrdXVTSTFCeGVkVUdLNFJYbTc5eWdaMVJ1ZTJid1NiZm9JUE5wazNwQ3R4?=
+ =?utf-8?B?QjhMUUNGSnpwMWZLbDdqTzJXOW9NWE1LMTBhanpzcnpuUkZkdUZoTTc2S0pD?=
+ =?utf-8?B?YUhGMlNsMEY0NllVRmtuZDVZL29zQ1Nlb0VsUnFvUEpNYWdiU0JIQmtHempS?=
+ =?utf-8?B?cDFwMjJIc2pXL1NHeWcwUEdoU2tWN251SFg5eDluNklTVGZkejNnUUdaWTdi?=
+ =?utf-8?B?czhKZExUWUQwdWpZd2lZSjhjV3o2a3U3N1BOK1lhcHJWdDZndUNrK2M3M3px?=
+ =?utf-8?B?YmhMcEduU1RoMXJEeHJmVFI3RmNyejBwcTVDVlg0d3FDME95aUpKVXo5R0FB?=
+ =?utf-8?B?dk5PLzVlVlpSNyt4Ui9ZRTkvRE1iR2lRMElyR0tMcjNwTzZsMGNFdHpTZ2VR?=
+ =?utf-8?B?Ykl4MzhMYlowZ2k3RURvalRCUDFrRTlVNlZhclQ2NnRWMEg5S05PT1hLVjN5?=
+ =?utf-8?B?Z3VqUFJSaCtjZURZdFFnYlZGUWt0NXllQmhyVkszd1lSam0rQUNvdnA3VzdH?=
+ =?utf-8?B?NVBPSUZFYU9FTGIyNzkwbG1kWkxTeTZxVEIwT21mREtEYXpodGhNN2YyVHRU?=
+ =?utf-8?B?OVZaM3ZneGR3K2p6Mnkvd2FJTVViUVRNMjg0ME1VOHR3QlJuMlRyR3dPN3di?=
+ =?utf-8?B?K1oyWlFFR3VRTHpCWFp5SnRJeVA2aTRSNFYwaHZadTIzdVE2b3Z0MmNEeFlQ?=
+ =?utf-8?B?WVNsUHB6bXhpYm11OXhYZ05WemlWUFFxY1hMTTRNZDRFbjVkMmw2Z1l5Kzk0?=
+ =?utf-8?B?VlQvRndYcVQwWWlkY1VEd2xCRXVWa0xzNEVQSzBjS1FaOVdKQ3ovNVg0UHRn?=
+ =?utf-8?B?TUFNMkRYa3ZWTWw3Y2JEejVvTjFBTFk3QTMrMEdicko4cTFHcHNJRzJjOWNt?=
+ =?utf-8?B?bEJqc05HekorTlQ5UFZ5QXU3WFkxRDVXQ1JpQktldDFxVkkwVkRaRjNkcjlX?=
+ =?utf-8?B?bFpYMlFnN202dFdueHJPZkZWU0JPYTMvVEViQnI5dkdhbTlscWZGa2djUC9D?=
+ =?utf-8?B?VEd2UW9LN1B1VFVWa0xpWExOWWhSVVo1RkgrdGJBNkRmY0J0OUgreDZlK2Y0?=
+ =?utf-8?B?NHhUSUY5T0NHL0RaUlpqd0MyVUlSYUhwTlZSV2RxZGtIbzBCUVl0Lzd6TzJS?=
+ =?utf-8?B?SDh2UTNXZWJVQVpxRlBSQ3JNN29kM3Rla2JvNU85aGkzeTByWDFjWUI4WUM3?=
+ =?utf-8?B?YnlaalJrTUZ5Yk1MWWM1bFJEajdPQzRBSjVuWlQyY1p6eHdNSWpyWldGMkRs?=
+ =?utf-8?B?VGZrYXZ5YmtLTzVldlBLZFRkdTlxVFMwd21UU29FTXVLNmZoalJCbEI4dE1X?=
+ =?utf-8?B?a2hBUGRad0dpSmV1NElTaFlZSm9XaTZhRmFVaUo0UFprQmVFWVFBTkIvVXpE?=
+ =?utf-8?B?bGRibXRraUhzSGxiRzg5Rm8zRXl4aHNidVIzdjhXQllweUQ5R2tqOHIvZlZC?=
+ =?utf-8?B?c1hueDF6SGY5UDQ2NXRCMmU3a0Q3N0tZMEM1RHNPbVFURlJla1g3Rk1pSjhh?=
+ =?utf-8?B?cDFFWFMwQnl3PT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9P195MB1212.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(4022899009)(376014)(7416014)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MWV5Y3JIK2xwNHl3d2E3bnNKVXNxNGdyNzMyYm9KYXBkSUNyNUJWOUVqKzk3?=
+ =?utf-8?B?ai9xSENMUTRFY3p1dVc0TEV1T2ZBNjNhTXlRdlpQU2dQaHBKZXRWQXFKbDdF?=
+ =?utf-8?B?dDMvdFpJUlBXRC9tNTlNMUdEMEp1TkxGUzJFRjJEdlgvUGR6TWQ5bEJPWE5h?=
+ =?utf-8?B?L2tvQnFyT3VmelpVc3I2M2dUN2Jod3JxWE1SeVJkd2tQUzVvamUwdUMrdW03?=
+ =?utf-8?B?clNhOHVKcEtqMkdIZFpkU0p2VXhoNmk3UWRPelJyZExPYUo2bGdnN3hPRm1q?=
+ =?utf-8?B?TEJ2b3BmTzlILy94YmdSRXdtTEdDUEw0QUxJN0tHWDdnMTFNQVpiS1VtcFNj?=
+ =?utf-8?B?WUJSS05RemxBdDlmQUZNcjlTRERGZ1U3ZDRuN0FjRmJPOUh5N0czSnFyUldE?=
+ =?utf-8?B?QWxPYmFMWmlrTEdDYmRPaFBZcHA1WG1jVlE3bkdyZGZRNHlkZUZPaVJBWjJV?=
+ =?utf-8?B?Tnl5aGI4LytSUERlNkxSK20yNmU5K0l6TVduNklsUG4yOGtvYm5IaHlMeFZp?=
+ =?utf-8?B?TmRmL2JieWIrcU8rVTRHZE9jSDVkZnBHdVJNMjRTYmsrSDV4K0MyR09ySkE0?=
+ =?utf-8?B?RGtjbk9VdnY2WnZ4aXJYc0VTcVNJMHRhRG8zY1B6aFU5MVZ5dHZWYzJRdElD?=
+ =?utf-8?B?ZnpZNEFSSWlxNkNSYkkzSkN5dGI5YWhwM1dkcS9QK2FjaGU4SjNNZVZaUWNV?=
+ =?utf-8?B?UTkrM29uQlQzRUtiVnlQM3h3d3ZPdzNRczhVcC84SGxHLzVIK3V0REIwMVNa?=
+ =?utf-8?B?U3h3aTQxUzB2ZjFRQTJkclkzZTEyK0FMTkovOVFKbWY1OUdycHZ1VUlPbVZj?=
+ =?utf-8?B?bXFBTXlZZ1p6YTZMMlNRKzg2R1pxY3BEUmtMdmJrVFZXdHJkc3c2NmNISHNt?=
+ =?utf-8?B?Y1ZIb2kvTFZvMGcrNVg2QWZnQmVUcHpUekE1VnlIZ2FvRmxSZEhZaCtPNDcr?=
+ =?utf-8?B?YmZ5OS9Zb1VXY0tydzRnblhJb2N1ZFNxYXdJMnNocFhRZ2NnaERDQ3lXNHlY?=
+ =?utf-8?B?WHNOK043RUVkUjZxVDFVNURxUlJyOHZWbWhZc0R0SWRhdFdjanBMdjM5Q0Mr?=
+ =?utf-8?B?d3lzaGxMSWtrTHNWQlJNcFllQ1Nqd09NNFhwTXpiNGpYZnc5ZjRWbXU2MG1H?=
+ =?utf-8?B?TVdLUU5qMnp6UWlQRkxuYXcvODU1NHlHcVR5c3d0eEhJYmRhUUVEUmlycTZJ?=
+ =?utf-8?B?RVBPbXZrWVJncWhGK1VDS2RnRVRJbUJDRmllT2tUVWN1MGo4Z2tscmErWkFM?=
+ =?utf-8?B?cFVRaVd0clRiNklaRTN1RXJyRVhJejRYVi9QNnE4N2xtdHg2VEtGRDRTUHdN?=
+ =?utf-8?B?ajBXOE56OTdaVGhEQ3RRUkZ3OXUxMFN1OHh2Tm5OS3hKa3RZWVpBSENOZmlY?=
+ =?utf-8?B?M0FBMEJGbi9VWkxWVm1Qc2hhZU1rZWNwSitlUWtTWlF5SXVvY2RiTVNIWDhs?=
+ =?utf-8?B?SC9rNjM5Q2d0a25CNXNpdW9nQ2lpclZkclI5bXVHZVNkSzVXc2YvMDZwckRs?=
+ =?utf-8?B?MUl0WW1NVTJQRmdCempFUWlhNldHMmlQWmpBNnRNZlpOb2w3Q3Nnd25LeGN2?=
+ =?utf-8?B?bGxIcFFYQ082aEU1UVpaWkE0eVY3YmJKWlI5RG44aEpLaHNYdjVoajltd3U4?=
+ =?utf-8?B?L1RGZEo1VVFxRWRtNDFiTzkzUzZpUkF5WUR2VXpqUmgycExmRDVvODNyK00z?=
+ =?utf-8?B?cGhLN3VyZ3d0K2krQm9aV3NqeVBaYm5xV2haZGVCZThMbkhrdGxZUDlmNmRZ?=
+ =?utf-8?B?U2dnVW40MThSWjZ5NWlCcFk5NW9rNXB6cFJ3RXI1MFVnM2hjdWx2ZjcwWGZB?=
+ =?utf-8?B?ZktKZlRneFJKNXNtSVVWYnVRU25PTVArNGJSdmY5dWtZQmhmZnZYazlwYzI5?=
+ =?utf-8?B?cW5OSEN6ZkcrRS8vTWVLWGNwczZWa255Y08zcyt4ZStoSytXaGQ3b0QrRlRh?=
+ =?utf-8?B?c3dNd0ZpeXZDU0tIRUpXdE5JY1cwQi8rejJTYTF1K0N2cEpCbW9YeEJnalVE?=
+ =?utf-8?B?aXNGR3RQMG56Skt6Zi9HWkpxd2F0cm5MTnFaQVc3eHU0NWZKWWpRY3p1bWNI?=
+ =?utf-8?B?NEtrR1ZFdEhuaUEyVnFwUENMVk1xeW9IbHptREZtSU5venowZ0NxMy9WU0tC?=
+ =?utf-8?Q?c1hUAM14YzCw8cMc9VkTvMZcs?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <F526776F9345814DBCA257E739BE124C@EURP195.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV1PR04MB9135:EE_|AM9PR04MB8178:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6985342-ec5e-4846-3cb5-08ddd5af1b8a
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?orObWjKtTmlvdafW8qgwTnaN54BhBPmYJi0y/LdvgZxv00rAjMcx/ifUFher?=
- =?us-ascii?Q?9AOiPGsMq89xewZjby67+4+kanNkOph3ACf4T4KOQ2XPNs8NNnhiLTtsg/BL?=
- =?us-ascii?Q?kyfivl3Eq3nmrbV8DRcNexkhjw4VJB7s3ux0PduVWiB4eOwJXaOtGqI/6biV?=
- =?us-ascii?Q?xnvqfWIQe8TG43M9zZ2ntJBclkYTsTUon8YuMBTduUOMfnK+FElkRtGWKMxp?=
- =?us-ascii?Q?uUAnwGWI/8K+mPB2EF6YH7WyAQcgK5sGk6ARkRzxn1ZXJiQ1iB/gf2iGsXLB?=
- =?us-ascii?Q?YX15snFJETkR6/VoseAs0B2bYeoKBd/FHIObv1/x1f5RGgE3fBfHEbWcIBuj?=
- =?us-ascii?Q?APDS8EFimrEfttkcdTr4RdgBzAN9Gnac0z9Vp4hS34HL+gOPRHAo6fanJxBH?=
- =?us-ascii?Q?HPZZfeqj5x48FSXneAn7Qw8ewpHVt1VbwuSzNVXQDj23es6PDjEDhiUyI/Ju?=
- =?us-ascii?Q?aPXgU7D8r1ZaQwD9h5qxby6XCfHmGDCZFcag0JCwOCXAMKxCYbjDl+2jJ+Jq?=
- =?us-ascii?Q?ITJrA0qO2F+EGJrH4hry7rM0/vcMNsV+5me8rC8pNQaQnvp1bv/r6RBs9r0B?=
- =?us-ascii?Q?yRwuNZNSBUB6wS037mhktExDve1zZ98yJLiNSwegOBsKechN7+7rBsJ9ME76?=
- =?us-ascii?Q?TRVyfLVGX21stnDTqCxje3IfNixh9DZ207eODPJSaY3/xx3Y/KEtIMpdMznf?=
- =?us-ascii?Q?CyBjUozbggrYZNSLE0S1cFXn2ugDy9fqjyMGBnTKP6AAZDEgAPW9yxyMT3ri?=
- =?us-ascii?Q?Z6J4FYbw4j/oUNqklxX/JJFweIW15rX2WMGTHxo7hjl/69l6c6/NXeblry/r?=
- =?us-ascii?Q?Rl8xmLt7sGAfYvUXLThDm8qWyPV4YvS4MfHcC0HBR4hIEUCbybdk7JqNwYnR?=
- =?us-ascii?Q?cazt0Cr1q7lchEhkHyA99MgMepqmZapVIVRV1Bu7XZT6ZT8rjrU+b0LgsBDz?=
- =?us-ascii?Q?VK6w248E5QXmaXCN6o4661WZH4RuF4cLWWDyePU32Jll9b3cljIaIzwfN3yf?=
- =?us-ascii?Q?y9ZiVFRhM+sWG8aMiRkSzZ4JZpDoTGoYJb5mXrOj4Yh/cMqNxMe4MolitIX+?=
- =?us-ascii?Q?fB9SBogaLd9GKUqxZStd7nVOPcu05n/4ViRMOMu0o+M/D08UjNdHw0m2Fa7n?=
- =?us-ascii?Q?t03ibefaS17JEB23VltMq3J4MeTpNn5PJCZrvsu6MW/eR8jc/2cgc8WRey6j?=
- =?us-ascii?Q?CpeT1aAzJhg2vBY8i5k6uSBAhK5HWg7FkuinCIAiAv5+H/An1q5aVD6qJw1a?=
- =?us-ascii?Q?o93k0VX3Nqx1OUS16hDX+j15Bi203ru3GG/wCgp5p3WC7lOLIYzcDYIfY82N?=
- =?us-ascii?Q?VYLFAIQdQVf6wnpIn158jptMBROOGwxyo/2z0zWraBhhj0xgUWtNGb2at3Et?=
- =?us-ascii?Q?mCU3PuLvQepudl1ekQfc9AnJnkUBHvs8ny1KRO0jKrCfeTl1HOxi+GuFWCZs?=
- =?us-ascii?Q?V/WMJ+5A6P8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR04MB9135.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OaYYDe0aiIU2OZHsRl9EWXiMO3EdMf3ntq66NpwWpreDPj2/g2bHlfEw2Kmv?=
- =?us-ascii?Q?w9sdQItiCxQPukj/n1H017UxhoE3MmDr5WU76T/7skh2O3CLnWqZLj8qrJci?=
- =?us-ascii?Q?uKKatZwDSfIOzxwbzUrkQOND3M8mH9HjFaJ2xTRluHY7oK5LFwLlR/X1bI2q?=
- =?us-ascii?Q?7jergOtg1M/EjmP+OWxr3IxJwCiCtT3oeSbmX1yq1iZChTl4q/tZcpQNaeYH?=
- =?us-ascii?Q?/hDM/hmgEVcWZxqIE4evXHv/6T/Q/6JKRFPD3akCBVNB1c6/jFCvylwp/2Vh?=
- =?us-ascii?Q?7qYnXmZtvvTNimJvzVXiinCr7f0FF/vUHeCMeUtJjc0V26QEW0V20PiOCaAB?=
- =?us-ascii?Q?kDh+9Dkc7Nld9z15gHQEpR8En0K8Dub2B2Xhw0ECrV9CfjzUtUBuD6Tm6jXv?=
- =?us-ascii?Q?vjA9+u5MrlZkpV1yDT89PpYm5tisNdZfscFHueLKaZ/Al6GoJTNgiuay5QQu?=
- =?us-ascii?Q?561rZw2tKV2z2UkuNQS/PKsdW43h6kJr3Xnzl9Asw4Den311kV8haB036GEa?=
- =?us-ascii?Q?XKr+kyWMDWXKttYpgB4ou8VoF4ETbwtPTlK2PCr5+9/8Lj2VLcneXXJMx/cj?=
- =?us-ascii?Q?TbCQtvHAf2rhry6ZI4/aDHWarbgNBW8YGlULBKPfErTOltuYOtlxhdm9Ijqe?=
- =?us-ascii?Q?uzs7fAx+6CkTAbVkHTG9E9StjibOgfStnmoq9TMn27ce8oCjVe91XCFCbXjS?=
- =?us-ascii?Q?+LhMZV/zvbWD/rPT+ntYDAOPZj+O+jN69dEYjp5+RYY+Kdw2ZTBzSLIC5sSt?=
- =?us-ascii?Q?qfsUdc7esIilh5bLrpDPcll/0oG5adizfbtqu0zyb7p7sjG9B3K2QBfQaNXD?=
- =?us-ascii?Q?t1tNpb1oilxf547lMa+QLOqKR9nGesFkNQG72VsRrqP5SFqtJkvLVDwNKuVi?=
- =?us-ascii?Q?sTuoI/Zo2TKoOmX50FUD3S/VbxbE9RxLx/N8lcyee0yzGKGvjPEJm1QtGLWI?=
- =?us-ascii?Q?VbYGisAi52qg4a6JSWunS/riIvUnX2r0Cu+KFFJxaLdQrQqomdybY6fWYMpD?=
- =?us-ascii?Q?DilCOdnx5AdOCaeN3i8ndGULU243eZYu8RMeWsKUXPZeNOf5Y0af0r9GzfWm?=
- =?us-ascii?Q?tIlhEDrksdcYqfyruesYJ/Lz7pLLdQDPBcG27w3n3UYdIlX+M1VPc9OnSREi?=
- =?us-ascii?Q?CIxLueVlIYqCUbp55Zqus5lCxzlRofGPU/MQnq6UBXCGWz1GDW+lOBOHDN+H?=
- =?us-ascii?Q?yL07Ect3aLYT3mmjQoZyOIVCrVRNrYvlvSDyEWpSGhcTHE/vXDCx1/OnUK45?=
- =?us-ascii?Q?ah8XHUrtKdm+fsgnhu3PbndbHZdwtvpKQYOsfNiZRPALvhYyUenUtUPlA4ud?=
- =?us-ascii?Q?6Z9F9PfdQFIHipzbytcqeE3jhEdSH8AoC2OmrFXN6YF6FPr0eiWw3+NAkhTV?=
- =?us-ascii?Q?r+aVMMe3E4IrZsBlN+B0jyAVqUAFGHXPDciE3h8Kgz2tkASdww8kk7lHHjpq?=
- =?us-ascii?Q?4O13yn/VXPs5uN4AzJmbniA3DcHQ7QxP1Lbvo/0eH6EfyPzjD4QnBrYg0xuD?=
- =?us-ascii?Q?XNf6MGJ5t27vwdYMXfB/rbJdSi35rLkBFdQs/LTCerrfZClVFmlRlqWEaJhX?=
- =?us-ascii?Q?AE+MJJqVIgMwSb7FopU0VIgm2D38/u9Wm76GdsPgiirpr3y4A+k9MK/C439X?=
- =?us-ascii?Q?/w=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6985342-ec5e-4846-3cb5-08ddd5af1b8a
-X-MS-Exchange-CrossTenant-AuthSource: GV1PR04MB9135.eurprd04.prod.outlook.com
+X-OriginatorOrg: phytec.de
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2025 12:37:01.7881
+X-MS-Exchange-CrossTenant-AuthSource: DB9P195MB1212.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: f34a0b45-7460-414f-29fb-08ddd5b15c91
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Aug 2025 12:53:09.5173
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4kUTsH833RlOKzBF5WA9XZTdmD2rCHnimaXdkMw7sEAJH4a7nMvSgHlEDlJrtPUJLs9hb6fmtEoeeInCTLBDSw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8178
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: J6bM+Yc258FspAnJeWdhjbxMttk+0WUhInqRnsujq+CG6UmJDd7M1aCqjltgJd1Ctn+cgtzR52ZtOav6vsAehg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWP195MB2852
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_053707_725101_5B2627C3 
-X-CRM114-Status: GOOD (  27.85  )
+X-CRM114-CacheID: sfid-20250807_055320_364463_1A53658F 
+X-CRM114-Status: GOOD (  37.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,947 +199,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 11:43:50AM -0400, Frank Li wrote:
-> On Wed, Aug 06, 2025 at 06:05:12PM +0300, Laurentiu Palcu wrote:
-> > From: Sandor Yu <sandor.yu@nxp.com>
-> >
-> > The i.MX94 Display Control Interface features:
-> >  * Up to maximum 3 layers of alpha blending:
-> >     - 1 background layer(Layer 0);
-> >     - 1 foreground layer(Layer 1);
-> >     - A programmable constant color behind the background layer;
-> >  * Each layer supports:
-> >     - programmable plane size;
-> >     - programmable background color;
-> >     - embedded alpha and global alpha;
-> >  * Data output with CRC checksum for 4 programmable regions;
-> >
-> > Signed-off-by: Sandor Yu <sandor.yu@nxp.com>
-> > Signed-off-by: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-> > ---
-> >  drivers/gpu/drm/imx/Kconfig           |   1 +
-> >  drivers/gpu/drm/imx/Makefile          |   1 +
-> >  drivers/gpu/drm/imx/dcif/Kconfig      |  15 +
-> >  drivers/gpu/drm/imx/dcif/Makefile     |   5 +
-> >  drivers/gpu/drm/imx/dcif/dcif-crc.c   | 211 ++++++++
-> >  drivers/gpu/drm/imx/dcif/dcif-crc.h   |  52 ++
-> >  drivers/gpu/drm/imx/dcif/dcif-crtc.c  | 694 ++++++++++++++++++++++++++
-> >  drivers/gpu/drm/imx/dcif/dcif-drv.c   | 226 +++++++++
-> >  drivers/gpu/drm/imx/dcif/dcif-drv.h   |  84 ++++
-> >  drivers/gpu/drm/imx/dcif/dcif-kms.c   | 100 ++++
-> >  drivers/gpu/drm/imx/dcif/dcif-plane.c | 269 ++++++++++
-> >  drivers/gpu/drm/imx/dcif/dcif-reg.h   | 266 ++++++++++
-> >  12 files changed, 1924 insertions(+)
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/Kconfig
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/Makefile
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-crc.c
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-crc.h
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-crtc.c
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-drv.c
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-drv.h
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-kms.c
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-plane.c
-> >  create mode 100644 drivers/gpu/drm/imx/dcif/dcif-reg.h
-> >
-> > diff --git a/drivers/gpu/drm/imx/Kconfig b/drivers/gpu/drm/imx/Kconfig
-> > index 3e8c6edbc17c2..1b6ced5c60b51 100644
-> > --- a/drivers/gpu/drm/imx/Kconfig
-> > +++ b/drivers/gpu/drm/imx/Kconfig
-> > @@ -1,6 +1,7 @@
-> >  # SPDX-License-Identifier: GPL-2.0-only
-> >
-> ...
-> > +static int
-> > +dcif_crc_parse_source(const char *source_name, enum dcif_crc_source *s,
-> > +		      struct drm_rect *roi)
-> > +{
-> > +	static const char roi_prefix[] = "roi:";
-> > +
-> > +	if (!source_name) {
-> > +		*s = DCIF_CRC_SRC_NONE;
-> > +	} else if (!strcmp(source_name, "auto")) {
-> > +		*s = DCIF_CRC_SRC_FRAME;
-> > +	} else if (strstarts(source_name, roi_prefix)) {
-> > +		char *options __free(kfree), *opt;
-> 
-> need set opt to NULL here
-
-Do I need to? Why? I don't see 'opt' being used before first asignment. 
-
-> 
-> > +		int len = strlen(roi_prefix);
-> > +		int params[4];
-> > +		int i = 0, ret;
-> > +
-> > +		options = kstrdup(source_name + len, GFP_KERNEL);
-> > +
-> ...
-> > +
-> > +static void dcif_crtc_atomic_enable(struct drm_crtc *crtc,
-> > +				    struct drm_atomic_state *state)
-> > +{
-> > +	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-> > +	struct drm_plane_state *plane_state = drm_atomic_get_new_plane_state(state, crtc->primary);
-> > +	struct dcif_crtc_state *dcif_crtc_state = to_dcif_crtc_state(crtc_state);
-> > +	struct drm_display_mode *adj = &crtc_state->adjusted_mode;
-> > +	struct dcif_dev *dcif = crtc_to_dcif_dev(crtc);
-> > +	struct drm_device *drm = crtc->dev;
-> > +	dma_addr_t baseaddr;
-> > +
-> > +	dev_dbg(drm->dev, "mode " DRM_MODE_FMT "\n", DRM_MODE_ARG(adj));
-> > +
-> > +	/* enable power when we start to set mode for CRTC */
-> > +	pm_runtime_get_sync(drm->dev);
-> 
-> Need check return value here.
-
-I don't really need to but, I guess, it wouldn't hurt either.
-
-> 
-> > +
-> > +	drm_crtc_vblank_on(crtc);
-> > +
-> > +	dcif_crtc_mode_set_nofb(crtc_state, plane_state);
-> > +
-> > +	baseaddr = drm_fb_dma_get_gem_addr(plane_state->fb, plane_state, 0);
-> > +	if (baseaddr)
-> > +		regmap_write(dcif->regmap, DCIF_CTRLDESC4(0), baseaddr);
-> > +
-> > +	dcif_enable_plane_panic(dcif);
-> > +	dcif_enable_controller(dcif);
-> > +
-> > +	dcif_crtc_queue_state_event(crtc);
-> > +
-> > +	if (dcif->has_crc && dcif_crtc_state->crc.source != DCIF_CRC_SRC_NONE)
-> > +		dcif_crtc_enable_crc_source(dcif, dcif_crtc_state->crc.source,
-> > +					    &dcif_crtc_state->crc.roi, 0);
-> > +}
-> > +
-> ...
-> > +irqreturn_t dcif_irq_handler(int irq, void *data)
-> > +{
-> > +	struct drm_device *drm = data;
-> > +	struct dcif_dev *dcif = to_dcif_dev(drm);
-> > +	int domain = dcif->cpu_domain;
-> > +	u32 stat0, stat1, crc;
-> > +
-> > +	regmap_read(dcif->regmap, DCIF_IS0(domain), &stat0);
-> > +	regmap_read(dcif->regmap, DCIF_IS1(domain), &stat1);
-> > +
-> > +	if (stat0 & DCIF_INT0_VS_BLANK) {
-> > +		drm_crtc_handle_vblank(&dcif->crtc);
-> > +
-> > +		scoped_guard(spinlock_irqsave, &drm->event_lock) {
-> > +			if (dcif->event) {
-> > +				drm_crtc_send_vblank_event(&dcif->crtc, dcif->event);
-> > +				dcif->event = NULL;
-> > +				drm_crtc_vblank_put(&dcif->crtc);
-> > +			}
-> > +			if (dcif->crc_is_enabled) {
-> > +				regmap_read(dcif->regmap, DCIF_CRC_VAL_R(0), &crc);
-> > +				drm_crtc_add_crc_entry(&dcif->crtc, false, 0, &crc);
-> > +				dev_dbg(drm->dev, "crc=0x%x\n",  crc);
-> > +			}
-> > +		}
-> > +	}
-> > +
-> > +	if (stat1 & (DCIF_INT1_FIFO_PANIC0 | DCIF_INT1_FIFO_PANIC1)) {
-> > +		u32 panic = stat1 & (DCIF_INT1_FIFO_PANIC0 | DCIF_INT1_FIFO_PANIC1);
-> > +
-> > +		dev_dbg_ratelimited(drm->dev, "FIFO panic on %s\n",
-> > +				    panic == (DCIF_INT1_FIFO_PANIC0 | DCIF_INT1_FIFO_PANIC1) ?
-> > +				    "layers 0 & 1" : panic == DCIF_INT1_FIFO_PANIC0 ? "layer 0" :
-> > +				    "layer 1");
-> > +	}
-> > +
-> > +	/* W1C */
-> > +	regmap_write(dcif->regmap, DCIF_IS0(domain), stat0);
-> > +	regmap_write(dcif->regmap, DCIF_IS1(domain), stat1);
-> 
-> Need move above two lines to just after read it to avoid lost irq.
-The only interrupt that matters is the vertical blanking one. And it
-occurs every 16.66ms or more. I think we're safe.
-
-Laurentiu
-
-> 
-> > +
-> > +	return IRQ_HANDLED;
-> > +}
-> > +
-> > +int dcif_crtc_init(struct dcif_dev *dcif)
-> > +{
-> > +	int ret;
-> > +
-> > +	ret = dcif_plane_init(dcif);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	drm_crtc_helper_add(&dcif->crtc, &dcif_crtc_helper_funcs);
-> > +	ret = drm_crtc_init_with_planes(&dcif->drm, &dcif->crtc, &dcif->planes.primary, NULL,
-> > +					&dcif_crtc_funcs, NULL);
-> > +	if (ret) {
-> > +		drm_err(&dcif->drm, "failed to initialize CRTC: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> ...
-> > +
-> > +static void dcif_read_chip_info(struct dcif_dev *dcif)
-> > +{
-> > +	struct drm_device *drm = &dcif->drm;
-> > +	u32 val, vmin, vmaj;
-> > +
-> > +	pm_runtime_get_sync(drm->dev);
-> > +
-> > +	regmap_read(dcif->regmap, DCIF_VER, &val);
-> > +
-> > +	dcif->has_crc = val & 0x2;
-> 
-> 0x2 need register field define macro for it
-> 
-> > +
-> > +	vmin = DCIF_VER_GET_MINOR(val);
-> > +	vmaj = DCIF_VER_GET_MAJOR(val);
-> > +	DRM_DEV_DEBUG(drm->dev, "DCIF version is %d.%d\n", vmaj, vmin);
-> > +
-> > +	pm_runtime_put_sync(drm->dev);
-> > +}
-> > +
-> ...
-> > +
-> > +#include <drm/drm_crtc.h>
-> > +#include <drm/drm_device.h>
-> > +#include <drm/drm_encoder.h>
-> > +#include <drm/drm_plane.h>
-> > +#include <drm/drm_vblank.h>
-> > +
-> > +struct dcif_dev {
-> > +	struct drm_device drm;
-> > +	void __iomem *reg_base;
-> > +
-> > +	struct regmap *regmap;
-> > +	int irq[3];
-> 
-> 3 need define MAX_IRQ_NUMS macro for it.
-> 
-> Frank
-> > +
-> > +	unsigned int num_clks;
-> > +	struct clk_bulk_data *clks;
-> > +
-> > +	struct drm_crtc crtc;
-> > +	struct {
-> > +		struct drm_plane primary;
-> > +		struct drm_plane overlay;
-> > +	} planes;
-> > +	struct drm_encoder encoder;
-> > +
-> > +	struct drm_pending_vblank_event *event;
-> > +
-> > +	/* Implement crc */
-> > +	bool has_crc;
-> > +	bool crc_is_enabled;
-> > +
-> > +	/* CPU domain for interrupt control */
-> > +	int cpu_domain;
-> > +};
-> > +
-> > +enum dcif_crc_source {
-> > +	DCIF_CRC_SRC_NONE,
-> > +	DCIF_CRC_SRC_FRAME,
-> > +	DCIF_CRC_SRC_FRAME_ROI,
-> > +};
-> > +
-> > +struct dcif_crc {
-> > +	enum dcif_crc_source	source;
-> > +	struct drm_rect		roi;
-> > +};
-> > +
-> > +struct dcif_crtc_state {
-> > +	struct drm_crtc_state	base;
-> > +	struct dcif_crc		crc;
-> > +	u32			bus_format;
-> > +	u32			bus_flags;
-> > +};
-> > +
-> > +static inline struct dcif_dev *to_dcif_dev(struct drm_device *drm_dev)
-> > +{
-> > +	return container_of(drm_dev, struct dcif_dev, drm);
-> > +}
-> > +
-> > +static inline struct dcif_dev *crtc_to_dcif_dev(struct drm_crtc *crtc)
-> > +{
-> > +	return to_dcif_dev(crtc->dev);
-> > +}
-> > +
-> > +static inline struct dcif_crtc_state *to_dcif_crtc_state(struct drm_crtc_state *s)
-> > +{
-> > +	return container_of(s, struct dcif_crtc_state, base);
-> > +}
-> > +
-> > +irqreturn_t dcif_irq_handler(int irq, void *data);
-> > +int dcif_crtc_init(struct dcif_dev *dcif);
-> > +int dcif_plane_init(struct dcif_dev *dcif);
-> > +int dcif_kms_prepare(struct dcif_dev *dcif);
-> > +
-> > +#endif
-> > diff --git a/drivers/gpu/drm/imx/dcif/dcif-kms.c b/drivers/gpu/drm/imx/dcif/dcif-kms.c
-> > new file mode 100644
-> > index 0000000000000..69d999d178b0b
-> > --- /dev/null
-> > +++ b/drivers/gpu/drm/imx/dcif/dcif-kms.c
-> > @@ -0,0 +1,100 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +
-> > +/*
-> > + * Copyright 2025 NXP
-> > + */
-> > +
-> > +#include <drm/drm_atomic_helper.h>
-> > +#include <drm/drm_bridge.h>
-> > +#include <drm/drm_bridge_connector.h>
-> > +#include <drm/drm_gem_framebuffer_helper.h>
-> > +#include <drm/drm_print.h>
-> > +#include <drm/drm_probe_helper.h>
-> > +#include <drm/drm_simple_kms_helper.h>
-> > +
-> > +#include "dcif-drv.h"
-> > +
-> > +static int dcif_kms_init(struct dcif_dev *dcif)
-> > +{
-> > +	struct drm_device *drm = &dcif->drm;
-> > +	struct device_node *np = drm->dev->of_node;
-> > +	struct drm_connector *connector;
-> > +	struct drm_bridge *bridge;
-> > +	int ret;
-> > +
-> > +	ret = dcif_crtc_init(dcif);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	bridge = devm_drm_of_get_bridge(drm->dev, np, 0, 0);
-> > +	if (IS_ERR(bridge))
-> > +		return dev_err_probe(drm->dev, PTR_ERR(bridge), "Failed to find bridge\n");
-> > +
-> > +	dcif->encoder.possible_crtcs = drm_crtc_mask(&dcif->crtc);
-> > +	ret = drm_simple_encoder_init(drm, &dcif->encoder, DRM_MODE_ENCODER_NONE);
-> > +	if (ret) {
-> > +		drm_err(drm, "failed to initialize encoder: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = drm_bridge_attach(&dcif->encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> > +	if (ret) {
-> > +		drm_err(drm, "failed to attach bridge to encoder: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	connector = drm_bridge_connector_init(drm, &dcif->encoder);
-> > +	if (IS_ERR(connector)) {
-> > +		drm_err(drm, "failed to initialize bridge connector: %d\n", ret);
-> > +		return PTR_ERR(connector);
-> > +	}
-> > +
-> > +	ret = drm_connector_attach_encoder(connector, &dcif->encoder);
-> > +	if (ret)
-> > +		drm_err(drm, "failed to attach encoder to connector: %d\n", ret);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static const struct drm_mode_config_funcs dcif_mode_config_funcs = {
-> > +	.fb_create     = drm_gem_fb_create,
-> > +	.atomic_check  = drm_atomic_helper_check,
-> > +	.atomic_commit = drm_atomic_helper_commit,
-> > +};
-> > +
-> > +static const struct drm_mode_config_helper_funcs dcif_mode_config_helpers = {
-> > +	.atomic_commit_tail = drm_atomic_helper_commit_tail_rpm,
-> > +};
-> > +
-> > +int dcif_kms_prepare(struct dcif_dev *dcif)
-> > +{
-> > +	struct drm_device *drm = &dcif->drm;
-> > +	int ret;
-> > +
-> > +	ret = drmm_mode_config_init(drm);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = dcif_kms_init(dcif);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	drm->mode_config.min_width	= 1;
-> > +	drm->mode_config.min_height	= 1;
-> > +	drm->mode_config.max_width	= 1920;
-> > +	drm->mode_config.max_height	= 1920;
-> > +	drm->mode_config.funcs		= &dcif_mode_config_funcs;
-> > +	drm->mode_config.helper_private	= &dcif_mode_config_helpers;
-> > +
-> > +	ret = drm_vblank_init(drm, 1);
-> > +	if (ret < 0) {
-> > +		drm_err(drm, "failed to initialize vblank: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	drm_mode_config_reset(drm);
-> > +
-> > +	drmm_kms_helper_poll_init(drm);
-> > +
-> > +	return 0;
-> > +}
-> > diff --git a/drivers/gpu/drm/imx/dcif/dcif-plane.c b/drivers/gpu/drm/imx/dcif/dcif-plane.c
-> > new file mode 100644
-> > index 0000000000000..54ab8edd11e0c
-> > --- /dev/null
-> > +++ b/drivers/gpu/drm/imx/dcif/dcif-plane.c
-> > @@ -0,0 +1,269 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +
-> > +/*
-> > + * Copyright 2025 NXP
-> > + */
-> > +
-> > +#include <linux/regmap.h>
-> > +
-> > +#include <drm/drm_atomic.h>
-> > +#include <drm/drm_atomic_helper.h>
-> > +#include <drm/drm_blend.h>
-> > +#include <drm/drm_fb_dma_helper.h>
-> > +#include <drm/drm_fourcc.h>
-> > +#include <drm/drm_framebuffer.h>
-> > +#include <drm/drm_gem_atomic_helper.h>
-> > +#include <drm/drm_gem_dma_helper.h>
-> > +#include <drm/drm_print.h>
-> > +#include <drm/drm_rect.h>
-> > +
-> > +#include "dcif-drv.h"
-> > +#include "dcif-reg.h"
-> > +
-> > +static const u32 dcif_primary_plane_formats[] = {
-> > +	/* RGB */
-> > +	DRM_FORMAT_RGB565,
-> > +	DRM_FORMAT_RGB888,
-> > +	DRM_FORMAT_XBGR8888,
-> > +	DRM_FORMAT_XRGB1555,
-> > +	DRM_FORMAT_XRGB4444,
-> > +	DRM_FORMAT_XRGB8888,
-> > +
-> > +	/* Packed YCbCr */
-> > +	DRM_FORMAT_YUYV,
-> > +	DRM_FORMAT_YVYU,
-> > +	DRM_FORMAT_UYVY,
-> > +	DRM_FORMAT_VYUY,
-> > +};
-> > +
-> > +static const u32 dcif_overlay_plane_formats[] = {
-> > +	/* RGB */
-> > +	DRM_FORMAT_RGB565,
-> > +	DRM_FORMAT_RGB888,
-> > +	DRM_FORMAT_XBGR8888,
-> > +	DRM_FORMAT_XRGB1555,
-> > +	DRM_FORMAT_XRGB4444,
-> > +	DRM_FORMAT_XRGB8888,
-> > +};
-> > +
-> > +static inline struct dcif_dev *plane_to_dcif_dev(struct drm_plane *plane)
-> > +{
-> > +	return to_dcif_dev(plane->dev);
-> > +}
-> > +
-> > +static inline dma_addr_t drm_plane_state_to_baseaddr(struct drm_plane_state *state)
-> > +{
-> > +	struct drm_framebuffer *fb = state->fb;
-> > +	struct drm_gem_dma_object *dma_obj;
-> > +	unsigned int x = state->src.x1 >> 16;
-> > +	unsigned int y = state->src.y1 >> 16;
-> > +
-> > +	dma_obj = drm_fb_dma_get_gem_obj(fb, 0);
-> > +
-> > +	return dma_obj->dma_addr + fb->offsets[0] + fb->pitches[0] * y + fb->format->cpp[0] * x;
-> > +}
-> > +
-> > +static int dcif_plane_get_layer_id(struct drm_plane *plane)
-> > +{
-> > +	return (plane->type == DRM_PLANE_TYPE_PRIMARY) ? 0 : 1;
-> > +}
-> > +
-> > +static int dcif_plane_atomic_check(struct drm_plane *plane, struct drm_atomic_state *state)
-> > +{
-> > +	struct drm_plane_state *new_plane_state = drm_atomic_get_new_plane_state(state, plane);
-> > +	struct drm_plane_state *old_plane_state = drm_atomic_get_old_plane_state(state, plane);
-> > +	struct dcif_dev *dcif = plane_to_dcif_dev(plane);
-> > +	struct drm_framebuffer *fb = new_plane_state->fb;
-> > +	struct drm_framebuffer *old_fb = old_plane_state->fb;
-> > +	struct drm_crtc_state *crtc_state;
-> > +
-> > +	if (!fb)
-> > +		return 0;
-> > +
-> > +	crtc_state = drm_atomic_get_new_crtc_state(state, &dcif->crtc);
-> > +	if (WARN_ON(!crtc_state))
-> > +		return -EINVAL;
-> > +
-> > +	/*
-> > +	 * Force CRTC mode change if framebuffer stride or pixel format have changed.
-> > +	 */
-> > +	if (plane->type == DRM_PLANE_TYPE_PRIMARY && old_fb &&
-> > +	    (fb->pitches[0] != old_fb->pitches[0] || fb->format->format != old_fb->format->format))
-> > +		crtc_state->mode_changed = true;
-> > +
-> > +	return drm_atomic_helper_check_plane_state(new_plane_state, crtc_state,
-> > +						   DRM_PLANE_NO_SCALING, DRM_PLANE_NO_SCALING, true,
-> > +						   true);
-> > +}
-> > +
-> > +static void dcif_plane_atomic_update(struct drm_plane *plane, struct drm_atomic_state *state)
-> > +{
-> > +	struct drm_plane_state *new_state = drm_atomic_get_new_plane_state(state, plane);
-> > +	struct dcif_dev *dcif = plane_to_dcif_dev(plane);
-> > +	int layer_id = dcif_plane_get_layer_id(plane);
-> > +	struct drm_framebuffer *fb = new_state->fb;
-> > +	u32 crtc_x, crtc_y, crtc_h, crtc_w;
-> > +	u32 layer_fmt = 0, yuv_fmt = 0;
-> > +	dma_addr_t baseaddr;
-> > +	u32 reg;
-> > +
-> > +	if (!fb)
-> > +		return;
-> > +
-> > +	crtc_x = new_state->crtc_x;
-> > +	crtc_y = new_state->crtc_y;
-> > +	crtc_h = new_state->crtc_h;
-> > +	crtc_w = new_state->crtc_w;
-> > +
-> > +	/* visible portion of plane on crtc */
-> > +	regmap_write(dcif->regmap, DCIF_CTRLDESC1(layer_id),
-> > +		     DCIF_CTRLDESC1_POSX(crtc_x) | DCIF_CTRLDESC1_POSY(crtc_y));
-> > +	regmap_write(dcif->regmap, DCIF_CTRLDESC2(layer_id),
-> > +		     DCIF_CTRLDESC2_WIDTH(crtc_w) | DCIF_CTRLDESC2_HEIGHT(crtc_h));
-> > +
-> > +	/* pitch size */
-> > +	reg = DCIF_CTRLDESC3_P_SIZE(2) | DCIF_CTRLDESC3_T_SIZE(2) |
-> > +	      DCIF_CTRLDESC3_PITCH(fb->pitches[0]);
-> > +	regmap_write(dcif->regmap, DCIF_CTRLDESC3(layer_id), reg);
-> > +
-> > +	/*  address */
-> > +	baseaddr = drm_fb_dma_get_gem_addr(new_state->fb, new_state, 0);
-> > +
-> > +	drm_dbg_kms(plane->dev, "[PLANE:%d:%s] fb address %pad, pitch 0x%08x\n",
-> > +		    plane->base.id, plane->name, &baseaddr, fb->pitches[0]);
-> > +
-> > +	regmap_write(dcif->regmap, DCIF_CTRLDESC4(layer_id), baseaddr);
-> > +
-> > +	/* Format */
-> > +	switch (fb->format->format) {
-> > +	/* RGB Formats */
-> > +	case DRM_FORMAT_RGB565:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_RGB565;
-> > +		break;
-> > +	case DRM_FORMAT_RGB888:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_RGB888;
-> > +		break;
-> > +	case DRM_FORMAT_XRGB1555:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_ARGB1555;
-> > +		break;
-> > +	case DRM_FORMAT_XRGB4444:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_ARGB4444;
-> > +		break;
-> > +	case DRM_FORMAT_XBGR8888:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_ABGR8888;
-> > +		break;
-> > +	case DRM_FORMAT_XRGB8888:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_ARGB8888;
-> > +		break;
-> > +
-> > +	/* YUV Formats */
-> > +	case DRM_FORMAT_YUYV:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_YCBCR422;
-> > +		yuv_fmt = CTRLDESCL0_YUV_FORMAT_VY2UY1;
-> > +		break;
-> > +	case DRM_FORMAT_YVYU:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_YCBCR422;
-> > +		yuv_fmt = CTRLDESCL0_YUV_FORMAT_UY2VY1;
-> > +		break;
-> > +	case DRM_FORMAT_UYVY:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_YCBCR422;
-> > +		yuv_fmt = CTRLDESCL0_YUV_FORMAT_Y2VY1U;
-> > +		break;
-> > +	case DRM_FORMAT_VYUY:
-> > +		layer_fmt = CTRLDESCL0_FORMAT_YCBCR422;
-> > +		yuv_fmt = CTRLDESCL0_YUV_FORMAT_Y2UY1V;
-> > +		break;
-> > +
-> > +	default:
-> > +		dev_err(dcif->drm.dev, "Unknown pixel format 0x%x\n", fb->format->format);
-> > +		break;
-> > +	}
-> > +
-> > +	if (plane->type == DRM_PLANE_TYPE_OVERLAY && yuv_fmt == CTRLDESCL0_YUV_FORMAT_Y2UY1V) {
-> > +		dev_err(dcif->drm.dev, "Overlay plane could not support YUV format\n");
-> > +		return;
-> > +	}
-> > +
-> > +	reg = DCIF_CTRLDESC0_EN | DCIF_CTRLDESC0_SHADOW_LOAD_EN |
-> > +	      DCIF_CTRLDESC0_FORMAT(layer_fmt) | DCIF_CTRLDESC0_YUV_FORMAT(yuv_fmt);
-> > +
-> > +	/* Alpha */
-> > +	reg |= DCIF_CTRLDESC0_GLOBAL_ALPHA(new_state->alpha >> 8) | ALPHA_GLOBAL;
-> > +
-> > +	regmap_write(dcif->regmap, DCIF_CTRLDESC0(layer_id), reg);
-> > +}
-> > +
-> > +static void dcif_overlay_plane_atomic_disable(struct drm_plane *plane,
-> > +					      struct drm_atomic_state *state)
-> > +{
-> > +	struct dcif_dev *dcif = plane_to_dcif_dev(plane);
-> > +
-> > +	regmap_update_bits(dcif->regmap, DCIF_CTRLDESC0(1),
-> > +			   DCIF_CTRLDESC0_EN | DCIF_CTRLDESC0_SHADOW_LOAD_EN,
-> > +			   DCIF_CTRLDESC0_SHADOW_LOAD_EN);
-> > +}
-> > +
-> > +static const struct drm_plane_helper_funcs dcif_primary_plane_helper_funcs = {
-> > +	.prepare_fb	= drm_gem_plane_helper_prepare_fb,
-> > +	.atomic_check	= dcif_plane_atomic_check,
-> > +	.atomic_update	= dcif_plane_atomic_update,
-> > +};
-> > +
-> > +static const struct drm_plane_helper_funcs dcif_overlay_plane_helper_funcs = {
-> > +	.atomic_check	= dcif_plane_atomic_check,
-> > +	.atomic_update	= dcif_plane_atomic_update,
-> > +	.atomic_disable = dcif_overlay_plane_atomic_disable,
-> > +};
-> > +
-> > +static const struct drm_plane_funcs dcif_plane_funcs = {
-> > +	.update_plane		= drm_atomic_helper_update_plane,
-> > +	.disable_plane		= drm_atomic_helper_disable_plane,
-> > +	.destroy		= drm_plane_cleanup,
-> > +	.reset			= drm_atomic_helper_plane_reset,
-> > +	.atomic_duplicate_state	= drm_atomic_helper_plane_duplicate_state,
-> > +	.atomic_destroy_state	= drm_atomic_helper_plane_destroy_state,
-> > +};
-> > +
-> > +int dcif_plane_init(struct dcif_dev *dcif)
-> > +{
-> > +	const u32 supported_encodings = BIT(DRM_COLOR_YCBCR_BT601) |
-> > +					BIT(DRM_COLOR_YCBCR_BT709) |
-> > +					BIT(DRM_COLOR_YCBCR_BT2020);
-> > +	const u32 supported_ranges = BIT(DRM_COLOR_YCBCR_LIMITED_RANGE) |
-> > +				     BIT(DRM_COLOR_YCBCR_FULL_RANGE);
-> > +	int ret;
-> > +
-> > +	/* primary plane */
-> > +	drm_plane_helper_add(&dcif->planes.primary, &dcif_primary_plane_helper_funcs);
-> > +	ret = drm_universal_plane_init(&dcif->drm, &dcif->planes.primary, 1, &dcif_plane_funcs,
-> > +				       dcif_primary_plane_formats,
-> > +				       ARRAY_SIZE(dcif_primary_plane_formats), NULL,
-> > +				       DRM_PLANE_TYPE_PRIMARY, NULL);
-> > +	if (ret) {
-> > +		drm_err(&dcif->drm, "failed to initialize primary plane: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	ret = drm_plane_create_color_properties(&dcif->planes.primary, supported_encodings,
-> > +						supported_ranges, DRM_COLOR_YCBCR_BT601,
-> > +						DRM_COLOR_YCBCR_LIMITED_RANGE);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = drm_plane_create_alpha_property(&dcif->planes.primary);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/* overlay plane */
-> > +	drm_plane_helper_add(&dcif->planes.overlay, &dcif_overlay_plane_helper_funcs);
-> > +	ret = drm_universal_plane_init(&dcif->drm, &dcif->planes.overlay, 1, &dcif_plane_funcs,
-> > +				       dcif_overlay_plane_formats,
-> > +				       ARRAY_SIZE(dcif_overlay_plane_formats), NULL,
-> > +				       DRM_PLANE_TYPE_OVERLAY, NULL);
-> > +	if (ret) {
-> > +		drm_err(&dcif->drm, "failed to initialize overlay plane: %d\n", ret);
-> > +		return ret;
-> > +	}
-> > +
-> > +	return drm_plane_create_alpha_property(&dcif->planes.overlay);
-> > +}
-> > diff --git a/drivers/gpu/drm/imx/dcif/dcif-reg.h b/drivers/gpu/drm/imx/dcif/dcif-reg.h
-> > new file mode 100644
-> > index 0000000000000..f918bbb6d2d15
-> > --- /dev/null
-> > +++ b/drivers/gpu/drm/imx/dcif/dcif-reg.h
-> > @@ -0,0 +1,266 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +
-> > +/*
-> > + * Copyright 2025 NXP
-> > + */
-> > +#ifndef __DCIF_REG_H__
-> > +#define __DCIF_REG_H__
-> > +
-> > +#include <linux/bits.h>
-> > +
-> > +/* Version ID Register */
-> > +#define DCIF_VER				0x0
-> > +#define   DCIF_VER_GET_FEATURE(x)		FIELD_GET(GENMASK(15, 0), x)
-> > +#define   DCIF_VER_GET_MINOR(x)			FIELD_GET(GENMASK(23, 16), x)
-> > +#define   DCIF_VER_GET_MAJOR(x)			FIELD_GET(GENMASK(31, 24), x)
-> > +
-> > +/* Parameter Registers */
-> > +#define DCIF_PAR_0				0x4
-> > +#define   DCIF_PAR_0_LAYER_NUM(x)		FIELD_PREP(GENMASK(3, 0), x)
-> > +#define   DCIF_PAR_0_DOMAIN_NUM(x)		FIELD_PREP(GENMASK(5, 4), x)
-> > +#define   DCIF_PAR_0_AXI_DATA_WIDTH(x)		FIELD_PREP(GENMASK(7, 6), x)
-> > +#define   DCIF_PAR_0_CLUT_RAM_NUM(x)		FIELD_PREP(GENMASK(11, 8), x)
-> > +#define   DCIF_PAR_0_CSC_NUM(x)			FIELD_PREP(GENMASK(13, 12), x)
-> > +#define   DCIF_PAR_0_CRC_REGION_NUM(x)		FIELD_PREP(GENMASK(18, 16), x)
-> > +#define   DCIF_PAR_0_BACKUP(x)			FIELD_PREP(GENMASK(31, 28), x)
-> > +
-> > +#define DCIF_PAR_1				0x8
-> > +#define   DCIF_PAR_1_LAYER0_FIFO_SIZE(x)	FIELD_PREP(GENMASK(3, 0), x)
-> > +#define   DCIF_PAR_1_LAYER1_FIFO_SIZE(x)	FIELD_PREP(GENMASK(7, 4), x)
-> > +
-> > +/* Display Control and Parameter Registers */
-> > +#define DCIF_DISP_CTRL				0x10
-> > +#define   DCIF_DISP_CTRL_DISP_ON		BIT(0)
-> > +#define   DCIF_DISP_CTRL_AXI_RD_HOLD		BIT(30)
-> > +#define   DCIF_DISP_CTRL_SW_RST			BIT(31)
-> > +#define DCIF_DISP_PAR				0x14
-> > +#define   DCIF_DISP_PAR_BGND_B(x)		FIELD_PREP(GENMASK(7, 0), x)
-> > +#define   DCIF_DISP_PAR_BGND_G(x)		FIELD_PREP(GENMASK(15, 8), x)
-> > +#define   DCIF_DISP_PAR_BGND_R(x)		FIELD_PREP(GENMASK(23, 16), x)
-> > +#define DCIF_DISP_SIZE				0x18
-> > +#define   DCIF_DISP_SIZE_DISP_WIDTH(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_DISP_SIZE_DISP_HEIGHT(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +/* Display Status Registers */
-> > +#define DCIF_DISP_SR0				0x1C
-> > +#define   DCIF_DISP_SR0_AXI_RD_PEND(x)		FIELD_PREP(GENMASK(4, 0), x)
-> > +#define   DCIF_DISP_SR0_DPI_BUSY(x)		FIELD_PREP(GENMASK(14, 14), x)
-> > +#define   DCIF_DISP_SR0_AXI_RD_BUSY(x)		FIELD_PREP(GENMASK(15, 15), x)
-> > +#define DCIF_DISP_SR0_TXFIFO_CNT(x)		FIELD_PREP(GENMASK(23, 16), x)
-> > +
-> > +#define DCIF_DISP_SR1				0x20
-> > +#define   DCIF_DISP_SR1_H_CNT(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_DISP_SR1_V_CNT(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +/* Interrupt Enable and Status Registers, n=0-2*/
-> > +#define DCIF_IE0(n)				(0x24 + (n) * 0x10000)
-> > +#define DCIF_IS0(n)				(0x28 + (n) * 0x10000)
-> > +#define   DCIF_INT0_VSYNC			BIT(0)
-> > +#define   DCIF_INT0_UNDERRUN			BIT(1)
-> > +#define   DCIF_INT0_VS_BLANK			BIT(2)
-> > +#define   DCIF_INT0_HIST_DONE			BIT(5)
-> > +#define   DCIF_INT0_CRC_ERR			BIT(6)
-> > +#define   DCIF_INT0_CRC_ERR_SAT			BIT(7)
-> > +
-> > +#define DCIF_IE1(n)				(0x2C + (n) * 0x10000)
-> > +#define DCIF_IS1(n)				(0x30 + (n) * 0x10000)
-> > +#define   DCIF_INT1_FIFO_PANIC0			BIT(0)
-> > +#define   DCIF_INT1_FIFO_PANIC1			BIT(1)
-> > +#define   DCIF_INT1_DMA_ERR0			BIT(8)
-> > +#define   DCIF_INT1_DMA_ERR1			BIT(9)
-> > +#define   DCIF_INT1_DMA_DONE0			BIT(16)
-> > +#define   DCIF_INT1_DMA_DONE1			BIT(17)
-> > +#define   DCIF_INT1_FIFO_EMPTY0			BIT(24)
-> > +#define   DCIF_INT1_FIFO_EMPTY1			BIT(25)
-> > +
-> > +/* DPI Control and Sync Parameter Registers */
-> > +#define DCIF_DPI_CTRL				0x40
-> > +#define   DCIF_DPI_CTRL_HSYNC_POL_LOW		BIT(0)
-> > +#define   DCIF_DPI_CTRL_VSYNC_POL_LOW		BIT(1)
-> > +#define   DCIF_DPI_CTRL_DE_POL_LOW		BIT(2)
-> > +#define   DCIF_DPI_CTRL_PCLK_EDGE_FALLING	BIT(3)
-> > +#define   DCIF_DPI_CTRL_POL_MASK		GENMASK(3, 0)
-> > +#define   DCIF_DPI_CTRL_DATA_INV(x)		FIELD_PREP(GENMASK(4, 4), x)
-> > +#define   DCIF_DPI_CTRL_DEF_BGND_EN(x)		FIELD_PREP(GENMASK(5, 5), x)
-> > +#define   DCIF_DPI_CTRL_FETCH_OPT(x)		FIELD_PREP(GENMASK(9, 8), x)
-> > +#define   DCIF_DPI_CTRL_DISP_MODE(x)		FIELD_PREP(GENMASK(13, 12), x)
-> > +#define   DCIF_DPI_CTRL_DATA_PATTERN_MASK	GENMASK(18, 16)
-> > +#define   DCIF_DPI_CTRL_DATA_PATTERN(x)		FIELD_PREP(GENMASK(18, 16), x)
-> > +#define   PATTERN_RGB888			0
-> > +#define   PATTERN_RBG888			1
-> > +#define   PATTERN_GBR888			2
-> > +#define   PATTERN_GRB888			3
-> > +#define   PATTERN_BRG888			4
-> > +#define   PATTERN_BGR888			5
-> > +#define   PATTERN_RGB555			6
-> > +#define   PATTERN_RGB565			7
-> > +
-> > +#define DCIF_DPI_HSYN_PAR			0x44
-> > +#define   DCIF_DPI_HSYN_PAR_FP_H(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_DPI_HSYN_PAR_BP_H(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +#define DCIF_DPI_VSYN_PAR			0x48
-> > +#define   DCIF_DPI_VSYN_PAR_FP_V(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_DPI_VSYN_PAR_BP_V(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +#define DCIF_DPI_VSYN_HSYN_WIDTH		0x4C
-> > +#define   DCIF_DPI_VSYN_HSYN_WIDTH_PW_H(x)	FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_DPI_VSYN_HSYN_WIDTH_PW_V(x)	FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +/* Control Descriptor Registers, n=0-1*/
-> > +#define DCIF_CTRLDESC0(n)			(0x10000 + (n) * 0x10000)
-> > +#define   DCIF_CTRLDESC0_AB_MODE(x)		FIELD_PREP(GENMASK(1, 0), x)
-> > +#define   ALPHA_EMBEDDED			0
-> > +#define   ALPHA_GLOBAL				1
-> > +#define   DCIF_CTRLDESC0_YUV_FORMAT_MASK	GENMASK(15, 14)
-> > +#define   DCIF_CTRLDESC0_YUV_FORMAT(x)		FIELD_PREP(GENMASK(15, 14), x)
-> > +#define   CTRLDESCL0_YUV_FORMAT_Y2VY1U		0x0
-> > +#define   CTRLDESCL0_YUV_FORMAT_Y2UY1V		0x1
-> > +#define   CTRLDESCL0_YUV_FORMAT_VY2UY1		0x2
-> > +#define   CTRLDESCL0_YUV_FORMAT_UY2VY1		0x3
-> > +#define   DCIF_CTRLDESC0_GLOBAL_ALPHA(x)	FIELD_PREP(GENMASK(23, 16), x)
-> > +#define   DCIF_CTRLDESC0_FORMAT_MASK		GENMASK(27, 24)
-> > +#define   DCIF_CTRLDESC0_FORMAT(x)		FIELD_PREP(GENMASK(27, 24), x)
-> > +#define   CTRLDESCL0_FORMAT_RGB565		0x4
-> > +#define   CTRLDESCL0_FORMAT_ARGB1555		0x5
-> > +#define   CTRLDESCL0_FORMAT_ARGB4444		0x6
-> > +#define   CTRLDESCL0_FORMAT_YCBCR422		0x7
-> > +#define   CTRLDESCL0_FORMAT_RGB888		0x8
-> > +#define   CTRLDESCL0_FORMAT_ARGB8888		0x9
-> > +#define   CTRLDESCL0_FORMAT_ABGR8888		0xa
-> > +#define   DCIF_CTRLDESC0_SHADOW_LOAD_EN		BIT(30)
-> > +#define   DCIF_CTRLDESC0_EN			BIT(31)
-> > +
-> > +#define DCIF_CTRLDESC1(n)			(0x10004 + (n) * 0x10000)
-> > +#define   DCIF_CTRLDESC1_POSX(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_CTRLDESC1_POSY(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +#define DCIF_CTRLDESC2(n)			(0x10008 + (n) * 0x10000)
-> > +#define   DCIF_CTRLDESC2_WIDTH(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_CTRLDESC2_HEIGHT(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +#define DCIF_CTRLDESC3(n)			(0x1000C + (n) * 0x10000)
-> > +#define   DCIF_CTRLDESC3_PITCH(x)		FIELD_PREP(GENMASK(15, 0), x)
-> > +#define   DCIF_CTRLDESC3_T_SIZE(x)		FIELD_PREP(GENMASK(17, 16), x)
-> > +#define   DCIF_CTRLDESC3_P_SIZE(x)		FIELD_PREP(GENMASK(22, 20), x)
-> > +
-> > +#define DCIF_CTRLDESC4(n)			(0x10010 + (n) * 0x10000)
-> > +#define   DCIF_CTRLDESC4_ADDR(x)		FIELD_PREP(GENMASK(31, 0), x)
-> > +
-> > +#define DCIF_CTRLDESC5(n)			(0x10014 + (n) * 0x10000)
-> > +#define DCIF_CTRLDESC6(n)			(0x10018 + (n) * 0x10000)
-> > +#define   DCIF_CTRLDESC6_BCLR_B(x)		FIELD_PREP(GENMASK(7, 0), x)
-> > +#define   DCIF_CTRLDESC6_BCLR_G(x)		FIELD_PREP(GENMASK(15, 8), x)
-> > +#define   DCIF_CTRLDESC6_BCLR_R(x)		FIELD_PREP(GENMASK(23, 16), x)
-> > +#define   DCIF_CTRLDESC6_BCLR_A(x)		FIELD_PREP(GENMASK(31, 24), x)
-> > +
-> > +/* CLUT control Register */
-> > +#define DCIF_CLUT_CTRL				0x1003C
-> > +#define   DCIF_CLUT_CTRL_CLUT0_SEL(x)		FIELD_PREP(GENMASK(0, 0), x)
-> > +#define   DCIF_CLUT_CTRL_CLUT1_SEL(x)		FIELD_PREP(GENMASK(3, 3), x)
-> > +#define   DCIF_CLUT_CTRL_CLUT_MUX(x)		FIELD_PREP(GENMASK(29, 28), x)
-> > +#define   DCIF_CLUT_CTRL_CLUT_SHADOW_LOAD_EN(x)	FIELD_PREP(GENMASK(31, 31), x)
-> > +
-> > +/* FIFO Panic Threshold Register, n=0-1 */
-> > +#define DCIF_PANIC_THRES(n)			(0x10040 + (n) * 0x10000)
-> > +#define   DCIF_PANIC_THRES_LOW_MASK		GENMASK(11, 0)
-> > +#define   DCIF_PANIC_THRES_LOW(x)		FIELD_PREP(GENMASK(11, 00), x)
-> > +#define   DCIF_PANIC_THRES_HIGH_MASK		GENMASK(27, 16)
-> > +#define   DCIF_PANIC_THRES_HIGH(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +#define   DCIF_PANIC_THRES_REQ_EN		BIT(31)
-> > +#define   PANIC0_THRES_MAX			511
-> > +
-> > +/* Layer Status Register 0, n=0-1 */
-> > +#define DCIF_LAYER_SR0(n)			(0x10044 + (n) * 0x10000)
-> > +#define   DCIF_LAYER_SR0_L0_FIFO_CNT_MASK	GENMASK(9, 0)
-> > +#define   DCIF_LAYER_SR0_L0_FIFO_CNT(x)		FIELD_PREP(GENMASK(9, 0), x)
-> > +
-> > +/* Color Space Conversion Control and Coefficient Registers for Layer 0 */
-> > +#define DCIF_CSC_CTRL_L0			0x10050
-> > +#define   DCIF_CSC_CTRL_L0_CSC_EN		BIT(0)
-> > +#define   DCIF_CSC_CTRL_L0_CSC_MODE_YCBCR2RGB	BIT(1)
-> > +
-> > +#define DCIF_CSC_COEF0_L0			0x10054
-> > +#define   DCIF_CSC_COEF0_L0_A1(x)		FIELD_PREP_CONST(GENMASK(10, 0), x)
-> > +#define   DCIF_CSC_COEF0_L0_A2(x)		FIELD_PREP_CONST(GENMASK(26, 16), x)
-> > +
-> > +#define DCIF_CSC_COEF1_L0			0x10058
-> > +#define   DCIF_CSC_COEF1_L0_A3(x)		FIELD_PREP_CONST(GENMASK(10, 0), x)
-> > +#define   DCIF_CSC_COEF1_L0_B1(x)		FIELD_PREP_CONST(GENMASK(26, 16), x)
-> > +
-> > +#define DCIF_CSC_COEF2_L0			0x1005C
-> > +#define   DCIF_CSC_COEF2_L0_B2(x)		FIELD_PREP_CONST(GENMASK(10, 0), x)
-> > +#define   DCIF_CSC_COEF2_L0_B3(x)		FIELD_PREP_CONST(GENMASK(26, 16), x)
-> > +
-> > +#define DCIF_CSC_COEF3_L0			0x10060
-> > +#define   DCIF_CSC_COEF3_L0_C1(x)		FIELD_PREP_CONST(GENMASK(10, 0), x)
-> > +#define   DCIF_CSC_COEF3_L0_C2(x)		FIELD_PREP_CONST(GENMASK(26, 16), x)
-> > +
-> > +#define DCIF_CSC_COEF4_L0			0x10064
-> > +#define   DCIF_CSC_COEF4_L0_C3(x)		FIELD_PREP_CONST(GENMASK(10, 0), x)
-> > +#define   DCIF_CSC_COEF4_L0_D1(x)		FIELD_PREP_CONST(GENMASK(24, 16), x)
-> > +
-> > +#define DCIF_CSC_COEF5_L0			0x10068
-> > +#define   DCIF_CSC_COEF5_L0_D2(x)		FIELD_PREP_CONST(GENMASK(8, 0), x)
-> > +#define   DCIF_CSC_COEF5_L0_D3(x)		FIELD_PREP_CONST(GENMASK(24, 16), x)
-> > +
-> > +/* CRC Control, Threshold, and Histogram Coefficient Registers */
-> > +#define DCIF_CRC_CTRL				0x20100
-> > +#define   DCIF_CRC_CTRL_CRC_EN(x)		(1 << (x))
-> > +#define   DCIF_CRC_CTRL_HIST_REGION_SEL(x)	FIELD_PREP(GENMASK(17, 16), x)
-> > +#define   DCIF_CRC_CTRL_HIST_MODE		BIT(21)
-> > +#define   DCIF_CRC_CTRL_HIST_TRIG		BIT(22)
-> > +#define   DCIF_CRC_CTRL_HIST_EN			BIT(23)
-> > +#define   DCIF_CRC_CTRL_CRC_MODE		BIT(28)
-> > +#define   DCIF_CRC_CTRL_CRC_TRIG		BIT(29)
-> > +#define   DCIF_CRC_CTRL_CRC_ERR_CNT_RST		BIT(30)
-> > +#define   DCIF_CRC_CTRL_CRC_SHADOW_LOAD_EN	BIT(31)
-> > +
-> > +#define DCIF_CRC_THRES				0x20104
-> > +#define   DCIF_CRC_THRES_CRC_THRESHOLD_MASK	GENMASK(31, 0)
-> > +#define   DCIF_CRC_THRES_CRC_THRESHOLD(x)	FIELD_PREP(GENMASK(31, 0), x)
-> > +
-> > +#define DCIF_CRC_HIST_COEF			0x20108
-> > +#define   DCIF_CRC_HIST_COEF_HIST_WB_MASK	GENMASK(7, 0)
-> > +#define   DCIF_CRC_HIST_COEF_HIST_WB(x)		FIELD_PREP(GENMASK(7, 0), x)
-> > +#define   DCIF_CRC_HIST_COEF_HIST_WG_MASK	GENMASK(15, 8)
-> > +#define   DCIF_CRC_HIST_COEF_HIST_WG(x)		FIELD_PREP(GENMASK(15, 8), x)
-> > +#define   DCIF_CRC_HIST_COEF_HIST_WR_MASK	GENMASK(23, 16)
-> > +#define   DCIF_CRC_HIST_COEF_HIST_WR(x)		FIELD_PREP(GENMASK(23, 16), x)
-> > +
-> > +#define DCIF_CRC_ERR_CNT			0x2010C
-> > +#define   DCIF_CRC_ERR_CNT_CRC_ERR_CNT_MASK	GENMASK(31, 0)
-> > +#define   DCIF_CRC_ERR_CNT_CRC_ERR_CNT(x)	FIELD_PREP(GENMASK(31, 0), x)
-> > +
-> > +#define DCIF_CRC_SR				0x20110
-> > +#define   DCIF_CRC_SR_HIST_CNT_SAT_MASK		BIT(13)
-> > +#define   DCIF_CRC_SR_HIST_CNT_SAT(x)		FIELD_PREP(GENMASK(13, 13), x)
-> > +#define   DCIF_CRC_SR_HIST_SAT_MASK		BIT(14)
-> > +#define   DCIF_CRC_SR_HIST_SAT(x)		FIELD_PREP(GENMASK(14, 14), x)
-> > +#define   DCIF_CRC_SR_HIST_BUSY_MASK		BIT(15)
-> > +#define   DCIF_CRC_SR_HIST_BUSY(x)		FIELD_PREP(GENMASK(15, 15), x)
-> > +#define   DCIF_CRC_SR_CRC_STATUS_MASK		BIT(31)
-> > +#define   DCIF_CRC_SR_CRC_STATUS(x)		FIELD_PREP(GENMASK(31, 31), x)
-> > +
-> > +#define DCIF_CRC_HIST_CNT_B(n)			(0x20114 + (n) * 4)
-> > +#define   DCIF_B_BIN_CNT_MASK			GENMASK(20, 0)
-> > +#define   DCIF_B_BIN_CNT(x)			FIELD_PREP(GENMASK(20, 0), x)
-> > +
-> > +/* CRC Region Position, Size, Value, and Expected Value Registers, n=0-3 */
-> > +#define DCIF_CRC_POS_R(n)			(0x20214 + (n) * 0x10)
-> > +#define   DCIF_CRC_POS_CRC_HOR_POS(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_CRC_POS_CRC_VER_POS(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +#define DCIF_CRC_SIZE_R(n)			(0x20218 + (n) * 0x10)
-> > +#define   DCIF_CRC_SIZE_CRC_HOR_SIZE(x)		FIELD_PREP(GENMASK(11, 0), x)
-> > +#define   DCIF_CRC_SIZE_CRC_VER_SIZE(x)		FIELD_PREP(GENMASK(27, 16), x)
-> > +
-> > +#define DCIF_CRC_VAL_R(n)			(0x2021C + (n) * 0x10)
-> > +#define   DCIF_CRC_VAL_CRC_VAL_MASK		GENMASK(31, 0)
-> > +#define   DCIF_CRC_VAL_CRC_VAL(x)		FIELD_PREP(GENMASK(31, 0), x)
-> > +
-> > +#define DCIF_CRC_EXP_VAL_R(n)			(0x20220 + (n) * 0x10)
-> > +#define   DCIF_CRC_EXP_VAL_CRC_EXP_VAL_MASK	GENMASK(31, 0)
-> > +#define   DCIF_CRC_EXP_VAL_CRC_EXP_VAL(x)	FIELD_PREP(GENMASK(31, 0), x)
-> > +
-> > +#endif /* __DCIF_REG_H__ */
-> > --
-> > 2.49.0
-> >
+SGVsbG8gU2hhd24sCgpzb3JyeSBmb3IgYm90aGVyaW5nLgoKQ2FuIHlvdSB0ZWxsIG1lIGlmIHRo
+ZXJlJ3MgYW55dGhpbmcgbWlzc2luZyBvciB3cm9uZyB3aXRoIHRoaXMgcGF0Y2gsCm9yIGlmIHRo
+ZXJlJ3MgYW55dGhpbmcgZWxzZSBJIGNhbiBkbyBzbyB0aGF0IGl0IGJlY29tZXMgYXBwbGllZD8K
+ClRoYW5rcyBhbmQgcmVnYXJkcywKQ2hyaXN0b3BoCgpPbiBGciwgMjAyNS0wNy0xOCBhdCAxNzoz
+MyArMDAwMCwgQ2hyaXN0b3BoIFN0b2lkbmVyIHdyb3RlOgo+IE9uIERpLCAyMDI1LTA3LTA4IGF0
+IDEwOjM1ICswMjAwLCBQcmltb3ogRmlzZXIgd3JvdGU6Cj4gPiBIaSBhbGwsCj4gPiAKPiA+IGlz
+IHRoZXJlIHNvbWV0aGluZyBob2xkaW5nIHVwIHRoaXMgcGF0Y2g/Cj4gCj4gSSBkb250IHNlZSBh
+bnkgYmxvY2tlci4KPiBATWFpbnRhaW5lcnM6IElmIHRoZXJlIGlzIGFueSBtaXNzaW5nL2Jsb2Nr
+aW5nIHBvaW50LCBjb3VsZCB5b3UKPiBwbGVhc2XCoGNvbW1lbnQuCj4gCj4gVGhhbmtzLAo+IENo
+cmlzdG9waAo+IAo+ID4gCj4gPiBCUiwKPiA+IFByaW1vego+ID4gCj4gPiBPbiAyLiAwNi4gMjUg
+MTQ6MjYsIEFuZHJldyBMdW5uIHdyb3RlOgo+ID4gPiA+ID4gSSBhZ3JlZSBpdCBpcyBsb25nIGVu
+b3VnaCwgYnV0IGknbSBhbHNvIHN1cnByaXNlZCBob3cgc2xvdwo+ID4gPiA+ID4gdGhlCj4gPiA+
+ID4gPiBrZXJuZWwKPiA+ID4gPiA+IHdhcy4gQXJlIHlvdSB1c2luZyBhIGZpeGVkIElQIGFkZHJl
+c3MsIG9yIGRoY3A/Cj4gPiA+ID4gCj4gPiA+ID4gSSB1c2UgYSBmaXhlZCBJUCBhZGRyZXNzLgo+
+ID4gPiA+IAo+ID4gPiA+IEJ1dCBpc24ndCB0aGUgYnJpbmd1cCBvZiBldGhlcm5ldCtwaHkgaW50
+ZXJmYWNlIG9uZSBvZiB0aGUgbGFzdAo+ID4gPiA+IHRoaW5ncwo+ID4gPiA+IHRoYXQgaGFwcGVu
+cyBkdXJpbmcgdGhlIGtlcm5lbCBib290LXVwPwo+ID4gPiAKPiA+ID4gTW91bnRpbmcgdGhlIHJv
+b3RmcyBpcyBzb21ld2hhdCB0b3dhcmRzIHRoZSBlbmQgb2YgdGhlIGNvcmUKPiA+ID4ga2VybmVs
+LiBCdXQgaWYgeW91IGhhdmUgYW4gaW5pdHJhbWZzLCB0aGVyZSBjYW4gYmUgbW9kdWxlcyBsb2Fk
+ZWQKPiA+ID4gYm90aAo+ID4gPiBiZWZvcmUgYW5kIGFmdGVyd2FyZHMsIGFuZCBvbmNlIHRoZSBy
+b290ZnMgaGFzIGJlZW4gbW91bnRlZCwgeWV0Cj4gPiA+IG1vcmUKPiA+ID4gbW9kdWxlcyBjYW4g
+YmUgbG9hZGVkLgo+ID4gPiAKPiA+ID4gPiBIb3dldmVyLCB3aGF0IHRpbWluZyB3b3VsZCB5b3Ug
+ZXhwZWN0Pwo+ID4gPiAKPiA+ID4gSSd2ZSBzZWVuIGludGVyZmFjZXMgY29uZmlndXJlZCB1cCBm
+cm9tIGRlZXAgd2l0aGluCj4gPiA+IHJlZ2lzdGVyX25ldGRldigpLiBJIGRvbid0IHJlbWVtYmVy
+IHRoZSBleGFjdCBjb25maWd1cmF0aW9uLCBidXQKPiA+ID4gaQo+ID4gPiB0aG91Z2h0IGl0IHdh
+cyBORlMgcm9vdC4gSXQgbWlnaHQgYmUgaW4gY29tYmluYXRpb24gd2l0aAo+ID4gPiBpbml0cmFt
+ZnMuCj4gPiA+IElmCj4gPiA+IHlvdSBoYXZlIHRoZSBFdGhlcm5ldCBkcml2ZXIgYXMgYSBtb2R1
+bGUgaW4gdGhlIGluaXRyYW1mcywgYW5kCj4gPiA+IGFyZQo+ID4gPiB1c2luZyB0aGUgInJvb3R3
+YWl0IiBvcHRpb24sIGl0IGNvdWxkIGJlIHRoYXQgeW91IGFyZSBhbHJlYWR5Cj4gPiA+IHBhc3QK
+PiA+ID4gdGhlCj4gPiA+IHBvaW50IGl0IHdvdWxkIGZpcnN0IG1vdW50IHRoZSByb290ZnMsIGFu
+ZCB3aXRoIGV2ZXJ5IG5ldyBkZXZpY2UKPiA+ID4gcG9wcGluZyBpbnRvIGV4aXN0ZW5jZSBpdCBp
+cyB0cnlpbmcgdG8gc2VlIGlmIHRoZSBqdXN0IGNyZWF0ZWQKPiA+ID4gZGV2aWNlCj4gPiA+IGFs
+bG93cyBpdCB0byBkbyB0aGUgbW91bnQuIEF0IHRoYXQgcG9pbnQsIHJlZ2lzdGVyX25ldGRldigp
+IGlzCj4gPiA+IGdvaW5nCj4gPiA+IHRvIHRyaWdnZXIgYWN0aW9ucy4KPiA+ID4gCj4gPiA+IMKg
+QW5kcmV3Cj4gPiA+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCj4gPiA+IHVwc3RyZWFtIG1haWxpbmcgbGlzdCAtLSB1cHN0cmVhbUBsaXN0cy5waHl0ZWMu
+ZGUKPiA+ID4gVG8gdW5zdWJzY3JpYmUgc2VuZCBhbiBlbWFpbCB0byB1cHN0cmVhbS1sZWF2ZUBs
+aXN0cy5waHl0ZWMuZGUKPiA+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCj4gdXBzdHJlYW0gbWFpbGluZyBsaXN0IC0tIHVwc3RyZWFtQGxpc3RzLnBo
+eXRlYy5kZQo+IFRvIHVuc3Vic2NyaWJlIHNlbmQgYW4gZW1haWwgdG8gdXBzdHJlYW0tbGVhdmVA
+bGlzdHMucGh5dGVjLmRlCg==
 
