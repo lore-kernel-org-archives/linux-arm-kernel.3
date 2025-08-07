@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE59C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 10:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85727C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 10:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5iXQ0OjZa8YyoG+Xum/7kxlfJ2TyErt3v/Mzb2slUcM=; b=X+KjftX+cK9OEl4fI0YDZJmfQD
-	prGblX1m3x3P+/1yhdIwMHLEvjZm+iFZCZZSxaPAYz5SGwL+10M3FUbdQG3QYSZExr+wmEcRqCTUp
-	mF0UJc6PA1GpULWGNmDk1LZRti9FiTyyTNOOwWtPJZKntiW4PU0UMMfSFf2Ivl6sEHjXak0B4mw2t
-	qE01fNzfRNVaf2FWke4ubbtu688WjFLYSWQf/a7sapZDFtF84NY7Tri1z4mnz/DFyL4E8W9n+P2Wg
-	OkJPN7O1PKH55KisvAOJnwKiMj92ly2CIPX+ISw+VOE9SWTnt5Hdk4qw9e98I/oeSvjuIXBo4GCr7
-	bY6lVUXw==;
+	bh=+jqpfHFtr9RJd+Rj5jDYwLXh+hHq7pFdE9Sw57Atqmk=; b=xPHoXVW3YMvGD7r9EP7aLmq5fj
+	4GlaaRRuBhIBvdnbJKRkBGO7j5l7TpoMTaDqy6mQ6LvsU4O2AF40pGej/C3goCXmsIehBYKtHUmz0
+	XO+XXIHO8aBCCt1uOwR9sF/sf3bU2ZeMscgRxG09NJKT4yAC53UO/a8JD8mWm1AmSuqeljsTj2BF2
+	o37YaJ3nsH9WJ0Rsjaq9bJ3J3DmfR601Gy03eb3nqBc2+iJh5+iW4IPGfuysE/OXIlC5dHggiRnUL
+	AluaYZlygiuNXEqKS2XucZRgvR+jZiIm4Wf3UFdlpoGfEgcVYRphxklJRsy6CUxZKrh+dsRLAGcKL
+	7BOSL81A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxZY-00000000B1I-22Bt;
-	Thu, 07 Aug 2025 10:10:08 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1ujy01-00000000FsB-3aIw;
+	Thu, 07 Aug 2025 10:37:29 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxOt-000000008dR-3P4e;
-	Thu, 07 Aug 2025 09:59:08 +0000
-X-UUID: 25a3175e737511f09eb0dd999d3936bf-20250807
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=5iXQ0OjZa8YyoG+Xum/7kxlfJ2TyErt3v/Mzb2slUcM=;
-	b=Do1jXXLYBSfDM1fTza1MVNRklLqzacsoIQyslndlOLsVIPPxXQ3pTJTmZcHF056K3k2nfSq2BNdW2KzLX85gd9u+PdR2VVv8w50RYE+b5NEUNT2YP5Cso5fY0/74aIqCPhBs5cMRbv9X5oM71WMpf6wxfAzdwIvXjMDIDT9Ll6g=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:7c9b7e87-fc15-4ef5-86c5-dc588c59888f,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:f1326cf,CLOUDID:adbdb39d-7ad4-4169-ab95-78e9164f00fe,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 25a3175e737511f09eb0dd999d3936bf-20250807
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <zhengnan.chen@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1174275448; Thu, 07 Aug 2025 02:59:02 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Thu, 7 Aug 2025 17:58:59 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Thu, 7 Aug 2025 17:58:58 +0800
-From: zhengnan chen <zhengnan.chen@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>, Will
- Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <iommu@lists.linux.dev>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, zhengnan chen
-	<zhengnan.chen@mediatek.com>
-Subject: [PATCH 2/3] iommu/mediatek: Add a flag DL_WITH_MULTI_LARB
-Date: Thu, 7 Aug 2025 17:57:47 +0800
-Message-ID: <20250807095756.11840-3-zhengnan.chen@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250807095756.11840-1-zhengnan.chen@mediatek.com>
-References: <20250807095756.11840-1-zhengnan.chen@mediatek.com>
+	id 1ujxxX-00000000FX6-0Ufy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Aug 2025 10:34:56 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3b8d0f1fb49so431470f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 03:34:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754562893; x=1755167693; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+jqpfHFtr9RJd+Rj5jDYwLXh+hHq7pFdE9Sw57Atqmk=;
+        b=zPcoD4jV7kAnKCCawXY9bskLt+7d+MA1/l5Fzcn8MjV9IprfMVbfPTe7YYdC154wEm
+         TkZwsWDD8wVr3csADKsBtx+xt7kwrvnCl8vHqOUH39G6OdBFR57QMZSxo77tLxtjxrK2
+         DrGo97DWExCrgAWP6Dr03j99oCg66mJ33sIKPs9BdvNlUNFAmYFzud1KLRv7xo6L4QjD
+         dx+NiNQevZp5bli47SHIC/bbsF+qu1U860E5hFPVCWn+HqP4S7+9x3Y1bIG9J0IcmU0B
+         b8JS6MaTjk89ttCk1PEMW9td73F9U+bPYKERcfsIpfz8S1KC/OoICQtccAn3XQquSFfM
+         crkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754562893; x=1755167693;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+jqpfHFtr9RJd+Rj5jDYwLXh+hHq7pFdE9Sw57Atqmk=;
+        b=uatVJX9S+sLg0HyNZoki1Sij5OdEnsqhUzGs+ZfGQ+P81ytbIAy/fHPEcunUvtApKC
+         nWsERwn3sJDhtT41PQWWubu7OD6Yw9uL5MNmMT9mlAJh3DHIqJUbPvJ9O3B7RoBviI3+
+         sXSQr3IM8YeDgw7nVq3wIsXrgKB1vsnW8mdYhyZ7GGmpSQmJ44MCSgjkuDUlvxJKE82z
+         /Crxwcbd3kPIr+nvTfRAt922jTKjb6mY4uZOsQaGFPbHXl+gfPxx2pmhoa/zxc4OW35/
+         E3FZYWTG9b1aHqItaswmFZ3Niyyap5yMPTxUnRAPj1aINSaCH7rrdkuB1u9fqdxnPAnv
+         iFKg==
+X-Forwarded-Encrypted: i=1; AJvYcCV7E9ZRxw/0ozBYcYeF4y8cS9AkdGfPsdWZtVzLeMqgLnSJew3ULpR8HpKsrG80REUQBIMiIX0MCE1VxwfDekpI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxssjAukVFaOlAWXSVBO66hmrqeNnymfRVBkhFVgCSxfe3auwPF
+	YTz+5cutYgyy3EMcCLTygtUYgpD8cMBJrGj/LPH+NGN/t42t1HtH5qILD3xmNxJgbuI=
+X-Gm-Gg: ASbGncvUSMTro0o+3lUGX1fIFxg7Gt8cNHZLaU/iQwSn/QbHWYNq6tdv7DuRnV9nrM6
+	vaEGSp/BllMSZm9ze/zXGA8HIj61rquLxd3K1WAbZVctORPwfBMKVxgZ0zCMxsjSPBL7L/3GuJ/
+	h89d6BE8JXZCM6RWSaqBt0gwJ08RhCjBuCmKRzqfxt+mg6+LhjZIoqrq1x5SC/H3TrTlaZ0GrDr
+	R1rAsU4To35Oua8VHGf7vf/GjFqNWf8RX2ecU9Ud7le44KhBLZ+dzoppSebu+tqzd3J2rMxfTMs
+	u3Umx9DjdjqG9EO9kazqesHFgrnqXF4DpeO0Rj/3R5QnJMJnfh4cRlU0++yRKZa2vAM40JGx9PZ
+	AB/fggR/1xhWil6FGbZTP99r/JJw=
+X-Google-Smtp-Source: AGHT+IEJZFFSnC6OyV3Ckz3ldGk5h0RG3Okc+NeFrocarUAZUjxcjd1haqhnntbT67+wRuAV6TUqug==
+X-Received: by 2002:a05:6000:2f86:b0:3a0:b84d:60cc with SMTP id ffacd0b85a97d-3b8f41a837fmr5055520f8f.2.1754562892893;
+        Thu, 07 Aug 2025 03:34:52 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3b8ff860acbsm70000f8f.51.2025.08.07.03.34.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Aug 2025 03:34:52 -0700 (PDT)
+Date: Thu, 7 Aug 2025 13:34:48 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Chenyuan Yang <chenyuan0y@gmail.com>
+Cc: Maxime Ripard <mripard@kernel.org>, wens@csie.org,
+	maarten.lankhorst@linux.intel.com, tzimmermann@suse.de,
+	airlied@gmail.com, simona@ffwll.ch, jernej.skrabec@gmail.com,
+	samuel@sholland.org, neil.armstrong@linaro.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drm/sun4i: backend: Fix error pointers in
+ sun4i_backend_atomic_check
+Message-ID: <aJSBSLvIeSpvaYpK@stanley.mountain>
+References: <20250314012029.668306-1-chenyuan0y@gmail.com>
+ <20250314-prophetic-attentive-platypus-3ab214@houat>
+ <CALGdzurT1_fY_o8Hv92j4+XFQHu1iHRzqVtZAM8upHYBPfA1BA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+In-Reply-To: <CALGdzurT1_fY_o8Hv92j4+XFQHu1iHRzqVtZAM8upHYBPfA1BA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_025907_859553_2C338AEF 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20250807_033455_189542_A027FD38 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,123 +107,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "zhengnan chen" <zhengnan.chen@mediatek.com>
+On Fri, Mar 14, 2025 at 11:00:26AM -0500, Chenyuan Yang wrote:
+> HI Maxime.
+> 
+> Thanks so much for pointing that out!
+> 
+> How about such a patch?
+> 
 
-Add DL_WITH_MULTI_LARB flag to support the HW which connect with
-multiple larbs. Prepare for mt8189. In mt8189, the display connect
-with larb1 and larb2 at the same time. Thus, we should add link
-between disp-dev with these two larbs.
+This patch is corrupted so we can't review it.
 
-Signed-off-by: zhengnan chen <zhengnan.chen@mediatek.com>
----
- drivers/iommu/mtk_iommu.c | 56 ++++++++++++++++++++++++++++++---------
- 1 file changed, 43 insertions(+), 13 deletions(-)
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c
+> b/drivers/gpu/drm/sun4i/sun4i_backend.c
+> index 2dded3b828df..5ad0e90d3e6b 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_backend.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
+> @@ -490,9 +490,14 @@ static int sun4i_backend_atomic_check(struct
+> sunxi_engine *engine,
+>   drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
+>   struct drm_plane_state *plane_state =
+>   drm_atomic_get_plane_state(state, plane);
+> - struct sun4i_layer_state *layer_state =
+> - state_to_sun4i_layer_state(plane_state);
+> - struct drm_framebuffer *fb = plane_state->fb;
+> + struct sun4i_layer_state *layer_state = NULL;
+> + struct drm_framebuffer *fb = NULL;
 
-diff --git a/drivers/iommu/mtk_iommu.c b/drivers/iommu/mtk_iommu.c
-index 0e0285348d2b..7af47c59b10b 100644
---- a/drivers/iommu/mtk_iommu.c
-+++ b/drivers/iommu/mtk_iommu.c
-@@ -147,6 +147,7 @@
- #define TF_PORT_TO_ADDR_MT8173		BIT(18)
- #define INT_ID_PORT_WIDTH_6		BIT(19)
- #define CFG_IFA_MASTER_IN_ATF		BIT(20)
-+#define DL_WITH_MULTI_LARB		BIT(21)
- 
- #define MTK_IOMMU_HAS_FLAG_MASK(pdata, _x, mask)	\
- 				((((pdata)->flags) & (mask)) == (_x))
-@@ -865,6 +866,7 @@ static struct iommu_device *mtk_iommu_probe_device(struct device *dev)
- 	struct mtk_iommu_data *data = dev_iommu_priv_get(dev);
- 	struct device_link *link;
- 	struct device *larbdev;
-+	unsigned long larbid_msk = 0;
- 	unsigned int larbid, larbidx, i;
- 
- 	if (!MTK_IOMMU_IS_TYPE(data->plat_data, MTK_IOMMU_TYPE_MM))
-@@ -872,30 +874,50 @@ static struct iommu_device *mtk_iommu_probe_device(struct device *dev)
- 
- 	/*
- 	 * Link the consumer device with the smi-larb device(supplier).
--	 * The device that connects with each a larb is a independent HW.
--	 * All the ports in each a device should be in the same larbs.
-+	 * w/DL_WITH_MULTI_LARB: the master may connect with multi larbs,
-+	 * we should create device link with each larb.
-+	 * w/o DL_WITH_MULTI_LARB: the master must connect with one larb,
-+	 * otherwise fail.
- 	 */
- 	larbid = MTK_M4U_TO_LARB(fwspec->ids[0]);
- 	if (larbid >= MTK_LARB_NR_MAX)
- 		return ERR_PTR(-EINVAL);
- 
-+	larbid_msk |= BIT(larbid);
-+
- 	for (i = 1; i < fwspec->num_ids; i++) {
- 		larbidx = MTK_M4U_TO_LARB(fwspec->ids[i]);
--		if (larbid != larbidx) {
-+		if (MTK_IOMMU_HAS_FLAG(data->plat_data, DL_WITH_MULTI_LARB)) {
-+			larbid_msk |= BIT(larbidx);
-+		} else if (larbid != larbidx) {
- 			dev_err(dev, "Can only use one larb. Fail@larb%d-%d.\n",
- 				larbid, larbidx);
- 			return ERR_PTR(-EINVAL);
- 		}
- 	}
--	larbdev = data->larb_imu[larbid].dev;
--	if (!larbdev)
--		return ERR_PTR(-EINVAL);
- 
--	link = device_link_add(dev, larbdev,
--			       DL_FLAG_PM_RUNTIME | DL_FLAG_STATELESS);
--	if (!link)
--		dev_err(dev, "Unable to link %s\n", dev_name(larbdev));
-+	for_each_set_bit(larbid, &larbid_msk, 32) {
-+		larbdev = data->larb_imu[larbid].dev;
-+		if (!larbdev)
-+			return ERR_PTR(-EINVAL);
-+
-+		link = device_link_add(dev, larbdev,
-+				       DL_FLAG_PM_RUNTIME | DL_FLAG_STATELESS);
-+		if (!link) {
-+			dev_err(dev, "Unable to link %s\n", dev_name(larbdev));
-+			goto link_remove;
-+		}
-+	}
-+
- 	return &data->iommu;
-+
-+link_remove:
-+	for_each_set_bit(i, &larbid_msk, larbid) {
-+		larbdev = data->larb_imu[i].dev;
-+		device_link_remove(dev, larbdev);
-+	}
-+
-+	return ERR_PTR(-ENODEV);
- }
- 
- static void mtk_iommu_release_device(struct device *dev)
-@@ -903,11 +925,19 @@ static void mtk_iommu_release_device(struct device *dev)
- 	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
- 	struct mtk_iommu_data *data;
- 	struct device *larbdev;
--	unsigned int larbid;
-+	unsigned int larbid, i;
-+	unsigned long larbid_msk = 0;
- 
- 	data = dev_iommu_priv_get(dev);
--	if (MTK_IOMMU_IS_TYPE(data->plat_data, MTK_IOMMU_TYPE_MM)) {
--		larbid = MTK_M4U_TO_LARB(fwspec->ids[0]);
-+	if (!MTK_IOMMU_IS_TYPE(data->plat_data, MTK_IOMMU_TYPE_MM))
-+		return;
-+
-+	for (i = 0; i < fwspec->num_ids; i++) {
-+		larbid = MTK_M4U_TO_LARB(fwspec->ids[i]);
-+		larbid_msk |= BIT(larbid);
-+	}
-+
-+	for_each_set_bit(larbid, &larbid_msk, 32) {
- 		larbdev = data->larb_imu[larbid].dev;
- 		device_link_remove(dev, larbdev);
- 	}
--- 
-2.46.0
+No need to initialize things like this.  NULL isn't a valid pointer.
+This just disables static checker tools from finding uninitialized
+variable warnings so all the expense of writing the checker tools is
+now wasted.
 
+regards,
+dan carpenter
+
+> +
+> + if (IS_ERR(plane_state))
+> + return PTR_ERR(plane_state);
+> +
+> + layer_state = state_to_sun4i_layer_state(plane_state);
+> + fb = plane_state->fb;
+> 
+>   if (!sun4i_backend_plane_is_supported(plane_state,
+>         &layer_state->uses_frontend))
+> -- 
+> 
+> -Chenyuan
+> 
+> On Fri, Mar 14, 2025 at 2:17 AM Maxime Ripard <mripard@kernel.org> wrote:
+> >
+> > Hi,
+> >
+> > On Thu, Mar 13, 2025 at 08:20:29PM -0500, Chenyuan Yang wrote:
+> > > The function sun4i_backend_atomic_check was dereferencing pointers
+> > > returned by drm_atomic_get_plane_state without checking for errors. This
+> > > could lead to undefined behavior if the function returns an error pointer.
+> > >
+> > > This commit adds checks using IS_ERR to ensure that plane_state is
+> > > valid before dereferencing them.
+> > >
+> > > Similar to commit da29abe71e16
+> > > ("drm/amd/display: Fix error pointers in amdgpu_dm_crtc_mem_type_changed").
+> > >
+> > > Fixes: 96180dde23b7 ("drm/sun4i: backend: Add a custom atomic_check for the frontend")
+> > > Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+> > > ---
+> > >  drivers/gpu/drm/sun4i/sun4i_backend.c | 4 ++++
+> > >  1 file changed, 4 insertions(+)
+> > >
+> > > diff --git a/drivers/gpu/drm/sun4i/sun4i_backend.c b/drivers/gpu/drm/sun4i/sun4i_backend.c
+> > > index 2dded3b828df..a8e0e2123764 100644
+> > > --- a/drivers/gpu/drm/sun4i/sun4i_backend.c
+> > > +++ b/drivers/gpu/drm/sun4i/sun4i_backend.c
+> > > @@ -490,6 +490,10 @@ static int sun4i_backend_atomic_check(struct sunxi_engine *engine,
+> > >       drm_for_each_plane_mask(plane, drm, crtc_state->plane_mask) {
+> > >               struct drm_plane_state *plane_state =
+> > >                       drm_atomic_get_plane_state(state, plane);
+> > > +
+> > > +             if (IS_ERR(plane_state))
+> > > +                     return PTR_ERR(plane_state);
+> > > +
+> >
+> > This introduces a build warning. You shouldn't mix declarations and code.
+> >
+> > Maxime
 
