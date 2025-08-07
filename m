@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06951C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 18:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923CCC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 18:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=f+dC5cIQUp7geGuLLAPnXmXUNugeLEjsXSMSsslTwt0=; b=QgwlHUaalbMcQY
-	/Py0/9vf+0GNZFDz9Yh3BkoP05vrjqHfguKcC8/O+5lC66UFz3t+eyZE3qCZajsVRXePe2oFoLbru
-	sxh98bBVoz+p1OtFV2YJhxXr2+YBnaVttSNvxPXF6VV0jav2ACrvr0ygqjwKnlXfPmWUqSoKpPGu1
-	3v/LfnqZhVcsPbkd7xhB+xkGBU43NaNqLUUHyvQO4ysAnBGm7DNQd/Lba34d1xhEHYTa+WIbNWDtD
-	dFaopLQF4HuZihva5OuR9jkvFwjp09CcxP2LRZ6vmOg0vG/EGol0o6//uJc94ckw26k4iRyZK6xFq
-	nL6AcosXMeUMGglzl9sg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IGkYs8Vq1VtdaW8ghbGxS3hGmfJLMmiIcJDg7vKWUtw=; b=pgPLIHb8A3xpZ/EM24K//hKhG6
+	CIzIkTg3GAWcEF1fj920+5oTQQvm3ip4BhnQHfMERclxpvLGCpTdHAEAfpC2hpOgrboXdID0kGtto
+	jZy86XU2Lz87qYyEbaIfYoxDydxSq61BWAhJtG5pnZRKxfhouaU9+471gapdeZK1jpaq2A8jgXqrG
+	59YyHU/BTE8aCfmNLyA+3Gej4K+cZB5yZ7W456CJiWF6gZUD4bT4UvvKczjXUZqWXQICpU4jZcd1D
+	kgCTZud4YFo8/u+eFsU6Nc/LSOhHwPArs1VJ9SkriJVHnujGG/rhcSY26P5AGMRE4JRW03ZbC7qFS
+	iSkfGnPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk52o-00000001Iyy-1Nfz;
-	Thu, 07 Aug 2025 18:08:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uk55L-00000001JGe-1iHw;
+	Thu, 07 Aug 2025 18:11:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk4zR-00000001ITM-158H
+	id 1uk50b-00000001Ido-3FJS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 18:05:22 +0000
+	Thu, 07 Aug 2025 18:06:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CC1D445429;
-	Thu,  7 Aug 2025 18:05:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D6AFC4CEEB;
-	Thu,  7 Aug 2025 18:05:20 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 15FAF5C6469;
+	Thu,  7 Aug 2025 18:06:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF56EC4CEEB;
+	Thu,  7 Aug 2025 18:06:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754589920;
-	bh=xKpdGfGG9X89d+WYFfLmSef3z1eEJiPKsaCnJZfi//o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=c56iw94LMjfCTQ66ZGwvscHeQingtEi1BN5o2AVxTSaGSKTDiuQ6+ltUm7Jdakf0p
-	 KJHhGzLT5y3/d1/pgUJee+oXgPAWU3BQuDWkmfluEH/+0xKhdpe/qHyf3SGc3JnUo7
-	 Kzl5xxmGFv4fXuDQMYXaH6cNq5WDiLIZf5u6/Zczvv4og25ptx6G2py/u43Ti8RIlx
-	 5TsyHim7Q5xI5qtrH8T0+53Wd4nQG/fNppMfQG7PRkTVwcbXXhh6oU1PJIxcJNdNPK
-	 qvnZFc3aAGv2A9McbAffQmwJDw3f7eRRmRM6jO6olH4SeyB3SzyI+gwAvRnCbF3LgY
-	 z8RTMlTWzR78Q==
-Date: Thu, 7 Aug 2025 13:05:19 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, linus.walleij@linaro.org,
-	linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, kernel test robot <lkp@intel.com>
-Subject: Re: [RESEND PATCH 2/2] PCI: stm32: use
- pinctrl_pm_select_init_state() in stm32_pcie_resume_noirq()
-Message-ID: <20250807180519.GA56557@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250717063042.2236524-3-christian.bruel@foss.st.com>
+	s=k20201202; t=1754589992;
+	bh=7KIkjYZinwCOik3BiYri2tGPJc4l8iBHhq9D+2sZkZw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=vJr3t7ZWxwISQ8AEnRu00urvLNPWD7maM2m6Q/qGwAtKRIyWnBuii8BR8yfMy4oUC
+	 dzj+8LI28atKWfowT1ucHintH6QXoB6XuSVRJLItQ6vJ5S+M5/Op4p8EXVwlAtY7R+
+	 ETLFsU5mNMUbypYdWcrpSi8GTDYEYy3pvvSyHmVVfFniheWpZIL1PCUxqvHEOZ9/g1
+	 5agFdXofmSWk0BPd1FfbjWBG3EO8OpNYCnnM9jw/FkiMpYJA+jU4ss0AmVhoZvo7/a
+	 KmojYC0/l7axhMluVfZ0lSA5OiEBEkfNlz51C1vX3OwmwyM7h7SqAGHQXjoaOPJG2f
+	 bjNo7BEzvY4cg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uk50V-0051Ea-Jd;
+	Thu, 07 Aug 2025 19:06:27 +0100
+Date: Thu, 07 Aug 2025 19:06:27 +0100
+Message-ID: <861ppn9fbw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	oliver.upton@linux.dev,
+	james.morse@arm.com,
+	cohuck@redhat.com,
+	anshuman.khandual@arm.com,
+	palmerdabbelt@meta.com,
+	lpieralisi@kernel.org,
+	kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com,
+	broonie@kernel.org,
+	james.clark@linaro.org,
+	yeoreum.yun@arm.com,
+	joey.gouly@arm.com,
+	huangxiaojia2@huawei.com,
+	yebin10@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: Expose CPUECTLR{,2}_EL1 via sysfs
+In-Reply-To: <mhng-9D9CB730-A22F-43E2-A012-D51EF3C1E027@palmerdabbelt-mac>
+References: <864iuja70l.wl-maz@kernel.org>
+	<mhng-9D9CB730-A22F-43E2-A012-D51EF3C1E027@palmerdabbelt-mac>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: palmer@dabbelt.com, catalin.marinas@arm.com, mark.rutland@arm.com, will@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, cohuck@redhat.com, anshuman.khandual@arm.com, palmerdabbelt@meta.com, lpieralisi@kernel.org, kevin.brodsky@arm.com, scott@os.amperecomputing.com, broonie@kernel.org, james.clark@linaro.org, yeoreum.yun@arm.com, joey.gouly@arm.com, huangxiaojia2@huawei.com, yebin10@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_110521_339186_05C01C04 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250807_110633_895412_431ED3F4 
+X-CRM114-Status: GOOD (  44.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,65 +101,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 17, 2025 at 08:30:42AM +0200, Christian Bruel wrote:
-> Replace direct access to dev->pins->init_state with the new helper
-> pinctrl_pm_select_init_state() to select the init pinctrl state.
-> This fixes build issues when CONFIG_PINCTRL is not defined.
+On Thu, 07 Aug 2025 18:26:29 +0100,
+Palmer Dabbelt <palmer@dabbelt.com> wrote:
 > 
-> Signed-off-by: Christian Bruel <christian.bruel@foss.st.com>
-> Reported-by: Bjorn Helgaas <bhelgaas@google.com>  
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202506260920.bmQ9hQ9s-lkp@intel.com/
-> Fixes: 633f42f48af5 ("PCI: stm32: Add PCIe host support for STM32MP25")
-
-633f42f48af5 is still on pci/controller/dwc-stm32, but only for
-reference.  After v6.17-rc1, we will need to rebase to it and figure
-out the merge strategy.
-
-Part of that will be to restructure 633f42f48af5 and the material
-below such that there is no build issue at any point in the series.
-
-> ---
->  drivers/pci/controller/dwc/pcie-stm32.c | 10 +++++++---
->  1 file changed, 7 insertions(+), 3 deletions(-)
+> On Thu, 07 Aug 2025 01:08:26 PDT (-0700), Marc Zyngier wrote:
+> > On Wed, 06 Aug 2025 20:48:13 +0100,
+> > Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> >> 
+> >> From: Palmer Dabbelt <palmerdabbelt@meta.com>
+> >> 
+> >> We've found that some of our workloads run faster when some of these
+> >> fields are set to non-default values on some of the systems we're trying
+> >> to run those workloads on.  This allows us to set those values via
+> >> sysfs, so we can do workload/system-specific tuning.
+> >> 
+> >> Signed-off-by: Palmer Dabbelt <palmerdabbelt@meta.com>
+> >> ---
+> >> I've only really smoke tested this, but I figured I'd send it along because I'm
+> >> not sure if this is even a sane thing to be doing -- these extended control
+> >> registers have some wacky stuff in them, so maybe they're not exposed to
+> >> userspace on purpose.  IIUC firmware can gate these writes, though, so it
+> >> should be possible for vendors to forbid the really scary values.
+> > 
+> > That's really wrong.
+> > 
+> > For a start, these encodings fall into the IMPDEF range. They won't
+> > exist on non-ARM implementations.
 > 
-> diff --git a/drivers/pci/controller/dwc/pcie-stm32.c b/drivers/pci/controller/dwc/pcie-stm32.c
-> index 50fae5f5ced2..c1d803dc3778 100644
-> --- a/drivers/pci/controller/dwc/pcie-stm32.c
-> +++ b/drivers/pci/controller/dwc/pcie-stm32.c
-> @@ -28,6 +28,7 @@ struct stm32_pcie {
->  	struct clk *clk;
->  	struct gpio_desc *perst_gpio;
->  	struct gpio_desc *wake_gpio;
-> +	bool   have_pinctrl_init;
->  };
->  
->  static void stm32_pcie_deassert_perst(struct stm32_pcie *stm32_pcie)
-> @@ -91,10 +92,10 @@ static int stm32_pcie_resume_noirq(struct device *dev)
->  	/*
->  	 * The core clock is gated with CLKREQ# from the COMBOPHY REFCLK,
->  	 * thus if no device is present, must force it low with an init pinmux
-> -	 * to be able to access the DBI registers.
-> +	 * if present to be able to access the DBI registers.
->  	 */
-> -	if (!IS_ERR(dev->pins->init_state))
-> -		ret = pinctrl_select_state(dev->pins->p, dev->pins->init_state);
-> +	if (stm32_pcie->have_pinctrl_init)
-> +		ret = pinctrl_pm_select_init_state(dev);
->  	else
->  		ret = pinctrl_pm_select_default_state(dev);
->  
-> @@ -274,6 +275,9 @@ static int stm32_pcie_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, PTR_ERR(stm32_pcie->rst),
->  				     "Failed to get PCIe reset\n");
->  
-> +	if (device_property_match_string(dev, "pinctrl-names", PINCTRL_STATE_INIT) >= 0)
-> +		stm32_pcie->have_pinctrl_init = true;
-> +
->  	ret = stm32_pcie_parse_port(stm32_pcie);
->  	if (ret)
->  		return ret;
-> -- 
-> 2.34.1
+> OK, and that's because it says "Provides additional IMPLEMENTATION
+> DEFINED configuration and control options for the processor." at the
+> start of the manual page?  Sorry, I'm kind of new to trying to read
+> the Arm specs -- I thought just the meaning of the values was
+> changing, but I probably just didn't read enough specs.
+
+The architecture defines a range described in D24.2.162 (in the L.b
+revision of the ARM ARM) which is reserved for IMPDEF purposes.
+
+What these registers do is not defined, and there is no standard
+across implementations. This really is for chicken bits and other fun
+stuff. Most of them will simply generate an UNDEF, because they don't
+pass the decode stage. But for all we know, there is a bit in there
+that turns NOP into the HCF instruction -- or better.
+
+So exposing any of that stuff for any given CPU is dangerous. And
+exposing any of it on *all* CPUs is a bit like swallowing a powered
+chainsaw (don't).
+
 > 
+> > Next, this will catch fire as a guest, either because the hypervisor
+> > will simply refuse to entertain letting it access registers that have
+> > no definition, or because the VM has been migrated from one
+> > implementation to another, and you have no idea this is doing on the
+> > new target.
+> 
+> Ya, makes sense.
+> 
+> >> That said, we do see some performance improvements here on real workloads.  So
+> >> we're hoping to roll some of this tuning work out more widely, but we also
+> >> don't want to adopt some internal interface.  Thus it'd make our lives easier
+> >> if we could twiddle these bits in a standard way.
+> > 
+> > Honestly, this is the sort of bring-up stuff that is better kept in
+> > your private sandbox, and doesn't really help in general.
+> 
+> So we're not doing bringup (or at least not doing what I'd call
+> bringup) here, the theory is that we just get better performance on
+> different workloads with different tunings.  That's all still a little
+> early, but if the data holds we'd want to be setting these based on
+> what workload is running (ie, not just some static tuning for
+> everything).
+
+In general, none of that crap is safe to turn on and off at random
+times. You really want to talk to your implementer to find out. And if
+it is, the firmware is probably the place to handle that.
+
+> That said, part of the reason I just sent this as-is is because I was
+> sort of expecting the answer to be "no" here.  No big deal if that's
+> the case, we can figure out some other way to solve the problem.
+> Happy to throw some time in to making some more generic flavor of
+> this, though...
+
+I have no idea how we can achieve that, given that there is no
+architected definition for any of these registers.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
