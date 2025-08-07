@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEE9C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DD8C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wHe3DXGlkhpE+u7X0kbUMzSWfFvMMwSfNOW+GmRvtBc=; b=O/W12MDOYEKOLQVmSgQK41n1WD
-	0nSYm8Q+IIsE+Pmwtd9ViLN7P9LnDwRoM4iEhsvKqigGVLd50epibb6vOR24aVNqwRXorXkt8g6tH
-	NpSPaqQV4K/EvFRFNjTFxniTEheoRo8onJmJJ0f/8IqH6YjB2bqiiaTg0YVr6uythxXPfDpIJMXEv
-	4Qi/GackcNX0UY0IHLTga+s1/lo329oagi5ltYGNtr2cZsZ6AEsjM4Y1xdob+eG33o83m2AsRsfTD
-	q0nZxLRuaF/1EIJu3PMIvzRcVZvIb/QyspTPN4zgKF/aWIRvA1UVTOg+Yhe9WlSX2diEifp59bE/8
-	IPIt8Ohw==;
+	bh=2MvbAJri+EtkqA+5AzaDqrakuxuZTnRq41tdFuTUB5Q=; b=f2wIuVb7npubfygsx11+gACZwe
+	nQqHrUAh7cJyTSmEI/a7DMVU/I2vEKD1VpK0jKafH8+77FilxTGvWPjcYUORkOuxR9FfG98Ax3Sx7
+	Drusv5HmZBLiuRbIQ6h1uV+uDh4s6myZbLZUNpYzSTwIa46el/mk8qbdTxjhaxP6nfbj4HfpLoXSQ
+	bmyo9fqJyCkSOuVzn+6Vfu8M2scWC0VVskoC+wOsHGgnrYb/q2lh+mjRGli5STi1TBJzYTrtPr7K9
+	CmaGS6+uPcVuTgz/jdzmfUAj4aZCAe7Tn4/wPSEyH00JTK0XUj1YEAlUgstFvjY2y7MOmcTCa+Wxr
+	VxYTDbxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk1jP-00000000pbK-3AiL;
-	Thu, 07 Aug 2025 14:36:35 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1uk1po-00000000qeu-3bvG;
+	Thu, 07 Aug 2025 14:43:12 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk1gn-00000000pFx-1gFr
+	id 1uk1nH-00000000q3q-1DPd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 14:33:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754577233; x=1786113233;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Wb1Mj5eB9a3PVIkwcblhXlBnzqloEY/YGjLzscQcGsI=;
-  b=UnG4kWmC/btmo/hWah90Cq/ORjgCe5R+fNmZNrJs6pO2NeD2jVMgoECo
-   ifFN9DVIEVB8PWLhobx5ifJrVfXK0EKVKGu8jT9owSNKsBHxJ30SidzsO
-   K49TyOU+E8ag75fLEbQ+me9zjm+REAoplrv0KJdbqTZexTFNjcxl7j+L8
-   GySpK9ft2XMOT6L5TYoS/afVUbAK2aoBZD5D5IaOgUuTXqtbUM2fR7ABm
-   bvWGYYC/WSamPTWEeR/GQL6lRpboGv46QW9KdAnJc4Zi9/K+lpHTLFCAa
-   S7l67tbNIv5hxafhGlpkT3zyIuvS3d5A5GY5piwAEl3cjiEbkcoh91JVS
-   g==;
-X-CSE-ConnectionGUID: PUWwnbJ6Tly3dJZDyT6i0Q==
-X-CSE-MsgGUID: BnP7vw2ZQyGVIEIJWPH9qQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="68288324"
-X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
-   d="scan'208";a="68288324"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 07:33:47 -0700
-X-CSE-ConnectionGUID: 9Us8bKFQSI+xgOF3SRwvCA==
-X-CSE-MsgGUID: JQBwjP7BRQusc2Djw8PMcg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
-   d="scan'208";a="169281764"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa003.jf.intel.com with ESMTP; 07 Aug 2025 07:33:44 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uk1gb-0002sw-1Q;
-	Thu, 07 Aug 2025 14:33:41 +0000
-Date: Thu, 7 Aug 2025 22:32:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	virtualization@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev, jgg@ziepe.ca, will@kernel.org,
-	jacob.pan@linux.microsoft.com, eric.auger@redhat.com,
-	code@tyhicks.com, eahariha@linux.microsoft.com,
-	vijayb@linux.microsoft.com, bboscaccy@linux.microsoft.com
-Subject: Re: [PATCH v3 1/3] arm-smmu: move MSI_IOVA macro definitions
-Message-ID: <202508072221.zOvuARaV-lkp@intel.com>
-References: <20250806215539.1240561-2-shyamsaini@linux.microsoft.com>
+	Thu, 07 Aug 2025 14:40:36 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-55b9a23d633so1158824e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 07:40:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1754577633; x=1755182433; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=2MvbAJri+EtkqA+5AzaDqrakuxuZTnRq41tdFuTUB5Q=;
+        b=Caeineg6IMB2qBj25ICiwGCBRy2pTueGma3BWpu/9WrXJykolTJ+xPx+ZP4FWTyqzj
+         j5flc3EhWATdx2tH5PLtraZ942Quo43SSMQOF7KgKfoUX2yVbakVkugENcy/RfK4DTjq
+         V2QC+q4Te+8ygofydcAw5MeGcItLiDxZgki6w=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754577633; x=1755182433;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2MvbAJri+EtkqA+5AzaDqrakuxuZTnRq41tdFuTUB5Q=;
+        b=NrTfJiyEcsfzDPNgblbkGqj09CiFUdTchD6oKph7g3bP6VmVK0VsRKK6jdyPQjZzE1
+         t+DGo2htgylpRvG15S/rWejicgwdpybumxT8nzmj1hDorBHgxTzZxFjpniN3YEE71p4s
+         m5uQzJraQzkvG/R1ZjID6bFqOBh+qx6CgRMAZnq6bi1NozYaOrL6m80TYBs4/PdUeuPO
+         qxK4VmMQ956El8WN0ZPiE0e89JQ3Q7jRqcIIrIOJWCnv13nE/1LYJ246diOw8jinHqaE
+         M1WOjQENf13E6ScXDQWSCAJ5RjuJ7/a1ROEtldCsB/UpfMMv90MmDI+MJl3eVD7dFWEd
+         1Yzw==
+X-Forwarded-Encrypted: i=1; AJvYcCWmcD/tExuOb+sdcrfODPHMhc0SJWGHa44zdvKAxu0Vp9HSQAsFx3bmcJTOQhMGCfcFVfnEm7Q5Ks9NG5dOH7Pi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVnnSS5aWAzKlv+pm8Mm26YVwFp8tTOHoSoe7Ec/j36/vahO94
+	J+1eif0c5sm0g+9yZX2+QEFDNXzdq6IbLKDDPepFZP3CyLq8Z4WMu0S+D0PrrU4Kuer3+Is4dT4
+	C0k8rQIcPoOsNx7LrOAFqVQ8Cm6elzLOcPN7/lRpw
+X-Gm-Gg: ASbGnctzIsQNbOSGnst9ANGrKE5rITLmpHrOWwT9Di/7HkFQKWBY+nx5s9hXNTPD6To
+	oP15hEe6qeRiymM3R+1AANYOt3tzfl6yhMxPdj2QJoylc76PS/+UIPTVGJIkbtHs6EuSJjlJIBf
+	ladUsd/d+EDJBA+V1oUBMonafMpRbSzfHWyl4my234XDwrgRQ68If2yfJdug9TBmLgUw7A/y4Lc
+	LogxgDQ
+X-Google-Smtp-Source: AGHT+IFfXBau/vkdFXzt1rI+u+8KdsVnMNnBJ3n6/2FZheJxalpCRtfPgU6x2DrNronh67hxDTpFDmCMdX2Rps+cXrA=
+X-Received: by 2002:a05:6512:1282:b0:553:2912:cfdc with SMTP id
+ 2adb3069b0e04-55cb61d942amr1029433e87.9.1754577632786; Thu, 07 Aug 2025
+ 07:40:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250806215539.1240561-2-shyamsaini@linux.microsoft.com>
+References: <20250806185051.GA10150@bhelgaas> <0a518bd3-0a20-4b69-a29f-04b5cd3c3ea8@broadcom.com>
+ <yqtfhokgfgiwk62lhxkxna26lpexgnlvcmwgfopewlj5u74drt@q6adhcvm7hqz>
+In-Reply-To: <yqtfhokgfgiwk62lhxkxna26lpexgnlvcmwgfopewlj5u74drt@q6adhcvm7hqz>
+From: Jim Quinlan <james.quinlan@broadcom.com>
+Date: Thu, 7 Aug 2025 10:40:20 -0400
+X-Gm-Features: Ac12FXw4Zz9zrMglWbi8yAVhox7Ad4M4bjdjZsEOBJhhu0nV8rV8uesuvfcCRwM
+Message-ID: <CA+-6iNyK+A38AWm_j61UdVth2nTSpp2CH6fZX+8oKif3dUdifQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] PCI: brcmstb: Add panic/die handler to driver
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Bjorn Helgaas <helgaas@kernel.org>, 
+	linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+	Cyril Brulebois <kibi@debian.org>, bcm-kernel-feedback-list@broadcom.com, 
+	jim2101024@gmail.com, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, 
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="0000000000009284fd063bc7709d"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_073353_458466_0B9701FC 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250807_074035_361921_662C8F10 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,68 +100,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shyam,
+--0000000000009284fd063bc7709d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-kernel test robot noticed the following build errors:
+On Thu, Aug 7, 2025 at 1:26=E2=80=AFAM Manivannan Sadhasivam <mani@kernel.o=
+rg> wrote:
+>
+> On Wed, Aug 06, 2025 at 01:41:35PM GMT, Florian Fainelli wrote:
+> > On 8/6/25 11:50, Bjorn Helgaas wrote:
+> > > > I'm not sure I understand the "racy" comment.  If the PCIe bridge i=
+s
+> > > > off, we do not read the PCIe error registers.  In this case, PCIe i=
+s
+> > > > probably not the cause of the panic.   In the rare case the PCIe
+> > > > bridge is off  and it was the PCIe that caused the panic, nothing
+> > > > gets reported, and this is where we are without this commit.
+> > > > Perhaps this is what you mean by "mostly-works".  But this is the
+> > > > best that can be done with SW given our HW.
+> > >
+> > > Right, my fault.  The error report registers don't look like standard
+> > > PCIe things, so I suppose they are on the host side, not the PCIe
+> > > side, so they're probably guaranteed to be accessible and non-racy
+> > > unless the bridge is in reset.
+> >
+> > To expand upon that part, the situation that I ran in we had the PCIe l=
+ink
+> > down and therefore clock gated the PCIe root complex hardware to conser=
+ve
+> > power. Eventually I did hit a voluntary panic, and since all panic noti=
+fiers
+> > registered are invoked in succession, the one registered for the PCIe R=
+C was
+> > invoked as well and accessing clock gated registers would not work and
+> > trigger another fault which would be confusing and mingle with the pani=
+c I
+> > was trying to debug initially. Hence this check, and a clock gated PCIe=
+ RC
+> > would not be logging any errors anyway.
+>
+> May I ask how you are recovering from link down? Can the driver detect li=
+nk down
+> using any platform IRQ?
 
-[auto build test ERROR on soc/for-next]
-[also build test ERROR on linus/master v6.16 next-20250807]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+We do have link up/down interrupts on most of our SoCs but we once
+implemented a handler and the interrupts were unreliable.  We informed
+HW but I do not think they implemented any changes.  We will try again
+at some point to ascertain the extent of the issue.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Shyam-Saini/arm-smmu-move-MSI_IOVA-macro-definitions/20250807-055741
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20250806215539.1240561-2-shyamsaini%40linux.microsoft.com
-patch subject: [PATCH v3 1/3] arm-smmu: move MSI_IOVA macro definitions
-config: um-randconfig-r071-20250807 (https://download.01.org/0day-ci/archive/20250807/202508072221.zOvuARaV-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250807/202508072221.zOvuARaV-lkp@intel.com/reproduce)
+AFAICT such a handler is not a panacea.  Having a link-down handler
+may be able to immediately prevent panics for config space accesses by
+intercepting them but not incoming memory accesses from the host or
+endpoint device.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508072221.zOvuARaV-lkp@intel.com/
+Regards,
+Jim Quinlan
+Broadcom STB/CM
+>
+> - Mani
+>
+> --
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
-All errors (new ones prefixed by >>):
+--0000000000009284fd063bc7709d
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
 
-   In file included from drivers/iommu/arm/arm-smmu/arm-smmu.c:24:
-   In file included from include/linux/dma-mapping.h:8:
-   In file included from include/linux/scatterlist.h:9:
-   In file included from arch/um/include/asm/io.h:24:
-   include/asm-generic/io.h:1175:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
-    1175 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
-         |                                                   ~~~~~~~~~~ ^
->> drivers/iommu/arm/arm-smmu/arm-smmu.c:1603:35: error: use of undeclared identifier 'MSI_IOVA_BASE'
-    1603 |         region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
-         |                                          ^~~~~~~~~~~~~
-   drivers/iommu/arm/arm-smmu/arm-smmu.c:1603:50: error: use of undeclared identifier 'MSI_IOVA_LENGTH'
-    1603 |         region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
-         |                                                         ^~~~~~~~~~~~~~~
-   1 warning and 2 errors generated.
-
-
-vim +/MSI_IOVA_BASE +1603 drivers/iommu/arm/arm-smmu/arm-smmu.c
-
-021bb8420d44cf drivers/iommu/arm-smmu.c              Robin Murphy 2016-09-14  1596  
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1597  static void arm_smmu_get_resv_regions(struct device *dev,
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1598  				      struct list_head *head)
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1599  {
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1600  	struct iommu_resv_region *region;
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1601  	int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1602  
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19 @1603  	region = iommu_alloc_resv_region(MSI_IOVA_BASE, MSI_IOVA_LENGTH,
-0251d0107cfb0b drivers/iommu/arm/arm-smmu/arm-smmu.c Lu Baolu     2022-10-19  1604  					 prot, IOMMU_RESV_SW_MSI, GFP_KERNEL);
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1605  	if (!region)
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1606  		return;
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1607  
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1608  	list_add_tail(&region->list, head);
-273df9635385b2 drivers/iommu/arm-smmu.c              Robin Murphy 2017-03-16  1609  
-273df9635385b2 drivers/iommu/arm-smmu.c              Robin Murphy 2017-03-16  1610  	iommu_dma_get_resv_regions(dev, head);
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1611  }
-f3ebee80b3131d drivers/iommu/arm-smmu.c              Eric Auger   2017-01-19  1612  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+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
+mOAplh6h3nMZUZxBguxG3g2p3iD4EgibUYneEzqOQafIQB/naf2uetKb8y9jKgWJxq2Y4y8Jqg2u
+uVIO1AyOJjWwqdgN+QhuIlat+qZd03P48Gim9ZPEMDUCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQE
+AwIFoDCBowYIKwYBBQUHAQEEgZYwgZMwTgYIKwYBBQUHMAKGQmh0dHA6Ly9zZWN1cmUuZ2xvYmFs
+c2lnbi5jb20vY2FjZXJ0L2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwLmNydDBBBggrBgEFBQcw
+AYY1aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAw
+TQYDVR0gBEYwRDBCBgorBgEEAaAyASgKMDQwMgYIKwYBBQUHAgEWJmh0dHBzOi8vd3d3Lmdsb2Jh
+bHNpZ24uY29tL3JlcG9zaXRvcnkvMAkGA1UdEwQCMAAwSQYDVR0fBEIwQDA+oDygOoY4aHR0cDov
+L2NybC5nbG9iYWxzaWduLmNvbS9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcmwwJQYDVR0R
+BB4wHIEaamFtZXMucXVpbmxhbkBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYD
+VR0jBBgwFoAUljPR5lgXWzR1ioFWZNW+SN6hj88wHQYDVR0OBBYEFGx/E27aeGBP2eJktrILxlhK
+z8f6MA0GCSqGSIb3DQEBCwUAA4IBAQBdQQukiELsPfse49X4QNy/UN43dPUw0I1asiQ8wye3nAuD
+b3GFmf3SZKlgxBTdWJoaNmmUFW2H3HWOoQBnTeedLtV9M2Tb9vOKMncQD1f9hvWZR6LnZpjBIlKe
++R+v6CLF07qYmBI6olvOY/Rsv9QpW9W8qZYk+2RkWHz/fR5N5YldKlJHP0NDT4Wjc5fEzV+mZC8A
+AlT80qiuCVv+IQP08ovEVSLPhUp8i1pwsHT9atbWOfXQjbq1B/ditFIbPzwmwJPuGUc7n7vpmtxB
+75sSFMj27j4JXl5W9vORgHR2YzuPBzfzDJU1ul0DIofSWVF6E1dx4tZohRED1Yl/T/ZGMYICYDCC
+AlwCAQEwazBbMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UE
+AxMoR2xvYmFsU2lnbiBHQ0MgUjMgUGVyc29uYWxTaWduIDIgQ0EgMjAyMAIMSO43VW7D5NP1X/KD
+MA0GCWCGSAFlAwQCAQUAoIHHMC8GCSqGSIb3DQEJBDEiBCA9tHvgjXaeOmc0RdmtldLb2ub0QVbZ
+EXMc6jAC/X/xDzAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNTA4
+MDcxNDQwMzNaMFwGCSqGSIb3DQEJDzFPME0wCwYJYIZIAWUDBAEqMAsGCWCGSAFlAwQBFjALBglg
+hkgBZQMEAQIwCgYIKoZIhvcNAwcwCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATANBgkqhkiG9w0B
+AQEFAASCAQAFoD03tHBg9K1pOzlc7IPwqWfid6ZEjIK/UCjYg3hTXQdOukJOeRoi1hE42VnmcJXE
+6FFLyTjuxmW6EKDRCJp9bcttbb0Q8TSzhOR81Wkk7VT4csfOY+MDdvZYsSHTwOxCTdCZoQLYQZvy
+gIPKv/czkXjDqMOtGti2njfRZTbrcPn16TL5vR+yAHzySB42Kqibd4yZkz2U7aHKRrATAwRYn0Iz
+PqAIhCUNZIOWswiIL90LNbOwG5NIvnecHt4BjHnUtDUjk+qONBI3mLYGLYZegFoMZBH/HmgKvXB3
+KUkwoUS9VLKLE4WZNKZ5SPS1AmvxE6AxN70kfsrAZHFFMPM2
+--0000000000009284fd063bc7709d--
 
