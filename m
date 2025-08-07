@@ -4,90 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58282C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 19:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A79C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 19:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=LFTGdFdrwPEXp/07Hyvbq3e4qPYS7VEbCtDeVMipK3U=; b=RYZMR0e/XYx3ZmfK8x9Cg6ZEEV
-	1Fs/4YXZIQBZx6uLg3PROuOKf7hQtdry3BuOMdrACNDOwCGZmnfoW/VugcI2WOuJIBm35nJfeQ/yr
-	d9tFiaei15tKducTQ+GbVGAgUvgX34xcVQ806ZWuglLPPcO7/ZaNcdEhlpPQMhfpckB0GwtE1A7cA
-	YamiZmS54rcSd0gcTY7wmhxWBdasPcv3NNTzhA1HB9m1/ucwK2eigOjLIIsv17IUbtvynZf5UNFXW
-	fdWdBVTsRBwT1Vfm4VNStJGh0ED26eEXOyJ+H/lHIv4ejd59UdvDayDrbsZL0by00xmDcoBspsckg
-	5rBKur9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=anBkDsucK2PjKsyElrguMz1Xesu863wEQp2W/k3Cq1M=; b=acjchpleIoj0azmXenSvnUhJkv
+	OWHyfoJ5L8qvFfnojvjYjVgAfGiOKi1kjOaiAaMm97whjDzBraZRdlAkm6f3zqtbr+MA/eRaP6nrG
+	hFqBEu8CsALrdq3lQCfpqgP9NoPPX5dAs/5iCljnASb5n6gLQILxLBSpRb2UBT+UlR1I5HA3tTMyL
+	whA9PgIdvFPOq1oPhxFVi0OWYVB4mnnnRBjJYLyAOA2sn9huiipl19WV7/leenPkcKYTsVa4wANmn
+	monhq1egWKNoDPR37H5FfGRLeyVjtr7A7haGn6MgHh5901FwfXFjeZG9evpt0CGAegF5eTVUNMN/w
+	z6FRW1Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk6CR-00000001OmU-0mSA;
-	Thu, 07 Aug 2025 19:22:51 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uk6FE-00000001P75-2alZ;
+	Thu, 07 Aug 2025 19:25:44 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk67Q-00000001OME-1BO2
+	id 1uk6Ch-00000001Op6-0PGL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 19:17:42 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-76bd041c431so1401904b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 12:17:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1754594259; x=1755199059; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LFTGdFdrwPEXp/07Hyvbq3e4qPYS7VEbCtDeVMipK3U=;
-        b=0WZ5Qm2UlbZJbvuhNbFT2tjCCs/SimXVKR5YelfWKLxsPhjDMDQj77i9RL075EosbH
-         C/P9bstGLMo14WmVhkeP9NeM2rUA3kVikE+LNJyzDKr+FWIbwANlGEx/xTkoJ1jb8BtE
-         TUbfWnYkPR8I5JSbYKZgWSYB2zM6+/PfgYLSg9kepLUwJJcvFoMAM83nCN/v3pb3j6bp
-         Bc/nwvSJ+5mXXLIczFWnbFneAFCq+duJVZg1iGq5TKx/dirpC5FtKAAdhNQZnlV/tlDh
-         8OpRqbp5KlHZ07sLg7q7L7ejZm7+gS1ktlaL/UuNjegOd3sY7o7ws8sOhH0V5kCxUoCE
-         KxwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754594259; x=1755199059;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LFTGdFdrwPEXp/07Hyvbq3e4qPYS7VEbCtDeVMipK3U=;
-        b=h8e239oaE0D9r9724+lYmSy9iE6AqJhdHJ81EwC9u3QF/pD78pa9sBAaUKoKjWlEaW
-         O1kUQgMk7hDlGHb8OivXUKb6KEArKlDND3QxXgn0SLO+NV3leXQLyy/NRE6kwZmfC9mW
-         TlcMIVoPQGA3IovXqUFt/BxOkBLYHqXyMgwvzlt68H9MGVa/BQNeix46ExVPwR1BwRo8
-         59AJaeC9EUJBYXLkwBZBobwRBoLc33bBuRG8h4EjM0PuQuZDj2gC9G3AWGxyQwlKnfRw
-         Ja6APxYfblnNtv5QZdoVJXsXmIsmP4cd3WNDdRfThf6fBBL/989nTQwC355T3hTeLIVn
-         9Y3g==
-X-Forwarded-Encrypted: i=1; AJvYcCX/6K9d41CJdoh5ci93BQTfPEPuqJnOFuIrD9Qhk6TmEm0PgDM7cu74uM+55twAZztMrSfztuyj2WtL8Qvp8oJO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzUxyhVsQb/sYBOr+xxUv2GtY34Lb97sqpjJA4OmWuzx2IcVyM
-	H7TXlWceeV46daLnKGtPPT8DCRtOCDfxEUwY9lmUvf0ozQ3ACLoYpD53mCXZw1LSvUQ=
-X-Gm-Gg: ASbGnctxC9fT0uuoSfI4uACpfTY/2ngZ66F6X8fwqjNFqQHxV1xj+V7N1adXvKq4cpn
-	3vpyouGo7zQxL/hQWq+Wtz/qA+wuD9B29glsnyz9BSfJswgR4EGJnwUCZuT/y+gAIUn/6TsZg8K
-	8AgkLf2NH1sdN7IIAcAFzdauACI7hSuYpBBaq8bj49nrxUBlwwYrB9OfFqAi3t/ccJdu9TcM6Vd
-	AHuLdFr9mbhpwyhx2eH0NvToLhcztB3mHxE2SRkDnKZVnFm512z9Uy4g8rah/hfmpIHTl/TkqzR
-	t4Kenwog4dRojge+SGRnpaYwkCbJ5qLSTdOcxTzuVBiKo93VwtzoWCzcuDUcTXu8RBtkMzdx151
-	5no2+N6cfSgU++M5iiNcPICGzkQ==
-X-Google-Smtp-Source: AGHT+IHNqjBzNa6x9y5nuMTjhL/RlmBkISPYGPU0iPpiI2kbUCaUjEOs8chag9KSPSg5MZtZ2aU0kQ==
-X-Received: by 2002:a05:6a00:80a:b0:74d:f997:1b45 with SMTP id d2e1a72fcca58-76c460ad057mr415274b3a.8.1754594259196;
-        Thu, 07 Aug 2025 12:17:39 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:500::4:30b7])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-76bccfcf5f7sm18719092b3a.88.2025.08.07.12.17.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 12:17:38 -0700 (PDT)
-Date: Thu, 07 Aug 2025 12:17:38 -0700 (PDT)
-X-Google-Original-Date: Thu, 07 Aug 2025 12:17:35 PDT (-0700)
-Subject: Re: [PATCH] arm64: Expose CPUECTLR{,2}_EL1 via sysfs
-In-Reply-To: <861ppn9fbw.wl-maz@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>,
-  Will Deacon <will@kernel.org>, oliver.upton@linux.dev, james.morse@arm.com, cohuck@redhat.com,
-  anshuman.khandual@arm.com, palmerdabbelt@meta.com, lpieralisi@kernel.org, kevin.brodsky@arm.com,
-  scott@os.amperecomputing.com, broonie@kernel.org, james.clark@linaro.org, yeoreum.yun@arm.com,
-  joey.gouly@arm.com, huangxiaojia2@huawei.com, yebin10@huawei.com,
-  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Marc Zyngier <maz@kernel.org>
-Message-ID: <mhng-D7782B90-52E0-44DB-89A8-70079A8751E7@palmerdabbelt-mac>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Thu, 07 Aug 2025 19:23:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 543B8A5676A;
+	Thu,  7 Aug 2025 19:23:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CF7CC4CEEB;
+	Thu,  7 Aug 2025 19:23:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754594586;
+	bh=bO0vADNCneshUIVHVe/hVO5ZsIGpYnBPeUVMpWJqGAM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GeNm/SBMZx67YSIsEMyUKUL7FL7ui9baKhJ5p6Pm9dJFfoOvs+EbdM7/34+mZPMxJ
+	 sSEnTwpUbnrKNbQsCzQxPrY/6dqg296Bn/QbB+NsgOp0b14lbHpil6CzWTcAWBGLnk
+	 LUEu+oQpGX8cQBGSTQKP6bDEHvk3juv854a+pcioXZEV3U/5h1+SIH5R2O+0DRVoky
+	 lWuEF/31rVyOBY7yJGPBF5M5WU3HI0TgpqxfLkLpEVuUfZNQagTVb5HW/Rfx23Zmli
+	 SG93Y+FZvwDqOPENpT7c3BxufBcmJx6qvm8WnqQdAG6dC7RZDuMjHX0aCCbhYQoOcS
+	 bWMSIB921g9oQ==
+Date: Thu, 7 Aug 2025 20:23:01 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] selftests: arm64: Check fread return value in exec_target
+Message-ID: <a72e8741-a63a-487e-838e-daeed3458c0f@sirena.org.uk>
+References: <20250807154950.24105-1-reddybalavignesh9979@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lDXe6O6YHA3QjJr+"
+Content-Disposition: inline
+In-Reply-To: <20250807154950.24105-1-reddybalavignesh9979@gmail.com>
+X-Cookie: Real Users hate Real Programmers.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_121740_562958_4D616252 
-X-CRM114-Status: GOOD (  45.16  )
+X-CRM114-CacheID: sfid-20250807_122307_202964_C9B2A988 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,109 +74,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Aug 2025 11:06:27 PDT (-0700), Marc Zyngier wrote:
-> On Thu, 07 Aug 2025 18:26:29 +0100,
-> Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Thu, 07 Aug 2025 01:08:26 PDT (-0700), Marc Zyngier wrote:
->> > On Wed, 06 Aug 2025 20:48:13 +0100,
->> > Palmer Dabbelt <palmer@dabbelt.com> wrote:
->> >>
->> >> From: Palmer Dabbelt <palmerdabbelt@meta.com>
->> >>
->> >> We've found that some of our workloads run faster when some of these
->> >> fields are set to non-default values on some of the systems we're trying
->> >> to run those workloads on.  This allows us to set those values via
->> >> sysfs, so we can do workload/system-specific tuning.
->> >>
->> >> Signed-off-by: Palmer Dabbelt <palmerdabbelt@meta.com>
->> >> ---
->> >> I've only really smoke tested this, but I figured I'd send it along because I'm
->> >> not sure if this is even a sane thing to be doing -- these extended control
->> >> registers have some wacky stuff in them, so maybe they're not exposed to
->> >> userspace on purpose.  IIUC firmware can gate these writes, though, so it
->> >> should be possible for vendors to forbid the really scary values.
->> >
->> > That's really wrong.
->> >
->> > For a start, these encodings fall into the IMPDEF range. They won't
->> > exist on non-ARM implementations.
->>
->> OK, and that's because it says "Provides additional IMPLEMENTATION
->> DEFINED configuration and control options for the processor." at the
->> start of the manual page?  Sorry, I'm kind of new to trying to read
->> the Arm specs -- I thought just the meaning of the values was
->> changing, but I probably just didn't read enough specs.
->
-> The architecture defines a range described in D24.2.162 (in the L.b
-> revision of the ARM ARM) which is reserved for IMPDEF purposes.
->
-> What these registers do is not defined, and there is no standard
-> across implementations. This really is for chicken bits and other fun
-> stuff. Most of them will simply generate an UNDEF, because they don't
-> pass the decode stage. But for all we know, there is a bit in there
-> that turns NOP into the HCF instruction -- or better.
->
-> So exposing any of that stuff for any given CPU is dangerous. And
-> exposing any of it on *all* CPUs is a bit like swallowing a powered
-> chainsaw (don't).
 
-OK, makes sense.
+--lDXe6O6YHA3QjJr+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> > Next, this will catch fire as a guest, either because the hypervisor
->> > will simply refuse to entertain letting it access registers that have
->> > no definition, or because the VM has been migrated from one
->> > implementation to another, and you have no idea this is doing on the
->> > new target.
->>
->> Ya, makes sense.
->>
->> >> That said, we do see some performance improvements here on real workloads.  So
->> >> we're hoping to roll some of this tuning work out more widely, but we also
->> >> don't want to adopt some internal interface.  Thus it'd make our lives easier
->> >> if we could twiddle these bits in a standard way.
->> >
->> > Honestly, this is the sort of bring-up stuff that is better kept in
->> > your private sandbox, and doesn't really help in general.
->>
->> So we're not doing bringup (or at least not doing what I'd call
->> bringup) here, the theory is that we just get better performance on
->> different workloads with different tunings.  That's all still a little
->> early, but if the data holds we'd want to be setting these based on
->> what workload is running (ie, not just some static tuning for
->> everything).
->
-> In general, none of that crap is safe to turn on and off at random
-> times. You really want to talk to your implementer to find out. And if
-> it is, the firmware is probably the place to handle that.
+On Thu, Aug 07, 2025 at 09:19:47PM +0530, Bala-Vignesh-Reddy wrote:
 
-Ya, if it's generally not expected to be sane to runtime modify these 
-then it seems sane to just hide them behind a firmare interface.  Then 
-it's really up to the firmware to proactively expose the bits that are 
-useful, and it's inherently vendor-specific.
+> Fix -Wunused-result warning generated when compiled with gcc 13.3.0,
+> by checking fread's return value and handling errors, preventing
+> potential failures when reading from stdin.
+>=20
+> Fixes compiler warning:
+> warning: ignoring return value of 'fread' declared with attribute
+> 'warn_unused_result' [-Wunused-result]
 
->> That said, part of the reason I just sent this as-is is because I was
->> sort of expecting the answer to be "no" here.  No big deal if that's
->> the case, we can figure out some other way to solve the problem.
->> Happy to throw some time in to making some more generic flavor of
->> this, though...
->
-> I have no idea how we can achieve that, given that there is no
-> architected definition for any of these registers.
+> --- a/tools/testing/selftests/arm64/pauth/exec_target.c
+> +++ b/tools/testing/selftests/arm64/pauth/exec_target.c
+> @@ -13,7 +13,12 @@ int main(void)
 
-I'd basically have some interface for getting/setting the registers that 
-the kernel exposes (gated behind whatever tests we'd need to make sure 
-the registers are accessible), and then some userspace program that deal 
-with the implementation-specific behavior.  It'd probably just devolve 
-into some database of known implementations with what the bits do, with 
-some attempt at mapping them to generic behavior -- though even that's 
-kind of clunky, as something like "this tunes some prefetcher to smell 
-different" doesn't really help a ton.
+> -	fread(&val, sizeof(size_t), 1, stdin);
+> +	size_t size =3D fread(&val, sizeof(size_t), 1, stdin);
+> +
+> +	if (size !=3D 1) {
+> +		fprintf(stderr, "Could not read input from stdin\n");
+> +		return -1;
+> +	}
 
-If it's a firmware-gated thing, though, then it's probably going to just 
-end up as some vendor-specific firmware widget that we go fumble around 
-in ACPI to mangle...
+It doesn't really matter but it'd be nicer to return a standard value
+=66rom main(), EXIT_FAILURE is probably a good choice.  Exit values are in
+the range 0..255.
 
->
-> 	M.
+--lDXe6O6YHA3QjJr+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmiU/RUACgkQJNaLcl1U
+h9AyyQf+Mg0LhcTpLXab7BZn+ejV6G4bsn2lcC2nLCXOkHWLPMlKyO26ip+/7+Gd
+BfeJ1PFXe4q6YNENah0xOEL1n3kCUXNYUJXmiat+FSAEgqIMYA3KZr/NNiZovIll
+zAbTQj0795xW27sGvS3rXXv5eoCr0IiqCgUsT+VSw1FQLEWYf3KF0ZQCGLzF73+E
+qHBrCqsUURH7dYANOMOmIood/LECtoeHxkiv0f5WLXegHany/MV0XWOL85Qfw6lL
+t0I5zJfiNL47WXJcc8MksVS1o9JFxtx9r2B+son/rzJiVthlyW3B93DnaiEld48I
+VkRyo+Wc4JMtxadU6wOjINGD8if2sQ==
+=s09D
+-----END PGP SIGNATURE-----
+
+--lDXe6O6YHA3QjJr+--
 
