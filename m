@@ -4,104 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A9BCA0EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 07:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42B8C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 07:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEkUsPN+k+MJU7kRrD9l63TqRFA4OQCOteatAqsTD0Q=; b=orVD5Feyr885QJvKTpAkb9qPh8
-	fXdWU7CXFdYwSHsWgZkAfbEXGDe8flfE6SK+v8wRUJnvZr7nhHAS2jWo0BR027ee0aU4e4k/BREJ+
-	RgJKa1Jsi/fyhBfmIwsAdsNDvpbJ3GCVeau3KS1xPQNimHAIFGrDJPpd7FljybYN/Uc3beBFVhvz7
-	SMVlHh4PezGV89ex/XqOCMkR1soqNTPI4kmAuUj+yiwYwqBTDtRZii9cXlOPrDB89v229agDU/R0j
-	7yoP9u23LWMbLBTpDd6B+Y4UZ9N2ThBKh0OJu0F4ndMPiqN0wLqivNnnvSAv50VrS6gYqEIgepFBM
-	8RghhSfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=omDSjtlhj+NatXJKYgK/7aupcVuvuy5UTbCC37aEerA=; b=tJwOc5ujOpj/YXINqk9+1rrt6K
+	fMflC/4CutI+RLhI76tl/abFjqmXagN3j//41cvx7MpYo5BRkKTs7ykw7exyBBmyLRmFaLLyUmALl
+	P4fX4YaOhBiyildFq/BddYyUpLVXOiqF5MrxSzZ8HbswsMQDTrv5ZB5jicQa4ailbR3yCjMR3kfGh
+	gKFcKxyD6/61JoLocnab1QqHOZFuNRpLzdXBOGRznUPjh7UEB6bqHV/vvQ1G7VBYKkC9K10XdYSZ8
+	wWiKlUYHmyQjNAgzl6FshD/aquzhnKUwxFNH3wPb+G1O48mwUgOgWMUBTrLqslMht2IaarZKYUDAY
+	T85qg/SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujutL-0000000HRSe-2dOU;
-	Thu, 07 Aug 2025 07:18:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ujuwb-0000000HRxA-3GN9;
+	Thu, 07 Aug 2025 07:21:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujuqp-0000000HRMc-1rbn
+	id 1ujuu4-0000000HRd2-1g8j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 07:15:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754550945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XEkUsPN+k+MJU7kRrD9l63TqRFA4OQCOteatAqsTD0Q=;
-	b=C/jvAugV7pMGoLx3o/OGwcDZtg2CKc1g0sfA0MXDR7iNJvodfsqNDYq1QRMC5iG03lm5LJ
-	Di3H+38esryN2BUqiCuln0OtR5E2mVctXjXZ/9ZqgGhNB1L2BE8nLsQ8ZHf9cVaSfxV0uS
-	bBiUxYWDEPp6Ez83OAT8qTcmHMJev7M=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-41-C_T7IpZuN9q99MUH5xuMXQ-1; Thu, 07 Aug 2025 03:15:43 -0400
-X-MC-Unique: C_T7IpZuN9q99MUH5xuMXQ-1
-X-Mimecast-MFC-AGG-ID: C_T7IpZuN9q99MUH5xuMXQ_1754550943
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-7c790dc38b4so168912685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 00:15:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754550943; x=1755155743;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XEkUsPN+k+MJU7kRrD9l63TqRFA4OQCOteatAqsTD0Q=;
-        b=ABm/TcQpvw3jLVKYIdkKQ4IjuujG4k7ccv7K51nGetAxIwqxw0WcB8f5cZqaRFjSlu
-         he/jvfVNwmFgAnaecaae56z7nI6XxbNSTfI0ed46YAygTd4c9oP/MiLlvZvZ5hkLoOZE
-         Qtm2hj/6rNH5zNUkvAIVJHSkFlfr03YG6JDdSW5BMXGdmfeZpvQ1DQNrSVLUQLHXb0oC
-         D1Ck4hXSDRNuCXO+A8JPcF4qnDrfS84eQVF2yQuJ4JG3qwAM+Pvhwyci3YWqslMMH7lc
-         ETgDdhXVs5zi5S2spPvV6Sb+P/NNHD7UwXoevFa38QGspsW+qXjF3XOnFfmw8uh9fQIt
-         L01A==
-X-Forwarded-Encrypted: i=1; AJvYcCXrSBMLm4PW0X6yPKNhwssDEB2KPT0FIRi9u1ab3BTjeUGexADzCNtMxaF/TFjr0UCa4ytjbxngJY6HRGSzM2hM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG/41M4S1wB3nJV12zgInX+J4LCK5czg+Jsvf9FgxBbOcLMFaH
-	ujtwPS4TaUcv3MlnN8/vmRvqWzRFJ7hI+7TS3aEbNvJXRhzAN7TgKODtXyWfzCwQI5OObZKCm6J
-	7euWHch118dLxPbygy3JK3HiTl8Flr0QVJvPHgtA7OAL4TJHnKDeZic+J5M28Geolh2Je3bwlkn
-	B0
-X-Gm-Gg: ASbGncuQpYsaDRkM5ETNgWPQAZttYyoYlTXUaB1j9EHuwXHlroNg+tn29RriWsbKA8t
-	DQ9641bsItAR8SYaytpr+8D5uh7mO6dnapfN8+7LK7vHUsoMv3Cwg08lxQuZV7zVBXrLXD/E6LN
-	/rcOdJyu3SCvpyPMRtYcf5+eXStVx1FC/7BHuWjv60Sn+LlMQYpmLxU+UD/+4kV8zhFNIZ5XMeN
-	mQoayOsAfQzlkYC3+KEDir1I1bkoQwnceSAfrJz64Qd4ifwpsKVk8veEZG5PPnvU9PFiFRm3Pjk
-	vEcMHBKO+GBvV1/zrwEfhAn9HvR0hl3QXYlB+wzWPbniGH0Zw5neSPyfOBhktkXYy8NWDfWKzfY
-	1P2lf0MbM/j3/0EdvHW7XoZ8=
-X-Received: by 2002:a05:620a:1a9e:b0:7e6:3e26:63b6 with SMTP id af79cd13be357-7e81ff9ae91mr302608385a.21.1754550943137;
-        Thu, 07 Aug 2025 00:15:43 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG9+WiBRRCq+H4RnB0Tr6tHhfPNZd1WZfXKOFerdMaIC9DXsn94l4MoDcA4SpZi97fGQJP2Hw==
-X-Received: by 2002:a05:620a:1a9e:b0:7e6:3e26:63b6 with SMTP id af79cd13be357-7e81ff9ae91mr302606485a.21.1754550942754;
-        Thu, 07 Aug 2025 00:15:42 -0700 (PDT)
-Received: from jlelli-thinkpadt14gen4.remote.csb (host-2-102-14-151.as13285.net. [2.102.14.151])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e817311ad9sm186328985a.41.2025.08.07.00.15.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 00:15:42 -0700 (PDT)
-Date: Thu, 7 Aug 2025 08:15:37 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Kuyo Chang <kuyo.chang@mediatek.com>
-Cc: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] sched/deadline: Add DL server activated message
-Message-ID: <aJRSmWCJI-GlApsR@jlelli-thinkpadt14gen4.remote.csb>
-References: <20250805155347.1693676-1-kuyo.chang@mediatek.com>
+	Thu, 07 Aug 2025 07:19:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4E290A558DE;
+	Thu,  7 Aug 2025 07:19:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55EDEC4CEED;
+	Thu,  7 Aug 2025 07:19:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754551147;
+	bh=5W3eN28C5zYIrodwX3zckGt4s9fOCjzucNG8qbTTNnY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Lln8OEvtE4EmZaUPkO/SuUQbXKikByck275Nph7310ezAasuJsthP4wwbCIXmWsSY
+	 QORYwUisgs47VOjSy7ip510ENuaoknOU6q2van/WF2b/X6BpIA9fC9vSK3ggnqZ4R0
+	 A4b50Y4vjMHPuxDiYxE3IKETWDD825uhU08viGVW9cKML7W1E34Blq15pl+jCqFV3d
+	 v+wL9QCy97rl9BhLyYCv5SQYajCkIy/Y1hC7DpDEL6aGs5gGPzuUJ6GiMojMwTyi27
+	 +AdmxD+rlNdNo04YsgojYRih/wcyeqgzJM2JEq0ocnjf+1UJRKBEOyuxyJm1xdDnEA
+	 8NtbdlPW433dQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Russell King <linux@armlinux.org.uk>,
+	Li Huafei <lihuafei1@huawei.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Linus Waleij <linus.walleij@linaro.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Kees Cook <kees@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: stacktrace: include asm/sections.h in asm/stacktrace.h
+Date: Thu,  7 Aug 2025 09:18:58 +0200
+Message-Id: <20250807071902.4077714-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-In-Reply-To: <20250805155347.1693676-1-kuyo.chang@mediatek.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: IWpxBe2_rXIYfwUj9zj-FPc0mQI693CBLNQpe545PQ0_1754550943
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_001547_558556_DF577351 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250807_001908_503035_35C363F3 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,42 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Arnd Bergmann <arnd@arndb.de>
 
-On 05/08/25 23:53, Kuyo Chang wrote:
-> From: kuyo chang <kuyo.chang@mediatek.com>
-> 
-> The DL server is introduced as a replacement for realtime throttling.
-> When RT throttling is activated, a message
-> "sched: RT throttling activated" is shown. However, it is currently
-> difficult for users to know when the DL server is activated.
-> 
-> This patch adds a similar message to indicate when the DL server
-> is activated, which helps users debug RT/CFS contention issues.
-> 
-> Signed-off-by: kuyo chang <kuyo.chang@mediatek.com>
-> ---
->  kernel/sched/deadline.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index e2d51f4306b3..8e0de6cdb980 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -2042,6 +2042,9 @@ enqueue_dl_entity(struct sched_dl_entity *dl_se, int flags)
->  	}
->  
->  	__enqueue_dl_entity(dl_se);
-> +
-> +	if (dl_server(dl_se))
-> +		printk_deferred_once("sched: dl_server activated\n");
->  }
+The recent kstack erase changes appear to have uncovered an existing
+issue with a missing header inclusion:
 
-Not sure if we want/need this, but, if we do, I believe
-fair_server_pick_task() might be a better place to put it, as it's
-really when the dl-server is called to do its job.
+In file included from drivers/misc/lkdtm/kstack_erase.c:12:
+In file included from include/linux/kstack_erase.h:16:
+arch/arm/include/asm/stacktrace.h:48:21: error: call to undeclared function 'in_entry_text'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   48 |                 frame->ex_frame = in_entry_text(frame->pc);
+      |                                   ^
 
-Thanks,
-Juri
+Include asm/sections.h here so the compiler can see the in_entry_text()
+declaration.
+
+Fixes: 752ec621ef5c ("ARM: 9234/1: stacktrace: Avoid duplicate saving of exception PC value")
+Cc: Kees Cook <kees@kernel.org>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/include/asm/stacktrace.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/include/asm/stacktrace.h b/arch/arm/include/asm/stacktrace.h
+index f80a85b091d6..ba2f771cca23 100644
+--- a/arch/arm/include/asm/stacktrace.h
++++ b/arch/arm/include/asm/stacktrace.h
+@@ -2,8 +2,9 @@
+ #ifndef __ASM_STACKTRACE_H
+ #define __ASM_STACKTRACE_H
+ 
+-#include <asm/ptrace.h>
+ #include <linux/llist.h>
++#include <asm/ptrace.h>
++#include <asm/sections.h>
+ 
+ struct stackframe {
+ 	/*
+-- 
+2.39.5
 
 
