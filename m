@@ -4,93 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F5FC87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A82C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdlVCkRqpyT4stO0yYsnNwcVWyXxNhQoiEcxn+xkM94=; b=S+Osg1RFChjt98b1ocVzJ/lhEa
-	DXdi4d+JZ4mb0p3OKQu9pmZakaIiR/QH9DlSHCUiPv4bqBsn9ghur1gmnV8r/m9aj/FuZsZFb+Kpy
-	o2URmLkj7jPLA19M+hTFQDOxmte1WI3Tfwo/N2UbFWXEeicuUcusamwfkgNa+Dw+OrzoekcIA8VDK
-	T65F88453LpJAEuD0prJQVyS/i7WmyDZhflpmfgGPQMs0j2gNV7p/MHbSqngKkmPKb/YsnxYqj8NK
-	UFG69RYDZ4dvnap4y23FQF9ObvjHLOgE7t4Oy5G+8hXl1pt8jm3MmuYf29Zjsqz+yMqoFmjZphY5j
-	w0CQ2mKA==;
+	Content-Type:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7EcW2IB/Hoo31JQCi+ZPT/KI3YtuMNEtsU4Q0qj9Ds0=; b=l/0CW2lHV0PH25L7sxSu34l3Yu
+	IRCZmGkmdJNj52ktUNVTG200J7VvVhYPZogQOX5BI3nhgbar5w0wSp6ujanTHSodzDGDkglUN22Gn
+	ZYMd62m4WO4kLGFphoyWNVdZg9H98qOaSlPkK6AXuq0j+TMVxoPZtcaoEHg0Jp5195bEpslO6dFsl
+	ab1ja4zaTK1o/4OqNVPwxNG4Ij5IqTLl3loXkesfZEiTtpIGT5iX//SD4JSLXfndn3XR73B5rKyVa
+	w9SS8j42utm40iKXdxqq8f0uhXA0f2kkGpTzRWRmmcTE6QDm2YOVH8IMIR3Fb9jUPZ7nx1oGFsZBC
+	tWLG3Lzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujz6K-00000000QSL-01iS;
-	Thu, 07 Aug 2025 11:48:04 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1ujz8l-00000000QsL-3QQL;
+	Thu, 07 Aug 2025 11:50:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujz1h-00000000Ps2-1pPe
+	id 1ujz4m-00000000QJO-2qXF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 11:43:18 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2402bbb4bf3so10334535ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 04:43:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754566997; x=1755171797; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bdlVCkRqpyT4stO0yYsnNwcVWyXxNhQoiEcxn+xkM94=;
-        b=kWxPaG1EgtLbHxJNhDMOrvF53BhcrlHeIp/jphbv1Gh8K7L8OaLKZhsTfzPIBi9+va
-         yXjG1cIGpOlBTkvTxsWOYM1+ypKQVvpZuhbCWOuYdX6w8qJeVsk04SANifj+ZZkYrtCd
-         i9GLIS95NyDHIqE1YTxx1PIxM4avsOMI3JzhdFg4V5Dh+vpI9eFnO5mL4xzjNhOdMWFX
-         L4nUdMxt1gWLtpyd/g66CEFm9TBRKG54O40r4H/vrIQBTa6bXLY0B1RW8unoX5KNzzFz
-         vDL8asJv0S5KRDnazhX2ALd48TVkuR8yBDlEDwktIGgiKeJkITyMOkuLYQL0nfHMMHS6
-         /dSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754566997; x=1755171797;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bdlVCkRqpyT4stO0yYsnNwcVWyXxNhQoiEcxn+xkM94=;
-        b=TbkHWJG+u90X/ns6wiSkfXE5TiCU8O/BPq+0nFrrfNxwd45uKtkmy9CaKZhq1SvAbM
-         bQz/2+U4UpfrvY89+1JDjb2wC26GRtOB0tatUK9s1uSegSzxE7jB1pm25m+MuvFzV3V9
-         h/9jx58CPdoH7rMFDys8l7o2jxmalkayxLnq63Gou4tC8kVmz2bM+lpX7N+HjdICaJit
-         IObOCK9OyNHP1JJuDK5iT+2F0ftfJ/AAgmfKBOBbOIAfiuUOFAN9w6YeohuPcS/7wXuF
-         u3Qgc5xqtWV4jsXim5HMaHh2tPWV6qNMEWQh9nOMnMfTA1Ed8NlctPbtc5n8oaJQeP2/
-         YXKQ==
-X-Gm-Message-State: AOJu0YzVughkXvJWLWJZg3TJvcE35fLauPKKdND+sEXT24MdPzXzaqUs
-	6gabM7+ju56bW6cxPQ8WqPUt0lLKx9148V9CVCvdrNmdfajqNSDWXknP
-X-Gm-Gg: ASbGncvs70GPu+GpHXvZhMJOkHrNu16zP4MxVIYZeOGs8oWs12QNf/0cHyFsFMyql0F
-	/hfBmmrmtJqg+2wBg7R5xhlZX9tP3LZr/OtNxeqBNSaAPuqKlz558kPnV1l8N5rdmaHPiGIE8J0
-	qAbEdAiZMYHSdRXt7FVNm/BS4v3qAZdFhVSZoQ7hsk+H8lKMz0QSEaaM9iVVsH/OYv1aJ5YUGUL
-	/GtNdccpsOUaEjq2w4SbRa7xXtyqwSLbc6HIWIp7YWPh8+eo14RCI/UbUBRa8DeElwyAU1gqqrG
-	56B8zngslBvph0NZSVQ4QOm6KIHxYcsAODgKzgutY8eao56WY28tD/bc4uKTv4D8vhVUvcE0ufq
-	6+bkc4THsT2ueLpULdlWRTztrHYkvgxwM
-X-Google-Smtp-Source: AGHT+IE2hsYekMhLXI33VtBrvQam/zjpy9H9MOsiwWs+FoHJi4dQMfSq1UkXnmhWZTzFkbdUBV8TIg==
-X-Received: by 2002:a17:902:f687:b0:240:aa0:1584 with SMTP id d9443c01a7336-242a0b8bc9fmr89417695ad.38.1754566996623;
-        Thu, 07 Aug 2025 04:43:16 -0700 (PDT)
-Received: from server.. ([103.251.57.229])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1f21c65sm185729405ad.73.2025.08.07.04.43.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 04:43:16 -0700 (PDT)
-From: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
-To: anshuman.khandual@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	broonie@kernel.org,
-	yeoreum.yun@arm.com,
-	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
-Subject: [PATCH v2] selftests: arm64: Fix -Waddress warning in tpidr2 test
-Date: Thu,  7 Aug 2025 17:12:29 +0530
-Message-ID: <20250807114247.5915-2-reddybalavignesh9979@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250807114247.5915-1-reddybalavignesh9979@gmail.com>
-References: <005af416-66fa-4222-964d-e20bd2eccb7f@arm.com>
- <20250807114247.5915-1-reddybalavignesh9979@gmail.com>
+	Thu, 07 Aug 2025 11:46:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63940601DB;
+	Thu,  7 Aug 2025 11:46:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8F9BC4CEEB;
+	Thu,  7 Aug 2025 11:46:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754567187;
+	bh=7EcW2IB/Hoo31JQCi+ZPT/KI3YtuMNEtsU4Q0qj9Ds0=;
+	h=Date:From:Subject:To:From;
+	b=VcHSl8IdZT7wDopZTf+iv0npq2wRAQi355OQWzi+WBefsthauEB/DbLwlD3OR7eMb
+	 qmWE2vIqmWgxnXmiGeBhmdGcqfCrusNHHr9rR+6T/WfuPcaQohSOhTMzaLsEAoq6fe
+	 c1SkmJ+zoaOFGp2O2dEY1XH1dZbHyv3lwITplV4osbd7pNMl5eMin9qDneXjCmGPeH
+	 L4TYR+r2dE46kaFcLF8SHzB1zO1J2LWEGjoyEuTybgTd7KGRii/4L9i0VpOkct8V8r
+	 Ynxso2jBXIIZkVgx4ANEaShHYW+K3dgLSPHzv3y1Kk/0LS9uwH04awKsl/9Siu10AF
+	 MqUWPQSz877KA==
+Message-ID: <8c59ef9a-7b5c-4fec-b630-ac84218ed955@kernel.org>
+Date: Thu, 7 Aug 2025 13:46:18 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_044317_470314_30A885F7 
-X-CRM114-Status: GOOD (  10.28  )
+User-Agent: Mozilla Thunderbird
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [ANNOUNCEMENT / CFP] LPC 2025 Devicetree Microconference CFP
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+To: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ linux-arm-msm <linux-arm-msm@vger.kernel.org>, Rob Herring
+ <robh@kernel.org>, Conor Dooley <conor@kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ devicetree-compiler@vger.kernel.org, devicetree-spec@vger.kernel.org
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +116,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resolve compiler warning about always true condition in ksft_test_result
-in tpidr2, passing actual function.
+There will be a dedicated Devicetree Microconference on Linux Plumbers
+2025 in December in Tokyo and Call For Papers is currently open.
 
-This silences -Waddress warning while maintaining test functionality.
+The Devicetree Microconference focuses on discussing and solving
+problems present in the systems using Devicetree as firmware
+representation. Primarily this will be Linux kernel and U-Boot, but also
+can cover topics relevant to Zephyr or System Devicetrees.
 
-Fixes compiler warning (similar for other functions):
-warning: the address of 'write_read' will always evaluate as
-'true' [-Waddress]
+Topics suggested for discussion include, but are not limited to:
+1. DTS validation against DT schema,
+2. Style checking/linting for DTS,
+3. Using the Linux kernel DTS in U-Boot or other projects,
+4. DTB selection on EFI systems like arm64 laptops,
+5. Hot-pluggable hardware with Devicetree overlay,
+6. Common incorrect or problematic patterns of using OF Linux API, e.g.
+impossible to disable unconditional device_init_wakeup().
 
-Fixes: 6d80cb73131d ("kselftest/arm64: Convert tpidr2 test to use kselftest.h")
+Feel welcomed to bring any other topics I am not aware of. Few more
+ideas for discussions are mentioned on DT MC abstract page:
+https://lpc.events/event/19/sessions/237/
 
-Signed-off-by: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
----
- tools/testing/selftests/arm64/abi/tpidr2.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/abi/tpidr2.c b/tools/testing/selftests/arm64/abi/tpidr2.c
-index f58a9f89b952..4c89ab0f1010 100644
---- a/tools/testing/selftests/arm64/abi/tpidr2.c
-+++ b/tools/testing/selftests/arm64/abi/tpidr2.c
-@@ -227,10 +227,10 @@ int main(int argc, char **argv)
- 	ret = open("/proc/sys/abi/sme_default_vector_length", O_RDONLY, 0);
- 	if (ret >= 0) {
- 		ksft_test_result(default_value(), "default_value\n");
--		ksft_test_result(write_read, "write_read\n");
--		ksft_test_result(write_sleep_read, "write_sleep_read\n");
--		ksft_test_result(write_fork_read, "write_fork_read\n");
--		ksft_test_result(write_clone_read, "write_clone_read\n");
-+		ksft_test_result(write_read(), "write_read\n");
-+		ksft_test_result(write_sleep_read(), "write_sleep_read\n");
-+		ksft_test_result(write_fork_read(), "write_fork_read\n");
-+		ksft_test_result(write_clone_read(), "write_clone_read\n");
- 
- 	} else {
- 		ksft_print_msg("SME support not present\n");
--- 
-2.43.0
+CFP ends on: 14th of September 2025
+
+Proposals can be submitted here:
+
+https://lpc.events/event/19/abstracts/
+
+
+This email has a list of people in Bcc. It is far from being complete,
+so feel free to forward it further.
+
+Best regards,
+Krzysztof
 
 
