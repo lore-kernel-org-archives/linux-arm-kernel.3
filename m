@@ -4,71 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7682FC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 01:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04524C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 01:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wpgkwQgFw2aLN6OHenM0dKDLmv0ONgKFKT7BXvRMIH4=; b=ZFbXvknWAoXu4O67LMAo8tb8hT
-	XvdEmOhPLrV8dfS35uLnIy4cAtZUptqGzJHdUF3SW3u7h73fpaoADjxK2f9Zyb0qC1QMGNjvr6/mv
-	1juSORnl22pgP0U7DgqWvEITfPs9frhCpf/+WCvUl1/8Stj9LNEolnYHJRlPjOahASBJhLwncphNf
-	qQybS5OgxMcF2kEbxpHl2qbhsTYgA+Kixl07ImHJBZBClaZkysHxpTxynwyJgaIEdXGLElm8tF75l
-	jjCYRcFwDZD6hFIixfBuduB6+5ks5n2FdSi752UdkBiaDRgzYusHXMmctWQj3I5OlpGisu8eTgGfU
-	E+P5mGig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BR0DBd5UccbAtX70BWuEg9hwc/gcqidAhAjhM07UIAM=; b=sP8WEofifJKCIT2AQODJjy9Vei
+	S3rYXXEng+8Ob8wA2g7t2E4JiAHBSyI8fisKih0pc+OVFc1oySZq64a9crDU+VXKyEcRg5IZDfpTK
+	UPD0aUSarBrcyiluUD5Pj5ePdRmkAQAFjl32LPNbBF1FoSlmnH9NMmOpkx+fGmfB6XMt+5HKaGnWr
+	IpiUVIxQ0PGXnluV94dYdVHabaaO9NETx/JXyNJzgHa6uPI0nxyjXviInRxD0Om/bDITKSii1mdMf
+	YyPQH5WaqBWqi7KPqVUU27HvE+yDGctD/WmTt5H1rvNsmlvkwyGg1YB+D01fjbGfHfCOBIaFeio5s
+	Q+p/U4qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujpW1-0000000H0jX-2Phc;
-	Thu, 07 Aug 2025 01:33:57 +0000
-Received: from mail-m15595.qiye.163.com ([101.71.155.95])
+	id 1ujpox-0000000H5A8-1f1x;
+	Thu, 07 Aug 2025 01:53:31 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujpTO-0000000H0J6-2AHN;
-	Thu, 07 Aug 2025 01:31:16 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1e8ee5cc0;
-	Thu, 7 Aug 2025 09:31:03 +0800 (GMT+08:00)
-Message-ID: <a11db6b0-84ad-41c6-8389-b3eb4859e605@rock-chips.com>
-Date: Thu, 7 Aug 2025 09:31:02 +0800
+	id 1ujpju-0000000H3Ni-0pG7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Aug 2025 01:48:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DFsx3/2B9JEfxApgiuNWGZQbepbIk7VROxNwLE8byiODc4GWoBj1rCuWAXkqv5L88ecMvU3/rFwgvjNkOZvDVTze+ovD+qRA1gyn8UG/T6NodEMQYZxqO9ZlPYhrp4gCe3w1F1Jl8UygK3+3/HOkepVEOnawXDLJo3rq1atkvS2ZSm4/HiZcEfzqlBtuqR1n649YGmt+g6cm8uWpSz46VWMkaI98dU6716v83KN9u1RDj6Zs2IgSBg/HeaEgwrmKb4wx4nN+cSVRHOK+6IM5wGbMMpP4fbNpUOp20wtUYrhEGLqzKfGs1EjKfIAFD7pSqKotZtyxubodxQgWj7cCuA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BR0DBd5UccbAtX70BWuEg9hwc/gcqidAhAjhM07UIAM=;
+ b=wYWNCHlgDNXyf+KhUca+AEqkMyloQzcoLkS2Jh6TFTXyQlwkqypjoIWbDoilr0cOS2Z64Op11y1IwZOmot7jBH2yW9GGufzNW0dQ5sm6wzw7lGZ3b2wtMiWlR3pOzs2uM1+vnQwUcmp3Bdan3CRU55yiGwX2AEEBJF8lVryeW6nSlDb+rB+wJzgz7cbZpv1OwCPWHQ2GWV1eSfhJ9QbrPFto8K1G3JxxOEhYk2XBDys45AaKwxiQll4HEYlHLAmvCkSEgeLsOzTbi5jxsJqRxVwIWWOGYeLgCaBwehsa21Tv19mWbVoezW5hQ4ol/v1ojziMQ5b5p33PnS9EnQtEuQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BR0DBd5UccbAtX70BWuEg9hwc/gcqidAhAjhM07UIAM=;
+ b=bMk9PVa8+q8BUqC9bERSr0p3KZx44XpunUEu5WQKz2t51wnV4SuTjgC/MakVwVrgwaWkjVsSoPrU0Ejo/6znJjyF02/NTjClKYXpXnuDb+miABlSLodXBd03EJpgVPS3jC0z6jnv7LeG0Qn3GmuW4fMGtsa+ZT8O2+wKeDCF13HQ/D7UeDjyu/0sVbBNcg2uKFmC/mNO663FItGFswTpjsjU92QMB6y4790sh+IAu2eIrv4GOp34B5WirTYhmWsSRIuf9LCBoCRjxlfUXAhgouaM1W6/yLG1QYAdthU3sXqHQKiakn3YkwWkyevVhQ4+chEZeVkLfVl1fH5xYs+wSQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB7683.eurprd04.prod.outlook.com (2603:10a6:20b:2d7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Thu, 7 Aug
+ 2025 01:48:08 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9009.013; Thu, 7 Aug 2025
+ 01:48:08 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Date: Thu, 07 Aug 2025 09:47:42 +0800
+Subject: [PATCH 1/3] firmware: imx: Add stub functions for SCMI MISC API
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250807-imx9-sm-v1-1-3489e41a6fda@nxp.com>
+References: <20250807-imx9-sm-v1-0-3489e41a6fda@nxp.com>
+In-Reply-To: <20250807-imx9-sm-v1-0-3489e41a6fda@nxp.com>
+To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754531281; l=1630;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=piMbvUDaQyS0A7I1oGtvAwEi8nbuMhE9yD1f4dRrq5k=;
+ b=aBMwQhOB3EnDGoOlAh9oQUtGO4NBrWJys50tm4NhEh27GPIO0R+y9BM8XswVMIFJqk48tSc2+
+ mGZcWp2nGyRCT4fPhqLQjE3xRa0igbh3sS8suApOOF8vGZ2e68V/Mob
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SI2PR01CA0034.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v3 00/14] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- jingoohan1@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- hjc@rock-chips.com, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, l.stach@pengutronix.de,
- dianders@chromium.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250724080304.3572457-1-damon.ding@rock-chips.com>
- <c73fa024-fdd0-4f62-9c8a-11e7eee3c475@rock-chips.com>
- <1cf4bc1b-d7f3-4a88-b8d8-d2f681dce370@rock-chips.com>
- <38992177.XM6RcZxFsP@diego>
-Content-Language: en-US
-In-Reply-To: <38992177.XM6RcZxFsP@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a988227308503a3kunm2154523888200d
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0tJS1YdTkkeTE1ISklJHRhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=UsRTv+zfM7lf/hqTDg4zcq9ZrhdAALhPnOW1L/bak2mqRkXKYFnyfa0f1MEs8zpevO1FDDYrRQuG4id5mbxhiTzpugBS/N+pnZySLev5I6AZQoPCx32euPxEyRvke2lcvA4tO4Sdh4ten5g3Yg8fId6gPD4ZzFWvMCM97JDvFP8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=wpgkwQgFw2aLN6OHenM0dKDLmv0ONgKFKT7BXvRMIH4=;
-	h=date:mime-version:subject:message-id:from;
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB7683:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65b11d79-bca1-4076-e014-08ddd55475ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UDEvdmdySWVTYmVLbFh2YkZtL1JkNW1TOTQvRmoyRzZCazJMWElEMHNqdzZm?=
+ =?utf-8?B?VFFHdzN1WS9TMU90dG5ORE01NDR6SGVGMW1FbVZZdzVmYWcxc1k0cm9PbHhq?=
+ =?utf-8?B?aWVSbXZzSTRlSGVFRWxrVi9VR2lhdGx0czFpcjV4dG5TemxRcU9KL2FUWUp5?=
+ =?utf-8?B?RmdkVzIvV1VNV0txdC8veXhMTjZuK2N6bitTaWorajFFeGo1WGNNb3FIcTZV?=
+ =?utf-8?B?OXdSTm9TNDdMWkhieTV1M3Q0bitFRVJrc0t5TUFwRkVnc3dEdHdhdmk5bmZ5?=
+ =?utf-8?B?cHZjczhUMHVJN0dpWDdEajFmRWJ1SzdBelpIUG1yREhqcjhjR25JRzYvVFJy?=
+ =?utf-8?B?eHpJSWFvTGNHd1pkMDFZdlh0Z09ud25wYkVsQlZRQ0N5V0Nha1pVT2dqR2Jz?=
+ =?utf-8?B?UUlGZ05FQk53REhaN3RHSUdtUEIyRXZMQUIvN3lQa2dxNHhZRVd3dDNvcFAy?=
+ =?utf-8?B?ZXg0QW1MVjZlaU00Y09EOVNHQ1E1bHlOSzJBMndqZFlLeXllQXE1RUJNZ0ZG?=
+ =?utf-8?B?T2Y5RDhBYVV2WVlxaUVOQkRtRVJ0M1ZOL1I5dFpON3J0dnR5NmxYV1ZZQ2Fj?=
+ =?utf-8?B?OWFmN3dwclAwQm9vMXIwaTQ3U2hBZzdkL3VzK29aMUxEdGZPVFhqZVQ4T2do?=
+ =?utf-8?B?V3A5eGl6cUY1aW9yd241azlkSTFDQlYxdXc0akJjNzEvVzJrWGV3OWtpakRU?=
+ =?utf-8?B?dU5WOVJpYVFKeGt5UHYvdmx5QXEzZWkvTXJlcklhYVlwaWEvNWRaU0haaXRV?=
+ =?utf-8?B?YzhoSWlKa0k2bzY0blNLNytEVTJzS2JPSmxuMXc3R3lyOUhqb1ZiWURoOU5s?=
+ =?utf-8?B?SWtBVHJsWlZUbThvaVdMblhEN1c0WkRvcE8zRmswd0J3dExXV2gvMy95ME41?=
+ =?utf-8?B?SE1NVEVsVEJJN29CTEw2RlZZeGNOVGUvSU9LSDBSUDNmdkhncmJVUWRKQ0Y1?=
+ =?utf-8?B?TnV4Y3dtbWthVFZPbW1OQThsNjkxdmJKZlJjNHNSbnh1WEVzR1FEWWxKQTdH?=
+ =?utf-8?B?c0cvak5SdjQxUTFwMEZFTlIrbXRqNExud05Zdm9VaDBtVmdpQlllRTNmMGt4?=
+ =?utf-8?B?aXF2a21jVFcrMzAzeVI5YUMrQk5FbWFYNHlTR3pDOGg4eHRtTXB3cGdYYkxL?=
+ =?utf-8?B?ZHdzeE5qTThqLzZJZ2EyejdCcW16WGNobEVoSkczZU82aDJza3ZoVDkvbk5B?=
+ =?utf-8?B?ODk5ZGdjYTZaVlBTZ0w5ZTNBUlFBcFQ0UFlBYjk2eVErSHZNSnljNkw1OCtu?=
+ =?utf-8?B?NXExNWU5Y0lJaE9PNm5MOW5YdUt5bHVsa0RtQ1Z0RWc3ZU4xMWlBL3hXM2xM?=
+ =?utf-8?B?YWtXTVZKZkF1aVdTYTZaSU5rWjJoakxnbXVXZS9qaDI3MWRkTUx2Wkt3ZG9Y?=
+ =?utf-8?B?ajZkYU1pb3RubEVSKy95MCtKelNsUGswQjFBaEp6WmpwYWxDZDE0NENCeVRp?=
+ =?utf-8?B?aFQySDl5WFg0YTRYV2ozMFVEM0xYVHRTTmxsU21DaVhkK25vbmxzampVb1Ro?=
+ =?utf-8?B?emM5NTVBekt1dXpiTEtVR3pLcDc3WHMxTUpmL0VRTFpDOVJpT3VNeit0ckJo?=
+ =?utf-8?B?cWZXRjNVOHZuUDJzWkhFSWYzRm04ZzJJc1Y1UkpEV0xCd2ZDL3AxOXUrZTJQ?=
+ =?utf-8?B?Sy9hdzRUQW5pY3NLbFBnVGVTbzBlbTJmekdTaSsrZGt3Mm5aei9zVk9rUWEv?=
+ =?utf-8?B?NFl5SXBqZkcyYkdxc2JFNlBlMVBtazBNM3Q3UlBzc0JURWRpNU9jZ1JIQUt2?=
+ =?utf-8?B?c1VPRHBhbys0TndqQzZmWFJWNlJMbHZyLzZEWGFDNEkxWnJpN3M1VnhkSnZ6?=
+ =?utf-8?B?QWlYYWRVd2loc1ZVdHgxZFJ3eDFNckZRUHBzd2c3anRoM3lQcnl4NFRXZ2gy?=
+ =?utf-8?B?SjhiOXdmZ0NyR2xxWXVUbDc4azVwandPRFBtQUQ2SWhkSUpaWXJ1QWYxcXZu?=
+ =?utf-8?B?SnczaWtNdDlBTkJXYkcvZXlCcFZXbXdHUk5lNnVxckV4K2J5K1FVdUxZREt0?=
+ =?utf-8?B?cEFPOE12bnF3PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjFrVVhoUzVCSzd6MGdLV0pIZ3Q5KzNOWVZKMHpqN1JoVml1bUFyVFVzdStC?=
+ =?utf-8?B?SmgzUFNSNms0U0hWemtxWjlGOUFyM3pRaFZnUWRZUlcvNWlxSnBsWnEyTXk1?=
+ =?utf-8?B?ZWpJdksxUkpVYzNkTldXRUxqQ0V4eS9WQzBYZWo1SWtyOVBhelpYcGRTdnB2?=
+ =?utf-8?B?MlhOYk51T0htQVAvVFhnMHUwRDF2MWJRV3E4VkhNTDBvV2NxUWlCUzZ1WmU5?=
+ =?utf-8?B?Vmp0b3MzKzRtNnNqQzUzdW5qUFNXUDdJek4zcitUTS9oMUdzMWNxREVvOTRt?=
+ =?utf-8?B?WU81MGlVdSsydHRlSktnQjRYdUIxays4STM2N01QY1ljdFU2bEVwYzdJN0l1?=
+ =?utf-8?B?L1RDMEx6UWFackdiMlAvWGVSeStEYW1sdFpWZUlXLzNXUEQ0K2c1Z1poTkZK?=
+ =?utf-8?B?ZnV3WForTEtZOGgvdmpBM0tzdU5hZzBQSFppVzlXNXNZSE9zLzlRNCs3WFg2?=
+ =?utf-8?B?aVFWOFZPbjhHMTNGSkR6NStsdXpUZmc5QXRpempiRnR0MlhhUU1wOEI0Y1Yr?=
+ =?utf-8?B?eGlQc3FhdHdMckswSDU0bHhZNlhScnlDYTRWRWZaS3lmZlJwRnBQSitwWnBR?=
+ =?utf-8?B?eFNhelkxdyt2Ukp5UE4zR2NPZVl0Ylltb0puYlRLenhjeHBTdkRsQm4rYVdo?=
+ =?utf-8?B?Mll3OUY4WHpUN2VJdG9WNmd4ZWxjZVBBdnpQMUZnUXNYV0QvZ3VVU2dmbDhG?=
+ =?utf-8?B?VmZHc3NkQnpVcU5IWGRJK3Y4K1dkT2xBQjFpTG4rVWR3UHcxTFZmdDY1SnN5?=
+ =?utf-8?B?QUVJUngyYWNKYkdCcEhHVWxPME5JblZqYzRSNGsydnA1M0ZqYnN1UWl6SXJi?=
+ =?utf-8?B?MTdJeEVQaXZEVXY3Umd3N1E0RDNEUlVuYzVLTTVaZDE3cS9PcW44NzVPVmx4?=
+ =?utf-8?B?NGdZZlQ5bDF1bklGbWxnSHRpNkRnZlVObGc4L0NhZzBZSFc1MEVkWFk4NnRs?=
+ =?utf-8?B?bzZoRWIzcUV1cjhSTnFCWWFsZTg0c1JoU0F2QkFPdXZHa0xZZlRJUlZOQkRY?=
+ =?utf-8?B?VHNLeWN6eDU1ejJGZ2gwaGFJVGpHaTFQQkRoVGZKTys0U0dYQzhBdmlZbk1v?=
+ =?utf-8?B?dFNwbFdjLzFYNGtKNHFMakpKMXNhN0pZdi92QnF6RWp1SU9HQ1lrZ2N5a1Qz?=
+ =?utf-8?B?SEgwcENNeVpZVlhZU2t4VitqSU1iVkJ2NDF3NWhXM21SdUVhVnVCaDVJRjcz?=
+ =?utf-8?B?ZEFZbFV6Y2tZa3pwZmZGdlRuVEtIQ3BYSTRFUWJ4UGo3WktPMnNpMXNUQ1JZ?=
+ =?utf-8?B?c0FtWXZ2OHp4TTVjZFB1WW11R2M5WHU5WENUQnMwYndwLy9wN0NiV2hFQkc2?=
+ =?utf-8?B?eld5VTZhUWpDZUh4T1Z3SlR4QmllcURFaUhlWk8yRVJQdWNFdy9nRE0ybEVv?=
+ =?utf-8?B?VFFzTURBYjkyZ04reTlFbzNGQWU0WjBlenVrMWdFeDUvQXdCTjBZcGtSWXBa?=
+ =?utf-8?B?bXFHOGdJZGh4RFNRTjVXRGFsUnJpN1EwWW4xR2pkTGJPcURMSytRcUpzemNQ?=
+ =?utf-8?B?MldIdTVpR3FCYWNGcVdRd0hHVUxxakt2elpNaTNpN3phMzBkeVo5ckRSZUJX?=
+ =?utf-8?B?RUx2cCt3N2svNzh0ODAvYlRhSkVVS1FoM0tiQnBId1Byc0xWLy8rYlVpV2Fm?=
+ =?utf-8?B?ZlZGYThydkUvNnRmL1BJeVVrY015dmYrYUplV1NwQUp2NGdydENzTFB1L2RD?=
+ =?utf-8?B?QTdvSkpKTWI5Nkh6blNYU252cHBrUjh4ZDN6M0Uvc0xQTEQ3a2ZhaEpxVnpv?=
+ =?utf-8?B?S255dmVueUNNNjhnVzRaa3FTS0hCMjRDZnpTUjBTZkVLVGNaNTFic05HcjU2?=
+ =?utf-8?B?TUIrVmpIKzdSSHlYcmRyc1pkNnBxdzIyRzJRWkRHM3pUS0pubzRKTnR2dXl6?=
+ =?utf-8?B?ell3R2RITlJYMWNzV0ZIYjFia0xGQmx1WFNRU3AyWUdpb3B6bzZYeXJHaUZQ?=
+ =?utf-8?B?Z3VBSHFVUkNjTXJJdjR6aGJIN21JOTcwdlpEQnpHa0JHSXNhMjZjRzBOc21I?=
+ =?utf-8?B?UnRJMW9QZ1JPS0ZNSk1LNnBpa21reENoK0VZdVhESEd3T05TTHZMTkhSSHZB?=
+ =?utf-8?B?Y1hFWW9ZZEIwcWtveEVnK0NZNEllZk84ZDh5TzFmSmdCRE9yNnc3bG9mRnRr?=
+ =?utf-8?Q?DbFyW2bLZk3iRZ4YTQ2DX/DNW?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65b11d79-bca1-4076-e014-08ddd55475ac
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2025 01:48:08.5957
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /Ucqw5Ms58UBkhfU1ghpKPZDKNBCnV/HUE7PdKhzhTduzcdq9B2ZfZVw+e+yCk7eaev9rMIpQq2J6pgQjXaCOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7683
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_183114_770171_42E868C0 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20250806_184818_242902_A6A831D5 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,220 +185,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+To ensure successful builds when CONFIG_IMX_SCMI_MISC_DRV is not enabled,
+this patch adds static inline stub implementations for the following
+functions:
 
-On 2025/8/7 3:54, Heiko Stübner wrote:
-> Hi Damon,
-> 
-> Am Dienstag, 29. Juli 2025, 05:16:27 Mitteleuropäische Sommerzeit schrieb Damon Ding:
->> On 2025/7/29 11:02, Damon Ding wrote:
->>> On 2025/7/26 3:45, Heiko Stübner wrote:
->>>> Am Freitag, 25. Juli 2025, 04:15:06 Mitteleuropäische Sommerzeit
->>>> schrieb Damon Ding:
->>>>> On 2025/7/24 21:10, Heiko Stübner wrote:
->>>>>> Am Donnerstag, 24. Juli 2025, 10:02:50 Mitteleuropäische Sommerzeit
->>>>>> schrieb Damon Ding:
->>>>>>> PATCH 1 is a small format optimization for struct analogid_dp_device.
->>>>>>> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
->>>>>>> PATCH 3 is to apply a better API for the encoder initialization.
->>>>>>> PATCH 4-7 are preparations for apply drm_bridge_connector helper.
->>>>>>> PATCH 8 is to apply the drm_bridge_connector helper.
->>>>>>> PATCH 9-11 are to move the panel/bridge parsing to the Analogix side.
->>>>>>> PATCH 12-13 are preparations for apply panel_bridge helper.
->>>>>>> PATCH 14 is to apply the panel_bridge helper.
->>>>>>
->>>>>> for future revisions, please provide a changelog on what changed since
->>>>>> the previous version, I guess ideally here in the cover-letter.
->>>>>>
->>>>>>
->>>>>> On my rk3588-tiger-displayport-carrier this works like a charm
->>>>>> Tested-by: Heiko Stuebner <heiko@sntech.de>
->>>>>>
->>>>>>
->>>>>>
->>>>>>
->>>>>
->>>>> Glad to see your review and test. :-)
->>>>>
->>>>> I will include the version-to-version changelogs (v2 -> v3 and v3 -> v4)
->>>>> in the next iteration.
->>>>
->>>> I have to amend that a bit, sadly. When doing a reboot with the edp
->>>> running, I see logs like:
->>>>
->>>> [...]
->>>> [  139.614749] systemd-shutdown[1]: Syncing filesystems and block
->>>> devices.
->>>> [  139.622201] systemd-shutdown[1]: Rebooting.
->>>> [  139.684845] ------------[ cut here ]------------
->>>> [  139.690050] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-
->>>> iommu.c:989 rk_iommu_identity_attach+0xac/0xbc
->>>> [  139.701175] Modules linked in: panthor rockchip_vdec rocket
->>>> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper
->>>> v4l2_mem2mem gpu_sched rng_core fuse
->>>> [  139.717685] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Not tainted
->>>> 6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
->>>> [  139.728799] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger
->>>> Displayport Carrier v1 (DT)
->>>> [  139.738548] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS
->>>> BTYPE=--)
->>>> [  139.746351] pc : rk_iommu_identity_attach+0xac/0xbc
->>>> [  139.751821] lr : rk_iommu_identity_attach+0x70/0xbc
->>>> [  139.757290] sp : ffff800080e4b7c0
->>>> [  139.761001] x29: ffff800080e4b7c0 x28: ffff0001f6f98080 x27:
->>>> ffff0001f0a4b010
->>>> [  139.769006] x26: ffff0001f6f98e58 x25: 0000000000000000 x24:
->>>> 0000000000000000
->>>> [  139.777010] x23: 0000000000000000 x22: ffffdbf23c0485e0 x21:
->>>> ffff0001f0e9cc10
->>>> [  139.785014] x20: ffff0001f0df17a0 x19: ffff0001f0e2cb80 x18:
->>>> 0000000000000038
->>>> [  139.793018] x17: 0002550800000009 x16: 0000046c0446043e x15:
->>>> 0438000008ca080c
->>>> [  139.801021] x14: 07d008ca07800780 x13: 0438000008ca080c x12:
->>>> 07d0078000025508
->>>> [  139.809024] x11: 0002550800000009 x10: 0000046c0446043e x9 :
->>>> ffffdbf23c137000
->>>> [  139.817031] x8 : 0000000000000438 x7 : 0000000000000000 x6 :
->>>> 0000000000000000
->>>> [  139.825034] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 :
->>>> ffff0001f0df1780
->>>> [  139.833038] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 :
->>>> 00000000ffffffea
->>>> [  139.841042] Call trace:
->>>> [  139.843780]  rk_iommu_identity_attach+0xac/0xbc (P)
->>>> [  139.849252]  rk_iommu_attach_device+0x54/0x134
->>>> [  139.854236]  __iommu_device_set_domain+0x7c/0x110
->>>> [  139.859510]  __iommu_group_set_domain_internal+0x60/0x134
->>>> [  139.865561]  __iommu_attach_group+0x88/0x9c
->>>> [  139.870250]  iommu_attach_device+0x68/0xa0
->>>> [  139.874841]  rockchip_drm_dma_attach_device+0x28/0x7c
->>>> [  139.880508]  vop2_crtc_atomic_enable+0x620/0xaa0
->>>> [  139.885678]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
->>>> [  139.892413]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
->>>> [  139.898369]  commit_tail+0xa0/0x1a0
->>>> [  139.902279]  drm_atomic_helper_commit+0x17c/0x1b0
->>>> [  139.907552]  drm_atomic_commit+0x8c/0xcc
->>>> [  139.911951]  drm_client_modeset_commit_atomic+0x228/0x298
->>>> [  139.918005]  drm_client_modeset_commit_locked+0x5c/0x188
->>>> [  139.923960]  drm_client_modeset_commit+0x2c/0x58
->>>> [  139.929137]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
->>>> [  139.936164]  drm_fb_helper_hotplug_event+0xe8/0xf8
->>>> [  139.941526]  drm_fbdev_client_hotplug+0x24/0xe0
->>>> [  139.946605]  drm_client_hotplug+0x48/0xc4
->>>> [  139.951100]  drm_client_dev_hotplug+0x9c/0xd4
->>>> [  139.955984]  drm_kms_helper_connector_hotplug_event+0x20/0x30
->>>> [  139.962426]  drm_bridge_connector_hpd_cb+0x88/0xa0
->>>> [  139.967790]  drm_bridge_hpd_notify+0x3c/0x60
->>>> [  139.972577]  display_connector_hpd_irq+0x30/0xa4
->>>> [  139.978835]  irq_thread_fn+0x2c/0xb0
->>>> [  139.983894]  irq_thread+0x170/0x304
->>>> [  139.988833]  kthread+0x12c/0x204
->>>> [  139.993468]  ret_from_fork+0x10/0x20
->>>> [  139.998486] ---[ end trace 0000000000000000 ]---
->>>> [  140.004737] ------------[ cut here ]------------
->>>> [  140.010884] WARNING: CPU: 0 PID: 110 at drivers/iommu/rockchip-
->>>> iommu.c:1040 rk_iommu_attach_device+0x114/0x134
->>>> [  140.023079] Modules linked in: panthor rockchip_vdec rocket
->>>> drm_gpuvm v4l2_vp9 v4l2_h264 drm_exec rockchip_rng drm_shmem_helper
->>>> v4l2_mem2mem gpu_sched rng_core fuse
->>>> [  140.040577] CPU: 0 UID: 0 PID: 110 Comm: irq/58-HPD Tainted:
->>>> G        W           6.16.0-rc7-00183-gd436cbe8e4b3 #1541 PREEMPT
->>>> [  140.054457] Tainted: [W]=WARN
->>>> [  140.058804] Hardware name: Theobroma Systems RK3588-Q7 SoM on Tiger
->>>> Displayport Carrier v1 (DT)
->>>> [  140.069595] pstate: a0400009 (NzCv daif +PAN -UAO -TCO -DIT -SSBS
->>>> BTYPE=--)
->>>> [  140.078454] pc : rk_iommu_attach_device+0x114/0x134
->>>> [  140.084989] lr : rk_iommu_attach_device+0x98/0x134
->>>> [  140.091423] sp : ffff800080e4b7e0
->>>> [  140.096197] x29: ffff800080e4b7e0 x28: ffff0001f6f98080 x27:
->>>> ffff0001f0a4b010
->>>> [  140.105270] x26: ffff0001f6f98e58 x25: 0000000000000000 x24:
->>>> 0000000000000000
->>>> [  140.114351] x23: ffff0001f6f843e0 x22: ffffdbf23c0485e0 x21:
->>>> ffff0001f0e9cc10
->>>> [  140.123425] x20: ffff0001f0e2cb80 x19: ffff0001f6f843c0 x18:
->>>> 0000000000000038
->>>> [  140.132489] x17: 0002550800000009 x16: 0000046c0446043e x15:
->>>> 0438000008ca080c
->>>> [  140.141552] x14: 07d008ca07800780 x13: 0438000008ca080c x12:
->>>> 07d0078000025508
->>>> [  140.150623] x11: 0002550800000009 x10: 0000046c0446043e x9 :
->>>> ffffdbf23c137000
->>>> [  140.159701] x8 : 0000000000000438 x7 : 0000000000000000 x6 :
->>>> 0000000000000000
->>>> [  140.168772] x5 : ffffdbf23adbb9c0 x4 : ffff0001f0df1780 x3 :
->>>> ffff0001f0e2cbe0
->>>> [  140.177825] x2 : 0000000000000081 x1 : ffff0001f6fad500 x0 :
->>>> 00000000ffffffea
->>>> [  140.186858] Call trace:
->>>> [  140.190627]  rk_iommu_attach_device+0x114/0x134 (P)
->>>> [  140.197124]  __iommu_device_set_domain+0x7c/0x110
->>>> [  140.203417]  __iommu_group_set_domain_internal+0x60/0x134
->>>> [  140.210492]  __iommu_attach_group+0x88/0x9c
->>>> [  140.216203]  iommu_attach_device+0x68/0xa0
->>>> [  140.221802]  rockchip_drm_dma_attach_device+0x28/0x7c
->>>> [  140.228479]  vop2_crtc_atomic_enable+0x620/0xaa0
->>>> [  140.234664]  drm_atomic_helper_commit_modeset_enables+0xac/0x26c
->>>> [  140.242400]  drm_atomic_helper_commit_tail_rpm+0x50/0xa0
->>>> [  140.249349]  commit_tail+0xa0/0x1a0
->>>> [  140.254246]  drm_atomic_helper_commit+0x17c/0x1b0
->>>> [  140.260496]  drm_atomic_commit+0x8c/0xcc
->>>> [  140.265866]  drm_client_modeset_commit_atomic+0x228/0x298
->>>> [  140.272885]  drm_client_modeset_commit_locked+0x5c/0x188
->>>> [  140.279791]  drm_client_modeset_commit+0x2c/0x58
->>>> [  140.285914]  __drm_fb_helper_restore_fbdev_mode_unlocked+0xb4/0x100
->>>> [  140.293889]  drm_fb_helper_hotplug_event+0xe8/0xf8
->>>> [  140.300214]  drm_fbdev_client_hotplug+0x24/0xe0
->>>> [  140.306248]  drm_client_hotplug+0x48/0xc4
->>>> [  140.311695]  drm_client_dev_hotplug+0x9c/0xd4
->>>> [  140.317531]  drm_kms_helper_connector_hotplug_event+0x20/0x30
->>>> [  140.324930]  drm_bridge_connector_hpd_cb+0x88/0xa0
->>>> [  140.331248]  drm_bridge_hpd_notify+0x3c/0x60
->>>> [  140.336990]  display_connector_hpd_irq+0x30/0xa4
->>>> [  140.343120]  irq_thread_fn+0x2c/0xb0
->>>> [  140.348081]  irq_thread+0x170/0x304
->>>> [  140.352937]  kthread+0x12c/0x204
->>>> [  140.357501]  ret_from_fork+0x10/0x20
->>>> [  140.362453] ---[ end trace 0000000000000000 ]---
->>>>
->>>>
->>>> After some minutes of hanging it does reboot afterall.
->>>>
->>>> Heiko
->>>>
->>>>
->>>
->>> Could you please help confirm whether the same error still occurs with
->>> this patch series under the same conditions?
->>
->> Careless, what I want to express should be '...without this patch
->> series...'. :-)
-> 
-> sorry this took a tad longer for me to get back to this topic, but I was
-> now able to run a number of scenarios:
-> 
-> So I ran a number of variants and interestingly as the board I do eDP
-> tests on does not have any PCIe parts, I enountered an issue with
-> the PCIe SMMU [0].
-> 
-> When I disable the SMMU node, I also cannot reproduce the error from
-> above. So I've rebooted so many times today both with and without the
-> SMMU, and encountered the log from above only ever with the dangling
-> SMMU. So I'd assume, the Analogix series is actually innocent :-) .
-> 
-> 
-> Heiko
-> 
-> 
-> 
-> [0] https://lore.kernel.org/linux-rockchip/4400329.mogB4TqSGs@diego/T/#m5901974351b7c11e34f29a02b4f7f69b6ef29b2f
-> 
-> 
+  - scmi_imx_misc_ctrl_get()
+  - scmi_imx_misc_ctrl_set()
 
-Thanks for testing! And v4 patch series is on the way. ;-)
+These stubs return -EOPNOTSUPP to indicate that the functionality is not
+supported in the current configuration. This avoids potential build or
+link errors in code that conditionally calls these functions based on
+feature availability.
 
-Best regards,
-Damon
+Fixes: 540c830212ed ("firmware: imx: remove duplicate scmi_imx_misc_ctrl_get()")
+Fixes: 0b4f8a68b292 ("firmware: imx: Add i.MX95 MISC driver")
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+---
+ include/linux/firmware/imx/sm.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
+index d4212bc42b2c17fb8f94d58856a75beb5611ce4b..99c15bbb46aa8329b5aa8e03017e152074cdf492 100644
+--- a/include/linux/firmware/imx/sm.h
++++ b/include/linux/firmware/imx/sm.h
+@@ -26,8 +26,20 @@
+ #define SCMI_IMX94_CTRL_SAI3_MCLK	5U	/*!< WAKE SAI3 MCLK */
+ #define SCMI_IMX94_CTRL_SAI4_MCLK	6U	/*!< WAKE SAI4 MCLK */
+ 
++#if IS_ENABLED(CONFIG_IMX_SCMI_MISC_DRV)
+ int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val);
+ int scmi_imx_misc_ctrl_set(u32 id, u32 val);
++#else
++static inline int scmi_imx_misc_ctrl_get(u32 id, u32 *num, u32 *val)
++{
++	return -EOPNOTSUPP;
++}
++
++static inline int scmi_imx_misc_ctrl_set(u32 id, u32 val)
++{
++	return -EOPNOTSUPP;
++}
++#endif
+ 
+ int scmi_imx_cpu_start(u32 cpuid, bool start);
+ int scmi_imx_cpu_started(u32 cpuid, bool *started);
+
+-- 
+2.37.1
+
 
