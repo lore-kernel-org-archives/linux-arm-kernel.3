@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3640C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 09:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B72C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 09:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kg4yVMonzvoboWXkN1zzSwUBk/T53kVazB7EUBcPsmw=; b=3Tatx9vEMFC+phzxfyJO3QtMvK
-	sYG2ioOHO6ALXzLoHnNm4ydV4pIPgvUqD/M+EbhhZzwjCRQB3Ta5JB+6sNJFd/DSNCEHNvfota15e
-	0i07hbsp6fhmv2tO552iAIAHrUN2e1JIOpGQpxg27G/br0gqTPiBhanUo2a6HTbqsu95LMam87WbA
-	pNNxrRUFXa+sQOZGoIIjuqk9C06pEzCmbaki58Kt/yZ0UJIXFUY/kY7eLCZLc/Ndkek19ZT6xao3D
-	YsIvdPYrHEr19s48DvYCUQseFGscMREax9YMtp4ae2ou3a0fvNwCGNlX7fGhW7kPLyTSxWIQW1rq3
-	vMeI6pkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gjNh5IarJDBcVWhnGh4V+dVjq/ORlJZ5zhYOyvylIfg=; b=ZR0PCerzh+LotAh8Htja92LTOx
+	hSwi/8m9F3O6/S5baMuGqm4muHqbqtaxRW6gRiO2a/Ze0C1ey3ol2g2HYB4vQAfuZTFnnS3Cut4n8
+	5qaBV19nGkA3bm9vk/yd1EpwleAZPy2ghEQcWtmkmk2ANthIP9Sojld6L/f5MU/7Ck6DTUhNlrGej
+	Lr6FkxO5IjSSmRNBZEGxDOz3jYQsq1FfeJ9ajFvzax90OAvBUe+PX8M3Ve12sIaciM8fh+ZrLp5L3
+	xcm12VHc0cSfJ57zudgyqOYIU7JSE4sFWikh9G92QjQw6p9p5TWhKcwxcXVnJLncSP0Ej7bkmRZoo
+	cbNGL85g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxCd-000000006pr-2eHM;
-	Thu, 07 Aug 2025 09:46:27 +0000
-Received: from mail-il1-f173.google.com ([209.85.166.173])
+	id 1ujxKS-000000007sr-1WJE;
+	Thu, 07 Aug 2025 09:54:32 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxA5-0000000064o-27JO
+	id 1ujxHu-000000007lQ-2Njx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 09:43:50 +0000
-Received: by mail-il1-f173.google.com with SMTP id e9e14a558f8ab-3e3f449fa6fso7152055ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 02:43:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754559828; x=1755164628;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kg4yVMonzvoboWXkN1zzSwUBk/T53kVazB7EUBcPsmw=;
-        b=QRTCUJJuzBhvK7S4fpuHIXsWWiK7BnESZlMhgczXGLcyQ2ZVkER7jy6NoFaKZHXn2t
-         NFTHQYRr9kYDaKMwegVuY3VBrwboWBzNkxNHjbBmTiJeFSS8nxpjLYbj4KzsnSlhbGx7
-         nZOwZurFNOh6msteNclR8Zw3eo/zwfBDq2SjCXXpfuOOoqjf8Qp/pBMAaXIQn+Aea5+H
-         KEuBW3bXk5c1sZnuUqyurXKqQyblQGaYgY1HtxZiZuhVr+07bN5Lhd7U4V+83auJ0uYy
-         Hqzy6EWMz84L8yRxDB/5/idMOXfSF41apDGX+/+FxpfmubB5P/rCQqap9ARo63TzQN/C
-         bFYA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRUVAg09SDrWRAmdGR3ejwSzjRSs5Tft4jHx+C+d3DiW2n2zx2RqCB8gwL7u6D+hlzMxomdIZLn/dNfHqOKuCW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxO2Wup2nKlgm9LvssESOCTzHU0I+CIVVaZ3eTN1oiPBhBhxYNd
-	PYhmRNSI198oa7sH3lOsoBkASOpjWqOnkPH3MlS+6PWVeUgtvqQY5Kkmbgc2+nhdCTc=
-X-Gm-Gg: ASbGncv5xMJlH3wJ+leOIHfhTLK3ka1TPdKXmEW7fj7KKGzvQeYs4ZwB/Bnofg7ELZO
-	mkODAbZizSxG4biWSVn4fGRr3k17dw0EgNwhH4Dhv6d7/5wq84Fzs/Xwh257SYiJn5zb3o+K850
-	4ovFx0SRI3mZYeyZW0ujIIGRT3K9KQYts8T5c0ev/8CS9M/0DgHfYxEYlj7ym4xza5DfeR0/WYS
-	6eHJfs8roYT9Q87+Ke36MXtq2QIa6mCqE7GlWJTxUPv0KkhaRRmBsj/kvDNcDom1x3SUm+M3LPu
-	qZ/qFBfRIw8eIZifzdZi2qq3N/RbSNqOBzZNKsIrtlMno0XiD+VkI1nuCWeD55OFAR3SNO5aBmV
-	DcB+3xkyo5n5FYjBfISDrOY/Ijy4wXsQjiLXq8K6AJ79Noek38SOlLS35Dlww
-X-Google-Smtp-Source: AGHT+IElrrDNnf5zzt/10bZzZCwE9J+ER1eu6Zhq+nXQLsvYpq1uhaBvOwfXXlKuFifDN7kz+McaLg==
-X-Received: by 2002:a05:6e02:2513:b0:3e3:baa7:4793 with SMTP id e9e14a558f8ab-3e525955506mr40781875ab.10.1754559827958;
-        Thu, 07 Aug 2025 02:43:47 -0700 (PDT)
-Received: from mail-io1-f45.google.com (mail-io1-f45.google.com. [209.85.166.45])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-50a55db1402sm5428590173.93.2025.08.07.02.43.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 Aug 2025 02:43:47 -0700 (PDT)
-Received: by mail-io1-f45.google.com with SMTP id ca18e2360f4ac-8818bb36b5bso56355939f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 02:43:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVQABbO9PXL2mtrZov+Zeg5ozkggyfZub/qUrCxv/qdwKd1bBH3ClFSMzcWqTYGYq+VSgzMVQgKaDvUTbdV3b/3@lists.infradead.org
-X-Received: by 2002:a67:e715:0:b0:4fc:d0e5:23fe with SMTP id
- ada2fe7eead31-504b889fb24mr993877137.15.1754559506070; Thu, 07 Aug 2025
- 02:38:26 -0700 (PDT)
+	Thu, 07 Aug 2025 09:51:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754560315; x=1786096315;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=n3H7k+qMLSbRg64OaiKFLdUftAjzYbCeTRK1xSdD7X0=;
+  b=JsxCYOHMRzDc1GWeoybbzKrURl/FXRS3oBbD4wUhyTcY/tFWqAl78WRz
+   uD4G6POEbBusSw8OYNlb+UIChTznmJw3TH/1IKsOgQhho8pbSlsrRfeJM
+   c6FTZlEEXsIbBLgC1aARPGx+roxPCrnyHStvtuC0pQ1aWk0RpChtH4tfr
+   56KvJmq4pQfbtxpED+5GxdFcqMzkYyAUPuirJCTivgIUlbbkKpjBkbLrW
+   Zi6oEd6AD+cXaiTaKeJe0t3Fg0uSuYxUgH7qPCy0Tio1hNHLrM+Sb4so4
+   HlHyZtGxbYrj/2CtTXbgnmG7mKlR7n39zhT7/Rkl+Oqmmb4MwD5hUYvig
+   Q==;
+X-CSE-ConnectionGUID: wbQUvv5SRJSYYxKrcxPkrg==
+X-CSE-MsgGUID: PJZDmpBpSBm1V/m3PAIOQg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="67158209"
+X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
+   d="scan'208";a="67158209"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 02:51:54 -0700
+X-CSE-ConnectionGUID: mlOgTmNPQYeh2F53+X8PqA==
+X-CSE-MsgGUID: lWtTRSKqQYqJtrrsqFfjGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
+   d="scan'208";a="164670967"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 07 Aug 2025 02:51:52 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ujxHq-0002eM-0K;
+	Thu, 07 Aug 2025 09:51:50 +0000
+Date: Thu, 7 Aug 2025 17:51:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:hack/arch_timer_mmio 4/5]
+ drivers/clocksource/arm_arch_timer_mmio.c:73:4: error: call to undeclared
+ function 'writeq_relaxed'; ISO C99 and later do not support implicit
+ function declarations
+Message-ID: <202508071719.gt7HNCye-lkp@intel.com>
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
- <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com> <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com>
-In-Reply-To: <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 7 Aug 2025 11:38:14 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVrkr56XsRsbG7H-tLHVzmP+g-7=5Nrv9asC25ismwiYA@mail.gmail.com>
-X-Gm-Features: Ac12FXz_Wf7VThW0eyyjvLdjQbW2gc7dwXYQXV43OPnnHHrM4sUfbNQtDD8n2Ug
-Message-ID: <CAMuHMdVrkr56XsRsbG7H-tLHVzmP+g-7=5Nrv9asC25ismwiYA@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_024349_544267_B263E087 
-X-CRM114-Status: GOOD (  47.30  )
+X-CRM114-CacheID: sfid-20250807_025154_645523_29885FCF 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,110 +87,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/arch_timer_mmio
+head:   4b341bbc18d791b6c5a6bc373d303c4d3b35434a
+commit: d094e2d0772b8f22c47c9d3e7ab908c82ade83bf [4/5] clocksource/drivers/arm_arch_timer_mmio: Switch over to standalone driver
+config: arm-axm55xx_defconfig (https://download.01.org/0day-ci/archive/20250807/202508071719.gt7HNCye-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250807/202508071719.gt7HNCye-lkp@intel.com/reproduce)
 
-On Wed, 30 Jul 2025 at 12:29, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> On Wed, 30 Jul 2025 at 11:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > On Wed, 9 Jul 2025 at 13:31, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > Changes in v3:
-> > > >         - Added a couple of patches to adress problems on some Renesas
-> > > >         platforms. Thanks Geert and Tomi for helping out!
-> > > >         - Adressed a few comments from Saravanna and Konrad.
-> > > >         - Added some tested-by tags.
-> > >
-> > > I decided it was time to give this a try, so I have queued this up for
-> > > v6.17 via the next branch at my pmdomain tree.
-> > >
-> > > If you encounter any issues, please let me know so I can help to fix them.
-> >
-> > Thanks for your series!  Due to holidays, I only managed to test
-> > this very recently.
-> >
-> > Unfortunately I have an issue with unused PM Domains no longer being
-> > disabled on R-Car:
-> >   - On R-Car Gen1/2/3, using rcar-sysc.c, unused PM Domains are never
-> >     disabled.
-> >   - On R-Car Gen4, using rcar-gen4-sysc.c, unused PM Domains are
-> >     sometimes not disabled.
-> >     At first, I noticed the IOMMU driver was not enabled in my config,
-> >     and enabling it did fix the issue.  However, after that I still
-> >     encountered the issue in a different config that does have the
-> >     IOMMU driver enabled...
-> >
-> > FTR, unused PM Domains are still disabled correctly on R/SH-Mobile
-> > (using rmobile-sysc.c) and on BeagleBone Black. Note that these use
-> > of_genpd_add_provider_simple(), while all R-Car drivers use
-> > of_genpd_add_provider_onecell().  Perhaps there is an issue with
-> > the latter?  If you don't have a clue, I plan to do some more
-> > investigation later...
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508071719.gt7HNCye-lkp@intel.com/
 
-of_genpd_add_provider_onecell() has:
+All errors (new ones prefixed by >>):
 
-    if (!dev)
-            sync_state = true;
-    else
-            dev_set_drv_sync_state(dev, genpd_sync_state);
+>> drivers/clocksource/arm_arch_timer_mmio.c:73:4: error: call to undeclared function 'writeq_relaxed'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      73 |                         writeq_relaxed(val, timer->base + CNTP_CVAL_LO);
+         |                         ^
+   drivers/clocksource/arm_arch_timer_mmio.c:84:4: error: call to undeclared function 'writeq_relaxed'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+      84 |                         writeq_relaxed(val, timer->base + CNTV_CVAL_LO);
+         |                         ^
+   drivers/clocksource/arm_arch_timer_mmio.c:262:54: warning: implicit conversion from 'unsigned long long' to 'unsigned long' changes value from 72057594037927935 to 4294967295 [-Wconstant-conversion]
+     262 |         clockevents_config_and_register(clk, at->rate, 0xf, CLOCKSOURCE_MASK(56));
+         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                     ^~~~~~~~~~~~~~~~~~~~
+   include/linux/clocksource.h:153:32: note: expanded from macro 'CLOCKSOURCE_MASK'
+     153 | #define CLOCKSOURCE_MASK(bits) GENMASK_ULL((bits) - 1, 0)
+         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/bits.h:89:29: note: expanded from macro 'GENMASK_ULL'
+      89 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK_ULL(h, l))
+         |          ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+   1 warning and 2 errors generated.
 
-    for (i = 0; i < data->num_domains; i++) {
-            ...
-            if (sync_state && !genpd_is_no_sync_state(genpd)) {
-                    genpd->sync_state = GENPD_SYNC_STATE_ONECELL;
-                    device_set_node(&genpd->dev, fwnode);
-                    sync_state = false;
-                    ^^^^^^^^^^^^^^^^^^^
-            }
-            ...
-    }
 
-As the R-Car SYSC drivers are not platform drivers, dev is NULL, and
-genpd->sync_state is set to GENPD_SYNC_STATE_ONECELL for the first PM
-Domain only.  All other domains have the default value of sync_state
-(0 = GENPD_SYNC_STATE_OFF).  Hence when genpd_provider_sync_state()
-is called later, it ignores all but the first domain.
-Apparently this is intentional, as of_genpd_sync_state() tries to
-power off all domains handled by the same controller anyway (see below)?
+vim +/writeq_relaxed +73 drivers/clocksource/arm_arch_timer_mmio.c
 
-> > BTW, the "pending due to"-messages look weird to me.
-> > On R-Car M2-W (r8a7791.dtsi) I see e.g.:
-> >
-> >     genpd_provider ca15-cpu0: sync_state() pending due to e6020000.watchdog
-> >     renesas-cpg-mssr e6150000.clock-controller: sync_state() pending
-> > due to e6020000.watchdog
-> >
-> > ca15-cpu0 is the PM Domain holding the first CPU core, while
-> > the watchdog resides in the always-on Clock Domain, and uses the
-> > clock-controller for PM_CLK handling.
+9920c260a9b738 Marc Zyngier 2025-08-06  55  
+9920c260a9b738 Marc Zyngier 2025-08-06  56  static void arch_timer_reg_write(enum arch_timer_access access,
+9920c260a9b738 Marc Zyngier 2025-08-06  57  				 enum arch_timer_reg reg, u64 val,
+9920c260a9b738 Marc Zyngier 2025-08-06  58  				 struct clock_event_device *clk)
+9920c260a9b738 Marc Zyngier 2025-08-06  59  {
+9920c260a9b738 Marc Zyngier 2025-08-06  60  	struct arch_timer *timer = evt_to_arch_timer(clk);
+9920c260a9b738 Marc Zyngier 2025-08-06  61  
+9920c260a9b738 Marc Zyngier 2025-08-06  62  	switch (access) {
+9920c260a9b738 Marc Zyngier 2025-08-06  63  	case PHYS_ACCESS:
+9920c260a9b738 Marc Zyngier 2025-08-06  64  		switch (reg) {
+9920c260a9b738 Marc Zyngier 2025-08-06  65  		case ARCH_TIMER_REG_CTRL:
+9920c260a9b738 Marc Zyngier 2025-08-06  66  			writel_relaxed((u32)val, timer->base + CNTP_CTL);
+9920c260a9b738 Marc Zyngier 2025-08-06  67  			return;
+9920c260a9b738 Marc Zyngier 2025-08-06  68  		case ARCH_TIMER_REG_CVAL:
+9920c260a9b738 Marc Zyngier 2025-08-06  69  			/*
+9920c260a9b738 Marc Zyngier 2025-08-06  70  			 * Not guaranteed to be atomic, so the timer
+9920c260a9b738 Marc Zyngier 2025-08-06  71  			 * must be disabled at this point.
+9920c260a9b738 Marc Zyngier 2025-08-06  72  			 */
+9920c260a9b738 Marc Zyngier 2025-08-06 @73  			writeq_relaxed(val, timer->base + CNTP_CVAL_LO);
+9920c260a9b738 Marc Zyngier 2025-08-06  74  			return;
+9920c260a9b738 Marc Zyngier 2025-08-06  75  		}
+9920c260a9b738 Marc Zyngier 2025-08-06  76  		break;
+9920c260a9b738 Marc Zyngier 2025-08-06  77  	case VIRT_ACCESS:
+9920c260a9b738 Marc Zyngier 2025-08-06  78  		switch (reg) {
+9920c260a9b738 Marc Zyngier 2025-08-06  79  		case ARCH_TIMER_REG_CTRL:
+9920c260a9b738 Marc Zyngier 2025-08-06  80  			writel_relaxed((u32)val, timer->base + CNTV_CTL);
+9920c260a9b738 Marc Zyngier 2025-08-06  81  			return;
+9920c260a9b738 Marc Zyngier 2025-08-06  82  		case ARCH_TIMER_REG_CVAL:
+9920c260a9b738 Marc Zyngier 2025-08-06  83  			/* Same restriction as above */
+9920c260a9b738 Marc Zyngier 2025-08-06  84  			writeq_relaxed(val, timer->base + CNTV_CVAL_LO);
+9920c260a9b738 Marc Zyngier 2025-08-06  85  			return;
+9920c260a9b738 Marc Zyngier 2025-08-06  86  		}
+9920c260a9b738 Marc Zyngier 2025-08-06  87  		break;
+9920c260a9b738 Marc Zyngier 2025-08-06  88  	}
+9920c260a9b738 Marc Zyngier 2025-08-06  89  
+9920c260a9b738 Marc Zyngier 2025-08-06  90  	/* Should never be here */
+9920c260a9b738 Marc Zyngier 2025-08-06  91  	WARN_ON_ONCE(1);
+9920c260a9b738 Marc Zyngier 2025-08-06  92  }
+9920c260a9b738 Marc Zyngier 2025-08-06  93  
 
-Unfortunately the first PM Domain is "ca15-cpu0", which is blocked on
-these bogus pending states, and no PM Domain is powered off.
+:::::: The code at line 73 was first introduced by commit
+:::::: 9920c260a9b73875557f4b2e6c9f68685b9c07e8 clocksource/drivers/arm_arch_timer: Add standalone MMIO driver
 
-If I remove the "sync_state = false" above, genpd_provider_sync_state()
-considers all domains, and does power down all unused domains (even
-multiple times, as expected).
-
-Upon closer look, all "pending due to" messages I see claim that the
-first (index 0) PM Domain is pending on some devices, while all of
-these devices are part of a different domain (usually the always-on
-domain, which is always the last (32 or 64) on R-Car).
-
-So I think there are two issues:
-  1. Devices are not attributed to the correct PM Domain using
-     fw_devlink sync_state,
-  2. One PM Domain of a multi-domain controller being blocked should
-     not block all other domains handled by the same controller.
-
-Does that make sense?
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
+:::::: TO: Marc Zyngier <maz@kernel.org>
+:::::: CC: Marc Zyngier <maz@kernel.org>
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
