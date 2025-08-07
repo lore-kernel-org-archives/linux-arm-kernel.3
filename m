@@ -4,173 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A74FC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 01:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451F7C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 02:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIwQeNtrRCwVc0tTP8vgQawQ9Cj64tSZEMwkNHcMy/4=; b=wZzgP/a8qqUCedF3SWNnnf9x6n
-	SPvuq2LCTVrfBfTlOhmIu7xPdOnMsmlVl6Yb9TyeL8LGOapLcKEBoAwnGiIQgzH9BNeRMFQ5J+XdY
-	5SMcO8I34KRF12SVak6sZcZv4rgQktxSb31NcdSu9ahxTmA1DAimniYNXirC21NBhWQvCHN/RwG0K
-	rlR97PEbTtsVU/3y+yS/JaMpNyTixf1kW4VfoN2UYS5A7Fd9aoXANQceFV20xr6mYZwzbueekbtzF
-	kvOF4IcFTi1aMfZYLNaeWMthjuhm3A1ku4q0kC704K6iHE9KDMoP8rwnE2UGTX40e/od0wjmkjf/K
-	G1EdMiCw==;
+	bh=m4lFUwBUTBASs8+w6RWnaE1vMNcqXEPtsns4iFPW3QQ=; b=aBZaoG+0ncqI4ixOm4u0vPhCj7
+	0LBgZpPDmNCXaNpJ2vVr42s7nLugGxCPv1lPY67q0A5RL8wr0cB/HxtIGD5uNAZO1I7u2ZydI7lEA
+	c4uduq4HDjOtYvVQQxVQnDBONU3FRudrFuLuIzveUNldqbPQC2zFEr2kBL/tZVafAfd5jt6OHPxyc
+	Lbg4Xl7wqRbWp6vn+XPAgPC5DNIgXfOgeYcTGkIwcFw/NcsdWbCRKgPbxBP5WPBDLdsxFEYj5+9ef
+	xhpbVu4/OdmHxwQTiqCJM2Vp5waCWRJ+j7BewouGtI7YCP3e/pF8YBkR6pzys/ZklkgqcY88aFDiA
+	leLtpqzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujpu1-0000000H66y-08Rq;
-	Thu, 07 Aug 2025 01:58:45 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1ujq1R-0000000H73J-1mk7;
+	Thu, 07 Aug 2025 02:06:25 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujpjx-0000000H3Ni-0SDx
+	id 1ujpys-0000000H6nT-2xbP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 01:48:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=i9fNnDHfNW27mtu/NTNdWRq6LjPrxgRP4ErDUVv6B5PWdLpRFkfvsXiS+sAjKCe3ksd6NQecq+Q87F/D/b3wOhD5cMa1NLh8AAvfPOPjnXj7KIbYXccmnNMdDlIP4i5lr4qT2bdym+xgjyba5rybs6EeRcU+PmrZxkOgDvb++PBQH5f0eGM8/bcy82H4W6Ptc3vyR4/BDxf1+yzmp7JoqTod03Vkhxsd8WxbnoYXsapESBnSYKvZBs+nQGKok7jsx4p5xINgD4vmOHhvYeNgZH5UwtONPxEeTIDRz0xqDRSwnoSnkff3j+Uk1TiLmmzE7zva49mGHvn7Q+hS3W3/ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BIwQeNtrRCwVc0tTP8vgQawQ9Cj64tSZEMwkNHcMy/4=;
- b=Zw6AcTK0iHxtToN2N7/dfFEJq9pG5GN0LYF1lVmNs3VPEzl3zc17hra7p1il/5efOrknIzj63a1PAK6hDEryW8fuG26+KCffClHv7Qt+1F9liQcpKqn/rPWju3fcEep4fZK5eP7TJDQH3jLAiDSuytNLb4TuusFtKX4kI0bjOkIVXqFmjq4RuwPCqB6RkDq95iSfdfRbM+VWA433BlIVO5Wekifh+tja6qmRQKZton/NVvPxymMq2vDkZyhnk8oJ7y7efxwgbcK08jbNa50HCnzudgmhzQiVjJDNdC2mBSK6pKc7Q/WRgzDClLvTgWeMEZgbhzq7Ude57vgmd+gtew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BIwQeNtrRCwVc0tTP8vgQawQ9Cj64tSZEMwkNHcMy/4=;
- b=POCx/C62pm0Af0qJLKtcX1JzqSplWsXOp+i5vGLyyKuKrovi+lqeLq+3UesEhRMlp73UnR6qJmvzXmwQhB8mj5suI1gMpBsBAGFAKHMsG3rZcG4ixpQA5pnn6vqV9THGTAVMXUDyHnkPsYYrsJ6VKJt3qovzB9F0ChS2MZKTmSU+FpEwxjg+G5ilqxhpXui/9o92iNtb7zJW4wp1c93xokNFLWZk7Nw8U27ZYm36sKXbYOnc0+Z9PW1UixFzn8qJXLi4g7VL9v43a+ySHMvVDYEV3YjzQ5Kvaq/UaUFXbzMzm7AHDCNDYsrTWoKTFgOCsKIzeLIE+pXnSP8u7ra5Zg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AM9PR04MB7683.eurprd04.prod.outlook.com (2603:10a6:20b:2d7::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Thu, 7 Aug
- 2025 01:48:15 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%7]) with mapi id 15.20.9009.013; Thu, 7 Aug 2025
- 01:48:15 +0000
-From: Peng Fan <peng.fan@nxp.com>
-Date: Thu, 07 Aug 2025 09:47:44 +0800
-Subject: [PATCH 3/3] firmware: imx: Add stub functions for SCMI CPU API
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250807-imx9-sm-v1-3-3489e41a6fda@nxp.com>
-References: <20250807-imx9-sm-v1-0-3489e41a6fda@nxp.com>
-In-Reply-To: <20250807-imx9-sm-v1-0-3489e41a6fda@nxp.com>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
- Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>
-Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754531281; l=1730;
- i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
- bh=APiFT9JTFOLKYO5B65mFJHCD1F5+atccwQxWyBKzFgg=;
- b=pOWm+EMgJcUv6snswYktd1a051NZzmHF9LLYpkgsTkFyuR9geUpm8JU4wyKQsT51ibIx55ht0
- glXDu6CYxHRAJlJuzdlveOUTwV8Zpgsd6o0KXYAv8VPBkl8SJJeN0SQ
-X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
- pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
-X-ClientProxiedBy: SI2PR01CA0034.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::9) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 07 Aug 2025 02:03:48 +0000
+Date: Wed, 6 Aug 2025 19:03:32 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754532222;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=m4lFUwBUTBASs8+w6RWnaE1vMNcqXEPtsns4iFPW3QQ=;
+	b=Qg86bz33wt/39A/xZzIW0ZTd1srRiZPD+rB+zqoTKG4gFhl3WRsh3Owk58E9KtF176Vpfj
+	05pY2mo1wxaAb79x+wFf8f2yL2E96FW2bZ4GODk0yLPFhGuQvFjdfgoSq/csplV1rYXk22
+	sFeqpRT2AYHBtFw9a98PEruMPqQMaDc=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC v2 1/2] KVM: arm64: PMU: Introduce
+ KVM_ARM_VCPU_PMU_V3_COMPOSITION
+Message-ID: <aJQJdElbZJ6KzQxD@linux.dev>
+References: <20250806-hybrid-v2-0-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <20250806-hybrid-v2-1-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <aJOO99xUrhsrvLwl@linux.dev>
+ <276fdfb8-f1ca-44ad-b310-a811684b265a@rsg.ci.i.u-tokyo.ac.jp>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB7683:EE_
-X-MS-Office365-Filtering-Correlation-Id: d396c46b-bb34-4872-9ad4-08ddd5547998
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q214M1Q4T25HYXJQaXB6amFNN2M5VnB6M1JDVytzRnNYVVl1ME5OdUJCamZW?=
- =?utf-8?B?OS9rK1VkcE94bDREK1ZhTUUrVEpWMURYcGdGVVNoWGN6VzJLSG9zM2NBekNG?=
- =?utf-8?B?ZTFQRXk0aVhqYmtMeFBFcVFFaUVPam5kU0RUTi9HejY2N1MzWE9qaVNlU1NU?=
- =?utf-8?B?WENuVEkzY1psSzljNGRqT213bFZxSjlDZm1YT2t2dHVCR3NibVAzMS8yVFBo?=
- =?utf-8?B?ZEkrZmY2bVcvWUJWYjhoeEZ5YStuangrb09qUU5Ub1RqY2lPUVFBSXlMcGt6?=
- =?utf-8?B?ZEZhRFlDNkl4UTRoY0JzRXg5R0Y3WU9qT0J0bmFZa3QzOW5wYWxDM2ExTWMz?=
- =?utf-8?B?VnhHQ3VMR010TjIwWDhDSTRPQ0RackFhc0tUQjZXUVFJVXVjTTRnTVdmbG9x?=
- =?utf-8?B?YnNUUzA5eVlsc3dBbUlTS2hKZHNvNEwrV2s0bDllYlB2TUpWSlZGeE9hb1JW?=
- =?utf-8?B?aWtoTmxCVnYrL29XT2ZpSUIzT21PaUo1VE9kVmFMaXRldnRIZzcrWUQ1UVkw?=
- =?utf-8?B?S3RteE9GT0JDMDZNQW8wY1lzMXh3WWxhM3JObGtRRi9wR3cwMkhmSFRQUFdN?=
- =?utf-8?B?MnRnYUd3Q3NYNnhCaEFacTY5NFlMMlEwbjNUaFVManBQRHFzOUF0NlA2OTA1?=
- =?utf-8?B?dTgwbjRaMnNNVmFOOHNaQWN2dnVsT2R1OWlmZkNmdnNVSzRicjRZZmtlYjRu?=
- =?utf-8?B?eTJrTW5ZTUFUNEQydnMyamRnQVVZWDNMMGN5S1hHNlp6RllDL29IZXlJK1Bw?=
- =?utf-8?B?ZzkvSXJZMFdmcExPcW9SMU9Db25Kd0FoMmJxV1YyKzZvYXVmMGtDQXlQZDB6?=
- =?utf-8?B?VHdSK3F5Slk0eVBxWW56cnZYcDU5Nyt4Y0FscWJmclY1WG9ha2FPdzdaZ1NO?=
- =?utf-8?B?YjcwVzVSTlVWeVpXVGtOckFKSXNkUlA5ekhyb3VHL25aYkNrRTUzZVF6Q3BW?=
- =?utf-8?B?YWNVbTU0ZnZHZzNaUzlDbHlGeERxZnFjbVJSaHhxRHhWWEpOYTZaYTFLaDB5?=
- =?utf-8?B?YW1kZDhCMWhXN1JWbHlEdmJwTDVnTHBoRTgrY08yRnBkZEtnN0JHRUd1ZEpL?=
- =?utf-8?B?RVpXcjRUZmhIbU8vNE9JVktiU053emU2TzBVWVF1SjZmK1h0OGp1bDhaRW1w?=
- =?utf-8?B?TDljVS9HWlg5MHZjYndNM2lkZi9wbVBjcDVYcGlmRzVVUnZFMFYyWkRibVRG?=
- =?utf-8?B?bDU3dCtyZUZnSlJob2NwN3gvNk9BbzJ1NThSNVY4V1ZGbDFwRHB1ejBFcTBG?=
- =?utf-8?B?YUJpZHROdXU0WTNTQVZkWGJvd2J3QkZCVENYMEQwRlF2blluUWhPWUhseUtM?=
- =?utf-8?B?NjRVQVYxZThBUUU3ZEgySG9zcVdBSWQ2WW50UkFEVzZUMHJsc05JbVFXcXZ1?=
- =?utf-8?B?KzRhcU9YM2IwOW5EbU4wVTg1Y0k5enZiL3lrU1M0aUd5OFhiL1dLU2gxSWtB?=
- =?utf-8?B?YitaZGNTNkszdmZQSWN6WmVBNDhDWEV5UnRrTmxmWnU4dkdPbVkrZ1E5S2xw?=
- =?utf-8?B?MVBUTG56eG9wZjBjdE5VbmdCbDNMTS9wenBabEVTTTd0TDhZbWM0ZVp4dDFr?=
- =?utf-8?B?NkZ2KzMxRlRNbUJ0bGRrcGR5aW93TU1pRjVnR0c3QzBrTkgvS09yRE1TNEs4?=
- =?utf-8?B?OURvRVYxR0RzRVZDVWZtQ09SeXFwOFpGWG5ySXYrcjdUazZLc3Uwc2ttMVBX?=
- =?utf-8?B?WFhUWHROYXhLVlp6UmJ1SStCZTRnelVaZDZNdjFCT2NmYk1BOG9DdGZONmxq?=
- =?utf-8?B?NTluY1YwdVRjZnBDOVhWOTRXcmVwUFpMUjZlRzZpLzRjMXBDWUJVNTZ4OEkx?=
- =?utf-8?B?ZTRHSXdRM2FZQnRyUE85ZUlyYlQvOTVnVTFrNGU4UHZJQTRnZGtYNmNROEo3?=
- =?utf-8?B?UlMxOVpFSHVxK0NnQmc2dG9xdlA0N0xmNjlxUVRIQVZHUEtwVFlJSFBocW00?=
- =?utf-8?B?MFVXdmM4R1hUUG9oSUZNRmxPMUQzMitOMlBqNGN1MkpENDV0Y3hEYUxFcTBV?=
- =?utf-8?B?ak5hWVZpRGVRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R1NXam51N0o2a1liMitSa0xiUk9KOVVQMDVxaklxRHB4M3hxZk1JZkdEY3hU?=
- =?utf-8?B?WitXRDhLYlFmWkZ0NzViQ2ppUGlwYTNRNjhXU28rblYrVmpCbkpHY3lGUDBa?=
- =?utf-8?B?STJHRHFnTTNyVDY3THFnZXFOOUd6bTZyWStSR3pScUltaEkxeUFTVkVkbThP?=
- =?utf-8?B?cGhXTGhWc0xJOTFjcUt5Qk4vb3Z0SHd1aExWdXQ2eEdGNzdHSWFnRlUvR0My?=
- =?utf-8?B?Z0o1Y1FPUHgzVXlocGVTTC90THFTTnVmU2k5NVJGck80Vm1HY2xoSHJTS29w?=
- =?utf-8?B?eWJyL2VHaWZRNkNUZ0pjSkVJQitZZHJIemFjL05YWmtIQVA4SmNuK2MwNno1?=
- =?utf-8?B?Vk1BbFBaNTJBUDI2S1dQQ2NBWGtFYm9vR29nUDhEWVRkTS93K3p5UXMxUXpB?=
- =?utf-8?B?em1Mb1hyejl3L3hqNm5iNEVGUVhiNS96VEZJRHl3U0E3MGhFbnNEczFNWGR2?=
- =?utf-8?B?SDFDR3gxSWdMTmdqOXYycWwrQlBhNG5LSFprVWNwbm5sQ1U3Sm9aOGcxQzhh?=
- =?utf-8?B?MFlJY2lXVEh2cEh4K3g0V2QyMDdIM0ZxbjY4RzJFQmxNWGViUlJ3bVh5Wkhh?=
- =?utf-8?B?djBhNVpab0hkekd2ZkxVRGtldTgvLyt6YStTclk5ZnF6Tm94Q3JZY2hhSjcw?=
- =?utf-8?B?emFERllXMFQ0Y0tMVk0wUThjRnQwcVAwczN4WnkrLzJzSUduK0ZySnNxL1Uw?=
- =?utf-8?B?TjNqUlpwQjVPcU1XaitjdmxzcjR1VHFUTTFXcHVvd3BBdm15YUpud0ZkRmR1?=
- =?utf-8?B?Rmdncm9oa0hsb3hXVTJRelJZd01jTlJkNmdhOHFxeTVQUXJFS3ZIQVkrdFpT?=
- =?utf-8?B?dVEwV1lweTU1VHV5RGdRblo3ZUxjcVkwbUdzamtweW03TGtzUVF4Z0ZTV3Rs?=
- =?utf-8?B?dE5UNkc4MlhJdExtTTVNVkl0akdsNEFHTkJHNGVyZkJPVVFaMFFWMUpzOTU4?=
- =?utf-8?B?RVgrM0lEN3VzUE52a0tnWGJTZnFwaDdBUHVPL0xBRGRCb3Uxa0xSRnJIeGJk?=
- =?utf-8?B?SXhuallpdE5BWXNaVnJLeXdKcTlpbWwzKzE4UmNpUkVrUzIvbVA4TEIzbjg3?=
- =?utf-8?B?eGJjc2hIMnpheG5hNVJhb0ZVWEI1WkRTL2xPTC9zMHNRMDJUWkt3aFMvd256?=
- =?utf-8?B?SDVsVWFXcGR1TmlrcDVETHYrSnRFUUhiczNkaGZEZ1RRSklZa05mV3dUVG4z?=
- =?utf-8?B?dFp1QkhWbVFTMndzVUFuZWNyYnpVM0Q3c3ZRK0FRTTBlMlpZRjFGNVFwN1M5?=
- =?utf-8?B?QzFjc0IveDVnYlZnb1U2V0E5SVhPVlJOOEpFTEI0OUJueHBGelVqTW5BUjNX?=
- =?utf-8?B?VTROL3oxeGdOV1RkU0JwZHVMWnRTZ1plSjc4WW5YbnhCNGZ4bnlCeFFvU3VO?=
- =?utf-8?B?VDhjUFMwTXhuT0dhNTdGd2dDVXZKalVvNG43Nnl2R0U5eGRIV1FKSkMxYkxM?=
- =?utf-8?B?T2ZjNXNMdTFQR0ZqdFFaczZNWFRtSVcvU3V3SjFPZ1ZYcDB6b00wSXoxK1p6?=
- =?utf-8?B?eE5PenFod2U4bjdxZGVHaU9pTms2MHdBS1VDcXNVVXEvSXY1OUV4NE1wSmdi?=
- =?utf-8?B?aTNrMHluMjUveEJ2TDZVcTl2NEYrN0pBQW1YcUNwZGJoYzB4SDFWSkNjbjhy?=
- =?utf-8?B?SE5Gb1hRbTMxc1llVW1Bd2lxUXdDdEFNcjRPcTN6RnFpMkZrY0F3SGc0UHlM?=
- =?utf-8?B?ek1vc2MwMXVkM2ljNHk5ZVpDZFpkZzl1L0NxSTB6N3g3TWlOQWFXc05BMUFC?=
- =?utf-8?B?YVFnU2NhRGR1WGdCRWtNOU9NSEllMGQzWjBGT2NBNm5RWm1wYWRmZTBUN1Vm?=
- =?utf-8?B?bExlT09meENzVzdRTnhNeG5lekI3VU44SmNSWnlRMU5WZ3JKMkZlL2RFdmVY?=
- =?utf-8?B?RjFuRzRnL0xiVlpLcFJoRkxSTGdWd0tocWY0Tm0rajhpTU1GY1FaazFnMU1o?=
- =?utf-8?B?eHhjOEhtRGNORGw1c0lhTG1Ydkg5TEJSYnFLcHVuRFJtWVpJc0lhU3RXUERl?=
- =?utf-8?B?NGJmZG5GZkY5STQyRmx5UFJhVWN6QVBTdm5BMjlHdlh3S3pEaFdXUkJhSXBJ?=
- =?utf-8?B?c3VHMVl6VEpCc0JWZ1ptMEgxZ2E3b0lnSGc0VitCRk5KSERKaStnTy8rdjRt?=
- =?utf-8?Q?1qpd5da8DCbjaTF04cQkSEsO4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d396c46b-bb34-4872-9ad4-08ddd5547998
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2025 01:48:15.1936
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HV3tizGRz8dEX1lcKhk9Z24IGJnXyiv4wWy8XgGAir01Mshl7IJsIEQSkmNwOIh9TC9NjxiNNsdVsg2HuTTPoQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7683
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <276fdfb8-f1ca-44ad-b310-a811684b265a@rsg.ci.i.u-tokyo.ac.jp>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250806_184821_154673_502FB5B4 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20250806_190347_186463_A66F89EE 
+X-CRM114-Status: GOOD (  60.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,60 +81,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To ensure successful builds when CONFIG_IMX_SCMI_CPU_DRV is not enabled,
-this patch adds static inline stub implementations for the following
-functions:
+On Thu, Aug 07, 2025 at 03:24:43AM +0900, Akihiko Odaki wrote:
+> On 2025/08/07 2:20, Oliver Upton wrote:
+> > Hi Akihiko,
+> > 
+> > This is an unreasonably large patch that needs to be broken down into
+> > smaller patches, ideally one functional change per patch. We need this
+> > even for an RFC for the sake of reviews.
+> > 
+> > On Wed, Aug 06, 2025 at 06:09:54PM +0900, Akihiko Odaki wrote:
+> > > +static u64 kvm_pmu_get_pmc_value(struct kvm_vcpu *vcpu, u8 idx)
+> > >   {
+> > > -	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+> > > +	struct kvm_pmc *pmc = *kvm_vcpu_idx_to_pmc(vcpu, idx);
+> > >   	u64 counter, reg, enabled, running;
+> > > +	unsigned int i;
+> > > -	reg = counter_index_to_reg(pmc->idx);
+> > > +	reg = counter_index_to_reg(idx);
+> > >   	counter = __vcpu_sys_reg(vcpu, reg);
+> > >   	/*
+> > >   	 * The real counter value is equal to the value of counter register plus
+> > >   	 * the value perf event counts.
+> > >   	 */
+> > > -	if (pmc->perf_event)
+> > > -		counter += perf_event_read_value(pmc->perf_event, &enabled,
+> > > -						 &running);
+> > > +	if (pmc)
+> > > +		for (i = 0; i < pmc->nr_perf_events; i++)
+> > > +			counter += perf_event_read_value(pmc->perf_events[i],
+> > > +							 &enabled, &running);
+> > 
+> > I'm concerned that this array of events concept you're introducing is
+> > going to be error-prone. An approach that reallocates a new PMU event in
+> > the case of a vCPU migrating to a new PMU implementation would be
+> > desirable.
+> 
+> I avoided allocation at migration because I was worried with disabled
+> preemption. perf_event_create_kernel_counter() internally takes a mutex so
+> it cannot be used if preemption is disabled.
+> 
+> I wonder if it is guaranteed that kvm_arch_vcpu_load() executes with
+> preemption. If so, I can add a hook there to call
+> perf_event_create_kernel_counter().
 
-  - scmi_imx_cpu_start()
-  - scmi_imx_cpu_started()
-  - scmi_imx_cpu_reset_vector_set()
+You don't need to allocate the event at vcpu_load(). The only guarantee
+we need is that an event has been attached to the PMC prior to entering
+the guest, for which the KVM_REQ_* infrastructure is quite useful.
 
-These stubs return -EOPNOTSUPP to indicate that the functionality is not
-supported in the current configuration. This avoids potential build or
-link errors in code that conditionally calls these functions based on
-feature availability.
+> > 
+> > > +static void reset_sample_period(struct perf_event *perf_event)
+> > > +{
+> > > +	struct kvm_pmc **pmc = perf_event->overflow_handler_context;
+> > > +	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+> > > +	struct arm_pmu *cpu_pmu = to_arm_pmu(perf_event->pmu);
+> > > +	u64 period;
+> > > +
+> > > +	cpu_pmu->pmu.stop(perf_event, PERF_EF_UPDATE);
+> > > +
+> > > +	/*
+> > > +	 * Reset the sample period to the architectural limit,
+> > > +	 * i.e. the point where the counter overflows.
+> > > +	 */
+> > > +	period = compute_period(pmc, kvm_pmu_get_pmc_value(vcpu, (*pmc)->idx));
+> > > +
+> > > +	local64_set(&perf_event->hw.period_left, 0);
+> > > +	perf_event->attr.sample_period = period;
+> > > +	perf_event->hw.sample_period = period;
+> > > +
+> > > +	cpu_pmu->pmu.start(perf_event, PERF_EF_RELOAD);
+> > > +}
+> > 
+> > No, we can't start calling into the internal driver interfaces. The fact
+> > that we have a pointer to the PMU is an ugly hack and shouldn't be used
+> > like this.
+> 
+> This function was extracted from kvm_pmu_perf_overflow() and is not a new
+> addition (which should have been clear if I would have split the patch as
+> you noted).
 
-Fixes: 1055faa5d660 ("firmware: imx: Add i.MX95 SCMI CPU driver")
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- include/linux/firmware/imx/sm.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+Yuck, then forgive my whining.
 
-diff --git a/include/linux/firmware/imx/sm.h b/include/linux/firmware/imx/sm.h
-index f2a72177bb37c1d46145a60710e3809641e0f5a2..a33b45027356751f4b8ad9b9136f0dd302a82520 100644
---- a/include/linux/firmware/imx/sm.h
-+++ b/include/linux/firmware/imx/sm.h
-@@ -41,10 +41,28 @@ static inline int scmi_imx_misc_ctrl_set(u32 id, u32 val)
- }
- #endif
- 
-+#if IS_ENABLED(CONFIG_IMX_SCMI_CPU_DRV)
- int scmi_imx_cpu_start(u32 cpuid, bool start);
- int scmi_imx_cpu_started(u32 cpuid, bool *started);
- int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector, bool start, bool boot,
- 				  bool resume);
-+#else
-+static inline int scmi_imx_cpu_start(u32 cpuid, bool start)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int scmi_imx_cpu_started(u32 cpuid, bool *started)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int scmi_imx_cpu_reset_vector_set(u32 cpuid, u64 vector, bool start,
-+						bool boot, bool resume)
-+{
-+	return -EOPNOTSUPP;
-+}
-+#endif
- 
- enum scmi_imx_lmm_op {
- 	SCMI_IMX_LMM_BOOT,
+> I thought of replacing it with perf_event_period(), but there is a catch: it
+> returns -EINVAL if the 63th bit of the sample period number is set. Perhaps
+> we can just specify ((1ULL << 63) - 1) if the sample period is going to be
+> so long, but I conservatively avoided that. I can change it if you prefer
+> that way or have an alternative idea.
 
--- 
-2.37.1
+Let's keep it as-is then. Sorry about the noise.
 
+> > Can we just special-case the fixed CPU cycle counter to use
+> > PERF_TYPE_HARDWARE / PERF_COUNT_HW_CPU_CYCLES? That _should_ have the
+> > intended effect of opening an event on the PMU for this CPU.
+> 
+> I have an impression that perhaps this emulation can be more generic by
+> converting eventsel to PERF_COUNT_HW_* numbers with armv8_pmuv3_perf_map in
+> drivers/perf/arm_pmuv3.c, but it is not in scope of this change. The current
+> code is sufficient for now.
+
+The only cross-PMU events we will support are the fixed counters, my
+strong preference is that we do not reverse-map architectural events to
+generic perf events for all counters.
+
+> > I'm not sure there's much value in preventing the user from configuring
+> > the PMU event filter. Even in the case of the fixed CPU cycle counter we
+> > allow userspace to filter the event.
+> 
+> It is possible to configure the PMU event filter, but it needs to be done
+> after setting the attribute. This behavior is aligned with
+> KVM_ARM_VCPU_PMU_V3_SET_PMU.
+
+That's fine then, I missed that detail.
+
+> They are mutually exclusive and the latest configuration takes effect.
+> 
+> If you set SET_PMU after COMPOSITION, SET_PMU will take effect.
+> If you set COMPOSITION after SET_PMU, COMPOSITION will take effect.
+> 
+> I'll note that in the documentation.
+
+This isn't what I meant. What I mean is that userspace either can use
+the SET_PMU ioctl or the COMPOSITION ioctl. Once one of them has been
+used the other ioctl returns an error.
+
+We're really bad at getting ioctl ordering / interleaving right and
+syzkaller has a habit of finding these mistakes. There's zero practical
+value in using both of these ioctls on the same VM, let's prevent it.
+
+> > > +	case KVM_ARM_VCPU_PMU_V3_COMPOSITION:
+> > > +		return kvm_arm_pmu_v3_set_pmu_composition(vcpu);
+> > 
+> > I'd prefer naming this something like 'KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY'.
+> > We will have the fixed instruction counter eventually which is another
+> > event we could potentially provide system-wide.
+> 
+> The design decision to expose the cycle counter is driven by the motivation
+> to satisfy FEAT_PMU for the guest rather than the host capability.
+> 
+> When we implement FEAT_PMUv3_ICNTR in the future, I think we will need to
+> add KVM_ARM_VCPU_PMU_V3_COMPOSITION_ICNTR or something. The resultig
+> emulated PMU will work only on host CPUs that have instruction counters; a
+> host CPU may lack one because it doesn't implement FEAT_PMUv3_ICNTR or has a
+> third-party PMU like apple-m1-cpu-pmu (this particular PMU has an
+> instruction counter fortunately).
+
+No, this is at odds with the way we handle CPU features in KVM/arm64.
+
+Ignoring this ioctl, the goal is that after KVM_ARM_VCPU_INIT the vCPU
+is initialized to the maximum possible feature set. If userspace wants
+to de-feature the VM it can do so by modifying the ID registers.
+
+OTOH, your ioctl is dealing with something structural in how we
+support PMUs on the system. It should be defined as exposing all fixed
+counters that we support on a given piece of hardware. On systems
+without FEAT_PMUv3_ICNTR, the result should be a vPMU that only has the
+CPU cycle counter.
+
+On a system that has FEAT_PMUv3_ICNTR, userspace can still use this
+ioctl and explicitly de-feature ICNTR by writing to the ID register
+after initialization.
+
+Thanks,
+Oliver
 
