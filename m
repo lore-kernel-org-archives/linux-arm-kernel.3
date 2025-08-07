@@ -4,76 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A91C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 19:20:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58282C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 19:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTJAmK/RuqPGqNceQRqXn7WqL1onxDBkB7rg1B+KpRc=; b=kDm1sCVOqETtXZhQVRtLy1FvLL
-	RbsdnHgerCOj+zZjrYTColdi+YDW+pAuxjW7yNTTwRecKP1NJpTaXY72ZJrefAyKcak0yUIsA9lbr
-	F52Kt6gUYhEeT8ySpMqAwuMtIFANf+9QuZ/E/OfTty2+d8ewIOK/kpW6w3ve0QKua9hC0fSpZrTM9
-	RngBawh62iJZoIZN78bLqAk39eBSrYo7XV4QfUtVcOa6Fc6hBO6Hzlb4tQhgFEOhdePUMtatrUP3I
-	SZvlgMm2f1IzzUbpYGIEs2PG4cqBpuhKUxxo4BWiPE+bXfleO94QVVbX73p4f59K5zZ+H7TuatiO5
-	3Owiti8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=LFTGdFdrwPEXp/07Hyvbq3e4qPYS7VEbCtDeVMipK3U=; b=RYZMR0e/XYx3ZmfK8x9Cg6ZEEV
+	1Fs/4YXZIQBZx6uLg3PROuOKf7hQtdry3BuOMdrACNDOwCGZmnfoW/VugcI2WOuJIBm35nJfeQ/yr
+	d9tFiaei15tKducTQ+GbVGAgUvgX34xcVQ806ZWuglLPPcO7/ZaNcdEhlpPQMhfpckB0GwtE1A7cA
+	YamiZmS54rcSd0gcTY7wmhxWBdasPcv3NNTzhA1HB9m1/ucwK2eigOjLIIsv17IUbtvynZf5UNFXW
+	fdWdBVTsRBwT1Vfm4VNStJGh0ED26eEXOyJ+H/lHIv4ejd59UdvDayDrbsZL0by00xmDcoBspsckg
+	5rBKur9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk69x-00000001OVr-1rbu;
-	Thu, 07 Aug 2025 19:20:17 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uk6CR-00000001OmU-0mSA;
+	Thu, 07 Aug 2025 19:22:51 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk67Q-00000001OGU-0RHj
+	id 1uk67Q-00000001OME-1BO2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 19:17:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=VTJAmK/RuqPGqNceQRqXn7WqL1onxDBkB7rg1B+KpRc=; b=y7R35GghiBYgAKpVICZVirOPT8
-	5h7mM1XI90jlP/RPcoTWrygIdPQ5PPobGdFATPVC/YraPpasd6kXlCDSjNTBnIoiqUY8Cn4+tMuNL
-	7ZIjqwrvBr9hqELYrBOGgZxqq5XmvoXEXPTA5clZE5gc4/zm4pBZXQKhckgw2gyJcFFyBhciRfv0U
-	DuE/L63jFzmVKau62VmE6UIC0k2aOX/TUlgheRn9goZuadMp72U5CoYGE2bPIh/Rv5z4+j/6rmGki
-	JBIwT1/sfM3o3toZHau7DVYhIPrhQhnnn3XzL2Z5U8Nr+vZ0uXd5ybIaM2OMr0J7/wgiJxhjRWvjO
-	0f4MKsGA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41228)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1uk65A-0006V3-1m;
-	Thu, 07 Aug 2025 20:15:20 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1uk654-0008LM-0X;
-	Thu, 07 Aug 2025 20:15:14 +0100
-Date: Thu, 7 Aug 2025 20:15:13 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, David Wu <david.wu@rock-chips.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net] net: stmmac: rk: put the PHY clock on remove
-Message-ID: <aJT7QTzT_AHmkS6H@shell.armlinux.org.uk>
-References: <E1ujwIY-007qKa-Ka@rmk-PC.armlinux.org.uk>
- <20250807183359.GO61519@horms.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250807183359.GO61519@horms.kernel.org>
+	Thu, 07 Aug 2025 19:17:42 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-76bd041c431so1401904b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 12:17:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1754594259; x=1755199059; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LFTGdFdrwPEXp/07Hyvbq3e4qPYS7VEbCtDeVMipK3U=;
+        b=0WZ5Qm2UlbZJbvuhNbFT2tjCCs/SimXVKR5YelfWKLxsPhjDMDQj77i9RL075EosbH
+         C/P9bstGLMo14WmVhkeP9NeM2rUA3kVikE+LNJyzDKr+FWIbwANlGEx/xTkoJ1jb8BtE
+         TUbfWnYkPR8I5JSbYKZgWSYB2zM6+/PfgYLSg9kepLUwJJcvFoMAM83nCN/v3pb3j6bp
+         Bc/nwvSJ+5mXXLIczFWnbFneAFCq+duJVZg1iGq5TKx/dirpC5FtKAAdhNQZnlV/tlDh
+         8OpRqbp5KlHZ07sLg7q7L7ejZm7+gS1ktlaL/UuNjegOd3sY7o7ws8sOhH0V5kCxUoCE
+         KxwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754594259; x=1755199059;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LFTGdFdrwPEXp/07Hyvbq3e4qPYS7VEbCtDeVMipK3U=;
+        b=h8e239oaE0D9r9724+lYmSy9iE6AqJhdHJ81EwC9u3QF/pD78pa9sBAaUKoKjWlEaW
+         O1kUQgMk7hDlGHb8OivXUKb6KEArKlDND3QxXgn0SLO+NV3leXQLyy/NRE6kwZmfC9mW
+         TlcMIVoPQGA3IovXqUFt/BxOkBLYHqXyMgwvzlt68H9MGVa/BQNeix46ExVPwR1BwRo8
+         59AJaeC9EUJBYXLkwBZBobwRBoLc33bBuRG8h4EjM0PuQuZDj2gC9G3AWGxyQwlKnfRw
+         Ja6APxYfblnNtv5QZdoVJXsXmIsmP4cd3WNDdRfThf6fBBL/989nTQwC355T3hTeLIVn
+         9Y3g==
+X-Forwarded-Encrypted: i=1; AJvYcCX/6K9d41CJdoh5ci93BQTfPEPuqJnOFuIrD9Qhk6TmEm0PgDM7cu74uM+55twAZztMrSfztuyj2WtL8Qvp8oJO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzUxyhVsQb/sYBOr+xxUv2GtY34Lb97sqpjJA4OmWuzx2IcVyM
+	H7TXlWceeV46daLnKGtPPT8DCRtOCDfxEUwY9lmUvf0ozQ3ACLoYpD53mCXZw1LSvUQ=
+X-Gm-Gg: ASbGnctxC9fT0uuoSfI4uACpfTY/2ngZ66F6X8fwqjNFqQHxV1xj+V7N1adXvKq4cpn
+	3vpyouGo7zQxL/hQWq+Wtz/qA+wuD9B29glsnyz9BSfJswgR4EGJnwUCZuT/y+gAIUn/6TsZg8K
+	8AgkLf2NH1sdN7IIAcAFzdauACI7hSuYpBBaq8bj49nrxUBlwwYrB9OfFqAi3t/ccJdu9TcM6Vd
+	AHuLdFr9mbhpwyhx2eH0NvToLhcztB3mHxE2SRkDnKZVnFm512z9Uy4g8rah/hfmpIHTl/TkqzR
+	t4Kenwog4dRojge+SGRnpaYwkCbJ5qLSTdOcxTzuVBiKo93VwtzoWCzcuDUcTXu8RBtkMzdx151
+	5no2+N6cfSgU++M5iiNcPICGzkQ==
+X-Google-Smtp-Source: AGHT+IHNqjBzNa6x9y5nuMTjhL/RlmBkISPYGPU0iPpiI2kbUCaUjEOs8chag9KSPSg5MZtZ2aU0kQ==
+X-Received: by 2002:a05:6a00:80a:b0:74d:f997:1b45 with SMTP id d2e1a72fcca58-76c460ad057mr415274b3a.8.1754594259196;
+        Thu, 07 Aug 2025 12:17:39 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::4:30b7])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-76bccfcf5f7sm18719092b3a.88.2025.08.07.12.17.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Aug 2025 12:17:38 -0700 (PDT)
+Date: Thu, 07 Aug 2025 12:17:38 -0700 (PDT)
+X-Google-Original-Date: Thu, 07 Aug 2025 12:17:35 PDT (-0700)
+Subject: Re: [PATCH] arm64: Expose CPUECTLR{,2}_EL1 via sysfs
+In-Reply-To: <861ppn9fbw.wl-maz@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+  Will Deacon <will@kernel.org>, oliver.upton@linux.dev, james.morse@arm.com, cohuck@redhat.com,
+  anshuman.khandual@arm.com, palmerdabbelt@meta.com, lpieralisi@kernel.org, kevin.brodsky@arm.com,
+  scott@os.amperecomputing.com, broonie@kernel.org, james.clark@linaro.org, yeoreum.yun@arm.com,
+  joey.gouly@arm.com, huangxiaojia2@huawei.com, yebin10@huawei.com,
+  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Marc Zyngier <maz@kernel.org>
+Message-ID: <mhng-D7782B90-52E0-44DB-89A8-70079A8751E7@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_121740_143424_67681FD2 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20250807_121740_562958_4D616252 
+X-CRM114-Status: GOOD (  45.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +102,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 07, 2025 at 07:33:59PM +0100, Simon Horman wrote:
-> On Thu, Aug 07, 2025 at 09:48:30AM +0100, Russell King (Oracle) wrote:
-> > The PHY clock (bsp_priv->clk_phy) is obtained using of_clk_get(), which
-> > doesn't take part in the devm release. Therefore, when a device is
-> > unbound, this clock needs to be explicitly put. Fix this.
-> > 
-> > Fixes: fecd4d7eef8b ("net: stmmac: dwmac-rk: Add integrated PHY support")
-> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> > ---
-> > Spotted this resource leak while making other changes to dwmac-rk.
-> > Would be great if the dwmac-rk maintainers can test it.
-> > 
-> >  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > 
-> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > index 79b92130a03f..4a315c87c4d0 100644
-> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-> > @@ -1770,6 +1770,9 @@ static void rk_gmac_remove(struct platform_device *pdev)
-> >  	stmmac_dvr_remove(&pdev->dev);
-> >  
-> >  	rk_gmac_powerdown(bsp_priv);
-> > +
-> > +	if (plat->phy_node && bsp_priv->integrated_phy)
-> > +		clk_put(bsp_priv->clk_phy);
-> 
-> Hi Russell,
-> 
-> Something seems a little off here.
-> I don't see plat in this context in net.
+On Thu, 07 Aug 2025 11:06:27 PDT (-0700), Marc Zyngier wrote:
+> On Thu, 07 Aug 2025 18:26:29 +0100,
+> Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>>
+>> On Thu, 07 Aug 2025 01:08:26 PDT (-0700), Marc Zyngier wrote:
+>> > On Wed, 06 Aug 2025 20:48:13 +0100,
+>> > Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>> >>
+>> >> From: Palmer Dabbelt <palmerdabbelt@meta.com>
+>> >>
+>> >> We've found that some of our workloads run faster when some of these
+>> >> fields are set to non-default values on some of the systems we're trying
+>> >> to run those workloads on.  This allows us to set those values via
+>> >> sysfs, so we can do workload/system-specific tuning.
+>> >>
+>> >> Signed-off-by: Palmer Dabbelt <palmerdabbelt@meta.com>
+>> >> ---
+>> >> I've only really smoke tested this, but I figured I'd send it along because I'm
+>> >> not sure if this is even a sane thing to be doing -- these extended control
+>> >> registers have some wacky stuff in them, so maybe they're not exposed to
+>> >> userspace on purpose.  IIUC firmware can gate these writes, though, so it
+>> >> should be possible for vendors to forbid the really scary values.
+>> >
+>> > That's really wrong.
+>> >
+>> > For a start, these encodings fall into the IMPDEF range. They won't
+>> > exist on non-ARM implementations.
+>>
+>> OK, and that's because it says "Provides additional IMPLEMENTATION
+>> DEFINED configuration and control options for the processor." at the
+>> start of the manual page?  Sorry, I'm kind of new to trying to read
+>> the Arm specs -- I thought just the meaning of the values was
+>> changing, but I probably just didn't read enough specs.
+>
+> The architecture defines a range described in D24.2.162 (in the L.b
+> revision of the ARM ARM) which is reserved for IMPDEF purposes.
+>
+> What these registers do is not defined, and there is no standard
+> across implementations. This really is for chicken bits and other fun
+> stuff. Most of them will simply generate an UNDEF, because they don't
+> pass the decode stage. But for all we know, there is a bit in there
+> that turns NOP into the HCF instruction -- or better.
+>
+> So exposing any of that stuff for any given CPU is dangerous. And
+> exposing any of it on *all* CPUs is a bit like swallowing a powered
+> chainsaw (don't).
 
-Already have a fix for it, thanks anyway. Today ended up going awol
-due to dentistry stuff. :(
+OK, makes sense.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+>> > Next, this will catch fire as a guest, either because the hypervisor
+>> > will simply refuse to entertain letting it access registers that have
+>> > no definition, or because the VM has been migrated from one
+>> > implementation to another, and you have no idea this is doing on the
+>> > new target.
+>>
+>> Ya, makes sense.
+>>
+>> >> That said, we do see some performance improvements here on real workloads.  So
+>> >> we're hoping to roll some of this tuning work out more widely, but we also
+>> >> don't want to adopt some internal interface.  Thus it'd make our lives easier
+>> >> if we could twiddle these bits in a standard way.
+>> >
+>> > Honestly, this is the sort of bring-up stuff that is better kept in
+>> > your private sandbox, and doesn't really help in general.
+>>
+>> So we're not doing bringup (or at least not doing what I'd call
+>> bringup) here, the theory is that we just get better performance on
+>> different workloads with different tunings.  That's all still a little
+>> early, but if the data holds we'd want to be setting these based on
+>> what workload is running (ie, not just some static tuning for
+>> everything).
+>
+> In general, none of that crap is safe to turn on and off at random
+> times. You really want to talk to your implementer to find out. And if
+> it is, the firmware is probably the place to handle that.
+
+Ya, if it's generally not expected to be sane to runtime modify these 
+then it seems sane to just hide them behind a firmare interface.  Then 
+it's really up to the firmware to proactively expose the bits that are 
+useful, and it's inherently vendor-specific.
+
+>> That said, part of the reason I just sent this as-is is because I was
+>> sort of expecting the answer to be "no" here.  No big deal if that's
+>> the case, we can figure out some other way to solve the problem.
+>> Happy to throw some time in to making some more generic flavor of
+>> this, though...
+>
+> I have no idea how we can achieve that, given that there is no
+> architected definition for any of these registers.
+
+I'd basically have some interface for getting/setting the registers that 
+the kernel exposes (gated behind whatever tests we'd need to make sure 
+the registers are accessible), and then some userspace program that deal 
+with the implementation-specific behavior.  It'd probably just devolve 
+into some database of known implementations with what the bits do, with 
+some attempt at mapping them to generic behavior -- though even that's 
+kind of clunky, as something like "this tunes some prefetcher to smell 
+different" doesn't really help a ton.
+
+If it's a firmware-gated thing, though, then it's probably going to just 
+end up as some vendor-specific firmware widget that we go fumble around 
+in ACPI to mangle...
+
+>
+> 	M.
 
