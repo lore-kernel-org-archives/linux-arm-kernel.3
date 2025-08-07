@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7151C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  1 Aug 2025 07:12:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337DDC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 11:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=c8ULTO9RcU8KETwiMOBzfaheYWRJeLf8x+TFxOvGL1c=; b=sr9cOk9IPYfohveO7INNs2hlco
-	e5wQImMUYKwgauJwEuAq4dVaxPRJV2keSps6w1SKUM9Lgp3D9MsRcOvRFEN+LuP4mcNVbvureamaE
-	KUFkeQUeSG7CYwSB5RCRjmT/WpasLk3isM4mW91v09HCMlYZVlODzUDqE3IyoBVuc3bebDk5IbX6s
-	HnRP2kf7YFE12nIk+qFadrcNERa6wIzyqXICsFAp0aOJGztQR8wIajGxKupfmms6m+lVe1OEwKrRY
-	6qvXbv4mSWqL5EuaH5A8QCAPhV3I1ypRNoINOmwmoXpN7FIenuJBndWTwnhC48rLRyOAqd4vd9bqF
-	9zr81DgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rj6DipUsOyvMZKPZE3nzhUz8hwwRWIeek2sdPfK3r6U=; b=IAdGE8HjxJiBFeeQ4bfEQVN7Os
+	RgH1PRnbOaBC/70BmXBNz2ADXQEPnh2BUomGpexVvMSXYR802ri3L6+kte3aM7AvIwy8cpt8cplCq
+	HF/Gx1f5VVD9SN/FD2dABOtI7Qs7a3wUUZd12Zu8eAWxbcWwl0mnLXPfh8LLKxgav1NORTY6bq1d4
+	I1zqjd7sfrVD5lH57QPfrfxGibZpSd5axwI7+qJ60fAfVkAAhBY62al+auRUPCnGhT1VsPQ4piS5r
+	CybO+h4HLl2bG0Fw41s+P5Hpzk29gn8FlxJvEDmB7L3LlCqPaaPkez+3Df6vTJ9x1EdmyIs8ji9+s
+	gnIEongg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhjw1-000000056lN-3Ec7;
-	Fri, 01 Aug 2025 07:12:09 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1ujz3r-00000000QBU-16p8;
+	Thu, 07 Aug 2025 11:45:31 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uhjtP-000000056Fq-0mtt;
-	Fri, 01 Aug 2025 07:09:28 +0000
-X-UUID: 712ed3c66ea611f09eb0dd999d3936bf-20250801
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=c8ULTO9RcU8KETwiMOBzfaheYWRJeLf8x+TFxOvGL1c=;
-	b=XZD1SFxU9baAbs4qMapA0/0GhP8rDrS2YoTAdARN3IG4QmvnNSUfLRSduf7bXiQW3CUh5wTgprpM5AWnesjQj4dgVxHhIJkf5qiEv+8S7Q91kMVbrFNChdd1340MNFm2T/CtNyW8yhmqY7BSWOLvwpHHmH8IHoUFW6zBLfy9fCs=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.2,REQID:f7325955-bdb1-4d66-9e83-4dc9fe57fd05,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:9eb4ff7,CLOUDID:14577f9a-32fc-44a3-90ac-aa371853f23f,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:-7|-6|0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,USB|NGT
-X-CID-BAS: 2,USB|NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 712ed3c66ea611f09eb0dd999d3936bf-20250801
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <niklaus.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1711311162; Fri, 01 Aug 2025 00:09:19 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 1 Aug 2025 15:09:15 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 1 Aug 2025 15:09:14 +0800
-From: niklaus.liu <niklaus.liu@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Liam Girdwood
-	<lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Flora Fu
-	<flora.fu@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>,
-	Hsin-Hsiung Wang <hsin-hsiung.wang@mediatek.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, niklaus.liu
-	<niklaus.liu@mediatek.com>
+	id 1ujz1M-00000000PlX-2M76
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 07 Aug 2025 11:42:57 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-240763b322fso9384525ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 04:42:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754566976; x=1755171776; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Rj6DipUsOyvMZKPZE3nzhUz8hwwRWIeek2sdPfK3r6U=;
+        b=Ta1wFtLNnp+Ush/Z1WDCtAH870xjsbdWYHXxXCUl10HPEFCqcQaIuryRWERD2C1PNT
+         FX6RPjKWZD+KN2pyQSw6ODkaE/q07wI0Vunuw2WiRckHsSqD8cnmtRITIY4C8OMUezba
+         RYKUDGUzW14cJDjoXTWEsC5yC1+yzp2+TgdDzxrVYKx9+aqGdRvkoJ2D7y8sxIUzSzi7
+         Z2t0DDJ8QARPwexzHMokIN78vYwRnMVtjyA4EaVgOJF5Q53QSg2232O/bSrE3HCiCnM8
+         5rHYImrs7Vt7CHzwMeeG2kJ+Vkx3FtTnsKJnTyXFEJzul9LC+jZF3kk3wieFIXJiE7Id
+         MLyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754566976; x=1755171776;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Rj6DipUsOyvMZKPZE3nzhUz8hwwRWIeek2sdPfK3r6U=;
+        b=ubzUcDcCMeY5sV9iKBLqlMLebAkaRlxWIdMoVbS9TiBp+tKl2kXMabLH/5qsVF7HEi
+         ifL8of8jm2RUmEA8SGmVVS1Y07wQmkqhG5yulj2cOCzw5hWVK4wxZRTChkLx80lpp1A/
+         Tbx6sEbsHma66KRgs1VHBX0pLvidoxendXMiQ4KQH0af8kYQnHczjvVE9fL4YbB1Zzrp
+         L/I34sBBo9vDg9iczrsRocurAdDezzW8wfJ876VN2DueYTgPC+oDUfQliDwG1kydTPki
+         DC3fAWaCyQAMDlTTLYNj6Is4vhE7LDzH0lVxWdFs5IHBl5c1WvX+YIIhnVdykHmPHTQq
+         Akog==
+X-Gm-Message-State: AOJu0YwcViCNLlZo5nbheM/r3RvX4sOD8WtrTkALrtUDX5AaH3RTlT6c
+	81CoDtdZNd5qx6c6K2mWifZC/ViPzPPC4dHTlFOxbWshksCvcF9Zh4WR
+X-Gm-Gg: ASbGnctzoapvKyDmeTazRJnwbEc4wAo0wzF/YR/fYPggROEKNuIuR6xmWTf92AopPeH
+	RuamJyBysKrb/3hrEufawmiyANNREoSzWl2vo1x8afgl7vlNrzr4a4IqMjKkoyPNvbHTk0Nz0qt
+	uhXzDmqHSQ4gNyhVq20U/5/W9hZ6g2CY7JKTXHSQzim7fno9/kV10Nd3LMbZJuFqa6h6MzF6aiL
+	OnBiosjCblGvUzwK9JyYE6b5czar1m4aaeVRUPlSqXE1DX/XckAvDXgUtSNUcXSgUKfbQLOImd7
+	c/WvxTyEjedNMiuqpLosjy2NZfVjdyq9cHK/PGobshQ9YeP9griKGooGG5qttfl9eZK0F12LjGR
+	O1HZDZeXakDizN7y/MwlwBlwEOnTQArp3
+X-Google-Smtp-Source: AGHT+IG3ZtqzKCP06yrA47lTy/NFZemMNJP3yjJHpioJcwNNrqfVvMG+/ltRnnS5KI5VbeTgXna0iA==
+X-Received: by 2002:a17:903:22ce:b0:240:1831:eede with SMTP id d9443c01a7336-2429f51e3c5mr118816725ad.32.1754566975705;
+        Thu, 07 Aug 2025 04:42:55 -0700 (PDT)
+Received: from server.. ([103.251.57.229])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1f21c65sm185729405ad.73.2025.08.07.04.42.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 07 Aug 2025 04:42:54 -0700 (PDT)
+From: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+To: anshuman.khandual@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shuah@kernel.org,
+	broonie@kernel.org,
+	yeoreum.yun@arm.com
 Subject: 
-Date: Fri, 1 Aug 2025 14:39:34 +0800
-Message-ID: <20250801070913.3109-1-niklaus.liu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+Date: Thu,  7 Aug 2025 17:12:28 +0530
+Message-ID: <20250807114247.5915-1-reddybalavignesh9979@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <005af416-66fa-4222-964d-e20bd2eccb7f@arm.com>
+References: <005af416-66fa-4222-964d-e20bd2eccb7f@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250801_000927_226329_10035335 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20250807_044256_599201_83FD172C 
+X-CRM114-Status: UNSURE (   6.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,24 +104,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Subject: [MT8189] Pwrap/SPMI/regulator driver
+Hi Anshuman,
 
-Add support for MT8188 Pwrap,SPMI driver,add dt-bindings description related.
-modify mt6315 regulator buck function.
+Thanks for the feedback. I've added the warning text to the commit message
+and included the Fixes tag as suggested.
 
-niklaus.liu (3):
-  dt-bindings: mediatek : add binding for pwrap,spmi
-  soc:mediatek  mt8189: Porting driver for spmi/pwrap
-  regulator: Modify mt6315 regulator mode mask
+Patch v2 attached.
 
- .../bindings/soc/mediatek/mediatek,pwrap.yaml |  1 +
- .../bindings/spmi/mtk,spmi-mtk-pmif.yaml      |  1 +
- drivers/regulator/mt6315-regulator.c          |  6 +++++
- drivers/soc/mediatek/mtk-pmic-wrap.c          | 27 +++++++++++++++++++
- drivers/spmi/spmi-mtk-pmif.c                  |  3 +++
- 5 files changed, 38 insertions(+)
-
--- 
-2.46.0
-
+Best Regards,
+Bala Vignesh Reddy
 
