@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699F2C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5735C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 14:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9OzOvhq3GmbvaBtGUgAaXSZiV6ZbsCylTW2ygbBRF/o=; b=wV9E+YOG7CXgZ1Y3gAwp4FDlHO
-	HCthaXXipsaKeNXi+Zq2zYd6eWz93Gt3CamhgWPu4QGsrR3z5XgA8N8Fi1Hy5cRyZQ39TJr/mcjEr
-	fdx6MZFZ1byoiCNSHKFYLRfyQIOFGV44JQ5S7uhiOWoiWhKL7XYZFI68AjSmtQn4ZHCdGW1t22qSC
-	Sg/8NmJ8/hUmtcoobm6EQANAS/xiitjdiMuAVOISmiQYEtEIFF9rR6o/tElDsbp2qSBCSdMHFRQKK
-	hfM/q31clIv9vWkdJp0z1FGd1VANkUB0aJMmNibiMQ0LPXuAruQ7OUfmsCSJIhiD+DqrjmTlyZAGR
-	8q7/mQOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CDQjd7e1dEINU3xXqkIWXUzUoOcvOxZ9G/ybcyRrH1s=; b=qlA6ME1fo5wGt2HZ2xq0MYZrjx
+	tGdKDBixLbvkKur3x1QKaW1bMnUssuF+6+HiAmeGLXqMu4NJbE5fqr7Alv37IkqKIaUFj+7jkU6l6
+	e8kfYPEHuzqEyHMDVTdXwU9HV2+WHxwpJ+/XWtJri7d1LiI2vaWwrloM/cLxu8U2tYQz/f0F5cp2p
+	HYMs0fJP7BU9AxGjuLg0FTdpoUc8/0GHkinroVklvDylTbJzxS2BFcX1pKDEYzru9i6VoH8q2LLHN
+	dXk4TwdPYXUEqqUeut4X7WuzmEI0vQl6FMMafF15T8HooI0t/lgQ/l4h8o7+tOAiFETHC3fT7HaXI
+	bLSSl3yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk20h-00000000t2T-1Bgm;
-	Thu, 07 Aug 2025 14:54:27 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uk24e-00000000tby-2r9P;
+	Thu, 07 Aug 2025 14:58:32 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk1xp-00000000sci-0RHt
+	id 1uk227-00000000tKi-03FI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 14:51:30 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-76bd2b11f80so1155274b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 07:51:28 -0700 (PDT)
+	Thu, 07 Aug 2025 14:55:56 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3b8d0f1fb49so622754f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 07:55:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754578288; x=1755183088; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=9OzOvhq3GmbvaBtGUgAaXSZiV6ZbsCylTW2ygbBRF/o=;
-        b=NVeHCUCKKriuS2koZNYsumZ6QlikOtZnhn72uPq2TD/fXFR0R0F4i7SUDNBHR0RMuU
-         jxlZtWcI7c5shmU0dMRyZ/mrAn0vPCm00KDEsb4BfYBLnRVe/gn9FEd/enItGzd7Ihk4
-         dJ9eNn6hvHJNQgb1DLlnDMxUah+27pJeO5DFdmZ0ryRsDjjddDNDe5Ymgt2lo87lpC8U
-         MLt3PDMpnhLU9I16fELsjvFHvoXI28XMRnmJjp4zgH6SqzzMKaYRrgaCOZ6tS85ppMoQ
-         LdcUyeKNyGwcfopZ/NaAE3wTUu6GtgTCYE9m+lUbaSh71ZHf4rEbTezhZ+Sjr4rACll8
-         6IIg==
+        d=linaro.org; s=google; t=1754578553; x=1755183353; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=CDQjd7e1dEINU3xXqkIWXUzUoOcvOxZ9G/ybcyRrH1s=;
+        b=b8zUi6n+RTgTq+y8iRoO6w+yZh/X15n3uExDb3Nhlw9atHquD6TIH1w88WztI3PL0X
+         i3z+CSDnbOnihPUsUex/9ZMsamdJJ4E5eDITaPfawtZDQrEPhMi4K1Wp3RBjkVrLkbV1
+         COxECOa8f58lGJNyhfJCKNcQqEDHLOOxtcP576dg+4pTAKNSGZLC50TSVcDfVLjPtPDI
+         75DxOzal1q85ulOiYHZsmSkDtKzMQ5AYMNuUhH9NVAoMeqv9/zNOwioP5wwwF+Q9mhAV
+         Zvxu9FAEC+6F7/IKoX7/6TxJlNuTGWw9oNgnFDWIGpmfiQaWeD52vLqor81dsNzfKRg+
+         TZfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754578288; x=1755183088;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9OzOvhq3GmbvaBtGUgAaXSZiV6ZbsCylTW2ygbBRF/o=;
-        b=h7aOPrjHuwxA/O4rQczcZVuzzCLp8KcxYjt8AWqeiZzhT2AVJbnL0waUb4ElhbQKNk
-         A1iWyVkROpcXvTyZvZHV5pc7XT0aLgRBV+F0Pi/YHvNEzGWsYn7joCTaeCjuQHDfClfy
-         4ZLFk915Q+q+VafCWYV308OmN5DRGjtVF60X3UMM+GGXNum376VoJQEgL4Y9j9uaY+O0
-         a7EKAi8hRU97w4ptoS3+iqseynH0LYjwUs3+1k+1WlXsr9Er9sUksOOeANBnVFmxlJBw
-         r5jPCY58Q1yyyJcY2LLk8asaxoVFF/SmdPwRpMOgnNACzAEWJ//3Rn72a4TK1iI1zbLF
-         zyEw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsxKzQAI4woy2m8q1NXL6b1KPFhY5DhGyW/8zYvdN8aYNCBRFD/OFzhnhyjJKoEnFE+b1CAm8cybJm6NLnbcf3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVi9wlivz+PburhKdvMMYGjN/gAj95+ICVttqPPPnvaaoodQeu
-	SnykKFAEYGHp6eglOfU881zELgkxBPKk6Gko+UaLGeOEMfcmLDC8HFrCmbXk5CZG0OY=
-X-Gm-Gg: ASbGncsYYIuqZWF0E1I8V7PCBbFGTC7u5U6vk4bq8lju/Cs6MeTRWRCVLuulX95czAo
-	XhqNHturAhn5UtQzzutWz8n7RJTcVxIwk9+aaPxJqwc/2As2lgrCG6Q/AymtfCOXzCSMCi9k0G0
-	w6nlrigWrzO61UcViAFGcEufdubgjp9KRX0MkiIWdNcqhROccWfpVFQzcW3+1GqP7zUSTF6rjR+
-	pAiDiXdLTt2+7qVTwKcD2Uflo3TyQp/vU45jX5FwQ7oCGH274j7shjH++Pz4I/hJov8jNw1aNSz
-	UW/hR3LdiH4PAZgd8QPGUSEryFJFClCAv2N0p7jR8b4aLTCoCi4yLsoZ6uKqVHJhoqhNjZFaHRg
-	pMSRI2wh6lLdqaJ+dHDhsE59gi4AY4E5qnkKCmGv6sImdyMdseHvCxraTJ/zpvAg=
-X-Google-Smtp-Source: AGHT+IGtphOkrCppTiHiV45+Qe9W2hQNmX+FpcoXnXXadWOHWcmzG19NrBZWjxt3jESoe+Rbd+mthQ==
-X-Received: by 2002:a05:6300:210c:b0:23d:c4c6:f406 with SMTP id adf61e73a8af0-2403159487dmr11371637637.43.1754578288227;
-        Thu, 07 Aug 2025 07:51:28 -0700 (PDT)
-Received: from ak-workspace.tail730999.ts.net ([49.207.200.134])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b422bac0d6csm15569174a12.38.2025.08.07.07.51.25
+        d=1e100.net; s=20230601; t=1754578553; x=1755183353;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CDQjd7e1dEINU3xXqkIWXUzUoOcvOxZ9G/ybcyRrH1s=;
+        b=gcQJg/s9iFo02Wh5iqYWs4q2jb3PGTrya61rifTJniXRSb6sArsyeVFSUu/u5Gdrwe
+         2j7qj74gGJ6yrBDffCvD6gdnWRR26reibILYONqsh43CO3FiqwLjRi2m979YqIMtkaq5
+         05kkr6wJMdsho8JEL/+GLndkbJz/BhZI22Iibh4zumFpCgOBdKNfly23o/OfjldbVsAk
+         iAh6OyNxCNi/6mPqwtZ8HEdI1EILZDGKFwk86XpZD6mIEZWjO+8PSA2kkpSe7Lodwfbs
+         c4YwPFg/rcWiVKDZ2dN+WRKM6kuoNWxkdsts5H4Mp9nsaxyLbIPNMZ2VVRYzcPngoxuy
+         QWNw==
+X-Forwarded-Encrypted: i=1; AJvYcCUN1JqqqYX7RPvUhcLKxtfRWSy0QHNrWpQs/9AJ1vyfZ1XyY3y1JYuzglu/n0DD9TcsgXEfLmjmlLIVrKDOVtJG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8zb07ADTtmU6GjUt30POxEPlKKuOLGcDCTit5Utnn2JkSox5v
+	QcQECLTC07LRJXouOy4npWW3ttni/PFDGARHS0zHxVrWVrGIX5oUuT95KNhwcwSwvwwg7UvbBks
+	KA8NZ
+X-Gm-Gg: ASbGncvPWwH4AZAav2ExzK1wlkBfNbwCfv73NzjE1nGRheiMsFHxCdy5qlrFH2O6HiX
+	xPnw4HYSw+PBh92FgoBHwBI9x0f8GkaILuKWgs/vRhEju57Da+UcWxn86uQRnp4vDT9LAobnGaZ
+	+O9nHfL6WkQ7z4cf4+pDh2U4Z47i9qMypeXeQvmcLZWffI0cRDIdzMJ6z8d54uyDSw9eVkWNVYR
+	L3qsgZTis5Q+EFFJz57tY+veBbEIg2YUsyZvIbqjvF/s+tk/SNSWi51Zp3Cnqh/wrAzru2Hewis
+	0aFbiC3TzMxHFvtYuak7LxplCw0t1C62hOGG0ghV4vkmcnM5w694XhmA+zjQtkbdkQOB4wdxn4X
+	6gFHKy/t4zR6/chimgfmUIE829lZE2iLu
+X-Google-Smtp-Source: AGHT+IF6NY9gxXA7JqfnA4KnwXRga6feyk2kpV11UBsAGyAtweNaW4JjSHV3HQL5tmgX7CEyEe756w==
+X-Received: by 2002:a05:6000:1a86:b0:3a5:8a09:70b7 with SMTP id ffacd0b85a97d-3b8f41d4363mr5608855f8f.38.1754578553343;
+        Thu, 07 Aug 2025 07:55:53 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b8fc6ef28esm2353171f8f.60.2025.08.07.07.55.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 07:51:27 -0700 (PDT)
-From: Akshaykumar Gunari <akshaygunari@gmail.com>
-To: corbet@lwn.net,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: linux-doc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Akshaykumar Gunari <akshaygunari@gmail.com>
-Subject: [PATCH RESEND] docs: arm: stm32: fix typo "busses" -> "buses"
-Date: Thu,  7 Aug 2025 20:21:19 +0530
-Message-ID: <20250807145119.2214-1-akshaygunari@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Thu, 07 Aug 2025 07:55:52 -0700 (PDT)
+Date: Thu, 7 Aug 2025 17:55:50 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] irqchip/gic-v5: Delete a stray tab
+Message-ID: <3a1aa279-718f-4e45-add0-05727ba41706@suswa.mountain>
+References: <cover.1752777667.git.dan.carpenter@linaro.org>
+ <670bb1dc-7827-4916-84f3-bb46ee408b20@sabinyo.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <670bb1dc-7827-4916-84f3-bb46ee408b20@sabinyo.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_075129_143196_B3B37149 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20250807_075555_060150_6F64CD80 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,98 +99,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the spelling of "busses" to the preferred form "buses" in STM32 ARM
-architecture documentation.
+Hi Thomas,
 
-Signed-off-by: Akshaykumar Gunari <akshaygunari@gmail.com>
----
- Documentation/arch/arm/stm32/stm32f746-overview.rst  | 2 +-
- Documentation/arch/arm/stm32/stm32f769-overview.rst  | 2 +-
- Documentation/arch/arm/stm32/stm32h743-overview.rst  | 2 +-
- Documentation/arch/arm/stm32/stm32h750-overview.rst  | 2 +-
- Documentation/arch/arm/stm32/stm32mp13-overview.rst  | 2 +-
- Documentation/arch/arm/stm32/stm32mp151-overview.rst | 2 +-
- 6 files changed, 6 insertions(+), 6 deletions(-)
+Sorry, I screwed up the over letter so it was sent as a different
+thread.  These three patches are still required.  Lorenzo reviewed
+and tested them.
 
-diff --git a/Documentation/arch/arm/stm32/stm32f746-overview.rst b/Documentation/arch/arm/stm32/stm32f746-overview.rst
-index 78befddc7740..335f0855a858 100644
---- a/Documentation/arch/arm/stm32/stm32f746-overview.rst
-+++ b/Documentation/arch/arm/stm32/stm32f746-overview.rst
-@@ -15,7 +15,7 @@ It features:
- - SD/MMC/SDIO support
- - Ethernet controller
- - USB OTFG FS & HS controllers
--- I2C, SPI, CAN busses support
-+- I2C, SPI, CAN buses support
- - Several 16 & 32 bits general purpose timers
- - Serial Audio interface
- - LCD controller
-diff --git a/Documentation/arch/arm/stm32/stm32f769-overview.rst b/Documentation/arch/arm/stm32/stm32f769-overview.rst
-index e482980ddf21..ef31aadee68f 100644
---- a/Documentation/arch/arm/stm32/stm32f769-overview.rst
-+++ b/Documentation/arch/arm/stm32/stm32f769-overview.rst
-@@ -15,7 +15,7 @@ It features:
- - SD/MMC/SDIO support*2
- - Ethernet controller
- - USB OTFG FS & HS controllers
--- I2C*4, SPI*6, CAN*3 busses support
-+- I2C*4, SPI*6, CAN*3 buses support
- - Several 16 & 32 bits general purpose timers
- - Serial Audio interface*2
- - LCD controller
-diff --git a/Documentation/arch/arm/stm32/stm32h743-overview.rst b/Documentation/arch/arm/stm32/stm32h743-overview.rst
-index 4e15f1a42730..7659df24d362 100644
---- a/Documentation/arch/arm/stm32/stm32h743-overview.rst
-+++ b/Documentation/arch/arm/stm32/stm32h743-overview.rst
-@@ -15,7 +15,7 @@ It features:
- - SD/MMC/SDIO support
- - Ethernet controller
- - USB OTFG FS & HS controllers
--- I2C, SPI, CAN busses support
-+- I2C, SPI, CAN buses support
- - Several 16 & 32 bits general purpose timers
- - Serial Audio interface
- - LCD controller
-diff --git a/Documentation/arch/arm/stm32/stm32h750-overview.rst b/Documentation/arch/arm/stm32/stm32h750-overview.rst
-index 0e51235c9547..be032b77d1f1 100644
---- a/Documentation/arch/arm/stm32/stm32h750-overview.rst
-+++ b/Documentation/arch/arm/stm32/stm32h750-overview.rst
-@@ -15,7 +15,7 @@ It features:
- - SD/MMC/SDIO support
- - Ethernet controller
- - USB OTFG FS & HS controllers
--- I2C, SPI, CAN busses support
-+- I2C, SPI, CAN buses support
- - Several 16 & 32 bits general purpose timers
- - Serial Audio interface
- - LCD controller
-diff --git a/Documentation/arch/arm/stm32/stm32mp13-overview.rst b/Documentation/arch/arm/stm32/stm32mp13-overview.rst
-index 3bb9492dad49..b5e9589fb06f 100644
---- a/Documentation/arch/arm/stm32/stm32mp13-overview.rst
-+++ b/Documentation/arch/arm/stm32/stm32mp13-overview.rst
-@@ -24,7 +24,7 @@ More details:
- - ADC/DAC
- - USB EHCI/OHCI controllers
- - USB OTG
--- I2C, SPI, CAN busses support
-+- I2C, SPI, CAN buses support
- - Several general purpose timers
- - Serial Audio interface
- - LCD controller
-diff --git a/Documentation/arch/arm/stm32/stm32mp151-overview.rst b/Documentation/arch/arm/stm32/stm32mp151-overview.rst
-index f42a2ac309c0..b58c256ede9a 100644
---- a/Documentation/arch/arm/stm32/stm32mp151-overview.rst
-+++ b/Documentation/arch/arm/stm32/stm32mp151-overview.rst
-@@ -23,7 +23,7 @@ More details:
- - ADC/DAC
- - USB EHCI/OHCI controllers
- - USB OTG
--- I2C, SPI busses support
-+- I2C, SPI buses support
- - Several general purpose timers
- - Serial Audio interface
- - LCD-TFT controller
--- 
-2.43.0
+Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Tested-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 
+regards,
+dan carpenter
+
+On Thu, Jul 17, 2025 at 01:45:24PM -0500, Dan Carpenter wrote:
+> This line is indented one tab too far.  Delete the tab.
+> 
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+> v2: no change
+> 
+>  drivers/irqchip/irq-gic-v5-irs.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> index f845415f9143..ad1435a858a4 100644
+> --- a/drivers/irqchip/irq-gic-v5-irs.c
+> +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> @@ -568,7 +568,7 @@ static void __init gicv5_irs_init_bases(struct gicv5_irs_chip_data *irs_data,
+>  			FIELD_PREP(GICV5_IRS_CR1_IST_RA, GICV5_NO_READ_ALLOC)	|
+>  			FIELD_PREP(GICV5_IRS_CR1_IC, GICV5_NON_CACHE)		|
+>  			FIELD_PREP(GICV5_IRS_CR1_OC, GICV5_NON_CACHE);
+> -			irs_data->flags |= IRS_FLAGS_NON_COHERENT;
+> +		irs_data->flags |= IRS_FLAGS_NON_COHERENT;
+>  	} else {
+>  		cr1 = FIELD_PREP(GICV5_IRS_CR1_VPED_WA, GICV5_WRITE_ALLOC)	|
+>  			FIELD_PREP(GICV5_IRS_CR1_VPED_RA, GICV5_READ_ALLOC)	|
+> -- 
+> 2.47.2
 
