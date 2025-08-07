@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DCAC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 18:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39CAC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 18:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=T6su/4EhSTEeQ3RIzrMdpMTQS3Ts3FgqkCaCvrRsQR0=; b=0v4aTiBylubJny10KGLBWGRXUn
-	K1ETLDi3F/1KjeSJZI2lTYZAbobnR/EMasEnk9T2plx8zqufY91WgtVeL2oPmYp3w42xYTwytl10v
-	/vL5G57cUdRgv8PDPbYafSY3rQMUr49+sC8d462rGaWl7P2DjRfQuoCPSsGbyUWrVLeJtKVp7zM3I
-	JZknvXaDuiwbnk2zdyEPlsQRu02L4ulROknHuCH0YGEO166faLTI2szXfb6RkixTSLz3SPtB6VEp2
-	ieaNw0+1f6+0tUEBnUEPNPxloVOibe3juozUwTzJsv3595aiyUa9gHSL1y67/ZZ52VEkI39/euJeV
-	iape1HXw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TAz6l3UDWgCMtX4e8sjD43OL0nn2wGHOg4tFeouhaa4=; b=zpayMPjo38aE2qSp4P49WwoGJF
+	oBBpuh2Xz/649H+z+XppU+kKQ28wMGgGbPLF6H6hYrhO0wQJmJJG+/6dbDjPosVcMLI24gazUJYuE
+	0t/HMgANF+0Ui9fpfbFDt272vPMdz4ythbkIrb47Wxlfp1xCUmNI/zEoABo3Vwx5Hi95YcJm8ebg0
+	0YHhJvKVjjQIJlB4TdgP0uuULJLPKV7j47Ahucs5ua1dms27jDeL7HNE8hrEiBfZj7VImiEQ2zx5b
+	w9MnPFj9yKMAuiQVNWIwvxIxIfqGNrDIDm7qzISAeer3U/DfCYiJMA4hWJkrk+AJhogOzmn9Y4Zh6
+	5WRREotQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk5At-00000001Jn5-3WON;
-	Thu, 07 Aug 2025 18:17:11 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk58M-00000001JcC-1HOU
+	id 1uk5NG-00000001Kmk-1bAc;
+	Thu, 07 Aug 2025 18:29:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uk5Kd-00000001KdL-3lDl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 18:14:35 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-76bc55f6612so1359969b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 11:14:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1754590473; x=1755195273; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T6su/4EhSTEeQ3RIzrMdpMTQS3Ts3FgqkCaCvrRsQR0=;
-        b=QBVUAG2DMpnOhvyhtzVKsW6eRNytTIc8OqlOBMaOTQnDLRlmvuYMor2cMHs4XfGn3d
-         Vh5Vxh6RpsBiVO+I+FW0DCx/mz/f8L0IjcaYLBaYT7jJuGjkjNYs6oY1piNXfFUUR4Mx
-         A5teIsS7ec8OPYxKs/mEg8PpvWzgiJNG5WT0PLl9DjtAknE8iCMwquEjZq1UB7TwAQqx
-         /RBWCgvU/MqHBdr2Jb98N/yq5tNCYrvc6uAz9dmvkTxvciAe9BFWFgnVi7u70kDOEiY7
-         eNOJo85Cu5Y+Q8iu+27SeoL0hwbi5/LMY9ywrlEYUkvq+HIiLqyn0FmA5f7UkSWM/Nsq
-         3kFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754590473; x=1755195273;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T6su/4EhSTEeQ3RIzrMdpMTQS3Ts3FgqkCaCvrRsQR0=;
-        b=KAPooDrssKBYHXMxp6bLGdTn1Tg207oJxo+C5EiZ28LglRb25rxqj9XrK5LkQNBYZ1
-         fklM++0TfLDm8vp0qxRDHTPFgaQKQaXeKWmsNkHsG1SNn+N9d/C8thbYSG1iRZygyasz
-         lOm/5d9CJCm3e1+OWaoQhrwbT83jWV9oob72wyM0HdXgo0E6KbnFxrPvXGEGy+eIUDi9
-         HJ/rOs9IY8RO++ZORle1jyGuxX3guqvJgbk8MASVxkFMskCw4cmR8hNpdJtA69CoGK7f
-         FPjFX+C1e19SeL5QX65e8oa5EKgPC1Smi+Jac2P4AUWgMIf7Yg2pxVMYWlRF4UVUSBMr
-         VZ/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVPQbXUtZufhqHyNE2NPj/CRlVH9a8/u/UdEgz4uqTiwR4g40+rz/1A5RJ7xwmt2LploIMNMqUZKh0w4ADQwRX4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2Nc03LnV0kXV/dRHLIkdzy1AS//KEfv2p/DXUis4ax5GvI4Hm
-	YltW7btsgsXuTKwAE3+UpGvDROLu/8kSuq0lJF1pdfLBe7+lwN8zBu+qZBreRCu3J9o=
-X-Gm-Gg: ASbGncsC48e3zxgAlrw/2PhC+qfrS/BetVbXYUDGq++ybumow7686lbmilrt8ngY1ho
-	aDaF9N4vZFaKpsnk80KqfNWJxjsmvj8F4Uy49/I5nsl4hgNfYtiwZXUFA3L6dCq+Y7joLQUdp4A
-	uk45AZDO2bi6fGgsRoY00AzNoFg6NXPQ7fSyCwYR/oFc1oNnW7Hhwz2Bb56PFORWlY1cH2KlT79
-	9sX8dZU5K+AoakyoRst+onZ1vIsyGQUON6BO6sanBFebAZhRMS0/IWKhdDger4uDWwAaJ2Jow9C
-	h1QPcNv4MnBWYWU66DO3B2OXmLdGr9YgQwcyC6KolDlEFCL88+gMNto4uGYWFYWWxCWVlDwd01k
-	CDiFXJi8iQiTKxRR1bEnw
-X-Google-Smtp-Source: AGHT+IHP9EUAhOlvp96atr/vbagfiqpAP24IOcQXyVOv0EdKmDG/UBY89Ef20JFJNMEpZBqO9V2fEQ==
-X-Received: by 2002:a05:6a21:a247:b0:23d:6475:40aa with SMTP id adf61e73a8af0-2404102b499mr7439564637.0.1754590473365;
-        Thu, 07 Aug 2025 11:14:33 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:500::4:30b7])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-76c3f85c720sm1263514b3a.27.2025.08.07.11.14.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Aug 2025 11:14:32 -0700 (PDT)
-Date: Thu, 07 Aug 2025 11:14:32 -0700 (PDT)
-X-Google-Original-Date: Thu, 07 Aug 2025 11:14:30 PDT (-0700)
-Subject: Re: [PATCH] arm64: Expose CPUECTLR{,2}_EL1 via sysfs
-In-Reply-To: <92feb0bc-18b9-438a-9567-a9059a8cb9dd@sirena.org.uk>
-CC: Marc Zyngier <maz@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-  Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, oliver.upton@linux.dev, james.morse@arm.com,
-  cohuck@redhat.com, anshuman.khandual@arm.com, palmerdabbelt@meta.com, lpieralisi@kernel.org,
-  kevin.brodsky@arm.com, scott@os.amperecomputing.com, james.clark@linaro.org, yeoreum.yun@arm.com,
-  joey.gouly@arm.com, huangxiaojia2@huawei.com, yebin10@huawei.com,
-  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: broonie@kernel.org
-Message-ID: <mhng-48855B75-93F8-4CE3-B50C-26D49C2F9223@palmerdabbelt-mac>
-Mime-Version: 1.0 (MHng)
-Content-Type: text/plain; charset=utf-8; format=flowed
+	Thu, 07 Aug 2025 18:27:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D51561756;
+	Thu,  7 Aug 2025 11:27:04 -0700 (PDT)
+Received: from [10.1.197.43] (eglon.cambridge.arm.com [10.1.197.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ACF743F5A1;
+	Thu,  7 Aug 2025 11:27:04 -0700 (PDT)
+Message-ID: <48556d36-947b-4e07-aa7e-602bb9fe052d@arm.com>
+Date: Thu, 7 Aug 2025 19:26:19 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 20/36] arm_mpam: Probe the hardware features resctrl
+ supports
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
+ <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
+ Carl Worth <carl@os.amperecomputing.com>,
+ shameerali.kolothum.thodi@huawei.com,
+ D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
+References: <20250711183648.30766-1-james.morse@arm.com>
+ <20250711183648.30766-21-james.morse@arm.com>
+ <eb8a395c-ca21-43d2-a1f9-739dbdc26dc4@arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <eb8a395c-ca21-43d2-a1f9-739dbdc26dc4@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_111434_348536_3CDD172B 
-X-CRM114-Status: GOOD (  29.51  )
+X-CRM114-CacheID: sfid-20250807_112716_018136_0C65AA68 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +78,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Aug 2025 10:57:26 PDT (-0700), broonie@kernel.org wrote:
-> On Thu, Aug 07, 2025 at 10:26:29AM -0700, Palmer Dabbelt wrote:
->> On Thu, 07 Aug 2025 01:08:26 PDT (-0700), Marc Zyngier wrote:
->
->> > For a start, these encodings fall into the IMPDEF range. They won't
->> > exist on non-ARM implementations.
->
->> OK, and that's because it says "Provides additional IMPLEMENTATION DEFINED
->> configuration and control options for the processor." at the start of the
->> manual page?  Sorry, I'm kind of new to trying to read the Arm specs -- I
->> thought just the meaning of the values was changing, but I probably just
->> didn't read enough specs.
->
-> Yes, pretty much and also because this is in a range of registers
-> reserved for use by the specific implementation.  See DDI0487 (the ARM)
-> version L.a sections D23.3.2 and D24.2.162 which specify the
-> IMPLEMENTATION DEFINED system register range, and the definition of the
-> term IMPLEMENTATION DEFINED in the glossary of DDI0487.  If you see a
-> small upper case term like that in a spec related to the architecture
-> then it'll have a specific architectural defintion.
+Hi Ben,
 
-Thanks!
+On 24/07/2025 16:08, Ben Horgan wrote:
+> On 7/11/25 19:36, James Morse wrote:
+>> Expand the probing support with the control and monitor types
+>> we can use with resctrl.
 
->> That said, part of the reason I just sent this as-is is because I was sort
->> of expecting the answer to be "no" here.  No big deal if that's the case, we
->> can figure out some other way to solve the problem.  Happy to throw some
->> time in to making some more generic flavor of this, though...
->
-> It's something that does come up, working out a way to make use of the
-> tuning in the IMPDEF registers in a way that generic software can safely
-> and sensibly make use of is rather non-trivial though.
+>> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/
+>> mpam_devices.c
+>> index 8646fb85ad09..61911831ab39 100644
+>> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+>> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
 
-Ya, I'd expect it to be a bit of a time sink -- even if something like 
-this patch had gone in we would have had a pile of ugliness in 
-userspace.  I think there's no way around some amount of ugliness when 
-it comes to implemnetation-specific, though.
+>> @@ -645,6 +659,137 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc
+>> *msc,
+>>       return found;
+>>   }
+>>   +/*
+>> + * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
+>> + * of NRDY, software can use this bit for any purpose" - so hardware might not
+>> + * implement this - but it isn't RES0.
+>> + *
+>> + * Try and see what values stick in this bit. If we can write either value,
+>> + * its probably not implemented by hardware.
+>> + */
+>> +#define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg, _result)            \
+>> +do {                                        \
+>> +    u32 now;                                \
+>> +    u64 mon_sel;                                \
+>> +    bool can_set, can_clear;                        \
+>> +    struct mpam_msc *_msc = _ris->vmsc->msc;                \
+>> +                                        \
+>> +    if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(_msc))) {            \
+>> +        _result = false;                        \
+>> +        break;                                \
+>> +    }                                    \
+>> +    mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |            \
+>> +          FIELD_PREP(MSMON_CFG_MON_SEL_RIS, _ris->ris_idx);        \
+>> +    mpam_write_monsel_reg(_msc, CFG_MON_SEL, mon_sel);            \
+>> +                                        \
+>> +    mpam_write_monsel_reg(_msc, _mon_reg, MSMON___NRDY);            \
+>> +    now = mpam_read_monsel_reg(_msc, _mon_reg);                \
+>> +    can_set = now & MSMON___NRDY;                        \
+>> +                                        \
+>> +    mpam_write_monsel_reg(_msc, _mon_reg, 0);                \
+>> +    now = mpam_read_monsel_reg(_msc, _mon_reg);                \
+>> +    can_clear = !(now & MSMON___NRDY);                    \
+>> +    mpam_mon_sel_inner_unlock(_msc);                    \
+>> +                                        \
+>> +    _result = (!can_set || !can_clear);                    \
+>> +} while (0)
 
-That said, if our nubers do pan out here then we'll likely need to do 
-something.  So if a more generic solution is interesting to people then 
-I'm happy to throw some time at it, shouldn't be too hard to justify on 
-my end.
+> It is a bit surprising that something that looks like a function modifies a boolean passed
+> by value.
+
+> Consider continuing the pattern you have above:
+> #define mpam_ris_hw_probe_hw_nrdy(_ris, _mon_reg, _result)
+> _mpam_ris_hw_probe_hw_nrdy(_ris, MSMON##_mon_reg, _result)
+> 
+> with signature:
+> void _mpam_ris_hw_probe_hw_nrdy(struct mpam_msc *msc, u16 reg, bool *hw_managed);
+> 
+> and using the _mpam functions from the new _mpam_ris_hw_probe_hw_nrdy().
+
+With that, it may as well return the result.
+Done.
+
+
+Thanks,
+
+James
 
