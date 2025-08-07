@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0437BC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 17:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFEBEC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 17:58:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBOhBVWA2iJlN/jrlTTjbw0KVjEZC6FA+Ov+Aj8ZBxo=; b=OxYAs8rbwTiErgAMc+LEhYhudH
-	7nb6FKuRY10b5c6Oq9DyajP9YCC+Jqy+1HFFl/fAXblCbKT+zjT+6V/hhf6iFa2P5lfkcUOcVZdPZ
-	eXAdyelnMCdCuTqd6tlVywkt8rV2lqiBlMNbXn+KfoMadR1Hnmdg8qdHd2xA3+3y14nuZa6jDtclE
-	tlz30/3SG3RypdyCrkhzOJ27hOYhAanUQWkaOUrKSe1x4iff3uZ5kKdEi/F54LHYaQyS0dYcF16EP
-	JmH+uyl5DQ/pfDoNphGpLvQHqMQoiDbYD1Xx+OF3sE95UnWbbsSV5oIPGBr7NSkuNzOUEP7xUlO2+
-	uaWw+S3A==;
+	bh=EsAS9Tuy4AgNXXWDeNU01MnGPKVHZKKw0o/G3y82Y4U=; b=23Bbsjdkf0os3CPxGnTCYD9Tzf
+	NNI4aMXtWf8aj8xdlN7F/wIIRtvTQaIwaqCKE+QMDYI7KyjLeg6YYSYmJPMzKH4//SObkbkCrZ3K5
+	H1W5wSN6g4UggTsxvrKLBhw+Fh1E2d8N1uCz1hMdLMJm779c0qlPvaCS0GgZZiixvCR1TSTuY/sw+
+	7fUxX/H71h6Fk86lutNadbGXj3g0i+XdbxIw8Z0S9enyB0pJ8bTQ2RueayKGWZosk1O2Tuigl1PEP
+	jMoctt/f8bZ9TJh992xt9Njj5P960O2D4C06R3PQv/MrEgkLbUohx3VfwqsOimPkNCXxUoZAQzJYF
+	4cRmnqmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk4o9-00000001H5D-3OuP;
-	Thu, 07 Aug 2025 17:53:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uk4t5-00000001HpV-3LaN;
+	Thu, 07 Aug 2025 17:58:47 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk4la-00000001GqT-3rwy
+	id 1uk4qX-00000001HLw-2Vme
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 17:51:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C97A545BE8;
-	Thu,  7 Aug 2025 17:51:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AE72C4CEEB;
-	Thu,  7 Aug 2025 17:51:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754589061;
-	bh=TVtbE9kVJdMS2hhy+Qd4ctRjeI4jf6YH6bnt9QQv+rw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EcJ1w67zQ3hkBcXpfn9hT64Dv+mNegPMjPBOfjeCZdr97PvQTnC+3hGuaCvttgiS5
-	 nvckqJuQE2UfnQIWROUiu9gpH3kzrRymSK0g4reXzzEo3w4Vj9IpDj2skQN7HWIBjm
-	 c1GG4oqePnI2Zl2f3gp0h/Lo3gtqaJRn3dJgAIqybANnLVpqpTiiIpMWFX84q2rw+3
-	 XgV1zKPcgscXM9dWWA5r7fUmj+l32acTytAaCJJzKd+a6secrHImxk1LqEO+BgKs/a
-	 F8I384W5gcl/uz99ywXsx80EM7ROEnDJ0aK/jI1/F+fy6ruYlTpTlsDCz2QOGW/AaO
-	 OjMhkP1QII2mg==
-Date: Thu, 7 Aug 2025 10:50:59 -0700
-From: Drew Fustini <fustini@kernel.org>
-To: James Morse <james.morse@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Rohit Mathew <rohit.mathew@arm.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	Lecopzer Chen <lecopzerc@nvidia.com>,
-	Carl Worth <carl@os.amperecomputing.com>,
-	shameerali.kolothum.thodi@huawei.com,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	lcherian@marvell.com, bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com, baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
-	dfustini@baylibre.com, amitsinght@marvell.com,
-	David Hildenbrand <david@redhat.com>,
-	Rex Nie <rex.nie@jaguarmicro.com>,
-	Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-Subject: Re: [RFC PATCH 13/36] arm_mpam: Add probe/remove for mpam msc driver
- and kbuild boiler plate
-Message-ID: <aJTng8R9eJmGR6/W@x1>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-14-james.morse@arm.com>
- <aIIiazUK4S_G6loe@arm.com>
- <6a77726d-1881-4590-8021-623c877bb5d7@arm.com>
+	Thu, 07 Aug 2025 17:56:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754589370; x=1786125370;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=TAXqubzsBEIA8arpECTj6N2IP2QqQQyNT2bLiy8zTkI=;
+  b=OFZHRB63wzj9AOXNkzdwMfRF4qAM+psvPYcQsqO9+TbJ2GNTqGhYsQV+
+   lQ8G3rz7hdAoLpbgmVc2Zw7AEkZ2WxEypo8VMsT/Zw0BsM5lXwSFjUhFo
+   4LmDKD/SDNbY71K3zpxnbOozKOyIrNVOCitdlUjkXnUDH2FPvMwWCLIbn
+   9ywHr/y/kzKBGr3ktAMgXkHmZODg64QFzJCsJQXO/N6X7DL8pltdd3mon
+   /QANDEGuzhTE4svtt/2zj2rVze+VfPH+dP8Fj4eAf5LFae/GxU1mpLNWX
+   kpvw8DodLQMrEmbd96WDfmdsv+FihInaYeOXi3ijHHcwzMrnePMJ6vmbx
+   Q==;
+X-CSE-ConnectionGUID: INBHXtN9RDKr+oNkk+wWJQ==
+X-CSE-MsgGUID: 7LSZ9ktsQlSaMgpK9aDTnA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="56141673"
+X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
+   d="scan'208";a="56141673"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 10:56:04 -0700
+X-CSE-ConnectionGUID: sgd3Ks+xRWWyEHltsJTu+w==
+X-CSE-MsgGUID: 3Dd3cOroRKuj9Wq4M4u96A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
+   d="scan'208";a="165139305"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa007.jf.intel.com with ESMTP; 07 Aug 2025 10:56:00 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uk4qG-00034I-2D;
+	Thu, 07 Aug 2025 17:55:55 +0000
+Date: Fri, 8 Aug 2025 01:55:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	virtualization@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev, jgg@ziepe.ca, will@kernel.org,
+	jacob.pan@linux.microsoft.com, eric.auger@redhat.com,
+	code@tyhicks.com, eahariha@linux.microsoft.com,
+	vijayb@linux.microsoft.com, bboscaccy@linux.microsoft.com
+Subject: Re: [PATCH v3 3/3] arm-smmu: select suitable MSI IOVA
+Message-ID: <202508080104.M1bnmiMo-lkp@intel.com>
+References: <20250806215539.1240561-4-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6a77726d-1881-4590-8021-623c877bb5d7@arm.com>
+In-Reply-To: <20250806215539.1240561-4-shyamsaini@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_105103_012793_C759995D 
-X-CRM114-Status: GOOD (  29.22  )
+X-CRM114-CacheID: sfid-20250807_105609_678138_FFA1B060 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +91,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 07:04:09PM +0100, James Morse wrote:
-> Hi Catalin,
-> 
-> On 24/07/2025 13:09, Catalin Marinas wrote:
-> > On Fri, Jul 11, 2025 at 06:36:25PM +0000, James Morse wrote:
-> >> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> >> only be accessible from those CPUs, and they may not be online.
-> >> Touching the hardware early is pointless as MPAM can't be used until
-> >> the system-wide common values for num_partid and num_pmg have been
-> >> discovered.
-> >>
-> >> Start with driver probe/remove and mapping the MSC.
-> 
-> >>  arch/arm64/Kconfig                          |   1 +
-> >>  drivers/platform/arm64/Kconfig              |   1 +
-> >>  drivers/platform/arm64/Makefile             |   1 +
-> >>  drivers/platform/arm64/mpam/Kconfig         |  10 +
-> >>  drivers/platform/arm64/mpam/Makefile        |   4 +
-> >>  drivers/platform/arm64/mpam/mpam_devices.c  | 336 ++++++++++++++++++++
-> >>  drivers/platform/arm64/mpam/mpam_internal.h |  62 ++++
-> >>  7 files changed, 415 insertions(+)
-> >>  create mode 100644 drivers/platform/arm64/mpam/Kconfig
-> >>  create mode 100644 drivers/platform/arm64/mpam/Makefile
-> >>  create mode 100644 drivers/platform/arm64/mpam/mpam_devices.c
-> >>  create mode 100644 drivers/platform/arm64/mpam/mpam_internal.h
-> 
-> > Bikeshedding: why not drivers/resctrl to match fs/resctrl? We wouldn't
-> > need the previous patch either to move the arm64 platform drivers.
-> 
-> Initially because I don't see any other architecture having an MMIO interface to this
-> stuff, and didn't want a 'top level' driver directory for a single driver. But, re-reading
-> RISC-Vs CBQRI[0] it turns out that theirs is memory mapped...
+Hi Shyam,
 
-Yeah, all the cpus (e.g. harts) can access all the registers of the QoS
-controllers per the CBQRI spec [1].
+kernel test robot noticed the following build errors:
 
-The memory map for the example SoC in the proof-of-concept [2]:
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.16 next-20250807]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-  Base addr  Size
-  0x4820000  4KB  Cluster 0 L2 cache controller
-  0x4821000  4KB  Cluster 1 L2 cache controller
-  0x4828000  4KB  Memory controller 0
-  0x4829000  4KB  Memory controller 1
-  0X482a000  4KB  Memory controller 2
-  0X482b000  4KB  Shared LLC cache controller
+url:    https://github.com/intel-lab-lkp/linux/commits/Shyam-Saini/arm-smmu-move-MSI_IOVA-macro-definitions/20250807-055741
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250806215539.1240561-4-shyamsaini%40linux.microsoft.com
+patch subject: [PATCH v3 3/3] arm-smmu: select suitable MSI IOVA
+config: um-randconfig-r071-20250807 (https://download.01.org/0day-ci/archive/20250808/202508080104.M1bnmiMo-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250808/202508080104.M1bnmiMo-lkp@intel.com/reproduce)
 
-> > I'm not an expert on resctrl but the MPAM code looks more like a backend
-> > for the resctrl support, so it makes more sense to do as we did for
-> > other drivers like irqchip, iommu.
-> 
-> Only because there are many irqchip or iommu. I'm not a fan of drivers/mpam, but
-> drivers/resctrl would suit RISC-V too. (I'll check with Drew)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508080104.M1bnmiMo-lkp@intel.com/
 
-I think that is reasonable. In the proof-of-concept, I had the following
-structure, but I think there is a lot of room for improvement. 
+All errors (new ones prefixed by >>):
 
-arch/riscv/kernel/qos/qos_resctrl.c
- Implementation of the register interface described in the CBQRI spec
- along with the resctrl implementation. I should probably break this up
- into separate files for the CBQRI operations and the resctrl interface.
+   In file included from drivers/iommu/arm/arm-smmu/arm-smmu.c:24:
+   In file included from include/linux/dma-mapping.h:8:
+   In file included from include/linux/scatterlist.h:9:
+   In file included from arch/um/include/asm/io.h:24:
+   include/asm-generic/io.h:1175:55: warning: performing pointer arithmetic on a null pointer has undefined behavior [-Wnull-pointer-arithmetic]
+    1175 |         return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
+         |                                                   ~~~~~~~~~~ ^
+   drivers/iommu/arm/arm-smmu/arm-smmu.c:1602:35: error: use of undeclared identifier 'MSI_IOVA_BASE'
+    1602 |         static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
+         |                                          ^~~~~~~~~~~~~
+>> drivers/iommu/arm/arm-smmu/arm-smmu.c:1602:50: error: use of undeclared identifier 'MSI_IOVA_BASE2'
+    1602 |         static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
+         |                                                         ^~~~~~~~~~~~~~
+>> drivers/iommu/arm/arm-smmu/arm-smmu.c:1610:23: error: invalid application of 'sizeof' to an incomplete type 'const u64[]' (aka 'const unsigned long long[]')
+    1610 |         for (int i = 0; i != ARRAY_SIZE(msi_bases); i++) {
+         |                              ^~~~~~~~~~~~~~~~~~~~~
+   include/linux/array_size.h:11:32: note: expanded from macro 'ARRAY_SIZE'
+      11 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
+         |                                ^~~~~
+   drivers/iommu/arm/arm-smmu/arm-smmu.c:1613:44: error: use of undeclared identifier 'MSI_IOVA_LENGTH'
+    1613 |                 if (resv_region_intersects(msi_bases[i], MSI_IOVA_LENGTH, head))
+         |                                                          ^~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu/arm-smmu.c:1616:50: error: use of undeclared identifier 'MSI_IOVA_LENGTH'
+    1616 |                 region = iommu_alloc_resv_region(msi_bases[i], MSI_IOVA_LENGTH, prot,
+         |                                                                ^~~~~~~~~~~~~~~
+   1 warning and 5 errors generated.
 
-drivers/soc/foobar/foobar_cbqri_cache.c
-  DT-based driver for SoC cache controller that implements CBQRI
 
-drivers/soc/foobar/foobar_cbqri_memory.c
-  DT-based driver for SoC memory controller that implements CBQRI
+vim +/MSI_IOVA_BASE2 +1602 drivers/iommu/arm/arm-smmu/arm-smmu.c
 
-With all the great upstream progress, I've been meaning to rebase the
-RISC-V CBQRI support and post an RFC as its been a really long time.
-There is no public silicon yet that implements CBQRI but I think the
-possibility is getting closer. I've also been working on integrating
-ACPI support [3] using the new RQSC table, and I've been meaning to post
-an RFC for that too.
+  1596	
+  1597	static void arm_smmu_get_resv_regions(struct device *dev,
+  1598					      struct list_head *head)
+  1599	{
+  1600		int prot = IOMMU_WRITE | IOMMU_NOEXEC | IOMMU_MMIO;
+  1601	
+> 1602		static const u64 msi_bases[] = { MSI_IOVA_BASE, MSI_IOVA_BASE2 };
+  1603	
+  1604		iommu_dma_get_resv_regions(dev, head);
+  1605	
+  1606		/*
+  1607		 * Use the first msi_base that does not intersect with a platform
+  1608		 * reserved region. The SW MSI base selection is entirely arbitrary.
+  1609		 */
+> 1610		for (int i = 0; i != ARRAY_SIZE(msi_bases); i++) {
+  1611			struct iommu_resv_region *region;
+  1612	
+  1613			if (resv_region_intersects(msi_bases[i], MSI_IOVA_LENGTH, head))
+  1614				continue;
+  1615	
+  1616			region = iommu_alloc_resv_region(msi_bases[i], MSI_IOVA_LENGTH, prot,
+  1617							 IOMMU_RESV_SW_MSI, GFP_KERNEL);
+  1618			if (!region)
+  1619				return;
+  1620	
+  1621			list_add_tail(&region->list, head);
+  1622			return;
+  1623		}
+  1624	}
+  1625	
 
-Thanks,
-Drew
-
-[1] https://github.com/riscv-non-isa/riscv-cbqri/releases/download/v1.0/riscv-cbqri.pdf
-[2] https://lore.kernel.org/linux-riscv/20230419111111.477118-1-dfustini@baylibre.com/
-[3] https://lf-rise.atlassian.net/wiki/spaces/HOME/pages/433291272/ACPI+RQSC+Proof+of+Concept
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
