@@ -4,92 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EC8C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 13:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E927C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 13:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7mb2jIbUh0JiJnEyqZvPWnQq89a45lYPc+Vw9PnUkQ=; b=iRBTJuGBE0eb28wZwd9E1yYTdr
-	zXXlAkRKedkKWCsgetKT7h5SOTuZvfqj75c+IYn1rbtBnBzAC4i9Fy7vKKcJuhy08ucn1W82IVGEj
-	oxHdIXjGb2EteKKf/dCxUBejudSb0U7GK4Fr5fbL00NbrDiRrnPndCNgH85qCz/XRVRzeXZPkPmUF
-	JnTv6tOmC94Nz6vj4cCsImEI4yQRfBMgIBOwBpQVZTJxMbW1v2Q4pgwmI5LuCj82Af3pSlGCllHJ+
-	aZkBR1eY7q087HuNkKeWpg9qDEb6A0LW8AmRp0/q/60RzaJ4jbzcnxxNx+DLi1LhQMli22Z6aeklj
-	0d97srFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2+m3CLRJeGGFy4BLD6C7GaUw1o2PjTEdTvohH8r846A=; b=PNixOwpIt/iFXwk+JjTbAcZCEW
+	YK4jfrXKDd4ZGtn82W5LyCypau1OYIVDBWU19hVMjbtf/UFZb3F4EKofj8IAMpKY7U7JEVEn/YEih
+	Jcr4GxY4cO1jMg6DGVIz8qbcuUSW1t+PSQl8RLyIe1tsCsPx+iVGDICjkCm4l3wz0BPGcnfna7uz9
+	WVsPgZ+Vr75E8vFfoUNQ9E3zrwJemrQOAzRAPj7QPEXacWJhOC+BMMV63crd0CT2/Xsi/hdBvsjgN
+	fUEDGRGg5irh7rfKWjtyLscX87SpbQYBOK9UGG5SiidKIkyIeZ4z2Yfm3NEuKu13X9MLRK2QzIF+u
+	VFbCKO5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk0HJ-00000000dWJ-2LxH;
-	Thu, 07 Aug 2025 13:03:29 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk08L-00000000bwy-2tmH
+	id 1uk0Jn-00000000drb-1rAc;
+	Thu, 07 Aug 2025 13:06:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uk09j-00000000c8N-3byJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 12:54:15 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250807125408epoutp0126d71c12544b719620149cc618a429c5~ZfUEKCE7P2409424094epoutp016
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  7 Aug 2025 12:54:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250807125408epoutp0126d71c12544b719620149cc618a429c5~ZfUEKCE7P2409424094epoutp016
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1754571248;
-	bh=I7mb2jIbUh0JiJnEyqZvPWnQq89a45lYPc+Vw9PnUkQ=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=riD+zuYPQ8FMAYHqyVWVoIVckw9fUxPWmsqyJwBu/tNFxfbZREjBb53BTrmH+zd7+
-	 EYcYJGpUCHNTJwHb4vptQSPFciJ0cQNSHHwCLhm8xrUcoA8gizupYYN6K3niUNa2aU
-	 8iL/ZXvA6Rg9huEgoHaxiUpuC8Lj0ufXAsbvvMQ8=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250807125407epcas5p35e4cd40e01599ed1499d270c002fba5e~ZfUDKUl9m0574505745epcas5p3v;
-	Thu,  7 Aug 2025 12:54:07 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4byRtj5Pnyz6B9m4; Thu,  7 Aug
-	2025 12:54:05 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250807123301epcas5p1a3fbda824228f6723950c0207141e282~ZfBoRl6Kc1848318483epcas5p1q;
-	Thu,  7 Aug 2025 12:33:01 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250807123258epsmtip17d549f336ff5d3b7aad36c60d56f06ae~ZfBleqNA-0496104961epsmtip1Q;
-	Thu,  7 Aug 2025 12:32:58 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Rob Herring'" <robh@kernel.org>
-Cc: <vkoul@kernel.org>, <kishon@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<andre.draszik@linaro.org>, <peter.griffin@linaro.org>,
-	<kauschluss@disroot.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<igor.belwon@mentallysanemainliners.org>, <m.szyprowski@samsung.com>,
-	<s.nawrocki@samsung.com>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <20250806234309.GA2032999-robh@kernel.org>
-Subject: RE: [PATCH v5 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 combo ssphy
-Date: Thu, 7 Aug 2025 18:02:57 +0530
-Message-ID: <000101dc0797$69cb0080$3d610180$@samsung.com>
+	Thu, 07 Aug 2025 12:55:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6C7841713;
+	Thu,  7 Aug 2025 05:55:27 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCA5A3F5A1;
+	Thu,  7 Aug 2025 05:55:33 -0700 (PDT)
+Date: Thu, 7 Aug 2025 13:55:31 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Cornelia Huck <cohuck@redhat.com>
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Expose FEAT_RASv1p1 in a canonical
+ manner
+Message-ID: <20250807125531.GB2351327@e124191.cambridge.arm.com>
+References: <20250806165615.1513164-1-maz@kernel.org>
+ <20250806165615.1513164-5-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJ+ZgWj3OwstM5ZbwFL0KmcSzrOlQD+pBMSAdNyF8MCWOIs27LpCJrA
-Content-Language: en-in
-X-CMS-MailID: 20250807123301epcas5p1a3fbda824228f6723950c0207141e282
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250805114320epcas5p3968288f8d01944d3d730b3094a7befe4
-References: <20250805115216.3798121-1-pritam.sutar@samsung.com>
-	<CGME20250805114320epcas5p3968288f8d01944d3d730b3094a7befe4@epcas5p3.samsung.com>
-	<20250805115216.3798121-6-pritam.sutar@samsung.com>
-	<20250806234309.GA2032999-robh@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250806165615.1513164-5-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_055414_050980_43403B6B 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20250807_055539_976827_56936DBD 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,115 +68,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-> -----Original Message-----
-> From: Rob Herring <robh@kernel.org>
-> Sent: 07 August 2025 05:13 AM
-> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> Cc: vkoul@kernel.org; kishon@kernel.org; krzk+dt@kernel.org;
-> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
-> peter.griffin@linaro.org; kauschluss@disroot.org;
-> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
-> m.szyprowski@samsung.com; s.nawrocki@samsung.com; linux-
-> phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
-> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> samsung-soc@vger.kernel.org; rosa.pila@samsung.com;
-> dev.tailor@samsung.com; faraz.ata@samsung.com;
-> muhammed.ali@samsung.com; selvarasu.g@samsung.com
-> Subject: Re: [PATCH v5 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
-> ExynosAutov920 combo ssphy
+On Wed, Aug 06, 2025 at 05:56:14PM +0100, Marc Zyngier wrote:
+> If we have RASv1p1 on the host, advertise it to the guest in the
+> "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
+> the convoluted RAS+RAS_frac method.
 > 
-> On Tue, Aug 05, 2025 at 05:22:15PM +0530, Pritam Manohar Sutar wrote:
-> > This phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
-> > compatible to the USB3.0 SS(5Gbps). It requires two clocks, named
-> > "phy" and "ref". The required supplies for USB3.1 are named as
-> > vdd075_usb30(0.75v), vdd18_usb30(1.8v).
-> >
-> > Add schemas for combo ssphy found on this SoC.
-> >
-> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-> > ---
-> >  .../bindings/phy/samsung,usb3-drd-phy.yaml    | 19
-> +++++++++++++++++++
-> >  1 file changed, 19 insertions(+)
-> >
-> > diff --git
-> > a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> > b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-> > index 4a84b5405cd2..7a71cff10fb5 100644
-> > --- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-
-> phy.yaml
-> > +++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-
-> phy.yaml
-> > @@ -34,6 +34,7 @@ properties:
-> >        - samsung,exynos7870-usbdrd-phy
-> >        - samsung,exynos850-usbdrd-phy
-> >        - samsung,exynos990-usbdrd-phy
-> > +      - samsung,exynosautov920-usb31drd-combo-ssphy
-> >        - samsung,exynosautov920-usbdrd-combo-hsphy
-> >        - samsung,exynosautov920-usbdrd-phy
-> >
-> > @@ -118,6 +119,12 @@ properties:
-> >    vdd18-usb20-supply:
-> >      description: 1.8V power supply for the USB 2.0 phy.
-> >
-> > +  dvdd075-usb30-supply:
-> > +    description: 0.75V power supply for the USB 3.0 phy.
-> > +
-> > +  vdd18-usb30-supply:
-> > +    description: 1.8V power supply for the USB 3.0 phy.
-> > +
-> >  required:
-> >    - compatible
-> >    - clocks
-> > @@ -227,6 +234,7 @@ allOf:
-> >                - samsung,exynos7870-usbdrd-phy
-> >                - samsung,exynos850-usbdrd-phy
-> >                - samsung,exynos990-usbdrd-phy
-> > +              - samsung,exynosautov920-usb31drd-combo-ssphy
-> >                - samsung,exynosautov920-usbdrd-combo-hsphy
-> >                - samsung,exynosautov920-usbdrd-phy
-> >      then:
-> > @@ -258,6 +266,17 @@ allOf:
-> >          - vdd18-usb20-supply
-> >          - vdd33-usb20-supply
-> >
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            enum:
-> > +              - samsung,exynosautov920-usb31drd-combo-ssphy
-> > +    then:
-> > +      required:
-> > +        - dvdd075-usb30-supply
-> > +        - vdd18-usb30-supply
+> Note that this also advertises FEAT_DoubleFault, which doesn't
+> affect the guest at all, as only EL3 is concerned by this.
 > 
-> Similar issue here.
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/sys_regs.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 1b4114790024e..66e5a733e9628 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1800,6 +1800,18 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>  	if (!vcpu_has_sve(vcpu))
+>  		val &= ~ID_AA64PFR0_EL1_SVE_MASK;
+>  
+> +	/*
+> +	 * Describe RASv1p1 in a canonical way -- ID_AA64PFR1_EL1.RAS_frac
+> +	 * is cleared separately. Note that by advertising RASv1p1 here, we
 
-Will the suggested lines of the code in next version of the patch-set.
-Snippet will look as below.
+Where is it cleared? __kvm_read_sanitised_id_reg() is where I would have
+expected to see it:
 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - samsung,exynosautov920-usb31drd-combo-ssphy
-+    then:
-+      required:
-+        - dvdd075-usb30-supply
-+        - vdd18-usb30-supply
-+
-+    else:
-+      properties:
-+        dvdd075-usb30-supply: false
-+        vdd18-usb30-supply: false
+    case SYS_ID_AA64PFR1_EL1:                                                                                                                                                                  
+        if (!kvm_has_mte(vcpu->kvm)) {                                                                                                                                                         
+            val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE);                                                                                                                                   
+            val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTE_frac);                                                                                                                              
+        }                                                                                                                                                                                      
+                                                                                                                                                                                               
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_SME);                                                                                                                                       
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_RNDR_trap);                                                                                                                                 
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_NMI);                                                                                                                                       
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_GCS);                                                                                                                                       
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_THE);                                                                                                                                       
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MTEX);                                                                                                                                      
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_PFAR);                                                                                                                                      
+        val &= ~ARM64_FEATURE_MASK(ID_AA64PFR1_EL1_MPAM_frac);                                                                                                                                 
+        break;                                                                  
 
-Thank you.
-
-Regards,
-Pritam
-
+> +	 * implicitly advertise FEAT_DoubleFault. However, since that last
+> +	 * feature is a pure EL3 feature, this is not relevant for the
+> +	 * guest, and we save on the complexity.
+> +	 */
+> +	if (cpus_have_final_cap(ARM64_HAS_RASV1P1_EXTN)) {
+> +		val &= ~ID_AA64PFR0_EL1_RAS;
+> +		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, RAS, V1P1);
+> +	}
+> +
+>  	/*
+>  	 * The default is to expose CSV2 == 1 if the HW isn't affected.
+>  	 * Although this is a per-CPU feature, we make it global because
+> -- 
+> 2.39.2
+> 
 
