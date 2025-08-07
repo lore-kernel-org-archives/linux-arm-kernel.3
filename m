@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1B72C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 09:54:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE46C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 09:59:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gjNh5IarJDBcVWhnGh4V+dVjq/ORlJZ5zhYOyvylIfg=; b=ZR0PCerzh+LotAh8Htja92LTOx
-	hSwi/8m9F3O6/S5baMuGqm4muHqbqtaxRW6gRiO2a/Ze0C1ey3ol2g2HYB4vQAfuZTFnnS3Cut4n8
-	5qaBV19nGkA3bm9vk/yd1EpwleAZPy2ghEQcWtmkmk2ANthIP9Sojld6L/f5MU/7Ck6DTUhNlrGej
-	Lr6FkxO5IjSSmRNBZEGxDOz3jYQsq1FfeJ9ajFvzax90OAvBUe+PX8M3Ve12sIaciM8fh+ZrLp5L3
-	xcm12VHc0cSfJ57zudgyqOYIU7JSE4sFWikh9G92QjQw6p9p5TWhKcwxcXVnJLncSP0Ej7bkmRZoo
-	cbNGL85g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RuyjJTkS/rjYI9TGsC4pvcmFFvays7Lr8kUHUlZ7ORA=; b=MOj3QVABqJx+PhADYmBZ7HLQYT
+	SHEWzN8puZ20otZmMr794hSBCAcXU/NvM8dxZJVnxsPXADy2+gvCHOzVK1P3B+QZHCxsfIP7I68V9
+	DuAyU3tNlE/tSOvWCdmu8CLZwAIyEa/Tki0MLw3/9O3TtnknikrvTP/rCnUhO30uiXLMr8wJ8sfnI
+	YPmCw1AFjffoWEL+uWXHsUKSKFrnsv7/xtaGnRGeUmecjsVcWk+R+xK0BFpVvWwgq76/wlgZ0cKio
+	f9/WMqM8S6MzFKlTzlbZgPhIUvYriq7c+ikrFIJAy6N+7mkKTM1jsQou0lKd7agqhsQKFc1BR074a
+	CkcsaMyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxKS-000000007sr-1WJE;
-	Thu, 07 Aug 2025 09:54:32 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1ujxPV-000000008rJ-1MoM;
+	Thu, 07 Aug 2025 09:59:45 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ujxHu-000000007lQ-2Njx
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 09:51:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754560315; x=1786096315;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=n3H7k+qMLSbRg64OaiKFLdUftAjzYbCeTRK1xSdD7X0=;
-  b=JsxCYOHMRzDc1GWeoybbzKrURl/FXRS3oBbD4wUhyTcY/tFWqAl78WRz
-   uD4G6POEbBusSw8OYNlb+UIChTznmJw3TH/1IKsOgQhho8pbSlsrRfeJM
-   c6FTZlEEXsIbBLgC1aARPGx+roxPCrnyHStvtuC0pQ1aWk0RpChtH4tfr
-   56KvJmq4pQfbtxpED+5GxdFcqMzkYyAUPuirJCTivgIUlbbkKpjBkbLrW
-   Zi6oEd6AD+cXaiTaKeJe0t3Fg0uSuYxUgH7qPCy0Tio1hNHLrM+Sb4so4
-   HlHyZtGxbYrj/2CtTXbgnmG7mKlR7n39zhT7/Rkl+Oqmmb4MwD5hUYvig
-   Q==;
-X-CSE-ConnectionGUID: wbQUvv5SRJSYYxKrcxPkrg==
-X-CSE-MsgGUID: PJZDmpBpSBm1V/m3PAIOQg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="67158209"
-X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
-   d="scan'208";a="67158209"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 02:51:54 -0700
-X-CSE-ConnectionGUID: mlOgTmNPQYeh2F53+X8PqA==
-X-CSE-MsgGUID: lWtTRSKqQYqJtrrsqFfjGg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,271,1747724400"; 
-   d="scan'208";a="164670967"
-Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
-  by orviesa009.jf.intel.com with ESMTP; 07 Aug 2025 02:51:52 -0700
-Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ujxHq-0002eM-0K;
-	Thu, 07 Aug 2025 09:51:50 +0000
-Date: Thu, 7 Aug 2025 17:51:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:hack/arch_timer_mmio 4/5]
- drivers/clocksource/arm_arch_timer_mmio.c:73:4: error: call to undeclared
- function 'writeq_relaxed'; ISO C99 and later do not support implicit
- function declarations
-Message-ID: <202508071719.gt7HNCye-lkp@intel.com>
+	id 1ujxMw-0000000088I-42YS;
+	Thu, 07 Aug 2025 09:57:08 +0000
+X-UUID: dd0f3a40737411f09eb0dd999d3936bf-20250807
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=RuyjJTkS/rjYI9TGsC4pvcmFFvays7Lr8kUHUlZ7ORA=;
+	b=CSsq/AFKqGkven0I+W5xcM89EeRv0Szc+PgqWFI42PaPoiE9LYJh7pILjsXk/UhLUY17ivAg2w78F/VlBTBozXihEr/E3CNXDvdaLCjBL+X2g6sfZNyvnbMmF0N0wLr9MgqcaPQfoq7stEnYITBvUAJtBAXtw53IDSARZRU/qp4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:3c8493e7-038d-4a52-b155-efbb8b0cc576,IP:0,UR
+	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:-5
+X-CID-META: VersionHash:f1326cf,CLOUDID:b3942a51-d89a-4c27-9e37-f7ccfcbebd5b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: dd0f3a40737411f09eb0dd999d3936bf-20250807
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <zhengnan.chen@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1285590075; Thu, 07 Aug 2025 02:57:01 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 7 Aug 2025 17:56:57 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 7 Aug 2025 17:56:56 +0800
+From: zhengnan chen <zhengnan.chen@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>, Will
+ Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: <iommu@lists.linux.dev>, <linux-mediatek@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<zhengnan.chen@mediatek.com>
+Subject: [PATCH 0/3] MT8189 IOMMU SUPPORT
+Date: Thu, 7 Aug 2025 17:55:52 +0800
+Message-ID: <20250807095609.11785-1-zhengnan.chen@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_025154_645523_29885FCF 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250807_025707_011941_1752A757 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,87 +89,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git hack/arch_timer_mmio
-head:   4b341bbc18d791b6c5a6bc373d303c4d3b35434a
-commit: d094e2d0772b8f22c47c9d3e7ab908c82ade83bf [4/5] clocksource/drivers/arm_arch_timer_mmio: Switch over to standalone driver
-config: arm-axm55xx_defconfig (https://download.01.org/0day-ci/archive/20250807/202508071719.gt7HNCye-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250807/202508071719.gt7HNCye-lkp@intel.com/reproduce)
+Based on tag: next-20250806, linux-next/master
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202508071719.gt7HNCye-lkp@intel.com/
+This patchset adds MT8189 iommu support.
 
-All errors (new ones prefixed by >>):
+MT8189 have 3 IOMMU HWs. 1 IOMMU HW is for multimedia,
+1 IOMMU HW is for apu(AI processer unit),
+and 2 IOMMU HW is for infra-master, like PCIe/USB.
 
->> drivers/clocksource/arm_arch_timer_mmio.c:73:4: error: call to undeclared function 'writeq_relaxed'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      73 |                         writeq_relaxed(val, timer->base + CNTP_CVAL_LO);
-         |                         ^
-   drivers/clocksource/arm_arch_timer_mmio.c:84:4: error: call to undeclared function 'writeq_relaxed'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-      84 |                         writeq_relaxed(val, timer->base + CNTV_CVAL_LO);
-         |                         ^
-   drivers/clocksource/arm_arch_timer_mmio.c:262:54: warning: implicit conversion from 'unsigned long long' to 'unsigned long' changes value from 72057594037927935 to 4294967295 [-Wconstant-conversion]
-     262 |         clockevents_config_and_register(clk, at->rate, 0xf, CLOCKSOURCE_MASK(56));
-         |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                     ^~~~~~~~~~~~~~~~~~~~
-   include/linux/clocksource.h:153:32: note: expanded from macro 'CLOCKSOURCE_MASK'
-     153 | #define CLOCKSOURCE_MASK(bits) GENMASK_ULL((bits) - 1, 0)
-         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bits.h:89:29: note: expanded from macro 'GENMASK_ULL'
-      89 |         (GENMASK_INPUT_CHECK(h, l) + __GENMASK_ULL(h, l))
-         |          ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
-   1 warning and 2 errors generated.
+About the INFRA IOMMU, it don't have larbs, the master connects the
+iommu directly. It use a independent pgtable, and these two
+INFRA IOMMU HW share a pgtable.
+
+In mt8189, the display connect with larb1 and larb2 at the same time.
+Thus, we should add link between disp-dev with these two larbs.
+
+The software solutions can be summarized as follows:
+1. Add iommu support for mt8189
+2. Add a flag DL_WITH_MULTI_LARB to support the HW which connect with
+   multiple larbs.
 
 
-vim +/writeq_relaxed +73 drivers/clocksource/arm_arch_timer_mmio.c
+zhengnan.chen (3):
+  dt-bindings: mediatek: mt8189: Add bindings for MM & APU & INFRA IOMMU
+  iommu/mediatek: Add a flag DL_WITH_MULTI_LARB
+  iommu/mediatek: Add support for mt8189
 
-9920c260a9b738 Marc Zyngier 2025-08-06  55  
-9920c260a9b738 Marc Zyngier 2025-08-06  56  static void arch_timer_reg_write(enum arch_timer_access access,
-9920c260a9b738 Marc Zyngier 2025-08-06  57  				 enum arch_timer_reg reg, u64 val,
-9920c260a9b738 Marc Zyngier 2025-08-06  58  				 struct clock_event_device *clk)
-9920c260a9b738 Marc Zyngier 2025-08-06  59  {
-9920c260a9b738 Marc Zyngier 2025-08-06  60  	struct arch_timer *timer = evt_to_arch_timer(clk);
-9920c260a9b738 Marc Zyngier 2025-08-06  61  
-9920c260a9b738 Marc Zyngier 2025-08-06  62  	switch (access) {
-9920c260a9b738 Marc Zyngier 2025-08-06  63  	case PHYS_ACCESS:
-9920c260a9b738 Marc Zyngier 2025-08-06  64  		switch (reg) {
-9920c260a9b738 Marc Zyngier 2025-08-06  65  		case ARCH_TIMER_REG_CTRL:
-9920c260a9b738 Marc Zyngier 2025-08-06  66  			writel_relaxed((u32)val, timer->base + CNTP_CTL);
-9920c260a9b738 Marc Zyngier 2025-08-06  67  			return;
-9920c260a9b738 Marc Zyngier 2025-08-06  68  		case ARCH_TIMER_REG_CVAL:
-9920c260a9b738 Marc Zyngier 2025-08-06  69  			/*
-9920c260a9b738 Marc Zyngier 2025-08-06  70  			 * Not guaranteed to be atomic, so the timer
-9920c260a9b738 Marc Zyngier 2025-08-06  71  			 * must be disabled at this point.
-9920c260a9b738 Marc Zyngier 2025-08-06  72  			 */
-9920c260a9b738 Marc Zyngier 2025-08-06 @73  			writeq_relaxed(val, timer->base + CNTP_CVAL_LO);
-9920c260a9b738 Marc Zyngier 2025-08-06  74  			return;
-9920c260a9b738 Marc Zyngier 2025-08-06  75  		}
-9920c260a9b738 Marc Zyngier 2025-08-06  76  		break;
-9920c260a9b738 Marc Zyngier 2025-08-06  77  	case VIRT_ACCESS:
-9920c260a9b738 Marc Zyngier 2025-08-06  78  		switch (reg) {
-9920c260a9b738 Marc Zyngier 2025-08-06  79  		case ARCH_TIMER_REG_CTRL:
-9920c260a9b738 Marc Zyngier 2025-08-06  80  			writel_relaxed((u32)val, timer->base + CNTV_CTL);
-9920c260a9b738 Marc Zyngier 2025-08-06  81  			return;
-9920c260a9b738 Marc Zyngier 2025-08-06  82  		case ARCH_TIMER_REG_CVAL:
-9920c260a9b738 Marc Zyngier 2025-08-06  83  			/* Same restriction as above */
-9920c260a9b738 Marc Zyngier 2025-08-06  84  			writeq_relaxed(val, timer->base + CNTV_CVAL_LO);
-9920c260a9b738 Marc Zyngier 2025-08-06  85  			return;
-9920c260a9b738 Marc Zyngier 2025-08-06  86  		}
-9920c260a9b738 Marc Zyngier 2025-08-06  87  		break;
-9920c260a9b738 Marc Zyngier 2025-08-06  88  	}
-9920c260a9b738 Marc Zyngier 2025-08-06  89  
-9920c260a9b738 Marc Zyngier 2025-08-06  90  	/* Should never be here */
-9920c260a9b738 Marc Zyngier 2025-08-06  91  	WARN_ON_ONCE(1);
-9920c260a9b738 Marc Zyngier 2025-08-06  92  }
-9920c260a9b738 Marc Zyngier 2025-08-06  93  
-
-:::::: The code at line 73 was first introduced by commit
-:::::: 9920c260a9b73875557f4b2e6c9f68685b9c07e8 clocksource/drivers/arm_arch_timer: Add standalone MMIO driver
-
-:::::: TO: Marc Zyngier <maz@kernel.org>
-:::::: CC: Marc Zyngier <maz@kernel.org>
+ .../bindings/iommu/mediatek,iommu.yaml        |   7 +
+ drivers/iommu/mtk_iommu.c                     | 132 +++++++-
+ .../memory/mediatek,mt8189-memory-port.h      | 283 ++++++++++++++++++
+ 3 files changed, 409 insertions(+), 13 deletions(-)
+ create mode 100644 include/dt-bindings/memory/mediatek,mt8189-memory-port.h
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.46.0
+
 
