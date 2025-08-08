@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA08AC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 11:31:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5E7C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 11:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKNrcZ2inN0dkigrfPU+4VDLBHMGjNs6FZWiUZEa0EE=; b=XYyyiT8MgWzkyJNNH5UzgWn1L3
-	FWHyI4zLivTYSb1JZddU16qZ11Il7e/JVp6//kQVa9srQoRwZ3FAesW1GtGm5NtibIJh2DFRSR8gT
-	bISL/boJqBjibiss5VY1tL8Dm3Htq8dvEhYJa+QJMW8rrXfudzj6ucILxNam3bNoReUcOKUHuchaO
-	ArctpXvDrPa3cem1eGjq0UErwXFLx2hoF6aqFGiLaX4+Ru/qNxW8q2YQatIutycCNyltGqVZScBD/
-	ArgLEKFIlhN73Jk1TXH8ank6NPve4HFhsejZ7MzledBptiBaW+zgirCgqcyFjGZqIe/a1/kpWKtad
-	hKj2a5ag==;
+	bh=xMesWcHoEa33KjF/J2eeIl0BbZ+P5s/S1CfPVNJYZ2s=; b=3CO7ZSCscqlqhZW1ckHXk5GO3N
+	o2cebsX34h13U4aa047SbP53TED7dRhI9cwyEc0pcCc32KjONgWP2XoKk6e/IfsDRl8zq981wAtfW
+	L/rcDdZDXglcrVATSlhqo373k6zH9p4xhfSUOv3opueHKEOy0Cdt/zuFv4vZlPUhno2aL+UV3oaWw
+	0PGnz5tlsdldcNuaZzw55AqgBsjnssr2bqwN2AMAzQ84qwtYiRH06jjchKjZ0rXiwsqzHxOvyhiXi
+	gW0Ix30syp/yWlsOA9ovXX6TGiJv7NraNbMytJbZ0VWpy+MNEktiYU2wgc3SEnWp2vwksBAAEsenR
+	e9+Ex8uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLJl-00000002gQd-0nrg;
-	Fri, 08 Aug 2025 11:31:25 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1ukLMC-00000002gcD-40Uu;
+	Fri, 08 Aug 2025 11:33:56 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLCO-00000002en9-1mxq
+	id 1ukLCP-00000002eo0-3zPI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 11:23:49 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-459e3926cbbso10042885e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 04:23:48 -0700 (PDT)
+	Fri, 08 Aug 2025 11:23:51 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b7910123a0so1778501f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 04:23:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754652227; x=1755257027; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1754652228; x=1755257028; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZKNrcZ2inN0dkigrfPU+4VDLBHMGjNs6FZWiUZEa0EE=;
-        b=ixZ7GOpxAk6Y+wGImkQ+jPr51LthMk+nVQt+182h/Re4hgvFGvVbK0eloGGcow+3uS
-         sEXK6jdj3riBwjSCU+EOrl2DKd1b9rJluVl3apuV9dhM7fOWMeS+lwdIHVHAQ+mx8tmI
-         K3KTU0Hj41iaP+z8OPWSlQC4LkGTjJizcEQnI8V/RDZlOuy3Cbqo4iP77yJ20BkW67aZ
-         L0v87SXaudE0Eyr9W9WFh+p++leXSc3i6DhIs0cVEQpnnmu6dvjtohZ/I6Yywds7XAKj
-         wPQaV1goLR4Z9N2dNiyDVONYiS/nTmNj0+LNbX8ksDZSgDPmEQcpzZmbb5+5kY+yuhKI
-         TJQw==
+        bh=xMesWcHoEa33KjF/J2eeIl0BbZ+P5s/S1CfPVNJYZ2s=;
+        b=nW8q3n5dkKWzZiLxjh2xBsQr43ED9ntu/8XTna9CFGJIlkWr/4EKbM5M65/eXRJZ3I
+         rY83W/T/dARaMyHAAwP1JyDCatx8DTnYz43i/ADha0hJnI6H/za6Oal24V3v0VDMPDvA
+         VlzfUrAY+AY2GM83GvteDGAIFbKwp6xi7pDCMgzPXeS+7zQqLiSsNl11UoYwnoOyrF4F
+         /EdHyw9MXr7paKKAd8L6turaR/ix+MGkELy4wSVweQoRAaZzyLUrDRC/7m/cgOTnnRnD
+         18tgV52faDfqABqFLp1jLziFXTnIVJ+MpZzFpQz7q59DdWg2EwJU2hnouv6z2ecJmSf0
+         UvJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754652227; x=1755257027;
+        d=1e100.net; s=20230601; t=1754652228; x=1755257028;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZKNrcZ2inN0dkigrfPU+4VDLBHMGjNs6FZWiUZEa0EE=;
-        b=S8EYxfXVU/+16SsAij5o7l5xo5S/lw4I60dtSKgKxgPMVD3MoBwYTBFyhgEiieJxpa
-         T2oY/tHOdwc+t0Xctly+CL22a2fwvZ5ugukZQxJ0aFvMI6yM+vfzO1Hkf2XwhRzCVcCZ
-         yLQXuhbClqUiEX5e5x0TO52xuo8+95s2z08MlgxIZAPvpbotGRlsQxY15RDS3BM4+lo6
-         LcpWrBlHJZ3DLHIEpBKVtYilbNZxwYkpGj1DTeV/EQxOgiQNtXpobY+HbKtk5sOv1Pwn
-         1p+y9Aqx7rS5FG46rttItcI9dgNzHKcq5S78hyzWe/hJ0fthKrRz3jD/jxDpzeIJYhNz
-         eqbg==
-X-Gm-Message-State: AOJu0Yw/Rh5Db4iz19G6c8ZCNNVP9hmfNZGAblSSEyWmzMxpqJ5DjPQP
-	qbjeagSsiv09E9o8SQrALTeZiZdYAHtAo+yX8w8fkRgtf2gc/FRIQ1XWYpq64zzgYwI=
-X-Gm-Gg: ASbGncvaochzX/8tRLBRNuOVC+Tn/644Dy0TIFDqklyFGhQjCRhz/1vrLv/QGrGOjJh
-	ocXlABJDkiPaOALv7SsseIvzqXQvoTzhn49b8SiJjFUTMGEiJhD7pFqm8AWx9iklp5QzVuDpnqd
-	yj0BEMXttOsqZBgdlrnjS/RLLsJXloZQ9vdS1bzdDoOeYV4avzVR9n5m2m9H+GEEKbwW+3QPGEk
-	JL+D3ZiHT0gKud+14TKsHnoliXKQkR6X6IuxpQ/q0x3b8PczB5ukrMULzXisWicv7U5Dq5+O5z/
-	hpRFuCPOOb+B7+AeImD2wcDX3Gx8Ma6QrsfIddWb1+EOwjEoX4RoTNAQ/zQJdBzgbqzRzVLgrYv
-	zp7KRjgYztbH1oxoW0CcQTIfgsEiHG65dfSx2HAyFXA==
-X-Google-Smtp-Source: AGHT+IEtGnKsBCIt/bHJOIS9ohOXGTF7i3Bn62tMY3vsP7Ew4XXFQhJGD0FnbE4+ZBqeRgof8LyUmw==
-X-Received: by 2002:a05:600c:3b10:b0:459:10de:551e with SMTP id 5b1f17b1804b1-459f4faf9b9mr19984585e9.27.1754652226748;
-        Fri, 08 Aug 2025 04:23:46 -0700 (PDT)
+        bh=xMesWcHoEa33KjF/J2eeIl0BbZ+P5s/S1CfPVNJYZ2s=;
+        b=RC6ZgkYD/vZMv47UZ/EJk40HWRkPz/vRaPMpLiY0JSe7eHp/soCyscI3UhaE/mWrrE
+         D5t0TuuGjHF004TOWuEkV1VJULWpTHbk3G/4rWUCcsFX1IlNde6t+BIiWwZY/WfvTKqi
+         URkfPNjge1xDcnCIed1CimaU9mQMqEemGMPExHmqQA9R0t6AGxp9YjRkC0d4aPGc0jMH
+         xX5zwsIwz1t9TiJfAg0FJ8Nfgq79ILxoVrAfuYkcc1mrAviTj/o08rDX1wYWm0EYevds
+         KgcpsPXCEePFXsVbFY6tkY3BxXNugA55RxT662R52/IU5qqxzNnwDXBbz9OFfKoOfjaB
+         qpig==
+X-Gm-Message-State: AOJu0YzvnJInzgCEuh1G1aqyqnrVoFe1V6L0cdZ11lBTRfrKzjnMsM0X
+	1WNZQnoc6AKEEjWcCun0O9d4h4svOs70tn7N0xg7OU0ez0KZfp1KOJAyqbKg77lIBJ8=
+X-Gm-Gg: ASbGncuU0anMi5Bxesg5Yi6J1fegA9ijn4pL0XsvjyiLonrbYZt0kr504X2yYLSAxVa
+	MaPGt9VVxFGrRF9eAfZq8Wav+w0x0M42741Xc0ugELC5OKHgm/ci42oOE/X5hwjsZza1d+PSzee
+	DlAdpS7OJ5ZmF4lfFRgLgFK63Wkjy+BgTaxIAiBG3v7G7U322ey4xFS04PQ2EdmzBkfJEz0bWEj
+	LzmtBhEnnk3o53z/2I6SFk2mOm7q5IdGuyw2BpoWrEIMzSZo9BzTwjxulidrq8xeBWqYEg4zjwu
+	SSA0LZ9ONqD3Jz5k0494vIMkOZ2M7NA0N/bsnxzkLLecWogmAoc1CxbWLrkrmTT3A8zO3uFHBCD
+	+9UfGk/E99uTao9oBa3wV6nliI7GlC8I=
+X-Google-Smtp-Source: AGHT+IG3KhpqmqY9mPCdYHy2kQ4dmK3mleBKR4K9YT1Bk9x07Zhf4VDQvqcJSmZgyy16+lcV/chGew==
+X-Received: by 2002:a05:6000:2483:b0:3b7:8146:463c with SMTP id ffacd0b85a97d-3b900b8bde2mr2125187f8f.59.1754652228218;
+        Fri, 08 Aug 2025 04:23:48 -0700 (PDT)
 Received: from ho-tower-lan.lan ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45923c34af8sm233482635e9.24.2025.08.08.04.23.45
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45923c34af8sm233482635e9.24.2025.08.08.04.23.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Aug 2025 04:23:46 -0700 (PDT)
+        Fri, 08 Aug 2025 04:23:47 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Fri, 08 Aug 2025 12:22:59 +0100
-Subject: [PATCH v6 02/12] perf: arm_spe: Support FEAT_SPEv1p4 filters
+Date: Fri, 08 Aug 2025 12:23:00 +0100
+Subject: [PATCH v6 03/12] perf: arm_spe: Expose event filter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250808-james-perf-feat_spe_eft-v6-2-6daf498578c8@linaro.org>
+Message-Id: <20250808-james-perf-feat_spe_eft-v6-3-6daf498578c8@linaro.org>
 References: <20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org>
 In-Reply-To: <20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -94,8 +94,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_042348_472716_38183237 
-X-CRM114-Status: GOOD (  22.03  )
+X-CRM114-CacheID: sfid-20250808_042349_995925_7EF8A0B0 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,122 +110,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_SPEv1p4 (optional from Armv8.8) adds some new filter bits and also
-makes some previously available bits unavailable again e.g:
+From: Leo Yan <leo.yan@arm.com>
 
-  E[30], bit [30]
-  When FEAT_SPEv1p4 is _not_ implemented ...
+Expose an "event_filter" entry in the caps folder to inform user space
+about which events can be filtered.
 
-Continuing to hard code the valid filter bits for each version isn't
-scalable, and it also doesn't work for filter bits that aren't related
-to SPE version. For example most bits have a further condition:
+Change the return type of arm_spe_pmu_cap_get() from u32 to u64 to
+accommodate the added event filter entry.
 
-  E[15], bit [15]
-  When ... and filtering on event 15 is supported:
-
-Whether "filtering on event 15" is implemented or not is only
-discoverable from the TRM of that specific CPU or by probing
-PMSEVFR_EL1.
-
-Instead of hard coding them, write all 1s to the PMSEVFR_EL1 register
-and read it back to discover the RES0 bits. Unsupported bits are RAZ/WI
-so should read as 0s.
-
-For any hardware that doesn't strictly follow RAZ/WI for unsupported
-filters: Any bits that should have been supported in a specific SPE
-version but now incorrectly appear to be RES0 wouldn't have worked
-anyway, so it's better to fail to open events that request them rather
-than behaving unexpectedly. Bits that aren't implemented but also aren't
-RAZ/WI will be incorrectly reported as supported, but allowing them to
-be used is harmless.
-
-Testing on N1SDP shows the probed RES0 bits to be the same as the hard
-coded ones. The FVP with SPEv1p4 shows only additional new RES0 bits,
-i.e. no previously hard coded RES0 bits are missing.
-
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- arch/arm64/include/asm/sysreg.h |  9 ---------
- drivers/perf/arm_spe_pmu.c      | 23 +++++++----------------
- 2 files changed, 7 insertions(+), 25 deletions(-)
+ drivers/perf/arm_spe_pmu.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index d5b5f2ae1afa..20cbd9860c8f 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -344,15 +344,6 @@
- #define SYS_PAR_EL1_ATTR		GENMASK_ULL(63, 56)
- #define SYS_PAR_EL1_F0_RES0		(GENMASK_ULL(6, 1) | GENMASK_ULL(55, 52))
- 
--/*** Statistical Profiling Extension ***/
--#define PMSEVFR_EL1_RES0_IMP	\
--	(GENMASK_ULL(47, 32) | GENMASK_ULL(23, 16) | GENMASK_ULL(11, 8) |\
--	 BIT_ULL(6) | BIT_ULL(4) | BIT_ULL(2) | BIT_ULL(0))
--#define PMSEVFR_EL1_RES0_V1P1	\
--	(PMSEVFR_EL1_RES0_IMP & ~(BIT_ULL(18) | BIT_ULL(17) | BIT_ULL(11)))
--#define PMSEVFR_EL1_RES0_V1P2	\
--	(PMSEVFR_EL1_RES0_V1P1 & ~BIT_ULL(6))
--
- /* Buffer error reporting */
- #define PMBSR_EL1_FAULT_FSC_SHIFT	PMBSR_EL1_MSS_SHIFT
- #define PMBSR_EL1_FAULT_FSC_MASK	PMBSR_EL1_MSS_MASK
 diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 369e77ad5f13..86c9948ab5a0 100644
+index 86c9948ab5a0..ba55bc3db708 100644
 --- a/drivers/perf/arm_spe_pmu.c
 +++ b/drivers/perf/arm_spe_pmu.c
-@@ -89,6 +89,7 @@ struct arm_spe_pmu {
- #define SPE_PMU_FEAT_DEV_PROBED			(1UL << 63)
- 	u64					features;
+@@ -116,6 +116,7 @@ enum arm_spe_pmu_capabilities {
+ 	SPE_PMU_CAP_FEAT_MAX,
+ 	SPE_PMU_CAP_CNT_SZ = SPE_PMU_CAP_FEAT_MAX,
+ 	SPE_PMU_CAP_MIN_IVAL,
++	SPE_PMU_CAP_EVENT_FILTER,
+ };
  
-+	u64					pmsevfr_res0;
- 	u16					max_record_sz;
- 	u16					align;
- 	struct perf_output_handle __percpu	*handle;
-@@ -697,20 +698,6 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 	return IRQ_HANDLED;
+ static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
+@@ -123,7 +124,7 @@ static int arm_spe_pmu_feat_caps[SPE_PMU_CAP_FEAT_MAX] = {
+ 	[SPE_PMU_CAP_ERND]	= SPE_PMU_FEAT_ERND,
+ };
+ 
+-static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
++static u64 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
+ {
+ 	if (cap < SPE_PMU_CAP_FEAT_MAX)
+ 		return !!(spe_pmu->features & arm_spe_pmu_feat_caps[cap]);
+@@ -133,6 +134,8 @@ static u32 arm_spe_pmu_cap_get(struct arm_spe_pmu *spe_pmu, int cap)
+ 		return spe_pmu->counter_sz;
+ 	case SPE_PMU_CAP_MIN_IVAL:
+ 		return spe_pmu->min_period;
++	case SPE_PMU_CAP_EVENT_FILTER:
++		return ~spe_pmu->pmsevfr_res0;
+ 	default:
+ 		WARN(1, "unknown cap %d\n", cap);
+ 	}
+@@ -149,7 +152,19 @@ static ssize_t arm_spe_pmu_cap_show(struct device *dev,
+ 		container_of(attr, struct dev_ext_attribute, attr);
+ 	int cap = (long)ea->var;
+ 
+-	return sysfs_emit(buf, "%u\n", arm_spe_pmu_cap_get(spe_pmu, cap));
++	return sysfs_emit(buf, "%llu\n", arm_spe_pmu_cap_get(spe_pmu, cap));
++}
++
++static ssize_t arm_spe_pmu_cap_show_hex(struct device *dev,
++					struct device_attribute *attr,
++					char *buf)
++{
++	struct arm_spe_pmu *spe_pmu = dev_get_drvdata(dev);
++	struct dev_ext_attribute *ea =
++		container_of(attr, struct dev_ext_attribute, attr);
++	int cap = (long)ea->var;
++
++	return sysfs_emit(buf, "0x%llx\n", arm_spe_pmu_cap_get(spe_pmu, cap));
  }
  
--static u64 arm_spe_pmsevfr_res0(u16 pmsver)
--{
--	switch (pmsver) {
--	case ID_AA64DFR0_EL1_PMSVer_IMP:
--		return PMSEVFR_EL1_RES0_IMP;
--	case ID_AA64DFR0_EL1_PMSVer_V1P1:
--		return PMSEVFR_EL1_RES0_V1P1;
--	case ID_AA64DFR0_EL1_PMSVer_V1P2:
--	/* Return the highest version we support in default */
--	default:
--		return PMSEVFR_EL1_RES0_V1P2;
--	}
--}
--
- /* Perf callbacks */
- static int arm_spe_pmu_event_init(struct perf_event *event)
- {
-@@ -726,10 +713,10 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
- 	    !cpumask_test_cpu(event->cpu, &spe_pmu->supported_cpus))
- 		return -ENOENT;
+ #define SPE_EXT_ATTR_ENTRY(_name, _func, _var)				\
+@@ -159,12 +174,15 @@ static ssize_t arm_spe_pmu_cap_show(struct device *dev,
  
--	if (arm_spe_event_to_pmsevfr(event) & arm_spe_pmsevfr_res0(spe_pmu->pmsver))
-+	if (arm_spe_event_to_pmsevfr(event) & spe_pmu->pmsevfr_res0)
- 		return -EOPNOTSUPP;
+ #define SPE_CAP_EXT_ATTR_ENTRY(_name, _var)				\
+ 	SPE_EXT_ATTR_ENTRY(_name, arm_spe_pmu_cap_show, _var)
++#define SPE_CAP_EXT_ATTR_ENTRY_HEX(_name, _var)				\
++	SPE_EXT_ATTR_ENTRY(_name, arm_spe_pmu_cap_show_hex, _var)
  
--	if (arm_spe_event_to_pmsnevfr(event) & arm_spe_pmsevfr_res0(spe_pmu->pmsver))
-+	if (arm_spe_event_to_pmsnevfr(event) & spe_pmu->pmsevfr_res0)
- 		return -EOPNOTSUPP;
+ static struct attribute *arm_spe_pmu_cap_attr[] = {
+ 	SPE_CAP_EXT_ATTR_ENTRY(arch_inst, SPE_PMU_CAP_ARCH_INST),
+ 	SPE_CAP_EXT_ATTR_ENTRY(ernd, SPE_PMU_CAP_ERND),
+ 	SPE_CAP_EXT_ATTR_ENTRY(count_size, SPE_PMU_CAP_CNT_SZ),
+ 	SPE_CAP_EXT_ATTR_ENTRY(min_interval, SPE_PMU_CAP_MIN_IVAL),
++	SPE_CAP_EXT_ATTR_ENTRY_HEX(event_filter, SPE_PMU_CAP_EVENT_FILTER),
+ 	NULL,
+ };
  
- 	if (attr->exclude_idle)
-@@ -1107,6 +1094,10 @@ static void __arm_spe_pmu_dev_probe(void *info)
- 		spe_pmu->counter_sz = 16;
- 	}
- 
-+	/* Write all 1s and then read back. Unsupported filter bits are RAZ/WI. */
-+	write_sysreg_s(U64_MAX, SYS_PMSEVFR_EL1);
-+	spe_pmu->pmsevfr_res0 = ~read_sysreg_s(SYS_PMSEVFR_EL1);
-+
- 	dev_info(dev,
- 		 "probed SPEv1.%d for CPUs %*pbl [max_record_sz %u, align %u, features 0x%llx]\n",
- 		 spe_pmu->pmsver - 1, cpumask_pr_args(&spe_pmu->supported_cpus),
 
 -- 
 2.34.1
