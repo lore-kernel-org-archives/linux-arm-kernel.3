@@ -4,89 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990ACC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87E43C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TeUQG1VkSQkZJejGzniJ85mMFqiHeVxBeYS5KK1IWx0=; b=c57B077NlVSj42rEg9v8oaXPey
-	6mtaa/z+NgBH1bAaVtawY3zlse9OCeYXvi+T6PATJnpNXFZKUdS3TlZvDZceIhaaggwoy89DKEsQx
-	gBreFNhQiSSUzkmp2HrI5MCIgADVuCV+wkkjVDU+gzPi/5FDzhXdT/2GuNytz6zKOStm0AD3vLfU5
-	18ZzEgP6nj3U6cFylHo67ySsQM5hF2BjqkrVxe6nwRTlanETnLBnz3MAz4srzKq3Y1HNfh4V2OjkJ
-	XPO1cjKR0dTFhl2cmQVB56FczyL8dzl+CrbFdnKJa0+O0DYdGR4m+D/mveDyGBhIEIbIq4FFcHs/w
-	Yt41l6Pw==;
+	bh=KjlLTJox+aEPkr7SyVNi+vSqzknO8UAJgxNui7KfZqI=; b=CejIzV0bla/kZMdPNMEyX5RpJC
+	9Ppd743wWBNh52H2vqB3pmq/splwuXpZYOWN4xcuGhUSr38x16Kxuhmfy94KuhmwdHcdoSY0r4l9m
+	jPnd1ZN24ikPsth29fWBn5qVeqdTwkHhv9XrPA/Nnxf9urYwNPyYxb3xlRP8EeqixtxllpCY2aNER
+	BNZir25JcIioMEQuNSy5DaaB0ozlvXjljRdpbCf4xKuOlWnp+c6qqYQBApw91g/6OA/aWffyP0knb
+	DsT1MAmX0kHBtyRSZX0pzg8g18LD35prG8WKNtnxx7e42hXwHTOFiKQNv9/PTJkTV7h5cK6POgHcM
+	sBvP9kSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukMJ0-00000002ohi-0ZUA;
-	Fri, 08 Aug 2025 12:34:42 +0000
-Received: from mail-vs1-f54.google.com ([209.85.217.54])
+	id 1ukMLS-00000002p16-3zeH;
+	Fri, 08 Aug 2025 12:37:14 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLyi-00000002m4i-11xu
+	id 1ukM0E-00000002mKl-3QFV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 12:13:45 +0000
-Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-4fe7712bedaso1833598137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 05:13:44 -0700 (PDT)
+	Fri, 08 Aug 2025 12:15:20 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-70748a0e13dso16250336d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 05:15:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1754655317; x=1755260117; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KjlLTJox+aEPkr7SyVNi+vSqzknO8UAJgxNui7KfZqI=;
+        b=Q1J3X6EWm59TJkusHwbmK5LYFz5p19u4hOZGv7BoAACrYD2u7tsdmzuHxkjTSJx2f6
+         FGfQBxHiGB4zxCTIyfm7gb7G6TZHn0lf49KK3KpI2O2bPMz6IPmqLKzVVjrDb/ytdXGf
+         PlRHHPwY3QvGLcOAOFto3wqp1jg9HHagJ9sd6g2wvZPGn7EDjVJUmYI5OhzZgIkop1hO
+         /1BLtDDaqSqhVNAkCqC+pUyYqnxQXYvvOgN5zNwyMHISbosdZmdysEa5IgdB78CKIrZE
+         c/ow4Aq3pBJC5OO8wQjV50mSGjLPVRWo0jvHq53Z7T//gOCYvgdYaNyYF2QFxT1GUhUn
+         YiGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754655223; x=1755260023;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TeUQG1VkSQkZJejGzniJ85mMFqiHeVxBeYS5KK1IWx0=;
-        b=P1momMRmcnxI6dr4KxHmD/tEB4dPufvuJLPzFEgYzgTLjyuWyaw4lCp7im/ixiyRbX
-         MB9w2h8+Zwwclv88O1QmBI3TrQ6jmVt7092yV4otg2LP2vjqmZdXBAzK7WdK8AizLUvN
-         DigwhNXcbplqEc08ykfLmcbB0zJEeSv4nQ6Nk6iOJcV4Jy/fQaxNUpGzJBE6Mr07vG7N
-         LqmhfbjAPEDyC4M91YUd5P2cqIeJBCM+EdHu0mpKi2NzcQ5230qtdzQVEN2abyCRQsWt
-         hAgagL46slbprFslmrBQUThZSknmWlQ1zyMGaukC6G+/uQT5pZ0BjexRGF5RJHsZzlLo
-         SRHA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnGm7Zbr+565kpMVATxdkXxn7aUM4o4ifQT8KMw6aU86CFJmQKPCNGx7EVYP2GDXZ8j1X4p1dqR43uYewPH7/C@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4+xFkqx0xNdtpDHnZWgMhofVHx72EQIfPYDx7JzPIALOnPghb
-	wRAnlI/PaR6WvoKbpSTQBCkaGfRTcnN/i/H0WnYFU6PIghc7dVvtKmXbOA/HrmXU
-X-Gm-Gg: ASbGncslxMgEmjnGT3YVbP7CuXeS8g9xAn5BumeAgjxv/+GJqVvi6jgxIsHBmrF/rOl
-	86HHIUijytT7Jl7Vtiev62ex6Ihv+XXU/32KeSaj5ziuNJQsNpbekZsrU1ZKboz7wHV5T1N8+uf
-	/sERMf+6avJY0NxzP+fKJ0aelNyASjkGX0EPpztsV0guJb0j9Tx8Sk1sWQVfsdvRGale5smHVt+
-	rxZsQ1f/2LLCpR8Nxejru3T93BM7hgpsN4hwvAJlgcSmPx7vF5oDswUPk8EKiCqxD3PVRd/UIWG
-	ELSLH/YGswo5SuoK9xm1B/LULA+uKSP2BnCYAcPr+Z1+9iFkal+6aWMsFBh4qLC5qAcj2FKtguF
-	oM9ooqbmJ7S/HXqHP7CyhwAuSvzcWaYie+e00kBT8ErWsPirObdNTvQ6HqvS8
-X-Google-Smtp-Source: AGHT+IHr70gJXCEdK51Bvn20PlFfdR2SjzTRVpNF651A93oQvP1u+ea2SPF4JbjsdZ5AS4aGTE4M6A==
-X-Received: by 2002:a05:6102:5cc9:b0:4fb:142:1ff5 with SMTP id ada2fe7eead31-506104d8812mr1032668137.26.1754655223010;
-        Fri, 08 Aug 2025 05:13:43 -0700 (PDT)
-Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-88e029cd3d4sm699064241.23.2025.08.08.05.13.40
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Aug 2025 05:13:40 -0700 (PDT)
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-4fe7712bedaso1833544137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 05:13:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWt3Re2KWXjONZT3aF2J0avmJu5Rwm+XVyXWkkktyAdqBM3Su/70GnG7zymlwLt4Yr2Z6T6RCgAoHYItb+WX1/G@lists.infradead.org
-X-Received: by 2002:a05:6102:5cc9:b0:4fb:142:1ff5 with SMTP id
- ada2fe7eead31-506104d8812mr1032620137.26.1754655220395; Fri, 08 Aug 2025
- 05:13:40 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754655317; x=1755260117;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=KjlLTJox+aEPkr7SyVNi+vSqzknO8UAJgxNui7KfZqI=;
+        b=HF1Tt+mwmlgUYhJMhGrPwL60omKvv4KbtrcRRYlukDXQoSmb7eo89tqtzDdtPbxKEL
+         0onEAEJogS5MaasVeyCIyVw0C6xxZitzTQiE3JO32rjFFH9Vw1qoYDliHzzcgB9udCDP
+         j6Pmgpvd9yFu0BlptFHd82SE+S1qxIFbsVAmGSL4HF/GsvoormUsbmQU/lxh8Q47eJO0
+         lMsA5qOejUh+bpd6gvqpGnMtMOVye8JmdOwsz2NTxJMip1sj5/ZvB2rEC2K/Ipn2h2qo
+         RquIULuyMFVsYYhBfftXFB8mwnwrh/Fb7mpSydEm0Dxhizl7XhfvZAXQpQhlyOPujqdb
+         Ru5A==
+X-Forwarded-Encrypted: i=1; AJvYcCWmB+Dy7bbaOA80F96iU4v4TPR59yxvUauENgNWfCbLZAHf8aalzueIzSAsCgsZqTUNpCWVlL1nNG8C1NtKF1z7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHMPAWd74dNL471KyjezgEHyZXZXDSJKEN7LFjzDOFbAqZNTtl
+	xWAKWipTJChbrfUXaafKdp9GI16fvCodWy4sNFMwvohFCmdmeFjAVoGgMplOURXnRzk=
+X-Gm-Gg: ASbGncu0U3mz4cQ5HixWdbiymcQplHujkLh4PjW3nEJQ5RUVFwuIVXHtyh0xywhTx1a
+	p2P5J8eRqQ+Audz4rddQSHseFi7Ict0IsRf8yOtLspxGca+cFfLksyRRAxq9fP0HQUj9fbb1iMc
+	kpLhzJHZovCMSHQSSq5qzGmt6ZhLATGTL9RFBtmMgGkKf+oSnYwtAgaeWwhuaZzC27T5/58BvKi
+	SDNwtsdOSqC/xvrlruHajT0P77uAqQnHsU/4fP7x6L2HR25MXuzXLP+KndT2/pIZB7dYry8EHcb
+	t90YuM2dyJjTJpJveSb6/5ACG0J+fq8KZOpeJ4vy4m9FyDPQu02NI4fvJYxx7H4hnbgJgF3Zvd1
+	ITCap0rDQ+0DCpqN5MX3lEJJZHfp7pozzP8b88M8Aw0PpDic/a3ZFFLkK/dUxYJ4xlgRml8ZRM/
+	Ji1dk=
+X-Google-Smtp-Source: AGHT+IFydq6l6b5JXXNn6gOqeE0yXEq9dZ/J9DKgW7tPI3RiBa0ZAO/jnR4IhHmIeHf5pIqVx18YPw==
+X-Received: by 2002:a05:6214:29cb:b0:709:3d74:2ed5 with SMTP id 6a1803df08f44-7099a301143mr35261076d6.29.1754655317080;
+        Fri, 08 Aug 2025 05:15:17 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-7077cddc290sm112232056d6.63.2025.08.08.05.15.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Aug 2025 05:15:16 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1ukM0B-0000000256j-2zO9;
+	Fri, 08 Aug 2025 09:15:15 -0300
+Date: Fri, 8 Aug 2025 09:15:15 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Shyam Saini <shyamsaini@linux.microsoft.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, virtualization@lists.linux.dev,
+	will@kernel.org, jacob.pan@linux.microsoft.com,
+	eric.auger@redhat.com, code@tyhicks.com,
+	eahariha@linux.microsoft.com, vijayb@linux.microsoft.com,
+	bboscaccy@linux.microsoft.com
+Subject: Re: [PATCH v3 2/3] iommu/of: fix device tree configuration for PCI
+ devices
+Message-ID: <20250808121515.GE377696@ziepe.ca>
+References: <20250806215539.1240561-1-shyamsaini@linux.microsoft.com>
+ <20250806215539.1240561-3-shyamsaini@linux.microsoft.com>
 MIME-Version: 1.0
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com> <20250704161410.3931884-7-claudiu.beznea.uj@bp.renesas.com>
-In-Reply-To: <20250704161410.3931884-7-claudiu.beznea.uj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 8 Aug 2025 14:13:29 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUGOJHFaCUd7qjtGmRhwU0EPXpVVBuP31JgbCEADNF3ew@mail.gmail.com>
-X-Gm-Features: Ac12FXzM8iJwkzA-RFb9JbCrkQWoOo3N-HyMUTOszuGFrs4cxQKU_50xLXL2bB0
-Message-ID: <CAMuHMdUGOJHFaCUd7qjtGmRhwU0EPXpVVBuP31JgbCEADNF3ew@mail.gmail.com>
-Subject: Re: [PATCH v3 6/9] arm64: dts: renesas: r9a08g045s33: Add PCIe node
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	magnus.damm@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de, 
-	lizhi.hou@amd.com, linux-pci@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250806215539.1240561-3-shyamsaini@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_051344_280765_53247774 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20250808_051518_920533_4ACB3A8F 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +109,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Claudiu,
+On Wed, Aug 06, 2025 at 02:55:38PM -0700, Shyam Saini wrote:
+> Individual PCI devices lack dedicated device tree nodes, but
 
-On Fri, 4 Jul 2025 at 18:14, Claudiu <claudiu.beznea@tuxon.dev> wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->
-> The RZ/G3S SoC has a variant (R9A08G045S33) which support PCIe. Add the
+This is not the case, you can put PCI devices in the DT as well, there
+is a syntax for it. Why not do that and have the FW populate it on the
+device node itself?
 
-supports
+You should CC all the device tree maintainers on something like this
+as well.
 
-> PCIe node.
->
-> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-
-Thanks for your patch!
-
-> --- a/arch/arm64/boot/dts/renesas/r9a08g045s33.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/r9a08g045s33.dtsi
-> @@ -12,3 +12,63 @@
->  / {
->         compatible = "renesas,r9a08g045s33", "renesas,r9a08g045";
->  };
-> +
-> +&soc {
-> +       pcie: pcie@11e40000 {
-> +               compatible = "renesas,r9a08g045s33-pcie";
-
-In light of the discussion on "[PATCH v3 4/9] dt-bindings: PCI:
-renesas,r9a08g045s33-pcie: Add documentation for the PCIe IP on Renesas
-RZ/G3S", this should be "renesas,r9a08g045-pcie", and the device node
-should be added to the base r9a08g045.dtsi instead (else everything
-has to be duplicated in r9a08g045s{13,17,37}.dtsi).  When support for
-the variants without PCIe is added, the pcie node should be deleted
-using /delete-node/ in r9a08g045s{11,15,31,35}.dtsi.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Jason
 
