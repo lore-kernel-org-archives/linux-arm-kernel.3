@@ -4,180 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7615BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 06:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C15C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 06:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QKrno0zM2CUa2Cvwiad9vevpbaBeDywmY1/+Yt/86qQ=; b=bgmQf22U/YxvfheJUod36Wz2ev
-	ArB9YqazwlqLXkF4nRAV/Ls7FF6lS5nn7hrebAE1wf8YMkGVJg4dOWO5jcu2yOobbc/Vo1+MkH7oL
-	9hDFufeIpcaeBdqBipOEJvNXm/n30B51cOM9Yow7dDf5zGK3aWfzkNhbUrQVSdbXzXhYvrSELeVXD
-	Ej9CK41mXcK/hmHeJV3B7qbOZIH/q2LZEJpfyrybg+V89/slOLYuIlzYvstHlJge1DjcyFD1yzhF5
-	exYZIXVRsJWfsZnOEAYWIkApeR5v543dSsxPSI5+pnWQvjh1EYZVgU48cLqPFq6t/4omNGRRDdnUf
-	BvWYIIew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/bygktD0fqAfBcULD1cv//efBpJOrdPBFdY6zXSYR1E=; b=tX7PAOplkVU5lWlA7fICx5CxAY
+	gClRaS2zvCR1Ec5EZbip1gTqMIJWP+Cx/19r5Xbe0NT+/H8eDyCjcUo7V/7o9AB6po2/0kPSTFSXi
+	xvs8Vss672UkFde0irxv/nrBF2xTNM6qwnBSJMicdbhDCHYc0kjYq8mrzJCuHJ4fDpSwYdcdYYuNq
+	Wv5kae21MrD8a+z1HqwAwkN8ZB/mNazKkdAH7fsXBO9/D0aiga3jJua1M7cRlcwSctm0GZIGAT8tT
+	deKENLHlH3DJzV4feg7SiDgobnwLJdw/GDt9P6XHn6dx5HNhoeF3B7tGZUCDe0jzUACo6mhTkRdDs
+	07oETtrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukGhM-00000002733-2x0V;
-	Fri, 08 Aug 2025 06:35:28 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ukGsu-000000027hH-2ovL;
+	Fri, 08 Aug 2025 06:47:24 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukGes-000000026nZ-0aPP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 06:32:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xWagjXgqJbUD7rjSqxw7a83ztTD0PJRveLbxGS/jt8BprbfE600YuDvbx5k84TGa9WnktcYZHm6o2M5k5tSK02aD5LLVrUqKi6IeY8qrnEuApIe9T3B6obnQMjv8Jfhd6GxgGi7gvsKbOcrRejm1FhKvpOwUoLc0VtHGIcAk0OIGE6lzPP5mEIXJG2Z0v3SC8D26hwCjW7iMx8ABlNJXxGulox12jPdAQA6JcSTBnxh/EwK5fqWRjEgD4Y1UzioE6loiIX7kH8qL6c1TfKVrxhmmx/1yXfgyk/WWSr5VoTiLMIaW0USbkIdzT1rMX/WgJ6t2ueVids4Y2xOosTBX2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QKrno0zM2CUa2Cvwiad9vevpbaBeDywmY1/+Yt/86qQ=;
- b=nJydgHOyVM3jHoTkmhMDOhSqi17gvaL9hVvUujJayWQqOfSVsoFjvtpxKp2l3egHV9tWszn0RRZhjiwYl0Ktk58+mS41qdAveqrfgs+IB+IeLon9A5RwG1+9APMbB0NxehZcnQh4m8KVT8eCtRoIHVRq5XbTokNruADHAzxafefsL/It8I4f1WgyBiO9dFjsMMdz56Ku8hgvvoWqA+pp8mq8hqX6QnlSKjXf+iIEZdCQZomlw8fA2U1PLS7VI7hRcOKfNUD+ZVNON2YC9oBiIpsMr0JK2SjWVsQF6g0OIz8hzLxi+c7w5pZTSZ9g/sQMRBYSIg47lIuYdeN+p+rqCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QKrno0zM2CUa2Cvwiad9vevpbaBeDywmY1/+Yt/86qQ=;
- b=hxKsAUQW2cgpD2wPXEyntAQHVazmmR0TXVZ7Y5e9NW6GOFjAvpGyRry5E28EzprIzIh9G0q8d+3OJt4/C3l3KU3zS7jQkv7I9QnDqstY7VomNdvWwvEjLn1KmZMmMehOZLZ5sX3ou2fmwt8Fjdo929TmXPcd/gXYLSuMwiL/CLG7fA1hR8f6n4MvqWQumF5HPMgNo/ObF0TzjYWBoxrTqriNiksrLb7Gnx7PShUVuSGU7z3xcz8BHizVlAP4hgNS3luRYm44iwa0l/tvmUZQpn0p/o0mfB9m5c7xonIk9PcOaU948VJaZDogIAPOGmiTHyWgbYT9b4VACZxwPW62lA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
- by AS1PR04MB9630.eurprd04.prod.outlook.com (2603:10a6:20b:475::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.18; Fri, 8 Aug
- 2025 06:32:44 +0000
-Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
- ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.9009.017; Fri, 8 Aug 2025
- 06:32:43 +0000
-Message-ID: <481c4a38-e638-49ea-88d4-765e581afca7@nxp.com>
-Date: Fri, 8 Aug 2025 14:34:12 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/6] drm/bridge: imx: add driver for HDMI TX Parallel
- Audio Interface
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
- luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
- l.stach@pengutronix.de, perex@perex.cz, tiwai@suse.com,
- linux-sound@vger.kernel.org
-References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
- <20250804104722.601440-6-shengjiu.wang@nxp.com>
- <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
- <CAA+D8AN4n0H6M_0EqX4z_37ViSCyThKbmtMgqPmipintJ8Wtwg@mail.gmail.com>
- <ba02693b-8ad2-4297-ab89-5b39d5c4315f@nxp.com>
- <CAA+D8AN3VzFx1g=8wyxJROw96xS2-qoVs3X4vUfFnJtUCqFj_w@mail.gmail.com>
-From: Liu Ying <victor.liu@nxp.com>
-Content-Language: en-US
-In-Reply-To: <CAA+D8AN3VzFx1g=8wyxJROw96xS2-qoVs3X4vUfFnJtUCqFj_w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR02CA0010.apcprd02.prod.outlook.com
- (2603:1096:4:194::15) To AM7PR04MB7046.eurprd04.prod.outlook.com
- (2603:10a6:20b:113::22)
+	id 1ukGqQ-000000027Sm-0Us6;
+	Fri, 08 Aug 2025 06:44:51 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-33211f7f06eso18991241fa.2;
+        Thu, 07 Aug 2025 23:44:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754635488; x=1755240288; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/bygktD0fqAfBcULD1cv//efBpJOrdPBFdY6zXSYR1E=;
+        b=aBDLNQbpWZoCpWknX6/dhb+UOUQCjhHzP9bwT7OzRRSrtu/GpYgEc5xBa63JxQiqQ7
+         GHzhcsUTKwCjIJHKvAWxrb+W3IcOHkOGQq8poo/FRjS0eagVu+I9g+j+lXeSbVRpFznb
+         vuIhuCKvwVDfti7iD3K6ijTjb0NmAVHcLu+LnsaJLLsm7mS2XpXX1VGenpKo/+B6hYXh
+         r9Hk6VipNDBVij7g3hjA7fULnoT9p1KJMKuZK0RCd7/nlw/yXxIUt1U3AGoh4Dc48vEs
+         yuOJS6p4qTV8bsrjCg9i1Sl8smeC2nWvR17BBos5dLvt91sRh0qb/PXHqQJYPLhXyJdL
+         6kEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754635488; x=1755240288;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/bygktD0fqAfBcULD1cv//efBpJOrdPBFdY6zXSYR1E=;
+        b=FJIYyu9adTTg6x+sBfpbPSwMoyqT6ZOjtDCocV9CML0mgkYljSbyK5kFXjkYWPgPMJ
+         UK4eRuLUoDEwNSuX4ZjKtbFOQbdytQoRw6LW2HS6MnSARMyOy1w4IwlNjqMtthqn9I+V
+         Qo3yjmtMgYPWICIf8ROUZlZtGn4ho9/XDNQPsloNmolNG8VoQxZaMJ5GjeIwQxwxBqle
+         zRY7AbxkLACZ4HIkr/tjlBa+ETslf7DxnlXLFu2e1qbwZdJ5RCI3xESei6UJvfJ29wTR
+         sCXoekPmiZp/vrEEECdBF0AoHJHTpJztMe0441ZJsdLiNdiyBuyrHZQcoeXcRITiL3SM
+         gdNA==
+X-Forwarded-Encrypted: i=1; AJvYcCVn0l6OyL7iPe7LLJg3mfOTy/5INUf1YF5LIatFArhVD/n7WtN/Sjjv04GGcxJx9ANHsvkrfjKdFdsqowg=@lists.infradead.org, AJvYcCVuSuILmujaD4WZHelzc7vpNdWMWAuL6FCpXZXYE9JUBABxyTvaFJ06U0+xeppoC7vC1JvSd+RnvPqIbq976w4/@lists.infradead.org, AJvYcCXMqi3mCW3UUf4lQTBJoLnmklYJX9BtwNlvzswAm74NgTDcoOKPq4UAN+IpanpT1LHgGqDFIHdI0Hk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YynEg4AhTs6fYBhOY4fnvnm0Ur2JVZyoja7QATlVsv2Iu3qojCg
+	UAdB4S6yQbVzV13cOs+30G4pda1BLIk9boscu7AX4U/jol0ZT8TJ6GYusI8yFTbAmisPVyq+NU7
+	zIjuJp3wIJByDXxUanoqcDqtkrMp2wTg=
+X-Gm-Gg: ASbGncuIAcCyMahE/pLoju6qvjvTdK2WncnhmuC4uzKwi6pcXsMDOvrvFFtdQe2HhjJ
+	gFghuebRKudyonGJ0cscEAK/Z1kfbdbG+cHenwnzThbcVWa3/Zoks7mIzPFQA1lFHRI6K5ROfE0
+	amBsGQhNhpyF++M2FgBXdjUU49lYVaX1SEqO6Avdj2B4BjYdGL6rArAZ8AS8w8HztpfhaFW6T2s
+	lVisuI4GbmFwg==
+X-Google-Smtp-Source: AGHT+IFs71M36/AELdEQHAnmGYL1flS4Z16XX46ZSXB/yJtln5z+7ajdXBk68gahFV3tPaDyZV4i3858ZjCNgBJDsz4=
+X-Received: by 2002:a05:651c:4010:b0:332:2df3:f8ac with SMTP id
+ 38308e7fff4ca-333a222c31amr3330341fa.32.1754635487960; Thu, 07 Aug 2025
+ 23:44:47 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS1PR04MB9630:EE_
-X-MS-Office365-Filtering-Correlation-Id: a84b0d98-59a1-4613-3bf6-08ddd64561ae
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M1ZTZUx4OXZLaVh2cVVIVklibW9iWmFjNk9KOVd0UytZWGN4cENpVGxFNWQ2?=
- =?utf-8?B?SCs2cmZUYnhMYmFPb0ZCdHlIR05YNEs4cUlSWDdBVERKcG5tR3ZlbVNEd2FH?=
- =?utf-8?B?aC9hamxXVU1GcGt5OVlwZGswMHoxTXpYejY4L01HSVZ1UHQzYlZNQ05BOEIv?=
- =?utf-8?B?L0JFam40MlNtdjRvVHdzZ0x4TGhZMXEyTFM1RFVKblRZVzVrK2NJUDJmcnd5?=
- =?utf-8?B?NWIyNlMxelNuVHI1bVBKOE8zUlc0YkxuRHpUZFdvdWU2MUl6ZnNiWFMyYW9O?=
- =?utf-8?B?clZBT1dFTTg0NDB4WU8veHArMEFhYUdNWWxSemxlRi96b2FQTkZkdE03STE0?=
- =?utf-8?B?Sko3bVplZ2phaGpKS2xzbEZJQWVFNTAvaml0Ky8xZk56TjJlaEZ4YWdsRFpq?=
- =?utf-8?B?WllWc05uaHM4WERSRlhqZUFWbXRDUks4SDBmeWpGQnJFbmYrckJuUHNxYUww?=
- =?utf-8?B?bkhsTXFxaGwreDNiaHdUSC9vQ1NBVHRUOFp5WEowU2kzRkNvMjVoWitSR1N6?=
- =?utf-8?B?VEFzclhjdUtlZnBWVXpFVGhBczNYK1loejJkblNCSVJwZVZZN0lqVEVmZXJ4?=
- =?utf-8?B?M3RzalVxd1pQUHVUNXdreHNVS2l5eXhweDBPTFpXUkxwckpDNUNPVFB3Qk5t?=
- =?utf-8?B?YmJTLzFUUUJac2FWVVZjMFVqaVA2dURhRklEejNEM21wY1JJalFQS1hjeGl4?=
- =?utf-8?B?Y1ZPQThEY1dwenF3ZzBoUDQ5V3hKUUl6SS9tNmt2TW9uaUw0RXk0SlJEU1lk?=
- =?utf-8?B?TnhpM1Nuc0daRzRqVmNxamwwTDhVcFRQcmYwbE9wSzVjWkoxc0tUbTlRUnl2?=
- =?utf-8?B?MEFBQlcwV0NYbldsZFI5T09JaEhHUjVxa2hlVHFCMHVUanRsVkJNcW9GcmZh?=
- =?utf-8?B?dGFGdVJaRXZVL1FkcEZ3TkpGVUNuVVQ3VFlvSnZ1NHRLZXhUQmY1RHRvdHBm?=
- =?utf-8?B?TkZSbkg5R3BnVGwrbFkzUWR0VE95elRwYVJrc3l0ZE83YmtNOGhVeHdoRGlw?=
- =?utf-8?B?UXdvSGdVSEhKa1FvcHEvcGY0cStPOGp3NVR0SDNSYXIyZjFHb2dJRW9KVzlj?=
- =?utf-8?B?T09MdVp1Nm94OVoraXZ2aUtna3p5N084d0c1aTFBVk5hS0FKZ3UyRkpsY3NE?=
- =?utf-8?B?Ulc3ME9JenFnZzVubFpDQzI5ZUtYWlJveEJuUTRXc2xIWTVNakx5R1FiOThw?=
- =?utf-8?B?cGRuSHprMXpFSy9zSE9XYWFVUUppV2tpYi9oZUl0Sm9iT1Z4M0hLTS9xblF2?=
- =?utf-8?B?V3ZHbVdER2ZUT1ZTbWV3K3hnb2pEUG56ZGFUWVg0bGIzZFowdUNMZUQ3YVFZ?=
- =?utf-8?B?aXZWMnZFaHJORW5JZUwwaVNLcU9ZeloxVUV4SXZYclZMZVh5cU41NVVDWTVi?=
- =?utf-8?B?blFuWTk5aEV3eUI0QlQwMEpFRjhuNU5NdndaRHJ2b3J0Z2kzcjJGdldyRkZ5?=
- =?utf-8?B?aXJaeHYzaUNEM1FqYmVuTHQ2Y1lGd2dhTFVsazMzbXRSMzNORHN4YkwvVndj?=
- =?utf-8?B?OVhsYkdsM09uT3paOHNhVEppNUo1WHhjbi9Eekl4clcyV3R5RHN5S05BUk96?=
- =?utf-8?B?cmFXT1J3dU05OUt3OUR3VzY0WjVoR3RPNE9kTlArOWE5QzV6ZDVEcHp0VTIw?=
- =?utf-8?B?S3M0Nm84RDM5bnFzcDIraGdncFNaMkt1OXlQUmRHY2xGTXRmeTBuU0dZOW9W?=
- =?utf-8?B?RzUwYTZza0lUYUVTNE1OakJLRFAzMnY2dkdTd1NlUVI3RzBWWlJWdlpsOFFx?=
- =?utf-8?B?TGNRR09NSG1SK0hmckh6Yy9OVkVZckVaQjl6WjhuWjF2UEo4UmowMUNkVlVU?=
- =?utf-8?B?dG5nckJ6QTJZUWcwVXRiZ05zaWxyZjNrTFVhUGh2WlJGRzFlUU1LOGtKSitU?=
- =?utf-8?B?QmJMYmoxTkkyUThucDdCQ294R0tRQnRHSmxmNzk3ZDlFYWU1TU10bHJkTmdm?=
- =?utf-8?Q?00mqXQ+tuHc=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0JPQi9CcEpPTDI5bjNhYUxNMFFsNS91MEFkU3ZUU2NCWGJMRVV2YjNkem9o?=
- =?utf-8?B?UkdMRUQ2L3FONEM4clhKR29GdlhUWnJIeFlPRTFTMXJieXVyWVA1elNaY1F3?=
- =?utf-8?B?RG43YVpXUG1hYVFodEVBYVc4R1BaSWlOKzRBZVhiRGRpRWpsMTZ2NjE0UEll?=
- =?utf-8?B?dmc4cG1zQ2l4S3hEZXRlT0h2dTRDWUtTM0JOc3pGSkgwOEdLcEVoZnF1QXFq?=
- =?utf-8?B?a0tXa1ZpdGxScjhvWG05cFNxYk9FWTIrcC9lejd1TklwRjFQeFUxQkJHRDBZ?=
- =?utf-8?B?VWJFTFY1OVpOUHdiM2RzY2c0aWlMN3I3dXhjMlA4NVhkeStUL0ZsQ3dRT1h0?=
- =?utf-8?B?bmtJMUZqczFkdGxyMWhaWEY5aE01YzM3UTk3K2MzamswcVRlQ0c4SHY3UXls?=
- =?utf-8?B?cWhvNnlWOEhFMUZxY1Fzc1VGQUY1SlZzVnppUEY2MkJjK2YzbEdiS2FWNmF1?=
- =?utf-8?B?RTFuaDAzNlVIRG53dndJbGJXMEJEWE1TREdyZmdySFNPUmVFTk5uRGY0ZStB?=
- =?utf-8?B?NUQ1djRjZlc0cXo3aHRxSWxLWDNBSlhFcks0cnZXZzZSQlo1NTBPbldQKzRQ?=
- =?utf-8?B?L0oyMCtHK0tKcFBZcVhab2R2ejV1bzArT044TUNaODJNbFFZcmNiOTlpSkVq?=
- =?utf-8?B?YWVnWUVmMDljZ2xRckZhR3d5bDg3WlBKcElzMkhZR2hocWxLelN3QzJlK0hF?=
- =?utf-8?B?YVhraVVSUEc5bUZUMnl1YnViU1pPSExkcmVJVlptUUpQZW5sUFlGL09MNTZm?=
- =?utf-8?B?ZWdWMThDbHp0K3l6ZGY5dzE4dm5nTTJzeE5JanlSTXdWb21BclNLZzluSXdX?=
- =?utf-8?B?MUkxVjZELzl1L3V3eDhxU3FLenRKS2Mwb2hvYUdQNjZNbXVTbjhvbXZRd0h6?=
- =?utf-8?B?RWZyTkgzRTN6bHZ6ZlFzVWpUNlM2Nit2aGRoZmw5bitUa3JDTngxeXJBRzJL?=
- =?utf-8?B?cUpUL2QvQkZkVjRiNHZnQldYQTlObmI3ekZPeVVZVTJ6V1pBdUVHNGZIcm0r?=
- =?utf-8?B?VmhpZXR5T0VaTmNxYmlEdzhPL01YMzlFWU5kVkdBQkpDWS9mQWtXQjVsMTMw?=
- =?utf-8?B?dzkramU4enBYMkVUQUU1eEpEWUVoRWMrczRaYlJYT1FGZExsaWZiTmRCenhl?=
- =?utf-8?B?ajdSdEdIcE4rN3RQVk9vUEo1VjBRWFJSTUFpOFVpNmllbFU5dFRVeHBveDhQ?=
- =?utf-8?B?OXJMYmdQZWJtWHFOUmpyWWJoZnhJSEM1dGlqS0gwZ0NmOGtIRmgzbXN6UTB2?=
- =?utf-8?B?enpEUTZtU1NJL2EzR0pnRVUzMnJuVlFHVkFSVHVtNno2b0w3NmRoa2orSU9x?=
- =?utf-8?B?bWN5aTlsSFlwN3pydDNCWHd4ajF3SkQyOE9QRG5nVENhR2FnTWVRbHZqdTRY?=
- =?utf-8?B?UnU5UmorclYwT2RTdnp5Qk5IdWMzcjJyZzRnZlhkMWZhVXpBa1J0bklsemJB?=
- =?utf-8?B?WjdaLzh1bHVIMllNZHRBejBhRzZ6VTg2VzVLYk04bmRBelRBai9tQVI0NlpP?=
- =?utf-8?B?N3lrM2N1MTAybUhjMWtQUlQ0dXdIZzRReW9wQm5WdGdOMUVHMDAyQm1BQkQ0?=
- =?utf-8?B?bi9pVE1uUHdXZVN3SHh5SDI5WE1mSDJPbFJ3Lzk0eFBjc1FpT2lnRkc5ZkRp?=
- =?utf-8?B?UnlGekJRUVRDVkJWSEIyMzQ5eWozaWpnbTZBUHRuaHJrQVVSL1hjMWpoaHhw?=
- =?utf-8?B?ZjdMUUMreEx6TzdWZTFHRDQyMXRvR1hyZDNLZllsbDZ3dElSU3NWYzRwdG54?=
- =?utf-8?B?ZW5RYkdrbVVkOXFUZ1F0SytQQWF2eGpmcXZ3QWZpZlRtbTljMFVoZXRGSFJE?=
- =?utf-8?B?NnNvc2FUd25RcElTY3oxU2xIdTgwYXlTWFhjNmRjenR4RjZMd3lQTGVRbzh6?=
- =?utf-8?B?YU41dU5CT3VKZnFESUE4dENyV1lPTXVpOWpQaXhha2dWWEFaZzV3MVkwR3VX?=
- =?utf-8?B?MXNNRHBZQmNqbG84a3Z2aXJGbUdoU1o2RVZrSE5raEI3K2NYc3FmMkpCMWo4?=
- =?utf-8?B?dndtKzliZWx6Q2ZUNHViVmZHUzNhcUt4MGpCWi82N2hJa1ZzNXpsb0RTVm5u?=
- =?utf-8?B?b2s5YXc1NXhrZGdvdC9zTU1zT3Flem5SYzRPbndxT3UwZ1BVYzVlQmEvNzFr?=
- =?utf-8?Q?Sv07th52NXLR2E6tLMvOZGR7v?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a84b0d98-59a1-4613-3bf6-08ddd64561ae
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 06:32:43.8846
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +OAAhUvlQelzsVZcEabBgmZGY9uNCrJQ38T75/Nm420IM/dSgWnK3QKPZK7qk/rzMVnpu01WI8CSixt9izrr3w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9630
+References: <20250807194012.631367-1-snovitoll@gmail.com> <20250807194012.631367-3-snovitoll@gmail.com>
+ <07ffb27c-3416-43c9-a50a-164a76e5ab60@csgroup.eu>
+In-Reply-To: <07ffb27c-3416-43c9-a50a-164a76e5ab60@csgroup.eu>
+From: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+Date: Fri, 8 Aug 2025 11:44:30 +0500
+X-Gm-Features: Ac12FXy3j3jcHWv5quQse7L5XRgGZZuU0Dnwj-G3jWlUZ0ijDblLaDUsIz_V-Q8
+Message-ID: <CACzwLxhahYWfRc5xKshayniV6SuFFnMT0NfHttippcASzZgtRw@mail.gmail.com>
+Subject: Re: [PATCH v5 2/2] kasan: call kasan_init_generic in kasan_init
+To: Christophe Leroy <christophe.leroy@csgroup.eu>, alex@ghiti.fr
+Cc: ryabinin.a.a@gmail.com, bhe@redhat.com, hca@linux.ibm.com, 
+	andreyknvl@gmail.com, akpm@linux-foundation.org, zhangqing@loongson.cn, 
+	chenhuacai@loongson.cn, davidgow@google.co, glider@google.com, 
+	dvyukov@google.com, agordeev@linux.ibm.com, vincenzo.frascino@arm.com, 
+	elver@google.com, kasan-dev@googlegroups.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	linux-um@lists.infradead.org, linux-mm@kvack.org, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_233254_323633_998990C4 
-X-CRM114-Status: GOOD (  21.29  )
+X-CRM114-CacheID: sfid-20250807_234450_159840_42B80D8D 
+X-CRM114-Status: GOOD (  23.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,108 +103,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/07/2025, Shengjiu Wang wrote:
-> On Wed, Aug 6, 2025 at 2:52 PM Liu Ying <victor.liu@nxp.com> wrote:
->>
->> On 08/06/2025, Shengjiu Wang wrote:
->>> On Tue, Aug 5, 2025 at 4:55 PM Liu Ying <victor.liu@nxp.com> wrote:
->>>>
->>>> On 08/04/2025, Shengjiu Wang wrote:
->>
->> [...]
->>
->>>>> +static int imx8mp_hdmi_pai_bind(struct device *dev, struct device *master, void *data)
->>>>> +{
->>>>> +     struct dw_hdmi_plat_data *plat_data = (struct dw_hdmi_plat_data *)data;
->>>>> +     struct imx8mp_hdmi_pai *hdmi_pai;
->>>>> +
->>>>> +     hdmi_pai = dev_get_drvdata(dev);
->>>>> +
->>>>> +     plat_data->enable_audio = imx8mp_hdmi_pai_enable;
->>>>> +     plat_data->disable_audio = imx8mp_hdmi_pai_disable;
->>>>> +     plat_data->priv_audio = hdmi_pai;
->>>>> +
->>>>> +     return 0;
->>>>> +}
->>>>> +
->>>>> +static void imx8mp_hdmi_pai_unbind(struct device *dev, struct device *master, void *data)
->>>>> +{
->>>>> +     struct dw_hdmi_plat_data *plat_data = (struct dw_hdmi_plat_data *)data;
->>>>> +
->>>>> +     plat_data->enable_audio = NULL;
->>>>> +     plat_data->disable_audio = NULL;
->>>>> +     plat_data->priv_audio = NULL;
->>>>
->>>> Do you really need to set these ptrs to NULL?
->>>
->>> yes.  below code in dw-hdmi.c use the pdata->enable_audio as condition.
->>
->> Note that this is all about tearing down components.
->> If this is done properly as the below snippet of pseudo-code, then
->> hdmi->{enable,disable}_audio() and pdata->{enable,disable}_audio() won't be
->> called after audio device is removed by dw_hdmi_remove().  So, it's unnecessary
->> to set these pointers to NULL here.
->>
->> imx8mp_dw_hdmi_unbind()
->> {
->>    dw_hdmi_remove(); // platform_device_unregister(hdmi->audio);
->>    component_unbind_all(); //imx8mp_hdmi_pai_unbind()
->> }
->>
->> BTW, I suggest the below snippet[1] to bind components.
->>
->> imx8mp_dw_hdmi_bind()
->> {
->>    component_bind_all(); // imx8mp_hdmi_pai_bind()
->>                          //   set pdata->{enable,disable}_audio
->>    dw_hdmi_probe(); // hdmi->audio = platform_device_register_full(&pdevinfo);
->> }
-> 
-> Looks like we should use dw_hdmi_bind() here to make unbind -> bind work.
+On Fri, Aug 8, 2025 at 10:07=E2=80=AFAM Christophe Leroy
+<christophe.leroy@csgroup.eu> wrote:
+>
+>
+>
+> Le 07/08/2025 =C3=A0 21:40, Sabyrzhan Tasbolatov a =C3=A9crit :
+> > Call kasan_init_generic() which handles Generic KASAN initialization.
+> > For architectures that do not select ARCH_DEFER_KASAN,
+> > this will be a no-op for the runtime flag but will
+> > print the initialization banner.
+> >
+> > For SW_TAGS and HW_TAGS modes, their respective init functions will
+> > handle the flag enabling, if they are enabled/implemented.
+> >
+> > Closes: https://bugzilla.kernel.org/show_bug.cgi?id=3D217049
+> > Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+> > Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
+> > Acked-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
+> > ---
+> > Changes in v5:
+> > - Unified arch patches into a single one, where we just call
+> >       kasan_init_generic()
+> > - Added Tested-by tag for riscv (tested the same change in v4)
+> > - Added Acked-by tag for s390 (tested the same change in v4)
+> > ---
+> >   arch/arm/mm/kasan_init.c    | 2 +-
+> >   arch/arm64/mm/kasan_init.c  | 4 +---
+> >   arch/riscv/mm/kasan_init.c  | 1 +
+> >   arch/s390/kernel/early.c    | 3 ++-
+> >   arch/x86/mm/kasan_init_64.c | 2 +-
+> >   arch/xtensa/mm/kasan_init.c | 2 +-
+> >   6 files changed, 7 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/arm/mm/kasan_init.c b/arch/arm/mm/kasan_init.c
+> > index 111d4f70313..c6625e808bf 100644
+> > --- a/arch/arm/mm/kasan_init.c
+> > +++ b/arch/arm/mm/kasan_init.c
+> > @@ -300,6 +300,6 @@ void __init kasan_init(void)
+> >       local_flush_tlb_all();
+> >
+> >       memset(kasan_early_shadow_page, 0, PAGE_SIZE);
+> > -     pr_info("Kernel address sanitizer initialized\n");
+> >       init_task.kasan_depth =3D 0;
+> > +     kasan_init_generic();
+> >   }
+> > diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
+> > index d541ce45dae..abeb81bf6eb 100644
+> > --- a/arch/arm64/mm/kasan_init.c
+> > +++ b/arch/arm64/mm/kasan_init.c
+> > @@ -399,14 +399,12 @@ void __init kasan_init(void)
+> >   {
+> >       kasan_init_shadow();
+> >       kasan_init_depth();
+> > -#if defined(CONFIG_KASAN_GENERIC)
+> > +     kasan_init_generic();
+> >       /*
+> >        * Generic KASAN is now fully initialized.
+> >        * Software and Hardware Tag-Based modes still require
+> >        * kasan_init_sw_tags() and kasan_init_hw_tags() correspondingly.
+> >        */
+> > -     pr_info("KernelAddressSanitizer initialized (generic)\n");
+> > -#endif
+> >   }
+> >
+> >   #endif /* CONFIG_KASAN_GENERIC || CONFIG_KASAN_SW_TAGS */
+> > diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+> > index 41c635d6aca..ba2709b1eec 100644
+> > --- a/arch/riscv/mm/kasan_init.c
+> > +++ b/arch/riscv/mm/kasan_init.c
+> > @@ -530,6 +530,7 @@ void __init kasan_init(void)
+> >
+> >       memset(kasan_early_shadow_page, KASAN_SHADOW_INIT, PAGE_SIZE);
+> >       init_task.kasan_depth =3D 0;
+> > +     kasan_init_generic();
+>
+> I understood KASAN is really ready to function only once the csr_write()
+> and local_flush_tlb_all() below are done. Shouldn't kasan_init_generic()
+> be called after it ?
 
-I don't get your idea here.
+I will try to test this in v6:
 
-What are you trying to make work?
-Why dw_hdmi_probe() can't be used?
-How does dw_hdmi_bind() help here?
+        csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
+        local_flush_tlb_all();
+        kasan_init_generic();
 
-> But can't get the encoder pointer.  the encoder pointer is from lcdif_drv.c,
-> the probe sequence of lcdif, pvi, dw_hdmi should be dw_hdmi first, then pvi,
-> then lcdif, because current implementation in lcdif and pvi driver.
+Alexandre Ghiti said [1] it was not a problem, but I will check.
 
-We use deferral probe to make sure the probe sequence is
-DW_HDMI -> PVI -> LCDIF.
+[1] https://lore.kernel.org/all/20c1e656-512e-4424-9d4e-176af18bb7d6@ghiti.=
+fr/
 
-LCDIF driver would call devm_drm_of_get_bridge() to get the next bridge PVI
-and it defers probe if devm_drm_of_get_bridge() returns ERR_PTR(-EPROBE_DEFER).
-Same to PVI driver, it would call of_drm_find_bridge() to get the next bridge
-DW_HDMI and defers probe if needed.
-
-> 
-> Should the lcdif and pvi driver be modified to use component helper?
-
-Why should they use component helper?
-
-BTW, I've tried testing the snippets suggested by me on i.MX8MP EVK and
-the components bind successfully:
-
-cat /sys/kernel/debug/device_component/32fd8000.hdmi
-aggregate_device name                                            status
------------------------------------------------------------------------
-32fd8000.hdmi                                                     bound
-
-device name                                                      status
------------------------------------------------------------------------
-32fc4800.audio-bridge                                             bound
-
-> This seems out of the scope of this patch set.
-> 
-> Best regards
-> Shengjiu Wang
-
-[...]
-
--- 
-Regards,
-Liu Ying
+>
+> >
+> >       csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
+> >       local_flush_tlb_all();
+> > diff --git a/arch/s390/kernel/early.c b/arch/s390/kernel/early.c
+> > index 9adfbdd377d..544e5403dd9 100644
+> > --- a/arch/s390/kernel/early.c
+> > +++ b/arch/s390/kernel/early.c
+> > @@ -21,6 +21,7 @@
+> >   #include <linux/kernel.h>
+> >   #include <asm/asm-extable.h>
+> >   #include <linux/memblock.h>
+> > +#include <linux/kasan.h>
+> >   #include <asm/access-regs.h>
+> >   #include <asm/asm-offsets.h>
+> >   #include <asm/machine.h>
+> > @@ -65,7 +66,7 @@ static void __init kasan_early_init(void)
+> >   {
+> >   #ifdef CONFIG_KASAN
+> >       init_task.kasan_depth =3D 0;
+> > -     pr_info("KernelAddressSanitizer initialized\n");
+> > +     kasan_init_generic();
+> >   #endif
+> >   }
+> >
+> > diff --git a/arch/x86/mm/kasan_init_64.c b/arch/x86/mm/kasan_init_64.c
+> > index 0539efd0d21..998b6010d6d 100644
+> > --- a/arch/x86/mm/kasan_init_64.c
+> > +++ b/arch/x86/mm/kasan_init_64.c
+> > @@ -451,5 +451,5 @@ void __init kasan_init(void)
+> >       __flush_tlb_all();
+> >
+> >       init_task.kasan_depth =3D 0;
+> > -     pr_info("KernelAddressSanitizer initialized\n");
+> > +     kasan_init_generic();
+> >   }
+> > diff --git a/arch/xtensa/mm/kasan_init.c b/arch/xtensa/mm/kasan_init.c
+> > index f39c4d83173..0524b9ed5e6 100644
+> > --- a/arch/xtensa/mm/kasan_init.c
+> > +++ b/arch/xtensa/mm/kasan_init.c
+> > @@ -94,5 +94,5 @@ void __init kasan_init(void)
+> >
+> >       /* At this point kasan is fully initialized. Enable error message=
+s. */
+> >       current->kasan_depth =3D 0;
+> > -     pr_info("KernelAddressSanitizer initialized\n");
+> > +     kasan_init_generic();
+> >   }
+>
 
