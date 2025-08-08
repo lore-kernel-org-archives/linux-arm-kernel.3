@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E279DC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 13:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2388C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 13:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wTg4kG3CjTwaBrWnll3HIQP/TPmGxsMNV/xOfqXmXO4=; b=3YeTvPe78dD5QzXwzO94lBOtVw
-	XXVjpriyXl9VOKkyw3hq0nvNxJLVrxgDa7ZNtRzVs0VsBJmVSaTqsCJEulRqE9v/g+cZ8N9fmncj6
-	c9q/kjTBn2mL1d96Qay5OgoBzKfySUhMxJf8Wl9qAh6SeayRNkeZOhVdFaPfhlxBJNaUJ+7D1XEyL
-	YPg5Odl0ypmCV12lGaWkt4Dk1NEG33NO4OJRPUQN8h8TiSFw3VKjzLQnEmQF9Id99bPWwzSsDR3J4
-	IssinraPRKteEwq+3oYSI4ewDh5zyq8rB7vD06/gsCD4YNpNk5j0/CGoM4wkhdGhM7uYSgkzLKckU
-	X1JjPLjg==;
+	bh=KY24UGFb9u8iBNPpAsvI5S42JTMXlvmtmnVmWqhoT3Q=; b=pE7O96mG0vS7FfLrriSwajEGJE
+	VZ9bmdfp4bWbe5Z+eTVW/hMOzy3Hcq5iN1HpQfO9zBbMUtROgzUF4E1XviZaTdUNabMzigMjcwd/o
+	9aVOvfVy/KDBk130qh0NhruMWhCUe0Z/ydQFdhMPBbm1DS7VrmLjcGnLHIUOUzVMLdBbMqRbmqOWl
+	/FxURJETURoEbpPFXpg42PLELk0GN6nCLIfXMOu9ZFw/ocNaqIAEvIGbOSwurKon50z5GK93L2PCn
+	4YrrSIU8hhP+Yx2PVzNkqQ6hVQeA8bZx576OOMraczs5GI40KMSRlsgxQ2UTRvVfPcPg8dI0vNec/
+	eZuZJOng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukNTi-00000002x4e-2DZz;
-	Fri, 08 Aug 2025 13:49:50 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1ukNWW-00000002xTk-1NZp;
+	Fri, 08 Aug 2025 13:52:44 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukNRC-00000002wwV-1N0E
+	id 1ukNTz-00000002xBl-3QuS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 13:47:15 +0000
+	Fri, 08 Aug 2025 13:50:09 +0000
 Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 578DkmqU992990;
-	Fri, 8 Aug 2025 08:46:48 -0500
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 578Do1vZ559922;
+	Fri, 8 Aug 2025 08:50:01 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754660808;
-	bh=wTg4kG3CjTwaBrWnll3HIQP/TPmGxsMNV/xOfqXmXO4=;
+	s=ti-com-17Q1; t=1754661001;
+	bh=KY24UGFb9u8iBNPpAsvI5S42JTMXlvmtmnVmWqhoT3Q=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=OB73HsHaP6lFvlDJMOV878MmQImc69xq7hPwAt38IUYsPc0sY5JAZ2pS7fIOzJli0
-	 68Z9aSSAvpIsxPBswgyVeotyVfr6xAgG2hvSg6HDHjgmyPoqvkGawc1/fkzQI7OLvl
-	 D/JsSjsN2Q+hBN4evRtAB8ofmriX8qTOMcW5tFY8=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 578DklxT1623098
+	b=KpOZXcJC6UI0JMMIQjjzKJFL3DcBMf+ucj7oZ1/1T/+XF1kGHfowUNj1qxMEpxrTW
+	 YK7TH/Ccj3q0zUHj/Qlvwn9olPCyWbOC4oRkB02Rjbs7IyQey/puymev1Za1m/YmRZ
+	 DmA+9MF+Fx9EQjpYOQGxA8XKfweH31IrdTO2afr0=
+Received: from DLEE102.ent.ti.com (dlee102.ent.ti.com [157.170.170.32])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 578Do19m1624400
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 8 Aug 2025 08:46:47 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 8 Aug 2025 08:50:01 -0500
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE102.ent.ti.com
+ (157.170.170.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 8
- Aug 2025 08:46:46 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 08:50:00 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 8 Aug 2025 08:46:46 -0500
-Received: from [10.249.145.16] ([10.249.145.16])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 578DkXb43128040;
-	Fri, 8 Aug 2025 08:46:35 -0500
-Message-ID: <71ef3203-e11d-4244-8d2d-8e47e8ba6140@ti.com>
-Date: Fri, 8 Aug 2025 19:16:31 +0530
+ Frontend Transport; Fri, 8 Aug 2025 08:50:01 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 578Do0JB2830670;
+	Fri, 8 Aug 2025 08:50:00 -0500
+Message-ID: <bac04814-ed8a-4dad-b5a3-72d0a2fc5d76@ti.com>
+Date: Fri, 8 Aug 2025 08:50:00 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
-To: Louis Chauvet <louis.chauvet@bootlin.com>, Jyri Sarha <jyri.sarha@iki.fi>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, "Sam
- Ravnborg" <sam@ravnborg.org>,
-        Benoit Parrot <bparrot@ti.com>, Lee Jones
-	<lee@kernel.org>,
-        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>
-CC: <thomas.petazzoni@bootlin.com>, Jyri Sarha <jsarha@ti.com>,
-        Tomi Valkeinen
-	<tomi.valkeinen@ti.com>,
-        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <stable@vger.kernel.org>, <s-jain1@ti.com>
-References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
- <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
+Subject: Re: [PATCH v2 1/2] soc: ti: k3-socinfo: Add support for AM62P
+ variants
+To: Judith Mendez <jm@ti.com>, Adrian Hunter <adrian.hunter@intel.com>,
+        Ulf
+ Hansson <ulf.hansson@linaro.org>, Nishanth Menon <nm@ti.com>,
+        Santosh
+ Shilimkar <ssantosh@kernel.org>
+CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250807225138.1228333-1-jm@ti.com>
+ <20250807225138.1228333-2-jm@ti.com>
 Content-Language: en-US
-From: devarsh <devarsht@ti.com>
-In-Reply-To: <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250807225138.1228333-2-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_064714_459593_59D16B96 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250808_065007_948219_E020414A 
+X-CRM114-Status: GOOD (  23.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,80 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Louis,
-
-Thanks for the patch.
-
-On 30/07/25 22:32, Louis Chauvet wrote:
-> As stated in the AM62x Technical Reference Manual (SPRUIV7B), the data
-> sampling edge needs to be configured in two distinct registers: one in the
-> TIDSS IP and another in the memory-mapped control register modules.
-
-I don't think AM62x is thee only one which requires this and on the
-contrary not all SoCs require this extra setting. We had been waiting on
-confirmations from hardware team and very recently they gave a list of
-SoCs which require this, as per that I think we need to limit this to
-AM62x and AM62A per current supported SoCs.
-
-Swamil,
-Please confirm on this and share if any additional details required here.
-
-Regards
-Devarsh
-
- Since
-> the latter is not within the same address range, a phandle to a syscon
-> device is used to access the regmap.
+On 8/7/25 5:51 PM, Judith Mendez wrote:
+> This adds a support for detecting AM62P SR1.0, SR1.1, SR1.2.
 > 
-> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
-> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> On AM62P, silicon revision is discovered with GP_SW1 instead of JTAGID
+> register, so read GP_SW1 to determine SoC revision only on AM62P.
 > 
+> Signed-off-by: Judith Mendez <jm@ti.com>
 > ---
+>   drivers/soc/ti/k3-socinfo.c | 27 +++++++++++++++++++++++++--
+>   1 file changed, 25 insertions(+), 2 deletions(-)
 > 
-> Cc: stable@vger.kernel.org
-> ---
->  drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
-> index c0277fa36425ee1f966dccecf2b69a2d01794899..65ca7629a2e75437023bf58f8a1bddc24db5e3da 100644
-> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
-> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
-> @@ -498,6 +498,7 @@ struct dispc_device {
->  	const struct dispc_features *feat;
->  
->  	struct clk *fclk;
-> +	struct regmap *clk_ctrl;
->  
->  	bool is_enabled;
->  
-> @@ -1267,6 +1268,11 @@ void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport,
->  		       FLD_VAL(mode->vdisplay - 1, 27, 16));
->  
->  	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1, 0, 0);
+> diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+> index d716be113c84..81d078f15cd2 100644
+> --- a/drivers/soc/ti/k3-socinfo.c
+> +++ b/drivers/soc/ti/k3-socinfo.c
+> @@ -15,6 +15,9 @@
+>   #include <linux/sys_soc.h>
+>   
+>   #define CTRLMMR_WKUP_JTAGID_REG		0
+> +#define CTRLMMR_WKUP_GP_SW1_OFFSET		544
+> +#define GP_SW1_MOD_OPR				16
 > +
-> +	if (dispc->clk_ctrl) {
-> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
-> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 0x000);
-> +	}
->  }
->  
->  void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
-> @@ -3012,6 +3018,14 @@ int dispc_init(struct tidss_device *tidss)
->  
->  	dispc_init_errata(dispc);
->  
-> +	dispc->clk_ctrl = syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
-> +								   "ti,clk-ctrl");
-> +	if (IS_ERR(dispc->clk_ctrl)) {
-> +		r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
-> +				  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
-> +		return r;
+>   /*
+>    * Bits:
+>    *  31-28 VARIANT	Device variant
+> @@ -66,6 +69,10 @@ static const char * const j721e_rev_string_map[] = {
+>   	"1.0", "1.1", "2.0",
+>   };
+>   
+> +static const char * const am62p_gpsw_rev_string_map[] = {
+> +	"1.0", "1.1", "1.2",
+> +};
+> +
+>   static int
+>   k3_chipinfo_partno_to_names(unsigned int partno,
+>   			    struct soc_device_attribute *soc_dev_attr)
+> @@ -83,7 +90,7 @@ k3_chipinfo_partno_to_names(unsigned int partno,
+>   
+>   static int
+>   k3_chipinfo_variant_to_sr(unsigned int partno, unsigned int variant,
+> -			  struct soc_device_attribute *soc_dev_attr)
+> +			  struct soc_device_attribute *soc_dev_attr, u32 gp_sw1)
+>   {
+>   	switch (partno) {
+>   	case JTAG_ID_PARTNO_J721E:
+> @@ -92,6 +99,14 @@ k3_chipinfo_variant_to_sr(unsigned int partno, unsigned int variant,
+>   		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
+>   						   j721e_rev_string_map[variant]);
+>   		break;
+> +	case JTAG_ID_PARTNO_AM62PX:
+> +		/* Always parse AM62P variant from GP_SW1 */
+> +		variant = gp_sw1 % GP_SW1_MOD_OPR;
+> +		if (variant >= ARRAY_SIZE(am62p_gpsw_rev_string_map))
+> +			goto err_unknown_variant;
+> +		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
+> +						   am62p_gpsw_rev_string_map[variant]);
+> +		break;
+>   	default:
+>   		variant++;
+>   		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%x.0",
+> @@ -121,6 +136,7 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+>   	struct soc_device *soc_dev;
+>   	struct regmap *regmap;
+>   	void __iomem *base;
+> +	u32 gp_sw1_val = 0;
+>   	u32 partno_id;
+>   	u32 variant;
+>   	u32 jtag_id;
+> @@ -163,7 +179,14 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+>   		goto err;
+>   	}
+>   
+> -	ret = k3_chipinfo_variant_to_sr(partno_id, variant, soc_dev_attr);
+> +	if (partno_id == JTAG_ID_PARTNO_AM62PX) {
+> +		ret = regmap_read(regmap, CTRLMMR_WKUP_JTAGID_REG +
+> +				  CTRLMMR_WKUP_GP_SW1_OFFSET, &gp_sw1_val);
+
+This is wrong, you cannot read from the register GP_SW1 (offset 544). In DT
+the region is 4 bytes long (reg = <0x14 0x4>;).
+
+This only worked in your testing because the above ioremap_resource() has to
+map in page sized(4K) chunks and we didn't set max_register in our regmap_config
+so no bounds checking is done. If we fix either of the above then this read
+will stop working.
+
+So yes you'll have to make DT changes and fight it out with Krzysztof. My
+suggestion is to make a efuse region for the 3 GPSW registers and use a
+phandle from this node to fetch the extra info you need to get revision.
+
+Andrew
+
+> +		if (ret < 0)
+> +			goto err;
 > +	}
 > +
->  	dispc->fourccs = devm_kcalloc(dev, ARRAY_SIZE(dispc_color_formats),
->  				      sizeof(*dispc->fourccs), GFP_KERNEL);
->  	if (!dispc->fourccs)
-> 
+> +	ret = k3_chipinfo_variant_to_sr(partno_id, variant, soc_dev_attr, gp_sw1_val);
+>   	if (ret) {
+>   		dev_err(dev, "Unknown SoC SR[0x%08X]: %d\n", jtag_id, ret);
+>   		goto err;
 
 
