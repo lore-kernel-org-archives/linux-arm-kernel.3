@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBC0C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 00:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA84AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 00:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZJOuuw+L4JCEgAlhgRdeSHgvzwy2a3DZREpYyzI0P0=; b=XPZzHPJlRdcKZmaDaPFNQpC/bM
-	SpQBt2KuUGcR0PBSQMpx2EdPpttLWmUXW/S8v9GLKRQ3nPQQQHFb9DuhkZ6sGB9AbR/upl29gvQfP
-	bfKrMDE/ayQ7J4WsFKChPYku7HOxupZsdA2JdbQpmZBNtb8N0Hq4glJS6m1xgIcNmya0xyHkP/4Sh
-	5cm3UQuxLGXvIZB7k20thIFc4GyXe6UC6K0dKKP80PtrwJUCVeIx/a8ch5suDzhaZdRughAeKXWg+
-	/jUvVhXiA9aXkYcbIbq/nQkqge8NuqSOjum9zs8ADLX/GasRgPecw6gc90j5FZTetpLNeI7r7CvPD
-	xD91kAdQ==;
+	bh=dKxQUSmpTCdRhHeB+mUzyq09Je0k79BxYRE2H27YH/E=; b=4qHPQ7CW4wliaNBl1ujYOxAUhU
+	BrtTMMZdmQLWoI2LjkzKl5J+01h0qR4V8HMNGuwbg+ASNeoVAfybT/9F/nT8VJuYCTzvIbWBeTiVS
+	SntSRld++qItVjaOdNGIycVunRJdXfdZoX31OMx/FPWdHUphNBV3DMeoGBvd57BGxXW9xcLil1xQF
+	Qss428qcRGhffTMlhfDsBQGJVXTQ7sPAA/2Tx/sE1n0NEtSxsWs9lE4O3mtlPrWTzMiASSSZ7pRsA
+	UTf9wKaurweU+BsodCTt6ZXyu3UUNIcFebKhSWYr6k14/+DWb/HkvecT+hP7Bj+tKC0ei+1OE7f/e
+	ZSLPndnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukX7V-00000003upc-2r4C;
-	Sat, 09 Aug 2025 00:07:34 +0000
-Received: from out-173.mta0.migadu.com ([2001:41d0:1004:224b::ad])
+	id 1ukX9z-00000003uxf-3Gft;
+	Sat, 09 Aug 2025 00:10:07 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukVtT-00000003p8A-3Sc5
+	id 1ukWCM-00000003qid-1uTE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 22:49:01 +0000
-Date: Fri, 8 Aug 2025 15:48:32 -0700
+	Fri, 08 Aug 2025 23:08:32 +0000
+Date: Fri, 8 Aug 2025 16:08:18 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1754693336;
+	t=1754694507;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7ZJOuuw+L4JCEgAlhgRdeSHgvzwy2a3DZREpYyzI0P0=;
-	b=Pw8YByjV545/1c7fBTaoEtEe6bw142ct+rFKef2lDb4d+/XDX3rHueDS6oQK6OWUy3elHa
-	2XaCELYPui1H5Pgwjxy3Wr9phxqSCbCch3mr5pSD5zAVG4yon/vQido5k6pgE/xdi8Hf7o
-	KSGg2LRITwJacn/nYcst1HHJhLy6LAQ=
+	bh=dKxQUSmpTCdRhHeB+mUzyq09Je0k79BxYRE2H27YH/E=;
+	b=uh8iDmv79ewEgnftriRVVLaUf8NnoGiKpNpDcqs/ZBuvIoGlELbgtdqdFDYNIIl66czDB2
+	ounj7qjpP4ivL4I5uV6iItD2v9UdS/JHTEAoVVhAFztQ0ArM3UnQkhb34cFPXj+J6QH7y7
+	918JoUjZXL5FuLYycMvc4LkU3Y1Gz2Q=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Cornelia Huck <cohuck@redhat.com>
-Subject: Re: [PATCH v2 4/5] KVM: arm64: Expose FEAT_RASv1p1 in a canonical
- manner
-Message-ID: <aJZ-wCLYh_STGiTI@linux.dev>
-References: <20250806165615.1513164-1-maz@kernel.org>
- <20250806165615.1513164-5-maz@kernel.org>
- <20250807125531.GB2351327@e124191.cambridge.arm.com>
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC v2 1/2] KVM: arm64: PMU: Introduce
+ KVM_ARM_VCPU_PMU_V3_COMPOSITION
+Message-ID: <aJaDYhme_St2b2sM@linux.dev>
+References: <20250806-hybrid-v2-0-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <20250806-hybrid-v2-1-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
+ <aJOO99xUrhsrvLwl@linux.dev>
+ <276fdfb8-f1ca-44ad-b310-a811684b265a@rsg.ci.i.u-tokyo.ac.jp>
+ <aJQJdElbZJ6KzQxD@linux.dev>
+ <62494f54-13c6-4b9f-86a1-9a19ce58e91f@rsg.ci.i.u-tokyo.ac.jp>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250807125531.GB2351327@e124191.cambridge.arm.com>
+In-Reply-To: <62494f54-13c6-4b9f-86a1-9a19ce58e91f@rsg.ci.i.u-tokyo.ac.jp>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_154900_318939_8BAC39A6 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250808_160830_709153_6A7CE65C 
+X-CRM114-Status: GOOD (  28.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +83,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 07, 2025 at 01:55:31PM +0100, Joey Gouly wrote:
-> On Wed, Aug 06, 2025 at 05:56:14PM +0100, Marc Zyngier wrote:
-> > If we have RASv1p1 on the host, advertise it to the guest in the
-> > "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
-> > the convoluted RAS+RAS_frac method.
-> > 
-> > Note that this also advertises FEAT_DoubleFault, which doesn't
-> > affect the guest at all, as only EL3 is concerned by this.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/sys_regs.c | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > index 1b4114790024e..66e5a733e9628 100644
-> > --- a/arch/arm64/kvm/sys_regs.c
-> > +++ b/arch/arm64/kvm/sys_regs.c
-> > @@ -1800,6 +1800,18 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
-> >  	if (!vcpu_has_sve(vcpu))
-> >  		val &= ~ID_AA64PFR0_EL1_SVE_MASK;
-> >  
-> > +	/*
-> > +	 * Describe RASv1p1 in a canonical way -- ID_AA64PFR1_EL1.RAS_frac
-> > +	 * is cleared separately. Note that by advertising RASv1p1 here, we
+On Thu, Aug 07, 2025 at 11:06:21PM +0900, Akihiko Odaki wrote:
+> > The only cross-PMU events we will support are the fixed counters, my
+> > strong preference is that we do not reverse-map architectural events to
+> > generic perf events for all counters.
 > 
-> Where is it cleared? __kvm_read_sanitised_id_reg() is where I would have
-> expected to see it:
+> I wonder if there is a benefit to special case PERF_COUNT_HW_CPU_CYCLES
+> then; the current logic of kvm_map_pmu_event() looks sufficient for me.
 
-Actually, I'm a bit worried this change doesn't give us very much value
-since Marc already does the exhaustive RASv1p1 check in the sysreg
-emulation.
+I'd rather we just use the generic perf events and let the driver remap
+things on our behalf. These are fixed counters, using constant events
+feels like the right way to go about that.
 
-There's potential for breakage when migrating VMs between new/old kernels
-on systems w/ FEAT_RASv1p1 && !FEAT_DoubleFault.
+kvm_map_pmu_event() is trying to solve a slightly different problem
+where we need to map programmable PMUv3 events into a non-PMUv3 event
+space, like on the M1 PMU.
 
-Marc, WDYT about dropping this patch and instead opening up RAS_frac to
-writes?
+> > This isn't what I meant. What I mean is that userspace either can use
+> > the SET_PMU ioctl or the COMPOSITION ioctl. Once one of them has been
+> > used the other ioctl returns an error.
+> > 
+> > We're really bad at getting ioctl ordering / interleaving right and
+> > syzkaller has a habit of finding these mistakes. There's zero practical
+> > value in using both of these ioctls on the same VM, let's prevent it.
+> 
+> The corresponding RFC series for QEMU uses KVM_ARM_VCPU_PMU_V3_SET_PMU to
+> probe host PMUs, and falls back to KVM_ARM_VCPU_PMU_V3_COMPOSITION if none
+> covers all CPUs. Switching between SET_PMU and COMPOSITION is useful during
+> such probing.
+> 
+> COMPOSITION is designed to behave like just another host PMU that is set
+> with SET_PMU. SET_PMU allows setting a different host PMU even if SET_PMU
+> has already been invoked so it is also allowed to set a host PMU even if
+> COMPOSITION has already been invoked, maintaining consistency with
+> non-composed PMUs.
+> 
+> You can find the QEMU patch at:
+> https://lore.kernel.org/qemu-devel/20250806-kvmq-v1-1-d1d50b7058cd@rsg.ci.i.u-tokyo.ac.jp/
+> 
+> (look up KVM_ARM_VCPU_PMU_V3_SET_PMU for the probing code)
+
+Having both of these attributes return success when probed with
+KVM_HAS_DEVICE_ATTR is fine; what I mean is that once KVM_SET_DEVICE_ATTR
+has been called on an attribute the other fails.
+
+> > On a system that has FEAT_PMUv3_ICNTR, userspace can still use this
+> > ioctl and explicitly de-feature ICNTR by writing to the ID register
+> > after initialization.
+> 
+> Now I understand better.
+> 
+> Currently, KVM_ARM_VCPU_PMU_V3_COMPOSITION sets supported_cpus to ones that
+> have cycle counters compatible with PMU emulation.
+> 
+> If FEAT_PMUv3_ICNTR is set to the ID register, I guess
+> KVM_ARM_VCPU_PMU_V3_COMPOSITION will set supported_cpus to ones that have
+> compatible cycle and instruction counters. If so, the naming
+> KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY indeed makes sense.
+
+Perfect. Ideally SOC vendors do the sensible thing and ensure that
+FEAT_PMUv3_ICNTR is consistent on all implementations in a machine. We
+will hide the feature in KVM if it is not.
 
 Thanks,
 Oliver
