@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE5B7C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFFDC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fiT/+rT9cJXZHpTIdP3+Rhk+Ee6SXPYsWw+kGKb28c=; b=P+rRjDPeWy2I1OCQiKUWON9lSQ
-	a1PF7VGO/0JCFJk68wWzkoob/FmPamiKNAqLXjt0Gq1oHm1cr9+sd70ojmZiLyZ90VIBJsCLC/gkZ
-	D9AUs4Ho3ERa0FBxNexsc56S8zy34UdCIFjmszTJcQAGDJMeUnfBTRRC43NRGOED72ueSWMN6yuOu
-	AsNW4kNseyfCUpaELarZyjQ5t5n/4QK6OLvxrcC0noOlKQ0NDO/Bu9RdT2wbfPj5JdBWyWhvz/ZaD
-	EB2oeef8ndLDOOSzIgL8+9TYpFVkU+w7M6zcJ966WNA1kxdmKI5dQh+kIFuv3K8URsxq8m23cUlkm
-	oSyAi/Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rm/KaI4gS5txCax60X3cOFqmUOa0+shLoOnPWo3LZg4=; b=id4UAee8KSs4C+f83wPY0s51wo
+	Trcjj4Id1GUMon1t6l51qkXUHyegsTd9lOEiimldYNBBrNA9xWertCYErqaDg+cw6qXtVII7Lbb0Z
+	o3f4b52MieaT+138uZe47OrYzxF5ByO/mNcq9U3+YOPgquPl7BExz9tbcmY/POBQjX+ZQjqrpb0s1
+	4zeJXwrzWmGlCTEkGB8dul3IC6kJeSOUgR104oTWJQjhpoKp5Rn3xVS2W/aMBS5R2dFDxs/4sKtiU
+	kIc/sZGhrjZveh/fGLNjy1gk8TuA3pq/40GM2nM6v5hW/NNjkLt5YX7QB7nNOa1yeI6b17MRUBe/N
+	cgj/4f+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukT0N-00000003YXq-2DeG;
-	Fri, 08 Aug 2025 19:43:55 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ukT7P-00000003YuB-3ykX;
+	Fri, 08 Aug 2025 19:51:11 +0000
+Received: from mx.olsak.net ([37.205.8.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukSsy-00000003Y1i-0lGq;
-	Fri, 08 Aug 2025 19:36:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754681774;
-	bh=rl0GSEMQipGgM/tHbM+N9H22RJ3YNzoiPPjreDdRxxo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Nx2ejqv+Bfbt1EGrmSAFz4ZpoGJ7oheCE8D6NN9AzVTjil8qd5ClVFXIDVwezUsea
-	 b63njDfAvxrrS1n37ePH0CyrmchENhAcdHMliqois2H3sbE2+1fZYXTGS8avZMFjwM
-	 7tZtBnkyk3vaXgHiU8kCGE7crvoR7WRTE9ummRwRm6BbvWTS8dmB/BNk8EEHrQIZ2O
-	 a8be4es7fKb+RytRn4zftG2u6eZEjzWqcNY+YTwqJ/2cp5P4qwCu0ibVcahAzPTidy
-	 mv2H5DqluwwuD2RwN04d+AxrsnP1U+LFJli/ysZhiZ6nYurKE6DAx8myU8IzbN3aRu
-	 SZkWGPyM3YE/A==
-Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CC64817E1277;
-	Fri,  8 Aug 2025 21:36:11 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	Damon Ding <damon.ding@rock-chips.com>,
-	Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>,
-	Alexey Charkov <alchark@gmail.com>,
-	Patrick Wildt <patrick@blueri.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v2 2/2] arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
-Date: Fri,  8 Aug 2025 15:36:02 -0400
-Message-ID: <20250808193602.142527-3-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250808193602.142527-1-detlev.casanova@collabora.com>
-References: <20250808193602.142527-1-detlev.casanova@collabora.com>
+	id 1ukT4s-00000003Yis-2mlj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Aug 2025 19:48:36 +0000
+DKIM-Signature: a=rsa-sha256; bh=rm/KaI4gS5txCax60X3cOFqmUOa0+shLoOnPWo3LZg4=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1754682419; v=1; x=1755114419;
+ b=Gr2Alh4hi11EAN9rear4dDOE8QlaR46SNQPsFD1ooegKRm0HJHYnFWdUO9dBzTAtGiENCnPM
+ huKFchm21m8KKgRpiQItKnlXXQDpE80TXeVrwL2HUT8EpOrgrv2g2D3/zqdBH3cPO/qFaOEtuKk
+ oY7LL1TFJB9sCPodsO66g3HWZeR+Tv1Len1w/BvMvToZbblZG4k3kJQY8n//8yTuBFcwHdikJUN
+ ssJk/LQlEjCXtiG/hpDsFSVMqhJPwPf1tlX++/avZQObwj3Oibn5qL4bFFm2HQ0LRDzFeRj4UmC
+ kkzB0oBE0bugbMVT1WJnhN5pklZ8atDGCn8ZRWUbwzF6w==
+Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id ca151574; Fri, 08 Aug 2025 21:46:59 +0200
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, David Wronek <david@mainlining.org>,
+ Karel Balej <balejk@matfyz.cz>, phone-devel@vger.kernel.org,
+ ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
+Date: Fri, 08 Aug 2025 21:46:58 +0200
+Message-ID: <2017616.PYKUYFuaPT@radijator>
+In-Reply-To: <20250808-portable-expert-turkey-4f8f19@kuoka>
+References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
+ <20250806-pxa1908-genpd-v1-2-16409309fc72@dujemihanovic.xyz>
+ <20250808-portable-expert-turkey-4f8f19@kuoka>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_123616_393342_11283C7F 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20250808_124835_452146_0CF6BE43 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the vdpu383 Video Decoder variant to the RK3576 device tree.
+On Friday, 8 August 2025 09:34:54 Central European Summer Time Krzysztof Ko=
+zlowski wrote:
+> On Wed, Aug 06, 2025 at 07:33:21PM +0200, Duje Mihanovi=C4=87 wrote:
+> > +          A number of phandles to clocks that need to be enabled during
+> > domain +          power up.
+>=20
+> This does not exist in your example, so it is just confusing.
 
-Also allow using the dedicated SRAM as a pool.
+This is because I have not implemented any of the clocks used by the
+domains at this moment.
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 36 ++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+Actually, I am not sure anymore whether it is necessary to assign
+clocks to the domains as I have just yesterday successfully brought up
+the GPU with some out-of-tree code and that did not require giving the
+domains any clocks even though the vendor kernel does this. Should I
+just go with that and drop all clock handling from the power domain
+driver, at which point there would be no need for the individual domain
+nodes? If not, how should I in the future assign clocks to the domains?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index c3cdae8a54941..d16817526b9f6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1139,6 +1139,41 @@ gpu: gpu@27800000 {
- 			status = "disabled";
- 		};
- 
-+		vdec: video-codec@27b00100 {
-+			compatible = "rockchip,rk3576-vdec";
-+			reg = <0x0 0x27b00100 0x0 0x500>,
-+			      <0x0 0x27b00000 0x0 0x100>,
-+			      <0x0 0x27b00600 0x0 0x100>;
-+			reg-names = "function", "link", "cache";
-+			interrupts = <GIC_SPI 308 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru ACLK_RKVDEC_ROOT>, <&cru HCLK_RKVDEC>,
-+				 <&cru ACLK_RKVDEC_ROOT_BAK>, <&cru CLK_RKVDEC_CORE>,
-+				 <&cru CLK_RKVDEC_HEVC_CA>;
-+			clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
-+			assigned-clocks = <&cru ACLK_RKVDEC_ROOT>, <&cru CLK_RKVDEC_CORE>,
-+					  <&cru ACLK_RKVDEC_ROOT_BAK>, <&cru CLK_RKVDEC_HEVC_CA>;
-+			assigned-clock-rates = <600000000>, <600000000>,
-+					       <500000000>, <1000000000>;
-+			iommus = <&vdec_mmu>;
-+			power-domains = <&power RK3576_PD_VDEC>;
-+			resets = <&cru SRST_A_RKVDEC_BIU>, <&cru SRST_H_RKVDEC_BIU>,
-+				 <&cru SRST_H_RKVDEC>, <&cru SRST_RKVDEC_CORE>,
-+				 <&cru SRST_RKVDEC_HEVC_CA>;
-+			reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
-+			sram = <&rkvdec_sram>;
-+		};
-+
-+		vdec_mmu: iommu@27b00800 {
-+			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
-+			reg = <0x0 0x27b00800 0x0 0x40>, <0x0 0x27b00900 0x0 0x40>;
-+			interrupts = <GIC_SPI 309 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cru CLK_RKVDEC_CORE>, <&cru HCLK_RKVDEC>;
-+			clock-names = "aclk", "iface";
-+			power-domains = <&power RK3576_PD_VDEC>;
-+			rockchip,disable-mmu-reset;
-+			#iommu-cells = <0>;
-+		};
-+
- 		vop: vop@27d00000 {
- 			compatible = "rockchip,rk3576-vop";
- 			reg = <0x0 0x27d00000 0x0 0x3000>, <0x0 0x27d05000 0x0 0x1000>;
-@@ -2428,6 +2463,7 @@ sram: sram@3ff88000 {
- 			/* start address and size should be 4k align */
- 			rkvdec_sram: rkvdec-sram@0 {
- 				reg = <0x0 0x78000>;
-+				pool;
- 			};
- 		};
- 
--- 
-2.50.1
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/power/marvell,pxa1908-power.h>
+> > +
+> > +    clock-controller@d4282800 {
+> > +      compatible =3D "marvell,pxa1908-apmu", "simple-mfd", "syscon";
+> > +      reg =3D <0xd4282800 0x400>;
+> > +      #clock-cells =3D <1>;
+> > +
+> > +      power-controller {
+> > +        compatible =3D "marvell,pxa1908-power-controller";
+>=20
+> No address space, so this should be folded into the parent.
+
+By this, do you mean that the clock driver registers the power domain
+controller through devm_mfd_add_devices()?
+
+Regards,
+=2D-
+Duje
+
 
 
