@@ -4,88 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13CE5CA0EC2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 08:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB4D5C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 08:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CHWSj9mVBMxe5gM4lIvWUEXs5dXRhVAlEWj9jU/FSnc=; b=a3uWDHc5iiM68f//mrH436KPWS
-	WvJ1u3Htn769ok3ZFT21aN7epdqYwZRhW2Qgkp0ApW9mvgzgdNncux8XKgghcLvGMZB8ueXeHxYMw
-	rKW2GwWW9zlCd31MiEBNxUwGLsfTN/qZky8zzQOAV0IiKcR4YC4i7c5/IdpXxlwR5pTkVqN7gF58c
-	zJNcavDPfN2EVvnS2uCLThye0lqzWNbCngWxQE40NfICiq5m53q8cXqvDRC8RhaZcIq6tFZyIQE41
-	hY4afI4Qwq6i1GkJeRRIZg3mORL7RcscGkvIW+O/TsVO6DKXtPeAm4x+keU6jrJwhzC1Ep09ghBym
-	wI7TVhjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=20/z/DYZAbFqNRAJnWhszUBcApa7H8SN1LKIloreMsQ=; b=ChfHX3lZIBPBLPcaRrVkLSIBQb
+	ftm3P7+KABXCsEVv2LOwD2mpZrlZGNDbpBw4CJ1ihDt75F2HdtSS3evw2fwL4XyTlRcDoqJaAmuoe
+	yZSWfSmgGPm00TBLH8DptCbEGCHAiMxw6REkTkn2jhLNtdDdPkZGQDdle8q7It2TzkPGWAofURa05
+	9I9kDEBBnev/7iylf2hBJ6w9tSRkpVnHHeF/RWHu00IyOEag+ETpNnnzCnOE3nJm1KB5OT1sDxn3G
+	QQOPRB9C0Ufg+vhbCwE6ZP2uDNQp/xMbGSu7oFK+FgD5hI1ocZeR6aU0+XM/81vP1rvMokgQHb9T2
+	tr0Gwzxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIjE-00000002LyV-2hkY;
-	Fri, 08 Aug 2025 08:45:32 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1ukIjH-00000002M2l-0ACo;
+	Fri, 08 Aug 2025 08:45:35 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIZs-00000002KuU-2huc;
-	Fri, 08 Aug 2025 08:35:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754642153; x=1786178153;
-  h=message-id:date:mime-version:subject:from:to:cc:
-   references:in-reply-to:content-transfer-encoding;
-  bh=gYkqwRyuf+mXfngwQT5Vz7JmhhNZ1YkE71ZvOwPr16c=;
-  b=QPOnfdHe9p4seKWXZhTJdeOoXoSSvwh+jJUHeZws2ct3FW8PBfXSM3ld
-   mcKKkY6+XZWl8e70484Az1cINi48RTNQbjnLmJ/AaFt5voHZxXql1Pko0
-   UnZSQdmd9IHOh0hXhFXI/mJdZ2HzLpV1fT6li74+O3quruvwlVCArNw8n
-   AFrEIZN1C/vplhme1U7ehiuyHGLaga8a2vPuVq0vLUY0DRJsXm3BACpKr
-   ey5lajez4KKQMWuml7jEmmyvqGsQuiX2kCocnZnBJsymIWoR1UCNyy4j0
-   JSLccM5UTu8N8mv1E1Nh9FPADxrxnRCkzLDmythVl/lcKTizEcAiSwF/v
-   w==;
-X-CSE-ConnectionGUID: SZDvnXF/QTCiUMph89ePRA==
-X-CSE-MsgGUID: xcAvq/XlSyG8mCH3lpa+yA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="56893405"
-X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
-   d="scan'208";a="56893405"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2025 01:35:50 -0700
-X-CSE-ConnectionGUID: Mtq1YVreTUW793Ca6IVT3Q==
-X-CSE-MsgGUID: 6ZsGI/1dREKrJ/YPUYiZ9Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
-   d="scan'208";a="170664293"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.106]) ([10.124.240.106])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2025 01:35:42 -0700
-Message-ID: <463a0265-e854-4677-92f2-be17e46a3426@linux.intel.com>
-Date: Fri, 8 Aug 2025 16:35:39 +0800
-MIME-Version: 1.0
+	id 1ukIdS-00000002LKB-23oN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Aug 2025 08:39:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ooGDl+GWRShi53x6aovqvngJqefdh5Jnz6F4mM56vP9p0E4a+yWVN5308KhorMPCmWtkTUbYOtMZGk/4Vw4J24HeRiSDkOrBlcjbWdaGnH1gvIuXJ68l0DQvgBRHGgXwWULWVATzSPKW8fwnaF5mhK9MyTqbfkOcCIxQVUXpCofwljaK8ktZbshuXiRugQGJJGM3EHT0AATIog5NzgNu6yXTY3xwoFIrvHe9fXJgiZV+9fCFrZhaBPyhCp3SeKSMC/eL6oPePCeSTzAfJpzz3qb0ZFLjZWp4gUqzIFIqZ+3jnh9nltVL4Bw1RWCMeDkIveNsjqTm7lxe7oU+n4Dq2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=20/z/DYZAbFqNRAJnWhszUBcApa7H8SN1LKIloreMsQ=;
+ b=TJdo2aH83pJ+leV9vQbJ+hm1sEirkPSyB/Y7VyXQ/TVvK/58p2xdXQDdKhoa/QyAM3lZcCHaTIj+XBCFklgemXxUAldKJyOc5O+7GCZ5Mflp8GUY5nMJAGQBE3PqiYhDObIUmkFUNkSVkwqRs8RUg3xbsXIqGj5lI+OHdem7AsSAJ8c/BO5DVuTEdMCtzdjVn5SmKi50Ghwp17Yg1oNg0ysw21A4uLNRtRzI3a42zywnYnedvxYmNBMzAvSOPucLcQOhgdW/LyjGz//+GZli/eJNjS+6pSZIYJ/LbRBL3QbSA+9p0qyNFJ894jToZMYh6eKX3tgVqVBLa+Qlk2besA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=20/z/DYZAbFqNRAJnWhszUBcApa7H8SN1LKIloreMsQ=;
+ b=nf2bBQj97qgnFcPifvjfddxWD2+EghqgcAw6UmxDcX9dWPq2gwN3xNaQiTH5uxskZTFLHCi0/npB25WoqZP/tFmbvguH11EgLF/dAJmfKCcbjv6+J57SNZC/0I9nsWwBVtrvIcod4ceHVAeD77nQzuwAhqhuP2+kdqiT88metPIoBriL/t/ujK8oChFzF3K3uUnKO4SxKhdDWs+wELKv/rny5aLn4zcS9w1yqIcPy9TTj3KRYpQwhZawIuENO3B6CiIvCoyTz/nvtDD2g01OJaBAFRh/6uwG+gL2NmVnnWoh2/fiVIJEVFgZRq2lod+qViINASyeBfuM0rTyBLST/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by GVXPR04MB10802.eurprd04.prod.outlook.com (2603:10a6:150:220::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.17; Fri, 8 Aug
+ 2025 08:39:26 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%5]) with mapi id 15.20.9009.017; Fri, 8 Aug 2025
+ 08:39:26 +0000
+Message-ID: <86249350-10bf-4bdd-a154-60b6aec59c0f@nxp.com>
+Date: Fri, 8 Aug 2025 16:40:55 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 00/44] KVM: x86: Add support for mediated vPMUs
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Sandipan Das <sandipan.das@amd.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <a1df40e4-ae97-4b88-ad08-28b11d19c00a@linux.intel.com>
+Subject: Re: [PATCH v4 6/7] arm64: dts: imx8mp: Add hdmi parallel audio
+ interface node
+To: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ lumag@kernel.org, dianders@chromium.org, cristian.ciocaltea@collabora.com,
+ luca.ceresoli@bootlin.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, p.zabel@pengutronix.de, devicetree@vger.kernel.org,
+ l.stach@pengutronix.de, shengjiu.wang@gmail.com, perex@perex.cz,
+ tiwai@suse.com, linux-sound@vger.kernel.org
+References: <20250808080617.2924184-1-shengjiu.wang@nxp.com>
+ <20250808080617.2924184-7-shengjiu.wang@nxp.com>
+From: Liu Ying <victor.liu@nxp.com>
 Content-Language: en-US
-In-Reply-To: <a1df40e4-ae97-4b88-ad08-28b11d19c00a@linux.intel.com>
+In-Reply-To: <20250808080617.2924184-7-shengjiu.wang@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR02CA0015.apcprd02.prod.outlook.com
+ (2603:1096:4:194::16) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|GVXPR04MB10802:EE_
+X-MS-Office365-Filtering-Correlation-Id: 32d109d9-7625-4fdf-3f8f-08ddd6571567
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c05xK2JDd2cvZ1lwd0J3WDdHYjVIM1pWbDcxVU9yN1V0SHNKc05QSTN2ZHVo?=
+ =?utf-8?B?TjBjSkRmeDhPaXpIT1NrcStHcllvN283RWh3WDZNUmszejUwMGZTZ0E5L2Yy?=
+ =?utf-8?B?VWRrOWJKR1FjeTFCVlJ1ZWJsbFJWdkRXK21uZnlpL0s3Y2prNEdsb2FSc25P?=
+ =?utf-8?B?RnJ1d0daNlRmcTdxclhUbXJ4NDdlSVFOZzdoQkk3UDRrc2h5dVd4QXhmMHl5?=
+ =?utf-8?B?djAwYXFyS1FFOFpTcmVuRWFLSW9mWENJYTFUMTZlbUcyTnJvRFZHRTFvMHNL?=
+ =?utf-8?B?NU9zck9HRFY0ejlJOUhlMXEvbitNV3FmUWtpWDlGWkppM1Bra2JRMzR3S1Zz?=
+ =?utf-8?B?UHo3NVpaN3JvR0luMHpPM2JQcm5MZzVFRFBQMTVBMnp3MnIzM00zbWhncVNl?=
+ =?utf-8?B?L0t0WDBUZE1nUFNtS1ZNVVFYSUdYd3FpSUhyRkMzSWRhNlpyK3ZkU2pkMVM5?=
+ =?utf-8?B?dlZrcHJRRHV5QUhsaUE2MmZGY0FkRzU1bVpOOVZOQVdIdjZEeDJLY2RNVmVE?=
+ =?utf-8?B?VkhQa01pcDg3a1grcGZRNkE1Tm50YTFLT1R2aTgzeUNOM2ZnVzROVXdZL1pt?=
+ =?utf-8?B?U2ZhKzF6VmxTNjRaaWNoZ0ErTUpmVW9xV2MvVlpkOVdreHY5amtWL1ZnaFRL?=
+ =?utf-8?B?Ynh0Z3p3bkJKck44M1U1c29XVGpnOGpTWSt1M2lxbHA3eTVIeUt5OVNHVjFW?=
+ =?utf-8?B?Y3pCVEVicktHK3pCZ1VoMkNpQkRXMFJCeEZJSXJjTjA4MTIzQnhBbnJaTDU1?=
+ =?utf-8?B?L1FUWFR1RGcyaVh1aWJpbE5nTU12UEFIOG9vUGZYUWd2ZGU3bUl2U1dneGI1?=
+ =?utf-8?B?anRlRTVEUE9MbDVVZUR0S0VjazhwV1NEYXhzNTVnZDRaZndQL1FoMXRnSnFz?=
+ =?utf-8?B?MGMrOWRCdTNWcnhDTVd2YzJsMFNYbWpmNmtiMFFsNXF2WUd4Uml2YjRMUTlH?=
+ =?utf-8?B?Tm5XdFBVWTN5Sm1Gb0QzMEtucmQ3TWh5amZpNXZMQUhGcDBkT2k0U3lLZElM?=
+ =?utf-8?B?YTRHZVo1Szd0b2FDQlROVmpKTWNiRlpINzErZ2ZwSDgzVjZYWDg1SUV0Q3Zu?=
+ =?utf-8?B?MGRYR0picG94TytwV3pFNnNiMGQ2MHNpSXVlNlJSQmdsc2hLT1ArSFdnTDZn?=
+ =?utf-8?B?bzZ6L1FTVk9UZTQrNGcwcDZHM28zVzU3RTE5cm05NDRQbmRWQWFYSWY2S3B4?=
+ =?utf-8?B?TDZlQndtQXp6NFhBWjhjY1NOZXBXYUt0alhMMnRuV3Z0N0FKMkZPMXE5dGkx?=
+ =?utf-8?B?cVZHVVNXbE9LMlhvWFgzdTZhYkY3RkprYThDZlhKWmp6UW9Fc0xpenc5d3Rv?=
+ =?utf-8?B?STRlays1eTJ1Y1gyeHFEREhyNmxhYTRqWFhYQ3Y3NnVQV29OUFk1bHMzSnFm?=
+ =?utf-8?B?cjJCSVVIRFhiRmtMdGtRalp5WmsyTFBITE5SVElnOUV3Y3gxME5qSFh0V0tC?=
+ =?utf-8?B?TzFSU1c5dkxMSjJsNkFsZ0lvY0JWZlk0dTNGVzN4S0FGS2JVUzFoVnVXVWxY?=
+ =?utf-8?B?a1NZREtRa1BjVGhOV2dmem8yS242cW9oSGVTTFVxVWtNZ1lsV3psMEhuSjUv?=
+ =?utf-8?B?MVpXa0U4Y2hHTHVveDI4SEZlT2lDcjlVN292TzdkeGx1M213NXpjU1E5dEFI?=
+ =?utf-8?B?UmJRazR4OTM1R3BPcU82S3p4ODFMWHNRaTJ4RXROcUdRN040bEYzWlZVdlJY?=
+ =?utf-8?B?N2lTVHdtcEpheG8vMjhUdGpmSytSdldwRmNlcXZvclV2MHBwMXpFaDgrVXBN?=
+ =?utf-8?B?ZWF2K0I2eVNMcHVNNkZaM3FFd1YrRFgzdFZJaWtDK2JIWEVZbHdheGdQRm1O?=
+ =?utf-8?B?L2xhZnV2c3UzOFhtTDBRUDdwaDB1OFVLL3pCYTJ5K3dleVFUQmRlWUw1K0FW?=
+ =?utf-8?B?QlluTFRSODJsUUF1T3MvaGlqdjVhN2s2VUhVR2gzNHAyanA0bjl2RnJNTlpT?=
+ =?utf-8?B?SWtFQ1hZbk41STlJZE9rVmRUKzM4ZHJwNmJiT3dxMVZBeEVudTRZL0ZIUHNz?=
+ =?utf-8?B?ZUJDT3BSOU5nPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VkoxZFhqRUhZZ3kxWXhqb1MyTk5ITEcvcmhtYzVTcGRIVGJldytqVEdWSmtv?=
+ =?utf-8?B?WHJ6TVB5YnZYQ21odUxyaGdWK2lVSk85dHFDWW1ET1BJdS91akhaV2xiWXNk?=
+ =?utf-8?B?THQweXNIU2h5b3dwRjB6KzUrT2p2eE9Vay83TGN4bENUNzk1UnpKTVNQSW5I?=
+ =?utf-8?B?RnRaUnloL0ZMWVcydlRPMXJPbnFVaDdvb0ZUUnJsT2h5NExEMFJ6Sm5ZeGp3?=
+ =?utf-8?B?M3V3ZjkrMnpFTk5IUk52RnhmTjd6RXQ3dXZCaVA3TDhTcnUrUlNPN0Y3Y0ZY?=
+ =?utf-8?B?Nm8xOTFQaUdjZUgvWHI2NUNGbk53TFNKendQTFdTTjdUWHdxSWNFOEpmU1BF?=
+ =?utf-8?B?Q2Z4VmFWWm5QK0preDV0akdXYW5PUDFhU29qNjRqS1dWdCs1cHZUSXg3S1Zk?=
+ =?utf-8?B?R0dtQ3ZDRTkybUpBVUhKNkkxYUExQlJ2Y044NnpLUkJuZHJJTzB5LzVrN2pP?=
+ =?utf-8?B?azY5ODhVL0RRazFPWi8zTkJNZnlLOVNmU3JhdmlObWVTY3dreTZERTNtMmw5?=
+ =?utf-8?B?RWhtVjFRQU9OcGx6RnRKLy9zdTg2aUhGVmRIckhMQmxlNVZ6d3MxdXVCcmlM?=
+ =?utf-8?B?RWdsSkRDQ1hHRGdFQkFHcjNFcjJ0Q0J5Y1FiOHhrdHEwdVBtZnFHbjdQRWsr?=
+ =?utf-8?B?d1NnRjc5dkFWSysydjVycFcyTWxxZ2Q0N0tXOUI5R0dLUUp1YVlTNnpKTUFw?=
+ =?utf-8?B?cmJHSmlFS1RacVUwaC9PZ0RvTTVYV2x0OVdPdXBMcUlJTWdpNWh5TTVFQ1M3?=
+ =?utf-8?B?ZVhOV1dYM0RGYjBqUWViZjd0U3pnZGRWbi80NjRMOUlOWW1LNWxKK09ZVkNi?=
+ =?utf-8?B?U2xDTlZXYXhXUXRHS0crUlg4Mzdmc09XQU8ya1JDaGZLaVEwU2YxVjV4ZUVU?=
+ =?utf-8?B?VzFmVlBWd1Z0TEpibm4rZXV2ZzFYSUtsaEIzb1hoUVM3SXNhUzFwVTNySFla?=
+ =?utf-8?B?cTNzTmNWcTFjYjc3SzhuZTEvd0U1WmZyVTZTRXQyLyttYlF6TG9mbk45T3k1?=
+ =?utf-8?B?WCt4dDNnUm9FMzNtdG04ODRqbXV3MEtac3BEK0liZVhVZUJoZnpnMFZvMzUw?=
+ =?utf-8?B?cUlnaHV4dGJtRmpXRGNESGwrTnhKV3BUZWNvUXA4bTFENzk5OEVvU1FxNVZ4?=
+ =?utf-8?B?bUYzT1hCOE5QcEIvWDkvOFZXc3dIY0lYVHFkY2J3YzFMdC80QXI1WFBad0xC?=
+ =?utf-8?B?YUM1K0dzVTRPNGIzbkFVaGZFVytmaGZaSFlnYTcyTDYrM2tZZGM2K2xSQVFt?=
+ =?utf-8?B?dmt4bFNqS0d2M1RtSUszc1BRdUhOY1VBbS9PbWZ2NC9ST1ppTlVsVVJEK04v?=
+ =?utf-8?B?N1Y2eVpZWktPVmtzemN1UHRwWDZQWklFQ0xKYkxCUFpyekRaK2I2eGxaM2kv?=
+ =?utf-8?B?S1VYNWp3d3AvRUgzVjI0dEFKbWNqZlA3dmFOZXZxcHd5bnVyY2hlbHRpUE9k?=
+ =?utf-8?B?dXB3eFZsWTNsd0xDK1RMY1Z5eDRTSmU3VnlDclpodmVLaW9RdFJlRmVmOTJk?=
+ =?utf-8?B?Z3hjS0RvSnpXRkVJQ3VBeUtiZmcwYk5OR3g5c1dMU3lqTFhvM3k1bk5rbE9K?=
+ =?utf-8?B?MWRIZWRxcHJVdTVRdi9TY3RXZVZaZDZhR0g4aGxpSU1UOGY3Y2UyRFIxc1BD?=
+ =?utf-8?B?SG9KM2FIenB5a3Z3L0hTR05sSHNyWGt0bFRFUjdnckVRcG9CUHdWMVZ4aWZ2?=
+ =?utf-8?B?aCtaQ21YRlE5ZmxOUTAyc1E0bUczcG9SbGlRUGFHRkhmS0RDTlJDRXZpQWVP?=
+ =?utf-8?B?QTlqNE1XdUdTNUtWYmppK1NxVFErWkVzUVZqSmNDMWtOb3RxdzZYT2doTVhW?=
+ =?utf-8?B?dlppUTlmTExTekdiWHZLeE1OZkVmMFhJalc1NklISTZWTnZJNGZMYTZPSkl6?=
+ =?utf-8?B?WWgxTEZza3RWUmFrYVZ6dWxtR01qVmtPZVhqenpORi9ybCtEN2xnUStUZTN2?=
+ =?utf-8?B?ZkIvVHNUcnRvVC9DNTFYVlFYNWYwMFdVOUhsanVqb0VybmFaOVA0aHVrVEdr?=
+ =?utf-8?B?eWhPdmxPWEhNeWxvTlBkeUhGUHduTFJyemQ3OCtKTzRaNTZWait3dXZMSHNu?=
+ =?utf-8?B?SXN0VEtzMGhuUFZVeVBhVlhqeFBSQ2RxZDlmS1BzV0lMamp3cGdXRmNKY2tl?=
+ =?utf-8?Q?U4v5kCHwXkUiCYniw4QmjCvo6?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32d109d9-7625-4fdf-3f8f-08ddd6571567
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 08:39:26.7455
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qFf08Kf3BNYdTw5M70VvizUO8nkGLuqeZVWM+7x4uhG9UrrHyCIVN9506nx8JMcSt8wJgQa2igd58k1iS8E3lg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10802
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_013552_744175_9F3750B4 
-X-CRM114-Status: GOOD (  33.54  )
+X-CRM114-CacheID: sfid-20250808_013934_523838_E3849ACF 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,231 +188,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 08/08/2025, Shengjiu Wang wrote:
+> The HDMI TX Parallel Audio Interface (HTX_PAI) is a bridge between the
+> Audio Subsystem to the HDMI TX Controller.
+> 
+> Shrink register map size of hdmi_pvi to avoid overlapped hdmi_pai device.
+> 
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 28 ++++++++++++++++++++++-
+>  1 file changed, 27 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> index 841d155685ee..00d8474bd1b1 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -2066,7 +2066,7 @@ irqsteer_hdmi: interrupt-controller@32fc2000 {
+>  
+>  			hdmi_pvi: display-bridge@32fc4000 {
+>  				compatible = "fsl,imx8mp-hdmi-pvi";
+> -				reg = <0x32fc4000 0x1000>;
+> +				reg = <0x32fc4000 0x800>;
+>  				interrupt-parent = <&irqsteer_hdmi>;
+>  				interrupts = <12>;
+>  				power-domains = <&hdmi_blk_ctrl IMX8MP_HDMIBLK_PD_PVI>;
+> @@ -2092,6 +2092,24 @@ pvi_to_hdmi_tx: endpoint {
+>  				};
+>  			};
+>  
+> +			hdmi_pai: audio-bridge@32fc4800 {
+> +				compatible = "fsl,imx8mp-hdmi-pai";
+> +				reg = <0x32fc4800 0x800>;
+> +				interrupt-parent = <&irqsteer_hdmi>;
+> +				interrupts = <14>;
+> +				clocks = <&clk IMX8MP_CLK_HDMI_APB>;
+> +				clock-names = "apb";
+> +				power-domains = <&hdmi_blk_ctrl IMX8MP_HDMIBLK_PD_PAI>;
+> +				status = "disabled";
+> +
+> +				port {
+> +
 
-On 8/8/2025 4:28 PM, Mi, Dapeng wrote:
-> On 8/7/2025 3:56 AM, Sean Christopherson wrote:
->> This series is based on the fastpath+PMU cleanups series[*] (which is based on
->> kvm/queue), but the non-KVM changes apply cleanly on v6.16 or Linus' tree.
->> I.e. if you only care about the perf changes, I would just apply on whatever
->> branch is convenient and stop when you hit the KVM changes.
->>
->> My hope/plan is that the perf changes will go through the tip tree with a
->> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
->>
->> Non-x86 KVM folks, y'all are getting Cc'd due to minor changes in "KVM: Add a
->> simplified wrapper for registering perf callbacks".
->>
->> The full set is also available at:
->>
->>   https://github.com/sean-jc/linux.git tags/mediated-vpmu-v5
->>
->> Add support for mediated vPMUs in KVM x86, where "mediated" aligns with the
->> standard definition of intercepting control operations (e.g. event selectors),
->> while allowing the guest to perform data operations (e.g. read PMCs, toggle
->> counters on/off) without KVM getting involed.
->>
->> For an in-depth description of the what and why, please see the cover letter
->> from the original RFC:
->>
->>   https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
->>
->> All KVM tests pass (or fail the same before and after), and I've manually
->> verified MSR/PMC are passed through as expected, but I haven't done much at all
->> to actually utilize the PMU in a guest.  I'll be amazed if I didn't make at
->> least one major goof.
->>
->> Similarly, I tried to address all feedback, but there are many, many changes
->> relative to v4.  If I missed something, I apologize in advance.
->>
->> In other words, please thoroughly review and test.
-> Went through the whole patchset, it looks good to me.
->
-> Run all PMU related kselftests and KUT tests on Intel Sapphire Rapids, no
-> issue is found. We would run broader tests on more Intel platforms. Thanks.
+Nit: Drop this blank line.
 
-Forgot to say "all tests are run for both mediated vPMU and the legacy
-perf-based vPMU, no issue is found". Thanks.
+> +					pai_to_hdmi_tx: endpoint {
+> +						remote-endpoint = <&hdmi_tx_from_pai>;
+> +					};
+> +				};
+> +			};
+> +
+>  			lcdif3: display-controller@32fc6000 {
+>  				compatible = "fsl,imx8mp-lcdif";
+>  				reg = <0x32fc6000 0x1000>;
+> @@ -2143,6 +2161,14 @@ port@1 {
+>  						reg = <1>;
+>  						/* Point endpoint to the HDMI connector */
+>  					};
+> +
+> +					port@2 {
+> +						reg = <2>;
+> +
+> +						hdmi_tx_from_pai: endpoint {
+> +							remote-endpoint = <&pai_to_hdmi_tx>;
+> +						};
+> +					};
+>  				};
+>  			};
+>  
 
 
->
->
->> [*] https://lore.kernel.org/all/20250805190526.1453366-1-seanjc@google.com
->>
->> v5:
->>  - Add a patch to call security_perf_event_free() from __free_event()
->>    instead of _free_event() (necessitated by the __cleanup() changes).
->>  - Add CONFIG_PERF_GUEST_MEDIATED_PMU to guard the new perf functionality.
->>  - Ensure the PMU is fully disabled in perf_{load,put}_guest_context() when
->>    when switching between guest and host context. [Kan, Namhyung]
->>  - Route the new system IRQ, PERF_GUEST_MEDIATED_PMI_VECTOR, through perf,
->>    not KVM, and play nice with FRED.
->>  - Rename and combine perf_{guest,host}_{enter,exit}() to a single set of
->>    APIs, perf_{load,put}_guest_context().
->>  - Rename perf_{get,put}_mediated_pmu() to perf_{create,release}_mediated_pmu()
->>    to (hopefully) better differentiate them from perf_{load,put}_guest_context().
->>  - Change the param to the load/put APIs from "u32 guest_lvtpc" to
->>    "unsigned long data" to decouple arch code as much as possible.  E.g. if
->>    a non-x86 arch were to ever support a mediated vPMU, @data could be used
->>    to pass a pointer to a struct.
->>  - Use pmu->version to detect if a vCPU has a mediated PMU.
->>  - Use a kvm_x86_ops hook to check for mediated PMU support.
->>  - Cull "passthrough" from as many places as I could find.
->>  - Improve the changelog/documentation related to RDPMC interception.
->>  - Check harware capabilities, not KVM capabilities, when calculating
->>    MSR and RDPMC intercepts.
->>  - Rework intercept (re)calculation to use a request and the existing (well,
->>    will be existing as of 6.17-rc1) vendor hooks for recalculating intercepts.
->>  - Always read PERF_GLOBAL_CTRL on VM-Exit if writes weren't intercepted while
->>    running the vCPU.
->>  - Call setup_vmcs_config() before kvm_x86_vendor_init() so that the golden
->>    VMCS configuration is known before kvm_init_pmu_capability() is called.
->>  - Keep as much refresh/init code in common x86 as possible.
->>  - Context switch PMCs and event selectors in common x86, not vendor code.
->>  - Bail from the VM-Exit fastpath if the guest is counting instructions
->>    retired and the mediated PMU is enabled (because guest state hasn't yet
->>    been synchronized with hardware).
->>  - Don't require an userspace to opt-in via KVM_CAP_PMU_CAPABILITY, and instead
->>    automatically "create" a mediated PMU on the first KVM_CREATE_VCPU call if
->>    the VM has an in-kernel local APIC.
->>  - Add entries in kernel-parameters.txt for the PMU params.
->>  - Add a patch to elide PMC writes when possible.
->>  - Many more fixups and tweaks...
->>
->> v4:
->>  - https://lore.kernel.org/all/20250324173121.1275209-1-mizhang@google.com
->>  - Rebase whole patchset on 6.14-rc3 base.
->>  - Address Peter's comments on Perf part.
->>  - Address Sean's comments on KVM part.
->>    * Change key word "passthrough" to "mediated" in all patches
->>    * Change static enabling to user space dynamic enabling via KVM_CAP_PMU_CAPABILITY.
->>    * Only support GLOBAL_CTRL save/restore with VMCS exec_ctrl, drop the MSR
->>      save/retore list support for GLOBAL_CTRL, thus the support of mediated
->>      vPMU is constrained to SapphireRapids and later CPUs on Intel side.
->>    * Merge some small changes into a single patch.
->>  - Address Sandipan's comment on invalid pmu pointer.
->>  - Add back "eventsel_hw" and "fixed_ctr_ctrl_hw" to avoid to directly
->>    manipulate pmc->eventsel and pmu->fixed_ctr_ctrl.
->>
->> v3: https://lore.kernel.org/all/20240801045907.4010984-1-mizhang@google.com
->> v2: https://lore.kernel.org/all/20240506053020.3911940-1-mizhang@google.com
->> v1: https://lore.kernel.org/all/20240126085444.324918-1-xiong.y.zhang@linux.intel.com
->>
->> Dapeng Mi (15):
->>   KVM: x86/pmu: Start stubbing in mediated PMU support
->>   KVM: x86/pmu: Implement Intel mediated PMU requirements and
->>     constraints
->>   KVM: x86: Rename vmx_vmentry/vmexit_ctrl() helpers
->>   KVM: x86/pmu: Move PMU_CAP_{FW_WRITES,LBR_FMT} into msr-index.h header
->>   KVM: VMX: Add helpers to toggle/change a bit in VMCS execution
->>     controls
->>   KVM: x86/pmu: Disable RDPMC interception for compatible mediated vPMU
->>   KVM: x86/pmu: Load/save GLOBAL_CTRL via entry/exit fields for mediated
->>     PMU
->>   KVM: x86/pmu: Use BIT_ULL() instead of open coded equivalents
->>   KVM: x86/pmu: Disable interception of select PMU MSRs for mediated
->>     vPMUs
->>   KVM: x86/pmu: Bypass perf checks when emulating mediated PMU counter
->>     accesses
->>   KVM: x86/pmu: Reprogram mediated PMU event selectors on event filter
->>     updates
->>   KVM: x86/pmu: Load/put mediated PMU context when entering/exiting
->>     guest
->>   KVM: x86/pmu: Handle emulated instruction for mediated vPMU
->>   KVM: nVMX: Add macros to simplify nested MSR interception setting
->>   KVM: x86/pmu: Expose enable_mediated_pmu parameter to user space
->>
->> Kan Liang (7):
->>   perf: Skip pmu_ctx based on event_type
->>   perf: Add generic exclude_guest support
->>   perf: Add APIs to create/release mediated guest vPMUs
->>   perf: Clean up perf ctx time
->>   perf: Add a EVENT_GUEST flag
->>   perf: Add APIs to load/put guest mediated PMU context
->>   perf/x86/intel: Support PERF_PMU_CAP_MEDIATED_VPMU
->>
->> Mingwei Zhang (3):
->>   perf/x86/core: Plumb mediated PMU capability from x86_pmu to
->>     x86_pmu_cap
->>   KVM: x86/pmu: Introduce eventsel_hw to prepare for pmu event filtering
->>   KVM: nVMX: Disable PMU MSR interception as appropriate while running
->>     L2
->>
->> Sandipan Das (3):
->>   perf/x86/core: Do not set bit width for unavailable counters
->>   perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for AMD host
->>   KVM: x86/pmu: Always stuff GuestOnly=1,HostOnly=0 for mediated PMCs on
->>     AMD
->>
->> Sean Christopherson (15):
->>   perf: Move security_perf_event_free() call to __free_event()
->>   perf: core/x86: Register a new vector for handling mediated guest PMIs
->>   perf/x86: Switch LVTPC to/from mediated PMI vector on guest load/put
->>     context
->>   KVM: VMX: Setup canonical VMCS config prior to kvm_x86_vendor_init()
->>   KVM: SVM: Check pmu->version, not enable_pmu, when getting PMC MSRs
->>   KVM: Add a simplified wrapper for registering perf callbacks
->>   KVM: x86/pmu: Snapshot host (i.e. perf's) reported PMU capabilities
->>   KVM: x86/pmu: Implement AMD mediated PMU requirements
->>   KVM: x86: Rework KVM_REQ_MSR_FILTER_CHANGED into a generic
->>     RECALC_INTERCEPTS
->>   KVM: x86: Use KVM_REQ_RECALC_INTERCEPTS to react to CPUID updates
->>   KVM: x86/pmu: Move initialization of valid PMCs bitmask to common x86
->>   KVM: x86/pmu: Restrict GLOBAL_{CTRL,STATUS}, fixed PMCs, and PEBS to
->>     PMU v2+
->>   KVM: x86/pmu: Disallow emulation in the fastpath if mediated PMCs are
->>     active
->>   KVM: nSVM: Disable PMU MSR interception as appropriate while running
->>     L2
->>   KVM: x86/pmu: Elide WRMSRs when loading guest PMCs if values already
->>     match
->>
->> Xiong Zhang (1):
->>   KVM: x86/pmu: Register PMI handler for mediated vPMU
->>
->>  .../admin-guide/kernel-parameters.txt         |  49 ++
->>  arch/arm64/kvm/arm.c                          |   2 +-
->>  arch/loongarch/kvm/main.c                     |   2 +-
->>  arch/riscv/kvm/main.c                         |   2 +-
->>  arch/x86/entry/entry_fred.c                   |   1 +
->>  arch/x86/events/amd/core.c                    |   2 +
->>  arch/x86/events/core.c                        |  32 +-
->>  arch/x86/events/intel/core.c                  |   5 +
->>  arch/x86/include/asm/hardirq.h                |   3 +
->>  arch/x86/include/asm/idtentry.h               |   6 +
->>  arch/x86/include/asm/irq_vectors.h            |   4 +-
->>  arch/x86/include/asm/kvm-x86-ops.h            |   2 +-
->>  arch/x86/include/asm/kvm-x86-pmu-ops.h        |   4 +
->>  arch/x86/include/asm/kvm_host.h               |   7 +-
->>  arch/x86/include/asm/msr-index.h              |  17 +-
->>  arch/x86/include/asm/perf_event.h             |   1 +
->>  arch/x86/include/asm/vmx.h                    |   1 +
->>  arch/x86/kernel/idt.c                         |   3 +
->>  arch/x86/kernel/irq.c                         |  19 +
->>  arch/x86/kvm/Kconfig                          |   1 +
->>  arch/x86/kvm/cpuid.c                          |   2 +
->>  arch/x86/kvm/pmu.c                            | 272 ++++++++-
->>  arch/x86/kvm/pmu.h                            |  37 +-
->>  arch/x86/kvm/svm/nested.c                     |  18 +-
->>  arch/x86/kvm/svm/pmu.c                        |  51 +-
->>  arch/x86/kvm/svm/svm.c                        |  54 +-
->>  arch/x86/kvm/vmx/capabilities.h               |  11 +-
->>  arch/x86/kvm/vmx/main.c                       |  14 +-
->>  arch/x86/kvm/vmx/nested.c                     |  65 ++-
->>  arch/x86/kvm/vmx/pmu_intel.c                  | 169 ++++--
->>  arch/x86/kvm/vmx/pmu_intel.h                  |  15 +
->>  arch/x86/kvm/vmx/vmx.c                        | 143 +++--
->>  arch/x86/kvm/vmx/vmx.h                        |  11 +-
->>  arch/x86/kvm/vmx/x86_ops.h                    |   2 +-
->>  arch/x86/kvm/x86.c                            |  69 ++-
->>  arch/x86/kvm/x86.h                            |   1 +
->>  include/linux/kvm_host.h                      |  11 +-
->>  include/linux/perf_event.h                    |  38 +-
->>  init/Kconfig                                  |   4 +
->>  kernel/events/core.c                          | 521 ++++++++++++++----
->>  .../beauty/arch/x86/include/asm/irq_vectors.h |   3 +-
->>  virt/kvm/kvm_main.c                           |   6 +-
->>  42 files changed, 1385 insertions(+), 295 deletions(-)
->>
->>
->> base-commit: 53d61a43a7973f812caa08fa922b607574befef4
+-- 
+Regards,
+Liu Ying
 
