@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CF8C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 13:27:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9782C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 13:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i5QrXCqm+pifeK6qyJpbRjapusOqLRIsZv1SdbjtFgM=; b=qKZ81VQcrFOMm0UUPwYJi2G8ve
-	f7LERXAyeh6cVN/yEr6h1dHhe3zPXx/oD7hwpJDE2fBiz80RhqG/5aDnSRXHDQRlMSFUOlNISLsao
-	Cjx562DR0LQb475/9FpZd3UIaqUxfitB4/RUv+9qZsY4U/7PNiBX0AV26lWYtqRUOS3fOEdoFPsAf
-	tfbBFm4hA5IAm9vzZ7H1XAGcTH/AG65Qy3v7sUCGCkzf3CXA/FH7hdbOWmkIfv3NC1cWX5e482hR7
-	aCMxZ0Hw/FhQN+6dxgD3fNqH8RkzfxbOZN79CLXPhjR1d386022D3N4D4asqYhG4empn7km6wq4eE
-	hYxrOoqA==;
+	bh=fY6ITv0IOCwAWvbopI78ay0Ho+0F53h/qZ6BsbQ7c3Q=; b=fJphH5nPC8MTj7hQ6wQmkBljvp
+	ON0JNaWVZUG5TGjgPq6nemKn0Aqqp88kjSsuIXJtcVbsdjy/N0iBD/ixeECewxJjqdQJlF7H7c5WG
+	MzhlTfQIF9Lcj8EpvBtjGjAKPecokkSUlXs9aGXfB2SvF5nZ6TiIHJW9PizIC5F+vl3KftKVzWm8E
+	c2mljoXO4Su0RhlzcCiy0APZTegMD//nZ6ZJUE6apEPJVSNErtBvfNRBb6/q+EAYQQon7vcOTOlBs
+	phcbxCE91ydjNxEEeKBaRWQhy+mePSzmq2+XwalmhtjibAcAzF9xJXHAJswvMRfRGA8IrEuNFA4X6
+	pJREGGaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukN8D-00000002v5f-3cyp;
-	Fri, 08 Aug 2025 13:27:37 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ukNL1-00000002wST-2bjn;
+	Fri, 08 Aug 2025 13:40:51 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukN5g-00000002unR-1G0g
+	id 1ukNIV-00000002wCz-09WD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 13:25:01 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 578DOWEo602038;
-	Fri, 8 Aug 2025 08:24:32 -0500
+	Fri, 08 Aug 2025 13:38:16 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 578Dc9A8991745;
+	Fri, 8 Aug 2025 08:38:09 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754659472;
-	bh=i5QrXCqm+pifeK6qyJpbRjapusOqLRIsZv1SdbjtFgM=;
+	s=ti-com-17Q1; t=1754660289;
+	bh=fY6ITv0IOCwAWvbopI78ay0Ho+0F53h/qZ6BsbQ7c3Q=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=oPXgVpUky4MiMEuzV1gaxhmE2P+CcZTLHNyN2yEibVfjZ/F5eY7MQ2SGoxsMEMgws
-	 CDyKh2OOKPW2sGr69AInzj4bQcGNAFUnX+p0uOROD4gmIoO7VqqklFxjDyxJgsHdUF
-	 6fXLAC6SNg3YueNO8Qt6voOsWnMUjzmbCnldmJ0M=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 578DOVfQ1612002
+	b=D3utI2E5WFPqamVWrVO4a81tSwdLi0z6mOuyh7BD0sJ/1z2h91QIRwCJetoQbOosH
+	 0wNxxvKkaMDf1KPSgEy9X/7q+tIxDvs/w7brC8w/24O0bu6gQY4ANOJWLgEqJ1r28Q
+	 rVJIMxchuHyliXWThmBJRm4QQK97skudF8D4IpeA=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 578Dc91U520915
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 8 Aug 2025 08:24:31 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 8 Aug 2025 08:38:09 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 8
- Aug 2025 08:24:30 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ Aug 2025 08:38:09 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Fri, 8 Aug 2025 08:24:30 -0500
-Received: from [10.249.145.16] ([10.249.145.16])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 578DONpB3102888;
-	Fri, 8 Aug 2025 08:24:23 -0500
-Message-ID: <19dd9aa9-43c6-4483-9cdf-f297e41ecdec@ti.com>
-Date: Fri, 8 Aug 2025 18:54:22 +0530
+ Frontend Transport; Fri, 8 Aug 2025 08:38:08 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 578Dc8OD3118894;
+	Fri, 8 Aug 2025 08:38:09 -0500
+Message-ID: <16fac32a-a42a-4ec8-b0a2-3efe785af728@ti.com>
+Date: Fri, 8 Aug 2025 08:38:08 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] drm/tidss: Fixes data edge sampling
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Louis Chauvet
-	<louis.chauvet@bootlin.com>
-CC: <thomas.petazzoni@bootlin.com>, Jyri Sarha <jsarha@ti.com>,
-        Tomi Valkeinen
-	<tomi.valkeinen@ti.com>,
-        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <stable@vger.kernel.org>, Jyri Sarha
-	<jyri.sarha@iki.fi>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        "Rob
- Herring" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor
- Dooley" <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
-        Benoit Parrot
-	<bparrot@ti.com>, Lee Jones <lee@kernel.org>,
-        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>, <s-jain1@ti.com>
-References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
- <1951ecfe-d080-464c-8441-f5400f535495@ideasonboard.com>
+Subject: Re: [PATCH v2 2/2] mmc: sdhci_am654: Disable HS400 for AM62P SR1.0
+ and SR1.1
+To: Adrian Hunter <adrian.hunter@intel.com>,
+        Ulf Hansson
+	<ulf.hansson@linaro.org>, Nishanth Menon <nm@ti.com>,
+        Santosh Shilimkar
+	<ssantosh@kernel.org>
+CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, Andrew Davis <afd@ti.com>
+References: <20250807225138.1228333-1-jm@ti.com>
+ <20250807225138.1228333-3-jm@ti.com>
 Content-Language: en-US
-From: devarsh <devarsht@ti.com>
-In-Reply-To: <1951ecfe-d080-464c-8441-f5400f535495@ideasonboard.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20250807225138.1228333-3-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_062500_418894_97D84202 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250808_063815_357376_57DF34FC 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,46 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi, Louis,
+Hi all,
 
-On 07/08/25 18:51, Tomi Valkeinen wrote:
-> Hi,
+On 8/7/25 5:51 PM, Judith Mendez wrote:
+> This adds SDHCI_AM654_QUIRK_DISABLE_HS400 quirk which shall be used
+> to disable HS400 support. AM62P SR1.0 and SR1.1 do not support HS400
+> due to errata i2458 [0] so disable HS400 for these SoC revisions.
 > 
-> On 30/07/2025 20:02, Louis Chauvet wrote:
->> Currently the driver only configure the data edge sampling partially. The 
->> AM62 require it to be configured in two distincts registers: one in tidss 
->> and one in the general device registers.
->>
->> Introduce a new dt property to link the proper syscon node from the main 
->> device registers into the tidss driver.
->>
->> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
->> ---
->> Cc: stable@vger.kernel.org
->>
->> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+> [0] https://www.ti.com/lit/er/sprz574a/sprz574a.pdf
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>   drivers/mmc/host/sdhci_am654.c | 18 ++++++++++++++++++
+>   1 file changed, 18 insertions(+)
 > 
-> I understand why you call this a fix, but I think this is not really a
-> fix. From looking at the patches, my understanding is that for DPI
-> outputs we have always only supported certain clock/data edge.
+> diff --git a/drivers/mmc/host/sdhci_am654.c b/drivers/mmc/host/sdhci_am654.c
+> index e4fc345be7e5..dc4975514847 100644
+> --- a/drivers/mmc/host/sdhci_am654.c
+> +++ b/drivers/mmc/host/sdhci_am654.c
+> @@ -156,6 +156,7 @@ struct sdhci_am654_data {
+>   
+>   #define SDHCI_AM654_QUIRK_FORCE_CDTEST BIT(0)
+>   #define SDHCI_AM654_QUIRK_SUPPRESS_V1P8_ENA BIT(1)
+> +#define SDHCI_AM654_QUIRK_DISABLE_HS400 BIT(2)
+>   };
+>   
+>   struct window {
+> @@ -765,6 +766,7 @@ static int sdhci_am654_init(struct sdhci_host *host)
+>   {
+>   	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+>   	struct sdhci_am654_data *sdhci_am654 = sdhci_pltfm_priv(pltfm_host);
+> +	struct device *dev = mmc_dev(host->mmc);
+>   	u32 ctl_cfg_2 = 0;
+>   	u32 mask;
+>   	u32 val;
+> @@ -820,6 +822,12 @@ static int sdhci_am654_init(struct sdhci_host *host)
+>   	if (ret)
+>   		goto err_cleanup_host;
+>   
+> +	if (sdhci_am654->quirks & SDHCI_AM654_QUIRK_DISABLE_HS400 &&
+> +	    host->mmc->caps2 & (MMC_CAP2_HS400 | MMC_CAP2_HS400_ES)) {
+> +		dev_err(dev, "Disable descoped HS400 mode for this silicon revision\n");
 
-I don't think driver makes a distinction between supported/unsupported
-or errors out in case it is run with "different" clock/data edge panel
-(for e.g  DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE is set per the panel
-configuration). Instead it tries to program the VP registers per the
-DRM_BUS_FLAG* getting passed by framework per the connected panel and
-gives an incorrect behavior if those are different than defaults since
-those settings are not sufficient for these displays and instead extra
-MMR register settings are also required.
+Forgot to switch to dev_info, so will respin the series one more time.
 
- So this
-> series is adding a new feature to the driver.
-> 
+Sorry for the noise.
 
-I think it is a bug due to above mentioned behavior, and good to have a
-Fixes tag.
-
-Regards
-Devarsh
+~ Judith
 
 
