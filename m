@@ -4,67 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16FF2C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 20:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58BAC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 20:44:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sr+w2hWrCnxGYTSVd6z6KraK2mueMYx1uU1g9Ov8dM4=; b=344KY4eIEX7Cw/VuH4q1SgI54T
-	pDGLryeCJhie6laa9M55dP1rh9f4X+y3fslcW3DH9YJlgS1oII0dGgIp+Adfv4JWf0Ydrm78vj4fS
-	5xkpDgF7dooxuaz43ZSrFT/B3RfLGVzDzV6NTDkHulyBb+tZ2OhUgqKvsbfvvBntuj+ZMQKz7Co/x
-	C6HJDM0aDe2iO7WMGiL17W0rgdt1JxU7ZicaLzvSKEjCQJMtBN+Ez7mLCGN8ifCscj6hR8CR9rAy5
-	mzELa+pgO3PrZMLPAb0ut3+6lx0F8POdhubbQ4DLkkOheewVhq7oSJFuTAS5WGgcN8IKe/8V6FOgM
-	fU3wmS2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z6aXklViFEyyuK/Y6bKkf1b/aIKkdTwKONfGHEdeAPo=; b=11r7+RmBDIyqfooeHFTcg09kep
+	eNfnB4eCBmECVa0vWDt/Sz+hYPU0WItUw6ncLXqUWC+16qg1dcHsBU0BxRnYEtB97DPfIGH8KbtVt
+	YyjZvWi51N4FBCsUNJFdRSqIyS2oqoQ2LguDGgipSa5Kf9jZv9criRA/xRAV2JRFUSLWujEoupT3w
+	EEQsIiv+a2ObEXSPwcTQOHavftBSXa707Pg/OOgxrYqNF7tvtBDOFXU2/FONeaUwRECAR6LLIl0qZ
+	VHgLuNNQU0XCFRjWl189aTzP3UJGLI2a3Wg/XXLAovQszqmUINTvhie7RQ+U4JrC3cSLnokAL3MAO
+	jtgpPUVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukTqJ-00000003e0r-1xiD;
-	Fri, 08 Aug 2025 20:37:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ukTwp-00000003fQD-0jJQ;
+	Fri, 08 Aug 2025 20:44:19 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukTPY-00000003b1l-0cIv
+	id 1ukTuI-00000003egF-1V04
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 20:09:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 53563A56AE3;
-	Fri,  8 Aug 2025 20:09:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2373C4CEED;
-	Fri,  8 Aug 2025 20:09:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754683795;
-	bh=R9ARUg6hADbe4gWjEj8z9gYzk+3IYd7xP8j1sB2nbkk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=GsxPMHNs3VwJpBNrpHFo8Y2qZEXE39NmuGsMnHns61vPS7j7BLfDbMD376xTbscYo
-	 CgltIAjwxC1mLQN6ga8l72KUshxWyYwyr1YwUO1MV3WlblyT7f4UADbElLpmLlSnQR
-	 USA9i3KQuH72E9KzluxlHS4CF44xqRrZOyFYma4rnxo60IubDxwxRGoKPQD0UKiaDx
-	 MyRgb+XExAnHreTLSJ4f8Ul1Nx7xqeLKCtVLdYElZMQwf5kENIbuIoa9rxetmGf78L
-	 P3mm9/yA0BX3tHnvqod6Hf5lJmE5bbkziXZUM8QWnDjaaCvrG+RGMtSAnLz842X0gD
-	 ZCGyHIMvwSX5g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71036383BF5A;
-	Fri,  8 Aug 2025 20:10:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 08 Aug 2025 20:41:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pu/XRNFf+xNUFdF9ReUSgtqNhfdJrYkUjxTL8KFOtGrCv4kaC3IKYvPkH4Rlxcd+2YM4Sv4xyDHi9Q+alFv5CHGw117Ze8BU4ioz4QAcqgyxXv9B1+WbC7SBTFB6X0urV+wDpckYPT6TNfCHm2ONK5KsB4uVY594kcui+9/yt9/3mzYNUuXpyvO+8vJ7AMvy04s7kis4/ZL1gKCl0vXZJ6Bs/CcH+CmpQVkr8IJHdW+e1mNy6SynGH2b9bbxYzHvXvynuaFi3+UaKAVS6f1X6SIBJKAG27wFnziFXQoVOzfHyp1NHjjDLsQHqKfpLkYzXCxiC5F3JeoI/AYoyH6a3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z6aXklViFEyyuK/Y6bKkf1b/aIKkdTwKONfGHEdeAPo=;
+ b=dSu/Ebqsf/hvBdk36qkdDSaG2bbzCdtAWPYRd6CZ8pGz2xiqaxJFN/CxttuWsynA0VhcYulMDk9WOx2kiKyL8AAN95TSffViQ1lWRIRlzOEMToY24ZYwsU0JyUK5BgcgNpak8o3Racs3Ixwh0hV4NJKerHY3+mJNPthYI79V+F++FsH4rZgJDn9L4/QcARlZKqFIrfCUINM7dXY5mc5yYay/DjVTXbpb+EcKrXIoCP7ZJcvuXIMdasNGnmiA5SUsq+SZbIkfpxWhue8d0tdbmEWb1Sky4AfsIRFEyjH6QrIDU81WhYXU1muf4C9glWE9R0qL/fzcxoYWQiPagdGGpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z6aXklViFEyyuK/Y6bKkf1b/aIKkdTwKONfGHEdeAPo=;
+ b=SDxZUE6DOP6a2bTpBvwWIQHzlIzFKJ/KQ+75zb2TRquaFsaBLB6kg43Ec20K+HsYS7oMHPCvE5GL6Ojv813dV6HRWhL3BS0/FnmyzAosn0tVZjAAjGKlDfqTFHtCQkZehASgy4+WDrcpVotoFf2FeagxuOKSsjd5j6BtGkEiO15DuElrVPJzf8p0YGlxtrXj3s7LuB1ICUW6YI+A16QbMs+4jow9xVaC7FBXhzNcRP5hRCcF2eL/B25oqZ+heotNjFMRZZLdu8CQ1DnHk215AQw8ngEqeijWrB+oUQwgu9es4jD4Iyq9J02rG9iPbfgKu7TPEA8uDbC0RGlUPR4uZg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by GVXPR04MB10537.eurprd04.prod.outlook.com (2603:10a6:150:21b::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8989.21; Fri, 8 Aug
+ 2025 20:41:34 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%5]) with mapi id 15.20.9009.013; Fri, 8 Aug 2025
+ 20:41:34 +0000
+Date: Fri, 8 Aug 2025 16:41:21 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+	simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org,
+	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	victor.liu@nxp.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org, l.stach@pengutronix.de,
+	shengjiu.wang@gmail.com, perex@perex.cz, tiwai@suse.com,
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH v4 7/7] arm64: dts: imx8mp-evk: enable hdmi_pai device
+Message-ID: <aJZg8Q1mhFVV33yU@lizhi-Precision-Tower-5810>
+References: <20250808080617.2924184-1-shengjiu.wang@nxp.com>
+ <20250808080617.2924184-8-shengjiu.wang@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250808080617.2924184-8-shengjiu.wang@nxp.com>
+X-ClientProxiedBy: BY3PR05CA0018.namprd05.prod.outlook.com
+ (2603:10b6:a03:254::23) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: ti: icss-iep: Fix incorrect type for return
- value in
- extts_enable()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175468380825.252401.12949749636646106003.git-patchwork-notify@kernel.org>
-Date: Fri, 08 Aug 2025 20:10:08 +0000
-References: <20250805142323.1949406-1-alok.a.tiwari@oracle.com>
-In-Reply-To: <20250805142323.1949406-1-alok.a.tiwari@oracle.com>
-To: Alok Tiwari <alok.a.tiwari@oracle.com>
-Cc: danishanwar@ti.com, rogerq@kernel.org, m-malladi@ti.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|GVXPR04MB10537:EE_
+X-MS-Office365-Filtering-Correlation-Id: 342a7047-c25f-4301-81a7-08ddd6bbf64b
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|7416014|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VbuibJEM8RjxevYI096LuordqUaK4GDZGERXkcTu9PviKBH482xexhw7gd2i?=
+ =?us-ascii?Q?RF596QvolKxAWU2p5xKW6q3Xfd46KSoWTICY9RYJdNnraACZvikVTLmhkRGP?=
+ =?us-ascii?Q?Zfi/TLO3txQnF9fH2/UGuFnTWcdpkZCRJYBV4QR62b6XhmhEl/jcKeGFsrgE?=
+ =?us-ascii?Q?yH4j12BPGFm90JKzWRu+7Zcfpk0QptB81ACcmZxs+JSqwGrkQxM1LK3MNPw5?=
+ =?us-ascii?Q?NcBNRvFxXvz6jKQLKunAXyrZOtPFEQ1/fAAlfLlBLhrJDCjIc+FU9v/sFqsU?=
+ =?us-ascii?Q?FJ5Un6rrRpOADPZSErzo40MBCgyS7isIp6Ue7bg1tGy9gWMnN8autxsy9bAt?=
+ =?us-ascii?Q?2IwgsR9s8ml3adn0YjHftLT/iLRBGl6QC4CbrilbOGM0+rXciIG/DvUppesv?=
+ =?us-ascii?Q?kHyqi7kGkBC5jIZCXtv1wOPjJtYupWQISmWOhTKJfIfu5CQXjFijQ92Y5DtO?=
+ =?us-ascii?Q?5erJRrBgIJj0cSHjketLDJEBDehjsV4w0JkaUJ/vbzXUs5d8Pu8GW/e/vEVC?=
+ =?us-ascii?Q?2spriFA4nGh+Y6VDQZuOieImAsQIuu8f+GwCU0EL9ewUROgDxyMpuTKGDErQ?=
+ =?us-ascii?Q?NyvCRD/VaDwqXxrrthTyZ6CnN+HOkRKDpbnZBY+p/VvT2b5n6B5AwPnEjwRF?=
+ =?us-ascii?Q?qtp5WiUnKNm/u4MOtvbr1MCMIn2xpgT59ERdvRDh89/dtFz56epvZ8qGiO9m?=
+ =?us-ascii?Q?H0+UPKvlo2Us6LeRB/pJcDoX6IaxXCY2ZhvldSOwYYK2FEofqUebFqvgll3g?=
+ =?us-ascii?Q?0u2BMT4h4Q8eGIngdbqFxmFj6wxhV04bJRFdKT8cfuwdRheOiY/SCYVhyK2B?=
+ =?us-ascii?Q?67zcfgOVbiWfZd2QStd5NN+ONFvHVlxs8eYRjbr4WGVYiOHJ2iV2dGIZgl8T?=
+ =?us-ascii?Q?hbD2LI4jfQOVxnhcHoDffvKjDDTEtxE+nJET4f1Inb/jElHKcqN4Uw628NwM?=
+ =?us-ascii?Q?A/IE35o3UdIKmZ6e2KwC8++1mOQP6N6XunWgytwWpfNIAaWTiFe4C7yquJJA?=
+ =?us-ascii?Q?/LEK10IBlT0VNHe1d3FvN34oQ1uZIUS5hnT62559I1Z1UaiRyFeQkhHxoDLB?=
+ =?us-ascii?Q?dj7Gc03pMURXBK+DMPRvm2Sj6UWboFlG9CmrUoChjzNGbX6wb1fp3/GyRkch?=
+ =?us-ascii?Q?0U91WiN9333lb0+IShijYVqhKlT/qGuPtPGjxS1KxxI7uEJBOSZsfxna1Z5z?=
+ =?us-ascii?Q?3uV4cmh7DrhUXnsGXM4pL9PXfZH6XI+2j0lklO0lvGbFWxKpcuI95wUSaFt3?=
+ =?us-ascii?Q?Pej/KvTBYqcgRC7XP9RWwnhKUU9uMvuiCeQHzFeo04A/M+iJWwjD9X+VwZr6?=
+ =?us-ascii?Q?agGIeurWc9jdZDnp5962je12RJ7AJVqijYMClHYxZCIHgnJrImWrHdcA9hVj?=
+ =?us-ascii?Q?j66PtGb/2myqMTzZKFz/GTENt2/Cmvnkk/1IaHBxC9I6fxsHw/Jp8+g5/UiX?=
+ =?us-ascii?Q?0IBcVWDHZwvUNRIV54B3R6O7bwB2/iZnm1d2eYnzLBXRviLcVM/Zqg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(7416014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YzYqz13PmHc+a4zlhUfQmt0D4cwixZGsOLlmbQZq3EKb07Z5fjBL4E3RVHo8?=
+ =?us-ascii?Q?Ho/gkQZDVIKRbzl20XDzT6ntAH19m4Y8L+Vj6qLIWUlIIKZfwGXRLWZtktxm?=
+ =?us-ascii?Q?yMGWw6Lft4oVOrr5kyCtweOilRUfKfaOj7NjD5xAFXDmda85xNZYUkJ6G2Uy?=
+ =?us-ascii?Q?ZHgDBNYgCVhK4rLWBNgak11gVqH5vjmDU53RAWIRW4dwdKn+hCT2gYpeisr2?=
+ =?us-ascii?Q?hFLuSsCbSdoHWbOhgmnbUtGhkY1tU6NtZInbXX4ozlesbINZWsbalwjSxTay?=
+ =?us-ascii?Q?h6EV3uw7yCgcFh3Coo/Rghjw2/evo/Mz/2SqB65tHcCkz7JqdcchbrLByzu9?=
+ =?us-ascii?Q?Aj59lqwtDxiK+RZBiN/cEeOSdPB0PwOigPP+C7zCOxJKSRlNx7IAzjxtMVl9?=
+ =?us-ascii?Q?3C6ef8cRitU0Zt9kVNO/n8LBJIbfZWn93eoC/7dRQ54VEfGnZom4CxtEhs86?=
+ =?us-ascii?Q?KliclCAfcwfACcUxKsDOQz8MrtQpHm4tInc+rEaLRJlv0wfsSM3mytPKQN75?=
+ =?us-ascii?Q?KaR3BPGdvef0+J2p5E8ShGkCnEcvev5B7ZkhnqNgm8L/9UxljUgKUVj7e60z?=
+ =?us-ascii?Q?wKQL8p5zy/Jo2oe3MsFvy+yNVuz/4kdwNahRbGON5iAXvjSrHlMT12/Pv4TP?=
+ =?us-ascii?Q?sn9ZX6Vn/0uy3bvhBLZ4eAPMiIHdqFYyQFFz5sYYD8vS9ZmjfxWGA5fv3Hwk?=
+ =?us-ascii?Q?l5Q5p3tedNmy7br3holJiuZqiULq+saG52FyLqyS70i0CtxH6vP77hZHUq+6?=
+ =?us-ascii?Q?KtvJFag5aVXvFjzqiaEqHSwWfJaWpANgGve1sWbZiWl42x73hKf/7RFor7QQ?=
+ =?us-ascii?Q?9a9tx8BYjGXMbxitGAkT1G6FhcZwmgqjqP8tesbBvzbz8kUTzSR+imxNVH9o?=
+ =?us-ascii?Q?KbrtI1jLyQo01ci3uxXuG2aZtCcs2mbSmy9s+J4akRY+J931Hi20tUc57zcR?=
+ =?us-ascii?Q?6qhdW/4WaQp7MY0kr/kW+/JPivxhrRlAEigeIHbz9t57tydKpPX++T/Um40X?=
+ =?us-ascii?Q?fYyTHrD8xVnVXdKM9T2VWJ1a/Ma8vvTb1wKzndyR5+Ccy8jqYm0PeivKFYVn?=
+ =?us-ascii?Q?vTX7dZDXnG+2xSAVmcRO4FmByQlC4z3iFnGPg14I1k/GvljZnk0PLGb4SKbs?=
+ =?us-ascii?Q?ggGAK0FAOWVwwbNa2g/hnifpxHMaEC1UzKJObYQ9kiq5PHe19bbrg4KSW9t/?=
+ =?us-ascii?Q?XrFnhaUDVKluNP1rHzebArefu2PQL2wY8L44jU1n43OT/1llqMnthssx31R4?=
+ =?us-ascii?Q?vrVOBPVniVsJEYGNcnh48fS6mfDs2qhhbpkxD2JjsfbwxRX48A15WJ7xYdN1?=
+ =?us-ascii?Q?svuA+Pn7dBDpR8Wu3smb6FYbRRMvJu0gKbeNIBSNwVtSze6GVbBmk/m74xvK?=
+ =?us-ascii?Q?hlMG7EY062kjD5aoeem36j60MDo7RTAkUHQuAkhpIZSXdS6YfOL8jRVhYeoU?=
+ =?us-ascii?Q?twAiuLEP8wsyKC/sjSFujbDxG0SPS0/n8HG7SNx6w4YQ7pssMZEt+1L4zkjr?=
+ =?us-ascii?Q?Tv4N4LcZCBrqH+1YQQn8U92L6NGCHB4HTy18LpTKhNVqyEDcKntyk5Ax0Jan?=
+ =?us-ascii?Q?0/cZ/ZwtrXJtLiuc+v8taIwDr29W/VkR/XoMqcsq?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 342a7047-c25f-4301-81a7-08ddd6bbf64b
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 20:41:34.0074
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zJHTE5IwEcF+auM00nPIRzszBCJOdVwbYf/z9VL4rEDVsD5TeOGEttuMr3gJgDKHxSS81oY2yrRZhxQZWJK9xQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10537
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_130956_260507_F19EA02B 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250808_134142_394644_3D120261 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +169,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Fri, Aug 08, 2025 at 04:06:17PM +0800, Shengjiu Wang wrote:
+> Enable hdmi_pai device.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+nit: need empty line here. betwee two paragraph.
 
-On Tue,  5 Aug 2025 07:23:18 -0700 you wrote:
-> The variable ret in icss_iep_extts_enable() was incorrectly declared
-> as u32, while the function returns int and may return negative error
-> codes. This will cause sign extension issues and incorrect error
-> propagation. Update ret to be int to fix error handling.
-> 
-> This change corrects the declaration to avoid potential type mismatch.
-> 
-> [...]
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Here is the summary with links:
-  - [net] net: ti: icss-iep: Fix incorrect type for return value in extts_enable()
-    https://git.kernel.org/netdev/net/c/5f1d1d14db7d
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+> Aud2htx module, hdmi_pai and hdmi controller compose the hdmi audio
+> pipeline.
+>
+> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> index c0cc5611048e..cc9351a5bd65 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> @@ -442,6 +442,10 @@ &flexcan2 {
+>  	status = "disabled";/* can2 pin conflict with pdm */
+>  };
+>
+> +&hdmi_pai {
+> +	status = "okay";
+> +};
+> +
+>  &hdmi_pvi {
+>  	status = "okay";
+>  };
+> --
+> 2.34.1
+>
 
