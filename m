@@ -4,74 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AECCA0EC2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5B1CA0EC3
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 08:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C90ylv84HzVV1jOK4HKQCeOocB3bFwaDQhFbezQ827Y=; b=ENi/TOkeCt5zZGsnv0GNay6i03
-	gNZu170kAHKav7drskzMPbXEYIX9c0vjZoYWml3VqqhTzmjcfVVXaawF0Mtur8RdC3keEtgWkYZZR
-	WahZRYDIjvktS9mszRugNCtgs/L9gsH2ka3FBYXgR5qeS7rC7BlyYSl0dRxLPQMA/gHfIMchEXwIM
-	kFlEr8ZgULpAEgupxPJ871ZB3MsPcZzmees1hgHvDYaCqmFctCc3134OO7Qt5jRBrSmPokPZHK/+F
-	CT1nzObMTYI5ns1HrJpDWk0lOwubxTWv+7gWxcScD/VL4ous29uf+7371rqrPSP4jBCBDuZR8qaYd
-	drGg9uUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QJJk8waZAGUmtpJCix864mNIrqWzOzu0644eEgIapGU=; b=igGaF75PnBWf7UPxGWeaI54vBr
+	gWqeCgk+hW8B3qH4qK16rjdda2c6BASKJ3lZOt8SfxMUDa0hB0fNiGcHKe/qdAogi1XEiCSvJTD7Q
+	35ILnNo5widxNyGnk4mLNVE1PmY450geCDNLak8VME8DLLn+K3f9eVUIk8EMTInO8Iy3efOv0o+nS
+	VeB7TdQ6QRfc3MfHekcgqvKs9b5t/uDgIVwr9rQldE602Z/sgwREEuIIYW34p1uxgsfyafeKIvU79
+	GTBQcmn0jYrxiFlEPwFrUybtn4e8W8GQwRLUG91FwE9bajgAtyMBXArp87OhqmrffGexSmrAvPLQK
+	W9RT6fWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIj8-00000002LtA-2MUU;
-	Fri, 08 Aug 2025 08:45:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ukIj4-00000002Lpq-1K1r;
+	Fri, 08 Aug 2025 08:45:22 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIKb-00000002JXD-3bJe
+	id 1ukI8C-00000002IMA-0qgz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 08:20:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C86060207;
-	Fri,  8 Aug 2025 08:20:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4E1C4CEED;
-	Fri,  8 Aug 2025 08:19:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754641205;
-	bh=c3NroZ1PK5QOerK5RtUeTbp8bGlTMhkWlahVSYgFCVQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ACYMXpLLU39k1efldn2qFTbPWCskR2n7eI7XSl9vjOlW0avJ+zwwzid20DikChGnv
-	 4d+V64Msl8CWbDVUCakPQ9ffBnYzmlvkQ83TS2BWKgpIscASVx+FIQZKYJlZeEL3Nb
-	 I8RMj5rF+jPhewbKF7TRxYwLqJsm0L2fAiNw4mm+OiBe97vvRV8ZBMwcJFIKZDOu69
-	 QFih9I+gPBd5S/NXGYyMNGOWEkk6q8Lir1jntHBH/Haxqa4j05YJ/uq7H0eQ7uoqim
-	 bYZIa0wdgXbq9ZPHfjQuq71uaVrT2eiKQFOh+o1yHZv9H3mSAo8mIblz5ggGD5MrAQ
-	 beCJyGAXdFZRg==
-Date: Fri, 8 Aug 2025 10:19:54 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v7 22/31] irqchip/gic-v5: Add GICv5 LPI/IPI support
-Message-ID: <aJWzKqM9bHuKy+1m@lpieralisi>
-References: <20250703-gicv5-host-v7-0-12e71f1b3528@kernel.org>
- <20250703-gicv5-host-v7-22-12e71f1b3528@kernel.org>
- <cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com>
- <aJSvUWRqLEiARDIW@lpieralisi>
- <c8e3dc2c-617b-2988-10ff-88082370e787@huawei.com>
+	Fri, 08 Aug 2025 08:07:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=erz/ZhvAy6zZduXpdc6qVOBdzBX22ND3rcnRUthTjcNXlMxxEynKA5D+7FrawtyTewBlxf4iRZryGIezW+nIWR9j05ekD02EefThh72G/dOXVHB5PyPHNEieFiS1Nxb+VqeY3T+8Y3HE/6M8r4cT1kenar6tGIQVgNARacss+/yKR4CHG2g6ujBdJeyMWxofkWxRXjUxlKsSLbvqr5GgkzTdY+dssOuKHhuXp3uqJsd/mEeJhkxMaJl1lzwT3pMXZqU3sRqk/LqIQSekCHJpv4iWXoANxV3IwYdAXzFWnBMmdVDUEbgoAczeU8nvpscdMWXiYPhavp9qnJ6D9ZrsvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QJJk8waZAGUmtpJCix864mNIrqWzOzu0644eEgIapGU=;
+ b=id+LHgb5rQ/BJXj6ttyujVcpxM6kg3dWsgxemksYm143wf9Fg1Obop548uFDxRm4+LHspMzAtmutoijJy/YouyoS6jjY+Uc9QZ69smFIb7kYFkyNPsHzplJi2fArZZqBsqj5UuoTV+ccF/4ljbXmol4oDjH4MOheX2e9JjpbYqdxSsLV4XvD5OZA/YNMMA3kLzSFdeK+sRVvfGqJsrtBHIVWTlO9D57B6NLzjrio7fwuh9cCm0jifoJu5+0rv/ZYzTYEEL/ED9Qvm9vSKbV/0yI/J/fveYGM0WKxsdpoWjZGe2dC5LodykneHNmY/M5duQq/SEo8TLdmxT5oAybyEA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QJJk8waZAGUmtpJCix864mNIrqWzOzu0644eEgIapGU=;
+ b=XbemA1jQWVVwfuR3Q91eOXHDpI1tHpefCfcKzU1Xc6wIwaO5LBcKvdZMqnmpsI54CZvkyPgrsldLR/Ik4IsFuCumrNtMcKbGU8DPW+LPbWgzqp+VeGJmx82Mkpi16XvSCnzEmYHkE7BdSqY8ZyMD6Ilz7CGBNtO01Os+uo6wVk98NvBlVnJSWHO5HEpQ9g9AMQgje8jdpxXcCsmQJ2F96x7n66CeU6c2LZG9GAf5aT9lQe54FB6WkSL8i6dP7g3vN9SB8KgptkJnjwy5/d4/dKeIxDdzveL2VuY9DXxofgdrEPo2eCPKIYOdzA3qS5ewr32UpS7NAD9a4sdHCUAc8Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
+ by PA4PR04MB7760.eurprd04.prod.outlook.com (2603:10a6:102:c5::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Fri, 8 Aug
+ 2025 08:07:07 +0000
+Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
+ ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.9009.017; Fri, 8 Aug 2025
+ 08:07:07 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	lumag@kernel.org,
+	dianders@chromium.org,
+	cristian.ciocaltea@collabora.com,
+	luca.ceresoli@bootlin.com,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	victor.liu@nxp.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	p.zabel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	l.stach@pengutronix.de,
+	shengjiu.wang@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v4 2/7] ALSA: Add definitions for the bits in IEC958 subframe
+Date: Fri,  8 Aug 2025 16:06:12 +0800
+Message-Id: <20250808080617.2924184-3-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20250808080617.2924184-1-shengjiu.wang@nxp.com>
+References: <20250808080617.2924184-1-shengjiu.wang@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0053.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::8) To AM0PR04MB7044.eurprd04.prod.outlook.com
+ (2603:10a6:208:191::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c8e3dc2c-617b-2988-10ff-88082370e787@huawei.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|PA4PR04MB7760:EE_
+X-MS-Office365-Filtering-Correlation-Id: eab6f35e-8916-45c2-acc6-08ddd6529196
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|7416014|376014|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bCZ4F2M5ef+UV8L341PO/5AzWfJidE2fzYuEGxb8/yhZAPAkIwvIcYCq6JYZ?=
+ =?us-ascii?Q?3XsB8gruDOlLFksKUZ2X1VHvIMZjLY8XQvBGy6mv/VL+CDUKLngSp8G0HyXH?=
+ =?us-ascii?Q?B0xXIGwWKl/cZBRf3uHuJQ2PRBDIksl37pt7w0aISdeYNd/+Cn1RtzYn3FqQ?=
+ =?us-ascii?Q?b7iMvZJbZXJnr4nddqR2zGOFAJuIKXYpiAcY3qq+Wg4Yz5g055Cnr+fjq+Y6?=
+ =?us-ascii?Q?pxw2Mt9y/ATKdJ+mchILaYQ8HYDcO3a9D7qsFQBDIwr/hKti7l/Pk7PdUWNJ?=
+ =?us-ascii?Q?RPlRmyyRb8kUiQS6VWkt6ncGGdRiXSxPl+4WVsL+W6nfMWTnsvp5FKrzbbNq?=
+ =?us-ascii?Q?buz40X7i1CeLTUjNP96uHRLW847I0ts1wORcWQsuq/L2KPIuAPjOAl1fZjA/?=
+ =?us-ascii?Q?xjW4qA7yCR6+xwVxA15NAKtuhBAnYdEAOj8OtCaZPEww17CLJeWd+3bUuACq?=
+ =?us-ascii?Q?ApExHnLn8305nrkUAU3emnHV0bgPdT1lU1Ke4oJc+UWIOqkPESC1kbPihCjw?=
+ =?us-ascii?Q?WhazHGDSayJO8Fm9SmqcZ5L4otiOwHqhCRUKE8JoJSwEiQWY+z3OVFrrKMC0?=
+ =?us-ascii?Q?fl3aqk02eDg+BAF/+qlfbAlwdGiZs3ENpQckTNFqDBmjh3hdRe8HUbRQnUCu?=
+ =?us-ascii?Q?gjewBpen241UmZXE9OM9FLUxwl+iAvb4Jnj8z3JabAtDn838N76dHa+LBbPz?=
+ =?us-ascii?Q?asxOAlwuGWeMB3nk9bWFOzApXU0NxRU3BS75sN9f28f9SBBUQ5mwNl5+UV+L?=
+ =?us-ascii?Q?jsXgZrtRzo/t2pEGe95wL0gEGMcXIbYeSepf4XjClafAtFOmNX9noF+6ZbZO?=
+ =?us-ascii?Q?o2fclHCVv2uphN53JAPaz53Qz0a0Wle5qLCfnP9QlcP372PnxoTpbXK2UmbH?=
+ =?us-ascii?Q?9T9rgDlFsH+vNOtlXjt6NoxydQ/XvAW0lygugfTg8pGHd4dQV84CJFaHkHxU?=
+ =?us-ascii?Q?QdjRdnhgrmLeP5agXf6qGEIJj6XRKpwB1qXD6wy9gH+6VMSrbZvLSY3C2b7w?=
+ =?us-ascii?Q?kfGrlRakvN0M7uG8PjhxOV/HPbdWdfhkPtMMiD/OgtFLJxg4GevKKKs+KXoo?=
+ =?us-ascii?Q?VV/oSJFP37rnknN4JYOeh2vzoLNL8cuk5HO6pE9FENhG8coEjiBeD89sMQnb?=
+ =?us-ascii?Q?sH0vzdbY18XgTmBIiW28LbRbokVOWBIOR70hXSGkcyPk6mctFkV++N9V0Aud?=
+ =?us-ascii?Q?9qn8pw2Cc8xKt/ox72mvwh5vTljKKvl0Fifohsaypc1eGZ0YpFvquH658+sr?=
+ =?us-ascii?Q?RhS5kx4+49mPECkTymMnaTlVIOjwaezs6suH6iSM5G2wTjwAdDt5s7V/DWmY?=
+ =?us-ascii?Q?05F1NQE4+FHWSifFXrbq6j2O+l4a6dHHUawcgWJHS1bPLw5WuD60KqzS4Rlk?=
+ =?us-ascii?Q?gVctIUd+xbDrvkVqEP0WDdhUXkSueBA8j2r1Qjf5rKojM65chsdYBIsaUgAZ?=
+ =?us-ascii?Q?RCMFhuWdS4doUSPAimMMMEIaWjL/eU8nBm5kAJhPASp/J0CFxF0p0VhVQuL+?=
+ =?us-ascii?Q?yy+A+b74nqFNky0=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(7416014)(376014)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FttSNRwGnHOa9tZOL+m01xGT9GCIKDHzRUUNS70nxWfsDP5J8HwKpbZmrE9b?=
+ =?us-ascii?Q?1PPXEINHTNz6SHDS7oD/vvJJvGm/WrOQfkMrq/7ZBQdwkOW1t92QK4UObEqm?=
+ =?us-ascii?Q?vkz+OYrhY3jpNacH8/ZFGc2pmJ8dBRuyl/r2UNIWef8Pjp2t6Htc9IrXuFFq?=
+ =?us-ascii?Q?MwlIuAHgXouKgvoDUGSWVyKr06U/JVys7xwyTqw2R8WdLFo0VrU0B4ViRSF9?=
+ =?us-ascii?Q?sMj8JkzEcV204RK71kPxU35X/vAozSQauE3TW0i4esQD2eV+bQWVHu/IDo63?=
+ =?us-ascii?Q?94W8h3yKyvJDOr/kQrILURMHCbia5Qnzp7cay2oMk+GuNanYp6gU24jRrgpK?=
+ =?us-ascii?Q?lF4OhhqUq8zVpjUPg3epjJPnitRAOJlacji3WAQJ5t8Y7CVz+h25JAqrD8FB?=
+ =?us-ascii?Q?+pKuS8V77IYRQ/Aww+wn4Te1nYhu6dCxCb9UhL9NHS9VZiYElVYgtC247VL/?=
+ =?us-ascii?Q?UIyZHCt5D41dxE/YqkciGakBpNnQTYZ6Z35GjL4vzNE7zi3boGPR7wS0k2Ta?=
+ =?us-ascii?Q?DZRM0kZJnOlHOmt4nLcbGHSm6iskfQrtqoCB8vacM/WekPmzoqRjsPRfDTEe?=
+ =?us-ascii?Q?0jNwXpPOAoWfsU2+E278GDJw4pRj9uX9I/2pnF41fdPb7o/NpVqdjGuNlA8X?=
+ =?us-ascii?Q?HB2qO/vLyJVHW5bl1TTqCnlxs2NZsLk6jwKa2jotNJUFJDoCgPZAIy2QKc8I?=
+ =?us-ascii?Q?fl8GFrLoSCTSNw9YELjYGhHpAyhHk8bmxq7QS2AIUn+mwUNSA2Ae+Qb9eCmM?=
+ =?us-ascii?Q?6M6UJvz1bi44Hx5QKYZm62Bp50VS2j3CbO78bD4Vv/PiYuHCCo3XVjpX3zaA?=
+ =?us-ascii?Q?6jGDQJeDqXOZBPS58rvOdGfVxi/WmkKwVZXCgUdmNp8C+zk7YJ49qwqvvDkZ?=
+ =?us-ascii?Q?YNUsTav9LO2rMoThfdCKHMBvOzyl1vcN15sd4D/JkR7mNVunIeUja4ivr7jV?=
+ =?us-ascii?Q?wEGo4ng2qWSD7j1bduGkYZqQ/zEBtcJ0WNiR2MvH1+HYD0RC+OkejjFRcg7g?=
+ =?us-ascii?Q?UIfNzoV1n8I7nvj0jn+1YktIVr4t516pAh5HqgtJWYPhC0BVydzCKnVX0wRT?=
+ =?us-ascii?Q?Nb9eadlVGSh3fx2woWs54gL0jH0ZurlV0EeX7F2WViz8+u04iLkbdFyOF63R?=
+ =?us-ascii?Q?0HyqP+z7smZgdQvqiNkUt/vBeef/sLlFO4+MfKK5qyJGlBMecRykxc6TkdN4?=
+ =?us-ascii?Q?GoJy0Wbd8KOosdsMof5ZYrtow8UH0RFy2Se1YQt28d1D6CFDAPbcQe3BS3/j?=
+ =?us-ascii?Q?lBntISRBKPMZLtu9Wy53wjMvm8djm6UC8Y0qjVIN5O+ToLR/3QEoefYDR/do?=
+ =?us-ascii?Q?gH5RKjz0k4p/W6j+C9B5+1aNBkvX75ZfUYJeO3AFM5szmuGHrSQSfdXvXPdb?=
+ =?us-ascii?Q?AILQBB11IsU/0HjI5lR3zUU0LeTMZm+RmlfxGDQ9mBDRrwDaa03G3tYvfTLA?=
+ =?us-ascii?Q?Aae26CzNg/yC1j9uXMeTKVyeVjrZkwxCSEhnsQNkl0E4Ja0mhdFzSPsIlsdy?=
+ =?us-ascii?Q?1M6xyTx3bfOtDyjJ9QrnJQAUl1DQlB1jTICbfvquDAOZmvC1UnltzI49Qb9R?=
+ =?us-ascii?Q?Xrargf++YqavtGb1tNfy9N3NT3DscnMXXFCDKDrK?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eab6f35e-8916-45c2-acc6-08ddd6529196
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 08:07:07.6802
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jemAuvp+18g/QDrVzfaM1eCJCbe0l/myrAKmnK7noP7hzMk43uGhCOdYHeidFt0FrlmbOu2beep1WtLWhk1acA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7760
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250808_010716_234309_1AD7EF08 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,128 +190,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 09:20:30AM +0800, Jinjie Ruan wrote:
-> 
-> 
-> On 2025/8/7 21:51, Lorenzo Pieralisi wrote:
-> > On Thu, Aug 07, 2025 at 07:52:58PM +0800, Jinjie Ruan wrote:
-> >>
-> >>
-> >> On 2025/7/3 18:25, Lorenzo Pieralisi wrote:
-> >>> An IRS supports Logical Peripheral Interrupts (LPIs) and implement
-> >>> Linux IPIs on top of it.
-> >>>
-> 
-> [...]
-> 
-> >>> +static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data,
-> >>> +					    unsigned int lpi_id_bits,
-> >>> +					    unsigned int istsz)
-> >>> +{
-> >>> +	size_t l2istsz;
-> >>> +	u32 n, cfgr;
-> >>> +	void *ist;
-> >>> +	u64 baser;
-> >>> +	int ret;
-> >>> +
-> >>> +	/* Taken from GICv5 specifications 10.2.1.13 IRS_IST_BASER */
-> >>> +	n = max(5, lpi_id_bits + 1 + istsz);
-> >>> +
-> >>> +	l2istsz = BIT(n + 1);
-> >>> +	/*
-> >>> +	 * Check memory requirements. For a linear IST we cap the
-> >>> +	 * number of ID bits to a value that should never exceed
-> >>> +	 * kmalloc interface memory allocation limits, so this
-> >>> +	 * check is really belt and braces.
-> >>> +	 */
-> >>> +	if (l2istsz > KMALLOC_MAX_SIZE) {
-> >>> +		u8 lpi_id_cap = ilog2(KMALLOC_MAX_SIZE) - 2 + istsz;
-> >>> +
-> >>> +		pr_warn("Limiting LPI ID bits from %u to %u\n",
-> >>> +			lpi_id_bits, lpi_id_cap);
-> >>> +		lpi_id_bits = lpi_id_cap;
-> >>> +		l2istsz = KMALLOC_MAX_SIZE;
-> >>> +	}
-> >>> +
-> >>> +	ist = kzalloc(l2istsz, GFP_KERNEL);
-> >>
-> >>
-> >> When kmemleak is on, There is a memory leak occurring as below:
-> >>
-> >>
-> >> unreferenced object 0xffff00080039a000 (size 4096):
-> >>   comm "swapper/0", pid 0, jiffies 4294892296
-> >>   hex dump (first 32 bytes):
-> >>     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
-> >>     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
-> >>   backtrace (crc 0):
-> >>     kmemleak_alloc+0x34/0x40
-> >>     __kmalloc_noprof+0x320/0x464
-> >>     gicv5_irs_iste_alloc+0x1a4/0x484
-> >>     gicv5_irq_lpi_domain_alloc+0xe4/0x194
-> >>     irq_domain_alloc_irqs_parent+0x78/0xd8
-> >>     gicv5_irq_ipi_domain_alloc+0x180/0x238
-> >>     irq_domain_alloc_irqs_locked+0x238/0x7d4
-> >>     __irq_domain_alloc_irqs+0x88/0x114
-> >>     gicv5_of_init+0x284/0x37c
-> >>     of_irq_init+0x3b8/0xb18
-> >>     irqchip_init+0x18/0x40
-> >>     init_IRQ+0x104/0x164
-> >>     start_kernel+0x1a4/0x3d4
-> >>     __primary_switched+0x8c/0x94
-> > 
-> > Thank you for reporting it.
-> > 
-> > It should be a false positive, we hand over the memory to the GIC but
-> > never store the pointer anywhere (only its PA).
-> > 
-> > Patch below should "fix" it - well, it is obvious, we are telling
-> > kmemleak to ignore the pointer value:
-> 
-> I also did not see any place in the code where these pointers are
-> accessed, nor did I see in section "L2_ISTE, Level 2 interrupt state
-> table entry" that L2_ISTE can be accessed by software. So, are these
-> states of the LPI interrupt maintained by the GIC hardware itself?
+The IEC958 subframe format SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE are used
+in HDMI and DisplayPort to describe the audio stream, but hardware device
+may need to reorder the IEC958 bits for internal transmission, so need
+these standard bits definitions for IEC958 subframe format.
 
-The IST table is where interrupt state and configuration is kept -
-it is managed by GIC IRS HW. SW controls interrupt configuration
-through GIC instructions.
+Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+Reviewed-by: Takashi Iwai <tiwai@suse.de>
+---
+ include/sound/asoundef.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-It is therefore a false positive, I will send the patch below for
-inclusion.
+diff --git a/include/sound/asoundef.h b/include/sound/asoundef.h
+index 09b2c3dffb30..c4a929d4fd51 100644
+--- a/include/sound/asoundef.h
++++ b/include/sound/asoundef.h
+@@ -12,6 +12,15 @@
+  *        Digital audio interface					    *
+  *                                                                          *
+  ****************************************************************************/
++/* IEC958 subframe format */
++#define IEC958_SUBFRAME_PREAMBLE_MASK	(0xfU)
++#define IEC958_SUBFRAME_AUXILIARY_MASK	(0xfU << 4)
++#define IEC958_SUBFRAME_SAMPLE_24_MASK	(0xffffffU << 4)
++#define IEC958_SUBFRAME_SAMPLE_20_MASK	(0xfffffU << 8)
++#define IEC958_SUBFRAME_VALIDITY	(0x1U << 28)
++#define IEC958_SUBFRAME_USER_DATA	(0x1U << 29)
++#define IEC958_SUBFRAME_CHANNEL_STATUS	(0x1U << 30)
++#define IEC958_SUBFRAME_PARITY		(0x1U << 31)
+ 
+ /* AES/IEC958 channel status bits */
+ #define IEC958_AES0_PROFESSIONAL	(1<<0)	/* 0 = consumer, 1 = professional */
+-- 
+2.34.1
 
-Thanks,
-Lorenzo
-
-> > 
-> > -- >8 --
-> > diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> > index ad1435a858a4..e8a576f66366 100644
-> > --- a/drivers/irqchip/irq-gic-v5-irs.c
-> > +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> > @@ -5,6 +5,7 @@
-> >  
-> >  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
-> >  
-> > +#include <linux/kmemleak.h>
-> >  #include <linux/log2.h>
-> >  #include <linux/of.h>
-> >  #include <linux/of_address.h>
-> > @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
-> >  		kfree(ist);
-> >  		return ret;
-> >  	}
-> > +	kmemleak_ignore(ist);
-> >  
-> >  	return 0;
-> >  }
-> > @@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
-> >  		kfree(l2ist);
-> >  		return ret;
-> >  	}
-> > +	kmemleak_ignore(l2ist);
-> >  
-> >  	/*
-> >  	 * Make sure we invalidate the cache line pulled before the IRS
-> > 
 
