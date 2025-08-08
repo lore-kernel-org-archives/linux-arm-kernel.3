@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AAAC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C25CC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:52:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPKpoUVQe4JM/KJ8/mqMLA3+vMV2xv9m3ulxyYIpesU=; b=j8TOsiFIyIy1b5Cndh9T6wpvzY
-	xgotcdlQOolZbP7UzDD72u+F4IWhyu0dA8SqpqPullYyV8I6aX7Ki/MweB5NjETdV9kv+xEeqHqW0
-	PBlzqJZ4mG8aPgrQDiTlSRwXfYx1fxwJcJ1/LnsaSzfK0ZZ9FQ2+P8PNdXZnfMp29vZOG3LAB89vU
-	O3I25dHB9YOZ8XUJ41zpg8KhMdA2QI5YomV+9072/QE4rJKPn9a9+hgXM51tQdJXJTznyxnQeEnSN
-	eAbZn2Iri+wGGg1QwGmamQ9L3+EHFwI/i8sqWqqjbzsZoRMw0RWPiBo9fUHS/47XtBS8rmqWfdzhF
-	7LnhHM5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zNgJqPg/9cMj74upxC1Y9B51u4IOVFul0qs6VIXKL0M=; b=Kxy/PTKwx/sCXJVtyvRGjaE2Sc
+	9ABcLv9vlMvX0ldaIW9YQS3UNrs35bK7f9pGb8nUClX1dDPdbyru1WjbX+2j3Y154CrkcteIi8nGw
+	bnF+44G4/C3r915SEVbDg+fct15uk8+gyPMImm+Ybii1gkbI0oi31wsRaDX4+WJ+jDugAwCKiytfI
+	AGP3tlt4UXCgNVuH+lT8kpNPq1LObuRKSKkLsw4uSUqJbLDLcuQP8JSiiop9k52aA60AJxa7c9+11
+	AyalWgFbTLvmHW9VojamcvCPkLoHxhpjF05a23ytmzK07/TXCJCZ6rvIIPZgxZXCV1tJNopf11W1d
+	AeVbwfGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHrH-00000002FoI-0VA6;
-	Fri, 08 Aug 2025 07:49:47 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1ukHti-00000002G2N-3Ywh;
+	Fri, 08 Aug 2025 07:52:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHYz-00000002CHb-1maJ;
-	Fri, 08 Aug 2025 07:30:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754638254; x=1786174254;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=N93jbXCfcX8tT1d6Si749lOVTvmyst9EjSTFBREX9yk=;
-  b=DJ69Hxjj7Q2lTVmYMRYXr/A7ODYKRxPKQAw5nXC4vkb1PSfL5OkofgoB
-   b/G4mGdgsja96TDM1DFdJJ0AgFU+nr/J4XI5ZcdzgmNY7Lt+rIXw4A6EQ
-   3OU2/g7AhZMili7sVVCsg3Yu6WDNqN9PJFZ0dfwp4NS7OCvpINQXFDNLI
-   Yu1aA7lSPxXCBhAuuLMv7cYW9TM4JROP4PztS2ZB4pTl1IYSTICJUd4MB
-   HrE8LurL6bv/z6+4xuqU7kEUfvJu1r087ralsrFxiCiujZp6WAI9wzkIW
-   qrdJGF3Ly7e040lvIh7H3KRLTWbG1+Mwptrh6IphVrM9jGA0ExFahGZpT
-   w==;
-X-CSE-ConnectionGUID: WT8L1Yi+TVWDiDxwMMHc5w==
-X-CSE-MsgGUID: AoH9eIflTsiWj7NbOul/WQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="56860998"
-X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
-   d="scan'208";a="56860998"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2025 00:30:50 -0700
-X-CSE-ConnectionGUID: nPT+neYWR5ic6FwTvd4gdw==
-X-CSE-MsgGUID: 3HIOr3NzSxqUGeU1ve8zNQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
-   d="scan'208";a="165677254"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.106]) ([10.124.240.106])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2025 00:30:43 -0700
-Message-ID: <f3e09bef-8bc9-48ac-983e-7a18c2ff4ad2@linux.intel.com>
-Date: Fri, 8 Aug 2025 15:30:40 +0800
+	id 1ukHcw-00000002D3S-0tQF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Aug 2025 07:34:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3EF6FA5574C;
+	Fri,  8 Aug 2025 07:34:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB82C4CEED;
+	Fri,  8 Aug 2025 07:34:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754638496;
+	bh=htYYTMvBIoJF3AsCajNAqmICTBXqJVYTEKxD4QMF3D4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ANxjiPOewS3527iiBY1Trtv9QJ/OmWTljS3mBn4JNASVq1ZMOxzVTWGSS+spxi8O/
+	 bJKqyUNR9Bfs/23ShbX4Zitb0Uollq10bGEygmjL0K/JfHRE1j1xSoX9r5GsoXt5CF
+	 FrHsHcd9Z7gqNmYa7wSJXIk92MSMx15EYPaL8ZOFDQfSrn0Hl8dKfdTTIZQoNraF6W
+	 vw9MUHVy4A6XNzl6fvrtbp1I6FzyeK0P8ao3L0QJuy5wNmj0qXlWxM0xxowolkFUYD
+	 h6O+02wMdAm032dr7mnIApf41xcyr20RtNTlFQE8RD0gTTVmNwJ6xDzc+N8wymXp7P
+	 cR8JYDBFoLRHw==
+Date: Fri, 8 Aug 2025 09:34:54 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, David Wronek <david@mainlining.org>, 
+	Karel Balej <balejk@matfyz.cz>, phone-devel@vger.kernel.org, 
+	~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
+Message-ID: <20250808-portable-expert-turkey-4f8f19@kuoka>
+References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
+ <20250806-pxa1908-genpd-v1-2-16409309fc72@dujemihanovic.xyz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/44] perf: Add APIs to load/put guest mediated PMU
- context
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Tianrui Zhao
- <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
- Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
- Mingwei Zhang <mizhang@google.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Sandipan Das <sandipan.das@amd.com>
-References: <20250806195706.1650976-1-seanjc@google.com>
- <20250806195706.1650976-8-seanjc@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20250806195706.1650976-8-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250806-pxa1908-genpd-v1-2-16409309fc72@dujemihanovic.xyz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_003053_505651_76500408 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20250808_003458_401935_5C833718 
+X-CRM114-Status: GOOD (  18.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,130 +78,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 8/7/2025 3:56 AM, Sean Christopherson wrote:
-> From: Kan Liang <kan.liang@linux.intel.com>
->
-> Add exported APIs to load/put a guest mediated PMU context.  KVM will
-> load the guest PMU shortly before VM-Enter, and put the guest PMU shortly
-> after VM-Exit.
->
-> On the perf side of things, schedule out all exclude_guest events when the
-> guest context is loaded, and schedule them back in when the guest context
-> is put.  I.e. yield the hardware PMU resources to the guest, by way of KVM.
->
-> Note, perf is only responsible for managing host context.  KVM is
-> responsible for loading/storing guest state to/from hardware.
->
-> Suggested-by: Sean Christopherson <seanjc@google.com>
-> Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
-> Signed-off-by: Mingwei Zhang <mizhang@google.com>
-> [sean: shuffle patches around, write changelog]
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On Wed, Aug 06, 2025 at 07:33:21PM +0200, Duje Mihanovi=C4=87 wrote:
+> Add device tree bindings for Marvell PXA1908's power domains.
+>=20
+> Signed-off-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 > ---
->  include/linux/perf_event.h |  2 ++
->  kernel/events/core.c       | 61 ++++++++++++++++++++++++++++++++++++++
->  2 files changed, 63 insertions(+)
->
-> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-> index 0958b6d0a61c..42d019d70b42 100644
-> --- a/include/linux/perf_event.h
-> +++ b/include/linux/perf_event.h
-> @@ -1925,6 +1925,8 @@ extern u64 perf_event_pause(struct perf_event *event, bool reset);
->  #ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
->  int perf_create_mediated_pmu(void);
->  void perf_release_mediated_pmu(void);
-> +void perf_load_guest_context(unsigned long data);
-> +void perf_put_guest_context(void);
->  #endif
->  
->  #else /* !CONFIG_PERF_EVENTS: */
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 6875b56ddd6b..77398b1ad4c5 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -469,10 +469,19 @@ static cpumask_var_t perf_online_pkg_mask;
->  static cpumask_var_t perf_online_sys_mask;
->  static struct kmem_cache *perf_event_cache;
->  
-> +#ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
-> +static DEFINE_PER_CPU(bool, guest_ctx_loaded);
+>  .../power/marvell,pxa1908-power-controller.yaml    | 105 +++++++++++++++=
+++++++
+>  include/dt-bindings/power/marvell,pxa1908-power.h  |  17 ++++
+>  2 files changed, 122 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/power/marvell,pxa1908-powe=
+r-controller.yaml b/Documentation/devicetree/bindings/power/marvell,pxa1908=
+-power-controller.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..1cf3a45d56cbb7b75f7204d65=
+6016a9a569da186
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/power/marvell,pxa1908-power-contr=
+oller.yaml
+> @@ -0,0 +1,105 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/power/marvell,pxa1908-power-controlle=
+r.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +static __always_inline bool is_guest_mediated_pmu_loaded(void)
-> +{
-> +	return __this_cpu_read(guest_ctx_loaded);
-> +}
-> +#else
->  static __always_inline bool is_guest_mediated_pmu_loaded(void)
->  {
->  	return false;
->  }
-> +#endif
->  
->  /*
->   * perf event paranoia level:
-> @@ -6379,6 +6388,58 @@ void perf_release_mediated_pmu(void)
->  	atomic_dec(&nr_mediated_pmu_vms);
->  }
->  EXPORT_SYMBOL_GPL(perf_release_mediated_pmu);
+> +title: Marvell PXA1908 Power Domain Controller
 > +
-> +/* When loading a guest's mediated PMU, schedule out all exclude_guest events. */
-> +void perf_load_guest_context(unsigned long data)
+> +maintainers:
+> +  - Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
+> +
+> +description: |
+> +  The Marvell PXA1908 SoC includes multiple power domains which can be p=
+owered
+> +  on/off to save power when different IP cores are not in use.
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: '^power-controller$'
+> +
+> +  compatible:
+> +    const: marvell,pxa1908-power-controller
+> +
+> +  '#power-domain-cells':
+> +    const: 1
 
-nit: the "data" argument is not used in this patch, we may defer to
-introduce it in patch 09/44.
+So this is power domain controller?
+
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
+> +
+> +patternProperties:
+> +  "^power-domain@[0-9a-f]+$":
+> +    type: object
+
+And this is as well?
+
+You duplicated them.
+
+> +
+> +    description: |
+> +      Represents a power domain within the power controller node as docu=
+mented
+> +      in Documentation/devicetree/bindings/power/power-domain.yaml.
+
+We do not represent individual power domains, just like we do not
+represent individual clocks.
 
 
-> +{
-> +	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
+
 > +
-> +	lockdep_assert_irqs_disabled();
+> +    properties:
+> +      reg:
+> +        description: |
+> +          Power domain index. Valid values are defined in:
+> +              "include/dt-bindings/power/marvell,pxa1908-power.h"
+> +        maxItems: 1
+
+So no address space, thus this is not a separate device node.
+
 > +
-> +	guard(perf_ctx_lock)(cpuctx, cpuctx->task_ctx);
+> +      clocks:
+> +        description: |
+
+Drop everywhere |
+
+> +          A number of phandles to clocks that need to be enabled during =
+domain
+> +          power up.
+
+This does not exist in your example, so it is just confusing.
+
 > +
-> +	if (WARN_ON_ONCE(__this_cpu_read(guest_ctx_loaded)))
-> +		return;
+> +      '#power-domain-cells':
+> +        const: 0
 > +
-> +	perf_ctx_disable(&cpuctx->ctx, EVENT_GUEST);
-> +	ctx_sched_out(&cpuctx->ctx, NULL, EVENT_GUEST);
-> +	if (cpuctx->task_ctx) {
-> +		perf_ctx_disable(cpuctx->task_ctx, EVENT_GUEST);
-> +		task_ctx_sched_out(cpuctx->task_ctx, NULL, EVENT_GUEST);
-> +	}
+> +    required:
+> +      - reg
 > +
-> +	perf_ctx_enable(&cpuctx->ctx, EVENT_GUEST);
-> +	if (cpuctx->task_ctx)
-> +		perf_ctx_enable(cpuctx->task_ctx, EVENT_GUEST);
+> +    unevaluatedProperties: false
 > +
-> +	__this_cpu_write(guest_ctx_loaded, true);
-> +}
-> +EXPORT_SYMBOL_GPL(perf_load_guest_context);
+> +required:
+> +  - compatible
 > +
-> +void perf_put_guest_context(void)
-> +{
-> +	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
+> +additionalProperties: false
 > +
-> +	lockdep_assert_irqs_disabled();
+> +examples:
+> +  - |
+> +    #include <dt-bindings/power/marvell,pxa1908-power.h>
 > +
-> +	guard(perf_ctx_lock)(cpuctx, cpuctx->task_ctx);
+> +    clock-controller@d4282800 {
+> +      compatible =3D "marvell,pxa1908-apmu", "simple-mfd", "syscon";
+> +      reg =3D <0xd4282800 0x400>;
+> +      #clock-cells =3D <1>;
 > +
-> +	if (WARN_ON_ONCE(!__this_cpu_read(guest_ctx_loaded)))
-> +		return;
-> +
-> +	perf_ctx_disable(&cpuctx->ctx, EVENT_GUEST);
-> +	if (cpuctx->task_ctx)
-> +		perf_ctx_disable(cpuctx->task_ctx, EVENT_GUEST);
-> +
-> +	perf_event_sched_in(cpuctx, cpuctx->task_ctx, NULL, EVENT_GUEST);
-> +
-> +	if (cpuctx->task_ctx)
-> +		perf_ctx_enable(cpuctx->task_ctx, EVENT_GUEST);
-> +	perf_ctx_enable(&cpuctx->ctx, EVENT_GUEST);
-> +
-> +	__this_cpu_write(guest_ctx_loaded, false);
-> +}
-> +EXPORT_SYMBOL_GPL(perf_put_guest_context);
->  #else
->  static int mediated_pmu_account_event(struct perf_event *event) { return 0; }
->  static void mediated_pmu_unaccount_event(struct perf_event *event) {}
+> +      power-controller {
+> +        compatible =3D "marvell,pxa1908-power-controller";
+
+No address space, so this should be folded into the parent.
+
+Best regards,
+Krzysztof
+
 
