@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA5EFC87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 15:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BAFBC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 15:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NKA5zhqFYGJHApG3LHZ1wsad9XAvKI/FIK3QKmiMCpI=; b=tngiHtuUVvIPEHyC8yvlfBQq2o
-	UOCYcNiMZu1tjbCd6N2qREWsvOks4mCsqtQxPbkgWWCYogRoIOQM6X+yqkZhWUfKiKENYTL8isYnj
-	5ZUpRzalJt3fW1k0GhmS+dM6OLrUwDWtNqEp/T45XSOdd1d5hIbypjKHQ5h/+u1/8TCcgYd5MJaCs
-	8RneFEx/mP8ZE0Bam8HDXskxcLLjQIMyW4bn4VFmRwTf2Wikp8GjfpA0icdTB4LDqLGFYPW9LZcDu
-	pLfzSb7BpHCJqHVEg4ey+TW69396F5dVT739LJhE/cYxIve5VUM9FbCX0LAbY18EeGhQh3Ybwa2FE
-	w6XfWgGQ==;
+	bh=xZXJbA3WTTH9PC7iAGQFTEEZitLt6uqmDGblrk1/zT0=; b=0NRwYD9nuK5o1ghg9kdLYythaf
+	y44yJ7oL5cVNiXF9kVUxezA2oooMLzyvI/0Io3HhugKjsz/nTTSZVdLUAYSU9teUVE/1c6Ps5kAvB
+	cn9tJXVcjPG24KXOqljLOUtsMfH6gEXvdTn3JbArhl9uMpsxyz4q/UAwGSEpFHZXaDzVNcYJmVL6G
+	YCc6IABpzsvkOAPiPKif6yIgmcAOoG8R6sfIL+1xIacUKdqU1S7oNjd6h94pL23TpsRYK29eUNqnp
+	Z6IRnLzhjRRnUxnTjVJ2vD6oZJ977UrfpIEgO73ckPgvNOJNz2SPkyF8Hl1eVhDh9MomdLdmwtGi4
+	qNoUJDiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukOf8-000000036Va-1zbL;
-	Fri, 08 Aug 2025 15:05:42 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1ukOvA-000000039Tm-2bM2;
+	Fri, 08 Aug 2025 15:22:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukOYd-000000035Mh-3BQY
+	id 1ukOsZ-000000038v9-3LbZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 14:59:01 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 578DVG8N014777;
-	Fri, 8 Aug 2025 16:58:44 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	NKA5zhqFYGJHApG3LHZ1wsad9XAvKI/FIK3QKmiMCpI=; b=WbnCVx14jjeuJHN6
-	GJIn+Fy7uBInALd0yOmv8xY1N92s1MboPmYDOVGOfKlyJ1dR9TdIdZfZZ4z7u230
-	hOZgX2ZobRFpBIOy2vaW04NBtp7pze1/toMUiVE1RtWulxbwt1s/1hMJbrSvEsKM
-	mv8O0GZCz25MOCQgGka/uT3VEShhKKugQsfHOZnGaYcy6pyoWjDb679PqL8ypGYf
-	RLUCtOMzNsz/XeURNPf+0IqflqC3ZDk4Ifwp9S9Vi0zr9ltkc3dOgbgt3l/YYUuW
-	ArazUWAES+HMyrjVVRVsnQhgUvAFXTm2W7oQM/aPTere3xJqK2sqyKGuQm7MwPo8
-	C4I3tQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48cq00pdk0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 08 Aug 2025 16:58:44 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A8D2340046;
-	Fri,  8 Aug 2025 16:57:20 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D7F79727648;
-	Fri,  8 Aug 2025 16:55:57 +0200 (CEST)
-Received: from [10.130.77.120] (10.130.77.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 8 Aug
- 2025 16:55:54 +0200
-Message-ID: <e7cd764d-bc6d-4e39-aa03-0eee8e30d3e5@foss.st.com>
-Date: Fri, 8 Aug 2025 16:55:52 +0200
+	Fri, 08 Aug 2025 15:19:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A5F95601ED;
+	Fri,  8 Aug 2025 15:19:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D830C4CEED;
+	Fri,  8 Aug 2025 15:19:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754666373;
+	bh=Ju9ikKO/kXioH3zFMYDsXK5SYo/GY0u9aYwCAwLDTHQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bZDkKsGxlo+CoIVF5PBg1RRdrrokNpeq5e8oXCRGfjsa+Me+uZZjrBUefoLz7hUoI
+	 cryi7PzlJmQtcEUjFyYcqtxjHCc7nN3EERuy9ejFB8kGqcANuSoTFaDCo8MpbF0orh
+	 RpmR9uCBUrNuWRSMuILFdcB7LhWNUQ3s50gYbH6zj2w5W0Y8Z3GAarKNVXxrAapY28
+	 x9z17JO+qeVCVkvkeSvGcgi+QhOQNkUpaiQtrAmkuseBXPjNsB4fua6oADqCKxdnZm
+	 bZK3MWRz1kPyqB4hus5+KrVE5e/oElqN005mFeTwcwURBmktCR9TpVEnuHS8VzNxJB
+	 iciki0XtEglLA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-gpio@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH 01/21] ARM: select legacy gpiolib interfaces where used
+Date: Fri,  8 Aug 2025 17:17:45 +0200
+Message-Id: <20250808151822.536879-2-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250808151822.536879-1-arnd@kernel.org>
+References: <20250808151822.536879-1-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Christian Bruel <christian.bruel@foss.st.com>
-Subject: Re: [PATCH v12 2/9] PCI: stm32: Add PCIe host support for STM32MP25
-To: Bjorn Helgaas <helgaas@kernel.org>,
-        Linus Walleij
-	<linus.walleij@linaro.org>
-CC: <lpieralisi@kernel.org>, <kwilczynski@kernel.org>, <mani@kernel.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <mcoquelin.stm32@gmail.com>,
-        <alexandre.torgue@foss.st.com>, <p.zabel@pengutronix.de>,
-        <johan+linaro@kernel.org>, <cassel@kernel.org>,
-        <shradha.t@samsung.com>, <thippeswamy.havalige@amd.com>,
-        <quic_schintav@quicinc.com>, <linux-pci@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250807180951.GA56737@bhelgaas>
-Content-Language: en-US
-In-Reply-To: <20250807180951.GA56737@bhelgaas>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.130.77.120]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-08_04,2025-08-06_01,2025-03-28_01
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_075900_087877_B5D72612 
-X-CRM114-Status: GOOD (  12.75  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +81,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Arnd Bergmann <arnd@arndb.de>
 
+A few old machines have not been converted away from the old-style
+gpiolib interfaces. Make these select the new CONFIG_GPIOLIB_LEGACY
+symbol so the code still works where it is needed but can be left
+out otherwise.
 
-On 8/7/25 20:09, Bjorn Helgaas wrote:
-> [+to Linus for pinctrl usage question below]
-> 
-> On Tue, Jun 10, 2025 at 11:07:07AM +0200, Christian Bruel wrote:
->> Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
->> controller based on the DesignWare PCIe core.
->>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/arm/mach-mv78xx0/Kconfig     | 1 +
+ arch/arm/mach-orion5x/Kconfig     | 1 +
+ arch/arm/mach-pxa/Kconfig         | 1 +
+ arch/arm/mach-s3c/Kconfig.s3c64xx | 1 +
+ arch/arm/mach-sa1100/Kconfig      | 1 +
+ 5 files changed, 5 insertions(+)
 
->> +
->> +	return pinctrl_pm_select_sleep_state(dev);
-> 
-> Isn't there some setup required before we can use
-> pinctrl_select_state(), pinctrl_pm_select_sleep_state(),
-> pinctrl_pm_select_default_state(), etc?
-> 
-> I expected something like devm_pinctrl_get() in the .probe() path, but
-> I don't see anything.  I don't know how pinctrl works, but I don't see
-> how dev->pins gets set up.
+diff --git a/arch/arm/mach-mv78xx0/Kconfig b/arch/arm/mach-mv78xx0/Kconfig
+index 9de3bbc09c3a..670e6587827e 100644
+--- a/arch/arm/mach-mv78xx0/Kconfig
++++ b/arch/arm/mach-mv78xx0/Kconfig
+@@ -6,6 +6,7 @@ menuconfig ARCH_MV78XX0
+ 	depends on ATAGS
+ 	select CPU_FEROCEON
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select MVEBU_MBUS
+ 	select FORCE_PCI
+ 	select PLAT_ORION_LEGACY
+diff --git a/arch/arm/mach-orion5x/Kconfig b/arch/arm/mach-orion5x/Kconfig
+index ee449ca032d2..cef19bea6164 100644
+--- a/arch/arm/mach-orion5x/Kconfig
++++ b/arch/arm/mach-orion5x/Kconfig
+@@ -5,6 +5,7 @@ menuconfig ARCH_ORION5X
+ 	depends on CPU_LITTLE_ENDIAN
+ 	select CPU_FEROCEON
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select MVEBU_MBUS
+ 	select FORCE_PCI
+ 	select PCI_QUIRKS
+diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
+index 10e472f4fa43..66e26990e2c8 100644
+--- a/arch/arm/mach-pxa/Kconfig
++++ b/arch/arm/mach-pxa/Kconfig
+@@ -10,6 +10,7 @@ menuconfig ARCH_PXA
+ 	select CPU_XSCALE if !CPU_XSC3
+ 	select GPIO_PXA
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select PLAT_PXA
+ 	help
+ 	  Support for Intel/Marvell's PXA2xx/PXA3xx processor line.
+diff --git a/arch/arm/mach-s3c/Kconfig.s3c64xx b/arch/arm/mach-s3c/Kconfig.s3c64xx
+index 8f40af063ad6..3f97fba8e4f5 100644
+--- a/arch/arm/mach-s3c/Kconfig.s3c64xx
++++ b/arch/arm/mach-s3c/Kconfig.s3c64xx
+@@ -101,6 +101,7 @@ config MACH_WLF_CRAGG_6410
+ 	depends on ATAGS
+ 	depends on I2C=y
+ 	select CPU_S3C6410
++	select GPIOLIB_LEGACY
+ 	select LEDS_GPIO_REGISTER
+ 	select S3C64XX_DEV_SPI0
+ 	select S3C64XX_SETUP_FB_24BPP
+diff --git a/arch/arm/mach-sa1100/Kconfig b/arch/arm/mach-sa1100/Kconfig
+index 0fb4c24cfad5..e23700e0d6c8 100644
+--- a/arch/arm/mach-sa1100/Kconfig
++++ b/arch/arm/mach-sa1100/Kconfig
+@@ -13,6 +13,7 @@ menuconfig ARCH_SA1100
+ 	select CPU_FREQ
+ 	select CPU_SA1100
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select IRQ_DOMAIN
+ 	select ISA
+ 	select NEED_MACH_MEMORY_H
+-- 
+2.39.5
 
-Linus knows better, but the dev->pins states are attached to the dev 
-struct before probe by the pinctrl driver
-
-/**
-  * pinctrl_bind_pins() - called by the device core before probe
-  * @dev: the device that is just about to probe
-  */
-int pinctrl_bind_pins(struct device *dev)
-
-Christian
 
