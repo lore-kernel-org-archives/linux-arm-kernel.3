@@ -4,44 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EEF4C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E58C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tW9+9lL64knjEW1pdYdk1680F8T1wtSpVfpDTgQFIbA=; b=fFbispVnjUpJspqGuDkqAqvMRi
-	k4x+2tGB7JImaoXeM32o2Lx3T924dSMpZ93lrdL+iOM6jcNPL9HltZkZbg3k5xyuOznPkNQnhOQd0
-	isTsjhRyN0mgEKYqWBn/QaRmEzDXXzpqHJbXveAPK7DXv1r75J7HfCujapKnp5utR5t/PUk0H08lA
-	eUPL74a0nUBoo+eOJybWMJ3OW+lLQEu9eXqijNEreshapWV2kNhRdMaMkQIxwyv/wNugXcmGGD0oz
-	OfeLJkDEJAxD6zpNcxJEl05NINxXJ7T/4XCRyhAqU5x8jxSyCho4lyP5THAbZFk4CqXzldzvTk6pX
-	M7y99Kew==;
+	bh=P9L19gAHXIx+TjDdTptEWaC0VHqB0bVrkCQOOb6Jwzw=; b=fJZOF9XUFQELnUjT0yAkvOPsfJ
+	1K9Qo+G1nE+/xgtJAYONLi/Vf9Typ84JYWhG9zp1LcaxPazLBHmCNY5Kq5k+d45zjmaSAJ+qWDDAO
+	w1Bwo+I7vFae0/R1IzZmUMXX9TllTl/C/dHQnDWdfa0vy0Cqz6E8v4x88jyCxaCFBtpz53ncNvJVJ
+	c5Xhx2NsGjF+C0jganDrkw/Q7x7W3B8fFXgBh2rHlJ/kXEc+Alu7p1wLMFGbKMwRFjaNoPcCnekzl
+	u/Lk/3x7ezvNR36YT6vnpvnj0MynWU7lvGo3SUU4GI3KCwZqn0WXd2n9V16dKLeI/fz911K968//E
+	/paOFgqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHNj-00000002AwG-1YvT;
-	Fri, 08 Aug 2025 07:19:15 +0000
+	id 1ukHQB-00000002BJK-0PDP;
+	Fri, 08 Aug 2025 07:21:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHGH-00000002A18-2M09
+	id 1ukHGo-00000002A6H-23e7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 07:11:34 +0000
+	Fri, 08 Aug 2025 07:12:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAA5022EA;
-	Fri,  8 Aug 2025 00:11:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43FB822EA;
+	Fri,  8 Aug 2025 00:11:57 -0700 (PDT)
 Received: from [10.57.5.99] (unknown [10.57.5.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8408D3F673;
-	Fri,  8 Aug 2025 00:11:27 -0700 (PDT)
-Message-ID: <02e4504c-dcee-46b7-b71c-8c7dac2db85b@arm.com>
-Date: Fri, 8 Aug 2025 08:11:24 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 358A53F673;
+	Fri,  8 Aug 2025 00:12:00 -0700 (PDT)
+Message-ID: <c526e084-dcd3-4117-873e-67c6d9869b8f@arm.com>
+Date: Fri, 8 Aug 2025 08:11:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
-To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
- Rohit Mathew <rohit.mathew@arm.com>,
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
  <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
  Carl Worth <carl@os.amperecomputing.com>,
@@ -55,15 +54,15 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
 References: <20250711183648.30766-1-james.morse@arm.com>
  <20250711183648.30766-26-james.morse@arm.com>
- <20250722160618.0000598f@huawei.com>
+ <a8dd0921-9d25-4f57-97ee-9b44b8ff5057@arm.com>
 Content-Language: en-US
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250722160618.0000598f@huawei.com>
+In-Reply-To: <a8dd0921-9d25-4f57-97ee-9b44b8ff5057@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_001133_641191_548D4CBE 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250808_001206_583310_01B9AAA3 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,11 +77,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Ben,
 
-On 22/07/2025 16:06, Jonathan Cameron wrote:
-> On Fri, 11 Jul 2025 18:36:37 +0000
-> James Morse <james.morse@arm.com> wrote:
+On 28/07/2025 11:49, Ben Horgan wrote:
+> On 7/11/25 19:36, James Morse wrote:
 >> Register and enable error IRQs. All the MPAM error interrupts indicate a
 >> software bug, e.g. out of range partid. If the error interrupt is ever
 >> signalled, attempt to disable MPAM.
@@ -96,46 +94,39 @@ On 22/07/2025 16:06, Jonathan Cameron wrote:
 >>
 >> Enabling the IRQs in the MSC may involve cross calling to a CPU that
 >> can access the MSC.
+>> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/
+>> mpam_devices.c
+>> index 145535cd4732..af19cc25d16e 100644
+>> --- a/drivers/platform/arm64/mpam/mpam_devices.c
+>> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
+>> @@ -1548,11 +1638,193 @@ static void mpam_enable_merge_features(struct list_head
 
-> Sparse gives an imbalance warning in mpam_register_irqs()
-
->> +static int mpam_register_irqs(void)
+>> +static int mpam_enable_msc_ecr(void *_msc)
 >> +{
->> +	int err, irq, idx;
->> +	struct mpam_msc *msc;
+>> +    struct mpam_msc *msc = _msc;
 >> +
->> +	lockdep_assert_cpus_held();
+>> +    __mpam_write_reg(msc, MPAMF_ECR, 1);
+> You can use MPAMF_ECR_INTEN.
+
+Sure,
+
+
 >> +
->> +	idx = srcu_read_lock(&mpam_srcu);
->> +	list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list, srcu_read_lock_held(&mpam_srcu)) {
->> +		irq = platform_get_irq_byname_optional(msc->pdev, "error");
->> +		if (irq <= 0)
->> +			continue;
->> +
->> +		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
->> +		/* We anticipate sharing the interrupt with other MSCs */
->> +		if (irq_is_percpu(irq)) {
->> +			err = request_percpu_irq(irq, &mpam_ppi_handler,
->> +						 "mpam:msc:error",
->> +						 msc->error_dev_id);
->> +			if (err)
->> +				return err;
+>> +    return 0;
+>> +}
 
-> Looks like the srcu_read_lock is still held.
+>> @@ -1644,7 +1939,6 @@ void mpam_enable(struct work_struct *work)
+>>       struct mpam_msc *msc;
+>>       bool all_devices_probed = true;
+>>   -    /* Have we probed all the hw devices? */
+> Stray change. Keep the comment or remove it in the patch that introduced it.
 
-Oops,
-
-
-> There is a DEFINE_LOCK_GUARD_1() in srcu.h so you can do
-> 
-> 	guard(srcu)(&mpam_srcu, idx);
-> 
-> I think and not worry about releasing it in errors or the good path.
-
-Sure ... but having the compiler chose when to release locks makes me nervous!
+Fixed.
 
 
 Thanks,
 
 James
+
+
 
