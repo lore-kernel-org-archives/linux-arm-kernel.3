@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051F8C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFD9C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 08:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bch9uttwVQdrheNzwa52D20UCQjfb4EkFYmaAflWFMM=; b=oyy0tPbx1NZbp4AjfbZSJ3QWcX
-	ZHS31OAi+DPj0sGjeo1X9USwvGqQkFIUzaDD73ip2OFT8Bw4hfCffwtm0Cx0eWOGQJJemjUafmF7d
-	4azBAvr5E7L4GxJLrS5gXe7CAnaXqH7GEyEOwGqPJegBrmHGfyQowJVuyhHEZ9w0Kgj/inzdVoi4G
-	R1yezmMySzEcHlojVOJ64gRbmMRMKQjkZZLQdbu3OW27K0XJ62vhHea2Bg2XC/wfQncsMgPBMJY/e
-	OqNiUAqhDiscBMKvrVUTji5jJACg2dTMf98pgykKk7tCYny/b2pkQp+3puwMw7syainmRwJhyiOnK
-	Pc8gsrzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MYY170L5/j8gQmCV0i0KP9yMXLZ9vOW8yjQXrZqWtaY=; b=P8DSJUyw5uQ6hX8enxf5j2W/t+
+	aEzax3aP9obNd1lrX58b0zx1F2pQcUmmv8nQDWeTK5AxTIiqWKL4DCLiKMD54b2rK2ScvtJAODRZY
+	s1MZUEJ6k4+DGWm6B4kQo8JnGxqRUXP7jrpbYBryb1vata55hthshOgvDAmiWB5RFiTMVPEEG4wpK
+	oxVC05AELv0biuNf+Ky/Yq93NrtVkMV0Jte2ed+lkw+iO5UMEBakAkeupxNms1AJmL3HqSpgXgygd
+	CJVQ8BUYyYDD1VbwR/yZbFvbAexEKkDXDa7AwDgCccfuHiH31ulheFnONiGc8wWs/8JyO91lbK9FB
+	SmgCSahw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHwA-00000002GTn-2o0S;
-	Fri, 08 Aug 2025 07:54:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHdj-00000002DHh-3UEW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 07:35:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A27D43AB4;
-	Fri,  8 Aug 2025 07:35:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C1E7C4CEED;
-	Fri,  8 Aug 2025 07:35:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754638546;
-	bh=fSFQ4BFpgAzz0JTLtrpfPT919diDmGwK+Dw9OkWmuBw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OZy8Mme7TpW+NGxATpczCzeRM6bqUT5ztLWouhxQrAQQ29h9gpy4Efhg9SvkfZ86Y
-	 Jk/Y60NKWGoRpxKrKAn/gYvH9JDy+jqeUQdckwhWK/+NoJVphBCR+FxAqCCfUoyj6i
-	 meBtj4HyISCka6PY43NN1jLZiqLazDBiihwTP8gZRWFA3Sc5oqVHnFp1DMpYUNXOBc
-	 hsKvtpVvdhFG++wPnQ5GLIjl5oeZHn36yw8Gq/+ehwBCsL3zxXW6W3CaUpOQNag2Kg
-	 BCzpIBrdztWJbwAVvFRVxun9GjgHOg/+bCVwefGxcZ/L67C0yT9A2gweRTeiC9lAm8
-	 P22Evj6X/7TPQ==
-Date: Fri, 8 Aug 2025 09:35:44 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, David Wronek <david@mainlining.org>, 
-	Karel Balej <balejk@matfyz.cz>, phone-devel@vger.kernel.org, 
-	~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH RFC 1/5] dt-bindings: clock: marvell,pxa1908: Add
- simple-mfd, syscon compatible to apmu
-Message-ID: <20250808-amusing-ladybug-of-joviality-3fb371@kuoka>
-References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
- <20250806-pxa1908-genpd-v1-1-16409309fc72@dujemihanovic.xyz>
+	id 1ukI67-00000002HaZ-4BCI;
+	Fri, 08 Aug 2025 08:05:07 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ukHs3-00000002FsX-1r20;
+	Fri, 08 Aug 2025 07:50:36 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4bywkg3Mhqz9sS7;
+	Fri,  8 Aug 2025 09:33:47 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 6-UTSoBBRo41; Fri,  8 Aug 2025 09:33:47 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4bywkg2Vk1z9sRy;
+	Fri,  8 Aug 2025 09:33:47 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 3F40D8B770;
+	Fri,  8 Aug 2025 09:33:47 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id UAt1KEdP_5VW; Fri,  8 Aug 2025 09:33:47 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 1F8218B763;
+	Fri,  8 Aug 2025 09:33:46 +0200 (CEST)
+Message-ID: <59ce87be-0a0a-4f6b-b439-bc7a4a037fc2@csgroup.eu>
+Date: Fri, 8 Aug 2025 09:33:45 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250806-pxa1908-genpd-v1-1-16409309fc72@dujemihanovic.xyz>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] kasan: introduce ARCH_DEFER_KASAN and unify static
+ key across modes
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>, ryabinin.a.a@gmail.com
+Cc: bhe@redhat.com, hca@linux.ibm.com, andreyknvl@gmail.com,
+ akpm@linux-foundation.org, zhangqing@loongson.cn, chenhuacai@loongson.cn,
+ davidgow@google.co, glider@google.com, dvyukov@google.com, alex@ghiti.fr,
+ agordeev@linux.ibm.com, vincenzo.frascino@arm.com, elver@google.com,
+ kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-um@lists.infradead.org, linux-mm@kvack.org
+References: <20250807194012.631367-1-snovitoll@gmail.com>
+ <20250807194012.631367-2-snovitoll@gmail.com>
+ <22872a3f-85dc-4740-b605-ba80b5a3b1bc@csgroup.eu>
+ <CACzwLxiVURgamkv2ws5sK9BQVMz7VPSWGy_aQb+MT8jtv03d3Q@mail.gmail.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <CACzwLxiVURgamkv2ws5sK9BQVMz7VPSWGy_aQb+MT8jtv03d3Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_003547_904500_F5A48616 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20250808_005035_644892_FC4E0485 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,67 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 06, 2025 at 07:33:20PM +0200, Duje Mihanovi=C4=87 wrote:
-> Add required syscon and simple-mfd compatibles to the APMU controller.
-> This is required for the SoC's power domain controller as the registers
-> are shared. The simple-mfd compatible allows devices whose registers are
-> completely contained in the APMU range (such as the power domain
-> controller and potentially more) to be children of the clock controller
-> node.
->=20
-> Also add an optional power-controller child node to the APMU controller
-> to accommodate the new power domain driver.
->=20
-> Signed-off-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
-> ---
->  .../devicetree/bindings/clock/marvell,pxa1908.yaml | 36 ++++++++++++++++=
-++----
->  1 file changed, 30 insertions(+), 6 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml=
- b/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml
-> index 4e78933232b6b925811425f853bedf6e9f01a27d..5e924ebd97e6457191ac021ad=
-dafd22caba48964 100644
-> --- a/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml
-> +++ b/Documentation/devicetree/bindings/clock/marvell,pxa1908.yaml
-> @@ -19,11 +19,15 @@ description: |
-> =20
->  properties:
->    compatible:
-> -    enum:
-> -      - marvell,pxa1908-apbc
-> -      - marvell,pxa1908-apbcp
-> -      - marvell,pxa1908-mpmu
-> -      - marvell,pxa1908-apmu
-> +    oneOf:
-> +      - enum:
-> +          - marvell,pxa1908-apbc
-> +          - marvell,pxa1908-apbcp
-> +          - marvell,pxa1908-mpmu
-> +      - items:
-> +          - const: marvell,pxa1908-apmu
-> +          - const: simple-mfd
-> +          - const: syscon
-> =20
->    reg:
->      maxItems: 1
-> @@ -31,18 +35,38 @@ properties:
->    '#clock-cells':
->      const: 1
-> =20
-> +  power-controller:
-> +    description: |
-> +      Optional power domain controller node.
-> +    type: object
-> +    additionalProperties: true
-> +    properties:
-> +      compatible:
-> +        const: marvell,pxa1908-power-controller
 
-I commented on next patch, so oly to re-iterate here: no, don't create
-nodes just to instantiate drivers. You do not have any resources here.
 
-Best regards,
-Krzysztof
+Le 08/08/2025 à 09:26, Sabyrzhan Tasbolatov a écrit :
+> On Fri, Aug 8, 2025 at 10:03 AM Christophe Leroy
+> <christophe.leroy@csgroup.eu> wrote:
+>>> diff --git a/arch/um/Kconfig b/arch/um/Kconfig
+>>> index 9083bfdb773..a12cc072ab1 100644
+>>> --- a/arch/um/Kconfig
+>>> +++ b/arch/um/Kconfig
+>>> @@ -5,6 +5,7 @@ menu "UML-specific options"
+>>>    config UML
+>>>        bool
+>>>        default y
+>>> +     select ARCH_DEFER_KASAN if STATIC_LINK
+>>
+>> No need to also verify KASAN here like powerpc and loongarch ?
+> 
+> Sorry, I didn't quite understand the question.
+> I've verified powerpc with KASAN enabled which selects KASAN_OUTLINE,
+> as far as I remember, and GENERIC mode.
 
+The question is whether:
+
+	select ARCH_DEFER_KASAN if STATIC_LINK
+
+is enough ? Shouldn't it be:
+
+	select ARCH_DEFER_KASAN if KASAN && STATIC_LINK
+
+Like for powerpc and loongarch ?
+
+
+> 
+> I haven't tested LoongArch booting via QEMU, only tested compilation.
+> I guess, I need to test the boot, will try to learn how to do it for
+> qemu-system-loongarch64. Would be helpful LoongArch devs in CC can
+> assist as well.
+> 
+> STATIC_LINK is defined for UML only.
+> 
 
