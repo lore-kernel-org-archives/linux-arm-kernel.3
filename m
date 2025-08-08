@@ -4,108 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C47E4C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 11:18:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 228BFC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 11:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bmLxHJh/8UIKewAeZ9HmegNuS7UFMplzIZaaLTv3Rs8=; b=x5JbHiBZaHkPsL3WWjF+My7w6I
-	1ETcSmZ8UI7GJQYCZ/u7Z18sX8n1fjT+D+KFF+k3Fzc9m0EQfWvf9CuKfw7gcXgb1eWnZ8w17hT3v
-	nmo56LmdzXgY23zQb6Ts5h+8IurmN0kFs6YS4DBH9wfiFINVDevfesVFbzWJxZfpRYAlBZrv/xzqV
-	xAuJ8js8u9wEiGzGQ174rYUYPtxueFj8O/5V3EamCciIPUGpeezy4Yv36CKkH+xpeoAVK8RtlvMb8
-	MSs6IsB1gS8VgKQylnVgZhO8B5Ol0z7ZMB+LALLpnwQ63TyLXsJIuBXyK/P1HUrYDF9ucaO54Vft6
-	Cd5uL5mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kRspYZ6QAEJaF7pYavgjx3m5cWsrC6eyWll+Yl4bXuI=; b=sJpxSMeuz9G3GD
+	2a4nz+1KtIxEe4GExYrGfy6PlcgQpzO56ksAMEzzSlkqfJyXa2b58ZISCwUX7+ClL0ptbBFPjPbbg
+	2dsLHBC1gR8yHrK6qmLL4qs/UkC1CMWbfQa9mQJtCF9E5d3z/WOkbD5e2rwded0H5AkTV7JtPNUp1
+	ZbCIw7SQniRi7EiJv0thWSOEzx6yT71NTNECzymuBHdUXePN75olnBO0937+KI0M0jAFWfmyTIqs5
+	xmoRfA9tBpmBNrmxGuTO93AcqRMIPwdDOMaAZFawO7niLTdVgQHnHBRY8JvM41xgto7ZCEQV4diad
+	sS/4nnZuYCXTWLGXix+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukL6h-00000002eOu-2p4l;
-	Fri, 08 Aug 2025 11:17:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ukLEq-00000002fUF-2KhE;
+	Fri, 08 Aug 2025 11:26:20 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukL4D-00000002eGS-3uNo
+	id 1ukLCL-00000002emH-40VY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 11:15:23 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C3FE416B8;
-	Fri,  8 Aug 2025 13:14:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754651670;
-	bh=kVIGxRmpFWXiRvc5mNgCHRtqlqyc4fpy/RJqNu7XK80=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gg+FaaDErK5aOhPABlQDHksVzeSIrSlVYfFZ21lW/pDuCbQtcjWSEYRW10yQ4gJ5i
-	 fuBBxAl+GUb1i5y3uWWhdpHhFVBrceeSmGR/dOJyIs1cp21Ve918U7+BFvL/699XsI
-	 W0C6lK2+LPmSCbKXQ3S4xCYF9XI8ZzjddmoWnvik=
-Message-ID: <e239f4e3-ebe8-44ab-abcb-6bab191a9994@ideasonboard.com>
-Date: Fri, 8 Aug 2025 14:15:16 +0300
+	Fri, 08 Aug 2025 11:23:47 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-459ddada9b1so18857235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 04:23:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754652224; x=1755257024; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kRspYZ6QAEJaF7pYavgjx3m5cWsrC6eyWll+Yl4bXuI=;
+        b=ItqhTbBadwxZbQy8V9ySGMLh7beag1PaJqdS/x01xqN+2qBQoC8+bmDlPRsH43wxjE
+         zioBv+TJ4OxNrNquVwx0IQpm/DEB9DBNOM6GYPm5hb6T1F1FsUXuxmMu4gXyJoteyM0x
+         yjRmvdwxTg11XH2gU0mNU7pi4Pk41CNdYP2h0Fr+P8tkwkp0sNTXjQrHQi501UMsaSfJ
+         D4wu76OSKDan+tHPYX0nnCpieDXurT8Pm2WR6q6yy65Ef66TRwNp6NrkoiTO4YhdzZ7y
+         SAcznEn0ox7fOyyAWbDmByd9byekdW8X0iQ1lvf1nutFH5zkoEBKBaK+qmrHjQeDEz1W
+         0elw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754652224; x=1755257024;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=kRspYZ6QAEJaF7pYavgjx3m5cWsrC6eyWll+Yl4bXuI=;
+        b=aYu2E9ZRxTbJzGLMpNhD7mlIsLssldZdbr4wnOEugBz7sjbH1pxV2Jzz0mlMYtZGjD
+         EGgVt9/OVIRyGUGrcl8A1zrUp+jXMbaoSorg31b5za8eJuy9pe8c2ABFVccznD0M34BT
+         qOjQh73u+aRVd9n9VJIIzNpFnNnCq6/v00IxLMYqoGBprsLltKTsWCExMhR/24kR65lb
+         1+OcYTu07W1dC69q0kktyDYB6Tg0djO6kYilSEb3MBRvtxWjAFJrdANWYpqOPgNxiOvT
+         UaYgNLbQYm/W10kvTt/aoKYGg4/IHCF19nWjvI/rsVKNUOU9KC3JkPNjU4ta+d5y61cR
+         qf1g==
+X-Gm-Message-State: AOJu0Yxs3fuxYeFexIOhe2CxNDGSDRdhjWBBG6TGkeVmS8X/OoTuc5eu
+	Rz2+XC+LPZFbBFtHoH2thcIScC8PXMb4jd0PN9xng7XZ0B0IrAwCwMo89Rb1rjgUZz4=
+X-Gm-Gg: ASbGncuT5Co3a7eddDQsG7TGxzwBqRqnjJoijFXaq4zmhn+tYqLxwCyOFwVbPdSXyfC
+	vo7GciQCKluMQQycz9/NiE/wxZUsyzrLaEfWtp3UH5jwuK0FiomP7ZwFloYeyRtTzE7AnFV7+kl
+	ufS9XhZ/MsvHtZAawBCfN83iCmwcCjbc0U4Do2qPJkic9kiP8xRJQjRmnCaP018FJx+V5XUD2Oe
+	K+HDCv/e74BHCuWYACl/R3DbcyMbkYnhWEk7qwmLSbk6g230k2crS5rXk8Biz9mWvXrX2+05+Qi
+	3kH6G0dJEZNPQw7jVvp1+Skur0C6NW9DrNuCZcOghOLRTGQCN6S3g7Jt4g/8hUr5UE0+k/NASoh
+	b7wt21ES90QucnWSyhjx2P3dc3c5Iyq0=
+X-Google-Smtp-Source: AGHT+IFCMozOTwE+MxJzqrobvwL8Tio0dUjvbjpt5tE0xDuzGkAjBw2SFMGp7HYlkEU8CksYHLPAsw==
+X-Received: by 2002:a05:600c:474a:b0:456:dc0:7d4e with SMTP id 5b1f17b1804b1-459f4f0376fmr25391795e9.18.1754652223952;
+        Fri, 08 Aug 2025 04:23:43 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-45923c34af8sm233482635e9.24.2025.08.08.04.23.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Aug 2025 04:23:43 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v6 00/12] perf: arm_spe: Armv8.8 SPE features
+Date: Fri, 08 Aug 2025 12:22:57 +0100
+Message-Id: <20250808-james-perf-feat_spe_eft-v6-0-6daf498578c8@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 00/11] drm: Add new pixel formats for Xilinx Zynqmp
-To: Vishal Sagar <vishal.sagar@amd.com>,
- Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Michal Simek <michal.simek@amd.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Pekka Paalanen <ppaalanen@gmail.com>, Dmitry Baryshkov <lumag@kernel.org>
-References: <20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABHelWgC/43Q20rEMBAG4FdZcm1kcmzile8hsqTJZDfitiUpR
+ Vn67qYFqVIqXv4D883hTgrmhIU8ne4k45RK6rsa9MOJ+KvrLkhTqJlw4AoE4/TN3bDQAXOkEd1
+ 4LgOeMY5Uax+iDCaitaR2Dxlj+ljll9ear6mMff5cB01sqX6b4tCcGAXKnecQJDTem+f31LncP
+ /b5ssxYAQX6byAEaQANSqPYT2DZauLbJorbY4hXyAFztnUugHY7SGyQBnUMiQo1rAVvozVgxQ6
+ SG9RwdgzJCoFTvJEMoolhB6l/Qmo5rWm9EqK+yP3+0TzPX5Op3I8kAgAA
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+ Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Leo Yan <leo.yan@arm.com>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org, 
+ kvmarm@lists.linux.dev, James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_041522_116116_08F3F4DB 
-X-CRM114-Status: GOOD (  42.95  )
+X-CRM114-CacheID: sfid-20250808_042346_013705_0CC93AC7 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,181 +112,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Support 3 new SPE features: FEAT_SPEv1p4 filters, FEAT_SPE_EFT extended
+filtering, and SPE_FEAT_FDS data source filtering. The features are
+independent can be applied separately:
 
-Any further comments on this series? Can we get this merged?
+  * Prerequisite sysreg changes - patch 1
+  * FEAT_SPEv1p4 - patches 2 - 3
+  * FEAT_SPE_EFT - patch 4
+  * FEAT_SPE_FDS - patches 5 - 9
+  * FEAT_SPE_FDS Perf tool changes - patches 10 - 12
 
- Tomi
+The first two features will work with old Perfs but a Perf change to
+parse the new config4 is required for the last feature.
 
-On 25/04/2025 14:01, Tomi Valkeinen wrote:
-> Add new DRM pixel formats and add support for those in the Xilinx zynqmp
-> display driver.
-> 
-> All other formats except XVUY2101010 are already supported in upstream
-> gstreamer, but gstreamer's kmssink does not have the support yet, as it
-> obviously cannot support the formats without kernel having the formats.
-> 
-> Xilinx has support for these formats in their BSP kernel, and Xilinx has
-> a branch here, adding the support to gstreamer kmssink:
-> 
-> https://github.com/Xilinx/gst-plugins-bad.git xlnx-rebase-v1.18.5
-> 
-> New formats added:
-> 
-> DRM_FORMAT_Y8
-> - 8-bit Y-only
-> - fourcc: "GREY"
-> - gstreamer: GRAY8
-> 
-> DRM_FORMAT_Y10_P32
-> - 10-bit Y-only, three pixels packed into 32-bits
-> - fourcc: "YPA4"
-> - gstreamer: GRAY10_LE32
-> 
-> DRM_FORMAT_XV15
-> - Like NV12, but with 10-bit components
-> - fourcc: "XV15"
-> - gstreamer: NV12_10LE32
-> 
-> DRM_FORMAT_XV20
-> - Like NV16, but with 10-bit components
-> - fourcc: "XV20"
-> - gstreamer: NV16_10LE32
-> 
-> DRM_FORMAT_X403
-> - 10-bit planar 4:4:4, with three samples packed into 32-bits
-> - fourcc: "X403"
-> - gstreamer: Y444_10LE32
-> 
-> XVUY2101010
-> - 10-bit 4:4:4, one pixel in 32 bits
-> - fourcc: "XY30"
-> 
-> Some notes:
-> 
-> I know the 8-bit greyscale format has been discussed before, and the
-> guidance was to use DRM_FORMAT_R8. While I'm not totally against that, I
-> would argue that adding DRM_FORMAT_Y8 makes sense, as:
-> 
-> 1) We can mark it as 'is_yuv' in the drm_format_info, and this can help
->    the drivers handle e.g. full/limited range. Probably some hardware
->    handles grayscale as a value used for all RGB components, in which case
->    R8 makes sense, but when the hardware handles the Y-only pixels as YCbCr,
->    where Cb and Cr are "neutral", it makes more sense to consider the
->    format as an YUV format rather than RGB.
-> 
-> 2) We can have the same fourcc as in v4l2. While not strictly necessary,
->    it's a constant source of confusion when the fourccs differ.
-> 
-> 3) It (possibly) makes more sense for the user to use Y8/GREY format
->    instead of R8, as, in my experience, the documentation usually refers
->    to gray(scale) format or Y-only format.
-> 
-> As we add new Y-only formats, it makes sense to have similar terms, so
-> we need to adjust the Y10_P32 format name accordingly.
-> 
-> I have made some adjustments to the formats compared to the Xilinx's
-> branch. E.g. The DRM_FORMAT_Y10_P32 format in Xilinx's kmssink uses
-> fourcc "Y10 ", and DRM_FORMAT_Y10. I didn't like those, as the format is
-> a packed format, three 10-bit pixels in a 32-bit container, and I think
-> Y10 means a 10-bit pixel in a 16-bit container.
-> 
-> Generally speaking, if someone has good ideas for the format define
-> names or fourccs, speak up, as it's not easy to invent good names =).
-> That said, keeping them the same as in the Xilinx trees will, of course,
-> be slightly easier for the users of Xilinx platforms.
-> 
-> I made WIP additions to modetest to support most of these formats,
-> partially based on Xilinx's code:
-> 
-> https://github.com/tomba/libdrm.git xilinx
-> 
-> A few thoughts about that:
-> 
-> modetest uses bo_create_dumb(), and as highlighted in recent discussions
-> in the kernel list [1], dumb buffers are only for RGB formats. They may
-> work for non-RGB formats, but that's platform specific. None of the
-> formats I add here are RGB formats. Do we want to go this way with
-> modetest?
-> 
-> I also feel that the current structure of modetest is not well suited to
-> more complicated formats. Both the buffer allocation is a bit more
-> difficult (see "Add virtual_width and pixels_per_container"), and the
-> drawing is complicated (see, e.g., "Add support for DRM_FORMAT_XV15 &
-> DRM_FORMAT_XV20").
-> 
-> I have recently added support for these Xilinx formats to both kms++ [2] and
-> pykms/pixutils [3][4] (WIP), and it's not been easy... But I have to say I
-> think I like the template based version in kms++. That won't work in
-> modetest, of course, but a non-templated version might be implementable,
-> but probably much slower.
-> 
-> In any case, I slighly feel it's not worth merging the modetest patches
-> I have for these formats: they complicate the code quite a bit, break
-> the RGB-only rule, and I'm not sure if there really are (m)any users. If
-> we want to add support to modetest, I think a bigger rewrite of the test
-> pattern code might be in order.
-> 
-> [1] https://lore.kernel.org/all/20250109150310.219442-26-tzimmermann%40suse.de/
-> [2] git@github.com:tomba/kmsxx.git xilinx
-> [3] git@github.com:tomba/pykms.git xilinx
-> [4] git@github.com:tomba/pixutils.git xilinx
-> 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
-> Changes in v5:
-> - Add comment about Y-only formats, clarifying how the display pipeline
->   handles them (they're handled as YCbCr, with Cb and Cr as "neutral")
-> - Clarify X403 format in the patch description
-> - Set unused Y-only CSC offsets to 0 (instead of 0x1800).
-> - Add R-bs
-> - Link to v4: https://lore.kernel.org/r/20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com
-> 
-> Changes in v4:
-> - Reformat the drm_format_info entries a bit
-> - Calculate block size only once in drm_format_info_bpp()
-> - Declare local variables in separate lines
-> - Add review tags
-> - Fix commit message referring to Y10_LE32 (should be Y10_P32)
-> - Link to v3: https://lore.kernel.org/r/20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com
-> 
-> Changes in v3:
-> - Drop "drm: xlnx: zynqmp: Fix max dma segment size". It is already
->   pushed.
-> - Add XVUY2101010 format.
-> - Rename DRM_FORMAT_Y10_LE32 to DRM_FORMAT_Y10_P32.
-> - Link to v2: https://lore.kernel.org/r/20250115-xilinx-formats-v2-0-160327ca652a@ideasonboard.com
-> 
-> Changes in v2:
-> - I noticed V4L2 already has fourcc Y10P, referring to MIPI-style packed
->   Y10 format. So I changed Y10_LE32 fourcc to YPA4. If logic has any
->   relevance here, P means packed, A means 10, 4 means "in 4 bytes".
-> - Added tags to "Fix max dma segment size" patch
-> - Updated description for "Add warning for bad bpp"
-> - Link to v1: https://lore.kernel.org/r/20241204-xilinx-formats-v1-0-0bf2c5147db1@ideasonboard.com
-> 
-> ---
-> Tomi Valkeinen (11):
->       drm/fourcc: Add warning for bad bpp
->       drm/fourcc: Add DRM_FORMAT_XV15/XV20
->       drm/fourcc: Add DRM_FORMAT_Y8
->       drm/fourcc: Add DRM_FORMAT_Y10_P32
->       drm/fourcc: Add DRM_FORMAT_X403
->       drm/fourcc: Add DRM_FORMAT_XVUY2101010
->       drm: xlnx: zynqmp: Use drm helpers when calculating buffer sizes
->       drm: xlnx: zynqmp: Add support for XV15 & XV20
->       drm: xlnx: zynqmp: Add support for Y8 and Y10_P32
->       drm: xlnx: zynqmp: Add support for X403
->       drm: xlnx: zynqmp: Add support for XVUY2101010
-> 
->  drivers/gpu/drm/drm_fourcc.c       | 28 ++++++++++++++++---
->  drivers/gpu/drm/xlnx/zynqmp_disp.c | 55 +++++++++++++++++++++++++++++++++++---
->  include/uapi/drm/drm_fourcc.h      | 29 ++++++++++++++++++++
->  3 files changed, 105 insertions(+), 7 deletions(-)
-> ---
-> base-commit: ef6517ac5cf971cfeaccea4238d9da7e2425b8b1
-> change-id: 20241120-xilinx-formats-f71901621833
-> 
-> Best regards,
+---
+Changes in v6:
+- Rebase to resolve conflict with BRBE changes in el2_setup.h
+- Link to v5: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org
+
+Changes in v5:
+- Forgot to pickup tags from v4
+- Forgot to drop test and review tags on v4 patches that were
+  significantly modified
+- Update commit message for data source filtering to mention inversion
+- Link to v4: https://lore.kernel.org/r/20250721-james-perf-feat_spe_eft-v4-0-0a527410f8fd@linaro.org
+
+Changes in v4:
+- Rewrite "const u64 feat_spe_eft_bits" inline
+- Invert data source filter so that it's possible to exclude all data
+  sources without adding an additional 'enable filter' flag
+- Add a macro in el2_setup.h to check for an SPE version
+- Probe valid filter bits instead of hardcoding them
+- Take in Leo's commit to expose the filter bits as it depends on the
+  new filter probing
+- Link to v3: https://lore.kernel.org/r/20250605-james-perf-feat_spe_eft-v3-0-71b0c9f98093@linaro.org
+
+Changes in v3:
+- Use PMSIDR_EL1_FDS instead of 1 << PMSIDR_EL1_FDS_SHIFT
+- Add VNCR offsets
+- Link to v2: https://lore.kernel.org/r/20250529-james-perf-feat_spe_eft-v2-0-a01a9baad06a@linaro.org
+
+Changes in v2:
+- Fix detection of FEAT_SPE_FDS in el2_setup.h
+- Pickup Marc Z's sysreg change instead which matches the json
+- Restructure and expand docs changes
+- Link to v1: https://lore.kernel.org/r/20250506-james-perf-feat_spe_eft-v1-0-dd480e8e4851@linaro.org
+
+---
+James Clark (11):
+      arm64: sysreg: Add new PMSFCR_EL1 fields and PMSDSFR_EL1 register
+      perf: arm_spe: Support FEAT_SPEv1p4 filters
+      perf: arm_spe: Add support for FEAT_SPE_EFT extended filtering
+      arm64/boot: Factor out a macro to check SPE version
+      arm64/boot: Enable EL2 requirements for SPE_FEAT_FDS
+      KVM: arm64: Add trap configs for PMSDSFR_EL1
+      perf: Add perf_event_attr::config4
+      perf: arm_spe: Add support for filtering on data source
+      tools headers UAPI: Sync linux/perf_event.h with the kernel sources
+      perf tools: Add support for perf_event_attr::config4
+      perf docs: arm-spe: Document new SPE filtering features
+
+Leo Yan (1):
+      perf: arm_spe: Expose event filter
+
+ Documentation/arch/arm64/booting.rst      |  11 +++
+ arch/arm64/include/asm/el2_setup.h        |  28 ++++--
+ arch/arm64/include/asm/sysreg.h           |   9 --
+ arch/arm64/include/asm/vncr_mapping.h     |   2 +
+ arch/arm64/kvm/emulate-nested.c           |   1 +
+ arch/arm64/kvm/sys_regs.c                 |   1 +
+ arch/arm64/tools/sysreg                   |  13 ++-
+ drivers/perf/arm_spe_pmu.c                | 148 ++++++++++++++++++++++++++----
+ include/uapi/linux/perf_event.h           |   2 +
+ tools/include/uapi/linux/perf_event.h     |   2 +
+ tools/perf/Documentation/perf-arm-spe.txt | 104 +++++++++++++++++++--
+ tools/perf/tests/parse-events.c           |  14 ++-
+ tools/perf/util/parse-events.c            |  11 +++
+ tools/perf/util/parse-events.h            |   1 +
+ tools/perf/util/parse-events.l            |   1 +
+ tools/perf/util/pmu.c                     |   8 ++
+ tools/perf/util/pmu.h                     |   1 +
+ 17 files changed, 312 insertions(+), 45 deletions(-)
+---
+base-commit: 37816488247ddddbc3de113c78c83572274b1e2e
+change-id: 20250312-james-perf-feat_spe_eft-66cdf4d8fe99
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
 
 
