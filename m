@@ -4,98 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FB9C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 06:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 729AFC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 06:52:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VfJ96l0L79uC3QqMW/tKUozVfcbzbbqgdHMrzI/pgq0=; b=jZYlUecYDChwRn+Bou8+steA70
-	V8iIsEYz+hefMcANmg+3s07CbGx7QzMBYLs7ruHy7Ku2acEjUChcyHlA3Rwm6JSrcAU4/Kg+h/Rje
-	Fo7zfF+VXawkXp+u1ZdfMbGK1dKerRsh//6sgMxK9fIUDnNtwK7dHX4jU3Hf9Xa7B/gX7mfBahSGe
-	lmKFxew4yVCiiQFqljTJwm1CJUMxy94dz8kTur6+hEg/k1ZS5hDwHwRRgu5AylIsEbzwboAN+gApX
-	n5jnvwoAe84a5t7dMz5Yx/0/jZ3j5VZNxUMjBIVuVNFUxGsU/B+Oed1IFHtE5a32ZgHFss8ZO/MFT
-	8fF6tbew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DkFcrC1txzXovXC28EaLgcL/z6GJwCdavIDitjeMGdo=; b=sQjA4d/L1tWeaiTMdgu6f8013M
+	h8Uf2ea+oykpK4KuJt8zfqyo+Vr0lUDNFt6zHNhI4g7gd3uty3WDOktK3x+YtgtLWsNOk++007Sr4
+	zofreQR0rMDbj/M97Rg3gi5Q4esMMIijzPuRlloxGxEAq8DmZZGqPwsWPlDEZpsLky0rQMEftvzT5
+	Tq8HV7Bi+0c5673a61/Aw1nrTOcsBwvLEsjyB/hIlR+2mI3OorkNjRsWsnnpL+7ZnKDfXcMzDYHFg
+	ugtC3VBWnh/9TTeLvb+BEfbecIVokUYLLDe2ETaxiojqwH1iKXAmkgm3zXQ1UNQ+plqE53G+KUebm
+	M+IMlprg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukGvN-000000027zl-1DXU;
-	Fri, 08 Aug 2025 06:49:57 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1ukGxq-00000002881-0d5r;
+	Fri, 08 Aug 2025 06:52:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukGrF-000000027Yq-0tqb
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 06:45:42 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-3e3f378ea68so15881295ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 07 Aug 2025 23:45:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754635540; x=1755240340; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VfJ96l0L79uC3QqMW/tKUozVfcbzbbqgdHMrzI/pgq0=;
-        b=SyRoJPxgFe4UYCwA61Y2RAimr/WP9AR1GDA3mJHiaX0tqS6EMWelUv88Hl13OwSN+q
-         38iUBIWqYLSkI6TWHTc+NIWVtObJhVFH3rOuuwrN+q8SAu2EUoHq8OIbRnc4c+qnWeku
-         YVN+g/tRHlNFC6+QQcMCDWd2D9J1q+ZVh7mxCTjIVA4CFb529BkS1fsihvc/Va4s+ivK
-         sJc8q3q9D98NVVbNhm1Dvx9n3A1NjG32lYVkljMwLnI70LW2xPntkbO0gh72fdit64gv
-         E4LqaVcvLp6nMYy7qNwZ4+voy0/82wIXr343GbWGbWDUjC4raEfZS5f1PgqmCTw0LWhG
-         ge7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754635540; x=1755240340;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VfJ96l0L79uC3QqMW/tKUozVfcbzbbqgdHMrzI/pgq0=;
-        b=lGp3mZUdhOw/cA7RAa83d1ymDL6yDk10PwQvHheVeMJ8p4/Hn2CVqdj7KRYfgG6faU
-         LuiyhBdk6U+EAB2OJnf1fl8r3wlFO0q9H3sXoFsGinpUsozSAaRu5Xm8/5iLfRjhdPcE
-         NSSklNx9dWMflKG48AmosAc+eFX3bvjIs3qieCA4HP/kYeDD9kH4U7709dzIWnrK3tvh
-         2q+6yMeIsCAzlTVLImv+brnNwJW8UlJBVuUqAUISIAAjwpwO+FueDXk9hYIx2ani4AlF
-         +0MfmhoElHFfsbLYebkwZpeNXanVD3xFMMLI9ECfa1PM3U9gEEsu8Sm2WBUp/ULhP6jA
-         V5AQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWRbsga6stskFv2yT7yEB8PCT2tUN6MyoiiF9mZf0p4JGtE08SrcaZ/0Dwn0noxYshcf+KKsO5P1NTn1dyDzyOJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY4JR03ypgsnQamAyntLdtiFXoXZX8eJFqkHh40thC0DYc/T1r
-	36jEl5pW47F+HeE0h8javk+5K5qfiB6b45jWwSc2wxPDu8R32YgUTsCLTOZk/jwcIcZWix/WfrT
-	6M/4fKww2r9YTLBJkXxI0rW8VDfPEXwA=
-X-Gm-Gg: ASbGnctb2RkaIjxbvRCeamkgHTgvE8i5Y8r2S6dDSIoWltU+B8G1RP/ZAyQ49ScQ8L8
-	CXFA2lhmcnfwzoJaLnNh9nbF1fxJ+L4TYjB0TR9xF7yQdr+m0k5f08oqXdNDSIV/zYJ/lrqgDiu
-	VHiUUPsDOJxbQb0dThPcZNnvaz+sgbPMC6SeSzNqdJbH9QgdR6AE38RKHAeXITVYHXN9JgnuZSh
-	LATB0o=
-X-Google-Smtp-Source: AGHT+IGltElZVlwhxw9uDPM97pmJeDSJgwVBwjLX4g172vFNLkOj72zAp9AwhEXJbpTGZUTj/wZcUv/NAwx9DgBOto4=
-X-Received: by 2002:a05:6e02:1a07:b0:3e3:a49a:917b with SMTP id
- e9e14a558f8ab-3e53306e84fmr37599135ab.2.1754635540083; Thu, 07 Aug 2025
- 23:45:40 -0700 (PDT)
+	id 1ukGtM-000000027ms-20Pe;
+	Fri, 08 Aug 2025 06:47:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DE17C5C10B5;
+	Fri,  8 Aug 2025 06:47:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0032FC4CEED;
+	Fri,  8 Aug 2025 06:47:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754635671;
+	bh=AVCxwYMan6Uuj8doqg4vH3GRgUseViUWmTYBb11n0Lw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hPpimJOTeyRvYm2oRNURR0x6WRdbiro15bSBW1D9hCQqqcX8pKGhi4JlBtwOhAu4j
+	 5ekrPl+Ry8MiVMls1x8H3sT9viIg0pxH76eYK1T0nfY7Ny0J+Se6SCTEZh0iGp3Xw7
+	 5tBHMkT30q+C8T76fSr8EAgHdGacJLPE6LbZjSY5ks7p1f1Bz56keuokU1RCY9Q0cj
+	 xKpuKSLKCGSG4kXmJsGeOeXODteHsiybJPt53E9+MyKknnFuPs4csa44xAGpVJU0ba
+	 W6oSYHGPs+QlHGcZsHIh4RAmT6QKrF/4PBImyKPAosbzbOqGnB4+3c5+xmaHXmJWa5
+	 SXIxEAUm3kyZw==
+Date: Fri, 8 Aug 2025 08:47:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Rick Wertenbroek <rick.wertenbroek@gmail.com>
+Cc: rick.wertenbroek@heig-vd.ch, dlemoal@kernel.org, 
+	alberto.dassatti@heig-vd.ch, Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] dt-bindings: phy: rockchip,pcie3-phy: add
+ rockchip,phy-ref-use-pad
+Message-ID: <20250808-ubiquitous-persimmon-llama-ff350e@kuoka>
+References: <20250806133824.525871-1-rick.wertenbroek@gmail.com>
+ <20250806133824.525871-4-rick.wertenbroek@gmail.com>
+ <20250807-inquisitive-speedy-rooster-0a8488@kuoka>
+ <c86bcdf0-f692-4263-a597-f8e36a53e8d9@kernel.org>
+ <CAAEEuhpHmW9hji91tbQ3MMhBZELCYc_vA+Ra3oC2W+Rf8LLC6w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250804104722.601440-1-shengjiu.wang@nxp.com>
- <20250804104722.601440-6-shengjiu.wang@nxp.com> <fa455148-a071-4433-8c9c-26add3872604@nxp.com>
- <CAA+D8AN4n0H6M_0EqX4z_37ViSCyThKbmtMgqPmipintJ8Wtwg@mail.gmail.com>
- <ba02693b-8ad2-4297-ab89-5b39d5c4315f@nxp.com> <CAA+D8AN3VzFx1g=8wyxJROw96xS2-qoVs3X4vUfFnJtUCqFj_w@mail.gmail.com>
- <481c4a38-e638-49ea-88d4-765e581afca7@nxp.com>
-In-Reply-To: <481c4a38-e638-49ea-88d4-765e581afca7@nxp.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 8 Aug 2025 14:45:26 +0800
-X-Gm-Features: Ac12FXwPBbMoH09jFjYWwfKVloaD-hbqz3Zq3uo6wZJ3wJC3FWnXebP2M-e4hG8
-Message-ID: <CAA+D8AMmQo=TgaJTubLL6xRp0NV3GpeE0JKwhBjmhZjtBnBQjA@mail.gmail.com>
-Subject: Re: [PATCH v3 5/6] drm/bridge: imx: add driver for HDMI TX Parallel
- Audio Interface
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>, andrzej.hajda@intel.com, 
-	neil.armstrong@linaro.org, rfoss@kernel.org, 
-	Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, lumag@kernel.org, dianders@chromium.org, 
-	cristian.ciocaltea@collabora.com, luca.ceresoli@bootlin.com, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	p.zabel@pengutronix.de, devicetree@vger.kernel.org, l.stach@pengutronix.de, 
-	perex@perex.cz, tiwai@suse.com, linux-sound@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <CAAEEuhpHmW9hji91tbQ3MMhBZELCYc_vA+Ra3oC2W+Rf8LLC6w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_234541_255372_AA624E01 
-X-CRM114-Status: GOOD (  33.69  )
+X-CRM114-CacheID: sfid-20250807_234752_595726_A5B06E92 
+X-CRM114-Status: GOOD (  36.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,141 +80,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 8, 2025 at 2:32=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wrote:
->
-> On 08/07/2025, Shengjiu Wang wrote:
-> > On Wed, Aug 6, 2025 at 2:52=E2=80=AFPM Liu Ying <victor.liu@nxp.com> wr=
-ote:
-> >>
-> >> On 08/06/2025, Shengjiu Wang wrote:
-> >>> On Tue, Aug 5, 2025 at 4:55=E2=80=AFPM Liu Ying <victor.liu@nxp.com> =
-wrote:
-> >>>>
-> >>>> On 08/04/2025, Shengjiu Wang wrote:
-> >>
-> >> [...]
-> >>
-> >>>>> +static int imx8mp_hdmi_pai_bind(struct device *dev, struct device =
-*master, void *data)
-> >>>>> +{
-> >>>>> +     struct dw_hdmi_plat_data *plat_data =3D (struct dw_hdmi_plat_=
-data *)data;
-> >>>>> +     struct imx8mp_hdmi_pai *hdmi_pai;
-> >>>>> +
-> >>>>> +     hdmi_pai =3D dev_get_drvdata(dev);
-> >>>>> +
-> >>>>> +     plat_data->enable_audio =3D imx8mp_hdmi_pai_enable;
-> >>>>> +     plat_data->disable_audio =3D imx8mp_hdmi_pai_disable;
-> >>>>> +     plat_data->priv_audio =3D hdmi_pai;
-> >>>>> +
-> >>>>> +     return 0;
-> >>>>> +}
-> >>>>> +
-> >>>>> +static void imx8mp_hdmi_pai_unbind(struct device *dev, struct devi=
-ce *master, void *data)
-> >>>>> +{
-> >>>>> +     struct dw_hdmi_plat_data *plat_data =3D (struct dw_hdmi_plat_=
-data *)data;
-> >>>>> +
-> >>>>> +     plat_data->enable_audio =3D NULL;
-> >>>>> +     plat_data->disable_audio =3D NULL;
-> >>>>> +     plat_data->priv_audio =3D NULL;
-> >>>>
-> >>>> Do you really need to set these ptrs to NULL?
-> >>>
-> >>> yes.  below code in dw-hdmi.c use the pdata->enable_audio as conditio=
-n.
-> >>
-> >> Note that this is all about tearing down components.
-> >> If this is done properly as the below snippet of pseudo-code, then
-> >> hdmi->{enable,disable}_audio() and pdata->{enable,disable}_audio() won=
-'t be
-> >> called after audio device is removed by dw_hdmi_remove().  So, it's un=
-necessary
-> >> to set these pointers to NULL here.
-> >>
-> >> imx8mp_dw_hdmi_unbind()
-> >> {
-> >>    dw_hdmi_remove(); // platform_device_unregister(hdmi->audio);
-> >>    component_unbind_all(); //imx8mp_hdmi_pai_unbind()
-> >> }
-> >>
-> >> BTW, I suggest the below snippet[1] to bind components.
-> >>
-> >> imx8mp_dw_hdmi_bind()
-> >> {
-> >>    component_bind_all(); // imx8mp_hdmi_pai_bind()
-> >>                          //   set pdata->{enable,disable}_audio
-> >>    dw_hdmi_probe(); // hdmi->audio =3D platform_device_register_full(&=
-pdevinfo);
-> >> }
+On Thu, Aug 07, 2025 at 10:47:18AM +0200, Rick Wertenbroek wrote:
+> On Thu, Aug 7, 2025 at 9:55=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
 > >
-> > Looks like we should use dw_hdmi_bind() here to make unbind -> bind wor=
-k.
->
-> I don't get your idea here.
->
-> What are you trying to make work?
-> Why dw_hdmi_probe() can't be used?
-> How does dw_hdmi_bind() help here?
+> > On 07/08/2025 09:54, Krzysztof Kozlowski wrote:
+> > > On Wed, Aug 06, 2025 at 03:38:23PM +0200, Rick Wertenbroek wrote:
+> > >> >From the RK3588 Technical Reference Manual, Part1,
+> > >> section 6.19 PCIe3PHY_GRF Register Description: "ref_use_pad"
+> > >>
+> > >> "Select reference clock connected to ref_pad_clk_p/ref_pad_clk_m.
+> > >> Selects the external ref_pad_clk_p and ref_pad_clk_m inputs as the
+> > >> reference clock source when asserted. When de-asserted, ref_alt_clk_p
+> > >> and ref_alt_clk_m are the sources of the reference clock."
+> > >>
+> > >> The hardware reset value for this field is 0x1 (enabled).
+> > >> Note that this register field is only available on RK3588, not on RK=
+3568.
+> > >
+> > > Then you miss restricting it (:false) in one of if:then: blocks.
+> > >
+> > > Also, binding cannot be after the user. You need to reorder patches.
+> > >
+> > > ...
+> > >
+> > >>
+> > >> +  rockchip,phy-ref-use-pad:
+> > >> +    description: which PHY should use the external pad as PCIe refe=
+rence clock.
+> > >> +      1 means use pad (default), 0 means use internal clock (PLL_PP=
+LL).
+> > >
+> > > Can't you deduce it from the presence of clock inputs? IOW, if the
+> > > clocks are physically connected, is it even reasonable or possible to
+> > > use internal clock?
+>=20
+> Thank you Krzysztof,
+> But no, if there is no clock, the driver deadlocks, it needs a clock
+> to probe correctly.
+>=20
+> When there is a clock physically connected on the pad, you can still
+> choose to use it or use the internal clock, this is no problem.
 
-bind() is ok.  but unbind(),  then bind() there is an issue.
+Why would use internal clock for such case? In few other cases this
+appeared we usualyl were using the presence of the clock as determining
+factor.
 
->
-> > But can't get the encoder pointer.  the encoder pointer is from lcdif_d=
-rv.c,
-> > the probe sequence of lcdif, pvi, dw_hdmi should be dw_hdmi first, then=
- pvi,
-> > then lcdif, because current implementation in lcdif and pvi driver.
->
-> We use deferral probe to make sure the probe sequence is
-> DW_HDMI -> PVI -> LCDIF.
->
-> LCDIF driver would call devm_drm_of_get_bridge() to get the next bridge P=
-VI
-> and it defers probe if devm_drm_of_get_bridge() returns ERR_PTR(-EPROBE_D=
-EFER).
-> Same to PVI driver, it would call of_drm_find_bridge() to get the next br=
-idge
-> DW_HDMI and defers probe if needed.
+> The problem is when you have no clock on the pad (as it defaults to
+> using the pad) and the loading the driver deadlocks the system...
 
-right, probe is no problem,  but after probe,  if unbind pai, hdmi_tx,
- then bind
-them again,  there is a problem,  because no one call the
-drm_bridge_attach() again.
+This sounds like a driver, not a binding, problem.
 
->
+>=20
+> > >
+> > >> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> > >> +    minItems: 2
+> > >> +    maxItems: 2
+> > >> +    items:
+> > >> +      minimum: 0
+> > >> +      maximum: 1
+> > >
+> > > More precise:
+> > >
+> > > items:
+> > >   - description: PHY0 reference clock config
+> > >   - description: PHY1 reference clock config
+> > >   enum: [ 0, 1 ]
 > >
-> > Should the lcdif and pvi driver be modified to use component helper?
->
-> Why should they use component helper?
->
-> BTW, I've tried testing the snippets suggested by me on i.MX8MP EVK and
-> the components bind successfully:
-
-right, probe is no problem. but if try to unbind() then bind, there is issu=
-e.
-
-best regards
-shengjiu Wang
->
-> cat /sys/kernel/debug/device_component/32fd8000.hdmi
-> aggregate_device name                                            status
-> -----------------------------------------------------------------------
-> 32fd8000.hdmi                                                     bound
->
-> device name                                                      status
-> -----------------------------------------------------------------------
-> 32fc4800.audio-bridge                                             bound
->
-> > This seems out of the scope of this patch set.
+> > Eh, no, rather if this stays as int:
 > >
-> > Best regards
-> > Shengjiu Wang
->
-> [...]
->
-> --
-> Regards,
-> Liu Ying
+> >     items:
+> >       - description: PHY0 reference clock config
+> >         enum: [ 0, 1 ]
+> >       - description: PHY1 reference clock config
+> >         enum: [ 0, 1 ]
+> >     default: [ 1, 1 ]
+> >
+> >
+> > > default: [ 1, 1 ]
+> > >
+> > > Anyway, default 1, 1 is pretty non-obvious, so this should be just
+> > > non-unique-string-array (and property should be like
+> > > rockchip,phy-ref-clk-source/sel).
+> > >
+> > >
+> > > Best regards,
+> > > Krzysztof
+> > >
+> >
+> >
+> > Best regards,
+> > Krzysztof
+>=20
+> I based my patch on patch :
+> 46492d10067660785a09db4ce9244545126a17b8
+> dt-bindings: phy: rockchip,pcie3-phy: add rockchip,rx-common-refclk-mode
+>=20
+> As the option I add is extremely similar, it sets a feature in one of
+> the PHY registers and only applies to RK3588.
+> That is why I used the same style as rockchip,rx-common-refclk-mode.
+
+So you should have used for example same property.
+
+>=20
+> Wouldn't it be confusing or at least incoherent to use enum for
+> rockchip,phy-ref-use-pad but not for rx-common-refclk-mode ?
+
+Same hardware properties should have same properties - type, name and
+meaning - but you did not re-use existing one. Maybe it is too specific?
+
+We do not write properties for registers, but for hardware (like SoC or
+board) characteristics.
+
+Best regards,
+Krzysztof
+
 
