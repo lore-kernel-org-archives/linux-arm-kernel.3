@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67585C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1231CC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Nf4LboMlyAzQCzh/1ctdONRto33aQQULX47UTzpFE0=; b=YveBD20fnOJPbsIuxJPxxLWImZ
-	sSpVK1IFhV5T5/mYDTdQcxeAvnwP/wpYHsJb5+oiXOfHwIkN1aA4BFpeIIzdCsRKG+NSYfkm09emj
-	g43d9gsXzArwlA3E1wMwKAdZsiD+CAzvd3kK5+nHu0gHOqO3JupLPUNPIGL9lGzAeXqm2K+91ZWF5
-	is6Vj2WO3Gt+BQ3by1bXPK8/RFXw6Wiuj7pZmHB7rCzHSU62nZBl5Ft7avNZQpZvljXBaGkmL5Rsk
-	HFBqwABMghsCNUy2OGtFGTv9O0j2LHsLqjSvjjJ6jEN3OUpLmqY+wrzN/00It7OjDEcSc0/DFK08i
-	NzkPUJ0A==;
+	bh=lgp4XbPSBGZ/nyQklTwjyvG0jLZ6UIZYS7A5GtDvLoc=; b=nd8w4k4N+mlHiyZ35Knc1OTeZh
+	4mgSARvMA1o7hhmyn0CkZ3+JXWrRI0HNJ1/z5Agee8cth5v0QX6ZG73HB34pdg94ZZtZc7Hz2s1Sj
+	K0Bet+7rzWnIgnSzo3OgWtKTyhX7VwuIR/jsQlbxAftxdfAERocVm1lIiblDvegTSZfTBJv/oO6GA
+	Gm2U1yoEJapSsHGxcSo9An8+ik2KvtoDlYEhT1wULbBi9xdiy+S0n2VSf33MZWBfBGwn9yPqdUFzY
+	yH0nidlrVAIC1SCQfNGnKseXfUVvRtJIWrk4Vjy/8ht71PDoUxiIxnY0wAD1LoUc3nBlKKo4yDbLg
+	Fef3d1DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukSRp-00000003WZd-493M;
-	Fri, 08 Aug 2025 19:08:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ukSpL-00000003Xeu-0xgQ;
+	Fri, 08 Aug 2025 19:32:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukSPI-00000003WHd-3yp9
+	id 1ukSmo-00000003XNf-2xrz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 19:05:38 +0000
+	Fri, 08 Aug 2025 19:29:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C947DA569E1;
-	Fri,  8 Aug 2025 19:05:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06FB2C4CEED;
-	Fri,  8 Aug 2025 19:05:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6066A5C6B2C;
+	Fri,  8 Aug 2025 19:29:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08ADAC4CEED;
+	Fri,  8 Aug 2025 19:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754679935;
-	bh=9sNZifZ906dYt7wIbV9eoAh1hSVh4+0uqV8iP9M7bIw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Db1XJ4G8RHVrCzWfz7X+y6PLjFRKCtezVLfArElwa49X52xu0y0wb6fzwZrtOrW9e
-	 RMnQRFOZaNXpa21Kqqr5QiK4V3xMkEeHujpZ07QczjdcmfQU618W5zEiJ17LieCfq1
-	 iINq8vBHGZMWU4qnv02JN2genYJBfNm7A22qVqem5xL6rBjYYBc/k6CGwXAHVhZRI7
-	 eTFmJed6OFXe5tLcP6rcwsVBiDwaPyAStPzggj3y53kBOAfa5HhPuYMfAq2JfLosJd
-	 +7N3L8sQPGWbHdoD5Q5WG/1QkS4zolLfOlbYqHSIq5JYPrcVb2kCX7i0RFyk7cxraX
-	 LDyxQrjRODaKQ==
-Date: Fri, 8 Aug 2025 12:05:34 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Suraj Gupta <suraj.gupta2@amd.com>
-Cc: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
- <pabeni@redhat.com>, <michal.simek@amd.com>, <sean.anderson@linux.dev>,
- <radhey.shyam.pandey@amd.com>, <horms@kernel.org>,
- <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <harini.katakam@amd.com>
-Subject: Re: [PATCH net] net: xilinx: axienet: Increment Rx skb ring head
- pointer after BD is successfully allocated in dmaengine flow
-Message-ID: <20250808120534.0414ffd0@kernel.org>
-In-Reply-To: <20250805191958.412220-1-suraj.gupta2@amd.com>
-References: <20250805191958.412220-1-suraj.gupta2@amd.com>
+	s=k20201202; t=1754681393;
+	bh=CiCDLFP0XbUo4Ghv+kqOOeZMQP6GmlGXuHQJyu0BoUo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=nzvfd6TWNGPVP/CzLfSavkL3tBvZNDjEauHvQZ0OzZfJTOyu8A/1pnCgl2zVWM9qm
+	 r4IIzyO0xVVPSwZ0IAQ4qych+wPww+GXMJiaF3HQrFOzSXQ1IM/Nm23FAYMdVy+zF4
+	 GL2Y+VYdZQifx5znCXVpI35dGbz1V7jXrp+wv2kyjVJUri5Er6VXvGvArC+wLc8PW3
+	 MlygcpXM4L4EeWuQHwKRPmq8nCruwpPQ87/9WIZD+RmXvbETIUQndq0y+Qx4nj+Nr9
+	 Pz4dkXFb4ZTq+Zu2F3DSyht+LlXl2chrWjuRoneuZnWdUNohWkV5zyo8w7rCNKGW7q
+	 QaWfimKB2hBRA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7104E383BF5A;
+	Fri,  8 Aug 2025 19:30:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix emac link speed
+ handling
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175468140625.242168.262371954250110213.git-patchwork-notify@kernel.org>
+Date: Fri, 08 Aug 2025 19:30:06 +0000
+References: <20250805173812.2183161-1-danishanwar@ti.com>
+In-Reply-To: <20250805173812.2183161-1-danishanwar@ti.com>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, m-malladi@ti.com, h-mittal1@ti.com,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, srk@ti.com, vigneshr@ti.com, rogerq@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_120537_051379_F3F6C25C 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250808_122954_783280_85D774BF 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 6 Aug 2025 00:49:58 +0530 Suraj Gupta wrote:
-> In DMAengine flow, AXI DMA driver invokes callback before freeing BD in
-> irq handling path.
-> In Rx callback (axienet_dma_rx_cb()), axienet driver tries to allocate
-> new BD after processing skb.
-> This will be problematic if both AXI-DMA and AXI ethernet have same
-> BD count as all Rx BDs will be allocated initially and it won't be
-> able to allocate new one after Rx irq. Incrementing head pointer w/o
-> checking for BD allocation will result in garbage values in skb BD and
-> cause the below kernel crash:
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 5 Aug 2025 23:08:12 +0530 you wrote:
+> When link settings are changed emac->speed is populated by
+> emac_adjust_link(). The link speed and other settings are then written into
+> the DRAM. However if both ports are brought down after this and brought up
+> again or if the operating mode is changed and a firmware reload is needed,
+> the DRAM is cleared by icssg_config(). As a result the link settings are
+> lost.
 > 
-> Unable to handle kernel paging request at virtual address fffffffffffffffa
-> <snip>
-> Internal error: Oops: 0000000096000006 [#1]  SMP
-> pc : axienet_dma_rx_cb+0x78/0x150
-> lr : axienet_dma_rx_cb+0x78/0x150
->  Call trace:
->   axienet_dma_rx_cb+0x78/0x150 (P)
->   xilinx_dma_do_tasklet+0xdc/0x290
->   tasklet_action_common+0x12c/0x178
->   tasklet_action+0x30/0x3c
->   handle_softirqs+0xf8/0x230
-> <snip>
+> [...]
 
-Do you mean that we're incrementing lp->rx_ring_head before we know
-that the submission will succeed? Potentially leaving an uninitialized
-entry (say at index n), next attempt will try to use the next entry 
-(n + 1) but the completion will not know about the skip so it will
-try to complete entry n ?
+Here is the summary with links:
+  - [net,v3] net: ti: icssg-prueth: Fix emac link speed handling
+    https://git.kernel.org/netdev/net/c/06feac15406f
 
-This is really not coming thru in your explanation.
-
-The fix itself seems incomplete. Even if we correctly skip the increment
-we will never try to catch up with the allocations, the ring will have
-fewer outstanding Rx skbs until reset, right? Worst case we drop all
-the skbs and the ring will be empty, no Rx will happen until reset.
-The shutdown path seems to be checking for skb = NULL so I guess it's
-correct but good to double check..
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
