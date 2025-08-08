@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFFDC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AAFC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rm/KaI4gS5txCax60X3cOFqmUOa0+shLoOnPWo3LZg4=; b=id4UAee8KSs4C+f83wPY0s51wo
-	Trcjj4Id1GUMon1t6l51qkXUHyegsTd9lOEiimldYNBBrNA9xWertCYErqaDg+cw6qXtVII7Lbb0Z
-	o3f4b52MieaT+138uZe47OrYzxF5ByO/mNcq9U3+YOPgquPl7BExz9tbcmY/POBQjX+ZQjqrpb0s1
-	4zeJXwrzWmGlCTEkGB8dul3IC6kJeSOUgR104oTWJQjhpoKp5Rn3xVS2W/aMBS5R2dFDxs/4sKtiU
-	kIc/sZGhrjZveh/fGLNjy1gk8TuA3pq/40GM2nM6v5hW/NNjkLt5YX7QB7nNOa1yeI6b17MRUBe/N
-	cgj/4f+Q==;
+	bh=qdUpktaT2gX2CFPhryadTKFXcXwjP0lNYT9ptGL5Ero=; b=nUtUixu6K6R+tVB4xVvkNGd3wb
+	xnWsvWjbTg4OBWjYCIcJHfhPI8K6qVuGv3yelcpqa2y7e9kgIfMa6l5S2LxfE3wIMaSW76x1TW582
+	0JACNiRZVbZNTc7ZETch3NXPqH0TQZJhfr1E2WzLxpYDTl/Vi1tgzA9DKgFV9g9yEd3LbZKaaJ/bc
+	zadHKdMzsuvM04agAkQy0RiHXCFxkgOczV55KLoXsox/xF1rHinVUzzi6jAXCVFBm2076QZ5apN3V
+	8giO+Nu2CCUQOESBWSHduBxk4Y/2ibLWeAoq/MhFaNpN8iyhMGjgz1a+MPTYcYdblBYRnXy1LpvDW
+	f8iUEArg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukT7P-00000003YuB-3ykX;
-	Fri, 08 Aug 2025 19:51:11 +0000
+	id 1ukTAe-00000003ZKg-37Ji;
+	Fri, 08 Aug 2025 19:54:32 +0000
 Received: from mx.olsak.net ([37.205.8.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukT4s-00000003Yis-2mlj
+	id 1ukT88-00000003Z2d-0zvf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 19:48:36 +0000
-DKIM-Signature: a=rsa-sha256; bh=rm/KaI4gS5txCax60X3cOFqmUOa0+shLoOnPWo3LZg4=;
+	Fri, 08 Aug 2025 19:51:57 +0000
+DKIM-Signature: a=rsa-sha256; bh=qdUpktaT2gX2CFPhryadTKFXcXwjP0lNYT9ptGL5Ero=;
  c=relaxed/relaxed; d=dujemihanovic.xyz;
  h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@dujemihanovic.xyz; s=default; t=1754682419; v=1; x=1755114419;
- b=Gr2Alh4hi11EAN9rear4dDOE8QlaR46SNQPsFD1ooegKRm0HJHYnFWdUO9dBzTAtGiENCnPM
- huKFchm21m8KKgRpiQItKnlXXQDpE80TXeVrwL2HUT8EpOrgrv2g2D3/zqdBH3cPO/qFaOEtuKk
- oY7LL1TFJB9sCPodsO66g3HWZeR+Tv1Len1w/BvMvToZbblZG4k3kJQY8n//8yTuBFcwHdikJUN
- ssJk/LQlEjCXtiG/hpDsFSVMqhJPwPf1tlX++/avZQObwj3Oibn5qL4bFFm2HQ0LRDzFeRj4UmC
- kkzB0oBE0bugbMVT1WJnhN5pklZ8atDGCn8ZRWUbwzF6w==
+ i=@dujemihanovic.xyz; s=default; t=1754682705; v=1; x=1755114705;
+ b=FwqlN8NAHSWMHPWImW/qCeBBypphh29Fvae2amh997SZV8FG1egAwUkT8FL1GgXqTn4q2iwQ
+ /kyfnHPdWEAbwqgvMeqnP/LgTJs9LhXgdtelqkz4VIlyPZ0vqk7CjDNBjLrAq8lWoEuSE4SgJ5j
+ 2xgL0xif2573ngFwGRjxWB7cbN8+IKMbrjQfJfr8g/TCj9k3DlIL9CDxp5XuKYv2KWjWfJBkUoQ
+ osu1EaE7Yi6W3z4EScUg2i6ALlRfcwRiyYptDRcTJ31iv3eJfx3yS3XS/VrGmcbKjZffQOYNWD/
+ g1U0jMCC6FxYWCqR7LS9XiECNiF+Ix7GYD1AdvFDLdT9Q==
 Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
- ESMTPS id ca151574; Fri, 08 Aug 2025 21:46:59 +0200
+ ESMTPS id be47afdb; Fri, 08 Aug 2025 21:51:45 +0200
 From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
-To: Krzysztof Kozlowski <krzk@kernel.org>
+To: Conor Dooley <conor@kernel.org>
 Cc: Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
@@ -48,19 +48,18 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
  ~postmarketos/upstreaming@lists.sr.ht, linux-arm-kernel@lists.infradead.org,
  linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
-Date: Fri, 08 Aug 2025 21:46:58 +0200
-Message-ID: <2017616.PYKUYFuaPT@radijator>
-In-Reply-To: <20250808-portable-expert-turkey-4f8f19@kuoka>
+Subject: Re: [PATCH RFC 0/5] Marvell PXA1908 power domains
+Date: Fri, 08 Aug 2025 21:51:44 +0200
+Message-ID: <3650391.iIbC2pHGDl@radijator>
+In-Reply-To: <20250807-avatar-comply-30aa8001aa82@spud>
 References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
- <20250806-pxa1908-genpd-v1-2-16409309fc72@dujemihanovic.xyz>
- <20250808-portable-expert-turkey-4f8f19@kuoka>
+ <20250807-avatar-comply-30aa8001aa82@spud>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_124835_452146_0CF6BE43 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20250808_125156_427470_61D2CAEC 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 8 August 2025 09:34:54 Central European Summer Time Krzysztof Ko=
-zlowski wrote:
-> On Wed, Aug 06, 2025 at 07:33:21PM +0200, Duje Mihanovi=C4=87 wrote:
-> > +          A number of phandles to clocks that need to be enabled during
-> > domain +          power up.
->=20
-> This does not exist in your example, so it is just confusing.
+On Thursday, 7 August 2025 17:40:28 Central European Summer Time Conor Dool=
+ey wrote:
+> On Wed, Aug 06, 2025 at 07:33:19PM +0200, Duje Mihanovi=C4=87 wrote:
+> > Hello,
+> >=20
+> > This series implements support for the power domains found in Marvell's
+> > PXA1908 SoC. The domains control power for the graphics, video and image
+> > processors along with the DSI PHY.
+> >=20
+> > The series is based on master as the MAINTAINERS and device tree patches
+> > depend on the very recently merged initial Marvell PXA1908 support seri=
+es.
+> > That series can be found at the following link:
+> > https://lore.kernel.org/all/20250708-pxa1908-lkml-v16-0-b4392c484180@du=
+jemih
+> > anovic.xyz
+> It's not clear to me, nor mentioned anywhere I could see, why this is an
+> RFC. What are you actually soliciting feedback on?
 
-This is because I have not implemented any of the clocks used by the
-domains at this moment.
-
-Actually, I am not sure anymore whether it is necessary to assign
-clocks to the domains as I have just yesterday successfully brought up
-the GPU with some out-of-tree code and that did not require giving the
-domains any clocks even though the vendor kernel does this. Should I
-just go with that and drop all clock handling from the power domain
-driver, at which point there would be no need for the individual domain
-nodes? If not, how should I in the future assign clocks to the domains?
-
-> > +examples:
-> > +  - |
-> > +    #include <dt-bindings/power/marvell,pxa1908-power.h>
-> > +
-> > +    clock-controller@d4282800 {
-> > +      compatible =3D "marvell,pxa1908-apmu", "simple-mfd", "syscon";
-> > +      reg =3D <0xd4282800 0x400>;
-> > +      #clock-cells =3D <1>;
-> > +
-> > +      power-controller {
-> > +        compatible =3D "marvell,pxa1908-power-controller";
->=20
-> No address space, so this should be folded into the parent.
-
-By this, do you mean that the clock driver registers the power domain
-controller through devm_mfd_add_devices()?
+Apologies for that, should have mentioned it right away. I was unsure
+whether I was handling domain clocks correctly, which is one of the
+things Krzysztof since commented on.
 
 Regards,
 =2D-
