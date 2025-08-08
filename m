@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157DEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:39:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB41C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19jDBZF6rNyIk4iwZQDSSyLigfmGruZ32AJudcB1SJo=; b=3arDJKnFduaOnToKp6Vwrt6H5P
-	YjFbzGD4pTwyBm61dJRwnUn+vL5Sv5nkCFgSaqsAGFyYq8sTR+o9ZD+kY6GRtkdGDgrJ9AZozYunq
-	3ca9zTotXCF9CqwWSwMEquvKilHR59y59I28lHLnuDYvSoseZ3G903QnCUeNihDjsEVHxv2o7Yign
-	c6GHqU7m6yqjJ76NYss/kOySIZpjxI3Bx3YuQhsik6Y8oLvfHOEaehDUCJI9Tx2ZlPj3WPKJhdSPK
-	m/ideBfuF+rYFCncqJTs5irRHl3npZgv+FuIUDgliGqXkbnj2oHmS+mVfoQ1v+yp9+MFrWOsyq3ph
-	YFG0cJ7Q==;
+	bh=4/QklETFhE/HaMV63Zcte41AoyA4FbhUpoG+hqiHyGs=; b=Yzf5U/zXsgAY5jGg0gbn5So5Ob
+	cLViIa661YanrKUAiBIpjciSAoG5iYuXP7KqE6AsSylThKLkA6niAENFBwLTJGip84rBJpT/SOXnB
+	ZrosLgxmVWWiVlFX7R8SGxzPjIIX7qBabyZR6Xw/VoA8GTP84sOj8nL7LTEA5DrzjWY6agMfmDK5g
+	oKHRVoMq4AWYgbIfAdqBWYp694DSIhB3mVpX6mrrD1sLrHKNhiu0gS2SkBQW12+JzTKiwha2DcBi9
+	44npLAZmL1l4hitj5dAe976hwOxZoHAeEw9XPcvZStCz2WP1GwDZWvVPku2p382xZdeVNtD7rUHJJ
+	iQ6wOvtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHhN-00000002DzI-3Hro;
-	Fri, 08 Aug 2025 07:39:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHP2-00000002BD8-3wQk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 07:20:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2171122EA;
-	Fri,  8 Aug 2025 00:20:28 -0700 (PDT)
-Received: from [10.57.5.99] (unknown [10.57.5.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F9B33F673;
-	Fri,  8 Aug 2025 00:20:31 -0700 (PDT)
-Message-ID: <99531c99-0430-4248-960a-a55fcdba79da@arm.com>
-Date: Fri, 8 Aug 2025 08:20:28 +0100
+	id 1ukHjr-00000002EW7-2INA;
+	Fri, 08 Aug 2025 07:42:07 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ukHQ6-00000002BHu-1Qwj;
+	Fri, 08 Aug 2025 07:21:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 37190443D6;
+	Fri,  8 Aug 2025 07:21:33 +0000 (UTC)
+Message-ID: <7487516c-3eb1-46fa-aed5-6dc72600c952@ghiti.fr>
+Date: Fri, 8 Aug 2025 09:21:32 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 20/36] arm_mpam: Probe the hardware features resctrl
- supports
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
- <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
- Carl Worth <carl@os.amperecomputing.com>,
- shameerali.kolothum.thodi@huawei.com,
- D Scott Phillips OS <scott@os.amperecomputing.com>, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Rex Nie <rex.nie@jaguarmicro.com>,
- Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
-References: <20250711183648.30766-1-james.morse@arm.com>
- <20250711183648.30766-21-james.morse@arm.com>
- <46e49e66-1da3-433c-bdad-9468133c78a2@arm.com>
+Subject: Re: [PATCH v5 2/2] kasan: call kasan_init_generic in kasan_init
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: ryabinin.a.a@gmail.com, bhe@redhat.com, hca@linux.ibm.com,
+ andreyknvl@gmail.com, akpm@linux-foundation.org, zhangqing@loongson.cn,
+ chenhuacai@loongson.cn, davidgow@google.co, glider@google.com,
+ dvyukov@google.com, agordeev@linux.ibm.com, vincenzo.frascino@arm.com,
+ elver@google.com, kasan-dev@googlegroups.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-mm@kvack.org,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+References: <20250807194012.631367-1-snovitoll@gmail.com>
+ <20250807194012.631367-3-snovitoll@gmail.com>
+ <07ffb27c-3416-43c9-a50a-164a76e5ab60@csgroup.eu>
+ <CACzwLxhahYWfRc5xKshayniV6SuFFnMT0NfHttippcASzZgtRw@mail.gmail.com>
 Content-Language: en-US
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <46e49e66-1da3-433c-bdad-9468133c78a2@arm.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CACzwLxhahYWfRc5xKshayniV6SuFFnMT0NfHttippcASzZgtRw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgdduvdefudelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeduffeugedvtdegleeuhfeuteetueegfeefkefhheffvdduhfegvdehuddukeffgeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddvrddutddungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehsnhhovhhithholhhlsehgmhgrihhlrdgtohhmpdhrtghpthhtoheptghhrhhishhtohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehrhigrsghinhhinhdrrgdrrgesghhmrghilhdrtghomhdprhgtphhtthhopegshhgvsehrvgguhhgrthdrtghomhdprhgtphhtthhopehhtggrsehlihhnuhigr
+ dhisghmrdgtohhmpdhrtghpthhtoheprghnughrvgihkhhnvhhlsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopeiihhgrnhhgqhhinhhgsehlohhonhhgshhonhdrtghn
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_002037_018030_86649B21 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250808_002142_510072_265527D6 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +76,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
 
-On 28/07/2025 09:56, Ben Horgan wrote:
-> On 7/11/25 19:36, James Morse wrote:
->> Expand the probing support with the control and monitor types
->> we can use with resctrl.
+On 8/8/25 08:44, Sabyrzhan Tasbolatov wrote:
+> On Fri, Aug 8, 2025 at 10:07 AM Christophe Leroy
+> <christophe.leroy@csgroup.eu> wrote:
+>>
+>>
+>> Le 07/08/2025 à 21:40, Sabyrzhan Tasbolatov a écrit :
+>>> Call kasan_init_generic() which handles Generic KASAN initialization.
+>>> For architectures that do not select ARCH_DEFER_KASAN,
+>>> this will be a no-op for the runtime flag but will
+>>> print the initialization banner.
+>>>
+>>> For SW_TAGS and HW_TAGS modes, their respective init functions will
+>>> handle the flag enabling, if they are enabled/implemented.
+>>>
+>>> Closes: https://bugzilla.kernel.org/show_bug.cgi?id=217049
+>>> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+>>> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
+>>> Acked-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
+>>> ---
+>>> Changes in v5:
+>>> - Unified arch patches into a single one, where we just call
+>>>        kasan_init_generic()
+>>> - Added Tested-by tag for riscv (tested the same change in v4)
+>>> - Added Acked-by tag for s390 (tested the same change in v4)
+>>> ---
+>>>    arch/arm/mm/kasan_init.c    | 2 +-
+>>>    arch/arm64/mm/kasan_init.c  | 4 +---
+>>>    arch/riscv/mm/kasan_init.c  | 1 +
+>>>    arch/s390/kernel/early.c    | 3 ++-
+>>>    arch/x86/mm/kasan_init_64.c | 2 +-
+>>>    arch/xtensa/mm/kasan_init.c | 2 +-
+>>>    6 files changed, 7 insertions(+), 7 deletions(-)
+>>>
+>>> diff --git a/arch/arm/mm/kasan_init.c b/arch/arm/mm/kasan_init.c
+>>> index 111d4f70313..c6625e808bf 100644
+>>> --- a/arch/arm/mm/kasan_init.c
+>>> +++ b/arch/arm/mm/kasan_init.c
+>>> @@ -300,6 +300,6 @@ void __init kasan_init(void)
+>>>        local_flush_tlb_all();
+>>>
+>>>        memset(kasan_early_shadow_page, 0, PAGE_SIZE);
+>>> -     pr_info("Kernel address sanitizer initialized\n");
+>>>        init_task.kasan_depth = 0;
+>>> +     kasan_init_generic();
+>>>    }
+>>> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
+>>> index d541ce45dae..abeb81bf6eb 100644
+>>> --- a/arch/arm64/mm/kasan_init.c
+>>> +++ b/arch/arm64/mm/kasan_init.c
+>>> @@ -399,14 +399,12 @@ void __init kasan_init(void)
+>>>    {
+>>>        kasan_init_shadow();
+>>>        kasan_init_depth();
+>>> -#if defined(CONFIG_KASAN_GENERIC)
+>>> +     kasan_init_generic();
+>>>        /*
+>>>         * Generic KASAN is now fully initialized.
+>>>         * Software and Hardware Tag-Based modes still require
+>>>         * kasan_init_sw_tags() and kasan_init_hw_tags() correspondingly.
+>>>         */
+>>> -     pr_info("KernelAddressSanitizer initialized (generic)\n");
+>>> -#endif
+>>>    }
+>>>
+>>>    #endif /* CONFIG_KASAN_GENERIC || CONFIG_KASAN_SW_TAGS */
+>>> diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+>>> index 41c635d6aca..ba2709b1eec 100644
+>>> --- a/arch/riscv/mm/kasan_init.c
+>>> +++ b/arch/riscv/mm/kasan_init.c
+>>> @@ -530,6 +530,7 @@ void __init kasan_init(void)
+>>>
+>>>        memset(kasan_early_shadow_page, KASAN_SHADOW_INIT, PAGE_SIZE);
+>>>        init_task.kasan_depth = 0;
+>>> +     kasan_init_generic();
+>> I understood KASAN is really ready to function only once the csr_write()
+>> and local_flush_tlb_all() below are done. Shouldn't kasan_init_generic()
+>> be called after it ?
+> I will try to test this in v6:
+>
+>          csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
+>          local_flush_tlb_all();
+>          kasan_init_generic();
 
->> diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/
->> mpam_internal.h
->> index 42a454d5f914..ae6fd1f62cc4 100644
->> --- a/drivers/platform/arm64/mpam/mpam_internal.h
->> +++ b/drivers/platform/arm64/mpam/mpam_internal.h
->> @@ -136,6 +136,55 @@ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
->>           lockdep_assert_preemption_enabled();
->>   }
->>   +/*
->> + * When we compact the supported features, we don't care what they are.
->> + * Storing them as a bitmap makes life easy.
->> + */
->> +typedef u16 mpam_features_t;
->> +
->> +/* Bits for mpam_features_t */
->> +enum mpam_device_features {
->> +    mpam_feat_ccap_part = 0,
->> +    mpam_feat_cpor_part,
->> +    mpam_feat_mbw_part,
->> +    mpam_feat_mbw_min,
->> +    mpam_feat_mbw_max,
->> +    mpam_feat_mbw_prop,
->> +    mpam_feat_msmon,
->> +    mpam_feat_msmon_csu,
->> +    mpam_feat_msmon_csu_capture,
->> +    mpam_feat_msmon_csu_hw_nrdy,
->> +    mpam_feat_msmon_mbwu,
->> +    mpam_feat_msmon_mbwu_capture,
->> +    mpam_feat_msmon_mbwu_rwbw,
->> +    mpam_feat_msmon_mbwu_hw_nrdy,
->> +    mpam_feat_msmon_capt,
->> +    MPAM_FEATURE_LAST,
->> +};
->> +#define MPAM_ALL_FEATURES      ((1 << MPAM_FEATURE_LAST) - 1)
-> 
-> Consider a static assert to check the type is big enough.
-> 
-> static_assert(BITS_PER_TYPE(mpam_features_t) >= MPAM_FEATURE_LAST);
 
-Fancy.
-There used to be an uglier one - not sure what happened to it!
-
-
+Before setting the final kasan mapping, we still have the early one so 
+we won't trap or anything on some kasan accesses. But if there is a v6, 
+I agree it will be cleaner to do it this ^ way.
 
 Thanks,
 
-James
+Alex
+
+
+>
+> Alexandre Ghiti said [1] it was not a problem, but I will check.
+>
+> [1] https://lore.kernel.org/all/20c1e656-512e-4424-9d4e-176af18bb7d6@ghiti.fr/
+>
+>>>        csr_write(CSR_SATP, PFN_DOWN(__pa(swapper_pg_dir)) | satp_mode);
+>>>        local_flush_tlb_all();
+>>> diff --git a/arch/s390/kernel/early.c b/arch/s390/kernel/early.c
+>>> index 9adfbdd377d..544e5403dd9 100644
+>>> --- a/arch/s390/kernel/early.c
+>>> +++ b/arch/s390/kernel/early.c
+>>> @@ -21,6 +21,7 @@
+>>>    #include <linux/kernel.h>
+>>>    #include <asm/asm-extable.h>
+>>>    #include <linux/memblock.h>
+>>> +#include <linux/kasan.h>
+>>>    #include <asm/access-regs.h>
+>>>    #include <asm/asm-offsets.h>
+>>>    #include <asm/machine.h>
+>>> @@ -65,7 +66,7 @@ static void __init kasan_early_init(void)
+>>>    {
+>>>    #ifdef CONFIG_KASAN
+>>>        init_task.kasan_depth = 0;
+>>> -     pr_info("KernelAddressSanitizer initialized\n");
+>>> +     kasan_init_generic();
+>>>    #endif
+>>>    }
+>>>
+>>> diff --git a/arch/x86/mm/kasan_init_64.c b/arch/x86/mm/kasan_init_64.c
+>>> index 0539efd0d21..998b6010d6d 100644
+>>> --- a/arch/x86/mm/kasan_init_64.c
+>>> +++ b/arch/x86/mm/kasan_init_64.c
+>>> @@ -451,5 +451,5 @@ void __init kasan_init(void)
+>>>        __flush_tlb_all();
+>>>
+>>>        init_task.kasan_depth = 0;
+>>> -     pr_info("KernelAddressSanitizer initialized\n");
+>>> +     kasan_init_generic();
+>>>    }
+>>> diff --git a/arch/xtensa/mm/kasan_init.c b/arch/xtensa/mm/kasan_init.c
+>>> index f39c4d83173..0524b9ed5e6 100644
+>>> --- a/arch/xtensa/mm/kasan_init.c
+>>> +++ b/arch/xtensa/mm/kasan_init.c
+>>> @@ -94,5 +94,5 @@ void __init kasan_init(void)
+>>>
+>>>        /* At this point kasan is fully initialized. Enable error messages. */
+>>>        current->kasan_depth = 0;
+>>> -     pr_info("KernelAddressSanitizer initialized\n");
+>>> +     kasan_init_generic();
+>>>    }
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
