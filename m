@@ -4,158 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B98CEC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 21:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C33C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 22:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jkk+3t535n4/UAVvjzJbOsMv5YHbb19o1eB9ufbaG6U=; b=o8yG5ZIq1XUTisKM5YUXK0EJdm
-	kajMajd0eGG2K7DtQk9WHlQPAIZPQ8qpBTIH80JwziBht3DyTcxLl8vXlErDbThjDuqhy90jjMk+b
-	1N6x0pIoKAi5YkyBvaU6rEMuRnSxPy3cw9gduZjG5gHvwKEE6qbgbmK+E5T2OyCFbm2yyQB5a0NdN
-	eQzU5COUA+qSi8NuNuavcCRTfGXYC/VNiPmI0Hjd/EjVnBcD3SC0xykzDexnFbxFiScgGPTN3Nzjr
-	rHCCFns5ftoKD+s+qsbzfd+nMzRPowKKB1WDjyhbkAaFSTlGR6zF+SeFUHX8z/K46NrgUTY89T9Co
-	NXMqfmAQ==;
+	bh=u8PcdViVM9JE8IbZsZm/xllXdMrlzsbljuByQCZPh34=; b=h0HdNP7sAC6Y8xaxSV8UaKYaVi
+	/vgvEuDqUIx7RC9rmDWCemGthyh6eIVL5LJMEfqPDP8BlxxA/D3uhowB8qIaDo0kbGk/5W/704q6c
+	KJUHzagUcywIPs5xx+ME5oA3034wTomUpEk9yk8i7I1mcORPSBJLpzYZ1vEZBVnpFbnHdsUYMGgja
+	b4gMzHGT1u55Hux8W6F7UQyhTmzF7AvfeF5WzR677lI8dwagoIWYePV8ztzXCemaPNWSuJVHXdAlp
+	cU+tDGH2kKiYGvzo7Y0ykd+Nb7cMZcPmGn2k8yuaKsyVfF15UJGHPGudcUo1YvsbdMgqoW1NR+kIL
+	r4xKqGsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukUQU-00000003iwF-1z1h;
-	Fri, 08 Aug 2025 21:14:58 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1ukVkd-00000003n7i-3Xfy;
+	Fri, 08 Aug 2025 22:39:51 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukUE6-00000003hUt-3lrc;
-	Fri, 08 Aug 2025 21:02:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a+VZL/Ao9p4dg4Z7D5mblWbI2AKC/rbl4dQfH7jWUtwaISvgK+3JVOnmenVAxJuJti84XlPRzrfzAu/KhT5y1ev5/9m9/APK29L2JzUOqqjG18nnBPGqLmqogTzHgxN6MyTbtO77eraHbBi5uEjpfHougAyL0bXV1epnl43NOVh8IrBUwZasSBJyulP8hHaVWkB4zL68sz7FdB3ZKzxT6kOWh+XrUxITJhnq/gwCWtC/l8xvI7ew6xIh/XuaOl7W+oDHdn3pl5t7cgNF+yclzSeQEjGVWRh96iJZJXkqvdPfmW4oIdO3CD2SGkVsY7pAPU6ZZ8Bo22fYXK/LkRhbXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jkk+3t535n4/UAVvjzJbOsMv5YHbb19o1eB9ufbaG6U=;
- b=vBkzq3AIlguOJEsnJ5dqpjS+UepMdGiFGEgFTbPiGm1ROuUkfoBpFDKHBgNgbsyV2wEvkeSIwNzt4Gbc96E+dA2BaVBiuQSwU581glRnUMiNzYdmUfOPfWGLhdbTg1bk4ObIKKdLE1d/0sTlAvCpZ5GWx/5RjyyWargQksR4/3cCA/Dg159M+Pg+6QriCLEWJ1aL9088049dlHy4TSxJOOXvKKxFYEIimUMIuTBC5CSdU6THjjCGj2sY25PtTB4LvxJmvFuWdFBdB3xnzvwcxcBfygZDiMxGdZfTEHD6YdygJX5sV993OjzMfQ2TnIQPNYWTNquM3MlDuxPjj3fPLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jkk+3t535n4/UAVvjzJbOsMv5YHbb19o1eB9ufbaG6U=;
- b=2KoGsUROtkBMbyqPwiIjjcvTl1FGLEZbxQKqiXD9i7CayyywJndWJyasNfTsxkbCLJxHob6wERXQbPURTtlJe5+Q+pWaXwI2IyI9seWs9BTeksmhg3TdTOVkHV7e6obHdQ4TaCAcQXV+3fFfqfwUcAp+nW3icQ4OF5Xo4K4ekTF6I8inyXOnSXFyZEUOq/DfnY3P6M2M4iQ8ECEtgDykLCgh6XbLM78Og6b1IchjVn5QLsEL464Ez4qXld7UFEcKzilQdMluyaYESvlaj8V8OxAibfF2OF5nEosAPeUtENPwNjIpFSIhDL8aV1xUbIxsZ9QlpledGpZAtlWXXtpBUw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by AS2PR08MB9739.eurprd08.prod.outlook.com (2603:10a6:20b:605::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.16; Fri, 8 Aug
- 2025 21:02:03 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8989.018; Fri, 8 Aug 2025
- 21:02:03 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Takahiro Kuwano <Takahiro.Kuwano@infineon.com>,
-	Martin Kurbanov <mmkurbanov@salutedevices.com>,
-	Cheng Ming Lin <chengminglin@mxic.com.tw>,
-	linux-mtd@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Subject: [PATCH v2 4/4] spi: spi-airoha-snfi: return an error for continuous mode dirmap creation cases
-Date: Sat,  9 Aug 2025 00:01:47 +0300
-Message-ID: <20250808210147.3085391-5-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250808210147.3085391-1-mikhail.kshevetskiy@iopsys.eu>
-References: <87cy98g6ts.fsf@bootlin.com>
- <20250808210147.3085391-1-mikhail.kshevetskiy@iopsys.eu>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: HE1P190CA0037.EURP190.PROD.OUTLOOK.COM (2603:10a6:7:52::26)
- To GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+	id 1ukVi8-00000003n0r-090o
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 08 Aug 2025 22:37:17 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-711751e2d9fso1235987b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 15:37:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754692635; x=1755297435; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u8PcdViVM9JE8IbZsZm/xllXdMrlzsbljuByQCZPh34=;
+        b=AnM1lxTUo1P4+TJKZ0GOtOlpIuXeio1QUl5p6C31+wLDCUiO0vomDOLVTVq8x679cZ
+         QOGYqTLx7uQ0iUZvEsueTfEp5mrLqGALOSKkdG6NutX2CAwPbRrQ5vOJU95J1siFJdHD
+         Ai9UieHeppt/BdUe4Q5SAcrnVZtSJPk/r6nPBTRkOaw9nL6dp2ABEzcFiFuhEzkYPdYQ
+         AvhfgfdDpHS/LNNuYssTcuOuGQX3Fko3BJxSrg/1Yu4nETAaoXZilbEM5Afc5SJGXJEH
+         nsWCm2/D34xa+4Qhv4WpVlfWBwtpk/mdtzq4Q+RsMQpl52EplRis2wJ1sr+vP+PnwerW
+         gegA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754692635; x=1755297435;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=u8PcdViVM9JE8IbZsZm/xllXdMrlzsbljuByQCZPh34=;
+        b=P6++urJO/H/6mQInmo3iPqJy8uYFTBwspi5433GW/pjhmr0Ywikb/D079AnGIjOmML
+         LAeuLZoKM9+aQEBqlf4SaMO0uRCEQlV8NTbqAcmXu87NhF0O5pEcM81DgglZmu1Aob6C
+         shCFUHJs5Tis7oAM/ur/FFe2AbBOnDe2afPsy7LUzEkAvMiVbkc4hXtAF7MWMfsmuo3K
+         fMCBmmOBDshEs9XeElNS6iaBrNMYWEU68OdKhDjfRElk2RJl7s9jJwnEWVt+aikZLmCR
+         se79OFVrCn5/Jvpa+JqlfB34j/jLOHXjA84NjQro3e7UyQf0SR10cLitRlpkT4yAxlY0
+         4GQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVsOeUbk4qbcEqEebZLESGOIQYz5FQDb0KSsKFYD0EeLAnn+3K0IxH1Iaq7jIeO6P3XkhKcsn3tRPr2s+8UOaWp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaVF7/D33xXjXHp+l4BmYOzzeD5m8Ssl3f3WQ09xIPx+8sB917
+	aodDAI8KrxwgEIStNXm0l06+GEBUyIFGG3qjMJLDNmN2EU8q2q2+8jkPxvslpir5XnQ1PAJov8l
+	DqtGVBD2Ttz/cdB5+Bs77IzyYwdp4EN4=
+X-Gm-Gg: ASbGnctUfyBYL+S/U6LO7Y73Pu9xyN5G389BWZm6/1A03Z3ZghYRCmLgnOqwx0sbiRL
+	keCnjUFO4zaRaPqMf3Jlyut83MKNSg7gMs3nNUdIVwho3UY1/NU17IFtnUcINS1Gh1IIHKM7SVg
+	Rv1x5kpvE4s5OkUl9qTmXbuzLNoGkHkNMtPRbnDNgjhVoVjibB5i226HHKjbdAuoGtURnNGwxYc
+	uDykFE=
+X-Google-Smtp-Source: AGHT+IH/XOBhWDGZF7tzd1bJiHZgTVQajMTE0Df6YY0Q1oHeFqhiksv2ysGW44ElsIxDlyJzzEz12bHe8e1R0ERq4zA=
+X-Received: by 2002:a05:690c:6c87:b0:71a:2d5f:49d8 with SMTP id
+ 00721157ae682-71c0830fb07mr3640127b3.3.1754692634671; Fri, 08 Aug 2025
+ 15:37:14 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS2PR08MB9739:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a234dfe-458c-4fbd-22f1-08ddd6bed354
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0BJabd7NwZVygzgjTw7YDCFPeb96DdGA+ovvMSDJdtXzRup8is2RdoyNzaAh?=
- =?us-ascii?Q?6k5y9jJXZmzpaYtolWuMlUkePcxkO7drsZe4AAOhcLn4k3lqsbf5gNx31thV?=
- =?us-ascii?Q?38r0DE+fLP1YPrQJm1+hy7K/xCNBUrNsrWRGc+WwNaDfzgnVepkluza0tyRz?=
- =?us-ascii?Q?Wu8yPWww1vbZfnILenjyhXhzfaVddgDyQanDiFmzQZRHLuWHp40GWae0zioa?=
- =?us-ascii?Q?WuoASblrSwcab1kjqobPTlGYLsEqrXe6YfZy30Oiy1ipEbtmUk754ZSpz4Bn?=
- =?us-ascii?Q?5R/lCo3aRVYtXZiS1uZ6h0ifW+3XYfeXfWfkILeuIVMKbTGePOr8Z4EcT7+J?=
- =?us-ascii?Q?2aSzlactLvI3MgpHDKZ4z3nR3cb0MFnmy6XL/YiwVRVuw8MKqA+gze9EHKpo?=
- =?us-ascii?Q?vXbjmS7R+nLL8q/OtxUUgKDZnJCKyLcjVuS5sSkS4dea2AwDDIjhvJ9sRhav?=
- =?us-ascii?Q?5Y98X4MLbubKJTaeqQdF10xitMeIuPXuRSzHEUEXVekRHu7UckSGlrMsLFlB?=
- =?us-ascii?Q?mDJHeoAD0EJ/kWhMarv1Wkymc+2cRTcvU9T3kZcK5HVboxddrRNInvvJlGM0?=
- =?us-ascii?Q?rjNGYCniQHyocCiUuV17oQWuteTlpClRSNxDAL/b1NJgHRX8+nLTDg3bKuir?=
- =?us-ascii?Q?Z7rSrUmm5Fi7Cs034wFEWvsGm5ZBrXB1kUSEfDFmltqTMBiIOBGtrXd3fL/Z?=
- =?us-ascii?Q?AYnLyYfPiOMjSVOTQQbcp/zFdXR9yqObzvgN9LT+Jyo8g336wsLdla5hsllR?=
- =?us-ascii?Q?JZIJvhrIV8u50Ekty0OgsMzNU7weSqjsCdtRDtHOJH0rmscR7v02SMH/8720?=
- =?us-ascii?Q?MSAFBnrLtq9wa2BwAQm9ol51aMciDioBWclvZt0cGl9cjNqO4/Xhe68OEFcu?=
- =?us-ascii?Q?Vl66DrUKcZHMoX+czUJNC0aL+z4YXLkQQM2HdvdGTvMtHLyztJc870GJOYZp?=
- =?us-ascii?Q?PrYd7rzsHuIKCalurNxhIAp/E0upbT6OYUp3IMmqO1vE63A/3hAcEHkfBHbZ?=
- =?us-ascii?Q?m6GHPmvOspRRxpJ+40yQbpb93hn+3AZHX22XrmxrQ0WlaY+S36PWCbPN4b/+?=
- =?us-ascii?Q?JeTn85ep03Ho2FSXSbN+86zgNLVE1nV75pifh717H2iCPgm+kuExWkXWeSfU?=
- =?us-ascii?Q?tnjcAzvlPe78wWCWW189i9c7veOYpU9lgyJ13Vm+oh7tErAoA2vADqAVRl/k?=
- =?us-ascii?Q?u0w7Za3ZdHpZhGIHK1CCKowKq5GPRA6NJ00o4S+CeOLPRoX0c9ZnDYyfwA9y?=
- =?us-ascii?Q?kuVEQgxzGS/hmQOfJ6OTygSrClPTo88uJZrSHky1YympPJpmV15gjXveQ5FA?=
- =?us-ascii?Q?MZBUTa/S2ZwZRxzvRrnqTg7vlTxNtQTzcn4EvxuotZ9vtDWYn3pYjPCfmfLx?=
- =?us-ascii?Q?erc8TYFL9q2Nvw2jI2Zo3F7YC/WasSlU3sH4ITS6vBSDMVHsprgbzJINf3GD?=
- =?us-ascii?Q?b98m2MT6l0nqTA0Fs0dkt8p/Eu6Oc6FZWfNmY8UjE1Sbjdv/jkcpz3JMt3BW?=
- =?us-ascii?Q?sn4O2RadRKiOSPM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tcv1yc6EWKezAtVEysq6xWrruyeXwjAAgiVGJ+7xdBg9jfDqecfyLeL6IY9P?=
- =?us-ascii?Q?E3iO1EZtXF8kSxNQcJR54TOniH59fH5mBSxLD4Nh6L1akuyiwGHxbdKVgIYh?=
- =?us-ascii?Q?ZAuNKZGQ0bF4kcqgfilWhAd5rwP1o+7PcD7lXYkzpJQIQzEwET2mtUATNiC1?=
- =?us-ascii?Q?g+Hzkyb2dhVFhtWghe//+cx5wIqs7UlAWq0qJrkajTP6MZf0gbxNORS47ok1?=
- =?us-ascii?Q?jwK9mSkFeM/HQAEOg5oiC+Y8ongGA9CSiCA/OcSE1OhjAQMV89q1FLbi/7ml?=
- =?us-ascii?Q?nTT3Zb9S27n8HX7H2AjxT/JThYXtsIibWhDRkM5+Z9nkRBsRRrh1y7hOCZZn?=
- =?us-ascii?Q?KFmM7E0p2X8MVWElEwktNvv+vD7fHafjWJAwOvz82z809VOJAMSXb8bExRcA?=
- =?us-ascii?Q?ih7+3KfiLfBuW56Gqp06+Y7y+auTe4xl4L7d5YeEU9tI1AIB47kB37NAIZz8?=
- =?us-ascii?Q?q2ZfnVu27OBPxhFXsmxq5iShenT2ldHwDZ+OuYlxs6DjIYg4VIyV4NcZKQga?=
- =?us-ascii?Q?h8glUQ+lNsF26cm7U5XmnWdSrsDYYHWs+yKgU9dkP71blcHQ241FKCoKvoRS?=
- =?us-ascii?Q?6RbPh8yJIqKAMsvjKvjb2k0cY5t7NMbyxxlYzeWGqsWPh02hz7QxqMC3G7sn?=
- =?us-ascii?Q?wxdC+8ECa8FPALf+O44gkSxN1jRC0AzrpQrsbvW+h5ZG6Cr11h9gxaLR//kj?=
- =?us-ascii?Q?PbjusRktwbdRPO8tEQk9UmeHfQapzU+QtDa4knDQaj2QKgZiKUuegHMHpNFU?=
- =?us-ascii?Q?aT6QyAco11wv9nsHer3b0wn9WOsCctYb9StWMr/Fnc61NXJOQH/suA9TtVU+?=
- =?us-ascii?Q?MWUgOnQWdIcUu71Ml/AxhnSqmYYySFcCNVyAwaGnmh7jf4gB2Y9M+ntaqSB+?=
- =?us-ascii?Q?n0UmqigLZ7Hi9092H4vJFgmfohR0H4UL66kz4GPVbs0qiaSPvb4szbOnY1ZH?=
- =?us-ascii?Q?ZGUTiY6DFM83eFr18XtmbJwffRYrihK4QXaxKjqOa8+ChDvoHxc8vVe4rBcW?=
- =?us-ascii?Q?3MSmzWWvzHQpuQeAJUk+4RMgZ4TlZ9Eu9Ck7thhp3bGdX90mcE7PG1n6KCRX?=
- =?us-ascii?Q?lG9IQtQsQkR0iYBNIJMBKft9Au2s6dKQcIIm1KsJX+kDSjZ15rZEakJL6Vh8?=
- =?us-ascii?Q?1GetU3NBHmZ6ZFdpt52fvL35x3+Ttp1buroOrBr+7xoJ1iaCYktZ3Hziec1m?=
- =?us-ascii?Q?MakDqItoccPvxv2gn+v5Qb3OKqjB5VkeuXSwniLP2QYE5zJoNWEf47iwNOq9?=
- =?us-ascii?Q?0KfvE+beVWdUB7G3luAs1JtihJpu8X2LU/lHCgNHqhWyRgz6GjroTwhOdK1m?=
- =?us-ascii?Q?cysW/YnLcax3uvgt8YOVkgt838HFzi35M7/s1sSwDm8fpDktFmHMZgxZliM4?=
- =?us-ascii?Q?ZxoFNybb539mmgdh+JUHvMW6KOXpiYZTYKK+pKpRKyu+OWgtYWLCXIdcPW4w?=
- =?us-ascii?Q?mj+iIh8QZOuE2tj2J/DYQ0gcbVQlG3N0j23WGrSCDffn1EzWUTWc9LwyI9tL?=
- =?us-ascii?Q?lSbmR+jR9czgU8uoRfAWd3WSSwii81nHgRNXKiZzljUkWP3iftdXLENX8tHB?=
- =?us-ascii?Q?q5ExLZGIwuWkN0wP9M+yz3wepPKg+mUVbcgoOBSWdm3NIWS2Ifsy5K3YzRtz?=
- =?us-ascii?Q?MA=3D=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a234dfe-458c-4fbd-22f1-08ddd6bed354
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 21:02:03.6155
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KeQ9ezwvsYFdO09+GB/X5v0OGQwI/8++OVjuaBZcaNb4DFvX1FtWPsFmqjIbDDfUdm7SfMaDL7B3D9IOaylJy3HnHJJdwYbRcYG5y7wkFZM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9739
+References: <20250804154750.28249-1-l.rubusch@gmail.com> <20250804154750.28249-2-l.rubusch@gmail.com>
+ <20250804213213d4844d4e@mail.local> <CAFXKEHZn0XQMe6RBHDJzcGZy+JPpNpfidD1mT2MBmZ_WamFQKQ@mail.gmail.com>
+ <202508052224366c9bb920@mail.local>
+In-Reply-To: <202508052224366c9bb920@mail.local>
+From: Lothar Rubusch <l.rubusch@gmail.com>
+Date: Sat, 9 Aug 2025 00:36:38 +0200
+X-Gm-Features: Ac12FXwrj9u2mr9B3E8JKtkTjq0XV8wLc19QmZz6-lCwcXpxcioBMrR874zHxXU
+Message-ID: <CAFXKEHZee0c4=ETwA=P_MP2+O+01s0dwS=5EjeK1Gkk3PRDNHg@mail.gmail.com>
+Subject: Re: [PATCH v1 1/1] rtc: zynqmp: ensure correct RTC calibration
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: michal.simek@amd.com, srinivas.neeli@xilinx.com, linux-rtc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Ivan Vera <ivan.vera@enclustra.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_140210_945464_AC04FEAE 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250808_153716_076801_E3C74CFF 
+X-CRM114-Status: GOOD (  50.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,34 +98,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This driver can accelerate single page operations only, thus
-continuous reading mode should not be used.
+On Wed, Aug 6, 2025 at 12:24=E2=80=AFAM Alexandre Belloni
+<alexandre.belloni@bootlin.com> wrote:
+>
+> On 05/08/2025 23:56:46+0200, Lothar Rubusch wrote:
+> > On Mon, Aug 4, 2025 at 11:32=E2=80=AFPM Alexandre Belloni
+> > <alexandre.belloni@bootlin.com> wrote:
+> > >
+> > > On 04/08/2025 15:47:50+0000, Lothar Rubusch wrote:
+> > > > From: Ivan Vera <ivan.vera@enclustra.com>
+> > (...)
+> > > > diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
+> > > > index f39102b66eac..0c063c3fae52 100644
+> > > > --- a/drivers/rtc/rtc-zynqmp.c
+> > > > +++ b/drivers/rtc/rtc-zynqmp.c
+> > > > @@ -331,9 +331,9 @@ static int xlnx_rtc_probe(struct platform_devic=
+e *pdev)
+> > > >               if (ret)
+> > > >                       xrtcdev->freq =3D RTC_CALIB_DEF;
+> > > >       }
+> > > > -     ret =3D readl(xrtcdev->reg_base + RTC_CALIB_RD);
+> > > > -     if (!ret)
+> > > > -             writel(xrtcdev->freq, (xrtcdev->reg_base + RTC_CALIB_=
+WR));
+> > > > +
+> > > > +     /* Enable unconditional re-calibration to RTC_CALIB_DEF or DT=
+B entry. */
+> > > > +     writel(xrtcdev->freq, xrtcdev->reg_base + RTC_CALIB_WR);
+> > >
+> > > Doesn't this forcefully overwrite the proper value that has been set
+> > > from userspace and so trashes the time at each reboot?
+> > >
+> > Yes, it overwrites the calibration, i.e. counting 1sec in about 1sec.
+> > No, the time/date is not actually "trashed" (I double-checked that
+> > with timesyncd disabled, having and not having register content and
+> > over several reboots keeping a bogus date/time - it psersistet in the
+> > same time space. The current patch always overwrites the calib
+> > register content. So, a manual userspace setting will be lost after
+> > reboot. That's true.
+>
+> It is about 1sec on your platform because it didn't deviate too much
+> from the expected value but what if another platform needs a way
+> different value? Then you are introducing the same issue as the one you
+> are trying to fix but it will have it at each reboot.
+>
+I guess you missunderstood me here a bit. I understand that every
+scenario will need individual calibration especially over time.
 
-Continuous reading will use sizes up to the size of one erase block.
-This size is much larger than the size of single flash page. Use this
-difference to identify continuous reading and return an error.
+> >
+> > Would it rather make sense to extend it, say, instead of merely
+> > checking whether the calibration register contains any data - which
+> > could potentially be incorrect - also check for the presence of a
+> > calibration property in the devicetree (or a similar property, since
+> > 'calibration' may be deprecated)? If such a property exists, perform a
+> > re-calibration based on the devicetree at every reboot. Otherwise,
+> > retain the current behavior of checking whether the register is empty?
+> >
+> > > Isn't the proper way to reset it to simply set the offset from usersp=
+ace
+> > > again?
+> > >
+> > Hm.. I'm unsure if I understood you correctly. You mean the way as
+> > described in AMD's link to perform the reset by executing the devmem
+> > from Linux manually? If so, why is it preferable to adjust the RTC
+> > calibration manually every time this happens, rather than to simply
+> > put a correction value into the devicetree properties for problematic
+> > setups? Or do I miss something, is there a config file for RTC
+> > calibration for doing this persistently from Linux, that I'm not aware
+> > of?
+> >
+> > Before, the devicetree properties seemed to have generally priority
+> > over userspace settings. Now, after the calibration rework, this
+> > priorization seems to have changed and a devicetree calib correction
+> > for such problematic cases will generally be ignored, with a
+> > recommendation by Xilinx/AMD (see link in cover letter) to execute a
+> > devmem command from off Linux (...). I mean, can't this be elaborated
+> > a bit more to allow for a persistent correction method?
+>
+> The value depends on each manufactured machine/board as it is supposed
+> to correct for imprecision on the input clock which is either a crystal
+> or derived from a crystal. This crystal may be more or less accurate and
+> its accuracy will change over time notably because of temperature
+> changes or simply because it is aging. Having the value in the device
+> tree is as good as having it hardcoded in the driver which is not far
+> from what your are doing here. It makes the feature useless.
+>
+Yes, I see your point.
 
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
----
- drivers/spi/spi-airoha-snfi.c | 4 ++++
- 1 file changed, 4 insertions(+)
+> What I was suggesting is simply to do the right thing, compute the
+> inaccuracy and correct it from userspace, using the proper interface
+> that is sysfs or the RTC_PARAM_SET ioctl for RTC_PARAM_CORRECTION
+> This has to be done regularly anyway so I guess it would catch and
+> correct any corrupted value in the register.
+>
+The degradation over time and or temperature does not match the static
+approach we took of our v1 patch. I modified it still a bit to keep userspa=
+ce
+configurations, and use the optional devicetree property for a correction. =
+But
+this does not cancel out your argumentation, since the approach is still st=
+atic.
+So, I have to agree, thanks.
 
-diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-index dbe640986825..043a03cd90a1 100644
---- a/drivers/spi/spi-airoha-snfi.c
-+++ b/drivers/spi/spi-airoha-snfi.c
-@@ -618,6 +618,10 @@ static int airoha_snand_dirmap_create(struct spi_mem_dirmap_desc *desc)
- 	if (desc->info.offset + desc->info.length > U32_MAX)
- 		return -EINVAL;
- 
-+	/* continuous reading is not supported */
-+	if (desc->info.length > SPI_NAND_CACHE_SIZE)
-+		return -E2BIG;
-+
- 	if (!airoha_snand_supports_op(desc->mem, &desc->info.op_tmpl))
- 		return -EOPNOTSUPP;
- 
--- 
-2.47.2
+Best,
+L
 
+> --
+> Alexandre Belloni, co-owner and COO, Bootlin
+> Embedded Linux and Kernel engineering
+> https://bootlin.com
 
