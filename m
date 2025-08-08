@@ -4,114 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D37ECA0EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3984C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wuJVZzZIQCTzLTzieTR01L1RJwkvyO7UMJraS2W9Ndo=; b=4zqNzWqhmWKtZjNHMfWMPDmPB5
-	BXwVStCmUSfL3exOfVbI6WfonGeBtGabxFyAHjRQtMD1IbylT80N8SdAbe6FpwTcwzM8jvU0MoH7s
-	FDlHhu6Lr90tcAa8rpISFtJnAWtl3ufhTbGmMb9uiSbXpVATYP5n5uItSjN20HmBNUrnEvQ4NQ8fn
-	VFH/TMWuyajWgl7HG/l+BDsLKl+GJWXN+zn3e43PIsY4VerEqdgceRgw0tozdYgJUYgKrGhtF+V6n
-	pmuJm/OGKJV6VA+yeAzAyLsDr1tb+7zZJggtkQlwurQNMIhMSQRplTAUSgP1UlkWWSfvh2bWrRMIp
-	/CthD4xA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=abYPtt9gp7dt5yQH3k623AWoEHl0Hr24WYJOo0TOVqs=; b=QyOchiDkGcgkNiiVZRZqk2y3uA
+	BNj/9o+xJuiP0PUFDuSfxhvEAaOgW2LU/zOznlJcMe7H7PpjpTr8hTXDTrJeSUqFOi22LScPYs/VA
+	tQBxbf31P6u7wciFdrOKvBZ6Vt/BZh7lhy3tES0UXAzg3tsy3Un1xqLiTD0qJ4dgMhivAfjxeyAld
+	zQf5yu4OLgpYEbRSm60CQ8J8WY6e+g8wgEHQZ3c36WFllZFVt5fUgfyMe4qkpWYRbncZy9UpUU/Vo
+	yOP4MK27s05bp+e1aztvkiUhamav0NPmRpiCJBrGSy0rN+Yl+Dr/Lh17h6xl3CnpLodfyYUMulSCs
+	IiudX5xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLwx-00000002lSq-0g8Y;
-	Fri, 08 Aug 2025 12:11:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1ukLzQ-00000002mE5-0LZW;
+	Fri, 08 Aug 2025 12:14:28 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLGj-00000002ftI-1N6N
+	id 1ukLNe-00000002gZz-2SSa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 11:28:18 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-459e794b331so12710445e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 04:28:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1754652496; x=1755257296; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wuJVZzZIQCTzLTzieTR01L1RJwkvyO7UMJraS2W9Ndo=;
-        b=UagEeGCGR6O09aA9/Gv/d7zP4nXisEQ9eslgoCoD6FEBWYDIzlGeSeNEfOV3vlQgcj
-         BCHTjEiO+o4xhMvqYr9xURb85p6cjR1DOPsWXda2tiMwpFgYt18qxzAS8rDyazyEwNgD
-         vsR2RUkHdb0NCdva6YM2YaBk57p1ouF2UnXgj1kwC7zdT1hmqfia1/cLR4AX5MFdYUnM
-         4sRSCZm5IYeffccXRbZGOSEG8tH5zuSOhVaVJLkIeQSdLau8z82clSfeCoL3NbuH4I7S
-         fPc3bPxgutIr5pctcyNQrO/3PYz80oToYRPvHr/ZULox+TkKU+fJavPlDcMFZ2siY9Jn
-         xHzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754652496; x=1755257296;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wuJVZzZIQCTzLTzieTR01L1RJwkvyO7UMJraS2W9Ndo=;
-        b=XPBci826Z2NZgKovcHya1fMcT4+BemWn0NHMmuAQSoxHQKTDmfEheOFHVG0U2O7v8K
-         mGJH34mkPb12nsSSdTZQiRRQMWEZjTRneJwU4CAVV0k0FRBFRo3lfNRc49SGlSt4yEJJ
-         4jplWrDbwlekbSKC/TqgFxtaYFCQnZ4dkc5sDzshx7WyRUtjiPrQhgMbr4oqyIp789GP
-         NNrjguD+IPedRj7hrkY463zzDW4DkOVaBdpJOmAFxITX26lU1VCx8Y4N0lTMtRP1634x
-         c5AVox5YoOPs41oXTC0ScLTm0Htwn/nrm43uztFzY3PfAekG8JRnGYw9m7uzvOMTR3Hl
-         lBrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU7LpEfmPRS7MmuF7UG9AblVvoNUd39g1mq/NHbRX7Qt61Ryl0FYh4AX2l7uzZui/34StCEdNFbvEo7EsseETjH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzmN+/0QQzmzGPUWEz+JpM4cEU/qwJn0d/oHNP0Z+TVwkEEC4r
-	CGTVUbO8jKzRb06I5VcNz+hDh5fXPqFg7xzCQ3OzPV56mwc8SVad3SredebgCVKMAkU=
-X-Gm-Gg: ASbGncuS2nS0VZcCfKJIfjc89s1ity1DOFjlXi6Y10KPhrcrXpcauu4wB/yNoLQFlVb
-	1W1Y6BqaWSRU4GsF+ChZs37JhPlCJhqCThHgWulStwkTJDHxvnUUdoGqsHM/kYU3DkWfiTt5KkS
-	uYTNwSD2bbawkDBi367WH54IJAaLYj1Z5wH/UGdGjN3NqnrS9KFkzwtQTIZ5nyAmasBZ3qZkcDw
-	o6b+ar7dJz9dzWW82xueXyxtbVjwl1kfLyxEwIMoa/otfwFSGK+RmklLxzoRJSYsPa37a4WDcze
-	jsa+EmzwzxmZkT3mchKRScLFCJ+C62ylxDGH4CLUlDa3d56LggBqBKzMlpo1p2//ZYUej4rRDSv
-	s7Qnz1Wn8jSKMIvs7kt4V8Lr1NqfJbqY=
-X-Google-Smtp-Source: AGHT+IEaRRICyrF0MfupXKJ2sBoN8+NsjzhBxiQBkAqrwCfw85T5RHBvLEqeXF14peiWqYwm1M7yag==
-X-Received: by 2002:a05:600c:3b1f:b0:456:27a4:50ad with SMTP id 5b1f17b1804b1-459f4f3e226mr21968055e9.33.1754652495747;
-        Fri, 08 Aug 2025 04:28:15 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.188])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-458f713eb44sm249864835e9.14.2025.08.08.04.28.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Aug 2025 04:28:15 -0700 (PDT)
-Message-ID: <fa0da331-273a-414b-b0d8-229c6772692d@tuxon.dev>
-Date: Fri, 8 Aug 2025 14:28:13 +0300
+	Fri, 08 Aug 2025 11:35:28 +0000
+Message-ID: <3c52f485-cde4-44ef-8ffd-a61a671359db@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754652788;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=abYPtt9gp7dt5yQH3k623AWoEHl0Hr24WYJOo0TOVqs=;
+	b=AXMjcCvxLwSFAD/YRaO8PD0GKrgmIk2ml8mkVGam9Wpw+pdwiNWB7g9mSzWcYDD78BAnhb
+	xJAEMRuY7gcOBFzy0sZZGnIQtr7Gi6Ui/Muf7vFoYS0KWhwvCXh3nwU/0p1q113F5funUo
+	Fk3qVMMCxaWr5FIkILLswNSejIidwlo=
+Date: Fri, 8 Aug 2025 19:32:54 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update
- dma-ranges for PCIe
-To: Biju Das <biju.das.jz@bp.renesas.com>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
- "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "magnus.damm@gmail.com" <magnus.damm@gmail.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "lizhi.hou@amd.com" <lizhi.hou@amd.com>
-Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
- <20250704161410.3931884-8-claudiu.beznea.uj@bp.renesas.com>
- <TY3PR01MB113464920ECAC2C3CB89DE2D5864FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <7c8c7a25-c373-452a-9fe8-8b2d92ddd885@tuxon.dev>
- <TY3PR01MB113467C09DF7D3D0D7833A6598649A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH v1 1/8] KVM: arm64: Rename pkvm.enabled to
+ pkvm.is_protected
 Content-Language: en-US
-In-Reply-To: <TY3PR01MB113467C09DF7D3D0D7833A6598649A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+To: Fuad Tabba <tabba@google.com>, kvmarm <kvmarm@lists.linux.dev>,
+ arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20250729120014.2799359-1-tabba@google.com>
+ <20250729120014.2799359-2-tabba@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Kunwu Chan <kunwu.chan@linux.dev>
+In-Reply-To: <20250729120014.2799359-2-tabba@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_042817_367236_A26CEB3C 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20250808_043527_063979_8398D301 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,72 +70,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Biju,
-
-On 09.07.2025 08:05, Biju Das wrote:
-> Hi Claudiu Beznea,
+On 2025/7/29 20:00, Fuad Tabba wrote:
+> The 'pkvm.enabled' field in struct kvm_protected_vm is confusingly named.
+> Its purpose is to indicate whether a VM is a pKVM protected VM, not
+> whether the VM itself is enabled or running.
 > 
->> -----Original Message-----
->> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->> Sent: 08 July 2025 11:10
->> Subject: Re: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe
->>
->> Hi, Biju,
->>
->> On 07.07.2025 11:18, Biju Das wrote:
->>> Hi Claudiu,
->>>
->>>> -----Original Message-----
->>>> From: Claudiu <claudiu.beznea@tuxon.dev>
->>>> Sent: 04 July 2025 17:14
->>>> Subject: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update
->>>> dma-ranges for PCIe
->>>>
->>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->>>>
->>>> The first 128MB of memory is reserved on this board for secure area.
->>>> Update the PCIe dma-ranges property to reflect this.
->>>
->>> I see R-Car PCIe dma-ranges[1] and [2] maps all possible DDR area supported by the SoC?
->>> Do we need to make board specific as well there?
->>
->> I'm not familiar with R-Car, but if there are ranges reserved for other purposes, I think we should
->> reflect it in board specific device trees.
+> For a non-protected VM, the VM can be fully active, yet this field would
+> be false. This ambiguity can lead to incorrect assumptions about the VM's
+> operational state and makes the code harder to reason about.
 > 
+> Rename the field to 'is_protected' to make it unambiguous that the flag
+> tracks the protected status of the VM.
 > 
-> Already Linux has this DDR info[1]. Linux provides DMA memory only from this region.
-
-What we provide though dma-ranges DT property is setup in the PCI
-controller register corresponding to the AXI windows. It is the same in
-case of R-Car (as of my investigation on driver).
-
+> No functional change intended.
 > 
-> In your testing, have you faced any issue like system allocated DMA region other than [1]
-> and you don't want to use it, then the changes are ok??
+lgtm
 
-I haven't currently encounter any issues.
-
-As the values passed though the dma-ranges DT property are setup in the
-controller register for AXI windows, and the DMA endpoints can act as bus
-masters, to avoid any issue where the DMA endpoints may corrupt memory
-specific to the secure area, I chose to update the "dma-ranges" though
-board specific bindings (to reflect the presence of the secure area and
-tell the PCIe controller to not use it).
-
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>   arch/arm64/include/asm/kvm_host.h | 4 ++--
+>   arch/arm64/kvm/hyp/nvhe/pkvm.c    | 2 +-
+>   2 files changed, 3 insertions(+), 3 deletions(-)
 > 
-> Not sure, PCIe can work on internal memory such as SRAM?
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 3e41a880b062..55dc7cd83e40 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -252,7 +252,7 @@ struct kvm_protected_vm {
+>   	pkvm_handle_t handle;
+>   	struct kvm_hyp_memcache teardown_mc;
+>   	struct kvm_hyp_memcache stage2_teardown_mc;
+> -	bool enabled;
+> +	bool is_protected;
+>   };
+>   
+>   struct kvm_mpidr_data {
+> @@ -1522,7 +1522,7 @@ struct kvm *kvm_arch_alloc_vm(void);
+>   
+>   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+>   
+> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.enabled)
+> +#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
+>   
+>   #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+>   
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 338505cb0171..6198c1d27b5b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -406,7 +406,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+>   	hyp_vm->host_kvm = host_kvm;
+>   	hyp_vm->kvm.created_vcpus = nr_vcpus;
+>   	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+> -	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
+> +	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
+>   	hyp_vm->kvm.arch.flags = 0;
+>   	pkvm_init_features_from_host(hyp_vm, host_kvm);
+>   }
 
-Inbound window is RAM, outbound window is a PCIe specific memory described
-though "ranges" DT property.
+Reviewed-by: Kunwu Chan <chentao@kylinos.cn>
 
-Thank you for your review,
-Claudiu
-
-> 
-> [1]
-> https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi?h=next-20250708#n31
-> 
-> Cheers,
-> Biju
+-- 
+Thanks,
+        Kunwu Chan.
 
 
