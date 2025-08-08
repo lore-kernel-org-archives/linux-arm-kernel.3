@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3984C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8953CC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:17:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abYPtt9gp7dt5yQH3k623AWoEHl0Hr24WYJOo0TOVqs=; b=QyOchiDkGcgkNiiVZRZqk2y3uA
-	BNj/9o+xJuiP0PUFDuSfxhvEAaOgW2LU/zOznlJcMe7H7PpjpTr8hTXDTrJeSUqFOi22LScPYs/VA
-	tQBxbf31P6u7wciFdrOKvBZ6Vt/BZh7lhy3tES0UXAzg3tsy3Un1xqLiTD0qJ4dgMhivAfjxeyAld
-	zQf5yu4OLgpYEbRSm60CQ8J8WY6e+g8wgEHQZ3c36WFllZFVt5fUgfyMe4qkpWYRbncZy9UpUU/Vo
-	yOP4MK27s05bp+e1aztvkiUhamav0NPmRpiCJBrGSy0rN+Yl+Dr/Lh17h6xl3CnpLodfyYUMulSCs
-	IiudX5xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eTMlv/CPObrGdfQP1uPB6iaFp9qrdznYL0UG417IkoA=; b=V5fNg3iaHAzjQdsHGOqifU33pZ
+	+Z+592zpi5gNZleXyqm7pJ4Oa5jh5DMnKl+Q1zCRnvDi3ZnFNVHbrNuj5DF74gorqYyg7dH3eAlU2
+	dPWUt6kSmLqJT0B+BI2jiYI3Q69ymqqgAMORyxl2CIpJEX+ybl8hrMST6EUSTYbxB3av476hiUJPG
+	zbvYUnfBmBnWPE+lFFv61XTMa/AIu1psT+tL6WAE1a37zLuCcyJoY58/r5vnT/o0WRsCZ1AZ0MYsJ
+	DajO3/RrR4cgEMpdeU/mY2ksIN4wOiQ2qbbwcKAAD8qfIXlEh5ezpQgPIUkow9eJJ32puSyUHsOgr
+	YcLg5XvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLzQ-00000002mE5-0LZW;
-	Fri, 08 Aug 2025 12:14:28 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1ukM1r-00000002mRG-27G7;
+	Fri, 08 Aug 2025 12:16:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLNe-00000002gZz-2SSa
+	id 1ukLOG-00000002gw3-1S7M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 11:35:28 +0000
-Message-ID: <3c52f485-cde4-44ef-8ffd-a61a671359db@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1754652788;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=abYPtt9gp7dt5yQH3k623AWoEHl0Hr24WYJOo0TOVqs=;
-	b=AXMjcCvxLwSFAD/YRaO8PD0GKrgmIk2ml8mkVGam9Wpw+pdwiNWB7g9mSzWcYDD78BAnhb
-	xJAEMRuY7gcOBFzy0sZZGnIQtr7Gi6Ui/Muf7vFoYS0KWhwvCXh3nwU/0p1q113F5funUo
-	Fk3qVMMCxaWr5FIkILLswNSejIidwlo=
-Date: Fri, 8 Aug 2025 19:32:54 +0800
+	Fri, 08 Aug 2025 11:36:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D57ED5C6357;
+	Fri,  8 Aug 2025 11:36:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8ED3C4CEED;
+	Fri,  8 Aug 2025 11:36:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754652963;
+	bh=vTmugflEoGFXoJA3tltonWAXPsq5xeMoDkED8MRWRHg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EWfVJJIDr9nvA0Llj2nUrRf5FX1RpUEOH5rRAbMH2PqApAGKY1LX6BllliUWgi59H
+	 Um9PVyoqqN+97pRxiteY5zSgNgAdfK2wCJX3hVW3cyz7XWJETpKHR2jE6SxFPUB4EK
+	 +P+MgCPqWTuT2iPex3foRFmdTj6MLhJnk8skr/DhoLF/xosbLDz3kVKNdwBSx1fnP3
+	 GorBGEgryoZhL1Vb5H42r0P+hHXwpId4tdmKRBAdLgfckQ6P5U8OB2S/iY7t5e6zfA
+	 D8NfM6CTDck2NqJi3OdeVMx8BdrsCqmzJZZhe6p3LhHiWSzuQPkgvCtdO3IYJQvSVd
+	 7KPpdfjS9yxAA==
+Date: Fri, 8 Aug 2025 12:35:57 +0100
+From: Will Deacon <will@kernel.org>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: mark.rutland@arm.com, catalin.marinas@arm.com, maz@kernel.org,
+	broonie@kernel.org, linux-arm-kernel@lists.infradead.org,
+	wangkefeng.wang@huawei.com, baohua@kernel.org,
+	jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com,
+	prime.zeng@hisilicon.com, xuwei5@huawei.com,
+	yangyicong@hisilicon.com, linuxarm@huawei.com,
+	tiantao6@hisilicon.com
+Subject: Re: [RFT PATCH] arm64: atomics: prefetch the destination prior to
+ LSE operations
+Message-ID: <aJXhHVEIdafxcLP_@willie-the-truck>
+References: <20250724120651.27983-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v1 1/8] KVM: arm64: Rename pkvm.enabled to
- pkvm.is_protected
-Content-Language: en-US
-To: Fuad Tabba <tabba@google.com>, kvmarm <kvmarm@lists.linux.dev>,
- arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20250729120014.2799359-1-tabba@google.com>
- <20250729120014.2799359-2-tabba@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Kunwu Chan <kunwu.chan@linux.dev>
-In-Reply-To: <20250729120014.2799359-2-tabba@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250724120651.27983-1-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_043527_063979_8398D301 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250808_043604_459837_2386C05D 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,68 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/7/29 20:00, Fuad Tabba wrote:
-> The 'pkvm.enabled' field in struct kvm_protected_vm is confusingly named.
-> Its purpose is to indicate whether a VM is a pKVM protected VM, not
-> whether the VM itself is enabled or running.
+On Thu, Jul 24, 2025 at 08:06:51PM +0800, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
 > 
-> For a non-protected VM, the VM can be fully active, yet this field would
-> be false. This ambiguity can lead to incorrect assumptions about the VM's
-> operational state and makes the code harder to reason about.
+> commit 0ea366f5e1b6 ("arm64: atomics: prefetch the destination word for write prior to stxr")
+> adds prefetch prior to LL/SC operations due to performance concerns -
+> change the cacheline status from exclusive could be significant. This is
+> also true for LSE operations, so prefetch the destination prior to LSE
+> operations.
 > 
-> Rename the field to 'is_protected' to make it unambiguous that the flag
-> tracks the protected status of the VM.
+> Tested on my HIP08 server (2 * 64 CPU) using `perf bench -r 100 futex all`
+> which could stress the spinlock of the futex hash bucket:
+>                         6.16-rc7 patched
+> futex/hash(ops/sec)     171843   204757 +19.15%
+> futex/wake(ms)          0.4630   0.4216 +8.94%
+> futex/wake-parallel(ms) 0.0048   0.0039 +18.75%
+> futex/requeue(ms)       0.1487   0.1508 -1.41%
+> (2nd validation)                 0.1484 +0.2%
+> futex/lock-pi(ops/sec)  125      126    +0.8%
 > 
-> No functional change intended.
+> For a single wake test for different threads number using `perf bench
+> -r 100 futex wake -t <threads>`:
+> threads 6.16-rc7 patched
+> 1       0.0035   0.0032 +8.57%
+> 48      0.1454   0.1221 +16.02%
+> 96      0.3047   0.2304 +24.38%
+> 160     0.5489   0.5012 +8.69%
+> 192     0.6675   0.5906 +11.52%
+> 256     0.9445   0.8092 +14.33%
 > 
-lgtm
-
-> Signed-off-by: Fuad Tabba <tabba@google.com>
+> There're some variation for close numbers but overall results
+> look positive.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 > ---
->   arch/arm64/include/asm/kvm_host.h | 4 ++--
->   arch/arm64/kvm/hyp/nvhe/pkvm.c    | 2 +-
->   2 files changed, 3 insertions(+), 3 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 3e41a880b062..55dc7cd83e40 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -252,7 +252,7 @@ struct kvm_protected_vm {
->   	pkvm_handle_t handle;
->   	struct kvm_hyp_memcache teardown_mc;
->   	struct kvm_hyp_memcache stage2_teardown_mc;
-> -	bool enabled;
-> +	bool is_protected;
->   };
->   
->   struct kvm_mpidr_data {
-> @@ -1522,7 +1522,7 @@ struct kvm *kvm_arch_alloc_vm(void);
->   
->   #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
->   
-> -#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.enabled)
-> +#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
->   
->   #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
->   
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 338505cb0171..6198c1d27b5b 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -406,7 +406,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
->   	hyp_vm->host_kvm = host_kvm;
->   	hyp_vm->kvm.created_vcpus = nr_vcpus;
->   	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
-> -	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
-> +	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
->   	hyp_vm->kvm.arch.flags = 0;
->   	pkvm_init_features_from_host(hyp_vm, host_kvm);
->   }
+> RFT for tests and feedbacks since not sure it's general or just the optimization
+> on some specific implementations.
+> 
+>  arch/arm64/include/asm/atomic_lse.h | 7 +++++++
+>  arch/arm64/include/asm/cmpxchg.h    | 3 ++-
+>  2 files changed, 9 insertions(+), 1 deletion(-)
 
-Reviewed-by: Kunwu Chan <chentao@kylinos.cn>
+One of the motivations behind rmw instructions (as opposed to ldxr/stxr
+loops) is so that the atomic operation can be performed at different
+places in the memory hierarchy depending upon where the data resides.
 
--- 
-Thanks,
-        Kunwu Chan.
+For example, if a shared counter is sitting at a level of system cache,
+it may be optimal to leave it there so that CPUs around the system can
+post atomic increments to it without forcing the line up and down the
+cache hierarchy every time.
 
+So, although adding an L1 prefetch may help some specific benchmarks on
+a specific system, I don't think this is generally a good idea for
+scalability. The hardware should be able to figure out the best place to
+do the operation and, if you have a system where that means it should
+always be performed within the CPU, then you should probably configure
+it not to send the atomic remotely rather than force that in the kernel
+for everybody.
+
+Will
 
