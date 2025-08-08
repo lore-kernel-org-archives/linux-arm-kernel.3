@@ -4,57 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EE7C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 09:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C86C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 10:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGZGaTg1zkwDlQ10Ox2zKCG+gQ73oFiUtcYCuUqVTsA=; b=XPGkM/z5oYL/Rz5qniQQ7u8YPj
-	v6S+6UWXLEk0oPxi6tNCru6bRAgyvrMrikRyC07rB0LDybyEIX4rNfyhE509cIpX1JDO1kKsdqLMc
-	AB+uTeBRb0owOwqzpOwj88guK0zfl2yEQQWZKTwIPcPeJbGvGlHgFeIofUKbvEDX7GGps9kwUVCAR
-	HF8PnK09rFO+EqBtOxtv8ajsMURHw27s6JdLwTiNAzTcWTZ1hEOu2poRbjAQeEYG+AV6sIzpx9KEO
-	SXF2VC2rkkxYX9vGZxoDGl82FnC/vnk0FAM8xA0UxFkcen9slGo6hbCddjKrMQ//YKsq4M0/0YjgW
-	hOjFpRKg==;
+	bh=xmQDafCx4ekA29pymwRavZvQFBBo4fXq4oUfmol4mQY=; b=eVWwajWJMNceK4rzyvgpXTIlcT
+	kX0zyzeq68DLq5xqMBbxiRXs7NcN9TSJETYC3fzxC7y4PYC2movnHfM8tWB8nqJZVLe7Pi9UdBr+7
+	FQSFZO4fo2w0Qi+zsZL5n3+BH46P40f5DifFB/AkrZJ20V1IZ3BzRQDkmZmG/sbu3cTxbj/YiP+sY
+	Kpm1YY3HzfZnfTVYic3BDoIZuqSpjotPxhdSF3BgQIi5A/w7jvzxP1A7KC5d5EzFn47QJtDwlJKb/
+	TmtnAJ2mVWlB6oI/GO92DB+2hIhBOctYazlDbTdQ5PApM06LwiarTkr0mDFufoJO/vwjX9ezo2Z6v
+	REE4JqPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukJbK-00000002TIN-1qIu;
-	Fri, 08 Aug 2025 09:41:26 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ukJuK-00000002WKT-3cv7;
+	Fri, 08 Aug 2025 10:01:04 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukJYq-00000002SxV-27ng
+	id 1ukJro-00000002VYM-3Gel
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 09:38:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 29579A55BA2;
-	Fri,  8 Aug 2025 09:38:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB714C4CEED;
-	Fri,  8 Aug 2025 09:38:47 +0000 (UTC)
-Date: Fri, 8 Aug 2025 10:38:44 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
-	akpm@linux-foundation.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
-	memxor@gmail.com, zhenglifeng1@huawei.com,
-	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH v3 3/5] asm-generic: barrier: Add
- smp_cond_load_acquire_timewait()
-Message-ID: <aJXFpKEm7-abCAFc@arm.com>
-References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
- <20250627044805.945491-4-ankur.a.arora@oracle.com>
+	Fri, 08 Aug 2025 09:58:30 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 5789wNRd569342;
+	Fri, 8 Aug 2025 04:58:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1754647103;
+	bh=xmQDafCx4ekA29pymwRavZvQFBBo4fXq4oUfmol4mQY=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=ZC4Bu5j9vUVFWqCYiDOKViCV/4IjjB9Bpc9L4HwiWLtZtrDWUTH27Y+ESRWm/6QWx
+	 3kEbvUfLDx1k37/9PDPbwjwZ1Q0lRKwL+hxqGQj9RitEQSuexF+2vXTrzU9ctmzCtw
+	 VQL6lblhtzAhXkSmPxeCpHb3Kyjl4qAxDhXeWCM0=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 5789wNeV1505418
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 8 Aug 2025 04:58:23 -0500
+Received: from DLEE114.ent.ti.com (157.170.170.25) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 8
+ Aug 2025 04:58:23 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE114.ent.ti.com
+ (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Fri, 8 Aug 2025 04:58:23 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [10.24.68.198])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5789wCOq2574818;
+	Fri, 8 Aug 2025 04:58:19 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>,
+        <y-abhilashchandra@ti.com>, Jared McArthur <j-mcarthur@ti.com>
+Subject: [PATCH V2 1/7] arm64: dts: ti: k3-j721s2-main: Add interrupts property
+Date: Fri, 8 Aug 2025 15:27:58 +0530
+Message-ID: <20250808095804.544298-2-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250808095804.544298-1-y-abhilashchandra@ti.com>
+References: <20250808095804.544298-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250627044805.945491-4-ankur.a.arora@oracle.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_023852_611737_D4B61102 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250808_025828_971941_99E32E67 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 26, 2025 at 09:48:03PM -0700, Ankur Arora wrote:
-> diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
-> index 9ea0a74e5892..f1b6a428013e 100644
-> --- a/arch/arm64/include/asm/rqspinlock.h
-> +++ b/arch/arm64/include/asm/rqspinlock.h
-> @@ -86,7 +86,7 @@
->  
->  #endif
->  
-> -#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
-> +#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0ULL, 1ULL, 0)
->  
->  #include <asm-generic/rqspinlock.h>
->  
-> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> index 8299c57d1110..dd7c9ca2dff3 100644
-> --- a/include/asm-generic/barrier.h
-> +++ b/include/asm-generic/barrier.h
-> @@ -388,6 +388,28 @@ static inline u64 ___smp_cond_spinwait(u64 now, u64 prev, u64 end,
->  	(typeof(*ptr))_val;						\
->  })
->  
-> +/**
-> + * smp_cond_load_acquire_timewait() - (Spin) wait for cond with ACQUIRE ordering
-> + * until a timeout expires.
-> + *
-> + * Arguments: same as smp_cond_load_relaxed_timeout().
-> + *
-> + * Equivalent to using smp_cond_load_acquire() on the condition variable with
-> + * a timeout.
-> + */
-> +#ifndef smp_cond_load_acquire_timewait
-> +#define smp_cond_load_acquire_timewait(ptr, cond_expr,			\
-> +				       time_expr, time_end,		\
-> +				       slack) ({			\
-> +	__unqual_scalar_typeof(*ptr) _val;				\
-> +	_val = smp_cond_load_relaxed_timewait(ptr, cond_expr,		\
-> +					      time_expr, time_end,	\
-> +					      slack);			\
-> +	/* Depends on the control dependency of the wait above. */	\
-> +	smp_acquire__after_ctrl_dep();					\
-> +	(typeof(*ptr))_val;						\
-> +})
-> +#endif
+Add interrupts property for CDNS CSI2RX. Interrupt IDs are taken from the
+J721S2 TRM [0].
 
-Using #ifndef in the generic file is the correct thing to do, it allows
-architectures to redefine it. Why we have a similar #ifndef in the arm64
-rqspinlock.h, no idea, none of the arm64 maintainers acked that patch
-(shouldn't have gone in really, we were still discussing the
-implementation at the time; I also think it's slightly wrong).
+Interrupt Line      | Source Interrupt
+--------------------|-----------------------------
+GIC500SS_SPI_IN_185 | CSI_RX_IF0_CSI_ERR_IRQ_OUT_0
+GIC500SS_SPI_IN_184 | CSI_RX_IF0_CSI_IRQ_OUT_0
+GIC500SS_SPI_IN_189 | CSI_RX_IF1_CSI_ERR_IRQ_OUT_0
+GIC500SS_SPI_IN_188 | CSI_RX_IF1_CSI_IRQ_OUT_0
 
-Your change above to rqspinlock.h makes this even more confusing when
-you look at the overall result with all the patches applied. We end up
-with the same macro in asm/rqspinlock.h but with different number of
-arguments.
+[0]: https://www.ti.com/lit/zip/spruj28
 
-I'd start with ripping out the current arm64 implementation, add a
-generic implementation to barrier.h and then override it in the arch
-code.
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+Reviewed-by: Jared McArthur <j-mcarthur@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+index 62f45377a2c9..6f32a2b0c40c 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+@@ -1248,6 +1248,9 @@ ti_csi2rx0: ticsi2rx@4500000 {
+ 		cdns_csi2rx0: csi-bridge@4504000 {
+ 			compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+ 			reg = <0x00 0x04504000 0x00 0x1000>;
++			interrupts = <GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "error_irq", "irq";
+ 			clocks = <&k3_clks 38 3>, <&k3_clks 38 1>, <&k3_clks 38 3>,
+ 				<&k3_clks 38 3>, <&k3_clks 38 4>, <&k3_clks 38 4>;
+ 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
+@@ -1301,6 +1304,9 @@ ti_csi2rx1: ticsi2rx@4510000 {
+ 		cdns_csi2rx1: csi-bridge@4514000 {
+ 			compatible = "ti,j721e-csi2rx", "cdns,csi2rx";
+ 			reg = <0x00 0x04514000 0x00 0x1000>;
++			interrupts = <GIC_SPI 157 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 156 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "error_irq", "irq";
+ 			clocks = <&k3_clks 39 3>, <&k3_clks 39 1>, <&k3_clks 39 3>,
+ 				<&k3_clks 39 3>, <&k3_clks 39 4>, <&k3_clks 39 4>;
+ 			clock-names = "sys_clk", "p_clk", "pixel_if0_clk",
 -- 
-Catalin
+2.34.1
+
 
