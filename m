@@ -4,177 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 584A0CA0EC0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7956CA0EC4
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 08:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FwuzSRcdbT4FeTWmL6GOGjyAYrKZdmCsC0Ftjbi0UFI=; b=jlb48fIZRj2TfbS5XkP7DYXAaV
-	jnZhWOlubPMA6l+OJmBJBz6Wm+mxFgD96Ufa7H1zXJ+nFwJ86OYgZislK0siiLrYrL7mnVBFscF5v
-	N9RJptHxWrD6p2/PwUNbQuq7p4O+985WH83lh6fZkjgaxzbvcyqOWbSKbsjP+Yh1SRo+7XDOjHEzf
-	75namrinbZBXXSqkyUN0ulxovCZH5RAt1Yr3KH12ZG8TCHLpAMZIWwI1pF36FjNEF9pF4M5QKOYgO
-	o0xYGEz1/ydjyThF3Asrb1orz+LITixxOxAevaDehhIX5ck9MWykkkSlWdBSkFzxlPQL56SUIDkn2
-	uRSFfapA==;
+	bh=+zLal7wiw2OJhWbaAgh4E8K5No6pZGJ87RB4Sd7Jh6w=; b=DJ7WE4hRq8LurpSuDSJE8Bkips
+	BwvvDLHJ3Gz4glw8wIfmGPOUZ3itVvSYLYwq1zOkYbx2tHfvQqGqAnctnF7xK6a3+99yexFwCW7EH
+	VT3cekHE7yr6kXy0ClWD88G9l3YZVRzZtJl8xWPBgHiXeAlPKPwgwpqQx26cew2UBAyxRf2JSlvGX
+	NO7PLqgkQdDSw7hW/DZ0caiWqoNW4l+nnhOUzaSfuaApSXei6WPmzZajIAopYIJB/+/L5xXw4VbtP
+	gfSCrDRgAh1tgyWj2Fplg2ZthCIHH8NSqWBbFqaeSRX0vHCnez8Z7KmY25UmcmBs/lEKb/T86fqqR
+	QDqNGdEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukIj5-00000002LqP-1TIs;
-	Fri, 08 Aug 2025 08:45:23 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1ukIj7-00000002Lsc-2PZt;
+	Fri, 08 Aug 2025 08:45:25 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukI8Q-00000002IS5-1wBe
+	id 1ukIB8-00000002J3j-0bm4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 08:07:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ouKsc6g51GS1MyTCAh9dgdPVVivrLUBWsl0Z6wZuilk3N6/hUvQtynQkG3/ykhQYqA70QuRl6xC5Qu/byZ9C07OXocHjtWzaLDNgYQ7TW0k/sTAKqF5xbwCkxRNZwqINcAbQXoJ0RV4wihZ4rQO/x9DkU2eceKsJ3VlmUweZL3i4S/ApHZRo+spIwoi5sRSRFtINe4pfcoh5qgsXt5qqyjIjIFJBMYlVp+FsCBruN2SGxRypP8Mx9re8wPx0AtGNtbm+TJlFdb4zFBpkSAdTYxAM8XmY/QkAJ5Ylsn9fttaGjJGtn2A3h8np3VVnjC2b8XsIGQkoLrPOaJzCsBDW0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FwuzSRcdbT4FeTWmL6GOGjyAYrKZdmCsC0Ftjbi0UFI=;
- b=qeLqIk/IVJco5s7LumX8mfHEmRc/+/9rtYvvcQfRF6dQkBjDqPR7nnCu9V2GN/VswrznQgiveH8FRSWGdYhnA75ZvN4kSyCkAA2Ov9C0ZUGUbYfrHNWbNDeSQzeCxpFUpVfICXUa0yaOVhhfDK8rl98KEsF93c3Ditd4+o+bnZFPMRaRoeCraaHWznDRj6xstdEmujkxgGaxW3/fkWURu8lrK5SYKwoEXdaJ7dUSEV/i2rfTHSa83Z390MqXO2hMxO5rwE7Kcpa+jWT/1J0rvB5YRbDgs9xrDGSGhSjdVERRHVhvo5HRHxwpN/uypUoU26D4198hUbQVcYsMslKYjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FwuzSRcdbT4FeTWmL6GOGjyAYrKZdmCsC0Ftjbi0UFI=;
- b=ChHAAyCPNVx4q+oLjQKSDhZVoSLxUg+75fUxF0xMuGjdZ4RBapY6uAC+3EZ/O8wNK/QF0kkHD86dG86LzYRpH/uxV+KhY1HD0BnOCpDIYHnpbj8LSRL9qQ5z6N1wJIUx1JhCzf0116usCuroZpD4aSIp7puOTbgr7zF93QJclYYp9aTRnrh9YsJJJiOE3DGb39CJKlx8Xu0uhpRSrohjv5yM7MtJ76hfAGQNUkQHrlckAY6QHZe9Vdz12T9NVAd4tASJTS6LTuJ/sEwJo9ubIPrcdJpDtvrVY2P0xo7tqfXdGb0nmyg6VMBDBtxJvoE9ol837khnQPMV9CAm5KN8Hw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by PAXPR04MB8192.eurprd04.prod.outlook.com (2603:10a6:102:1cd::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.18; Fri, 8 Aug
- 2025 08:07:27 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891%5]) with mapi id 15.20.9009.017; Fri, 8 Aug 2025
- 08:07:26 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	lumag@kernel.org,
-	dianders@chromium.org,
-	cristian.ciocaltea@collabora.com,
-	luca.ceresoli@bootlin.com,
-	dri-devel@lists.freedesktop.org,
+	Fri, 08 Aug 2025 08:10:19 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-76b36e6b9ddso1815109b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 01:10:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754640617; x=1755245417; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+zLal7wiw2OJhWbaAgh4E8K5No6pZGJ87RB4Sd7Jh6w=;
+        b=mG+CL3CAcOojWtkFo8B7sNPn1mF/RuN5t+55H94sLVgq6PAe6AsCNfE5e/qTOa/vGG
+         rUJlEpkGrgXEzlQvyD4UKNeHWIvowzAYo1W2ZpVDkjOlVQRws6fa5jyBKkaGZeAKf4k7
+         mV4eQ750oBZSLGOr4b2w+E4FP9HfMGSlQKE3WcMwB/R73nnQblOuBWYlV0byCobJklxy
+         8uW2KUYhYOvv578AKXF0ofRJ2NyQmgwBiT6/MTv7O3GsWvAJOV5rm9zL8LgFs2+dKoWW
+         3fmy+rjt2ZpesTp8TvPwfIZ6mC100SDx2NhsXh199OcWC2iM4eaEnkxuLwfGpNew5e/U
+         oqAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754640617; x=1755245417;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+zLal7wiw2OJhWbaAgh4E8K5No6pZGJ87RB4Sd7Jh6w=;
+        b=qkavzkWJtZqhJDgr6GH+X6H+x6qIhz0j0XFw+FQRRhyeGwJNNYCetRTI21UYg7BJLs
+         wDmBiKKasK7Xi+T73jjVs5aKACPE6CzMm5E1rdhf/jJms9pJnQXLhTxmFCHy6/8R+F72
+         ShmpynlZGfubU+f+M99+sqdhwOUveVdJ4NkYGsb4GRFmR5y7nMLDg/WELlt0Dt+MSdnr
+         zhTG77W7vqr4pJaE8Tzv8USl/Hk0MQkeEVAhAOkQXXLGreiXj52ohad3HpTCN0MDiCno
+         oEbRN3aowFkL8klmvjUDeNldSYGDhqj9m1a05jHqVFadqBe/l5nKNssoEdPrHcU6NCVx
+         HwRA==
+X-Gm-Message-State: AOJu0Yy9ODSzQ4eD75Ow/yrScQxWLuQjc3eMQln4rzRqtTpv4v4FXliH
+	6zHv09xAMDLzlVWJec3aHF5CkWGn/Iw27kBP7g0NJIFOMRbHBkkU04eJ
+X-Gm-Gg: ASbGncu0nTbzPgG76VooJNFDrk5/1f5vD5rjB01pEuCeYHZK3k6wZaIx/JPYamg90Tk
+	vE8tUqSXsR9gll90tBEQVW4a5/3oGbQNHgMy1pzUqmb2x1Of8/1JtXZ/AH7S9Nx+F5OgsMMBQQ4
+	ZohXsQTDOg/BDrmMln7AIbdzC8IrFUghVx/DiQjddCPyrhNsXYlSo/a6n95IGaKDZuau1ed8Gwz
+	a5Nnum5H3cztbCzQhSxHlNZNOSLpMNUnEzWWCPuwRLx4XjnYjKl+P6cEB9xfH4HlV5tbVefzxtH
+	+JRFWMT9c1WMeLW6AsFzIglRA4uAb/7m1SNEumJfyCd4SVlFkVSj3MuEfw1FGJEYSFFbNmkt61B
+	jX4WUliZJWtEkBT/ztO/aN1K//snTIvrU
+X-Google-Smtp-Source: AGHT+IEOBRK8OBS17/ZG9lflsFPSXZq5vwtk1VfOQq6lWhyfYgDsLGdHv2GGhogZHbcQ7nTJUkbVhQ==
+X-Received: by 2002:a05:6a20:12c8:b0:23f:f712:411c with SMTP id adf61e73a8af0-240551f864bmr3260992637.36.1754640616761;
+        Fri, 08 Aug 2025 01:10:16 -0700 (PDT)
+Received: from server.. ([103.251.57.134])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b422bac0b57sm17098358a12.31.2025.08.08.01.10.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Aug 2025 01:10:15 -0700 (PDT)
+From: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+To: broonie@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	victor.liu@nxp.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	p.zabel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	l.stach@pengutronix.de,
-	shengjiu.wang@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linux-sound@vger.kernel.org
-Subject: [PATCH v4 4/7] drm/bridge: dw-hdmi: Add API dw_hdmi_set_sample_iec958() for iec958 format
-Date: Fri,  8 Aug 2025 16:06:14 +0800
-Message-Id: <20250808080617.2924184-5-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250808080617.2924184-1-shengjiu.wang@nxp.com>
-References: <20250808080617.2924184-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0053.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::8) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
+Subject: [PATCH v2] selftests: arm64: Check fread return value in exec_target
+Date: Fri,  8 Aug 2025 13:38:30 +0530
+Message-ID: <20250808080955.41735-1-reddybalavignesh9979@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <a72e8741-a63a-487e-838e-daeed3458c0f@sirena.org.uk>
+References: <a72e8741-a63a-487e-838e-daeed3458c0f@sirena.org.uk>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|PAXPR04MB8192:EE_
-X-MS-Office365-Filtering-Correlation-Id: a3a0c7f4-166b-440d-1481-08ddd6529ce1
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|19092799006|366016|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Jpx20oqu1qYyLr6wdPQ4f0yh7KDrgrcY0M9a+Jm2J9bp5nVcwuIlWIHPdQWg?=
- =?us-ascii?Q?9NHAkODAhVK2AsDrV9A3QVp0MOxv/rgPdyoHBpXrAWRknEah0gHjqZOb/fuu?=
- =?us-ascii?Q?tkVwA2OU/Xi6HPTXgTQ2Gd3qYucPjqL8yTl8lOOwQWIpF/nRxsEszYBqC70z?=
- =?us-ascii?Q?7gnnq0p6M6oTcYe1UI5hPo6F02bQl/HXIA1sYNKVdHeSbXFJEUoioYbDjzmg?=
- =?us-ascii?Q?4B49szXnozkIfu5Dlql0azRqR16N7X3k7K5BJRVsiHnlgwFl65HF2hzUVwmB?=
- =?us-ascii?Q?pdoqfhDdMybtmN+xvYbnRDivQ8pgugQoxLvzavhblqTqxEPiWa3qRDes3OHM?=
- =?us-ascii?Q?udRG0LeNK8cUi470eb91D6y1PQnSbgw+Y2fLyxqtClFMxhd8WnSxD2JhlCIj?=
- =?us-ascii?Q?cggJK8UtCX35kgeS3cEOY6lK5GaQaY7cWVzNmJKG0rANe8WHU76DGcUSvob+?=
- =?us-ascii?Q?/ykyAIDUUnE/qebAHRbYlab5zAL1oV1URU771+JYTamXp4WsFhMd1/J4S+Ky?=
- =?us-ascii?Q?aQeez7FRIPGpm0wQ01xyFawhdezrv/UGjqkgQapsNLRG4SZrXqFLFEHCOJ3y?=
- =?us-ascii?Q?vNKVxPsUja9AEZk+i1FzWJOcCim0EfmmJUZ2HZEmmwk/C/gJwoQ1VoqoEbsB?=
- =?us-ascii?Q?roAMQbE/goo7zjmNT2EXJfXARgWgIkYIMckdLYn5RLwiua3OnPtKeM6pPXxY?=
- =?us-ascii?Q?sOo6UNI7L6YP6k+ttRs2qn5r/5Xta6ieZrj75+4dCv12pTQdtfdWub96GabR?=
- =?us-ascii?Q?yk0fr9+FVgDyLGldistBHbdSieaxuVA3AkXxG/lZKW4kAJmT7Kzr/cJqLX1v?=
- =?us-ascii?Q?/4ccBRHc7BVw22Or/YhPR40ySMmUyl7RsziWoG92WyYZAFZNg2xvTLPdm5U0?=
- =?us-ascii?Q?sDzWmHUQ5DcNaWpfuUw7Yqy+xNS/tX0u+3Wh2tw7A3lkJGjOeHMzeMdULmzD?=
- =?us-ascii?Q?KlYYsTIl4mEtN6oZbi00oK8iMjW3YFrtpdfjq6U6lQhi+DrF49k0Fkaav0OB?=
- =?us-ascii?Q?C+p6Pp3kvSuWpNE19KawLV8QP51F30gY19FbYkgPAKoywzPGOObzCe8rRe0T?=
- =?us-ascii?Q?1PkR3S9C3cwf+mFJ86N3XiNw2a5p2nHLgcLflLxywc8S7t24r45uRf1DdEwW?=
- =?us-ascii?Q?TWxv2QYKIeBLNxtupEhhlgwsrlf1zIOzOxgg751oraO1VVBj95/d91m4jtiM?=
- =?us-ascii?Q?7I1F8decFfKj4uttQCWOQQ8Gw5dlwIWaftSz+dzIznsJWwXhUabyPSzZEI36?=
- =?us-ascii?Q?YGRmsFyyB6BF1FMMsAVB/gNXDXU7OdUtG/lDxezykUqQGW7Gi5Va37cwKgqT?=
- =?us-ascii?Q?rTkkZVZhhySySpXfaKqd11EQgi+DkHeSuqObCQQk/LVpSAITYEcdqe1P9Xa+?=
- =?us-ascii?Q?CFlcjW8W8t+S87Cf5jepEeZ9qG0KMeAkpg8z8nY0Fq/2M+NjF+agqpDQOtaD?=
- =?us-ascii?Q?TT02WObPFGJ42xdhzVXPEKdQ/OELYc0Vu+rD56eiN7Te+9qEYhdv/h9S2l1z?=
- =?us-ascii?Q?tHHQrgpcXocq/pU=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(19092799006)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?moIlsrM83jZTn2Fn2bu+x28xI4NoVvbKVE3JRRUPF3AdXIfa5dmDG6sBcIvs?=
- =?us-ascii?Q?QNyc+OVwfPRVRLJmJEG0BKVYK46FiMEBQorRft2mmuRwMlM3tj2t7rzJhshx?=
- =?us-ascii?Q?mxb8U+hoJMAWfbzTCT5lcf7174w1hUrFwj27ts3fWGI0w8WNhhzESGtFcVLU?=
- =?us-ascii?Q?w/Wt1NV8yP/wCJA8/UYRWxMhH7XygzyAeGzqQq72ZZ1yafSZO/v0GSvnpbKJ?=
- =?us-ascii?Q?cSbl7onXXreqBP1s1nMG4dmscdwT1QJAGctiBeqjxWmFmG9XGIdLPTk9l4fq?=
- =?us-ascii?Q?2/NJbav0kZfzT32xtD6Nn5BcG7zStrEm9FxnRMjLIb3Y3nruI2rXQWiyu77F?=
- =?us-ascii?Q?Rnci4yX52RPilnprBcQIs53J88JE0AScJ35/MzCRtcCmBwMb2LK/DXKi9GEE?=
- =?us-ascii?Q?VSoZ8XFvQ955aOHeMcMW+N6tFoKO30z4VnkkSzjCI5xWs85fvq4qbrQRSS2s?=
- =?us-ascii?Q?UZxSCxWEs7VVTI06we8WPdAl2HhbWZtgzvY6R830N1YtBqjmFAd8ZDgHqj6H?=
- =?us-ascii?Q?4Qhfh/jv39UH431Gw2vaWjVX9JwYQO3TrHgW/SWExj8zAF6EZUBguWpjZV0m?=
- =?us-ascii?Q?Q3CE7mgKGpBLVFP53KCut39n8iplxJWgs3PtiM56zWGkuHaw6v72Cbsry7U2?=
- =?us-ascii?Q?P2nQ2yww9pvMgdPbfo2hr1FhFpyWfoLmhybG+NJYsuG9sZXEysisTvh/ORqq?=
- =?us-ascii?Q?iA1LgkpXB3KyhadgpgK9QgXg6kV03kuayyISa//AEF5ABmxkBlyov71ew7hJ?=
- =?us-ascii?Q?1af67oXeSvq0e4PdoQQ1ceUU21pTxClrbpZTuysia/cu6xCqH36Ps+JCSQZe?=
- =?us-ascii?Q?VrTIoTfE4fcsk+1PK2aXsyQ6BaWhh5HmSRzQBWl2ai5iHfKz9Rn/eklb04dd?=
- =?us-ascii?Q?2rxO3zvXPwF/0wIQL5nAoYhCYTAFofiGqGWlx6V/G7oZ8+Stjr6RLRi3vGFq?=
- =?us-ascii?Q?sGC6bpmkxyToPUWYlOIi7Epi2BsrSbuBQtY51fI3rlBazOJ47DUMRlvKWYjG?=
- =?us-ascii?Q?++2PMbItMKL1qcxwmwuf3YKIycpR73mIDpiX9dKsq3+0Hdh0wvk9zzNyFX8d?=
- =?us-ascii?Q?bwiCVlI/WBwrY5xrrNG0y1IoBYsR24xxxbso0PFKEZPe7RE93Gs6S27LR13z?=
- =?us-ascii?Q?JpggKI1v94rH4ju9Oh+fHUe0dBJffm4AYJZlKymoj3XDq7oJHPZ0Lx+zZ5ns?=
- =?us-ascii?Q?of7u/3nnBe1y1E+vMKYRwoRpeMp6zuzCm0tEQR6TsQ0FdrctAB/kmiLxsCPZ?=
- =?us-ascii?Q?4QDBqNATe+m2pQeF0i7rFpcgycLKI/ixmXUyLrxsp4BQd/XLE18owsF/lSu8?=
- =?us-ascii?Q?hDPoWu0hxi7MvBqjHxBflrEj4BYNFd4H/T9/oLYIE6T3FhEsGEIuRK0nXtaa?=
- =?us-ascii?Q?MmEf8cq0K6lIMX5L46xtHXQjgyExvzEYlfvdevjBJeGjdbOTGZQ0Kh9tDOpu?=
- =?us-ascii?Q?o1gzrHjiAwb/iftmzvFA136NU94iA53QcMb4tIJxS/1refIuP5WWWYGMHGcz?=
- =?us-ascii?Q?ukkICev2aAqXe1idv1NSeSjo/NO/n8D03Y+5fIfe62pOQT1CcLCDWEWJOqhT?=
- =?us-ascii?Q?Y6sjdGZTKlp9uW4qXUfB0cZWByxfmuwz3qmcAcXB?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3a0c7f4-166b-440d-1481-08ddd6529ce1
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2025 08:07:26.7317
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PambkHo+TgMH/V/LrTQFUDwXgjhZboZGmoJe2jUoEQbjzkrOJVDTmWcVGeWLqxzPrCCESZo6ImpLeUqWZaRO3Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8192
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_010730_500143_9306F2E1 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20250808_011018_184260_974DA0F8 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,91 +102,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add API dw_hdmi_set_sample_iec958() for iec958 format because audio device
-driver needs iec958 information to configure this specific setting.
+Fix -Wunused-result warning generated when compiled with gcc 13.3.0,
+by checking fread's return value and handling errors, preventing
+potential failures when reading from stdin.
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+Fixes compiler warning:
+warning: ignoring return value of 'fread' declared with attribute
+'warn_unused_result' [-Wunused-result]
+
+Fixes: 806a15b2545e ("kselftests/arm64: add PAuth test for whether exec() changes keys")
+
+Signed-off-by: Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-gp-audio.c |  5 +++++
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c          | 12 +++++++++++-
- include/drm/bridge/dw_hdmi.h                       |  3 ++-
- 3 files changed, 18 insertions(+), 2 deletions(-)
+Changes in v2:
+	Use EXIT_FAILURE instead of -1.
+---
+ tools/testing/selftests/arm64/pauth/exec_target.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-gp-audio.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-gp-audio.c
-index ab18f9a3bf23..df7a37eb47f4 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-gp-audio.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-gp-audio.c
-@@ -90,6 +90,11 @@ static int audio_hw_params(struct device *dev,  void *data,
- 				   params->iec.status[0] & IEC958_AES0_NONAUDIO);
- 	dw_hdmi_set_sample_width(dw->data.hdmi, params->sample_width);
+diff --git a/tools/testing/selftests/arm64/pauth/exec_target.c b/tools/testing/selftests/arm64/pauth/exec_target.c
+index 4435600ca400..e597861b26d6 100644
+--- a/tools/testing/selftests/arm64/pauth/exec_target.c
++++ b/tools/testing/selftests/arm64/pauth/exec_target.c
+@@ -13,7 +13,12 @@ int main(void)
+ 	unsigned long hwcaps;
+ 	size_t val;
  
-+	if (daifmt->bit_fmt == SNDRV_PCM_FORMAT_IEC958_SUBFRAME_LE)
-+		dw_hdmi_set_sample_iec958(dw->data.hdmi, 1);
-+	else
-+		dw_hdmi_set_sample_iec958(dw->data.hdmi, 0);
+-	fread(&val, sizeof(size_t), 1, stdin);
++	size_t size = fread(&val, sizeof(size_t), 1, stdin);
 +
- 	return 0;
- }
++	if (size != 1) {
++		fprintf(stderr, "Could not read input from stdin\n");
++		return EXIT_FAILURE;
++	}
  
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index 8d096b569cf1..3b77e73ac0ea 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -177,6 +177,7 @@ struct dw_hdmi {
- 
- 	spinlock_t audio_lock;
- 	struct mutex audio_mutex;
-+	unsigned int sample_iec958;
- 	unsigned int sample_non_pcm;
- 	unsigned int sample_width;
- 	unsigned int sample_rate;
-@@ -718,6 +719,14 @@ void dw_hdmi_set_sample_non_pcm(struct dw_hdmi *hdmi, unsigned int non_pcm)
- }
- EXPORT_SYMBOL_GPL(dw_hdmi_set_sample_non_pcm);
- 
-+void dw_hdmi_set_sample_iec958(struct dw_hdmi *hdmi, unsigned int iec958)
-+{
-+	mutex_lock(&hdmi->audio_mutex);
-+	hdmi->sample_iec958 = iec958;
-+	mutex_unlock(&hdmi->audio_mutex);
-+}
-+EXPORT_SYMBOL_GPL(dw_hdmi_set_sample_iec958);
-+
- void dw_hdmi_set_sample_rate(struct dw_hdmi *hdmi, unsigned int rate)
- {
- 	mutex_lock(&hdmi->audio_mutex);
-@@ -849,7 +858,8 @@ static void dw_hdmi_gp_audio_enable(struct dw_hdmi *hdmi)
- 				    hdmi->channels,
- 				    hdmi->sample_width,
- 				    hdmi->sample_rate,
--				    hdmi->sample_non_pcm);
-+				    hdmi->sample_non_pcm,
-+				    hdmi->sample_iec958);
- }
- 
- static void dw_hdmi_gp_audio_disable(struct dw_hdmi *hdmi)
-diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
-index b8fc4fdf5a21..095cdd9b7424 100644
---- a/include/drm/bridge/dw_hdmi.h
-+++ b/include/drm/bridge/dw_hdmi.h
-@@ -145,7 +145,7 @@ struct dw_hdmi_plat_data {
- 
- 	/* Platform-specific audio enable/disable (optional) */
- 	void (*enable_audio)(struct dw_hdmi *hdmi, int channel,
--			     int width, int rate, int non_pcm);
-+			     int width, int rate, int non_pcm, int iec958);
- 	void (*disable_audio)(struct dw_hdmi *hdmi);
- 
- 	/* Vendor PHY support */
-@@ -179,6 +179,7 @@ void dw_hdmi_setup_rx_sense(struct dw_hdmi *hdmi, bool hpd, bool rx_sense);
- int dw_hdmi_set_plugged_cb(struct dw_hdmi *hdmi, hdmi_codec_plugged_cb fn,
- 			   struct device *codec_dev);
- void dw_hdmi_set_sample_non_pcm(struct dw_hdmi *hdmi, unsigned int non_pcm);
-+void dw_hdmi_set_sample_iec958(struct dw_hdmi *hdmi, unsigned int iec958);
- void dw_hdmi_set_sample_width(struct dw_hdmi *hdmi, unsigned int width);
- void dw_hdmi_set_sample_rate(struct dw_hdmi *hdmi, unsigned int rate);
- void dw_hdmi_set_channel_count(struct dw_hdmi *hdmi, unsigned int cnt);
+ 	/* don't try to execute illegal (unimplemented) instructions) caller
+ 	 * should have checked this and keep worker simple
 -- 
-2.34.1
+2.43.0
 
 
