@@ -4,65 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1231CC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF7EC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 19:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lgp4XbPSBGZ/nyQklTwjyvG0jLZ6UIZYS7A5GtDvLoc=; b=nd8w4k4N+mlHiyZ35Knc1OTeZh
-	4mgSARvMA1o7hhmyn0CkZ3+JXWrRI0HNJ1/z5Agee8cth5v0QX6ZG73HB34pdg94ZZtZc7Hz2s1Sj
-	K0Bet+7rzWnIgnSzo3OgWtKTyhX7VwuIR/jsQlbxAftxdfAERocVm1lIiblDvegTSZfTBJv/oO6GA
-	Gm2U1yoEJapSsHGxcSo9An8+ik2KvtoDlYEhT1wULbBi9xdiy+S0n2VSf33MZWBfBGwn9yPqdUFzY
-	yH0nidlrVAIC1SCQfNGnKseXfUVvRtJIWrk4Vjy/8ht71PDoUxiIxnY0wAD1LoUc3nBlKKo4yDbLg
-	Fef3d1DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Sk4TAr1bZq7PgDg2M8s7TSpfTxFYnEADuDok+A31+Vw=; b=i3vJWsYVqvZJ0wxojk9nwL7vKN
+	ssKTuHGHCPR7qmsgM5VFG3H5tP/XXwAOemqg4JOqSTp+7COoXpt8awLEhNUb1z9AwS5Rt2IVtYmxc
+	mLxEAnfnedSaQpgmn7gtS9InztQRV9PK6owaJ4LrlYvwk9La5MmRykvBv9yu0lUDKf7zSGLBqfQes
+	LK42tLsZeyYbBL3LyeYkEcLk7qU+S4H7GN811ZKOYg3/QtKY6dDvHIBTriqzuh2f9snWFlRIytgKw
+	BHX0joNrM1Nnjamcd60kKkCVyobckHzBqGk8UHaw8Z0gOCrMcenajb7gYz+B6uQzemKAMCf9cil8q
+	VQw+gy3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukSpL-00000003Xeu-0xgQ;
-	Fri, 08 Aug 2025 19:32:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ukSvO-00000003YDR-1BU9;
+	Fri, 08 Aug 2025 19:38:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukSmo-00000003XNf-2xrz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 19:29:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6066A5C6B2C;
-	Fri,  8 Aug 2025 19:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08ADAC4CEED;
-	Fri,  8 Aug 2025 19:29:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754681393;
-	bh=CiCDLFP0XbUo4Ghv+kqOOeZMQP6GmlGXuHQJyu0BoUo=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=nzvfd6TWNGPVP/CzLfSavkL3tBvZNDjEauHvQZ0OzZfJTOyu8A/1pnCgl2zVWM9qm
-	 r4IIzyO0xVVPSwZ0IAQ4qych+wPww+GXMJiaF3HQrFOzSXQ1IM/Nm23FAYMdVy+zF4
-	 GL2Y+VYdZQifx5znCXVpI35dGbz1V7jXrp+wv2kyjVJUri5Er6VXvGvArC+wLc8PW3
-	 MlygcpXM4L4EeWuQHwKRPmq8nCruwpPQ87/9WIZD+RmXvbETIUQndq0y+Qx4nj+Nr9
-	 Pz4dkXFb4ZTq+Zu2F3DSyht+LlXl2chrWjuRoneuZnWdUNohWkV5zyo8w7rCNKGW7q
-	 QaWfimKB2hBRA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7104E383BF5A;
-	Fri,  8 Aug 2025 19:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1ukSss-00000003Y0x-0NZs;
+	Fri, 08 Aug 2025 19:36:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1754681768;
+	bh=1S4gIsUy/lP67CX0Xrs0Zs4bAm7U3GED0ShLh7xGT4Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=luyk3vpZZleLUQYOIfaTqEaQsi2CMvz/TrDYdnaOkJKrBYG/VaDu0UPjjloLOw34/
+	 QW1T8u4Vxk0x42MfzoLRwvGbOI5WR7gPIyHmardIs7uwtJnNFjgNoD7bV9C6BMh/1o
+	 n5GKzAhtdNAKeDZxiykac45FHF3oYLQ4nizUKS7OqcHems8+OXQpI2pux0lNNU+qoG
+	 VIbO2riIdyMnfy/PbfBn/QPzD2P62OWJZ4Rfjgz7lTWWXJ0QqN/CTLrlksmr9owHXT
+	 LelojNN1riLUDLzCoFkhIBDr0x7DPmjtNLmewnnCTZkocarhleco8RwjNL3Fd+pegU
+	 0J3eFmdsx82QQ==
+Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3535117E0299;
+	Fri,  8 Aug 2025 21:36:05 +0200 (CEST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Niklas Cassel <cassel@kernel.org>,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>,
+	Alexey Charkov <alchark@gmail.com>,
+	Patrick Wildt <patrick@blueri.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v2 0/2] arm64: dts: rockchip: Add vdpu 381 and 383 nodes
+Date: Fri,  8 Aug 2025 15:36:00 -0400
+Message-ID: <20250808193602.142527-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3] net: ti: icssg-prueth: Fix emac link speed
- handling
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175468140625.242168.262371954250110213.git-patchwork-notify@kernel.org>
-Date: Fri, 08 Aug 2025 19:30:06 +0000
-References: <20250805173812.2183161-1-danishanwar@ti.com>
-In-Reply-To: <20250805173812.2183161-1-danishanwar@ti.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, m-malladi@ti.com, h-mittal1@ti.com,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, srk@ti.com, vigneshr@ti.com, rogerq@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_122954_783280_85D774BF 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250808_123610_286595_06ED3686 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,29 +92,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Add the nodes for vdpu 381 and 383, respectively RK3588 and RK3576.
+To keep compatibility with older variants, the reg ranges order is not
+in register order so that the function reg range is kept first.
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Also adds the corresponding iommu nodes.
 
-On Tue, 5 Aug 2025 23:08:12 +0530 you wrote:
-> When link settings are changed emac->speed is populated by
-> emac_adjust_link(). The link speed and other settings are then written into
-> the DRAM. However if both ports are brought down after this and brought up
-> again or if the operating mode is changed and a firmware reload is needed,
-> the DRAM is cleared by icssg_config(). As a result the link settings are
-> lost.
-> 
-> [...]
+Regards,
+Detlev.
 
-Here is the summary with links:
-  - [net,v3] net: ti: icssg-prueth: Fix emac link speed handling
-    https://git.kernel.org/netdev/net/c/06feac15406f
+Changes since v1:
+ - Set node name to match first reg range
 
-You are awesome, thank you!
+Detlev Casanova (2):
+  arm64: dts: rockchip: Add the vdpu381 Video Decoders on RK3588
+  arm64: dts: rockchip: Add the vdpu383 Video Decoder on rk3576
+
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 36 +++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 74 +++++++++++++++++++
+ 2 files changed, 110 insertions(+)
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.50.1
 
 
