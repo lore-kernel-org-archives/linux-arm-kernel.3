@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BAFBC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 15:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D7FDC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 15:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZXJbA3WTTH9PC7iAGQFTEEZitLt6uqmDGblrk1/zT0=; b=0NRwYD9nuK5o1ghg9kdLYythaf
-	y44yJ7oL5cVNiXF9kVUxezA2oooMLzyvI/0Io3HhugKjsz/nTTSZVdLUAYSU9teUVE/1c6Ps5kAvB
-	cn9tJXVcjPG24KXOqljLOUtsMfH6gEXvdTn3JbArhl9uMpsxyz4q/UAwGSEpFHZXaDzVNcYJmVL6G
-	YCc6IABpzsvkOAPiPKif6yIgmcAOoG8R6sfIL+1xIacUKdqU1S7oNjd6h94pL23TpsRYK29eUNqnp
-	Z6IRnLzhjRRnUxnTjVJ2vD6oZJ977UrfpIEgO73ckPgvNOJNz2SPkyF8Hl1eVhDh9MomdLdmwtGi4
-	qNoUJDiQ==;
+	bh=yDnWQUGwVeRgTkXIG9GojbyrWBxWA0O5HmUEy9yId/g=; b=vKPXfUkGIEzOEcGkJWU8j76uJC
+	HMlIpiYZtw2qsqWrJW1Y2M6m1K3LKy964JTEvr/1xTzGfQAQzYWwNx8x77pDcXG3TdtIEJdxCu/ii
+	6vjbhIMBg0cjXWI/R7ITev5hKSGMZMmsRgyhcfA6UstxD+qGuxWLKVKVyp0+jOKyB6hHv+rButEHK
+	w9c2DJi3NxPK75Vwj0H18fEV2RnKvoeJAytIBe3C5RWyRP61MHM1a0xK9WZk3n1ZdlUQGkENmFsss
+	gGoKXnxXJdLsANjWBy6qJX9j0vbNMYOHNmw+hBeKIg2yYB+SEOGQMWkXrCw58PMioRUS+dWnQcUJT
+	ZbukFlRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukOvA-000000039Tm-2bM2;
-	Fri, 08 Aug 2025 15:22:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ukP0h-00000003AXi-2l4v;
+	Fri, 08 Aug 2025 15:27:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukOsZ-000000038v9-3LbZ
+	id 1ukOyA-00000003A8U-1YDd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 15:19:35 +0000
+	Fri, 08 Aug 2025 15:25:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5F95601ED;
-	Fri,  8 Aug 2025 15:19:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D830C4CEED;
-	Fri,  8 Aug 2025 15:19:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6747B601F0;
+	Fri,  8 Aug 2025 15:25:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 468E6C4CEED;
+	Fri,  8 Aug 2025 15:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754666373;
-	bh=Ju9ikKO/kXioH3zFMYDsXK5SYo/GY0u9aYwCAwLDTHQ=;
+	s=k20201202; t=1754666720;
+	bh=LkFYcsA0BuFkevXBP8rh1QCjNzyb8wILJJ74GWv73ww=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bZDkKsGxlo+CoIVF5PBg1RRdrrokNpeq5e8oXCRGfjsa+Me+uZZjrBUefoLz7hUoI
-	 cryi7PzlJmQtcEUjFyYcqtxjHCc7nN3EERuy9ejFB8kGqcANuSoTFaDCo8MpbF0orh
-	 RpmR9uCBUrNuWRSMuILFdcB7LhWNUQ3s50gYbH6zj2w5W0Y8Z3GAarKNVXxrAapY28
-	 x9z17JO+qeVCVkvkeSvGcgi+QhOQNkUpaiQtrAmkuseBXPjNsB4fua6oADqCKxdnZm
-	 bZK3MWRz1kPyqB4hus5+KrVE5e/oElqN005mFeTwcwURBmktCR9TpVEnuHS8VzNxJB
-	 iciki0XtEglLA==
+	b=aYpkHOFDWiJ3r6/BXVEEGVYRXPaoT9GzAZBnr/uFx4keft92ivzJoGNwCU6v+IW8N
+	 /BLJ0mKvUm7BftbPUV3p7VFWD08rtOYUGlKVwMpGZSwfG/ZBa5cuDuTdQDJKPDVWIG
+	 eQraUHZZZHhgN/LtzGm7rN2uGm4yEppWQ50KhYRsGPSIVQPmINYXoi1WVvJPNIV0/K
+	 47V2p7OwlVSQ+6i/v+crQAgQWpsuo0eTU8pN6ypQ1S/NxR3wywX4wswTPfrgZBkctU
+	 Yxa+XiH91d3AciU3m+n8irx9DF3C2hXvulTdGkyq1/B+7jztPti58Wvb8AfSV8sc0I
+	 dkYBxz/TRLfhw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: Bartosz Golaszewski <brgl@bgdev.pl>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	linux-gpio@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Russell King <linux@armlinux.org.uk>,
 	Daniel Mack <daniel@zonque.org>,
 	Haojian Zhuang <haojian.zhuang@gmail.com>,
 	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Krzysztof Kozlowski <krzk@kernel.org>
+	Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH 01/21] ARM: select legacy gpiolib interfaces where used
-Date: Fri,  8 Aug 2025 17:17:45 +0200
-Message-Id: <20250808151822.536879-2-arnd@kernel.org>
+	linux-usb@vger.kernel.org
+Subject: [PATCH 19/21] usb: udc: pxa: remove unused platform_data
+Date: Fri,  8 Aug 2025 17:18:04 +0200
+Message-Id: <20250808151822.536879-20-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250808151822.536879-1-arnd@kernel.org>
 References: <20250808151822.536879-1-arnd@kernel.org>
@@ -83,80 +82,304 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-A few old machines have not been converted away from the old-style
-gpiolib interfaces. Make these select the new CONFIG_GPIOLIB_LEGACY
-symbol so the code still works where it is needed but can be left
-out otherwise.
+None of the remaining boards put useful data into the platform_data
+structures, so effectively this only works with DT based probing.
+
+Remove all code that references this data, to stop using the legacy
+gpiolib interfaces. The pxa27x version already supports gpio
+descriptors, while the pxa25x version now does it the same way.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/mach-mv78xx0/Kconfig     | 1 +
- arch/arm/mach-orion5x/Kconfig     | 1 +
- arch/arm/mach-pxa/Kconfig         | 1 +
- arch/arm/mach-s3c/Kconfig.s3c64xx | 1 +
- arch/arm/mach-sa1100/Kconfig      | 1 +
- 5 files changed, 5 insertions(+)
+ arch/arm/mach-pxa/devices.c              |  7 ----
+ arch/arm/mach-pxa/gumstix.c              |  1 -
+ arch/arm/mach-pxa/udc.h                  |  8 -----
+ drivers/usb/gadget/udc/pxa25x_udc.c      | 41 ++++++++----------------
+ drivers/usb/gadget/udc/pxa25x_udc.h      |  2 +-
+ drivers/usb/gadget/udc/pxa27x_udc.c      | 35 +++-----------------
+ drivers/usb/gadget/udc/pxa27x_udc.h      |  2 --
+ include/linux/platform_data/pxa2xx_udc.h | 15 ---------
+ 8 files changed, 19 insertions(+), 92 deletions(-)
+ delete mode 100644 arch/arm/mach-pxa/udc.h
 
-diff --git a/arch/arm/mach-mv78xx0/Kconfig b/arch/arm/mach-mv78xx0/Kconfig
-index 9de3bbc09c3a..670e6587827e 100644
---- a/arch/arm/mach-mv78xx0/Kconfig
-+++ b/arch/arm/mach-mv78xx0/Kconfig
-@@ -6,6 +6,7 @@ menuconfig ARCH_MV78XX0
- 	depends on ATAGS
- 	select CPU_FEROCEON
- 	select GPIOLIB
-+	select GPIOLIB_LEGACY
- 	select MVEBU_MBUS
- 	select FORCE_PCI
- 	select PLAT_ORION_LEGACY
-diff --git a/arch/arm/mach-orion5x/Kconfig b/arch/arm/mach-orion5x/Kconfig
-index ee449ca032d2..cef19bea6164 100644
---- a/arch/arm/mach-orion5x/Kconfig
-+++ b/arch/arm/mach-orion5x/Kconfig
-@@ -5,6 +5,7 @@ menuconfig ARCH_ORION5X
- 	depends on CPU_LITTLE_ENDIAN
- 	select CPU_FEROCEON
- 	select GPIOLIB
-+	select GPIOLIB_LEGACY
- 	select MVEBU_MBUS
- 	select FORCE_PCI
- 	select PCI_QUIRKS
-diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
-index 10e472f4fa43..66e26990e2c8 100644
---- a/arch/arm/mach-pxa/Kconfig
-+++ b/arch/arm/mach-pxa/Kconfig
-@@ -10,6 +10,7 @@ menuconfig ARCH_PXA
- 	select CPU_XSCALE if !CPU_XSC3
- 	select GPIO_PXA
- 	select GPIOLIB
-+	select GPIOLIB_LEGACY
- 	select PLAT_PXA
- 	help
- 	  Support for Intel/Marvell's PXA2xx/PXA3xx processor line.
-diff --git a/arch/arm/mach-s3c/Kconfig.s3c64xx b/arch/arm/mach-s3c/Kconfig.s3c64xx
-index 8f40af063ad6..3f97fba8e4f5 100644
---- a/arch/arm/mach-s3c/Kconfig.s3c64xx
-+++ b/arch/arm/mach-s3c/Kconfig.s3c64xx
-@@ -101,6 +101,7 @@ config MACH_WLF_CRAGG_6410
- 	depends on ATAGS
- 	depends on I2C=y
- 	select CPU_S3C6410
-+	select GPIOLIB_LEGACY
- 	select LEDS_GPIO_REGISTER
- 	select S3C64XX_DEV_SPI0
- 	select S3C64XX_SETUP_FB_24BPP
-diff --git a/arch/arm/mach-sa1100/Kconfig b/arch/arm/mach-sa1100/Kconfig
-index 0fb4c24cfad5..e23700e0d6c8 100644
---- a/arch/arm/mach-sa1100/Kconfig
-+++ b/arch/arm/mach-sa1100/Kconfig
-@@ -13,6 +13,7 @@ menuconfig ARCH_SA1100
- 	select CPU_FREQ
- 	select CPU_SA1100
- 	select GPIOLIB
-+	select GPIOLIB_LEGACY
- 	select IRQ_DOMAIN
- 	select ISA
- 	select NEED_MACH_MEMORY_H
+diff --git a/arch/arm/mach-pxa/devices.c b/arch/arm/mach-pxa/devices.c
+index 7695cfce01a1..edad956a1483 100644
+--- a/arch/arm/mach-pxa/devices.c
++++ b/arch/arm/mach-pxa/devices.c
+@@ -11,7 +11,6 @@
+ #include <linux/platform_data/i2c-pxa.h>
+ #include <linux/soc/pxa/cpu.h>
+ 
+-#include "udc.h"
+ #include <linux/platform_data/video-pxafb.h>
+ #include <linux/platform_data/mmc-pxamci.h>
+ #include "irqs.h"
+@@ -83,10 +82,6 @@ void __init pxa_set_mci_info(const struct pxamci_platform_data *info,
+ 		pr_err("Unable to create mci device: %d\n", err);
+ }
+ 
+-static struct pxa2xx_udc_mach_info pxa_udc_info = {
+-	.gpio_pullup = -1,
+-};
+-
+ static struct resource pxa2xx_udc_resources[] = {
+ 	[0] = {
+ 		.start	= 0x40600000,
+@@ -108,7 +103,6 @@ struct platform_device pxa25x_device_udc = {
+ 	.resource	= pxa2xx_udc_resources,
+ 	.num_resources	= ARRAY_SIZE(pxa2xx_udc_resources),
+ 	.dev		=  {
+-		.platform_data	= &pxa_udc_info,
+ 		.dma_mask	= &udc_dma_mask,
+ 	}
+ };
+@@ -119,7 +113,6 @@ struct platform_device pxa27x_device_udc = {
+ 	.resource	= pxa2xx_udc_resources,
+ 	.num_resources	= ARRAY_SIZE(pxa2xx_udc_resources),
+ 	.dev		=  {
+-		.platform_data	= &pxa_udc_info,
+ 		.dma_mask	= &udc_dma_mask,
+ 	}
+ };
+diff --git a/arch/arm/mach-pxa/gumstix.c b/arch/arm/mach-pxa/gumstix.c
+index 1713bdf3b71e..6074815a4bca 100644
+--- a/arch/arm/mach-pxa/gumstix.c
++++ b/arch/arm/mach-pxa/gumstix.c
+@@ -39,7 +39,6 @@
+ 
+ #include "pxa25x.h"
+ #include <linux/platform_data/mmc-pxamci.h>
+-#include "udc.h"
+ #include "gumstix.h"
+ #include "devices.h"
+ 
+diff --git a/arch/arm/mach-pxa/udc.h b/arch/arm/mach-pxa/udc.h
+deleted file mode 100644
+index 9a827e32db98..000000000000
+--- a/arch/arm/mach-pxa/udc.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/*
+- * arch/arm/mach-pxa/include/mach/udc.h
+- *
+- */
+-#include <linux/platform_data/pxa2xx_udc.h>
+-
+-extern void pxa_set_udc_info(struct pxa2xx_udc_mach_info *info);
+-
+diff --git a/drivers/usb/gadget/udc/pxa25x_udc.c b/drivers/usb/gadget/udc/pxa25x_udc.c
+index b97fb7b0cb2c..bad151aedec1 100644
+--- a/drivers/usb/gadget/udc/pxa25x_udc.c
++++ b/drivers/usb/gadget/udc/pxa25x_udc.c
+@@ -12,7 +12,7 @@
+ /* #define VERBOSE_DEBUG */
+ 
+ #include <linux/device.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/module.h>
+ #include <linux/kernel.h>
+ #include <linux/ioport.h>
+@@ -261,24 +261,12 @@ static void nuke (struct pxa25x_ep *, int status);
+ /* one GPIO should control a D+ pullup, so host sees this device (or not) */
+ static void pullup_off(void)
+ {
+-	struct pxa2xx_udc_mach_info		*mach = the_controller->mach;
+-	int off_level = mach->gpio_pullup_inverted;
+-
+-	if (gpio_is_valid(mach->gpio_pullup))
+-		gpio_set_value(mach->gpio_pullup, off_level);
+-	else if (mach->udc_command)
+-		mach->udc_command(PXA2XX_UDC_CMD_DISCONNECT);
++	gpiod_set_value(the_controller->pullup_gpio, 0);
+ }
+ 
+ static void pullup_on(void)
+ {
+-	struct pxa2xx_udc_mach_info		*mach = the_controller->mach;
+-	int on_level = !mach->gpio_pullup_inverted;
+-
+-	if (gpio_is_valid(mach->gpio_pullup))
+-		gpio_set_value(mach->gpio_pullup, on_level);
+-	else if (mach->udc_command)
+-		mach->udc_command(PXA2XX_UDC_CMD_CONNECT);
++	gpiod_set_value(the_controller->pullup_gpio, 1);
+ }
+ 
+ #if defined(CONFIG_CPU_BIG_ENDIAN)
+@@ -1190,8 +1178,7 @@ static int pxa25x_udc_pullup(struct usb_gadget *_gadget, int is_active)
+ 
+ 	udc = container_of(_gadget, struct pxa25x_udc, gadget);
+ 
+-	/* not all boards support pullup control */
+-	if (!gpio_is_valid(udc->mach->gpio_pullup) && !udc->mach->udc_command)
++	if (!udc->pullup_gpio)
+ 		return -EOPNOTSUPP;
+ 
+ 	udc->pullup = (is_active != 0);
+@@ -2343,19 +2330,17 @@ static int pxa25x_udc_probe(struct platform_device *pdev)
+ 
+ 	/* other non-static parts of init */
+ 	dev->dev = &pdev->dev;
+-	dev->mach = dev_get_platdata(&pdev->dev);
+ 
+ 	dev->transceiver = devm_usb_get_phy(&pdev->dev, USB_PHY_TYPE_USB2);
+ 
+-	if (gpio_is_valid(dev->mach->gpio_pullup)) {
+-		retval = devm_gpio_request_one(&pdev->dev, dev->mach->gpio_pullup,
+-					       GPIOF_OUT_INIT_LOW, "pca25x_udc GPIO PULLUP");
+-		if (retval) {
+-			dev_dbg(&pdev->dev,
+-				"can't get pullup gpio %d, err: %d\n",
+-				dev->mach->gpio_pullup, retval);
+-			goto err;
+-		}
++	dev->pullup_gpio = devm_gpiod_get_index_optional(&pdev->dev, "pullup", 0,
++						    GPIOD_OUT_LOW);
++	if (IS_ERR(dev->pullup_gpio)) {
++		dev_dbg(&pdev->dev,
++			"can't get pullup gpio err: %ld\n",
++			PTR_ERR(dev->pullup_gpio));
++		retval = PTR_ERR(dev->pullup_gpio);
++		goto err;
+ 	}
+ 
+ 	timer_setup(&dev->timer, udc_watchdog, 0);
+@@ -2439,7 +2424,7 @@ static int pxa25x_udc_suspend(struct platform_device *dev, pm_message_t state)
+ 	struct pxa25x_udc	*udc = platform_get_drvdata(dev);
+ 	unsigned long flags;
+ 
+-	if (!gpio_is_valid(udc->mach->gpio_pullup) && !udc->mach->udc_command)
++	if (!udc->pullup_gpio)
+ 		WARNING("USB host won't detect disconnect!\n");
+ 	udc->suspended = 1;
+ 
+diff --git a/drivers/usb/gadget/udc/pxa25x_udc.h b/drivers/usb/gadget/udc/pxa25x_udc.h
+index 6ab6047edc83..3452cf54286c 100644
+--- a/drivers/usb/gadget/udc/pxa25x_udc.h
++++ b/drivers/usb/gadget/udc/pxa25x_udc.h
+@@ -112,7 +112,7 @@ struct pxa25x_udc {
+ 
+ 	struct device				*dev;
+ 	struct clk				*clk;
+-	struct pxa2xx_udc_mach_info		*mach;
++	struct gpio_desc			*pullup_gpio;
+ 	struct usb_phy				*transceiver;
+ 	u64					dma_mask;
+ 	struct pxa25x_ep			ep [PXA_UDC_NUM_ENDPOINTS];
+diff --git a/drivers/usb/gadget/udc/pxa27x_udc.c b/drivers/usb/gadget/udc/pxa27x_udc.c
+index 897f53601b5b..dbce931d7d3b 100644
+--- a/drivers/usb/gadget/udc/pxa27x_udc.c
++++ b/drivers/usb/gadget/udc/pxa27x_udc.c
+@@ -17,7 +17,6 @@
+ #include <linux/proc_fs.h>
+ #include <linux/clk.h>
+ #include <linux/irq.h>
+-#include <linux/gpio.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/slab.h>
+ #include <linux/string_choices.h>
+@@ -1423,14 +1422,7 @@ static const struct usb_ep_ops pxa_ep_ops = {
+  */
+ static void dplus_pullup(struct pxa_udc *udc, int on)
+ {
+-	if (udc->gpiod) {
+-		gpiod_set_value(udc->gpiod, on);
+-	} else if (udc->udc_command) {
+-		if (on)
+-			udc->udc_command(PXA2XX_UDC_CMD_CONNECT);
+-		else
+-			udc->udc_command(PXA2XX_UDC_CMD_DISCONNECT);
+-	}
++	gpiod_set_value(udc->gpiod, on);
+ 	udc->pullup_on = on;
+ }
+ 
+@@ -1520,7 +1512,7 @@ static int pxa_udc_pullup(struct usb_gadget *_gadget, int is_active)
+ {
+ 	struct pxa_udc *udc = to_gadget_udc(_gadget);
+ 
+-	if (!udc->gpiod && !udc->udc_command)
++	if (!udc->gpiod)
+ 		return -EOPNOTSUPP;
+ 
+ 	dplus_pullup(udc, is_active);
+@@ -2354,26 +2346,9 @@ MODULE_DEVICE_TABLE(of, udc_pxa_dt_ids);
+ static int pxa_udc_probe(struct platform_device *pdev)
+ {
+ 	struct pxa_udc *udc = &memory;
+-	int retval = 0, gpio;
+-	struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
+-
+-	if (mach) {
+-		gpio = mach->gpio_pullup;
+-		if (gpio_is_valid(gpio)) {
+-			retval = devm_gpio_request_one(&pdev->dev, gpio,
+-						       GPIOF_OUT_INIT_LOW,
+-						       "USB D+ pullup");
+-			if (retval)
+-				return retval;
+-			udc->gpiod = gpio_to_desc(mach->gpio_pullup);
+-
+-			if (mach->gpio_pullup_inverted ^ gpiod_is_active_low(udc->gpiod))
+-				gpiod_toggle_active_low(udc->gpiod);
+-		}
+-		udc->udc_command = mach->udc_command;
+-	} else {
+-		udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
+-	}
++	int retval = 0;
++
++	udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
+ 
+ 	udc->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(udc->regs))
+diff --git a/drivers/usb/gadget/udc/pxa27x_udc.h b/drivers/usb/gadget/udc/pxa27x_udc.h
+index 31bf79ce931c..2c28b691010a 100644
+--- a/drivers/usb/gadget/udc/pxa27x_udc.h
++++ b/drivers/usb/gadget/udc/pxa27x_udc.h
+@@ -426,7 +426,6 @@ struct udc_stats {
+  * @usb_gadget: udc gadget structure
+  * @driver: bound gadget (zero, g_ether, g_mass_storage, ...)
+  * @dev: device
+- * @udc_command: machine specific function to activate D+ pullup
+  * @gpiod: gpio descriptor of gpio for D+ pullup (or NULL if none)
+  * @transceiver: external transceiver to handle vbus sense and D+ pullup
+  * @ep0state: control endpoint state machine state
+@@ -452,7 +451,6 @@ struct pxa_udc {
+ 	struct usb_gadget			gadget;
+ 	struct usb_gadget_driver		*driver;
+ 	struct device				*dev;
+-	void					(*udc_command)(int);
+ 	struct gpio_desc			*gpiod;
+ 	struct usb_phy				*transceiver;
+ 
+diff --git a/include/linux/platform_data/pxa2xx_udc.h b/include/linux/platform_data/pxa2xx_udc.h
+index bc99cc6a3c5f..c1e4d03bae2c 100644
+--- a/include/linux/platform_data/pxa2xx_udc.h
++++ b/include/linux/platform_data/pxa2xx_udc.h
+@@ -10,21 +10,6 @@
+ #ifndef PXA2XX_UDC_H
+ #define PXA2XX_UDC_H
+ 
+-struct pxa2xx_udc_mach_info {
+-        int  (*udc_is_connected)(void);		/* do we see host? */
+-        void (*udc_command)(int cmd);
+-#define	PXA2XX_UDC_CMD_CONNECT		0	/* let host see us */
+-#define	PXA2XX_UDC_CMD_DISCONNECT	1	/* so host won't see us */
+-
+-	/* Boards following the design guidelines in the developer's manual,
+-	 * with on-chip GPIOs not Lubbock's weird hardware, can have a sane
+-	 * VBUS IRQ and omit the methods above.  Store the GPIO number
+-	 * here.  Note that sometimes the signals go through inverters...
+-	 */
+-	bool	gpio_pullup_inverted;
+-	int	gpio_pullup;			/* high == pullup activated */
+-};
+-
+ #ifdef CONFIG_PXA27x
+ extern void pxa27x_clear_otgph(void);
+ #else
 -- 
 2.39.5
 
