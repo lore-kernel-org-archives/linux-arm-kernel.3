@@ -4,100 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D68C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 10:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B92FC87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 10:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=btGvPQZiWOXn0B7/gk/rJTMjXaXvcBsb2KTNKeGgrXA=; b=k9PGiOJF0fHCgGrMsyH9WMH8MJ
-	G1p0cyYQjQC/ji7reDz2dYZZXsSZ+5o4Xwv9K2c/4nXs6CTQ6psGYAiqENxGp0THCpBzr4+wJzZCJ
-	CPmhlAeSFv1QADPm6pkW1/Vx9/+lRrfxs2hS+Z3CzYZKm2p5gT3kiyFThMOFTacQAjqpGDvzUpnOH
-	fDAsIY792gLVjzngcFTnL3XTU74SNTnjszoc+GWopZFL+1T84JWEFrzxhlCrle0g1zQmHlASIvYyh
-	DTTp+00WB1HGukAizTgjHif7ibcw3u2ZU3bxn0biDQ1jdWLegRipYPWR2PxO17tmhQV59dG6oQ2u4
-	xe+Y2QeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFhny3VFiboY054+1efvXUQLDCPYLfS+4nn6nUu8P+s=; b=EvofpAG1xHABZEQx3pqMA9V4MQ
+	n8vSJGycJIQzklH86XRvpkdqkLXXNqF/+wH7/HCo4+wPJ4uk0vjMkyU1ewMmslYyerP9ARli2vy/k
+	HKuf0XbyRqNbeDqCfmO+cguaXfNCGcsp9qwAldQquzqbLTzOo3ofJ1F2MLvphsm1/CDRa7F4TzADN
+	pQqqIUIW+OnCfXmshpTM/YbodvGc8vkOZu0AMO6r0PpvRKhE7NCzbSFrwtUOQGqgv1j1dMi76UlsC
+	f34IWdXLh/GZtfghIE41gU6aiG0JMit7IELzzUltg6m3uLbP9wgTdcPJs4VueKnnEXDSjML7EuJYf
+	IgPYge3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKfI-00000002cC5-0MnA;
-	Fri, 08 Aug 2025 10:49:36 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1ukKk8-00000002cia-41Vr;
+	Fri, 08 Aug 2025 10:54:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukKSO-00000002Zqg-3GjA
+	id 1ukKhe-00000002cWo-0Mpl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 10:36:18 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-af949bdf36cso348058066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 03:36:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1754649375; x=1755254175; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=btGvPQZiWOXn0B7/gk/rJTMjXaXvcBsb2KTNKeGgrXA=;
-        b=mE1eWXBc2Y9qJigB17rLNUaUCz+o7EH2E4GIY+AU//SU5tdpOGK4CEWK/Qd0SosLVU
-         qoo5QvqEavHd2JPrLssOeULDPQyaJG+4dQ1T4tSKwwAbsxBLxREPlveJaFpdDiambLOo
-         T2miSRbZlI9C5jRFHx2isVckUWbNsf0YYlR13gTkbAs8g+VlxC8PieiosXTuSRIRla5R
-         vNOE3wa1LbqH/GpLYjaiMPO9d7V2xRun47Y43mj/iPwoK0Oq/rmZk+awJhW4Fu86Ey2F
-         ixnVevEQ70gNJeokNpxRgQVkqcq1doV60ZRpPi2EBwkZBX812T9dFbhkyZaX1Df9mly9
-         2ZdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754649375; x=1755254175;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=btGvPQZiWOXn0B7/gk/rJTMjXaXvcBsb2KTNKeGgrXA=;
-        b=XkL4MCYMgBkqI7u+pz58O4JuN9bP969K83OsT1HQZmewVymEhaYctNqduwi8UYa9io
-         NmChZ+E7CXjbuvvquJ6T5y/Qan9vTaQygN3zWdE6fxJd3IEMwap3iJbxNm9Rxqd7bH+v
-         ZX9tf+AvHIt5Nry8khjuJVLQLERbYb4PtMWe2VAzvx8QZLUtm+WOIRhKYRrp4e+80che
-         roIMpMruvefK6SjsRQyVY3P3QzW9QxTQXO/TFtYShIEk41h19xYt2t10p+kKRifBVZ+X
-         qUKe4WTCfmquRv8FNFuyUgXHeEnzAHCufLosYkZR2R0RiHm8t/ZC+obE8LQeQCeVexwx
-         YTxw==
-X-Forwarded-Encrypted: i=1; AJvYcCW9+OpTW6OJ86kb0BQzL4z0OWUaFAaLz6Ex11PjSYLiFHIV+APwgsOMHzjhF44bfCEjVNgrb6oK2aoDnva0Bet2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGhGKEU7+Te/1VP4EI7AmsItpWS6L6VsrQQ7wr71kWT2PVZmxf
-	5g6uVuptnvCA3vUI1hsSICTF+RqmxhPCGdnom4d7HF/iOlQhrpOZbP7Rm665GsrIt5g=
-X-Gm-Gg: ASbGnctD7NCFxgZ3vCzjyPxgdIQQ06SNsAqjJllUxumkW4MJ/h6wk8CVKTjFcc9eRdB
-	ueK4onCuywvopvAGJtTwilXhgt9YYx6xm+1IMBGwAcdZ3gvcPuxDrJnvfUMYELm7Ns0Fhr3lQjL
-	P40cKZLjRSlGNU+lZKK7SbonWCh//n3IRxRaYULEQqM6rNWirweL7MBEpVTp05+0QPvOAgrSkon
-	gLGcAh3g/P3WItEPF4P/6FVqNPFjuxebjnxIcat2XyeoLvhBJfqxLBFecdm47N5LThTBzq4j2/k
-	ymwpivx4zPj1D1ZCe8O+jFhEfZc7poZGfBXwidQs32GAsX58MN0l6zZfnpmPh0AAWjtOsB7ZzEX
-	R2QvTa9Y8eeVc83uGCQ==
-X-Google-Smtp-Source: AGHT+IHPJarRWHkntpryCQMay/z/dGeZNCx9bTRjfxRmN868x4k6N/J3VqA3kieOj4uH956h/8KgfQ==
-X-Received: by 2002:a17:907:7f25:b0:af9:8d62:b1ab with SMTP id a640c23a62f3a-af9c6377171mr240207166b.10.1754649374718;
-        Fri, 08 Aug 2025 03:36:14 -0700 (PDT)
-Received: from localhost ([2001:4090:a244:8691:4b7a:7bbd:bac:c56e])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-af91a0a1bf9sm1478135166b.31.2025.08.08.03.36.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Aug 2025 03:36:14 -0700 (PDT)
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Fri, 08 Aug 2025 12:35:21 +0200
-Subject: [PATCH] clocksource/drivers/arm_global_timer: Add auto-detection
- for initial prescaler values
+	Fri, 08 Aug 2025 10:52:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CD7F44404;
+	Fri,  8 Aug 2025 10:52:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48690C4CEED;
+	Fri,  8 Aug 2025 10:51:58 +0000 (UTC)
+Date: Fri, 8 Aug 2025 11:51:55 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timewait()
+Message-ID: <aJXWyxzkA3x61fKA@arm.com>
+References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
+ <20250627044805.945491-2-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250808-topic-am43-arm-global-timer-v6-16-v1-1-82067d327580@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAOjSlWgC/x3NwQqDMAyA4VeRnBdonQvdXmV4iF10AWslFRmI7
- 27Z8bv8/wFFTKXAqznAZNeieanwtwbil5dJUD/V0Lr24YILuOVVI3Lq7siWcJrzwDNumsRwJ/S
- ERGN0kZ7B8wC1s5qM+vs/3v15XiqB6NFzAAAA
-X-Change-ID: 20250808-topic-am43-arm-global-timer-v6-16-66fc0c6981ab
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, 
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- "Mendez, Judith" <jm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Markus Schneider-Pargmann <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5483; i=msp@baylibre.com;
- h=from:subject:message-id; bh=JcZGTciaD4zebk7GYD3eQi8/W1xLrBL3TKgjtTdUqbo=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhoypl8Ve2F1+911mjeheTTud/v0S97/eFJ93sMzoiUnvt
- K9VHxPZOkpZGMS4GGTFFFk6E0PT/svvPJa8aNlmmDmsTCBDGLg4BWAiGa2MDPNlVnicO/WObc+b
- ygrN90f3V7o+3NM72dQqbVW6p/rvE7mMDAcOVfSlnNW/ZqbLuXtq0+Qbu/fM8NHQ323vkLHZ4dI
- qW34A
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250627044805.945491-2-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_033617_063294_F2D23457 
-X-CRM114-Status: GOOD (  23.54  )
+X-CRM114-CacheID: sfid-20250808_035202_167785_B98DC99F 
+X-CRM114-Status: GOOD (  34.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,157 +69,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-am43xx has a clock tree where the global timer clock is an indirect child
-of the CPU clock used for frequency scaling:
+On Thu, Jun 26, 2025 at 09:48:01PM -0700, Ankur Arora wrote:
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index d4f581c1e21d..d33c2701c9ee 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -273,6 +273,101 @@ do {									\
+>  })
+>  #endif
+>  
+> +#ifndef SMP_TIMEWAIT_SPIN_BASE
+> +#define SMP_TIMEWAIT_SPIN_BASE		16
+> +#endif
+> +
+> +/*
+> + * Policy handler that adjusts the number of times we spin or
+> + * wait for cacheline to change before evaluating the time-expr.
+> + *
+> + * The generic version only supports spinning.
+> + */
+> +static inline u64 ___smp_cond_spinwait(u64 now, u64 prev, u64 end,
+> +				       u32 *spin, bool *wait, u64 slack)
+> +{
+> +	if (now >= end)
+> +		return 0;
+> +
+> +	*spin = SMP_TIMEWAIT_SPIN_BASE;
+> +	*wait = false;
+> +	return now;
+> +}
+> +
+> +#ifndef __smp_cond_policy
+> +#define __smp_cond_policy ___smp_cond_spinwait
+> +#endif
+> +
+> +/*
+> + * Non-spin primitive that allows waiting for stores to an address,
+> + * with support for a timeout. This works in conjunction with an
+> + * architecturally defined policy.
+> + */
+> +#ifndef __smp_timewait_store
+> +#define __smp_timewait_store(ptr, val)	do { } while (0)
+> +#endif
+> +
+> +#ifndef __smp_cond_load_relaxed_timewait
+> +#define __smp_cond_load_relaxed_timewait(ptr, cond_expr, policy,	\
+> +					 time_expr, time_end,		\
+> +					 slack) ({			\
+> +	typeof(ptr) __PTR = (ptr);					\
+> +	__unqual_scalar_typeof(*ptr) VAL;				\
+> +	u32 __n = 0, __spin = SMP_TIMEWAIT_SPIN_BASE;			\
+> +	u64 __prev = 0, __end = (time_end);				\
+> +	u64 __slack = slack;						\
+> +	bool __wait = false;						\
+> +									\
+> +	for (;;) {							\
+> +		VAL = READ_ONCE(*__PTR);				\
+> +		if (cond_expr)						\
+> +			break;						\
+> +		cpu_relax();						\
+> +		if (++__n < __spin)					\
+> +			continue;					\
+> +		if (!(__prev = policy((time_expr), __prev, __end,	\
+> +					  &__spin, &__wait, __slack)))	\
+> +			break;						\
+> +		if (__wait)						\
+> +			__smp_timewait_store(__PTR, VAL);		\
+> +		__n = 0;						\
+> +	}								\
+> +	(typeof(*ptr))VAL;						\
+> +})
+> +#endif
 
-  dpll_mpu_ck -- CPU/cpufreq
-        |
-        v
-  dpll_mpu_m2_ck -- divider
-        |
-        v
-  mpu_periphclk -- fixed divider by 2 used for global timer
+TBH, this still looks over-engineered to me, especially with the second
+patch trying to reduce the spin loops based on the remaining time. Does
+any of the current users of this interface need it to get more precise?
 
-When CPU frequency changes, the global timer's clock notifier rejects
-the change because the hardcoded prescaler (1 or 2) cannot accommodate
-the frequency range across all CPU OPPs (300, 600, 720, 800, 1000 MHz).
+Also I feel the spinning added to poll_idle() is more of an architecture
+choice as some CPUs could not cope with local_clock() being called too
+frequently. The above generic implementation takes a spin into
+consideration even if an arch implementation doesn't need it (e.g. WFET
+or WFE). Yes, the arch policy could set a spin of 0 but it feels overly
+complicated for the generic implementation.
 
-Add platform-specific prescaler auto-detection to solve this issue:
+Can we instead have the generic implementation without any spinning?
+Just polling a variable with cpu_relax() like
+smp_cond_load_acquire/relaxed() with the additional check for time. We
+redefine it in the arch code.
 
-- am43xx: prescaler = 50 (calculated as initial_freq/GCD of all OPP
-  freqs) This allows the timer to work across all CPU frequencies after
-  the fixed divider by 2. Tested on am4372-idk-evm.
+> +#define __check_time_types(type, a, b)			\
+> +		(__same_type(typeof(a), type) &&	\
+> +		 __same_type(typeof(b), type))
+> +
+> +/**
+> + * smp_cond_load_relaxed_timewait() - (Spin) wait for cond with no ordering
+> + * guarantees until a timeout expires.
+> + * @ptr: pointer to the variable to wait on
+> + * @cond: boolean expression to wait for
+> + * @time_expr: monotonic expression that evaluates to the current time
+> + * @time_end: end time, compared against time_expr
+> + * @slack: how much timer overshoot can the caller tolerate?
+> + * Useful for when we go into wait states. A value of 0 indicates a high
+> + * tolerance.
+> + *
+> + * Note that all times (time_expr, time_end, and slack) are in microseconds,
+> + * with no mandated precision.
+> + *
+> + * Equivalent to using READ_ONCE() on the condition variable.
+> + */
+> +#define smp_cond_load_relaxed_timewait(ptr, cond_expr, time_expr,	\
+> +				       time_end, slack) ({		\
+> +	__unqual_scalar_typeof(*ptr) _val;				\
+> +	BUILD_BUG_ON_MSG(!__check_time_types(u64, time_expr, time_end),	\
+> +			 "incompatible time units");			\
+> +	_val = __smp_cond_load_relaxed_timewait(ptr, cond_expr,		\
+> +						__smp_cond_policy,	\
+> +						time_expr, time_end,	\
+> +						slack);			\
+> +	(typeof(*ptr))_val;						\
+> +})
 
-- zynq-7000: prescaler = 2 (preserves previous Kconfig default)
+Looking at the current user of the acquire variant - rqspinlock, it does
+not even bother with a time_expr but rather added the time condition to
+cond_expr. I don't think it has any "slack" requirements, only that
+there's no deadlock eventually.
 
-- Other platforms: prescaler = 1 (previous default)
+About poll_idle(), are there any slack requirement or we get away
+without?
 
-The Kconfig option now defaults to 0 (auto-detection) but can still
-override the auto-detected value when set to a non-zero value,
-preserving existing customization workflows.
+I think we have two ways forward (well, at least):
 
-Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
----
- drivers/clocksource/Kconfig            |  4 ++--
- drivers/clocksource/arm_global_timer.c | 44 ++++++++++++++++++++++++++++++----
- 2 files changed, 41 insertions(+), 7 deletions(-)
+1. Clearly define what time_end is and we won't need a time_expr at all.
+   This may work for poll_idle(), not sure about rqspinlock. The
+   advantage is that we can drop the 'slack' argument since none of the
+   current users seem to need it. The downside is that we need to know
+   exactly what this time_end is to convert it to timer cycles for a
+   WFET implementation on arm64.
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index 645f517a1ac26d0c12d4b2b46591321ddf6e20b3..92df191b25b1af339dffc791f81ff541b09a87a8 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -395,8 +395,7 @@ config ARM_GLOBAL_TIMER
- 
- config ARM_GT_INITIAL_PRESCALER_VAL
- 	int "ARM global timer initial prescaler value"
--	default 2 if ARCH_ZYNQ
--	default 1
-+	default 0
- 	depends on ARM_GLOBAL_TIMER
- 	help
- 	  When the ARM global timer initializes, its current rate is declared
-@@ -406,6 +405,7 @@ config ARM_GT_INITIAL_PRESCALER_VAL
- 	  bounds about how much the parent clock is allowed to decrease or
- 	  increase wrt the initial clock value.
- 	  This affects CPU_FREQ max delta from the initial frequency.
-+	  Use 0 to use auto-detection in the driver.
- 
- config ARM_TIMER_SP804
- 	bool "Support for Dual Timer SP804 module"
-diff --git a/drivers/clocksource/arm_global_timer.c b/drivers/clocksource/arm_global_timer.c
-index 2d86bbc2764a04944e453038013142b2495d26b9..5e3d6bb7e437badeba45d8bf2c1df14eb3427448 100644
---- a/drivers/clocksource/arm_global_timer.c
-+++ b/drivers/clocksource/arm_global_timer.c
-@@ -263,14 +263,13 @@ static void __init gt_delay_timer_init(void)
- 	register_current_timer_delay(&gt_delay_timer);
- }
- 
--static int __init gt_clocksource_init(void)
-+static int __init gt_clocksource_init(unsigned int psv)
- {
- 	writel(0, gt_base + GT_CONTROL);
- 	writel(0, gt_base + GT_COUNTER0);
- 	writel(0, gt_base + GT_COUNTER1);
- 	/* set prescaler and enable timer on all the cores */
--	writel(FIELD_PREP(GT_CONTROL_PRESCALER_MASK,
--			  CONFIG_ARM_GT_INITIAL_PRESCALER_VAL - 1) |
-+	writel(FIELD_PREP(GT_CONTROL_PRESCALER_MASK, psv - 1) |
- 	       GT_CONTROL_TIMER_ENABLE, gt_base + GT_CONTROL);
- 
- #ifdef CONFIG_CLKSRC_ARM_GLOBAL_TIMER_SCHED_CLOCK
-@@ -338,11 +337,45 @@ static int gt_clk_rate_change_cb(struct notifier_block *nb,
- 	return NOTIFY_DONE;
- }
- 
-+struct gt_prescaler_config {
-+	const char *compatible;
-+	unsigned long prescaler;
-+};
-+
-+static const struct gt_prescaler_config gt_prescaler_configs[] = {
-+	/*
-+	 * On am43 the global timer clock is a child of the clock used for CPU
-+	 * OPPs, so the initial prescaler has to be compatible with all OPPs
-+	 * which are 300, 600, 720, 800 and 1000 with a fixed divider of 2, this
-+	 * gives us a GCD of 10. Initial frequency is 1000, so the prescaler is
-+	 * 50.
-+	 */
-+	{ .compatible = "ti,am43", .prescaler = 50 },
-+	{ .compatible = "xlnx,zynq-7000", .prescaler = 2 },
-+	{ .compatible = NULL }
-+};
-+
-+static unsigned long gt_get_initial_prescaler_value(struct device_node *np)
-+{
-+	const struct gt_prescaler_config *config;
-+
-+	if (CONFIG_ARM_GT_INITIAL_PRESCALER_VAL != 0)
-+		return CONFIG_ARM_GT_INITIAL_PRESCALER_VAL;
-+
-+	for (config = gt_prescaler_configs; config->compatible; config++) {
-+		if (of_machine_is_compatible(config->compatible))
-+			return config->prescaler;
-+	}
-+
-+	return 1;
-+}
-+
- static int __init global_timer_of_register(struct device_node *np)
- {
- 	struct clk *gt_clk;
- 	static unsigned long gt_clk_rate;
- 	int err;
-+	unsigned long psv;
- 
- 	/*
- 	 * In A9 r2p0 the comparators for each processor with the global timer
-@@ -378,8 +411,9 @@ static int __init global_timer_of_register(struct device_node *np)
- 		goto out_unmap;
- 	}
- 
-+	psv = gt_get_initial_prescaler_value(np);
- 	gt_clk_rate = clk_get_rate(gt_clk);
--	gt_target_rate = gt_clk_rate / CONFIG_ARM_GT_INITIAL_PRESCALER_VAL;
-+	gt_target_rate = gt_clk_rate / psv;
- 	gt_clk_rate_change_nb.notifier_call =
- 		gt_clk_rate_change_cb;
- 	err = clk_notifier_register(gt_clk, &gt_clk_rate_change_nb);
-@@ -404,7 +438,7 @@ static int __init global_timer_of_register(struct device_node *np)
- 	}
- 
- 	/* Register and immediately configure the timer on the boot CPU */
--	err = gt_clocksource_init();
-+	err = gt_clocksource_init(psv);
- 	if (err)
- 		goto out_irq;
- 
+2. Drop time_end and only leave time_expr as a bool (we don't care
+   whether it uses ns, jiffies or whatever underneath, it's just a
+   bool). In this case, we could use a 'slack' argument mostly to make a
+   decision on whether we use WFET, WFE or just polling with
+   cpu_relax(). For WFET, the wait time would be based on the slack
+   value rather than some absolute end time which we won't have.
 
----
-base-commit: 038d61fd642278bab63ee8ef722c50d10ab01e8f
-change-id: 20250808-topic-am43-arm-global-timer-v6-16-66fc0c6981ab
+I'd go with (2), it looks simpler. Maybe even drop the 'slack' argument
+for the time being until we have a clear user. The fallback on arm64
+would be from wfe (if event streaming available), wfet with the same
+period as the event stream (in the absence of a slack argument) or
+cpu_relax().
 
-Best regards,
 -- 
-Markus Schneider-Pargmann <msp@baylibre.com>
-
+Catalin
 
