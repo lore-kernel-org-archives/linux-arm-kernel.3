@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FA2C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 09:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EE7C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 09:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/0yanPD6sGyZoS3Q0AKlVkCAWcmX0vCPYDUPJU4ZmY=; b=E8uaLY1SwRcsw57JYiRLLb6/c8
-	VxJIeBnmNdeTcXmhZAG5a+CQppjoe0ypsoQ07ipDeLESbCvFOMZAVWsm5JGL9ISVaEM2EyKnutGFz
-	FB73QdOpOBkkfF3aAQQQvOqmy7z0OiuVTQDTMxiTHN3Op6H45av5vVqSo8w12muAs2ht04BF/x74O
-	hXzzkhjdROgd5PIVbkYn/f885gPfJ+FoN+aL1XJB9E55q6qnt0IjBUSrKHw45k1ooWsnKTNoaQohl
-	kS1H+Uk0+FHdJzkCKZkUYMc9/Rud0U1wPQiExg9bTYuuxqTOAhZiM38bv8X9d5TxFHgZn5Zjgniui
-	i5FFmVhQ==;
+	bh=wGZGaTg1zkwDlQ10Ox2zKCG+gQ73oFiUtcYCuUqVTsA=; b=XPGkM/z5oYL/Rz5qniQQ7u8YPj
+	v6S+6UWXLEk0oPxi6tNCru6bRAgyvrMrikRyC07rB0LDybyEIX4rNfyhE509cIpX1JDO1kKsdqLMc
+	AB+uTeBRb0owOwqzpOwj88guK0zfl2yEQQWZKTwIPcPeJbGvGlHgFeIofUKbvEDX7GGps9kwUVCAR
+	HF8PnK09rFO+EqBtOxtv8ajsMURHw27s6JdLwTiNAzTcWTZ1hEOu2poRbjAQeEYG+AV6sIzpx9KEO
+	SXF2VC2rkkxYX9vGZxoDGl82FnC/vnk0FAM8xA0UxFkcen9slGo6hbCddjKrMQ//YKsq4M0/0YjgW
+	hOjFpRKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukJHj-00000002Rg5-0c1c;
-	Fri, 08 Aug 2025 09:21:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukJFF-00000002RRE-0xuz
+	id 1ukJbK-00000002TIN-1qIu;
+	Fri, 08 Aug 2025 09:41:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ukJYq-00000002SxV-27ng
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 09:18:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 329B416F2;
-	Fri,  8 Aug 2025 02:18:26 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9A8E3F673;
-	Fri,  8 Aug 2025 02:18:33 -0700 (PDT)
-Date: Fri, 8 Aug 2025 10:18:32 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v5 05/12] arm64/boot: Factor out a macro to check SPE
- version
-Message-ID: <20250808091832.GA3420125@e132581.arm.com>
-References: <20250721-james-perf-feat_spe_eft-v5-0-a7bc533485a1@linaro.org>
- <20250721-james-perf-feat_spe_eft-v5-5-a7bc533485a1@linaro.org>
+	Fri, 08 Aug 2025 09:38:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 29579A55BA2;
+	Fri,  8 Aug 2025 09:38:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB714C4CEED;
+	Fri,  8 Aug 2025 09:38:47 +0000 (UTC)
+Date: Fri, 8 Aug 2025 10:38:44 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+	arnd@arndb.de, will@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
+Subject: Re: [PATCH v3 3/5] asm-generic: barrier: Add
+ smp_cond_load_acquire_timewait()
+Message-ID: <aJXFpKEm7-abCAFc@arm.com>
+References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
+ <20250627044805.945491-4-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250721-james-perf-feat_spe_eft-v5-5-a7bc533485a1@linaro.org>
+In-Reply-To: <20250627044805.945491-4-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_021837_342798_437346E2 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20250808_023852_611737_D4B61102 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,74 +69,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 21, 2025 at 02:04:59PM +0100, James Clark wrote:
-> We check the version of SPE twice, and we'll add one more check in the
-> next commit so factor out a macro to do this. Change the #3 magic number
-> to the actual SPE version define (V1p2) to make it more readable.
-> 
-> No functional changes intended.
-
-I failed to apply this patch on the mailine kernel, seems like this is
-because your local tree does not include the commit:
-
-  ae344bcb0d49 ("arm64: Handle BRBE booting requirements")
-
-Please note the commit above has updated __init_el2_fgt so you might
-need to update this patch.
-
-Thanks,
-Leo
-
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  arch/arm64/include/asm/el2_setup.h | 17 +++++++++++------
->  1 file changed, 11 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index 9f38340d24c2..2bb0d28952e4 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -103,8 +103,7 @@
->  	csel	x2, xzr, x0, eq			// all PMU counters from EL1
+On Thu, Jun 26, 2025 at 09:48:03PM -0700, Ankur Arora wrote:
+> diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
+> index 9ea0a74e5892..f1b6a428013e 100644
+> --- a/arch/arm64/include/asm/rqspinlock.h
+> +++ b/arch/arm64/include/asm/rqspinlock.h
+> @@ -86,7 +86,7 @@
 >  
->  	/* Statistical profiling */
-> -	ubfx	x0, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-> -	cbz	x0, .Lskip_spe_\@		// Skip if SPE not present
-> +	__spe_vers_imp .Lskip_spe_\@, ID_AA64DFR0_EL1_PMSVer_IMP, x0 // Skip if SPE not present
+>  #endif
 >  
->  	mrs_s	x0, SYS_PMBIDR_EL1              // If SPE available at EL2,
->  	and	x0, x0, #(1 << PMBIDR_EL1_P_SHIFT)
-> @@ -189,6 +188,14 @@
->  .Lskip_set_cptr_\@:
->  .endm
+> -#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
+> +#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0ULL, 1ULL, 0)
 >  
-> +/* Branch to skip_label if SPE version is less than given version */
-> +.macro __spe_vers_imp skip_label, version, tmp
-> +    mrs    \tmp, id_aa64dfr0_el1
-> +    ubfx   \tmp, \tmp, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-> +    cmp    \tmp, \version
-> +    b.lt   \skip_label
-> +.endm
-> +
->  /* Disable any fine grained traps */
->  .macro __init_el2_fgt
->  	mrs	x1, id_aa64mmfr0_el1
-> @@ -196,10 +203,8 @@
->  	cbz	x1, .Lskip_fgt_\@
+>  #include <asm-generic/rqspinlock.h>
 >  
->  	mov	x0, xzr
-> -	mrs	x1, id_aa64dfr0_el1
-> -	ubfx	x1, x1, #ID_AA64DFR0_EL1_PMSVer_SHIFT, #4
-> -	cmp	x1, #3
-> -	b.lt	.Lskip_spe_fgt_\@
-> +	/* If SPEv1p2 is implemented, */
-> +	__spe_vers_imp .Lskip_spe_fgt_\@, #ID_AA64DFR0_EL1_PMSVer_V1P2, x1
->  	/* Disable PMSNEVFR_EL1 read and write traps */
->  	orr	x0, x0, #(1 << 62)
+> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+> index 8299c57d1110..dd7c9ca2dff3 100644
+> --- a/include/asm-generic/barrier.h
+> +++ b/include/asm-generic/barrier.h
+> @@ -388,6 +388,28 @@ static inline u64 ___smp_cond_spinwait(u64 now, u64 prev, u64 end,
+>  	(typeof(*ptr))_val;						\
+>  })
 >  
-> 
-> -- 
-> 2.34.1
-> 
-> 
+> +/**
+> + * smp_cond_load_acquire_timewait() - (Spin) wait for cond with ACQUIRE ordering
+> + * until a timeout expires.
+> + *
+> + * Arguments: same as smp_cond_load_relaxed_timeout().
+> + *
+> + * Equivalent to using smp_cond_load_acquire() on the condition variable with
+> + * a timeout.
+> + */
+> +#ifndef smp_cond_load_acquire_timewait
+> +#define smp_cond_load_acquire_timewait(ptr, cond_expr,			\
+> +				       time_expr, time_end,		\
+> +				       slack) ({			\
+> +	__unqual_scalar_typeof(*ptr) _val;				\
+> +	_val = smp_cond_load_relaxed_timewait(ptr, cond_expr,		\
+> +					      time_expr, time_end,	\
+> +					      slack);			\
+> +	/* Depends on the control dependency of the wait above. */	\
+> +	smp_acquire__after_ctrl_dep();					\
+> +	(typeof(*ptr))_val;						\
+> +})
+> +#endif
+
+Using #ifndef in the generic file is the correct thing to do, it allows
+architectures to redefine it. Why we have a similar #ifndef in the arm64
+rqspinlock.h, no idea, none of the arm64 maintainers acked that patch
+(shouldn't have gone in really, we were still discussing the
+implementation at the time; I also think it's slightly wrong).
+
+Your change above to rqspinlock.h makes this even more confusing when
+you look at the overall result with all the patches applied. We end up
+with the same macro in asm/rqspinlock.h but with different number of
+arguments.
+
+I'd start with ripping out the current arm64 implementation, add a
+generic implementation to barrier.h and then override it in the arch
+code.
+
+-- 
+Catalin
 
