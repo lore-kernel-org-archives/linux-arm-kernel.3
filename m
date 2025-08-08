@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D1BC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 16:48:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C741BC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 17:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=RzaCEXEAQxzsSaj124PHxu8J4VO/7uCXq1QhTrpUV0U=; b=CaUh/1lAYKiZVu
-	93UJCAXK8ATT6/G/e66Sqke5YG3oDAvORirDIM3G7YSGyJhmjS4eeiruNl/E1flOFoplrzzw+Yt5q
-	Ly+ZJK2RP9rO6hioLGaG+Jkidbadundgs8Rt4qFUwiUQnwN2NaRtOkYkPCVZQQB/hD8eS4pHaXx+z
-	/o8tCrUVPKCVp2swl39JUmGXkYWFZdA5veGcM976YOkDeUn61axKjWLZDkkuNoo4iXm8RbI4ftvgy
-	3I9OaR3xcoIfv+r6D+Z+C2WDrgZ/SXQx1/s+dbIjS2t+6asKd7iiPaQBoYyuVwR4HMG0BqC9+PiJp
-	uvtvok0h0q+QSJFSX4WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bro5Z1PL2eLig5Q2ncFtimJM/b9sdMd4TeRUxnnShL0=; b=0XMEz8czY/hlZzmn9mNeiG8q/F
+	oaAj4vgygPHqXE5KcEnLmGw64i4nlZYAfA8+aK5qanznQKQO/bTehrP2LBG4rhJHcLKTcdxKBX6U/
+	DVEsuDetL7ESwIkuBtgUDMHIs+yFZ5tDDAmjWUBBT6s6iIr27BguavumYmHBXljWyivcUXAIJigco
+	8Tx20Iy+xFCVxNDDD3KP1hCyTfDgnqUP6q68rmTWcNeSLk2jiDQbeEkQRjGB5UUFrsEo4loijzSAu
+	ie0q4H+dJPqIJ0UhFbRvacEm4eqpOdeQBn460WZj5vKyN0dPMyjwP5sIC7X4lbKWY4Xo1mt6JBiQP
+	PJK2yxcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukQGH-00000003LCH-3Efe;
-	Fri, 08 Aug 2025 16:48:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukQDi-00000003L3j-1gGo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 16:45:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BFE3741990;
-	Fri,  8 Aug 2025 16:45:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35B18C4CEED;
-	Fri,  8 Aug 2025 16:45:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754671529;
-	bh=//umrJE1AbcTB9AycRys08E8KmLxAmzbvhRupedv5Dc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=SvHuX7FEsNr/3GDzQCcVIGtDMzLvyEzFXv2qcJIyKcwE3G78CSt/D7BpyK8W2wlnq
-	 JcneXt1bupQaxlOiNKQqGSnYPJN3gHF2rsyY9huClbmsgeaaWtB6ztvE8lig3YSkom
-	 typw/etKQmR4W3aFAdlT3O1MtBlp3Ep1wqgigkNBBW9L/SL+AkcJKVVpBD//k/2gSL
-	 VjeTSEi189qln5PGC1fpGpcbTwSuFr32t8jznTpd45Yw4mTx9q/Wd/Cns+n+M12cC2
-	 Se0DxDoj28CwAkOJDftgEKv/PP5dBs1tSEC+Fc0no1sAx+NaR6LTEctwBcOto5dXzv
-	 ABu30wpzFBPDA==
-Date: Fri, 8 Aug 2025 11:45:27 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Bruel <christian.bruel@foss.st.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, lpieralisi@kernel.org,
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
-	bhelgaas@google.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	p.zabel@pengutronix.de, johan+linaro@kernel.org, cassel@kernel.org,
-	shradha.t@samsung.com, thippeswamy.havalige@amd.com,
-	quic_schintav@quicinc.com, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v12 2/9] PCI: stm32: Add PCIe host support for STM32MP25
-Message-ID: <20250808164527.GA92564@bhelgaas>
+	id 1ukQoF-00000003OlG-3O3t;
+	Fri, 08 Aug 2025 17:23:15 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ukQlf-00000003OL7-1l8d;
+	Fri, 08 Aug 2025 17:20:37 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4bz9NX4Hmyz9sSb;
+	Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id 4LtEzBBocysS; Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4bz9NX36z3z9sSZ;
+	Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 55AF68B770;
+	Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id Z2c0fwWGRIPg; Fri,  8 Aug 2025 19:03:56 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 20F878B763;
+	Fri,  8 Aug 2025 19:03:55 +0200 (CEST)
+Message-ID: <af677847-e625-43d7-8750-b2ce4ba9626c@csgroup.eu>
+Date: Fri, 8 Aug 2025 19:03:54 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e7cd764d-bc6d-4e39-aa03-0eee8e30d3e5@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] kasan: introduce ARCH_DEFER_KASAN and unify static
+ key across modes
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+Cc: ryabinin.a.a@gmail.com, bhe@redhat.com, hca@linux.ibm.com,
+ andreyknvl@gmail.com, akpm@linux-foundation.org, zhangqing@loongson.cn,
+ chenhuacai@loongson.cn, davidgow@google.co, glider@google.com,
+ dvyukov@google.com, alex@ghiti.fr, agordeev@linux.ibm.com,
+ vincenzo.frascino@arm.com, elver@google.com, kasan-dev@googlegroups.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-mm@kvack.org
+References: <20250807194012.631367-1-snovitoll@gmail.com>
+ <20250807194012.631367-2-snovitoll@gmail.com>
+ <22872a3f-85dc-4740-b605-ba80b5a3b1bc@csgroup.eu>
+ <CACzwLxjnofD0EsxrtgbG3svXHL+TpYcio4B67SCY9Mi3C-jdsQ@mail.gmail.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <CACzwLxjnofD0EsxrtgbG3svXHL+TpYcio4B67SCY9Mi3C-jdsQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_094530_458438_CCDF18BD 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20250808_102035_710783_E458557A 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +88,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 04:55:52PM +0200, Christian Bruel wrote:
-> On 8/7/25 20:09, Bjorn Helgaas wrote:
-> > [+to Linus for pinctrl usage question below]
-> > 
-> > On Tue, Jun 10, 2025 at 11:07:07AM +0200, Christian Bruel wrote:
-> > > Add driver for the STM32MP25 SoC PCIe Gen1 2.5 GT/s and Gen2 5GT/s
-> > > controller based on the DesignWare PCIe core.
 
-> > > +	return pinctrl_pm_select_sleep_state(dev);
-> > 
-> > Isn't there some setup required before we can use
-> > pinctrl_select_state(), pinctrl_pm_select_sleep_state(),
-> > pinctrl_pm_select_default_state(), etc?
-> > 
-> > I expected something like devm_pinctrl_get() in the .probe() path, but
-> > I don't see anything.  I don't know how pinctrl works, but I don't see
-> > how dev->pins gets set up.
+
+Le 08/08/2025 à 17:33, Sabyrzhan Tasbolatov a écrit :
+> On Fri, Aug 8, 2025 at 10:03 AM Christophe Leroy
+> <christophe.leroy@csgroup.eu> wrote:
+>>
+>>
+>>
+>> Le 07/08/2025 à 21:40, Sabyrzhan Tasbolatov a écrit :
+>>> Introduce CONFIG_ARCH_DEFER_KASAN to identify architectures [1] that need
+>>> to defer KASAN initialization until shadow memory is properly set up,
+>>> and unify the static key infrastructure across all KASAN modes.
+>>
+>> That probably desserves more details, maybe copy in informations from
+>> the top of cover letter.
+>>
+>> I think there should also be some exeplanations about
+>> kasan_arch_is_ready() becoming kasan_enabled(), and also why
+>> kasan_arch_is_ready() completely disappear from mm/kasan/common.c
+>> without being replaced by kasan_enabled().
+>>
+>>>
+>>> [1] PowerPC, UML, LoongArch selects ARCH_DEFER_KASAN.
+>>>
+>>> Closes: https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fbugzilla.kernel.org%2Fshow_bug.cgi%3Fid%3D217049&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7Cfe4f5a759ad6452b047408ddd691024a%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C638902640503259176%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=UM4uvQihJdeWwcC6DIiJXbn4wGsrijjRcHc55uCMErI%3D&reserved=0
+>>> Signed-off-by: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+>>> ---
+>>> Changes in v5:
+>>> - Unified patches where arch (powerpc, UML, loongarch) selects
+>>>     ARCH_DEFER_KASAN in the first patch not to break
+>>>     bisectability
+>>> - Removed kasan_arch_is_ready completely as there is no user
+>>> - Removed __wrappers in v4, left only those where it's necessary
+>>>     due to different implementations
+>>>
+>>> Changes in v4:
+>>> - Fixed HW_TAGS static key functionality (was broken in v3)
+>>> - Merged configuration and implementation for atomicity
+>>> ---
+>>>    arch/loongarch/Kconfig                 |  1 +
+>>>    arch/loongarch/include/asm/kasan.h     |  7 ------
+>>>    arch/loongarch/mm/kasan_init.c         |  8 +++----
+>>>    arch/powerpc/Kconfig                   |  1 +
+>>>    arch/powerpc/include/asm/kasan.h       | 12 ----------
+>>>    arch/powerpc/mm/kasan/init_32.c        |  2 +-
+>>>    arch/powerpc/mm/kasan/init_book3e_64.c |  2 +-
+>>>    arch/powerpc/mm/kasan/init_book3s_64.c |  6 +----
+>>>    arch/um/Kconfig                        |  1 +
+>>>    arch/um/include/asm/kasan.h            |  5 ++--
+>>>    arch/um/kernel/mem.c                   | 10 ++++++--
+>>>    include/linux/kasan-enabled.h          | 32 ++++++++++++++++++--------
+>>>    include/linux/kasan.h                  |  6 +++++
+>>>    lib/Kconfig.kasan                      |  8 +++++++
+>>>    mm/kasan/common.c                      | 17 ++++++++++----
+>>>    mm/kasan/generic.c                     | 19 +++++++++++----
+>>>    mm/kasan/hw_tags.c                     |  9 +-------
+>>>    mm/kasan/kasan.h                       |  8 ++++++-
+>>>    mm/kasan/shadow.c                      | 12 +++++-----
+>>>    mm/kasan/sw_tags.c                     |  1 +
+>>>    mm/kasan/tags.c                        |  2 +-
+>>>    21 files changed, 100 insertions(+), 69 deletions(-)
+>>>
+>>> diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
+>>> index f0abc38c40a..cd64b2bc12d 100644
+>>> --- a/arch/loongarch/Kconfig
+>>> +++ b/arch/loongarch/Kconfig
+>>> @@ -9,6 +9,7 @@ config LOONGARCH
+>>>        select ACPI_PPTT if ACPI
+>>>        select ACPI_SYSTEM_POWER_STATES_SUPPORT if ACPI
+>>>        select ARCH_BINFMT_ELF_STATE
+>>> +     select ARCH_DEFER_KASAN if KASAN
+>>
+>> Instead of adding 'if KASAN' in all users, you could do in two steps:
+>>
+>> Add a symbol ARCH_NEEDS_DEFER_KASAN.
+>>
+>> +config ARCH_NEEDS_DEFER_KASAN
+>> +       bool
+>>
+>> And then:
+>>
+>> +config ARCH_DEFER_KASAN
+>> +       def_bool
+>> +       depends on KASAN
+>> +       depends on ARCH_DEFER_KASAN
+>> +       help
+>> +         Architectures should select this if they need to defer KASAN
+>> +         initialization until shadow memory is properly set up. This
+>> +         enables runtime control via static keys. Otherwise, KASAN uses
+>> +         compile-time constants for better performance.
+>>
 > 
-> Linus knows better, but the dev->pins states are attached to the dev struct
-> before probe by the pinctrl driver
+> Actually, I don't see the benefits from this option. Sorry, have just
+> revisited this again.
+> With the new symbol, arch (PowerPC, UML, LoongArch) still needs select
+> 2 options:
 > 
-> /**
->  * pinctrl_bind_pins() - called by the device core before probe
->  * @dev: the device that is just about to probe
->  */
-> int pinctrl_bind_pins(struct device *dev)
+> select ARCH_NEEDS_DEFER_KASAN
+> select ARCH_DEFER_KASAN
 
-Thanks for the pointer.  Might be worthy of a mention in
-Documentation/driver-api/pin-control.rst.  Maybe pinctrl/consumer.h
-could even have a bread crumb to that effect since drivers use all
-those interfaces that rely in the implicit initialization done before
-their .probe().
+Sorry, my mistake, ARCH_DEFER_KASAN has to be 'def_bool y'. Missing the 
+'y'. That way it is automatically set to 'y' as long as KASAN and 
+ARCH_NEEDS_DEFER_KASAN are selected. Should be:
 
-pin-control.rst mentions pinctrl_get_select_default() being called
-just before the driver probe, but that's now unused and it looks like
-pinctrl_bind_pins() does something similar:
+config ARCH_DEFER_KASAN
+	def_bool y
+	depends on KASAN
+	depends on ARCH_NEEDS_DEFER_KASAN
 
-  really_probe
-    pinctrl_bind_pins
-      dev->pins = devm_kzalloc()
-      devm_pinctrl_get
-      pinctrl_lookup_state(PINCTRL_STATE_DEFAULT)
-      pinctrl_lookup_state(PINCTRL_STATE_INIT)
-      pinctrl_select_state(init)      # if present, else default
-    call_driver_probe
 
-Bjorn
+> 
+> and the oneline with `if` condition is cleaner.
+> select ARCH_DEFER_KASAN if KASAN
+> 
+
+I don't think so because it requires all architectures to add 'if KASAN' 
+which is not convenient.
+
+Christophe
 
