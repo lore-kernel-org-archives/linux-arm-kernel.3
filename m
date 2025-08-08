@@ -4,75 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7675C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  7 Aug 2025 22:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF77C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 00:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qHunNEMGxpCcQqPo/qp2CxmR0lat3CX2feywSyaG5+A=; b=xeQleI2yybU6YnSsZDxIWcM2D0
-	ZLHTmeDtCqER4pGBWqzQ65682OHBUZnUaxib3SAcNMvZ1DrRjVJNuSfPkYr1PliL7+1inCWAn4mzn
-	CCS2+gp8dsvSL/j/EUZCtX1e7mE8zuZxTWQx3tMpL4tY82+imm41P3ifz8U2H5298reclEw/YsLIp
-	LkAzI3oNCVLllX3QIIyCp2w0+u+KICyLTWKvJdxlpnX07EA1guJY0GIuG+IN0OjJLmzUslFHu3g34
-	CevBFjOA74yoCQ1aJISo/UQUXDsspGflT1obzd1BXHElYdtPxlW7Pec9j+MBvE4hPkZIQPhk3DlXy
-	6gLGpEUw==;
+	bh=1bwuQ5JYnB6lZmP6/02Pp+EFW5CJKUaTYhGcZzl3EhY=; b=KIoJK0ZW8kDmgHPnuBYSnOlKx0
+	oSI5A76TACkmIXdTWK1V6MgL8pzCl+945MLqZcKt9wHL5/UTMIpgll2WtUVf5R/ae3jG0T9/QtkNX
+	l70uzB6+QhevFF76FiLWZtE9GtaHE8aL/QLP9uzsSW21ro7bVoAcyrp1PkaVpKpfZiCixJIhsixC8
+	8z/HDi4GNsVKqUiwcI6IQBldjMYHdIyb4eZRnz+DjMlkhbcmcwkkC5bD9/c9pTijO1AEM4a43pVxx
+	NdVQqK9VMMLFDPSwdhP+gDVfpskZ0SeI0S/g2e/UBO+mrTaYOkj0qKufb1Jrp9SkruPr8pvcr08Nl
+	yatpqlog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk9a6-00000001fFs-2XmW;
-	Thu, 07 Aug 2025 22:59:30 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1ukAbF-00000001idd-3gvG;
+	Fri, 08 Aug 2025 00:04:45 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uk9Sf-00000001eOx-3JPn
+	id 1ukAYi-00000001iYq-1jgd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 07 Aug 2025 22:51:51 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 577MpcNY455838;
-	Thu, 7 Aug 2025 17:51:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754607098;
-	bh=qHunNEMGxpCcQqPo/qp2CxmR0lat3CX2feywSyaG5+A=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ZGFygSQ19nfzaZcHmcJEhHBSPrCCy5/56d0EyYe+p+9DEl6dOoz7McobhFSPH8tgI
-	 DqD3zTFz3vPJ0LJ0rT+dLRSwX6Jd2cHj0NeNhPWE52+ssRDk6Ii6D1kfrBv5HBJH06
-	 iMGb1e1PwouzvH8G1WY2B5wV/j8MfyYzsTtD74vo=
-Received: from DLEE113.ent.ti.com (dlee113.ent.ti.com [157.170.170.24])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 577MpcQm025953
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Thu, 7 Aug 2025 17:51:38 -0500
-Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Thu, 7
- Aug 2025 17:51:38 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Thu, 7 Aug 2025 17:51:38 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 577MpcBl2086622;
-	Thu, 7 Aug 2025 17:51:38 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Adrian Hunter <adrian.hunter@intel.com>,
-        Ulf
- Hansson <ulf.hansson@linaro.org>, Nishanth Menon <nm@ti.com>,
-        Santosh
- Shilimkar <ssantosh@kernel.org>
-CC: <linux-mmc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, Andrew Davis <afd@ti.com>
-Subject: [PATCH v2 2/2] mmc: sdhci_am654: Disable HS400 for AM62P SR1.0 and SR1.1
-Date: Thu, 7 Aug 2025 17:51:38 -0500
-Message-ID: <20250807225138.1228333-3-jm@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250807225138.1228333-1-jm@ti.com>
-References: <20250807225138.1228333-1-jm@ti.com>
+	Fri, 08 Aug 2025 00:02:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754611329; x=1786147329;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OVvKRnCZPCkUikFXoenXFVKIrczw+FKb6AEftfO2P4w=;
+  b=DMRvhqFVSr0pwS96mA7yZ2/U5iLfJRpUocNNdvHcx1vHQucCWIPD4YPl
+   OXnCiqF0AK80c3gDbEUBs14QeRNRC9CjgH61OdksOT8+hWaGIed3SOEFP
+   lyY6TtdrZKHtTVWrjRlyCrdANualteTokn3szLgZw6QNwUNZVxMtj+2dg
+   7RdoPrx1YJuaYeLAfNBarbjsFbowFVbkSRf9NR7JwjbIPuF9Vhw+Hgyqq
+   LpGkv8K64yWa7GOp9wEhVdc1bMHeC7ydWWR2ne+oRDwk/FRpuiDRs00ZL
+   hFx5p5dxN9Q8UiDZwkmSgiXWEDM7UnMLy/+6ChlhM9Yd8QTbHhrzgByRR
+   A==;
+X-CSE-ConnectionGUID: SVxnZgUzRTO+sSff2dPN/g==
+X-CSE-MsgGUID: 2m8s5hsgR+qY+qXZxSNhkA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11514"; a="74414988"
+X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
+   d="scan'208";a="74414988"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2025 17:02:00 -0700
+X-CSE-ConnectionGUID: K9G9rRQIT+mYRaMSHQtB3w==
+X-CSE-MsgGUID: q4VJ23B+QR6CUoOx9V79fQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,274,1747724400"; 
+   d="scan'208";a="202356501"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 07 Aug 2025 17:01:55 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ukAYS-0003NS-0k;
+	Fri, 08 Aug 2025 00:01:52 +0000
+Date: Fri, 8 Aug 2025 08:00:51 +0800
+From: kernel test robot <lkp@intel.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Andrew Lunn <andrew@lunn.ch>, David Wu <david.wu@rock-chips.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net] net: stmmac: rk: put the PHY clock on remove
+Message-ID: <202508080746.BIDlKMy5-lkp@intel.com>
+References: <E1ujwIY-007qKa-Ka@rmk-PC.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <E1ujwIY-007qKa-Ka@rmk-PC.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_155149_913594_FC64F484 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250807_170208_503230_AFD6EBB1 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +95,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This adds SDHCI_AM654_QUIRK_DISABLE_HS400 quirk which shall be used
-to disable HS400 support. AM62P SR1.0 and SR1.1 do not support HS400
-due to errata i2458 [0] so disable HS400 for these SoC revisions.
+Hi Russell,
 
-[0] https://www.ti.com/lit/er/sprz574a/sprz574a.pdf
-Signed-off-by: Judith Mendez <jm@ti.com>
----
- drivers/mmc/host/sdhci_am654.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/mmc/host/sdhci_am654.c b/drivers/mmc/host/sdhci_am654.c
-index e4fc345be7e5..dc4975514847 100644
---- a/drivers/mmc/host/sdhci_am654.c
-+++ b/drivers/mmc/host/sdhci_am654.c
-@@ -156,6 +156,7 @@ struct sdhci_am654_data {
- 
- #define SDHCI_AM654_QUIRK_FORCE_CDTEST BIT(0)
- #define SDHCI_AM654_QUIRK_SUPPRESS_V1P8_ENA BIT(1)
-+#define SDHCI_AM654_QUIRK_DISABLE_HS400 BIT(2)
- };
- 
- struct window {
-@@ -765,6 +766,7 @@ static int sdhci_am654_init(struct sdhci_host *host)
- {
- 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
- 	struct sdhci_am654_data *sdhci_am654 = sdhci_pltfm_priv(pltfm_host);
-+	struct device *dev = mmc_dev(host->mmc);
- 	u32 ctl_cfg_2 = 0;
- 	u32 mask;
- 	u32 val;
-@@ -820,6 +822,12 @@ static int sdhci_am654_init(struct sdhci_host *host)
- 	if (ret)
- 		goto err_cleanup_host;
- 
-+	if (sdhci_am654->quirks & SDHCI_AM654_QUIRK_DISABLE_HS400 &&
-+	    host->mmc->caps2 & (MMC_CAP2_HS400 | MMC_CAP2_HS400_ES)) {
-+		dev_err(dev, "Disable descoped HS400 mode for this silicon revision\n");
-+		host->mmc->caps2 &= ~(MMC_CAP2_HS400 | MMC_CAP2_HS400_ES);
-+	}
-+
- 	ret = __sdhci_add_host(host);
- 	if (ret)
- 		goto err_cleanup_host;
-@@ -883,6 +891,12 @@ static int sdhci_am654_get_of_property(struct platform_device *pdev,
- 	return 0;
- }
- 
-+static const struct soc_device_attribute sdhci_am654_descope_hs400[] = {
-+	{ .family = "AM62PX", .revision = "SR1.0" },
-+	{ .family = "AM62PX", .revision = "SR1.1" },
-+	{ /* sentinel */ }
-+};
-+
- static const struct of_device_id sdhci_am654_of_match[] = {
- 	{
- 		.compatible = "ti,am654-sdhci-5.1",
-@@ -970,6 +984,10 @@ static int sdhci_am654_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "parsing dt failed\n");
- 
-+	soc = soc_device_match(sdhci_am654_descope_hs400);
-+	if (soc)
-+		sdhci_am654->quirks |= SDHCI_AM654_QUIRK_DISABLE_HS400;
-+
- 	host->mmc_host_ops.start_signal_voltage_switch = sdhci_am654_start_signal_voltage_switch;
- 	host->mmc_host_ops.execute_tuning = sdhci_am654_execute_tuning;
- 
+[auto build test ERROR on net/main]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-rk-put-the-PHY-clock-on-remove/20250807-165054
+base:   net/main
+patch link:    https://lore.kernel.org/r/E1ujwIY-007qKa-Ka%40rmk-PC.armlinux.org.uk
+patch subject: [PATCH net] net: stmmac: rk: put the PHY clock on remove
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20250808/202508080746.BIDlKMy5-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 7b8dea265e72c3037b6b1e54d5ab51b7e14f328b)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250808/202508080746.BIDlKMy5-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508080746.BIDlKMy5-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c:1774:6: error: use of undeclared identifier 'plat'
+    1774 |         if (plat->phy_node && bsp_priv->integrated_phy)
+         |             ^~~~
+   1 error generated.
+
+
+vim +/plat +1774 drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+
+  1765	
+  1766	static void rk_gmac_remove(struct platform_device *pdev)
+  1767	{
+  1768		struct rk_priv_data *bsp_priv = get_stmmac_bsp_priv(&pdev->dev);
+  1769	
+  1770		stmmac_dvr_remove(&pdev->dev);
+  1771	
+  1772		rk_gmac_powerdown(bsp_priv);
+  1773	
+> 1774		if (plat->phy_node && bsp_priv->integrated_phy)
+  1775			clk_put(bsp_priv->clk_phy);
+  1776	}
+  1777	
+
 -- 
-2.49.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
