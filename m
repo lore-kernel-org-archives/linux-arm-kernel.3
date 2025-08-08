@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE85DCA0EC3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 17:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B306C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 17:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZu4M+16qQsYFOxJAPaXmK7wSvD11abK1ntpTO987P4=; b=FJov0aKDHfXGPe9KZXaPtQ/mvg
-	phWARn1jhsyG4nbNA1l2TC4hEXjp5COrcjG1Ebhjek6AupJKEJgQ6UIsYdy6JKqq1h3O5DCjzzvtK
-	mXL4Ez4Rxh3HFHSX21BMNW4Gd1/Iyi7c8d7YXQFoOhQRazzBJ3SPqrGcOIO3wbPx/KKAx+Dgy68QG
-	8xEAaWwxj/bNg7pWYKxxYgt/G9Q3bGt4+lPmeIa2UiNyLbHQl/k4CDMv9jlbfV8ks6dmhPP8jfNha
-	YY+8QPV1IUsJ5uT+aI3rJsw0u7sYM7TbQajnKAj+LsM49x/RyUfg+uySHqu2FaW65UnkhHSdzR06Q
-	2JwbjUPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uthDb2V9VnfDGIFco/8/5Vth9/1+6ayqM33H17ywDDw=; b=cE0jl1COh2ZqD5a11wgjxb/Iwm
+	BtLmQscx3i+XhrDzdXBge9dxwUbHC73BnmVrSIB8kxH8n1NNiPVO0FLvNPjlAjNWYrI2+rog+HH/8
+	FVRipKjw9b4ft4rqJ285NePVU66ixk6h4qBgXNFgnwCXQX1kC8Kej1l24UmUUK9GHRM7BcyfYU3zJ
+	gBKw5IpJSVYDQdkbgJkkowL7XLlEa3sS3Y4F0Ga1G3tQXciMshno8Qq/B26QYElWHDQnu3MKypS11
+	ja1xhlNQ56Un/cNGksxS1T+zVvEl/dDsqvZwLq8VboGtcG/dCoT4BVOvzfJR3e/JUGj+TrczTgNCR
+	D1E+LPgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukQup-00000003PKW-3BxT;
-	Fri, 08 Aug 2025 17:30:03 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1ukRIZ-00000003R65-01fn;
+	Fri, 08 Aug 2025 17:54:35 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukQsG-00000003PE9-1vbJ
+	id 1ukRG1-00000003Qti-0BH2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 17:27:26 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7698e914cd2so3331395b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 10:27:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1754674043; x=1755278843; darn=lists.infradead.org;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RZu4M+16qQsYFOxJAPaXmK7wSvD11abK1ntpTO987P4=;
-        b=O+ljRZJsONDpP3JR9/4Ftl8FCI705MyUfkpRFAUSsEO898cm9Eqp7HChfqd0Ot4XSK
-         L9QE0xJA6L3wWbiAhiF3TBvhQjUxjFsJme4kJDVDflbe9rgtTG6BqmSXXaig4z9QL+yF
-         ZxyqO1PeXJOIhBl+fNwgd/ECzKkpo0SHDtwafFS38m4yHZ2PO8MP5qd55f6LwZ1lIx/k
-         3cpi+J0sLg9pWPIlyZyb+/RV6Dms6h1PbEp+ZR9fXSpJnhA/dpFC91GltO11c9EMUI5/
-         4nuGQpW+CXdX8TKVy3pcIdSXdx3WoMtusDad1+UnYqUgZWX5q0dkyIeGlOALVOxiWR1l
-         l4RA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754674043; x=1755278843;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RZu4M+16qQsYFOxJAPaXmK7wSvD11abK1ntpTO987P4=;
-        b=iJjfxcRURbwTK75e47JqZD2cVBsM2rOCv/7SphSIopLPD4JIVcVLQIJY8qX+chJNNv
-         46Az3DFXbp+OWldO6IGtU35OfaJkAc3v0kyKJ28lqycyt2kZfbv0eM1mr0dSbf1sFNaS
-         QeJaCeVCL/oqwD9XcrYSjucQaHLjeL+TzMGiTHVo7xP1hxVX2GPc6LrTkhvqFWabIGrS
-         /E+GcNyNZ7msMSEy7d34q9dvWHGA+9s6FfAzD7rI2PMEmspSq/6663jxxPBhaN9+gU5n
-         3WqGhzGyAbaFqwMLeKVpmD+Z4U4/MaoCcUF+nzCUvJYvdzFF0E1TmBv8P2kq1MArDFQ9
-         Jl/g==
-X-Forwarded-Encrypted: i=1; AJvYcCUfsACEwJrY3tjz3UOMHY9PuuVL0YX/Baida4bxGJxUwLAYYIOMHriLHn0f31NzZ4lT8Ryc+QLUOSXZLnYv7jDB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfLozBqY0skELqJL6kaG9UXfnN8Tu4xOGOzbb3fiA/1IOTfaP0
-	IZhAWIM4eeIRjuJhO1v0YjgZ/tWcHdmgMqRH0GRlo2FKC0KjsUs571eW4tGGGT8diUQ=
-X-Gm-Gg: ASbGncvk/B0Q7KZ7m0dlhIlvU0Yp3jF8m7aDeFUqj55vCwmvlFepJCUqtd2ujEQSeyp
-	2mYZLEejsU4IQYGwW/ajjUBms80wcROHZtib5L4PglhITZH2gM/CYq9ofpuOk46Xtd/IBoDnGcw
-	UjL/OmBnnC4bWn4eQNOSbBywXVbcp1acJhKlKE367YX8f6PBewqXld7r5a1cdA5fGyxsI+RLPUv
-	otgeOWcgo26vYURLie5PlxWc8TJyVBTafztdacnQo3L9RBvbg+w+RsdzVNWw0BvGJo/YfGCDCAN
-	Q7+EipBavFRFV9I+UQ0L1PDWQA/bEjpVHcoOxA2iVBEz/bxNsRbRtEF1Edt0Ne4o0If3yaDfP7E
-	tv4kZk8vD3MAWZiPKGNyW
-X-Google-Smtp-Source: AGHT+IHZLqZ7E2Ncq3KMVSpsOCfBJkP8Mr77rZGywcbQgs9eQYzQo6jMvGzxCIqrZGpvYIHCckMFxw==
-X-Received: by 2002:a05:6a20:3d88:b0:232:fcfc:7209 with SMTP id adf61e73a8af0-240551d6b07mr6845776637.35.1754674043198;
-        Fri, 08 Aug 2025 10:27:23 -0700 (PDT)
-Received: from localhost ([71.212.208.158])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bccfd18c9sm20738657b3a.91.2025.08.08.10.27.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Aug 2025 10:27:22 -0700 (PDT)
-From: Kevin Hilman <khilman@baylibre.com>
-To: Markus Schneider-Pargmann <msp@baylibre.com>, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Patrice
- Chotard <patrice.chotard@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Mendez, Judith" <jm@ti.com>, Markus Schneider-Pargmann <msp@baylibre.com>
-Subject: Re: [PATCH] clocksource/drivers/arm_global_timer: Add
- auto-detection for initial prescaler values
-In-Reply-To: <20250808-topic-am43-arm-global-timer-v6-16-v1-1-82067d327580@baylibre.com>
-References: <20250808-topic-am43-arm-global-timer-v6-16-v1-1-82067d327580@baylibre.com>
-Date: Fri, 08 Aug 2025 10:27:22 -0700
-Message-ID: <7h8qjt7mh1.fsf@baylibre.com>
+	Fri, 08 Aug 2025 17:51:59 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754675513;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uthDb2V9VnfDGIFco/8/5Vth9/1+6ayqM33H17ywDDw=;
+	b=TjBv3uTPpnUUUk1BOXj2DLhhvAirakucf1WD1UeUTLhIZzcMCu5BrrLjQSiNCyZ48vzpYG
+	AcTpsZu1YGa/k38Jxuet+m5Hqn/IhN5tAHbcarvWnCTsURVefdFTUfJ9EcW5oGyj5MVUTG
+	hblrSi8R7bLZ0CuccLJ4J+pBnfFS2f8=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Properly check ESR_EL2.VNCR on taking a VNCR_EL2 related fault
+Date: Fri,  8 Aug 2025 10:51:33 -0700
+Message-Id: <175467548051.670500.10792473108238657623.b4-ty@linux.dev>
+In-Reply-To: <20250730101828.1168707-1-maz@kernel.org>
+References: <20250730101828.1168707-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_102724_616116_706BF3DE 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250808_105157_710571_11CAB885 
+X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,46 +74,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Markus Schneider-Pargmann <msp@baylibre.com> writes:
+On Wed, 30 Jul 2025 11:18:28 +0100, Marc Zyngier wrote:
+> Instead of checking for the ESR_EL2.VNCR bit being set (the only case
+> we should be here), we are actually testing random bits in ESR_EL2.DFSC.
+> 
+> 13 obviously being a lucky number, it matches both permission and
+> translation fault status codes, which explains why we never saw it
+> failing. This was found by inspection, while reviewing a vaguely
+> related patch.
+> 
+> [...]
 
-> am43xx has a clock tree where the global timer clock is an indirect child
-> of the CPU clock used for frequency scaling:
->
->   dpll_mpu_ck -- CPU/cpufreq
->         |
->         v
->   dpll_mpu_m2_ck -- divider
->         |
->         v
->   mpu_periphclk -- fixed divider by 2 used for global timer
->
-> When CPU frequency changes, the global timer's clock notifier rejects
-> the change because the hardcoded prescaler (1 or 2) cannot accommodate
-> the frequency range across all CPU OPPs (300, 600, 720, 800, 1000 MHz).
->
-> Add platform-specific prescaler auto-detection to solve this issue:
->
-> - am43xx: prescaler = 50 (calculated as initial_freq/GCD of all OPP
->   freqs) This allows the timer to work across all CPU frequencies after
->   the fixed divider by 2. Tested on am4372-idk-evm.
->
-> - zynq-7000: prescaler = 2 (preserves previous Kconfig default)
->
-> - Other platforms: prescaler = 1 (previous default)
->
-> The Kconfig option now defaults to 0 (auto-detection) but can still
-> override the auto-detected value when set to a non-zero value,
-> preserving existing customization workflows.
->
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+Applied to fixes, thanks!
 
-Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-Tested-by: Kevin Hilman <khilman@baylibre.com>
+[1/1] KVM: arm64: nv: Properly check ESR_EL2.VNCR on taking a VNCR_EL2 related fault
+      https://git.kernel.org/kvmarm/kvmarm/c/07f557f60a9a
 
-Tested this on my am437x-gp-evm board, and confirm that all the noise
-from CPUfreq failing to change frequencies is gone.
-
-Thanks for fixing this!
-
-Kevin
+--
+Best,
+Oliver
 
