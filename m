@@ -4,116 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFD4C87FD3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:27:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75038C87FD3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 12:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aiPizj4xPQHgrz0IL3+WPEQFuPXWX/y9HlO9/wOe3L4=; b=EC0n+R9frSoLGY0hCKMuWV6YTH
-	u43vwipXQVtlVEtYMU4ufQytxWoZ4VErkv+ZnTueABMtguflkDv9A/vyVeYKCKZysYiEungdkTMn6
-	SMsVYEtt+qya1GCWMD/+vT0122T25Vu5F+p2nlEZvqUUrwg9H7ABqzoJWhzOWqQsBm411h+0kMTYj
-	oeXaHR9Tcyfe8R97kmpNEsuo9nF2qc2gJDndf86cvFPnPoNpupPBjPTcbPT6z4qSn01CWwoMLPDXf
-	GHTCuK3G46UAL8+3G9W6ZP8tM2YR2Ngldc8sjTE5PQ/J0ms7PFlQYlWysoE9+KGe9mA+ZKBN1Th8j
-	m5JZolVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CItPX3Nziwspy+DUPcMmH1OYCckJOPZ1VMD2rIXFTYo=; b=5DHm5ks7oHbDkNGvwLjs8/65ai
+	XkaRY0kYzYRIKZDLtH1raxSRs2+IxtWiu082EgYRqpWV6yiR6w+sNgqEcyPUjzhN651PIMblTzntN
+	YTArKaKuLTrQfJzLpHFJ/vLDPH2PcGUg6G7TAg4FPsKQCK+5VZVK4yKvyH90XgKJm1E6VslbsBRup
+	UDQeTtp+X1TCYsYRynBqsee7YCcLhFgsGSRI186hM9K+yCU0gYJOKY11fZLMgXH8sNZGPtNKogmv0
+	djNFh8BFuq7aTR6zaD2aECHCWgLPNmrbdKeWNLVUOsal7wO6Bh9luGpL8/o/kaKL1TQwFWUBG1nPU
+	t78fkJRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukMBf-00000002nnU-2Lrp;
-	Fri, 08 Aug 2025 12:27:07 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1ukME7-00000002oEG-1Hxf;
+	Fri, 08 Aug 2025 12:29:39 +0000
+Received: from mail-ua1-f42.google.com ([209.85.222.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukLp4-00000002kPn-3ThS
+	id 1ukLpQ-00000002kTf-060B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 12:03:48 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3b783ea502eso1595619f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 05:03:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1754654625; x=1755259425; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aiPizj4xPQHgrz0IL3+WPEQFuPXWX/y9HlO9/wOe3L4=;
-        b=MUyw8/RDONABqUYnyUgPlNF0CixpZEmfEmuWHeDOyrlITmfBp5Bq0mDCH5U4woOSZv
-         I04Tn9+sYNzUaGVOMmtFIkpj6AugQuJcCfM1gdI2IB1HqDdePlVQOSjBJ6o2bc9qxj5y
-         zblT54C9neJyW3rSr82tO713PAwlNMTsEPc9m2JLdE8r3W+cw9y0Ta7z8PRklK/eVL/T
-         w6coScQD2gyvFOIxWxrG88qyoV7FyCZajOoE16BLLn1IiRby2IMkJ3rcrSHDKqqy88Lj
-         dOtJvLyHFYW5hf0pbXkF/8vzhSPZspCXu3M6U2nWUVI97Vjr60zbfBwou5aMOvlNkAjk
-         DNqw==
+	Fri, 08 Aug 2025 12:04:09 +0000
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-88ddd1c6178so1129344241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 05:04:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754654625; x=1755259425;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aiPizj4xPQHgrz0IL3+WPEQFuPXWX/y9HlO9/wOe3L4=;
-        b=tkgf3OGlytAgb9tcFyCLb4UP4fo4GpiR9wTGKajqQuqxv8+9qOke27X5V5+c603esP
-         0x4Lb/X/MAMMJl14RteUc45TF2DzMOmZ3XtZeS85CqIer1sr6E6E35WC09XjanaAgA7c
-         H649hywqs9COeAhXxaU3+2vBDPv+RHAXOf/BZX2qr/GZsA4hbmvuRi4s2OthD6kt0RRj
-         YLjpDal/fj999S539/xXNKy3NDuzc1E5WzeIEdaRQRHlyI2i99G+eNZHcoTjGdO1Ri4W
-         J8QDTMj5qlavnZDWNvcZNweNI0Sy6am3t/oitcX4OvYQrsXfilz0BQXoJs4nyM+0a8mC
-         f4kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVwCNfvTQNtFTfTyg8H6zlmreE5zQ5bU3P1OFpaY5LiDlUv9h4HSX+VmJdxU71xYAp7ODQotx469k+m0wQYBaEj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrJ1CBrjSxYjcmloTm/L1Ixu1LF9eTXIXcT51OwOsaeh3cDP/k
-	JDrXN+T1cPvpVuEE55j00l4aAOMHaqom1oJ3c6LrioERdRGoNmXCDX3a6vi/tXBn75E=
-X-Gm-Gg: ASbGnct24J6IycQQ5iss9/Ian/h3BZAH2Zk77qPVNDwYAE/9H7MhzpgawcNfQ5wt/Gz
-	Zm6vav4koQhWLsRWrccRNYFyqxS1Fh21C8SUwOSHAowL9BPiBbbwkfZzCs86EgnVFqsSeWVQMTG
-	WqpugAl47sxrfqaorbq7hnGMSNNx9HStnUmKladmWKN/qQkh8era5z4WUsye4HyatZV+EpwtviJ
-	KrM7gLyJ13y8B3lnfLE1aWLEcYLnPY2AfpxFrkHpOX+BFhJFsojlA26T7IUt9g0yWbaHFocXMOJ
-	G0Ov6euxder4m3GT9hqKTfYDIWa55xgNHYyksEcBr4aMBjOyDZH0DIzKbAZ9JvrSpd6QplbI29v
-	W7ZlsrVWop3PahlGQ2u9Imq+4QB/ZDQs=
-X-Google-Smtp-Source: AGHT+IEhH09YKqZt2qdtQad23ji4V+O1nbR0nqNA6VFV5zpI+IyNp61P/t7lTEC8XtYM0WJsfb+osw==
-X-Received: by 2002:a05:6000:4028:b0:3b7:8842:8a0c with SMTP id ffacd0b85a97d-3b8f97ec49emr6554498f8f.19.1754654625233;
-        Fri, 08 Aug 2025 05:03:45 -0700 (PDT)
-Received: from [192.168.50.4] ([82.78.167.188])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b8e009e465sm21298841f8f.43.2025.08.08.05.03.43
+        d=1e100.net; s=20230601; t=1754654647; x=1755259447;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CItPX3Nziwspy+DUPcMmH1OYCckJOPZ1VMD2rIXFTYo=;
+        b=Zc11dJV5jeJ+9umFG9qidbIYFedzy5+YFOP0GQan7xBZ3H/ctp43KKr8pdqbA8iB0O
+         yd5APHZ6083laIAcN2k8QPCuzDOlCUzOH/zv5Rzr+3gZyWtY2uLcMdWGWtrr5kmTW34F
+         jA8DpkgsUPUOmfF6x9aL2l5aIDBZRDL7pQ+LtNtdDNI2N6cM2jOoWXuxhuvmi2uIcsUE
+         EOKEeC71zRnZZRbOow3NXa4Zzmw0SLJUjUAxqsAZyolaaSZ9kR8Dy+hMWxF9HooNvq53
+         Af60b4aHi95Am3nECzhR4rG5Z0+GTU8bOamqGncLI8Dmoy5mLyGf2r7B2jGzquU78uzX
+         QoiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU9XDCByoARqIISTg3138Z/FpNQUjcEBEMRmBtIOZ2IK7wiu/jhM1FS4tEuWpnixzox4KqhbdBx2cn6pI1uoEJj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVEzmIf15nXUU44AKeTpZGtCzo0Z2i1J+Qs54pPCE/hOgowc8l
+	W9SwDxD7nyFR9u3Kozapv3p8C0MBw3LQzlptcZFpyMQOa2K4ODt3HsRjHAArelUL
+X-Gm-Gg: ASbGncvsczwuZ+yik/xhMghNP+fUu8paWsN9CZ9P3/3v8vDMgr0J4oOWKFJqV7sNchI
+	+jJ58uWPTUzT/ajGQd5vPF2d6RHUQkFUIgju/LqTDqoIM/Hr0Hr917tCE5f6ZuGAawjitMsICsz
+	uUDxxxWLFpf5ljqdxaRSvERqpUWwDHgh2Hx42QNf41LYIKoUl/ODRZ3Tzb+iDLmIVtDVWtcFsgI
+	4VDu1Qznzr/dn+RVqvaJomPvEmNjVvCQU6Nng9l9yDAci12pAL46XVoE1v0+Up+GexPZ4n2L742
+	FlCpMp7HEg0Ivq32c6vipXvqHMudj2oAAjch8g+OVpKl/NFdY5jYls/ytGhJDEVmfmjyM7z2d9i
+	DlvvbrzG0K8f2CvpWQQA088OwDV5qqezJoqA1ZoqvZWx734bjdH5QMH/Tgpj/
+X-Google-Smtp-Source: AGHT+IHu0C5AvKzRaBd8W9YSSZpYNcEJ/7j73zsjwyW3CcoRhGVCrAixsrA8IjzralJ5PwKE1KvRVg==
+X-Received: by 2002:a05:6122:8285:b0:535:e35d:49f4 with SMTP id 71dfb90a1353d-53a52f1316bmr1022084e0c.11.1754654646762;
+        Fri, 08 Aug 2025 05:04:06 -0700 (PDT)
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-539b02a1d78sm1009742e0c.25.2025.08.08.05.04.05
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 08 Aug 2025 05:03:44 -0700 (PDT)
-Message-ID: <6638d8cb-5770-416f-84f7-670de71ec63d@tuxon.dev>
-Date: Fri, 8 Aug 2025 15:03:42 +0300
+        Fri, 08 Aug 2025 05:04:05 -0700 (PDT)
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-4fd210f8448so2708672137.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 05:04:05 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUi2yFQz/KdqLHJJIL0+I9t0Hp+L0fUWTE379f3rRosohfIFnweElky8SQsiRxVXMAh+mFn5+8pUOlBHtlsHPZi@lists.infradead.org
+X-Received: by 2002:a05:6102:c89:b0:4fb:df6d:61e9 with SMTP id
+ ada2fe7eead31-5060cc8f424mr967777137.1.1754654644981; Fri, 08 Aug 2025
+ 05:04:04 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update
- dma-ranges for PCIe
-To: Biju Das <biju.das.jz@bp.renesas.com>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
- "mani@kernel.org" <mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "geert+renesas@glider.be" <geert+renesas@glider.be>,
- "magnus.damm" <magnus.damm@gmail.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "lizhi.hou@amd.com" <lizhi.hou@amd.com>
-Cc: "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
- wsa+renesas <wsa+renesas@sang-engineering.com>
-References: <20250704161410.3931884-1-claudiu.beznea.uj@bp.renesas.com>
- <20250704161410.3931884-8-claudiu.beznea.uj@bp.renesas.com>
- <TY3PR01MB113464920ECAC2C3CB89DE2D5864FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <7c8c7a25-c373-452a-9fe8-8b2d92ddd885@tuxon.dev>
- <TY3PR01MB113467C09DF7D3D0D7833A6598649A@TY3PR01MB11346.jpnprd01.prod.outlook.com>
- <fa0da331-273a-414b-b0d8-229c6772692d@tuxon.dev>
- <TY3PR01MB11346340ACB78394E131503B3862FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <TY3PR01MB11346340ACB78394E131503B3862FA@TY3PR01MB11346.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250709132449.GA2193594@bhelgaas> <2e0d815a-774a-4e31-92f1-71e0772294c7@kernel.org>
+ <0addc570-a3c6-4d7e-9cbd-06eedd2447bb@tuxon.dev>
+In-Reply-To: <0addc570-a3c6-4d7e-9cbd-06eedd2447bb@tuxon.dev>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 8 Aug 2025 14:03:53 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVS7VRBj3Neh7P1FDfaG7uPfpny4tFsDTk6tsmiYu3S+g@mail.gmail.com>
+X-Gm-Features: Ac12FXxvhlSsjlxIyp9wLVrjxx1brBJSnSBO2bel6v02fDMzhy9BrWS7nxQ7HtU
+Message-ID: <CAMuHMdVS7VRBj3Neh7P1FDfaG7uPfpny4tFsDTk6tsmiYu3S+g@mail.gmail.com>
+Subject: Re: [PATCH v3 4/9] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
+ documentation for the PCIe IP on Renesas RZ/G3S
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Bjorn Helgaas <helgaas@kernel.org>, bhelgaas@google.com, 
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	geert+renesas@glider.be, magnus.damm@gmail.com, catalin.marinas@arm.com, 
+	will@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
+	p.zabel@pengutronix.de, lizhi.hou@amd.com, linux-pci@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_050346_874438_F6B9F11D 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20250808_050408_059880_5BC39924 
+X-CRM114-Status: GOOD (  39.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,91 +104,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Claudiu,
 
+On Fri, 8 Aug 2025 at 13:44, Claudiu Beznea <claudiu.beznea@tuxon.dev> wrote:
+> On 09.07.2025 16:43, Krzysztof Kozlowski wrote:
+> > On 09/07/2025 15:24, Bjorn Helgaas wrote:
+> >> On Wed, Jul 09, 2025 at 08:47:05AM +0200, Krzysztof Kozlowski wrote:
+> >>> On 08/07/2025 18:34, Bjorn Helgaas wrote:
+> >>>> On Fri, Jul 04, 2025 at 07:14:04PM +0300, Claudiu wrote:
+> >>>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>>>>
+> >>>>> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
+> >>>>> Base Specification 4.0. It is designed for root complex applications and
+> >>>>> features a single-lane (x1) implementation. Add documentation for it.
+> >>>>
+> >>>>> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
+> >>>>
+> >>>> The "r9a08g045s33" in the filename seems oddly specific.  Does it
+> >>>> leave room for descendants of the current chip that will inevitably be
+> >>>> added in the future?  Most bindings are named with a fairly generic
+> >>>> family name, e.g., "fsl,layerscape", "hisilicon,kirin", "intel,
+> >>>> keembay", "samsung,exynos", etc.
+> >>>>
+> >>>
+> >>> Bindings should be named by compatible, not in a generic way, so name is
+> >>> correct. It can always grow with new compatibles even if name matches
+> >>> old one, it's not a problem.
+> >>
+> >> Ok, thanks!
+> >>
+> >> I guess that means I'm casting shade on the "r9a08g045s33" compatible.
+> >> I suppose it means something to somebody.
+> >
+> > Well, I hope it matches the name of the SoC, from which the compatible
+> > should come :)
+>
+> The r9a08g45s33 is the part number of a device from the RZ/G3S group. This
+> particular device from RZ/G3S group supports PCIe.
+>
+> In the RZ/G3S group there are more SoC variants (each with its own part
+> number). Not all support PCIe. To differentiate b/w PCIe and non-PCIe
+> variants it has been chosen to use the full part number here.
+>
+> The available RZ/G3S part numbers are listed in Table 1.1 Product Lineup at [1]
+>
+> (The following steps should be followed to access the manual:
+> 1/ Click the "User Manual" button
+> 2/ Click "Confirm"; this will start downloading an archive
+> 3/ Open the downloaded archive
+> 4/ Navigate to r01uh1014ej*-rzg3s-users-manual-hardware -> Deliverables
+> 5/ Open the file r01uh1014ej*-rzg3s.pdf)
+>
+> We use a similar compatible scheme in other drivers.
+>
+> Geert, I may be wrong. Please correct me otherwise, as I don't have the
+> full picture of this.
+>
+> Maybe, the other variant would be to use "renesas,rzg3s-pcie", or maybe a
+> more generic one "renesas,rz-pcie" (though I think this last one is too
+> generic).
 
-On 08.08.2025 14:44, Biju Das wrote:
-> 
-> 
->> -----Original Message-----
->> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->> Sent: 08 August 2025 12:28
-> .org; Claudiu Beznea
->> <claudiu.beznea.uj@bp.renesas.com>; wsa+renesas <wsa+renesas@sang-engineering.com>
->> Subject: Re: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som: Update dma-ranges for PCIe
->>
->> Hi, Biju,
->>
->> On 09.07.2025 08:05, Biju Das wrote:
->>> Hi Claudiu Beznea,
->>>
->>>> -----Original Message-----
->>>> From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
->>>> Sent: 08 July 2025 11:10
->>>> Subject: Re: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som:
->>>> Update dma-ranges for PCIe
->>>>
->>>> Hi, Biju,
->>>>
->>>> On 07.07.2025 11:18, Biju Das wrote:
->>>>> Hi Claudiu,
->>>>>
->>>>>> -----Original Message-----
->>>>>> From: Claudiu <claudiu.beznea@tuxon.dev>
->>>>>> Sent: 04 July 2025 17:14
->>>>>> Subject: [PATCH v3 7/9] arm64: dts: renesas: rzg3s-smarc-som:
->>>>>> Update dma-ranges for PCIe
->>>>>>
->>>>>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->>>>>>
->>>>>> The first 128MB of memory is reserved on this board for secure area.
->>>>>> Update the PCIe dma-ranges property to reflect this.
->>>>>
->>>>> I see R-Car PCIe dma-ranges[1] and [2] maps all possible DDR area supported by the SoC?
->>>>> Do we need to make board specific as well there?
->>>>
->>>> I'm not familiar with R-Car, but if there are ranges reserved for
->>>> other purposes, I think we should reflect it in board specific device trees.
->>>
->>>
->>> Already Linux has this DDR info[1]. Linux provides DMA memory only from this region.
->>
->> What we provide though dma-ranges DT property is setup in the PCI controller register corresponding to
->> the AXI windows. It is the same in case of R-Car (as of my investigation on driver).
->>
->>>
->>> In your testing, have you faced any issue like system allocated DMA
->>> region other than [1] and you don't want to use it, then the changes are ok??
->>
->> I haven't currently encounter any issues.
->>
->> As the values passed though the dma-ranges DT property are setup in the controller register for AXI
->> windows, and the DMA endpoints can act as bus masters, to avoid any issue where the DMA endpoints may
->> corrupt memory specific to the secure area, I chose to update the "dma-ranges" though board specific
->> bindings (to reflect the presence of the secure area and tell the PCIe controller to not use it).
->>
->>>
->>> Not sure, PCIe can work on internal memory such as SRAM?
->>
->> Inbound window is RAM, outbound window is a PCIe specific memory described though "ranges" DT property.
-> 
-> You mean SRAM cannot work on PCIe subsystem and work only for DRAM
+Both would be too generic for the myriad of RZ devices.
 
-This PCIe driver uses the PCIe specific memory (named "PCIe area" in Figure
-5.2 Overall Address Space or RZ/G3S HW manual) and DRAM.
+AFAIU, the R9A08G045Sxx variants are really the same SoC, with some
+hardware modules disabled/nonfunctional.  This is typically handled by:
+  1. Using the base part number (r9a08g045) in the compatible value,
+  2. Having the device node in the base .dtsi,
+  3. Deleting nodes in the variant-specific .dtsi file when needed
+     (see e.g. arch/arm64/boot/dts/renesas/r9a09g047{,e[35]7}.dtsi)
 
-> that is the reason you are not defining SRAM region in "dma-ranges". Am I correct?
+Hence as R9A08G045S13, R9A08G045S17, R9A08G045S33, and
+R9A08G045S37 all have PCIe, I think it is more appropriate
+to use "renesas,r9a08g045-pcie" as the compatible value than
+"renesas,r9a08g045s33-pcie".
 
-The DRAM region is described though dma-ranges, the PCIe memory is
-described through ranges property. The above is from this series:
+> Geert, please let us know if you have some suggestions here with regards to
+> the compatible. The IP on RZ/G3S is compatible also with the one in RZ/V2H,
+> RZ/G3E.
 
-dma-ranges = <0x42000000 0 0x48000000 0 0x48000000 0x0 0x38000000>;
-ranges = <0x02000000 0 0x30000000 0 0x30000000 0 0x8000000>;
+RZ/V2H and RZ/G3E can use "renesas,r9a09g057-pcie" resp.
+"renesas,r9a09g047-pcie", with "renesas,r9a08g045-pcie" as a fallback.
 
-Thank you,
-Claudiu
+Gr{oetje,eeting}s,
 
-> 
-> Cheers,
-> Biju
+                        Geert
 
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
