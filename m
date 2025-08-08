@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CD6C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 16:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1D4C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 16:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NEaDix6sRcJYV60mLIJzttVw+UOcvD2uRUGstNWoWWE=; b=ysNyOpvw/Fkj9+VKaMvg2lazRl
-	kq/XEipfYow4SyDQnLCi8Z71ZXzkk0gKC0lj2Mmr9PR6mvhGK6e015wOzuTVN9nZA4FwD4fz4IVMo
-	I8ayrdXoW2DJt5mJj4bTb6aICzgTt2mAuVcvjlgH2s8ZjLlU6q8Euvr74rwoRBdoW4XL0rYo5Z9JA
-	Cjmh6uTdKTOB6Xgt1PFb/bcBLSkOtsWp36ffxpguL4lBop6lHF/c10Xu1ynA8KR2KOaVBNFNWQ6VB
-	BPt3Kc18Mnc60zH3h2QIKt9O3XQmplCn1Qd8JT2C3Pq7k4D1/HXLXOLLyzDyRu1eowPR6Rihfbo2p
-	KEzYXXTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=rQvDDRgRDbVkKEMYZ9D5CpWaVVry4GycWLkVILUUexw=; b=rtLj13UG81cC9w
+	6JHnhvCKjRUMbmeFOlv6UMoPeVdk9adbYKGFMHCI9xvHwPl9X2Pir9H7nkuh4Y/0cuNFchJURClAQ
+	H5LxG+xqP/Z54+UbtUVYJuQxLms5n2Z8GEPaiNGN75pHYviXD8KSKub3kCAFLagBDmIx74SLeWNmH
+	FLMyGqleNAYZhPM3plKN5rSLT/otLe0clETmMKCrnOvWaExUPNBBgemyojr9m4N7jO2ycMG3sNcTF
+	d4nEF4ACz6t79Tn+e7AoipteFHKNOia+En/y0j2yKwQTMcqE1D6eRsj2OpMBb9Lo7XttEKueJydQC
+	DOFpERMJkSqKxf0s6JDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukPnN-00000003Is5-3h3Z;
-	Fri, 08 Aug 2025 16:18:17 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1ukPug-00000003JQc-3pUN;
+	Fri, 08 Aug 2025 16:25:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukPkp-00000003IjN-4ARm
+	id 1ukPs8-00000003JGF-0FCa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 16:15:41 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-433f984820dso1569384b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 08 Aug 2025 09:15:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754669739; x=1755274539; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=NEaDix6sRcJYV60mLIJzttVw+UOcvD2uRUGstNWoWWE=;
-        b=B//iv9haKu0TE6ImN86jAEfKtkntzx6+YoYxdtGV/D4x8n9TL/Fr92U7A7RRRVH2di
-         Zv7hjqBGni9L9kV2oiEnSlYep/CJP2RsBAclTcArPMMidTV09f5UxPirGQuKHubWDgUC
-         kS5zzxGGa4hdKN3px4Z33Razr1+lUdWkzexHPsOo0Q5XCXw6oz3wDB4tY4QeDjRUD5gM
-         OXhM8JGKdmaD5xIlKpq/lwPff/UlCqb6adazyGcl8UT4dpOgZeIkWHE5nQ988sefqaod
-         Ggu85kzSNfApsreE29l4u55oEJUjQIx7QZfV0jDE3VWkAZEmUdLzM3S/RTQV7D263MrG
-         ZmLQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754669739; x=1755274539;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NEaDix6sRcJYV60mLIJzttVw+UOcvD2uRUGstNWoWWE=;
-        b=llV/zCuFsgiBDSHC1zB7oPzUuGfHk+Lo5SHinxi7MMr32kmg1RkDc4u9Y2v+ifznUT
-         lvYcf79uSA1C93SEi5KCrkGzlhu6843CXvtnMf89ztvmN8G8OZt1Q2gyPi2y6YrB+SB6
-         t6Z7OqAKrvDr6Xpahb/M4y2RDx04KuxI/cMJXtQDaktTOP5S3a/aTQoKVl3FgnBMY5AO
-         3gZr2ZumQnDM+LwVWz/qA3v6qW4m4hBerxNyQswi1vRXVAsFkxXUJ+W+CfZAoAFPz+mt
-         sGz0Sv67IxvK3Jk+OLKUemWKgXUeKpGTcb/S3l+sqBFj0/SfQrdCQ2eDSeQ+6dnt8Rn/
-         eadQ==
-X-Gm-Message-State: AOJu0YxCBFq9OfoxqdgdnmEI5RGAD8PePnWg5Vpwu92f1o5tRxJvxGho
-	rlnS7dqc21xBtjmMmTZrJ0zFyHLPxHlc5SP+7GYVtUVfHRTK8IEhKuhCR0wCeOn2i0ffxcvJOjo
-	e8J5YghWuR5zHOJfYrxZgTbaabnDjvFs=
-X-Gm-Gg: ASbGncsdU1+fAy4tT8HYpBvymXHTKzJXYCQk+dIAXvTBCzE0waW0xaaxk9qDUy08VhW
-	R4w6sAt4AzBt3XC1/wVLLJ4wNRP5/e8WgZ+2OsiK1wPe6ABENfuTOFyauBuS/dZmSURyMnu1+CT
-	wjNbLb1UieB3YU2TxDr7+FTuSbzed4gYScM1QXakmuq/Jn1MrdOy3oeW8t58CmAeyn1jDKFFnUm
-	iAJVRRM
-X-Google-Smtp-Source: AGHT+IGAf6NlWhniXbzEbMshI0yuckGCe6+ALslH3kX5FSyONxwwwXzKSDgVl4Qzic4CM7x7HMcdLe1z47UBtkDDdLI=
-X-Received: by 2002:a05:6808:3084:b0:435:6d0b:82c4 with SMTP id
- 5614622812f47-435980222dfmr1778053b6e.36.1754669738848; Fri, 08 Aug 2025
- 09:15:38 -0700 (PDT)
+	Fri, 08 Aug 2025 16:23:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6D99B43C34;
+	Fri,  8 Aug 2025 16:23:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D68CC4CEED;
+	Fri,  8 Aug 2025 16:23:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754670191;
+	bh=iBBShj+kZsRTtO2PKybZxG3EHNwRqduCpGMyk73b6/w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=XF90Y6YBtOHMrMWFtvVMPMjrlIPH9OCiu6I9jwKmgiryJUklB6n5n8haO86ChYETg
+	 RVFT/dCEyS81iOEmaT1bbvHuoVoAQwPvB6ZTq01EjUqsS+bo6NJqW9UIXKZzSBLFRj
+	 ox6jVPQXTDNBSIvLu5DwlghT6Cny8OM2oRx6d1tupOrQzu2tk7yIKFaKSj0Kg9UKMR
+	 A8aT9qSq4O6MOJ/v/AQtxiJCxeeJMi9Dat4G6XW6okDfrDzz5hFtMSeU+rDhRYvV8u
+	 HnzdeOa7Z6uLpU17/SsIGmVwrGXc+bqcxXLlW32JGqqAI9Nf7OeQtJF8Pi9p5cVAFG
+	 JWtWOvr5V8lzQ==
+Date: Fri, 8 Aug 2025 11:23:09 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	mani@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+	catalin.marinas@arm.com, will@kernel.org, mturquette@baylibre.com,
+	sboyd@kernel.org, p.zabel@pengutronix.de, lizhi.hou@amd.com,
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>
+Subject: Re: [PATCH v3 4/9] dt-bindings: PCI: renesas,r9a08g045s33-pcie: Add
+ documentation for the PCIe IP on Renesas RZ/G3S
+Message-ID: <20250808162309.GA91528@bhelgaas>
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Fri, 8 Aug 2025 11:15:26 -0500
-X-Gm-Features: Ac12FXxwrGojS8v0wQNI0vM24r2jg3NrSRyNjV7YrSnlqxupgJhtX96rAGR2OuI
-Message-ID: <CABb+yY0+oTn999iv=vy1npF1Bi9=GVqWXBh=iOocVoa2MwW5Vg@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v6.17
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <71d109a1-211a-45ee-8525-03f1859b789a@tuxon.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_091540_049333_455A3811 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250808_092312_140162_F39FDBAA 
+X-CRM114-Status: GOOD (  32.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,91 +79,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Fri, Aug 08, 2025 at 02:25:42PM +0300, Claudiu Beznea wrote:
+> On 08.07.2025 19:34, Bjorn Helgaas wrote:
+> > On Fri, Jul 04, 2025 at 07:14:04PM +0300, Claudiu wrote:
+> >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+> >>
+> >> The PCIe IP available on the Renesas RZ/G3S complies with the PCI Express
+> >> Base Specification 4.0. It is designed for root complex applications and
+> >> features a single-lane (x1) implementation. Add documentation for it.
+> > 
+> >> +++ b/Documentation/devicetree/bindings/pci/renesas,r9a08g045s33-pcie.yaml
 
-The following changes since commit 4df9c0a2465a523e399e46a8d3b5866c769b381b:
+> >> +        pcie@11e40000 {
+> >> +            compatible = "renesas,r9a08g045s33-pcie";
+> >> +            reg = <0 0x11e40000 0 0x10000>;
+> >> +            ranges = <0x02000000 0 0x30000000 0 0x30000000 0 0x8000000>;
+> >> +            dma-ranges = <0x42000000 0 0x48000000 0 0x48000000 0 0x38000000>;
+> >> +            bus-range = <0x0 0xff>;
+> ...
 
-  Merge tag 'soc-newsoc-6.17' of
-git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc (2025-07-29
-11:17:24 -0700)
+> >> +            device_type = "pci";
+> >> +            num-lanes = <1>;
+> >> +            #address-cells = <3>;
+> >> +            #size-cells = <2>;
+> >> +            power-domains = <&cpg>;
+> >> +            vendor-id = <0x1912>;
+> >> +            device-id = <0x0033>;
+> > 
+> > Some of this is specific to a Root Port, not to the Root Complex
+> > as a whole.  E.g., device-type = "pci", num-lanes, vendor-id,
+> > device-id, are Root Port properties.  Some of the resets, clocks,
+> > and interrupts might be as well.
+> > 
+> > I really want to separate those out because even though this
+> > particular version of this PCIe controller only supports a single
+> > Root Port, there are other controllers (and possibly future
+> > iterations of this controller) that support multiple Root Ports,
+> > and it makes maintenance easier if the DT bindings and the driver
+> > structures are similar.
+> 
+> I'll ask the Renesas HW team about the resets and clocks as the HW
+> manual don't offer any information about this.
+> 
+> If they will confirm some of the clocks and/or resets could be
+> controlled as part of a port then patch 3/9 "PCI: of_property:
+> Restore the arguments of the next level parent" in this series will
+> not be needed anymore. Would you prefer me to abandon it or post it
+> as individual patch, if any?
 
-are available in the Git repository at:
+[PATCH v3 3/9] ("PCI: of_property: Restore the arguments of the next
+level parent") isn't specific to Renesas RZ/G3S and it doesn't look
+like it has anything to do with clocks or resets.  I don't understand
+the patch well enough to know whether you should keep it, but it does
+look like you should post it separate from the RZ/G3S driver.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v6.17
+When the devicetree contains required information specific to Root
+Ports, I would prefer that to be in a separate "pcie@x,y" stanza, even
+if there are clocks or resets that apply to all Root Ports.
 
-for you to fetch changes up to 5378bdf6a611a32500fccf13d14156f219bb0c85:
+"num-lanes" is obviously specific to an individual Root Port because
+a Root Complex doesn't have lanes at all.  But in the case of RZ/G3S,
+I'm not sure "num-lanes" is required in the devicetree; I don't see it
+being used in the driver.  If it's not needed, I would just omit it.
 
-  mailbox/pcc: support mailbox management of the shared buffer
-(2025-08-07 23:49:56 -0500)
+It looks like the driver *does* need "vendor-id" and "device-id"
+though, and those also are specific to a Root Port because a Root
+Complex is not a PCI device and doesn't have its own Vendor or Device
+ID.  So I would like them to be in a per-Root Port stanza.  If there
+are resets or clocks that affect a Root Port but not the Root Complex
+as a whole, they should also be in the Root Port stanza.
 
-----------------------------------------------------------------
-aspeed: add driver and bindings for ast2700
-broadcom: add driver and bindings for bcm74110
-mediatek: fix RPM api usage
-qcom: use dev_fwnode
-pcc: support shared buffer
-misc: dt-bindings cleanup
-
-----------------------------------------------------------------
-Adam Young (1):
-      mailbox/pcc: support mailbox management of the shared buffer
-
-Colin Ian King (1):
-      mailbox: bcm74110: Fix spelling mistake
-
-Jammy Huang (2):
-      dt-bindings: mailbox: Add ASPEED AST2700 series SoC
-      mailbox: aspeed: add mailbox driver for AST27XX series SoC
-
-Jiapeng Chong (1):
-      mailbox: bcm74110: remove unneeded semicolon
-
-Jiri Slaby (SUSE) (1):
-      mailbox: Use dev_fwnode()
-
-Justin Chen (2):
-      dt-bindings: mailbox: Add support for bcm74110
-      mailbox: Add support for bcm74110
-
-Krzysztof Kozlowski (5):
-      dt-bindings: mailbox: amlogic,meson-gxbb-mhu: Add missing
-interrupts maxItems
-      dt-bindings: mailbox: ti,secure-proxy: Add missing reg maxItems
-      dt-bindings: mailbox: Correct example indentation
-      dt-bindings: mailbox: nvidia,tegra186-hsp: Use generic node name
-      dt-bindings: mailbox: Drop consumers example DTS
-
-Luca Weiss (1):
-      dt-bindings: mailbox: qcom-ipcc: document the Milos
-Inter-Processor Communication Controller
-
-Sakari Ailus (1):
-      mailbox: mtk-cmdq: Switch to pm_runtime_put_autosuspend()
-
- .../mailbox/allwinner,sun6i-a31-msgbox.yaml        |  14 +-
- .../bindings/mailbox/amlogic,meson-gxbb-mhu.yaml   |  10 +-
- .../devicetree/bindings/mailbox/apple,mailbox.yaml |  16 +-
- .../bindings/mailbox/aspeed,ast2700-mailbox.yaml   |  68 +++
- .../bindings/mailbox/brcm,bcm74110-mbox.yaml       |  64 ++
- .../bindings/mailbox/nvidia,tegra186-hsp.yaml      |   9 +-
- .../bindings/mailbox/qcom,apcs-kpss-global.yaml    |   9 +-
- .../devicetree/bindings/mailbox/qcom-ipcc.yaml     |   1 +
- .../bindings/mailbox/ti,omap-mailbox.yaml          |  10 +-
- .../bindings/mailbox/ti,secure-proxy.yaml          |  18 +-
- drivers/mailbox/Kconfig                            |  19 +
- drivers/mailbox/Makefile                           |   4 +
- drivers/mailbox/ast2700-mailbox.c                  | 235 ++++++++
- drivers/mailbox/bcm74110-mailbox.c                 | 656 +++++++++++++++++++++
- drivers/mailbox/mtk-cmdq-mailbox.c                 |  10 +-
- drivers/mailbox/pcc.c                              | 102 +++-
- drivers/mailbox/qcom-ipcc.c                        |   3 +-
- include/acpi/pcc.h                                 |  29 +
- 18 files changed, 1214 insertions(+), 63 deletions(-)
- create mode 100644
-Documentation/devicetree/bindings/mailbox/aspeed,ast2700-mailbox.yaml
- create mode 100644
-Documentation/devicetree/bindings/mailbox/brcm,bcm74110-mbox.yaml
- create mode 100644 drivers/mailbox/ast2700-mailbox.c
- create mode 100644 drivers/mailbox/bcm74110-mailbox.c
+Bjorn
 
