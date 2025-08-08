@@ -4,43 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E58C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9390FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 07:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P9L19gAHXIx+TjDdTptEWaC0VHqB0bVrkCQOOb6Jwzw=; b=fJZOF9XUFQELnUjT0yAkvOPsfJ
-	1K9Qo+G1nE+/xgtJAYONLi/Vf9Typ84JYWhG9zp1LcaxPazLBHmCNY5Kq5k+d45zjmaSAJ+qWDDAO
-	w1Bwo+I7vFae0/R1IzZmUMXX9TllTl/C/dHQnDWdfa0vy0Cqz6E8v4x88jyCxaCFBtpz53ncNvJVJ
-	c5Xhx2NsGjF+C0jganDrkw/Q7x7W3B8fFXgBh2rHlJ/kXEc+Alu7p1wLMFGbKMwRFjaNoPcCnekzl
-	u/Lk/3x7ezvNR36YT6vnpvnj0MynWU7lvGo3SUU4GI3KCwZqn0WXd2n9V16dKLeI/fz911K968//E
-	/paOFgqQ==;
+	bh=zlmOI4o9q/p4zJfBzOkA/XZwyS/OjkNZiFb3gCexBmg=; b=LZKumCaE3l4pmvFSAwoQNtT54J
+	w13wuhK4rLLjVHKkist/ub1U3+QIS0dBNZrXmR4ooNwkcfT6dFxBAOM/3xUKRe15mSiETF9zxDchc
+	/wIDAc1i1TQp1AqSOgcaHrYPBTZnonpsETZh2H7N3Vd0zpoy/hf/j4kr4InpnXW0xq5cWGe2a14J3
+	lgDZPKnXqdWI4wJBHhJF7G4WdIlQ7E0Ft9NJ8egyxYIKyk1++Qjr2sts5In89/goiFSHiOZLFWgk+
+	QP6GW9ECWgbl+zzB7LkEm/FLT3nELUuWrKWwqbS/IjWTtSDwY4/AQ1tGp2ZC82t5pJOXEDzXyPmVq
+	TsX7APzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHQB-00000002BJK-0PDP;
-	Fri, 08 Aug 2025 07:21:47 +0000
+	id 1ukHSc-00000002BXg-44HW;
+	Fri, 08 Aug 2025 07:24:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukHGo-00000002A6H-23e7
+	id 1ukHH8-00000002AA0-3sKV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 07:12:07 +0000
+	Fri, 08 Aug 2025 07:12:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43FB822EA;
-	Fri,  8 Aug 2025 00:11:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF13A22EA;
+	Fri,  8 Aug 2025 00:12:17 -0700 (PDT)
 Received: from [10.57.5.99] (unknown [10.57.5.99])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 358A53F673;
-	Fri,  8 Aug 2025 00:12:00 -0700 (PDT)
-Message-ID: <c526e084-dcd3-4117-873e-67c6d9869b8f@arm.com>
-Date: Fri, 8 Aug 2025 08:11:57 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 42AB93F673;
+	Fri,  8 Aug 2025 00:12:20 -0700 (PDT)
+Message-ID: <76da7333-6e37-44ad-ab46-8fb4b1c529b4@arm.com>
+Date: Fri, 8 Aug 2025 08:12:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC PATCH 25/36] arm_mpam: Register and enable IRQs
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+To: Fenghua Yu <fenghuay@nvidia.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+Cc: Rob Herring <robh@kernel.org>, Ben Horgan <ben.horgan@arm.com>,
+ Rohit Mathew <rohit.mathew@arm.com>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Zeng Heng
  <zengheng4@huawei.com>, Lecopzer Chen <lecopzerc@nvidia.com>,
  Carl Worth <carl@os.amperecomputing.com>,
@@ -54,15 +55,15 @@ Cc: Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
  Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>
 References: <20250711183648.30766-1-james.morse@arm.com>
  <20250711183648.30766-26-james.morse@arm.com>
- <a8dd0921-9d25-4f57-97ee-9b44b8ff5057@arm.com>
+ <7b909125-103d-41d3-a2ad-5c96a15df672@nvidia.com>
 Content-Language: en-US
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <a8dd0921-9d25-4f57-97ee-9b44b8ff5057@arm.com>
+In-Reply-To: <7b909125-103d-41d3-a2ad-5c96a15df672@nvidia.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_001206_583310_01B9AAA3 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250808_001227_012098_29957E5C 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,10 +78,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi Fenghua,
 
-On 28/07/2025 11:49, Ben Horgan wrote:
-> On 7/11/25 19:36, James Morse wrote:
+On 04/08/2025 17:53, Fenghua Yu wrote:
+> On 7/11/25 11:36, James Morse wrote:
 >> Register and enable error IRQs. All the MPAM error interrupts indicate a
 >> software bug, e.g. out of range partid. If the error interrupt is ever
 >> signalled, attempt to disable MPAM.
@@ -94,39 +95,35 @@ On 28/07/2025 11:49, Ben Horgan wrote:
 >>
 >> Enabling the IRQs in the MSC may involve cross calling to a CPU that
 >> can access the MSC.
->> diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/
->> mpam_devices.c
->> index 145535cd4732..af19cc25d16e 100644
->> --- a/drivers/platform/arm64/mpam/mpam_devices.c
->> +++ b/drivers/platform/arm64/mpam/mpam_devices.c
->> @@ -1548,11 +1638,193 @@ static void mpam_enable_merge_features(struct list_head
 
->> +static int mpam_enable_msc_ecr(void *_msc)
+>> +static int mpam_register_irqs(void)
 >> +{
->> +    struct mpam_msc *msc = _msc;
+>> +    int err, irq, idx;
+>> +    struct mpam_msc *msc;
 >> +
->> +    __mpam_write_reg(msc, MPAMF_ECR, 1);
-> You can use MPAMF_ECR_INTEN.
-
-Sure,
-
-
+>> +    lockdep_assert_cpus_held();
 >> +
->> +    return 0;
->> +}
+>> +    idx = srcu_read_lock(&mpam_srcu);
+>> +    list_for_each_entry_srcu(msc, &mpam_all_msc, glbl_list,
+>> srcu_read_lock_held(&mpam_srcu)) {
+>> +        irq = platform_get_irq_byname_optional(msc->pdev, "error");
+>> +        if (irq <= 0)
+>> +            continue;
+>> +
+>> +        /* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+>> +        /* We anticipate sharing the interrupt with other MSCs */
+>> +        if (irq_is_percpu(irq)) {
+>> +            err = request_percpu_irq(irq, &mpam_ppi_handler,
+>> +                         "mpam:msc:error",
+>> +                         msc->error_dev_id);
+>> +            if (err)
+>> +                return err;
+> But right now mpam_srcu is still being locked. Need to unlock it before return.
 
->> @@ -1644,7 +1939,6 @@ void mpam_enable(struct work_struct *work)
->>       struct mpam_msc *msc;
->>       bool all_devices_probed = true;
->>   -    /* Have we probed all the hw devices? */
-> Stray change. Keep the comment or remove it in the patch that introduced it.
-
-Fixed.
+Yup, Jonathan's srcu guard runes solve that in a future proof way.
 
 
 Thanks,
 
 James
-
-
 
