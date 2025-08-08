@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E79DC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 01:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678DDC87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  8 Aug 2025 01:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ts1zobpCK/euzxoCBpLogZaK0KIVWRAOk6N20EwhcMI=; b=qKlrYSM+w0k7uLkODta1+uMvtH
-	GREEDxZPdrt+JwVC0Fwpx4+sI/ZhSHT9JK7DUCrwWJJSgCMW0p6jtgrYKXn4Kzm4ByYyjOUxCBT6u
-	kbBMT/WFf+Tz0YRMi4QDZiUwuxjyT1QyVDmOAKRXszNZhrUEdHrMWn2YKfC7aGFbZMLi+rdZX4GPP
-	3tHBl1M0/tJa8kP+/hL9vnaGkoK6e4AL79+sdvFnstzIv2KKGz6IgnbW+UW3VsjttsgvRw+moQj1z
-	4jLoaphjc+dik3CJ0Ibqg/5GgB6VjkTxz7Dbi1TJ8Da8nSm+lDnybF2EcGD1J4zSSKqX6EZFiKFmd
-	9SmbAw0g==;
+	bh=yVp+q0OXEFKzrgZ3sx/tEBHw0oQFJlRYZK/S98YsvoQ=; b=mPFz1Fnmmh5+TH01j8Heg5eSqk
+	u/hhX2LC71QOJn3rvsfn1LjOaXM5kgU3yn7L1gwzgG5mKkoB1Lsu0nNf6qEpFVLwcP6RiH+RZlLwO
+	FTN2B4sSRNO6JoLc2cgryHpgvYf8J3lCDZuvI1jWa2lHdJSRzNeFKhQ0MBKcole1PnoODhS66mcaH
+	gNfjbNsaavSGPF2ZGIuy48KTZ19pb9ADfruVhC55GLf2KYBC3GoZ+EoHWvZZo3ZDhEJfgC83BwZNz
+	xK6wjcK8zOVtkX1zEKC5RWQrZlktNOFHHOlkImzdl4fZ0Hn8CGtdnSN7XsRVZbQLmwut/hHe40uIZ
+	J762pM/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukCBQ-00000001o05-3EGv;
-	Fri, 08 Aug 2025 01:46:12 +0000
+	id 1ukCEJ-00000001oKW-2BsO;
+	Fri, 08 Aug 2025 01:49:11 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukC8s-00000001nmp-0zEJ
+	id 1ukCBl-00000001o2L-1vj4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 08 Aug 2025 01:43:35 +0000
+	Fri, 08 Aug 2025 01:46:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1754617407;
-	bh=Ts1zobpCK/euzxoCBpLogZaK0KIVWRAOk6N20EwhcMI=;
+	d=codeconstruct.com.au; s=2022a; t=1754617591;
+	bh=yVp+q0OXEFKzrgZ3sx/tEBHw0oQFJlRYZK/S98YsvoQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FHNEVcw7jWORt5mo5EgNeEBRd3dIcoL/5kB5U83zUl1HwD6KeiVLYcBokMPbHCaRg
-	 6ou1vmExWaWE4rBAJGHNlNxdP3/FMMFy90TxLwoalnTh6qt5N5xhvfW772Dm9NGC9d
-	 LUBTPFp8nDLlQHHPmoJM6lu+4PIc3rxgXNdLYBdqWwaUEtNqZ5Qo3eVBeffXksgC3F
-	 0Z2/E8U0GKsbHniDdgYZF/c7JarjK8Tjz6YjeeEOiJ8RpiJRu2c+un7bYjU2vKKh+j
-	 pEgcpXsLnrXnhuezZEdoX5wCWvLrAPO1L03W15Rq/jxkmRhcasVvZp19MKTZiLKvHc
-	 +iHss2W0MA6DA==
+	b=hUqof9HbnGjzHizOMdz7dyj5F//rbpBuUZZzrwVb8zd823QbWdNCY2r0GbjAXV8Q0
+	 ByI3u6/6ZvmCtcUTIltp0jeanALrnF5bYC3PHSYtQ8LNm/cRGRD/v0lwe9Plo18U3/
+	 PTsElkZRTkzZWwEU6aewBeD4jJqO990eQUKZCkxYv7CepGBFq6KaN6svE2woaEae9g
+	 1e6bqZHGQeRgaOSczGvPzVhow3jfDV+flGn0hHo97KicVebuOKBaIUF3ajZ9DlH3qm
+	 YQmX4vdiKDzINFtflGxbHekmmAIv/+3mkKDVJS/W+a3np5EIjXa/k1WPzgYytYlCzK
+	 PU+viEaUta1bQ==
 Received: from [192.168.68.112] (unknown [180.150.112.70])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8234A6AF39;
-	Fri,  8 Aug 2025 09:43:22 +0800 (AWST)
-Message-ID: <f1aaeb371eb0c753e6ace45e5e1ce5ccd73a0f76.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v10 0/3] ARM: dts: Add support for Meta Clemente BMC
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8A4786AF39;
+	Fri,  8 Aug 2025 09:46:30 +0800 (AWST)
+Message-ID: <54e07d5e67b2d15810d79bc196e92c8bacabf789.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] dt-bindings: mfd: aspeed-lpc: Add missing "clocks"
+ property on lpc-snoop node
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Leo Wang <leo.jt.wang@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Kees Cook
- <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,  "Guilherme G. Piccoli"
- <gpiccoli@igalia.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus
- Damm <magnus.damm@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-hardening@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	leo.jt.wang@fii-foxconn.com, george.kw.lee@fii-foxconn.com, 
-	bruce.jy.hung@fii-foxconn.com, Conor Dooley <conor.dooley@microchip.com>
-Date: Fri, 08 Aug 2025 11:13:21 +0930
-In-Reply-To: <20250801-add-support-for-meta-clemente-bmc-v10-0-c1c27082583d@fii-foxconn.com>
-References: <20250801-add-support-for-meta-clemente-bmc-v10-0-c1c27082583d@fii-foxconn.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>, Chia-Wei Wang <chiawei_wang@aspeedtech.com>
+Cc: Andrew Jeffery <andrew@aj.id.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Date: Fri, 08 Aug 2025 11:16:30 +0930
+In-Reply-To: <20250807132909.3291770-1-robh@kernel.org>
+References: <20250807132909.3291770-1-robh@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250807_184334_465904_C9299961 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250807_184633_686668_61765EE1 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
-
-On Fri, 2025-08-01 at 16:22 +0800, Leo Wang wrote:
-> This series adds initial support for the Meta Clemente BMC based on
-> the
-> ASPEED AST2600 SoC.
+On Thu, 2025-08-07 at 08:29 -0500, Rob Herring (Arm) wrote:
+> The ASpeed lpc-snoop nodes have a "clocks" property which isn't
+> documented. It looks like all the LPC child devices have the same clock
+> source. Perhaps it is the parent device that should have the clock, but
+> it's too late for that. The driver for lpc-snoop requires a clock to be
+> present.
 >=20
-> Patch 1 documents the compatible string.
-> Patch 2 adds the device tree for the board.
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-There are now three patches :)
+Thanks Rob.
 
-However, the main concern is that these do not apply without fuzz.
-
-Can you please rebase them on the following branch and re-send?
-
-https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git aspeed/dt
-
-Thanks,
-
-Andrew
+Acked-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
