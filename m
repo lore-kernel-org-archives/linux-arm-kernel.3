@@ -4,81 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4AEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 02:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF075C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 05:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q6tF1jh3wBZ01+/6ioYGsXWTGjIQkbUZIoLCB4w+3CY=; b=xy5FZL7CarGGosCgEuEiPUwNwq
-	nOZZ3kiR6bKWO0CnywjGNlfWm09XNapD/8MOadf1RTiiFYkrVp8Pdkp9BLOod1SODuCrvk/XnR8LG
-	meSsz9NeFEgN3K+t9EFFveTlZubr46bTmfufSeXU4o3ruUpRnxehrPwn2jcoPPm6EpWqLJJLByZXR
-	aBAwd/XgriScXGm82ZEd2oSwC1kCxMaAkeK822V5p6a2ksDrKvpRnuAA6vpoP9Bz0/NqJX4BO0E+D
-	ht4yimGczVQjXwT53JqbZTC3+OCupu9G/fG9ftoPE+jwvNnr6IFp+0QOa5a1s29q4gOP8mdGPZzwK
-	C1dobJSA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uhKeMdP5RbEs4S+KqGl2y0rcgArKNgZAN/egy9JK5Uc=; b=QTLiFJuFxNuoA1qjncuJ04i/2I
+	GNezXe/xHzJg8DgcLq7zOdSOQnn71EZ9lOb9Ox3QIj6GDOzzU09xrarOyaaNoI2a9TdlJsCmPDENF
+	ayLXzcLZO5zbWv+7HCIE/lZKpCJgxqpemhNe4puCN8asTrqeMLRR3QcPvV/rutYkoSbtKQQ6mBdUO
+	WmOo+lbEVmJNWOIG7nRUVHTGdBDsZsYLwEc0HlVdyBBUAg6Bh9+wEb2z5+2XJf48GfjVr2OzMPD0N
+	gj2gedEacAT4hvUCo18D+K/YFsjtUUMAB99PIOHDRieWgkCjVb4Goe1oxU5TK9E0anDP6aPP66cgK
+	RjNlmc3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukZgD-000000041TH-2xiS;
-	Sat, 09 Aug 2025 02:51:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ukc1l-000000048cS-3oL7;
+	Sat, 09 Aug 2025 05:21:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukZOo-000000040LR-2u5Q
+	id 1ukbzF-000000048MF-3OOv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 02:33:37 +0000
+	Sat, 09 Aug 2025 05:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9177A5C6998;
-	Sat,  9 Aug 2025 02:33:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E66E5C113CF;
-	Sat,  9 Aug 2025 02:33:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E892A601EF;
+	Sat,  9 Aug 2025 05:19:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E040C4CEE7;
+	Sat,  9 Aug 2025 05:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754706812;
-	bh=bL8yAbxiuQ22bQVHGv33iwssGxRBYo5+qxn51pPBsUs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=brrwSjZYVe6DJOgiMa6/vKnk+IWLapUTy2j8iVVYIjvQszwrnZO+8g7oZ6Hfwt85s
-	 Gj/NPyZVvS4nrwsjqsJSMbYBYsamssQTQIn7Shn8D7uYbaIruRSoL5LfypHn8LbPLH
-	 RWRCJxg03fn+DzfdecEOAsda+prs+r3vnLsALZ9yk9hf/wREohDbL8TRw0DSGFKW9i
-	 J4nwT6mjbGT8FYwtHa8bMMe1vVK0hS1dxlD/SF9x69HFP/piienf5Ce9g2tbNTk/Co
-	 YrE5YzE4B4sl/Vky++cfxSRwgvlQlGUQI2GeIxxpmLz4Gu1sbFrX8x4p1mZtvo/aPb
-	 /WiVDlGpoc86Q==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DC441C87FCB;
-	Sat,  9 Aug 2025 02:33:32 +0000 (UTC)
-From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Date: Sat, 09 Aug 2025 02:33:24 +0000
-Subject: [PATCH v10 6/6] KVM: arm64: Bump the supported version of FF-A to
- 1.2
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250809-virtio-msg-ffa-v10-6-189eeecf8ae8@google.com>
-References: <20250809-virtio-msg-ffa-v10-0-189eeecf8ae8@google.com>
-In-Reply-To: <20250809-virtio-msg-ffa-v10-0-189eeecf8ae8@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, ahomescu@google.com, armellel@google.com, 
- arve@android.com, ayrton@google.com, qperret@google.com, 
- sebastianene@google.com, qwandor@google.com, 
- Per Larsen <perlarsen@google.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754706812; l=1485;
- i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=rli6Os3TRNMcjM1Tg+jZU9NsfEjaWrpVPYJg1zkUw64=;
- b=X2RNV1idUQq0rqDRDkahKbNK+IHDHq4CSzOIfKKcWhLavNLE8079ljldJGBNHc3FIXCzoL/GL
- o5K9qPjfyGDBUCjeyRuVyG229qoxNXUOr2IMAErkgcjZoUi9xepxer5
-X-Developer-Key: i=perlarsen@google.com; a=ed25519;
- pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
-X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
- auth_id=402
-X-Original-From: Per Larsen <perlarsen@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_193334_816578_52DF11F3 
-X-CRM114-Status: GOOD (  10.04  )
+	s=k20201202; t=1754716760;
+	bh=3ei8Qr/PqDz5ACLnFQhpd6y0dXsESOZmqG0XmKWm0/I=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=cwsSvrP6aV61RIAibbHpjXcZHapDY9tCkoYleb9gvItLzZh2OJ+IOqJ2Io/T1lgKG
+	 Ez4OHZ4e8W30X1ZdEF21Rr3G4BQiOZSYVJ3yaO7YyfffB+XYhrJ1bloOXC/B4yVyvI
+	 k01P/FDv2xe+mFdZAmbheKUZvjXCWthuaqW4wqLug0KXGMN8SeTE5HjyKQP2ehwRvJ
+	 EfZn9Xhx9apVIVcpIzkK3k0/6a5yg/z06+HXKM69BFdiXAG4JHA4nqZ+8Nwv0uL89i
+	 K6a8oE2qyShGOal3V2KcWhBVKq5cg4AfVB5/Z9NjlM2rg2jSVYoH1y1qR3FIwv7N0F
+	 MkxMJ+L8P/6hA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EACDB383BF5A;
+	Sat,  9 Aug 2025 05:19:34 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 6.17, part 1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <828e73a2-23ae-442a-8d29-415a87b8ec4a@app.fastmail.com>
+References: <828e73a2-23ae-442a-8d29-415a87b8ec4a@app.fastmail.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <828e73a2-23ae-442a-8d29-415a87b8ec4a@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.17-1
+X-PR-Tracked-Commit-Id: 0c952efa0d7cf5258879406077df33d23cb06d5e
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 61d417921c9390ee2fb48c697490b6967c9b2034
+Message-Id: <175471677342.380510.16866147607593828957.pr-tracker-bot@kernel.org>
+Date: Sat, 09 Aug 2025 05:19:33 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +71,19 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Per Larsen <perlarsen@google.com>
+The pull request you sent on Fri, 08 Aug 2025 22:53:37 +0200:
 
-FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
-preferred by the hypervisor to enable implementation of the 1.2-only
-FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.17-1
 
-Co-developed-by: Ayrton Munoz <ayrton@google.com>
-Signed-off-by: Ayrton Munoz <ayrton@google.com>
-Acked-by: Will Deacon <will@kernel.org>
-Signed-off-by: Per Larsen <perlarsen@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/61d417921c9390ee2fb48c697490b6967c9b2034
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 22a369f8d1d8edcde45d77377e29dc08256c0bcc..68a7798857dfea9c93dd66069b0f99fb0a030c15 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -931,7 +931,7 @@ int hyp_ffa_init(void *pages)
- 
- 	arm_smccc_1_2_smc(&(struct arm_smccc_1_2_regs) {
- 		.a0 = FFA_VERSION,
--		.a1 = FFA_VERSION_1_1,
-+		.a1 = FFA_VERSION_1_2,
- 	}, &res);
- 	if (res.a0 == FFA_RET_NOT_SUPPORTED)
- 		return 0;
-@@ -952,10 +952,10 @@ int hyp_ffa_init(void *pages)
- 	if (FFA_MAJOR_VERSION(res.a0) != 1)
- 		return -EOPNOTSUPP;
- 
--	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_1))
-+	if (FFA_MINOR_VERSION(res.a0) < FFA_MINOR_VERSION(FFA_VERSION_1_2))
- 		hyp_ffa_version = res.a0;
- 	else
--		hyp_ffa_version = FFA_VERSION_1_1;
-+		hyp_ffa_version = FFA_VERSION_1_2;
- 
- 	tx = pages;
- 	pages += KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE;
+Thank you!
 
 -- 
-2.51.0.rc0.155.g4a0f42376b-goog
-
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
