@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E97ACC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 21:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC61C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 21:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O6uAk+OwnqqcFGu0HejJdV2yCVgc1kZMiGF6XxJ+Hhs=; b=V+jkrTH8i9RUWzK+M1McF3IJfQ
-	yNXnZWCxYPZhOgiPW/HPnv3wqtnaq7b6BJXwBNIJ8JTzHKvu8ukmrlsK4HIsxo+uOUtjAfZ8W6HWJ
-	gx36mW+42/lKOkq5oR14TphEdMjXxIJ3tuyZfhGfKgwy5Y7AiTrr2Ez9b67vFghIbpSiNH5eo56ww
-	OJbhwPsnxkPZOxwT3T8YAeeomY0cKU7CCGJLlgJMv9DPu4SNbK1QAqsrSpD2vt4kjk5k4JVT0YvxR
-	MhiGrNVBVP69svp9XUHps1VBrCerr+qMX4xmtfQaJ2DGg0MSjU64RNYwIo16iE6YaUmZ+BqeGTWYJ
-	JFidawLw==;
+	bh=miZPlBLdx1vOyGu9jvpSEQ4cWqxJcEyv3giJOq/eiMA=; b=RqhMjaCC0M/9lj1W5eMp1rP8Kh
+	9aoM18Jg0IC6752YGem/RNLEbMJZAKkuyOKzPH009OcIv3ruXiA1BYiQySAGbsPEbCbID25OGz9oB
+	Qtm9fsBSADWV/LsWsoXfy36jiWxSxFH0lbRz2KFC/qkDbHdPHurlGYHQmgno1ivonGPh4c7wIGNX0
+	Dnl5M91EkAqJVWRKc4gKftcW0igyRiev5JoQkikGsau+5c74+ZzweLRfMr09bBxzTIkH2ohuGF1kU
+	Wy6JvJzqA4RjLaufYCdQCgk5lDmmPKT4/KqCV27Dd/RSr84g0scwO5QjbandxBEFUg4fVIul+NmGa
+	o4BKqgMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukrXm-00000004ykY-04bj;
-	Sat, 09 Aug 2025 21:56:02 +0000
+	id 1ukraF-00000004yuP-3Udz;
+	Sat, 09 Aug 2025 21:58:35 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukqxi-00000004vuv-0UP4
+	id 1ukqxj-00000004vvX-2qNU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 21:18:47 +0000
+	Sat, 09 Aug 2025 21:18:48 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 27946502;
-	Sat,  9 Aug 2025 23:17:54 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id B91A6162B;
+	Sat,  9 Aug 2025 23:17:55 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754774274;
-	bh=wo5NKGaetHKlFIyopd6naw1ltpha/XckyBihK5e7a2I=;
+	s=mail; t=1754774275;
+	bh=Mxd2mSbeF4bs69HYy7o/QbBRt6eGtBubrq/fYOZXaVM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Kw3waXLOGNj76PNveWGPyPxKByAfWkx/AsizDNDZE6VIBcC6eSRiRBZqPaItTVZwq
-	 kIF5uUqnRh69MHnWwEeQQc7Mp+7ahKa436oPMBtr1S7UY81Jyz6K+ibsrgV9vYhLNr
-	 81tunb/LzieweRLb0jncX6RajVoDxLdH1jQ41bmA=
+	b=CtZvurcqwrNKYtTyjpXBysvAcwe87jUZKJjeCNG/Q6IOpUAGa0mWKUcSnztwQ6fPx
+	 Ey20WP5ZEaUJqcPa6pTKeNPpFm9T4mCRtobGLtx047QWK1ZzdaoHzCLK4jsJ0FCgmw
+	 3T2wL7eyil+SN5d06969Oi8DdyrXgdx4lPRtIRO0=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Hans Verkuil <hans@jjverkuil.nl>,
 	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
 	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
-	Jacek Anaszewski <jacek.anaszewski@gmail.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 56/76] media: s5p-jpeg: Access v4l2_fh from file
-Date: Sun, 10 Aug 2025 00:16:33 +0300
-Message-ID: <20250809211654.28887-57-laurent.pinchart@ideasonboard.com>
+Subject: [PATCH v2 57/76] media: s5p-mfc: Store s5p_mfc_ctx in vb2_queue.drv_priv
+Date: Sun, 10 Aug 2025 00:16:34 +0300
+Message-ID: <20250809211654.28887-58-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20250809211654.28887-1-laurent.pinchart@ideasonboard.com>
 References: <20250809211654.28887-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_141846_296857_E598C1CE 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20250809_141847_858979_C984409D 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,135 +72,148 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-The v4l2_fh associated with an open file handle is now guaranteed
-to be available in file->private_data, initialised by v4l2_fh_add().
+The driver stores a pointer to a v4l2_fh in the vb2_queue.drv_priv,
+which it then has to cast to a s5p_mfc_ctx pointer in all vb2 queue
+operations. Store the pointer to the s5p_mfc_ctx instead to avoid the
+cast. While at it, use the vb2_get_drv_priv() helper to access the
+field.
 
-Access the v4l2_fh, and from there the driver-specific structure,
-from the file * in all ioctl handlers.
-
-Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Reviewed-by: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
 Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 ---
-Changes since v1:
+ drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c     |  4 ++--
+ drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c | 10 +++++-----
+ drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c | 12 ++++++------
+ 3 files changed, 13 insertions(+), 13 deletions(-)
 
-- Update file-to-ctx macro due to removal of fh-to-ctx macro
----
- .../platform/samsung/s5p-jpeg/jpeg-core.c     | 27 ++++++++-----------
- 1 file changed, 11 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-index 65f256db4c76..81792f7f8b16 100644
---- a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-+++ b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-@@ -580,14 +580,9 @@ static inline struct s5p_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *c)
- 	return container_of(c->handler, struct s5p_jpeg_ctx, ctrl_handler);
- }
- 
--static inline struct s5p_jpeg_ctx *fh_to_ctx(struct v4l2_fh *fh)
--{
--	return container_of(fh, struct s5p_jpeg_ctx, fh);
--}
--
- static inline struct s5p_jpeg_ctx *file_to_ctx(struct file *filp)
+diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+index a5e756049620..4948d734eb02 100644
+--- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
++++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc.c
+@@ -876,7 +876,7 @@ static int s5p_mfc_open(struct file *file)
+ 	/* Init videobuf2 queue for CAPTURE */
+ 	q = &ctx->vq_dst;
+ 	q->type = V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE;
+-	q->drv_priv = &ctx->fh;
++	q->drv_priv = ctx;
+ 	q->lock = &dev->mfc_mutex;
+ 	if (vdev == dev->vfd_dec) {
+ 		q->io_modes = VB2_MMAP;
+@@ -903,7 +903,7 @@ static int s5p_mfc_open(struct file *file)
+ 	/* Init videobuf2 queue for OUTPUT */
+ 	q = &ctx->vq_src;
+ 	q->type = V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
+-	q->drv_priv = &ctx->fh;
++	q->drv_priv = ctx;
+ 	q->lock = &dev->mfc_mutex;
+ 	if (vdev == dev->vfd_dec) {
+ 		q->io_modes = VB2_MMAP;
+diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c
+index 3efbc3367906..aefa6da5c609 100644
+--- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c
++++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c
+@@ -937,7 +937,7 @@ static int s5p_mfc_queue_setup(struct vb2_queue *vq,
+ 			unsigned int *plane_count, unsigned int psize[],
+ 			struct device *alloc_devs[])
  {
--	return fh_to_ctx(file_to_v4l2_fh(filp));
-+	return container_of(file_to_v4l2_fh(filp), struct s5p_jpeg_ctx, fh);
- }
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
+ 	const struct v4l2_format_info *format;
  
- static int s5p_jpeg_to_user_subsampling(struct s5p_jpeg_ctx *ctx)
-@@ -1015,8 +1010,8 @@ static int s5p_jpeg_open(struct file *file)
- 
- static int s5p_jpeg_release(struct file *file)
+@@ -1006,7 +1006,7 @@ static int s5p_mfc_buf_init(struct vb2_buffer *vb)
  {
--	struct s5p_jpeg *jpeg = video_drvdata(file);
- 	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-+	struct s5p_jpeg *jpeg = video_drvdata(file);
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+ 	struct vb2_queue *vq = vb->vb2_queue;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	unsigned int i;
  
- 	mutex_lock(&jpeg->lock);
- 	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
-@@ -1253,7 +1248,7 @@ static bool s5p_jpeg_parse_hdr(struct s5p_jpeg_q_data *result,
- static int s5p_jpeg_querycap(struct file *file, void *priv,
- 			   struct v4l2_capability *cap)
+ 	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
+@@ -1068,7 +1068,7 @@ static int s5p_mfc_buf_init(struct vb2_buffer *vb)
+ 
+ static int s5p_mfc_start_streaming(struct vb2_queue *q, unsigned int count)
  {
--	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(q->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(q);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
  
- 	if (ctx->mode == S5P_JPEG_ENCODE) {
- 		strscpy(cap->driver, S5P_JPEG_M2M_NAME,
-@@ -1301,7 +1296,7 @@ static int enum_fmt(struct s5p_jpeg_ctx *ctx,
- static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
- 				   struct v4l2_fmtdesc *f)
+ 	v4l2_ctrl_handler_setup(&ctx->ctrl_handler);
+@@ -1085,7 +1085,7 @@ static int s5p_mfc_start_streaming(struct vb2_queue *q, unsigned int count)
+ static void s5p_mfc_stop_streaming(struct vb2_queue *q)
  {
--	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+ 	unsigned long flags;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(q->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(q);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
+ 	int aborted = 0;
  
- 	if (ctx->mode == S5P_JPEG_ENCODE)
- 		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
-@@ -1314,7 +1309,7 @@ static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
- static int s5p_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
- 				   struct v4l2_fmtdesc *f)
+@@ -1130,7 +1130,7 @@ static void s5p_mfc_stop_streaming(struct vb2_queue *q)
+ static void s5p_mfc_buf_queue(struct vb2_buffer *vb)
  {
--	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
- 
- 	if (ctx->mode == S5P_JPEG_ENCODE)
- 		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
-@@ -1340,7 +1335,7 @@ static int s5p_jpeg_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 	struct vb2_queue *vq;
- 	struct s5p_jpeg_q_data *q_data = NULL;
- 	struct v4l2_pix_format *pix = &f->fmt.pix;
--	struct s5p_jpeg_ctx *ct = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ct = file_to_ctx(file);
- 
- 	vq = v4l2_m2m_get_vq(ct->fh.m2m_ctx, f->type);
- 	if (!vq)
-@@ -1480,7 +1475,7 @@ static int vidioc_try_fmt(struct v4l2_format *f, struct s5p_jpeg_fmt *fmt,
- static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
- 				  struct v4l2_format *f)
+ 	struct vb2_queue *vq = vb->vb2_queue;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
+ 	unsigned long flags;
+ 	struct s5p_mfc_buf *mfc_buf;
+diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c
+index 6c603dcd5664..9b77dbd856e7 100644
+--- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c
++++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c
+@@ -2418,7 +2418,7 @@ static int s5p_mfc_queue_setup(struct vb2_queue *vq,
+ 			unsigned int *buf_count, unsigned int *plane_count,
+ 			unsigned int psize[], struct device *alloc_devs[])
  {
--	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
- 	struct v4l2_pix_format *pix = &f->fmt.pix;
- 	struct s5p_jpeg_fmt *fmt;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
+ 
+ 	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
+@@ -2477,7 +2477,7 @@ static int s5p_mfc_buf_init(struct vb2_buffer *vb)
+ {
+ 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
+ 	struct vb2_queue *vq = vb->vb2_queue;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	unsigned int i;
  	int ret;
-@@ -1539,7 +1534,7 @@ static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
- static int s5p_jpeg_try_fmt_vid_out(struct file *file, void *priv,
- 				  struct v4l2_format *f)
+ 
+@@ -2516,7 +2516,7 @@ static int s5p_mfc_buf_init(struct vb2_buffer *vb)
+ static int s5p_mfc_buf_prepare(struct vb2_buffer *vb)
  {
--	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
- 	struct s5p_jpeg_fmt *fmt;
+ 	struct vb2_queue *vq = vb->vb2_queue;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	int ret;
  
- 	fmt = s5p_jpeg_find_format(ctx, f->fmt.pix.pixelformat,
-@@ -1686,7 +1681,7 @@ static int s5p_jpeg_s_fmt_vid_cap(struct file *file, void *priv,
- 	if (ret)
- 		return ret;
+ 	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
+@@ -2557,7 +2557,7 @@ static int s5p_mfc_buf_prepare(struct vb2_buffer *vb)
  
--	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
-+	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
- }
- 
- static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
-@@ -1698,7 +1693,7 @@ static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
- 	if (ret)
- 		return ret;
- 
--	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
-+	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
- }
- 
- static int s5p_jpeg_subscribe_event(struct v4l2_fh *fh,
-@@ -1795,7 +1790,7 @@ static int exynos3250_jpeg_try_crop(struct s5p_jpeg_ctx *ctx,
- static int s5p_jpeg_g_selection(struct file *file, void *priv,
- 			 struct v4l2_selection *s)
+ static int s5p_mfc_start_streaming(struct vb2_queue *q, unsigned int count)
  {
--	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-+	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(q->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(q);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
  
- 	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
- 	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
+ 	if (IS_MFCV6_PLUS(dev) &&
+@@ -2588,7 +2588,7 @@ static int s5p_mfc_start_streaming(struct vb2_queue *q, unsigned int count)
+ static void s5p_mfc_stop_streaming(struct vb2_queue *q)
+ {
+ 	unsigned long flags;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(q->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(q);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
+ 
+ 	if ((ctx->state == MFCINST_FINISHING ||
+@@ -2617,7 +2617,7 @@ static void s5p_mfc_stop_streaming(struct vb2_queue *q)
+ static void s5p_mfc_buf_queue(struct vb2_buffer *vb)
+ {
+ 	struct vb2_queue *vq = vb->vb2_queue;
+-	struct s5p_mfc_ctx *ctx = fh_to_ctx(vq->drv_priv);
++	struct s5p_mfc_ctx *ctx = vb2_get_drv_priv(vq);
+ 	struct s5p_mfc_dev *dev = ctx->dev;
+ 	unsigned long flags;
+ 	struct s5p_mfc_buf *mfc_buf;
 -- 
 Regards,
 
