@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D3DC87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 13:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C108C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 14:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jFMFOpY04n7pfsjOLDYFeb6qmDpqp5aExAGmAsyPClc=; b=O9IHqw8+8ZE4T43BbAjy5RGL3R
-	LYi4wwXFVqNC83BIuHKufWGbrRq+UOdf8F/G49XzJY+Wor9PP70fsKpTOIVUBY8/QEIjUzSeeT/Yx
-	PIZQrX5P2fY8VTieaJ3zRknO61g8tCakBGDfkaDOumIvMEo9lzinUXkZWmGk1mrAXiKD9rz+FbnNO
-	L6ZnP7vYEbUoQrPAPBD6eUZPrpW/xHOrEstTaRgISiwMShkRa6+Y2gXwEtzCMhzFKAJOX194DeZid
-	hn2/5AnRzP7oOYvt26z0KkQDwKSy3xAkZtYIiOWLutYSAw64Oh2iQUr5nH0tBAakAx9QBdKptev52
-	E+VuBRvQ==;
+	bh=aznsChEM+WoisLGAIKR8ZbxxtZ2H4YnPFrUkMLSgnvw=; b=dJYFIuPtfGlecOUfJdp+O4hVAO
+	nh/RPH/znO0I4CTFmS15ECZLqFi2yJYf5f4zNWJ5O/chujPjEdoLMOjzHbKayCjFsN2QQTClXO48i
+	CS7XBbyjF8K0tOhRjzSQkmyUPpM2jRyfcNYp3YK3KH35bzJqww3Flga29WCiYdhdizeyvEkB/mukD
+	IAN1qxygFrhExAQaQJwTKjw0FIXIGDbQUHcVsK0oUaFbDo0+ytYZhycG+PcgV1KHKF7TbtdyGlz26
+	4z4d0ogZMbok/G9T2UAGC+Ak7WS9ySFAiW9Rg0MQxsYwXy2B0t8r90yfNZtBlVHn0XOzhKsmQBf/5
+	6F8mkm1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukk1z-00000004XeE-043Z;
-	Sat, 09 Aug 2025 13:54:43 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1ukkQG-00000004Z1L-3sBp;
+	Sat, 09 Aug 2025 14:19:48 +0000
+Received: from smtpd7.iitb.ac.in ([103.21.126.62] helo=smtp1.iitb.ac.in)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukjzO-00000004X9c-0TZI
+	id 1ukkNj-00000004Ypd-1sr4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 13:52:05 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-76b6422756fso4434518b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Aug 2025 06:51:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=csie.ntu.edu.tw; s=google; t=1754747517; x=1755352317; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jFMFOpY04n7pfsjOLDYFeb6qmDpqp5aExAGmAsyPClc=;
-        b=JO2bJ4ch75Q03+6sVEKT1lsHyFx+SPRAER9f6Bm09Zjstl5PCcjvyTXZcdU1TlUuit
-         VCiupkrt9gIaHWbZ8syxZkDike1GoQIbf5Q+9uNiHWLVnwmsAH4UJAjqvqC8rjq/0KpC
-         dvJKZY3YNin634B3hqkOLxJFxygjT4Fx/XuCMcMfjnjYdA1e9CwGQyLWEadlYY46P6ur
-         13f1dgC97pKJ9iuvtXilhs9XN30dewXg10jcUQhKQ7iiwSoxAPQvFdDfPscEWE2XqnSw
-         eFX02YPy99YkJ9TF0gG+NWubEX2z3wQp/rc4P6DqWVf8YZHnJet8EhvR5P+gBoo2qOEV
-         ogQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754747517; x=1755352317;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jFMFOpY04n7pfsjOLDYFeb6qmDpqp5aExAGmAsyPClc=;
-        b=GmS2XG4zrletUvGHrOVAH9BCrpxuws9PLLiUl/WkuNVBVGwSeov1wjOBouusySr0Md
-         EqCq0vU1iztj1oKYLHQICfRqFKZ1G9LITBEwoxO/WPG8MrL8ehIl+bgcCTpE/9cyoqYO
-         ZA1TRs0dWAtPnSKiFdUD9EJUS0usL5tpN0tYs13sLwuGGPs4NIs4ggRaN53+VzORwovI
-         UL6KyvmqxeVERr1xyeQw/nrhB2qQoohMCu/tvnI5aNPvQIn9IYTaMe0W1j/U8l84orWL
-         /1KbJPw5hS56s2PgHQecmSUkulCajRIuHXdb9zCts+NTphJ6u9ThkRBiCgvJgcTjBh56
-         R1Yg==
-X-Gm-Message-State: AOJu0YyFPQLbH1i0wPYRiAnTwQXnc5XcMDN93vvYUbcuDz3e7gNICeNN
-	Iygpk9f17Zb1mwGRbP9e45JNEsj35VLb392xvq4kiqmovs+oZrE2tLrsGM0bu7ACTNw5YOJbSEv
-	JbFziO9RiBOJd8wMfX0sfONDgsL0gBI17uoyFzkn5bhbikmpanynCx7bTDVG7jp/83iOh6I86Jt
-	gUWIQOSl88og==
-X-Gm-Gg: ASbGncsuvadNv6sRrnH2YkWTwHcFq6ExH5Bi5MpL4GudoWQrAsZvImuai7aoneUyB1u
-	iueY33HeCvd3i6PDRV/8fAT1m77vcsXT7gQ42XkXup2ij+BMWOxJSZwTyQG6M3Q7008Dd7JiHem
-	oaWJw02Nkt0gv+CugZzF93RKk6kiaqVIGPbVx450eQyfvFITuO1x/Z9fmA5IO4z+cBaXjIDvW3D
-	KHyWws9krJ+aUMDOqt4AJgeGWcZ2ahBQfxQygB6ZJ+xRg+jOOOlpMyuOfWoW23c8Tz6pSyf1NLw
-	+kVz/YRJ2ff9kJsyXFclPVufggphJWUOJcVY+aJeiTT3xKyTgCZ65qJX1fYkyVXHAVuJTXinkJJ
-	AgDL6GoVBw5HJiQ7+ZldSznNH2b3KkQJJVEAdn/Tcin8hFODHdJVhgOmmFPzPr4CwXA==
-X-Google-Smtp-Source: AGHT+IEeNgCRS6Ls8b+R2Cf86RDBC5tmWlbLAIMn2W5koGX7pj8yLDZ046+xiBALeYUwG2HzAegNfg==
-X-Received: by 2002:a05:6a21:6d94:b0:240:1bdb:bed2 with SMTP id adf61e73a8af0-240551be2a1mr10707896637.32.1754747516856;
-        Sat, 09 Aug 2025 06:51:56 -0700 (PDT)
-Received: from zenbook (1-162-100-9.dynamic-ip.hinet.net. [1.162.100.9])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bcce8fa10sm22538342b3a.52.2025.08.09.06.51.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 09 Aug 2025 06:51:56 -0700 (PDT)
-From: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: [PATCH v2] KVM: arm64: ptdump: Don't test PTE_VALID alongside other attributes
-Date: Sat,  9 Aug 2025 21:53:56 +0800
-Message-ID: <20250809135356.1003520-1-r09922117@csie.ntu.edu.tw>
-X-Mailer: git-send-email 2.50.1
+	Sat, 09 Aug 2025 14:17:13 +0000
+Received: from ldns2.iitb.ac.in (ldns2.iitb.ac.in [10.200.12.2])
+	by smtp1.iitb.ac.in (Postfix) with SMTP id C5538104D001
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  9 Aug 2025 19:46:37 +0530 (IST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 smtp1.iitb.ac.in C5538104D001
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=iitb.ac.in; s=mail;
+	t=1754748997; bh=YM/Qx7TWNpPuVxR9Sit+N+WIa6f7xmuztDnSOFGV+/E=;
+	h=Date:From:To:Cc:Subject:From;
+	b=h0LcXw3H3mYYET7ylkrl+IohQbWw6nGzNhpcN2qGuvLxD9egnZIWZWxVCmHnfgUEg
+	 j59slYikDcy88tcqMmZCe0l3jMzksVLXpGjg2RUz0nA/ghCAfez5tBu7anmheDFkrE
+	 xqQR2Xo5M0foO3ITLYI7wpdBsV5TjwGHTEEm62NM=
+Received: (qmail 13183 invoked by uid 510); 9 Aug 2025 19:46:37 +0530
+X-Qmail-Scanner-Diagnostics: from 10.200.1.25 by ldns2 (envelope-from <akhilesh@ee.iitb.ac.in>, uid 501) with qmail-scanner-2.11
+ spamassassin: 3.4.1. mhr: 1.0. {clamdscan: 0.100.0/26337} 
+ Clear:RC:1(10.200.1.25):SA:0(0.0/7.0):. Processed in 4.350738 secs; 09 Aug 2025 19:46:37 +0530
+X-Envelope-From: akhilesh@ee.iitb.ac.in
+X-Qmail-Scanner-Mime-Attachments: |
+X-Qmail-Scanner-Zip-Files: |
+Received: from unknown (HELO ldns2.iitb.ac.in) (10.200.1.25)
+  by ldns2.iitb.ac.in with SMTP; 9 Aug 2025 19:46:33 +0530
+Received: from bhairav.ee.iitb.ac.in (bhairav.ee.iitb.ac.in [10.107.1.1])
+	by ldns2.iitb.ac.in (Postfix) with ESMTP id D54C8341554;
+	Sat,  9 Aug 2025 19:46:32 +0530 (IST)
+Received: from bhairav-test.ee.iitb.ac.in (bhairav.ee.iitb.ac.in [10.107.1.1])
+	(Authenticated sender: akhilesh)
+	by bhairav.ee.iitb.ac.in (Postfix) with ESMTPSA id 982101E81308;
+	Sat,  9 Aug 2025 19:46:32 +0530 (IST)
+Date: Sat, 9 Aug 2025 19:46:26 +0530
+From: Akhilesh Patil <akhilesh@ee.iitb.ac.in>
+To: andrew@lunn.ch, gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com, rafael@kernel.org,
+	viresh.kumar@linaro.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, akhileshpatilvnit@gmail.com,
+	skhan@linuxfoundation.org
+Subject: [PATCH 0/1] cpufreq: armada-37xx: use max() to calculate target_vm
+Message-ID: <cover.1754747830.git.akhilesh@ee.iitb.ac.in>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Gm-Spam: 0
-X-Gm-Phishy: 0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_065202_610695_6A423F80 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250809_071711_734552_16076931 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,72 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The attribute masks and test values in the ptdump code are meant for
-individual attributes, however for stage-2 ptdump we included PTE_VALID
-while testing for R, W, X, and AF. This led to some confusion and the
-flipped output for the executable attribute.
+This patch is motivated from previous patch [1]. As per discussion in [2],
+I have tested the patch for build and no additional include files are
+needed. Build works fine. This change is also reported by kernel test
+robot.
 
-Remove PTE_VALID from all attribute masks and values so that each test
-matches only the relevant bits.
+Link: https://lore.kernel.org/lkml/20240822074548.1365390-1-11162571@vivo.com/ [1]
+Link: https://lore.kernel.org/lkml/2c55fb07-b29e-43e0-8697-f75d1f0df89a@vivo.com/ [2]
 
-Additionally, the executable attribute printing is updated to align with
-stage-1 ptdump, printing "NX" for non-executable regions and "x " for
-executable ones.
+Akhilesh Patil (1):
+  cpufreq: armada-37xx: use max() to calculate target_vm
 
-Suggested-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Suggested-by: Sebastian Ene <sebastianene@google.com>
-Signed-off-by: Wei-Lin Chang <r09922117@csie.ntu.edu.tw>
----
-Tested on QEMU.
+ drivers/cpufreq/armada-37xx-cpufreq.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Changes in v2, thanks to those listed in the Suggested-by tags:
-  - remove PTE_VALID from .mask and .val
-  - make executable attribute output format identical to stage-1 ptdump
-  - Link to v1: https://lore.kernel.org/kvmarm/20250802104021.3076621-1-r09922117@csie.ntu.edu.tw/
----
- arch/arm64/kvm/ptdump.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-index 098416d7e5c25..dc5acfb00af91 100644
---- a/arch/arm64/kvm/ptdump.c
-+++ b/arch/arm64/kvm/ptdump.c
-@@ -32,23 +32,23 @@ static const struct ptdump_prot_bits stage2_pte_bits[] = {
- 		.set	= " ",
- 		.clear	= "F",
- 	}, {
--		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | PTE_VALID,
--		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | PTE_VALID,
-+		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R,
-+		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R,
- 		.set	= "R",
- 		.clear	= " ",
- 	}, {
--		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | PTE_VALID,
--		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | PTE_VALID,
-+		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
-+		.val	= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
- 		.set	= "W",
- 		.clear	= " ",
- 	}, {
--		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN | PTE_VALID,
--		.val	= PTE_VALID,
--		.set	= " ",
--		.clear	= "X",
-+		.mask	= KVM_PTE_LEAF_ATTR_HI_S2_XN,
-+		.val	= KVM_PTE_LEAF_ATTR_HI_S2_XN,
-+		.set	= "NX",
-+		.clear	= "x ",
- 	}, {
--		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
--		.val	= KVM_PTE_LEAF_ATTR_LO_S2_AF | PTE_VALID,
-+		.mask	= KVM_PTE_LEAF_ATTR_LO_S2_AF,
-+		.val	= KVM_PTE_LEAF_ATTR_LO_S2_AF,
- 		.set	= "AF",
- 		.clear	= "  ",
- 	}, {
 -- 
-2.50.1
+2.34.1
 
 
