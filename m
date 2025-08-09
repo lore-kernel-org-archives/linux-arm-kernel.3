@@ -4,78 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 078ADC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 16:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BC1C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 19:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E4pBWH+pLgXpvs9xovtz6aOnm1gYh0MYrt11cz9O2B0=; b=bYjEGTB0uM47MTM5kyMpCWY+uU
-	Zj/YjPnF6FgXuyRSJjgQ8lm8ZX1FU78PWOQnvIFFwdC3nQ0o5H6h1CLz7BWMKxF5bNF+UrengUo5l
-	XpfU8wELOQhntwxTxMBMWgoM7pGen/e7MYJUjqDGn1UaCDMF2ilqVrEnumRY8KFWWy6VZzb9BGjCf
-	7XfMdH+QRzNXg8EePQBsxIQXn60DvJLlRYHmfib5zDYSDtCcDf3jaPjztnDnbgJyyRpsBlZpO5+4G
-	xkDbJcn164wthkhaZmWygmQTJqpqP54VvgUgh92NwN0/ND9897o79gUqGeD7BgBLzKNWuQfWcnp5D
-	TU/y/rJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0y7+FHm9xbLi1NJlxjrDvozBfjg+VFMF49DAeTdiy2s=; b=rz2oWsFw//o2whh3/ylANaWND1
+	7FrarFrrxTyhG8lvOh0fW5uVUdjX1iN1hkWyWKhB3FUsbltXGq14YtgF5wu/Wt03jfo48459hghaI
+	rb2K+4ScHpje8mUztaqdzg5unYSUJgz2eIedPIel3bl5qGQEkCdXerHCKzu/5h3pbBMmPTWJSLLMc
+	V/KHrtbNnFq958mTo/t1orRi+BuY9ZPLyxsFpQ+t9xK0cgsNiMru/dxZJwSk8lPuYx7yqnM8P1IeI
+	gg/zkcbVxJH65QKu4N4bY6L9faNZwWyg9GCRmDOKYZ8sFlcoo4hY8gvVkBdxF8mNz0Mzp8f9itaJh
+	7bEeRNHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukmR4-00000004gjy-0XbT;
-	Sat, 09 Aug 2025 16:28:46 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ukosT-00000004phW-0ddS;
+	Sat, 09 Aug 2025 19:05:13 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukmH4-00000004fxx-3PZw
+	id 1ukopI-00000004pSj-0GTt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 16:18:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6030BA55A9F;
-	Sat,  9 Aug 2025 16:18:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BC68CC4AF0B;
-	Sat,  9 Aug 2025 16:18:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754756304;
-	bh=nR2X7s3XzAMg7Jh5xr8ezkiYQpIyMXAwdpWu2LY5er8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=rrfxhvNY1Xma1bH/fKBsf09iN7y+fl8DiKnaeS+BlTh4cizsaQGF0wTAIVurPrwB/
-	 Bdkv+a0wPPlCagIZcZTjF3NfqtaXp8R6KXA6zoJG7zbC0j/r8bLQsKcftFV6d49/ct
-	 rpWwb5frvKo8qjdfVMoZbVZDeuYfY6LZd1NW2TJqe2twT+EIwZE9eE475/ibYRMTom
-	 rE7xjPlrtSOiyQoY+hSrHXKH6Ilwo+iyQDHmVGSxRvFfb5ZeKONmQENRSx5fdT+H/t
-	 nTNVsozhDG6viVrjAicRUS5azQYQzloLS/pgOA3Eu/XGrNxjqq5soDFsTNP5ibTdDF
-	 m4NA7TsKBpLLA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AA566C87FCF;
-	Sat,  9 Aug 2025 16:18:24 +0000 (UTC)
-From: =?utf-8?q?J=2E_Neusch=C3=A4fer_via_B4_Relay?= <devnull+j.ne.posteo.net@kernel.org>
-Date: Sat, 09 Aug 2025 18:18:08 +0200
-Subject: [PATCH v2 3/3] ARM: dts: allwinner: Add Orange Pi Zero Interface
- Board overlay
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250809-opz-audio-v2-3-f4fd15552a82@posteo.net>
-References: <20250809-opz-audio-v2-0-f4fd15552a82@posteo.net>
-In-Reply-To: <20250809-opz-audio-v2-0-f4fd15552a82@posteo.net>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754756302; l=3705;
- i=j.ne@posteo.net; s=20240329; h=from:subject:message-id;
- bh=rwwErTSLr++MWzr7FBwd2E7U9pR2ndpNt4EaJnJ0gxI=;
- b=UNB0zJG+JHbx/WEK9byBYkwHKR96kwXklUN3q3nyKKIbldkKzClVLmTI1r5YqJlV0SG59huMg
- oaeZ8XxD19UAbQAumRnof7/2vAsqpFTvu8yb1oijYquR5OP9ludnPBz
-X-Developer-Key: i=j.ne@posteo.net; a=ed25519;
- pk=NIe0bK42wNaX/C4bi6ezm7NJK0IQE+8MKBm7igFMIS4=
-X-Endpoint-Received: by B4 Relay for j.ne@posteo.net/20240329 with
- auth_id=156
-X-Original-From: =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+	Sat, 09 Aug 2025 19:01:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1754766116; x=1786302116;
+  h=date:from:to:cc:subject:message-id;
+  bh=qPifj/pgl5GwRJfAoIua8jo+r3nCwCShUi4Y/Eq4y34=;
+  b=L3GwXy3/kjI3SoKEhp6zRCwq9S4ihZ66HAWtiAbhhBJGvynMpNlqwSTf
+   0lvDKnpKLeiiaBKKHmwvlYiZ/EHzNxN4ZX2tZGgxfjuogmIIxG41omOVA
+   K5DDT7jaYPwOcQwK4jsNjl8yP1ekSdLkFRHLB0zP2Mn189ar3l6bvkY2H
+   ePbstQUVUeqpYwpMIv4PiGwnKDrhorMEWHyy+659aNlrTwwxbCA9E+Oxs
+   C9zdk978M/qkI0I5ikzYga1/vdLOkD77loYclPaVZ1apJU+fqERyGM3fU
+   VlTaOOtIoGDQwPNru0mfwpeA64cIMBMWRa1FB7hdei9iT7mLhhH4TpsFT
+   A==;
+X-CSE-ConnectionGUID: /IM0HvjSSxCYWMBtbPmOGQ==
+X-CSE-MsgGUID: XCG35XvGS6qXqdHIJSg3dw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11516"; a="59690071"
+X-IronPort-AV: E=Sophos;i="6.17,278,1747724400"; 
+   d="scan'208";a="59690071"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Aug 2025 12:01:48 -0700
+X-CSE-ConnectionGUID: qjr+iRnVQmKBZt/kmyA3NQ==
+X-CSE-MsgGUID: D0m5P2gjSm+kHuoyhrJc0g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.17,278,1747724400"; 
+   d="scan'208";a="165885507"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 09 Aug 2025 12:01:47 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1ukoow-000516-2x;
+	Sat, 09 Aug 2025 19:01:39 +0000
+Date: Sun, 10 Aug 2025 03:01:02 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:arm/fixes] BUILD SUCCESS
+ 0c952efa0d7cf5258879406077df33d23cb06d5e
+Message-ID: <202508100356.7VyYyuWB-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_091826_996350_99C1F719 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250809_120156_141776_F130B823 
+X-CRM114-Status: UNSURE (   5.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,126 +80,192 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: j.ne@posteo.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "J. Neuschäfer" <j.ne@posteo.net>
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
+branch HEAD: 0c952efa0d7cf5258879406077df33d23cb06d5e  Merge tag 'tegra-for-6.17-arm64-dt-v3' of https://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into arm/fixes
 
-The Orange Pi Zero interface board is a (mostly) passive adapter from the
-13-pin header of the Orange Pi Zero and Orange Pi Zero Plus2 to standard
-connectors (2x USB A, 1x Audio/Video output, 1x built-in microphone, 1x
-infrared input). Headphones, microphone, infrared (CIR) input, and USB
-have been tested with the Orange Pi Zero.
+elapsed time: 1293m
 
-CVBS output is currently not supported.
+configs tested: 169
+configs skipped: 5
 
-  https://orangepi.com/index.php?route=product/product&product_id=871
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Signed-off-by: J. Neuschäfer <j.ne@posteo.net>
----
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    clang-22
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                                 defconfig    gcc-15.1.0
+arc                   randconfig-001-20250809    gcc-13.4.0
+arc                   randconfig-002-20250809    gcc-14.3.0
+arm                              allmodconfig    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    gcc-15.1.0
+arm                                 defconfig    clang-22
+arm                            dove_defconfig    gcc-15.1.0
+arm                   milbeaut_m10v_defconfig    gcc-15.1.0
+arm                        mvebu_v7_defconfig    gcc-15.1.0
+arm                        neponset_defconfig    gcc-15.1.0
+arm                   randconfig-001-20250809    gcc-10.5.0
+arm                   randconfig-002-20250809    clang-20
+arm                   randconfig-003-20250809    gcc-8.5.0
+arm                   randconfig-004-20250809    gcc-8.5.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                             allnoconfig    gcc-15.1.0
+arm64                               defconfig    gcc-15.1.0
+arm64                 randconfig-001-20250809    gcc-8.5.0
+arm64                 randconfig-002-20250809    clang-22
+arm64                 randconfig-003-20250809    clang-22
+arm64                 randconfig-004-20250809    clang-22
+csky                              allnoconfig    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                                defconfig    gcc-15.1.0
+csky                  randconfig-001-20250809    gcc-9.5.0
+csky                  randconfig-002-20250809    gcc-9.5.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-22
+hexagon               randconfig-001-20250809    clang-22
+hexagon               randconfig-002-20250809    clang-20
+i386                             allmodconfig    gcc-12
+i386                              allnoconfig    gcc-12
+i386                             allyesconfig    gcc-12
+i386        buildonly-randconfig-001-20250809    gcc-12
+i386        buildonly-randconfig-002-20250809    clang-20
+i386        buildonly-randconfig-003-20250809    gcc-12
+i386        buildonly-randconfig-004-20250809    clang-20
+i386        buildonly-randconfig-005-20250809    clang-20
+i386        buildonly-randconfig-006-20250809    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-001-20250809    gcc-12
+i386                  randconfig-002-20250809    gcc-12
+i386                  randconfig-003-20250809    gcc-12
+i386                  randconfig-004-20250809    gcc-12
+i386                  randconfig-005-20250809    gcc-12
+i386                  randconfig-006-20250809    gcc-12
+i386                  randconfig-007-20250809    gcc-12
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20250809    gcc-15.1.0
+loongarch             randconfig-002-20250809    clang-22
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    gcc-15.1.0
+m68k                                defconfig    gcc-15.1.0
+m68k                          multi_defconfig    gcc-15.1.0
+m68k                        mvme16x_defconfig    gcc-15.1.0
+m68k                           virt_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                        omega2p_defconfig    gcc-15.1.0
+mips                          rb532_defconfig    clang-18
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20250809    gcc-11.5.0
+nios2                 randconfig-002-20250809    gcc-11.5.0
+openrisc                          allnoconfig    clang-22
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20250809    gcc-8.5.0
+parisc                randconfig-002-20250809    gcc-14.3.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                          allyesconfig    clang-22
+powerpc                      arches_defconfig    gcc-15.1.0
+powerpc               randconfig-001-20250809    gcc-10.5.0
+powerpc               randconfig-002-20250809    clang-22
+powerpc               randconfig-003-20250809    gcc-12.5.0
+powerpc64             randconfig-001-20250809    gcc-10.5.0
+powerpc64             randconfig-002-20250809    clang-22
+powerpc64             randconfig-003-20250809    gcc-8.5.0
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    clang-22
+riscv                    nommu_k210_defconfig    clang-22
+riscv                 randconfig-001-20250809    clang-22
+riscv                 randconfig-002-20250809    gcc-12.5.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    clang-22
+s390                  randconfig-001-20250809    clang-22
+s390                  randconfig-002-20250809    gcc-12.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                                  defconfig    gcc-15.1.0
+sh                          kfr2r09_defconfig    gcc-15.1.0
+sh                    randconfig-001-20250809    gcc-10.5.0
+sh                    randconfig-002-20250809    gcc-15.1.0
+sh                          sdk7786_defconfig    gcc-15.1.0
+sh                   sh7770_generic_defconfig    gcc-15.1.0
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20250809    gcc-8.5.0
+sparc                 randconfig-002-20250809    gcc-15.1.0
+sparc64                             defconfig    clang-20
+sparc64               randconfig-001-20250809    gcc-8.5.0
+sparc64               randconfig-002-20250809    clang-22
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-12
+um                                  defconfig    clang-22
+um                             i386_defconfig    gcc-12
+um                    randconfig-001-20250809    clang-22
+um                    randconfig-002-20250809    clang-22
+um                           x86_64_defconfig    clang-22
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20250809    gcc-12
+x86_64      buildonly-randconfig-002-20250809    clang-20
+x86_64      buildonly-randconfig-003-20250809    gcc-12
+x86_64      buildonly-randconfig-004-20250809    clang-20
+x86_64      buildonly-randconfig-005-20250809    gcc-12
+x86_64      buildonly-randconfig-006-20250809    gcc-12
+x86_64                              defconfig    gcc-11
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20250809    gcc-12
+x86_64                randconfig-002-20250809    gcc-12
+x86_64                randconfig-003-20250809    gcc-12
+x86_64                randconfig-004-20250809    gcc-12
+x86_64                randconfig-005-20250809    gcc-12
+x86_64                randconfig-006-20250809    gcc-12
+x86_64                randconfig-007-20250809    gcc-12
+x86_64                randconfig-008-20250809    gcc-12
+x86_64                               rhel-9.4    clang-20
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20250809    gcc-8.5.0
+xtensa                randconfig-002-20250809    gcc-8.5.0
 
-v2:
-- new patch
----
- arch/arm/boot/dts/allwinner/Makefile               |  7 ++++
- .../sun8i-orangepi-zero-interface-board.dtso       | 46 ++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
-
-diff --git a/arch/arm/boot/dts/allwinner/Makefile b/arch/arm/boot/dts/allwinner/Makefile
-index d799ad153b37b917d1e1c091fb051140398a574b..97d0a205493f40ba5969b5c8f4708a817ae725c5 100644
---- a/arch/arm/boot/dts/allwinner/Makefile
-+++ b/arch/arm/boot/dts/allwinner/Makefile
-@@ -182,6 +182,7 @@ dtb-$(CONFIG_MACH_SUN7I) += \
- 	sun7i-a20-wits-pro-a20-dkt.dtb
- 
- # Enables support for device-tree overlays for all pis
-+DTC_FLAGS_sun8i-h2-plus-orangepi-zero := -@
- DTC_FLAGS_sun8i-h3-orangepi-lite := -@
- DTC_FLAGS_sun8i-h3-bananapi-m2-plus := -@
- DTC_FLAGS_sun8i-h3-nanopi-m1-plus := -@
-@@ -225,6 +226,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-h2-plus-libretech-all-h3-cc.dtb \
- 	sun8i-h2-plus-orangepi-r1.dtb \
- 	sun8i-h2-plus-orangepi-zero.dtb \
-+	sun8i-h2-plus-orangepi-zero-interface-board.dtb \
- 	sun8i-h3-bananapi-m2-plus.dtb \
- 	sun8i-h3-bananapi-m2-plus-v1.2.dtb \
- 	sun8i-h3-beelink-x2.dtb \
-@@ -244,6 +246,7 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-h3-orangepi-plus.dtb \
- 	sun8i-h3-orangepi-plus2e.dtb \
- 	sun8i-h3-orangepi-zero-plus2.dtb \
-+	sun8i-h3-orangepi-zero-plus2-interface-board.dtb \
- 	sun8i-h3-rervision-dvk.dtb \
- 	sun8i-h3-zeropi.dtb \
- 	sun8i-h3-emlid-neutis-n5h3-devboard.dtb \
-@@ -264,6 +267,10 @@ dtb-$(CONFIG_MACH_SUN8I) += \
- 	sun8i-v3s-licheepi-zero-dock.dtb \
- 	sun8i-v3s-netcube-kumquat.dtb \
- 	sun8i-v40-bananapi-m2-berry.dtb
-+sun8i-h2-plus-orangepi-zero-interface-board-dtbs += \
-+	sun8i-h2-plus-orangepi-zero.dtb sun8i-orangepi-zero-interface-board.dtbo
-+sun8i-h3-orangepi-zero-plus2-interface-board-dtbs += \
-+	sun8i-h3-orangepi-zero-plus2.dtb sun8i-orangepi-zero-interface-board.dtbo
- dtb-$(CONFIG_MACH_SUN9I) += \
- 	sun9i-a80-optimus.dtb \
- 	sun9i-a80-cubieboard4.dtb
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-orangepi-zero-interface-board.dtso b/arch/arm/boot/dts/allwinner/sun8i-orangepi-zero-interface-board.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..e137eefee34163752372d442c22179b1fa41615a
---- /dev/null
-+++ b/arch/arm/boot/dts/allwinner/sun8i-orangepi-zero-interface-board.dtso
-@@ -0,0 +1,46 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR X11)
-+/*
-+ * Copyright (C) 2025 J. Neuschäfer <j.ne@posteo.net>
-+ *
-+ * Devicetree overlay for the Orange Pi Zero Interface board (OP0014).
-+ *
-+ *   https://orangepi.com/index.php?route=product/product&product_id=871
-+ *
-+ * This overlay applies to the following base files:
-+ *
-+ * - arch/arm/boot/dts/allwinner/sun8i-h2-plus-orangepi-zero.dts
-+ * - arch/arm/boot/dts/allwinner/sun8i-h3-orangepi-zero-plus2.dts
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&codec {
-+	status = "okay";
-+};
-+
-+&de {
-+	status = "okay";
-+};
-+
-+&ehci2 {
-+	status = "okay";
-+};
-+
-+&ehci3 {
-+	status = "okay";
-+};
-+
-+&ir {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&r_ir_rx_pin>;
-+	status = "okay";
-+};
-+
-+&ohci2 {
-+	status = "okay";
-+};
-+
-+&ohci3 {
-+	status = "okay";
-+};
-
--- 
-2.48.0.rc1.219.gb6b6757d772
-
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
