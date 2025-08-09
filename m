@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA334C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 10:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FC8C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 11:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEf0z8FSDwgCU6exrUzPyMW0umuAP7vwj4IIUykCofU=; b=dBloluESzIDwkz8yuBeeCgNGOS
-	a64yGrl7iMqLY11MRvKKNL3NBQfcrZ/TbyvJkvB9U4kz5NG6jbLndGGiy/C3yxwZfUvQ8/+WsuPUw
-	EnZ92aYjF4DWKxeOj1xy86vmBDZvNkLOBIre3Na05QcZCe4RwGiJQuamgqNvTuunfhS5InyZka00q
-	LyO5NT6WSepxtGJ5jd35Zz/gIxoc1ZkR3vOFXdnMPE4cfEBsfCn6aZjXJNPfNib9irqexUek7k2aZ
-	qu98a+Z0kpO6vGj0bsKmtnr1GSvA89RDB/sMf8/yF/LhcqAJJPPVxUReOMsCkU2FNQoPFqJ2uwCYH
-	xXjxn4TQ==;
+	bh=mSxvJ2IEdSXVLP4akkrNK92bTnurlkR3JU0BnD4QnaM=; b=MW/FsppA9cv6lam/dnJccNU1Eq
+	z84K9p+zbLycBNi8aZhFI9sL+HzhZbir1CCEj9WF4ZkUrt4W4uq1GYG/o1X+Q7xJvm6TVlgdW72cV
+	jTPVZUMrCvd5MzrVA3OfaLGi0vLr7KwKC/V3NVoaNp1BkpzjDsQlDKaNVn9CnqkivOxyVMzNgpmyz
+	FCnzoQ7EqVQDMelYGoN1moafVpiga9k1Ae1TMC1TrSi/Y7SZmBOOspe9d/xnYBh4oeE3VkfrGeu62
+	O2eh5bBW0ZmcIvwhuQUlk0Ce520rEDuvKawi0HWUvHFkXAFNEGwadk9SYUtDIXwXV+5WmCiiXevpg
+	+56EaMXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukgjK-00000004MfP-2iS4;
-	Sat, 09 Aug 2025 10:23:14 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1ukiBv-00000004RE0-1Q1P;
+	Sat, 09 Aug 2025 11:56:51 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukggo-00000004MWl-0Us6
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 10:20:39 +0000
+	id 1uki9O-00000004R40-2igB;
+	Sat, 09 Aug 2025 11:54:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754734838; x=1786270838;
+  t=1754740455; x=1786276455;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=eHAWshYo5nna3AmUeod1PTFXIMn1ICMHmBB7kfmM/PA=;
-  b=I96UqO/s2MsqAxnoFqgYkki4nqdJAzVvFI1jye+YfF/XmHh0DGxwiqS3
-   SzDtRtu3KcFk4c+/G4Ap+DMw0JBTQzEbUyFQlZB0oJjprpUH8NlsU9K2i
-   qHlcUK1IfNJY4osS0b3SPPGgzXEyZ/BDEif7OfLDL1qfAPrg6QU8Rhttg
-   mQagemh+HKN51pD5Ux6E161TYOHFDRunyUx6amYSfClL/bp2vrwyAmwrE
-   zl2KvCsIx8V/m84OPJMsyycTS4ZOk7akLge5S7+gMdZXzHF+2N+NvKXnG
-   1vFVJoknj4Rvb/Wmb0QrN0uv1t7VQTI1loqJqHCtS0u0TFOUexQlH3Hm2
-   g==;
-X-CSE-ConnectionGUID: x7fEEq6ZQbqkSQLhnrHsZQ==
-X-CSE-MsgGUID: RPowuaP7TAu4Th7ZvDdcIA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11515"; a="79630885"
+  bh=mnV+jg9VSYFDZGvhdpkSY2iW8ke8agEGlUQFaLp0wdY=;
+  b=GwTs0oc5B81F4INVe/VaIrj9LN0JdQcPG4Czh0+Ckj6ZbBLcd2ooaVLO
+   GbiAAo5HOaoqXw6PkxP9vmUUrwOH0FbrOiDbfpFcnoIm8ZHuiBMhPmUVG
+   2SNR3GtUWhS8q/kh7D/UO0i6T5KeTqKfj1uqQ0c227+O91kkP6KtWBO06
+   VgkICw4uVZgy6EAgMkpszbVMBZ9jZMPiDrCEbJ+pc9fr3QROLjXZ9MXFY
+   n/6AWwyZ1kcCfxLd+xg+zCrp7nd4CuFmGtGrcXVSPK64IV4M3sZtQ/lMI
+   G8BBe/ODqtfp/IQ7UxvIyeNrgioNEsbR7AbhsjD2UB+2RmPd+iCDmLwks
+   A==;
+X-CSE-ConnectionGUID: ZLQvZ73rQjS8DNWqw8Y9hg==
+X-CSE-MsgGUID: ZvvzxjxKRMWlge9P7DB2LA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11515"; a="60868946"
 X-IronPort-AV: E=Sophos;i="6.17,278,1747724400"; 
-   d="scan'208";a="79630885"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Aug 2025 03:16:05 -0700
-X-CSE-ConnectionGUID: 2h95dtyqRheD3pXdT0xt/g==
-X-CSE-MsgGUID: jijf491uSumE3YvesbUHRw==
+   d="scan'208";a="60868946"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Aug 2025 04:54:07 -0700
+X-CSE-ConnectionGUID: f2pAyptXQOu+WoNR8wp0bQ==
+X-CSE-MsgGUID: 6WPcD7jSQQ67d4c9XhBHRg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.17,278,1747724400"; 
-   d="scan'208";a="196339261"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Aug 2025 03:16:01 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1ukgcH-00000004cnG-2CH4;
-	Sat, 09 Aug 2025 13:15:57 +0300
-Date: Sat, 9 Aug 2025 13:15:57 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-gpio@vger.kernel.org, Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org
-Subject: Re: [PATCH 19/21] usb: udc: pxa: remove unused platform_data
-Message-ID: <aJcf3UzbRMx-hEab@smile.fi.intel.com>
-References: <20250808151822.536879-1-arnd@kernel.org>
- <20250808151822.536879-20-arnd@kernel.org>
+   d="scan'208";a="164753875"
+Received: from lkp-server02.sh.intel.com (HELO 4ea60e6ab079) ([10.239.97.151])
+  by orviesa010.jf.intel.com with ESMTP; 09 Aug 2025 04:54:05 -0700
+Received: from kbuild by 4ea60e6ab079 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uki9B-0004m8-2g;
+	Sat, 09 Aug 2025 11:54:01 +0000
+Date: Sat, 9 Aug 2025 19:53:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+	linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-media@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v2 10/12] media: rkvdec: Add H264 support for the VDPU383
+ variant
+Message-ID: <202508091909.RNcoZmVb-lkp@intel.com>
+References: <20250808200340.156393-11-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250808151822.536879-20-arnd@kernel.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20250808200340.156393-11-detlev.casanova@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_032038_225239_FB2E2D6A 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250809_045414_691400_16C08DB0 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,54 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 05:18:04PM +0200, Arnd Bergmann wrote:
-> 
-> None of the remaining boards put useful data into the platform_data
-> structures, so effectively this only works with DT based probing.
-> 
-> Remove all code that references this data, to stop using the legacy
-> gpiolib interfaces. The pxa27x version already supports gpio
-> descriptors, while the pxa25x version now does it the same way.
+Hi Detlev,
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-See a comment below.
+kernel test robot noticed the following build errors:
 
-...
+[auto build test ERROR on linuxtv-media-pending/master]
+[also build test ERROR on linus/master next-20250808]
+[cannot apply to rockchip/for-next sailus-media-tree/master sailus-media-tree/streams v6.16]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
->  static int pxa_udc_probe(struct platform_device *pdev)
->  {
->  	struct pxa_udc *udc = &memory;
-> -	int retval = 0, gpio;
-> -	struct pxa2xx_udc_mach_info *mach = dev_get_platdata(&pdev->dev);
-> -
-> -	if (mach) {
-> -		gpio = mach->gpio_pullup;
-> -		if (gpio_is_valid(gpio)) {
-> -			retval = devm_gpio_request_one(&pdev->dev, gpio,
-> -						       GPIOF_OUT_INIT_LOW,
-> -						       "USB D+ pullup");
-> -			if (retval)
-> -				return retval;
-> -			udc->gpiod = gpio_to_desc(mach->gpio_pullup);
-> -
-> -			if (mach->gpio_pullup_inverted ^ gpiod_is_active_low(udc->gpiod))
-> -				gpiod_toggle_active_low(udc->gpiod);
-> -		}
-> -		udc->udc_command = mach->udc_command;
-> -	} else {
-> -		udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
-> -	}
-> +	int retval = 0;
-> +
-> +	udc->gpiod = devm_gpiod_get(&pdev->dev, NULL, GPIOD_ASIS);
+url:    https://github.com/intel-lab-lkp/linux/commits/Detlev-Casanova/media-rkvdec-Switch-to-using-structs-instead-of-writel/20250809-041049
+base:   https://git.linuxtv.org/media-ci/media-pending.git master
+patch link:    https://lore.kernel.org/r/20250808200340.156393-11-detlev.casanova%40collabora.com
+patch subject: [PATCH v2 10/12] media: rkvdec: Add H264 support for the VDPU383 variant
+config: i386-buildonly-randconfig-005-20250809 (https://download.01.org/0day-ci/archive/20250809/202508091909.RNcoZmVb-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250809/202508091909.RNcoZmVb-lkp@intel.com/reproduce)
 
-Missed error check, in particular it will ignore deferred probe case.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202508091909.RNcoZmVb-lkp@intel.com/
 
->  	udc->regs = devm_platform_ioremap_resource(pdev, 0);
+All errors (new ones prefixed by >>):
+
+>> drivers/media/platform/rockchip/rkvdec/rkvdec.c:12:10: fatal error: 'linux/hw_bitfield.h' file not found
+      12 | #include <linux/hw_bitfield.h>
+         |          ^~~~~~~~~~~~~~~~~~~~~
+   1 error generated.
+
+
+vim +12 drivers/media/platform/rockchip/rkvdec/rkvdec.c
+
+  > 12	#include <linux/hw_bitfield.h>
+    13	#include <linux/clk.h>
+    14	#include <linux/genalloc.h>
+    15	#include <linux/interrupt.h>
+    16	#include <linux/iommu.h>
+    17	#include <linux/module.h>
+    18	#include <linux/of.h>
+    19	#include <linux/platform_device.h>
+    20	#include <linux/pm.h>
+    21	#include <linux/pm_runtime.h>
+    22	#include <linux/slab.h>
+    23	#include <linux/videodev2.h>
+    24	#include <linux/workqueue.h>
+    25	#include <media/v4l2-event.h>
+    26	#include <media/v4l2-mem2mem.h>
+    27	#include <media/videobuf2-core.h>
+    28	#include <media/videobuf2-vmalloc.h>
+    29	
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
