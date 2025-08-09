@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8292C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 20:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1F8C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 20:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/0Vjo7U00mg3Lft+uVDK9C/PVD+C8gofZLxHoScTkjw=; b=hVBCrqz4oHtXZctsEalY0jkO6m
-	veaytjYiUsGOuUIJLLRdektNqXwcYDB0ED7RPhQIb6ebYmpXA0tKMMWFFlkZu5ULdBYUs9lSXd6R5
-	cbn4JjCp5yIS/h+/3L/hpmx0FYK7Wbjy8rOXvzzMlk6Vp6jeF0VVU5JRR8L26Xnkyi4QI5i9ZT7bF
-	jNOOb492N49heuFckse9WKBlRNpKaunMjIgkgVAUAHqzp0dYuR1OAuelgCfCXLZwThOkJuvQtHxvT
-	YyEQ8Hjtw627qtufL/Zp0XK0EVO/UjSPUZtfmvA6EZMydLro+tVJiwAqqZg2Q7wIasL29afvIOKS2
-	I7f+/9/Q==;
+	bh=KwJq+HBP5VrqfubKEOSlXy8MLXlahEAWOupP3SsIgY0=; b=cZfGCPqWiQiTdFE9v2/YGMuzKE
+	4iiyKgF8qdp/dbbwOTAwn6Z8aE+UM4+pUu1RiJmRK2AbR2kZFIB5bmY01JuoqjjpPVAR5cO7qepG2
+	SSiequu9Il89+ZxXVC7P1mROeP1mIipn/cOPwXsKMjdK3C/9P69nc1SgXuEowTqrHzVmyYq8Gv+iB
+	7ZylPyQf15EkO19ziwbgP95tTnfHA20weauRwq9g5BKdhQ1vGy3gvu94NPPMyokZe+eTgWdhAtv3o
+	AaG5nv4Avgnd86OKZ1aI1+DyEO8gL/7X+VbE5YM0kdtisJqMzJbPeDLhZqLf3/nz8vr5R1uestEdf
+	UwJxNpMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukq4c-00000004t9X-0DSt;
-	Sat, 09 Aug 2025 20:21:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ukq76-00000004tNg-3J61;
+	Sat, 09 Aug 2025 20:24:24 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukq24-00000004t1W-49K7
+	id 1ukq4W-00000004t8d-0sv5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 20:19:14 +0000
+	Sat, 09 Aug 2025 20:21:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4CD91435B8;
-	Sat,  9 Aug 2025 20:19:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 241E1C4CEE7;
-	Sat,  9 Aug 2025 20:19:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D6C61A55A9F;
+	Sat,  9 Aug 2025 20:21:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13CC7C4CEE7;
+	Sat,  9 Aug 2025 20:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754770751;
-	bh=SW26dL28FmmH3dzVI/obdVPmszSNosDs+9XfxxzakzQ=;
+	s=k20201202; t=1754770902;
+	bh=sEv9PYmMWBEnq4cHeF3/88QlEU0nUxNppYfuZI0MI4w=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CcByh7vfH7ONCALgbjVNQCpvhjwAA7uTn+O3ODqhsJA9LgTE/qsGaI2JLKVNVcM2t
-	 B5BjOo4gmQyc4h/oPO72HOZ163bomI8buUm12U/awqZ9JXELnS57aTL4vl3QkZZIeb
-	 E51hHHz8Y1WyXci6H8//nRqyTxkI1ZVjrDEC//wM89OynCTgLfXWn/oc7TCM4DaYGu
-	 ni5UrY3cFyZX15irVvhisfGEFnJnzutiVGz85ji+Y3uq5xH67xzaZk1jFUtKj9P5Y4
-	 uUCKfQCbSHqph/5Nwlm30dtjcEBGAPOacBHjVWVYSK2ppvpaZNOJAyyhklKu7THE7b
-	 xdvy2x3pKEiCw==
+	b=t0vtXvBiTdiyGeBfS+qz+5/zNJjDQbJrp68NxASz/zeYJNbHNTDX+AUP4R9dUUACP
+	 +AHjUjtdez1AsSOWDZ0HotGytUVcSoVSqCQZof9DT7oBrwwarGrhH+RRz0J9Bq1pkU
+	 ZgEhjGm8pI+qXxbbtNeJEddC0QpWO7Ic8ud9ykNewNe1OgnD7YHECEW1uGKF4wxHp4
+	 T1K1msqGvHJ1qubOHaSFcFEtljt3dMd7xOE3Yk5f2BtxYykzVtZcn4WIvMQfQIZez2
+	 DgdNXoXtJf4IvZ8/lJsxTYiF2M9LCZN4+fChU5v/1J3e4mEcDvFuKXtL4MZdw6MyUT
+	 qYH4qeVWFn89Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1ukq20-005hxn-No;
-	Sat, 09 Aug 2025 21:19:08 +0100
-Date: Sat, 09 Aug 2025 21:19:08 +0100
-Message-ID: <874iugtfib.wl-maz@kernel.org>
+	id 1ukq4R-005hzT-Tt;
+	Sat, 09 Aug 2025 21:21:40 +0100
+Date: Sat, 09 Aug 2025 21:21:39 +0100
+Message-ID: <8734a0tfe4.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvmarm@lists.linux.dev,
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Cornelia Huck <cohuck@redhat.com>
 Subject: Re: [PATCH v2 4/5] KVM: arm64: Expose FEAT_RASv1p1 in a canonical manner
-In-Reply-To: <20250807125531.GB2351327@e124191.cambridge.arm.com>
+In-Reply-To: <aJZ-wCLYh_STGiTI@linux.dev>
 References: <20250806165615.1513164-1-maz@kernel.org>
 	<20250806165615.1513164-5-maz@kernel.org>
 	<20250807125531.GB2351327@e124191.cambridge.arm.com>
+	<aJZ-wCLYh_STGiTI@linux.dev>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, cohuck@redhat.com
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, cohuck@redhat.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_131913_067738_C580ED08 
-X-CRM114-Status: GOOD (  24.38  )
+X-CRM114-CacheID: sfid-20250809_132144_377952_484779E7 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,47 +93,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Aug 2025 13:55:31 +0100,
-Joey Gouly <joey.gouly@arm.com> wrote:
+On Fri, 08 Aug 2025 23:48:32 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> On Wed, Aug 06, 2025 at 05:56:14PM +0100, Marc Zyngier wrote:
-> > If we have RASv1p1 on the host, advertise it to the guest in the
-> > "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
-> > the convoluted RAS+RAS_frac method.
+> On Thu, Aug 07, 2025 at 01:55:31PM +0100, Joey Gouly wrote:
+> > On Wed, Aug 06, 2025 at 05:56:14PM +0100, Marc Zyngier wrote:
+> > > If we have RASv1p1 on the host, advertise it to the guest in the
+> > > "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
+> > > the convoluted RAS+RAS_frac method.
+> > > 
+> > > Note that this also advertises FEAT_DoubleFault, which doesn't
+> > > affect the guest at all, as only EL3 is concerned by this.
+> > > 
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > ---
+> > >  arch/arm64/kvm/sys_regs.c | 12 ++++++++++++
+> > >  1 file changed, 12 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > > index 1b4114790024e..66e5a733e9628 100644
+> > > --- a/arch/arm64/kvm/sys_regs.c
+> > > +++ b/arch/arm64/kvm/sys_regs.c
+> > > @@ -1800,6 +1800,18 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+> > >  	if (!vcpu_has_sve(vcpu))
+> > >  		val &= ~ID_AA64PFR0_EL1_SVE_MASK;
+> > >  
+> > > +	/*
+> > > +	 * Describe RASv1p1 in a canonical way -- ID_AA64PFR1_EL1.RAS_frac
+> > > +	 * is cleared separately. Note that by advertising RASv1p1 here, we
 > > 
-> > Note that this also advertises FEAT_DoubleFault, which doesn't
-> > affect the guest at all, as only EL3 is concerned by this.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/sys_regs.c | 12 ++++++++++++
-> >  1 file changed, 12 insertions(+)
-> > 
-> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > index 1b4114790024e..66e5a733e9628 100644
-> > --- a/arch/arm64/kvm/sys_regs.c
-> > +++ b/arch/arm64/kvm/sys_regs.c
-> > @@ -1800,6 +1800,18 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
-> >  	if (!vcpu_has_sve(vcpu))
-> >  		val &= ~ID_AA64PFR0_EL1_SVE_MASK;
-> >  
-> > +	/*
-> > +	 * Describe RASv1p1 in a canonical way -- ID_AA64PFR1_EL1.RAS_frac
-> > +	 * is cleared separately. Note that by advertising RASv1p1 here, we
+> > Where is it cleared? __kvm_read_sanitised_id_reg() is where I would have
+> > expected to see it:
 > 
-> Where is it cleared? __kvm_read_sanitised_id_reg() is where I would have
-> expected to see it:
+> Actually, I'm a bit worried this change doesn't give us very much value
+> since Marc already does the exhaustive RASv1p1 check in the sysreg
+> emulation.
 > 
->     case SYS_ID_AA64PFR1_EL1:
+> There's potential for breakage when migrating VMs between new/old kernels
+> on systems w/ FEAT_RASv1p1 && !FEAT_DoubleFault.
+> 
+> Marc, WDYT about dropping this patch and instead opening up RAS_frac to
+> writes?
 
-[...]
+That's indeed probably best. But the question I can't manage to answer
+right now is how we migrate RASv1p1 between the two versions? It means
+cross-idreg dependencies, ordering and all that, and I'm a bit
+reluctant to do so.
 
-Ah crap, it is the nested code that we get rid of it, nowhere else.
-Which means that non-nested VMs have already observed RAS_frac. What a
-mess. Then RAS_frac must be exposed as writable.
-
-The question is whether we want to allow migration between one flavour
-of RASv1p1 and the other.
+Thoughts?
 
 	M.
 
