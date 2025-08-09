@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6924C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 06:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2844C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 07:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjn7589sn0todta5MMbg+BG3V2sZPDUGxLyydNTxbQc=; b=1FljUpBhHIZPibGzvFd/ZHyP3D
-	KedesNmXAQiYAo0+/+FOG0j2J/u0YsBWzm8enlaBV50+ZnPQVN7fVm4jx9iKExLOFoMEuhgTgT0jX
-	9gX9mfL4yRco0Ro5iWfdi4axLfXU1CBid3ufyySsqtLFNinmfF3VXHNGu4e03JE/dziIWOuO4/lwX
-	Oh7DVXHe7yuRLNbpqyFLPliHRYYwmKsQFNfz6ntiH62S0xPoy3tjJM74zbXruz5RsZ0Fao+I6K+x8
-	cLnJpt68V/HrP1lzyLfbduZNstlSIv4P/pg4M2G59QYoGfhItDs5FlJhPTeR7PlkWNFjC0TpjgG+d
-	kBRaKuXw==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PnOBJp/dCmnaAVtEczBA0DMOWb+q7+EVB4/c2xyrUM8=; b=CAhct/+tJaoD0zhj+sJdAy0PaE
+	T6xgj/lp1MRhnNIa845Z/HU1Efc5S+mwe0+lqhgGdouaYczJalQWA147YgYTrIVc2SoenXGrs/Vze
+	oiCG+apHOiaRBS6n2nCUtOpiSVghhuY8yTeY8QAMqHPs2yLYkKmZhTaSyakbz4XCtUuBu2Q/935Oa
+	wyAfvuIUAxS8KuN5uOXLU7q9ZjYcykKgVD5sOTNhPR3R0Rq/bB1QY92Jweh3ibuKZ7meHkd2nMSpG
+	aiHdKTS1+TqxkM1x+zYLIH63JnZjCzhRgxPapybE6J2vkTttV/T5wGpagJW1gUzNQ/c5v33qJvu90
+	lHGHmy6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukczx-00000004BYY-0Kka;
-	Sat, 09 Aug 2025 06:24:09 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1uke00-00000004DxU-43XC;
+	Sat, 09 Aug 2025 07:28:16 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukcxQ-00000004BOw-3PtE
+	id 1ukdxU-00000004DnI-29y8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 06:21:34 +0000
-Received: from [133.11.54.205] (h205.csg.ci.i.u-tokyo.ac.jp [133.11.54.205])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 5796FeEc068583
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sat, 9 Aug 2025 15:15:41 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=tjn7589sn0todta5MMbg+BG3V2sZPDUGxLyydNTxbQc=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=Message-ID:Date:Subject:To:From;
-        s=rs20250326; t=1754720141; v=1;
-        b=WakBQInh0cpfd1IgkkB74HPobXmSXxTLBu+vowlNpmhZVyQcXV5KEfxgIlhumpDg
-         0mCLcq34OsW9yBbXPxv/4xNnLOWAXY5rrxZyt1yXGIENC7Inaadqn8rkDGmjYrSh
-         EioPFP/iMmiWtTi9Wc7OCd8QAm0mj1UQ7Kkwkju3Vl2xl0+/pSDvbSXPPogRYVOR
-         PBRddWDA3RUOKATSyOwHf9bEMlwr3wT9Gg2FN18XMXYSGwvVzVhqeLozF9q0YA4D
-         +sKngJ+4IpJfvUzq0MrYGh0jrM2tZ2P42r3jPvrVbl9E3pToCF5iL+lERP20A4n0
-         liPykRyaCidMaytalVSdQg==
-Message-ID: <e33c21eb-d4d3-4c38-aab8-60399c7ae210@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sat, 9 Aug 2025 15:15:40 +0900
+	Sat, 09 Aug 2025 07:25:42 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id B069E240101
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  9 Aug 2025 09:25:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
+	s=1984.ea087b; t=1754724329;
+	bh=PnOBJp/dCmnaAVtEczBA0DMOWb+q7+EVB4/c2xyrUM8=;
+	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:From;
+	b=Rou4xzenIuode5Do3awcl5z3VhgrbTTW/tCbo9z0pzui0UiSbEl4x7HTmGo2mQo4A
+	 sM6cravd4fnjo+R09JVMrikPSEYUPSx+Br0zbPqcNYpbv2QfWqs/gvtOjfZm6GWQeb
+	 ttzn5YeRxeChPoO+yTzMwblVSIrlAiIHQv9OXg9sQHzwVjD2J7CTwMCffJm9ZQNokE
+	 6lL0AJQrUkZnoijghDQpSww6rSjOgEH5I2kwCSJTzilnORypJddG9IwI2qxVtlN7Hh
+	 ciIawjN7IxA5baZm0gos3jIDRNv5gC7gW3OVBi1LI6RH6yxyQO0K9GQqUCoIPDIP3e
+	 3jm/CTX+btzjY0J0upfyPvwwsHargKgRb/Z+5wsOfNitMRYVJEOVs0YQ8ZdxDTfvpK
+	 9W8kU12E89XTPBnaYGmCB9Xoo9+ykTQ8FOEmaI4afIXV3q4HVTNDn/sm2ziYalVyQr
+	 gzpnidCqnTf3wKWUmy7+hcAl6Om5ZHOsflKNKeAGrlOJte5/poN
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4bzXVb1kmTz9rxD;
+	Sat,  9 Aug 2025 09:25:27 +0200 (CEST)
+Date: Sat, 09 Aug 2025 07:25:29 +0000
+From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
+To: linux-sunxi@lists.linux.dev, linux-sound@vger.kernel.org
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [BISECTED] NULL pointer dereference while probing sun8i-codec
+Message-ID: <aJb311bMDc9x-dpW@probook>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 1/2] KVM: arm64: PMU: Introduce
- KVM_ARM_VCPU_PMU_V3_COMPOSITION
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu
- <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-        linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20250806-hybrid-v2-0-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
- <20250806-hybrid-v2-1-0661aec3af8c@rsg.ci.i.u-tokyo.ac.jp>
- <aJOO99xUrhsrvLwl@linux.dev>
- <276fdfb8-f1ca-44ad-b310-a811684b265a@rsg.ci.i.u-tokyo.ac.jp>
- <aJQJdElbZJ6KzQxD@linux.dev>
- <62494f54-13c6-4b9f-86a1-9a19ce58e91f@rsg.ci.i.u-tokyo.ac.jp>
- <aJaDYhme_St2b2sM@linux.dev>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <aJaDYhme_St2b2sM@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250808_232133_076879_8756BF11 
-X-CRM114-Status: GOOD (  30.75  )
+X-CRM114-CacheID: sfid-20250809_002540_840097_0BDEE4E5 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,124 +75,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/08/09 8:08, Oliver Upton wrote:
-> On Thu, Aug 07, 2025 at 11:06:21PM +0900, Akihiko Odaki wrote:
->>> The only cross-PMU events we will support are the fixed counters, my
->>> strong preference is that we do not reverse-map architectural events to
->>> generic perf events for all counters.
->>
->> I wonder if there is a benefit to special case PERF_COUNT_HW_CPU_CYCLES
->> then; the current logic of kvm_map_pmu_event() looks sufficient for me.
-> 
-> I'd rather we just use the generic perf events and let the driver remap
-> things on our behalf. These are fixed counters, using constant events
-> feels like the right way to go about that.
-> 
-> kvm_map_pmu_event() is trying to solve a slightly different problem
-> where we need to map programmable PMUv3 events into a non-PMUv3 event
-> space, like on the M1 PMU.
+When booting the Allwinner H2+ SoC (Orange Pi Zero) with the audio codec
+enabled, recent kernels crash with a NULL pointer dereference:
 
-It is currently also used to map non-programmable PMUv3 events.
+[    0.976256] 8<--- cut here ---
+[    0.979398] Unable to handle kernel NULL pointer dereference at virtual address 00000000 when read
+[    0.988365] [00000000] *pgd=00000000
+[    0.991955] Internal error: Oops: 5 [#1] SMP ARM
+[    0.996572] Modules linked in:
+[    0.999632] CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc5-00242-gc208844ffc64 #56 NONE
+[    1.008846] Hardware name: Allwinner sun8i Family
+[    1.013545] PC is at strcmp+0x0/0x34
+[    1.017135] LR is at snd_soc_lookup_component_nolocked+0x64/0xa4
+[    1.023151] pc : [<c08bf8e4>]    lr : [<c073f82c>]    psr: 00000013
+[    1.029412] sp : e0821de8  ip : 00000000  fp : 00000000
+[    1.034632] r10: c0c65f4c  r9 : c0c49834  r8 : 0000001b
+[    1.039853] r7 : c0aff7e0  r6 : c165b810  r5 : c10dc614  r4 : c1df6340
+[    1.046374] r3 : c09b1994  r2 : 0000006e  r1 : c0aff7e0  r0 : 00000000
+[    1.052896] Flags: nzcv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
+[    1.060027] Control: 10c5387d  Table: 4000406a  DAC: 00000051
+[    1.065767] Register r0 information: NULL pointer
+[    1.070473] Register r1 information: non-slab/vmalloc memory
+[    1.076132] Register r2 information: non-paged memory
+[    1.081183] Register r3 information: non-slab/vmalloc memory
+[    1.086840] Register r4 information: slab kmalloc-256 start c1df6300 pointer offset 64 size 256
+[    1.095552] Register r5 information: non-slab/vmalloc memory
+[    1.101210] Register r6 information: slab kmalloc-1k start c165b800 pointer offset 16 size 1024
+[    1.109919] Register r7 information: non-slab/vmalloc memory
+[    1.115576] Register r8 information: non-paged memory
+[    1.120626] Register r9 information: non-slab/vmalloc memory
+[    1.126284] Register r10 information: non-slab/vmalloc memory
+[    1.132027] Register r11 information: NULL pointer
+[    1.136817] Register r12 information: NULL pointer
+[    1.141607] Process swapper/0 (pid: 1, stack limit = 0x(ptrval))
+[    1.147610] Stack: (0xe0821de8 to 0xe0822000)
+[    1.151969] 1de0:                   c0aff7e0 c165b810 c165b810 e0821e20 0000001b c0741fa4
+[    1.160142] 1e00: c1df650c c165b810 c165b810 c07557d0 c1df5f80 c17e1000 c165b810 c056dad8
+[    1.168315] 1e20: c1dbab40 c1df6600 00000007 d3dfed03 c165b810 00000205 c10dc9fc 00000000
+[    1.176487] 1e40: c1df5738 c0567cf0 c165b810 c05684a0 c165b810 c10dc9fc c165b810 00000000
+[    1.184660] 1e60: c1df5738 c05685d0 60000013 c0c49834 c1125878 c10dc9fc c165b810 00000000
+[    1.192833] 1e80: c1df5738 c05687b4 c165b810 c10dc9fc c165b854 c1416000 c1df5738 c0568a2c
+[    1.201005] 1ea0: 00000000 c10dc9fc c056899c c0566490 c1416000 c1416058 c1542ab4 d3dfed03
+[    1.209178] 1ec0: c1416000 c10dc9fc c1df5700 00000000 c1416000 c05676b4 c0aff880 00000000
+[    1.217351] 1ee0: c10dc9fc c1450000 00000000 c0b0df40 c10e9000 c0569738 c0c2e2bc c1450000
+[    1.225523] 1f00: 00000000 c010e26c 000004c4 00000000 00000000 00000000 00000000 00000000
+[    1.233695] 1f20: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.241867] 1f40: 00000000 00000000 00000000 00000000 00000000 d3dfed03 c15a1980 000000f4
+[    1.250040] 1f60: c15a1980 00000006 c0b0df40 c0c49854 c0c49834 c0c01220 00000006 00000006
+[    1.258212] 1f80: 00000000 c0c004d0 c1004e00 c08ca784 00000000 00000000 00000000 00000000
+[    1.266384] 1fa0: 00000000 c08ca7a0 00000000 c010014c 00000000 00000000 00000000 00000000
+[    1.274556] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.282728] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000 00000000 00000000
+[    1.290896] Call trace:
+[    1.290910]  strcmp from snd_soc_lookup_component_nolocked+0x64/0xa4
+[    1.299807]  snd_soc_lookup_component_nolocked from snd_soc_unregister_component_by_driver+0x2c/0x44
+[    1.308948]  snd_soc_unregister_component_by_driver from snd_dmaengine_pcm_unregister+0x28/0x64
+[    1.317654]  snd_dmaengine_pcm_unregister from devres_release_all+0x98/0xfc
+[    1.324625]  devres_release_all from device_unbind_cleanup+0xc/0x60
+[    1.330899]  device_unbind_cleanup from really_probe+0x220/0x2c8
+[    1.336913]  really_probe from __driver_probe_device+0x88/0x1a0
+[    1.342841]  __driver_probe_device from driver_probe_device+0x30/0x110
+[    1.349375]  driver_probe_device from __driver_attach+0x90/0x178
+[    1.355390]  __driver_attach from bus_for_each_dev+0x7c/0xcc
+[    1.361056]  bus_for_each_dev from bus_add_driver+0xcc/0x1ec
+[    1.366720]  bus_add_driver from driver_register+0x80/0x11c
+[    1.372301]  driver_register from do_one_initcall+0x58/0x23c
+[    1.377973]  do_one_initcall from kernel_init_freeable+0x198/0x1f4
+[    1.384168]  kernel_init_freeable from kernel_init+0x1c/0x12c
+[    1.389925]  kernel_init from ret_from_fork+0x14/0x28
+[    1.394982] Exception stack(0xe0821fb0 to 0xe0821ff8)
+[    1.400033] 1fa0:                                     00000000 00000000 00000000 00000000
+[    1.408205] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.416376] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    1.422991] Code: e5e32001 e3520000 1afffffb e12fff1e (e4d03001)
+[    1.429166] ---[ end trace 0000000000000000 ]---
+[    1.433797] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+[    1.441577] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
 
-I want to understand the motivation better. The current procedure to 
-determine the config value is as follows:
-1) If the register is PMCCFILTR_EL0:
-    a) eventsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES.
-2) If the register is not PMCCFILTR_EL0:
-    a) Derive eventsel by masking the register value.
-3) If map_pmuv3_event() exists:
-    a) The config value is map_pmuv3_event(eventsel).
-4) If map_pmuv3_event() does not exist:
-    a) The config value is eventsel.
 
-If we use PERF_TYPE_HARDWARE / PERF_COUNT_HW_CPU_CYCLES, the procedure 
-will look like the following:
-1) If the register is PMCCFILTR_EL0:
-    a) The config value is PERF_TYPE_HARDWARE / PERF_COUNT_HW_CPU_CYCLES.
-2) If the reigster is not PMCCFILTR_EL0:
-    a) Derive eventsel by masking the register value.
-    b) If map_pmuv3_event() exists:
-       i) The config value is map_pmuv3_event(eventsel).
-    c) if map_pmuv3_event() does not exist,
-       i) The config value is eventsel.
+This particular error path is taken after platform_probe returns -EPROBE_DEFER
+to call_driver_probe and really_probe calls device_unbind_cleanup.
 
-It does not seem that using PERF_TYPE_HARDWARE / 
-PERF_COUNT_HW_CPU_CYCLES simplifies the procedure.
+The parameters to the strcmp call in snd_soc_lookup_component_nolocked are
+component->driver->name = NULL and driver_name = "snd_dmaengine_pcm".
 
-> 
->>> This isn't what I meant. What I mean is that userspace either can use
->>> the SET_PMU ioctl or the COMPOSITION ioctl. Once one of them has been
->>> used the other ioctl returns an error.
->>>
->>> We're really bad at getting ioctl ordering / interleaving right and
->>> syzkaller has a habit of finding these mistakes. There's zero practical
->>> value in using both of these ioctls on the same VM, let's prevent it.
->>
->> The corresponding RFC series for QEMU uses KVM_ARM_VCPU_PMU_V3_SET_PMU to
->> probe host PMUs, and falls back to KVM_ARM_VCPU_PMU_V3_COMPOSITION if none
->> covers all CPUs. Switching between SET_PMU and COMPOSITION is useful during
->> such probing.
->>
->> COMPOSITION is designed to behave like just another host PMU that is set
->> with SET_PMU. SET_PMU allows setting a different host PMU even if SET_PMU
->> has already been invoked so it is also allowed to set a host PMU even if
->> COMPOSITION has already been invoked, maintaining consistency with
->> non-composed PMUs.
->>
->> You can find the QEMU patch at:
->> https://lore.kernel.org/qemu-devel/20250806-kvmq-v1-1-d1d50b7058cd@rsg.ci.i.u-tokyo.ac.jp/
->>
->> (look up KVM_ARM_VCPU_PMU_V3_SET_PMU for the probing code)
-> 
-> Having both of these attributes return success when probed with
-> KVM_HAS_DEVICE_ATTR is fine; what I mean is that once KVM_SET_DEVICE_ATTR
-> has been called on an attribute the other fails.
+I have bisected this to:
 
-By probing, I meant checking if a host PMU is compatible with KVM.
+commit 144d6dfc7482455eabf8e8caa974a6e8d9572705
+Author: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Date:   Mon May 12 02:33:16 2025 +0000
 
-More concretely, QEMU implements the following procedure to detect a PMU 
-backend compatible with all host CPUs:
+    ASoC: soc-core: merge snd_soc_unregister_component() and snd_soc_unregister_component_by_driver()
 
-1) Traverse /sys/bus/event_source/devices
-    a) Check if the device has the cpus and type attributes.
-       If it doesn't, skip it.
-    b) Try to set the device's type with KVM_ARM_VCPU_PMU_V3_SET_PMU.
-       If successful, the device is compatible with KVM.
-    c) Check if the device's cpus cover all host CPUs.
-       If it does, use it with KVM_ARM_VCPU_PMU_V3_SET_PMU.
+    We have below 2 functions, but these are very similar
 
-2) Check if the union of the cpus attributes of compatible devices
-    cover all CPUs. If it does, use KVM_ARM_VCPU_PMU_V3_COMPOSITION.
+    (A)     snd_soc_unregister_component_by_driver()
+    (B)     snd_soc_unregister_component()
 
-3) If it failed to find a usable backend until this step,
-    there is no PMU backend compatible with all host CPUs.
+    (A)     void snd_soc_unregister_component_by_driver(...)
+            {
+                    ...
 
-Here, 1b) calls KVM_SET_DEVICE_ATTR with KVM_ARM_VCPU_PMU_V3_SET_PMU 
-during probing.
+    (a)             mutex_lock(&client_mutex);
+     ^ (X)          component = snd_soc_lookup_component_nolocked(dev, component_driver->name);
+     |              if (!component)                                    ^^^^^^^^^^^^^^^^^^^^^^
+     |                      goto out;
+    (b)
+     |              snd_soc_del_component_unlocked(component);
+     v
+            out:
+    (c)             mutex_unlock(&client_mutex);
+            }
 
-> 
->>> On a system that has FEAT_PMUv3_ICNTR, userspace can still use this
->>> ioctl and explicitly de-feature ICNTR by writing to the ID register
->>> after initialization.
->>
->> Now I understand better.
->>
->> Currently, KVM_ARM_VCPU_PMU_V3_COMPOSITION sets supported_cpus to ones that
->> have cycle counters compatible with PMU emulation.
->>
->> If FEAT_PMUv3_ICNTR is set to the ID register, I guess
->> KVM_ARM_VCPU_PMU_V3_COMPOSITION will set supported_cpus to ones that have
->> compatible cycle and instruction counters. If so, the naming
->> KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY indeed makes sense.
-> 
-> Perfect. Ideally SOC vendors do the sensible thing and ensure that
-> FEAT_PMUv3_ICNTR is consistent on all implementations in a machine. We
-> will hide the feature in KVM if it is not.
+    (B)     void snd_soc_unregister_component_by_driver(...)
+            {
+    (a)             mutex_lock(&client_mutex);
+     ^              while (1) {
+     | (X)                  struct snd_soc_component *component = snd_soc_lookup_component_nolocked(dev, NULL);
+     |                                                                                                   ^^^^
+    (b)                     if (!component)
+     |                              break;
+     |
+     |                      snd_soc_del_component_unlocked(component);
+     v              }
+    (c)             mutex_unlock(&client_mutex);
+            }
 
-M1 PMU also implements a fixed instruction counter, fortunately on all 
-CPUs. I hope they continue to do so (and ideally they implement 
-FEAT_PMUv3 and FEAT_PMUv3_ICNTR).
+    Both are calling lock (a), find component and remove it (b), and
+    unlock (c). The big diff is whether use driver name for lookup() or
+    not (X).
 
-Regards,
-Akihiko Odaki
+    Merge these into snd_soc_unregister_component_by_driver() (B), and
+    snd_soc_unregister_component_by_driver() (A) can be macro.
+
+    Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+    Link: https://patch.msgid.link/87h61qy2vn.wl-kuninori.morimoto.gx@renesas.com
+    Signed-off-by: Mark Brown <broonie@kernel.org>
+
+ include/sound/soc.h  |  2 +-
+ sound/soc/soc-core.c | 30 +++++-------------------------
+ 2 files changed, 6 insertions(+), 26 deletions(-)
+
+
+Reverting this commit on top of almost-v6.17-rc1 (v6.16-12250-gc30a13538d9f8b)
+results in a successful boot. sun8i-codec's probe returns -EPROBE_DEFER
+the first time, and success the second time.
+
+
+Best regards,
+J. Neuschäfer
 
