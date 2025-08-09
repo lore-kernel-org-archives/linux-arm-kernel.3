@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FD35C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 20:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8292C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 20:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7fQBK8bgFE1Ri1Krh9HfuYIeNKOzqdzxblIbW7hnQXQ=; b=wKeUrOkvmixokPuexZPfPM0hEz
-	c5R44Ncz3Hz4V3Rtxl3swWfF1cOyYyEqnEPbz9Q7z6pmhWd/dklmcdfjIvmILQsv4vUmRoB+Eaw07
-	B4sANK+cIzwuul2yQW4LJ1QTk/ShdKcOgcuEsq49ynivYAoHMT57E6Qhgsuljg18/uTY0q3ZMCzA2
-	uNGCeTpbTHgdesCKLZ8GjX81Gp+uF9H0CDvI40wanUgzo0nqrSbQlD7ZcxtSRvobaSt2HqlDcU6uH
-	zTiHVncloe3yIzW3SYqmneY7e3DHfMo0Ug1Pz0LSe4Hyl0G+yo0XIQ8sP/9ROV5oZ7NMJA3inDUMh
-	Th422x2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/0Vjo7U00mg3Lft+uVDK9C/PVD+C8gofZLxHoScTkjw=; b=hVBCrqz4oHtXZctsEalY0jkO6m
+	veaytjYiUsGOuUIJLLRdektNqXwcYDB0ED7RPhQIb6ebYmpXA0tKMMWFFlkZu5ULdBYUs9lSXd6R5
+	cbn4JjCp5yIS/h+/3L/hpmx0FYK7Wbjy8rOXvzzMlk6Vp6jeF0VVU5JRR8L26Xnkyi4QI5i9ZT7bF
+	jNOOb492N49heuFckse9WKBlRNpKaunMjIgkgVAUAHqzp0dYuR1OAuelgCfCXLZwThOkJuvQtHxvT
+	YyEQ8Hjtw627qtufL/Zp0XK0EVO/UjSPUZtfmvA6EZMydLro+tVJiwAqqZg2Q7wIasL29afvIOKS2
+	I7f+/9/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukpmH-00000004sUn-1uUh;
-	Sat, 09 Aug 2025 20:02:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ukq4c-00000004t9X-0DSt;
+	Sat, 09 Aug 2025 20:21:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukpjm-00000004sNz-1jiJ;
-	Sat, 09 Aug 2025 20:00:18 +0000
+	id 1ukq24-00000004t1W-49K7
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 09 Aug 2025 20:19:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 10A6E6141F;
-	Sat,  9 Aug 2025 20:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 432F4C4CEE7;
-	Sat,  9 Aug 2025 20:00:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CD91435B8;
+	Sat,  9 Aug 2025 20:19:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 241E1C4CEE7;
+	Sat,  9 Aug 2025 20:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754769616;
-	bh=7fQBK8bgFE1Ri1Krh9HfuYIeNKOzqdzxblIbW7hnQXQ=;
+	s=k20201202; t=1754770751;
+	bh=SW26dL28FmmH3dzVI/obdVPmszSNosDs+9XfxxzakzQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GBfpFW+tldLQvKQQnUCTIxV092GzoC3t6M7VHOAiWjRrEBBkv7QIw0lX0maHUrfQn
-	 WNPg5HnhwTezF2HG9Mf+obGeahDBhbzh51uRWrEkfvCUUFVvLxrk/zJfyNCNtL8w2j
-	 k09TFBa8vO1yehyW9TuqvYzGAjNx11Jm+zO7PQwHzuvYdj8GO0yhgNyT0n3FV5d/NP
-	 vpizg1ixql0wV6LjMsH4jn/G5VZPROpKjsYg8vGgN8LQ0IRuwU3jpQdGkehyrAudvI
-	 ekPwDPD/0u+UcAH3gQLmajUXN5nA9OA0uIlzh2/Pcwmb9vYLXkz7OMppBtWWFkzn09
-	 Ky7m/QSekg1sw==
-Date: Sat, 9 Aug 2025 21:00:01 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Waqar Hameed <waqar.hameed@axis.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Cosmin Tanislav <cosmin.tanislav@analog.com>,
- Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Matteo Martelli <matteomartelli3@gmail.com>, Heiko Stuebner
- <heiko@sntech.de>, Francesco Dolcini <francesco@dolcini.it>,
- =?UTF-8?B?Sm/Do28=?= Paulo =?UTF-8?B?R29uw6dhbHZlcw==?=
- <jpaulo.silvagoncalves@gmail.com>, Hugo Villeneuve
- <hvilleneuve@dimonoff.com>, Subhajit Ghosh <subhajit.ghosh@tweaklogic.com>,
- Mudit Sharma <muditsharma.info@gmail.com>, Gerald Loacker
- <gerald.loacker@wolfvision.net>, Song Qiang <songqiang1304521@gmail.com>,
- Crt Mori <cmo@melexis.com>, kernel@axis.com, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2] iio: Remove error prints for
- devm_add_action_or_reset()
-Message-ID: <20250809210001.4d8af4cd@jic23-huawei>
-In-Reply-To: <CAHp75VeGvgv6TAYRRtEySmESkjygW79ms-Yd64h08_+7JjJMJw@mail.gmail.com>
-References: <pndectqm7te.a.out@axis.com>
-	<CAHp75VeGvgv6TAYRRtEySmESkjygW79ms-Yd64h08_+7JjJMJw@mail.gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+	b=CcByh7vfH7ONCALgbjVNQCpvhjwAA7uTn+O3ODqhsJA9LgTE/qsGaI2JLKVNVcM2t
+	 B5BjOo4gmQyc4h/oPO72HOZ163bomI8buUm12U/awqZ9JXELnS57aTL4vl3QkZZIeb
+	 E51hHHz8Y1WyXci6H8//nRqyTxkI1ZVjrDEC//wM89OynCTgLfXWn/oc7TCM4DaYGu
+	 ni5UrY3cFyZX15irVvhisfGEFnJnzutiVGz85ji+Y3uq5xH67xzaZk1jFUtKj9P5Y4
+	 uUCKfQCbSHqph/5Nwlm30dtjcEBGAPOacBHjVWVYSK2ppvpaZNOJAyyhklKu7THE7b
+	 xdvy2x3pKEiCw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ukq20-005hxn-No;
+	Sat, 09 Aug 2025 21:19:08 +0100
+Date: Sat, 09 Aug 2025 21:19:08 +0100
+Message-ID: <874iugtfib.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Cornelia Huck <cohuck@redhat.com>
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Expose FEAT_RASv1p1 in a canonical manner
+In-Reply-To: <20250807125531.GB2351327@e124191.cambridge.arm.com>
+References: <20250806165615.1513164-1-maz@kernel.org>
+	<20250806165615.1513164-5-maz@kernel.org>
+	<20250807125531.GB2351327@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, cohuck@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250809_131913_067738_C580ED08 
+X-CRM114-Status: GOOD (  24.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +92,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 Aug 2025 15:06:02 +0200
-Andy Shevchenko <andy.shevchenko@gmail.com> wrote:
+On Thu, 07 Aug 2025 13:55:31 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> On Wed, Aug 06, 2025 at 05:56:14PM +0100, Marc Zyngier wrote:
+> > If we have RASv1p1 on the host, advertise it to the guest in the
+> > "canonical way", by setting ID_AA64PFR0_EL1 to V1P1, rather than
+> > the convoluted RAS+RAS_frac method.
+> > 
+> > Note that this also advertises FEAT_DoubleFault, which doesn't
+> > affect the guest at all, as only EL3 is concerned by this.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/sys_regs.c | 12 ++++++++++++
+> >  1 file changed, 12 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 1b4114790024e..66e5a733e9628 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -1800,6 +1800,18 @@ static u64 sanitise_id_aa64pfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+> >  	if (!vcpu_has_sve(vcpu))
+> >  		val &= ~ID_AA64PFR0_EL1_SVE_MASK;
+> >  
+> > +	/*
+> > +	 * Describe RASv1p1 in a canonical way -- ID_AA64PFR1_EL1.RAS_frac
+> > +	 * is cleared separately. Note that by advertising RASv1p1 here, we
+> 
+> Where is it cleared? __kvm_read_sanitised_id_reg() is where I would have
+> expected to see it:
+> 
+>     case SYS_ID_AA64PFR1_EL1:
 
-> On Tue, Aug 5, 2025 at 11:33=E2=80=AFAM Waqar Hameed <waqar.hameed@axis.c=
-om> wrote:
-> >
-> > When `devm_add_action_or_reset()` fails, it is due to a failed memory
-> > allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
-> > anything when error is `-ENOMEM`. Therefore, remove the useless call to
-> > `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
-> > return the value instead. =20
->=20
-> Even more, the devm has tracepoints in case somebody really wants to
-> investigate failures.
->=20
-> Fully in support of this change.
-> Reviewed-by: Andy Shevchenko <andy@kernel.org>
->=20
+[...]
 
-Applied to the testing branch of iio.git. I'll rebase that
-on rc1 once available.
+Ah crap, it is the nested code that we get rid of it, nowhere else.
+Which means that non-nested VMs have already observed RAS_frac. What a
+mess. Then RAS_frac must be exposed as writable.
 
-Jonathan
+The question is whether we want to allow migration between one flavour
+of RASv1p1 and the other.
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
