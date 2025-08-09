@@ -4,159 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A58C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 20:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D03AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 21:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIxfEgOXjek6ZvwjX3ZZAEORqOIBFXx7q7IgDCTg3G0=; b=A7+kqJFk7P1LISJyuHxQiRkQ+4
-	2hay+7m6ofsYUefMFMJd484qYUybm5rhUPhCtSWaIwRuTp1o7RHaFB87SmYMgcEmCb9bjy2CIkWHY
-	LpYAz5S9ocVenxaqXR3CzF/4EbOmgG5YFJlKHDkCtAc6coaMEMV4JbUckPwhpiPA67WH6BFVA/m5P
-	uZ9SvW0WjgTg4mLTxFOTgaRirjdOOD4/mLGmLJAGQobxwmsl4HHl600JXJMilDGDyGW5j7MqZha11
-	lNjygOToiO6v40TxOauuvW/sFEbHzpWmCT/Dpputv8mjVhIZfpksivXSYzH5/3L6drIEE4nj63pFn
-	Ci4NjPqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fb7xejBxBE+gCqFzScgp7pazbnxBzGXXgJG3ghkTvA8=; b=y7xO9FUPZ1lI5IwZ71MMvePVUQ
+	hROkR1bW3DXyYTZ4PsLh8XN8UpM/sUNw2r6e2ErlPoDoM+V5UEucMpJGnhsfCOrOjcWF1nROUyMuF
+	BgV0s72W72DCsE0i42nJlXnmD1YvX0mlyMspZLzgxQfo688RIjz//xltwW9MGMOQdPfUkuqjNjyq4
+	Ns07BUcvRUFfBtqajglQUc15W22sGdPIz+2T/Qk55NiRvQ4Fksnf/SBU+SQuSaFujc4HQZzkRzZia
+	ALfFe1EJRaWGnnz7VrUiYUN9sExpBX5+wM4elYFAYUJOsj/lFD9o4ojZgP8DzXkRRl1LAqyhLfzDU
+	mtdN6lgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukqGt-00000004tpe-0AzA;
-	Sat, 09 Aug 2025 20:34:31 +0000
-Received: from mail-bn8nam04on20618.outbound.protection.outlook.com ([2a01:111:f403:2408::618] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1ukqyw-00000004w8J-1LZU;
+	Sat, 09 Aug 2025 21:20:02 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukqEN-00000004tiu-2XvW
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 20:31:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZuEvBVZDsJNSI9GvklbhiEoI4z/CBuBq3ogoI1tLdrfxMxCK+ET3y7SIqLYjMemROyo50fzcz2DXrO/N5mzJx2DWBbKwu3OEJB9+I8dfieutIvvcXB4qnuacxcHU4BiZhIrpuBh153Sbd/i2AwKCkDmncAJvs2Qfgt9kv2BfeCE5ZR5IhWYK9nvra18Cb4kcL/OUNQHSAWhZ6QjreaUMds2EY7xH/yODZmZhhajgellyl91siJccThLeHg1KfFWKA+obBU0IYRBwJvjnBzyxTfDMqOPgPuFnfc63rAIbFDxzkLvKrlGOVGEq+83GOUap13r447A9ze/b1DrKiqN++w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vIxfEgOXjek6ZvwjX3ZZAEORqOIBFXx7q7IgDCTg3G0=;
- b=pfJ6Gp32zm+3Vj5ndigrBNLlK23Emw+wN5/yu+nnMDzAFyERZeFF/EgaUGPGbd/3aVzKCBxwGrAYhQqOFJS35MkrAUY3PEnepeb/sLk0pZyim8sOUkVLi5yUs0zXli9a4AYeKzXPw5m9G188HolVs1cZag875SOZn1hLGVypGlW8EN3qAKaVO0u7GQD1tYW5cT00w2sw8yjgJIbwn7YMw+zMrCcMn1EmdXA7pwb6fyxFN7fwvok907SN36d/2apWCJper7ci2fgxwzPLQvqQSOTPTspjZYC9uvJU0QrbcNTBok/Lj7AJDvx4gGwIVo5wYw9zPqBAk5cHK5wcO4rn6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vIxfEgOXjek6ZvwjX3ZZAEORqOIBFXx7q7IgDCTg3G0=;
- b=tt39WdxgoiZgmsqrVB9v/jXtkpldg4Q0rxwA2TRYKWvpw7ENvAwsn5ThSG0OMzXrPtmW3Y1HkO2e1KAbGMZKblUUP2FFhoM05mrhhDTl32CwVgJB+btXsEWw4oJzGSrvkkjNiMdlBr5m7QHpbpw6BSc5NYHViDtasxaWbeeumyk=
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
- by BY5PR12MB4321.namprd12.prod.outlook.com (2603:10b6:a03:204::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.13; Sat, 9 Aug
- 2025 20:31:40 +0000
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6%5]) with mapi id 15.20.9009.013; Sat, 9 Aug 2025
- 20:31:40 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
-	<michal.simek@amd.com>, "sean.anderson@linux.dev" <sean.anderson@linux.dev>,
-	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>, "horms@kernel.org"
-	<horms@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
-Subject: RE: [PATCH net] net: xilinx: axienet: Increment Rx skb ring head
- pointer after BD is successfully allocated in dmaengine flow
-Thread-Topic: [PATCH net] net: xilinx: axienet: Increment Rx skb ring head
- pointer after BD is successfully allocated in dmaengine flow
-Thread-Index: AQHcBj3ufqq2Yvzk4kWpSUUhUrH6hbRZIlkAgAGeWkA=
-Date: Sat, 9 Aug 2025 20:31:40 +0000
-Message-ID: <BL3PR12MB65712291B55DD8D535BAE667C92EA@BL3PR12MB6571.namprd12.prod.outlook.com>
-References: <20250805191958.412220-1-suraj.gupta2@amd.com>
- <20250808120534.0414ffd0@kernel.org>
-In-Reply-To: <20250808120534.0414ffd0@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-08-09T19:48:46.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
- Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|BY5PR12MB4321:EE_
-x-ms-office365-filtering-correlation-id: 984c8f8b-c96b-41a5-130c-08ddd783befb
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?romOseIgHpOfGCwDFbx7SOdI/ncyRfM8uHbQapp0Ex40nqJuHPhD+W+GlgAZ?=
- =?us-ascii?Q?sU7OgWf4AcecPShWvINQtkPGy+7O2vhoL3e1xA8hYZCOHXOqQ8vkdITHJDoq?=
- =?us-ascii?Q?GUnLerbpqEfHXOfoFrV/7kDuPHU6gz3HrRqkV7g10ZeflOu5ylkXx0Bl5dLx?=
- =?us-ascii?Q?VbQCk4FBw8CfKybmZ286TzLn+t9M+8d1YyYTakOrsHJX2HRZiI3V9CqPowa0?=
- =?us-ascii?Q?swEdB+WieMma7scX2r8umpC/Xh5OwhXbhxDL2KtvEo8GSsLnm/lGrGNXVund?=
- =?us-ascii?Q?5qOyiIq5H+RRs86eRqmB6hDSn+BalJdEkH3BtVnkELxXAlyrO5EU451k97dZ?=
- =?us-ascii?Q?t1e/+RuJI66wMpecQk1FuN7G7PdsBihXZGxrAy1P7Wqprxn362anls7eyY/+?=
- =?us-ascii?Q?JGleEnEe84XzdabV35El4Rx8rImLQVr57cOdLzRJiq1JBSjMMUih9hI7GBuq?=
- =?us-ascii?Q?MJIaNnRB2QLUlGcg8szlYqMlY3n34OkBSKzcTHud/nzLYzTA9of7mIs6zoYF?=
- =?us-ascii?Q?N9qnsg8QKvpCyd8XO/E19x/fNEstQ61QxZYtbS925e7zZCNR2tJVY75deb9W?=
- =?us-ascii?Q?lUYJ65nB2IMV9zIr5KOYZ6OEi/L3bTlBKQV9SwyxPqFyee5UFoCXeeJv149T?=
- =?us-ascii?Q?XkLodk6VvbSOnbJ3xeOinfuakbyubmbOdWsCrdLNGd585q8nGi6nFY4724mX?=
- =?us-ascii?Q?WhF/lX0C8z0vP/UiddlcB77rN+9jSEO0oqRH16NDCA/9lS2cmLk7uVTz052V?=
- =?us-ascii?Q?0YQ9MGGkT0Hp2cR+LUKfqVEcX6reN90wCA2iBQQ3vilSmKBKzV6IxYpYBmmk?=
- =?us-ascii?Q?Yji0QiyeZqd7skZbV6rJo4IQc6E6RNaa3ZEBBJ0fwnkSyYijSj/ejHlE0j1v?=
- =?us-ascii?Q?nTILiMka3k0+v8XHAhK2qa7ZwdO1xJyRDLWRTUTjSSjTQ2eOH7ndu88esKnU?=
- =?us-ascii?Q?sJx1OBsuCvnRxVo0RvsgaU3lfK19fmiQ7qfpGZg1ocC4yiV3ePcgQjN0/zhM?=
- =?us-ascii?Q?1do9cUas8RfF5hz+g+4vz8vGK6muyuIWwBR3/O4xdGXKT5i9wcuWWsCGtdMK?=
- =?us-ascii?Q?nIDpzCSTIYDKoxQxVIOpIjwzegt2nsCLZgnKxJN9ECvoGRLBolb/w/EPkTS7?=
- =?us-ascii?Q?b1o1WCdwhUJw1Llj/KVc+5OZdX/5dGT30W/V54V7sr27poFgqrrxpyS+GGoZ?=
- =?us-ascii?Q?w9IAJXupUoVe07vxX8q7LdxCMpI1MUzjpmjo8zaOJ+1BFY9T1rQlctKEgnd+?=
- =?us-ascii?Q?OiGXL349QJ0Amfzflr03wBMmt5v6BwI/+mVY5rY3RtvOXFvjbxzAIqhe4f4f?=
- =?us-ascii?Q?NnWCmDQ/KiIOoQh1TR0+8nJX/fnMiLXtLfEd0zRzfAOYaEbKwJt7vQyMeP4U?=
- =?us-ascii?Q?K0s2oBxayLRNIzet5KC4t+TQ9QFY+6rRdb7XwRbH2AKKMUIWDSjf1d43sQjG?=
- =?us-ascii?Q?VV/uE2gmLqZYaltOAWC4foRInal5TsFWw2V5XU7wFcHAHlpRjjmt2Gz8+Wy5?=
- =?us-ascii?Q?hlJOOjJ/VyYsBnk=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?Z7PW3OogLw+W54iw3k1USFZDBeBZq+KjLuxeBjm+3N9G88un3Y+4NrCXrYM4?=
- =?us-ascii?Q?TE8w2GIIaSLxf7vlyx3LkJRTHb2+lsgHH5trD+7NiQUG8yG/yaXAvPZlEbfV?=
- =?us-ascii?Q?EI/21xTqmEpOgGkKpcpgbDgJC2s8wsQZJOcNUHWI4SkciHLHiliqt9CyBokA?=
- =?us-ascii?Q?yBMXg0m7wVNNI2q6chX4iQi1CVi+/A3I1P5kW4uRecxy8CvBWCsICs23cJOO?=
- =?us-ascii?Q?k/LUq9r1NDxNmB4pnTCahrnGnZK/sWB7+l1W8AKEh7j1vY2FvF+1pc74QTL9?=
- =?us-ascii?Q?+HJOs2z6pyzW+zOrGQ07S11MZA2HCshkahVSpUiidgfG5+5aP06ozdXBaOux?=
- =?us-ascii?Q?L0Vb7srxvT0xfEvqizGTmD7qSPZ82oSQ4SeN9b6BDbu5P/4rWGldo5Ih0o/l?=
- =?us-ascii?Q?lj0UNMVA6TmiN4NZ1Gmqyli7MfoFo+Jgbn60RWNxZ3wL24FShNwPAM3Bx9cP?=
- =?us-ascii?Q?kUyOVjJ/lgIJpywtjtsm2CmR138PSMKNqFAX37GKovUCsoEVDZtZFh4oOvV0?=
- =?us-ascii?Q?1+oal8tErW4r2b+HHNKzlIgI4j3/oe0V3gyXB9BlITFqw8axKxfGVtVh0dAo?=
- =?us-ascii?Q?k/l+RXqgE6a6ALYKT2nGwmsoln40IAKRvoZnylSMJfdeCjmqTAHdnFZ5Xdh8?=
- =?us-ascii?Q?J+M4OxEiTf7tEQv/ZsBui8IdYycsRhu6ENAo8EwjLXjxL9xLYUAFj3i/D5XS?=
- =?us-ascii?Q?JqJMzSIOWhKpRP8bnpCLzksMlTQwkijeLYaPnEvvltgUgU9HhMs6m4tQ8L3x?=
- =?us-ascii?Q?GRq13xOTWdpkGq6bGuDtDsN0rwm5Aj85vO3+afrA1vbgeJXe+pdxiimV0guB?=
- =?us-ascii?Q?4RiSSVvtgJfvs7n7vetzYA60flXTleuBukyFkiYppe49OPYYw2GcULaQ32BF?=
- =?us-ascii?Q?R9qSMchSEGWtUicW+Dpt7NiK01zkWY9q9G3dgOBGN+RQOmMSOzaYUqyf9MS/?=
- =?us-ascii?Q?zcoS6HMk9pCvrAhmWfRGzQ5r6Xq/pzdJ4oxWds5cr5UvFrvIGHV5lhX/F/FS?=
- =?us-ascii?Q?aoiCZIKs5FjllAqbeFVAptQ1/ZMKD6F4yeOyWX7YKaDxMujUJoLxlJ7iVlKq?=
- =?us-ascii?Q?0mUnfwrTwxHVfl3PZJaPVLUsuZwsc7fZEFJQ2wydp1VuigLYf30ueI8XmJg2?=
- =?us-ascii?Q?TpivXOeRHL5eHfxYBVmSFnYBXdXrnv2VQ74ETfa+42v0tiAXJTSPaH1aJYm+?=
- =?us-ascii?Q?afgNKEQ5wGIIrcHJ1m3bLsFSnwqBVk4IkBqsv7nD08CRqx0bFUH13ftGI2ZJ?=
- =?us-ascii?Q?x4y4uOBhtFslmgK8BzR6PqZx6rM+eh9Mee7xIGNx1OsGSvuXFHPQkzmPlG61?=
- =?us-ascii?Q?mR8ZLnJCHmkkIe/F+GBQIxNHZqmKZ8E/hOf5Sy3IyMOxCY3cvdzyrx21sIia?=
- =?us-ascii?Q?QaZUZ6vBgEqm6lnCxe/KpezKU1sJiSJjaGDwIf3bWANA8pQsNz6ADicixSd9?=
- =?us-ascii?Q?01dA4wikKPmxNY7F2fvLN9KLhPV292bB5gdPyPAx47KZ0pbe7uMuXYCyhEga?=
- =?us-ascii?Q?KYCEfcBJLOSiliz8J4DdI5A0jAiiNdCNgnIHMft+sTWppLkGYT5wBqC1QDFX?=
- =?us-ascii?Q?UOxPg6o1Kzs6CW79+CQ=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1ukqwO-00000004vcn-1b72;
+	Sat, 09 Aug 2025 21:17:26 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4571E2311;
+	Sat,  9 Aug 2025 23:16:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1754774192;
+	bh=EryYFY0EUZgIZNYfj3b7URHbY6OIvraSTabOqMe+neY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=iqpGzba8gc94EQQxuf0MdrNNmhDZWi1pXbv1UlhIvZeMyjjuc7de2jDVh1qD7BHkr
+	 fVwoJ4FhU8bEr52KsUF5GqLcDmbN6Lihn/ju9Ndj3v3qXpF8090bQKArJsjfzyNnix
+	 xp1EBMfyHZuSfXzk7qzFz8svqIQYerLTIldPGtpk=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: Hans Verkuil <hans@jjverkuil.nl>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Alex Shi <alexs@kernel.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Dongliang Mu <dzm91@hust.edu.cn>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andy Walls <awalls@md.metrocast.net>,
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Bin Liu <bin.liu@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Mirela Rabulea <mirela.rabulea@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Yunke Cao <yunkec@google.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v2 08/76] media: Wrap file->private_data access with a helper function
+Date: Sun, 10 Aug 2025 00:15:45 +0300
+Message-ID: <20250809211654.28887-9-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250809211654.28887-1-laurent.pinchart@ideasonboard.com>
+References: <20250809211654.28887-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 984c8f8b-c96b-41a5-130c-08ddd783befb
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Aug 2025 20:31:40.1213
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wevRx6tLE2GqO7LFyk8uNdJjU7TTpkuTleBgRUedYx8euqxeU89qsYLSVyLN5HeqS6GUVSQCvs6ad39SNELeHw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4321
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_133155_650009_0FDC199F 
-X-CRM114-Status: GOOD (  23.46  )
+X-CRM114-CacheID: sfid-20250809_141724_713267_4F2887CE 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,83 +101,689 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[Public]
+From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
-Hi Jakub,
-> -----Original Message-----
-> From: Jakub Kicinski <kuba@kernel.org>
-> Sent: Saturday, August 9, 2025 12:36 AM
-> To: Gupta, Suraj <Suraj.Gupta2@amd.com>
-> Cc: andrew+netdev@lunn.ch; davem@davemloft.net;
-> edumazet@google.com; pabeni@redhat.com; Simek, Michal
-> <michal.simek@amd.com>; sean.anderson@linux.dev; Pandey, Radhey
-> Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org;
-> netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; Katakam, Harini <harini.katakam@amd.com>
-> Subject: Re: [PATCH net] net: xilinx: axienet: Increment Rx skb ring head
-> pointer after BD is successfully allocated in dmaengine flow
->
-> Caution: This message originated from an External Source. Use proper
-> caution when opening attachments, clicking links, or responding.
->
->
-> On Wed, 6 Aug 2025 00:49:58 +0530 Suraj Gupta wrote:
-> > In DMAengine flow, AXI DMA driver invokes callback before freeing BD
-> > in irq handling path.
-> > In Rx callback (axienet_dma_rx_cb()), axienet driver tries to allocate
-> > new BD after processing skb.
-> > This will be problematic if both AXI-DMA and AXI ethernet have same BD
-> > count as all Rx BDs will be allocated initially and it won't be able
-> > to allocate new one after Rx irq. Incrementing head pointer w/o
-> > checking for BD allocation will result in garbage values in skb BD and
-> > cause the below kernel crash:
-> >
-> > Unable to handle kernel paging request at virtual address
-> > fffffffffffffffa <snip> Internal error: Oops: 0000000096000006 [#1]
-> > SMP pc : axienet_dma_rx_cb+0x78/0x150 lr :
-> > axienet_dma_rx_cb+0x78/0x150  Call trace:
-> >   axienet_dma_rx_cb+0x78/0x150 (P)
-> >   xilinx_dma_do_tasklet+0xdc/0x290
-> >   tasklet_action_common+0x12c/0x178
-> >   tasklet_action+0x30/0x3c
-> >   handle_softirqs+0xf8/0x230
-> > <snip>
->
-> Do you mean that we're incrementing lp->rx_ring_head before we know that
-> the submission will succeed? Potentially leaving an uninitialized entry (=
-say at
-> index n), next attempt will try to use the next entry (n + 1) but the com=
-pletion
-> will not know about the skip so it will try to complete entry n ?
->
-> This is really not coming thru in your explanation.
->
-You're right, I only explained the issue I faced while running perf test wi=
-th same BD count in axienet and AXI DMA. Above is more generic explanation =
-of the situation here. I'll modify the description.
+Accessing file->private_data manually to retrieve the v4l2_fh pointer is
+error-prone, as the field is a void * and will happily convert
+implicitly to any pointer type. To avoid direct access to
+file->private_data, introduce a new inline function that retrieves the
+v4l2_fh pointer, and use it to replace common access patterns through
+the kernel.
 
-> The fix itself seems incomplete. Even if we correctly skip the increment =
-we
-> will never try to catch up with the allocations, the ring will have fewer
-> outstanding Rx skbs until reset, right? Worst case we drop all the skbs a=
-nd the
-> ring will be empty, no Rx will happen until reset.
-> The shutdown path seems to be checking for skb =3D NULL so I guess it's c=
-orrect
-> but good to double check..
-> --
-> pw-bot: cr
+Changes to drivers have been generated with the following coccinelle
+semantic patch:
 
-I agree that Rx ring will have fewer outstanding skbs. But I think that dif=
-ference won't exceed one anytime as descriptors submission will fail only o=
-nce due to insufficient space in AXIDMA BD ring. Rest of the time we alread=
-y will have an extra entry in AXIDMA BD ring. Also, invoking callback (wher=
-e Rx skb ring hp is filled in axienet)and freeing AXIDMA BD are part of sam=
-e tasklet in AXIDMA driver so next callback will only be called after freei=
-ng a BD.
-I tested running stress tests (Both UPD and TCP netperf).
-Please let me know your thoughts if I'm missing something.
+@@
+struct file *filp;
+identifier fh;
+@@
 
-Thanks,
-Suraj
+-       struct v4l2_fh *fh = filp->private_data;
++       struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+
+Manual changes have been applied to Documentation/ to update the usage
+patterns, and to include/media/v4l2-fh.h to add the new function.
+
+While at it, fix a typo in the title of v4l2-fh.rst: the file describes
+the "file handles" API, not "file handlers".
+
+No functional change is intended, this only paves the way to remove
+direct accesses to file->private_data and make V4L2 drivers safer.
+Other accesses to the field will be addressed separately.
+
+Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+---
+ Documentation/driver-api/media/v4l2-fh.rst    | 16 +++++----
+ .../zh_CN/video4linux/v4l2-framework.txt      |  2 +-
+ .../media/common/videobuf2/videobuf2-v4l2.c   |  2 +-
+ drivers/media/pci/cx18/cx18-fileops.c         |  2 +-
+ drivers/media/pci/ivtv/ivtv-fileops.c         |  2 +-
+ .../media/platform/allegro-dvt/allegro-core.c |  2 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    |  2 +-
+ .../media/platform/nvidia/tegra-vde/v4l2.c    |  2 +-
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    |  4 +--
+ .../media/platform/renesas/vsp1/vsp1_histo.c  |  6 ++--
+ .../media/platform/renesas/vsp1/vsp1_video.c  | 12 +++----
+ drivers/media/platform/ti/omap3isp/ispvideo.c |  2 +-
+ drivers/media/platform/xilinx/xilinx-dma.c    | 10 +++---
+ drivers/media/usb/uvc/uvc_metadata.c          | 10 +++---
+ drivers/media/v4l2-core/v4l2-ctrls-api.c      |  4 +--
+ drivers/media/v4l2-core/v4l2-fh.c             |  2 +-
+ drivers/media/v4l2-core/v4l2-mem2mem.c        | 34 +++++++++----------
+ drivers/media/v4l2-core/v4l2-subdev.c         |  8 ++---
+ include/media/v4l2-fh.h                       | 14 ++++++++
+ 19 files changed, 77 insertions(+), 59 deletions(-)
+
+diff --git a/Documentation/driver-api/media/v4l2-fh.rst b/Documentation/driver-api/media/v4l2-fh.rst
+index 3eeaa8da0c9e..2c87b74578d9 100644
+--- a/Documentation/driver-api/media/v4l2-fh.rst
++++ b/Documentation/driver-api/media/v4l2-fh.rst
+@@ -1,7 +1,7 @@
+ .. SPDX-License-Identifier: GPL-2.0
+ 
+-V4L2 File handlers
+-------------------
++V4L2 File handles
++-----------------
+ 
+ struct v4l2_fh provides a way to easily keep file handle specific
+ data that is used by the V4L2 framework.
+@@ -18,7 +18,9 @@ This bit is set whenever :c:func:`v4l2_fh_init` is called.
+ 
+ struct v4l2_fh is allocated as a part of the driver's own file handle
+ structure and ``file->private_data`` is set to it in the driver's ``open()``
+-function by the driver.
++function by the driver. The :c:type:`v4l2_fh` file handle can be retrieved
++from the :c:type:`file` using :c:func:`file_to_v4l2_fh`. Drivers must not
++access ``file->private_data`` directly.
+ 
+ In many cases the struct v4l2_fh will be embedded in a larger
+ structure. In that case you should call:
+@@ -63,7 +65,7 @@ Example:
+ 
+ 	int my_release(struct file *file)
+ 	{
+-		struct v4l2_fh *fh = file->private_data;
++		struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 		struct my_fh *my_fh = container_of(fh, struct my_fh, fh);
+ 
+ 		...
+@@ -78,11 +80,9 @@ Below is a short description of the :c:type:`v4l2_fh` functions used:
+ :c:func:`v4l2_fh_init <v4l2_fh_init>`
+ (:c:type:`fh <v4l2_fh>`, :c:type:`vdev <video_device>`)
+ 
+-
+ - Initialise the file handle. This **MUST** be performed in the driver's
+   :c:type:`v4l2_file_operations`->open() handler.
+ 
+-
+ :c:func:`v4l2_fh_add <v4l2_fh_add>`
+ (:c:type:`fh <v4l2_fh>`)
+ 
+@@ -101,6 +101,10 @@ Below is a short description of the :c:type:`v4l2_fh` functions used:
+ - Uninitialise the file handle. After uninitialisation the :c:type:`v4l2_fh`
+   memory can be freed.
+ 
++:c:func:`file_to_v4l2_fh <file_to_v4l2_fh>`
++(struct file \*filp)
++
++- Retrieve the :c:type:`v4l2_fh` instance associated with a :c:type:`file`.
+ 
+ If struct v4l2_fh is not embedded, then you can use these helper functions:
+ 
+diff --git a/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt b/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt
+index 9cc97ec75d7a..a9eb62fa1531 100644
+--- a/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt
++++ b/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt
+@@ -819,7 +819,7 @@ int my_open(struct file *file)
+ 
+ int my_release(struct file *file)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct my_fh *my_fh = container_of(fh, struct my_fh, fh);
+ 
+ 	...
+diff --git a/drivers/media/common/videobuf2/videobuf2-v4l2.c b/drivers/media/common/videobuf2/videobuf2-v4l2.c
+index 1cd26faee503..f29307e59be5 100644
+--- a/drivers/media/common/videobuf2/videobuf2-v4l2.c
++++ b/drivers/media/common/videobuf2/videobuf2-v4l2.c
+@@ -979,7 +979,7 @@ __poll_t vb2_poll(struct vb2_queue *q, struct file *file, poll_table *wait)
+ 	res = vb2_core_poll(q, file, wait);
+ 
+ 	if (test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags)) {
+-		struct v4l2_fh *fh = file->private_data;
++		struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 		poll_wait(file, &fh->wait, wait);
+ 		if (v4l2_event_pending(fh))
+diff --git a/drivers/media/pci/cx18/cx18-fileops.c b/drivers/media/pci/cx18/cx18-fileops.c
+index cefa91b37f89..af25628b11ba 100644
+--- a/drivers/media/pci/cx18/cx18-fileops.c
++++ b/drivers/media/pci/cx18/cx18-fileops.c
+@@ -678,7 +678,7 @@ void cx18_stop_capture(struct cx18_stream *s, int gop_end)
+ 
+ int cx18_v4l2_close(struct file *filp)
+ {
+-	struct v4l2_fh *fh = filp->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+ 	struct cx18_open_id *id = fh2id(fh);
+ 	struct cx18 *cx = id->cx;
+ 	struct cx18_stream *s = &cx->streams[id->type];
+diff --git a/drivers/media/pci/ivtv/ivtv-fileops.c b/drivers/media/pci/ivtv/ivtv-fileops.c
+index cfa28d035586..230d498108b5 100644
+--- a/drivers/media/pci/ivtv/ivtv-fileops.c
++++ b/drivers/media/pci/ivtv/ivtv-fileops.c
+@@ -877,7 +877,7 @@ static void ivtv_stop_decoding(struct ivtv_open_id *id, int flags, u64 pts)
+ 
+ int ivtv_v4l2_close(struct file *filp)
+ {
+-	struct v4l2_fh *fh = filp->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+ 	struct ivtv_open_id *id = fh2id(fh);
+ 	struct ivtv *itv = id->itv;
+ 	struct ivtv_stream *s = &itv->streams[id->type];
+diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/allegro-core.c
+index eb03df0d8652..1f134e08923a 100644
+--- a/drivers/media/platform/allegro-dvt/allegro-core.c
++++ b/drivers/media/platform/allegro-dvt/allegro-core.c
+@@ -3483,7 +3483,7 @@ static int allegro_enum_framesizes(struct file *file, void *fh,
+ static int allegro_ioctl_streamon(struct file *file, void *priv,
+ 				  enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct allegro_channel *channel = fh_to_channel(fh);
+ 	int err;
+ 
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 7eb12449b63a..329e5787c2c2 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -588,7 +588,7 @@ static int mtk_jpeg_enc_s_selection(struct file *file, void *priv,
+ 
+ static int mtk_jpeg_qbuf(struct file *file, void *priv, struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
+ 	struct vb2_queue *vq;
+ 	struct vb2_buffer *vb;
+diff --git a/drivers/media/platform/nvidia/tegra-vde/v4l2.c b/drivers/media/platform/nvidia/tegra-vde/v4l2.c
+index e3726cab0c82..531a85e3fe49 100644
+--- a/drivers/media/platform/nvidia/tegra-vde/v4l2.c
++++ b/drivers/media/platform/nvidia/tegra-vde/v4l2.c
+@@ -853,7 +853,7 @@ static int tegra_open(struct file *file)
+ 
+ static int tegra_release(struct file *file)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct tegra_ctx *ctx = fh_to_tegra_ctx(fh);
+ 	struct tegra_vde *vde = ctx->vde;
+ 
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+index 8681dd193033..1b2148578cb6 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+@@ -1604,7 +1604,7 @@ static void mxc_jpeg_device_run(void *priv)
+ static int mxc_jpeg_decoder_cmd(struct file *file, void *priv,
+ 				struct v4l2_decoder_cmd *cmd)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct mxc_jpeg_ctx *ctx = mxc_jpeg_fh_to_ctx(fh);
+ 	unsigned long flags;
+ 	int ret;
+@@ -1637,7 +1637,7 @@ static int mxc_jpeg_decoder_cmd(struct file *file, void *priv,
+ static int mxc_jpeg_encoder_cmd(struct file *file, void *priv,
+ 				struct v4l2_encoder_cmd *cmd)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct mxc_jpeg_ctx *ctx = mxc_jpeg_fh_to_ctx(fh);
+ 	unsigned long flags;
+ 	int ret;
+diff --git a/drivers/media/platform/renesas/vsp1/vsp1_histo.c b/drivers/media/platform/renesas/vsp1/vsp1_histo.c
+index c762202877ba..390ea50f1595 100644
+--- a/drivers/media/platform/renesas/vsp1/vsp1_histo.c
++++ b/drivers/media/platform/renesas/vsp1/vsp1_histo.c
+@@ -392,7 +392,7 @@ static const struct v4l2_subdev_ops histo_ops = {
+ static int histo_v4l2_querycap(struct file *file, void *fh,
+ 			       struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_histogram *histo = vdev_to_histo(vfh->vdev);
+ 
+ 	cap->capabilities = V4L2_CAP_DEVICE_CAPS | V4L2_CAP_STREAMING
+@@ -409,7 +409,7 @@ static int histo_v4l2_querycap(struct file *file, void *fh,
+ static int histo_v4l2_enum_format(struct file *file, void *fh,
+ 				  struct v4l2_fmtdesc *f)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_histogram *histo = vdev_to_histo(vfh->vdev);
+ 
+ 	if (f->index > 0 || f->type != histo->queue.type)
+@@ -423,7 +423,7 @@ static int histo_v4l2_enum_format(struct file *file, void *fh,
+ static int histo_v4l2_get_format(struct file *file, void *fh,
+ 				 struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_histogram *histo = vdev_to_histo(vfh->vdev);
+ 	struct v4l2_meta_format *meta = &format->fmt.meta;
+ 
+diff --git a/drivers/media/platform/renesas/vsp1/vsp1_video.c b/drivers/media/platform/renesas/vsp1/vsp1_video.c
+index bc66fbdde3cc..656fb5e6cb30 100644
+--- a/drivers/media/platform/renesas/vsp1/vsp1_video.c
++++ b/drivers/media/platform/renesas/vsp1/vsp1_video.c
+@@ -896,7 +896,7 @@ static const struct vb2_ops vsp1_video_queue_qops = {
+ static int
+ vsp1_video_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 
+ 	cap->capabilities = V4L2_CAP_DEVICE_CAPS | V4L2_CAP_STREAMING
+@@ -912,7 +912,7 @@ vsp1_video_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ static int vsp1_video_enum_format(struct file *file, void *fh,
+ 				  struct v4l2_fmtdesc *f)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 	const struct vsp1_format_info *info;
+ 
+@@ -933,7 +933,7 @@ static int vsp1_video_enum_format(struct file *file, void *fh,
+ static int
+ vsp1_video_get_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 
+ 	if (format->type != video->queue.type)
+@@ -949,7 +949,7 @@ vsp1_video_get_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ vsp1_video_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 
+ 	if (format->type != video->queue.type)
+@@ -961,7 +961,7 @@ vsp1_video_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ vsp1_video_set_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 	const struct vsp1_format_info *info;
+ 	int ret;
+@@ -991,7 +991,7 @@ vsp1_video_set_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ vsp1_video_streamon(struct file *file, void *fh, enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 	struct media_device *mdev = &video->vsp1->media_dev;
+ 	struct vsp1_pipeline *pipe;
+diff --git a/drivers/media/platform/ti/omap3isp/ispvideo.c b/drivers/media/platform/ti/omap3isp/ispvideo.c
+index 78e30298c7ad..a777135c6a6c 100644
+--- a/drivers/media/platform/ti/omap3isp/ispvideo.c
++++ b/drivers/media/platform/ti/omap3isp/ispvideo.c
+@@ -1348,7 +1348,7 @@ static int isp_video_open(struct file *file)
+ static int isp_video_release(struct file *file)
+ {
+ 	struct isp_video *video = video_drvdata(file);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct isp_video_fh *handle = to_isp_video_fh(vfh);
+ 
+ 	/* Disable streaming and free the buffers queue resources. */
+diff --git a/drivers/media/platform/xilinx/xilinx-dma.c b/drivers/media/platform/xilinx/xilinx-dma.c
+index 18bfa6001909..fcfe0883aba5 100644
+--- a/drivers/media/platform/xilinx/xilinx-dma.c
++++ b/drivers/media/platform/xilinx/xilinx-dma.c
+@@ -469,7 +469,7 @@ static const struct vb2_ops xvip_dma_queue_qops = {
+ static int
+ xvip_dma_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	cap->capabilities = dma->xdev->v4l2_caps | V4L2_CAP_STREAMING |
+@@ -491,7 +491,7 @@ xvip_dma_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ static int
+ xvip_dma_enum_format(struct file *file, void *fh, struct v4l2_fmtdesc *f)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	if (f->index > 0)
+@@ -505,7 +505,7 @@ xvip_dma_enum_format(struct file *file, void *fh, struct v4l2_fmtdesc *f)
+ static int
+ xvip_dma_get_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	format->fmt.pix = dma->format;
+@@ -565,7 +565,7 @@ __xvip_dma_try_format(struct xvip_dma *dma, struct v4l2_pix_format *pix,
+ static int
+ xvip_dma_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	__xvip_dma_try_format(dma, &format->fmt.pix, NULL);
+@@ -575,7 +575,7 @@ xvip_dma_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ xvip_dma_set_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 	const struct xvip_video_format *info;
+ 
+diff --git a/drivers/media/usb/uvc/uvc_metadata.c b/drivers/media/usb/uvc/uvc_metadata.c
+index 229e08ff323e..4cbf6ce314fd 100644
+--- a/drivers/media/usb/uvc/uvc_metadata.c
++++ b/drivers/media/usb/uvc/uvc_metadata.c
+@@ -26,7 +26,7 @@
+ static int uvc_meta_v4l2_querycap(struct file *file, void *fh,
+ 				  struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct uvc_video_chain *chain = stream->chain;
+ 
+@@ -42,7 +42,7 @@ static int uvc_meta_v4l2_querycap(struct file *file, void *fh,
+ static int uvc_meta_v4l2_get_format(struct file *file, void *fh,
+ 				    struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct v4l2_meta_format *fmt = &format->fmt.meta;
+ 
+@@ -60,7 +60,7 @@ static int uvc_meta_v4l2_get_format(struct file *file, void *fh,
+ static int uvc_meta_v4l2_try_format(struct file *file, void *fh,
+ 				    struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct uvc_device *dev = stream->dev;
+ 	struct v4l2_meta_format *fmt = &format->fmt.meta;
+@@ -86,7 +86,7 @@ static int uvc_meta_v4l2_try_format(struct file *file, void *fh,
+ static int uvc_meta_v4l2_set_format(struct file *file, void *fh,
+ 				    struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct v4l2_meta_format *fmt = &format->fmt.meta;
+ 	int ret;
+@@ -115,7 +115,7 @@ static int uvc_meta_v4l2_set_format(struct file *file, void *fh,
+ static int uvc_meta_v4l2_enum_formats(struct file *file, void *fh,
+ 				      struct v4l2_fmtdesc *fdesc)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct uvc_device *dev = stream->dev;
+ 	u32 i = fdesc->index;
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+index d49a68b36c28..d46b2c8f3d23 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-api.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+@@ -1253,7 +1253,7 @@ EXPORT_SYMBOL(v4l2_querymenu);
+ int v4l2_ctrl_log_status(struct file *file, void *fh)
+ {
+ 	struct video_device *vfd = video_devdata(file);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 
+ 	if (test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags) && vfd->v4l2_dev)
+ 		v4l2_ctrl_handler_log_status(vfh->ctrl_handler,
+@@ -1348,7 +1348,7 @@ EXPORT_SYMBOL(v4l2_ctrl_subdev_subscribe_event);
+  */
+ __poll_t v4l2_ctrl_poll(struct file *file, struct poll_table_struct *wait)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	poll_wait(file, &fh->wait, wait);
+ 	if (v4l2_event_pending(fh))
+diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
+index 90eec79ee995..7a5f7aa5e253 100644
+--- a/drivers/media/v4l2-core/v4l2-fh.c
++++ b/drivers/media/v4l2-core/v4l2-fh.c
+@@ -90,7 +90,7 @@ EXPORT_SYMBOL_GPL(v4l2_fh_exit);
+ 
+ int v4l2_fh_release(struct file *filp)
+ {
+-	struct v4l2_fh *fh = filp->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+ 
+ 	if (fh) {
+ 		v4l2_fh_del(fh);
+diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
+index eb22d6172462..e67e67f76f72 100644
+--- a/drivers/media/v4l2-core/v4l2-mem2mem.c
++++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+@@ -971,7 +971,7 @@ __poll_t v4l2_m2m_poll(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
+ 		rc = v4l2_m2m_poll_for_data(file, m2m_ctx, wait);
+ 
+ 	if (test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags)) {
+-		struct v4l2_fh *fh = file->private_data;
++		struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 		poll_wait(file, &fh->wait, wait);
+ 		if (v4l2_event_pending(fh))
+@@ -1004,7 +1004,7 @@ unsigned long v4l2_m2m_get_unmapped_area(struct file *file, unsigned long addr,
+ 					 unsigned long len, unsigned long pgoff,
+ 					 unsigned long flags)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	unsigned long offset = pgoff << PAGE_SHIFT;
+ 	struct vb2_queue *vq;
+ 
+@@ -1371,7 +1371,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_request_queue);
+ int v4l2_m2m_ioctl_reqbufs(struct file *file, void *priv,
+ 				struct v4l2_requestbuffers *rb)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_reqbufs(file, fh->m2m_ctx, rb);
+ }
+@@ -1380,7 +1380,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_reqbufs);
+ int v4l2_m2m_ioctl_create_bufs(struct file *file, void *priv,
+ 				struct v4l2_create_buffers *create)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_create_bufs(file, fh->m2m_ctx, create);
+ }
+@@ -1389,7 +1389,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_create_bufs);
+ int v4l2_m2m_ioctl_remove_bufs(struct file *file, void *priv,
+ 			       struct v4l2_remove_buffers *remove)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct vb2_queue *q = v4l2_m2m_get_vq(fh->m2m_ctx, remove->type);
+ 
+ 	if (!q)
+@@ -1404,7 +1404,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_remove_bufs);
+ int v4l2_m2m_ioctl_querybuf(struct file *file, void *priv,
+ 				struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_querybuf(file, fh->m2m_ctx, buf);
+ }
+@@ -1413,7 +1413,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_querybuf);
+ int v4l2_m2m_ioctl_qbuf(struct file *file, void *priv,
+ 				struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_qbuf(file, fh->m2m_ctx, buf);
+ }
+@@ -1422,7 +1422,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_qbuf);
+ int v4l2_m2m_ioctl_dqbuf(struct file *file, void *priv,
+ 				struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_dqbuf(file, fh->m2m_ctx, buf);
+ }
+@@ -1431,7 +1431,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_dqbuf);
+ int v4l2_m2m_ioctl_prepare_buf(struct file *file, void *priv,
+ 			       struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_prepare_buf(file, fh->m2m_ctx, buf);
+ }
+@@ -1440,7 +1440,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_prepare_buf);
+ int v4l2_m2m_ioctl_expbuf(struct file *file, void *priv,
+ 				struct v4l2_exportbuffer *eb)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_expbuf(file, fh->m2m_ctx, eb);
+ }
+@@ -1449,7 +1449,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_expbuf);
+ int v4l2_m2m_ioctl_streamon(struct file *file, void *priv,
+ 				enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_streamon(file, fh->m2m_ctx, type);
+ }
+@@ -1458,7 +1458,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_streamon);
+ int v4l2_m2m_ioctl_streamoff(struct file *file, void *priv,
+ 				enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_streamoff(file, fh->m2m_ctx, type);
+ }
+@@ -1542,7 +1542,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_decoder_cmd);
+ int v4l2_m2m_ioctl_encoder_cmd(struct file *file, void *priv,
+ 			       struct v4l2_encoder_cmd *ec)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_encoder_cmd(file, fh->m2m_ctx, ec);
+ }
+@@ -1551,7 +1551,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_encoder_cmd);
+ int v4l2_m2m_ioctl_decoder_cmd(struct file *file, void *priv,
+ 			       struct v4l2_decoder_cmd *dc)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_decoder_cmd(file, fh->m2m_ctx, dc);
+ }
+@@ -1572,7 +1572,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_stateless_try_decoder_cmd);
+ int v4l2_m2m_ioctl_stateless_decoder_cmd(struct file *file, void *priv,
+ 					 struct v4l2_decoder_cmd *dc)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct vb2_v4l2_buffer *out_vb, *cap_vb;
+ 	struct v4l2_m2m_dev *m2m_dev = fh->m2m_ctx->m2m_dev;
+ 	unsigned long flags;
+@@ -1617,7 +1617,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_stateless_decoder_cmd);
+ 
+ int v4l2_m2m_fop_mmap(struct file *file, struct vm_area_struct *vma)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_mmap(file, fh->m2m_ctx, vma);
+ }
+@@ -1625,7 +1625,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_fop_mmap);
+ 
+ __poll_t v4l2_m2m_fop_poll(struct file *file, poll_table *wait)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct v4l2_m2m_ctx *m2m_ctx = fh->m2m_ctx;
+ 	__poll_t ret;
+ 
+diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
+index 4fd25fea3b58..29d3b788b288 100644
+--- a/drivers/media/v4l2-core/v4l2-subdev.c
++++ b/drivers/media/v4l2-core/v4l2-subdev.c
+@@ -122,7 +122,7 @@ static int subdev_close(struct file *file)
+ {
+ 	struct video_device *vdev = video_devdata(file);
+ 	struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct v4l2_subdev_fh *subdev_fh = to_v4l2_subdev_fh(vfh);
+ 
+ 	if (sd->internal_ops && sd->internal_ops->close)
+@@ -612,7 +612,7 @@ static long subdev_do_ioctl(struct file *file, unsigned int cmd, void *arg,
+ {
+ 	struct video_device *vdev = video_devdata(file);
+ 	struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct v4l2_subdev_fh *subdev_fh = to_v4l2_subdev_fh(vfh);
+ 	bool ro_subdev = test_bit(V4L2_FL_SUBDEV_RO_DEVNODE, &vdev->flags);
+ 	bool streams_subdev = sd->flags & V4L2_SUBDEV_FL_STREAMS;
+@@ -1135,7 +1135,7 @@ static long subdev_do_ioctl_lock(struct file *file, unsigned int cmd, void *arg)
+ 
+ 	if (video_is_registered(vdev)) {
+ 		struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-		struct v4l2_fh *vfh = file->private_data;
++		struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 		struct v4l2_subdev_fh *subdev_fh = to_v4l2_subdev_fh(vfh);
+ 		struct v4l2_subdev_state *state;
+ 
+@@ -1192,7 +1192,7 @@ static __poll_t subdev_poll(struct file *file, poll_table *wait)
+ {
+ 	struct video_device *vdev = video_devdata(file);
+ 	struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	if (!(sd->flags & V4L2_SUBDEV_FL_HAS_EVENTS))
+ 		return EPOLLERR;
+diff --git a/include/media/v4l2-fh.h b/include/media/v4l2-fh.h
+index b5b3e00c8e6a..823fa8ebeb8f 100644
+--- a/include/media/v4l2-fh.h
++++ b/include/media/v4l2-fh.h
+@@ -56,6 +56,20 @@ struct v4l2_fh {
+ 	struct v4l2_m2m_ctx	*m2m_ctx;
+ };
+ 
++/**
++ * file_to_v4l2_fh - Return the v4l2_fh associated with a struct file
++ *
++ * @filp: pointer to &struct file
++ *
++ * This function should be used by drivers to retrieve the &struct v4l2_fh
++ * instance pointer stored in the file private_data instead of accessing the
++ * private_data field directly.
++ */
++static inline struct v4l2_fh *file_to_v4l2_fh(struct file *filp)
++{
++	return filp->private_data;
++}
++
+ /**
+  * v4l2_fh_init - Initialise the file handle.
+  *
+-- 
+Regards,
+
+Laurent Pinchart
+
 
