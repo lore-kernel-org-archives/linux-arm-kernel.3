@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2844C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 07:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4553C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 09:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PnOBJp/dCmnaAVtEczBA0DMOWb+q7+EVB4/c2xyrUM8=; b=CAhct/+tJaoD0zhj+sJdAy0PaE
-	T6xgj/lp1MRhnNIa845Z/HU1Efc5S+mwe0+lqhgGdouaYczJalQWA147YgYTrIVc2SoenXGrs/Vze
-	oiCG+apHOiaRBS6n2nCUtOpiSVghhuY8yTeY8QAMqHPs2yLYkKmZhTaSyakbz4XCtUuBu2Q/935Oa
-	wyAfvuIUAxS8KuN5uOXLU7q9ZjYcykKgVD5sOTNhPR3R0Rq/bB1QY92Jweh3ibuKZ7meHkd2nMSpG
-	aiHdKTS1+TqxkM1x+zYLIH63JnZjCzhRgxPapybE6J2vkTttV/T5wGpagJW1gUzNQ/c5v33qJvu90
-	lHGHmy6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xWXpEufWMsbdL9aSyso+1oSexieZNcppiay7D7l66/c=; b=B+LvTAdWVW/Lv/Tg5r6r7xNqmT
+	QT3o1fXHucaSZUWdi9LedXzTSvR0XZNC1iBXoJlQQmSxeaHEVeuv5Qv8naNiun3e4VnBb4BUt42Hv
+	hCS3Kh4vsLspU8fSr+WbjpHGKyUAeMMlVUZNv6PWYSLBDaq+Y7S7Iji7tGIqcntFzoUof7yAmEp9W
+	dUq6gb2cj/uMNuAAqI7FXTqTl2U9LVd5tE4RwbENJ8RBjw4W432h9u4kZnCRozixfiArOTepBzMmJ
+	5eARu/8JEnqOc/Ddzwpy/kbXpgE4yWjpPehSVywnCjOgPpKOmGPuJQCDOSJmBmQDkgyhqeTdIstHk
+	Bvy7FmSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uke00-00000004DxU-43XC;
-	Sat, 09 Aug 2025 07:28:16 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1ukfvR-00000004JIg-2efz;
+	Sat, 09 Aug 2025 09:31:41 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukdxU-00000004DnI-29y8
+	id 1ukfsv-00000004JE5-3qzt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 09 Aug 2025 07:25:42 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id B069E240101
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  9 Aug 2025 09:25:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net;
-	s=1984.ea087b; t=1754724329;
-	bh=PnOBJp/dCmnaAVtEczBA0DMOWb+q7+EVB4/c2xyrUM8=;
-	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:From;
-	b=Rou4xzenIuode5Do3awcl5z3VhgrbTTW/tCbo9z0pzui0UiSbEl4x7HTmGo2mQo4A
-	 sM6cravd4fnjo+R09JVMrikPSEYUPSx+Br0zbPqcNYpbv2QfWqs/gvtOjfZm6GWQeb
-	 ttzn5YeRxeChPoO+yTzMwblVSIrlAiIHQv9OXg9sQHzwVjD2J7CTwMCffJm9ZQNokE
-	 6lL0AJQrUkZnoijghDQpSww6rSjOgEH5I2kwCSJTzilnORypJddG9IwI2qxVtlN7Hh
-	 ciIawjN7IxA5baZm0gos3jIDRNv5gC7gW3OVBi1LI6RH6yxyQO0K9GQqUCoIPDIP3e
-	 3jm/CTX+btzjY0J0upfyPvwwsHargKgRb/Z+5wsOfNitMRYVJEOVs0YQ8ZdxDTfvpK
-	 9W8kU12E89XTPBnaYGmCB9Xoo9+ykTQ8FOEmaI4afIXV3q4HVTNDn/sm2ziYalVyQr
-	 gzpnidCqnTf3wKWUmy7+hcAl6Om5ZHOsflKNKeAGrlOJte5/poN
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4bzXVb1kmTz9rxD;
-	Sat,  9 Aug 2025 09:25:27 +0200 (CEST)
-Date: Sat, 09 Aug 2025 07:25:29 +0000
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
-To: linux-sunxi@lists.linux.dev, linux-sound@vger.kernel.org
-Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Mark Brown <broonie@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [BISECTED] NULL pointer dereference while probing sun8i-codec
-Message-ID: <aJb311bMDc9x-dpW@probook>
+	Sat, 09 Aug 2025 09:29:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4bzbCq1y0rztT4X;
+	Sat,  9 Aug 2025 17:27:51 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 30098180B64;
+	Sat,  9 Aug 2025 17:28:52 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Sat, 9 Aug
+ 2025 17:28:51 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <maz@kernel.org>, <lpieralisi@kernel.org>, <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <ruanjinjie@huawei.com>
+Subject: [RFC PATCH -next] irqchip/gic-v5: Improve the SPI alloc efficiency
+Date: Sat, 9 Aug 2025 17:29:20 +0800
+Message-ID: <20250809092920.3765609-1-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_002540_840097_0BDEE4E5 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250809_022906_260023_1CE59D79 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,153 +68,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When booting the Allwinner H2+ SoC (Orange Pi Zero) with the audio codec
-enabled, recent kernels crash with a NULL pointer dereference:
+If the GICv5 system has a large number of PEs and IRS components,
+traversing the linked list to find the irs_data corresponding
+to a specific SPI interrupt will be very slow.
 
-[    0.976256] 8<--- cut here ---
-[    0.979398] Unable to handle kernel NULL pointer dereference at virtual address 00000000 when read
-[    0.988365] [00000000] *pgd=00000000
-[    0.991955] Internal error: Oops: 5 [#1] SMP ARM
-[    0.996572] Modules linked in:
-[    0.999632] CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.15.0-rc5-00242-gc208844ffc64 #56 NONE
-[    1.008846] Hardware name: Allwinner sun8i Family
-[    1.013545] PC is at strcmp+0x0/0x34
-[    1.017135] LR is at snd_soc_lookup_component_nolocked+0x64/0xa4
-[    1.023151] pc : [<c08bf8e4>]    lr : [<c073f82c>]    psr: 00000013
-[    1.029412] sp : e0821de8  ip : 00000000  fp : 00000000
-[    1.034632] r10: c0c65f4c  r9 : c0c49834  r8 : 0000001b
-[    1.039853] r7 : c0aff7e0  r6 : c165b810  r5 : c10dc614  r4 : c1df6340
-[    1.046374] r3 : c09b1994  r2 : 0000006e  r1 : c0aff7e0  r0 : 00000000
-[    1.052896] Flags: nzcv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segment none
-[    1.060027] Control: 10c5387d  Table: 4000406a  DAC: 00000051
-[    1.065767] Register r0 information: NULL pointer
-[    1.070473] Register r1 information: non-slab/vmalloc memory
-[    1.076132] Register r2 information: non-paged memory
-[    1.081183] Register r3 information: non-slab/vmalloc memory
-[    1.086840] Register r4 information: slab kmalloc-256 start c1df6300 pointer offset 64 size 256
-[    1.095552] Register r5 information: non-slab/vmalloc memory
-[    1.101210] Register r6 information: slab kmalloc-1k start c165b800 pointer offset 16 size 1024
-[    1.109919] Register r7 information: non-slab/vmalloc memory
-[    1.115576] Register r8 information: non-paged memory
-[    1.120626] Register r9 information: non-slab/vmalloc memory
-[    1.126284] Register r10 information: non-slab/vmalloc memory
-[    1.132027] Register r11 information: NULL pointer
-[    1.136817] Register r12 information: NULL pointer
-[    1.141607] Process swapper/0 (pid: 1, stack limit = 0x(ptrval))
-[    1.147610] Stack: (0xe0821de8 to 0xe0822000)
-[    1.151969] 1de0:                   c0aff7e0 c165b810 c165b810 e0821e20 0000001b c0741fa4
-[    1.160142] 1e00: c1df650c c165b810 c165b810 c07557d0 c1df5f80 c17e1000 c165b810 c056dad8
-[    1.168315] 1e20: c1dbab40 c1df6600 00000007 d3dfed03 c165b810 00000205 c10dc9fc 00000000
-[    1.176487] 1e40: c1df5738 c0567cf0 c165b810 c05684a0 c165b810 c10dc9fc c165b810 00000000
-[    1.184660] 1e60: c1df5738 c05685d0 60000013 c0c49834 c1125878 c10dc9fc c165b810 00000000
-[    1.192833] 1e80: c1df5738 c05687b4 c165b810 c10dc9fc c165b854 c1416000 c1df5738 c0568a2c
-[    1.201005] 1ea0: 00000000 c10dc9fc c056899c c0566490 c1416000 c1416058 c1542ab4 d3dfed03
-[    1.209178] 1ec0: c1416000 c10dc9fc c1df5700 00000000 c1416000 c05676b4 c0aff880 00000000
-[    1.217351] 1ee0: c10dc9fc c1450000 00000000 c0b0df40 c10e9000 c0569738 c0c2e2bc c1450000
-[    1.225523] 1f00: 00000000 c010e26c 000004c4 00000000 00000000 00000000 00000000 00000000
-[    1.233695] 1f20: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[    1.241867] 1f40: 00000000 00000000 00000000 00000000 00000000 d3dfed03 c15a1980 000000f4
-[    1.250040] 1f60: c15a1980 00000006 c0b0df40 c0c49854 c0c49834 c0c01220 00000006 00000006
-[    1.258212] 1f80: 00000000 c0c004d0 c1004e00 c08ca784 00000000 00000000 00000000 00000000
-[    1.266384] 1fa0: 00000000 c08ca7a0 00000000 c010014c 00000000 00000000 00000000 00000000
-[    1.274556] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[    1.282728] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000 00000000 00000000
-[    1.290896] Call trace:
-[    1.290910]  strcmp from snd_soc_lookup_component_nolocked+0x64/0xa4
-[    1.299807]  snd_soc_lookup_component_nolocked from snd_soc_unregister_component_by_driver+0x2c/0x44
-[    1.308948]  snd_soc_unregister_component_by_driver from snd_dmaengine_pcm_unregister+0x28/0x64
-[    1.317654]  snd_dmaengine_pcm_unregister from devres_release_all+0x98/0xfc
-[    1.324625]  devres_release_all from device_unbind_cleanup+0xc/0x60
-[    1.330899]  device_unbind_cleanup from really_probe+0x220/0x2c8
-[    1.336913]  really_probe from __driver_probe_device+0x88/0x1a0
-[    1.342841]  __driver_probe_device from driver_probe_device+0x30/0x110
-[    1.349375]  driver_probe_device from __driver_attach+0x90/0x178
-[    1.355390]  __driver_attach from bus_for_each_dev+0x7c/0xcc
-[    1.361056]  bus_for_each_dev from bus_add_driver+0xcc/0x1ec
-[    1.366720]  bus_add_driver from driver_register+0x80/0x11c
-[    1.372301]  driver_register from do_one_initcall+0x58/0x23c
-[    1.377973]  do_one_initcall from kernel_init_freeable+0x198/0x1f4
-[    1.384168]  kernel_init_freeable from kernel_init+0x1c/0x12c
-[    1.389925]  kernel_init from ret_from_fork+0x14/0x28
-[    1.394982] Exception stack(0xe0821fb0 to 0xe0821ff8)
-[    1.400033] 1fa0:                                     00000000 00000000 00000000 00000000
-[    1.408205] 1fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
-[    1.416376] 1fe0: 00000000 00000000 00000000 00000000 00000013 00000000
-[    1.422991] Code: e5e32001 e3520000 1afffffb e12fff1e (e4d03001)
-[    1.429166] ---[ end trace 0000000000000000 ]---
-[    1.433797] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-[    1.441577] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b ]---
+Since the maximum number of IRS nodes, the minimum and maximum SPI
+interrupt numbers for each IRS is known during the initialization
+of the IRS nodes, sort the IRS nodes by interrupt number at
+the initial stage. This way, when allocating SPI interrupts, we can
+directly perform a binary search on the irs_data
+using the SPI interrupt number with O(log N) complexity.
 
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ drivers/irqchip/irq-gic-v5-irs.c   | 83 +++++++++++++++++++++---------
+ include/linux/irqchip/arm-gic-v5.h |  2 +
+ 2 files changed, 61 insertions(+), 24 deletions(-)
 
-This particular error path is taken after platform_probe returns -EPROBE_DEFER
-to call_driver_probe and really_probe calls device_unbind_cleanup.
+diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+index f845415f9143..41ddfd3c85de 100644
+--- a/drivers/irqchip/irq-gic-v5-irs.c
++++ b/drivers/irqchip/irq-gic-v5-irs.c
+@@ -8,6 +8,7 @@
+ #include <linux/log2.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
++#include <linux/sort.h>
+ 
+ #include <linux/irqchip.h>
+ #include <linux/irqchip/arm-gic-v5.h>
+@@ -22,7 +23,7 @@
+ #define IRS_FLAGS_NON_COHERENT		BIT(0)
+ 
+ static DEFINE_PER_CPU_READ_MOSTLY(struct gicv5_irs_chip_data *, per_cpu_irs_data);
+-static LIST_HEAD(irs_nodes);
++static struct gicv5_irs_chip_data **irs_nodes;
+ 
+ static u32 irs_readl_relaxed(struct gicv5_irs_chip_data *irs_data,
+ 			     const u32 reg_offset)
+@@ -382,17 +383,18 @@ int gicv5_irs_cpu_to_iaffid(int cpuid, u16 *iaffid)
+ 
+ struct gicv5_irs_chip_data *gicv5_irs_lookup_by_spi_id(u32 spi_id)
+ {
+-	struct gicv5_irs_chip_data *irs_data;
+-	u32 min, max;
++	int l = 0, r = gicv5_global_data.irs_count - 1;
+ 
+-	list_for_each_entry(irs_data, &irs_nodes, entry) {
+-		if (!irs_data->spi_range)
+-			continue;
++	while (l <= r) {
++		int m = (l + r) >> 1;
+ 
+-		min = irs_data->spi_min;
+-		max = irs_data->spi_min + irs_data->spi_range - 1;
+-		if (spi_id >= min && spi_id <= max)
+-			return irs_data;
++		if (irs_nodes[m]->spi_min <= spi_id &&
++		    spi_id <= irs_nodes[m]->spi_max)
++			return irs_nodes[m];
++		else if (spi_id < irs_nodes[m]->spi_min)
++			r = m - 1;
++		else
++			l = m + 1;
+ 	}
+ 
+ 	return NULL;
+@@ -489,7 +491,7 @@ void gicv5_irs_syncr(void)
+ 	struct gicv5_irs_chip_data *irs_data;
+ 	u32 syncr;
+ 
+-	irs_data = list_first_entry_or_null(&irs_nodes, struct gicv5_irs_chip_data, entry);
++	irs_data = irs_nodes[0];
+ 	if (WARN_ON_ONCE(!irs_data))
+ 		return;
+ 
+@@ -673,7 +675,7 @@ static void irs_setup_pri_bits(u32 idr1)
+ 	}
+ }
+ 
+-static int __init gicv5_irs_init(struct device_node *node)
++static int __init gicv5_irs_init(struct device_node *node, unsigned int *num)
+ {
+ 	struct gicv5_irs_chip_data *irs_data;
+ 	void __iomem *irs_base;
+@@ -725,11 +727,11 @@ static int __init gicv5_irs_init(struct device_node *node)
+ 	irs_data->spi_range = FIELD_GET(GICV5_IRS_IDR6_SPI_IRS_RANGE, idr);
+ 
+ 	if (irs_data->spi_range) {
++		irs_data->spi_max = irs_data->spi_min + irs_data->spi_range - 1;
+ 		pr_info("%s detected SPI range [%u-%u]\n",
+ 						of_node_full_name(node),
+ 						irs_data->spi_min,
+-						irs_data->spi_min +
+-						irs_data->spi_range - 1);
++						irs_data->spi_max);
+ 	}
+ 
+ 	/*
+@@ -737,8 +739,7 @@ static int __init gicv5_irs_init(struct device_node *node)
+ 	 * Global properties (iaffid_bits, global spi count) are guaranteed to
+ 	 * be consistent across IRSes by the architecture.
+ 	 */
+-	if (list_empty(&irs_nodes)) {
+-
++	if (*num == 0) {
+ 		idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
+ 		irs_setup_pri_bits(idr);
+ 
+@@ -752,7 +753,7 @@ static int __init gicv5_irs_init(struct device_node *node)
+ 		pr_debug("Detected %u SPIs globally\n", spi_count);
+ 	}
+ 
+-	list_add_tail(&irs_data->entry, &irs_nodes);
++	irs_nodes[(*num)++] = irs_data;
+ 
+ 	return 0;
+ 
+@@ -765,12 +766,14 @@ static int __init gicv5_irs_init(struct device_node *node)
+ 
+ void __init gicv5_irs_remove(void)
+ {
+-	struct gicv5_irs_chip_data *irs_data, *tmp_data;
++	struct gicv5_irs_chip_data *irs_data;
++	int i;
+ 
+ 	gicv5_free_lpi_domain();
+ 	gicv5_deinit_lpis();
+ 
+-	list_for_each_entry_safe(irs_data, tmp_data, &irs_nodes, entry) {
++	for (i = 0; i < gicv5_global_data.irs_count; i++) {
++		irs_data = irs_nodes[i];
+ 		iounmap(irs_data->irs_base);
+ 		list_del(&irs_data->entry);
+ 		kfree(irs_data);
+@@ -782,8 +785,7 @@ int __init gicv5_irs_enable(void)
+ 	struct gicv5_irs_chip_data *irs_data;
+ 	int ret;
+ 
+-	irs_data = list_first_entry_or_null(&irs_nodes,
+-					    struct gicv5_irs_chip_data, entry);
++	irs_data = irs_nodes[0];
+ 	if (!irs_data)
+ 		return -ENODEV;
+ 
+@@ -799,24 +801,57 @@ int __init gicv5_irs_enable(void)
+ void __init gicv5_irs_its_probe(void)
+ {
+ 	struct gicv5_irs_chip_data *irs_data;
++	int i;
+ 
+-	list_for_each_entry(irs_data, &irs_nodes, entry)
++	for (i = 0; i < gicv5_global_data.irs_count; i++) {
++		irs_data = irs_nodes[i];
+ 		gicv5_its_of_probe(to_of_node(irs_data->fwnode));
++	}
++}
++
++static int spi_min_cmp(const void *a, const void *b)
++{
++	const struct gicv5_irs_chip_data *irs_data1 = a;
++	const struct gicv5_irs_chip_data *irs_data2 = b;
++
++	return irs_data1->spi_min - irs_data2->spi_min;
+ }
+ 
+ int __init gicv5_irs_of_probe(struct device_node *parent)
+ {
++	unsigned int irs_count = 0, num = 0;
+ 	struct device_node *np;
+ 	int ret;
+ 
++	for_each_available_child_of_node(parent, np) {
++		if (of_device_is_compatible(np, "arm,gic-v5-irs"))
++			irs_count++;
++	}
++
++	if (irs_count == 0)
++		return -ENODEV;
++
++	irs_nodes = kcalloc(irs_count, sizeof(struct gicv5_irs_chip_data *),
++			    __GFP_ZERO);
++	if (!irs_nodes)
++		return -ENOMEM;
++
+ 	for_each_available_child_of_node(parent, np) {
+ 		if (!of_device_is_compatible(np, "arm,gic-v5-irs"))
+ 			continue;
+ 
+-		ret = gicv5_irs_init(np);
++		ret = gicv5_irs_init(np, &num);
+ 		if (ret)
+ 			pr_err("Failed to init IRS %s\n", np->full_name);
+ 	}
+ 
+-	return list_empty(&irs_nodes) ? -ENODEV : 0;
++	if (num == 0) {
++		kfree(irs_nodes);
++		return -ENODEV;
++	}
++
++	sort(irs_nodes, num, sizeof(struct gicv5_irs_chip_data *), spi_min_cmp, NULL);
++	gicv5_global_data.irs_count = num;
++
++	return 0;
+ }
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+index 68ddcdb1cec5..6661b583b8d8 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -278,6 +278,7 @@ struct gicv5_chip_data {
+ 	u8			cpuif_pri_bits;
+ 	u8			cpuif_id_bits;
+ 	u8			irs_pri_bits;
++	unsigned int		irs_count;
+ 	struct {
+ 		__le64 *l1ist_addr;
+ 		u32 l2_size;
+@@ -294,6 +295,7 @@ struct gicv5_irs_chip_data {
+ 	void __iomem		*irs_base;
+ 	u32			flags;
+ 	u32			spi_min;
++	u32			spi_max;
+ 	u32			spi_range;
+ 	raw_spinlock_t		spi_config_lock;
+ };
+-- 
+2.34.1
 
-The parameters to the strcmp call in snd_soc_lookup_component_nolocked are
-component->driver->name = NULL and driver_name = "snd_dmaengine_pcm".
-
-I have bisected this to:
-
-commit 144d6dfc7482455eabf8e8caa974a6e8d9572705
-Author: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-Date:   Mon May 12 02:33:16 2025 +0000
-
-    ASoC: soc-core: merge snd_soc_unregister_component() and snd_soc_unregister_component_by_driver()
-
-    We have below 2 functions, but these are very similar
-
-    (A)     snd_soc_unregister_component_by_driver()
-    (B)     snd_soc_unregister_component()
-
-    (A)     void snd_soc_unregister_component_by_driver(...)
-            {
-                    ...
-
-    (a)             mutex_lock(&client_mutex);
-     ^ (X)          component = snd_soc_lookup_component_nolocked(dev, component_driver->name);
-     |              if (!component)                                    ^^^^^^^^^^^^^^^^^^^^^^
-     |                      goto out;
-    (b)
-     |              snd_soc_del_component_unlocked(component);
-     v
-            out:
-    (c)             mutex_unlock(&client_mutex);
-            }
-
-    (B)     void snd_soc_unregister_component_by_driver(...)
-            {
-    (a)             mutex_lock(&client_mutex);
-     ^              while (1) {
-     | (X)                  struct snd_soc_component *component = snd_soc_lookup_component_nolocked(dev, NULL);
-     |                                                                                                   ^^^^
-    (b)                     if (!component)
-     |                              break;
-     |
-     |                      snd_soc_del_component_unlocked(component);
-     v              }
-    (c)             mutex_unlock(&client_mutex);
-            }
-
-    Both are calling lock (a), find component and remove it (b), and
-    unlock (c). The big diff is whether use driver name for lookup() or
-    not (X).
-
-    Merge these into snd_soc_unregister_component_by_driver() (B), and
-    snd_soc_unregister_component_by_driver() (A) can be macro.
-
-    Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-    Link: https://patch.msgid.link/87h61qy2vn.wl-kuninori.morimoto.gx@renesas.com
-    Signed-off-by: Mark Brown <broonie@kernel.org>
-
- include/sound/soc.h  |  2 +-
- sound/soc/soc-core.c | 30 +++++-------------------------
- 2 files changed, 6 insertions(+), 26 deletions(-)
-
-
-Reverting this commit on top of almost-v6.17-rc1 (v6.16-12250-gc30a13538d9f8b)
-results in a successful boot. sun8i-codec's probe returns -EPROBE_DEFER
-the first time, and success the second time.
-
-
-Best regards,
-J. Neuschäfer
 
