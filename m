@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88AC0C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 21:25:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8602C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 21:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sryvobwow46E50dCMqdfx84wExvLnx3ndZUCx8XjTI0=; b=QAiyEwR0ZtqlCeh/VSOMROBhcX
-	QgW8dLSAawTr+KAoMsCDGnJMRwT9VfF8dRyto8aIh8rtgcsd90afBG64Wg7LINqJEik8ArLrXvtzd
-	GoHh7iM7DONylmTT65UtUUb/PeniPmlGmhPeHoWUfWzxBonFfWqB1jRkDgKVqEK+gEC16mTD0lfDu
-	NrDCYov5rIp53YJJLsbMtAcAfn6cefavNQydbZLfqmqlPsroYy32B/h8m7ZoV8ZeJiamsKXVeoiia
-	sOTHx2f928I9kQtj/lxM9WtDM4jEF31/uRMDK9mlPGFw4Cp6e04v7ghQfb3/iOkLpUppPCAjD5bLo
-	Pu5/PYYQ==;
+	bh=l17t9aogLlvquA8XKT+9RS1HN1LrMf7mp2r1IOxUyu0=; b=KTQ7nDdb6fogGYFjhzQgiP2D7h
+	9yfxTr+miGC8m0oOIZktpSDUAS1gG6F2mbPRQSfftWoKETQnFvw0tiljRSP+H+ALlseAoerHxVXP1
+	hC0TRci0k/t2aBemsIRPQGeLotkI7kNejP3UXkUh6+KK+vm3gldVnIyH8XysMQBQ8WBe9S5/b7B/g
+	YqDHSG/N2goineMDvB2jP8zawP5RCj3hNslvhZNxXgcbCDPGOGDGR5yBFGRQhIYfHlj9LwqgJk7cS
+	Nuz9G2qwGztCr+CwUI3zznsVfMl8dIwcRCeTqy4sl+xfzN3HsIjrW0C/AEIx3bZ6naabPBaesQpJN
+	ygNKEoZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukr3x-00000004wtM-1fwk;
-	Sat, 09 Aug 2025 21:25:13 +0000
+	id 1ukr6R-00000004x4E-0uJZ;
+	Sat, 09 Aug 2025 21:27:47 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukqxC-00000004vmp-092w;
-	Sat, 09 Aug 2025 21:18:15 +0000
+	id 1ukqxI-00000004vnu-3NNl;
+	Sat, 09 Aug 2025 21:18:22 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 224A1502;
-	Sat,  9 Aug 2025 23:17:22 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CA216111D;
+	Sat,  9 Aug 2025 23:17:28 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754774242;
-	bh=SCnMn609VAUM2KKbbQUq8jpo/bDnKWvrBzI4LeCjjl4=;
+	s=mail; t=1754774249;
+	bh=73EsXqYBslNYUL1mff6aChG7qf9tE9t4b9BWc7sMvpw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TLh6kOS3eulgwUUuo7+SnXvHDqTnp0MOCXrrBPUGrMOsYjv1GkIoVL9Ix+q8UUX33
-	 DA7dXD88lQhbp3JUhtRERqD5ob02R8yY75MUq9zr9D9aJt2b2yEUreI99NxPqU4mo6
-	 XuEzCbOqQANcEzeH9XEh20GlhAM1ehykuAoHyqOg=
+	b=ZFkTU8Mhb1WptQmTl/GHotgYbawWvfk55mMgSQ8YDcQ5dxRtJEUuvfjNWpS3lPuzV
+	 Xjg27pAYSgMHrHpOx0LmeM0eWCnQwHvXzK40/SwxFrNFzWgZAzHmv4+r92ObQmNVqU
+	 4gLV8ZSCa1AHOl/MxIKUz4b3FyBYj2FMtapJnQGk=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Hans Verkuil <hans@jjverkuil.nl>,
 	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 37/76] media: meson-ge2d: Access v4l2_fh from file
-Date: Sun, 10 Aug 2025 00:16:14 +0300
-Message-ID: <20250809211654.28887-38-laurent.pinchart@ideasonboard.com>
+	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+	Bin Liu <bin.liu@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v2 41/76] media: mtk: jpeg: Access v4l2_fh from file->private_data
+Date: Sun, 10 Aug 2025 00:16:18 +0300
+Message-ID: <20250809211654.28887-42-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20250809211654.28887-1-laurent.pinchart@ideasonboard.com>
 References: <20250809211654.28887-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_141814_211356_1F0AFC6C 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250809_141820_981469_4DC990F3 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,7 +71,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 
 The v4l2_fh associated with an open file handle is now guaranteed
 to be available in file->private_data, initialised by v4l2_fh_add().
@@ -80,70 +79,136 @@ to be available in file->private_data, initialised by v4l2_fh_add().
 Access the v4l2_fh, and from there the driver-specific structure,
 from the file * in all ioctl handlers.
 
+Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 ---
- drivers/media/platform/amlogic/meson-ge2d/ge2d.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Changes since v1:
 
-diff --git a/drivers/media/platform/amlogic/meson-ge2d/ge2d.c b/drivers/media/platform/amlogic/meson-ge2d/ge2d.c
-index b1b0b6535fb1..5744853a4003 100644
---- a/drivers/media/platform/amlogic/meson-ge2d/ge2d.c
-+++ b/drivers/media/platform/amlogic/meson-ge2d/ge2d.c
-@@ -457,7 +457,7 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
- static int vidioc_g_selection(struct file *file, void *priv,
- 			      struct v4l2_selection *s)
- {
--	struct ge2d_ctx *ctx = priv;
-+	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
- 	struct ge2d_frame *f;
- 	bool use_frame = false;
+- Update file-to-ctx macro due to removal of fh-to-ctx macro
+---
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 29 ++++++++-----------
+ 1 file changed, 12 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index de15d6f0b490..6268d651bdcf 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -119,14 +119,9 @@ static inline struct mtk_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *ctrl)
+ 	return container_of(ctrl->handler, struct mtk_jpeg_ctx, ctrl_hdl);
+ }
  
-@@ -507,7 +507,7 @@ static int vidioc_g_selection(struct file *file, void *priv,
- static int vidioc_s_selection(struct file *file, void *priv,
- 			      struct v4l2_selection *s)
+-static inline struct mtk_jpeg_ctx *mtk_jpeg_fh_to_ctx(struct v4l2_fh *fh)
+-{
+-	return container_of(fh, struct mtk_jpeg_ctx, fh);
+-}
+-
+ static inline struct mtk_jpeg_ctx *mtk_jpeg_file_to_ctx(struct file *filp)
  {
--	struct ge2d_ctx *ctx = priv;
-+	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
- 	struct meson_ge2d *ge2d = ctx->ge2d;
- 	struct ge2d_frame *f;
- 	int ret = 0;
-@@ -574,8 +574,8 @@ static void vidioc_setup_cap_fmt(struct ge2d_ctx *ctx, struct v4l2_pix_format *f
+-	return mtk_jpeg_fh_to_ctx(file_to_v4l2_fh(filp));
++	return container_of(file_to_v4l2_fh(filp), struct mtk_jpeg_ctx, fh);
+ }
  
- static int vidioc_try_fmt_cap(struct file *file, void *priv, struct v4l2_format *f)
+ static inline struct mtk_jpeg_src_buf *mtk_jpeg_vb2_to_srcbuf(
+@@ -217,7 +212,7 @@ static int mtk_jpeg_enum_fmt(struct mtk_jpeg_fmt *mtk_jpeg_formats, int n,
+ static int mtk_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+ 				     struct v4l2_fmtdesc *f)
  {
-+	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
- 	const struct ge2d_fmt *fmt = find_fmt(f);
--	struct ge2d_ctx *ctx = priv;
- 	struct v4l2_pix_format fmt_cap;
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
  
- 	vidioc_setup_cap_fmt(ctx, &fmt_cap);
-@@ -595,7 +595,7 @@ static int vidioc_try_fmt_cap(struct file *file, void *priv, struct v4l2_format
- 
- static int vidioc_s_fmt_cap(struct file *file, void *priv, struct v4l2_format *f)
+ 	return mtk_jpeg_enum_fmt(jpeg->variant->formats,
+@@ -228,7 +223,7 @@ static int mtk_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+ static int mtk_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
+ 				     struct v4l2_fmtdesc *f)
  {
--	struct ge2d_ctx *ctx = priv;
-+	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
- 	struct meson_ge2d *ge2d = ctx->ge2d;
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 
+ 	return mtk_jpeg_enum_fmt(jpeg->variant->formats,
+@@ -310,7 +305,7 @@ static int mtk_jpeg_g_fmt_vid_mplane(struct file *file, void *priv,
  	struct vb2_queue *vq;
- 	struct ge2d_frame *frm;
-@@ -631,7 +631,7 @@ static int vidioc_s_fmt_cap(struct file *file, void *priv, struct v4l2_format *f
+ 	struct mtk_jpeg_q_data *q_data = NULL;
+ 	struct v4l2_pix_format_mplane *pix_mp = &f->fmt.pix_mp;
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 	int i;
  
- static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+@@ -356,7 +351,7 @@ static int mtk_jpeg_g_fmt_vid_mplane(struct file *file, void *priv,
+ static int mtk_jpeg_try_fmt_vid_cap_mplane(struct file *file, void *priv,
+ 					   struct v4l2_format *f)
  {
--	struct ge2d_ctx *ctx = priv;
-+	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
- 	struct vb2_queue *vq;
- 	struct ge2d_frame *frm;
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 	struct mtk_jpeg_fmt *fmt;
  
-@@ -670,7 +670,7 @@ static int vidioc_try_fmt_out(struct file *file, void *priv, struct v4l2_format
- 
- static int vidioc_s_fmt_out(struct file *file, void *priv, struct v4l2_format *f)
+@@ -385,7 +380,7 @@ static int mtk_jpeg_try_fmt_vid_cap_mplane(struct file *file, void *priv,
+ static int mtk_jpeg_try_fmt_vid_out_mplane(struct file *file, void *priv,
+ 					   struct v4l2_format *f)
  {
--	struct ge2d_ctx *ctx = priv;
-+	struct ge2d_ctx *ctx = file_to_ge2d_ctx(file);
- 	struct meson_ge2d *ge2d = ctx->ge2d;
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 	struct mtk_jpeg_dev *jpeg = ctx->jpeg;
+ 	struct mtk_jpeg_fmt *fmt;
+ 
+@@ -475,7 +470,7 @@ static int mtk_jpeg_s_fmt_vid_out_mplane(struct file *file, void *priv,
+ 	if (ret)
+ 		return ret;
+ 
+-	return mtk_jpeg_s_fmt_mplane(mtk_jpeg_fh_to_ctx(priv), f,
++	return mtk_jpeg_s_fmt_mplane(mtk_jpeg_file_to_ctx(file), f,
+ 				     MTK_JPEG_FMT_FLAG_OUTPUT);
+ }
+ 
+@@ -488,7 +483,7 @@ static int mtk_jpeg_s_fmt_vid_cap_mplane(struct file *file, void *priv,
+ 	if (ret)
+ 		return ret;
+ 
+-	return mtk_jpeg_s_fmt_mplane(mtk_jpeg_fh_to_ctx(priv), f,
++	return mtk_jpeg_s_fmt_mplane(mtk_jpeg_file_to_ctx(file), f,
+ 				     MTK_JPEG_FMT_FLAG_CAPTURE);
+ }
+ 
+@@ -517,7 +512,7 @@ static int mtk_jpeg_subscribe_event(struct v4l2_fh *fh,
+ static int mtk_jpeg_enc_g_selection(struct file *file, void *priv,
+ 				    struct v4l2_selection *s)
+ {
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 
+ 	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT)
+ 		return -EINVAL;
+@@ -542,7 +537,7 @@ static int mtk_jpeg_enc_g_selection(struct file *file, void *priv,
+ static int mtk_jpeg_dec_g_selection(struct file *file, void *priv,
+ 				    struct v4l2_selection *s)
+ {
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 
+ 	if (s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
+ 		return -EINVAL;
+@@ -571,7 +566,7 @@ static int mtk_jpeg_dec_g_selection(struct file *file, void *priv,
+ static int mtk_jpeg_enc_s_selection(struct file *file, void *priv,
+ 				    struct v4l2_selection *s)
+ {
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
+ 
+ 	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT)
+ 		return -EINVAL;
+@@ -594,7 +589,7 @@ static int mtk_jpeg_enc_s_selection(struct file *file, void *priv,
+ static int mtk_jpeg_qbuf(struct file *file, void *priv, struct v4l2_buffer *buf)
+ {
+ 	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+-	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
++	struct mtk_jpeg_ctx *ctx = mtk_jpeg_file_to_ctx(file);
  	struct vb2_queue *vq;
- 	struct ge2d_frame *frm, *frm_cap;
+ 	struct vb2_buffer *vb;
+ 	struct mtk_jpeg_src_buf *jpeg_src_buf;
 -- 
 Regards,
 
