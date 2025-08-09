@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88D9C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 02:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A163C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 02:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zA5Q0AasqN+Hj5u6hBGCOpoaCy26BzvYeHvrKw88gzM=; b=xFH2o1q/+C7FAa497VPHwcVIj5
-	XDJIrMwF9+reGk7Zie6CYu9L2aSQ6+GIQF4wBgiiJav5lDbqD3qbos86T6Al/9dX/Hfio/PdR+r+5
-	AaxsUvlwAuBujwXW4/3uECaG8KbZUD9xg6lI7zZo6dRUfVkcjMFn1UYpN075oBx8wssUUj3c9UD4N
-	zb2ZR3InIz1e4ytAcfDw4xOrKDVALGWux1EZT6s+5OTzJHvEUz9ey17QvWAD2KwZ0yMA5Ozcx5R1p
-	F7N1CYkrWKNz+ZuZBrzcGnqHkCTmRJFK70MRvYT14sPSFQAlavROrgAXH3v5Lm2jGbqD8WJUAQY5/
-	mwvFbfyA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pwpUhwoXZgwjoYXNGCW+tqHgfMSzSFE+GEZ/2kbSMIw=; b=n3lIIZ/0Af8MAHZU3ym1GZdfKh
+	oWlzJMEfPfrwGDElHyg/Ak0GpZ2MM796dNQadbZOdwEGE8Ejv2aNyyxzkDVWcmWwaXFkRQGrjY+5r
+	BNFxGuCziBwblUthiOGF/XSQcycHvMFXiSOyVhsGJOTfcFyZ/Z5rhqQdscNE+bqBYGBtZ3pyYLXa0
+	t77YWYpC+TXft+JmEEcuCPVNkeS3tsuTHGzGaASfF6Nu/PaSDlS0omPUT6320Lc3IM8VKQ8iLMVQM
+	WW7TqLniqBeG1tr+yTriZwB4ZhSxPSfXhaRHvW4wgRB0B4HdgNbHDHV8lzSYRexVIc4+wIFhj9mKV
+	mpMmdnPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukZTo-000000040kG-3GpP;
-	Sat, 09 Aug 2025 02:38:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ukZWH-000000040ru-2YQM;
+	Sat, 09 Aug 2025 02:41:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukZOo-000000040LS-3yn0
+	id 1ukZOo-000000040LO-1EWA
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 09 Aug 2025 02:33:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC778601DD;
-	Sat,  9 Aug 2025 02:33:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 97934C4CEED;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CD4243671;
+	Sat,  9 Aug 2025 02:33:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CCB4AC4CEFA;
 	Sat,  9 Aug 2025 02:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1754706812;
-	bh=PGc3JCJUsoYqrbygPzZcOo1wPml5AiuHgEF4pwzMECY=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=gbnHvd2Dr6P6yYE8HI3UI0ivcg8YLKntkC7RF6EDRfg1pq21CbQWuXRDs091WUOBB
-	 TIueZOSL3cN8eWYVLsY7+LM4L61hVv6dZ+OHacUOuFXQRGus1WsBY6Oee7axKFlm2f
-	 WDyVjRh2cGnffEDXU8VwO2sHJcPfOT/gzwQpEH/buM4uv8LjXg6d//70W/YkdnAgWP
-	 8WFrWavD3rTExG/9mDO1UQkcK1xpXUlcQMBsOlvabYiWrvoiNd3ZqgzAgt9aZKjbPm
-	 NCez+DpgH52KJR1IggI2Iod1sWNmEaejDuNZBWvtwpEJUcnLx4UK6V5lFuZvNiUgaU
-	 uK0ktGYQjr+YQ==
+	bh=6U1E5QmPT8CBgdgVlPTNe/BuFUXewN4X5e1CezxtHPc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=am1H2IxhMXdsVjx9qg5AmJL1R1kWnp0jQGAQ1VNsTGnofvUjE6DN+tJKSNbFKN1FW
+	 lnFzaGfEF/IwTetPsAC4Jx6VrS2UHwKxOnMwjON4I/XogmB0x2Ah7MQS4hVJ/Cju9s
+	 29B/BzY0cuwIR/sGOMRx5SMCrFVQgggrr26I48/yps/7guu+bJ8WOR+35bZ8dSSW8b
+	 e5ifN/nIBMpee50QGwS4tlqoEaIqE77GFne2JALyEFmJxs4VPOVEH3tykaTy7WZPU4
+	 BCUWLkztunU1TOs0zBMym/7PtEqOoMNhBHW27RKt2z0yiaIIWNo1g08ihiJ3zTZO85
+	 xe/axJ+WdGl0Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 87442C87FD2;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C07E6CA0EC3;
 	Sat,  9 Aug 2025 02:33:32 +0000 (UTC)
 From: Per Larsen via B4 Relay <devnull+perlarsen.google.com@kernel.org>
-Subject: [PATCH v10 0/6] KVM: arm64: Support FF-A 1.2
-Date: Sat, 09 Aug 2025 02:33:18 +0000
-Message-Id: <20250809-virtio-msg-ffa-v10-0-189eeecf8ae8@google.com>
+Date: Sat, 09 Aug 2025 02:33:22 +0000
+Subject: [PATCH v10 4/6] KVM: arm64: Mark optional FF-A 1.2 interfaces as
+ unsupported
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAG6zlmgC/23QTWrDMBAF4KsEr6sw+h91lXuULhxp5AhiK8iua
- Qm5e5VAiVt1OQPf4/Gu3Uwl0dy97q5doTXNKU/14PCy6/ypnwZiKdRHJ0Bo0GDYmsqSMhvngcX
- YMyH6aIV3gmvoKroUiunzkfj2Xu9Y8siWU6F+GyOgAsC9FEJJxRlnFyrnQxrHj6mflr3P4z3sl
- OYll69Hu1XcI38C8G+PVTBgFFBFBC2d0Ych5+FMj6h7kVVuPJeNl9UHY7w1MfKj8I1XW9/ssKr
- qNQKRBar9eOP10xvuGq+rV7wuiVojgm282XhhG2+qRw8iBqco9G1/+/QWeONt9c7pPnoZJGpqP
- G78P/2xepCEhOFIqE3j3cZLaLyr3tbltfYYuHK//O12+wadF9a5qwIAAA==
-X-Change-ID: 20250506-virtio-msg-ffa-22af72c92150
+Message-Id: <20250809-virtio-msg-ffa-v10-4-189eeecf8ae8@google.com>
+References: <20250809-virtio-msg-ffa-v10-0-189eeecf8ae8@google.com>
+In-Reply-To: <20250809-virtio-msg-ffa-v10-0-189eeecf8ae8@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Zenghui Yu <yuzenghui@huawei.com>, 
@@ -70,16 +66,20 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  sebastianene@google.com, qwandor@google.com, 
  Per Larsen <perlarsen@google.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754706811; l=6095;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754706812; l=1035;
  i=perlarsen@google.com; s=20250508; h=from:subject:message-id;
- bh=PGc3JCJUsoYqrbygPzZcOo1wPml5AiuHgEF4pwzMECY=;
- b=ojZPobaGWf8UxGwAguSop9wXPnR4KF4vy7Zy+K+14ikgD0cxH1lXgzLy1z1vE9FlfVAwnfls7
- qrJ4TeoKl30AFs6I1HS+zePLlvWySxHB+xRyGA+dVttGzxBAUw5cnW3
+ bh=IoW1xMVSZLfjRkHlbEaNpwQ0anIxPUAXwOJ+lN5gGek=;
+ b=G3n9+VuZjYM8nP+rNuVl9LgzFl6g+m0nuvjNZJwUfvNrEGWf2bsFVmzGaJ4U/NKzOzODOCtxr
+ qB6/RMN08IXAyTiVDVI9sW00LEHRL+dHRnRpxda2BqSK2s/16asrL3Z
 X-Developer-Key: i=perlarsen@google.com; a=ed25519;
  pk=jjc/Ta4VmrLRmMoahP6d1mBcKzvWU+nsmdtYe2oS2kQ=
 X-Endpoint-Received: by B4 Relay for perlarsen@google.com/20250508 with
  auth_id=402
 X-Original-From: Per Larsen <perlarsen@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250808_193334_362703_3D90DE9B 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,133 +95,35 @@ Reply-To: perlarsen@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Per Larsen <perlarsen@google.com>
 
-The FF-A 1.2 specification introduces a new SEND_DIRECT2 ABI which
-allows registers x4-x17 to be used for the message payload. This patch
-set prevents the host from using a lower FF-A version than what has
-already been negotiated with the hypervisor. This is necessary because
-the hypervisor does not have the necessary compatibility paths to
-translate from the hypervisor FF-A version to a previous version.
+Mark FF-A 1.2 interfaces as unsupported lest they get proxied.
 
-Support for FF-A 1.2 in the hypervisor is added as a precursor to the
-addition of the FFA_MSG_SEND_DIRECT_REQ2 messaging interface. Notably,
-this patch updates all smc calls to use SMCCC 1.2 as it makes it simpler
-to support interfaces that need to accept more than 8 arguments and/or
-return more than 4 values. The list of optional/unsupported interfaces
-was updated to reflect additions in FF-A 1.2.
-
-Tested by booting Android under QEMU and loading Trusty as the guest
-VM and observing the SEND_DIRECT2 ABI being used successfully during
-guest boot.
-
-Changes in v10:
-- 2/6:        Return registers x0-x17 unconditionally in ffa_set_retval for consistency with passthrough code
-- 4/6:        ffa_call_supported: Drop case FFA_EL3_INTR_HANDLE
-              Added Acked-by: Will Deacon <will@kernel.org>
-- Link to v9: https://lore.kernel.org/r/20250730-virtio-msg-ffa-v9-0-7f1b55c8d149@google.com
-
-Changes in v9:
-- 2/7 -> 2/6: Updated explanatory comment in ffa_set_retval
-- 4/7 -> 4/6: Restore to v7: Mark FFA_MSG_SEND_DIRECT_REQ2 unsupported
-- 5/7 -> 5/6: Added Acked-by: Will Deacon <will@kernel.org>
-- 6/7 -> 6/6: Added Acked-by: Will Deacon <will@kernel.org>
-- 7/7:        Dropped
-- Link to v8: https://lore.kernel.org/r/20250719-virtio-msg-ffa-v8-0-03e8e8dbe856@google.com
-
-Changes in v8:
-- 2/5 -> 2/7: Use func_id argument to distinguish SMC32/SMC64. Update rationale.
-- 4/5 -> 4/7: Split up 4/5: Add optional FF-A 1.2 interfaces
-- 4/5 -> 5/7: Split up 4/5: Mask FFA_RXTX_MAP minium buffer size in a2. Don't check MBZ bits.
-- 4/5 -> 6/7: Remainder of 4/5: Bump supported version to FF-A 1.2
-- 5/5 -> 7/7: Don't check src id in do_ffa_direct_msg2
-- Link to v7: https://lore.kernel.org/r/20250701-virtio-msg-ffa-v7-0-995afc3d385e@google.com
-
-Changes in v7:
-- 0/6:        Revised cover letter slightly
-- 4/6:        ffa_call_supported: Clarify optional interfaces
-              hyp_ffa_post_init: Sanitize MBZ bits in x2 and x3
-              address nit: use GENMASK
-- Link to v6: https://lore.kernel.org/r/20250627-virtio-msg-ffa-v6-0-8c02fd94edac@google.com 
-
-Changes since v5:
-- 3/6 -> 2/5: Merged with parent patch as they were closely related
-              Don't rename variables from "res" to "regs" to avoid churn
-              Update and clarify reasoning for condition added to ffa_set_retval
-              Adopt style suggested by Marc when passing regs to arm_smccc_1_2_smc
-              Fix inadvertent duplicate statements in ffa_{map,unmap}_hyp_buffers
-- Link to v5: https://lore.kernel.org/r/20250619-virtio-msg-ffa-v5-0-412c98558807@google.com
-
-Changes since v4:
-- 1/5 -> 1/6: Added Acked-by: Will Deacon <will@kernel.org>y
-              Reworded patch subject and description
-- 2/5:        Dropped patch: zero x4-x7 in ffa_set_retval
--        2/6: New: use SMCCC 1.2 during hyp init
--        3/6: New: use SMCCC 1.2 in host FF-A handler
-- 3/5 -> 4/6: No change; can revisit denylist design in later patchset
-              Added Acked-by: Will Deacon <will@kernel.org>
-- 4/5 -> 5/6: No change
-- 5/5 -> 6/6: No change
-- Link to v4: https://lore.kernel.org/r/20250516-virtio-msg-ffa-v4-0-580ee70e5081@google.com
-
-Changes since v3:
-- all:        Remove Signed-off-by: Per Larsen <perl@immunant.com>
-- 2/5:        Split out from 2/3, zero x4-x7 in set_ffa_retval
-- 3/5:        Split out from 2/3, Mark FFA_NOTIFICATION_* calls as
-              unsupported
-- 2/3 -> 4/5: Drop ffa_get_hypervisor_version, access hyp_ffa_version
-              directly when version negotiation is complete.
-- 3/3 -> 5/5: Call ffa_to_smccc_1_2_error directly in
-              do_do_ffa_direct_msg2
-              Push call to ffa_call_needs_smccc_1_2 lower down by adding
-              ffa_get_func_id and ffa_set_retval_smccc_1_x.
-              Drop ffa_to_smccc_1_2_regs and ffa_to_smccc_1_2_regs_prop
-              as they are no longer used.
-- Link to v3: https://lore.kernel.org/r/20250513-virtio-msg-ffa-v3-0-d66c76ff1b2c@google.com 
-
-Changes since v2:
-- 2/3: Removed files added by mistake.
-       Add and use ffa_get_hypervisor_version to access hyp_ffa_version
-- 3/3: Use ffa_get_hypervisor_version to access hyp_ffa_version safely
-- Link to v2: https://lore.kernel.org/r/20250508-virtio-msg-ffa-v2-0-ed84f8053965@google.com
-
-Changes since v1:
-- 1/3: Simplify commit message; drop long comment in do_ffa_version
-- 2/3: Correct use of Co-developed-by: footer
-       s/arm_smccc_1_2_smc_fallback/arm_smccc_1_x_smc/
-       Always access hyp_ffa_version w/lock held
-       Remove superfluous comments in ffa_call_supported
-       Add and use FFA_FEAT_RXTX_MIN_SZ_MASK instead of constant
-       Add FFA_PARTITION_INFO_GET_REGS to calls that require SMCCC 1.2
-- 3/3: Always access hyp_ffa_version w/lock held
-       Correct formatting
-
-Thanks,
-Per Larsen
-
---
-2.49.0
-
+Acked-by: Will Deacon <will@kernel.org>
+Signed-off-by: Per Larsen <perlarsen@google.com>
 ---
-Per Larsen (6):
-      KVM: arm64: Correct return value on host version downgrade attempt
-      KVM: arm64: Use SMCCC 1.2 for FF-A initialization and in host handler
-      KVM: arm64: Mark FFA_NOTIFICATION_* calls as unsupported
-      KVM: arm64: Mark optional FF-A 1.2 interfaces as unsupported
-      KVM: arm64: Mask response to FFA_FEATURE call
-      KVM: arm64: Bump the supported version of FF-A to 1.2
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- arch/arm64/kvm/hyp/nvhe/Makefile |   1 +
- arch/arm64/kvm/hyp/nvhe/ffa.c    | 212 +++++++++++++++++++++++++--------------
- include/linux/arm_ffa.h          |   1 +
- 3 files changed, 141 insertions(+), 73 deletions(-)
----
-base-commit: 37816488247ddddbc3de113c78c83572274b1e2e
-change-id: 20250506-virtio-msg-ffa-22af72c92150
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 9311268ad77f50fc596ebae77f451ea144418359..bcb2fab66a61190733682c5bda44e2fa6766177a 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -673,6 +673,11 @@ static bool ffa_call_supported(u64 func_id)
+ 	case FFA_NOTIFICATION_SET:
+ 	case FFA_NOTIFICATION_GET:
+ 	case FFA_NOTIFICATION_INFO_GET:
++	/* Optional interfaces added in FF-A 1.2 */
++	case FFA_MSG_SEND_DIRECT_REQ2:		/* Optional per 7.5.1 */
++	case FFA_MSG_SEND_DIRECT_RESP2:		/* Optional per 7.5.1 */
++	case FFA_CONSOLE_LOG:			/* Optional per 13.1: not in Table 13.1 */
++	case FFA_PARTITION_INFO_GET_REGS:	/* Optional for virtual instances per 13.1 */
+ 		return false;
+ 	}
+ 
 
-Best regards,
 -- 
-Per Larsen <perlarsen@google.com>
+2.51.0.rc0.155.g4a0f42376b-goog
 
 
 
