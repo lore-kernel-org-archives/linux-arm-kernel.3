@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF01C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 02:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50204C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 02:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bb7mBQhlB9rmkopYghqYIb1q1AL5bCWUPxZA8ucFWsU=; b=uu0SgWSQmvQpXBF8+kSyxhL9qU
-	QdIRGSxYWoFAheR1b9iJ+GCwqJhN9/W0tlEeYW2xjbyUvgkusgieE4/SIJD9gXm7PN+4yZUr1Zac7
-	pcwAubr/1AicTlZtX3Caij18sRrxlfS+qBiqdiuWtbBhU8mG/iv1mLiH0JjuU9oIKHnuhK3aLHfoD
-	oVJ8MrPy60PmnpryZNoLmoDcaJY6xMF/JFoPlXsKqZ+0ZQ8FE8qCzGKlFSVJ1iCqwEYIJ5QTiPjUO
-	64CZWU7EeUSbYK+mWznuEQC5OiZwzZUp2PbsTzz/J89OG3GllnH7tjn7EPo3ZBs1r80QQinpKEeLP
-	JMoQBIQg==;
+	bh=zSsZSHYSFzVetZIiHnEl+RA6spVjLYawS7kWFxf6MeM=; b=ZnmX9v7z7S8si1N9QxHCO6yy3K
+	oRFX8OW9jERMVSP77c9T+jVoBtAhE1dpnfT1XWtpWOjRpyU9S8j0Idm26k+hal7qXqJ9D7XKgDEBT
+	8IHebXS53LLxln+JForQexvOCJF+rLzfqmJ/UctQ9uElkB/vr0eFDo6pK3LHxnv1qKoj1Gob65QmQ
+	lP3Oz2E0/eJTGmR2Op1EwHMXlIsWUdRnJZSQKe3KoTP2NijlQ1N6awy0OzL7G++RXEpR4NIyaWABR
+	esi3bhetq93sQyUdq4nNVL3G9Ix1oXd/PbUYxjp2ddNp+zlRzYUWzLFjlbmbxV4SzRfNJOBr7Qw4B
+	aPnVsUng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukvQs-00000005ATh-3jqa;
-	Sun, 10 Aug 2025 02:05:10 +0000
+	id 1ukvTM-00000005AcN-2vnb;
+	Sun, 10 Aug 2025 02:07:44 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukuva-000000057iF-0r1z
+	id 1ukuvd-000000057jG-1qBx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 01:32:51 +0000
+	Sun, 10 Aug 2025 01:32:54 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 245AE8CB;
-	Sun, 10 Aug 2025 03:31:58 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5A2AC8CB;
+	Sun, 10 Aug 2025 03:32:01 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754789518;
-	bh=7l/qFdNy5H+VGFNHBjoEj7V28DvB9X9u1kFugSfK4EQ=;
+	s=mail; t=1754789521;
+	bh=J2YqhlSkO4rBsv8gjA8t0o3f5oF8H+i91NwRu0XujMo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cRu5PstdZ+RAAFc33GbHdS8gpe9+tEYb2wlAqc7MaKohUrcRLz+nNiUCmUm1WHTLl
-	 W2ncqnXY/NARvtwrwCfGRRn1+smWdzo8v/upaozSrnUNH7+YCNYZO2Ge4I+v0vd3Oy
-	 f7T2NrgLCMB3UJHfC8HKWC74RRQpqXCA/Uq7//lM=
+	b=u3DMTGKv8ZDvAbZW8KSATAtpd635VqOq1FA82O8ekimzra3yNnnqvZmhubzhDBWEW
+	 jYYFq12zMRQgdvIfQM+NLOthZTZdW6htZuR/SfN2pkPOlRv1WhemgezXxTzV9mJ6A3
+	 NDeE+w3RQkaxAKdjB6+qKOI99t/j7hinlHJJubnM=
 From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
 	Hans Verkuil <hans@jjverkuil.nl>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH v3 53/76] media: exynos4-is: Access v4l2_fh from file
-Date: Sun, 10 Aug 2025 04:30:35 +0300
-Message-ID: <20250810013100.29776-54-laurent.pinchart+renesas@ideasonboard.com>
+	=?UTF-8?q?=C5=81ukasz=20Stelmach?= <l.stelmach@samsung.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 55/76] media: s5p-g2d: Access v4l2_fh from file
+Date: Sun, 10 Aug 2025 04:30:37 +0300
+Message-ID: <20250810013100.29776-56-laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
 References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_183250_379944_782A28D5 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250809_183253_606014_74F7AB64 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,83 +78,59 @@ Access the v4l2_fh, and from there the driver-specific structure,
 from the file * in all ioctl handlers.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 ---
-Changes since v1:
+ drivers/media/platform/samsung/s5p-g2d/g2d.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-- Update file-to-ctx macro due to removal of fh-to-ctx macro
----
- drivers/media/platform/samsung/exynos4-is/fimc-core.h |  4 +---
- drivers/media/platform/samsung/exynos4-is/fimc-m2m.c  | 10 +++++-----
- 2 files changed, 6 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-core.h b/drivers/media/platform/samsung/exynos4-is/fimc-core.h
-index 2b6c72d9442c..c23cbdee7afc 100644
---- a/drivers/media/platform/samsung/exynos4-is/fimc-core.h
-+++ b/drivers/media/platform/samsung/exynos4-is/fimc-core.h
-@@ -496,11 +496,9 @@ struct fimc_ctx {
- 	struct fimc_ctrls	ctrls;
- };
+diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+index 922262f61e7b..55f5130156b7 100644
+--- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
++++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+@@ -307,7 +307,7 @@ static int vidioc_enum_fmt(struct file *file, void *prv, struct v4l2_fmtdesc *f)
  
--#define fh_to_ctx(__fh) container_of(__fh, struct fimc_ctx, fh)
--
- static inline struct fimc_ctx *file_to_ctx(struct file *filp)
+ static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format *f)
  {
--	return fh_to_ctx(file_to_v4l2_fh(filp));
-+	return container_of(file_to_v4l2_fh(filp), struct fimc_ctx, fh);
- }
- 
- static inline void set_frame_bounds(struct fimc_frame *f, u32 width, u32 height)
-diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-m2m.c b/drivers/media/platform/samsung/exynos4-is/fimc-m2m.c
-index 609fd84f89d4..562c57f186c6 100644
---- a/drivers/media/platform/samsung/exynos4-is/fimc-m2m.c
-+++ b/drivers/media/platform/samsung/exynos4-is/fimc-m2m.c
-@@ -249,7 +249,7 @@ static int fimc_m2m_enum_fmt(struct file *file, void *priv,
- static int fimc_m2m_g_fmt_mplane(struct file *file, void *fh,
- 				 struct v4l2_format *f)
- {
--	struct fimc_ctx *ctx = fh_to_ctx(fh);
-+	struct fimc_ctx *ctx = file_to_ctx(file);
- 	const struct fimc_frame *frame = ctx_get_frame(ctx, f->type);
- 
- 	if (IS_ERR(frame))
-@@ -308,7 +308,7 @@ static int fimc_try_fmt_mplane(struct fimc_ctx *ctx, struct v4l2_format *f)
- static int fimc_m2m_try_fmt_mplane(struct file *file, void *fh,
- 				   struct v4l2_format *f)
- {
--	struct fimc_ctx *ctx = fh_to_ctx(fh);
-+	struct fimc_ctx *ctx = file_to_ctx(file);
- 	return fimc_try_fmt_mplane(ctx, f);
- }
- 
-@@ -337,7 +337,7 @@ static void __set_frame_format(struct fimc_frame *frame,
- static int fimc_m2m_s_fmt_mplane(struct file *file, void *fh,
- 				 struct v4l2_format *f)
- {
--	struct fimc_ctx *ctx = fh_to_ctx(fh);
-+	struct fimc_ctx *ctx = file_to_ctx(file);
- 	struct fimc_dev *fimc = ctx->fimc_dev;
- 	const struct fimc_fmt *fmt;
+-	struct g2d_ctx *ctx = prv;
++	struct g2d_ctx *ctx = file2ctx(file);
  	struct vb2_queue *vq;
-@@ -376,7 +376,7 @@ static int fimc_m2m_s_fmt_mplane(struct file *file, void *fh,
- static int fimc_m2m_g_selection(struct file *file, void *fh,
- 				struct v4l2_selection *s)
- {
--	struct fimc_ctx *ctx = fh_to_ctx(fh);
-+	struct fimc_ctx *ctx = file_to_ctx(file);
- 	const struct fimc_frame *frame;
+ 	struct g2d_frame *frm;
  
- 	frame = ctx_get_frame(ctx, s->type);
-@@ -484,7 +484,7 @@ static int fimc_m2m_try_selection(struct fimc_ctx *ctx,
- static int fimc_m2m_s_selection(struct file *file, void *fh,
- 				struct v4l2_selection *s)
+@@ -359,7 +359,7 @@ static int vidioc_try_fmt(struct file *file, void *prv, struct v4l2_format *f)
+ 
+ static int vidioc_s_fmt(struct file *file, void *prv, struct v4l2_format *f)
  {
--	struct fimc_ctx *ctx = fh_to_ctx(fh);
-+	struct fimc_ctx *ctx = file_to_ctx(file);
- 	struct fimc_dev *fimc = ctx->fimc_dev;
- 	struct fimc_frame *f;
+-	struct g2d_ctx *ctx = prv;
++	struct g2d_ctx *ctx = file2ctx(file);
+ 	struct g2d_dev *dev = ctx->dev;
+ 	struct vb2_queue *vq;
+ 	struct g2d_frame *frm;
+@@ -400,7 +400,7 @@ static int vidioc_s_fmt(struct file *file, void *prv, struct v4l2_format *f)
+ static int vidioc_g_selection(struct file *file, void *prv,
+ 			      struct v4l2_selection *s)
+ {
+-	struct g2d_ctx *ctx = prv;
++	struct g2d_ctx *ctx = file2ctx(file);
+ 	struct g2d_frame *f;
+ 
+ 	f = get_frame(ctx, s->type);
+@@ -450,7 +450,7 @@ static int vidioc_g_selection(struct file *file, void *prv,
+ static int vidioc_try_selection(struct file *file, void *prv,
+ 				const struct v4l2_selection *s)
+ {
+-	struct g2d_ctx *ctx = prv;
++	struct g2d_ctx *ctx = file2ctx(file);
+ 	struct g2d_dev *dev = ctx->dev;
+ 	struct g2d_frame *f;
+ 
+@@ -478,7 +478,7 @@ static int vidioc_try_selection(struct file *file, void *prv,
+ static int vidioc_s_selection(struct file *file, void *prv,
+ 			      struct v4l2_selection *s)
+ {
+-	struct g2d_ctx *ctx = prv;
++	struct g2d_ctx *ctx = file2ctx(file);
+ 	struct g2d_frame *f;
  	int ret;
+ 
 -- 
 Regards,
 
