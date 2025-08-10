@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0671C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 06:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB34AC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 06:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=enK6t5KGIg+LruZrfThBHUu3Mt7qcO2z+leeT+ugu7M=; b=Kcumcb2ofcaib7RKEp47RCACN7
-	/vKSQZbel/DX86lYY9flMkE5Kq3N+AccoEPza4lGpJPJ+ymjvySo/X9Z4kyM6F/uc1cah4e35/2Q4
-	mlcRIZbuizrb9ZuTSGU9xuDLdEv9z4LSvCUhx1JK3ElCe3k2kvrmHrL0Xu7vjmvhlT+N/T+LibZAo
-	5OfFVpjnJNuyV9W/rM1IxjpnI0xVQ2TwU6Z2uTyFruHNP3bnt+IpAYEMW9Zueu/OUqe7tbjhiN8nU
-	nJBKvREQHTRMohaM8T3/6kRJfdSFrdu78wB+g3xXbcM1NnTwNSkOT8K4eeRR6J6RFiE2Ecq92YKhk
-	tr9g8RvA==;
+	bh=sC8ppSX1H/0TCM/Y3FF+igzDwHvNt7j5FKY8GrjOIKg=; b=OMgNhRe0dpgralEOzZhMZ242wW
+	3JzAT6AX2RTPag+SU0ebeIHUXSeyzjANinVYwCGMIMMw0jSiBUi+eyS0e7Q0c5AYHmc0D03C+sa0y
+	lEzUfyPE4SZZ86KjB0PHl72x03duoxPIMJLFbOUgNVvoRk/klJ00h9/FA+qVvXRgOw0iDrfxfLKFq
+	Pj5jlbIyKD2vJ4UBwRUXwGfg4S6ownVOq9PjVkw2a82KfwCA7Ig8s7XJEJypThEE4oiGpVdJLk8TH
+	8+nXUCbrTJ9CPqoDyPQpnOHZt/NMM/sQQAUgvpn2JSyfX/irtvZ6zh7tLKbT0Bb9Wlo10J/bNDj3+
+	psF58PaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukzhg-00000005Lfe-0VsD;
-	Sun, 10 Aug 2025 06:38:48 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1ukzsv-00000005MFc-25UK;
+	Sun, 10 Aug 2025 06:50:25 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukzf9-00000005LYK-1z8h
+	id 1ukzqO-00000005M7q-44qs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 06:36:12 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3b78d13bf10so3624608f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Aug 2025 23:36:10 -0700 (PDT)
+	Sun, 10 Aug 2025 06:47:50 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-615398dc162so5415632a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Aug 2025 23:47:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1754807769; x=1755412569; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1754808467; x=1755413267; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=enK6t5KGIg+LruZrfThBHUu3Mt7qcO2z+leeT+ugu7M=;
-        b=YVM0GZHlV29B9Nirt4ZVb4kn2A3+Hpdl2p+Z/MMximbQFeazfBo+qRJlhIHIks+UTU
-         sA9la7sHppXzAXCaWLVxAawbAom8UqNr5URmZM/IVY4VDkL/kTMpt/eNhLhU+ztmWupI
-         Ja3atNO9jW518srvblPat8k9M8MojvMq9s7EqkAsiE/ZeFW+Ybi6hArxqiSrKL2Ufqpx
-         50rNlSmJPFTw5ewefcOa9LcbNYZ3Ff6d3+MqgAFY0tSxqzSy7XzIl/f+9inH1hck1eeE
-         OrnJcLjQBpvMbQ57KxlrjKCOlhgUwGwzndOq9M9OshmEqzApce9tT0VLsa838PgP6HZU
-         vQ4g==
+        bh=sC8ppSX1H/0TCM/Y3FF+igzDwHvNt7j5FKY8GrjOIKg=;
+        b=Y99qY1d3VM9RgB8t9zME2AgHlmsRXwB40K9lAAyG1ERhsR5l5PaVUpuCWsEZPu/q1J
+         ynvBrapQGZkDc9aMSCRnoAYFjwy488UK0nfBMz5YsX/i/fAEpaD9h8ha8AYYmZgMcMRP
+         Aym4oX4qSo3hV06dT//OhO4NhjBq1u+Kih3M8KaT+HRYnjnecgDwWbdHCBGhm0TeBc2X
+         is/6IdcOzV6Tt5Ezptggp+PwgxKGsKuvk0vXzdmm/wCF4wWvNQiQuiK0zCPog7ARK++3
+         9Ks+FEquZHeVcSAw35R3Ohfaq//+DNUJqMr1ewPUQpZQmGkPmdsFP0hEhQkIMouIdXuo
+         pI/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754807769; x=1755412569;
+        d=1e100.net; s=20230601; t=1754808467; x=1755413267;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=enK6t5KGIg+LruZrfThBHUu3Mt7qcO2z+leeT+ugu7M=;
-        b=bivfhGEsFNlb0JejTBNkwGxUbbhhernAUmgyETHnigCV5mYMvT1kgqyrjKuoLsqTKG
-         F/h6oG0Uua9WEwSPDfwnHm/b1P0c2mkvHN+RX7rULwRHlBTjEndSSmZVv1wCYoVAmaD2
-         xkLVgu43n5smL/2GhBHPyaftXClB/QHqUdasaQwlh356nAW3CnK7qgCTe3rm9hOyq1Ga
-         qDzyQLDQsM6WEA86OzvvhsM4REqKsnsCiDxXXtRIUFBJkBbgutOCahUK+pqiqgcSyhZ6
-         eSkMQTgMCrl1Jf+wG4Ft45f7d7Tq+sq13p+uGZ28HD7tHh9hZ1C7WnurBTvV0xgzUE5g
-         bEIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX/6b00GMovmVh6dv7Cqw3WuQ7H7I/IrqQ2Z/xXdnggJ7BkKoLw7JGz/bOCUOpQ116Qdo/x3tHXICl3nCIgmaIK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwugoxbxMt9XhFpwmsq1xaG7sX7P36ilmjWRglOIeahRDzlEhM/
-	+H61MLS0wHmXrzq3RgIAcKB2I/4zXJORuD/FykRduG8Q2SJkmihKR/MVKcPRPfqxQIs=
-X-Gm-Gg: ASbGncuWwnnfZzi98Y/x0yEyDxSQCncia1FDoVfNUceklpsDWRl4tfz88MxBHor9b5N
-	r8ElSvQbmizRJexq7I5CciKk22B51dEYjCFoU5UbyAdZ70HqSaNF3hs36tcLsQdPaszn9z4eNmP
-	ie3qwfojgwH9XvzxP5YKYGjQIoMOaUzFoHPpsYjMKcLtX8Z9xIcAkJdsD8qSbqq59UHaSOX2l73
-	PV5eHvRKbEvI93gZprFruSG2y29kHsu6rZdpVSqBYljnChzWIw8l1ZGIWees9g6t2VX75yPwXyx
-	iPpslPzDc08kL6AyrSaIynU9Y6TcDbGew+XPOVxnixKYAUvXbp9jJnpGCkZIgyUjM7xlqL7OXGt
-	sKctejl7ZIdP/f+N6HUts9EvHHQoJjt4oKLgAyUgg/g==
-X-Google-Smtp-Source: AGHT+IHmNQ00RBKMICMOm289G3m3lvi/tK0YBzD0KPkGdwuOB4ix5SW7xxWMXMIQt9BAVjaFLPdtNA==
-X-Received: by 2002:a05:6000:420b:b0:3b7:9b58:5b53 with SMTP id ffacd0b85a97d-3b900b78614mr7383299f8f.45.1754807769119;
-        Sat, 09 Aug 2025 23:36:09 -0700 (PDT)
+        bh=sC8ppSX1H/0TCM/Y3FF+igzDwHvNt7j5FKY8GrjOIKg=;
+        b=O4/Q5HhKFbC6ud3CCBp18cds7ceikUWWGhtCTTcqRsGZn9R5Bk+dcdlg+wWjvPYn0j
+         1x41fgJIzh2H/5Ww9AXR6gBJM+VvZmJH5SSpEYhWUJ09cKI2Gnoq+oB4xAcYuiPTvbym
+         yMcGiyoCDhjH595W6d9OJeX/Jr5dGBJ68DydSrWWNNUgcl4+lJulQ7cT2VuTEe16fBhX
+         QcRSoL4Q3Hsq1UL0sKmHrFsykn+f9R5BU8alV7j6sp2ar+kmdRrI8Q0RxCXuCKEszxNI
+         p58Cii6/0lvmVSi8LBOuuopyfmL7xx8lj585/fgIq+Dt1HPPhPwIN/rhOJFIoJCPPCdA
+         2aTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUtJzsrSpIgoWNyo5cErqukNRSV1c0lvjUr06aObROU1XMEB+JNNmhAtvExiLw8U7Yazh86GGm2CTq+F2Ysujwg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+0DVcd7AN6wLvQ13GjNdmvNFfjhTgK1gfkWK8x0CEVmDS0esn
+	1eH31BlWq5YbLNkdOZk2leNBBDFIEGcxSYDyJnpOOXKkVw2hoU8QvEfx66VSh69ERUE=
+X-Gm-Gg: ASbGncttecoESr0d08v8TWvEeDaLg3HouTZjE5KKuaePtLcBpwoJdbD1y4tFzhfCtEA
+	e99MFvgRMfvQOJENQd5WjXKGzeRh6C3AJQ4GZEaTfmRAJWCbcrir2B8rVGEzOS6djY0ykwWSENT
+	Pc5i1iObiDSK2A8b7yFxrBHofZOO1vzf73jrBJ2ZBE/Hq3rmzNFHHH4gt4F+m5Vz+xVsBfSBLK1
+	pqOcyqWB3jWNRivex80kgJWBxyaZ/n3fBl7Nutp8lrD9VK+mz+L8H4F2X7JTrvGczwglTAJxlQi
+	XgYr4CqaYMl1D0lJOLWx5zfbt6urrO5bv2i5TZrvmbITSmJkqycT+4CDM7yyzt3cQDr/oITKRoN
+	PaJK0eVXPG0/klLwSbI9dsqzPWbHofg0vGQ3xj99yRQ==
+X-Google-Smtp-Source: AGHT+IH/7dzLzWQyWlGILSjoAFS8eflMGUJjXYYLSezW9ohIbVGYZPagLxPqBOuF4SYx6XNBcYwt7w==
+X-Received: by 2002:a05:6402:51cb:b0:615:c767:5ba1 with SMTP id 4fb4d7f45d1cf-617e2b661aemr7951088a12.3.1754808467315;
+        Sat, 09 Aug 2025 23:47:47 -0700 (PDT)
 Received: from [192.168.50.4] ([82.78.167.188])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c3b95f4sm36052015f8f.23.2025.08.09.23.36.07
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8ffbdb4sm16219007a12.52.2025.08.09.23.47.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 09 Aug 2025 23:36:08 -0700 (PDT)
-Message-ID: <8963764e-0948-4f11-a907-de74b0f8ba3b@tuxon.dev>
-Date: Sun, 10 Aug 2025 09:36:06 +0300
+        Sat, 09 Aug 2025 23:47:46 -0700 (PDT)
+Message-ID: <1cc60291-194d-4d8c-ad0d-f83651ba4fc5@tuxon.dev>
+Date: Sun, 10 Aug 2025 09:47:44 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 2/4] thermal: renesas: rzg3s: Add thermal driver for
  the Renesas RZ/G3S SoC
-To: Geert Uytterhoeven <geert@linux-m68k.org>
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
 Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com,
  lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
@@ -85,15 +85,15 @@ Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com,
  Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 References: <20250324135701.179827-1-claudiu.beznea.uj@bp.renesas.com>
  <20250324135701.179827-3-claudiu.beznea.uj@bp.renesas.com>
- <CAMuHMdUUNFo4pqbXh1xMatsv7T7cnq0SmDxM_o9em0=gpurdCA@mail.gmail.com>
+ <20250705120617.GA671672@ragnatech.se>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <CAMuHMdUUNFo4pqbXh1xMatsv7T7cnq0SmDxM_o9em0=gpurdCA@mail.gmail.com>
+In-Reply-To: <20250705120617.GA671672@ragnatech.se>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_233611_650052_9F998CF2 
-X-CRM114-Status: GOOD (  31.75  )
+X-CRM114-CacheID: sfid-20250809_234749_015218_A627F164 
+X-CRM114-Status: GOOD (  18.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,12 +108,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Geert,
+Hi, Niklas,
 
-On 26.03.2025 15:26, Geert Uytterhoeven wrote:
+On 05.07.2025 15:06, Niklas Söderlund wrote:
 > Hi Claudiu,
 > 
-> On Mon, 24 Mar 2025 at 14:57, Claudiu <claudiu.beznea@tuxon.dev> wrote:
+> Thanks for your work. 
+> 
+> Sorry for late review, Geert only alerted me to the series a few days 
+> ago.
+> 
+> On 2025-03-24 15:56:59 +0200, Claudiu wrote:
 >> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 >>
 >> The Renesas RZ/G3S SoC features a Thermal Sensor Unit (TSU) that reports
@@ -123,90 +128,55 @@ On 26.03.2025 15:26, Geert Uytterhoeven wrote:
 >> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 >> ---
 >>
->> Changes in v3:
->> - drop the runtime resume/suspend from rzg3s_thermal_get_temp(); this
->>   is not needed as the temperature is read with ADC
->> - opened the devres group id in rzg3s_thermal_probe() and rename
->>   previsouly rzg3s_thermal_probe() to rzg3s_thermal_probe_helper(), to
->>   have simpler code; this approach was suggested by Jonathan in [1];
->>   as there is no positive feedback for the generic solution [2] this
->>   looks currently the best approach
-> 
-> Thanks for the update!
-> 
->> --- /dev/null
->> +++ b/drivers/thermal/renesas/rzg3s_thermal.c
-> 
+
+[ ...]
+
 >> +static int rzg3s_thermal_get_temp(struct thermal_zone_device *tz, int *temp)
 >> +{
->> +       struct rzg3s_thermal_priv *priv = thermal_zone_device_priv(tz);
->> +       int ts_code_ave = 0;
->> +       int ret, val;
+>> +	struct rzg3s_thermal_priv *priv = thermal_zone_device_priv(tz);
+>> +	int ts_code_ave = 0;
+>> +	int ret, val;
 >> +
->> +       if (priv->mode != THERMAL_DEVICE_ENABLED)
->> +               return -EAGAIN;
+>> +	if (priv->mode != THERMAL_DEVICE_ENABLED)
+>> +		return -EAGAIN;
 >> +
->> +       for (u8 i = 0; i < TSU_READ_STEPS; i++) {
->> +               ret = iio_read_channel_raw(priv->channel, &val);
->> +               if (ret < 0)
->> +                       return ret;
+>> +	for (u8 i = 0; i < TSU_READ_STEPS; i++) {
+>> +		ret = iio_read_channel_raw(priv->channel, &val);
+>> +		if (ret < 0)
+>> +			return ret;
 >> +
->> +               ts_code_ave += val;
->> +               /*
->> +                * According to the HW manual (section 40.4.4 Procedure for Measuring the
->> +                * Temperature) we need to wait here at leat 3us.
->> +                */
->> +               usleep_range(5, 10);
->> +       }
+>> +		ts_code_ave += val;
+>> +		/*
+>> +		 * According to the HW manual (section 40.4.4 Procedure for Measuring the
+>> +		 * Temperature) we need to wait here at leat 3us.
+>> +		 */
+>> +		usleep_range(5, 10);
+>> +	}
 >> +
->> +       ret = 0;
->> +       ts_code_ave = DIV_ROUND_CLOSEST(MCELSIUS(ts_code_ave), TSU_READ_STEPS);
+>> +	ret = 0;
+>> +	ts_code_ave = DIV_ROUND_CLOSEST(MCELSIUS(ts_code_ave), TSU_READ_STEPS);
 >> +
->> +       /*
->> +        * According to the HW manual (section 40.4.4 Procedure for Measuring the Temperature)
->> +        * the computation formula is as follows:
->> +        *
->> +        * Tj = (ts_code_ave - priv->calib1) * 165 / (priv->calib0 - priv->calib1) - 40
->> +        *
->> +        * Convert everything to mili Celsius before applying the formula to avoid
+>> +	/*
+>> +	 * According to the HW manual (section 40.4.4 Procedure for Measuring the Temperature)
+>> +	 * the computation formula is as follows:
+>> +	 *
+>> +	 * Tj = (ts_code_ave - priv->calib1) * 165 / (priv->calib0 - priv->calib1) - 40
+>> +	 *
+>> +	 * Convert everything to mili Celsius before applying the formula to avoid
+>> +	 * losing precision.
+>> +	 */
+>> +
+>> +	*temp = DIV_ROUND_CLOSEST((s64)(ts_code_ave - MCELSIUS(priv->calib1)) * MCELSIUS(165),
+>> +				  MCELSIUS(priv->calib0 - priv->calib1)) - MCELSIUS(40);
 > 
-> milli
-> 
->> +        * losing precision.
->> +        */
->> +
->> +       *temp = DIV_ROUND_CLOSEST((s64)(ts_code_ave - MCELSIUS(priv->calib1)) * MCELSIUS(165),
->> +                                 MCELSIUS(priv->calib0 - priv->calib1)) - MCELSIUS(40);
-> 
-> This is a 64-by-32 division. When compile-testing on arm32:
-> 
-> rzg3s_thermal.c:(.text+0x330): undefined reference to `__aeabi_ldivmod'
+> The issue Geert points out, can that not be solved by holding off 
+> converting to MCELSIUS() to after you have done the calculation?
 
-Thank you for reporting this! I'll switch to div_s64().
+This method works as well, but at the cost of some precision. As of my
+experiments, with it there will be no temperatures with .5 Celsius
+resolution (e.g., 50.5, 51.5, 52.5, etc) reported.
 
+Thank you,
 Claudiu
-
-> 
->> +
->> +       /* Report it in mili degrees Celsius and round it up to 0.5 degrees Celsius. */
-> 
-> milli
-> 
-> 
->> +       *temp = roundup(*temp, 500);
->> +
->> +       return ret;
->> +}
-> 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
 
 
