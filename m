@@ -4,112 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2A0C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 22:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5C3C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 22:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Message-Id:MIME-Version:Subject:Date:From:Reply-To:
+	Content-Type:Cc:To:MIME-Version:Message-Id:Date:Subject:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dJb7rUsTB9SkaGqYqp/qaoDTrI+nSvgfo1YbIvP11Sw=; b=M32lnNckrVdYiuuxdJIifJvK5j
-	Lfd6jdIRPWriZu/k9cVr1S21OqempM8lwc4JoH7GtJGH4c2UiLiz1gY5CS4vLx7BAaESh6ElXLV7q
-	sBUmdzyJdxdOrq2PxVPzPQN+s7xNnc8OdbYFTu0eUYY/mT+YrgnCeWwpO0IW2EXCQ6xYJXiVekBB1
-	2/sdcY7bGQGNfbaRIv9QsO8/gv2Alhh01dzaYanu5CKCfNVZkGW9IGgq/ZlAjwGUqbXUy8iAIbJ/J
-	t8kThpStKzmnhsJ2T6S5Zlj3xaYKiDo48BqAbI7rJEdxOqe2TUezbFY7cadyAOvtO6zoV6S0jqwD5
-	gJBKWM7g==;
+	bh=zejlDygpGrwzEF/Tl2mTtzsn7pmvzE6JdbSkjCZTc90=; b=ZoDGz/KNhtS/jWtg5lHdcU+N0L
+	055LOo337fmlPyAzYHGbQp2Y2hZmbqxIEJ1Xl9QohB4u2IqzD/dTgL4GLAV1Jad1IFxn/Yoe/VsP1
+	PcGAkMAnYcuDd2fBipQSGJS2vYiq5rt81gBvxhsGAy4nmPZj8Zlu+sDreB+LHUA2VomVSDLUeK+Yz
+	QBKwMKK7Yd3tkxch8KAQKp/XYqL8jo+1bII4HJ3afK6rQ4RhcggnpBxXTpUep2BaZ58Z8nOeH5OXF
+	VIdT1HZRDuoZXIJv6gE1cnZXMxmUCh5l856N9WaFypkNATIAgiwc6sHQ/WiVJw8FioZTYfkbFo3s+
+	NyzwVPtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEee-000000067Qo-3QoQ;
-	Sun, 10 Aug 2025 22:36:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ulEqD-000000068UM-2yXo;
+	Sun, 10 Aug 2025 22:48:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEak-000000067D4-0xhG
+	id 1ulEnd-000000067xj-1JDP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 22:32:39 +0000
+	Sun, 10 Aug 2025 22:45:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754865157;
+	s=mimecast20190719; t=1754865956;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding;
-	bh=dJb7rUsTB9SkaGqYqp/qaoDTrI+nSvgfo1YbIvP11Sw=;
-	b=HpT1zlRWbCwIgCzW1yFez6cFBBjOL6CszpaOQyZoruyzjPtfO09oxp11SIoV6EdGv/6ae4
-	uglYQhFaBDt+Apb502b9iCFprm/hRF1yM7snn4Fjt9koKToKXVNJwthj0cQy/xUMNa7e5g
-	4HTMLBcXndJ+uqvr0YckZGy2tAftD9g=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=zejlDygpGrwzEF/Tl2mTtzsn7pmvzE6JdbSkjCZTc90=;
+	b=A4r5NCpNjnWcOhf+Q3yw7XW4o6xxHxJ26XMfmXWAD8OarF44I9xCAine4xkuef8WMI2G5z
+	5NW08BvTXrrqce15x35qdXFEoPoShgdQqXu2UgfqxhWG6mYOZMgIqAkNmXN1W94hWzJxy7
+	/25ciug/9duuP88IGTSGhGKnmAzaEWQ=
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
+ [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-595-zPK3Jkk3Mv-swYXQWG0DeQ-1; Sun, 10 Aug 2025 18:32:35 -0400
-X-MC-Unique: zPK3Jkk3Mv-swYXQWG0DeQ-1
-X-Mimecast-MFC-AGG-ID: zPK3Jkk3Mv-swYXQWG0DeQ_1754865155
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7e809830338so1312323785a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 15:32:35 -0700 (PDT)
+ us-mta-158-WQUjR4wLNI2Ax2drzYlBKA-1; Sun, 10 Aug 2025 18:45:55 -0400
+X-MC-Unique: WQUjR4wLNI2Ax2drzYlBKA-1
+X-Mimecast-MFC-AGG-ID: WQUjR4wLNI2Ax2drzYlBKA_1754865954
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4b08431923dso98317401cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 15:45:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754865155; x=1755469955;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1754865954; x=1755470754;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dJb7rUsTB9SkaGqYqp/qaoDTrI+nSvgfo1YbIvP11Sw=;
-        b=Jd867eAam1661eImUQwuL4Oq2xjQQpQglSHgD41KYJmem/bBC55Ktqr7AsUOE6h38A
-         ZRSmAVwMOYnJ7QEBJiULYizL7ZD41nk3kvVurL6EAXkOkgOmlh8ellte+NF/VOGM6yX9
-         ph0/7CvksMenQ1V6TNQFne+JvVJaG/fMim+XFoVakp3jo1i/YHB9B6MRB+EuM1tsKLWJ
-         pMpVOZBPJU6F63CvGN/97S9eR7Kem+DgdNLgf40jtE8Z1sI7zgVmVq7ew8g8uJm9etlI
-         yW/4ekzfS7WNlZkZq/8MxdxaAyhlKcAD/r+eKECyTWLF599bZM1TbChYRs8l2m5t67Be
-         Oz6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX8j5wt6QYiUdf0AjazNKQFIpdghlwNXiauxG3ozZkzddivdD5zc0g2BU5YieR79VX+XOXnyMqWZ+afaWy3/3Q0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZwpwT4uwfVz+S26JL0Tbk6qRBu85XDC+/E6puGXz3Wc/7d5Vo
-	84ln3Pyo9PdEfUqA8+zP58G5S7+JzIr+Jk6WLdz9Iry+gn8Qs+TxTvffnycLUrb0Sa2hMj147kf
-	7q8B+Q50gpO6RM3wn6vTxdzlaCzObV2kux6tRo3AfvCa7xyKIZQlTrVRk41VEy+WAfPvK8Z3QQ2
-	u4
-X-Gm-Gg: ASbGncuhnau6hc4JlskDyL98LMe/tCg62t2oNycnk5sE6eo2jF7wcTVJRlhuYE2eyso
-	1HdlM2+wQwZOQS6Ot73df83GQ2y4gpyrMGgKYq/MP5/r2S/cuz1uFSsfWIoEPkn7dS1s8X86ZrI
-	XG+zA25HwPVHuudNL7/LdjWeGMkV+U1lQqzY3en8YYQEtJQAwRhiBp+PcbV36bzGZd9y4eT4F8Z
-	eRFDKDMmhzobkpUOAU0+27AiwE5yHppiIo9eDgkYrPvsBu7Zv2evwXASlCLSyWF4YJvv45TMMb2
-	8UV2DvK3f+5X/YQ2/TMV8QSYQtwq0miGHXpV+KI1E/EpW0uHu16CUAG0mjV4nZfk2JFhGkNy2zn
-	WtGKdXw==
-X-Received: by 2002:a05:620a:3703:b0:7e8:38ca:c499 with SMTP id af79cd13be357-7e838cac80fmr1065028685a.25.1754865155281;
-        Sun, 10 Aug 2025 15:32:35 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFSoqXWkVNdaecquXdS5RU3KxC5LuRgDn6mt5MAfNv86tnPuYxMv4lQllMkbIfhq0YBrZt9fw==
-X-Received: by 2002:a05:620a:3703:b0:7e8:38ca:c499 with SMTP id af79cd13be357-7e838cac80fmr1065025585a.25.1754865154831;
-        Sun, 10 Aug 2025 15:32:34 -0700 (PDT)
+        bh=zejlDygpGrwzEF/Tl2mTtzsn7pmvzE6JdbSkjCZTc90=;
+        b=r5OKgBvDDHaG0ERqzymApHl0rJSVJyg2Te92jOIhLNujcp7sIUWsPTBWn8X9P4EuMY
+         VMZ6p5/z/kGlz5VarGzPESDE3XCJmNwaq33idZSOtA0d7ZDcvOwLt4Oph0FFp1cB1JFQ
+         EDX0zdppmGe3HF74Scyz65R2CqkuMK6YLH0PUKC2sdDi/+nPnHG9G65fi/spMn6zUE6d
+         kzoD/yTYf+bU+g2lEQyRgOsqShnm0lB/I2EKYsJ/yTeaMsoA7UH21+DP+npmiiY4IDQf
+         EScE2fh4SLZ7mD7rRcxdErY9/7bxItmkM3HnWf1ziX5S0ki+c4svBjM+Dkzu7OgzlWZu
+         oE7g==
+X-Forwarded-Encrypted: i=1; AJvYcCV2aCheguwACOd0MEj54HlTm4lvJiZ2dlkeRLjxoXUZx1K0TJGc6akyA1jz6vJoozMKZhbWM2QZ3q5w0SoMWkHj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRUw+flBV1sYnjaxA+JOX3X1Bvj24pJ/UBIzwDe60GU4kbxu8Y
+	aC1d9FSZM+wj49l1+B0aisgm2n9DOadLNP3dTAbOspHBtWkY0b5gaEF979rj+TgNS7mEfK0G21M
+	8+ScshfaQyZ7LmzEJE90YL2KhTjm4mb4hKKx38+QtsgnBfJ7kqLScf1d9fgZPiGvuKr1QLyPvlh
+	fy
+X-Gm-Gg: ASbGncvOA/pP7EOaWZItImJIiQbAUxeqNFwZcWv/+UShuO+z1TJrDZgovND8cJVHUP7
+	jUJ1bCs5oWF7up1MI0Pf/OYLX/9poabpRdINShNRVs/zQYa6Sn8OvJhZuA9Hc5EWc5bPktBEiDJ
+	MgU+1T3FZeRVWYnRHZmt6O5EdCuriQZ9tcqkVjCVDhpSgSS3/rElFJ7DOtPBG2Vtvafk7i5QWv1
+	aI1wfMB93G8uhkQ3fwWRg3H1DnDzyYHD+LOsspUsGpkomxpsz7vIcW5tDZLtm+H+3BSSiyW/5Kc
+	MqgVBC5YveZSsa6Ms276c+9OWfYd5cYL9MG7Q1IDQxMmlLGa1MsH9GOlE/d6qqNlpuQEAfVFcoV
+	IuemyMQ==
+X-Received: by 2002:ac8:5992:0:b0:4b0:743a:b4f0 with SMTP id d75a77b69052e-4b0aedf6b1amr162625141cf.41.1754865954322;
+        Sun, 10 Aug 2025 15:45:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHMMVuRi+pB2hB00rh/4lBT2A6xNejEN6UKRgkLWeOvqElbSCAZq0WUzWxXHj0FePs3qQpk7g==
+X-Received: by 2002:ac8:5992:0:b0:4b0:743a:b4f0 with SMTP id d75a77b69052e-4b0aedf6b1amr162624811cf.41.1754865953842;
+        Sun, 10 Aug 2025 15:45:53 -0700 (PDT)
 Received: from [10.144.145.224] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e8040a9154sm966989685a.70.2025.08.10.15.32.31
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b0ad996459sm42685171cf.46.2025.08.10.15.45.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Aug 2025 15:32:33 -0700 (PDT)
+        Sun, 10 Aug 2025 15:45:53 -0700 (PDT)
 From: Brian Masney <bmasney@redhat.com>
-Date: Sun, 10 Aug 2025 18:32:18 -0400
-Subject: [PATCH] i2c: busses: bcm2835: convert from round_rate() to
+Subject: [PATCH v2 0/9] phy: convert from clk round_rate() to
  determine_rate()
+Date: Sun, 10 Aug 2025 18:45:28 -0400
+Message-Id: <20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com>
 MIME-Version: 1.0
-Message-Id: <20250810-i2c-round-rate-v1-1-9488b57153e7@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAPEdmWgC/x3MQQqAIBBA0avIrBtIRaKuEi1Ex5qNxVgRhHdPW
- r7F/y8UEqYCk3pB6ObCe27QnYKw+bwScmwG0xvXD2ZENgFlv3JE8SehtoO1ziedfIQWHUKJn38
- 4L7V+otXBD2AAAAA=
-X-Change-ID: 20250729-i2c-round-rate-137335af1fad
-To: Andi Shyti <andi.shyti@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-i2c@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Brian Masney <bmasney@redhat.com>
+X-B4-Tracking: v=1; b=H4sIAAghmWgC/x3MQQ5AMBBA0avIrE1SDRquIhYNU52QkilCxN01l
+ m/x/wORhClCmz0gdHLkNSToPIPB2zAR8pgMWulKmULh5m8clhllPcKIYnfC0lpDrqiVowZSuAk
+ 5vv5p17/vByfwFxlkAAAA
+X-Change-ID: 20250710-phy-clk-round-rate-4aa7ef160fe9
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754865151; l=5778;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754865940; l=5842;
  i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=A9FV1U7CIAy2NMAbPMRyp4dSSbe66HlO+3+lB1waQDc=;
- b=/yTjwc3Hxiz4RhGMiIAb0N96c39PAyq5ltU0bkKcG+K4lHu3Hjn8KL9T1K+zvEXEwQTGuSUPS
- BGS1TacP1ylAqIILUY1oeqj6YDPbvJxC1+0OF/qIqCZOc1U51EKur87
+ bh=aLGfKmyNU+bomSynOaLohW6Y59bxgPyE9ULfin1cZyo=;
+ b=O9IhL3QDOUiwO05Lg7AXKinAxwzs6mf8jMpnbEWniYrx2Csle3lF/NzYZAfa6oTvLYjtyMKTB
+ 35n8Z5Wp2HwCqzPx1ryQAePsX3611g3M7mBqcbq1xRSaFHhbzl6z6wG
 X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
  pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: JeSqw_mE6cCtfC5R3DDEBOT3MzVFhszn1z3T2x9vY_4_1754865155
+X-Mimecast-MFC-PROC-ID: jBSsxcRa9n1O3UCwAkqcQolo3SnzFFtjZIVqkL2IEVc_1754865954
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_153238_353691_9FC25948 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20250810_154557_439548_0929DAD9 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,16 +128,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate() using the Coccinelle semantic patch
-appended to the "under-the-cut" portion of the patch.
+The round_rate() clk ops is deprecated in the clk framework in favor
+of the determine_rate() clk ops, so let's go ahead and convert the
+drivers in the phy subsystem using the Coccinelle semantic patch
+posted below. I did a few minor cosmetic cleanups of the code in a
+few cases.
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
----
-Coccinelle semantic patch is below. It's large and I don't want to
-pollute the kernel changelog with the same code hundreds of times,
-so that's why it's included under the cut. For subsystems with more
-than one patch, I've included it on the cover letter.
+Changes since v1:
+- Patch 8 (phy-rockchip-samsung-hdptx): fix returning error code
+  (Cristian)
+
+Coccinelle semantic patch:
 
     virtual patch
 
@@ -261,46 +266,33 @@ than one patch, I've included it on the cover letter.
 Note that I used coccinelle 1.2 instead of 1.3 since the newer version
 adds unnecessary braces as described in this post.
 https://lore.kernel.org/cocci/67642477-5f3e-4b2a-914d-579a54f48cbd@intel.com/
+
+Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- drivers/i2c/busses/i2c-bcm2835.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+Brian Masney (9):
+      phy: freescale: phy-fsl-samsung-hdmi: convert from round_rate() to determine_rate()
+      phy: mediatek: phy-mtk-hdmi-mt2701: convert from round_rate() to determine_rate()
+      phy: mediatek: phy-mtk-hdmi-mt8173: convert from round_rate() to determine_rate()
+      phy: mediatek: phy-mtk-hdmi-mt8195: convert from round_rate() to determine_rate()
+      phy: mediatek: phy-mtk-mipi-dsi-mt8173: convert from round_rate() to determine_rate()
+      phy: mediatek: phy-mtk-mipi-dsi-mt8183: convert from round_rate() to determine_rate()
+      phy: rockchip: phy-rockchip-inno-hdmi: convert from round_rate() to determine_rate()
+      phy: rockchip: phy-rockchip-samsung-hdptx: convert from round_rate() to determine_rate()
+      phy: ti: phy-j721e-wiz: convert from round_rate() to determine_rate()
 
-diff --git a/drivers/i2c/busses/i2c-bcm2835.c b/drivers/i2c/busses/i2c-bcm2835.c
-index 8554e790f8e36c5a1cf56c0aab8556b377f2bbdf..0d7e2654a534e92a529f27fdc049812359678522 100644
---- a/drivers/i2c/busses/i2c-bcm2835.c
-+++ b/drivers/i2c/busses/i2c-bcm2835.c
-@@ -137,12 +137,14 @@ static int clk_bcm2835_i2c_set_rate(struct clk_hw *hw, unsigned long rate,
- 	return 0;
- }
- 
--static long clk_bcm2835_i2c_round_rate(struct clk_hw *hw, unsigned long rate,
--				unsigned long *parent_rate)
-+static int clk_bcm2835_i2c_determine_rate(struct clk_hw *hw,
-+					  struct clk_rate_request *req)
- {
--	u32 divider = clk_bcm2835_i2c_calc_divider(rate, *parent_rate);
-+	u32 divider = clk_bcm2835_i2c_calc_divider(req->rate, req->best_parent_rate);
- 
--	return DIV_ROUND_UP(*parent_rate, divider);
-+	req->rate = DIV_ROUND_UP(req->best_parent_rate, divider);
-+
-+	return 0;
- }
- 
- static unsigned long clk_bcm2835_i2c_recalc_rate(struct clk_hw *hw,
-@@ -156,7 +158,7 @@ static unsigned long clk_bcm2835_i2c_recalc_rate(struct clk_hw *hw,
- 
- static const struct clk_ops clk_bcm2835_i2c_ops = {
- 	.set_rate = clk_bcm2835_i2c_set_rate,
--	.round_rate = clk_bcm2835_i2c_round_rate,
-+	.determine_rate = clk_bcm2835_i2c_determine_rate,
- 	.recalc_rate = clk_bcm2835_i2c_recalc_rate,
- };
- 
-
+ drivers/phy/freescale/phy-fsl-samsung-hdmi.c      | 13 ++++++----
+ drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c        |  8 +++---
+ drivers/phy/mediatek/phy-mtk-hdmi-mt8173.c        | 16 ++++++------
+ drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c        | 10 ++++----
+ drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c    | 10 +++++---
+ drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8183.c    | 10 +++++---
+ drivers/phy/rockchip/phy-rockchip-inno-hdmi.c     | 30 ++++++++++++-----------
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 14 ++++++-----
+ drivers/phy/ti/phy-j721e-wiz.c                    | 11 ++++++---
+ 9 files changed, 68 insertions(+), 54 deletions(-)
 ---
 base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250729-i2c-round-rate-137335af1fad
+change-id: 20250710-phy-clk-round-rate-4aa7ef160fe9
 
 Best regards,
 -- 
