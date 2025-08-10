@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE71C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 16:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 741C1C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 16:55:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1O7Ir2JV9F3FRquanCEG57N9yilLJmRdcXyWCErqjXM=; b=QDOd/u9KARm6SKu0E5A1UbuM2w
-	AoWNFhqoMKeGHwkUoegPFnq/SIbE0rnM38CUnv62E4KFbqNlykJnW9fvsU1GrugsCSyOrbyZYZEe8
-	vRnkL7Qt/HA1h3igRWfFDv2hZVWKBgkkAbDfuHtAYVgdwMXZe51xRmUywBKxT5c6G6gu7N6fVgOs4
-	XQ60GA6XjxsbFEjJad88TER+yYvHN1386mjFqZcG/7YMVuIRka+LLfOoM91MmZeLvbkNiWzgDKahv
-	bYBeoJx8NYdw8fw9+hQ+3/qXRdn0I7cveoUSga+rf/xfZDmeosH4KmoevGLBf3tv+yewELaGfcgMa
-	AH4Aqg0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/K9MxRsql9amfZrPwnvhPaTBmIPizK5/r7qz1hO1Po0=; b=TkUKoj0FqoTSD1Day5q4ApnVsi
+	etkmLfXCiHPFtqBFSHLVjs8hEKjDuqbWSd8kJGCPXoyJlmaWJn1Y9MfoP5L/rFM7ofbZajjIq1P1t
+	VRo2Hnu/cRz6rEwcl07YTkt/qQJfQlPQZEAXuwPY6/QT3aUD/KTzZY1TqUTeKKZPKqC2pR7I+A6US
+	8Zz2mhH8KedYWBZzEraCQkFQpPu6EVRwgA97ZEnmkvqE56Ww2dxY/LLrB35y6UqwKJowTPKbNqbsn
+	AB8bVzUbXrcsqWbN0PW72yNl2wpzoMzqsxzun3YiuMOjA29bVMznPFO/Bnm8gv2teHOmy/OAlXfL7
+	6k8Y1NzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ul9HT-00000005nV8-2MSi;
-	Sun, 10 Aug 2025 16:52:23 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1ul9KH-00000005nns-4B96;
+	Sun, 10 Aug 2025 16:55:17 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ul9Ex-00000005nLG-0yG3;
-	Sun, 10 Aug 2025 16:49:48 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3b78ae64756so426989f8f.2;
-        Sun, 10 Aug 2025 09:49:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754844585; x=1755449385; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1O7Ir2JV9F3FRquanCEG57N9yilLJmRdcXyWCErqjXM=;
-        b=Xu3/xra9fJo5AGKlyAJvsw502GJ1+ex5dVQsXp5L1h9WlibG1Ru25fFS5pkjaEfAxw
-         o17rH1kG30ljn8ihavkSl8gdHXecAX+SDGcwFwAGvi9x9xMhDEG7ttRNReiqorP/S0m6
-         EMzL0oyPnBQ33hVN3kUDm20LtBTzLYe188+1Dr6NrbCMzoS9adqfVmrD4ZswE5MO0/EZ
-         sUv/SwyotroNjl40rJLXoUGXKw1MpX81xhCjjtRPkVAAWeWZh0Xd+KZPz1Bat8FAjOio
-         HDQRLzCykmOL3XqiBFZplFk/77a2Fo8vQ5+Da6BvVslw/tUn+h2O1ibatX/BLVz5D2C6
-         s5kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754844585; x=1755449385;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1O7Ir2JV9F3FRquanCEG57N9yilLJmRdcXyWCErqjXM=;
-        b=eP96vS6f5B3JzazJgUvAcBYoVHpN1y9qQ2iRP4/mqyDg27Bd5CdPTBdIxjeTXtHeF2
-         ZhS86g2i08HXhJ/x5UDkmn0S0upDVnWffyehQyp1y2oKfJKp4yUI7ivoPh2PAmSYrO+H
-         1Py0GFLX9tF3rbvhg0L7ebJMeF8Jj4j4Cz1zPZvrZbAql/QQw/8dZOoGudTTB88xFbMa
-         BU2lETEJRgQ+tzvaMGT0PSS2+PEktXdvMOoh/T6EzBvhGf2WCFyL9ZjNcXYkAHSlFJf4
-         FAzT+h0gkUG/AeIwVhxEH3Oefsg8wqeOluNOKUBu4ZLTAvyq5jP7YsK9AEh81GTO1abA
-         1mKw==
-X-Forwarded-Encrypted: i=1; AJvYcCVblNV5GwYtJQzZ+BtXbW/wz3H04owcXG/GkuOwMXrU7Fyir1cIsffNtq57svgyd/QWAIZoAJIXoDhkPWdODKx/@lists.infradead.org, AJvYcCXi0FA/YutVO4jFlUc19pCrTS4q7U2piABL9SLvWEJgcy8HLXeGQsyxxvZU6ZkdLcACigITJGxxHo68Lv4fG4k=@lists.infradead.org
-X-Gm-Message-State: AOJu0YytuSEdJdCwf3znOfUw85gz3NLsuZX05pXWvwKXeJwNOg/vayxq
-	vXt3ZlSGyjGcZ2AQfgiV1GaCMXbJKxG7zol7lDUQuXMuVp/MrBAwjl+T
-X-Gm-Gg: ASbGncsnzF1a/UpCHBWmPWE1gv5kmq7PHsQ39v8QzbnDcyHBETbCH9Mv3VSxbtUBwZv
-	t1eDfBc+7hUBEJM9tbkza3Qh5oGbkjmGjAtAvIPsRBki7ZBVsXfeW/jcPhAhrbRU3thNHLmLI2u
-	yvrzfkWo/+e3k6AYeuEH3YTvd2fPeedeS7ALDZK5MPzz88PmO4b7XXkFOwa0OG3mts5KgsUVy4Z
-	uGSnWItadkz5y55Q8JGfsSUMJJc8zOLKjmRFl2xjAQ+PlwoQAUdAswtMG/cJN/n5cEKBveXUzDj
-	yFa4ig/9PEbi4NuQtgClNjlbGpGnb3Oc69QovwI5VLPJx+4XtMC3UVoP7xyOT0zh3HK/J4QFShc
-	jj09qUYsn3eMyYRo=
-X-Google-Smtp-Source: AGHT+IF3CiPbtmzEifmcmnCZ6v8i8GbiWTGaqS99ZpLMhFYLskKAThOPIcEoj6BjqGlkH2y/M2FuGw==
-X-Received: by 2002:a05:600c:820a:b0:456:1a00:c745 with SMTP id 5b1f17b1804b1-459fd04c3e9mr22165455e9.3.1754844584509;
-        Sun, 10 Aug 2025 09:49:44 -0700 (PDT)
-Received: from skbuf ([2a02:2f04:d005:3b00:f9ef:f5a3:456e:8480])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c3bc12csm38395980f8f.28.2025.08.10.09.49.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Aug 2025 09:49:43 -0700 (PDT)
-Date: Sun, 10 Aug 2025 19:49:41 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, jonas@kwiboo.se, alsi@bang-olufsen.dk,
-	conor+dt@kernel.org, davem@davemloft.net,
-	devicetree@vger.kernel.org, edumazet@google.com, heiko@sntech.de,
-	krzk+dt@kernel.org, kuba@kernel.org, linus.walleij@linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
-	pabeni@redhat.com, robh@kernel.org, ziyao@disroot.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
- Radxa E24C
-Message-ID: <20250810164941.4oezju3c4vhnunrx@skbuf>
-References: <db1f42c3-c8bb-43ef-a605-12bfc8cd0d46@kwiboo.se>
- <20250810140115.661635-1-amadeus@jmu.edu.cn>
- <1f2f8eda-3056-48bd-9c86-3fb699f043f3@lunn.ch>
+	id 1ul9Hl-00000005naj-2x8T
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 10 Aug 2025 16:52:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7B79BA55B9A;
+	Sun, 10 Aug 2025 16:52:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D183C4CEEB;
+	Sun, 10 Aug 2025 16:52:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754844760;
+	bh=MnCNRV8NseshZqcVAz5rGV17eUoHutGZV/rur5kVCQA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hDFNhDnms2v51fTMJ5USIwCG6bq12Gxj4lYpsQEw0XYsXdiNFLhgGi0m4w7wQ/zkO
+	 E6+Tjv5txIVNCjErjL9Z/AS4Srb2Nl7irt5s7QzKNwk0xkiRPpg6WiAeg0n9RYIylx
+	 j3uxeh9r6sda7MimlK6tehtPJ9Wg2s+PGW5InKWlfoHjYCAWJuLgBEdvE5oOheNbOV
+	 bUE/SMeURmlKXk8uJp70Y+2/b1shODWSLU1phVDHhXhhnUj/XPWMs5n1DOrOQEYsch
+	 veYwrhY7rX5O6ZrKGl1MebrwF4vyWXrmLEVs9QvTcg8ai62ZNKAyBp6lrxk1sSLupB
+	 MzIbM9zzlbALg==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Elad Nachman <enachman@marvell.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sasha Levin <sashal@kernel.org>,
+	andrew@lunn.ch,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.16] irqchip/mvebu-gicp: Clear pending interrupts on init
+Date: Sun, 10 Aug 2025 12:51:55 -0400
+Message-Id: <20250810165158.1888206-13-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250810165158.1888206-1-sashal@kernel.org>
+References: <20250810165158.1888206-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1f2f8eda-3056-48bd-9c86-3fb699f043f3@lunn.ch>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.16
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_094947_270400_8BC0ED64 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250810_095241_876238_BDDECDB9 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,17 +81,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 05:15:59PM +0200, Andrew Lunn wrote:
-> Just a guess, but maybe it is a DSA tagger bug? Maybe the user frame
-> is a VLAN frame. The tagger is placing the VLAN tag into the DSA
-> header, so in effect, the frame is no longer a VLAN frame. But it is
-> not calling __vlan_hwaccel_clear_tag() to indicate the skbuf no longer
-> needs VLAN processing?
+From: Elad Nachman <enachman@marvell.com>
 
-For the original skb to have had a VLAN hwaccel tag, validate_xmit_vlan()
-would have had to not push it inside, so vlan_hw_offload_capable() must
-have been true for DSA user ports. But we advertise neither the
-NETIF_F_HW_VLAN_CTAG_TX nor the NETIF_F_HW_VLAN_STAG_TX netdev feature.
-So the VLAN tags in skbs transmitted through DSA user ports should all
-be in the skb head.
+[ Upstream commit 3c3d7dbab2c70a4bca47634d564bf659351c05ca ]
+
+When a kexec'ed kernel boots up, there might be stale unhandled interrupts
+pending in the interrupt controller. These are delivered as spurious
+interrupts once the boot CPU enables interrupts.
+
+Clear all pending interrupts when the driver is initialized to prevent
+these spurious interrupts from locking the CPU in an endless loop.
+
+Signed-off-by: Elad Nachman <enachman@marvell.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Link: https://lore.kernel.org/all/20250803102548.669682-2-enachman@marvell.com
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+**Backport Status: YES**
+
+This commit should be backported to stable kernel trees. Here's my
+extensive analysis:
+
+## Reasons for Backporting:
+
+### 1. **Fixes a Real Bug Affecting Users**
+The commit addresses a concrete issue where stale, unhandled interrupts
+from before a kexec can cause spurious interrupts that lock the CPU in
+an endless loop. This is a serious functionality bug that can prevent
+systems from booting properly after kexec.
+
+### 2. **Small and Contained Fix**
+The change is minimal and surgical:
+- Only adds 9 lines of functional code
+- The fix is self-contained within the probe function
+- Simply clears pending interrupts by writing to the
+  GICP_CLRSPI_NSR_OFFSET register for all 64 possible interrupts
+- Uses standard kernel APIs (ioremap/iounmap)
+
+### 3. **Low Risk of Regression**
+- The clearing operation only happens once during driver initialization
+- If ioremap fails, it's handled gracefully with an error message but
+  doesn't fail the probe
+- The clearing loop writes to a register specifically designed for
+  clearing interrupts (GICP_CLRSPI_NSR_OFFSET)
+- This is a write-only operation that doesn't affect normal interrupt
+  handling flow
+
+### 4. **Follows Established Pattern**
+Similar fixes for spurious/pending interrupts have been backported in
+other interrupt controllers:
+- commit 28e89cdac648 ("irqchip/renesas-rzv2h: Prevent TINT spurious
+  interrupt") - marked with Cc: stable@vger.kernel.org
+- commit 853a6030303f ("irqchip/renesas-rzg2l: Prevent spurious
+  interrupts when setting trigger type")
+
+### 5. **Critical for Kexec Functionality**
+Kexec is an important feature for:
+- Crash dump collection (kdump)
+- Fast reboot scenarios
+- System recovery
+This fix ensures these use cases work reliably on Marvell platforms
+using the GICP interrupt controller.
+
+### 6. **No Architectural Changes**
+The fix doesn't introduce:
+- New features or capabilities
+- Changes to existing APIs or interfaces
+- Modifications to interrupt handling logic
+- Any structural changes to the driver
+
+### 7. **Clear Problem Statement**
+The commit message clearly describes:
+- The problem scenario (kexec with pending interrupts)
+- The symptom (CPU locked in endless loop)
+- The solution (clear all pending interrupts on init)
+
+## Code Analysis:
+
+The added code (lines 240-247 in the patched version):
+```c
+base = ioremap(gicp->res->start, gicp->res->end - gicp->res->start);
+if (IS_ERR(base)) {
+    dev_err(&pdev->dev, "ioremap() failed. Unable to clear pending
+interrupts.\n");
+} else {
+    for (i = 0; i < 64; i++)
+        writel(i, base + GICP_CLRSPI_NSR_OFFSET);
+    iounmap(base);
+}
+```
+
+This is a defensive programming approach that ensures system stability
+without affecting normal operation, making it an ideal candidate for
+stable backport.
+
+ drivers/irqchip/irq-mvebu-gicp.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
+index d3232d6d8dce..fd85c845e015 100644
+--- a/drivers/irqchip/irq-mvebu-gicp.c
++++ b/drivers/irqchip/irq-mvebu-gicp.c
+@@ -177,6 +177,7 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
+ 		.ops	= &gicp_domain_ops,
+ 	};
+ 	struct mvebu_gicp *gicp;
++	void __iomem *base;
+ 	int ret, i;
+ 
+ 	gicp = devm_kzalloc(&pdev->dev, sizeof(*gicp), GFP_KERNEL);
+@@ -236,6 +237,15 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	}
+ 
++	base = ioremap(gicp->res->start, gicp->res->end - gicp->res->start);
++	if (IS_ERR(base)) {
++		dev_err(&pdev->dev, "ioremap() failed. Unable to clear pending interrupts.\n");
++	} else {
++		for (i = 0; i < 64; i++)
++			writel(i, base + GICP_CLRSPI_NSR_OFFSET);
++		iounmap(base);
++	}
++
+ 	return msi_create_parent_irq_domain(&info, &gicp_msi_parent_ops) ? 0 : -ENOMEM;
+ }
+ 
+-- 
+2.39.5
+
 
