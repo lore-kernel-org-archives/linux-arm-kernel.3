@@ -4,71 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 925F3C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 23:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DA2C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 23:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PimwDS8LC37CYWaFf7XT6w/idZMKOZ2fzD26lIMQhVg=; b=40DT+INsIGv1btYM968BGC/wkL
-	qVdFokW6bmiwsY+nW0FVrr2YJX0NKTjNzja4L4VLVU+Ir1n2GD39jl6Y4RniSbYX3zgAeynx5lgSu
-	s9Sd6TXXThXPlhWa+RQ+E+iRwurKBtaOeJ2kK9kfBmYDNtnj8/pl2jc0GSbWgCQ6XuhgRQ8D1tZKe
-	9WzkqdUuoKPkCbCVnPM7rnAlAkWAJ2zUtXLQ9x8BAck7s+0/Plk4fEmPltCeIKWvc5mwlsSQqAdPO
-	KvWF6GDPyJaI+eJZnbk54UHgA3wr9X6RCSLwjLiqsfP8/MU5Gfedx5oA7lhWsdK7rxou4bRgXTv8+
-	3Y9PFDYw==;
+	bh=sw1cLvgEhua8i3WpG4C9LAPsxagtK2jeoB8fPKEx0SE=; b=YFb2IgkbDNwUYQS+qTLzwUuLyj
+	ZAQceBwxGfgzWXfjc4NRbvju1EPaYypa8SDCiXdWJopiPu+2GDlCaWWJuBJrxNIH3ssBvi/qh8Pv2
+	cTLnLVvT9ux/WETTJ8LG7hHdxIR7rOLlSHAYXohaq8SlPBK1Cc8NtB5jqGktIGPSJHwzXuNscxI4/
+	WMf4Lte7ZzboTl4g798vzDgjuUxDoUv66y8IdKhVNeyUOQjK0CDuoLtjiivttBAAYuIvxzlgaloQy
+	jw5I6ZZQxnFGncdzLPgUTA6jx0Wm022n54hI2pigerLcgHCInMPMQf23Jx48N0VGTSJvTCHkNU9rD
+	cGBcUEyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulF1T-000000069mK-0tqv;
-	Sun, 10 Aug 2025 23:00:15 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1ulF2y-000000069ya-3OY6;
+	Sun, 10 Aug 2025 23:01:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulDso-000000064Ia-0Bd8
+	id 1ulEoG-0000000689m-1kPw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 21:47:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1754862433; bh=PimwDS8LC37CYWaFf7XT6w/idZMKOZ2fzD26lIMQhVg=;
- b=uwBHJpr8QK3f+MvsxQVE/sel6ZZsMrjloUDEGORyICSO72Ow5pfXPafGWE6GwkZnDoEsYRIsO
- RyC2Bnl+bLouPbf3gKPDwfY4/hZ4D2dq/W/fKpGQgKvlqxCbpf4Gyibgx/iwFj4uQfQ7V4nksD8
- vgRFQVxLC3bFj3ELVW89Ac8xNFUQ9mKbLDhq4bP9pdBn6+iAJnzirZwCJ8JxlEZSKfTvZxENVtk
- xBhILZWDZMN/gc2vld0saW6rCoq7LrA60Q2E9DRoGmJhFxfFaXc8FXqGZ8EPvJWCqd4SUVASLEi
- nBfs+b+lfwFKtBLWET2UZV3Fjo71EUSelzeOPOd6RzxA==
-X-Forward-Email-ID: 68990e6b797ab8962779245a
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.2.4
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Alex Bee <knaerzche@gmail.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v2 5/7] media: rkvdec: Disable QoS for HEVC and VP9 on RK3328
-Date: Sun, 10 Aug 2025 21:24:35 +0000
-Message-ID: <20250810212454.3237486-6-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250810212454.3237486-1-jonas@kwiboo.se>
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
+	Sun, 10 Aug 2025 22:46:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1754865995;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sw1cLvgEhua8i3WpG4C9LAPsxagtK2jeoB8fPKEx0SE=;
+	b=TdofCqCwsHtyoWpS1jwr+hYJLfv1l2GJMWHqRB07K2iy0C1s+JSCsnHE1pGCwVlfWYXlDb
+	RxmADlLFgm9WtWLwT7YOQCLBD8rXcL1DjxKIqUln0cXzVRzv+FRbxMzeJbMUKXHT49JA1i
+	Jm3IGMfHosfP5MiCFAg00wlPbbi1yK0=
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
+ [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-2-eAdS2SoKPOy9PAXb5RExOw-1; Sun, 10 Aug 2025 18:46:33 -0400
+X-MC-Unique: eAdS2SoKPOy9PAXb5RExOw-1
+X-Mimecast-MFC-AGG-ID: eAdS2SoKPOy9PAXb5RExOw_1754865993
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4b085852fb8so157983291cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 15:46:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754865993; x=1755470793;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sw1cLvgEhua8i3WpG4C9LAPsxagtK2jeoB8fPKEx0SE=;
+        b=DcAoWlDe0EengFtQu5XxHjXhAhU4rNHhJtQRxEutYWkEACMHU39jn/Qz5tn3BLy2Ju
+         cjKZvO6TzIP4wbUcdi+bC2sBF5tRSJWqiUb++qK75w8ZroUfIc7TbmfeHRRvLIiaeVMV
+         BgLCs3QXpo1uej37fQA1to/8I7Kju5AHCKSlFYtU6NB0UAcb1WXW+OuA1/U0G4caAd0J
+         3kz8Ynsr0ir9GiXVXsuTSM8dxwFhp5SZ0j62pY1Fz3GwYi/vwPUEVfecbXqhZi2Lumpw
+         JBm439EnojJI+PfRoDciz2lS+RPXeo0S4cPK5L8XGPercl0pRr1enKOPa1sYMHwdYaWy
+         ZZuA==
+X-Forwarded-Encrypted: i=1; AJvYcCXjLfwiEf+4BMC4PomfnF1Z/ZYjjvTyBgea+SwOqk09eVEsdlEbH0aGtW+y89efdKhHaVNNyfDMC5d0un5Kx/On@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS4N7+wk/awuZDYz6CE94Bb2mMXbbQCETUpeoDfN8DMrCg5DJ3
+	Gh9A7rhRcMzzPgQoBS7JPbjG49ttaTi8NP21Z5ilPhad9MZlVnM8BhacDiZ+B8wdjaEGfaEHdiU
+	f+BnkDAFJXd25OQzBkcYJ0SDmSv/Z5+JuJL79KEL+TUoa13x4am2wTfLOmazvvn1fxAnlz0ImwG
+	Pf
+X-Gm-Gg: ASbGncvmOz4Ktc5p/514HRC2bWjQGoppzbhPfrcmHnk4MmJr2q7LkzBTQWACMy4n9ex
+	LPESnS4l0VOIwR3HMFS5ySL1mebo7S0gMgPXP7DubXzcZlUIIrjnvNWBBSzXbyyQHH34ojl7gwJ
+	aekV9ZqucOZWkAW+mqmf5IIStcfB3OdGmsP3oFByqouTDD+i+jGJK+l8QJgKz9YRqClJemNNwMM
+	Ze/4edp8kRgPKy7uF5L2RcGVwUVOfK2QEO5tlnRqADT/+NVvP+x69ZDGoaaiAVHscb37eaxa2nU
+	+gIJH+schHCZt+aHFxhvYsxmlykltAqpWiDKMkvnIUdHRGT48FnAED6IfgVAhyD1CnNFBuS7w19
+	KYGnQ1g==
+X-Received: by 2002:a05:622a:2b08:b0:4af:1fb2:339b with SMTP id d75a77b69052e-4b0aee5ae32mr145137591cf.59.1754865992942;
+        Sun, 10 Aug 2025 15:46:32 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG3TxaNlOm6CWR20thRFc4k1fydx3ZMYAWuNcAfSFTfYY5caqw80RA7wi77MbUh3gKnqnfd0A==
+X-Received: by 2002:a05:622a:2b08:b0:4af:1fb2:339b with SMTP id d75a77b69052e-4b0aee5ae32mr145137151cf.59.1754865992498;
+        Sun, 10 Aug 2025 15:46:32 -0700 (PDT)
+Received: from [10.144.145.224] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b0ad996459sm42685171cf.46.2025.08.10.15.46.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 Aug 2025 15:46:31 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Date: Sun, 10 Aug 2025 18:45:33 -0400
+Subject: [PATCH v2 5/9] phy: mediatek: phy-mtk-mipi-dsi-mt8173: convert
+ from round_rate() to determine_rate()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-Id: <20250810-phy-clk-round-rate-v2-5-9162470bb9f2@redhat.com>
+References: <20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com>
+In-Reply-To: <20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754865940; l=1519;
+ i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
+ bh=x3H+bi72Ud0O2ADBCQwtbhpk+18O8IQnZUeD4zYXytc=;
+ b=Ko6nm+pXyNo8X1nQDJr+lVHcu4cXjZr/njvgKDiWI9hUw5g4z0iGWyficBfc/rHylfr1bFBC5
+ OcjcwnYNCZzC9mq0m1MLk4fjF5rjaP4zt/gCvk1nnxylsB0GMKTpJxJ
+X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
+ pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: g9sa3GGkmcJG83L2bMoevubcCc4C-zGcO4p4oRhIjLE_1754865993
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_144714_125741_34DB117D 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250810_154636_520393_79422ADB 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,147 +127,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alex Bee <knaerzche@gmail.com>
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
-The RK3328 VDEC has a HW quirk that require QoS to be disabled when HEVC
-or VP9 is decoded, otherwise the decoded picture may become corrupted.
-
-Add a RK3328 variant with a quirk flag to disable QoS when before
-decoding is started.
-
-Signed-off-by: Alex Bee <knaerzche@gmail.com>
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
-Changes in v2:
-- No change
----
- drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c |  9 +++++++++
- drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h |  2 ++
- drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c  | 10 ++++++++++
- drivers/media/platform/rockchip/rkvdec/rkvdec.c      | 12 ++++++++++++
- drivers/media/platform/rockchip/rkvdec/rkvdec.h      |  4 ++++
- 5 files changed, 37 insertions(+)
+ drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index 1994ea24f0be..f8bb8c4264f7 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-@@ -789,6 +789,15 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
- 	writel(1, rkvdec->regs + RKVDEC_REG_PREF_LUMA_CACHE_COMMAND);
- 	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
+diff --git a/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c b/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c
+index 673cb0f08959e0e4f2b1ade2ebaf796e8b76f8bc..438ff3605d90121b7bfe02b3ddca8194437ed9ba 100644
+--- a/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c
++++ b/drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c
+@@ -237,16 +237,18 @@ static void mtk_mipi_tx_pll_unprepare(struct clk_hw *hw)
+ 	mtk_phy_clear_bits(base + MIPITX_DSI_PLL_CON0, RG_DSI_MPPLL_DIV_MSK);
+ }
  
-+	if (rkvdec->quirks & RKVDEC_QUIRK_DISABLE_QOS) {
-+		u32 reg;
+-static long mtk_mipi_tx_pll_round_rate(struct clk_hw *hw, unsigned long rate,
+-				       unsigned long *prate)
++static int mtk_mipi_tx_pll_determine_rate(struct clk_hw *hw,
++					  struct clk_rate_request *req)
+ {
+-	return clamp_val(rate, 50000000, 1250000000);
++	req->rate = clamp_val(req->rate, 50000000, 1250000000);
 +
-+		reg = readl(rkvdec->regs + RKVDEC_REG_QOS_CTRL);
-+		reg |= 0xFFFF;
-+		reg &= ~BIT(12);
-+		writel(reg, rkvdec->regs + RKVDEC_REG_QOS_CTRL);
-+	}
-+
- 	/* Start decoding! */
- 	reg = (run.pps->flags & V4L2_HEVC_PPS_FLAG_TILES_ENABLED) ?
- 		0 : RKVDEC_WR_DDR_ALIGN_EN;
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
-index 540c8bdf24e4..c627b6b6f53a 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
-@@ -219,6 +219,8 @@
- #define RKVDEC_REG_H264_ERR_E				0x134
- #define RKVDEC_H264_ERR_EN_HIGHBITS(x)			((x) & 0x3fffffff)
++	return 0;
+ }
  
-+#define RKVDEC_REG_QOS_CTRL				0x18C
-+
- #define RKVDEC_REG_PREF_LUMA_CACHE_COMMAND		0x410
- #define RKVDEC_REG_PREF_CHR_CACHE_COMMAND		0x450
- 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-index 0e7e16f20eeb..cadb9d592308 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
-@@ -824,6 +824,16 @@ static int rkvdec_vp9_run(struct rkvdec_ctx *ctx)
- 	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
- 
- 	writel(0xe, rkvdec->regs + RKVDEC_REG_STRMD_ERR_EN);
-+
-+	if (rkvdec->quirks & RKVDEC_QUIRK_DISABLE_QOS) {
-+		u32 reg;
-+
-+		reg = readl(rkvdec->regs + RKVDEC_REG_QOS_CTRL);
-+		reg |= 0xFFFF;
-+		reg &= ~BIT(12);
-+		writel(reg, rkvdec->regs + RKVDEC_REG_QOS_CTRL);
-+	}
-+
- 	/* Start decoding! */
- 	writel(RKVDEC_INTERRUPT_DEC_E | RKVDEC_CONFIG_DEC_CLK_GATE_E |
- 	       RKVDEC_TIMEOUT_E | RKVDEC_BUF_EMPTY_E,
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index c20e046205fe..d61d4c419992 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1226,6 +1226,13 @@ static const struct rkvdec_variant rk3288_rkvdec_variant = {
- 	.capabilities = RKVDEC_CAPABILITY_HEVC,
+ static const struct clk_ops mtk_mipi_tx_pll_ops = {
+ 	.prepare = mtk_mipi_tx_pll_prepare,
+ 	.unprepare = mtk_mipi_tx_pll_unprepare,
+-	.round_rate = mtk_mipi_tx_pll_round_rate,
++	.determine_rate = mtk_mipi_tx_pll_determine_rate,
+ 	.set_rate = mtk_mipi_tx_pll_set_rate,
+ 	.recalc_rate = mtk_mipi_tx_pll_recalc_rate,
  };
- 
-+static const struct rkvdec_variant rk3328_rkvdec_variant = {
-+	.capabilities = RKVDEC_CAPABILITY_HEVC |
-+			RKVDEC_CAPABILITY_H264 |
-+			RKVDEC_CAPABILITY_VP9,
-+	.quirks = RKVDEC_QUIRK_DISABLE_QOS,
-+};
-+
- static const struct rkvdec_variant rk3399_rkvdec_variant = {
- 	.capabilities = RKVDEC_CAPABILITY_HEVC |
- 			RKVDEC_CAPABILITY_H264 |
-@@ -1237,6 +1244,10 @@ static const struct of_device_id of_rkvdec_match[] = {
- 		.compatible = "rockchip,rk3288-vdec",
- 		.data = &rk3288_rkvdec_variant,
- 	},
-+	{
-+		.compatible = "rockchip,rk3328-vdec",
-+		.data = &rk3328_rkvdec_variant,
-+	},
- 	{
- 		.compatible = "rockchip,rk3399-vdec",
- 		.data = &rk3399_rkvdec_variant,
-@@ -1267,6 +1278,7 @@ static int rkvdec_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, rkvdec);
- 	rkvdec->dev = &pdev->dev;
- 	rkvdec->capabilities = variant->capabilities;
-+	rkvdec->quirks = variant->quirks;
- 	mutex_init(&rkvdec->vdev_lock);
- 	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
- 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index 8e1f8548eae4..e633a879e9bf 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-@@ -26,6 +26,8 @@
- #define RKVDEC_CAPABILITY_H264		BIT(1)
- #define RKVDEC_CAPABILITY_VP9		BIT(2)
- 
-+#define RKVDEC_QUIRK_DISABLE_QOS	BIT(0)
-+
- struct rkvdec_ctx;
- 
- struct rkvdec_ctrl_desc {
-@@ -69,6 +71,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
- 
- struct rkvdec_variant {
- 	unsigned int capabilities;
-+	unsigned int quirks;
- };
- 
- struct rkvdec_coded_fmt_ops {
-@@ -121,6 +124,7 @@ struct rkvdec_dev {
- 	struct delayed_work watchdog_work;
- 	struct iommu_domain *empty_domain;
- 	unsigned int capabilities;
-+	unsigned int quirks;
- };
- 
- struct rkvdec_ctx {
+
 -- 
 2.50.1
 
