@@ -4,76 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A63DEC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  9 Aug 2025 23:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B592C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 01:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G2JXXj8j0ACBeCVhsD1Qg12ZabPpPvP/efmSapfSjzw=; b=lQsgjPHRn7XK3/LM2ox9Sp9CD8
-	28TtbiFy7V5S9RKGWeMvWp8NaJjAe70RkeWxojv4ygaTUMclDoAvH/HVLCL0saDqaiNO4Pk/jiW3C
-	H1I4zNUV+p4NfIi8+eaWm4UuGFBwkNDX68pdsImEsbCxSNpJFqRVPmSrCTo4dW+Tu7ji1mbhgdzSN
-	jC6kVF3FgkgILjiailYZuqWAdDE5LQHVWBGeE35qAug3NrTMZ4gERpEcknTazpwb8wqiqDzHZj+4A
-	YD4YzT08nB80dmLUdRWtIWylhYXJlWODoLfqS8bSyckpyfoDqRI9ZbEjMorE/Rm0LrpHSlgv4zYLB
-	WFLMPxMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YQFI3jdw4RYHpgNIkQjRBRZeUtOh2qW3e+zVuRAY/dY=; b=sdcfK1AYYD4lHWRzQAUCvkpoLN
+	pSvvtjdn9eni0ZOwWA88dNO43T28faxAP7xKN9WlVq5zhKhYYLKfzgydwRT1HWDNIc+AdXcm2S4sY
+	SrXkrOxS+KShPaVA6cCU9+rZZh0FQ/PeWMDfl+gG4IBeVD8ct+LT7uBZHQm4hj14nZv76LHE70EAA
+	VzGhO6WOzJU/1ij3EVhhz9n6K5la1mmQR7zX8HG5/iFxQMOHog6vRtCsrwO8nj7rvJrGqABJtE6wv
+	ffgEXU5lD1kY949vZwFymHvmVkFW1Fz1TMDr9qP+5HIfDKRGdrDgptuYJt/IMNTQJzjcuqn4XVPgD
+	k/yvHgJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uksdA-000000052CZ-20UK;
-	Sat, 09 Aug 2025 23:05:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ukuwt-0000000581n-3FJE;
+	Sun, 10 Aug 2025 01:34:11 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uksae-0000000526i-33nK;
-	Sat, 09 Aug 2025 23:03:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 039CD459A1;
-	Sat,  9 Aug 2025 23:03:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D834AC4AF09;
-	Sat,  9 Aug 2025 23:03:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754780582;
-	bh=st/eweHiwV92mUXCvAGpIiPGkvX3rErOBfHnwy2GSps=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=J3ho4kiwrH7rHSL79nbnLEr8Fi7+3PMWKaPF++iz6+hi+MdR9KEEzcVlLj8ka0pf8
-	 8ghHe6EwgDyqH/6MV9E7RSlM3Xis2bC0eXh7XcwncUYg4cyhRzZRzt4ng/01hji6ic
-	 z65whu1Kmp7Ovfvwvh5erXF+18ebGI5bDc9aCuD93E8d9YhJshoNIwWGXbxU9QDWKF
-	 T6zvn7zjM3jiH2oit4GZPg9RFmtdfjbbGuqabHV6PdIu87V7pgvTwqzOXruVNSYlSb
-	 mHqfQnZ7Pc/teaw4LYKyETrSoV1BFexfdIKEwp7BhRQebwXFhy3xHesvJQdBdZXBTD
-	 JafFkKw/Bf4iQ==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3325cb38a78so28491151fa.3;
-        Sat, 09 Aug 2025 16:03:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWu8TJHFuHEHe6b9tj7ljq73/oROY+zEKIwESHqq7t8Pl7x/s3IL13FlttQidzlaXNvuSF2HTBxa30Zrto=@lists.infradead.org, AJvYcCXw6R8oPCudG1H3/ZzQxp+TyRnsdWk1cu5tfA/R3mcy8mDoWKERVhYfrcqQFGVVcR77rGlyPoSM/WD/nKORZP5G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw11YBE6fuUDuIloqXiYvZAH+NbN2+Qhvxjs4f316Ug71csCnmX
-	faATk0LcQfjpFXlKKdIWiW9qtZZkHcIgfAMpbZw0SYSMyjwknm4mFSwkDBAuzmFB29FOkovPMBZ
-	/6Yspjaaxzix+qNoQ3/qNlJNKV0ywvPw=
-X-Google-Smtp-Source: AGHT+IHacj93S4TAyJS2Y33dq5fDEf3fw3H8pVieqGYKOrts0lqIXyoZID+Z9tXd8YeI87NlNCl9WjBC2eK/6u6auvE=
-X-Received: by 2002:a05:651c:3799:b0:32a:7270:5c29 with SMTP id
- 38308e7fff4ca-333a213e262mr13218821fa.2.1754780581250; Sat, 09 Aug 2025
- 16:03:01 -0700 (PDT)
+	id 1ukuuL-000000057G7-24Ka;
+	Sun, 10 Aug 2025 01:31:35 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 041BE19C8;
+	Sun, 10 Aug 2025 03:30:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1754789441;
+	bh=Nv2zob0qghrgTnc3/aMp2+DhyNJh6yVpYyfx00c1cbk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=eTXknf4/NAboh+INN5xx12jc3RUC9DDUm0tSPbhsyQQxRVOQidkupWCRnY2pCAUCP
+	 oRgIV2O/6ttwru390cCR/a9+jhejWTMeCWqOhHGg7dfpHkUtuWZJtmHfvbs6G+Qs/b
+	 NihvW1C+Dw1I3kpvsfaXQTW8WcNxwTEUPzu4oX4U=
+From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Alex Shi <alexs@kernel.org>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Dongliang Mu <dzm91@hust.edu.cn>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Andy Walls <awalls@md.metrocast.net>,
+	Michael Tretter <m.tretter@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Bin Liu <bin.liu@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Dmitry Osipenko <digetx@gmail.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Mirela Rabulea <mirela.rabulea@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Yunke Cao <yunkec@google.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v3 08/76] media: Wrap file->private_data access with a helper function
+Date: Sun, 10 Aug 2025 04:29:50 +0300
+Message-ID: <20250810013100.29776-9-laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
+References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
 MIME-Version: 1.0
-References: <20250714060843.4029171-5-ardb+git@google.com> <20250714060843.4029171-6-ardb+git@google.com>
- <20250803010449df1f5cfb@mail.local>
-In-Reply-To: <20250803010449df1f5cfb@mail.local>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 10 Aug 2025 09:02:49 +1000
-X-Gmail-Original-Message-ID: <CAMj1kXGQyLXwk9Bq24xhPPsB1nO9RcSkvh=0p8aNP=Q=Az8V7w@mail.gmail.com>
-X-Gm-Features: Ac12FXyxSfM9EC_oe23LQ4fW6u1l84sRZB4iGnVNSBFl1E9opWCoKNhC-oXMcUQ
-Message-ID: <CAMj1kXGQyLXwk9Bq24xhPPsB1nO9RcSkvh=0p8aNP=Q=Az8V7w@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/3] efi-rtc: Remove wakeup functionality
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Feng Tang <feng.tang@linux.alibaba.com>, 
-	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Sunil V L <sunilvl@ventanamicro.com>, 
-	Bibo Mao <maobibo@loongson.cn>, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, x86@kernel.org, 
-	linux-riscv@lists.infradead.org, loongarch@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_160304_811146_19387B23 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20250809_183133_815813_1E5C1ACE 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,158 +101,687 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 3 Aug 2025 at 11:05, Alexandre Belloni
-<alexandre.belloni@bootlin.com> wrote:
->
-> Hello,
->
-> Apart from the topic that should be "rtc: efi:...", I'm ready to apply
-> this patch.
->
+Accessing file->private_data manually to retrieve the v4l2_fh pointer is
+error-prone, as the field is a void * and will happily convert
+implicitly to any pointer type. To avoid direct access to
+file->private_data, introduce a new inline function that retrieves the
+v4l2_fh pointer, and use it to replace common access patterns through
+the kernel.
 
-Thanks, please go ahead.
+Changes to drivers have been generated with the following coccinelle
+semantic patch:
 
-> On 14/07/2025 08:08:45+0200, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > The EFI rtc driver is used by non-x86 architectures only, and exposes
-> > the get/set wakeup time functionality provided by the underlying
-> > platform. This is usually broken on most platforms, and not widely used
-> > to begin with [if at all], so let's just remove it.
-> >
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  drivers/rtc/rtc-efi.c | 76 +-------------------
-> >  1 file changed, 2 insertions(+), 74 deletions(-)
-> >
-> > diff --git a/drivers/rtc/rtc-efi.c b/drivers/rtc/rtc-efi.c
-> > index fa8bf82df948..b4f44999ef0f 100644
-> > --- a/drivers/rtc/rtc-efi.c
-> > +++ b/drivers/rtc/rtc-efi.c
-> > @@ -112,48 +112,6 @@ convert_from_efi_time(efi_time_t *eft, struct rtc_time *wtime)
-> >       return true;
-> >  }
-> >
-> > -static int efi_read_alarm(struct device *dev, struct rtc_wkalrm *wkalrm)
-> > -{
-> > -     efi_time_t eft;
-> > -     efi_status_t status;
-> > -
-> > -     /*
-> > -      * As of EFI v1.10, this call always returns an unsupported status
-> > -      */
-> > -     status = efi.get_wakeup_time((efi_bool_t *)&wkalrm->enabled,
-> > -                                  (efi_bool_t *)&wkalrm->pending, &eft);
-> > -
-> > -     if (status != EFI_SUCCESS)
-> > -             return -EINVAL;
-> > -
-> > -     if (!convert_from_efi_time(&eft, &wkalrm->time))
-> > -             return -EIO;
-> > -
-> > -     return rtc_valid_tm(&wkalrm->time);
-> > -}
-> > -
-> > -static int efi_set_alarm(struct device *dev, struct rtc_wkalrm *wkalrm)
-> > -{
-> > -     efi_time_t eft;
-> > -     efi_status_t status;
-> > -
-> > -     convert_to_efi_time(&wkalrm->time, &eft);
-> > -
-> > -     /*
-> > -      * XXX Fixme:
-> > -      * As of EFI 0.92 with the firmware I have on my
-> > -      * machine this call does not seem to work quite
-> > -      * right
-> > -      *
-> > -      * As of v1.10, this call always returns an unsupported status
-> > -      */
-> > -     status = efi.set_wakeup_time((efi_bool_t)wkalrm->enabled, &eft);
-> > -
-> > -     dev_warn(dev, "write status is %d\n", (int)status);
-> > -
-> > -     return status == EFI_SUCCESS ? 0 : -EINVAL;
-> > -}
-> > -
-> >  static int efi_read_time(struct device *dev, struct rtc_time *tm)
-> >  {
-> >       efi_status_t status;
-> > @@ -188,17 +146,13 @@ static int efi_set_time(struct device *dev, struct rtc_time *tm)
-> >
-> >  static int efi_procfs(struct device *dev, struct seq_file *seq)
-> >  {
-> > -     efi_time_t        eft, alm;
-> > +     efi_time_t        eft;
-> >       efi_time_cap_t    cap;
-> > -     efi_bool_t        enabled, pending;
-> > -     struct rtc_device *rtc = dev_get_drvdata(dev);
-> >
-> >       memset(&eft, 0, sizeof(eft));
-> > -     memset(&alm, 0, sizeof(alm));
-> >       memset(&cap, 0, sizeof(cap));
-> >
-> >       efi.get_time(&eft, &cap);
-> > -     efi.get_wakeup_time(&enabled, &pending, &alm);
-> >
-> >       seq_printf(seq,
-> >                  "Time\t\t: %u:%u:%u.%09u\n"
-> > @@ -214,26 +168,6 @@ static int efi_procfs(struct device *dev, struct seq_file *seq)
-> >               /* XXX fixme: convert to string? */
-> >               seq_printf(seq, "Timezone\t: %u\n", eft.timezone);
-> >
-> > -     if (test_bit(RTC_FEATURE_ALARM, rtc->features)) {
-> > -             seq_printf(seq,
-> > -                        "Alarm Time\t: %u:%u:%u.%09u\n"
-> > -                        "Alarm Date\t: %u-%u-%u\n"
-> > -                        "Alarm Daylight\t: %u\n"
-> > -                        "Enabled\t\t: %s\n"
-> > -                        "Pending\t\t: %s\n",
-> > -                        alm.hour, alm.minute, alm.second, alm.nanosecond,
-> > -                        alm.year, alm.month, alm.day,
-> > -                        alm.daylight,
-> > -                        enabled == 1 ? "yes" : "no",
-> > -                        pending == 1 ? "yes" : "no");
-> > -
-> > -             if (alm.timezone == EFI_UNSPECIFIED_TIMEZONE)
-> > -                     seq_puts(seq, "Timezone\t: unspecified\n");
-> > -             else
-> > -                     /* XXX fixme: convert to string? */
-> > -                     seq_printf(seq, "Timezone\t: %u\n", alm.timezone);
-> > -     }
-> > -
-> >       /*
-> >        * now prints the capabilities
-> >        */
-> > @@ -249,8 +183,6 @@ static int efi_procfs(struct device *dev, struct seq_file *seq)
-> >  static const struct rtc_class_ops efi_rtc_ops = {
-> >       .read_time      = efi_read_time,
-> >       .set_time       = efi_set_time,
-> > -     .read_alarm     = efi_read_alarm,
-> > -     .set_alarm      = efi_set_alarm,
-> >       .proc           = efi_procfs,
-> >  };
-> >
-> > @@ -271,11 +203,7 @@ static int __init efi_rtc_probe(struct platform_device *dev)
-> >       platform_set_drvdata(dev, rtc);
-> >
-> >       rtc->ops = &efi_rtc_ops;
-> > -     clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
-> > -     if (efi_rt_services_supported(EFI_RT_SUPPORTED_WAKEUP_SERVICES))
-> > -             set_bit(RTC_FEATURE_ALARM_WAKEUP_ONLY, rtc->features);
-> > -     else
-> > -             clear_bit(RTC_FEATURE_ALARM, rtc->features);
-> > +     clear_bit(RTC_FEATURE_ALARM, rtc->features);
-> >
-> >       device_init_wakeup(&dev->dev, true);
-> >
-> > --
-> > 2.50.0.727.gbf7dc18ff4-goog
-> >
->
-> --
-> Alexandre Belloni, co-owner and COO, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
->
+@@
+struct file *filp;
+identifier fh;
+@@
+
+-       struct v4l2_fh *fh = filp->private_data;
++       struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+
+Manual changes have been applied to Documentation/ to update the usage
+patterns, and to include/media/v4l2-fh.h to add the new function.
+
+While at it, fix a typo in the title of v4l2-fh.rst: the file describes
+the "file handles" API, not "file handlers".
+
+No functional change is intended, this only paves the way to remove
+direct accesses to file->private_data and make V4L2 drivers safer.
+Other accesses to the field will be addressed separately.
+
+Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+---
+ Documentation/driver-api/media/v4l2-fh.rst    | 16 +++++----
+ .../zh_CN/video4linux/v4l2-framework.txt      |  2 +-
+ .../media/common/videobuf2/videobuf2-v4l2.c   |  2 +-
+ drivers/media/pci/cx18/cx18-fileops.c         |  2 +-
+ drivers/media/pci/ivtv/ivtv-fileops.c         |  2 +-
+ .../media/platform/allegro-dvt/allegro-core.c |  2 +-
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    |  2 +-
+ .../media/platform/nvidia/tegra-vde/v4l2.c    |  2 +-
+ .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    |  4 +--
+ .../media/platform/renesas/vsp1/vsp1_histo.c  |  6 ++--
+ .../media/platform/renesas/vsp1/vsp1_video.c  | 12 +++----
+ drivers/media/platform/ti/omap3isp/ispvideo.c |  2 +-
+ drivers/media/platform/xilinx/xilinx-dma.c    | 10 +++---
+ drivers/media/usb/uvc/uvc_metadata.c          | 10 +++---
+ drivers/media/v4l2-core/v4l2-ctrls-api.c      |  4 +--
+ drivers/media/v4l2-core/v4l2-fh.c             |  2 +-
+ drivers/media/v4l2-core/v4l2-mem2mem.c        | 34 +++++++++----------
+ drivers/media/v4l2-core/v4l2-subdev.c         |  8 ++---
+ include/media/v4l2-fh.h                       | 14 ++++++++
+ 19 files changed, 77 insertions(+), 59 deletions(-)
+
+diff --git a/Documentation/driver-api/media/v4l2-fh.rst b/Documentation/driver-api/media/v4l2-fh.rst
+index 3eeaa8da0c9e..2c87b74578d9 100644
+--- a/Documentation/driver-api/media/v4l2-fh.rst
++++ b/Documentation/driver-api/media/v4l2-fh.rst
+@@ -1,7 +1,7 @@
+ .. SPDX-License-Identifier: GPL-2.0
+ 
+-V4L2 File handlers
+-------------------
++V4L2 File handles
++-----------------
+ 
+ struct v4l2_fh provides a way to easily keep file handle specific
+ data that is used by the V4L2 framework.
+@@ -18,7 +18,9 @@ This bit is set whenever :c:func:`v4l2_fh_init` is called.
+ 
+ struct v4l2_fh is allocated as a part of the driver's own file handle
+ structure and ``file->private_data`` is set to it in the driver's ``open()``
+-function by the driver.
++function by the driver. The :c:type:`v4l2_fh` file handle can be retrieved
++from the :c:type:`file` using :c:func:`file_to_v4l2_fh`. Drivers must not
++access ``file->private_data`` directly.
+ 
+ In many cases the struct v4l2_fh will be embedded in a larger
+ structure. In that case you should call:
+@@ -63,7 +65,7 @@ Example:
+ 
+ 	int my_release(struct file *file)
+ 	{
+-		struct v4l2_fh *fh = file->private_data;
++		struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 		struct my_fh *my_fh = container_of(fh, struct my_fh, fh);
+ 
+ 		...
+@@ -78,11 +80,9 @@ Below is a short description of the :c:type:`v4l2_fh` functions used:
+ :c:func:`v4l2_fh_init <v4l2_fh_init>`
+ (:c:type:`fh <v4l2_fh>`, :c:type:`vdev <video_device>`)
+ 
+-
+ - Initialise the file handle. This **MUST** be performed in the driver's
+   :c:type:`v4l2_file_operations`->open() handler.
+ 
+-
+ :c:func:`v4l2_fh_add <v4l2_fh_add>`
+ (:c:type:`fh <v4l2_fh>`)
+ 
+@@ -101,6 +101,10 @@ Below is a short description of the :c:type:`v4l2_fh` functions used:
+ - Uninitialise the file handle. After uninitialisation the :c:type:`v4l2_fh`
+   memory can be freed.
+ 
++:c:func:`file_to_v4l2_fh <file_to_v4l2_fh>`
++(struct file \*filp)
++
++- Retrieve the :c:type:`v4l2_fh` instance associated with a :c:type:`file`.
+ 
+ If struct v4l2_fh is not embedded, then you can use these helper functions:
+ 
+diff --git a/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt b/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt
+index 9cc97ec75d7a..a9eb62fa1531 100644
+--- a/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt
++++ b/Documentation/translations/zh_CN/video4linux/v4l2-framework.txt
+@@ -819,7 +819,7 @@ int my_open(struct file *file)
+ 
+ int my_release(struct file *file)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct my_fh *my_fh = container_of(fh, struct my_fh, fh);
+ 
+ 	...
+diff --git a/drivers/media/common/videobuf2/videobuf2-v4l2.c b/drivers/media/common/videobuf2/videobuf2-v4l2.c
+index 1cd26faee503..f29307e59be5 100644
+--- a/drivers/media/common/videobuf2/videobuf2-v4l2.c
++++ b/drivers/media/common/videobuf2/videobuf2-v4l2.c
+@@ -979,7 +979,7 @@ __poll_t vb2_poll(struct vb2_queue *q, struct file *file, poll_table *wait)
+ 	res = vb2_core_poll(q, file, wait);
+ 
+ 	if (test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags)) {
+-		struct v4l2_fh *fh = file->private_data;
++		struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 		poll_wait(file, &fh->wait, wait);
+ 		if (v4l2_event_pending(fh))
+diff --git a/drivers/media/pci/cx18/cx18-fileops.c b/drivers/media/pci/cx18/cx18-fileops.c
+index cefa91b37f89..af25628b11ba 100644
+--- a/drivers/media/pci/cx18/cx18-fileops.c
++++ b/drivers/media/pci/cx18/cx18-fileops.c
+@@ -678,7 +678,7 @@ void cx18_stop_capture(struct cx18_stream *s, int gop_end)
+ 
+ int cx18_v4l2_close(struct file *filp)
+ {
+-	struct v4l2_fh *fh = filp->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+ 	struct cx18_open_id *id = fh2id(fh);
+ 	struct cx18 *cx = id->cx;
+ 	struct cx18_stream *s = &cx->streams[id->type];
+diff --git a/drivers/media/pci/ivtv/ivtv-fileops.c b/drivers/media/pci/ivtv/ivtv-fileops.c
+index cfa28d035586..230d498108b5 100644
+--- a/drivers/media/pci/ivtv/ivtv-fileops.c
++++ b/drivers/media/pci/ivtv/ivtv-fileops.c
+@@ -877,7 +877,7 @@ static void ivtv_stop_decoding(struct ivtv_open_id *id, int flags, u64 pts)
+ 
+ int ivtv_v4l2_close(struct file *filp)
+ {
+-	struct v4l2_fh *fh = filp->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+ 	struct ivtv_open_id *id = fh2id(fh);
+ 	struct ivtv *itv = id->itv;
+ 	struct ivtv_stream *s = &itv->streams[id->type];
+diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/allegro-core.c
+index eb03df0d8652..1f134e08923a 100644
+--- a/drivers/media/platform/allegro-dvt/allegro-core.c
++++ b/drivers/media/platform/allegro-dvt/allegro-core.c
+@@ -3483,7 +3483,7 @@ static int allegro_enum_framesizes(struct file *file, void *fh,
+ static int allegro_ioctl_streamon(struct file *file, void *priv,
+ 				  enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct allegro_channel *channel = fh_to_channel(fh);
+ 	int err;
+ 
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 7eb12449b63a..329e5787c2c2 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -588,7 +588,7 @@ static int mtk_jpeg_enc_s_selection(struct file *file, void *priv,
+ 
+ static int mtk_jpeg_qbuf(struct file *file, void *priv, struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct mtk_jpeg_ctx *ctx = mtk_jpeg_fh_to_ctx(priv);
+ 	struct vb2_queue *vq;
+ 	struct vb2_buffer *vb;
+diff --git a/drivers/media/platform/nvidia/tegra-vde/v4l2.c b/drivers/media/platform/nvidia/tegra-vde/v4l2.c
+index e3726cab0c82..531a85e3fe49 100644
+--- a/drivers/media/platform/nvidia/tegra-vde/v4l2.c
++++ b/drivers/media/platform/nvidia/tegra-vde/v4l2.c
+@@ -853,7 +853,7 @@ static int tegra_open(struct file *file)
+ 
+ static int tegra_release(struct file *file)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct tegra_ctx *ctx = fh_to_tegra_ctx(fh);
+ 	struct tegra_vde *vde = ctx->vde;
+ 
+diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+index 8681dd193033..1b2148578cb6 100644
+--- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
++++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
+@@ -1604,7 +1604,7 @@ static void mxc_jpeg_device_run(void *priv)
+ static int mxc_jpeg_decoder_cmd(struct file *file, void *priv,
+ 				struct v4l2_decoder_cmd *cmd)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct mxc_jpeg_ctx *ctx = mxc_jpeg_fh_to_ctx(fh);
+ 	unsigned long flags;
+ 	int ret;
+@@ -1637,7 +1637,7 @@ static int mxc_jpeg_decoder_cmd(struct file *file, void *priv,
+ static int mxc_jpeg_encoder_cmd(struct file *file, void *priv,
+ 				struct v4l2_encoder_cmd *cmd)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct mxc_jpeg_ctx *ctx = mxc_jpeg_fh_to_ctx(fh);
+ 	unsigned long flags;
+ 	int ret;
+diff --git a/drivers/media/platform/renesas/vsp1/vsp1_histo.c b/drivers/media/platform/renesas/vsp1/vsp1_histo.c
+index c762202877ba..390ea50f1595 100644
+--- a/drivers/media/platform/renesas/vsp1/vsp1_histo.c
++++ b/drivers/media/platform/renesas/vsp1/vsp1_histo.c
+@@ -392,7 +392,7 @@ static const struct v4l2_subdev_ops histo_ops = {
+ static int histo_v4l2_querycap(struct file *file, void *fh,
+ 			       struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_histogram *histo = vdev_to_histo(vfh->vdev);
+ 
+ 	cap->capabilities = V4L2_CAP_DEVICE_CAPS | V4L2_CAP_STREAMING
+@@ -409,7 +409,7 @@ static int histo_v4l2_querycap(struct file *file, void *fh,
+ static int histo_v4l2_enum_format(struct file *file, void *fh,
+ 				  struct v4l2_fmtdesc *f)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_histogram *histo = vdev_to_histo(vfh->vdev);
+ 
+ 	if (f->index > 0 || f->type != histo->queue.type)
+@@ -423,7 +423,7 @@ static int histo_v4l2_enum_format(struct file *file, void *fh,
+ static int histo_v4l2_get_format(struct file *file, void *fh,
+ 				 struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_histogram *histo = vdev_to_histo(vfh->vdev);
+ 	struct v4l2_meta_format *meta = &format->fmt.meta;
+ 
+diff --git a/drivers/media/platform/renesas/vsp1/vsp1_video.c b/drivers/media/platform/renesas/vsp1/vsp1_video.c
+index bc66fbdde3cc..656fb5e6cb30 100644
+--- a/drivers/media/platform/renesas/vsp1/vsp1_video.c
++++ b/drivers/media/platform/renesas/vsp1/vsp1_video.c
+@@ -896,7 +896,7 @@ static const struct vb2_ops vsp1_video_queue_qops = {
+ static int
+ vsp1_video_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 
+ 	cap->capabilities = V4L2_CAP_DEVICE_CAPS | V4L2_CAP_STREAMING
+@@ -912,7 +912,7 @@ vsp1_video_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ static int vsp1_video_enum_format(struct file *file, void *fh,
+ 				  struct v4l2_fmtdesc *f)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 	const struct vsp1_format_info *info;
+ 
+@@ -933,7 +933,7 @@ static int vsp1_video_enum_format(struct file *file, void *fh,
+ static int
+ vsp1_video_get_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 
+ 	if (format->type != video->queue.type)
+@@ -949,7 +949,7 @@ vsp1_video_get_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ vsp1_video_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 
+ 	if (format->type != video->queue.type)
+@@ -961,7 +961,7 @@ vsp1_video_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ vsp1_video_set_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 	const struct vsp1_format_info *info;
+ 	int ret;
+@@ -991,7 +991,7 @@ vsp1_video_set_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ vsp1_video_streamon(struct file *file, void *fh, enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct vsp1_video *video = to_vsp1_video(vfh->vdev);
+ 	struct media_device *mdev = &video->vsp1->media_dev;
+ 	struct vsp1_pipeline *pipe;
+diff --git a/drivers/media/platform/ti/omap3isp/ispvideo.c b/drivers/media/platform/ti/omap3isp/ispvideo.c
+index 78e30298c7ad..a777135c6a6c 100644
+--- a/drivers/media/platform/ti/omap3isp/ispvideo.c
++++ b/drivers/media/platform/ti/omap3isp/ispvideo.c
+@@ -1348,7 +1348,7 @@ static int isp_video_open(struct file *file)
+ static int isp_video_release(struct file *file)
+ {
+ 	struct isp_video *video = video_drvdata(file);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct isp_video_fh *handle = to_isp_video_fh(vfh);
+ 
+ 	/* Disable streaming and free the buffers queue resources. */
+diff --git a/drivers/media/platform/xilinx/xilinx-dma.c b/drivers/media/platform/xilinx/xilinx-dma.c
+index 18bfa6001909..fcfe0883aba5 100644
+--- a/drivers/media/platform/xilinx/xilinx-dma.c
++++ b/drivers/media/platform/xilinx/xilinx-dma.c
+@@ -469,7 +469,7 @@ static const struct vb2_ops xvip_dma_queue_qops = {
+ static int
+ xvip_dma_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	cap->capabilities = dma->xdev->v4l2_caps | V4L2_CAP_STREAMING |
+@@ -491,7 +491,7 @@ xvip_dma_querycap(struct file *file, void *fh, struct v4l2_capability *cap)
+ static int
+ xvip_dma_enum_format(struct file *file, void *fh, struct v4l2_fmtdesc *f)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	if (f->index > 0)
+@@ -505,7 +505,7 @@ xvip_dma_enum_format(struct file *file, void *fh, struct v4l2_fmtdesc *f)
+ static int
+ xvip_dma_get_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	format->fmt.pix = dma->format;
+@@ -565,7 +565,7 @@ __xvip_dma_try_format(struct xvip_dma *dma, struct v4l2_pix_format *pix,
+ static int
+ xvip_dma_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 
+ 	__xvip_dma_try_format(dma, &format->fmt.pix, NULL);
+@@ -575,7 +575,7 @@ xvip_dma_try_format(struct file *file, void *fh, struct v4l2_format *format)
+ static int
+ xvip_dma_set_format(struct file *file, void *fh, struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct xvip_dma *dma = to_xvip_dma(vfh->vdev);
+ 	const struct xvip_video_format *info;
+ 
+diff --git a/drivers/media/usb/uvc/uvc_metadata.c b/drivers/media/usb/uvc/uvc_metadata.c
+index 229e08ff323e..4cbf6ce314fd 100644
+--- a/drivers/media/usb/uvc/uvc_metadata.c
++++ b/drivers/media/usb/uvc/uvc_metadata.c
+@@ -26,7 +26,7 @@
+ static int uvc_meta_v4l2_querycap(struct file *file, void *fh,
+ 				  struct v4l2_capability *cap)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct uvc_video_chain *chain = stream->chain;
+ 
+@@ -42,7 +42,7 @@ static int uvc_meta_v4l2_querycap(struct file *file, void *fh,
+ static int uvc_meta_v4l2_get_format(struct file *file, void *fh,
+ 				    struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct v4l2_meta_format *fmt = &format->fmt.meta;
+ 
+@@ -60,7 +60,7 @@ static int uvc_meta_v4l2_get_format(struct file *file, void *fh,
+ static int uvc_meta_v4l2_try_format(struct file *file, void *fh,
+ 				    struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct uvc_device *dev = stream->dev;
+ 	struct v4l2_meta_format *fmt = &format->fmt.meta;
+@@ -86,7 +86,7 @@ static int uvc_meta_v4l2_try_format(struct file *file, void *fh,
+ static int uvc_meta_v4l2_set_format(struct file *file, void *fh,
+ 				    struct v4l2_format *format)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct v4l2_meta_format *fmt = &format->fmt.meta;
+ 	int ret;
+@@ -115,7 +115,7 @@ static int uvc_meta_v4l2_set_format(struct file *file, void *fh,
+ static int uvc_meta_v4l2_enum_formats(struct file *file, void *fh,
+ 				      struct v4l2_fmtdesc *fdesc)
+ {
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct uvc_streaming *stream = video_get_drvdata(vfh->vdev);
+ 	struct uvc_device *dev = stream->dev;
+ 	u32 i = fdesc->index;
+diff --git a/drivers/media/v4l2-core/v4l2-ctrls-api.c b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+index d49a68b36c28..d46b2c8f3d23 100644
+--- a/drivers/media/v4l2-core/v4l2-ctrls-api.c
++++ b/drivers/media/v4l2-core/v4l2-ctrls-api.c
+@@ -1253,7 +1253,7 @@ EXPORT_SYMBOL(v4l2_querymenu);
+ int v4l2_ctrl_log_status(struct file *file, void *fh)
+ {
+ 	struct video_device *vfd = video_devdata(file);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 
+ 	if (test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags) && vfd->v4l2_dev)
+ 		v4l2_ctrl_handler_log_status(vfh->ctrl_handler,
+@@ -1348,7 +1348,7 @@ EXPORT_SYMBOL(v4l2_ctrl_subdev_subscribe_event);
+  */
+ __poll_t v4l2_ctrl_poll(struct file *file, struct poll_table_struct *wait)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	poll_wait(file, &fh->wait, wait);
+ 	if (v4l2_event_pending(fh))
+diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
+index 90eec79ee995..7a5f7aa5e253 100644
+--- a/drivers/media/v4l2-core/v4l2-fh.c
++++ b/drivers/media/v4l2-core/v4l2-fh.c
+@@ -90,7 +90,7 @@ EXPORT_SYMBOL_GPL(v4l2_fh_exit);
+ 
+ int v4l2_fh_release(struct file *filp)
+ {
+-	struct v4l2_fh *fh = filp->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(filp);
+ 
+ 	if (fh) {
+ 		v4l2_fh_del(fh);
+diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
+index eb22d6172462..e67e67f76f72 100644
+--- a/drivers/media/v4l2-core/v4l2-mem2mem.c
++++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+@@ -971,7 +971,7 @@ __poll_t v4l2_m2m_poll(struct file *file, struct v4l2_m2m_ctx *m2m_ctx,
+ 		rc = v4l2_m2m_poll_for_data(file, m2m_ctx, wait);
+ 
+ 	if (test_bit(V4L2_FL_USES_V4L2_FH, &vfd->flags)) {
+-		struct v4l2_fh *fh = file->private_data;
++		struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 		poll_wait(file, &fh->wait, wait);
+ 		if (v4l2_event_pending(fh))
+@@ -1004,7 +1004,7 @@ unsigned long v4l2_m2m_get_unmapped_area(struct file *file, unsigned long addr,
+ 					 unsigned long len, unsigned long pgoff,
+ 					 unsigned long flags)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	unsigned long offset = pgoff << PAGE_SHIFT;
+ 	struct vb2_queue *vq;
+ 
+@@ -1371,7 +1371,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_request_queue);
+ int v4l2_m2m_ioctl_reqbufs(struct file *file, void *priv,
+ 				struct v4l2_requestbuffers *rb)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_reqbufs(file, fh->m2m_ctx, rb);
+ }
+@@ -1380,7 +1380,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_reqbufs);
+ int v4l2_m2m_ioctl_create_bufs(struct file *file, void *priv,
+ 				struct v4l2_create_buffers *create)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_create_bufs(file, fh->m2m_ctx, create);
+ }
+@@ -1389,7 +1389,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_create_bufs);
+ int v4l2_m2m_ioctl_remove_bufs(struct file *file, void *priv,
+ 			       struct v4l2_remove_buffers *remove)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct vb2_queue *q = v4l2_m2m_get_vq(fh->m2m_ctx, remove->type);
+ 
+ 	if (!q)
+@@ -1404,7 +1404,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_remove_bufs);
+ int v4l2_m2m_ioctl_querybuf(struct file *file, void *priv,
+ 				struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_querybuf(file, fh->m2m_ctx, buf);
+ }
+@@ -1413,7 +1413,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_querybuf);
+ int v4l2_m2m_ioctl_qbuf(struct file *file, void *priv,
+ 				struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_qbuf(file, fh->m2m_ctx, buf);
+ }
+@@ -1422,7 +1422,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_qbuf);
+ int v4l2_m2m_ioctl_dqbuf(struct file *file, void *priv,
+ 				struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_dqbuf(file, fh->m2m_ctx, buf);
+ }
+@@ -1431,7 +1431,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_dqbuf);
+ int v4l2_m2m_ioctl_prepare_buf(struct file *file, void *priv,
+ 			       struct v4l2_buffer *buf)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_prepare_buf(file, fh->m2m_ctx, buf);
+ }
+@@ -1440,7 +1440,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_prepare_buf);
+ int v4l2_m2m_ioctl_expbuf(struct file *file, void *priv,
+ 				struct v4l2_exportbuffer *eb)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_expbuf(file, fh->m2m_ctx, eb);
+ }
+@@ -1449,7 +1449,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_expbuf);
+ int v4l2_m2m_ioctl_streamon(struct file *file, void *priv,
+ 				enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_streamon(file, fh->m2m_ctx, type);
+ }
+@@ -1458,7 +1458,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_streamon);
+ int v4l2_m2m_ioctl_streamoff(struct file *file, void *priv,
+ 				enum v4l2_buf_type type)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_streamoff(file, fh->m2m_ctx, type);
+ }
+@@ -1542,7 +1542,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_decoder_cmd);
+ int v4l2_m2m_ioctl_encoder_cmd(struct file *file, void *priv,
+ 			       struct v4l2_encoder_cmd *ec)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_encoder_cmd(file, fh->m2m_ctx, ec);
+ }
+@@ -1551,7 +1551,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_encoder_cmd);
+ int v4l2_m2m_ioctl_decoder_cmd(struct file *file, void *priv,
+ 			       struct v4l2_decoder_cmd *dc)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_decoder_cmd(file, fh->m2m_ctx, dc);
+ }
+@@ -1572,7 +1572,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_stateless_try_decoder_cmd);
+ int v4l2_m2m_ioctl_stateless_decoder_cmd(struct file *file, void *priv,
+ 					 struct v4l2_decoder_cmd *dc)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct vb2_v4l2_buffer *out_vb, *cap_vb;
+ 	struct v4l2_m2m_dev *m2m_dev = fh->m2m_ctx->m2m_dev;
+ 	unsigned long flags;
+@@ -1617,7 +1617,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_ioctl_stateless_decoder_cmd);
+ 
+ int v4l2_m2m_fop_mmap(struct file *file, struct vm_area_struct *vma)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	return v4l2_m2m_mmap(file, fh->m2m_ctx, vma);
+ }
+@@ -1625,7 +1625,7 @@ EXPORT_SYMBOL_GPL(v4l2_m2m_fop_mmap);
+ 
+ __poll_t v4l2_m2m_fop_poll(struct file *file, poll_table *wait)
+ {
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 	struct v4l2_m2m_ctx *m2m_ctx = fh->m2m_ctx;
+ 	__poll_t ret;
+ 
+diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
+index 4fd25fea3b58..29d3b788b288 100644
+--- a/drivers/media/v4l2-core/v4l2-subdev.c
++++ b/drivers/media/v4l2-core/v4l2-subdev.c
+@@ -122,7 +122,7 @@ static int subdev_close(struct file *file)
+ {
+ 	struct video_device *vdev = video_devdata(file);
+ 	struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct v4l2_subdev_fh *subdev_fh = to_v4l2_subdev_fh(vfh);
+ 
+ 	if (sd->internal_ops && sd->internal_ops->close)
+@@ -612,7 +612,7 @@ static long subdev_do_ioctl(struct file *file, unsigned int cmd, void *arg,
+ {
+ 	struct video_device *vdev = video_devdata(file);
+ 	struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-	struct v4l2_fh *vfh = file->private_data;
++	struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 	struct v4l2_subdev_fh *subdev_fh = to_v4l2_subdev_fh(vfh);
+ 	bool ro_subdev = test_bit(V4L2_FL_SUBDEV_RO_DEVNODE, &vdev->flags);
+ 	bool streams_subdev = sd->flags & V4L2_SUBDEV_FL_STREAMS;
+@@ -1135,7 +1135,7 @@ static long subdev_do_ioctl_lock(struct file *file, unsigned int cmd, void *arg)
+ 
+ 	if (video_is_registered(vdev)) {
+ 		struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-		struct v4l2_fh *vfh = file->private_data;
++		struct v4l2_fh *vfh = file_to_v4l2_fh(file);
+ 		struct v4l2_subdev_fh *subdev_fh = to_v4l2_subdev_fh(vfh);
+ 		struct v4l2_subdev_state *state;
+ 
+@@ -1192,7 +1192,7 @@ static __poll_t subdev_poll(struct file *file, poll_table *wait)
+ {
+ 	struct video_device *vdev = video_devdata(file);
+ 	struct v4l2_subdev *sd = vdev_to_v4l2_subdev(vdev);
+-	struct v4l2_fh *fh = file->private_data;
++	struct v4l2_fh *fh = file_to_v4l2_fh(file);
+ 
+ 	if (!(sd->flags & V4L2_SUBDEV_FL_HAS_EVENTS))
+ 		return EPOLLERR;
+diff --git a/include/media/v4l2-fh.h b/include/media/v4l2-fh.h
+index b5b3e00c8e6a..823fa8ebeb8f 100644
+--- a/include/media/v4l2-fh.h
++++ b/include/media/v4l2-fh.h
+@@ -56,6 +56,20 @@ struct v4l2_fh {
+ 	struct v4l2_m2m_ctx	*m2m_ctx;
+ };
+ 
++/**
++ * file_to_v4l2_fh - Return the v4l2_fh associated with a struct file
++ *
++ * @filp: pointer to &struct file
++ *
++ * This function should be used by drivers to retrieve the &struct v4l2_fh
++ * instance pointer stored in the file private_data instead of accessing the
++ * private_data field directly.
++ */
++static inline struct v4l2_fh *file_to_v4l2_fh(struct file *filp)
++{
++	return filp->private_data;
++}
++
+ /**
+  * v4l2_fh_init - Initialise the file handle.
+  *
+-- 
+Regards,
+
+Laurent Pinchart
+
 
