@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA77C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 02:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A508C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 02:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/scL6QStKKlPseTxGFxK+OCpR6LyvE2ZaworN8c6TVg=; b=dV1bvgcDgYvyTX2ddnKj9+FnQC
-	axUvtzTXJ6BpEg94vLcZrmfLQJT/LQGhI+eHat4UyW6QA/QJ6jo1TlAGyo13eRevBWC9Ha2YJH0pS
-	RQbpgc5MV7XxmRPQCRMYhy3aivr80rLJ966ugGnp+Ehne4tWK5tPz0zuZKUOo7r2p42erS1KZlDzt
-	WFjvdZJgmdGw+sHu2T3vViXRhYuNcEtohb5jOJ0f5fnhKOi+HNhnAOOuwU0SH4TAvomCchpwaQS5m
-	tXZwETwrzkNQnVbSYBtjAVrB2viQfDDjI5O14hRZMI+GJGHywCKaZYG2UAi0NmTvDQonZYO2pLZmN
-	r3WoCuEQ==;
+	bh=f4pW2aeZWVpwgaTd8kbKf5ZI6lrajqp4BKju0fzfiyE=; b=hckK03Fmk6jPl9AVYezObXfmJe
+	eXNw61MDKtP6vq/VhKzn32QG/UgKX7pD0+vnu7vyo9b9I1k737oGBW+hr1qM0CauPlBoY22344Zec
+	C03dlKkfLoWEUZZU81zDJTX1k5U5upbc+3I3jRvBqNUoJf9/CZD6YxbuYS16wNXB06osnzdTFKoSv
+	fEq5nx2zDsQHwCkLYm8StAmFDfPGmYTHXx0HeidNWHnqjQ8/kzpYV8wc7nn9SXiXwDpsiPR6HnADA
+	arQ6SYLhrBXg9Dhd6Y2fxeTxN1IS4dcmJtfd+pOBTALhAynbT+p8uyHW0TE8u8SeSy23TS8muJl4E
+	WKhyBSVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukvdG-00000005B96-3VsJ;
-	Sun, 10 Aug 2025 02:17:58 +0000
+	id 1ukvfk-00000005BHT-0Z36;
+	Sun, 10 Aug 2025 02:20:32 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukuvn-000000057n4-0F7z
+	id 1ukuvy-000000057qj-1S0Q
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 01:33:04 +0000
+	Sun, 10 Aug 2025 01:33:15 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id F32907E6;
-	Sun, 10 Aug 2025 03:32:10 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 3FE7A18B9;
+	Sun, 10 Aug 2025 03:32:22 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754789531;
-	bh=HYs8+7Grwk4gchGGIHTU1tAZKtiyXyexiIuD+bI6WZE=;
+	s=mail; t=1754789542;
+	bh=1dP0gqieA4IYv3wyTB37hTBt2kmaz/Nywv73C1Govuc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=t+wO5tN/lYNK2t2WUENECger9qKtpjRq5Jtl/jtI3SuE/GLnB1sYliOZZehre5JBF
-	 9D21RzYU9QEs+0yQJGDOpbhrleawqCttzwlQiK8rnwfb4u0qFwsgCQt6uJBY0/9eb0
-	 PoLjs+uL05f7ayU8SnFc/LeXF1+krmfGxe/youzE=
+	b=HKBHL1HWD/YEhYZu8p7OopczcbX43TGDosZXqCOgMF+0frPGcGh2nK/I2RJfec2UN
+	 Myk6WLlT1N7Dctir+psbryMdQrxh63VqyVSCLgUixkt0MCQ6v4Vk3zeY8KNgeqEzyg
+	 AF31CS9kcYRCygvmaOu/8dm7Bh8snEBkQLp15m5Y=
 From: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
 	Hans Verkuil <hans@jjverkuil.nl>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>,
-	Jiasheng Jiang <jiashengjiangcool@gmail.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-staging@lists.linux.dev,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 61/76] media: stm32: dma2d: Access v4l2_fh from file
-Date: Sun, 10 Aug 2025 04:30:43 +0300
-Message-ID: <20250810013100.29776-62-laurent.pinchart+renesas@ideasonboard.com>
+Subject: [PATCH v3 68/76] media: staging: imx: Access v4l2_fh from file
+Date: Sun, 10 Aug 2025 04:30:50 +0300
+Message-ID: <20250810013100.29776-69-laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
 References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_183303_232574_80B48DD4 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250809_183314_530153_6E352265 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +86,84 @@ Access the v4l2_fh, and from there the driver-specific structure,
 from the file * in all ioctl handlers.
 
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 ---
- drivers/media/platform/st/stm32/dma2d/dma2d.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Changes since v1:
 
-diff --git a/drivers/media/platform/st/stm32/dma2d/dma2d.c b/drivers/media/platform/st/stm32/dma2d/dma2d.c
-index bc0f81e78018..a22f587a5f83 100644
---- a/drivers/media/platform/st/stm32/dma2d/dma2d.c
-+++ b/drivers/media/platform/st/stm32/dma2d/dma2d.c
-@@ -354,7 +354,7 @@ static int vidioc_enum_fmt(struct file *file, void *prv, struct v4l2_fmtdesc *f)
+- Update file-to-ctx macro due to removal of fh-to-ctx macro
+---
+ drivers/staging/media/imx/imx-media-csc-scaler.c | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
+index dc7f9a77cbe6..1869c5792ecb 100644
+--- a/drivers/staging/media/imx/imx-media-csc-scaler.c
++++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
+@@ -23,8 +23,6 @@
  
- static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format *f)
+ #include "imx-media.h"
+ 
+-#define fh_to_ctx(__fh)	container_of(__fh, struct ipu_csc_scaler_ctx, fh)
+-
+ #define IMX_CSC_SCALER_NAME "imx-csc-scaler"
+ 
+ enum {
+@@ -68,7 +66,7 @@ struct ipu_csc_scaler_ctx {
+ 
+ static inline struct ipu_csc_scaler_ctx *file_to_ctx(struct file *filp)
  {
--	struct dma2d_ctx *ctx = prv;
-+	struct dma2d_ctx *ctx = file2ctx(file);
+-	return fh_to_ctx(file_to_v4l2_fh(filp));
++	return container_of(file_to_v4l2_fh(filp), struct ipu_csc_scaler_ctx, fh);
+ }
+ 
+ static struct ipu_csc_scaler_q_data *get_q_data(struct ipu_csc_scaler_ctx *ctx,
+@@ -184,7 +182,7 @@ static int ipu_csc_scaler_enum_fmt(struct file *file, void *fh,
+ static int ipu_csc_scaler_g_fmt(struct file *file, void *priv,
+ 				struct v4l2_format *f)
+ {
+-	struct ipu_csc_scaler_ctx *ctx = fh_to_ctx(priv);
++	struct ipu_csc_scaler_ctx *ctx = file_to_ctx(file);
+ 	struct ipu_csc_scaler_q_data *q_data;
+ 
+ 	q_data = get_q_data(ctx, f->type);
+@@ -197,7 +195,7 @@ static int ipu_csc_scaler_g_fmt(struct file *file, void *priv,
+ static int ipu_csc_scaler_try_fmt(struct file *file, void *priv,
+ 				  struct v4l2_format *f)
+ {
+-	struct ipu_csc_scaler_ctx *ctx = fh_to_ctx(priv);
++	struct ipu_csc_scaler_ctx *ctx = file_to_ctx(file);
+ 	struct ipu_csc_scaler_q_data *q_data = get_q_data(ctx, f->type);
+ 	struct ipu_image test_in, test_out;
+ 	enum v4l2_field field;
+@@ -245,8 +243,8 @@ static int ipu_csc_scaler_try_fmt(struct file *file, void *priv,
+ static int ipu_csc_scaler_s_fmt(struct file *file, void *priv,
+ 				struct v4l2_format *f)
+ {
++	struct ipu_csc_scaler_ctx *ctx = file_to_ctx(file);
+ 	struct ipu_csc_scaler_q_data *q_data;
+-	struct ipu_csc_scaler_ctx *ctx = fh_to_ctx(priv);
  	struct vb2_queue *vq;
- 	struct dma2d_frame *frm;
+ 	int ret;
  
-@@ -379,7 +379,7 @@ static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format *f)
- 
- static int vidioc_try_fmt(struct file *file, void *prv, struct v4l2_format *f)
+@@ -301,7 +299,7 @@ static int ipu_csc_scaler_s_fmt(struct file *file, void *priv,
+ static int ipu_csc_scaler_g_selection(struct file *file, void *priv,
+ 				      struct v4l2_selection *s)
  {
--	struct dma2d_ctx *ctx = prv;
-+	struct dma2d_ctx *ctx = file2ctx(file);
- 	struct dma2d_fmt *fmt;
- 	enum v4l2_field *field;
- 	u32 fourcc = f->fmt.pix.pixelformat;
-@@ -422,7 +422,7 @@ static int vidioc_try_fmt(struct file *file, void *prv, struct v4l2_format *f)
+-	struct ipu_csc_scaler_ctx *ctx = fh_to_ctx(priv);
++	struct ipu_csc_scaler_ctx *ctx = file_to_ctx(file);
+ 	struct ipu_csc_scaler_q_data *q_data;
  
- static int vidioc_s_fmt(struct file *file, void *prv, struct v4l2_format *f)
+ 	switch (s->target) {
+@@ -339,7 +337,7 @@ static int ipu_csc_scaler_g_selection(struct file *file, void *priv,
+ static int ipu_csc_scaler_s_selection(struct file *file, void *priv,
+ 				      struct v4l2_selection *s)
  {
--	struct dma2d_ctx *ctx = prv;
-+	struct dma2d_ctx *ctx = file2ctx(file);
- 	struct vb2_queue *vq;
- 	struct dma2d_frame *frm;
- 	struct dma2d_fmt *fmt;
+-	struct ipu_csc_scaler_ctx *ctx = fh_to_ctx(priv);
++	struct ipu_csc_scaler_ctx *ctx = file_to_ctx(file);
+ 	struct ipu_csc_scaler_q_data *q_data;
+ 
+ 	switch (s->target) {
 -- 
 Regards,
 
