@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7AC7C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 22:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C91C2C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 22:30:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=omailk5J82FETW0CF3chBXgq8BxD9mp50Z7b28u4AKs=; b=ur5kkXVgH0RslXSGPA7G+QSDt1
-	0AUKGpYeyQFfmW3ZClZNHiYtx7xo9FgzC0ik+7CNfl9RRt4lQ1N5rKkbE+2unPD31pmfEo8F9exid
-	e3VnATi0X+j7V/Gi4Kz5WZo2ydWgydTMyB7qH0KKWf7wAMtGj1pwypIT7g5vNlACfAlijVo496d2y
-	83y8WknSUtZD5ZB1DtJ+jT+qS3ceOvVR1kWAUwlUf554wyyrLY21yTUlSagGvOJIdwkocSTSYC4Td
-	dlDWm162HKxVSjl6FgOYDDNZUG7vKnciXqGb+7GGLAW6jBhBa+ZQJOLktaouCQO+99XQKKw0mBzWa
-	nttS5pZA==;
+	bh=1YWo1N70MLcx/QWVeryHXRPDZYMTCBbn5UNZbFDrQR8=; b=ZnLIdbMUFsucftdxqm5QeJvO9m
+	CAjIhfPOBCpEUfhcYzhYuKovq9CnHKrB6fYgFRb1pQo9P0gHouEheo66KN/e6Fll7amQRSLPMi1N+
+	kDU8mvKTrHNd3v+HoGw1QHJkdY8y/yp3Uc4Eo89D1P7oKJXAsF6Ww5X3w3YHzpINRrTDnF5haPv5l
+	T+BvMV2HRSB6K7npd6QLONUpqhYp79BeajDG4Z3ybKBy+jqgeX+mYd4AL/EkxVvsbpxiDO+0KVZE0
+	mAlu5wGDDwX0h24CqZuQrTq+7S88hfzVhJ5sL7+ch0HNk/FotHZUzLeR7WBtY30lzsM2woRH2VDHa
+	L1qV7RlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEWq-000000066nk-2PRw;
-	Sun, 10 Aug 2025 22:28:36 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1ulEYR-000000066xQ-0qyb;
+	Sun, 10 Aug 2025 22:30:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEOp-000000066AK-1jXd
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 22:20:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1754864419; bh=omailk5J82FETW0CF3chBXgq8BxD9mp50Z7b28u4AKs=;
- b=LQ1okNTugNRqfv1pddjAzVR2Ee4DnaTNHu7x2LLfMmrA1BCfiyxuMZDb54ERLkEgDU9QdYEty
- jvD0X2DUNY7foE8x1acdNUiajvqOh17ex81/1xHqYgpzJJmWk4OK7ELigSb/MoIFSQe0sZKjEWY
- WWsQbqJqVb9kiILvyxugfgoBG/8/hpPtJNDOGZbi9Jlc8rJE+OcrEmBoujr8PZEN54y9lW7Gta1
- epXS1ZXHs7Zcg6NAusGjjnd5g8Pq8RsjUbie0VIJq6t+M1KuNEeaWw9CopgJtccDeCOdowfmCG2
- C8XfvXcDfaRa44LlFjmdjs6HYIY18cH5Q4qnigUGf3vA==
-X-Forward-Email-ID: 68990e66797ab8962779243f
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 1.2.4
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Alex Bee <knaerzche@gmail.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v2 4/7] media: rkvdec: Add RK3288 variant
-Date: Sun, 10 Aug 2025 21:24:34 +0000
-Message-ID: <20250810212454.3237486-5-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20250810212454.3237486-1-jonas@kwiboo.se>
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
+	id 1ulDL1-00000005zd6-0vJD;
+	Sun, 10 Aug 2025 21:12:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 714B7A54008;
+	Sun, 10 Aug 2025 21:12:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B3FCC4CEEB;
+	Sun, 10 Aug 2025 21:12:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754860338;
+	bh=+4dnmCmzsqfJqzogK3BsIrwmBCpep0C6Bjw/+YBBuRM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=jwlDPXEycbVxBriw0lhEvzExieU29/OWPjrCEOUv2WqxJVCo7k8qLQNd/23hKV6Id
+	 kiLaOV4YOtJcGgxElQjSaCgtWjuxF1TZo4tREA179TeZXdS3lvUfSUPodCgRW5+oXI
+	 BCFW1ZUGDUOY0dS0F6zuygKhlBAKehYFNuxADUZB/wNi3lRPG0mDkehuTAMO5r9Gc8
+	 37hr0J36RdpHnefSpObuD3L+Tlh1Fkezo6HnNDheo5ggM1beQv0n1jA1HqFn7bWV3N
+	 Kt0hHbfjy0QEiUyYkW8gtXP6ZDCpEIB8+gtBCrPbjCcJ7HLqTMTALoRVNr67Pgkjiz
+	 1vu91j4EtReHw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAF1939D0C2B;
+	Sun, 10 Aug 2025 21:12:31 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v3 00/22] RV: Linear temporal logic monitors for RT
+ application
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <175486035074.1221929.14771271313243309912.git-patchwork-notify@kernel.org>
+Date: Sun, 10 Aug 2025 21:12:30 +0000
+References: <cover.1744785335.git.namcao@linutronix.de>
+In-Reply-To: <cover.1744785335.git.namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, rostedt@goodmis.org, gmonaco@redhat.com,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ john.ogness@linutronix.de, pmladek@suse.com, senozhatsky@chromium.org,
+ mingo@redhat.com, boqun.feng@gmail.com, longman@redhat.com,
+ tglx@linutronix.de, bp@alien8.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, hpa@zytor.com, luto@kernel.org, peterz@infradead.org,
+ catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_152019_499775_5EABC90B 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20250810_141219_331961_B13DE6A9 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alex Bee <knaerzche@gmail.com>
+Hello:
 
-Add a RK3288 variant, a version of the Rockchip VDEC IP that only
-support HEVC decoding.
+This patch was applied to riscv/linux.git (fixes)
+by Steven Rostedt (Google) <rostedt@goodmis.org>:
 
-Signed-off-by: Alex Bee <knaerzche@gmail.com>
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-Changes in v2:
-- No change
----
- drivers/media/platform/rockchip/rkvdec/rkvdec.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+On Wed, 16 Apr 2025 08:51:06 +0200 you wrote:
+> Real-time applications may have design flaws causing them to have
+> unexpected latency. For example, the applications may raise page faults, or
+> may be blocked trying to take a mutex without priority inheritance.
+> 
+> However, while attempting to implement DA monitors for these real-time
+> rules, deterministic automaton is found to be inappropriate as the
+> specification language. The automaton is complicated, hard to understand,
+> and error-prone.
+> 
+> [...]
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 56807122720e..c20e046205fe 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -1222,6 +1222,10 @@ static void rkvdec_watchdog_func(struct work_struct *work)
- 	}
- }
- 
-+static const struct rkvdec_variant rk3288_rkvdec_variant = {
-+	.capabilities = RKVDEC_CAPABILITY_HEVC,
-+};
-+
- static const struct rkvdec_variant rk3399_rkvdec_variant = {
- 	.capabilities = RKVDEC_CAPABILITY_HEVC |
- 			RKVDEC_CAPABILITY_H264 |
-@@ -1229,6 +1233,10 @@ static const struct rkvdec_variant rk3399_rkvdec_variant = {
- };
- 
- static const struct of_device_id of_rkvdec_match[] = {
-+	{
-+		.compatible = "rockchip,rk3288-vdec",
-+		.data = &rk3288_rkvdec_variant,
-+	},
- 	{
- 		.compatible = "rockchip,rk3399-vdec",
- 		.data = &rk3399_rkvdec_variant,
+Here is the summary with links:
+  - [v3,18/22] riscv: mm: Add page fault trace points
+    https://git.kernel.org/riscv/c/a37c71ca412d
+
+You are awesome, thank you!
 -- 
-2.50.1
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
