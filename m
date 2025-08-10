@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0A36C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 15:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C7FC87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 16:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EUPUnoEBAZfqIDY+8Nh2cj2EKAuWKbwsRCUV0UW5AoQ=; b=kgHukoNQm3FR7pQ6TOi2s8AgbD
-	CwIp8kP9OuSjYSmIEOUAsTdguVPwFNRZqvlruSBXCNEeGLQWiWv3AoUde2BMMO4BUHX7kmlF7Wrxq
-	pDd+EFPQkxcttrRfIAbrfkxw6v23TwETz44sApNNvAM0nfidg8tTQ3/GOK+4fFBJLHo0xMVF2W3+s
-	IXjIIixkTwnX6Dz1CkXn2FslYgqkDRM4mqujTWd0T6z/45kC2IMVL9Avzo9O34kiT1MuqRG/nNcYv
-	mBLPS7iWTBkSZiL60qAaej29MIJyIZc6QYflgIif/0sgESJy+bzb+Np+7RVsLL1dgGAbv/4nmIgjv
-	ZL+imgFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bFTUh9SwYeasiDREoxvaQj17XkkmaFIe8D9gtwB8r/M=; b=mlZ43vz43LPV+ITL4oXNTQ+iIj
+	+3sWTyXM99GPNAHjV9Jfyk4pr36xYUrnUoCQQsfNYYMtePpeAfblXmI2QxZ0gFEtyh0UGGG3sv0X6
+	ANIv3H8lJxTVG6HkQbg1hhBHUZ92x2EVXvYKqh6Lh06eTkp6+as3wx5B4Js2y+QMnmaBjW1KlFgOe
+	oZ5iH73SNeKNFHZSfqXiX1BQ9WtkDznizSHetgIltJtxirfMQdPWVKqi61vSlnevg5kuv82ZIOJtL
+	41XpEklIKXl7lbfBCAwwjiP9qs6wFW+axFoHwn53lzgP+j7NRU2Q6EvpOF0QPIjeEvS1bvCF0HXs1
+	WQdxwwMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ul7oz-00000005k52-0EOi;
-	Sun, 10 Aug 2025 15:18:53 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1ul8ZI-00000005m61-0UnQ;
+	Sun, 10 Aug 2025 16:06:44 +0000
+Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ul7mR-00000005jt1-3Ykd;
-	Sun, 10 Aug 2025 15:16:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=EUPUnoEBAZfqIDY+8Nh2cj2EKAuWKbwsRCUV0UW5AoQ=; b=L4H2zlPio+LxDuUxZereeQXnZc
-	B3QZXrgzoFR6bTsfCEYwckhqPmrMjg300hzGQ1dt3EkhCvNjJ9gkPQB0uEJPsgSBArk7SLOcw6ZX5
-	7ZxsRaveVC/PBTTdiYsJXy6NH7nHMrfQwXZH+O4WQ3nPUYt7HGfePlvQ2YvmlgpX1qyk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1ul7mB-004EAx-FO; Sun, 10 Aug 2025 17:15:59 +0200
-Date: Sun, 10 Aug 2025 17:15:59 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: jonas@kwiboo.se, alsi@bang-olufsen.dk, conor+dt@kernel.org,
-	davem@davemloft.net, devicetree@vger.kernel.org,
-	edumazet@google.com, heiko@sntech.de, krzk+dt@kernel.org,
-	kuba@kernel.org, linus.walleij@linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
-	olteanv@gmail.com, pabeni@redhat.com, robh@kernel.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add RTL8367RB-VB switch to
- Radxa E24C
-Message-ID: <1f2f8eda-3056-48bd-9c86-3fb699f043f3@lunn.ch>
-References: <db1f42c3-c8bb-43ef-a605-12bfc8cd0d46@kwiboo.se>
- <20250810140115.661635-1-amadeus@jmu.edu.cn>
+	id 1ul8Wm-00000005lzj-1cic
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 10 Aug 2025 16:04:09 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4c0MyL4698z9smZ;
+	Sun, 10 Aug 2025 18:03:54 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1754841834;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bFTUh9SwYeasiDREoxvaQj17XkkmaFIe8D9gtwB8r/M=;
+	b=WeXbLkLyIGJODrRBejRDsAyjLMr+GBrwkDlcYgwDBhBxBXAHaur34Gn3OIQPldSUW6tW5S
+	kHcLBqf2B9TBdXIc26A61qA7zm0nHCSJg+0CDAj/pmSv5Bmgo60Y+flm7k1mcvNfh/my6H
+	z/xtRhqNGoNJvlp0I3hBVyBO28WBJJ0Gxk4k55GjIqc5Rpf9Ffu9KRq20Itv2DM3Xaed8x
+	liqZdGLm5AupxOUoBEP0aabpDalBd+zzWsMStpgZPSreOF4BbEWXmkGY16fLwqNkjt+CnD
+	gmYRdrCMkJ9vUJCPPax/K0k2See8/OBlayZldr4FalglxANtBl9zypBOk/Q0Bw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=KXalXkxz;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1754841832;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bFTUh9SwYeasiDREoxvaQj17XkkmaFIe8D9gtwB8r/M=;
+	b=KXalXkxzZzQNZC863YsGVJFKRrgqTSMPP7CxMSZ4BG2T7Dsiws9tSG/tPXoAtodC0oJ2nc
+	gF9Ce3mO5BiZr5UC+Pt3PjmUVlQQaMt9uDdKxWpll7YMV1N8TfjNAukksQ6yvuqcHT3Bqd
+	gcB7EJdcIDNkWmzSYTRNmMw92/nXpDI4STR1mqsYEsPIu3FTtMJMkS/BOxu0iOPav5jgVy
+	ezN0wd9WXzoA9HYkuqKpq7v2l25VRFIzkTO0a9NvEAASZF7HluR+pWHDf/suPTztajSDuD
+	ZoOcV9MTcY0XVp78MkjIbym8Y+bwOMrTkWYSaWbs4war/0/qUkeiTvcYqvKBAA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	kernel@dh-electronics.com
+Subject: [PATCH] arm64: dts: imx8mp: Fix missing microSD slot vqmmc on DH electronics i.MX8M Plus DHCOM
+Date: Sun, 10 Aug 2025 18:03:07 +0200
+Message-ID: <20250810160340.10042-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250810140115.661635-1-amadeus@jmu.edu.cn>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 113fc956646a692c002
+X-MBO-RS-META: bmbrtg1j8bosgd16iqjre398getbzgqs
+X-Rspamd-Queue-Id: 4c0MyL4698z9smZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_081615_887961_CD7E71D0 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20250810_090408_609795_5DC0F54D 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +96,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 10:01:15PM +0800, Chukun Pan wrote:
-> Hi,
-> 
-> > I had only tested on a next-20250722 based kernel and on a vendor 6.1
-> > based kernel. And similar to your findings, on 6.1 based kernel there
-> > was no issue only on the newer kernel.
-> >
-> > I will probably drop the use of "/delete-property/ snps,tso" and include
-> > a note in commit message about the TSO and RX checksum issue for v2.
-> 
-> After my test, this problem is caused by commit 041cc86 ("net: stmmac: Enable TSO on VLANs")
-> https://github.com/torvalds/linux/commit/041cc86b3653cbcdf6ab96c2f2ae34f3d0a99b0a
-> 
-> It seems that this commit just exposed the TSO problem (with VLANs).
+Add missing microSD slot vqmmc-supply property, otherwise the kernel
+might shut down LDO5 regulator and that would power off the microSD
+card slot, possibly while it is in use. Add the property to make sure
+the kernel is aware of the LDO5 regulator which supplies the microSD
+slot and keeps the LDO5 enabled.
 
-I'm not sure that is correct. What this patch does is enable TSO for
-VLANs by adding the VLAN header to the packet in software before
-transmitting it, rather than asking the hardware to insert the VLAN
-header as it transmits.
+Fixes: 8d6712695bc8 ("arm64: dts: imx8mp: Add support for DH electronics i.MX8M Plus DHCOM and PDK2")
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: kernel@dh-electronics.com
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-What i don't understand yet, is what has VLANs got to do with DSA?
-Does the DSA tagger being used not actually insert a switch specific
-header, but is using VLAN overlays? Why is the VLAN path in the stmmac
-transmit function being used?
-
-Just a guess, but maybe it is a DSA tagger bug? Maybe the user frame
-is a VLAN frame. The tagger is placing the VLAN tag into the DSA
-header, so in effect, the frame is no longer a VLAN frame. But it is
-not calling __vlan_hwaccel_clear_tag() to indicate the skbuf no longer
-needs VLAN processing?
-
-	Andrew
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
+index 7f754e0a5d693..68c2e0156a5c8 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
+@@ -609,6 +609,7 @@ &usdhc2 {
+ 	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+ 	cd-gpios = <&gpio2 12 GPIO_ACTIVE_LOW>;
+ 	vmmc-supply = <&reg_usdhc2_vmmc>;
++	vqmmc-supply = <&ldo5>;
+ 	bus-width = <4>;
+ 	status = "okay";
+ };
+-- 
+2.47.2
 
 
