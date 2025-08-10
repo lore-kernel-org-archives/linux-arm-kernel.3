@@ -4,102 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E01C9C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 22:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D60CA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 22:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3krEn/9cYqN/fDovrUoLGh2cVwyrKoWU5FC2Hs4k76k=; b=uyzaaHq/fuAQ2Z/+msLmcKIND9
-	thutO5RrSTQj1q0le+O28kRWBzo3mwD2EyrbLQAnlSuRM3y8Xtjo5q5ZBL1BR3cr9MN9Muc3Hgf26
-	s/JNwouaeotjaU+ZVtm4WXV7c7zufYknQbWU5XgRn2RdAIgotkyT7aWDCJIDaW+DhcLv6WLEv+Rvq
-	LQ24zbWrPE+yAycLKcR1N5qZOEfKnOATV4/1m045AjJ2rGmIve9/SNPG4dfdx1OkA1LeKTslWDeD4
-	JMkmyKAPXPySDtanknmW+ZC3FWVq1zBjNb1hd/fsm1Xf9PDNztIl8+di441Pfvx1RHQ70EM6rB6KB
-	bD8vmyyQ==;
+	Content-Type:Cc:To:Message-Id:MIME-Version:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CioeoXb5/QvchbQJCxl5o+yrQjp6rhhswejt/srDq7A=; b=tzvADzvdINYo0ddQZJpt6YCdna
+	y3WxUvz+MmBkifugyKem/BvyzR1iS6ghE06/Rg/RI3a+moCfsvhWCbAA0KECHvg0qWuE9cVwJwOun
+	lm9sE/mOIBpFpV+p9h4qO257yrmpFyLuDcbm++KxhGRQIG+u9MAjDBSu1m4VdU6jJwPOQdz5nyQTp
+	71PXuxkuzIJ75dUxseimV4QNAA3fwR/l4c5TgMX+TazVu+iKLaOVoZEygtHhbDHpywvNZs6GNWFFH
+	7tKJVfVy43mIFg3FAAPDsHE7QHpS5NSeE4wKa39gBJrdQNY/EYlvcbXq5wtLNxD21zjUEzIVJ3Hct
+	Z0Wysnrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulERl-000000066PD-1Phc;
-	Sun, 10 Aug 2025 22:23:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ulEUI-000000066av-0HZx;
+	Sun, 10 Aug 2025 22:25:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEF9-000000065X8-2Dpl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 10 Aug 2025 22:10:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3krEn/9cYqN/fDovrUoLGh2cVwyrKoWU5FC2Hs4k76k=; b=IxLSJ/39RAZqjy37X4FuT8FzvL
-	tRl/XeQLxwymdGd4T4e/BV7MOjEKop/aRQNz4ZMEgz6mm69qNgYtE/PhcKWEoILnSwK65+/jpt55o
-	9yoL6skI6erd9Tu9SU+KK2zzvLpzIDFjPimYESroqYFQ/fHfBZUqAgVEQzJzfdkPiihWbyg3m8WhV
-	Kky+J1Ppm0SC5uCEkhQoC1H0pqXm8VrrYI2bj4rqgvKenqhTNm88ZGSTd2xVFvAOj9pQTd/uBld8C
-	Qan7ue8QjBs0r4LFQYYKRMziARJmTPZK1suUWKDWhMNGOTwCPqPwt48ZKft/3GBnWP+sA4Y4bLmHJ
-	MEG9lydw==;
-Received: from mail-pj1-f44.google.com ([209.85.216.44])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEF6-0000000FIxk-35aA
+	id 1ulELG-000000065y6-2y3H
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 22:10:18 +0000
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-321895391b2so1352517a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 15:10:16 -0700 (PDT)
+	Sun, 10 Aug 2025 22:16:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1754864196;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=CioeoXb5/QvchbQJCxl5o+yrQjp6rhhswejt/srDq7A=;
+	b=ixCjjzJ4E9bwNP4u/KLETxeLgyn7fYeAJgsZeQZWN8747quOBTLsFt49mhFRs+oHFJkz89
+	3WviGbBRZ0sqy0pphFpJU8pOdAQJ4rCkJB0N/zydEHqij4kLHr6vOPiuiJApS5/HFz4Y3B
+	BAiVnt0XqJNFRAkbKTSFyo/6QjZMCGs=
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
+ [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-507-UvyO4loJNE6ePk6wM2aQrw-1; Sun, 10 Aug 2025 18:16:35 -0400
+X-MC-Unique: UvyO4loJNE6ePk6wM2aQrw-1
+X-Mimecast-MFC-AGG-ID: UvyO4loJNE6ePk6wM2aQrw_1754864194
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4af199d0facso122945191cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 15:16:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754863815; x=1755468615;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3krEn/9cYqN/fDovrUoLGh2cVwyrKoWU5FC2Hs4k76k=;
-        b=jQywDFQ+Ctu1l+cB/RmTdRZ/i8iBSSHOjgLrIu2t17sNK2O4IpYrJy14exVWt8OKN1
-         FHlA0Z6ng/dcRl6xCy3kMA5nwf7gqDvLJ6OANwtSK+V18J8qHbit/g/DepZsfW0dX7p5
-         E8ygXLlsk1C/8+zYpSIZxqcHxIxgtBFvKtBmvzh30Bf7Kzwd94vlAKJERjM1uGBtsglb
-         rO06C4j+EwLONOcDojP93YoKmG81F0LcuOyQOpxwKjtUZp6l0+djuTFL/WGQb3tJvRgt
-         c8vxZtr+q57XCNWNxFn9GglkeTjMhtxxyHPuiVzGU3tslCP+yOIxEPEeEj3Sfl6fyvJN
-         BCuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWa0LHeVOSAyNuq22xsAdABEDemoNyG1fPq8ffsAg1QygSe6mhSMNemuJXmkgFwiKZ4XgEhGK6/sNZbQrILYTwo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTqfiRJh58DV9D8wN8EOlglifzyR5LuwAPMsdhbES1sp11IpgY
-	FZnm2SIEs9mZWWBQJBsP4ERCBqPCzLRTij5YG4Bw/CxWrhzqZSyP8d4A
-X-Gm-Gg: ASbGncs+k0SZj/R6shUe748NS7hWMN4gPuHCurlXVU4z4gtnTjfs95vMGbjKMcQkIHq
-	UdfEAzh8q2x80asIdIn6f41KX8XlyLZNgplxzLwmNoORVHo/fgAvDmxLd4ayJZEzeHz0en3e4P0
-	5yHpEyo6voP9EFBPHoICGmGj73IZTt4DioWLaXE21nvGxbWek/mIzjg4FeLDIeq7bJ0dS8AFgeF
-	mIZ8w892F+VDNighFOz6MwNzKbScgaBr8VREwOqomDIbVy+gDOuyfr+35IfIKKw1bO+pFfDvycB
-	tyvxoRqkU1Cv12NyJA24OugY1qsS6ZVKVSRbteXCJ4ON5nk+ipGw/swV/NI5JNeHm+/oLHPLx/q
-	rbOn0/dFpsPN4yKIXtmlJsu39+db2nKEchZOTiTodGAyumeYZf1bYqYn21b+VaZvFU88=
-X-Google-Smtp-Source: AGHT+IHVycpFEKek2S7JEZFXfX7JB07ZOO+8JCByaPzFT/J+gWDvifbNtQBaW8W0P+dVEavhKLSSvw==
-X-Received: by 2002:a17:90b:50ce:b0:321:7528:ab43 with SMTP id 98e67ed59e1d1-32183c482fbmr17371641a91.24.1754863814883;
-        Sun, 10 Aug 2025 15:10:14 -0700 (PDT)
-Received: from localhost.localdomain (c-24-4-34-163.hsd1.ca.comcast.net. [24.4.34.163])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-321611d6eeesm13150118a91.6.2025.08.10.15.10.13
+        d=1e100.net; s=20230601; t=1754864194; x=1755468994;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CioeoXb5/QvchbQJCxl5o+yrQjp6rhhswejt/srDq7A=;
+        b=JW7xQHuzInGeKq3L4MZvU3yRDN2XV8SEcqSx0AGA5c13xbvOT2jFtVptnz/k61qHi2
+         6WN3IYgQV6mMe5GGZ0wr1I4HkgsIWpJ8nklWv0u48w7rNieSCKPMPiYlN0dp5XgAaxcM
+         igmzZzSDl//HtHca7kFKwWTTP0ZKj+LEsfzRm2SwiFGr/6eloUOF8N7U2QxTgwjmgaYV
+         c72rko814w5DdO4YmEZ1zNGHrTP7i1U8uXFgXqOMQzYEwQPfHeK5Rqj6rX5Z1mhSVzmq
+         ZOIi902y82uwvx++LiBQmX1CPYrdLwRvRMYDeA45uzg8dRwDmKYye0qUrWH8UQ1gEi5A
+         Ok/A==
+X-Forwarded-Encrypted: i=1; AJvYcCXKRux5TEkJ/cxXgwTO2eD+9pVpEHFauzDRjWNoDEIC6f/bQO5fDtg8fV8i2//H65iQrscHAUjdLci2Ed+yROWz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYL7Y7KUwmZZu3yV62PGOJe6sfdeuw1luXJ2fcQ6aCORRsgyvK
+	Y/t4D1d5PDGt6nMYAT9YIetlyJRewmOElmklxyXuLCqOLsSgUrcgJR+BsoF0APaQR4O0DmmAZ3s
+	eXrnPSKZBTQvdkPKuWMGeRXdKaEBA0eicRrbmQ9FSsBDvdwj5Tpm+0vue4ycQoIONEuOnbUvQHG
+	lp
+X-Gm-Gg: ASbGncuAfNkTKi7OAtz27L7eevDs39pNhTtV08a9TnWTQ0YNvfXES0qfJC0xT+vF6gh
+	wOmr6Zzb2UHuypanGJRt8LpXPnZGLD1c0bzO+V30VKHNudfmfd3hnjo3mX7cvXCt5kTDrmpr8jz
+	iTuHTtD/tQz7XCbHVh9372OoidWnbFA39+/bmaTdEjbHEHLm5vK4uNGhDZgskOxyddQoGbr/YyZ
+	5x7eYT/ce85SZDFa71BQ6rZ+axJUD4OVHZLHoYQEumYD9SpOvHrBobIuiW4BihRMubUTmpD8gF0
+	kti1cdtumKVEZ0hp/wj4v1liNluA1Znn+K05V1iEihX/Ix5ncFkLNtB9nCpjiA+z6HqFr1dE2yS
+	jc5f7LA==
+X-Received: by 2002:a05:622a:1308:b0:4b0:7775:d342 with SMTP id d75a77b69052e-4b0afddf96bmr142006371cf.12.1754864194335;
+        Sun, 10 Aug 2025 15:16:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFMgL2TfTPBpWSj0xTTh5+SfYn/Qjd/HGVOp6AsQdNWXfn2vKbskTIHSYorfqQM8Oa2g6DGMQ==
+X-Received: by 2002:a05:622a:1308:b0:4b0:7775:d342 with SMTP id d75a77b69052e-4b0afddf96bmr142005961cf.12.1754864193842;
+        Sun, 10 Aug 2025 15:16:33 -0700 (PDT)
+Received: from [10.144.145.224] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b06a395932sm92798851cf.38.2025.08.10.15.16.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Aug 2025 15:10:14 -0700 (PDT)
-From: Will Whang <will@willwhang.com>
-To: Will Whang <will@willwhang.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 4/4] media: docs: Add userspace-API guide for the IMX585 driver
-Date: Sun, 10 Aug 2025 23:09:21 +0100
-Message-Id: <20250810220921.14307-5-will@willwhang.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250810220921.14307-1-will@willwhang.com>
-References: <20250810220921.14307-1-will@willwhang.com>
+        Sun, 10 Aug 2025 15:16:32 -0700 (PDT)
+From: Brian Masney <bmasney@redhat.com>
+Date: Sun, 10 Aug 2025 18:16:19 -0400
+Subject: [PATCH] pmdomain: mediatek: airoha: convert from round_rate() to
+ determine_rate()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Message-Id: <20250810-pmdomain-round-rate-v1-1-1a90dbacdeb6@redhat.com>
+X-B4-Tracking: v=1; b=H4sIADIamWgC/x3MMQqAMAxA0atIZgNaFK1XEYfSRM1gK6mKIN7d4
+ viG/x9IrMIJhuIB5UuSxJBRlwX41YWFUSgbTGXaqjMW943i5iSgxjMQqjsYPZmZbFN3vreQy11
+ 5lvu/jtP7fpscdbRlAAAA
+X-Change-ID: 20250729-pmdomain-round-rate-cd2fd9417c89
+To: Ulf Hansson <ulf.hansson@linaro.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Cc: linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Brian Masney <bmasney@redhat.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754864189; l=5844;
+ i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
+ bh=UYgbTKNNIhZJE5F8ohj4vNnNUmG0W80FAggzMzDyciQ=;
+ b=ycuKCsHxlgyIiQDQP/ZXNrrK5TwG59aDdwvTbF9fA5ZaFGS7T11u3eBjUVpg98IPZ0SR0D/LO
+ HLq8JMzYEaFDHKAwnSPKYgYnuZw3tWz2CNQiFg0AsRVq8jM/iV/b3Pj
+X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
+ pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 0Spf-jCnc3Y8R-VSoC025DyQG4Roams_S7JxMhiAb54_1754864194
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_231016_949317_0C65088B 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250810_151638_828762_7C71D7F0 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,173 +123,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new IMX585 V4L2 sub-device driver introduces several
-driver-specific controls for configuring Clear-HDR blending,
-gradation compression thresholds, and HCG enabling.  This patch adds
-an rst document under Documentation/userspace-api/media/drivers/
-that details each control, allowed values, and their effects.
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+appended to the "under-the-cut" portion of the patch.
 
-Signed-off-by: Will Whang <will@willwhang.com>
+Note that prior to running the Coccinelle,
+airoha_cpu_pmdomain_clk_round() was renamed to
+airoha_cpu_pmdomain_clk_round_rate().
+
+Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
- .../userspace-api/media/drivers/imx585.rst    | 122 ++++++++++++++++++
- .../userspace-api/media/drivers/index.rst     |   1 +
- MAINTAINERS                                   |   1 +
- 3 files changed, 124 insertions(+)
- create mode 100644 Documentation/userspace-api/media/drivers/imx585.rst
+Coccinelle semantic patch is below. It's large and I don't want to
+pollute the kernel changelog with the same code hundreds of times,
+so that's why it's included under the cut. For subsystems with more
+than one patch, I've included it on the cover letter.
 
-diff --git a/Documentation/userspace-api/media/drivers/imx585.rst b/Documentation/userspace-api/media/drivers/imx585.rst
-new file mode 100644
-index 000000000..9f7c16f30
---- /dev/null
-+++ b/Documentation/userspace-api/media/drivers/imx585.rst
-@@ -0,0 +1,122 @@
-+.. SPDX-License-Identifier: GPL-2.0-only
-+
-+Sony IMX585 driver
-+==================
-+
-+The IMX585 image-sensor driver provides the following *driver-specific*
-+V4L2 controls.  They are visible only when the IMX585 driver is loaded
-+and sit in the sensor-private control class.
-+
-+HDR data blending
-+-----------------
-+
-+``V4L2_CID_IMX585_HDR_DATASEL_TH``  (``U16[2]``)
-+    Lower/upper **thresholds** (0 – 4095) that decide which exposure is
-+    chosen—or blended—for each pixel in Clear-HDR mode.
-+
-+``V4L2_CID_IMX585_HDR_DATASEL_BK``  (menu)
-+    **Blending ratio** between the long-gain (LG) and
-+    high-gain (HG) read-outs.
-+
-+    .. flat-table::
-+       :stub-columns: 0
-+       :widths: 1 5
-+
-+       * - ``0``
-+         - HG ½, LG ½
-+       * - ``1``
-+         - HG ¾, LG ¼
-+       * - ``2``     # duplicate ratio present in the datasheet
-+         - HG ½, LG ½
-+       * - ``3``
-+         - HG ⅞, LG ⅛
-+       * - ``4``
-+         - HG 15⁄16, LG 1⁄16
-+       * - ``5``     # second 50/50 entry as documented
-+         - **2ⁿᵈ** HG ½, LG ½
-+       * - ``6``
-+         - HG 1⁄16, LG 15⁄16
-+       * - ``7``
-+         - HG ⅛, LG ⅞
-+       * - ``8``
-+         - HG ¼, LG ¾
-+
-+Gradation compression
-+---------------------
-+
-+``V4L2_CID_IMX585_HDR_GRAD_TH``  (``U32[2]``)
-+    17-bit **break-points** (0 – 0x1ffff) that shape the 16-bit
-+    gradation-compression curve.
-+
-+``V4L2_CID_IMX585_HDR_GRAD_COMP_L``  (menu)
-+    See V4L2_CID_IMX585_HDR_GRAD_COMP_H
-+
-+``V4L2_CID_IMX585_HDR_GRAD_COMP_H``  (menu)
-+    **Compression ratios** below the first break-point and between the
-+    two break-points, respectively.
-+
-+    .. flat-table::
-+        :stub-columns: 0
-+        :widths: 1 4
-+
-+        * - ``0``
-+          - 1 : 1
-+        * - ``1``
-+          - 1 : 2
-+        * - ``2``
-+          - 1 : 4   *(default for COMP_L)*
-+        * - ``3``
-+          - 1 : 8
-+        * - ``4``
-+          - 1 : 16
-+        * - ``5``
-+          - 1 : 32
-+        * - ``6``
-+          - 1 : 64  *(default for COMP_H)*
-+        * - ``7``
-+          - 1 : 128
-+        * - ``8``
-+          - 1 : 256
-+        * - ``9``
-+          - 1 : 512
-+        * - ``10``
-+          - 1 : 1024
-+        * - ``11``
-+          - 1 : 2048
-+
-+Gain settings
-+-------------
-+
-+``V4L2_CID_IMX585_HDR_GAIN``  (menu)
-+    **Additional gain** (in dB) applied to the high-gain path when
-+    Clear-HDR is active.
-+
-+    .. flat-table::
-+        :stub-columns: 0
-+        :widths: 1 3
-+
-+        * - ``0``
-+          - +0 dB
-+        * - ``1``
-+          - +6 dB
-+        * - ``2``
-+          - +12 dB *(default)*
-+        * - ``3``
-+          - +18 dB
-+        * - ``4``
-+          - +24 dB
-+        * - ``5``
-+          - +29.1 dB
-+
-+``V4L2_CID_IMX585_HCG_GAIN``  (boolean)
-+    Toggle **High-Conversion-Gain** mode.
-+
-+    *0 = LCG (default), 1 = HCG.*
-+
-+Notes
-+-----
-+
-+* Controls are writable while streaming; changes take effect from the
-+  next frame.
-+* HDR-specific controls are hidden when HDR is disabled.
-+* Inter-control dependencies are enforced by the driver.
-diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
-index d706cb47b..87912acfb 100644
---- a/Documentation/userspace-api/media/drivers/index.rst
-+++ b/Documentation/userspace-api/media/drivers/index.rst
-@@ -32,6 +32,7 @@ For more details see the file COPYING in the source distribution of Linux.
- 	cx2341x-uapi
- 	dw100
- 	imx-uapi
-+	imx585
- 	max2175
- 	npcm-video
- 	omap3isp-uapi
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 175f5236a..42e32b6ba 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23183,6 +23183,7 @@ M:	Will Whang <will@willwhang.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/i2c/sony,imx585.yaml
-+F:	Documentation/userspace-api/media/drivers/imx585.rst
- F:	drivers/media/i2c/imx585.c
- F:	include/uapi/linux/imx585.h
+    virtual patch
+
+    // Look up the current name of the round_rate function
+    @ has_round_rate @
+    identifier round_rate_name =~ ".*_round_rate";
+    identifier hw_param, rate_param, parent_rate_param;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    	...
+    }
+
+    // Rename the route_rate function name to determine_rate()
+    @ script:python generate_name depends on has_round_rate @
+    round_rate_name << has_round_rate.round_rate_name;
+    new_name;
+    @@
+
+    coccinelle.new_name = round_rate_name.replace("_round_rate", "_determine_rate")
+
+    // Change rate to req->rate; also change occurrences of 'return XXX'.
+    @ chg_rate depends on generate_name @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    identifier ERR =~ "E.*";
+    expression E;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    <...
+    (
+    -return -ERR;
+    +return -ERR;
+    |
+    - return rate_param;
+    + return 0;
+    |
+    - return E;
+    + req->rate = E;
+    +
+    + return 0;
+    |
+    - rate_param
+    + req->rate
+    )
+    ...>
+    }
+
+    // Coccinelle only transforms the first occurrence of the rate parameter
+    // Run a second time. FIXME: Is there a better way to do this?
+    @ chg_rate2 depends on generate_name @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    <...
+    - rate_param
+    + req->rate
+    ...>
+    }
+
+    // Change parent_rate to req->best_parent_rate
+    @ chg_parent_rate depends on generate_name @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    @@
+
+    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+                  unsigned long *parent_rate_param)
+    {
+    <...
+    (
+    - *parent_rate_param
+    + req->best_parent_rate
+    |
+    - parent_rate_param
+    + &req->best_parent_rate
+    )
+    ...>
+    }
+
+    // Convert the function definition from round_rate() to determine_rate()
+    @ func_definition depends on chg_rate @
+    identifier has_round_rate.round_rate_name;
+    identifier has_round_rate.hw_param;
+    identifier has_round_rate.rate_param;
+    identifier has_round_rate.parent_rate_param;
+    identifier generate_name.new_name;
+    @@
+
+    - long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
+    -               unsigned long *parent_rate_param)
+    + int new_name(struct clk_hw *hw, struct clk_rate_request *req)
+    {
+        ...
+    }
+
+    // Update the ops from round_rate() to determine_rate()
+    @ ops depends on func_definition @
+    identifier has_round_rate.round_rate_name;
+    identifier generate_name.new_name;
+    @@
+
+    {
+        ...,
+    -   .round_rate = round_rate_name,
+    +   .determine_rate = new_name,
+        ...,
+    }
+
+Note that I used coccinelle 1.2 instead of 1.3 since the newer version
+adds unnecessary braces as described in this post.
+https://lore.kernel.org/cocci/67642477-5f3e-4b2a-914d-579a54f48cbd@intel.com/
+---
+ drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c b/drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c
+index 0fd88d2f9ac29da371590ee3af92c1260e4f2f5f..3b1d202f89dc516922887cdd968c95f5147491f4 100644
+--- a/drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c
++++ b/drivers/pmdomain/mediatek/airoha-cpu-pmdomain.c
+@@ -21,10 +21,10 @@ struct airoha_cpu_pmdomain_priv {
+ 	struct generic_pm_domain pd;
+ };
  
+-static long airoha_cpu_pmdomain_clk_round(struct clk_hw *hw, unsigned long rate,
+-					  unsigned long *parent_rate)
++static int airoha_cpu_pmdomain_clk_determine_rate(struct clk_hw *hw,
++						  struct clk_rate_request *req)
+ {
+-	return rate;
++	return 0;
+ }
+ 
+ static unsigned long airoha_cpu_pmdomain_clk_get(struct clk_hw *hw,
+@@ -48,7 +48,7 @@ static int airoha_cpu_pmdomain_clk_is_enabled(struct clk_hw *hw)
+ static const struct clk_ops airoha_cpu_pmdomain_clk_ops = {
+ 	.recalc_rate = airoha_cpu_pmdomain_clk_get,
+ 	.is_enabled = airoha_cpu_pmdomain_clk_is_enabled,
+-	.round_rate = airoha_cpu_pmdomain_clk_round,
++	.determine_rate = airoha_cpu_pmdomain_clk_determine_rate,
+ };
+ 
+ static int airoha_cpu_pmdomain_set_performance_state(struct generic_pm_domain *domain,
+
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250729-pmdomain-round-rate-cd2fd9417c89
+
+Best regards,
 -- 
-2.39.5
+Brian Masney <bmasney@redhat.com>
 
 
