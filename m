@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C4CFC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 18:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3E58C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 18:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A9p3NWK+jtv2mhc8DI00xEiWbUGFeQdLedn7/vL4cq0=; b=ainH12bHEvbS9dO6QoBRcB/Z9O
-	rtqCoCkCmxdGonA0MRFjulvSayufFQW6B5PwufdzxKLJzak9N7zdtDPro0dxviOmCqlgsrWStDQXI
-	KPjwF4eoXSju0/iY8emYttOCXIDGkzBtRGfnPvWTzqw0W/AdD/7N6bLkZu4WAvHGMbC3S9uwp6GwV
-	NcN7tPmI8gCPfPPRsNQsSJyYC5PIs+dLtmnqspHD9S12FFRwDGbQy2hzdue2pizxnMV7QGYjihRTT
-	QhveUdX6nIE//FqsJtjJOOIl+FnFQPTGoHf7QgP4+CoZR2ppgxzT54hM20whIht0r4AJiRapvK1KW
-	zpOwJPjA==;
+	bh=6DWFVB7+gnqapJ/h7XUs9goC/B2LZQa/R3GJIIRokfY=; b=vJ9yGZHNr4YG6WK3/l9VWj+lcw
+	e9l42jsoaNAHuWjjWr3tQ+mztuJ60uW4mITySNz+P/xKWUQ7n2Vg0rr9UVoEuxR9SyzuNf/oFjK2+
+	NEtpTNZ+j20wCD2TReQSiRPWyA6g8hnYNIATItjCuhKX0tELwRchYycgX2veai5fMyi0lsmmx7eTz
+	xux/jZ6FuPxjlKWaM4nS9vae2dMCO0aJx8sGw8nP9jXEccPycWspgow9jjjqggCh7Nre04FOjevNs
+	VIPCUfBqog/sDwFMFYbKR64bcyhHS5vk03EwcPR+Pql+WAzYyYHnLueAXWJxg6s2c+nCtXMsjc1AX
+	ld9Sid4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulAmS-00000005t4t-2PNp;
-	Sun, 10 Aug 2025 18:28:28 +0000
+	id 1ulAp0-00000005tEX-1GU6;
+	Sun, 10 Aug 2025 18:31:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulAjt-00000005sri-396e
+	id 1ulAkG-00000005swb-49CE
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 18:25:49 +0000
+	Sun, 10 Aug 2025 18:26:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D754F61401;
-	Sun, 10 Aug 2025 18:25:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDF8DC4CEEB;
-	Sun, 10 Aug 2025 18:25:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6B2246140D;
+	Sun, 10 Aug 2025 18:26:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC488C4CEEB;
+	Sun, 10 Aug 2025 18:26:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754850348;
-	bh=mZCkM6wGTji0mWS1T8Wao5Nwc6iHBzOB8nBF6FjiL+0=;
+	s=k20201202; t=1754850372;
+	bh=2zwGXhwxWi13w4nSYysw2oa5FejZxpDZAD0f4uYQPXw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QYe7rWM5WTvPFgmLR7TLjrutsMkJklAM/UhllHcSQAfItQYp0TIM5qKhyNbmwqd9p
-	 HZnUw7fWKocJce1pJiPspNZGQZH+Vm46cN7KOL9PZ4eh0w2SCOQKvmn1daATRrV9Cv
-	 4cdQxC1mAC5SLLCrc9dk587FcaSETEVNuPQjkKwe4pFCCgoht6KoOnQpmJstZ4LwhK
-	 mU+QkVG1GAVBX32aiGpRWx+VUTOzOhMWP8cbN7RtcdzXpodPlWtbwmfwo68Jz84cp0
-	 iVRfDjK90q+dXl0TmkkgfAGAicf3uU1xgqaNv6tz949zkpXivG+bL2WJz3LruH+wWv
-	 f0AqtP3qtqlPQ==
+	b=GlWFNxs6lw9T8Gm49EYpEh52ouUPv13/JA/4lmKZ0BB3cac3L15n1SHc4SwYbHI0r
+	 dHxxLcPZfYjeymneVBx2ztn6zZazuFq3i+oo/KhOQGBnvAp9V+4UlpP0uvwRsVNhxW
+	 iIT0K6hkQ/NI+xjGhXTHrZYUIDrh7g8I2Xv4aTPu7gyifTMHiqfgVBg3ekE3H4Z13b
+	 Qxbj3eSZkw2hEK6JeAvUaRUpVUB56JhZ6Aqnm1MJ23OKSPDNehs58amTM4uxlilEUz
+	 f5tpirlHuI8KQqxSlXnd9RssLF/yW6IqVsGTqKCC1zUuyJ3Lalk+cOtj8QPIL9Bcpu
+	 pAp9RUuBCAnjA==
 From: Sven Peter <sven@kernel.org>
 To: Janne Grunau <j@jannau.net>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Neal Gompa <neal@gompa.dev>,
-	Hector Martin <marcan@marcan.st>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Andi Shyti <andi.shyti@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Sven Peter <sven@kernel.org>
-Cc: asahi@lists.linux.dev,
+	Nick Chan <towinchenmi@gmail.com>
+Cc: Sven Peter <sven@kernel.org>,
+	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: Re: (subset) [PATCH v7 00/10] Apple Mac System Management Controller
-Date: Sun, 10 Aug 2025 20:25:34 +0200
-Message-Id: <175485029271.49938.2893773472462799086.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/9] I2C dt nodes and bindings for Apple A7-A11 SoCs
+Date: Sun, 10 Aug 2025 20:26:01 +0200
+Message-Id: <175485029275.49938.2043201584717247270.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
-References: <20250610-smc-6-15-v7-0-556cafd771d3@kernel.org>
+In-Reply-To: <20250610-i2c-no-t2-v2-0-a5a71080fba9@gmail.com>
+References: <20250610-i2c-no-t2-v2-0-a5a71080fba9@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -88,28 +80,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 10 Jun 2025 15:29:41 +0000, Sven Peter wrote:
-> This series adds support for the System Management Controller found in
-> Apple Silicon devices which we model as a mfd. It also includes support
-> for the GPIO block and the power/reset block as sub-devices.
+On Tue, 10 Jun 2025 21:45:19 +0800, Nick Chan wrote:
+> This series adds the device tree nodes and bindings for I2C on Apple A7-A11
+> SoCs, since the existing driver appears to be compatible. The drivers for the
+> attached Dialog DA2xxx PMIC will be in a future patch series.
 > 
-> Changes between v6 and v7:
->   - Rebased on 6.16-rc1
->   - Dropped mfd- prefix from the macsmc driver name
->   - Removed the check if the MBSE key exists in the reboot driver since
->     we can rely on the device tree now
->   - Changed my mail address to kernel.org
 > 
-> [...]
 
 Applied to local tree (apple-soc/dt-6.18), thanks!
 
-[08/10] arm64: dts: apple: t8103: Add SMC node
-        https://github.com/AsahiLinux/linux/commit/6101fe95b1ee
-[09/10] arm64: dts: apple: t8112: Add SMC node
-        https://github.com/AsahiLinux/linux/commit/49765a617a54
-[10/10] arm64: dts: apple: t600x: Add SMC node
-        https://github.com/AsahiLinux/linux/commit/4379305ffbc2
+[2/9] arm64: dts: apple: s5l8960x: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/68e01988b208
+[3/9] arm64: dts: apple: t7000: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/5b1ab37ccc60
+[4/9] arm64: dts: apple: t7001: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/a56771d333ed
+[5/9] arm64: dts: apple: s800-0-3: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/5bee6cb9d9df
+[6/9] arm64: dts: apple: s8001: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/baf703b08374
+[7/9] arm64: dts: apple: t8010: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/9f286293541e
+[8/9] arm64: dts: apple: t8011: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/1d16ae50cb1b
+[9/9] arm64: dts: apple: t8015: Add I2C nodes
+      https://github.com/AsahiLinux/linux/commit/e1313c2185d2
 
 Best regards,
 -- 
