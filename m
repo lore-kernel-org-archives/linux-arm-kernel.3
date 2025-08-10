@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B42D1C87FCA
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 06:22:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0671C87FCA
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 06:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iHiYD5TAx7oNSWd0V98bNdA/j3BdzqRXYpMd86EugcI=; b=KjMA/nFGwg7lfO4S18CtgRnyMn
-	DsLduH/xLPrJFMSC4XY7QyIE31vMzAce87VI/zk2ysc+sAs0++EMwI8dTO49JAYwtUpRz1tSdJpZD
-	lqhDI6+GNp9Ig53f4H5QBBL4XQWwmfQy7HtLdxpv+xXwezXYLTjesKNwkE3lGu2Gg0Lami+iUMXeR
-	jxbgTppEIBJPL8D3DEHwipmgFXwbSN9cueSOQyPYPnjQZ/55K7YF38JxAoQWFu3AcqentJr5jNt7L
-	eNeOJktpNQ5v+YXGeaR47UTuvlZeHXDjZo9/zTmSbP4ifpp0MDaMbe9AS768hwS3pIi0h+UGnvga6
-	82cXg3Lg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=enK6t5KGIg+LruZrfThBHUu3Mt7qcO2z+leeT+ugu7M=; b=Kcumcb2ofcaib7RKEp47RCACN7
+	/vKSQZbel/DX86lYY9flMkE5Kq3N+AccoEPza4lGpJPJ+ymjvySo/X9Z4kyM6F/uc1cah4e35/2Q4
+	mlcRIZbuizrb9ZuTSGU9xuDLdEv9z4LSvCUhx1JK3ElCe3k2kvrmHrL0Xu7vjmvhlT+N/T+LibZAo
+	5OfFVpjnJNuyV9W/rM1IxjpnI0xVQ2TwU6Z2uTyFruHNP3bnt+IpAYEMW9Zueu/OUqe7tbjhiN8nU
+	nJBKvREQHTRMohaM8T3/6kRJfdSFrdu78wB+g3xXbcM1NnTwNSkOT8K4eeRR6J6RFiE2Ecq92YKhk
+	tr9g8RvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukzS0-00000005KrK-207H;
-	Sun, 10 Aug 2025 06:22:36 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1ukzhg-00000005Lfe-0VsD;
+	Sun, 10 Aug 2025 06:38:48 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ukzPT-00000005KZl-2Efo;
-	Sun, 10 Aug 2025 06:20:00 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2400f746440so28117115ad.2;
-        Sat, 09 Aug 2025 23:19:58 -0700 (PDT)
+	id 1ukzf9-00000005LYK-1z8h
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 10 Aug 2025 06:36:12 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3b78d13bf10so3624608f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 09 Aug 2025 23:36:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754806798; x=1755411598; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iHiYD5TAx7oNSWd0V98bNdA/j3BdzqRXYpMd86EugcI=;
-        b=MYay+L0mbPbQZaHObS+JQcbrVwNhyy/oMX0aoCKRVMFmefdJzFOjAO7Hj+pC4Lqqb9
-         5iudTGwBxbjKYVRtlBoffmZEM0b0aZn9wp13/OgmjvCvWaFbIHgxA5yLhtnvG9RDAeTo
-         VhboGygvjCGlkVpHfR01wxaqMTYIBQgUrySNSvoF7EXRMxD7nNyRr4GqMkjLANyb5zJ6
-         dQN81I43sL+nM8MyFtTNjbo9oFCF2frbbCWtuvjeNzQxlClZC+DOBkNjgeOd1Dr9UAyL
-         WWs0a4tiU19uFavCCl3QyKndKSgnHOE5yXG+VuUU12NttAQZ3K3GrhqaJ+khI+le/dg3
-         V52w==
+        d=tuxon.dev; s=google; t=1754807769; x=1755412569; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=enK6t5KGIg+LruZrfThBHUu3Mt7qcO2z+leeT+ugu7M=;
+        b=YVM0GZHlV29B9Nirt4ZVb4kn2A3+Hpdl2p+Z/MMximbQFeazfBo+qRJlhIHIks+UTU
+         sA9la7sHppXzAXCaWLVxAawbAom8UqNr5URmZM/IVY4VDkL/kTMpt/eNhLhU+ztmWupI
+         Ja3atNO9jW518srvblPat8k9M8MojvMq9s7EqkAsiE/ZeFW+Ybi6hArxqiSrKL2Ufqpx
+         50rNlSmJPFTw5ewefcOa9LcbNYZ3Ff6d3+MqgAFY0tSxqzSy7XzIl/f+9inH1hck1eeE
+         OrnJcLjQBpvMbQ57KxlrjKCOlhgUwGwzndOq9M9OshmEqzApce9tT0VLsa838PgP6HZU
+         vQ4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754806798; x=1755411598;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iHiYD5TAx7oNSWd0V98bNdA/j3BdzqRXYpMd86EugcI=;
-        b=q0Yg5x+5lvBsz9pkIfPpvu6unyoq67Fw3L5+2shJl6E8q/bFqJo6PcMW9TI6+VPv2k
-         nqABBThDLmHPGg/sGLq3dMgJg4561KJOY6O9HGk/33waqitaj81kvN1+7V+3KOF2IBHE
-         mCXDNCHK6uFNvp0QBVSRglpylxKGKTQ4Wg6EwjTiu+u+6jOliMrA0yZ16Fs4Dy5UjfG4
-         SuEXvlzzFD3l1uzq8v6fo0XuKHKKYUlV0MNu66iVDZ2su5Y7LS7AvyovRXoyzRL4pvXM
-         md9Z5vFbZM8TwiEb90KpkG/VdUnQPJRvLqiw3pcb3Ul0JKd9tbaHjwYqHQxIE991rLLY
-         S/8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUN2fA1/epmxV6Kq9Gj2l3TiWKObDvQnh5OnchbmsCh6vwyorfdiEkh/dG2vrtT21Tt0pVODalFjvJx11i10U8=@lists.infradead.org, AJvYcCWZQK4cDTpQMgiLou9VUrOJ6Unxy10bLntP7Y4lKs0l4RtbwNQIG2Zuitvlj86418Q3QpbNe+vIUSN2UVY9O+QF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw22B3MwEUJD9gzDTRmtlvdRH1Rz1SDtWGdZzMCW/t5vYTw1FKX
-	ASDM8zYqZlOojy9QLq0zZ47SKLEoeemnO0WhEjqGuIQ0wcsZhB2nk691
-X-Gm-Gg: ASbGncvynlr+A0O04mQ9+5LGO3Ne/fdQF219GrtkGi0hbO9D9yVTw4MNqAwy1oKzu1s
-	Ct5eDRJorGHOBpDxrQGonTEgHSLvqkWNhg8yBhFyl7BF+kscXl6rJhAalyuSbCVUMqoPT9VS2bW
-	8BvtTSWjzX2nkRegzzzbku13PGXTmtxxAywB78Bni/0rVNy4jnx7nzAXfyrZ/WxEqAyb785G+Tb
-	yRboJJTZDwYUCQf4L3dDsci0VwLWoXAnx7qpOHh+uhPNXvWihDE4tooChdnVuY2GJJw37EtZRN6
-	z9+mwqaIzOXpL85oAVXp6HEm/K92yqZ8lQ3uAH6n+OZldByih7avYQss45wdtPTL9Aicv61xKB4
-	EOw3XfqJUliONg2f3+uDktjUlSbdxw3BIAhTLP7Wrhe1/FbeeU/iqelG5t7fJIH01rsQWO+dywc
-	9UzsHYJc9LaWnrw1kZsNK4ewUH892vodQvQGKfu241a5RIHrgKyhJ89Xs=
-X-Google-Smtp-Source: AGHT+IENAQKQ8XTl+dkcliLFRwObtOaTyEJC19RE34RM0jlE+rwWy/8UzGyV6oZqdnLlbRj/GYf5Jw==
-X-Received: by 2002:a17:902:ecd0:b0:234:d778:13fa with SMTP id d9443c01a7336-242c22a0364mr135754725ad.26.1754806798195;
-        Sat, 09 Aug 2025 23:19:58 -0700 (PDT)
-Received: from localhost.localdomain (2001-b400-e35c-3cf4-810c-15a2-7205-9994.emome-ip6.hinet.net. [2001:b400:e35c:3cf4:810c:15a2:7205:9994])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31f63f36311sm28348371a91.34.2025.08.09.23.19.52
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 09 Aug 2025 23:19:57 -0700 (PDT)
-From: Haru Zheng <towwy321@gmail.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	CK Hu <ck.hu@mediatek.com>,
-	Guillaume Ranquet <granquet@baylibre.com>
-Cc: Bo-Chen Chen <rex-bc.chen@mediatek.com>,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Haru Zheng <towwy321@gmail.com>
-Subject: [PATCH v3] drm/mediatek: dp: Fix suspend/resume training failure
-Date: Sun, 10 Aug 2025 14:17:38 +0800
-Message-Id: <20250810061738.10977-1-towwy321@gmail.com>
-X-Mailer: git-send-email 2.23.0
+        d=1e100.net; s=20230601; t=1754807769; x=1755412569;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=enK6t5KGIg+LruZrfThBHUu3Mt7qcO2z+leeT+ugu7M=;
+        b=bivfhGEsFNlb0JejTBNkwGxUbbhhernAUmgyETHnigCV5mYMvT1kgqyrjKuoLsqTKG
+         F/h6oG0Uua9WEwSPDfwnHm/b1P0c2mkvHN+RX7rULwRHlBTjEndSSmZVv1wCYoVAmaD2
+         xkLVgu43n5smL/2GhBHPyaftXClB/QHqUdasaQwlh356nAW3CnK7qgCTe3rm9hOyq1Ga
+         qDzyQLDQsM6WEA86OzvvhsM4REqKsnsCiDxXXtRIUFBJkBbgutOCahUK+pqiqgcSyhZ6
+         eSkMQTgMCrl1Jf+wG4Ft45f7d7Tq+sq13p+uGZ28HD7tHh9hZ1C7WnurBTvV0xgzUE5g
+         bEIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX/6b00GMovmVh6dv7Cqw3WuQ7H7I/IrqQ2Z/xXdnggJ7BkKoLw7JGz/bOCUOpQ116Qdo/x3tHXICl3nCIgmaIK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwugoxbxMt9XhFpwmsq1xaG7sX7P36ilmjWRglOIeahRDzlEhM/
+	+H61MLS0wHmXrzq3RgIAcKB2I/4zXJORuD/FykRduG8Q2SJkmihKR/MVKcPRPfqxQIs=
+X-Gm-Gg: ASbGncuWwnnfZzi98Y/x0yEyDxSQCncia1FDoVfNUceklpsDWRl4tfz88MxBHor9b5N
+	r8ElSvQbmizRJexq7I5CciKk22B51dEYjCFoU5UbyAdZ70HqSaNF3hs36tcLsQdPaszn9z4eNmP
+	ie3qwfojgwH9XvzxP5YKYGjQIoMOaUzFoHPpsYjMKcLtX8Z9xIcAkJdsD8qSbqq59UHaSOX2l73
+	PV5eHvRKbEvI93gZprFruSG2y29kHsu6rZdpVSqBYljnChzWIw8l1ZGIWees9g6t2VX75yPwXyx
+	iPpslPzDc08kL6AyrSaIynU9Y6TcDbGew+XPOVxnixKYAUvXbp9jJnpGCkZIgyUjM7xlqL7OXGt
+	sKctejl7ZIdP/f+N6HUts9EvHHQoJjt4oKLgAyUgg/g==
+X-Google-Smtp-Source: AGHT+IHmNQ00RBKMICMOm289G3m3lvi/tK0YBzD0KPkGdwuOB4ix5SW7xxWMXMIQt9BAVjaFLPdtNA==
+X-Received: by 2002:a05:6000:420b:b0:3b7:9b58:5b53 with SMTP id ffacd0b85a97d-3b900b78614mr7383299f8f.45.1754807769119;
+        Sat, 09 Aug 2025 23:36:09 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.188])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c3b95f4sm36052015f8f.23.2025.08.09.23.36.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 09 Aug 2025 23:36:08 -0700 (PDT)
+Message-ID: <8963764e-0948-4f11-a907-de74b0f8ba3b@tuxon.dev>
+Date: Sun, 10 Aug 2025 09:36:06 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] thermal: renesas: rzg3s: Add thermal driver for
+ the Renesas RZ/G3S SoC
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com,
+ lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+ p.zabel@pengutronix.de, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250324135701.179827-1-claudiu.beznea.uj@bp.renesas.com>
+ <20250324135701.179827-3-claudiu.beznea.uj@bp.renesas.com>
+ <CAMuHMdUUNFo4pqbXh1xMatsv7T7cnq0SmDxM_o9em0=gpurdCA@mail.gmail.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <CAMuHMdUUNFo4pqbXh1xMatsv7T7cnq0SmDxM_o9em0=gpurdCA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250809_231959_574981_EC8E6134 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20250809_233611_650052_9F998CF2 
+X-CRM114-Status: GOOD (  31.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,211 +108,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When suspending and resuming DisplayPort via Type-C,
-link training will be fail.
+Hi, Geert,
 
-This patch backports the software IRQ handling for DP,
-as eDP uses hardware IRQ while DP uses software IRQ.
-Additionally, cable_plugged_in is flipped in
-mtk_dp_hpd_event to ensure correct hotplug detection
-during resume.
+On 26.03.2025 15:26, Geert Uytterhoeven wrote:
+> Hi Claudiu,
+> 
+> On Mon, 24 Mar 2025 at 14:57, Claudiu <claudiu.beznea@tuxon.dev> wrote:
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> The Renesas RZ/G3S SoC features a Thermal Sensor Unit (TSU) that reports
+>> the junction temperature. The temperature is reported through a dedicated
+>> ADC channel. Add a driver for the Renesas RZ/G3S TSU.
+>>
+>> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>> ---
+>>
+>> Changes in v3:
+>> - drop the runtime resume/suspend from rzg3s_thermal_get_temp(); this
+>>   is not needed as the temperature is read with ADC
+>> - opened the devres group id in rzg3s_thermal_probe() and rename
+>>   previsouly rzg3s_thermal_probe() to rzg3s_thermal_probe_helper(), to
+>>   have simpler code; this approach was suggested by Jonathan in [1];
+>>   as there is no positive feedback for the generic solution [2] this
+>>   looks currently the best approach
+> 
+> Thanks for the update!
+> 
+>> --- /dev/null
+>> +++ b/drivers/thermal/renesas/rzg3s_thermal.c
+> 
+>> +static int rzg3s_thermal_get_temp(struct thermal_zone_device *tz, int *temp)
+>> +{
+>> +       struct rzg3s_thermal_priv *priv = thermal_zone_device_priv(tz);
+>> +       int ts_code_ave = 0;
+>> +       int ret, val;
+>> +
+>> +       if (priv->mode != THERMAL_DEVICE_ENABLED)
+>> +               return -EAGAIN;
+>> +
+>> +       for (u8 i = 0; i < TSU_READ_STEPS; i++) {
+>> +               ret = iio_read_channel_raw(priv->channel, &val);
+>> +               if (ret < 0)
+>> +                       return ret;
+>> +
+>> +               ts_code_ave += val;
+>> +               /*
+>> +                * According to the HW manual (section 40.4.4 Procedure for Measuring the
+>> +                * Temperature) we need to wait here at leat 3us.
+>> +                */
+>> +               usleep_range(5, 10);
+>> +       }
+>> +
+>> +       ret = 0;
+>> +       ts_code_ave = DIV_ROUND_CLOSEST(MCELSIUS(ts_code_ave), TSU_READ_STEPS);
+>> +
+>> +       /*
+>> +        * According to the HW manual (section 40.4.4 Procedure for Measuring the Temperature)
+>> +        * the computation formula is as follows:
+>> +        *
+>> +        * Tj = (ts_code_ave - priv->calib1) * 165 / (priv->calib0 - priv->calib1) - 40
+>> +        *
+>> +        * Convert everything to mili Celsius before applying the formula to avoid
+> 
+> milli
+> 
+>> +        * losing precision.
+>> +        */
+>> +
+>> +       *temp = DIV_ROUND_CLOSEST((s64)(ts_code_ave - MCELSIUS(priv->calib1)) * MCELSIUS(165),
+>> +                                 MCELSIUS(priv->calib0 - priv->calib1)) - MCELSIUS(40);
+> 
+> This is a 64-by-32 division. When compile-testing on arm32:
+> 
+> rzg3s_thermal.c:(.text+0x330): undefined reference to `__aeabi_ldivmod'
 
-These changes fix the DP training failure after suspend/resume.
+Thank you for reporting this! I'll switch to div_s64().
 
-Fixes: f70ac097a2cf ("drm/mediatek: Add MT8195 Embedded DisplayPort driver")
-Signed-off-by: Haru Zheng <towwy321@gmail.com>
+Claudiu
 
----
-
-Changes since v1:
-- Fixed indentation to use tabs
-- Simplified swirq_enable() logic with ternary
-- Removed unnecessary memset()
-- Replaced dev_info() with dev_dbg()
-- Add mtk_dp_bridge_hpd_notify() declaration to struct drm_bridge_funcs mtk_dp_bridge_funcs
-- Removed IRQ enable from probe() to avoid enabling IRQ for eDP
-- Corrected HW/SW IRQ logic for eDP and DP
-- Fixed hotplug check logic in mtk_dp_hpd_event
-
-Changes since v2:
-- Dropped mtk_dp_bridge_hpd_notify() in favor of mtk_dp_altmode_hpd_notify()
-- Removed IRQ enabling from probe() for eDP
-- Restricted SW IRQ enabling to DP only, in bridge_attach()
-- Corrected cable_plugged_in logic in mtk_dp_hpd_event()
-- Cleaned up unused variables in mtk_dp_swirq_hpd()
-- Updated comments to reflect eDP/DP IRQ separation
----
- drivers/gpu/drm/mediatek/mtk_dp.c     | 81 ++++++++++++++++++++++++---
- drivers/gpu/drm/mediatek/mtk_dp_reg.h |  5 ++
- 2 files changed, 77 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 33cf9fe1ccde..5fdb319ec62c 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1012,6 +1012,12 @@ static u32 mtk_dp_swirq_get_clear(struct mtk_dp *mtk_dp)
- 	return irq_status;
- }
- 
-+static void mtk_dp_swirq_enable(struct mtk_dp *mtk_dp, bool enable)
-+{
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C4, enable ? 0 : 0xFFFF,
-+			   SW_IRQ_FINAL_STATUS_DP_TRANS_P0_MASK);
-+}
-+
- static u32 mtk_dp_hwirq_get_clear(struct mtk_dp *mtk_dp)
- {
- 	u32 irq_status = (mtk_dp_read(mtk_dp, MTK_DP_TRANS_P0_3418) &
-@@ -2265,6 +2271,31 @@ static ssize_t mtk_dp_aux_transfer(struct drm_dp_aux *mtk_aux,
- 	return ret;
- }
- 
-+static void mtk_dp_swirq_hpd(struct mtk_dp *mtk_dp, u8 conn)
-+{
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+			   HPD_OVR_EN_DP_TRANS_P0_MASK,
-+			   HPD_OVR_EN_DP_TRANS_P0_MASK);
-+
-+	if (conn)
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+				   HPD_SET_DP_TRANS_P0_MASK,
-+				   HPD_SET_DP_TRANS_P0_MASK);
-+	else
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+				   0,
-+				   HPD_SET_DP_TRANS_P0_MASK);
-+}
-+
-+static void mtk_dp_swirq_hpd_interrupt_set(struct mtk_dp *mtk_dp, u8 status)
-+{
-+	dev_dbg(mtk_dp->dev, "[DPTX] status:%d [2:DISCONNECT, 4:CONNECT]\n", status);
-+
-+	mtk_dp_swirq_hpd(mtk_dp, status == MTK_DP_HPD_CONNECT ? TRUE : FALSE);
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_35C0, status,
-+			   SW_IRQ_SET_DP_TRANS_P0_MASK);
-+}
-+
- static int mtk_dp_poweron(struct mtk_dp *mtk_dp)
- {
- 	int ret;
-@@ -2324,9 +2355,9 @@ static int mtk_dp_bridge_attach(struct drm_bridge *bridge,
- 	mtk_dp->drm_dev = bridge->dev;
- 
- 	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
--		irq_clear_status_flags(mtk_dp->irq, IRQ_NOAUTOEN);
--		enable_irq(mtk_dp->irq);
--		mtk_dp_hwirq_enable(mtk_dp, true);
-+		/* DP does use SW IRQs */
-+		mtk_dp_hwirq_enable(mtk_dp, false);
-+		mtk_dp_swirq_enable(mtk_dp, true);
- 	}
- 
- 	return 0;
-@@ -2534,7 +2565,7 @@ static int mtk_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 
- 	dev_dbg(mtk_dp->dev, "input format 0x%04x, output format 0x%04x\n",
- 		bridge_state->input_bus_cfg.format,
--		bridge_state->output_bus_cfg.format);
-+		 bridge_state->output_bus_cfg.format);
- 
- 	if (input_bus_format == MEDIA_BUS_FMT_YUYV8_1X16)
- 		mtk_dp->info.format = DP_PIXELFORMAT_YUV422;
-@@ -2552,6 +2583,30 @@ static int mtk_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	return 0;
- }
- 
-+static void mtk_dp_altmode_hpd_notify(struct drm_bridge *bridge,
-+				     enum drm_connector_status status)
-+{
-+	struct mtk_dp *mtk_dp = mtk_dp_from_bridge(bridge);
-+	struct mtk_dp_train_info *train_info = &mtk_dp->train_info;
-+
-+	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
-+		if (mtk_dp->hpd_state != status) {
-+			if (status == connector_status_disconnected) {
-+				train_info->cable_plugged_in = false;
-+			} else {
-+				mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+						   HPD_OVR_EN_DP_TRANS_P0_MASK,
-+						   HPD_OVR_EN_DP_TRANS_P0_MASK);
-+				mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3414,
-+						   HPD_SET_DP_TRANS_P0_MASK,
-+						   HPD_SET_DP_TRANS_P0_MASK);
-+				train_info->cable_plugged_in = true;
-+			}
-+			mtk_dp->hpd_state = status;
-+		}
-+	}
-+}
-+
- static const struct drm_bridge_funcs mtk_dp_bridge_funcs = {
- 	.atomic_check = mtk_dp_bridge_atomic_check,
- 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-@@ -2566,6 +2621,7 @@ static const struct drm_bridge_funcs mtk_dp_bridge_funcs = {
- 	.mode_valid = mtk_dp_bridge_mode_valid,
- 	.edid_read = mtk_dp_edid_read,
- 	.detect = mtk_dp_bdg_detect,
-+	.hpd_notify = mtk_dp_altmode_hpd_notify,
- };
- 
- static void mtk_dp_debounce_timer(struct timer_list *t)
-@@ -2861,10 +2917,13 @@ static int mtk_dp_suspend(struct device *dev)
- 	struct mtk_dp *mtk_dp = dev_get_drvdata(dev);
- 
- 	mtk_dp_power_disable(mtk_dp);
--	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP)
--		mtk_dp_hwirq_enable(mtk_dp, false);
--	pm_runtime_put_sync(dev);
- 
-+	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
-+		mtk_dp_swirq_hpd_interrupt_set(mtk_dp, MTK_DP_HPD_DISCONNECT);
-+		mtk_dp_swirq_enable(mtk_dp, false);
-+	}
-+
-+	pm_runtime_put_sync(dev);
- 	return 0;
- }
- 
-@@ -2874,8 +2933,12 @@ static int mtk_dp_resume(struct device *dev)
- 
- 	pm_runtime_get_sync(dev);
- 	mtk_dp_init_port(mtk_dp);
--	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP)
--		mtk_dp_hwirq_enable(mtk_dp, true);
-+
-+	if (mtk_dp->bridge.type != DRM_MODE_CONNECTOR_eDP) {
-+		mtk_dp_swirq_hpd_interrupt_set(mtk_dp, MTK_DP_HPD_CONNECT);
-+		mtk_dp_swirq_enable(mtk_dp, true);
-+	}
-+
- 	mtk_dp_power_enable(mtk_dp);
- 
- 	return 0;
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-index 8ad7a9cc259e..c9a022ffd0ac 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-+++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-@@ -262,6 +262,8 @@
- #define HPD_DISC_THD_DP_TRANS_P0_MASK				GENMASK(11, 8)
- #define HPD_CONN_THD_DP_TRANS_P0_MASK				GENMASK(15, 12)
- #define MTK_DP_TRANS_P0_3414				0x3414
-+#define HPD_OVR_EN_DP_TRANS_P0_MASK				BIT(0)
-+#define HPD_SET_DP_TRANS_P0_MASK				BIT(1)
- #define HPD_DB_DP_TRANS_P0_MASK					BIT(2)
- #define MTK_DP_TRANS_P0_3418				0x3418
- #define IRQ_CLR_DP_TRANS_P0_MASK				GENMASK(3, 0)
-@@ -286,7 +288,10 @@
- #define POST_MISC_DATA_LANE1_OV_DP_TRANS_P0_MASK		BIT(9)
- #define POST_MISC_DATA_LANE2_OV_DP_TRANS_P0_MASK		BIT(10)
- #define POST_MISC_DATA_LANE3_OV_DP_TRANS_P0_MASK		BIT(11)
-+#define MTK_DP_TRANS_P0_35C0				0x35c0
-+#define MTK_DP_TRANS_P0_35C4				0x35c4
- #define MTK_DP_TRANS_P0_35C8				0x35c8
-+#define SW_IRQ_SET_DP_TRANS_P0_MASK				GENMASK(15, 0)
- #define SW_IRQ_CLR_DP_TRANS_P0_MASK				GENMASK(15, 0)
- #define SW_IRQ_STATUS_DP_TRANS_P0_MASK				GENMASK(15, 0)
- #define MTK_DP_TRANS_P0_35D0				0x35d0
--- 
-2.23.0
+> 
+>> +
+>> +       /* Report it in mili degrees Celsius and round it up to 0.5 degrees Celsius. */
+> 
+> milli
+> 
+> 
+>> +       *temp = roundup(*temp, 500);
+>> +
+>> +       return ret;
+>> +}
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 
