@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FA79CA0EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C499DCA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ACQiy34NkYJw2kJjJ5R/Oqei2/18MROjJOp5VL4InbI=; b=lok7C5GJpG4KX139aPUhgtgPRE
-	7RC7fLFLTWz7XccI1ec8JFasha8fR8iKTwLgEWn7pgIpDHxvarRD/TP2yA0o30/5LnF2m514XPrh8
-	DrQ4jC1STkcPauWeXlf+8t1nmzTPwmxjtQzC6+2zBrb6vzbayXa1FHxbv/mhVvzIcdWzpQeC3Rt3I
-	2gVNxHcONYUU8lX4lb6Ls5Tkz5CgpzMM0A3g4a0NEL5hV2VKlHqfGsi+jIgwpPx/CKTPhWnS5tsDD
-	YBLBP1u4RGnwHliM7g4rnv9AGhnD1dlN0d7LxZhLzmexAJQs8t9odxJ/p+V8OVuFv8QNkWluC6RWT
-	Pru79MUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1KiC4N41/KHigU06qv8He7zylxzTPNYQyWifnaopVfQ=; b=04wz9WVrqUoYvQ4gOuYdSSAg9F
+	CVFseXCIjZ7lRB0qPEFYfaG2MCqyw0ZBQMr57fooREEuWmnyN04Z9N4yFnRpESLsGqXWoSR5qOBwH
+	Wlr0F42iidi3RzureBTxVy0ZNoNFm6kcjfK7AxcRDEZ7Z9T0Vte0RwIhVo5jcJbYD9fJUNUKV/ppv
+	r8DWpYW4bRakSVP5atxm/yXmxxDCRrWA4VlxD6N99mDkzvPayazhjOr8/5jPa9p11lw3Fvcchg62p
+	cs+ezribf1eswbBzed9xjfmm3cbOMJZoFq6MzkCM4HEoHou/T5qFzvD3Kv6oXzF3TdoxcEV7D8c6j
+	nxrtaOvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNS3-00000006mWY-1L7N;
-	Mon, 11 Aug 2025 08:00:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulNUc-00000006n9E-3IOn;
+	Mon, 11 Aug 2025 08:02:54 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNHV-00000006klQ-2jsd;
-	Mon, 11 Aug 2025 07:49:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C9BC4589B;
-	Mon, 11 Aug 2025 07:49:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2564C4CEED;
-	Mon, 11 Aug 2025 07:49:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754898561;
-	bh=wJOiDdjpV92cFWsEgXBRyCwAM5FN5aB8jQmUBXkj4jk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SuRdQsHppCCzKTz8G1v+Zj2MCmum7EcEc6lgQWOCiG32wxatxqFjzCls6lr/mdv6H
-	 tMNmou2ayFVOa5KNgqj31IsU45YQmtPoPlFx6cY4uwWZHey/AsIECNWWr3UHXfu19u
-	 RoJHqxtOzmeFibiyXsdhMs7jCWQXzqUDeff7WbOAuubn+REVI9gCJ3tZ0gQm2NOK2Q
-	 Dq95ITr0zo/QZmKrzOn0I7bBrRaO9VUFQr7Zft3a/cj6w2ra5MykBnl9DxIPnRFcle
-	 ayOycVi+BwfsYsdgXsXeeBAEPZJPqb8jtB/o9W93YiOCVWu9fpYGaxYVM3VPyuKtkI
-	 XRbQAZ6Zomcfw==
-Date: Mon, 11 Aug 2025 09:49:18 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jay Liu <jay.liu@mediatek.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/6] dt-bindings: display: mediatek: ccorr: Add
- support for MT8196
-Message-ID: <20250811-brainy-impartial-emu-da8b46@kuoka>
-References: <20250808125512.9788-1-jay.liu@mediatek.com>
- <20250808125512.9788-4-jay.liu@mediatek.com>
+	id 1ulNKM-00000006lGM-2dqO;
+	Mon, 11 Aug 2025 07:52:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=1KiC4N41/KHigU06qv8He7zylxzTPNYQyWifnaopVfQ=; b=CgnpbDDnSRDZtTYOR777mqH/Y8
+	B/6E0EA7JUyq61MEu6+3YVYd0rs3JGriIs7mFCD+4JZ09sRdB6PNgCUgPVGekA9KwrKmm+u73RceM
+	lwxX4Y4Xv/l6JhtG3Iw86Izy6kEEgEenvBWHhUNVctzKyXTE31BnNWut4srzL0oV/clR1flUtsN2k
+	9uiVzh/7rqBzsikonyA8VZsh+oQi4xFYBT4oktGgptjNXOwCELp5dKpUKnGuE+F4yBz6U1GHize3a
+	6H8zY9SKzgqawBE4TRGq0StTPDc92r9/WNA8CMoRV52+0Es/6667CU1WaV2Dg4ldaI2o2MK/gFQxx
+	+PLn3beQ==;
+Received: from i53875a0c.versanet.de ([83.135.90.12] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ulNKK-0007Ro-PA; Mon, 11 Aug 2025 09:52:16 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: anton.kirilov@arm.com
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	nd@arm.com
+Subject: Re: [PATCH] arm64: dts: rockchip: Enable HDMI audio output for NanoPi R6C/R6S
+Date: Mon, 11 Aug 2025 09:52:01 +0200
+Message-ID: <175489870459.808197.8017772403276802011.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250807170012.88178-1-anton.kirilov@arm.com>
+References: <20250807170012.88178-1-anton.kirilov@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250808125512.9788-4-jay.liu@mediatek.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_004921_714460_40A3AFE3 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250811_005218_699906_3CDCCDD9 
+X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,20 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 08, 2025 at 08:53:58PM +0800, Jay Liu wrote:
-> Add a compatible string for the CCORR IP found in the MT8196 SoC.
-> Each CCORR IP of this SoC is fully compatible with the ones found
-> in MT8192.
-> 
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
-> ---
->  .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml     | 1 +
->  1 file changed, 1 insertion(+)
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Thu, 07 Aug 2025 18:00:11 +0100, anton.kirilov@arm.com wrote:
+> Enable HDMI audio output for FriendlyElec NanoPi R6C/R6S boards.
+> 
+> 
+
+Applied, thanks!
+
+[1/1] arm64: dts: rockchip: Enable HDMI audio output for NanoPi R6C/R6S
+      commit: 91ec67fa33250059a0c52bbf3148302f364a6e99
 
 Best regards,
-Krzysztof
-
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
