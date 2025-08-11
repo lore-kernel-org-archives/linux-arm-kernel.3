@@ -4,92 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB3ECA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113C7CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MwybcUyrxiWVQEj+Rg/L1jijI8MTO3CeZVjgaQkXYIs=; b=zmJtD79ou4Vlh1+LdixgcD5Sxy
-	VE9gHL3xm/BG9ckP1jjSetO/cw8dPwIpAhDo8fx71DhSLRnRbygnhLzEMzKqPwirWqW+i0tqikoRL
-	PhMkhVvkYLL+OQpc/6UAGEFeJCffse0GGg+KFvxnW8VvP0ZycHuaoVmUUxQ/DmAFPAWR3sSmlveAe
-	Ef9PDW1akeoochtKIZuBiaqS7cBlFqf9StTx/evmPCqFYHmdf+DZaeaJpGIB4zRFMoIpMgc6iY5DX
-	blvBTqh5uINStW9PlXaMfinfYdIkckj9KYk/yhq7wbJHwO5BBzSEv8sem/mH/X1+ZCMlCi5tXbneW
-	85kBxv5w==;
+	bh=MvUh5KjbPYqTTPY5zOWGYqXAkITl46hLm6LHWho0akU=; b=Eg0PwQ04kCb4qxKDT8Oe9f1Z8l
+	6fxaSV7B3UUjaqBS4JkptGNg78aK4jFwv9iRKJpFPtb7/HRwaA9dOjf+Zjaukz3lYoyDaxLJ++T0n
+	/nzHr8naaiw6p00hB3bF2DwF67oxjGlAi9s5O/uIEhBx9wvQdYX3QjpD1dDnyPhLdAC1R1i+wryTe
+	myxr0dUS2mWdFlUbALywqY/xHvj1K9nfNm3z6GNi1SB0tcc9d1reYxoq+7msXFQRUfa/qBLnZS8NI
+	7gecwwRozZVbNC4sCwH/EMyQSdJcMr4UUbiD3oerkm6bd4xieMf345PDjo2PlNpMnXuo8fK/mChH2
+	xJaXYeKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulYJB-00000008wGf-1KrK;
-	Mon, 11 Aug 2025 19:35:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ulYLk-00000008wSg-3gRA;
+	Mon, 11 Aug 2025 19:38:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWfx-00000008bK6-2Y52
+	id 1ulWo3-00000008cJo-1T8b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 17:51:13 +0000
+	Mon, 11 Aug 2025 17:59:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B09CF6113A;
-	Mon, 11 Aug 2025 17:51:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50980C4CEED;
-	Mon, 11 Aug 2025 17:51:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AADBD439A2;
+	Mon, 11 Aug 2025 17:59:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CE44C4CEED;
+	Mon, 11 Aug 2025 17:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754934672;
-	bh=Zzdn6Km1K+4KwSat9G4goOyX1m0FKWNRUjtzFo6LSmY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QfqTeA/ZJw3hLLA3KA0PsG1dBpYvf5q/1wQ81yPe1lsB6yMtR1wNvFxkaxwNRYocC
-	 aU/C+U8nXrYJiiXRTJoyNi5g2rvMufv4nNwKBznVNImdhEfboNrsXDzWvLBk20uZOn
-	 zWGw9WqFWcbZJg/AlKShjJtRV0MPis6ZZSatEJySyrwM49m5Wdfmf6fOQdqkDveLRs
-	 cXeC8A00vkfOCzQ2cQXEPezVHZsaNTRicvyH9efhGHxbB0aWV2o2d52OKaIuxujhQu
-	 t01IYePfp6XDQ9BJZaESOJ+gUraHnSH8W+mObYvR3cFN+Hj67B8KvgY4hH4aljIcP2
-	 s5bxk7q0kuXBg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ulWft-006LvS-55;
-	Mon, 11 Aug 2025 18:51:09 +0100
-Date: Mon, 11 Aug 2025 18:51:08 +0100
-Message-ID: <86qzxh927n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	anshuman.khandual@arm.com,
-	robh@kernel.org,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	ry111@xry111.site,
-	Dave.Martin@arm.com,
-	ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com,
-	mbenes@suse.cz,
-	james.clark@linaro.org,
-	frederic@kernel.org,
-	rafael@kernel.org,
-	pavel@kernel.org,
-	ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 6/6] KVM: arm64: initialise SCTLR2_EL1 at __kvm_host_psci_cpu_entry()
-In-Reply-To: <20250811163340.1561893-7-yeoreum.yun@arm.com>
-References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
-	<20250811163340.1561893-7-yeoreum.yun@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1754935173;
+	bh=O36XC/9T/0nUNSaZaQSg5co3SZptxIWDslq4s9Yy6Wg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QpgsL80zfAWC9Q7wUtwGVXWf09/smmj5mEe8GWsf5YTbUjAqb1H2Wt4HFoZfAv5NO
+	 BDRJ3wO6hMDWThearbyS+BG8a7kFVP78/2v3qzXdmwZSIYBbMIYm8Dhx5KfivtSGMg
+	 ofWLMknobkQhjHnkbQDNGbT2DDchlQrlk+pkX/i76pGVRdWzEGl2VXYg4eaXwNApne
+	 hTMZu21BjoE+QTwUrlt2fA58YHLa8iO3NyjHoxZ5r6NWfPNMGK/VPJNICKSbJ5d4YT
+	 NCHufIgUaAApdjN+052AiTTqpMtKOJjT1CfRsiYTxunavNqRjE728WYAoBJ+WhDKE2
+	 kDx6D3kbHABiA==
+Date: Mon, 11 Aug 2025 10:58:32 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org
+Subject: Re: [PATCH] lib/crypto: sha512: Use underlying functions instead of
+ crypto_simd_usable()
+Message-ID: <20250811175832.GE1268@sol>
+References: <20250731223651.136939-1-ebiggers@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250731223651.136939-1-ebiggers@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_105935_407468_A7DD7785 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +73,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 17:33:40 +0100,
-Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+On Thu, Jul 31, 2025 at 03:36:51PM -0700, Eric Biggers wrote:
+> Since sha512_kunit tests the fallback code paths without using
+> crypto_simd_disabled_for_test, make the SHA-512 code just use the
+> underlying may_use_simd() and irq_fpu_usable() functions directly
+> instead of crypto_simd_usable().  This eliminates an unnecessary layer.
 > 
-> initialise SCTLR2_EL1 at __kvm_host_psci_cpu_entry().
-
-Same comment, I don't think this is an acceptable commit message.
-Please ask for help if you don't feel confident writing it (I'm sure
-some of your colleagues will be happy to help).
-
-> 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 > ---
->  arch/arm64/kvm/hyp/nvhe/psci-relay.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> index c3e196fb8b18..4ed4b7fa57c2 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-> @@ -4,6 +4,7 @@
->   * Author: David Brazdil <dbrazdil@google.com>
->   */
->  
-> +#include <asm/alternative.h>
->  #include <asm/kvm_asm.h>
->  #include <asm/kvm_hyp.h>
->  #include <asm/kvm_mmu.h>
-> @@ -219,6 +220,8 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
->  		release_boot_args(boot_args);
->  
->  	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
-> +	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2))
-> +		write_sysreg_el1(INIT_SCTLR2_EL1, SYS_SCTLR2);
->  	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
->  
->  	__host_enter(host_ctxt);
+>  lib/crypto/arm/sha512.h   | 5 ++---
+>  lib/crypto/arm64/sha512.h | 5 ++---
+>  lib/crypto/riscv/sha512.h | 4 +---
+>  lib/crypto/x86/sha512.h   | 4 +---
+>  4 files changed, 6 insertions(+), 12 deletions(-)
 
-This needs to be folded into patch #1.
+Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
 
-Otherwise, there is a window of patches where the kernel will not
-survive CPU hotplug when booted in protected mode.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+- Eric
 
