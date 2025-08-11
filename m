@@ -4,88 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA327CA0EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 172F9CA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtvUcm8eKqLg5xx/IzAnE0CR0VtQIYJM5TEZnjUYa44=; b=5CTXr1AICsuCw3UWBa23sKmsJE
-	GMwCU1FV1uHovs7f6/wLSaHc2A5gxQ+BZfarynx3TNPSoNXg4N32RvVI64I2f5/hAiN05i40/FwYb
-	1y1O/lwlaFBqA7EBBKW+cI0t9NFR8OwX4F8g2F0ujheSi2bxcbGfLdMm1e9OAelUXkJ+cSv1nM9TF
-	uJ+AX/rdrZSxiwftzkcK3iDbq77/DyZ1MFToKQcJGoGHGh5sIi6O8g4t2CxUFm3eCcI2TFvzV9jmu
-	JniJllUS/EMu9pGKdWHfF4EdVVz0YY48pseeAca4rAwCrU6+AlLYc8lGwQXiNghf4amgVpV5uW+Ho
-	+BHOmJhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JsA+DesLyO00s4NQNWCnKt3KDInZStXAb27C/VXosIU=; b=UHM0SrloNHd9H1geZlbK6w9Tpu
+	9SJbEpRu3Xg08BiGkPFrRVsmkB9tqXeID1DCSPaNP++Hnf+qi7Z70i+EWtdnVi1CAuQsS3fs4L2LC
+	VvaZogOLUJLPZH1HO1vdvVTPmKpEEe9WiZkrVcN5ZccSqHwkctA82aPyULqP8u18lv6hGU6pVsKz9
+	f0SNYc0dh9odXw+9tIPqgEq+AjIJYBjM+YSjY2syU+AZ4oHshT8nYUmXIvZNnHPs1bm727hWsKb3K
+	Zhz+exRxxg3uS12/E3KPdXuewTRWOLDTsCPAGxQxF/M9HTvU70Imu9W+COZTNDdiNH2Y/jvJAj6gK
+	inc5DK8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOHN-00000006usY-2hVX;
-	Mon, 11 Aug 2025 08:53:17 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1ulOJy-00000006vbE-0xb9;
+	Mon, 11 Aug 2025 08:55:58 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNmE-00000006pcq-3gNO
+	id 1ulNr9-00000006qcx-1grX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 08:21:09 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-242d3ba2b44so10409895ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 01:21:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754900466; x=1755505266; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KtvUcm8eKqLg5xx/IzAnE0CR0VtQIYJM5TEZnjUYa44=;
-        b=B9miTGtCrc0RbpawZJDi5QCc40NjFvDcTBKSbd6AtkjDHyCUXePVKQp7OlmKnP69Um
-         wmD1lqN8TBXfVl13zBXtpLYaP3JlT33mRqYPmwMyBe6tk7jKVTiCLOhoODh9IApvkXdh
-         puFutdAHgpB7w+JJToVRvNaDyDr/8/Rsr5icfZYgBcxqapCRq/MxFttCzaAvl4v7hFE7
-         1W2u7K7aEekXT7cPqZTgIxa266Toyyi62M0DSLrbGzKwgBRE0wcDyOoxwyDF1K3ZaUDD
-         BE9VMlFRVujVs1QXEUxNDhy+DNDITLjhDH3KI29gkM3QkGtI2uwORS6ix2ziUI8NgvRx
-         pdow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754900466; x=1755505266;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KtvUcm8eKqLg5xx/IzAnE0CR0VtQIYJM5TEZnjUYa44=;
-        b=JPzi1pdwwDdpmDtJrN9fKmZt5mU1Ew19VZEb2i0pMa9RRiVQlSCckBVelj5yeNeqp5
-         FbOQqCkQg8XjSlpNX8f4BjL2t34m3irYq2eRcxlpvkgdDjOVtTD0E88qfrpnMpIDTYbz
-         Cx8QvbcpDPwena9t6TS4TDZf9PFKYGU2zWYy7aEpZN/BoVoyZIlO6ovhTBvkocqZ5CQ2
-         lGxwh/vKTleK27eXQxgFFqgzzal3cAP0+lblxG3e2ybZFvzLBmU/NSsLryC0iVFvfayE
-         4PQkaZaSNOudPi9RHaremdpley4s2eQIqZ0fwMa/QWSSjBPFtlPUPo8LKmi8t8nlSK0q
-         wJbA==
-X-Gm-Message-State: AOJu0Yx8P2uOO5E6GidbDWmlwgfz/rSaLRp+Ks/4+N+rwQRV9/QB/4zB
-	Z2sJynPROp9dsMJXCkOwCcooj3D1cfT+TC5V/tyh1Sz6gQQgEMqV5rO5MgpvCy7D10nP8kBH68C
-	+F+1PhbGUgtbctkaGYYTDgU4c2Pb4b45d0KMkDigjCQ==
-X-Gm-Gg: ASbGnctZnBb+N73nQml9c3lKqPmL3MKmY381RK8c+LSFGh4pIZzuZx629t9epoT70GB
-	aNGX15zQql+CrHC2wFNDFqBhg/JvVWsI6P8pzpK4P0BGs1RwNDc84uEzHZlTpgEJjNxj1M0x0GS
-	dDav9QkqIkIQDg319cxm6jA0lpxuhICe16fLdvERT3PK2kKgSMjOYuQXNgftfc2XrM2hi0YQ9eK
-	PoVMYBbiytIVRm+vkUD8ln5VdyYAlHPprIxNJEO
-X-Google-Smtp-Source: AGHT+IG/wrH/Z4PP0pZIy9wjFLr0/V/zaFYS1NMbhK2es383D8DYO570WjTh+eTKECcdm1aWBgEKS2c59dA6CxPHBHA=
-X-Received: by 2002:a17:902:d54f:b0:240:7247:f738 with SMTP id
- d9443c01a7336-242c1ecb81cmr194687925ad.1.1754900465618; Mon, 11 Aug 2025
- 01:21:05 -0700 (PDT)
+	Mon, 11 Aug 2025 08:26:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EPfD9fBPiVQ69QhZgIDXpSzmPI9KxUeQ8PwYMe4suwG8P9qXOU6zbtQXRmfw/Vin1ZT+VpQ1YLSyO2OoTxlXz57spqkWrGpeQkY1Nu9HxkmlJhtvQ8dmB9NfzcrHPugPY583dIm3ajxkA7eThh03pTXkhBghhjwuJNbJ0Nj8ZW2Vjp3U9oXChrdeJwm98GhNIFHVaIbXdJGpxYQO1ez9hhyOckRmDlB10WK9guIjiRar3fAUsVrBG7Nf6WHzIP/NeRkQptk4I8yhDqNp4xjIsoEjeeVVg3rSpMeqVnHGQypjw77mIQNq1TZxB3915NpKt7385UPTh+bXCwZTcVPixA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JsA+DesLyO00s4NQNWCnKt3KDInZStXAb27C/VXosIU=;
+ b=VeF2q4ZTw4hmehXeMBx8JuN6wt2u0wfQazkWk53Ny+YF4kmWvyz4R2TuQkNZSa2pZyxVIpyQO10DDXhEhSRSvlu5ptlpglatCkc0uORwW4HMDlM+lQpu0lWpWzit5zMMMnVQbwZM5vWOc3dOs9QaY1tg9MvY1WNkepbu/0/I82MIxR00+1zORMSoMREEmLYrCR01DbvTaBxta6uwmoyiFb56oMDqGfnTRsctwwzwx6fVvM5O0AwbmDVp3VkIVaAILT+BWWD4ojdoZ1v92hk6MELRokcc1K3yTSf1fCKrImQDbR03hh/5jN1aMuLwKUvilV9P4G63KBUa7KfZ/IxXFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
+ dkim=pass header.d=vivo.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JsA+DesLyO00s4NQNWCnKt3KDInZStXAb27C/VXosIU=;
+ b=e1HfR56kQroy+peZyoZ3XWo6/e5j+rydnUTjCv7F6JAidHnfclv3t4kw2GRWcpCJ3Km2QZG+nYes3a1fRIeKL4rfZovttX4Wytpe1D+F8XWtGucRWOLzpTp/zapz6GWbhvKXRQKL4n7US8KuPAbC3AKenXgBqRfKbfqewFZ09aVdBZzpEN8NsuPEX0/vVBxpitOuV/IlbuYs6W57TZu8DYU4b+unIFU9U/YQXXOizDmmwmfpPIUQ6YWVHoD6yERrfIwPPSj1b/WUWIb2AzG4j0czOZtKQ/599GB+C6Cj9QBw4f6lZD6kR8vGREpLZaP+PnB7F5xkPzleyaIEC3ABgQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vivo.com;
+Received: from SEZPR06MB5576.apcprd06.prod.outlook.com (2603:1096:101:c9::14)
+ by TY2PPF6D4CDC018.apcprd06.prod.outlook.com (2603:1096:408::794) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Mon, 11 Aug
+ 2025 08:25:48 +0000
+Received: from SEZPR06MB5576.apcprd06.prod.outlook.com
+ ([fe80::5c0a:2748:6a72:99b6]) by SEZPR06MB5576.apcprd06.prod.outlook.com
+ ([fe80::5c0a:2748:6a72:99b6%5]) with mapi id 15.20.9009.018; Mon, 11 Aug 2025
+ 08:25:48 +0000
+From: Liao Yuanhong <liaoyuanhong@vivo.com>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	linux-kernel@vger.kernel.org (open list:MAILBOX ARM MHUv3),
+	linux-arm-kernel@lists.infradead.org (moderated list:MAILBOX ARM MHUv3)
+Cc: Liao Yuanhong <liaoyuanhong@vivo.com>
+Subject: [PATCH] mailbox: arm_mhuv3: Remove no_free_ptr() to maintain the original form of the pointer
+Date: Mon, 11 Aug 2025 16:25:36 +0800
+Message-Id: <20250811082536.377896-1-liaoyuanhong@vivo.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR01CA0002.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::21) To SEZPR06MB5576.apcprd06.prod.outlook.com
+ (2603:1096:101:c9::14)
 MIME-Version: 1.0
-References: <CA+G9fYumD2MGjECCv0wx2V_96_FKNtFQpT63qVNrrCmomoPYVQ@mail.gmail.com>
- <aJXebTmgnrWw7Ks4@willie-the-truck>
-In-Reply-To: <aJXebTmgnrWw7Ks4@willie-the-truck>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Mon, 11 Aug 2025 13:50:53 +0530
-X-Gm-Features: Ac12FXw5lvgF03ojOkscaSZZ8MEt6jPVgnO3qRgJ61gr4N1xTZBfV52fTLslDqU
-Message-ID: <CA+G9fYseoJU0TNmvSEU4sQTye575Jnq5XiwZZrK9K5z_snVM1A@mail.gmail.com>
-Subject: Re: next-20250729: PREEMPT_RT: rock Pi 4b Internal error Oops
- kmem_cache_alloc_bulk_noprof - kernel locking rtmutex.c at __rt_mutex_slowlock_locked
-To: Will Deacon <will@kernel.org>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
-	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
-	Linux Regressions <regressions@lists.linux.dev>, Thomas Gleixner <tglx@linutronix.de>, 
-	Andrew Morton <akpm@linux-foundation.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Anders Roxell <anders.roxell@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Vlastimil Babka <vbabka@suse.cz>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Ben Copeland <benjamin.copeland@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5576:EE_|TY2PPF6D4CDC018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 09388970-b610-4e53-2fe4-08ddd8b0acb2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nqtc74vsw0cAkhZhGEFGYryUs6s2nmMcvTzTWi3oNXOFYpo92DzXg30V25Vk?=
+ =?us-ascii?Q?RMuTR8OHg+7ucf18RopXGGy21LHbgqKaHxegbYJysqvO6T5OxJCXaMbXvDgj?=
+ =?us-ascii?Q?0C4b6YDclny9FdofG4P1s1VMgFZK2S7UbAxkO10BoIwECUZ2EfFCnkrG5Xyc?=
+ =?us-ascii?Q?9Qv/e+i5kYuhSAm7E+Dsx9YYcXSw7liJzFG6jD3p3+rQQXpiA9/0Rea6h8x4?=
+ =?us-ascii?Q?E/rQ7sMFWEwNiZlhED1/9hpbUhKKyVPr6JiqfE7sQYAjsUzSxTWs2d3BYAKX?=
+ =?us-ascii?Q?6ylhVyz34bRiIEZS2uECDB7r48uqz6n3rYL4lb3u/XdxIyCtSmcZM6SQDMsx?=
+ =?us-ascii?Q?9FW5Ld51ouRerSLsLcZnU0lTg+Gn42tMxiVfW8sOZn0nX6X+pV7api0FKFoI?=
+ =?us-ascii?Q?PidXggTPOUJFYVY3cUflzW12lhwIo3ur4KaLJ+kChLFBoLoeDitdaPz/nJkO?=
+ =?us-ascii?Q?Ifdp7brRJCa/q+Fz4aPiNpVA/kXvaz3ObpiP1BG9Jh83R3vaAdReABroSABo?=
+ =?us-ascii?Q?L7s4f80oK90ckJSXzLyEm9DHktDvgazH25iVkwFL0Dbz7JLB95QxpA/gJGLY?=
+ =?us-ascii?Q?b8IS+zSQb9siz5qxxAliHPyFkK62w8XXmNvBITmbaK9BVPmdK4at0dFHwCfI?=
+ =?us-ascii?Q?wwDPEa6cnOAH0wHtFrZx24TADdETMYATF/NqSgEfbToGPSQT9w32Us38uHDm?=
+ =?us-ascii?Q?XfbVi/wzn7zqNVdry/RgOqK7z2AmHzzl+Ry3m048bjjxMaUcVppNYeUc5Wk/?=
+ =?us-ascii?Q?u4AedqLPQCOx8jlxpnJnpJuJ0PeFDG2LN4pT1nldGUzbwY8UAgB5fWckTEwY?=
+ =?us-ascii?Q?rxFPrBDYwNEdqDKpd0RBTbSbVXeKHQz00JYhI1Q+WvKwxX3+b0sbJVdF46ve?=
+ =?us-ascii?Q?n7K9whP50lfol1kuaVkOe2jxfMcrODPquhOP+hKpQsRe/kuzaWZpY0mbeciO?=
+ =?us-ascii?Q?aLLou1MCCvSlLqfpPIAlBLHM3Bu2LCaOxxywVsKVr+6flrYwTBHVoAu0UfZz?=
+ =?us-ascii?Q?zJ5q5B9r8I6VFG+D6lOiYtnALkoVygZItwKFAglsHGvY9b/MLEbyA4v4Bd7f?=
+ =?us-ascii?Q?IviQwiu+Xcv82H63YwemU2YA/jvguw8H7QqoUAjFfjrR/myyzD1sfLdCdII5?=
+ =?us-ascii?Q?lE5Ic3hz4o4wQny7roV3vzex4YlW2wJOobFNDCYIcaDxfrC8j7B9m6t+Y2Wf?=
+ =?us-ascii?Q?wu6orq0neHzKTaYaTHyblLnKtLw+F1l+pDlaG7//BOhOImhszws6m8DNK2Oz?=
+ =?us-ascii?Q?9U8o5ZQVHuD7VpNGnq+T1KRx43a7QX8J7YQ5PrqJXiqUpi3jpCLTJ9DmYh08?=
+ =?us-ascii?Q?GKJOvgeUQLmVxcb2dJwi2wIjFCOUqDbZn7nUXZFj3H5pKiX2taM4st8fRE/+?=
+ =?us-ascii?Q?o935ko3OHzhUQQmQr1omfkZFHsMJthhyLlIeFcnI9HlNaUmhiD6phgmS6oCo?=
+ =?us-ascii?Q?KpLQFLZgJa+hbA27gN7y7a7ZY/y7O696ocClELw4bAV5ofdBGvF4ow=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5576.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?O8T+2LAQy45iwcJcgDPSFtHqSC4+GWIUL/M2WCQP36M3xZEx3Xg6vjmVFUQI?=
+ =?us-ascii?Q?z3HeHW2gMlifWIDW1XRLcZHnclRz27xXyxvCQHQLuJwFs9Pj8INg3U1vh7Gx?=
+ =?us-ascii?Q?YxCmVhaXCiTdnlePFZhu7tVq8iNI/kOOHLeYb8wC/ljd21MkSNRVd7oolKb8?=
+ =?us-ascii?Q?n6Ex13Q1YtQkspaj4kqSInseJLSeO54q7aDyZYZWKU74MQDSbbHoMulyc9hr?=
+ =?us-ascii?Q?wshMgcRDIrViKrXgKwokgAeh8fk+JRXPLCCuIa8nK2ObLp5LiHWtRfUZlzQo?=
+ =?us-ascii?Q?6kyRjN8lk21JqxSFEiMSakFLfflme9dcjTnBD/ZoB9pnrh1d0J4OsohMgDDq?=
+ =?us-ascii?Q?rLh8RUnupc6/ISHWEfiici/JQ0I2KHXaq67AoVU/YUD7gzNQPcZWnPeJG2/f?=
+ =?us-ascii?Q?ucUnC8IwBbtssS3GAtbEFRl5ha0yd4SDF7a9eGUmCmLxPJFRNt7h3SIeCpdS?=
+ =?us-ascii?Q?74lbCv8BC3u34qvaVx4td+h/pwcT0pKfpMefSMH8Q1nou4ox5za2cfRo2Ydq?=
+ =?us-ascii?Q?nh3+myrytntUqAmgJJIpSxVD0lcIv4oKxWDMi99wvwnpr6ny4+A2dkeqatFK?=
+ =?us-ascii?Q?/XFypP/3iq0zaNZt1cdnXLKGADZf+Ga7ufcPVIG3mibjF5XCye4w/KbK0STO?=
+ =?us-ascii?Q?jawMjTSFngiKoSfhEOjgSVnpMVIeIHRoz5A2SLG3bTyD62QuyymiO/cOsAT0?=
+ =?us-ascii?Q?GOPlQ7lfBWBwzHEHGuGrKq8tbsgxnnaDv9YTORJ+OeLtR0VVQVr+Eu2qdyue?=
+ =?us-ascii?Q?laSElf/q7mOSf2NBxpTfFB7WCi2m6flOavQEb/9/WWgZ3uMSJRxITZ89EjPu?=
+ =?us-ascii?Q?pqRlxoOqWkPSJUvF+zrGoO7bSIcFZi2lDh9sa+p4hIsSjn68YUrCAci1xqzM?=
+ =?us-ascii?Q?mYnqsD9UYkr5b3Dtl0MWAl5J17xMtzO/xQcZTkWo8Pmf8zAcWVat6RYctBxW?=
+ =?us-ascii?Q?z62jBTh7lBfKNvIfR3s2bBUcRm6udbZFaIrxS0zWzoUVn2v+5hBj6NqzPz5w?=
+ =?us-ascii?Q?d2flBRrVI/lhTWC/oihjObHpjtlgWBDg60k7qbcOsQ5/WqIn/LVztmJEwPZA?=
+ =?us-ascii?Q?A21sGybVI5IZxIb29mjxuAXA/YsJGXBYyAOqcj8JDLUMBo7dNQYPI6+N+43z?=
+ =?us-ascii?Q?xnk+b9UWujxGdKOx5QvK7XeIS98HJSfBi4oV6wVS1EqZk3+meyGi0iyACX0I?=
+ =?us-ascii?Q?qV5pSN4gBinrmg7i7SHaMPHDTKkLgrHx8VfkoRun3eq+V9M6BFgF1cFe942K?=
+ =?us-ascii?Q?BN0l7fyUbPMngHMVofza0nIIKq6Yu/4vYxRSZLSUehSX4QqTHtxIwRLLmMrI?=
+ =?us-ascii?Q?U7YjavQU8bz59/LvK81oGIrjN1oc6Z4Hkyi+5ZAXX+ukrPL3bgTDl5AlYQrE?=
+ =?us-ascii?Q?ml9lL8OEthyVm+BKWraerszxAP8BulMoL2Ehmse/IefAQ/0zv4QCd+VVzIjk?=
+ =?us-ascii?Q?esn8y/xzJyOCLgt5d4E0bnvabqwRWiEAbmcma1wQ8v7qNmhQxzbVrRBGEp/I?=
+ =?us-ascii?Q?E0Yrp5KmYKMHgDgx0b2tZ5phNOyrDFOiUeakqJg7ywoSjaAMUxIZ8qMsEJVj?=
+ =?us-ascii?Q?3bvt6L07y7WgviSjlGdnERm8cNEapYW23h/vPGIA?=
+X-OriginatorOrg: vivo.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 09388970-b610-4e53-2fe4-08ddd8b0acb2
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5576.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2025 08:25:48.2005
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Aja/UV1tHqWXUl607nv6DP1UbeDvORcESjZMA4b9rOU0BuvSG3XOOmxhCjgIlzZ8GiQi/Ipx/dg7DOjhvPrH8g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPF6D4CDC018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_012106_922542_9D741AF8 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250811_012611_441386_06E3EDBD 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,122 +157,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+Remove no_free_ptr() to ensure PTR_ERR() consistently retrieves the correct
+error code.
 
-On Fri, 8 Aug 2025 at 16:54, Will Deacon <will@kernel.org> wrote:
->
-> Hi Naresh,
->
-> On Sat, Aug 02, 2025 at 03:45:51PM +0530, Naresh Kamboju wrote:
-> > ## Test log
-> > [  527.570253] Unable to handle kernel paging request at virtual
-> > address 003f0020f94020a1
-> > [  527.570274] Mem abort info:
-> > [  527.570277]   ESR = 0x0000000096000004
-> > [  527.570282]   EC = 0x25: DABT (current EL), IL = 32 bits
-> > [  527.570288]   SET = 0, FnV = 0
-> > [  527.570292]   EA = 0, S1PTW = 0
-> > [  527.570297]   FSC = 0x04: level 0 translation fault
-> > [  527.570302] Data abort info:
-> > [  527.570305]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
-> > [  527.570310]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> > [  527.570316]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> > [  527.570322] [003f0020f94020a1] address between user and kernel address ranges
-> > [  527.570330] Internal error: Oops: 0000000096000004 [#1]  SMP
-> > [  527.570336] Modules linked in: brcmfmac rockchip_dfi brcmutil
-> > cfg80211 snd_soc_hdmi_codec dw_hdmi_i2s_audio dw_hdmi_cec
-> > snd_soc_simple_card snd_soc_audio_graph_card hci_uart
-> > snd_soc_rockchip_i2s snd_soc_es8316 snd_soc_spdif_tx
-> > snd_soc_simple_card_utils btqca rtc_rk808 rockchipdrm btbcm
-> > snd_soc_core dw_hdmi_qp bluetooth snd_compress reset_gpio analogix_dp
-> > snd_pcm_dmaengine panfrost hantro_vpu dw_mipi_dsi rfkill rockchip_rga
-> > drm_shmem_helper drm_dp_aux_bus snd_pcm gpu_sched dw_hdmi pwrseq_core
-> > videobuf2_dma_sg v4l2_vp9 snd_timer drm_display_helper v4l2_h264
-> > v4l2_jpeg phy_rockchip_pcie snd v4l2_mem2mem cec videobuf2_dma_contig
-> > soundcore videobuf2_memops drm_client_lib videobuf2_v4l2
-> > drm_dma_helper videobuf2_common rockchip_saradc drm_kms_helper
-> > industrialio_triggered_buffer kfifo_buf rockchip_thermal
-> > pcie_rockchip_host coresight_cpu_debug fuse drm backlight
-> > [  527.570493] CPU: 3 UID: 0 PID: 34254 Comm: mkdir Not tainted
-> > 6.16.0-next-20250801 #1 PREEMPT_RT
-> > [  527.570502] Hardware name: Radxa ROCK Pi 4B (DT)
-> > [  527.570506] pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > [  527.570512] pc : kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
-> > (discriminator 1) mm/slub.c:5403 (discriminator 1))
-> > [  527.570527] lr : kmem_cache_alloc_bulk_noprof
-> > (include/linux/atomic/atomic-arch-fallback.h:457
-> > include/linux/atomic/atomic-instrumented.h:33
-> > include/linux/kfence.h:127 mm/slub.c:5307 mm/slub.c:5403)
-> > [  527.570533] sp : ffff80008e24b8f0
-> > [  527.570536] x29: ffff80008e24b930 x28: 00ff000000584610 x27: ffff800082b30538
-> > [  527.570545] x26: ffff8000816b64dc x25: 0000000000000cc0 x24: 0000000000000000
-> > [  527.570554] x23: 0000000000000004 x22: ffff0000f7579d20 x21: 0000000000000001
-> > [  527.570563] x20: 0000000000000001 x19: ffff000000405b00 x18: ffff80008e24bcd0
-> > [  527.570572] x17: 0000000000000000 x16: ffff800081e18420 x15: 0000ffffa2670fff
-> > [  527.570582] x14: 0000000000000000 x13: 1fffe000017942e1 x12: 0000ffffa2470fff
-> > [  527.570591] x11: ffff00000bca1708 x10: 0000000000000001 x9 : ffff8000816e41a4
-> > [  527.570600] x8 : ffff80008e24b850 x7 : fefefefefefefefe x6 : ffff800082b30000
-> > [  527.570608] x5 : d63f0020f9402021 x4 : ffff0000f7579d58 x3 : 0000000000000000
-> > [  527.570617] x2 : 0000000000000000 x1 : 0000000000000100 x0 : 0000000000000080
-> > [  527.570627] Call trace:
-> > [  527.570631] kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
-> > (discriminator 1) mm/slub.c:5403 (discriminator 1)) (P)
-> > [  527.570639] mas_alloc_nodes (lib/maple_tree.c:1278)
-> > [  527.570651] mas_node_count_gfp (lib/maple_tree.c:1339)
-> > [  527.570661] mas_preallocate (lib/maple_tree.c:5538 (discriminator 1))
-> > [  527.570667] __split_vma (mm/vma.c:528 (discriminator 1))
-> > [  527.570677] vma_modify (mm/vma.c:1633)
-> > [  527.570685] vma_modify_flags (mm/vma.c:1650)
-> > [  527.570694] mprotect_fixup (mm/mprotect.c:819)
-> > [  527.570704] do_mprotect_pkey (mm/mprotect.c:993)
-> > [  527.570713] __arm64_sys_mprotect (mm/mprotect.c:1011)
-> > [  527.570722] invoke_syscall (arch/arm64/include/asm/current.h:19
-> > arch/arm64/kernel/syscall.c:54)
-> > [  527.570731] el0_svc_common.constprop.0
-> > (include/linux/thread_info.h:135 (discriminator 2)
-> > arch/arm64/kernel/syscall.c:140 (discriminator 2))
-> > [  527.570737] do_el0_svc (arch/arm64/kernel/syscall.c:152)
-> > [  527.570744] el0_svc (arch/arm64/include/asm/irqflags.h:82
-> > (discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
-> > 1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
-> > arch/arm64/kernel/entry-common.c:169 (discriminator 1)
-> > arch/arm64/kernel/entry-common.c:182 (discriminator 1)
-> > arch/arm64/kernel/entry-common.c:880 (discriminator 1))
-> > [  527.570752] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:899)
-> > [  527.570760] el0t_64_sync (arch/arm64/kernel/entry.S:596)
-> > [ 527.570772] Code: 1400000c f94002c5 b4000aa5 b9402a60 (f86068a0)
-> > All code
-> > ========
-> >    0: 1400000c b 0x30
-> >    4: f94002c5 ldr x5, [x22]
-> >    8: b4000aa5 cbz x5, 0x15c
-> >    c: b9402a60 ldr w0, [x19, #40]
-> >   10:* f86068a0 ldr x0, [x5, x0] <-- trapping instruction
-> >
-> > Code starting with the faulting instruction
-> > ===========================================
-> >    0: f86068a0 ldr x0, [x5, x0]
-> > [  527.570778] ---[ end trace 0000000000000000 ]---
-> > [  527.570800] ------------[ cut here ]------------
->
-> If you're able to repro this, please could you see if the patch below
-> helps at all?
+Signed-off-by: Liao Yuanhong <liaoyuanhong@vivo.com>
+---
+ drivers/mailbox/arm_mhuv3.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I applied the patch as suggested, tested it, and confirmed that the reported
-regressions are now resolved.
+diff --git a/drivers/mailbox/arm_mhuv3.c b/drivers/mailbox/arm_mhuv3.c
+index b97e79a5870f..0910da67f8a1 100644
+--- a/drivers/mailbox/arm_mhuv3.c
++++ b/drivers/mailbox/arm_mhuv3.c
+@@ -945,7 +945,7 @@ static irqreturn_t mhuv3_mbx_comb_interrupt(int irq, void *arg)
+ 			if (IS_ERR(data)) {
+ 				dev_err(dev,
+ 					"Failed to read in-band data. err:%ld\n",
+-					PTR_ERR(no_free_ptr(data)));
++					PTR_ERR(data));
+ 				goto rx_ack;
+ 			}
+ 		}
+-- 
+2.34.1
 
-I applied the patch as suggested, tested it, and confirmed the reported
-regressions are resolved. Our LKFT CI will continue monitoring and report
-back if the issue reoccurs.
-
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-
->
-> https://lore.kernel.org/r/20250806145611.3962-1-dev.jain@arm.com
->
-> Cheers,
->
-> Will
-
-- Naresh
 
