@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292DECA0EDA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D94BCA0EDC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbVk/fpTYYUx2D//VVnb557+OAlwMeSeZqu2R2SQyeE=; b=jMBTVEKn+NE62SzvqVJ+kXOB80
-	qBIYHap9GszQh7Uisoe9Y3oNVwBjunXHMHe3Ot80GvHEmEO/UlDTDSSN0lU6bInRjX6ltlKfDAXN4
-	i5Lge4W4ZOB3U8RslQdaf0FLviSWQL5+R838gMeP74A7gBUi++mudndzcEJetccxrT4cYcR4Q5J0B
-	SB7zeMfY5MqQwM9wZoJnMVf7bG8UWZYX0VLTeV9z78T2KAjz3GVEKMSKQ2YSqdICSQJ5rQ+0Y0GoW
-	EBv3MPfZi9kAJfEKuczjfr4rsYjOopAxZvgy3VT7YHdOQAcUHmJpMchUUucvH+nleW8ek5xc6XiCW
-	rS8f6i8A==;
+	bh=A86eQzX7viGNjFU7NpXeyNyVEzQ5puYbkA22fGhwrf8=; b=fhRnkflq8yoNfDQN5ZfqiGdk+W
+	zv2DW3LXhortbwwz9KHS9GX7A5Os4WITxRmiPvyYwosPRRJ6uKVckH6tM0QuALsFgpZBjNamd5V/G
+	1Ii5Vyid3FvhzFJ3+RLIF1jnVmCM5pbeGYGmi9NIXPrO98QPC7fXJ0sODQaTZ3hDqN8u2i+RYVkGJ
+	VSA4NsGCRcgGzn3tQV04bTt45qhyI0003+OeUBQaEsyVn9RIu8ZjTKJNVkDvNBde0zw0EA3m0LjVE
+	JHryqpFt7pixRdPBX9B6vvZmvbirdpqRy5TV5pTgkcETY3eC997myg+0MTBDjaYbvONz5tHq44quw
+	SRQRL01w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uladA-00000009DVU-0r3c;
-	Mon, 11 Aug 2025 22:04:36 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uladC-00000009DbD-2NwS;
+	Mon, 11 Aug 2025 22:04:38 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulYUe-00000008yB6-3MVD
+	id 1ulYX2-00000008yOg-44e4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 19:47:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1754941658;
- bh=LbVk/fpTYYUx2D//VVnb557+OAlwMeSeZqu2R2SQyeE=;
- b=OneJKKKfpWaJ1U45wzdHxGotxPeOQPq5dRHw3cqoU4wLZpFQuuKAlR+3TtNAaBoDIqAQzia+F
- DLxduQkuBIbm/ta3wh095DNvIOHEpE8TSyY0DGquPXGGbUYT6IQud2XKwNcHs6KhHDE1/Nph1QG
- acy1JefkdoNBwDgkti8hvxbCuSmk22wBYt+tRKBVORz2q8Peh0QZOAS2cKwsxXz1kpeLgUOilRb
- 8xbIsmTSHcyI6mpbtbUa/MSh+d6QcI3Kac/loTg26zj7ZQtASJFa9SwychxZ/cZ8hj9+K3c1oc5
- Cmo5veEwX5cwup3wEGN9Wg4fjLseuj2JCfvoZ1TQycow==
-X-Forward-Email-ID: 689a48a7de615f3104e044ef
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.2.4
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <d0d50da8-f8bb-4a6f-bd44-5199d26b7a86@kwiboo.se>
-Date: Mon, 11 Aug 2025 21:46:42 +0200
+	Mon, 11 Aug 2025 19:50:10 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3b783d851e6so4035957f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 12:50:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754941807; x=1755546607; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=A86eQzX7viGNjFU7NpXeyNyVEzQ5puYbkA22fGhwrf8=;
+        b=maj7ac1CExAh9Hqm1gp4+zgZdz/gCZKA1JShlYuomL+7G4ra6n+E5XPN6WGQWuhlMH
+         Io2xNFwPY6Cu2y6GCaKUO/o14q8QTDBivIopcbrMnjHSJD8jDGiXOVUB0+mRk8UKaXSf
+         wjetmCYA9CvXN69T5egNlnTaO6+eobBuCvJEOCFZuteebJVv+p2ZiFNzuDF9yKYoGL5e
+         /3RitLjBxOw3EgxxVdUhBF5dVkcnttrY8Jd5rdH2/7TH/CG2O/BzVLf9CfLaLUUYDsXk
+         XuQ2O9L427F/pfNx2+HtwglHtTW36036eqGhwTDdTTDnCKCp2+josXExm88buxntX7Ho
+         Qx8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754941807; x=1755546607;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A86eQzX7viGNjFU7NpXeyNyVEzQ5puYbkA22fGhwrf8=;
+        b=BSpEOheGt4UZUggScDtcVW7bDq/SgAudfu59zVqIplHBfgWUhI7ZLy0T9yk8yZ96Sb
+         id+ULlTI/nNYFnDZqfciV+drSEoRM9GKasBjF0TXFhky19NZo9mJ6yH0F+g76SRdMl6Y
+         GTH4wsgrsFbdnEmYmmqmYzHtE2Z1+PiI1mOBN65Zdu1IpGN8WzH7lphZ4lkRd2onK+gT
+         9nUvt31XqLeEbvYT2pFIGZm9MZkklvSLXrXAPqEYmC6UhroZT8uQ4805iW/qHW/+KYum
+         NgQtbNfZaJFVupGLOLo7ATXuRTyoc9MAROBuDbfLpejdm7pO1Q1Np1Rvz4+5n0/zniXK
+         5uYg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/7i9tlh3EVR48ZDTS/DVq9HC2Cyrj729OQ0FQ6NyiJV+voUYfPQPrkF1hIgjaO531MZnT69l4O7d+w1ry4vZn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLVrHDJ62JIfDw/t1NRJQotU7qzmSpsc+WGYvta+YKko5CNU3G
+	5n7i/YInJ+lG8bpOxq1i5gDpd2kPhoSwXzPZiKTEBVNjbiUAS0D0Af8W
+X-Gm-Gg: ASbGncs9c0GpNo4y8AO7p+3D/VPkGkKY4K+XfWcmrUhH9LngLD2B0ueeTyJ/K1R804d
+	kT8f1q2v44jUpocMsGhVi2M969YrrcKm0CQ2fmdtq8ZgL8ka/sDpGfCNbFCwciIJPgeSoJ1h7Mb
+	1ZPXJZOxfZ8EJ0b5hguyIEhC5p0xmytVdSBX3STvNvw8rHD61qLJHQSdajsBUL78PfjZGTD+vrj
+	6lennqGp8yN4cng5i/6LIs9rj/Gy1u08f79Anl7OZIpI3M1kjznD89i2s0WhYyjN/x+KiIcnHdg
+	KrhZ0L4VdjAkfWX2OvMYV8NzJ4GAlH2kPpMZsqBD1CguCAWu9hkgd3S71r6OQMGfzZe0zfZbvHH
+	vY2uyxKERfQpIweqahMp1EyujDHFC1yhntkYxkjVcnfbFXsc39X0=
+X-Google-Smtp-Source: AGHT+IFvzbFGti/zNFzqyikNiwvAvCk3OD9a3dG0vzUTIRLJMIn1arvJwDoou4hVVuywAjgs4uvv6w==
+X-Received: by 2002:a05:6000:2287:b0:3b8:f2f1:728c with SMTP id ffacd0b85a97d-3b900b74b3dmr11151929f8f.34.1754941807310;
+        Mon, 11 Aug 2025 12:50:07 -0700 (PDT)
+Received: from [192.168.0.253] (5D59A51C.catv.pool.telekom.hu. [93.89.165.28])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3b79c3b9eddsm41709246f8f.22.2025.08.11.12.50.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Aug 2025 12:50:06 -0700 (PDT)
+From: Gabor Juhos <j4g8y7@gmail.com>
+Date: Mon, 11 Aug 2025 21:49:55 +0200
+Subject: [PATCH v2 1/3] i2c: add init_recovery() callback
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] media: rkvdec: Add HEVC backend
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>,
- Sebastian Fricke <sebastian.fricke@collabora.com>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
- <20250810212454.3237486-2-jonas@kwiboo.se>
- <9c8cb837d10d3cdd54fe34dedfe40c10e848f648.camel@collabora.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <9c8cb837d10d3cdd54fe34dedfe40c10e848f648.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250811-i2c-pxa-fix-i2c-communication-v2-1-ca42ea818dc9@gmail.com>
+References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+In-Reply-To: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+To: Wolfram Sang <wsa@kernel.org>, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Russell King <rmk+kernel@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>, 
+ Hanna Hawa <hhhawa@amazon.com>
+Cc: Robert Marko <robert.marko@sartura.hr>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Russell King <rmk+kernel@armlinux.org.uk>, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Imre Kaloz <kaloz@openwrt.org>, Gabor Juhos <j4g8y7@gmail.com>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_124741_201601_FDC715CB 
-X-CRM114-Status: GOOD (  22.15  )
+X-CRM114-CacheID: sfid-20250811_125009_013954_E1191EB1 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,104 +108,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Add a new init_recovery() callback to struct 'i2c_bus_recovery_info'
+and modify the i2c_init_recovery() function to call that if specified
+instead of the generic i2c_gpio_init_recovery() function.
 
-On 8/11/2025 9:12 PM, Nicolas Dufresne wrote:
-> Le dimanche 10 août 2025 à 21:24 +0000, Jonas Karlman a écrit :
->> The Rockchip VDEC supports the HEVC codec with the Main and Main10
->> Profile up to Level 5.1 High tier: 4096x2304@60 fps.
->>
->> Add the backend for HEVC format to the decoder.
->>
->> Signed-off-by: Alex Bee <knaerzche@gmail.com>
->> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
->> ---
->> Changes in v2:
->> - Use new_value in transpose_and_flatten_matrices()
->> - Add NULL check for ctrl->new_elems in rkvdec_hevc_run_preamble()
->> - Set RKVDEC_WR_DDR_ALIGN_EN for RK3328
->> ---
->>  .../media/platform/rockchip/rkvdec/Makefile   |    2 +-
->>  .../rockchip/rkvdec/rkvdec-hevc-data.c        | 1848 +++++++++++++++++
->>  .../platform/rockchip/rkvdec/rkvdec-hevc.c    |  817 ++++++++
->>  .../platform/rockchip/rkvdec/rkvdec-regs.h    |    2 +
->>  .../media/platform/rockchip/rkvdec/rkvdec.c   |   76 +
->>  .../media/platform/rockchip/rkvdec/rkvdec.h   |    1 +
->>  6 files changed, 2745 insertions(+), 1 deletion(-)
->>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
->>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
->>
->> diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile
->> b/drivers/media/platform/rockchip/rkvdec/Makefile
->> index cb86b429cfaa..a77122641d14 100644
->> --- a/drivers/media/platform/rockchip/rkvdec/Makefile
->> +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
->> @@ -1,3 +1,3 @@
->>  obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC) += rockchip-vdec.o
->>  
->> -rockchip-vdec-y += rkvdec.o rkvdec-h264.o rkvdec-vp9.o
->> +rockchip-vdec-y += rkvdec.o rkvdec-h264.o rkvdec-hevc.o rkvdec-vp9.o
->> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
->> b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
->> new file mode 100644
->> index 000000000000..eac4ea604949
->> --- /dev/null
->> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
->> @@ -0,0 +1,1848 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Rockchip Video Decoder driver
->> + *
->> + * Copyright (C) 2023 Collabora, Ltd.
->> + *	Sebastian Fricke <sebastian.fricke@collabora.com>
->> + */
->> +
->> +#include <linux/types.h>
->> +
->> +#define RKV_CABAC_TABLE_SIZE		27456
->> +
->> +/*
->> + * This file is #include from rkvdec-hevc.c and not compiled.
->> + */
->> +static const u8 rkvdec_hevc_cabac_table[RKV_CABAC_TABLE_SIZE] = {
->> +	0x07, 0x0f, 0x48, 0x58, 0x58, 0x40, 0x40, 0x40, 0x40, 0x40, 0x0f,
->> 0x40, 0x40, 0x40, 0x0f,
-> 
-> Nit, in H.264 case, we managed to fill the CABAC based on the spect with macros,
-> didn't we figure-out this one ? I didn't check in Detlev tree, I'm just asking
-> here.
+This allows controller drivers to skip calling the generic code by
+implementing a dummy callback function, or alternatively to run a
+fine tuned custom implementation.
 
-As hinted at in the cover letter: in the initial implementation used for
-LibreELEC I just shamelessly copied the cabac data 1:1 from the Rockchip
-mpp library, for this series it was replaced with the cabac table from
-Sebastian Fricke prior series to add a HEVC backend [1]. Sebastian
-mentioned following regarding the cabac table:
+This is needed for the 'i2c-pxa' driver in order to be able to fix
+a long standing bug for which the fix will be implemented in a
+followup patch.
 
-"""
-Notable design decisions:
-- The giant static array of cabac values is moved to a separate c file,
-I did so because a separate .h file would be incorrect as it doesn't
-expose anything of any value for any other file than the rkvdec-hevc.c
-file. Other options were:
-  - Calculating the values instead of storing the results (No clear pattern
-    found for the calculation using the static array and the formulas from the
-    specification)
-  - Supply them via firmware (Adding firmware makes the whole software
-    way more complicated and the usage of the driver less obvious)
-"""
+Cc: stable@vger.kernel.org # 6.3+
+Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+---
+Changes in v2:
+  - add 'Reviewed-by' tag from Linus Walleij
+  - rebase on tip of i2c/for-current
+---
+ drivers/i2c/i2c-core-base.c | 8 +++++++-
+ include/linux/i2c.h         | 4 ++++
+ 2 files changed, 11 insertions(+), 1 deletion(-)
 
-I have not explored any other way to handle the cabac table based on
-these design decisions.
+diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
+index ecca8c006b020379fb53293b20ab09ba25314609..e38be81dbcc17dd15947a189fd3b89def8529d1e 100644
+--- a/drivers/i2c/i2c-core-base.c
++++ b/drivers/i2c/i2c-core-base.c
+@@ -427,12 +427,18 @@ static int i2c_init_recovery(struct i2c_adapter *adap)
+ 	struct i2c_bus_recovery_info *bri = adap->bus_recovery_info;
+ 	bool is_error_level = true;
+ 	char *err_str;
++	int ret;
+ 
+ 	if (!bri)
+ 		return 0;
+ 
+-	if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER)
++	if (bri->init_recovery) {
++		ret = bri->init_recovery(adap);
++		if (ret)
++			return ret;
++	} else if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER) {
+ 		return -EPROBE_DEFER;
++	}
+ 
+ 	if (!bri->recover_bus) {
+ 		err_str = "no suitable method provided";
+diff --git a/include/linux/i2c.h b/include/linux/i2c.h
+index 20fd41b51d5c85ee1665395c07345faafd8e2fca..4cefdd4c730fc9dc4655f6581f3dea64435d7124 100644
+--- a/include/linux/i2c.h
++++ b/include/linux/i2c.h
+@@ -636,6 +636,9 @@ struct i2c_timings {
+  *	for generic GPIO recovery.
+  * @get_bus_free: Returns the bus free state as seen from the IP core in case it
+  *	has a more complex internal logic than just reading SDA. Optional.
++ * @init_recovery: If specified, it will be called instead of the generic GPIO
++ *	recovery initialization code. Platform may use a dummy callback to skip
++ *	calling the generic code, or it may use a custom implementation.
+  * @prepare_recovery: This will be called before starting recovery. Platform may
+  *	configure padmux here for SDA/SCL line or something else they want.
+  * @unprepare_recovery: This will be called after completing recovery. Platform
+@@ -660,6 +663,7 @@ struct i2c_bus_recovery_info {
+ 	void (*set_sda)(struct i2c_adapter *adap, int val);
+ 	int (*get_bus_free)(struct i2c_adapter *adap);
+ 
++	int (*init_recovery)(struct i2c_adapter *adap);
+ 	void (*prepare_recovery)(struct i2c_adapter *adap);
+ 	void (*unprepare_recovery)(struct i2c_adapter *adap);
+ 
 
-[1] https://lore.kernel.org/linux-media/20230101-patch-series-v2-6-2-rc1-v2-0-fa1897efac14@collabora.com/
+-- 
+2.50.1
 
-Regards,
-Jonas
-
-> 
-> Nicolas
-
-[snip]
 
