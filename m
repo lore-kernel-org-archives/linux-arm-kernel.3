@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CC1C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AC9C87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fyPxY5Nt4YT26yNPLHTzDYGVJhsdBs8hQ7Be0cNlXzY=; b=mbNSvlOemzRKaQCRgHdYp+04/F
-	jHvfUIaVt2yP9VapLvkxa7PPqqrcjWWnZDQk+ZyMcs7EgtKvFmNhcQ0DlBN3sEPUEQEj0qK8mcvy0
-	gndiy7Eqj094Jr9d2ve0qSDJrsvNKrjwlRgmOwYnRYuVC6lWybkSUTwbp1sKDQC+IxNR7pUFqOqdU
-	/JXXs8ws8oc+eiicCORELzyH2xm4QoKC+3ygH1MDO6gaL3tDLZActlFU507l0ITdAyKE0+OQCVTMU
-	ACuH3s+YbXUuIfAXdzRzc+y8spGSu08DDm5MZv49ZBQ5e5KW5USLPYczRxvvqjBmcBPbPETHuKZGu
-	Wj9OnTcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=akg1VPYncJQYtJga7vyBFrDG32QQSfTrI/1dhFFl3BU=; b=s0IGxs67DxZaf8gUk/k1DpBTDN
+	qdRseA82XclZe1W8ViCNqel32UQLHpSAD30kx74OlldsAKF6O3vIz3l0HPGwNks+unEnDLo0xAezE
+	l3jRLMZbFKD/evNLr9mpQFzS69Ocy1408QWs3Q3ji6Wt9D63ykGxQIszPZkETBN6EjPx9pqsHA/Gy
+	6L0gLMiUDSEexDB69om67ZuDtnQuX6Gwb74BdNxSl+RuTeUWp0PU3rrorDkvpdnj6hxw3RBbwDjav
+	8nL/Pu68LGwH8Voj0MarVVl1inYKljVVliiuLd0fUETp0qyh25/YM+CL70UwDa4ZgDNlcC5ljuH7u
+	avy3iKlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulRj9-00000007gKR-06CV;
-	Mon, 11 Aug 2025 12:34:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulRgX-00000007fxC-2V5N
+	id 1ulRqI-00000007hUE-2C1M;
+	Mon, 11 Aug 2025 12:41:34 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulRng-00000007ghV-0xD4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 12:31:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 800DF1D13;
-	Mon, 11 Aug 2025 05:31:20 -0700 (PDT)
-Received: from [10.57.5.137] (unknown [10.57.5.137])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EC983F738;
-	Mon, 11 Aug 2025 05:31:24 -0700 (PDT)
-Message-ID: <d8048adc-b19a-4d10-83e8-44b9a85c4d48@arm.com>
-Date: Mon, 11 Aug 2025 13:31:28 +0100
+	Mon, 11 Aug 2025 12:38:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=akg1VPYncJQYtJga7vyBFrDG32QQSfTrI/1dhFFl3BU=; b=o4MPdHMwnmCiOadxyyWvcFCZo0
+	D5kqPdZu1Dvty7VJewOzG62G1zaeIh+Z7ulAfFaKPVV9fcSfUXcJwzZ1wCe4Wl3kS1G89ImbjHAHk
+	IckHFPeVP6RNr/RG2sf5Adaz4aN4oOHldJvWad0OPNG85bkfc8sJOnnoUhVZCYoQN2a8a21kdVNL+
+	BXtZeoNHXFGtlQErARdOwNuNqx9ANkWt96a4IxVH+UwBByFNsME5MFjZtm12U1u7slPFJ6j4qhTNH
+	OWvYevGBGT/BmP1YFAAZtZoVU7qN/r10xuuf5zhfx4jsH93FMoJClbo9o73SEoKViTksc3SfpnY6f
+	Gu+DQDTA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33394)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1ulRlV-0002vA-1L;
+	Mon, 11 Aug 2025 13:36:37 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1ulRlR-0003hh-1q;
+	Mon, 11 Aug 2025 13:36:33 +0100
+Date: Mon, 11 Aug 2025 13:36:33 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Colin Ian King <colin.i.king@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: stmmac: make variable data a u32
+Message-ID: <aJnj0e8P8ttlRf1r@shell.armlinux.org.uk>
+References: <20250811111211.1646600-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH 2/2] arm64: Add encrypt/decrypt support for vmalloc
- regions
-To: Shanker Donthineni <sdonthineni@nvidia.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Steven Price <steven.price@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Gavin Shan <gshan@redhat.com>, Mike Rapoport <rppt@kernel.org>,
- Vikram Sethi <vsethi@nvidia.com>, Jason Sequeira <jsequeira@nvidia.com>,
- Dev Jain <dev.jain@arm.com>, David Rientjes <rientjes@google.com>,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev
-References: <20250811005036.714274-1-sdonthineni@nvidia.com>
- <20250811005036.714274-3-sdonthineni@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-X-Mozilla-Draft-Info: internal/draft; vcard=0; receipt=0; DSN=0; uuencode=0;
- attachmentreminder=0; deliveryformat=0
-X-Identity-Key: id1
-Fcc: imap://robin.murphy%40arm.com@outlook.office365.com/Sent Items
-In-Reply-To: <20250811005036.714274-3-sdonthineni@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250811111211.1646600-1-colin.i.king@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_053129_719342_46E82850 
-X-CRM114-Status: GOOD (  35.77  )
+X-CRM114-CacheID: sfid-20250811_053852_265548_1A635065 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,186 +85,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-08-11 1:50 am, Shanker Donthineni wrote:
-> On ARM64 systems with CCA (Confidential Compute Architecture) enabled,
-> the kernel may need to change the encryption attributes of memory
-> regions. The existing implementation of set_memory_encrypted() and
-> set_memory_decrypted() assumes that the input address is part of the
-> linear mapping region '__is_lm_address()', and fails with -EINVAL
-> otherwise.
+On Mon, Aug 11, 2025 at 12:12:11PM +0100, Colin Ian King wrote:
+> Make data a u32 instead of an unsigned long, this way it is
+> explicitly the same width as the operations performed on it
+> and the same width as a writel store, and it cleans up sign
+> extention warnings when 64 bit static analysis is performed
+> on the code.
 > 
-> This breaks use cases where the memory region resides in the vmalloc
-> area, which is mapped in non-linear mapping region.
-> 
-> This patch introduces a new helper, realm_set_memory(), which detects
-> whether the given address is from a non-linear mapping. If so, it uses
-> vmalloc_to_page() to resolve each page’s physical address and applies
-> attribute changes one page at a time. For the linear address regions,
-> it maintains the existing fast-path.
-> 
-> This change ensures that encrypted/decrypted memory attribute updates
-> correctly for all memory regions, including those allocated via vmap(),
-> module allocations, or other vmalloc-backed paths.
-> 
-> Call stack of Realm crash, QEMU hypervisor + NVME device (emulated):
->   ...
->   Freeing unused kernel memory: 6336K
->   Run /sbin/init as init process
->   Internal error: synchronous external abort: 0000000096000250 [#1]  SMP
->   Modules linked in:
->   CPU: 0 UID: 0 PID: 64 Comm: lsblk Not tainted 6.15.5 #2 PREEMPT(undef)
->   Hardware name: linux,dummy-virt (DT)
->   pstate: 43400005 (nZcv daif +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
->   pc : __pi_memset_generic+0x16c/0x188
->   lr : dma_alloc_from_pool+0xd0/0x1b8
->   sp : ffff80008335b350
->   x29: ffff80008335b350 x28: ffff800083162000 x27: ffff80008335b3c0
->   x26: ffff80008144f000 x25: ffff8000801a27e8 x24: ffff800081e14000
->   x23: ffffc1ffc0000000 x22: 0000000000001000 x21: ffff800081458310
->   x20: 0000000042a40000 x19: ffff00000232fcc0 x18: 0000000000200000
->   x17: 00000000000120c0 x16: ffff0000795520c0 x15: 0000000000000000
->   x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->   x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
->   x8 : ffff800083162000 x7 : 0000000000000000 x6 : 000000000000003f
->   x5 : 0000000000000040 x4 : 0000000000000000 x3 : 0000000000000004
->   x2 : 0000000000000fc0 x1 : 0000000000000000 x0 : ffff800083162000
->   Call trace:
->     __pi_memset_generic+0x16c/0x188 (P)
->     dma_direct_alloc_from_pool+0xc4/0x230
+> Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
 
-But isn't that exactly the case that patch #1 is supposed to have fixed? 
- From a quick scan of set_memory_decrypted() callers I don't see 
-anything obvious jumping out - can you clarify who you think needs this 
-for reasons other than papering over bugs in the DMA layer?
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-Thanks,
-Robin.
+Thanks!
 
->     dma_direct_alloc+0x80/0x4a0
->     dma_alloc_attrs+0x94/0x238
->     dma_pool_alloc+0x128/0x258
->     nvme_prep_rq.part.0+0x5f0/0x950
->     nvme_queue_rq+0x78/0x1e8
->     blk_mq_dispatch_rq_list+0x10c/0x6f0
->     __blk_mq_sched_dispatch_requests+0x4a0/0x580
->     blk_mq_sched_dispatch_requests+0x38/0xa0
->     blk_mq_run_hw_queue+0x288/0x2f8
->     blk_mq_flush_plug_list+0x134/0x630
->     __blk_flush_plug+0x100/0x168
->     blk_finish_plug+0x40/0x60
->     read_pages+0x1a0/0x2b0
->     page_cache_ra_unbounded+0x1f8/0x268
->     force_page_cache_ra+0xa4/0xe0
->     page_cache_sync_ra+0x48/0x268
->     filemap_get_pages+0xf4/0x7a0
->     filemap_read+0xf0/0x448
->     blkdev_read_iter+0x8c/0x1a8
->     vfs_read+0x288/0x330
->     ksys_read+0x78/0x118
->     __arm64_sys_read+0x24/0x40
->     invoke_syscall+0x50/0x120
->     el0_svc_common.constprop.0+0x48/0xf0
->     do_el0_svc+0x24/0x38
->     el0_svc+0x34/0xf8
->     el0t_64_sync_handler+0x10c/0x138
->     el0t_64_sync+0x1ac/0x1b0
-> 
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-> ---
->   arch/arm64/mm/pageattr.c | 55 +++++++++++++++++++++++++++++++++++-----
->   1 file changed, 48 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
-> index 04d4a8f676db4..65c3322a86b49 100644
-> --- a/arch/arm64/mm/pageattr.c
-> +++ b/arch/arm64/mm/pageattr.c
-> @@ -202,21 +202,26 @@ int set_direct_map_default_noflush(struct page *page)
->   				   PAGE_SIZE, change_page_range, &data);
->   }
->   
-> +/*
-> + * Common function for setting memory encryption or decryption attributes.
-> + *
-> + * @addr:        Virtual start address of the memory region
-> + * @start:       Corresponding physical start address
-> + * @numpages:    Number of pages to update
-> + * @encrypt:     If true, set memory as encrypted; if false, decrypt
-> + */
->   static int __set_memory_enc_dec(unsigned long addr,
-> +				phys_addr_t start,
->   				int numpages,
->   				bool encrypt)
->   {
->   	unsigned long set_prot = 0, clear_prot = 0;
-> -	phys_addr_t start, end;
-> +	phys_addr_t end;
->   	int ret;
->   
->   	if (!is_realm_world())
->   		return 0;
->   
-> -	if (!__is_lm_address(addr))
-> -		return -EINVAL;
-> -
-> -	start = __virt_to_phys(addr);
->   	end = start + numpages * PAGE_SIZE;
->   
->   	if (encrypt)
-> @@ -248,9 +253,45 @@ static int __set_memory_enc_dec(unsigned long addr,
->   				      __pgprot(0));
->   }
->   
-> +/*
-> + * Wrapper for __set_memory_enc_dec() that handles both linear-mapped
-> + * and vmalloc/module memory regions.
-> + *
-> + * If the address is in the linear map, we can directly compute the
-> + * physical address. If not (e.g. vmalloc memory), we walk each page
-> + * and call the attribute update individually.
-> + */
-> +static int realm_set_memory(unsigned long addr, int numpages, bool encrypt)
-> +{
-> +	phys_addr_t start;
-> +	struct page *page;
-> +	int ret, i;
-> +
-> +	if (__is_lm_address(addr)) {
-> +		start = __virt_to_phys(addr);
-> +		return __set_memory_enc_dec(addr, start, numpages, encrypt);
-> +	}
-> +
-> +	for (i = 0; i < numpages; i++) {
-> +		page = vmalloc_to_page((void *)addr);
-> +		if (!page)
-> +			return -EINVAL;
-> +
-> +		start = page_to_phys(page);
-> +		ret = __set_memory_enc_dec(addr, start, 1, encrypt);
-> +		if (ret)
-> +			return ret;
-> +
-> +		addr += PAGE_SIZE;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static int realm_set_memory_encrypted(unsigned long addr, int numpages)
->   {
-> -	int ret = __set_memory_enc_dec(addr, numpages, true);
-> +	int ret = realm_set_memory(addr, numpages, true);
-> +
->   
->   	/*
->   	 * If the request to change state fails, then the only sensible cause
-> @@ -264,7 +305,7 @@ static int realm_set_memory_encrypted(unsigned long addr, int numpages)
->   
->   static int realm_set_memory_decrypted(unsigned long addr, int numpages)
->   {
-> -	int ret = __set_memory_enc_dec(addr, numpages, false);
-> +	int ret = realm_set_memory(addr, numpages, false);
->   
->   	WARN(ret, "Failed to decrypt memory, %d pages will be leaked",
->   	     numpages);
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
