@@ -4,121 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACE2CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 16:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B516CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 16:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlWQwa2PAoVxO2iD+h8/whtAT2rN/XrFrW/caXqog0A=; b=P+JHIpIdFpidu/z1b2qPnTaiS8
-	zM18pi3AaoonqoFrnp2bIcyHaw4ID6qxBoJ6J98NJo1/aGJlkHZ0Jk2D9CjIrZ2/GYHvL/pwrqOtm
-	EhT2DKOkV/f+Hm94GXBbo2MrmGivMY7XZmfcS3lkFQxVK2LAFCkLLAPc4Oa/ZWiZ4u7Yrd/m8ztv7
-	KLNAdR5trWhoAI0uqNEfICSTNBwDftZNE/2qbMkMqGSTTwZZR94+aujcnfbhmZVl+nRqVeLqvWNbH
-	/7RtpnUsLeV9lSnhIReaM86F5CvNVOgx52U0zj8kAzUB4yb62OnohEQdqg9adfNEDZUumcoOFvWXo
-	s6Oz3glg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ndcHKPlxz1zxTaVu1A8ek2TUvyoXpmZVABjKiRl5ba0=; b=sBFsP383CEGLBVI8KgdPwkmCka
+	DpywuNw3KHcVZTgYG8HQ+i0++Hm1lZpgbHB+6oK1z726oXj/tUqSjpu8eBjoLicVQ+Xg6ZqkREUi/
+	WwXxEPhHJXuvXDQ6cjuz9aN9+gdkFJkiC/wF5r3iQ+AKOym+AWsJNu86BultzzNmrzcCzsERKlu/W
+	2JrhapwPneXUuAzqN8L1bsfxRTl9SoWtYmlrI9lW2m8NN0fXx2+s2WKrIau9VfutkFnBDxiRTS9/5
+	en1r8cuIFenydVeYNwphQEUdoDylxrjz0p56y24I9OGhr/TKM6sq/wxCELyJGwDVp+PukHFABukG7
+	j5kB3piA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulVDb-00000008MvY-1vWh;
-	Mon, 11 Aug 2025 16:17:51 +0000
-Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
+	id 1ulVGC-00000008Nex-19XA;
+	Mon, 11 Aug 2025 16:20:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulTEj-00000007y8k-0LjS
+	id 1ulTFS-00000007yGF-1R8A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 14:10:54 +0000
-Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-61580eb7995so8929038a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 07:10:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1754921451; x=1755526251; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VlWQwa2PAoVxO2iD+h8/whtAT2rN/XrFrW/caXqog0A=;
-        b=WeaytjFy0nh8V6im9gSegr9f51EBi/ulym3+OYa3j7pr/xovXmAnEgG98BPwVm5Vva
-         IUSDuxn4zD4LvYc8GqsQmBTA3/AFDu7oPkSngn7vFETHOxdTYdwdlHtfG2CD7xtfvr3a
-         0LSL1ZmdvT4Q0tv7VF4+FYPOTWX8F2zhcpCMCHK/dDSjthIc4Q/9tf/kH+urrrOc18DB
-         Enu7Rm/BUF+wf1miTJ95RPOiJRUMmyMt+qEOELlam/8ddEwdhVXlwUXw2mQFg1t3STMQ
-         OxxpESAUeI5FFiMGrqM7DG1HtSqFNa8Z/tINrfMki0d+kHseTyAsQJnmVup+1amNj7Ee
-         KOBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754921451; x=1755526251;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VlWQwa2PAoVxO2iD+h8/whtAT2rN/XrFrW/caXqog0A=;
-        b=n4iU9RsUn1JC61IEWjhMdeXZzJ3PZbPPrP0lZhi5nJHky5viUV1tOVcjBKaUD9pb7V
-         NzqTAHNRYIINk+VaAkWW5avAWMdEVaW12npBodNubzJH5+VoBKT3u9mbYqrQUEnmOlMt
-         7vJXymbLQmlwWyZq43tEjzVi6wA4Ty9tdJ3ac9GbNT9OkshxKIWFqT9cgBiWIQDDUDAY
-         xAjAfyH4Mnr40VMLIymO71blOPtq15/Kc5UoSpmdfYmBbw90oLjYJQbMZ0HrJqRABi0o
-         sJnYblGLAS2EGI50NuCmPXstZ/2ulvq0GleBW6ZoF5cNUYGmTtHyiAYs1wrj08dIw2k7
-         XdSA==
-X-Forwarded-Encrypted: i=1; AJvYcCVYsfkj2XlEQXoiOakOgkvXkNKinL0KlPecD8NPyqgZ0PWTy6/NtgPHp4rzGUXQlukGWMSw/nH4W8MeBjP6Ih4g@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi+bQYiBlsTu4IsHByFVO1Wea3we4UivgfNxEXDehvuJvzFbA3
-	ncU3jjv5RO0w7wAkTige4kGYnTY9lOd00ucjW6qodhqfI2HVg1zVNn5/Po3VxF1SgK4=
-X-Gm-Gg: ASbGncsXD43n/vFitzwmupMLXqh/BjlbwNaCUZbZl6cGfd/rIsHCsADxQMInqZ5UA85
-	UPqXRXB6TGTw4e4xo2fJGMpGyJAaz5/y7V4JoK6yAWaFnhziwxgSDwGDNDIkrNow18WFxXV8gCY
-	0ov+64CygW5gZDlqzZyEu2YPuyCmEMnZ+zAaNHIfy5csjJxBOT/NNs200mwB2b+84uR6bMdX1o0
-	xF0K+gBO2ATxkjkVC10QZ/27zyA6oWNU/TfHfd3FB5b9KQld1rXFZaejHju1Z46fvT09SwtZjgi
-	UzCwjPqQYzusF/gQ6o1ELIcct69og3vvyeKiEApABjGfudsp4Dx1MfQmCdXSS+US5thNUu4mZc9
-	yvHIquvpD0RjZTYZheWlQHDxgD+e7YOebQDLMqGOeRpOi5nLXpZ5xf9HAuA3wL4b54Q==
-X-Google-Smtp-Source: AGHT+IGSXO0okwpD5kpNnaGjEGTT73fQPhYl2aV7TxCeznx0RSbicpQ7u0NLlVgRRhjgMGZAIA2ZgA==
-X-Received: by 2002:a05:6402:3491:b0:618:4a1b:e311 with SMTP id 4fb4d7f45d1cf-6184a1be33amr433396a12.3.1754921451307;
-        Mon, 11 Aug 2025 07:10:51 -0700 (PDT)
-Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8f2c265sm18398979a12.26.2025.08.11.07.10.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Aug 2025 07:10:50 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Mon, 11 Aug 2025 14:11:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6ACAA613AE;
+	Mon, 11 Aug 2025 14:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04C30C4CEED;
+	Mon, 11 Aug 2025 14:11:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754921497;
+	bh=HC0XY4Rhc7WOuzRzVmyl37sEhdbWKSBnwHufZNs1mlg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YCnli5jA26zq2pNPHckm2vDfk0UjlenfmUYYa6r4zxT4SvDbqTPGY4e/Xm2uTfzNg
+	 lJbx4VXtQsWqEpP4mvR8bW0qazkFXDdDB+RQ3ZA+/rsyoaFq+I3Mrhpo56v3jU7r9q
+	 mNCGBrZbz5m3YwfzJBfaSkpWwpsqpyyIitgbB5UF8is+j5NT4SghI4DFNcaiRtod2E
+	 VBNLUH0yUHs5ic3z3zAX9hDoHhDk1EKD3xGcBQub25x+4BRdgCrjOEfoN+nIt6dKS8
+	 VXLlVhHtuOBSc8Yaa1WBBfoJfakAJktRvuhamGBuN85S2PE0Bze9VYv0WmpVr2dzzC
+	 xgV/rJFmzNmvQ==
+Date: Mon, 11 Aug 2025 19:41:28 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Harshal Dev <quic_hdev@quicinc.com>
+Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Phil Elwell <phil@raspberrypi.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	kernel-list@raspberrypi.com,
-	Matthias Brugger <mbrugger@suse.com>,
-	iivanov@suse.de,
-	svarbanov@suse.de
-Subject: [PATCH 2/2] arm64: dts: broadcom: amend the comment about the role of BCM2712 board DTS
-Date: Mon, 11 Aug 2025 16:12:35 +0200
-Message-ID: <47f6368a77d6bd846c02942d20c07dd48e0ae7df.1754914766.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
-In-Reply-To: <cover.1754914766.git.andrea.porta@suse.com>
-References: <cover.1754914766.git.andrea.porta@suse.com>
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v19 2/6] remoteproc: Add TEE support
+Message-ID: <aJn6EPjXzq07aDTM@sumit-X1>
+References: <20250625094028.758016-1-arnaud.pouliquen@foss.st.com>
+ <20250625094028.758016-3-arnaud.pouliquen@foss.st.com>
+ <d4694157-a757-41f5-8874-4b67b262bc83@quicinc.com>
+ <7c77dba4-27f9-4840-b9aa-253119308519@foss.st.com>
+ <e5a234c7-0f8d-4b52-95fb-82371c8e4460@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_071053_126801_7B0067D4 
-X-CRM114-Status: GOOD (  20.39  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e5a234c7-0f8d-4b52-95fb-82371c8e4460@quicinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,49 +81,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current board DTS for Raspberry Pi5 states that bcm2712-rpi-5-b.dts
-should not be modified and all declarations should go in the overlay
-board DTS instead (bcm2712-rpi-5-b-ovl-rp1.dts).
+Hi Harshal,
 
-There's a caveat though: there's currently no infrastructure to reliably
-reference nodes that have not been declared yet, as is the case when
-loading those nodes from a runtime overlay. For more details about
-these limitations see [1] and follow-ups.
+On Mon, Aug 04, 2025 at 02:56:18PM +0530, Harshal Dev wrote:
+> Hi Arnaud,
+> 
+> On 8/1/2025 12:53 PM, Arnaud POULIQUEN wrote:
+> > Hello Harshal,
+> > 
+> > 
+> > On 7/31/25 12:25, Harshal Dev wrote:
+> >> Hello Arnaud,
+> >>
+> >> On 6/25/2025 3:10 PM, Arnaud Pouliquen wrote:
+> >>> Add a remoteproc TEE (Trusted Execution Environment) driver that will be
+> >>> probed by the TEE bus. If the associated Trusted application is supported
+> >>> on the secure part, this driver offers a client interface to load firmware
+> >>> by the secure part.
+> >>> This firmware could be authenticated by the secure trusted application.
+> >>>
+> >>> A specificity of the implementation is that the firmware has to be
+> >>> authenticated and optionally decrypted to access the resource table.
+> >>>
+> >>> Consequently, the boot sequence is:
+> >>>
+> >>> 1) rproc_parse_fw --> rproc_tee_parse_fw
+> >>>    remoteproc TEE:
+> >>>    - Requests the TEE application to authenticate and load the firmware
+> >>>      in the remote processor memories.
+> >>>    - Requests the TEE application for the address of the resource table.
+> >>>    - Creates a copy of the resource table stored in rproc->cached_table.
+> >>>
+> >>> 2) rproc_load_segments --> rproc_tee_load_fw
+> >>>    remoteproc TEE:
+> >>>    - Requests the TEE application to load the firmware. Nothing is done
+> >>>      at the TEE application as the firmware is already loaded.
+> >>>    - In case of recovery, the TEE application has to reload the firmware.
+> >>>
+> >>> 3) rproc_tee_get_loaded_rsc_table
+> >>>    remoteproc TEE requests the TEE application for the address of the
+> >>>    resource table.
+> >>>
+> >>> 4) rproc_start --> rproc_tee_start
+> >>>    - Requests the TEE application to start the remote processor.
+> >>>
+> >>> The shutdown sequence is:
+> >>>
+> >>> 5) rproc_stop --> rproc_tee_stop
+> >>>    - Requests the TEE application to stop the remote processor.
+> >>>
+> >>> 6) rproc_tee_release_fw
+> >>>    This function is used to request the TEE application to perform actions
+> >>>    to return to the initial state on stop or on error during the boot
+> >>>    sequence.
+> >>>
+> >>> Signed-off-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+> >>> ---
+> >>> Updates vs version [18]:
+> >>> - rework/fix function headers
+> >>> - use memremap instead of ioremap for the resource table.
+> >>> - realign comments to 80 chars limit, with few exceptions for readability
+> >>> - replace spinlock by mutex and and protect APIs from concurrent access
+> >>> - add support of 64-bit address in rproc_tee_get_loaded_rsc_table()
+> >>> - Generalize teston rproc_tee_ctx.dev to prevent an unbind
+> >>> - update copyright year
+> >>>
+> >>> Updates vs version [17]:
+> >>> Fix warning:
+> >>> warning: EXPORT_SYMBOL() is used, but #include <linux/export.h> is missing
+> >>> ---
+> >>>  drivers/remoteproc/Kconfig          |  10 +
+> >>>  drivers/remoteproc/Makefile         |   1 +
+> >>>  drivers/remoteproc/remoteproc_tee.c | 708 ++++++++++++++++++++++++++++
+> >>>  include/linux/remoteproc_tee.h      |  87 ++++
+> >>>  4 files changed, 806 insertions(+)
+> >>>  create mode 100644 drivers/remoteproc/remoteproc_tee.c
+> >>>  create mode 100644 include/linux/remoteproc_tee.h
+> >>>
 
-Change the comment to make it clear which DTS file will host specific
-nodes, especially the RP1 related nodes which should be customized
-outside the overlay DTS.
+<snip>
 
-Link
-[1] - https://lore.kernel.org/all/CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com/
+> >>> +
+> >>> +static int rproc_tee_ctx_match(struct tee_ioctl_version_data *ver, const void *data)
+> >>> +{
+> >>> +	/* Today we support only the OP-TEE, could be extend to other tees */
+> >>> +	return (ver->impl_id == TEE_IMPL_ID_OPTEE);
+> >>> +}
+> >>> +
+> >>> +static int rproc_tee_probe(struct device *dev)
+> >>> +{
+> >>> +	struct tee_context *tee_ctx;
+> >>> +	int ret;
+> >>> +
+> >>> +	/* Open context with TEE driver */
+> >>> +	tee_ctx = tee_client_open_context(NULL, rproc_tee_ctx_match, NULL, NULL);
+> >>> +	if (IS_ERR(tee_ctx))
+> >>> +		return PTR_ERR(tee_ctx);
+> >>> +
+> >>> +	ret = mutex_lock_interruptible(&ctx_lock);
+> >>> +	if (ret)
+> >>> +		return ret;
+> >>> +
+> >>> +	rproc_tee_ctx.dev = dev;
+> >>> +	rproc_tee_ctx.tee_ctx = tee_ctx;
+> >>> +	INIT_LIST_HEAD(&rproc_tee_ctx.sessions);
+> >>> +	mutex_unlock(&ctx_lock);
+> >>> +
+> >>> +	return 0;
+> >>> +}
+> >>
+> >> As you mentioned above, this could be extended to other TEEs. If so, is it possible for probe
+> >> to be called multiple times if we we have other TEE devices exposing the firmware authentication
+> >> service? In that case, I think rproc_tee_ctx should be dynamically initializated instead of being
+> >> static. And since we are creating a link between the Rproc device and TEE device, a call to a
+> >> function like rproc_tee_start() could retreive the associated TEE device, and then the associated
+> >> rproc_tee? :)
+> > 
+> > I have never seen a use case that requires multiple instances, but perhaps you
+> > have some?
+> > 
+> > We can expect only one TEE, which could be OP-TEE, Trusty, or another.
+> > The device is associated with a unique UUID, so only one instance is expected.
+> > 
+> > That said, making this driver support multiple instances seems like a valid
+> > future enhancement. However, I would suggest implementing it as a second step
+> > when there is a concrete need.
+> > 
+> 
+> My thought process on this stems from 1) the recent ARM FF-A developments and 2) from the current
+> implementation of the TEE subsystem which allows multiple back-end drivers to register themselves
+> via the tee_device_register() API. This means, that it's possible to have a configuration
+> where a platform supports multiple TEEs running as Secure Partitions via FF-A, and each of those
+> TEEs register their services as PTA devices on the TEE bus.
+> 
+> However, I do not really know if it's possible to have a UUID collision in such a case, which
+> would lead to rproc_tee_probe() being called twice above, which is why I raised this question. :)
+> 
+> All of this aside, I realize now that other TEE client drivers are also implemented with a static
+> private data similar to how you are doing it. So perhaps we can think of this as a later
+> enhancement if we believe that the scenario I am describing is not possible in the near future..
+>
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+Theoretically it is possible for multiple TEE services to be there but
+why should a platform/silicon vendor require 2 redundant remoteproc firmware
+loading services to be supported? It should either be a service hosted
+by the trusted OS or can rather be an independent platform service
+running as a FF-A secure partition.
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index adad85e68f1b..865f092608a6 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -4,8 +4,14 @@
-  * the RP1 driver to load the RP1 dtb overlay at runtime, while
-  * bcm2712-rpi-5-b.dts (this file) is the fully defined one (i.e. it
-  * already contains RP1 node, so no overlay is loaded nor needed).
-- * This file is not intended to be modified, nodes should be added
-- * to the included bcm2712-rpi-5-b-ovl-rp1.dts.
-+ * This file is intended to host the override nodes for the RP1 peripherals,
-+ * e.g. to declare the phy of the ethernet interface or the custom pin setup
-+ * for several RP1 peripherals.
-+ * This in turn is due to the fact that there's no current generic
-+ * infrastructure to reference nodes (i.e. the nodes in rp1-common.dtsi) that
-+ * are not yet defined in the DT since they are loaded at runtime via overlay.
-+ * All other nodes that do not have anything to do with RP1 should be added
-+ * to the included bcm2712-rpi-5-b-ovl-rp1.dts instead.
-  */
- 
- /dts-v1/;
--- 
-2.35.3
-
+-Sumit
 
