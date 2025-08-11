@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2DBC87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 03:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FF7C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 05:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MyI6bQ4VKi6kzEU6MGPeSA2rT56TE5vaJOVAfdMj034=; b=LZbyiGsKM74FQvmOQpxY93IYfJ
-	WZB6UwrINrG43xCPqw1aZvzFR2sU0H6p21aUGubIA8P1nSuUymHsiL5x/wu9Giz2D5BdO0EGEqOpH
-	IFJ9g4c5t5aTvk3ZUlsHkYigi7ESVtylgg8CwSBdoYZv0AfGMYC9e9xiPbmzaJ9kGGkSBkGrsjbHK
-	wp47cxUSCwrngQcJxsH0YrpVEqjGN+6SuK4AMpPzLgrjpgKjGsYXE7qPj7gUZfU1MS5pw7w59wMbj
-	BTpqS1LzQCyH1/UOnn+TLTrkCUZXC6EXLI1mq5JEj8m+EL8vDZclriDgRyk+GoZiU15LxvYQFTM20
-	kTE0WBLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qGaUrxnPupGN/G94QupN7sqi/0EBTqM+/xSQq20HIj4=; b=VjD1oDb0OAqEFjdAnLcVTakuuj
+	LNgIdCUPJcXzWHVC2QADEepuHlsQ3z1T8rdnRm7QjSvHfWM8yDfqIqOaDrAFKZwsRCv+oxClb29Js
+	k434Dob1fsWOM5StTIQqZ0D/ahFBsto4RijWOI2DCjWa3HUR6QNPtZXYVbZqMncLD9cKpxuh6RPQg
+	WxSebEZXMR9z+ljUxAXPvxPcWMNOmZJ9/Z+rpnj7P1ddNrAcD5xKQIVcZrbhWW5lC2Ef6f0q2LZcJ
+	5x2Av2BkHXS7lKTI4JVeGwuveUYoz0YsPwQLO+VgAZU5bnydW/SWKWyWy6IG3HjHUDNBXE8PD1NyE
+	CGKp6oIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulJa4-00000006Rux-1h0j;
-	Mon, 11 Aug 2025 03:52:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ulLA6-00000006W16-2HMw;
+	Mon, 11 Aug 2025 05:33:34 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulJBz-00000006Pm8-3Gu0
+	id 1ulL7Z-00000006Vob-3RAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 03:27:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754882841;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=MyI6bQ4VKi6kzEU6MGPeSA2rT56TE5vaJOVAfdMj034=;
-	b=N98C2TSFtN91dW1oU7CzirJAkJIDuwmPCmhoCep1fcn8mkbL2ZPXn7Ijgm9UIJXBdjZt/e
-	qjLgGajyALv5Yp87rz9HUJyPuDyfMpS3+xp3Eirh2iJ99b32e5WDiasDQVfSk7wOVM0PE0
-	tESQtu6okFAMvFyWJU0GHk9p8iEC/1Q=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-111-L97O6ODIOwy9gl_Bi05fFg-1; Sun, 10 Aug 2025 23:25:52 -0400
-X-MC-Unique: L97O6ODIOwy9gl_Bi05fFg-1
-X-Mimecast-MFC-AGG-ID: L97O6ODIOwy9gl_Bi05fFg_1754882751
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-23fe984fe57so64041385ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 20:25:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754882751; x=1755487551;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MyI6bQ4VKi6kzEU6MGPeSA2rT56TE5vaJOVAfdMj034=;
-        b=bAunr99jLYQjQYF1GV5KjySOz5xSW8MBMXdDJHqltXr8ZqcpWntE6YigKbOpU7bQdJ
-         8y7WFwO/hviMLuGoUpdkrFxvpX4qGbljRmNMLgnd0s8fqBTVNX4Tpui6AjOC5WgzhYk6
-         xGfWOdRxItvNmRER35M3Z2iH/3UurHEGeHTcJ0NSDxRHyen4576FtLgCXT2/CfTD4NK2
-         UAveOfhudMnoRcR0QXztLeNQ1UnGLpjvk8Vgk8dgANrNNKFGD1fi9wHbq+I5MC+NeBJl
-         sXgnznshKL3roESSHpAMK0yYGftmEbx0yXr1QsUeu0pVdYhW13NeQ/tHo2NSnTigXirL
-         7dig==
-X-Gm-Message-State: AOJu0Yz/H76jAlkgy8oqH/mnrPfydqhOqHj4TxLx7oAUMDMdP5Ha8Vql
-	4Rc/oBru1NyP/Ff2h499BOLDmHoqULh99HU9mZGvamSjG1tmuNCsy1Y6sem8BNyuR/kSM5Ohqe9
-	wuzDEzKTHi7cyjGQw8OsvGch23DXuwW5c+WGcl+cENs+Op5xqAzvk1WvFMh2TDYzwjUs4SpmQSu
-	C2
-X-Gm-Gg: ASbGnctEKduBgK1MB0VESu9Keb0ieQ7KihUyMCyt6DYNJYSM2IUqy+HLJociIGVU8lI
-	loLX206FNHwbxM/1DpChlixr8BqabddDNwA9PLjEUQ4Wxp0bK+AXtlHfJPWnqt14/g+0tykKdO7
-	NF/B6cyob1uaSRV+lWyawHAqbcdFTGsa7sYcD2Hu2tApioa2T67QpBDo+eV84YSzblqPjqzq3ZJ
-	YiIsFGwpCfrKEgJnLM3YJnRs1mlI58QDyx+uSV5XsSMkD7A5/fe5MjkkjswqiXSYmC0mHYdmfUQ
-	tjB7bd8PK3RTegUe2+klVE+CxhiYtWI=
-X-Received: by 2002:a17:902:f641:b0:240:7c39:9e25 with SMTP id d9443c01a7336-242c220019amr145851335ad.27.1754882750975;
-        Sun, 10 Aug 2025 20:25:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGij+iLLH1kTC74+yPsc/frGl3BwTOOImoH7zdGTiZxVFriyBsG7HIux9tyLkoa+5Pjls7KUw==
-X-Received: by 2002:a17:902:f641:b0:240:7c39:9e25 with SMTP id d9443c01a7336-242c220019amr145851095ad.27.1754882750559;
-        Sun, 10 Aug 2025 20:25:50 -0700 (PDT)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1ef6a8fsm258509715ad.23.2025.08.10.20.25.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Aug 2025 20:25:50 -0700 (PDT)
-Date: Mon, 11 Aug 2025 11:23:49 +0800
-From: Coiby Xu <coxu@redhat.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	kexec@lists.infradead.org
-Subject: [Regression] kdump fails to get DHCP address unless booting with
- pci=nomsi or without nr_cpus=1
-Message-ID: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
+	Mon, 11 Aug 2025 05:30:59 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57B5UjKe1036119;
+	Mon, 11 Aug 2025 00:30:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1754890245;
+	bh=qGaUrxnPupGN/G94QupN7sqi/0EBTqM+/xSQq20HIj4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=yFHpeB+ucmTh/ltorX1Mz72rh6S2cswshu3GSv3iMBWiypkMidCgpzm+ZToswAwS/
+	 N9XM9eELfg7Mku8oh5m+8XokVnqR66d0lDRWZC5ox939jiCBLIxHGHrDd3ajFMGo+y
+	 8ehi3gMjla23FWoSfBtHCrkVU9nkjxk/TJMgLHgs=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57B5Uj0B2434724
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 11 Aug 2025 00:30:45 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 11
+ Aug 2025 00:30:45 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Mon, 11 Aug 2025 00:30:45 -0500
+Received: from [10.249.145.16] ([10.249.145.16])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57B5Ueij2636883;
+	Mon, 11 Aug 2025 00:30:41 -0500
+Message-ID: <be073100-31a0-44a9-8837-8c0adaf1c0ff@ti.com>
+Date: Mon, 11 Aug 2025 11:00:39 +0530
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: AdqohfWQZ9hgnajSZLrWkOPsRrT5cXWm8rBuPNdWg74_1754882751
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
+To: Brandon Brnich <b-brnich@ti.com>, <linux-kernel@vger.kernel.org>
+CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero
+ Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        Udit
+ Kumar <u-kumar1@ti.com>, Darren Etheridge <detheridge@ti.com>
+References: <20250808155555.2632451-1-b-brnich@ti.com>
+Content-Language: en-US
+From: devarsh <devarsht@ti.com>
+In-Reply-To: <20250808155555.2632451-1-b-brnich@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_202723_879564_CBE6DFA6 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20250810_223058_034796_8174432A 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+On 08/08/25 21:25, Brandon Brnich wrote:
+> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
+> present in J722s SoC, supporting baseline encoding of semiplanar based
+> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
+> supported from 64x64 to 8kx8k.
+> 
+> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
 
-Recently I met an issue that on certain virtual machines, the kdump
-kernel fails to get DHCP IP address most of times starting from
-6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
-Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
+Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
 
-     # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
-     # MSI_FLAG_PCI_MSI_MASK_PARENT
-     git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
-     # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
-     # Provide MSI parent infrastructure
-     git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
-     # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
-     # Prepare for PCI MSI/MSIX
-     git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
-     # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
-     # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
-
-
-I'll appreciate it you can provide any suggestion on fixing this issue.
-And I'd be glad to verify any idea as this issue can seem to be reliably
-reproduced only on certain machines.
-
-The aarch64 kdump kernel on Fedora is booted wit "irqpoll nr_cpus=1
-reset_devices cgroup_disable=memory udev.children-max=2 panic=10
-swiotlb=noforce novmcoredd cma=0 hugetlb_cma=0". Removing "nr_cpus=1" or
-"adding pci=nomsi" can make this issue disappear. 
-
-Note I've also reported this issue to
-https://bugzilla.kernel.org/show_bug.cgi?id=220328
-
--- 
-Best regards,
-Coiby
+Regards
+Devarsh
+> ---
+> 
+> Changes in v3:
+>   - Add TI compatible
+>   - Make node name more generic
+> 
+> Changes in v2:
+>   - remove invalid clock-names attribute
+> 
+>  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> index 5cfa7bf36641..c0a104bc87ad 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+> @@ -385,6 +385,16 @@ c7x_1: dsp@7e200000 {
+>  		ti,sci-proc-ids = <0x31 0xff>;
+>  		status = "disabled";
+>  	};
+> +
+> +	e5010: jpeg-encoder@fd20000 {
+> +		compatible = "ti,am62a-jpeg-enc", "img,e5010-jpeg-enc";
+> +		reg = <0x00 0xfd20000 0x00 0x100>,
+> +		      <0x00 0xfd20200 0x00 0x200>;
+> +		reg-names = "core","mmu";
+> +		clocks = <&k3_clks 201 0>;
+> +		power-domains = <&k3_pds 201 TI_SCI_PD_EXCLUSIVE>;
+> +		interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+> +	};
+>  };
+>  
+>  &main_bcdma_csi {
 
 
