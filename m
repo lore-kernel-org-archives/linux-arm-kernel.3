@@ -4,77 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB10CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:04:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FEF5CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gkwU+NrtOQ3YQDNx1VQqaKHQvOV1/1YDtCRZ1UlgtcY=; b=kNUQG4SsV118hOGXL6nzZdTB3N
-	arp3i2LmrBnNfkOHuN/8dfBrfrXp0um5kFtVDaLPQDJwVbyRIHpceVoBpNHcsv/DksiRF8lUffAP/
-	8ettZ+KQjMpqLuaru+iT+6U06vBcWmzzv9MTdHXEwsnufbwoD6RPWRlAotNDFdtCHW+fqOXXI5tvn
-	KYN3hj8beCw39INbxY7+dIHV8Z/G4C2PhILMBO7GVUsCETKZXxsy16QMCK64Tn2x94ckZvQiwZZbf
-	Qm2H+v+HDo/u5xtbpPUxZ4Jw7X+NXDQLHeeWgVwCqFZF/WOf//J1jHNvBiANWTheMETz0keg1goPd
-	p43Z5XZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+1xezh5zigs0Eh1IHXpsvZxf5v0NNa8iAaWLGnBO56k=; b=obXlOY1oUDRc4u58+OQpnfasSl
+	4ER1WZ9rBOY9zLEb1OMgoocO9zkT49xan2qV1KKz4UjSlb/NAHQZ7d0wLHIW+nJDUERoAud+bH01u
+	lWLtGkS6gi/Hvqz2n0POfa1ctey6w59a+cv5Odw18LOyll97oAEw9B5MvQWSrxeYrYa/xLtMPSK+d
+	OJO+reNuf5VowMgeztHgEcT5en1oxPG0vlAkh7zQx4+DDHvATLOpKCwmK8WMTN44ZVVyoyWVq5xSo
+	qJ2OC+R5mngwRwo3mocuGVzAFonKzwHJFqO/tfs4RlaD1k95t8uJKGDLFHQ9sD6sqxg/Sn7QtezlC
+	VCfsHjig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulacw-00000009D6G-1UDg;
-	Mon, 11 Aug 2025 22:04:22 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1ulacx-00000009D9A-2VCc;
+	Mon, 11 Aug 2025 22:04:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulXeL-00000008qCz-3kXy;
-	Mon, 11 Aug 2025 18:53:39 +0000
+	id 1ulXgA-00000008qci-3S16
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 11 Aug 2025 18:55:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=gkwU+NrtOQ3YQDNx1VQqaKHQvOV1/1YDtCRZ1UlgtcY=; b=t3jXhAnmE8Y/32k9kYlIUCcYQw
-	/J4H7928UGvMo0TZOp9WX+4qJq9X/fE9Gf/O1jTV1xLm1Mo887Zu6z3AeggpB1sIDRtzPT7IU4Xdz
-	r8WHp1o98P7Ke/XrHQD+NjEW8GSthCmZp835BpDzysFskpb+9ogqFVjiCQzFeKu3j2jLjm3DB3XQs
-	mjik3koQjcDumMQ7s2rxjYdtWGdShZuq6AO91aKHFCbgSk0ORpdZAv9N0fQjmRihjHfUkp8UIBIqk
-	TI9mhqhPZqovS4cPQX+oRDj/UnHrnr/XfHk9TMtHTSUk39pHwVtuawRiVBPIH9eeV6X8hhaIu/JcY
-	xOav21YQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53150 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1ulXcG-0003aU-1M;
-	Mon, 11 Aug 2025 19:51:28 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1ulXbX-008gqZ-Bb; Mon, 11 Aug 2025 19:50:43 +0100
-In-Reply-To: <aJo7kvoub5voHOUQ@shell.armlinux.org.uk>
-References: <aJo7kvoub5voHOUQ@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 1/9] net: stmmac: add suspend()/resume() platform ops
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=+1xezh5zigs0Eh1IHXpsvZxf5v0NNa8iAaWLGnBO56k=; b=lIZD3dFeilQTR4LppsWvBbofwa
+	UHZ2SlbDrHwxi/IF7S654+DNhnb4peRn6XS+fSBNP6IDWRwow4Dsfcqh2t+AB4U+LHAPnFFWX7ekv
+	P1hylFVt++YZ9mJlBaNVExOTNmlUSY9vUv20VBmQVJKfbnFoV8dLSabfMwfl/F4lxi5oxon4jiMQk
+	RDjH9x52c3whq6JHaUF0Y58KsEStmduIoPYRPKradhx9A1x0636Sx7kdkuQtMY8lwAyR+AJdaaTwH
+	L2RQlpOPezZsjWW/X7Rj1XFhHwn/VeH8cRMmi57rTq+dLLLEnAWM5y6DUXE/fWwGyow3vqxxco1dE
+	2ZI8U/yA==;
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulXg7-0000000FU42-3OrL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 18:55:29 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4b07d2136c0so41648221cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 11:55:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1754938525; x=1755543325; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=+1xezh5zigs0Eh1IHXpsvZxf5v0NNa8iAaWLGnBO56k=;
+        b=nI6bP3rNAkQENzIkHWKZea2A5b4I9rGqlbtH5JXg+QTQuBrhRNZkXxAvfJ7MxKuuG/
+         9Tgepg2coxQSnBjf+F1NlmWL/Rg0ZH2HkXpCsWZon2hpPIrdk6QT/evAUQD8xtO+xDaU
+         okqurcoL+6JwYA8Njm+qE7pXPTiECD3mTMLB4Ir749pAdURZ+7PudAhetufWKhCQ8xMq
+         VNfzjjlf3lW0N8U+mTK3D0BpBW0zPvXnzkhAHn3vXYmc4HFAQdWg1xV/NhQJ4hP2A2EX
+         AVEpvid1+2HACFk8yzxLXolKBcU17dQguCCZHrJjo8e5Rc0tM7doLkr4BAQjA0XYTupl
+         SXkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754938525; x=1755543325;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+1xezh5zigs0Eh1IHXpsvZxf5v0NNa8iAaWLGnBO56k=;
+        b=DhB+e+BNTt73VGX1py4Wf2S27jtkPbKy7Pr9Wn+j/JAKjbLiVQ2Jd4EjVTdjfp7k4E
+         vQ4MWvLvBXEiQuUpNtpEIoRe+LxG4UIZ4y4giHobVKop0tLTCL1S/24wjAv0gSAk0ZYd
+         SXcBBdOH84/VN0Q0IANuWRK+EFnWFv6JfsLM8cfDNBNjltAGyj5QcoXqrRzL52JR+jpr
+         JZQiP7qQXZfVyFZ2Zdlx1+T+6Du+fraInShCouuX8NFxXPy29EMwRVLsNigsJF8x7gOB
+         M4kFyHlKRHbO2zLQ9INZGQb+pYklFdbTSlxTU+HZlKYJObJJSuQV+RbjUESM+wii/Ymg
+         NFPA==
+X-Forwarded-Encrypted: i=1; AJvYcCVplP9/bfToqNhsaaGWziDN11KIyFamNTbx7Iv2zRL2AUVimOQgxWPR1JsNGDt4W7AdClnIKfo/RqiLS7Wcdhp0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxu7XE+jvoCb7zbtPLLu6IB0q4rDNYesZrjqLnkcc19rcPGg8Bh
+	NosQYZGMzkTEGwQMH0POxORLwmlXH+WXRr09RNuIvDAM0EFfmUxE8Q9NtnVr6dBwdCE=
+X-Gm-Gg: ASbGncsex6JMG2tUwhDu0av9ny49pcxdzZCx8e1KZpD8Nyc7nUb5IYqmGlqPjsowtjG
+	3SV/NpT13+swzfZBnBt4d1PQdeimfR0LIA/6iHAfRFtMjEN6jVubk8vPrsU/qZetOVZVjZ2Qcx2
+	40lBIZxyJUy6XaAEYKGiAPkWkbs9O8CzbBZ8U+fpaJkqA/oSIHPEHHUFFOSPmNEMi9DGnLX5064
+	Vojw7Dj+3G4TTHbC9gCuW3IZbYjNrAZ4n+3ikyatslE6Bll7vNaPdiu/coE4PanhG+lj6eHdIX+
+	/u4bJuChIowu/K/aan+TZRTY+f6l5Su1rZ4xSR/taBev2X6fs/zcJJ3lwXI/i6zh9Gv9BnOkZK/
+	wzbnmhjf/F+0diPTtFOh31pdVaE0nJQw8mz6EuebeeREncEMmu9j/0frIU2vcvO0sXKI0
+X-Google-Smtp-Source: AGHT+IGgJZJcKTKM3XxOf4YsuboP55lfsrq1eYtf1kTos3YrkSFpLqpnWNoLYcx3tr3obv49p1pGYQ==
+X-Received: by 2002:a05:622a:2507:b0:4b0:7b80:4761 with SMTP id d75a77b69052e-4b0ecc76dbdmr9999781cf.37.1754938524860;
+        Mon, 11 Aug 2025 11:55:24 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4b08cfbc7b9sm81757831cf.23.2025.08.11.11.55.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Aug 2025 11:55:24 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1ulXg3-00000002V2t-2HW8;
+	Mon, 11 Aug 2025 15:55:23 -0300
+Date: Mon, 11 Aug 2025 15:55:23 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v3 29/29] iommu/arm-smmu-v3-kvm: Add IOMMU ops
+Message-ID: <20250811185523.GG377696@ziepe.ca>
+References: <20250730144253.GM26511@ziepe.ca>
+ <aIo1ImP7R7VhRpVE@google.com>
+ <20250730164752.GO26511@ziepe.ca>
+ <aIt67bOzp6XS_yO-@google.com>
+ <20250731165757.GZ26511@ziepe.ca>
+ <aIurlx5QzEtjpFLd@google.com>
+ <20250801185930.GH26511@ziepe.ca>
+ <aJDGm02ihZyrBalY@google.com>
+ <20250805175753.GY26511@ziepe.ca>
+ <aJNiW48DdXIAFz8r@google.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1ulXbX-008gqZ-Bb@rmk-PC.armlinux.org.uk>
-Date: Mon, 11 Aug 2025 19:50:43 +0100
+In-Reply-To: <aJNiW48DdXIAFz8r@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_115337_930989_EE017B92 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250811_195528_010941_E7225695 
+X-CRM114-Status: GOOD (  35.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,90 +132,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add suspend/resume platform operations, which, when populated, override
-the init/exit platform operations when we suspend and resume. These
-suspend()/resume() methods are called by core code, and thus are
-designed to support any struct device, not just platform devices. This
-allows them to be used by the PCI drivers we have.
+On Wed, Aug 06, 2025 at 02:10:35PM +0000, Mostafa Saleh wrote:
+> I am not sure I understand, the SMMU driver will register its IOMMU
+> ops to probe the devices
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c    |  9 +++++++++
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c    | 12 ++++++++----
- include/linux/stmmac.h                               |  2 ++
- 3 files changed, 19 insertions(+), 4 deletions(-)
+You couldn't do this. But why do you need the iommu subsystem to help
+you do probing for the pKVM driver? Today SMMU starts all devices in
+ABORT mode except for some it scans manually from the fw tables.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f1abf4242cd2..2da4f7bb2899 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7879,6 +7879,9 @@ int stmmac_suspend(struct device *dev)
- 	if (stmmac_fpe_supported(priv))
- 		ethtool_mmsv_stop(&priv->fpe_cfg.mmsv);
- 
-+	if (priv->plat->suspend)
-+		return priv->plat->suspend(dev, priv->plat->bsp_priv);
-+
- 	return 0;
- }
- EXPORT_SYMBOL_GPL(stmmac_suspend);
-@@ -7931,6 +7934,12 @@ int stmmac_resume(struct device *dev)
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 	int ret;
- 
-+	if (priv->plat->resume) {
-+		ret = priv->plat->resume(dev, priv->plat->bsp_priv);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	if (!netif_running(ndev))
- 		return 0;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 030fcf1b5993..21df052eeed0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -901,7 +901,9 @@ static int __maybe_unused stmmac_pltfr_suspend(struct device *dev)
- 	struct platform_device *pdev = to_platform_device(dev);
- 
- 	ret = stmmac_suspend(dev);
--	stmmac_pltfr_exit(pdev, priv->plat);
-+
-+	if (!priv->plat->suspend)
-+		stmmac_pltfr_exit(pdev, priv->plat);
- 
- 	return ret;
- }
-@@ -920,9 +922,11 @@ static int __maybe_unused stmmac_pltfr_resume(struct device *dev)
- 	struct platform_device *pdev = to_platform_device(dev);
- 	int ret;
- 
--	ret = stmmac_pltfr_init(pdev, priv->plat);
--	if (ret)
--		return ret;
-+	if (!priv->plat->resume) {
-+		ret = stmmac_pltfr_init(pdev, priv->plat);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	return stmmac_resume(dev);
- }
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index 26ddf95d23f9..22c24dacbc65 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -248,6 +248,8 @@ struct plat_stmmacenet_data {
- 	void (*ptp_clk_freq_config)(struct stmmac_priv *priv);
- 	int (*init)(struct platform_device *pdev, void *priv);
- 	void (*exit)(struct platform_device *pdev, void *priv);
-+	int (*suspend)(struct device *dev, void *priv);
-+	int (*resume)(struct device *dev, void *priv);
- 	struct mac_device_info *(*setup)(void *priv);
- 	int (*clks_config)(void *priv, bool enabled);
- 	int (*crosststamp)(ktime_t *device, struct system_counterval_t *system,
--- 
-2.30.2
+They switch to identity when the iommu subsystem attaches devices, you
+can continue to do that by having the paravirt driver tell pkvm when
+it attaches.
 
+What is wrong with this approach?
+
+> > > Also I am not sure how that
+> > > looks from the kernel perspective (do we have 2 struct devices per SMMU?)
+> > 
+> > I think you'd want to have pkvm bound to the physical struct device
+> > and then spawn new faux, aux or something devices for the virtualized
+> > IOMMUs that probes the new paravirt driver. This driver would be fully
+> > self contained.
+> 
+> I think it’s hard to reason about this as 2 devices, from my pov it seems
+> that the pKVM HVCs are a library that can be part of separate common file,
+> then called from drivers. (with common ops)
+> Instead of having extra complexity of 2 drivers (KVM and IOMMU PV).
+> However, I can see the value of that as it totally abstracts the iommu ops
+> outside the device specific code, I will give it more thought.
+> But it feels that might be more suitable for a full fledged PV
+> implementation (as in RFC v1 and v2).
+
+Maybe, but I'm feeling sensitive here to not mess up the ARM SMMU
+driver with this stuff that is honestly looking harder and harder to
+understand what it is trying to do...
+
+If you can keep the pkvm enablement to three drivers:
+ - A pKVM SMMU driver sharing some header files
+ - A the untrusted half of the above driver
+ - A para virt IOMMU driver
+
+And not further change the smmu driver beyond making some code
+sharable it sure would be nice from a maintenance perspective.
+
+> I had an offline discussion with Will and Robin and they believe it might
+> be better if we get rid of the kernel KVM SMMUv3 driver at all, and just
+> rely on ARM_SMMU_V3 + extra hooks, so there is a single driver managing
+> the SMMUs in the system.
+
+> This way we don’t need to split current SMMUv3 or have different IOMMU ops,
+> and reduces some of the duplication, also that avoids the need for a fake device.
+> 
+> Then we have an extra file for KVM with some of the hooks (similar to the
+> hooks in arm_smmu_impl_ops we have for tegra)
+> 
+> And that might be more suitable for nesting also, to avoid the bind/unbind flow.
+> 
+> I will investigate that and if feasible I will send v4 (hopefully
+> shortly) based on this idea, otherwise I will see if we can separate
+> KVM code and SMMU bootstrap code.
+
+Maybe, not sure what exactly you imagine here.. You still have your
+para virt driver, yes?
+
+This especially is what bothers me, I don't think you should have a
+para virt driver for pkvm hidden inside the smmu driver at all.
+
+And if we have a smmu driver that optionally doesn't register with the
+iommu subsystem at all - that seems unwise..
+
+Jason
 
