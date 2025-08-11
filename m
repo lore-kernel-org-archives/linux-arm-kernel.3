@@ -4,114 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2165CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:32:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5438CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysJS8u8Fhvri8S6AtBehkn2Zfsj3AWbxJ9fTcztcrag=; b=orDNz1S3I309i0+W3ZyT7FAZjm
-	QEykfe370vaN/2GkhTG5hrNGxlBFgvRHiuGBlroLb4CWDK8m3WaMrqfY83XznnRtFH5bUIU5kQSOK
-	QyEnzTernnIGAb2tcZtsMbQ1Y9/VCHBYuThtYKPdV66fFl6eLt5VsGRZ2gTMx12LJ7eb+TwimxdIj
-	hMGMA3ZJyr0aI1mAlyLW2K9NqKnYxGqrVYUiaawVs7xvZqIT9ylJLMrsCJn77jLQaI93Bhnsvl+e9
-	/ZCbNys+/MxRcJZklyrXcjwcPghguPaKhwqBKHqfjhFlifsOpylM28JKe1Rr15brkFKDwf9ruC5v4
-	W7FXHA2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0zaPGemztCk4pYfEnrqgfqMSGaZRkYVmUY0DvmRJmqo=; b=vaQkk62dmojPB4+ULNfdgtJiq+
+	y5zqHvv+3STAEwrioXq5MUBg4KbfrNjwS6vlmicNvSI7R2A/FhNSDmCInEsigk3U1uLdfOoa43Omk
+	a8DRsMG4Hv3bRJdEdpVS4Lpoc5jvSviDYkIBaGJW/jK0dsJvKOhl6RQNPcVicHf24VZMgz1nqExxw
+	9MsrD/YfgUJocRJqVS8c/DPvuI/LzFtguDiZzW/Vg9Ptj2AMDsJPhgKysZn42xLprNGchmOyMC1DQ
+	5mw+85cJppctwU+iKKDxK+oX5r3ZkNNctPYXJX5j01xqvKHHB/+vMzugYsZKm0cFcfHmXgZtpavFe
+	+5IqKxvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWO8-00000008Yt2-2vGW;
-	Mon, 11 Aug 2025 17:32:48 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1ulWQi-00000008ZBm-2I14;
+	Mon, 11 Aug 2025 17:35:28 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulU2S-000000087nb-4Akl
+	id 1ulU5T-000000088O6-2VOn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 15:02:18 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-458b885d6eeso28488145e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 08:02:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1754924535; x=1755529335; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ysJS8u8Fhvri8S6AtBehkn2Zfsj3AWbxJ9fTcztcrag=;
-        b=lWsZ0+7p1fHnQE8tEKa1HExxu+8UuyJXWnsL82WU/+mMwz0BKrYz8WNT3jycB513dx
-         3QY9SYqUiUenby2ApqNYUiNnvfxO+uYeBGi5Zesdxf0WDxJuagOzx4swPmokCplJPK0b
-         45tqwz2rERm1D48BWPdqUN5apfeN7Q8xaTP+PCn/W2Wh2qq45jULHe4fkGAwA6tNKluV
-         4FsrNsDZhM/GNs6HFV45qDDya2ZRjhmexROh5h05eUfz718jV7jbBnmku9wtgL/iZvbc
-         TDYvDLBopOVx0A7limQ7hrQIQJ88np7qGBjgcR0K4bW+0gSS2Kcush7usW0Ffs6xC49M
-         weNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754924535; x=1755529335;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ysJS8u8Fhvri8S6AtBehkn2Zfsj3AWbxJ9fTcztcrag=;
-        b=ae5v4ZbUxcXJOS4dkHwGk4ZETMKHUZxv2S6Tlxdv9W5r0H1idQ2BaP60TEbeGAkqJK
-         c/TwHzJmYEzW2eZGqdfefPqdYIznqbjiUIoRbkoNxqYBgO5THCrwZibxX2ogGivZQ1Wk
-         xR/7HLKuz+rR30fQ6zDuW3qLQMRACcpFIzhxDtuNyzGoDJ8YZSPgjDwAk0Jw6saYUKVL
-         R66qjMCDE2jJ2sUJiVb9c90ui9Qr7n934DiE8HfRB1xu6qF/6gY23vxe+m7mHdhsLs1+
-         2tBWhcYIVwq9ShOKtoEkFsP6LU134VpswL4Am9hibkQbNCcV8cxx+KnS1lKCO3Xmblzd
-         wxKw==
-X-Forwarded-Encrypted: i=1; AJvYcCVIvDFgo1Wskg+RwRcct4t1kFgFXKB1fDkSATW7M1OXhF98GCPeoAu7HM0imtbICM+FldOsJ7Yzwb9yKStetScd@lists.infradead.org
-X-Gm-Message-State: AOJu0YweiDITssFDy1WqXmtEiof0ucv2Se5HBt9PNDUTgPlgZoE8nLld
-	86R579N1pfrhIs6gdaB+9YlSgwM1atfrg1FGpdyGc2EI00PJQcUcUmSvjcfwf6m4di4=
-X-Gm-Gg: ASbGnctYqzdrXqZhIsnoY6i1GejwjwTEi3MgE8OaVHPylwqCm8mBlycsynOR3PFqYWM
-	v2Tmd5nNBQkbOvW7gJMWtTKeCV1XOqUd+p90BCt5lDaP40tXGLnBd0+kTbkhAue+/pDB9Z6A2Ev
-	7cqkoPu1xPNnEKGis25Fe/Z3AQ8URF3vLTVjdDv7+C81yZEe37EmGCag5IU0xACszJYNZUCzvBT
-	WCq2KS4hmBSGusrv5L651mSIqgabzJu6zOB141FnQOcY3h6Iwm4nFZlIdJ6KFMGIgvn7ymGjlMr
-	0e8cnZQOsCAgb/tIQf6R0+RLhprysVBbJhn9a54xncfYVkJ39oA5kLEPB2plzdkb/m+tBChKI5l
-	ZYI41CEYcBI4+jxkI
-X-Google-Smtp-Source: AGHT+IFiSDH4dTGzeIV+hH7h6pQJ8LcJq0Po1XDJ2GeMsEQEPO5rZY2CszDqq2FuZ2ThQvFn+PGHwg==
-X-Received: by 2002:a05:600c:35c3:b0:456:1a69:94fd with SMTP id 5b1f17b1804b1-45a10b3a3edmr905615e9.0.1754924535221;
-        Mon, 11 Aug 2025 08:02:15 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:6841:8926:4410:c880])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459eff7918csm192649605e9.25.2025.08.11.08.02.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Aug 2025 08:02:13 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 11 Aug 2025 17:02:04 +0200
-Subject: [PATCH 5/5] pinctrl: wpcm450: use new generic GPIO chip API
+	Mon, 11 Aug 2025 15:05:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zx0mTbKGdArxqlBn7x7HSojLWlN48d88HZpyGzPbM50Lq0rscaO52+isMc/OmS2eysc8wJKONOQ0Pv6zKhREi2jD89lXnWIsOpLgda/j3j8kuu9shAsTjuRJy9nLgDfRqkXXgYikiAZD0Ut+2cE/ytmoil+gUraiNThlJhtszU9Mbp6ayQ58DWt7MUeOPX2hofHnS+rYfbTRo6i9INFB9YGQHyh2o2lZgWF8W4F1bXOknb0nPW+JrWNbfO/OJsfY+9d+nSYWoTzlI2A2mYSArBcwckHaVhW3PRBtH6sjHznCY9Y+nD47tpzWriq5XIrvpWaDOSeTh15UF3wT3w+nrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0zaPGemztCk4pYfEnrqgfqMSGaZRkYVmUY0DvmRJmqo=;
+ b=LKIvxJbnFhDcKA1Ertoe1SKyqwhA5GBOLzQ4WaGQW5W/EtumAejG00inQt78xXVCPvaKhXJM4xHzNRK109n/TzGCKXRmWZfgDX3GirZQ5HAuvOI+sVFr4+bnzXV0wXkSgW0uFphA/4CHLCCbMCva8nzkvI4b4IMeQXKwiK+dS7VB5pC2DR9sWusxA2rP8E2A1Q/E1GoM4z5NFXChNDg97NjZv2vTSPOv2Z0+hHhJfUhLta+rHB9N4EoWFoZXY7V6KjkXvSUXidPcx7g7FxCFz4IWYM7C18qIRjV8e2llw2nxmYXgb8vGhqqrOA4UAVI5pgc78IrK4Q6PD7gv2qgaoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0zaPGemztCk4pYfEnrqgfqMSGaZRkYVmUY0DvmRJmqo=;
+ b=WLrs4znQ+qPyT2mkc0TDLMcchj07tg996V9ihKwyNUZUgClLU6h3Oa4o2ugfRQ3WnrRtEofbOs26AY8d1VZZ2ftbZWesV72tu1FS3sK385yLrEXCNVdnOHbXCi+jDXesOrqsx83o22lsD8XQJ6fllOnHT3bV5UdtHw2UaAeE+75KD8ckrJ16yYnX2yMD65t3aIb1MShmx4BBB1HP4EUw93ORgW7SFuDKli8VV0WIF7zCm3ATfYD2Sk5hMSR+2wCOfrJvsz5bpka9s6kAGCBMpBTvNlEs+ZVaCStYNS7zImE5gOCyGvkWVHOkLlfCQYMx05ARgecT0a7f2M7cf3LW1Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VE1PR04MB7453.eurprd04.prod.outlook.com (2603:10a6:800:1b0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.18; Mon, 11 Aug
+ 2025 15:05:18 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9031.011; Mon, 11 Aug 2025
+ 15:05:17 +0000
+Date: Mon, 11 Aug 2025 11:05:09 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Cc: linux-media@vger.kernel.org,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 47/76] media: imx-isi: Access v4l2_fh from file
+Message-ID: <aJoGpTJ6xme8TdMV@lizhi-Precision-Tower-5810>
+References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
+ <20250810013100.29776-48-laurent.pinchart+renesas@ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250810013100.29776-48-laurent.pinchart+renesas@ideasonboard.com>
+X-ClientProxiedBy: PH7PR10CA0011.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::12) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250811-gpio-mmio-pinctrl-conv-v1-5-a84c5da2be20@linaro.org>
-References: <20250811-gpio-mmio-pinctrl-conv-v1-0-a84c5da2be20@linaro.org>
-In-Reply-To: <20250811-gpio-mmio-pinctrl-conv-v1-0-a84c5da2be20@linaro.org>
-To: =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Avi Fishman <avifishman70@gmail.com>, 
- Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
- Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
- Benjamin Fair <benjaminfair@google.com>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-Cc: linux-gpio@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- openbmc@lists.ozlabs.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4523;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=FuIHwRskLSRbzwrVaTM8WNQE9cJKBQppwXKNoQVeoEY=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBomgXtHEGmnbFBea5WN4RyVzy/ytLzLC9kh6vxq
- DDy5vP9Yv6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaJoF7QAKCRARpy6gFHHX
- ch1FEACHNtA8UzYfZDTsRXPIaEfNVsIe/A7suWXcUxzJAJ4wCZsAylvzKkr4JN0hxegkQstolf7
- cqpnmT7yqQ1Qk6wcPN9hZ1SSYHmIrwvaf3mTmEloQV38NDiIm7IGi5WF2anqrWdsXNN3Fqw/Z03
- JdjyJUJ5kL/NyHTWt2wSuJS5hnvdvWygpCfSyzgVrSoOrLyFbcGlnT8I7BNO6P5D84sFm2wi7Jm
- mxORKa6aTz2hN16G9QVmbIatahVLcdG/fcDo/fqSdRfrFH54Sxws3Z1yVZiKcrsVWTD8E0xcIfi
- ah2zKGomVba+cXUDEYljd/xpKApsmMZRcMI7JjiZFjYoOXOGWQk/y66BEo7xGO5cm2Ek7E1c3vb
- cKltTFPFOiJa2IZQm5w2yvy6lA08elwimHnGHoWhZVIzJN/i3zKfcAYeYcM3+Wzv09D9vZIDGa4
- c2jq8H6LaAp67sWaKXv+xE4ZtQpaIDrhcTNQE3EvPDga8ATKWdhmZRx3sX9eaKFUiSdAskTrsxq
- Dr99n5NoKjTUCBXAsZpDkai4eXAliRMhl1omn+dBC7Yu2SOBy23wHHP91AJIGRlZt2CTyMq+9/z
- rvhkL4YUd2ZQIdIRTAOUqWRH/1+EHDZOjJGT66N8dJzDfMyUk55wkaiNTKtvBxo3NxRUbinLL7M
- rPWbiSQMV59HkEA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VE1PR04MB7453:EE_
+X-MS-Office365-Filtering-Correlation-Id: cea3f88b-0a1c-4266-352b-08ddd8e87bbc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|52116014|376014|19092799006|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gnMF4OnOEhd29DA9Q5X+3LGctjDwPyBUc0p6ZMXFPeL+aoPC5NRMC3PyKnc7?=
+ =?us-ascii?Q?n0jOx48LI1M6TB39jXrW19v4IbW8/FBDTjcOX1Nel4Q/Nr2SrhHwU7TtTioV?=
+ =?us-ascii?Q?dheD9o+jkhQy2ZETfykLXtT+P9qk0lul88gMURKghEbdpcQAr4URM/J1srG+?=
+ =?us-ascii?Q?Y8C9Y4550gI92mmn/hXue6YHP8xuTWA7ulOBAEkwx6hjNu/QBi0UXNB1k1TM?=
+ =?us-ascii?Q?wepjNpwEEVJwlgoNxRbSdoKMcnzSYbh3fhJSlR2G/p71xiWmuIUXYVt8l8jT?=
+ =?us-ascii?Q?76mgbdUCU3yqWlxSai3QN76X6t0kb8rCGwluQXALS2ZD9eYYSKCRFTmO2cAz?=
+ =?us-ascii?Q?iK5/oaUB9f4hOiRx6pg9Q4JLd8sJn9iJQpsYT2YqddhbKFoxmAJCnbiiqpUH?=
+ =?us-ascii?Q?9s6pUAAPnrxQYz6PGSff1u0jnq9lFFyZFWE7/RLZdoWTt9Ow6rAz27Zg4iQC?=
+ =?us-ascii?Q?aANbujSOYJCrIblMLzeuvVmip48QPsrBQp5ScEOC73IN6LjpxEFs3rRR2k2S?=
+ =?us-ascii?Q?7so6P9qjJrngLpUGZp8PuEfoAvkoOtiULRvwLSIgiUXtSPD0rtDGD/0vHy/T?=
+ =?us-ascii?Q?xo5aJG27hJIN5hSkhR3+GB108He2UGp3ktnj2nBYdyj5eDSykrQSNhK8f6Ws?=
+ =?us-ascii?Q?eEwy84ENCIcHYSW7qirssrwUR9Ho5jzh/znOkivje3e3XbXIWN2+TFeShzXd?=
+ =?us-ascii?Q?aMKopg4HFH9oMqNPQF4GqyZBVNlZVe/1izMp3SelMhl8ShVJQG/7kZFpvhuP?=
+ =?us-ascii?Q?hTSHc1Fu814xdyvvjAMiHLECUIP71Vnn5VFlx6oXt7sPNwYjnDcYJHbt1tuG?=
+ =?us-ascii?Q?zo4t920SusX0O+2ypH4f+4h8AjxIDfcMvCHfWeJr+SBZnVfpBLj33d2nK8xq?=
+ =?us-ascii?Q?5dac1lhGaVZOkW/Vb3c19VS5tWJIF0913Ov497zOiDuSb3y5mvQo6vVYdvXU?=
+ =?us-ascii?Q?/zetVC+0Ku/cpI6b+aBoYmu/qHBizt14h3njCML3r7GZVO2GQo/PpTJOtGke?=
+ =?us-ascii?Q?3TWGsPobD80AHLFGrimzm53DvWoIOcVc7wp33B5QyaLre/rIdLzfNLCNYmf8?=
+ =?us-ascii?Q?/NE9161PzWRH7rdP8UYf2Z9CQGEMHaAIjZqcEOECZqieTsIAlQvTCjbQ+5PI?=
+ =?us-ascii?Q?ZxDsVZTHpXvqyIqNpHbwM/FBguSXsOxufIf1mvof2lYKFWAdoKE4oogk4V9w?=
+ =?us-ascii?Q?/gmsaJz8ivQq2CzH3zf9KhPx0qturL6TUlwe3PSpUAuWHeaHazfUkPweAbEL?=
+ =?us-ascii?Q?IFFwXRUuTI+0qPNFHiHtlS33ZvlNoEeN0AdgH1MZWJt2Id2x7y17XXb1ZeQ4?=
+ =?us-ascii?Q?LAp4OpXlo86ZX24P7ixY1gFL/B/mXdMEvUwNLBd2p9Cfb1mMedSKGDEZOdfv?=
+ =?us-ascii?Q?4gPuLNfyeEnMoFneZdsQ3G7/wRm02VQ3mPzBq5yA6y7iQuGBCiDsu0twzqmu?=
+ =?us-ascii?Q?LNbm/JH/QYB7PMFONq5TZLuJZRLWmnqVVed6YEKr3rvRvuk6ep2mKg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(52116014)(376014)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aHj/c3AbVuIUkadd3WtEPIwn2gQK+AXQGhf/jk752F+2ToRNcjvACFjNvoBQ?=
+ =?us-ascii?Q?Gz+c49aW1mrKQ25EbzKjGbxDdApdYBLqZYXSeWc6TjJW7ZbyQOqX1PVF55aW?=
+ =?us-ascii?Q?iwnyeRdq49MVjjV2ytT04ntZO6p/L/gJhBVfeZE4XRwjF7tz2J13teqq9Ecp?=
+ =?us-ascii?Q?hor7TSPmbAKVJHgMqAUYpldZnNGJIoDN5anagWmOBs7TRYFA6+zIb38Gtz5Z?=
+ =?us-ascii?Q?bJ//dIY2wm8ed/kKGhefxmOtuUgxBIWbNT8aG8pO1sNnmV/XFNrWv4cGQG++?=
+ =?us-ascii?Q?EQDJFVOHkf2DybGksj8RUFpyGThg+s+YnDrIyAqduGyOslgK21urVaVycd1Z?=
+ =?us-ascii?Q?YOuDKwkWcaz6FOc0XX/uCll7iWS6XHnCHY6hBlhwdeB2J4Aj+IQrirJCreXy?=
+ =?us-ascii?Q?j0jpTDPqkjh2mNNHJHa6oextAva9j5ibGgIcjAcTAuPymzVqvX3Kx3APfYlc?=
+ =?us-ascii?Q?UVB/d1IRjZL/ewyMXL466Vn1YUe1K3Pr1vPl5+KSuMKexZPrtwJMM34w/2zX?=
+ =?us-ascii?Q?BHBy8u4wuGO8eUm6ziJH7HJ44T/cjqvAOA8B5iRUNKmVn3pgBytO8lTEf4Rc?=
+ =?us-ascii?Q?wfNw9mfnaPBaZFzH3aCZSL9Cee75KcrZ/L/wnm9ajf9ZEH20FPCIRnR5qr6j?=
+ =?us-ascii?Q?BqEwzKo9c8sx7YLETC5MSN2FjZxAe37Cr7rf+OPssDVVjjXuMJp8aSKs359o?=
+ =?us-ascii?Q?in7uDkngXId7x5Of3yEOdl6sXpcSoDHqqbk5oThqPY34TccxXztgDYMPdmEr?=
+ =?us-ascii?Q?z43EhkNQSxGV6uyRN2BBqIJSQQmv98oW4lSM9pttoXhawsqIsb41vlLSYWHb?=
+ =?us-ascii?Q?+HNZ37TNCJc+bgQt+PGH/nr0Hvp/Kk36LE1K5Knx8iS2PRT226BWuK/ZZsLE?=
+ =?us-ascii?Q?IlQOJaZwCIInb9HEUNWYGvBGYzloILIYUhsM7t2U1nBz13C5tMNx3CuzVFu+?=
+ =?us-ascii?Q?DOsDb86ARH3n8/oDEPU3Ds6/cvsc8fL9nI1fdvImh9i9RRvD5GT7BDyJaNZi?=
+ =?us-ascii?Q?pwYvq3WTxyVV9M+cWWt2oJb3vWXxzFnyngvKlwkAbk1FKn+itx7S2X1LuE8+?=
+ =?us-ascii?Q?JlGUK5l9zi4HpvNKhsGya7IJL+U4tsfR+IlU7SW5DhogxYxCEbbSvGVqMXZb?=
+ =?us-ascii?Q?1UoKyHK0KXZGv9/T6TYxQk+gppgDa7eO+AYm+FzB+6TOU65ZFPsUOzARMw5g?=
+ =?us-ascii?Q?ioLiIRv9PmJTmwTZUBXwXAWXwFpMSLM+K5RMEXl9Tr8mPdiR2Siw594hPKpP?=
+ =?us-ascii?Q?GH44xqFvnMIfsaONJd2kg41Lb/aKfSgeujFZluSwl6sw5kfqUatnn4hACX/L?=
+ =?us-ascii?Q?ULuedupBlIehovxJ7dqR6kgmzWo02iqXTcECln7CQYnOrDiUdJk870JwUjWk?=
+ =?us-ascii?Q?dU55a2UW7vGgJeJCaGHuR/OExhcKHTekQ8zMORNMWi4CBPniIZlxHfd1BZxR?=
+ =?us-ascii?Q?58gOQKWpZ1SPVrg5okWUCfcG4UgMKZLu8HLQjo+uXJHo+eeZjGo3NvCySAAM?=
+ =?us-ascii?Q?6SFr9fft6CQj4MTnYx6EjXkHzMW+9PHnkMDTsErQpLRVOK1uc6ctWomTkA4K?=
+ =?us-ascii?Q?EA/x2TKAXbwfLknBRLw=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cea3f88b-0a1c-4266-352b-08ddd8e87bbc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2025 15:05:17.8411
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /I3xNksszuv9puCNGi7BiLzCAevZpAxz5JsTvGP1VJyyh+Wg6NtF7+ALDLnJBWAj94FmMhWG49IhCPbPvucylQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7453
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_080217_055281_FE9D2771 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20250811_080523_647824_E9DA8790 
+X-CRM114-Status: GOOD (  19.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,126 +163,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Sun, Aug 10, 2025 at 04:30:29AM +0300, Laurent Pinchart wrote:
+> From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>
+> The v4l2_fh associated with an open file handle is now guaranteed
+> to be available in file->private_data, initialised by v4l2_fh_add().
+>
+> Access the v4l2_fh, and from there the driver-specific structure,
+> from the file * in all ioctl handlers.
+>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> ---
 
-Convert the driver to using the new generic GPIO chip interfaces from
-linux/gpio/generic.h.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/pinctrl/nuvoton/pinctrl-wpcm450.c | 44 ++++++++++++++++++++-----------
- 1 file changed, 28 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/pinctrl/nuvoton/pinctrl-wpcm450.c b/drivers/pinctrl/nuvoton/pinctrl-wpcm450.c
-index 8d8314ba0e4cb55db2b1d3adf2de07e6fb93c279..4dd8a3daa83e44b0e2780fedb03ab11fa46a4b7d 100644
---- a/drivers/pinctrl/nuvoton/pinctrl-wpcm450.c
-+++ b/drivers/pinctrl/nuvoton/pinctrl-wpcm450.c
-@@ -11,6 +11,7 @@
- 
- #include <linux/device.h>
- #include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
- #include <linux/mfd/syscon.h>
-@@ -47,7 +48,7 @@ struct wpcm450_pinctrl;
- struct wpcm450_bank;
- 
- struct wpcm450_gpio {
--	struct gpio_chip	gc;
-+	struct gpio_generic_chip chip;
- 	struct wpcm450_pinctrl	*pctrl;
- 	const struct wpcm450_bank *bank;
- };
-@@ -184,11 +185,12 @@ static void wpcm450_gpio_irq_unmask(struct irq_data *d)
- }
- 
- /*
-- * This is an implementation of the gpio_chip->get() function, for use in
-- * wpcm450_gpio_fix_evpol. Unfortunately, we can't use the bgpio-provided
-- * implementation there, because it would require taking gpio_chip->bgpio_lock,
-- * which is a spin lock, but wpcm450_gpio_fix_evpol must work in contexts where
-- * a raw spin lock is held.
-+ * FIXME: This is an implementation of the gpio_chip->get() function, for use
-+ * in wpcm450_gpio_fix_evpol(). It was implemented back when gpio-mmio used a
-+ * regular spinlock internally, while wpcm450_gpio_fix_evpol() needed to work
-+ * in contexts with a raw spinlock held. Since then, the gpio generic chip has
-+ * been switched to using a raw spinlock so this should be converted to using
-+ * the locking interfaces provided in linux/gpio/gneneric.h.
-  */
- static int wpcm450_gpio_get(struct wpcm450_gpio *gpio, int offset)
- {
-@@ -329,7 +331,7 @@ static void wpcm450_gpio_irqhandler(struct irq_desc *desc)
- 	for_each_set_bit(bit, &pending, 32) {
- 		int offset = wpcm450_irq_bitnum_to_gpio(gpio, bit);
- 
--		generic_handle_domain_irq(gpio->gc.irq.domain, offset);
-+		generic_handle_domain_irq(gpio->chip.gc.irq.domain, offset);
- 	}
- 	chained_irq_exit(chip, desc);
- }
-@@ -1012,7 +1014,7 @@ static int wpcm450_gpio_add_pin_ranges(struct gpio_chip *chip)
- 	struct wpcm450_gpio *gpio = gpiochip_get_data(chip);
- 	const struct wpcm450_bank *bank = gpio->bank;
- 
--	return gpiochip_add_pin_range(&gpio->gc, dev_name(gpio->pctrl->dev),
-+	return gpiochip_add_pin_range(&gpio->chip.gc, dev_name(gpio->pctrl->dev),
- 				      0, bank->base, bank->length);
- }
- 
-@@ -1029,6 +1031,7 @@ static int wpcm450_gpio_register(struct platform_device *pdev,
- 				     "Resource fail for GPIO controller\n");
- 
- 	for_each_gpiochip_node(dev, child) {
-+		struct gpio_generic_chip_config config;
- 		void __iomem *dat = NULL;
- 		void __iomem *set = NULL;
- 		void __iomem *dirout = NULL;
-@@ -1060,17 +1063,26 @@ static int wpcm450_gpio_register(struct platform_device *pdev,
- 		} else {
- 			flags = BGPIOF_NO_OUTPUT;
- 		}
--		ret = bgpio_init(&gpio->gc, dev, 4,
--				 dat, set, NULL, dirout, NULL, flags);
-+
-+		config = (typeof(config)){
-+			.dev = dev,
-+			.sz = 4,
-+			.dat = dat,
-+			.set = set,
-+			.dirout = dirout,
-+			.flags = flags,
-+		};
-+
-+		ret = gpio_generic_chip_init(&gpio->chip, &config);
- 		if (ret < 0)
- 			return dev_err_probe(dev, ret, "GPIO initialization failed\n");
- 
--		gpio->gc.ngpio = bank->length;
--		gpio->gc.set_config = wpcm450_gpio_set_config;
--		gpio->gc.fwnode = child;
--		gpio->gc.add_pin_ranges = wpcm450_gpio_add_pin_ranges;
-+		gpio->chip.gc.ngpio = bank->length;
-+		gpio->chip.gc.set_config = wpcm450_gpio_set_config;
-+		gpio->chip.gc.fwnode = child;
-+		gpio->chip.gc.add_pin_ranges = wpcm450_gpio_add_pin_ranges;
- 
--		girq = &gpio->gc.irq;
-+		girq = &gpio->chip.gc.irq;
- 		gpio_irq_chip_set_chip(girq, &wpcm450_gpio_irqchip);
- 		girq->parent_handler = wpcm450_gpio_irqhandler;
- 		girq->parents = devm_kcalloc(dev, WPCM450_NUM_GPIO_IRQS,
-@@ -1094,7 +1106,7 @@ static int wpcm450_gpio_register(struct platform_device *pdev,
- 			girq->num_parents++;
- 		}
- 
--		ret = devm_gpiochip_add_data(dev, &gpio->gc, gpio);
-+		ret = devm_gpiochip_add_data(dev, &gpio->chip.gc, gpio);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "Failed to add GPIO chip\n");
- 	}
-
--- 
-2.48.1
-
+> Changes since v1:
+>
+> - Update file-to-ctx macro due to removal of fh-to-ctx macro
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-m2m.c  | 17 ++++++-----------
+>  1 file changed, 6 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index 31298307c672..5501214cc6c0 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -74,14 +74,9 @@ to_isi_m2m_buffer(struct vb2_v4l2_buffer *buf)
+>  	return container_of(buf, struct mxc_isi_m2m_buffer, buf.vb);
+>  }
+>
+> -static inline struct mxc_isi_m2m_ctx *to_isi_m2m_ctx(struct v4l2_fh *fh)
+> -{
+> -	return container_of(fh, struct mxc_isi_m2m_ctx, fh);
+> -}
+> -
+>  static inline struct mxc_isi_m2m_ctx *file_to_isi_m2m_ctx(struct file *filp)
+>  {
+> -	return to_isi_m2m_ctx(file_to_v4l2_fh(filp));
+> +	return container_of(file_to_v4l2_fh(filp), struct mxc_isi_m2m_ctx, fh);
+>  }
+>
+>  static inline struct mxc_isi_m2m_ctx_queue_data *
+> @@ -432,7 +427,7 @@ static int mxc_isi_m2m_try_fmt_vid(struct file *file, void *fh,
+>  	const enum mxc_isi_video_type type =
+>  		f->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE ?
+>  		MXC_ISI_VIDEO_M2M_OUT : MXC_ISI_VIDEO_M2M_CAP;
+> -	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx *ctx = file_to_isi_m2m_ctx(file);
+>
+>  	__mxc_isi_m2m_try_fmt_vid(ctx, &f->fmt.pix_mp, type);
+>
+> @@ -442,7 +437,7 @@ static int mxc_isi_m2m_try_fmt_vid(struct file *file, void *fh,
+>  static int mxc_isi_m2m_g_fmt_vid(struct file *file, void *fh,
+>  				 struct v4l2_format *f)
+>  {
+> -	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx *ctx = file_to_isi_m2m_ctx(file);
+>  	const struct mxc_isi_m2m_ctx_queue_data *qdata =
+>  		mxc_isi_m2m_ctx_qdata(ctx, f->type);
+>
+> @@ -457,7 +452,7 @@ static int mxc_isi_m2m_s_fmt_vid(struct file *file, void *fh,
+>  	const enum mxc_isi_video_type type =
+>  		f->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE ?
+>  		MXC_ISI_VIDEO_M2M_OUT : MXC_ISI_VIDEO_M2M_CAP;
+> -	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx *ctx = file_to_isi_m2m_ctx(file);
+>  	struct v4l2_pix_format_mplane *pix = &f->fmt.pix_mp;
+>  	const struct mxc_isi_format_info *info;
+>  	struct vb2_queue *vq;
+> @@ -489,7 +484,7 @@ static int mxc_isi_m2m_s_fmt_vid(struct file *file, void *fh,
+>  static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+>  				enum v4l2_buf_type type)
+>  {
+> -	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx *ctx = file_to_isi_m2m_ctx(file);
+>  	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
+>  	const struct v4l2_pix_format_mplane *out_pix = &ctx->queues.out.format;
+>  	const struct v4l2_pix_format_mplane *cap_pix = &ctx->queues.cap.format;
+> @@ -577,7 +572,7 @@ static int mxc_isi_m2m_streamon(struct file *file, void *fh,
+>  static int mxc_isi_m2m_streamoff(struct file *file, void *fh,
+>  				 enum v4l2_buf_type type)
+>  {
+> -	struct mxc_isi_m2m_ctx *ctx = to_isi_m2m_ctx(fh);
+> +	struct mxc_isi_m2m_ctx *ctx = file_to_isi_m2m_ctx(file);
+>  	struct mxc_isi_m2m_ctx_queue_data *q = mxc_isi_m2m_ctx_qdata(ctx, type);
+>  	struct mxc_isi_m2m *m2m = ctx->m2m;
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
+>
 
