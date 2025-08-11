@@ -4,70 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6B0C87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA223C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8wb/yQcraBD38A6ZGHYoXhCAbkH7/ii4JJPfnbEvOY=; b=AxM87WlNIZEkzaHkU1jZF4U8ay
-	C+JGOodvd7brmmdTfVdGU68684z6pJch0Ayv5+jv4EnG43tMx85ApVtsoO+Vo4k/hlU8Nnbd0HDh7
-	eBdEGHLch06rN4bvbsw3vcxSMUDNcYyymVuASPv4xa598DbQdkI5DC1Wv+wIpr+RqWaw0lcbyrlOh
-	5RxJoVYsjJ66DuUR70jQRrukzSe/WB0UOcNpnjBFVpNW0wYy0h+AP9m/mn6msb9plZOr/ZeKqxG4G
-	BZUgM9AAEU8LJMr7kYC0SFW5h6xjwKwZ3zyz20axApeQ5M/Ar17wkSVjYFuq+BaJXreOX7V6AYLb9
-	1yPxXokA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XNinH6Bc97KD32RR3I3NHBOxkpQNRVCoO8xfB7DqeVw=; b=Sj6WQDOQwE9fvsN+wWcuO9xQ2j
+	dCeLu9HJ3e3TQDoh9Lj2mjmTptekO+j4iPK9uzZ+4mQLTIcf6WdZprfLe7sTe9RnHEmwFt3BchdM0
+	1N/mgYY/ObgQE6bh6Bd90FB/Dj0Hveuu7+Pj9+X9fA/nMvA56gKDcvzapit034NvktGhLruS3EGnv
+	AUqMkMBtZSiIWKvNft9eFv6b0ux77jYMmEHb/lgqF8PiPAaixDv8xLeR2kMlkk+hYfk6kLjNZPPbj
+	gAbZM7zZqGmf5K086w226kF0Vf4VS/pmKjpFyeISXDdkffDt/BpVasMUlLJZQnE+/zmHJ9bBhpDx3
+	Cm92SNtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulS4q-00000007jp2-3ffW;
-	Mon, 11 Aug 2025 12:56:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1ulS7R-00000007kMa-1OP1;
+	Mon, 11 Aug 2025 12:59:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulS1C-00000007jGu-1r3E;
-	Mon, 11 Aug 2025 12:52:51 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1754916768;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z8wb/yQcraBD38A6ZGHYoXhCAbkH7/ii4JJPfnbEvOY=;
-	b=P+SwpmTJB1x2jNcuFUAHaluKSlCKiJuebZIYRBo5LFBQ9lEXLBfIq7/iAPPylOYpfx54Jd
-	wdmfSHUjTeri6geIuPz+/5zBEwMWHIBqwaYqAxJdD1dljQKnRY7wCjT+ZLQ88H8ZC+SK7o
-	D9h2upzLrRk6wF+Zbj6pZepPdjDNFoaSqwkkz7P8mT4np5hbRRWwkIxatkjqllQKcf5o3f
-	J0Rk17d5wH1xz3rrO//pKwVaBLEeoa/IX4AJZIbcksQ+DzGcvVNGQf6JcN0mDvxWFcFKXU
-	0Z5ff0DEoHeEFCRluJLduKnPdEDkjVpzGI2QkHaK/9fDXEaHIdo/efSzGi5z0A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1754916768;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z8wb/yQcraBD38A6ZGHYoXhCAbkH7/ii4JJPfnbEvOY=;
-	b=6OkO09b5uefLLQygsaYrxy4/iIH6iDnvW2eOBtCYNvtDrER4xoq4YKH0PZuEFSXTXXMwMr
-	pPGuAV5UXewH+pDg==
-To: patchwork-bot+linux-riscv@kernel.org, Nam Cao <namcao@linutronix.de>
-Cc: linux-riscv@lists.infradead.org, maz@kernel.org, atenart@kernel.org,
- andrew@lunn.ch, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, shawnguo@kernel.org,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- chenhuacai@kernel.org, jiaxun.yang@flygoat.com, anup@brainfault.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- linux-mips@vger.kernel.org
-Subject: Re: [PATCH 00/12] irqchip: MSI cleanup and conversion to MSI parent
- domain
-In-Reply-To: <175486033550.1221929.7725164280675452092.git-patchwork-notify@kernel.org>
-References: <cover.1750860131.git.namcao@linutronix.de>
- <175486033550.1221929.7725164280675452092.git-patchwork-notify@kernel.org>
-Date: Mon, 11 Aug 2025 14:52:47 +0200
-Message-ID: <87ecti81gg.ffs@tglx>
+	id 1ulS27-00000007jPc-0bTy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 12:53:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D457E45BE6;
+	Mon, 11 Aug 2025 12:53:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C902EC4CEF4;
+	Mon, 11 Aug 2025 12:53:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754916826;
+	bh=bkLQoeGtLlgbF3eaMiROpTkydiOzkrNMAf6kymynPQo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=d4WtsYNrrnIeTsDJjbD3LVA0HJBpNeKZyTA70cynAGYyyFIl6m29eLWMOalAoXg0K
+	 MwWjVg/lEASbBy01jolc828Ww9gcZ+tcaWhcF/n2V5SoXsDKXGwbLkAagN/083YGpw
+	 dbqmMSxtfHqMhC4XQnAvcuHxJapP9mr4YrYSiDE+zKhNErZA5LOt/OSz7Afgl3/Vtb
+	 u0C+i8vaxNA2QNFhRhCoTyYFHT9/+h+SO6uzEZwygUGNHUAWtibrzyJAUoGx8Kk6+p
+	 kyqFf+Qv7Nk/6TRtK3iRTW4S0aQmJWRBlkHb8RnVFsqdgERWfXLFNOE5ix2LtRjhJE
+	 pV9SYn45A/pcA==
+Message-ID: <55582d2a-5357-457a-b121-ce6be25d6ae3@kernel.org>
+Date: Mon, 11 Aug 2025 14:53:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] memory: stm32_omm: Fix req2ack update test
+To: Patrice CHOTARD <patrice.chotard@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christophe Kerello <christophe.kerello@foss.st.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250807-upstream_omm_fix_req2ack_test_condition-v2-1-d7df4af2b48b@foss.st.com>
+ <39c67e57-e4e6-46ba-bd61-46afc650381c@kernel.org>
+ <a55774bf-1133-48c2-ad20-7a69f340bd78@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <a55774bf-1133-48c2-ad20-7a69f340bd78@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_055250_618414_D2D97AC9 
-X-CRM114-Status: UNSURE (   8.74  )
+X-CRM114-CacheID: sfid-20250811_055347_225412_CCBE697F 
+X-CRM114-Status: UNSURE (   9.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,25 +123,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10 2025 at 21:12, patchwork-bot wrote:
+On 11/08/2025 14:49, Patrice CHOTARD wrote:
+> 
+> 
+> On 8/11/25 09:09, Krzysztof Kozlowski wrote:
+>> On 07/08/2025 09:34, Patrice Chotard wrote:
+>>> If "st,omm-req2ack-ns" property is found and its value is not 0,
+>>> the current test doesn't allow to compute and set req2ack value,
+>>> Fix this test.
+>>>
+>>> Fixes: 8181d061dcff ("memory: Add STM32 Octo Memory Manager driver")
+>>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+>>> ---
+>>> Changes in v2:
+>>> - Add more detail in commit message
+>>> - Remove "Cc: <stable@vger.kernel.org>" tag as the fixed patch is not part of a LTS.
+>>
+>> Why LTS would matter? Which kernel is being fixed here?
+> 
+> Hi Krzysztof,
+> 
+> The fixed kernel is v6.16.
+Then you need Cc stable. Only unreleased kernels are... well, unreleased.
 
-> Hello:
->
-> This series was applied to riscv/linux.git (fixes)
-> by Thomas Gleixner <tglx@linutronix.de>:
-...
-> Here is the summary with links:
->   - [01/12] irqdomain: Add device pointer to irq_domain_info and msi_domain_info
->     https://git.kernel.org/riscv/c/858e65af9135
-...
-> You are awesome, thank you!
+Fixed while applying, but your other patches might have same issue.
 
-I know that I'm awesome, but this broken patchwork bot is _not_
-
-Why the hell does it waste electrons and inbox space on stuff which is
-
-    A) applied on a different tree
-
-    B) already upstream
-
+Best regards,
+Krzysztof
 
