@@ -4,61 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113C7CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0FC9CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MvUh5KjbPYqTTPY5zOWGYqXAkITl46hLm6LHWho0akU=; b=Eg0PwQ04kCb4qxKDT8Oe9f1Z8l
-	6fxaSV7B3UUjaqBS4JkptGNg78aK4jFwv9iRKJpFPtb7/HRwaA9dOjf+Zjaukz3lYoyDaxLJ++T0n
-	/nzHr8naaiw6p00hB3bF2DwF67oxjGlAi9s5O/uIEhBx9wvQdYX3QjpD1dDnyPhLdAC1R1i+wryTe
-	myxr0dUS2mWdFlUbALywqY/xHvj1K9nfNm3z6GNi1SB0tcc9d1reYxoq+7msXFQRUfa/qBLnZS8NI
-	7gecwwRozZVbNC4sCwH/EMyQSdJcMr4UUbiD3oerkm6bd4xieMf345PDjo2PlNpMnXuo8fK/mChH2
-	xJaXYeKw==;
+	bh=zgIO+XmpkTtpSDO7Rk+Xsg+mxUzZbf690FleZKirkhk=; b=2k3fuBT2sPy2s4IKEH8lmEuzVV
+	+sDpP5CurbaUuVTO/EQui7yQJhpKvZdrrjSB1UjBsGnauEB+VSNcKMM8pPCNHmzRam2U8aaCETQwM
+	JJqIwvingZo3LhqvgRAnufQVX8bYnBQtD6dQq8XqxlHDmHxE+K8FLlqWzcKIGwmA4tAGQgWOOsaaI
+	V+j2h5LfUstiF5QfVFEpQcW/GuiBEL2kx8VfqwALUVMcnohBRQiUdg8EI7rCzMZ3Gx21t6N5PrI+C
+	SidHLecJyUGrS9uXvv/j+DToXUYN10lDzlmnbn1p1Zw02Cadl6hNEgZE5cscY6Dj7R1RlKRGoQjkT
+	0nYnrQbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulYLk-00000008wSg-3gRA;
-	Mon, 11 Aug 2025 19:38:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulYTo-00000008y3C-0Daf;
+	Mon, 11 Aug 2025 19:46:48 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWo3-00000008cJo-1T8b
+	id 1ulXDy-00000008mZ7-2yxH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 17:59:36 +0000
+	Mon, 11 Aug 2025 18:26:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AADBD439A2;
-	Mon, 11 Aug 2025 17:59:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CE44C4CEED;
-	Mon, 11 Aug 2025 17:59:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BEFADA54AE6;
+	Mon, 11 Aug 2025 18:26:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E5A7C4CEED;
+	Mon, 11 Aug 2025 18:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754935173;
-	bh=O36XC/9T/0nUNSaZaQSg5co3SZptxIWDslq4s9Yy6Wg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QpgsL80zfAWC9Q7wUtwGVXWf09/smmj5mEe8GWsf5YTbUjAqb1H2Wt4HFoZfAv5NO
-	 BDRJ3wO6hMDWThearbyS+BG8a7kFVP78/2v3qzXdmwZSIYBbMIYm8Dhx5KfivtSGMg
-	 ofWLMknobkQhjHnkbQDNGbT2DDchlQrlk+pkX/i76pGVRdWzEGl2VXYg4eaXwNApne
-	 hTMZu21BjoE+QTwUrlt2fA58YHLa8iO3NyjHoxZ5r6NWfPNMGK/VPJNICKSbJ5d4YT
-	 NCHufIgUaAApdjN+052AiTTqpMtKOJjT1CfRsiYTxunavNqRjE728WYAoBJ+WhDKE2
-	 kDx6D3kbHABiA==
-Date: Mon, 11 Aug 2025 10:58:32 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-arm-kernel@lists.infradead.org, x86@kernel.org
-Subject: Re: [PATCH] lib/crypto: sha512: Use underlying functions instead of
- crypto_simd_usable()
-Message-ID: <20250811175832.GE1268@sol>
-References: <20250731223651.136939-1-ebiggers@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250731223651.136939-1-ebiggers@kernel.org>
+	s=k20201202; t=1754936781;
+	bh=yhkmn4Gt30KzruxJTZYjUxCLaZowWIiBxcTh4+xOF/Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aSzc0o05DtQFxvPtRdsc8PVJCkwZozAUaR44FQ/7WVk1GhPAWb8ZEKBYWOi15VTdi
+	 yJVc6DDyizvrVwhamyd0/cJsAWDTxXSCBTlFiB4tY7SdyxKAd8b03XEqZzWWkLjIuC
+	 qbPNZdSs33LzkU0nbWmpb5uQusu5hENSsWkp6G3IZ85p/+hUV4G/j+2lJBrrZ6NDF6
+	 TMsKkHeMxaZB1WOim4JBN7B4SMpfsjnavS1QCPHgbzzdHFy7/YPROQBy/t8NCHEJPu
+	 bQvtpeQ7fHwjHZ72zzVE+9nd+B/bvOmJYZAtUhWcN1yOsFF/VsAWVhVSkglzjulu5M
+	 puKuAiy8v4cpw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ulXDt-006Mhm-TE;
+	Mon, 11 Aug 2025 19:26:18 +0100
+Date: Mon, 11 Aug 2025 19:26:17 +0100
+Message-ID: <86pld190l2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	anshuman.khandual@arm.com,
+	robh@kernel.org,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	Dave.Martin@arm.com,
+	ahmed.genidi@arm.com,
+	kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com,
+	mbenes@suse.cz,
+	james.clark@linaro.org,
+	frederic@kernel.org,
+	rafael@kernel.org,
+	pavel@kernel.org,
+	ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 2/6] arm64: initialise SCTLR2_ELx register at boot time
+In-Reply-To: <20250811163340.1561893-3-yeoreum.yun@arm.com>
+References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
+	<20250811163340.1561893-3-yeoreum.yun@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_105935_407468_A7DD7785 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250811_112622_888399_E9A2ABB1 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,21 +106,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 31, 2025 at 03:36:51PM -0700, Eric Biggers wrote:
-> Since sha512_kunit tests the fallback code paths without using
-> crypto_simd_disabled_for_test, make the SHA-512 code just use the
-> underlying may_use_simd() and irq_fpu_usable() functions directly
-> instead of crypto_simd_usable().  This eliminates an unnecessary layer.
+[dropping ry111@xry111.site, which bounces]
+
+On Mon, 11 Aug 2025 17:33:36 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
 > 
-> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+> add initialisation for SCTRL2_ELx register at boot time.
+
+Again, please expand.
+
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->  lib/crypto/arm/sha512.h   | 5 ++---
->  lib/crypto/arm64/sha512.h | 5 ++---
->  lib/crypto/riscv/sha512.h | 4 +---
->  lib/crypto/x86/sha512.h   | 4 +---
->  4 files changed, 6 insertions(+), 12 deletions(-)
+>  arch/arm64/include/asm/el2_setup.h |  6 ++++++
+>  arch/arm64/include/asm/sysreg.h    | 22 ++++++++++++++++++++++
+>  arch/arm64/kernel/head.S           |  5 ++++-
+>  3 files changed, 32 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index d755b4d46d77..347ac4cc1283 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -48,6 +48,11 @@
+>  	isb
+>  .endm
+>  
+> +.macro __init_el2_sctlr2
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-next
+Writing this as __init_sctlr2_el2 would read vastly better (yes, I
+know most macros in this file are similarly braindead).
 
-- Eric
+> +	init_sctlr2_elx	2, x0
+> +	isb
+> +.endm
+> +
+>  .macro __init_el2_hcrx
+>  	mrs	x0, id_aa64mmfr1_el1
+>  	ubfx	x0, x0, #ID_AA64MMFR1_EL1_HCX_SHIFT, #4
+> @@ -411,6 +416,7 @@
+>   */
+>  .macro init_el2_state
+>  	__init_el2_sctlr
+> +	__init_el2_sctlr2
+>  	__init_el2_hcrx
+>  	__init_el2_timers
+>  	__init_el2_debug
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index d5b5f2ae1afa..8b82af5be199 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -868,6 +868,8 @@
+>  #define INIT_SCTLR_EL2_MMU_OFF \
+>  	(SCTLR_EL2_RES1 | ENDIAN_SET_EL2)
+>  
+> +#define INIT_SCTLR2_EL2			UL(0)
+> +
+>  /* SCTLR_EL1 specific flags. */
+>  #ifdef CONFIG_CPU_BIG_ENDIAN
+>  #define ENDIAN_SET_EL1		(SCTLR_EL1_E0E | SCTLR_ELx_EE)
+> @@ -888,6 +890,8 @@
+>  	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
+>  	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
+>  
+> +#define INIT_SCTLR2_EL1			UL(0)
+> +
+>  /* MAIR_ELx memory attributes (used by Linux) */
+>  #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
+>  #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
+> @@ -1164,6 +1168,24 @@
+>  	msr	hcr_el2, \reg
+>  #endif
+>  	.endm
+> +
+> +	.macro init_sctlr2_elx, el, tmp
+> +	mrs_s	\tmp, SYS_ID_AA64MMFR3_EL1
+> +	ubfx	\tmp, \tmp, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
+> +	cbz	\tmp, .Lskip_sctlr2_\@
+> +	.if	\el == 2
+> +	mov_q	\tmp, INIT_SCTLR2_EL2
+> +	msr_s	SYS_SCTLR_EL2, \tmp
+> +	.else
+> +	mov_q	\tmp, INIT_SCTLR2_EL1
+> +	.if	\el == 12
+> +	msr_s	SYS_SCTLR_EL12, \tmp
+> +	.else
+> +	msr_s	SYS_SCTLR_EL1, \tmp
+> +	.endif
+
+I don't think this is the correct place for this macro.
+asm/assembler.h seems more suitable, and already has that sort of
+things.
+
+> +	.endif
+> +.Lskip_sctlr2_\@:
+> +	.endm
+>  #else
+>  
+>  #include <linux/bitfield.h>
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index ca04b338cb0d..0dff7593e50b 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -276,6 +276,7 @@ SYM_INNER_LABEL(init_el1, SYM_L_LOCAL)
+>  	mov_q	x0, INIT_SCTLR_EL1_MMU_OFF
+>  	pre_disable_mmu_workaround
+>  	msr	sctlr_el1, x0
+> +	init_sctlr2_elx	1, x0
+>  	isb
+>  	mov_q	x0, INIT_PSTATE_EL1
+>  	msr	spsr_el1, x0
+> @@ -298,7 +299,6 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+>  	msr	sctlr_el2, x0
+>  	isb
+>  0:
+> -
+>  	init_el2_hcr	HCR_HOST_NVHE_FLAGS
+>  	init_el2_state
+>  
+> @@ -315,12 +315,15 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+>  
+>  	/* Set a sane SCTLR_EL1, the VHE way */
+>  	msr_s	SYS_SCTLR_EL12, x1
+> +	init_sctlr2_elx	12, x2
+>  	mov	x2, #BOOT_CPU_FLAG_E2H
+>  	b	3f
+>  
+>  2:
+>  	msr	sctlr_el1, x1
+> +	init_sctlr2_elx	1, x2
+>  	mov	x2, xzr
+> +
+>  3:
+>  	mov	x0, #INIT_PSTATE_EL1
+>  	msr	spsr_el2, x0
+
+This is missing something: you should resynchronise SCTLR2_EL2 from
+SCTLR2_EL1 in __finalise_el2, rather than relying on whatever you've
+set in __init_el2_sctlr2.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
