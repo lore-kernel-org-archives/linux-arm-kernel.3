@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4ACCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 18:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 599BCCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 18:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xreD27Fpmb+ZqmNwEP6ViAFZpkCnuQJup+gAGGJ9mTY=; b=jhsWW1+v2GHWxlyHmNNZrLTZ8s
-	LdJU6V5uv3rDku1z5MwkFrCHpIN9j8CpzlgUnG//1VefQ4tTOPRjw5xTZqJdEvrAJnHnBMEjVLHLa
-	oJHa8wFFjK9OBwuAhFW1FVYcjVSXkhJbDojHWXAslSyAD5YbM1QZap7/4yDy8hKxe1qxDMzkxWkhV
-	hXAs+wikAkK5kEOGbb5RfZ7dCCYa9yaTGqbvUZBzhil3Uk6kaZNQ2pA7sgCBu2UlvPUf7ZJVn4ep4
-	kt9Edvwlc8X0HR/ck61JCyHJHCMMYMvPDXtUoe27TXiBCX6BByCtTHU7AudlAFiYE+IibOtPLNLzP
-	lae9y0GQ==;
+	bh=flt0kxjBMaFtcGGsVmeAGdaBovxcVAdiMpj86O+vOGM=; b=ucoXANU5SMJ2YNeYoRoQCnoIPh
+	rEHK7xhTJlHt16vqo7ijlsox/4jLKOZR2XJtrsvTqIndNJGluNyA7qpLu8xaBzd4qNsGUrtiyKoNL
+	SciUPLX0GJfGVaVwT2/lhQl0WHXOwjsfU626PztDpm4v1si0WR0tOHERYxUSFnbjm+tBq0MOtDHYx
+	XvnOuxxn+T9xhwbnrIT/9minvD03lWoVMwgkkzbOVMAYVX/rsy6VXdtR1s80Yx4YRYVOc8Hm1a2qQ
+	6SICeeR/H1mTFOJiQt8HRR5DTP5Z619eYVz2PzcrK8DdpIJOA585VP8CYo90D0fgGgmJV8XvpfgvD
+	1zrehtpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulXNT-00000008nod-0Ws9;
-	Mon, 11 Aug 2025 18:36:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ulXSq-00000008oPF-19RE;
+	Mon, 11 Aug 2025 18:41:44 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUaj-00000008Dua-2CGG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 15:37:42 +0000
+	id 1ulUh7-00000008FFM-3hoc;
+	Mon, 11 Aug 2025 15:44:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83EEB4505B;
-	Mon, 11 Aug 2025 15:37:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D95C4CEED;
-	Mon, 11 Aug 2025 15:37:38 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0FA74A5733D;
+	Mon, 11 Aug 2025 15:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C125C4CEF5;
+	Mon, 11 Aug 2025 15:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754926659;
-	bh=xreD27Fpmb+ZqmNwEP6ViAFZpkCnuQJup+gAGGJ9mTY=;
+	s=k20201202; t=1754927056;
+	bh=+ZafSPu4xL/UKuGsxxL1GvEE5JWzMOCzAIFJcdOdwHY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Oiu9iENrS+e1XQffKABcxvqiEhWohi/qUbxG6ZtAPX1RGPlLyvFq4vT/rvK2TiuWR
-	 x1gKlljxCN5FxXuqrpdWM8tjIowrLYip4heXRaIHDOD2TMPhs+i/QxsaNd9oF3LarC
-	 jDQAMHY3dehZcZ7F1WEYwb0LsMAJ1D/htkO93jYCz1WUoFE7K1UqhkngyGsXNGiST9
-	 j7nyMLStcWg2CQBNDCYYw8ZGCyvdgYX3hrrndQkJvTu7O0cr1cgYIOx9CdtFBC9DmG
-	 +J89Eu80mTAd5ZhbnDsUkQYB1mC4GUaOb473XuKIlJzTdgTuIvg1Mjl3qifU/Pe1mL
-	 Ywy59rof8eU3w==
-Date: Mon, 11 Aug 2025 08:37:38 -0700
+	b=BvPXbUCvlj4Xf1D2IQHKisy0OQo/KCIar+Kv2NnTG6mY0H1m2Q4IgauioHX0RANm6
+	 8Ut7Aw8NHszmC35ncb4nXrUsb+HXgH+08tRf70qiZkgdPt8bNHKf3f43yOpDKvoD3f
+	 uKHKXqvYUuU0Tcl/4ZKCGNN/uqfNV0ovMXCohp1OFFXUNeavi+XFJFG9uA1ZiA1T6V
+	 EN1N1WLu+LYh7oY9v7UUq0FN39vMXqY/UtxAKy+S32ugM+Ydq69MjykOM8OhoUBWH4
+	 hwnyOwzH0yjBhqiSpEuYfqVK1nzk1xdFDR3tSSPQfz/ba17Zrc1sn4UYskE8FQMTlQ
+	 Pmu+T9vsu0sYA==
+Date: Mon, 11 Aug 2025 08:44:14 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-Cc: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
- <davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
- "pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
- <michal.simek@amd.com>, "sean.anderson@linux.dev"
- <sean.anderson@linux.dev>, "Pandey, Radhey Shyam"
- <radhey.shyam.pandey@amd.com>, "horms@kernel.org" <horms@kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
-Subject: Re: [PATCH net] net: xilinx: axienet: Increment Rx skb ring head
- pointer after BD is successfully allocated in dmaengine flow
-Message-ID: <20250811083738.04bf1e31@kernel.org>
-In-Reply-To: <BL3PR12MB65712291B55DD8D535BAE667C92EA@BL3PR12MB6571.namprd12.prod.outlook.com>
-References: <20250805191958.412220-1-suraj.gupta2@amd.com>
-	<20250808120534.0414ffd0@kernel.org>
-	<BL3PR12MB65712291B55DD8D535BAE667C92EA@BL3PR12MB6571.namprd12.prod.outlook.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Ryder Lee
+ <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org, Rex Lu
+ <rex.lu@mediatek.com>
+Subject: Re: [PATCH net-next v2] net: mediatek: wed: Introduce MT7992 WED
+ support to MT7988 SoC
+Message-ID: <20250811084414.6089720d@kernel.org>
+In-Reply-To: <aJoK7e4aEKR96V4h@lore-rh-laptop>
+References: <20250811-mt7992-wed-support-v2-1-e43024c05305@kernel.org>
+	<aJoK7e4aEKR96V4h@lore-rh-laptop>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_083741_586076_0E8A0BD3 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20250811_084417_995553_505A275C 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +80,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 9 Aug 2025 20:31:40 +0000 Gupta, Suraj wrote:
-> > The fix itself seems incomplete. Even if we correctly skip the incremen=
-t we
-> > will never try to catch up with the allocations, the ring will have few=
-er
-> > outstanding Rx skbs until reset, right? Worst case we drop all the skbs=
- and the
-> > ring will be empty, no Rx will happen until reset.
-> > The shutdown path seems to be checking for skb =3D NULL so I guess it's=
- correct
-> > but good to double check..
->=20
-> I agree that Rx ring will have fewer outstanding skbs. But I think
-> that difference won't exceed one anytime as descriptors submission
-> will fail only once due to insufficient space in AXIDMA BD ring. Rest
-> of the time we already will have an extra entry in AXIDMA BD ring.
-> Also, invoking callback (where Rx skb ring hp is filled in
-> axienet)and freeing AXIDMA BD are part of same tasklet in AXIDMA
-> driver so next callback will only be called after freeing a BD. I
-> tested running stress tests (Both UPD and TCP netperf). Please let me
-> know your thoughts if I'm missing something.
+On Mon, 11 Aug 2025 17:23:25 +0200 Lorenzo Bianconi wrote:
+> > Introduce the second WDMA RX ring in WED driver for MT7988 SoC since the
+> > Mediatek MT7992 WiFi chipset supports two separated WDMA rings.
+> > Add missing MT7988 configurations to properly support WED for MT7992 in
+> > MT76 driver.  
+> 
+> I sent this email twice wrongly. Please ignore this one.
 
-That wasn't my reading, maybe I misinterpreted the code.
-
-=46rom what I could tell the driver tries to give one new buffer for each
-buffer completed. So it never tries to "catch up" on previously missed
-allocations. IOW say we have a queue with 16 indexes, after 16 failures
-(which may be spread out over time) the ring will be empty.
+patchwork decided to ignore the other one.
+Are they identical?
 
