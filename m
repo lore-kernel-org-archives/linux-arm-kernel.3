@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0E5CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5B5CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ko1IlxzeeG0WhWznsCyDd4qsA2kzF4MjzYtNNya1F9Q=; b=TyBu/eH7trXfAwMOTy20U7LB7t
-	MevjzCvTcg5+j2++k2id0W7J6cGUtRFCD6TZDVUNO8Eymj2EloDskiA6pOR4kAfxZ5ED4wWqm6Uml
-	av5UJe2pF7F3eGhrxgTz1uCZyBScSA0o4bu6YwdyDEmZ1uJp6VyoCVm+IdJdmGrCfZ0/ghIkiN8Qi
-	SHEIJtpJctbUkhIodn3LUfy773DCLJOQoq7L4N0RV1Xv46jSjWLMl4mLblciEIlDNHH+SIWAsKI2E
-	Dx3hTkMuo4VZfhUSXvdD9q40VyWIaQcqN5XCzBqn5uJX8GM5wsFiLV6XcTjew0imkAONgldzHYuK4
-	KMdTK+rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ywB2J7ZtGdpNwTs5xx/wUpxuvR6/Qw9lbD1G2ulil+4=; b=ormJ5Gzc+aj7jUYFVGS73uI/cC
+	q1zKN9yXxXehspxLZbEK557H3I6rBI6EeQOQ51kNrNzZTz74TIcaITCurpM6BC7swEh/tGJ0QlbAn
+	jyJqeFQKWxTaZBUa/B60xxBytvkQusUtscXNQINxC7IpDKAspK1vqyfwuqs07tltPp2yrNpxtYmaC
+	FJW2g9gSOubgBK8SJHIphC/1vX8Pj78cdCBhIzng5UOjywvzm9CKTPgf65YBIkWyXYFsC72ycBz/i
+	WB7hwJfiQjqgJK4YqUWw0tkwSbFXB5lGqeoJ4NTICAzzKCbStxTWCqyLl1MlvLau4EtpYnfccgL7/
+	XGNW3spA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulaaZ-00000009941-07jm;
-	Mon, 11 Aug 2025 22:01:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ulaal-000000099Wi-1hxM;
+	Mon, 11 Aug 2025 22:02:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUVn-00000008D24-0YCi;
-	Mon, 11 Aug 2025 15:32:36 +0000
+	id 1ulV85-00000008Lmt-1iDX;
+	Mon, 11 Aug 2025 16:12:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 887DE5C563B;
-	Mon, 11 Aug 2025 15:32:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B4FEC4CEED;
-	Mon, 11 Aug 2025 15:32:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 591CE45D6D;
+	Mon, 11 Aug 2025 16:12:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92CC1C4CEED;
+	Mon, 11 Aug 2025 16:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754926354;
-	bh=lMS8srAArZOopesXUER7WhvBNyx7RPJaSGD1q5g3xkc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RyjBAinACeyTwBh60zvhfsaDtE6CbhTfQvaOMMyplCABR1wFFsXlnCVxd1hh3H8pV
-	 AYcExF6vId0aOuQRMou19doFT712xpXx1htYPaVbotKbH5DcE8wbhj4X3VVYIe/yDV
-	 mP5mA26HHfDqeZ30VwCmdQB5KL3+C2XTxGfpNjZEWfvfU2d3hMyUOzWq/2VFts+EPS
-	 vOg3ZKKi9NOiHGFDCjeFM66QBYdjHRVsGEFd/RMZIhM8BC0b4GKqKSJCj3Y3c19QtF
-	 UUCmiqMgXkxqGWgCxk8t0/hZsPLXO3/zTbgQhjVnepEMQqpdPcdFS+DFncioXuFpgT
-	 3bQVzZwx5Z8EQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 11 Aug 2025 17:31:39 +0200
-Subject: [PATCH net-next v7 4/7] net: airoha: npu: Add wlan irq management
- callbacks
+	s=k20201202; t=1754928728;
+	bh=ywB2J7ZtGdpNwTs5xx/wUpxuvR6/Qw9lbD1G2ulil+4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LzaJfVEl3M/Ys3WfHZ9dLYbAm7auCaWvW/s4YH+7GSZcPf0mUlTZguwPJCtvpH7GF
+	 L6Lhba1BWh9vLiFbS8jmINS2Cww+GLUaLep5CHuJi4g3A10hZfY8CE1DZDLuXHR3vo
+	 rnHZz4w1wSzqK0CkspWvZSNGWPd4xMvvQNsRsaZt4J0/R6Fgs/kChA1HVzG0rohErO
+	 D/jS9qAv0IGK7nbN6FbNrJDlCi2vjckCtupQ7qqEbrJuldmHXTkDHFn1L/2yzdKZzC
+	 OF9hdX8oFPVFscbSwb7CMG1pvpyXu9xtJn3MfMpm60uCXiM4e69kSC6s6V3bg/Mflp
+	 YQzxt+93tYqxg==
+Date: Mon, 11 Aug 2025 17:12:02 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vincent Knecht <vincent.knecht@mailoo.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RESEND 0/2] dt-bindings: Drop 'db' suffix duplicating
+ dtschema
+Message-ID: <20250811-pretext-nurture-f26afcb71bc4@spud>
+References: <20250811-dt-bindings-db-v1-0-457301523bb5@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250811-airoha-en7581-wlan-offlaod-v7-4-58823603bb4e@kernel.org>
-References: <20250811-airoha-en7581-wlan-offlaod-v7-0-58823603bb4e@kernel.org>
-In-Reply-To: <20250811-airoha-en7581-wlan-offlaod-v7-0-58823603bb4e@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Simon Horman <horms@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="i7RBXh8TXneQyLtd"
+Content-Disposition: inline
+In-Reply-To: <20250811-dt-bindings-db-v1-0-457301523bb5@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_083235_263874_A9A2CAE2 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250811_091209_469261_FA420DEF 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce callbacks used by the MT76 driver to configure NPU SoC
-interrupts. This is a preliminary patch to enable wlan flowtable
-offload for EN7581 SoC with MT76 driver.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_npu.c | 27 +++++++++++++++++++++++++++
- drivers/net/ethernet/airoha/airoha_npu.h |  4 ++++
- 2 files changed, 31 insertions(+)
+--i7RBXh8TXneQyLtd
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index 2a337f00386f3d1a35b964331f3b09d3db4634f6..5d1355126d16d44e5bc1e0e53df7f378b904ff97 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -520,6 +520,29 @@ static u32 airoha_npu_wlan_queue_addr_get(struct airoha_npu *npu, int qid,
- 	return REG_RX_BASE(qid);
- }
- 
-+static void airoha_npu_wlan_irq_status_set(struct airoha_npu *npu, u32 val)
-+{
-+	regmap_write(npu->regmap, REG_IRQ_STATUS, val);
-+}
-+
-+static u32 airoha_npu_wlan_irq_status_get(struct airoha_npu *npu, int q)
-+{
-+	u32 val;
-+
-+	regmap_read(npu->regmap, REG_IRQ_STATUS, &val);
-+	return val;
-+}
-+
-+static void airoha_npu_wlan_irq_enable(struct airoha_npu *npu, int q)
-+{
-+	regmap_set_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
-+}
-+
-+static void airoha_npu_wlan_irq_disable(struct airoha_npu *npu, int q)
-+{
-+	regmap_clear_bits(npu->regmap, REG_IRQ_RXDONE(q), NPU_IRQ_RX_MASK(q));
-+}
-+
- struct airoha_npu *airoha_npu_get(struct device *dev, dma_addr_t *stats_addr)
- {
- 	struct platform_device *pdev;
-@@ -627,6 +650,10 @@ static int airoha_npu_probe(struct platform_device *pdev)
- 	npu->ops.wlan_send_msg = airoha_npu_wlan_msg_send;
- 	npu->ops.wlan_get_msg = airoha_npu_wlan_msg_get;
- 	npu->ops.wlan_get_queue_addr = airoha_npu_wlan_queue_addr_get;
-+	npu->ops.wlan_set_irq_status = airoha_npu_wlan_irq_status_set;
-+	npu->ops.wlan_get_irq_status = airoha_npu_wlan_irq_status_get;
-+	npu->ops.wlan_enable_irq = airoha_npu_wlan_irq_enable;
-+	npu->ops.wlan_disable_irq = airoha_npu_wlan_irq_disable;
- 
- 	npu->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
- 	if (IS_ERR(npu->regmap))
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.h b/drivers/net/ethernet/airoha/airoha_npu.h
-index 7b9ff370c879333397214401b22157832b656e47..84c83753c2bd8c6a30626377b90169ccffa90a07 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.h
-+++ b/drivers/net/ethernet/airoha/airoha_npu.h
-@@ -89,6 +89,10 @@ struct airoha_npu {
- 				    void *data, int data_len, gfp_t gfp);
- 		u32 (*wlan_get_queue_addr)(struct airoha_npu *npu, int qid,
- 					   bool xmit);
-+		void (*wlan_set_irq_status)(struct airoha_npu *npu, u32 val);
-+		u32 (*wlan_get_irq_status)(struct airoha_npu *npu, int q);
-+		void (*wlan_enable_irq)(struct airoha_npu *npu, int q);
-+		void (*wlan_disable_irq)(struct airoha_npu *npu, int q);
- 	} ops;
- };
- 
+On Mon, Aug 11, 2025 at 03:54:02PM +0200, Krzysztof Kozlowski wrote:
+> Resending because all dependencies are merged.
+>=20
+> Please take individual patches via respective subsystems (phy, leds).
+>=20
+> Previously:
+> - Link to v1: https://lore.kernel.org/r/20250627-dt-bindings-db-v1-0-d5c7=
+072acbee@linaro.org
+>=20
+> Best regards,
+> Krzysztof
 
--- 
-2.50.1
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
+--i7RBXh8TXneQyLtd
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaJoWUgAKCRB4tDGHoIJi
+0jEAAP9vwCB8aZKzy3TpMtP3zqVyMGQwcwldZvWKjvk5CrVmKgD/UvaQDx8AyMC8
+Dc/Ub+g7NWs3WeUczFQzekOgSwe1QQw=
+=6OLD
+-----END PGP SIGNATURE-----
+
+--i7RBXh8TXneQyLtd--
 
