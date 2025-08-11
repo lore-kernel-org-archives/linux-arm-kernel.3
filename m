@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E32AEC87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 13:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B41C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 13:07:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oKXbEjyHyQaCZzNn06z8+/ERUuDuY6GmUlgxB6Zel4Y=; b=ijuNgSj9e4vD0BkRQ9VPbaeoMS
-	u7OShpJhHRZdpAM6gSfv961c6ry8wGRp6Pfj4j25CFtNJqk6Wpn6LK90uR0dDc2ToZblbh6JmvKw2
-	DVB7mOjIgdLwdvTjNi5yPhK9IXBj4uRD1oQj7bBbTDo21LqKVa04N8cLKeSjzPG2b0Xa4qtIHef0z
-	uH2aZbi5Cs1ylMWCJpJE5SimDXY9ytYrW+XvrsP/wM3p8tzkyJ67zKqyeTyVcqTTz0nF2cwTZYB2F
-	+U8G4CurMTD6s1hG1e50l+dvodiv2g5P/JW/TUOIVkUc34cmMK340CtPTl26h2WzEM2bVCzuRGYIL
-	9PJY7m4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDsjR207hfpsaWUHS9KSTpKCqXr2Odiy8s+8w4yXsg8=; b=Q87UPQSjoJvdXTpeMH5cR/CgnQ
+	RxFkybtLHbNuT2Z9paleXutSv4MNCTQJH9eAtq5fYbWvEWRkSQd8qeOZc5QzYJkTaFjKS8VFh9peC
+	X2pO2b28QVqqc8GN6hq3Cv+0ZnJQ1BJe4RUpNaYUZAzUAOzPV2TrU6D9cWwrB8/OWjn03AZfCrGL2
+	wZgpCDp6UR0MQJhDcDUJmqPWg0no1z6Vr/aspLocDb2BY29InFCSUnZW+MVMF9gqkR3CpvrqD1Ebl
+	ooVnUCjziy0fR8W0YG+b8FAYVGKBxS/BLqyNwj+WXATKwCxsWRMgTEEDE5rA3SRNUuEhSp+04nc9/
+	t8A07ytA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulSCb-00000007l63-2Wnz;
-	Mon, 11 Aug 2025 13:04:37 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1ulSF9-00000007lQ6-32vN;
+	Mon, 11 Aug 2025 13:07:15 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulS9X-00000007kYj-3ZAj;
-	Mon, 11 Aug 2025 13:01:29 +0000
-Received: from amadeus-Vostro-3710.lan (unknown [119.122.215.209])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1eff292fb;
-	Mon, 11 Aug 2025 21:01:16 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: heiko@sntech.de
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	naoki@radxa.com,
-	robh@kernel.org
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: disable display subsystem for Radxa E52C
-Date: Mon, 11 Aug 2025 21:01:08 +0800
-Message-Id: <20250811130108.462673-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <3125650.687JKscXgg@diego>
-References: <3125650.687JKscXgg@diego>
+	id 1ulSAf-00000007kli-1GtU;
+	Mon, 11 Aug 2025 13:02:38 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1754917355;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YDsjR207hfpsaWUHS9KSTpKCqXr2Odiy8s+8w4yXsg8=;
+	b=h3erkPJ4NkDW+BeSWj3jOZn/ZGUa4FEE9JuMubh7GmQO/xSdORO43i1f2TGCAx7LclvCel
+	9dlSMuUFY1QEn6HT3DcCzjXgedPje7ukbnrfz61ShpqJVfIv45A6MRiZdGhCro8cLvyp6D
+	Nns5bSv3fC6yDw2+7GfgiiDOnD4QOkCWkSCWfXmFs9kOynD/sBGXLh64QuaDLRatM/IFCs
+	xtH/6BUwyJD/fGxHkR50P0Qm0rMTLo9DrbReKCHoMP+DJPKdd3e4OuA1G3zYSVGyhxCeO2
+	o9KXEo2+RT/leeWR8ggjPvrIawD5MGG+Y9ALD+MuiZEIFFqWOQwgp9jisrAToQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1754917355;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YDsjR207hfpsaWUHS9KSTpKCqXr2Odiy8s+8w4yXsg8=;
+	b=y4Y+tgr88v/UurMktQIBqQoWuoT9Dxmn7FMhhA7sXmj2EIPKrfjmO3mlZzeAu9UuKEfCF7
+	lPXqfFmyhCf4qkCw==
+To: Coiby Xu <coxu@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ kexec@lists.infradead.org
+Subject: Re: [Regression] kdump fails to get DHCP address unless booting
+ with pci=nomsi or without nr_cpus=1
+In-Reply-To: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
+References: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
+Date: Mon, 11 Aug 2025 15:02:33 +0200
+Message-ID: <87bjom8106.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9899388b3703a2kunm7ec5851e6449
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZGUodVk0eGkpPQ0MYHh5OH1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVJS0JZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
-	pCS0tZBg++
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_060128_071069_E56F0259 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20250811_060237_480640_1BF0EEE8 
+X-CRM114-Status: UNSURE (   9.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,28 +75,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> What actual problem does this fix?
+On Mon, Aug 11 2025 at 11:23, Coiby Xu wrote:
+> Recently I met an issue that on certain virtual machines, the kdump
+> kernel fails to get DHCP IP address most of times starting from
+> 6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
+> Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
 >
-> For example we also enable on-soc iommus all the time, because they're
-> on the soc and don't need board-level properties.
->
-> The "display-subsystem" without users looks mostly in the same spot.
->
-> So I do expect a description of what problem gets fixed that this needs
-> to be disabled.
+>      # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
+>      # MSI_FLAG_PCI_MSI_MASK_PARENT
+>      git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
+>      # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
+>      # Provide MSI parent infrastructure
+>      git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
+>      # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
+>      # Prepare for PCI MSI/MSIX
+>      git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
+>      # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
+>      # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
 
-Disable the display-subsystem to remove this error log:
-[    1.382440] rockchip-drm display-subsystem: [drm:0xffffa3985873555c] *ERROR* No available vop found for display-subsystem.
+There were follow up fixes on this, so isolating this one is not really
+conclusive.
 
-I will improve the commit message in v2. Do I need to remove the Fixes tag?
+Is the problem still there on v6.16 and v6.17-rc1?
 
 Thanks,
-Chukun
 
---
-2.25.1
-
-
+        tglx
 
