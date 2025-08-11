@@ -4,110 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 360F0CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 15:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37561CA0ECD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 15:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mvqlPWZhSdmmiWIigJMbDMqEPBNiuGmslU3U6YrJSzM=; b=AVcq26ZZd/bh40e9gUIKS73JJO
-	EP/3+0Ryp4NZixCSv5c6MhAuenyS6EFEuLv8dHrLwiReWKlyCB0bV9XZUH41gPji4EotCTU22gzvH
-	8jADxs/X6YsTWr4y+biQTj2xsnkU212yy/wnBTGPJ9kRhIOxGERhAYzCvppPhIPYYP75COB1tKLS/
-	tjex71RnvooTZZDKFNFioNmS2jQPERKpjoRMLUtGisoAsJHK4pHvMO8mn5c6eU0CggodzKIFNsoV0
-	oLZCDY20hl3GOPEJ/22GWskmhzMjvcTTKeBvbu3zRQJVY79iyuLu6gVTT2CxFFyo7s8pZj5G53Acn
-	AEpXQbFw==;
+	bh=3E9abLM2dKI5gsZ2Kz2WqeeLOzePUUESfME1apODhpk=; b=3L87bdiox2aAfyqybFf+1VFTov
+	6CUQRaPcn1sqh5ywFMr7PUGGE6ejp6iE3eBqBkiLN06qq+fuWLyv+3Y0j2cvLIlnTd8lMDSvj78OR
+	MX6GFwyXXPOUOWjREDdDh6pt4Mx3HpmoPwCYHu94YJ+s7rhzGR0R/Lr73D8agVo4gXfLNG6XqaI5/
+	dPB92Sxj8nc4MHcNoXt1OA+cL6TbnnCGZUhVpFUaDvA1sFsU8YdHA1VdySUyzR6mUMtZJPil7NN1c
+	Sd14VmnHeJtahMf7E/hVhvE2zNfyO2itn5gHDXqBgCTM8M+fnO4gX42D5VKbEAZ19zT46t14Zpnt5
+	Bp4axU6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUfi-00000008EuA-1gXH;
-	Mon, 11 Aug 2025 15:42:50 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1ulUiJ-00000008FWn-3KU6;
+	Mon, 11 Aug 2025 15:45:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulT1I-00000007uUQ-1CQn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 13:57:02 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-23fe9a5e5e8so29381425ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 06:57:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754920619; x=1755525419; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mvqlPWZhSdmmiWIigJMbDMqEPBNiuGmslU3U6YrJSzM=;
-        b=RuA1iQA/7fxFxjhRPVmvKGrFZSZqT8Dtn6IZMYozTwjiiBTUhaSiN/JGyi7gzjTAcK
-         rZ+m+RzZPeYljJxwuXPPimD31j0rhPlNoWYp1/Mpp0BY2ZfPa7GDS5p8bsSEVz0iIt5v
-         r7G756XYGn3ohovVBYI+IYDPtFCub+YTE/yDj8oV3vpBui0EQjhD/fEo712aUO0NRkjj
-         NT78/5cqnLXOuBidsaXGIwZeI8FjMCje2rNZNjxCE9l10Fx8z5gxw0uqngoHj9M820qi
-         gQ9tYRv1LUkucvichRacCRwnFkk0I5m/GocLMczQ5Zo1am2hXWSZznS/tjLLAHO7gMfx
-         JQcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754920619; x=1755525419;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mvqlPWZhSdmmiWIigJMbDMqEPBNiuGmslU3U6YrJSzM=;
-        b=ddMXnVu1DGwUgfNgpcyaNDYBwchAZ2x+uH9OiphzaoUPI5/wbOIFP2jWuEkCSDAQGU
-         WtoQG7Em3xkErcys3q/35nBXZ6MXWQI6kNSeEz2hZhdCClMSm6k92RqQg+kODJXl1kU9
-         O0iT7KdhpfjNdD0xAXaopjstmLDfc+9XAC6eCsdphD7OQQPGQxtK5qrcXltqB+bnb1KQ
-         z9u85Q6bo7/Ls9W947dteYXC9P6+Kc/sbdyMawq/xn/2JfiIavLyt+4DIY0qFEFLjhcZ
-         CD+91cRWISCcHz/MSPm9jMQv1mFKsjECIIFY6F1GQLqesdFoFT8drE4BfD/XzMXxm9a/
-         TWMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWELvwnJbaM/VHJ4Te+zdY2knJG5vLGaxH0mnumKfDnJxadJvACYnkpFVD3DC50e9SdIjoDYA5vBR9/wXRGZKga@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKvnwbGwqWoB4VuBzmITy3dfUy43uWtQj9NifZAqDGcmRQ7nCc
-	iJf6uELNJKpG+ToqRx5lu5JUN2y3OnnFRXaNB/6eHmPX77vUGp7oeZXW
-X-Gm-Gg: ASbGnctJZqJHuETq787vtMN03OVmOfBX1Nf2+SN9PCeWiBIHCsNOOvKf/UEACWUp0D9
-	fFiFNZkOZHlDZBq6JtoK44s8tWBNQsbn464EIOZ0B5ga8d5b8RodTu/s1DuonslJX3oef3Kgkiy
-	Ipwz9KEQwjn7HjNy+mk+aHT8A9dVcM6WebUJKfHFl/xra8pg90Q4Qj+vvWjVukKRujgPmiK9tQe
-	f+vr57VKT+u1nfYuhWxcnFRv3lQAD4o9EbV3lzWhBg1gkkQtclkBIyYTVuZ5Tpp8JBY614uW0lO
-	SbSLIPGP5ecn84wI2ubrE6TLbuio8C5OC46zJ2SJuFxNYykFzbFzeWIxupAeti4Vdo7sS3TvnAf
-	33OBtFjjaF2OKmpHVvF0r/3dfCib6qzTJ5rMhK7YbF0n+gpI=
-X-Google-Smtp-Source: AGHT+IEsZJ5knQTrKEOjLGhLHALuJ8dOClagIoc9Tqof/fNLEY7nfP5yw4HDIQc+QGY8+JZrhHKDsg==
-X-Received: by 2002:a17:903:2310:b0:234:d431:ec6e with SMTP id d9443c01a7336-242c1ffcf60mr188601795ad.3.1754920619514;
-        Mon, 11 Aug 2025 06:56:59 -0700 (PDT)
-Received: from [127.0.1.1] (061092221177.ctinets.com. [61.92.221.177])
-        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b422bb1133fsm23585496a12.56.2025.08.11.06.56.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Aug 2025 06:56:59 -0700 (PDT)
-From: Nick Chan <towinchenmi@gmail.com>
-Date: Mon, 11 Aug 2025 21:54:53 +0800
-Subject: [PATCH v8 21/21] arm64: dts: apple: t8015: Add CPU PMU nodes
+	id 1ulT6C-00000007vmy-19Lq;
+	Mon, 11 Aug 2025 14:02:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CF5D61407;
+	Mon, 11 Aug 2025 14:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F285EC4CEED;
+	Mon, 11 Aug 2025 14:02:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754920923;
+	bh=jBu5ET7UWz2lpYAuqzzB+hooN/nBF4oWUeYMv6DVVko=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZKz6rPGe9qnQwJm0oLM7K0/IUxEpmtvD9k5M2ZJ7L0guadZ7BDWUJikKhYACbuz+V
+	 iQGoCL/6EBoJz5xbtwy3Svt0qCtrHdmaT9BFNu8eELOtVIZmohCIfNjnjFy2kVOc20
+	 vBShqF1FYndVxYt5j1wkyfYj/AmXdefzme3BVNK8F0HIhjs1rQBQb9mOCEOsiObeLv
+	 qQi37FEDRPb6VMmMRHaj/w/fQ3AznUWZjq9ElkusZPHD3vHiP7EXqn0/WRCzGYGMrs
+	 xllO3dWOJx83We66CFUGYz0ZAmd20y4WEX8E7XcW3OLblV4uND8dmyZhrKnDiJXiKz
+	 lMJyKhJGL/lsA==
+Message-ID: <ae6a9c48-85d5-479f-b230-187a06995553@kernel.org>
+Date: Mon, 11 Aug 2025 16:01:59 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/12] media: rkvdec: Add RCB and SRAM support
+To: Detlev Casanova <detlev.casanova@collabora.com>,
+ linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+References: <20250808200340.156393-1-detlev.casanova@collabora.com>
+ <20250808200340.156393-7-detlev.casanova@collabora.com>
+ <5c7767d1-1f28-48e0-bf8b-a224151fb007@kernel.org>
+ <5031584.31r3eYUQgx@trenzalore>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <5031584.31r3eYUQgx@trenzalore>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250811-apple-cpmu-v8-21-c560ebd9ca46@gmail.com>
-References: <20250811-apple-cpmu-v8-0-c560ebd9ca46@gmail.com>
-In-Reply-To: <20250811-apple-cpmu-v8-0-c560ebd9ca46@gmail.com>
-To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Sven Peter <sven@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
- asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Nick Chan <towinchenmi@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1462; i=towinchenmi@gmail.com;
- h=from:subject:message-id; bh=GdMW0EI3NHNWYzWITffq+4XFB8Q0kMqjZtAqZZLmfYU=;
- b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBomfZDmmr/1Q/2JTNVlaKiZKNOFPyBC3d7E7Vt6
- 4mnI2+zy56JAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaJn2QwAKCRABygi3psUI
- JExGD/9OkeFtQH+ZC/vyytS7PXJmuvmPxNfmDu6U0St+yQce7QtoCz0Hjo1q0rGhX8jmGit9Ex7
- k/pTldefDseg+/A2BusnYnfNnFSpFaT/6aNUDHDnw+D8ytRf4k3bJyk5SLD6Gzii7R/YSIJQbvM
- j0BUzrfkvSeCgteMUVB9q2sNXDYXYzcy26IXVvyOY6q23GAY+icge4aBGxqUTDjommhs5gvfGLS
- XseKSzF3wZXjqz6MMb1JWsQr6RzHmjVdR1uBW1uHTcfzzri5B+xUKDoPNpx9hmsy6hqj1YcdYHQ
- yK9yJmFoJ8odHHfAzc+yU/Z7jCnbbEVIVuP0+MtY4DusP9+KQXE8oAL9sTxbmDXl36gjmv4KPY7
- uWnPaWvwzRfgqrrAjVWW0xY44DX+zxb25vKFOKpC58aW35SQiHYjm0JP3PxKIy1dZjSSgDg89FO
- JQTq102JSsRBkubQFd4Yw5IGJgHCA2yekAg4KvF8CkZ9Tqk7RcW3ITD7OvCe+EexBMwZYy2ZXzi
- ulxk6MthAl7ZyFWr/E36TdCz9OZWnscCs6REORxOt+b2/9VrGRdpvCv2RdIrpCS20X34UvXHS6E
- U8ePNjBW7+mq/IQibeih0n98a1rsymlgDjH4K1HAXS/W/7MpdPZoVNbG2Th1AoBC+5CLsWJqYYX
- kImyKMr0LMMykrw==
-X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
- fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_065700_335680_5DA26AE4 
-X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,57 +118,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CPU PMU nodes for Apple A11 SoC.
+On 11/08/2025 15:54, Detlev Casanova wrote:
+> On Monday, 11 August 2025 02:13:42 EDT Krzysztof Kozlowski wrote:
+>> On 08/08/2025 22:03, Detlev Casanova wrote:
+>>> -	vb2_dma_contig_set_max_seg_size(&pdev->dev, DMA_BIT_MASK(32));
+>>> -
+>>>
+>>>  	irq = platform_get_irq(pdev, 0);
+>>>  	if (irq <= 0)
+>>>  	
+>>>  		return -ENXIO;
+>>>
+>>> @@ -1204,6 +1217,10 @@ static int rkvdec_probe(struct platform_device
+>>> *pdev)> 
+>>>  		return ret;
+>>>  	
+>>>  	}
+>>>
+>>> +	rkvdec->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
+>>
+>> Didn't you just add new ABI?
+> 
+> Oh do you mean rkvdec_rcb_buf_count() ? I could indeed use that instead here.
 
-Signed-off-by: Nick Chan <towinchenmi@gmail.com>
----
- arch/arm64/boot/dts/apple/t8015.dtsi | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t8015.dtsi b/arch/arm64/boot/dts/apple/t8015.dtsi
-index 12acf8fc8bc6bcde6b11773cadd97e9ee115f510..9bf5157f0e504b7394ef5354411d3d37e8d5760a 100644
---- a/arch/arm64/boot/dts/apple/t8015.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8015.dtsi
-@@ -284,6 +284,18 @@ aic: interrupt-controller@232100000 {
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
- 			power-domains = <&ps_aic>;
-+
-+			affinities {
-+				e-core-pmu-affinity {
-+					apple,fiq-index = <AIC_CPU_PMU_E>;
-+					cpus = <&cpu_e0 &cpu_e1 &cpu_e2 &cpu_e3>;
-+				};
-+
-+				p-core-pmu-affinity {
-+					apple,fiq-index = <AIC_CPU_PMU_P>;
-+					cpus = <&cpu_p0 &cpu_p1>;
-+				};
-+			};
- 		};
- 
- 		pmgr: power-management@232000000 {
-@@ -412,6 +424,18 @@ timer {
- 		interrupts = <AIC_FIQ AIC_TMR_GUEST_PHYS IRQ_TYPE_LEVEL_HIGH>,
- 			     <AIC_FIQ AIC_TMR_GUEST_VIRT IRQ_TYPE_LEVEL_HIGH>;
- 	};
-+
-+	pmu-e {
-+		compatible = "apple,mistral-pmu";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_FIQ AIC_CPU_PMU_E IRQ_TYPE_LEVEL_HIGH>;
-+	};
-+
-+	pmu-p {
-+		compatible = "apple,monsoon-pmu";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_FIQ AIC_CPU_PMU_P IRQ_TYPE_LEVEL_HIGH>;
-+	};
- };
- 
- #include "t8015-pmgr.dtsi"
+No, I meant DT/OF ABI for "sram".
 
--- 
-2.50.1
 
+Best regards,
+Krzysztof
 
