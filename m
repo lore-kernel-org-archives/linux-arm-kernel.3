@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3A91CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 05:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81199CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 05:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RYCvY/vDuSoyJg9KY+cqfb/C8jW8ZQHDR+YIkaC+yqY=; b=ZjgXg7dbpHUKoc+7mqmfWPhIcF
-	T32+e//xeY9CliunHu7XQjO84zuikOaAq6XfJ2MExUVewCwfTcfXLz+Ue4GBAGVzDlkBiQryi+Dk/
-	3+ddMtHqQczvpCknUI2ntAy9FqY29vcDXh9vCjOHjOv7W7KiHWfFwxCARYB5n1leYexSYZVOYYZl/
-	62r4/vQeH49taXCTSAUJBIo7k0+ZjhB6kRcmMJaYy/vQe11pzGzIerzmL4XWndyjWW1LkuehxT9Rw
-	Aa+83QHklBRQo2ugcrZZltcTBFVZsotNhx9/FfbpRnmcnfrw5bwlREwkO0vw3SA7p5v40MThUii5C
-	4zaK7CXw==;
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=Ssg3FkvIoDSUUOwewES1gLVGvgAbXp8l/yQiu6KJjHc=; b=u+KnWtNqm3sKZFCkW0BERuANye
+	0uKsD2j/uc3ulTlF7J9d4ww9lCZAxBw2XDDKK01C1UwgtJo33wjkvluOEQzam7pxKAYaewWg+Bp4E
+	Wt1JB2rgYdVIcucdPwiR2SvrapBemTZdl5fjveyTd7kp2Vjv84rnn61SwtgZJaOXm0H1ro0zlYkMa
+	XPQzJoX2t2mA6T0jHYrMRYCN4tSyoJecONBPQ3Izayq0g0v+xkGoTv54YumgstobdLG6Nb7HEAwSZ
+	JpkeigUUw83yzPN0Bhe2B+1DstK+LL8+f/AuoYcSh/H+qZMQ5YBwe+44FCSpm4jsWok9LBWkvbvG6
+	exoalhrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulh7o-00000009pIq-2Ezt;
-	Tue, 12 Aug 2025 05:00:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ulhBv-00000009q8H-0emJ;
+	Tue, 12 Aug 2025 05:04:55 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulh59-00000009p9M-43QY;
-	Tue, 12 Aug 2025 04:57:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 994845C574C;
-	Tue, 12 Aug 2025 04:57:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805EAC4CEF0;
-	Tue, 12 Aug 2025 04:57:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754974674;
-	bh=70iXDSsLOBL8789maTo7Y86kI/oswUmM4+UtHFYgEso=;
-	h=From:Date:Subject:To:Cc:From;
-	b=aXedLaic+LJw7p88aP0+O4vTs5o35X9KeLpUQtIbwy35JHNux0kwghicwRtkPRGi7
-	 rSjNuOJGvcoLnoE35784tjoegvzFuuNIXx6l1qopyk5jDo+3biWIe+slM2m7bbiUtb
-	 rF0DeaS6frNG5L75MkPh9HibzHcweCsA2mqZ4ISt+SXkTJbfQrUh0ZNqbsQCl4JHZ0
-	 /Ewuqy39dR9czJW/XqAXS6t8tzHNjxPIFpLTswAKuqC1ATfFKLnUBCsZtZ/w+3PJmx
-	 sNgJPhP+/8MZJ7Qy+Awcc4iaoYQprnTCpc9jIzdNUMQTDmM7PSivQQFvbeQdouZ9Gf
-	 966Uh5QzxNYMw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 12 Aug 2025 06:57:23 +0200
-Subject: [PATCH net-next v3] net: mediatek: wed: Introduce MT7992 WED
- support to MT7988 SoC
+	id 1ulh9F-00000009pQg-14PZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 05:02:12 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250812050200epoutp01808731b4365b439acd1d074577f7d346~a7GRX0t2S1032210322epoutp01s
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 05:02:00 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250812050200epoutp01808731b4365b439acd1d074577f7d346~a7GRX0t2S1032210322epoutp01s
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1754974920;
+	bh=Ssg3FkvIoDSUUOwewES1gLVGvgAbXp8l/yQiu6KJjHc=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=ci6lQz4miqajsd/8Rs/2/AUFB41lbtFg+/DQAAp+/4JbmqhCoxwsOVSUQDrdYW4Wc
+	 b8FwEywojmOukwcV5OLG/SNA+Ux55sRh14gpnYZTyrBorWHkoAgmB1Iw80HQpmR5mL
+	 UfTS2FVOuAn6l6V4+mBclEvRnaWFOkgF0ckxm4h8=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250812050159epcas5p3396269eda3eaf4b1ac8882203783643e~a7GQfvMkD2901229012epcas5p3_;
+	Tue, 12 Aug 2025 05:01:59 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.90]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4c1K9f3Hgjz6B9mG; Tue, 12 Aug
+	2025 05:01:58 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250811154648epcas5p4e55cc82e0df7d44ea55e249fef63d5fa~awP_dUo6C0894708947epcas5p44;
+	Mon, 11 Aug 2025 15:46:48 +0000 (GMT)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250811154646epsmtip154a28e0d8f0bee70bc8cc6c53b295bd9~awP71Ue-S2450724507epsmtip1q;
+	Mon, 11 Aug 2025 15:46:45 +0000 (GMT)
+From: Shradha Todi <shradha.t@samsung.com>
+To: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+Cc: mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+	vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
+	m.szyprowski@samsung.com, jh80.chung@samsung.com, pankaj.dubey@samsung.com,
+	Shradha Todi <shradha.t@samsung.com>
+Subject: [PATCH v3 00/12] Add PCIe support for Tesla FSD SoC
+Date: Mon, 11 Aug 2025 21:16:26 +0530
+Message-ID: <20250811154638.95732-1-shradha.t@samsung.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250811154648epcas5p4e55cc82e0df7d44ea55e249fef63d5fa
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250812-mt7992-wed-support-v3-1-9ada78a819a4@kernel.org>
-X-B4-Tracking: v=1; b=H4sIALLJmmgC/23N0Q6CIBTG8VdxXEfzoAh01Xu0LkiOyipxYFRzv
- nvo2lqbl/9vO78zkYDeYiCHbCIeow3W9SmKXUbqTvctUmtSE5YznguQ9D4KpRh9oqHhMQzOj7T
- klea54dBIIOlw8NjY14qezqk7G0bn3+uPCMv65ZjY4iJQoFobYXRpainE8Yq+x9ve+ZYsXmQ/Q
- wJsGiwZl0JxrqrCKK7+jHmeP5mehjv5AAAA
-X-Change-ID: 20250718-mt7992-wed-support-456a50d51f81
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org, 
- Rex Lu <rex.lu@mediatek.com>
-X-Mailer: b4 0.14.2
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-541,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250811154648epcas5p4e55cc82e0df7d44ea55e249fef63d5fa
+References: <CGME20250811154648epcas5p4e55cc82e0df7d44ea55e249fef63d5fa@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_215756_095131_C78D22F4 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250811_220210_112274_CACEA2CD 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,197 +95,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the second WDMA RX ring in WED driver for MT7988 SoC since the
-Mediatek MT7992 WiFi chipset supports two separated WDMA rings.
-Add missing MT7988 configurations to properly support WED for MT7992 in
-MT76 driver.
+FSD platform has three instances of DesignWare based PCIe IP,
+one is in FSYS0 block and other two in FSYS1 block.
+This patch series add required DT binding, DT file modifications,
+Controller driver support and PHY driver support for the same.
 
-Co-developed-by: Rex Lu <rex.lu@mediatek.com>
-Signed-off-by: Rex Lu <rex.lu@mediatek.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v3:
-- Rebase on top of net-next main branch
-- Link to v2: https://lore.kernel.org/r/20250811-mt7992-wed-support-v2-1-b3955963d959@kernel.org
+To keep single PCIe controller driver and PHY driver for all Samsung
+manufactured SoC, we have made changes to Exynos files to extend
+support for FSD platform and other Samsung manufactured SoCs which
+shall be upstreamed soon.
 
-Changes in v2:
-- Fix commit log
-- Rebase on top of net-next main branch
-- Link to v1: https://lore.kernel.org/r/20250727-mt7992-wed-support-v1-1-aad7da4dc877@kernel.org
----
- drivers/net/ethernet/mediatek/mtk_wed.c          | 33 +++++++++++++++++++-----
- drivers/net/ethernet/mediatek/mtk_wed.h          |  2 +-
- drivers/net/wireless/mediatek/mt76/mt7915/mmio.c |  6 ++---
- drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 12 ++++-----
- include/linux/soc/mediatek/mtk_wed.h             |  2 +-
- 5 files changed, 38 insertions(+), 17 deletions(-)
+First a version was posted as a separate driver file:
+https://lore.kernel.org/lkml/20221121105210.68596-1-shradha.t@samsung.com/
+This was rejected and request was made to add the support in exynos file
+itself.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-index 0a80d8f8cff7f415a60b0cd68c0c9c07e2c88f36..3dbb113b792cf00fb4f89ab20f7e7fa72ecac260 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.c
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-@@ -59,7 +59,9 @@ struct mtk_wed_flow_block_priv {
- static const struct mtk_wed_soc_data mt7622_data = {
- 	.regmap = {
- 		.tx_bm_tkid		= 0x088,
--		.wpdma_rx_ring0		= 0x770,
-+		.wpdma_rx_ring = {
-+			0x770,
-+		},
- 		.reset_idx_tx_mask	= GENMASK(3, 0),
- 		.reset_idx_rx_mask	= GENMASK(17, 16),
- 	},
-@@ -70,7 +72,9 @@ static const struct mtk_wed_soc_data mt7622_data = {
- static const struct mtk_wed_soc_data mt7986_data = {
- 	.regmap = {
- 		.tx_bm_tkid		= 0x0c8,
--		.wpdma_rx_ring0		= 0x770,
-+		.wpdma_rx_ring = {
-+			0x770,
-+		},
- 		.reset_idx_tx_mask	= GENMASK(1, 0),
- 		.reset_idx_rx_mask	= GENMASK(7, 6),
- 	},
-@@ -81,7 +85,10 @@ static const struct mtk_wed_soc_data mt7986_data = {
- static const struct mtk_wed_soc_data mt7988_data = {
- 	.regmap = {
- 		.tx_bm_tkid		= 0x0c8,
--		.wpdma_rx_ring0		= 0x7d0,
-+		.wpdma_rx_ring = {
-+			0x7d0,
-+			0x7d8,
-+		},
- 		.reset_idx_tx_mask	= GENMASK(1, 0),
- 		.reset_idx_rx_mask	= GENMASK(7, 6),
- 	},
-@@ -621,8 +628,8 @@ mtk_wed_amsdu_init(struct mtk_wed_device *dev)
- 		return ret;
- 	}
- 
--	/* eagle E1 PCIE1 tx ring 22 flow control issue */
--	if (dev->wlan.id == 0x7991)
-+	/* Kite and Eagle E1 PCIE1 tx ring 22 flow control issue */
-+	if (dev->wlan.id == 0x7991 || dev->wlan.id == 0x7992)
- 		wed_clr(dev, MTK_WED_AMSDU_FIFO, MTK_WED_AMSDU_IS_PRIOR0_RING);
- 
- 	wed_set(dev, MTK_WED_CTRL, MTK_WED_CTRL_TX_AMSDU_EN);
-@@ -1239,7 +1246,11 @@ mtk_wed_set_wpdma(struct mtk_wed_device *dev)
- 		return;
- 
- 	wed_w32(dev, MTK_WED_WPDMA_RX_GLO_CFG, dev->wlan.wpdma_rx_glo);
--	wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring0, dev->wlan.wpdma_rx);
-+	wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring[0],
-+		dev->wlan.wpdma_rx[0]);
-+	if (mtk_wed_is_v3_or_greater(dev->hw))
-+		wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring[1],
-+			dev->wlan.wpdma_rx[1]);
- 
- 	if (!dev->wlan.hw_rro)
- 		return;
-@@ -2323,6 +2334,16 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
- 		if (!dev->rx_wdma[i].desc)
- 			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
- 
-+	if (dev->wlan.hw_rro) {
-+		for (i = 0; i < MTK_WED_RX_PAGE_QUEUES; i++) {
-+			u32 addr = MTK_WED_RRO_MSDU_PG_CTRL0(i) +
-+				   MTK_WED_RING_OFS_COUNT;
-+
-+			if (!wed_r32(dev, addr))
-+				wed_w32(dev, addr, 1);
-+		}
-+	}
-+
- 	mtk_wed_hw_init(dev);
- 	mtk_wed_configure_irq(dev, irq_mask);
- 
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.h b/drivers/net/ethernet/mediatek/mtk_wed.h
-index c1f0479d7a7182919e77c40efc30ade37abfad58..b49aee9a8b65156310e4f66a17921e5320b3077c 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.h
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.h
-@@ -17,7 +17,7 @@ struct mtk_wed_wo;
- struct mtk_wed_soc_data {
- 	struct {
- 		u32 tx_bm_tkid;
--		u32 wpdma_rx_ring0;
-+		u32 wpdma_rx_ring[MTK_WED_RX_QUEUES];
- 		u32 reset_idx_tx_mask;
- 		u32 reset_idx_rx_mask;
- 	} regmap;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-index 4a82f8e4c118061fc76459dc0e38f7ee27e25a3a..36488aa6cc20117de4f5b76b80beca149015e055 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-@@ -664,8 +664,8 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void *pdev_ptr,
- 					 MT_RXQ_WED_RING_BASE;
- 		wed->wlan.wpdma_rx_glo = pci_resource_start(pci_dev, 0) +
- 					 MT_WPDMA_GLO_CFG;
--		wed->wlan.wpdma_rx = pci_resource_start(pci_dev, 0) +
--				     MT_RXQ_WED_DATA_RING_BASE;
-+		wed->wlan.wpdma_rx[0] = pci_resource_start(pci_dev, 0) +
-+					MT_RXQ_WED_DATA_RING_BASE;
- 	} else {
- 		struct platform_device *plat_dev = pdev_ptr;
- 		struct resource *res;
-@@ -687,7 +687,7 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void *pdev_ptr,
- 		wed->wlan.wpdma_tx = res->start + MT_TXQ_WED_RING_BASE;
- 		wed->wlan.wpdma_txfree = res->start + MT_RXQ_WED_RING_BASE;
- 		wed->wlan.wpdma_rx_glo = res->start + MT_WPDMA_GLO_CFG;
--		wed->wlan.wpdma_rx = res->start + MT_RXQ_WED_DATA_RING_BASE;
-+		wed->wlan.wpdma_rx[0] = res->start + MT_RXQ_WED_DATA_RING_BASE;
- 	}
- 	wed->wlan.nbuf = MT7915_HW_TOKEN_SIZE;
- 	wed->wlan.tx_tbit[0] = is_mt7915(&dev->mt76) ? 4 : 30;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-index 30b40f4a91be81d429d11f15036167396756d2dc..fb2428a9b877899a0a6fb879aba84e1f6e7840f2 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-@@ -503,9 +503,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
- 		}
- 
- 		wed->wlan.wpdma_rx_glo = wed->wlan.phy_base + hif1_ofs + MT_WFDMA0_GLO_CFG;
--		wed->wlan.wpdma_rx = wed->wlan.phy_base + hif1_ofs +
--				     MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
--				     MT7996_RXQ_BAND0 * MT_RING_SIZE;
-+		wed->wlan.wpdma_rx[0] = wed->wlan.phy_base + hif1_ofs +
-+					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-+					MT7996_RXQ_BAND0 * MT_RING_SIZE;
- 
- 		wed->wlan.id = MT7996_DEVICE_ID_2;
- 		wed->wlan.tx_tbit[0] = ffs(MT_INT_TX_DONE_BAND2) - 1;
-@@ -518,9 +518,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
- 
- 		wed->wlan.wpdma_rx_glo = wed->wlan.phy_base + MT_WFDMA0_GLO_CFG;
- 
--		wed->wlan.wpdma_rx = wed->wlan.phy_base +
--				     MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
--				     MT7996_RXQ_BAND0 * MT_RING_SIZE;
-+		wed->wlan.wpdma_rx[0] = wed->wlan.phy_base +
-+					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-+					MT7996_RXQ_BAND0 * MT_RING_SIZE;
- 
- 		wed->wlan.wpdma_rx_rro[0] = wed->wlan.phy_base +
- 					    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND0) +
-diff --git a/include/linux/soc/mediatek/mtk_wed.h b/include/linux/soc/mediatek/mtk_wed.h
-index d8949a4ed0dc9d41b3364e85a21e15d258519c45..c4ff6bab176db1f51cd94ac4198df0caeb557df2 100644
---- a/include/linux/soc/mediatek/mtk_wed.h
-+++ b/include/linux/soc/mediatek/mtk_wed.h
-@@ -147,7 +147,7 @@ struct mtk_wed_device {
- 		u32 wpdma_tx;
- 		u32 wpdma_txfree;
- 		u32 wpdma_rx_glo;
--		u32 wpdma_rx;
-+		u32 wpdma_rx[MTK_WED_RX_QUEUES];
- 		u32 wpdma_rx_rro[MTK_WED_RX_QUEUES];
- 		u32 wpdma_rx_pg;
- 
+Then another patchset was posted to refactor existing exynos file:
+https://lore.kernel.org/lkml/649a8d88-0504-5aa9-d167-d25d394f3f26@linaro.org/T/
+This requested some major changes
 
----
-base-commit: bc4c0a48bdad7f225740b8e750fdc1da6d85e1eb
-change-id: 20250718-mt7992-wed-support-456a50d51f81
+Taking both these reviews into consideration, I have posted a fresh
+patchset where both changes to exynos framework and addition of new FSD
+support is present.
 
-Best regards,
+v3:
+ - Made separate DT bindings for Exynos5433 and FSD platforms as not
+   much is shared
+ - Moved all common changes to separate patch for controller and PHY
+   and added FSD related changes on top
+ - Removed alias method of differentiating between instances of PHY and
+   added two separate compatibles.
+ - Fixed smatch issues pointed out by Dan and other styling issues.
+
+v2: https://lore.kernel.org/all/20250625165229.3458-1-shradha.t@samsung.com/ 
+ - Reordered patches for removing unused MACROs and renaming them
+ - Fixed all incomplete DT bindings
+ - Modified PHY driver code to adopt better design
+ - Removed patch to add alignment data in PCI endpoint test driver
+ - Added dts changes in the patchset itself
+
+v1: https://lore.kernel.org/lkml/20250518193152.63476-1-shradha.t@samsung.com/ 
+
+
+*** BLURB HERE ***
+
+Shradha Todi (12):
+  PCI: exynos: Remove unused MACROs in exynos PCIe file
+  PCI: exynos: Change macro names to exynos specific
+  PCI: exynos: Reorder MACROs to maintain consistency
+  PCI: exynos: Add platform device private data
+  PCI: exynos: Add resource ops, soc variant and device mode
+  dt-bindings: PCI: Split exynos host into two files
+  dt-bindings: PCI: Add support for Tesla FSD SoC
+  dt-bindings: phy: Add PCIe PHY support for FSD SoC
+  phy: exynos: Add platform device private data
+  phy: exynos: Add PCIe PHY support for FSD SoC
+  PCI: exynos: Add support for Tesla FSD SoC
+  arm64: dts: fsd: Add PCIe support for Tesla FSD SoC
+
+ .../bindings/pci/samsung,exynos-pcie.yaml     |  70 +--
+ .../bindings/pci/samsung,exynos5433-pcie.yaml |  89 +++
+ .../bindings/pci/tesla,fsd-pcie-ep.yaml       |  91 +++
+ .../bindings/pci/tesla,fsd-pcie.yaml          |  77 +++
+ .../bindings/phy/samsung,exynos-pcie-phy.yaml |  27 +-
+ arch/arm64/boot/dts/tesla/fsd-evb.dts         |  34 ++
+ arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi    |  65 ++
+ arch/arm64/boot/dts/tesla/fsd.dtsi            | 147 +++++
+ drivers/pci/controller/dwc/pci-exynos.c       | 567 +++++++++++++++---
+ drivers/phy/samsung/phy-exynos-pcie.c         | 295 ++++++++-
+ 10 files changed, 1300 insertions(+), 162 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/samsung,exynos5433-pcie.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/tesla,fsd-pcie-ep.yaml
+ create mode 100644 Documentation/devicetree/bindings/pci/tesla,fsd-pcie.yaml
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.49.0
 
 
