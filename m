@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A32B7C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F19C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qe2Uiqklm0XdQU3ppK07d6zd7UkELYQebN6R6LnbmaY=; b=TX8ChGxfTLWV8623yb/09uAOkQ
-	+BIdtFI+Pkhkj/9/kW3N1j7ymUTWIhlJT0+kn1+a+1KDFgAUsw9di/OnlZkjRaU1CQB+ysLdTpL7J
-	+1Vy7pvsU3MADyCH8ve8DrfPBN74Y74Cxt2B297vEPGw2AMWUIDxj9rtsSy7IRpUQf3RlqmOZzzFR
-	/MYAB34tmKNhqGgi9lLtO/S2bpKjvoSO4NEJeRqAXzMh5cvCoJHHdIB3yqe2mQn8+wzHkHln4Wgx1
-	ginM+7P8OqcJKIzi6VYpN5aUaKDzyX19FW7SnckATLNRutnKOtS+g9UFTj3ndZYAEsaY1XMAcE322
-	eH7kZAwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PAuGaI74CfjaVTdAYFE8amyCHBl1hlThave4sJNzriQ=; b=MKWuBLdsYMjcU4kLWTxzM5UDW4
+	d6+bpm5YxMCVPD1l4vWrRIP7jKn8uQH6ruBoiOtqMxpcEjoOOoephjVpAtkyqH8We/wcgC+Knsx9G
+	00yfyik+yk2cZUoZ2yptCvPiq5AisScgNll7sJr+Kln/SahAUSHgAwc8xvXclmCIhHiUfcxD4kogU
+	I6plOsNPHywR16N4N7DD5qXFcwvPHL/KsHso761X1AAP6gnCpgNXMkEwMxJDu2QKVdi7q0TiGqgey
+	SWgg8bpLHbv7KHTSPbI2guNs4agtQYwv2Htx+9XyFSr4pgEF6JM7UXdXIGL1bLcAOQNABYaOw88fW
+	jjwyOkdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNZl-00000006o7l-13Hk;
-	Mon, 11 Aug 2025 08:08:13 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ulNcK-00000006oSG-3CQO;
+	Mon, 11 Aug 2025 08:10:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNKR-00000006lIv-3bTP;
-	Mon, 11 Aug 2025 07:52:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=qe2Uiqklm0XdQU3ppK07d6zd7UkELYQebN6R6LnbmaY=; b=s7UJ8GDO2Nro8PG7wP48KSllY8
-	626sRDJXNvHdKXZwXmm51nDDbFg9oG2s66kpk/SGt87LWGGU6CBY5sDHxH65vD6HPzOw4607NLJGz
-	vJgYcG/ekDpMcXZ2gjHBh9TVM8GVeEsqrArwNEtbrOgrR57FEujyiQdOwpYy6LT0jJA8937eB02W9
-	yUChZTmotqNEGZG46BjRRVNG6PTIy/zCvPvhRBPnYpoM5IaqUW+bO+DCxK+WeShGoZHzqAXvcV3+z
-	xUz40IL2xYfy4tnbhDWYuWUuavNyePIHN9MTKr/ouzQMyA/u7QgnkCKX5QHpaNair4uwiG8BrzcmR
-	pdank1qg==;
-Received: from i53875a0c.versanet.de ([83.135.90.12] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ulNKK-0007Ro-Dt; Mon, 11 Aug 2025 09:52:16 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: (subset) [PATCH 1/3] arm64: dts: rockchip: disable display subsystem for Radxa E52C
-Date: Mon, 11 Aug 2025 09:52:00 +0200
-Message-ID: <175489870461.808197.2395932631261103539.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250810100020.445053-1-amadeus@jmu.edu.cn>
-References: <20250810100020.445053-1-amadeus@jmu.edu.cn>
+	id 1ulNKS-00000006lJB-0jW0;
+	Mon, 11 Aug 2025 07:52:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 883D05C5D6F;
+	Mon, 11 Aug 2025 07:52:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2789C4CEF1;
+	Mon, 11 Aug 2025 07:52:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754898743;
+	bh=+BLSntymQrh/XkLGtypJrfw1XGjtmza1kggD9wXIN/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c3xoNAGGbBNP16XXgIDYcgwJd9nwpp7WrxtkkARd2jjqlGYdgVvAW7yRKCBgy4Rdq
+	 M5at+getsjQyZrr1zDnGMPVAgkJnrvWG7GT1DmeO1ZpQT7l+qC/EIkdVms2N+fm4KC
+	 +p1ZVXt7G6V5YzMfswmlYf8QN5OGHEJ6jorFpbvCPPqSfLhKMro8dWUpQVwLZlWFp7
+	 54u3+f9Vab1ZYWYP9PF6iCHDXSdTOeTOrOkgdeuKx2ieFHH8ivBgegaelFB3zUdrK7
+	 id2rntASo0QuOuceEZec6vuN/kshdYGtk5BBA90nR3rAN87MtGoac6JkEEtMWOA2KO
+	 qDbgYyRAy/rkQ==
+Date: Mon, 11 Aug 2025 09:52:20 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jay Liu <jay.liu@mediatek.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 4/6] dt-bindings: display: mediatek: disp-tdshp: Add
+ support for MT8196
+Message-ID: <20250811-boisterous-skinny-ammonite-a4ca7b@kuoka>
+References: <20250808125512.9788-1-jay.liu@mediatek.com>
+ <20250808125512.9788-5-jay.liu@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250808125512.9788-5-jay.liu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_005223_894682_49F055E7 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250811_005224_299834_83F73626 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +80,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Aug 08, 2025 at 08:53:59PM +0800, Jay Liu wrote:
+> Add disp-tdshp hardware description for MediaTek MT8196 SoC
+>=20
+> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+> ---
+>  .../display/mediatek/mediatek,disp-tdshp.yaml | 52 +++++++++++++++++++
+>  1 file changed, 52 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/me=
+diatek,disp-tdshp.yaml
 
-On Sun, 10 Aug 2025 18:00:18 +0800, Chukun Pan wrote:
-> The Radxa E52C SBC do not have HDMI output, so disable
-> the display subsystem.
-> 
-> 
+We expect filename based on compatibles (see writing bindings).
 
-Applied, thanks!
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+disp-tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediat=
+ek,disp-tdshp.yaml
+> new file mode 100644
+> index 000000000000..94aa33a2a5ed
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,disp-td=
+shp.yaml
+> @@ -0,0 +1,52 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,disp-tdshp.=
+yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek display 2D sharpness processor
+> +
+> +maintainers:
+> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
+> +  - Philipp Zabel <p.zabel@pengutronix.de>
+> +
+> +description: |
+> +  MediaTek display 2D sharpness processor, namely TDSHP, provides a
+> +  operation used to adjust sharpness in=C2=A0display system.
+> +  TDSHP device node must be siblings to the central MMSYS_CONFIG node.
 
-[2/3] arm64: dts: rockchip: mark eeprom as read-only for Radxa E52C
-      commit: f18c9e79bbe65627805fff6aac3ea96b6b55b53d
-[3/3] arm64: dts: rockchip: improve LED config for for Radxa E52C
-      commit: 6f36b1fdb80dd1fdd24742af4ca435f76f73dfe9
+Heh? Why would this have to be a sibling? This is really odd, because
+you cannto actually rely on that.
+
+You just added unverifiable unusual ABI with no explanation.
+
+
+> +  For a description of the MMSYS_CONFIG binding, see
+> +  Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
+> +  for details.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+
+Drop, just enum.
+
+> +      - enum:
+> +          - mediatek,mt8196-disp-tdshp
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +
+
+Drop blank line
+
+> +    soc {
+> +      #address-cells =3D <2>;
+> +      #size-cells =3D <2>;
+
+messed indentation
+
+> +
+> +      disp-tdshp@321e0000 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetr=
+ee-basics.html#generic-names-recommendation
+
+e.g. image-processor
 
 Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Krzysztof
+
 
