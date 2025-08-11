@@ -4,62 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAACC87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 11:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3CBFC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 11:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MvPk8m5ZZspgbKQnZyNK3R1FflZeu5kVZ+jHrZFHTFo=; b=vzUL8BtodajY9oAMWeBcEtUk/g
-	KTOmJGM1+L4KxqSthcHhqaz8hM1g+88gW0OLVjPQAA0DJmPTSD9pu1duV9BeFfGUmHbu4XZKZX7/I
-	dacaXRp42hXI54LRsCsKmKV4/mHsG+bxo5q39A0QPziAc6vX+lv7kJKKoCEa/pNswzcsTZYpkBD0C
-	vKyvG/qVqV7UoDsBsGEJ+eARipDSivkBkJPcN5IFc7LsfmncNnjOf8ZjY221txVRZiHXRnbc2s7+t
-	eebyeYTg03/oQrsPM+J4io7SPm0UyZByFBkjW/x/XAClvByY7jsHidNDj9nyX0Hc6SxEe6FOEIJAA
-	19xOK9YQ==;
+	bh=aQoyXaS6udxeaup4o0wQ/WXzZkrfQEMxJdZ3qySB7n8=; b=Spw0hslzvzcHX6j37jTIp5JKpL
+	SioI4z50XwMusARqPPXlIw70CUk5e7f39eti+/bhDYKkjoOmt5/YeZOnqWJxdgQ+TNIvk3oEujHDv
+	dulS/qzeRmQ8DqN7TePTtYDpMQUt3j/bFP0M3iOeNEEhBuwTEBvEt+3AKFdHbafpqyG5UU3LNw79b
+	aBcbveAfUR3miAgg9W4W+8cXsmdEFiyW610AP3SGt3bNlZct/I6bKiSvGm8kEFW9Iv7yP8r+4CrMz
+	e92ASlQ8WiF6SvrMnobWGZKIX+Pk9nWmHVM3p/a72NO17tlhqh5S6uitr4jpjfMZcf7K4QsHy+QYf
+	vGDiqDPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulQhh-00000007WY7-3lJO;
-	Mon, 11 Aug 2025 11:28:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ulQkI-00000007XCx-3AYf;
+	Mon, 11 Aug 2025 11:31:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulQIB-00000007RpE-24Lu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 11:02:15 +0000
+	id 1ulQIp-00000007Rvh-27m4;
+	Mon, 11 Aug 2025 11:02:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 891AB600BB;
-	Mon, 11 Aug 2025 11:02:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F93BC4CEED;
-	Mon, 11 Aug 2025 11:02:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1AEC05C629C;
+	Mon, 11 Aug 2025 11:02:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C19CDC4CEED;
+	Mon, 11 Aug 2025 11:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754910134;
-	bh=BPqTEIEi19uUvsZ3UKFemRzcPtUUh7NqCO5h9wS+W5w=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=FPx084HykHkUTv35hbsedzLzIy1lQHXv9Mk0RLLFYL7OiL3h4HcXNECaOcOF9dyAs
-	 vnoL6c7cGmmK2yaDAFxiYoKfJKJ1KFuHGx3FXu956cIGY48yeUfQqi8Ly8k+lcZv3T
-	 Ibs8Ce30iF/f4ZUML5mWlyepL6aeYNq2j0zNSTtG9G7BVrOmAc/P3T0mfq5ACIZErR
-	 0OAs1gRJe3U960HL2B2ijS10kVeCwY3Nzah3idNxRyaNe4fSIGWh2C1+Twcm10Fedq
-	 qZczv4xfo610PcT0bpmpLY9kyYqaW/Ydq1shEmFmTfIIcNYoYD/waBGysbs8FwU9i0
-	 NYVTrU2PM2HTg==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Toan Le <toan@os.amperecomputing.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-In-Reply-To: <aIzCbVd93ivPinne@stanley.mountain>
-References: <aIzCbVd93ivPinne@stanley.mountain>
-Subject: Re: [PATCH next] PCI: xgene-msi: Return negative -EINVAL in
- xgene_msi_handler_setup()
-Message-Id: <175491013091.15602.16180444795907652699.b4-ty@kernel.org>
-Date: Mon, 11 Aug 2025 16:32:10 +0530
+	s=k20201202; t=1754910173;
+	bh=zhys7duUwdPLGKL9RmhrU0QsAmCDcmqOFrxOLlq8X58=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A8rOuvGppGxg9OV6KfvSguXY496ocZsKAHH0GDHEZL3w7AAx04Gf6UgEGpSmkx32e
+	 QMAix9N/PmMRLp4CL1Is8xVOhLV3lksRV5OPtK0ZADNS2SdtUQKFG3DxwnsfepEEFL
+	 2OBIcbPgIGGfMT4huYRRjtd1lUBU9CMQ49UAMc0CvGK9Sdz+R8Unw8d9ZcC7UYgsBM
+	 Ynk7nHlXnJ3MIBiQ0nhAZKTdDNeZ369uA1wbUELGnY2bHFbIOulBYvoKkxnLfyLXiH
+	 FoZ97PLe/oFEf8HaW3VwsEttcY8X3lseq3upzKBi7wQeZlbG28xZDo7jUkRsISq767
+	 8FkQqeYFyCXAg==
+Message-ID: <b41749ae-640b-4911-976f-8aa36d40ed6b@kernel.org>
+Date: Mon, 11 Aug 2025 13:02:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] mfd: mt6397: Add new bit definitions for RTC_BBPU
+ register
+To: ot_shunxi.zhang@mediatek.com, Eddie Huang <eddie.huang@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Lee Jones <lee@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+References: <20250811081543.4377-1-ot_shunxi.zhang@mediatek.com>
+ <20250811081543.4377-2-ot_shunxi.zhang@mediatek.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250811081543.4377-2-ot_shunxi.zhang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_040255_632347_B4A31B13 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,20 +121,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 01 Aug 2025 16:34:37 +0300, Dan Carpenter wrote:
-> There is a typo so we accidentally return positive EINVAL instead of
-> negative -EINVAL.  Add the missing '-' character.
+On 11/08/2025 10:15, ot_shunxi.zhang@mediatek.com wrote:
+> From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
 > 
+> This patch adds new bit definitions for the RTC_BBPU register in the
+
+Why? There is no user of these. Don't add useless defines.
+
+> mt6397 RTC header file. The following bit definitions are introduced:
+
+Hm?
+
 > 
+> Signed-off-by: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
+> ---
+>  include/linux/mfd/mt6397/rtc.h | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/mfd/mt6397/rtc.h b/include/linux/mfd/mt6397/rtc.h
+> index 27883af44f87..001cef6b7302 100644
+> --- a/include/linux/mfd/mt6397/rtc.h
+> +++ b/include/linux/mfd/mt6397/rtc.h
+> @@ -15,8 +15,11 @@
+>  #include <linux/rtc.h>
+>  
+>  #define RTC_BBPU               0x0000
+> +#define RTC_BBPU_PWREN         BIT(0)
+> +#define RTC_BBPU_CLR           BIT(1)
+> +#define RTC_BBPU_RESET_AL      BIT(3)
+>  #define RTC_BBPU_CBUSY         BIT(6)
+> -#define RTC_BBPU_KEY            (0x43 << 8)
+> +#define RTC_BBPU_KEY           (0x43 << 8)
 
-Applied, thanks!
 
-[1/1] PCI: xgene-msi: Return negative -EINVAL in xgene_msi_handler_setup()
-      commit: b26fc701a25195134ff0327709a0421767c4c7b2
+Why?
+
+
 
 Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
-
+Krzysztof
 
