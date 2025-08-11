@@ -4,68 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28974C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF2FC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 09:01:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcrRTFRj7cbA3cpW+akyQcrb2vmEVONwi8WALRjHB+0=; b=hOKtgjPwtNXCMtBGCxAbLWrfgv
-	PpGLaHnpPzgsf5qrmnmaNS2A0Q2BNqciIMGdZhUGEZHAeSYVvB3/FxFiY14KNl1Mpm6duPEnm5C/4
-	kSiUvH4zEB5jrE7o+DWFHlXFYMvKRsO5g3J/IvnuMjFHc7B+PNwzSKMmI3KglAcTCVV8TsYmPmJMo
-	tE9JXu5BiHfCbHwgvPVpFifP40HZwGSMGTN2TTEBPdLBMtNbru+OULMcu1fDT1CGLwpNze7E9TeL3
-	xTyjvKZn9lpVRSNCUF+TCyubPIxFkulq6mHdWD82/HueUgtHTfsxiK6cBFCwJwm1oyFv7BEb1EaDC
-	CL/Mt7nw==;
+	bh=tQwB+DGbu+7d/h6CN1zqC1xs4ZvHmbecWSlnZ3m6XYg=; b=srIENV1wTyC1CLnSFc9f88UwOU
+	bVowr/zbDn5qC90hQ7EaVL3yCAL+Z2Teqz25VcWxVCH4haMigVDpB+Ht6cvif5r/qnBj+9OKqZ9Ck
+	8Dn+rmJbwQqSOT0lvsd7wjosudGi3rZUa71AlvoQIl1yIlguKmg8IB2Y3uJNYwW3LLwUIaI8US4g8
+	KzgRoep54w62XEEyctGHR6jFfIQnThgms3r6Oq/4nuu2d9Zm/0t9xCvohqAya4izulWbbC/ptMGao
+	LjNoXM0+tiNkOt8Le2F7tgIUHH2tgP0I4TRDFEMYN0APx4ZBbl4PLyHUDrhYtCfk6mAixe7pLB4Q1
+	l9HX0OvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOMY-00000006wLo-009b;
-	Mon, 11 Aug 2025 08:58:38 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNxK-00000006rZV-31AQ
+	id 1ulOP9-00000006x67-1cJ5;
+	Mon, 11 Aug 2025 09:01:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulOAq-00000006tnN-2WLH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 08:32:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=l1urE0nBnDldGpR9OuYBitZPOtsyzKvkEwXiA4ekwMM=; b=G
-	tL+qPC+Kg8n+h86joVxD5ZB6slCWg485ACImQ9z5pGDNZYK/M0EQRUdlWmcYIXMI
-	C8GcJD5Wj3NqgR0hi2UQ9ekhpbUQ+thsQ8m33IT0jo7OspJESkbZNmAJ3wSlyK+Y
-	btjwar6go+J71wJeDHfXbd+hLj/y8O+/9U2NRhGFss=
-Received: from fanqincui$163.com ( [124.127.58.139] ) by
- ajax-webmail-wmsvr-40-122 (Coremail) ; Mon, 11 Aug 2025 16:32:19 +0800
- (CST)
-X-Originating-IP: [124.127.58.139]
-Date: Mon, 11 Aug 2025 16:32:19 +0800 (CST)
-From: fanqincui  <fanqincui@163.com>
-To: "Marc Zyngier" <maz@kernel.org>
-Cc: "Will Deacon" <will@kernel.org>, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	"Fanqin Cui" <cuifq1@chinatelecom.cn>, hanht2@chinatelecom.cn
-Subject: Re:Re: [PATCH] arm64/module: Support for patching modules during
- runtime
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20250519(9504565a)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <86zfc68exk.wl-maz@kernel.org>
-References: <20250807072700.348514-1-fanqincui@163.com>
- <aJXlegQfZTdimS3k@willie-the-truck>
- <3d4011c0.6aaa.198981027d7.Coremail.fanqincui@163.com>
- <86zfc68exk.wl-maz@kernel.org>
-X-NTES-SC: AL_Qu2eBvWbvkko7ySZYekXk0wWhOw8Xcexv/0h1IBfPZ00qSTB2TA5dm57NHfH3PmCFgymoQmxeTRT5MtCc5tocb9SQY8C8S+4PR1z5JAFrE/O
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	Mon, 11 Aug 2025 08:46:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 092CE601D1;
+	Mon, 11 Aug 2025 08:46:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D4C5C4CEED;
+	Mon, 11 Aug 2025 08:46:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754901991;
+	bh=Y5zdDtlvksp8wx54SbL2eMsPa2AmEb4mwSvm3QjYc5g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dG+097BDggsNcwfaItSozDwHz0rEYXgJ8eYz1Z1nK8AV1TtFa7jxmtGQRyCBxM1gH
+	 v2SkOGiL+3NAzPuN+VH7dQr0tgVrar270cNPW52LP3uDRi676Zk7qg/RRvobwJPSW/
+	 hREzAyYA0k3K52p6IImfHubUIaMXw/0Z3eMFsf3dW9gOb2cYBqp4OAAqbNLF3ST0Gv
+	 /VAj99+TokbC2EVrkdXFlKgHAnNAbCKKU6u81bjKRv78R61lz2Uu9V44bFGOxsNQwf
+	 YqHDyH4oAV+TlmL2dRBX/kbVQQP/nkIzLOeExqlqXJoK5VqhY/+G7c567VYE3NhBVD
+	 6ohrAbfQqQp3w==
+Message-ID: <7ff48289-f738-420e-ac69-de544833725b@kernel.org>
+Date: Mon, 11 Aug 2025 10:46:27 +0200
 MIME-Version: 1.0
-Message-ID: <587b3c08.7e85.19898424fdb.Coremail.fanqincui@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eigvCgD3n5+TqploqnoXAA--.18653W
-X-CM-SenderInfo: 5idq1xpqfxxqqrwthudrp/1tbiOhWmpWiZnRfSwwAEsC
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_013235_109558_A37DAAF6 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: s3c/gpio: complete the conversion to new GPIO value
+ setters
+To: Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250730071443.8758-1-brgl@bgdev.pl>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250730071443.8758-1-brgl@bgdev.pl>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +116,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIG1hcmMsClRoZSBjYWxsYmFjayBmdW5jdGlvbiBpcyBkZXNpZ25lZCBieSB0aGUgZGV2ZWxv
-cGVyLiBEZXZlbG9wZXJzIG5lZWQKdG8gdXNlIHRoZSBjYWxsYmFjayBmdW5jdGlvbiB0byBwYXRj
-aCB0aGVpciBvd24gbW9kdWxlIGNvZGUuIFVuZGVyCnRoaXMgcHJlbWlzZSwgZGV2ZWxvcGVycyBh
-cmUgcmVzcG9uc2libGUgZm9yIHByb3ZpZGluZyB0aGUgY29ycmVjdApjYWxsYmFjayBmdW5jdGlv
-bi4KQSBjb3JyZWN0IGNhbGxiYWNrIGZ1bmN0aW9uIGltcGxlbWVudGF0aW9uIGRvZXMgbm90IHJl
-cXVpcmUgZnVydGhlcgpwYXRjaGluZy4gRnVydGhlcm1vcmUsIHRoZSBjYWxsYmFjayBpdHNlbGYg
-bXVzdCBiZSBleGVjdXRhYmxlLiBJZiB0aGUKY2FsbGJhY2sgZnVuY3Rpb24gaGFzIHByb2JsZW1z
-LCB0aGUgbW9kdWxlJ3MgZnVuY3Rpb25hbGl0eSB3aWxsIGJlIGFmZmVjdGVkLgoKRmFucWluCgoK
-CgoKCgoKCgoKCkF0wqAyMDI1LTA4LTExwqAxNjowMTo0MyzCoCJNYXJjwqBaeW5naWVyIsKgPG1h
-ekBrZXJuZWwub3JnPsKgd3JvdGU6Cj5PbsKgTW9uLMKgMTHCoEF1Z8KgMjAyNcKgMDg6Mzc6MzLC
-oCswMTAwLAo+ZmFucWluY3VpwqA8ZmFucWluY3VpQDE2My5jb20+wqB3cm90ZToKPj7CoAo+PsKg
-SGnCoHdpbGwsCj4+wqBZZXMswqB5b3XCoGFyZcKgcmlnaHQuwqBUaGXCoGFsdGVybmF0aXZlwqBj
-YWxsYmFja8KgZnVuY3Rpb27CoGxpdmVzwqBpbnNpZGXCoHRoZcKgbW9kdWxlLgo+PsKgVGhpc8Kg
-Y2FsbGJhY2vCoGZ1bmN0aW9uwqBpc8KgYWN0dWFsbHnCoHNpbWlsYXLCoHRvwqBrdm1fdXBkYXRl
-X3ZhX21hc2vCoGluwqBLVk07Cj4+wqAKPj7CoFRoZcKgbW9kdWxlJ3PCoGNhbGxiYWNrwqBmdW5j
-dGlvbsKgY2FsY3VsYXRlc8Kgc29tZcKgdmFsdWVzwqBiYXNlZMKgb24KPj7CoHRoZcKgY3VycmVu
-dMKgQ1BVwqBmZWF0dXJlc8KgYW5kwqB0aGVuwqBwZXJmb3Jtc8KgdGhlwqByZXBsYWNlbWVudC4K
-Pj7CoAo+PsKgVGhlwqAudGV4dC5hbHRlcm5hdGl2ZV9jYsKgc2VjdGlvbsKgaXPCoGFjdHVhbGx5
-wqBtYXJrZWTCoGFzwqBTSEZfRVhFQ0lOU1RSwqB8wqBTSEZfQUxMT0MKPj7CoGR1cmluZ8KgY29t
-cGlsYXRpb24swqBzb8KgaW50ZXJzZWN0aW9ucygpwqBpbmNsdWRlc8KgdGhpc8Kgc2VjdGlvbsKg
-YW5kwqBzZXRzwqBpdMKgYXPCoGV4ZWN1dGFibGXCoGxhdGVyLgo+Cj5JJ23CoHdvcnJpZWTCoHRo
-ZXJlwqBpc8KgYcKgY2hpY2tlbi1hbmQtZWdnwqBwcm9ibGVtwqBoZXJlLsKgV2hhdMKgaWbCoHRo
-ZQo+Y2FsbGJhY2vCoGl0c2VsZsKgcmVxdWlyZXPCoHBhdGNoaW5nwqB2aWHCoHNvbWXCoG90aGVy
-wqBhbHRlcm5hdGl2ZT/CoElzwqB0aGVyZQo+YcKgZ3VhcmFudGVlwqB0aGF0wqB0aGlzwqBhbHdh
-eXPCoHBlcmZvcm1lZMKgaW7CoHRoZcKgY29ycmVjdMKgb3JkZXI/Cj4KPglNLgo+Cj4tLcKgCj5X
-aXRob3V0wqBkZXZpYXRpb27CoGZyb23CoHRoZcKgbm9ybSzCoHByb2dyZXNzwqBpc8Kgbm90wqBw
-b3NzaWJsZS4K
+On 30/07/2025 09:14, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> Commit fb52f3226cab ("ARM: s3c/gpio: use new line value setter
+> callbacks") correctly changed the assignment of the callback but missed
+> the check one liner higher. Change it now too to using the recommended
+> callback as the legacy one is going away soon.
+> 
+> Fixes: fb52f3226cab ("ARM: s3c/gpio: use new line value setter callbacks")
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+> Autobuilders pointed out only now that I missed the other line that
+> needs changing in my previous patch. I'd like to still queue this for
+> v6.17. Either through the SoC tree if it's not too late or through the
+> GPIO tree together with my second PR for this merge window. Please
+> kindly ack it.
+
+This does not apply for current RC, so on top of v6.17-rc1.
+
+Best regards,
+Krzysztof
 
