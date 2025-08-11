@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184CDCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02DCBCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYvuCVKQT8NTdb9Lf/C8zjOTvvbVuj9XjmraiJXjyT8=; b=ug1I29Mipl0NWGsc3ZGm9MOz3j
-	Rt+W1uRkYUVeEoZmqHVQbN/HjXp5Imu3y253rpkGsI/11QOOUb8uH2e6MLD32kYMWYDFGjtUJHR89
-	0pl456yhtt/n6pv+QYX0M9zFgeb6YgqSBNvxNp+1syW2FPOcZ5Lq8Sk7XfsugwjwlYfgUlcSxz00v
-	lapYVLYbROCTE1PkgqTUFxVLIoMY5l4SJGaW2T9E18RKXDc9tvnz6CJ+q9gV0PDCmzOxP4TZIA3pi
-	/eqM81D9Iwy6k6ZAOhYthBYE8DZLLneqCw/lT5Z7d6OtPa34qDMDDGfBSgua/w2plxeFp583f63OF
-	sudOE9fw==;
+	bh=eNQMTatmBPKxFdkwKt+EGx4xbTTrm71X5AAkKcuKjqk=; b=nmE6IBgDtsEzHgNK4urUfJ9/bC
+	ncKdwRz2uE7RyqW3708i9c3qG5U6SmorpduoA+S+y8Oic9HcbToaBf9DZ/ZCTbeuh2asFMs9c2qoA
+	CMT296U3OpLhhEEz8cIvIqXMLDBRjKchgfKVu6owoXN8VMktlKTqIdsYKcBFliuYVfuzd6MVaBSMe
+	Gz/MUtctLYkZfs91jwyfc3DJP8Jfd4xRpobvCS97XUkilO2/UaiOTgpOsvPYJxoanIebdxpDEteh8
+	mZqKBedZG/zzMlm6SALPGGxjsmzgYL6fJ0uSNJqAaOSNOUZz/+p+e5t+L9WxSsT6ejzELPPNJarhj
+	46ATd7fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulabP-00000009Ae3-1qqo;
-	Mon, 11 Aug 2025 22:02:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulVW2-00000008QoP-1RwW
+	id 1ulabS-00000009Ai9-1jnn;
+	Mon, 11 Aug 2025 22:02:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulVc5-00000008S3x-0w3A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 16:36:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CA2282680;
-	Mon, 11 Aug 2025 09:36:45 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8D7AF3F738;
-	Mon, 11 Aug 2025 09:36:51 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	shameerali.kolothum.thodi@huawei.com,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	ardb@kernel.org,
-	scott@os.amperecomputing.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v6 5/5] arm64: futex: support futex with FEAT_LSUI
-Date: Mon, 11 Aug 2025 17:36:35 +0100
-Message-Id: <20250811163635.1562145-6-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250811163635.1562145-1-yeoreum.yun@arm.com>
-References: <20250811163635.1562145-1-yeoreum.yun@arm.com>
+	Mon, 11 Aug 2025 16:43:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 92C895C5D19;
+	Mon, 11 Aug 2025 16:43:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5857C4CEED;
+	Mon, 11 Aug 2025 16:43:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754930588;
+	bh=9z+tz1mZ02O2xUsDYySHzgddAuS1zPi5iv/IxcoOFc0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jl61eaUKy/n/uAo55PqQFasHJ3cCDEODQ42dDdfy8l5VpZaSFLCCkAQue4lRMuYXK
+	 FDKMiZU4SE0+96uDG4SR1at/HzjxXh9LawkN4Ak6Py9oWk+cBZG+TqUgMpylxIqYOF
+	 e5Ea1QQP5cfDhxBKoe+2dl5PCe728uGiP/3Ob4QkMnNviiHhKo1Vlv+/dUihzl5ih2
+	 iQYXQXWJKYNhLbv9DqLc0j2WHjtmXacO5p3JZ3p9le3Xzi3nAd10zv6R7TtRpl/2/p
+	 u1ynid+mLO5WsHy1MNsV9g8SrUOn75aSeFn1k148TtQxsgsd3TftPMOZQwUT2xghsC
+	 M9TXjSo2P0QUA==
+Date: Mon, 11 Aug 2025 09:43:07 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+Cc: "Gupta, Suraj" <Suraj.Gupta2@amd.com>, "andrew+netdev@lunn.ch"
+ <andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "Simek, Michal" <michal.simek@amd.com>,
+ "sean.anderson@linux.dev" <sean.anderson@linux.dev>, "horms@kernel.org"
+ <horms@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net] net: xilinx: axienet: Increment Rx skb ring head
+ pointer after BD is successfully allocated in dmaengine flow
+Message-ID: <20250811094307.4c2d42ae@kernel.org>
+In-Reply-To: <MN0PR12MB5953EF5C6557457C1C893668B728A@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20250805191958.412220-1-suraj.gupta2@amd.com>
+	<20250808120534.0414ffd0@kernel.org>
+	<BL3PR12MB65712291B55DD8D535BAE667C92EA@BL3PR12MB6571.namprd12.prod.outlook.com>
+	<20250811083738.04bf1e31@kernel.org>
+	<MN0PR12MB5953EF5C6557457C1C893668B728A@MN0PR12MB5953.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_093654_459819_3369C1EA 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250811_094309_304064_E2B54F19 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,194 +83,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current futex atomic operations are implemented with ll/sc instructions
-and clearing PSTATE.PAN.
+On Mon, 11 Aug 2025 15:55:02 +0000 Pandey, Radhey Shyam wrote:
+> > That wasn't my reading, maybe I misinterpreted the code.
+> >
+> > From what I could tell the driver tries to give one new buffer for each buffer
+> > completed. So it never tries to "catch up" on previously missed allocations. IOW say
+> > we have a queue with 16 indexes, after 16 failures (which may be spread out over
+> > time) the ring will be empty.  
+> 
+> Yes, IIRC there is 1:1 mapping for RX DMA callback and
+> axienet_rx_submit_desc(). In case there are failure in
+> axienet_rx_submit_desc() it is not able to reattempt
+> in current implementation. Theoretically there could
+> be other error in rx_submit_desc() (like dma_mapping/netdev
+> allocation)
+> 
+> One thought is to have some flag/index to tell that it should
+> be reattempted in subsequent axienet_rx_submit_desc() ?
 
-Since Armv9.6, FEAT_LSUI supplies not only load/store instructions but
-also atomic operation for user memory access in kernel it doesn't need
-to clear PSTATE.PAN bit anymore.
-
-With theses instructions some of futex atomic operations don't need to
-be implmented with ldxr/stlxr pair instead can be implmented with
-one atomic operation supplied by FEAT_LSUI.
-
-However, some of futex atomic operations still need to use ll/sc way
-via ldtxr/stltxr supplied by FEAT_LSUI since there is no correspondant
-atomic instruction or doesn't support word size operation.
-(i.e) eor, cas{mb}t
-
-But It's good to work without clearing PSTATE.PAN bit.
-
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/include/asm/futex.h | 142 ++++++++++++++++++++++++++++++++-
- 1 file changed, 141 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/futex.h b/arch/arm64/include/asm/futex.h
-index fdec4f3f2b15..38fc98f4af46 100644
---- a/arch/arm64/include/asm/futex.h
-+++ b/arch/arm64/include/asm/futex.h
-@@ -9,6 +9,8 @@
- #include <linux/uaccess.h>
- #include <linux/stringify.h>
- 
-+#include <asm/alternative.h>
-+#include <asm/alternative-macros.h>
- #include <asm/errno.h>
- 
- #define LLSC_MAX_LOOPS	128 /* What's the largest number you can think of? */
-@@ -115,11 +117,149 @@ __llsc_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
- 	return ret;
- }
- 
-+#ifdef CONFIG_AS_HAS_LSUI
-+
-+#define __LSUI_PREAMBLE	".arch_extension lsui\n"
-+
-+#define LSUI_FUTEX_ATOMIC_OP(op, asm_op, mb)				\
-+static __always_inline int						\
-+__lsui_futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)	\
-+{									\
-+	int ret = 0;							\
-+	int val;							\
-+									\
-+	mte_enable_tco();						\
-+	uaccess_ttbr0_enable();						\
-+									\
-+	asm volatile("// __lsui_futex_atomic_" #op "\n"			\
-+	__LSUI_PREAMBLE							\
-+	"1:	" #asm_op #mb "	%w3, %w2, %1\n"				\
-+	"2:\n"								\
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)				\
-+	: "+r" (ret), "+Q" (*uaddr), "=r" (val)				\
-+	: "r" (oparg)							\
-+	: "memory");							\
-+									\
-+	mte_disable_tco();						\
-+	uaccess_ttbr0_disable();					\
-+									\
-+	if (!ret)							\
-+		*oval = val;						\
-+									\
-+	return ret;							\
-+}
-+
-+LSUI_FUTEX_ATOMIC_OP(add, ldtadd, al)
-+LSUI_FUTEX_ATOMIC_OP(or, ldtset, al)
-+LSUI_FUTEX_ATOMIC_OP(andnot, ldtclr, al)
-+LSUI_FUTEX_ATOMIC_OP(set, swpt, al)
-+
-+static __always_inline int
-+__lsui_futex_atomic_and(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	return __lsui_futex_atomic_andnot(~oparg, uaddr, oval);
-+}
-+
-+static __always_inline int
-+__lsui_futex_atomic_eor(int oparg, u32 __user *uaddr, int *oval)
-+{
-+	unsigned int loops = LLSC_MAX_LOOPS;
-+	int ret, val, tmp;
-+
-+	mte_enable_tco();
-+	uaccess_ttbr0_enable();
-+
-+	/*
-+	 * there are no ldteor/stteor instructions...
-+	 */
-+	asm volatile("// __lsui_futex_atomic_eor\n"
-+	__LSUI_PREAMBLE
-+	"	prfm	pstl1strm, %2\n"
-+	"1:	ldtxr	%w1, %2\n"
-+	"	eor	%w3, %w1, %w5\n"
-+	"2:	stltxr	%w0, %w3, %2\n"
-+	"	cbz	%w0, 3f\n"
-+	"	sub	%w4, %w4, %w0\n"
-+	"	cbnz	%w4, 1b\n"
-+	"	mov	%w0, %w6\n"
-+	"3:\n"
-+	"	dmb	ish\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %w0)
-+	: "=&r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp),
-+	  "+r" (loops)
-+	: "r" (oparg), "Ir" (-EAGAIN)
-+	: "memory");
-+
-+	mte_disable_tco();
-+	uaccess_ttbr0_disable();
-+
-+	if (!ret)
-+		*oval = val;
-+
-+	return ret;
-+}
-+
-+static __always_inline int
-+__lsui_futex_cmpxchg(u32 __user *uaddr, u32 oldval, u32 newval, u32 *oval)
-+{
-+	int ret = 0;
-+	unsigned int loops = LLSC_MAX_LOOPS;
-+	u32 val, tmp;
-+
-+	mte_enable_tco();
-+	uaccess_ttbr0_enable();
-+
-+	/*
-+	 * cas{al}t doesn't support word size...
-+	 */
-+	asm volatile("//__lsui_futex_cmpxchg\n"
-+	__LSUI_PREAMBLE
-+	"	prfm	pstl1strm, %2\n"
-+	"1:	ldtxr	%w1, %2\n"
-+	"	eor	%w3, %w1, %w5\n"
-+	"	cbnz	%w3, 4f\n"
-+	"2:	stltxr	%w3, %w6, %2\n"
-+	"	cbz	%w3, 3f\n"
-+	"	sub	%w4, %w4, %w3\n"
-+	"	cbnz	%w4, 1b\n"
-+	"	mov	%w0, %w7\n"
-+	"3:\n"
-+	"	dmb	ish\n"
-+	"4:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 4b, %w0)
-+	_ASM_EXTABLE_UACCESS_ERR(2b, 4b, %w0)
-+	: "+r" (ret), "=&r" (val), "+Q" (*uaddr), "=&r" (tmp), "+r" (loops)
-+	: "r" (oldval), "r" (newval), "Ir" (-EAGAIN)
-+	: "memory");
-+
-+	mte_disable_tco();
-+	uaccess_ttbr0_disable();
-+
-+	if (!ret)
-+		*oval = oldval;
-+
-+	return ret;
-+}
-+
-+#define __lsui_llsc_body(op, ...)					\
-+({									\
-+	alternative_has_cap_likely(ARM64_HAS_LSUI) ?			\
-+		__lsui_##op(__VA_ARGS__) : __llsc_##op(__VA_ARGS__);	\
-+})
-+
-+#else	/* CONFIG_AS_HAS_LSUI */
-+
-+#define __lsui_llsc_body(op, ...)	__llsc_##op(__VA_ARGS__)
-+
-+#endif	/* CONFIG_AS_HAS_LSUI */
-+
-+
- #define FUTEX_ATOMIC_OP(op)						\
- static __always_inline int						\
- __futex_atomic_##op(int oparg, u32 __user *uaddr, int *oval)		\
- {									\
--	return __llsc_futex_atomic_##op(oparg, uaddr, oval);		\
-+	return __lsui_llsc_body(futex_atomic_##op, oparg, uaddr, oval);	\
- }
- 
- FUTEX_ATOMIC_OP(add)
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+Yes, some kind of counter of buffer that need to be allocated.
+The other problem to solve is when the buffers are completely
+depleted there will be no callback so no opportunity to refill.
+For drivers which refill from NAPI this is usually solved by
+periodically scheduling NAPI.
 
