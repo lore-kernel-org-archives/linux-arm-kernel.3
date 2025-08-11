@@ -4,53 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B591BCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 18:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD49CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iK2McGU9OO4eh35vhn+HE9Ge1tIJXywTspirp7UkxHE=; b=b7rfhcKaA1zax8
-	TBpFKJOtqINxDlfjin7x+j7SAAuuuo5d0ODj16GbQm2PwveLLQ90v7YE9j/vQOyRa4ePM5e2hIy11
-	XZg64TSkKfGYhpzQFDte2WqxoODZWGVrqCWPMl0KAfxMfB/TZ1UA0dvQUf+fMYDK+kJpPm3dpGKW2
-	i96S7X2Q8TOHtj/KkJPbJb7jBuHYrKYxDQA42iEOzvFDLr18jjNzT6KOfi+RnjlE704eFb34/5ym4
-	++NVxbAJbhQ+wdmnxy6DH3/mLbsdSzzE/nt5STKRyGh49/Ekny6CINL4qp09n05b+RAXwvoFTxcg4
-	3HcV+6L/7fRcpII9BRsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mbST2mZm/OGxeLhUyblcLjaZnUO7SqB4UDOet5qZFvU=; b=MydlvEJS+kg4WBbGBkuud+wjNO
+	89ZJOSarU0Bi2qQrx3CCbLe/OiOF26+VF8dFNbqk4dRLCJsUajgahY4uZSVHMw+SqHG+vkvcy2Gd1
+	XiPRW6ZJZF3WKredoQQdZUrL+qAkWR9FdLSSIFaxSWzTMZxdKuO+04MKg5TpRTz6AFDc5/0rL0zCO
+	BWVo5Wbq9a/fh3lR/ycQj6HgHxkCIGNNV2TN/5EiFvBNeMS14rqf6ttN31YTjip3/Y8KaEnI5r6KC
+	hssFyff/ZNW/L3BlJUkQI5p5Vqlnyxq1FdXtQk9f3DsRU8yYE6rNtx8trdL8xeXg3i5udVNe3nq6Y
+	HANYoCzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulXg2-00000008qbe-4AQ0;
-	Mon, 11 Aug 2025 18:55:22 +0000
+	id 1ulXlR-00000008r19-1Rwt;
+	Mon, 11 Aug 2025 19:00:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUzP-00000008K15-1Jya
+	id 1ulVT4-00000008QAn-1TWp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 16:03:12 +0000
+	Mon, 11 Aug 2025 16:33:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 387D9266C;
-	Mon, 11 Aug 2025 09:03:02 -0700 (PDT)
-Received: from [10.1.28.163] (e137867.arm.com [10.1.28.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CEB73F738;
-	Mon, 11 Aug 2025 09:03:06 -0700 (PDT)
-Message-ID: <a3a8c0b8-e953-4c93-ab4d-0d9a4b3e47b1@arm.com>
-Date: Mon, 11 Aug 2025 17:03:04 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7FB82682;
+	Mon, 11 Aug 2025 09:33:41 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2FBF43F738;
+	Mon, 11 Aug 2025 09:33:46 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	maz@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	anshuman.khandual@arm.com,
+	robh@kernel.org,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	ry111@xry111.site,
+	Dave.Martin@arm.com,
+	ahmed.genidi@arm.com,
+	kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com,
+	mbenes@suse.cz,
+	james.clark@linaro.org,
+	frederic@kernel.org,
+	rafael@kernel.org,
+	pavel@kernel.org,
+	ryan.roberts@arm.com,
+	suzuki.poulose@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v2 1/6] arm64: make SCTLR2_EL1 accessible
+Date: Mon, 11 Aug 2025 17:33:35 +0100
+Message-Id: <20250811163340.1561893-2-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250811163340.1561893-1-yeoreum.yun@arm.com>
+References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -next v7 0/7] arm64: entry: Convert to generic irq entry
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
- <6bd09b5b-9830-42b4-ad9e-9ad1e153e564@arm.com>
- <94757d00-5a8e-ac6b-f832-030f33ccf771@huawei.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US
-Organization: Arm Ltd.
-In-Reply-To: <94757d00-5a8e-ac6b-f832-030f33ccf771@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_090311_402175_039EF286 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250811_093350_430468_E54F6302 
+X-CRM114-Status: UNSURE (   7.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,53 +84,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, sstabellini@kernel.org, puranjay@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, liaochang1@huawei.com, oleg@redhat.com, kristina.martsenko@arm.com, linux-kernel@vger.kernel.org, broonie@kernel.org, chenl311@chinatelecom.cn, xen-devel@lists.xenproject.org, leitao@debian.org, ryan.roberts@arm.com, akpm@linux-foundation.org, mbenes@suse.cz, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2025 09:11, Jinjie Ruan wrote:
+make SCTLR2_EL1 accssible to initilise it.
 
-> On 2025/8/5 23:08, Ada Couprie Diaz wrote:
->> Hi Jinjie,
->>
->> On 29/07/2025 02:54, Jinjie Ruan wrote:
->>
->>> Since commit a70e9f647f50 ("entry: Split generic entry into generic
->>> exception and syscall entry") split the generic entry into generic irq
->>> entry and generic syscall entry, it is time to convert arm64 to use
->>> the generic irq entry. And ARM64 will be completely converted to generic
->>> entry in the upcoming patch series.
->> Note : I had to manually cherry-pick a70e9f647f50 when pulling the series
->> on top of the Linux Arm Kernel for-next/core branch, but there might be
->> something I'm missing here.
-> It seems that it is now in mainline v6.16-rc1 and linux-next but not
-> Linux Arm Kernel for-next/core branch.
-You're right, I misinterpreted the `-next` of the subject, thanks for the
-clarification !
->> I'll spend some time testing the series now, specifically given patch 6's
->> changes, but other than that everything I saw made sense and didn't look
->> like it would be of concern to me.
-> Thank you for the test and review.
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ arch/arm64/include/asm/el2_setup.h | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-I've spent some time testing the series with a few different configurations,
-including PREEMPT_RT, pNMI, various lockup and hang detection options,
-UBSAN, shadow call stack, and various CONFIG_DEBUG_XYZ (focused on locks
-and IRQs), on both hardware (AMD Seattle) and KVM guests.
-
-I tried to generate a diverse set of interrupts (via debug exceptions,
-page faults, perf, kprobes, swapping, OoM) while loading the system with
-different workloads, some generating a lot of context switches : hackbench
-and signaltest from rt-tests[0], and mc-crusher[1], a memcached stress-test.
-
-I did not have any issues, nor any warning reported by the various
-debug features during all my hours of testing, so it looks good !
-
-Tested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-
-Thank you for the series !
-Ada
-
-[0]: https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git/
-[1]: https://github.com/memcached/mc-crusher
+diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+index 46033027510c..d755b4d46d77 100644
+--- a/arch/arm64/include/asm/el2_setup.h
++++ b/arch/arm64/include/asm/el2_setup.h
+@@ -57,9 +57,15 @@
+         /* Enable GCS if supported */
+ 	mrs_s	x1, SYS_ID_AA64PFR1_EL1
+ 	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+-	cbz	x1, .Lset_hcrx_\@
++	cbz	x1, .Lskip_hcrx_GCSEn_\@
+ 	orr	x0, x0, #HCRX_EL2_GCSEn
+ 
++.Lskip_hcrx_GCSEn_\@:
++	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
++	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
++	cbz	x1, .Lset_hcrx_\@
++	orr	x0, x0, HCRX_EL2_SCTLR2En
++
+ .Lset_hcrx_\@:
+ 	msr_s	SYS_HCRX_EL2, x0
+ .Lskip_hcrx_\@:
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
