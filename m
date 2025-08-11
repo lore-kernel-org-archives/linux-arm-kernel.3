@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0A5CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C348CCA0EDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYzY/GwjRyWYnZruLJaXlBjFISWXxi8U16dg9rgGvJg=; b=4enYg3hxbTJydO/UBi54epFAtK
-	ujbIN76wOXsDGnkpZycPpYNXXZrIvE90+j2kRk8DDMqBgIQnbiY/ostMxt/ZEJcHClvK77qCGmlNU
-	Ktbx6JhOthldBeb1ViJ0w1JJeLi4v3y3iwXrlH2KJMnRuZXKcvTL3ez+81qbULrEKZIrkHAGNKb2r
-	5pw0bC4CO9FbcryymSTSww/4U22EqWnt8K5maZiext2haoRdoh0IWkzEJrfjMQJUQQH/Msjav7UH7
-	W+XtdiJ1ymPUi9w4jv6FGiJjasXNXun/WjhaRB0JLKY5c50wOkis68jwWHojEAk5GJmp/t30pCRoH
-	HZdZk2bw==;
+	bh=SgNGATrm/WH0QDl7mmzOa5WFM8SQEpzU/Vlg/+6qt5Y=; b=D3uljMiNMEvc4FMlnJPbcDVTGA
+	hxSQhasHPEfZyR2CEfmydCWwCK9eXBGJgoVzRfR+pdOZ+cnfKZiMSS4kfx0uohFjOWcSy35zdeOJx
+	A7LLy4Jsy1WV1OtI8Y4Iz8H29NTD0VwRCN1bzFaKzArCb6kW0h9gcxG6u+D3mIYm9DTaTc56KH+53
+	vVAYZ7TsMv/sWpG+3n/nnbPEifiJkUVT6TUfFu6cCJxY2tDjN/pNLHRPAVobHLe0aslWUHPwXei5C
+	YVMXBWcLx3zpefhJ7a9if7i8lHl3la98n34pvMtEZUYH73m6a0OtXol/JMIbKJfrYduK9pTHLOHga
+	nIakDx+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulabh-00000009B3v-0aTq;
-	Mon, 11 Aug 2025 22:03:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWHk-00000008Y1A-2zzJ
+	id 1ulabk-00000009BAG-25fJ;
+	Mon, 11 Aug 2025 22:03:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulWc0-00000008azW-3O6E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 17:26:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 111EB1A32;
-	Mon, 11 Aug 2025 10:26:02 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFE693F63F;
-	Mon, 11 Aug 2025 10:26:07 -0700 (PDT)
-Date: Mon, 11 Aug 2025 18:26:05 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Shanker Donthineni <sdonthineni@nvidia.com>
-Cc: Will Deacon <will@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
+	Mon, 11 Aug 2025 17:47:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2AD465C5E1F;
+	Mon, 11 Aug 2025 17:47:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0E84C4CEED;
+	Mon, 11 Aug 2025 17:47:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754934427;
+	bh=mKkMaxD4qpSG42cXfEv3ipOX0l9wTH41ysdWD1UmrT0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=VQUhIEGPNQISsLZcnMINwUCYKwurxMVFcnnTSSVsMcchwocP/tXl7XzBCvbHJye/L
+	 78fWe94P8TB1QeNbZxSiY4e4e/EsLD2sCTZRSYyzvoB2quOJO9Zn2QW41rK+SOrkVB
+	 1DGsBklzX/0bkNlZvfay1W6Jxs9GQhTtqLw0tqGJd45coWAQV5KpCdhwROCIpy9SqP
+	 iVkKAyUy2ehBGWf7HRfh8XKry1uwTNJX9JYE7bQSSYkvh+5J9yUM+KZSwWXoilId38
+	 NmnTiYuAImqp9HLINsn7xz+6tKgCx7SeXQMepyaW8zDRhD3jnWZJtrkKjamUxzoton
+	 WjmlsY78uNvOg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ulWbh-006Lr3-KO;
+	Mon, 11 Aug 2025 18:46:50 +0100
+Date: Mon, 11 Aug 2025 18:46:48 +0100
+Message-ID: <86sehx92ev.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	anshuman.khandual@arm.com,
+	robh@kernel.org,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	ry111@xry111.site,
+	Dave.Martin@arm.com,
+	ahmed.genidi@arm.com,
+	kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com,
+	mbenes@suse.cz,
+	james.clark@linaro.org,
+	frederic@kernel.org,
+	rafael@kernel.org,
+	pavel@kernel.org,
+	ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
 	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Gavin Shan <gshan@redhat.com>,
-	Mike Rapoport <rppt@kernel.org>, Vikram Sethi <vsethi@nvidia.com>,
-	Jason Sequeira <jsequeira@nvidia.com>, Dev Jain <dev.jain@arm.com>,
-	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [RESEND PATCH 1/2] dma/pool: Use vmap() address for memory
- encryption helpers on ARM64
-Message-ID: <aJonrTrr6nW7qdLI@arm.com>
-References: <20250811005036.714274-1-sdonthineni@nvidia.com>
- <20250811005036.714274-2-sdonthineni@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250811005036.714274-2-sdonthineni@nvidia.com>
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 1/6] arm64: make SCTLR2_EL1 accessible
+In-Reply-To: <20250811163340.1561893-2-yeoreum.yun@arm.com>
+References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
+	<20250811163340.1561893-2-yeoreum.yun@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_102612_829582_DE534683 
-X-CRM114-Status: GOOD (  24.05  )
+X-CRM114-CacheID: sfid-20250811_104708_926967_9DC52A8C 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,72 +107,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 07:50:34PM -0500, Shanker Donthineni wrote:
-> In atomic_pool_expand(), set_memory_encrypted()/set_memory_decrypted()
-> are currently called with page_to_virt(page). On ARM64 with
-> CONFIG_DMA_DIRECT_REMAP=y, the atomic pool is mapped via vmap(), so
-> page_to_virt(page) does not reference the actual mapped region.
+On Mon, 11 Aug 2025 17:33:35 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
 > 
-> Using this incorrect address can cause encryption attribute updates to
-> be applied to the wrong memory region. On ARM64 systems with memory
-> encryption enabled (e.g. CCA), this can lead to data corruption or
-> crashes.
+> make SCTLR2_EL1 accssible to initilise it.
+
+nit: "accessible", "initialise".
+
+This could deserve a slightly less terse message, so that someone who
+is not very much versed into the boring details of the architecture
+can make sense of this patch. Because, frankly, if you can access
+HCRX_EL2, why can't you access SCTLR2_EL1? You know why, I know why,
+but hardly anyone else does.
+
+I'd suggest something along the lines of:
+
+"When the kernel runs at EL1, and yet is booted at EL2,
+ HCRX_EL2.SCTLR2En must be set to avoid trapping SCTLR2_EL1 accesses
+ from EL1 to EL2.
+
+ Ensure this bit is set at the point of initialising EL2."
+
+which at least explains why we're doing this.
+
 > 
-> Fix this by using the vmap() address ('addr') on ARM64 when invoking
-> the memory encryption helpers, while retaining the existing
-> page_to_virt(page) usage for other architectures.
-> 
-> Fixes: 76a19940bd62 ("dma-direct: atomic allocations must come from atomic coherent pools")
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
->  kernel/dma/pool.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
+>  arch/arm64/include/asm/el2_setup.h | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
-> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-> index 7b04f7575796b..ba08a301590fd 100644
-> --- a/kernel/dma/pool.c
-> +++ b/kernel/dma/pool.c
-> @@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  {
->  	unsigned int order;
->  	struct page *page = NULL;
-> +	void *vaddr;
->  	void *addr;
->  	int ret = -ENOMEM;
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index 46033027510c..d755b4d46d77 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -57,9 +57,15 @@
+>          /* Enable GCS if supported */
+>  	mrs_s	x1, SYS_ID_AA64PFR1_EL1
+>  	ubfx	x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
+> -	cbz	x1, .Lset_hcrx_\@
+> +	cbz	x1, .Lskip_hcrx_GCSEn_\@
+>  	orr	x0, x0, #HCRX_EL2_GCSEn
 >  
-> @@ -113,8 +114,8 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
->  	 * shrink so no re-encryption occurs in dma_direct_free().
->  	 */
-> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
-> -				   1 << order);
-> +	vaddr = IS_ENABLED(CONFIG_ARM64) ? addr : page_to_virt(page);
-> +	ret = set_memory_decrypted((unsigned long)vaddr, 1 << order);
+> +.Lskip_hcrx_GCSEn_\@:
+> +	mrs_s	x1, SYS_ID_AA64MMFR3_EL1
+> +	ubfx	x1, x1, #ID_AA64MMFR3_EL1_SCTLRX_SHIFT, #4
+> +	cbz	x1, .Lset_hcrx_\@
+> +	orr	x0, x0, HCRX_EL2_SCTLR2En
+> +
+>  .Lset_hcrx_\@:
+>  	msr_s	SYS_HCRX_EL2, x0
+>  .Lskip_hcrx_\@:
 
-At least with arm CCA, there are two aspects to setting the memory
-encrypted/decrypted: an RMM (realm management monitor) call and setting
-of the attributes of the stage 1 mapping. The RMM call doesn't care
-about the virtual address, only the (intermediate) physical address, so
-having page_to_virt(page) here is fine.
+With that fixed,
 
-The second part is setting the (fake) attribute for this mapping (top
-bit of the IPA space). Can we not instead just call:
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-	addr = dma_common_contiguous_remap(page, pool_size,
-					   pgprot_decrypted(pgprot_dmacoherent(PAGE_KERNEL)),
-					   __builtin_return_address(0));
-
-in the atomic pool code? The advantage is that we keep the
-set_memory_decrypted() call on the linear map so that we change its
-attributes as well.
-
-I want avoid walking the page tables for vmap regions if possible in the
-arm64 set_memory_* implementation. At some point I was proposing a
-GFP_DECRYPTED flag for allocations but never got around to post a patch
-(and implement vmalloc() support):
-
-https://lore.kernel.org/linux-arm-kernel/ZmNJdSxSz-sYpVgI@arm.com/
+	M.
 
 -- 
-Catalin
+Without deviation from the norm, progress is not possible.
 
