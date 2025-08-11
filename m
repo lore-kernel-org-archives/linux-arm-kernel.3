@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B42C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:37:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34677C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwi/bkIqLnnpNJQyXSVHrPIqCZU19aAPHszWTzl+j84=; b=xeAnH870OxBjc0Pfx2ivqGaJkJ
-	p0y9vFTM1+V3nW/qaBo4CRsQ+3wyEX/arJ7+WSPC6jN1ihT2p8PQMDg0lqxbZWdU+SFg+x6utDOvN
-	plEuEyW0e+QVzATSYi8xRFXkxKDC7iFfCTV1foyTT0bBEusaLF/5o6+pXNECmdFvr0+fUGceJdBoW
-	J9CG+FZxK5uhauco2HhsXplMRJ2EPBypW6/ScXsSSVlDJRtu9nKfZjm1q0F1vhFmeMi1t0kS1NVic
-	m546oScY6fWhKo/3nQe4W0GKFqHKwCln1N7/kor9qbUdG6HVDGqbf+aCeiA17TqidKVQHlG1vWVce
-	O2Y7Hm3Q==;
+	bh=qR3jsDjBiJPisIEFxl6J+JABFNJUt8tB4tG8U9oTuKY=; b=ipYvsUq8+udb1TST4AG+JiLSH/
+	lJOebN2vPOm+YrHEuCk6nUJiTggwj4LIxjT1YI1VMLLJPnMxII+FzA9EK3AgF6thnUUnzHvjeaHZd
+	bL3+miB0oU/ms1usrn6LAOJmn9vHUQiIeUdNS45C/1N4bqoiIpH9nzw71aBHJXSVVq+enb6W+PkXX
+	PITK5R6A4DTobMuBG0nNu+k6Zj8q3aKQNrQHi3Qdc+gAYB4pNPc4+rd5E77pDSWtJhAjh81VdALwO
+	qu2PA6AiTMPC3vBH5d2NGbBHbBKdlPR8h0cKI0dHlOi40BB0Z0Kn4M4uWp+HnmSkpo+GemfKdV0Si
+	fTBxzgug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulO20-00000006s3B-0rwm;
-	Mon, 11 Aug 2025 08:37:24 +0000
+	id 1ulO4W-00000006sJR-42LS;
+	Mon, 11 Aug 2025 08:40:00 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNYO-00000006nuz-0q0D
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 08:06:49 +0000
+	id 1ulNZ5-00000006o0e-1PM8;
+	Mon, 11 Aug 2025 08:07:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D82CC41843;
-	Mon, 11 Aug 2025 08:06:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30D93C4CEED;
-	Mon, 11 Aug 2025 08:06:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0282345795;
+	Mon, 11 Aug 2025 08:07:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C2B2C4CEED;
+	Mon, 11 Aug 2025 08:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754899607;
-	bh=99p1/Hcm7cvOf1qSQuU5BHYtUKVroVdIfTnJnDN3UHI=;
+	s=k20201202; t=1754899650;
+	bh=GuqQ/atb5C/6Edb5aI6yWEOFTf0z/YnBtztRgrCVmAM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J30ojhirgavjQuzhrbARZltg/1SE47SpS5zglLWvF2LyypjKcs2xk+skPrZugOM9e
-	 Udkd3g/+P/CXqnMReqwmWBfOLfEXm+3dzzx4IHfDxdb5A5a4BVdj76L9BfsILqxl8A
-	 L0U3mnMYXK18zrDinNrjqelxWo4lN/kztgdA7t+maFyccP69JobA9q17SCFn3mBAI+
-	 O2qWU+b205esXb+X/A2fr/tEh3N9RD1UHyXYRrYxLPhWulD4HMdSrGHIEEtUfEdHJ7
-	 htBtFM6/b08TQWbQuWTzSc+pyG/WjLPMEL5mFKWn4ISFSaA8OVsEXiOUaAydHNPwo6
-	 o+S9W3ofzoCQw==
-Date: Mon, 11 Aug 2025 10:06:45 +0200
+	b=mp6fa7jDERrN/G7YvQ/8rhkiSLwHePAdcl0+RkXHp+qqiYYwYpl954Pv71jwNrYep
+	 lK8ExOH0pn9/3KtUUaKbYyye+myHKQqp/xmV9ZGzq8Kgq4mTVEYxjnnRPxk6Ph5410
+	 P8Ny/pN68yok512QV5RWaKHeK77mzPBFUMP+8iapRJ6mb8YjBDmVlOx7FlEAqlk1NW
+	 5zBd+euPCNI6w1hd2ZDX9a6E1n5G+nOPplzRytvT+3UOpSXTtS8bCdT+tf3LNVGUXv
+	 IBuTP+MZBeQ9828qrM84amxGzkFGVYHTPI0TipP0l/YPp+WP3Fdw/GhdUTqvSJyAc+
+	 X5cqNytrdycFw==
+Date: Mon, 11 Aug 2025 10:07:28 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Will Whang <will@willwhang.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 3/4] media: i2c: imx585: Add Sony IMX585 image-sensor
- driver
-Message-ID: <20250811-cinnamon-tapir-of-music-0bda96@kuoka>
-References: <20250810220921.14307-1-will@willwhang.com>
- <20250810220921.14307-4-will@willwhang.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>
+Cc: Tiffany Lin <tiffany.lin@mediatek.com>, 
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+	Sebastian Fricke <sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, 
+	George Sun <george.sun@mediatek.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+Subject: Re: [PATCH v2 1/8] dt-bindings: media: mediatek: decoder: Add MT8189
+ mediatek,vcodec-decoder
+Message-ID: <20250811-archetypal-olive-doberman-ff0a31@kuoka>
+References: <20250811032616.1385-1-kyrie.wu@mediatek.com>
+ <20250811032616.1385-2-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250810220921.14307-4-will@willwhang.com>
+In-Reply-To: <20250811032616.1385-2-kyrie.wu@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_010648_257620_4BC3AB3E 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250811_010731_406203_9170598D 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,58 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 11:09:20PM +0100, Will Whang wrote:
-> +
-> +/* --------------------------------------------------------------------------
-> + * Power / runtime PM
-> + * --------------------------------------------------------------------------
-> + */
-> +
-> +static int imx585_power_on(struct device *dev)
-> +{
-> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
-> +	struct imx585 *imx585 = to_imx585(sd);
-> +	int ret;
-> +
-> +	dev_dbg(imx585->clientdev, "power_on\n");
-> +
-> +	ret = regulator_bulk_enable(IMX585_NUM_SUPPLIES, imx585->supplies);
-> +	if (ret) {
-> +		dev_err(imx585->clientdev, "Failed to enable regulators\n");
-> +		return ret;
-> +	}
-> +
-> +	ret = clk_prepare_enable(imx585->xclk);
-> +	if (ret) {
-> +		dev_err(imx585->clientdev, "Failed to enable clock\n");
-> +		goto reg_off;
-> +	}
-> +
-> +	gpiod_set_value_cansleep(imx585->reset_gpio, 1);
+On Mon, Aug 11, 2025 at 11:26:08AM +0800, Kyrie Wu wrote:
+> Add compatible for video decoder on MT8189 platform. Compared with
+> former ICs, the MT8189 decoder use iommu to instead of smmu, and
+> use scp architecture, the frequency is only 406MHZ, and cannot reach
+> more than 700MHZ. At the same time, the decoder supports the vp9
+> decoding protocol for the first time in single IC.
+> 
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> ---
+>  .../bindings/media/mediatek,vcodec-subdev-decoder.yaml           | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+> index 74e1d88d3056..1bb5a2485e4c 100644
+> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-decoder.yaml
+> @@ -77,6 +77,7 @@ properties:
+>        - mediatek,mt8188-vcodec-dec
+>        - mediatek,mt8195-vcodec-dec
+>        - mediatek,mt8196-vcodec-dec
+> +      - mediatek,mt8189-vcodec-dec
 
-You asserted reset gpio causing it to enter reset and you call this
-"power on"?
-
-> +	usleep_range(IMX585_XCLR_MIN_DELAY_US,
-> +		     IMX585_XCLR_MIN_DELAY_US + IMX585_XCLR_DELAY_RANGE_US);
-> +	return 0;
-> +
-> +reg_off:
-> +	regulator_bulk_disable(IMX585_NUM_SUPPLIES, imx585->supplies);
-> +	return ret;
-> +}
-> +
-> +static int imx585_power_off(struct device *dev)
-> +{
-> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
-> +	struct imx585 *imx585 = to_imx585(sd);
-> +
-> +	dev_dbg(imx585->clientdev, "power_off\n");
-> +
-> +	gpiod_set_value_cansleep(imx585->reset_gpio, 0);
-
-And here device comes up, but you call it power off? Your functions or
-reset gpio code are completely reversed/wrong.
+Misplaced.
 
 Best regards,
 Krzysztof
