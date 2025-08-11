@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D79C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D109C87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YFqWTTk05Ml/MIvsxQnEF+TYVUSm4fUy0wHLdAWzEyE=; b=kOJlDJhWazpuOkwO4zhBeTEhoU
-	Y/hmMmUyocHQ89SEEjYCQQfIneB1jCPv1dWgx1sb6IE7ZPaDhlMTkqaU5K5JibFRkXWCRBjPbe2KA
-	w+Z0qWdGfsZBckTajmOyLrYpLXcmTPaiCrVIhhBQ9VjuWHmT5hfvMPPB91kKU6twUCTkrVJg74l6t
-	vD2faY59o99YGarR9ABvQ3c3WrXmMu7bUiHNY8LzhVVHsbMSjC5QNvGRzC+RdUMuYduafbynBk+Va
-	YScPAaZsA2lHsXbslJ2/nbMztwm/7l8VGlydC08nseFnqP1/M2ZDtSx4J8ACYX9PpkahcJurEBh1M
-	Xg3lQv9g==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7mMMEW4m9zgxGaWpPF/szQjkmQKnYcw2JK1bAC39QMM=; b=VgwY2Y+39ujHXuGGpeSgwjSmXV
+	5hmnK5Il+F2/4sbN3EXVvmT23tX9Nfd57QGb7TNlZv+F9tUYFFk0AuQGjlSeG3eyXEKn4fBqJxNvZ
+	lfa243wf47Q7SUE/Inm7CAQn6KTen9OlTlS1TmDdzJQfzxJ1Xsd+bRBpwNbv3Fpmb17IsGHBcBJx6
+	0wCmcu5580zDhdmQi6G4Os0De+/mN6v1RpHYwl50Nup+1mMK4CaUa9hS6flKoPCCOp46lyW2XHxmN
+	Cfj+SSiBC+enXcwpCzIEPwxxgvmx/I3qzGm2rRqy5ukZc8e/SpLQ6FetrGbs6Y82tcjqgIVtXuJzy
+	WaJ/LAHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPfo-00000007J6f-4BIh;
-	Mon, 11 Aug 2025 10:22:37 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1ulPiP-00000007JW5-3c01;
+	Mon, 11 Aug 2025 10:25:17 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPd8-00000007Ilm-2moF
+	id 1ulPd9-00000007Ilo-020E
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 11 Aug 2025 10:19:52 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3b7961b3c82so2117601f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 03:19:49 -0700 (PDT)
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-459de8f00cfso17192985e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 03:19:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1754907588; x=1755512388; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=YFqWTTk05Ml/MIvsxQnEF+TYVUSm4fUy0wHLdAWzEyE=;
-        b=p6f2Y8fDb0JtO0KSzyNyJj/6zwjSEZF7ehihvU4tO5KPJeLfgLvzReTiQXXYi+g09s
-         5/WQP9zW+dGaIbzK8wyJde77cZJnCpnIWAOo7ZMUPdjqqQitth9TCVOiYMZCii/nh96m
-         g7kBggAz4Zp4AACBtrG9N/C9wry3UU4aWEGnRi5K9FvPXaacRdkHPfuxoKq2WZit4CL8
-         YJiNALnSIvhW1/p0VuMPdjuHtwYKA0nxQr2gJ2sWmv2Pkl3nX8MVXBRogvdzNupwUfgq
-         93yVh0i3+Sk3ZWZX8MG+f/OAeiXR+7i/uDws6iVY9+qKBJTubFeM9FicmbAjYjhiskwV
-         NgXA==
+        d=google.com; s=20230601; t=1754907589; x=1755512389; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7mMMEW4m9zgxGaWpPF/szQjkmQKnYcw2JK1bAC39QMM=;
+        b=KoucnANOMU8/dHv+PEzWmxW9jHIeUj9ZWShk7J2IF5i8PRBgMdQMoR9s6DwTheQF4p
+         3f9gELwouVpTTIodPBjlRb3ChI581EWmaDBAXfL5hZ7wtxSa2BM9a+c7yesezmgy+LCK
+         c2lzheBCXMDUowOzEqnFcmZVeX3rPKBLTYMgeyiHM/dpwvLhKMvFn+sdP0IPB9Rh/Wvx
+         vT8SN/eooPr0MNMwb5Dys5/RRauqeKA0FERqozpOuKnDsGX8tmPLAF6ae1tNC9suyMC8
+         i6cCVK7zoZXvOp5MrfzENUX614iczuPWr+qQQ3HQwzcK8cITAyJyszgmJDemwAQckLST
+         V33w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754907588; x=1755512388;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=YFqWTTk05Ml/MIvsxQnEF+TYVUSm4fUy0wHLdAWzEyE=;
-        b=fSQ+k54mB3+/KubTGSxY8TAzYUk17p/QnpzIRnhcIIWEVedoMzhDs/BcpwZR0OegrF
-         QoO7dWmcwvEUFiTE8edSj/yUcMjKvDe2kE1GU9KtX8kBoT2lc9p2JQdIAvLCSBo93tbw
-         mkqutClFJ6Ca/A5rwnpFfsSKlXqUHzjAqFyMaP54IRaEPHkfdEC3Ox+tWRHTI82oPSJB
-         Ap3c8aVKbQn5eJdS54wNS5hRgpLgEGIM+fPeuxcxxFosrwuDM5ZeelKybvT6hJ3Z1/31
-         j0pATxhkx6Q/H6uSFDnzr0tTkCW+hemAun8e7Cna51y5sX1j19D7LxaxycDsvJCDUOrw
-         dQ/g==
-X-Forwarded-Encrypted: i=1; AJvYcCW8nPdj993M9EX9QOQ+xyfUFq/78/CRLnwB7Jjhe9+JPV0pLvlAAFS4+MI2XHJsOaola/53btE2/zow92Yr1o4/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY2jF0hR/H2oqXGLe0g7+pVhKg+jD3Kgxfwyj6H1PGeTC+kKL5
-	N7BYa/B3yWeHVR4wGkbkb6n2W4QqwoA/Gkh4tmSO9v0QcHtwxZCKAmoWvsdaTo5+A1gxV6QaZzN
-	DSg==
-X-Google-Smtp-Source: AGHT+IFwgUj6ZZlPnitf5n78PJ6BTTwk8mKt9u1l8JS3PzuP9YtYupCNYGag/GowQHUizsrvpKq/MUeIcw==
-X-Received: from wmqe20.prod.google.com ([2002:a05:600c:4e54:b0:459:e13a:ffe8])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a5d:5d88:0:b0:3a6:d95e:f38c
- with SMTP id ffacd0b85a97d-3b900b4d414mr10490118f8f.33.1754907588356; Mon, 11
- Aug 2025 03:19:48 -0700 (PDT)
-Date: Mon, 11 Aug 2025 11:19:39 +0100
+        d=1e100.net; s=20230601; t=1754907589; x=1755512389;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7mMMEW4m9zgxGaWpPF/szQjkmQKnYcw2JK1bAC39QMM=;
+        b=hiLMJvbzVWK6yAaYUVS1tpaNMOrF58NT5p6y/1tzck98vjjfmIcRaBdcahUXk2I/uT
+         OjInBpbFkuTLUh+JhjpPtA2K18wyVz7DXEITuAI8KVF3RY/U5eO4bzDkujdK8PReVulf
+         tokaH7++uEP01lut0lRCgrIBE0tlzxew5a3MveWHREB1QS/mO5HLUCp3X8oX8ISgyg9b
+         s+PyzO26OywUhectv00D207PdxfYF9aAJKyB4mShddNu3X6e92QCBXIcuqPjwpdfpDCe
+         B/IJtYrQbHLZfSKKbjidXcwuh0EysP2a04L6XK4EZ4qqT03yBEGBV0G/9yFLanJ3q+b+
+         C8/g==
+X-Forwarded-Encrypted: i=1; AJvYcCUnVHimqrEIHeUZ0pzlCrwDDvZQLPpLW2e8d3Z2dJM08bPJ8We8xpmZAx67SNYTfte/tZh93hLa2FRcpUWdrFIX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ4zDw7/728+2OaFJYVTLdFgXYZ8kwdT2//VpLlruBRWtrsuM/
+	4rh7njPQqdzt6LkksZd2sLHltWC8EAyo7VIIHRIS4x+FWDXhU09MJ1eQSZ/rBgDsON5dLMdNiVq
+	dXQ==
+X-Google-Smtp-Source: AGHT+IHjhS6ytMaXVNJ7Du5d3Tnuyl5IqlbWdUPN0Qe/yqUE5wuMU08eLueRWtToK/GsWuj6EncVLrrZ1A==
+X-Received: from wmbei22.prod.google.com ([2002:a05:600c:3f16:b0:459:e0a8:599b])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4ec7:b0:458:a850:f857
+ with SMTP id 5b1f17b1804b1-459f4f48b6amr119732475e9.31.1754907589158; Mon, 11
+ Aug 2025 03:19:49 -0700 (PDT)
+Date: Mon, 11 Aug 2025 11:19:40 +0100
+In-Reply-To: <20250811101947.3637632-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20250811101947.3637632-1-tabba@google.com>
 X-Mailer: git-send-email 2.50.1.703.g449372360f-goog
-Message-ID: <20250811101947.3637632-1-tabba@google.com>
-Subject: [PATCH v2 0/8] KVM: arm64: Reserve pKVM VM handle during initial VM setup
+Message-ID: <20250811101947.3637632-2-tabba@google.com>
+Subject: [PATCH v2 1/8] KVM: arm64: Rename pkvm.enabled to pkvm.is_protected
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
@@ -74,8 +76,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org,
 	keirf@google.com, smostafa@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_031950_736298_FC17BAB9 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20250811_031951_075410_F3A83BBA 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +92,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes since v1 [1]:
-- Collect reviews.
-- Add more details to cover letter.
-- Rebase on Linux 6.17-rc1.
+The 'pkvm.enabled' field in struct kvm_protected_vm is confusingly
+named. Its purpose is to indicate whether a VM is a _protected_ VM under
+pKVM, and not whether the VM itself is enabled or running.
 
-All VMs in pKVM identified by their handle, a unique per-VM ID. This
-handle is shared between the host kernel and the hypvervisor, and used
-to track the VM across both.
+For a non-protected VM, the VM can be fully active and running, yet this
+field would be false. This ambiguity can lead to incorrect assumptions
+about the VM's operational state and makes the code harder to reason
+about.
 
-In pKVM, this handle is allocated when the VM is initialized at the
-hypervisor, which is on the first vCPU run. However, the host starts
-initializing the VM and setting up its data structures earlier. MMU
-notifiers for the VMs are also registered before VM initialization at
-the hypervisor, and rely on the handle to identify the VM [2].
-Therefore, there is a potential gap between when the VM is (partially)
-setup at the host, but still without a valid pKVM handle to identify it
-when communicating with the hypervisor.
+Rename the field to 'is_protected' to make it unambiguous that the flag
+tracks the protected status of the VM.
 
-Additionally, in the future, the host needs to communicate with
-TrustZone about the before the VM first run. Therefore, move handle
-creation to when the VM is first initialized at the host.
+No functional change intended.
 
-This patch series also takes the oportunity to do some refactoring
-(mostly renaming and fixing documentation) of the code. We are in the
-process of upstreaming pKVM. Refactoring this code now would generate
-less churn than postponing it, as the upstreamed codebase grows.
-Moreover, the exsiting names and documentation are at best misleading
-(and in cases actually wrong), which could lead to more confusion and
-problems reviewing code in the future.
+Reviewed-by: Kunwu Chan <kunwu.chan@linux.dev>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/include/asm/kvm_host.h | 4 ++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c    | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-This patch series is divided into two parts:
-
-- Patches 1-4: Renaming, refactoring, and tidying up to lay the
-  groundwork for moving handle initialization and to fix existing
-  issues.
-- Patches 5-8: Decouple handle creation from VM initialization at the
-  hypervisor and move the handle creation to VM initialization at the
-  host.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20250729120014.2799359-1-tabba@google.com/
-[2] https://lore.kernel.org/all/20250303214947.GA30619@willie-the-truck/
-
-Fuad Tabba (8):
-  KVM: arm64: Rename pkvm.enabled to pkvm.is_protected
-  KVM: arm64: Rename 'host_kvm' to 'kvm' in pKVM host code
-  KVM: arm64: Clarify comments to distinguish pKVM mode from protected
-    VMs
-  KVM: arm64: Decouple hyp VM creation state from its handle
-  KVM: arm64: Separate allocation and insertion of pKVM VM table entries
-  KVM: arm64: Consolidate pKVM hypervisor VM initialization logic
-  KVM: arm64: Introduce separate hypercalls for pKVM VM reservation and
-    initialization
-  KVM: arm64: Reserve pKVM handle during pkvm_init_host_vm()
-
- arch/arm64/include/asm/kvm_asm.h       |   2 +
- arch/arm64/include/asm/kvm_host.h      |   5 +-
- arch/arm64/include/asm/kvm_pkvm.h      |   1 +
- arch/arm64/kvm/arm.c                   |  12 +-
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |   4 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c     |  14 ++
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 177 +++++++++++++++++++------
- arch/arm64/kvm/pkvm.c                  |  76 +++++++----
- 8 files changed, 217 insertions(+), 74 deletions(-)
-
-
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 2f2394cce24e..a4289c2f13f5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -252,7 +252,7 @@ struct kvm_protected_vm {
+ 	pkvm_handle_t handle;
+ 	struct kvm_hyp_memcache teardown_mc;
+ 	struct kvm_hyp_memcache stage2_teardown_mc;
+-	bool enabled;
++	bool is_protected;
+ };
+ 
+ struct kvm_mpidr_data {
+@@ -1548,7 +1548,7 @@ struct kvm *kvm_arch_alloc_vm(void);
+ 
+ #define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
+ 
+-#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.enabled)
++#define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
+ 
+ #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 338505cb0171..6198c1d27b5b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -406,7 +406,7 @@ static void init_pkvm_hyp_vm(struct kvm *host_kvm, struct pkvm_hyp_vm *hyp_vm,
+ 	hyp_vm->host_kvm = host_kvm;
+ 	hyp_vm->kvm.created_vcpus = nr_vcpus;
+ 	hyp_vm->kvm.arch.mmu.vtcr = host_mmu.arch.mmu.vtcr;
+-	hyp_vm->kvm.arch.pkvm.enabled = READ_ONCE(host_kvm->arch.pkvm.enabled);
++	hyp_vm->kvm.arch.pkvm.is_protected = READ_ONCE(host_kvm->arch.pkvm.is_protected);
+ 	hyp_vm->kvm.arch.flags = 0;
+ 	pkvm_init_features_from_host(hyp_vm, host_kvm);
+ }
 -- 
 2.50.1.703.g449372360f-goog
 
