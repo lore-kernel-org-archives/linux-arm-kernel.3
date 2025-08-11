@@ -4,67 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EB1CA0EC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A97B5C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RjdDAtkHag7L59AafcSIKkSs/qMPdcaehc7O1ON7iT4=; b=XaMLIVmHNyLRu/sgd+LGNJc01L
-	Tdylz0otmbEV0DJq5Ucii0iSkge2EpJt69HhBh0uhYDBHqbWVZ70n1vlPPDhzupZuKPvEBOBex/NH
-	N4LnNdaGuNjMnmPy+IDrvqIoBCVERR5j0M+S5G9euIcgo85UXsNUVcjuEw/crxwMtQt1iCAnMQIZ+
-	KqDScVWqjbj+56PmPo9qHplzxi2YAhOQbK4XQCbRm07rZpABmBgt5dGDyH9ZSm4QhCCAdFp42A1ps
-	pzUt9C8JygCaRFV7cv1OtEJcS+sMWDpCbONdtNoYElvhxK3y0jDrBkygxXJsnKAKJsS2MEUifh+e6
-	91r9bn1w==;
+	bh=VWDWpDke88/vvu/v/e38Prfcq0acrNYYjtoVpO4hnOk=; b=h80zmpdAYavD8WFM6LcIHeStd1
+	w8tHkzBnjlqywwaN0nYWDQUw9qrxsVWZ/jN7qwbFSls1ttFYX/ll/g/XPcuoq53GPQJnmkKKwwxlQ
+	8Zg3IoBXGVieluFma2FssNItj6n1LLBZOfHvE8wW78RejeJZACWhPWAILiOHoe8HAar8HrkxCoMvT
+	/zT1BI3k1nRjxTRI8bGc63G3RxwRqgrO6aGjtV4PjcEX8ZjW3OKiDY5BQsX42n4Wwmp5khTqyiCiv
+	lzdeubwhZ9bcmvMkSShcrrePEHqsdEXgsGmjafIcA6kRP5IgAYd78j0FXAse+oVkfXATAF48kzVa9
+	YMS8LsTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNuI-00000006rGO-35Qc;
-	Mon, 11 Aug 2025 08:29:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ulNwr-00000006rWh-2R1y;
+	Mon, 11 Aug 2025 08:32:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNSm-00000006mkw-1wdN
+	id 1ulNTf-00000006mvo-25UE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 08:01:01 +0000
+	Mon, 11 Aug 2025 08:01:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D41B75C5DC4;
-	Mon, 11 Aug 2025 08:00:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA9DEC4CEED;
-	Mon, 11 Aug 2025 08:00:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF6FA43C9A;
+	Mon, 11 Aug 2025 08:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA28C4CEED;
+	Mon, 11 Aug 2025 08:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754899259;
-	bh=srkUTP+YUtpEUUTBY0f0QKZb5Nq7ktoTvVw8gPJrI4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BST4RaTpjHP8ItttfIowfKeh0pqkoeEBV4Vnoq4Oz8gDhVzuBRcgJBFGNzis6dgHl
-	 vCfir7NSUpdKq4mzd6cQSwrZGWqE5AaaYDDuHDgnNYOxNDwVXdfNAXTgwv9h4iRfsZ
-	 aekPgle3MI50jEWQDSwU5jkM9WbycrPYMz515EKHUhLn9+wTYlegpIHoo9DqA8uDd+
-	 QiyfZ9cYMweQqLL5ZnMOMM5yvg6bGVaqk3rN4NH/2Es9hBN4wQnEpEM+PMJokbOc65
-	 h3vt3mqHMpp/yt6iwv8cbimBerBEyTPQ4TIvSgeY3szdTCTr13VSuHS0eHmETKi0DW
-	 Z0OAUMX99h0Pw==
-Date: Mon, 11 Aug 2025 10:00:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Will Whang <will@willwhang.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
- sensor
-Message-ID: <20250811-successful-military-dragon-d72486@kuoka>
-References: <20250810220921.14307-1-will@willwhang.com>
- <20250810220921.14307-2-will@willwhang.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250810220921.14307-2-will@willwhang.com>
+	s=k20201202; t=1754899314;
+	bh=3zjxHaLpUP/1N5vDu4/CLBPdW2fHJh4DCd4GBrDkKi4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=M6iNkdgF2yDK/X4EpQLR2pm1jRhHnZB/BV13O26MN3OVC+gkOas+EJsuMP7x+hITI
+	 /MAVR/XRDqImRF7GhWAQgsPd3+6UmiGeq+P+/zXBxdZxj1SbcFa8ZTwwQNYjaxu7hD
+	 AOSdrHVU8HxSnqXmN4B1GoBpiNe63cpUHFXK1yn/P1pNTsdHuF2gZlArQu01jlty1z
+	 YWio/+nHLliq39/tyIiJEnbnIOGl6LLbl3u/0fV2+u1IwIVOxj5nlbsbgK1OpwyHbM
+	 TLNQslwXCPLcAk/qOAz6kOChi0oISs/AsrRisfMAeWhBD6/v1qSwZA5T53YIM+B72w
+	 7zC0+HPx5zb2w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ulNTT-0066wt-W7;
+	Mon, 11 Aug 2025 09:01:44 +0100
+Date: Mon, 11 Aug 2025 09:01:43 +0100
+Message-ID: <86zfc68exk.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: fanqincui  <fanqincui@163.com>
+Cc: "Will Deacon" <will@kernel.org>,
+	catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"Fanqin Cui" <cuifq1@chinatelecom.cn>,
+	hanht2@chinatelecom.cn
+Subject: Re: [PATCH] arm64/module: Support for patching modules during runtime
+In-Reply-To: <3d4011c0.6aaa.198981027d7.Coremail.fanqincui@163.com>
+References: <20250807072700.348514-1-fanqincui@163.com>
+	<aJXlegQfZTdimS3k@willie-the-truck>
+	<3d4011c0.6aaa.198981027d7.Coremail.fanqincui@163.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fanqincui@163.com, will@kernel.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, cuifq1@chinatelecom.cn, hanht2@chinatelecom.cn
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_010100_574708_98E1B7C5 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20250811_010155_554426_ACFD8D79 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,114 +89,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
-> +description:
-> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - sony,imx585
-> +      - sony,imx585-mono
+On Mon, 11 Aug 2025 08:37:32 +0100,
+fanqincui <fanqincui@163.com> wrote:
+> 
+> Hi will,
+> Yes, you are right. The alternative callback function lives inside the module.
+> This callback function is actually similar to kvm_update_va_mask in KVM;
+> 
+> The module's callback function calculates some values based on
+> the current CPU features and then performs the replacement.
+> 
+> The .text.alternative_cb section is actually marked as SHF_EXECINSTR | SHF_ALLOC
+> during compilation, so intersections() includes this section and sets it as executable later.
 
-I don't understand this second compatible. Is this different hardware?
-Can you point me to "mono" datasheet?
+I'm worried there is a chicken-and-egg problem here. What if the
+callback itself requires patching via some other alternative? Is there
+a guarantee that this always performed in the correct order?
 
-Your description should explain this. Commit msg as well, instead of
-speaking about driver (in fact drop all driver related comments).
+	M.
 
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  assigned-clocks: true
-> +  assigned-clock-parents: true
-> +  assigned-clock-rates: true
-
-Drop all three.
-
-> +
-> +  clocks:
-> +    description: Clock frequency 74.25MHz, 37.125MHz, 72MHz, 27MHz, 24MHz
-> +    maxItems: 1
-> +
-> +  vana-supply:
-> +    description: Analog power supply (3.3V)
-> +
-> +  vddl-supply:
-> +    description: Interface power supply (1.8V)
-> +
-> +  vdig-supply:
-> +    description: Digital power supply (1.1V)
-> +
-> +  reset-gpios:
-> +    description: Sensor reset (XCLR) GPIO
-> +    maxItems: 1
-> +
-> +  sony,sync-mode:
-> +    description: |
-> +      Select the synchronisation mode of the sensor
-> +        0 =E2=80=93 internal sync, leader (default)
-> +        1 =E2=80=93 internal sync, follower
-> +        2 =E2=80=93 external sync
-> +    $ref: /schemas/types.yaml#/definitions/uint8
-> +    enum: [ 0, 1, 2 ]
-
-Previous comments not applied.
-
-> +
-> +  port:
-> +    $ref: /schemas/graph.yaml#/$defs/port-base
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      endpoint:
-> +        $ref: /schemas/media/video-interfaces.yaml#
-> +        unevaluatedProperties: false
-> +
-> +        properties:
-> +          data-lanes:
-> +            oneOf:
-> +              - items:
-> +                  - const: 1
-> +                  - const: 2
-> +              - items:
-> +                  - const: 1
-> +                  - const: 2
-> +                  - const: 3
-> +                  - const: 4
-> +
-> +          link-frequencies: true
-
-Drop
-
-> +
-> +        required:
-> +          - data-lanes
-> +          - link-frequencies
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - port
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    i2c {
-> +        #address-cells =3D <1>;
-> +        #size-cells =3D <0>;
-> +
-> +        imx585@1a {
-
-Nothing improved.
-
-You replied that you applied comment, but send the same.
-
-
-Best regards,
-Krzysztof
-
+-- 
+Without deviation from the norm, progress is not possible.
 
