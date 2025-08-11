@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF2FC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 09:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD71C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 09:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tQwB+DGbu+7d/h6CN1zqC1xs4ZvHmbecWSlnZ3m6XYg=; b=srIENV1wTyC1CLnSFc9f88UwOU
-	bVowr/zbDn5qC90hQ7EaVL3yCAL+Z2Teqz25VcWxVCH4haMigVDpB+Ht6cvif5r/qnBj+9OKqZ9Ck
-	8Dn+rmJbwQqSOT0lvsd7wjosudGi3rZUa71AlvoQIl1yIlguKmg8IB2Y3uJNYwW3LLwUIaI8US4g8
-	KzgRoep54w62XEEyctGHR6jFfIQnThgms3r6Oq/4nuu2d9Zm/0t9xCvohqAya4izulWbbC/ptMGao
-	LjNoXM0+tiNkOt8Le2F7tgIUHH2tgP0I4TRDFEMYN0APx4ZBbl4PLyHUDrhYtCfk6mAixe7pLB4Q1
-	l9HX0OvA==;
+	bh=SSPG/29HLPpTquYEWU6PYBjygo8k+R9iRTUXFr14dhg=; b=PHrG6QdBxLLsYvkXmRlIMt2aXp
+	hk+s2yVSL7/mvEUAHoFoeduBHKI12JKht+K70biMMTCUtfOyFEYlmM/6KIO/e//9mmKCGeb+CCdqZ
+	Wv9Ot6m4kr1q6nOodgxVWQ7DkyXDP2y0d65zRFtoridLVqmvMmQiGdThNxJ0mrLbXAPtrWrQQlNbp
+	MK7Gq2mNoKhqrc9jPWvXqH+maavr83HyB7IMGBaBS6WG8w0gQqgbAxKcshMeDDyozkOwOO+THC6Zo
+	4rYNZH+mIhH+S+lNhVbAe0wBUj1rwAFLwdkgy6CK9YnO83hrrwwNr2TXISt6ZVfl/fsMG9nqhQIOR
+	61hrw9ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOP9-00000006x67-1cJ5;
-	Mon, 11 Aug 2025 09:01:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ulORj-00000006y0K-0vxQ;
+	Mon, 11 Aug 2025 09:03:59 +0000
+Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOAq-00000006tnN-2WLH
+	id 1ulOC6-00000006trN-2n5V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 08:46:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 092CE601D1;
-	Mon, 11 Aug 2025 08:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D4C5C4CEED;
-	Mon, 11 Aug 2025 08:46:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754901991;
-	bh=Y5zdDtlvksp8wx54SbL2eMsPa2AmEb4mwSvm3QjYc5g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dG+097BDggsNcwfaItSozDwHz0rEYXgJ8eYz1Z1nK8AV1TtFa7jxmtGQRyCBxM1gH
-	 v2SkOGiL+3NAzPuN+VH7dQr0tgVrar270cNPW52LP3uDRi676Zk7qg/RRvobwJPSW/
-	 hREzAyYA0k3K52p6IImfHubUIaMXw/0Z3eMFsf3dW9gOb2cYBqp4OAAqbNLF3ST0Gv
-	 /VAj99+TokbC2EVrkdXFlKgHAnNAbCKKU6u81bjKRv78R61lz2Uu9V44bFGOxsNQwf
-	 YqHDyH4oAV+TlmL2dRBX/kbVQQP/nkIzLOeExqlqXJoK5VqhY/+G7c567VYE3NhBVD
-	 6ohrAbfQqQp3w==
-Message-ID: <7ff48289-f738-420e-ac69-de544833725b@kernel.org>
-Date: Mon, 11 Aug 2025 10:46:27 +0200
+	Mon, 11 Aug 2025 08:47:51 +0000
+Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-3322fef6d72so33101081fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 01:47:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1754902068; x=1755506868; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SSPG/29HLPpTquYEWU6PYBjygo8k+R9iRTUXFr14dhg=;
+        b=TiwusL73Ab+W9s39XB0PcYw/rGboF0+7LcI0CB7VtTFvq0fMGHgS25lFXmzbxB1OmL
+         wLZ1Z3pa1LujLAFqKklk8cjFmHzh1utIQTAMmxDsXfLBgP5SKHn4Bg0MLgFuXBEREw8D
+         SJNOENHpbNtfx3lCc8bIwE5tREZOBPFmNRtvp45Oi+UMmN9SJ78IQ9xZAWkZT6QAHkJ9
+         FJ4LosNRKZENdLVucrw/nCzW9BWq+oV9j8vbT6mexe4mJbNRiVYlQSddwAwTXJIa1w04
+         L5f41ph42d7vmmmlGk9D7wiYj5xi+SFITDlqqYLbRjz+F/kAaZTR795+TH41S0mMr4uP
+         mpGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754902068; x=1755506868;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SSPG/29HLPpTquYEWU6PYBjygo8k+R9iRTUXFr14dhg=;
+        b=SJLQeF7RNIysm5zivyFyQbQy4FuBLHLK8lHj181B7Xlw7Yw7k5+ZfY+ff+qCDSTyFb
+         8wWpJMaKnuoV7ueS6z5mSir+9I+wqxrAy5L2F3Dby4spEAgJMp4ke+PkmMXEshSUvXIh
+         gkS54dI/BgzR8q9+C4ZayX5FqmlFFX7hWwHEun0edhoFfVzGh2rLZExSNNQ9K9IRS5Bs
+         h5Se65xYY5hBxCZnUv4uiK7+EAySwb9OA0Fsr5mrN1M69GXpeo5MFsECLp76FhpjG9+Q
+         v4UHnW4WaO0tyklC3WbDaDUYF+R8jrfxwFlnNZ9VRD2/bZ6c3N27tZSxiop/dtD5Fze+
+         UhAA==
+X-Forwarded-Encrypted: i=1; AJvYcCVa92S2GpVtoAP4fmx00sbKyPcqAMWBZDtp9b3Zg1bdQMWIEX7alxv4W6gSYkqfI9XH5f5IeP7iLYUKhW+AZ0ca@lists.infradead.org
+X-Gm-Message-State: AOJu0YzREA35ITfowbd105d97aXbh6vSv33Vu0DcWXl2mO/3FW7ih3Zl
+	n0pcBJIrAXV5Tr89kuupMQWQOwlzpMO4Mmzgyuc5JoimT4l8dhzA80mgqmvcuHDP2MWhnjPgcJb
+	Wvh/YyqPqgD4AMh6MrfuleNvGgpj5Bw8OFnlB5P6jgQ==
+X-Gm-Gg: ASbGncsxX2rpLuR2Ae84aM3sPyaMUlSk+ekKXHOfh8ZuLOKDYKwjcSPL5cqTu4V84l5
+	1G1u4vQcYJSBdJLFBqFf9oUC3nRCDuMXd0u9qgk96+BBVNK7iK75BaXBoJGI2hafkV0T77z4ccM
+	6jPFK70F8U8fMzWQubzCY83R0dIJdv0gVQhy6n64P69hfHEK4+UfRpPpKUdM0KeW21lPik2yRSy
+	kUfBRRNITXMzMITxiC3IkOufxE1wvxVnrKD5cE=
+X-Google-Smtp-Source: AGHT+IHQZ+Li30LXuVPBZfJzPpG13D46HKjbN25jcZH83z5JqqyWQ0KsRoIqrZmp1XcJkfaY59nLPEzi39QNSDtz0OE=
+X-Received: by 2002:a2e:a581:0:b0:332:612b:6f49 with SMTP id
+ 38308e7fff4ca-333a221c4dfmr38476321fa.29.1754902068345; Mon, 11 Aug 2025
+ 01:47:48 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: s3c/gpio: complete the conversion to new GPIO value
- setters
-To: Bartosz Golaszewski <brgl@bgdev.pl>, Arnd Bergmann <arnd@arndb.de>,
- Alim Akhtar <alim.akhtar@samsung.com>, Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250730071443.8758-1-brgl@bgdev.pl>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250730071443.8758-1-brgl@bgdev.pl>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250730071443.8758-1-brgl@bgdev.pl> <7ff48289-f738-420e-ac69-de544833725b@kernel.org>
+In-Reply-To: <7ff48289-f738-420e-ac69-de544833725b@kernel.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Mon, 11 Aug 2025 10:47:37 +0200
+X-Gm-Features: Ac12FXyVM43pAwwdhH2UZx7AIEJGJLKbhJiBmr-EDd8zuJ-4n2CsNR4nFxP1rYs
+Message-ID: <CAMRc=MfYdHa_3=2Vv8Memv9_GUKTD7Z9U-aYGHqk4z=3eVoh3g@mail.gmail.com>
+Subject: Re: [PATCH] ARM: s3c/gpio: complete the conversion to new GPIO value setters
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_014750_812201_A69B0C55 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,25 +97,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2025 09:14, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> 
-> Commit fb52f3226cab ("ARM: s3c/gpio: use new line value setter
-> callbacks") correctly changed the assignment of the callback but missed
-> the check one liner higher. Change it now too to using the recommended
-> callback as the legacy one is going away soon.
-> 
-> Fixes: fb52f3226cab ("ARM: s3c/gpio: use new line value setter callbacks")
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
-> Autobuilders pointed out only now that I missed the other line that
-> needs changing in my previous patch. I'd like to still queue this for
-> v6.17. Either through the SoC tree if it's not too late or through the
-> GPIO tree together with my second PR for this merge window. Please
-> kindly ack it.
+On Mon, Aug 11, 2025 at 10:46=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 30/07/2025 09:14, Bartosz Golaszewski wrote:
+> > From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> >
+> > Commit fb52f3226cab ("ARM: s3c/gpio: use new line value setter
+> > callbacks") correctly changed the assignment of the callback but missed
+> > the check one liner higher. Change it now too to using the recommended
+> > callback as the legacy one is going away soon.
+> >
+> > Fixes: fb52f3226cab ("ARM: s3c/gpio: use new line value setter callback=
+s")
+> > Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> > ---
+> > Autobuilders pointed out only now that I missed the other line that
+> > needs changing in my previous patch. I'd like to still queue this for
+> > v6.17. Either through the SoC tree if it's not too late or through the
+> > GPIO tree together with my second PR for this merge window. Please
+> > kindly ack it.
+>
+> This does not apply for current RC, so on top of v6.17-rc1.
+>
+> Best regards,
+> Krzysztof
 
-This does not apply for current RC, so on top of v6.17-rc1.
+This is no longer needed with v6.17-rc1. The callbacks have been
+renamed back globally to the original names.
 
-Best regards,
-Krzysztof
+Bart
 
