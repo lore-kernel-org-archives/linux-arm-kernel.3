@@ -4,86 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455DFCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 23:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3104CA0EDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 23:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TDhRRv/dMVFepuMLbak5aj0Cx+TF2ws3EBl8BcpmQYw=; b=budgvfc9RvDaR3oSh9gK3vtAoc
-	vkELfQVLjZOmqGq+L0YNVfB1vkNJMj1vyiC39BY2rzukOqZLiR2n6kSuKqb7eLAkEtM8p7d9hJUTu
-	6351RIvnYTpflHVJxfIJoO1SQTA7WGIfptygl6PoagjWfMMfW7YuCFpgqJekjQyc3FOHkggd4w+wV
-	YYQUnJTK4kKee0QPAhqsxxbSwg3qW2vy1hB5JtU6ajJ0NpiwS1sUbS/tMpZhWbfs6SFrwjP7Eg0rA
-	PlqRrY772QZYRemuH8/GPfOeicmuMgN3QzmC9Si5nIMF+1rWet+1Hulrq2WJVgBmq4IQ2xBMVl6H1
-	EF6RQkdA==;
+	bh=oclWkP5qRXtuVXZ4vPxm37lSJAsptSeg+t7x0ZhtjBQ=; b=Si+UbOK18Dat1aCsMKniBJZWsn
+	oTdrg230kn8Vck8w30k3sEvvCq9DUKNAGfoxSa0CcpQuUGk5/eyx0iQKFgvJG4HjZi2+1LDl1a7kJ
+	/yNC+LaJglzjxsgaOgakjApnWh2mLm+d46DNjETfjAJeqyzYgHq4ByIiYdnCZVjYqzAtmsB1hMVl7
+	EbVhAe6nDQZmWM1OpS9fHIkP5ao6U0vytzqfykFFWbybxCuhS+OcfarvcyXLKzO3QQHmMOChpAaXp
+	zVo3cBFa4hKlTPIXTznxIyX+9/Q+l9uxYxiEe9zduR0GBzQEq3qdC+W465zhr1Ctk/aZQ8nuZAdUK
+	wMp1643w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulbl0-00000009MRN-46yx;
-	Mon, 11 Aug 2025 23:16:46 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1ulbl3-00000009MWG-2H26;
+	Mon, 11 Aug 2025 23:16:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulZB6-000000091Gf-1mdB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 20:31:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754944293; x=1786480293;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WAVSplizknoBUN8PWM1qGthGcY9wzNFmieVn3H5fMP0=;
-  b=OsnITh2E0T2DgCVT/NjBiWhfGHRbkq0xIn3zuoeODO0lMz1JC7adi90w
-   xFcX0thARYr/krpQXFm+cLuKkaDhD02Rh6tDPBVP7YBbqC67P0zO9k2Mz
-   81z0vzyIlOTUwV77XZy9nvayuLzWrkCDSWYeKNHnTzrAzd28UKPtx09WF
-   A1I4BXZw98akrGIQX0iMk38CnlwBOdXQuIebaInM6v3GkQOJScyOQHX5/
-   afsQWEJ1y38iwl9fQlSuPPNxDX4V5sDEmIzVPVP4RyqGEZiCMVfqplH81
-   RPNX0wl2oe9f/GLTI5V4piKZRiwTutvjqkQQQ2GkOQpOou4yfZ9rH2m3O
-   Q==;
-X-CSE-ConnectionGUID: JZzyg+anTk2D6fLtsw0cGA==
-X-CSE-MsgGUID: CYVts/aFSOeToGMWFl2ALQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11518"; a="57353672"
-X-IronPort-AV: E=Sophos;i="6.17,284,1747724400"; 
-   d="scan'208";a="57353672"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2025 13:31:32 -0700
-X-CSE-ConnectionGUID: HY3ftl14RnWPgtKSiQRgoA==
-X-CSE-MsgGUID: hkJYL8CmRfelQVDTPhceDw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.17,284,1747724400"; 
-   d="scan'208";a="170452077"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2025 13:31:28 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1ulZAy-000000056h0-1aOL;
-	Mon, 11 Aug 2025 23:31:24 +0300
-Date: Mon, 11 Aug 2025 23:31:24 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Gabor Juhos <j4g8y7@gmail.com>
-Cc: Wolfram Sang <wsa@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>, Hanna Hawa <hhhawa@amazon.com>,
-	Robert Marko <robert.marko@sartura.hr>,
-	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] i2c: pxa: handle 'Early Bus Busy' condition on
- Armada 3700
-Message-ID: <aJpTHKbLbTz-Z3bo@smile.fi.intel.com>
-References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
- <20250811-i2c-pxa-fix-i2c-communication-v2-3-ca42ea818dc9@gmail.com>
+	id 1ulZno-0000000942U-3O93;
+	Mon, 11 Aug 2025 21:11:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1754946691;
+	bh=LgOkvZy4JmT2XJ6YFz694QT5mtVOi6c/DJaxwgVLUNw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=FsxeIC3DANqd5ZhfTMLHr/vLeY0MIAQfNU7+CtbmzFj5LaHXkVd4prVLWTE74NGI6
+	 /VHTEvOAzPacNDcpcxoAocx6v/u38AKc/LcKxLaoWe8yaNPTG30wJ+zQI+wG2MtsUX
+	 w2r9ySOw9k8W73YDavKJB0W5Cb99rkGbSTwCCIVN847cpzkHc7r6CL7pfxsddDmGy1
+	 1+9BBbJyO4cHR2ok5UnpvrFb2uj+AWEyIA4vEEqDAuH42r2E0P57moOOV0Bm0bOZN6
+	 cA7PLx1YAHHgE/cHPwHuOQwbn3/AzszYVgm9Rfj+Wps9HQTImwQvMkdHjNza4IfUWp
+	 By9FyqA7/ZSxg==
+Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ABEDC17E00A6;
+	Mon, 11 Aug 2025 23:11:29 +0200 (CEST)
+Message-ID: <6476a0906402a5b6ea51801c7d7de1be13aa753c.camel@collabora.com>
+Subject: Re: [PATCH v2 2/7] media: rkvdec: Add variants support
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jonas Karlman <jonas@kwiboo.se>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Detlev Casanova
+ <detlev.casanova@collabora.com>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Alex Bee <knaerzche@gmail.com>, Sebastian Fricke
+	 <sebastian.fricke@collabora.com>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 11 Aug 2025 17:11:28 -0400
+In-Reply-To: <20250810212454.3237486-3-jonas@kwiboo.se>
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+	 <20250810212454.3237486-3-jonas@kwiboo.se>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
+ oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
+ zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
+ TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
+ 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
+ 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
+ cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
+ tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
+ bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
+ qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
+ BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
+ tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
+ zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
+ 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
+ s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
+ An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
+ ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
+ AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
+ CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
+ 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
+ BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
+ +E7ItOqZEHAs+xabBgknYZIFPU=
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
+	boundary="=-4ob5lfPBWiqj644CEky9"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250811-i2c-pxa-fix-i2c-communication-v2-3-ca42ea818dc9@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_133132_679443_6FD15C48 
-X-CRM114-Status: GOOD (  35.53  )
+X-CRM114-CacheID: sfid-20250811_141132_999464_1185F6B0 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,111 +103,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 09:49:57PM +0200, Gabor Juhos wrote:
-> Under some circumstances I2C recovery fails on Armada 3700. At least
-> on the Methode uDPU board, removing and replugging an SFP module fails
-> often, like this:
-> 
->   [   36.953127] sfp sfp-eth1: module removed
->   [   38.468549] i2c i2c-1: i2c_pxa: timeout waiting for bus free
->   [   38.486960] sfp sfp-eth1: module MENTECHOPTO      POS22-LDCC-KR    rev 1.0  sn MNC208U90009     dc 200828
->   [   38.496867] mvneta d0040000.ethernet eth1: unsupported SFP module: no common interface modes
->   [   38.521448] hwmon hwmon2: temp1_input not attached to any thermal zone
->   [   39.249196] sfp sfp-eth1: module removed
->   ...
->   [  292.568799] sfp sfp-eth1: please wait, module slow to respond
->   ...
->   [  625.208814] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
-> 
-> Note that the 'unsupported SFP module' messages are not relevant. The
-> module is used only for testing the I2C recovery funcionality, because
-> the error can be triggered easily with this specific one.
-> 
-> Enabling debug in the i2c-pxa driver reveals the following:
-> 
->   [   82.034678] sfp sfp-eth1: module removed
->   [   90.008654] i2c i2c-1: slave_0x50 error: timeout with active message
->   [   90.015112] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
->   [   90.020464] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
->   [   90.027906] i2c i2c-1: log:
->   [   90.030787]
-> 
-> This continues until the retries are exhausted ...
-> 
->   [  110.192489] i2c i2c-1: slave_0x50 error: exhausted retries
->   [  110.198012] i2c i2c-1: msg_num: 2 msg_idx: 0 msg_ptr: 0
->   [  110.203323] i2c i2c-1: IBMR: 00000003 IDBR: 000000a0 ICR: 000007e0 ISR: 00000802
->   [  110.210810] i2c i2c-1: log:
->   [  110.213633]
-> 
-> ... then the whole sequence starts again ...
-> 
->   [  115.368641] i2c i2c-1: slave_0x50 error: timeout with active message
-> 
-> ... while finally the SFP core gives up:
-> 
->   [  671.975258] sfp sfp-eth1: failed to read EEPROM: -EREMOTEIO
-> 
-> When we analyze the log, it can be seen that bit 1 and 11 is set in the
-> ISR (Interface Status Register). Bit 1 indicates the ACK/NACK status, but
-> the purpose of bit 11 is not documented in the driver code unfortunately.
-> 
-> The 'Functional Specification' document of the Armada 3700 SoCs family
-> however says that this bit indicates an 'Early Bus Busy' condition. The
-> document also notes that whenever this bit is set, it is not possible to
-> initiate a transaction on the I2C bus. The observed behaviour corresponds
-> to this statement.
-> 
-> Unfortunately, I2C recovery does not help as it never runs in this
-> special case. Although the driver checks the busyness of the bus at
-> several places, but since it does not consider the A3700 specific bit
-> in these checks it can't determine the actual status of the bus correctly
-> which results in the errors above.
-> 
-> In order to fix the problem, add a new member to struct 'i2c_pxa' to
-> store a controller specific bitmask containing the bits indicating the
-> busy status, and use that in the code while checking the actual status
-> of the bus. This ensures that the correct status can be determined on
-> the Armada 3700 based devices without causing functional changes on
-> devices based on other SoCs.
-> 
-> With the change applied, the driver detects the busy condition, and runs
-> the recovery process:
-> 
->   [  742.617312] i2c i2c-1: state:i2c_pxa_wait_bus_not_busy:449: ISR=00000802, ICR=000007e0, IBMR=03
->   [  742.626099] i2c i2c-1: i2c_pxa: timeout waiting for bus free
->   [  742.631933] i2c i2c-1: recovery: resetting controller, ISR=0x00000802
->   [  742.638421] i2c i2c-1: recovery: IBMR 0x00000003 ISR 0x00000000
-> 
-> This clears the EBB bit in the ISR register, so it makes it possible to
-> initiate transactions on the I2C bus again.
-> 
-> After this patch, the SFP module used for testing can be removed and
-> replugged numerous times without causing the error described at the
-> beginning. Previously, the error happened after a few such attempts.
-> 
-> The patch has been tested also with the following kernel versions:
-> 5.10.237, 5.15.182, 6.1.138, 6.6.90, 6.12.28, 6.14.6. It improves
-> recoverabilty on all of them.
 
-...
+--=-4ob5lfPBWiqj644CEky9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> Note: the patch is included in this series for completeness however
-> it can be applied independently from the preceding patches. On kernels
-> 6.3+, it restores I2C functionality even in itself because it recovers
-> the controller from the bad state described in the previous patch.
+Le dimanche 10 ao=C3=BBt 2025 =C3=A0 21:24 +0000, Jonas Karlman a =C3=A9cri=
+t=C2=A0:
+> From: Alex Bee <knaerzche@gmail.com>
+>=20
+> Different versions of the Rockchip VDEC IP exists and one way they can
+> differ is what decoding formats are supported.
+>=20
+> Add a variant implementation in order to support flagging different
+> capabilities.
+>=20
+> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+> Changes in v2:
+> - No change
+> ---
+> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0 | 21 ++++++=
+++++++++++++-
+> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.h=C2=A0=C2=A0 | 10 ++++++=
++++
+> =C2=A02 files changed, 30 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index cfb326600a2d..e7b9dfc2d1ab 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -14,6 +14,7 @@
+> =C2=A0#include <linux/iommu.h>
+> =C2=A0#include <linux/module.h>
+> =C2=A0#include <linux/of.h>
+> +#include <linux/of_device.h>
+> =C2=A0#include <linux/platform_device.h>
+> =C2=A0#include <linux/pm.h>
+> =C2=A0#include <linux/pm_runtime.h>
+> @@ -327,6 +328,7 @@ static const struct rkvdec_coded_fmt_desc
+> rkvdec_coded_fmts[] =3D {
+> =C2=A0		.ops =3D &rkvdec_hevc_fmt_ops,
+> =C2=A0		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
+> =C2=A0		.decoded_fmts =3D rkvdec_hevc_decoded_fmts,
+> +		.capability =3D RKVDEC_CAPABILITY_HEVC,
+> =C2=A0	},
+> =C2=A0	{
+> =C2=A0		.fourcc =3D V4L2_PIX_FMT_H264_SLICE,
+> @@ -343,6 +345,7 @@ static const struct rkvdec_coded_fmt_desc
+> rkvdec_coded_fmts[] =3D {
+> =C2=A0		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_h264_decoded_fmts),
+> =C2=A0		.decoded_fmts =3D rkvdec_h264_decoded_fmts,
+> =C2=A0		.subsystem_flags =3D VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
+> +		.capability =3D RKVDEC_CAPABILITY_H264,
+> =C2=A0	},
+> =C2=A0	{
+> =C2=A0		.fourcc =3D V4L2_PIX_FMT_VP9_FRAME,
+> @@ -358,6 +361,7 @@ static const struct rkvdec_coded_fmt_desc
+> rkvdec_coded_fmts[] =3D {
+> =C2=A0		.ops =3D &rkvdec_vp9_fmt_ops,
+> =C2=A0		.num_decoded_fmts =3D ARRAY_SIZE(rkvdec_vp9_decoded_fmts),
+> =C2=A0		.decoded_fmts =3D rkvdec_vp9_decoded_fmts,
+> +		.capability =3D RKVDEC_CAPABILITY_VP9,
+> =C2=A0	}
+> =C2=A0};
+> =C2=A0
+> @@ -1187,8 +1191,17 @@ static void rkvdec_watchdog_func(struct work_struc=
+t
+> *work)
+> =C2=A0	}
+> =C2=A0}
+> =C2=A0
+> +static const struct rkvdec_variant rk3399_rkvdec_variant =3D {
+> +	.capabilities =3D RKVDEC_CAPABILITY_HEVC |
+> +			RKVDEC_CAPABILITY_H264 |
+> +			RKVDEC_CAPABILITY_VP9,
+> +};
+> +
+> =C2=A0static const struct of_device_id of_rkvdec_match[] =3D {
+> -	{ .compatible =3D "rockchip,rk3399-vdec" },
+> +	{
+> +		.compatible =3D "rockchip,rk3399-vdec",
+> +		.data =3D &rk3399_rkvdec_variant,
+> +	},
+> =C2=A0	{ /* sentinel */ }
+> =C2=A0};
+> =C2=A0MODULE_DEVICE_TABLE(of, of_rkvdec_match);
+> @@ -1199,16 +1212,22 @@ static const char * const rkvdec_clk_names[] =3D =
+{
+> =C2=A0
+> =C2=A0static int rkvdec_probe(struct platform_device *pdev)
+> =C2=A0{
+> +	const struct rkvdec_variant *variant;
+> =C2=A0	struct rkvdec_dev *rkvdec;
+> =C2=A0	unsigned int i;
+> =C2=A0	int ret, irq;
+> =C2=A0
+> +	variant =3D of_device_get_match_data(&pdev->dev);
+> +	if (!variant)
+> +		return -EINVAL;
+> +
+> =C2=A0	rkvdec =3D devm_kzalloc(&pdev->dev, sizeof(*rkvdec), GFP_KERNEL);
+> =C2=A0	if (!rkvdec)
+> =C2=A0		return -ENOMEM;
+> =C2=A0
+> =C2=A0	platform_set_drvdata(pdev, rkvdec);
+> =C2=A0	rkvdec->dev =3D &pdev->dev;
+> +	rkvdec->capabilities =3D variant->capabilities;
+> =C2=A0	mutex_init(&rkvdec->vdev_lock);
+> =C2=A0	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
+> =C2=A0
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> index c062c5c5bbb2..8e1f8548eae4 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -22,6 +22,10 @@
+> =C2=A0#include <media/videobuf2-core.h>
+> =C2=A0#include <media/videobuf2-dma-contig.h>
+> =C2=A0
+> +#define RKVDEC_CAPABILITY_HEVC		BIT(0)
+> +#define RKVDEC_CAPABILITY_H264		BIT(1)
+> +#define RKVDEC_CAPABILITY_VP9		BIT(2)
+> +
+> =C2=A0struct rkvdec_ctx;
+> =C2=A0
+> =C2=A0struct rkvdec_ctrl_desc {
+> @@ -63,6 +67,10 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+> =C2=A0			=C2=A0=C2=A0=C2=A0 base.vb.vb2_buf);
+> =C2=A0}
+> =C2=A0
+> +struct rkvdec_variant {
+> +	unsigned int capabilities;
+> +};
+> +
+> =C2=A0struct rkvdec_coded_fmt_ops {
+> =C2=A0	int (*adjust_fmt)(struct rkvdec_ctx *ctx,
+> =C2=A0			=C2=A0 struct v4l2_format *f);
+> @@ -98,6 +106,7 @@ struct rkvdec_coded_fmt_desc {
+> =C2=A0	unsigned int num_decoded_fmts;
+> =C2=A0	const struct rkvdec_decoded_fmt_desc *decoded_fmts;
+> =C2=A0	u32 subsystem_flags;
+> +	unsigned int capability;
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct rkvdec_dev {
+> @@ -111,6 +120,7 @@ struct rkvdec_dev {
+> =C2=A0	struct mutex vdev_lock; /* serializes ioctls */
+> =C2=A0	struct delayed_work watchdog_work;
+> =C2=A0	struct iommu_domain *empty_domain;
+> +	unsigned int capabilities;
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct rkvdec_ctx {
 
-Sounds to me like this one should be applied first independently on the
-discussion / conclusion on the patch 1.
+Should be simple to rebase Detlev branch on this.
 
-...
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Code wise it looks reasonable to me, but I haven't reviewed it properly
-and wouldn't probably have a time, that's why no tags.
+Nicolas
 
--- 
-With Best Regards,
-Andy Shevchenko
+--=-4ob5lfPBWiqj644CEky9
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
+-----BEGIN PGP SIGNATURE-----
 
+iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJpcgAAKCRBxUwItrAao
+HPOFAKCT39k8uSPBOkbzm22+zC2Ifh3IzwCgqcFkqJtyeg5Pg6Y2Zx9LHpHaAWQ=
+=rO8P
+-----END PGP SIGNATURE-----
+
+--=-4ob5lfPBWiqj644CEky9--
 
