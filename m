@@ -4,105 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E4CCA0EDE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 23:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31667CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 23:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KTHOzHuH/OUYRQt+fJsVLAyMUCubD4Mkl8PUofqnPdY=; b=UMoURJ7uMbUF9giZNoFa24PefC
-	+JRImdZ/vac3EJbin/VglpQ4JF25tItH37aryK1Qjo2Tm6LKcVrpSFXETHexDSyJkUywvwlG3DbGh
-	IMNH6iNeVBROO3dGbwO71/oFEjrwDQRY6HLsq//CEEKa0QxQVcWOn01+B3K9pUchHJwNcLXFYT4RI
-	8NOmYEnZ8Kx/khQxy7kR8iivAEiPIUlzvWkCg7VVt+UoKeNIIONpFDNpHvOkl6AbPYyIOEfrLzD8Z
-	LrAf7HIdYFbMg3OEfX6PEJ9Ea6/RVoBmpn++tF68wvbdyakac2q2rDxulEvBktbzVNssMOrMro4DB
-	fNPUPL+Q==;
+	bh=2aghFscrIvehgJNuq8lcF0ws618XAcOO4siGxGr0RLQ=; b=iU3PByxk5tTHaRPrVCb8WTLii3
+	fUtxKMZDaNECS3LG2CfiC6Mna812fcrDX9oJCG4YPITGc0YAhqsg+ZsRNA546qKlQHAtYJmV+XvFC
+	xCBEtJT+8CwarAxrF6UgyIp6V/ocPlxdcnW4r57qo2mEeX0jy8XdX5rF6vsItz6BN87bZvUeH2jUi
+	GN7nxpkFddesg/OLOF36LQS5RL0txOAiT+HqlLmW1EfIp7ygn7HRoqfJv5/oP9Bnit2AZq47DUy3v
+	ML7P0bCMO8vBIPzWXrsA5WljSfdvudCAt81vWpG5yZBmg9nfhHY7TxelYpBY8q0xeugrf2/y0y0b4
+	puUOTkbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulbl5-00000009MYr-1EIH;
-	Mon, 11 Aug 2025 23:16:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ulbl4-00000009MY7-2i3w;
+	Mon, 11 Aug 2025 23:16:50 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulZtV-000000094Qj-1jq7;
-	Mon, 11 Aug 2025 21:17:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KTHOzHuH/OUYRQt+fJsVLAyMUCubD4Mkl8PUofqnPdY=; b=Ly+GxV93u1KZk2vFVzdyKE9DZ3
-	uq4EiWkDX2RSipaV/DZfo16leHZaSnqjarqHtvK223jbe1sJQkHJ36ABrrNjzXILfVYSRuasgSJU7
-	FG6HoxuA4okX6j9uKM0/kNcC086DakRpU8lieIbdtLONKQbCXOTp8Jd4PslM6J6nQ6CRQnyKt96RQ
-	8vZ3stkmwoL4BS62fojlkBB0u1N4mT3LemNwlzBxWUYIhZkhrX9Miws/KKcUDu6kQOMqC7VctR+jU
-	k5qDtWjTGVB9UVLKweFd80rc95pmqvdEO+CldznIyF0NK5TdnWk8+1RqocpTXnKZVcfP5sZf0ulqV
-	ycCcm6kQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulZtR-0000000FXmK-3LPM;
-	Mon, 11 Aug 2025 21:17:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754947035;
-	bh=raW5g/LV8GRTMwkoKNboyFHz5L/VYuTT0dEoV8anao8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=Qr9AdoN8zECuc23K+vkrLvUlmvybTlzWqs1bZrqXrfvPtamis/qCY9KkBvjLNyA54
-	 pD1gToT97PtdLTJAxpTzKifthtpY/wSQ/H/j1+KiRYzDkfH00wWJQArPXNVr8tlIJu
-	 0pd9Yf8WtC37EMcvQ1t6jv9ySRaC9zpJvgXcyk7Ge2BtO1pQwvB4jxon2KuyJ5fgjj
-	 GlkrW6IFhk9Gv2rY9hNMi+DiktckEHN6t4d0g4d6Ishh/1X9dAQkSr7IMefoWg3E22
-	 hzq5kanEdfaOE392Ry3OULmWQ/bdm3RMm6pJO4fbZaeGfLGIpTWzK7JOkENSoROg8Q
-	 9Wr6TKN3g6ElA==
-Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4D79C17E0286;
-	Mon, 11 Aug 2025 23:17:14 +0200 (CEST)
-Message-ID: <a08b45fe17a0374230f300f30d344252b6d597da.camel@collabora.com>
-Subject: Re: [PATCH v2 3/7] media: rkvdec: Implement capability filtering
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jonas Karlman <jonas@kwiboo.se>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Detlev Casanova
- <detlev.casanova@collabora.com>,  Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Alex Bee <knaerzche@gmail.com>, Sebastian Fricke
-	 <sebastian.fricke@collabora.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Mon, 11 Aug 2025 17:17:12 -0400
-In-Reply-To: <20250810212454.3237486-4-jonas@kwiboo.se>
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
-	 <20250810212454.3237486-4-jonas@kwiboo.se>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
- oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
- zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
- TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
- 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
- 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
- cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
- tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
- bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
- qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
- BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
- tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
- zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
- 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
- s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
- An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
- ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
- AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
- CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
- 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
- BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
- +E7ItOqZEHAs+xabBgknYZIFPU=
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
-	boundary="=-+plCxMyBS08v/1oHFlUB"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1ulZsi-000000094Ki-1tjW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 21:16:37 +0000
+Received: from pps.filterd (m0246629.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57BKu6c4003879;
+	Mon, 11 Aug 2025 21:16:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=2aghFscrIvehgJNuq8
+	lcF0ws618XAcOO4siGxGr0RLQ=; b=D/Sn9i2I5QRdPbNbtFM3VjEQCT6+Zi7yzV
+	vQlXioRsEtZ5pDLU21rPWegucyXvrIYw/9bRWmkMEgClJ1h0LBCfVKEfio0WgDJ1
+	OEfUGlFlvYidrpH5uQK0DCeQpIp+QzUmUBrp+m+FTJ8Da3gtyEfBclk0d2FEnC0+
+	UxA1kkxggvEdteVFE1TkAOrK3aHKLDD+yDj0IkIAgqa6bDJgiXe3p+T2ZhkK1IMG
+	vFa/6MF9OTkjPTQkB62O4VrWv8i4L4DyCwnq3qROa4jP3pcJvWZNEbzq0qkAdoHf
+	cBiBVKEGHi1ybyCRCip/R2occR9pmsVJCbRoXQyG35DD8sewYAYw==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48dx7dkea6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 11 Aug 2025 21:16:03 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57BKklcx038582;
+	Mon, 11 Aug 2025 21:16:02 GMT
+Received: from nam11-co1-obe.outbound.protection.outlook.com (mail-co1nam11on2047.outbound.protection.outlook.com [40.107.220.47])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48dvsfpp2t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 11 Aug 2025 21:16:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k+BO6v259q2VTCx3gAQjK52AtdWI+u/O07fwfwSv2sKUEpKDHRIfWOtVzslkTL+CtVC6V66Ash6BKBGnMGyfHEHOXo8nbQl0PC118F+A6Hi1Vc/c1ygzt/E+eMw/Ad+c97coUXPUI9c5ZzFqcxTiKEjqE4pwZ9Y8EAHbLUGJnky7+Fgc8MSeRoMCjVEc6aaoIZNaRXF7WjOWTXP/f7Of3TH1wPVFsfJp9fd1nrcdBeAyptd+dvakqNW22O+Z+S5IyNn8qZ9rW7pocUfOxdoCzeXysXvv1n/YekmjTqCAwjJz+TLC1DPX3LCpI71ug1gRWhGae7DgKFBATW7YhdhE/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2aghFscrIvehgJNuq8lcF0ws618XAcOO4siGxGr0RLQ=;
+ b=UyLWudadnAv4SXstcjbIqC460yH5rmBFljnsUKi1m4ifX/vUhGgGno6/eyKFtFTGrWyBDIaZvh1SO1fHA1lTSdmPezbhWZtkBsIEoDOPnU6dvJS58DGallhij1cBpS9Zl++LwUZU1EfUqYQmd5c2rqeNBYGJOhJe/QAEp76V3lglXZ+iGLeobhOsFs9g9yKGuSMxLpgUF0iFCTeTpG8oM48T0Rzyfef9h4tlBwExtCPaWNfjaAzI9KBaoAYyxiWHNynXCBOZGZCimsfrxtICuFCs653yQ7w4tfj1CbT3wHpDR5wEkZVfYwUdCI9xr+2ibMVJGgTANLYBMvwAlCGtSQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2aghFscrIvehgJNuq8lcF0ws618XAcOO4siGxGr0RLQ=;
+ b=Y9IFkwR1tXQJaC3N/mjZnjuA5CRM9A2DEK0hVvhP/DdPtPh8VfoZRxiC1W5JZXWDV0Q/7TlphcJjczzStLAaSmY7kq8J2o72ncJTiW2tbUFL63NudwOzkPKYC6xFYn4A5/3v5SptbapspCaEPtj36M5pL9HnyJCMaJ0GVe8HKOQ=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by SN4PR10MB5573.namprd10.prod.outlook.com (2603:10b6:806:204::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Mon, 11 Aug
+ 2025 21:15:58 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9009.018; Mon, 11 Aug 2025
+ 21:15:58 +0000
+References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
+ <20250627044805.945491-2-ankur.a.arora@oracle.com>
+ <aJXWyxzkA3x61fKA@arm.com>
+User-agent: mu4e 1.4.10; emacs 27.2
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
+        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
+        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, memxor@gmail.com,
+        zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+        konrad.wilk@oracle.com, rafael@kernel.org, daniel.lezcano@linaro.org
+Subject: Re: [PATCH v3 1/5] asm-generic: barrier: Add
+ smp_cond_load_relaxed_timewait()
+In-reply-to: <aJXWyxzkA3x61fKA@arm.com>
+Date: Mon, 11 Aug 2025 14:15:56 -0700
+Message-ID: <877bz98sqb.fsf@oracle.com>
+Content-Type: text/plain
+X-ClientProxiedBy: MW4P223CA0015.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:303:80::20) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|SN4PR10MB5573:EE_
+X-MS-Office365-Filtering-Correlation-Id: 75e93d0e-45d9-43bc-3829-08ddd91c43e4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bn5cc0B7UWoJZYJdIaTsAqhenV3rogfXZHJtU9fBeBmHUVQXw+z7murf7DKk?=
+ =?us-ascii?Q?E78D2R9NByanM10bArOYsh9buGvnIsCLtUJRa3Ckv9Duh9pocDiOS4UTlWHt?=
+ =?us-ascii?Q?HORnXwFWgY3lLs5TtP+2aJcMMGVCqn1Ek6gNJTIaaN1n1Rccx3rtY0R5bVlt?=
+ =?us-ascii?Q?lx49HSfP2Rf7lDH3uEkOVgKwTdrSU0xM5ot1sC4/RRnh6tOj25GYHyi2NtU5?=
+ =?us-ascii?Q?Vr1es/ngYOoG/RCXAs+1hXCZcUJfVCkqZfS+CDkLhUroEbP6IV3d1tCONd+U?=
+ =?us-ascii?Q?x5sGAwRGOuJDmnX8MuuuJNgpcYhGOmsz44842nrU80js4kEWrYwigDifRbnZ?=
+ =?us-ascii?Q?+bMqd3Krb9kalCU9LTR45u97fzwIteqmjGu7KI8hnJC9Pwt7REpK6M8LyLsO?=
+ =?us-ascii?Q?tp30sLT+pZtnT0JGd9ybeEaQO/2l+hS9rq7fYj7oQvM4Cb2RWtl9iYP5lGWX?=
+ =?us-ascii?Q?iYTHqepupobg+Hy9vRTl0ozOBhf6+ImeDddWZjIA3kmhUmhsYwUiXhmnXOYg?=
+ =?us-ascii?Q?MBUvjjqBR+PmK2yIUCJfpKt7VMBcBfGXuIJope6OBx59yb19JvUtk91Qj89+?=
+ =?us-ascii?Q?RM1/NRtVJf2vkwiNqEq2nqdjspeO3i+rFCuwShjEDLqJCF4WmurCEUK3U2nl?=
+ =?us-ascii?Q?l3UZS6HT7LhXqbao+W7A552o99mhQQhNLPW1y0EBmPf9FFtn2fXTwjhgl8Ak?=
+ =?us-ascii?Q?Zp6IgHHk7u/MYst7b4HuoXMpaNJ6uU47R9Jw2tV+v90jfzgUMVnuMgJNh6NZ?=
+ =?us-ascii?Q?ApkBY2TQmcvrghs3OhDhgv7pRjjUNoLfcmoUA9i9aOKXSSKl3igW59tHL6yG?=
+ =?us-ascii?Q?iFdtTMmg0q6JfKavm90EEkeFYyAd7A3w40qbAsH/ogW1Jyx6SO1ZJY81zkiW?=
+ =?us-ascii?Q?fPzOk1LsboWrnx+00BbWKRRxryhClI88JbUsE0mWUFcTg/BDftdRuzvDZkBe?=
+ =?us-ascii?Q?tMrMI+GlZ/AyRrDLfQOL1hyQxHiBEy2jsz7rDmZImhLnyMZuo1+t1yieWBIm?=
+ =?us-ascii?Q?IHz4CwAhEeHmb1AhdQ3Xqr99imE5+BebizIZfzxgJcp4KXD9g4Sog85gw3Em?=
+ =?us-ascii?Q?5EoIV15ImP8Mevod1ADJBBrlJWyt2Z543rB1Tgng2zr6yumgcZ3aFJxlwSK0?=
+ =?us-ascii?Q?5HFU0vjzzpd7LSSNgkNEy34sWgOxQIUIpR+haPE0dq1UQfMIeqbIA/PT1U6L?=
+ =?us-ascii?Q?BEZfvSlbkh27EByF7MUMaSPBl4klGpax8MpkUXYzQHOhezGcOY9b6ndPAN+f?=
+ =?us-ascii?Q?nhOcF/iJTBsmM+nvhbYzITCQRHrj5JN7Oz95ODF9BDVht2+hiiikaLKmdmOI?=
+ =?us-ascii?Q?TbGG6RUFQsh3pdJJj7ZzRq7Em79X0j2vynqj0iprCsWBNf5QjUAQa702dPqt?=
+ =?us-ascii?Q?Ob6xzO4Alnra5qy/BknulXD0byUNdAmAHH7k8VZkxcReRemfQbzxTYVQ+RMy?=
+ =?us-ascii?Q?fdu6Ftt0VGw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w/Z3c3nKKoSwITEHNOvv9GsPhxKH30i0937R5z211W9tRfdyt+6lk1V1Dowp?=
+ =?us-ascii?Q?D+AJzqpHItKcZou9M82R0rmKCjwHxnybYWPFlljENL8ft7RfIoVufMzVWSJC?=
+ =?us-ascii?Q?B7+padDZClK7ge5so/fxC45aI55HwZMM9mpIvjW0hktJRI+EeSswhCSWukAA?=
+ =?us-ascii?Q?mRrE0KFHcb709KwM1Tggk0HZFXDnHZ/8bW94LMD3O0hCzxtFB6Ceb0Tmyp/h?=
+ =?us-ascii?Q?MNwqTl1ykSwHnJBvh+r7ROXHuwtcCxk/I8HVclr0R83GaZp978aVKb9zDCiP?=
+ =?us-ascii?Q?Pb7JyTUofdWuiU5uWv4WQTA87aup8c90L46fb2jsex8IL27eiCXNBxZgfG8Y?=
+ =?us-ascii?Q?50dtruqXLmclW/gwdKetYPe4uWFY+d4uUisVALOj06AzgtqDSBxP28NNJfSO?=
+ =?us-ascii?Q?+0X+NhMmXoI/G9o0SQSPMnwFH87FMLUpfdd8nnEbAIjM8kNNrAHpthrjAW3O?=
+ =?us-ascii?Q?bGX1WfNtW8BqA9bXtWiZjInKOGMVVaszBb81xJft9YwgW50Ub8O9sZI9bXZn?=
+ =?us-ascii?Q?DRJNFhbifFPv9x5Vne9M76glsHR7U4DjOs9s3STdeP5Uz9c7M51bzo5FZdls?=
+ =?us-ascii?Q?FqAgDH3CGEeYCO5StmqRH45wPo8HtdFDgDIMFHPyLRR3EvtNcs5gfGPVl++N?=
+ =?us-ascii?Q?g1rVv+xHo9gTCE61CzFMhxJrEsTtot9ZsYbKrLAAbfUtjyXUP2pCCzou06y8?=
+ =?us-ascii?Q?PjHNIPgNIyWE0vfHHpFaoFiZctCgf8r5vMrJE+Zjoeb8MzfPQh5GeSK5PBzt?=
+ =?us-ascii?Q?6P5vrT2FBYlAhQEkVAZhg0gslcGqfwKs/ZY1W0V3m3qRbwpgXKtyvY3OG5u9?=
+ =?us-ascii?Q?gbnmy1CzDL0WHEnAi+XKFRkUjPLJqmn3SRwc2bodJ+RJT/GC3nZ8GD8WZeRX?=
+ =?us-ascii?Q?Heocu2XKI0AA+StAOl2EpXH4nqldh9/cYT9ShFX5ZjOTExr8eeoVcbSLD6oT?=
+ =?us-ascii?Q?AusWN0zoKemP0qwfB8QtG+Yx4UlBfHLRFr9pmg9zo48b1UmpfyIuIgPR7EDy?=
+ =?us-ascii?Q?IpvdQsxZny8AqRdRjS8ot9equ8paGN0iagwqBzayXRWsY8sORzvBbAJLVqJj?=
+ =?us-ascii?Q?8VDPZJChtEBb3UWVupf8u/TN30xx4RjJ1pYuu7v4vdzw7Gy25uqZppvMIEsF?=
+ =?us-ascii?Q?7cR31gCVBFLvQ6CHKf+cSn30h6itxRunKsS+DRB5BMRECsivm3BcYfy5w/fu?=
+ =?us-ascii?Q?y6sO9ck7BLc1gFmn2SilECvojM91sFhCZ0TQjhYEstHuYBy18lzxdqDrCxI3?=
+ =?us-ascii?Q?DzJ1UqLmFm5Wjz/ZTKbXjb6l78nHIx6iaP6eSK3YqzRW6ffCl7+b0CJ5hrJR?=
+ =?us-ascii?Q?haUVP2TFxqlT8u3EWRcmVupK+1BrkwLmk2f/31qzVpxJ74F4k9NBxCoS7eQv?=
+ =?us-ascii?Q?F2Efq1MEDybVJH40bQ1kUGvELAObLzPDyay1/LlW3OYkkBTMTFUnHHjpQqpY?=
+ =?us-ascii?Q?JOzJnS8eJ3Loq/0vdfDVSrA1GVDNu/piyou5xNH+25zFmReEht31ujvaW55K?=
+ =?us-ascii?Q?YDvpLb7SaIjc+vzBzQ/o3XPMIwSVtzbMD+Rk4PLN9FTwpzc7EhvX6hvg4+ye?=
+ =?us-ascii?Q?uNwlkbZYd3+jJzZ1el7DAzeiBOJMdpvon4YpEI7h8dra697yN2J9FjqRMmWx?=
+ =?us-ascii?Q?vw=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: +Wsup9jikVXGUWXZja461HjekgQ1MKQsh9QoMMU1zwj5BTOc6Mcf+n7J96zwVx/h1NEf3kseet+hP4s7Y4X2+SVJCiBTsIsNl77jTRLvfLZzPdfwdtmB1h8yn8wDlvckBzTg1FQsvYcNpy4qcJPNhXj4DFzlq9yiEHisPPPKbv0Yfc0bk2Fj+43Dh3WednjlfOadJ6OqLALajtXcscHj51Bc8inFhyNQFQqAZbzKWN6d9BzHZ4Z3rdKeSR+WfXRLGSLbHr6cb33ZneI7zbG4fL0sqPzeMuVX9nNv5h9ReesglSJs48wRvcIL7EsCOIQkngb2ZGG7c3uMr2cBMdY7ZU05Yzt6FlVFVPEz1COf4gFwDJXVB1PrJNSsRlroodFwQ0xiXr+DW/1o1gkUYSRnHlbwt4JdPehIN4u2wQlSXWNwYbFAJawctA0O/j2gyLta1cE4uWp2/KKL58TCypThMQPxG5gejmw2kIq3tT7uilqpu8b2kIBaq/cmNgstexESU0//C3XInZUk2Gima0z4rm/T3AYPeFePInzwbzDCyF+6hR662fbFczVg3sust54beYPtToTqGLKIQtai6s6yhTElcB32BanYPk3bgybEWS0=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 75e93d0e-45d9-43bc-3829-08ddd91c43e4
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2025 21:15:58.0579
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7lMdrXMe4UGAL+VDU10va52yEGwNJCwJRXnHBuh9/DU5qhDh4d49xkS23/BU/fpydEBrp7E4Fmq7v56krdXOFe8hv0TmxyHx4lxbTexUMwY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN4PR10MB5573
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-11_04,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 mlxscore=0 phishscore=0
+ spamscore=0 suspectscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2507300000
+ definitions=main-2508110148
+X-Proofpoint-ORIG-GUID: 6NF_QEQZFm-FxiWrZ10KEiKvvGh6Ud8b
+X-Authority-Analysis: v=2.4 cv=WecMa1hX c=1 sm=1 tr=0 ts=689a5d93 b=1 cx=c_pps
+ a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
+ a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=2OwXVqhp2XgA:10
+ a=GoEa3M9JfhUA:10 a=7CQSdrXTAAAA:8 a=F7pr0ZEwmyNLea-96LMA:9
+ a=a-qgeE7W1pNrGK8U0ZQC:22 cc=ntf awl=host:12070
+X-Proofpoint-GUID: 6NF_QEQZFm-FxiWrZ10KEiKvvGh6Ud8b
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODExMDE0OSBTYWx0ZWRfXwu0xBAnUDWts
+ C9rJvGkllgCK2hFrPO81NwkjOzFwRxNYy8rufjwLqcJQ9VSMTyHc3hs9hOAmO0/FN/6p9TIqjTd
+ JICHzlep7U+AjIMJCnw+9YUrqp9hNcV18nOvnXaAUISMc8dNDGuAz/WCD6Tty4FqeexAA8S4WEn
+ 9JRmQt6c4YfblERvWqd7TnlQBVwN1y+UTihd0fL7Az5LueZQ3V/1Vs299sPouUVsqq12QqqxZgJ
+ hZkcIkU1BGyi5EgjDDGc+zt4E6PePUPZ0Fjk0ULy4tRKRQKn13AZ1w0S2Hk/bcQOqAHKYUw/irA
+ 457YQ1a3G4gJyRVaDc0fxxfnw86WtPWO/wMcVv1wuOcokDg3eHPaZg+D9/tCvjyn4Oqb08jdEXR
+ hMgbHZ8UgmK1ic5brSwZloD/NGSy4pkEjdf2Iw/7VxAO9Em2OYW+eVzOCCdTRMeiExcp++vG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_221721_997644_261328B6 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20250811_141636_494331_18B7F897 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,193 +213,256 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-+plCxMyBS08v/1oHFlUB
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+[ Added Rafael, Daniel. ]
 
-Le dimanche 10 ao=C3=BBt 2025 =C3=A0 21:24 +0000, Jonas Karlman a =C3=A9cri=
-t=C2=A0:
-> Add filtering of coded formats and controls depending on a variant
-> capabilities.
->=20
-> Signed-off-by: Alex Bee <knaerzche@gmail.com>
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
-> Changes in v2:
-> - Adjust code style in rkvdec_enum_coded_fmt_desc()
-> ---
-> =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0 | 67 ++++++=
-++++++++-----
-> =C2=A01 file changed, 49 insertions(+), 18 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
-dia/platform/rockchip/rkvdec/rkvdec.c
-> index e7b9dfc2d1ab..56807122720e 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -365,13 +365,36 @@ static const struct rkvdec_coded_fmt_desc rkvdec_co=
-ded_fmts[] =3D {
-> =C2=A0	}
-> =C2=A0};
-> =C2=A0
-> +static bool rkvdec_is_capable(struct rkvdec_ctx *ctx, unsigned int capab=
-ility)
-> +{
-> +	return (ctx->dev->capabilities & capability) =3D=3D capability;
-> +}
-> +
-> =C2=A0static const struct rkvdec_coded_fmt_desc *
-> -rkvdec_find_coded_fmt_desc(u32 fourcc)
-> +rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
-> =C2=A0{
-> +	int fmt_idx =3D -1;
-> =C2=A0	unsigned int i;
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
-> -		if (rkvdec_coded_fmts[i].fourcc =3D=3D fourcc)
-> +		if (!rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
-> +			continue;
-> +		fmt_idx++;
-> +		if (index =3D=3D fmt_idx)
-> +			return &rkvdec_coded_fmts[i];
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +static const struct rkvdec_coded_fmt_desc *
-> +rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
-> +{
-> +	unsigned int i;
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
-> +		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability) &&
-> +		=C2=A0=C2=A0=C2=A0 rkvdec_coded_fmts[i].fourcc =3D=3D fourcc)
-> =C2=A0			return &rkvdec_coded_fmts[i];
-> =C2=A0	}
-> =C2=A0
-> @@ -382,7 +405,7 @@ static void rkvdec_reset_coded_fmt(struct rkvdec_ctx =
-*ctx)
-> =C2=A0{
-> =C2=A0	struct v4l2_format *f =3D &ctx->coded_fmt;
-> =C2=A0
-> -	ctx->coded_fmt_desc =3D &rkvdec_coded_fmts[0];
-> +	ctx->coded_fmt_desc =3D rkvdec_enum_coded_fmt_desc(ctx, 0);
-> =C2=A0	rkvdec_reset_fmt(ctx, f, ctx->coded_fmt_desc->fourcc);
-> =C2=A0
-> =C2=A0	f->type =3D V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE;
-> @@ -396,21 +419,22 @@ static void rkvdec_reset_coded_fmt(struct rkvdec_ct=
-x *ctx)
-> =C2=A0static int rkvdec_enum_framesizes(struct file *file, void *priv,
-> =C2=A0				=C2=A0 struct v4l2_frmsizeenum *fsize)
-> =C2=A0{
-> -	const struct rkvdec_coded_fmt_desc *fmt;
-> +	struct rkvdec_ctx *ctx =3D fh_to_rkvdec_ctx(priv);
-> +	const struct rkvdec_coded_fmt_desc *desc;
-> =C2=A0
-> =C2=A0	if (fsize->index !=3D 0)
-> =C2=A0		return -EINVAL;
-> =C2=A0
-> -	fmt =3D rkvdec_find_coded_fmt_desc(fsize->pixel_format);
-> -	if (!fmt)
-> +	desc =3D rkvdec_find_coded_fmt_desc(ctx, fsize->pixel_format);
-> +	if (!desc)
-> =C2=A0		return -EINVAL;
-> =C2=A0
-> =C2=A0	fsize->type =3D V4L2_FRMSIZE_TYPE_CONTINUOUS;
-> =C2=A0	fsize->stepwise.min_width =3D 1;
-> -	fsize->stepwise.max_width =3D fmt->frmsize.max_width;
-> +	fsize->stepwise.max_width =3D desc->frmsize.max_width;
-> =C2=A0	fsize->stepwise.step_width =3D 1;
-> =C2=A0	fsize->stepwise.min_height =3D 1;
-> -	fsize->stepwise.max_height =3D fmt->frmsize.max_height;
-> +	fsize->stepwise.max_height =3D desc->frmsize.max_height;
-> =C2=A0	fsize->stepwise.step_height =3D 1;
-> =C2=A0
-> =C2=A0	return 0;
-> @@ -470,10 +494,10 @@ static int rkvdec_try_output_fmt(struct file *file,=
- void *priv,
-> =C2=A0	struct rkvdec_ctx *ctx =3D fh_to_rkvdec_ctx(priv);
-> =C2=A0	const struct rkvdec_coded_fmt_desc *desc;
-> =C2=A0
-> -	desc =3D rkvdec_find_coded_fmt_desc(pix_mp->pixelformat);
-> +	desc =3D rkvdec_find_coded_fmt_desc(ctx, pix_mp->pixelformat);
-> =C2=A0	if (!desc) {
-> -		pix_mp->pixelformat =3D rkvdec_coded_fmts[0].fourcc;
-> -		desc =3D &rkvdec_coded_fmts[0];
-> +		desc =3D rkvdec_enum_coded_fmt_desc(ctx, 0);
-> +		pix_mp->pixelformat =3D desc->fourcc;
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	v4l2_apply_frmsize_constraints(&pix_mp->width,
-> @@ -550,7 +574,7 @@ static int rkvdec_s_output_fmt(struct file *file, voi=
-d *priv,
-> =C2=A0	if (ret)
-> =C2=A0		return ret;
-> =C2=A0
-> -	desc =3D rkvdec_find_coded_fmt_desc(f->fmt.pix_mp.pixelformat);
-> +	desc =3D rkvdec_find_coded_fmt_desc(ctx, f->fmt.pix_mp.pixelformat);
-> =C2=A0	if (!desc)
-> =C2=A0		return -EINVAL;
-> =C2=A0	ctx->coded_fmt_desc =3D desc;
-> @@ -602,10 +626,14 @@ static int rkvdec_g_capture_fmt(struct file *file, =
-void *priv,
-> =C2=A0static int rkvdec_enum_output_fmt(struct file *file, void *priv,
-> =C2=A0				=C2=A0 struct v4l2_fmtdesc *f)
-> =C2=A0{
-> -	if (f->index >=3D ARRAY_SIZE(rkvdec_coded_fmts))
-> +	struct rkvdec_ctx *ctx =3D fh_to_rkvdec_ctx(priv);
-> +	const struct rkvdec_coded_fmt_desc *desc;
-> +
-> +	desc =3D rkvdec_enum_coded_fmt_desc(ctx, f->index);
-> +	if (!desc)
-> =C2=A0		return -EINVAL;
-> =C2=A0
-> -	f->pixelformat =3D rkvdec_coded_fmts[f->index].fourcc;
-> +	f->pixelformat =3D desc->fourcc;
-> =C2=A0	return 0;
-> =C2=A0}
-> =C2=A0
-> @@ -970,14 +998,17 @@ static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx=
-)
-> =C2=A0	int ret;
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
-> -		nctrls +=3D rkvdec_coded_fmts[i].ctrls->num_ctrls;
-> +		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
-> +			nctrls +=3D rkvdec_coded_fmts[i].ctrls->num_ctrls;
-> =C2=A0
-> =C2=A0	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
-> =C2=A0
-> =C2=A0	for (i =3D 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
-> -		ret =3D rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
-> -		if (ret)
-> -			goto err_free_handler;
-> +		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability)) {
-> +			ret =3D rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
-> +			if (ret)
-> +				goto err_free_handler;
-> +		}
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	ret =3D v4l2_ctrl_handler_setup(&ctx->ctrl_hdl);
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> On Thu, Jun 26, 2025 at 09:48:01PM -0700, Ankur Arora wrote:
+>> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
+>> index d4f581c1e21d..d33c2701c9ee 100644
+>> --- a/include/asm-generic/barrier.h
+>> +++ b/include/asm-generic/barrier.h
+>> @@ -273,6 +273,101 @@ do {									\
+>>  })
+>>  #endif
+>>
+>> +#ifndef SMP_TIMEWAIT_SPIN_BASE
+>> +#define SMP_TIMEWAIT_SPIN_BASE		16
+>> +#endif
+>> +
+>> +/*
+>> + * Policy handler that adjusts the number of times we spin or
+>> + * wait for cacheline to change before evaluating the time-expr.
+>> + *
+>> + * The generic version only supports spinning.
+>> + */
+>> +static inline u64 ___smp_cond_spinwait(u64 now, u64 prev, u64 end,
+>> +				       u32 *spin, bool *wait, u64 slack)
+>> +{
+>> +	if (now >= end)
+>> +		return 0;
+>> +
+>> +	*spin = SMP_TIMEWAIT_SPIN_BASE;
+>> +	*wait = false;
+>> +	return now;
+>> +}
+>> +
+>> +#ifndef __smp_cond_policy
+>> +#define __smp_cond_policy ___smp_cond_spinwait
+>> +#endif
+>> +
+>> +/*
+>> + * Non-spin primitive that allows waiting for stores to an address,
+>> + * with support for a timeout. This works in conjunction with an
+>> + * architecturally defined policy.
+>> + */
+>> +#ifndef __smp_timewait_store
+>> +#define __smp_timewait_store(ptr, val)	do { } while (0)
+>> +#endif
+>> +
+>> +#ifndef __smp_cond_load_relaxed_timewait
+>> +#define __smp_cond_load_relaxed_timewait(ptr, cond_expr, policy,	\
+>> +					 time_expr, time_end,		\
+>> +					 slack) ({			\
+>> +	typeof(ptr) __PTR = (ptr);					\
+>> +	__unqual_scalar_typeof(*ptr) VAL;				\
+>> +	u32 __n = 0, __spin = SMP_TIMEWAIT_SPIN_BASE;			\
+>> +	u64 __prev = 0, __end = (time_end);				\
+>> +	u64 __slack = slack;						\
+>> +	bool __wait = false;						\
+>> +									\
+>> +	for (;;) {							\
+>> +		VAL = READ_ONCE(*__PTR);				\
+>> +		if (cond_expr)						\
+>> +			break;						\
+>> +		cpu_relax();						\
+>> +		if (++__n < __spin)					\
+>> +			continue;					\
+>> +		if (!(__prev = policy((time_expr), __prev, __end,	\
+>> +					  &__spin, &__wait, __slack)))	\
+>> +			break;						\
+>> +		if (__wait)						\
+>> +			__smp_timewait_store(__PTR, VAL);		\
+>> +		__n = 0;						\
+>> +	}								\
+>> +	(typeof(*ptr))VAL;						\
+>> +})
+>> +#endif
+>
+> TBH, this still looks over-engineered to me, especially with the second
+> patch trying to reduce the spin loops based on the remaining time. Does
+> any of the current users of this interface need it to get more precise?
 
-cheers,
-Nicolas
+No, neither of rqspinlock nor poll_idle() really care about precision.
+And, the slack even in this series is only useful for the waiting
+implementation.
 
---=-+plCxMyBS08v/1oHFlUB
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+> Also I feel the spinning added to poll_idle() is more of an architecture
+> choice as some CPUs could not cope with local_clock() being called too
+> frequently.
 
------BEGIN PGP SIGNATURE-----
+Just on the frequency point -- I think it might be a more general
+problem that just on specific architectures.
 
-iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJpd2AAKCRBxUwItrAao
-HFagAJ9kpySvBjaNAzNBLEMtnAbxTfaYngCfcZh2egLoFBDVztkKTSFbUTpixT8=
-=akP1
------END PGP SIGNATURE-----
+Architectures with GENERIC_SCHED_CLOCK could use a multitude of
+clocksources and from a quick look some of them do iomem reads.
+(AFAICT GENERIC_SCHED_CLOCK could also be selected by the clocksource
+itself, so an architecture header might not need to be an arch choice
+at  all.)
 
---=-+plCxMyBS08v/1oHFlUB--
+Even for something like x86 which doesn't use GENERIC_SCHED_CLOCK,
+we might be using tsc or jiffies or paravirt-clock all of which would
+have very different performance characteristics. Or, just using a
+clock more expensive than local_clock(); rqspinlock uses
+ktime_get_mono_fast_ns().
+
+So, I feel we do need a generic rate limiter.
+
+> The above generic implementation takes a spin into
+> consideration even if an arch implementation doesn't need it (e.g. WFET
+> or WFE). Yes, the arch policy could set a spin of 0 but it feels overly
+> complicated for the generic implementation.
+
+Agree with the last point. My thought was that it might be okay to always
+optimistically spin a little, just because WFE*/MWAITX etc might (?)
+have a entry/exit cost even when the wakeup is immediate.
+
+Though the code is wrong in that it always waits right after evaluating
+the policy. I should have done something like this instead:
+
++#define __smp_cond_load_relaxed_timewait(ptr, cond_expr, policy,       \
++                                        time_expr, time_end,           \
++                                        slack) ({                      \
++       typeof(ptr) __PTR = (ptr);                                      \
++       __unqual_scalar_typeof(*ptr) VAL;                               \
++       u32 __n = 0, __spin = SMP_TIMEWAIT_SPIN_BASE;                   \
++       u64 __prev = 0, __end = (time_end);                             \
++       u64 __slack = slack;                                            \
++       bool __wait = false;                                            \
++                                                                       \
++       for (;;) {                                                      \
++               VAL = READ_ONCE(*__PTR);                                \
++               if (cond_expr)                                          \
++                       break;                                          \
++               cpu_relax();                                            \
++               if (++__n < __spin)                                     \
++                       continue;                                       \
++               if (__wait)                                             \
++                       __smp_timewait_store(__PTR, VAL);               \
++               if (!(__prev = policy((time_expr), __prev, __end,       \
++                                         &__spin, &__wait, __slack)))  \
++                       break;                                          \
++               __n = 0;                                                \
++       }                                                               \
++       (typeof(*ptr))VAL;                                              \
++})
+
+
+> Can we instead have the generic implementation without any spinning?
+> Just polling a variable with cpu_relax() like
+> smp_cond_load_acquire/relaxed() with the additional check for time. We
+> redefine it in the arch code.
+>
+>> +#define __check_time_types(type, a, b)			\
+>> +		(__same_type(typeof(a), type) &&	\
+>> +		 __same_type(typeof(b), type))
+>> +
+>> +/**
+>> + * smp_cond_load_relaxed_timewait() - (Spin) wait for cond with no ordering
+>> + * guarantees until a timeout expires.
+>> + * @ptr: pointer to the variable to wait on
+>> + * @cond: boolean expression to wait for
+>> + * @time_expr: monotonic expression that evaluates to the current time
+>> + * @time_end: end time, compared against time_expr
+>> + * @slack: how much timer overshoot can the caller tolerate?
+>> + * Useful for when we go into wait states. A value of 0 indicates a high
+>> + * tolerance.
+>> + *
+>> + * Note that all times (time_expr, time_end, and slack) are in microseconds,
+>> + * with no mandated precision.
+>> + *
+>> + * Equivalent to using READ_ONCE() on the condition variable.
+>> + */
+>> +#define smp_cond_load_relaxed_timewait(ptr, cond_expr, time_expr,	\
+>> +				       time_end, slack) ({		\
+>> +	__unqual_scalar_typeof(*ptr) _val;				\
+>> +	BUILD_BUG_ON_MSG(!__check_time_types(u64, time_expr, time_end),	\
+>> +			 "incompatible time units");			\
+>> +	_val = __smp_cond_load_relaxed_timewait(ptr, cond_expr,		\
+>> +						__smp_cond_policy,	\
+>> +						time_expr, time_end,	\
+>> +						slack);			\
+>> +	(typeof(*ptr))_val;						\
+>> +})
+>
+> Looking at the current user of the acquire variant - rqspinlock, it does
+> not even bother with a time_expr but rather added the time condition to
+> cond_expr. I don't think it has any "slack" requirements, only that
+> there's no deadlock eventually.
+
+So, that code only uses smp_cond_load_*_timewait() on arm64. Everywhere
+else it just uses smp_cond_load_acquire() and because it jams both
+of these interfaces together, it doesn't really use time_expr.
+
+But, it needs more extensive rework so all platforms can use
+__smp_cond_load_acquire_timewait with the deadlock check folded
+inside its own policy handler.
+
+Anyway let me detail that in my reply to your other mail.
+
+> About poll_idle(), are there any slack requirement or we get away
+> without?
+
+I don't believe there are any slack requirements. Definitely not for
+rqspinlock (given that it has a large timeout) and I believe also
+not for poll_idle() since a timeout delay only leads to a slightly
+delayed deeper sleep.
+
+Question for Rafael, Daniel: With smp_cond_load_relaxed_timewait(), when
+used in waiting mode instead of via the usual cpu_relax() spin, we
+could overshoot by an architecturally defined granularity.
+On arm64, that could be ~100us in the worst case. Do we have hard
+requirements about timer overshoot in poll_idle()?
+
+> I think we have two ways forward (well, at least):
+>
+> 1. Clearly define what time_end is and we won't need a time_expr at all.
+>    This may work for poll_idle(), not sure about rqspinlock. The
+>    advantage is that we can drop the 'slack' argument since none of the
+>    current users seem to need it. The downside is that we need to know
+>    exactly what this time_end is to convert it to timer cycles for a
+>    WFET implementation on arm64.
+>
+> 2. Drop time_end and only leave time_expr as a bool (we don't care
+>    whether it uses ns, jiffies or whatever underneath, it's just a
+>    bool). In this case, we could use a 'slack' argument mostly to make a
+>    decision on whether we use WFET, WFE or just polling with
+>    cpu_relax(). For WFET, the wait time would be based on the slack
+>    value rather than some absolute end time which we won't have.
+>
+> I'd go with (2), it looks simpler. Maybe even drop the 'slack' argument
+> for the time being until we have a clear user. The fallback on arm64
+> would be from wfe (if event streaming available), wfet with the same
+> period as the event stream (in the absence of a slack argument) or
+> cpu_relax().
+
+So I like the approach with (2) quite a bit. It'll simplify the time
+handling quite nicely. And, I think it is also good to drop slack
+unless there's a use for it.
+
+There's just one problem, which is that a notion of time-remaining
+still seems quite important to me. Without it, it's difficult to know
+how often to do the time-check etc. I could use an arbitrary
+parameter, say evaluate time_expr once every N cpu_relax() loops etc
+but that seems worse than the current approach.
+
+So, how about replacing the bool time_expr, with a time_remaining_expr
+(s32) which evaluates to a fixed time unit (ns).
+
+This also gives the WFET a clear end time (though it would still need
+to be converted to timer cycles) but the WFE path could stay simple
+by allowing an overshoot instead of falling back to polling.
+
+--
+ankur
 
