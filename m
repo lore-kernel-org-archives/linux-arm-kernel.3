@@ -4,48 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D61CBC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 06:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2404C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 06:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1wWIaC+COZnTTlE9HZpbQlqHUg8rhYPP0zCCbEf4L0c=; b=fclyZFkOznlAEpGjU+3xn5vtpt
-	MtzuZ22k+Wskcr+lK+/2QSaAfexMXwdkH1xL8nz8qPuyycK7igeF5gR8pI+Op982TskV7z9XAI7Fb
-	k243pbVUwHjgMSSHXD/OKSo2K02wkOXUj49N5XGr1tmRYLmMML1t6Z6alZrhpPX0l1ncNOgAnRtyB
-	aRPiaEN30cXIEpQyybVVgGLXQWCQr5kERb0m+AW43Naq4nUbBiOHhq82wLw0fnygyRFc4PmkFnbGo
-	17HvnoBbgMhj2lMeM+Rfjv5wsnsfVU3d7SXDJaZfyDLw41QEaX3cpVqIKfqlek9ZwJipQB2VmVSMH
-	8la9LW8g==;
+	bh=b+p09WejbWfzF2ZumTxXCyXgQZo/i4bnN1JqYuZNc68=; b=JjOdB/9O3ZUcR1KNvI5dHsokMI
+	wtku+sTnhE7HQ7lql9SY+P9p5pr2HrdT7tcjyg9vDAHqqaw0czClGBMLQXvHQXMRrQF8OFUNMtx0t
+	6ffo0PO4Yf3nvwfGPstCAVPPTpQcRIQ4r7uzhM/92hZPkQ0pnvGSz2TD8+mCG7ogySWEO9rxoGfZr
+	XPG+xLgAp1v4BK3cF3RGtXeyChlfMptMTWIiRh5CSfu/5fjLnMPNl/zZadodKeI1w/UJdQh2O6UUJ
+	kOVRbp7D/p7NxnpDIXrJm94aWNWybyZuONSnk+oK/2q+1h40w7npNKHNfrbTVfkLUJNbWtMZ/fC9P
+	nsOJMutg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulLp0-00000006aUF-32eJ;
-	Mon, 11 Aug 2025 06:15:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ulLrZ-00000006ajz-3NL3;
+	Mon, 11 Aug 2025 06:18:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulLmP-00000006aE9-06mh;
-	Mon, 11 Aug 2025 06:13:10 +0000
+	id 1ulLn7-00000006aKb-0mYX;
+	Mon, 11 Aug 2025 06:13:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=b+p09WejbWfzF2ZumTxXCyXgQZo/i4bnN1JqYuZNc68=; b=l8sh9VPl/0jwwrpMaJw3MWxBx2
+	77nYhltVobeoVpyZZDTmHePyFNUGuBprsT4QzHsa4rlbpbCCEQBYKPgaYLyfDjob1FHB+0j/C+x5o
+	Qs08UKwzqnJHTfxy+lBgThfp+6X8Cy0nS+eU/YkO4E3QHK+JTuNt8+k5Ry9Vw2TPV3TtOuDru/E6O
+	VPq5nwFF7NfCFFz+6Mzi2zwd/Tjro61nEFKslhaPF/KAbli2rg/nknWjHEZnZImQ8cEb8D5dMJOEx
+	SknT2GTiWshewnK+ljAaqHbPI7Ltvgm/7Pt/8bH1aNR4ssPJUZwpnw8SoTJOiji/ZrmZENiIowqVH
+	MhYcDBdw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulLn3-0000000FMjb-3ucO;
+	Mon, 11 Aug 2025 06:13:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34E92454B3;
-	Mon, 11 Aug 2025 06:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2804DC4CEED;
-	Mon, 11 Aug 2025 06:13:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6CCC25C5BAC;
+	Mon, 11 Aug 2025 06:13:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19427C4CEF5;
+	Mon, 11 Aug 2025 06:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754892788;
-	bh=y5gFofC4QUclprRrC5gwH9xbLOd7/g1RieFQkQ65L3k=;
+	s=k20201202; t=1754892826;
+	bh=5ELLr1VGJj6bpVBWn7xcvf7Y0tmBtRT/+3YCnwhB1TI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NVYRj0qQJieC5vk1H8c6l+sHRdpaXBz6F9qFd8owxaqMocLlH76po2dzWafdVTIK4
-	 bmItLFMtpUAm4BpmlV9ukgK/56q2wbl9rkwpXCBYTAOMNGvJEybI7HOzkMBdHSBBao
-	 ho2eOCtqHbltz/ZEbOcirTu5v/f082wNasFPtMhLiNcD2j9b7qPhdO2uywKdLLXIas
-	 LFvnof4aoPhJlR1t71ULZkZNR501D/iLRq7I6XguMl/NPCeREZyM4UgjGXMcjIPd9w
-	 SfQ1nnqFwqmcWn2cnbnXiRvCbqS91llVgBAF0s6U7hMjSIfx4MUUb0itrxNzDG38kq
-	 eNbgyeW0rkB1A==
-Message-ID: <9fbc63d4-a12b-420e-8c99-f2f5fca5a9eb@kernel.org>
-Date: Mon, 11 Aug 2025 08:13:04 +0200
+	b=CRKGd1YfV7GBjcJIRNMPRyy/zwvw00Wf4oo+yd0iJZv2TENSbbMzTPjFo06Snow8C
+	 xZ+ceLq5DN8BLUXMrvGxJbv5+lm4T9jmQ50yt2pmeDOc3bF4/uN9njZ6+UqqtE/zFW
+	 887yWqMq/79Cj8xDp0yNXEF4/T8cMEz6GLKipIeI3zTQ/oNEf+g6sCeB7UkKaw+7Fk
+	 tWrtJEQEp3yR0jH2uEWmbBfdCs7cIXhyJFK/OSxzbheiYU9Jezk5JnqgwQF/ZyIx+9
+	 9o4WQzsPoRFzql1LkJLueFBWZKgkTZoArArkbRoy2yb5JNsu3CGf2RsTE1IfbaEgwo
+	 Ke5WWrncErXjA==
+Message-ID: <5c7767d1-1f28-48e0-bf8b-a224151fb007@kernel.org>
+Date: Mon, 11 Aug 2025 08:13:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/12] media: rkvdec: Add per variant configuration
+Subject: Re: [PATCH v2 06/12] media: rkvdec: Add RCB and SRAM support
 To: Detlev Casanova <detlev.casanova@collabora.com>,
  linux-kernel@vger.kernel.org
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -53,7 +67,7 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
  linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  kernel@collabora.com
 References: <20250808200340.156393-1-detlev.casanova@collabora.com>
- <20250808200340.156393-6-detlev.casanova@collabora.com>
+ <20250808200340.156393-7-detlev.casanova@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +113,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250808200340.156393-6-detlev.casanova@collabora.com>
+In-Reply-To: <20250808200340.156393-7-detlev.casanova@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_231309_113979_6DDC9CE8 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20250811_071350_562175_84F1AF4B 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,65 +134,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 08/08/2025 22:03, Detlev Casanova wrote:
-> This is to prepare for adding different variants of the decoder and
-
-Prepare for...
-
-> support specific formats and ops.
-> 
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
-
-
-...
-
-
->  static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
->  {
-> +	struct rkvdec_config *cfg = ctx->dev->config;
->  	unsigned int i, nctrls = 0;
->  	int ret;
 >  
-> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
-> -		nctrls += rkvdec_coded_fmts[i].ctrls->num_ctrls;
-> +	for (i = 0; i < cfg->coded_fmts_num; i++)
-> +		nctrls += cfg->coded_fmts[i].ctrls->num_ctrls;
->  
->  	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
->  
-> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
-> -		ret = rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
-> +	for (i = 0; i < cfg->coded_fmts_num; i++) {
-> +		ret = rkvdec_add_ctrls(ctx, cfg->coded_fmts[i].ctrls);
->  		if (ret)
->  			goto err_free_handler;
+> -	vb2_dma_contig_set_max_seg_size(&pdev->dev, DMA_BIT_MASK(32));
+> -
+>  	irq = platform_get_irq(pdev, 0);
+>  	if (irq <= 0)
+>  		return -ENXIO;
+> @@ -1204,6 +1217,10 @@ static int rkvdec_probe(struct platform_device *pdev)
+>  		return ret;
 >  	}
-> @@ -1119,8 +1127,13 @@ static void rkvdec_watchdog_func(struct work_struct *work)
->  	}
->  }
 >  
-> +const struct rkvdec_config config_rkvdec = {
+> +	rkvdec->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
 
-Why isn't this static?
+Didn't you just add new ABI?
 
-> +	.coded_fmts = (struct rkvdec_coded_fmt_desc *)rkvdec_coded_fmts,
-> +	.coded_fmts_num = ARRAY_SIZE(rkvdec_coded_fmts),
-> +};
+> +	if (!rkvdec->sram_pool && rkvdec->config->rcb_num > 0)
+> +		dev_info(&pdev->dev, "No sram node, RCB will be stored in RAM\n");
 > +
->  static const struct of_device_id of_rkvdec_match[] = {
-> -	{ .compatible = "rockchip,rk3399-vdec" },
-> +	{ .compatible = "rockchip,rk3399-vdec", .data = &config_rkvdec },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, of_rkvdec_match);
-> @@ -1144,6 +1157,9 @@ static int rkvdec_probe(struct platform_device *pdev)
->  	mutex_init(&rkvdec->vdev_lock);
->  	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
->  
-> +	rkvdec->config =
-> +		(struct rkvdec_config *)of_device_get_match_data(rkvdec->dev);
 
-If you need a cast, your code is wrong.
 
 
 Best regards,
