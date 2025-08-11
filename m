@@ -4,134 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F68C87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F16BBC87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:09:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMjZD5VxWbI8Z4lMAYHBGs1IrVjbsBvn1MA7lBTaNNI=; b=sfCRrjI29d7izR31JImdnen4c/
-	Ut8NOIURfCUArWUsNEZOS49AxZBEkp6fQ2fzdwPPUWhXUELKJuRTTXDth99SpLafmT43+Ki1t98hI
-	aIWnQvutF1TOaBAXmdSG2D1XnqMCbe+WlH91bUuFdbaBDJES8/2aaJ4hFYvBH/4N7+0YvvxIoaV0F
-	7nWgor40Sd+0F+Hc3Nb6nnZCxxHsDaeKpEMosECytIOOz3112G8xFgHxVdhfDeHi9lcxpr7DX3oio
-	JW4oNzfGOImlyBrdlMkFyMkU7Bf6Raw3ffTjAOXbcP5BNXfRbyY5Pwr733cIPw7K1hjD9yo3ZqLij
-	YGo3SIfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hvDa8O9hGACyFWVvO4cHOr7fhxyH5sRWAFv1BUJCgSY=; b=DAs589HOFrsUUEMsEh5z5TfZg7
+	46UKFffdC2LWSHB0cw8l+Y1PBEfKoZw5FoTib9ONap7sB3jAAppD47/iNxyxU19ZXvHVjBhnuDzTR
+	o4W27fjMI0sPBBV8U+L4f9NOVRtG5xvVP7rZCNu3MmU4vw5gaG2OVV4uuiWqiDCswY4wmX2Zi7kl3
+	oxs8i0cG3QZRB/so4ut25i39ynS3eWtXZaZK42vtq5bLvcLwdbKiU5cbrYCWuKF2OaEtW29OdQDJb
+	R54sNyuKq2rSg9OdWDeC1MG8wGzwpFW5X3anVijK7lCltd3HkSlDi1ACoMAAeyhk1gADSekDviHcH
+	j3UqViRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPQb-00000007GxO-3G6i;
-	Mon, 11 Aug 2025 10:06:53 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1ulPTA-00000007HCZ-3MoZ;
+	Mon, 11 Aug 2025 10:09:32 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPH3-00000007FOT-0UQu
+	id 1ulPHU-00000007FXS-3uib
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 09:57:02 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5B74143A0E;
-	Mon, 11 Aug 2025 09:56:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754906219;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=KMjZD5VxWbI8Z4lMAYHBGs1IrVjbsBvn1MA7lBTaNNI=;
-	b=RPcK0nYtnkFXJZtlDo5cV33Pxtg7L5bIdQ1gGiNb+34lBM5ySQc5dROKdRMyEKnouembfu
-	aGuQW4geABLqVUPGRjzDWIIsGkbweMmwYsaupn9Il/JQGnfaPkuw84KJN4mqddQnCnmMDU
-	D3xUFD5aBRq8bcwOphdSqa3Zro84Ohy0m/Kgasljt7gptzBxLmc8+H9+b0LuOBvKgkXn5e
-	PkPbZtiENQ+K+ECBJnERKpCtvpEGWveAE6wiwpN3G4YNkYyJo0x0qnpb+vLqMLojycTHaB
-	D5yVgIa9807DdrvUlLAORYAbOC5h+B+P/EditMQqdQBNnkJQ+5t98oVCbDAt+w==
-Message-ID: <e9df67f0-8fce-4fbf-8fff-c499c4a2efaf@bootlin.com>
-Date: Mon, 11 Aug 2025 11:56:57 +0200
+	Mon, 11 Aug 2025 09:57:30 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57B9dpZo021817
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 09:57:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=hvDa8O9hGACyFWVvO4cHOr
+	7fhxyH5sRWAFv1BUJCgSY=; b=o6+e0wPqLH1ag2mF08TNpUTo9oqgfVn/vZFRxm
+	8pO7d74cl/OSIfqcLD2tUDAoesLM2lPMcusPUzu3MWkZeuapM6FMOtHfFA9HiDou
+	L/mEGu8rwgPFq5LPYMDqaL39cLx7g57JmXPFwE3o90N+7NLBkbpSWFkQPiyKsxZy
+	SJHwavhIRvIAU7mRQvkeq2SU4lGMFoKNHwYXYzdzB1imMq5Kt1Z+rg/HXPhJUvp7
+	eINrdC9Gqy9Ffd5Dp3atOLQc8gtOCowZ1rt6DLnAF6pfow9xI5asurtab+UT2KRH
+	9efkaYo/21LEJO4o2QlgEUkFNWEgY0AZbQxm9HgW4VE55MvQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48dy3g3w03-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 09:57:27 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-76bed3183ecso4468376b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 02:57:27 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754906246; x=1755511046;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hvDa8O9hGACyFWVvO4cHOr7fhxyH5sRWAFv1BUJCgSY=;
+        b=otNszCLNQjmdyaJ492yBlT36RGQ0L2rKTnjZJzhvityqyWz88LU2qOOzxXcp8ktJLp
+         8vGwbsFjS1e9sDOgyPeaqJ88k8VhM8/BvUKRVHEUmMZuNeAVXTzJfqYz2zj3rJVF8q81
+         PbF4FfZiaST6Zcg3vmcyHyHFaf4eYh1Il+oMdhKgbygbBXX9/GcVQFPn0PR6hwEr17jg
+         u6VgxVfH4h3RtBizbpdMUsMLP9A715OkFhdEuDogje2ok2Vr5qDv4iAH4gBjIf7Sm5sW
+         cxYzktCJuTv1wP2riqstKE1FLC1Ml3I+2Yw1yT8m2Z/SMQOrMbWRB1C5CY+aQCTtJhQb
+         aLRA==
+X-Forwarded-Encrypted: i=1; AJvYcCV1ukj7mmS5yhxIXj3VhdM0Xiok6ctAL+oKmaXc64bQgdwy0LoUsbCAquzbhJHhgJJRD09+DSfKsExMvSzJXpfv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHpUPK/1o4QWrl+TpCqlbIEQqBtPojqxAGujIel/RVyRUQqJah
+	0tZEz/ZbQzZji/9E5rhZw1P4GZq4mHeSoM/lEzsuduBvZFgxFu6PczOGM5juDYcp2sPEhpzq6zO
+	uNEMyZzaEoFBsWwo0/PwR97gt17Eh2zntoZC754X+Tyfp5Uak+GQDJ0FXihHwn1c4Guoh05Tkm0
+	vs3w==
+X-Gm-Gg: ASbGncujP6j/j/8sW+1gZ+MBUrFdE9LkfF4M+g4c9SjgLI7k6DgsL1BJoDadG4LFry2
+	8yYQh/B3UQVfdN0k3b4Con2t/27gx1tBrrPkbrw8Sjo4y8iL51UyH/7O69u6xTiJ/NO6w9f98uu
+	KKQJgYmR6EKy/LeYD0f079c/3wzzR+kA3PfV7yHRhukhxl9/2pb3eknih3jKd0MmOfF5sOsXyB4
+	bVBT08K95ZgOvd5MjLifS+hwnJExc4+su3Wd172/wmmoe4o6Kgdol7r5fxfZSpQteCqY1Yn5nxg
+	8BD++BM4cg2n76Y1AsSZDIX9YaXUpVGUrK7msJGmnlaUapJlR8DkU3QF1G49IGmKIrc/QPrpVhI
+	9KvnYvivT1RH2rFPSn5D6wQ==
+X-Received: by 2002:a05:6a00:18a7:b0:76b:8b13:e06a with SMTP id d2e1a72fcca58-76c46177ffcmr18799308b3a.14.1754906246183;
+        Mon, 11 Aug 2025 02:57:26 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEdghApAGzGX3YDSAAQZKY23C1RLAPvbfQ/HBZ35o92nHPYZlaSgEACPUYsZejQeE6Kx3teWg==
+X-Received: by 2002:a05:6a00:18a7:b0:76b:8b13:e06a with SMTP id d2e1a72fcca58-76c46177ffcmr18799285b3a.14.1754906245775;
+        Mon, 11 Aug 2025 02:57:25 -0700 (PDT)
+Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76c5f493178sm5787371b3a.49.2025.08.11.02.57.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Aug 2025 02:57:25 -0700 (PDT)
+From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Date: Mon, 11 Aug 2025 02:57:20 -0700
+Subject: [PATCH] coresight-etm4x: Conditionally access register
+ TRCEXTINSELR
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
-To: Swamil Jain <s-jain1@ti.com>, devarsh <devarsht@ti.com>,
- Jyri Sarha <jyri.sarha@iki.fi>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
- Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>
-Cc: thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>,
- Tomi Valkeinen <tomi.valkeinen@ti.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
- <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
- <71ef3203-e11d-4244-8d2d-8e47e8ba6140@ti.com>
- <f15779ad-788a-4dc6-b5a6-4187b9a9c986@ti.com>
-Content-Language: en-US
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
- 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
-In-Reply-To: <f15779ad-788a-4dc6-b5a6-4187b9a9c986@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufedvudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepnfhouhhishcuvehhrghuvhgvthcuoehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekieevtdefgedtkeehteehtddttdefhffhgeejleejjeeluddvhfdugedvkeehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehngdpmhgrihhlfhhrohhmpehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedviedprhgtphhtthhopehsqdhjrghinhdusehtihdrtghomhdprhgtphhtthhopeguvghvrghrshhhthesthhirdgto
- hhmpdhrtghpthhtohepjhihrhhirdhsrghrhhgrsehikhhirdhfihdprhgtphhtthhopehtohhmihdrvhgrlhhkvghinhgvnhesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomh
-X-GND-Sasl: louis.chauvet@bootlin.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250811-trcextinselr_issue-v1-1-ed78f3215502@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAH++mWgC/x3MQQqEMBAF0atIrw0kgajMVWSQoD/aIBnpdkQQ7
+ 25w+RZVFymEofSpLhIcrPzLBa6uaFxinmF4KiZvfbCdc2aXEefOWbHKwKp/mOSbNqZoETBRCTd
+ B4vOd9t/7fgDbFTGfZAAAAA==
+X-Change-ID: 20250811-trcextinselr_issue-f267afa0e5ed
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Authority-Analysis: v=2.4 cv=X4lSKHTe c=1 sm=1 tr=0 ts=6899be87 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=2OwXVqhp2XgA:10 a=EUspDBNiAAAA:8 a=HcK5dDk5inTH1P41ETwA:9
+ a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA5MDAzMSBTYWx0ZWRfX3mnEREhI9zSX
+ t/R90D6hK7zYVL+hhZbCeqU1sqDKLr419cpsAd/b77EpmLe6/QVkzij/NA23BFzOBFIFdCVCc/a
+ Q2NVcT/Gn9JIB8yA3/7xCtHPu8FvrJBHYtPkEjjxtwcyEpKjL7Bkt9kq5A2fjuMFdH+FboqnvqH
+ I2F3aIi+EgGN5vwbxzsnVGaqxChMDa8qxmQ5t5ekJZumaeoETvE6etBIUHkcBaGIHsmO20qX7+G
+ UcZO4RTmi7oH/2f3c3s5SUxR0P34407Mg88ik5onYGtMbuL55MEup487Lrgl1AElfsJ1TmHrH3n
+ NId/ezzx+J2PKYi3V38E3NeTcAbqfvJ7Ojr9yFGer8bzynjQ3Mvh/4752DU2mGge266VKuo+eu1
+ bEoziprz
+X-Proofpoint-GUID: l0Sw133KyjQBzw2LQighIVJBUcXjKVyy
+X-Proofpoint-ORIG-GUID: l0Sw133KyjQBzw2LQighIVJBUcXjKVyy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-11_01,2025-08-06_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 clxscore=1011 malwarescore=0 adultscore=0
+ spamscore=0 bulkscore=0 suspectscore=0 impostorscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508090031
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_025701_418551_EBA8336F 
-X-CRM114-Status: GOOD (  24.03  )
+X-CRM114-CacheID: sfid-20250811_025728_980150_29C9311C 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,118 +135,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The TRCEXTINSELR is only implemented if TRCIDR5.NUMEXTINSEL > 0.
+To avoid invalid accesses, introduce a check on numextinsel
+(derived from TRCIDR5[11:9]) before reading or writing to this register.
 
+Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++++++---
+ drivers/hwtracing/coresight/coresight-etm4x.h      |  2 ++
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
-Le 08/08/2025 à 18:26, Swamil Jain a écrit :
-> 
-> 
-> On 8/8/25 19:16, devarsh wrote:
->> Hi Louis,
->>
->> Thanks for the patch.
->>
->> On 30/07/25 22:32, Louis Chauvet wrote:
->>> As stated in the AM62x Technical Reference Manual (SPRUIV7B), the data
->>> sampling edge needs to be configured in two distinct registers: one in the
->>> TIDSS IP and another in the memory-mapped control register modules.
->>
->> I don't think AM62x is thee only one which requires this and on the
->> contrary not all SoCs require this extra setting. We had been waiting on
->> confirmations from hardware team and very recently they gave a list of
->> SoCs which require this, as per that I think we need to limit this to
->> AM62x and AM62A per current supported SoCs.
->>
->> Swamil,
->> Please confirm on this and share if any additional details required here.
->>
-> 
-> Yeah Devarsh, as you mentioned, this is valid for AM62X, AM62A and
-> AM62P. We would have upstreamed this feature, but there are some
-> corrections in Technical Reference Manual for these SoCs regarding
-> programming CTRL_MMR_DPI_CLK_CTRL register fields, we are in loop with
-> H/W team, waiting for their official confirmation regarding this issue.
-> 
-> Thanks Louis for working on this patch, but we should wait for H/W
-> team's confirmation.
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 42e5d37403addc6ec81f2e3184522d67d1677c04..8a9c4caceff0165e4fce7ac4250f3e16ccc1d34e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -528,7 +528,8 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+ 		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
+ 		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
+ 	}
+-	etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
++	if (drvdata->numextinsel)
++		etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
+ 	for (i = 0; i < drvdata->nr_cntr; i++) {
+ 		etm4x_relaxed_write32(csa, config->cntrldvr[i], TRCCNTRLDVRn(i));
+ 		etm4x_relaxed_write32(csa, config->cntr_ctrl[i], TRCCNTCTLRn(i));
+@@ -1423,6 +1424,7 @@ static void etm4_init_arch_data(void *info)
+ 	etmidr5 = etm4x_relaxed_read32(csa, TRCIDR5);
+ 	/* NUMEXTIN, bits[8:0] number of external inputs implemented */
+ 	drvdata->nr_ext_inp = FIELD_GET(TRCIDR5_NUMEXTIN_MASK, etmidr5);
++	drvdata->numextinsel = FIELD_GET(TRCIDR5_NUMEXTINSEL_MASK, etmidr5);
+ 	/* TRACEIDSIZE, bits[21:16] indicates the trace ID width */
+ 	drvdata->trcid_size = FIELD_GET(TRCIDR5_TRACEIDSIZE_MASK, etmidr5);
+ 	/* ATBTRIG, bit[22] implementation can support ATB triggers? */
+@@ -1852,7 +1854,9 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+ 		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
+ 		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
+ 	}
+-	state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
++
++	if (drvdata->nrseqstate)
++		state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
+ 
+ 	for (i = 0; i < drvdata->nr_cntr; i++) {
+ 		state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
+@@ -1984,7 +1988,8 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
+ 		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
+ 	}
+-	etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
++	if (drvdata->numextinsel)
++		etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
+ 
+ 	for (i = 0; i < drvdata->nr_cntr; i++) {
+ 		etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index ac649515054d905fa365203bd35f1d839b03292f..823914fefa90a36a328b652b0dc3828b9bddd990 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -162,6 +162,7 @@
+ #define TRCIDR4_NUMVMIDC_MASK			GENMASK(31, 28)
+ 
+ #define TRCIDR5_NUMEXTIN_MASK			GENMASK(8, 0)
++#define TRCIDR5_NUMEXTINSEL_MASK               GENMASK(11, 9)
+ #define TRCIDR5_TRACEIDSIZE_MASK		GENMASK(21, 16)
+ #define TRCIDR5_ATBTRIG				BIT(22)
+ #define TRCIDR5_LPOVERRIDE			BIT(23)
+@@ -999,6 +1000,7 @@ struct etmv4_drvdata {
+ 	u8				nr_cntr;
+ 	u8				nr_ext_inp;
+ 	u8				numcidc;
++	u8				numextinsel;
+ 	u8				numvmidc;
+ 	u8				nrseqstate;
+ 	u8				nr_event;
 
-Hello all,
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250811-trcextinselr_issue-f267afa0e5ed
 
-Thanks for the feedback. I was not aware of this current work.
-Do you plan to send the fix yourself? Should I wait your HW team 
-feedback and send a v2?
-
-I also have a very similar patch ready for u-boot (depending on the same 
-DT modifications), do you plan to fix u-boot too?
-
-Thanks,
-Louis Chauvet
-
-
-> Regards,
-> Swamil.
-> 
->> Regards
->> Devarsh
->>
->>    Since
->>> the latter is not within the same address range, a phandle to a syscon
->>> device is used to access the regmap.
->>>
->>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
->>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
->>>
->>> ---
->>>
->>> Cc: stable@vger.kernel.org
->>> ---
->>>    drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
->>>    1 file changed, 14 insertions(+)
->>>
->>> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
->>> index c0277fa36425ee1f966dccecf2b69a2d01794899..65ca7629a2e75437023bf58f8a1bddc24db5e3da 100644
->>> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
->>> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
->>> @@ -498,6 +498,7 @@ struct dispc_device {
->>>    	const struct dispc_features *feat;
->>>    
->>>    	struct clk *fclk;
->>> +	struct regmap *clk_ctrl;
->>>    
->>>    	bool is_enabled;
->>>    
->>> @@ -1267,6 +1268,11 @@ void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport,
->>>    		       FLD_VAL(mode->vdisplay - 1, 27, 16));
->>>    
->>>    	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1, 0, 0);
->>> +
->>> +	if (dispc->clk_ctrl) {
->>> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
->>> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 0x000);
->>> +	}
->>>    }
->>>    
->>>    void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
->>> @@ -3012,6 +3018,14 @@ int dispc_init(struct tidss_device *tidss)
->>>    
->>>    	dispc_init_errata(dispc);
->>>    
->>> +	dispc->clk_ctrl = syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
->>> +								   "ti,clk-ctrl");
->>> +	if (IS_ERR(dispc->clk_ctrl)) {
->>> +		r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
->>> +				  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
->>> +		return r;
->>> +	}
->>> +
->>>    	dispc->fourccs = devm_kcalloc(dev, ARRAY_SIZE(dispc_color_formats),
->>>    				      sizeof(*dispc->fourccs), GFP_KERNEL);
->>>    	if (!dispc->fourccs)
->>>
->>
-
+Best regards,
 -- 
-Louis Chauvet, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 
 
