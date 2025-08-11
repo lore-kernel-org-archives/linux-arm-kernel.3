@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B986C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6B0C87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:56:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53zGgiW4pcj9jrOtnsn97k72zHjoUdMXek5BkNzfPj0=; b=v66yHabpUtu7Tl1Q/re5VkFZXf
-	CKpBYHIFRJdgUYbayykAMNNBLgaVZ2z1VAazo1Ot4Z6eP59IvMXon0NIBQFkg65/th7HQgdSAFjpT
-	M+xMYaSywFwCD6/5cf65psqZRpU32cmgvP2CE3NE6nppUCc8W6sXg1nmgf+89VUPKeBnnZI5J1F89
-	j6pY+w/vyoCjatc2PqQO3cNhSIB+BBKJwcrT1xD5Dyygd4Fq3NSNglc2/ubKYH1STBimiT5ievnhy
-	8SyUNrv8gvkEltj5tgUPGEX5S3lEY4SqKsUEfLe8KDArADXavKeqDEgdrN+wuYpg3SDzyFZeeRKcN
-	Ul0Js8Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z8wb/yQcraBD38A6ZGHYoXhCAbkH7/ii4JJPfnbEvOY=; b=AxM87WlNIZEkzaHkU1jZF4U8ay
+	C+JGOodvd7brmmdTfVdGU68684z6pJch0Ayv5+jv4EnG43tMx85ApVtsoO+Vo4k/hlU8Nnbd0HDh7
+	eBdEGHLch06rN4bvbsw3vcxSMUDNcYyymVuASPv4xa598DbQdkI5DC1Wv+wIpr+RqWaw0lcbyrlOh
+	5RxJoVYsjJ66DuUR70jQRrukzSe/WB0UOcNpnjBFVpNW0wYy0h+AP9m/mn6msb9plZOr/ZeKqxG4G
+	BZUgM9AAEU8LJMr7kYC0SFW5h6xjwKwZ3zyz20axApeQ5M/Ar17wkSVjYFuq+BaJXreOX7V6AYLb9
+	1yPxXokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulS2G-00000007jQh-0G9A;
-	Mon, 11 Aug 2025 12:53:56 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1ulS4q-00000007jp2-3ffW;
+	Mon, 11 Aug 2025 12:56:36 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulRzb-00000007j1m-1APp
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 12:51:15 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57BCFoFq015667;
-	Mon, 11 Aug 2025 14:51:03 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	53zGgiW4pcj9jrOtnsn97k72zHjoUdMXek5BkNzfPj0=; b=2wI3QkQih+ZdbeD8
-	Nn1JouG6h2FjVti5TbXbXwzVtT1X07GrF3u0GJT+xhn2w9bVIvqVu1LPOnqXnaAa
-	DhlmK7aO2zPgDg2mkVyz+CMtC112Hw9BZ4LoYUkFUZK350NSYaLsuxvp83p9B1YG
-	6yTUwtghRDbAsDN0QmhVmExmdBBnY6OOh19pWzG78oXoRjDQBhbxi0vwrnHqDGqD
-	OOvw5UT9a6wogG6nwg4p5GZx1GDTfO3RiqytUn06BWZl+wrzIxliRCFqQFH5qk42
-	eOgyPA7PW5CvOZysBEZa0jMNHGl/3DKWegPmUpH30H4fUIou+M5YoXGuReaQkQZI
-	yUTaVw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48dw7g61uk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 11 Aug 2025 14:51:03 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 0DCFA40066;
-	Mon, 11 Aug 2025 14:50:12 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3479F748475;
-	Mon, 11 Aug 2025 14:49:46 +0200 (CEST)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 11 Aug
- 2025 14:49:45 +0200
-Message-ID: <a55774bf-1133-48c2-ad20-7a69f340bd78@foss.st.com>
-Date: Mon, 11 Aug 2025 14:49:45 +0200
+	id 1ulS1C-00000007jGu-1r3E;
+	Mon, 11 Aug 2025 12:52:51 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1754916768;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z8wb/yQcraBD38A6ZGHYoXhCAbkH7/ii4JJPfnbEvOY=;
+	b=P+SwpmTJB1x2jNcuFUAHaluKSlCKiJuebZIYRBo5LFBQ9lEXLBfIq7/iAPPylOYpfx54Jd
+	wdmfSHUjTeri6geIuPz+/5zBEwMWHIBqwaYqAxJdD1dljQKnRY7wCjT+ZLQ88H8ZC+SK7o
+	D9h2upzLrRk6wF+Zbj6pZepPdjDNFoaSqwkkz7P8mT4np5hbRRWwkIxatkjqllQKcf5o3f
+	J0Rk17d5wH1xz3rrO//pKwVaBLEeoa/IX4AJZIbcksQ+DzGcvVNGQf6JcN0mDvxWFcFKXU
+	0Z5ff0DEoHeEFCRluJLduKnPdEDkjVpzGI2QkHaK/9fDXEaHIdo/efSzGi5z0A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1754916768;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z8wb/yQcraBD38A6ZGHYoXhCAbkH7/ii4JJPfnbEvOY=;
+	b=6OkO09b5uefLLQygsaYrxy4/iIH6iDnvW2eOBtCYNvtDrER4xoq4YKH0PZuEFSXTXXMwMr
+	pPGuAV5UXewH+pDg==
+To: patchwork-bot+linux-riscv@kernel.org, Nam Cao <namcao@linutronix.de>
+Cc: linux-riscv@lists.infradead.org, maz@kernel.org, atenart@kernel.org,
+ andrew@lunn.ch, gregory.clement@bootlin.com,
+ sebastian.hesselbarth@gmail.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ chenhuacai@kernel.org, jiaxun.yang@flygoat.com, anup@brainfault.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ linux-mips@vger.kernel.org
+Subject: Re: [PATCH 00/12] irqchip: MSI cleanup and conversion to MSI parent
+ domain
+In-Reply-To: <175486033550.1221929.7725164280675452092.git-patchwork-notify@kernel.org>
+References: <cover.1750860131.git.namcao@linutronix.de>
+ <175486033550.1221929.7725164280675452092.git-patchwork-notify@kernel.org>
+Date: Mon, 11 Aug 2025 14:52:47 +0200
+Message-ID: <87ecti81gg.ffs@tglx>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] memory: stm32_omm: Fix req2ack update test
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Christophe Kerello <christophe.kerello@foss.st.com>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        <linux-kernel@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250807-upstream_omm_fix_req2ack_test_condition-v2-1-d7df4af2b48b@foss.st.com>
- <39c67e57-e4e6-46ba-bd61-46afc650381c@kernel.org>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <39c67e57-e4e6-46ba-bd61-46afc650381c@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-11_02,2025-08-11_01,2025-03-28_01
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_055111_906876_8EBFCEC6 
-X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-CacheID: sfid-20250811_055250_618414_D2D97AC9 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,31 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Aug 10 2025 at 21:12, patchwork-bot wrote:
 
+> Hello:
+>
+> This series was applied to riscv/linux.git (fixes)
+> by Thomas Gleixner <tglx@linutronix.de>:
+...
+> Here is the summary with links:
+>   - [01/12] irqdomain: Add device pointer to irq_domain_info and msi_domain_info
+>     https://git.kernel.org/riscv/c/858e65af9135
+...
+> You are awesome, thank you!
 
-On 8/11/25 09:09, Krzysztof Kozlowski wrote:
-> On 07/08/2025 09:34, Patrice Chotard wrote:
->> If "st,omm-req2ack-ns" property is found and its value is not 0,
->> the current test doesn't allow to compute and set req2ack value,
->> Fix this test.
->>
->> Fixes: 8181d061dcff ("memory: Add STM32 Octo Memory Manager driver")
->> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
->> ---
->> Changes in v2:
->> - Add more detail in commit message
->> - Remove "Cc: <stable@vger.kernel.org>" tag as the fixed patch is not part of a LTS.
-> 
-> Why LTS would matter? Which kernel is being fixed here?
+I know that I'm awesome, but this broken patchwork bot is _not_
 
-Hi Krzysztof,
+Why the hell does it waste electrons and inbox space on stuff which is
 
-The fixed kernel is v6.16.
+    A) applied on a different tree
 
-Thanks
-Patrice
+    B) already upstream
 
-> 
-> Best regards,
-> Krzysztof
 
