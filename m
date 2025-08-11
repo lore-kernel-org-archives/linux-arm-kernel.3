@@ -4,70 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D55C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 09:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28518CA0EC1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 09:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UBjlYDj5Ft5NK2xe/dCPotvvrRzqdy4pU0VZ+d9YjVU=; b=G/WU+pUCUYO0LfC9XB3padKMld
-	4rVh1dq2csEeWpMzvlZ/Srd7ZjaL50HgnFYhCNL9m9ZhybMmixcEbpB8lgQuDLEqVOA9v0t95uXkB
-	TyGRXt5K+qozseNhWBbw63cC2D9jp8h/Z18KT6FnVcsEv+d324g4+iCJexKsfb0IMAccgntvr9MaG
-	xLEsYYNRktfGR9NzT11N+KHRmQlhaMsRFdyGVbAE4VxkrwuDViaMVTA0Wr+jXuk5ThZJL17nLV95t
-	eeBjM8GtGHme6S8roTEKc5ovDJ60RoMX/Af6q5+YPlT/PdNHCc+VZT5va6gaiqvfxEBpwI87YDtJM
-	eh4413/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RiAmyNyca1MdzYH+wc51XMOmasVXIRhRl0qo3CD+5KE=; b=klztXxM4TH1Fc3T6IP09EMRsY5
+	38MC62tAQLi4ISB7j/zWYlfqWg6g29f5NybvECJDdvO6YgOrzig3WVrsSUZkYUxxKOCyyqfxmksY5
+	qltugXg7a4+VrliBNYdKVwntzQbx7yffEHgLsKGY87ifeXGBrlZrY7z7LQvwHEBzsMPvi/qSGTq7w
+	Nw8K35Uv4zQrXc6b3mBz4dxyIOKwHxXHeeIkiY2PHzFr/BOu3Jfzqh1zOApfHAhZJV2th6CnPoRSA
+	k5u9EmG8g/9gPXOgFDFTGqws52zp0wnJma9MZKLf07ZSlHuQ3kpfE+JU7j+ayPQ7zHmCJIkwXu+9P
+	YYVQHY8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOUJ-00000006ykN-0vG6;
-	Mon, 11 Aug 2025 09:06:39 +0000
+	id 1ulOWv-00000006zs5-0O2b;
+	Mon, 11 Aug 2025 09:09:21 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOCt-00000006u1a-12BD
+	id 1ulODQ-00000006u7N-2Idr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 08:48:40 +0000
+	Mon, 11 Aug 2025 08:49:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 60E78A4E30C;
-	Mon, 11 Aug 2025 08:48:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8DDC4CEF1;
-	Mon, 11 Aug 2025 08:48:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D5AB4A556AC;
+	Mon, 11 Aug 2025 08:49:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE0BEC4CEED;
+	Mon, 11 Aug 2025 08:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754902118;
-	bh=J/tvAeenWY6r2kQMuQLExQzNUGVbJ5Td0cTgbLYekrA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jWN7MfRpqyxbN8Qra7VPZbbaSlsQ5woOMzZZKkCN+c2embl/N2yGINIJ/tjsuHibB
-	 o5AFcHHdGCIID4ndaZXMZtE+1kr9TfRnJZ8iA7pefXJ1RiMZhVMhpvYFpicsbuwNoM
-	 KuM+qQDyN0NbAfqBmZ5KRtD8+rztH7pWTrZ5tFIPMU3JNlNxAVZI57YlKh2F6p6mS1
-	 QctExT95vObBAiYQYHjH2bwZJyWQDZ/WM7yUFGxTaKxeREO9ckyvaGMO/LBHQvuup9
-	 6nNH/U4yMxynYS+SWF9nMjXZ6CquUI/luxp/WVl/OEGBpilK4aZcBTJpXb7qLysrFQ
-	 WX0JG96IP4G9A==
-Date: Mon, 11 Aug 2025 11:48:29 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Shanker Donthineni <sdonthineni@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Gavin Shan <gshan@redhat.com>,
-	Vikram Sethi <vsethi@nvidia.com>,
-	Jason Sequeira <jsequeira@nvidia.com>, Dev Jain <dev.jain@arm.com>,
-	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [RESEND PATCH 1/2] dma/pool: Use vmap() address for memory
- encryption helpers on ARM64
-Message-ID: <aJmuXTNUzsq1jKEK@kernel.org>
-References: <20250811005036.714274-1-sdonthineni@nvidia.com>
- <20250811005036.714274-2-sdonthineni@nvidia.com>
+	s=k20201202; t=1754902151;
+	bh=0+Ytn7F4xKsHk5lwDc1eAU07k5sGhWPgZFUx0SEKMjw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ejraKv2jzXkPZT1Xjm5/o4RdchcLsHX4oykV6DZRus88RHiqw+kaSxdJBnnjRMAT/
+	 GhBanorKfSMkPRkV7vg44SSIZJQSc4fhxzDc8qMp+map155Hn6YNafQnbsIwiArhyr
+	 ppc7kRTl80cy9aoxQHdwQQ+Az77me8+FSF3qTGNeCzC2DtiLnQWcyQrh3uaobUd1AY
+	 sns/cZ+MEalU8eiBp6r/3ttYC/PIhgZjjVN+jXFVO5u1N1V9IS7546s/84L1K+vc7P
+	 lyGnlLv1SSglvHgwPyIXjzNNJKAfCehGzce1WaHRWkYt6xKH7SWcAuWSHTrZEqUsCS
+	 +94h0DgNbEGtw==
+Message-ID: <2bf14570-ec7f-4e1c-b0ff-dfc3ef48a622@kernel.org>
+Date: Mon, 11 Aug 2025 10:49:06 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250811005036.714274-2-sdonthineni@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/21] ARM: select legacy gpiolib interfaces where used
+To: Arnd Bergmann <arnd@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Linus Walleij <linus.walleij@linaro.org>, linux-gpio@vger.kernel.org,
+ Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Russell King <linux@armlinux.org.uk>, Daniel Mack <daniel@zonque.org>,
+ Haojian Zhuang <haojian.zhuang@gmail.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: Arnd Bergmann <arnd@arndb.de>, Alim Akhtar <alim.akhtar@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250808151822.536879-1-arnd@kernel.org>
+ <20250808151822.536879-2-arnd@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20250808151822.536879-2-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_014839_418577_6BFC1099 
-X-CRM114-Status: GOOD (  22.78  )
+X-CRM114-CacheID: sfid-20250811_014912_723488_3AEDFB37 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,81 +126,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 10, 2025 at 07:50:34PM -0500, Shanker Donthineni wrote:
-> In atomic_pool_expand(), set_memory_encrypted()/set_memory_decrypted()
-> are currently called with page_to_virt(page). On ARM64 with
-> CONFIG_DMA_DIRECT_REMAP=y, the atomic pool is mapped via vmap(), so
-> page_to_virt(page) does not reference the actual mapped region.
+On 08/08/2025 17:17, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> Using this incorrect address can cause encryption attribute updates to
-> be applied to the wrong memory region. On ARM64 systems with memory
-> encryption enabled (e.g. CCA), this can lead to data corruption or
-> crashes.
+> A few old machines have not been converted away from the old-style
+> gpiolib interfaces. Make these select the new CONFIG_GPIOLIB_LEGACY
+> symbol so the code still works where it is needed but can be left
+> out otherwise.
 > 
-> Fix this by using the vmap() address ('addr') on ARM64 when invoking
-> the memory encryption helpers, while retaining the existing
-> page_to_virt(page) usage for other architectures.
-> 
-> Fixes: 76a19940bd62 ("dma-direct: atomic allocations must come from atomic coherent pools")
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->  kernel/dma/pool.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
-> index 7b04f7575796b..ba08a301590fd 100644
-> --- a/kernel/dma/pool.c
-> +++ b/kernel/dma/pool.c
-> @@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  {
->  	unsigned int order;
->  	struct page *page = NULL;
-> +	void *vaddr;
->  	void *addr;
->  	int ret = -ENOMEM;
->  
-> @@ -113,8 +114,8 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
->  	 * shrink so no re-encryption occurs in dma_direct_free().
->  	 */
-> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
-> -				   1 << order);
-> +	vaddr = IS_ENABLED(CONFIG_ARM64) ? addr : page_to_virt(page);
 
-There's address calculation just before this code:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-#ifdef CONFIG_DMA_DIRECT_REMAP
-	addr = dma_common_contiguous_remap(page, pool_size,
-					   pgprot_dmacoherent(PAGE_KERNEL),
-					   __builtin_return_address(0));
-	if (!addr)
-		goto free_page;
-#else
-	addr = page_to_virt(page);
-#endif
-
-It should be enough to s/page_to_virt(page)/addr in the call to
-set_memory_decrypted().
-
-> +	ret = set_memory_decrypted((unsigned long)vaddr, 1 << order);
->  	if (ret)
->  		goto remove_mapping;
->  	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
-> @@ -126,8 +127,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
->  	return 0;
->  
->  encrypt_mapping:
-> -	ret = set_memory_encrypted((unsigned long)page_to_virt(page),
-> -				   1 << order);
-> +	ret = set_memory_encrypted((unsigned long)vaddr, 1 << order);
->  	if (WARN_ON_ONCE(ret)) {
->  		/* Decrypt succeeded but encrypt failed, purposely leak */
->  		goto out;
-> -- 
-> 2.25.1
-> 
-
--- 
-Sincerely yours,
-Mike.
+Best regards,
+Krzysztof
 
