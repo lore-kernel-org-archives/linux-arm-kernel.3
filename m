@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542EDC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F68C87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:07:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GaQ3wKPH5axZOjWwUUOpz2DqIUQ/8BF6oVMaeU+edpo=; b=0LZIJwD9KTJetnhspiKbqxAeSf
-	+aziT7WhRHvJsInaLDFxL5oYfdiBPx5+7EdJcswbDZNKAKwIB6X7RY56JglTs+BmcOwZ1Cw0yyHo7
-	CklW4PJtJ4bAEwAqmUS5EoQprGku719bvxXqygFyptzNP8KA5Q90940CQS6l6P0i1k7hXPtVByHeK
-	mdDMyRgN1dD7HB7B6IAQWw2YYFkp9V7biX/4gIB4OtTQWPBjD64HUsXkWOlR6xcvEKLkpbxtlbnYu
-	poy/booA0Eh3SW9sTm15NxHNdzR6jqM6bknp8iNhiEPNiYb7r+cnOZ9gIQLV1yLP+YWQb1S37P98c
-	VdVVOUtg==;
+	bh=KMjZD5VxWbI8Z4lMAYHBGs1IrVjbsBvn1MA7lBTaNNI=; b=sfCRrjI29d7izR31JImdnen4c/
+	Ut8NOIURfCUArWUsNEZOS49AxZBEkp6fQ2fzdwPPUWhXUELKJuRTTXDth99SpLafmT43+Ki1t98hI
+	aIWnQvutF1TOaBAXmdSG2D1XnqMCbe+WlH91bUuFdbaBDJES8/2aaJ4hFYvBH/4N7+0YvvxIoaV0F
+	7nWgor40Sd+0F+Hc3Nb6nnZCxxHsDaeKpEMosECytIOOz3112G8xFgHxVdhfDeHi9lcxpr7DX3oio
+	JW4oNzfGOImlyBrdlMkFyMkU7Bf6Raw3ffTjAOXbcP5BNXfRbyY5Pwr733cIPw7K1hjD9yo3ZqLij
+	YGo3SIfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPO0-00000007Gfv-3hgD;
-	Mon, 11 Aug 2025 10:04:12 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1ulPQb-00000007GxO-3G6i;
+	Mon, 11 Aug 2025 10:06:53 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPGz-00000007FLq-1ekh
+	id 1ulPH3-00000007FOT-0UQu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 09:56:59 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0329243271;
-	Mon, 11 Aug 2025 09:56:49 +0000 (UTC)
+	Mon, 11 Aug 2025 09:57:02 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5B74143A0E;
+	Mon, 11 Aug 2025 09:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754906212;
+	t=1754906219;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GaQ3wKPH5axZOjWwUUOpz2DqIUQ/8BF6oVMaeU+edpo=;
-	b=RYpHF1pdsJE1hKGkD4eG0Gake5zR8flMgUkBLCWwwK2fQBOR+hvg7S4A49u0aAHsIRV1/T
-	YdYu//Rjiubt60X+LTZhvlGlpWgYID0mpjKnLxtJAmA/0nj/z6R+CSE+Y7piT1eieOguw5
-	lclK9kDiHHsFksG6ZZ/eVKk7v0AmQ7+mNPfpngafUexky9dbBGbFWp2uI3SbPTDxL2Y5rw
-	CesgckdHjvPKbRpB/XjoTvs8Xaci1kZq4UalbsU2Yloe1cQOgWTGy0nEid8zyp8561xp0q
-	DxZWBTs+6GAcr0j7Lh9kLg/2pCOUFP/kXD/FjusIcUHak0zg3JLFzahVZLgikA==
-Message-ID: <d7b874d5-a224-4e4c-a18b-6e68480b3349@bootlin.com>
-Date: Mon, 11 Aug 2025 11:56:49 +0200
+	bh=KMjZD5VxWbI8Z4lMAYHBGs1IrVjbsBvn1MA7lBTaNNI=;
+	b=RPcK0nYtnkFXJZtlDo5cV33Pxtg7L5bIdQ1gGiNb+34lBM5ySQc5dROKdRMyEKnouembfu
+	aGuQW4geABLqVUPGRjzDWIIsGkbweMmwYsaupn9Il/JQGnfaPkuw84KJN4mqddQnCnmMDU
+	D3xUFD5aBRq8bcwOphdSqa3Zro84Ohy0m/Kgasljt7gptzBxLmc8+H9+b0LuOBvKgkXn5e
+	PkPbZtiENQ+K+ECBJnERKpCtvpEGWveAE6wiwpN3G4YNkYyJo0x0qnpb+vLqMLojycTHaB
+	D5yVgIa9807DdrvUlLAORYAbOC5h+B+P/EditMQqdQBNnkJQ+5t98oVCbDAt+w==
+Message-ID: <e9df67f0-8fce-4fbf-8fff-c499c4a2efaf@bootlin.com>
+Date: Mon, 11 Aug 2025 11:56:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: ti: k3-am62-main: Add tidss clk-ctrl
- property
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Jyri Sarha <jyri.sarha@iki.fi>,
+Subject: Re: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
+To: Swamil Jain <s-jain1@ti.com>, devarsh <devarsht@ti.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
  Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>,
  Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
- Tero Kristo <kristo@kernel.org>, thomas.petazzoni@bootlin.com,
- Jyri Sarha <jsarha@ti.com>, Tomi Valkeinen <tomi.valkeinen@ti.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- stable@vger.kernel.org
+ Tero Kristo <kristo@kernel.org>
+Cc: thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>,
+ Tomi Valkeinen <tomi.valkeinen@ti.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
 References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
- <20250730-fix-edge-handling-v1-3-1bdfb3fe7922@bootlin.com>
- <20250731001725.GA1938112-robh@kernel.org>
- <8a2b1876-d1d4-4523-ae6a-bd14875772cf@bootlin.com>
- <20250805-imperial-bobcat-of-improvement-5cf705@kuoka>
+ <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
+ <71ef3203-e11d-4244-8d2d-8e47e8ba6140@ti.com>
+ <f15779ad-788a-4dc6-b5a6-4187b9a9c986@ti.com>
 Content-Language: en-US
 From: Louis Chauvet <louis.chauvet@bootlin.com>
 Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
@@ -123,17 +121,17 @@ Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
  wDN7ORknPndzxrq3CyB7b/Tk1e8Qx+6HU/pnMb4ZqwwMwZAMk24TZpsgg28o9MQiUNzad0h2
  gIszbeej9ryrtLHxMzyK8yKhHoI2i2ovxy5O+hsWeAoCPE9xwbqnAjLjOn4Jzd/pPovizrq/
  kUoX66YgvCuHfQMC/aBPLnVunZSP23J2CrkTrnsUzw==
-In-Reply-To: <20250805-imperial-bobcat-of-improvement-5cf705@kuoka>
+In-Reply-To: <f15779ad-788a-4dc6-b5a6-4187b9a9c986@ti.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufedvudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepnfhouhhishcuvehhrghuvhgvthcuoehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekieevtdefgedtkeehteehtddttdefhffhgeejleejjeeluddvhfdugedvkeehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehngdpmhgrihhlfhhrohhmpehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdro
- hhrghdprhgtphhtthhopehjhihrihdrshgrrhhhrgesihhkihdrfhhipdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepmhhrihhprghrugeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufedvudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepnfhouhhishcuvehhrghuvhgvthcuoehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekieevtdefgedtkeehteehtddttdefhffhgeejleejjeeluddvhfdugedvkeehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehngdpmhgrihhlfhhrohhmpehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedviedprhgtphhtthhopehsqdhjrghinhdusehtihdrtghomhdprhgtphhtthhopeguvghvrghrshhhthesthhirdgto
+ hhmpdhrtghpthhtohepjhihrhhirdhsrghrhhgrsehikhhirdhfihdprhgtphhtthhopehtohhmihdrvhgrlhhkvghinhgvnhesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomh
 X-GND-Sasl: louis.chauvet@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_025657_731033_43DA8744 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20250811_025701_418551_EBA8336F 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,91 +148,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-Le 05/08/2025 à 08:44, Krzysztof Kozlowski a écrit :
-> On Thu, Jul 31, 2025 at 11:50:16AM +0200, Louis Chauvet wrote:
->>
->>
->> Le 31/07/2025 à 02:17, Rob Herring a écrit :
->>> On Wed, Jul 30, 2025 at 07:02:46PM +0200, Louis Chauvet wrote:
->>>> For am62 processors, we need to use the newly created clk-ctrl property to
->>>> properly handle data edge sampling configuration. Add them in the main
->>>> device tree.
->>>>
->>>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
->>>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
->>>> ---
->>>>
->>>> Cc: stable@vger.kernel.org
->>>> ---
->>>>    arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 6 ++++++
->>>>    1 file changed, 6 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->>>> index 9e0b6eee9ac77d66869915b2d7bec3e2275c03ea..d3131e6da8e70fde035d3c44716f939e8167795a 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
->>>> @@ -76,6 +76,11 @@ audio_refclk1: clock-controller@82e4 {
->>>>    			assigned-clock-parents = <&k3_clks 157 18>;
->>>>    			#clock-cells = <0>;
->>>>    		};
->>>> +
->>>> +		dss_clk_ctrl: dss_clk_ctrl@8300 {
->>>> +			compatible = "ti,am625-dss-clk-ctrl", "syscon";
->>>> +			reg = <0x8300 0x4>;
->>>
->>> H/w blocks are rarely only 4 bytes of registers... Does this belong to
->>> some larger block. The problem with bindings defining single registers
->>> like this is they don't get defined until needed and you have a constant
->>> stream of DT updates.
->>
->> In this case, I don't think there is a "larger block". This register exists
->> only because TI had issues in the display controller [1].
->>
->> Here is the extract of MMR registers ([2], page 4311):
->>
->> [...]
->> A2E4h AUDIO_REFCLK1_CTRL_PROXY <unrelated>
+Le 08/08/2025 à 18:26, Swamil Jain a écrit :
 > 
-> Here is clk ctrl proxy...
-
-(Note: I linked and copied the wrong page in my previous mail, the page 
-is 4309 and register addresses are 0x82e4 (audio_refclk1_ctrl), 0x8300 
-(dpi0_clk_ctrl) and 0x8320 (dss_dispc_clksel1), but the issue remain the 
-same)
-
-The AUDIO_REFCLK1_CTRL is already defined in the simple-bus node, but 
-with a size of 0x4 [1] and as a clock controller.
-
-What is the correct solution in this case? Should I create a big syscon 
-that overlap with audio_refclk0/1 range?
-
-[1]:https://elixir.bootlin.com/linux/v6.16/source/arch/arm64/boot/dts/ti/k3-am62-main.dtsi#L73
-
->> A300h DPI0_CLK_CTRL_PROXY <this register, 32 bits>
 > 
-> and here as well, so pretty related. This looks also close to regular
-> syscon and we do not define individual syscon registers as device nodes.
+> On 8/8/25 19:16, devarsh wrote:
+>> Hi Louis,
+>>
+>> Thanks for the patch.
+>>
+>> On 30/07/25 22:32, Louis Chauvet wrote:
+>>> As stated in the AM62x Technical Reference Manual (SPRUIV7B), the data
+>>> sampling edge needs to be configured in two distinct registers: one in the
+>>> TIDSS IP and another in the memory-mapped control register modules.
+>>
+>> I don't think AM62x is thee only one which requires this and on the
+>> contrary not all SoCs require this extra setting. We had been waiting on
+>> confirmations from hardware team and very recently they gave a list of
+>> SoCs which require this, as per that I think we need to limit this to
+>> AM62x and AM62A per current supported SoCs.
+>>
+>> Swamil,
+>> Please confirm on this and share if any additional details required here.
+>>
+> 
+> Yeah Devarsh, as you mentioned, this is valid for AM62X, AM62A and
+> AM62P. We would have upstreamed this feature, but there are some
+> corrections in Technical Reference Manual for these SoCs regarding
+> programming CTRL_MMR_DPI_CLK_CTRL register fields, we are in loop with
+> H/W team, waiting for their official confirmation regarding this issue.
+> 
+> Thanks Louis for working on this patch, but we should wait for H/W
+> team's confirmation.
 
-I agree this one can be included in the syscon device. Clock related 
-registers starts at 0x8000 and ends at 0x8504, should I cover the whole 
-range in the syscon?
+Hello all,
 
-I quickly looked at the other register, here is the repartition:
+Thanks for the feedback. I was not aware of this current work.
+Do you plan to send the fix yourself? Should I wait your HW team 
+feedback and send a v2?
 
-- 0x8000 - "normal" clock (divider + source selection)
-- 0x8040 to 0x8298 - clock source selection
-- 0x82e0 to 0x82e4 - clock control for audio (already implemented as 
-clock driver)
-- 0x8300 - the clock quirk (it seems that this is the only quirk 
-register here)
-- 0x8320 to 0x8500 - clock source selection
+I also have a very similar patch ready for u-boot (depending on the same 
+DT modifications), do you plan to fix u-boot too?
 
 Thanks,
 Louis Chauvet
 
-> Best regards,
-> Krzysztof
+
+> Regards,
+> Swamil.
 > 
+>> Regards
+>> Devarsh
+>>
+>>    Since
+>>> the latter is not within the same address range, a phandle to a syscon
+>>> device is used to access the regmap.
+>>>
+>>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
+>>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+>>>
+>>> ---
+>>>
+>>> Cc: stable@vger.kernel.org
+>>> ---
+>>>    drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
+>>>    1 file changed, 14 insertions(+)
+>>>
+>>> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c b/drivers/gpu/drm/tidss/tidss_dispc.c
+>>> index c0277fa36425ee1f966dccecf2b69a2d01794899..65ca7629a2e75437023bf58f8a1bddc24db5e3da 100644
+>>> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
+>>> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+>>> @@ -498,6 +498,7 @@ struct dispc_device {
+>>>    	const struct dispc_features *feat;
+>>>    
+>>>    	struct clk *fclk;
+>>> +	struct regmap *clk_ctrl;
+>>>    
+>>>    	bool is_enabled;
+>>>    
+>>> @@ -1267,6 +1268,11 @@ void dispc_vp_enable(struct dispc_device *dispc, u32 hw_videoport,
+>>>    		       FLD_VAL(mode->vdisplay - 1, 27, 16));
+>>>    
+>>>    	VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1, 0, 0);
+>>> +
+>>> +	if (dispc->clk_ctrl) {
+>>> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
+>>> +		regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 0x000);
+>>> +	}
+>>>    }
+>>>    
+>>>    void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
+>>> @@ -3012,6 +3018,14 @@ int dispc_init(struct tidss_device *tidss)
+>>>    
+>>>    	dispc_init_errata(dispc);
+>>>    
+>>> +	dispc->clk_ctrl = syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
+>>> +								   "ti,clk-ctrl");
+>>> +	if (IS_ERR(dispc->clk_ctrl)) {
+>>> +		r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
+>>> +				  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
+>>> +		return r;
+>>> +	}
+>>> +
+>>>    	dispc->fourccs = devm_kcalloc(dev, ARRAY_SIZE(dispc_color_formats),
+>>>    				      sizeof(*dispc->fourccs), GFP_KERNEL);
+>>>    	if (!dispc->fourccs)
+>>>
+>>
 
 -- 
 Louis Chauvet, Bootlin
