@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFDBCA0EDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A49CA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1LaYPB0zI7eBqonkTz3PwETBlBuxTrtgNnc0GggosI4=; b=domaKH694RKAxjzZhMIZkaAqrQ
-	Wf7+PHjPAgFUfKfI9isQchk22lkncVAgInI1fmW8w0pBtJjZbudKpDlZEk01YOZMTMzkWKHPBnz6Y
-	txxmOjel7fXFBZ6IkoLfgN5bybpXQkXbIgX0d4jawterOaIXFixFL05xk8DOH7emOX3bH3+0ACssi
-	qWcVBY2j+cQOCdQ0BFguujfhVtAkKHBvar804HPaE8/hObqxe7wf8ngcFDy/37/ZxxQhs11nb0BTQ
-	6cCe+Qqxb9m54dqm7V4C/i2Bswa5kkBM1evQ6ttHbfexglmFb6yYH1ba8KDkubWzbzNCLCEwdVAlM
-	QaJJrrUQ==;
+	bh=H3mUkdOyA9D5ezBCQWBBX6dwp+nUOAyHGSorcoXVJZc=; b=3yHUELqWdwNw6bUZPc485ZHeKB
+	z32m6mTbghcowuqjUn1CrE3LAoMy/daNP4c4UaOjhDUphvE6OElDs1GnZsGy7ILl/ZMr7ZhC1Fn1B
+	VotcPZab0Q+9PDDruqPUtCMfF8BhoSucwSDPy0AynlKg5vFqJX77nXhLWysEIoBreN4AIDxUk1V8d
+	qOtz/aP2OPgE5xDxOtthPceg9TtZTSuQmk3BdYj58W1V63wA8t1YnDmGAWBlqTh9KX+SY0otfBdfb
+	wJ/MRDDRri8zRbsxKDYBeuADOg/VSvo+22wj3FokTaJsPonm1TdEgjyjvnx/DTiHfMpBJ/f+LBGE5
+	sy2nT5iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uladI-00000009Dnq-3mhb;
-	Mon, 11 Aug 2025 22:04:44 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1uladK-00000009Dt8-3nmg;
+	Mon, 11 Aug 2025 22:04:46 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulYtI-0000000908y-08yd
+	id 1ulYxp-000000090Rf-3AvZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 20:13:09 +0000
+	Mon, 11 Aug 2025 20:17:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1754943189; x=1786479189;
+  t=1754943470; x=1786479470;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=fOf7FmO1oXSoKGc5+duHNwTWVhVxWNaZTu8papDbZRQ=;
-  b=E6+HmflQi1xln9Z/DKhqyu9d9f+7OjdXM2LbRnr8KCTv8ZHH5rP4FNJ7
-   Wdk2a06ZFMNYzqvsQzSgT4r/JJ+ppAR8xtTsCMF4kFgdgirno78k1UoIc
-   ukBRChaShknFdFOzX6Rv8wYnhLqQKzBO9Nx81GPbUqebJ7ROJAMe6Ow9T
-   VAiobtAomtwFDJt3S+Ha03Web7JZaslOaNhGissOPtXRODihALlaTtc6s
-   RQQlcE5ut6qVprN87MtfhYYIKjiuPILH1VQsui9GzALGMY12fV6cJkYil
-   EhEC4Zl889YIOudRGdCMcYGclLy/vIkwj9xRdMYoxvi0lkW7CMTiumdbN
+  bh=yyBb39BiqDIpv9A/xIVgde9Qlx9RcFbByzIMcGrSgwA=;
+  b=mrW0l8yJh8PqlHhYVlO+/tNdCckxZF5XYlIGnOsBHdEmfdX7kiOMoq/A
+   8HaVRh5boKJCvHUVgafs2GtzzVjoDREW4xEindMvPLBSCjmDaRj5QYOgg
+   tkxfVIZAF0Z5ry4ImX9+9g5GxIhhXzYC4TDLA6MPqK7+n3MFCpO2+1WKv
+   QwLfGH5A6Qzbnh0LLiuzNVjGhfSNOGjT5B6j/cEBCwud17fTl66Zr5ljG
+   AH60FV3VXuOhEa9GJGZ0Rc5ajfWe+EE8ngXIeudII9vHAUfvLXMWpfWQa
+   cUhFXGdCMvPGFMqi25yD0Ps6+sxTH2BRcBRZxwbKq7FSxGhZQpuBThsdE
    A==;
-X-CSE-ConnectionGUID: Zhb7LruvShe9Gvx6ZgbBfw==
-X-CSE-MsgGUID: w8TK6tlmQXyoLmup03wjiw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11518"; a="67475406"
+X-CSE-ConnectionGUID: VUImWnYlSXm4pg4u76FZZQ==
+X-CSE-MsgGUID: ZsosONrNRRaIRv0AzdVViA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11518"; a="56233928"
 X-IronPort-AV: E=Sophos;i="6.17,284,1747724400"; 
-   d="scan'208";a="67475406"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2025 13:13:05 -0700
-X-CSE-ConnectionGUID: idHNyJAVRD60Z7u9j0hq0Q==
-X-CSE-MsgGUID: J7a8fYeiSeKRUkuD2eojug==
+   d="scan'208";a="56233928"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2025 13:17:49 -0700
+X-CSE-ConnectionGUID: LDqZ9GQDTkKUBXBPFE1LGg==
+X-CSE-MsgGUID: 1PNPdKRCT/qmTAf2kwLvSw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.17,284,1747724400"; 
-   d="scan'208";a="170224124"
+   d="scan'208";a="165630085"
 Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2025 13:13:01 -0700
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2025 13:17:45 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
 	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1ulYt7-000000056Wa-282d;
-	Mon, 11 Aug 2025 23:12:57 +0300
-Date: Mon, 11 Aug 2025 23:12:57 +0300
+	id 1ulYxh-000000056aH-48oB;
+	Mon, 11 Aug 2025 23:17:41 +0300
+Date: Mon, 11 Aug 2025 23:17:41 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Gabor Juhos <j4g8y7@gmail.com>
 Cc: Wolfram Sang <wsa@kernel.org>,
@@ -70,18 +70,19 @@ Cc: Wolfram Sang <wsa@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>, linux-i2c@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Imre Kaloz <kaloz@openwrt.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] i2c: pxa: fix I2C communication on Armada 3700
-Message-ID: <aJpOyWKzBt-tDWUF@smile.fi.intel.com>
+Subject: Re: [PATCH v2 1/3] i2c: add init_recovery() callback
+Message-ID: <aJpP5eABTYnQRV82@smile.fi.intel.com>
 References: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+ <20250811-i2c-pxa-fix-i2c-communication-v2-1-ca42ea818dc9@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250811-i2c-pxa-fix-i2c-communication-v2-0-ca42ea818dc9@gmail.com>
+In-Reply-To: <20250811-i2c-pxa-fix-i2c-communication-v2-1-ca42ea818dc9@gmail.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_131308_121006_A4BA9C05 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250811_131749_812534_B414324B 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,16 +97,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 09:49:54PM +0200, Gabor Juhos wrote:
-> There is a long standing bug which causes I2C communication not to
-> work on the Armada 3700 based boards. This small series restores
-> that functionality.
+On Mon, Aug 11, 2025 at 09:49:55PM +0200, Gabor Juhos wrote:
+> Add a new init_recovery() callback to struct 'i2c_bus_recovery_info'
+> and modify the i2c_init_recovery() function to call that if specified
+> instead of the generic i2c_gpio_init_recovery() function.
 > 
-> Signed-off-by: Imre Kaloz <kaloz@openwrt.org>
-> Signed-off-by: Gabor Juhos <j4g8y7@gmail.com>
+> This allows controller drivers to skip calling the generic code by
+> implementing a dummy callback function, or alternatively to run a
+> fine tuned custom implementation.
+> 
+> This is needed for the 'i2c-pxa' driver in order to be able to fix
+> a long standing bug for which the fix will be implemented in a
 
-I didn't get this SoB chain. Who is Imre here and what is his role in all this?
+> followup patch.
 
+"...next change."
+
+...
+
+The first traditional question is why the generic recovery is not working.
+
+...
+
+> -	if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER)
+> +	if (bri->init_recovery) {
+> +		ret = bri->init_recovery(adap);
+> +		if (ret)
+> +			return ret;
+
+> +	} else if (i2c_gpio_init_recovery(adap) == -EPROBE_DEFER) {
+>  		return -EPROBE_DEFER;
+> +	}
+
+If the above stays, I think we would drop the last and always have
+init_recovery to be assigned.
 
 -- 
 With Best Regards,
