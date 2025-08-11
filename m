@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ABDACA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B717ECA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKcFvhU2RITDCBBvQQGSfxUNule+Rk7TeizyclU0768=; b=og9LKpKexFC8OuLY0sMcZgavld
-	0XjjONzlZPbRD9kO+1DqL0WH4jsf/yt0Ogk6VqLJY3AYvnI2NbkCI2O1ue1aTi+Rim5Y1Cscj7dL6
-	nryCpZrPncpmx21UoATiH0x2nh2Ed4CluxXu3vd+Jiwq+vSLGTiOaz07sKFiIkRk7BJgOWtAKQFL8
-	cHxA9ui0KVKz9XtbKl7aMe6C0fW/lbD4SjxUF9kNQv9AOri1XqJmJVpgysdZwui0f4gIV3uKISY6+
-	y7DQKjTzI83tUmVAeEnU6EoyPCfj92i/E5+19eSsvwKG3xV7oOv5Me2UVw+hdKZ7/jluV32n1OZrW
-	TNt9aGFw==;
+	bh=0vQ8E24u9oe+eYJ0Yc0xuxGxPkS7BIfxO0RPXQuO0N4=; b=Q5cfwy4ZZ6yFhVph0wzVeFk30Z
+	Yjx19Ns/1XsN+K5jzL4TdKyJ72FFS203+9hA+4/royYmYeITwM79AUULpfmXBGLmBs7afrBRU+bO8
+	JcoOw0cIWnjjjawb55D7nAYyxJqivR8SXyd/jgm/lk1J/sMrNXi6MGzQgmV+4udnqPOA2N6AbVdoO
+	+e/LoPwnI/+YEA1+Bk4cmKWophDZ2lsk+rFCzHNiu7JgvBD6QdZ4qet4jxdEULlVTWr9PhrXpA3XU
+	9RGEQwtb/xux8mBkAyGZinHVSi2IcZNWZ4+gDr9653r0EZLqSlqqcLZ8Anh0Z1byi8+U8cgCU4Qu3
+	V/2gT7Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulVyF-00000008VEs-3n3n;
-	Mon, 11 Aug 2025 17:06:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ulW0r-00000008VuS-2uLd;
+	Mon, 11 Aug 2025 17:08:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulTsg-000000086Gh-0pvI;
-	Mon, 11 Aug 2025 14:52:10 +0000
+	id 1ulTuk-000000086Xd-1ny5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 14:54:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2548A60051;
-	Mon, 11 Aug 2025 14:52:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6E7CC4CEED;
-	Mon, 11 Aug 2025 14:52:07 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A8B64A5710F;
+	Mon, 11 Aug 2025 14:54:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5431AC4CEED;
+	Mon, 11 Aug 2025 14:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754923927;
-	bh=lC9rVnFUh+y1IRTd2hGi9NBWzLfw/v1W1Ns4j9BGWvA=;
+	s=k20201202; t=1754924057;
+	bh=DjuTw3m4Kw8YuMFL9kL+Lv8VO7GlaRaNvp2WtFfF/Xg=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tNutl5aQrKXvdYyqxEm82rEpTyNI/Dr+E00Wlshx5IZAcFiuuF+I2BW6mcBaSNH2P
-	 w56BIcGJi2fdIAkXd/tTa5bg4mtFCB23z89YsNAcDORM9+n9usFS0AZIszBBpykBxB
-	 PcvX6P23q8KoluEwgqN5hY0w/8d02kqW65oTDmIOl+I/oik1n7RA67agpiOgqNXOXD
-	 8VTyRUC7Gv4julVPLNrFvG2uhw/iunPRdYGanpwThTTpfoI6YEYOLxbF2u59klzYA6
-	 4jtizY1+ReoegHC7QASWT2oYM+fq7CJR4DYIxxOdqKA1Ym6E0uiJV62mOa42Y7nDLe
-	 PNxx90HiZUwzA==
+	b=dLbVzq1vGVAWxU5sBzPPJviAr4jsZpFFVhfQBftOLqLYW+tYqon9CdoUjx7UAT8C9
+	 gasYBenGEMnOLv30qr1kcgFSfUEnYE13ad9HEv1mDa0IPYwKNbZwGN9lZBdRrDJ8uD
+	 ubFOcKyWgwWMTGyUMe2o9Qy/1rjUKAF/rCcwyUWeMd0Z9t6bDm2fHf95dKJwR4Hk8z
+	 vFx21SGDPOm+DIYlmvFXIlBWQcDWw3ljv0Yt611YBRpjdkc65hOvCgmQ5JjgD/o2uc
+	 aWP51YKIE11yJmbTw0rUjtN7T7+xNJ3TwMIKXiBWgf89NZujrgLf3L0iiJDMrJ18P3
+	 COyldOSiNzXtA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1ulTsb-006HEc-In;
-	Mon, 11 Aug 2025 15:52:05 +0100
-Date: Mon, 11 Aug 2025 15:52:04 +0100
-Message-ID: <86v7mt9ai3.wl-maz@kernel.org>
+	id 1ulTuh-006HHZ-3U;
+	Mon, 11 Aug 2025 15:54:15 +0100
+Date: Mon, 11 Aug 2025 15:54:14 +0100
+Message-ID: <86tt2d9aeh.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Coiby Xu <coxu@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	kexec@lists.infradead.org
-Subject: Re: [Regression] kdump fails to get DHCP address unless booting with pci=nomsi or without nr_cpus=1
-In-Reply-To: <878qjq80yu.ffs@tglx>
-References: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
-	<87bjom8106.ffs@tglx>
-	<878qjq80yu.ffs@tglx>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false positives
+In-Reply-To: <20250811135001.1333684-1-lpieralisi@kernel.org>
+References: <20250811135001.1333684-1-lpieralisi@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tglx@linutronix.de, coxu@redhat.com, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, kexec@lists.infradead.org
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, ruanjinjie@huawei.com, tglx@linutronix.de
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_075418_598740_78B6F6FD 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +85,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 14:03:21 +0100,
-Thomas Gleixner <tglx@linutronix.de> wrote:
+On Mon, 11 Aug 2025 14:50:01 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 > 
-> On Mon, Aug 11 2025 at 15:02, Thomas Gleixner wrote:
+> L2 IST table entries are allocated with the kmalloc interface
+> and their physical addresses are programmed in the GIC (either
+> IST base address register or L1 IST table entries) but their
+> virtual addresses are not stored in any kernel data structure
+> because they are not needed at runtime - the L2 IST table entries
+> are managed through system instructions but never dereferenced
+> directly by the driver.
 > 
-> CC+ Marc
+> This triggers kmemleak false positive reports:
 > 
-> > On Mon, Aug 11 2025 at 11:23, Coiby Xu wrote:
-> >> Recently I met an issue that on certain virtual machines, the kdump
-> >> kernel fails to get DHCP IP address most of times starting from
-> >> 6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
-> >> Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
-> >>
-> >>      # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
-> >>      # MSI_FLAG_PCI_MSI_MASK_PARENT
-> >>      git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
-> >>      # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
-> >>      # Provide MSI parent infrastructure
-> >>      git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
-> >>      # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
-> >>      # Prepare for PCI MSI/MSIX
-> >>      git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
-> >>      # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
-> >>      # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
-> >
-> > There were follow up fixes on this, so isolating this one is not really
-> > conclusive.
-> >
-> > Is the problem still there on v6.16 and v6.17-rc1?
+> unreferenced object 0xffff00080039a000 (size 4096):
+>   comm "swapper/0", pid 0, jiffies 4294892296
+>   hex dump (first 32 bytes):
+>     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+>     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+>   backtrace (crc 0):
+>     kmemleak_alloc+0x34/0x40
+>     __kmalloc_noprof+0x320/0x464
+>     gicv5_irs_iste_alloc+0x1a4/0x484
+>     gicv5_irq_lpi_domain_alloc+0xe4/0x194
+>     irq_domain_alloc_irqs_parent+0x78/0xd8
+>     gicv5_irq_ipi_domain_alloc+0x180/0x238
+>     irq_domain_alloc_irqs_locked+0x238/0x7d4
+>     __irq_domain_alloc_irqs+0x88/0x114
+>     gicv5_of_init+0x284/0x37c
+>     of_irq_init+0x3b8/0xb18
+>     irqchip_init+0x18/0x40
+>     init_IRQ+0x104/0x164
+>     start_kernel+0x1a4/0x3d4
+>     __primary_switched+0x8c/0x94
+> 
+> Instruct kmemleak to ignore L2 IST table memory allocation
+> virtual addresses to prevent these false positive reports.
+> 
+> Reported-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> Closes: https://lore.kernel.org/lkml/cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com/
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/irqchip/irq-gic-v5-irs.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> index ad1435a858a4..e8a576f66366 100644
+> --- a/drivers/irqchip/irq-gic-v5-irs.c
+> +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> @@ -5,6 +5,7 @@
+>  
+>  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
+>  
+> +#include <linux/kmemleak.h>
+>  #include <linux/log2.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+> @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
+>  		kfree(ist);
+>  		return ret;
+>  	}
+> +	kmemleak_ignore(ist);
+>  
+>  	return 0;
+>  }
+> @@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
+>  		kfree(l2ist);
+>  		return ret;
+>  	}
+> +	kmemleak_ignore(l2ist);
+>  
+>  	/*
+>  	 * Make sure we invalidate the cache line pulled before the IRS
 
-Yeah, there are way too many things that have been addressed since.
-kdump is also a particularly nasty case, as it tends to rely on the
-redistributor tables programmed by the previous kernel.
-
-Also, this says "virtual machines". What's the hypervisor? How hard is
-it to reproduce?
-
-Thanks,
+Acked-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
