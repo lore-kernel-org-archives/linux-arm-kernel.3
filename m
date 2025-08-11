@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B717ECA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CEFCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:11:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0vQ8E24u9oe+eYJ0Yc0xuxGxPkS7BIfxO0RPXQuO0N4=; b=Q5cfwy4ZZ6yFhVph0wzVeFk30Z
-	Yjx19Ns/1XsN+K5jzL4TdKyJ72FFS203+9hA+4/royYmYeITwM79AUULpfmXBGLmBs7afrBRU+bO8
-	JcoOw0cIWnjjjawb55D7nAYyxJqivR8SXyd/jgm/lk1J/sMrNXi6MGzQgmV+4udnqPOA2N6AbVdoO
-	+e/LoPwnI/+YEA1+Bk4cmKWophDZ2lsk+rFCzHNiu7JgvBD6QdZ4qet4jxdEULlVTWr9PhrXpA3XU
-	9RGEQwtb/xux8mBkAyGZinHVSi2IcZNWZ4+gDr9653r0EZLqSlqqcLZ8Anh0Z1byi8+U8cgCU4Qu3
-	V/2gT7Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FOF+6+snYyQL9TuRcuVmJIjk53mqbAyMUZDW8HnidQw=; b=0G9Kz8MDnHJHVq1Gwl4rgOoBQp
+	EO+rjQIQzbubkeR50TqpLJ2bq8o2gfhZH9zgDVt0ANdED3cP2Bh0d5TuwkaYkYpt91L36MLyDmPHt
+	lU5dyR7HfBcG2hYn7gCau7RBUfFqwUJLkDNjMYzurpbYggsfonZLQev8GJ2G/K0TTl5Zb423mcKya
+	PBOcOwXQZQ6BTKxMQ4CCBczCpvy3C7lfWhLnnq6Ul5E1uAqrdQUpopeypflgf8MZ5ZeyacfOzj4cx
+	+TLqR/4z9uy7EJzMXeQQ6dFNHQxH7bWYUTC+85DMHaLapw9/IfA+3M1HtBDdSJsEMPNRMrILgcqNK
+	eOvZjI4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulW0r-00000008VuS-2uLd;
-	Mon, 11 Aug 2025 17:08:45 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulW3T-00000008WN4-2MQd;
+	Mon, 11 Aug 2025 17:11:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulTuk-000000086Xd-1ny5
+	id 1ulTwd-000000086oY-2WAX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 14:54:19 +0000
+	Mon, 11 Aug 2025 14:56:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A8B64A5710F;
-	Mon, 11 Aug 2025 14:54:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5431AC4CEED;
-	Mon, 11 Aug 2025 14:54:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C96BF4387F;
+	Mon, 11 Aug 2025 14:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C800C4CEED;
+	Mon, 11 Aug 2025 14:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754924057;
-	bh=DjuTw3m4Kw8YuMFL9kL+Lv8VO7GlaRaNvp2WtFfF/Xg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dLbVzq1vGVAWxU5sBzPPJviAr4jsZpFFVhfQBftOLqLYW+tYqon9CdoUjx7UAT8C9
-	 gasYBenGEMnOLv30qr1kcgFSfUEnYE13ad9HEv1mDa0IPYwKNbZwGN9lZBdRrDJ8uD
-	 ubFOcKyWgwWMTGyUMe2o9Qy/1rjUKAF/rCcwyUWeMd0Z9t6bDm2fHf95dKJwR4Hk8z
-	 vFx21SGDPOm+DIYlmvFXIlBWQcDWw3ljv0Yt611YBRpjdkc65hOvCgmQ5JjgD/o2uc
-	 aWP51YKIE11yJmbTw0rUjtN7T7+xNJ3TwMIKXiBWgf89NZujrgLf3L0iiJDMrJ18P3
-	 COyldOSiNzXtA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ulTuh-006HHZ-3U;
-	Mon, 11 Aug 2025 15:54:15 +0100
-Date: Mon, 11 Aug 2025 15:54:14 +0100
-Message-ID: <86tt2d9aeh.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
+	s=k20201202; t=1754924174;
+	bh=wkEAOGCSP4PWIJbYeRH2+mullwzKF3uE+Wbcm87RmJQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qsD1kEXkxMVWg9t19w5x/Lp+MWWWYsqYFGhYKYmgR2CU2kq+Zsj3efka7ieMwcOhs
+	 xcdfGJeYCzun7brXrFMXJ10Jo5pX7SMLPZEm15PMacwZcZ+/Ttpb/FO0vtUpsxZ29c
+	 QOJlV5OMz4TVYOvhXOgjRC0NdcJexUxlnVrp9VqlUhQdCdXbZpNKtfqHEoH/RzDJwI
+	 2vsIobSJRB3AFzNBd0/AZBSvjRmDMfFNZX4S1q7MB6R8clrkB20f4Ntl2GEji+qAGB
+	 HbaXnl9eXiS+axvbQg5EW55GGhkxqBPJySHeAIn5YtWvWBFa6SG/9Ajou5C/hHsm6T
+	 Diq0SUslu2kPA==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Subject: Re: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false positives
-In-Reply-To: <20250811135001.1333684-1-lpieralisi@kernel.org>
-References: <20250811135001.1333684-1-lpieralisi@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, ruanjinjie@huawei.com, tglx@linutronix.de
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Arnd Bergmann <arnd@arndb.de>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm driver fixes for v6.17-rc1
+Date: Mon, 11 Aug 2025 09:56:11 -0500
+Message-ID: <20250811145613.120917-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.49.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_075418_598740_78B6F6FD 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20250811_075615_656997_2C41FA95 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,85 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 14:50:01 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> L2 IST table entries are allocated with the kmalloc interface
-> and their physical addresses are programmed in the GIC (either
-> IST base address register or L1 IST table entries) but their
-> virtual addresses are not stored in any kernel data structure
-> because they are not needed at runtime - the L2 IST table entries
-> are managed through system instructions but never dereferenced
-> directly by the driver.
-> 
-> This triggers kmemleak false positive reports:
-> 
-> unreferenced object 0xffff00080039a000 (size 4096):
->   comm "swapper/0", pid 0, jiffies 4294892296
->   hex dump (first 32 bytes):
->     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
->     00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
->   backtrace (crc 0):
->     kmemleak_alloc+0x34/0x40
->     __kmalloc_noprof+0x320/0x464
->     gicv5_irs_iste_alloc+0x1a4/0x484
->     gicv5_irq_lpi_domain_alloc+0xe4/0x194
->     irq_domain_alloc_irqs_parent+0x78/0xd8
->     gicv5_irq_ipi_domain_alloc+0x180/0x238
->     irq_domain_alloc_irqs_locked+0x238/0x7d4
->     __irq_domain_alloc_irqs+0x88/0x114
->     gicv5_of_init+0x284/0x37c
->     of_irq_init+0x3b8/0xb18
->     irqchip_init+0x18/0x40
->     init_IRQ+0x104/0x164
->     start_kernel+0x1a4/0x3d4
->     __primary_switched+0x8c/0x94
-> 
-> Instruct kmemleak to ignore L2 IST table memory allocation
-> virtual addresses to prevent these false positive reports.
-> 
-> Reported-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> Closes: https://lore.kernel.org/lkml/cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com/
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v5-irs.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> index ad1435a858a4..e8a576f66366 100644
-> --- a/drivers/irqchip/irq-gic-v5-irs.c
-> +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> @@ -5,6 +5,7 @@
->  
->  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
->  
-> +#include <linux/kmemleak.h>
->  #include <linux/log2.h>
->  #include <linux/of.h>
->  #include <linux/of_address.h>
-> @@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
->  		kfree(ist);
->  		return ret;
->  	}
-> +	kmemleak_ignore(ist);
->  
->  	return 0;
->  }
-> @@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
->  		kfree(l2ist);
->  		return ret;
->  	}
-> +	kmemleak_ignore(l2ist);
->  
->  	/*
->  	 * Make sure we invalidate the cache line pulled before the IRS
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+The following changes since commit 8f5ae30d69d7543eee0d70083daf4de8fe15d585:
 
-	M.
+  Linux 6.17-rc1 (2025-08-10 19:41:16 +0300)
 
--- 
-Without deviation from the norm, progress is not possible.
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-fixes-for-6.17
+
+for you to fetch changes up to 25daf9af0ac1bf12490b723b5efaf8dcc85980bc:
+
+  soc: qcom: mdt_loader: Deal with zero e_shentsize (2025-08-10 21:02:14 -0500)
+
+----------------------------------------------------------------
+Qualcomm driver fixes for v6.17-rc1
+
+The recently extended sanity checks for the Qualcomm firmware files
+turned out to be too restrictive, preventing a variety of firmware
+images from being loaded. Adjust the checks to allow section header
+sizes of 0 when sections aren't used.
+
+----------------------------------------------------------------
+Bjorn Andersson (1):
+      soc: qcom: mdt_loader: Deal with zero e_shentsize
+
+ drivers/soc/qcom/mdt_loader.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
