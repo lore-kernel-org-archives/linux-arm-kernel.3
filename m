@@ -4,110 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB52C87FCF
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 10 Aug 2025 23:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE511C87FCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 00:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Message-Id:MIME-Version:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DTxIrdPV4iWneFJR6EUg7IhXT4i8rDJLDvWWCgyO0NI=; b=bSmbyNVPlRksFNQ5bm2cgVUEoC
-	we2TVIFw0DtlBywP6ysH9oAmu+FnFViS36NAkMtCnO64ctw0KnDwgsvWSagXcQIlHrM+WDSiE7LyN
-	ecXYdAx+CBZD/uURvF+O0l4PZ1Jd/G6j/7Ss0ja9puG4w9KecMphQKstux2qYUexaEiKuhpWkYuK/
-	v1iStkW3IaKVBsvGwjVsjrQhMAV0Bj/9Jd7bSIRjvtDqDLdk70TzZ6r/0/ePSRU4L6KYalqDcBGpJ
-	8hG5SYa9RlSwYyKKHD4pNtTNn0I0RAHqyHeEcZ87FPIXa3fIhOhZDUyN+rJeN8wBlSP2+9A9fHgCz
-	L+SOWN3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f8QeFn6PAVZ6dL8kyXWB12JzjTGB+tSQzB7fYiIvs90=; b=KgS/kqDa0uKWawjfFMgmiOIoKu
+	wKzDCYX5H030aDXYyhWXJBHDvdVu6+VUt87GPZigzkkCXtMWOv89Njs/pwwxxudaT2pvmfTBKdNh6
+	RiVmXQrQIUTihTIkBDV1m78d6X9lmzlpOL+ldwv8587dqajSzrSaebt3Eq8THJml2RXlIuB7f83sI
+	5hHaQuzSNrvoMH/YB2ekQ0N9tabM5cPTtdnEGoKDduYMX1ln0BVv8UgbBSBvvOqbU5TV/396srfgJ
+	0g+sqPMVjXUdBIVrqpRegd2jURVQAq2ZYjps972jm+bCnBlLw2BNDRDkjMbVdsZ+W8gk5sEbiSIhP
+	TSEPHBDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulFj1-00000006CEv-3Ik7;
-	Sun, 10 Aug 2025 23:45:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ulGNU-00000006E5m-0Aau;
+	Mon, 11 Aug 2025 00:27:04 +0000
+Received: from mail-mw2nam12on20601.outbound.protection.outlook.com ([2a01:111:f403:200a::601] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulEQX-000000066LF-2G2t
+	id 1ulGKv-00000006Dv4-406K
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 10 Aug 2025 22:22:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754864524;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DTxIrdPV4iWneFJR6EUg7IhXT4i8rDJLDvWWCgyO0NI=;
-	b=WKSwrXw2yhHBMIouI6qOeWCkVgGxMf7vEB6I8ABl4pMikXp8NcUzx4QS3x2n6+UCZBy7mx
-	sY+nWYaFQfKSF0x//lAXqUQH5d4JeM3acESKeQje2PflehftExY4X0td8mx3bKsQpLP6c7
-	3FiHSdHfcYXdfU8g+JGzKcNfgzcGPIU=
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
- [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-70-rM93wFnIMnmEQJiLxuGUrA-1; Sun, 10 Aug 2025 18:22:03 -0400
-X-MC-Unique: rM93wFnIMnmEQJiLxuGUrA-1
-X-Mimecast-MFC-AGG-ID: rM93wFnIMnmEQJiLxuGUrA_1754864522
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4b081d742d9so148683531cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 15:22:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754864522; x=1755469322;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DTxIrdPV4iWneFJR6EUg7IhXT4i8rDJLDvWWCgyO0NI=;
-        b=gGbayYU86QfkSngAQAnQjPFIz6jZ3xGCr0efW5kLGA0Ijz+D91a9jmX5gL3z0nc/M/
-         7A2d6sPm/U7kXlDg6Ofh5dRG4kyYB/4IT0E14GrWDUDROFG8J/DIcjjSCGNFe7J6IunE
-         f9MNPzIiKbNJ7hJ4um9t4rl61vffsIkARFFIwDAQoFEaHP7YHecakvXebpSGgmjLu/dR
-         ZyyB0zd038dInGNY+6pakzX7DPcRct10pd0m1Oa76D2UiJl4uPbu9U1vekP7rNuNDLSH
-         jMuNnPupKjKtMZkqsvWiHBGl3tYDFvIcv8HacuqWMKchqcpIoGT1gB4lr5ZEx0Pr+Xjw
-         6RQw==
-X-Forwarded-Encrypted: i=1; AJvYcCV0fyCMf/3IXdTX1y53GauEk1fhweP/nc8u2PzGqWq5XTjAWXF4zWLknmiffoKvy7mDX09lMl1p3Blt1df8b55F@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXkNK0Zx4IYvujfaoIhy94H4xLW3ztkL/h7P/o+l9m2QNvhqoA
-	R/z7e1z9zlVODQbnaWgFULps3joI8xuHD6jljbIQx77/uXLTyvAv9rNvFRwTGiCd6zE5w+5tpsh
-	ayPcw+zT5BYk9P8ZRKI0OJUS3SYRetEweH/FaVj707SEB0LjxpFkYsSIvVTisI6OsvsbXMKXyfR
-	Uj
-X-Gm-Gg: ASbGncs52JH586/dfVBM2j4g8BbznfImDostS5w5DTe0AJ0WMWN0W1qRjDGD59lu7hc
-	lr3SGBylNUq9Ov29WfGYfoDB2wOsLFCTeDQeT5bGU0aRwuSK/3CQ7WpspENQQcX7gWk/dfs38s6
-	a34ptlWwVv2ZUbD7V8WogwL7ibLgWMgwsnLo5oQ51Wn7BmUcP6RphGA3J0nXcV28hFrggijyYBo
-	dxoW13BKwcK6mGS6ynhElsdrqjKfeNnFKWQqcSU/xcTo+p/8yU4euXsuh4szymlzk98CdmxROMe
-	94p3AEwv/6O9+kbs98/o2+k/3wjQ2exl2aAs5c5y70Fp3CDRYqgda7Y26LKfkcwTaWcR4J4UkMR
-	Hs9ERBg==
-X-Received: by 2002:ac8:5d0f:0:b0:4b0:8092:9912 with SMTP id d75a77b69052e-4b0aed42512mr175423851cf.19.1754864522404;
-        Sun, 10 Aug 2025 15:22:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG0/+zhF0BEbIolaJOCDjorPdn+0fQDWtw+ZQnbIpL+/rhtw0D1XSan+ygZuYsN1eYwat9u9w==
-X-Received: by 2002:ac8:5d0f:0:b0:4b0:8092:9912 with SMTP id d75a77b69052e-4b0aed42512mr175423681cf.19.1754864521987;
-        Sun, 10 Aug 2025 15:22:01 -0700 (PDT)
-Received: from [10.144.145.224] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7e816a9a3cdsm714913185a.23.2025.08.10.15.21.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Aug 2025 15:22:01 -0700 (PDT)
-From: Brian Masney <bmasney@redhat.com>
-Date: Sun, 10 Aug 2025 18:21:51 -0400
-Subject: [PATCH] peci: controller: peci-aspeed: convert from round_rate()
- to determine_rate()
+	Mon, 11 Aug 2025 00:24:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rtfGkCFtq7Cd5G7rConXTF4/TZ6mdSihmRW6lO4LMWvW7JrxgyzJ0dE6Wf2FSPWeY4IHD6YvNHiXq50IjP6XK9GYtC7hl/7yH8e+68St2jrYV4Ww+OBSzC33ydDy6hM191NEjxlzhWws1kXQsp93TfJq7Vn058nccSe968fhqUQtMc9oklUTMZFBE2nJvotst8EUXnEBkReZnGMJ3DDL4vC9B5Q2/SBDn+D3YkF6GfCjJPPjzdCw5n86IhYJy+RdJ68+sOk5/X8BhG/xFwj8ZHxkwM0CuHwv4la6yPGijXMOt/CZTeFtUHpbN1PmtRTB+1zKzzeGNafqZetACT543w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=f8QeFn6PAVZ6dL8kyXWB12JzjTGB+tSQzB7fYiIvs90=;
+ b=zG/0zqra0ECmZMGa4K4dzYDzv3VFajrRftJcdjPqeejwHUrGjk4GuJRzpuqPqHXySsD7qKy287FQhvI+hD05cxlXsAuLO3Kjh4p8zlNW9X1m5KZ3s1yVqGFEfg4vxfQTZzDAPH5vmYpeE9s1/7Dz4PANGVzCiyEhQEk3z6fRBGqCxPQg3sMiaLxnBpGZnlAouDBAzEZRSDS+v3c4jvodY5A3jNBITEA15aG1IpsUdOPsz2FHy6453HTzwEvDVN+0Ia53B7M60Cahbx/YuwSKPelS43nK9HEtkCbIdZfhX07dz08aDHZvmVGAT3wBowgWKYamyTgSfH9GIkIZHNEYbg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=f8QeFn6PAVZ6dL8kyXWB12JzjTGB+tSQzB7fYiIvs90=;
+ b=m4DvCOJAPUJf93y7b0nty6i/P3ob97D+F23I2wXveNtpZfH7kot8CIDnFxVa+QJk8KhFlQM0MozzEL2CMXqZvHBjWdn9KrgzWukd/QOmU2Q/BMjBnqLkO08FQ+MpXjd3NnE+2t5m7lW+X/mteeF7KWTo3p2XeAPZCADSmqeB57MdXYCVhEnPLh9DHukJkun9sa9O1hBjJLfqaF0sflfLAKBbtWAHtBL8W/aolb94WEiIZitxCtV84LYMsfnHRE0X6Mh+AWouDqFElmj7nK1UJubbBzKjHxt/EFDIwan+H48h6BnfBNXwKRsQz4kE39vItedDpDE1eEej1J1uPa2wlA==
+Received: from SJ0PR13CA0065.namprd13.prod.outlook.com (2603:10b6:a03:2c4::10)
+ by CH3PR12MB9169.namprd12.prod.outlook.com (2603:10b6:610:1a0::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Mon, 11 Aug
+ 2025 00:24:14 +0000
+Received: from SJ1PEPF00001CE8.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c4:cafe::94) by SJ0PR13CA0065.outlook.office365.com
+ (2603:10b6:a03:2c4::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.12 via Frontend Transport; Mon,
+ 11 Aug 2025 00:24:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF00001CE8.mail.protection.outlook.com (10.167.242.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9031.11 via Frontend Transport; Mon, 11 Aug 2025 00:24:14 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sun, 10 Aug
+ 2025 17:24:05 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sun, 10 Aug
+ 2025 17:24:04 -0700
+Received: from SDONTHINENI-DESKTOP.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Sun, 10 Aug 2025 17:24:03 -0700
+From: Shanker Donthineni <sdonthineni@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>, Suzuki K Poulose
+	<suzuki.poulose@arm.com>, Steven Price <steven.price@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: Robin Murphy <robin.murphy@arm.com>, Gavin Shan <gshan@redhat.com>, "Mike
+ Rapoport" <rppt@kernel.org>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Jason Sequeira <jsequeira@nvidia.com>, "Dev
+ Jain" <dev.jain@arm.com>, David Rientjes <rientjes@google.com>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>
+Subject: [PATCH 1/2] dma/pool: Use vmap() address for memory encryption helpers on ARM64
+Date: Sun, 10 Aug 2025 19:23:56 -0500
+Message-ID: <20250811002357.714109-2-sdonthineni@nvidia.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250811002357.714109-1-sdonthineni@nvidia.com>
+References: <20250811002357.714109-1-sdonthineni@nvidia.com>
 MIME-Version: 1.0
-Message-Id: <20250810-peci-round-rate-v1-1-ec96d216a455@redhat.com>
-X-B4-Tracking: v=1; b=H4sIAH4bmWgC/x3MQQqAIBBA0avErBsorcSuEi1Ep5qNxVgRhHdPW
- r7F/y8kEqYEY/WC0M2J91jQ1hX4zcWVkEMxqEb1jVEWD/KMsl8xoLiTsO/0oK2yhvwApTqEFn7
- +4zTn/AGKlAVXYQAAAA==
-X-Change-ID: 20250729-peci-round-rate-543639297ec6
-To: Iwona Winiarska <iwona.winiarska@intel.com>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Maxime Ripard <mripard@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Cc: linux-clk@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
- openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Brian Masney <bmasney@redhat.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754864519; l=5809;
- i=bmasney@redhat.com; s=20250528; h=from:subject:message-id;
- bh=L6jvK6ACaYL1SKlK5QC34DBWw1qmKVlL/yCAWgBC/h0=;
- b=ExfjZ3UpYQJq/TbnRfU0VlhnPXC/BUUDuaJmbmTAojaDwiZAdey0YvI5/J2A7xXNMUS9wkF5N
- vb2GIQ8yHxiAnFyZY8qfOjL4oDD/6ms/NRhowThZjXsoS9w0+utR2C+
-X-Developer-Key: i=bmasney@redhat.com; a=ed25519;
- pk=x20f2BQYftANnik+wvlm4HqLqAlNs/npfVcbhHPOK2U=
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 3Wu6B3fFBo22ThAaOON1j_bg8EWd2qf3FxmF6BUVonM_1754864522
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE8:EE_|CH3PR12MB9169:EE_
+X-MS-Office365-Filtering-Correlation-Id: f7376631-4c05-41e3-f1e3-08ddd86d66b7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9enZ6f/rriiLlpzcvcRJNI9pxPynjty85fOQxVFmL4RUjCOi7O1Hdx45rKeH?=
+ =?us-ascii?Q?VBobEX9LQvzro9vqLvIdwalmvK9dM4pRy1pbreeID74JWEbJKVhsfA1mQrLK?=
+ =?us-ascii?Q?1rs6p70qdBiT31wavy7ICV2psTDNcacAtjXv1Vf+XPXaWWOyMP1pYFJ3F+/r?=
+ =?us-ascii?Q?jwXvtgR//UJOZlkPioUVkTXva+kC4VeT1rdxvdN3g+Nm9sPc3zj4ZKKJmAAl?=
+ =?us-ascii?Q?TiZZZl1MdZaN8NMU6Rk64qXp3H08jkIDwF53dzxNnBdP02mvyuFPPWD7MNzr?=
+ =?us-ascii?Q?EMP9rZKyXgijBRyR5hF2a1OEYReCxiz0w6qMob3y8rvhAv+kL6EhoVsDPQgf?=
+ =?us-ascii?Q?5D74Q9Sxxso49qLJbZqh3e7NaailFA7EbmhqPFrlP6SxZPbkgkdV2DGTnStf?=
+ =?us-ascii?Q?MPJNg6yaKZ3AhXBR8jf0Y8+QBoWBMRYqud1k0tT2bomeW97oxRA7kxJY/wNB?=
+ =?us-ascii?Q?Fp4Zaz+dXTugvd/CtGgGCV8dKN/I6ZCACic73jx8K+iHR0CaWUoMOn5UPgGe?=
+ =?us-ascii?Q?VyXKlFLKORQRFeDUZDXZYOxBdzfjmXWEzYKKSJQDLA+HsxzV/zZgTugZsAOZ?=
+ =?us-ascii?Q?Yy3zac7u/vschzkHRt1vY7jMDcFRA8ZFu0CaINGooHGSvNYUs4zfNlbj/JG6?=
+ =?us-ascii?Q?zvk0uJL4R/oW5ijq92YgeKnvJHCFggpZu4yx3W1fvhS06ZSGZJkKeNEAY6ZA?=
+ =?us-ascii?Q?Slmd7W/CCxCamt5qtko+Geh8rW66dq0+MH5zHqvIwHKeBRMPH22IZ7OmYnoL?=
+ =?us-ascii?Q?JwuI8vLKVCn/PDEE7nekYctyqoPC0w+lkBF8/MdWJ7zeLtGAtcr/FzEe369z?=
+ =?us-ascii?Q?yE9A2hollf+ISYQxztYLfezZf4gP2L30A5/okVT0kAY13MTE8n+BcuiASJhJ?=
+ =?us-ascii?Q?dIN7hfR14h31f9oOr/FIMO/s7nMBKDRrih1LR7PusK7PVlQ0LRik3ygqZ8Gn?=
+ =?us-ascii?Q?ZXvSCumtzqfjeESdv4LcHZq7K3+zg1qQa6tSI26teD1P0LPqZcsKdr4mwRf4?=
+ =?us-ascii?Q?+39gCgmvnyH64+hw0m0sXnIBG4Gt8OOMX3FE3f2geKXLv+n+xrX+teaBgLkD?=
+ =?us-ascii?Q?CVQRZ+h1vRVeFtJrJfq/5jnYJYDMpaez6ZSzNIaksRO8fHKCyPkP6TX4+TQ8?=
+ =?us-ascii?Q?30QOnholzUKWL0lmvqnd9ak7sCqhUfs1Bz3Tj3kKJESDzgexctBVTptnKZKk?=
+ =?us-ascii?Q?Of+3DHCSkkN0Dz1WBkRId1uulQIAkisCsa3pu+oCkP6FtiVojlMXZUFRiq9t?=
+ =?us-ascii?Q?hsnwUez8ENsgQrJy0nIB1kscRPJl9mZal7OxFYCTkoPBT8Ip/mHblIX79jn5?=
+ =?us-ascii?Q?KQt8vRusNAbr1LHHCPe9oYK1okY7lJaqayya+nzGTJiL59+8dQs6urACmvDg?=
+ =?us-ascii?Q?UdCSKCbE8qMnTRUcEVTy485uMF5u8loMbROPacNTt9Rn3uGDrjb57QEwnxeI?=
+ =?us-ascii?Q?ajZXoPcw6MQ4JmnlHEj6dKMVxO6AEf3kbpS79trpIslI92+33jSdpq3/sUUX?=
+ =?us-ascii?Q?Le5So+hWYV/U+OKqZNQNiTjGKRAzajjepDNz?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2025 00:24:14.2431
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f7376631-4c05-41e3-f1e3-08ddd86d66b7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE8.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_152205_669186_5E05D296 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20250810_172425_992624_A6A72573 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,186 +156,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated, so migrate this driver from
-round_rate() to determine_rate() using the Coccinelle semantic patch
-appended to the "under-the-cut" portion of the patch.
+In atomic_pool_expand(), set_memory_encrypted()/set_memory_decrypted()
+are currently called with page_to_virt(page). On ARM64 with
+CONFIG_DMA_DIRECT_REMAP=y, the atomic pool is mapped via vmap(), so
+page_to_virt(page) does not reference the actual mapped region.
 
-Signed-off-by: Brian Masney <bmasney@redhat.com>
+Using this incorrect address can cause encryption attribute updates to
+be applied to the wrong memory region. On ARM64 systems with memory
+encryption enabled (e.g. CCA), this can lead to data corruption or
+crashes.
+
+Fix this by using the vmap() address ('addr') on ARM64 when invoking
+the memory encryption helpers, while retaining the existing
+page_to_virt(page) usage for other architectures.
+
+Fixes: 76a19940bd62 ("dma-direct: atomic allocations must come from atomic coherent pools")
+Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 ---
-Coccinelle semantic patch is below. It's large and I don't want to
-pollute the kernel changelog with the same code hundreds of times,
-so that's why it's included under the cut. For subsystems with more
-than one patch, I've included it on the cover letter.
+ kernel/dma/pool.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-    virtual patch
-
-    // Look up the current name of the round_rate function
-    @ has_round_rate @
-    identifier round_rate_name =~ ".*_round_rate";
-    identifier hw_param, rate_param, parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    	...
-    }
-
-    // Rename the route_rate function name to determine_rate()
-    @ script:python generate_name depends on has_round_rate @
-    round_rate_name << has_round_rate.round_rate_name;
-    new_name;
-    @@
-
-    coccinelle.new_name = round_rate_name.replace("_round_rate", "_determine_rate")
-
-    // Change rate to req->rate; also change occurrences of 'return XXX'.
-    @ chg_rate depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    identifier ERR =~ "E.*";
-    expression E;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    (
-    -return -ERR;
-    +return -ERR;
-    |
-    - return rate_param;
-    + return 0;
-    |
-    - return E;
-    + req->rate = E;
-    +
-    + return 0;
-    |
-    - rate_param
-    + req->rate
-    )
-    ...>
-    }
-
-    // Coccinelle only transforms the first occurrence of the rate parameter
-    // Run a second time. FIXME: Is there a better way to do this?
-    @ chg_rate2 depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    - rate_param
-    + req->rate
-    ...>
-    }
-
-    // Change parent_rate to req->best_parent_rate
-    @ chg_parent_rate depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    (
-    - *parent_rate_param
-    + req->best_parent_rate
-    |
-    - parent_rate_param
-    + &req->best_parent_rate
-    )
-    ...>
-    }
-
-    // Convert the function definition from round_rate() to determine_rate()
-    @ func_definition depends on chg_rate @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    identifier generate_name.new_name;
-    @@
-
-    - long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-    -               unsigned long *parent_rate_param)
-    + int new_name(struct clk_hw *hw, struct clk_rate_request *req)
-    {
-        ...
-    }
-
-    // Update the ops from round_rate() to determine_rate()
-    @ ops depends on func_definition @
-    identifier has_round_rate.round_rate_name;
-    identifier generate_name.new_name;
-    @@
-
-    {
-        ...,
-    -   .round_rate = round_rate_name,
-    +   .determine_rate = new_name,
-        ...,
-    }
-
-Note that I used coccinelle 1.2 instead of 1.3 since the newer version
-adds unnecessary braces as described in this post.
-https://lore.kernel.org/cocci/67642477-5f3e-4b2a-914d-579a54f48cbd@intel.com/
----
- drivers/peci/controller/peci-aspeed.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/peci/controller/peci-aspeed.c b/drivers/peci/controller/peci-aspeed.c
-index ad3a7d71ed4c61e6123dcbbad264812cb83cbb07..a0c99ecf7f3805a1cdac55a8d5db9c61ad3cf37c 100644
---- a/drivers/peci/controller/peci-aspeed.c
-+++ b/drivers/peci/controller/peci-aspeed.c
-@@ -362,12 +362,14 @@ static int clk_aspeed_peci_set_rate(struct clk_hw *hw, unsigned long rate,
- 	return 0;
- }
- 
--static long clk_aspeed_peci_round_rate(struct clk_hw *hw, unsigned long rate,
--				       unsigned long *prate)
-+static int clk_aspeed_peci_determine_rate(struct clk_hw *hw,
-+					  struct clk_rate_request *req)
+diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
+index 7b04f7575796b..ba08a301590fd 100644
+--- a/kernel/dma/pool.c
++++ b/kernel/dma/pool.c
+@@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
  {
--	int div = clk_aspeed_peci_get_div(rate, prate);
-+	int div = clk_aspeed_peci_get_div(req->rate, &req->best_parent_rate);
+ 	unsigned int order;
+ 	struct page *page = NULL;
++	void *vaddr;
+ 	void *addr;
+ 	int ret = -ENOMEM;
  
--	return DIV_ROUND_UP_ULL(*prate, div);
-+	req->rate = DIV_ROUND_UP_ULL(req->best_parent_rate, div);
-+
-+	return 0;
- }
+@@ -113,8 +114,8 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+ 	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
+ 	 * shrink so no re-encryption occurs in dma_direct_free().
+ 	 */
+-	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+-				   1 << order);
++	vaddr = IS_ENABLED(CONFIG_ARM64) ? addr : page_to_virt(page);
++	ret = set_memory_decrypted((unsigned long)vaddr, 1 << order);
+ 	if (ret)
+ 		goto remove_mapping;
+ 	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
+@@ -126,8 +127,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+ 	return 0;
  
- static unsigned long clk_aspeed_peci_recalc_rate(struct clk_hw *hw, unsigned long prate)
-@@ -394,7 +396,7 @@ static unsigned long clk_aspeed_peci_recalc_rate(struct clk_hw *hw, unsigned lon
- 
- static const struct clk_ops clk_aspeed_peci_ops = {
- 	.set_rate = clk_aspeed_peci_set_rate,
--	.round_rate = clk_aspeed_peci_round_rate,
-+	.determine_rate = clk_aspeed_peci_determine_rate,
- 	.recalc_rate = clk_aspeed_peci_recalc_rate,
- };
- 
-
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20250729-peci-round-rate-543639297ec6
-
-Best regards,
+ encrypt_mapping:
+-	ret = set_memory_encrypted((unsigned long)page_to_virt(page),
+-				   1 << order);
++	ret = set_memory_encrypted((unsigned long)vaddr, 1 << order);
+ 	if (WARN_ON_ONCE(ret)) {
+ 		/* Decrypt succeeded but encrypt failed, purposely leak */
+ 		goto out;
 -- 
-Brian Masney <bmasney@redhat.com>
+2.25.1
 
 
