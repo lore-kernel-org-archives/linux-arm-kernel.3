@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9DDCA0ED3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540C8CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 19:22:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jXLgHCnSVnuCeTHMQbjZNK6yuI1NyNKzOO+4Eh6N7Aw=; b=TTEfyq5p90ch/yG274OhiwQmy5
-	oIyyWh5vhm5hy3MtcMe1YBJr9Glbjq1vLLdc7Ot44yI+/QKjXAZ27F2ghxPa/KjG04ESu0Nds6x8o
-	f14u/UbZ6AAbOvjVZi1xTOUdeYRZJAH/4OCXiyK2yTo/YyJER/Mxp6rED1UljdRw7X6IzAoyJ58nw
-	Q22zUA4ojNBQ6l6w4uByJpxPa0UvjuDbR8iXv0PDoFBd/frM0z+uKA1qEH2m5y4ZH6rE+LrnlSl2A
-	mhl1EE8QyBv6PmKZF+883Tfa3pxvFVOtW+vMnFqWd3ftK1CjUtkfhCCnuTgAXN9X1OPDvOfnElMfV
-	rk1qpEaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0J//ZXltFEFiHPuvSR5EwE7cIsv7sl+t1JLUFLvA0g8=; b=POPqjivAbB/ZFOBLvOfPNMlKKU
+	onj8vIZUbqhdnFC9zHaUk8dGbn2CUPxO0TOhHfmpRc6WJnE37PI2KxtKJQ3xvicX4YaaVNgWhoiAj
+	QYYbKfwoquMhB+13GxWSBTlFAVU5c5CHVtRL1yk1GupOsBMrxnlE9CKDD/cbFsofXNtF8BVVgy9J7
+	M32C1dn3X6LmRoCXc0WIlQPO8t30g9nfH3aMBJ1qqXCa21iI1EaF3JTRGJAa+R+HWaU2TadweC/9p
+	f2aRiJ+vJ9jblbAyJHo7dlJvqVQ8XOWKiZkR06PZVf5wylPZpIFVZu+gAjRK9paUy2X11R+8BT8BS
+	bFw7kVpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulY03-00000008tIQ-1uIl;
-	Mon, 11 Aug 2025 19:16:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUN2-00000008Brx-2rqW;
-	Mon, 11 Aug 2025 15:23:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0B7045C5666;
-	Mon, 11 Aug 2025 15:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBEA9C4CEED;
-	Mon, 11 Aug 2025 15:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925811;
-	bh=tAHh0dU7s4yE/R3KG7vQQ3ZFwAZYNYvhFkcrzsZ7+Hc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bpecZ1e0jDDCr6Qh7fkIJPX8Fe0BIEak6YmWCgqMbi8S0zPbVekXfLyGhwt6+HXm2
-	 qENmn7MKjdR1rgxBdjkh33LVO0WXMBdGEhCnlb45mCzYvuG3OqsNNePZdp8xhfzjxN
-	 e8qNrSnR7zAPzc7ehvtJtTmsJeiUoUGfdVwOkzpGvy6gszUTOTSgaALy6SFYZHQnLp
-	 ImyAXW+JF90RoZVWsQb58eDkqEk243aepbEXXhrTbnQ9NeejB8HIYV6+yaZ3woQ63Z
-	 hk3tI3A5JKv82OYiuSEL/+v6zHTJN3LA4eKicf2DDLEHrv/tBIT1SDsPiJv5gECP1N
-	 jW88fSnHZSytw==
-Date: Mon, 11 Aug 2025 17:23:25 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org,
-	Rex Lu <rex.lu@mediatek.com>
-Subject: Re: [PATCH net-next v2] net: mediatek: wed: Introduce MT7992 WED
- support to MT7988 SoC
-Message-ID: <aJoK7e4aEKR96V4h@lore-rh-laptop>
-References: <20250811-mt7992-wed-support-v2-1-e43024c05305@kernel.org>
+	id 1ulY6J-00000008vIe-17Sv;
+	Mon, 11 Aug 2025 19:22:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulWRo-00000008ZKq-1AFL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 17:36:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96350267F;
+	Mon, 11 Aug 2025 10:36:26 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CDA733F63F;
+	Mon, 11 Aug 2025 10:36:30 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: ryabinin.a.a@gmail.com,
+	glider@google.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	corbet@lwn.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	akpm@linux-foundation.org,
+	scott@os.amperecomputing.com,
+	jhubbard@nvidia.com,
+	pankaj.gupta@amd.com,
+	leitao@debian.org,
+	kaleshsingh@google.com,
+	maz@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	james.morse@arm.com,
+	ardb@kernel.org,
+	hardevsinh.palaniya@siliconsignals.io,
+	david@redhat.com,
+	yang@os.amperecomputing.com
+Cc: kasan-dev@googlegroups.com,
+	workflows@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH 0/2] introduce kasan stonly-mode in hw-tags
+Date: Mon, 11 Aug 2025 18:36:24 +0100
+Message-Id: <20250811173626.1878783-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tUkM0kw1EW+Gc919"
-Content-Disposition: inline
-In-Reply-To: <20250811-mt7992-wed-support-v2-1-e43024c05305@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_082332_812733_EC1460E3 
-X-CRM114-Status: GOOD (  25.28  )
+X-CRM114-CacheID: sfid-20250811_103636_358403_721F5D71 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,236 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hardware tag based KASAN is implemented using the Memory Tagging Extension
+(MTE) feature.
 
---tUkM0kw1EW+Gc919
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+MTE is built on top of the ARMv8.0 virtual address tagging TBI
+(Top Byte Ignore) feature and allows software to access a 4-bit
+allocation tag for each 16-byte granule in the physical address space.
+A logical tag is derived from bits 59-56 of the virtual
+address used for the memory access. A CPU with MTE enabled will compare
+the logical tag against the allocation tag and potentially raise an
+tag check fault on mismatch, subject to system registers configuration.
 
-> Introduce the second WDMA RX ring in WED driver for MT7988 SoC since the
-> Mediatek MT7992 WiFi chipset supports two separated WDMA rings.
-> Add missing MT7988 configurations to properly support WED for MT7992 in
-> MT76 driver.
+Since ARMv8.9, FEAT_MTE_STORE_ONLY can be used to restrict raise of tag
+check fault on store operation only.
 
-I sent this email twice wrongly. Please ignore this one.
+Using this feature (FEAT_MTE_STORE_ONLY), introduce KASAN store-only mode
+which restricts KASAN check store operation only.
+This mode omits KASAN check for fetch/load operation.
+Therefore, it might be used not only debugging purpose but also in
+normal environment.
 
-Regards,
-Lorenzo
+Yeoreum Yun (2):
+  kasan/hw-tags: introduce store only mode
+  kasan: apply store-only mode in kasan kunit testcases
 
->=20
-> Co-developed-by: Rex Lu <rex.lu@mediatek.com>
-> Signed-off-by: Rex Lu <rex.lu@mediatek.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
-> Changes in v2:
-> - Fix commit log
-> - Rebase on top of net-next main branch
-> - Link to v1: https://lore.kernel.org/r/20250727-mt7992-wed-support-v1-1-=
-aad7da4dc877@kernel.org
-> ---
->  drivers/net/ethernet/mediatek/mtk_wed.c          | 33 ++++++++++++++++++=
-+-----
->  drivers/net/ethernet/mediatek/mtk_wed.h          |  2 +-
->  drivers/net/wireless/mediatek/mt76/mt7915/mmio.c |  6 ++---
->  drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 12 ++++-----
->  include/linux/soc/mediatek/mtk_wed.h             |  2 +-
->  5 files changed, 38 insertions(+), 17 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethern=
-et/mediatek/mtk_wed.c
-> index 0a80d8f8cff7f415a60b0cd68c0c9c07e2c88f36..3dbb113b792cf00fb4f89ab20=
-f7e7fa72ecac260 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-> @@ -59,7 +59,9 @@ struct mtk_wed_flow_block_priv {
->  static const struct mtk_wed_soc_data mt7622_data =3D {
->  	.regmap =3D {
->  		.tx_bm_tkid		=3D 0x088,
-> -		.wpdma_rx_ring0		=3D 0x770,
-> +		.wpdma_rx_ring =3D {
-> +			0x770,
-> +		},
->  		.reset_idx_tx_mask	=3D GENMASK(3, 0),
->  		.reset_idx_rx_mask	=3D GENMASK(17, 16),
->  	},
-> @@ -70,7 +72,9 @@ static const struct mtk_wed_soc_data mt7622_data =3D {
->  static const struct mtk_wed_soc_data mt7986_data =3D {
->  	.regmap =3D {
->  		.tx_bm_tkid		=3D 0x0c8,
-> -		.wpdma_rx_ring0		=3D 0x770,
-> +		.wpdma_rx_ring =3D {
-> +			0x770,
-> +		},
->  		.reset_idx_tx_mask	=3D GENMASK(1, 0),
->  		.reset_idx_rx_mask	=3D GENMASK(7, 6),
->  	},
-> @@ -81,7 +85,10 @@ static const struct mtk_wed_soc_data mt7986_data =3D {
->  static const struct mtk_wed_soc_data mt7988_data =3D {
->  	.regmap =3D {
->  		.tx_bm_tkid		=3D 0x0c8,
-> -		.wpdma_rx_ring0		=3D 0x7d0,
-> +		.wpdma_rx_ring =3D {
-> +			0x7d0,
-> +			0x7d8,
-> +		},
->  		.reset_idx_tx_mask	=3D GENMASK(1, 0),
->  		.reset_idx_rx_mask	=3D GENMASK(7, 6),
->  	},
-> @@ -621,8 +628,8 @@ mtk_wed_amsdu_init(struct mtk_wed_device *dev)
->  		return ret;
->  	}
-> =20
-> -	/* eagle E1 PCIE1 tx ring 22 flow control issue */
-> -	if (dev->wlan.id =3D=3D 0x7991)
-> +	/* Kite and Eagle E1 PCIE1 tx ring 22 flow control issue */
-> +	if (dev->wlan.id =3D=3D 0x7991 || dev->wlan.id =3D=3D 0x7992)
->  		wed_clr(dev, MTK_WED_AMSDU_FIFO, MTK_WED_AMSDU_IS_PRIOR0_RING);
-> =20
->  	wed_set(dev, MTK_WED_CTRL, MTK_WED_CTRL_TX_AMSDU_EN);
-> @@ -1239,7 +1246,11 @@ mtk_wed_set_wpdma(struct mtk_wed_device *dev)
->  		return;
-> =20
->  	wed_w32(dev, MTK_WED_WPDMA_RX_GLO_CFG, dev->wlan.wpdma_rx_glo);
-> -	wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring0, dev->wlan.wpdma_rx);
-> +	wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring[0],
-> +		dev->wlan.wpdma_rx[0]);
-> +	if (mtk_wed_is_v3_or_greater(dev->hw))
-> +		wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring[1],
-> +			dev->wlan.wpdma_rx[1]);
-> =20
->  	if (!dev->wlan.hw_rro)
->  		return;
-> @@ -2323,6 +2334,16 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_=
-mask)
->  		if (!dev->rx_wdma[i].desc)
->  			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
-> =20
-> +	if (dev->wlan.hw_rro) {
-> +		for (i =3D 0; i < MTK_WED_RX_PAGE_QUEUES; i++) {
-> +			u32 addr =3D MTK_WED_RRO_MSDU_PG_CTRL0(i) +
-> +				   MTK_WED_RING_OFS_COUNT;
-> +
-> +			if (!wed_r32(dev, addr))
-> +				wed_w32(dev, addr, 1);
-> +		}
-> +	}
-> +
->  	mtk_wed_hw_init(dev);
->  	mtk_wed_configure_irq(dev, irq_mask);
-> =20
-> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.h b/drivers/net/ethern=
-et/mediatek/mtk_wed.h
-> index c1f0479d7a7182919e77c40efc30ade37abfad58..b49aee9a8b65156310e4f66a1=
-7921e5320b3077c 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_wed.h
-> +++ b/drivers/net/ethernet/mediatek/mtk_wed.h
-> @@ -17,7 +17,7 @@ struct mtk_wed_wo;
->  struct mtk_wed_soc_data {
->  	struct {
->  		u32 tx_bm_tkid;
-> -		u32 wpdma_rx_ring0;
-> +		u32 wpdma_rx_ring[MTK_WED_RX_QUEUES];
->  		u32 reset_idx_tx_mask;
->  		u32 reset_idx_rx_mask;
->  	} regmap;
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c b/drivers/n=
-et/wireless/mediatek/mt76/mt7915/mmio.c
-> index 4a82f8e4c118061fc76459dc0e38f7ee27e25a3a..36488aa6cc20117de4f5b76b8=
-0beca149015e055 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-> @@ -664,8 +664,8 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void=
- *pdev_ptr,
->  					 MT_RXQ_WED_RING_BASE;
->  		wed->wlan.wpdma_rx_glo =3D pci_resource_start(pci_dev, 0) +
->  					 MT_WPDMA_GLO_CFG;
-> -		wed->wlan.wpdma_rx =3D pci_resource_start(pci_dev, 0) +
-> -				     MT_RXQ_WED_DATA_RING_BASE;
-> +		wed->wlan.wpdma_rx[0] =3D pci_resource_start(pci_dev, 0) +
-> +					MT_RXQ_WED_DATA_RING_BASE;
->  	} else {
->  		struct platform_device *plat_dev =3D pdev_ptr;
->  		struct resource *res;
-> @@ -687,7 +687,7 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void=
- *pdev_ptr,
->  		wed->wlan.wpdma_tx =3D res->start + MT_TXQ_WED_RING_BASE;
->  		wed->wlan.wpdma_txfree =3D res->start + MT_RXQ_WED_RING_BASE;
->  		wed->wlan.wpdma_rx_glo =3D res->start + MT_WPDMA_GLO_CFG;
-> -		wed->wlan.wpdma_rx =3D res->start + MT_RXQ_WED_DATA_RING_BASE;
-> +		wed->wlan.wpdma_rx[0] =3D res->start + MT_RXQ_WED_DATA_RING_BASE;
->  	}
->  	wed->wlan.nbuf =3D MT7915_HW_TOKEN_SIZE;
->  	wed->wlan.tx_tbit[0] =3D is_mt7915(&dev->mt76) ? 4 : 30;
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/n=
-et/wireless/mediatek/mt76/mt7996/mmio.c
-> index 30b40f4a91be81d429d11f15036167396756d2dc..fb2428a9b877899a0a6fb879a=
-ba84e1f6e7840f2 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-> @@ -503,9 +503,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void=
- *pdev_ptr,
->  		}
-> =20
->  		wed->wlan.wpdma_rx_glo =3D wed->wlan.phy_base + hif1_ofs + MT_WFDMA0_G=
-LO_CFG;
-> -		wed->wlan.wpdma_rx =3D wed->wlan.phy_base + hif1_ofs +
-> -				     MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-> -				     MT7996_RXQ_BAND0 * MT_RING_SIZE;
-> +		wed->wlan.wpdma_rx[0] =3D wed->wlan.phy_base + hif1_ofs +
-> +					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-> +					MT7996_RXQ_BAND0 * MT_RING_SIZE;
-> =20
->  		wed->wlan.id =3D MT7996_DEVICE_ID_2;
->  		wed->wlan.tx_tbit[0] =3D ffs(MT_INT_TX_DONE_BAND2) - 1;
-> @@ -518,9 +518,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void=
- *pdev_ptr,
-> =20
->  		wed->wlan.wpdma_rx_glo =3D wed->wlan.phy_base + MT_WFDMA0_GLO_CFG;
-> =20
-> -		wed->wlan.wpdma_rx =3D wed->wlan.phy_base +
-> -				     MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-> -				     MT7996_RXQ_BAND0 * MT_RING_SIZE;
-> +		wed->wlan.wpdma_rx[0] =3D wed->wlan.phy_base +
-> +					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-> +					MT7996_RXQ_BAND0 * MT_RING_SIZE;
-> =20
->  		wed->wlan.wpdma_rx_rro[0] =3D wed->wlan.phy_base +
->  					    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND0) +
-> diff --git a/include/linux/soc/mediatek/mtk_wed.h b/include/linux/soc/med=
-iatek/mtk_wed.h
-> index d8949a4ed0dc9d41b3364e85a21e15d258519c45..c4ff6bab176db1f51cd94ac41=
-98df0caeb557df2 100644
-> --- a/include/linux/soc/mediatek/mtk_wed.h
-> +++ b/include/linux/soc/mediatek/mtk_wed.h
-> @@ -147,7 +147,7 @@ struct mtk_wed_device {
->  		u32 wpdma_tx;
->  		u32 wpdma_txfree;
->  		u32 wpdma_rx_glo;
-> -		u32 wpdma_rx;
-> +		u32 wpdma_rx[MTK_WED_RX_QUEUES];
->  		u32 wpdma_rx_rro[MTK_WED_RX_QUEUES];
->  		u32 wpdma_rx_pg;
-> =20
->=20
-> ---
-> base-commit: 37816488247ddddbc3de113c78c83572274b1e2e
-> change-id: 20250718-mt7992-wed-support-456a50d51f81
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
+ Documentation/dev-tools/kasan.rst  |   3 +
+ arch/arm64/include/asm/memory.h    |   1 +
+ arch/arm64/include/asm/mte-kasan.h |   6 +
+ arch/arm64/kernel/cpufeature.c     |   6 +
+ arch/arm64/kernel/mte.c            |  14 +
+ include/linux/kasan.h              |   2 +
+ mm/kasan/hw_tags.c                 |  76 +++++-
+ mm/kasan/kasan.h                   |  10 +
+ mm/kasan/kasan_test_c.c            | 423 +++++++++++++++++++++++------
+ 9 files changed, 457 insertions(+), 84 deletions(-)
 
---tUkM0kw1EW+Gc919
-Content-Type: application/pgp-signature; name=signature.asc
 
------BEGIN PGP SIGNATURE-----
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaJoK6gAKCRA6cBh0uS2t
-rMloAQDn7DXObmUzbddOqjkd2V7tmNtj1rtHscOfahKnaXJgVQD9GiMoNpQbc8Ap
-ubPxbbzkSbSnYHUfX5m+UPl/krunngY=
-=S99v
------END PGP SIGNATURE-----
-
---tUkM0kw1EW+Gc919--
 
