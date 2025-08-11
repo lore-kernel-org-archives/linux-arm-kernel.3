@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1EDC87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB306C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uWl/3zDBRXCdqh5+iawVIJMESjqwmHAtoumjUHvK/58=; b=UedIAzxJaaWDlRcF5UYDB2vEgx
-	XVFXEkVI2wB+8B9YcRKFJWCTMqpIrDLi8+Im5GzJJpZXNzxB2+axrwUPOaHabuxjkoy3N9fzCwax8
-	rDN2rIWkxfBIfQcPEb4yjfw8qv4pRJmFfM4pI0VfuYH1JSquHhUsTNzWdUBPcuHmcBBPGBG0ecmxi
-	tACDpru6iFk0uKn0YTGD/uwgCeW+dFvtM7bcZZ8Kz5xzkVABl7QjoiasPJsdUrOeQqUpLCH25s7yp
-	YlueFNZ54xpjCvpEkZ1Bw9KvFwEpLeA4ZmKcggLKkYslXEZdCyyXv+DEQ84oTvEf7Ypfjk0gFXUs2
-	c2wUWbLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AOJOMq58jKAKMa59MPVaGQhSJiELzNeCXp/dame3PA4=; b=sT72O2LARLdaiQJlbsL+jQTkZY
+	2cItKWIMhSIw5SRxnw5buOLaJ7zB4xHKUC+7Voko6u0YsW77RKDcEwfDodw0Bs3RDhzllD/6U2yAA
+	0wVycNqlm3xD7Es7pczPNv75t+LeUbzdmHoMkMbL3X+2DGoUJqlW8IAPPaXST9MP45DkX+qQVuCRU
+	xWiBFZ2oxia7DmilZqxh1CtmlLkyNioEXWwii27+Co4EoclMbmnVgVJe6kM/UdRd24bHjCLeDdO6Y
+	NjiGfqXzoao1KMQhAVs4Ochcl/UblxPyxneLSgadMXilzMUuOwir5AGnvCypACTBWjRXFhmN0FbUz
+	zrV2Fu4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulRJi-00000007arN-2eV5;
-	Mon, 11 Aug 2025 12:07:54 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulRH6-00000007aUv-2BLI
+	id 1ulROY-00000007bfJ-0Rpf;
+	Mon, 11 Aug 2025 12:12:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulRLu-00000007bFw-2L5k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 12:05:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 80A2D5C6326;
-	Mon, 11 Aug 2025 12:05:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C21D1C4CEED;
-	Mon, 11 Aug 2025 12:05:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754913911;
-	bh=99hH0t8BmmfPSDcs9stJyBQ4nZ4aeI4XZXCgdCqeWrM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AIMANRA9nU5eZ1bzDo+BC5F8pExgAUWt7KrajDRY/AfArlsWTYAm3kVSYB4fO+oq3
-	 5EC7KOvhf7V2jrHa5Unb2c8DbmteD1FvX+9wgjvfFkWz3syM88CebGsT5AHd4jpeaH
-	 j5kVs1/QDAIveeZOXLhJgPelFF/srTkxtKX1YmdTqjxmqMlNoMBSB5861aLmR4c4ra
-	 QTYSdOKaNjrbh2xN1r0dcnyafPtKFhVvws+qT0i/1TWwPRpfyOxwSEe4/RU3oJ3l02
-	 xbGnJ+JchYMsq1s4tV/q7cpUgtOperSN/quzRdsYKVhC43ax8+KCQN5bnmyw9Le3Z+
-	 EIYfAKKyWIPVw==
-Date: Mon, 11 Aug 2025 13:05:06 +0100
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: fanqincui <fanqincui@163.com>, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Fanqin Cui <cuifq1@chinatelecom.cn>, hanht2@chinatelecom.cn
-Subject: Re: [PATCH] arm64/module: Support for patching modules during runtime
-Message-ID: <aJnccgC5E-ui2Oqo@willie-the-truck>
-References: <20250807072700.348514-1-fanqincui@163.com>
- <aJXlegQfZTdimS3k@willie-the-truck>
- <3d4011c0.6aaa.198981027d7.Coremail.fanqincui@163.com>
- <86zfc68exk.wl-maz@kernel.org>
+	Mon, 11 Aug 2025 12:10:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 856C01D13;
+	Mon, 11 Aug 2025 05:09:59 -0700 (PDT)
+Received: from [10.57.5.137] (unknown [10.57.5.137])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22B1B3F738;
+	Mon, 11 Aug 2025 05:09:59 -0700 (PDT)
+Message-ID: <8fd39851-4bbc-4a31-84d9-5939b519d308@arm.com>
+Date: Mon, 11 Aug 2025 13:09:52 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86zfc68exk.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH 1/2] dma/pool: Use vmap() address for memory
+ encryption helpers on ARM64
+To: Mike Rapoport <rppt@kernel.org>,
+ Shanker Donthineni <sdonthineni@nvidia.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Steven Price <steven.price@arm.com>, linux-arm-kernel@lists.infradead.org,
+ Gavin Shan <gshan@redhat.com>, Vikram Sethi <vsethi@nvidia.com>,
+ Jason Sequeira <jsequeira@nvidia.com>, Dev Jain <dev.jain@arm.com>,
+ David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev
+References: <20250811005036.714274-1-sdonthineni@nvidia.com>
+ <20250811005036.714274-2-sdonthineni@nvidia.com>
+ <aJmuXTNUzsq1jKEK@kernel.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aJmuXTNUzsq1jKEK@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_050512_604436_B3D719D2 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20250811_051010_679969_D3A2B635 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +74,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 09:01:43AM +0100, Marc Zyngier wrote:
-> On Mon, 11 Aug 2025 08:37:32 +0100,
-> fanqincui <fanqincui@163.com> wrote:
-> > 
-> > Hi will,
-> > Yes, you are right. The alternative callback function lives inside the module.
-> > This callback function is actually similar to kvm_update_va_mask in KVM;
-> > 
-> > The module's callback function calculates some values based on
-> > the current CPU features and then performs the replacement.
-> > 
-> > The .text.alternative_cb section is actually marked as SHF_EXECINSTR | SHF_ALLOC
-> > during compilation, so intersections() includes this section and sets it as executable later.
+On 2025-08-11 9:48 am, Mike Rapoport wrote:
+> On Sun, Aug 10, 2025 at 07:50:34PM -0500, Shanker Donthineni wrote:
+>> In atomic_pool_expand(), set_memory_encrypted()/set_memory_decrypted()
+>> are currently called with page_to_virt(page). On ARM64 with
+>> CONFIG_DMA_DIRECT_REMAP=y, the atomic pool is mapped via vmap(), so
+>> page_to_virt(page) does not reference the actual mapped region.
+>>
+>> Using this incorrect address can cause encryption attribute updates to
+>> be applied to the wrong memory region. On ARM64 systems with memory
+>> encryption enabled (e.g. CCA), this can lead to data corruption or
+>> crashes.
+>>
+>> Fix this by using the vmap() address ('addr') on ARM64 when invoking
+>> the memory encryption helpers, while retaining the existing
+>> page_to_virt(page) usage for other architectures.
+>>
+>> Fixes: 76a19940bd62 ("dma-direct: atomic allocations must come from atomic coherent pools")
+>> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
+>> ---
+>>   kernel/dma/pool.c | 8 ++++----
+>>   1 file changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
+>> index 7b04f7575796b..ba08a301590fd 100644
+>> --- a/kernel/dma/pool.c
+>> +++ b/kernel/dma/pool.c
+>> @@ -81,6 +81,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>>   {
+>>   	unsigned int order;
+>>   	struct page *page = NULL;
+>> +	void *vaddr;
+>>   	void *addr;
+>>   	int ret = -ENOMEM;
+>>   
+>> @@ -113,8 +114,8 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>>   	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
+>>   	 * shrink so no re-encryption occurs in dma_direct_free().
+>>   	 */
+>> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+>> -				   1 << order);
+>> +	vaddr = IS_ENABLED(CONFIG_ARM64) ? addr : page_to_virt(page);
 > 
-> I'm worried there is a chicken-and-egg problem here. What if the
-> callback itself requires patching via some other alternative? Is there
-> a guarantee that this always performed in the correct order?
+> There's address calculation just before this code:
+> 
+> #ifdef CONFIG_DMA_DIRECT_REMAP
+> 	addr = dma_common_contiguous_remap(page, pool_size,
+> 					   pgprot_dmacoherent(PAGE_KERNEL),
+> 					   __builtin_return_address(0));
+> 	if (!addr)
+> 		goto free_page;
+> #else
+> 	addr = page_to_virt(page);
+> #endif
+> 
+> It should be enough to s/page_to_virt(page)/addr in the call to
+> set_memory_decrypted().
 
-Maybe we should just reject loading modules that have alternative
-callbacks that don't reside in the kernel text? I _think_ that should
-cover all the in-tree users, although I didn't get a reply to my
-question asking which module triggered this bug report.
+Indeed, and either way this is clearly a DMA_DIRECT_REMAP concern rather 
+than just an ARM64 one.
 
-Will
+Thanks,
+Robin.
+
+>> +	ret = set_memory_decrypted((unsigned long)vaddr, 1 << order);
+>>   	if (ret)
+>>   		goto remove_mapping;
+>>   	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
+>> @@ -126,8 +127,7 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>>   	return 0;
+>>   
+>>   encrypt_mapping:
+>> -	ret = set_memory_encrypted((unsigned long)page_to_virt(page),
+>> -				   1 << order);
+>> +	ret = set_memory_encrypted((unsigned long)vaddr, 1 << order);
+>>   	if (WARN_ON_ONCE(ret)) {
+>>   		/* Decrypt succeeded but encrypt failed, purposely leak */
+>>   		goto out;
+>> -- 
+>> 2.25.1
+>>
+> 
+
 
