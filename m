@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE8CCA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6484DCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ihP/wnPXyZhWgHPlteto2ft6qT692i4bL35PGC7Kwgs=; b=kOEJVN4vZWLPKnpoRyta6rse/A
-	sUeCtwOHo9jKsabBb4HRviDnW+mqb9d2cmKdX8rGgxaoeem8GRQl0PRWbDd570O0D1CCArmjuXEfO
-	EhCX7ON8O2KOB1V96BHvgn2mXL705BKlJpCVoBj01fBZmAyBePb5979xA0N8IRoz5x7aAiLRy4qZu
-	ANlT5CbfZn3wKCRa3ST7s2w51HYYpNb2yxSPt/cdOtp3YQE2akUMFd7WOrBUAgtpqWZOVGRxJcKM3
-	DN4j3yWaTZPqXHw2cu93aYrg3WIA+aQgGddbDRavTIwt0k9oisLklT0cTdg2NaIGesmHgfCeXCYqy
-	pQNQQZ2g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gr8F9oLlUMXE4zHvyjlznjcTWEkXwUVRTFmLoor2DC4=; b=YnRyh+15Lk6tfkhBoOQghLzroy
+	KOCyglc9cD1qliGjp4eb/vKwwo91NpZtC3eRtPmtPKPa5OumNSODlAVZlLEUz9RLoK9HtayrxYBup
+	QhKgMVKi/jKDGJ0L2MU4NQrXFUMTHHTa9Te0kxkeBADtLQb4Ttqwwue0LhEc2FMjabj8xMrf4TuAl
+	pd/OmVEfhQSriq5M762QEveXCvxlrqUiblIhikAEwGnGF09LMwMdWzrLDpMqC0k1fvE9RIVrRWj2O
+	fqYxXYAqSyCRxS5mt4OcUR3RfFu6POpzwJLK7vivCr8sGTrN4dv0r2w7sEdAcQDxYUCMU5rwzJuPh
+	5jIEqt1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWdd-00000008b5T-0BbW;
-	Mon, 11 Aug 2025 17:48:49 +0000
-Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
+	id 1ulWgD-00000008bNf-3HPI;
+	Mon, 11 Aug 2025 17:51:29 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUHl-00000008APH-3Og6
+	id 1ulUHm-00000008APf-3bOT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 15:18:07 +0000
-Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-af96d097df5so815683066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 08:18:05 -0700 (PDT)
+	Mon, 11 Aug 2025 15:18:08 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-61564c06e0dso7093528a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 08:18:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1754925484; x=1755530284; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ihP/wnPXyZhWgHPlteto2ft6qT692i4bL35PGC7Kwgs=;
-        b=a6Re2YkF20hwM03xVw9j6ySEVAOy8YPDTohY+9c+pPkTQCI5RZE6DMTPoU94S0DuHw
-         8DHQrQMrwV4uuOar0UdPuSZvnmkm98b263Id28lPCfKfRMYkYS6gIaprCrmi3aUOxhTp
-         h1cWj8Rxj1lxS6expbIn1k4kH6RBuW5/a3ZT/z30CdMjBMiYVJ4UQNeZ6qSmnEdon2uq
-         Xhz33JDMSw79XSFNay560qogxO9sIf7G3UC6D+wv+jOAB5YtKcfocseIj8XmMgpFhFtF
-         u8N6p/nDtt3WXIDtXsafCIgwLk56Y9MPW0I66sXw1jIzP4rAhX3EDtGTeP4oUz5+2prM
-         NWHg==
+        d=suse.com; s=google; t=1754925485; x=1755530285; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Gr8F9oLlUMXE4zHvyjlznjcTWEkXwUVRTFmLoor2DC4=;
+        b=P4fX8NuLWfvbAjCvSCVkjeHG+faKgfDQJAtFfJabo8nDDXHlfKU1IagttTp9eNybSS
+         kqHF0RQqHr4WIjv8pa/jZyZQpL7c/7g7x36ssMvKuJFp6lyR6G9rQAnba2Gj0+8gXg7s
+         /pjVpJswda+Si1wszfmz4xfvn1YSx9j4kgmqGLgHCh0mQOOVIODPqprIucgiTu5G5kSz
+         LAFd2nENuXNcYJRD5r7mlQKU4cW/WebIzOgjvY81+bI21rEAVkh2k5jUg5lpPpYhEr1l
+         1mc1/IW+z2Fl+fAPnFFEfYF8Sd+fkmtus/9sCQ/U1pUO8q9+Xq8ar8s3mPjCDygxra4e
+         q37w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754925484; x=1755530284;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ihP/wnPXyZhWgHPlteto2ft6qT692i4bL35PGC7Kwgs=;
-        b=rMx87/u8fA2Ry5M52W9iVNSGboF18Aos3aRP3Ejqvb6QjhQjtQyj+DkZUX+n7Bu3kY
-         8xAc/bAKoJJ2H7IRYVOVNY3pidIYENrzpT8wOqKXQzmlcAa7+Er72lpoWZF+xbtgYC/8
-         BQEYHBXmcPCKmDAzm0SxzoWBGPJJPn/UManC6G7IcfHhMM6q9+jDeBEj7LMKqmf/6NiU
-         yu+HC0MxMheLGxqUCE1dC7BV11dHSWAY1zbP8rvqYtKGesBU1+pJiNat5l/WbBKJUROg
-         +QOPAI5Tz2ZfAX+/kaTRAhqeY8C7OGyMwU/EdEc3dBJJEt3awEWZLnHkVYAQqfB5zh2e
-         g9XA==
-X-Forwarded-Encrypted: i=1; AJvYcCX+jLrjXiEgAPTRk0YmJBxDLdxSwR45+Qb/ZbgBpgaaSw+FaGUHchyOf4txGJCY04eXEX6WqcRQ2WTLttJE9JKo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZ6KsCXZtM5CiMxQ5vadIuXUsMo4nRNgSc/0ZJG05yH52p+KBF
-	Cvq8qOGkCNwmyHr0VdQaA+9P+VAa6WFPHJRIFyCLLqrJpD36+hZviW7/65KmG6YiWD4=
-X-Gm-Gg: ASbGncsmQdMlUhNpmGcqL30HyStXqcN/ipnpL8SgJ16rasnPlKNUOgwSYwObN1HDPZc
-	PjLTX7/dq0BnIEMkjuDdHAUL573nmYOWt3oHX5M+dtQ6UMIqaErisqul9o4PdnL5T5onRtVgpZB
-	9IBFck/frZ/krKEeIOVjHw66oQUgEWmT1rmLI0VHQyeY9FLMOlU3j61K8xFdhOWgiEIJB5ftYe+
-	TVxMyewf90yFmxe8gRzsYTH3KJCP7rSztRTAbDy5HV6TkLa6DAiJsiSOoPGrt/Vx7VBZ5FGCsv4
-	xyMpAJopwzVi7pDE5kjsh0aM8wU7/VN9fGdsulGwE4KGAWcVX6uXYbOOvCYAbByCrKaA6vYDJoo
-	ea0VghL36V+SceaNYvEvvLI81KXbuoCgfJJlR87dIMzwh7gK0LHR5wwVYqxMUaDq0aQ==
-X-Google-Smtp-Source: AGHT+IGvJ3ayAmkrGkViVLnbNoPZ1sMap6TBv2tr1d6iu6pDDVV5j4fRLfmHXE5vLfntRBsHIUMHNQ==
-X-Received: by 2002:a17:907:608b:b0:af9:5b1f:b87a with SMTP id a640c23a62f3a-af9c64791a2mr1210151866b.20.1754925484035;
-        Mon, 11 Aug 2025 08:18:04 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754925485; x=1755530285;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Gr8F9oLlUMXE4zHvyjlznjcTWEkXwUVRTFmLoor2DC4=;
+        b=RJMEm89XKbCczkear8htdlym911LOGA1aIMspyaFXC8w/9HZ7sODUonjMLwyXoLE1m
+         EOqCL451QeFUgxpxjQ+YDGDizeXAxOzCONl9jtUgRGFMD7BzsBZ+zVsRQvlihSZY6JuS
+         F0HDx1wR4egv6c0a3Qf6sSoIyJupdJOJ6Lurl5+XW7Y7Q4gjs6Zp9Z+/EwFnfgwI6Ju2
+         TSDLyNFoHhEHCxLCZaPa43quJAIuu3SGw+/b5IMSewB0q8lNh8KbFVTAvu9+xWv6kRvY
+         ZqEFgiFNoIjrrPFq29xMguZ1NXqK1UdNcR1Jymqlzu4AHzauQAKbgNTUm0G0QxE+JYFg
+         iTFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV0vJ2ypkBV9G/TaOL3YaAW/a72MI8eB5+Om7T4dG0G3IkWTChufm19KfUZsC1T+EZ0nEOcDZCO7uMDML92emO4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYfgGH8urp1mySOxSPXe1qPs+5bgJTSOzaNlxWi89iof25ywAb
+	8xjOLOBFiVEEA3srl3ngN2CLwKsNn3VuFUkjKn1ps6NIBWE4QEps+pXYRrRCFl399ZA=
+X-Gm-Gg: ASbGncvj6mGWOEr1hB0L5FjC9aSAARbzp9ddCK3B8XCf3wrzn5uKPtS0OoiG/rlytcU
+	yRPPqHwuto9NyztB9vwZk2uY3CHit090F5pqXGo8o6BiORD3hiRtcMfplvTroYdpK0CCwTyojqX
+	kqDP6q23mp4VCc7Sdk4qyDlgIBHmVenhBV9zyRVWn+pvrDlg9/wz8yAYsmA5k6Ga/Fp95k/M3qH
+	7urt+UGOq8AztE9Y5+Z1Z0HKYy36TOk3FInbdJMSV6ttAJRZoxyLU0XhJidwCWsecJAnLtYJsXK
+	faagjgGyjOBLtd7pzUMGUSy4mU36wLGDokC5vYI4WrDNynMQXcCuLuUOnC0YS/oVJdAvBqRLwIL
+	DPhXhnW9531+51j95wkYfK6oycQcgd2CacdJvtgHQN4sXEans77UuRpId0V5BPBnNIOm0dTxemr
+	L2
+X-Google-Smtp-Source: AGHT+IHY6hHjl0ohw0BhRb2M7W6IV/iJBLaLg4s2DYOzsYCD7hIoPswY0Mvw0fvinMbPKLlE+Q0fyQ==
+X-Received: by 2002:a05:6402:2810:b0:615:a62a:feca with SMTP id 4fb4d7f45d1cf-617e2e9deb2mr11476569a12.31.1754925485240;
+        Mon, 11 Aug 2025 08:18:05 -0700 (PDT)
 Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a21c081sm2014946666b.97.2025.08.11.08.18.03
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a9113e40sm18638282a12.57.2025.08.11.08.18.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Aug 2025 08:18:03 -0700 (PDT)
+        Mon, 11 Aug 2025 08:18:04 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: linus.walleij@linaro.org,
 	robh@kernel.org,
@@ -92,15 +94,17 @@ To: linus.walleij@linaro.org,
 	Jiri Slaby <jirislaby@kernel.org>,
 	linux-serial@vger.kernel.org
 Cc: Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH 0/6] Add peripheral nodes to RaspberryPi 5 DT
-Date: Mon, 11 Aug 2025 17:19:44 +0200
-Message-ID: <cover.1754924348.git.andrea.porta@suse.com>
+Subject: [PATCH 1/6] dt-bindings: mmc: Add support for capabilities to Broadcom SDHCI controller
+Date: Mon, 11 Aug 2025 17:19:45 +0200
+Message-ID: <57dd103c430f1a064b6c55809e4d2be54fad0e11.1754924348.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
+In-Reply-To: <cover.1754924348.git.andrea.porta@suse.com>
+References: <cover.1754924348.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_081805_848691_4C0495AE 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250811_081806_896474_C13C5E31 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,81 +119,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The Broadcom BRCMSTB SDHCI Controller device supports Common
+properties in terms of Capabilities.
 
-The following patches add a few peripheral DT nodes and related pin/gpio
-nodes for Raspberry Pi 5.
+Reference sdhci-common schema instead of mmc-controller in order
+for capabilities to be specified in DT nodes avoiding warnings
+from the DT compiler.
 
-This brand new patchset (hence it's a V1) is the second part of the split-up
-of the patchset [1]. It tooks patches 3 to 6 from there and adds a couple
-of new patches that amend the DT bindings.
-As a result, patchset [2] is a prerequisite for this patchset.
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-- Patch 1 and 2: Amend the bindings to avoid DT compiler warnings.
-
-- Patch 3: Adds core pinctrl nodes and defines SD pins as a first appliance
-  for the pinctrl.  
-
-- Patch 4: Wires the gpio-key for power button and related gpio controller.
-
-- Patch 5: Adds DT node for WiFi.
-
-- Patch 6: Adds Bluetooth DT node.
-
-All comments and suggestions are welcome!
-
-Happy hacking!
-Ivan and Andrea
-
-Links:
-[1] - https://lore.kernel.org/all/cover.1752584387.git.andrea.porta@suse.com/
-[2] - https://lore.kernel.org/all/cover.1754922935.git.andrea.porta@suse.com/
-
-
-CHANGES since [1]:
-
---- PATCHES ---
-
-- Add two new patches (1 and 2) that amend the DT bindings.
-
-
---- DTS ---
-
-- bcm2712.dtsi: Added 'interrupt-names' and dropped 'reg-shift' and
-  'reg-io-width' properties in uarta DT node. The latter two are
-  just overridden by driver code so setting them in DT is useless.
-
-- bcm2712-rpi-5-b-ovl-rp1.dts: dropped 'auto-flow-control' property
-  since it's not parsed in driver code.
-
-
---- DT BINDINGS ---
-
-- brcm,sdhci-brcmstb.yaml: added SDHCI capabilities by including
-  sdhci-common.yaml.
-
-- serial/brcm,bcm7271-uart.yaml: let clock-frequency be an alternative way
-  to specify the clock speed instead of clocks/clock-names.
-
-
-Andrea della Porta (2):
-  dt-bindings: mmc: Add support for capabilities to Broadcom SDHCI
-    controller
-  dt-bindings: serial: Add clock-frequency property as an alternative to
-    clocks
-
-Ivan T. Ivanov (4):
-  arm64: dts: broadcom: bcm2712: Add pin controller nodes
-  arm64: dts: broadcom: bcm2712: Add one more GPIO node
-  arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
-  arm64: dts: broadcom: bcm2712: Add UARTA controller node
-
- .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |   2 +-
- .../bindings/serial/brcm,bcm7271-uart.yaml    |  19 ++-
- .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 133 ++++++++++++++++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |  47 +++++++
- 4 files changed, 198 insertions(+), 3 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+index eee6be7a7867..493655a38b37 100644
+--- a/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
++++ b/Documentation/devicetree/bindings/mmc/brcm,sdhci-brcmstb.yaml
+@@ -61,7 +61,7 @@ properties:
+     description: Specifies that controller should use auto CMD12
+ 
+ allOf:
+-  - $ref: mmc-controller.yaml#
++  - $ref: sdhci-common.yaml#
+   - if:
+       properties:
+         clock-names:
 -- 
 2.35.3
 
