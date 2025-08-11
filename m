@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B93CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0181CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a770G4hZ4M2S0ts4YkSFwqnmmOksUGwoXqm0ifoj5/M=; b=XkiQAa8VJmyy2XeICWVDxjvix+
-	bCMymezppT5TQW6/88bl+WgpVldyOl9ZF2qeCvAf0PNqfGdHfS0xeVPjlfbSMYoilsaP574RTZp1L
-	HUWWwMTCGwpIVPqadPoxayS8DoIllMx2YkwdbKYJMrWbu9gB9BZfUGm+4gdyFk7MrY4kbXl/6IYCM
-	pUUzcLnU4tLBA0dfrTh7lkQ+39FW86DBGXRD4Ahl1iJnzaPEvv2/UTKXvIxiq/Kkiqd3LtsH04I3W
-	eJ3OYJ/e4ZAOjm6xonkikXtiCIJOmOsHu5TB/3yAltlK7knkrRQ3kU3k6HnXyU9N/FelSKaZysxL8
-	6KDjXg0A==;
+	bh=a770G4hZ4M2S0ts4YkSFwqnmmOksUGwoXqm0ifoj5/M=; b=RLxJej5+5dqBiZrC9zTAbWUdKV
+	tauQfU7XtIHvx4UMCYJrqZnjoKUYEuqp00eBpwHZPeXV29rTTEo0SrbNY5kMmlJ4f3+25NnBfRP74
+	tAhgR75aQKg0f2JVcF4MqPVmZusQJmBKjuTBn+4ZwCiiQxDdFAYDobti/zkULVgyDrYE/58Fj80bx
+	Ui0vcdNHa6Rkq0seEAbTuQFsV7GXlhn6+jOtOeJtkFGbKSvwsLF1YtRdUL/ITOdKOdf73v5GhaeH9
+	okrzLtZ95L1UJulk28RD7+Wb+9i2Sn9k7U81D7hCXkoTyd8gXaatePeoBhpgYsB5bosJInyXbMtBr
+	GpmYnCMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWYV-00000008aaH-18Yo;
-	Mon, 11 Aug 2025 17:43:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulWb4-00000008aqm-1RCB;
+	Mon, 11 Aug 2025 17:46:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUH6-00000008AKh-2g8T;
-	Mon, 11 Aug 2025 15:17:25 +0000
+	id 1ulUHI-00000008ALq-09IM;
+	Mon, 11 Aug 2025 15:17:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 031B54506F;
-	Mon, 11 Aug 2025 15:17:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42324C4CEED;
-	Mon, 11 Aug 2025 15:17:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C8288601FA;
+	Mon, 11 Aug 2025 15:17:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 660DDC4CEED;
+	Mon, 11 Aug 2025 15:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925443;
+	s=k20201202; t=1754925454;
 	bh=oThR9g2icfJGdLraqN6epyKlvrTrIwhnXHmwgyj+e4U=;
 	h=From:Date:Subject:To:Cc:From;
-	b=paIs/L4N2hHs8WcBBgNRALH0iGMetf2rTx4ne3KmbhWFTDZ8eDlna1n9f8qtMiNWM
-	 tNTZyS5EimP+v6FMt20IOOIweyGyaJaL8pm3L+VJ5tPB9CaL/Ir02p+vfIZMv3XVuN
-	 HWgTqYq1HRxsRaPxi2wPD/+fBiQ3hmqywuqmzgrbdk686ETut97AlZfMrebnjdcQHr
-	 03hvE92zIGp69uXez9bK4O9DTYgwt6fGSrSLjkz8T1UsjHe4gSYBfABK1MseqQhcJb
-	 cWrPHo7MSuDppny+0GnL+wcsPfEYK3O8GDGRaLxAdwn+zhCGKh33Cjgolt/XUXyHWY
-	 mvVxRCSyR+mZQ==
+	b=PHXoMbBHrxsj90+ujDv/fhsjbKSmZPTpIFG/oVpmVca6mzPEuzcaIa5AVbwjqxXHS
+	 aacHADV2B53n1o22TH+TQsStq8ve4TeSzawrJtR6Pn13DGTxDHf/W4pPVjk0bn6XYl
+	 JptMlAMWlNzh9dGldvwtzMSX6ia8sleg7al4DwN9NelQGW9hJULLbRS9XusvnAm6Ni
+	 H6fupFzH8wQSPjiqld4Mo9sbE4EBvpN4jR5LB0RVP1o792EmVYsm0Z1XzbVulddnaf
+	 gvA75phT6Ko+hY5i3ltOMNqFg+DP2QMF+WxiFvB7RvRCtJ+V7w03KunGVcU3wPvDv+
+	 f4GIUKLjuaf3Q==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 11 Aug 2025 17:17:02 +0200
+Date: Mon, 11 Aug 2025 17:14:42 +0200
 Subject: [PATCH net-next v2] net: mediatek: wed: Introduce MT7992 WED
  support to MT7988 SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250811-mt7992-wed-support-v2-1-b3955963d959@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAG0JmmgC/22NQQ6CMBBFr0Jm7RjaUAuuuIdh0dABGpWSKVYN6
+Message-Id: <20250811-mt7992-wed-support-v2-1-e43024c05305@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAOEImmgC/22NQQ6CMBBFr0Jm7RjaUAuuuIdh0dABGpWSKVYN6
  d2txKXL95L//gaB2FGAc7EBU3TB+TmDPBTQT2YeCZ3NDLKUqtSixvuqm0bikyyGx7J4XrFSJ6N
  Kq8RQC8jDhWlwrz166TJPLqye3/tHFF/7y0n9LxcFCjTGamsq29dat1fimW5HzyN0KaUPjeEV2
  rUAAAA=
@@ -66,9 +66,6 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org, 
  Rex Lu <rex.lu@mediatek.com>
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_081724_728765_C8FBC81A 
-X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
