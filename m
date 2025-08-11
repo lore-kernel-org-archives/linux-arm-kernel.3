@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FF7C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 05:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABA7C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 05:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGaUrxnPupGN/G94QupN7sqi/0EBTqM+/xSQq20HIj4=; b=VjD1oDb0OAqEFjdAnLcVTakuuj
-	LNgIdCUPJcXzWHVC2QADEepuHlsQ3z1T8rdnRm7QjSvHfWM8yDfqIqOaDrAFKZwsRCv+oxClb29Js
-	k434Dob1fsWOM5StTIQqZ0D/ahFBsto4RijWOI2DCjWa3HUR6QNPtZXYVbZqMncLD9cKpxuh6RPQg
-	WxSebEZXMR9z+ljUxAXPvxPcWMNOmZJ9/Z+rpnj7P1ddNrAcD5xKQIVcZrbhWW5lC2Ef6f0q2LZcJ
-	5x2Av2BkHXS7lKTI4JVeGwuveUYoz0YsPwQLO+VgAZU5bnydW/SWKWyWy6IG3HjHUDNBXE8PD1NyE
-	CGKp6oIw==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XrMwKX+SRUfTd+laIq2RPXWM2s+IfHFPYhm80O9b7rI=; b=NPtQio+JxKX7X+jd+PNGPZ2RRP
+	crMRffuAMxxQbShzQ+Vi/IhBwLXrrHZ/oPkW5dUtnCKAAJ4Xry/EFvUoI4g3ml5ObmNmKkfQcun7N
+	N977cLb5DLEoZOnsm1m8QPwTDEw/WTNK8xVVYubtCFhSQeF+eNqCbaQoOXX+h1l3pf9kF/hQciqOZ
+	4oBXjhaA9FnX4K1eBWXNVgTjvNgISZrEjdbGTpK/2BswbAWkvBjTV5KPzESBfcOKetWCJkkh68nbo
+	jk8jwwASih4XXHcoPuJMdFWcKQa160DbDtXNFQS15Ejjk6qtDEZ8WasW3p5Vo3r+gRtyJfYD7MngA
+	xVJwOfMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulLA6-00000006W16-2HMw;
-	Mon, 11 Aug 2025 05:33:34 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1ulLKi-00000006Wrs-005T;
+	Mon, 11 Aug 2025 05:44:32 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulL7Z-00000006Vob-3RAJ
+	id 1ulLIB-00000006Wmj-0zMF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 05:30:59 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57B5UjKe1036119;
-	Mon, 11 Aug 2025 00:30:45 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1754890245;
-	bh=qGaUrxnPupGN/G94QupN7sqi/0EBTqM+/xSQq20HIj4=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=yFHpeB+ucmTh/ltorX1Mz72rh6S2cswshu3GSv3iMBWiypkMidCgpzm+ZToswAwS/
-	 N9XM9eELfg7Mku8oh5m+8XokVnqR66d0lDRWZC5ox939jiCBLIxHGHrDd3ajFMGo+y
-	 8ehi3gMjla23FWoSfBtHCrkVU9nkjxk/TJMgLHgs=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57B5Uj0B2434724
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Mon, 11 Aug 2025 00:30:45 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 11
- Aug 2025 00:30:45 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
- Frontend Transport; Mon, 11 Aug 2025 00:30:45 -0500
-Received: from [10.249.145.16] ([10.249.145.16])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57B5Ueij2636883;
-	Mon, 11 Aug 2025 00:30:41 -0500
-Message-ID: <be073100-31a0-44a9-8837-8c0adaf1c0ff@ti.com>
-Date: Mon, 11 Aug 2025 11:00:39 +0530
+	Mon, 11 Aug 2025 05:41:56 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1754890911;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XrMwKX+SRUfTd+laIq2RPXWM2s+IfHFPYhm80O9b7rI=;
+	b=zFHUHJ68aZkzLP2ReY2er1LhB7uYnOiTcBUSd+5Lu/zzPHN5fSskwus4tlj9ahe2YdHtti
+	O1yKND6GvNXIh6cqc4jjI1bicKnUjGT4h9JpmUkvflpS4j+WEpprKkElEfUgcVak5Bu+e7
+	arbJteLD7YfE+fMdIfGM64DXxiNkH5nTRZn5zv8Xgwv1spKVgwdrY9zzb1RitzbN9+uqV3
+	9N9F8cS9cIh+C5vXwl24afW4cAgt0NmITcHAyIX1gippKtjZR0K8nudeiE/8Vnp4AGt5K7
+	+Whawep5w/g7+ivldsTNCqcKOJpN8ng1XkVWA/5TV5Ejd/mwJ652AAvrY4dGHg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1754890911;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=XrMwKX+SRUfTd+laIq2RPXWM2s+IfHFPYhm80O9b7rI=;
+	b=xSY1wHhPYDA11OkH6cQqKXKUMa9VeKo/v7OzWRulLeadzrNrORfLYdYdUFBcjHJUkLwI86
+	8YUJmCyAJ6vkmSDg==
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Nam Cao <namcao@linutronix.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] PCI: xilinx: Fix NULL pointer dereference
+Date: Mon, 11 Aug 2025 07:41:44 +0200
+Message-Id: <20250811054144.4049448-1-namcao@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: dts: ti: k3-j722s-main: Add E5010 JPEG Encoder
-To: Brandon Brnich <b-brnich@ti.com>, <linux-kernel@vger.kernel.org>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Tero
- Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        Udit
- Kumar <u-kumar1@ti.com>, Darren Etheridge <detheridge@ti.com>
-References: <20250808155555.2632451-1-b-brnich@ti.com>
-Content-Language: en-US
-From: devarsh <devarsht@ti.com>
-In-Reply-To: <20250808155555.2632451-1-b-brnich@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_223058_034796_8174432A 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20250810_224155_411179_95FDBA4E 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/08/25 21:25, Brandon Brnich wrote:
-> This adds node for E5010 JPEG Encoder which is a stateful JPEG Encoder
-> present in J722s SoC, supporting baseline encoding of semiplanar based
-> YUV420 and YUV422 raw video formats to JPEG encoding, with resolutions
-> supported from 64x64 to 8kx8k.
-> 
-> Signed-off-by: Brandon Brnich <b-brnich@ti.com>
+Commit f29861aa301c5 ("PCI: xilinx: Switch to
+msi_create_parent_irq_domain()") changed xilinx_pcie::msi_domain from child
+devices' interrupt domain into Xilinx AXI bridge's interrupt domain.
 
-Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
+However, xilinx_pcie_intr_handler() wasn't changed and still reads Xilinx
+AXI bridge's interrupt domain from xilinx_pcie::msi_domain->parent. This
+pointer is NULL now.
 
-Regards
-Devarsh
-> ---
-> 
-> Changes in v3:
->   - Add TI compatible
->   - Make node name more generic
-> 
-> Changes in v2:
->   - remove invalid clock-names attribute
-> 
->  arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> index 5cfa7bf36641..c0a104bc87ad 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
-> @@ -385,6 +385,16 @@ c7x_1: dsp@7e200000 {
->  		ti,sci-proc-ids = <0x31 0xff>;
->  		status = "disabled";
->  	};
-> +
-> +	e5010: jpeg-encoder@fd20000 {
-> +		compatible = "ti,am62a-jpeg-enc", "img,e5010-jpeg-enc";
-> +		reg = <0x00 0xfd20000 0x00 0x100>,
-> +		      <0x00 0xfd20200 0x00 0x200>;
-> +		reg-names = "core","mmu";
-> +		clocks = <&k3_clks 201 0>;
-> +		power-domains = <&k3_pds 201 TI_SCI_PD_EXCLUSIVE>;
-> +		interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-> +	};
->  };
->  
->  &main_bcdma_csi {
+Update xilinx_pcie_intr_handler() to read the correct interrupt domain
+pointer.
+
+Fixes: f29861aa301c5 ("PCI: xilinx: Switch to msi_create_parent_irq_domain(=
+)")
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+ drivers/pci/controller/pcie-xilinx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/=
+pcie-xilinx.c
+index f121836c3cf4..937ea6ae1ac4 100644
+--- a/drivers/pci/controller/pcie-xilinx.c
++++ b/drivers/pci/controller/pcie-xilinx.c
+@@ -400,7 +400,7 @@ static irqreturn_t xilinx_pcie_intr_handler(int irq, vo=
+id *data)
+ 		if (val & XILINX_PCIE_RPIFR1_MSI_INTR) {
+ 			val =3D pcie_read(pcie, XILINX_PCIE_REG_RPIFR2) &
+ 				XILINX_PCIE_RPIFR2_MSG_DATA;
+-			domain =3D pcie->msi_domain->parent;
++			domain =3D pcie->msi_domain;
+ 		} else {
+ 			val =3D (val & XILINX_PCIE_RPIFR1_INTR_MASK) >>
+ 				XILINX_PCIE_RPIFR1_INTR_SHIFT;
+--=20
+2.39.5
 
 
