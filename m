@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9838CA0EDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:05:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D348DCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 22:05:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9V5VfhYaPt91Z3FidTa6FKvvV8bVqIRfkqocgcqYmA=; b=wEzs2OqHX0Q+SBY8u+xtqfYu2d
-	lcrfKyQ7a4sj3Hee/9egHq+TEgfjfnUIcd77N+62VMeDHcfVIOgNJh8XFuXKpx9utJk6FGw2k8NWS
-	58+P8i5v64bHMQjtCgVLG4PtZATb7ke6IVBF8JQpDa+iDIIvxtUnKZQCJnNbDSxx53W6cgo6LVe5D
-	nJPAPHs0QBWOZMGPPeM29CHfVPZQognH8byIRdIqXIgGmoHQamRT/VvdQN+/PA351/ex40SixWPzP
-	xnqIMXee4OTa2y54QlaH81VA6mZwXOqvqIIDf1NeAAlXk+x7gzxcHNpnJ7PHWRJm2P2jXBci3Atwy
-	f/tDxQ0w==;
+	bh=6SvPkU6ufU919JSJdD2E8l2uxMmJ4h0bds2AOPjnr2E=; b=1Zu9b5lDNIptMsdr1jmOPINV7L
+	KXqMa2aGaKLhkzS6vz8T7uyUx5SkcpMpMBTCbvIuVLXqtaYYDD2lS/i0+K1oarrOGIS9snQhy22sX
+	g7z73pAa0mYmYbWYsEY+FczPhf3W626lvqrhhHPlIfZV6BUJ2rLUTciEKTEZl1hGj60d2CQ33k0eS
+	lmohvvutRKL6vgx15lglXYJ47PQj6JaFrIyW6ahbk3/GKZCueRzGcDxjZ+jNhi06ReOI+dijYFsJP
+	8VCWd6Cp9SlL+IGk+1jgbqyUApU757TnDQjRLzXLwyTdn+ZJryGNjJO3qiKdgBsASOswIoXIe2l93
+	4reufCcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uladS-00000009E9L-3hhG;
-	Mon, 11 Aug 2025 22:04:54 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uladk-00000009EqD-1rat;
+	Mon, 11 Aug 2025 22:05:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulZ7H-000000090vy-1PVJ;
-	Mon, 11 Aug 2025 20:27:36 +0000
+	id 1ula1B-000000094xi-3oaZ;
+	Mon, 11 Aug 2025 21:25:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1754944053;
-	bh=97/FktGL1WOXce4gBvBtsbBUHJjxPvrKCEWOXUD7x0A=;
+	s=mail; t=1754947520;
+	bh=Se/XuCy4Kpgqy/Lsz9lRmsfQvSwyPuBPc1dOKtWoRHY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=V7mApP9gHD2h8fQ/FCG0mp2/K5QdXJNnbdr4X1Dm5Ny53ABy3jt6WwcwFdGDJ0AG+
-	 9oaiI43faZxshCNzTAgHMDzGGfiHkRctvSaoBwDaL7YU76QCHPxICQTuT9jWxScDvw
-	 D/ujR0cMQCRBhUEr8R7v5D0XpEKfCm1LSkYg94fIe3L3reaq/zybv0JZEtPym8BxdX
-	 Czx3xfeLm4LthxppoH4sdImmoHGyPuJOgqPBullyVQ6/P9nG0NYHl+4+6UuGLCtSw0
-	 VPKgmDPiKuWwYD6pDNwq7vIzd51BwzsHVkANfL7BeQESSudlXTg1BnHk8R0xVUNyhe
-	 uXUT5iUdP13LA==
+	b=jgBRvlzzdsOk+nRTCAoFVfNBWHejCyBDoMfmnzydtgbaKzQE9nVRBUcluLx0TVEdd
+	 Im0M0I20QY6NBOpTKmm9otMYtILpQX6NiYhubmICYnhwRBLLUPINZMtkwN+hRIgkL4
+	 zBp2y7TDRR4YBglKkk55NETZdOif6lOafGLDRJev+tqTLbLP5Pt72vayKMXAhWSWLJ
+	 WG+d6z72yG5s96p/tpuPORauqOhBDgRuSZkkFmOjOVrhfMJs1w3qORV7mbM/x0RWgq
+	 XpLEYLal23sxUrgvO8XorKVJyC5nqwdjtOduHe+zeA4UaqMHlmvnYIZjiiJYjmqVc8
+	 3/mC18CD8k+iQ==
 Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CA64817E0C87;
-	Mon, 11 Aug 2025 22:27:31 +0200 (CEST)
-Message-ID: <017fee1a5aa36205430d0e32c84629375523f5ff.camel@collabora.com>
-Subject: Re: [PATCH v2 1/7] media: rkvdec: Add HEVC backend
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CF70217E090E;
+	Mon, 11 Aug 2025 23:25:18 +0200 (CEST)
+Message-ID: <3cf31d3b89a66b1bec57486c54c3df31393335e5.camel@collabora.com>
+Subject: Re: [PATCH v2 5/7] media: rkvdec: Disable QoS for HEVC and VP9 on
+ RK3328
 From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Detlev Casanova	
- <detlev.casanova@collabora.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>,  Heiko Stuebner	 <heiko@sntech.de>, Alex Bee
- <knaerzche@gmail.com>, Sebastian Fricke	 <sebastian.fricke@collabora.com>,
- linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 11 Aug 2025 16:27:29 -0400
-In-Reply-To: <d0d50da8-f8bb-4a6f-bd44-5199d26b7a86@kwiboo.se>
+To: Jonas Karlman <jonas@kwiboo.se>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Detlev Casanova
+ <detlev.casanova@collabora.com>,  Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Alex Bee <knaerzche@gmail.com>, Sebastian Fricke
+	 <sebastian.fricke@collabora.com>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 11 Aug 2025 17:25:17 -0400
+In-Reply-To: <20250810212454.3237486-6-jonas@kwiboo.se>
 References: <20250810212454.3237486-1-jonas@kwiboo.se>
-	 <20250810212454.3237486-2-jonas@kwiboo.se>
-	 <9c8cb837d10d3cdd54fe34dedfe40c10e848f648.camel@collabora.com>
-	 <d0d50da8-f8bb-4a6f-bd44-5199d26b7a86@kwiboo.se>
+	 <20250810212454.3237486-6-jonas@kwiboo.se>
 Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
  oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
@@ -85,12 +84,12 @@ Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  +E7ItOqZEHAs+xabBgknYZIFPU=
 Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
-	boundary="=-i9Oq4aZo3lZiAeIGW3ru"
+	boundary="=-XgQKcifX1OiDVJb6s0rw"
 User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_132735_545899_6DA8AA57 
-X-CRM114-Status: GOOD (  33.63  )
+X-CRM114-CacheID: sfid-20250811_142522_104096_F1AE321B 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,153 +105,196 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-i9Oq4aZo3lZiAeIGW3ru
+--=-XgQKcifX1OiDVJb6s0rw
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le lundi 11 ao=C3=BBt 2025 =C3=A0 21:46 +0200, Jonas Karlman a =C3=A9crit=
-=C2=A0:
-> Hi Nicolas,
+Le dimanche 10 ao=C3=BBt 2025 =C3=A0 21:24 +0000, Jonas Karlman a =C3=A9cri=
+t=C2=A0:
+> From: Alex Bee <knaerzche@gmail.com>
 >=20
-> On 8/11/2025 9:12 PM, Nicolas Dufresne wrote:
-> > Le dimanche 10 ao=C3=BBt 2025 =C3=A0 21:24 +0000, Jonas Karlman a =C3=
-=A9crit=C2=A0:
-> > > The Rockchip VDEC supports the HEVC codec with the Main and Main10
-> > > Profile up to Level 5.1 High tier: 4096x2304@60 fps.
-> > >=20
-> > > Add the backend for HEVC format to the decoder.
-> > >=20
-> > > Signed-off-by: Alex Bee <knaerzche@gmail.com>
-> > > Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > > Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
-> > > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> > > ---
-> > > Changes in v2:
-> > > - Use new_value in transpose_and_flatten_matrices()
-> > > - Add NULL check for ctrl->new_elems in rkvdec_hevc_run_preamble()
-> > > - Set RKVDEC_WR_DDR_ALIGN_EN for RK3328
-> > > ---
-> > > =C2=A0.../media/platform/rockchip/rkvdec/Makefile=C2=A0=C2=A0 |=C2=A0=
-=C2=A0=C2=A0 2 +-
-> > > =C2=A0.../rockchip/rkvdec/rkvdec-hevc-data.c=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 1848 +++++++++++++++++
-> > > =C2=A0.../platform/rockchip/rkvdec/rkvdec-hevc.c=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 817 ++++++++
-> > > =C2=A0.../platform/rockchip/rkvdec/rkvdec-regs.h=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0=C2=A0 2 +
-> > > =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0 |=C2=A0=
-=C2=A0 76 +
-> > > =C2=A0.../media/platform/rockchip/rkvdec/rkvdec.h=C2=A0=C2=A0 |=C2=A0=
-=C2=A0=C2=A0 1 +
-> > > =C2=A06 files changed, 2745 insertions(+), 1 deletion(-)
-> > > =C2=A0create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvde=
-c-hevc-
-> > > data.c
-> > > =C2=A0create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvde=
-c-hevc.c
-> > >=20
-> > > diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile
-> > > b/drivers/media/platform/rockchip/rkvdec/Makefile
-> > > index cb86b429cfaa..a77122641d14 100644
-> > > --- a/drivers/media/platform/rockchip/rkvdec/Makefile
-> > > +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
-> > > @@ -1,3 +1,3 @@
-> > > =C2=A0obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC) +=3D rockchip-vdec.o
-> > > =C2=A0
-> > > -rockchip-vdec-y +=3D rkvdec.o rkvdec-h264.o rkvdec-vp9.o
-> > > +rockchip-vdec-y +=3D rkvdec.o rkvdec-h264.o rkvdec-hevc.o rkvdec-vp9=
-.o
-> > > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.=
-c
-> > > b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
-> > > new file mode 100644
-> > > index 000000000000..eac4ea604949
-> > > --- /dev/null
-> > > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
-> > > @@ -0,0 +1,1848 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +/*
-> > > + * Rockchip Video Decoder driver
-> > > + *
-> > > + * Copyright (C) 2023 Collabora, Ltd.
-> > > + *	Sebastian Fricke <sebastian.fricke@collabora.com>
-> > > + */
-> > > +
-> > > +#include <linux/types.h>
-> > > +
-> > > +#define RKV_CABAC_TABLE_SIZE		27456
-> > > +
-> > > +/*
-> > > + * This file is #include from rkvdec-hevc.c and not compiled.
-> > > + */
-> > > +static const u8 rkvdec_hevc_cabac_table[RKV_CABAC_TABLE_SIZE] =3D {
-> > > +	0x07, 0x0f, 0x48, 0x58, 0x58, 0x40, 0x40, 0x40, 0x40, 0x40, 0x0f,
-> > > 0x40, 0x40, 0x40, 0x0f,
-> >=20
-> > Nit, in H.264 case, we managed to fill the CABAC based on the spect wit=
-h
-> > macros,
-> > didn't we figure-out this one ? I didn't check in Detlev tree, I'm just
-> > asking
-> > here.
+> The RK3328 VDEC has a HW quirk that require QoS to be disabled when HEVC
+> or VP9 is decoded, otherwise the decoded picture may become corrupted.
 >=20
-> As hinted at in the cover letter: in the initial implementation used for
-> LibreELEC I just shamelessly copied the cabac data 1:1 from the Rockchip
-> mpp library, for this series it was replaced with the cabac table from
-> Sebastian Fricke prior series to add a HEVC backend [1]. Sebastian
-> mentioned following regarding the cabac table:
+> Add a RK3328 variant with a quirk flag to disable QoS when before
+> decoding is started.
 >=20
-> """
-> Notable design decisions:
-> - The giant static array of cabac values is moved to a separate c file,
-> I did so because a separate .h file would be incorrect as it doesn't
-> expose anything of any value for any other file than the rkvdec-hevc.c
-> file. Other options were:
-> =C2=A0 - Calculating the values instead of storing the results (No clear =
-pattern
-> =C2=A0=C2=A0=C2=A0 found for the calculation using the static array and t=
-he formulas from the
-> =C2=A0=C2=A0=C2=A0 specification)
-> =C2=A0 - Supply them via firmware (Adding firmware makes the whole softwa=
-re
-> =C2=A0=C2=A0=C2=A0 way more complicated and the usage of the driver less =
-obvious)
-> """
+> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+> Changes in v2:
+> - No change
+> ---
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c |=C2=A0 9 ++++=
++++++
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h |=C2=A0 2 ++
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c=C2=A0 | 10 ++++=
+++++++
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 | 12 ++++++++++++
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.h=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0 4 ++++
+> =C2=A05 files changed, 37 insertions(+)
 >=20
-> I have not explored any other way to handle the cabac table based on
-> these design decisions.
->=20
-> [1]
-> https://lore.kernel.org/linux-media/20230101-patch-series-v2-6-2-rc1-v2-0=
--fa1897efac14@collabora.com/
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+> index 1994ea24f0be..f8bb8c4264f7 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+> @@ -789,6 +789,15 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
+> =C2=A0	writel(1, rkvdec->regs + RKVDEC_REG_PREF_LUMA_CACHE_COMMAND);
+> =C2=A0	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
+> =C2=A0
+> +	if (rkvdec->quirks & RKVDEC_QUIRK_DISABLE_QOS) {
+> +		u32 reg;
+> +
+> +		reg =3D readl(rkvdec->regs + RKVDEC_REG_QOS_CTRL);
+> +		reg |=3D 0xFFFF;
+> +		reg &=3D ~BIT(12);
 
-I see, I guess if we don't know how it was generated, there isn't much we c=
-an do
-about it.
+I wonder if there is a better way to express that, if not, a comment for fu=
+ture
+readers would be nice. If read it will, we keep the upper 16bit, and replac=
+ed
+the lower bits with 0xEFFF (all bits set except 12) ? I'd rather not spend =
+time
+thinking if I walk by this code again.
 
-cheers,
-Nicolas
+> +		writel(reg, rkvdec->regs + RKVDEC_REG_QOS_CTRL);
+> +	}
+> +
+> =C2=A0	/* Start decoding! */
+> =C2=A0	reg =3D (run.pps->flags & V4L2_HEVC_PPS_FLAG_TILES_ENABLED) ?
+> =C2=A0		0 : RKVDEC_WR_DDR_ALIGN_EN;
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+> index 540c8bdf24e4..c627b6b6f53a 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-regs.h
+> @@ -219,6 +219,8 @@
+> =C2=A0#define RKVDEC_REG_H264_ERR_E				0x134
+> =C2=A0#define RKVDEC_H264_ERR_EN_HIGHBITS(x)			((x) & 0x3fffffff)
+> =C2=A0
+> +#define RKVDEC_REG_QOS_CTRL				0x18C
+> +
+> =C2=A0#define RKVDEC_REG_PREF_LUMA_CACHE_COMMAND		0x410
+> =C2=A0#define RKVDEC_REG_PREF_CHR_CACHE_COMMAND		0x450
+> =C2=A0
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> index 0e7e16f20eeb..cadb9d592308 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vp9.c
+> @@ -824,6 +824,16 @@ static int rkvdec_vp9_run(struct rkvdec_ctx *ctx)
+> =C2=A0	writel(1, rkvdec->regs + RKVDEC_REG_PREF_CHR_CACHE_COMMAND);
+> =C2=A0
+> =C2=A0	writel(0xe, rkvdec->regs + RKVDEC_REG_STRMD_ERR_EN);
+> +
+> +	if (rkvdec->quirks & RKVDEC_QUIRK_DISABLE_QOS) {
+> +		u32 reg;
+> +
+> +		reg =3D readl(rkvdec->regs + RKVDEC_REG_QOS_CTRL);
+> +		reg |=3D 0xFFFF;
+> +		reg &=3D ~BIT(12);
+> +		writel(reg, rkvdec->regs + RKVDEC_REG_QOS_CTRL);
 
->=20
-> Regards,
-> Jonas
->=20
-> >=20
-> > Nicolas
->=20
-> [snip]
+Can we deduplicate that ?
 
---=-i9Oq4aZo3lZiAeIGW3ru
+> +	}
+> +
+> =C2=A0	/* Start decoding! */
+> =C2=A0	writel(RKVDEC_INTERRUPT_DEC_E | RKVDEC_CONFIG_DEC_CLK_GATE_E |
+> =C2=A0	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 RKVDEC_TIMEOUT_E | RKVDEC_BUF=
+_EMPTY_E,
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index c20e046205fe..d61d4c419992 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -1226,6 +1226,13 @@ static const struct rkvdec_variant
+> rk3288_rkvdec_variant =3D {
+> =C2=A0	.capabilities =3D RKVDEC_CAPABILITY_HEVC,
+> =C2=A0};
+> =C2=A0
+> +static const struct rkvdec_variant rk3328_rkvdec_variant =3D {
+> +	.capabilities =3D RKVDEC_CAPABILITY_HEVC |
+> +			RKVDEC_CAPABILITY_H264 |
+> +			RKVDEC_CAPABILITY_VP9,
+> +	.quirks =3D RKVDEC_QUIRK_DISABLE_QOS,
+> +};
+> +
+> =C2=A0static const struct rkvdec_variant rk3399_rkvdec_variant =3D {
+> =C2=A0	.capabilities =3D RKVDEC_CAPABILITY_HEVC |
+> =C2=A0			RKVDEC_CAPABILITY_H264 |
+> @@ -1237,6 +1244,10 @@ static const struct of_device_id of_rkvdec_match[]=
+ =3D {
+> =C2=A0		.compatible =3D "rockchip,rk3288-vdec",
+> =C2=A0		.data =3D &rk3288_rkvdec_variant,
+> =C2=A0	},
+> +	{
+> +		.compatible =3D "rockchip,rk3328-vdec",
+> +		.data =3D &rk3328_rkvdec_variant,
+> +	},
+> =C2=A0	{
+> =C2=A0		.compatible =3D "rockchip,rk3399-vdec",
+> =C2=A0		.data =3D &rk3399_rkvdec_variant,
+> @@ -1267,6 +1278,7 @@ static int rkvdec_probe(struct platform_device *pde=
+v)
+> =C2=A0	platform_set_drvdata(pdev, rkvdec);
+> =C2=A0	rkvdec->dev =3D &pdev->dev;
+> =C2=A0	rkvdec->capabilities =3D variant->capabilities;
+> +	rkvdec->quirks =3D variant->quirks;
+> =C2=A0	mutex_init(&rkvdec->vdev_lock);
+> =C2=A0	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
+> =C2=A0
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> index 8e1f8548eae4..e633a879e9bf 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -26,6 +26,8 @@
+> =C2=A0#define RKVDEC_CAPABILITY_H264		BIT(1)
+> =C2=A0#define RKVDEC_CAPABILITY_VP9		BIT(2)
+> =C2=A0
+> +#define RKVDEC_QUIRK_DISABLE_QOS	BIT(0)
+
+Can you go back in the series, get H264 into bit 0, VP9 into bit 1, and set
+quirks from bit 16 ? Just worried the whole finding can becomes a mess in m=
+any
+years from now.
+
+> +
+> =C2=A0struct rkvdec_ctx;
+> =C2=A0
+> =C2=A0struct rkvdec_ctrl_desc {
+> @@ -69,6 +71,7 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+> =C2=A0
+> =C2=A0struct rkvdec_variant {
+> =C2=A0	unsigned int capabilities;
+> +	unsigned int quirks;
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct rkvdec_coded_fmt_ops {
+> @@ -121,6 +124,7 @@ struct rkvdec_dev {
+> =C2=A0	struct delayed_work watchdog_work;
+> =C2=A0	struct iommu_domain *empty_domain;
+> =C2=A0	unsigned int capabilities;
+> +	unsigned int quirks;
+> =C2=A0};
+> =C2=A0
+> =C2=A0struct rkvdec_ctx {
+
+--=-XgQKcifX1OiDVJb6s0rw
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJpSMQAKCRBxUwItrAao
-HOTrAKChQb418dF5D1psffW41seij+dvEgCgmJmwxhVAqiRs4EdF46/syDW1+7w=
-=5k7o
+iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJpfvQAKCRBxUwItrAao
+HLVgAJsH8oUucLfcANkIKv4oo/Vz0zJLBwCeI2+6leJHXw15GvEeMoCS91Q9L84=
+=9eMj
 -----END PGP SIGNATURE-----
 
---=-i9Oq4aZo3lZiAeIGW3ru--
+--=-XgQKcifX1OiDVJb6s0rw--
 
