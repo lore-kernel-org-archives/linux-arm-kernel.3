@@ -4,60 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AE2C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 09:58:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7A3C87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 10:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xdzi6B8uhEDOjcvSLgClkb9Tis7D4GnuKNk7eRpcdEE=; b=WRTLv0qNFY7/rjvVKW6zgjU/1L
-	Rzd7kndd9+gSQwP/s1qqjlyPBzcqCGP2OI0JEFtxSICbg9htLqqhD8XvoJVnG8nuSXiqqg86IKMB2
-	7eOWyrdT4z1U8oyqWrzNC3heWNjWB8gW0+cQmJHdy2ej9n4qXRd10Sv4mirTzT9l25YdwKJaMN8XM
-	pHuWJTggly5tFRE8HpVTnZNrhVkImXW9bBaUzuypMbIgjueEtdkAFt3bki3PPmbPCbSTXPksJ2L9l
-	uVR7MhYk3yKGwRSIgwnw6Fv1j7LBJi3Qivg9ygBm4Ex3cVzTyh3vG4f3pNuX6yK0o04oXfYQyelr5
-	389zpSfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dadh8RFLk83rKSunLnKPuUNmGvzlF7mGSI2Vk6dZU5Q=; b=HfZoZMU1kxgSS3Fa7K1mLUvcww
+	w3Spe+PlfH1VMLx6zhoVQO83kujtNYaLD77rHEy+2nWcCn41gS43KtpcEWc8QOArNFQocI1XrgWX8
+	hZWipiseYdYpIoIB6/Pbe9wuNgk+WutD4vw82UUojw6uoIxEFECpOn6DMgo6kKjSCoDrnhNfdZJ6Z
+	oUtCdXyRudmFm1lugPsuZx/Nz3WiyUstouBQkB6N2yCoTj3ORg/ljeCes2CUs+jnOzwa8fGQgxViY
+	Yf1R7Zxtj3yHOCHRX/kMMzug96/bImgAz4qBprpuIL8zrKSC1Eg1PO//gWTxEQ4cxzYcp+gn+hFDk
+	6PrK9ONQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPIr-00000007Fqz-0XUB;
-	Mon, 11 Aug 2025 09:58:53 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ulPLS-00000007GJg-09CI;
+	Mon, 11 Aug 2025 10:01:34 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulPGB-00000007F9Z-2QkY;
-	Mon, 11 Aug 2025 09:56:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Xdzi6B8uhEDOjcvSLgClkb9Tis7D4GnuKNk7eRpcdEE=; b=S+j3TNnDepfKpc5RHT5HClyO0C
-	cCSH2YmsWGanIkopeLLLkp0ShOHzxQx8IfLHUcz/EOgnHVAaC96bSTouLa2SsLbtl8N3wzBXFZUkU
-	Wd/QHZKQkbgt8yx5xFEJ73aGqbrfo/PoOUjfsXABqV66uq8DjtjO6T3jUGNxQS0s2vW8wF4EuWS9T
-	8yoVS9Xc48BN8Q0U745K8yzX4fIA397RvihK2z8VxHCTEG/GWqXpVwZ//jl4m91etWMPNqmirxjxk
-	8U1gAGMRG5NF5wxNiJMUbXtz7ndq3QQ/vnz/Zo4ZUV8hj7OR5JUAUyZ/Xu31neZtS2Q+palkdFA4h
-	9wSiwbWw==;
-Received: from i53875a0c.versanet.de ([83.135.90.12] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ulPG5-0008OT-Hr; Mon, 11 Aug 2025 11:56:01 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: linux-kernel@vger.kernel.org,
- Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com
-Subject: Re: [PATCH v2 00/12] media: rkvdec: Add support for VDPU381 and VDPU383
-Date: Mon, 11 Aug 2025 11:56:00 +0200
-Message-ID: <11040209.aFP6jjVeTY@diego>
-In-Reply-To: <20250808200340.156393-1-detlev.casanova@collabora.com>
-References: <20250808200340.156393-1-detlev.casanova@collabora.com>
+	id 1ulPGz-00000007FMd-1gfg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 09:56:59 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9E7A843282;
+	Mon, 11 Aug 2025 09:56:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1754906215;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=dadh8RFLk83rKSunLnKPuUNmGvzlF7mGSI2Vk6dZU5Q=;
+	b=Ms5EoqJ6jz2t81N3LuVEltDepsyUEHVePXi3wfAIH7XjnCYK17T16INMo2pyFnIXl9ZBZh
+	qHHFDWslkxQdN9yYw5ypVycW6JFsiwByZBs+fuaAUvQr3n6DRoKBWm+Bs7PK74fPWR7veJ
+	/7van9UOg6rexg1RpTInETHu9ty+GZMyEgSuDlm7dgg5bpmXFFiJmGozUm8mGpJXhZ4E2r
+	DnQSXdsB11EhLIHvlqCTnKAsEUCVMGo33WMWKNbMmV/vGFejKW/6QukYkhquDkWRGV0Rpm
+	rSBBytxXXwsGErwEZeBfhabPyy52g6OuJdtcADnPvmC81HOVq1WJCyvOD26yEw==
+Message-ID: <bdff826c-2c47-4e60-a4e6-aa1ec9c2f35e@bootlin.com>
+Date: Mon, 11 Aug 2025 11:56:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] drm/tidss: Fixes data edge sampling
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ devarsh <devarsht@ti.com>
+Cc: thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>,
+ Tomi Valkeinen <tomi.valkeinen@ti.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
+ Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, s-jain1@ti.com
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+ <1951ecfe-d080-464c-8441-f5400f535495@ideasonboard.com>
+ <19dd9aa9-43c6-4483-9cdf-f297e41ecdec@ti.com>
+ <a3973fac-7ed9-444e-864b-5cfabf8f795f@ideasonboard.com>
+Content-Language: en-US
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Autocrypt: addr=louis.chauvet@bootlin.com; keydata=
+ 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
+In-Reply-To: <a3973fac-7ed9-444e-864b-5cfabf8f795f@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufedvudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomhepnfhouhhishcuvehhrghuvhgvthcuoehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeekieevtdefgedtkeehteehtddttdefhffhgeejleejjeeluddvhfdugedvkeehveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeegudegtdemtgekiedtmeehugeiudemieeffeelmeeiiegrieemvgdtjeehngdpmhgrihhlfhhrohhmpehlohhuihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedviedprhgtphhtthhopehtohhmihdrvhgrlhhkvghinhgvnhesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpt
+ hhtohepuggvvhgrrhhshhhtsehtihdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopehjshgrrhhhrgesthhirdgtohhmpdhrtghpthhtohepthhomhhirdhvrghlkhgvihhnvghnsehtihdrtghomhdprhgtphhtthhopegurhhiqdguvghvvghlsehlihhsthhsrdhfrhgvvgguvghskhhtohhprdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: louis.chauvet@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_025607_638798_0ED76580 
-X-CRM114-Status: GOOD (  19.95  )
+X-CRM114-CacheID: sfid-20250811_025657_703283_6AD9BB22 
+X-CRM114-Status: GOOD (  30.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,92 +146,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
-
-Am Freitag, 8. August 2025, 22:03:22 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Detlev Casanova:
-> These variants are found respectively in the RK3588 and RK3576 SoCs.
-> This patch only adds support for H264 and H265 in both variants.
->=20
-> As there is a considerable part of the code that can be shared with the
-> already supported rkvdec decoder driver, the support for these variants
-> is added here rather than writing a new driver.
->=20
-> This patch set uses the newly introduced hevc_ext_sps_[ls]t_rps v4l2
-> controls for HEVC [1].
-> Therefore, a patched version of userpace tools is needed for HEVC
-> support (added for GStreamer[2] and in an early stage for FFmpeg[3]).
->=20
-> This patch set also depends on the preparation patch set sent earlier [4]
-> as well as the iommu restore fix [5] (already merged in linux-media) and
-> Nicolas Frattaroli's bitmap patch [6] to support setting registers that
-> uses upper 16 bits as masks.
->=20
-> [1]: https://lore.kernel.org/all/20250807194327.69900-1-detlev.casanova@c=
-ollabora.com/
-> [2]: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/=
-9355
-> [3]: https://gitlab.collabora.com/detlev/ffmpeg
-> [4]: https://lore.kernel.org/all/20250623160722.55938-1-detlev.casanova@c=
-ollabora.com/
-> [5]: https://lore.kernel.org/all/20250508-rkvdec-iommu-reset-v1-1-c46b6ef=
-a6e9b@collabora.com/
-> [6]: https://lore.kernel.org/all/20250623-byeword-update-v2-1-cf1fc08a2e1=
-f@collabora.com/
->=20
-> Changes since v1:
->  - Add parsing of the short and long term ref frame sets from the new v4l2
->    controls
->  - Add RPS cache to avoid parsing the same data again
->  - Fix HEVC pixel formats selection
->  - Fix multiple indentation errors
-
-when applying the series, git was a bit unhappy about some whitespaces:
 
 
-> Detlev Casanova (12):
->   media: rkvdec: Switch to using structs instead of writel
->   media: rkvdec: Move cabac table to its own source file
+Le 11/08/2025 à 09:56, Tomi Valkeinen a écrit :
+> Hi,
+> 
+> On 08/08/2025 16:24, devarsh wrote:
+>> Hi Tomi, Louis,
+>>
+>> On 07/08/25 18:51, Tomi Valkeinen wrote:
+>>> Hi,
+>>>
+>>> On 30/07/2025 20:02, Louis Chauvet wrote:
+>>>> Currently the driver only configure the data edge sampling partially. The
+>>>> AM62 require it to be configured in two distincts registers: one in tidss
+>>>> and one in the general device registers.
+>>>>
+>>>> Introduce a new dt property to link the proper syscon node from the main
+>>>> device registers into the tidss driver.
+>>>>
+>>>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
+>>>> ---
+>>>> Cc: stable@vger.kernel.org
+>>>>
+>>>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+>>>
+>>> I understand why you call this a fix, but I think this is not really a
+>>> fix. From looking at the patches, my understanding is that for DPI
+>>> outputs we have always only supported certain clock/data edge.
+>>
+>> I don't think driver makes a distinction between supported/unsupported
+>> or errors out in case it is run with "different" clock/data edge panel
+>> (for e.g  DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE is set per the panel
+>> configuration). Instead it tries to program the VP registers per the
+>> DRM_BUS_FLAG* getting passed by framework per the connected panel and
+>> gives an incorrect behavior if those are different than defaults since
+>> those settings are not sufficient for these displays and instead extra
+>> MMR register settings are also required.
+> 
+> Well, this gets into the meaning of "fix". I didn't right away see an
+> explicit definition in the kernel docs.
+> 
+> When the tidss driver was added, neither AM62x nor AM62A existed. Yet
+> this series "fixes" the original tidss commit for AM62x and AM62A? And
+> the patch proposes that this series is to be backported to stable
+> kernels going back to the original tidss commit?
 
-Applying: media: rkvdec: Move cabac table to its own source file
-=2Egit/rebase-apply/patch:535: new blank line at EOF.
-+
-Warnung: 1 Zeile f=C3=BCgt Whitespace-Fehler hinzu.
+I overlooked the initial commit, I agree this should be limited to 
+ad2ac9dc9426 ("drm/tidss: Add support for AM625 DSS").
 
+> When AM62x and AM62A support was added to the tidss, this feature was
+> not in the driver. So this is clearly also not a regression. Missing
+> this feature causes no crashes or other system level misbehavior. It
+> only causes the panels (that have never been supported with tidss on
+> AM62x and AM62A) to show garbage.
 
->   media: rkvdec: Use structs to represent the HW RPS
->   media: rkvdec: Move h264 functions to common file
+For me the driver explicitly support different data sampling edge from 
+the start, but when the AM625 was added, the implementation missed this 
+quirk, so we have a broken driver for this platform.
 
-Applying: media: rkvdec: Move h264 functions to common file
-=2Egit/rebase-apply/patch:278: new blank line at EOF.
-+
-Warnung: 1 Zeile f=C3=BCgt Whitespace-Fehler hinzu.
+> So we have a driver, to which support for new SoCs was added at some
+> later point, and at that point we did not add support for all kinds of
+> panels. Is adding support for those panels a new feature or a bug fix?
+> Should it be backported to stable kernels?
+>
+> Documentation/process/stable-kernel-rules.rst has some guidelines. Maybe
+> one could argue that this is a "hardware quirk" mentioned there, or
+> perhaps "add a device ID" (of sorts).
 
+For me this clearly falls in the "hardware quirk" category, as we need 
+this quirk on some platforms.
 
->   media: rkvdec: Add per variant configuration
->   media: rkvdec: Add RCB and SRAM support
+> I might agree, if this was an
+> easily backportable, totally non-controversial, one-liner style patch
+> with no chance of regressions. Maybe the next version will be, but this
+> one is not.
 
-Applying: media: rkvdec: Add RCB and SRAM support
-=2Egit/rebase-apply/patch:200: new blank line at EOF.
-+
-Warnung: 1 Zeile f=C3=BCgt Whitespace-Fehler hinzu.
+Ack, we will see how the v2 will be. If the v2 is not too complex, I 
+will keep the fixes tag (on the proper commit).
 
+Thanks,
+Louis Chauvet
 
->   media: rkvdec: Support per-variant interrupt handler
->   media: rkvdec: Enable all clocks without naming them
->   media: rkvdec: Add H264 support for the VDPU381 variant
->   media: rkvdec: Add H264 support for the VDPU383 variant
->   media: rkvdec: Add HEVC support for the VDPU381 variant
+>   Tomi
+> 
 
-Applying: media: rkvdec: Add HEVC support for the VDPU381 variant
-=2Egit/rebase-apply/patch:3483: new blank line at EOF.
-+
-=2Egit/rebase-apply/patch:4035: new blank line at EOF.
-+
-Warnung: 2 Zeilen f=C3=BCgen Whitespace-Fehler hinzu.
-
-
-Heiko
-
+-- 
+Louis Chauvet, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
