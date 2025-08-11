@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E1B0C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F975CA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=syZ95D91wOsCOSrYW+PzJiWVkO1QY79MwtIainHMHVo=; b=zNMdIZWKkCTm1aIMr4qD4pmGMP
-	op3mISLaLaEGeycMoUhhtfNORWjhoahUHUNEl2mJ4uoKB5dPOcb/ANHx8skz38xuAtuR69sgo6u4D
-	FJz2t8KWr1EcHYosUNBueOhCtoegPb1/OsOgHG1Yi5q146j65gkEaR0w6jCjw8yxJaipuGOI6Zg1w
-	ftV/zD+SkH2uo26cLUrVuFUsH0/PfG6sKPGdiqMJ681z8z8PVK6h44UgIz7StiCh/E+5F79vAzEYy
-	Epuv+RBxJ8boBARPCrgTZJbS79w/t6KMFjrqe81GICFN9WdBgf1jrz8zFygUf8TGl+5NGYf0Gw0WE
-	C0yDcZiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P1bfhK0tMIfmTp+5QuGosThnSwzj5jHg/brpDeboWLI=; b=H8MCZhCpxik7dfkB5mhuSZF4z7
+	kJjjjTeACasyXF9Q3p2aeKk3qfEs+cR6+/iR4oQjS6NbkxVYGPnidSvr4hQoiWMY/QditHQ2W7iPW
+	A6gSW1WPnMz/+Ujz2yyQ8HqycVIQDi2AmUHumsNCAt2v+kMVEc/ywjXV5LVOM0alltpVX9dB7nyOk
+	d74PQqvQWvtQnq2cF5cMRg+81JsoG75NHWlozTzELdWpJkxPzoaObJy0utw1/7gGPuV/QeqY5BJ2K
+	MrQtclSvAqaGG7id3IHNVEW797wdfdDqUHTGwyXDMlhIe/wfB5B0u/1Zhx66pdccUuMjyPDL21odC
+	lBqVRqQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulO77-00000006swL-0gfa;
-	Mon, 11 Aug 2025 08:42:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulO9g-00000006tfd-2tEw;
+	Mon, 11 Aug 2025 08:45:20 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNZa-00000006o53-1QHp;
-	Mon, 11 Aug 2025 08:08:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 87231A56A34;
-	Mon, 11 Aug 2025 08:08:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A68ADC4CEED;
-	Mon, 11 Aug 2025 08:08:00 +0000 (UTC)
-Date: Mon, 11 Aug 2025 10:07:58 +0200
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Kyrie Wu <kyrie.wu@mediatek.com>
-Cc: Tiffany Lin <tiffany.lin@mediatek.com>, 
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
-	Sebastian Fricke <sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, 
-	George Sun <george.sun@mediatek.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
-Subject: Re: [PATCH v2 7/8] dt-bindings: media: Add MT8189
- mediatek,vcodec-encoder
-Message-ID: <20250811-determined-truthful-terrier-5ca5eb@kuoka>
-References: <20250811032616.1385-1-kyrie.wu@mediatek.com>
- <20250811032616.1385-8-kyrie.wu@mediatek.com>
+	id 1ulNhD-00000006p54-436J;
+	Mon, 11 Aug 2025 08:15:57 +0000
+X-UUID: 648ca750768b11f09f706fa2197c6ceb-20250811
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=P1bfhK0tMIfmTp+5QuGosThnSwzj5jHg/brpDeboWLI=;
+	b=YRZLRaVkQxRhMqvXhwmkrj9VbnezfBroWyWP2Lv4iIftzOTzCmGbUIQGDPFxpD/kD0fOxIVUdz0/PiUVUK8U4f3rMGOhhdjG8/awmdZ1pR3zrCFGc/m+2eDrUkpoJjECPmV0xDxJRwj4YVwEWWeG8KICUN3RWmAzRnZ5aF9QPHg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.3,REQID:179b35dd-7704-4473-a8d8-085168a0fb04,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:f1326cf,CLOUDID:c5134751-d89a-4c27-9e37-f7ccfcbebd5b,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:-5,Content:0|15|50,EDM:-3,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 3,DMD|SSN|SDN
+X-CID-BAS: 3,DMD|SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 648ca750768b11f09f706fa2197c6ceb-20250811
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <ot_shunxi.zhang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1921424097; Mon, 11 Aug 2025 01:15:50 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Mon, 11 Aug 2025 16:15:42 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Mon, 11 Aug 2025 16:15:41 +0800
+From: <ot_shunxi.zhang@mediatek.com>
+To: Eddie Huang <eddie.huang@mediatek.com>, Sean Wang
+	<sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, Lee Jones <lee@kernel.org>, Shunxi
+ Zhang <ot_shunxi.zhang@mediatek.com>
+CC: <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-rtc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <sirius.wang@mediatek.com>,
+	<vince-wl.liu@mediatek.com>, <jh.hsu@mediatek.com>
+Subject: [PATCH v1 0/2] rtc: Enhance RTC driver with BBPU bit definitions and shutdown handling
+Date: Mon, 11 Aug 2025 16:15:32 +0800
+Message-ID: <20250811081543.4377-1-ot_shunxi.zhang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250811032616.1385-8-kyrie.wu@mediatek.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_010802_440626_64B1F711 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20250811_011556_025366_6D452D2D 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,35 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 11:26:14AM +0800, Kyrie Wu wrote:
-> Add MT8189 encoder compatible string to distinguish former ICs
-> MTK's. Compared with MT8196, the maximum resolution of MT8189
-> encoder is only 4K, and the fps is only 30, which cannot reach
-> the highest parameter of MT8196: level6.2, 8K@60fps.
-> Compared with MT8188, the level can only support 5.1, which is less
-> than 5.2 of MT8188. But the maximum bitrate is 100Mbps, which is twice
-> that of MT8188. And MT8189 could support NBM mode.
-> 
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../devicetree/bindings/media/mediatek,vcodec-encoder.yaml      | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-> index 7675391d7eb0..faee838d684e 100644
-> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-> @@ -25,6 +25,7 @@ properties:
->                - mediatek,mt8192-vcodec-enc
->                - mediatek,mt8195-vcodec-enc
->                - mediatek,mt8196-vcodec-enc
-> +              - mediatek,mt8189-vcodec-enc
+From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
 
-Same issue... you got these comments on your v1 of your other patchset,
-didn't you?
+(1) Add new bits definitions for RTC_BBPU register, 
+(2) Add new functions to reset the BBPU alarm status in mt6397 RTC driver
+(3) Add mtk_rtc_shutdown function to handle RTC shutdown events.
 
-Best regards,
-Krzysztof
+Shunxi Zhang (2):
+  mfd: mt6397: Add new bit definitions for RTC_BBPU register
+  rtc: mt6397: Add BBPU alarm status reset and shutdown handling
+
+ drivers/rtc/rtc-mt6397.c       | 37 ++++++++++++++++++++++++++++++++++
+ include/linux/mfd/mt6397/rtc.h |  3 +++
+ 2 files changed, 40 insertions(+)
+
+-- 
+2.45.2
 
 
