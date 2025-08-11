@@ -4,68 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0181CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE8CCA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=a770G4hZ4M2S0ts4YkSFwqnmmOksUGwoXqm0ifoj5/M=; b=RLxJej5+5dqBiZrC9zTAbWUdKV
-	tauQfU7XtIHvx4UMCYJrqZnjoKUYEuqp00eBpwHZPeXV29rTTEo0SrbNY5kMmlJ4f3+25NnBfRP74
-	tAhgR75aQKg0f2JVcF4MqPVmZusQJmBKjuTBn+4ZwCiiQxDdFAYDobti/zkULVgyDrYE/58Fj80bx
-	Ui0vcdNHa6Rkq0seEAbTuQFsV7GXlhn6+jOtOeJtkFGbKSvwsLF1YtRdUL/ITOdKOdf73v5GhaeH9
-	okrzLtZ95L1UJulk28RD7+Wb+9i2Sn9k7U81D7hCXkoTyd8gXaatePeoBhpgYsB5bosJInyXbMtBr
-	GpmYnCMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ihP/wnPXyZhWgHPlteto2ft6qT692i4bL35PGC7Kwgs=; b=kOEJVN4vZWLPKnpoRyta6rse/A
+	sUeCtwOHo9jKsabBb4HRviDnW+mqb9d2cmKdX8rGgxaoeem8GRQl0PRWbDd570O0D1CCArmjuXEfO
+	EhCX7ON8O2KOB1V96BHvgn2mXL705BKlJpCVoBj01fBZmAyBePb5979xA0N8IRoz5x7aAiLRy4qZu
+	ANlT5CbfZn3wKCRa3ST7s2w51HYYpNb2yxSPt/cdOtp3YQE2akUMFd7WOrBUAgtpqWZOVGRxJcKM3
+	DN4j3yWaTZPqXHw2cu93aYrg3WIA+aQgGddbDRavTIwt0k9oisLklT0cTdg2NaIGesmHgfCeXCYqy
+	pQNQQZ2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWb4-00000008aqm-1RCB;
-	Mon, 11 Aug 2025 17:46:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ulWdd-00000008b5T-0BbW;
+	Mon, 11 Aug 2025 17:48:49 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUHI-00000008ALq-09IM;
-	Mon, 11 Aug 2025 15:17:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8288601FA;
-	Mon, 11 Aug 2025 15:17:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 660DDC4CEED;
-	Mon, 11 Aug 2025 15:17:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754925454;
-	bh=oThR9g2icfJGdLraqN6epyKlvrTrIwhnXHmwgyj+e4U=;
-	h=From:Date:Subject:To:Cc:From;
-	b=PHXoMbBHrxsj90+ujDv/fhsjbKSmZPTpIFG/oVpmVca6mzPEuzcaIa5AVbwjqxXHS
-	 aacHADV2B53n1o22TH+TQsStq8ve4TeSzawrJtR6Pn13DGTxDHf/W4pPVjk0bn6XYl
-	 JptMlAMWlNzh9dGldvwtzMSX6ia8sleg7al4DwN9NelQGW9hJULLbRS9XusvnAm6Ni
-	 H6fupFzH8wQSPjiqld4Mo9sbE4EBvpN4jR5LB0RVP1o792EmVYsm0Z1XzbVulddnaf
-	 gvA75phT6Ko+hY5i3ltOMNqFg+DP2QMF+WxiFvB7RvRCtJ+V7w03KunGVcU3wPvDv+
-	 f4GIUKLjuaf3Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Mon, 11 Aug 2025 17:14:42 +0200
-Subject: [PATCH net-next v2] net: mediatek: wed: Introduce MT7992 WED
- support to MT7988 SoC
+	id 1ulUHl-00000008APH-3Og6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 15:18:07 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-af96d097df5so815683066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 08:18:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1754925484; x=1755530284; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ihP/wnPXyZhWgHPlteto2ft6qT692i4bL35PGC7Kwgs=;
+        b=a6Re2YkF20hwM03xVw9j6ySEVAOy8YPDTohY+9c+pPkTQCI5RZE6DMTPoU94S0DuHw
+         8DHQrQMrwV4uuOar0UdPuSZvnmkm98b263Id28lPCfKfRMYkYS6gIaprCrmi3aUOxhTp
+         h1cWj8Rxj1lxS6expbIn1k4kH6RBuW5/a3ZT/z30CdMjBMiYVJ4UQNeZ6qSmnEdon2uq
+         Xhz33JDMSw79XSFNay560qogxO9sIf7G3UC6D+wv+jOAB5YtKcfocseIj8XmMgpFhFtF
+         u8N6p/nDtt3WXIDtXsafCIgwLk56Y9MPW0I66sXw1jIzP4rAhX3EDtGTeP4oUz5+2prM
+         NWHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754925484; x=1755530284;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ihP/wnPXyZhWgHPlteto2ft6qT692i4bL35PGC7Kwgs=;
+        b=rMx87/u8fA2Ry5M52W9iVNSGboF18Aos3aRP3Ejqvb6QjhQjtQyj+DkZUX+n7Bu3kY
+         8xAc/bAKoJJ2H7IRYVOVNY3pidIYENrzpT8wOqKXQzmlcAa7+Er72lpoWZF+xbtgYC/8
+         BQEYHBXmcPCKmDAzm0SxzoWBGPJJPn/UManC6G7IcfHhMM6q9+jDeBEj7LMKqmf/6NiU
+         yu+HC0MxMheLGxqUCE1dC7BV11dHSWAY1zbP8rvqYtKGesBU1+pJiNat5l/WbBKJUROg
+         +QOPAI5Tz2ZfAX+/kaTRAhqeY8C7OGyMwU/EdEc3dBJJEt3awEWZLnHkVYAQqfB5zh2e
+         g9XA==
+X-Forwarded-Encrypted: i=1; AJvYcCX+jLrjXiEgAPTRk0YmJBxDLdxSwR45+Qb/ZbgBpgaaSw+FaGUHchyOf4txGJCY04eXEX6WqcRQ2WTLttJE9JKo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZ6KsCXZtM5CiMxQ5vadIuXUsMo4nRNgSc/0ZJG05yH52p+KBF
+	Cvq8qOGkCNwmyHr0VdQaA+9P+VAa6WFPHJRIFyCLLqrJpD36+hZviW7/65KmG6YiWD4=
+X-Gm-Gg: ASbGncsmQdMlUhNpmGcqL30HyStXqcN/ipnpL8SgJ16rasnPlKNUOgwSYwObN1HDPZc
+	PjLTX7/dq0BnIEMkjuDdHAUL573nmYOWt3oHX5M+dtQ6UMIqaErisqul9o4PdnL5T5onRtVgpZB
+	9IBFck/frZ/krKEeIOVjHw66oQUgEWmT1rmLI0VHQyeY9FLMOlU3j61K8xFdhOWgiEIJB5ftYe+
+	TVxMyewf90yFmxe8gRzsYTH3KJCP7rSztRTAbDy5HV6TkLa6DAiJsiSOoPGrt/Vx7VBZ5FGCsv4
+	xyMpAJopwzVi7pDE5kjsh0aM8wU7/VN9fGdsulGwE4KGAWcVX6uXYbOOvCYAbByCrKaA6vYDJoo
+	ea0VghL36V+SceaNYvEvvLI81KXbuoCgfJJlR87dIMzwh7gK0LHR5wwVYqxMUaDq0aQ==
+X-Google-Smtp-Source: AGHT+IGvJ3ayAmkrGkViVLnbNoPZ1sMap6TBv2tr1d6iu6pDDVV5j4fRLfmHXE5vLfntRBsHIUMHNQ==
+X-Received: by 2002:a17:907:608b:b0:af9:5b1f:b87a with SMTP id a640c23a62f3a-af9c64791a2mr1210151866b.20.1754925484035;
+        Mon, 11 Aug 2025 08:18:04 -0700 (PDT)
+Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a21c081sm2014946666b.97.2025.08.11.08.18.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Aug 2025 08:18:03 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: linus.walleij@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	florian.fainelli@broadcom.com,
+	wahrenst@gmx.net,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	iivanov@suse.de,
+	svarbanov@suse.de,
+	mbrugger@suse.com,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Al Cooper <alcooperx@gmail.com>,
+	linux-mmc@vger.kernel.org,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-serial@vger.kernel.org
+Cc: Andrea della Porta <andrea.porta@suse.com>
+Subject: [PATCH 0/6] Add peripheral nodes to RaspberryPi 5 DT
+Date: Mon, 11 Aug 2025 17:19:44 +0200
+Message-ID: <cover.1754924348.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250811-mt7992-wed-support-v2-1-e43024c05305@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAOEImmgC/22NQQ6CMBBFr0Jm7RjaUAuuuIdh0dABGpWSKVYN6
- d2txKXL95L//gaB2FGAc7EBU3TB+TmDPBTQT2YeCZ3NDLKUqtSixvuqm0bikyyGx7J4XrFSJ6N
- Kq8RQC8jDhWlwrz166TJPLqye3/tHFF/7y0n9LxcFCjTGamsq29dat1fimW5HzyN0KaUPjeEV2
- rUAAAA=
-X-Change-ID: 20250718-mt7992-wed-support-456a50d51f81
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org, 
- Rex Lu <rex.lu@mediatek.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_081805_848691_4C0495AE 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,193 +115,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the second WDMA RX ring in WED driver for MT7988 SoC since the
-Mediatek MT7992 WiFi chipset supports two separated WDMA rings.
-Add missing MT7988 configurations to properly support WED for MT7992 in
-MT76 driver.
+Hi,
 
-Co-developed-by: Rex Lu <rex.lu@mediatek.com>
-Signed-off-by: Rex Lu <rex.lu@mediatek.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
-Changes in v2:
-- Fix commit log
-- Rebase on top of net-next main branch
-- Link to v1: https://lore.kernel.org/r/20250727-mt7992-wed-support-v1-1-aad7da4dc877@kernel.org
----
- drivers/net/ethernet/mediatek/mtk_wed.c          | 33 +++++++++++++++++++-----
- drivers/net/ethernet/mediatek/mtk_wed.h          |  2 +-
- drivers/net/wireless/mediatek/mt76/mt7915/mmio.c |  6 ++---
- drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 12 ++++-----
- include/linux/soc/mediatek/mtk_wed.h             |  2 +-
- 5 files changed, 38 insertions(+), 17 deletions(-)
+The following patches add a few peripheral DT nodes and related pin/gpio
+nodes for Raspberry Pi 5.
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-index 0a80d8f8cff7f415a60b0cd68c0c9c07e2c88f36..3dbb113b792cf00fb4f89ab20f7e7fa72ecac260 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.c
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-@@ -59,7 +59,9 @@ struct mtk_wed_flow_block_priv {
- static const struct mtk_wed_soc_data mt7622_data = {
- 	.regmap = {
- 		.tx_bm_tkid		= 0x088,
--		.wpdma_rx_ring0		= 0x770,
-+		.wpdma_rx_ring = {
-+			0x770,
-+		},
- 		.reset_idx_tx_mask	= GENMASK(3, 0),
- 		.reset_idx_rx_mask	= GENMASK(17, 16),
- 	},
-@@ -70,7 +72,9 @@ static const struct mtk_wed_soc_data mt7622_data = {
- static const struct mtk_wed_soc_data mt7986_data = {
- 	.regmap = {
- 		.tx_bm_tkid		= 0x0c8,
--		.wpdma_rx_ring0		= 0x770,
-+		.wpdma_rx_ring = {
-+			0x770,
-+		},
- 		.reset_idx_tx_mask	= GENMASK(1, 0),
- 		.reset_idx_rx_mask	= GENMASK(7, 6),
- 	},
-@@ -81,7 +85,10 @@ static const struct mtk_wed_soc_data mt7986_data = {
- static const struct mtk_wed_soc_data mt7988_data = {
- 	.regmap = {
- 		.tx_bm_tkid		= 0x0c8,
--		.wpdma_rx_ring0		= 0x7d0,
-+		.wpdma_rx_ring = {
-+			0x7d0,
-+			0x7d8,
-+		},
- 		.reset_idx_tx_mask	= GENMASK(1, 0),
- 		.reset_idx_rx_mask	= GENMASK(7, 6),
- 	},
-@@ -621,8 +628,8 @@ mtk_wed_amsdu_init(struct mtk_wed_device *dev)
- 		return ret;
- 	}
- 
--	/* eagle E1 PCIE1 tx ring 22 flow control issue */
--	if (dev->wlan.id == 0x7991)
-+	/* Kite and Eagle E1 PCIE1 tx ring 22 flow control issue */
-+	if (dev->wlan.id == 0x7991 || dev->wlan.id == 0x7992)
- 		wed_clr(dev, MTK_WED_AMSDU_FIFO, MTK_WED_AMSDU_IS_PRIOR0_RING);
- 
- 	wed_set(dev, MTK_WED_CTRL, MTK_WED_CTRL_TX_AMSDU_EN);
-@@ -1239,7 +1246,11 @@ mtk_wed_set_wpdma(struct mtk_wed_device *dev)
- 		return;
- 
- 	wed_w32(dev, MTK_WED_WPDMA_RX_GLO_CFG, dev->wlan.wpdma_rx_glo);
--	wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring0, dev->wlan.wpdma_rx);
-+	wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring[0],
-+		dev->wlan.wpdma_rx[0]);
-+	if (mtk_wed_is_v3_or_greater(dev->hw))
-+		wed_w32(dev, dev->hw->soc->regmap.wpdma_rx_ring[1],
-+			dev->wlan.wpdma_rx[1]);
- 
- 	if (!dev->wlan.hw_rro)
- 		return;
-@@ -2323,6 +2334,16 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
- 		if (!dev->rx_wdma[i].desc)
- 			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
- 
-+	if (dev->wlan.hw_rro) {
-+		for (i = 0; i < MTK_WED_RX_PAGE_QUEUES; i++) {
-+			u32 addr = MTK_WED_RRO_MSDU_PG_CTRL0(i) +
-+				   MTK_WED_RING_OFS_COUNT;
-+
-+			if (!wed_r32(dev, addr))
-+				wed_w32(dev, addr, 1);
-+		}
-+	}
-+
- 	mtk_wed_hw_init(dev);
- 	mtk_wed_configure_irq(dev, irq_mask);
- 
-diff --git a/drivers/net/ethernet/mediatek/mtk_wed.h b/drivers/net/ethernet/mediatek/mtk_wed.h
-index c1f0479d7a7182919e77c40efc30ade37abfad58..b49aee9a8b65156310e4f66a17921e5320b3077c 100644
---- a/drivers/net/ethernet/mediatek/mtk_wed.h
-+++ b/drivers/net/ethernet/mediatek/mtk_wed.h
-@@ -17,7 +17,7 @@ struct mtk_wed_wo;
- struct mtk_wed_soc_data {
- 	struct {
- 		u32 tx_bm_tkid;
--		u32 wpdma_rx_ring0;
-+		u32 wpdma_rx_ring[MTK_WED_RX_QUEUES];
- 		u32 reset_idx_tx_mask;
- 		u32 reset_idx_rx_mask;
- 	} regmap;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-index 4a82f8e4c118061fc76459dc0e38f7ee27e25a3a..36488aa6cc20117de4f5b76b80beca149015e055 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/mmio.c
-@@ -664,8 +664,8 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void *pdev_ptr,
- 					 MT_RXQ_WED_RING_BASE;
- 		wed->wlan.wpdma_rx_glo = pci_resource_start(pci_dev, 0) +
- 					 MT_WPDMA_GLO_CFG;
--		wed->wlan.wpdma_rx = pci_resource_start(pci_dev, 0) +
--				     MT_RXQ_WED_DATA_RING_BASE;
-+		wed->wlan.wpdma_rx[0] = pci_resource_start(pci_dev, 0) +
-+					MT_RXQ_WED_DATA_RING_BASE;
- 	} else {
- 		struct platform_device *plat_dev = pdev_ptr;
- 		struct resource *res;
-@@ -687,7 +687,7 @@ int mt7915_mmio_wed_init(struct mt7915_dev *dev, void *pdev_ptr,
- 		wed->wlan.wpdma_tx = res->start + MT_TXQ_WED_RING_BASE;
- 		wed->wlan.wpdma_txfree = res->start + MT_RXQ_WED_RING_BASE;
- 		wed->wlan.wpdma_rx_glo = res->start + MT_WPDMA_GLO_CFG;
--		wed->wlan.wpdma_rx = res->start + MT_RXQ_WED_DATA_RING_BASE;
-+		wed->wlan.wpdma_rx[0] = res->start + MT_RXQ_WED_DATA_RING_BASE;
- 	}
- 	wed->wlan.nbuf = MT7915_HW_TOKEN_SIZE;
- 	wed->wlan.tx_tbit[0] = is_mt7915(&dev->mt76) ? 4 : 30;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-index 30b40f4a91be81d429d11f15036167396756d2dc..fb2428a9b877899a0a6fb879aba84e1f6e7840f2 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
-@@ -503,9 +503,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
- 		}
- 
- 		wed->wlan.wpdma_rx_glo = wed->wlan.phy_base + hif1_ofs + MT_WFDMA0_GLO_CFG;
--		wed->wlan.wpdma_rx = wed->wlan.phy_base + hif1_ofs +
--				     MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
--				     MT7996_RXQ_BAND0 * MT_RING_SIZE;
-+		wed->wlan.wpdma_rx[0] = wed->wlan.phy_base + hif1_ofs +
-+					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-+					MT7996_RXQ_BAND0 * MT_RING_SIZE;
- 
- 		wed->wlan.id = MT7996_DEVICE_ID_2;
- 		wed->wlan.tx_tbit[0] = ffs(MT_INT_TX_DONE_BAND2) - 1;
-@@ -518,9 +518,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void *pdev_ptr,
- 
- 		wed->wlan.wpdma_rx_glo = wed->wlan.phy_base + MT_WFDMA0_GLO_CFG;
- 
--		wed->wlan.wpdma_rx = wed->wlan.phy_base +
--				     MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
--				     MT7996_RXQ_BAND0 * MT_RING_SIZE;
-+		wed->wlan.wpdma_rx[0] = wed->wlan.phy_base +
-+					MT_RXQ_RING_BASE(MT7996_RXQ_BAND0) +
-+					MT7996_RXQ_BAND0 * MT_RING_SIZE;
- 
- 		wed->wlan.wpdma_rx_rro[0] = wed->wlan.phy_base +
- 					    MT_RXQ_RING_BASE(MT7996_RXQ_RRO_BAND0) +
-diff --git a/include/linux/soc/mediatek/mtk_wed.h b/include/linux/soc/mediatek/mtk_wed.h
-index d8949a4ed0dc9d41b3364e85a21e15d258519c45..c4ff6bab176db1f51cd94ac4198df0caeb557df2 100644
---- a/include/linux/soc/mediatek/mtk_wed.h
-+++ b/include/linux/soc/mediatek/mtk_wed.h
-@@ -147,7 +147,7 @@ struct mtk_wed_device {
- 		u32 wpdma_tx;
- 		u32 wpdma_txfree;
- 		u32 wpdma_rx_glo;
--		u32 wpdma_rx;
-+		u32 wpdma_rx[MTK_WED_RX_QUEUES];
- 		u32 wpdma_rx_rro[MTK_WED_RX_QUEUES];
- 		u32 wpdma_rx_pg;
- 
+This brand new patchset (hence it's a V1) is the second part of the split-up
+of the patchset [1]. It tooks patches 3 to 6 from there and adds a couple
+of new patches that amend the DT bindings.
+As a result, patchset [2] is a prerequisite for this patchset.
 
----
-base-commit: 37816488247ddddbc3de113c78c83572274b1e2e
-change-id: 20250718-mt7992-wed-support-456a50d51f81
+- Patch 1 and 2: Amend the bindings to avoid DT compiler warnings.
 
-Best regards,
+- Patch 3: Adds core pinctrl nodes and defines SD pins as a first appliance
+  for the pinctrl.  
+
+- Patch 4: Wires the gpio-key for power button and related gpio controller.
+
+- Patch 5: Adds DT node for WiFi.
+
+- Patch 6: Adds Bluetooth DT node.
+
+All comments and suggestions are welcome!
+
+Happy hacking!
+Ivan and Andrea
+
+Links:
+[1] - https://lore.kernel.org/all/cover.1752584387.git.andrea.porta@suse.com/
+[2] - https://lore.kernel.org/all/cover.1754922935.git.andrea.porta@suse.com/
+
+
+CHANGES since [1]:
+
+--- PATCHES ---
+
+- Add two new patches (1 and 2) that amend the DT bindings.
+
+
+--- DTS ---
+
+- bcm2712.dtsi: Added 'interrupt-names' and dropped 'reg-shift' and
+  'reg-io-width' properties in uarta DT node. The latter two are
+  just overridden by driver code so setting them in DT is useless.
+
+- bcm2712-rpi-5-b-ovl-rp1.dts: dropped 'auto-flow-control' property
+  since it's not parsed in driver code.
+
+
+--- DT BINDINGS ---
+
+- brcm,sdhci-brcmstb.yaml: added SDHCI capabilities by including
+  sdhci-common.yaml.
+
+- serial/brcm,bcm7271-uart.yaml: let clock-frequency be an alternative way
+  to specify the clock speed instead of clocks/clock-names.
+
+
+Andrea della Porta (2):
+  dt-bindings: mmc: Add support for capabilities to Broadcom SDHCI
+    controller
+  dt-bindings: serial: Add clock-frequency property as an alternative to
+    clocks
+
+Ivan T. Ivanov (4):
+  arm64: dts: broadcom: bcm2712: Add pin controller nodes
+  arm64: dts: broadcom: bcm2712: Add one more GPIO node
+  arm64: dts: broadcom: bcm2712: Add second SDHCI controller node
+  arm64: dts: broadcom: bcm2712: Add UARTA controller node
+
+ .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |   2 +-
+ .../bindings/serial/brcm,bcm7271-uart.yaml    |  19 ++-
+ .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 133 ++++++++++++++++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi     |  47 +++++++
+ 4 files changed, 198 insertions(+), 3 deletions(-)
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.35.3
 
 
