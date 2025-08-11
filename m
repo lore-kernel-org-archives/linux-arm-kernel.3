@@ -4,94 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4DF8C87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C900DCA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2B+PdwnV07kNbcJNhPLT1/ZZi6u4wFzi0KY+3/EKxhc=; b=kK2Y2uuVth8vWhnjw3CeVbOkT8
-	h/4qUKfVl+bbsPqi0K4PnBPY6Xxmvl442JhmDh62BoqbOXpR3vsMPVu9bdVzB5uTnsPZVnCTA324J
-	jVCrgdu2dC4YjcBHJFSHH+OhXLRfsCF0fPWToudjmlscOGGGA2lKZ1SQ3svIXvn0sR34aYOs+zHkv
-	2SvJKYnFYZc7NuWuUT3wTOlBRw9+CKiJqjEAbSbmyjyhS1HUkxucMcTf4D+Zc7udpB4xnjPDHHaem
-	1UtsC09z3LBgw7KFG878P5rSTr8ylIdAIJbKYL9B6FsLfQf8cAdnvEXuv+lLt8SJGeuPj7brEtVh6
-	JDl+w3dQ==;
+	bh=2DRTDdeB+RuKBnxoHGmxhWMtMDlk8vl0RydIHruRq9A=; b=kK4+IaiXF+fJYRWAsXmXuva5zU
+	DtOb/8kdSBXEbA2ShQtlI7sPqnji6N0Wi6tobI8P6u4LG0zCpSXe+/zBYt3RBCvn5thlsPiNjDrJq
+	9u/kyFWqWLyvUtMJ0dM/HvxBdAJHQndOvOYRomGLIgaQb1Uepw6SxJQgIwF8eZvdm2Pv7tGuOVMKS
+	bFj9ma1sk1FqRhixkWtsCGAMKq9iGX2eL3uAp9M3rkxIW3PSoTTXx3BXQifn7J+gtjKHBiGEtTXIn
+	Kt92Z6R/OtQfNshhLLxb69xN5SYmBnHvHygHH/KdgmNrU6OivGdhCTEiAhT8EOz+ZdFoducoxBKim
+	W0Kgo+4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNp9-00000006qHV-3tca;
-	Mon, 11 Aug 2025 08:24:07 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1ulNrj-00000006qjf-38c8;
+	Mon, 11 Aug 2025 08:26:47 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNNy-00000006lyA-1LkG
+	id 1ulNOO-00000006m1N-1Zp5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 07:56:06 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-61794547ab4so510330a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 00:56:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754898960; x=1755503760; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2B+PdwnV07kNbcJNhPLT1/ZZi6u4wFzi0KY+3/EKxhc=;
-        b=ClIfpGCl0Y+QWEOKMlHXxj3oIIuz4oDVq32lKBU9XD3brDijP6nKJJpG7+GnQ8KuE0
-         fW1aCsop27VlqfoMyGI7sP1w304toAnT5FUdb66qCwfWAHvsyG6NMomImL838diwzLJq
-         gbf6ibg+pEBuz4bq2wyTZop06qckPHrqBmYnq1i7LF5eT+8dgd0+Ihe01EyG/RGs/4v+
-         UoazMB55j2/ilf1LvdfhoPznrq2u6FcW+qRIiI3kmS++pEptGEl9xAy9JNQZ4krK0v6u
-         M/9fJLQpE+6N8QTIPXBH1+1z0bnQTj+Rpa2FJ3XAHZdHwE8MXOhZFGNPvUVWt8IT3j0N
-         Q2XQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754898960; x=1755503760;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2B+PdwnV07kNbcJNhPLT1/ZZi6u4wFzi0KY+3/EKxhc=;
-        b=af7Edn5Ek9rydH+0fUbtQeIf0ceOr03OZWvqDf/rN3DQcMpgVpJ7mjFAB2xWHDWuH+
-         K4o01A52aOy3IuJIWV4rR8Eu4jEqtd5rXYCs5fnuSpxidFg7dNAHOF0TLbD7lkL2JHCC
-         DDDMIJV9xpfTEroV95raZQyiiLzJ2Zf+4z0ICLPhMLxeWOCr5CGShGB8Xhtq2CM8ZVTH
-         WSawpvfPjIPq72nBTdLBuOGj4vChIoL06OOpjTQ2KzdKbp8luWgvCwi1p5Ywsfd3HlEo
-         2dch3dIo0ZttlKNU7CKR2YgjJBLFj8cnoOgoDEz+h/fx+dYrm03wS/pgRivn8dmOyzKD
-         fA9g==
-X-Forwarded-Encrypted: i=1; AJvYcCUTRkewiBoPzMT408WNOtQ4vj+iO1qGqfo5GNsSVCei+KojLCwexgImm2t9sm9YlG7vnxttQS4+1vS4AN0fcYAf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyB1zVvnbbHuhACapJ9gba3ctq5KFvKZ7i+be4/OT+z7+4HEhwA
-	aoknv9abb5bX4wfDPsIgmzxF5/V6DPRoetepapYzYt9hQP5MJPUQBm9bhGTyRqT8AtG1ldEogrJ
-	3yv26
-X-Gm-Gg: ASbGncuL1gb9szeXWJpSyD8m0lX1QoDsz852Aqy7fhtNOxuiS4Vf1lfKIo7RFpTIxSp
-	U5HE3hc3ENet7+S521+hLzVwEiKTYVTfGczmX1AEYmsLYKlpwf7liAF+95aCirKU1jP15WSHjJY
-	DDu1yHW6DlgwnTBwatxJW43mpqQoYIyGeRGsCtejuIqpLIe2d+fR3C5jzyruM5B/GDl4eVHF5et
-	J/lgb9tEqDDjT06c7xybnKmiZbqQHnT6G4G+a4kwRNHaed0FXZ0llBSX5/AP5SypcxEvMwaPCtq
-	5adKtRRzEHj6Wiw+k3BJiiUzCxwk2Mq5ZPfczEFEJV5ayipdD+QYhr7ZfL5yFtExlr6gErFHUZl
-	6LfL38SRiBPaj09I4gUeziRjsRYLX5wCNECV9Wf8=
-X-Google-Smtp-Source: AGHT+IGNmkXLXrR7zQMQNPjPvO6Wbeyt1MjIJrWklNZfntMizipUD1DSUNe0TAxm0XQdiwqXZymfhw==
-X-Received: by 2002:a17:907:720f:b0:af8:fc60:5008 with SMTP id a640c23a62f3a-af9de994749mr316980766b.4.1754898960200;
-        Mon, 11 Aug 2025 00:56:00 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a23fec4sm1979741466b.121.2025.08.11.00.55.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Aug 2025 00:55:59 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250730072730.1882549-1-ivo.ivanov.ivanov1@gmail.com>
-References: <20250730072730.1882549-1-ivo.ivanov.ivanov1@gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: soc: samsung: usi: add
- samsung,exynos2200-usi compatible
-Message-Id: <175489895870.26398.4695794885978749604.b4-ty@linaro.org>
-Date: Mon, 11 Aug 2025 09:55:58 +0200
+	Mon, 11 Aug 2025 07:56:29 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7A2C3379;
+	Mon, 11 Aug 2025 09:55:30 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1754898931;
+	bh=Us9A02rAfeWiFHHEg4K6xC2IqA5Evy6GkingApnfNlM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rFoAuifd0sJhbR96hiXqxC/n9dntL5Twzb1c9AbhkNgzA11a36PGDQPkBQnwklBR7
+	 ugKaBk2ryyWFHMrbpCFm0lRyRi0QE3s3mOe8uVsZlAxof1FY//UiCRawdocpMmbNF7
+	 pGmgHqhjuQieQfhBl7wbu81ThEsXDX2qjMIFWke4=
+Message-ID: <a3973fac-7ed9-444e-864b-5cfabf8f795f@ideasonboard.com>
+Date: Mon, 11 Aug 2025 10:56:19 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] drm/tidss: Fixes data edge sampling
+To: devarsh <devarsht@ti.com>, Louis Chauvet <louis.chauvet@bootlin.com>
+Cc: thomas.petazzoni@bootlin.com, Jyri Sarha <jsarha@ti.com>,
+ Tomi Valkeinen <tomi.valkeinen@ti.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>,
+ Benoit Parrot <bparrot@ti.com>, Lee Jones <lee@kernel.org>,
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Tero Kristo <kristo@kernel.org>, s-jain1@ti.com
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+ <1951ecfe-d080-464c-8441-f5400f535495@ideasonboard.com>
+ <19dd9aa9-43c6-4483-9cdf-f297e41ecdec@ti.com>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <19dd9aa9-43c6-4483-9cdf-f297e41ecdec@ti.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_005602_370764_4455681B 
-X-CRM114-Status: UNSURE (   6.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250811_005628_550874_9AA1D328 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,20 +124,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Wed, 30 Jul 2025 10:27:30 +0300, Ivaylo Ivanov wrote:
-> Add samsung,exynos2200-usi dedicated compatible for representing the USI
-> of Samsung Exynos 2200 SoC.
+On 08/08/2025 16:24, devarsh wrote:
+> Hi Tomi, Louis,
 > 
+> On 07/08/25 18:51, Tomi Valkeinen wrote:
+>> Hi,
+>>
+>> On 30/07/2025 20:02, Louis Chauvet wrote:
+>>> Currently the driver only configure the data edge sampling partially. The 
+>>> AM62 require it to be configured in two distincts registers: one in tidss 
+>>> and one in the general device registers.
+>>>
+>>> Introduce a new dt property to link the proper syscon node from the main 
+>>> device registers into the tidss driver.
+>>>
+>>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform Display SubSystem")
+>>> ---
+>>> Cc: stable@vger.kernel.org
+>>>
+>>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+>>
+>> I understand why you call this a fix, but I think this is not really a
+>> fix. From looking at the patches, my understanding is that for DPI
+>> outputs we have always only supported certain clock/data edge.
 > 
+> I don't think driver makes a distinction between supported/unsupported
+> or errors out in case it is run with "different" clock/data edge panel
+> (for e.g  DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE is set per the panel
+> configuration). Instead it tries to program the VP registers per the
+> DRM_BUS_FLAG* getting passed by framework per the connected panel and
+> gives an incorrect behavior if those are different than defaults since
+> those settings are not sufficient for these displays and instead extra
+> MMR register settings are also required.
 
-Applied, thanks!
+Well, this gets into the meaning of "fix". I didn't right away see an
+explicit definition in the kernel docs.
 
-[1/1] dt-bindings: soc: samsung: usi: add samsung,exynos2200-usi compatible
-      https://git.kernel.org/krzk/linux/c/187a3426a664737381a70a3fca3b8108f2300de9
+When the tidss driver was added, neither AM62x nor AM62A existed. Yet
+this series "fixes" the original tidss commit for AM62x and AM62A? And
+the patch proposes that this series is to be backported to stable
+kernels going back to the original tidss commit?
 
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+When AM62x and AM62A support was added to the tidss, this feature was
+not in the driver. So this is clearly also not a regression. Missing
+this feature causes no crashes or other system level misbehavior. It
+only causes the panels (that have never been supported with tidss on
+AM62x and AM62A) to show garbage.
+
+So we have a driver, to which support for new SoCs was added at some
+later point, and at that point we did not add support for all kinds of
+panels. Is adding support for those panels a new feature or a bug fix?
+Should it be backported to stable kernels?
+
+Documentation/process/stable-kernel-rules.rst has some guidelines. Maybe
+one could argue that this is a "hardware quirk" mentioned there, or
+perhaps "add a device ID" (of sorts). I might agree, if this was an
+easily backportable, totally non-controversial, one-liner style patch
+with no chance of regressions. Maybe the next version will be, but this
+one is not.
+
+ Tomi
 
 
