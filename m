@@ -4,77 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F177CC87FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA327CA0EC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 08:53:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x/e5kCslJYDoFpQ6zaF3VOwpJkCoYx1KKrXOFc+oh2Q=; b=EtjBZ/GSMjCiYqwQuS/jPd5vl2
-	DVlilRDbcKfWN0BdNBMpZZn9ccOuedHmzScGEA2Rs1Dxfchpqbb5U9J0pXLX3mLIK4HUrhbBm04oa
-	sSIPEAFN9PnuXZoO77pFox38errQV0G847PeKHap9drIQ2/FgvTLqMLuvRdxOanA6E3L1OrLtRnPc
-	BCz3RqPt5RKM9XxNCgXd7emFfznRcfsEgBRAyv2rtgSMYMmFLfe6i0KlLP6UJTE8BzRNwSVfU6x+V
-	qXHOFqs1C5QGs5BP8/7GGd8nnQmtl4EzBb7LT2q9NwXXhAMZ6LVEKUx+CY2Ej2AsMjAtrHnWoCwke
-	M1LP2QrA==;
+	bh=KtvUcm8eKqLg5xx/IzAnE0CR0VtQIYJM5TEZnjUYa44=; b=5CTXr1AICsuCw3UWBa23sKmsJE
+	GMwCU1FV1uHovs7f6/wLSaHc2A5gxQ+BZfarynx3TNPSoNXg4N32RvVI64I2f5/hAiN05i40/FwYb
+	1y1O/lwlaFBqA7EBBKW+cI0t9NFR8OwX4F8g2F0ujheSi2bxcbGfLdMm1e9OAelUXkJ+cSv1nM9TF
+	uJ+AX/rdrZSxiwftzkcK3iDbq77/DyZ1MFToKQcJGoGHGh5sIi6O8g4t2CxUFm3eCcI2TFvzV9jmu
+	JniJllUS/EMu9pGKdWHfF4EdVVz0YY48pseeAca4rAwCrU6+AlLYc8lGwQXiNghf4amgVpV5uW+Ho
+	+BHOmJhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulOEo-00000006uFu-18V3;
-	Mon, 11 Aug 2025 08:50:38 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1ulOHN-00000006usY-2hVX;
+	Mon, 11 Aug 2025 08:53:17 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulNhU-00000006p8E-15GY;
-	Mon, 11 Aug 2025 08:16:13 +0000
-X-UUID: 6f1beb5e768b11f09f706fa2197c6ceb-20250811
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=x/e5kCslJYDoFpQ6zaF3VOwpJkCoYx1KKrXOFc+oh2Q=;
-	b=QNZtTEE2rzaqZDZGephNySLtzpjwf0mgv++vMoadLqHf8URiYECyPcRluyhC8GiHfC8hSbAZGJ+QmnNvwJ1VzN4OLzkDIAeQNPi0FDcQ8KfZoaVLYn458j/JtTsM0KAHCy0KzhfFOo7AJvL9Gc3hh6p/zBrlviHf4ZEGJFCA+lw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:5d3e0cee-e380-4cad-b3fa-dc88aed7494e,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:f1326cf,CLOUDID:38a84da1-1800-4e4f-b665-a3d622db32cf,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 3,DMD|SSN|SDN
-X-CID-BAS: 3,DMD|SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6f1beb5e768b11f09f706fa2197c6ceb-20250811
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <ot_shunxi.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1803812360; Mon, 11 Aug 2025 01:16:08 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 11 Aug 2025 16:16:00 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 11 Aug 2025 16:15:59 +0800
-From: <ot_shunxi.zhang@mediatek.com>
-To: Eddie Huang <eddie.huang@mediatek.com>, Sean Wang
-	<sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>, Lee Jones <lee@kernel.org>, Shunxi
- Zhang <ot_shunxi.zhang@mediatek.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <linux-rtc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <sirius.wang@mediatek.com>,
-	<vince-wl.liu@mediatek.com>, <jh.hsu@mediatek.com>
-Subject: [PATCH v1 2/2] rtc: mt6397: Add BBPU alarm status reset and shutdown handling
-Date: Mon, 11 Aug 2025 16:15:34 +0800
-Message-ID: <20250811081543.4377-3-ot_shunxi.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250811081543.4377-1-ot_shunxi.zhang@mediatek.com>
-References: <20250811081543.4377-1-ot_shunxi.zhang@mediatek.com>
+	id 1ulNmE-00000006pcq-3gNO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 08:21:09 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-242d3ba2b44so10409895ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 01:21:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754900466; x=1755505266; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=KtvUcm8eKqLg5xx/IzAnE0CR0VtQIYJM5TEZnjUYa44=;
+        b=B9miTGtCrc0RbpawZJDi5QCc40NjFvDcTBKSbd6AtkjDHyCUXePVKQp7OlmKnP69Um
+         wmD1lqN8TBXfVl13zBXtpLYaP3JlT33mRqYPmwMyBe6tk7jKVTiCLOhoODh9IApvkXdh
+         puFutdAHgpB7w+JJToVRvNaDyDr/8/Rsr5icfZYgBcxqapCRq/MxFttCzaAvl4v7hFE7
+         1W2u7K7aEekXT7cPqZTgIxa266Toyyi62M0DSLrbGzKwgBRE0wcDyOoxwyDF1K3ZaUDD
+         BE9VMlFRVujVs1QXEUxNDhy+DNDITLjhDH3KI29gkM3QkGtI2uwORS6ix2ziUI8NgvRx
+         pdow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754900466; x=1755505266;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KtvUcm8eKqLg5xx/IzAnE0CR0VtQIYJM5TEZnjUYa44=;
+        b=JPzi1pdwwDdpmDtJrN9fKmZt5mU1Ew19VZEb2i0pMa9RRiVQlSCckBVelj5yeNeqp5
+         FbOQqCkQg8XjSlpNX8f4BjL2t34m3irYq2eRcxlpvkgdDjOVtTD0E88qfrpnMpIDTYbz
+         Cx8QvbcpDPwena9t6TS4TDZf9PFKYGU2zWYy7aEpZN/BoVoyZIlO6ovhTBvkocqZ5CQ2
+         lGxwh/vKTleK27eXQxgFFqgzzal3cAP0+lblxG3e2ybZFvzLBmU/NSsLryC0iVFvfayE
+         4PQkaZaSNOudPi9RHaremdpley4s2eQIqZ0fwMa/QWSSjBPFtlPUPo8LKmi8t8nlSK0q
+         wJbA==
+X-Gm-Message-State: AOJu0Yx8P2uOO5E6GidbDWmlwgfz/rSaLRp+Ks/4+N+rwQRV9/QB/4zB
+	Z2sJynPROp9dsMJXCkOwCcooj3D1cfT+TC5V/tyh1Sz6gQQgEMqV5rO5MgpvCy7D10nP8kBH68C
+	+F+1PhbGUgtbctkaGYYTDgU4c2Pb4b45d0KMkDigjCQ==
+X-Gm-Gg: ASbGnctZnBb+N73nQml9c3lKqPmL3MKmY381RK8c+LSFGh4pIZzuZx629t9epoT70GB
+	aNGX15zQql+CrHC2wFNDFqBhg/JvVWsI6P8pzpK4P0BGs1RwNDc84uEzHZlTpgEJjNxj1M0x0GS
+	dDav9QkqIkIQDg319cxm6jA0lpxuhICe16fLdvERT3PK2kKgSMjOYuQXNgftfc2XrM2hi0YQ9eK
+	PoVMYBbiytIVRm+vkUD8ln5VdyYAlHPprIxNJEO
+X-Google-Smtp-Source: AGHT+IG/wrH/Z4PP0pZIy9wjFLr0/V/zaFYS1NMbhK2es383D8DYO570WjTh+eTKECcdm1aWBgEKS2c59dA6CxPHBHA=
+X-Received: by 2002:a17:902:d54f:b0:240:7247:f738 with SMTP id
+ d9443c01a7336-242c1ecb81cmr194687925ad.1.1754900465618; Mon, 11 Aug 2025
+ 01:21:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <CA+G9fYumD2MGjECCv0wx2V_96_FKNtFQpT63qVNrrCmomoPYVQ@mail.gmail.com>
+ <aJXebTmgnrWw7Ks4@willie-the-truck>
+In-Reply-To: <aJXebTmgnrWw7Ks4@willie-the-truck>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Mon, 11 Aug 2025 13:50:53 +0530
+X-Gm-Features: Ac12FXw5lvgF03ojOkscaSZZ8MEt6jPVgnO3qRgJ61gr4N1xTZBfV52fTLslDqU
+Message-ID: <CA+G9fYseoJU0TNmvSEU4sQTye575Jnq5XiwZZrK9K5z_snVM1A@mail.gmail.com>
+Subject: Re: next-20250729: PREEMPT_RT: rock Pi 4b Internal error Oops
+ kmem_cache_alloc_bulk_noprof - kernel locking rtmutex.c at __rt_mutex_slowlock_locked
+To: Will Deacon <will@kernel.org>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>, Thomas Gleixner <tglx@linutronix.de>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Anders Roxell <anders.roxell@linaro.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
+	Vlastimil Babka <vbabka@suse.cz>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Ben Copeland <benjamin.copeland@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_011612_312756_B869ED64 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20250811_012106_922542_9D741AF8 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,92 +100,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
+Hi Will,
 
-This patch introduces a new function, mtk_rtc_reset_bbpu_alarm_status,
-to reset the BBPU alarm status in the MT6397 RTC driver. This function
-writes the necessary bits to the RTC_BBPU register to clear the alarm
-status and ensure proper operation.
+On Fri, 8 Aug 2025 at 16:54, Will Deacon <will@kernel.org> wrote:
+>
+> Hi Naresh,
+>
+> On Sat, Aug 02, 2025 at 03:45:51PM +0530, Naresh Kamboju wrote:
+> > ## Test log
+> > [  527.570253] Unable to handle kernel paging request at virtual
+> > address 003f0020f94020a1
+> > [  527.570274] Mem abort info:
+> > [  527.570277]   ESR = 0x0000000096000004
+> > [  527.570282]   EC = 0x25: DABT (current EL), IL = 32 bits
+> > [  527.570288]   SET = 0, FnV = 0
+> > [  527.570292]   EA = 0, S1PTW = 0
+> > [  527.570297]   FSC = 0x04: level 0 translation fault
+> > [  527.570302] Data abort info:
+> > [  527.570305]   ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+> > [  527.570310]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> > [  527.570316]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> > [  527.570322] [003f0020f94020a1] address between user and kernel address ranges
+> > [  527.570330] Internal error: Oops: 0000000096000004 [#1]  SMP
+> > [  527.570336] Modules linked in: brcmfmac rockchip_dfi brcmutil
+> > cfg80211 snd_soc_hdmi_codec dw_hdmi_i2s_audio dw_hdmi_cec
+> > snd_soc_simple_card snd_soc_audio_graph_card hci_uart
+> > snd_soc_rockchip_i2s snd_soc_es8316 snd_soc_spdif_tx
+> > snd_soc_simple_card_utils btqca rtc_rk808 rockchipdrm btbcm
+> > snd_soc_core dw_hdmi_qp bluetooth snd_compress reset_gpio analogix_dp
+> > snd_pcm_dmaengine panfrost hantro_vpu dw_mipi_dsi rfkill rockchip_rga
+> > drm_shmem_helper drm_dp_aux_bus snd_pcm gpu_sched dw_hdmi pwrseq_core
+> > videobuf2_dma_sg v4l2_vp9 snd_timer drm_display_helper v4l2_h264
+> > v4l2_jpeg phy_rockchip_pcie snd v4l2_mem2mem cec videobuf2_dma_contig
+> > soundcore videobuf2_memops drm_client_lib videobuf2_v4l2
+> > drm_dma_helper videobuf2_common rockchip_saradc drm_kms_helper
+> > industrialio_triggered_buffer kfifo_buf rockchip_thermal
+> > pcie_rockchip_host coresight_cpu_debug fuse drm backlight
+> > [  527.570493] CPU: 3 UID: 0 PID: 34254 Comm: mkdir Not tainted
+> > 6.16.0-next-20250801 #1 PREEMPT_RT
+> > [  527.570502] Hardware name: Radxa ROCK Pi 4B (DT)
+> > [  527.570506] pstate: 20000005 (nzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > [  527.570512] pc : kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
+> > (discriminator 1) mm/slub.c:5403 (discriminator 1))
+> > [  527.570527] lr : kmem_cache_alloc_bulk_noprof
+> > (include/linux/atomic/atomic-arch-fallback.h:457
+> > include/linux/atomic/atomic-instrumented.h:33
+> > include/linux/kfence.h:127 mm/slub.c:5307 mm/slub.c:5403)
+> > [  527.570533] sp : ffff80008e24b8f0
+> > [  527.570536] x29: ffff80008e24b930 x28: 00ff000000584610 x27: ffff800082b30538
+> > [  527.570545] x26: ffff8000816b64dc x25: 0000000000000cc0 x24: 0000000000000000
+> > [  527.570554] x23: 0000000000000004 x22: ffff0000f7579d20 x21: 0000000000000001
+> > [  527.570563] x20: 0000000000000001 x19: ffff000000405b00 x18: ffff80008e24bcd0
+> > [  527.570572] x17: 0000000000000000 x16: ffff800081e18420 x15: 0000ffffa2670fff
+> > [  527.570582] x14: 0000000000000000 x13: 1fffe000017942e1 x12: 0000ffffa2470fff
+> > [  527.570591] x11: ffff00000bca1708 x10: 0000000000000001 x9 : ffff8000816e41a4
+> > [  527.570600] x8 : ffff80008e24b850 x7 : fefefefefefefefe x6 : ffff800082b30000
+> > [  527.570608] x5 : d63f0020f9402021 x4 : ffff0000f7579d58 x3 : 0000000000000000
+> > [  527.570617] x2 : 0000000000000000 x1 : 0000000000000100 x0 : 0000000000000080
+> > [  527.570627] Call trace:
+> > [  527.570631] kmem_cache_alloc_bulk_noprof (mm/slub.c:5343
+> > (discriminator 1) mm/slub.c:5403 (discriminator 1)) (P)
+> > [  527.570639] mas_alloc_nodes (lib/maple_tree.c:1278)
+> > [  527.570651] mas_node_count_gfp (lib/maple_tree.c:1339)
+> > [  527.570661] mas_preallocate (lib/maple_tree.c:5538 (discriminator 1))
+> > [  527.570667] __split_vma (mm/vma.c:528 (discriminator 1))
+> > [  527.570677] vma_modify (mm/vma.c:1633)
+> > [  527.570685] vma_modify_flags (mm/vma.c:1650)
+> > [  527.570694] mprotect_fixup (mm/mprotect.c:819)
+> > [  527.570704] do_mprotect_pkey (mm/mprotect.c:993)
+> > [  527.570713] __arm64_sys_mprotect (mm/mprotect.c:1011)
+> > [  527.570722] invoke_syscall (arch/arm64/include/asm/current.h:19
+> > arch/arm64/kernel/syscall.c:54)
+> > [  527.570731] el0_svc_common.constprop.0
+> > (include/linux/thread_info.h:135 (discriminator 2)
+> > arch/arm64/kernel/syscall.c:140 (discriminator 2))
+> > [  527.570737] do_el0_svc (arch/arm64/kernel/syscall.c:152)
+> > [  527.570744] el0_svc (arch/arm64/include/asm/irqflags.h:82
+> > (discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
+> > 1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
+> > arch/arm64/kernel/entry-common.c:169 (discriminator 1)
+> > arch/arm64/kernel/entry-common.c:182 (discriminator 1)
+> > arch/arm64/kernel/entry-common.c:880 (discriminator 1))
+> > [  527.570752] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:899)
+> > [  527.570760] el0t_64_sync (arch/arm64/kernel/entry.S:596)
+> > [ 527.570772] Code: 1400000c f94002c5 b4000aa5 b9402a60 (f86068a0)
+> > All code
+> > ========
+> >    0: 1400000c b 0x30
+> >    4: f94002c5 ldr x5, [x22]
+> >    8: b4000aa5 cbz x5, 0x15c
+> >    c: b9402a60 ldr w0, [x19, #40]
+> >   10:* f86068a0 ldr x0, [x5, x0] <-- trapping instruction
+> >
+> > Code starting with the faulting instruction
+> > ===========================================
+> >    0: f86068a0 ldr x0, [x5, x0]
+> > [  527.570778] ---[ end trace 0000000000000000 ]---
+> > [  527.570800] ------------[ cut here ]------------
+>
+> If you're able to repro this, please could you see if the patch below
+> helps at all?
 
-Additionally, the mtk_rtc_shutdown function is added to handle RTC
-shutdown events. It resets the BBPU alarm status and updates the
-RTC_IRQ_EN register to disable the one-shot alarm interrupt,
-ensuring a clean shutdown process.
+I applied the patch as suggested, tested it, and confirmed that the reported
+regressions are now resolved.
 
-Signed-off-by: Shunxi Zhang <ot_shunxi.zhang@mediatek.com>
----
- drivers/rtc/rtc-mt6397.c | 36 +++++++++++++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
+I applied the patch as suggested, tested it, and confirmed the reported
+regressions are resolved. Our LKFT CI will continue monitoring and report
+back if the issue reoccurs.
 
-diff --git a/drivers/rtc/rtc-mt6397.c b/drivers/rtc/rtc-mt6397.c
-index 692c00ff544b..063bd399de8c 100644
---- a/drivers/rtc/rtc-mt6397.c
-+++ b/drivers/rtc/rtc-mt6397.c
-@@ -37,6 +37,21 @@ static int mtk_rtc_write_trigger(struct mt6397_rtc *rtc)
- 	return ret;
- }
- 
-+static void mtk_rtc_reset_bbpu_alarm_status(struct mt6397_rtc *rtc)
-+{
-+	u32 bbpu = RTC_BBPU_KEY | RTC_BBPU_PWREN | RTC_BBPU_RESET_AL;
-+	int ret;
-+
-+	ret = regmap_write(rtc->regmap, rtc->addr_base + RTC_BBPU, bbpu);
-+	if (ret < 0) {
-+		dev_err(rtc->rtc_dev->dev.parent, "%s: write rtc bbpu error\n",
-+			__func__);
-+		return;
-+	}
-+
-+	mtk_rtc_write_trigger(rtc);
-+}
-+
- static irqreturn_t mtk_rtc_irq_handler_thread(int irq, void *data)
- {
- 	struct mt6397_rtc *rtc = data;
-@@ -51,6 +66,8 @@ static irqreturn_t mtk_rtc_irq_handler_thread(int irq, void *data)
- 		if (regmap_write(rtc->regmap, rtc->addr_base + RTC_IRQ_EN,
- 				 irqen) == 0)
- 			mtk_rtc_write_trigger(rtc);
-+
-+		mtk_rtc_reset_bbpu_alarm_status(rtc);
- 		mutex_unlock(&rtc->lock);
- 
- 		return IRQ_HANDLED;
-@@ -297,6 +314,22 @@ static int mtk_rtc_probe(struct platform_device *pdev)
- 	return devm_rtc_register_device(rtc->rtc_dev);
- }
- 
-+static void mtk_rtc_shutdown(struct platform_device *pdev)
-+{
-+	struct mt6397_rtc *rtc = platform_get_drvdata(pdev);
-+	int ret = 0;
-+
-+	mtk_rtc_reset_bbpu_alarm_status(rtc);
-+
-+	ret = regmap_update_bits(rtc->regmap,
-+				 rtc->addr_base + RTC_IRQ_EN,
-+				 RTC_IRQ_EN_ONESHOT_AL, 0);
-+	if (ret < 0)
-+		return;
-+
-+	mtk_rtc_write_trigger(rtc);
-+}
-+
- #ifdef CONFIG_PM_SLEEP
- static int mt6397_rtc_suspend(struct device *dev)
- {
-@@ -345,7 +378,8 @@ static struct platform_driver mtk_rtc_driver = {
- 		.of_match_table = mt6397_rtc_of_match,
- 		.pm = &mt6397_pm_ops,
- 	},
--	.probe	= mtk_rtc_probe,
-+	.probe = mtk_rtc_probe,
-+	.shutdown = mtk_rtc_shutdown,
- };
- 
- module_platform_driver(mtk_rtc_driver);
--- 
-2.46.0
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
+>
+> https://lore.kernel.org/r/20250806145611.3962-1-dev.jain@arm.com
+>
+> Cheers,
+>
+> Will
+
+- Naresh
 
