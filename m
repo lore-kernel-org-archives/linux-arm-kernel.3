@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461F0C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 06:33:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1048C87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 06:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jNzVtAsxtGf0lFnJlcfQ3TByjHHmjVeIgw7TiXHmnEM=; b=fkGfkre0zAcP0gMsDsEps1vixc
-	DlMRkEfBbFUZQ73TW+evHZcgjj18wMM4TvruTHGux24CpLUZ+zJ0wYzgaTR0nUiM9t9Kxd8GVSuIg
-	V2JhBRbwrGIUHxEVw1PiMIU87JlT3DhwANiExN5oU9K99gqnmmHp25KdegOhKM+g3FmahK9wf2QbT
-	AjjJ1PTvsJPQdJZsyRBPYzeWotHcNG0JsPuI9rp6qcpMKt1utK3+wrFCSB1VCBfZDvj+tn2zPpR6H
-	IhA/RpjJi5fLDrCNHQD4XmEL5bDQOx5S58z1DPIP+gR+lFS9pb0LB+RguS+3m26HkNe1xcRhqrzMn
-	NM9eBqYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EN4y04TyzYc+1OFfs4035yN4QzN8sqJWBLM7G10bohc=; b=ykUCEYT3FwYE7QiidYbIo2Vh3g
+	Y1yG1W/4gz5BIKNi3AnrGgeRurqYwBGVZwShulj4FCiHwcWnHhQcyGVLE6CuBp8h/sNZdlEmZ7rNj
+	7A6XLWbI3uo+Jop3hUdLF6+6nGrD9LJAoLtaeU+yuPb8IAObyop51tFD6sPJexssN5HyTzhw8SzPk
+	bgh7uAMXCxPA6zAFbhUEwENtk7Bx2hB8kEOyEtuVnUdT76KWisvzME6/GIiYUYOQ1tX0CQYAHQAuu
+	kogtodwrqdMJmc1ZrgjkmXak/v2rZIUP4qXJ2e+KDRgo/5n4fwBdLz0JXWe1cpb1mwsJqq7zy2Xl1
+	bT7kZZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulM5o-00000006brE-06uW;
-	Mon, 11 Aug 2025 06:33:12 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ulMDP-00000006cWF-2gtC;
+	Mon, 11 Aug 2025 06:41:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulM3E-00000006bdv-08vx;
-	Mon, 11 Aug 2025 06:30:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=jNzVtAsxtGf0lFnJlcfQ3TByjHHmjVeIgw7TiXHmnEM=; b=08oRKhIb1ajpli+TpTvmpRH+tl
-	uEKnt6dZtNTopvuqjd613RK0L1/C0hYvZLIhNJjsKR93y1tgjTSYRQPSp5XUObmHBljtmdjC59nw3
-	IN3ZtZb37VTpoI+kgkG2ucskyqnRCxJLr3i23yOwX2vbIymb2SOaAMpt3vDnoWx927okoBLRIXSUc
-	CMF0m69rvjfBjrIDPSMgYpT8AK9KOinsArvfGZxqL0qlrED7VdOXHRxnniK15BmfWb9OCUto0h4PM
-	jhmvqwZdw+GGuKkk4/hCozET4ujSOKMxXAi4hFT2S2NKAR/XnK9xufGxP78quMKKJsd65E+ots8o+
-	EQ1ZgrTw==;
-Received: from i53875a0c.versanet.de ([83.135.90.12] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1ulM33-0006sA-Nx; Mon, 11 Aug 2025 08:30:21 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, FUKAUMI Naoki <naoki@radxa.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/3] arm64: dts: rockchip: disable display subsystem for Radxa
- E52C
-Date: Mon, 11 Aug 2025 08:30:19 +0200
-Message-ID: <3125650.687JKscXgg@diego>
-In-Reply-To: <20250810100020.445053-1-amadeus@jmu.edu.cn>
-References: <20250810100020.445053-1-amadeus@jmu.edu.cn>
+	id 1ulMAo-00000006cJX-3GnG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 06:38:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E9E5A568EA;
+	Mon, 11 Aug 2025 06:38:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1041AC4CEED;
+	Mon, 11 Aug 2025 06:38:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754894301;
+	bh=A5HEG7XgJUt4wjPWMnHqs0rS7OShpT65SYqFRjxhiXU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kR6TbhiAqxfztq3KKWeWWvwKDgFDoRrVqhzKHD2Xt3GylgtlYhVNnzTZnoYXWSOLy
+	 y/GqKM8fRiKGOxO+3HdHx69g4aaFJsM7CcprCk6oMtgW/Rh71woZFvNsnL/KSqzDWk
+	 1LG+tTru1MVEyUB7su9OkF/b00C4G8nnk2d/IgWNjiP0g35PGrSDPQUewCif6sU3Xb
+	 K9TYDVTxg7Uli123Onqld3fF3UdorYodRMb3N8cJRSCxJKVLF3Rc/n7YvLjGf/u15Y
+	 mHcBPm0EuR4UHqcvhMy7xXLscsXYo7ci4AjsAq5zLRObbacFVH/qChZYeg+bvfn123
+	 QVOCb8zrMuSzQ==
+Message-ID: <dfaa36d6-41b2-46c1-ba14-e2fb5c9815e6@kernel.org>
+Date: Mon, 11 Aug 2025 08:38:15 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 2/5] dt-bindings: power: Add Marvell PXA1908 domains
+To: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>,
+ phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org
+References: <20250806-pxa1908-genpd-v1-0-16409309fc72@dujemihanovic.xyz>
+ <20250806-pxa1908-genpd-v1-2-16409309fc72@dujemihanovic.xyz>
+ <20250808-portable-expert-turkey-4f8f19@kuoka> <2017616.PYKUYFuaPT@radijator>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <2017616.PYKUYFuaPT@radijator>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_233032_098241_6E8FD45B 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250810_233822_946672_E488956B 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,50 +125,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Sonntag, 10. August 2025, 12:00:18 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Chukun Pan:
-> The Radxa E52C SBC do not have HDMI output, so disable
-> the display subsystem.
->=20
-> Fixes: 9be4171219b6 ("arm64: dts: rockchip: Add Radxa E52C")
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+On 08/08/2025 21:46, Duje Mihanović wrote:
+> On Friday, 8 August 2025 09:34:54 Central European Summer Time Krzysztof Kozlowski wrote:
+>> On Wed, Aug 06, 2025 at 07:33:21PM +0200, Duje Mihanović wrote:
+>>> +          A number of phandles to clocks that need to be enabled during
+>>> domain +          power up.
+>>
+>> This does not exist in your example, so it is just confusing.
+> 
+> This is because I have not implemented any of the clocks used by the
+> domains at this moment.
+> 
+> Actually, I am not sure anymore whether it is necessary to assign
+> clocks to the domains as I have just yesterday successfully brought up
+> the GPU with some out-of-tree code and that did not require giving the
+> domains any clocks even though the vendor kernel does this. Should I
+> just go with that and drop all clock handling from the power domain
+> driver, at which point there would be no need for the individual domain
+> nodes? If not, how should I in the future assign clocks to the domains?
 
-What actual problem does this fix?
+I am asking to see complete binding with complete DTS in example and
+submitted to SoC maintainer.
 
-=46or example we also enable on-soc iommus all the time, because they're on
-the soc and don't need board-level properties.
+I did not comment on drivers. This is not a driver patch.
 
-The "display-subsystem" without users looks mostly in the same spot.
-
-So I do expect a description of what proplem gets fixed that this needs
-to be disabled.
-
-Thanks
-Heiko
-
-> ---
->  arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts | 4 ++++
->  1 file changed, 4 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/ar=
-m64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-> index e04f21d8c831..3b519be6e1ea 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-> @@ -207,6 +207,10 @@ &cpu_l3 {
->  	cpu-supply =3D <&vdd_cpu_lit_s0>;
->  };
-> =20
-> +&display_subsystem {
-> +	status =3D "disabled";
-> +};
-> +
->  &i2c0 {
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&i2c0m2_xfer>;
->=20
-
+> 
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/power/marvell,pxa1908-power.h>
+>>> +
+>>> +    clock-controller@d4282800 {
+>>> +      compatible = "marvell,pxa1908-apmu", "simple-mfd", "syscon";
+>>> +      reg = <0xd4282800 0x400>;
+>>> +      #clock-cells = <1>;
+>>> +
+>>> +      power-controller {
+>>> +        compatible = "marvell,pxa1908-power-controller";
+>>
+>> No address space, so this should be folded into the parent.
+> 
+> By this, do you mean that the clock driver registers the power domain
+> controller through devm_mfd_add_devices()?
 
 
+There are multiple ways this is being solved but NONE of them are
+binding ways. You again bring driver into bindings discussion.
 
+
+Best regards,
+Krzysztof
 
