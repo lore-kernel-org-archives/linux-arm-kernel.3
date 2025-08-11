@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C69C87FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 03:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2DBC87FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 03:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cn3htOReln+vOcAcfeE1LgSCT/Ev3OONSHgeMyS579U=; b=dxwtItUusTxdGXtR0HdXbEzlJ3
-	PR/2K/Y2zQcVMn9McPQChoY2TL4/K2fPkZYNS6Cx7oXc5GukkE+AWtbOU3E5bnkXZQEdT14TEBEM9
-	+pC/Qpn9SFX46l/uEQzSYDmiiSysCH+J3C5ax9SBsuEIZaCuKaP2vxGF42XYecn3MKInCFbnzEUSw
-	1cs6p2jKnEg+NqjjiCLSrnlGa2mFxN4azNVb6XSRQC74HAFlpsE1q/lfUkuubuM6JclutBr5m33wn
-	MS7SlUOi/UdcLJ9rY1Jvxc2eTXza0igevsFGn6MyTDk/BYhtRn0IwyHGrZvlmy5mI4dcDEa+IaOxJ
-	5XTWt0Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MyI6bQ4VKi6kzEU6MGPeSA2rT56TE5vaJOVAfdMj034=; b=LZbyiGsKM74FQvmOQpxY93IYfJ
+	WZB6UwrINrG43xCPqw1aZvzFR2sU0H6p21aUGubIA8P1nSuUymHsiL5x/wu9Giz2D5BdO0EGEqOpH
+	IFJ9g4c5t5aTvk3ZUlsHkYigi7ESVtylgg8CwSBdoYZv0AfGMYC9e9xiPbmzaJ9kGGkSBkGrsjbHK
+	wp47cxUSCwrngQcJxsH0YrpVEqjGN+6SuK4AMpPzLgrjpgKjGsYXE7qPj7gUZfU1MS5pw7w59wMbj
+	BTpqS1LzQCyH1/UOnn+TLTrkCUZXC6EXLI1mq5JEj8m+EL8vDZclriDgRyk+GoZiU15LxvYQFTM20
+	kTE0WBLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulJXa-00000006Rgg-2vc1;
-	Mon, 11 Aug 2025 03:49:42 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1ulJa4-00000006Rux-1h0j;
+	Mon, 11 Aug 2025 03:52:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulJBJ-00000006Paf-0ukf;
-	Mon, 11 Aug 2025 03:26:42 +0000
-X-UUID: fc6dfaa2766211f09f706fa2197c6ceb-20250810
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=cn3htOReln+vOcAcfeE1LgSCT/Ev3OONSHgeMyS579U=;
-	b=LPXkXzj+SYCfBTtp62gA8MVwjVD6P7IPcmD6nCTzmjBnfHCoVFyjgQgcpWJAqtVPhl/5YBLVUsJQbhnxoWN59EibZDuRWkwnKkMacpk0Up11SBqRmSKpFjQyUKSXd3fdabG/sTBNxpp2tyhR1zK+tK8Dl5QKjCP20tJp+FhI7cU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.3,REQID:eb77caf0-ae79-456b-9289-c58f68c865d0,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:f1326cf,CLOUDID:27dd4aa1-1800-4e4f-b665-a3d622db32cf,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:-5,Content:0|15|50,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: fc6dfaa2766211f09f706fa2197c6ceb-20250810
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 221575256; Sun, 10 Aug 2025 20:26:36 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 11 Aug 2025 11:26:27 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 11 Aug 2025 11:26:26 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Christophe JAILLET
-	<christophe.jaillet@wanadoo.fr>, Sebastian Fricke
-	<sebastian.fricke@collabora.com>, Nathan Hebert <nhebert@chromium.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>
-Subject: [PATCH v2 8/8] media: mediatek: encoder: Add MT8189 encoder compatible data
-Date: Mon, 11 Aug 2025 11:26:15 +0800
-Message-ID: <20250811032616.1385-9-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250811032616.1385-1-kyrie.wu@mediatek.com>
-References: <20250811032616.1385-1-kyrie.wu@mediatek.com>
+	id 1ulJBz-00000006Pm8-3Gu0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 11 Aug 2025 03:27:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1754882841;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=MyI6bQ4VKi6kzEU6MGPeSA2rT56TE5vaJOVAfdMj034=;
+	b=N98C2TSFtN91dW1oU7CzirJAkJIDuwmPCmhoCep1fcn8mkbL2ZPXn7Ijgm9UIJXBdjZt/e
+	qjLgGajyALv5Yp87rz9HUJyPuDyfMpS3+xp3Eirh2iJ99b32e5WDiasDQVfSk7wOVM0PE0
+	tESQtu6okFAMvFyWJU0GHk9p8iEC/1Q=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-111-L97O6ODIOwy9gl_Bi05fFg-1; Sun, 10 Aug 2025 23:25:52 -0400
+X-MC-Unique: L97O6ODIOwy9gl_Bi05fFg-1
+X-Mimecast-MFC-AGG-ID: L97O6ODIOwy9gl_Bi05fFg_1754882751
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-23fe984fe57so64041385ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 10 Aug 2025 20:25:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754882751; x=1755487551;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=MyI6bQ4VKi6kzEU6MGPeSA2rT56TE5vaJOVAfdMj034=;
+        b=bAunr99jLYQjQYF1GV5KjySOz5xSW8MBMXdDJHqltXr8ZqcpWntE6YigKbOpU7bQdJ
+         8y7WFwO/hviMLuGoUpdkrFxvpX4qGbljRmNMLgnd0s8fqBTVNX4Tpui6AjOC5WgzhYk6
+         xGfWOdRxItvNmRER35M3Z2iH/3UurHEGeHTcJ0NSDxRHyen4576FtLgCXT2/CfTD4NK2
+         UAveOfhudMnoRcR0QXztLeNQ1UnGLpjvk8Vgk8dgANrNNKFGD1fi9wHbq+I5MC+NeBJl
+         sXgnznshKL3roESSHpAMK0yYGftmEbx0yXr1QsUeu0pVdYhW13NeQ/tHo2NSnTigXirL
+         7dig==
+X-Gm-Message-State: AOJu0Yz/H76jAlkgy8oqH/mnrPfydqhOqHj4TxLx7oAUMDMdP5Ha8Vql
+	4Rc/oBru1NyP/Ff2h499BOLDmHoqULh99HU9mZGvamSjG1tmuNCsy1Y6sem8BNyuR/kSM5Ohqe9
+	wuzDEzKTHi7cyjGQw8OsvGch23DXuwW5c+WGcl+cENs+Op5xqAzvk1WvFMh2TDYzwjUs4SpmQSu
+	C2
+X-Gm-Gg: ASbGnctEKduBgK1MB0VESu9Keb0ieQ7KihUyMCyt6DYNJYSM2IUqy+HLJociIGVU8lI
+	loLX206FNHwbxM/1DpChlixr8BqabddDNwA9PLjEUQ4Wxp0bK+AXtlHfJPWnqt14/g+0tykKdO7
+	NF/B6cyob1uaSRV+lWyawHAqbcdFTGsa7sYcD2Hu2tApioa2T67QpBDo+eV84YSzblqPjqzq3ZJ
+	YiIsFGwpCfrKEgJnLM3YJnRs1mlI58QDyx+uSV5XsSMkD7A5/fe5MjkkjswqiXSYmC0mHYdmfUQ
+	tjB7bd8PK3RTegUe2+klVE+CxhiYtWI=
+X-Received: by 2002:a17:902:f641:b0:240:7c39:9e25 with SMTP id d9443c01a7336-242c220019amr145851335ad.27.1754882750975;
+        Sun, 10 Aug 2025 20:25:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGij+iLLH1kTC74+yPsc/frGl3BwTOOImoH7zdGTiZxVFriyBsG7HIux9tyLkoa+5Pjls7KUw==
+X-Received: by 2002:a17:902:f641:b0:240:7c39:9e25 with SMTP id d9443c01a7336-242c220019amr145851095ad.27.1754882750559;
+        Sun, 10 Aug 2025 20:25:50 -0700 (PDT)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-241d1ef6a8fsm258509715ad.23.2025.08.10.20.25.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 Aug 2025 20:25:50 -0700 (PDT)
+Date: Mon, 11 Aug 2025 11:23:49 +0800
+From: Coiby Xu <coxu@redhat.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	kexec@lists.infradead.org
+Subject: [Regression] kdump fails to get DHCP address unless booting with
+ pci=nomsi or without nr_cpus=1
+Message-ID: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: AdqohfWQZ9hgnajSZLrWkOPsRrT5cXWm8rBuPNdWg74_1754882751
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250810_202641_269828_BE711B14 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250810_202723_879564_CBE6DFA6 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +103,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add compatible data to support MT8189 encoding.
+Hi Thomas,
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
----
- .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+Recently I met an issue that on certain virtual machines, the kdump
+kernel fails to get DHCP IP address most of times starting from
+6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
+Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index c869c4245ebc..4f5c2d8d2855 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -468,6 +468,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
- 	.set_dma_bit_mask = true,
- };
- 
-+static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
-+	.venc_model_num = 8189,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+};
-+
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -478,6 +491,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
- 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
-+	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
+     # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
+     # MSI_FLAG_PCI_MSI_MASK_PARENT
+     git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
+     # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
+     # Provide MSI parent infrastructure
+     git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
+     # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
+     # Prepare for PCI MSI/MSIX
+     git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
+     # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
+     # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
+
+
+I'll appreciate it you can provide any suggestion on fixing this issue.
+And I'd be glad to verify any idea as this issue can seem to be reliably
+reproduced only on certain machines.
+
+The aarch64 kdump kernel on Fedora is booted wit "irqpoll nr_cpus=1
+reset_devices cgroup_disable=memory udev.children-max=2 panic=10
+swiotlb=noforce novmcoredd cma=0 hugetlb_cma=0". Removing "nr_cpus=1" or
+"adding pci=nomsi" can make this issue disappear. 
+
+Note I've also reported this issue to
+https://bugzilla.kernel.org/show_bug.cgi?id=220328
+
 -- 
-2.46.0
+Best regards,
+Coiby
 
 
