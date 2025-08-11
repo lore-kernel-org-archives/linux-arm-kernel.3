@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D8BC87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 11:52:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1EDC87FDB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 12:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3m3NYhX0f+KYzxRPEtnipkDoKtNhsNCJr3ndSmVjep0=; b=c+ThmHqYN1vXAFqHy7vuIDIlq4
-	b/Oi0pg9OVG/6ghJJ8pmHjqGlw3ncr++WgIJK3dOVMUmsD9aB1FnIteE2l7eGGCDQKOambZ+IOugD
-	4o9Yu0LlK/A+IWHKf1UVq2aXQhNscj588oM/105ijjhcnbhqydeYJaPmtnqFJMLrZRF5CocRJe1i/
-	qpIgic3iN2LdpsF0SdnTL+eUhovcxFofNyb7qebaOLrjVfe8K88qbnH57hd8EqCmKSqzquAHpkQNx
-	DkETrw4/EgAGq4Bdi8WESxDshN08IPXABtEwSuO8YJYs2i88wgZK9iqPI/4wzV/tj0qpbipFzf/3+
-	LE5UtaNQ==;
+	bh=uWl/3zDBRXCdqh5+iawVIJMESjqwmHAtoumjUHvK/58=; b=UedIAzxJaaWDlRcF5UYDB2vEgx
+	XVFXEkVI2wB+8B9YcRKFJWCTMqpIrDLi8+Im5GzJJpZXNzxB2+axrwUPOaHabuxjkoy3N9fzCwax8
+	rDN2rIWkxfBIfQcPEb4yjfw8qv4pRJmFfM4pI0VfuYH1JSquHhUsTNzWdUBPcuHmcBBPGBG0ecmxi
+	tACDpru6iFk0uKn0YTGD/uwgCeW+dFvtM7bcZZ8Kz5xzkVABl7QjoiasPJsdUrOeQqUpLCH25s7yp
+	YlueFNZ54xpjCvpEkZ1Bw9KvFwEpLeA4ZmKcggLKkYslXEZdCyyXv+DEQ84oTvEf7Ypfjk0gFXUs2
+	c2wUWbLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulR4Y-00000007Zcy-41ON;
-	Mon, 11 Aug 2025 11:52:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ulRJi-00000007arN-2eV5;
+	Mon, 11 Aug 2025 12:07:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulR1z-00000007ZUg-0hiS
+	id 1ulRH6-00000007aUv-2BLI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 11:49:35 +0000
+	Mon, 11 Aug 2025 12:05:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8D527601F8;
-	Mon, 11 Aug 2025 11:49:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3436EC4CEF1;
-	Mon, 11 Aug 2025 11:49:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 80A2D5C6326;
+	Mon, 11 Aug 2025 12:05:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C21D1C4CEED;
+	Mon, 11 Aug 2025 12:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754912974;
-	bh=QWJh3XA4bQPH/hLuxXXWVMN3sbdcGGCp6Qd7aRGBJRo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kY6EvQcKrhDxNus5IyHzP0ejklCNGDJW1rLtX68H92A3y+B7cZKLyN+fskBUh8oja
-	 4iqbif8gokwIabUpPEoeeW9EsyUdAmbwMEAApDBE4Lati69S80+QlU7u56MmwQ07yv
-	 04417JW1yqcrfROuKS6vG8DnepZpITq75mIMh2ZE71A/a64u4yjE2jIgrOUndA7NTO
-	 SPd2pHVq2EewQqSBDoBnu6O1P89n2kPZ0p50jG7HOfGtDVy0I5nLi4MJz1TkgHMmjA
-	 t71OtK1Qgrxh4XeU0PgBHcUolyiALO3wx4EQ1hhK4h/K1ut49tKKfNfgJ0wUlqD5su
-	 4Wjys771lajhg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ulR1t-006Cex-8i;
-	Mon, 11 Aug 2025 12:49:29 +0100
-Date: Mon, 11 Aug 2025 12:49:28 +0100
-Message-ID: <86wm7a84dz.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: fanqincui  <fanqincui@163.com>
-Cc: "Will Deacon" <will@kernel.org>,
-	catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Fanqin Cui" <cuifq1@chinatelecom.cn>,
-	hanht2@chinatelecom.cn
+	s=k20201202; t=1754913911;
+	bh=99hH0t8BmmfPSDcs9stJyBQ4nZ4aeI4XZXCgdCqeWrM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AIMANRA9nU5eZ1bzDo+BC5F8pExgAUWt7KrajDRY/AfArlsWTYAm3kVSYB4fO+oq3
+	 5EC7KOvhf7V2jrHa5Unb2c8DbmteD1FvX+9wgjvfFkWz3syM88CebGsT5AHd4jpeaH
+	 j5kVs1/QDAIveeZOXLhJgPelFF/srTkxtKX1YmdTqjxmqMlNoMBSB5861aLmR4c4ra
+	 QTYSdOKaNjrbh2xN1r0dcnyafPtKFhVvws+qT0i/1TWwPRpfyOxwSEe4/RU3oJ3l02
+	 xbGnJ+JchYMsq1s4tV/q7cpUgtOperSN/quzRdsYKVhC43ax8+KCQN5bnmyw9Le3Z+
+	 EIYfAKKyWIPVw==
+Date: Mon, 11 Aug 2025 13:05:06 +0100
+From: Will Deacon <will@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: fanqincui <fanqincui@163.com>, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Fanqin Cui <cuifq1@chinatelecom.cn>, hanht2@chinatelecom.cn
 Subject: Re: [PATCH] arm64/module: Support for patching modules during runtime
-In-Reply-To: <56b98f57.954f.1989890838d.Coremail.fanqincui@163.com>
+Message-ID: <aJnccgC5E-ui2Oqo@willie-the-truck>
 References: <20250807072700.348514-1-fanqincui@163.com>
-	<aJXlegQfZTdimS3k@willie-the-truck>
-	<3d4011c0.6aaa.198981027d7.Coremail.fanqincui@163.com>
-	<86zfc68exk.wl-maz@kernel.org>
-	<587b3c08.7e85.19898424fdb.Coremail.fanqincui@163.com>
-	<86y0rq8cf8.wl-maz@kernel.org>
-	<56b98f57.954f.1989890838d.Coremail.fanqincui@163.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fanqincui@163.com, will@kernel.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, cuifq1@chinatelecom.cn, hanht2@chinatelecom.cn
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+ <aJXlegQfZTdimS3k@willie-the-truck>
+ <3d4011c0.6aaa.198981027d7.Coremail.fanqincui@163.com>
+ <86zfc68exk.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86zfc68exk.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_050512_604436_B3D719D2 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 10:57:44 +0100,
-fanqincui <fanqincui@163.com> wrote:
->
-> >Well, you can't know about that. We patch basic primitives such as
-> >atomics, system register access, and plenty of other things. These
-> >things need to interoperate with the rest of the kernel.
-> >
-> >It's already difficult to guarantee inside the kernel itself. Having
-> >it in random modules will be even harder.
-> >
->=20
->=20
-> Okay, so the kernel patches you mentioned, are they already patched
-> when the module is installed?
+On Mon, Aug 11, 2025 at 09:01:43AM +0100, Marc Zyngier wrote:
+> On Mon, 11 Aug 2025 08:37:32 +0100,
+> fanqincui <fanqincui@163.com> wrote:
+> > 
+> > Hi will,
+> > Yes, you are right. The alternative callback function lives inside the module.
+> > This callback function is actually similar to kvm_update_va_mask in KVM;
+> > 
+> > The module's callback function calculates some values based on
+> > the current CPU features and then performs the replacement.
+> > 
+> > The .text.alternative_cb section is actually marked as SHF_EXECINSTR | SHF_ALLOC
+> > during compilation, so intersections() includes this section and sets it as executable later.
+> 
+> I'm worried there is a chicken-and-egg problem here. What if the
+> callback itself requires patching via some other alternative? Is there
+> a guarantee that this always performed in the correct order?
 
-Yes.
+Maybe we should just reject loading modules that have alternative
+callbacks that don't reside in the kernel text? I _think_ that should
+cover all the in-tree users, although I didn't get a reply to my
+question asking which module triggered this bug report.
 
-> This doesn't conflict with the kernel patching.
-
-In what sense?
-
-> I mean, the specific patching within the module is up to me.
-
-No.
-
-> If the chicken-and-egg problem you mentioned exist, module
-> developers should avoid it in their own code.=C2=A0
-
-We're not in the business of making the kernel more fragile and hard
-to maintain than it already is. So either it *always* works, or it is
-completely disallowed.
-
-> I think the kernel should provide modules with the ability to patch
-> themselves, right?
-
-Only if it is safe to do so. Which is why I asked a question in my
-initial reply, which you still haven't answered.
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Will
 
