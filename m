@@ -4,57 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67C85C87FDB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 13:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B2AC87FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 13:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Z6BKOuMwvvdqwSkfr3gmp8bHDquJc6eeBT/YR4keSXo=; b=K7YfXG3qaX8sQg9xaC5rbnDLy2
-	PyRPAY70S4s/8VWU289ZUnbMaWE/l4jt60ymkTF49RwyKOx7DZx/mfshX9HL8Wri+xYbXFQBRIOii
-	hQr5ibrHKayHghwcNPv3bR2R7SQ4cQ9dQub/4/g18LRH4U9E4eITN1EBufa0pR14bLRl4Isv/GF0+
-	3dKUslqlklndSfYXZrDlexRLJORW3Dy6/bX5BKJAcmTkz15CPNBDYROmbWbsjBaiaZc2w/IeBPnAa
-	iFfoyBJPxk6O8ssvtrR3utOvZxM49pOJgOsLdJWcxv8utxryHAsMN69rX8jMmXUF+/W5uNVIipPNe
-	7ViVCEVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nklRgqEsHAGsTa1ZY+Tu1pfGAj2pLA2XYPvzJl54xAU=; b=W67XrRwwdEZLIi
+	0B7fTJXWbNBijZEiRSmF6BPhm5m4dggDb68+hY8WCRiHP3qWdZ2Xl2dGVt34VPSzyue+DuGk5HMdw
+	BvHlRKnVR8GlfTjfpWWcPVHpCeyn41lmxcHXGSHKGskNO3B5peM87dklWF/lZDTDmOlE8vYn0LA6i
+	Dy2qlaAMxNi2lsbJbCfwFdXnifBCXBBRxPSr4yeHP6w3MsyaiGG+YswweXDXzrTxSMs39cTXII8N7
+	x29bksbM9ytSZphRNd09K78wPr+LtfrANtVEIlhxWNgqZESRsHnGTs3pCZecjm/xjTRjAmO0zGT89
+	XvrWuzt05yYABzNB0QFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulSxJ-00000007tJN-2Ao8;
-	Mon, 11 Aug 2025 13:52:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ulSzu-00000007txn-33uE;
+	Mon, 11 Aug 2025 13:55:34 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulSug-00000007six-1kVM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 13:50:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D05C361435;
-	Mon, 11 Aug 2025 13:50:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2091CC4CEF7;
-	Mon, 11 Aug 2025 13:50:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754920209;
-	bh=XnHbj9QBkLJy0W+qbz9eTgXoyKBZkhMdcwnehpypp8g=;
-	h=From:To:Cc:Subject:Date:From;
-	b=NkFdkxxvdgOvS9b8k6rkmHTgLWsUR6rhRZkv//2qpd4fqlfLJpgfwk2YGLGm8pnmt
-	 219WXyHQo8E5Nz0d+pXsffv42ZJR4eOujdM2zrfJgjbKHP6DAYLSsPM45F+XpR4BK8
-	 HmMRuAVbxZnHxMBi1m0prYB7fXWaofvgwVHhyDxMK4PAKwFGylClNHolhrTywOc4SB
-	 m1d6Jxj1+Bx9J58T+fR2lQ0Iu14TCEDho5ZAHw0YrLmDjDErIx3OGT1p/VIbCdeTWg
-	 OfZ9YfK05uAHlqsYW4eP7wZsjb5z7AohAFUX3ZbctH60y5CE7MlpKNKCr+dSSM0sWI
-	 hkKOqCzxX8v7Q==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH] irqchip/gic-v5: Fix kmemleak L2 IST table entries false positives
-Date: Mon, 11 Aug 2025 15:50:01 +0200
-Message-ID: <20250811135001.1333684-1-lpieralisi@kernel.org>
-X-Mailer: git-send-email 2.48.0
+	id 1ulSvo-00000007stO-2vGI;
+	Mon, 11 Aug 2025 13:51:21 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-76bc68cc9e4so4434121b3a.2;
+        Mon, 11 Aug 2025 06:51:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754920279; x=1755525079; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nklRgqEsHAGsTa1ZY+Tu1pfGAj2pLA2XYPvzJl54xAU=;
+        b=BtEtuq8kuZK8UUsSRc3mfiNZozzCZjFLfQ+xP+lhMYrJOlEsnNkRwfPrKTCcRIFnL0
+         SyVWNNoC9YVkVaZhu/RRfaiJ2C0p4YljwVInMe6hzPX1PPm0cepDn6TzG15QcqC6HIex
+         dNKFt0VVPAJpzFZnjpgbNSUInbAyrILc3fhjao6P7K0AizHn/kI/+8Jt62+hrhsLxh+S
+         CqM4WYqPnC+HawsgFgo5F9XTDJ4MCLBlc4wg7WyNmMvlLVFS+bF/4e8d/w+yEqwzs2kU
+         9CobH4dipMaL6XXH3kSgQb2eSXxMR6+H8Cjdyfp741Z+SbICnMvpIBtVyeR2FmaZcr6O
+         PNqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754920279; x=1755525079;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nklRgqEsHAGsTa1ZY+Tu1pfGAj2pLA2XYPvzJl54xAU=;
+        b=DR2LS4P6aMhcA1G21dHdZhSTMbFuN2Gr+PUZF6+I3C+DFFL5GY+lkkJJpWDquU5uxV
+         RKrbr0OWE0448Nhbu8bsY1XSESjH5V9bdyZx25fLBxpo0kqalC4CbSzXUiFdAtdqvkPD
+         poNDlf+aITXNsenkE1CxLzOI7TWpZ2F+21PZRkLO6NDWYu1JaSdmMizHyByiKDg43qHG
+         g8x22ylEFwmuThMh9kcdmVwNZTlkaJ6ucWHX2Z5L4EGS671iSOQlF5hj3C0xBOladjK3
+         IFCVSEAlPtsvU7dgh4pUq93UuU8qHD4Yp5QY5N2TEoCT4uf27im1HWqNfPQsGaoQ4eCp
+         nNxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUGj1BbEAGgdQW16j249rjWk5uMLO4TIep613TuAxz12GvQCDW8e6r5KTWRbrSyJ3i31ievGybH4WfQrk0UB7m+@lists.infradead.org, AJvYcCWcpx4Rhver6yWRuHzrk9qt0XUCPTJZZ1g8prlTg4mk0amUJMh6NsgxOAU2AbVFNFs4QLMLN5dD9yYpnA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmjTMNUk5kPMrHQPhpQ6l8Mpdv+Kuie6QhELRKgWz4wnUGbP7k
+	WfxPuRG/e2gqd4usuvDqkW2OnYkvosA1cz7b/UJFu7/lbo55Bi9eauTJ
+X-Gm-Gg: ASbGnctPd1TIpdCH9JMw6edB7PnqBN4uyXPodkHHzhCCa3UPAxwDIRfee06f3mIfg5R
+	2MesH8fUkiz+aUZhI33IAv55jS9BrvNDjrdR8xc1KQGnSMiK39aIn6FIlQFLgyqeLK9CcLi1n86
+	wikq8bz9jSfqMO5m5pqLeJnklWY0r4JtjnRkSD18MtJwVh/R82DtSxOBi2xhuvg5Sl/QlIBpLVC
+	xZhmktv4qQkp3EOV8bDHSQZQ8qbrin7lPJ8Am3xcrWPz1DgiICPuCe1X6YVc8Lof+83t+LuEL4Q
+	NkJBtbaBtDzWTR3vsXKp/BLb6kg/Ej/oL8jq2V35ldsNvOtBZvJqlqFsk5LxjtHhBog792LjGGn
+	4JUFnQFwl4cO+bPs0wM8bJ81JjsQyOBJDAW4cfstY1X4W9I4=
+X-Google-Smtp-Source: AGHT+IGq94mROq1kQp74KcNsr2aCVZFxAFsqWWVl9F1p61/0vbOTUbqwhFkFA/aTivlG4DM2EdN36w==
+X-Received: by 2002:a05:6a20:729b:b0:240:1b99:1595 with SMTP id adf61e73a8af0-2405503b294mr22135196637.17.1754920279511;
+        Mon, 11 Aug 2025 06:51:19 -0700 (PDT)
+Received: from [127.0.1.1] (061092221177.ctinets.com. [61.92.221.177])
+        by smtp.googlemail.com with ESMTPSA id 41be03b00d2f7-b422b7b2700sm23504993a12.15.2025.08.11.06.51.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Aug 2025 06:51:19 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Subject: [PATCH 0/9] Add support ANS2 NVMe on Apple A11
+Date: Mon, 11 Aug 2025 21:50:52 +0800
+Message-Id: <20250811-t8015-nvme-v1-0-ef9c200e74a7@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADz1mWgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDCwML3RILA0NT3byy3FRdc+NEk7TklEQj05QUJaCGgqLUtMwKsGHRsbW
+ 1ANwFyztcAAAA
+X-Change-ID: 20250808-t8015-nvme-73a4fcda25dd
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Keith Busch <kbusch@kernel.org>, 
+ Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>, 
+ Sagi Grimberg <sagi@grimberg.me>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ iommu@lists.linux.dev, linux-nvme@lists.infradead.org, 
+ Nick Chan <towinchenmi@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2166; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=Oq5GQuC/JNsViijmu3PLBEoA7oCG3f8Cu1LxMk/jNbo=;
+ b=kA0DAAoBAcoIt6bFCCQByyZiAGiZ9UygSJFejRzKvKje7erg2v7F8u8vJytX6bwLURWcvnxWf
+ IkCMwQAAQoAHRYhBEtSeHhcl6z3nDxogwHKCLemxQgkBQJomfVMAAoJEAHKCLemxQgk5wUP/3Z+
+ IKj6xYJEcai6WXIyhJi7FDyM77bltJK3+PIULBiRtdPo3V8TS7z2nCxFh2D/Om27QtBouxTNhfo
+ LZ3JI385XvxrLVy+yrTGJkatN1VQU9Oom7RLzD/pip0MwP98eDlQboPFagc9tg1dHlUt7IuON9/
+ /C4vjiAs+1yI+nTTt2p+tbxRE+MSvzjSvJm74RIuHWqYMf9KLb+QFJ56kiwL7P5N1ZpwNyBDoNP
+ aYftDDeATWxKvtrhDjTtu86GMny/seIBA7dPAYL2zKcJvIQtm6OmPk9xD/NZylp2zh0SmjpNANA
+ TaypNVSb8nihVS+e/c8KKgP9IWkmZOOU3aLXjmANOZtHuMZDH8cFqhMH8Zrh/BcobyKU9YbWqu+
+ PlhglO1RC8nNDewJgtl+SHi3l3Rcapf2F1BIDui0QHtuTdEyBCGYscMTU5cuRHmIizl1xvsoj3r
+ +qa/SRVfFLyAkJMR1nKzj7esueepkFlFrBy18zYroSKP2npoJuj82i1Xe+4gUpt/3WWdzZ7uG5z
+ vjgqILbva16rbaTo/oT4cF1tGc8zlmkhD8KBYVsZVkYhx1ngmh2wgBET6fFTwnG0wTb2B6plO7R
+ 9TJ9wp4oDLPvERdEW6ohG0GwDfJFpra9woRWnUeQOj4uzZEBknwQVy4KFitG887WtsOBScs3gw+
+ OKeg6
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250811_065120_742328_509F2226 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,78 +125,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-L2 IST table entries are allocated with the kmalloc interface
-and their physical addresses are programmed in the GIC (either
-IST base address register or L1 IST table entries) but their
-virtual addresses are not stored in any kernel data structure
-because they are not needed at runtime - the L2 IST table entries
-are managed through system instructions but never dereferenced
-directly by the driver.
+Apple A11 SoC comes with an NVMe controller that is similar to the
+NVMe controller in M1, but less customized. Notably, it does not
+have NVMMU or Linear SQ.
 
-This triggers kmemleak false positive reports:
+The controller is wired to an older variant of the SART address filter,
+and uses an older variant of ASC mailbox, so add support for them too.
 
-unreferenced object 0xffff00080039a000 (size 4096):
-  comm "swapper/0", pid 0, jiffies 4294892296
-  hex dump (first 32 bytes):
-    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
-    00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
-  backtrace (crc 0):
-    kmemleak_alloc+0x34/0x40
-    __kmalloc_noprof+0x320/0x464
-    gicv5_irs_iste_alloc+0x1a4/0x484
-    gicv5_irq_lpi_domain_alloc+0xe4/0x194
-    irq_domain_alloc_irqs_parent+0x78/0xd8
-    gicv5_irq_ipi_domain_alloc+0x180/0x238
-    irq_domain_alloc_irqs_locked+0x238/0x7d4
-    __irq_domain_alloc_irqs+0x88/0x114
-    gicv5_of_init+0x284/0x37c
-    of_irq_init+0x3b8/0xb18
-    irqchip_init+0x18/0x40
-    init_IRQ+0x104/0x164
-    start_kernel+0x1a4/0x3d4
-    __primary_switched+0x8c/0x94
+This variant of mailbox is also present on Apple T2 SoC.
 
-Instruct kmemleak to ignore L2 IST table memory allocation
-virtual addresses to prevent these false positive reports.
+This series has everything required to support NVMe on Apple A11 SoC.
+However, due to RTKit protocol version support limitation, it will
+only work when booted with at least iOS 14 iBoot.
 
-Reported-by: Jinjie Ruan <ruanjinjie@huawei.com>
-Closes: https://lore.kernel.org/lkml/cc611dda-d1e4-4793-9bb2-0eaa47277584@huawei.com/
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>
+Tested on A11 as well as M1 Pro (to make sure nothing broke).
+
+Patch 1-2 adds support for the older mailbox
+Patch 3-5 adds support for the older SART
+Patch 6-7 adds support for the NVMe controller found in Apple A11 SoC
+Patch 8-9 adds the required device tree nodes.
+
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
 ---
- drivers/irqchip/irq-gic-v5-irs.c | 3 +++
- 1 file changed, 3 insertions(+)
+Nick Chan (9):
+      dt-bindings: mailbox: apple,mailbox: Add ASC mailboxes on Apple A11 and T2
+      soc: apple: mailbox: Add Apple A11 and T2 mailbox support
+      dt-bindings: iommu: apple,sart: Add Apple A11
+      soc: apple: sart: Make allow flags SART version dependent
+      soc: apple: sart: Add SARTv0 support
+      dt-bindings: nvme: apple,nvme-ans: Add Apple A11
+      nvme: apple: Add Apple A11 support
+      arm64: dts: apple: t8015: Fix PCIE power domains dependencies
+      arm64: dts: apple: t8015: Add NVMe nodes
 
-diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index ad1435a858a4..e8a576f66366 100644
---- a/drivers/irqchip/irq-gic-v5-irs.c
-+++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt)	"GICv5 IRS: " fmt
- 
-+#include <linux/kmemleak.h>
- #include <linux/log2.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -117,6 +118,7 @@ static int __init gicv5_irs_init_ist_linear(struct gicv5_irs_chip_data *irs_data
- 		kfree(ist);
- 		return ret;
- 	}
-+	kmemleak_ignore(ist);
- 
- 	return 0;
- }
-@@ -232,6 +234,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
- 		kfree(l2ist);
- 		return ret;
- 	}
-+	kmemleak_ignore(l2ist);
- 
- 	/*
- 	 * Make sure we invalidate the cache line pulled before the IRS
+ .../devicetree/bindings/iommu/apple,sart.yaml      |   1 +
+ .../devicetree/bindings/mailbox/apple,mailbox.yaml |   7 +
+ .../devicetree/bindings/nvme/apple,nvme-ans.yaml   |  15 +-
+ arch/arm64/boot/dts/apple/t8015-pmgr.dtsi          |   1 +
+ arch/arm64/boot/dts/apple/t8015.dtsi               |  34 +++
+ drivers/nvme/host/apple.c                          | 228 ++++++++++++++-------
+ drivers/soc/apple/mailbox.c                        |  19 ++
+ drivers/soc/apple/sart.c                           |  60 +++++-
+ 8 files changed, 282 insertions(+), 83 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250808-t8015-nvme-73a4fcda25dd
+
+Best regards,
 -- 
-2.48.0
+Nick Chan <towinchenmi@gmail.com>
 
 
