@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86315CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C8ACA0ED1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 11 Aug 2025 17:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3QaxZi5zsPReb4K2terbRmDrkKgIzfIFAXUsOtzdqtc=; b=kejXPr78V6CNGcc7DPD1H0z5mL
-	zi3e4oL6P8J5nuAt+w4we9XWAEg6WNrwwMOXWtO8jQpbDXh3RE+P30LY5kF226HNJLzBLMzyIfRj8
-	BdcQsxUBGxRnnAxYf0/5kDV5E9NR4+zEgE0J1AXV621vkUDacXhs5qForMFKCn49q2FHPvxVPUf88
-	IvTqxzuAT/SSZY2f+WN8qgzktfWt/sGxW/O9E6/Zx96PnVKZfnj5tWaEXuM4KeOSAi+Hju3qJWnYL
-	xx6QC4Y+PenXsFcvZz9QPTFxqVQWnpbY1rgkWoBQK+mHMThjb8wxiYkxsG+NFl1vSzrs49Xdt07X/
-	DfnSWMtg==;
+	bh=AuvwZFkQA9C7qsU3a5Mf07+vt99ZB7O1MdQDYloQZeU=; b=r/KrHpfAebcgmUk4uHOlfWLqsN
+	I5pt4Nf8aFQ38hTGs5idwZqQgKEW7DaV7l7aGp5qIa3Uinb34dhiCu17JR2kR41cDRLJCYSKBsN2e
+	B8ZvbRbOIkKYVrjaXABHrCpgQ7dk5Zpjo8T7UJOG/F3jmJz7QSrNAspqDCJ1OM4bGJMKnqJ97oLg9
+	1RgNIvuMRBGV3YLDd2NblmR56pr4ZGvvgybSdZ2YfiB5dlZuEYaBsCm0pex5peiys/1xixPHi+qCn
+	LkSut0WMfJrzozxVbuZarOzaDAv8mtD+m6Qe2ZXjkufiMO2Ol8kr8KB8cswDMHTHg4rLEjZHiBToJ
+	+6KfMj3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulWlN-00000008c1D-1XQl;
-	Mon, 11 Aug 2025 17:56:49 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1ulWny-00000008cIc-12Wk;
+	Mon, 11 Aug 2025 17:59:30 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulUHp-00000008AQS-1Xrl
+	id 1ulUHq-00000008AQm-2fsI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 11 Aug 2025 15:18:10 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6154655c8aeso6245522a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 08:18:09 -0700 (PDT)
+	Mon, 11 Aug 2025 15:18:11 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6182b3218aeso1942106a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 08:18:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1754925488; x=1755530288; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1754925489; x=1755530289; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3QaxZi5zsPReb4K2terbRmDrkKgIzfIFAXUsOtzdqtc=;
-        b=OjXE3gmXPCJhmM9W8Jk4M2LLAMlRm7wWpsT0wUiaWLqLkfY0+ZBBm2Fwyu11rMaWSx
-         Qw/toSc4BqbCiNWZHBcRBxB5+2e6sxsmfMXTUChwXNpszhNoCPwNtdRsmz/lj/ulPiib
-         wJbzBQJiRyLFj84GlTyP48ygtzlFRmHfVnF3V0vByhTmwwguHVcQFsA9yq/xYqRXWpWF
-         VJTiM0BuzRnwevR6Bza4wCUd2STQWDy1mr40SG4z/+khUXgQBWorOZtiYIe44zDIz2Td
-         PU9+YiBJRoajrqoB+IvBCbrSC0TF0qUZo1F9oXdnz63Eks70LxD/QIn7RYwdKlUGzX7q
-         qaVA==
+        bh=AuvwZFkQA9C7qsU3a5Mf07+vt99ZB7O1MdQDYloQZeU=;
+        b=aRGYO6s6r+XDboMxjOmVrfYuZNlK386kL7oNrtjYKOj3wKXff4AMvs3o1r/SHHZumv
+         NptGtlBTOVRjxZs27P65WAQ7nqXzhPIOMIJF2fT63FierACRJfQZ6iBc5apG0x9SHu+Y
+         BaJMCxv6gAzjMT7IyYwdsBngWfLT2Zqr5S/IGPBqMUspTcPzPGiJRShstfrfJHlJj9zt
+         aiPPaO24zHiNaWqsk8+pemMXDH1wwio/ZDzhc2JGaVtB5pl2MqIzcvoMIncvKJGBKHZF
+         hmta9lXeRXLWH3UmD09Qvt+ySZOHVl+XOF43tH8EufOsoGIvqEOvOEMhZ5UpzbJv+2yW
+         7+ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754925488; x=1755530288;
+        d=1e100.net; s=20230601; t=1754925489; x=1755530289;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3QaxZi5zsPReb4K2terbRmDrkKgIzfIFAXUsOtzdqtc=;
-        b=DBKvZSLwmVWAlJey66LM7OeoRlLuypZtePRtzkXdK4GQS4O3Vz7GV1yFCC45Ch1ObZ
-         frkDvILHdBqiRo6CsmSlCAkKEnp/mN5teUpLWv/1TzkQJZrpVeuW769m8KaDHF3GGXKD
-         e7UWfZYhAQA/xPHdb7TJJzd4CI/w4BH4XG+NdD8/aNQC882yL2a/UPjFgNQ9BV4y6A5U
-         U9SIRJf9XdjP6vQy3q19vqQoOy2AK2rFrqkdWz0/Tz31nU1+AAwJTAZmscyPPNpbdzcX
-         FF/miQVoZrjCsIDn9jiqUOXMn2PN9muLEst6+eSTPHnYJXUo0pCGWPIhA1AzSSkiKvDS
-         pgjA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/NOZSV9rwscMxdgIf9vgx/ONgmKXS0AanBRIrQQRzvjP7tjQW3xWuyBTSorB/tCAew1jSO7TRmVJXopDOQU8d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2FJiUC2xJ5q/RJj2lEr4bZnBczE6JB0oaOsW812FKCGWJVsFX
-	zQ1nPo+kKkLAHvQ3DIt8zj2PFiMk54MgEbJJ8EhblL3CNKTvUR8iURZRZTR4br0uD+k=
-X-Gm-Gg: ASbGncseDWD+fFKwCJXNBOfgJiFiDi8P2oTOGuT3TCu7Q/W3hb03mmLL9SKQG8rt27w
-	sdkriH7BkZJlyZzFkRRgaQdEvsNR0ZvWIgOUmI2duXUI0vZ3wl4RLdJgMDXkZLcGUBa8p4uQLK0
-	eHcRGJHBez1U7IxM/xLz1JVUGv2mTATP9HlfqRvp/7CeA2bw0OMn7Q23XF75zmdQxSujosLIxLY
-	vBGhGBa5ERa8KcJteLszn4Q9bY1ZCfCOq1ltzSXkB1ZwrXdRGW97JEHF6c+U5diD5cm961/MD6m
-	pBrBqyJEUbVMy+Kw/8DxC4Tj0Wbdkxa47TOHiVonZuALi0dchbA3oQ/eG7Sc5eCOSHGSgezOnGA
-	hMdSPX6kgapuyfYZywqPxhnRc6PCAY+7IhME1KcFnEroVYwK0gAAh0vbdU4plM86jhA==
-X-Google-Smtp-Source: AGHT+IG7LX50cUABOY25rRSCA3T34uMmr0GhqhL/ccQxu60Wns2ZkoR7TW4v+bZeLiM3LVeh427NVg==
-X-Received: by 2002:a05:6402:510f:b0:617:b3ee:9be6 with SMTP id 4fb4d7f45d1cf-617e287fdf9mr11118841a12.0.1754925487698;
-        Mon, 11 Aug 2025 08:18:07 -0700 (PDT)
+        bh=AuvwZFkQA9C7qsU3a5Mf07+vt99ZB7O1MdQDYloQZeU=;
+        b=p6l7FB2NHPxqftmG4L8SbYyD+QwLY+NP6QnPuTEWt2TqCuaLLpltWxzoUnA09jn0Hc
+         +2+k14sgLNfykQu/1SzXAPL0wBQkaOTErGnKSxcSrMWEGE0C+DEvAGoQybBxNGK8JSQO
+         NwzHsCVfLXtf9hSkhq5vKcnoGUX2fSu1J/W2rDas7sfTWM1ktNThcey4KW3nGNzkPXP0
+         YQas90NPg+zWmnXDAhockUMTpwvX/6Rl1DNTPdlgWEtgm1I9OzNNgGLLD8MZz9/H/rjx
+         gK1YxerYF17TMbcvUs8nX92++/r3dTT5MjO9439GmrYtJegsqcTcZ3cVtAGAAPITu7JZ
+         PcSA==
+X-Forwarded-Encrypted: i=1; AJvYcCW2KcuZk23P5gXQpsvBCaQFBOUzV1gtsBXf82ddWRtolazzqx4yk8Xegh/V9dcmA5HdpAzPjnJVhV78/7O7BkQG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCpGagT0BAxpM60KT38dyR3HhcWyg+9ff4uGd1EJSgDZu1Lz+k
+	7q1bSqjVjukJZWSsZtLvqMuaXX73PMMA1wXDXYNV9oVrunHMRyBHXhc/jl8lFvnOMsM=
+X-Gm-Gg: ASbGncuAAduqbVilse7He9LYaucJQtdnlqypJphXE2nRvqY+URN9cK3+12tEbUqxxFs
+	AxAMHAf+0iwoeK4b+78UYjVeb7edsYFG/dAxALt18medlCWP/RB4hIkP5crxEDVehfqIUUIQF41
+	SVXBRtGWijB34OdWLYqb5bZX2Cq4bdiWQAiAZ2Vi3oWRCMufkGniaaa0AunNTTAommNgwcdon23
+	QKar6EW7GFPKp32b+4+Hni/1eq0LA+FLXp73BFkboK8s8PSElQ24kcMlnQJDqbvsJZ4GaQf3tSK
+	uPd6yjSNMh/Pm7dhSzJmxb6LiDEhiKNoQdlhk67BQPHCftYsyRxspRWa2RVGULkrgYRYu8QeJj5
+	b+Ka9q5AFpueGY2yXuNd3cvemdhUM0kyy5KSRnbWMVklvE4Od+YqYTPy/kIGFOd4wow==
+X-Google-Smtp-Source: AGHT+IEIVBs9d0xdJDBl+mpTiXaCmyfbfIFlGuElvhGMrwN5kIk4NUp0IcTo3IUJQ+HnGSN/veCQVw==
+X-Received: by 2002:a05:6402:3510:b0:618:87:bb02 with SMTP id 4fb4d7f45d1cf-6180087bf86mr8011371a12.14.1754925488901;
+        Mon, 11 Aug 2025 08:18:08 -0700 (PDT)
 Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8f28374sm18923305a12.24.2025.08.11.08.18.06
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-615a8f152easm18386370a12.15.2025.08.11.08.18.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Aug 2025 08:18:07 -0700 (PDT)
+        Mon, 11 Aug 2025 08:18:08 -0700 (PDT)
 From: Andrea della Porta <andrea.porta@suse.com>
 To: linus.walleij@linaro.org,
 	robh@kernel.org,
@@ -93,17 +93,17 @@ To: linus.walleij@linaro.org,
 	Jiri Slaby <jirislaby@kernel.org>,
 	linux-serial@vger.kernel.org
 Cc: Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH 3/6] arm64: dts: broadcom: bcm2712: Add pin controller nodes
-Date: Mon, 11 Aug 2025 17:19:47 +0200
-Message-ID: <df99c6a2eeac4bed76bcc6bd74e44a061963256e.1754924348.git.andrea.porta@suse.com>
+Subject: [PATCH 4/6] arm64: dts: broadcom: bcm2712: Add one more GPIO node
+Date: Mon, 11 Aug 2025 17:19:48 +0200
+Message-ID: <a86e12a27f4e89f4a95fafcd659d32e7049456b6.1754924348.git.andrea.porta@suse.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <cover.1754924348.git.andrea.porta@suse.com>
 References: <cover.1754924348.git.andrea.porta@suse.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_081809_409474_CF42BDA2 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250811_081810_677472_CD0E4E2D 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,80 +120,85 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Ivan T. Ivanov" <iivanov@suse.de>
 
-Add pin-control devicetree nodes and used them to
-explicitly define uSD card interface pin configuration.
+Add GPIO and related interrupt controller nodes and wire one
+of the lines to power button.
 
 Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
 Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 ---
- .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts   | 18 ++++++++++++++++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi      | 10 ++++++++++
- 2 files changed, 28 insertions(+)
+ .../dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts  | 21 +++++++++++++++++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi     | 12 +++++++++++
+ 2 files changed, 33 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-index 6ea3c102e0d6..6091a1ff365c 100644
+index 6091a1ff365c..f0883c903527 100644
 --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
 +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-ovl-rp1.dts
-@@ -53,6 +53,21 @@ sd_vcc_reg: sd-vcc-reg {
+@@ -2,6 +2,7 @@
+ /dts-v1/;
+ 
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
+ #include "bcm2712.dtsi"
+ 
+ / {
+@@ -29,6 +30,20 @@ memory@0 {
+ 		reg = <0 0 0 0x28000000>;
  	};
- };
  
-+&pinctrl {
-+	emmc_sd_default: emmc-sd-default-state {
-+		pins = "emmc_cmd", "emmc_dat0", "emmc_dat1", "emmc_dat2", "emmc_dat3";
++	gpio-keys {
++		compatible = "gpio-keys";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pwr_button_default>;
++		status = "okay";
++
++		power_button: power-button {
++			label = "pwr_button";
++			linux,code = <KEY_POWER>;
++			gpios = <&gio 20 GPIO_ACTIVE_LOW>;
++			debounce-interval = <50>;
++		};
++	};
++
+ 	sd_io_1v8_reg: sd-io-1v8-reg {
+ 		compatible = "regulator-gpio";
+ 		regulator-name = "vdd-sd-io";
+@@ -58,6 +73,12 @@ emmc_sd_default: emmc-sd-default-state {
+ 		pins = "emmc_cmd", "emmc_dat0", "emmc_dat1", "emmc_dat2", "emmc_dat3";
+ 		bias-pull-up;
+ 	};
++
++	pwr_button_default: pwr-button-default-state {
++		function = "gpio";
++		pins = "gpio20";
 +		bias-pull-up;
 +	};
-+};
-+
-+&pinctrl_aon {
-+	emmc_aon_cd_default: emmc-aon-cd-default-state {
-+		function = "sd_card_g";
-+		pins = "aon_gpio5";
-+		bias-pull-up;
-+	};
-+};
-+
- /* The Debug UART, on Rpi5 it's on JST-SH 1.0mm 3-pin connector
-  * labeled "UART", i.e. the interface with the system console.
-  */
-@@ -62,12 +77,15 @@ &uart10 {
- 
- /* SDIO1 is used to drive the SD card */
- &sdio1 {
-+	pinctrl-0 = <&emmc_sd_default>, <&emmc_aon_cd_default>;
-+	pinctrl-names = "default";
- 	vqmmc-supply = <&sd_io_1v8_reg>;
- 	vmmc-supply = <&sd_vcc_reg>;
- 	bus-width = <4>;
- 	sd-uhs-sdr50;
- 	sd-uhs-ddr50;
- 	sd-uhs-sdr104;
-+	cd-gpios = <&gio_aon 5 GPIO_ACTIVE_LOW>;
  };
  
- &soc {
+ &pinctrl_aon {
 diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 0a9212d3106f..8a517261841d 100644
+index 8a517261841d..f70ec8d3dc4d 100644
 --- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
 +++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -243,6 +243,16 @@ uart10: serial@7d001000 {
- 			status = "disabled";
+@@ -248,6 +248,18 @@ pinctrl: pinctrl@7d504100 {
+ 			reg = <0x7d504100 0x30>;
  		};
  
-+		pinctrl: pinctrl@7d504100 {
-+			compatible = "brcm,bcm2712c0-pinctrl";
-+			reg = <0x7d504100 0x30>;
++		gio: gpio@7d508500 {
++			compatible = "brcm,bcm7445-gpio", "brcm,brcmstb-gpio";
++			reg = <0x7d508500 0x40>;
++			interrupt-parent = <&main_irq>;
++			interrupts = <0>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			interrupt-controller;
++			#interrupt-cells = <2>;
++			brcm,gpio-bank-widths = <32 22>;
 +		};
 +
-+		pinctrl_aon: pinctrl@7d510700 {
-+			compatible = "brcm,bcm2712c0-aon-pinctrl";
-+			reg = <0x7d510700 0x20>;
-+		};
-+
- 		interrupt-controller@7d517000 {
- 			compatible = "brcm,bcm7271-l2-intc";
- 			reg = <0x7d517000 0x10>;
+ 		pinctrl_aon: pinctrl@7d510700 {
+ 			compatible = "brcm,bcm2712c0-aon-pinctrl";
+ 			reg = <0x7d510700 0x20>;
 -- 
 2.35.3
 
