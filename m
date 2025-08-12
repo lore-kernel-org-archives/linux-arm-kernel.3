@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B611CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 259CCCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tpMrvs6yS4pMI5Wnd6q9nyRBeclNmrjfIqat/8mupDU=; b=cl73IFWDbWsTo5CIjBQVQzL5a1
-	pl1RHKwVuXB2D0iP+ixeC+uJN5uhrk7qtptSHrwYnH8WPIWWJlzFMEQI2u/ac3xXqv/iJmIFHG+Ot
-	vxmOcxztjO4RW1akhMuoV3IZAl4qW1EnC92bM1bX/KiarV22lx6q4BPoyMbjEYMoWDWjub8cllKT8
-	H2K2xuTK8OSE7zGoknmusj3mM9REKUgYYfs77nO13em+5IW6mNg/1h/XVFnLrZqJveCYfSBKfgnwu
-	z5Q7uRBgn0NkNod8fexNQ8WmmqJnMuVMjTkWKNwd8Echcb+kwVMoMndrYHQnRPv6gLdtkr11VSNkv
-	R4FLi5qQ==;
+	bh=C55m3tz9/55Z3CMJeuKrTz0rJ6sblVSuXiZBkmg/dsQ=; b=grRUwIxjVI7Efl8JE/6HGJjCzh
+	GJkBHF7BHI+fsCVnlQimkY1NVute5LQh9bSip7P+Ohm4lY2OzxRWKERUt1LmLlrd3N1VhTzRLamsy
+	ZQGRbedirgSOo8z2RRYuRyB6hkyeWqRx1+DX6i/6SDpOhyvektmVe4L7HQFVXTLwDv2dKk6MzE9te
+	mEHzpRzWYYk/ZSuFASrSPar7NKlLFLEBQFyUQrUnDRHYylRvMyQEjDhzN0ez0MUzjV5e1YCD1rLcq
+	HxX6XbXqVal8pHojMtdrdZrCWMYPXt6EGYZsiORQ2gV6DL9/SXNBmRmF6am71t/lo+sy9PyfAepsW
+	F97X06uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwzW-0000000C6MZ-2RK1;
-	Tue, 12 Aug 2025 21:57:10 +0000
+	id 1ulx25-0000000C6sz-3aBI;
+	Tue, 12 Aug 2025 21:59:49 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwrB-0000000C5M0-29h2
+	id 1ulwrD-0000000C5MH-0FDa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 21:48:34 +0000
+	Tue, 12 Aug 2025 21:48:36 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5FD151123;
-	Tue, 12 Aug 2025 23:47:39 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E025D4A4;
+	Tue, 12 Aug 2025 23:47:40 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755035259;
-	bh=AtdXIKua/INaYV+49Ae7n8dhujiaT3BXrg7Ye9V+l9Y=;
+	s=mail; t=1755035261;
+	bh=0OlaEea1lG0aXrKFQ1HpJxMDx/BmsqbsHAOsGw3c/AA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Wj6/L0GOkEIwXWXI0wmTY8NIJjxz5Tan2wtm2luLZ6o7ottttzZRdK0/NBVLkwaeQ
-	 N1cWJAYfEIiHx78ySSplpTrA9fC9W4UXOXc7FFX/6VyDyc3sqNZLzh2BbrVzFyu5Al
-	 2l5LmBqFQXwrW3nYTUUp+wJwUFqRqLrIyjFKv85s=
+	b=uQkn29WrJRVhFueRdwJrlUMGpo84xHYfqGjWPf5HQWai0GSk8WNcs8jWEnTtDb2+4
+	 kufuS1BI6b2UljF7cpTkswIX87D9oNLqSzLTu5hvHyMcRDHO/eSTla7coK8Kl0HnP1
+	 4lq3tHYsmhb46wK1VPXxg52HovzrERCXPR0+Mi5c=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>,
@@ -49,16 +49,16 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 68/72] ARM: dts: nxp: imx6qdl-pico: Replace clock-frequency in camera sensor node
-Date: Wed, 13 Aug 2025 00:46:16 +0300
-Message-ID: <20250812214620.30425-69-laurent.pinchart@ideasonboard.com>
+Subject: [PATCH v2 69/72] ARM: dts: nxp: imx6qdl-wandboard: Replace clock-frequency in camera sensor node
+Date: Wed, 13 Aug 2025 00:46:17 +0300
+Message-ID: <20250812214620.30425-70-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
 References: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_144833_689271_4884186D 
+X-CRM114-CacheID: sfid-20250812_144835_235904_08FD3428 
 X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,14 +88,14 @@ Changes since v1:
 
 - Drop added blank line
 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi | 4 +++-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi | 4 +++-
  1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
-index c39a9ebdaba1..2ad1c030f51b 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
-@@ -233,7 +233,9 @@ camera@3c {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi
+index 26489eccd5fb..f3aaca039953 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-wandboard.dtsi
+@@ -137,7 +137,9 @@ camera@3c {
  		pinctrl-0 = <&pinctrl_ov5645>;
  		reg = <0x3c>;
  		clocks = <&clks IMX6QDL_CLK_CKO2>;
