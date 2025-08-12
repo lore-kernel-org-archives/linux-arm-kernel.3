@@ -4,181 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E67CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06F3C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SrY1vC629cDqdzPFpOwsItfoYUOhl4JR4U7eVl2MbKM=; b=C+Twndcn3zWnMDhRe9znGUFCda
-	EMomlnjM3ZqXomeer4m+3DR81+Px9GFgNCibU/1/JBAXDv3rGLiGczS630TB35CWKJkxJGcw/Ow5l
-	mWncsuN0oFRCkhj9q5YUl4myryP9mOA6GIFVnI9m5dxjenx9szIHlV4pltP+YCL7lVu6OlFZT6Oz2
-	pmU3PN1sAriiT2yBbCTOEtoM8onE8hDe3aTlfXiYFwmzBxSDejSILF8APHABtXKNXpLYiO9EuMSmY
-	I9siD2sUBDYJG3P92jGHMaTVeFbcirmhiPA6JdhCP/svOJOj0uYv1p843pSmVg5+uWUb4VgP2XlsH
-	x/0lvYZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tsOKTY4Tt/OuNN7a0jDQ/bxjeb3eAr0Hjqy/Np0O6lU=; b=wB6hk0JUge+n/J
+	sG3Sis9upvAv4tQYufgTTvQVlA/KetE+Bj4sfssB7QQgKBTTQ2N8ej1clcyDTLJi/OYcFYBfPB64n
+	jlRg13ekDJdrFTIl0PhjCJnDoc9FQ6WJNSWHeuL5xyXW415gC0cyH9WyJ2Za4vyZZAxyRsgLXIZs2
+	uwlVlin9vx7d6+m7jAtd4XTvJiq/YzapRN3CIDLc48QvHw2CZn3fIn89fagIII/GiDjN2GwSx/hAi
+	aE734rslCfHEOpcn2bT9ph+D4bh8SZUi7uLPNagzO4dEW57nipWnohtwLqaQtXNYpk7Rbn3553cRh
+	T8JGU8DjTYAzWjlTl95w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloIP-0000000Amdp-1IZx;
-	Tue, 12 Aug 2025 12:40:05 +0000
-Received: from mail-northeuropeazon11010048.outbound.protection.outlook.com ([52.101.84.48] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uloIW-0000000Amon-1vvH;
+	Tue, 12 Aug 2025 12:40:12 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ull0y-0000000AKps-3cu2
+	id 1ull7P-0000000ALjO-43DI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 09:09:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xu7Cp/LwEi3m9Qii8flp2VklmhSrKoULFrWNyEWvnUx5QpZJ0WhhN1ySq0MkyeeKo1nWVlfCitvoEW+L6bGLeNi6Ed3/dk0DNNxV1ICc7r22T20mTalReTRUDhnkG1xody7c0ITVQt6cKBDCic9WLkCC52bsMVBymLUii1BNMXSBwF3LVlaCiuodQb0wSH5G93aLZLJLP4keARXK6ym0XJzpmGzo/dZbmFKxYeqe+fujc1WWmauJEyim2y2JjHIlwY9IUR6BWt3vLLdiYbFq6ktjO7Eq5ROmRP4zqXNEI8bf8xgesAn4TLE3WHq4EYpFTtohDwGhVBMgeUTfoswVcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SrY1vC629cDqdzPFpOwsItfoYUOhl4JR4U7eVl2MbKM=;
- b=eJEjYB540Gj+a+Sp5NPl3CPYDabZji78rKLhSlTwhqrtStF2raRuSdIddGjGzq86GXBgICkITNSaXLnsmU1UpPQCdnH32fU82VZ+Iwymx33FqIHsaRrsbuX0DGnLf58vOn9M5DIMKjhTbTKtjjgT1FxOW8LVWgaee7nCbh7AA9HyzRFTPwCQAFqLWE0/76vUDHIO4HDd1SWrxPn31NpNIKQo9JbJKEnt5QI2oGrNTxJPAkkpO4nsFORSX+l/iTffFX+DB0h7AfGevvCzJ0RJ4hXs3r01i9/VCBkJdQ0S9t1F6Zs1nOwcQZUk0aFUqMNsZK9STqg0KIJmfcsPU0ahUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SrY1vC629cDqdzPFpOwsItfoYUOhl4JR4U7eVl2MbKM=;
- b=e4bDt3g48JsQHN/xf5Dr83Y4HsAEmgIeJ91Hq15OQar3+tJzJlUQJqfL91XyUzT56ePt2iEI/2bk4YUGEccF8jEoj4meYITTNwJeO6gIJIHppyj97OJvi07s+R3SupdR1mEaATLOL3YpS8H7m09KW5X2F2LIW9sWSGIKjLxk5BehlSxe8mifamZeHx1DJ4MluSq9R6Efw6xCgIOL3rUvCQfxQ1j9axl55TZdcWOXADtdRA/Ow6o1IwaATbht9dTKTAwe8unRWOoy+fo+DyhTL+gHf0P8+6N7e6HET8EMFsS/ezPhYDiFkWy/Qlx/BlfNivi44/RKkvQvt37d33LQEg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by AM0PR04MB6897.eurprd04.prod.outlook.com (2603:10a6:208:184::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.12; Tue, 12 Aug
- 2025 09:09:48 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59%6]) with mapi id 15.20.9031.012; Tue, 12 Aug 2025
- 09:09:47 +0000
-From: guoniu.zhou@oss.nxp.com
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: rmfrfs@gmail.com,
-	laurent.pinchart@ideasonboard.com,
-	martink@posteo.de,
-	kernel@puri.sm,
-	mchehab@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	frank.li@nxp.com
-Subject: [PATCH v2 3/3] media: imx8mq-mipi-csi2: Implement .get_frame_desc subdev callback
-Date: Tue, 12 Aug 2025 17:08:44 +0800
-Message-Id: <20250812090843.1035800-4-guoniu.zhou@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250812090843.1035800-1-guoniu.zhou@oss.nxp.com>
-References: <20250812090843.1035800-1-guoniu.zhou@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2PR02CA0117.apcprd02.prod.outlook.com
- (2603:1096:4:92::33) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	Tue, 12 Aug 2025 09:16:33 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-61576e33ce9so8911145a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 02:16:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1754990190; x=1755594990; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tsOKTY4Tt/OuNN7a0jDQ/bxjeb3eAr0Hjqy/Np0O6lU=;
+        b=IO6f9lkwKLW/jN5uigkd8ujrD6OSh9EgXuJM+0dYWOGriWPRJh1z66l3BqpBlHx8Ea
+         saFgv8KT/KRBxR4KqfVOJUW9143WG/5oTxreRqft0FkZoxB4KTvPqt6YasyPv9UW3RTY
+         MEzG2D6oruJli+LvU51j/5e9Kcp13dbT6nWyRmyEwBFeH+Bxzhb6m8zKLKY5iPUG11GR
+         tsUcjdFX+dVyyOhis/Cf+wH96MJxL6vrhGR1xtXy9dglYday45FEqbgwAboNEll1iM+Q
+         xF8vH5EHuDrFCOYLPWiY4zq+tV9Iv398SYPBLq50rI7Cpyccz52FfAIuEf+zM8kV+z9+
+         O+GA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754990190; x=1755594990;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tsOKTY4Tt/OuNN7a0jDQ/bxjeb3eAr0Hjqy/Np0O6lU=;
+        b=DFzvqERSnXkeBGHUs+STDsz0ucHTCtu+cSYMphnoUBqS9srX1EWlFfaBOFknLaL71c
+         ZbdMat1JWVJjpSHGinTtVTZ4ZEzMmi6EoAXZQDNdPhZ4XAJh6zo3UUm3FtDt7kbpPgBz
+         MSoZriypqjOpNY90MZIzfNl9zeqdTn9/XWJg4DGAARt9MzIjKPewzZMm+uGncpHz3qWL
+         4j8mtAloX2mFMhnqHYvuRyrmGJSVXmYym88GoL8yIkZupDf+cSiT34u+1J7jQeKCH9aQ
+         pzv/D0vDIlbpP9P8kaDFrJmvz9NdE8wGFyxOzcPJEwEz75mOrCFbDqjzLKIPhp0J3TnO
+         a4sA==
+X-Gm-Message-State: AOJu0YxZnK0UTfx/qsZf1EeBsr1zccrpiqURlfntFZYv4OSjvuMhU09x
+	MUPsv2ALfEvtU/VB91aGY3QtR/qOYqq+RY5TDGkeidKvYpeX0va1GTwEzIwUTtfYqJA=
+X-Gm-Gg: ASbGncv1+OI5Bal5X3lepqnEyL3sNvfC7fs1gKZ/yStzVoswry6V0AEa5Y1janRekpx
+	5VxfgB/BDQMKMIAqXOzgGDyN7DFCqgc5ycbo5qqA3q79VxuvSlTQIRYqDWbn5finSYJTSP2nfqK
+	ilT5/lHk/4uSDVS+HOhAREcsdUSfkILDiumMWj+ujqo9OMhUEJgypzXEAoU83VFXbMcHSS7eS7x
+	JKBKOHlLRPE7FSnsyPtmnLyiCmKek3FCRZ8LnHaAOOJ9QQgvlR38mMka6c+yKbgZtby0Cjuq/5f
+	N62pHmTGPGE8UAFKM29oj4wXYe2PJrOtDbHXalHxpl8EdiVIUlkJ8AMybY8WFoimQNJ8yw3WdA3
+	1DQ7C8p+FWcs3U8iw1g==
+X-Google-Smtp-Source: AGHT+IGr5HW0hp8z7aq2ufVrm7zJ5K6NIslkaSCm+mwJ1eY5Pb/nrN8ypCjKuTQOWDx6e/M2v60y4A==
+X-Received: by 2002:aa7:d284:0:b0:617:c586:9bca with SMTP id 4fb4d7f45d1cf-6184d8476eamr1856574a12.4.1754990190005;
+        Tue, 12 Aug 2025 02:16:30 -0700 (PDT)
+Received: from localhost ([2001:4090:a244:8691:4b7a:7bbd:bac:c56e])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-615a86758fcsm19687032a12.0.2025.08.12.02.16.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 02:16:29 -0700 (PDT)
+From: Markus Schneider-Pargmann <msp@baylibre.com>
+Subject: [PATCH v2 0/7] arm64: dts: ti: k3-am62: Add wakeup-sources for low
+ power modes
+Date: Tue, 12 Aug 2025 11:15:19 +0200
+Message-Id: <20250812-topic-am62-dt-partialio-v6-15-v2-0-25352364a0ac@baylibre.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|AM0PR04MB6897:EE_
-X-MS-Office365-Filtering-Correlation-Id: ff692904-59c5-40bd-a0df-08ddd97ffc1e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QUJOVVE5NTFBZ1lCTUdma1lzMDdQMWliUFQ3SXQ5NVo2U1JjR2xaK0d1dFFz?=
- =?utf-8?B?UlRrRGxSNlpITmM1QkxNWElXSy9pMy94aU5JRWNYejV1SWFoSzc4U0JYWDVi?=
- =?utf-8?B?SzdoZ3Q0bGNjV3V1SlpwRWJOM1NzeHY3V21QZ29UV0JZS1BBTTVuaHgxVnoy?=
- =?utf-8?B?enk1QVhEUjZrRzM1SlY3aUZKOE01aElQenVtUzRkeTUxVWNzc3BmVFNWaExT?=
- =?utf-8?B?Q1JZbWp6UmNsdXR3SDNOMEVySEZ0UE1ueGs0dVc2WVc4K1k0dmY2SFhUTU5z?=
- =?utf-8?B?T3daZHR1R29YZHF2MWl0OGRzUFpRZ3FXbUc5U1pHeWxlN3o5TGNRQ0d3UTZE?=
- =?utf-8?B?UnB2SU1ZOEUwa3JXeWhWMStKQ0cwdmZ4VHNQSFJ0R0JPaHJWYjRjMUlnaFNw?=
- =?utf-8?B?Tkg0SWdXUGhncEduczVBUlJ0NThTNkMyQURjU21qY0c0SXBMa3c3VVpuZlM2?=
- =?utf-8?B?TW1CRitmQ3R2cDJLQjNZZjBCcW9uRE9EWG92RWlmbUJuRHQvOHE4MUtHSkhM?=
- =?utf-8?B?dkZyUHFRTVY4VEdsZzBPUUh1cEh1OERudmNOeDJ4QVZpVVFTTko0QmZoQ3N0?=
- =?utf-8?B?blFSVDk1ZFlNVzE3K1ozQlRiTis2ditUSkplY21ta05GVk8yU21XRjBWYWU5?=
- =?utf-8?B?bzl6dTYwVW9mTmZKWGtkaGk2V3UxRk9UYXJhYXorSUwweHhPL29hV1ZGLzd5?=
- =?utf-8?B?MmkzSmxZbzJWd3Q2WWtXM1luTitUZE1teDdoQlJRai92QU1xM2QzSHRuRkFD?=
- =?utf-8?B?Wmcwamk3b01IKy9Ha3F4aUc4RUNZdm9qYllLMVZMYnVMckorTitFcmdpcXdH?=
- =?utf-8?B?TDJCZnVYTjBzd3JPQ0pZZGZwbW5LUkx5TG1wTmM4eTlnU1M0VUJGSjlRQnNi?=
- =?utf-8?B?S0ZmZXk0OHVMNllyekhlMDVYdU0wTlVTbG9nd3d0UEpnQ0RNWjhRL2NVRXdM?=
- =?utf-8?B?ZUM0Nmd0S05Xd0c4Tk4xTHUydUNxWVpiWlF1UmhOQ2M2QklvZ3c2RXkybE5o?=
- =?utf-8?B?ekVURVV2bXozL0lXMm51ay9lTm1XYTBRNDNCTGRXTGNiSC9aQU5LY3c4ZmNv?=
- =?utf-8?B?TkJGY0w2ZDBhVlF3eHdEc1l4bVpPZjQ1WUdmeitSNnVtem9aTXRZejhObzg5?=
- =?utf-8?B?bS9HRHBOZWk4NTlYemVHUFR4ajRWaWVTMXdhMGhsejc3Wk1CQkk2Tk5DUjF0?=
- =?utf-8?B?cFg1aHF6Z3BpQkIzUi85ZjJMYmZUQlAyeWc1c3h6NEU3TlBIVHVydjFub2hZ?=
- =?utf-8?B?UUo4ZytqQVB1ZnJWTFhjc2Z5VlVHZ2FQNy9zY3pyN25BTVRub3BDK0pNVGhw?=
- =?utf-8?B?Q1VacFQyQXluV3BTZ3piSE9iTUQrc0pSWGdTdlEvcDBhSUxwY1paTmtjTmxp?=
- =?utf-8?B?Tk1WcnJwZU4rY0QwZ2FYN0V3Vy9lQ1A4ejBRTlpWMGFUTUF4ODl1RVFRdURG?=
- =?utf-8?B?UUFUL1A4Mkdsd1lGUUFqNkhyendWeVY4dURLUmdrbnlwWDdZUmd3dXBYbnpF?=
- =?utf-8?B?bDBBK2JmK05Ca1JORGFrTzNaMFExaTg1eUFaV01lekZHZUJFYXFsa01mblk4?=
- =?utf-8?B?RXFMZ0g1N1ZDeUtCVmFaakdoM2tDeWhVdFlMZjV5Q2JTcWVIbWNKTTBnVWt5?=
- =?utf-8?B?Vm91blJQajVuT0ZpalVNbG1kL0NZVWVrTkZ6Qm51SldwdnZHdUVEcmdTR2Vx?=
- =?utf-8?B?bzJaMmlGUkY2R296R2kxbEZOREcrR0o0MjZ4RVh3WitEMzFCaG1oRENQbFh3?=
- =?utf-8?B?T0xqKytKRlI3cDRuWjVNT1dCWGx5SXhnWmZlR1JER3RDR0FlQjlzZVJncTAr?=
- =?utf-8?B?ZXd1TEw5ZFNKUzdOSmNNS05WR3NUK3JaMVhhVnJhQ1hmWEpZQmUxSUQ0WlhN?=
- =?utf-8?B?SzdEL1E1aXdqL3NNRXp4OXRQL09Dc3pKSXIzMXpjVVNpbHRYUmwzL0VQaE1k?=
- =?utf-8?B?cHBOQ2JjcGpOaVp0VW1Bdks3ME90WlNzR2lJZGFhL2M2cGFRQkd4OFk4ZDNt?=
- =?utf-8?B?Y2pvVkFBQU1nPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UCt6dm01WC82TTFTYTYwYmNuVnRuNVN3R0VtV3FqdzQzbm1YbG1RazUvVy96?=
- =?utf-8?B?M1dnVVprUGRkT2I3VEUrbExjZW9EUE9hR1hIM1lTdk16QzVjZXprYU96UmlD?=
- =?utf-8?B?N1dYR1lTNTdKV1p3RHNvZTlhVWc3WWZUbXJtbGdnMmxtTEkrcDRLWEZXVXRy?=
- =?utf-8?B?TGxEOXJQZFRFT2RQT3MremZRbWlBZUZMVzRCcTY4NlVEVENhUi9NRmdWRmZS?=
- =?utf-8?B?NW1pTTRtTjM5MjFnTEZPaHFPYjlTK01uTVBDaW82bnFLZEltNUhLZ2ozK1U4?=
- =?utf-8?B?bVVPcmI3ZXlrYzBSSXFYMWxWYThJVjZmQ1Y4RWhweld1d0FwdHlUUnVYcWQw?=
- =?utf-8?B?MExZZFRodXN2TmtVSVBHS3I3QlM5Yld2YTcrVXMrT1hhVkFzVGZCTGN5bFpu?=
- =?utf-8?B?Nk1PWG11WHhhZFhVRWNUWWtTTSt5VWtWVm5BekZ6NWxxbjZLWlpPWXBMdnJT?=
- =?utf-8?B?RTZzRWY1NmVxb2pNN3NjYkNKZDFCOFNyMGgvZ3l2b0sxTUpCT0JMaVJPRW5t?=
- =?utf-8?B?ZUswZEErbUE0clQvODd2aFdpeDJ4N2xidHBLKzBha2MyOTJGNkpWWHFOYUNF?=
- =?utf-8?B?UFBYaWlMclZIREt2U0tsQlExN1VRcHQ2VlIzUUZPNTlyK2d0aUF1SDZhdVFu?=
- =?utf-8?B?cGwxaVplS3VlNUwwbzRmUHFYWmJRaGVDY28reHU0N2pabGt6SzZObzZCRExE?=
- =?utf-8?B?bllVSkxHU1E4SVBhV1h3Yy9FeGRLczFFUitVUHlxRUdJOUpvQk9HY1VhKzBK?=
- =?utf-8?B?VUNTQVdNNkVvVXNvVDg5MkkwbGZJT3hRUmNaZFNEeElVejBmbldOQU9jLzdV?=
- =?utf-8?B?T1dwZEpNYmh4UFpwSi9vSUFMNFZtd3QrVWhiZ3hKOUdXcHV2SEpLMXIyTVhk?=
- =?utf-8?B?OUVpa2F3R1g3TlRBTGt4K0V2WWYrNHYrRHlPd1c0ODZpVUhjTHVZWkFvdWNo?=
- =?utf-8?B?M1hQUHIzVWRpanV5bUVoVzJmRkdMMzhWQ3gyK25HeGEza084Mkt2cFdhMXBR?=
- =?utf-8?B?R0RkdVZsRWpoTk8zOUQvSDAvNVNWdEdFczhNSVhtYUtnUUg3bDJBYWpPaDIw?=
- =?utf-8?B?TWZOcXJEWmsrTVBlYWxHRlBsRGl6Q01CQVA3UEJhcnZzSlNRL0xlbk5uQUZ1?=
- =?utf-8?B?M0tISGZrZkptTGdqUFYreEtBaHRxTStxMGxpaTEwNG9yTDBmRnZzeTc3MDQr?=
- =?utf-8?B?clkvMlpFUDNuNG9IMnBibVhwODMxOENNaWQ3RHZYNXZGNy9DZzhFdVpjNjU4?=
- =?utf-8?B?TXBKZ3p6NTRPRmdBcVBJL1dxZTJsaHd0MzRvMXhxRkhTWjhWR1owNmtUWnd0?=
- =?utf-8?B?Y2ErdjFsTVlQZW41eWg4ZnBBaTJmc1hQVFVkYjAvLzQyMDAvaGtOUWdPdDQw?=
- =?utf-8?B?bzJQUjVRY1dGa3JmRzlpbDhZalhWQ0FiS3BCUXVYcWtOdzlpZlNGT2dyTzFO?=
- =?utf-8?B?UUhPbjRPNVo5Z1B0bHFkM1lIS0ZLRUdKM2F6WTRYRXI5cThNZUIzN3gyMmoy?=
- =?utf-8?B?ek5MU0Z2Y3FBcThiSVVVUVl4c0Vwc200c3Q5MkhDeU9hcE03bXl3WGZwZTRL?=
- =?utf-8?B?TmlkWlBkU2IyVEk1YjJKTEdMdXBad0ZsR2c3a3pONTRiTE03UldvUGhsWUZX?=
- =?utf-8?B?U3BndnVNcE5YcW40OUVsd1h5UHB6enBEbkF3NGNDZWZQdmFteWZ1enU2aGlu?=
- =?utf-8?B?QWV5czlNNHl3czBQRlpsb1R6cjBTdXJqWDVLby9hMjZ0YkNtQ2IxTmIrYzlE?=
- =?utf-8?B?YytYRzNXNTJtQ1lyUjQ0WUMyTG9ZOWJPc3ZsdExWYTNYL0l6UnNwdk9GbEN0?=
- =?utf-8?B?UU1GbmpIbmlFYmN2eEc3eDhFRWVxanhxdTlwSEc0bTRYanhxc2N0b2FJZ3lP?=
- =?utf-8?B?ckoxbGJEeWdNd0FMRVUySmNiOTh3TEpQdXloRUZZL2gwUlRXbXhhT1FHM3dP?=
- =?utf-8?B?SytkeUJpUksrZ3A1K2VsdWdPMFFJRVNNTUE2QnAwMmNDbEVMa3Bxd1pGWW9V?=
- =?utf-8?B?THgrUS9iSDJqZjFRdlV2K2ZBd2E2M2JobENmaXR6SzV2eVJpYWowYU15L1ZV?=
- =?utf-8?B?WWs5UXkzZmdDWGhZNldlVDUzVmRpdVhRalpmd1BHN1NJL09OS1hhVCsyVzRE?=
- =?utf-8?Q?4ilfccm7inseimz6LjhSjDOpm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ff692904-59c5-40bd-a0df-08ddd97ffc1e
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 09:09:47.4295
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Pfyqaz47yr1jHBVCd6Rnyh0AmIBGqrEqCLCY46fRVaYGpGtpSUW4DTDBPeqgO+UJze7zOM5NfB6XSQgHjqDGJA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6897
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACgGm2gC/4WPS27DMAxEr2JoXQaSnPi36j2KLGiJbojGliPJS
+ oLAd69qd9Fdl0MC8+a9RCDPFERXvISnxIHdlIN+K4S54PRJwDZnoaU+yaM6QXQzG8Cx0mAjzOg
+ j45UdpAryt9S1tWoYVG1R5I7Z08CPrf/jvGdPtyVj4n4UPQYC48aRY1ek6qBq8EaJv/w8R+qjk
+ rL9pY8GJ7jjFy0zBLd4QxteQ2OUrdq2VL1tutSIH+SFQ3T+uRkmtTF3Ga3+kUkKJFSGbCkRB2v
+ 79x6fV+49HfJgcV7X9Rsst5k5QAEAAA==
+X-Change-ID: 20250415-topic-am62-dt-partialio-v6-15-327dd1ff17da
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Vishal Mahaveer <vishalm@ti.com>, 
+ Kevin Hilman <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, 
+ Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
+ Akashdeep Kaur <a-kaur@ti.com>, 
+ Markus Schneider-Pargmann <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4920; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=nvdM9bES2M2TONEu/V1R6Pbby+jxQRKWgcemit1o6OI=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhozZbBZCSdsjdqyNfB1vsveozvnXX3crOO9edPbY7zrTJ
+ dMW2ypWdpSyMIhxMciKKbJ0Joam/ZffeSx50bLNMHNYmUCGMHBxCsBEwvcw/I9bFavAfCH9usBO
+ 5vATVp7uQjm5HY4+S+s+P5Kw3lWnMo2RYcbsz3k3b7EWbFfLsVffFlJU9dXHOPLN9izdvP85hi1
+ H+AA=
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_020952_908952_66297CC9 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250812_021632_039496_7CB6D44D 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,67 +117,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
+Hi,
 
-Implement .get_frame_desc subdev callback since downstream subdev
-need to get frame description.
+This series adds devicetree changes needed for Partial-IO support
+on TI am62, am62a, and am62p SoCs. It defines system states for various
+low power modes and configures the wakeup-sources for devices in the CANUART
+group. Depending on the SoC and board details, some low power modes may not
+be available, so the wakeup-sources are described in the board files.
+The series also adds the necessary pinctrl settings required for proper
+wakeup functionality.
 
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+Partial-IO Overview
+------------------
+Partial-IO is a low power system state in which nearly everything is
+turned off except the pins of the CANUART group (mcu_mcan0, mcu_mcan1,
+wkup_uart0 and mcu_uart0). These devices can trigger a wakeup of the system
+on pin activity. Note that this does not resume the system as the DDR is
+off as well. So this state can be considered a power-off state with wakeup
+capabilities.
+
+A documentation can also be found in section 6.2.4 in the TRM:
+  https://www.ti.com/lit/pdf/spruiv7
+
+Implementation Details
+----------------------
+The complete Partial-IO feature requires three coordinated series, each handling
+a different aspect of the implementation:
+
+1. m_can driver series: Implements device-specific wakeup functionality
+    for m_can devices, allowing them to be set as wakeup sources.
+    https://gitlab.baylibre.com/msp8/linux/-/tree/topic/mcan-wakeup-source/v6.17?ref_type=heads
+    https://lore.kernel.org/r/20250812-topic-mcan-wakeup-source-v6-12-v8-0-6972a810d63b@baylibre.com
+
+2. This series (devicetree): Defines system states and wakeup sources in the
+    devicetree for am62, am62a and am62p.
+
+3. TI-SCI firmware series: Implements the firmware interface to enter Partial-IO
+    mode when appropriate wakeup sources are enabled.
+    https://gitlab.baylibre.com/msp8/linux/-/tree/topic/tisci-partialio/v6.17?ref_type=heads
+
+Devicetree Bindings
+-------------------
+This series depends on the dt-schema pull request that adds bindings for
+system-idle-states and updates the binding for wakeup-source:
+  https://github.com/devicetree-org/dt-schema/pull/150
+
+This is merged now in upstream dt-schema. These new bindings allow us to
+define the system states and reference them from device wakeup-source
+properties.
+
+Testing
+-------
+A test branch is available here that includes all patches required to
+test Partial-IO:
+
+https://gitlab.baylibre.com/msp8/linux/-/tree/integration/am62-partialio/v6.17?ref_type=heads
+
+After enabling Wake-on-LAN the system can be powered off and will enter
+the Partial-IO state in which it can be woken up by activity on the
+specific pins:
+    ethtool -s can0 wol p
+    ethtool -s can1 wol p
+    poweroff
+
+I tested these patches on am62-lp-sk.
+
+Best,
+Markus
+
+Previous versions
+-----------------
+ - Link to v1: https://lore.kernel.org/r/20250421-topic-am62-dt-partialio-v6-15-v1-0-6ced30aafddb@baylibre.com
+ - As part of the series "firmware: ti_sci: Partial-IO support"
+   https://lore.kernel.org/r/20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com
+
+Changes in v2:
+ - Combine k3-am62a7-sk.dts devicetree nodes with existing ones
+ - Combine k3-am62p5-sk.dts devicetree nodes with existing ones
+ - Update the idle-state-name properties to the new names from the
+   dt-schema
+ - Rebase to 6.17-rc1
+
+Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
+Markus Schneider-Pargmann (7):
+      arm64: dts: ti: k3-pinctrl: Add WKUP_EN flag
+      arm64: dts: ti: k3-am62: Define possible system states
+      arm64: dts: ti: k3-am62a: Define possible system states
+      arm64: dts: ti: k3-am62p: Define possible system states
+      arm64: dts: ti: k3-am62-lp-sk: Set wakeup-source system-states
+      arm64: dts: ti: k3-am62a7-sk: Set wakeup-source system-states
+      arm64: dts: ti: k3-am62p5-sk: Set wakeup-source system-states
 
-diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-index 3de9007ad122..ed6578f7f0f9 100644
---- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-+++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-@@ -689,6 +689,37 @@ static int imx8mq_mipi_csi_set_fmt(struct v4l2_subdev *sd,
- 	return 0;
- }
- 
-+static int imx8mq_mipi_csi_get_frame_desc(struct v4l2_subdev *sd,
-+					  unsigned int pad,
-+					  struct v4l2_mbus_frame_desc *fd)
-+{
-+	struct v4l2_mbus_frame_desc_entry *entry = &fd->entry[0];
-+	const struct csi2_pix_format *csi2_fmt;
-+	const struct v4l2_mbus_framefmt *fmt;
-+	struct v4l2_subdev_state *state;
-+
-+	if (pad != MIPI_CSI2_PAD_SOURCE)
-+		return -EINVAL;
-+
-+	state = v4l2_subdev_lock_and_get_active_state(sd);
-+	fmt = v4l2_subdev_state_get_format(state, MIPI_CSI2_PAD_SOURCE);
-+	csi2_fmt = find_csi2_format(fmt->code);
-+	v4l2_subdev_unlock_state(state);
-+
-+	if (!csi2_fmt)
-+		return -EPIPE;
-+
-+	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_CSI2;
-+	fd->num_entries = 1;
-+
-+	entry->flags = 0;
-+	entry->pixelcode = csi2_fmt->code;
-+	entry->bus.csi2.vc = 0;
-+	entry->bus.csi2.dt = csi2_fmt->data_type;
-+
-+	return 0;
-+}
-+
- static const struct v4l2_subdev_video_ops imx8mq_mipi_csi_video_ops = {
- 	.s_stream	= imx8mq_mipi_csi_s_stream,
- };
-@@ -697,6 +728,7 @@ static const struct v4l2_subdev_pad_ops imx8mq_mipi_csi_pad_ops = {
- 	.enum_mbus_code		= imx8mq_mipi_csi_enum_mbus_code,
- 	.get_fmt		= v4l2_subdev_get_fmt,
- 	.set_fmt		= imx8mq_mipi_csi_set_fmt,
-+	.get_frame_desc		= imx8mq_mipi_csi_get_frame_desc,
- };
- 
- static const struct v4l2_subdev_ops imx8mq_mipi_csi_subdev_ops = {
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts | 60 +++++++++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62.dtsi      | 22 ++++++++++
+ arch/arm64/boot/dts/ti/k3-am62a.dtsi     | 27 ++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts  | 71 ++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p.dtsi     | 27 ++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts  | 71 ++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-pinctrl.h      |  2 +
+ 7 files changed, 280 insertions(+)
+---
+base-commit: 062b3e4a1f880f104a8d4b90b767788786aa7b78
+change-id: 20250415-topic-am62-dt-partialio-v6-15-327dd1ff17da
+prerequisite-change-id: 20241009-topic-mcan-wakeup-source-v6-12-8c1d69931bd8:v8
+prerequisite-patch-id: 02b7142f56c849c9a3faab2d2871805febd647aa
+prerequisite-patch-id: 830b339ea452edd750b04f719da91e721be630cb
+prerequisite-patch-id: 2c9142d2bc47e64c49b7b8a7ca20a62a0be14870
+prerequisite-patch-id: f7652a616dca17fd5e4a7e5cba59de6a6a36079f
+
+Best regards,
 -- 
-2.34.1
+Markus Schneider-Pargmann <msp@baylibre.com>
 
 
