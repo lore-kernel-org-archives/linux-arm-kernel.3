@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC521CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 09:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A2B3CA0EDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/CjTDdsTZ2vJWhyV91RfZWaBwK5X85vossX277eUwg=; b=fiuZZRr+tfRIKSuVUGMXw/Qn3M
-	BCwfqALGy/rzjhzqfiqz56j1x7HkmwHVKOnaKG44JUUbDj9tgaBoQ+GAV7Ekc+ee84pdhyKtrfSRg
-	sT3lqN1S7/oxqTDq3QQ7pJjjCSZLmaQWmcTILjQbbEpbg6z9UrffaRGDRNTbqVvhJMHjb1vtKrgMG
-	0civkbktUWVrIP/0/499G9k47m1tqZRBNEHfcziVQ6eYhUPePjhVhjMYLY7cs2OXbEDVGbxSJATH2
-	dCTY7rM0hgpaKuWsh0R8vAt8g5fDRkcb8dc74mKkcXvjE6zd5LSHokMEdDWuKSmck74eTYsp5gDrx
-	dHy+5qwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dv4fLrK0UOHhQkLWBMb22z6/gxmtyVbH/9nqZ3efXTQ=; b=veT73G6+BVAs6gdT6Y+AKdfk7t
+	irbN/aaFAexDaBC03Y40NwNE77EdS1wbpX6tSuYQXnnv9/TVGCdqlkiW+OCnYmZiHpe/u7WXlF+NH
+	YfmESSSrryGV2/GWF0IM3Spkcqpkce1uho7YGzVCYWAnA2nMqOttQ1hpidwS+cp2J5G26ETfWOxKl
+	07eAeU7eR5+Q+xMKdoQQSK0/dRebUSbLzFKA4yu6HSFHKUmc164B3yfRz+zbR0KpbQBWB9rCKEB6U
+	bJkpmQaY2PDUC+stYVCnqGvbZEhMZRGnQpo4h5DUbG5qV/d/JS5jAPCGwOEP5Pqcxywe6iKPBmBBZ
+	jEeKKVBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ullWw-0000000APkT-07Z7;
-	Tue, 12 Aug 2025 09:42:54 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1uloEn-0000000Ahuw-0nPC;
+	Tue, 12 Aug 2025 12:36:21 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljpW-0000000AABY-3zhH;
-	Tue, 12 Aug 2025 07:54:01 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 603EC2059B;
-	Tue, 12 Aug 2025 07:53:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1754985235;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l/CjTDdsTZ2vJWhyV91RfZWaBwK5X85vossX277eUwg=;
-	b=AWBVEjcvzKNPnFkloklo+5BU0lhN9r5BCBBgmxfLKDZnBEUesvnUBK3Ln1wpKhyRc7aUG4
-	HJZE8WWImX/GZwdxoNJbGvVbwtDcn/9HS1N34zKvzWm7lpnFiM59eN6kTioX6ZEABwxE+0
-	8/5zcjZU6vxA4HgguKTVaQS6nB2BmYMQ0ycbDh/RQ9itsV3FsaHN5XcBFOG/eMs+qrwYyK
-	L9R99Q5ZzNvFTlacDHq48Sv99QQ78mA2lfhwbXjeRMT5j4JBcWab/AnGMPLYcpQY+h13R2
-	Hv4AegNB+k6kdxEak/JnwEuQh9vyZewN6ZXtJzR0ChlFGqgMQO9KUgvkM8zy3w==
-Date: Tue, 12 Aug 2025 09:53:51 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, Matthias Brugger
- <matthias.bgg@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 1/9] net: stmmac: add suspend()/resume()
- platform ops
-Message-ID: <20250812095351.7ec35164@fedora.home>
-In-Reply-To: <E1ulXbX-008gqZ-Bb@rmk-PC.armlinux.org.uk>
-References: <aJo7kvoub5voHOUQ@shell.armlinux.org.uk>
-	<E1ulXbX-008gqZ-Bb@rmk-PC.armlinux.org.uk>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1ulk3j-0000000ACai-2htp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 08:08:41 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4c1PFr71hTz2TT3c;
+	Tue, 12 Aug 2025 16:05:52 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id CB220140230;
+	Tue, 12 Aug 2025 16:08:31 +0800 (CST)
+Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 12 Aug 2025 16:08:31 +0800
+Received: from DESKTOP-VM4LOUJ.huawei.com (10.67.121.177) by
+ kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 12 Aug 2025 16:08:30 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <james.clark@linaro.org>, <robh@kernel.org>, <anshuman.khandual@arm.com>,
+	<jonathan.cameron@huawei.com>, <hejunhao3@huawei.com>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <xuwei5@huawei.com>, <wangyushan12@huawei.com>,
+	<yangyicong@hisilicon.com>
+Subject: [PATCH 0/2] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
+Date: Tue, 12 Aug 2025 16:08:28 +0800
+Message-ID: <20250812080830.20796-1-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeegjeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgto
- hhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.121.177]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemq200018.china.huawei.com (7.202.195.108)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_005359_790890_67CB37A3 
-X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-CacheID: sfid-20250812_010839_832169_D6DC0D5D 
+X-CRM114-Status: UNSURE (   6.73  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,18 +76,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 19:50:43 +0100
-"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-> Add suspend/resume platform operations, which, when populated, override
-> the init/exit platform operations when we suspend and resume. These
-> suspend()/resume() methods are called by core code, and thus are
-> designed to support any struct device, not just platform devices. This
-> allows them to be used by the PCI drivers we have.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+This patchset fixed CPU_CYCLES counting on SMT system. CPU_CYCLES can use
+PMCCNTR_EL0 which will count the hardware processor clock rather than the
+PE clock (ARM DDI0487 L.b D13.1.3) on SMT cores which fails the users
+expectation as CPU_CYCLES (0x0011) is defined to count on each PE cycles.
+Fix this by avoid using PMCCNTR_EL0 on SMT cores when counting CPU_CYCLES.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Yicong Yang (2):
+  perf: arm_pmuv3: Factor out PMCCNTR_EL0 use conditions
+  perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
 
-Maxime
+ drivers/perf/arm_pmuv3.c | 39 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
+
+-- 
+2.24.0
+
 
