@@ -4,132 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7F7CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:28:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F4AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLCKgC/5+BoG+FIzo3RVjBgspCUy0QHhAEmll+Q+bzA=; b=4CCQjBlEyGrwsNNJNwRTLx4sZu
-	rL6A8K2y8B3jx+OK3Ke6dHODlljWvmYv8KtYpu4qwGMNB7UICl6SPyW7vbODiu8OkAbmWhIV6u7KO
-	72o5ueOLeZY4j6E8qvj63mAEFwHRjuLF8MLZNFJZGSUUkSoqSmPi/WMHNy03snBihFzh/ERpdBq9W
-	n7Eqo8fKPWJrkbm/6WLbYMLqjR2k8rRoOtlZD7tPL5vZ0CXy+JOn6I9DMjwOOiKFcKT7vJipfF7gD
-	cFOMJcj/NnpgP9bLOftPfoYJJOYNBCvS659ACQAnQLc8+vdnfgBik18Z7eiQOj8EX0O5kKeG0/6gT
-	6OI0nJ+g==;
+	bh=TSXRG4UDI370NboKvA/d+qzWYgjnMyk4awDopImJtPY=; b=Dnufc8VmSNKdSLbQUX1/Z4jo6B
+	zIRR0dCIWCmc5eysK2FDQYEhE2V6/4I2c4wPjawm+7RXWK+gC1I47/ITnC6WmwKjoBph5deNMnj1W
+	8fu0odxKNnSehyMZO/kjpQfF/Tm1aL+mEdYHDs8OWPyqy01HSUlbGbEU2b7PJkJU1mgN3xlSLpa4M
+	F9ltw9yy/NfW9zWPeHwwUKltgtvOrcTJ7O72N+aozM+VRTUUHWEaCXR2WMF42jxN/pzKjn64FbMdC
+	xYuLG910i48B0/mk+V30oemZSCUx7JQHHvc1Jnd6/slXQ9na0XDGYWtwGCGCdWrYHAMsfUnb4EUqn
+	ApRX3SMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljQY-0000000A7F0-1rCM;
-	Tue, 12 Aug 2025 07:28:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uljTC-0000000A7VG-053p;
+	Tue, 12 Aug 2025 07:30:54 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljM9-0000000A6gh-2rc4;
-	Tue, 12 Aug 2025 07:23:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E5D175C66DA;
-	Tue, 12 Aug 2025 07:23:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C126C4CEF0;
-	Tue, 12 Aug 2025 07:23:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754983416;
-	bh=JiE8CKcIxE7skuyrDeYkQpvSNgGqopGhxb7VfznaQeE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J9NTolveGpBhWAvij58oUWOP2vguKLwWjqPfp95pSn5u0OVwuc/8HgIIRNp/hgTYu
-	 Z2PzUYkZaSRY4k2AgBDndi3Tk97DXMXp2sclnItCHN+LNaMFnrD1snBel/5N/Zntht
-	 hR3VwLfaDfoIPLajJwG0kpZ5PCrUMC6ZMDdFUJ5nFe6+vmOzHgqknrroIQpoxjPRrs
-	 Y8R17VT6eeuHFcOc4dk6bPJnPohq/aqyonDJwiG21J4gx6VxcgHqTDIUWzdhq/+csO
-	 ll8+FioTFQeaBXJ4UFNBfqOdjR3drwg07aFdQzRH7uDuV3lW9cKwMys4CAebNhA3qe
-	 a2aczlbG19g/g==
-Message-ID: <09179c67-1dbe-41e5-9905-26b4c6bf9f60@kernel.org>
-Date: Tue, 12 Aug 2025 09:23:29 +0200
+	id 1uliGW-0000000A0Hn-1KuQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 06:13:45 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55b8f1a13e9so4585787e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 23:13:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754979222; x=1755584022; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TSXRG4UDI370NboKvA/d+qzWYgjnMyk4awDopImJtPY=;
+        b=hLUlpnljZVJSEiXacXRaSixQaOz9EsOppgXl2QtO+vYGkOs5reOcYcm0pAoQ38U4Za
+         RUEGdjCVhmYaNVa4aWE3PFubruU9+hMaCzWmtmhju5zjTM5na/I4W8nnzELPQvhzLxZq
+         ZZW6Lbu0HbthuUu4i8gElY+hV3+2N+rVyqgJxmpVKN8QA1BmCRGumdaMqFoWsedVJBUz
+         9eL4538f9BceFoZTzqWBDAZljKL+GmisniVgpMwdikP/hL44gJy5wh7zuH4PITJ3aK2F
+         dMh2Xlm0E9qvpnCeXr95ewHmC+Hj+s+Mq2mmcr6wIwZOh0hGNhCbVf+bm9qnziZjhlIU
+         Fjxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754979222; x=1755584022;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TSXRG4UDI370NboKvA/d+qzWYgjnMyk4awDopImJtPY=;
+        b=nzvIHM4ShVxzDqrYdRVsM9PFNv0d2F46oKJz9PBveSAJRTYdVzhSJP94hkvk9ZtC9g
+         8iennO9NREzx/UApdeMrd4TQU9oDAF0UrPot9Zzut9iH6f76hnDmhG/o4HT/s0ADak44
+         O0Fnf1Ypv57JV9clRheZZKmWn2RFbQsQG70lQ4Pn3S3mx2KZDM2Kju/PB1HVN0j8kqQ6
+         t4SgC5QRlvVCIulu9vec5eL25utvzGzoX6BXDjk8SWWBGjHq+5UB+TgNQRj9QItmI+nY
+         RLQiEcpM3QPRIqrJjGCHXd4f6h/4Yonk1qLoftGFJw0iI3zA25sxUfUTuYhhFLA+JAyX
+         FIZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX+zVEFksyJ9oxlvej527uXnUDXmOSoGmbwSEOn+Sz35wHySbL3u0ECAq0PswjLLUDJ83fwNi7dlNhbd+Zm6/as@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVmUHBLtflD2ox7hXwnHGMYF+Pkhu36Tvf+NzSA0prp2NJONiL
+	kKDu9eZ7/hvDIZYLQp6A2Dplz6BQP0StbxtKnWwBpGFE5fsdrvgXl5Ot
+X-Gm-Gg: ASbGncvitTRXqBEtq1bai4rKtmiLmjdVR2eJ6lpgGrodscM19wgtfRe751FEgQbuscG
+	pQvl5LOzSpd1poOzRgb4A0U2UI4BdD/oMVgfUdUO6t2HEld7MqfmIgApUc1V6XZaJmpaSZadRy6
+	AiPfDJ98YSeDNIXZo99MxO1gG+JRZ3RvBqVxqePLGLPbxD6YPxk2EcZ16so9zdmsCGGjqZEMV9k
+	KuZOVVEVlx9Cofw+084E7g/dWGp/PVoARZrzGc495G77YVQIrSvTWzvjE7Eqy+YEeGSnxZ3JadG
+	qnIIoF9iQ+9lEYR57pXjLd888uQc5Z6S6PZdA8W9rKc73h1R2kuh6r1zRsEMBYuUL95xPo8QlUc
+	tFm46cq+gBEqELWJno4i5hL24gu+qg73sNhgLhW66TT0tbvA=
+X-Google-Smtp-Source: AGHT+IHD1nKmWw3ewqqmK3tmT5SLNBo0Q1b6H5f7Ay3XURTOzQQPfxP60v/DXVcVArn1HmiAasOnww==
+X-Received: by 2002:a05:6512:15a9:b0:55c:d5f8:7866 with SMTP id 2adb3069b0e04-55cd5f87a6dmr841162e87.57.1754979221938;
+        Mon, 11 Aug 2025 23:13:41 -0700 (PDT)
+Received: from [192.168.15.130] (94-240-0-2.lukman.pl. [94.240.0.2])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cac7626fasm2645563e87.174.2025.08.11.23.13.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Aug 2025 23:13:41 -0700 (PDT)
+Message-ID: <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
+Date: Tue, 12 Aug 2025 08:13:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 04/25] virt: geniezone: Add GenieZone hypervisor
- driver
-To: =?UTF-8?B?TGlqdS1jbHIgQ2hlbiAo6Zmz6bqX5aaCKQ==?=
- <Liju-clr.Chen@mediatek.com>, "corbet@lwn.net" <corbet@lwn.net>,
- "mhiramat@kernel.org" <mhiramat@kernel.org>,
- =?UTF-8?B?WWluZ3NoaXVhbiBQYW4gKOa9mOepjui7kik=?=
- <Yingshiuan.Pan@mediatek.com>, "rostedt@goodmis.org" <rostedt@goodmis.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "mathieu.desnoyers@efficios.com" <mathieu.desnoyers@efficios.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "will@kernel.org"
- <will@kernel.org>, "richardcochran@gmail.com" <richardcochran@gmail.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WmUteXUgV2FuZyAo546L5r6k5a6HKQ==?= <Ze-yu.Wang@mediatek.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: =?UTF-8?B?S2V2ZW5ueSBIc2llaCAo6Kyd5a6c6Iq4KQ==?=
- <Kevenny.Hsieh@mediatek.com>, =?UTF-8?B?U2hhd24gSHNpYW8gKOiVreW/l+elpSk=?=
- <shawn.hsiao@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?UGVpTHVuIFN1ZWkgKOmai+WfueWAqyk=?= <PeiLun.Suei@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
- =?UTF-8?B?Q2hpLXNoZW4gWWVoICjokYnlpYfou5Ip?= <Chi-shen.Yeh@mediatek.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
- <20241114100802.4116-5-liju-clr.chen@mediatek.com>
- <7b79d4b5-ba91-41a0-90d1-c64bcab53cec@kernel.org>
- <cb84d8d87a67516f9b92a89f81fe4efc088f7617.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 56/76] media: s5p-jpeg: Access v4l2_fh from file
+To: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
+ linux-media@vger.kernel.org
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Hans Verkuil <hans@jjverkuil.nl>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Jacek Anaszewski <jacek.anaszewski@gmail.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
+ <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <cb84d8d87a67516f9b92a89f81fe4efc088f7617.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
+From: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+In-Reply-To: <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_002337_805488_7A28FAE4 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250811_231344_382633_48AAC203 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,36 +105,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/08/2025 09:04, Liju-clr Chen (陳麗如) wrote:
-> On Wed, 2024-12-11 at 09:44 +0100, Krzysztof Kozlowski wrote:
->>
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> On 14/11/2024 11:07, Liju-clr Chen wrote:
->>> +
->>> +static int gzvm_dev_open(struct inode *inode, struct file *file)
->>> +{
->>> +     /*
->>> +      * Reference count to prevent this module is unload without
->>> destroying
->>> +      * VM
->>
->> So you re-implemented suppress-bind attrs... no, drop.
->>
+Hi Laurent & Jacopo,
+
+Thanks for taking care of this, this generally looks good to me,
+but please see inline.
+
+W dniu 10.08.2025 o 03:30, Laurent Pinchart pisze:
+> From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 > 
-> Thanks, will fix in next version.
+> The v4l2_fh associated with an open file handle is now guaranteed
+> to be available in file->private_data, initialised by v4l2_fh_add().
+> 
+> Access the v4l2_fh, and from there the driver-specific structure,
+> from the file * in all ioctl handlers.
+> 
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Reviewed-by: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
+> Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> ---
+> Changes since v1:
+> 
+> - Update file-to-ctx macro due to removal of fh-to-ctx macro
+> ---
+>   .../platform/samsung/s5p-jpeg/jpeg-core.c     | 27 ++++++++-----------
+>   1 file changed, 11 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> index 65f256db4c76..81792f7f8b16 100644
+> --- a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> +++ b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
+> @@ -580,14 +580,9 @@ static inline struct s5p_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *c)
+>   	return container_of(c->handler, struct s5p_jpeg_ctx, ctrl_handler);
+>   }
+>   
+> -static inline struct s5p_jpeg_ctx *fh_to_ctx(struct v4l2_fh *fh)
+> -{
+> -	return container_of(fh, struct s5p_jpeg_ctx, fh);
+> -}
+> -
+>   static inline struct s5p_jpeg_ctx *file_to_ctx(struct file *filp)
+>   {
+> -	return fh_to_ctx(file_to_v4l2_fh(filp));
+> +	return container_of(file_to_v4l2_fh(filp), struct s5p_jpeg_ctx, fh);
+>   }
+>   
+>   static int s5p_jpeg_to_user_subsampling(struct s5p_jpeg_ctx *ctx)
+> @@ -1015,8 +1010,8 @@ static int s5p_jpeg_open(struct file *file)
+>   
+>   static int s5p_jpeg_release(struct file *file)
+>   {
+> -	struct s5p_jpeg *jpeg = video_drvdata(file);
+>   	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+> +	struct s5p_jpeg *jpeg = video_drvdata(file);
 
-I gave you comments within hours. You responded 8 months after. That is
-not making the process easy.
+What is the purpose of this change?
 
-I expect all comments applied in such case and I will not be reading
-further. You got comments, implement them fully. I think you reject
-them, but rejection after 8 months, means all context is gone.
+Regards,
 
-NAK
+Andrzej
 
-Best regards,
-Krzysztof
+>   
+>   	mutex_lock(&jpeg->lock);
+>   	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
+> @@ -1253,7 +1248,7 @@ static bool s5p_jpeg_parse_hdr(struct s5p_jpeg_q_data *result,
+>   static int s5p_jpeg_querycap(struct file *file, void *priv,
+>   			   struct v4l2_capability *cap)
+>   {
+> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+>   
+>   	if (ctx->mode == S5P_JPEG_ENCODE) {
+>   		strscpy(cap->driver, S5P_JPEG_M2M_NAME,
+> @@ -1301,7 +1296,7 @@ static int enum_fmt(struct s5p_jpeg_ctx *ctx,
+>   static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+>   				   struct v4l2_fmtdesc *f)
+>   {
+> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+>   
+>   	if (ctx->mode == S5P_JPEG_ENCODE)
+>   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
+> @@ -1314,7 +1309,7 @@ static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
+>   static int s5p_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
+>   				   struct v4l2_fmtdesc *f)
+>   {
+> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+>   
+>   	if (ctx->mode == S5P_JPEG_ENCODE)
+>   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
+> @@ -1340,7 +1335,7 @@ static int s5p_jpeg_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>   	struct vb2_queue *vq;
+>   	struct s5p_jpeg_q_data *q_data = NULL;
+>   	struct v4l2_pix_format *pix = &f->fmt.pix;
+> -	struct s5p_jpeg_ctx *ct = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ct = file_to_ctx(file);
+>   
+>   	vq = v4l2_m2m_get_vq(ct->fh.m2m_ctx, f->type);
+>   	if (!vq)
+> @@ -1480,7 +1475,7 @@ static int vidioc_try_fmt(struct v4l2_format *f, struct s5p_jpeg_fmt *fmt,
+>   static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
+>   				  struct v4l2_format *f)
+>   {
+> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+>   	struct v4l2_pix_format *pix = &f->fmt.pix;
+>   	struct s5p_jpeg_fmt *fmt;
+>   	int ret;
+> @@ -1539,7 +1534,7 @@ static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
+>   static int s5p_jpeg_try_fmt_vid_out(struct file *file, void *priv,
+>   				  struct v4l2_format *f)
+>   {
+> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+>   	struct s5p_jpeg_fmt *fmt;
+>   
+>   	fmt = s5p_jpeg_find_format(ctx, f->fmt.pix.pixelformat,
+> @@ -1686,7 +1681,7 @@ static int s5p_jpeg_s_fmt_vid_cap(struct file *file, void *priv,
+>   	if (ret)
+>   		return ret;
+>   
+> -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
+> +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
+>   }
+>   
+>   static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
+> @@ -1698,7 +1693,7 @@ static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
+>   	if (ret)
+>   		return ret;
+>   
+> -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
+> +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
+>   }
+>   
+>   static int s5p_jpeg_subscribe_event(struct v4l2_fh *fh,
+> @@ -1795,7 +1790,7 @@ static int exynos3250_jpeg_try_crop(struct s5p_jpeg_ctx *ctx,
+>   static int s5p_jpeg_g_selection(struct file *file, void *priv,
+>   			 struct v4l2_selection *s)
+>   {
+> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
+> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
+>   
+>   	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
+>   	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
+
 
