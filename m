@@ -4,50 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3098CC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB39CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
 	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UpB2GIUgkfPcnRjs3ARqM9F7ZHPJ2zjE6ameQ16EUwI=; b=JOEAOIJITGG3GuYfuMlSIE5Ycx
-	XJHWsICrOTpxxTe4uFgPrX/G4VIr6P/w7mI3Bn7YAkwQm1FnS7tHZwJOMJZJY2NvwKvHLI45YuAVq
-	xyNIDBOjFwW9e0oGvCPy+uyVLVdwIjoNccWVukLIbmhbBAfV5bWd5+SLbUVREAGgb30wu2cVnfo09
-	NfdOIGtzHRB8VXGoFuoZDsYD/2F/XIzSCTIqo6tbVaPoqfWpwZqbDmKQ0Slh352Mj/gFFkxw+nBOa
-	RJIOIIQbAi0anLQ8FitNlgShLVh5FTTaZ2eGfCcwuWFVouQwJLKlQfBYjU0/zTCNRAAz67z+Lel6T
-	EfG0vxOg==;
+	bh=utxPipQPD8YOvvFdv1qwP03Dz9s+V1JVaXFza6aJexM=; b=bLCZMN9YF65w6HTbK+7IpSVpym
+	a1S915ikn2ZZoRJGHTHjNDOwPdeHnGonbKeAb/naQE5fhu3roherZqyfztp259Qr66tYOdH3Buxfv
+	tCOxV0TAfbi9oqz606Yi91BUWXgsTo9+HC1i239W7xzQgKBLpu7P753+vA7So+uk6GS+UX4FkiDAN
+	M3VE0+rGT+TpQq+izftA7yPjsy9DF6cxfz0BcsIkUs5Tz4mcIe/t22MVAG/LnXl4i0ES41Olv8k+A
+	eS8C6y+Tl6r4Vn1qgol/DEmWDERRovBylbf14MOFBeVpyFaQ5zHMs3deLAy/kHTM124sQJ7UNp0S2
+	h3V9drMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrjj-0000000BK10-3a97;
-	Tue, 12 Aug 2025 16:20:31 +0000
+	id 1ulrjt-0000000BKEL-3Lwu;
+	Tue, 12 Aug 2025 16:20:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulmww-0000000AaCK-0fkP
+	id 1uln2X-0000000Ab1Q-1qWi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:13:51 +0000
+	Tue, 12 Aug 2025 11:19:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FE5225E1;
-	Tue, 12 Aug 2025 04:13:41 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91CE425E1;
+	Tue, 12 Aug 2025 04:19:28 -0700 (PDT)
 Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BB453F63F;
-	Tue, 12 Aug 2025 04:13:45 -0700 (PDT)
-Date: Tue, 12 Aug 2025 12:13:42 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB39D3F63F;
+	Tue, 12 Aug 2025 04:19:32 -0700 (PDT)
+Date: Tue, 12 Aug 2025 12:19:30 +0100
 From: Mark Rutland <mark.rutland@arm.com>
 To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH -next v7 5/7] arm64: entry: Refactor
- preempt_schedule_irq() check code
-Message-ID: <aJsh5oM3CoUELkvY@J2N7QTR9R3>
+Subject: Re: [PATCH -next v7 0/7] arm64: entry: Convert to generic irq entry
+Message-ID: <aJsjQsDZjhG8oiK-@J2N7QTR9R3>
 References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
- <20250729015456.3411143-6-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250729015456.3411143-6-ruanjinjie@huawei.com>
+In-Reply-To: <20250729015456.3411143-1-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_041350_285922_8135084D 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20250812_041937_562632_3CE71687 
+X-CRM114-Status: GOOD (  33.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,159 +61,157 @@ Cc: sstabellini@kernel.org, puranjay@kernel.org, anshuman.khandual@arm.com, cata
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 29, 2025 at 09:54:54AM +0800, Jinjie Ruan wrote:
-> ARM64 requires an additional check whether to reschedule on return
-> from interrupt. So add arch_irqentry_exit_need_resched() as the default
-> NOP implementation and hook it up into the need_resched() condition in
-> raw_irqentry_exit_cond_resched(). This allows ARM64 to implement
-> the architecture specific version for switching over to
-> the generic entry code.
-> 
-> To align the structure of the code with irqentry_exit_cond_resched()
-> from the generic entry code, hoist the need_irq_preemption()
-> and IS_ENABLED() check earlier. And different preemption check functions
-> are defined based on whether dynamic preemption is enabled.
-> 
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Suggested-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/include/asm/preempt.h |  4 ++++
->  arch/arm64/kernel/entry-common.c | 35 ++++++++++++++++++--------------
->  kernel/entry/common.c            | 16 ++++++++++++++-
->  3 files changed, 39 insertions(+), 16 deletions(-)
+Hi,
 
-Can you please split the change to kernel/entry/common.c into a separate
-patch? That doesn't depend on the arm64-specific changes, and it'll make
-it easier to handle any conflcits when merging this.
+This is looking pretty good now, thanks for continuing to work on this!
+
+I've left a couple of minor comments, and Ada has left a few more. If
+you're able to address those and respin atop v6.17-rc1, I think we can
+start figuring out how to queue this.
 
 Mark.
 
+On Tue, Jul 29, 2025 at 09:54:49AM +0800, Jinjie Ruan wrote:
+> Currently, x86, Riscv, Loongarch use the generic entry. Also convert
+> arm64 to use the generic entry infrastructure from kernel/entry/*.
+> The generic entry makes maintainers' work easier and codes more elegant,
+> which will make PREEMPT_DYNAMIC and PREEMPT_LAZY use the generic entry
+> common code and remove a lot of duplicate code.
 > 
-> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-> index 0159b625cc7f..0f0ba250efe8 100644
-> --- a/arch/arm64/include/asm/preempt.h
-> +++ b/arch/arm64/include/asm/preempt.h
-> @@ -85,6 +85,7 @@ static inline bool should_resched(int preempt_offset)
->  void preempt_schedule(void);
->  void preempt_schedule_notrace(void);
->  
-> +void raw_irqentry_exit_cond_resched(void);
->  #ifdef CONFIG_PREEMPT_DYNAMIC
->  
->  DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> @@ -92,11 +93,14 @@ void dynamic_preempt_schedule(void);
->  #define __preempt_schedule()		dynamic_preempt_schedule()
->  void dynamic_preempt_schedule_notrace(void);
->  #define __preempt_schedule_notrace()	dynamic_preempt_schedule_notrace()
-> +void dynamic_irqentry_exit_cond_resched(void);
-> +#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
->  
->  #else /* CONFIG_PREEMPT_DYNAMIC */
->  
->  #define __preempt_schedule()		preempt_schedule()
->  #define __preempt_schedule_notrace()	preempt_schedule_notrace()
-> +#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
->  
->  #endif /* CONFIG_PREEMPT_DYNAMIC */
->  #endif /* CONFIG_PREEMPTION */
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 7c2299c1ba79..4f92664fd46c 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -285,19 +285,8 @@ static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs,
->  		lockdep_hardirqs_on(CALLER_ADDR0);
->  }
->  
-> -#ifdef CONFIG_PREEMPT_DYNAMIC
-> -DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> -#define need_irq_preemption() \
-> -	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-> -#else
-> -#define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
-> -#endif
-> -
->  static inline bool arm64_preempt_schedule_irq(void)
->  {
-> -	if (!need_irq_preemption())
-> -		return false;
-> -
->  	/*
->  	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
->  	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
-> @@ -672,6 +661,24 @@ static __always_inline void __el1_pnmi(struct pt_regs *regs,
->  	arm64_exit_nmi(regs, state);
->  }
->  
-> +void raw_irqentry_exit_cond_resched(void)
-> +{
-> +	if (!preempt_count()) {
-> +		if (need_resched() && arm64_preempt_schedule_irq())
-> +			preempt_schedule_irq();
-> +	}
-> +}
-> +
-> +#ifdef CONFIG_PREEMPT_DYNAMIC
-> +DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-> +void dynamic_irqentry_exit_cond_resched(void)
-> +{
-> +	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-> +		return;
-> +	raw_irqentry_exit_cond_resched();
-> +}
-> +#endif
-> +
->  static __always_inline void __el1_irq(struct pt_regs *regs,
->  				      void (*handler)(struct pt_regs *))
->  {
-> @@ -681,10 +688,8 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
->  	do_interrupt_handler(regs, handler);
->  	irq_exit_rcu();
->  
-> -	if (!preempt_count() && need_resched()) {
-> -		if (arm64_preempt_schedule_irq())
-> -			preempt_schedule_irq();
-> -	}
-> +	if (IS_ENABLED(CONFIG_PREEMPTION))
-> +		irqentry_exit_cond_resched();
->  
->  	exit_to_kernel_mode(regs, state);
->  }
-> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
-> index b82032777310..4aa9656fa1b4 100644
-> --- a/kernel/entry/common.c
-> +++ b/kernel/entry/common.c
-> @@ -142,6 +142,20 @@ noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
->  	return ret;
->  }
->  
-> +/**
-> + * arch_irqentry_exit_need_resched - Architecture specific need resched function
-> + *
-> + * Invoked from raw_irqentry_exit_cond_resched() to check if need resched.
-> + * Defaults return true.
-> + *
-> + * The main purpose is to permit arch to skip preempt a task from an IRQ.
-> + */
-> +static inline bool arch_irqentry_exit_need_resched(void);
-> +
-> +#ifndef arch_irqentry_exit_need_resched
-> +static inline bool arch_irqentry_exit_need_resched(void) { return true; }
-> +#endif
-> +
->  void raw_irqentry_exit_cond_resched(void)
->  {
->  	if (!preempt_count()) {
-> @@ -149,7 +163,7 @@ void raw_irqentry_exit_cond_resched(void)
->  		rcu_irq_exit_check_preempt();
->  		if (IS_ENABLED(CONFIG_DEBUG_ENTRY))
->  			WARN_ON_ONCE(!on_thread_stack());
-> -		if (need_resched())
-> +		if (need_resched() && arch_irqentry_exit_need_resched())
->  			preempt_schedule_irq();
->  	}
->  }
+> Since commit a70e9f647f50 ("entry: Split generic entry into generic
+> exception and syscall entry") split the generic entry into generic irq
+> entry and generic syscall entry, it is time to convert arm64 to use
+> the generic irq entry. And ARM64 will be completely converted to generic
+> entry in the upcoming patch series.
+> 
+> The main convert steps are as follows:
+> - Split generic entry into generic irq entry and generic syscall to
+>   make the single patch more concentrated in switching to one thing.
+> - Make arm64 easier to use irqentry_enter/exit().
+> - Make arm64 closer to the PREEMPT_DYNAMIC code of generic entry.
+> - Switch to generic irq entry.
+> 
+> It was tested ok with following test cases on QEMU virt platform:
+>  - Perf tests.
+>  - Different `dynamic preempt` mode switch.
+>  - Pseudo NMI tests.
+>  - Stress-ng CPU stress test.
+>  - MTE test case in Documentation/arch/arm64/memory-tagging-extension.rst
+>    and all test cases in tools/testing/selftests/arm64/mte/*.
+> 
+> The test QEMU configuration is as follows:
+> 
+> 	qemu-system-aarch64 \
+> 		-M virt,gic-version=3,virtualization=on,mte=on \
+> 		-cpu max,pauth-impdef=on \
+> 		-kernel Image \
+> 		-smp 8,sockets=1,cores=4,threads=2 \
+> 		-m 512m \
+> 		-nographic \
+> 		-no-reboot \
+> 		-device virtio-rng-pci \
+> 		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
+> 			earlycon preempt=voluntary irqchip.gicv3_pseudo_nmi=1" \
+> 		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
+> 		-device virtio-blk-device,drive=hd0 \
+> 
+> Changes in v7:
+> - Rebased on v6.16-rc7 and remove the merged first patch.
+> - Update the commit message.
+> 
+> Changes in v6:
+> - Rebased on 6.14 rc2 next.
+> - Put the syscall bits aside and split it out.
+> - Have the split patch before the arm64 changes.
+> - Merge some tightly coupled patches.
+> - Adjust the order of some patches to make them more reasonable.
+> - Define regs_irqs_disabled() by inline function.
+> - Define interrupts_enabled() in terms of regs_irqs_disabled().
+> - Delete the fast_interrupts_enabled() macro.
+> - irqentry_state_t -> arm64_irqentry_state_t.
+> - Remove arch_exit_to_user_mode_prepare() and pull local_daif_mask() later
+>   in the arm64 exit sequence
+> - Update the commit message.
+> 
+> Changes in v5:
+> - Not change arm32 and keep inerrupts_enabled() macro for gicv3 driver.
+> - Move irqentry_state definition into arch/arm64/kernel/entry-common.c.
+> - Avoid removing the __enter_from_*() and __exit_to_*() wrappers.
+> - Update "irqentry_state_t ret/irq_state" to "state"
+>   to keep it consistently.
+> - Use generic irq entry header for PREEMPT_DYNAMIC after split
+>   the generic entry.
+> - Also refactor the ARM64 syscall code.
+> - Introduce arch_ptrace_report_syscall_entry/exit(), instead of
+>   arch_pre/post_report_syscall_entry/exit() to simplify code.
+> - Make the syscall patches clear separation.
+> - Update the commit message.
+> 
+> Changes in v4:
+> - Rework/cleanup split into a few patches as Mark suggested.
+> - Replace interrupts_enabled() macro with regs_irqs_disabled(), instead
+>   of left it here.
+> - Remove rcu and lockdep state in pt_regs by using temporary
+>   irqentry_state_t as Mark suggested.
+> - Remove some unnecessary intermediate functions to make it clear.
+> - Rework preempt irq and PREEMPT_DYNAMIC code
+>   to make the switch more clear.
+> - arch_prepare_*_entry/exit() -> arch_pre_*_entry/exit().
+> - Expand the arch functions comment.
+> - Make arch functions closer to its caller.
+> - Declare saved_reg in for block.
+> - Remove arch_exit_to_kernel_mode_prepare(), arch_enter_from_kernel_mode().
+> - Adjust "Add few arch functions to use generic entry" patch to be
+>   the penultimate.
+> - Update the commit message.
+> - Add suggested-by.
+> 
+> Changes in v3:
+> - Test the MTE test cases.
+> - Handle forget_syscall() in arch_post_report_syscall_entry()
+> - Make the arch funcs not use __weak as Thomas suggested, so move
+>   the arch funcs to entry-common.h, and make arch_forget_syscall() folded
+>   in arch_post_report_syscall_entry() as suggested.
+> - Move report_single_step() to thread_info.h for arm64
+> - Change __always_inline() to inline, add inline for the other arch funcs.
+> - Remove unused signal.h for entry-common.h.
+> - Add Suggested-by.
+> - Update the commit message.
+> 
+> Changes in v2:
+> - Add tested-by.
+> - Fix a bug that not call arch_post_report_syscall_entry() in
+>   syscall_trace_enter() if ptrace_report_syscall_entry() return not zero.
+> - Refactor report_syscall().
+> - Add comment for arch_prepare_report_syscall_exit().
+> - Adjust entry-common.h header file inclusion to alphabetical order.
+> - Update the commit message.
+> 
+> Jinjie Ruan (7):
+>   arm64: ptrace: Replace interrupts_enabled() with regs_irqs_disabled()
+>   arm64: entry: Refactor the entry and exit for exceptions from EL1
+>   arm64: entry: Rework arm64_preempt_schedule_irq()
+>   arm64: entry: Use preempt_count() and need_resched() helper
+>   arm64: entry: Refactor preempt_schedule_irq() check code
+>   arm64: entry: Move arm64_preempt_schedule_irq() into
+>     __exit_to_kernel_mode()
+>   arm64: entry: Switch to generic IRQ entry
+> 
+>  arch/arm64/Kconfig                    |   1 +
+>  arch/arm64/include/asm/daifflags.h    |   2 +-
+>  arch/arm64/include/asm/entry-common.h |  56 ++++
+>  arch/arm64/include/asm/preempt.h      |   2 -
+>  arch/arm64/include/asm/ptrace.h       |  13 +-
+>  arch/arm64/include/asm/xen/events.h   |   2 +-
+>  arch/arm64/kernel/acpi.c              |   2 +-
+>  arch/arm64/kernel/debug-monitors.c    |   2 +-
+>  arch/arm64/kernel/entry-common.c      | 411 +++++++++-----------------
+>  arch/arm64/kernel/sdei.c              |   2 +-
+>  arch/arm64/kernel/signal.c            |   3 +-
+>  kernel/entry/common.c                 |  16 +-
+>  12 files changed, 217 insertions(+), 295 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/entry-common.h
+> 
 > -- 
 > 2.34.1
 > 
