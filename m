@@ -4,100 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFFFCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9B2CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4VERdwcaOSBAN4KCa5MdLjkYF2aVqpLp7SxixJEU6cQ=; b=4xWBikHUmzjxdKtheON4ribPiR
-	BO24wjR1absMp9XhDVtxe972+s89gRmgLpGidfvRS8h0UoVCUmQe9DITbhhENaOhnbk4kyPcbuCAX
-	U+4YtgjmWi+lhzBanxT8z18bpnyH99/wB1HutX26z1GIWpdF2ko2Pdx0aVbZCQOd4NmCU/bZc2wCB
-	TPUBL3J0D41SI/gT+JK/mwU+KSyH8XnK+quhqaGa4bTdL2+luVjeQDge2TR3FUPcIQwn3/sDrqYJ9
-	Frx9y2kO0FhAHgQNLGPOFDOEAvW0lQYeOxuSKV7DCDFhhjF5RKlo0efHuMTce0gvstiILo43BFtED
-	j/alCA3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zMiRV+p+DUcdpzuTRwPcyJNdY52FdWHiETIA/GgW848=; b=tpYcimBnOkMcOIvlUnDTrU751x
+	7j9obUQ0nqc2HD5NqTBNAISYNG0Jn7wBqUpZTNVjKbZJeTHnauyN9YOWNvGc44mdY86SVQEZgZCpX
+	tUVM2nj4sb3QGha5kU3zMc7rf5uB2djKaSR/m6Wq4CW2jFJfU+u+78t6KCBG2rE/JiK8ELx71PfQ9
+	7BR+kRTncupu1Exrt+DTQtjH8CpR2rIKHLX7pzNdhIDDPYZVMtnPDDV1DNVyLAX2iEvd+HL9ZwXYF
+	cy83w2uj/ib4Q7RzWAsoOLzJESiXdwa7qQEKg+R8gRSwCA0ZJwqhy2olhlvMK44w2suXF3kQUcg5j
+	YDU4u2Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uluaf-0000000BmsJ-0HWs;
-	Tue, 12 Aug 2025 19:23:21 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uluab-0000000Bmpz-313D;
+	Tue, 12 Aug 2025 19:23:17 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulpPC-0000000AyVa-3Tqs
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:51:16 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CC6pK0024684;
-	Tue, 12 Aug 2025 15:50:58 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	4VERdwcaOSBAN4KCa5MdLjkYF2aVqpLp7SxixJEU6cQ=; b=KQ15mCD8FMXec5Yx
-	3kTevuPhXz3V2uA5wo5qxyzZSZZA4N80U2KJb/s90+3d4lOwbEqaX8eB2kr4LNJH
-	zZAk+WZyyKM6WcTbfBDMhDrAg+7cHGMPzUwoqeGuAsXRtQ/9ewMVuHEgoGyJSkIr
-	87srXNMX9PrJt/QOXI3Dz/rPIL39a4/GuRkAFBukKuBUA+8rXAjtCr+Chr9ivUTT
-	Sc7lm7TAEY4g3kRsHXJJS4VDRX4dPAsU0CGZ1n7viLMIPIhndniJq85TjkBFuTbB
-	t2XZ2kA6d+kAvVz9DmoY5aQ6fTA49wHDG1KADV5sYdXVuKlpov+kSmv4MieLwvof
-	o+U/bQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48eh9n8c1t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Aug 2025 15:50:58 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C5DF040073;
-	Tue, 12 Aug 2025 15:49:25 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 04F4078C44D;
-	Tue, 12 Aug 2025 15:49:03 +0200 (CEST)
-Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
- 2025 15:49:02 +0200
-From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Tue, 12 Aug 2025 15:49:02 +0200
-Subject: [PATCH v2 05/13] dt-bindings: display: st,stm32mp25-lvds: add
- power-domains property
+	id 1uloN1-0000000ApQt-0eQW;
+	Tue, 12 Aug 2025 12:44:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755002689;
+	bh=zMiRV+p+DUcdpzuTRwPcyJNdY52FdWHiETIA/GgW848=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=VYlGXz1hiPGGu1TBTb2QI72OdiYPHXlCYWNxCdy6xpdu/HKnD74CDfQgSt9VgmyYf
+	 TylHrl3NC+EFCO4C9GoOVmibBiaDdwiN2rzbgC9ENXuEGN5V4/Yl5lMV2QFV3BtLiE
+	 X7N+Ff+Fd0GdMm3zSzN/1GTAfgF/wYBOiLXbTZQV1ZnrcVrUllN80vH61by23Y9x+O
+	 fqn7yJvwm/Xfgi1+7qgJNif1EzpVB7LIPAWnjEUfb9uVYHbeAZXd9joP4nipfLn1Cb
+	 cLs1aFozax3A9mbZo1gx4Zpd2IIn51u+/zJEKW20JYvGHXl1OsqHCj6CMODtxu3JSu
+	 WENTFidEoBo9Q==
+Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5B8BB17E107A;
+	Tue, 12 Aug 2025 14:44:48 +0200 (CEST)
+Message-ID: <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Alex Bee <knaerzche@gmail.com>, Sebastian Fricke
+ <sebastian.fricke@collabora.com>, 	linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org
+Date: Tue, 12 Aug 2025 08:44:46 -0400
+In-Reply-To: <91864a1c047d2bdfce202b070716a694ede47d5e.camel@collabora.com>
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+		 <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
+		 <1dd29158-0660-4254-ac00-1316768d9b82@kwiboo.se>
+	 <91864a1c047d2bdfce202b070716a694ede47d5e.camel@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
+ oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
+ zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
+ TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
+ 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
+ 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
+ cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
+ tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
+ bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
+ qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
+ BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
+ tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
+ zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
+ 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
+ s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
+ An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
+ ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
+ AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
+ CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
+ 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
+ BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
+ +E7ItOqZEHAs+xabBgknYZIFPU=
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
+	boundary="=-Y2sl7uZiPmx/2tINlSGb"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250812-drm-misc-next-v2-5-132fd84463d7@foss.st.com>
-References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
-In-Reply-To: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
-To: Yannick Fertre <yannick.fertre@foss.st.com>,
-        Philippe Cornu
-	<philippe.cornu@foss.st.com>,
-        Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Christophe Roullier
-	<christophe.roullier@foss.st.com>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.130.74.180]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE2.st.com
- (10.75.129.70)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-12_07,2025-08-11_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_065111_496030_717C9607 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250812_054451_345551_5F904701 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,31 +104,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STM32 LVDS peripheral may be in a power domain.  Allow an optional
-single 'power-domains' entry for STM32 LVDS devices.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
----
- Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+--=-Y2sl7uZiPmx/2tINlSGb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-index 96fa0cb5cb86c41d978c4093448afa3bb2a946fa..e9f4be172180b1de9e6b750e8e7c8103d6838798 100644
---- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-+++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-@@ -63,6 +63,9 @@ properties:
-   access-controllers:
-     maxItems: 1
- 
-+  power-domains:
-+    maxItems: 1
-+
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
- 
+I forgot,=20
 
--- 
-2.25.1
+Le mardi 12 ao=C3=BBt 2025 =C3=A0 08:38 -0400, Nicolas Dufresne a =C3=A9cri=
+t=C2=A0:
+> > JCT-VC-HEVC_V1 on GStreamer-H.265-V4L2SL-Gst1.0:
+> >=20
+> > - DBLK_D_VIXS_2 (fail)
+> > - DSLICE_A_HHI_5 (fail)
+> > - EXT_A_ericsson_4 (fail)
+> > - PICSIZE_A_Bossen_1 (error)
+> > - PICSIZE_B_Bossen_1 (error)
+> > - PICSIZE_C_Bossen_1 (error)
+> > - PICSIZE_D_Bossen_1 (error)
+> > - SAODBLK_A_MainConcept_4 (fail)
+> > - SAODBLK_B_MainConcept_4 (fail)
+> > - TSUNEQBD_A_MAIN10_Technicolor_2 (error)
 
+I'me getting the same result if I force a single job in fluster. The test I
+posted was with 2 jobs. Detlev found that the iommu reset is required in mo=
+re
+cases on RK3588/3576, perhaps the HEVC decoder in older hardware needs the =
+same,
+I will try and report.
+
+Nicolas
+
+--=-Y2sl7uZiPmx/2tINlSGb
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJs3PwAKCRBxUwItrAao
+HF5IAJ9I+Gxb7MlBwyEmKIXw1+qOngNv3QCgtFeTxOPKSG0sAWm3UYeR1QhlsMQ=
+=9ofb
+-----END PGP SIGNATURE-----
+
+--=-Y2sl7uZiPmx/2tINlSGb--
 
