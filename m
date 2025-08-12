@@ -4,111 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB00CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30AB3CA0EDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CjvLkiM/BPOu9j+FHgmII4HyftGg/PwxelGe5pU+JY=; b=dUsJxFJEyuiva5bxtTnJM8272W
-	4Qr/IF+ly6Z8suVidvfuAA7Plf8CQXfwvnGLj0L8PcVpbCS7Vf58HXRnj9WB2P4djTl/PlY5GSHaM
-	5DPUSDnPiIzirIplgc36feAUaLr7TPNkPJcsyOAHViJnJ3Kf1Ilp3/xuC5fAgmfvrgZmHaN/t9XO4
-	9HZFkxz37d4Dt2qfa1R20LXMynV3NDpELgsNP9t0TAcvUADNgzZdHO/lVZ3qU836zkH06ffDcaaKq
-	D6pMXdHZG2S4r6+xBP+sr8GGp9XI6xO63o5ngIk+gbjc12VRB7STPBGdq6yc8nclBDfE72Q5X29ti
-	e0KIh9Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KUj+kyuZGxYJ4XigSzcJVbubikG54Y4LhOumcGEr4wg=; b=Ywo1grYlCVHgxy9s3a6jmjlU3q
+	AJgfa5iX63zuTqzaRi9HPOqyktxmijtdts5E1oIfAVYZnz478I7VH/iPpMAqqxw5l7LOa8yksmLiN
+	TqBA00LbBqaiQ3qyiakq//aqUoGE8GJ7CKxglikhvUJLHaTRztySY/2Ri+uZ9NUbZfJ+5v1OfQ3lo
+	WNYabL/pgvcPEWp+oZDygq8A/xzkmwfH3T9Uj4dyY9pQEyyDZhV+k1iBW28QSezFXvl/Wp/1EQtgz
+	pfCvHJtHcqOxQjrkQsE3p71AWbmkCfFK4I68CZR3E7Q1hqZKf5kw02m/ozb2dPvLWekQZF8jI9Mez
+	wcV1llMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulub2-0000000BnUB-2Llm;
-	Tue, 12 Aug 2025 19:23:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ulub3-0000000BnWi-3wIK;
+	Tue, 12 Aug 2025 19:23:45 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrfb-0000000BGzr-2uZY
+	id 1ulrgL-0000000BH55-0T7J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 16:16:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D632EA56AA8;
-	Tue, 12 Aug 2025 16:16:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB286C4CEF1;
-	Tue, 12 Aug 2025 16:16:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755015374;
-	bh=5CKZtbCtMZFmUKuvkywo2ShWr2yG0izXiueBW8zdot8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uJXUCF1Pd183MassaFQFNS6xvCuyis3KhrpZL7VYLUs/Jl6vz3RUcY+2JA7K/Vb3a
-	 6kOOsQJOxLOQGGM1fVGwQgOWviWba/uXzIH59Rdq7ZK3pfZPo0hL/B/C0KOA8+CFAN
-	 89KkofycVAs5V5fVArLUTlYqPNMxesnp15bFoef55eOtT4kt9xOIpctqAGZ108r+qK
-	 KsTT4wdAnGE+8018sP9Fje4PRHcyAZ1hGRx11GCcSqXoyOEUimAHMOKZ/dAWw48Paq
-	 QD9F3MLjoSiSErEGwXoWKPF43jpPde4CTD5e7YxnlhQDr3b3RzO0nANmBbPJu5FTBk
-	 nqmDhPXosfqBA==
-Message-ID: <ce1285be-5a3f-4d4b-bca1-e31f56573597@kernel.org>
-Date: Tue, 12 Aug 2025 18:16:08 +0200
+	Tue, 12 Aug 2025 16:17:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tCxJixxNUxdWDIpe7wIoSVYFV7vFPiJc5VDfmgn4aJqJTdC3kDjJsCn+H8xnWtA+XNLS7eHfVSe4PUBjKhIy5EJwQwx+QF3mCAR7+sKb/NRGgYm9+JYdaPxLuSem9zsakVuUWhlDtQZPD21lE/vYV1dihlODPoKqGJIYdl4TTaHofIbKV5aPjY5eAHt4bBPtP+Gu9B6bPbaOvUPQ/yqcImU3Ddrfgq5LLxAIRcNTOxmbx3l2r2+V5Y3+SfgyaYy0C2J52NnTrJH2Y651LUqHwz9DBn+wI9ZbHEQ0mSWKBdXYqyMmDjovkUU34oVDcTw20M11B5CpcGwmlqjVxay9hQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KUj+kyuZGxYJ4XigSzcJVbubikG54Y4LhOumcGEr4wg=;
+ b=bauazCaOcarby4KCg12//l56o5j67vq+UGrhjMyICy0YpeN3FkVu/LOpiIdX+Y6DrO3oxoKXk2a0mnjpNlTCmf06C2kA+uGeiP6yDaCDdEGxphB/QjtBS3dAXdAnFimwwkeW2gFg0MF8vJClf79UOBZsMiEcEZEgt7AuZnDnOvGgl5tLMg2haePcGDN/tAr2zhFtL6WPehfGyWD3T50/UUIzqo+CwdmG5GvJPcbHRprm9nhiPayCuUhM9gd5uWJOWR1wbja8qSLaSPWK0zxH9BN4Zr+GZroXPEfni4zJm4luxV8QIMdIQZUE8T53Uzj2k3PxAyUak7h61RjUpcofXg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KUj+kyuZGxYJ4XigSzcJVbubikG54Y4LhOumcGEr4wg=;
+ b=fshQXtCmgm/aI4VDBvTAwGizpA8zxoSo61hTZKJjLaM56UE+E0bbGejV6clp0f7au1KOISENNx+ivIVKp1Wvbm4s6+KOSyNm7fATDwTiNFesIEb1r5P5e+BPF9BrubHQHNUftlNyTCvqrXxoyoN3DxfMTdH2zpYkXvKtReplC9PlrSfKp8DxYPFF1sqbxkdsQIm0eWOxY0dGS1HXubLnQgfn9FElI9buxaGtnoN0NpPy6YijQE27zPhkC/CwilHLGkcNw2jgJsG9h9DvPwD5T0ivZ9vPjLEbeu3cqYsr1eiYN8JSYhEnkhwDPRaf+fzmFGbW8Ixh3gBWDBVR+ePS2A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU2PR04MB9051.eurprd04.prod.outlook.com (2603:10a6:10:2e6::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Tue, 12 Aug
+ 2025 16:16:53 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9031.011; Tue, 12 Aug 2025
+ 16:16:53 +0000
+Date: Tue, 12 Aug 2025 12:16:44 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Haibo Chen <haibo.chen@nxp.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, primoz.fiser@norik.com,
+	linux-iio@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] iio: adc: imx93_adc: load calibrated values even
+ calibration failed
+Message-ID: <aJto7EJhmkURzJaF@lizhi-Precision-Tower-5810>
+References: <20250812-adc-v2-0-0260833f13b8@nxp.com>
+ <20250812-adc-v2-2-0260833f13b8@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250812-adc-v2-2-0260833f13b8@nxp.com>
+X-ClientProxiedBy: BYAPR05CA0042.namprd05.prod.outlook.com
+ (2603:10b6:a03:74::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/8] arm64: dts: bst: add support for Black Sesame
- Technologies C1200 CDCU1.0 board
-To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, ulf.hansson@linaro.org,
- catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
- adrian.hunter@intel.com, robin.murphy@arm.com, ding.wang@bst.ai,
- gordon.ge@bst.ai
-Cc: bst-upstream@bstai.top, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250812123110.2090460-1-yangzh0906@thundersoft.com>
- <20250812123110.2090460-7-yangzh0906@thundersoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250812123110.2090460-7-yangzh0906@thundersoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB9051:EE_
+X-MS-Office365-Filtering-Correlation-Id: 247861e7-7299-409d-5a66-08ddd9bba648
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NVINNfIHlxLUKUw7co2HpXMUChZpsLM06DLYYta3WL5v5b2/1KI5zDVrzK3a?=
+ =?us-ascii?Q?IBtejaE04U+aXOLh2P2iuKaUkf8lAq3bJClPlv3o7MLodQu4SM+a9lBMl2ov?=
+ =?us-ascii?Q?5ly7gnPeuEVisY9BB5Tauz5X7dPpZBnoL+czf73Ab6pQhYEbr7CRtj+guXp0?=
+ =?us-ascii?Q?GoCajJXJLUeliQly9tYs3fAqye3jBzIUmczsz26KGdyw5tRjyYhu3cq2zz1A?=
+ =?us-ascii?Q?9uVqrhQE6pl46Mx6FnO+MC1wlC3vJv9F4RXSj9K1hltvz6QUERxm9CyDN2Zq?=
+ =?us-ascii?Q?DKnmmo7vBs7x6tr7cMmd7tQ8UebTv1InFSaKW9yPFqsmSZIYGlYmUOV2GjB/?=
+ =?us-ascii?Q?8XxxD+Alwo2aw4Ps7N2hKgP+mA+tGMN2WQdeV/Ooi4eE9P/d9YZCavNOdY4R?=
+ =?us-ascii?Q?34capQ4TTDufmbVL8jkuSziBxJzAYXbs4at/Ir6XSaNBwTvAPAB1GxjC2KCs?=
+ =?us-ascii?Q?DTCvrOVbKQVvc1QMdzvG7u2YE1azc01pfe72ct5HcGzY7GHLUYuntAjjFheq?=
+ =?us-ascii?Q?/zbIr/RWVx/H2Gi+0ZYbaTUVTR6zuceXLGXi0GOr9aBFf1x3dprOQSRLgnGT?=
+ =?us-ascii?Q?mFcsNWfRIwD7yw/L07IcjhgeXH8Hi8D3p8aNHx9kWi+SeCGxWt+8qgzS4jIJ?=
+ =?us-ascii?Q?Y4IBHC4n77ETryCX3eW3DANjcxVxjyNvjZokzGsHuqqmHKHfbGrg3JOllfnp?=
+ =?us-ascii?Q?JOmTteIN6B+ticv7FXbKO8gmk/Ki5cwhKrc8EaBKtWdypXRfYqq4x6LlyVl1?=
+ =?us-ascii?Q?gx+nJhcl2yOjTLuUcpdwXEA2u+tP5yzvlmSBhbBqWRf1y3xPr44jJEmRko4U?=
+ =?us-ascii?Q?kdaWIhxhMWft50n5Fla1E5rdJiF7B4MMMQTGX2wfYEazjFOhIoQhXB+hxrBN?=
+ =?us-ascii?Q?wtLkgqYQV0TgXgKJRYff1GEpKQO0LzbevCbEcjEU8+H23omV9afpetjx3TuK?=
+ =?us-ascii?Q?6fqRymWN2X7Uiulm4hEWLuLNdYXixSvLvIPO7R4CSjWr5beewDZZGtVOSAee?=
+ =?us-ascii?Q?UW3hx1sQW3SmJbC71jWTRb2YqWjtIxUHT3tGVUFsvblsWMozkoilV6hFAScD?=
+ =?us-ascii?Q?YClLpYPjTxgPZeIvTndggOLbv8zb64aQmLSMHIeaqcA0fi0tkMgzOK9N7nxE?=
+ =?us-ascii?Q?zxu9M9VzF/EhFH4Dwc+0m/ADX9x2d2pOJpYvJKshqjI3WoszNLF/l0TfxUk/?=
+ =?us-ascii?Q?6ct1aj5Z/6wRTsbd2uGcMGEOX1cthTXIP02wdBygEzJZ0qKs0z94W+S/KOWb?=
+ =?us-ascii?Q?heNrzRfqhCzIGXcKq6jo3IlbFNt0lWGHyrrrgdrCUiSPU9qkIalm5ewGhmML?=
+ =?us-ascii?Q?4+Vod9qXkDFfKF/+q00Y9opB7syBzfmwuAKw45oZ7uQnVl1mHgqoWv3sOSYO?=
+ =?us-ascii?Q?IrJf4oI+1T7sgdWbHY1JSpZGtJldX0G9Pdo2tN10cAowN815Ay2nKuzZEsFd?=
+ =?us-ascii?Q?QZGYzeX1HgoF/RzdxT5z4+E+Y8dOofZqbgF7uNa8XZCTcCf/fxNfZQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MSjlhvr3Kg/7kKs3AtHdWcI0HCtjeD/Op9pxkI9QDNYbbwcOw99kK6HqS17K?=
+ =?us-ascii?Q?0pRHuwnQqQGDgvzWO8IaXaxYthScEMTEDPVEBgE+uOI5dlNYePwtnmClas19?=
+ =?us-ascii?Q?9+zvg2ognE/s6AUcC8ftjjDBDK/ZQ1GpG0qxrzer8lOlPI/NfO+5oc3wVTA/?=
+ =?us-ascii?Q?JWhsN1h5ykwbpMfS2wP8PNt0X9qr6mn7j6tAC/v+1q8zrbphJaaClS4H5F3y?=
+ =?us-ascii?Q?oZg/oPiBMIyQnMrPWsFumWlI2dFrkBOK+4hhD9Z/38obRrJGIz9+mAHWFGNa?=
+ =?us-ascii?Q?gFsPVVmDAzMeHIJdQTkU8qeSRvIX7lIMBD0hlzTk60X/7IYy6RVDG4Z5Coj5?=
+ =?us-ascii?Q?Gira2WETJslAXq64+AdH5yU8gRm+en0kTXiqdgUdmB9GbfrWPSm+3+0M0uxa?=
+ =?us-ascii?Q?kSeSCZO5GwuvL3S3RhNsTxdAhmeP2IgvLevgHpIis3Xur0T9W8WZvfeCuwXW?=
+ =?us-ascii?Q?nfdAtLH0aBEuRA5dfmtvfsONYcDfp0yBrYUr4ajzYrEax2K+inhUIHmwNb9B?=
+ =?us-ascii?Q?cngfE2tWWNMkwlFyVDBz3rLLnCvDYwAAGs7YcLsBYLjVrEGDliyafIF5b+mP?=
+ =?us-ascii?Q?8IujIJsgihqFeNJlvdW4/QK4rrfj6P/717Ycyhj26ckbQelaP7tEBoX4N9ZJ?=
+ =?us-ascii?Q?2am3WRVDCyxwvfS84PVJxpYu0n0gC5uyFs8mFCE8c7RCWn7ZqmcLbsQ1CiMw?=
+ =?us-ascii?Q?DTHEsYTvycdOmGD0TdS3Jb8hgnShjOePzxwlA/Ij8tIg17SIv5nWjkKHMg92?=
+ =?us-ascii?Q?KGG4N4RSBRw1l6GBdT+wZFalZ9CThOrG/e3zBQu6GCssV72KTs/gcun4LPzQ?=
+ =?us-ascii?Q?+kFXazp3r+KEHalxIQeEo9wJ5aR9eXBr88xmNig3TGjMmUFoGJdIyoTdEkKG?=
+ =?us-ascii?Q?rHmcKIlPFyQCxbZBIgQIXKxTBFMdpiMlrRPrK4LFMpuDGLgffWb0ee3YINDy?=
+ =?us-ascii?Q?OvrINwKp2XoJEAUw9mox/jP83mhJ8k9s8FNI5uMT3M6Zadexd1J60FWxl9wD?=
+ =?us-ascii?Q?JieVYGOXbPcz49/SlzTkVcKtlcrstVDpHemkbGSaJoJ5BSdagv+9IejSedAo?=
+ =?us-ascii?Q?frAELr9BBhU+LtOQTBgBnkkQFC5y98q6CXq+cE6h1qgyG8MT3OWaavesKu1R?=
+ =?us-ascii?Q?3I0ZOeUzdCce67bklDmgsedLx2kH2Zmg9IapR/irCvSrupP2YZcAjpTCBP4o?=
+ =?us-ascii?Q?izy2VllJTuIFm6mTuPWskg1/K6prgPwNs8fNz27XFHwf4gFciT97MLTr/cDQ?=
+ =?us-ascii?Q?qYRStwF8AqWUrx+C+wdNNLe2+kXPK3KIkcqdOavvcSHBbb0kTwQ0yoJrYyFg?=
+ =?us-ascii?Q?t73Bx8MyYhK8S9MO1ceyj2qY1AG2xDgn8hxxWX9BOZKrOcA9HMz/rOrkcylL?=
+ =?us-ascii?Q?b4LjJeT30LaZcz3YKpug/VJnOrRPYbgOmesIEDbKEStdneLLf12tW7ssknAv?=
+ =?us-ascii?Q?9e8l6nLaYlKBKsjcoLvF8E9X00iDhjbqwQ5bPq7uihXzPi3Mb11B+oyC8m5+?=
+ =?us-ascii?Q?MO6yFaeAgVVpHQRekY69y6gbIfSHzF9UFZXK/UUda4rfejWEXpl0YrkcH6e6?=
+ =?us-ascii?Q?gnFXuyzQG6TCdVD9PTSl+m8bJOlMkAOxaglimni1?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 247861e7-7299-409d-5a66-08ddd9bba648
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 16:16:53.0105
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: H7LZ7XsossFAVt8jR9Bb1xXNQmsp1PaTIIJMcDfiWncfmQzzLq1mX1JlY2Z73K2QFvd+ZDKPTiGglr+ISGXejA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_091615_872094_57489761 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20250812_091701_153868_FED4A5F5 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,254 +164,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/08/2025 14:31, Albert Yang wrote:
-> Add device tree support for the Black Sesame Technologies (BST) C1200
-> CDCU1.0 ADAS 4C2G platform. This platform is based on the BST C1200 SoC
-> family.
-> 
-> The changes include:
-> - Adding a new BST device tree directory
-> - Adding Makefile entries to build the BST platform device trees
-> - Adding the device tree for the BST C1200 CDCU1.0 ADAS 4C2G board
-> 
-> This board features a quad-core Cortex-A78 CPU, and various peripherals
-> including UART, MMC, watchdog timer, and interrupt controller.
-> 
-> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+On Tue, Aug 12, 2025 at 04:04:23PM +0800, Haibo Chen wrote:
+> ADC calibration might fail because of the noise on reference voltage.
+> To avoid calibration fail, need to meet the following requirement:
+>     ADC reference voltage Noise < 1.8V * 1/2^ENOB
+>
+> For the case which the ADC reference voltage on board do not meet
+> the requirement, still load the calibrated values, so ADC can also
+> work but maybe not that accurate.
+>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
-> Changes for v3:
-> - Split defconfig enablement out into a dedicated defconfig patch
-> - Refine memory description: consolidate ranges in memory node and
->   delele unused memory ranges
-> - Adjust the order of nodes
-> - remove mask of gic
-> 
-> Changes for v2:
-> 1. Reorganized memory map into discrete regions
-> 2. Updated MMC controller definition:
->    - Split into core/CRM register regions
->    - Removed deprecated properties
->    - Updated compatible string
-> 3. Standardized interrupt definitions and numeric formats
-> 4. Removed reserved-memory node (superseded by bounce buffers)
-> 5. Added root compatible string for platform identification
-> 6. Add soc defconfig
-> ---
->  arch/arm64/boot/dts/Makefile                  |   1 +
->  arch/arm64/boot/dts/bst/Makefile              |   2 +
->  .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    |  42 +++++++
->  arch/arm64/boot/dts/bst/bstc1200.dtsi         | 117 ++++++++++++++++++
->  4 files changed, 162 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/bst/Makefile
->  create mode 100644 arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
->  create mode 100644 arch/arm64/boot/dts/bst/bstc1200.dtsi
-> 
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc2..a39b6cafb644 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -12,6 +12,7 @@ subdir-y += arm
->  subdir-y += bitmain
->  subdir-y += blaize
->  subdir-y += broadcom
-> +subdir-y += bst
->  subdir-y += cavium
->  subdir-y += exynos
->  subdir-y += freescale
-> diff --git a/arch/arm64/boot/dts/bst/Makefile b/arch/arm64/boot/dts/bst/Makefile
-> new file mode 100644
-> index 000000000000..4c1b8b4cdad8
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/bst/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_BST) += bstc1200-cdcu1.0-adas_4c2g.dtb
-> diff --git a/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts b/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
-> new file mode 100644
-> index 000000000000..d8fb07b0bc80
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
-> @@ -0,0 +1,42 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/dts-v1/;
+>  drivers/iio/adc/imx93_adc.c | 18 +++++++++++++++---
+>  1 file changed, 15 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c
+> index 8471737ac04a2bac0417a6397f20865f6a2c01ca..17b0a2548b0a3614ac537b01e28bc3144d17d6fc 100644
+> --- a/drivers/iio/adc/imx93_adc.c
+> +++ b/drivers/iio/adc/imx93_adc.c
+> @@ -38,6 +38,7 @@
+>  #define IMX93_ADC_PCDR6		0x118
+>  #define IMX93_ADC_PCDR7		0x11C
+>  #define IMX93_ADC_CALSTAT	0x39C
+> +#define IMX93_ADC_CALCFG0	0x3A0
+>
+>  /* ADC bit shift */
+>  #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
+> @@ -58,6 +59,8 @@
+>  #define IMX93_ADC_IMR_ECH_MASK			BIT(0)
+>  #define IMX93_ADC_PCDR_CDATA_MASK		GENMASK(11, 0)
+>
+> +#define IMX93_ADC_CALCFG0_LDFAIL_MASK		BIT(4)
 > +
-> +#include "bstc1200.dtsi"
+>  /* ADC status */
+>  #define IMX93_ADC_MSR_ADCSTATUS_IDLE			0
+>  #define IMX93_ADC_MSR_ADCSTATUS_POWER_DOWN		1
+> @@ -145,7 +148,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc *adc)
+>
+>  static int imx93_adc_calibration(struct imx93_adc *adc)
+>  {
+> -	u32 mcr, msr;
+> +	u32 mcr, msr, calcfg;
+>  	int ret;
+>
+>  	/* make sure ADC in power down mode */
+> @@ -158,6 +161,11 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
+>
+>  	imx93_adc_power_up(adc);
+>
+> +	/* Enable loading of calibrated values even in fail condition */
+> +	calcfg = readl(adc->regs + IMX93_ADC_CALCFG0);
+> +	calcfg |= IMX93_ADC_CALCFG0_LDFAIL_MASK;
+> +	writel(calcfg, adc->regs + IMX93_ADC_CALCFG0);
 > +
-> +/ {
-> +	model = "BST C1200-96 CDCU1.0 4C2G";
-> +	compatible = "bst,c1200-cdcu1.0-adas-4c2g", "bst,c1200";
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	memory@810000000 {
-> +		device_type = "memory";
-> +		reg = <0x8 0x10000000 0x0 0x30000000>,
-> +		      <0x8 0xc0000000 0x1 0x0>,
-> +		      <0xc 0x00000000 0x0 0x40000000>;
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		mmc0_reserved: mmc0-reserved@5160000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x0 0x5160000 0x0 0x10000>;
-> +			no-map;
-> +		};
-> +	};
-> +};
-> +
-> +&uart0 {
-> +	status = "okay";
-> +};
-> +
-> +&mmc0 {
-
-This is none of the two approved ordering styles from DTS coding style.
-What sort of coding style are you using?
-
-> +	status = "okay";
-> +	memory-region = <&mmc0_reserved>;
-> +};
-> +
-> diff --git a/arch/arm64/boot/dts/bst/bstc1200.dtsi b/arch/arm64/boot/dts/bst/bstc1200.dtsi
-> new file mode 100644
-> index 000000000000..5e9ca0ee17cf
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/bst/bstc1200.dtsi
-> @@ -0,0 +1,117 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	compatible = "bst,c1200";
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	clk_mmc: clock-4000000 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <4000000>;
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		cpu@0 {
-> +			compatible = "arm,cortex-a78";
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			next-level-cache = <&l2_cache>;
-> +			reg = <0>;
-
-0x0
-
-And why reg is the last? Please follow DTS coding style.
-
-I already asked for this at v1. How did you resolve that comment?
-
-Then I asked about this at v2:
-
-"Nothing improved. I asked to follow DTS coding style in ordering."
-
-So can you please respond to comments? You keep sending the same - third
-time - and this is waste of our time.
-
-> +		};
-> +
-> +		cpu@1 {
-> +			compatible = "arm,cortex-a78";
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			next-level-cache = <&l2_cache>;
-> +			reg = <0x100>;
-> +		};
-> +
-> +		cpu@2 {
-> +			compatible = "arm,cortex-a78";
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			next-level-cache = <&l2_cache>;
-> +			reg = <0x200>;
-> +		};
-> +
-> +		cpu@3 {
-> +			compatible = "arm,cortex-a78";
-> +			device_type = "cpu";
-> +			enable-method = "psci";
-> +			next-level-cache = <&l2_cache>;
-> +			reg = <0x300>;
-> +		};
-> +
-> +		l2_cache: l2-cache {
-> +			compatible = "cache";
-> +			cache-level = <2>;
-> +			cache-unified;
-> +		};
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0";
-> +		method = "smc";
-> +	};
-> +
-> +	soc {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +		interrupt-parent = <&gic>;
-> +
-> +		uart0: serial@20008000 {
-> +			compatible = "snps,dw-apb-uart";
-> +			reg = <0x0 0x20008000 0x0 0x1000>;
-> +			interrupts = <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>;
-> +			clock-frequency = <25000000>;
-> +			reg-shift = <2>;
-> +			reg-io-width = <4>;
-> +			status = "disabled";
-> +		};
-> +
-> +		mmc0: mmc@22200000 {
-> +			compatible = "bst,c1200-dwcmshc-sdhci";
-> +			reg = <0x0 0x22200000 0x0 0x1000>,
-> +			      <0x0 0x23006000 0x0 0x1000>;
-> +			interrupts = <GIC_SPI 144 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&clk_mmc>;
-> +			clock-names = "core";
-> +			max-frequency = <200000000>;
-> +			bus-width = <8>;
-> +			non-removable;
-
-Hm, this is odd to see in SoC. Are you saying that your SoC (!) has MMC
-memory embedded?
-
-> +			dma-coherent;
-> +			status = "disabled";
-
-If so, why is it disabled?
-
-> +		};
-> +
-> +		gic: interrupt-controller@32800000 {
-> +			compatible = "arm,gic-v3";
-> +			#interrupt-cells = <3>;
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			interrupt-controller;
-> +			ranges;
-> +			reg = <0x0 0x32800000 0x0 0x10000>,
-> +			      <0x0 0x32880000 0x0 0x100000>;
-
-Random order...
-Best regards,
-Krzysztof
-
+>  	/*
+>  	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
+>  	 * can add the setting of these bit if need in future.
+> @@ -180,9 +188,13 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
+>  	/* check whether calbration is success or not */
+>  	msr = readl(adc->regs + IMX93_ADC_MSR);
+>  	if (msr & IMX93_ADC_MSR_CALFAIL_MASK) {
+> +		/*
+> +		 * Only give warning here, this means the noise of the
+> +		 * reference voltage do not meet the requirement:
+> +		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> +		 * And the resault of ADC is not that accurate.
+> +		 */
+>  		dev_warn(adc->dev, "ADC calibration failed!\n");
+> -		imx93_adc_power_down(adc);
+> -		return -EAGAIN;
+>  	}
+>
+>  	return 0;
+>
+> --
+> 2.34.1
+>
 
