@@ -4,199 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12E3CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD622CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0JIAlrahIoJb7vyj3+4Bn+Rx3tUFGZvO3fHQ7vDOLPY=; b=xME6cpVOLjSrGjGxaYIb9HiDmU
-	8ni8pzbXClYXJffQv6/PMVaZI5eF76zruOZwyvxI+7gy2yjWBkGaghUZzsHnCiKjMkviYTjU8v+ii
-	BKPLwpCk4uupEevhxwwmncRkxcFzsDZOwqs0JUaY5N7n2Bxpph4xVPj3aMEzoCIi0aL2PKb+UdhOw
-	zYV+ytAyeEhLXVpPafk8p/fG9hvprg50DweHsqOG13X6RLDEMNS1t2B6zzLihwV+/AvToF3EB71bL
-	IXgooTxoLTAAWCAoSy7k1Pi4SMR1JEIWd8HYZeTaTHccy6bET2NK5rhdGrgDMfuPqnXFI81NyNa1k
-	x3NyMHfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wr/U6ugFqLAdfs3WKXWnuYGdw0ZboP4jqldLOf5Ia9I=; b=zKegHhcnQ1d/9T0cC6etdF5eOl
+	0XLiHyTnexL2ROZ1dcmlo+SKKh9R5K5+mXSVwcvgZfe218S8r5ejWHHuElEQq9b2EQj+qa23trM1E
+	RgWHBfO8EQC5e4+OYL4wpwf5d7GLtg+zvinwvTz5GYI+53d0CpnQli33ysd9DIzWWzBe102Q6cIvt
+	huwEZOP/6NynpcRByutlBI5qstdVhr1o+FuB5DtdEw1PVQoMFcdphGf04l3Uwhj0f7B2oiQxmLMuZ
+	btawKkC2vEixG4FfQtkEj50xIsKnL6gSwJXP/6KFl6ItSDteJW4w5qCuSlwJPDztrCvgffVIBFReO
+	mTNJMBIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwa2-0000000C47j-3D1Q;
-	Tue, 12 Aug 2025 21:30:50 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1ulwrw-0000000C5Uk-1oM3;
+	Tue, 12 Aug 2025 21:49:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwXU-0000000C3nh-1zZ9
+	id 1ulwpN-0000000C5AT-3bS5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 21:28:14 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=sactH41ffs2HHpqpTQ6tDSbWDSQeT8BMY/edLg6fEJPAza0PZlY1selk92fdMLi4bpo5GnhIiCuraXg5oW4VYAdnltgA4Eox2bQIvUqQi6d9r1WQ9QsPtXG4UWX9ulKgH39boBTdCdXu5nvWdvTKwoa07UO57mPYoopoG/OLIzt4u1HiNStXwBZ9x5BGWyUf0a9qt2JKXVtg4NxNTO6JTDsSG5l5ucw2chvuMsoTFES8bjoS9V6nKS/a1i/sTqAh4b5+SrcWR0XKSFu1Ehex452wEJSJT46f/xAlCzgNPAaYVvitOE4j+jloT/xNnoBxZZqK5/zUiIyW9382ZrQnqw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0JIAlrahIoJb7vyj3+4Bn+Rx3tUFGZvO3fHQ7vDOLPY=;
- b=WHI8bB6NjIuTZZKAdoSHn4nKAUcPkVGkZSUMQN+XIjWU4FC40iHb1taQNVlv4oKQh/2CkiyDdXd29FAvgQGC1jSsh0AgTytS6vQTmte/9yMB3uxxItrTkUiUU3DizrJ26OneV8nZI+vi9ILJG/tCN8LKJEKoiBawuVgmNXgcQP8CAR02pVC7Bqs6VAmQMMR9rD5c6sRTPMoX7wlAzBhhwS19E+nSmKYzk1o4uNM06McHZMVX4TBXoLQPXAgR6DRYYWVn9tlVcNviF2mPkqjhMiDbNxecmhXpKBGIeomUqhXhs8Ixcgo0cYO79NMbZMxbO7lmf+WKYgO+P2nRzBVPFQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=gmail.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0JIAlrahIoJb7vyj3+4Bn+Rx3tUFGZvO3fHQ7vDOLPY=;
- b=qElVVzuq1sdE28a2JJO8ztdnAm6Gdcly6ojxt+b2iWrDC+pY+lsP1/3Z8ccrRz6oo4HuBi7l3aJ+pKygVdH7sd4PWrbYenTK+Ol6kkUjszg7QsohrtsH0F6/yrcrTOogJt/w7Z3bRaJbJGImWNOk8eInHfQAFTWmfTXzWTsZSAc=
-Received: from DU7P250CA0005.EURP250.PROD.OUTLOOK.COM (2603:10a6:10:54f::32)
- by AS2PR08MB9618.eurprd08.prod.outlook.com (2603:10a6:20b:609::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.21; Tue, 12 Aug
- 2025 21:27:58 +0000
-Received: from DU6PEPF0000B61D.eurprd02.prod.outlook.com
- (2603:10a6:10:54f:cafe::43) by DU7P250CA0005.outlook.office365.com
- (2603:10a6:10:54f::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.13 via Frontend Transport; Tue,
- 12 Aug 2025 21:27:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000B61D.mail.protection.outlook.com (10.167.8.137) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.11
- via Frontend Transport; Tue, 12 Aug 2025 21:27:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S9iAaqlNao7VihahFm0lxi44+NORtmKvL69h6RPx6MemJA6CZG+n20xPvf+5+77uWjFSLxWkNRWSYfzKpCCa61j1/F6DRI/aXAvQGZrxEs4g7pKi3gLQu1igSpxmyxVnGDqpF5SfZUe9HDwIpEY/UE9SdhJI14Sc0bz5zsNgjc+Vh2woMwUZFwgmSWNiYKj6RfWrsDKUpjLz1nu4OZSp+OPWt4dc8WPBaPUmgpqzYrlRMO+C4w9PerCBovElW7s9DLe+8ztRXTJRjmkIBZIiauzDX9GbLjg2Xf4cqAiSUGIK/+SFahuFHFB5TVUFO3tp3cMFZrzl1IHv59BDVp/h2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0JIAlrahIoJb7vyj3+4Bn+Rx3tUFGZvO3fHQ7vDOLPY=;
- b=UZ1DBYYlY/n3XuqKqfWn3az4AL9N3o7yrL3eLxpkZ39iFhwL+b5Oh9lKnGNVvWsQUFUaV4Gsb6JpAfQhRxoxVyXFcWaZ9cc+NreXOuogqgjqui7jA5tjnGWkyw6I2YmHo8FdSuHJht75dqyxHjB5ZKkemJd3q9tfpx4LL7gw+AbKyBq/RsVGRTLyKsrLp4Lr+Gd0hv1nScT6g6nX1dlAB1Uon1uSisTDMnKtyVpFNmT4y20ySvsp04AXtU3S7yj3SnMny93kmsM79OZ2gZIiuuj7j7VAPy9bxoVKN809yV/M1V2Sk3g4SZoebxAWDIJwjsC0rKHr3luZLXiyLKRwVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0JIAlrahIoJb7vyj3+4Bn+Rx3tUFGZvO3fHQ7vDOLPY=;
- b=qElVVzuq1sdE28a2JJO8ztdnAm6Gdcly6ojxt+b2iWrDC+pY+lsP1/3Z8ccrRz6oo4HuBi7l3aJ+pKygVdH7sd4PWrbYenTK+Ol6kkUjszg7QsohrtsH0F6/yrcrTOogJt/w7Z3bRaJbJGImWNOk8eInHfQAFTWmfTXzWTsZSAc=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DB8PR08MB5372.eurprd08.prod.outlook.com
- (2603:10a6:10:f9::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Tue, 12 Aug
- 2025 21:27:24 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9031.012; Tue, 12 Aug 2025
- 21:27:24 +0000
-Date: Tue, 12 Aug 2025 22:27:20 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com,
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org,
-	scott@os.amperecomputing.com, jhubbard@nvidia.com,
-	pankaj.gupta@amd.com, leitao@debian.org, kaleshsingh@google.com,
-	maz@kernel.org, broonie@kernel.org, oliver.upton@linux.dev,
-	james.morse@arm.com, ardb@kernel.org,
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com,
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org
-Subject: Re: [PATCH 2/2] kasan: apply store-only mode in kasan kunit testcases
-Message-ID: <aJuxuKBm9qfpVkBC@e129823.arm.com>
-References: <20250811173626.1878783-1-yeoreum.yun@arm.com>
- <20250811173626.1878783-3-yeoreum.yun@arm.com>
- <CA+fCnZeSV4fDBQr-WPFA66OYxN8zOQ2g1RQMDW3Ok8FaE7=NXQ@mail.gmail.com>
- <aJtyR3hCW5fG+niV@e129823.arm.com>
- <CA+fCnZeznLqoLsUOgB1a1TNpR9PxjZKrrVBhotpMh0KVwvzj_Q@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+fCnZeznLqoLsUOgB1a1TNpR9PxjZKrrVBhotpMh0KVwvzj_Q@mail.gmail.com>
-X-ClientProxiedBy: LO4P123CA0264.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:194::17) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 12 Aug 2025 21:46:43 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8BDE6E92;
+	Tue, 12 Aug 2025 23:45:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1755035147;
+	bh=sKk/FGxnwZJf4eZPJqhVEBfQ8jRB3RY1TCG/Ftq6hFg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TinlylEd/YK1hRK42GpJ3zRVB7Ts2MP19hS46DNGGgQ62qLTOmWuI5PjMs3PChod2
+	 PvQMxG+Yoe6y1i3EB1HLl/GWeYnynKwKyr9permxynu/nn4SDCdn4TPRHoWISZkGRl
+	 odsRdwA8GabVH9I1HJLW57xUeKVpOAvXBCIjclHM=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-media@vger.kernel.org
+Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Sylwester Nawrocki <s.nawrocki@samsung.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Dongchun Zhu <dongchun.zhu@mediatek.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Todor Tomov <todor.too@gmail.com>,
+	linux-arm-msm@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH v2 01/72] dt-bindings: media: Deprecate clock-frequency property for camera sensors
+Date: Wed, 13 Aug 2025 00:45:09 +0300
+Message-ID: <20250812214620.30425-2-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.49.1
+In-Reply-To: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
+References: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB8PR08MB5372:EE_|DU6PEPF0000B61D:EE_|AS2PR08MB9618:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1d80ff8-cd54-418b-1cff-08ddd9e71b2a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?UBEVAalBsjrxdPVLcgMjSg3A3Ls3mUg1dGo2YV4pV9KFB/dNzNvqUK8Z5eag?=
- =?us-ascii?Q?CCpD/r7GM/reXXqdcfzddKaqLob08JLKeX1Gc1a6KaewVkdAqXOaUd2EsOp3?=
- =?us-ascii?Q?yKpVgJB0+LAF94CnJfpVwopnMn0/p9jl9DqBeyBEibrvLVafB3oUYat9Lzi9?=
- =?us-ascii?Q?+PlboW5yyPM3v8R3tF6ZyHiRL9Exitm4zZdijmjDyRibG9NHC3a7OCT+u8oK?=
- =?us-ascii?Q?7jqBCFDT56QbaRNqpO1kHPx7/srpjJdW575kB3GQRatg1PdC9cj1S/SN0dT1?=
- =?us-ascii?Q?oXX8XU5BepLrvBr467NFhUMMmG/0lbcjUeaP6kKJUIIvvzLdfUXq5nIMeAHl?=
- =?us-ascii?Q?lcwPfxAjQBhFD6DjXIIRr+1HSuPjbNH8Lx2HDtTiICoh6uHlwsTWoP66u9mS?=
- =?us-ascii?Q?Gv9iYhOL+P/08QzaoOlSxSXG4ZlYOv0eFNYaRwK/+xB+DDGIGUxjI66RUba0?=
- =?us-ascii?Q?KYxnvPEj57XUCmmXTK/4n6LPwJeGLRS9ps7yKIdCB6iWkQEPqnyeBzqSW9Cr?=
- =?us-ascii?Q?muTnQ8Yn2OgxJcVs4ryzYoFiP7CctFKmTZuDfeIXh3CLI2sL3QheIATDhNnU?=
- =?us-ascii?Q?aMB5dgWZryDv9GCa0zPm8/K/KkJisw9crdjQ5/aRRoQ6P7ZtaQh9aTGBDiGW?=
- =?us-ascii?Q?wk7f9zF4m9CJnHSc/SkcHUQl2NqxDP66qDwKTgaQKDJolqKLD0fwA4yoolaK?=
- =?us-ascii?Q?j19GtYi7m4QLndpEeLRQA8HYXEPwZstJablKY2MJVkoJLIRfIr09SQ6xcU8a?=
- =?us-ascii?Q?nuRiQwaT/4WkvAwYryFTA6ZdxvaqXZfj1ExBEHmlpQhVtEvAvBDnxQ4QaP22?=
- =?us-ascii?Q?aW1cJY9aepQKQdHtEDJCp5ltyWSilcVYrTqYnmdf/Nx3qVc85EXd0sZHjr+G?=
- =?us-ascii?Q?VQCaXhQ3Q4HeHKnxy053s1kJDrVdAJ8+Z0TDPYcl1NeK9OubmP/nlumGRN2I?=
- =?us-ascii?Q?ykvMIeMRXmskv+veOJky8wjqIhCBNrw6YQvMEJSPQn4rFIMOqJi8+OVjL9GJ?=
- =?us-ascii?Q?l4R+qv3XgIrY0PrxBG8cN0CNEDgQh+Wtf5eSdBDnNHeRH5Aqqx5qxPv7kOMv?=
- =?us-ascii?Q?HRcEOGvfUAhYAEnZklTtjQbFrIvcAWoAv8J66SuxbJ4N3BttkJFh9l3D5+2Y?=
- =?us-ascii?Q?pduIyHlw6xHnIORZWySnmW76irQrh79993lISc6hh7NylrDm571z9iGg5+yC?=
- =?us-ascii?Q?13eDgmhUWu6KrV8rf7dVY0munn7EyfPpo9Db9pVi95hs+Ibjp+qTtyuquUu/?=
- =?us-ascii?Q?jefIyg240LuGywBV8u3HG7VKItQZZYB3d6eBG3nnkGySAxVgG1AZFr9LT1wJ?=
- =?us-ascii?Q?K25+EkavAe2lkdbMRP1RNncem0CcNKxIetUpvt223kMpZuck2Skc0YRlSMG/?=
- =?us-ascii?Q?RP4C3ztLydD7+1HZxijUKwIvgeJFOgJ8Ct+QcD7kgg6na65ekfNeSUFJreV/?=
- =?us-ascii?Q?3t8YLeDx0ec=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR08MB5372
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B61D.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: d8123d43-a49c-4054-1cef-08ddd9e70727
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|14060799003|376014|82310400026|35042699022|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?31zhvKgLcGkV9ytnAPiPKDt2w+LeHWdzDSF/vS8qa1M3cylfFbNTo3Sc4XzG?=
- =?us-ascii?Q?ePmLyN0iPLNBey9Y5WMK+WxpemV2SrQCiXg+CTbcbo1OG4Sv8mEL2kjj8GpR?=
- =?us-ascii?Q?Xidj90Xppx5hCo1V55YBk4PWYQLpcxbHoYSdFMW4lkRJa8wX9r/DO1ukRDbf?=
- =?us-ascii?Q?odu+q8FZHFDTpDV8EY/HqgwPxCRjHiZLYlTZZmcnydjTYO7GOnKCbDFWx9kN?=
- =?us-ascii?Q?S3YWCcYZVj9zuMuVsbOYHNo2G7M0hXZBw1rPDITnwCo1wKyLiJ8is6+ylapH?=
- =?us-ascii?Q?X7VZfNlWC6uaX2FAKzPo0jrFoAdlpLAWaUwwOjcowj9aqNa36l+Kbzvh5ZAu?=
- =?us-ascii?Q?z1xOMwlFu0uzN2AfcTU/XGx4VLlriCboHKLnvJzTp9bMrSNpwD5ybqgr148b?=
- =?us-ascii?Q?c4lxgLs2zHSDv86qpZKEYDrjk1jaTM1WTFOPvV7XVk/3PFx07LMgyMQZztL4?=
- =?us-ascii?Q?xhmq01PEH4Z65E1L8M/GD5Ptu1BDO5D+wy31MCLrC3hXikDWTij6o2sWOl8A?=
- =?us-ascii?Q?hYIY5PmrWC1Cn5WUz3m1olgLSEzd1C6n7gvzBCqqbAhcy9vNNB2bDPlZFLqE?=
- =?us-ascii?Q?7upGeVw3lyDwu64sR6QeWXgUd3JwSnH2MfmZYOWt5mu/zW4a1+HNXgP3Nzcf?=
- =?us-ascii?Q?ep+yE8+s5XBDDDEOzhyhmySzHHAiaXUunlYGoKd2Hlpg7RCx1hC5q3LmisUx?=
- =?us-ascii?Q?HQ8GYPoA55fYuA0HSpOBsCsGDmCHwXoWdEHs6qxBthK3yCjVK1qcgyEJ1abY?=
- =?us-ascii?Q?4zqlqto6Mfr/ZCSKIHkIh0WVOSpJFcpnz2HNdCe2SpD1aWy/XraCfLPDybpI?=
- =?us-ascii?Q?/uU8p7jlyos5NbC1M27Bp+YU16ILuvgpE7hvvT7i+9BaMVwJG9XFaVDi+Dxt?=
- =?us-ascii?Q?aer1ZASEtZviv3BSS6pLlkH5p6De34ra4txkz0nTw/zam9wQke5vLuq535aO?=
- =?us-ascii?Q?jCKFMxezx+FlKNsQ4IP4nKBYsxRJxfhCeKZ32SEvqqq8A0KFHsZ7qs/IUXKY?=
- =?us-ascii?Q?BMWHzcnj71PkNzfoMiCtf3muS8ckb6K+UyhSulz295wx9Jmn+JLuDLL3D3Ze?=
- =?us-ascii?Q?B9+u0Y3YFy1J2aZhulmQ4vwTWpeHMQYDagjPTv7+pOUVZZDN0eQb0fpsbvsA?=
- =?us-ascii?Q?LRYjJgbYa7W+KUsQ5C7IybivYbOVWB/3xHrt3Kq6neIO8Cnz82n+BWv2qCTc?=
- =?us-ascii?Q?3hVD4fjDPzKvFr9SE7SWLcZDhMOfb5wwydVe0RCB/EpObIvkEyKK2/wUyeEF?=
- =?us-ascii?Q?ylJWuv5tSGOQ/YgAUiqPE6nMW3Uweus/o4Nnghq8Jn8sLLY9A/WVFVnz7a5H?=
- =?us-ascii?Q?GquCZQ6yMqvbxdIacmupADm1CDb0qJG/KxFV7+PXQqekNU+M5X/yaTrdPFxg?=
- =?us-ascii?Q?WcLcwVAxP0B7ySLZh1MIM3+e4sq0BQp5iPjw/Ql/G9XhX1Ts9ZbQrdUKDJZh?=
- =?us-ascii?Q?lLQ2gyn2Ly0FfDIvgavFfEYRrnUnMie4IyECJjcvr7wSN0RGt2Pc+0pmju4e?=
- =?us-ascii?Q?MlWD2/PeDWJFoIRQFZfibQWdhK2VZR4FHSIP?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(14060799003)(376014)(82310400026)(35042699022)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 21:27:57.1824
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1d80ff8-cd54-418b-1cff-08ddd9e71b2a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61D.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9618
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_142812_516143_762888EA 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250812_144642_184370_0447DAE1 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,41 +82,315 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrey,
-> >
-> > > Right now, KASAN tests are crafted to avoid/self-contain harmful
-> > > memory corruptions that they do (e.g. make sure that OOB write
-> > > accesses land in in-object kmalloc training space, etc.). If you turn
-> > > read accesses in tests into write accesses, memory corruptions caused
-> > > by the earlier tests will crash the kernel or the latter tests.
-> >
-> > That's why I run the store-only test when this mode is "sync"
-> > In case of "async/asymm" as you mention since it reports "after",
-> > there will be memory corruption.
-> >
-> > But in case of sync, when the MTE fault happens, it doesn't
-> > write to memory so, I think it's fine.
->
-> Does it not? I thought MTE gets disabled and we return from the fault
-> handler and let the write instruction execute. But my memory on this
-> is foggy. And I don't have a setup right now to test.
+Usage of the clock-frequency property for camera sensors is discouraged
+in favour of using assigned-clock-rates (and assigned-clock-parents
+where needed). Mark the property as deprecated.
 
-Right. when fault is hit the MTE gets disabled.
-But in kasan_test_c.c -- See the KUNIT_EXPECT_KASAN_FAIL,
-It re-enables for next test by calling kasan_enable_hw_tags().
+Update the examples accordingly. In DT examples where the sensor input
+clock appears to come from a programmable clock generator, replace
+clock-frequency by the assigned-clocks and assigned-clock-rates
+properties. Otherwise, just drop clock-frequency.
 
-So, the store-only with sync mode seems fine unless we wouldn't care
-about failure (no fault happen) which makes memory corruption.
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Changes since v1:
 
-However, I'm not sure writing the seperate testcases for store-only
-is right or now since
-same tests which only are different of return value check will be
-duplicate and half of these always skipped (when duplicate for
-store-only, former should be skip and vice versa).
+- Adapt examples in bindings that reference sensors
+---
+ Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml    | 6 ++++--
+ Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml  | 7 +++++--
+ .../devicetree/bindings/media/i2c/ovti,ov02a10.yaml        | 3 +--
+ .../devicetree/bindings/media/i2c/ovti,ov5645.yaml         | 6 +++++-
+ .../devicetree/bindings/media/i2c/ovti,ov7251.yaml         | 6 +++++-
+ .../devicetree/bindings/media/i2c/ovti,ov8856.yaml         | 3 +--
+ .../devicetree/bindings/media/i2c/samsung,s5k5baf.yaml     | 6 +++++-
+ .../devicetree/bindings/media/i2c/samsung,s5k6a3.yaml      | 6 +++++-
+ .../devicetree/bindings/media/i2c/sony,imx290.yaml         | 5 +++--
+ .../bindings/media/samsung,exynos4212-fimc-is.yaml         | 4 ++--
+ Documentation/devicetree/bindings/media/samsung,fimc.yaml  | 3 ++-
+ 11 files changed, 38 insertions(+), 17 deletions(-)
 
-Thanks.
+diff --git a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+index 73144473b9b2..1687b069e032 100644
+--- a/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
++++ b/Documentation/devicetree/bindings/i2c/qcom,i2c-cci.yaml
+@@ -292,7 +292,8 @@ examples:
+ 
+                 clocks = <&clock_camcc CAM_CC_MCLK0_CLK>;
+                 clock-names = "xvclk";
+-                clock-frequency = <19200000>;
++                assigned-clocks = <&clock_camcc CAM_CC_MCLK0_CLK>;
++                assigned-clock-rates = <19200000>;
+ 
+                 dovdd-supply = <&vreg_lvs1a_1p8>;
+                 avdd-supply = <&cam0_avdd_2v8>;
+@@ -324,7 +325,8 @@ examples:
+ 
+                 clocks = <&clock_camcc CAM_CC_MCLK3_CLK>;
+                 clock-names = "xclk";
+-                clock-frequency = <24000000>;
++                assigned-clocks = <&clock_camcc CAM_CC_MCLK3_CLK>;
++                assigned-clock-rates = <24000000>;
+ 
+                 vdddo-supply = <&vreg_lvs1a_1p8>;
+                 vdda-supply = <&cam3_avdd_2v8>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml b/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
+index bc664a016396..217b08c8cbbd 100644
+--- a/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/mipi-ccs.yaml
+@@ -55,6 +55,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the external clock to the sensor in Hz.
++    deprecated: true
+ 
+   reset-gpios:
+     description: Reset GPIO. Also commonly called XSHUTDOWN in hardware
+@@ -93,7 +94,6 @@ properties:
+ required:
+   - compatible
+   - reg
+-  - clock-frequency
+   - clocks
+ 
+ additionalProperties: false
+@@ -114,8 +114,11 @@ examples:
+             reg = <0x10>;
+             reset-gpios = <&gpio3 20 GPIO_ACTIVE_LOW>;
+             vana-supply = <&vaux3>;
++
+             clocks = <&omap3_isp 0>;
+-            clock-frequency = <9600000>;
++            assigned-clocks = <&omap3_isp 0>;
++            assigned-clock-rates = <9600000>;
++
+             port {
+                 ccs_ep: endpoint {
+                     data-lanes = <1 2>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
+index 67c1c291327b..0e1d9c390180 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov02a10.yaml
+@@ -39,6 +39,7 @@ properties:
+   clock-frequency:
+     description:
+       Frequency of the eclk clock in Hz.
++    deprecated: true
+ 
+   dovdd-supply:
+     description:
+@@ -100,7 +101,6 @@ required:
+   - reg
+   - clocks
+   - clock-names
+-  - clock-frequency
+   - dovdd-supply
+   - avdd-supply
+   - dvdd-supply
+@@ -127,7 +127,6 @@ examples:
+ 
+             clocks = <&ov02a10_clk>;
+             clock-names = "eclk";
+-            clock-frequency = <24000000>;
+ 
+             rotation = <180>;
+ 
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
+index bc9b27afe3ea..a583714b1ac7 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov5645.yaml
+@@ -21,6 +21,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz.
++    deprecated: true
+ 
+   vdda-supply:
+     description: Analog voltage supply, 2.8 volts
+@@ -83,8 +84,11 @@ examples:
+         camera@3c {
+             compatible = "ovti,ov5645";
+             reg = <0x3c>;
++
+             clocks = <&clks 1>;
+-            clock-frequency = <24000000>;
++            assigned-clocks = <&clks 1>;
++            assigned-clock-rates = <24000000>;
++
+             vdddo-supply = <&ov5645_vdddo_1v8>;
+             vdda-supply = <&ov5645_vdda_2v8>;
+             vddd-supply = <&ov5645_vddd_1v5>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
+index 2e5187acbbb8..922996da59b2 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov7251.yaml
+@@ -29,6 +29,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz.
++    deprecated: true
+ 
+   vdda-supply:
+     description: Analog voltage supply, 2.8 volts
+@@ -89,8 +90,11 @@ examples:
+         camera@3c {
+             compatible = "ovti,ov7251";
+             reg = <0x3c>;
++
+             clocks = <&clks 1>;
+-            clock-frequency = <24000000>;
++            assigned-clocks = <&clks 1>;
++            assigned-clock-rates = <24000000>;
++
+             vdddo-supply = <&ov7251_vdddo_1v8>;
+             vdda-supply = <&ov7251_vdda_2v8>;
+             vddd-supply = <&ov7251_vddd_1v5>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml b/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
+index 3f6f72c35485..fa71f24823f2 100644
+--- a/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/ovti,ov8856.yaml
+@@ -37,6 +37,7 @@ properties:
+   clock-frequency:
+     description:
+       Frequency of the xvclk clock in Hertz.
++    deprecated: true
+ 
+   dovdd-supply:
+     description:
+@@ -87,7 +88,6 @@ required:
+   - reg
+   - clocks
+   - clock-names
+-  - clock-frequency
+   - dovdd-supply
+   - avdd-supply
+   - dvdd-supply
+@@ -114,7 +114,6 @@ examples:
+ 
+             clocks = <&cam_osc>;
+             clock-names = "xvclk";
+-            clock-frequency = <19200000>;
+ 
+             avdd-supply = <&mt6358_vcama2_reg>;
+             dvdd-supply = <&mt6358_vcamd_reg>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
+index c8f2955e0825..ebd95a8d9b2f 100644
+--- a/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k5baf.yaml
+@@ -26,6 +26,7 @@ properties:
+   clock-frequency:
+     default: 24000000
+     description: mclk clock frequency
++    deprecated: true
+ 
+   rstn-gpios:
+     maxItems: 1
+@@ -82,9 +83,12 @@ examples:
+         sensor@2d {
+             compatible = "samsung,s5k5baf";
+             reg = <0x2d>;
++
+             clocks = <&camera 0>;
++            assigned-clocks = <&camera 0>;
++            assigned-clock-rates = <24000000>;
++
+             clock-names = "mclk";
+-            clock-frequency = <24000000>;
+             rstn-gpios = <&gpl2 1 GPIO_ACTIVE_LOW>;
+             stbyn-gpios = <&gpl2 0 GPIO_ACTIVE_LOW>;
+             vdda-supply = <&cam_io_en_reg>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml b/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
+index 7e83a94124b5..e563e35920c4 100644
+--- a/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/samsung,s5k6a3.yaml
+@@ -30,6 +30,7 @@ properties:
+   clock-frequency:
+     default: 24000000
+     description: extclk clock frequency
++    deprecated: true
+ 
+   gpios:
+     maxItems: 1
+@@ -80,8 +81,11 @@ examples:
+         sensor@10 {
+             compatible = "samsung,s5k6a3";
+             reg = <0x10>;
+-            clock-frequency = <24000000>;
++
+             clocks = <&camera 1>;
++            assigned-clocks = <&camera 1>;
++            assigned-clock-rates = <24000000>;
++
+             clock-names = "extclk";
+             gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
+             afvdd-supply = <&ldo19_reg>;
+diff --git a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+index 990acf89af8f..484039671cd1 100644
+--- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
++++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+@@ -51,6 +51,7 @@ properties:
+ 
+   clock-frequency:
+     description: Frequency of the xclk clock in Hz
++    deprecated: true
+ 
+   vdda-supply:
+     description: Analog power supply (2.9V)
+@@ -100,7 +101,6 @@ required:
+   - reg
+   - clocks
+   - clock-names
+-  - clock-frequency
+   - vdda-supply
+   - vddd-supply
+   - vdddo-supply
+@@ -125,7 +125,8 @@ examples:
+ 
+             clocks = <&gcc 90>;
+             clock-names = "xclk";
+-            clock-frequency = <37125000>;
++            assigned-clocks = <&clks 1>;
++            assigned-clock-rates = <37125000>;
+ 
+             vdddo-supply = <&camera_vdddo_1v8>;
+             vdda-supply = <&camera_vdda_2v8>;
+diff --git a/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml b/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
+index 3a5ff3f47060..151290de6e87 100644
+--- a/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
++++ b/Documentation/devicetree/bindings/media/samsung,exynos4212-fimc-is.yaml
+@@ -209,9 +209,9 @@ examples:
+                 svdda-supply = <&cam_io_reg>;
+                 svddio-supply = <&ldo19_reg>;
+                 afvdd-supply = <&ldo19_reg>;
+-                clock-frequency = <24000000>;
+-                clocks = <&camera 1>;
+                 clock-names = "extclk";
++                assigned-clocks = <&camera 1>;
++                assigned-clock-rates = <24000000>;
+                 gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
+ 
+                 port {
+diff --git a/Documentation/devicetree/bindings/media/samsung,fimc.yaml b/Documentation/devicetree/bindings/media/samsung,fimc.yaml
+index 7808d61f1fa3..2a54379d9509 100644
+--- a/Documentation/devicetree/bindings/media/samsung,fimc.yaml
++++ b/Documentation/devicetree/bindings/media/samsung,fimc.yaml
+@@ -259,10 +259,11 @@ examples:
+                     svdda-supply = <&cam_io_reg>;
+                     svddio-supply = <&ldo19_reg>;
+                     afvdd-supply = <&ldo19_reg>;
+-                    clock-frequency = <24000000>;
+                     /* CAM_B_CLKOUT */
+                     clocks = <&camera 1>;
+                     clock-names = "extclk";
++                    assigned-clocks = <&camera 1>;
++                    assigned-clock-rates = <24000000>;
+                     gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
+ 
+                     port {
+-- 
+Regards,
 
---
-Sincerely,
-Yeoreum Yun
+Laurent Pinchart
+
 
