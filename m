@@ -4,128 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDAA4CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C74C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O+0/mMzcYBzAXr5xY2ybwh3+r//NqA3Z+JWUeLP3lH4=; b=AX+H6zRKvag1gpfwpWfpP7sRJ7
-	EWIAUIZE2H6GTZaASq3yJ/mxswRjy1i5c0T8ebrZurjl0984KGhxMPBOU7gVXcb4ezknLSv6ecXaT
-	w0/k2HVbdEtHzV7lYvFsC1lrvlK5+pJR6WNVX9Y/RYv7bAV96hldxHTfP0gLIFqyf1iNuRxmFt3RN
-	+h6Uz027ChRumhL2LkljcAcXeXwf61/QMAoCuunz310fxZy4NbTpxXBLE9F5OdttVRk+P1zNZXX7S
-	2S2wQxy7leAu5YidmP2joUKokEdK/n/d0/AJHSZ/fMhrSY6OG1ADbN9HfewbbtqRC4kHIyjlu71xk
-	S7IOFCqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kKzblfJnewqfnHkkVYa4YDiRnQ2gHOTdHxuje0MFec4=; b=LTa6NXcAb6US98yUT19atW+kQq
+	k+BeHcIMXw8H5Cr5rTKhHM5/Yh0m0xxuj7L9KMB/Ea+qhInEbIbY7W7wIaVdOVP9tUf7zdxe3cU4q
+	wSZi6ozczZCWYf57N9VF3Z76QgUU+cvG0mUl7rFSbOnmHUtZis9GAekS9UYP1pqRkE/Jnw7mKJZxc
+	byHhCO6RSIp5bZrU4lTPUb8nbBM3oQ0ksN9pFE7MGqxQ2CnAMslh3rUH7G8x0XUQ+IQG89cc8OdGJ
+	9U3I9pZw/sDcw11/l99nxjkShjC6nfGZym78WT2QgSfb6Pd/000cuUefRJPv8UfYbCQRmxw7XuYYX
+	elAf7Tqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljXH-0000000A859-3cnq;
-	Tue, 12 Aug 2025 07:35:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uljZt-0000000A8MV-0w22;
+	Tue, 12 Aug 2025 07:37:49 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljUS-0000000A7bO-3gmM;
-	Tue, 12 Aug 2025 07:32:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 161A360203;
-	Tue, 12 Aug 2025 07:32:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76E05C4CEF0;
-	Tue, 12 Aug 2025 07:32:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754983931;
-	bh=O+0/mMzcYBzAXr5xY2ybwh3+r//NqA3Z+JWUeLP3lH4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jqUtyZCnXk+znDbQjnFeGQOxKcz2AIPqI60/CZMZjjVL9St8LUuPHFepgL2ODH7Ve
-	 R7obL8/R2LFEiuafdIg0vPBB01R6gCyFyC0OGFJ80ZiB5iAFUoqiu99lD3qKJ6s7YM
-	 BUHD9b5IME2vAdrMcXwkOxGCJ7UxXd0PXx7MgdhaU4K6p7KY4vM1PaYKy73BYGIPQ9
-	 /1bD1fHuQK5srVVFWb9lluTLfm5V0alCUm/M8g+91BcVSw3YXzxNaViXF0g6AWjfDA
-	 wdyayNd14vwOZ2wM4jlUzeaRhkB0bmbdViN2v1lJ0f4Vjl67cTMEeTijj/accEY/7R
-	 7BkAoveiQrjJA==
-Message-ID: <c44c9aad-b08e-4be8-b135-258305b1f950@kernel.org>
-Date: Tue, 12 Aug 2025 09:32:04 +0200
+	id 1uljUU-0000000A7bX-2u8V;
+	Tue, 12 Aug 2025 07:32:16 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57C7IRVx020079;
+	Tue, 12 Aug 2025 09:32:06 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=kKzblfJnewqfnHkkVYa4YD
+	iRnQ2gHOTdHxuje0MFec4=; b=ZIPxJktFdjnmzaFfOUtkQ7bXbmPJI+TSc4mliP
+	fb1SHOp4O/wHTp2l1szOCsiUlGlh0GDvjDxxoLXfCQU1o5U3BRKJRwlG6J0gA1hZ
+	66iL25umfyUziZDgki2XAKb8uRymIolCbS8hqGD8a434ykGWOzMKwSEu4Q4BLo1e
+	ExGk4veL7N1ziUqhIwse/NfA/o5JZF7v7adQrDVwUXJXcZqAEi1ScGcVhguRxMiT
+	s8t9bI/7iqn/uRRizk9Ex5225v3rW1TKv1wl9/+78KJR09xJDnBbHtF2+JWH4/Qj
+	ghP0Srs+8YYhviDuMSpZWTzF9P3CyLHmCAZUi64yQYb1K8Nw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48efw4q6pm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 Aug 2025 09:32:06 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5462240044;
+	Tue, 12 Aug 2025 09:30:53 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E005D747A8E;
+	Tue, 12 Aug 2025 09:30:13 +0200 (CEST)
+Received: from localhost (10.48.87.65) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
+ 2025 09:30:13 +0200
+From: Christophe Kerello <christophe.kerello@foss.st.com>
+Date: Tue, 12 Aug 2025 09:30:08 +0200
+Subject: [PATCH] mtd: rawnand: stm32_fmc2: fix ECC overwrite
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 04/25] virt: geniezone: Add GenieZone hypervisor
- driver
-To: =?UTF-8?B?TGlqdS1jbHIgQ2hlbiAo6Zmz6bqX5aaCKQ==?=
- <Liju-clr.Chen@mediatek.com>, "corbet@lwn.net" <corbet@lwn.net>,
- "mhiramat@kernel.org" <mhiramat@kernel.org>,
- =?UTF-8?B?WWluZ3NoaXVhbiBQYW4gKOa9mOepjui7kik=?=
- <Yingshiuan.Pan@mediatek.com>, "rostedt@goodmis.org" <rostedt@goodmis.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "mathieu.desnoyers@efficios.com" <mathieu.desnoyers@efficios.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "will@kernel.org"
- <will@kernel.org>, "richardcochran@gmail.com" <richardcochran@gmail.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WmUteXUgV2FuZyAo546L5r6k5a6HKQ==?= <Ze-yu.Wang@mediatek.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: =?UTF-8?B?S2V2ZW5ueSBIc2llaCAo6Kyd5a6c6Iq4KQ==?=
- <Kevenny.Hsieh@mediatek.com>, =?UTF-8?B?U2hhd24gSHNpYW8gKOiVreW/l+elpSk=?=
- <shawn.hsiao@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- =?UTF-8?B?UGVpTHVuIFN1ZWkgKOmai+WfueWAqyk=?= <PeiLun.Suei@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
- =?UTF-8?B?Q2hpLXNoZW4gWWVoICjokYnlpYfou5Ip?= <Chi-shen.Yeh@mediatek.com>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
-References: <20241114100802.4116-1-liju-clr.chen@mediatek.com>
- <20241114100802.4116-5-liju-clr.chen@mediatek.com>
- <7b79d4b5-ba91-41a0-90d1-c64bcab53cec@kernel.org>
- <cb84d8d87a67516f9b92a89f81fe4efc088f7617.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <cb84d8d87a67516f9b92a89f81fe4efc088f7617.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250812-fix-ecc-overwrite-v1-1-6585c55c88b0@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAH/tmmgC/x2MQQ5AMBAAvyJ7tknb0KqviAO12AuylZKIv2scJ
+ 5mZByIJU4S2eEAoceR9y6DLAsI6bAshT5nBKFOrRmuc+UYKAfdEcgmfhN5bMzrnnass5O4QytL
+ /7Pr3/QDFtYbCYwAAAA==
+X-Change-ID: 20250811-fix-ecc-overwrite-9962b7797746
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+        Richard Weinberger
+	<richard@nod.at>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christophe Kerello <christophe.kerello@st.com>,
+        Boris Brezillon
+	<bbrezillon@kernel.org>
+CC: <linux-mtd@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Christophe Kerello <christophe.kerello@foss.st.com>,
+        <stable@vger.kernel.org>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.65]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_02,2025-08-11_01,2025-03-28_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250812_003215_238399_4B858D94 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,14 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/08/2025 09:04, Liju-clr Chen (陳麗如) wrote:
-> we have guarded the gzvm driver with the CONFIG_MTK_GZVM Kconfig
-> option. This ensures the code is only compiled and active on selected
-> platforms, and will not affect other users or systems.
+In case OOB write is requested during a data write, ECC is currently
+lost. Avoid this issue by only writing in the free spare area.
+This issue has been seen with a YAFFS2 file system.
 
-That is simply not true, since it will be enabled in defconfig in EVERY
-platform. Look up approach of single kernel and single image.
+Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+Cc: stable@vger.kernel.org
+Fixes: 2cd457f328c1 ("mtd: rawnand: stm32_fmc2: add STM32 FMC2 NAND flash controller driver")
+---
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c | 18 +++++++++++++++---
+ 1 file changed, 15 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+index a960403081f11091837b73b8610231fe421d0c05..f84f23392fa441327bec90ba12a2a57d825d9330 100644
+--- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
++++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+@@ -996,9 +996,21 @@ static int stm32_fmc2_nfc_seq_write(struct nand_chip *chip, const u8 *buf,
+ 
+ 	/* Write oob */
+ 	if (oob_required) {
+-		ret = nand_change_write_column_op(chip, mtd->writesize,
+-						  chip->oob_poi, mtd->oobsize,
+-						  false);
++		unsigned int offset_in_page = mtd->writesize;
++		const void *buf = chip->oob_poi;
++		unsigned int len = mtd->oobsize;
++
++		if (!raw) {
++			struct mtd_oob_region oob_free;
++
++			mtd_ooblayout_free(mtd, 0, &oob_free);
++			offset_in_page += oob_free.offset;
++			buf += oob_free.offset;
++			len = oob_free.length;
++		}
++
++		ret = nand_change_write_column_op(chip, offset_in_page,
++						  buf, len, false);
+ 		if (ret)
+ 			return ret;
+ 	}
+
+---
+base-commit: fb2fae70e7e985c4acb1ad96110d8b98bb64a87c
+change-id: 20250811-fix-ecc-overwrite-9962b7797746
 
 Best regards,
-Krzysztof
+-- 
+Christophe Kerello <christophe.kerello@foss.st.com>
+
 
