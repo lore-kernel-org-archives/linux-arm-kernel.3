@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E301ECA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D9FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J/e7BCTPOj0K5g9/rGyoNcj5brE4CClsNsTeSvBl9/M=; b=JGh9QDhvgVi1kk6aAErOF8EtbA
-	2jReTIfFa5htg0lbNQKkh7stEX7ug9lnpGkojDPmTD44ubA1J0k4zOoHgujxHl8u5NH8U0Rg9090Z
-	vwbx+xIv83MKXiBH0AewHiknfUvpttmdTIaKaTvT5bBwQikdE/vHslIafjkktfAUI/L2BsSpcrXcx
-	muVJ5lURtL4jsDGuhli+XWWfjqXbvxS3q7YQTsyFu23ZWM+qgDpQJWHTf6XciKBOsisoVOTLQ4Awc
-	r95kruJ+BjeowdBMMjOC+DaHpJQHLV+3B5fzKPRstPzzbbzYgYA+HI68LBCnZoFCv46mgV2kPf1Um
-	K1C0xTlg==;
+	bh=tlCHKdloNnuDlI+3PXr5yZHhGm/T8e4Ko0EuQj8bSa0=; b=xlHLStPNPdndSNcBg5ZsHjuyCU
+	M/iAY9u2Ookh7YiCsya6DRQAUVFDelme78VyrhQvZHd5GS3TdtcKpEXkKmKj/jfYbRV1Yq6O8B8dk
+	YBCaU80uPy7w4TamUK6SjdDMkl4O5as/PWxDHiI49v22ngP02DN1GnMI6NnrUmBBELFwyyPw45/x7
+	e/R/TSXnyUFrSBEv3jlStx64xrhW661k/s/f+fHsrFJ0e07WG1+seKpND6ajvc272BxFVdeI9wuGx
+	1fDwIZ+vksBVXQgiENDdNoIv2TLBgdk2PP10EDf6c5rFElbbt+D6dvfGIr9OVvCz69MpvH6YioA6z
+	mQvOETXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrjz-0000000BKPH-49Xe;
-	Tue, 12 Aug 2025 16:20:47 +0000
+	id 1ulrk0-0000000BKQv-3eEx;
+	Tue, 12 Aug 2025 16:20:48 +0000
 Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uln3f-0000000Ab94-2pQH
+	id 1uln3j-0000000AbAM-1tie
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:20:48 +0000
+	Tue, 12 Aug 2025 11:20:52 +0000
 Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4c1TBQ0tRhz9sT0;
-	Tue, 12 Aug 2025 13:03:10 +0200 (CEST)
+	by localhost (Postfix) with ESMTP id 4c1Swc0sHyz9sSR;
+	Tue, 12 Aug 2025 12:51:12 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id HXhLiS2jPwds; Tue, 12 Aug 2025 13:03:10 +0200 (CEST)
+	with ESMTP id UZfLVWQ7jLtD; Tue, 12 Aug 2025 12:51:12 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1TBP1dsHz9sSv;
-	Tue, 12 Aug 2025 13:03:09 +0200 (CEST)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1Swb3wGkz9sSK;
+	Tue, 12 Aug 2025 12:51:11 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 259218B765;
-	Tue, 12 Aug 2025 13:03:09 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 6C8CB8B764;
+	Tue, 12 Aug 2025 12:51:11 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id RBmU6l3SUl_P; Tue, 12 Aug 2025 13:03:09 +0200 (CEST)
+	with ESMTP id 4GfoNMbtMS8g; Tue, 12 Aug 2025 12:51:11 +0200 (CEST)
 Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 86B4E8B763;
-	Tue, 12 Aug 2025 13:03:08 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id AB8FE8B765;
+	Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
+To: Herve Codina <herve.codina@bootlin.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
 Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 3/4] soc: fsl: qe: Add support of IRQ in QE GPIO
-Date: Tue, 12 Aug 2025 13:02:53 +0200
-Message-ID: <22b3847fd0011024c10aff48f1e5223894ce718a.1754996033.git.christophe.leroy@csgroup.eu>
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v2 3/4] ASoC: fsl: fsl_qmc_audio: Only request completion on last channel
+Date: Tue, 12 Aug 2025 12:50:57 +0200
+Message-ID: <21eb89cc03a1c2135bdaba6a4dd1d0c2e624ce29.1754993232.git.christophe.leroy@csgroup.eu>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1754996033.git.christophe.leroy@csgroup.eu>
-References: <cover.1754996033.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <cover.1754993232.git.christophe.leroy@csgroup.eu>
+References: <cover.1754993232.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754996575; l=2725; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=v14Dk1KvyA4jB0LrdnvGbfGjnbuOs9htFoqSNoWkYtI=; b=dXtCrFHN514T4E/+vNSzepJEqiPBNmxYhnTflHs68WWX2CBvxIoCBh8xJ/qz54T5GIKOuB9uB 8/NM/UEmSe3CNdXNEgNpmWyRAEbLLMxt2jbdc7GgWwSqpsaS8xWZXxl
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754995860; l=4945; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=4WvVIASI4alTwJrylXkbVq3Sqy6GlVQKoVrURW7O4pc=; b=kK0HMFbQjUGoU9gCyvZ9al1SVU7DiGHBkSIKbM6b3PMB48xoPCApvkWX7TBmhMOhpYNbI3W0n YdaUjFo/BHbD6r+nRb+tGtUznllA2+KDoXIpFTPGrpkXMYtBHP9XA7H
 X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_042047_891358_5E1B3246 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250812_042051_670513_BB57B6D8 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,97 +90,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the QE, a few GPIOs are IRQ capable. Similarly to
-commit 726bd223105c ("powerpc/8xx: Adding support of IRQ in MPC8xx
-GPIO"), add IRQ support to QE GPIO.
+In non-interleaved mode, several QMC channels are used in sync.
+More details can be found in commit 188d9cae5438 ("ASoC: fsl:
+fsl_qmc_audio: Add support for non-interleaved mode.")
+At the time being, an interrupt is requested on each channel to
+perform capture/playback completion, allthough the completion is
+really performed only once all channels have completed their work.
 
-Add property 'fsl,qe-gpio-irq-mask' similar to
-'fsl,cpm1-gpio-irq-mask' that define which of the GPIOs have IRQs.
+This leads to a lot more interrupts than really needed. Looking at
+/proc/interrupts shows ~3800 interrupts per second when using
+4 capture and 4 playback devices with 5ms periods while
+only 1600 (200 x 4 + 200 x 4) periods are processed during one second.
 
-Here is an exemple for port B of mpc8323 which has IRQs for
-GPIOs PB7, PB9, PB25 and PB27.
+The QMC channels work in sync, the one started first is the one
+finishing first and the one started last is the one finishing last,
+so when the last one finishes it is guaranteed that the other ones are
+finished as well. Therefore only request completion processing on the
+last QMC channel.
 
-	qe_pio_b: gpio-controller@1418 {
-		#gpio-cells = <2>;
-		compatible = "fsl,mpc8323-qe-pario-bank";
-		reg = <0x1418 0x18>;
-		interrupts = <4 5 6 7>;
-		fsl,qe-gpio-irq-mask = <0x01400050>;
-		interrupt-parent = <&qepic>;
-		gpio-controller;
-	};
+On my board with the above exemple, on a kernel started with
+'threadirqs' option, the QMC irq thread uses 16% CPU time with this
+patch while it uses 26% CPU time without this patch.
 
 Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 ---
- drivers/soc/fsl/qe/gpio.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ sound/soc/fsl/fsl_qmc_audio.c | 46 +++++------------------------------
+ 1 file changed, 6 insertions(+), 40 deletions(-)
 
-diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
-index b502377193192..59145652ad850 100644
---- a/drivers/soc/fsl/qe/gpio.c
-+++ b/drivers/soc/fsl/qe/gpio.c
-@@ -13,6 +13,7 @@
- #include <linux/err.h>
- #include <linux/io.h>
- #include <linux/of.h>
-+#include <linux/of_irq.h>
- #include <linux/gpio/legacy-of-mm-gpiochip.h>
- #include <linux/gpio/consumer.h>
- #include <linux/gpio/driver.h>
-@@ -32,6 +33,8 @@ struct qe_gpio_chip {
+diff --git a/sound/soc/fsl/fsl_qmc_audio.c b/sound/soc/fsl/fsl_qmc_audio.c
+index 0be29ccc1ff7b..92aa813aa3bee 100644
+--- a/sound/soc/fsl/fsl_qmc_audio.c
++++ b/sound/soc/fsl/fsl_qmc_audio.c
+@@ -57,7 +57,6 @@ struct qmc_dai_prtd {
+ 	size_t ch_dma_offset;
  
- 	/* saved_regs used to restore dedicated functions */
- 	struct qe_pio_regs saved_regs;
-+
-+	int irq[32];
+ 	unsigned int channels;
+-	DECLARE_BITMAP(chans_pending, 64);
+ 	struct snd_pcm_substream *substream;
  };
  
- static void qe_gpio_save_regs(struct of_mm_gpio_chip *mm_gc)
-@@ -141,6 +144,13 @@ static int qe_gpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
- 	return 0;
- }
+@@ -126,17 +125,14 @@ static int qmc_audio_pcm_write_submit(struct qmc_dai_prtd *prtd)
+ 	int ret;
  
-+static int qe_gpio_to_irq(struct gpio_chip *gc, unsigned int gpio)
-+{
-+	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
-+
-+	return qe_gc->irq[gpio] ? : -ENXIO;
-+}
-+
- struct qe_pin {
- 	/*
- 	 * The qe_gpio_chip name is unfortunate, we should change that to
-@@ -304,6 +314,7 @@ static int qe_gpio_probe(struct platform_device *ofdev)
- 	struct qe_gpio_chip *qe_gc;
- 	struct of_mm_gpio_chip *mm_gc;
- 	struct gpio_chip *gc;
-+	u32 mask;
+ 	for (i = 0; i < prtd->channels; i++) {
+-		bitmap_set(prtd->chans_pending, i, 1);
+-
+ 		ret = qmc_chan_write_submit(prtd->qmc_dai->chans[i].qmc_chan,
+ 					    prtd->ch_dma_addr_current + i * prtd->ch_dma_offset,
+ 					    prtd->ch_dma_size,
+-					    qmc_audio_pcm_write_complete,
+-					    &prtd->qmc_dai->chans[i]);
++					    i == prtd->channels - 1 ? qmc_audio_pcm_write_complete :
++								      NULL, prtd);
+ 		if (ret) {
+ 			dev_err(prtd->qmc_dai->dev, "write_submit %u failed %d\n",
+ 				i, ret);
+-			bitmap_clear(prtd->chans_pending, i, 1);
+ 			return ret;
+ 		}
+ 	}
+@@ -146,20 +142,7 @@ static int qmc_audio_pcm_write_submit(struct qmc_dai_prtd *prtd)
  
- 	qe_gc = kzalloc(sizeof(*qe_gc), GFP_KERNEL);
- 	if (!qe_gc) {
-@@ -313,6 +324,14 @@ static int qe_gpio_probe(struct platform_device *ofdev)
+ static void qmc_audio_pcm_write_complete(void *context)
+ {
+-	struct qmc_dai_chan *chan = context;
+-	struct qmc_dai_prtd *prtd;
+-
+-	prtd = chan->prtd_tx;
+-
+-	/* Mark the current channel as completed */
+-	bitmap_clear(prtd->chans_pending, chan - prtd->qmc_dai->chans, 1);
+-
+-	/*
+-	 * All QMC channels involved must have completed their transfer before
+-	 * submitting a new one.
+-	 */
+-	if (!bitmap_empty(prtd->chans_pending, 64))
+-		return;
++	struct qmc_dai_prtd *prtd = context;
  
- 	spin_lock_init(&qe_gc->lock);
+ 	prtd->buffer_ended += prtd->period_size;
+ 	if (prtd->buffer_ended >= prtd->buffer_size)
+@@ -182,17 +165,14 @@ static int qmc_audio_pcm_read_submit(struct qmc_dai_prtd *prtd)
+ 	int ret;
  
-+	if (!of_property_read_u32(np, "fsl,qe-gpio-irq-mask", &mask)) {
-+		int i, j;
-+
-+		for (i = 0, j = 0; i < 32; i++)
-+			if (mask & (1 << (31 - i)))
-+				qe_gc->irq[i] = irq_of_parse_and_map(np, j++);
-+	}
-+
- 	mm_gc = &qe_gc->mm_gc;
- 	gc = &mm_gc->gc;
+ 	for (i = 0; i < prtd->channels; i++) {
+-		bitmap_set(prtd->chans_pending, i, 1);
+-
+ 		ret = qmc_chan_read_submit(prtd->qmc_dai->chans[i].qmc_chan,
+ 					   prtd->ch_dma_addr_current + i * prtd->ch_dma_offset,
+ 					   prtd->ch_dma_size,
+-					   qmc_audio_pcm_read_complete,
+-					   &prtd->qmc_dai->chans[i]);
++					   i == prtd->channels - 1 ? qmc_audio_pcm_read_complete :
++								     NULL, prtd);
+ 		if (ret) {
+ 			dev_err(prtd->qmc_dai->dev, "read_submit %u failed %d\n",
+ 				i, ret);
+-			bitmap_clear(prtd->chans_pending, i, 1);
+ 			return ret;
+ 		}
+ 	}
+@@ -202,26 +182,13 @@ static int qmc_audio_pcm_read_submit(struct qmc_dai_prtd *prtd)
  
-@@ -323,6 +342,7 @@ static int qe_gpio_probe(struct platform_device *ofdev)
- 	gc->get = qe_gpio_get;
- 	gc->set = qe_gpio_set;
- 	gc->set_multiple = qe_gpio_set_multiple;
-+	gc->to_irq = qe_gpio_to_irq;
+ static void qmc_audio_pcm_read_complete(void *context, size_t length, unsigned int flags)
+ {
+-	struct qmc_dai_chan *chan = context;
+-	struct qmc_dai_prtd *prtd;
+-
+-	prtd = chan->prtd_rx;
+-
+-	/* Mark the current channel as completed */
+-	bitmap_clear(prtd->chans_pending, chan - prtd->qmc_dai->chans, 1);
++	struct qmc_dai_prtd *prtd = context;
  
- 	ret = of_mm_gpiochip_add_data(np, mm_gc, qe_gc);
- 	if (!ret)
+ 	if (length != prtd->ch_dma_size) {
+ 		dev_err(prtd->qmc_dai->dev, "read complete length = %zu, exp %zu\n",
+ 			length, prtd->ch_dma_size);
+ 	}
+ 
+-	/*
+-	 * All QMC channels involved must have completed their transfer before
+-	 * submitting a new one.
+-	 */
+-	if (!bitmap_empty(prtd->chans_pending, 64))
+-		return;
+-
+ 	prtd->buffer_ended += prtd->period_size;
+ 	if (prtd->buffer_ended >= prtd->buffer_size)
+ 		prtd->buffer_ended = 0;
+@@ -249,7 +216,6 @@ static int qmc_audio_pcm_trigger(struct snd_soc_component *component,
+ 
+ 	switch (cmd) {
+ 	case SNDRV_PCM_TRIGGER_START:
+-		bitmap_zero(prtd->chans_pending, 64);
+ 		prtd->buffer_ended = 0;
+ 		prtd->ch_dma_addr_current = prtd->ch_dma_addr_start;
+ 
 -- 
 2.49.0
 
