@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2597CCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E71CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wiTgx5FswFd9UU0aL3t0f1YHFTB6TqQdKLInT1tRewQ=; b=X8keKOSgF+VwgF
-	aUICTplJxz58ochqFBi+QyDFfxwhKvk5xGmes1HXSaE2lVXSfqw9ijQYRahyXvSBcLWkqHXXAb1AH
-	g1kcm3qRfPrSrmUVgrRybmgNb8GB/HUrmI2ZKlKV0ZIlkHTCTEw5EKD3Is6SEh7tMvp8vkxRXf0JA
-	wc4sWf6FyXd4kA4nSAvFetCpHA/djv7yVxLd98sOwHN9uMcQofzx4I6Br9UMNunzXkQERBb4VKBOj
-	Ypuzghefvj44JOwUSxcH6D1ODiNDvk8HTivtqA3L8xOAG+tv34qL624cM842lHGnYHDLcyak0YOr1
-	l5GwxK0MZN/6x1DoE/BQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VQvzMpdG/lpDTyZqOGMbFkyGK3P4E/gLIvxpQQf0iBg=; b=hv3hVBo8t0LDrss781J5Hp4xzx
+	P6C1sOxdKmAnxQD11oIUcIO5aN26iFBwbpz+1JkztI5sepWmNmXF+YQw2EkwUuCOZBUVBtGPOcNR3
+	rngkvjy5j0ugAKGDY2YnlGqE2QoAqERTGnQh66Zo2iBxhaz303HOmbR0Gistd27W11iLZWkJcZwH9
+	avb2EYKqN3T7/tXesTqWJ7Ciaua8x81jn9RijPbyuS7T2gFBR3xWPd9avKg7p57mjCZhMarfcZH/A
+	uhXMc27iLhXkHL66MAe71GlSqsh+JJeb9fMEZfMZxj2SYVFObV6AiK+l9BVCDw1OSWhho9CLrFLgy
+	t1eQw28g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvj2-0000000ByzA-1AYe;
-	Tue, 12 Aug 2025 20:36:04 +0000
+	id 1ulvlX-0000000BzC2-0Tb8;
+	Tue, 12 Aug 2025 20:38:39 +0000
 Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulu9J-0000000BkZf-1oTU
+	id 1ulu9K-0000000BkZy-17Ea
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:55:06 +0000
+	Tue, 12 Aug 2025 18:55:07 +0000
 Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id E6C60A0A91;
-	Tue, 12 Aug 2025 20:55:03 +0200 (CEST)
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id D056BA0BB5;
+	Tue, 12 Aug 2025 20:55:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=wiTgx5FswFd9UU0aL3t0f1YHFTB6TqQdKLInT1tRewQ=; b=
-	XS2iR68wZPkJIKeuFZCHlUoAwlNFb4zVBr1oD2ktQ5QTBmtY7lwavvnNoHR1w8ch
-	MDZV84lD44r6Z9TRITKBUl2GSWeSa949u38AkZ7KarW5dC8HQv9YHLYDjUhAsPFL
-	qAmZAAsv/CD58rOwQI+WOH+HaJAX8pbn30KwwNLrKYUBey2ir6GRGNMt8pu3XPJa
-	VVeKk1XU7pkPdv0AYjxS0Y5mOtHeZt0/+cC1hfkvvAXUizkQ4MPsYezPCGs6kCKk
-	He4/03UcLv03pECuYvl3TNSoVyDvVMfC4WTZvP7hmwsN/xf+oqb8yfJFduBTRAJf
-	LQTGugD1jzZfqIm/eZMIPTSVIuuF2pBhinGzzlyCOwrzI+6OmI1hI+QvyMkPi7gw
-	EiftcHtpeZYxeWgrdrMI2MYOguc+Lo9EFdtueCwbLEuG/Xw9iSy2RYnh8FUUo2Oi
-	E09NuZfgegaMxibyI22tPyCx4yNRjGkmQJUMWV70sFrSPvw3U08dt2Ep4fBeEyG5
-	aKEyz7iz7wQkznGwiRSTFUc5/ZyJVp3yYA7uY1+CQFn8kSJ/Imdg9Pzz9GlEb0Ci
-	H1S2sADyhII8VPggSkixjvyKBxRb0ust9+L5iCkAzj/8oMTYv8AUbh5oixofTlt+
-	yH/W9KVNFuthA6fWYR5Oj6UCsvGepADT4HIR8XUoGj0=
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=VQvzMpdG/lpDTyZqOGMb
+	FkyGK3P4E/gLIvxpQQf0iBg=; b=dyvn+s7MbM0E93Kh+8Dd9hGfbVtIn68AHHA+
+	Lwl0vGRI/Ud5UQS+gM8S5p0PQ4HOarMaafnJioqPfLzPAeLV3pGzJVQOrHLshQ60
+	u75I2HleiKI/hJPiA+4q5SleaDekEtBmju3SgcL4FcZVael4i1vCpIbxoSXE6zgN
+	W/0BoV6+PMaC7G5GyQL1ZLLrX/59Z6Xu54UypCVrAqHLLlxY1FXqwTxIvAPKTFGT
+	Ora1BirVP0vbpTOZt5lLGQTvvAdozso/FxB78E5h4FzVqmMkAhqwFLQjYF2WxP9O
+	EyFtLDMuyAFLJt4/slnaeoq86VJxKWJnwObKhmwodjJeOARf2QBUEU/dDoFK8yuw
+	dR38A2wf+dv5eokKYTg3evAjFaschTt5PATONZIXMB8/OT6RmLyenebMYhgDxUuD
+	QsT1K93VBnJNqfVQEc5k0RkT1ycASLVBTkRxzIT+PFxtUFvsYpx4o/WGiQIMaT01
+	glh67zHbzZLbBrD5jguH39ZJAsVFkNdybnINxX+6ZVksLeW0lL+pPAo1iz6N9QWN
+	lPXK8mkQHY1o4043Slupz/jjmrRnTaZ4dII4+FgQrlpqsVVVKEJV+NW/j2uO5alo
+	3JivW7k2dKtVs80JctVI9vFcCeFNBeGNbwNXXaoa+RrqBVnnxM1D1zB2/py5ugVA
+	FwFEFxg=
 From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Subject: [PATCH v3 0/2] Replace verbatim license text with a
- `SPDX-License-Identifier`.
-Date: Tue, 12 Aug 2025 20:54:42 +0200
-Message-ID: <20250812-clab-dts-lic-v3-0-bf7aa5462766@prolan.hu>
+Date: Tue, 12 Aug 2025 20:54:43 +0200
+Subject: [PATCH v3 1/2] ARM: dts: imx6-compulab: Replace license text
+ comment with SPDX identifier
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAPONm2gC/3WNwQ6CMBAFf4X07Jq2KAVP/ofxsG23tgkW0iLRE
- P5d4ERMPE7y5s3EMqVAmV2KiSUaQw5dXKA8FMx4jA+CYBdmksszV7wE06IGO2Rog4GmVE44Vxl
- CzRalT+TCe7u73RfWmAl0wmj8evLEPFBahz7koUufLTuKdf6nMAoQoKraOK1qQxavfepajEf/Y
- mthlHu5+ZElcEASJ+LOcu3KvTzP8xenHIN//gAAAA==
-X-Change-ID: 20250703-clab-dts-lic-937f1ff6ceab
+Message-ID: <20250812-clab-dts-lic-v3-1-bf7aa5462766@prolan.hu>
+References: <20250812-clab-dts-lic-v3-0-bf7aa5462766@prolan.hu>
+In-Reply-To: <20250812-clab-dts-lic-v3-0-bf7aa5462766@prolan.hu>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
  Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
@@ -66,17 +64,15 @@ CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Igor Grinberg
 	<grinberg@compulab.co.il>, Ilya Ledvich <ilya@compulab.co.il>, "Valentin
- Raevsky" <valentin@compulab.co.il>, Christopher Spinrath
-	<christopher.spinrath@rwth-aachen.de>
+ Raevsky" <valentin@compulab.co.il>
 X-Mailer: b4 0.14.2
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755024903;VERSION=7995;MC=1796943816;ID=1014991;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755024903;VERSION=7995;MC=2213591864;ID=1014993;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
 X-ESET-Antispam: OK
 X-EsetResult: clean, is OK
 X-EsetId: 37303A2998FD515E617465
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_115505_623208_CBDCF37B 
-X-CRM114-Status: UNSURE (   5.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250812_115506_461445_EB13CEA9 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +87,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix up Device Tree files by replacing the license text in comment blocks
-by a `SPDX-License-Identifier`.
+Replace verbatim license text with a `SPDX-License-Identifier`.
 
+For imx6q-cm-fx6.dts:
+
+The comment header mis-attributes this license to be "X11", but the
+license text does not include the last line "Except as contained in this
+notice, the name of the X Consortium shall not be used in advertising or
+otherwise to promote the sale, use or other dealings in this Software
+without prior written authorization from the X Consortium.". Therefore,
+this license is actually equivalent to the SPDX "MIT" license (confirmed
+by text diffing).
+
+For the rest:
+
+The header is cut short, there's no mention of either the GPL version,
+nor what is meant by the "X11" license. That would mean a SPDX of:
+
+  (GPL-1.0-or-later OR X11)
+
+However, since the header seems to be a truncated version of cm-fx6's,
+I'll *assume* that they meant to use the same license, but CompuLab will
+have to confirm or deny this.
+
+Cc: Igor Grinberg <grinberg@compulab.co.il>
+Cc: Ilya Ledvich <ilya@compulab.co.il>
+Cc: Valentin Raevsky <valentin@compulab.co.il>
 Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
 ---
-Changes in v3:
-- Fix one missing SPDX line
-- Link to v2: https://lore.kernel.org/r/20250709-clab-dts-lic-v2-0-ae14e0fd0bf3@prolan.hu
-
-Changes in v2:
-- Also patch imx6q-utilite-pro.dts (in separate commit)
-- Link to v1: https://lore.kernel.org/r/20250703-clab-dts-lic-v1-1-768cfb78ceda@prolan.hu
-
----
-Bence Csókás (2):
-      ARM: dts: imx6-compulab: Replace license text comment with SPDX identifier
-      ARM: dts: imx6-utilite: Replace license text comment with SPDX identifier
-
- arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts      | 38 +-----------------------
- arch/arm/boot/dts/nxp/imx/imx6q-utilite-pro.dts | 39 +------------------------
+ arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts      | 38 +------------------------
  arch/arm/boot/dts/nxp/imx/imx7d-cl-som-imx7.dts |  6 +---
  arch/arm/boot/dts/nxp/imx/imx7d-sbc-imx7.dts    |  6 +---
- 4 files changed, 4 insertions(+), 85 deletions(-)
----
-base-commit: 66701750d5565c574af42bef0b789ce0203e3071
-change-id: 20250703-clab-dts-lic-937f1ff6ceab
+ 3 files changed, 3 insertions(+), 47 deletions(-)
 
-Best regards,
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts b/arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts
+index 299106fbe51c4ac1e9e0a70a4ec12e16b8110497..e1161a750d603ff2f9083def003a96ce97dc4222 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-cm-fx6.dts
+@@ -1,44 +1,8 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Copyright 2013 CompuLab Ltd.
+  *
+  * Author: Valentin Raevsky <valentin@compulab.co.il>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+- *
+- *  a) This file is free software; you can redistribute it and/or
+- *     modify it under the terms of the GNU General Public License
+- *     version 2 as published by the Free Software Foundation.
+- *
+- *     This file is distributed in the hope that it will be useful,
+- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *     GNU General Public License for more details.
+- *
+- * Or, alternatively,
+- *
+- *  b) Permission is hereby granted, free of charge, to any person
+- *     obtaining a copy of this software and associated documentation
+- *     files (the "Software"), to deal in the Software without
+- *     restriction, including without limitation the rights to use,
+- *     copy, modify, merge, publish, distribute, sublicense, and/or
+- *     sell copies of the Software, and to permit persons to whom the
+- *     Software is furnished to do so, subject to the following
+- *     conditions:
+- *
+- *     The above copyright notice and this permission notice shall be
+- *     included in all copies or substantial portions of the Software.
+- *
+- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+- *     OTHER DEALINGS IN THE SOFTWARE.
+  */
+ 
+ /dts-v1/;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-cl-som-imx7.dts b/arch/arm/boot/dts/nxp/imx/imx7d-cl-som-imx7.dts
+index 713483c39c9d0e893a1ebb2eeb3091120471a623..a0e73e71ec5d1986f9174fc65d48a02cc49364e9 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7d-cl-som-imx7.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx7d-cl-som-imx7.dts
+@@ -1,13 +1,9 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Support for CompuLab CL-SOM-iMX7 System-on-Module
+  *
+  * Copyright (C) 2015 CompuLab Ltd. - http://www.compulab.co.il/
+  * Author: Ilya Ledvich <ilya@compulab.co.il>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+  */
+ 
+ /dts-v1/;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-sbc-imx7.dts b/arch/arm/boot/dts/nxp/imx/imx7d-sbc-imx7.dts
+index f8a868552707124b3e1a86d074c62718927c3805..cc231dafa92e0999b94aab3db96cf99ce071a2c2 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7d-sbc-imx7.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx7d-sbc-imx7.dts
+@@ -1,13 +1,9 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+ /*
+  * Support for CompuLab SBC-iMX7 Single Board Computer
+  *
+  * Copyright (C) 2015 CompuLab Ltd. - http://www.compulab.co.il/
+  * Author: Ilya Ledvich <ilya@compulab.co.il>
+- *
+- * This file is dual-licensed: you can use it either under the terms
+- * of the GPL or the X11 license, at your option. Note that this dual
+- * licensing only applies to this file, and not this project as a
+- * whole.
+  */
+ 
+ #include "imx7d-cl-som-imx7.dts"
+
 -- 
-Bence Csókás <csokas.bence@prolan.hu>
+2.43.0
 
 
 
