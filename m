@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44B0CA0EDA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0543AC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tim9zJqoan0tIu3OtmzB8FNQkJ8QRkYdTZJDAm99bA0=; b=VOvC4+WY6PRU05saCzgccxbgd8
-	0G1l5mpCHgRccE1BDQa8x1silFoNQdDKnwB6qRcIRVnOI4tR1m9xZp8F2LPAYWqzT56fuocT2Ighp
-	aCpjYLgTHd69s/0t19iwQhKR+DdcrCt7UQ//xULmoXYKy/0yBDYMa5ovmnN+tn3OM6A+N+ED4o1jY
-	kUBrJt4jQe1keFrORUm1RJwoLQooVu5/4+XDQiEy2RaSibvd6+boqmw4f7x8+pey1YHGH66PKJTpJ
-	7sVqt1N+mJcc3WXIiUHuX7z3q+DNUNlGhg+sgm8Cv0ZYGjg3bEZdZPu+UI5bSosigmgV2I+HNvuVj
-	IJluqirg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u/GlA9c7JgMPGjQHtJLx36RU8AROSBuEm27xFuxdPGc=; b=gatxQyxcPixxhx0hYDL3YnLDo0
+	Rh2s7pfkBXK8CPpZId/6BUenTGL53vtbW1abdSMY0SkQES58zO+dSq2Se7SxbJ+IhDK3a6HikfSty
+	S1ez703BxSkR45ZHb5VfSolL7vzAEwTYicEdlwQO53deEKnkJIjpB3lAQZfZCiZ3aVzVLQKyhRseS
+	PRwLPXv4Dpv28ldmTWZ7RYtM1bMshZJMVkpw+9Sw8Og0l2HP5OSni+GbmpfZkx90R8KfqyYcZTwMX
+	Qim+D2HpWmpYYoWRj//qTokfPI2uZh8n86RDTs5Q5XIzqZPplkkdFQN6LtSSngJi/KHmdIUIqkWNx
+	udGlVK3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloFj-0000000AjJH-0HyQ;
-	Tue, 12 Aug 2025 12:37:19 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1uloFr-0000000AjTn-33d5;
+	Tue, 12 Aug 2025 12:37:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkOn-0000000AFCj-30Qc
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:30:27 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4c1Pnx1429z9tBL;
-	Tue, 12 Aug 2025 10:30:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1754987413;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=tim9zJqoan0tIu3OtmzB8FNQkJ8QRkYdTZJDAm99bA0=;
-	b=b7uc+SQ2Ka+8MC4fMt0XYXLuZRclyEHTcpeb8TCmMiRbUd6FDysUiG+hRn31oAWWm2XUUa
-	+5II3Z3bKYaeHIesSUicqOaBdm/LvgIa1z4OkSFulWG3DJddLixUSXHUuxIaHxz4OjK/GH
-	YYbxQIEnv9/DZFzoDalgBCGRV//mbQl98QWCsjCYjsBt/RiMh2EvKcNsHWUjUFhWZ0dmXT
-	6XdHF8usQ0eT8YXu8wcbjn4vuaorUw5S0eQ/qoPD2KkgqTi6FZowtqskcVfRdCvagxgycW
-	sSvWkVJFm/s72PJk8aopJQ0d63Qampf4mto2w57WCx08OjPZrgFEistK/8ptWA==
-From: Lukasz Majewski <lukasz.majewski@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1754987407;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=tim9zJqoan0tIu3OtmzB8FNQkJ8QRkYdTZJDAm99bA0=;
-	b=YLNtE3M1jr6tXQT/j2NcOGu8yRK9EUNmvJkh7N9xq6hRv/iaZSAvs8ZzynH2a7RYWSpvdL
-	8ssnstR4Ir4SOWiAWhjUTllbQVK2yB7vRXZIjM1pvUp/uxTcy2Er+DBG6903s5U0k4LyCl
-	tdTQcS1Q7L6Q8K3Mq4upxsaC05uV6HdhLHV0WoRoh3J3IFz7Tq1XDBAYyPZ+dSUk2l4hns
-	5/5PBgIc/7mSQutD9qoJsZY1+bmfS7gpZgKQtwqrMU8DJXDJlzVGCqX4Pxer9QMET4JTsK
-	nyDbZlQsVug9WS23gCuoF6K4l1RPEUqBijSAfuA8asxKFwSMXnN4F1+cmyHxHw==
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
+	id 1ulkQi-0000000AFXs-1Ibr;
+	Tue, 12 Aug 2025 08:32:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=u/GlA9c7JgMPGjQHtJLx36RU8AROSBuEm27xFuxdPGc=; b=ZUFI4UbwukBnQD7k4OWO4J0FIE
+	/raIVD61SLVJKasvghVF86zTGeNQCVjNhlyNTiv/9Jqbba62vQGQE32XWahOtf8qaRPU4aJT/gGGf
+	5+d432p3iRPyNszwjTpKDYcClRKtINJFZbNI1cTd8qxWaIzNBH8WPUE0jytseXSUl2nGxlwHbrjlt
+	p4IsnIc+eu3t5Y34UAFkaRYrwMUx9A1XolOw0LEhT1KUyeTj/oddTMLPdkEQJJQNovU7RQa+3DLMB
+	HMVmSvarD8DqF8Vk+eeHoJuMrYjD3aqKhTooqSN/iCzf1bkNAT1zdeXxo7hog0zUOIr2WW/fofzUv
+	8g+JyznA==;
+Received: from [194.95.143.137] (helo=phil.dip.tu-dresden.de)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1ulkQe-0001tw-TI; Tue, 12 Aug 2025 10:32:20 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quentin.schulz@cherry.de,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukasz.majewski@mailbox.org>
-Subject: [net-next RESEND v17 00/12] net: mtip: Add support for MTIP imx287 L2 switch driver
-Date: Tue, 12 Aug 2025 10:29:27 +0200
-Message-Id: <20250812082939.541733-1-lukasz.majewski@mailbox.org>
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	damon.ding@rock-chips.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v3 1/2] dt-bindings: arm: rockchip: add RK3588 DP carrier from Theobroma Systems
+Date: Tue, 12 Aug 2025 10:32:16 +0200
+Message-ID: <20250812083217.1064185-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250812083217.1064185-1-heiko@sntech.de>
+References: <20250812083217.1064185-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: de84e7807fef554053a
-X-MBO-RS-META: doyiq3bhgxpcouwn67ftdjd79ksdcesc
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_013025_938530_61B6A9BA 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20250812_013224_367271_27F60F7E 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,127 +77,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for More Than IP's L2 switch driver embedded
-in some NXP's SoCs. This one has been tested on imx287, but is also available
-in the vf610.
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-In the past there has been performed some attempts to upstream this driver:
+The DisplayPort carrier is a very simple baseboard only providing serial,
+ethernet and a displayport output.
 
-1. The 4.19-cip based one [1]
-2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
-   with NO tag appended.
-3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
-   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
-   the driver uses already configured MAC and PHY to also configure PHY.
+But its main functionality is that it routes the Analogix eDP controller
+to this DisplayPort output, which allows to test that controller simply
+by hooking it up to a suitable monitor.
 
-All three approaches were not accepted as eligible for upstreaming.
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-The driver from this series has floowing features:
-
-1. It is fully separated from fec_main - i.e. can be used interchangeable
-   with it. To be more specific - one can build them as modules and
-   if required switch between them when e.g. bridge offloading is required.
-
-   To be more specific:
-        - Use FEC_MAIN: When one needs support for two ETH ports with separate
-          uDMAs used for both and bridging can be realized in SW.
-
-        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
-          attached to switch and bridging shall be offloaded to HW. 
-
-2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
-   separation at boot time. Port separation is disabled when bridging is
-   required.
-
-3. Example usage:
-        Configuration:
-        ip link set lan0 up; sleep 1;
-        ip link set lan1 up; sleep 1;
-        ip link add name br0 type bridge;
-        ip link set br0 up; sleep 1;
-        ip link set lan0 master br0;
-        ip link set lan1 master br0;
-        bridge link;
-        ip addr add 192.168.2.17/24 dev br0;
-        ping -c 5 192.168.2.222
-
-        Removal:
-        ip link set br0 down;
-        ip link delete br0 type bridge;
-        ip link set dev lan1 down
-        ip link set dev lan0 down
-
-4. Limitations:
-        - Driver enables and disables switch operation with learning and ageing.
-        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
-          on purpose, as up till now we didn't had consensus about how the driver
-          shall be added to Linux.
-
-5. Clang build:
-	make LLVM_SUFFIX=-19 LLVM=1 mrproper
-	cp ./arch/arm/configs/mxs_defconfig .config
-	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
-	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
-
-        make LLVM_SUFFIX=-19 LLVM=1 mrproper
-        make LLVM_SUFFIX=-19 LLVM=1 allmodconfig
-        make LLVM_SUFFIX=-19 LLVM=1 W=1 drivers/net/ethernet/freescale/mtipsw/ | tee llvm_build.log
-        make LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 | tee llvm_build.log
-
-6. Kernel compliance checks:
-	make coccicheck MODE=report J=4 M=drivers/net/ethernet/freescale/mtipsw/
-	~/work/src/smatch/smatch_scripts/kchecker drivers/net/ethernet/freescale/mtipsw/
-
-7. GCC
-        make mrproper
-        make allmodconfig
-        make W=1 drivers/net/ethernet/freescale/mtipsw/
-
-Links:
-[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
-[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
-[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
-
-
-Lukasz Majewski (12):
-  dt-bindings: net: Add MTIP L2 switch description
-  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
-  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
-  net: mtip: The L2 switch driver for imx287
-  net: mtip: Add buffers management functions to the L2 switch driver
-  net: mtip: Add net_device_ops functions to the L2 switch driver
-  net: mtip: Add mtip_switch_{rx|tx} functions to the L2 switch driver
-  net: mtip: Extend the L2 switch driver with management operations
-  net: mtip: Extend the L2 switch driver for imx287 with bridge
-    operations
-  ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
-  ARM: mxs_defconfig: Update mxs_defconfig to 6.16-rc5
-  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
-    switch
-
- .../bindings/net/nxp,imx28-mtip-switch.yaml   |  150 ++
- MAINTAINERS                                   |    7 +
- arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   56 +
- arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    9 +-
- arch/arm/configs/mxs_defconfig                |   13 +-
- drivers/net/ethernet/freescale/Kconfig        |    1 +
- drivers/net/ethernet/freescale/Makefile       |    1 +
- drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
- .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
- .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1962 +++++++++++++++++
- .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  651 ++++++
- .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  132 ++
- .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  443 ++++
- 13 files changed, 3431 insertions(+), 11 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
- create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
-
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 28db6bd6aa5b..4a64434ad6ea 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -1192,9 +1192,11 @@ properties:
+           - const: tsd,rk3588-jaguar
+           - const: rockchip,rk3588
+ 
+-      - description: Theobroma Systems RK3588-Q7 with Haikou baseboard
++      - description: Theobroma Systems RK3588-Q7 with baseboards
+         items:
+-          - const: tsd,rk3588-tiger-haikou
++          - enum:
++              - tsd,rk3588-tiger-displayport-carrier
++              - tsd,rk3588-tiger-haikou
+           - const: tsd,rk3588-tiger
+           - const: rockchip,rk3588
+ 
 -- 
-2.39.5
+2.47.2
 
 
