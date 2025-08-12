@@ -4,48 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB39CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E1DC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utxPipQPD8YOvvFdv1qwP03Dz9s+V1JVaXFza6aJexM=; b=bLCZMN9YF65w6HTbK+7IpSVpym
-	a1S915ikn2ZZoRJGHTHjNDOwPdeHnGonbKeAb/naQE5fhu3roherZqyfztp259Qr66tYOdH3Buxfv
-	tCOxV0TAfbi9oqz606Yi91BUWXgsTo9+HC1i239W7xzQgKBLpu7P753+vA7So+uk6GS+UX4FkiDAN
-	M3VE0+rGT+TpQq+izftA7yPjsy9DF6cxfz0BcsIkUs5Tz4mcIe/t22MVAG/LnXl4i0ES41Olv8k+A
-	eS8C6y+Tl6r4Vn1qgol/DEmWDERRovBylbf14MOFBeVpyFaQ5zHMs3deLAy/kHTM124sQJ7UNp0S2
-	h3V9drMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Vogq0glwCCfOjxaKkI+GHTdnKva9YonxR37S/lD4xA=; b=o5nZS9r3AryZh2l8Q41LDAE5H/
+	83HsXcYcRxWJ5na0f92YFNk+7NDxyw65MODjxnGbnwrMid44AP9RerlafdoJ18CewXOhV1uwhp5Vx
+	/4XbnYa2Ti5BcVkK3sNUtcbavjeXHPHm/SNS48LWt+HKeDZQVxG/MlIkUpyFhGaDcGBEljgF8hq7r
+	kstJDkoabCnst3EztDkHOtnTpt/GkwE4gHGLbXRwtQyddOyjxM2otsVYr3rggG4SRDzhQSV+SSeeZ
+	ZLlIcNFndKaOe4gNWw5sGpXTpNIn/QGVUEXFAtjr5rldCla+TIJgJOGWmdMCQBAdVtW+TSfLXUb+D
+	RVQOfXWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrjt-0000000BKEL-3Lwu;
-	Tue, 12 Aug 2025 16:20:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1ulrjx-0000000BKKL-15Z4;
+	Tue, 12 Aug 2025 16:20:45 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uln2X-0000000Ab1Q-1qWi
+	id 1uln3U-0000000Ab70-1BVd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:19:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91CE425E1;
-	Tue, 12 Aug 2025 04:19:28 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB39D3F63F;
-	Tue, 12 Aug 2025 04:19:32 -0700 (PDT)
-Date: Tue, 12 Aug 2025 12:19:30 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Subject: Re: [PATCH -next v7 0/7] arm64: entry: Convert to generic irq entry
-Message-ID: <aJsjQsDZjhG8oiK-@J2N7QTR9R3>
-References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
+	Tue, 12 Aug 2025 11:20:38 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4c1Swb2MHyz9sSN;
+	Tue, 12 Aug 2025 12:51:11 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id kerTTt7NRZVH; Tue, 12 Aug 2025 12:51:11 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1SwZ5d91z9sSK;
+	Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id AA7BA8B764;
+	Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id ClAnCfTxCmbT; Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
+Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 03CA08B763;
+	Tue, 12 Aug 2025 12:51:09 +0200 (CEST)
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Herve Codina <herve.codina@bootlin.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v2 2/4] ASoc: fsl: fsl_qmc_audio: Ensure audio channels are ordered in TDM bus
+Date: Tue, 12 Aug 2025 12:50:56 +0200
+Message-ID: <8d01cf4599664188c92a515922d68c9834263384.1754993232.git.christophe.leroy@csgroup.eu>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <cover.1754993232.git.christophe.leroy@csgroup.eu>
+References: <cover.1754993232.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250729015456.3411143-1-ruanjinjie@huawei.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754995860; l=2232; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=XfURbicrtINn/6zsJVAuuKOWunGZaLPhKuyOsIyIZX0=; b=YBxguf9SJ+Iqmj02qL4fBifNH7KDTCcS7hy6Imu81/zBTIa3kKCjuwcO9Knmd63YnJxJKvq/X Q/IvZFe9FcrCZqrymZp7kNatPLd0/qa1D0OzNY8vUMKpguQFswGlVuH
+X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_041937_562632_3CE71687 
-X-CRM114-Status: GOOD (  33.65  )
+X-CRM114-CacheID: sfid-20250812_042036_492230_6448105A 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,162 +87,76 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: sstabellini@kernel.org, puranjay@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, liaochang1@huawei.com, oleg@redhat.com, kristina.martsenko@arm.com, linux-kernel@vger.kernel.org, broonie@kernel.org, chenl311@chinatelecom.cn, xen-devel@lists.xenproject.org, leitao@debian.org, ryan.roberts@arm.com, akpm@linux-foundation.org, mbenes@suse.cz, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+To reduce complexity of interrupt handling in following patch, ensure
+audio channels are configured in the same order as timeslots on the
+TDM bus. If we need a given ordering of audio sources in the audio
+frame, it is possible to re-order codecs on the TDM bus, no need to
+mix up timeslots in channels.
 
-This is looking pretty good now, thanks for continuing to work on this!
+Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+---
+v2: New
+---
+ sound/soc/fsl/fsl_qmc_audio.c | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-I've left a couple of minor comments, and Ada has left a few more. If
-you're able to address those and respin atop v6.17-rc1, I think we can
-start figuring out how to queue this.
+diff --git a/sound/soc/fsl/fsl_qmc_audio.c b/sound/soc/fsl/fsl_qmc_audio.c
+index 5614a8b909edf..0be29ccc1ff7b 100644
+--- a/sound/soc/fsl/fsl_qmc_audio.c
++++ b/sound/soc/fsl/fsl_qmc_audio.c
+@@ -791,12 +791,17 @@ static int qmc_audio_dai_parse(struct qmc_audio *qmc_audio, struct device_node *
+ 			       struct qmc_dai *qmc_dai,
+ 			       struct snd_soc_dai_driver *qmc_soc_dai_driver)
+ {
++	struct qmc_chan_ts_info ts_info;
+ 	struct qmc_chan_info info;
+ 	unsigned long rx_fs_rate;
+ 	unsigned long tx_fs_rate;
++	int prev_last_rx_ts = 0;
++	int prev_last_tx_ts = 0;
+ 	unsigned int nb_tx_ts;
+ 	unsigned int nb_rx_ts;
+ 	unsigned int i;
++	int last_rx_ts;
++	int last_tx_ts;
+ 	int count;
+ 	u32 val;
+ 	int ret;
+@@ -879,6 +884,30 @@ static int qmc_audio_dai_parse(struct qmc_audio *qmc_audio, struct device_node *
+ 				return -EINVAL;
+ 			}
+ 		}
++
++		ret = qmc_chan_get_ts_info(qmc_dai->qmc_chans[i], &ts_info);
++		if (ret) {
++			dev_err(qmc_audio->dev, "dai %d get QMC %d channel TS info failed %d\n",
++				qmc_dai->id, i, ret);
++			return ret;
++		}
++
++		last_rx_ts = fls64(ts_info.rx_ts_mask);
++		last_tx_ts = fls64(ts_info.rx_ts_mask);
++
++		if (prev_last_rx_ts > last_rx_ts) {
++			dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (RX timeslot %lu before %lu)\n",
++				qmc_dai->id, i, prev_last_rx_ts, last_rx_ts);
++			return -EINVAL;
++		}
++		if (prev_last_tx_ts > last_tx_ts) {
++			dev_err(qmc_audio->dev, "dai %d QMC chan %d unordered channels (TX timeslot %lu before %lu)\n",
++				qmc_dai->id, i, prev_last_tx_ts, last_tx_ts);
++			return -EINVAL;
++		}
++
++		prev_last_rx_ts = last_rx_ts;
++		prev_last_tx_ts = last_tx_ts;
+ 	}
+ 
+ 	qmc_dai->nb_chans_avail = count;
+-- 
+2.49.0
 
-Mark.
-
-On Tue, Jul 29, 2025 at 09:54:49AM +0800, Jinjie Ruan wrote:
-> Currently, x86, Riscv, Loongarch use the generic entry. Also convert
-> arm64 to use the generic entry infrastructure from kernel/entry/*.
-> The generic entry makes maintainers' work easier and codes more elegant,
-> which will make PREEMPT_DYNAMIC and PREEMPT_LAZY use the generic entry
-> common code and remove a lot of duplicate code.
-> 
-> Since commit a70e9f647f50 ("entry: Split generic entry into generic
-> exception and syscall entry") split the generic entry into generic irq
-> entry and generic syscall entry, it is time to convert arm64 to use
-> the generic irq entry. And ARM64 will be completely converted to generic
-> entry in the upcoming patch series.
-> 
-> The main convert steps are as follows:
-> - Split generic entry into generic irq entry and generic syscall to
->   make the single patch more concentrated in switching to one thing.
-> - Make arm64 easier to use irqentry_enter/exit().
-> - Make arm64 closer to the PREEMPT_DYNAMIC code of generic entry.
-> - Switch to generic irq entry.
-> 
-> It was tested ok with following test cases on QEMU virt platform:
->  - Perf tests.
->  - Different `dynamic preempt` mode switch.
->  - Pseudo NMI tests.
->  - Stress-ng CPU stress test.
->  - MTE test case in Documentation/arch/arm64/memory-tagging-extension.rst
->    and all test cases in tools/testing/selftests/arm64/mte/*.
-> 
-> The test QEMU configuration is as follows:
-> 
-> 	qemu-system-aarch64 \
-> 		-M virt,gic-version=3,virtualization=on,mte=on \
-> 		-cpu max,pauth-impdef=on \
-> 		-kernel Image \
-> 		-smp 8,sockets=1,cores=4,threads=2 \
-> 		-m 512m \
-> 		-nographic \
-> 		-no-reboot \
-> 		-device virtio-rng-pci \
-> 		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
-> 			earlycon preempt=voluntary irqchip.gicv3_pseudo_nmi=1" \
-> 		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
-> 		-device virtio-blk-device,drive=hd0 \
-> 
-> Changes in v7:
-> - Rebased on v6.16-rc7 and remove the merged first patch.
-> - Update the commit message.
-> 
-> Changes in v6:
-> - Rebased on 6.14 rc2 next.
-> - Put the syscall bits aside and split it out.
-> - Have the split patch before the arm64 changes.
-> - Merge some tightly coupled patches.
-> - Adjust the order of some patches to make them more reasonable.
-> - Define regs_irqs_disabled() by inline function.
-> - Define interrupts_enabled() in terms of regs_irqs_disabled().
-> - Delete the fast_interrupts_enabled() macro.
-> - irqentry_state_t -> arm64_irqentry_state_t.
-> - Remove arch_exit_to_user_mode_prepare() and pull local_daif_mask() later
->   in the arm64 exit sequence
-> - Update the commit message.
-> 
-> Changes in v5:
-> - Not change arm32 and keep inerrupts_enabled() macro for gicv3 driver.
-> - Move irqentry_state definition into arch/arm64/kernel/entry-common.c.
-> - Avoid removing the __enter_from_*() and __exit_to_*() wrappers.
-> - Update "irqentry_state_t ret/irq_state" to "state"
->   to keep it consistently.
-> - Use generic irq entry header for PREEMPT_DYNAMIC after split
->   the generic entry.
-> - Also refactor the ARM64 syscall code.
-> - Introduce arch_ptrace_report_syscall_entry/exit(), instead of
->   arch_pre/post_report_syscall_entry/exit() to simplify code.
-> - Make the syscall patches clear separation.
-> - Update the commit message.
-> 
-> Changes in v4:
-> - Rework/cleanup split into a few patches as Mark suggested.
-> - Replace interrupts_enabled() macro with regs_irqs_disabled(), instead
->   of left it here.
-> - Remove rcu and lockdep state in pt_regs by using temporary
->   irqentry_state_t as Mark suggested.
-> - Remove some unnecessary intermediate functions to make it clear.
-> - Rework preempt irq and PREEMPT_DYNAMIC code
->   to make the switch more clear.
-> - arch_prepare_*_entry/exit() -> arch_pre_*_entry/exit().
-> - Expand the arch functions comment.
-> - Make arch functions closer to its caller.
-> - Declare saved_reg in for block.
-> - Remove arch_exit_to_kernel_mode_prepare(), arch_enter_from_kernel_mode().
-> - Adjust "Add few arch functions to use generic entry" patch to be
->   the penultimate.
-> - Update the commit message.
-> - Add suggested-by.
-> 
-> Changes in v3:
-> - Test the MTE test cases.
-> - Handle forget_syscall() in arch_post_report_syscall_entry()
-> - Make the arch funcs not use __weak as Thomas suggested, so move
->   the arch funcs to entry-common.h, and make arch_forget_syscall() folded
->   in arch_post_report_syscall_entry() as suggested.
-> - Move report_single_step() to thread_info.h for arm64
-> - Change __always_inline() to inline, add inline for the other arch funcs.
-> - Remove unused signal.h for entry-common.h.
-> - Add Suggested-by.
-> - Update the commit message.
-> 
-> Changes in v2:
-> - Add tested-by.
-> - Fix a bug that not call arch_post_report_syscall_entry() in
->   syscall_trace_enter() if ptrace_report_syscall_entry() return not zero.
-> - Refactor report_syscall().
-> - Add comment for arch_prepare_report_syscall_exit().
-> - Adjust entry-common.h header file inclusion to alphabetical order.
-> - Update the commit message.
-> 
-> Jinjie Ruan (7):
->   arm64: ptrace: Replace interrupts_enabled() with regs_irqs_disabled()
->   arm64: entry: Refactor the entry and exit for exceptions from EL1
->   arm64: entry: Rework arm64_preempt_schedule_irq()
->   arm64: entry: Use preempt_count() and need_resched() helper
->   arm64: entry: Refactor preempt_schedule_irq() check code
->   arm64: entry: Move arm64_preempt_schedule_irq() into
->     __exit_to_kernel_mode()
->   arm64: entry: Switch to generic IRQ entry
-> 
->  arch/arm64/Kconfig                    |   1 +
->  arch/arm64/include/asm/daifflags.h    |   2 +-
->  arch/arm64/include/asm/entry-common.h |  56 ++++
->  arch/arm64/include/asm/preempt.h      |   2 -
->  arch/arm64/include/asm/ptrace.h       |  13 +-
->  arch/arm64/include/asm/xen/events.h   |   2 +-
->  arch/arm64/kernel/acpi.c              |   2 +-
->  arch/arm64/kernel/debug-monitors.c    |   2 +-
->  arch/arm64/kernel/entry-common.c      | 411 +++++++++-----------------
->  arch/arm64/kernel/sdei.c              |   2 +-
->  arch/arm64/kernel/signal.c            |   3 +-
->  kernel/entry/common.c                 |  16 +-
->  12 files changed, 217 insertions(+), 295 deletions(-)
->  create mode 100644 arch/arm64/include/asm/entry-common.h
-> 
-> -- 
-> 2.34.1
-> 
 
