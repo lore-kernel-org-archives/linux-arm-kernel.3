@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4DDCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEFB2CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptw9LWjwcshgBavY2yDU/Ee+H+KyvQTD0coZYZFxVfw=; b=X7kmzkGBtxnk2KTB+x2yJ9usp2
-	af+kAq8zeXD/6TUeE39Ww4BlsAsXvJJe2mWXyEXMBEhc3z5GdSlVUcw+MJdj9jtCrzh4X2BnO0WZF
-	yfIPc+H3Ch6QwD4roImU3bh+dA/QzcQbGZsyQQ6dsUBABqAY5els8AXIILrXl8Fk3OiAMk/5XevpD
-	a+KfGFtIHkCBxo8+TjTeHOvAf5VMDgSAb8NW0h69lyRvskCNz7gjUK/Atx/6zyTd4kq4YGOcvkH6J
-	OVVusebh5rFHyxkHZdAj++caiOwkccs7cIVokIOgRjSmKS6aOjWhNKD08wOa3lSi8x49vzzD98RRx
-	z4PxJYEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TTUcrdifStXL6GATjqBCYRd4F/ZA+bb/RY/o5VKd3ZQ=; b=nVcavYHubCRn+/47eO9ad4Fo/4
+	Pd0gUB11Fm/yTqQPQUL2diS8Yh6uFKCRzNfnO2sQwpeFuqQIp+ZuUAGlGfYDpjMwCtnK1grrzOYzD
+	vCi2ady8tgPaoD8H4nVa28AfPblxRrusF4B4yiHzY490Hv31mLKPWcoFOkZl1GR9Zp8/ihldFFYDG
+	TFJ4vxy4XWmfopUN0hlb76bDGhQzZgU0RNXPCJruuExfSlpD0t1AvN1GF6BObtIP2uyyyW8K5tERb
+	06bbXB+9HBsxipDnynO95xPkExbLaXOrAG2xX0lWpIwWOAoI2OgBALMiZizXVSbQHzKRcCaQxBBgQ
+	4/XEYJcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwPa-0000000C2lX-1ok6;
-	Tue, 12 Aug 2025 21:20:02 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1ulwPY-0000000C2j7-37zx;
+	Tue, 12 Aug 2025 21:20:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwH8-0000000C1b2-0Xof;
-	Tue, 12 Aug 2025 21:11:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1755033076;
-	bh=ptw9LWjwcshgBavY2yDU/Ee+H+KyvQTD0coZYZFxVfw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=iPMgSUEkfNJiAjaNCg4fHebUfF9p4iwEMZYSQwgT3Wag8oCvrrorR82Bq+flfOcAA
-	 tJE/Yoicrzw8NxpJCIWPPwA8lhSY3QDThCFfZS0af2JKOocxNwJNPGGFvi52DpWIPR
-	 rfp96b9bk+frqd/JoscI7HeslPOnw24WS16oaArSS9knnpRp6StIjNe34jMttiQ/N2
-	 PwrCFWxH28cc2bJhESkMhUuieD/1bwztCE2rL1oY3n/B+JDdgpUVuXdnVPPctJe1Nr
-	 ggH7Sftmy6AqFFgE9khGPbHMDitLVejnKoL1yJUUDLXdN1bGzQpQ754p+334Mxdt/W
-	 JLqzujFi6Sk4A==
-Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A839717E0237;
-	Tue, 12 Aug 2025 23:11:14 +0200 (CEST)
-Message-ID: <d4f53de2dabce333e9f24fe0036d91b8d60af628.camel@collabora.com>
-Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Jonas Karlman
-	 <jonas@kwiboo.se>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro
- Carvalho Chehab <mchehab@kernel.org>
-Cc: Alex Bee <knaerzche@gmail.com>, Sebastian Fricke
-	 <sebastian.fricke@collabora.com>, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 12 Aug 2025 17:11:12 -0400
-In-Reply-To: <3547812.44csPzL39Z@earth>
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
-	 <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
-	 <3547812.44csPzL39Z@earth>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoiZBBMWCgBBAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheAFiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmgssvgFCQll93U
- ACgkQ2UGUUSlgcvRSeQEAjcvEl/A6R2y2nMufL4A8MiKQfPZqJPXlhhno2PZqqUcBAIR87Pv5+cZV
- ZTN26stch5wMyalcKgRNQ9IxtGvVelUCtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1ZnJlc
- 25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQ
- TvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZsmBU
- pkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHCAAS0
- LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBFiEE7
- w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAwECHg
- cCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8bRLv
- 9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-3mQpTUvxe3+s5ASJnZMy"
-User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+	id 1ulvgv-0000000BxZE-0gqz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 20:33:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6654F5C632F;
+	Tue, 12 Aug 2025 20:33:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD36C4CEF1;
+	Tue, 12 Aug 2025 20:33:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1755030832;
+	bh=mWhbbcbduLWHpW3yyWfH8Gm+wrKvibaa+3ueYfo3yAE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LbnzfOGAz5/fsL/OZLsczEK36ca7W3f9wRPBcMeQPBzjyrOjZB8Yo+zO58AcrBRJG
+	 JdCwruN1IMlLggsci/6cMvkzmWXGhw+n77p8SEGr6NNkYa1lgNSZwulr2MOuTjTcJQ
+	 fl3yYPWsuOqglY1ivfH5H7PokOH0/dbx2fs7dtMom/t1o1kwiv3MC+wSpkPPO8UM/o
+	 q7i+HZbMflfDL8NJds/ugLVZrArnavQeAv9iMqARw3Vfcctyr6NRZCO4y2nkDbhjk/
+	 h3862VtxwnLF9e8eQLCweQpcWTWVdq94Z3uOjU/UxLAOcyxYDE+wnRb8uih6m/LDqF
+	 CZZSwcuUKOtnA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: pinctrl: Convert brcm,iproc-gpio to DT schema
+Date: Tue, 12 Aug 2025 15:33:47 -0500
+Message-ID: <20250812203348.733749-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_141118_317152_3270D7ED 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250812_133353_333342_C0B43EFC 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +76,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Convert the Broadcom iProc/Cygnus GPIO/Pinconf binding to DT schema
+format.
 
---=-3mQpTUvxe3+s5ASJnZMy
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+The child node structure is based on the example as there's not any
+actual .dts files with child nodes.
 
-Hi,
+The binding wasn't clear that "reg" can be 1 or 2 entries. The number of
+"reg" entries doesn't appear to be based on compatible, so no per
+compatible constraints for it
 
-Le mardi 12 ao=C3=BBt 2025 =C3=A0 15:57 -0400, Detlev Casanova a =C3=A9crit=
-=C2=A0:
-> > Detlev reports 146/147 on newer hardware using GStreamer, failing
-> > TSUNEQBD_A_MAIN10_Technicolor_2 (9bit chroma) only. On Detlev side, it =
-will
-> > we important to check why 8K videos (PICSIZE*) passes with a single cor=
-e,
-> > perhaps we accidently use both cores ?
->=20
-> 1 core can do 8K. In theory, it can do up to close to 65535x65535... It i=
-s=20
-> only a speed issue, so you can do 8K but you won't be able to get to 8K@6=
-0=20
-> with only one core on rk3588.
+The "brcm,iproc-stingray-gpio" could possibly be dropped. There are no
+.dts files using it, but the driver uses it.
 
-now that makes me wonder if that means we can reach speed such as 240Hz 4K =
-by
-slaving the cores, of if that only works for 8K. If this is the case, perha=
-ps
-the decoder will need to be target performance aware to make the best
-scheduling.
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/pinctrl/brcm,iproc-gpio.txt      | 123 ------------------
+ .../bindings/pinctrl/brcm,iproc-gpio.yaml     | 111 ++++++++++++++++
+ 2 files changed, 111 insertions(+), 123 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml
 
-Nicolas
+diff --git a/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt b/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt
+deleted file mode 100644
+index a73cbeb0f309..000000000000
+--- a/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.txt
++++ /dev/null
+@@ -1,123 +0,0 @@
+-Broadcom iProc GPIO/PINCONF Controller
+-
+-Required properties:
+-
+-- compatible:
+-    "brcm,iproc-gpio" for the generic iProc based GPIO controller IP that
+-    supports full-featured pinctrl and GPIO functions used in various iProc
+-    based SoCs
+-
+-    May contain an SoC-specific compatibility string to accommodate any
+-    SoC-specific features
+-
+-    "brcm,cygnus-ccm-gpio", "brcm,cygnus-asiu-gpio", or
+-    "brcm,cygnus-crmu-gpio" for Cygnus SoCs
+-
+-    "brcm,iproc-nsp-gpio" for the iProc NSP SoC that has drive strength support
+-    disabled
+-
+-    "brcm,iproc-stingray-gpio" for the iProc Stingray SoC that has the general
+-    pinctrl support completely disabled in this IP block. In Stingray, a
+-    different IP block is used to handle pinctrl related functions
+-
+-- reg:
+-    Define the base and range of the I/O address space that contains SoC
+-GPIO/PINCONF controller registers
+-
+-- ngpios:
+-    Total number of in-use slots in GPIO controller
+-
+-- #gpio-cells:
+-    Must be two. The first cell is the GPIO pin number (within the
+-controller's pin space) and the second cell is used for the following:
+-    bit[0]: polarity (0 for active high and 1 for active low)
+-
+-- gpio-controller:
+-    Specifies that the node is a GPIO controller
+-
+-Optional properties:
+-
+-- interrupts:
+-    Interrupt ID
+-
+-- interrupt-controller:
+-    Specifies that the node is an interrupt controller
+-
+-- gpio-ranges:
+-    Specifies the mapping between gpio controller and pin-controllers pins.
+-    This requires 4 fields in cells defined as -
+-    1. Phandle of pin-controller.
+-    2. GPIO base pin offset.
+-    3  Pin-control base pin offset.
+-    4. number of gpio pins which are linearly mapped from pin base.
+-
+-Supported generic PINCONF properties in child nodes:
+-
+-- pins:
+-    The list of pins (within the controller's own pin space) that properties
+-in the node apply to. Pin names are "gpio-<pin>"
+-
+-- bias-disable:
+-    Disable pin bias
+-
+-- bias-pull-up:
+-    Enable internal pull up resistor
+-
+-- bias-pull-down:
+-    Enable internal pull down resistor
+-
+-- drive-strength:
+-    Valid drive strength values include 2, 4, 6, 8, 10, 12, 14, 16 (mA)
+-
+-Example:
+-	gpio_ccm: gpio@1800a000 {
+-		compatible = "brcm,cygnus-ccm-gpio";
+-		reg = <0x1800a000 0x50>,
+-		      <0x0301d164 0x20>;
+-		ngpios = <24>;
+-		#gpio-cells = <2>;
+-		gpio-controller;
+-		interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-controller;
+-
+-		touch_pins: touch_pins {
+-			pwr: pwr {
+-				pins = "gpio-0";
+-				drive-strength = <16>;
+-			};
+-
+-			event: event {
+-				pins = "gpio-1";
+-				bias-pull-up;
+-			};
+-		};
+-	};
+-
+-	gpio_asiu: gpio@180a5000 {
+-		compatible = "brcm,cygnus-asiu-gpio";
+-		reg = <0x180a5000 0x668>;
+-		ngpios = <146>;
+-		#gpio-cells = <2>;
+-		gpio-controller;
+-		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-controller;
+-		gpio-ranges = <&pinctrl 0 42 1>,
+-				<&pinctrl 1 44 3>;
+-	};
+-
+-	/*
+-	 * Touchscreen that uses the CCM GPIO 0 and 1
+-	 */
+-	tsc {
+-		...
+-		...
+-		gpio-pwr = <&gpio_ccm 0 0>;
+-		gpio-event = <&gpio_ccm 1 0>;
+-	};
+-
+-	/* Bluetooth that uses the ASIU GPIO 5, with polarity inverted */
+-	bluetooth {
+-		...
+-		...
+-		bcm,rfkill-bank-sel = <&gpio_asiu 5 1>
+-	}
+diff --git a/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml
+new file mode 100644
+index 000000000000..a0ed308b7fc8
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/brcm,iproc-gpio.yaml
+@@ -0,0 +1,111 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/brcm,iproc-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom iProc GPIO/PINCONF Controller
++
++maintainers:
++  - Ray Jui <rjui@broadcom.com>
++  - Scott Branden <sbranden@broadcom.com>
++
++properties:
++  compatible:
++    oneOf:
++      - enum:
++          - brcm,cygnus-asiu-gpio
++          - brcm,cygnus-ccm-gpio
++          - brcm,cygnus-crmu-gpio
++          - brcm,iproc-gpio
++          - brcm,iproc-stingray-gpio
++      - items:
++          - enum:
++              - brcm,iproc-hr2-gpio
++              - brcm,iproc-nsp-gpio
++          - const: brcm,iproc-gpio
++
++  reg:
++    minItems: 1
++    items:
++      - description: GPIO Bank registers
++      - description: IO Ctrl registers
++
++  "#gpio-cells":
++    const: 2
++
++  gpio-controller: true
++
++  gpio-ranges: true
++
++  ngpios: true
++
++  "#interrupt-cells":
++    const: 2
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++required:
++  - compatible
++  - reg
++  - "#gpio-cells"
++  - gpio-controller
++  - ngpios
++
++patternProperties:
++  '-pins$':
++    type: object
++    additionalProperties:
++      description: Pin configuration child nodes.
++      allOf:
++        - $ref: pincfg-node.yaml#
++        - $ref: pinmux-node.yaml#
++      additionalProperties: false
++
++      properties:
++        pins:
++          items:
++            pattern: '^gpio-'
++
++        bias-disable: true
++        bias-pull-up: true
++        bias-pull-down: true
++
++        drive-strength:
++          enum: [ 2, 4, 6, 8, 10, 12, 14, 16 ]
++
++      required:
++        - pins
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    gpio@1800a000 {
++        compatible = "brcm,cygnus-ccm-gpio";
++        reg = <0x1800a000 0x50>,
++              <0x0301d164 0x20>;
++        ngpios = <24>;
++        #gpio-cells = <2>;
++        gpio-controller;
++        #interrupt-cells = <2>;
++        interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-controller;
++
++        touch-pins {
++            pwr {
++                pins = "gpio-0";
++                drive-strength = <16>;
++            };
++
++            event {
++                pins = "gpio-1";
++                bias-pull-up;
++            };
++        };
++    };
+-- 
+2.47.2
 
---=-3mQpTUvxe3+s5ASJnZMy
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaJut8AAKCRDZQZRRKWBy
-9Ih8AQDKyfk0G5x1w5UjIb06h+rwgbK7YR0Lu+0CgbaCFrUrCwEAtl6TV9GOaFhe
-Ubqzqi3x44DC0qxKWNjsJ9wdHUCpbAM=
-=ANNJ
------END PGP SIGNATURE-----
-
---=-3mQpTUvxe3+s5ASJnZMy--
 
