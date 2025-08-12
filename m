@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA60CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 00:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5865CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 01:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JFLZJgecVVbsUIFYhtROyPnaMWhGdfjpvMtpQDlsyEM=; b=pBIh7HbCTiwznYQn8DScZjZhY0
-	iaxmfUDEZHOtQT13O6UC4CffesVnf980pnrCOQWovJcLUdy660g4EOjBRJW778Liws9l2OVFWyv8M
-	GVOK/XuNNgS/Yoypz0PNQAbtzmggN5SR7GMvpSd/UxhkfYI64IfdtinvYIjUwJN75yRolhU+ruSyh
-	j7nGJJMOc+q6P+gHqmgkISrXg/6OTxC1BwIj073PsQ7ItaS1HY3nEHDO5iigsLFh6WF8u+MNcqXFT
-	nKLg3C+KfqFbnQMtDB1/uKYtOnJalQBEX7iLDliJljexhf4zqDHN6f/8SGx0W/GQ71tpqzjLcoDrp
-	0mre91Tw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pBHXi1lXV0Do4H4xlZEW1aZfNWfJ7TqQmC3OWib8Y0o=; b=dgk690c2chFXIxM5YfCt2q1kAy
+	uwy8pCFzS/VYxNBjNsN91eIevMRae4nTB96Lx9xCsgypyD+24vXg7Kz+CV4wPkkpyX9lKECRh6jC4
+	lTa6oOzl0YyaRRK/lInJbrSLDN78fS/XgAd2oDSlmhnv1OQFhjQiJ2G857M7qrs3cT7MOSBBzmui0
+	H723dIJltdYQ6PRakh1w8MuNe5tdjcUqlBnhGfLoXru77nun6qbwfohlmuYT7039eLT6Qonp7xwX6
+	1TcK5US5WUnyD8plHpuxlGhtnSQboQCqu2taZhAughWCFIwIg8BaqgE3Oau5sxZaXMVIuhn2pWvzc
+	E7AQUTZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uldDK-00000009TXz-3ZDD;
-	Tue, 12 Aug 2025 00:50:06 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uldOn-00000009UOm-036m;
+	Tue, 12 Aug 2025 01:01:57 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uld80-00000009TCf-2sIX
+	id 1uldM8-00000009U8h-07KY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 00:44:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754959474;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JFLZJgecVVbsUIFYhtROyPnaMWhGdfjpvMtpQDlsyEM=;
-	b=QrIyzHXrp00GT4vyn6uI/EvY/V9o2pfnXe3adMEqJ3pedaH09T7chd4jqaechzwNUxhYrm
-	J0yJw3FEBaePnPUE4JtEHyhXwdcBLG55y33iw4Cu1AA+IDrOuqB3S0D+ZJtRSShzWhuGt7
-	TftcuGV1Gt4djpuC8Dvak5HrRGkUx74=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-119-_OSCEcYzP7CqoI1f0Yf3gg-1; Mon,
- 11 Aug 2025 20:43:05 -0400
-X-MC-Unique: _OSCEcYzP7CqoI1f0Yf3gg-1
-X-Mimecast-MFC-AGG-ID: _OSCEcYzP7CqoI1f0Yf3gg_1754959384
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 17F6719560AF;
-	Tue, 12 Aug 2025 00:43:04 +0000 (UTC)
-Received: from [172.20.84.71] (unknown [10.30.45.119])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 60028300145D;
-	Tue, 12 Aug 2025 00:43:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc1,
- upstream-arm-next, 8f5ae30d)
-Date: Tue, 12 Aug 2025 00:43:03 -0000
-To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com
+	Tue, 12 Aug 2025 00:59:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1754960351;
+ bh=pBHXi1lXV0Do4H4xlZEW1aZfNWfJ7TqQmC3OWib8Y0o=;
+ b=ZQ2Zcgwf6NMpxZjZkFvnSqAn4jqf9I3Kn59NeYN2FvLh+I/R3v/1HWyWQqmqfq9MAgHXoncMT
+ g4crol0HRSJCD9uN0V+vN7Iqkd946XnTtyUng11SBm4GP7URNsNJKXGdTCKcuiEyrStgoEQMS9n
+ 9jqXAzzBr07OR43T+SvWTryE9szG6RWeplBMb6W/VUfLa6Hc6gnHu3yMbFM8maZRRtP9ItQJB0S
+ Pu4kFc/NWsiovjghcykjOkrf2G0BY7C12C02UsXXN0aBM3xaY7h3s2Z/TLsw6YCJ7LJP2Lre8Aq
+ 9Evi/nK6UXGkdlYg7pffa6BriSaRKbOxcndp/Z5pfbIg==
+X-Forward-Email-ID: 689a91ba10bdea4a6d7c6e15
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.2.4
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <4b3c409b-5f10-4aa0-996f-1dc2d28816ef@kwiboo.se>
+Date: Tue, 12 Aug 2025 02:58:30 +0200
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <87917.125081120430500253@us-mta-119.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: uxPvmHhWeoyeyOv9GZp1U-A5i3_rDOeT-CPKmrwM2_g_1754959384
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/7] media: rkvdec: Add HEVC backend
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+ <20250810212454.3237486-2-jonas@kwiboo.se>
+ <bdb53663ab741fbc70dd83fb858432b838736219.camel@collabora.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <bdb53663ab741fbc70dd83fb858432b838736219.camel@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_174436_963718_82701D68 
-X-CRM114-Status: UNSURE (   7.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250811_175912_086692_281B8B9A 
+X-CRM114-Status: GOOD (  35.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +83,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi Nicolas,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+On 8/11/2025 11:07 PM, Nicolas Dufresne wrote:
+> First pass of review,
+> 
+> There is obvious conflict between Detlev RK3388/3576 series, please coordinate.
+> By picking the same direction, the common code can be split from platform code,
+> and then both sets can share that common code and avoid conflicts.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Yes, it is very unfortunate that Detlev did not base the work on v1 of
+this series, this has been sitting idle on the list for almost 2 years
+only waiting on its dependent H264 High10/4:2:2 series to be merged.
 
-Kernel information:
-    Commit message: Linux 6.17-rc1
+Most feedback for v1 was related to unstaging and the series could be
+applied clean until iommu detach/attach was introduced very recently.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1978608855
+This series has also been referenced in multiple threads related to
+rkvdec2 work, most recent at [1]. Unfortunately, I have missed both v1
+and v2 of Detlev's new rkvdec2 series, and was not able to send a v2 of
+this until now due to family tragedy.
 
+I will take a closer look at Detlev's new rkvdec2 series and see what I
+can do in a v3 to ease any merge conflicts.
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+[1] https://lore.kernel.org/linux-media/a787e6e0-d4ce-45e3-8263-2489585d3ec0@kwiboo.se/
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+> 
+> Le dimanche 10 août 2025 à 21:24 +0000, Jonas Karlman a écrit :
+>> The Rockchip VDEC supports the HEVC codec with the Main and Main10
+>> Profile up to Level 5.1 High tier: 4096x2304@60 fps.
+>>
+>> Add the backend for HEVC format to the decoder.
+>>
+>> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+>> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+>> Signed-off-by: Sebastian Fricke <sebastian.fricke@collabora.com>
+>> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+>> ---
+>> Changes in v2:
+>> - Use new_value in transpose_and_flatten_matrices()
+>> - Add NULL check for ctrl->new_elems in rkvdec_hevc_run_preamble()
+>> - Set RKVDEC_WR_DDR_ALIGN_EN for RK3328
+>> ---
+>>  .../media/platform/rockchip/rkvdec/Makefile   |    2 +-
+>>  .../rockchip/rkvdec/rkvdec-hevc-data.c        | 1848 +++++++++++++++++
+>>  .../platform/rockchip/rkvdec/rkvdec-hevc.c    |  817 ++++++++
+>>  .../platform/rockchip/rkvdec/rkvdec-regs.h    |    2 +
+>>  .../media/platform/rockchip/rkvdec/rkvdec.c   |   76 +
+>>  .../media/platform/rockchip/rkvdec/rkvdec.h   |    1 +
+>>  6 files changed, 2745 insertions(+), 1 deletion(-)
+>>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c
+>>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+>>
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
+>> index cb86b429cfaa..a77122641d14 100644
+>> --- a/drivers/media/platform/rockchip/rkvdec/Makefile
+>> +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
+>> @@ -1,3 +1,3 @@
+>>  obj-$(CONFIG_VIDEO_ROCKCHIP_VDEC) += rockchip-vdec.o
+>>  
+>> -rockchip-vdec-y += rkvdec.o rkvdec-h264.o rkvdec-vp9.o
+>> +rockchip-vdec-y += rkvdec.o rkvdec-h264.o rkvdec-hevc.o rkvdec-vp9.o
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+[snip]
+
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+>> new file mode 100644
+>> index 000000000000..1994ea24f0be
+>> --- /dev/null
+>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+>> @@ -0,0 +1,817 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Rockchip Video Decoder HEVC backend
+>> + *
+>> + * Copyright (C) 2023 Collabora, Ltd.
+>> + *      Sebastian Fricke <sebastian.fricke@collabora.com>
+>> + *
+>> + * Copyright (C) 2019 Collabora, Ltd.
+>> + *	Boris Brezillon <boris.brezillon@collabora.com>
+>> + *
+>> + * Copyright (C) 2016 Rockchip Electronics Co., Ltd.
+>> + *	Jeffy Chen <jeffy.chen@rock-chips.com>
+>> + */
+>> +
+>> +#include <media/v4l2-mem2mem.h>
+>> +
+>> +#include "rkvdec.h"
+>> +#include "rkvdec-regs.h"
+>> +#include "rkvdec-hevc-data.c"
+>> +
+>> +/* Size in u8/u32 units. */
+>> +#define RKV_SCALING_LIST_SIZE		1360
+>> +#define RKV_PPS_SIZE			(80 / 4)
+>> +#define RKV_PPS_LEN			64
+>> +#define RKV_RPS_SIZE			(32 / 4)
+>> +#define RKV_RPS_LEN			600
+>> +
+>> +struct rkvdec_sps_pps_packet {
+>> +	u32 info[RKV_PPS_SIZE];
+>> +};
+>> +
+>> +struct rkvdec_rps_packet {
+>> +	u32 info[RKV_RPS_SIZE];
+>> +};
+>> +
+>> +struct rkvdec_ps_field {
+>> +	u16 offset;
+>> +	u8 len;
+>> +};
+>> +
+>> +#define PS_FIELD(_offset, _len) \
+>> +	((struct rkvdec_ps_field){ _offset, _len })
+>> +
+>> +/* SPS */
+>> +#define VIDEO_PARAMETER_SET_ID				PS_FIELD(0, 4)
+>> +#define SEQ_PARAMETER_SET_ID				PS_FIELD(4, 4)
+>> +#define CHROMA_FORMAT_IDC				PS_FIELD(8, 2)
+>> +#define PIC_WIDTH_IN_LUMA_SAMPLES			PS_FIELD(10, 13)
+>> +#define PIC_HEIGHT_IN_LUMA_SAMPLES			PS_FIELD(23, 13)
+>> +#define BIT_DEPTH_LUMA					PS_FIELD(36, 4)
+>> +#define BIT_DEPTH_CHROMA				PS_FIELD(40, 4)
+>> +#define LOG2_MAX_PIC_ORDER_CNT_LSB			PS_FIELD(44, 5)
+>> +#define LOG2_DIFF_MAX_MIN_LUMA_CODING_BLOCK_SIZE	PS_FIELD(49, 2)
+>> +#define LOG2_MIN_LUMA_CODING_BLOCK_SIZE			PS_FIELD(51, 3)
+>> +#define LOG2_MIN_TRANSFORM_BLOCK_SIZE			PS_FIELD(54, 3)
+>> +#define LOG2_DIFF_MAX_MIN_LUMA_TRANSFORM_BLOCK_SIZE	PS_FIELD(57, 2)
+>> +#define MAX_TRANSFORM_HIERARCHY_DEPTH_INTER		PS_FIELD(59, 3)
+>> +#define MAX_TRANSFORM_HIERARCHY_DEPTH_INTRA		PS_FIELD(62, 3)
+>> +#define SCALING_LIST_ENABLED_FLAG			PS_FIELD(65, 1)
+>> +#define AMP_ENABLED_FLAG				PS_FIELD(66, 1)
+>> +#define SAMPLE_ADAPTIVE_OFFSET_ENABLED_FLAG		PS_FIELD(67, 1)
+>> +#define PCM_ENABLED_FLAG				PS_FIELD(68, 1)
+>> +#define PCM_SAMPLE_BIT_DEPTH_LUMA			PS_FIELD(69, 4)
+>> +#define PCM_SAMPLE_BIT_DEPTH_CHROMA			PS_FIELD(73, 4)
+>> +#define PCM_LOOP_FILTER_DISABLED_FLAG			PS_FIELD(77, 1)
+>> +#define LOG2_DIFF_MAX_MIN_PCM_LUMA_CODING_BLOCK_SIZE	PS_FIELD(78, 3)
+>> +#define LOG2_MIN_PCM_LUMA_CODING_BLOCK_SIZE		PS_FIELD(81, 3)
+>> +#define NUM_SHORT_TERM_REF_PIC_SETS			PS_FIELD(84, 7)
+>> +#define LONG_TERM_REF_PICS_PRESENT_FLAG			PS_FIELD(91, 1)
+>> +#define NUM_LONG_TERM_REF_PICS_SPS			PS_FIELD(92, 6)
+>> +#define SPS_TEMPORAL_MVP_ENABLED_FLAG			PS_FIELD(98, 1)
+>> +#define STRONG_INTRA_SMOOTHING_ENABLED_FLAG		PS_FIELD(99, 1)
+> 
+> Detlev is moving to structures and memcpy, with a minor performance gain, this
+> is the way to go, I can understand if this is quite involving, but one of you
+> will have to do it.
+
+Sure, and this was the the main reason why I mentioned this incoming
+series back in [1], to consider this series before doing too much
+re-work on a future rkvdec1 + rkvdec2 merge series.
+
+As mentioned above, I will take a closer look at Detlev's new rkvdec2
+series and see what I can do in a v3 to ease any merge conflicts.
+
+> 
+>> +/* PPS */
+>> +#define PIC_PARAMETER_SET_ID				PS_FIELD(128, 6)
+>> +#define PPS_SEQ_PARAMETER_SET_ID			PS_FIELD(134, 4)
+>> +#define DEPENDENT_SLICE_SEGMENTS_ENABLED_FLAG		PS_FIELD(138, 1)
+>> +#define OUTPUT_FLAG_PRESENT_FLAG			PS_FIELD(139, 1)
+>> +#define NUM_EXTRA_SLICE_HEADER_BITS			PS_FIELD(140, 13)
+>> +#define SIGN_DATA_HIDING_ENABLED_FLAG			PS_FIELD(153, 1)
+>> +#define CABAC_INIT_PRESENT_FLAG				PS_FIELD(154, 1)
+>> +#define NUM_REF_IDX_L0_DEFAULT_ACTIVE			PS_FIELD(155, 4)
+>> +#define NUM_REF_IDX_L1_DEFAULT_ACTIVE			PS_FIELD(159, 4)
+>> +#define INIT_QP_MINUS26					PS_FIELD(163, 7)
+>> +#define CONSTRAINED_INTRA_PRED_FLAG			PS_FIELD(170, 1)
+>> +#define TRANSFORM_SKIP_ENABLED_FLAG			PS_FIELD(171, 1)
+>> +#define CU_QP_DELTA_ENABLED_FLAG			PS_FIELD(172, 1)
+>> +#define LOG2_MIN_CU_QP_DELTA_SIZE			PS_FIELD(173, 3)
+>> +#define PPS_CB_QP_OFFSET				PS_FIELD(176, 5)
+>> +#define PPS_CR_QP_OFFSET				PS_FIELD(181, 5)
+>> +#define PPS_SLICE_CHROMA_QP_OFFSETS_PRESENT_FLAG	PS_FIELD(186, 1)
+>> +#define WEIGHTED_PRED_FLAG				PS_FIELD(187, 1)
+>> +#define WEIGHTED_BIPRED_FLAG				PS_FIELD(188, 1)
+>> +#define TRANSQUANT_BYPASS_ENABLED_FLAG			PS_FIELD(189, 1)
+>> +#define TILES_ENABLED_FLAG				PS_FIELD(190, 1)
+>> +#define ENTROPY_CODING_SYNC_ENABLED_FLAG		PS_FIELD(191, 1)
+>> +#define PPS_LOOP_FILTER_ACROSS_SLICES_ENABLED_FLAG	PS_FIELD(192, 1)
+>> +#define LOOP_FILTER_ACROSS_TILES_ENABLED_FLAG		PS_FIELD(193, 1)
+>> +#define DEBLOCKING_FILTER_OVERRIDE_ENABLED_FLAG		PS_FIELD(194, 1)
+>> +#define PPS_DEBLOCKING_FILTER_DISABLED_FLAG		PS_FIELD(195, 1)
+>> +#define PPS_BETA_OFFSET_DIV2				PS_FIELD(196, 4)
+>> +#define PPS_TC_OFFSET_DIV2				PS_FIELD(200, 4)
+>> +#define LISTS_MODIFICATION_PRESENT_FLAG			PS_FIELD(204, 1)
+>> +#define LOG2_PARALLEL_MERGE_LEVEL			PS_FIELD(205, 3)
+>> +#define SLICE_SEGMENT_HEADER_EXTENSION_PRESENT_FLAG	PS_FIELD(208, 1)
+>> +#define NUM_TILE_COLUMNS				PS_FIELD(212, 5)
+>> +#define NUM_TILE_ROWS					PS_FIELD(217, 5)
+>> +#define COLUMN_WIDTH(i)					PS_FIELD(256 + ((i) * 8), 8)
+>> +#define ROW_HEIGHT(i)					PS_FIELD(416 + ((i) * 8), 8)
+>> +#define SCALING_LIST_ADDRESS				PS_FIELD(592, 32)
+
+[snip]
+
+>> +/*
+>> + * Creation of the Reference Picture Set memory blob for the hardware.
+>> + * The layout looks like this:
+>> + * [0] 32 bits for L0 (6 references + 2 bits of the 7th reference)
+>> + * [1] 32 bits for L0 (remaining 3 bits of the 7th reference + 5 references
+>> + *     + 4 bits of the 13th reference)
+>> + * [2] 11 bits for L0 (remaining bit for 13 and 2 references) and
+>> + *     21 bits for L1 (4 references + first bit of 5)
+>> + * [3] 32 bits of padding with 0s
+>> + * [4] 32 bits for L1 (remaining 4 bits for 5 + 5 references + 3 bits of 11)
+>> + * [5] 22 bits for L1 (remaining 2 bits of 11 and 4 references)
+>> + *     lowdelay flag (bit 23), rps bit offset long term (bit 24 - 32)
+>> + * [6] rps bit offset long term (bit 1 - 3),  rps bit offset short term (bit 4 - 12)
+>> + *     number of references (bit 13 - 16), remaining 16 bits of padding with 0s
+>> + * [7] 32 bits of padding with 0s
+>> + *
+>> + * Thus we have to set up padding in between reference 5 of the L1 list.
+>> + */
+>> +static void assemble_hw_rps(struct rkvdec_ctx *ctx,
+>> +			    struct rkvdec_hevc_run *run)
+> 
+> Rockchip calls this one the swp_rps, in the sense the the slice header and its
+> enclosed reference are parsed by software. Detlev implements the HW RPS (which
+> requires an extended control) since SW RPS wasn't documented and this
+> implementation did not work for newer chip. We have no information that HW RPS
+> would work on RK3399 and older, I'm just asking to rename to we can
+> differentiate it.
+
+Sure, I can rename this this assemble_sw_rps or similar in a v3.
+
+> 
+>> +{
+>> +	const struct v4l2_ctrl_hevc_decode_params *decode_params = run->decode_params;
+>> +	const struct v4l2_ctrl_hevc_sps *sps = run->sps;
+>> +	const struct v4l2_ctrl_hevc_slice_params *sl_params;
+>> +	const struct v4l2_hevc_dpb_entry *dpb;
+>> +	struct rkvdec_hevc_ctx *hevc_ctx = ctx->priv;
+>> +	struct rkvdec_hevc_priv_tbl *priv_tbl = hevc_ctx->priv_tbl.cpu;
+>> +	struct rkvdec_rps_packet *hw_ps;
+>> +	int i, j;
+>> +	unsigned int lowdelay;
+>> +
+>> +#define WRITE_RPS(value, field) set_ps_field(hw_ps->info, field, value)
+>> +
+>> +#define REF_PIC_LONG_TERM_L0(i)			PS_FIELD((i) * 5, 1)
+>> +#define REF_PIC_IDX_L0(i)			PS_FIELD(1 + ((i) * 5), 4)
+>> +#define REF_PIC_LONG_TERM_L1(i)			PS_FIELD(((i) < 5 ? 75 : 132) + ((i) * 5), 1)
+>> +#define REF_PIC_IDX_L1(i)			PS_FIELD(((i) < 4 ? 76 : 128) + ((i) * 5), 4)
+>> +
+>> +#define LOWDELAY				PS_FIELD(182, 1)
+>> +#define LONG_TERM_RPS_BIT_OFFSET		PS_FIELD(183, 10)
+>> +#define SHORT_TERM_RPS_BIT_OFFSET		PS_FIELD(193, 9)
+>> +#define NUM_RPS_POC				PS_FIELD(202, 4)
+>> +
+>> +	for (j = 0; j < run->num_slices; j++) {
+>> +		uint st_bit_offset = 0;
+>> +		uint num_l0_refs = 0;
+>> +		uint num_l1_refs = 0;
+>> +
+>> +		sl_params = &run->slices_params[j];
+>> +		dpb = decode_params->dpb;
+>> +
+>> +		if (sl_params->slice_type != V4L2_HEVC_SLICE_TYPE_I) {
+>> +			num_l0_refs = sl_params->num_ref_idx_l0_active_minus1 + 1;
+>> +
+>> +			if (sl_params->slice_type == V4L2_HEVC_SLICE_TYPE_B)
+>> +				num_l1_refs = sl_params->num_ref_idx_l1_active_minus1 + 1;
+>> +
+>> +			lowdelay = 1;
+>> +		} else {
+>> +			lowdelay = 0;
+>> +		}
+>> +
+>> +		hw_ps = &priv_tbl->rps[j];
+>> +		memset(hw_ps, 0, sizeof(*hw_ps));
+>> +
+>> +		for (i = 0; i < num_l0_refs; i++) {
+>> +			const struct v4l2_hevc_dpb_entry dpb_l0 = dpb[sl_params->ref_idx_l0[i]];
+>> +
+>> +			WRITE_RPS(!!(dpb_l0.flags & V4L2_HEVC_DPB_ENTRY_LONG_TERM_REFERENCE),
+>> +				  REF_PIC_LONG_TERM_L0(i));
+>> +			WRITE_RPS(sl_params->ref_idx_l0[i], REF_PIC_IDX_L0(i));
+>> +
+>> +			if (dpb_l0.pic_order_cnt_val > sl_params->slice_pic_order_cnt)
+>> +				lowdelay = 0;
+>> +		}
+>> +
+>> +		for (i = 0; i < num_l1_refs; i++) {
+>> +			const struct v4l2_hevc_dpb_entry dpb_l1 = dpb[sl_params->ref_idx_l1[i]];
+>> +			int is_long_term =
+>> +				!!(dpb_l1.flags & V4L2_HEVC_DPB_ENTRY_LONG_TERM_REFERENCE);
+>> +
+>> +			WRITE_RPS(is_long_term, REF_PIC_LONG_TERM_L1(i));
+>> +			WRITE_RPS(sl_params->ref_idx_l1[i], REF_PIC_IDX_L1(i));
+>> +
+>> +			if (dpb_l1.pic_order_cnt_val > sl_params->slice_pic_order_cnt)
+>> +				lowdelay = 0;
+>> +		}
+>> +
+>> +		WRITE_RPS(lowdelay, LOWDELAY);
+>> +
+>> +		if (!(decode_params->flags & V4L2_HEVC_DECODE_PARAM_FLAG_IDR_PIC)) {
+>> +			if (sl_params->short_term_ref_pic_set_size)
+>> +				st_bit_offset = sl_params->short_term_ref_pic_set_size;
+>> +			else if (sps->num_short_term_ref_pic_sets > 1)
+>> +				st_bit_offset = fls(sps->num_short_term_ref_pic_sets - 1);
+>> +		}
+>> +
+>> +		WRITE_RPS(st_bit_offset + sl_params->long_term_ref_pic_set_size,
+>> +			  LONG_TERM_RPS_BIT_OFFSET);
+>> +		WRITE_RPS(sl_params->short_term_ref_pic_set_size,
+>> +			  SHORT_TERM_RPS_BIT_OFFSET);
+>> +
+>> +		WRITE_RPS(decode_params->num_poc_st_curr_before +
+>> +			  decode_params->num_poc_st_curr_after +
+>> +			  decode_params->num_poc_lt_curr,
+>> +			  NUM_RPS_POC);
+>> +	}
+>> +}
+
+[snip]
+
+> 
+> 
+> Looks good otherwise. Please let me know your plan to combine or prepare for
+> both series.
+
+I will take a closer look at Detlev's new rkvdec2 series and see what I
+can do in a v3 to ease any merge conflicts.
+
+I am just a little bit sad that this series has been completely ignored
+for the continued work with rkvdec2, the new series even seem to
+implement a slightly different variant system when this has been here
+waiting all this time :-/
+
+Regards,
+Jonas
+
+> 
+> Nicolas
 
 
