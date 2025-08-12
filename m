@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBCDCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EF4C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1evk3OmIRtfZwDni9+00QXZ21rdMVrFGcmbyCodTqyQ=; b=fL0MjqUwtpm/mzCxhXipMtjNVX
-	OrcwJsHf1N8ey5+4+PReopiNNpbcNZhLHLzMVfcM2JjUFnTktf71joaXpmqfas6oDDedlacGAiPJx
-	yH/miXOKHytfeRALHke00hJhpXpna+p8Ard5FOIgelnofjvAxWDdkMcOLYJ2/Vm3deE+yKW1Al0UQ
-	LQxcj3PhmNfp7MGwOgy+XeHl7FfINHWLeyjBsmTueoqceYZ597bbyXYxO1ttjmjoVddvSW6hywAxV
-	QWlfwD1xY6dY9Vzfre80NQxtrpFXmjLxmDS/9nH3izW1ryiEE1ZXZ/iLemY+z+r+raiAGVnlIdK8F
-	AZwJY7Cw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aELAU0xO9WCQzlDQodYCe/e/6u4XRmODgZyX3/n+xdA=; b=mhJYXrK3OGVBMmXdbvfYauT8XG
+	fkZBOq9FWVZdqePI9pMThMGzmMnMgzl7t8Lsm6BmbpjDZnR1v0vn0Tt5mPwPQfXzoDaMUe+8HJ1qg
+	pzdd/KH5htNAQFfq1sOis1ipimFWQV/Bt17WTqdQHRr10jSyxDaSMbpR0lMQ6j2W2G4MMnjeO2JwA
+	MryLPwMsIqRk0BW8qJUZZy6sRomoMcPv2SkokergVUDFsF6qTWPKV/m6pKe/dbWkn5pnbYSzgGluH
+	Xnmut1aWbno67egFiwkvkydYBMvmkG0Nj7oHSL4egZc06p3LIEGU8V8WJYq0G2Z1nCMmHPw1kYhSs
+	UoLEv7Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloHv-0000000Am08-0wrA;
-	Tue, 12 Aug 2025 12:39:35 +0000
-Received: from mail-pf1-f181.google.com ([209.85.210.181])
+	id 1uloIA-0000000AmJd-23aS;
+	Tue, 12 Aug 2025 12:39:50 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkt4-0000000AK0n-1lW1
+	id 1ulkyH-0000000AKSJ-3vhe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 09:01:43 +0000
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-76b8d289f73so4848909b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 02:01:42 -0700 (PDT)
+	Tue, 12 Aug 2025 09:07:07 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-acb5ec407b1so734663066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 02:07:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1754989301; x=1755594101; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1evk3OmIRtfZwDni9+00QXZ21rdMVrFGcmbyCodTqyQ=;
-        b=DA920/cuJIL9i+wpbcs7EgQ1uNJwsDLAeMEVTd4R2cJdddG7RSTqyYAv4PT1iY/dyL
-         FCstsFd1yrgpEPAqzC+hLqVdBvL8nsr/sh0AiArNU3TaGKOfnBeAwZiXPMTjunxO9oPq
-         qq8+6fW3+Zgo+jg0CS6g8bcO96tXVjMsylU3o=
+        d=gmail.com; s=20230601; t=1754989622; x=1755594422; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aELAU0xO9WCQzlDQodYCe/e/6u4XRmODgZyX3/n+xdA=;
+        b=JSdcRgt2u6l3eCnF3A8JRFkwDoq938AovHbBz8ns9YJM8FFmGfMXSQvgAin3Aer7U/
+         OnQ+RgnJbKjZs4f8Z3tplsVqMfuya4yiSbiB4MbHNKdw7S9PCtGZ1iauXww0c+dBSKIU
+         h65vWLlj/yd6itD5Yi1Lv9VXmMBlyprdSjmI47NasP2ilhCjPd64yzCdRbN1KkIhiPME
+         8YW+J0GHGaYT56JIAqJUOVcCT6f9Gu82l4MCgpiaPt4moM01/4lFLdy+saI/4sKRkI0Q
+         O6jKHItmwYPYKh6tZ0GuFbRzsqPERsqNvdG9xFJJqHPzb7KrB026xlt+PreOXgcnrbkb
+         +6PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754989301; x=1755594101;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1evk3OmIRtfZwDni9+00QXZ21rdMVrFGcmbyCodTqyQ=;
-        b=hpervjjlMTbF0DR1jttpi06w/3VZ3j/mWkem9F+bp9BjWOP5rPW4bi5QKJeHcjgCVB
-         Cbb911rEl/cM9Racf9/Hf7NIdXQcsqD3eNNJVh+xsxIH55w8dMfM4QGonfqKUtdZinGc
-         lLWKLfT68rvaoN3oeqY514LPr2rVsUGSBJhd6xMYTWvGGt3YjvZbiQdI8kjR01Y2HxjQ
-         JpEip0m0dXLVju1G2FmqeyD0lK/kr3tJpAkzd1l1Gn5XidiPAfaWfOcAgrmubSy5NzAL
-         pRb0yOVNGUPAsl9FX8o89WvwW+0GZKpM6/pNzj8oT2bT5fwBomybGTbhtgSpVHVNjO8K
-         /gyA==
-X-Forwarded-Encrypted: i=1; AJvYcCXtwCLfMhlELAWVYKIPPThbNRfIun/N+XtF/ThdzLstap7X4CXHnB9oAvH4dHS3UNoUCLv8iQ35Kn4tpj/AGAbe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8QBn0JEHzSa/itBWXIOjDe9/NRBe+ysj9AsIxyhnlBO1ekLbM
-	Ujlezm062cD741g7U1ro5v9jqKZmVif3uOFZ2lKFzki/BL2NRba2aG/Zk71dSF9EV5B1PRc5hRB
-	CdR8=
-X-Gm-Gg: ASbGncur6b+YhfO6tjF6oF3Lpd53B/yXMWrQVo1smK4HS9oBOvV0iJeOzZTRehIwBN9
-	OsJh+XeR8UG0iaPA9nNnpKfQMzd4N3GT3/GrKB/dQf/fTFZ9/U1NgMvUjJdA8f9lUsU+HhHN6j3
-	g8H4LjVTsMu/GmvfmTjJq7IlLnxQUMJFJH2S89HPpAOJXUPC3jCS96KxVH+TY0lF8MyIlCm7aoC
-	xMq4Lo1hsDgY3MjkOjhDSbIOJKAs/yWwWY41B+c0xNDeuWtB++hqn/Rw38NzYKOtFxNRMPicpBw
-	jrZS9a05MmiwqiOwwB8wuyj4uE/EUO04fulATAd/GVA1rao0r/kIv7VzyFUUTe4pGqd8m2s9q5w
-	bOnFH+X+fpu/DmtiCu/u7T2G0xbbR/SEgm16zy79X
-X-Google-Smtp-Source: AGHT+IHXmeu6f/qQoZG8o8delXd8Ye6Z0N5pfSw8ONOvc9dDiZfBz+hBlS0QTkCIYV04xBciYh8R9w==
-X-Received: by 2002:a05:6a20:3d1c:b0:23f:f88a:c17d with SMTP id adf61e73a8af0-2409aa01f0amr3953648637.42.1754989301505;
-        Tue, 12 Aug 2025 02:01:41 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:f81e:7c91:8fbf:672a])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-76bccfbcee7sm29052518b3a.66.2025.08.12.02.01.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 02:01:41 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH] arm64: dts: mediatek: mt8186-tentacruel: Fix touchscreen model
-Date: Tue, 12 Aug 2025 17:01:34 +0800
-Message-ID: <20250812090135.3310374-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.51.0.rc0.215.g125493bb4a-goog
+        d=1e100.net; s=20230601; t=1754989622; x=1755594422;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aELAU0xO9WCQzlDQodYCe/e/6u4XRmODgZyX3/n+xdA=;
+        b=Plqa7IsXV87F7Gl5XdhiKIhQ2wxCQlpV5P/YVfRVafw5RIJ++b0f6nvgALgKk6h9JH
+         JigfYc34es9pwYDBz8EfE+twnmsooMVfxwQZSQskpGop/0b4gHfoSrZ7AXiLR/BA/I7t
+         ssD/PUm3e/oimr7Zh/3jVzIq5rAgFweSwpO4g6fEEGXBgeGOm78e68+eixkDb97Fs8R6
+         lr2erEVUXazxv+QtQlrLmM3IaEeJGdCUMkkq4pYmG9CdmAYnJA1qNQ4nhkqtjhSbK8Gq
+         GB2rRsKA1WR82vOntvE55H5+STV55Qr0YMS9G5EXWs3QXgeVX2+1GuU83gSxvrvG1dCz
+         5/nA==
+X-Forwarded-Encrypted: i=1; AJvYcCWs0/9M3abDE9oLAWRcuhvibrj3jjUyulRr6tkTtVGotjwY6TOqTVj17dxlowk7bC4Slc80vT4dyYQjUixVRyxM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEwX8XQWEsjwg/El4foxj+/aXkvfV5nsLZgvO0OQ2htlrVvOIb
+	Vvowyd2MoEUWVPB+L+eliUJq48QoiRZsNZI0PmTG/b0UpZ3z1Mlabv+nIgoWKMQp1GyUcnHf7Uu
+	t2oHIR4eoclE8xlJYToamJWjeKRSbf64=
+X-Gm-Gg: ASbGncsCYB7WMzJziFUCOWv9DYzVrKkb2uoTX5Jeh3jkrY5DKnjeWnb92QVCrFFoNA+
+	VQ4DcrrWXl2oSxfB91x60wSDem0mnWg3L3qb8sWM0w9HhtgbVoPC0wkR9nZJ9/5sT7660W5Isv9
+	lyMugM34N731ERmvkBqKUOMxm7FoyWAnyBDVdIY6IjKSHsFy4K8DthC6UcR0iwn95FJSjWeqiIP
+	8I0N+WyZw==
+X-Google-Smtp-Source: AGHT+IHwJkNNhHLywqfSPYJXYdJDdl65CBIyoMCDmR0B39XH1dI9WmEu3RjwIKF0CFgvYLwlX3o/8962BYxHWt6bfIM=
+X-Received: by 2002:a17:907:787:b0:af9:45ad:2a3e with SMTP id
+ a640c23a62f3a-afa1e10105dmr246353266b.44.1754989622099; Tue, 12 Aug 2025
+ 02:07:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250812-adc-v2-0-0260833f13b8@nxp.com> <20250812-adc-v2-1-0260833f13b8@nxp.com>
+In-Reply-To: <20250812-adc-v2-1-0260833f13b8@nxp.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Tue, 12 Aug 2025 11:06:25 +0200
+X-Gm-Features: Ac12FXyX_4FNVjRioSrZAzjWhbMWY63pybVPFgJ1OZyn5mocEBo4lC_tirfWAEc
+Message-ID: <CAHp75VeYxLBwH10Z38Ez_TOu4B=1hW+TR+=2wFJHur65toCJUA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] iio: adc: imx93_adc: keep one style of the hex values
+To: Haibo Chen <haibo.chen@nxp.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
+	Andy Shevchenko <andy@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, primoz.fiser@norik.com, linux-iio@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_020142_458718_3F9F1611 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250812_020705_999355_2A27EA66 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +101,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The touchscreen controller used with the original Krabby design is the
-Elan eKTH6918, which is in the same family as eKTH6915, but supporting
-a larger screen size with more sense lines.
+On Tue, Aug 12, 2025 at 10:05=E2=80=AFAM Haibo Chen <haibo.chen@nxp.com> wr=
+ote:
+>
+> Use capital letters consistently for hex values.
 
-OTOH, the touchscreen controller that actually shipped on the Tentacruel
-devices is the Elan eKTH6A12NAY. A compatible string was added for it
-specifically because it has different power sequencing timings.
+Suggested-by?
+Reviewed-by: Andy Shevchenko <andy@kernel.org>
 
-Fix up the touchscreen nodes for both these. This also includes adding
-a previously missing reset line. Also add "no-reset-on-power-off" since
-the power is always on, and putting it in reset would consume more
-power.
 
-Fixes: 8855d01fb81f ("arm64: dts: mediatek: Add MT8186 Krabby platform based Tentacruel / Tentacool")
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- arch/arm64/boot/dts/mediatek/mt8186-corsola-krabby.dtsi   | 8 ++++----
- .../dts/mediatek/mt8186-corsola-tentacruel-sku262144.dts  | 4 ++++
- 2 files changed, 8 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-krabby.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola-krabby.dtsi
-index 7c971198fa95..72a2a2bff0a9 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-krabby.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-krabby.dtsi
-@@ -71,14 +71,14 @@ &i2c1 {
- 	i2c-scl-internal-delay-ns = <10000>;
- 
- 	touchscreen: touchscreen@10 {
--		compatible = "hid-over-i2c";
-+		compatible = "elan,ekth6915";
- 		reg = <0x10>;
- 		interrupts-extended = <&pio 12 IRQ_TYPE_LEVEL_LOW>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&touchscreen_pins>;
--		post-power-on-delay-ms = <10>;
--		hid-descr-addr = <0x0001>;
--		vdd-supply = <&pp3300_s3>;
-+		reset-gpios = <&pio 60 GPIO_ACTIVE_LOW>;
-+		vcc33-supply = <&pp3300_s3>;
-+		no-reset-on-power-off;
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262144.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262144.dts
-index 26d3451a5e47..24d9ede63eaa 100644
---- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262144.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262144.dts
-@@ -42,3 +42,7 @@ MATRIX_KEY(0x00, 0x04, KEY_VOLUMEUP)
- 		CROS_STD_MAIN_KEYMAP
- 	>;
- };
-+
-+&touchscreen {
-+	compatible = "elan,ekth6a12nay";
-+};
--- 
-2.51.0.rc0.215.g125493bb4a-goog
-
+--=20
+With Best Regards,
+Andy Shevchenko
 
