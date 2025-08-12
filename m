@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C315DCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0694FCA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFgqOdxV1F9ejz004iGryJ3qWW5B6GXnUjljpVgqkLk=; b=UllhIQXAn/sl2yV+NzXdNNr4xl
-	uc6XdG27n23AdbsEScNCXDzGTdjIqNPR68F8+LyqDGgJrks0ZpGufH3z+0LfnOXXnaYdGiU9KEy+r
-	Hj53nKQ17LVP6an63YU/ZTSSADpP1o1bnTM1yCLPOSQzAh2vDXBLwXdsCwTT2TtGzOLxU6V9Orbqy
-	wP8biINLN4fCV6SZsaxfAVxDUM6dqBsemck2rhPwBRENIvxgbrDbDusz0seKw2+/nouDcS2DlW55+
-	++79yC7WghQ649nVeX4XjLWx/Dcq9JanptCpmIZQhMAcFIeJ/Zet+q+FheJcwFXnZvmGoN713F0t/
-	Mb1W7v6g==;
+	bh=hMP0pJPoGHjZWTBGyFsy5GjlgQnYq7dpmd6umTXAFHw=; b=baj6ag6KT2YNzkWht8ol6wTkIU
+	f/AcK3qhOGZeJbx/N71buQOjR2WSaRRm7rjoKipVHQfZOcmpaBCKze6rttLLdjlodbJQP3ghgL5Ys
+	zO0t8YJYK9ZrI1XPEupiXl388UHfqYFmTLCiH7+Pv5pjeVR4Q6XQHymzbfC3oKU5pDHko8b6vHSBB
+	16KsUVkXhuAZcQANvUC2j5Ig4SyZR5GSsrUtEsOK8p5Cf1eWbPn4aAVRDJI1xLvWzMlASEuBnSwjl
+	IQfVa1D5VA9qgQ5i8VPe/5ZjPa/oyfwFnBzGcW4WwjsiqQO3KUgZZ+OXtPk4gZE+i2MPWo8D0SI6I
+	URLf04FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgU-0000000Bws2-2lrV;
-	Tue, 12 Aug 2025 20:33:26 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1ulvgW-0000000BwuM-1KBa;
+	Tue, 12 Aug 2025 20:33:28 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ultGt-0000000Bf40-0fOh
+	id 1ultKz-0000000BfrH-2A9n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 17:58:52 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-459eb4ae596so53119065e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 10:58:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755021530; x=1755626330; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qFgqOdxV1F9ejz004iGryJ3qWW5B6GXnUjljpVgqkLk=;
-        b=kYVFRVrp0c/ZpZtglG5+NGpXxQA0Dd/ezq6Fvsa1lCsoLFAcr4LBbVy/ja6xIyESC2
-         JyNtXtfVLP9/7yLynrEjYb+Mu3b8Yg0g/iXWaxtTe4M9IDZLypxXOwz16REtXHmGfH4B
-         V5rctSLGCQqn1OOF9ppt4LTCkLjWReWivDU9jvb+2bndBY4QtFRWD6LmfzAcet6KJ6y1
-         LdzGDTsNhoMmBmk0cCsmKvlBP/bG/aW+wL7SQHOcMaftXCcv2rH/ekhCETz4I5+BBOBJ
-         N5t1JsmX+w/+kv9kONGCj1EM+qBgQxJmyD0jS7KPe6xu2+NN0hTk53RFsg6JBC1bTcwk
-         MCEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755021530; x=1755626330;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qFgqOdxV1F9ejz004iGryJ3qWW5B6GXnUjljpVgqkLk=;
-        b=crMBcac4cAcy3ylj5RyhyAybLKhRdXJgZhG5Zpd78PTn0AynYjrLLeEdHohGXcAuyP
-         J+baHaLG1xwewXv7QntwnqhivLgZoeqS/yxL3j5iczcM3E9NyLIS/KjiGnBT5QzavR36
-         f+Z/Lyhf+4Ognd61m6YjVC/qETs3zmbsNQlG3/jTDEr9zA1+59MTp4HUhvAD7lhlqaG4
-         6JEdUM8wn0q6E5qfkGGiNRgm9/qRf4Vgh3pHc3X5ivdaFsarewqGnwEP0hbXjczkoJQm
-         OHwkRuxm4ryyIN0Z1UWLtpg4qbl58uX2qFTYa/l4Ymbwc7lqxMCBzHIwt5xT8RMrcWDt
-         3uCw==
-X-Forwarded-Encrypted: i=1; AJvYcCWuk0BJY3rHUi09Do3oheOwblXCY3/N5a0wUOjt1gC8AA+IXOCkWQsCKaHpIi3pXel1B4MZrLUGGUK1gRWf+DQm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUd8jQnIHFn3BnfUeQsTP7QVT2RzOFUC5IHAZetCXGXNbfsq2x
-	cLDUxE8nw+KYr6xBDwStlKe9mMbzI+IHV+VHnbRVXGWu6VyKQ3dqgyr7XoI51J6GZGzgpxPeFun
-	3XFXbAb+ouVEIBaNkru28HUMeqnWMC3k=
-X-Gm-Gg: ASbGncusu5IbTja1DMULQWwXpjNhmUc8FcihiAyJ5kqLvzErnqWJJmsZECCqZimhiiT
-	WG7vpRPMPKLQpA3hJOVuCjfyqjOZ1gr01TOY/mt6E3voDSpKTPNQpxblTKA+nS/IN/V9F3amzCs
-	Y2w6lsx5WMZ8Tq8Suzk5V8QJBnN2ui0VIQekvjf/CC//qEMNnwwp3BMwA3MRYkjn25qC6kZY2Ni
-	MJ7gxIz8g==
-X-Google-Smtp-Source: AGHT+IGCSqi+u7zPAKJbXiVle6HBw4vaddTrUBJW1UYwaHGnh/4m0lYlidEl1hsmzcOBFaEBgHl1CB3LcKFa24raxFg=
-X-Received: by 2002:a05:600c:1c01:b0:458:bbed:a827 with SMTP id
- 5b1f17b1804b1-45a165b7b15mr660355e9.1.1755021529570; Tue, 12 Aug 2025
- 10:58:49 -0700 (PDT)
+	Tue, 12 Aug 2025 18:03:07 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 57CI2ZRn1965775;
+	Tue, 12 Aug 2025 13:02:35 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1755021755;
+	bh=hMP0pJPoGHjZWTBGyFsy5GjlgQnYq7dpmd6umTXAFHw=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=xGTTGiCIuoAp4XKGSPiEFgtSLFpPc8JU8zomPTl4Ngl3OShXZwEWK3gVURvQxIQ0p
+	 ifJnTKFue/A57cyzZGpACISJD+mfDz2M1qwC5kmMivYe+0j6z+DwNpbtx68xSMSyC7
+	 57bHV1paxMK/yL/3WF0KjlDCXfMTpKrmEs0sY9hA=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 57CI2ZGF3992685
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Tue, 12 Aug 2025 13:02:35 -0500
+Received: from DLEE110.ent.ti.com (157.170.170.21) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 12
+ Aug 2025 13:02:34 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE110.ent.ti.com
+ (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55 via
+ Frontend Transport; Tue, 12 Aug 2025 13:02:34 -0500
+Received: from [172.24.233.20] (a0512632.dhcp.ti.com [172.24.233.20])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 57CI2R58748582;
+	Tue, 12 Aug 2025 13:02:28 -0500
+Message-ID: <86cf7d99-1295-42ab-acda-88a8212ec4d4@ti.com>
+Date: Tue, 12 Aug 2025 23:32:27 +0530
 MIME-Version: 1.0
-References: <20250811173626.1878783-1-yeoreum.yun@arm.com> <20250811173626.1878783-3-yeoreum.yun@arm.com>
- <CA+fCnZeSV4fDBQr-WPFA66OYxN8zOQ2g1RQMDW3Ok8FaE7=NXQ@mail.gmail.com> <aJtyR3hCW5fG+niV@e129823.arm.com>
-In-Reply-To: <aJtyR3hCW5fG+niV@e129823.arm.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Tue, 12 Aug 2025 19:58:37 +0200
-X-Gm-Features: Ac12FXy555KMqM9sRgAgjXOVEGNZdNcePtQ9D4aII7b1VUPGHKMWOpB_9plVIlw
-Message-ID: <CA+fCnZeznLqoLsUOgB1a1TNpR9PxjZKrrVBhotpMh0KVwvzj_Q@mail.gmail.com>
-Subject: Re: [PATCH 2/2] kasan: apply store-only mode in kasan kunit testcases
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com, 
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com, 
-	will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com, 
-	jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org, 
-	kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org, 
-	oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org, 
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com, 
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com, 
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
+To: Louis Chauvet <louis.chauvet@bootlin.com>, devarsh <devarsht@ti.com>,
+        "Jyri Sarha" <jyri.sarha@iki.fi>,
+        Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Sam
+ Ravnborg <sam@ravnborg.org>,
+        Benoit Parrot <bparrot@ti.com>, Lee Jones
+	<lee@kernel.org>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <thomas.petazzoni@bootlin.com>, Jyri Sarha <jsarha@ti.com>,
+        Tomi Valkeinen
+	<tomi.valkeinen@ti.com>,
+        <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <stable@vger.kernel.org>
+References: <20250730-fix-edge-handling-v1-0-1bdfb3fe7922@bootlin.com>
+ <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
+ <71ef3203-e11d-4244-8d2d-8e47e8ba6140@ti.com>
+ <f15779ad-788a-4dc6-b5a6-4187b9a9c986@ti.com>
+ <e9df67f0-8fce-4fbf-8fff-c499c4a2efaf@bootlin.com>
+Content-Language: en-US
+From: Swamil Jain <s-jain1@ti.com>
+In-Reply-To: <e9df67f0-8fce-4fbf-8fff-c499c4a2efaf@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_105851_197109_CF3027F9 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20250812_110305_685565_482F1E86 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,23 +110,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 6:57=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.com> w=
-rote:
->
-> > Right now, KASAN tests are crafted to avoid/self-contain harmful
-> > memory corruptions that they do (e.g. make sure that OOB write
-> > accesses land in in-object kmalloc training space, etc.). If you turn
-> > read accesses in tests into write accesses, memory corruptions caused
-> > by the earlier tests will crash the kernel or the latter tests.
->
-> That's why I run the store-only test when this mode is "sync"
-> In case of "async/asymm" as you mention since it reports "after",
-> there will be memory corruption.
->
-> But in case of sync, when the MTE fault happens, it doesn't
-> write to memory so, I think it's fine.
 
-Does it not? I thought MTE gets disabled and we return from the fault
-handler and let the write instruction execute. But my memory on this
-is foggy. And I don't have a setup right now to test.
+
+On 8/11/25 15:26, Louis Chauvet wrote:
+> 
+> 
+> Le 08/08/2025 à 18:26, Swamil Jain a écrit :
+>>
+>>
+>> On 8/8/25 19:16, devarsh wrote:
+>>> Hi Louis,
+>>>
+>>> Thanks for the patch.
+>>>
+>>> On 30/07/25 22:32, Louis Chauvet wrote:
+>>>> As stated in the AM62x Technical Reference Manual (SPRUIV7B), the data
+>>>> sampling edge needs to be configured in two distinct registers: one 
+>>>> in the
+>>>> TIDSS IP and another in the memory-mapped control register modules.
+>>>
+>>> I don't think AM62x is thee only one which requires this and on the
+>>> contrary not all SoCs require this extra setting. We had been waiting on
+>>> confirmations from hardware team and very recently they gave a list of
+>>> SoCs which require this, as per that I think we need to limit this to
+>>> AM62x and AM62A per current supported SoCs.
+>>>
+>>> Swamil,
+>>> Please confirm on this and share if any additional details required 
+>>> here.
+>>>
+>>
+>> Yeah Devarsh, as you mentioned, this is valid for AM62X, AM62A and
+>> AM62P. We would have upstreamed this feature, but there are some
+>> corrections in Technical Reference Manual for these SoCs regarding
+>> programming CTRL_MMR_DPI_CLK_CTRL register fields, we are in loop with
+>> H/W team, waiting for their official confirmation regarding this issue.
+>>
+>> Thanks Louis for working on this patch, but we should wait for H/W
+>> team's confirmation.
+> 
+> Hello all,
+> 
+> Thanks for the feedback. I was not aware of this current work.
+> Do you plan to send the fix yourself? Should I wait your HW team 
+> feedback and send a v2?
+> 
+Hi Louis, H/W team confirmed that, CTRL_MMR_DPI0_CLK_CTRL.bit[8] should 
+be programmed same as DSS_VP1_POL_FREQ.bit[14](IPC) and 
+CTRL_MMR_DPI0_CLK_CTRL.bit[9] should be programmed same as 
+DSS_VP1_POL_FREQ.bit[16](RF). Please continue with you patches.
+
+> I also have a very similar patch ready for u-boot (depending on the same 
+> DT modifications), do you plan to fix u-boot too?
+> 
+Please fix u-boot also.
+
+Thanks and regards,
+Swamil.
+
+> Thanks,
+> Louis Chauvet
+> 
+> 
+>> Regards,
+>> Swamil.
+>>
+>>> Regards
+>>> Devarsh
+>>>
+>>>    Since
+>>>> the latter is not within the same address range, a phandle to a syscon
+>>>> device is used to access the regmap.
+>>>>
+>>>> Fixes: 32a1795f57ee ("drm/tidss: New driver for TI Keystone platform 
+>>>> Display SubSystem")
+>>>> Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+>>>>
+>>>> ---
+>>>>
+>>>> Cc: stable@vger.kernel.org
+>>>> ---
+>>>>    drivers/gpu/drm/tidss/tidss_dispc.c | 14 ++++++++++++++
+>>>>    1 file changed, 14 insertions(+)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/tidss/tidss_dispc.c 
+>>>> b/drivers/gpu/drm/tidss/tidss_dispc.c
+>>>> index 
+>>>> c0277fa36425ee1f966dccecf2b69a2d01794899..65ca7629a2e75437023bf58f8a1bddc24db5e3da 100644
+>>>> --- a/drivers/gpu/drm/tidss/tidss_dispc.c
+>>>> +++ b/drivers/gpu/drm/tidss/tidss_dispc.c
+>>>> @@ -498,6 +498,7 @@ struct dispc_device {
+>>>>        const struct dispc_features *feat;
+>>>>        struct clk *fclk;
+>>>> +    struct regmap *clk_ctrl;
+>>>>        bool is_enabled;
+>>>> @@ -1267,6 +1268,11 @@ void dispc_vp_enable(struct dispc_device 
+>>>> *dispc, u32 hw_videoport,
+>>>>                   FLD_VAL(mode->vdisplay - 1, 27, 16));
+>>>>        VP_REG_FLD_MOD(dispc, hw_videoport, DISPC_VP_CONTROL, 1, 0, 0);
+>>>> +
+>>>> +    if (dispc->clk_ctrl) {
+>>>> +        regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 
+>>>> 0x000);
+>>>> +        regmap_update_bits(dispc->clk_ctrl, 0, 0x200, rf ? 0x200 : 
+>>>> 0x000);
+>>>> +    }
+>>>>    }
+>>>>    void dispc_vp_disable(struct dispc_device *dispc, u32 hw_videoport)
+>>>> @@ -3012,6 +3018,14 @@ int dispc_init(struct tidss_device *tidss)
+>>>>        dispc_init_errata(dispc);
+>>>> +    dispc->clk_ctrl = 
+>>>> syscon_regmap_lookup_by_phandle_optional(tidss->dev->of_node,
+>>>> +                                   "ti,clk-ctrl");
+>>>> +    if (IS_ERR(dispc->clk_ctrl)) {
+>>>> +        r = dev_err_probe(dispc->dev, PTR_ERR(dispc->clk_ctrl),
+>>>> +                  "DISPC: syscon_regmap_lookup_by_phandle failed.\n");
+>>>> +        return r;
+>>>> +    }
+>>>> +
+>>>>        dispc->fourccs = devm_kcalloc(dev, 
+>>>> ARRAY_SIZE(dispc_color_formats),
+>>>>                          sizeof(*dispc->fourccs), GFP_KERNEL);
+>>>>        if (!dispc->fourccs)
+>>>>
+>>>
+> 
 
