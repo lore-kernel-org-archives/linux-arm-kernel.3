@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90230CA0EE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2439CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=emt1T3ZyltHw2/q19VQmETvollJyrBpStWIWZq3CIwQ=; b=maXDYZoAFon69X/D5P+AzvVZDz
-	vvhihdm0vQJESeUW4NtyN/LutD8hFVRKnfbQTja5kiIchLAOJsm3BSwEGG7a5TPRM3S4qknk1cuNu
-	LL1nYFKyWj17C5CoNQdvilGO1STKtY0gujcQiSmBkL6LsY678V9Fa4DZ3LLaJuL02YMKGnj8a7Azq
-	JHpf00vZ8VEfP4cabGZQOWyzxcFX2JCDqhyy64iGWdKF3GCrZ3anfqxg6rg8OP/JA0gVoDauFTwWK
-	56b6rc/5zl4zdaOvN2QzMjYVdEr/fquYqyO9gchtnJUxjZGlbGzVVuEi8CYGcUj/VbMr38y1Tofem
-	qHHa2hMQ==;
+	bh=cWg9nTC3QiXfhQyk7/1EDfJYjxYDaetd/ev07jlEnHw=; b=S55Rgy+rpOjzX4x0dnohcm67MU
+	yyfWK3Pb35UA651N84/Kmd+NqNCxuJNLgjJ3dPjnBEXik54/Qaf/Yn/3kwVSdQromzOuSrCiS3JcE
+	iCdEDbUrG1Ac8kTVNvuGnirrR8Vvi3k+FvnVhmFv9KAwxw/2agXGPlsdqF47S0Ks0mzYz5rze5q3v
+	onq1khDDbV71I1V1VB++Y09D2UO9HuYepHu450YlfiONytE8losLUXP5qVBh1W0CTICShUj8qHpGV
+	eohJLvmOLvane8P7uDCkC/qq0qW60ZaiG/CI+LLO21U5eR2S6W2TkYgFbpvhCttMD192FwCOOrRbX
+	XNmURjwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgc-0000000Bx23-2zGm;
-	Tue, 12 Aug 2025 20:33:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ulvgd-0000000Bx35-2e2t;
+	Tue, 12 Aug 2025 20:33:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ultVq-0000000Bgx3-2kDC
+	id 1ultVx-0000000BgxS-2Qkp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:14:18 +0000
+	Tue, 12 Aug 2025 18:14:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A95E601F0;
-	Tue, 12 Aug 2025 18:14:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADC5DC4CEF0;
-	Tue, 12 Aug 2025 18:14:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 207925C5950;
+	Tue, 12 Aug 2025 18:14:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7FF7C4CEF0;
+	Tue, 12 Aug 2025 18:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755022457;
-	bh=ThHGHTyzwNeckqRjA6jFRanhR25pKbOAfjn7DiPYiL8=;
+	s=k20201202; t=1755022464;
+	bh=cbioamJT3IVDLAVzUrO/mAFSoEzHiRSuAKFCjOj6Q68=;
 	h=From:To:Cc:Subject:Date:From;
-	b=XIDlMPs7R+aaNs2og+lWVsCgec3C3MWWFZeOVfXg4PzYpKJwQ6KMkQR+F2qwxadaY
-	 KlSTJbOS+PDCCnbObUpzc/HpBCXAZo8QMZRGmspB1PWGMFiG4pUJxt5/uB54N714Gq
-	 ha7chKgIWEYnu2Gf/gGmPorB7hpTCldAgfuYYwYmHe2Q1vu/hlPJ3WPF/VH5OX2WRl
-	 /HU0Jd9IwNdim9WiYUSzaF0tRpMmdllCqLNcU1OcqhEr4BDW7WRIIkUr4mLIQ9w5o8
-	 vOGvR1ekdEL7TdkOmqIRZCXHs+Hdb7oMr20YWxVLzB69WFF8Unt5Y0Rsd9Hyn+u42p
-	 efwIboJK1vWkQ==
+	b=el8NBOBZ5qUsm6x1GnjGe+Tz6n7q4AacW6lD4SzxnzA0emsLs8nRmHK3BR5hp0dkb
+	 IU87dsNWPyHxr4d0Gqa0O1K5wZgjBzP4KcNttr7hrLxoDF2VTs3kT25csHusI1LTwl
+	 +UQHV/YL5UExdDzQJBk5REsd4H76EiMQ6Wna9fEJzilTvbENXbSlhS7j7Dh7mg+uF3
+	 Zm4cR4V8eM66HRvXvX5jIu+rAMXa8LuXdVMGVy/IUklkgViwR3OY24SD+3ezvTP86o
+	 M/tuF95P/6zzUWx9s2S6Vm+T/PoNBjZhiNhLRDqe5dQoD2njFydoe6zKtVycOKE7id
+	 CiNnRBBHJ+sfw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jassi Brar <jassisinghbrar@gmail.com>,
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: linux-kernel@vger.kernel.org,
+	Khuong Dinh <khuong@os.amperecomputing.com>,
+	Tai Nguyen <ttnguyen@apm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: mailbox: Convert brcm,iproc-flexrm-mbox to DT schema
-Date: Tue, 12 Aug 2025 13:14:13 -0500
-Message-ID: <20250812181415.66923-1-robh@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: perf: Convert apm,xgene-pmu to DT schema
+Date: Tue, 12 Aug 2025 13:14:20 -0500
+Message-ID: <20250812181422.68286-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250812_111425_695256_A2258814 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,151 +76,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Broadcom FlexRM Ring Manager binding to DT schema format.
-It's a straightforward conversion.
+Convert the Applied Micro X-Gene PMU binding to DT schema format. It is
+a straightforward conversion.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../mailbox/brcm,iproc-flexrm-mbox.txt        | 59 -----------------
- .../mailbox/brcm,iproc-flexrm-mbox.yaml       | 63 +++++++++++++++++++
- 2 files changed, 63 insertions(+), 59 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt
- create mode 100644 Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml
+ .../bindings/perf/apm,xgene-pmu.yaml          | 142 ++++++++++++++++++
+ .../bindings/perf/apm-xgene-pmu.txt           | 112 --------------
+ 2 files changed, 142 insertions(+), 112 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/perf/apm,xgene-pmu.yaml
+ delete mode 100644 Documentation/devicetree/bindings/perf/apm-xgene-pmu.txt
 
-diff --git a/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt b/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt
-deleted file mode 100644
-index bf0c998b8603..000000000000
---- a/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt
-+++ /dev/null
-@@ -1,59 +0,0 @@
--Broadcom FlexRM Ring Manager
--============================
--The Broadcom FlexRM ring manager provides a set of rings which can be
--used to submit work to offload engines. An SoC may have multiple FlexRM
--hardware blocks. There is one device tree entry per FlexRM block. The
--FlexRM driver will create a mailbox-controller instance for given FlexRM
--hardware block where each mailbox channel is a separate FlexRM ring.
--
--Required properties:
----------------------
--- compatible:	Should be "brcm,iproc-flexrm-mbox"
--- reg:		Specifies base physical address and size of the FlexRM
--		ring registers
--- msi-parent:	Phandles (and potential Device IDs) to MSI controllers
--		The FlexRM engine will send MSIs (instead of wired
--		interrupts) to CPU. There is one MSI for each FlexRM ring.
--		Refer devicetree/bindings/interrupt-controller/msi.txt
--- #mbox-cells:	Specifies the number of cells needed to encode a mailbox
--		channel. This should be 3.
--
--		The 1st cell is the mailbox channel number.
--
--		The 2nd cell contains MSI completion threshold. This is the
--		number of completion messages for which FlexRM will inject
--		one MSI interrupt to CPU.
--
--		The 3rd cell contains MSI timer value representing time for
--		which FlexRM will wait to accumulate N completion messages
--		where N is the value specified by 2nd cell above. If FlexRM
--		does not get required number of completion messages in time
--		specified by this cell then it will inject one MSI interrupt
--		to CPU provided at least one completion message is available.
--
--Optional properties:
----------------------
--- dma-coherent:	Present if DMA operations made by the FlexRM engine (such
--		as DMA descriptor access, access to buffers pointed by DMA
--		descriptors and read/write pointer updates to DDR) are
--		cache coherent with the CPU.
--
--Example:
----------
--crypto_mbox: mbox@67000000 {
--	compatible = "brcm,iproc-flexrm-mbox";
--	reg = <0x67000000 0x200000>;
--	msi-parent = <&gic_its 0x7f00>;
--	#mbox-cells = <3>;
--};
--
--crypto@672c0000 {
--	compatible = "brcm,spu2-v2-crypto";
--	reg = <0x672c0000 0x1000>;
--	mboxes = <&crypto_mbox 0 0x1 0xffff>,
--		 <&crypto_mbox 1 0x1 0xffff>,
--		 <&crypto_mbox 16 0x1 0xffff>,
--		 <&crypto_mbox 17 0x1 0xffff>,
--		 <&crypto_mbox 30 0x1 0xffff>,
--		 <&crypto_mbox 31 0x1 0xffff>;
--};
-diff --git a/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml b/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml
+diff --git a/Documentation/devicetree/bindings/perf/apm,xgene-pmu.yaml b/Documentation/devicetree/bindings/perf/apm,xgene-pmu.yaml
 new file mode 100644
-index 000000000000..c801bd2e95f3
+index 000000000000..01f0373eac7d
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml
-@@ -0,0 +1,63 @@
++++ b/Documentation/devicetree/bindings/perf/apm,xgene-pmu.yaml
+@@ -0,0 +1,142 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/mailbox/brcm,iproc-flexrm-mbox.yaml#
++$id: http://devicetree.org/schemas/perf/apm,xgene-pmu.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Broadcom FlexRM Ring Manager
++title: APM X-Gene SoC PMU
 +
 +maintainers:
-+  - Ray Jui <rjui@broadcom.com>
-+  - Scott Branden <sbranden@broadcom.com>
++  - Tai Nguyen <ttnguyen@apm.com>
 +
-+description:
-+  The Broadcom FlexRM ring manager provides a set of rings which can be used to
-+  submit work to offload engines. An SoC may have multiple FlexRM hardware
-+  blocks. There is one device tree entry per FlexRM block. The FlexRM driver
-+  will create a mailbox-controller instance for given FlexRM hardware block
-+  where each mailbox channel is a separate FlexRM ring.
++description: |
++  This is APM X-Gene SoC PMU (Performance Monitoring Unit) module.
++  The following PMU devices are supported:
++
++    L3C            - L3 cache controller
++    IOB            - IO bridge
++    MCB            - Memory controller bridge
++    MC             - Memory controller
 +
 +properties:
 +  compatible:
-+    const: brcm,iproc-flexrm-mbox
++    enum:
++      - apm,xgene-pmu
++      - apm,xgene-pmu-v2
++
++  "#address-cells":
++    const: 2
++
++  "#size-cells":
++    const: 2
++
++  ranges: true
 +
 +  reg:
 +    maxItems: 1
 +
-+  msi-parent:
++  interrupts:
 +    maxItems: 1
 +
-+  '#mbox-cells':
-+    description: >
-+      The 1st cell is the mailbox channel number.
++  regmap-csw:
++    $ref: /schemas/types.yaml#/definitions/phandle
 +
-+      The 2nd cell contains MSI completion threshold. This is the number of
-+      completion messages for which FlexRM will inject one MSI interrupt to CPU.
++  regmap-mcba:
++    $ref: /schemas/types.yaml#/definitions/phandle
 +
-+      The 3rd cell contains MSI timer value representing time for which FlexRM
-+      will wait to accumulate N completion messages where N is the value
-+      specified by 2nd cell above. If FlexRM does not get required number of
-+      completion messages in time specified by this cell then it will inject one
-+      MSI interrupt to CPU provided at least one completion message is
-+      available.
-+    const: 3
-+
-+  dma-coherent: true
++  regmap-mcbb:
++    $ref: /schemas/types.yaml#/definitions/phandle
 +
 +required:
 +  - compatible
++  - regmap-csw
++  - regmap-mcba
++  - regmap-mcbb
 +  - reg
-+  - msi-parent
-+  - '#mbox-cells'
++  - interrupts
 +
-+additionalProperties: false
++additionalProperties:
++  type: object
++  additionalProperties: false
++
++  properties:
++    compatible:
++      enum:
++        - apm,xgene-pmu-l3c
++        - apm,xgene-pmu-iob
++        - apm,xgene-pmu-mcb
++        - apm,xgene-pmu-mc
++
++    reg:
++      maxItems: 1
++
++    enable-bit-index:
++      description:
++        Specifies which bit enables the associated resource in MCB or MC subnodes.
++      $ref: /schemas/types.yaml#/definitions/uint32
++      maximum: 31
 +
 +examples:
 +  - |
-+    mailbox@67000000 {
-+        compatible = "brcm,iproc-flexrm-mbox";
-+        reg = <0x67000000 0x200000>;
-+        msi-parent = <&gic_its 0x7f00>;
-+        #mbox-cells = <3>;
-+        dma-coherent;
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        pmu@78810000 {
++            compatible = "apm,xgene-pmu-v2";
++            reg = <0x0 0x78810000 0x0 0x1000>;
++            #address-cells = <2>;
++            #size-cells = <2>;
++            ranges;
++            regmap-csw = <&csw>;
++            regmap-mcba = <&mcba>;
++            regmap-mcbb = <&mcbb>;
++            interrupts = <0x0 0x22 0x4>;
++
++            pmul3c@7e610000 {
++                compatible = "apm,xgene-pmu-l3c";
++                reg = <0x0 0x7e610000 0x0 0x1000>;
++            };
++
++            pmuiob@7e940000 {
++                compatible = "apm,xgene-pmu-iob";
++                reg = <0x0 0x7e940000 0x0 0x1000>;
++            };
++
++            pmucmcb@7e710000 {
++                compatible = "apm,xgene-pmu-mcb";
++                reg = <0x0 0x7e710000 0x0 0x1000>;
++                enable-bit-index = <0>;
++            };
++
++            pmucmcb@7e730000 {
++                compatible = "apm,xgene-pmu-mcb";
++                reg = <0x0 0x7e730000 0x0 0x1000>;
++                enable-bit-index = <1>;
++            };
++
++            pmucmc@7e810000 {
++                compatible = "apm,xgene-pmu-mc";
++                reg = <0x0 0x7e810000 0x0 0x1000>;
++                enable-bit-index = <0>;
++            };
++
++            pmucmc@7e850000 {
++                compatible = "apm,xgene-pmu-mc";
++                reg = <0x0 0x7e850000 0x0 0x1000>;
++                enable-bit-index = <1>;
++            };
++
++            pmucmc@7e890000 {
++                compatible = "apm,xgene-pmu-mc";
++                reg = <0x0 0x7e890000 0x0 0x1000>;
++                enable-bit-index = <2>;
++            };
++
++            pmucmc@7e8d0000 {
++                compatible = "apm,xgene-pmu-mc";
++                reg = <0x0 0x7e8d0000 0x0 0x1000>;
++                enable-bit-index = <3>;
++            };
++        };
 +    };
+diff --git a/Documentation/devicetree/bindings/perf/apm-xgene-pmu.txt b/Documentation/devicetree/bindings/perf/apm-xgene-pmu.txt
+deleted file mode 100644
+index afb11cf693c0..000000000000
+--- a/Documentation/devicetree/bindings/perf/apm-xgene-pmu.txt
++++ /dev/null
+@@ -1,112 +0,0 @@
+-* APM X-Gene SoC PMU bindings
+-
+-This is APM X-Gene SoC PMU (Performance Monitoring Unit) module.
+-The following PMU devices are supported:
+-
+-  L3C			- L3 cache controller
+-  IOB			- IO bridge
+-  MCB			- Memory controller bridge
+-  MC			- Memory controller
+-
+-The following section describes the SoC PMU DT node binding.
+-
+-Required properties:
+-- compatible		: Shall be "apm,xgene-pmu" for revision 1 or
+-                          "apm,xgene-pmu-v2" for revision 2.
+-- regmap-csw		: Regmap of the CPU switch fabric (CSW) resource.
+-- regmap-mcba		: Regmap of the MCB-A (memory bridge) resource.
+-- regmap-mcbb		: Regmap of the MCB-B (memory bridge) resource.
+-- reg			: First resource shall be the CPU bus PMU resource.
+-- interrupts            : Interrupt-specifier for PMU IRQ.
+-
+-Required properties for L3C subnode:
+-- compatible		: Shall be "apm,xgene-pmu-l3c".
+-- reg			: First resource shall be the L3C PMU resource.
+-
+-Required properties for IOB subnode:
+-- compatible		: Shall be "apm,xgene-pmu-iob".
+-- reg			: First resource shall be the IOB PMU resource.
+-
+-Required properties for MCB subnode:
+-- compatible		: Shall be "apm,xgene-pmu-mcb".
+-- reg			: First resource shall be the MCB PMU resource.
+-- enable-bit-index	: The bit indicates if the according MCB is enabled.
+-
+-Required properties for MC subnode:
+-- compatible		: Shall be "apm,xgene-pmu-mc".
+-- reg			: First resource shall be the MC PMU resource.
+-- enable-bit-index	: The bit indicates if the according MC is enabled.
+-
+-Example:
+-	csw: csw@7e200000 {
+-		compatible = "apm,xgene-csw", "syscon";
+-		reg = <0x0 0x7e200000 0x0 0x1000>;
+-	};
+-
+-	mcba: mcba@7e700000 {
+-		compatible = "apm,xgene-mcb", "syscon";
+-		reg = <0x0 0x7e700000 0x0 0x1000>;
+-	};
+-
+-	mcbb: mcbb@7e720000 {
+-		compatible = "apm,xgene-mcb", "syscon";
+-		reg = <0x0 0x7e720000 0x0 0x1000>;
+-	};
+-
+-	pmu: pmu@78810000 {
+-		compatible = "apm,xgene-pmu-v2";
+-		#address-cells = <2>;
+-		#size-cells = <2>;
+-		ranges;
+-		regmap-csw = <&csw>;
+-		regmap-mcba = <&mcba>;
+-		regmap-mcbb = <&mcbb>;
+-		reg = <0x0 0x78810000 0x0 0x1000>;
+-		interrupts = <0x0 0x22 0x4>;
+-
+-		pmul3c@7e610000 {
+-			compatible = "apm,xgene-pmu-l3c";
+-			reg = <0x0 0x7e610000 0x0 0x1000>;
+-		};
+-
+-		pmuiob@7e940000 {
+-			compatible = "apm,xgene-pmu-iob";
+-			reg = <0x0 0x7e940000 0x0 0x1000>;
+-		};
+-
+-		pmucmcb@7e710000 {
+-			compatible = "apm,xgene-pmu-mcb";
+-			reg = <0x0 0x7e710000 0x0 0x1000>;
+-			enable-bit-index = <0>;
+-		};
+-
+-		pmucmcb@7e730000 {
+-			compatible = "apm,xgene-pmu-mcb";
+-			reg = <0x0 0x7e730000 0x0 0x1000>;
+-			enable-bit-index = <1>;
+-		};
+-
+-		pmucmc@7e810000 {
+-			compatible = "apm,xgene-pmu-mc";
+-			reg = <0x0 0x7e810000 0x0 0x1000>;
+-			enable-bit-index = <0>;
+-		};
+-
+-		pmucmc@7e850000 {
+-			compatible = "apm,xgene-pmu-mc";
+-			reg = <0x0 0x7e850000 0x0 0x1000>;
+-			enable-bit-index = <1>;
+-		};
+-
+-		pmucmc@7e890000 {
+-			compatible = "apm,xgene-pmu-mc";
+-			reg = <0x0 0x7e890000 0x0 0x1000>;
+-			enable-bit-index = <2>;
+-		};
+-
+-		pmucmc@7e8d0000 {
+-			compatible = "apm,xgene-pmu-mc";
+-			reg = <0x0 0x7e8d0000 0x0 0x1000>;
+-			enable-bit-index = <3>;
+-		};
+-	};
 -- 
 2.47.2
 
