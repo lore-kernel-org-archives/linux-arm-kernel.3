@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C6DCA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C28CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIcDLJkcC/4h4vpD3h9Md+aGM0+RgBKilVDmhk7f1DA=; b=rY39yHmAKlj/1ezVtKdIq3eZ+A
-	JKhK3uGCCffFU2J7rJarNil5TMDoPPrnx+tjpm5sVLE1I+uQCALYsHLHQdeRP1+R7XE9NNloOeQGF
-	7EvHsJCQ43KGKPgUEUTIdpluXM/i+uRFw9ZbK5x7GoMCnvGYk7TUDinBilwFoZu5474WfHd3WtCy4
-	ZMm6o1gdo3/psKaBYgehUppFKf53gl1X4fFIhSeDlsWJspUapmfl+biBXc/qZBbe/N9engb0hNaXm
-	sI5KD4/qrhMFWu+Qd4EgmJ5jf+MDBJwia3J7iGLizvjQRbuuBjDNgbQAb4SrgpEjOhE5kkW5JxgBd
-	To8ebtMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lMUFRQkUCFTnfXTOUg1GE/4NL6hravK/FIP/AgB9Y0E=; b=2pvQ0zVro4F4Uh32FRBbjUqxbb
+	O3Admkds7TYvj1YwNS5jhlKkMQjSeiqymJgjPgRHbrm4/HORRcPDoVj3qQe0XgDsqny4ciVEtwWmB
+	/vl1uEVuefs60us00AvyZU0Abv9kfB7bCUzkrQ6cog4ENLko9KELrZgEh9Ift5bk4Xg5QHdorrgkX
+	bdVK03kRbEuMHoWPoUeDY7vzxeh9sD1EI6lX5MEJkJM/3oeHYoNYY+0EtOaL+2RDMEv05i8odRHhi
+	zUEB08A3ePGILyRkBNlm3Ovw9rcEQ20OCZmUyAWofULReph5heA+axgymNKKefbrmtr7FQLznoxX2
+	d/nMayPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrhu-0000000BHSa-1pUo;
-	Tue, 12 Aug 2025 16:18:38 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1ulrhv-0000000BHTp-1HS8;
+	Tue, 12 Aug 2025 16:18:39 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulloq-0000000ASUO-3ZLb
+	id 1ullqI-0000000ASfg-0OtC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 10:01:26 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-71a3f7f0addso50615057b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 03:01:24 -0700 (PDT)
+	Tue, 12 Aug 2025 10:02:55 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-459d4d7c745so48200615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 03:02:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754992884; x=1755597684; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wIcDLJkcC/4h4vpD3h9Md+aGM0+RgBKilVDmhk7f1DA=;
-        b=lShkZa3JCPp1i5CVwi0Pg5nQUazyjlKzX/QOwYU6CJZcghSjug3459tL58PrxYkaKL
-         S6QTexVHan72vXfkT/ozL9P9SMZRW8kdHN9srPz/BTd+rHWdoOlDbuMCPJrUuwJXxahs
-         B6imoxfTZ9BKBwyyTprFscWl1JYz7Yeg5nc404ogaIAyExCAIOjvEmHh8a2YIMiBnmLM
-         9To5OjtttEk+sIjS5vBI3oaelF4wP7q2Gjvn7NXPuADMogLvte1+0Q7ozkAefuEM0NDO
-         ly/zfapWv9te02O6WFp/8/QSnHvRv7EI8cMa98bXTaRPoh+0bcMQgj9WjAbGzXyXi3Po
-         1F/g==
+        d=linaro.org; s=google; t=1754992972; x=1755597772; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lMUFRQkUCFTnfXTOUg1GE/4NL6hravK/FIP/AgB9Y0E=;
+        b=fB8zWEW6WJmeSnBnDOEkNDIdb8YxEB3EWqNqz7hsS8m1/eNO53c3sYx8lXZEJFT6iK
+         xlSj1Bh9H0554sQ8s6FzjMXdVfSlFC8/mSo07ca6Y4b2GUATGmvdMHAXPNee1eyONThs
+         3rmfzY33exDJLhpWs8aXO4LpUWPAYJByu2hdsopqOLOM7VZGzgxGLpvz1sLB/7Ex88j1
+         a6Xj7yeG4DBCDa2KNCtXG0UBN9XaWowxaLCinhdDakuMl/jiVOoyF6kntG4Cor3SYH6I
+         BQCLoVWd98IkL9DiHtCcHL6wIvDIrek5SXjqoTHR72ilS5YM4FOZ5eqKSUsPHpZv6R9j
+         ncCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754992884; x=1755597684;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wIcDLJkcC/4h4vpD3h9Md+aGM0+RgBKilVDmhk7f1DA=;
-        b=DR2wJJF0N4Wa9fjOSD01gaV86h7Dm1pu0b7yEECaLrpIH48RTVE7AX0HY0yo6zw3Ck
-         PYtEMp5szmdHGy4UdGkqXjPyyF1blvDUe03JW2PxPCp9jGdTdK/ex9kAjfDy5m1kKLRe
-         fcnkmL9l49es51n8kY3SVl0zPpK23uzU9nofKs5S3vDXdPVUSEgm9tmJ4v4gWJvf4G2f
-         BtvX9fIWQ9utsV0xy21FmKiZpJSTsz4h8kCw5JsxVwjanHEgrIUsHsS729CLa5u4fJoc
-         9PYoHlsHRZIAN/5Nwq1SCrYzqKQ2vNazNTvQb62J5Z3NmeA9yOMbD8stXiY10SRjVcLL
-         h0eA==
-X-Forwarded-Encrypted: i=1; AJvYcCVUIPTqpvdQ+lQJTXuyKWw8M3Dx/rcrO8TeF76gItk+y1Z/D8BPf0WuJLBeY7iVTbjGmEKcLGFNUvDOlEBmx/7h@lists.infradead.org
-X-Gm-Message-State: AOJu0YydxFiLzjN2dbhqrfWEQms3B/9doJZ7VGXk56bJLldaW4B7up+L
-	vDOAml09XPgGwkiT3oaxJEWlCop5l+3eQfUFwxPqmQwZb652Gpv/e9ei8pnf0ET3mCDKBkBLN3V
-	xnIiUy0OKBVXzLrq+/eb9dzuQcWX4Xsd9ZY5PHFW9ZLISkMM00NgWrfM=
-X-Gm-Gg: ASbGncsraJdivALH5BFfivSpSZKvSqSsyfi/BkX3+GJjqYtS90e7dOnnz+KSVvGUa/1
-	gjFzC1LXlEt3f4I1OnET24iWHLqcuejJeiX0Bdi+TRuxWWllJ5LFjJarSKDFwDg5PY3Ka7Omp3w
-	7m5Oee32wH76RPLHhJd/VZaFchsQeuPSR9g44sXf1lT5QoAMIAh1e/Um+ihcEYg0w7eaRzCRuvz
-	Is0X3bc
-X-Google-Smtp-Source: AGHT+IH+kgYcIU+KIQofto2+FJUD73uoizAVljhEzlAHBsS06NuOjMp+vsz1mWGXO8RJi58Vv7ybYaDk6l97P7frFRA=
-X-Received: by 2002:a05:690c:4b93:b0:71a:34bb:4277 with SMTP id
- 00721157ae682-71c429b0643mr35302057b3.18.1754992883651; Tue, 12 Aug 2025
- 03:01:23 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1754992972; x=1755597772;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lMUFRQkUCFTnfXTOUg1GE/4NL6hravK/FIP/AgB9Y0E=;
+        b=Bz/HgMEtk5l5d7Ba6avwhIOC3IN+qrVv/9J/L/TDtgGXBNBMptw+6h/Tmq14ruUfiI
+         ZupdWQw7kyp6SZ+1lOAK/Z3A0QZMgdOEOIm84i5zpOH2RHfr/1dGRwQ+bMjkJSzOWBuq
+         cSRtC622mpuku4okFz/Wgo+NS7JgolulsaQ87Mf7vbr1caK18St83hMLFPrth8CWv9Dm
+         toFMTikYcu1m3ICaS0G36jCf3E5eRXxwS/1Po9RhIIx5nGxHRPgGz2Z6fwSHLaE8pE3O
+         0MnF1JsG8ST4ec8k5sK7HBo7es3ZpGJw8eRjUFVOI8c0dQUacOUd2kigJ3aQvxhvn3ut
+         WKaw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhNBih0hYO2JdAQ5Xvh3PR4lR7oqg75e7ylANNVtXjrBRfv5NSPvss3AVfBfBNc30loZoMrliFbxc93xEAr6rn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxL/zvMgD0t9SiWiYMXzy6amBkOO6FODRFkg6w32xiHjynKBwl+
+	/H7Jx/nrgOqZqxN7lxa9T3Vs6VElpJT/I+ufalKQa+4qGLce9R645KcaDgdlGqcqicQ=
+X-Gm-Gg: ASbGncukfl7lNRVIlARxJoXV/WtodDkIsdIpEMG2r9eg3rE+Yx1Qzu48X1oN+GpHZvc
+	s5ER4th13zTmttfPzfCGhJ56d2X4ie2tITn+G8TIgWntjBYXXdSFYqIqOL9WnLF1I29HmgY+G9K
+	TF35IDbFKseudFV3T3D51iXbVK806K9KuGNUwePObPvigE9HpueiIvJItciko+WHSBWa3f7/I2S
+	vwH+15Y+lrt3K6jgqjRje6LfyEbfFRotUafEZKeIkmRHNn6Xkjvr9woZu+uURAw7W4/NckR1f4E
+	Zl+7WPeHKpDd81GQqnBqGF8j6imxoRykVic/xbsNWZx0hRol8iwUrH61m5r39ddrmJ4M/RK0mj7
+	4vR71pegq2xxF1Wel6i+yKx5bThY=
+X-Google-Smtp-Source: AGHT+IEDgZDdlC29E7WPXX5mHtnM5xMJLgYKltbMlfqTk2eqtCCdDKPsKEittUUlIJjKSGxZRm5M6w==
+X-Received: by 2002:a05:600c:4708:b0:456:10a8:ff7 with SMTP id 5b1f17b1804b1-459f4f146dfmr126807615e9.28.1754992972506;
+        Tue, 12 Aug 2025 03:02:52 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e5b84674sm312126965e9.30.2025.08.12.03.02.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Aug 2025 03:02:52 -0700 (PDT)
+Message-ID: <73285731-5be8-4a27-b609-b4ad80274b51@linaro.org>
+Date: Tue, 12 Aug 2025 11:02:51 +0100
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
- <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
- <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com> <CAMuHMdVrkr56XsRsbG7H-tLHVzmP+g-7=5Nrv9asC25ismwiYA@mail.gmail.com>
-In-Reply-To: <CAMuHMdVrkr56XsRsbG7H-tLHVzmP+g-7=5Nrv9asC25ismwiYA@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 12 Aug 2025 12:00:47 +0200
-X-Gm-Features: Ac12FXzfiqHB8h5pg7wGWT0OcU-UbYb0hngDXruGLnrHgo3vA-Bxi3AW8WYY6Fk
-Message-ID: <CAPDyKFq7z9e9hEC9QWiYcaU=t+Gs_GgRurmK-+cNYp4xkhr5Ow@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] perf: arm_pmuv3: Factor out PMCCNTR_EL0 use
+ conditions
+To: Yicong Yang <yangyicong@huawei.com>, will@kernel.org,
+ mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org
+Cc: robh@kernel.org, anshuman.khandual@arm.com, jonathan.cameron@huawei.com,
+ hejunhao3@huawei.com, linuxarm@huawei.com, prime.zeng@hisilicon.com,
+ xuwei5@huawei.com, wangyushan12@huawei.com, yangyicong@hisilicon.com
+References: <20250812080830.20796-1-yangyicong@huawei.com>
+ <20250812080830.20796-2-yangyicong@huawei.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250812080830.20796-2-yangyicong@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_030124_920455_651E1D9A 
-X-CRM114-Status: GOOD (  58.83  )
+X-CRM114-CacheID: sfid-20250812_030254_141696_1FE2E8AE 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,194 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 7 Aug 2025 at 11:38, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Ulf,
->
-> On Wed, 30 Jul 2025 at 12:29, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > On Wed, 30 Jul 2025 at 11:56, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> > > On Wed, 9 Jul 2025 at 13:31, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > On Tue, 1 Jul 2025 at 13:47, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> > > > > Changes in v3:
-> > > > >         - Added a couple of patches to adress problems on some Renesas
-> > > > >         platforms. Thanks Geert and Tomi for helping out!
-> > > > >         - Adressed a few comments from Saravanna and Konrad.
-> > > > >         - Added some tested-by tags.
-> > > >
-> > > > I decided it was time to give this a try, so I have queued this up for
-> > > > v6.17 via the next branch at my pmdomain tree.
-> > > >
-> > > > If you encounter any issues, please let me know so I can help to fix them.
-> > >
-> > > Thanks for your series!  Due to holidays, I only managed to test
-> > > this very recently.
-> > >
-> > > Unfortunately I have an issue with unused PM Domains no longer being
-> > > disabled on R-Car:
-> > >   - On R-Car Gen1/2/3, using rcar-sysc.c, unused PM Domains are never
-> > >     disabled.
-> > >   - On R-Car Gen4, using rcar-gen4-sysc.c, unused PM Domains are
-> > >     sometimes not disabled.
-> > >     At first, I noticed the IOMMU driver was not enabled in my config,
-> > >     and enabling it did fix the issue.  However, after that I still
-> > >     encountered the issue in a different config that does have the
-> > >     IOMMU driver enabled...
-> > >
-> > > FTR, unused PM Domains are still disabled correctly on R/SH-Mobile
-> > > (using rmobile-sysc.c) and on BeagleBone Black. Note that these use
-> > > of_genpd_add_provider_simple(), while all R-Car drivers use
-> > > of_genpd_add_provider_onecell().  Perhaps there is an issue with
-> > > the latter?  If you don't have a clue, I plan to do some more
-> > > investigation later...
->
-> of_genpd_add_provider_onecell() has:
->
->     if (!dev)
->             sync_state = true;
->     else
->             dev_set_drv_sync_state(dev, genpd_sync_state);
->
->     for (i = 0; i < data->num_domains; i++) {
->             ...
->             if (sync_state && !genpd_is_no_sync_state(genpd)) {
->                     genpd->sync_state = GENPD_SYNC_STATE_ONECELL;
->                     device_set_node(&genpd->dev, fwnode);
->                     sync_state = false;
->                     ^^^^^^^^^^^^^^^^^^^
->             }
->             ...
->     }
->
-> As the R-Car SYSC drivers are not platform drivers, dev is NULL, and
-> genpd->sync_state is set to GENPD_SYNC_STATE_ONECELL for the first PM
-> Domain only.  All other domains have the default value of sync_state
-> (0 = GENPD_SYNC_STATE_OFF).  Hence when genpd_provider_sync_state()
-> is called later, it ignores all but the first domain.
-> Apparently this is intentional, as of_genpd_sync_state() tries to
-> power off all domains handled by the same controller anyway (see below)?
 
-Right, this is intentional and mainly because of how fw_devlink works.
 
-fw_devlink is limited to use only the first device - if multiple
-devices share the same fwnode. In principle, we could have picked any
-of the devices in the array of genpds here - and reached the same
-result.
+On 12/08/2025 9:08 am, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
+> 
+> PMCCNTR_EL0 is preferred for counting CPU_CYCLES under certain
+> conditions. Factor out the condition check to a separate function
+> for further extension. Add documents for better understanding.
+> No functional changes intended.
+> 
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>   drivers/perf/arm_pmuv3.c | 30 ++++++++++++++++++++++++++++--
+>   1 file changed, 28 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+> index f6d7bab5d555..95c899d07df5 100644
+> --- a/drivers/perf/arm_pmuv3.c
+> +++ b/drivers/perf/arm_pmuv3.c
+> @@ -978,6 +978,33 @@ static int armv8pmu_get_chain_idx(struct pmu_hw_events *cpuc,
+>   	return -EAGAIN;
+>   }
+>   
+> +static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
+> +				     struct perf_event *event)
+> +{
+> +	struct hw_perf_event *hwc = &event->hw;
+> +	unsigned long evtype = hwc->config_base & ARMV8_PMU_EVTYPE_EVENT;
+> +
+> +	/* PMCCNTR_EL0 can only be used for CPU_CYCLES event */
+> +	if (evtype != ARMV8_PMUV3_PERFCTR_CPU_CYCLES)
+> +		return false;
+> +
+> +	/*
+> +	 * A CPU_CYCLES event with threshold counting cannot use PMCCNTR_EL0
+> +	 * since it lacks threshold support.
+> +	 */
+> +	if (armv8pmu_event_get_threshold(&event->attr))
+> +		return false;
+> +
+> +	/*
+> +	 * PMCCNTR_EL0 is not affected by BRBE controls like BRBCR_ELx.FZP.
+> +	 * So don't use it for branch events.
+> +	 */
+> +	if (has_branch_stack(event))
+> +		return false;
+> +
+> +	return true;
+> +}
+> +
+>   static int armv8pmu_get_event_idx(struct pmu_hw_events *cpuc,
+>   				  struct perf_event *event)
+>   {
+> @@ -986,8 +1013,7 @@ static int armv8pmu_get_event_idx(struct pmu_hw_events *cpuc,
+>   	unsigned long evtype = hwc->config_base & ARMV8_PMU_EVTYPE_EVENT;
+>   
+>   	/* Always prefer to place a cycle counter into the cycle counter. */
+> -	if ((evtype == ARMV8_PMUV3_PERFCTR_CPU_CYCLES) &&
+> -	    !armv8pmu_event_get_threshold(&event->attr) && !has_branch_stack(event)) {
+> +	if (armv8pmu_can_use_pmccntr(cpuc, event)) {
+>   		if (!test_and_set_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask))
+>   			return ARMV8_PMU_CYCLE_IDX;
+>   		else if (armv8pmu_event_is_64bit(event) &&
 
->
-> > > BTW, the "pending due to"-messages look weird to me.
-> > > On R-Car M2-W (r8a7791.dtsi) I see e.g.:
-> > >
-> > >     genpd_provider ca15-cpu0: sync_state() pending due to e6020000.watchdog
-> > >     renesas-cpg-mssr e6150000.clock-controller: sync_state() pending
-> > > due to e6020000.watchdog
-> > >
-> > > ca15-cpu0 is the PM Domain holding the first CPU core, while
-> > > the watchdog resides in the always-on Clock Domain, and uses the
-> > > clock-controller for PM_CLK handling.
->
-> Unfortunately the first PM Domain is "ca15-cpu0", which is blocked on
-> these bogus pending states, and no PM Domain is powered off.
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-I see, thanks for the details. I am looking closer at this.
-
-In any case, this is the main issue, as it prevents the ->sync_state()
-callback to be called. Hence the "genpd->stay_on" will also *not* be
-cleared for any of the genpd's for the genpd-provider.
-
->
-> If I remove the "sync_state = false" above, genpd_provider_sync_state()
-> considers all domains, and does power down all unused domains (even
-> multiple times, as expected).
-
-I think those are getting called because with the change above, there
-is no device_link being tracked. As stated above, fw_devlink is
-limited to use only one device - if multiple devices share the same
-fwnode.
-
-In other words, the ->sync_state() callbacks are called even if the
-corresponding consumer devices have not been probed yet.
-
->
-> Upon closer look, all "pending due to" messages I see claim that the
-> first (index 0) PM Domain is pending on some devices, while all of
-> these devices are part of a different domain (usually the always-on
-> domain, which is always the last (32 or 64) on R-Car).
->
-> So I think there are two issues:
->   1. Devices are not attributed to the correct PM Domain using
->      fw_devlink sync_state,
->   2. One PM Domain of a multi-domain controller being blocked should
->      not block all other domains handled by the same controller.
-
-Right, that's a current limitation with fw_devlink. To cope with this,
-it's possible to enforce the ->sync_state() callback to be invoked
-from user-space (timeout or explicitly) for a device.
-
-Another option would be to allow an opt-out behavior for some genpd's
-that are powered-on at initialization. Something along the lines of
-the below.
-
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 29 Jul 2025 14:27:22 +0200
-Subject: [PATCH] pmdomain: core: Allow powered-on PM domains to be powered-off
- during boot
-
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/core.c   | 3 ++-
- include/linux/pm_domain.h | 7 +++++++
- 2 files changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-index 0006ab3d0789..ef0760824c92 100644
---- a/drivers/pmdomain/core.c
-+++ b/drivers/pmdomain/core.c
-@@ -187,6 +187,7 @@ static const struct genpd_lock_ops genpd_raw_spin_ops = {
- #define genpd_is_opp_table_fw(genpd)   (genpd->flags & GENPD_FLAG_OPP_TABLE_FW)
- #define genpd_is_dev_name_fw(genpd)    (genpd->flags & GENPD_FLAG_DEV_NAME_FW)
- #define genpd_is_no_sync_state(genpd)  (genpd->flags &
-GENPD_FLAG_NO_SYNC_STATE)
-+#define genpd_is_no_stay_on(genpd)     (genpd->flags & GENPD_FLAG_NO_STAY_ON)
-
- static inline bool irq_safe_dev_in_sleep_domain(struct device *dev,
-                const struct generic_pm_domain *genpd)
-@@ -2392,7 +2393,7 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
-        INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
-        atomic_set(&genpd->sd_count, 0);
-        genpd->status = is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
--       genpd->stay_on = !is_off;
-+       genpd->stay_on = !genpd_is_no_stay_on(genpd) && !is_off;
-        genpd->sync_state = GENPD_SYNC_STATE_OFF;
-        genpd->device_count = 0;
-        genpd->provider = NULL;
-diff --git a/include/linux/pm_domain.h b/include/linux/pm_domain.h
-index b9d3c7d5c4f8..61b81574efc4 100644
---- a/include/linux/pm_domain.h
-+++ b/include/linux/pm_domain.h
-@@ -109,6 +109,12 @@ struct dev_pm_domain_list {
-  *                             genpd provider specific way, likely through a
-  *                             parent device node. This flag makes genpd to
-  *                             skip its internal support for this.
-+ *
-+ * GENPD_FLAG_NO_STAY_ON:      A powered-on PM domain at initialization is
-+ *                             prevented by genpd from being powered-off until
-+ *                             we receive a ->sync_state() or runs the
-+ *                             late_initcall_sync. Use this flag to allow
-+ *                             power-off without waiting for these conditions.
-  */
- #define GENPD_FLAG_PM_CLK       (1U << 0)
- #define GENPD_FLAG_IRQ_SAFE     (1U << 1)
-@@ -120,6 +126,7 @@ struct dev_pm_domain_list {
- #define GENPD_FLAG_OPP_TABLE_FW         (1U << 7)
- #define GENPD_FLAG_DEV_NAME_FW  (1U << 8)
- #define GENPD_FLAG_NO_SYNC_STATE (1U << 9)
-+#define GENPD_FLAG_NO_STAY_ON   (1U << 10)
-
- enum gpd_status {
-        GENPD_STATE_ON = 0,     /* PM domain is on */
--- 
-2.43.0
-
-Kind regards
-Uffe
 
