@@ -4,92 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E3FFCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 14:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A3EC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApHNj7yZvO4jJFb6PrP/BJ1XkJPLeNWnc1hR3D0Tv4c=; b=suwrqWjpZXrLHM8TyaFmKVyLu+
-	zEQ4CwgIfyyHLSIc9YEBl6Q8C08N0sOlaCmjUVu04ycHpUQWJI/EMkhhUwFGbgzSbpT5a8oLmAt4X
-	667DZ2nBT1St1FnaWb1x8NoPVJ65brL8Z6jrAaWWH111ht1avW39fV4b1jDir3rv8TUWgRt8sGocp
-	Os2aNyIPgTWqH5u0bX3l3o5UVzBhMDcPgY8ED/L4gKbo830ASXm1Rje6I3CWfQ4ysGgOTGioWXCge
-	ldzip89g9XQeK5QY2eurlY92zQKnFfJdup0Co0ynJZsCuXrOaJ8NVPUcv4BE//Wcf1FGGEhR+/T79
-	qS+RfGbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RB0uz3KhCKwDWAd49C9Ih5QwxR0kHWB+azypPaZag0Y=; b=IbYLd16ZQWP70N
+	6rHFnDmLbZGUXa619vc6HWYxXiJJtcMxqBdLmY7vm6yyh8A/afSeXQnT32RsapxM9OU8qcDYKs+pa
+	wnFdIRFRGBLCT0clqKEABMYAjCJau2uh0kYRhyp+j+tpsHgYeUJgCGP7zwliYNLixvb3y6bhKf0Vq
+	hI7Jy4PVZG5rcyHyrF6ATXEvcALRm98hbPj1Exx6M3Xvo/VbGknyOsQPGutt+9WlvmD/XHCDEET63
+	OAs6o2A+quhM7oxb/0YNz4dojCFHULZzLW6PC67T3OFZNo/gPkxglxY87yM3hHEXvvvkx+iet+Pxs
+	2PlK74Eg5oaJkVwVCRoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulqMo-0000000B70x-3eq0;
-	Tue, 12 Aug 2025 14:52:46 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1ulrhh-0000000BHHG-3ms4;
+	Tue, 12 Aug 2025 16:18:26 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ullLD-0000000AO8j-1D9z
+	id 1ullfy-0000000ARDx-1E67
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 09:30:48 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3b7961cf660so4210421f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 02:30:46 -0700 (PDT)
+	Tue, 12 Aug 2025 09:52:16 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-45994a72356so41709625e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 02:52:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1754991045; x=1755595845; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ApHNj7yZvO4jJFb6PrP/BJ1XkJPLeNWnc1hR3D0Tv4c=;
-        b=vXJhooywch9e3mNWYBE4/AXYVLueuVp0PUMN3dGSxWz34VVKdpiIdNUK95h6WqczZn
-         06EDCR9qU7fNCFhd+7jiEAP82bTg7QaeTdgoj2HMfJERX8ZA35+hfJds3nXeiNpMxmZI
-         u3HGhZhnvDgN4wvYiJxnjRei82a5sGyqY0Yhs7WSIMj+nTo5C0Edsivf8wZTvhChA04o
-         QInUzhbRentaSbIlbvpHNWZpDIcaJKTPgecmBElz192Xwb73qoEpMUFCfCj/JwOQUqsr
-         dIB6Hs/7UrJCeUp2XtL3+pgOdZQ2QKXmIHU2qmGjkewmKwaP+6gK2v4A96jGrc9CDJ7o
-         pZVw==
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1754992332; x=1755597132; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=RB0uz3KhCKwDWAd49C9Ih5QwxR0kHWB+azypPaZag0Y=;
+        b=vjuuKsipldmEPtCHF2AAUnTlEURVfqkHMs1Vy1/yP4uYTN0TNeDlMvEAWkpwBraKF6
+         kX8OfvHNbyS1rT+6C1MvMmuNGkVWVZ5MC7NxkmSGlVSfEK2hGHQTDVXPb34x61F9GZrS
+         oBG68miEhgu9YFxp9M7kmVt+sTbU3nN0Ie2LyOgtqUGmrdG+HJadRYr8LKPX2YAXWo9o
+         odc1Bk6LFSdxc5WzvNEcdwwvp0blCMdY1HlbG0YMwNmEZvSLjHY9YjrDtSIxYy34sZow
+         TG2rdaoAvO/rfJ9xuL1yEGFtuWCR1DTe3rVdSP+GJRcMzBSFxlyC8dsLpn/hyqbBLYjn
+         fqLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754991045; x=1755595845;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ApHNj7yZvO4jJFb6PrP/BJ1XkJPLeNWnc1hR3D0Tv4c=;
-        b=Txc8NHvaIqAiKGNCdEPaSvkdgm3dYb31JglPN1Irr+c+mqJcTDph1PNyny4Cl/YfDI
-         frmUEiLXJyyjIEHbEMwlrsxrgqIOFufRmYsczPsSDt65MEkv6GU4vjaaaEGSk1lBz1px
-         B/vr07s/z0dymKHayWbIx2/RuRqyB+7CPgBcEGuSEoVsWG4ycv6BB1cALWCZZ/atrgkE
-         0cpQyF3aKsyP53dqk0wp+z3ut+XkXwcX4NWzT9aYziOKZ1qwI6QduLInAJpe9njb0Lle
-         FOTyoalAGz+UXJskaOFaQBSk8iPIhbsWGnrcTFx475DyBaVKb5Jm4M8Q9WfKVcSljgGw
-         sHEg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9aoUMZ3i6NwbK6ZwL1PKLgofWfSbtt3hoB7CB7bSAiEf8o0ZJbHdt2MsMaMWEuemBvjcZj2IJlg2RuHd28Tzl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF3rBRa/BpUHsyKvg53tPTpwRGWTwZ6wdQKp2sLE1yMZHLkD8e
-	MTIHzF9Y/JxDXFGvGjgyZL2RlFF2wqrf30PdFyecAczr5gB28gfFV9maPk2cFKRSf4w=
-X-Gm-Gg: ASbGncvJxeTgbBtmO80c/5hLzBgwl2mJ9Rs4zrTLZGgUu1NKv/Cd2RzF2o2Mojl49Xb
-	4h95HaQVtfBbdKcOMQ6XmQslSKg3rwr092i1LCAITPNhoN0TmM6ea6q3/2+Vhm/hMrYUwWq4XVv
-	yy2tlK+UwDgRd4HoEPLIN85qQOjMUb1OHCrdIqBAGdm6sfXoqBxnD1jCVzUfF/PafdpJTOgKx9X
-	o9CduyZnmj0TZgzYew19t/Dgm0ILlhw2QZCWJLOLfyySSadEJ/LNR5CbIOoKP65A8aYnZL+QLME
-	x1DKgRC/+nFvaNcMlTiLYsMRqaVSRmJugNceZ/Ov/uXwhz6C+GVxWEUP6AGV0UHmnpX5+q+8Fg9
-	RWtr3w9n8xYxGINdR3rP80l/z2x4=
-X-Google-Smtp-Source: AGHT+IG43aUKBGp6GEVejGh0g6YqJDKDpg04fc0cvecZpxEcGicPXu5t5quNi7mcLCsCrydFcL/cxA==
-X-Received: by 2002:a05:6000:3104:b0:3b7:9dc1:74a5 with SMTP id ffacd0b85a97d-3b900b80561mr10991013f8f.52.1754991045510;
-        Tue, 12 Aug 2025 02:30:45 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.76.109])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b79c47c516sm43931526f8f.62.2025.08.12.02.30.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 12 Aug 2025 02:30:45 -0700 (PDT)
-Message-ID: <c527e86c-916e-45bc-b469-8d5c94e980d2@linaro.org>
-Date: Tue, 12 Aug 2025 10:30:44 +0100
+        d=1e100.net; s=20230601; t=1754992332; x=1755597132;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RB0uz3KhCKwDWAd49C9Ih5QwxR0kHWB+azypPaZag0Y=;
+        b=YVsCcyrM+zrGqt3fEoE2KfkWvJyss2W0NzfApAxpjjd5MM4U1oD+Sda8eEO7UThlD0
+         9lRcWWIsFoC7/h43uBjRWGCkleg2wnFNNZ5We3GeUxSXu2r6yhadpChjuIJk7VL+cZIB
+         cGGsUkAsr1uOAHJ1MvPq3LACZJmT/+lgNiGVYpONcRetH1qoahT0+HbVmRb5dQx4SkC6
+         LOueAi/VDp7A8DCCdc9bx/FUU2F65qIsP03K8MxEhtE2SdAhC7AnuMonxE6O8Z70qkO2
+         LITqkQt+6MPi3Se0UO/2AyvTDrhDUSRjRFR5q4puqzGgX08eQR34o67takv+T/lnvgQ9
+         nnMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXkcEPrU7nCX3Opa+Bg5Zj2I3/e7fzNOPB40+KBM4F+9PM1YSeEACxyZkAeJyDAyb/xBlgF9zI6C5Et5HC13bm1@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFDk8WNwjkE1CxuM5apzbcLLri7QvVd1ayJVvFt43aYsfq69+k
+	qNUXWoYTKgA1UkJtvglDbU0RVpQsC5O9yzoQKI4NPGUS7n+EkMoSqAiTxGK8te6HcXQ=
+X-Gm-Gg: ASbGncumbEtt3fbL5xsfX5EBfWRo12JGFtsOT9ATjyWAY7tEM3aSTeyfiG3DBcyhDyQ
+	RDzc/vrmw0jah4HRB+xc9CUwpQjtvY3lDCJpCiF1dkog9SHwLfaP1wMLD28KcaOx6pfQ7E+ogqd
+	HIO17L2o8qqFCg+/e83B2QNZDytZnUD6GylLSft7304p4Ugn53LpRN73RB37BDeHnEGFUfTWtL1
+	+6NQzbK4nK73o7f/Uc7q+nWxKwi/oC2/q6h6AVVIR3FvZ7uSm8xiyZWWRdamid3mesu55uwvsfa
+	6UjCHsg/kUvOjKcNUFuQYTMPcRcHAskkM//5NyS9I5KAO3GA6mUohfHOB4qzdGqa7o58txXdAhD
+	/0qZkKnLps9EXCBQ=
+X-Google-Smtp-Source: AGHT+IH3eIyt3nJktWsUpR2rtIuEOtr2r5n+aVM2Npgzbb588pn0LgFEddNRASkqSyELBdNKC2O6rg==
+X-Received: by 2002:a05:600c:358a:b0:439:4b23:9e8e with SMTP id 5b1f17b1804b1-45a138bb40bmr10760705e9.3.1754992332417;
+        Tue, 12 Aug 2025 02:52:12 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:16c8:50:27fe:4d94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e587e154sm312580295e9.27.2025.08.12.02.52.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 02:52:09 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Subject: [PATCH 00/14] gpio: replace legacy bgpio_init() with its
+ modernized alternative
+Date: Tue, 12 Aug 2025 11:51:57 +0200
+Message-Id: <20250812-gpio-mmio-gpio-conv-v1-0-9f43e95dea98@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight-etm4x: Conditionally access register
- TRCEXTINSELR
-To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-References: <20250812-trcextinselr_issue-v2-1-e6eb121dfcf4@oss.qualcomm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250812-trcextinselr_issue-v2-1-e6eb121dfcf4@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL0Om2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDcyML3fSCzHzd3FwgAWYl5+eV6ZoZGZsamicbp6SZmygBdRYUpaZlVoB
+ NjY6trQUAr2S982UAAAA=
+X-Change-ID: 20250728-gpio-mmio-gpio-conv-623517c3df74
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Yinbo Zhu <zhuyinbo@loongson.cn>, 
+ Hoan Tran <hoan@os.amperecomputing.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Yang Shen <shenyang39@huawei.com>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1858;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=F4i1WoIbOr27g2E4zkKyu21uLi8iliLJPw08fn/pqu4=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBomw7BLkgGIqyWoUu3WVXqVHrRnFIT5ZstC4FCi
+ C/2n2j8EniJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaJsOwQAKCRARpy6gFHHX
+ cvvHD/9Dfdy9g9z1jpIorWAGa5Qm0jhn9HoktvxvStWvOBPChhMiLufNHTDPFqZ329Y0vvkhuza
+ SRf/2Diask/hwJhkZKgTTZlhweDLyt8vMaw7ObD46qB8sLXv6uT59qBwmdLOYFSAYQDeNW8aiLf
+ C26Dia64u1oC/+ddxiKf/1TIzge47j4Yevu38YKhRn9jt+vjBLWojDxIQGkKOKxwyhVVM6mR7+V
+ Tlng77GUWHZaHjNVdfCvIaxmkIIj/7feZRE94W5x8/ZyGJHwSl74LOM/1whmKeCm1G9stkUL2Ca
+ ZrchpQh11IZ0aFsgrqCcnzY89fim2hHdPwSsqfyodrLc4VbYeDPGumnvw7W1k32PWES9YyFkwmG
+ aP+z+n9mtH8U7gNWfTHZ1B1fBYfZt8mqOxuDQX15NBn65lm7jZAOmdiBAkvBxbI32aLFdKr5Z86
+ V6eSxEcDlEyYJwBZGCyVmpXOPTCqWCVFU8uaZFONf104XhwC9WZCQD8eM3Oy/jO+nv1ttgfzSob
+ yPIN/Pne4Soesp1BRY7hPKeX8iYnduIUlngRGM9JJ29v/sXBa42x2spiSsf5myl1IMIgqolzkPM
+ p5T2HoJgQ08zcwQyxb+OmWqkEOkNFVdspJo3gQd05RZuLTtrtXeVbll1YztO6grYMrSddXcyqle
+ 6kyfg8u/BjC7ZVg==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_023047_336681_6597F2D4 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20250812_025214_577437_2F1572D9 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,96 +123,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This is the first round of GPIO driver conversions to using the
+modernized variant of the gpio-mmio API.
 
+While at it: sprinkle in some additional tweaks and refactoring.
 
-On 12/08/2025 9:24 am, Yuanfang Zhang wrote:
-> The TRCEXTINSELR is only implemented if TRCIDR5.NUMEXTINSEL > 0.
-> To avoid invalid accesses, introduce a check on numextinsel
-> (derived from TRCIDR5[11:9]) before reading or writing to this register.
-> 
-> Fixes: f5bd523690d2 ("coresight: etm4x: Convert all register accesses")
-> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-> ---
-> Changes in v2:
-> - Add fixes tag.
-> - Replace "if (drvdata->nrseqstate)" with "if (drvdata->numextinsel)"
-> - Link to v1: https://lore.kernel.org/r/20250811-trcextinselr_issue-v1-1-ed78f3215502@oss.qualcomm.com
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 11 ++++++++---
->   drivers/hwtracing/coresight/coresight-etm4x.h      |  2 ++
->   2 files changed, 10 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 42e5d37403addc6ec81f2e3184522d67d1677c04..4e411427303981104d11720d3c73af91030f8df3 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -528,7 +528,8 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   		etm4x_relaxed_write32(csa, config->seq_rst, TRCSEQRSTEVR);
->   		etm4x_relaxed_write32(csa, config->seq_state, TRCSEQSTR);
->   	}
-> -	etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
-> +	if (drvdata->numextinsel)
-> +		etm4x_relaxed_write32(csa, config->ext_inp, TRCEXTINSELR);
->   	for (i = 0; i < drvdata->nr_cntr; i++) {
->   		etm4x_relaxed_write32(csa, config->cntrldvr[i], TRCCNTRLDVRn(i));
->   		etm4x_relaxed_write32(csa, config->cntr_ctrl[i], TRCCNTCTLRn(i));
-> @@ -1423,6 +1424,7 @@ static void etm4_init_arch_data(void *info)
->   	etmidr5 = etm4x_relaxed_read32(csa, TRCIDR5);
->   	/* NUMEXTIN, bits[8:0] number of external inputs implemented */
->   	drvdata->nr_ext_inp = FIELD_GET(TRCIDR5_NUMEXTIN_MASK, etmidr5);
-> +	drvdata->numextinsel = FIELD_GET(TRCIDR5_NUMEXTINSEL_MASK, etmidr5);
->   	/* TRACEIDSIZE, bits[21:16] indicates the trace ID width */
->   	drvdata->trcid_size = FIELD_GET(TRCIDR5_TRACEIDSIZE_MASK, etmidr5);
->   	/* ATBTRIG, bit[22] implementation can support ATB triggers? */
-> @@ -1852,7 +1854,9 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->   		state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
->   		state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
->   	}
-> -	state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
-> +
-> +	if (drvdata->numextinsel)
-> +		state->trcextinselr = etm4x_read32(csa, TRCEXTINSELR);
->   
->   	for (i = 0; i < drvdata->nr_cntr; i++) {
->   		state->trccntrldvr[i] = etm4x_read32(csa, TRCCNTRLDVRn(i));
-> @@ -1984,7 +1988,8 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->   		etm4x_relaxed_write32(csa, state->trcseqrstevr, TRCSEQRSTEVR);
->   		etm4x_relaxed_write32(csa, state->trcseqstr, TRCSEQSTR);
->   	}
-> -	etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
-> +	if (drvdata->numextinsel)
-> +		etm4x_relaxed_write32(csa, state->trcextinselr, TRCEXTINSELR);
->   
->   	for (i = 0; i < drvdata->nr_cntr; i++) {
->   		etm4x_relaxed_write32(csa, state->trccntrldvr[i], TRCCNTRLDVRn(i));
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index ac649515054d905fa365203bd35f1d839b03292f..823914fefa90a36a328b652b0dc3828b9bddd990 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -162,6 +162,7 @@
->   #define TRCIDR4_NUMVMIDC_MASK			GENMASK(31, 28)
->   
->   #define TRCIDR5_NUMEXTIN_MASK			GENMASK(8, 0)
-> +#define TRCIDR5_NUMEXTINSEL_MASK               GENMASK(11, 9)
->   #define TRCIDR5_TRACEIDSIZE_MASK		GENMASK(21, 16)
->   #define TRCIDR5_ATBTRIG				BIT(22)
->   #define TRCIDR5_LPOVERRIDE			BIT(23)
-> @@ -999,6 +1000,7 @@ struct etmv4_drvdata {
->   	u8				nr_cntr;
->   	u8				nr_ext_inp;
->   	u8				numcidc;
-> +	u8				numextinsel;
->   	u8				numvmidc;
->   	u8				nrseqstate;
->   	u8				nr_event;
-> 
-> ---
-> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-> change-id: 20250811-trcextinselr_issue-f267afa0e5ed
-> 
-> Best regards,
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+Bartosz Golaszewski (14):
+      gpio: generic: provide to_gpio_generic_chip()
+      gpio: generic: provide helpers for reading and writing registers
+      gpio: hisi: use the BGPIOF_UNREADABLE_REG_DIR flag
+      gpio: ts4800: remove the unnecessary call to platform_set_drvdata()
+      gpio: ts4800: use generic device properties
+      gpio: ts4800: use dev_err_probe()
+      gpio: ts4800: use new generic GPIO chip API
+      gpio: loongson-64bit: use new generic GPIO chip API
+      gpio: dwapb: use new generic GPIO chip API
+      gpio: amdpt: use new generic GPIO chip API
+      gpio: rda: use new generic GPIO chip API
+      gpio: grgpio: use new generic GPIO chip API
+      gpio: mpc8xxx: use new generic GPIO chip API
+      gpio: ge: use new generic GPIO chip API
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+ drivers/gpio/gpio-amdpt.c          |  44 +++++-----
+ drivers/gpio/gpio-dwapb.c          | 160 ++++++++++++++++++++-----------------
+ drivers/gpio/gpio-ge.c             |  25 ++++--
+ drivers/gpio/gpio-grgpio.c         |  87 ++++++++++----------
+ drivers/gpio/gpio-hisi.c           |   3 +-
+ drivers/gpio/gpio-loongson-64bit.c |  42 +++++-----
+ drivers/gpio/gpio-mpc8xxx.c        | 102 +++++++++++++----------
+ drivers/gpio/gpio-rda.c            |  35 ++++----
+ drivers/gpio/gpio-ts4800.c         |  39 ++++-----
+ include/linux/gpio/generic.h       |  37 +++++++++
+ 10 files changed, 337 insertions(+), 237 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250728-gpio-mmio-gpio-conv-623517c3df74
 
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 
