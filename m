@@ -4,86 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48417CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0065DCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kLPnD+avccUvVR9e4PceX6HClVP6oiTocKcKtm4OPbU=; b=gw6Kg+iF1qaMGIex5J0+YsVfmU
-	nIy0+te/1DWTRyHKyvxBPgQwBF2QKa2GrWif/QrjQ/0DM2IDcDSzyQH4mo0erHvflbQ4tmy0qMjTy
-	vxltqqN5rcx3cHpgAE9+8wBERywgEHb76twl0RCZzPfjJYDNeZQC037NJXJaHJ9JisoMgA3/xuc4W
-	jbvKhJnwO7TF8WrDOzOyX75gtmugixFjhhPQdmOHDWK08r70GhhT6tKH9UWPrAAHs+tg7GPMxca6P
-	cQrX03jFGuVaiRzAJKaWrXUru6GhMVm0drxOuzD0NyTaHtRVElh8ZCgWAYhMbs2vcUurP+QRngFSU
-	ulJfS/vg==;
+	bh=lTvAXVm/KmJ2pPrPEXJ+9Ur9rEmzRCQ86E5VM0COq/I=; b=gDjcqII37nE6xCHkiwPaTvaUzJ
+	CA8QjVL9sAcqrQzgtWnV40XB6h8pmaOhb5Ukz2u9iJVk3C1zxUsXsYYg5ksc6LPpg9MXVnNLcmK5W
+	JXyk/FcTutZQJsYYD89VjaNErTJZ8r1rAJ+EmFg0B76Ug7/vLXIR6/mJt8YguIgjVgyyLA3WQjIue
+	m4UHnEHlWPpZkuzWyREvnS76e0qRvZLipECB6St9T3zvhwmfjsDdHkTK5cVp4ILTJEMmG+bvz6m4s
+	PJbThJJy/HNaCE2cP5drERo4Xthet60bCN6iShXSXTK8Qx0LRYy2xxt5nAQ6blwbdyYNbm2/UsANv
+	rAOfaREw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloHe-0000000Ald1-0rtW;
-	Tue, 12 Aug 2025 12:39:18 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1uloHi-0000000Alhc-3DG4;
+	Tue, 12 Aug 2025 12:39:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulklE-0000000AIuI-1hrX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:53:37 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2430439c05aso1989465ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 01:53:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1754988816; x=1755593616; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kLPnD+avccUvVR9e4PceX6HClVP6oiTocKcKtm4OPbU=;
-        b=CkbYkn215yk51cURWyuRMcMYgGu0dPI1559b3+prWS0ZWTwd0uc8GQ2xqV5XE+4bu5
-         5OWZA2sR4cvR0tYAHfUDnHh/lKwYIbfpGk1+W3X1vafdixAlAK1mMXZHEZpHtr1cCKdU
-         f9TgT3gVzVH9kexYarG764P96AWeVsdx4C6K0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754988816; x=1755593616;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kLPnD+avccUvVR9e4PceX6HClVP6oiTocKcKtm4OPbU=;
-        b=hBImn/t3BJItlSMpi1nLTQnhxX6UHD2eozijh7h131jO44Ol1zqV6UFbAayJhxJksK
-         zwByfzYg4HPhnsTwyuhAEVQS86WszWekX8jkCobA3UBSRJifT2LklJkeVa03MnzePcOL
-         LgdfWhhZk1SIf+VxE8hgd2b0qGcVX7T80kYTU7mb+VYd+ZpbRfKwxd1afVpbX20MPsac
-         eVn9X8wNVptHnkiRf3mL58LIysUZ4FEK715IEyV132yRLn5NoyWPNNnQk15UHHt6UjkH
-         MIEZvMkbE5yKteL2azJ0qVCfiPN3SYHd3mvGj4Vt1ouswUep6JZDzy45WESrDjPc8no7
-         sHgg==
-X-Forwarded-Encrypted: i=1; AJvYcCWvfNqtc7xe/5t2vidvv2oRoBjItkti975/M39fVC0Cs9RCjFb7JRFDDIn1MY77/GXaYTh8zQCzVfKtIegDISK5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSmDLWhfO8xqXQD6Um4cP8I6iX7c0Hh1S6YTAeTNPUmcPSb+FW
-	yhZPJv347WjPmB9mjswqgSXKSOny4/9D3S+m+6pFPAfYr+LP8HxW7gGuiSslN3OiApifhONN3Zo
-	JJ+Q=
-X-Gm-Gg: ASbGnctgbLferPllUJePseLPVY0ZZUReLvz7Wznti+SIWIBpoPooBdmqdbYZK8Zgjb5
-	hdCd787CtctTryeJSsSgfafjzPpnsNZZo+wkbV+6bN01H2aBAXo9s1HFgD9peTdRrlyXP0VYRHQ
-	vOdnZW9u409IIYO6TA9vDlBAFXonW85Gm0Cf/2OyOeD5zJXlMfPcsALladOhEGO/AYcUzhfv/UZ
-	G7v7yMhOVJ90dMTkPG42fqinoPcq1X8jpssq/vDDnIeZPfc1U4mo0INwzXG9jQMG6BZnzwFIgjq
-	F8mEmj53Z01Y2ILz4+qzYeye+D6JPB/bPmqqXyGn/CzyLne86+/rEwZfkFqmu2Ry3Lme+siukfQ
-	kGGPmpVOvQPrA/4FRECvoav6rEX2ViwXpOWqUeUWr
-X-Google-Smtp-Source: AGHT+IE9waI3iD48I1Icaq2kvnzZzP6L7x3PIwO1bJzi0aVtk4t1U+vF1hQKX5e9Odzlm0z9y5S+vw==
-X-Received: by 2002:a17:903:a4d:b0:242:a0b0:3c1f with SMTP id d9443c01a7336-242fc230ecamr26464165ad.7.1754988815724;
-        Tue, 12 Aug 2025 01:53:35 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:f81e:7c91:8fbf:672a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-243017dd480sm10014365ad.33.2025.08.12.01.53.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 01:53:35 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] clk: Use hashtable for global clk lookups
-Date: Tue, 12 Aug 2025 16:53:27 +0800
-Message-ID: <20250812085328.3306705-2-wenst@chromium.org>
-X-Mailer: git-send-email 2.51.0.rc0.215.g125493bb4a-goog
-In-Reply-To: <20250812085328.3306705-1-wenst@chromium.org>
-References: <20250812085328.3306705-1-wenst@chromium.org>
+	id 1ulkmr-0000000AJBk-1uIU;
+	Tue, 12 Aug 2025 08:55:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lTvAXVm/KmJ2pPrPEXJ+9Ur9rEmzRCQ86E5VM0COq/I=; b=BHehO2ukza9bGsevuX1RsMJZfk
+	WG8f2dN1PlR503jrqjhgKiq7Eip2+PTi6dYpps4VSWRpBMwSyK/EnjshNbD/OCzl+UwMsWITbfzq1
+	e2aW1clqixucU8uoa+ssL/uH0dN0CSuj+h+zizHBnfeAg4MKnyZj9f1L2WRdlsKWIuG2FtCyUk3mG
+	GNjebyx/3d6lyJIF/dAIFsu/XL17TML2B67A4AZNU1E61Q7QJYcpFiok5LLNIOgiofg+uAGvGttOR
+	jjaXcQwNPMzJPfcIF19RVQEnL00ZppYUurgnEgvV+V74CLNf6VOdR1PIuWjSZ6Ik7NHPrPBSiJ5yP
+	fULVhSPw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulkmo-0000000FlGY-0P2Y;
+	Tue, 12 Aug 2025 08:55:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5F8A75C658D;
+	Tue, 12 Aug 2025 08:55:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74246C4CEF0;
+	Tue, 12 Aug 2025 08:55:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754988912;
+	bh=D5p6Ycjb+TLwUgdojPUyJJLdzqDj0US7QUkvj3u+Yok=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JlhMGelfVzXLX0u23DmiEy1PAw3Li3frBqx+eX25g2ZLSJ8GMcQ8ecdEOlqWLZCL6
+	 FmWY7MtUY1zzcXTKk+iZhFJoz+WE6CKzsMnVZz44XgeI8UJPglRLIPpsDhF2H139Kg
+	 KME4LaVDVaYTW2bbGDS6PcLbAhYpCmDzTjucEmf6zB7VuKiyTw1DkCePxSmoIju1oW
+	 qjITLhU1Y33oxrZhDgUKMQqD/lNTK1J2er71vT0cknB7SiAwN7x4K7w2tEJnUr3+uR
+	 8lYIrT8wcVYz6C61WnpgF/oQcCSj4d/T3qDDJqYCf404u7UMXSfzMelXwYl0cch636
+	 XFcxElEWFyD8Q==
+Message-ID: <4fee3870-f9d5-48e3-a5be-6df581d3e296@kernel.org>
+Date: Tue, 12 Aug 2025 10:55:05 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix DTC
+ warning
+To: Andrea della Porta <andrea.porta@suse.com>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
+ <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ kwilczynski@kernel.org, Manivannan Sadhasivam <mani@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iivanov@suse.de,
+ svarbanov@suse.de, mbrugger@suse.com,
+ Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell <phil@raspberrypi.com>
+Cc: kernel test robot <lkp@intel.com>
+References: <20250812085037.13517-1-andrea.porta@suse.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250812085037.13517-1-andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_015336_491820_F5C6C23E 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20250812_095514_543180_C578C907 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,159 +141,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A clk lookup using clk_core_lookup() is currently somewhat expensive
-since it has to walk the whole clk tree to find a match. This is
-extremely bad in the clk_core_init() function where it is used to look
-for clk name conflicts, which is always the worst case of walking the
-whole tree. Moreover, the number of clks checked increases as more
-clks are registered, causing each subsequent clk registration becoming
-slower.
+On 12/08/2025 10:50, Andrea della Porta wrote:
+> The devicetree compiler is complaining as follows:
+> 
+> arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (unit_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges property, but no unit name
+> /home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_nexus' was unexpected)
 
-Add a hashtable for doing clk lookups to replace the tree walk method.
-On arm64 this increases kernel memory usage by 4 KB for the hashtable,
-and 16 bytes (2 pointers) for |struct hlist_node| in each clk. On a
-platform with around 800 clks, this reduces the time spent in
-clk_core_lookup() significantly:
+Please trim the paths.
 
-          |      PID 0      |     kworker     |
-          | before |  after | before |  after |
-    -------------------------------------------
-    avg   | 203 us | 2.7 us | 123 us | 1.5 us |
-    -------------------------------------------
-    min   | 4.7 us | 2.3 us | 102 us | 0.9 us |
-    -------------------------------------------
-    max   | 867 us | 4.8 us | 237 us | 3.5 us |
-    -------------------------------------------
-    culm  | 109 ms | 1.5 ms |  21 ms | 0.3 ms |
+> 
+> Add the optional node that fix this to the DT binding.
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4-lkp@intel.com/
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
+>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> index 812ef5957cfc..7d8ba920b652 100644
+> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> @@ -126,6 +126,15 @@ required:
+>  allOf:
+>    - $ref: /schemas/pci/pci-host-bridge.yaml#
+>    - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2712-pcie
+> +    then:
+> +      properties:
+> +        rp1_nexus:
 
-This in turn reduces the time spent in clk_hw_register(), and
-ultimately, boot time. On a different system with close to 700 clks,
-This reduces boot time by around 110 ms. While this doesn't seem like
-a lot, this helps in cases where minimizing boot time is important.
+No, you cannot document post-factum... This does not follow DTS coding
+style.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/clk/clk.c | 50 +++++++++++++++++------------------------------
- 1 file changed, 18 insertions(+), 32 deletions(-)
+Also:
 
-diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-index 2eb63d610cbb..2d54224fb3ef 100644
---- a/drivers/clk/clk.c
-+++ b/drivers/clk/clk.c
-@@ -12,6 +12,7 @@
- #include <linux/clk-provider.h>
- #include <linux/device.h>
- #include <linux/err.h>
-+#include <linux/hashtable.h>
- #include <linux/init.h>
- #include <linux/list.h>
- #include <linux/module.h>
-@@ -21,6 +22,8 @@
- #include <linux/sched.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
-+#include <linux/string.h>
-+#include <linux/stringhash.h>
- 
- #include "clk.h"
- 
-@@ -33,6 +36,9 @@ static struct task_struct *enable_owner;
- static int prepare_refcnt;
- static int enable_refcnt;
- 
-+#define CLK_HASH_BITS 9
-+DEFINE_HASHTABLE(clk_hashtable, CLK_HASH_BITS);
-+
- static HLIST_HEAD(clk_root_list);
- static HLIST_HEAD(clk_orphan_list);
- static LIST_HEAD(clk_notifier_list);
-@@ -87,6 +93,7 @@ struct clk_core {
- 	struct clk_duty		duty;
- 	struct hlist_head	children;
- 	struct hlist_node	child_node;
-+	struct hlist_node	hashtable_node;
- 	struct hlist_head	clks;
- 	unsigned int		notifier_count;
- #ifdef CONFIG_DEBUG_FS
-@@ -395,45 +402,20 @@ struct clk_hw *clk_hw_get_parent(const struct clk_hw *hw)
- }
- EXPORT_SYMBOL_GPL(clk_hw_get_parent);
- 
--static struct clk_core *__clk_lookup_subtree(const char *name,
--					     struct clk_core *core)
--{
--	struct clk_core *child;
--	struct clk_core *ret;
--
--	if (!strcmp(core->name, name))
--		return core;
--
--	hlist_for_each_entry(child, &core->children, child_node) {
--		ret = __clk_lookup_subtree(name, child);
--		if (ret)
--			return ret;
--	}
--
--	return NULL;
--}
--
- static struct clk_core *clk_core_lookup(const char *name)
- {
--	struct clk_core *root_clk;
--	struct clk_core *ret;
-+	struct clk_core *core;
-+	u32 hash;
- 
- 	if (!name)
- 		return NULL;
- 
--	/* search the 'proper' clk tree first */
--	hlist_for_each_entry(root_clk, &clk_root_list, child_node) {
--		ret = __clk_lookup_subtree(name, root_clk);
--		if (ret)
--			return ret;
--	}
-+	hash = full_name_hash(NULL, name, strlen(name));
- 
--	/* if not found, then search the orphan tree */
--	hlist_for_each_entry(root_clk, &clk_orphan_list, child_node) {
--		ret = __clk_lookup_subtree(name, root_clk);
--		if (ret)
--			return ret;
--	}
-+	/* search the hashtable */
-+	hash_for_each_possible(clk_hashtable, core, hashtable_node, hash)
-+		if (!strcmp(core->name, name))
-+			return core;
- 
- 	return NULL;
- }
-@@ -4013,6 +3995,8 @@ static int __clk_core_init(struct clk_core *core)
- 		hlist_add_head(&core->child_node, &clk_orphan_list);
- 		core->orphan = true;
- 	}
-+	hash_add(clk_hashtable, &core->hashtable_node,
-+		 full_name_hash(NULL, core->name, strlen(core->name)));
- 
- 	/*
- 	 * Set clk's accuracy.  The preferred method is to use
-@@ -4089,6 +4073,7 @@ static int __clk_core_init(struct clk_core *core)
- 	clk_pm_runtime_put(core);
- unlock:
- 	if (ret) {
-+		hash_del(&core->hashtable_node);
- 		hlist_del_init(&core->child_node);
- 		core->hw->core = NULL;
- 	}
-@@ -4610,6 +4595,7 @@ void clk_unregister(struct clk *clk)
- 
- 	clk_core_evict_parent_cache(clk->core);
- 
-+	hash_del(&clk->core->hashtable_node);
- 	hlist_del_init(&clk->core->child_node);
- 
- 	if (clk->core->prepare_count)
--- 
-2.51.0.rc0.215.g125493bb4a-goog
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
+... and nodes should be anyway defined in top-level and only customized
+per variant. I am surprised that DTS patch carries a reviewed tag,
+because it was never checked/tested :/
+
+> +          $ref: /schemas/misc/pci1de4,1.yaml
+>    - if:
+>        properties:
+>          compatible:
+
+
+Best regards,
+Krzysztof
 
