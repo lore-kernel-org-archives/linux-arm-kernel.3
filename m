@@ -4,90 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C74C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00026CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kKzblfJnewqfnHkkVYa4YDiRnQ2gHOTdHxuje0MFec4=; b=LTa6NXcAb6US98yUT19atW+kQq
-	k+BeHcIMXw8H5Cr5rTKhHM5/Yh0m0xxuj7L9KMB/Ea+qhInEbIbY7W7wIaVdOVP9tUf7zdxe3cU4q
-	wSZi6ozczZCWYf57N9VF3Z76QgUU+cvG0mUl7rFSbOnmHUtZis9GAekS9UYP1pqRkE/Jnw7mKJZxc
-	byHhCO6RSIp5bZrU4lTPUb8nbBM3oQ0ksN9pFE7MGqxQ2CnAMslh3rUH7G8x0XUQ+IQG89cc8OdGJ
-	9U3I9pZw/sDcw11/l99nxjkShjC6nfGZym78WT2QgSfb6Pd/000cuUefRJPv8UfYbCQRmxw7XuYYX
-	elAf7Tqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BnSCoQK0EBBhR+KMV2scx1OY/S2RO6MiphSzki2soYo=; b=3Z7NaScaGxA45oF5U4+4IYtbva
+	acRkIXVaqopZiV5dvZGCZyHuLHmN0bQADBngPT6uPYED1wAofHwyn1G34GxpUg4A87oI6wRQ5tdbf
+	e/x+cgkuqQ4mpL1CCuTfKbH4uyJzgKQYciyPIgrXaBI0AlU1rgTU4DiSGr52ILyGhJjVr2B2aUolj
+	O9SKleFS7amKS7wAAHPdixbYZ5fOi67oYIUt7WEOqGAU6uAuFkWXuIRgqq7l5Xs0HzRc4tG1QDOJO
+	+HIN5fy19vQ5OCQGcrEG1PXiyaOPQUHLpXFcdXRh4IVRzDcD8lx7Sbr+cbQMFg9vYMsONu1XuzuOG
+	KYLxAbbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljZt-0000000A8MV-0w22;
-	Tue, 12 Aug 2025 07:37:49 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1uljhh-0000000A9SD-46Ay;
+	Tue, 12 Aug 2025 07:45:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljUU-0000000A7bX-2u8V;
-	Tue, 12 Aug 2025 07:32:16 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57C7IRVx020079;
-	Tue, 12 Aug 2025 09:32:06 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=kKzblfJnewqfnHkkVYa4YD
-	iRnQ2gHOTdHxuje0MFec4=; b=ZIPxJktFdjnmzaFfOUtkQ7bXbmPJI+TSc4mliP
-	fb1SHOp4O/wHTp2l1szOCsiUlGlh0GDvjDxxoLXfCQU1o5U3BRKJRwlG6J0gA1hZ
-	66iL25umfyUziZDgki2XAKb8uRymIolCbS8hqGD8a434ykGWOzMKwSEu4Q4BLo1e
-	ExGk4veL7N1ziUqhIwse/NfA/o5JZF7v7adQrDVwUXJXcZqAEi1ScGcVhguRxMiT
-	s8t9bI/7iqn/uRRizk9Ex5225v3rW1TKv1wl9/+78KJR09xJDnBbHtF2+JWH4/Qj
-	ghP0Srs+8YYhviDuMSpZWTzF9P3CyLHmCAZUi64yQYb1K8Nw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48efw4q6pm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 12 Aug 2025 09:32:06 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5462240044;
-	Tue, 12 Aug 2025 09:30:53 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E005D747A8E;
-	Tue, 12 Aug 2025 09:30:13 +0200 (CEST)
-Received: from localhost (10.48.87.65) by SHFDAG1NODE3.st.com (10.75.129.71)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
- 2025 09:30:13 +0200
-From: Christophe Kerello <christophe.kerello@foss.st.com>
-Date: Tue, 12 Aug 2025 09:30:08 +0200
-Subject: [PATCH] mtd: rawnand: stm32_fmc2: fix ECC overwrite
+	id 1uliXW-0000000A22u-0Cnp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 Aug 2025 06:31:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BnSCoQK0EBBhR+KMV2scx1OY/S2RO6MiphSzki2soYo=; b=PxSEUJGUq9QtaS6rJcLpGHnGaq
+	1DEjkznrJ3bECJprMP3J/nCQAcsHbhXQjv/S1URehZovn3vg8AOzEFbiphQXrKfRhV/kEmCahHJqJ
+	3+9GSLQvGASvt7UA0zb3Pgc7vAqPtFvs9UlmvhsG8Pj1AUa5PlShLt3cOf/wDqMu3TzHDlh2WpdNu
+	L16e2QfmRtMfEFDJ0jH62oE5YGCihhXOi9av+NBbeVVIAkBoz2KTBIoGIlyJhNK1BhZu+FgrMZkwo
+	i0NzG0m8g31Qk94oCAwLNapDOQpbhO9/oagb4Rmd2CVz+8F+hp25arOXTQrWpgPU3WFcg+EAJJ0E1
+	0jeRWwWA==;
+Received: from mail-ed1-f52.google.com ([209.85.208.52])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uliXS-0000000FhwQ-3cgk
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 06:31:16 +0000
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6180b9e4e74so5504669a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 23:31:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754980273; x=1755585073;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BnSCoQK0EBBhR+KMV2scx1OY/S2RO6MiphSzki2soYo=;
+        b=vLbLKmQVv1V7T5e9a7JuE0d+fIJwW3V4DUaq25UXiIUSMoaoqYODgJYOCRajkDeIeK
+         wRIKo2WI497X4qOt1mRnsOadbUeOX7R5lbsRTZh2VDW5J1Hz1EujXLAtcU2m1f7DWErM
+         JuxssEPYeXTjrzNPQGXSvfVRPh6wUygHrs67hDH4WxH/0nN8dAjjhw2amtff1Fzpt0cQ
+         zJ2Q0idmupAF3fJarnXgf51jvt2MLI81BJCSBQaMsXgwe4WCRR7yoIARVWR8EAf49F+Q
+         GodrbERZL0L37eVwNNl4GaPB55/paapCIX2aAJz5IMXqwZR1p0ZoArNbQB5wrVVJKdhO
+         vtiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUgUigGK8uThrr2aNC5E+Ox+q4vVv3zNXApP6Ts6ag7qLsfakp1ZpIwe9MFv2MZnnMZfj1PCN/LRP+gVTd+LXGN@lists.infradead.org
+X-Gm-Message-State: AOJu0YycFt1zF6MZAu4r0r/8iiC1dLGdix0ru5fXbiy/f6/TKCwhsZGj
+	8ySVsZRGvmczz7DBlWxe69m4psV10vbWdKYMRMI9yJ9JDOV34Akc9LS/apbXR/T5pm4=
+X-Gm-Gg: ASbGncvN3Caj01XhJn1xFgprwMfM4SVY3vnWLHzDjKu0ZlfE5xfBLsS+e5IwV4ahsFw
+	twM4LG9a4tUf6Bxr8gn07aMKviMy+noaQW4BXTSQuLU78a18KmZZHaSLEcGYA2THIqmHgPvnUwY
+	FVSHEKOwnx8jsfTKSnAJaZAsL/bU7kXsZoaFkZimnEPADsC0/tM9xsIqciJ428s4HtYjBllx5kJ
+	bViFZOQdOh6BGWRlSssumAmZS8/JuzhJDZl6pRmJQtbJ77vuO0cRm+OPTwR6X0t+tFvfaP/6fFO
+	k1W2Ole6pd/7tsmkDnqBgRjqhlyBzYHTAEU2ehriUvjI95PtFqQMqMs3eTZSNnzqwaa+/XWZlmH
+	I3yzIljjYUWfqRx6Sv7OYO9Ew6C2kwd1H3XFdZ4awpIfRUcLl4Vu+1GJhWg==
+X-Google-Smtp-Source: AGHT+IHe00QtJNxd0HPQg2Pai2cMpRtSbdwGpYr4ZSbnNjrwjf4Cirv9mUoZ+gRBvnSBE7RnJpb9zQ==
+X-Received: by 2002:a17:907:940c:b0:af2:42e8:ad92 with SMTP id a640c23a62f3a-af9c65b2f50mr1404278566b.61.1754980272765;
+        Mon, 11 Aug 2025 23:31:12 -0700 (PDT)
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com. [209.85.208.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af92b650c8asm2002114566b.65.2025.08.11.23.31.12
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 11 Aug 2025 23:31:12 -0700 (PDT)
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-60bfcada295so8417468a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 23:31:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWA2/PFNQcEGERG6Os0jGBP7W7G86RJGzJ9KR/KFCQJeDp2pvYRcTzYvkgRcNxtYdMHcQlShmhymIo+D53NvKbv@lists.infradead.org
+X-Received: by 2002:a17:906:7952:b0:af9:1184:68b3 with SMTP id
+ a640c23a62f3a-af9c658d4e5mr1347054566b.55.1754980272254; Mon, 11 Aug 2025
+ 23:31:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250812-fix-ecc-overwrite-v1-1-6585c55c88b0@foss.st.com>
-X-B4-Tracking: v=1; b=H4sIAH/tmmgC/x2MQQ5AMBAAvyJ7tknb0KqviAO12AuylZKIv2scJ
- 5mZByIJU4S2eEAoceR9y6DLAsI6bAshT5nBKFOrRmuc+UYKAfdEcgmfhN5bMzrnnass5O4QytL
- /7Pr3/QDFtYbCYwAAAA==
-X-Change-ID: 20250811-fix-ecc-overwrite-9962b7797746
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-        Richard Weinberger
-	<richard@nod.at>,
-        Vignesh Raghavendra <vigneshr@ti.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Christophe Kerello <christophe.kerello@st.com>,
-        Boris Brezillon
-	<bbrezillon@kernel.org>
-CC: <linux-mtd@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Christophe Kerello <christophe.kerello@foss.st.com>,
-        <stable@vger.kernel.org>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.65]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-12_02,2025-08-11_01,2025-03-28_01
+References: <20250810220921.14307-1-will@willwhang.com> <20250810220921.14307-2-will@willwhang.com>
+ <20250811-successful-military-dragon-d72486@kuoka> <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+ <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
+In-Reply-To: <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
+From: Will Whang <will@willwhang.com>
+Date: Mon, 11 Aug 2025 23:31:01 -0700
+X-Gmail-Original-Message-ID: <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
+X-Gm-Features: Ac12FXxUPGaJyzFRIVDPhYuVZhaEvNZeEF-rPdc7e_SppFMnCWmGszG5kWhfTm4
+Message-ID: <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image sensor
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_003215_238399_4B858D94 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20250812_073115_009227_7994F0B4 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +117,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case OOB write is requested during a data write, ECC is currently
-lost. Avoid this issue by only writing in the free spare area.
-This issue has been seen with a YAFFS2 file system.
+Hi Krzysztof,
 
-Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
-Cc: stable@vger.kernel.org
-Fixes: 2cd457f328c1 ("mtd: rawnand: stm32_fmc2: add STM32 FMC2 NAND flash controller driver")
----
- drivers/mtd/nand/raw/stm32_fmc2_nand.c | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+Reply inline,
+Thanks,
+Will Whang
 
-diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-index a960403081f11091837b73b8610231fe421d0c05..f84f23392fa441327bec90ba12a2a57d825d9330 100644
---- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-+++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-@@ -996,9 +996,21 @@ static int stm32_fmc2_nfc_seq_write(struct nand_chip *chip, const u8 *buf,
- 
- 	/* Write oob */
- 	if (oob_required) {
--		ret = nand_change_write_column_op(chip, mtd->writesize,
--						  chip->oob_poi, mtd->oobsize,
--						  false);
-+		unsigned int offset_in_page = mtd->writesize;
-+		const void *buf = chip->oob_poi;
-+		unsigned int len = mtd->oobsize;
-+
-+		if (!raw) {
-+			struct mtd_oob_region oob_free;
-+
-+			mtd_ooblayout_free(mtd, 0, &oob_free);
-+			offset_in_page += oob_free.offset;
-+			buf += oob_free.offset;
-+			len = oob_free.length;
-+		}
-+
-+		ret = nand_change_write_column_op(chip, offset_in_page,
-+						  buf, len, false);
- 		if (ret)
- 			return ret;
- 	}
-
----
-base-commit: fb2fae70e7e985c4acb1ad96110d8b98bb64a87c
-change-id: 20250811-fix-ecc-overwrite-9962b7797746
-
-Best regards,
--- 
-Christophe Kerello <christophe.kerello@foss.st.com>
-
+On Mon, Aug 11, 2025 at 11:23=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 12/08/2025 04:47, Will Whang wrote:
+> > Hi Krzysztof,
+> > Reply inline.
+> > Thanks,
+> > Will Whang
+> >
+> > On Mon, Aug 11, 2025 at 1:01=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
+l.org> wrote:
+> >>
+> >> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
+> >>> +description:
+> >>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    enum:
+> >>> +      - sony,imx585
+> >>> +      - sony,imx585-mono
+> >>
+> >> I don't understand this second compatible. Is this different hardware?
+> >> Can you point me to "mono" datasheet?
+> >>
+> >> Your description should explain this. Commit msg as well, instead of
+> >> speaking about driver (in fact drop all driver related comments).
+> >>
+> > Mono version of this sensor is basically just removing the bayer
+> > filter, so the sensor itself actually doesn't know if it is color or
+> > mono and from my knowledge there are no registers programmed in the
+> > factory that will show the variant and model number. (That is why when
+> > the driver probing it only test blacklevel register because there are
+> > no ID registers)
+> > Originally in V1 patch I've made the switch between color and mono in
+> > dtoverlay config but reviewer comments is to move it to compatible
+> > string and not property.(https://lore.kernel.org/linux-media/2025070317=
+5121.GA17709@pendragon.ideasonboard.com/)
+>
+> You only partially answer and judging by mentioning driver below:
+>
+>
+> >
+> > In this case, what would you recommend?
+> >
+> > compatible:
+> >   enum:
+> >     - sony,imx585
+> >     - sony,imx585-mono
+> >   description: IMX585 has two variants, color and mono which the
+> > driver supports both.
+>
+> ... I still have doubts that you really understand what I am asking. Is
+> this one device or two different devices?
+One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
+(Color). Silicon-wise the difference is just with or without bayer
+filter.
+>
+>
+> Best regards,
+> Krzysztof
 
