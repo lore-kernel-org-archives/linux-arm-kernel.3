@@ -4,197 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D31CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:19:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7CECA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoLtpwa+7GE+LiX+6NMBtTDfC9KKIpYmEBEafsed1yc=; b=VkcsyLlJYAEofmOaz42FIjqA7B
-	5o0A4OQWB8PoyUtLAM1iuG2x+lXBdjcAR5+fCzUIUcZ3KoJ3F2lmRtgO3Y0DMECxlk839921azOU4
-	YnQX8rraGd8/PyQrBa84Nsu5YoQJhPYGfoRxHU8hsf4UNQ+Bu4NJIgFJJRRiGUKoFXjkp5zLPwJ/b
-	r/G/JKCwrE2LRguyr0wKcy+TSwMC4Jovlj36vRBkUPSncXvDtqrgGy5QQzfFCQF1jLW0Cicos8e1c
-	LUxruiYU67sp3+r6zE9UhzxvnllKtmqk158RL0naS269xY4IRWGcQDLpz3YKclgZttx4HgDKzGSGa
-	/KeweFjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ePoRKVjqV7PHpfS0OClfbnUSDKUm6s/VziiFV4/sSfk=; b=FOQS8j3js7z01yGRim6MvwSbp5
+	p0qfYJvQOHTirgyQTPYamnFXI9WX9L9UoESN20dnVIbRD/z+mvO5fW2ke8LKglWO2OdWM/YqdSOPW
+	aVobzkzf9lOT3Tj0xQKuAoky950Gu1bSHEuiXgNTgMRb408/4t3GOdkKmqUGE58VJ9SpqtUZj7zKr
+	vTYC32KRWgjYN3UWDt6IuWksrZM11X+C+3C0pWe3jJJSd0+r1wEFSyew6dXd6arRS59wUQ5/06l5b
+	BX1sbnlKkNFxcqBDTE0vLirjxCJxcUq86kv0iGGe/aY/312jUzTU73yhR2RvZURNMT6ymlJcTIYc4
+	tLMdrbXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulriO-0000000BIFR-3WCJ;
-	Tue, 12 Aug 2025 16:19:08 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1ulriR-0000000BIKm-1bxD;
+	Tue, 12 Aug 2025 16:19:11 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulmGh-0000000AVq4-2mCu
+	id 1ulmHm-0000000AVsg-0gkT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 10:30:13 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=BfJC7xh+Il3vtRip/q1Vl+5s1XW4EV1bamJ4YYUtxIbbfmKKBg6nJw6FfAQvKS5WwDWsxTLjtEMtPAt99c52Yu4hNG+Tfbu6Ij1y5JRTijJpzmBAMs9juxmxiz/mjl7yKlFRDrh/HoqgSjmSgLCNqzxNGbkOrqzIuBagYxeHFqEUAcD0bbpUyqiWleqcw6DKk8IjDpiTYPPaJHicTmYQvuO+sz/4p7iehxJVrQRGjDvbQocXw1yfsPB1+p6uM+X27upavOHdKNAt/azS5CxXRNVYktJA4yYigi36myI2mkgj+XZkF/kOkvAxu9EkyyR0zmhp72UShZesGw6NXIVLGQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KoLtpwa+7GE+LiX+6NMBtTDfC9KKIpYmEBEafsed1yc=;
- b=YKFd3p6ud3pKtcKxIsrTlGJ/gzXDNjbox4K7pXnWf1Pqx+T0NjceiUs/Nh6dTNa6pDcbyIwrCj2DOHsRBUMzEIhZoq6TflTb/f6FgjwiF2lUqooiKPyPEA13RFLImFjhEmX5IOjpelH2QlfovKdjzW2131JSQXbrMLXMiCWB9098kfC0SJOPisfnY2jS7OMEVc6WBuf2Yw7Xgcp4Vt7xsxvlAYKY1yYBu3bYytHgl/8OSEG9Bp9zSmIgILoRAw62xN7Z9Jkz3Ju5SQgHVDXuIJ1OsS14SM5U3DlRabwaXbDRPwAuw7UNCyDf+UGhIe5a9wpHDI4A8s/Wz1kF1XZ+sA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KoLtpwa+7GE+LiX+6NMBtTDfC9KKIpYmEBEafsed1yc=;
- b=kzzkBxd/bGIB+yyo6hdvZUy40JJLh66ZXn//Hi0T403kLpJjxJZP3FR6jUX1wrieQLfu8tkCyP8OmkJcqSNxfPz+zExH+aEE1d2Et8l7BHsR1WxKbWpfubFpk/EpyZEDQUOsBKSsfYQ9qwTgiSiM/6bygDlZ0VWjBoTpaJHM2Xk=
-Received: from DUZPR01CA0314.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4ba::21) by VI1PR08MB5390.eurprd08.prod.outlook.com
- (2603:10a6:803:13d::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.13; Tue, 12 Aug
- 2025 10:30:02 +0000
-Received: from DU6PEPF0000B620.eurprd02.prod.outlook.com
- (2603:10a6:10:4ba:cafe::f9) by DUZPR01CA0314.outlook.office365.com
- (2603:10a6:10:4ba::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.13 via Frontend Transport; Tue,
- 12 Aug 2025 10:29:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000B620.mail.protection.outlook.com (10.167.8.136) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9031.11
- via Frontend Transport; Tue, 12 Aug 2025 10:30:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pBCdFVlRLyFmBFOLCYMj8XK3YozuKu0sMLCJwlPUhk08D4EUqrSjSccorxI0CKe5oHHz5P+2wx41KZ3h6Hv5bQX2wl7r0Y/DdWeQH6ExmeYTPkqwzL8VzMDJoRtCkRv/l+9s0BnEDT3696ADDy6q1xEuOELrlvFQCBfKpRFBCNxSW5mfmPegXTSBOIBd+Et0fmoGiF+1V8WQ0Jfv3gb0hw/D7CJE6JVkiTZbE4WCzNPL4hWngaycvKhM1FQAJBt9H0mGkhqMWvl6wT8wScc2sGBxxB2BKi1ZAHErcYzKUOlxaCOAe8kbW58ZDiuAuAYAzbVi9RXLVur2K0ktP4MiEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KoLtpwa+7GE+LiX+6NMBtTDfC9KKIpYmEBEafsed1yc=;
- b=OC4KMwN7dsCuR/Z4SIjRVKQPWr/IUwLe4NUURiSHPSmOeMpgRNsaQlPgJ06ty01E8f3cxbLbyvCs950c+qUGKe+xqWHpw1qZ+0W9uLm6tQS5NIG1bdZH+oEww90dhhu/vLK2V5XY+lyaW0B0X5TQe4MNcVgvuagfPy1AkP42YGdFRiYmwOR/alQIXLvIRn9UC9d316TP4OIbgC5yIhgqiF64jRpyCo6QVvU3JQ78wHykh3bNQ6wmcu4Iarb/JSyV4OipKGatsdWl1dbD+lZL1RYsHtlFKsa13HSz2dvlFeAGa1GmUm5M9R7GAJxu/Kiw3tf1UAyNzqzg0+HBR6ZAWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KoLtpwa+7GE+LiX+6NMBtTDfC9KKIpYmEBEafsed1yc=;
- b=kzzkBxd/bGIB+yyo6hdvZUy40JJLh66ZXn//Hi0T403kLpJjxJZP3FR6jUX1wrieQLfu8tkCyP8OmkJcqSNxfPz+zExH+aEE1d2Et8l7BHsR1WxKbWpfubFpk/EpyZEDQUOsBKSsfYQ9qwTgiSiM/6bygDlZ0VWjBoTpaJHM2Xk=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS2PR08MB8880.eurprd08.prod.outlook.com
- (2603:10a6:20b:5f7::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.14; Tue, 12 Aug
- 2025 10:29:29 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%7]) with mapi id 15.20.9031.012; Tue, 12 Aug 2025
- 10:29:29 +0000
-Date: Tue, 12 Aug 2025 11:29:26 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org,
-	oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org,
-	james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com,
-	ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz,
-	james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org,
-	pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 6/6] KVM: arm64: initialise SCTLR2_EL1 at
- __kvm_host_psci_cpu_entry()
-Message-ID: <aJsXhhe2iRrtfkTQ@e129823.arm.com>
-References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
- <20250811163340.1561893-7-yeoreum.yun@arm.com>
- <86qzxh927n.wl-maz@kernel.org>
- <aJpHxLgmy5A/YD7V@e129823.arm.com>
- <86o6sk97mr.wl-maz@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86o6sk97mr.wl-maz@kernel.org>
-X-ClientProxiedBy: LO2P265CA0352.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:d::28) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 12 Aug 2025 10:31:19 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3b77b8750acso3263648f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 03:31:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1754994676; x=1755599476; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ePoRKVjqV7PHpfS0OClfbnUSDKUm6s/VziiFV4/sSfk=;
+        b=MT9qwo1h2AuZaeWxAABnzrgNYJjJwPHdjDhqjtXSpffDWsT6du2bhZfmgr84OOxHaG
+         0x49M01Oed/YgPKJcbDHQKDrnCzo4nzQ2wLNORP2Jx8DDdntF/ssuVdD1ia6Y+bcHQMx
+         0KPELmaVHg9HvaxIRL6pKobm2q8Bl71EgfvA74SqX13AVAt0JAGdtGZouwN0ISZ9+430
+         uFQrFbxSYRi7VmHylqSpX7ce/ZL9rLluBZc+m9+Sh31Gg7sh+oAsw6J8iFY89v6gQF9c
+         Erl7XIhSIROuFdO1RjZAM92j0wXodLUnzmV2rDYH2BhDJqCGHvNjwdhWxJK9PT+/X9g1
+         1EDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754994676; x=1755599476;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ePoRKVjqV7PHpfS0OClfbnUSDKUm6s/VziiFV4/sSfk=;
+        b=WQj8EcMUjTQBhu1L18GhfcA/p90yk1SKNifz1pwDv/5CBSYszBew1kPAHuqUKdTl1d
+         JMV2xb0zOxO5G4EBNWzIsB+3G50/3QpOW7jvFVxfTUnoVVim1Khm/Ida8pqxpugo/nhU
+         HzmTGuNdPHrlzr6L2TzAqLIJuIAjY9R5J05fOWc/y7yo/Gj7rzz7xQ4So2ohEvoT+GDc
+         jFJR0VYOTTpIQmemLonwwoWYopyQpvfcLRK/NHOsCRAtmX9vogsZPWqMI67zMiKV3T6A
+         HA9wYfEVNoRgV6zK5BERvEteRjxoq2bbtOIRk8C45WAwNBlka3i3SOu6a3DGrhBTmWVI
+         bu6A==
+X-Forwarded-Encrypted: i=1; AJvYcCWKXPz7YJeH1mXH/sgk574dTfsZtylAkfWVFOlPkwUYYw3+9S62kHbHoD8ROS5Hk7Oq791m0ANleCy0X1aphWSB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3IcgECqDzx5kqWLnUwZzZ8Oh01wzrIUgcB5/X9x0weqFKCCwW
+	RaQ8CAP/x7PvaExFtIAVMSnY+nx9VqEIGdVaM4Ua2bYQ7D/WRo95tYqGOcJYnetyRd0=
+X-Gm-Gg: ASbGnctoniK+jGls1yFm032/5tVr9l2dKm4usZ6UPIs9cg8L5zjRQLKHi8mf3e8dO9C
+	1EytK5uhNgJQJViZkVMCXliv97v/2dV6U80rpwx2RbucREDomTyJbDhWmVqMj2bDjv8Q4kfJlPe
+	eDeSqkqITmGx1GdSv4PVzZLvF6W1uLr73g5CweI6oysQbWqYMIPqk0xtZ3kg6nahJWzSlNEQW1Y
+	92locsZFSgWH9Tv+dJidssac5Mzkun3e+/fwj+A8DVZLueIBxwq+diBDIUZUw4PkjfFECDBQoHw
+	Xg7oftvgo0MsJp9PNRjss1X8nWPLEAMuyeLivk+zfVLswxE0aHhzXOpwvuDr/AOzx0i3D4qgJ4f
+	5z3bWE5vt46KKfYYtCAFQrB3ul/M=
+X-Google-Smtp-Source: AGHT+IFk461rjqf9Sy5Ozfd0nKQpirAwscVYxWE8T/XoLyB3vjQ8Z2+jonu7inhQXB+ew7K8DjrJNw==
+X-Received: by 2002:a5d:5f53:0:b0:3b8:de54:6e64 with SMTP id ffacd0b85a97d-3b9111b5fb8mr2505460f8f.26.1754994676141;
+        Tue, 12 Aug 2025 03:31:16 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3b8e0b2d2fasm33199647f8f.50.2025.08.12.03.31.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Aug 2025 03:31:15 -0700 (PDT)
+Message-ID: <647299e8-26e4-4b6c-b655-a072a3c8ee72@linaro.org>
+Date: Tue, 12 Aug 2025 11:31:14 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS2PR08MB8880:EE_|DU6PEPF0000B620:EE_|VI1PR08MB5390:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55cb34d1-1609-4d2e-c67f-08ddd98b31e6
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?ncpiGdiZjeuFiXoAh1THshBUi35yn6gpxzHoGW8nQ+lcm5CCaqp8Bof3BPEG?=
- =?us-ascii?Q?jR7zK0og6ujBQUcfJhE8M6GuqOu0eCWPyZBSRHGkaYC8unPQIFwXyo9vh3YS?=
- =?us-ascii?Q?LN6g9qBl/xh+tG4X5sYZdRLXM7X7PXXMquAxEFicVtYgNClKQlLVghQntLDg?=
- =?us-ascii?Q?PkWmkiVFVfGXtYfPd+FsAxBEJpOEqX/ztvMh6jsuSDKWCKZsODvWj0p+XYEF?=
- =?us-ascii?Q?xYMUBYtYqNsyjzeU9smZDoNAv19FhquW8Vo2Ty4IMvBvzCvkoOpjBmDnQUHH?=
- =?us-ascii?Q?cXSIAUqXVUYcFWeBLvlTaTgl/w2GErKDvVwzpLm2UKiX0dxF8whIzKOlZzZB?=
- =?us-ascii?Q?rZknrB1mv0WcR7QAgR4yUJxUsVgltxXR7zdk6OSthXyOKwPlU2uCsqDY5jg0?=
- =?us-ascii?Q?cIUHaRskDY/0mk3Pr6nsZUzHMdT/k2VvRXvo7hPvI5nf+NvkGCDJRGwmSC1t?=
- =?us-ascii?Q?8UqGMYEUHp5r/ddzSWa1Hf/GZybvXau5dW3FTofTVz/B1RKfg1bRZcapdcu0?=
- =?us-ascii?Q?kEFDX31Z60/q8705diACocSXLr41BCjNtoskWbrp/4hkm86mneaWYC84NJR5?=
- =?us-ascii?Q?qn0bcLBAvCmOv2lRd4ViG4jE8dI0+OIcCLW1ka/UfSXVxP5lnTh2SiDHOJ73?=
- =?us-ascii?Q?s2VbqEcH3FK0Z1zD30fMC4ZiXylUTtnThEicM5ugoxIPEyxE8IJkSDLXODIi?=
- =?us-ascii?Q?7aMeHKnt4jYPFRzeDtcK6744vBhonB1CV9oZsshgiTBbIvq0MwoZlfsll5f6?=
- =?us-ascii?Q?NZ4F7DWx/xKNxWhg0Pvgiwai4afxDW2Uh/ICVf5XystpUJ7Cse3mtDMLKJod?=
- =?us-ascii?Q?aQC/wZs0SOeTZ8ydR1n6cQ4KMxmdN5JtpSRXq64l0mFw+HrYyCJB+KQ3Nh2z?=
- =?us-ascii?Q?UFMi7AEHHT/pUIxZ8VjgVbtjyiqfvBmVXvFqFuQ89uMhXMKv4JL+h/GGqWkx?=
- =?us-ascii?Q?XWjRNgWlVu3atzTAQi0L92vwFKzNY66lLtWxEKCfZGzQ/Jj8UobIQnd/vJLF?=
- =?us-ascii?Q?BtiDiO9nZUO1vQGviJqVN8/webeKqK4xiEOfghy50+Uqof9EMpHUbHD40p80?=
- =?us-ascii?Q?rUlAfQ0A1SZsEe/zFe84uYRxaS5m/mDB6UfpINc68uEF1L2gXM/+yOCyG/gS?=
- =?us-ascii?Q?txcaMTjS2+tDHTnNkWhZqX0cpnzfj6dszEuQcrnapLor47dHQ4bZf1PvFgcr?=
- =?us-ascii?Q?dtkYazOLbmNjNlV6sWLCStImG/qxxrjgUUqHg6DjhA85IFJkV9ANv+FG8nDj?=
- =?us-ascii?Q?TfcBSMYVPws0UOW+SbLww70JGVJLeOCmHUieUawzfLsMQ51OF9LFaTeo+JsM?=
- =?us-ascii?Q?kJaiKl6opKQ7nYl98qtxrCf8Yqu3h5k4xj5NdBFp4rhyJ+ss0ViYRsLY407j?=
- =?us-ascii?Q?OE0MVVbHWFrCX0ZqjunNmNTTxA/bsNdyxKbTBHX/esuizsgRuFucWtCuqqtK?=
- =?us-ascii?Q?rdRLDhXHHOo=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8880
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B620.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: b54f62a1-dbff-4255-9765-08ddd98b1eb6
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|14060799003|36860700013|82310400026|1800799024|35042699022;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v5PRpADNs8/2SXQAiLReRFQUlQv4JTVimuCT/cLmjCBvHZXE/+wjWRvdT0yo?=
- =?us-ascii?Q?ycjvGksCOshj5X3z+Vku2bFruvAVzuST6h5aynE40haW2LGx0KJJYDv4Hqid?=
- =?us-ascii?Q?ceoh+aD/yMnAktMvS40F27MEZFkwOKhme156TY/2jeyQRiOB9ZCMOpHY/40w?=
- =?us-ascii?Q?lOM2OjBrdzPlfp8sTbc0RponA9KirhAbQc5ap8qJUFhAzpwiJDY2NYZPA7yb?=
- =?us-ascii?Q?vd8JrxRiRkwRwPW9lVC0XpHup2TQSTwqDZWChobjWCWzLVmBGDiFQiBU15zp?=
- =?us-ascii?Q?BbgDUNOAlQ+zMMNKse1OsZKNVZ8mTS5fKOfRTxlibabmwYPa1lCv94dTFGOw?=
- =?us-ascii?Q?/5Qd5sagwmYlxKJ5dTv+/+i9vVLzp1YqFXOTMzujuHAB23MmmZdfCk/lkINv?=
- =?us-ascii?Q?92HWJ6fdkNZ21qVWptVv0FMNfLpWxDoK31i9aIV3w37kxZUhSyeSfXEzHAcL?=
- =?us-ascii?Q?wK99Rgn72Jo/8TLdF59MtS3ikS569NSuWUbHnZIVnkVi1dLOeOx+j9ETXMp2?=
- =?us-ascii?Q?lG0AnwPTvRgDEVODyJ9JJc/FM8cqe+n1mLlbBT9pZM3zl7D7FlZRK3PlzIRW?=
- =?us-ascii?Q?IM4UkxdKGkQx8bBVjkq3NghFKYFAG/qpT7h1/N/LoDbx8LvPFBuzwLVY/re+?=
- =?us-ascii?Q?3moUhezzP99/JRKo1nTPVS8ymGO8CJ5O1P+r8dzKxS9t/iKyxDHW8S6wLocA?=
- =?us-ascii?Q?XaXoiJO+SN1pw63iLX1VJSXAmcxBoQpZyohhKVxh0Kq3sEHGlrfXNSdmLPat?=
- =?us-ascii?Q?G3wEb7iNdbjKaSpgWpOWvB++1lbfJbffzYhfrKHJFDXclcRBtHkDlV4jLJKo?=
- =?us-ascii?Q?W+HJlM7c8UOrzo96pyqx0mMeoo6a0U/dV89hb/5fDlPAu6/hALsqb+WvdkIf?=
- =?us-ascii?Q?qXGP8NzyIAQlI+6oItrYC/5zD6q8YVCEHN0eP4ncpa8IBZWAategSr7MEcgO?=
- =?us-ascii?Q?shfgaMUc/MejDDU86kMK4CixuDB/D67JiNZFiXBS4Q7BA272kI19tqyXfWKt?=
- =?us-ascii?Q?8AFzVnVTu9c+f982sUIz5C0bCuAuLMHxpe32LaBFg3qbgWVgxDvFrmEJSGhz?=
- =?us-ascii?Q?0pIeU22GTsx7kcmSw4juxDkgobFPlpm4WTRUGOXB+qoyJhAmgwWBlEHrqOIo?=
- =?us-ascii?Q?XIet4DSuaKsbZ++jb+nfzysyT6a+1FVZbnmiQMfsIXIYDBigHU0RrNkrZsac?=
- =?us-ascii?Q?UDfEnp+2mIrVfG0lCXPiwWK7o3uHZOp6x3HUfsO0kSJHXxf8fBabD5FX61iV?=
- =?us-ascii?Q?z8Hr2+gmyBGYIDNt8kqPx8bcITOsB//LqO1MiVHRc9l1IrBEX2BZ6CtLu0Pk?=
- =?us-ascii?Q?p3ly3vzpsmYtSm0rAUsLFSW3tZnur5wnt1DErGpkqvsPa64z7xk8RBxvODgK?=
- =?us-ascii?Q?NVQGO989qGPwezInVXSw3gC5vWHJ7lKTAW1QiJwq9YPe0fKO+sliwH7axUxQ?=
- =?us-ascii?Q?4PLiCiQolBs0k1UpcexaZBGWQ0k+UsgEaky0VtJzRulbviQjRaV3NNYAeggM?=
- =?us-ascii?Q?L9kwhap50M0PVLT36FC2Y3IzKKg6QFEcMQ8B?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(14060799003)(36860700013)(82310400026)(1800799024)(35042699022);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 10:30:01.6403
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55cb34d1-1609-4d2e-c67f-08ddd98b31e6
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B620.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB5390
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
+To: Yicong Yang <yangyicong@huawei.com>, will@kernel.org,
+ mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org
+Cc: yangyicong@hisilicon.com, robh@kernel.org, anshuman.khandual@arm.com,
+ jonathan.cameron@huawei.com, hejunhao3@huawei.com, linuxarm@huawei.com,
+ prime.zeng@hisilicon.com, xuwei5@huawei.com, wangyushan12@huawei.com
+References: <20250812080830.20796-1-yangyicong@huawei.com>
+ <20250812080830.20796-3-yangyicong@huawei.com>
+ <3d37844a-63c5-49c2-9d6d-7c3665a95466@linaro.org>
+ <931e26ef-bdc6-5f9e-8976-d5a4b8e6e81f@huawei.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <931e26ef-bdc6-5f9e-8976-d5a4b8e6e81f@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_033011_854910_C71840E9 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250812_033118_211668_90D75A61 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -209,36 +105,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
 
-[...]
-> > > > @@ -219,6 +220,8 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
-> > > >  		release_boot_args(boot_args);
-> > > >
-> > > >  	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
-> > > > +	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2))
-> > > > +		write_sysreg_el1(INIT_SCTLR2_EL1, SYS_SCTLR2);
-> > > >  	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
-> > > >
-> > > >  	__host_enter(host_ctxt);
-> > >
-> > > This needs to be folded into patch #1.
-> > >
-> > > Otherwise, there is a window of patches where the kernel will not
-> > > survive CPU hotplug when booted in protected mode.
-> >
-> > Do you mean fold this patch into patch #2 where initialise
-> > SCTLR2_ELx?
->
-> Yes, sorry, I got it mixed with HCRX_EL2. Patch #2 is where it should
-> land indeed.
->
-> 	M.
 
-Thanks for confirmation :D.
-I'll fold it into patch #2 in next series.
+On 12/08/2025 11:14 am, Yicong Yang wrote:
+> On 2025/8/12 18:00, James Clark wrote:
+>>
+>>
+>> On 12/08/2025 9:08 am, Yicong Yang wrote:
+>>> From: Yicong Yang <yangyicong@hisilicon.com>
+>>>
+>>> CPU_CYCLES is expected to count the logical CPU (PE) clock. Currently it's
+>>> preferred to use PMCCNTR_EL0 for counting CPU_CYCLES, but it'll count
+>>> processor clock rather than the PE clock (ARM DDI0487 L.b D13.1.3) if
+>>> one of the SMT siblings is not idle on a multi-threaded implementation.
+>>> So don't use it on SMT cores.
+>>>
+>>> When counting cycles on SMT CPU 2-3 and CPU 3 is idle, without this
+>>> patch we'll get:
+>>> [root@client1 tmp]# perf stat -e cycles -A -C 2-3 -- stress-ng -c 1
+>>> --taskset 2 --timeout 1
+>>> [...]
+>>>    Performance counter stats for 'CPU(s) 2-3':
+>>>
+>>> CPU2           2880457316      cycles
+>>> CPU3           2880459810      cycles
+>>>          1.254688470 seconds time elapsed
+>>>
+>>> With this patch the idle state of CPU3 is observed as expected:
+>>> [root@client1 ~]#  perf stat -e cycles -A -C 2-3 -- stress-ng -c 1
+>>> --taskset 2 --timeout 1
+>>> [...]
+>>>    Performance counter stats for 'CPU(s) 2-3':
+>>>
+>>> CPU2           2558580492      cycles
+>>> CPU3               305749      cycles
+>>>          1.113626410 seconds time elapsed
+>>>
+>>> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+>>> ---
+>>>    drivers/perf/arm_pmuv3.c | 9 +++++++++
+>>>    1 file changed, 9 insertions(+)
+>>>
+>>> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+>>> index 95c899d07df5..ed3149632b71 100644
+>>> --- a/drivers/perf/arm_pmuv3.c
+>>> +++ b/drivers/perf/arm_pmuv3.c
+>>> @@ -1002,6 +1002,15 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
+>>>        if (has_branch_stack(event))
+>>>            return false;
+>>>    +    /*
+>>> +     * The PMCCNTR_EL0 increments from the processor clock rather than
+>>> +     * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
+>>> +     * counting on a WFI PE if one of its SMT silbing is not idle on a
+>>> +     * multi-threaded implementation. So don't use it on SMT cores.
+>>> +     */
+>>> +    if (cpumask_weight(topology_sibling_cpumask(smp_processor_id())) > 1)
+>>> +        return false;
+>>> +
+>>
+>> Isn't this something that's static to the PMU? If all CPUs in each PMU are always the same then this doesn't need to be probed every time and can be set once.
+>>
+> we can make use of PMCCNTR_EL0 if the SMT is runtime disabled, e.g. by /sys/devices/system/cpu/smt/control
+> if set this at probe time then we permanently lose the chance to use PMCCNTR_EL0.
+> 
 
---
-Sincerely,
-Yeoreum Yun
+Is that a valuable usecase though? I don't actually know the answer to 
+this. How common is disabling SMT on SMT cores and then also using PMU 
+events in a way that you would miss having the extra cycles counter, 
+despite not minding that you didn't have it when SMT was enabled?
+
+And would it correctly handle enabling and disabling SMT after the event 
+has already started? Feels like it wouldn't if you start the event with 
+it disabled and it puts it onto PMCCNTR_EL0 then you enable it and the 
+counts become wrong again.
+
+> 
+>> Also you can't call smp_processor_id() from here because this is also called in armpmu_event_init() -> __hw_perf_event_init() -> validate_group() before the event is actually scheduled on a CPU. With CONFIG_DEBUG_PREEMPT you'd see the error.
+> 
+> ok, will use raw_smp_processor_id() instead. it won't affect the validation checking in pmu::event_init().
+> in pmu::add() the cpu id is always stable so it'll also be fine.
+> 
+> Thanks.
+> 
+> 
+
+That feels a bit wrong but I suppose it will work. Maybe the real 
+problem is that validation is doing too much. I know it's to re-use 
+code, but then we're doing things as part of the validation that don't 
+make sense. That can confuse the reader or it's just wasted effort. Also 
+using raw removes the safety check which might mean it gets refactored 
+into somewhere were it isn't valid to call it in the future.
+
+
+
 
