@@ -4,92 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344B3CA0EDA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB432C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4fqFKZRX+VXRgMC+0U0SHSLoX7IVzWzQk49myeTjMC0=; b=1uKB2SvlM1a/9cfTbH2z6NHvP0
-	Hz64FQhDlwB5wvRZPX+rz+Hkp9sn2CqQjJ79m6hfmRGfq+/bJ5ERJAt2s3gv9ra0pZKtQ4iFHGqnu
-	d6n8ukDMov8J7VUlN6M/qaonUYkbHJW3Mk39saNE7ib1SDuKUnP7O/THI3gJKykT3Cu9JUbZ0FDl4
-	ql170dNahsuxKoT30+aL4zvb6Hj9gK3gh5WKZiUIoDyuHDSi2u4F2x+3/zq56g9fWfn7KVeXLa1LX
-	NsPU0gU+PjWGBNJgx/4Gmi5ru4c4anoByWxUizv4C0EkG3tzPymNtASteT6+e+QRKXXT3UbO7RgWA
-	PflRpUHw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l0CFpq1HCuyeYFLbDR8k9bWBZ4oNvj1i296rXTBH/70=; b=SmHrjw498fAXgvDTMjk5COsc0a
+	6rXoCYqpoCa6HNnf/S1BlSI/X8F530qqpwDxoLjOVM0oF9OqUJAl38mPrFgrEBISLrFHcJqsyVSzX
+	kp3rCwzzbZOSwG5DXZKHgkP/zR0YjkTDXwgawBMzP+Q3pAYTgP9YS2V7s8fy8TBJZlKBqxqB6gpBy
+	jO9SiDExztOX15mMFd9TzAdRLguOtwdP0sahW3CWs64IOPgciewU3Q4nb8/QuF0TIcSKqQdL6obkQ
+	dMUMQbHu4klk9R9nWsWeYaQ9ZmQfb4EFfyZ2Dnk86EcFsDalhW8w6C3nfYf/MxqGWmALOE6rrFM8V
+	ifBqdo6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloHT-0000000AlOh-47LG;
-	Tue, 12 Aug 2025 12:39:08 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1uloHV-0000000AlRL-2uYL;
+	Tue, 12 Aug 2025 12:39:09 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkdp-0000000AHe2-3api
+	id 1ulkgd-0000000AI9r-2gBu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:46:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4fqFKZRX+VXRgMC+0U0SHSLoX7IVzWzQk49myeTjMC0=; b=lng0be1EtH1NwTkyOrfJ1ypzjm
-	Ddta3DOel3KELJHU7Ljf6sNwYidTcfJRFDolNYD4s4qiCTxkgCrn1Y1XPQAm+t/R1QPosqnglWg2P
-	eoTtqS1uE6Mm2Z4KuWN2TqGNPwsI/qNiAtBT5l7PPRPOlAwkz9YUdQgc/AB9xsQMTAzsyJTUmr2Ji
-	6rVQjAgQ2fWxwnE/ZwXlpCWuwoPZG8AsXWfYRmMbZaYy6NR5kCfthx6GKrzajxmqgBSPqA/wp61cw
-	KCS+JVHajYr1LZSW/2uQPtMLDxsRtKN3gpex3QBS5z74C8cLYHomnHe3omMdksCoTgSknxUaKp7OF
-	TnXF1q+w==;
-Received: from [89.212.21.243] (port=39484 helo=[192.168.69.116])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1ulkdj-00DLjg-0H;
-	Tue, 12 Aug 2025 10:45:50 +0200
-Message-ID: <ffafc9d6-2cfe-4e3f-a610-9bddc7eb49f4@norik.com>
-Date: Tue, 12 Aug 2025 10:45:48 +0200
+	Tue, 12 Aug 2025 08:48:53 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-61568fbed16so8154991a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 01:48:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1754988530; x=1755593330; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=l0CFpq1HCuyeYFLbDR8k9bWBZ4oNvj1i296rXTBH/70=;
+        b=Fvaw1Y/BPkITzkJi/Wm7ap9fgj0s++Mek6n8A//ZLL2qzUQKBz35NoBfvbp9Vd95CP
+         6owqwTPCj4BzWomLVO7j3QRygQj3+T4nBZUozPPBy+fV1Q2dn4XHTl14dHlUs5pZhyxf
+         4jzaJUx0rRs2q0dB6JYfCWdUxm6xaHaA/FQtD044CfK51dYqu9+z3ztivVx+6yKImOS2
+         Y/18XI85FsCsMlg2mPwTSMtmGCGIGj/11BJIFuz726VDfzTwPrw3UyBbOKrph2uucsqB
+         9iruZiVw1i13CNzSVtlTm+rynWgJHruy4CB3JAoGBp/Kq/j5VRYz2qfiuRj6MuIpAQaS
+         YK6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754988530; x=1755593330;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l0CFpq1HCuyeYFLbDR8k9bWBZ4oNvj1i296rXTBH/70=;
+        b=sqpBUPMd1SxalBYtV0k1uW0mc/FeX7drEkZzflubTC8TnISEhanKAEmc1pBU/OK/Dq
+         W6lq1f3adc03NCmVflKU2hHbAGARIxbzjplD96N+Y8YwoqYV/xHv+0WCUSJ7gqYxK6yI
+         OH5VGIpW3TLx+wTL+7DQr9hvgtxKae3qbb6ECiHgnqKb1/i4J/O0uXufflTY+YKhjUwp
+         EGrre7JgSrDeNqUW800P2cK9q3nj056qdUyPgWQYIsEN82Cln2P4NqNGsWldEP56hGCE
+         aiELwFQ/KochsXlhBQZuCJZ4W4ahLHiaPaz0A9YgHXFUJs3XnzOjyK2JRN8HUG9w3i+v
+         4+EQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW51TrzDAT0GmdI5JWxrfLOAg8Io0XTtC75gKulLINcVqHs7+QS8RaRcStL/dvyRXcO9ByN/526poaZJrRNwFCx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIChCyDsWglF2xH+6avacqz155h0631Fjgy+RAIhcxKa6FhBdZ
+	TQsAN5EOqQIM2jo88qLjzXStD/22sKlEzkHuvKC+6EQSKKmXDSc+0K/PkylTG8GOgbM=
+X-Gm-Gg: ASbGncuGcFg6osGnuE4FHBeUNMepR7s4G8CcWblHXCDzOjP8dICM37dcX0K9rYfPbB4
+	xBh/htu4HeA0DyeYT2IdUwOuF8Mm2qiiTGLVATx0hhrO6V5JLHS+MbzI1tQmBYUTaOqZwIFEtP+
+	iyDIWPdin7CaMif/hPp7RDYefUhGn0GEMW3wTrPSRLETyOl1kNpuA3KirBkWs15ORMMZpi/OY8j
+	cdpL0UsdiSeW+AcT3yT8qCYVk7UrGu1WOoGPqAqVjPD6gZjmIyVaoSDPHcwsi1PNwKsJJleCT3f
+	z9pFnMui3G19+mGXC5RCMEUqB3kJx2Mo8FUnSqSC0w9eyyMVi7/MUTplXvDYvSwfRMg4U0R2HXO
+	f6ZgnqIXgsOcu4USV7rSFD8xhfZDt87UZeo/9Gx+JcKvPL9JOT+OF7weX5jcWZOh2Yw==
+X-Google-Smtp-Source: AGHT+IHtFs8w0fVJyzS1M1cginNB7x2BJdFDZRxDj5MXgzQYeyqcq0scZCRhd7hs7865IgJzSU8QUg==
+X-Received: by 2002:a05:6402:3111:b0:614:fead:3d56 with SMTP id 4fb4d7f45d1cf-617e2e8fc4amr8958140a12.32.1754988530010;
+        Tue, 12 Aug 2025 01:48:50 -0700 (PDT)
+Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-617df37d061sm7754871a12.40.2025.08.12.01.48.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 01:48:49 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Jim Quinlan <jim2101024@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	kwilczynski@kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	iivanov@suse.de,
+	svarbanov@suse.de,
+	mbrugger@suse.com,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix DTC warning
+Date: Tue, 12 Aug 2025 10:50:37 +0200
+Message-ID: <20250812085037.13517-1-andrea.porta@suse.com>
+X-Mailer: git-send-email 2.44.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] iio: adc: imx93_adc: load calibrated values even
- calibration failed
-To: Haibo Chen <haibo.chen@nxp.com>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-iio@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "upstream@lists.phytec.de" <upstream@lists.phytec.de>
-References: <20250812-adc-v2-0-0260833f13b8@nxp.com>
- <20250812-adc-v2-2-0260833f13b8@nxp.com>
-Content-Language: en-US
-From: Primoz Fiser <primoz.fiser@norik.com>
-Autocrypt: addr=primoz.fiser@norik.com; keydata=
- xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
- JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
- ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
- gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
- jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
- 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
- TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
- AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
-Organization: Norik systems d.o.o.
-In-Reply-To: <20250812-adc-v2-2-0260833f13b8@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_014558_373194_47D6E5F8 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20250812_014851_676327_1EE05F59 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,98 +115,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Haibo,
+The devicetree compiler is complaining as follows:
 
-On 12. 08. 25 10:04, Haibo Chen wrote:
-> ADC calibration might fail because of the noise on reference voltage.
-> To avoid calibration fail, need to meet the following requirement:
->     ADC reference voltage Noise < 1.8V * 1/2^ENOB
-> 
-> For the case which the ADC reference voltage on board do not meet
-> the requirement, still load the calibrated values, so ADC can also
-> work but maybe not that accurate.
+arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (unit_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges property, but no unit name
+/home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_nexus' was unexpected)
 
-Reviewed-by: Primoz Fiser <primoz.fiser@norik.com>
+Add the optional node that fix this to the DT binding.
 
-Thanks for fixing this.
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4-lkp@intel.com/
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-BR,
-Primoz
-
-> 
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> ---
->  drivers/iio/adc/imx93_adc.c | 18 +++++++++++++++---
->  1 file changed, 15 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c
-> index 8471737ac04a2bac0417a6397f20865f6a2c01ca..17b0a2548b0a3614ac537b01e28bc3144d17d6fc 100644
-> --- a/drivers/iio/adc/imx93_adc.c
-> +++ b/drivers/iio/adc/imx93_adc.c
-> @@ -38,6 +38,7 @@
->  #define IMX93_ADC_PCDR6		0x118
->  #define IMX93_ADC_PCDR7		0x11C
->  #define IMX93_ADC_CALSTAT	0x39C
-> +#define IMX93_ADC_CALCFG0	0x3A0
->  
->  /* ADC bit shift */
->  #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
-> @@ -58,6 +59,8 @@
->  #define IMX93_ADC_IMR_ECH_MASK			BIT(0)
->  #define IMX93_ADC_PCDR_CDATA_MASK		GENMASK(11, 0)
->  
-> +#define IMX93_ADC_CALCFG0_LDFAIL_MASK		BIT(4)
-> +
->  /* ADC status */
->  #define IMX93_ADC_MSR_ADCSTATUS_IDLE			0
->  #define IMX93_ADC_MSR_ADCSTATUS_POWER_DOWN		1
-> @@ -145,7 +148,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc *adc)
->  
->  static int imx93_adc_calibration(struct imx93_adc *adc)
->  {
-> -	u32 mcr, msr;
-> +	u32 mcr, msr, calcfg;
->  	int ret;
->  
->  	/* make sure ADC in power down mode */
-> @@ -158,6 +161,11 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
->  
->  	imx93_adc_power_up(adc);
->  
-> +	/* Enable loading of calibrated values even in fail condition */
-> +	calcfg = readl(adc->regs + IMX93_ADC_CALCFG0);
-> +	calcfg |= IMX93_ADC_CALCFG0_LDFAIL_MASK;
-> +	writel(calcfg, adc->regs + IMX93_ADC_CALCFG0);
-> +
->  	/*
->  	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
->  	 * can add the setting of these bit if need in future.
-> @@ -180,9 +188,13 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
->  	/* check whether calbration is success or not */
->  	msr = readl(adc->regs + IMX93_ADC_MSR);
->  	if (msr & IMX93_ADC_MSR_CALFAIL_MASK) {
-> +		/*
-> +		 * Only give warning here, this means the noise of the
-> +		 * reference voltage do not meet the requirement:
-> +		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
-> +		 * And the resault of ADC is not that accurate.
-> +		 */
->  		dev_warn(adc->dev, "ADC calibration failed!\n");
-> -		imx93_adc_power_down(adc);
-> -		return -EAGAIN;
->  	}
->  
->  	return 0;
-> 
-
+diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+index 812ef5957cfc..7d8ba920b652 100644
+--- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
++++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+@@ -126,6 +126,15 @@ required:
+ allOf:
+   - $ref: /schemas/pci/pci-host-bridge.yaml#
+   - $ref: /schemas/interrupt-controller/msi-controller.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: brcm,bcm2712-pcie
++    then:
++      properties:
++        rp1_nexus:
++          $ref: /schemas/misc/pci1de4,1.yaml
+   - if:
+       properties:
+         compatible:
 -- 
-Primoz Fiser
-phone: +386-41-390-545
-email: primoz.fiser@norik.com
---
-Norik systems d.o.o.
-Your embedded software partner
-Slovenia, EU
-phone: +386-41-540-545
-email: info@norik.com
+2.35.3
+
 
