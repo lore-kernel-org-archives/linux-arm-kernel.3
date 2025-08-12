@@ -4,72 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F81FCA0EDC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A2ACA0EE0
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jeUxTQ9kPol+qucz8lWjIE1iNI3a/p05jPfDCS+yCg4=; b=IlM6D2QzXhfXaGn6S/mtA5j0QE
-	N7/l/rf7CV43nBEJ0ULF5c2gYRls8URIaCD9nwzIweyhhlaWErxiZlSVZXjTC/yflVlr5w1KpnwJa
-	5FWBdY+ALUf2CS5iZVQlUAz+mM5/DrdC7uhSp3UbH6LgplwCUyTmpkCAV9W89XPjjlnVLts+0PtQI
-	yFL0fOTrBD2Yvyt5h2WLdcYnKTbpbeFmy99bnmcg5i0mNaC3IQEEE/9CNXd0IG8yKRNqnucwhVYeX
-	Or2Zk6gaQk8vAHqT3bhyCHSVGucgcyb66QgM8NqYoCQIuF7JdcvRJ86xk+NDEHtc8aEiPY4qyBIgP
-	qnLFn8DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pEezOkT0DMYtBQNI+88wui4CFNSwtPL8noFajy31AHM=; b=VmMb2Z7D6XPFoJEY0Nv1Xztwer
+	lGPYCRmTbNekH3gLRUrObG1TmFH6TBE9joCB85itaA2AqFAWm7ZEFZTyEYYx9V+4FsVvGNhu2kpyK
+	/F6dK0Lg+sAq2fbeFsrt4DxVCb8uy4IU8DJ0Bfh/vtRobSZUxIQ4vLVBxAWul0R+WkRkPInKmtqPT
+	U2QZRrnrxdp3EH7YP3uJdmrW4Hq1dKcCJ3JVlSnPnCkbnUYJXPw1ubRNWrtPYyGXwdheAR15ELV3g
+	315nfy2ec+eqy24jXJoCMvyIPS02iMJ9m38aH6ze+7vZyWmJ+BtEros9fPXM58TZ5d88M43IHv3nX
+	jWqDGN/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsq9-0000000BZVc-27Pe;
-	Tue, 12 Aug 2025 17:31:13 +0000
-Received: from mail-m49200.qiye.163.com ([45.254.49.200])
+	id 1ulsq5-0000000BZQL-3VSR;
+	Tue, 12 Aug 2025 17:31:09 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloA9-0000000Ah1H-0YvE
+	id 1ulns9-0000000Af04-1GoA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 12:31:34 +0000
-Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1f211b6c3;
-	Tue, 12 Aug 2025 20:31:20 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: krzk@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ulf.hansson@linaro.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	arnd@arndb.de,
-	adrian.hunter@intel.com,
-	robin.murphy@arm.com,
-	ding.wang@bst.ai,
-	gordon.ge@bst.ai
-Cc: bst-upstream@bstai.top,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	soc@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Albert Yang <yangzh0906@thundersoft.com>
-Subject: [PATCH v3 0/8] Introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
-Date: Tue, 12 Aug 2025 20:31:02 +0800
-Message-ID: <20250812123110.2090460-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 12 Aug 2025 12:12:58 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3b7886bee77so3903482f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 05:12:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1755000776; x=1755605576; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pEezOkT0DMYtBQNI+88wui4CFNSwtPL8noFajy31AHM=;
+        b=CEbRgd+0D4KB/GddV9WrBK4txOc/ARbuA81OFSBSm3P92uMVshgKxX+pngyHfo5bNe
+         dWf6UE8OhiAZDqaM6Zb7gFPI3aYn2zWYbF/jmsetKhec6EA9GdoOGs7+ivfjEkhIz9cW
+         z3+/ZEcwJCJZ3L/YXb5DKl8oCY+9l67ZrXgu8dd3RQVxt9U2p4TE/rgZaZ9cMe6Bl1WU
+         LUK7ESXFNROL5RUrV8JDaU5YbwWs4/0tQSgWfTpUMont1WY5ce+6qi9q+V3QnR0YKtiS
+         28ICRqYRumAc6vx3o7GefcYuwTtbNPAiK6uffEpm6kZl+oWD1ZTT4tPm8SGrZ71rHd9c
+         CX9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755000776; x=1755605576;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pEezOkT0DMYtBQNI+88wui4CFNSwtPL8noFajy31AHM=;
+        b=u/T46M3gExiWtHhQ7PcRB/jmKTcXzVvYnFsfOTaJLX26cMgc1U6IpJ3so3iV67ti+c
+         25DT+1Bm7Hk/A4ac+qqhygat9MUbAFwo1p8nYHcaU6bhDBhoZuTaZ03RX4x938DEnF1K
+         HsaI0+XBSeh9Kzo+gkgFTJO9d5bNdoPwNhKHeU8aI2eHo605vyGpuJlJOlrGFKQlPwrs
+         R1LC/hDE9tzlJjoMahBOKnk3LlU5i/wdYlsC/CR2iETqXndB8434rIWwZTwvEhFeE3Bo
+         MAtxSEPjX5tyeQj4kNE94hFPd2hovJXt/DRcuzzvP2jI3ecjYqyS4GTyjXPWUTAXvD/l
+         fNFg==
+X-Forwarded-Encrypted: i=1; AJvYcCUR0bjFOBik+YZjN4q0xezsVQx2VHU33GP4+BVdU0kCD9VlQF8jvuRuDBbdkd/J51LnSVKtsyG645etK1tWcszn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6Wd8oPM+s7xazgVDju8ZWp2QKNkL02fRCcG/hDmTtpwhERDE2
+	FoQbUmFfn1S6tWEx0FCnOCoJFw3yp+yfVqbQ2Ld74Pqxh5yA7chbXVvnZxC8Uvniav4=
+X-Gm-Gg: ASbGnctuUzOYE7KfZ9AyMTJoE4o1pjuiIXwbvFfsYAS+cJZYAA2Lj2Crr/omgoX+yee
+	UywRiufaMM2pFPeBMYov+afIyi9x+jTFD/kqtftiYwco/4gi8Wd1xp0ErNSkQRnVRvFqVu2Aegf
+	u2LO5L3h1+lSWlUIWSDmffPsTq6PPspbHmE3AUJ7mm1Ypm3TRVo6lHVAhn1dRnOtx7v0WHWCo3v
+	5sPEykkN3kDm3jGU0xn/SRlUMZbYxE8jc53buodB4IBP8x0jWLMaD3ugYcHVQNJtYO9k5GrRshH
+	A+HRk3MBiPFtIYR+lOXmAQaSIApx7NxwhJzSqsHIOl53JtklvPcM26zLn+His28CobIEleJCEbn
+	GPvvWdpXuiT/+r5I=
+X-Google-Smtp-Source: AGHT+IEGQDIavEdwAVseF7zTTEBlsP3iW7+rCM7AvFwCujx1KCDQS0QsNDaVetuCN3LIEKies+x0jQ==
+X-Received: by 2002:a05:6000:4283:b0:3b7:b3f2:f8b3 with SMTP id ffacd0b85a97d-3b911007702mr2510510f8f.38.1755000775696;
+        Tue, 12 Aug 2025 05:12:55 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:16c8:50:27fe:4d94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e6867193sm298878535e9.6.2025.08.12.05.12.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 05:12:54 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 12 Aug 2025 14:12:46 +0200
+Subject: [PATCH RESEND 04/14] gpio: ts4800: remove the unnecessary call to
+ platform_set_drvdata()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a989e43800c09cckunm52c5de628442aa
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTRkdVh5JQ0wZHkwYSEJCHVYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=WXExFBYPk7NKVCNi2iseFIS/kU7WjgjUjApwXGxesJJs2m1qId4UbKBMeXv4EJTEIwr8zJ3zWDNVLxV9+S89czj464yRo7yefaCp4S7TusIDXUSyHkGAQcvBU/OPnvt4THiy/p6Kof7yASa1hucucobYx4IWP4MStNT1XAyV03U=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=jeUxTQ9kPol+qucz8lWjIE1iNI3a/p05jPfDCS+yCg4=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250812-gpio-mmio-gpio-conv-v1-4-aac41d656979@linaro.org>
+References: <20250812-gpio-mmio-gpio-conv-v1-0-aac41d656979@linaro.org>
+In-Reply-To: <20250812-gpio-mmio-gpio-conv-v1-0-aac41d656979@linaro.org>
+To: Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Yinbo Zhu <zhuyinbo@loongson.cn>, 
+ Hoan Tran <hoan@os.amperecomputing.com>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Yang Shen <shenyang39@huawei.com>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=749;
+ i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
+ bh=l19XxlCMzrhQb7segGk57h4S+g8U8d8cxgGqBJH6nF0=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBomy+/9er37Ak/sFPPdUpU+bYimsPDTN2yc6x42
+ FQ8FY/oejWJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaJsvvwAKCRARpy6gFHHX
+ cs1kEACnksREk9QmO2FhzrwUyQY6DFqRCpWOw11t0IdlkTmT1crGP48e6IKjx54SKHyp4sN42jo
+ stgwcLRvwFedR2zvmHej3NLE2HegxIm4m7iEfrgRnaPO3fLODyWUW/lMX114rXBqNa6GrspT2ne
+ dP5ciZfuBXiSlsOVW16bgOErzHt187wcG825R98099jTmshxHjqsrTUlIsEsTtrLi3FEN4zIzv0
+ hr5+6atZ0zl9joHZx2V7PTzwKZGbgzWcQrs6PieTOlLSiSCvWomMaM/tZhuro2JemTnb476JlhH
+ //BD0Iw7ncTNdylkaDpA3Xb3JTcbgipc3GNuhp7mJhdruTE7AfWI0V92/a2P4rWfWSHPvAurGnC
+ Nte/Q7KLeNVJzz1rv1O/6Phap6sCLBL7Brkop+kaa5OQPDW2wWX6fBTiC+UiYm0E5WwP/JhhxYK
+ DGTWaHo7PDMXaxR9zrtJVnPiPLa/RRbAx4MUpsbEFx60d6vuyTkBFj4iDmVILm/a0fd0BxssCA5
+ GvKxj0iXDd3zlORV3S3Ux716TyKOEVfwghYqPxOs5ZI84XPMKMuo4zsZXniZWfY+Cr690AiYvcX
+ f9lCK5D8o3flMW7LKN5i2yjOd5DAJAHljz+naFZ34U5udYaR5ywzIftABA2Q0648whgtGJ0IEGM
+ uS04lz8L4PvZKuQ==
+X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_053133_410989_77A16F90 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20250812_051257_338990_3191720B 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,194 +121,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Black Sesame Technologies C1200 is a high-performance Armv8 SoC designed for automotive
-and industrial applications. The CDCU1.0 (Central Domain Control Unit) board is the
-development platform built by Black Sesame Technologies. You can find more information
-about the SoC and related boards at:
-https://bst.ai
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Currently, to run the upstream kernel on the CDCU1.0 board, you need to use the
-bootloader provided by Black Sesame Technologies. The board supports various
-interfaces including MMC/SD card, which is implemented using the BST C1200 DWCMSHC
-SDHCI controller.
+There's no corresponding call to platform_get_drvdata() or
+dev_get_drvdata(). Remove the call to platform_set_drvdata() from
+.probe().
 
-In this series, we add initial SoC and board support for kernel building. The series
-includes:
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ drivers/gpio/gpio-ts4800.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-Patch 1: Add Black Sesame Technologies vendor prefix in vendor-prefixes.yaml
-- Adds "bst" vendor prefix for Black Sesame Technologies Co., Ltd.
-- Required for device tree bindings to properly identify BST hardware
-
-Patch 2: Add device tree bindings for BST SoC platforms
-- Creates new binding file Documentation/devicetree/bindings/arm/bst.yaml
-- Defines compatible strings for BST C1200 family and C1200 CDCU1.0 board
-- Documents BST's focus on automotive-grade SoCs for ADAS applications
-
-Patch 3: Add ARCH_BST configuration for BST silicon support
-- Adds Kconfig option for BST architecture support
-- Enables building kernel for BST platforms
-
-Patch 4: Add device tree binding for BST DWCMSHC SDHCI controller
-- Documents the BST C1200 SDHCI controller binding
-- Required for MMC/SD card support on BST platforms
-
-Patch 5: Add BST C1200 SDHCI controller driver
-- Implements the MMC host controller driver for BST C1200
-- Enables SD card support on BST platforms
-
-Patch 6: Add device tree support for BST C1200 CDCU1.0 board
-- Adds device tree source files for C1200 SoC and CDCU1.0 board
-- Configures hardware components including MMC controller
-
-Patch 7: Enable BST Soc And C1200 DWCMSHC controller in defconfig
-- Enables MMC controller driver in default arm64 config
-
-Patch 8: Update MAINTAINERS for BST support
-- Adds maintainer information for BST ARM SoC support
-- Consolidates BST-related entries
-
-Changes for v3:
-- Patch 1:
-  - No changes
-- Patch 2:
-  - Add Signed-off-by: Ge Gordon
-- Patch 3:
-  - Reword subject from "for bst silicons" to "for Black Sesame Technologies SoCs"
-  - drop unrelated whitespace hunk
-- Patch 4:
-  - Switch reg schema from maxItems to explicit items with per-entry descriptions
-  - Improve example: add irq.h include and wrap under a bus node with address/size cells
-  - Drop status = "disabled" from example; keep example concise
-  - Add Signed-off-by: Ge Gordon
-- Patch 5:
-  - Code improvements based on review feedback:
-    - Simplified dwcmshc_priv structure by removing unused fields
-    - Improved helper functions with better encapsulation
-    - Used devm_platform_ioremap_resource() for resource management
-    - Updated Kconfig description and alphabetical ordering
-    - clarify documentation on hardware limitations and bounce buffer approach
-    - remove duplicate sdhci_writew SDHCI_CLOCK_CONTROL
-- Patch 6:
-  - Split defconfig enablement out into a dedicated defconfig patch
-  - Refine memory description: consolidate ranges in memory node and delele unused memory ranges
-  - Adjust the order of nodes
-  - remove mask of gic
-- Patch 7:
-  - Also enable CONFIG_ARCH_BST in arm64 defconfig (in addition to CONFIG_MMC_SDHCI_BST)
-- Patch 8:
-  - No changes
-
-Changes for v2:
-- Pass dts build check and mmc driver build check with below commands:
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=build_dir CHECK_DTBS=y bst/bstc1200-cdcu1.0-adas_4c2g.dtb W=1
-make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- drivers/mmc/host/ W=1 O=build_dir
-- Patch 2: 
-  1. Removed unnecessary pipe (`|`) in description
-  2. Dropped invalid `compatible` entry for standalone SoC
-  3. Removed root node (`$nodename: '/'`) definition
-- Patch 3:
-  1. Placed the configuration entry in correct alphabetical order
-  2. Used generic family name (ARCH_BST) instead of SoC-specific naming
-  3. Followed upstream kernel naming and description conventions
-- Patch 4:
-  1. Simplified description, removed redundant paragraphs
-  2. Updated $schema to reference mmc-specific scheme
-  3. Corrected compatible to add soc name
-     (bst,c1200-dwcmshc-sdhci)
-  4. Removed all redundant property descriptions
-  5. Dropped invalid mmc_crm_base/size properties, use reg for all address
-     ranges
-  6. Cleaned up required properties to only essential entries
-  7. Standardized example DTS format, fixed reg syntax and property
-     ordering
-  8. Removed additionalProperties: true
-- Patch 5:
-  1. Dependency Simplification:
-     - Removed COMMON_CLK dependency from Kconfig (MMC_SDHCI_BST)
-     - Add ARCH_BST || COMPILE_TES dependency from Kconfig (MMC_SDHCI_BST)
-
-  2. Resource Management Improvements:
-     - Replaced temporary ioremap with persistent mapping
-       * Mapped CRM registers once during probe instead of per-access
-       * Added proper cleanup in remove callback
-     - Refactored bounce buffer allocation:
-       * Simplified error handling and memory management
-       * Removed unnecessary DMA configuration layers
-
-  3. Code Cleanup & Optimization:
-     - Pruned unused headers and legacy vendor debug code
-     - Removed deprecated sdhci_bst_print_vendor() export
-     - Converted internal functions to static scope
-     - Standardized naming conventions:
-       * Renamed DRIVER_NAME to match kernel standards
-       * Changed default_max_freq to DEFAULT_MAX_FREQ
-     - Optimized clock configuration routines
-
-  4. Hardware Integration Fixes:
-     - Fixed register access macros for EMMC_CTRL
-       * Added proper offset calculation via SDHCI_VENDOR_PTR_R
-     - Corrected device tree compatibility string to:
-       "bst,c1200-dwcmshc-sdhci"
-
-  5. Error Handling Enhancements:
-     - Added robust ioremap error checking
-     - Improved bounce buffer allocation failure handling
-     - Streamlined probe/remove flow
-
-  6. Maintainability:
-     - Updated MODULE_DESCRIPTION and AUTHOR fields
-     - Added explanatory comments for hardware limitations
-     - Removed redundant multi-host setup infrastructure
-  7. fix build warnings from lkp
-    | Reported-by: kernel test robot <lkp@intel.com>
-    | Closes:
-    https://lore.kernel.org/oe-kbuild-all/202505290615.GZzN5rNL-lkp@intel.com/
-
-- Patch 6:
-  1. Reorganized memory map into discrete regions
-  2. Updated MMC controller definition:
-     - Split into core/CRM register regions
-     - Removed deprecated properties
-     - Updated compatible string
-  3. Standardized interrupt definitions and numeric formats
-  4. Removed reserved-memory node (superseded by bounce buffers)
-  5. Added root compatible string for platform identification
-  6. Add soc defconfig
-
-Albert Yang (8):
-  dt-bindings: vendor-prefixes: Add Black Sesame Technologies Co., Ltd.
-  dt-bindings: arm: add Black Sesame Technologies (bst) SoC
-  arm64: Kconfig: add ARCH_BST for Black Sesame Technologies SoCs
-  dt-bindings: mmc: add binding for BST DWCMSHC SDHCI controller
-  mmc: sdhci: add Black Sesame Technologies BST C1200 controller driver
-  arm64: dts: bst: add support for Black Sesame Technologies C1200
-    CDCU1.0 board
-  arm64: defconfig: enable BST platform and SDHCI controller support
-  MAINTAINERS: add and consolidate Black Sesame Technologies (BST) ARM
-    SoC support
-
- .../devicetree/bindings/arm/bst.yaml          |  31 ++
- .../bindings/mmc/bst,dwcmshc-sdhci.yaml       |  70 +++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |  10 +
- arch/arm64/Kconfig.platforms                  |   8 +
- arch/arm64/boot/dts/Makefile                  |   1 +
- arch/arm64/boot/dts/bst/Makefile              |   2 +
- .../dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts    |  42 ++
- arch/arm64/boot/dts/bst/bstc1200.dtsi         | 117 ++++
- arch/arm64/configs/defconfig                  |   2 +
- drivers/mmc/host/Kconfig                      |  14 +
- drivers/mmc/host/Makefile                     |   1 +
- drivers/mmc/host/sdhci-of-bst-c1200.c         | 510 ++++++++++++++++++
- 13 files changed, 810 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/bst.yaml
- create mode 100644 Documentation/devicetree/bindings/mmc/bst,dwcmshc-sdhci.yaml
- create mode 100644 arch/arm64/boot/dts/bst/Makefile
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200-cdcu1.0-adas_4c2g.dts
- create mode 100644 arch/arm64/boot/dts/bst/bstc1200.dtsi
- create mode 100644 drivers/mmc/host/sdhci-of-bst-c1200.c
+diff --git a/drivers/gpio/gpio-ts4800.c b/drivers/gpio/gpio-ts4800.c
+index 4748e3d47106cd2db6a994928b20f76921540a60..86f7947ca9b2d23292c1e6660fe93c611e0cb837 100644
+--- a/drivers/gpio/gpio-ts4800.c
++++ b/drivers/gpio/gpio-ts4800.c
+@@ -51,8 +51,6 @@ static int ts4800_gpio_probe(struct platform_device *pdev)
+ 
+ 	chip->ngpio = ngpios;
+ 
+-	platform_set_drvdata(pdev, chip);
+-
+ 	return devm_gpiochip_add_data(&pdev->dev, chip, NULL);
+ }
+ 
 
 -- 
-2.43.0
+2.48.1
 
 
