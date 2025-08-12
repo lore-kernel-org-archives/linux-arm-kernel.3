@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F4AC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D87C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TSXRG4UDI370NboKvA/d+qzWYgjnMyk4awDopImJtPY=; b=Dnufc8VmSNKdSLbQUX1/Z4jo6B
-	zIRR0dCIWCmc5eysK2FDQYEhE2V6/4I2c4wPjawm+7RXWK+gC1I47/ITnC6WmwKjoBph5deNMnj1W
-	8fu0odxKNnSehyMZO/kjpQfF/Tm1aL+mEdYHDs8OWPyqy01HSUlbGbEU2b7PJkJU1mgN3xlSLpa4M
-	F9ltw9yy/NfW9zWPeHwwUKltgtvOrcTJ7O72N+aozM+VRTUUHWEaCXR2WMF42jxN/pzKjn64FbMdC
-	xYuLG910i48B0/mk+V30oemZSCUx7JQHHvc1Jnd6/slXQ9na0XDGYWtwGCGCdWrYHAMsfUnb4EUqn
-	ApRX3SMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cp7r1Pmui13ce0yd2WoGg4CTlzmUVA1zRtsH2JGzcI0=; b=qZ8roBkEsTHHNK7ZQl7Tsm1E2K
+	vE1LH2iANMq8ZWCkyy+jAg4P3eVulBcVdSnD5xRnw/WilK1zJXPG7yHpo0eq1J5GdfeaQuvFI4dLT
+	aPkQb3+CXe13UgX8ZNNd55FNMygFYCqwBjtaLflq4eG/qH/STO4ntetPRnoUnCEwbn4tdGC9eiJfK
+	JSugH6f2HryAt5rfWSGAwKjoRoLecXpj+oQi16Oaz9avh7EJBW47AH5Hd52OlsiM5zH39wHpL1Lrm
+	oyjkmhLHxzlALK77MzCV+P6tvuiYMWujT6aXJSmccUXiZHt3Uo3qxTCSeYW/TUArixkX9zWjsBVNX
+	oetSrc6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljTC-0000000A7VG-053p;
-	Tue, 12 Aug 2025 07:30:54 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1uljUg-0000000A7dM-2wur;
+	Tue, 12 Aug 2025 07:32:26 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliGW-0000000A0Hn-1KuQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 06:13:45 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-55b8f1a13e9so4585787e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 23:13:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1754979222; x=1755584022; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TSXRG4UDI370NboKvA/d+qzWYgjnMyk4awDopImJtPY=;
-        b=hLUlpnljZVJSEiXacXRaSixQaOz9EsOppgXl2QtO+vYGkOs5reOcYcm0pAoQ38U4Za
-         RUEGdjCVhmYaNVa4aWE3PFubruU9+hMaCzWmtmhju5zjTM5na/I4W8nnzELPQvhzLxZq
-         ZZW6Lbu0HbthuUu4i8gElY+hV3+2N+rVyqgJxmpVKN8QA1BmCRGumdaMqFoWsedVJBUz
-         9eL4538f9BceFoZTzqWBDAZljKL+GmisniVgpMwdikP/hL44gJy5wh7zuH4PITJ3aK2F
-         dMh2Xlm0E9qvpnCeXr95ewHmC+Hj+s+Mq2mmcr6wIwZOh0hGNhCbVf+bm9qnziZjhlIU
-         Fjxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754979222; x=1755584022;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TSXRG4UDI370NboKvA/d+qzWYgjnMyk4awDopImJtPY=;
-        b=nzvIHM4ShVxzDqrYdRVsM9PFNv0d2F46oKJz9PBveSAJRTYdVzhSJP94hkvk9ZtC9g
-         8iennO9NREzx/UApdeMrd4TQU9oDAF0UrPot9Zzut9iH6f76hnDmhG/o4HT/s0ADak44
-         O0Fnf1Ypv57JV9clRheZZKmWn2RFbQsQG70lQ4Pn3S3mx2KZDM2Kju/PB1HVN0j8kqQ6
-         t4SgC5QRlvVCIulu9vec5eL25utvzGzoX6BXDjk8SWWBGjHq+5UB+TgNQRj9QItmI+nY
-         RLQiEcpM3QPRIqrJjGCHXd4f6h/4Yonk1qLoftGFJw0iI3zA25sxUfUTuYhhFLA+JAyX
-         FIZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX+zVEFksyJ9oxlvej527uXnUDXmOSoGmbwSEOn+Sz35wHySbL3u0ECAq0PswjLLUDJ83fwNi7dlNhbd+Zm6/as@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVmUHBLtflD2ox7hXwnHGMYF+Pkhu36Tvf+NzSA0prp2NJONiL
-	kKDu9eZ7/hvDIZYLQp6A2Dplz6BQP0StbxtKnWwBpGFE5fsdrvgXl5Ot
-X-Gm-Gg: ASbGncvitTRXqBEtq1bai4rKtmiLmjdVR2eJ6lpgGrodscM19wgtfRe751FEgQbuscG
-	pQvl5LOzSpd1poOzRgb4A0U2UI4BdD/oMVgfUdUO6t2HEld7MqfmIgApUc1V6XZaJmpaSZadRy6
-	AiPfDJ98YSeDNIXZo99MxO1gG+JRZ3RvBqVxqePLGLPbxD6YPxk2EcZ16so9zdmsCGGjqZEMV9k
-	KuZOVVEVlx9Cofw+084E7g/dWGp/PVoARZrzGc495G77YVQIrSvTWzvjE7Eqy+YEeGSnxZ3JadG
-	qnIIoF9iQ+9lEYR57pXjLd888uQc5Z6S6PZdA8W9rKc73h1R2kuh6r1zRsEMBYuUL95xPo8QlUc
-	tFm46cq+gBEqELWJno4i5hL24gu+qg73sNhgLhW66TT0tbvA=
-X-Google-Smtp-Source: AGHT+IHD1nKmWw3ewqqmK3tmT5SLNBo0Q1b6H5f7Ay3XURTOzQQPfxP60v/DXVcVArn1HmiAasOnww==
-X-Received: by 2002:a05:6512:15a9:b0:55c:d5f8:7866 with SMTP id 2adb3069b0e04-55cd5f87a6dmr841162e87.57.1754979221938;
-        Mon, 11 Aug 2025 23:13:41 -0700 (PDT)
-Received: from [192.168.15.130] (94-240-0-2.lukman.pl. [94.240.0.2])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-55cac7626fasm2645563e87.174.2025.08.11.23.13.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Aug 2025 23:13:41 -0700 (PDT)
-Message-ID: <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
-Date: Tue, 12 Aug 2025 08:13:39 +0200
+	id 1uljS1-0000000A7No-3fOJ;
+	Tue, 12 Aug 2025 07:29:43 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57C77Ixb008709;
+	Tue, 12 Aug 2025 09:29:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=Cp7r1Pmui13ce0yd2WoGg4
+	CTlzmUVA1zRtsH2JGzcI0=; b=vVekZk5bOMRlZvE26VjQ2Yr++ES4xrg3cBO55c
+	weKa/WiS4g349kfQYgl1EmoqTc6QMmYm1kDT6euQc/B3Y3luTQGi1r7EHUOgEXMC
+	5iWP1ApFKHtagHbuO3KmdwE2VW/oR6THRrJoDv6QTxHLudTtvk5ld/p6hkY3d/tp
+	rIHqjOjBZQVCSWURTBcSkm/SETr3uNlPDH25QF8H59ZnQ0aPS/TZM1L8hiMWGUe9
+	ssBbaiig5E61wyruSFojEo/cCvYTXXgzdnvDOKqc9YsA1y38Umk8ddDLRWWCke+W
+	JIFQNgUCoSwwh5SbdsCjVDqNJb4FMlCS/7uupAbuM3ePHHzA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48eh9n6urr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 Aug 2025 09:29:21 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DC28940044;
+	Tue, 12 Aug 2025 09:28:04 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 3BFC7747A63;
+	Tue, 12 Aug 2025 09:27:24 +0200 (CEST)
+Received: from localhost (10.48.87.65) by SHFDAG1NODE3.st.com (10.75.129.71)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
+ 2025 09:27:23 +0200
+From: Christophe Kerello <christophe.kerello@foss.st.com>
+Date: Tue, 12 Aug 2025 09:26:58 +0200
+Subject: [PATCH] mtd: rawnand: stm32_fmc2: avoid overlapping mappings on
+ ECC buffer
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 56/76] media: s5p-jpeg: Access v4l2_fh from file
-To: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- linux-media@vger.kernel.org
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Hans Verkuil <hans@jjverkuil.nl>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Jacek Anaszewski <jacek.anaszewski@gmail.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
- <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
-Content-Language: en-US
-From: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
-In-Reply-To: <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250812-fix-dma-overlapping-v1-1-c3bf81d79de7@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAMHsmmgC/x2MQQqAIBAAvxJ7bsENIusr0cFytYUyUYgg/HvSc
+ WBmXsichDNMzQuJb8lyhQrUNrDtJnhGsZWhU12vNBE6edCeBq+b02FilOCRNu1WMzjb0wi1jIm
+ r9l/npZQPMcSg1WUAAAA=
+X-Change-ID: 20250811-fix-dma-overlapping-1c8fba7fd519
+To: Miquel Raynal <miquel.raynal@bootlin.com>,
+        Richard Weinberger
+	<richard@nod.at>,
+        Vignesh Raghavendra <vigneshr@ti.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Boris Brezillon <bbrezillon@kernel.org>,
+        Christophe Kerello
+	<christophe.kerello@st.com>
+CC: <linux-mtd@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Christophe Kerello <christophe.kerello@foss.st.com>,
+        <stable@vger.kernel.org>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.65]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_02,2025-08-11_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_231344_382633_48AAC203 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20250812_002942_389496_845CB903 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,149 +103,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent & Jacopo,
+Avoid below overlapping mappings by using a contiguous
+non-cacheable buffer.
 
-Thanks for taking care of this, this generally looks good to me,
-but please see inline.
+[    4.077708] DMA-API: stm32_fmc2_nfc 48810000.nand-controller: cacheline tracking EEXIST,
+overlapping mappings aren't supported
+[    4.089103] WARNING: CPU: 1 PID: 44 at kernel/dma/debug.c:568 add_dma_entry+0x23c/0x300
+[    4.097071] Modules linked in:
+[    4.100101] CPU: 1 PID: 44 Comm: kworker/u4:2 Not tainted 6.1.82 #1
+[    4.106346] Hardware name: STMicroelectronics STM32MP257F VALID1 SNOR / MB1704 (LPDDR4 Power discrete) + MB1703 + MB1708 (SNOR MB1730) (DT)
+[    4.118824] Workqueue: events_unbound deferred_probe_work_func
+[    4.124674] pstate: 60000005 (nZCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    4.131624] pc : add_dma_entry+0x23c/0x300
+[    4.135658] lr : add_dma_entry+0x23c/0x300
+[    4.139792] sp : ffff800009dbb490
+[    4.143016] x29: ffff800009dbb4a0 x28: 0000000004008022 x27: ffff8000098a6000
+[    4.150174] x26: 0000000000000000 x25: ffff8000099e7000 x24: ffff8000099e7de8
+[    4.157231] x23: 00000000ffffffff x22: 0000000000000000 x21: ffff8000098a6a20
+[    4.164388] x20: ffff000080964180 x19: ffff800009819ba0 x18: 0000000000000006
+[    4.171545] x17: 6361727420656e69 x16: 6c6568636163203a x15: 72656c6c6f72746e
+[    4.178602] x14: 6f632d646e616e2e x13: ffff800009832f58 x12: 00000000000004ec
+[    4.185759] x11: 00000000000001a4 x10: ffff80000988af58 x9 : ffff800009832f58
+[    4.192916] x8 : 00000000ffffefff x7 : ffff80000988af58 x6 : 80000000fffff000
+[    4.199972] x5 : 000000000000bff4 x4 : 0000000000000000 x3 : 0000000000000000
+[    4.207128] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000812d2c40
+[    4.214185] Call trace:
+[    4.216605]  add_dma_entry+0x23c/0x300
+[    4.220338]  debug_dma_map_sg+0x198/0x350
+[    4.224373]  __dma_map_sg_attrs+0xa0/0x110
+[    4.228411]  dma_map_sg_attrs+0x10/0x2c
+[    4.232247]  stm32_fmc2_nfc_xfer.isra.0+0x1c8/0x3fc
+[    4.237088]  stm32_fmc2_nfc_seq_read_page+0xc8/0x174
+[    4.242127]  nand_read_oob+0x1d4/0x8e0
+[    4.245861]  mtd_read_oob_std+0x58/0x84
+[    4.249596]  mtd_read_oob+0x90/0x150
+[    4.253231]  mtd_read+0x68/0xac
 
-W dniu 10.08.2025 o 03:30, Laurent Pinchart pisze:
-> From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> 
-> The v4l2_fh associated with an open file handle is now guaranteed
-> to be available in file->private_data, initialised by v4l2_fh_add().
-> 
-> Access the v4l2_fh, and from there the driver-specific structure,
-> from the file * in all ioctl handlers.
-> 
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Reviewed-by: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
-> Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> ---
-> Changes since v1:
-> 
-> - Update file-to-ctx macro due to removal of fh-to-ctx macro
-> ---
->   .../platform/samsung/s5p-jpeg/jpeg-core.c     | 27 ++++++++-----------
->   1 file changed, 11 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-> index 65f256db4c76..81792f7f8b16 100644
-> --- a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-> +++ b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-> @@ -580,14 +580,9 @@ static inline struct s5p_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *c)
->   	return container_of(c->handler, struct s5p_jpeg_ctx, ctrl_handler);
->   }
->   
-> -static inline struct s5p_jpeg_ctx *fh_to_ctx(struct v4l2_fh *fh)
-> -{
-> -	return container_of(fh, struct s5p_jpeg_ctx, fh);
-> -}
-> -
->   static inline struct s5p_jpeg_ctx *file_to_ctx(struct file *filp)
->   {
-> -	return fh_to_ctx(file_to_v4l2_fh(filp));
-> +	return container_of(file_to_v4l2_fh(filp), struct s5p_jpeg_ctx, fh);
->   }
->   
->   static int s5p_jpeg_to_user_subsampling(struct s5p_jpeg_ctx *ctx)
-> @@ -1015,8 +1010,8 @@ static int s5p_jpeg_open(struct file *file)
->   
->   static int s5p_jpeg_release(struct file *file)
->   {
-> -	struct s5p_jpeg *jpeg = video_drvdata(file);
->   	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> +	struct s5p_jpeg *jpeg = video_drvdata(file);
+Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+Cc: stable@vger.kernel.org
+Fixes: 2cd457f328c1 ("mtd: rawnand: stm32_fmc2: add STM32 FMC2 NAND flash controller driver")
+---
+ drivers/mtd/nand/raw/stm32_fmc2_nand.c | 28 +++++++++-------------------
+ 1 file changed, 9 insertions(+), 19 deletions(-)
 
-What is the purpose of this change?
+diff --git a/drivers/mtd/nand/raw/stm32_fmc2_nand.c b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+index a960403081f11091837b73b8610231fe421d0c05..222c3c3b684841879a55835e802dcf9983860c28 100644
+--- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
++++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
+@@ -272,6 +272,7 @@ struct stm32_fmc2_nfc {
+ 	struct sg_table dma_data_sg;
+ 	struct sg_table dma_ecc_sg;
+ 	u8 *ecc_buf;
++	dma_addr_t dma_ecc_addr;
+ 	int dma_ecc_len;
+ 	u32 tx_dma_max_burst;
+ 	u32 rx_dma_max_burst;
+@@ -902,17 +903,10 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 
+ 	if (!write_data && !raw) {
+ 		/* Configure DMA ECC status */
+-		p = nfc->ecc_buf;
+ 		for_each_sg(nfc->dma_ecc_sg.sgl, sg, eccsteps, s) {
+-			sg_set_buf(sg, p, nfc->dma_ecc_len);
+-			p += nfc->dma_ecc_len;
+-		}
+-
+-		ret = dma_map_sg(nfc->dev, nfc->dma_ecc_sg.sgl,
+-				 eccsteps, dma_data_dir);
+-		if (!ret) {
+-			ret = -EIO;
+-			goto err_unmap_data;
++			sg_dma_address(sg) = nfc->dma_ecc_addr +
++					     s * nfc->dma_ecc_len;
++			sg_dma_len(sg) = nfc->dma_ecc_len;
+ 		}
+ 
+ 		desc_ecc = dmaengine_prep_slave_sg(nfc->dma_ecc_ch,
+@@ -921,7 +915,7 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 						   DMA_PREP_INTERRUPT);
+ 		if (!desc_ecc) {
+ 			ret = -ENOMEM;
+-			goto err_unmap_ecc;
++			goto err_unmap_data;
+ 		}
+ 
+ 		reinit_completion(&nfc->dma_ecc_complete);
+@@ -929,7 +923,7 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 		desc_ecc->callback_param = &nfc->dma_ecc_complete;
+ 		ret = dma_submit_error(dmaengine_submit(desc_ecc));
+ 		if (ret)
+-			goto err_unmap_ecc;
++			goto err_unmap_data;
+ 
+ 		dma_async_issue_pending(nfc->dma_ecc_ch);
+ 	}
+@@ -949,7 +943,7 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 		if (!write_data && !raw)
+ 			dmaengine_terminate_all(nfc->dma_ecc_ch);
+ 		ret = -ETIMEDOUT;
+-		goto err_unmap_ecc;
++		goto err_unmap_data;
+ 	}
+ 
+ 	/* Wait DMA data transfer completion */
+@@ -969,11 +963,6 @@ static int stm32_fmc2_nfc_xfer(struct nand_chip *chip, const u8 *buf,
+ 		}
+ 	}
+ 
+-err_unmap_ecc:
+-	if (!write_data && !raw)
+-		dma_unmap_sg(nfc->dev, nfc->dma_ecc_sg.sgl,
+-			     eccsteps, dma_data_dir);
+-
+ err_unmap_data:
+ 	dma_unmap_sg(nfc->dev, nfc->dma_data_sg.sgl, eccsteps, dma_data_dir);
+ 
+@@ -1610,7 +1599,8 @@ static int stm32_fmc2_nfc_dma_setup(struct stm32_fmc2_nfc *nfc)
+ 		return ret;
+ 
+ 	/* Allocate a buffer to store ECC status registers */
+-	nfc->ecc_buf = devm_kzalloc(nfc->dev, FMC2_MAX_ECC_BUF_LEN, GFP_KERNEL);
++	nfc->ecc_buf = dmam_alloc_coherent(nfc->dev, FMC2_MAX_ECC_BUF_LEN,
++					   &nfc->dma_ecc_addr, GFP_KERNEL);
+ 	if (!nfc->ecc_buf)
+ 		return -ENOMEM;
+ 
 
-Regards,
+---
+base-commit: fb2fae70e7e985c4acb1ad96110d8b98bb64a87c
+change-id: 20250811-fix-dma-overlapping-1c8fba7fd519
 
-Andrzej
-
->   
->   	mutex_lock(&jpeg->lock);
->   	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
-> @@ -1253,7 +1248,7 @@ static bool s5p_jpeg_parse_hdr(struct s5p_jpeg_q_data *result,
->   static int s5p_jpeg_querycap(struct file *file, void *priv,
->   			   struct v4l2_capability *cap)
->   {
-> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
->   
->   	if (ctx->mode == S5P_JPEG_ENCODE) {
->   		strscpy(cap->driver, S5P_JPEG_M2M_NAME,
-> @@ -1301,7 +1296,7 @@ static int enum_fmt(struct s5p_jpeg_ctx *ctx,
->   static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
->   				   struct v4l2_fmtdesc *f)
->   {
-> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
->   
->   	if (ctx->mode == S5P_JPEG_ENCODE)
->   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
-> @@ -1314,7 +1309,7 @@ static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
->   static int s5p_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
->   				   struct v4l2_fmtdesc *f)
->   {
-> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
->   
->   	if (ctx->mode == S5P_JPEG_ENCODE)
->   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
-> @@ -1340,7 +1335,7 @@ static int s5p_jpeg_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
->   	struct vb2_queue *vq;
->   	struct s5p_jpeg_q_data *q_data = NULL;
->   	struct v4l2_pix_format *pix = &f->fmt.pix;
-> -	struct s5p_jpeg_ctx *ct = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ct = file_to_ctx(file);
->   
->   	vq = v4l2_m2m_get_vq(ct->fh.m2m_ctx, f->type);
->   	if (!vq)
-> @@ -1480,7 +1475,7 @@ static int vidioc_try_fmt(struct v4l2_format *f, struct s5p_jpeg_fmt *fmt,
->   static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
->   				  struct v4l2_format *f)
->   {
-> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
->   	struct v4l2_pix_format *pix = &f->fmt.pix;
->   	struct s5p_jpeg_fmt *fmt;
->   	int ret;
-> @@ -1539,7 +1534,7 @@ static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
->   static int s5p_jpeg_try_fmt_vid_out(struct file *file, void *priv,
->   				  struct v4l2_format *f)
->   {
-> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
->   	struct s5p_jpeg_fmt *fmt;
->   
->   	fmt = s5p_jpeg_find_format(ctx, f->fmt.pix.pixelformat,
-> @@ -1686,7 +1681,7 @@ static int s5p_jpeg_s_fmt_vid_cap(struct file *file, void *priv,
->   	if (ret)
->   		return ret;
->   
-> -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
-> +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
->   }
->   
->   static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
-> @@ -1698,7 +1693,7 @@ static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
->   	if (ret)
->   		return ret;
->   
-> -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
-> +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
->   }
->   
->   static int s5p_jpeg_subscribe_event(struct v4l2_fh *fh,
-> @@ -1795,7 +1790,7 @@ static int exynos3250_jpeg_try_crop(struct s5p_jpeg_ctx *ctx,
->   static int s5p_jpeg_g_selection(struct file *file, void *priv,
->   			 struct v4l2_selection *s)
->   {
-> -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
->   
->   	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
->   	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
+Best regards,
+-- 
+Christophe Kerello <christophe.kerello@foss.st.com>
 
 
