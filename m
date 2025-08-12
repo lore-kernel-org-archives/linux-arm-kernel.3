@@ -4,53 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C133FCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57424CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=leCwg1gI5JOnAHMGY1jqYZ7sTKfBzVMBZ6hs7gkSVts=; b=gV9eWMlOsDEXht49Ra/piYho/u
-	9vYEydhX7d/kyhUGSevYj96eh/bVPA+NE0s+XO4LjhIq1Pbl8RFqYzwJP/WNyMD/6pRiLkNVJ5rjx
-	nb/c7JoGl9BbHZLddDwIFe2wZTNYvofOz+sYNwh1usfgbLjSUqV2xFgronlZI+Ab9I1DOIYETE2I0
-	GeyvxjwWSUt8oJl8vFS1EnU3dd5ciA7v8Jg0EhZzB5LnsyI57tBmXyDgPIe/Oxwea9ZGlL4eKAC6p
-	QVI+6KXynewD+wWcdev0ECrldOuoX0t0TwFxVNeDYq+nL2N1xPH3susBbKAyBWiAygx3oW7KIv3Xx
-	N1DTGzDw==;
+	bh=+/sEGqUj87/lWXEYll6BgeV5Yifd8u2j53QFLVMq8FM=; b=plwT4UA8onkjEGhXzFqvUzVCfP
+	PnAEDNV8CZMMIMlVFw9n8/Hwc3SpIo/eDSmSk0OqUl/S9GN9Pkq0jFN1Y3q/xW5g0Eoyped566r44
+	7EGT1aHe7Dg98wOnSNxHgwZsq9tvIFJ4iVKoUyDJsOLGBX9d684QrMni7G38evLp412mK5sa/P7lM
+	sds48TwS5hdp+k+aGMiCBWydtORxHyTwg+AKAgbTOcGvjry742HVpEPVAbI8pMk3ySDYUBNHA9T4B
+	XGraVz55Qsl9rIg041wOSLuScDNEJFcROzRDQHwhUqdKwwT8wcZM3BHywuNMDRTqFo9L5+qTsc2PM
+	F5cpXRIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulubt-0000000Bonc-2Kt6;
-	Tue, 12 Aug 2025 19:24:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulubx-0000000Botr-3LVE;
+	Tue, 12 Aug 2025 19:24:41 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrsK-0000000BPpv-1xeo;
-	Tue, 12 Aug 2025 16:29:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A1DD45861;
-	Tue, 12 Aug 2025 16:29:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C43F5C4CEF6;
-	Tue, 12 Aug 2025 16:29:21 +0000 (UTC)
-Date: Tue, 12 Aug 2025 17:29:19 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org, Peter Xu <peterx@redhat.com>,
-	Oscar Salvador <osalvador@suse.de>
-Subject: Re: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
-Message-ID: <aJtr38x3A1o1Q7dH@arm.com>
-References: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
-MIME-Version: 1.0
+	id 1ulrus-0000000BQPk-05gZ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 16:32:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=doAwARCAFgDTaO/uOBEdz6Uq/tJCVq4n+vnk200AkyLtpiIJo6V9FV50JNK8nK275FPZAYRtks+yJFCEmH/q4YRUas2LFPQZ3LX9S28tbtKzReqwABDlIXVOIbf9vBaLVy1KlO1941EteJ/B8vcRKaf8IiwlvmqAtPB+MmhuTaRn+qbc8ga+Cxh4Ii63W6k/IiIvRv1kyQoZ/p2bFLrFio+Z4disNmaIWMeRltkUCYERz7YMjFoznTZQOqAgqMHKJa4pfY7cFk0UFZeYWmnLXUj+DlRng29OKrP4z8BDD3euTBJR8YfYnv9/+FKoe1ur26NX23dxImpRheNCK24Bdw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+/sEGqUj87/lWXEYll6BgeV5Yifd8u2j53QFLVMq8FM=;
+ b=IUSByfz7dM5APaS0ziNkAaKAv3wndtbwBTX5Sa3ux+irrnfgmxPz/T5mLA5ruwbWvDK/10XXsNZjrh6ms3O7nfIpf8DV4dcHdtW35uQmH2lwwQhem2uQCD5Ql4AQjMTwpf8Vtn14tm11N7k9oNBW+QS6ESVmO02tz2kP9WGrtnhTQoV3uuQy6wUJ1e3/INfTY5TuXjAIWLqx6sCCzM2EG3LDR97wKjVM9ZvuEsio5VXEQ8nco8LIHbu3eSFeGb1DVuqi4PhuxzHj1zCivaIs9gt6jpT1y8WXQin7fIgKWi5J7jNiFeCfPA01VRVmVVvP93dFiOMb0D3lA0hgC+9xiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+/sEGqUj87/lWXEYll6BgeV5Yifd8u2j53QFLVMq8FM=;
+ b=QntEh5/DX0lcmRb3HYEHNB3CKfgndyFu5sdYcPewCgzjv3bea3GgIOjNeVa01QC6iJXFE5srFlYItMpY5S61d/+ZgQMppmJoTDdRXR4gbp+BkXkYedXMPQ0e27VoNIrhJDwqAAnEmMKoWV3wNioEnzYRxYylg5sRah562mVo4NFIJyg5Hj5h3F1CJ8jn4I8uR+Inm/c09iqMBB1NxDpDfSn+mj/OSlPs38tMZXKSJZu52+O8yK0Q0U7xsH/Ze4aDmTGNmid92k3HAJ9WmWJ8+fyVjoXr+ayEzOCI/+4AihfT8F4tX+kDQo/LVNe9Z5PgZnY/I45nbsoou/q5gwO0JA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB5PR04MB11253.eurprd04.prod.outlook.com (2603:10a6:10:5e6::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.12; Tue, 12 Aug
+ 2025 16:31:59 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9031.011; Tue, 12 Aug 2025
+ 16:31:59 +0000
+Date: Tue, 12 Aug 2025 12:31:53 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: guoniu.zhou@oss.nxp.com
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rmfrfs@gmail.com,
+	laurent.pinchart@ideasonboard.com, martink@posteo.de,
+	kernel@puri.sm, mchehab@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
+Subject: Re: [PATCH 3/5] media: imx8mq-mipi-csi2: Use devm_clk_bulk_get_all()
+ to fetch clocks
+Message-ID: <aJtsearbkc52vzAV@lizhi-Precision-Tower-5810>
+References: <20250812081923.1019345-1-guoniu.zhou@oss.nxp.com>
+ <20250812081923.1019345-4-guoniu.zhou@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <20250812081923.1019345-4-guoniu.zhou@oss.nxp.com>
+X-ClientProxiedBy: AS4P195CA0021.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d6::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB5PR04MB11253:EE_
+X-MS-Office365-Filtering-Correlation-Id: 14ee9bc1-943c-4d26-ea10-08ddd9bdc267
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?F/OO8iIxC7zl9jSle+zQvxQ8+Pt1oJXCPAi2fLHzSCYc/3xrDcQpAej1vg0k?=
+ =?us-ascii?Q?zKscVfpqvMEQ5Kjf7wmw3KyDB0d6G7LnO4Jgn97L1DggkLBKgDGlRFy7POaq?=
+ =?us-ascii?Q?WuBtczTMDliJu9wL/j0zSa1UjoqBIW6/YNEtsX+572wyhpsR0l6ITtDiRKWY?=
+ =?us-ascii?Q?NQlerxTsNWyPcNJcX5lmf7ynzg8kK///8x+OpFKpX1WkSwBTY/J167flutNI?=
+ =?us-ascii?Q?Z5X2xFu89YiIHgsUiynZxwp2vpBa+39eSza8VOPfJycCstywb6XfnWsfgLen?=
+ =?us-ascii?Q?wdpHZAM4YYEFk3l+bRp2yX8IMharkpHqzcHBhapTLb0iWBtI4Yer1CW644ea?=
+ =?us-ascii?Q?bXVEvyf0CTmfFWVzipOsS6YxX8uhxXB5ho7t+oAc/dhTrJ9ds9h+mHYsBfgr?=
+ =?us-ascii?Q?HUhOwK61w2Rizg0FTT3UTWiI2/2m/LtTryTFiXZrYzuJmb26Ze3pe886gtg6?=
+ =?us-ascii?Q?kpyQAjiZJaINVnlXFqAx4jtlzf0t97UcG3r3B3iQlnYJsSN4KkTTEziYd+I5?=
+ =?us-ascii?Q?S+ystG/6K0QPgK1KAPciG75j6ZeR851auhiuRXWJxRZPryryyHMrS1V0ecH5?=
+ =?us-ascii?Q?zByYaMa1ylIIUZfSIxQmD9yFs8KnrsKw3t9Pt0riYOWTnYXZJAZVMuarexBW?=
+ =?us-ascii?Q?Zd+qChZAxSNhZpyC3NzAUEHK4iKFZV4CfzEKP3iBIyxMj5KFWlHlk4K/48Gn?=
+ =?us-ascii?Q?w5CKY1mm5sqCnmURcgEMBjrXV/77PuUGMZzLm5dbxhd6Ncvkm7uBC8OfTfIO?=
+ =?us-ascii?Q?loWji2Lm391Z+wjwjnOSVge9KHy7leh6cGHIr9SvPf++t9SDjNtrPgowbxAz?=
+ =?us-ascii?Q?1JUj88cqReLBFva3BneeEMuWRDflhz7P1tQHeg1/sy5uUN93/N0vvbMTlf03?=
+ =?us-ascii?Q?H0w2EzBiHI0Y0rR9y3RdNFiVZvwZVpewPnvApHPYzMKFpj3V1Do0ptSSRr7J?=
+ =?us-ascii?Q?QPnVGj+ASREvuRBFW0XjI+wKKpaWJb50W8WQjOQNg0QGNUPqxBQsjgJkVmDB?=
+ =?us-ascii?Q?QWw/aUTiJNUALvIRsoyz0ihoNXWYNXHwQHghvv5YCTva/QDMRkEGTD7GZ9XK?=
+ =?us-ascii?Q?4j2rM4nxj6Muqyh2WQv+e/ZNVSVfTGT7OpNIUBvnLQSdg9CjR6cSvxpIZZNH?=
+ =?us-ascii?Q?bftAc6xm8xZFGkBX0Swb+hvChWMN2t0hxWD7WG9FPE4ankdEDzXb4cGj05fr?=
+ =?us-ascii?Q?F5DLaxYHPhhbsy2b7d+QtNWdBtgGi/Fs7HRmKz9Bf3wkOTuaelgFYL7WDxtw?=
+ =?us-ascii?Q?qQGG39/gh3JP6ZpBADMSiaEVdEEb7a9N/w0d05ynQ9tnPcrdI24NT6mkdK5d?=
+ =?us-ascii?Q?rG3b1iGI/dyJzO/cXbE6IbrqoaccrpWdW9/K4JXiUnDrDpy+0X7CLjkGkMEA?=
+ =?us-ascii?Q?LHwr55rS33y4BmEWvDQIRydVe7exgFhlRECVO5WyAUWhjV13V5w0C0X02m5n?=
+ =?us-ascii?Q?FztaD/3x3IsPs9+PDso436a6YdPE3oBp+0jI4yjcRaZSyXY3Rf53MQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BrgXPwC3nrEdVz9wjJB6Lrk4xsFRqcHOc7U5hlcIO19vlfqTlDsHeA8T/67a?=
+ =?us-ascii?Q?lJrErAc84KILx424l7l1u/e+UuYP7gaXu6rDW2Umq7EjvqncvRTE9Agyn3ub?=
+ =?us-ascii?Q?VDHbJUJO3bYJ3hQU12FT+F9siUO65OQBmeB3RysVNpgaqGC/U8LVYHHeNt5u?=
+ =?us-ascii?Q?EAqsOeA+Pr4BVM8gsisQumj+BhtyVqo6PmxtcMdXVHIHIghlI7YL64wt9j3R?=
+ =?us-ascii?Q?0SYyCD8u7hveLKmAT9swUVOWKKyBjPCkeXBdOf8rFKA0+IzcLweZAsdH4mnw?=
+ =?us-ascii?Q?pbYad8QZ/Y50iNTeOm/V6tAmPUg1de9eQi6b74SwmWhK51ozJkUt8vfzlTZP?=
+ =?us-ascii?Q?NMh+kr17lP6zUoD/vaCa8LaR93DLs77NlB6m+xlJ6vzaMYVwK/+QIQYLWY6r?=
+ =?us-ascii?Q?cQvU0O4WgIV9zxlZ/B/Xpb9tkPTx3/un988hdm7Lk31VH/K5VK2M1MrmAhjF?=
+ =?us-ascii?Q?NKU19dzj19funCzZMOWQLrPPxzqyYIcY7294UAgY+ldxATpMn4nv8ghSxTq+?=
+ =?us-ascii?Q?oJJFHjuegbp6FAUNPgPUqAEXqhCT48XuygXvtdoptKsBzrglHu+1X7rS0+av?=
+ =?us-ascii?Q?Y3uUbsdIFE6UUuV9wNwmh+RayRDBF3hWqcWv6zAAdANgVsHBa84NLrQZ52JA?=
+ =?us-ascii?Q?R5sN6iyjO/OCHoBepFN0dUSLtB4zQzXcpQ4IHDic+b7nGHU4RNVEaFNo80h/?=
+ =?us-ascii?Q?ky9Bksk39aJL9sjrtIkyycSE+v0qQ7+m9mP2DCWD5a2eqwIlp+PSayNWofhk?=
+ =?us-ascii?Q?/oY9MZwr4UlYZ7w9qFXArFaHcAq2RhGYsJGdbqaB2SDtsaAfXYTvSuWa7bf8?=
+ =?us-ascii?Q?gSs8m3a7PpFscLVaYfgZFdoaTjhGkfzLvyObd73eZ+Hn5ybIrYmtpNllpNdQ?=
+ =?us-ascii?Q?27P/7ePcsizXh9GpeHVQtKUfdR5vPM8/TnX57Q+844ZFABKbiIklhV7YwkNi?=
+ =?us-ascii?Q?02M0QAO0rrR/y2QjX6cZobMvtzeghD+TD6dRRCzMvWxb9C32/s5eObTHzBQI?=
+ =?us-ascii?Q?PMU69NUbiEe+SZfhAJzwS6c5++TEjA3wLYn1o7UAUXhdOO627cIwtYIghlzz?=
+ =?us-ascii?Q?QTB8y8vshtKm2RBx0MyyBgShappuSKXO85DblPuFatWn06gDe0xHMvvd7HMd?=
+ =?us-ascii?Q?MM6gOLWB+zt5RjBOVURWcxA8XVzn/UbVkPz8QvP8WAjx3u4jILU7j0CoPVzO?=
+ =?us-ascii?Q?qdbBtnw4jPH+WoI7M+eU78mJMDZQvt+yKyl8YC0zjop1HLyfD1KsljdnFQor?=
+ =?us-ascii?Q?hgD3emGcxcUiOx2cAnTxotrau7s5b45RYtKnCCq4jhpV5qucWx1SSz3T0a96?=
+ =?us-ascii?Q?sByLxqw0/npSItO5COuspwkiJjy5sMKRbLpsMvQIyiQ2Dmol40LnTfWY/OEZ?=
+ =?us-ascii?Q?fV2Z9Qb9y5Sw8b+Xy2Di5d2FvmJrpQcWT4gmxTGiCsFw17SEgtnISgL8jLHM?=
+ =?us-ascii?Q?k38DWiC46hxjfWIERYOLtjfVsSgrO7T3whdoGeBSOm1J/EoC3chy0J9uEdah?=
+ =?us-ascii?Q?olbWKecKIvlK0uCDGLgCssA0COthha8LNtWiH5y0DASJ8aZP471MWMGp92hL?=
+ =?us-ascii?Q?DaYy+WpWUSbRj8phOyuFWIcetHfmqwzlI/1586cc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 14ee9bc1-943c-4d26-ea10-08ddd9bdc267
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 16:31:59.2443
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6d83esnmpc7wpNhVNWvzkUc73z0hW+jsRqm57OwpU0RWXWHPua2WJeCUVJpfXt6H6x4i57SPu21503cdd8zOWg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR04MB11253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_092924_525785_43AA8370 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20250812_093202_065586_11396757 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,44 +163,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 01:14:19PM +0200, Christophe Leroy wrote:
-> Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-> issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
-> 
-> But pud_user() only exists on ARM64 and RISCV and is not expected
-> by any part of MM.
-> 
-> Add the missing definition in arch/riscv/include/asm/pgtable-32.h
-> and remove it from asm-generic/pgtable-nopmd.h
-> 
-> A stub pud_user() is also required for ARM64 after
-> commit ed928a3402d8 ("arm64/mm: fix page table check compile
-> error for CONFIG_PGTABLE_LEVELS=2")
-> 
-> Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Reviewed-by: Peter Xu <peterx@redhat.com>
-> Reviewed-by: Oscar Salvador <osalvador@suse.de>
+On Tue, Aug 12, 2025 at 04:19:24PM +0800, guoniu.zhou@oss.nxp.com wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+>
+> Use devm_clk_bulk_get_all() helper to simplify clock handle code.
+>
+> No functional changes intended.
+>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
->  arch/arm64/include/asm/pgtable.h    | 1 +
->  arch/riscv/include/asm/pgtable-32.h | 5 +++++
->  include/asm-generic/pgtable-nopmd.h | 1 -
->  3 files changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index abd2dee416b3b..fef7cc7a340d8 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -955,6 +955,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
->  
->  #define pud_valid(pud)		false
->  #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
-> +#define pud_user		false /* Always 0 with folding */
-
-Doesn't pud_user take an argument? With that fixed:
-
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-
-(strangely I couldn't get the build to fail without a pud_user
-definition, even with the PGTABLE_LEVELS=2 and PAGE_TABLE_CHECK=y
-configuration)
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 52 ++++++-------------
+>  1 file changed, 15 insertions(+), 37 deletions(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> index ed6578f7f0f9..be07ff27071f 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -72,21 +72,6 @@ enum {
+>  	ST_SUSPENDED	= 4,
+>  };
+>
+> -enum imx8mq_mipi_csi_clk {
+> -	CSI2_CLK_CORE,
+> -	CSI2_CLK_ESC,
+> -	CSI2_CLK_UI,
+> -	CSI2_NUM_CLKS,
+> -};
+> -
+> -static const char * const imx8mq_mipi_csi_clk_id[CSI2_NUM_CLKS] = {
+> -	[CSI2_CLK_CORE] = "core",
+> -	[CSI2_CLK_ESC] = "esc",
+> -	[CSI2_CLK_UI] = "ui",
+> -};
+> -
+> -#define CSI2_NUM_CLKS	ARRAY_SIZE(imx8mq_mipi_csi_clk_id)
+> -
+>  struct imx8mq_plat_data {
+>  	int (*enable)(struct csi_state *state, u32 hs_settle);
+>  	void (*disable)(struct csi_state *state);
+> @@ -112,7 +97,8 @@ struct csi_state {
+>  	struct device *dev;
+>  	const struct imx8mq_plat_data *pdata;
+>  	void __iomem *regs;
+> -	struct clk_bulk_data clks[CSI2_NUM_CLKS];
+> +	struct clk_bulk_data *clks;
+> +	int num_clks;
+>  	struct reset_control *rst;
+>  	struct regulator *mipi_phy_regulator;
+>
+> @@ -417,24 +403,16 @@ static void imx8mq_mipi_csi_set_params(struct csi_state *state)
+>  			      CSI2RX_SEND_LEVEL);
+>  }
+>
+> -static int imx8mq_mipi_csi_clk_enable(struct csi_state *state)
+> -{
+> -	return clk_bulk_prepare_enable(CSI2_NUM_CLKS, state->clks);
+> -}
+> -
+> -static void imx8mq_mipi_csi_clk_disable(struct csi_state *state)
+> +static struct clk *find_esc_clk(struct csi_state *state)
+>  {
+> -	clk_bulk_disable_unprepare(CSI2_NUM_CLKS, state->clks);
+> -}
+> -
+> -static int imx8mq_mipi_csi_clk_get(struct csi_state *state)
+> -{
+> -	unsigned int i;
+> +	int i;
+>
+> -	for (i = 0; i < CSI2_NUM_CLKS; i++)
+> -		state->clks[i].id = imx8mq_mipi_csi_clk_id[i];
+> +	for (i = 0; i < state->num_clks; i++) {
+> +		if (!strcmp(state->clks[i].id, "esc"))
+> +			return state->clks[i].clk;
+> +	}
+>
+> -	return devm_clk_bulk_get(state->dev, CSI2_NUM_CLKS, state->clks);
+> +	return NULL;
+>  }
+>
+>  static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
+> @@ -489,7 +467,7 @@ static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
+>  	 * documentation recommends picking a value away from the boundaries.
+>  	 * Let's pick the average.
+>  	 */
+> -	esc_clk_rate = clk_get_rate(state->clks[CSI2_CLK_ESC].clk);
+> +	esc_clk_rate = clk_get_rate(find_esc_clk(state));
+>  	if (!esc_clk_rate) {
+>  		dev_err(state->dev, "Could not get esc clock rate.\n");
+>  		return -EINVAL;
+> @@ -848,7 +826,7 @@ static void imx8mq_mipi_csi_pm_suspend(struct device *dev)
+>
+>  	if (state->state & ST_POWERED) {
+>  		imx8mq_mipi_csi_stop_stream(state);
+> -		imx8mq_mipi_csi_clk_disable(state);
+> +		clk_bulk_disable_unprepare(state->num_clks, state->clks);
+>  		state->state &= ~ST_POWERED;
+>  	}
+>
+> @@ -866,7 +844,7 @@ static int imx8mq_mipi_csi_pm_resume(struct device *dev)
+>
+>  	if (!(state->state & ST_POWERED)) {
+>  		state->state |= ST_POWERED;
+> -		ret = imx8mq_mipi_csi_clk_enable(state);
+> +		ret = clk_bulk_prepare_enable(state->num_clks, state->clks);
+>  	}
+>  	if (state->state & ST_STREAMING) {
+>  		sd_state = v4l2_subdev_lock_and_get_active_state(sd);
+> @@ -1092,9 +1070,9 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
+>  	if (IS_ERR(state->regs))
+>  		return PTR_ERR(state->regs);
+>
+> -	ret = imx8mq_mipi_csi_clk_get(state);
+> -	if (ret < 0)
+> -		return ret;
+> +	state->num_clks = devm_clk_bulk_get_all(dev, &state->clks);
+> +	if (state->num_clks < 0)
+> +		return dev_err_probe(dev, state->num_clks, "Failed to get clocks\n");
+>
+>  	platform_set_drvdata(pdev, &state->sd);
+>
+> --
+> 2.34.1
+>
 
