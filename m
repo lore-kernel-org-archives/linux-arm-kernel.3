@@ -4,97 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726F4C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6A8CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEi5/+kMRRmkTV9OS3pf7RO6Z2qb6bx38ObZ8KqXbhk=; b=Geg4Lx9ehvIWtB3lRysx2yUnir
-	LAugZwBgIVeX8U7+EaVG6gK/UEqiSm7h8ZBsAgZHJUFIFrIFCgUM85AJRuSKzTvQo77fFRDLYZKDB
-	FmqcjRWlOJk6f/OQ+GUwRm5y7XYE8eG3kXtRIvwB1CjC+0fg5WfIZdlPJhTNvgk044xkClqO9AJ74
-	8PfHnUgDLAoeiWeuOo7loOFTyZtwDIWHuB8Fp88vSq4+lQOFBxP8SHTtgGZo6lH/AkSJjb1n98JoO
-	VncKFuSQ3LoRAbMngB1YdkwQixXDfwnbNWlEsTzKhs0iwVYap3U4gOqj+hfBDYat3aoaXXIOA9Rz3
-	EwKM5RcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WFkx4U9cuFXk03WjKVwN46GWivXczH1K5V0/kz3Ucco=; b=dZ0lLEKgcXPLs6
+	bJqAT7I8VJC4kOZGMdu6qB1sOvunIQlC6b2gx9JUghZXu9lStAvSNEAY1LLP4t8El9UcVOimKLs30
+	W+IOgK9thdJt+LyzbSIAF96bcf+Di3K6AzXrhEhcBMUsAaG7ymMZau9kQCTago6gSYz05Ms+eSnVu
+	CpVXeS5ffR3lYHZ23nwTYkUhxx24Tstg9UzHpMNUZWY6JhaUwFE5oRN6AJ7wxNQEMRSjWNH64XBUo
+	y8JfEk+XDQpUQp8guVoSGrP/Dl/rDbGJI8sZ9wd4sM90zd1i02C10f6T+AG2qBm4H9kyzivrMnXCp
+	BlM2eMVl06KxaQo1Q8/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrhw-0000000BHVD-05z7;
+	id 1ulrhw-0000000BHWO-3OvA;
 	Tue, 12 Aug 2025 16:18:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ullvd-0000000ATEt-1r8O
+	id 1ullvp-0000000ATGU-3rOC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 10:08:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2B150A56C70;
-	Tue, 12 Aug 2025 10:08:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E93C4CEF0;
-	Tue, 12 Aug 2025 10:08:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754993303;
-	bh=DAcn4+KdRlIJxAkm2lFq2UH6KxntI+jsU+V5jw07eJU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nxjTBXLGaGCKqucmDOePsdgB+WzVCR36epzi9fgyds6EOec2NjeVtkBkD/l2RUJgk
-	 n/EMB+Yh4XxsQu2G35Q47aNQcOuaopcYamPDbpL6QbH4oiE3z38XHGnaMLlPus/DQV
-	 GOdvVJKikgG7XcULz6akobffS+bfD+GnCRzJPWhGG4WCmEZeYHqWagknapWLLmLo3A
-	 KWQcCKe5jAlGQdTTY+X3xK1HmSZyytXqEnF5/+EEpGwHERmY2SlrfZignUy5DYyRnu
-	 yVBaS2s0Md1Aw+guIo3Zo1flE3QgoIs8xMKi1E+azYAMEDi9YdIP3mu6l7CE93xc0n
-	 zy615GS4lhO3g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1ulltd-006cTy-3S;
-	Tue, 12 Aug 2025 11:08:21 +0100
-Date: Tue, 12 Aug 2025 11:06:20 +0100
-Message-ID: <86o6sk97mr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	anshuman.khandual@arm.com,
-	robh@kernel.org,
-	james.morse@arm.com,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	ry111@xry111.site,
-	Dave.Martin@arm.com,
-	ahmed.genidi@arm.com,
-	kevin.brodsky@arm.com,
-	scott@os.amperecomputing.com,
-	mbenes@suse.cz,
-	james.clark@linaro.org,
-	frederic@kernel.org,
-	rafael@kernel.org,
-	pavel@kernel.org,
-	ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 6/6] KVM: arm64: initialise SCTLR2_EL1 at __kvm_host_psci_cpu_entry()
-In-Reply-To: <aJpHxLgmy5A/YD7V@e129823.arm.com>
-References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
-	<20250811163340.1561893-7-yeoreum.yun@arm.com>
-	<86qzxh927n.wl-maz@kernel.org>
-	<aJpHxLgmy5A/YD7V@e129823.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 12 Aug 2025 10:08:39 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 12 Aug
+ 2025 18:08:30 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 12 Aug 2025 18:08:30 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
+	<kevin_chen@aspeedtech.com>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>
+Subject: [PATCH v4 0/2] irqchip/ast2700-intc: Add AST2700 INTC debugfs support and yaml update
+Date: Tue, 12 Aug 2025 18:08:28 +0800
+Message-ID: <20250812100830.145578-1-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_030825_619261_C8D5E4BA 
-X-CRM114-Status: GOOD (  20.72  )
+X-CRM114-CacheID: sfid-20250812_030837_957925_E31E5C7E 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,42 +66,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 Aug 2025 20:43:00 +0100,
-Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> 
-> Hi Marc,
-> 
-> > > initialise SCTLR2_EL1 at __kvm_host_psci_cpu_entry().
-> >
-> > Same comment, I don't think this is an acceptable commit message.
-> > Please ask for help if you don't feel confident writing it (I'm sure
-> > some of your colleagues will be happy to help).
-> 
-> Okay. I'll rewrite the commit message
-> 
-> > > @@ -219,6 +220,8 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
-> > >  		release_boot_args(boot_args);
-> > >
-> > >  	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
-> > > +	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2))
-> > > +		write_sysreg_el1(INIT_SCTLR2_EL1, SYS_SCTLR2);
-> > >  	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
-> > >
-> > >  	__host_enter(host_ctxt);
-> >
-> > This needs to be folded into patch #1.
-> >
-> > Otherwise, there is a window of patches where the kernel will not
-> > survive CPU hotplug when booted in protected mode.
-> 
-> Do you mean fold this patch into patch #2 where initialise
-> SCTLR2_ELx?
+This patch series adds device tree bindings and driver support for the
+AST2700 SoC!|s two interrupt controllers (INTC0 and INTC1), along with
+debugfs entries for runtime inspection of routing and register protection
+status, and bindings example refine.
 
-Yes, sorry, I got it mixed with HCRX_EL2. Patch #2 is where it should
-land indeed.
+v4:
+- aspeed,ast2700-intc.yaml
+ - Clarify the relationship between INTC0/INTC1 parent nodes, the
+   aspeed,ast2700-intc-ic child nodes, and the GIC.
+ - Add a block diagram and DT examples showing the cascaded wiring
+   (GIC <- INTC0 <- INTC1 children).
+ - Mirrors the datasheet-described topology and register map, including
+   the separation of INTC0/INTC1 regions.
+ - Lets DT unambiguously express first-level (GIC parent) and cascaded
+   second-level (INTC0 parent) interrupt controllers via examples that
+   use `interrupts` for INTC0 children and `interrupts-extended` for
+   INTC1 children routed into INTC0.
 
-	M.
+- irq-ast2700-intc.c
+ - Drop all string decoding and human readable tables.
+   Debugfs now dumps raw routing/protection registers only.
+ - Split into a separate source file and made it modular
+ - If the compatible not match ast2700-intc0/1, bail out return -ENODEV.
+
+v3:
+- aspeed,ast2700-intc.yaml
+  - Clarify the relationship between INTC0/INTC1 parent nodes, the
+    aspeed,ast2700-intc-ic child nodes, and the GIC.
+  - Add a block diagram and DT examples showing the cascaded wiring
+    (GIC <- INTC0 <- INTC1 children).
+  - Mirrors the datasheet-described topology and register map, including
+    the separation of INTC0/INTC1 regions and their routing/protection
+    registers.
+  - Lets DT unambiguously express first-level (GIC parent) and cascaded
+    second-level (INTC0 parent) interrupt controllers via examples that
+    use `interrupts` for INTC0 children and `interrupts-extended` for
+    INTC1 children routed into INTC0.
+  
+- irq-aspeed-intc.c
+  - separate c file from irq-aspeed-intc.c
+  - make m
+
+v2:
+- fix dt bindingcheck
+
+Ryan Chen (2):
+  dt-bindings: interrupt-controller: aspeed: Add parent compatibles and
+    refine documentation
+  Irqchip/ast2700-intc: add debugfs support and AST2700 INTC0/INTC1
+    routing/protection display
+
+ .../aspeed,ast2700-intc.yaml                  | 158 +++++++++++-----
+ drivers/irqchip/Kconfig                       |   6 +
+ drivers/irqchip/Makefile                      |   1 +
+ drivers/irqchip/irq-ast2700-intc.c            | 174 ++++++++++++++++++
+ 4 files changed, 296 insertions(+), 43 deletions(-)
+ create mode 100644 drivers/irqchip/irq-ast2700-intc.c
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
