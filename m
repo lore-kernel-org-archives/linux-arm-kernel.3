@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C323BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D941CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hWSRZMqpti5UTVPZ1UCFnsbdeVWo6B3BOiJLGh9SFYs=; b=IdNz7eFU3wQJc153aYlnSPv2WJ
-	vJnFyo397t16Ih+DMW8m23Bxv5YKJ2rnkUZDjOon83p7dBJtRX4BxBXZ/ddHM/TtfRWxTYpk3e9X4
-	dyDesngjNitiE0SvpGQ1KCfuZ9yrATEEPXFiewe7D+TdlQE2+Mw1u8viIGg9UPRKvFSpdQ7rsdWHl
-	PfpbWC6W2PCWhQjzKgRcrazbPu5VpZG7/dxHM3uRr87GLpPXjeu80fFZDf+fRpl/uKeuc+CaXxBmw
-	J6yu8p1osLJH8b1rJVx7LzNu4fm511mKdwKxg4yfdhgPA6w4FuBVEhr+DwYse/opyjNd4EtXmxIlX
-	niZJl74Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DrYLQcQmIW7PzNQHPU9ov48DfdjFD4jn5NxzA45mYBc=; b=XgFUHOpvA/1zJOE0E/HCehzApb
+	EOS1sRfq1Wy15jKG2DdnE4X+GCKXwY+GvRuI183eHCqHOURdiy89Ld1Yb0IUPx4fNRiW9ZtIsPTEn
+	x9JkS/3C3IfPiKEZwfLwq8nH1YP8a6Ii+mSLlV+wwUJ3ISP2mQFrh2Q352DNbH/SyPfU83ePKjxWH
+	pdmujdTLSOlTfBX7Ovsg7EZDFGAbwIshVA8kg56uoqfT660GXoUEFdZSP5Xql73advk5Edii5C9f5
+	7Abc4n35+YKoy7PZbCmXTGAPvJeJ1dpjS2mVCG1Lxia7XcysdMZZbDK5qucAql1R2QTCiJ1mH2lN9
+	nOt27gGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrk9-0000000BKgI-2KEA;
-	Tue, 12 Aug 2025 16:20:57 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uln49-0000000AbH1-1iwk;
-	Tue, 12 Aug 2025 11:21:18 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4c1TRs1VQtz9sTD;
-	Tue, 12 Aug 2025 13:14:49 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id DTzy6W8y_UWe; Tue, 12 Aug 2025 13:14:49 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1TRs0Hb9z9sT8;
-	Tue, 12 Aug 2025 13:14:49 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id E8BFE8B764;
-	Tue, 12 Aug 2025 13:14:48 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id aDvaGGSKzC36; Tue, 12 Aug 2025 13:14:48 +0200 (CEST)
-Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 47B258B763;
-	Tue, 12 Aug 2025 13:14:48 +0200 (CEST)
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arch@vger.kernel.org,
-	Peter Xu <peterx@redhat.com>,
-	Oscar Salvador <osalvador@suse.de>
-Subject: [PATCH] mm: Remove pud_user() from asm-generic/pgtable-nopmd.h
-Date: Tue, 12 Aug 2025 13:14:19 +0200
-Message-ID: <c7f99612ecfa04054b37518df661d04f88f7c9af.1754997083.git.christophe.leroy@csgroup.eu>
-X-Mailer: git-send-email 2.49.0
+	id 1ulrkI-0000000BKwC-3imw;
+	Tue, 12 Aug 2025 16:21:06 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulnBF-0000000Abtx-20SP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 11:28:38 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8BDC4346;
+	Tue, 12 Aug 2025 13:27:42 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1754998062;
+	bh=aucV3Sk1cFWXbwVP3m/8s6jEvha/U79mOmkbk6667gI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T+ZEoERn73hAtMcyzscX3cz4VPPafGKpTE2h2HjIZM2OpmAGVTFS8xPTF/20T/CN8
+	 Hn06axQhyd6SgqJRu+O7SuXSo87H0eCkXvGdSfcTezoPdQE6q4+qDvMBp8QaRrfzxL
+	 X1F0IqfF5lKbuFVsnlrU+aid6LeNCy4Rwq/U/R7A=
+Date: Tue, 12 Aug 2025 14:28:17 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Will Whang <will@willwhang.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/4] media: docs: Add userspace-API guide for the
+ IMX585 driver
+Message-ID: <20250812112817.GM30054@pendragon.ideasonboard.com>
+References: <20250810220921.14307-1-will@willwhang.com>
+ <20250810220921.14307-5-will@willwhang.com>
+ <CAPY8ntATfq=yqoYkpuD5Ga-7yUb8C-_k=wSZJBpz0p9PLjVk0w@mail.gmail.com>
+ <CAFoNnrzHhJVbR1yQrr6o1+1JhyDB6y0NNfyJkK=by9YOJRGusQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754997261; l=2502; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=r6IYALBSeAaNHtYjYDWidZ6/UEOCi800e0E0vkKVhXQ=; b=466+/Yll0FE2OOxX7pDe1DSWs6dRdpVNGh6d0m1M8DFv+SE6f95KjZD+1G1fkIXTHHkwZVaXn S8LTupzahjXA3L/dGJsoUuT48x1zCGoslcRYL6VTk4DeKlGSALhnV+L
-X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAFoNnrzHhJVbR1yQrr6o1+1JhyDB6y0NNfyJkK=by9YOJRGusQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_042117_612159_7203E5D1 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250812_042837_668601_B855C310 
+X-CRM114-Status: GOOD (  58.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,67 +81,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 2c8a81dc0cc5 ("riscv/mm: fix two page table check related
-issues") added pud_user() in include/asm-generic/pgtable-nopmd.h
+Hi Will,
 
-But pud_user() only exists on ARM64 and RISCV and is not expected
-by any part of MM.
+On Mon, Aug 11, 2025 at 07:31:13PM -0700, Will Whang wrote:
+> On Mon, Aug 11, 2025 at 7:24 AM Dave Stevenson wrote:
+> > On Sun, 10 Aug 2025 at 23:11, Will Whang wrote:
+> > >
+> > > The new IMX585 V4L2 sub-device driver introduces several
+> > > driver-specific controls for configuring Clear-HDR blending,
+> > > gradation compression thresholds, and HCG enabling.  This patch adds
+> > > an rst document under Documentation/userspace-api/media/drivers/
+> > > that details each control, allowed values, and their effects.
+> > >
+> > > Signed-off-by: Will Whang <will@willwhang.com>
+> > > ---
+> > >  .../userspace-api/media/drivers/imx585.rst    | 122 ++++++++++++++++++
+> > >  .../userspace-api/media/drivers/index.rst     |   1 +
+> > >  MAINTAINERS                                   |   1 +
+> > >  3 files changed, 124 insertions(+)
+> > >  create mode 100644 Documentation/userspace-api/media/drivers/imx585.rst
+> > >
+> > > diff --git a/Documentation/userspace-api/media/drivers/imx585.rst b/Documentation/userspace-api/media/drivers/imx585.rst
+> > > new file mode 100644
+> > > index 000000000..9f7c16f30
+> > > --- /dev/null
+> > > +++ b/Documentation/userspace-api/media/drivers/imx585.rst
+> > > @@ -0,0 +1,122 @@
+> > > +.. SPDX-License-Identifier: GPL-2.0-only
+> > > +
+> > > +Sony IMX585 driver
+> > > +==================
+> > > +
+> > > +The IMX585 image-sensor driver provides the following *driver-specific*
+> > > +V4L2 controls.  They are visible only when the IMX585 driver is loaded
+> > > +and sit in the sensor-private control class.
+> > > +
+> > > +HDR data blending
+> > > +-----------------
+> > > +
+> > > +``V4L2_CID_IMX585_HDR_DATASEL_TH``  (``U16[2]``)
+> > > +    Lower/upper **thresholds** (0 – 4095) that decide which exposure is
+> > > +    chosen—or blended—for each pixel in Clear-HDR mode.
+> > > +
+> > > +``V4L2_CID_IMX585_HDR_DATASEL_BK``  (menu)
+> > > +    **Blending ratio** between the long-gain (LG) and
+> > > +    high-gain (HG) read-outs.
+> > > +
+> > > +    .. flat-table::
+> > > +       :stub-columns: 0
+> > > +       :widths: 1 5
+> > > +
+> > > +       * - ``0``
+> > > +         - HG ½, LG ½
+> > > +       * - ``1``
+> > > +         - HG ¾, LG ¼
+> > > +       * - ``2``     # duplicate ratio present in the datasheet
+> > > +         - HG ½, LG ½
+> > > +       * - ``3``
+> > > +         - HG ⅞, LG ⅛
+> > > +       * - ``4``
+> > > +         - HG 15⁄16, LG 1⁄16
+> > > +       * - ``5``     # second 50/50 entry as documented
+> > > +         - **2ⁿᵈ** HG ½, LG ½
+> > > +       * - ``6``
+> > > +         - HG 1⁄16, LG 15⁄16
+> > > +       * - ``7``
+> > > +         - HG ⅛, LG ⅞
+> > > +       * - ``8``
+> > > +         - HG ¼, LG ¾
+> > > +
+> > > +Gradation compression
+> > > +---------------------
+> > > +
+> > > +``V4L2_CID_IMX585_HDR_GRAD_TH``  (``U32[2]``)
+> > > +    17-bit **break-points** (0 – 0x1ffff) that shape the 16-bit
+> > > +    gradation-compression curve.
+> > > +
+> > > +``V4L2_CID_IMX585_HDR_GRAD_COMP_L``  (menu)
+> > > +    See V4L2_CID_IMX585_HDR_GRAD_COMP_H
+> > > +
+> > > +``V4L2_CID_IMX585_HDR_GRAD_COMP_H``  (menu)
+> > > +    **Compression ratios** below the first break-point and between the
+> > > +    two break-points, respectively.
+> > > +
+> > > +    .. flat-table::
+> > > +        :stub-columns: 0
+> > > +        :widths: 1 4
+> > > +
+> > > +        * - ``0``
+> > > +          - 1 : 1
+> > > +        * - ``1``
+> > > +          - 1 : 2
+> > > +        * - ``2``
+> > > +          - 1 : 4   *(default for COMP_L)*
+> > > +        * - ``3``
+> > > +          - 1 : 8
+> > > +        * - ``4``
+> > > +          - 1 : 16
+> > > +        * - ``5``
+> > > +          - 1 : 32
+> > > +        * - ``6``
+> > > +          - 1 : 64  *(default for COMP_H)*
+> > > +        * - ``7``
+> > > +          - 1 : 128
+> > > +        * - ``8``
+> > > +          - 1 : 256
+> > > +        * - ``9``
+> > > +          - 1 : 512
+> > > +        * - ``10``
+> > > +          - 1 : 1024
+> > > +        * - ``11``
+> > > +          - 1 : 2048
+> > > +
+> > > +Gain settings
+> > > +-------------
+> > > +
+> > > +``V4L2_CID_IMX585_HDR_GAIN``  (menu)
+> > > +    **Additional gain** (in dB) applied to the high-gain path when
+> > > +    Clear-HDR is active.
+> > > +
+> > > +    .. flat-table::
+> > > +        :stub-columns: 0
+> > > +        :widths: 1 3
+> > > +
+> > > +        * - ``0``
+> > > +          - +0 dB
+> > > +        * - ``1``
+> > > +          - +6 dB
+> > > +        * - ``2``
+> > > +          - +12 dB *(default)*
+> > > +        * - ``3``
+> > > +          - +18 dB
+> > > +        * - ``4``
+> > > +          - +24 dB
+> > > +        * - ``5``
+> > > +          - +29.1 dB
+> > > +
+> > > +``V4L2_CID_IMX585_HCG_GAIN``  (boolean)
+> >
+> > HCG stands for High Conversion Gain, so we've got Gain repeated in the name.
+> >
+> > Spell it out as V4L2_CID_IMX585_HIGH_CONV_GAIN, or call it
+> > CONVERSION_GAIN and use an enum control?
+> >
+> > > +    Toggle **High-Conversion-Gain** mode.
+> > > +
+> > > +    *0 = LCG (default), 1 = HCG.*
+> >
+> > An HCG / LCG control would also be applicable for IMX290 [1], so it
+> > would be nice if this could be a generic control instead of imx585
+> > specific.
+> >
+> > I never got a good description as to the benefit HCG was meant to
+> > give. The datasheet for IMX290 says the conversion efficiency ratio
+> > between HCG and LCG is 2, but not why that is any better than adding
+> > 6dB of analog gain.
+> 
+> What I've learned is that HCG is actually a 2nd stage amplifier, so
+> instead of using one for high gain, you can split it into two lower
+> gain stages that lower the noise.
 
-Add the missing definition in arch/riscv/include/asm/pgtable-32.h
-and remove it from asm-generic/pgtable-nopmd.h
+DCG as a term is a bit confusing. It was initially used to describe an
+inter-frame HDR technique, where two different conversion gains are
+applied to separate frames by switching on and off an extra capacitor on
+the pixel's floating diffusion node. I don't know how it evolved from
+there, but just adding a second amplifier doesn't seem to be a very
+effective way to lower noise.
 
-A stub pud_user() is also required for ARM64 after
-commit ed928a3402d8 ("arm64/mm: fix page table check compile
-error for CONFIG_PGTABLE_LEVELS=2")
+If anyone does some research on the topic and finds clear information,
+please share them.
 
-Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Reviewed-by: Peter Xu <peterx@redhat.com>
-Reviewed-by: Oscar Salvador <osalvador@suse.de>
----
- arch/arm64/include/asm/pgtable.h    | 1 +
- arch/riscv/include/asm/pgtable-32.h | 5 +++++
- include/asm-generic/pgtable-nopmd.h | 1 -
- 3 files changed, 6 insertions(+), 1 deletion(-)
+> This is also why ClearHDR and HCG have the conflict, because it is
+> basically sampling after the 1st gain stage and 2nd gain stage as
+> High/Low gain images.
+> 
+> I have thought about making it more generic because IMX662 and IMX678
+> are going to be the next patch once this one passes that also has this
+> function (the two are basically stripped down versions from IMX585
+> that the driver can be adapted to easily). I intended for the upcoming
+> IMX662/IMX678 driver to use IMX585's V4L2 HCG control also.
+> 
+> But given that I'm new to Linux kernel developments, or more
+> specifically, V4L2, I really don't have an idea how to do so in a way
+> the patch will be accepted.
+> Or I can make this more generic name to replace IMX585 for STARVIS2,
+> for example: V4L2_CID_STARVIS2_HIGH_CONV_GAIN
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index abd2dee416b3b..fef7cc7a340d8 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -955,6 +955,7 @@ static inline pmd_t *pud_pgtable(pud_t pud)
- 
- #define pud_valid(pud)		false
- #define pud_page_paddr(pud)	({ BUILD_BUG(); 0; })
-+#define pud_user		false /* Always 0 with folding */
- #define pud_user_exec(pud)	pud_user(pud) /* Always 0 with folding */
- 
- /* Match pmd_offset folding in <asm/generic/pgtable-nopmd.h> */
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index 00f3369570a83..37878ef374668 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -36,4 +36,9 @@
- static const __maybe_unused int pgtable_l4_enabled;
- static const __maybe_unused int pgtable_l5_enabled;
- 
-+static inline int pud_user(pud_t pud)
-+{
-+	return 0;
-+}
-+
- #endif /* _ASM_RISCV_PGTABLE_32_H */
-diff --git a/include/asm-generic/pgtable-nopmd.h b/include/asm-generic/pgtable-nopmd.h
-index 8ffd64e7a24cb..b01349a312fa7 100644
---- a/include/asm-generic/pgtable-nopmd.h
-+++ b/include/asm-generic/pgtable-nopmd.h
-@@ -30,7 +30,6 @@ typedef struct { pud_t pud; } pmd_t;
- static inline int pud_none(pud_t pud)		{ return 0; }
- static inline int pud_bad(pud_t pud)		{ return 0; }
- static inline int pud_present(pud_t pud)	{ return 1; }
--static inline int pud_user(pud_t pud)		{ return 0; }
- static inline int pud_leaf(pud_t pud)		{ return 0; }
- static inline void pud_clear(pud_t *pud)	{ }
- #define pmd_ERROR(pmd)				(pud_ERROR((pmd).pud))
+We should really try to standardize V4L2 controls for HDR support in
+sensors. See https://lore.kernel.org/linux-media/20250710220544.89066-1-mirela.rabulea@nxp.com
+for an attempt at doing so (for some of the controls at least). Could
+you share your feedback in that mail thread ?
+
+The proposal doesn't address the sensor-side blending controls. For
+those, I recommend considering how they should be handled from
+userspace. We don't want to have per-sensor code there if we can avoid
+it, and that should drive the API design.
+
+As for what you call gradation above, that's not strictly speaking
+limited to HDR, right ? If my understanding is right, this is about
+applying a compression curve to lower the bandwidth by lowering the
+number of bits per pixel while preserving more dynamic range in the
+lower and middle parts of the pixel value range. Is that correct ? If
+so, the term "companding" is also often used for this feature. I think
+we have three needs:
+
+- Enable/disable companding (which includes configuring the bit depth of
+  the output format)
+
+- Obtaining the companding curve applied by the sensor (as the host will
+  have to apply the inverse expansion curve)
+
+- Optionally, modifying the companing curve.
+
+I'd like standard controls for those.
+
+> > Sony's website [2] states
+> > "Sony’s Super High Conversion Gain technology is designed to amplify
+> > electrical signals immediately after the conversion from photons, when
+> > the noise levels are relatively low. In this way, it reduces the
+> > overall noise after amplification. As a result, lower-noise images,
+> > compared to conventional technology, can be captured even in a
+> > low-illuminance environment. Lower noise levels in images also help to
+> > enhance the accuracy in visual or AI-assisted image recognition."
+> > From that one would presume you'd always want it on (lower noise =
+> > good), unless needing the minimum exposure time and the image was
+> > already over-exposed.
+> > I'm guessing you have no additional information based on your description text.
+> >
+> >   Dave
+> >
+> > [1] Also IMX327, IMX462, and IMX662 which are in the same family,
+> > IMX678 (ratio of 2.6), and quite probably most of the Sony Starvis or
+> > Starvis 2 ranges.
+> > [2] https://www.sony-semicon.com/en/technology/security/index.html
+> 
+> Yeah I think Starvis 2 series all have this capability.
+> 
+> > > +
+> > > +Notes
+> > > +-----
+> > > +
+> > > +* Controls are writable while streaming; changes take effect from the
+> > > +  next frame.
+> > > +* HDR-specific controls are hidden when HDR is disabled.
+> > > +* Inter-control dependencies are enforced by the driver.
+> > > diff --git a/Documentation/userspace-api/media/drivers/index.rst b/Documentation/userspace-api/media/drivers/index.rst
+> > > index d706cb47b..87912acfb 100644
+> > > --- a/Documentation/userspace-api/media/drivers/index.rst
+> > > +++ b/Documentation/userspace-api/media/drivers/index.rst
+> > > @@ -32,6 +32,7 @@ For more details see the file COPYING in the source distribution of Linux.
+> > >         cx2341x-uapi
+> > >         dw100
+> > >         imx-uapi
+> > > +       imx585
+> > >         max2175
+> > >         npcm-video
+> > >         omap3isp-uapi
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 175f5236a..42e32b6ba 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -23183,6 +23183,7 @@ M:      Will Whang <will@willwhang.com>
+> > >  L:     linux-media@vger.kernel.org
+> > >  S:     Maintained
+> > >  F:     Documentation/devicetree/bindings/media/i2c/sony,imx585.yaml
+> > > +F:     Documentation/userspace-api/media/drivers/imx585.rst
+> > >  F:     drivers/media/i2c/imx585.c
+> > >  F:     include/uapi/linux/imx585.h
+> > >
+
 -- 
-2.49.0
+Regards,
 
+Laurent Pinchart
 
