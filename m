@@ -4,62 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC86CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9F2CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPzAQef8QSKYFjsB9zrajVy9p2Sl/AruarRJaDB4etU=; b=wndyzrZHTUB5CNbE7hc7CLBudQ
-	hK1cxwG5alnxKF8IEVAcTFxU67h8AIuIdCFdUlwfEpmjSRyBXCoyhIQ185j/K0BBkW4f00cDQCqcC
-	PBem9MxLm0KKIZN103GHvL+YFBH0/8tquuRR08FQGTP+32EAeTT0YMR/t7kwvzGuw/C8O99CVt4+c
-	pIS31DmdbOW3iN/C8sY/p14b4ApgG8WaI1vohrRNZaKhWo8cxANdibIjpwLXMfIYKfuDYfCnq2RfB
-	i0ofKoCb9DrE6ILOE7YkSUWsWwf5IIAnhgieShRQh7l2R7mkctt8vL/2TKGq0+V29mUClq71fApkp
-	r7kE0LDA==;
+	bh=s9g1SG7f+EGslJg8ECDOBi4Rhdygb73Nc23atyvk73c=; b=4eiN3nny7yYSs/m3SmkGUVSHvH
+	Z2eLqytimz3F0Dhz2bLRnxENRkH1IzVQ7AHXnWz3DjtWL7EWXMahXa8zLzSTflL3Uhz+sX6QeHSYC
+	0+Y4vZ8ODhq83XAhrzjjr64eCIq6aMgWH+wre+L/FnKIgeEzV5Aydk+Kc5O1cP/m6CPp1NTLgLvRQ
+	fdztBGuFCsw+TLQCk2+VLZCMrHR6GHhApG2mFqFfAoH1KRnhC66qG+f4RNZyju+omcrokZuSW6roV
+	AjGtd1ym1AM8cb74iqCwDDi8szANaI1UZmliOpN+NV8j1x/43g9AM7euNJSLAbcfMIdkehwyUrY2C
+	oPlAqI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uls3m-0000000BS2R-0cNU;
-	Tue, 12 Aug 2025 16:41:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uls6J-0000000BSSb-0ngW;
+	Tue, 12 Aug 2025 16:43:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulp6E-0000000Avpc-308D;
-	Tue, 12 Aug 2025 13:31:34 +0000
+	id 1ulp8B-0000000Aw9Y-306c
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 13:33:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2BFE601D2;
-	Tue, 12 Aug 2025 13:31:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2481C4CEF0;
-	Tue, 12 Aug 2025 13:31:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6DD1740C2B;
+	Tue, 12 Aug 2025 13:33:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43663C4CEF0;
+	Tue, 12 Aug 2025 13:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755005493;
-	bh=K8lzBB9/Bh3jP/7LMg8a5TAR/9M1qucruuqKpFB7wz4=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=lb/sRMoHaDv+Vq/LarNyxaysxQc7MLWzPtxUuJtQ+k5oOp6r3aRjDQ1WpShIRb0Lh
-	 ngC4YYsw/g7XBY6A/CXs/GUkpBsz5/F/be3+bDMRlDiEx9gliV/nK1W/qJMaQNzStX
-	 P2taRk5Wn6j2d9r4okncraoZiSDbJbn4LUq7MOrEUJp8IDmtkxcS5M8Y70LSK18QCz
-	 Vw9PMvUcl2hDohXiOOVuImNHE0IIAd9dxuaLMS/HpMmYTfXRPESZ47zxTJ+jmQWds1
-	 AaWzV0LkBtoMOgmRS53eEuxJWmStnut1B6VOGzfsccOhwPzyki0A83e/SI46jDtb3N
-	 0baqdca9yYL2w==
-From: Mark Brown <broonie@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Martin Sperl <kernel@martin.sperl.org>, Chuanhong Guo <gch981213@gmail.com>, 
- linux-spi@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, Liao Yuanhong <liaoyuanhong@vivo.com>
-In-Reply-To: <20250812033817.487565-1-liaoyuanhong@vivo.com>
-References: <20250812033817.487565-1-liaoyuanhong@vivo.com>
-Subject: Re: [PATCH 0/2] spi: Remove redundant semicolons
-Message-Id: <175500549067.70594.14172853876781002627.b4-ty@kernel.org>
-Date: Tue, 12 Aug 2025 14:31:30 +0100
+	s=k20201202; t=1755005615;
+	bh=dS4y36QAOmFxGB3IF5rTASgVCuJo6srS84clRq8Bg1g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GSNgCxpWNzfLytjJp0Y1T36No9Z0k5sKzohw1PUPPYsUuofA9cjlW0leejkQnvCs3
+	 BdEiaQZD7XTiCrNmCEE5SLwEHsFs4z0MKscQlPaf4heIYtknhFbCBxcWC7NjDOT3GI
+	 ZfD6sDdbGh/sCnsbt+xmkcVaPiR/xYKMCfz0biIBFGs0TlNgO9yTBtTT4tKIk/lBJe
+	 pGdzdV+I4jUcdZScGDQbFOBz7VaQ3qwtTKo+Kyde+ztrFPdtfcWYA1d0sj9Tt4nk/c
+	 4ezbmx32Z7zi1ERFImujsqEYQne0LpVocgrJNmc0MxYJAqal0tbMrDXzt4WKqI+OZ5
+	 K6NOgWC4ACf1Q==
+Message-ID: <45ec2fee-9b76-4f36-8476-000fbce775c6@kernel.org>
+Date: Tue, 12 Aug 2025 15:33:29 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 8/8] MAINTAINERS: add and consolidate Black Sesame
+ Technologies (BST) ARM SoC support
+To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ulf.hansson@linaro.org,
+ catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
+ adrian.hunter@intel.com, robin.murphy@arm.com, ding.wang@bst.ai,
+ gordon.ge@bst.ai
+Cc: bst-upstream@bstai.top, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250812123110.2090460-1-yangzh0906@thundersoft.com>
+ <20250812123110.2090460-9-yangzh0906@thundersoft.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250812123110.2090460-9-yangzh0906@thundersoft.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-cff91
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250812_063335_801650_FB9FFFB7 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,47 +123,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 12 Aug 2025 11:38:15 +0800, Liao Yuanhong wrote:
-> Clean up the code by removing redundant semicolons.
+On 12/08/2025 14:31, Albert Yang wrote:
+> Add and consolidate the MAINTAINERS entry for Black Sesame Technologies
+
+I do not see consolidation in the patch, so this part and subject are
+incorrect. You only add.
+
+Please wrap commit message according to Linux coding style / submission
+process (neither too early nor over the limit):
+https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
+
+
+> ARM SoC support. This entry covers device tree bindings, drivers, and board
+> files for BST SoCs, including MMC, and platform support.
 > 
-> Liao Yuanhong (2):
->   spi: bcm2835: Remove redundant semicolons
->   spi: mtk-snfi: Remove redundant semicolons
+> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
+
+What does this SoB represent? Who wrote the code?
+
+You added that SoB everywhere so I have worries it was automatic or
+manager's decision. That isn't what SoB is about.
+
+And looking at actual M: entry, this should be rather publicly Acked.
+That's what Ack is. Not SoB.
+
+> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+> ---
+> Change for v3:
+> - No changes
 > 
-> drivers/spi/spi-bcm2835.c  | 2 +-
->  drivers/spi/spi-mtk-snfi.c | 1 -
->  2 files changed, 1 insertion(+), 2 deletions(-)
+> Change for v2:
+> - No changes
+> ---
+>  MAINTAINERS | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> [...]
-
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/2] spi: bcm2835: Remove redundant semicolons
-      commit: 0ecc0e17f05bbb953b6ea3812e78bab224f08595
-[2/2] spi: mtk-snfi: Remove redundant semicolons
-      commit: 528a813a5d98702cc6fd51983484cf7eec9ebcac
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index efb51ee92683..e3236384c28a 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2441,6 +2441,16 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/arm/blaize.yaml
+>  F:	arch/arm64/boot/dts/blaize/
+>  
+> +ARM/BST SOC SUPPORT
+> +M:	Ge Gordon <gordon.ge@bst.ai>
+Best regards,
+Krzysztof
 
