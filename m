@@ -4,92 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D8FCA0EDB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA472CA0EDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l54bXCSQ2N1WCwc3yA5CAnPI3s4L8oTQr7q8YqSeHxE=; b=rFuElLH6dA0mfCEKnGG7BrZMIX
-	UBAKWVTvzHWJmjlXCIKqUjaLis4BE1RzVXWizf+/46YRc1rFkAcLISkjPlj89dFZlhAJn4FoDO2ja
-	gLsW8dDTYAlz2ZDQaOnY9tjgqZaGZrUyVHIDYbllgEM6uNb7ZNVpJCyxtXI1AK3FWxUBTCTAwri6V
-	S1x5kSS6RySBiB2QeLJNAvAmLuRk0NUbiKL2YzOqNXsBoVZP8aweN1zynM8RFVLsexuIT46/JZj9b
-	XhnPynrVaXdEqtp0N8k6+fWv7VMOs25W9V2ALSz+20QxKuIEFr5CZCy9vPIeAG0X4KBRv0ghijxqh
-	jP8nG/cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ff0XAHRaqILsWt7fr2rDGrn9QVg7EJh0xydvLg5JU1I=; b=4VJDjQRMioF0QFq1e09uEXvxgZ
+	rmfF0pGP+ELivKKWhLCTpb/yTn9F4tOTrd7lohZAnvLzMiyJp+Vd6z8k19vwtJ8yUuhq4JG3J0XUX
+	vR1hdrbtjfSKl8zD31bRpbZow4aE6zbviAUQSw9cVAYuqoW2xwNgU7LT/Q1fh0feFPnzjMHsmsz22
+	YXwZif1f+P74KjjgC77tPCe5vXIjD3k58hPTLpfS4T7Gq6P54XTxDN8WKpcyJSesmWwbloecA4z32
+	zkhapU7jqvfVMujlQl2a74c492Ofx6PKPLAXfpH93pYOgXw6GHgIguzcv+KYTG0XB8pW7+Zp/Mf8O
+	lD1bPb3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulubf-0000000BoVF-2mSb;
-	Tue, 12 Aug 2025 19:24:23 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1ulubp-0000000Boib-3hNI;
+	Tue, 12 Aug 2025 19:24:33 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulroN-0000000BP8K-1bVV
+	id 1ulrrc-0000000BPhx-2kA9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 16:25:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-458b2d9dba5so36401885e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 09:25:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1755015917; x=1755620717; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l54bXCSQ2N1WCwc3yA5CAnPI3s4L8oTQr7q8YqSeHxE=;
-        b=bhaaOvwi4JoXQd7frBhA7xonfycYXGTvfkvmv+9L8Oe2m0jooXOVayE4KC5VYNLjJZ
-         UJOHLWvyhxPUz876LDSwIpI0NSnvubY0v++NIjki5NLEO5y60yx4+bTJi8oqwM5bJ3ct
-         HpPxicgK6PlKrEVUnvHffw0WJ1/77dLDxB9IyEKoDPNYjgK3tPk7k6cDItG+IZXkHjlM
-         cSRMb2fyeZ+MfxqFDnN1qtRZiIW/40jleXZVxfdPm8FvY82iJhOlPmZNVQGHo2rVDHu6
-         2aUMUki2JvmFMHS1ypHzEylcTmJxWLgrS3UJXSPmzicZuqYSBi6sbEEmtRWiuXA/Iie7
-         xwoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755015917; x=1755620717;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l54bXCSQ2N1WCwc3yA5CAnPI3s4L8oTQr7q8YqSeHxE=;
-        b=UDcKSiE7bNpu79MNTQaO+M1xdD0YTeTiY+HEsCWX1CdaDSnduSr3VZtFuIbF5mLXHB
-         8Cu32LBDPg1j5lAasQYm/7QRWzoAro1b0XVfGQXn+l+UDXuwZzgvDosPHFyl0tfSxcli
-         p3UxHLAdJOuT/onIhkTz41mVEBAm61SvSFd97xDWuaZqHfLF+b/06kNzFlnxGW+sMY2S
-         n9llD2RJT8iQcIyLLzEk5tSx5F2aeSnmMtaLYefvVsQmqZxSrh4YBsP6c/Mq/6+WkBc7
-         FNtZJsjNUnxPqH0FsgHXe1Ip+Wxd07LBiYuZGfUaTg73iLG5dJocGDIQgh9bwpeUmGqD
-         eDGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVsAOtNeKiZEy8LcwJPpWyueJe/lfpiCr6HCen+FzfCsifthm5w0c/q0d42gMwyb3arEOm0JIEfOn5KwXNo++fb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE6HjuB7nIwzzNGB765CAWxRd4ZxIxaZebFNylMZmWua4WYTJW
-	F39X6w4lMF5pgE2kT8CxCa9+71XZZd4+gyZfX3jRXwEeoezC7arLLTsnXJ9hYDBCXHDE3rkDRkf
-	efXddboHBaV7YaO8A3m+SqShyUH4A2t8=
-X-Gm-Gg: ASbGncvdMooOf3VaiNsuw/NOyphn+ersidFc+VS1YCFouJ07gamnO75iJI4kVsbzWN9
-	T4GVW9ZJEE1bKTbROOj5Gt98X/ZYIhkMY+SJ+rs+6Vg2P38gdaVCgnZXnr/l8sAb9APC8cgr4Rb
-	qn+MHLAvKX8+Yy81ZOA2LqMxTo4UENTHGBVgn8I6j9v+AVioo0jr0JjctK7mJtaY2rr0a7WjeNC
-	vw2qIuZpA==
-X-Google-Smtp-Source: AGHT+IEO/ebtLytO3+gzax+bQ48WGSY9jQ2PI+BH3b16Ceok+c7sqVLxabYPw0NXmuXDwNr7yF9uSwRiesUbNbf7dL4=
-X-Received: by 2002:a05:600c:4692:b0:456:475b:7af6 with SMTP id
- 5b1f17b1804b1-45a15b0bf05mr4355835e9.7.1755015917114; Tue, 12 Aug 2025
- 09:25:17 -0700 (PDT)
+	Tue, 12 Aug 2025 16:28:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=le1dzDagwi8hVQHzNTbRs5Fk952aLZ94FfWmLmPpucWyZLTiN6Wgmr1+5zHi+OwFmhR2MTgBcAHS37vqZIKypIgNpikGrD1nFjQgD9NpJLSM4U0cvkKObNFCoR785yXvmlqPB/tJekWXdnqWUbdbgcV9CXNYvfFJqWy2vI6gzYMADgE29EibtFeQJYSzcUVD4zcwgHNNGf1GUs/ljSreaJ9nj5E0AC5RjbKD/B2sHe/wcVaU1HaTEH6pD34YbJcqhF2hqhkXc6ggQP60znya7FUi2DDkz8kBNqFnni+i/FiEl+Oo9mnBhx8ZRnD9rYeydSz+yLBkQhzxAIAdIzINYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ff0XAHRaqILsWt7fr2rDGrn9QVg7EJh0xydvLg5JU1I=;
+ b=tZGMjJLY6H2u+aSVHjxZdkWj/G1HNxuCDgtpu1NLq9+dQr0ZBiDd5scSPJvnz/3TmxuFmJ+04kfx1kOB5axEkust2zSn0+hv9yeWR2rkpB+qzQKD+8avYTfEfM1YCzda5+zrsjl2GKPfFBEshxzMU+AKneLyrYY4qf124Vll1S5NhSoTQWzekzRFvp4i0dxzSp7o88yq3ZYRfMLdTkqvmepub+AS1GCzHdQPnj+9g5T35xqj29+zdrVpaCfTU4WubveYE6K/G41NvYA9E2TVdNThv7NYOtuMTJaI4WmLCRgY/a4TpEam2QeHcNUzOly+/ig8gGTfeQnURRFmvL/Lwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ff0XAHRaqILsWt7fr2rDGrn9QVg7EJh0xydvLg5JU1I=;
+ b=MyjMyT8A0vNPlTMkYM/UVKE1CfzO29cY2zKcWbGEggGhDPwQ7w/AWj6x+1mFUUAtv7TSJTkzUGihA7/WhZDjWnpvOtzUT6Qb9/QiRarGKe0d0qsQpYfwYvvDYsfFm+e+lYolinRkACstRYxTr5V7vujIRQMo78aafFLKYIfcTGSFq6yvimzPhclSHAXLyY+FFacnA31NtqyFLxlnPC9f+WgzkjAb8cnSdPXbib6dsymqEhN2MGGeeD64gUC6qKmrLbemf6eC8q3eeCKWf2HHcjPDI2gaqTvOdlvc5512NlTyCmwvVQ68DynxxPftVkTF6nvcYVehMm6jE3uw+0zxPQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DB5PR04MB11253.eurprd04.prod.outlook.com (2603:10a6:10:5e6::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.12; Tue, 12 Aug
+ 2025 16:28:36 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.9031.011; Tue, 12 Aug 2025
+ 16:28:36 +0000
+Date: Tue, 12 Aug 2025 12:28:28 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: guoniu.zhou@oss.nxp.com
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rmfrfs@gmail.com,
+	laurent.pinchart@ideasonboard.com, martink@posteo.de,
+	kernel@puri.sm, mchehab@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com
+Subject: Re: [PATCH 2/5] arm64: dts: imx8ulp: Add CSI and ISI Nodes
+Message-ID: <aJtrrJZCHJfqsMBy@lizhi-Precision-Tower-5810>
+References: <20250812081923.1019345-1-guoniu.zhou@oss.nxp.com>
+ <20250812081923.1019345-3-guoniu.zhou@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250812081923.1019345-3-guoniu.zhou@oss.nxp.com>
+X-ClientProxiedBy: PH8P221CA0049.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:346::6) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-References: <20250811173626.1878783-1-yeoreum.yun@arm.com> <20250811173626.1878783-2-yeoreum.yun@arm.com>
-In-Reply-To: <20250811173626.1878783-2-yeoreum.yun@arm.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Tue, 12 Aug 2025 18:25:03 +0200
-X-Gm-Features: Ac12FXyXZGDJqhGX1iCy4SWWpZA7ZwLA8x1I9FgM3lq8ZOVHVmywuvVz0HAZZV0
-Message-ID: <CA+fCnZe6F9dn8qGbNsgWXkQ_3e8oSQ80sd3X=aHFa-AUy_7kjg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] kasan/hw-tags: introduce store only mode
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: ryabinin.a.a@gmail.com, glider@google.com, dvyukov@google.com, 
-	vincenzo.frascino@arm.com, corbet@lwn.net, catalin.marinas@arm.com, 
-	will@kernel.org, akpm@linux-foundation.org, scott@os.amperecomputing.com, 
-	jhubbard@nvidia.com, pankaj.gupta@amd.com, leitao@debian.org, 
-	kaleshsingh@google.com, maz@kernel.org, broonie@kernel.org, 
-	oliver.upton@linux.dev, james.morse@arm.com, ardb@kernel.org, 
-	hardevsinh.palaniya@siliconsignals.io, david@redhat.com, 
-	yang@os.amperecomputing.com, kasan-dev@googlegroups.com, 
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mm@kvack.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB5PR04MB11253:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96d9b6d5-da91-4668-c6f7-08ddd9bd49d3
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?E+RDLR0jgEMgw6HwmkjLoICJKxJWvbB8SWU5xJVDxzjpyD7EoL7NM8wv7WYL?=
+ =?us-ascii?Q?IfRwMi/LZCFuibtYEnawIXQWvU3WBHKoMrAf9LAYFnNpbeWyZ6MPVtFgFgH5?=
+ =?us-ascii?Q?PkURkqaJq+w5BswrTaDd5Ipd4UIJJ3F4bmj/plshmXdr0V37PtdY4pHJV06+?=
+ =?us-ascii?Q?FW0kT/nVsDwcUHImb0yccOKBHy32Be9Rl24477TEGspPRlsyF8NVinzTtkI1?=
+ =?us-ascii?Q?DknhO7BJEs6PWoAQM4EvhN0JAHkm1rYI78SIT6LUxsqQlxTRWxqOaDugaY5O?=
+ =?us-ascii?Q?jWYGxYgM8gqvPYbRBs2wlyDvVQsAQpyvM1ZHXhuPO1ZEdH5AqoK5ylaWD5it?=
+ =?us-ascii?Q?9tp8TxJQKQUqQeHDs9A1GNUCwVynx8PrEC9K/AroY9GC+DZSL748c0UXoEJL?=
+ =?us-ascii?Q?FQ2/GOqaI40lFMiTmnpcGxDRdQmykPokchtVjZrFlCK9bJ+WG121ocCQYZTw?=
+ =?us-ascii?Q?2ezgwbfzuWhHSqpzvv42g5ohHTReQE1NQvG1VeBPV2DBuGzO2dmuPBm05TfI?=
+ =?us-ascii?Q?b9EC28NWPdDvcJwqKsqkns+EpvDRPETitving2u7dvfXX0pkCjOeyBTpJnxK?=
+ =?us-ascii?Q?jjjz99TX4BiQPL21phHHXre9FqvYjkSOPE1N/QxRrYqVRwSdCbnW9/daTNt+?=
+ =?us-ascii?Q?mPgQBUkeFkQcV2tqKLnPQHc0e4rY9suFRbAMS9wpeCAq4ydGU8fYZlM26ayZ?=
+ =?us-ascii?Q?vF36Fh1JTkLvBML+7Wjp9OGYmQAlROSvn1mNUkISwnDQpI2xHw2wIJVIE+y6?=
+ =?us-ascii?Q?unlfDhv2R86lRMi2v/c4tYV4v/gxDvk2zYPN5u/C/60Iptxx6Qqh/qqCWKSM?=
+ =?us-ascii?Q?QQkC/bn46tIMIST3+8VnzJZTxrozqn9jufoqu6RBnzTCUPQYDpUUqHnDXdB+?=
+ =?us-ascii?Q?0LNs5JLoOmuZ/gHmUi6dojJF1H+9y5YgK6tRGw91jLS2j8/05MTXlQmqOXIR?=
+ =?us-ascii?Q?7lpCLAYT2FQk0wjhPWBN3Ow2qQNz5TWYXp2y/Gq6OsuwNgejbEpHxCxqBK4y?=
+ =?us-ascii?Q?AuABJ/czO+dCJkmu9Jdd3fuBRmIwseNmwAD4cqTiq3FMkNBZ06jmDdDBBQLa?=
+ =?us-ascii?Q?ECFTIKJ6Yhe3axK271qiJFbigwjI++7MILlCpX5ZpBxF9IWTSF/pgWgL7VYo?=
+ =?us-ascii?Q?cofnfccgVws+M43pZ2krwoCDrujNOV0ofaXVBMp5JeV8EbhHNDLrS5XbV6xP?=
+ =?us-ascii?Q?v02UxgTJenUqOrPyzdlSLWXetsLbUtEkhXS5clIeB91qCy5l1/CuRNIDyrZ7?=
+ =?us-ascii?Q?LZpenYrqRAsoJIPUTJONxTq5YNujySFf3zAhHb4DO6/8kaH/CXpmhbd/Lk1n?=
+ =?us-ascii?Q?q7pDwirwJCPng/4gNn2ZVDXycAMmNRoBgpb7pZqSh/ZH7hacEwo0U5E5helQ?=
+ =?us-ascii?Q?DoSw4rMsFVDQkQfrWUScVko83biZGbH6g2T6w9DmMJShm4iXRKMDFWZaX+v8?=
+ =?us-ascii?Q?+PW6ossjWdSV+5byqlWnZE+9JE62T8uUw5Fkl9WVMsK9Zz9tNjYvIQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Sz4nIcCncAgNnmlx5ViQnSCAYs+EXm8K3tYWX6xqIwUmTgeZRmm/0QPpkNsx?=
+ =?us-ascii?Q?ztZv1fG0KgtCUddJ4JHmHGWt/cNA34+Dna4r0tPHp3ueZ0PrqCH/qQVFnHlg?=
+ =?us-ascii?Q?QS2p89LJFFf+svfjI2o173cJzr29vG9eh+LjYu9EJgTdSgn+DJPYBMYmS9N+?=
+ =?us-ascii?Q?x7YKaaKPhwLo9rE6iZXZ0FXhiFLJz7/F0zmPj69QWlft9kHO+LugZ+E4YD7B?=
+ =?us-ascii?Q?SFvyPN1yiASUHE/2CUfJgKS57exHOZI0rGMalCPWevrJiabsrjZwC6cpqb/p?=
+ =?us-ascii?Q?3NY8IK8jmPyeR3WPV4213th6TH3bMu8Tw53/kbd8dr/Wrb/HYGppzya+sBbF?=
+ =?us-ascii?Q?GPP1h1RDvHGkGJVYTACNZew0UnfcwvSAXSnAPnfcw+ctW8ICr7qm0bAB1+j0?=
+ =?us-ascii?Q?uUG3Uj5mPuPX8aXQd2ZwWOUFfnm5oP+nbeQgJFXiKkkxFw76huGzzK7cIg6n?=
+ =?us-ascii?Q?MUfvqMB6dfkISsgmTCPD65LxKlwqxB/lJ61T3cKqhDTLzQeH0o/4hgif54Jv?=
+ =?us-ascii?Q?vmYrCIU0IVqCUv8W51VeWRa1K2oz+V1f4UrUSbncztZUU2+DXRHH5VowPn8b?=
+ =?us-ascii?Q?Bu6m6/YhwJ0XfZnBqse+d2+YKVxW17PZR2SdcOsev/XtZay5Vid0WH2ATIip?=
+ =?us-ascii?Q?6K8ubvQJEAQp/tf9TZybjVb+tSyeV+rg5gO54MT5iQ6KYdEHaK0uFz8OVseB?=
+ =?us-ascii?Q?IRV/a8DqZ0d4Jx89DszAbnVJuwlClHZ96H0WbkMd65uWHjbE4gy0QPbujCo9?=
+ =?us-ascii?Q?kCeES/2Ts7I06TuXe7B8q011k0LMytKw4RIIPBoipXaw+pH1zaO1VUiAaOUO?=
+ =?us-ascii?Q?ev8f8wUP0b5lPzhyZSz1OCvLBOBVXCCXQwB/xyak0M/0F0qZ3y1B+2doXftD?=
+ =?us-ascii?Q?HTsqggAmPD15/3wSFyuunQgfVBtZi2puyPIgY5ZggydsSBfVBYwmV8eLI6Fb?=
+ =?us-ascii?Q?O3lBzqk/KQZQf65ZnOlMOYNLtHcih/EQch8KuQUwPDg3BWmQC+hkzohHOpGb?=
+ =?us-ascii?Q?9Np8z7qZXj499hcE5hsXYJHTiAHDiTqhE+7TFuBLatQ5NAtO3QQ/yOLMtCE/?=
+ =?us-ascii?Q?x7Ub2mdpOGnj6aXSGNaqmjX/RRguOO0c8aC23p1eu6P7E627BiUNy3+KISJn?=
+ =?us-ascii?Q?B1KqSvf57/doLtKZzUyG7HzwbHIc5Kix076Uo0PlkAWYTElEcJzx31mTH3Ye?=
+ =?us-ascii?Q?qlaZH1IIiPDuexWWzfCkhbXTczmZlGBpvVfytlwFJ2cNGkFLW/sv5m4QxbRp?=
+ =?us-ascii?Q?1e48cAnwWvz/7x72mlBHK3l1Vu4N2Sc3dNlVn5UEOPdwVe83H3qWHTosSKK2?=
+ =?us-ascii?Q?LKyKDfHP6Os8xYAkJsWKsXwgVTYlO96+9s9oajUWtpqM/PpoQrgSvbVg2XZx?=
+ =?us-ascii?Q?GvEnK/F7yLP3kdJ0rRFHVbhULqbvLvTUKZLuAq/J5u6+SxvCRQt8SrhpWkTo?=
+ =?us-ascii?Q?NvnCDJ4+e8lHy+Vu0bhTeegM8nskhplvi0K0vegO21bPuN9Kl15+Ubm5oaH2?=
+ =?us-ascii?Q?2FC9YHE5xjQP3YfGKE5OQoKte55rlSvTCOQVPizg5AIvGyNUNRL1xs/d5RHq?=
+ =?us-ascii?Q?R/W3tIVM0bSbdjKEQYW4ArNXxKqA3518IRvkDFy4?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96d9b6d5-da91-4668-c6f7-08ddd9bd49d3
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 16:28:36.8765
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zQRzNPszwaccSFjiEOLBkbyGzLZNvSSD7gwSpoy49wAVGOuIuHVTC66sjcB6YnkUM1FROkWpvTwtt2wJkdmMsQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB5PR04MB11253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_092519_427974_2359E104 
-X-CRM114-Status: GOOD (  37.78  )
+X-CRM114-CacheID: sfid-20250812_092840_694836_31FFCC53 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,378 +162,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 11, 2025 at 7:36=E2=80=AFPM Yeoreum Yun <yeoreum.yun@arm.com> w=
-rote:
+On Tue, Aug 12, 2025 at 04:19:23PM +0800, guoniu.zhou@oss.nxp.com wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 >
-> Since Armv8.9, FEATURE_MTE_STORE_ONLY feature is introduced to restrict
-> raise of tag check fault on store operation only.
-
-To clarify: this feature is independent on the sync/async/asymm modes?
-So any mode can be used together with FEATURE_MTE_STORE_ONLY?
-
-> Introcude KASAN store only mode based on this feature.
+> The CSI-2 in the i.MX8ULP is almost identical to the version present
+> in the i.MX8QXP/QM and is routed to the ISI. Add both the ISI and CSI
+> nodes and mark them as disabled by default since capture is dependent
+> on an attached camera.
 >
-> KASAN store only mode restricts KASAN checks operation for store only and
-> omits the checks for fetch/read operation when accessing memory.
-> So it might be used not only debugging enviroment but also normal
-> enviroment to check memory safty.
->
-> This features can be controlled with "kasan.stonly" arguments.
-> When "kasan.stonly=3Don", KASAN checks store only mode otherwise
-> KASAN checks all operations.
-
-"stonly" looks cryptic, how about "kasan.store_only"?
-
-Also, are there any existing/planned modes/extensions of the feature?
-E.g. read only? Knowing this will allow to better plan the
-command-line parameter format.
-
->
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 > ---
->  Documentation/dev-tools/kasan.rst  |  3 ++
->  arch/arm64/include/asm/memory.h    |  1 +
->  arch/arm64/include/asm/mte-kasan.h |  6 +++
->  arch/arm64/kernel/cpufeature.c     |  6 +++
->  arch/arm64/kernel/mte.c            | 14 ++++++
->  include/linux/kasan.h              |  2 +
->  mm/kasan/hw_tags.c                 | 76 +++++++++++++++++++++++++++++-
->  mm/kasan/kasan.h                   | 10 ++++
->  8 files changed, 116 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/dev-tools/kasan.rst b/Documentation/dev-tools/=
-kasan.rst
-> index 0a1418ab72fd..7567a2ca0e39 100644
-> --- a/Documentation/dev-tools/kasan.rst
-> +++ b/Documentation/dev-tools/kasan.rst
-> @@ -163,6 +163,9 @@ disabling KASAN altogether or controlling its feature=
-s:
->    This parameter is intended to allow sampling only large page_alloc
->    allocations, which is the biggest source of the performance overhead.
->
-> +- ``kasan.stonly=3Doff`` or ``kasan.stonly=3Don`` controls whether KASAN=
- checks
-> +  store operation only or all operation.
 
-How about:
+suppose dts is last patch because binding and driver will be pickup by
+media maintainer first, then shawn pick up dts part.
 
-``kasan.store_only=3Doff`` or ``=3Don`` controls whether KASAN checks only
-the store (write) accesses only or all accesses (default: ``off``).
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-And let's put this next to kasan.mode, as the new parameter is related.
-
+>  arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 67 ++++++++++++++++++++++
+>  1 file changed, 67 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+> index 2562a35286c2..71abc2a3d505 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+> @@ -7,6 +7,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+>  #include <dt-bindings/power/imx8ulp-power.h>
+> +#include <dt-bindings/reset/imx8ulp-pcc-reset.h>
+>  #include <dt-bindings/thermal/thermal.h>
+>
+>  #include "imx8ulp-pinfunc.h"
+> @@ -840,6 +841,72 @@ spdif: spdif@2dab0000 {
+>  				dma-names = "rx", "tx";
+>  				status = "disabled";
+>  			};
 > +
->  Error reports
->  ~~~~~~~~~~~~~
->
-> diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/mem=
-ory.h
-> index 5213248e081b..9d8c72c9c91f 100644
-> --- a/arch/arm64/include/asm/memory.h
-> +++ b/arch/arm64/include/asm/memory.h
-> @@ -308,6 +308,7 @@ static inline const void *__tag_set(const void *addr,=
- u8 tag)
->  #define arch_enable_tag_checks_sync()          mte_enable_kernel_sync()
->  #define arch_enable_tag_checks_async()         mte_enable_kernel_async()
->  #define arch_enable_tag_checks_asymm()         mte_enable_kernel_asymm()
-> +#define arch_enable_tag_checks_stonly()        mte_enable_kernel_stonly(=
-)
->  #define arch_suppress_tag_checks_start()       mte_enable_tco()
->  #define arch_suppress_tag_checks_stop()                mte_disable_tco()
->  #define arch_force_async_tag_fault()           mte_check_tfsr_exit()
-> diff --git a/arch/arm64/include/asm/mte-kasan.h b/arch/arm64/include/asm/=
-mte-kasan.h
-> index 2e98028c1965..d75908ed9d0f 100644
-> --- a/arch/arm64/include/asm/mte-kasan.h
-> +++ b/arch/arm64/include/asm/mte-kasan.h
-> @@ -200,6 +200,7 @@ static inline void mte_set_mem_tag_range(void *addr, =
-size_t size, u8 tag,
->  void mte_enable_kernel_sync(void);
->  void mte_enable_kernel_async(void);
->  void mte_enable_kernel_asymm(void);
-> +int mte_enable_kernel_stonly(void);
->
->  #else /* CONFIG_ARM64_MTE */
->
-> @@ -251,6 +252,11 @@ static inline void mte_enable_kernel_asymm(void)
->  {
->  }
->
-> +static inline int mte_enable_kenrel_stonly(void)
-> +{
-> +       return -EINVAL;
-> +}
+> +			isi: isi@2dac0000 {
+> +				compatible = "fsl,imx8ulp-isi";
+> +				reg = <0x2dac0000 0x10000>;
+> +				interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
+> +				clocks = <&pcc5 IMX8ULP_CLK_ISI>,
+> +					 <&cgc2 IMX8ULP_CLK_LPAV_AXI_DIV>;
+> +				clock-names = "axi", "apb";
+> +				power-domains = <&scmi_devpd IMX8ULP_PD_ISI>;
+> +				status = "disabled";
 > +
->  #endif /* CONFIG_ARM64_MTE */
->
->  #endif /* __ASSEMBLY__ */
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeatur=
-e.c
-> index 9ad065f15f1d..fdc510fe0187 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2404,6 +2404,11 @@ static void cpu_enable_mte(struct arm64_cpu_capabi=
-lities const *cap)
->
->         kasan_init_hw_tags_cpu();
->  }
+> +				ports {
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
 > +
-> +static void cpu_enable_mte_stonly(struct arm64_cpu_capabilities const *c=
-ap)
-> +{
-> +       kasan_late_init_hw_tags_cpu();
-> +}
->  #endif /* CONFIG_ARM64_MTE */
->
->  static void user_feature_fixup(void)
-> @@ -2922,6 +2927,7 @@ static const struct arm64_cpu_capabilities arm64_fe=
-atures[] =3D {
->                 .capability =3D ARM64_MTE_STORE_ONLY,
->                 .type =3D ARM64_CPUCAP_SYSTEM_FEATURE,
->                 .matches =3D has_cpuid_feature,
-> +               .cpu_enable =3D cpu_enable_mte_stonly,
->                 ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
->         },
->  #endif /* CONFIG_ARM64_MTE */
-> diff --git a/arch/arm64/kernel/mte.c b/arch/arm64/kernel/mte.c
-> index e5e773844889..a1cb2a8a79a1 100644
-> --- a/arch/arm64/kernel/mte.c
-> +++ b/arch/arm64/kernel/mte.c
-> @@ -157,6 +157,20 @@ void mte_enable_kernel_asymm(void)
->                 mte_enable_kernel_sync();
->         }
->  }
+> +					port@0 {
+> +						reg = <0>;
+> +						isi_in: endpoint {
+> +							remote-endpoint = <&mipi_csi_out>;
+> +						};
+> +					};
+> +				};
+> +			};
 > +
-> +int mte_enable_kernel_stonly(void)
-> +{
-> +       if (!cpus_have_cap(ARM64_MTE_STORE_ONLY))
-> +               return -EINVAL;
+> +			mipi_csi: csi@2daf0000 {
+> +				compatible = "fsl,imx8ulp-mipi-csi2";
+> +				reg = <0x2daf0000 0x10000>,
+> +				      <0x2dad0000 0x10000>;
+> +				clocks = <&pcc5 IMX8ULP_CLK_CSI>,
+> +					 <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
+> +					 <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
+> +					 <&pcc5 IMX8ULP_CLK_CSI_REGS>;
+> +				clock-names = "core", "esc", "ui", "pclk";
+> +				assigned-clocks = <&pcc5 IMX8ULP_CLK_CSI>,
+> +						  <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
+> +						  <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
+> +						  <&pcc5 IMX8ULP_CLK_CSI_REGS>;
+> +				assigned-clock-parents = <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV1>,
+> +							 <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV2>,
+> +							 <&cgc2 IMX8ULP_CLK_PLL4_PFD0_DIV1>;
+> +				assigned-clock-rates = <200000000>,
+> +						       <80000000>,
+> +						       <100000000>,
+> +						       <79200000>;
+> +				power-domains = <&scmi_devpd IMX8ULP_PD_MIPI_CSI>;
+> +				resets = <&pcc5 PCC5_CSI_SWRST>,
+> +					 <&pcc5 PCC5_CSI_REGS_SWRST>;
+> +				status = "disabled";
 > +
-> +       sysreg_clear_set(sctlr_el1, SCTLR_EL1_TCSO_MASK,
-> +                        SYS_FIELD_PREP(SCTLR_EL1, TCSO, 1));
-> +       isb();
+> +				ports {
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
 > +
-> +       pr_info_once("MTE: enabled stonly mode at EL1\n");
+> +					port@0 {
+> +						reg = <0>;
+> +					};
 > +
-> +       return 0;
-> +}
->  #endif
->
->  #ifdef CONFIG_KASAN_HW_TAGS
-> diff --git a/include/linux/kasan.h b/include/linux/kasan.h
-> index 890011071f2b..28951b29c593 100644
-> --- a/include/linux/kasan.h
-> +++ b/include/linux/kasan.h
-> @@ -552,9 +552,11 @@ static inline void kasan_init_sw_tags(void) { }
->  #ifdef CONFIG_KASAN_HW_TAGS
->  void kasan_init_hw_tags_cpu(void);
->  void __init kasan_init_hw_tags(void);
-> +void kasan_late_init_hw_tags_cpu(void);
-
-Why do we need a separate late init function? Can we not enable
-store-only at the same place where we enable async/asymm?
-
-
->  #else
->  static inline void kasan_init_hw_tags_cpu(void) { }
->  static inline void kasan_init_hw_tags(void) { }
-> +static inline void kasan_late_init_hw_tags_cpu(void) { }
->  #endif
->
->  #ifdef CONFIG_KASAN_VMALLOC
-> diff --git a/mm/kasan/hw_tags.c b/mm/kasan/hw_tags.c
-> index 9a6927394b54..2caa6fe5ed47 100644
-> --- a/mm/kasan/hw_tags.c
-> +++ b/mm/kasan/hw_tags.c
-> @@ -41,9 +41,16 @@ enum kasan_arg_vmalloc {
->         KASAN_ARG_VMALLOC_ON,
->  };
->
-> +enum kasan_arg_stonly {
-> +       KASAN_ARG_STONLY_DEFAULT,
-> +       KASAN_ARG_STONLY_OFF,
-> +       KASAN_ARG_STONLY_ON,
-> +};
+> +					port@1 {
+> +						reg = <1>;
 > +
->  static enum kasan_arg kasan_arg __ro_after_init;
->  static enum kasan_arg_mode kasan_arg_mode __ro_after_init;
->  static enum kasan_arg_vmalloc kasan_arg_vmalloc __initdata;
-> +static enum kasan_arg_stonly kasan_arg_stonly __ro_after_init;
+> +						mipi_csi_out: endpoint {
+> +							remote-endpoint = <&isi_in>;
+> +						};
+> +					};
+> +				};
+> +			};
+>  		};
 >
->  /*
->   * Whether KASAN is enabled at all.
-> @@ -67,6 +74,9 @@ DEFINE_STATIC_KEY_FALSE(kasan_flag_vmalloc);
->  #endif
->  EXPORT_SYMBOL_GPL(kasan_flag_vmalloc);
->
-> +DEFINE_STATIC_KEY_FALSE(kasan_flag_stonly);
-> +EXPORT_SYMBOL_GPL(kasan_flag_stonly);
-> +
->  #define PAGE_ALLOC_SAMPLE_DEFAULT      1
->  #define PAGE_ALLOC_SAMPLE_ORDER_DEFAULT        3
->
-> @@ -141,6 +151,23 @@ static int __init early_kasan_flag_vmalloc(char *arg=
-)
->  }
->  early_param("kasan.vmalloc", early_kasan_flag_vmalloc);
->
-> +/* kasan.stonly=3Doff/on */
-> +static int __init early_kasan_flag_stonly(char *arg)
-> +{
-> +       if (!arg)
-> +               return -EINVAL;
-> +
-> +       if (!strcmp(arg, "off"))
-> +               kasan_arg_stonly =3D KASAN_ARG_STONLY_OFF;
-> +       else if (!strcmp(arg, "on"))
-> +               kasan_arg_stonly =3D KASAN_ARG_STONLY_ON;
-> +       else
-> +               return -EINVAL;
-> +
-> +       return 0;
-> +}
-> +early_param("kasan.stonly", early_kasan_flag_stonly);
-> +
->  static inline const char *kasan_mode_info(void)
->  {
->         if (kasan_mode =3D=3D KASAN_MODE_ASYNC)
-> @@ -219,6 +246,20 @@ void kasan_init_hw_tags_cpu(void)
->         kasan_enable_hw_tags();
->  }
->
-> +/*
-> + * kasan_late_init_hw_tags_cpu_post() is called for each CPU after
-> + * all cpus are bring-up at boot.
-> + * Not marked as __init as a CPU can be hot-plugged after boot.
-> + */
-> +void kasan_late_init_hw_tags_cpu(void)
-> +{
-> +       /*
-> +        * Enable stonly mode only when explicitly requested through the =
-command line.
-> +        * If system doesn't support, kasan checks all operation.
-> +        */
-> +       kasan_enable_stonly();
-> +}
-> +
->  /* kasan_init_hw_tags() is called once on boot CPU. */
->  void __init kasan_init_hw_tags(void)
->  {
-> @@ -257,15 +298,28 @@ void __init kasan_init_hw_tags(void)
->                 break;
->         }
->
-> +       switch (kasan_arg_stonly) {
-> +       case KASAN_ARG_STONLY_DEFAULT:
-> +               /* Default is specified by kasan_flag_stonly definition. =
-*/
-> +               break;
-> +       case KASAN_ARG_STONLY_OFF:
-> +               static_branch_disable(&kasan_flag_stonly);
-> +               break;
-> +       case KASAN_ARG_STONLY_ON:
-> +               static_branch_enable(&kasan_flag_stonly);
-> +               break;
-> +       }
-> +
->         kasan_init_tags();
->
->         /* KASAN is now initialized, enable it. */
->         static_branch_enable(&kasan_flag_enabled);
->
-> -       pr_info("KernelAddressSanitizer initialized (hw-tags, mode=3D%s, =
-vmalloc=3D%s, stacktrace=3D%s)\n",
-> +       pr_info("KernelAddressSanitizer initialized (hw-tags, mode=3D%s, =
-vmalloc=3D%s, stacktrace=3D%s stonly=3D%s\n",
->                 kasan_mode_info(),
->                 str_on_off(kasan_vmalloc_enabled()),
-> -               str_on_off(kasan_stack_collection_enabled()));
-> +               str_on_off(kasan_stack_collection_enabled()),
-> +               str_on_off(kasan_stonly_enabled()));
->  }
->
->  #ifdef CONFIG_KASAN_VMALLOC
-> @@ -394,6 +448,22 @@ void kasan_enable_hw_tags(void)
->                 hw_enable_tag_checks_sync();
->  }
->
-> +void kasan_enable_stonly(void)
-> +{
-> +       if (kasan_arg_stonly =3D=3D KASAN_ARG_STONLY_ON) {
-> +               if (hw_enable_tag_checks_stonly()) {
-> +                       static_branch_disable(&kasan_flag_stonly);
-> +                       kasan_arg_stonly =3D KASAN_ARG_STONLY_OFF;
-> +                       pr_warn_once("KernelAddressSanitizer: store only =
-mode isn't supported (hw-tags)\n");
-> +               }
-> +       }
-> +}
-> +
-> +bool kasan_stonly_enabled(void)
-> +{
-> +       return static_branch_unlikely(&kasan_flag_stonly);
-> +}
-> +
->  #if IS_ENABLED(CONFIG_KASAN_KUNIT_TEST)
->
->  EXPORT_SYMBOL_IF_KUNIT(kasan_enable_hw_tags);
-> @@ -404,4 +474,6 @@ VISIBLE_IF_KUNIT void kasan_force_async_fault(void)
->  }
->  EXPORT_SYMBOL_IF_KUNIT(kasan_force_async_fault);
->
-> +EXPORT_SYMBOL_IF_KUNIT(kasan_stonly_enabled);
-> +
->  #endif
-> diff --git a/mm/kasan/kasan.h b/mm/kasan/kasan.h
-> index 129178be5e64..cfbcebdbcbec 100644
-> --- a/mm/kasan/kasan.h
-> +++ b/mm/kasan/kasan.h
-> @@ -33,6 +33,7 @@ static inline bool kasan_stack_collection_enabled(void)
->  #include "../slab.h"
->
->  DECLARE_STATIC_KEY_TRUE(kasan_flag_vmalloc);
-> +DECLARE_STATIC_KEY_FALSE(kasan_flag_stonly);
->
->  enum kasan_mode {
->         KASAN_MODE_SYNC,
-> @@ -428,6 +429,7 @@ static inline const void *arch_kasan_set_tag(const vo=
-id *addr, u8 tag)
->  #define hw_enable_tag_checks_sync()            arch_enable_tag_checks_sy=
-nc()
->  #define hw_enable_tag_checks_async()           arch_enable_tag_checks_as=
-ync()
->  #define hw_enable_tag_checks_asymm()           arch_enable_tag_checks_as=
-ymm()
-> +#define hw_enable_tag_checks_stonly()          arch_enable_tag_checks_st=
-only()
->  #define hw_suppress_tag_checks_start()         arch_suppress_tag_checks_=
-start()
->  #define hw_suppress_tag_checks_stop()          arch_suppress_tag_checks_=
-stop()
->  #define hw_force_async_tag_fault()             arch_force_async_tag_faul=
-t()
-> @@ -437,10 +439,18 @@ static inline const void *arch_kasan_set_tag(const =
-void *addr, u8 tag)
->                         arch_set_mem_tag_range((addr), (size), (tag), (in=
-it))
->
->  void kasan_enable_hw_tags(void);
-> +void kasan_enable_stonly(void);
-> +bool kasan_stonly_enabled(void);
->
->  #else /* CONFIG_KASAN_HW_TAGS */
->
->  static inline void kasan_enable_hw_tags(void) { }
-> +static inline void kasan_enable_stonly(void) { }
-> +
-> +static inline bool kasan_stonly_enabled(void)
-> +{
-> +       return false;
-> +}
->
->  #endif /* CONFIG_KASAN_HW_TAGS */
->
+>  		gpiod: gpio@2e200000 {
 > --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> 2.34.1
 >
 
