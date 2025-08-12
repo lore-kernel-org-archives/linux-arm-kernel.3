@@ -4,111 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0468CA0EDF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3098CC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sljHiUjGUPXOmAnRjHsjOGpp/FinyGB7YDTB1iURIU4=; b=GEvTjisSE4MRFl6i96PkiyuLV+
-	brybkfn5zw7okOubAiFDIVBG4f6+FpMMsupuxjAgCS2mQDJlXUn4sEM8BC9n4Vn6wlXEBQ9VDGvH0
-	Gd/Ht/iFhkhDeGDHXz0z8RuV3Kkkcz/WeI4IJVg6nZOQFdJWhT+vF43MZQwz1YXLvIB492hkPKyDz
-	jLODiQJJKIDM8ez0wFC4Bhc19KIioMvKPLuTvhRbiLXwZcB7W9JREIAR48D+EerT/KB16WlSOv4D4
-	11DwDtQt6tm0wmR43Uj1hvwnbqqrQd1hOrOUEtFIxjrrL0sZRwyaBQGbWs1d4lsh0VEqoIepfcxen
-	vbx7FF9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UpB2GIUgkfPcnRjs3ARqM9F7ZHPJ2zjE6ameQ16EUwI=; b=JOEAOIJITGG3GuYfuMlSIE5Ycx
+	XJHWsICrOTpxxTe4uFgPrX/G4VIr6P/w7mI3Bn7YAkwQm1FnS7tHZwJOMJZJY2NvwKvHLI45YuAVq
+	xyNIDBOjFwW9e0oGvCPy+uyVLVdwIjoNccWVukLIbmhbBAfV5bWd5+SLbUVREAGgb30wu2cVnfo09
+	NfdOIGtzHRB8VXGoFuoZDsYD/2F/XIzSCTIqo6tbVaPoqfWpwZqbDmKQ0Slh352Mj/gFFkxw+nBOa
+	RJIOIIQbAi0anLQ8FitNlgShLVh5FTTaZ2eGfCcwuWFVouQwJLKlQfBYjU0/zTCNRAAz67z+Lel6T
+	EfG0vxOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrjY-0000000BJiu-0Txp;
-	Tue, 12 Aug 2025 16:20:20 +0000
-Received: from server.couthit.com ([162.240.164.96])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulms9-0000000AZIe-3rU2
+	id 1ulrjj-0000000BK10-3a97;
+	Tue, 12 Aug 2025 16:20:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulmww-0000000AaCK-0fkP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:08:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=sljHiUjGUPXOmAnRjHsjOGpp/FinyGB7YDTB1iURIU4=; b=fzEgjECKYYFxUgMsQxmfY1iIxR
-	ByyFpNKtFAHLqGsQUfLNYX9HhY+VJo9gxTOGVtLKW1rx2dw1rKmgKM5hkY6oqBETWwkKtoecUMV7m
-	K0qOg1W5wLUNGQHjcQfiHf6uOSoFTsFil0z4s1qrnbSVYqYt0j03XcJxTQRiu+A+JPQEJtZwLIwD1
-	HJurpVlUJ12Ogbt7anAaZWv9H/sEeiy/EHAlzqsmbFqjaR7CjW/nWRSOd6nNVvAD5bImsJ+otuGbd
-	cH67RcmGCVNMGgNnWDzhXqCEYZZ8pMKeNSe+ll6lV8h5cewvYppbgeT8eZNGckWLL2coCg8pW7K6Z
-	Ehec0X2Q==;
-Received: from [122.175.9.182] (port=36359 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpa (Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1ulmrP-00000008ZBT-0RO0;
-	Tue, 12 Aug 2025 07:08:07 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: danishanwar@ti.com,
-	rogerq@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	ssantosh@kernel.org,
-	richardcochran@gmail.com,
-	m-malladi@ti.com,
-	s.hauer@pengutronix.de,
-	afd@ti.com,
-	jacob.e.keller@intel.com,
-	horms@kernel.org,
-	johan@kernel.org,
-	m-karicheri2@ti.com,
-	s-anna@ti.com,
-	glaroque@baylibre.com,
-	saikrishnag@marvell.com,
-	kory.maincent@bootlin.com,
-	diogo.ivo@siemens.com,
-	javier.carrasco.cruz@gmail.com,
-	basharath@couthit.com,
-	parvathi@couthit.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	alok.a.tiwari@oracle.com,
-	bastien.curutchet@bootlin.com,
-	pratheesh@ti.com,
-	prajith@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	krishna@couthit.com,
-	pmohan@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v13 1/5] dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for AM57xx, AM43xx and AM33xx SOCs
-Date: Tue, 12 Aug 2025 16:35:53 +0530
-Message-ID: <20250812110723.4116929-2-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250812110723.4116929-1-parvathi@couthit.com>
-References: <20250812110723.4116929-1-parvathi@couthit.com>
+	Tue, 12 Aug 2025 11:13:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0FE5225E1;
+	Tue, 12 Aug 2025 04:13:41 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BB453F63F;
+	Tue, 12 Aug 2025 04:13:45 -0700 (PDT)
+Date: Tue, 12 Aug 2025 12:13:42 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Subject: Re: [PATCH -next v7 5/7] arm64: entry: Refactor
+ preempt_schedule_irq() check code
+Message-ID: <aJsh5oM3CoUELkvY@J2N7QTR9R3>
+References: <20250729015456.3411143-1-ruanjinjie@huawei.com>
+ <20250729015456.3411143-6-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250729015456.3411143-6-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_040854_012231_75E023B5 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250812_041350_285922_8135084D 
+X-CRM114-Status: GOOD (  26.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,353 +59,164 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: sstabellini@kernel.org, puranjay@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, liaochang1@huawei.com, oleg@redhat.com, kristina.martsenko@arm.com, linux-kernel@vger.kernel.org, broonie@kernel.org, chenl311@chinatelecom.cn, xen-devel@lists.xenproject.org, leitao@debian.org, ryan.roberts@arm.com, akpm@linux-foundation.org, mbenes@suse.cz, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Documentation update for the newly added "pruss2_eth" device tree
-node and its dependencies along with compatibility for PRU-ICSS
-Industrial Ethernet Peripheral (IEP), PRU-ICSS Enhanced Capture
-(eCAP) peripheral and using YAML binding document for AM57xx SoCs.
+On Tue, Jul 29, 2025 at 09:54:54AM +0800, Jinjie Ruan wrote:
+> ARM64 requires an additional check whether to reschedule on return
+> from interrupt. So add arch_irqentry_exit_need_resched() as the default
+> NOP implementation and hook it up into the need_resched() condition in
+> raw_irqentry_exit_cond_resched(). This allows ARM64 to implement
+> the architecture specific version for switching over to
+> the generic entry code.
+> 
+> To align the structure of the code with irqentry_exit_cond_resched()
+> from the generic entry code, hoist the need_irq_preemption()
+> and IS_ENABLED() check earlier. And different preemption check functions
+> are defined based on whether dynamic preemption is enabled.
+> 
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Suggested-by: Thomas Gleixner <tglx@linutronix.de>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> ---
+>  arch/arm64/include/asm/preempt.h |  4 ++++
+>  arch/arm64/kernel/entry-common.c | 35 ++++++++++++++++++--------------
+>  kernel/entry/common.c            | 16 ++++++++++++++-
+>  3 files changed, 39 insertions(+), 16 deletions(-)
 
-Co-developed-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/net/ti,icss-iep.yaml  |  10 +-
- .../bindings/net/ti,icssm-prueth.yaml         | 233 ++++++++++++++++++
- .../bindings/net/ti,pruss-ecap.yaml           |  32 +++
- .../devicetree/bindings/soc/ti/ti,pruss.yaml  |   9 +
- 4 files changed, 281 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
- create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+Can you please split the change to kernel/entry/common.c into a separate
+patch? That doesn't depend on the arm64-specific changes, and it'll make
+it easier to handle any conflcits when merging this.
 
-diff --git a/Documentation/devicetree/bindings/net/ti,icss-iep.yaml b/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
-index e36e3a622904..ea2659d90a52 100644
---- a/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
-@@ -8,6 +8,8 @@ title: Texas Instruments ICSS Industrial Ethernet Peripheral (IEP) module
- 
- maintainers:
-   - Md Danish Anwar <danishanwar@ti.com>
-+  - Parvathi Pudi <parvathi@couthit.com>
-+  - Basharath Hussain Khaja <basharath@couthit.com>
- 
- properties:
-   compatible:
-@@ -17,9 +19,11 @@ properties:
-               - ti,am642-icss-iep
-               - ti,j721e-icss-iep
-           - const: ti,am654-icss-iep
--
--      - const: ti,am654-icss-iep
--
-+      - enum:
-+          - ti,am654-icss-iep
-+          - ti,am5728-icss-iep
-+          - ti,am4376-icss-iep
-+          - ti,am3356-icss-iep
- 
-   reg:
-     maxItems: 1
-diff --git a/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml b/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
-new file mode 100644
-index 000000000000..a98ad45ca66f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
-@@ -0,0 +1,233 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ti,icssm-prueth.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments ICSSM PRUSS Ethernet
-+
-+maintainers:
-+  - Roger Quadros <rogerq@ti.com>
-+  - Andrew F. Davis <afd@ti.com>
-+  - Parvathi Pudi <parvathi@couthit.com>
-+  - Basharath Hussain Khaja <basharath@couthit.com>
-+
-+description:
-+  Ethernet based on the Programmable Real-Time Unit and Industrial
-+  Communication Subsystem.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - ti,am57-prueth     # for AM57x SoC family
-+      - ti,am4376-prueth   # for AM43x SoC family
-+      - ti,am3359-prueth   # for AM33x SoC family
-+
-+  sram:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to OCMC SRAM node
-+
-+  ti,mii-rt:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to the MII_RT peripheral for ICSS
-+
-+  ti,iep:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to IEP (Industrial Ethernet Peripheral) for ICSS
-+
-+  ti,ecap:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      phandle to Enhanced Capture (eCAP) event for ICSS
-+
-+  interrupts:
-+    items:
-+      - description: High priority Rx Interrupt specifier.
-+      - description: Low priority Rx Interrupt specifier.
-+
-+  interrupt-names:
-+    items:
-+      - const: rx_hp
-+      - const: rx_lp
-+
-+  ethernet-ports:
-+    type: object
-+    additionalProperties: false
-+
-+    properties:
-+      '#address-cells':
-+        const: 1
-+      '#size-cells':
-+        const: 0
-+
-+    patternProperties:
-+      ^ethernet-port@[0-1]$:
-+        type: object
-+        description: ICSSM PRUETH external ports
-+        $ref: ethernet-controller.yaml#
-+        unevaluatedProperties: false
-+
-+        properties:
-+          reg:
-+            items:
-+              - enum: [0, 1]
-+            description: ICSSM PRUETH port number
-+
-+          interrupts:
-+            maxItems: 3
-+
-+          interrupt-names:
-+            items:
-+              - const: rx
-+              - const: emac_ptp_tx
-+              - const: hsr_ptp_tx
-+
-+        required:
-+          - reg
-+
-+    anyOf:
-+      - required:
-+          - ethernet-port@0
-+      - required:
-+          - ethernet-port@1
-+
-+required:
-+  - compatible
-+  - sram
-+  - ti,mii-rt
-+  - ti,iep
-+  - ti,ecap
-+  - ethernet-ports
-+  - interrupts
-+  - interrupt-names
-+
-+allOf:
-+  - $ref: /schemas/remoteproc/ti,pru-consumer.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    /* Dual-MAC Ethernet application node on PRU-ICSS2 */
-+    pruss2_eth: pruss2-eth {
-+      compatible = "ti,am57-prueth";
-+      ti,prus = <&pru2_0>, <&pru2_1>;
-+      sram = <&ocmcram1>;
-+      ti,mii-rt = <&pruss2_mii_rt>;
-+      ti,iep = <&pruss2_iep>;
-+      ti,ecap = <&pruss2_ecap>;
-+      interrupts = <20 2 2>, <21 3 3>;
-+      interrupt-names = "rx_hp", "rx_lp";
-+      interrupt-parent = <&pruss2_intc>;
-+
-+      ethernet-ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        pruss2_emac0: ethernet-port@0 {
-+          reg = <0>;
-+          phy-handle = <&pruss2_eth0_phy>;
-+          phy-mode = "mii";
-+          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
-+          interrupt-names = "rx", "emac_ptp_tx", "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+
-+        pruss2_emac1: ethernet-port@1 {
-+          reg = <1>;
-+          phy-handle = <&pruss2_eth1_phy>;
-+          phy-mode = "mii";
-+          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
-+          interrupt-names = "rx", "emac_ptp_tx", "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+      };
-+    };
-+  - |
-+    /* Dual-MAC Ethernet application node on PRU-ICSS1 */
-+    pruss1_eth: pruss1-eth {
-+      compatible = "ti,am4376-prueth";
-+      ti,prus = <&pru1_0>, <&pru1_1>;
-+      sram = <&ocmcram>;
-+      ti,mii-rt = <&pruss1_mii_rt>;
-+      ti,iep = <&pruss1_iep>;
-+      ti,ecap = <&pruss1_ecap>;
-+      interrupts = <20 2 2>, <21 3 3>;
-+      interrupt-names = "rx_hp", "rx_lp";
-+      interrupt-parent = <&pruss1_intc>;
-+
-+      pinctrl-0 = <&pruss1_eth_default>;
-+      pinctrl-names = "default";
-+
-+      ethernet-ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        pruss1_emac0: ethernet-port@0 {
-+          reg = <0>;
-+          phy-handle = <&pruss1_eth0_phy>;
-+          phy-mode = "mii";
-+          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+
-+        pruss1_emac1: ethernet-port@1 {
-+          reg = <1>;
-+          phy-handle = <&pruss1_eth1_phy>;
-+          phy-mode = "mii";
-+          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+      };
-+    };
-+  - |
-+    /* Dual-MAC Ethernet application node on PRU-ICSS */
-+    pruss_eth: pruss-eth {
-+      compatible = "ti,am3359-prueth";
-+      ti,prus = <&pru0>, <&pru1>;
-+      sram = <&ocmcram>;
-+      ti,mii-rt = <&pruss_mii_rt>;
-+      ti,iep = <&pruss_iep>;
-+      ti,ecap = <&pruss_ecap>;
-+      interrupts = <20 2 2>, <21 3 3>;
-+      interrupt-names = "rx_hp", "rx_lp";
-+      interrupt-parent = <&pruss_intc>;
-+
-+      pinctrl-0 = <&pruss_eth_default>;
-+      pinctrl-names = "default";
-+
-+      ethernet-ports {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        pruss_emac0: ethernet-port@0 {
-+          reg = <0>;
-+          phy-handle = <&pruss_eth0_phy>;
-+          phy-mode = "mii";
-+          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+
-+        pruss_emac1: ethernet-port@1 {
-+          reg = <1>;
-+          phy-handle = <&pruss_eth1_phy>;
-+          phy-mode = "mii";
-+          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
-+          interrupt-names = "rx", "emac_ptp_tx",
-+                                          "hsr_ptp_tx";
-+          /* Filled in by bootloader */
-+          local-mac-address = [00 00 00 00 00 00];
-+        };
-+      };
-+    };
-diff --git a/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml b/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
-new file mode 100644
-index 000000000000..42f217099b2e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
-@@ -0,0 +1,32 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ti,pruss-ecap.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments PRU-ICSS Enhanced Capture (eCAP) event module
-+
-+maintainers:
-+  - Murali Karicheri <m-karicheri2@ti.com>
-+  - Parvathi Pudi <parvathi@couthit.com>
-+  - Basharath Hussain Khaja <basharath@couthit.com>
-+
-+properties:
-+  compatible:
-+    const: ti,pruss-ecap
-+
-+  reg:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    pruss2_ecap: ecap@30000 {
-+        compatible = "ti,pruss-ecap";
-+        reg = <0x30000 0x60>;
-+    };
-diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
-index 927b3200e29e..b5336bcbfb01 100644
---- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
-+++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
-@@ -251,6 +251,15 @@ patternProperties:
- 
-     type: object
- 
-+  ecap@[a-f0-9]+$:
-+    description:
-+      PRU-ICSS has a Enhanced Capture (eCAP) event module which can generate
-+      and capture periodic timer based events which will be used for features
-+      like RX Pacing to rise interrupt when the timer event has occurred.
-+      Each PRU-ICSS instance has one eCAP module irrespective of SOCs.
-+    $ref: /schemas/net/ti,pruss-ecap.yaml#
-+    type: object
-+
-   mii-rt@[a-f0-9]+$:
-     description: |
-       Real-Time Ethernet to support multiple industrial communication protocols.
--- 
-2.43.0
+Mark.
 
+> 
+> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> index 0159b625cc7f..0f0ba250efe8 100644
+> --- a/arch/arm64/include/asm/preempt.h
+> +++ b/arch/arm64/include/asm/preempt.h
+> @@ -85,6 +85,7 @@ static inline bool should_resched(int preempt_offset)
+>  void preempt_schedule(void);
+>  void preempt_schedule_notrace(void);
+>  
+> +void raw_irqentry_exit_cond_resched(void);
+>  #ifdef CONFIG_PREEMPT_DYNAMIC
+>  
+>  DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+> @@ -92,11 +93,14 @@ void dynamic_preempt_schedule(void);
+>  #define __preempt_schedule()		dynamic_preempt_schedule()
+>  void dynamic_preempt_schedule_notrace(void);
+>  #define __preempt_schedule_notrace()	dynamic_preempt_schedule_notrace()
+> +void dynamic_irqentry_exit_cond_resched(void);
+> +#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
+>  
+>  #else /* CONFIG_PREEMPT_DYNAMIC */
+>  
+>  #define __preempt_schedule()		preempt_schedule()
+>  #define __preempt_schedule_notrace()	preempt_schedule_notrace()
+> +#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
+>  
+>  #endif /* CONFIG_PREEMPT_DYNAMIC */
+>  #endif /* CONFIG_PREEMPTION */
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index 7c2299c1ba79..4f92664fd46c 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -285,19 +285,8 @@ static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs,
+>  		lockdep_hardirqs_on(CALLER_ADDR0);
+>  }
+>  
+> -#ifdef CONFIG_PREEMPT_DYNAMIC
+> -DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+> -#define need_irq_preemption() \
+> -	(static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
+> -#else
+> -#define need_irq_preemption()	(IS_ENABLED(CONFIG_PREEMPTION))
+> -#endif
+> -
+>  static inline bool arm64_preempt_schedule_irq(void)
+>  {
+> -	if (!need_irq_preemption())
+> -		return false;
+> -
+>  	/*
+>  	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
+>  	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
+> @@ -672,6 +661,24 @@ static __always_inline void __el1_pnmi(struct pt_regs *regs,
+>  	arm64_exit_nmi(regs, state);
+>  }
+>  
+> +void raw_irqentry_exit_cond_resched(void)
+> +{
+> +	if (!preempt_count()) {
+> +		if (need_resched() && arm64_preempt_schedule_irq())
+> +			preempt_schedule_irq();
+> +	}
+> +}
+> +
+> +#ifdef CONFIG_PREEMPT_DYNAMIC
+> +DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
+> +void dynamic_irqentry_exit_cond_resched(void)
+> +{
+> +	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
+> +		return;
+> +	raw_irqentry_exit_cond_resched();
+> +}
+> +#endif
+> +
+>  static __always_inline void __el1_irq(struct pt_regs *regs,
+>  				      void (*handler)(struct pt_regs *))
+>  {
+> @@ -681,10 +688,8 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
+>  	do_interrupt_handler(regs, handler);
+>  	irq_exit_rcu();
+>  
+> -	if (!preempt_count() && need_resched()) {
+> -		if (arm64_preempt_schedule_irq())
+> -			preempt_schedule_irq();
+> -	}
+> +	if (IS_ENABLED(CONFIG_PREEMPTION))
+> +		irqentry_exit_cond_resched();
+>  
+>  	exit_to_kernel_mode(regs, state);
+>  }
+> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+> index b82032777310..4aa9656fa1b4 100644
+> --- a/kernel/entry/common.c
+> +++ b/kernel/entry/common.c
+> @@ -142,6 +142,20 @@ noinstr irqentry_state_t irqentry_enter(struct pt_regs *regs)
+>  	return ret;
+>  }
+>  
+> +/**
+> + * arch_irqentry_exit_need_resched - Architecture specific need resched function
+> + *
+> + * Invoked from raw_irqentry_exit_cond_resched() to check if need resched.
+> + * Defaults return true.
+> + *
+> + * The main purpose is to permit arch to skip preempt a task from an IRQ.
+> + */
+> +static inline bool arch_irqentry_exit_need_resched(void);
+> +
+> +#ifndef arch_irqentry_exit_need_resched
+> +static inline bool arch_irqentry_exit_need_resched(void) { return true; }
+> +#endif
+> +
+>  void raw_irqentry_exit_cond_resched(void)
+>  {
+>  	if (!preempt_count()) {
+> @@ -149,7 +163,7 @@ void raw_irqentry_exit_cond_resched(void)
+>  		rcu_irq_exit_check_preempt();
+>  		if (IS_ENABLED(CONFIG_DEBUG_ENTRY))
+>  			WARN_ON_ONCE(!on_thread_stack());
+> -		if (need_resched())
+> +		if (need_resched() && arch_irqentry_exit_need_resched())
+>  			preempt_schedule_irq();
+>  	}
+>  }
+> -- 
+> 2.34.1
+> 
 
