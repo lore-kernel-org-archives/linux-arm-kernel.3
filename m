@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948F3CA0EDB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3E0CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:34:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RR6Li5YSVDXFaaB/n5eOMtqh4EBeFoCLf7S8pn0aiho=; b=SFH8pUCuXuxd6Bcd1DAytZJyf0
-	BhaE18K70uM0hT1sJOMMhqSIg1PBkIUPJRde3FAD4pVNsMNIDU9xwVrOiJWV6kahu8OSWM/Uf5Hod
-	izwaQOT+Q599kWIWQtiw/4wDjAAqZLFW7wQ7gb2IrxnPeN0+cu2WdOB4TP8ufGWOYrYuiQN3sL4G1
-	yxnzwrAlwKbwRIoXm0I57fG6b2kHPGTY/8mHGi5ceDmeAH3hMRZJRfBRzoqjR4eRGVGZ6i22hk3qr
-	y/h2wDt1uIAbsUTilWD2GjcXN7Cjvg9LLaocKuiUChmjyEo8ttN0wCaHBUYnjvTOL2+S/dtkTu4cr
-	9Hbyu7Mg==;
+	bh=lLNl7MI8X4M5cxrMR25hGPEYfSQVqkkWhNzJlEstFA0=; b=RPZrc4SKU9wRwA2nlYxCxNp2bK
+	LGGEoOXJW+/pnEK465gGGOJKQHlmWjlmVchtyBu5oiHnkPAPwYAk9YMwXuXZePvlazMdR95I7tRIj
+	l9yd0c29RfnTtzOOHWEP6nxyUNTKlla8rLW2uNSfHuLMDEuGG3eU5bdXsB7rwPml4tJDt60Nv3i+z
+	VPMONvcBFzNATfRoFyV8+xXOszL/448f83gRolBrBrxwd3sLUWQSyOlSDrvuGFUggM97kdzPPz6tu
+	VHVz/rx3x6rOcXKbwekXvSQVCOzeelFMWjwN3R3n1BRUbSHbLbsmFzyD55mNlfRAOGMFwiQX/QIyf
+	V0glNVCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uluiQ-0000000BrOJ-0fX6;
-	Tue, 12 Aug 2025 19:31:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ulukv-0000000Brkm-14tJ;
+	Tue, 12 Aug 2025 19:33:57 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsbl-0000000BX3Q-2O6w
+	id 1ulsqm-0000000BaTc-1458
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 17:16:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 20FDB46326
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 17:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06105C4CEFB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 17:16:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755018981;
-	bh=hiKx5h6WgJ1kRSlNqANQXTbZ/qufuAsjkmYJWLdzY/A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rrx7ONevt651nfLg0mqbamZT+I9vsT7FOdqYPWXahJLbdCSR9mxCrDH69WVkjOJFJ
-	 sQrSPjjyETzpVgPm/FHFSlCO56TxP9G1ojEVjiQONhbWjmHp/jN3AGYxeDXB4e9tl1
-	 glmCD6QGhW2LROTweKFIBVLIf3b2wlfF0JZzidE0Sv/duoSwFiK67XXeW0tyfVD0p1
-	 qFw12ZcpeprdH93mFyOicmwAeeVdeemJK2Apu8OvKbP5yYC2TKznK1bubWNGb9egnq
-	 3Gt1V6Wv6p+XqgkHEaM4Xh6Q+NAEFXFo+NMzcls9CuGdnwu7g9utWKlCFpqWlmxiMv
-	 j2QJ2LTmx0ywA==
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-af97c0290dcso1003626366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 10:16:20 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWQQG5V7LW4LuWg4YXXsYHlYx9mEk1CKT6l2sETHhNxU/f84I/cQVhPgt3OHJYGUOzaUEfx40jLt78lezlnD06n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzf3YIWA8Dv36VIxVhqrpDo6vcpbGaySDWYvlUuoxba9lIy5dPP
-	BABTwFHjKsHrKmEsynpMT4EaSujHfBFnP+mdiVh1ZSc97w8Fv6WWN5EoIU/JlruyEODm8Th1PcJ
-	GXZ6tfw0ZvPD+uAIn+S+3vHdeUVAtIw==
-X-Google-Smtp-Source: AGHT+IEBE2ikhAU2DNl85LpL+NhY5CizUSURSGTC9MFOW45Us0P1xe9kfUVQc4IbWaS2z6b1ZX94B9hdIEwvFsOIwvk=
-X-Received: by 2002:a17:906:c145:b0:ae3:4f80:ac4c with SMTP id
- a640c23a62f3a-afca4cca31fmr10795866b.12.1755018979494; Tue, 12 Aug 2025
- 10:16:19 -0700 (PDT)
+	Tue, 12 Aug 2025 17:31:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1755019909;
+ bh=lLNl7MI8X4M5cxrMR25hGPEYfSQVqkkWhNzJlEstFA0=;
+ b=c/A+57ABEc86qFRkbT3YxSoUTbk1suErG6+UYUEVudmnMctx2i3e+4mauZi7y5BuVtasDxxmK
+ dmkb6agWunYlH+g7vP1xsLY5VxFRnRYHMiW2F8UuAv2hrX+3rXOjXZsnKBLWBWxWBJtiiMCS8Ke
+ MBZGTCMeD5YgtZqjk4GCGRMTsJWyZHBke4KsWjqAdZN3qwToof8kme/gPXzu5pT3LSmkcTUBO05
+ C9RkclPkmcta6oV9mG95nZEkEPUKIIfo5UHWYcj6VwUBdR9n7fGWmp16/WFg1zg7/5ahC3C1+IA
+ mavOTTFDqHfNwJdyjAyvfLvHpKENsPslfoL02B6Eq0kw==
+X-Forward-Email-ID: 689b7a6df092412ac2631c2f
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 1.2.4
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <efdf8c99-d166-4b78-afc5-d4a6eb5ac046@kwiboo.se>
+Date: Tue, 12 Aug 2025 19:31:20 +0200
 MIME-Version: 1.0
-References: <cover.1754996033.git.christophe.leroy@csgroup.eu>
- <0b56ef403a7c8d0f8305e847d68959a1037d365e.1754996033.git.christophe.leroy@csgroup.eu>
- <0fd6fefc-9fad-4ea6-a619-e9f480747ac0@kernel.org>
-In-Reply-To: <0fd6fefc-9fad-4ea6-a619-e9f480747ac0@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 12 Aug 2025 12:16:08 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+1Aw5AyBeW+BhTuyWZ8BN8BJUq047oJCDKVQPZWxWYCA@mail.gmail.com>
-X-Gm-Features: Ac12FXw2MCpi_Gef6Ss--eZgTnXi88_EsAQqYxE-YlC_gadE4Co6lYS79wZ_vkE
-Message-ID: <CAL_Jsq+1Aw5AyBeW+BhTuyWZ8BN8BJUq047oJCDKVQPZWxWYCA@mail.gmail.com>
-Subject: Re: [PATCH 4/4] dt-bindings: soc: fsl: qe: Add an interrupt
- controller for QUICC Engine Ports
-To: Krzysztof Kozlowski <krzk@kernel.org>, Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Alex Bee <knaerzche@gmail.com>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+ <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
+ <1dd29158-0660-4254-ac00-1316768d9b82@kwiboo.se>
+ <91864a1c047d2bdfce202b070716a694ede47d5e.camel@collabora.com>
+ <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_101621_649021_9719045A 
-X-CRM114-Status: GOOD (  26.47  )
+X-CRM114-CacheID: sfid-20250812_103152_477297_D2302FE7 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,74 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 10:23=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On 12/08/2025 13:02, Christophe Leroy wrote:
-> > The QUICC Engine provides interrupts for a few I/O ports. This is
-> > handled via a separate interrupt ID and managed via a triplet of
-> > dedicated registers hosted by the SoC.
-> >
-> > Implement an interrupt driver for it for that those IRQs can then
-> > be linked to the related GPIOs.
-> >
-> > Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> > ---
-> >  .../soc/fsl/cpm_qe/fsl,qe-ports-ic.yaml       | 63 +++++++++++++++++++
-> >  1 file changed, 63 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/soc/fsl/cpm_qe/fs=
-l,qe-ports-ic.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-po=
-rts-ic.yaml b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports=
--ic.yaml
-> > new file mode 100644
-> > index 0000000000000..7c98706d03dd1
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/soc/fsl/cpm_qe/fsl,qe-ports-ic.=
-yaml
-> > @@ -0,0 +1,63 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +
-> > +title: Freescale QUICC Engine I/O Ports Interrupt Controller
-> > +
-> > +maintainers:
-> > +  - name: Christophe Leroy
-> > +    email: christophe.leroy@csgroup.eu
->
-> Oh no...
->
-> > +
-> > +description: |
-> > +  Interrupt controller for the QUICC Engine I/O ports found on some
-> > +  Freescale/NXP PowerQUICC and QorIQ SoCs.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - fsl,mpc8323-qe-ports-ic
-> > +      - fsl,mpc8360-qe-ports-ic
-> > +      - fsl,mpc8568-qe-ports-ic
-> > +
-> > +  reg:
-> > +    description: Base address and size of the QE I/O Ports Interrupt C=
-ontroller registers.
-> > +    minItems: 1
-> > +    maxItems: 1
->
-> This was never tested but more important this and everything further
-> looks like generated by AI. Please don't do that or at least mark it
-> clearly, so I will prioritize accordingly (hint: AI generates poor code
-> and burden to decipher AI slop should not be on open source reviewers
-> but on users of AI, but as one of maintainers probably you already know
-> that, so sorry for lecturing).
+On 8/12/2025 2:44 PM, Nicolas Dufresne wrote:
+> I forgot, 
+> 
+> Le mardi 12 août 2025 à 08:38 -0400, Nicolas Dufresne a écrit :
+>>> JCT-VC-HEVC_V1 on GStreamer-H.265-V4L2SL-Gst1.0:
+>>>
+>>> - DBLK_D_VIXS_2 (fail)
+>>> - DSLICE_A_HHI_5 (fail)
+>>> - EXT_A_ericsson_4 (fail)
+>>> - PICSIZE_A_Bossen_1 (error)
+>>> - PICSIZE_B_Bossen_1 (error)
+>>> - PICSIZE_C_Bossen_1 (error)
+>>> - PICSIZE_D_Bossen_1 (error)
+>>> - SAODBLK_A_MainConcept_4 (fail)
+>>> - SAODBLK_B_MainConcept_4 (fail)
+>>> - TSUNEQBD_A_MAIN10_Technicolor_2 (error)
+> 
+> I'me getting the same result if I force a single job in fluster. The test I
+> posted was with 2 jobs. Detlev found that the iommu reset is required in more
+> cases on RK3588/3576, perhaps the HEVC decoder in older hardware needs the same,
+> I will try and report.
 
-If anyone needs some AI (chatgpt) converted bindings, my "dt-convert"
-branch has ~800 of them. Feeding the warnings back to AI to fix was
-somewhat effective. The result is not the worst I've seen submitted.
-It saves some of the boilerplate, but can't fix things that are just
-wrong or unclear in .txt bindings. Despite my 'prompt engineering'
-attempts, it still tends to get the same things wrong over and over.
+Vendor kernel [1] check following bits from RKVDEC_REG_INTERRUPT reg to
+decide if a full HW reset should be done.
 
-Rob
+  err_mask = RKVDEC_BUF_EMPTY_STA
+  	   | RKVDEC_BUS_STA
+  	   | RKVDEC_COLMV_REF_ERR_STA
+  	   | RKVDEC_ERR_STA
+  	   | RKVDEC_TIMEOUT_STA;
+
+Adding proper reset support can be rather involved and main reason why
+this series does not handle it, better suited for a separate future
+series.
+
+Proper HW reset will require e.g. dt-bindings, DT updates, pmu idle
+request integration and for rk3328 vendor even moved VPU reset to TF-A.
+
+Doing the iommu detach/attach dance not only on RKVDEC_SOFTRESET_RDY
+could possible improve some cases, until full reset can be implemented.
+
+[1] https://github.com/Kwiboo/linux-rockchip/blob/linux-6.1-stan-rkr6.1/drivers/video/rockchip/mpp/mpp_rkvdec.c#L924-L931
+
+Regards,
+Jonas
+
+> 
+> Nicolas
+
 
