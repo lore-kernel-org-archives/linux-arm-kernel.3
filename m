@@ -4,72 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E32CCA0EE1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 726F4C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NJTq8lHNpyrFFGrDGzcN4lwztTfrWDLPgeOl2/nCeo=; b=QnoYZJIlS5cfS7DOMriGdWCJjd
-	whueR1oho85J5IR1N32bp80fKBeYx/OyMK1UkYT8AY6NlzYU/NECATvbNv5OulMLF1F5W5eXVE/3Q
-	5RzRXKklk7H8TgvmiQRjiGiVfWSxi/i2fXlCkiXs+wE1e3xRATBDEsDIAWGFNvNYq7s/muHN4TEKv
-	yaxczZ9k5ZmQ444IF/Rrjn2beCIeEAzdwmoVyCHap1wv5RX+C+h+E/Umhj3BqbeKAGIxsDmPKwsZm
-	BEFO7LNBuqyAVoxtrC60rN7aooeIFfydBgoHq3zuKH87mlvlSxvC/saR6+uIGvmQFjjge4Rpq+OKA
-	ptsgcEKw==;
+	bh=ZEi5/+kMRRmkTV9OS3pf7RO6Z2qb6bx38ObZ8KqXbhk=; b=Geg4Lx9ehvIWtB3lRysx2yUnir
+	LAugZwBgIVeX8U7+EaVG6gK/UEqiSm7h8ZBsAgZHJUFIFrIFCgUM85AJRuSKzTvQo77fFRDLYZKDB
+	FmqcjRWlOJk6f/OQ+GUwRm5y7XYE8eG3kXtRIvwB1CjC+0fg5WfIZdlPJhTNvgk044xkClqO9AJ74
+	8PfHnUgDLAoeiWeuOo7loOFTyZtwDIWHuB8Fp88vSq4+lQOFBxP8SHTtgGZo6lH/AkSJjb1n98JoO
+	VncKFuSQ3LoRAbMngB1YdkwQixXDfwnbNWlEsTzKhs0iwVYap3U4gOqj+hfBDYat3aoaXXIOA9Rz3
+	EwKM5RcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrhp-0000000BHM5-09Iv;
-	Tue, 12 Aug 2025 16:18:33 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1ulrhw-0000000BHVD-05z7;
+	Tue, 12 Aug 2025 16:18:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulljf-0000000AReR-3fVp
+	id 1ullvd-0000000ATEt-1r8O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 09:56:08 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id A7B9A3D5;
-	Tue, 12 Aug 2025 11:55:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754992509;
-	bh=Jc6UjfTcQvZWgyuziRpzBFM1KCrtVqYio7YrhWkGjvg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HR/wDnWjoEx6ULy6D4nn+zWGXxDgeyYjkra3kB1vPWDoUNiH9LNSm4NLhq91Jm+eg
-	 0W3+I+BKlvUc8had2s1myxVGNC/2Vl5oBrmBNmb18Ap60IBtTsVPwph/ogC/gOV+fG
-	 7QnPJqG8jllMngW/Th7BLSigM759CA6JBFuS6338=
-Date: Tue, 12 Aug 2025 12:55:43 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Will Whang <will@willwhang.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
- sensor
-Message-ID: <20250812095543.GJ30054@pendragon.ideasonboard.com>
-References: <20250810220921.14307-1-will@willwhang.com>
- <20250810220921.14307-2-will@willwhang.com>
- <20250811-successful-military-dragon-d72486@kuoka>
- <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
- <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
- <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
- <e695c61a-e183-4eea-a7f6-1b2861b2129f@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e695c61a-e183-4eea-a7f6-1b2861b2129f@kernel.org>
+	Tue, 12 Aug 2025 10:08:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2B150A56C70;
+	Tue, 12 Aug 2025 10:08:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9E93C4CEF0;
+	Tue, 12 Aug 2025 10:08:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754993303;
+	bh=DAcn4+KdRlIJxAkm2lFq2UH6KxntI+jsU+V5jw07eJU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=nxjTBXLGaGCKqucmDOePsdgB+WzVCR36epzi9fgyds6EOec2NjeVtkBkD/l2RUJgk
+	 n/EMB+Yh4XxsQu2G35Q47aNQcOuaopcYamPDbpL6QbH4oiE3z38XHGnaMLlPus/DQV
+	 GOdvVJKikgG7XcULz6akobffS+bfD+GnCRzJPWhGG4WCmEZeYHqWagknapWLLmLo3A
+	 KWQcCKe5jAlGQdTTY+X3xK1HmSZyytXqEnF5/+EEpGwHERmY2SlrfZignUy5DYyRnu
+	 yVBaS2s0Md1Aw+guIo3Zo1flE3QgoIs8xMKi1E+azYAMEDi9YdIP3mu6l7CE93xc0n
+	 zy615GS4lhO3g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ulltd-006cTy-3S;
+	Tue, 12 Aug 2025 11:08:21 +0100
+Date: Tue, 12 Aug 2025 11:06:20 +0100
+Message-ID: <86o6sk97mr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	anshuman.khandual@arm.com,
+	robh@kernel.org,
+	james.morse@arm.com,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	ry111@xry111.site,
+	Dave.Martin@arm.com,
+	ahmed.genidi@arm.com,
+	kevin.brodsky@arm.com,
+	scott@os.amperecomputing.com,
+	mbenes@suse.cz,
+	james.clark@linaro.org,
+	frederic@kernel.org,
+	rafael@kernel.org,
+	pavel@kernel.org,
+	ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 6/6] KVM: arm64: initialise SCTLR2_EL1 at __kvm_host_psci_cpu_entry()
+In-Reply-To: <aJpHxLgmy5A/YD7V@e129823.arm.com>
+References: <20250811163340.1561893-1-yeoreum.yun@arm.com>
+	<20250811163340.1561893-7-yeoreum.yun@arm.com>
+	<86qzxh927n.wl-maz@kernel.org>
+	<aJpHxLgmy5A/YD7V@e129823.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yeoreum.yun@arm.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, oliver.upton@linux.dev, anshuman.khandual@arm.com, robh@kernel.org, james.morse@arm.com, mark.rutland@arm.com, joey.gouly@arm.com, ry111@xry111.site, Dave.Martin@arm.com, ahmed.genidi@arm.com, kevin.brodsky@arm.com, scott@os.amperecomputing.com, mbenes@suse.cz, james.clark@linaro.org, frederic@kernel.org, rafael@kernel.org, pavel@kernel.org, ryan.roberts@arm.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_025604_053546_3A086735 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20250812_030825_619261_C8D5E4BA 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +109,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 08:47:12AM +0200, Krzysztof Kozlowski wrote:
-> On 12/08/2025 08:31, Will Whang wrote:
-> > On Mon, Aug 11, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> >> On 12/08/2025 04:47, Will Whang wrote:
-> >>> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> >>>> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
-> >>>>> +description:
-> >>>>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
-> >>>>> +
-> >>>>> +properties:
-> >>>>> +  compatible:
-> >>>>> +    enum:
-> >>>>> +      - sony,imx585
-> >>>>> +      - sony,imx585-mono
-> >>>>
-> >>>> I don't understand this second compatible. Is this different hardware?
-> >>>> Can you point me to "mono" datasheet?
-> >>>>
-> >>>> Your description should explain this. Commit msg as well, instead of
-> >>>> speaking about driver (in fact drop all driver related comments).
-> >>>>
-> >>> Mono version of this sensor is basically just removing the bayer
-> >>> filter, so the sensor itself actually doesn't know if it is color or
-> >>> mono and from my knowledge there are no registers programmed in the
-> >>> factory that will show the variant and model number. (That is why when
-> >>> the driver probing it only test blacklevel register because there are
-> >>> no ID registers)
-> >>> Originally in V1 patch I've made the switch between color and mono in
-> >>> dtoverlay config but reviewer comments is to move it to compatible
-> >>> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
-> >>
-> >> You only partially answer and judging by mentioning driver below:
-> >>
-> >>> In this case, what would you recommend?
-> >>>
-> >>> compatible:
-> >>>   enum:
-> >>>     - sony,imx585
-> >>>     - sony,imx585-mono
-> >>>   description: IMX585 has two variants, color and mono which the
-> >>> driver supports both.
-> >>
-> >> ... I still have doubts that you really understand what I am asking. Is
-> >> this one device or two different devices?
-> > 
-> > One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
-> > (Color). Silicon-wise the difference is just with or without bayer
-> > filter.
+On Mon, 11 Aug 2025 20:43:00 +0100,
+Yeoreum Yun <yeoreum.yun@arm.com> wrote:
 > 
-> Then I would propose to use sony,imx585-aamj1 and -aaqj1 with short
-> explanation either in comment or description about difference in RGB
-> mosaic filter.
+> Hi Marc,
+> 
+> > > initialise SCTLR2_EL1 at __kvm_host_psci_cpu_entry().
+> >
+> > Same comment, I don't think this is an acceptable commit message.
+> > Please ask for help if you don't feel confident writing it (I'm sure
+> > some of your colleagues will be happy to help).
+> 
+> Okay. I'll rewrite the commit message
+> 
+> > > @@ -219,6 +220,8 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
+> > >  		release_boot_args(boot_args);
+> > >
+> > >  	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
+> > > +	if (alternative_has_cap_unlikely(ARM64_HAS_SCTLR2))
+> > > +		write_sysreg_el1(INIT_SCTLR2_EL1, SYS_SCTLR2);
+> > >  	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
+> > >
+> > >  	__host_enter(host_ctxt);
+> >
+> > This needs to be folded into patch #1.
+> >
+> > Otherwise, there is a window of patches where the kernel will not
+> > survive CPU hotplug when booted in protected mode.
+> 
+> Do you mean fold this patch into patch #2 where initialise
+> SCTLR2_ELx?
 
-Works for me. We could possibly omit the "j1" suffix too.
+Yes, sorry, I got it mixed with HCRX_EL2. Patch #2 is where it should
+land indeed.
+
+	M.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Without deviation from the norm, progress is not possible.
 
