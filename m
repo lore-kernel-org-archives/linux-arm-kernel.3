@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B6FCA0EDB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90230CA0EE1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BiX6QaLCf+Gee0jFujsaZSJPx86EVrgq8Xqh0dk1RC8=; b=fOJz4SuKTNzKS/N2yLKfPUrd0J
-	CZtXbdFxuWzLbYrcHaSda9q3QBgC2Oq8h8bvVg5L0Ym0n9UAY2BdTmYItjoLw/0/AUisRE/I4dUZT
-	ZXyGVi9Ib79ep52QTpg70y9iXuty5Jqdf1kcGDkI6vX1h8//qQqXflIElDxp17Iqg9m66DUJgbLjg
-	Sm9LQ7wVWVL0ZgahxkCtbwmqLa7y/dypucP1xfYyFFS6T15i9E81SO5U+/rE7Aq0orYdN77q+psrO
-	60EGNB5ApLjFR099dRlW+7Vo3ufKk0P3p1PFDEiOxU/X0eYQeiX2dZzvTxCMcJaMIxqD4D83jXmt/
-	ByIzutvw==;
+	bh=emt1T3ZyltHw2/q19VQmETvollJyrBpStWIWZq3CIwQ=; b=maXDYZoAFon69X/D5P+AzvVZDz
+	vvhihdm0vQJESeUW4NtyN/LutD8hFVRKnfbQTja5kiIchLAOJsm3BSwEGG7a5TPRM3S4qknk1cuNu
+	LL1nYFKyWj17C5CoNQdvilGO1STKtY0gujcQiSmBkL6LsY678V9Fa4DZ3LLaJuL02YMKGnj8a7Azq
+	JHpf00vZ8VEfP4cabGZQOWyzxcFX2JCDqhyy64iGWdKF3GCrZ3anfqxg6rg8OP/JA0gVoDauFTwWK
+	56b6rc/5zl4zdaOvN2QzMjYVdEr/fquYqyO9gchtnJUxjZGlbGzVVuEi8CYGcUj/VbMr38y1Tofem
+	qHHa2hMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgb-0000000Bx0U-3gxS;
-	Tue, 12 Aug 2025 20:33:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ulvgc-0000000Bx23-2zGm;
+	Tue, 12 Aug 2025 20:33:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ultVh-0000000BgwG-3KbN
+	id 1ultVq-0000000Bgx3-2kDC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:14:10 +0000
+	Tue, 12 Aug 2025 18:14:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 839F143418;
-	Tue, 12 Aug 2025 18:14:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41965C4CEF1;
-	Tue, 12 Aug 2025 18:14:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A95E601F0;
+	Tue, 12 Aug 2025 18:14:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADC5DC4CEF0;
+	Tue, 12 Aug 2025 18:14:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755022449;
-	bh=2HcrAtW1n+j1v5rCttzhJ6ANTPblo/LyGNkzIEeCNj4=;
+	s=k20201202; t=1755022457;
+	bh=ThHGHTyzwNeckqRjA6jFRanhR25pKbOAfjn7DiPYiL8=;
 	h=From:To:Cc:Subject:Date:From;
-	b=N4o67IzqOZ/ryfiqkNPCawiGI7IpviogOApP9QbMXTWSl0qVeiJJojDUcbqHZr/Tj
-	 pjDeOjwgPF28MqVSq/WELXbLzYyx8RFYAfyF/ZGLun/HD5krkwa2m70LIo6Rqa7frH
-	 nHSgsZfur/klpkbnnIv9+0O59+1CmbUXEul1fG2roD3oTd9yb5Ui0sEVXRgAOPi80e
-	 S8JOX8CtZCe5YyheNTtBsFswdpmyPCkwVn9eeQUwQat6aYdxshulP4bPEAvOGTkk5h
-	 Z7m5oq35QgGmCzEWFuIdceC1x7odgE8OL+4q8Fy9LZC6/UO1/tDFmMZeyD9L1hXk5k
-	 7twqdQpddEf5Q==
+	b=XIDlMPs7R+aaNs2og+lWVsCgec3C3MWWFZeOVfXg4PzYpKJwQ6KMkQR+F2qwxadaY
+	 KlSTJbOS+PDCCnbObUpzc/HpBCXAZo8QMZRGmspB1PWGMFiG4pUJxt5/uB54N714Gq
+	 ha7chKgIWEYnu2Gf/gGmPorB7hpTCldAgfuYYwYmHe2Q1vu/hlPJ3WPF/VH5OX2WRl
+	 /HU0Jd9IwNdim9WiYUSzaF0tRpMmdllCqLNcU1OcqhEr4BDW7WRIIkUr4mLIQ9w5o8
+	 vOGvR1ekdEL7TdkOmqIRZCXHs+Hdb7oMr20YWxVLzB69WFF8Unt5Y0Rsd9Hyn+u42p
+	 efwIboJK1vWkQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Jassi Brar <jassisinghbrar@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -52,15 +52,12 @@ To: Jassi Brar <jassisinghbrar@gmail.com>,
 Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: mailbox: Convert brcm,iproc-pdc-mbox to DT schema
-Date: Tue, 12 Aug 2025 13:14:04 -0500
-Message-ID: <20250812181406.65390-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: mailbox: Convert brcm,iproc-flexrm-mbox to DT schema
+Date: Tue, 12 Aug 2025 13:14:13 -0500
+Message-ID: <20250812181415.66923-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_111409_874156_F734827C 
-X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,119 +72,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Broadcom iProc PDC mailbox binding to DT schema format. It's
-a straightforward conversion.
+Convert the Broadcom FlexRM Ring Manager binding to DT schema format.
+It's a straightforward conversion.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/mailbox/brcm,iproc-pdc-mbox.txt  | 25 -------
- .../bindings/mailbox/brcm,iproc-pdc-mbox.yaml | 66 +++++++++++++++++++
- 2 files changed, 66 insertions(+), 25 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.txt
- create mode 100644 Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.yaml
+ .../mailbox/brcm,iproc-flexrm-mbox.txt        | 59 -----------------
+ .../mailbox/brcm,iproc-flexrm-mbox.yaml       | 63 +++++++++++++++++++
+ 2 files changed, 63 insertions(+), 59 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt
+ create mode 100644 Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml
 
-diff --git a/Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.txt b/Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.txt
+diff --git a/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt b/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt
 deleted file mode 100644
-index 9bcdf2087625..000000000000
---- a/Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.txt
+index bf0c998b8603..000000000000
+--- a/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.txt
 +++ /dev/null
-@@ -1,25 +0,0 @@
--The PDC driver manages data transfer to and from various offload engines
--on some Broadcom SoCs. An SoC may have multiple PDC hardware blocks. There is
--one device tree entry per block.  On some chips, the PDC functionality is
--handled by the FA2 (Northstar Plus).
+@@ -1,59 +0,0 @@
+-Broadcom FlexRM Ring Manager
+-============================
+-The Broadcom FlexRM ring manager provides a set of rings which can be
+-used to submit work to offload engines. An SoC may have multiple FlexRM
+-hardware blocks. There is one device tree entry per FlexRM block. The
+-FlexRM driver will create a mailbox-controller instance for given FlexRM
+-hardware block where each mailbox channel is a separate FlexRM ring.
 -
 -Required properties:
--- compatible : Should be "brcm,iproc-pdc-mbox" or "brcm,iproc-fa2-mbox" for
--  FA2/Northstar Plus.
--- reg: Should contain PDC registers location and length.
--- interrupts: Should contain the IRQ line for the PDC.
--- #mbox-cells: 1
--- brcm,rx-status-len: Length of metadata preceding received frames, in bytes.
+---------------------
+-- compatible:	Should be "brcm,iproc-flexrm-mbox"
+-- reg:		Specifies base physical address and size of the FlexRM
+-		ring registers
+-- msi-parent:	Phandles (and potential Device IDs) to MSI controllers
+-		The FlexRM engine will send MSIs (instead of wired
+-		interrupts) to CPU. There is one MSI for each FlexRM ring.
+-		Refer devicetree/bindings/interrupt-controller/msi.txt
+-- #mbox-cells:	Specifies the number of cells needed to encode a mailbox
+-		channel. This should be 3.
+-
+-		The 1st cell is the mailbox channel number.
+-
+-		The 2nd cell contains MSI completion threshold. This is the
+-		number of completion messages for which FlexRM will inject
+-		one MSI interrupt to CPU.
+-
+-		The 3rd cell contains MSI timer value representing time for
+-		which FlexRM will wait to accumulate N completion messages
+-		where N is the value specified by 2nd cell above. If FlexRM
+-		does not get required number of completion messages in time
+-		specified by this cell then it will inject one MSI interrupt
+-		to CPU provided at least one completion message is available.
 -
 -Optional properties:
--- brcm,use-bcm-hdr:  present if a BCM header precedes each frame.
+---------------------
+-- dma-coherent:	Present if DMA operations made by the FlexRM engine (such
+-		as DMA descriptor access, access to buffers pointed by DMA
+-		descriptors and read/write pointer updates to DDR) are
+-		cache coherent with the CPU.
 -
 -Example:
--	pdc0: iproc-pdc0@612c0000 {
--		compatible = "brcm,iproc-pdc-mbox";
--		reg = <0 0x612c0000 0 0x445>;  /* PDC FS0 regs */
--		interrupts = <GIC_SPI 187 IRQ_TYPE_LEVEL_HIGH>;
--		#mbox-cells = <1>;   /* one cell per mailbox channel */
--		brcm,rx-status-len = <32>;
--		brcm,use-bcm-hdr;
--	};
-diff --git a/Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.yaml b/Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.yaml
+---------
+-crypto_mbox: mbox@67000000 {
+-	compatible = "brcm,iproc-flexrm-mbox";
+-	reg = <0x67000000 0x200000>;
+-	msi-parent = <&gic_its 0x7f00>;
+-	#mbox-cells = <3>;
+-};
+-
+-crypto@672c0000 {
+-	compatible = "brcm,spu2-v2-crypto";
+-	reg = <0x672c0000 0x1000>;
+-	mboxes = <&crypto_mbox 0 0x1 0xffff>,
+-		 <&crypto_mbox 1 0x1 0xffff>,
+-		 <&crypto_mbox 16 0x1 0xffff>,
+-		 <&crypto_mbox 17 0x1 0xffff>,
+-		 <&crypto_mbox 30 0x1 0xffff>,
+-		 <&crypto_mbox 31 0x1 0xffff>;
+-};
+diff --git a/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml b/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml
 new file mode 100644
-index 000000000000..5534ae07c9fa
+index 000000000000..c801bd2e95f3
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/brcm,iproc-pdc-mbox.yaml
-@@ -0,0 +1,66 @@
++++ b/Documentation/devicetree/bindings/mailbox/brcm,iproc-flexrm-mbox.yaml
+@@ -0,0 +1,63 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/mailbox/brcm,iproc-pdc-mbox.yaml#
++$id: http://devicetree.org/schemas/mailbox/brcm,iproc-flexrm-mbox.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Broadcom iProc PDC mailbox
++title: Broadcom FlexRM Ring Manager
 +
 +maintainers:
 +  - Ray Jui <rjui@broadcom.com>
 +  - Scott Branden <sbranden@broadcom.com>
 +
 +description:
-+  The PDC driver manages data transfer to and from various offload engines on
-+  some Broadcom SoCs. An SoC may have multiple PDC hardware blocks. There is one
-+  device tree entry per block. On some chips, the PDC functionality is handled
-+  by the FA2 (Northstar Plus).
++  The Broadcom FlexRM ring manager provides a set of rings which can be used to
++  submit work to offload engines. An SoC may have multiple FlexRM hardware
++  blocks. There is one device tree entry per FlexRM block. The FlexRM driver
++  will create a mailbox-controller instance for given FlexRM hardware block
++  where each mailbox channel is a separate FlexRM ring.
 +
 +properties:
 +  compatible:
-+    enum:
-+      - brcm,iproc-pdc-mbox
-+      - brcm,iproc-fa2-mbox
++    const: brcm,iproc-flexrm-mbox
 +
 +  reg:
 +    maxItems: 1
 +
-+  dma-coherent: true
-+
-+  interrupts:
++  msi-parent:
 +    maxItems: 1
 +
 +  '#mbox-cells':
-+    const: 1
++    description: >
++      The 1st cell is the mailbox channel number.
 +
-+  brcm,rx-status-len:
-+    description:
-+      Length of metadata preceding received frames, in bytes.
-+    $ref: /schemas/types.yaml#/definitions/uint32
++      The 2nd cell contains MSI completion threshold. This is the number of
++      completion messages for which FlexRM will inject one MSI interrupt to CPU.
 +
-+  brcm,use-bcm-hdr:
-+    type: boolean
-+    description:
-+      Present if a BCM header precedes each frame.
++      The 3rd cell contains MSI timer value representing time for which FlexRM
++      will wait to accumulate N completion messages where N is the value
++      specified by 2nd cell above. If FlexRM does not get required number of
++      completion messages in time specified by this cell then it will inject one
++      MSI interrupt to CPU provided at least one completion message is
++      available.
++    const: 3
++
++  dma-coherent: true
 +
 +required:
 +  - compatible
 +  - reg
-+  - interrupts
++  - msi-parent
 +  - '#mbox-cells'
-+  - brcm,rx-status-len
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    mailbox0@612c0000 {
-+        compatible = "brcm,iproc-pdc-mbox";
-+        reg = <0x612c0000 0x445>;
-+        interrupts = <GIC_SPI 187 IRQ_TYPE_LEVEL_HIGH>;
-+        #mbox-cells = <1>;
-+        brcm,rx-status-len = <32>;
-+        brcm,use-bcm-hdr;
++    mailbox@67000000 {
++        compatible = "brcm,iproc-flexrm-mbox";
++        reg = <0x67000000 0x200000>;
++        msi-parent = <&gic_its 0x7f00>;
++        #mbox-cells = <3>;
++        dma-coherent;
 +    };
 -- 
 2.47.2
