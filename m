@@ -4,68 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869DBCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:18:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAD8CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:
-	Subject:CC:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=crhlZ27g4TUM573iiD8kotFvcsvZbOjV/R2z9geUIeQ=; b=FNqSZCPD0MRhJAmuln/QJZS/DO
-	T5TXZN6I+QRAWZCzKQWB3qfbitp+0N85RjhZUwRIlsOTfkJED6uP2jLonczp4qYwDg4cH9vTw1gPD
-	nP9o6cL858B949I4hANbAE3HYuIzX9FMq3wbJKksCsLg5rPkhUlQS0yzRgR8/wjx+J5JiO4QoxV+w
-	g+UkOJ+r9c8nMg5VM5EdmEleSwKWHhv4HwOqx54N/kgiI0h5GBOb46uBFPELSzJLhqIFH7oX9mffh
-	rmrQS2VB8DKc1DE34qQ1GVvih6I1W8Ddybb/Mg3yz82NNGQnKnBGIAdJC+ARUQ/K+dra7M0oSNllx
-	TefhffGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HPTcCCtVVebCSCFqhjYn1iuSA7I2nA7b2tvtUS0MQzQ=; b=Jub8GhSZq323KmP9Vz/wG6BF3x
+	jDGKsSXb0A9FXxJzbX+m7kditXXGP1oiLSTiNI3ZzHeAcRjdRfUTQoa1iS+yrU99CUx5J4qr3itqa
+	uBWOrKmRviG5yrZQF4U+qdxd9WhhTOBvFic/Lrmg2BQVrIWkgYIB2wzTYkwCTAlEx7U0efzd+SOs/
+	jP3iYjlRX8nX375CmJ4GrKGv2UCSKgTgUzBU+5Yd+vU2T45iY1GhVL6mVufUC9+7V5KtAGMw/oZib
+	lZtWY1J01PLI6+NM9s50bPal1+dLWjsBIKSYCYdASXt6/B3ae48Nw68n2pB8UyC+eM40Q4O/l/3YI
+	mxJoCyRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulri5-0000000BHlr-3UxO;
-	Tue, 12 Aug 2025 16:18:49 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1ulrhz-0000000BHab-2cMo;
+	Tue, 12 Aug 2025 16:18:43 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulm1p-0000000AUOA-1eA9
+	id 1ullvt-0000000ATGU-3TnJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 10:14:51 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4c1S2Y2B3zz13N3g;
-	Tue, 12 Aug 2025 18:11:17 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 413741402EB;
-	Tue, 12 Aug 2025 18:14:40 +0800 (CST)
-Received: from kwepemq200018.china.huawei.com (7.202.195.108) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 12 Aug 2025 18:14:34 +0800
-Received: from [10.67.121.177] (10.67.121.177) by
- kwepemq200018.china.huawei.com (7.202.195.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 12 Aug 2025 18:14:34 +0800
-CC: <yangyicong@hisilicon.com>, <robh@kernel.org>,
-	<anshuman.khandual@arm.com>, <jonathan.cameron@huawei.com>,
-	<hejunhao3@huawei.com>, <linuxarm@huawei.com>, <prime.zeng@hisilicon.com>,
-	<xuwei5@huawei.com>, <wangyushan12@huawei.com>
-Subject: Re: [PATCH 2/2] perf: arm_pmuv3: Don't use PMCCNTR_EL0 on SMT cores
-To: James Clark <james.clark@linaro.org>, <will@kernel.org>,
-	<mark.rutland@arm.com>, <linux-arm-kernel@lists.infradead.org>
-References: <20250812080830.20796-1-yangyicong@huawei.com>
- <20250812080830.20796-3-yangyicong@huawei.com>
- <3d37844a-63c5-49c2-9d6d-7c3665a95466@linaro.org>
-From: Yicong Yang <yangyicong@huawei.com>
-Message-ID: <931e26ef-bdc6-5f9e-8976-d5a4b8e6e81f@huawei.com>
-Date: Tue, 12 Aug 2025 18:14:33 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	Tue, 12 Aug 2025 10:08:42 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 12 Aug
+ 2025 18:08:30 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 12 Aug 2025 18:08:30 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
+	<kevin_chen@aspeedtech.com>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>
+Subject: [PATCH v4 2/2] Irqchip/ast2700-intc: add debugfs support and AST2700 INTC0/INTC1 routing/protection display
+Date: Tue, 12 Aug 2025 18:08:30 +0800
+Message-ID: <20250812100830.145578-3-ryan_chen@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250812100830.145578-1-ryan_chen@aspeedtech.com>
+References: <20250812100830.145578-1-ryan_chen@aspeedtech.com>
 MIME-Version: 1.0
-In-Reply-To: <3d37844a-63c5-49c2-9d6d-7c3665a95466@linaro.org>
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.177]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemq200018.china.huawei.com (7.202.195.108)
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_031449_725936_A0F74EBA 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20250812_030841_879404_95B85940 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,73 +68,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/8/12 18:00, James Clark wrote:
-> 
-> 
-> On 12/08/2025 9:08 am, Yicong Yang wrote:
->> From: Yicong Yang <yangyicong@hisilicon.com>
->>
->> CPU_CYCLES is expected to count the logical CPU (PE) clock. Currently it's
->> preferred to use PMCCNTR_EL0 for counting CPU_CYCLES, but it'll count
->> processor clock rather than the PE clock (ARM DDI0487 L.b D13.1.3) if
->> one of the SMT siblings is not idle on a multi-threaded implementation.
->> So don't use it on SMT cores.
->>
->> When counting cycles on SMT CPU 2-3 and CPU 3 is idle, without this
->> patch we'll get:
->> [root@client1 tmp]# perf stat -e cycles -A -C 2-3 -- stress-ng -c 1
->> --taskset 2 --timeout 1
->> [...]
->>   Performance counter stats for 'CPU(s) 2-3':
->>
->> CPU2           2880457316      cycles
->> CPU3           2880459810      cycles
->>         1.254688470 seconds time elapsed
->>
->> With this patch the idle state of CPU3 is observed as expected:
->> [root@client1 ~]#  perf stat -e cycles -A -C 2-3 -- stress-ng -c 1
->> --taskset 2 --timeout 1
->> [...]
->>   Performance counter stats for 'CPU(s) 2-3':
->>
->> CPU2           2558580492      cycles
->> CPU3               305749      cycles
->>         1.113626410 seconds time elapsed
->>
->> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
->> ---
->>   drivers/perf/arm_pmuv3.c | 9 +++++++++
->>   1 file changed, 9 insertions(+)
->>
->> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
->> index 95c899d07df5..ed3149632b71 100644
->> --- a/drivers/perf/arm_pmuv3.c
->> +++ b/drivers/perf/arm_pmuv3.c
->> @@ -1002,6 +1002,15 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
->>       if (has_branch_stack(event))
->>           return false;
->>   +    /*
->> +     * The PMCCNTR_EL0 increments from the processor clock rather than
->> +     * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
->> +     * counting on a WFI PE if one of its SMT silbing is not idle on a
->> +     * multi-threaded implementation. So don't use it on SMT cores.
->> +     */
->> +    if (cpumask_weight(topology_sibling_cpumask(smp_processor_id())) > 1)
->> +        return false;
->> +
-> 
-> Isn't this something that's static to the PMU? If all CPUs in each PMU are always the same then this doesn't need to be probed every time and can be set once.
-> 
-we can make use of PMCCNTR_EL0 if the SMT is runtime disabled, e.g. by /sys/devices/system/cpu/smt/control
-if set this at probe time then we permanently lose the chance to use PMCCNTR_EL0.
+AST2700 INTC0/INTC1 nodes ("aspeed,ast2700-intc0/1") not only
+include the interrupt controller child node ("aspeed,ast2700-intc-ic"),
+but also provide interrupt routing and register protection features.
+Adds debugfs entries for interrupt routing and protection status for
+AST2700 INTC0/INTC1.
 
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+ drivers/irqchip/Kconfig            |   6 +
+ drivers/irqchip/Makefile           |   1 +
+ drivers/irqchip/irq-ast2700-intc.c | 174 +++++++++++++++++++++++++++++
+ 3 files changed, 181 insertions(+)
+ create mode 100644 drivers/irqchip/irq-ast2700-intc.c
 
-> Also you can't call smp_processor_id() from here because this is also called in armpmu_event_init() -> __hw_perf_event_init() -> validate_group() before the event is actually scheduled on a CPU. With CONFIG_DEBUG_PREEMPT you'd see the error.
-
-ok, will use raw_smp_processor_id() instead. it won't affect the validation checking in pmu::event_init().
-in pmu::add() the cpu id is always stable so it'll also be fine.
-
-Thanks.
-
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index c3928ef79344..9f6473bf4055 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -97,6 +97,12 @@ config AL_FIC
+ 	help
+ 	  Support Amazon's Annapurna Labs Fabric Interrupt Controller.
+ 
++config AST2700_INTC
++	tristate "AST2700 Interrupt Controller"
++	depends on ARCH_ASPEED
++	help
++	  Support AST2700 Interrupt Controller.
++
+ config ATMEL_AIC_IRQ
+ 	bool
+ 	select GENERIC_IRQ_CHIP
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 23ca4959e6ce..eea0a8699204 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -88,6 +88,7 @@ obj-$(CONFIG_LS_EXTIRQ)			+= irq-ls-extirq.o
+ obj-$(CONFIG_LS_SCFG_MSI)		+= irq-ls-scfg-msi.o
+ obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-vic.o irq-aspeed-i2c-ic.o irq-aspeed-scu-ic.o
+ obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-intc.o
++obj-$(CONFIG_AST2700_INTC)		+= irq-ast2700-intc.o
+ obj-$(CONFIG_STM32MP_EXTI)		+= irq-stm32mp-exti.o
+ obj-$(CONFIG_STM32_EXTI) 		+= irq-stm32-exti.o
+ obj-$(CONFIG_QCOM_IRQ_COMBINER)		+= qcom-irq-combiner.o
+diff --git a/drivers/irqchip/irq-ast2700-intc.c b/drivers/irqchip/irq-ast2700-intc.c
+new file mode 100644
+index 000000000000..7c7241539fe5
+--- /dev/null
++++ b/drivers/irqchip/irq-ast2700-intc.c
+@@ -0,0 +1,174 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * AST2700 Interrupt Controller
++ */
++
++#include <linux/debugfs.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of_address.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/seq_file.h>
++
++/* INTC0 register layout */
++#define INTC0_PROT_OFFS           0x40
++#define INTC0_ROUTING_SEL0_BASE   0x200
++#define INTC0_ROUTING_GAP         0x100
++#define INTC0_GROUPS              4
++
++/* INTC1 register layout */
++#define INTC1_PROT_OFFS           0x00
++#define INTC1_ROUTING_SEL0_BASE   0x80
++#define INTC1_ROUTING_GAP         0x20
++#define INTC1_GROUPS              6
++
++struct aspeed_intc_data {
++	const char                  *name;
++	u32                          prot_offs;
++	u32                          rout_sel0_base;
++	u32                          rout_gap;
++	unsigned int                 groups;
++};
++
++static const struct aspeed_intc_data aspeed_intc0_data = {
++	.name            = "INTC0",
++	.prot_offs       = INTC0_PROT_OFFS,
++	.rout_sel0_base  = INTC0_ROUTING_SEL0_BASE,
++	.rout_gap        = INTC0_ROUTING_GAP,
++	.groups          = INTC0_GROUPS,
++};
++
++static const struct aspeed_intc_data aspeed_intc1_data = {
++	.name            = "INTC1",
++	.prot_offs       = INTC1_PROT_OFFS,
++	.rout_sel0_base  = INTC1_ROUTING_SEL0_BASE,
++	.rout_gap        = INTC1_ROUTING_GAP,
++	.groups          = INTC1_GROUPS,
++};
++
++struct aspeed_intc {
++	void __iomem                    *base;
++	const struct aspeed_intc_data   *data;
++#ifdef CONFIG_DEBUG_FS
++	struct dentry                   *dbg_root;
++#endif
++};
++
++#ifdef CONFIG_DEBUG_FS
++static int aspeed_intc_regs_show(struct seq_file *s, void *unused)
++{
++	struct aspeed_intc *intc = s->private;
++	const struct aspeed_intc_data *d = intc->data;
++	void __iomem *base = intc->base;
++	unsigned int i;
++
++	for (i = 0; i < d->groups; i++) {
++		void __iomem *b = base + d->rout_sel0_base + i * 4;
++		u32 r0 = readl(b);
++		u32 r1 = readl(b + d->rout_gap);
++		u32 r2 = readl(b + 2 * d->rout_gap);
++
++		seq_printf(s, "ROUTE[%u]: 0x%08x 0x%08x 0x%08x\n", i, r0, r1, r2);
++	}
++	return 0;
++}
++
++static int aspeed_intc_regs_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, aspeed_intc_regs_show, inode->i_private);
++}
++
++static const struct file_operations aspeed_intc_regs_fops = {
++	.owner    = THIS_MODULE,
++	.open     = aspeed_intc_regs_open,
++	.read     = seq_read,
++	.llseek   = seq_lseek,
++	.release  = single_release,
++};
++
++static int aspeed_intc_prot_show(struct seq_file *s, void *unused)
++{
++	struct aspeed_intc *intc = s->private;
++	const struct aspeed_intc_data *d = intc->data;
++	u32 prot = readl(intc->base + d->prot_offs);
++
++	seq_printf(s, "%s_PROT: 0x%08x\n", d->name, prot);
++	return 0;
++}
++
++static int aspeed_intc_prot_open(struct inode *inode, struct file *file)
++{
++	return single_open(file, aspeed_intc_prot_show, inode->i_private);
++}
++
++static const struct file_operations aspeed_intc_prot_fops = {
++	.owner    = THIS_MODULE,
++	.open     = aspeed_intc_prot_open,
++	.read     = seq_read,
++	.llseek   = seq_lseek,
++	.release  = single_release,
++};
++#endif /* CONFIG_DEBUG_FS */
++
++static int aspeed_intc_probe(struct platform_device *pdev)
++{
++	const struct aspeed_intc_data *data;
++	struct aspeed_intc *intc;
++	struct resource *res;
++
++	data = of_device_get_match_data(&pdev->dev);
++	if (!data)
++		return -ENODEV;
++
++	intc = devm_kzalloc(&pdev->dev, sizeof(*intc), GFP_KERNEL);
++	if (!intc)
++		return -ENOMEM;
++
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	intc->base = devm_ioremap_resource(&pdev->dev, res);
++	if (IS_ERR(intc->base))
++		return PTR_ERR(intc->base);
++
++	intc->data = data;
++
++	platform_set_drvdata(pdev, intc);
++
++#ifdef CONFIG_DEBUG_FS
++	intc->dbg_root = debugfs_create_dir(dev_name(&pdev->dev), NULL);
++	if (intc->dbg_root) {
++		debugfs_create_file("routing", 0400, intc->dbg_root, intc,
++				    &aspeed_intc_regs_fops);
++		debugfs_create_file("protection", 0400, intc->dbg_root, intc,
++				    &aspeed_intc_prot_fops);
++	}
++#endif
++	return 0;
++}
++
++static void aspeed_intc_remove(struct platform_device *pdev)
++{
++#ifdef CONFIG_DEBUG_FS
++	struct aspeed_intc *intc = platform_get_drvdata(pdev);
++
++	if (intc && intc->dbg_root)
++		debugfs_remove_recursive(intc->dbg_root);
++#endif
++}
++
++static const struct of_device_id aspeed_intc_of_match[] = {
++	{ .compatible = "aspeed,ast2700-intc0", .data = &aspeed_intc0_data },
++	{ .compatible = "aspeed,ast2700-intc1", .data = &aspeed_intc1_data },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, aspeed_intc_of_match);
++
++static struct platform_driver aspeed_intc_driver = {
++	.probe   = aspeed_intc_probe,
++	.remove  = aspeed_intc_remove,
++	.driver  = {
++		.name           = "aspeed-ast2700-intc",
++		.of_match_table = aspeed_intc_of_match,
++	},
++};
++module_platform_driver(aspeed_intc_driver);
+-- 
+2.34.1
 
 
