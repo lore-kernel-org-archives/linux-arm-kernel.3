@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10183CA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70A4CA0EE0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n2pDGvu2eB22QFjf1je4Uit6bFjIzrUYVwBKgpkRJ98=; b=fQH4vRptr1l/M04+1euUQNvJ/U
-	AHIeofyhX6Y72pTFFnObigI9KOenYuzIC1OuB6m+qhay5O+uf+wwfEKWzATWUjFT13323vSr+Okib
-	eTGj/7q1z0XxPQUkLMyO//HWPZ61z4i4vm6wmFOpPEGe/Msgf/nHxnwmYu5YCAdzTES6fqKH5kE1R
-	NV/lQ86/WOh/yXJIuF4xxIgpmGadMDoRgr+emCjPzghLnq2mOA54GUMXVMDbZeyRIt/vICFggJy7B
-	yFXYEwny5pJz+6ChGIDjPNI4UX3YHgY2gMPNtTgVPp838LVYlW1LMz5A37og1BRPJCXlkMvsipwz/
-	qcXG72Kg==;
+	bh=9kI37g+TGqamMTbBje/mg9IaGEYmRq4naVS4/zTf0zA=; b=ywbQqFQB5gKXbIW1EUJCN62wbP
+	nkAgdEhP19756TmCpMECP3ljMa7AhuE5E7g8i5Cj40bt2oHXxiiX8JRps6iAhI9r3iUjA65WhAKq7
+	4KH6GAkX9ya5e2Mbtz+M3VMGX9ATfSsVxbzF4cWjRA1KdAs5bHOHp8okmp9uIK80hqRscS5fBole4
+	sdckWoh++GzSkSCo/zSC19VbKORzZmML2bX8prZxbfylmYG02Az1zvfVuTaCRTGLBnZNFmJ/MLMVA
+	ku4qO3kovYaC+CLIuou9U9v2+8flrS8cRZUEvrqKv34LdgzYQlm+pWBm8YyTcHkI/rlgdAwStCqbt
+	rafK5/SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsq7-0000000BZSD-13Mk;
+	id 1ulsq7-0000000BZTO-49gw;
 	Tue, 12 Aug 2025 17:31:11 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulnsC-0000000Af1m-2Wrh
+	id 1ulnsE-0000000Af2O-0myc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 12:13:01 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3b79bddd604so3163436f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 05:13:00 -0700 (PDT)
+	Tue, 12 Aug 2025 12:13:03 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-45a12b3f4b3so3880525e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 05:13:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1755000779; x=1755605579; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1755000781; x=1755605581; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n2pDGvu2eB22QFjf1je4Uit6bFjIzrUYVwBKgpkRJ98=;
-        b=WyRytyy/GlmBcZUzC6U9N68IV+SjENVtC/C2ElYoG2Uak5qsLb/tolPXSql2e8+h2U
-         EnVItE+B84Zkh+EC6YL5ZYPJX7InjCDcJ1lgllh/qswrDkkHj6v7PBW4WZOYi8htdxlP
-         3M2EnQrWFH1FDA4f+QdsFrUCaeMqPoQoLbCJa3vWteZddzoCOpAtAxA8outluAiRzsDY
-         4zqjM655d9fR9ao23cAoteFMFrcm6ZrTWmxFg42a4WUipmHLg7tU1uVm2Hl1rUAdYnff
-         MdzewpJ/Ux/4kMZYzKvrT6zbL3D1813EkdgvgCHcofS0VogyHC+zYbW73emqV/P8Dy6P
-         t25A==
+        bh=9kI37g+TGqamMTbBje/mg9IaGEYmRq4naVS4/zTf0zA=;
+        b=ihp+Ufun4jwLCGAprd29DAPjZqGyQC9L9YTCQCa/Cwc0wspxeFHUClfgDQP1hYE+tn
+         DRXIgifSPkgkhqMZ72ypi5GFP7zQDoJLtTp9NL/AuEeH6mzh08OeqVilrh0o9H8tcr/V
+         O3qMvy7FY0CbmF4FPcWNdtvxKmBWc/K1ijjGyXd/B7o30QR0yI4eQZb/SMzYulzOsyNo
+         NhpKytS7mDS2JUsmKa7pXvYGxC9Sw+OkQZ4C9uT0atg/4TK0Rdyz1J3pzQTtTonwUSzc
+         exGR1+fCea5Ai6yVwlDhR8OUh1Dpx9f6HS/SqHy4sgS8cOSLmAofvFWIO4vO4ELSY1FG
+         1CVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1755000779; x=1755605579;
+        d=1e100.net; s=20230601; t=1755000781; x=1755605581;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n2pDGvu2eB22QFjf1je4Uit6bFjIzrUYVwBKgpkRJ98=;
-        b=a2p8tom9jyw/UCQAGAVfDmntKjauD8zBf02gRZlIzNU2olpwqZeLyq+yBPlbWFsNmF
-         E4YyhBMLJbDPZvo3lNN1GHOUpE9y93wMvc1ktU32eth0epq4SCHoqi4cNaLvPDht8F6N
-         hiHrIBttd+wqM+usaU8maqheTSM0IR8xZcGNsSokmGx3OLPgZ90OVFIYTv9XZaKFAd0H
-         MwDCgQRgvAvCtUTf5X8b9y6uv6/wLtUudbqRIVMd3ZWlnNWVCmdvUQGiVu3f6LTSZQIK
-         YIIearoL0CZFwf2iU7geDlcKZyvd0lDrmFCv6nCGW8ZTZNGouZ2M/M6HBihIhfpxa0i6
-         3qpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWe0Dk5RQLJa37TP43H140T3e6uQRhyN1iBmS1NMcSZSY2W3gW7UKtpuDwWbq4tR0US1tAaYwJ+jtUImKVmjyAA@lists.infradead.org
-X-Gm-Message-State: AOJu0YyluH2eIol5af0YCsfIja8lNNIEfBJphs2i2IqWawDg+3x+W+RF
-	foXl7nYF7jWqUiEy6bSO8k/XIWy9mk4d5dV3UnEKabLinaFe3hIWdMIMax3YavrjoEY=
-X-Gm-Gg: ASbGnctrS0mgdzac4uH/3MLaSLimT0ES9oJ6H8ONUM10VKDfCxAKDWDbLJOXQbWeCqm
-	pjvg6wDw4OqaO+BNnSsJ851jE8Nt/q/o54iL7hlU/KcqnXmn2EQGaDdH+IOfAIZHVIr4H/FRhCM
-	2597a507hrgdId+3ne71EyQIftUh0qclHSDGXoTjLqRiDVTT35eb3jzJU1hv7FnJUoKF7iE00FB
-	07atN2Cc2RndZ46SAeNVIX4jMnyApUqvd/102dr2tLuH5e8HGDLIab5G5jtf70cPzhbMHFWeSWr
-	PFZYbrpDnLA/lZXseiaoEuSm9gliD4lF/7bu5YEb0mMiuy/87xrTBbGGAL8JKfAeFdUUYiNoDAg
-	YUklLe8cH2XnTZLE=
-X-Google-Smtp-Source: AGHT+IGN3jYzsYBVQXca7oAD/0BQQusDB4bsYzgS6qA4xKDldMmyctpavKuQxOQXivexALoM9jM+dQ==
-X-Received: by 2002:a05:6000:310b:b0:3b7:96cb:2271 with SMTP id ffacd0b85a97d-3b91100ae21mr2612125f8f.37.1755000779223;
-        Tue, 12 Aug 2025 05:12:59 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:16c8:50:27fe:4d94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e6867193sm298878535e9.6.2025.08.12.05.12.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=9kI37g+TGqamMTbBje/mg9IaGEYmRq4naVS4/zTf0zA=;
+        b=ehW41K57ntJ4Mi2PYdB/fatI2YHFvKclR8FOP4XNpU4NhWIwQAUSQDp+HXjbAEUv9T
+         Q7FZlYNFQm8hoErVmHw2UbVr0+KTmqKOmfLubhz/SKjv+0sY1gqjEi5T/h4SwOHsdeaO
+         d2xQxu9RQAwGLjvIMevf7gxOwHJEBTsJ8pATAWH3dRiDqh+lqJj5wgvPHNbPvjT40yHn
+         0H23F2NlfcbLa9wI4UQJDIXL8v6EW1TZd8vvQZlExmSsO9GfdTaIc7G5lKiKm7fttA3v
+         XqyU0o9JnkUH3xuiB5TM4WH/VGn+YatDI6HMSsnIC+i/zXSuPpkHdg5Mo/4U275SgA45
+         E9hg==
+X-Forwarded-Encrypted: i=1; AJvYcCVzdC8TBuQLIf5+IthmRGDJYUGMdUU4WMKv9VGdsOx/Uij0S29i9NV8QW1ZJ5ujbuFeaQgTNWAb1anyZHNFbN4g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxa4sC1d0rXF10js1YU2Lmcx1aVxpI7/QfQISSGr4xBz0rcA6TA
+	pBEfvSV6OxCXa+lai5ZEKbjRjhuWLPos63i1oJZq4eQAozfbCeRXDf1bJKl+yEOTKjftKUwcJ51
+	MUl4L
+X-Gm-Gg: ASbGnctsjgBYr6PEfxSJcsQK8ZuSiQeozTpjxCZ2K/rd48N4yG4tjQ+8y2mgOZCoWXV
+	XefWcEcSaqE25WQaN+lwbo6i2K31KewJW1IGTLbOJ40mpXTKO8XhUkWKOMlTvNB0vr+LkCyh1AA
+	g55TZRzvKwJqpnSOnvO+lU5QMSYktsXTKQszFLXChOo/OF6RygTWSQ8oBJ7zHYixSoTajdCMEs0
+	E2LHrj5+dy3sYFBBnnys1XenBpKVhTMAgKS1KFd41nTGBlKGHavYTZiuo5s1kywsInaKtNfE5JY
+	xk4auB20RQhHW6UydVwd5SmymYjTZg3zd/P2rv3ShdDZFMBX/7nyE5129d3uOvYSIF2u5Qb3e14
+	T4YyWGtc13EElbNLKe3aCqvdAzw==
+X-Google-Smtp-Source: AGHT+IHw5CvbsO/+//TLW6vU07wlWKt9OhY4KdTCKw7kDY2ouaD3KJYhB2udEhSB6VhDjWhTy/BT9Q==
+X-Received: by 2002:a05:600c:1990:b0:456:1006:5418 with SMTP id 5b1f17b1804b1-45a10ba2e85mr33107135e9.13.1755000778093;
         Tue, 12 Aug 2025 05:12:58 -0700 (PDT)
+Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:16c8:50:27fe:4d94])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-459e6867193sm298878535e9.6.2025.08.12.05.12.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 05:12:57 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 12 Aug 2025 14:12:49 +0200
-Subject: [PATCH RESEND 07/14] gpio: ts4800: use new generic GPIO chip API
+Date: Tue, 12 Aug 2025 14:12:48 +0200
+Subject: [PATCH RESEND 06/14] gpio: ts4800: use dev_err_probe()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250812-gpio-mmio-gpio-conv-v1-7-aac41d656979@linaro.org>
+Message-Id: <20250812-gpio-mmio-gpio-conv-v1-6-aac41d656979@linaro.org>
 References: <20250812-gpio-mmio-gpio-conv-v1-0-aac41d656979@linaro.org>
 In-Reply-To: <20250812-gpio-mmio-gpio-conv-v1-0-aac41d656979@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -86,26 +87,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2141;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=906;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=zakPacry7z23T70PXyuXPcLNJS53LcxlBowKWXzkU5o=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBomy/Ai0zdbA9R7kLhmcZdq7CJgxh3wbhU1lkte
- T30n8twZeeJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaJsvwAAKCRARpy6gFHHX
- cuvdEACCH4xT6jGvLc0hzJ3+j0uJSqe3SolQuG4ChaqKeaIWZkTr4h6JKSEml/CLwrEy0keO1xm
- A+CpD5Ai940L1rK3JRNs1EHf5WxBNusLTqiQ5bUxpcrJvNQxA01E+17MIoj14ZJwF+QSTXfpqTj
- 9XyFoDnT/TxHqLGhUSFO5Sy5dWqA2SP0P/ssqJ6TwWB9JuQq/S+rsfoBwXPhEF5ZM8JSU/CzNfz
- WFYsQrXGr3/3A1R3gjE1BXGBkIuh8Jkcu7BK0iH+OhAxtAO8SnV5SpQmeEafkMHKtov+8x85g6e
- 77QRCsd6Xn9q0sjwSwFiLVvWarQqCqtOmMrUJjOMK/04gxXn7uRRoE391orIbqFr+Ult2VnSYQA
- LnKk0+1D95njTGs3dV1cNSjIXWBJQ8Evsta+aFmDiia4db7Ost5/gFbOOaHdZAOghbLggI+AqCk
- jbjG03E7eQckCLIK6No3x3n6s0mx5oP/oO0ryBMQGSOqOfUnRIqM2bb+pdVdcSOahmRX5Ze8Lgr
- RlRsLTZaz04iI7Y0Fuyk5EY6t4qn+/hhm3BTTmLQTQdkTLkKpzGeJ1yMebWVneIWbhZI3gx2zyv
- pAJut1r1Ls/tzHcFrvK4UMty15VHHufejXEwrYqHj0HHlQlZ90jwlg4MFFEuyYCcXpr4GQ10h/y
- 5fuq/iLqQ+2ZsWA==
+ bh=JVVbThM9xH2PXWbYe03tJE2jElHw1ibdCVrW+ltAkLs=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBomy/Ad2G9sZS7ICkDDEmkSScMmuRpmIarjRSCw
+ eKwaldFODaJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaJsvwAAKCRARpy6gFHHX
+ clpND/9QxoBvO0B43u50QTACc0vPVPlKp7dDSnRaclDKK3ELzWruFYW8rtT4Cvlp1QD55NMx719
+ E9hj4fAwjGxzRv7Wz0wwUxNEJT+7WJ1QV5s2DyrhCHV1+IRlaMZlKjiMD61TPnsjLfcsoCFgtf+
+ 6LjOV1z01yD+PWAcWOovSa5YWyGLZQctaw8lk9Ydjzx9jBNk2Vg3A5/vSRKBku7wmAN0MqGiuwr
+ N/V30Kot2L8bzhXMNK4nDSleMacFwg0cId2n5uP6J7Cf0SWpXLiUb1bi9VsCsZlg9M0PUw3rcFl
+ Q7avGt9kvozTD6gW+YZlfHahh4i2onXR+XqeRdZiBj3ii+VsbitUAiuvxQl1X1FSYid+lOEfcnE
+ LUGXDUYikA21nTJ51OaEOV/R4K3qWc6sQTKZ1xa9t9iPsTbmjjo9e+CSZrZm8Vxi+uk5O9rkJVx
+ ECkv6/yD5quCYmO5wJQbrkM08Cp0dCy5mTs8KeUQpThjjjV4BLNbQ0FGx+shWVkxm8k8dN76Z/b
+ hTvsLHH3djOh93GTG++z3iGu64PSLsfu42+yHsjRZ0ri3VhUXFTMZ9SyoB2JsEUg5UzVb5TS6X1
+ YHjNtd9MX4WPXB3FoLh7QF/QCG7xvRD0UObXXTBlHi1RAEn8lCNpjJdbMDtP54hRGBJAovrPYXm
+ 6X5bGIpXpA5cxAQ==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_051300_652868_96C9F934 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20250812_051302_221042_14CDCC44 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,72 +123,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Convert the driver to using the new generic GPIO chip interfaces from
-linux/gpio/generic.h.
+Use dev_err_probe() where applicable.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/gpio/gpio-ts4800.c | 25 +++++++++++++++++--------
- 1 file changed, 17 insertions(+), 8 deletions(-)
+ drivers/gpio/gpio-ts4800.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpio/gpio-ts4800.c b/drivers/gpio/gpio-ts4800.c
-index cb3eeeb1e9df9aa687e880b16f8d0a31b04a3b07..844347945e8e71fa0f456be0ba8de7217f6760a3 100644
+index f4ae87325393c909c66eda3bb7b2f849e645b7a4..cb3eeeb1e9df9aa687e880b16f8d0a31b04a3b07 100644
 --- a/drivers/gpio/gpio-ts4800.c
 +++ b/drivers/gpio/gpio-ts4800.c
-@@ -6,6 +6,7 @@
-  */
+@@ -40,10 +40,8 @@ static int ts4800_gpio_probe(struct platform_device *pdev)
+ 	retval = bgpio_init(chip, &pdev->dev, 2, base_addr + INPUT_REG_OFFSET,
+ 			    base_addr + OUTPUT_REG_OFFSET, NULL,
+ 			    base_addr + DIRECTION_REG_OFFSET, NULL, 0);
+-	if (retval) {
+-		dev_err(&pdev->dev, "bgpio_init failed\n");
+-		return retval;
+-	}
++	if (retval)
++		return dev_err_probe(dev, retval, "bgpio_init failed\n");
  
- #include <linux/gpio/driver.h>
-+#include <linux/gpio/generic.h>
- #include <linux/module.h>
- #include <linux/platform_device.h>
- #include <linux/property.h>
-@@ -17,13 +18,14 @@
+ 	chip->ngpio = ngpios;
  
- static int ts4800_gpio_probe(struct platform_device *pdev)
- {
-+	struct gpio_generic_chip_config config;
- 	struct device *dev = &pdev->dev;
--	struct gpio_chip *chip;
-+	struct gpio_generic_chip *chip;
- 	void __iomem *base_addr;
- 	int retval;
- 	u32 ngpios;
- 
--	chip = devm_kzalloc(&pdev->dev, sizeof(struct gpio_chip), GFP_KERNEL);
-+	chip = devm_kzalloc(dev, sizeof(*chip), GFP_KERNEL);
- 	if (!chip)
- 		return -ENOMEM;
- 
-@@ -37,15 +39,22 @@ static int ts4800_gpio_probe(struct platform_device *pdev)
- 	else if (retval)
- 		return retval;
- 
--	retval = bgpio_init(chip, &pdev->dev, 2, base_addr + INPUT_REG_OFFSET,
--			    base_addr + OUTPUT_REG_OFFSET, NULL,
--			    base_addr + DIRECTION_REG_OFFSET, NULL, 0);
-+	config = (typeof(config)){
-+		.dev = dev,
-+		.sz = 2,
-+		.dat = base_addr + INPUT_REG_OFFSET,
-+		.set = base_addr + OUTPUT_REG_OFFSET,
-+		.dirout = base_addr + DIRECTION_REG_OFFSET,
-+	};
-+
-+	retval = gpio_generic_chip_init(chip, &config);
- 	if (retval)
--		return dev_err_probe(dev, retval, "bgpio_init failed\n");
-+		return dev_err_probe(dev, retval,
-+				     "failed to initialize the generic GPIO chip\n");
- 
--	chip->ngpio = ngpios;
-+	chip->gc.ngpio = ngpios;
- 
--	return devm_gpiochip_add_data(&pdev->dev, chip, NULL);
-+	return devm_gpiochip_add_data(dev, &chip->gc, NULL);
- }
- 
- static const struct of_device_id ts4800_gpio_of_match[] = {
 
 -- 
 2.48.1
