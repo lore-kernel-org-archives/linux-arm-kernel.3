@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F6ACA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:46:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C615FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/5nvAzY4noSQdn3JSFOqq5epYivB4Xu7Z3NLcJ9cec=; b=xqC9cvOMSDp00NeeYVZuJxOPgU
-	VfEbfnjlzjOChZe/3ru6ywGcAXwx96oQfXUDQrbbPlxkrOdokuS2WnECIhWJ9v55HNxNmYuJ+RWGO
-	pRZ9xtiKnfX9xhYC+o4vRaPcxS+JxjLo2O5SkyLyK0uXgJ6P6X2i4KPZpdZl0hAW2kctMSSZDcB1E
-	09j72Fr4B+BtmckZlmKD71BiajrjJN8h53eKhHSmfV+zQFqZJj42Q0QN8VxYxEa03W0i8nXsoQLI8
-	NYuTLpin5o7TU8/kN84Jx7eNOT0D/OkpiU+6KEzKXtWYreKI13fKJkIoPMs46AUYX0eWVYoB9sOuy
-	EPHYSfxg==;
+	bh=9HXIAGVWeTIfFo7D7sVL7oAyXw6WUH5A7BRR641AqI0=; b=Zj+JMbhtYmP5j9/rtP7/JwHkPX
+	oyMOOKMYaWPKd2iR3fAnLwGys0/uGLc3tYTKQYShEcCQhdvejrgBle1jXXCdp1Xj70V7H1E0nV9dM
+	2xhaTiJecyLjDB3nBjg192PrPzqI9+tLaWst0hwrTc81RhG973QToSozmebtHB2JW0huBgB9cIZnB
+	sUSwZSg7DZdiNib7dxspdjLe9r/UeSK/VQAXwtnmdMYShqAMIyuiVtuN8N9dYet5wMDiigDrUnCVv
+	5ldWyH+aha81JecDU3l+pE0eAr8bXDtviR+QXu2Bi4BpchZHBxdC6JaiZP5xG1cEsc7bbK1sPdsw7
+	TiN3jpbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uls8p-0000000BSpi-1Bhm;
-	Tue, 12 Aug 2025 16:46:27 +0000
+	id 1ulsBO-0000000BTHo-0InX;
+	Tue, 12 Aug 2025 16:49:06 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulp9a-0000000AwKb-0xml
+	id 1ulpAY-0000000AwRY-0mMA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:35:03 +0000
+	Tue, 12 Aug 2025 13:36:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B13BA5C63AB;
-	Tue, 12 Aug 2025 13:35:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D032C4CEF0;
-	Tue, 12 Aug 2025 13:34:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C8495C66DD;
+	Tue, 12 Aug 2025 13:36:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40AE3C4CEF7;
+	Tue, 12 Aug 2025 13:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755005701;
-	bh=EbSOUxZj4Dk5TROM6zew5g6CUwMUu1vUz6Zv2WHGHJA=;
+	s=k20201202; t=1755005761;
+	bh=06KyMX/ZPEEj+Ni0Hx96uCasR7hXuo5TzHLcgvQ59VY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OrOpgvI3yZlVLT2n9n52cdCbXRIVq/NYDRmzuoUKn0xzH1ARomtKhBhi8yRbTKzFY
-	 YnG+X1GJuMVRIKIloJoDI6oG+OG12VA+Av82DNXxGRi7P6Q2+hZK8gTUX/nFPiPKtA
-	 J1ro95LCEXtkOgcowlNZ8sjLCHFhf07ICeI80SS1+RYDyJgFw1UWMIvHSy0NzJX1eu
-	 5ARh+jsEmt5ZztqFnAXtwsRCL3GP2NesLCtRSr/uZEY7pKrO/Erm4yAuCbNZNqdcnq
-	 FgE1VfCYT867B3vraZCaIiv9PdgQG0MJUybSIu3qKTtBT8ca7cb0BvLqJXFe5bT2+T
-	 pcw/qkwHVZOMQ==
-Message-ID: <d5e0f41e-34c1-44af-ac0d-8362a72a2ff1@kernel.org>
-Date: Tue, 12 Aug 2025 15:34:55 +0200
+	b=lFyK2pr0Rw1IAAWc1l29EAsZl6y5wRkq5FS9sZCI7zaCMDeHzfoydKLg60Rd/5ze2
+	 FXFh3jeH1lxJYw8dsIV8oQnSozUq0860bFWset+IrpwfsomaVeVeHime+nfkFtgzH7
+	 zpOj1BlGoC5efLwYiLFHbafa4e4xoBABHwPofSXeNaXxk7kXYXEmOhRirNMdfSzFEx
+	 b1T7At7W29ynyKlX0t+JjgJz8+vuO4Dpjkap0kUCuXa5VmIVCTX+p38rCiSLj6+Gnr
+	 Vwx5/yLHNOmHrbeRTCdJai+SgmuvNNitZ140tTUjmt6PZvxN259HYVWm6HhpN+N5eG
+	 iSSyBAA3y8b/A==
+Message-ID: <1512efa1-40c7-46e0-8636-dc0dc0e379c4@kernel.org>
+Date: Tue, 12 Aug 2025 15:35:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] dt-bindings: vendor-prefixes: Add Black Sesame
- Technologies Co., Ltd.
+Subject: Re: [PATCH v3 2/8] dt-bindings: arm: add Black Sesame Technologies
+ (bst) SoC
 To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, ulf.hansson@linaro.org,
  catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
@@ -57,7 +57,7 @@ Cc: bst-upstream@bstai.top, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
  linux-kernel@vger.kernel.org
 References: <20250812123110.2090460-1-yangzh0906@thundersoft.com>
- <20250812123110.2090460-2-yangzh0906@thundersoft.com>
+ <20250812123110.2090460-3-yangzh0906@thundersoft.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250812123110.2090460-2-yangzh0906@thundersoft.com>
+In-Reply-To: <20250812123110.2090460-3-yangzh0906@thundersoft.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_063502_355721_C9B5E31A 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250812_063602_313778_A8273C17 
+X-CRM114-Status: UNSURE (   6.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,46 +125,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/08/2025 14:31, Albert Yang wrote:
-> Black Sesame Technologies Co., Ltd.s a leading automotive-grade
-> computing SoC and SoC-based
-> intelligent vehicle solution provider. Link: https://bst.ai/.
+> Add device tree bindings for Black Sesame Technologies Arm SoC,
+> it consists several SoC models like C1200, etc.
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-
-Odd order of tags. When was the patch written, by who and when was the
-Ack given?
-
-
 > Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
 
-> ---
-> Changes for v3:
-> - No changes
-> 
-> Changes for v2:
-> - No changes
-> ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> index 5d2a7a8d3ac6..3c2031417232 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -222,6 +222,8 @@ patternProperties:
->      description: Shenzhen BigTree Tech Co., LTD
->    "^bitmain,.*":
->      description: Bitmain Technologies
-> +  "^bst,.*":
-> +    description: Black Sesame Technologies Co., Ltd.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Messed ordering.
-
->    "^blaize,.*":
->      description: Blaize, Inc.
->    "^blutek,.*":
-
+... and place it correctly please. This goes below or under your SoB.
+Not some other place.
 
 Best regards,
 Krzysztof
