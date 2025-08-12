@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083B2C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70312CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOQ4ICaJXkPPokVadHiC/tEzgTL5y1tNib7FUhlkcAg=; b=zYaktr+tMCczlaX/fp9lePXT3q
-	QyLywSqMAdgD5cFQcM3kgZg+5BsbK55A/ZIw/oRSmckxuyRnB+wFKy7BQBy5lQ6Ado2av3WWC8vgJ
-	PQwjx5CdG8ebe4tiwq+DitcoxVL+MDUVizoL2zfR+TdRF8js9GXQyFQBGco35OuNmLCKLSI9jqo7Q
-	vjURJ2XcEsg3lPcgpxXcNa1/Met9uS+fGZQzyiuEDaOO1XiU49GwfCG6mbgAJ5c2Y8eEl/lEQOYTP
-	BzyDgM+/PqpQDCYaVphNM37P9aryfhU7C1EVOsAGyRkTsg9BlCaSnexXcOHdL0WQddK6YQWoK1RZm
-	S4mFEwIg==;
+	bh=ofsBEldww9kKGShjhxYh2YzTeLFqPmCs6uhKXnmiYVA=; b=t2MqgtIL9ce26vid8mhe0POJjj
+	UjUJcVb5m0X4B59UF3vY0QiwdjLe7POU7jrHoMMLec3dW7ocSK4S9x9lRuQXyb8OeVzj6nv0QFLX4
+	5ERpLmA3CyjpD1Birob7XzliYGLEko9k60SuwMWNOJvmy4Rn44Eq7C72usf7c/IYqIe8N98l5LrBP
+	+vwdpp9jt+mll15gUVNqXe5mQuailOguMg08qFS5sqSU+S+LJW0u5P9jxpYYBGB394EI16eN26poN
+	o8zHRFDssqLq2PjZHDlV6DC9SP75Bd3vziaAzG3adUJsXuxjk8fhs+TZy38x6S1YXJFnRvq+MvQ1S
+	qaWohSLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrk4-0000000BKWp-2kef;
-	Tue, 12 Aug 2025 16:20:52 +0000
+	id 1ulrk5-0000000BKYj-2XGW;
+	Tue, 12 Aug 2025 16:20:53 +0000
 Received: from pegase2.c-s.fr ([93.17.235.10])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uln3q-0000000AbCk-1qnq
+	id 1uln3t-0000000AbE1-3Kk5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:20:59 +0000
+	Tue, 12 Aug 2025 11:21:03 +0000
 Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4c1TBN1Y3Gz9sSr;
-	Tue, 12 Aug 2025 13:03:08 +0200 (CEST)
+	by localhost (Postfix) with ESMTP id 4c1SwZ1yR4z9sSL;
+	Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from pegase2.c-s.fr ([172.26.127.65])
 	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id aqZGFjYI7JVc; Tue, 12 Aug 2025 13:03:08 +0200 (CEST)
+	with ESMTP id TZTC41d0Ji7b; Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
 Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1TBN0bxcz9sSj;
-	Tue, 12 Aug 2025 13:03:08 +0200 (CEST)
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4c1SwZ10sYz9sSK;
+	Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
 Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id F32678B765;
-	Tue, 12 Aug 2025 13:03:07 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 090E48B764;
+	Tue, 12 Aug 2025 12:51:10 +0200 (CEST)
 X-Virus-Scanned: amavisd-new at c-s.fr
 Received: from messagerie.si.c-s.fr ([127.0.0.1])
 	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id goOITLSSY6vA; Tue, 12 Aug 2025 13:03:07 +0200 (CEST)
+	with ESMTP id oYqVmKfN6oVn; Tue, 12 Aug 2025 12:51:09 +0200 (CEST)
 Received: from PO20335.idsi0.si.c-s.fr (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 5D1B88B763;
-	Tue, 12 Aug 2025 13:03:07 +0200 (CEST)
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4C2A18B765;
+	Tue, 12 Aug 2025 12:51:09 +0200 (CEST)
 From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Qiang Zhao <qiang.zhao@nxp.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
+To: Herve Codina <herve.codina@bootlin.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@gmail.com>,
+	Xiubo Li <Xiubo.Lee@gmail.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Nicolin Chen <nicoleotsuka@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
 Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 1/4] soc: fsl: qe: Add an interrupt controller for QUICC Engine Ports
-Date: Tue, 12 Aug 2025 13:02:51 +0200
-Message-ID: <1dcc9528e97d228ea7889caa00cc254ef0375ed4.1754996033.git.christophe.leroy@csgroup.eu>
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: [PATCH v2 1/4] soc: fsl: qmc: Only set completion interrupt when needed
+Date: Tue, 12 Aug 2025 12:50:55 +0200
+Message-ID: <badb68a85910e5e6f1094ef3b01805209ac21854.1754993232.git.christophe.leroy@csgroup.eu>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <cover.1754996033.git.christophe.leroy@csgroup.eu>
-References: <cover.1754996033.git.christophe.leroy@csgroup.eu>
+In-Reply-To: <cover.1754993232.git.christophe.leroy@csgroup.eu>
+References: <cover.1754993232.git.christophe.leroy@csgroup.eu>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1754996575; l=5167; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=WPex1Yqsty/iZf3dA0/61+TQ4SmTdE50vpw/kqBQT0g=; b=iuEPS/cUKH08Rr6/vdpWQIiuCh6T4gHqCrBGgyTNoCggCQ5IQOipYvvM6kxoRgpryGcWp+iGG bSNEG57GtPrCjg0JSMitvJRZ6t/FAF660q0V+hXERQCi0jLJn23HOsH
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1754995860; l=3383; i=christophe.leroy@csgroup.eu; s=20211009; h=from:subject:message-id; bh=btE/H/h8In+zFZ3coyNkPGTFp2sXECgeWwsH+bApf+k=; b=zVwDmHckJ9mDmT1RDuIFBLmmtGpvCrpdaM679R61Csv/878/XJddDu6BCqmg5MWdRPutlVzV8 Tx9V7OFk3U+Cl67z/fTXBHb4yPB9HbRBYFB3c7X4RnCAC8pKGvZDWFv
 X-Developer-Key: i=christophe.leroy@csgroup.eu; a=ed25519; pk=HIzTzUj91asvincQGOFx6+ZF5AoUuP9GdOtQChs7Mm0=
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_042058_663770_38D0372B 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20250812_042102_010309_9056CCF4 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,199 +90,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QUICC Engine provides interrupts for a few I/O ports. This is
-handled via a separate interrupt ID and managed via a triplet of
-dedicated registers hosted by the SoC.
+When no post-completion processing is expected, don't waste time
+handling useless interrupts.
 
-Implement an interrupt driver for it for that those IRQs can then
-be linked to the related GPIOs.
-
-The number of ports for which interrupts are supported depends on
-the microcontroller:
-- mpc8323 has 10 interrupts
-- mpc8360 has 28 interrupts
-- mpc8568 has 18 interrupts
-So add this information as data of the compatible.
+Only set QMC_BD_[R/T]X_I when a completion function is passed in,
+and perform seamless completion on submit for interruptless buffers.
 
 Signed-off-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 ---
- drivers/soc/fsl/qe/Makefile      |   2 +-
- drivers/soc/fsl/qe/qe_ports_ic.c | 156 +++++++++++++++++++++++++++++++
- 2 files changed, 157 insertions(+), 1 deletion(-)
- create mode 100644 drivers/soc/fsl/qe/qe_ports_ic.c
+v2: Keep the UB flag to mark not completed buffers and seamlessly flag them as completed during next submit.
+---
+ drivers/soc/fsl/qe/qmc.c | 44 ++++++++++++++++++++++++++++++----------
+ 1 file changed, 33 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/soc/fsl/qe/Makefile b/drivers/soc/fsl/qe/Makefile
-index ec8506e131136..901a9c40d5eb7 100644
---- a/drivers/soc/fsl/qe/Makefile
-+++ b/drivers/soc/fsl/qe/Makefile
-@@ -11,4 +11,4 @@ obj-$(CONFIG_UCC_SLOW)	+= ucc_slow.o
- obj-$(CONFIG_UCC_FAST)	+= ucc_fast.o
- obj-$(CONFIG_QE_TDM)	+= qe_tdm.o
- obj-$(CONFIG_QE_USB)	+= usb.o
--obj-$(CONFIG_QE_GPIO)	+= gpio.o
-+obj-$(CONFIG_QE_GPIO)	+= gpio.o qe_ports_ic.o
-diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_ports_ic.c
-new file mode 100644
-index 0000000000000..2ab82ac259564
---- /dev/null
-+++ b/drivers/soc/fsl/qe/qe_ports_ic.c
-@@ -0,0 +1,156 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * QUICC ENGINE I/O Ports Interrupt Controller
-+ *
-+ * Copyright (c) 2025 Christophe Leroy CS GROUP France (christophe.leroy@csgroup.eu)
-+ */
-+
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/platform_device.h>
-+
-+/* QE IC registers offset */
-+#define CEPIER		0x0c
-+#define CEPIMR		0x10
-+#define CEPICR		0x14
-+
-+struct qepic_data {
-+	void __iomem *reg;
-+	struct irq_domain *host;
-+};
-+
-+static void qepic_mask(struct irq_data *d)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+
-+	clrbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
-+}
-+
-+static void qepic_unmask(struct irq_data *d)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+
-+	setbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
-+}
-+
-+static void qepic_end(struct irq_data *d)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+
-+	out_be32(data->reg + CEPIER, 1 << (31 - irqd_to_hwirq(d)));
-+}
-+
-+static int qepic_set_type(struct irq_data *d, unsigned int flow_type)
-+{
-+	struct qepic_data *data = irq_data_get_irq_chip_data(d);
-+	unsigned int vec = (unsigned int)irqd_to_hwirq(d);
-+
-+	switch (flow_type & IRQ_TYPE_SENSE_MASK) {
-+	case IRQ_TYPE_EDGE_FALLING:
-+		setbits32(data->reg + CEPICR, 1 << (31 - vec));
-+		return 0;
-+	case IRQ_TYPE_EDGE_BOTH:
-+	case IRQ_TYPE_NONE:
-+		clrbits32(data->reg + CEPICR, 1 << (31 - vec));
-+		return 0;
-+	}
-+	return -EINVAL;
-+}
-+
-+static struct irq_chip qepic = {
-+	.name = "QEPIC",
-+	.irq_mask = qepic_mask,
-+	.irq_unmask = qepic_unmask,
-+	.irq_eoi = qepic_end,
-+	.irq_set_type = qepic_set_type,
-+};
-+
-+static int qepic_get_irq(struct irq_desc *desc)
-+{
-+	struct qepic_data *data = irq_desc_get_handler_data(desc);
-+	u32 event = in_be32(data->reg + CEPIER);
-+
-+	if (!event)
-+		return -1;
-+
-+	return irq_find_mapping(data->host, 32 - ffs(event));
-+}
-+
-+static void qepic_cascade(struct irq_desc *desc)
-+{
-+	generic_handle_irq(qepic_get_irq(desc));
-+}
-+
-+static int qepic_host_map(struct irq_domain *h, unsigned int virq, irq_hw_number_t hw)
-+{
-+	irq_set_chip_data(virq, h->host_data);
-+	irq_set_chip_and_handler(virq, &qepic, handle_fasteoi_irq);
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops qepic_host_ops = {
-+	.map = qepic_host_map,
-+};
-+
-+static int qepic_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct qepic_data *data;
-+	int irq;
-+	int nb;
-+
-+	nb = (int)of_device_get_match_data(dev);
-+	if (nb < 1 || nb > 32)
-+		return -EINVAL;
-+
-+	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(data->reg))
-+		return PTR_ERR(data->reg);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	data->host = irq_domain_add_linear(dev->of_node, nb, &qepic_host_ops, data);
-+	if (!data->host)
-+		return -ENODEV;
-+
-+	irq_set_handler_data(irq, data);
-+	irq_set_chained_handler(irq, qepic_cascade);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id qepic_match[] = {
-+	{
-+		.compatible = "fsl,mpc8323-qe-ports-ic",
-+		.data = (void *)10,
-+	},
-+	{
-+		.compatible = "fsl,mpc8360-qe-ports-ic",
-+		.data = (void *)28,
-+	},
-+	{
-+		.compatible = "fsl,mpc8568-qe-ports-ic",
-+		.data = (void *)18,
-+	},
-+	{},
-+};
-+
-+static struct platform_driver qepic_driver = {
-+	.driver	= {
-+		.name		= "qe_ports_ic",
-+		.of_match_table	= qepic_match,
-+	},
-+	.probe	= qepic_probe,
-+};
-+
-+static int __init qepic_init(void)
-+{
-+	return platform_driver_register(&qepic_driver);
-+}
-+arch_initcall(qepic_init);
+diff --git a/drivers/soc/fsl/qe/qmc.c b/drivers/soc/fsl/qe/qmc.c
+index 36c0ccc06151f..8f76b9a5e385d 100644
+--- a/drivers/soc/fsl/qe/qmc.c
++++ b/drivers/soc/fsl/qe/qmc.c
+@@ -461,9 +461,16 @@ int qmc_chan_write_submit(struct qmc_chan *chan, dma_addr_t addr, size_t length,
+ 
+ 	ctrl = qmc_read16(&bd->cbd_sc);
+ 	if (ctrl & (QMC_BD_TX_R | QMC_BD_TX_UB)) {
+-		/* We are full ... */
+-		ret = -EBUSY;
+-		goto end;
++		if (!(ctrl & QMC_BD_TX_I) && bd == chan->txbd_done) {
++			if (ctrl & QMC_BD_TX_W)
++				chan->txbd_done = chan->txbds;
++			else
++				chan->txbd_done++;
++		} else {
++			/* We are full ... */
++			ret = -EBUSY;
++			goto end;
++		}
+ 	}
+ 
+ 	qmc_write16(&bd->cbd_datlen, length);
+@@ -475,6 +482,10 @@ int qmc_chan_write_submit(struct qmc_chan *chan, dma_addr_t addr, size_t length,
+ 
+ 	/* Activate the descriptor */
+ 	ctrl |= (QMC_BD_TX_R | QMC_BD_TX_UB);
++	if (complete)
++		ctrl |= QMC_BD_TX_I;
++	else
++		ctrl &= ~QMC_BD_TX_I;
+ 	wmb(); /* Be sure to flush the descriptor before control update */
+ 	qmc_write16(&bd->cbd_sc, ctrl);
+ 
+@@ -569,9 +580,16 @@ int qmc_chan_read_submit(struct qmc_chan *chan, dma_addr_t addr, size_t length,
+ 
+ 	ctrl = qmc_read16(&bd->cbd_sc);
+ 	if (ctrl & (QMC_BD_RX_E | QMC_BD_RX_UB)) {
+-		/* We are full ... */
+-		ret = -EBUSY;
+-		goto end;
++		if (!(ctrl & QMC_BD_RX_I) && bd == chan->rxbd_done) {
++			if (ctrl & QMC_BD_RX_W)
++				chan->rxbd_done = chan->rxbds;
++			else
++				chan->rxbd_done++;
++		} else {
++			/* We are full ... */
++			ret = -EBUSY;
++			goto end;
++		}
+ 	}
+ 
+ 	qmc_write16(&bd->cbd_datlen, 0); /* data length is updated by the QMC */
+@@ -587,6 +605,10 @@ int qmc_chan_read_submit(struct qmc_chan *chan, dma_addr_t addr, size_t length,
+ 
+ 	/* Activate the descriptor */
+ 	ctrl |= (QMC_BD_RX_E | QMC_BD_RX_UB);
++	if (complete)
++		ctrl |= QMC_BD_RX_I;
++	else
++		ctrl &= ~QMC_BD_RX_I;
+ 	wmb(); /* Be sure to flush data before descriptor activation */
+ 	qmc_write16(&bd->cbd_sc, ctrl);
+ 
+@@ -1482,19 +1504,19 @@ static int qmc_setup_chan(struct qmc *qmc, struct qmc_chan *chan)
+ 
+ 	/* Init Rx BDs and set Wrap bit on last descriptor */
+ 	BUILD_BUG_ON(QMC_NB_RXBDS == 0);
+-	val = QMC_BD_RX_I;
+ 	for (i = 0; i < QMC_NB_RXBDS; i++) {
+ 		bd = chan->rxbds + i;
+-		qmc_write16(&bd->cbd_sc, val);
++		qmc_write16(&bd->cbd_sc, 0);
+ 	}
+ 	bd = chan->rxbds + QMC_NB_RXBDS - 1;
+-	qmc_write16(&bd->cbd_sc, val | QMC_BD_RX_W);
++	qmc_write16(&bd->cbd_sc, QMC_BD_RX_W);
+ 
+ 	/* Init Tx BDs and set Wrap bit on last descriptor */
+ 	BUILD_BUG_ON(QMC_NB_TXBDS == 0);
+-	val = QMC_BD_TX_I;
+ 	if (chan->mode == QMC_HDLC)
+-		val |= QMC_BD_TX_L | QMC_BD_TX_TC;
++		val = QMC_BD_TX_L | QMC_BD_TX_TC;
++	else
++		val = 0;
+ 	for (i = 0; i < QMC_NB_TXBDS; i++) {
+ 		bd = chan->txbds + i;
+ 		qmc_write16(&bd->cbd_sc, val);
 -- 
 2.49.0
 
