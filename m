@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF044CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 07:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F8ACA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 08:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3huHVWh1kF0qHcGRWxpys1fWPp33qz0IdA6aub7Z2I4=; b=z+vi+rw4sLCFyFDke42l5tyPbu
-	e3vezEcYz93/coV9pxK1FUoRJjwcEEokRDkEuq4iMB4lNwUctx78BSt5KK0YRGq3KYfiXHQJuIk6l
-	yZ12OQnJJQJxCHNFJX/0S5OqlMBCrAY+CUdFuOD6JELcESYJ9AdeBrkDFWrkgU1ta8dqyvgdfNvKM
-	UEFz/HfzxcH+K1qBhjkenaaEf3eG6CEFNVGcGgKlLz/7mSyPLb6N8uFK16JpSYov4oguW6l2fT2MR
-	7Y2A5oPhb1EHE8R3lYMvwYJAww19YbnU9JJNIAtk+CIYXlSAVHM7Rts3MaJOsGdn12CIIom8TGMO4
-	wuR7Hq7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7PzhdUS/xEgx9Mlbt0lDEg5Anqq3Vbab8zte0BNFu1o=; b=HivKSzHhNgAXvlY7QGBHVwxjl4
+	20G/MGLNBrxoI61TUpUKRIUk0Ow3njhnaANgFotaESTMjFENX1/bl23mrrEpuDpUTYQ0AiJnAWOiM
+	imx3g152HxXeSZ2Hu9FhDo+Tr+PdJTEgl5vGSqPI76Q7vli9zKs6G30Sv9GHnkBpUk2UJkoKlt7dt
+	wkv5AacqVCjgWtbQuWdMX83XWCtSlwAjwc8+Oqtpuc4pv95kdVO90var8kN+yloBX9mUHH5GclVPC
+	HSDB0Vonr89gB474qDT0RMO5+LPswubrg/VZRvEUdcggNUV+Hv6RSMfNpiWSiWrrhsczqJvOb5hBh
+	/waYvFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljqW-0000000AANe-1iYr;
-	Tue, 12 Aug 2025 07:55:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uljvm-0000000AB3I-0ejo;
+	Tue, 12 Aug 2025 08:00:26 +0000
+Received: from relay15.mail.gandi.net ([2001:4b98:dc4:8::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljnu-0000000A9zL-11pI
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 Aug 2025 07:52:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=3huHVWh1kF0qHcGRWxpys1fWPp33qz0IdA6aub7Z2I4=; b=nTl9QfeVXyhaU+/mQrAt2Bb3bk
-	UvAbzatXFauRgbe4EB7aAn/jzaSAHEZAtpm0vi7e557o+Yc3sSfFaLzDTGXkS+zSiTkJWmD873HAm
-	ahQrZWPXTZn2ii8hMJPTYn0wxgLnPzO5LK4li85HTM0+6lgA2Fh5uvt8xo3Xw8eaSUsSXTUd2K0eS
-	j07dejGz4Ifby+f6evYu0f5p9CNQ0Ltm3jAlUf81+AoZynvVwgXb5WXW6w8yXIotoxEGK5RQI0wal
-	dn91DicSOSuWmMfuMTK+nawbbCFPlnR/kY8vecEiuqMBlk9XdHbKDSKLH4sizpTLSs3MfiaqvGJuJ
-	DWH4aA3w==;
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uljnr-0000000FjdG-1UJg
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 07:52:17 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 8F2E9346;
-	Tue, 12 Aug 2025 09:51:20 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1754985080;
-	bh=WeWSSBL8Nap6xqIoJm/Yt88k6wGSmXOsdouTKmVORWU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZbJW4ZCWkm05mqCROZZAxuq57T8H+l4IBFBE/7mq92UnDXATIteQjeKsBfQLBUy8l
-	 Q5LMDKOeoDjxPZe3W8VintEGuP3lc199qpw4TAjT8OG8uL6IPdSYWMqDkV7l4tAasN
-	 quJ9QQsKveyFC51uAzweu3wB4YY+eT0y2UZX8U7o=
-Date: Tue, 12 Aug 2025 10:51:55 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
-Cc: linux-media@vger.kernel.org,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Hans Verkuil <hans@jjverkuil.nl>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Jacek Anaszewski <jacek.anaszewski@gmail.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 56/76] media: s5p-jpeg: Access v4l2_fh from file
-Message-ID: <20250812075155.GG30054@pendragon.ideasonboard.com>
-References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
- <20250810013100.29776-57-laurent.pinchart+renesas@ideasonboard.com>
- <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
+	id 1uljpw-0000000AAFR-14zy;
+	Tue, 12 Aug 2025 07:54:25 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 507D2442D7;
+	Tue, 12 Aug 2025 07:54:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1754985261;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7PzhdUS/xEgx9Mlbt0lDEg5Anqq3Vbab8zte0BNFu1o=;
+	b=F4STLiwGVw/fe3wzB0IkkYBYc+9IZKe52z7Zxir5p6HjJhdrLr5JDxsDHhs0dkhFTMTI/c
+	UqdH/mBemcSLZHVFaPF6UV/hsmI2q4zTByqj9AFCV8MJdxgN9DdFY3wRkk6tD90W7QaERU
+	F9lRg2FRa3U6g3AKFbyMJs/kwYaXgzlBTU8NoqebW/2cvts+KnufjTSwEIF8ShjyS0ib22
+	XmBbfhNMh6DeqwU9dtFX3M+kbxkE2jN+dsaQ5UQdlnMDbH/e/+Z9SAvwWZhwYprJ2W2iPC
+	Jy4pQmjiqiB5XhoNVGvi1eO71WOONfxM9oHCjxBaoCkBajeJtKf+Tn21HfJgLQ==
+Date: Tue, 12 Aug 2025 09:54:16 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Matthias Brugger
+ <matthias.bgg@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 2/9] net: stmmac: provide a set of simple PM
+ ops
+Message-ID: <20250812095416.029b9838@fedora.home>
+In-Reply-To: <E1ulXbc-008gqf-GJ@rmk-PC.armlinux.org.uk>
+References: <aJo7kvoub5voHOUQ@shell.armlinux.org.uk>
+	<E1ulXbc-008gqf-GJ@rmk-PC.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b6f75a41-d5bb-46c7-966d-eeb1d47736e5@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdefgddufeegjeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgto
+ hhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegrnhhgvghlohhgihhorggttghhihhnohdruggvlhhrvghgnhhosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_085215_539308_88099715 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20250812_005424_455885_44C6AEE7 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,157 +86,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrzej,
+On Mon, 11 Aug 2025 19:50:48 +0100
+"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
 
-On Tue, Aug 12, 2025 at 08:13:39AM +0200, Andrzej Pietrasiewicz wrote:
-> Hi Laurent & Jacopo,
+> Several drivers will want to make use of simple PM operations, so
+> provide these from the core driver.
 > 
-> Thanks for taking care of this, this generally looks good to me,
-> but please see inline.
-> 
-> W dniu 10.08.2025 o 03:30, Laurent Pinchart pisze:
-> > From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > 
-> > The v4l2_fh associated with an open file handle is now guaranteed
-> > to be available in file->private_data, initialised by v4l2_fh_add().
-> > 
-> > Access the v4l2_fh, and from there the driver-specific structure,
-> > from the file * in all ioctl handlers.
-> > 
-> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > Reviewed-by: Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>
-> > Co-developed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> > Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> > ---
-> > Changes since v1:
-> > 
-> > - Update file-to-ctx macro due to removal of fh-to-ctx macro
-> > ---
-> >   .../platform/samsung/s5p-jpeg/jpeg-core.c     | 27 ++++++++-----------
-> >   1 file changed, 11 insertions(+), 16 deletions(-)
-> > 
-> > diff --git a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-> > index 65f256db4c76..81792f7f8b16 100644
-> > --- a/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-> > +++ b/drivers/media/platform/samsung/s5p-jpeg/jpeg-core.c
-> > @@ -580,14 +580,9 @@ static inline struct s5p_jpeg_ctx *ctrl_to_ctx(struct v4l2_ctrl *c)
-> >   	return container_of(c->handler, struct s5p_jpeg_ctx, ctrl_handler);
-> >   }
-> >   
-> > -static inline struct s5p_jpeg_ctx *fh_to_ctx(struct v4l2_fh *fh)
-> > -{
-> > -	return container_of(fh, struct s5p_jpeg_ctx, fh);
-> > -}
-> > -
-> >   static inline struct s5p_jpeg_ctx *file_to_ctx(struct file *filp)
-> >   {
-> > -	return fh_to_ctx(file_to_v4l2_fh(filp));
-> > +	return container_of(file_to_v4l2_fh(filp), struct s5p_jpeg_ctx, fh);
-> >   }
-> >   
-> >   static int s5p_jpeg_to_user_subsampling(struct s5p_jpeg_ctx *ctx)
-> > @@ -1015,8 +1010,8 @@ static int s5p_jpeg_open(struct file *file)
-> >   
-> >   static int s5p_jpeg_release(struct file *file)
-> >   {
-> > -	struct s5p_jpeg *jpeg = video_drvdata(file);
-> >   	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> > +	struct s5p_jpeg *jpeg = video_drvdata(file);
-> 
-> What is the purpose of this change?
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-I don't think this is needed, I believe it can be dropped.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-I'll send a new version (of this patch only, I don't want to respin the
-whole series and spam everybody).
-
-> >   
-> >   	mutex_lock(&jpeg->lock);
-> >   	v4l2_m2m_ctx_release(ctx->fh.m2m_ctx);
-> > @@ -1253,7 +1248,7 @@ static bool s5p_jpeg_parse_hdr(struct s5p_jpeg_q_data *result,
-> >   static int s5p_jpeg_querycap(struct file *file, void *priv,
-> >   			   struct v4l2_capability *cap)
-> >   {
-> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> >   
-> >   	if (ctx->mode == S5P_JPEG_ENCODE) {
-> >   		strscpy(cap->driver, S5P_JPEG_M2M_NAME,
-> > @@ -1301,7 +1296,7 @@ static int enum_fmt(struct s5p_jpeg_ctx *ctx,
-> >   static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
-> >   				   struct v4l2_fmtdesc *f)
-> >   {
-> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> >   
-> >   	if (ctx->mode == S5P_JPEG_ENCODE)
-> >   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
-> > @@ -1314,7 +1309,7 @@ static int s5p_jpeg_enum_fmt_vid_cap(struct file *file, void *priv,
-> >   static int s5p_jpeg_enum_fmt_vid_out(struct file *file, void *priv,
-> >   				   struct v4l2_fmtdesc *f)
-> >   {
-> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> >   
-> >   	if (ctx->mode == S5P_JPEG_ENCODE)
-> >   		return enum_fmt(ctx, sjpeg_formats, SJPEG_NUM_FORMATS, f,
-> > @@ -1340,7 +1335,7 @@ static int s5p_jpeg_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
-> >   	struct vb2_queue *vq;
-> >   	struct s5p_jpeg_q_data *q_data = NULL;
-> >   	struct v4l2_pix_format *pix = &f->fmt.pix;
-> > -	struct s5p_jpeg_ctx *ct = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ct = file_to_ctx(file);
-> >   
-> >   	vq = v4l2_m2m_get_vq(ct->fh.m2m_ctx, f->type);
-> >   	if (!vq)
-> > @@ -1480,7 +1475,7 @@ static int vidioc_try_fmt(struct v4l2_format *f, struct s5p_jpeg_fmt *fmt,
-> >   static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
-> >   				  struct v4l2_format *f)
-> >   {
-> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> >   	struct v4l2_pix_format *pix = &f->fmt.pix;
-> >   	struct s5p_jpeg_fmt *fmt;
-> >   	int ret;
-> > @@ -1539,7 +1534,7 @@ static int s5p_jpeg_try_fmt_vid_cap(struct file *file, void *priv,
-> >   static int s5p_jpeg_try_fmt_vid_out(struct file *file, void *priv,
-> >   				  struct v4l2_format *f)
-> >   {
-> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> >   	struct s5p_jpeg_fmt *fmt;
-> >   
-> >   	fmt = s5p_jpeg_find_format(ctx, f->fmt.pix.pixelformat,
-> > @@ -1686,7 +1681,7 @@ static int s5p_jpeg_s_fmt_vid_cap(struct file *file, void *priv,
-> >   	if (ret)
-> >   		return ret;
-> >   
-> > -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
-> > +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
-> >   }
-> >   
-> >   static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
-> > @@ -1698,7 +1693,7 @@ static int s5p_jpeg_s_fmt_vid_out(struct file *file, void *priv,
-> >   	if (ret)
-> >   		return ret;
-> >   
-> > -	return s5p_jpeg_s_fmt(fh_to_ctx(priv), f);
-> > +	return s5p_jpeg_s_fmt(file_to_ctx(file), f);
-> >   }
-> >   
-> >   static int s5p_jpeg_subscribe_event(struct v4l2_fh *fh,
-> > @@ -1795,7 +1790,7 @@ static int exynos3250_jpeg_try_crop(struct s5p_jpeg_ctx *ctx,
-> >   static int s5p_jpeg_g_selection(struct file *file, void *priv,
-> >   			 struct v4l2_selection *s)
-> >   {
-> > -	struct s5p_jpeg_ctx *ctx = fh_to_ctx(priv);
-> > +	struct s5p_jpeg_ctx *ctx = file_to_ctx(file);
-> >   
-> >   	if (s->type != V4L2_BUF_TYPE_VIDEO_OUTPUT &&
-> >   	    s->type != V4L2_BUF_TYPE_VIDEO_CAPTURE)
-
--- 
-Regards,
-
-Laurent Pinchart
+Maxime
 
