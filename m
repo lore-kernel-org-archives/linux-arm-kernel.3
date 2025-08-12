@@ -4,80 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCB9CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:59:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965C8CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DxjcecEI7phcRYjWyLkZSnGEJwCBjNTRZZccT/msDU8=; b=Qyu9GyFNShTkADBaQsw3k20tQ+
-	sOPfRxM/itqy+M/Z/hURKZtl/cZN3uRH3zo2V+h8np/DvUwr6OBRSzYFTb8Bx1LrbkVM8sG6e9boB
-	6fDdo3D26kRlOuizdHIXJHuqCFsAwZq2o87L5zz414qs0VEy3rY8q9rfhwuF6w/pjWbgR/qW4XLN4
-	DQTv7nT05Y5WJmIBHNeJBcR0D9W4prPNrtwD1g6HHsfxzl/qxNFur7i77lhRlrwdb1xKLNxV5dcBi
-	NR5In0rQJ8K2i+msKRK8q0GFKpHP3csalC6mk1HupenQsqDSxlhnKrahJ8Vf7f8mxN5Ua0Pd8Io5d
-	JAl9E1tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2VFU9Ls0RBEdLvBJfd8qPbFuQCB6ojs0BpLanUuJxB8=; b=aoh5ANoqgCoPaEC9f6ODnec2fL
+	p5el94iZs6CqO9UNY7XxZ7xmpCxXjRJfzOzkG0hbX8amNYzqSpNMBK2il4hRQ6OjhwqO2C77tw9Oc
+	NPdFp1XAW8LjoZn3jk9X6xd6or5ZyaF93ysc51thBneMM2RJSu2RkThwq2uh3pl2k/32HOK9G2fj2
+	5FVAhbrDiF2zkxaEHjhaWR01ZM5j5/s8J6XgajQ+5JyYkAkBox5EutL66GBXk6wryANXo1nu6MxBK
+	MO9s/n6capB9af4MBp7vjzGXpY1Zgl005SQ/FpFMF0ze0SoiIIgFrD1GKYMeKUp0ekqvLBFJ7CGqO
+	ivN3tAog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsLY-0000000BUXh-3z5b;
-	Tue, 12 Aug 2025 16:59:36 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ulsOY-0000000BVGz-1APJ;
+	Tue, 12 Aug 2025 17:02:42 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulpDq-0000000Awuy-3lLy
+	id 1ulpPC-0000000AyVX-3WCR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:39:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1755005965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DxjcecEI7phcRYjWyLkZSnGEJwCBjNTRZZccT/msDU8=;
-	b=KDTLkC4UeDYZx98A7Bs0g6wIxZ3tgZbAn4sVnRtM8LRDTkZxZoiwKlLqmX7OFTpU2/h7Yy
-	aWhVj3VshYlsnnX/m008+xFqaB3paWSFb5vuQuBl5pbeLiMU7LbXCO16cXgprXGlSCWdY5
-	gR1eUe9giFHe+aitW29WMIitrhCTKnQ=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-553-FY5fxrhNOyqPzbOI5L33kw-1; Tue,
- 12 Aug 2025 09:39:22 -0400
-X-MC-Unique: FY5fxrhNOyqPzbOI5L33kw-1
-X-Mimecast-MFC-AGG-ID: FY5fxrhNOyqPzbOI5L33kw_1755005958
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5149919560B3;
-	Tue, 12 Aug 2025 13:39:17 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.156])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7F8A819560AB;
-	Tue, 12 Aug 2025 13:39:15 +0000 (UTC)
-Date: Tue, 12 Aug 2025 21:39:11 +0800
-From: Baoquan He <bhe@redhat.com>
-To: linux-mm@kvack.org, alexghiti@rivosinc.com, agordeev@linux.ibm.com,
-	linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, christophe.leroy@csgroup.eu,
-	x86@kernel.org, chris@zankel.net, jcmvbkbc@gmail.com,
-	linux-um@lists.infradead.org
-Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
-	dvyukov@google.com, vincenzo.frascino@arm.com,
-	akpm@linux-foundation.org, kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
-	sj@kernel.org, lorenzo.stoakes@oracle.com, elver@google.com,
-	snovitoll@gmail.com
-Subject: Re: [PATCH v2 00/12] mm/kasan: make kasan=on|off work for all three
- modes
-Message-ID: <aJtD/8beAEHtm2/6@MiWiFi-R3L-srv>
-References: <20250812124941.69508-1-bhe@redhat.com>
+	Tue, 12 Aug 2025 13:51:15 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CDerQ7007652;
+	Tue, 12 Aug 2025 15:50:55 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	2VFU9Ls0RBEdLvBJfd8qPbFuQCB6ojs0BpLanUuJxB8=; b=ovvKccAUp/J/wlm/
+	K9rcrxnnja/YavEwQ3kI0qGV7JAOhAkOq44MGW6EfHXjndgcmwLdznuyf326QMVc
+	PPi/vc0Kv9fmgMiSpQaPVknjdC2qeZhDjppbfHkhaZPU8WySzMxsVsY8utUM2NKh
+	qC7578HpQNsGXFP65d2CUsl10eHWT9NekF9yO55IBhrZ4eU5QH/YTt43iaLsUTV3
+	hHI+y8rW247ZULLgtsEwIKwf67zn2k7m0LFa8kSn1EdCT/4Gf9xfVyWCW7jTbUd5
+	oegd8nGfOrnXNc/aEf0RZDJ26s7leHe9QBSqbzcDtY0huYe8HtsgINWeUUmb5hvB
+	G0+caw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48duf8tmfv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 12 Aug 2025 15:50:55 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EC7D840071;
+	Tue, 12 Aug 2025 15:49:24 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5A66078BFD2;
+	Tue, 12 Aug 2025 15:49:02 +0200 (CEST)
+Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
+ 2025 15:49:02 +0200
+From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+Date: Tue, 12 Aug 2025 15:49:01 +0200
+Subject: [PATCH v2 04/13] dt-bindings: display: st,stm32mp25-lvds: add
+ access-controllers property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250812124941.69508-1-bhe@redhat.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250812-drm-misc-next-v2-4-132fd84463d7@foss.st.com>
+References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
+In-Reply-To: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
+To: Yannick Fertre <yannick.fertre@foss.st.com>,
+        Philippe Cornu
+	<philippe.cornu@foss.st.com>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Christophe Roullier
+	<christophe.roullier@foss.st.com>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.130.74.180]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE2.st.com
+ (10.75.129.70)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_07,2025-08-11_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_063927_034157_7F3CB181 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20250812_065111_475491_884E2C39 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,110 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Forgot adding related ARCH mailing list or people to CC, add them.
+access-controllers is an optional property that allows a peripheral to
+refer to one or more domain access controller(s).
 
-On 08/12/25 at 08:49pm, Baoquan He wrote:
-> Currently only hw_tags mode of kasan can be enabled or disabled with
-> kernel parameter kasan=on|off for built kernel. For kasan generic and
-> sw_tags mode, there's no way to disable them once kernel is built.
-> This is not convenient sometime, e.g in system kdump is configured.
-> When the 1st kernel has KASAN enabled and crash triggered to switch to
-> kdump kernel, the generic or sw_tags mode will cost much extra memory
-> for kasan shadow while in fact it's meaningless to have kasan in kdump
-> kernel.
-> 
-> So this patchset moves the kasan=on|off out of hw_tags scope and into
-> common code to make it visible in generic and sw_tags mode too. Then we
-> can add kasan=off in kdump kernel to reduce the unneeded meomry cost for
-> kasan.
-> 
-> Changelog:
-> ====
-> v1->v2:
-> - Add __ro_after_init for __ro_after_init, and remove redundant blank
->   lines in mm/kasan/common.c. Thanks to Marco.
-> - Fix a code bug in <linux/kasan-enabled.h> when CONFIG_KASAN is unset,
->   this is found out by SeongJae and Lorenzo, and also reported by LKP
->   report, thanks to them.
-> - Add a missing kasan_enabled() checking in kasan_report(). This will
->   cause below KASAN report info even though kasan=off is set:
->      ==================================================================
->      BUG: KASAN: stack-out-of-bounds in tick_program_event+0x130/0x150
->      Read of size 4 at addr ffff00005f747778 by task swapper/0/1
->      
->      CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.16.0+ #8 PREEMPT(voluntary) 
->      Hardware name: GIGABYTE R272-P30-JG/MP32-AR0-JG, BIOS F31n (SCP: 2.10.20220810) 09/30/2022
->      Call trace:
->       show_stack+0x30/0x90 (C)
->       dump_stack_lvl+0x7c/0xa0
->       print_address_description.constprop.0+0x90/0x310
->       print_report+0x104/0x1f0
->       kasan_report+0xc8/0x110
->       __asan_report_load4_noabort+0x20/0x30
->       tick_program_event+0x130/0x150
->       ......snip...
->      ==================================================================
-> 
-> - Add jump_label_init() calling before kasan_init() in setup_arch() in these
->   architectures: xtensa, arm. Because they currenly rely on
->   jump_label_init() in main() which is a little late. Then the early static
->   key kasan_flag_enabled in kasan_init() won't work.
-> 
-> - In UML architecture, change to enable kasan_flag_enabled in arch_mm_preinit()
->   because kasan_init() is enabled before main(), there's no chance to operate
->   on static key in kasan_init().
-> 
-> Test:
-> =====
-> In v1, I took test on x86_64 for generic mode, and on arm64 for
-> generic, sw_tags and hw_tags mode. All of them works well.
-> 
-> In v2, I only tested on arm64 for generic, sw_tags and hw_tags mode, it
-> works. For powerpc, I got a BOOK3S/64 machine, while it says
-> 'KASAN not enabled as it requires radix' and KASAN is disabled. Will
-> look for other POWER machine to test this.
-> ====
-> 
-> Baoquan He (12):
->   mm/kasan: add conditional checks in functions to return directly if
->     kasan is disabled
->   mm/kasan: move kasan= code to common place
->   mm/kasan/sw_tags: don't initialize kasan if it's disabled
->   arch/arm: don't initialize kasan if it's disabled
->   arch/arm64: don't initialize kasan if it's disabled
->   arch/loongarch: don't initialize kasan if it's disabled
->   arch/powerpc: don't initialize kasan if it's disabled
->   arch/riscv: don't initialize kasan if it's disabled
->   arch/x86: don't initialize kasan if it's disabled
->   arch/xtensa: don't initialize kasan if it's disabled
->   arch/um: don't initialize kasan if it's disabled
->   mm/kasan: make kasan=on|off take effect for all three modes
-> 
->  arch/arm/kernel/setup.c                |  6 +++++
->  arch/arm/mm/kasan_init.c               |  6 +++++
->  arch/arm64/mm/kasan_init.c             |  7 ++++++
->  arch/loongarch/mm/kasan_init.c         |  5 ++++
->  arch/powerpc/mm/kasan/init_32.c        |  8 +++++-
->  arch/powerpc/mm/kasan/init_book3e_64.c |  6 +++++
->  arch/powerpc/mm/kasan/init_book3s_64.c |  6 +++++
->  arch/riscv/mm/kasan_init.c             |  6 +++++
->  arch/um/kernel/mem.c                   |  6 +++++
->  arch/x86/mm/kasan_init_64.c            |  6 +++++
->  arch/xtensa/kernel/setup.c             |  1 +
->  arch/xtensa/mm/kasan_init.c            |  6 +++++
->  include/linux/kasan-enabled.h          | 18 ++++++-------
->  mm/kasan/common.c                      | 25 ++++++++++++++++++
->  mm/kasan/generic.c                     | 20 +++++++++++++--
->  mm/kasan/hw_tags.c                     | 35 ++------------------------
->  mm/kasan/init.c                        |  6 +++++
->  mm/kasan/quarantine.c                  |  3 +++
->  mm/kasan/report.c                      |  4 ++-
->  mm/kasan/shadow.c                      | 23 ++++++++++++++++-
->  mm/kasan/sw_tags.c                     |  9 +++++++
->  21 files changed, 165 insertions(+), 47 deletions(-)
-> 
-> -- 
-> 2.41.0
-> 
+This property is added when the peripheral is under the STM32 firewall
+controller.  It allows an accurate representation of the hardware, where
+the peripheral is connected to a firewall bus.  The firewall can then
+check the peripheral accesses before allowing its device to probe.
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
+---
+ Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+index b777c55626e4b322d77ef411ad9e4a3afb6c9131..96fa0cb5cb86c41d978c4093448afa3bb2a946fa 100644
+--- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
+@@ -60,6 +60,9 @@ properties:
+   resets:
+     maxItems: 1
+ 
++  access-controllers:
++    maxItems: 1
++
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
+ 
+
+-- 
+2.25.1
 
 
