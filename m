@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C76C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75839C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=STsiX3U6ZROthdqSqYD4iHUcnIhAtxIDiSKSzzTI1zw=; b=x3wARUTD8h0NcNUe7uwd1LBSxf
-	HQfqDOJ77stG6r098ycecuE5ITPGLKzGi3XrPBeS91mvOuQhhqXOxHfhiyxOaqqZmiSPxu99JEk2r
-	bMVDX7GFJ8r2ybTtuOLPyh5OvnTYA4OpF8wRu1UCmtp0VxJJkzipHMflPmewOlMDO4U3udKxy1u4b
-	2FOSL20iF8KuUHI86yQ7kwfxyndetL4WuoO69pSxSkN/UASx27ojRzpKVlpNpZdmgVAcAW2cafXo/
-	flNM3E0+VbWHNpX5auBN1OnHHY3rK5p9I9xD7RxEMEnLODX06ZIiE7FV0KF4YZurlPC1cjidRBixd
-	jhea0tuQ==;
+	bh=c9bD46JAXbjBKVZpS9BMpyCBGiNGkeKO3v0TesWf51I=; b=XeTKrjgloy7QJ3f7FfdHjpkU/P
+	FzBNFwFFG7pJgahvU5lATPyhy1HzTljt3bTeCWFG16wU5WYREm4d7AhOUZX/q4TY8osI7KqG8E4wZ
+	P/GxzizJa7wBM1bprxDK92G3s4TJRB80CXHG5y5NY5BwziBw6B6Xhhta+JLwqKvoHnMUv/R+qB6ST
+	zDVFqkY4H03+f7pi3VQtYIbNI4hSUBWPzm9j4IsAPKV29bFsPz+ESAgk98mb/Xts7zWnaM89tsZhx
+	DsVTrzvYsa8B4LxjsOMgl1Wd9ajZxuk7jsvWtJhNbo2Ci7nGVi+GjiGbyTh5Af4hfvB8TCaAs8pJy
+	XmiuiNBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulicj-0000000A2UY-3Kok;
-	Tue, 12 Aug 2025 06:36:41 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ulifo-0000000A2nj-3vqa;
+	Tue, 12 Aug 2025 06:39:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliYN-0000000A26r-1UUa;
-	Tue, 12 Aug 2025 06:32:12 +0000
+	id 1ulidC-0000000A2YY-2mNt;
+	Tue, 12 Aug 2025 06:37:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 57ACE5C667E;
-	Tue, 12 Aug 2025 06:32:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F55EC4CEF0;
-	Tue, 12 Aug 2025 06:32:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1BAD360203;
+	Tue, 12 Aug 2025 06:37:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CD51C4CEF6;
+	Tue, 12 Aug 2025 06:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754980330;
-	bh=otaBZh9TNVNUn4n+KFk4zIkvpGN9iEpnVss/ZcBnHBM=;
+	s=k20201202; t=1754980629;
+	bh=DN6AGEd04LkeapvqxKCW4A0HOrkg6SVHzX1aPEHJMg4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dEBiK2bMfsD5IpNQj20sm4pOp7cKkzzvO9rSw4Gc4mSvnL/LXBIClBjlBy62c4S7M
-	 rfwQdg/BnNkCGdBP3kGdr9AKfczzi+2jHXCQmDZP17F55Y1pNSNbQltkKeSP1idjn4
-	 Mz/44PhO+5nt8U3jsM3jW3W07IqePKAdArDZy70bBM92HV6nONtFFedk17iGAHAVIx
-	 KvK3rhg/cIVEyjTpRr82UQpTH5O2+4tWhJPTQmil/LFV1jsSS+vRu0Gcq/FuawBsC1
-	 SiPbsZ3LBDb8cB8e6Apc5MLF6hlQvArB64uhltW9jZIlumYpHy17P5kdYmjK/tZUeh
-	 2yCqq2tPYPW9A==
-Message-ID: <4a47b758-5c20-4e30-bc61-206acd48bdd0@kernel.org>
-Date: Tue, 12 Aug 2025 08:32:03 +0200
+	b=Gph698/U/m7daZax4mS3+51vt1C9rQ9Mamx5EA5uZCz7i4FjgS1W1yAHXO1f+DUuY
+	 lKd09pCOkuV2Zq6yb34rbDJhqrgcf6I8RibJK2BTg6HBI5X88G6OU2zYsa9F6FBOE+
+	 Fgu9YgiZ5HAJP7uxJHA/6GS05BOfQSPxH5Gs6kD1ChExQ0yZzn3TVgT2Zpw2cGLj+5
+	 C+//TlTmtstVLyEDsnGy/R5CSouGaRTFONYT99GkQHp9PFRbXQCD0cCOUotpnqN2xA
+	 GAF0a6YIMfZZCdULb05B6MYayw25wL4sQ6KO/iY+is0j5tOT7kAw0pl+O0xgmFbC5M
+	 BoCkxKBH/IMgw==
+Message-ID: <9e065582-9349-4f39-88b5-048d333ab8d7@kernel.org>
+Date: Tue, 12 Aug 2025 08:37:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/12] dt-bindings: PCI: Split exynos host into two
- files
+Subject: Re: [PATCH v3 07/12] dt-bindings: PCI: Add support for Tesla FSD SoC
 To: Shradha Todi <shradha.t@samsung.com>, linux-pci@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -57,8 +56,8 @@ Cc: mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
  vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
  m.szyprowski@samsung.com, jh80.chung@samsung.com, pankaj.dubey@samsung.com
 References: <20250811154638.95732-1-shradha.t@samsung.com>
- <CGME20250811154721epcas5p26c9e2880ca55a470f595d914b4030745@epcas5p2.samsung.com>
- <20250811154638.95732-7-shradha.t@samsung.com>
+ <CGME20250811154725epcas5p428fa3370a32bc2b664a4fd8260078097@epcas5p4.samsung.com>
+ <20250811154638.95732-8-shradha.t@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +103,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250811154638.95732-7-shradha.t@samsung.com>
+In-Reply-To: <20250811154638.95732-8-shradha.t@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_233211_480871_FD45C70D 
-X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +121,164 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 11/08/2025 17:46, Shradha Todi wrote:
-> The current Exynos PCIe yaml binding file is hard to reuse by
-> other Samsung SoCs. Refactoring it by:
->  - Moving common Samsung PCIe properties into samsung,exynos-pcie.yaml
->  - Creating a dedicated samsung,exynos5433-pcie.yaml file for properties
->    and constraints specific to the Exynos5433 SoC
-> 
-> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
-> ---
->  .../bindings/pci/samsung,exynos-pcie.yaml     | 70 +--------------
->  .../bindings/pci/samsung,exynos5433-pcie.yaml | 89 +++++++++++++++++++
->  2 files changed, 91 insertions(+), 68 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/pci/samsung,exynos5433-pcie.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-> index f20ed7e709f7..fd0b97b30821 100644
-> --- a/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-> +++ b/Documentation/devicetree/bindings/pci/samsung,exynos-pcie.yaml
-> @@ -11,7 +11,7 @@ maintainers:
->    - Jaehoon Chung <jh80.chung@samsung.com>
->  
->  description: |+
-> -  Exynos5433 SoC PCIe host controller is based on the Synopsys DesignWare
-> +  Samsung SoCs PCIe host controller is based on the Synopsys DesignWare
->    PCIe IP and thus inherits all the common properties defined in
->    snps,dw-pcie.yaml.
->  
-> @@ -19,9 +19,6 @@ allOf:
->    - $ref: /schemas/pci/snps,dw-pcie.yaml#
->  
->  properties:
-> -  compatible:
-> -    const: samsung,exynos5433-pcie
-> -
->    reg:
->      items:
->        - description: Data Bus Interface (DBI) registers.
+> +
+> +  clocks:
+> +    maxItems: 4
+> +
+> +  clock-names:
+> +    items:
+> +      - const: aux
+> +      - const: dbi
+> +      - const: mstr
+> +      - const: slv
+> +
+> +  num-lanes:
+> +    maximum: 4
+> +
+> +  phys:
+> +    maxItems: 1
+> +
+> +  samsung,syscon-pcie:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: phandle for system control registers, used to
+> +                 control signals at system level
+
+What is "system level"? and what are these "signals" being controlled?
 
 
-So the only common part left here is reg and phy? I don't think such
-common file brings any value.
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - clocks
+> +  - clock-names
+> +  - num-lanes
+> +  - phys
+> +  - samsung,syscon-pcie
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/fsd-clk.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    bus {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        pcieep0: pcie-ep@16a00000 {
+> +            compatible = "tesla,fsd-pcie-ep";
+> +            reg = <0x0 0x168b0000 0x0 0x1000>,
+> +                  <0x0 0x16a00000 0x0 0x2000>,
+> +                  <0x0 0x16a01000 0x0 0x80>,
+> +                  <0x0 0x17000000 0x0 0xff0000>;
+> +            reg-names = "elbi", "dbi", "dbi2", "addr_space";
+> +            clocks = <&clock_fsys1 PCIE_LINK0_IPCLKPORT_AUX_ACLK>,
+> +                     <&clock_fsys1 PCIE_LINK0_IPCLKPORT_DBI_ACLK>,
+> +                     <&clock_fsys1 PCIE_LINK0_IPCLKPORT_MSTR_ACLK>,
+> +                     <&clock_fsys1 PCIE_LINK0_IPCLKPORT_SLV_ACLK>;
+> +            clock-names = "aux", "dbi", "mstr", "slv";
+> +            num-lanes = <4>;
+> +            phys = <&pciephy1>;
+> +            samsung,syscon-pcie = <&sysreg_fsys1 0x50c>;
+> +        };
+> +    };
+> +...
+> diff --git a/Documentation/devicetree/bindings/pci/tesla,fsd-pcie.yaml b/Documentation/devicetree/bindings/pci/tesla,fsd-pcie.yaml
+> new file mode 100644
+> index 000000000000..533870ab1d73
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/tesla,fsd-pcie.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/tesla,fsd-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Tesla FSD SoC series PCIe Host Controller
+> +
+> +maintainers:
+> +  - Shradha Todi <shradha.t@samsung.com>
+> +
+> +description:
+> +  Tesla FSD SoCs PCIe host controller inherits all the common
+> +  properties defined in samsung,exynos-pcie.yaml
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/samsung,exynos-pcie.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: tesla,fsd-pcie
+> +
+> +  clocks:
+> +    maxItems: 4
+> +
+> +  clock-names:
+> +    items:
+> +      - const: aux
+> +      - const: dbi
+> +      - const: mstr
+> +      - const: slv
+> +
+> +  num-lanes:
+> +    maximum: 4
+> +
+> +  samsung,syscon-pcie:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: phandle for system control registers, used to
+> +                 control signals at system level
+> +
+> +required:
+> +  - samsung,syscon-pcie
+
+clocks are required, compatible as well.
+
+Missing supplies, both as properties and required. PCI devices do not
+work without power.
+
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/fsd-clk.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcierc1: pcie@16b00000 {
+> +            compatible = "tesla,fsd-pcie";
+> +            reg = <0x0 0x16b00000 0x0 0x2000>,
+> +                  <0x0 0x168c0000 0x0 0x1000>,
+> +                  <0x0 0x18000000 0x0 0x1000>;
+> +            reg-names = "dbi", "elbi", "config";
+> +            ranges =  <0x82000000 0x0 0x18001000 0x0 0x18001000 0x0 0xffefff>;
+
+Misaligned. Follow closely DTS coding style.
+
+> +            clocks = <&clock_fsys1 PCIE_LINK1_IPCLKPORT_AUX_ACLK>,
+> +                     <&clock_fsys1 PCIE_LINK1_IPCLKPORT_DBI_ACLK>,
+> +                     <&clock_fsys1 PCIE_LINK1_IPCLKPORT_MSTR_ACLK>,
+> +                     <&clock_fsys1 PCIE_LINK1_IPCLKPORT_SLV_ACLK>;
+> +            clock-names = "aux", "dbi", "mstr", "slv";
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            dma-coherent;
+> +            device_type = "pci";
+> +            interrupts = <GIC_SPI 117 IRQ_TYPE_EDGE_RISING>;
+> +            num-lanes = <4>;
+> +            phys = <&pciephy1>;
+> +            samsung,syscon-pcie = <&sysreg_fsys1 0x510>;
+
+Incomplete, missing supplies.
+
+> +        };
+> +    };
+> +...
 
 
 Best regards,
