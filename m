@@ -4,71 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FA3BCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62AA3CA0EDB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:12:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpqx7RzpdxGOcvVbi01ogR9l9+Ld4we5bzmp/qnDVCw=; b=GND5Gai6L2Ub5Nf63sOPA9s+xu
-	8zKZsZHya3NKaWhu2LfgxgPg/uFCSmIakQSMw5rP6dIB68RM0OSJFR3GpApHHIjT+DlqB5DshowvE
-	iEzrZdTUUw+uKYZi4i7JnyeW0i2GB9VDk4rP0nGBFiK9AL670eWdHW0sKMcvB1o2T+OHD5xWDQUwL
-	azZYQDnpaipTxYtiTPVxndc5Qs0j072Zz5LI6LrK6rxZVdodl9zt+M/h3qy2WAcCYw3NkS0MaEgiP
-	rFGHbI8uElV2F5PLuhr48DRVtZxxbksz98P4TT7LxnExNKFdyAntUdMJt5r9htaYoqzxn4Ltb7No/
-	P3XkVARA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UDpZ/uLV4xgn4kCXyhg6m1oHwpXbM6/gIBFZ0zY+grE=; b=2IYBu4s00k/HZz
+	ihcn44BqmWbAVwkqH2+6u0gavtIilCHvyhOsXMInnptg4dYGscpekF3G1DZ5IF0TRk0o3Kuhg4JvG
+	Hw+cLUesCZDEB0VFHh7cRvZouomE/3oc1MnFgLuZMPX6yquYBuMhxkSOpeKrJbcv/lt7mxqDNXZy4
+	yleEe92ioiGRXEKhfg7w4FyMrX7keW728l5IVBxI5SoPix0Gcms0+nm0ThQ14/2tZrIcIH8sTkl/u
+	2RPtjnYh/Y/NTevpLzQK38r5eFhSXuw/a2ms/qXTt5LkUjJ8MnuBvWwlXd8X3vyEvK3lBasLnPvpy
+	ylhTabpF+vrnCuBsvn+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvt4-0000000C016-16KG;
-	Tue, 12 Aug 2025 20:46:26 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1ulwHs-0000000C1fX-3Zr4;
+	Tue, 12 Aug 2025 21:12:04 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulv8I-0000000BtfU-1yMO;
-	Tue, 12 Aug 2025 19:58:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1755028680; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=hFHC9uxqieQOgquX0c8dsWLwLjqdX8lPVX4sLZfK9kNetz0SMzp4jx5aUkWefK/v8Sz4xWhrvewy0XUTLkTZThkPEhlit+5YHYSPmRNNA9p3ELAcLNt6g5EYZZXR8FAMDnDe9ctQPnsNI+TVQ0mvo4NjBrpbEPeQlqDubA54qfk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1755028680; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=hpqx7RzpdxGOcvVbi01ogR9l9+Ld4we5bzmp/qnDVCw=; 
-	b=aEs0UB9mJsmLcEAQKhwJL3dYc966oVhJ7rCAWEyWh6vptUck9RAqH5t5MZDsZ153HvkHNGJo1RRi+FNlrWrBzH4DYQwJzhCzUswfXe83+8GyiXViblwMwv5S+4ZqWsCoQ19N8vlOViVrAZnHGUWRiBOOojHOsSOMFRJNaqzoDjs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755028680;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=hpqx7RzpdxGOcvVbi01ogR9l9+Ld4we5bzmp/qnDVCw=;
-	b=cfqo3+DswUcxEAKl6G10whoU6cDjGfQiw4omyCbHLOLLeviS1UuIBIhTL8Djvavr
-	LshuvggdToTsKe722XI6Ceuw8Tq1/JD76EBRPRu7J2Uwr1yyuHkZBAcIJXaEcMqkYnx
-	vmzLUxzVr/qF3rLUlas0vQNFQgDO/t9mZQh0x1Ls=
-Received: by mx.zohomail.com with SMTPS id 1755028679034363.05175347219756;
-	Tue, 12 Aug 2025 12:57:59 -0700 (PDT)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: Jonas Karlman <jonas@kwiboo.se>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Alex Bee <knaerzche@gmail.com>,
- Sebastian Fricke <sebastian.fricke@collabora.com>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
-Date: Tue, 12 Aug 2025 15:57:57 -0400
-Message-ID: <3547812.44csPzL39Z@earth>
-In-Reply-To: <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
- <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
+	id 1ulvde-0000000BwPT-2THM;
+	Tue, 12 Aug 2025 20:30:31 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-af91a6b7a06so994826666b.2;
+        Tue, 12 Aug 2025 13:30:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1755030628; x=1755635428; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UDpZ/uLV4xgn4kCXyhg6m1oHwpXbM6/gIBFZ0zY+grE=;
+        b=Xpc2gyFgplVLLj52ruZp0SsjdoWK8yc6gEQRxhryHJdQkv0GTsfa7IVAop1/R0O8qn
+         onmk965qJCSENHROv7ZXXg4vFgb3eqKyPBvlUkvQzrIOj3HM23sdDGkUZF3W3I1kw0CC
+         bpmyGRTwguJoF17fgw9sf5t5Jjf6G0F4ygvdI281xrxX6fsuw3jAadY7WgaqkuHwuuG9
+         7nodFWGkCKAE3CAwfPRd+3Py6X6YXFsGgLFpjC2of1+qrZ6b77vJeqRJ0Sjrh3mXkaQe
+         YD+hbW5AGWg2NiNzglKWZEZFCCwMkASA/ITwt1jmDbnXt6TTnnEEl949EgIgua89q4Do
+         FHUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1755030628; x=1755635428;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UDpZ/uLV4xgn4kCXyhg6m1oHwpXbM6/gIBFZ0zY+grE=;
+        b=IfmJ2s+WU84aYul/D8K6ZF/w5wntAVQdi+Ja0tSOkivq5YDlHHsyy/IVYePAeiW1y9
+         /s3G+PoU3l+RhYZ5fM1EuIzaI+gKiCEM9YiWOgPphxhWmQz3nSH845dd5EWk1BdV9hUd
+         bE+PcxkNYvo40Zb+etWhL/zbzjVbQOglGyCMv44081xCrOs9XcagWUwfZWaIsYocXWDg
+         d83hYg2CY5LeHA0LTBrrSmYpkdQ0uHwDyWe8rfr4YU8oYxhFNJPryyeW/YhcQEK+hwde
+         Nii7TPN75rKtAqAET45K0/m/BwehffsAZMGCkeFmNCf9oga8gih1e2HR9ctmtWbVzAgf
+         na4w==
+X-Forwarded-Encrypted: i=1; AJvYcCUhORUyuIevZDUNrH6QJWFIttkVgzNU6FurP066IW9owNkJH1v6wgFWm4OZkVOvoFGEIh4JSwXAuhiN7PiO+gE=@lists.infradead.org, AJvYcCXyd38pRZ10eaIGhMafiMp/TAwtqyIDj0IqmmN3QvEqyg0IvAbZ1SX3Kpo2pw/qjQi3FR7HeQtExltr9sIg+/Hx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzf3/N9z8h8OHqcP3eb5w8+iToSMOkG4qQnq+WRwaH4dBdW30ul
+	Cqv5tDtJ7uENwGHWgNg4aevxhUoEOjXiX3+zRvX+3bSohoEj+Fq+SRrL1oYbMnTa8/c=
+X-Gm-Gg: ASbGncu+dkztT340hMEeWqOrvq8PhbOGMXqbA3XW69udTGQKkP44yhVWJjjhh0jAWT+
+	gTKG/I4+waVNzmdGUYiKdhIWOovRSbcnxJuLHJFdN7FoCgs3DmwXmxEzl1PHqjQZkVZPoziJ6Bf
+	nXJuaN8wbckcVklnHv1zJO71bGGfTRvZpoQyua0koPL63KTuzt4M8vK7eToXZMnI5LTucJWVDvC
+	o+Nt+oFc24k1asvEh5XeD2MWRhH/xSAiJk8L3cJFlS1c3yrSsxsLhapqhYSwPkTVMErl74EF3Y8
+	a2n7I527hpRASt8MvLmXuXlFwSDxzxSLKmqIV8sf1621ZWqLABUNKl+ElC5mRQMKhgz/njyqPUw
+	YowayLp2bhnDqULDJJknIQ/+AwREpjsj5zUBp/K1XAP2bAZtTM6o=
+X-Google-Smtp-Source: AGHT+IE8qPYJK5nv9hP6mJhBYPJdtTcVBRcIuezef0tNEf/XrB7lXj0liRGKyKHHW8hVebGuWOnP2g==
+X-Received: by 2002:a17:907:1b13:b0:afa:1a67:c046 with SMTP id a640c23a62f3a-afca4cbb1c0mr54830066b.11.1755030627838;
+        Tue, 12 Aug 2025 13:30:27 -0700 (PDT)
+Received: from alchark-surface.localdomain ([185.213.155.230])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a0a3b58sm2266073166b.58.2025.08.12.13.30.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 13:30:27 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Subject: [PATCH 0/3] arm64: dts: rockchip: Enable RTC, WiFi and Bluetooth
+ on RK3576 EVB1
+Date: Wed, 13 Aug 2025 00:30:22 +0400
+Message-Id: <20250813-evb1-rtcwifibt-v1-0-d13c83422971@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF+km2gC/x3MQQqAIBBA0avIrBPU0qSrRAutsWZjoVJBdPek5
+ Vv8/0DGRJhhYA8kPCnTHitkw2DeXFyR01INSigtrDAcTy95KvNFgXzhru2kFr3RdtFQoyNhoPs
+ fjtP7fqGDmURgAAAA
+X-Change-ID: 20250806-evb1-rtcwifibt-a341507658d5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Pavel Zhovner <pavel@flipperdevices.com>, 
+ Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1755030626; l=1045;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=DPUg/AoorRxu3yhwbYOhHRtH0CbbSLCxMzRYqdsDRVU=;
+ b=olIxr2X1rvA6OPvIHjWNujq7kqoN3cBugQA6uDhbvCgzXX49DIhFHYGpp25HJaliyfIbItPBh
+ 9GeZmMsbRDNAsn+459X9Obgn6qN1H6ZX9a+K5vr0zTjK5oFDsVtaNMo
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_125806_572769_69C44F84 
-X-CRM114-Status: GOOD (  37.29  )
+X-CRM114-CacheID: sfid-20250812_133030_629405_22846CC2 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,175 +111,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 11 August 2025 17:52:42 EDT Nicolas Dufresne wrote:
-> Le dimanche 10 ao=C3=BBt 2025 =C3=A0 21:24 +0000, Jonas Karlman a =C3=A9c=
-rit :
-> > This series add a HEVC backend to the Rockchip Video Decoder driver.
-> >=20
-> > With the dependent H.264 High 10 and 4:2:2 profile support series
-> > finally merged there is finally time to send a v2 with minor changes and
-> > a suggested code style fix of this series. v1 of this series has been
-> > fully functional up until recent unstaging of the rkvdec driver.
-> >=20
-> > A version of this HEVC backend has been in use by the LibreELEC distro
-> > for the past 5+ years [1]. It was initially created based on a copy of
-> > the H264 backend, unstable HEVC uAPI controls and a cabac table + scali=
-ng
-> > matrix functions shamelessly copied 1:1 from the Rockchip mpp library.
-> >=20
-> > It has since then been extended to use the stable HEVC uAPI controls and
-> > improved opon e.g. to include support for rk3288 and fix decoding issues
-> > by Alex Bee and Nicolas Dufresne.
-> >=20
-> > The version submitted in this series is based on the code currently used
-> > by the LibreELEC distro, excluding hard/soft reset, and with cabac table
-> > and scaling matrix functions picked from Sebastian Fricke prior series
-> > to add a HEVC backend [2].
-> >=20
-> > Big thanks to Alex Bee, Nicolas Dufresne and Sebastian Fricke for making
-> > this series possible!
-> >=20
-> > Patch 1 add the new HEVC backend.
-> > Patch 2-3 add variants support to the driver.
-> > Patch 4 add support for a rk3288 variant.
-> > Patch 5 add a rk3328 variant to work around hw quirks.
-> > Patch 6-7 add device tree node for rk3288.
-> >=20
-> > This was tested on a ROCK Pi 4 (RK3399) and Rock64 (RK3328):
-> >=20
-> >   v4l2-compliance 1.30.1, 64 bits, 64-bit time_t
-> >   ...
-> >   Total for rkvdec device /dev/video1: 49, Succeeded: 49, Failed: 0,
-> > Warnings: 0
-> >=20
-> >   Running test suite JCT-VC-HEVC_V1 with decoder FFmpeg-H.265-v4l2reque=
-st
-> >   ...
-> >   Ran 137/147 tests successfully
->=20
-> I've also tested RK3399 using Renegade Elite from Libre Computer, though
-> with GStreamer. My results for this suite is 134/147, with failing tests
-> being:
->=20
-> - DBLK_D_VIXS_2
-> - DSLICE_A_HHI_5
-> - DELTAQP_A_BRCM_4
-> - EXT_A_ericsson_4
-> - PICSIZE_A_Bossen_1 (expected)
-> - PICSIZE_B_Bossen_1 (expected)
-> - PICSIZE_C_Bossen_1 (expected)
-> - PICSIZE_D_Bossen_1 (expected)
-> - SAODBLK_A_MainConcept_4
-> - SAODBLK_B_MainConcept_4
-> - TSUNEQBD_A_MAIN10_Technicolor_2 (expected)
-> - WPP_D_ericsson_MAIN10_2
-> - WPP_D_ericsson_MAIN_2
->=20
-> Please share your list, this seems big enough difference to be worth maki=
-ng
-> sure we did not diverge somewhere between both interpretation of the V4L2
-> spec. GStreamer has been mostly tested with MTK driver so far. Can you al=
-so
-> share a link to the latest ffmpeg tree you are using (since its not
-> upstream FFMPEG) ?
->=20
-> Detlev reports 146/147 on newer hardware using GStreamer, failing
-> TSUNEQBD_A_MAIN10_Technicolor_2 (9bit chroma) only. On Detlev side, it wi=
-ll
-> we important to check why 8K videos (PICSIZE*) passes with a single core,
-> perhaps we accidently use both cores ?
+Rockchip RK3576 EVB1 boards follow the usual Rockchip design pattern
+with the I2C connected RTC chip feeding a 32 kHz LPO clock to the
+onboard Ampak AP6275P combo WiFi/BT module. In this case the WiFi
+part is connected by a PCIe link and BT over UART.
 
-1 core can do 8K. In theory, it can do up to close to 65535x65535... It is=
-=20
-only a speed issue, so you can do 8K but you won't be able to get to 8K@60=
-=20
-with only one core on rk3588.
+Add required DT nodes to enable them.
 
-> Note, also expected, we failt JCT-VC-SCC, JCT-VC-MV-HEVC, and JCT-VC-RExt
-> passes 2/49. This last suite is pretty new in fluster.
->=20
-> regards,
-> Nicolas
->=20
-> >   Running test suite JCT-VC-MV-HEVC with decoder FFmpeg-H.265-v4l2reque=
-st
-> >   ...
-> >   Ran 9/9 tests successfully
-> >=20
-> > And on a TinkerBoard (RK3288):
-> >=20
-> >   v4l2-compliance 1.30.1, 32 bits, 32-bit time_t
-> >   ...
-> >   Total for rkvdec device /dev/video3: 49, Succeeded: 49, Failed: 0,
-> > Warnings: 0
-> >=20
-> >   Running test suite JCT-VC-HEVC_V1 with decoder FFmpeg-H.265-v4l2reque=
-st
-> >   ...
-> >   Ran 137/147 tests successfully
-> >=20
-> >   Running test suite JCT-VC-MV-HEVC with decoder FFmpeg-H.265-v4l2reque=
-st
-> >   ...
-> >   Ran 9/9 tests successfully
-> >=20
-> > The WPP_x_ericsson tests from test suite JCT-VC-HEVC_V1 has been showing
-> > a mix of both Success and/or Fail result for FFmpeg-H.265-v4l2request.
-> >=20
-> > Full summary of fluster run can be found at [3].
-> >=20
-> > Please note that there is a known issue with concurrent decoding,
-> > decoding errors in one decode session may affect a separate session.
-> > The only known mitigation to this is to pause decoding for some time
-> > and/or do a full HW reset, something to handle in future series.
-> >=20
-> > Changes in v2:
-> > - Rabase after h264 high10/422 merge and unstaging of rkvdec driver
-> > - Use new_value in transpose_and_flatten_matrices()
-> > - Add NULL check for ctrl->new_elems in rkvdec_hevc_run_preamble()
-> > - Set RKVDEC_WR_DDR_ALIGN_EN for RK3328
-> > - Adjust code style in rkvdec_enum_coded_fmt_desc()
-> > - Collect a-b tag
-> > - Drop merged vdec node reg size patches
-> > Link to v1:
-> > https://lore.kernel.org/linux-media/20231105233630.3927502-1-jonas@kwib=
-oo.
-> > se
-> >=20
-> > [1]
-> > https://github.com/LibreELEC/LibreELEC.tv/blob/master/projects/Rockchip=
-/pa
-> > tches/linux/default/linux-2000-v4l2-wip-rkvdec-hevc.patch [2]
-> > https://lore.kernel.org/linux-media/20230101-patch-series-v2-6-2-rc1-v2=
-=2D0-> > fa1897efac14@collabora.com/ [3]
-> > https://gist.github.com/Kwiboo/bedf1f447b50921ffbe26cb99579582d
-> >=20
-> > Alex Bee (4):
-> >   media: rkvdec: Add variants support
-> >   media: rkvdec: Add RK3288 variant
-> >   media: rkvdec: Disable QoS for HEVC and VP9 on RK3328
-> >   ARM: dts: rockchip: Add vdec node for RK3288
-> >=20
-> > Jonas Karlman (3):
-> >   media: rkvdec: Add HEVC backend
-> >   media: rkvdec: Implement capability filtering
-> >   media: dt-bindings: rockchip,vdec: Add RK3288 compatible
-> >=20
-> >  .../bindings/media/rockchip,vdec.yaml         |    1 +
-> >  arch/arm/boot/dts/rockchip/rk3288.dtsi        |   17 +-
-> >  .../media/platform/rockchip/rkvdec/Makefile   |    2 +-
-> >  .../rockchip/rkvdec/rkvdec-hevc-data.c        | 1848 +++++++++++++++++
-> >  .../platform/rockchip/rkvdec/rkvdec-hevc.c    |  826 ++++++++
-> >  .../platform/rockchip/rkvdec/rkvdec-regs.h    |    4 +
-> >  .../platform/rockchip/rkvdec/rkvdec-vp9.c     |   10 +
-> >  .../media/platform/rockchip/rkvdec/rkvdec.c   |  184 +-
-> >  .../media/platform/rockchip/rkvdec/rkvdec.h   |   15 +
-> >  9 files changed, 2886 insertions(+), 21 deletions(-)
-> >  create mode 100644
-> > drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-data.c create mode
-> > 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
+The board also has a connector for an external WiFi/BT module, which
+is out of scope for this series. There is also a PCM connection from
+SAI2 M0 to the Bluetooth module, which is also left out for now.
 
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Alexey Charkov (3):
+      arm64: dts: rockchip: Add RTC on rk3576-evb1-v10
+      arm64: dts: rockchip: Add WiFi on rk3576-evb1-v10
+      arm64: dts: rockchip: Add Bluetooth on rk3576-evb1-v10
 
+ arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts | 115 +++++++++++++++++++++++
+ 1 file changed, 115 insertions(+)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250806-evb1-rtcwifibt-a341507658d5
 
+Best regards,
+-- 
+Alexey Charkov <alchark@gmail.com>
 
 
