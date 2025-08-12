@@ -4,56 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAD8CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0504FC87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HPTcCCtVVebCSCFqhjYn1iuSA7I2nA7b2tvtUS0MQzQ=; b=Jub8GhSZq323KmP9Vz/wG6BF3x
-	jDGKsSXb0A9FXxJzbX+m7kditXXGP1oiLSTiNI3ZzHeAcRjdRfUTQoa1iS+yrU99CUx5J4qr3itqa
-	uBWOrKmRviG5yrZQF4U+qdxd9WhhTOBvFic/Lrmg2BQVrIWkgYIB2wzTYkwCTAlEx7U0efzd+SOs/
-	jP3iYjlRX8nX375CmJ4GrKGv2UCSKgTgUzBU+5Yd+vU2T45iY1GhVL6mVufUC9+7V5KtAGMw/oZib
-	lZtWY1J01PLI6+NM9s50bPal1+dLWjsBIKSYCYdASXt6/B3ae48Nw68n2pB8UyC+eM40Q4O/l/3YI
-	mxJoCyRQ==;
+	bh=OwjxpZn4dZkUQxB4QC0dQrdPHe8Qe1uNJv8A/ONcfq8=; b=jwmY3Az4TbDLlnpYs4qzSxhn12
+	fiPe7hjMx2xrZD+haCFGECi53wqaEmO2B82VffNGeEGnAcb+GPd+TGaj9xsjtppJc3hDP+FXD8hMm
+	ARsVRmvGc/lWwviOwVvn0HtgnVG9En3LsmMc5Td1wqkSzaBBCjB8XJGORdkpAldE9BaxrzRrY8KjW
+	mx7Cu7GT9jdpckudYR6DXtkYNgQDVFd1ln3S1lrYXDBDfcr/jxwfoAbnzeiMahYNVAGv/iOlFcmLh
+	BNQIOh0kyuCqMZp4xkEX1agIieokLY2dCescKxjrib1nwypAHyewdmhnkCT0U+DWuxf7aSmq1LvYE
+	tVOgEiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrhz-0000000BHab-2cMo;
-	Tue, 12 Aug 2025 16:18:43 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1ulri9-0000000BHrj-0OFd;
+	Tue, 12 Aug 2025 16:18:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ullvt-0000000ATGU-3TnJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 10:08:42 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 12 Aug
- 2025 18:08:30 +0800
-Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 12 Aug 2025 18:08:30 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: ryan_chen <ryan_chen@aspeedtech.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Kevin Chen
-	<kevin_chen@aspeedtech.com>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>
-Subject: [PATCH v4 2/2] Irqchip/ast2700-intc: add debugfs support and AST2700 INTC0/INTC1 routing/protection display
-Date: Tue, 12 Aug 2025 18:08:30 +0800
-Message-ID: <20250812100830.145578-3-ryan_chen@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250812100830.145578-1-ryan_chen@aspeedtech.com>
-References: <20250812100830.145578-1-ryan_chen@aspeedtech.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_030841_879404_95B85940 
-X-CRM114-Status: GOOD (  19.51  )
+	id 1ulm44-0000000AUdv-2X66;
+	Tue, 12 Aug 2025 10:17:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B6C5060010;
+	Tue, 12 Aug 2025 10:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B44C4CEF0;
+	Tue, 12 Aug 2025 10:17:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754993827;
+	bh=/O7rQIW2crUsCtHM7R5MYL0IYB1Ko7dTRUfLAxpT1Ak=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=EuNGn3WbJ+cZLh1cdoV61+KvZl6Gbnv8g8dDrPOaXkE8Xbm7a/PlkR+XMJcOMoUuT
+	 Zizv34H/KNxpthZWixJSJPOg+RyAmGkUMBkcHFzbGc4BHlbxRC1XjXiYHkho5gK0Wi
+	 GGgTUGbDQ0vgKs3KXc8gjIY+OOSkl39T80clL092GeWC2gGLrd9AB1IWLPNGZI+sTr
+	 wbBzDe06txRb3HdzlnTM4Iyr7yjBJZV0V9zNc2yXwGaxTElCev/9vkqJQLhj8+j9bD
+	 re2rnElAywi+nV5P+dbWqpw4dlfijpN5jY5y/VqNqU7n1QYTWwOtE3AyHi16+N9Qq8
+	 KPs8WNo6vFDKg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ulm41-006cns-BF;
+	Tue, 12 Aug 2025 11:17:05 +0100
+Date: Tue, 12 Aug 2025 11:17:04 +0100
+Message-ID: <86ms84974v.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Coiby Xu <coxu@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	kexec@lists.infradead.org
+Subject: Re: [Regression] kdump fails to get DHCP address unless booting with pci=nomsi or without nr_cpus=1
+In-Reply-To: <i2l2ujhqjd6akzosvzj4njv2vemsfuvywz4gsnj2nwo3fwyjyz@cfhekxpartf2>
+References: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
+	<87bjom8106.ffs@tglx>
+	<878qjq80yu.ffs@tglx>
+	<86v7mt9ai3.wl-maz@kernel.org>
+	<i2l2ujhqjd6akzosvzj4njv2vemsfuvywz4gsnj2nwo3fwyjyz@cfhekxpartf2>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: coxu@redhat.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, kexec@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,230 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AST2700 INTC0/INTC1 nodes ("aspeed,ast2700-intc0/1") not only
-include the interrupt controller child node ("aspeed,ast2700-intc-ic"),
-but also provide interrupt routing and register protection features.
-Adds debugfs entries for interrupt routing and protection status for
-AST2700 INTC0/INTC1.
+On Tue, 12 Aug 2025 11:09:12 +0100,
+Coiby Xu <coxu@redhat.com> wrote:
+> 
+> On Mon, Aug 11, 2025 at 03:52:04PM +0100, Marc Zyngier wrote:
+> > On Mon, 11 Aug 2025 14:03:21 +0100,
+> > Thomas Gleixner <tglx@linutronix.de> wrote:
+> >> 
+> >> On Mon, Aug 11 2025 at 15:02, Thomas Gleixner wrote:
+> >> 
+> >> CC+ Marc
+> >> 
+> >> > On Mon, Aug 11 2025 at 11:23, Coiby Xu wrote:
+> >> >> Recently I met an issue that on certain virtual machines, the kdump
+> >> >> kernel fails to get DHCP IP address most of times starting from
+> >> >> 6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
+> >> >> Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
+> >> >>
+> >> >>      # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
+> >> >>      # MSI_FLAG_PCI_MSI_MASK_PARENT
+> >> >>      git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
+> >> >>      # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
+> >> >>      # Provide MSI parent infrastructure
+> >> >>      git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
+> >> >>      # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
+> >> >>      # Prepare for PCI MSI/MSIX
+> >> >>      git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
+> >> >>      # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
+> >> >>      # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
+> >> >
+> >> > There were follow up fixes on this, so isolating this one is not really
+> >> > conclusive.
+> >> >
+> >> > Is the problem still there on v6.16 and v6.17-rc1?
+> > 
+> > Yeah, there are way too many things that have been addressed since.
+> > kdump is also a particularly nasty case, as it tends to rely on the
+> > redistributor tables programmed by the previous kernel.
+> 
+> Thanks for providing a clue. This may also explain explain why I fails
+> to reproduce this issue against 1st kernel even with the same cmdline of
+> the kdump kernel.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/irqchip/Kconfig            |   6 +
- drivers/irqchip/Makefile           |   1 +
- drivers/irqchip/irq-ast2700-intc.c | 174 +++++++++++++++++++++++++++++
- 3 files changed, 181 insertions(+)
- create mode 100644 drivers/irqchip/irq-ast2700-intc.c
+I'm not sure that's a clue. It's only an indication that things are
+not necessarily easy to spot.
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index c3928ef79344..9f6473bf4055 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -97,6 +97,12 @@ config AL_FIC
- 	help
- 	  Support Amazon's Annapurna Labs Fabric Interrupt Controller.
- 
-+config AST2700_INTC
-+	tristate "AST2700 Interrupt Controller"
-+	depends on ARCH_ASPEED
-+	help
-+	  Support AST2700 Interrupt Controller.
-+
- config ATMEL_AIC_IRQ
- 	bool
- 	select GENERIC_IRQ_CHIP
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 23ca4959e6ce..eea0a8699204 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -88,6 +88,7 @@ obj-$(CONFIG_LS_EXTIRQ)			+= irq-ls-extirq.o
- obj-$(CONFIG_LS_SCFG_MSI)		+= irq-ls-scfg-msi.o
- obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-vic.o irq-aspeed-i2c-ic.o irq-aspeed-scu-ic.o
- obj-$(CONFIG_ARCH_ASPEED)		+= irq-aspeed-intc.o
-+obj-$(CONFIG_AST2700_INTC)		+= irq-ast2700-intc.o
- obj-$(CONFIG_STM32MP_EXTI)		+= irq-stm32mp-exti.o
- obj-$(CONFIG_STM32_EXTI) 		+= irq-stm32-exti.o
- obj-$(CONFIG_QCOM_IRQ_COMBINER)		+= qcom-irq-combiner.o
-diff --git a/drivers/irqchip/irq-ast2700-intc.c b/drivers/irqchip/irq-ast2700-intc.c
-new file mode 100644
-index 000000000000..7c7241539fe5
---- /dev/null
-+++ b/drivers/irqchip/irq-ast2700-intc.c
-@@ -0,0 +1,174 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * AST2700 Interrupt Controller
-+ */
-+
-+#include <linux/debugfs.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/seq_file.h>
-+
-+/* INTC0 register layout */
-+#define INTC0_PROT_OFFS           0x40
-+#define INTC0_ROUTING_SEL0_BASE   0x200
-+#define INTC0_ROUTING_GAP         0x100
-+#define INTC0_GROUPS              4
-+
-+/* INTC1 register layout */
-+#define INTC1_PROT_OFFS           0x00
-+#define INTC1_ROUTING_SEL0_BASE   0x80
-+#define INTC1_ROUTING_GAP         0x20
-+#define INTC1_GROUPS              6
-+
-+struct aspeed_intc_data {
-+	const char                  *name;
-+	u32                          prot_offs;
-+	u32                          rout_sel0_base;
-+	u32                          rout_gap;
-+	unsigned int                 groups;
-+};
-+
-+static const struct aspeed_intc_data aspeed_intc0_data = {
-+	.name            = "INTC0",
-+	.prot_offs       = INTC0_PROT_OFFS,
-+	.rout_sel0_base  = INTC0_ROUTING_SEL0_BASE,
-+	.rout_gap        = INTC0_ROUTING_GAP,
-+	.groups          = INTC0_GROUPS,
-+};
-+
-+static const struct aspeed_intc_data aspeed_intc1_data = {
-+	.name            = "INTC1",
-+	.prot_offs       = INTC1_PROT_OFFS,
-+	.rout_sel0_base  = INTC1_ROUTING_SEL0_BASE,
-+	.rout_gap        = INTC1_ROUTING_GAP,
-+	.groups          = INTC1_GROUPS,
-+};
-+
-+struct aspeed_intc {
-+	void __iomem                    *base;
-+	const struct aspeed_intc_data   *data;
-+#ifdef CONFIG_DEBUG_FS
-+	struct dentry                   *dbg_root;
-+#endif
-+};
-+
-+#ifdef CONFIG_DEBUG_FS
-+static int aspeed_intc_regs_show(struct seq_file *s, void *unused)
-+{
-+	struct aspeed_intc *intc = s->private;
-+	const struct aspeed_intc_data *d = intc->data;
-+	void __iomem *base = intc->base;
-+	unsigned int i;
-+
-+	for (i = 0; i < d->groups; i++) {
-+		void __iomem *b = base + d->rout_sel0_base + i * 4;
-+		u32 r0 = readl(b);
-+		u32 r1 = readl(b + d->rout_gap);
-+		u32 r2 = readl(b + 2 * d->rout_gap);
-+
-+		seq_printf(s, "ROUTE[%u]: 0x%08x 0x%08x 0x%08x\n", i, r0, r1, r2);
-+	}
-+	return 0;
-+}
-+
-+static int aspeed_intc_regs_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, aspeed_intc_regs_show, inode->i_private);
-+}
-+
-+static const struct file_operations aspeed_intc_regs_fops = {
-+	.owner    = THIS_MODULE,
-+	.open     = aspeed_intc_regs_open,
-+	.read     = seq_read,
-+	.llseek   = seq_lseek,
-+	.release  = single_release,
-+};
-+
-+static int aspeed_intc_prot_show(struct seq_file *s, void *unused)
-+{
-+	struct aspeed_intc *intc = s->private;
-+	const struct aspeed_intc_data *d = intc->data;
-+	u32 prot = readl(intc->base + d->prot_offs);
-+
-+	seq_printf(s, "%s_PROT: 0x%08x\n", d->name, prot);
-+	return 0;
-+}
-+
-+static int aspeed_intc_prot_open(struct inode *inode, struct file *file)
-+{
-+	return single_open(file, aspeed_intc_prot_show, inode->i_private);
-+}
-+
-+static const struct file_operations aspeed_intc_prot_fops = {
-+	.owner    = THIS_MODULE,
-+	.open     = aspeed_intc_prot_open,
-+	.read     = seq_read,
-+	.llseek   = seq_lseek,
-+	.release  = single_release,
-+};
-+#endif /* CONFIG_DEBUG_FS */
-+
-+static int aspeed_intc_probe(struct platform_device *pdev)
-+{
-+	const struct aspeed_intc_data *data;
-+	struct aspeed_intc *intc;
-+	struct resource *res;
-+
-+	data = of_device_get_match_data(&pdev->dev);
-+	if (!data)
-+		return -ENODEV;
-+
-+	intc = devm_kzalloc(&pdev->dev, sizeof(*intc), GFP_KERNEL);
-+	if (!intc)
-+		return -ENOMEM;
-+
-+	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	intc->base = devm_ioremap_resource(&pdev->dev, res);
-+	if (IS_ERR(intc->base))
-+		return PTR_ERR(intc->base);
-+
-+	intc->data = data;
-+
-+	platform_set_drvdata(pdev, intc);
-+
-+#ifdef CONFIG_DEBUG_FS
-+	intc->dbg_root = debugfs_create_dir(dev_name(&pdev->dev), NULL);
-+	if (intc->dbg_root) {
-+		debugfs_create_file("routing", 0400, intc->dbg_root, intc,
-+				    &aspeed_intc_regs_fops);
-+		debugfs_create_file("protection", 0400, intc->dbg_root, intc,
-+				    &aspeed_intc_prot_fops);
-+	}
-+#endif
-+	return 0;
-+}
-+
-+static void aspeed_intc_remove(struct platform_device *pdev)
-+{
-+#ifdef CONFIG_DEBUG_FS
-+	struct aspeed_intc *intc = platform_get_drvdata(pdev);
-+
-+	if (intc && intc->dbg_root)
-+		debugfs_remove_recursive(intc->dbg_root);
-+#endif
-+}
-+
-+static const struct of_device_id aspeed_intc_of_match[] = {
-+	{ .compatible = "aspeed,ast2700-intc0", .data = &aspeed_intc0_data },
-+	{ .compatible = "aspeed,ast2700-intc1", .data = &aspeed_intc1_data },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, aspeed_intc_of_match);
-+
-+static struct platform_driver aspeed_intc_driver = {
-+	.probe   = aspeed_intc_probe,
-+	.remove  = aspeed_intc_remove,
-+	.driver  = {
-+		.name           = "aspeed-ast2700-intc",
-+		.of_match_table = aspeed_intc_of_match,
-+	},
-+};
-+module_platform_driver(aspeed_intc_driver);
+Has it ever been reproduced on bare metal? Have you tried v6.16 as
+instructed?
+
+> 
+> > 
+> > Also, this says "virtual machines". What's the hypervisor? 
+> 
+> I'll contact the lab administrator. What kinds of info I should collect
+> to help you narrow down the issue?
+
+Surely you know what hypervisor you're running on, right?
+
+> 
+> > How hard is it to reproduce?
+> 
+> It can be reproduced reliably on certain machines. But as of writing I
+> haven't reproduced it on other KVM virtual machines on three different
+> host machines.
+
+Which machines? I'm sorry, but if you want help on this, you'll have
+to provide actual information.
+
+Thanks,
+
+	M.
+
 -- 
-2.34.1
-
+Without deviation from the norm, progress is not possible.
 
