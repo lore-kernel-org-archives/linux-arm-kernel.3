@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C2CCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B611CA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 21:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVJIBKoxIrRVQZORHAcghgHiro8lV59ncVp4Y8IHIHQ=; b=OebJN7vp35F9M3syRueV83+H1o
-	ornEBlvgo3ib0+jmaGMWnvCFjApO6tSB7T/xxtbX64CHykuC4LilcbTy517k97IgPRDhWIy22IihC
-	FYLqFFLsjP1vJjl7KFqZOz3CuEdV0kUlXNbPUUQr5Wnf8sKA/T1EnfDNCnh3SmFy6F1C/rbEglBzf
-	7WH/Zn8Uq40WOFanVSwwhhDzbkyHKtp5q3g5BS8iV/kux4qJljhsp9IbTl6tx7z3qrK4KjKKbwf6o
-	ebL7j0HSnoGl7oPqt+jZAuGDovePnZSNfXRyQQlfWuSVCmZv+rfazac1edBE/a55+5PqqRGsXt8Hd
-	A720DTYw==;
+	bh=tpMrvs6yS4pMI5Wnd6q9nyRBeclNmrjfIqat/8mupDU=; b=cl73IFWDbWsTo5CIjBQVQzL5a1
+	pl1RHKwVuXB2D0iP+ixeC+uJN5uhrk7qtptSHrwYnH8WPIWWJlzFMEQI2u/ac3xXqv/iJmIFHG+Ot
+	vxmOcxztjO4RW1akhMuoV3IZAl4qW1EnC92bM1bX/KiarV22lx6q4BPoyMbjEYMoWDWjub8cllKT8
+	H2K2xuTK8OSE7zGoknmusj3mM9REKUgYYfs77nO13em+5IW6mNg/1h/XVFnLrZqJveCYfSBKfgnwu
+	z5Q7uRBgn0NkNod8fexNQ8WmmqJnMuVMjTkWKNwd8Echcb+kwVMoMndrYHQnRPv6gLdtkr11VSNkv
+	R4FLi5qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwx0-0000000C65N-37zd;
-	Tue, 12 Aug 2025 21:54:34 +0000
+	id 1ulwzW-0000000C6MZ-2RK1;
+	Tue, 12 Aug 2025 21:57:10 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulwr5-0000000C5Kx-21Na
+	id 1ulwrB-0000000C5M0-29h2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 21:48:28 +0000
+	Tue, 12 Aug 2025 21:48:34 +0000
 Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 3E2E31123;
-	Tue, 12 Aug 2025 23:47:33 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 5FD151123;
+	Tue, 12 Aug 2025 23:47:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1755035253;
-	bh=w7k9w4ZekQGz6lOWcEWmQp+qbPKROd/tHGoFsIB/Jsk=;
+	s=mail; t=1755035259;
+	bh=AtdXIKua/INaYV+49Ae7n8dhujiaT3BXrg7Ye9V+l9Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SsCh++08O1o5kx96gsqNPVtqlYmqp2b/p52qzPZxcfb6fidxJ+rps72JbvZRGzquw
-	 IcJroM4d9+8pyLy1U7fM8Te5UNkVaBLJ5YSrMcPPqWMh68ZpSUd4n7d2T1fZEkxMgc
-	 T+SlmcDCeKQ3WC6eOt/Njo6myOIdq988ZDAV2PmY=
+	b=Wj6/L0GOkEIwXWXI0wmTY8NIJjxz5Tan2wtm2luLZ6o7ottttzZRdK0/NBVLkwaeQ
+	 N1cWJAYfEIiHx78ySSplpTrA9fC9W4UXOXc7FFX/6VyDyc3sqNZLzh2BbrVzFyu5Al
+	 2l5LmBqFQXwrW3nYTUUp+wJwUFqRqLrIyjFKv85s=
 From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 To: linux-media@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH v2 64/72] ARM: dts: samsung: exynos4412-midas: Replace clock-frequency in camera sensor node
-Date: Wed, 13 Aug 2025 00:46:12 +0300
-Message-ID: <20250812214620.30425-65-laurent.pinchart@ideasonboard.com>
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 68/72] ARM: dts: nxp: imx6qdl-pico: Replace clock-frequency in camera sensor node
+Date: Wed, 13 Aug 2025 00:46:16 +0300
+Message-ID: <20250812214620.30425-69-laurent.pinchart@ideasonboard.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
 References: <20250812214620.30425-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_144827_660115_2C4F69DC 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250812_144833_689271_4884186D 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +80,32 @@ the device tree.
 
 Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
-This patch can be merged independently from the previous clock handling
-refactoring in the driver ("media: i2c: s5k6a3: Use V4L2 legacy sensor
-clock helper").
+This patch depends on "media: i2c: ov5645: Use V4L2 legacy sensor clock
+helper", which we tentatively plan to merge for v6.18. It should
+therefore be postponed to v6.19.
 
-Without the driver change, when the clock-frequency property is not set,
-the driver defaults to a fixed 24MHz value. That is the frequency set in
-DT for this board, so the resulting clock frequency does not change.
+Changes since v1:
+
+- Drop added blank line
 ---
- arch/arm/boot/dts/samsung/exynos4412-midas.dtsi | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi b/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi
-index 05ddddb565ee..3cd027a99369 100644
---- a/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4412-midas.dtsi
-@@ -638,10 +638,13 @@ image-sensor@10 {
- 		svdda-supply = <&cam_io_reg>;
- 		svddio-supply = <&ldo19_reg>;
- 		afvdd-supply = <&ldo19_reg>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+index c39a9ebdaba1..2ad1c030f51b 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+@@ -233,7 +233,9 @@ camera@3c {
+ 		pinctrl-0 = <&pinctrl_ov5645>;
+ 		reg = <0x3c>;
+ 		clocks = <&clks IMX6QDL_CLK_CKO2>;
 -		clock-frequency = <24000000>;
-+
- 		/* CAM_B_CLKOUT */
- 		clocks = <&camera 1>;
- 		clock-names = "extclk";
-+		assigned-clocks = <&camera 1>;
++		assigned-clocks = <&clks IMX6QDL_CLK_CKO2>;
 +		assigned-clock-rates = <24000000>;
 +
- 		gpios = <&gpm1 6 GPIO_ACTIVE_LOW>;
- 
- 		port {
+ 		vdddo-supply = <&reg_1p8v>;
+ 		vdda-supply = <&reg_2p8v>;
+ 		vddd-supply = <&reg_1p5v>;
 -- 
 Regards,
 
