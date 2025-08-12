@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965C8CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED09FCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 17:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2VFU9Ls0RBEdLvBJfd8qPbFuQCB6ojs0BpLanUuJxB8=; b=aoh5ANoqgCoPaEC9f6ODnec2fL
-	p5el94iZs6CqO9UNY7XxZ7xmpCxXjRJfzOzkG0hbX8amNYzqSpNMBK2il4hRQ6OjhwqO2C77tw9Oc
-	NPdFp1XAW8LjoZn3jk9X6xd6or5ZyaF93ysc51thBneMM2RJSu2RkThwq2uh3pl2k/32HOK9G2fj2
-	5FVAhbrDiF2zkxaEHjhaWR01ZM5j5/s8J6XgajQ+5JyYkAkBox5EutL66GBXk6wryANXo1nu6MxBK
-	MO9s/n6capB9af4MBp7vjzGXpY1Zgl005SQ/FpFMF0ze0SoiIIgFrD1GKYMeKUp0ekqvLBFJ7CGqO
-	ivN3tAog==;
+	bh=aFYMkA0K6tDAgcHyB9Wj66tbmvVVtG7fB1onxc1P39U=; b=pzkgTJOsiQJ0/PjWmh4uSk9CnT
+	/XIJK6DOyiWqojAo0rZWQdkXOv6ZsSPttZSZSEo3RcbXDH/pc8XIsvThyFA+7czbEzEWUoi746AUj
+	yWO5pJvFMj/6FaEziHi82CJLpnr5SlIZWkN206O3Kh78UN2uv/CCu6qJA/sTlQSIccBEy4EYnsZSR
+	3qSXlc9QPqD/JDbf6gRY1vZ4cz/Tl6F5Q/NvEQKy8qN8Ev1edKyMNOnohGkI3IanL8SgD2un5+egy
+	43wETxfxsk3cO7oSzU7N8QU5s03ppPv3+bc7c9ZbtXon/Qtp1Tn50iBZYOTA+gkIRus+RByMtyO/5
+	TtZn4YLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsOY-0000000BVGz-1APJ;
-	Tue, 12 Aug 2025 17:02:42 +0000
+	id 1ulsR4-0000000BVdh-19AT;
+	Tue, 12 Aug 2025 17:05:18 +0000
 Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulpPC-0000000AyVX-3WCR
+	id 1ulpPC-0000000AyVY-3YOX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:51:15 +0000
+	Tue, 12 Aug 2025 13:51:16 +0000
 Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CDerQ7007652;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57CBcDjQ006947;
 	Tue, 12 Aug 2025 15:50:55 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	2VFU9Ls0RBEdLvBJfd8qPbFuQCB6ojs0BpLanUuJxB8=; b=ovvKccAUp/J/wlm/
-	K9rcrxnnja/YavEwQ3kI0qGV7JAOhAkOq44MGW6EfHXjndgcmwLdznuyf326QMVc
-	PPi/vc0Kv9fmgMiSpQaPVknjdC2qeZhDjppbfHkhaZPU8WySzMxsVsY8utUM2NKh
-	qC7578HpQNsGXFP65d2CUsl10eHWT9NekF9yO55IBhrZ4eU5QH/YTt43iaLsUTV3
-	hHI+y8rW247ZULLgtsEwIKwf67zn2k7m0LFa8kSn1EdCT/4Gf9xfVyWCW7jTbUd5
-	oegd8nGfOrnXNc/aEf0RZDJ26s7leHe9QBSqbzcDtY0huYe8HtsgINWeUUmb5hvB
-	G0+caw==
+	aFYMkA0K6tDAgcHyB9Wj66tbmvVVtG7fB1onxc1P39U=; b=POrNRj9F49xve7it
+	y6yk295IPLtBvCh/K2NZX2Y+D5AWaw4DwLU5Jiek5Y94VvfrbmH2xbaqePJKEgio
+	LTMEn49LHWj609K0HLQMqHJaoGRcHVSWky1/vD9TMSecST4jiWfqP4mQVRv8hZZN
+	AipkpoW+AQy0r1h5Q2aTDW/xNFkd/EOhJZQOoOfGpZw87+u/WSBwedrPaICkkT2R
+	gBmv0XX27iL/QqVrOYx1P707TNZALtJ8nFmQGSW7my+5XwwUaxb0oMDPHcjzmpNF
+	vF8nCKRsCJYOjmLQM5q8IXzHqRhT7DE7/tL+RYO2W7Ky1P8ZxuCM06cl9QWTi6bQ
+	V0TH5Q==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48duf8tmfv-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 48duf8tmft-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 12 Aug 2025 15:50:55 +0200 (MEST)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EC7D840071;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 65DD640044;
 	Tue, 12 Aug 2025 15:49:24 +0200 (CEST)
 Received: from Webmail-eu.st.com (shfdag1node2.st.com [10.75.129.70])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 5A66078BFD2;
-	Tue, 12 Aug 2025 15:49:02 +0200 (CEST)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id B48C878C456;
+	Tue, 12 Aug 2025 15:49:01 +0200 (CEST)
 Received: from localhost (10.130.74.180) by SHFDAG1NODE2.st.com (10.75.129.70)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 12 Aug
- 2025 15:49:02 +0200
+ 2025 15:49:01 +0200
 From: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
-Date: Tue, 12 Aug 2025 15:49:01 +0200
-Subject: [PATCH v2 04/13] dt-bindings: display: st,stm32mp25-lvds: add
- access-controllers property
+Date: Tue, 12 Aug 2025 15:49:00 +0200
+Subject: [PATCH v2 03/13] dt-bindings: display: st: add new compatible to
+ LVDS device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250812-drm-misc-next-v2-4-132fd84463d7@foss.st.com>
+Message-ID: <20250812-drm-misc-next-v2-3-132fd84463d7@foss.st.com>
 References: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
 In-Reply-To: <20250812-drm-misc-next-v2-0-132fd84463d7@foss.st.com>
 To: Yannick Fertre <yannick.fertre@foss.st.com>,
@@ -95,8 +95,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-08-12_07,2025-08-11_01,2025-03-28_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_065111_475491_884E2C39 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250812_065111_489177_656D7E74 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +111,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-access-controllers is an optional property that allows a peripheral to
-refer to one or more domain access controller(s).
+Update the compatible to accept both "st,stm32mp255-lvds" and
+st,stm32mp25-lvds" respectively.  Default will fall back to
+"st,stm32mp25-lvds".
 
-This property is added when the peripheral is under the STM32 firewall
-controller.  It allows an accurate representation of the hardware, where
-the peripheral is connected to a firewall bus.  The firewall can then
-check the peripheral accesses before allowing its device to probe.
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>
 ---
- Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-index b777c55626e4b322d77ef411ad9e4a3afb6c9131..96fa0cb5cb86c41d978c4093448afa3bb2a946fa 100644
+index 6736f93256b5cebb558cda5250369ec4b1b3033c..b777c55626e4b322d77ef411ad9e4a3afb6c9131 100644
 --- a/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
 +++ b/Documentation/devicetree/bindings/display/st,stm32mp25-lvds.yaml
-@@ -60,6 +60,9 @@ properties:
-   resets:
-     maxItems: 1
+@@ -31,7 +31,13 @@ description: |
  
-+  access-controllers:
-+    maxItems: 1
-+
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
+ properties:
+   compatible:
+-    const: st,stm32mp25-lvds
++    oneOf:
++      - items:
++          - enum:
++              - st,stm32mp255-lvds
++          - const: st,stm32mp25-lvds
++      - items:
++          - const: st,stm32mp25-lvds
  
+   "#clock-cells":
+     const: 0
 
 -- 
 2.25.1
