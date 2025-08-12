@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D77CA0EC4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0AECCA0EDB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Subject:
+	In-Reply-To:Cc:To:From:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+TJa+1YAL3xL4DQkHf32bWqzxeCnDN+wkm0l10neeQ=; b=eTnMJTPE2Yh23QsXA1AjfVPVJb
-	RR+9ebd2KaBun9gKH+B9PDT2oef/jT8UYlEcl7zhmYfvClAZFBCqBx68kxf83wL6EoEKkpGxyOu19
-	vnRe97BMGI8wahjbZZ69AjembpJD9THzkhC0bPkJr4XYBer0TgD0SbQTwNWuYg2titK48I76ZAiPZ
-	0X+6by+lA94yqykEX+wcjnemIKRmcGAsYW61Eq+IF3FvIPpB9MvbqcuZbT9rGURwaFPJs+yd+vOqP
-	3LXXqwYSlrzZpl24ho6rCVxp52yzaDl8AzeChxTcmRJtW7foj4+61+mk2zcM3okqGI9bUh6nE3CQK
-	l4DpvuqQ==;
+	bh=/3M4lDWEC7hP7KuGM7cE06jKWy9RiyUcvF4Xfh1YCsk=; b=AxLkOTzZIqih/VzW8g4Viyam1p
+	S6+tQgydUYFy+7ZfRd0DTJx/9y6zDSyukseJJFSwZEFEQVt5YVPmyuDUHE2dSIH67QKlm979NvG3J
+	sw2zk4JC5N1jHRGgv/GxplfsjKQqvGq0BCixMGXqXkQazYdLwluW04Gfcwq0qrinMAjczi2YLfp/P
+	mhaSvr9cavbKD3gJE0PG7VzInW7KEzMXcfsRF++pUZv6vRQ+fVr3kPhGM+m/sclsKduA9LHpXOJoB
+	eLglJ1or/btgWCOmKzxClWkxP1cGzq9Qs/QRRDqVavbQcJBw5YAXWLNYBZy10Ib6zVE9tVwULwtEN
+	UBP5fSgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgu-0000000BxXZ-0niR;
-	Tue, 12 Aug 2025 20:33:52 +0000
-Received: from ms.lwn.net ([45.79.88.28])
+	id 1ulvgs-0000000BxUp-1acZ;
+	Tue, 12 Aug 2025 20:33:50 +0000
+Received: from ewsoutbound.kpnmail.nl ([195.121.94.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ultzi-0000000BjeQ-1lCX
+	id 1ultvC-0000000Bj5Q-3qMO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:45:11 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net A42CD40AD9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1755024307; bh=A+TJa+1YAL3xL4DQkHf32bWqzxeCnDN+wkm0l10neeQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=jM8TtxRyOctibvek6JqZctFVAABA7VURS2ihCWUfF47+Qb3GDZwrh1qs8QiaRWi3l
-	 KhF8LjFwA7Vxgcpju8bmUR79KQdqVHBRdOm/DP2zL5+dNg5HP8CPtNsDL9q9xXT5c1
-	 BYLuNjP0yrZ9apv536rH0/ZCgwX8QEpzkwQUK0dODsVbwxGPAH4/vOmf80L33qa+rU
-	 0qIOU2WiwQreeFzTkIiG5xUa8NrmmosMi/1SH2pdyQwzNQ4tvLgQCrA3tYCLEPOEbB
-	 pwu52N0ltFMDCP6rOMzYJHFRikgSYX8FBd0KJ9kEQNVBKiXzIFS5lO/Rnc/pOOnU1O
-	 jyxtMhrOEpQ9w==
-Received: from localhost (unknown [IPv6:2601:280:4600:2da9::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id A42CD40AD9;
-	Tue, 12 Aug 2025 18:45:07 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Akshaykumar Gunari <akshaygunari@gmail.com>, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com
-Cc: linux-doc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Akshaykumar Gunari <akshaygunari@gmail.com>
-Subject: Re: [PATCH RESEND] docs: arm: stm32: fix typo "busses" -> "buses"
-In-Reply-To: <20250807145119.2214-1-akshaygunari@gmail.com>
-References: <20250807145119.2214-1-akshaygunari@gmail.com>
-Date: Tue, 12 Aug 2025 12:45:06 -0600
-Message-ID: <87v7mse5vx.fsf@trenco.lwn.net>
-MIME-Version: 1.0
-Content-Type: text/plain
+	Tue, 12 Aug 2025 18:40:33 +0000
+X-KPN-MessageId: fe89f747-77ab-11f0-84d2-005056992ed3
+Received: from smtp.kpnmail.nl (unknown [10.31.155.5])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id fe89f747-77ab-11f0-84d2-005056992ed3;
+	Tue, 12 Aug 2025 20:41:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xs4all.nl; s=xs4all01;
+	h=subject:to:from:message-id:date;
+	bh=/3M4lDWEC7hP7KuGM7cE06jKWy9RiyUcvF4Xfh1YCsk=;
+	b=YS/4WtQ37lFKvMGEtTp+8J4iVoj/Mq6NfwVVO2Hji77xVOzkuyl4bLguvP7hDn0a0VBukuhuyh7zg
+	 KuSNcRQ0cF9eiYdxero+cf/vvpFXONKl/C4j6QblGLmueCVZtFoJ+beNVYOwgqKIo0APWVAF0E0xIr
+	 +zWQ1Kc9EKGU9pk6YL6qHPLq+bFhkvuv7Cao1XStZfQSIM8PbBly48L6CZxD/52naH0FsVuqTsESEV
+	 GK7tcNnnSNIlsMSG2AOzDjjjCqfP7QDAAloanNzAQXQO6em1wzP6/kTR1oxnGau7xQH/z3oKjUCsXC
+	 ZGHURoLZp7tcuKrw9ujHd4j6Qu9vSfQ==
+X-KPN-MID: 33|1+wkTmLP+rbkYDZSTRx2TNyahSDVBKcTrCDARRxfA37PcVf4d7uR4kLyDmD0fdK
+ jzy4QDeFgZUc7eR6T4tH+4zkNo/16Oy1xT2hMauxbMwo=
+X-KPN-VerifiedSender: Yes
+X-CMASSUN: 33|M/4jMQFXP+rTo5MG/gkkhJmKuNihgybGQtzZ0C9WJAVb6Xo5AJP0id5rm9zQv/k
+ kmwbNz08Bnlb8DMOJ3Cb94w==
+X-Originating-IP: 80.61.163.207
+Received: from bloch.sibelius.xs4all.nl (80-61-163-207.fixed.kpn.net [80.61.163.207])
+	by smtp.xs4all.nl (Halon) with ESMTPSA
+	id cf6dfa05-77ab-11f0-8d53-00505699b758;
+	Tue, 12 Aug 2025 20:40:25 +0200 (CEST)
+Date: Tue, 12 Aug 2025 20:40:25 +0200
+Message-Id: <87wm78l6xy.fsf@bloch.sibelius.xs4all.nl>
+From: Mark Kettenis <mark.kettenis@xs4all.nl>
+To: Sven Peter <sven@kernel.org>
+Cc: j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev,
+	lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, alexandre.belloni@bootlin.com,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org, sven@kernel.org
+In-Reply-To: <20250812-wip-smc-rtc-v1-1-66a8e96dad60@kernel.org> (message from
+	Sven Peter on Tue, 12 Aug 2025 18:25:15 +0000)
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add Apple SMC RTC
+References: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org> <20250812-wip-smc-rtc-v1-1-66a8e96dad60@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_114510_457052_487E95FE 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250812_114031_382079_39A01DBE 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,22 +82,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Akshaykumar Gunari <akshaygunari@gmail.com> writes:
+> From: Sven Peter <sven@kernel.org>
+> Date: Tue, 12 Aug 2025 18:25:15 +0000
+> 
+> Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
+> but most of the PMU functionality is abstracted out by the SMC.
+> An additional RTC offset stored inside NVMEM is required to compute
+> the current date/time.
+> 
+> Signed-off-by: Sven Peter <sven@kernel.org>
 
-> Fix the spelling of "busses" to the preferred form "buses" in STM32 ARM
-> architecture documentation.
->
-> Signed-off-by: Akshaykumar Gunari <akshaygunari@gmail.com>
+Reviewd-by: Mark Kettenis <kettenis@openbsd.org>
+
 > ---
->  Documentation/arch/arm/stm32/stm32f746-overview.rst  | 2 +-
->  Documentation/arch/arm/stm32/stm32f769-overview.rst  | 2 +-
->  Documentation/arch/arm/stm32/stm32h743-overview.rst  | 2 +-
->  Documentation/arch/arm/stm32/stm32h750-overview.rst  | 2 +-
->  Documentation/arch/arm/stm32/stm32mp13-overview.rst  | 2 +-
->  Documentation/arch/arm/stm32/stm32mp151-overview.rst | 2 +-
->  6 files changed, 6 insertions(+), 6 deletions(-)
-
-Applied, thanks.
-
-jon
+>  .../devicetree/bindings/mfd/apple,smc.yaml         |  9 ++++++
+>  .../devicetree/bindings/rtc/apple,smc-rtc.yaml     | 35 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  1 +
+>  3 files changed, 45 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
+> index 8a10e270d421ecd703848f64af597de351fcfd74..38f077867bdeedba8a486a63e366e9c943a75681 100644
+> --- a/Documentation/devicetree/bindings/mfd/apple,smc.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
+> @@ -41,6 +41,9 @@ properties:
+>    reboot:
+>      $ref: /schemas/power/reset/apple,smc-reboot.yaml
+>  
+> +  rtc:
+> +    $ref: /schemas/rtc/apple,smc-rtc.yaml
+> +
+>  additionalProperties: false
+>  
+>  required:
+> @@ -75,5 +78,11 @@ examples:
+>            nvmem-cell-names = "shutdown_flag", "boot_stage",
+>                               "boot_error_count", "panic_count";
+>          };
+> +
+> +        rtc {
+> +          compatible = "apple,smc-rtc";
+> +          nvmem-cells = <&rtc_offset>;
+> +          nvmem-cell-names = "rtc_offset";
+> +       };
+>        };
+>      };
+> diff --git a/Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml b/Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..607b610665a28b3ea2e86bd90cb5f3f28ebac726
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
+> @@ -0,0 +1,35 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/rtc/apple,smc-rtc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Apple SMC RTC
+> +
+> +description:
+> +  Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
+> +  but most of the PMU functionality is abstracted out by the SMC.
+> +  An additional RTC offset stored inside NVMEM is required to compute
+> +  the current date/time.
+> +
+> +maintainers:
+> +  - Sven Peter <sven@kernel.org>
+> +
+> +properties:
+> +  compatible:
+> +    const: apple,smc-rtc
+> +
+> +  nvmem-cells:
+> +    items:
+> +      - description: 48bit RTC offset, specified in 32768 (2^15) Hz clock ticks
+> +
+> +  nvmem-cell-names:
+> +    items:
+> +      - const: rtc_offset
+> +
+> +required:
+> +  - compatible
+> +  - nvmem-cells
+> +  - nvmem-cell-names
+> +
+> +additionalProperties: false
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index fe168477caa45799dfe07de2f54de6d6a1ce0615..aaef8634985b35f54de1123ebb4176602066d177 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2397,6 +2397,7 @@ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
+>  F:	Documentation/devicetree/bindings/power/apple*
+>  F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+>  F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+> +F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
+>  F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+>  F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+>  F:	Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+> 
+> -- 
+> 2.34.1
+> 
+> 
+> 
+> 
 
