@@ -4,103 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74130CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:21:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F4ECA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7kDMXkiqwspte3OFxiCO5uJIctYbcK6fSwBNuY8L+04=; b=USsf1Pjw2dZvLtr6RmiZaIQ0ya
-	Z5sqy4qSqMnVbjkvJnn2pA6h+1/DzpqOQnRyCpJllwdZpzaLodT9EBS/wk4CFEOEKI9qkXjL5HNP1
-	2ORvmv3zqmD+U0JowOyL259BdE5/Hc5BFq2fndVVcTmqi9bc23iGQrbkOwlkNY34Db4adbbpw7ez1
-	l18vpYuSvt3T6BPwPfwD+YVBqE1eG7P0WOAhs059JlqCWKOYx0JXdIQ8GUtj2ZfnOlQVHQ3Ndjd7t
-	w2VLUiO6lXCEJIrP2wPLX6q4rD8r5JaUuzY80yuVCSjvbqBJ3L8QK4T7jZmIztoqtenb0Y1B4ZAbR
-	n9OrWTKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGM7nEY6NYiDKjxuLRDBDWBK9WK4nrQst0vQmnSP7Z0=; b=uc200/DSud8LPIPcH7uNs8Wi/a
+	pvHTWupFlsbBoQEk90BfRtwQGsLHYkZrKOj6PdnTN0/Hh79PeWQL72AoNPoKsucikqrOZOKR1+0SL
+	v7B+qj+qvzdgKWpFqaAwFo56HwwYi43JrRU8JFZ1W7GgSJ2AI35aN38NdAScwCVJcIOQcE67wfAd7
+	pXE40gPW0a0aKmbRgOS8L33opW3XUfZ/XiW3wdG3yhkl1NDZrqlO4A515vcc7k9G+HjJvsRHQnQg/
+	wmEHqzM2SoKcXMiz8woCkQ2JDjAlX9RXqaQnJUW2QiNr15ZjXu5HXerrvHblHd16XQqnrGoChx95N
+	ybh8v9Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliOM-0000000A0wQ-3JuU;
-	Tue, 12 Aug 2025 06:21:50 +0000
+	id 1uliSk-0000000A1VE-2kap;
+	Tue, 12 Aug 2025 06:26:22 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliHM-0000000A0OJ-07TB
+	id 1uliQ7-0000000A1Ej-1rcF
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 12 Aug 2025 06:14:36 +0000
+	Tue, 12 Aug 2025 06:23:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7kDMXkiqwspte3OFxiCO5uJIctYbcK6fSwBNuY8L+04=; b=oEDWqb0xdVic1p5b23j3xT8gow
-	vMK8Ruau8Ghg9pKT0z1oe61Diw3Ug2Q355Oy0SKSE29KFPzSLVIX7lWJoX0Zvt9d/UESPSucZTK5y
-	/9+qj4Hd5o1MmwqqNfRtOZKMvYxTgtxOXBZa1Uy7GG9xBadj3dWll+BuZKE2J9swsUohBMP/UXaWu
-	mAmwJu3Q7ZURUdB0zlsBN1+QYLLOOIrMtF16yh1elzM3V5EKYdsMYOV38VB6Sj6x85L/AE1n5sUqT
-	iCVilfdSdFxZQV+FXL+RF5FEEAZlwYcmmyaipWCReRjvTF2qCorUNwSIghe9+mL4JJdBA7Ztu0BBp
-	ua6qAZYA==;
-Received: from mx1.tq-group.com ([93.104.207.81])
+	bh=TGM7nEY6NYiDKjxuLRDBDWBK9WK4nrQst0vQmnSP7Z0=; b=ninhc7Vx3PkPNMcadTzOoL4fYI
+	kHwuRelm/7TaJ1tudB+mn8yER4maSN0xYTbd94yLQEFkP/bCNBTtbo84J14uOq1mW2fu99oKjmqAB
+	CJ7VOSZZlHam1uZBY7f6rzoS8k8wA95GC6lAV/5ydvTD9iVFG+ejKqE8emBUrGivc6K1zA5rNFu43
+	YdxZodXfLp/e7pImivSUByb/xwl4qHzCt/rHDMhVkOjxHSkC/tbeV4I2cTTTqaFFldrPMyY1W577n
+	07mxG4VEXmHWpc8YpLD43hCOHgcYKM1c8L8Kl9cCDiNA0u0muWihRVK2orQrAuLbkBt00gcCVUK3O
+	t5LP7sgw==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uliHI-0000000FhYs-3RU3
+	id 1uliQ4-0000000Fhjx-0YxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 06:14:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1754979272; x=1786515272;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=7kDMXkiqwspte3OFxiCO5uJIctYbcK6fSwBNuY8L+04=;
-  b=MQxza+jBwlXd0Lwr1SXqfOd4JEnJdTRMyTpVPMYLdWOFS+3rbIn056xi
-   jgiYCYkM3mAVnhadgCC9dB7Po8CaB/5y+9A4n3/ZbvSBKp1hpClgjPn9p
-   rDdlpjpvnDy+7YR6tzFs8bbkkVsy7BorUNMpcP+50xMKm2NWi4KJDwHEn
-   1S/T/P4CFncRrqzvKZ39Q5O6Gcc5HNxJDwyxRrnZ+uEMSn1UC6T7n7BwG
-   hEagQ//7+wlQUG8fQv5tPMqSkrDHgNZlOsdlj6a+p8pFXv2GHcaBXkQV1
-   944emJUnZkivJfvEhZCIoz3qYJSZUe1dgvtQHqkTbw8v/TJSIlD4vVbP5
-   w==;
-X-CSE-ConnectionGUID: B4ffp1ALSjKWb0uJfw2sUg==
-X-CSE-MsgGUID: 0MqoVO07Ql6hiYkpsM+9JA==
-X-IronPort-AV: E=Sophos;i="6.17,284,1747692000"; 
-   d="scan'208";a="45692356"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 12 Aug 2025 08:14:30 +0200
-X-CheckPoint: {689ADBC6-33-AD8F5F64-F0EACAA5}
-X-MAIL-CPID: 742ED08D02BE758A2A1B26C8759E02E3_1
-X-Control-Analysis: str=0001.0A002104.689ADBC7.002A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2AFFA16835C;
-	Tue, 12 Aug 2025 08:14:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1754979266;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7kDMXkiqwspte3OFxiCO5uJIctYbcK6fSwBNuY8L+04=;
-	b=VOm5I74Oo5znWlaXmN6u8OJRm5q/YOa+tu/QK1DPY5JPD+J7KZGpK5JP+DU17ptUV0Hb3E
-	zH0KCm5pUcm6jc+JsrDLMmMdfbkLdqmuDZgGcNI/xvacXZt35YOmrj5rS/9qA01yQEkhMJ
-	qehK313US2ohYsMtXl+5cbLNmpe9CNMuB0qhy/HsC7aaAqu2XMQP6PVnkDcsIvmCJYaCfC
-	WjOI/fho5sWWLpFhNWOR9IAwC/vgZ4/7MJ2OQsWnx0gS9ILCSyIHS9ec+va7ZwIFDbnqM0
-	D2KA/TaS1pwf8V1K4T/3Ax/ptch+2mCRXDQ/5g5cJwC/31mROSUCp/lNkZNCXQ==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Frank Li <Frank.li@nxp.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] dt-bindings: fsl: fsl,
- rcpm: Add #power-domain-cells
-Date: Tue, 12 Aug 2025 08:14:24 +0200
-Message-ID: <2799138.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aIv+CgkePusUoT6Q@lizhi-Precision-Tower-5810>
-References: <20250731055806.2265628-1-alexander.stein@ew.tq-group.com>
- <20250731-funky-crab-of-defense-7cd658@kuoka>
- <aIv+CgkePusUoT6Q@lizhi-Precision-Tower-5810>
+	Tue, 12 Aug 2025 06:23:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 305135C4CF7;
+	Tue, 12 Aug 2025 06:23:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BDAEC4CEF0;
+	Tue, 12 Aug 2025 06:23:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1754979811;
+	bh=EEWQDK8PVcCe68a7MGsKFYvPTrTUfqREIsgj+DSHaqc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=MxSoZxYVHru27TJzAn2moqCQlvxr0Mkt1ePeqiuKoYzb0yuorBpSmyUsL6bb/jfSh
+	 tRjxSZTSDYrwnnAHqOjitJqCH8e5umZ6r7rtDDmwx6wGn2wN3W9k7OuEGFCKWpz0Cd
+	 hCb5KKBJaZ5NfvDDbbQmNFe+H2ZsfBMJN+RqkfFm1D69i9LFQWz5pp6BG7piSKMlxJ
+	 TQhQCDpp/Mkq+8uQzTbau98BukpqDuqt6Pa2RM5diqCq2RcAOcH6aLn6I1PzfC8LKB
+	 X4cA3VAp/JBbJNftodJ3NvvONgUtYIVa7mhaH1VjYO+TYI8IPRKo6kj7IEStCBQc1e
+	 UqsOIplVhwtqA==
+Message-ID: <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
+Date: Tue, 12 Aug 2025 08:23:25 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
+ sensor
+To: Will Whang <will@willwhang.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250810220921.14307-1-will@willwhang.com>
+ <20250810220921.14307-2-will@willwhang.com>
+ <20250811-successful-military-dragon-d72486@kuoka>
+ <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_071433_052294_B85449B0 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20250812_072336_514101_44C5AA99 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,70 +142,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On 12/08/2025 04:47, Will Whang wrote:
+> Hi Krzysztof,
+> Reply inline.
+> Thanks,
+> Will Whang
+> 
+> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
+>>> +description:
+>>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - sony,imx585
+>>> +      - sony,imx585-mono
+>>
+>> I don't understand this second compatible. Is this different hardware?
+>> Can you point me to "mono" datasheet?
+>>
+>> Your description should explain this. Commit msg as well, instead of
+>> speaking about driver (in fact drop all driver related comments).
+>>
+> Mono version of this sensor is basically just removing the bayer
+> filter, so the sensor itself actually doesn't know if it is color or
+> mono and from my knowledge there are no registers programmed in the
+> factory that will show the variant and model number. (That is why when
+> the driver probing it only test blacklevel register because there are
+> no ID registers)
+> Originally in V1 patch I've made the switch between color and mono in
+> dtoverlay config but reviewer comments is to move it to compatible
+> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
 
-Am Freitag, 1. August 2025, 01:36:42 CEST schrieb Frank Li:
-> On Thu, Jul 31, 2025 at 08:32:57AM +0200, Krzysztof Kozlowski wrote:
-> > On Thu, Jul 31, 2025 at 07:58:04AM +0200, Alexander Stein wrote:
-> > > dtbs_check for ls1021.dtsi warns about unsupported property:
-> > >  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' d=
-oes not match any of the regexes: '^pinctrl-[0-9]+$'
-> > >
-> > > But if removed the check warns about missing property:
-> > >  power-controller@1ee2140 (fsl,ls1021a-rcpm): '#power-domain-cells' i=
-s a required property
-> >
-> >
-> > And if any other warning says something, are you going to do that as
-> > well?
-> >
-> > >
-> > > Given commit 8bcf67b8d893b ("ARM: dts: ls1021a: add #power-domain-cel=
-ls
-> > > for power-controller node") explicitly added that property, add it
-> > > to the expected property list as well.
-> >
-> > No, commit does not explain why! It's one of this NXP commits without
-> > explanation, doing random things.
-> >
-> > No, explain why do you think this is a power domain provider - fast
-> > look told me that it is NOT.
->=20
-> It is not power controller. rcpm controller enable wakeup source.
->=20
-> In arm64, use below patch to fix warning
->=20
-> commit e39f567e1c38c29629962ab327f0ad1a288dcab2
-> Author: Frank Li <Frank.Li@nxp.com>
-> Date:   Mon Jul 29 14:59:24 2024 -0400
->=20
->     arm64: dts: layerscape: rename rcpm as wakeup-control from power-cont=
-rol
->=20
->     Invoke power-domain.yaml if node name as 'power-control'.
->=20
->     Rcpm actually are not power domain controller. It just control wakeup
->     capability. So rename it as wakeup-control. Fix below CHECK_DTBS warn=
-ing.
->=20
->     power-controller@1ee2140: '#power-domain-cells' is a required property
->             from schema $id: http://devicetree.org/schemas/power/power-do=
-main.yaml#
->=20
->     Signed-off-by: Frank Li <Frank.Li@nxp.com>
->     Signed-off-by: Shawn Guo <shawnguo@kernel.org>
->=20
-
-Thanks for the link. I've applied a similar change to ls1021 instead of thi=
-s patch.
-
-Thanks and best regards,
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
+You only partially answer and judging by mentioning driver below:
 
 
+> 
+> In this case, what would you recommend?
+> 
+> compatible:
+>   enum:
+>     - sony,imx585
+>     - sony,imx585-mono
+>   description: IMX585 has two variants, color and mono which the
+> driver supports both.
+
+... I still have doubts that you really understand what I am asking. Is
+this one device or two different devices?
+
+
+Best regards,
+Krzysztof
 
