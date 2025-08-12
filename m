@@ -4,112 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47AB1C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCB9CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E3kXU+F912kITl5oftnFpQzdICgu8C49OmSqlhp+5p8=; b=b9cS5bsfHSIDrqFpaJAQhBGgkI
-	t6IclPlUmyxczdHrWj9yLA19pYteA/CLU2PZ/s/R/PURA6KFxOq/Wy/td3Oaev8J7bMxFWRKrBYdf
-	2GzG6I4OTKLt+Hbhx+Qdzh++JzBbAuh0ocnU2+a+EuSNIStywkBOEAVQKH8Z+mb/FHVarZyw2t8FQ
-	mamKLjyFAOITDM4E/MkotnUhjwxzI+Z4WMQ40XaqQRrlTfmBBq8E40jOsSD5qUTfoC2wPRx8dq8dL
-	f9tRQhqhqzfm6geEOYL3JZh9BmxqUullJp9imEVD6T1kk77HH3S8GdMHVwVJZvIv1iD/TQr3ww1M+
-	vp6QtUSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DxjcecEI7phcRYjWyLkZSnGEJwCBjNTRZZccT/msDU8=; b=Qyu9GyFNShTkADBaQsw3k20tQ+
+	sOPfRxM/itqy+M/Z/hURKZtl/cZN3uRH3zo2V+h8np/DvUwr6OBRSzYFTb8Bx1LrbkVM8sG6e9boB
+	6fDdo3D26kRlOuizdHIXJHuqCFsAwZq2o87L5zz414qs0VEy3rY8q9rfhwuF6w/pjWbgR/qW4XLN4
+	DQTv7nT05Y5WJmIBHNeJBcR0D9W4prPNrtwD1g6HHsfxzl/qxNFur7i77lhRlrwdb1xKLNxV5dcBi
+	NR5In0rQJ8K2i+msKRK8q0GFKpHP3csalC6mk1HupenQsqDSxlhnKrahJ8Vf7f8mxN5Ua0Pd8Io5d
+	JAl9E1tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsJ2-0000000BUFl-3u9A;
-	Tue, 12 Aug 2025 16:57:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ulsLY-0000000BUXh-3z5b;
+	Tue, 12 Aug 2025 16:59:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulpCh-0000000Awhl-2VM9
+	id 1ulpDq-0000000Awuy-3lLy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 13:38:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EC1395C6869;
-	Tue, 12 Aug 2025 13:38:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97E8FC4CEF0;
-	Tue, 12 Aug 2025 13:38:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755005894;
-	bh=9W51UrYy6/kEe71HR12H2KkvXxtt3qr6KqQvVuJdDhA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RjsZ7GGmPVraOMMoER6StzjE8LQwvvAnWi7qZsZjg2tklEc4EPL/s3L+bCbVvNUHf
-	 sU6FiqqdN70Qkfc5HeCWwRLubeJb0vjeK2URdoqk5Xha9ZSMSOiGUvJvDQOvyJMuus
-	 yX3YUT0Kta1nUVH0dbk9kGSVZmX/klozj4ruJRiUe4sY/h5SVow/c8GzXd6wTWNrsN
-	 dsHG9SEgPEZoxulFfWj9U3yDAcMTmMaCLziVOKtVwZ2Q5iJW2PkLeSLJS6dNHLo2Ur
-	 eIbDsYT8KSi6XY0O7zKibxqHwJbYn+bVpMFVA/APOJm8vb64WwvkFyLW/jNWsp0AbM
-	 lWXTZIpW/MuBA==
-Message-ID: <3dc96186-a314-477b-8d2a-a2ffcb2e482c@kernel.org>
-Date: Tue, 12 Aug 2025 15:38:08 +0200
+	Tue, 12 Aug 2025 13:39:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1755005965;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DxjcecEI7phcRYjWyLkZSnGEJwCBjNTRZZccT/msDU8=;
+	b=KDTLkC4UeDYZx98A7Bs0g6wIxZ3tgZbAn4sVnRtM8LRDTkZxZoiwKlLqmX7OFTpU2/h7Yy
+	aWhVj3VshYlsnnX/m008+xFqaB3paWSFb5vuQuBl5pbeLiMU7LbXCO16cXgprXGlSCWdY5
+	gR1eUe9giFHe+aitW29WMIitrhCTKnQ=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-553-FY5fxrhNOyqPzbOI5L33kw-1; Tue,
+ 12 Aug 2025 09:39:22 -0400
+X-MC-Unique: FY5fxrhNOyqPzbOI5L33kw-1
+X-Mimecast-MFC-AGG-ID: FY5fxrhNOyqPzbOI5L33kw_1755005958
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5149919560B3;
+	Tue, 12 Aug 2025 13:39:17 +0000 (UTC)
+Received: from localhost (unknown [10.72.112.156])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7F8A819560AB;
+	Tue, 12 Aug 2025 13:39:15 +0000 (UTC)
+Date: Tue, 12 Aug 2025 21:39:11 +0800
+From: Baoquan He <bhe@redhat.com>
+To: linux-mm@kvack.org, alexghiti@rivosinc.com, agordeev@linux.ibm.com,
+	linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, christophe.leroy@csgroup.eu,
+	x86@kernel.org, chris@zankel.net, jcmvbkbc@gmail.com,
+	linux-um@lists.infradead.org
+Cc: ryabinin.a.a@gmail.com, glider@google.com, andreyknvl@gmail.com,
+	dvyukov@google.com, vincenzo.frascino@arm.com,
+	akpm@linux-foundation.org, kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org, kexec@lists.infradead.org,
+	sj@kernel.org, lorenzo.stoakes@oracle.com, elver@google.com,
+	snovitoll@gmail.com
+Subject: Re: [PATCH v2 00/12] mm/kasan: make kasan=on|off work for all three
+ modes
+Message-ID: <aJtD/8beAEHtm2/6@MiWiFi-R3L-srv>
+References: <20250812124941.69508-1-bhe@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/8] arm64: defconfig: enable BST platform and SDHCI
- controller support
-To: Albert Yang <yangzh0906@thundersoft.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, ulf.hansson@linaro.org,
- catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de,
- adrian.hunter@intel.com, robin.murphy@arm.com, ding.wang@bst.ai,
- gordon.ge@bst.ai
-Cc: bst-upstream@bstai.top, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-mmc@vger.kernel.org, soc@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250812123110.2090460-1-yangzh0906@thundersoft.com>
- <20250812123110.2090460-8-yangzh0906@thundersoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250812123110.2090460-8-yangzh0906@thundersoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250812124941.69508-1-bhe@redhat.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_063815_735514_9F3B5DDB 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250812_063927_034157_7F3CB181 
+X-CRM114-Status: GOOD (  27.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,31 +92,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/08/2025 14:31, Albert Yang wrote:
-> Enable support for Black Sesame Technologies (BST) platform and drivers
-> in the ARM64 defconfig:
+Forgot adding related ARCH mailing list or people to CC, add them.
+
+On 08/12/25 at 08:49pm, Baoquan He wrote:
+> Currently only hw_tags mode of kasan can be enabled or disabled with
+> kernel parameter kasan=on|off for built kernel. For kasan generic and
+> sw_tags mode, there's no way to disable them once kernel is built.
+> This is not convenient sometime, e.g in system kdump is configured.
+> When the 1st kernel has KASAN enabled and crash triggered to switch to
+> kdump kernel, the generic or sw_tags mode will cost much extra memory
+> for kasan shadow while in fact it's meaningless to have kasan in kdump
+> kernel.
 > 
-> - CONFIG_ARCH_BST: Enable BST SoC platform support
-> - CONFIG_MMC_SDHCI_BST: Enable BST C1200 DWCMSHC SDHCI controller driver
-
-Either this paragraph...
-
+> So this patchset moves the kasan=on|off out of hw_tags scope and into
+> common code to make it visible in generic and sw_tags mode too. Then we
+> can add kasan=off in kdump kernel to reduce the unneeded meomry cost for
+> kasan.
 > 
-> This enables eMMC/SD card access on Black Sesame Technologies C1200 series
-> SoCs. The SDHCI driver provides hardware-specific implementation for the
-> Synopsys DesignWare Mobile Storage Host Controller integrated in BST SoCs.
-
-Or this. Don't say twice the same. Second paragraph is more relevant, so:
-"Enable BST SoC and MMC drivers for BST 1200 board".
-
-
+> Changelog:
+> ====
+> v1->v2:
+> - Add __ro_after_init for __ro_after_init, and remove redundant blank
+>   lines in mm/kasan/common.c. Thanks to Marco.
+> - Fix a code bug in <linux/kasan-enabled.h> when CONFIG_KASAN is unset,
+>   this is found out by SeongJae and Lorenzo, and also reported by LKP
+>   report, thanks to them.
+> - Add a missing kasan_enabled() checking in kasan_report(). This will
+>   cause below KASAN report info even though kasan=off is set:
+>      ==================================================================
+>      BUG: KASAN: stack-out-of-bounds in tick_program_event+0x130/0x150
+>      Read of size 4 at addr ffff00005f747778 by task swapper/0/1
+>      
+>      CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.16.0+ #8 PREEMPT(voluntary) 
+>      Hardware name: GIGABYTE R272-P30-JG/MP32-AR0-JG, BIOS F31n (SCP: 2.10.20220810) 09/30/2022
+>      Call trace:
+>       show_stack+0x30/0x90 (C)
+>       dump_stack_lvl+0x7c/0xa0
+>       print_address_description.constprop.0+0x90/0x310
+>       print_report+0x104/0x1f0
+>       kasan_report+0xc8/0x110
+>       __asan_report_load4_noabort+0x20/0x30
+>       tick_program_event+0x130/0x150
+>       ......snip...
+>      ==================================================================
 > 
-> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
-> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+> - Add jump_label_init() calling before kasan_init() in setup_arch() in these
+>   architectures: xtensa, arm. Because they currenly rely on
+>   jump_label_init() in main() which is a little late. Then the early static
+>   key kasan_flag_enabled in kasan_init() won't work.
+> 
+> - In UML architecture, change to enable kasan_flag_enabled in arch_mm_preinit()
+>   because kasan_init() is enabled before main(), there's no chance to operate
+>   on static key in kasan_init().
+> 
+> Test:
+> =====
+> In v1, I took test on x86_64 for generic mode, and on arm64 for
+> generic, sw_tags and hw_tags mode. All of them works well.
+> 
+> In v2, I only tested on arm64 for generic, sw_tags and hw_tags mode, it
+> works. For powerpc, I got a BOOK3S/64 machine, while it says
+> 'KASAN not enabled as it requires radix' and KASAN is disabled. Will
+> look for other POWER machine to test this.
+> ====
+> 
+> Baoquan He (12):
+>   mm/kasan: add conditional checks in functions to return directly if
+>     kasan is disabled
+>   mm/kasan: move kasan= code to common place
+>   mm/kasan/sw_tags: don't initialize kasan if it's disabled
+>   arch/arm: don't initialize kasan if it's disabled
+>   arch/arm64: don't initialize kasan if it's disabled
+>   arch/loongarch: don't initialize kasan if it's disabled
+>   arch/powerpc: don't initialize kasan if it's disabled
+>   arch/riscv: don't initialize kasan if it's disabled
+>   arch/x86: don't initialize kasan if it's disabled
+>   arch/xtensa: don't initialize kasan if it's disabled
+>   arch/um: don't initialize kasan if it's disabled
+>   mm/kasan: make kasan=on|off take effect for all three modes
+> 
+>  arch/arm/kernel/setup.c                |  6 +++++
+>  arch/arm/mm/kasan_init.c               |  6 +++++
+>  arch/arm64/mm/kasan_init.c             |  7 ++++++
+>  arch/loongarch/mm/kasan_init.c         |  5 ++++
+>  arch/powerpc/mm/kasan/init_32.c        |  8 +++++-
+>  arch/powerpc/mm/kasan/init_book3e_64.c |  6 +++++
+>  arch/powerpc/mm/kasan/init_book3s_64.c |  6 +++++
+>  arch/riscv/mm/kasan_init.c             |  6 +++++
+>  arch/um/kernel/mem.c                   |  6 +++++
+>  arch/x86/mm/kasan_init_64.c            |  6 +++++
+>  arch/xtensa/kernel/setup.c             |  1 +
+>  arch/xtensa/mm/kasan_init.c            |  6 +++++
+>  include/linux/kasan-enabled.h          | 18 ++++++-------
+>  mm/kasan/common.c                      | 25 ++++++++++++++++++
+>  mm/kasan/generic.c                     | 20 +++++++++++++--
+>  mm/kasan/hw_tags.c                     | 35 ++------------------------
+>  mm/kasan/init.c                        |  6 +++++
+>  mm/kasan/quarantine.c                  |  3 +++
+>  mm/kasan/report.c                      |  4 ++-
+>  mm/kasan/shadow.c                      | 23 ++++++++++++++++-
+>  mm/kasan/sw_tags.c                     |  9 +++++++
+>  21 files changed, 165 insertions(+), 47 deletions(-)
+> 
+> -- 
+> 2.41.0
+> 
 
-
-
-
-Best regards,
-Krzysztof
 
