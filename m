@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D89CA0EDB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD6FCA0EC4
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MjDSRuDxF5M8i/Z4WTy3XyIxSZDnuD98a0Lv22W7n10=; b=Lb/LFNqO8UzWIT
-	KDRAWrIsyoBP4Z3yTkNjr6qTqHR4N/3yObu1IYjdkdFe+mCrMOdEjOLtQzBRfdH80h+yekyGRJDCo
-	kzPspwh9sDZyJpUm8EID7cv1ELTRJ02MI+Er1LoA5YrR76nzy2F/on17p83NtOy4+z56p5RVDcjLs
-	we3BafssFSf+NQo7x6AQu1MszT6PK+Lvvii1H31Jk7a9vFnjXqPP+zVRvNkxA3oc38TQsmmqr2K/r
-	NTj0UW4k8AShcKqkTrtkB8GqLwPVfazd+DUqzUG9OgjjPEYaJUsFqNmBPtLCnBEWRM1KoWPX+1ugg
-	1fQ4WizS/fTKf48/eftg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Uck3kvaZT7BGowMMXJoZ7/3i5rA3JxgpEHHErs7KU7g=; b=JAQvUGxjFHC9Cfy+EOtMtTea1w
+	zAWtlZ6/gqUCzlVuwtlUUKJqaknZ0ycoOFkBYrJpZvOX7IPbcOMmDUDA7iEwI6L53kLsk4GetZII2
+	4j2/Rg+zmNLsTeOn50YMpYA+R9AfzHnqTzPrDqNCqqwEQKmuv+xmghehL3xY0HYf5m2a3+MYM7iyz
+	Tp77X6U+KoZaqFU+vJq46U5+nhEkuo6ILSX3XImOGIRQLw10qOPg2cWX7jrGofaMrksmeNdl0jkfG
+	UmAlOLGuedYGKojU8Xtuzgx/rj1tLD3VvOpC1kezXKH3kNrPSRrawWCEv4agynqnyTFoYV6RsLLMx
+	7vn1TBqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgj-0000000BxEO-2RCs;
-	Tue, 12 Aug 2025 20:33:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ulvgg-0000000Bx8o-23Lc;
+	Tue, 12 Aug 2025 20:33:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ultgh-0000000BhsG-07Q9
+	id 1ultgh-0000000BhsH-05dV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:25:32 +0000
+	Tue, 12 Aug 2025 18:25:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C562DA578C9;
-	Tue, 12 Aug 2025 18:25:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6D7F2C4CEF1;
+	by tor.source.kernel.org (Postfix) with ESMTP id 27D53601F2;
+	Tue, 12 Aug 2025 18:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8A4ECC4AF0B;
 	Tue, 12 Aug 2025 18:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1755023129;
-	bh=k8kF1P6bFlbBEzuzYgvwP5CIW+2qmHksP+KG9Qod3gY=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Q3bqcmVtxiJ2Jh0zGcNiIt0UfDFVERoCU0runnhyf8hYaqfFyz3y4Tn4qPi4DSl9z
-	 yUf6/AuKNMNkO8GBhCQQ/zxwOBnoeIfiViVf8MKDgy9fP+H98HsLKr12rgz1TwNP2n
-	 wTzPPcAppZof8iscirsmhcWujjkwbBlnBW1Pvor/F5lhETAErzhSKY80tGbTmktdFJ
-	 /8P/2sIitQyf8IJLL4x/ajbD/0LoKxM077jFmKiqpeLjHs38haDtuOFieTu6Gy/Pf5
-	 YyDexnO6K5i5DDXF8m/joYBnFCw5KrOp+vVyw0hxxYE2UF+hM0tZlsjebu827LM2Fk
-	 7UjQFn1XY+Aog==
+	bh=Wf0fYHpfI6G2lCj3FJWN2E65GypnHIoVBXamPywENFg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=X3DOKO2juDb3rVM38jkwTejiPawmkAPJZftBmawycP64848LwEMUePNJPj5XVAzge
+	 nSWzAvsHc/LeS+r9g8onGtK4RKENjlshRr1PPVvsCX9D876Z2/unA3hAfcH49cjMD1
+	 ilkk4RKdwrc4u3GkGvS8M+IAQHP55UBZ0Ws2i3TiPeRl+4+83CZq0bQBtwr+lyfrSQ
+	 u1+FDsdlhxn2WF34CiUaru3jQxqkLgV3XxZxR95iTavahsDDJoLKYztPxw6S9576YK
+	 bJmUTpxIaWRrwDUaHnjyA4qwIjcLk3GHmnaZR9CDt20wB6leP7U1V7Ss9Eh0Pi51DD
+	 3oMAMJ5VyOZow==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B73CCA0EDC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A43FCA0EE0;
 	Tue, 12 Aug 2025 18:25:29 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Subject: [PATCH 0/3] Apple Silicon SMC RTC driver
-Date: Tue, 12 Aug 2025 18:25:14 +0000
-Message-Id: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
+Date: Tue, 12 Aug 2025 18:25:16 +0000
+Subject: [PATCH 2/3] rtc: Add new rtc-macsmc driver for Apple Silicon Macs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAqHm2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDC0Mj3fLMAt3i3GTdopJk3VQLU7MkszQjEzMDYyWgjoKi1LTMCrBp0bG
- 1tQAIJoOQXQAAAA==
-X-Change-ID: 20250812-wip-smc-rtc-e856b6f24603
+Message-Id: <20250812-wip-smc-rtc-v1-2-66a8e96dad60@kernel.org>
+References: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
+In-Reply-To: <20250812-wip-smc-rtc-v1-0-66a8e96dad60@kernel.org>
 To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
  Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -66,20 +64,17 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-rtc@vger.kernel.org, Sven Peter <sven@kernel.org>, 
  Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1886; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7647; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=k8kF1P6bFlbBEzuzYgvwP5CIW+2qmHksP+KG9Qod3gY=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ8bsdiH55MV3rVh+O/X9Tp18KtNRpYD9+sY/Nev/1+ucv
- r3ujdaDjlIWBjEOBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBEAhsY/gee63BWXp5xaoNo
- Xvyps0Y7Izbf/umg7WMtE6pfWR+wLIXhv6cc2zRmsX8cyV9vfNiwjH2Sw2bp8+cctLj9sm96scn
- VMwMA
+ bh=2e9+k7T8TkpKHlwNeDsIhFzyZwI6JK5Kg0MQEOA6b6U=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ8bsdlHnfduDf3w12u/DYJH7MaJc4tks0YrvdxNiZh04s
+ Vjb1Ke/o5SFQYyDQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjCRtGmMDHvz1CykSqP69c/t
+ lrFvPfQiZ1HLz+T5vy6/ZNjVZ/qhWZ7hf80/T9ZHv0U0GMJ6zu10rVn2Y5eN74lpiUys3+NW7r2
+ znR0A
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
  auth_id=407
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_112531_205929_37F68C88 
-X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,54 +89,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Hector Martin <marcan@marcan.st>
 
-Now that the core mfd device has been upstream I've prepared one of the
-child drivers that is still missing: RTC support.
-This driver is required to read and set the hardware clock and requires
-a reference to an additional NVMEM cell to store the offset and thus
-requires a device tree node.
+Apple Silicon Macs (M1, etc.) have an RTC that is part of the PMU IC,
+but most of the PMU functionality is abstracted out by the SMC.
+On T600x machines, the RTC counter must be accessed via the SMC to
+get full functionality, and it seems likely that future machines
+will move towards making SMC handle all RTC functionality.
 
-The series applies cleanly to 6.17-rc1 but is based on a tree with three
-additional commits to add the SMC nodes to the DTS which didn't make it
-into 6.17. You can just ignore that and pretend this is based on
-6.17-rc1 since I'll take the dts update through my tree anyway.
+The SMC RTC counter access is implemented on all current machines
+as of the time of this writing, on firmware 12.x. However, the RTC
+offset (needed to set the time) is still only accessible via direct
+PMU access. To handle this, we expose the RTC offset as an NVMEM
+cell from the SPMI PMU device node, and this driver consumes that
+cell and uses it to compute/set the current time.
 
-Next to this SMC child driver we're still working on an input/misc HID
-driver for the powerbutton, a hwmon driver for the various sensors and a
-power-supply driver to manage the batteries.
-
-Best,
-
-Sven
-
+Signed-off-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
-Hector Martin (1):
-      rtc: Add new rtc-macsmc driver for Apple Silicon Macs
+ MAINTAINERS              |   1 +
+ drivers/mfd/macsmc.c     |   1 +
+ drivers/rtc/Kconfig      |  11 ++++
+ drivers/rtc/Makefile     |   1 +
+ drivers/rtc/rtc-macsmc.c | 141 +++++++++++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 155 insertions(+)
 
-Sven Peter (2):
-      dt-bindings: rtc: Add Apple SMC RTC
-      arm64: dts: apple: t8103,t600x,t8112: Add SMC RTC node
+diff --git a/MAINTAINERS b/MAINTAINERS
+index aaef8634985b35f54de1123ebb4176602066d177..029117b921ea97d1276f5496ea06a3f918929b20 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2421,6 +2421,7 @@ F:	drivers/nvmem/apple-spmi-nvmem.c
+ F:	drivers/pinctrl/pinctrl-apple-gpio.c
+ F:	drivers/power/reset/macsmc-reboot.c
+ F:	drivers/pwm/pwm-apple.c
++F:	drivers/rtc/rtc-macsmc.c
+ F:	drivers/soc/apple/*
+ F:	drivers/spi/spi-apple.c
+ F:	drivers/spmi/spmi-apple-controller.c
+diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
+index 870c8b2028a8fc0e905c8934c2636824cbe5d527..59be894460d33afa754927630881532b548b7ad8 100644
+--- a/drivers/mfd/macsmc.c
++++ b/drivers/mfd/macsmc.c
+@@ -47,6 +47,7 @@
+ static const struct mfd_cell apple_smc_devs[] = {
+ 	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
+ 	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
++	MFD_CELL_OF("macsmc-rtc", NULL, NULL, 0, 0, "apple,smc-rtc"),
+ };
+ 
+ static int apple_smc_cmd_locked(struct apple_smc *smc, u64 cmd, u64 arg,
+diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+index 64f6e9756aff4a1f6f6c50f9b4fc2140f66a8578..d28a46a89c85e6b30b402aec155e8972ed2aaa8e 100644
+--- a/drivers/rtc/Kconfig
++++ b/drivers/rtc/Kconfig
+@@ -2068,6 +2068,17 @@ config RTC_DRV_WILCO_EC
+ 	  This can also be built as a module. If so, the module will
+ 	  be named "rtc_wilco_ec".
+ 
++config RTC_DRV_MACSMC
++	tristate "Apple Mac System Management Controller RTC"
++	depends on MFD_MACSMC
++	help
++	  If you say yes here you get support for RTC functions
++	  inside Apple SPMI PMUs accessed through the SoC's
++	  System Management Controller
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called rtc-macsmc.
++
+ config RTC_DRV_MSC313
+ 	tristate "MStar MSC313 RTC"
+         depends on ARCH_MSTARV7 || COMPILE_TEST
+diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+index 789bddfea99d8fcd024566891c37ee73e527cf93..bcb43b5878a562454986cbb9ab8cc45cec248dda 100644
+--- a/drivers/rtc/Makefile
++++ b/drivers/rtc/Makefile
+@@ -93,6 +93,7 @@ obj-$(CONFIG_RTC_DRV_M48T35)	+= rtc-m48t35.o
+ obj-$(CONFIG_RTC_DRV_M48T59)	+= rtc-m48t59.o
+ obj-$(CONFIG_RTC_DRV_M48T86)	+= rtc-m48t86.o
+ obj-$(CONFIG_RTC_DRV_MA35D1)	+= rtc-ma35d1.o
++obj-$(CONFIG_RTC_DRV_MACSMC)	+= rtc-macsmc.o
+ obj-$(CONFIG_RTC_DRV_MAX31335)	+= rtc-max31335.o
+ obj-$(CONFIG_RTC_DRV_MAX6900)	+= rtc-max6900.o
+ obj-$(CONFIG_RTC_DRV_MAX6902)	+= rtc-max6902.o
+diff --git a/drivers/rtc/rtc-macsmc.c b/drivers/rtc/rtc-macsmc.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..05e360277f630f3368b2856aadef1f2b96426c37
+--- /dev/null
++++ b/drivers/rtc/rtc-macsmc.c
+@@ -0,0 +1,141 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple SMC RTC driver
++ * Copyright The Asahi Linux Contributors
++ */
++
++#include <linux/bitops.h>
++#include <linux/mfd/core.h>
++#include <linux/mfd/macsmc.h>
++#include <linux/module.h>
++#include <linux/nvmem-consumer.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/rtc.h>
++#include <linux/slab.h>
++
++/* 48-bit RTC */
++#define RTC_BYTES 6
++#define RTC_BITS (8 * RTC_BYTES)
++
++/* 32768 Hz clock */
++#define RTC_SEC_SHIFT 15
++
++struct macsmc_rtc {
++	struct device *dev;
++	struct apple_smc *smc;
++	struct rtc_device *rtc_dev;
++	struct nvmem_cell *rtc_offset;
++};
++
++static int macsmc_rtc_get_time(struct device *dev, struct rtc_time *tm)
++{
++	struct macsmc_rtc *rtc = dev_get_drvdata(dev);
++	u64 ctr = 0, off = 0;
++	time64_t now;
++	void *p_off;
++	size_t len;
++	int ret;
++
++	ret = apple_smc_read(rtc->smc, SMC_KEY(CLKM), &ctr, RTC_BYTES);
++	if (ret < 0)
++		return ret;
++	if (ret != RTC_BYTES)
++		return -EIO;
++
++	p_off = nvmem_cell_read(rtc->rtc_offset, &len);
++	if (IS_ERR(p_off))
++		return PTR_ERR(p_off);
++	if (len < RTC_BYTES) {
++		kfree(p_off);
++		return -EIO;
++	}
++
++	memcpy(&off, p_off, RTC_BYTES);
++	kfree(p_off);
++
++	/* Sign extend from 48 to 64 bits, then arithmetic shift right 15 bits to get seconds */
++	now = sign_extend64(ctr + off, RTC_BITS - 1) >> RTC_SEC_SHIFT;
++	rtc_time64_to_tm(now, tm);
++
++	return ret;
++}
++
++static int macsmc_rtc_set_time(struct device *dev, struct rtc_time *tm)
++{
++	struct macsmc_rtc *rtc = dev_get_drvdata(dev);
++	u64 ctr = 0, off = 0;
++	int ret;
++
++	ret = apple_smc_read(rtc->smc, SMC_KEY(CLKM), &ctr, RTC_BYTES);
++	if (ret < 0)
++		return ret;
++	if (ret != RTC_BYTES)
++		return -EIO;
++
++	/* This sets the offset such that the set second begins now */
++	off = (rtc_tm_to_time64(tm) << RTC_SEC_SHIFT) - ctr;
++	return nvmem_cell_write(rtc->rtc_offset, &off, RTC_BYTES);
++}
++
++static const struct rtc_class_ops macsmc_rtc_ops = {
++	.read_time = macsmc_rtc_get_time,
++	.set_time = macsmc_rtc_set_time,
++};
++
++static int macsmc_rtc_probe(struct platform_device *pdev)
++{
++	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
++	struct macsmc_rtc *rtc;
++
++	/*
++	 * MFD will probe this device even without a node in the device tree,
++	 * thus bail out early if the SMC on the current machines does not
++	 * support RTC and has no node in the device tree.
++	 */
++	if (!pdev->dev.of_node)
++		return -ENODEV;
++
++	rtc = devm_kzalloc(&pdev->dev, sizeof(*rtc), GFP_KERNEL);
++	if (!rtc)
++		return -ENOMEM;
++
++	rtc->dev = &pdev->dev;
++	rtc->smc = smc;
++
++	rtc->rtc_offset = devm_nvmem_cell_get(&pdev->dev, "rtc_offset");
++	if (IS_ERR(rtc->rtc_offset))
++		return dev_err_probe(&pdev->dev, PTR_ERR(rtc->rtc_offset),
++				     "Failed to get rtc_offset NVMEM cell\n");
++
++	rtc->rtc_dev = devm_rtc_allocate_device(&pdev->dev);
++	if (IS_ERR(rtc->rtc_dev))
++		return PTR_ERR(rtc->rtc_dev);
++
++	rtc->rtc_dev->ops = &macsmc_rtc_ops;
++	rtc->rtc_dev->range_min = S64_MIN >> (RTC_SEC_SHIFT + (64 - RTC_BITS));
++	rtc->rtc_dev->range_max = S64_MAX >> (RTC_SEC_SHIFT + (64 - RTC_BITS));
++
++	platform_set_drvdata(pdev, rtc);
++
++	return devm_rtc_register_device(rtc->rtc_dev);
++}
++
++static const struct of_device_id macsmc_rtc_of_table[] = {
++	{ .compatible = "apple,smc-rtc", },
++	{}
++};
++MODULE_DEVICE_TABLE(of, macsmc_rtc_of_table);
++
++static struct platform_driver macsmc_rtc_driver = {
++	.driver = {
++		.name = "macsmc-rtc",
++		.of_match_table = macsmc_rtc_of_table,
++	},
++	.probe = macsmc_rtc_probe,
++};
++module_platform_driver(macsmc_rtc_driver);
++
++MODULE_LICENSE("Dual MIT/GPL");
++MODULE_DESCRIPTION("Apple SMC RTC driver");
++MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
 
- .../devicetree/bindings/mfd/apple,smc.yaml         |   9 ++
- .../devicetree/bindings/rtc/apple,smc-rtc.yaml     |  35 +++++
- MAINTAINERS                                        |   2 +
- arch/arm64/boot/dts/apple/t600x-die0.dtsi          |   6 +
- arch/arm64/boot/dts/apple/t8103.dtsi               |   6 +
- arch/arm64/boot/dts/apple/t8112.dtsi               |   6 +
- drivers/mfd/macsmc.c                               |   1 +
- drivers/rtc/Kconfig                                |  11 ++
- drivers/rtc/Makefile                               |   1 +
- drivers/rtc/rtc-macsmc.c                           | 141 +++++++++++++++++++++
- 10 files changed, 218 insertions(+)
----
-base-commit: 772c260c9c7f916c9a2508839df4f03fc19f3773
-change-id: 20250812-wip-smc-rtc-e856b6f24603
-
-Best regards,
 -- 
-Sven Peter <sven@kernel.org>
+2.34.1
 
 
 
