@@ -4,89 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEB38CA0ED1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 02:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D751CCA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 03:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c4WEnSDqzgAq88TBUpwwpgbS9VPz87hnkF4biNEHDlY=; b=d7K5eoSCFyKt9mKdQ/cRN97XLN
-	27pbxZS9ZCD7J0RljhhMhuq50bdXvLKccnCPAyCSKRmkjSDeppZm6XL9+1zJpoyLDjN73QCEwi5rD
-	dnXRSpj1tCtvtI4xK/nhQ3aiUGaHtEQhdk38TNRqUy3fwi/GQjgBYzlut8sJQ6rfrQygAXtr5WIhh
-	6EpFJ4X3vE0UBw3wAYlfAUHnVadf+uyWy3gXVQ89lWobi1IIsufsA9sEkLtvM32AQCe0uk2WLqSc3
-	y4q4UBh/QThCG7Qyp2VhUClk6ubjB8HQ30UXfk0ncLHMcKhaNY9P0CliCE2fjKMd1zyPt9ncx0gK1
-	xxc5Z45A==;
+	bh=WjOlLOxlY3+Npk8OAHvLo4jSrWHUgC4FwWU8lR7tJvM=; b=4alLpzmNJH1C2nMch2wA0AF5hM
+	55P4ND84n+r85VpjlCR8viRmyL4Ie+XVGcEB33ZIWe+B3kZxMlZGsFKq6DYCYQZwPodQVXtCzmJ3O
+	lS2bWhucrmIgDj9EivELdzSpPlL3gp3/3/+3BMBo4IYhzmiSrYYSympwtttJs8OTqQmY3PbuFouwG
+	wlWBmuLC0kVsptPPyHIqfzOIxOZFFA21uRs4bE4L9Qe8q7HPwsQ8LbgEqE7R5x03XZoK+MxA0IHva
+	gw5E4+Rri4sE5RPZf2DhdXaIxYFtiA4UU76XYg5ztoNbe5GWKD+mYUi1dvnxmYhW7qN2Dn7WJzp76
+	ZfuyKKnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulf5J-00000009dYU-1v1f;
-	Tue, 12 Aug 2025 02:49:57 +0000
-Received: from mail-ej1-f51.google.com ([209.85.218.51])
+	id 1ulfK6-00000009fj9-3ceA;
+	Tue, 12 Aug 2025 03:05:14 +0000
+Received: from mail-oa1-f51.google.com ([209.85.160.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulf2h-00000009dRP-3yFX
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 02:47:17 +0000
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-afa15bc3651so169296466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 19:47:15 -0700 (PDT)
+	id 1ulfEg-00000009ek7-1Nri;
+	Tue, 12 Aug 2025 02:59:39 +0000
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-301fb587dfeso2898269fac.3;
+        Mon, 11 Aug 2025 19:59:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1754967577; x=1755572377; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WjOlLOxlY3+Npk8OAHvLo4jSrWHUgC4FwWU8lR7tJvM=;
+        b=cdb+5mImQLql6ujWF92VDJI7K5HGaBz7nVt/ijd3WCaCyiUP7J183AXB5y6coJ+GVK
+         7Q1/WrpsiuVkv0bEl27hMtG8EUqok7djdSYJDxYOB+1I0oSeFA183MwrKhKrSp+3czk4
+         BjODNJi/Y4nQ745iEk1zqZP1M6QtRZRHkYLEwlQXPmTpujObSQwlp8ra+YVfokin7svd
+         jNb7smGN6tnbb1narUGnLSxVKQHdFvk9rcOGclqqnBSDWsD7IPPcKmjAnvltDbTZAUq8
+         o2ZITnGNDQhBnqydoFlmTJCP0UB/u1Im4Fa4ze59rVlLO6zvwz178zTvcz48Ixo421pG
+         dePw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754966834; x=1755571634;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1754967577; x=1755572377;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=c4WEnSDqzgAq88TBUpwwpgbS9VPz87hnkF4biNEHDlY=;
-        b=oJu9BrfyIXC8zahjoOSAtfBNbo8l6acjGZcrL6u9KbgPJmHOYeqBaeVg1UqWgv0dby
-         DY3tIVwzADdv90wSwWHXn6CXA0Gmuerci71ZaeHTF1MakDPV888i9YmMw0yEVgy72LOO
-         ZOMwRcIhlrsl91Rjjk+6P85+Gkir1t9b6402J7yvDqEe9KHAnYTuOxF59y3KG8iSXzSM
-         y/7PvzLVpWBvK7I+JG1y50Kp5pYA75RPrIrademIyk1kZAqU2Zt/HduxbLR8GJzHBEzF
-         SbsIZ7qENQSMsNdYiz3lxfid+MihhiWKr6lSAtxtMLADBVYKLOftxlSyvBGln1svtz95
-         rJog==
-X-Forwarded-Encrypted: i=1; AJvYcCXyQY93nwSvlv2/CCwYgW/cIRCl4DJgBdxVa9v5GKkHuH07iiFGTc3xvY/zDehY7XxLx693npQCo7vhu86VCA1D@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRYsQmap5aFyagKk+gP6C6+T2s4nfORCjZQVbx7/VzPBxkTy54
-	ymEb51ozcOT/wAjzqNGE67rOn/UUDOGVMbDgFSRuLP0Xc+PjTRC9vwKHEo5MOEkl+xI=
-X-Gm-Gg: ASbGncuQC+9VLq9ikws9NRqMWevQR4GNYC5rPbmkIaTTc+dt7YiCt4c0LFTvXB3piyr
-	UYHEkdT5DEjvdGGWBdND1Jqzd14CBQ3oZjHXe+PlWQvF97f/gpQA9TzpcKIcoOF1LXc5QXLecQw
-	bmpx3TY280eHrmBLEbdtnaATAxmliSIJUfB8jOuNi/4QYKknML1OZO+aSN+xGDinZmsJgYqAQx0
-	Pffpq9o806xrLIIBXwnucDOv1guyAFu1OSUbMG8NFojmOVfobRKqDSNyDhtLFcKrPz1wRzb5U1w
-	Q1Cdit5rGBJ0BJrFssjkc9WvBsCH4SAJiiDCdIuGnBWCMIgOkg80QmHp0p6yco2xmdhoBuToOL7
-	cZrGwRcTNT5NYPZ1yBIAudTfKMFZXJq1FRqrVc9OV4snt9sRRFvOddnv4Fg==
-X-Google-Smtp-Source: AGHT+IHKrHDcjk3D4VylcP1NfSNxE/c7frNppTAc6jC5hvISe5oVFxhYqZ+nxxZy6UClIlDEZLjEnw==
-X-Received: by 2002:a17:907:3d92:b0:ae3:bd96:78cd with SMTP id a640c23a62f3a-afa1dff365dmr138215166b.7.1754966834040;
-        Mon, 11 Aug 2025 19:47:14 -0700 (PDT)
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com. [209.85.218.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a0a38b5sm2105048366b.45.2025.08.11.19.47.13
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Aug 2025 19:47:13 -0700 (PDT)
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-af94e75445dso901444666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 11 Aug 2025 19:47:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVPM8rbEFv1fs0xEMkuOUcN5pMlzA/HCTnV7oPe0oNB3nAOIbC/57jH3pQifCe3wEDathL9UOne8KbDej3UZdNN@lists.infradead.org
-X-Received: by 2002:a17:907:d27:b0:af9:3116:e104 with SMTP id
- a640c23a62f3a-afa1dff94d9mr158864166b.3.1754966833478; Mon, 11 Aug 2025
- 19:47:13 -0700 (PDT)
+        bh=WjOlLOxlY3+Npk8OAHvLo4jSrWHUgC4FwWU8lR7tJvM=;
+        b=hS9C3wVM0cbNkBBxa+0IVjf2KnX3VNe/0CirFQB+LuiIKgPl2bD8nFN3JCorcUTFoV
+         tg3cUc/FAqXaVFZl6muR21ynahBBxgzZiH1A2PBeiZYxBglrFI2fJJebuLMn7g1RTwue
+         9Vl2gNuNlciRwgKw8bITXGPxFn5r2EwqH1JkEgRVhzwBXde1WQfKABDbAnfmbUzazeoq
+         QFj9BwTTNZlNbHhoUlC+u95Ahtr5Y9xh3oBm7k9+2JraBaqwqGGUKlNpJgdbAfxa3Yoh
+         UaORYIZ5iCoAeTXg0EFvbjXs/sPIHsQkBVqxLbEhkanO08k0mj3ylWisDPc/NTPUzzMY
+         /92Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUXQipN9SFR0n4FdsLtb4t6wcUsQaICWemPb1+56XNrsLlba4KjYGTCg38mndrPDmn5m5OKJaq4N4Z2qcLjpzM=@lists.infradead.org, AJvYcCUpdliRCVaPiazHhDBfLI1TUPTlC7fycU13/xyl8CYYx6AiuA+qOJRcIV2G2KzU6TaBH+zmqgwfgxTAJo6AIZy+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yze3yxmO4Sp+dqdi9R5+3v9mofJ4eQCVv6I6c6zPVT2Gy1GkpXA
+	FOg+ezb5OIjTRMsCdORnHzz7g2S2GVgsi2T77n5rE5P8Nf6Gr5YUVAGy
+X-Gm-Gg: ASbGnctMZwj7LMY/aeFZEg6P4fbGRxCkQ22f4NC2y06aLsmf4OAMDktEwemT0d6r18r
+	+OUBpTs1ngGteNuxy2s8VlGNsZJYC71RJW+9NYuvlCmWg1WTQCR0hKoRlAGpOsnsnHp+IiRnWIp
+	iPAxO9Ev8nzXwMXwWFsvzLXQthcnnjtCKbIihRGtFM2zGJGiauMGfFbsUzPtfJLd6CMVsYLu6x6
+	08oxRgrmFoSrA1YgH25lOye3+VOm+pf2BRg1tZeIp+nkRqPAoPUS0ib2R+ks+5PK/Akmef77XqF
+	jfzHEV49LHysoZbG+U63gw2qMb9qlzDvSNM9PGBnscLZrDskiC5XxL7UGCKLJfnYiSihgVdZIai
+	3BfjObH4YUDXMzGEOHd9xWQPeBJNlgg==
+X-Google-Smtp-Source: AGHT+IEtpPZkA7KIS2X1ISDAp5IYizfkL4VVy+9hQb7FaniU1X+Gs7C747xRFcwg7CI7onQp8EyfPQ==
+X-Received: by 2002:a05:6870:d111:b0:306:e3a8:a97b with SMTP id 586e51a60fabf-30c212bf761mr9418599fac.21.1754967576882;
+        Mon, 11 Aug 2025 19:59:36 -0700 (PDT)
+Received: from tower.cjhon.com ([2603:8081:ad00:4a:36c5:be5:e9bb:c0f0])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-30c3a9d052asm2726690fac.14.2025.08.11.19.59.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Aug 2025 19:59:36 -0700 (PDT)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Cenk Uluisik <cenk.uluisik@googlemail.com>,
+	Johannes Erdfelt <johannes@erdfelt.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: [PATCH 2/2] arm64: dts: rockchip: enable NPU on OPI5/5B
+Date: Mon, 11 Aug 2025 21:57:55 -0500
+Message-ID: <20250812025755.2078-2-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20250812025755.2078-1-honyuenkwun@gmail.com>
+References: <20250812025755.2078-1-honyuenkwun@gmail.com>
 MIME-Version: 1.0
-References: <20250810220921.14307-1-will@willwhang.com> <20250810220921.14307-2-will@willwhang.com>
- <20250811-successful-military-dragon-d72486@kuoka>
-In-Reply-To: <20250811-successful-military-dragon-d72486@kuoka>
-From: Will Whang <will@willwhang.com>
-Date: Mon, 11 Aug 2025 19:47:03 -0700
-X-Gmail-Original-Message-ID: <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
-X-Gm-Features: Ac12FXxQmXnuWdzEc4zTooah7CjD9hS5SJe3jLxjPY4eiFkazCpsluep9zY_bS0
-Message-ID: <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image sensor
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_194715_991171_CC5A6622 
-X-CRM114-Status: GOOD (  23.67  )
+X-CRM114-CacheID: sfid-20250811_195938_388615_AEEC40F6 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,151 +104,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-Reply inline.
-Thanks,
-Will Whang
+The NPU on the Orange Pi 5/5B uses the same regulator for both the
+sram-supply and the npu's supply. Enable all the NPU bits. Also add
+the regulator as a domain-supply to the pd_npu power domain.
 
-On Mon, Aug 11, 2025 at 1:01=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
-> > +description:
-> > +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - sony,imx585
-> > +      - sony,imx585-mono
->
-> I don't understand this second compatible. Is this different hardware?
-> Can you point me to "mono" datasheet?
->
-> Your description should explain this. Commit msg as well, instead of
-> speaking about driver (in fact drop all driver related comments).
->
-Mono version of this sensor is basically just removing the bayer
-filter, so the sensor itself actually doesn't know if it is color or
-mono and from my knowledge there are no registers programmed in the
-factory that will show the variant and model number. (That is why when
-the driver probing it only test blacklevel register because there are
-no ID registers)
-Originally in V1 patch I've made the switch between color and mono in
-dtoverlay config but reviewer comments is to move it to compatible
-string and not property.(https://lore.kernel.org/linux-media/20250703175121=
-.GA17709@pendragon.ideasonboard.com/)
+Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
+---
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi | 34 +++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-In this case, what would you recommend?
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+index 4fedc50cce8c..65a06ce8c131 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtsi
+@@ -377,6 +377,10 @@ &pd_gpu {
+ 	domain-supply = <&vdd_gpu_s0>;
+ };
+ 
++&pd_npu {
++	domain-supply = <&vdd_npu_s0>;
++};
++
+ &pinctrl {
+ 	hym8563 {
+ 		hym8563_int: hym8563-int {
+@@ -407,6 +411,36 @@ &pwm0 {
+ 	status = "okay";
+ };
+ 
++&rknn_core_0 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
++
++&rknn_core_1 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
++
++&rknn_core_2 {
++	npu-supply = <&vdd_npu_s0>;
++	sram-supply = <&vdd_npu_s0>;
++	status = "okay";
++};
++
++&rknn_mmu_0 {
++	status = "okay";
++};
++
++&rknn_mmu_1 {
++	status = "okay";
++};
++
++&rknn_mmu_2 {
++	status = "okay";
++};
++
+ &saradc {
+ 	vref-supply = <&avcc_1v8_s0>;
+ 	status = "okay";
+-- 
+2.50.1
 
-compatible:
-  enum:
-    - sony,imx585
-    - sony,imx585-mono
-  description: IMX585 has two variants, color and mono which the
-driver supports both.
-
-Something like this?
-
-
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  assigned-clocks: true
-> > +  assigned-clock-parents: true
-> > +  assigned-clock-rates: true
->
-> Drop all three.
->
-> > +
-> > +  clocks:
-> > +    description: Clock frequency 74.25MHz, 37.125MHz, 72MHz, 27MHz, 24=
-MHz
-> > +    maxItems: 1
-> > +
-> > +  vana-supply:
-> > +    description: Analog power supply (3.3V)
-> > +
-> > +  vddl-supply:
-> > +    description: Interface power supply (1.8V)
-> > +
-> > +  vdig-supply:
-> > +    description: Digital power supply (1.1V)
-> > +
-> > +  reset-gpios:
-> > +    description: Sensor reset (XCLR) GPIO
-> > +    maxItems: 1
-> > +
-> > +  sony,sync-mode:
-> > +    description: |
-> > +      Select the synchronisation mode of the sensor
-> > +        0 =E2=80=93 internal sync, leader (default)
-> > +        1 =E2=80=93 internal sync, follower
-> > +        2 =E2=80=93 external sync
-> > +    $ref: /schemas/types.yaml#/definitions/uint8
-> > +    enum: [ 0, 1, 2 ]
->
-> Previous comments not applied.
->
-> > +
-> > +  port:
-> > +    $ref: /schemas/graph.yaml#/$defs/port-base
-> > +    additionalProperties: false
-> > +
-> > +    properties:
-> > +      endpoint:
-> > +        $ref: /schemas/media/video-interfaces.yaml#
-> > +        unevaluatedProperties: false
-> > +
-> > +        properties:
-> > +          data-lanes:
-> > +            oneOf:
-> > +              - items:
-> > +                  - const: 1
-> > +                  - const: 2
-> > +              - items:
-> > +                  - const: 1
-> > +                  - const: 2
-> > +                  - const: 3
-> > +                  - const: 4
-> > +
-> > +          link-frequencies: true
->
-> Drop
-Documentation/devicetree/bindings/media/i2c/sony,imx335.yaml and
-sony,283.yaml doesn't seem to drop this?
-Just to double check if my understanding is correct, you want me to
-remove the line link-frequencies: true?
-
->
-> > +
-> > +        required:
-> > +          - data-lanes
-> > +          - link-frequencies
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - clocks
-> > +  - port
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    i2c {
-> > +        #address-cells =3D <1>;
-> > +        #size-cells =3D <0>;
-> > +
-> > +        imx585@1a {
->
-> Nothing improved.
->
-> You replied that you applied comment, but send the same.
->
->
-> Best regards,
-> Krzysztof
->
 
