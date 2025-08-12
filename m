@@ -4,96 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25D4C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344B3CA0EDA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:39:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UIMOvue31dwc/J4aquxw833RlbJuhQchriCV8fOzVLE=; b=NjE+ZCoDzgAUMExmt3Rx9m19b+
-	7ViDHsA2UpEY2fxIZyu4x9myXHALECyAmcmRJwTLrvXlLIH1jfnN56Y0Axos/UAuLGZwKcZshY/oV
-	ZJEbNyvMW1MXetC+gjIne6oWxUIWPyAqSQ5tyJTZXjny7Z0hl4o1hEl9aBRKKVW5qg5TLl2Ja0RZ7
-	agY5rIByVYtWgYOCyhCeh4gyL3DCuvSDtErxR7MIUOSS92beM1x8ecJSrzOK1EGHsJxpDpmhwDEDv
-	v7O+Ywa/k8Ba3QJTT4JCcUmb/qd1oyrZDZ2iLyQO21wiHoZ9X71mOw9SKcxoTKL063jlPoNdNQUQB
-	F29wEyCw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4fqFKZRX+VXRgMC+0U0SHSLoX7IVzWzQk49myeTjMC0=; b=1uKB2SvlM1a/9cfTbH2z6NHvP0
+	Hz64FQhDlwB5wvRZPX+rz+Hkp9sn2CqQjJ79m6hfmRGfq+/bJ5ERJAt2s3gv9ra0pZKtQ4iFHGqnu
+	d6n8ukDMov8J7VUlN6M/qaonUYkbHJW3Mk39saNE7ib1SDuKUnP7O/THI3gJKykT3Cu9JUbZ0FDl4
+	ql170dNahsuxKoT30+aL4zvb6Hj9gK3gh5WKZiUIoDyuHDSi2u4F2x+3/zq56g9fWfn7KVeXLa1LX
+	NsPU0gU+PjWGBNJgx/4Gmi5ru4c4anoByWxUizv4C0EkG3tzPymNtASteT6+e+QRKXXT3UbO7RgWA
+	PflRpUHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloHT-0000000AlN9-013f;
-	Tue, 12 Aug 2025 12:39:07 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1uloHT-0000000AlOh-47LG;
+	Tue, 12 Aug 2025 12:39:08 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkcp-0000000AHWE-2OIc
+	id 1ulkdp-0000000AHe2-3api
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:44:56 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-af66d49daffso869938266b.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 01:44:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1754988294; x=1755593094; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UIMOvue31dwc/J4aquxw833RlbJuhQchriCV8fOzVLE=;
-        b=byiwgO+esT8bsXMVU5bR+L0A24L+mEsBKaIMbhjpBo6t/elXPrENRIY8WGpgM+Accq
-         r6bLz/Z/iNeqDx2dOFQXE8oWFmBlyZMSMVsWQYigzVh5W1d4eiTECjLwHEFgWAYKcCUz
-         CSVZLfId0Cxe3T48PXGL+KynGApceMEq6cFyisTjVbb6vEqsx/RK/uYFWzJU/KlUTLYM
-         G6nOqH74gZN4+qMXQeIOuXfAefzxrqVjfuSrUXO8W8fK8HEbG8h0/8peme0kUSShNXAs
-         2ZxzkDihRxuuoiX0YLO3gKHvVEU/z/xWHZrb/zpfozXTywXD4sOWstbFhkt+JZ4x++bB
-         Fmow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754988294; x=1755593094;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UIMOvue31dwc/J4aquxw833RlbJuhQchriCV8fOzVLE=;
-        b=Yp9Cs2VrEqLHLd3meu+aiTxvU3QsixMRSDILf9A6L0V3Lvi7W63vL2mKCw+PzhdXaV
-         dEHS0YWXzuR80KWnudaaf6cb5hRzahMLg2fOG7VxlLW8vTG9Q9lcyNe86IP/ApaaG444
-         l2lBjVWFnbNGQWr9GDHApnbbDnj0um7e7XlHb563rWcJaqvSaOOo06rjgW0S6hPDW0x5
-         8SxcYmff7+LjlT6aLaNcvnvQT1IuBlf3Omksp6ZhT6emgJpW3R40Q+Rq4bou44xSswMh
-         xM9S9AQ5OcBuR7Q01gjjFvmvNQf/2dDxn/kxtHSwSgPQI0/A/ID1oP7pj7lTL6sJvLAI
-         izwA==
-X-Forwarded-Encrypted: i=1; AJvYcCU3HraRKx4Uit2xKwG3jDE8Gou41iKbu20E+ruLAihZGvBnxhSsYfGcAVLWJOr8cExUaze+wjgyjRFUM5oxwwnG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlgdVp2OWZM6s+YJjNbIlivF6RexXnYdS5MSjQkDTrahX9plX9
-	+lMgArQxpUFLVthrQVBf1CEdIxF1wRyi2uwZFm+2drFNhqkwrCSAoR4oDummCiZVGWQ=
-X-Gm-Gg: ASbGncv5y0w0txmusYY93DALv/LZjpzECjPskpUJeZQw4C0oVvyP1fzywcmjnRM28U/
-	41VL5s9YPg67iAG/NuxE4lNHq3q0gHItPFpmu9X5FIQ4BQgDEMF4aEmsitXt5ToaM/Al5Zn22CF
-	QnXsiWzH7OWq5WNhiSQTgBINyzrNBRH/nSDB94JEFbguGAOYf+yjyA0gjrESJU1wk+bpVgv0cML
-	ua2WqYMs47XqbQiC4xVyPurV+Ec6O3HH06cBejJUfNqa6ac2URGahQFIh23KPSNQnDhM1GP0a6Y
-	D+S0ZmbyKOmz9OSDsGHY8RBMiL85YSSmPlF5dFWnbqGFi9vYlb9iRM24/UKtU9YBhqI2yzaMUm2
-	+M0y030J/1xjjo/xXKSuV4nAC8ufHSwOHt79RISMdnWAJ3XFUprgvaSDlp5eOfHiJ4A==
-X-Google-Smtp-Source: AGHT+IHGS28WyNhkMEqCYl++k5tXKsI+SYF4vISQjhRE5gJkG3IUVoDSvuT7pIyGxqFMWkpcex+/TQ==
-X-Received: by 2002:a17:907:3f94:b0:af9:14cf:d808 with SMTP id a640c23a62f3a-af9c654272amr1559960166b.55.1754988293947;
-        Tue, 12 Aug 2025 01:44:53 -0700 (PDT)
-Received: from localhost (host-79-44-170-80.retail.telecomitalia.it. [79.44.170.80])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-af91a078afbsm2158282666b.4.2025.08.12.01.44.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 01:44:53 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	andrea.porta@suse.com,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iivanov@suse.de,
-	svarbanov@suse.de,
-	mbrugger@suse.com,
-	Jonathan Bell <jonathan@raspberrypi.com>,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: [PATCH] dt-bindings: pinctrl: rp1: Describe groups for RP1 pin controller
-Date: Tue, 12 Aug 2025 10:46:39 +0200
-Message-ID: <20250812084639.13442-1-andrea.porta@suse.com>
-X-Mailer: git-send-email 2.44.0
+	Tue, 12 Aug 2025 08:46:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4fqFKZRX+VXRgMC+0U0SHSLoX7IVzWzQk49myeTjMC0=; b=lng0be1EtH1NwTkyOrfJ1ypzjm
+	Ddta3DOel3KELJHU7Ljf6sNwYidTcfJRFDolNYD4s4qiCTxkgCrn1Y1XPQAm+t/R1QPosqnglWg2P
+	eoTtqS1uE6Mm2Z4KuWN2TqGNPwsI/qNiAtBT5l7PPRPOlAwkz9YUdQgc/AB9xsQMTAzsyJTUmr2Ji
+	6rVQjAgQ2fWxwnE/ZwXlpCWuwoPZG8AsXWfYRmMbZaYy6NR5kCfthx6GKrzajxmqgBSPqA/wp61cw
+	KCS+JVHajYr1LZSW/2uQPtMLDxsRtKN3gpex3QBS5z74C8cLYHomnHe3omMdksCoTgSknxUaKp7OF
+	TnXF1q+w==;
+Received: from [89.212.21.243] (port=39484 helo=[192.168.69.116])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1ulkdj-00DLjg-0H;
+	Tue, 12 Aug 2025 10:45:50 +0200
+Message-ID: <ffafc9d6-2cfe-4e3f-a610-9bddc7eb49f4@norik.com>
+Date: Tue, 12 Aug 2025 10:45:48 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] iio: adc: imx93_adc: load calibrated values even
+ calibration failed
+To: Haibo Chen <haibo.chen@nxp.com>, Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-iio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "upstream@lists.phytec.de" <upstream@lists.phytec.de>
+References: <20250812-adc-v2-0-0260833f13b8@nxp.com>
+ <20250812-adc-v2-2-0260833f13b8@nxp.com>
+Content-Language: en-US
+From: Primoz Fiser <primoz.fiser@norik.com>
+Autocrypt: addr=primoz.fiser@norik.com; keydata=
+ xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
+ JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
+ ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
+ gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
+ jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
+ 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
+ TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
+ AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
+Organization: Norik systems d.o.o.
+In-Reply-To: <20250812-adc-v2-2-0260833f13b8@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_014455_635937_5721EAAA 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250812_014558_373194_47D6E5F8 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,73 +104,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DT binding for RP1 pin controller currently lacks the group
-definitions.
+Hi Haibo,
 
-Add groups enumeration to the schema.
+On 12. 08. 25 10:04, Haibo Chen wrote:
+> ADC calibration might fail because of the noise on reference voltage.
+> To avoid calibration fail, need to meet the following requirement:
+>     ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> 
+> For the case which the ADC reference voltage on board do not meet
+> the requirement, still load the calibrated values, so ADC can also
+> work but maybe not that accurate.
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- .../pinctrl/raspberrypi,rp1-gpio.yaml         | 35 ++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+Reviewed-by: Primoz Fiser <primoz.fiser@norik.com>
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-index eec9a9b58542..af6fbbd4feea 100644
---- a/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-@@ -72,10 +72,36 @@ $defs:
-       pins:
-         description:
-           List of gpio pins affected by the properties specified in this
--          subnode.
-+          subnode (either this or "groups" must be specified).
-         items:
-           pattern: '^gpio([0-9]|[1-4][0-9]|5[0-3])$'
- 
-+      groups:
-+        description:
-+          List of groups affected by the properties specified in this
-+          subnode (either this or "pins" must be specified).
-+        items:
-+          anyOf:
-+            - pattern: '^gpio([0-9]|[1-4][0-9]|5[0-3])$'
-+            - enum: [ uart0, uart0_ctrl, uart1, uart1_ctrl, uart2, uart2_ctrl,
-+                      uart3, uart3_ctrl, uart4, uart4_ctrl, uart5_0,
-+                      uart5_0_ctrl, uart5_1, uart5_1_ctrl, uart5_2,
-+                      uart5_2_ctrl, uart5_3,
-+                      sd0, sd1,
-+                      i2s0, i2s0_dual, i2s0_quad, i2s1, i2s1_dual, i2s1_quad,
-+                      i2s2_0, i2s2_0_dual, i2s2_1, i2s2_1_dual,
-+                      i2c4_0, i2c4_1, i2c4_2, i2c4_3, i2c6_0, i2c6_1, i2c5_0,
-+                      i2c5_1, i2c5_2, i2c5_3, i2c0_0, i2c0_1, i2c1_0, i2c1_1,
-+                      i2c2_0, i2c2_1, i2c3_0, i2c3_1, i2c3_2,
-+                      dpi_16bit, dpi_16bit_cpadhi, dpi_16bit_pad666,
-+                      dpi_18bit, dpi_18bit_cpadhi, dpi_24bit,
-+                      spi0, spi0_quad, spi1, spi2, spi3, spi4, spi5, spi6_0,
-+                      spi6_1, spi7_0, spi7_1, spi8_0, spi8_1,
-+                      aaud_0, aaud_1, aaud_2, aaud_3, aaud_4,
-+                      vbus0_0, vbus0_1, vbus1, vbus2, vbus3,
-+                      mic_0, mic_1, mic_2, mic_3,
-+                      ir ]
-+
-       function:
-         enum: [ alt0, alt1, alt2, alt3, alt4, gpio, alt6, alt7, alt8, none,
-                 aaud, dcd0, dpi, dsi0_te_ext, dsi1_te_ext, dsr0, dtr0, gpclk0,
-@@ -103,6 +129,13 @@ $defs:
-       drive-strength:
-         enum: [ 2, 4, 8, 12 ]
- 
-+    required:
-+      - function
-+
-+    oneOf:
-+      - required: [ groups ]
-+      - required: [ pins ]
-+
-     additionalProperties: false
- 
- allOf:
+Thanks for fixing this.
+
+BR,
+Primoz
+
+> 
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> ---
+>  drivers/iio/adc/imx93_adc.c | 18 +++++++++++++++---
+>  1 file changed, 15 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/imx93_adc.c b/drivers/iio/adc/imx93_adc.c
+> index 8471737ac04a2bac0417a6397f20865f6a2c01ca..17b0a2548b0a3614ac537b01e28bc3144d17d6fc 100644
+> --- a/drivers/iio/adc/imx93_adc.c
+> +++ b/drivers/iio/adc/imx93_adc.c
+> @@ -38,6 +38,7 @@
+>  #define IMX93_ADC_PCDR6		0x118
+>  #define IMX93_ADC_PCDR7		0x11C
+>  #define IMX93_ADC_CALSTAT	0x39C
+> +#define IMX93_ADC_CALCFG0	0x3A0
+>  
+>  /* ADC bit shift */
+>  #define IMX93_ADC_MCR_MODE_MASK			BIT(29)
+> @@ -58,6 +59,8 @@
+>  #define IMX93_ADC_IMR_ECH_MASK			BIT(0)
+>  #define IMX93_ADC_PCDR_CDATA_MASK		GENMASK(11, 0)
+>  
+> +#define IMX93_ADC_CALCFG0_LDFAIL_MASK		BIT(4)
+> +
+>  /* ADC status */
+>  #define IMX93_ADC_MSR_ADCSTATUS_IDLE			0
+>  #define IMX93_ADC_MSR_ADCSTATUS_POWER_DOWN		1
+> @@ -145,7 +148,7 @@ static void imx93_adc_config_ad_clk(struct imx93_adc *adc)
+>  
+>  static int imx93_adc_calibration(struct imx93_adc *adc)
+>  {
+> -	u32 mcr, msr;
+> +	u32 mcr, msr, calcfg;
+>  	int ret;
+>  
+>  	/* make sure ADC in power down mode */
+> @@ -158,6 +161,11 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
+>  
+>  	imx93_adc_power_up(adc);
+>  
+> +	/* Enable loading of calibrated values even in fail condition */
+> +	calcfg = readl(adc->regs + IMX93_ADC_CALCFG0);
+> +	calcfg |= IMX93_ADC_CALCFG0_LDFAIL_MASK;
+> +	writel(calcfg, adc->regs + IMX93_ADC_CALCFG0);
+> +
+>  	/*
+>  	 * TODO: we use the default TSAMP/NRSMPL/AVGEN in MCR,
+>  	 * can add the setting of these bit if need in future.
+> @@ -180,9 +188,13 @@ static int imx93_adc_calibration(struct imx93_adc *adc)
+>  	/* check whether calbration is success or not */
+>  	msr = readl(adc->regs + IMX93_ADC_MSR);
+>  	if (msr & IMX93_ADC_MSR_CALFAIL_MASK) {
+> +		/*
+> +		 * Only give warning here, this means the noise of the
+> +		 * reference voltage do not meet the requirement:
+> +		 *     ADC reference voltage Noise < 1.8V * 1/2^ENOB
+> +		 * And the resault of ADC is not that accurate.
+> +		 */
+>  		dev_warn(adc->dev, "ADC calibration failed!\n");
+> -		imx93_adc_power_down(adc);
+> -		return -EAGAIN;
+>  	}
+>  
+>  	return 0;
+> 
+
 -- 
-2.35.3
-
+Primoz Fiser
+phone: +386-41-390-545
+email: primoz.fiser@norik.com
+--
+Norik systems d.o.o.
+Your embedded software partner
+Slovenia, EU
+phone: +386-41-540-545
+email: info@norik.com
 
