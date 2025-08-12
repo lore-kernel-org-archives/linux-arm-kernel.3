@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1423BC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 05:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03B3CA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9lJBmngQ9+HmAt1mZPYzC7vCcc7gbF7pu7Xw+KqQtU=; b=bI2DeobY3qrrEakMHSi7t5dUNV
-	jH1n2oIr5IRBCtoKUOGEgFPgF1oeg7gwbyFU2mhdl8Z2ml2mKAz7KIcwYF/wl3BuDD2b42n5sxPKv
-	M1kLvbyvOapeBfkN9M6fQd1gVCVBfb4PvdYYSAkiloM5jkvzY9krHyvuap7+Au+2fwQoNc1QFe/ik
-	JJr2xnvgvI3EKHo13NzuudOY5vRZGq1l3+4tzPckPSpBhiMRGOqhSC6iGQmJMHzGyWQmkEzKJLQ6+
-	PsXjVIcKuVTigpaoyw7wzzjQwN0J50aHtiTeFrC+jDr7zucGDI2E28+41aobUITpFeTo2ejYL8wlG
-	Lw1vah2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6uI4CgwvUXCbUc5uPC5+X8729M4tDF2pOP2xKvb9cDI=; b=qB50gI+1xIzm8O6DAu9Yw8nwhf
+	aKVwBwlyJlwXokppGwynOUuqez1s+sDEOLXu8Y2+/olWfDt3R2S8M+WPnQEFGXNfAe/TkqEx8Afzy
+	c2HHqYvYIVkYP7QVRCKnSJHixbzceHgufbO8mDs4paJ+Yz0FFK4Ya1QAEhfOrFjAuRtV/XgH5fVYD
+	PJwQ2Es52I35OtigpnD3udm0rI6RoUZl5CzO0QSBf1yyp0eUD0w4x4QfxT32mHQSJ7goYT8dGe/aO
+	NQvPKa3+Sfif2QqxV74ZcNRnWcsAY4UTiW+6SiHNkxRfvDQSTX9MAmvtTJ6wamT4rvg7ND8xKQqHy
+	brMs6OpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uli1s-00000009yR1-0e1O;
-	Tue, 12 Aug 2025 05:58:36 +0000
-Received: from [195.187.100.5] (helo=ni.piap.pl)
+	id 1uliGG-0000000A0GE-2MO9;
+	Tue, 12 Aug 2025 06:13:28 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhyH-00000009xwK-23GT;
-	Tue, 12 Aug 2025 05:54:55 +0000
-Received: from t19.piap.pl (OSB1819.piap.pl [10.0.9.19])
-	by ni.piap.pl (Postfix) with ESMTPS id 8C855C3E4DEA;
-	Tue, 12 Aug 2025 07:54:46 +0200 (CEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 ni.piap.pl 8C855C3E4DEA
-From: =?utf-8?Q?Krzysztof_Ha=C5=82asa?= <khalasa@piap.pl>
-To: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>,  Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>,  Heiko Stuebner <heiko@sntech.de>,
-  Paul Elder <paul.elder@ideasonboard.com>,  Jacopo Mondi
- <jacopo.mondi@ideasonboard.com>,  Ondrej Jirman <megi@xff.cz>,
-  linux-media@vger.kernel.org,  linux-rockchip@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org
-Subject: Re: FYI: i.MX8MP ISP (RKISP1) MI registers corruption: resolved
-In-Reply-To: <m3zfcet41n.fsf@t19.piap.pl> ("Krzysztof =?utf-8?Q?Ha=C5=82as?=
- =?utf-8?Q?a=22's?= message of
-	"Tue, 05 Aug 2025 13:13:08 +0200")
-References: <m3h5zbxkc6.fsf@t19.piap.pl> <m38qknx939.fsf@t19.piap.pl>
-	<175308758352.3134829.9472501038683860006@localhost>
-	<m31pq9y98z.fsf@t19.piap.pl>
-	<175326599663.2811177.16620980968274114885@localhost>
-	<m3h5z2vw12.fsf@t19.piap.pl>
-	<175344176070.2811177.10693943493658922992@localhost>
-	<m3qzxyug1s.fsf@t19.piap.pl> <m3cy9futcj.fsf@t19.piap.pl>
-	<m34iumujcs.fsf@t19.piap.pl> <m3zfcet41n.fsf@t19.piap.pl>
-Date: Tue, 12 Aug 2025 07:54:46 +0200
-Message-ID: <m3a545t789.fsf@t19.piap.pl>
+	id 1uliDd-0000000A02J-0ir2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 06:10:46 +0000
+Date: Tue, 12 Aug 2025 08:10:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1754979042;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6uI4CgwvUXCbUc5uPC5+X8729M4tDF2pOP2xKvb9cDI=;
+	b=3ZhGlxdYlv3VJPSpkgTTfl8TU5GIYzCUx7KkQbaNk1LnurpNfZZyhnAJw2Hn0ZRStYkWV2
+	PSaQvChg1wFVRbIr/FS+pDoIRvze9scRiaQ32JFbg/3lJzQIn3GOU2x06FGxczNTwDtLxE
+	NYM74BFTJmzkum2EZLyZX/tq7WNTbYxb7t5JHqAem58ZMjWVvip7aML8EHj/1318Gx5VPV
+	Yfh4ogLkflI307vKSNxC/JLZwThl23nj/u54XAuCyX/oMRXd2Fq7YbZNALSdZCStfnjkMW
+	9Waf8SIoShdZyWKQIQ5zOhg/xI48qqsa9Gv+hdVTWVvPcz4gYJS7aY86CS8UYQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1754979042;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6uI4CgwvUXCbUc5uPC5+X8729M4tDF2pOP2xKvb9cDI=;
+	b=zdFEHqye4kn8F6Tl5mhCvWy99jUnVPlfXZfrW/w0cudhlLt3EaUr4qtNe+cT3qoSWdHqCh
+	Fumfr9ux4Skta8AA==
+From: Nam Cao <namcao@linutronix.de>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Thomas Gleixner <tglx@linutronix.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: xilinx: Fix NULL pointer dereference
+Message-ID: <20250812061028.O01CaCXa@linutronix.de>
+References: <20250811054144.4049448-1-namcao@linutronix.de>
+ <20250811222937.GA167215@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250811222937.GA167215@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_225453_729424_771DE058 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250811_231045_352423_95C89F93 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,36 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan et al,
+On Mon, Aug 11, 2025 at 05:29:37PM -0500, Bjorn Helgaas wrote:
+> On Mon, Aug 11, 2025 at 07:41:44AM +0200, Nam Cao wrote:
+> > Commit f29861aa301c5 ("PCI: xilinx: Switch to
+> > msi_create_parent_irq_domain()") changed xilinx_pcie::msi_domain from child
+> > devices' interrupt domain into Xilinx AXI bridge's interrupt domain.
+> > 
+> > However, xilinx_pcie_intr_handler() wasn't changed and still reads Xilinx
+> > AXI bridge's interrupt domain from xilinx_pcie::msi_domain->parent. This
+> > pointer is NULL now.
+> > 
+> > Update xilinx_pcie_intr_handler() to read the correct interrupt domain
+> > pointer.
+> > 
+> > Fixes: f29861aa301c5 ("PCI: xilinx: Switch to msi_create_parent_irq_domain()")
+> 
+> Since this appeared in v6.17-rc1, I suppose this should be merged for
+> v6.17, right?  I provisionally put this on pci/for-linus for now.
 
-BTW I've added Lucas Stach and Shawn Guo to "Cc" list.
+Yes please.
 
-The problem is the CPU core power supply voltage :-)
+> What does this look like to a user?  I assume a NULL pointer
+> dereference in xilinx_pcie_intr_handler()?  Do you have a dmesg
+> snippet from hitting it?  It would be nice to include a couple lines
+> of that in the commit log to help users find this fix.
 
-- while the reference manual specifies the max ISP and MEDIA clocks at
-  500 MHz, the datasheets show this requires the "overdrive" mode =3D
-  increased CPU power supply voltage. In "normal" mode the ISPs are
-  limited to 400 MHz (there are other limits, too).
+Sorry I didn't clarify this, but this has not been tested with hardware.
 
-- I've tried lowering the clock rate after booting the systems (with
-  a CCM register write), but it didn't fix the problem. I guess some
-  reset logic is affected here, and the (lower) clock rate must be set
-  right from the start, in the DT.
+Claudiu pointed out this problem with another driver [1], so I audited all
+the other drivers that I touched and noticed that this one has the same
+problem.
 
-- anyway, lowering the frequencies of ISP and MEDIA root clocks fixes
-  the ISP2 MI corruption. I'm currently investigating PMIC settings
-  (both my Compulab and SolidRun modules use PCA9450C PMICs), so perhaps
-  I'll be able to use the higher 500 MHz clocks. It doesn't matter much,
-  though.
+Nam
 
-- the question is if we should lower the clocks in the main imx8mp.dtsi
-  DT file, or the overdrive mode should stay there, and the changes
-  should be made to the individual board files, or maybe the U-Boot
-  configs (PMIC output voltages) should be changed etc.
---=20
-Krzysztof "Chris" HaBasa
-
-Sie=C4=87 Badawcza Aukasiewicz
-Przemys=C5=82owy Instytut Automatyki i Pomiar=C3=B3w PIAP
-Al. Jerozolimskie 202, 02-486 Warszawa
+https://lore.kernel.org/linux-pci/20250809144447.3939284-1-claudiu.beznea.uj@bp.renesas.com/ [1]
 
