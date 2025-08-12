@@ -4,115 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AFFDCA0EDC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C55D6C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ctReF7RTyCdcJ2bPjZyR3rCTk+/gwfArwuRA2lbJ6b8=; b=198zswcsjn/WpWFbtIXvQMnLoC
-	G5DP5hkLQjXmmc25nTeYJ3YAw0tNRCZAGgoQp37Vs0IULoyR7X0xSLFRgO2KlwGGaVVgUrDsfISRn
-	QI2c43NI8nWs/ETRviGCHhIoMIx2PMPt88nzO2Adrjz8QLfivSurFV7vOFAkZFzNIrat99dnKH8cE
-	Fk8TceiUldT+jXf6aWEsA+ok4Lb1mXD15NbmSyl7rMIB5d5K0PSY1/TMFPfvWZCYs36bygpOgl7L2
-	mzau0n1/qPLgZfgldpnbFqIPMFdThz6VtbiFlM1VdYjAJl2oSoX04b4E2dqWSFgDT2khkJ1tWZDAH
-	dfiTaMeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WwiZ/U3pbnFYKJL5LpxoEKwFSJFJlvnnEd0wUSXJVMU=; b=29vodIs34zFhL3X0meO/m09+UK
+	+o6jO4MBAsfzfKa4bnqo4zZLh0WKoYZW2Uvuk17HT/iZwr/m+go4fT1Oj4epMrTG3O6RU0rR4wddt
+	VCng+4Lc3rYNTPRDTU14C43mzSGex0rcYrPuOHLYq9EDE3XGtkRhZJh9dFQ7Ko5+sf3AxVnsA3tvc
+	u6Gsu5e858W/qDzjZzv6QltZSaaKYyM14Bln2Uyl0TfjCUu6Zbi5woStTg9XhIUQmD7RbczTejFqY
+	KNf693uqL3fWKRDRZMiVcA9/SHR5HYty/fjZ+fEODWGcRQLKI55FuoZH0T0KrlKuTBOkINhGHJBu9
+	xWfDcv/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrkn-0000000BLb6-0ZVr;
-	Tue, 12 Aug 2025 16:21:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ulrkl-0000000BLY4-1cUR;
+	Tue, 12 Aug 2025 16:21:35 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulnhs-0000000AeLD-3Mq8
+	id 1ulnZ7-0000000Adkm-2HYU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 12:02:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91C15453B9;
-	Tue, 12 Aug 2025 12:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D679BC4CEF0;
-	Tue, 12 Aug 2025 12:02:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1755000138;
-	bh=zM7gP/7OYppk6RZVuF/mgz7lz8DWar/tc9UDFpxArDs=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=IdvDQnbWrw58pIPTxTdrL0lt5dchPftAtfNyCZV9JbUf2seXz2mAICuLxcCnTzUF0
-	 PIWPRYA9KgmPtpUyYXHw5/FjnUEKyXvduzBBFCe/uowhhK71zjD4silr7FYREvQAH3
-	 cuHFaabf1pnUFlik85pTxwFcxXYfVtfTjCwb9jlaqRf8moExRmiCFD4k3jHtlAzWZ/
-	 7m5iB0GGtWn83kn2IgjzM47F8A0QuXZp+sGoZP1cBUGVZgzCHiURSx3bBQwWGRje9a
-	 vIMHXRpRD5wvNK5ineQjXlYSTciE6ArbjOVD2qSfKG9MHCzKqa3+15E3psywDB65nQ
-	 tzE3rASn8XzUg==
-Message-ID: <d02626bc-a00e-486a-854e-b4555c11ee85@kernel.org>
-Date: Tue, 12 Aug 2025 14:02:11 +0200
+	Tue, 12 Aug 2025 11:53:18 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ulnYf-0001BT-Ce; Tue, 12 Aug 2025 13:52:49 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ulnYd-00DBuR-16;
+	Tue, 12 Aug 2025 13:52:47 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1ulnYd-000Fv3-0q;
+	Tue, 12 Aug 2025 13:52:47 +0200
+Message-ID: <cad00fbcb5dc69bb76358d495cef08dad56306a5.camel@pengutronix.de>
+Subject: Re: [PATCH v10 2/2] memory: mtk-smi: mt8188: Add SMI reset and
+ clamp for MT8188
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Friday Yang <friday.yang@mediatek.com>, Yong Wu <yong.wu@mediatek.com>, 
+	Krzysztof Kozlowski
+	 <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com
+Date: Tue, 12 Aug 2025 13:52:47 +0200
+In-Reply-To: <20250806085946.11383-3-friday.yang@mediatek.com>
+References: <20250806085946.11383-1-friday.yang@mediatek.com>
+	 <20250806085946.11383-3-friday.yang@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] dt-bindings: serial: Add clock-frequency property as
- an alternative to clocks
-To: Andrea della Porta <andrea.porta@suse.com>, linus.walleij@linaro.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- florian.fainelli@broadcom.com, wahrenst@gmx.net, linux-gpio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
- Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell
- <phil@raspberrypi.com>, Ulf Hansson <ulf.hansson@linaro.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
- linux-mmc@vger.kernel.org, Jiri Slaby <jirislaby@kernel.org>,
- linux-serial@vger.kernel.org
-References: <cover.1754924348.git.andrea.porta@suse.com>
- <419658ce1a1009c6f8b7af22a02b278cd695dab0.1754924348.git.andrea.porta@suse.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <419658ce1a1009c6f8b7af22a02b278cd695dab0.1754924348.git.andrea.porta@suse.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_050220_889893_992097E3 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250812_045317_734049_DB597ECD 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,98 +83,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2025 17:19, Andrea della Porta wrote:
-> The UARTA controller on BCM2712 connected to Bluetooth chip does not
-
-Bluetooth chip does not ask...
-
-> mandiatorily ask for a clock connected to the high speed baud generator.
-> This is, in fact, an optional clock in the driver.
-
-... or driver does not ask?
-
-Please describe here hardware.
-
-
-> 
-> As an alternative, the call to uart_read_port_properties() ensures that
-> just a simple 'clock-frequency' property can be specified for the clock
-> value.
-
-Don't describe drivers. Describe hardware.
-
-> 
-> Amend the bindings to allow to either specify clocks or clock-frequency.
-> 
-> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+On Mi, 2025-08-06 at 16:59 +0800, Friday Yang wrote:
+> To prevent handling glitch signals during MTCMOS on/off transitions,
+> SMI requires clamp and reset operations. Parse the reset settings for
+> SMI LARBs and the clamp settings for the SMI Sub-Common. Register
+> genpd callback for the SMI LARBs located in image, camera and IPE
+> subsystems, and apply reset and clamp operations within the callback.
+>=20
+> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
 > ---
->  .../bindings/serial/brcm,bcm7271-uart.yaml    | 19 +++++++++++++++++--
-
-Please use subject prefixes matching the subsystem. You can get them for
-example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
-your patch is touching. For bindings, the preferred subjects are
-explained here:
-https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-
-
->  1 file changed, 17 insertions(+), 2 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/serial/brcm,bcm7271-uart.yaml b/Documentation/devicetree/bindings/serial/brcm,bcm7271-uart.yaml
-> index 89c462653e2d..96697b1428bd 100644
-> --- a/Documentation/devicetree/bindings/serial/brcm,bcm7271-uart.yaml
-> +++ b/Documentation/devicetree/bindings/serial/brcm,bcm7271-uart.yaml
-> @@ -40,7 +40,15 @@ properties:
->            - const: dma_tx
->            - const: dma_intr2
->  
-> +  clock-frequency:
-> +    description:
-> +      The input clock frequency for the UART, Either this or clocks must be
-> +      specified.
-
-Anyway, don't open-code schema in free form text.
-
-That's legacy property. You need clear explanation why.
-
+>  drivers/memory/mtk-smi.c | 129 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 129 insertions(+)
+>=20
+> diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
+> index 733e22f695ab..acc8904dd117 100644
+> --- a/drivers/memory/mtk-smi.c
+> +++ b/drivers/memory/mtk-smi.c
+> @@ -10,11 +10,15 @@
+>  #include <linux/err.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+> +#include <linux/reset.h>
+>  #include <linux/soc/mediatek/mtk_sip_svc.h>
+>  #include <soc/mediatek/smi.h>
+>  #include <dt-bindings/memory/mt2701-larb-port.h>
+> @@ -34,6 +38,8 @@
+>  #define SMI_FIFO_TH1			0x238
+>  #define SMI_FIFO_TH2			0x23c
+>  #define SMI_DCM				0x300
+> +#define SMI_COMMON_CLAMP_EN_SET		0x3c4
+> +#define SMI_COMMON_CLAMP_EN_CLR		0x3c8
+>  #define SMI_DUMMY			0x444
+> =20
+>  /* SMI LARB */
+> @@ -134,6 +140,7 @@ struct mtk_smi_larb_gen {
+>  	unsigned int			larb_direct_to_common_mask;
+>  	unsigned int			flags_general;
+>  	const u8			(*ostd)[SMI_LARB_PORT_NR_MAX];
+> +	const u8			*clamp_port;
+>  };
+> =20
+>  struct mtk_smi {
+> @@ -150,6 +157,7 @@ struct mtk_smi {
+>  };
+> =20
+>  struct mtk_smi_larb { /* larb: local arbiter */
+> +	struct device			*dev;
+>  	struct mtk_smi			smi;
+>  	void __iomem			*base;
+>  	struct device			*smi_common_dev; /* common or sub-common dev */
+> @@ -157,6 +165,10 @@ struct mtk_smi_larb { /* larb: local arbiter */
+>  	int				larbid;
+>  	u32				*mmu;
+>  	unsigned char			*bank;
+> +	struct regmap			*smi_comm_syscon; /* smi-comm or sub-comm */
+> +	u8				smi_comm_in_port_id; /* smi-comm or sub-comm */
+> +	struct notifier_block		nb;
+> +	struct reset_control		*rst_con;
+>  };
+> =20
+>  static int
+> @@ -478,6 +490,19 @@ static const u8 mtk_smi_larb_mt8195_ostd[][SMI_LARB_=
+PORT_NR_MAX] =3D {
+>  	[28] =3D {0x1a, 0x0e, 0x0a, 0x0a, 0x0c, 0x0e, 0x10,},
+>  };
+> =20
+> +static const u8 mtk_smi_larb_clamp_port_mt8188[MTK_LARB_NR_MAX] =3D {
+> +	[9]	=3D BIT(1), /* larb10 */
+> +	[10]	=3D BIT(2), /* larb11a */
+> +	[11]	=3D BIT(2), /* larb11b */
+> +	[12]	=3D BIT(3), /* larb11c */
+> +	[13]	=3D BIT(0), /* larb12 */
+> +	[16]	=3D BIT(1), /* larb15 */
+> +	[17]	=3D BIT(2), /* larb16a */
+> +	[18]	=3D BIT(2), /* larb16b */
+> +	[19]	=3D BIT(3), /* larb17a */
+> +	[20]	=3D BIT(3), /* larb17b */
+> +};
 > +
->    clocks:
-> +    description:
-> +      High speed baud rate clock. Either this or clock-frequency must be
-> +      specified.
-
-Drop last sentence, Anyway, don't open-code schema in free form text.
-First sentence seems redundant anyway.
-
-
->      minItems: 1
-
-I'll fix this.
-
->  
->    clock-names:
-> @@ -61,11 +69,18 @@ required:
->    - compatible
->    - reg
->    - reg-names
-> -  - clocks
-> -  - clock-names
->    - interrupts
->    - interrupt-names
->  
-> +oneOf:
-> +  - allOf:
-> +      - required:
-> +          - clocks
-> +      - required:
-> +          - clock-names
-> +  - required:
-> +      - clock-frequency
+>  static const struct mtk_smi_larb_gen mtk_smi_larb_mt2701 =3D {
+>  	.port_in_larb =3D {
+>  		LARB0_PORT_OFFSET, LARB1_PORT_OFFSET,
+> @@ -531,6 +556,7 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8=
+188 =3D {
+>  	.flags_general	            =3D MTK_SMI_FLAG_THRT_UPDATE | MTK_SMI_FLAG_=
+SW_FLAG |
+>  				      MTK_SMI_FLAG_SLEEP_CTL | MTK_SMI_FLAG_CFG_PORT_SEC_CTL,
+>  	.ostd		            =3D mtk_smi_larb_mt8188_ostd,
+> +	.clamp_port                 =3D mtk_smi_larb_clamp_port_mt8188,
+>  };
+> =20
+>  static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 =3D {
+> @@ -582,6 +608,45 @@ static void mtk_smi_larb_sleep_ctrl_disable(struct m=
+tk_smi_larb *larb)
+>  	writel_relaxed(0, larb->base + SMI_LARB_SLP_CON);
+>  }
+> =20
+> +static int mtk_smi_larb_clamp_protect_enable(struct device *dev, bool en=
+able)
+> +{
+> +	struct mtk_smi_larb *larb =3D dev_get_drvdata(dev);
+> +	u32 reg;
+> +	int ret;
 > +
->  unevaluatedProperties: false
->  
->  examples:
+> +	/* smi_comm_syscon may be NULL if the subsys doesn't have bus glitch is=
+sues */
+> +	if (!larb->smi_comm_syscon)
+> +		return -EINVAL;
+> +
+> +	reg =3D enable ? SMI_COMMON_CLAMP_EN_SET : SMI_COMMON_CLAMP_EN_CLR;
+> +
+> +	ret =3D regmap_write(larb->smi_comm_syscon, reg, larb->smi_comm_in_port=
+_id);
+> +	if (ret)
+> +		dev_err(dev, "Unable to %s clamp for input port %d: %d\n",
+> +			enable ? "enable" : "disable",
+> +			larb->smi_comm_in_port_id, ret);
+> +
+> +	return ret;
+> +}
+> +
+> +static int mtk_smi_genpd_callback(struct notifier_block *nb,
+> +				  unsigned long flags, void *data)
+> +{
+> +	struct mtk_smi_larb *larb =3D container_of(nb, struct mtk_smi_larb, nb)=
+;
+> +	struct device *dev =3D larb->dev;
+> +
+> +	if (flags =3D=3D GENPD_NOTIFY_PRE_ON || flags =3D=3D GENPD_NOTIFY_PRE_O=
+FF) {
+> +		/* disable related SMI sub-common port */
+> +		mtk_smi_larb_clamp_protect_enable(dev, true);
+> +	} else if (flags =3D=3D GENPD_NOTIFY_ON) {
+> +		/* enable related SMI sub-common port */
+> +		reset_control_reset(larb->rst_con);
+> +		mtk_smi_larb_clamp_protect_enable(dev, false);
+> +	}
+> +
+> +	return NOTIFY_OK;
+> +}
+> +
+>  static int mtk_smi_device_link_common(struct device *dev, struct device =
+**com_dev)
+>  {
+>  	struct platform_device *smi_com_pdev;
+> @@ -638,6 +703,51 @@ static int mtk_smi_dts_clk_init(struct device *dev, =
+struct mtk_smi *smi,
+>  	return ret;
+>  }
+> =20
+> +static int mtk_smi_larb_parse_clamp_optional(struct mtk_smi_larb *larb)
+> +{
+> +	struct device *dev =3D larb->dev;
+> +	const struct mtk_smi_larb_gen *larb_gen =3D larb->larb_gen;
+> +	u32 larb_id;
+> +	int ret;
+> +
+> +	/*
+> +	 * Only SMI LARBs in camera, image and IPE subsys need to
+> +	 * apply clamp and reset operations, others can be skipped.
+> +	 */
+> +	ret =3D of_property_read_u32(dev->of_node, "mediatek,larb-id", &larb_id=
+);
+> +	if (ret || !larb_gen->clamp_port || !larb_gen->clamp_port[larb_id])
+> +		return 0;
+> +
+> +	larb->smi_comm_in_port_id =3D larb_gen->clamp_port[larb_id];
+> +	larb->smi_comm_syscon =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+> +								"mediatek,smi");
+> +	if (IS_ERR(larb->smi_comm_syscon)) {
+> +		larb->smi_comm_syscon =3D NULL;
+> +		return dev_err_probe(dev, -EINVAL,
+> +				     "Unknown clamp port for larb %d\n", larb_id);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_smi_larb_parse_reset_optional(struct mtk_smi_larb *larb)
+> +{
+> +	struct device *dev =3D larb->dev;
+> +	int ret;
+> +
+> +	larb->rst_con =3D devm_reset_control_get_optional_exclusive(dev, "larb"=
+);
+> +	if (!larb->rst_con)
+> +		return 0;
 
+Please don't ignore errors.
 
-Best regards,
-Krzysztof
+regards
+Philipp
 
