@@ -4,101 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF321CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0468CA0EDF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 16:20:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uPJ8Lxt3BleEOvsSUBjkL40gEZfMUtcuZAKrb/YcBdY=; b=Kvb0FEe591W61u/ovNA1vFuflr
-	aG0yMODn1ac2LqAxx/bYsNKmXhmnaSLzOtdCZIvI265hn4aAPnUUqjUEA1oR4DJzuhv3ywzUV6gFa
-	k0NwxKmTksQHXkNjH9GvGFOqwMaWRJO7sbPkPG5WRcdk3h9+pNwk/vH6K0FqJvSGMcizTT8lSKkdy
-	BCF+wba7Bt7fEErrJoRSLrudH6t97IuXfNMj5QPJcUx6WjI6jvk85DbSbHvMAjxJF156e2kCUmPf5
-	NN/oGaBTRVW0OPQq9iXfxYkmFo372T2CL0vEa0qHOQgpVwgucUzZ0SJdfCE8D1Z2Jja5//LlpenPe
-	Yl7btuNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sljHiUjGUPXOmAnRjHsjOGpp/FinyGB7YDTB1iURIU4=; b=GEvTjisSE4MRFl6i96PkiyuLV+
+	brybkfn5zw7okOubAiFDIVBG4f6+FpMMsupuxjAgCS2mQDJlXUn4sEM8BC9n4Vn6wlXEBQ9VDGvH0
+	Gd/Ht/iFhkhDeGDHXz0z8RuV3Kkkcz/WeI4IJVg6nZOQFdJWhT+vF43MZQwz1YXLvIB492hkPKyDz
+	jLODiQJJKIDM8ez0wFC4Bhc19KIioMvKPLuTvhRbiLXwZcB7W9JREIAR48D+EerT/KB16WlSOv4D4
+	11DwDtQt6tm0wmR43Uj1hvwnbqqrQd1hOrOUEtFIxjrrL0sZRwyaBQGbWs1d4lsh0VEqoIepfcxen
+	vbx7FF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulrje-0000000BJsE-3Yp6;
-	Tue, 12 Aug 2025 16:20:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1ulrjY-0000000BJiu-0Txp;
+	Tue, 12 Aug 2025 16:20:20 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulmu8-0000000AZje-2HC0
+	id 1ulms9-0000000AZIe-3rU2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 11:10:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1754997053;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uPJ8Lxt3BleEOvsSUBjkL40gEZfMUtcuZAKrb/YcBdY=;
-	b=cMJVbaY9Hv+SlU2feLMwwuso8xAOw4b412p4yy8COgIsE9leS+64BDE58SVCwifroPtRPk
-	40j4XXKQ59dcZ9fXYFAnOCIPURO4JPp4d19lJcwtZoik5NblEK8yMhoUiGmVineUd8m9JF
-	MqJheXlbCsQE1YFLV2YHzL+cfhaViw0=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-259-Fj-ucYVqP7O2l1CS22KVIQ-1; Tue, 12 Aug 2025 07:10:52 -0400
-X-MC-Unique: Fj-ucYVqP7O2l1CS22KVIQ-1
-X-Mimecast-MFC-AGG-ID: Fj-ucYVqP7O2l1CS22KVIQ_1754997051
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2405fdb7c15so73990525ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 04:10:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1754997051; x=1755601851;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uPJ8Lxt3BleEOvsSUBjkL40gEZfMUtcuZAKrb/YcBdY=;
-        b=U+syMBsmCjp91RF7j7Or7HsGT/xA4x6Ec3aBcF5yal1CY9ge/Ncw0ImcN5bjvWh9gY
-         whmdipsjvlNZnR6P24sFpRG0rtgJszogaadNCK9t8STCwDOnJ+WgHSPDGQq+Os0uTpJ5
-         W9pTvgSbgx1IeVzKvPmK08evZ4nrmmqF2QJ7fvO3UsR8kbUeHL+HA+TBXZcOlZlQlqGD
-         +YL6GCiZ0nduvwbxglDJacgZgY3SrnbFCkcgF5xpGIw5HS0e+Ax2t4ABwOYfwpU/aRG3
-         kqmjMALyuzP3MQ4pNQLVZ2pviIpKxQmJIBZ+ykqjW5WpScxAIxITSS2pgurmVPL/zN3o
-         awBA==
-X-Forwarded-Encrypted: i=1; AJvYcCV3FVgMw1rtqvmyvWTKZ4/4oa2bpYisWxiOEfhZ0kqjWnb/eGP2qjueD4intqHkyaXmPeuE6owrUdYmg8phvyqp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd/aCiTWaH9IB+rnAjZ+/qQAetUd7XYJZKnz8LqfFCfgKlxc2d
-	0LGyXgtIME+wRG1AkiuHzLMCEyjGr1Y6jzicPLj8Y1JME6DWuIp+8V1z0u/1JvmBdfTPji5XuNQ
-	TisynFDFN3wD7C/aVY4fGudz4mEIWFsr3s3O20O0APt18PhW9Wc+qMscQX9h/O+F9CQoHi1hIaj
-	is
-X-Gm-Gg: ASbGncthkZIxO3F2GWwkNbgwg6KrzMP7/JsPxFOBhZceP6p5CkwOadqVeNd1HtctIgX
-	souRm0fQnHPNUxxHmaJyn7FvBXTWk6s0+1STofEMVD+FNX4Qx2wGGPS0mm3IJsW6w8CPa+/NaGd
-	zyNz6IHtxrjNvPxK1DC3wCF/N6qySxx8P1Km5PM9B7gmjTLq2U8k7FNDAYorJb98jnQo8KEAh0a
-	ph621pqoeTlPz9WCdtcX0VrnygQwOItsUeleI+GZEVFZkqPCIPv+j/d2+d1niZ90fN6DMfypaMS
-	v8RPVXQ31sqHAIgYRRt0RoFMCtjv0y8=
-X-Received: by 2002:a17:902:d58c:b0:242:9bbc:6017 with SMTP id d9443c01a7336-242fc372b34mr41461345ad.55.1754997050793;
-        Tue, 12 Aug 2025 04:10:50 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHJVKxxP3qAclSLG5krLKovafdMdrQyd8bvZiT7pPhzWqWVFBiBgJYCXhmR+aHa6BbxpO2Hew==
-X-Received: by 2002:a17:902:d58c:b0:242:9bbc:6017 with SMTP id d9443c01a7336-242fc372b34mr41461085ad.55.1754997050394;
-        Tue, 12 Aug 2025 04:10:50 -0700 (PDT)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-24309a18411sm2476495ad.146.2025.08.12.04.10.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Aug 2025 04:10:50 -0700 (PDT)
-Date: Tue, 12 Aug 2025 19:07:56 +0800
-From: Coiby Xu <coxu@redhat.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, kexec@lists.infradead.org
-Subject: Re: [Regression] kdump fails to get DHCP address unless booting with
- pci=nomsi or without nr_cpus=1
-Message-ID: <gec2yl5wx6vvt67smx5emhcoifvtp4orw6sub24b2nrqwryhp2@i4h7qbtwjo3r>
-References: <x5dwuzyddiasdkxozpjvh3usd7b5zdgim2ancrcbccfjxq7qwn@i6b24w22sy6s>
- <87bjom8106.ffs@tglx>
- <878qjq80yu.ffs@tglx>
- <86v7mt9ai3.wl-maz@kernel.org>
- <i2l2ujhqjd6akzosvzj4njv2vemsfuvywz4gsnj2nwo3fwyjyz@cfhekxpartf2>
- <86ms84974v.wl-maz@kernel.org>
+	Tue, 12 Aug 2025 11:08:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=sljHiUjGUPXOmAnRjHsjOGpp/FinyGB7YDTB1iURIU4=; b=fzEgjECKYYFxUgMsQxmfY1iIxR
+	ByyFpNKtFAHLqGsQUfLNYX9HhY+VJo9gxTOGVtLKW1rx2dw1rKmgKM5hkY6oqBETWwkKtoecUMV7m
+	K0qOg1W5wLUNGQHjcQfiHf6uOSoFTsFil0z4s1qrnbSVYqYt0j03XcJxTQRiu+A+JPQEJtZwLIwD1
+	HJurpVlUJ12Ogbt7anAaZWv9H/sEeiy/EHAlzqsmbFqjaR7CjW/nWRSOd6nNVvAD5bImsJ+otuGbd
+	cH67RcmGCVNMGgNnWDzhXqCEYZZ8pMKeNSe+ll6lV8h5cewvYppbgeT8eZNGckWLL2coCg8pW7K6Z
+	Ehec0X2Q==;
+Received: from [122.175.9.182] (port=36359 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1ulmrP-00000008ZBT-0RO0;
+	Tue, 12 Aug 2025 07:08:07 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	m-malladi@ti.com,
+	s.hauer@pengutronix.de,
+	afd@ti.com,
+	jacob.e.keller@intel.com,
+	horms@kernel.org,
+	johan@kernel.org,
+	m-karicheri2@ti.com,
+	s-anna@ti.com,
+	glaroque@baylibre.com,
+	saikrishnag@marvell.com,
+	kory.maincent@bootlin.com,
+	diogo.ivo@siemens.com,
+	javier.carrasco.cruz@gmail.com,
+	basharath@couthit.com,
+	parvathi@couthit.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	vadim.fedorenko@linux.dev,
+	alok.a.tiwari@oracle.com,
+	bastien.curutchet@bootlin.com,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v13 1/5] dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for AM57xx, AM43xx and AM33xx SOCs
+Date: Tue, 12 Aug 2025 16:35:53 +0530
+Message-ID: <20250812110723.4116929-2-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250812110723.4116929-1-parvathi@couthit.com>
+References: <20250812110723.4116929-1-parvathi@couthit.com>
 MIME-Version: 1.0
-In-Reply-To: <86ms84974v.wl-maz@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: o6QCu_Ex2ZmtKJD22PG_4dIpKdDCXjPGyFVPdTQvZ70_1754997051
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_041056_661345_ABCC3EE8 
-X-CRM114-Status: GOOD (  34.00  )
+X-CRM114-CacheID: sfid-20250812_040854_012231_75E023B5 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,118 +123,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 12, 2025 at 11:17:04AM +0100, Marc Zyngier wrote:
->On Tue, 12 Aug 2025 11:09:12 +0100,
->Coiby Xu <coxu@redhat.com> wrote:
->>
->> On Mon, Aug 11, 2025 at 03:52:04PM +0100, Marc Zyngier wrote:
->> > On Mon, 11 Aug 2025 14:03:21 +0100,
->> > Thomas Gleixner <tglx@linutronix.de> wrote:
->> >>
->> >> On Mon, Aug 11 2025 at 15:02, Thomas Gleixner wrote:
->> >>
->> >> CC+ Marc
->> >>
->> >> > On Mon, Aug 11 2025 at 11:23, Coiby Xu wrote:
->> >> >> Recently I met an issue that on certain virtual machines, the kdump
->> >> >> kernel fails to get DHCP IP address most of times starting from
->> >> >> 6.11-rc2. git bisection shows commit b5712bf89b4b ("irqchip/gic-v3-its:
->> >> >> Provide MSI parent for PCI/MSI[-X]") is the 1st bad commit,
->> >> >>
->> >> >>      # good: [7d189c77106ed6df09829f7a419e35ada67b2bd0] PCI/MSI: Provide
->> >> >>      # MSI_FLAG_PCI_MSI_MASK_PARENT
->> >> >>      git bisect good 7d189c77106ed6df09829f7a419e35ada67b2bd0
->> >> >>      # good: [48f71d56e2b87839052d2a2ec32fc97a79c3e264] irqchip/gic-v3-its:
->> >> >>      # Provide MSI parent infrastructure
->> >> >>      git bisect good 48f71d56e2b87839052d2a2ec32fc97a79c3e264
->> >> >>      # good: [8c41ccec839c622b2d1be769a95405e4e9a4cb20] irqchip/irq-msi-lib:
->> >> >>      # Prepare for PCI MSI/MSIX
->> >> >>      git bisect good 8c41ccec839c622b2d1be769a95405e4e9a4cb20
->> >> >>      # first bad commit: [b5712bf89b4bbc5bcc9ebde8753ad222f1f68296]
->> >> >>      # irqchip/gic-v3-its: Provide MSI parent for PCI/MSI[-X]
->> >> >
->> >> > There were follow up fixes on this, so isolating this one is not really
->> >> > conclusive.
->> >> >
->> >> > Is the problem still there on v6.16 and v6.17-rc1?
->> >
->> > Yeah, there are way too many things that have been addressed since.
->> > kdump is also a particularly nasty case, as it tends to rely on the
->> > redistributor tables programmed by the previous kernel.
->>
->> Thanks for providing a clue. This may also explain explain why I fails
->> to reproduce this issue against 1st kernel even with the same cmdline of
->> the kdump kernel.
->
->I'm not sure that's a clue. It's only an indication that things are
->not necessarily easy to spot.
->
->Has it ever been reproduced on bare metal? Have you tried v6.16 as
->instructed?
+Documentation update for the newly added "pruss2_eth" device tree
+node and its dependencies along with compatibility for PRU-ICSS
+Industrial Ethernet Peripheral (IEP), PRU-ICSS Enhanced Capture
+(eCAP) peripheral and using YAML binding document for AM57xx SoCs.
 
-Thanks for replying so quickly!
+Co-developed-by: Basharath Hussain Khaja <basharath@couthit.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../devicetree/bindings/net/ti,icss-iep.yaml  |  10 +-
+ .../bindings/net/ti,icssm-prueth.yaml         | 233 ++++++++++++++++++
+ .../bindings/net/ti,pruss-ecap.yaml           |  32 +++
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |   9 +
+ 4 files changed, 281 insertions(+), 3 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
 
-No, I haven't reproduced it on a bare metal machine and our QE engineers
-haven't noticed this issue on any bare metal machine either. 
-
-And I can confirm this issue still happens to 6.16.0-200.fc42.aarch64
-and 6.17.0-0.rc1.17.fc43.aarch64 on the type of KVM VMS (QEMU PnP device
-PNP0c02) where the issue was found.
-
->
->>
->> >
->> > Also, this says "virtual machines". What's the hypervisor?
->>
->> I'll contact the lab administrator. What kinds of info I should collect
->> to help you narrow down the issue?
->
->Surely you know what hypervisor you're running on, right?
-
-Yes, the hypervisor is KVM. Sorry, I thought merely providing the
-hypervisor info isn't sufficient and also misunderstood your request as
-providing more details on the host machine.
-
->
->>
->> > How hard is it to reproduce?
->>
->> It can be reproduced reliably on certain machines. But as of writing I
->> haven't reproduced it on other KVM virtual machines on three different
->> host machines.
->
->Which machines? I'm sorry, but if you want help on this, you'll have
->to provide actual information.
-
-Sorry, I didn't mean to be vague. I thought you question is on how
-reproducible this issue is and there is no need to provide the details
-on the machines where I can't reproduce this issue. Since you explicitly
-request it, I'll be glad to share the details.
-
-I just grabbed three arbitrary bare metal machines having Fedora-42
-installed and launched some KVM VMs to see if this issue can be
-reproduced easily. Two host machines are as follows (sorry I can't find
-the info of the 3rd one)
-- GIGABYTE PnP device PNP0c02, ARMv8 (M128-30)
-- LTHPCSR112 (01234567890123456789AB), ARMv8 (Q80-30)
-
-The virtual machine image is downloaded from
-https://download.fedoraproject.org/pub/fedora/linux/releases/42/Cloud/aarch64/images/Fedora-Cloud-Base-Generic-42-1.1.aarch64.qcow2.
-I tried different vCPUs (2, 4), different RAM (4G, 35G) and also two
-different UEFI firmware (the default one and one from edk2-experimental
-package) but haven't reproduced this issue so far.
-
->
->Thanks,
->
->	M.
->
->-- 
->Without deviation from the norm, progress is not possible.
->
-
+diff --git a/Documentation/devicetree/bindings/net/ti,icss-iep.yaml b/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
+index e36e3a622904..ea2659d90a52 100644
+--- a/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
++++ b/Documentation/devicetree/bindings/net/ti,icss-iep.yaml
+@@ -8,6 +8,8 @@ title: Texas Instruments ICSS Industrial Ethernet Peripheral (IEP) module
+ 
+ maintainers:
+   - Md Danish Anwar <danishanwar@ti.com>
++  - Parvathi Pudi <parvathi@couthit.com>
++  - Basharath Hussain Khaja <basharath@couthit.com>
+ 
+ properties:
+   compatible:
+@@ -17,9 +19,11 @@ properties:
+               - ti,am642-icss-iep
+               - ti,j721e-icss-iep
+           - const: ti,am654-icss-iep
+-
+-      - const: ti,am654-icss-iep
+-
++      - enum:
++          - ti,am654-icss-iep
++          - ti,am5728-icss-iep
++          - ti,am4376-icss-iep
++          - ti,am3356-icss-iep
+ 
+   reg:
+     maxItems: 1
+diff --git a/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml b/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+new file mode 100644
+index 000000000000..a98ad45ca66f
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+@@ -0,0 +1,233 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/ti,icssm-prueth.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments ICSSM PRUSS Ethernet
++
++maintainers:
++  - Roger Quadros <rogerq@ti.com>
++  - Andrew F. Davis <afd@ti.com>
++  - Parvathi Pudi <parvathi@couthit.com>
++  - Basharath Hussain Khaja <basharath@couthit.com>
++
++description:
++  Ethernet based on the Programmable Real-Time Unit and Industrial
++  Communication Subsystem.
++
++properties:
++  compatible:
++    enum:
++      - ti,am57-prueth     # for AM57x SoC family
++      - ti,am4376-prueth   # for AM43x SoC family
++      - ti,am3359-prueth   # for AM33x SoC family
++
++  sram:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      phandle to OCMC SRAM node
++
++  ti,mii-rt:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      phandle to the MII_RT peripheral for ICSS
++
++  ti,iep:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      phandle to IEP (Industrial Ethernet Peripheral) for ICSS
++
++  ti,ecap:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description:
++      phandle to Enhanced Capture (eCAP) event for ICSS
++
++  interrupts:
++    items:
++      - description: High priority Rx Interrupt specifier.
++      - description: Low priority Rx Interrupt specifier.
++
++  interrupt-names:
++    items:
++      - const: rx_hp
++      - const: rx_lp
++
++  ethernet-ports:
++    type: object
++    additionalProperties: false
++
++    properties:
++      '#address-cells':
++        const: 1
++      '#size-cells':
++        const: 0
++
++    patternProperties:
++      ^ethernet-port@[0-1]$:
++        type: object
++        description: ICSSM PRUETH external ports
++        $ref: ethernet-controller.yaml#
++        unevaluatedProperties: false
++
++        properties:
++          reg:
++            items:
++              - enum: [0, 1]
++            description: ICSSM PRUETH port number
++
++          interrupts:
++            maxItems: 3
++
++          interrupt-names:
++            items:
++              - const: rx
++              - const: emac_ptp_tx
++              - const: hsr_ptp_tx
++
++        required:
++          - reg
++
++    anyOf:
++      - required:
++          - ethernet-port@0
++      - required:
++          - ethernet-port@1
++
++required:
++  - compatible
++  - sram
++  - ti,mii-rt
++  - ti,iep
++  - ti,ecap
++  - ethernet-ports
++  - interrupts
++  - interrupt-names
++
++allOf:
++  - $ref: /schemas/remoteproc/ti,pru-consumer.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    /* Dual-MAC Ethernet application node on PRU-ICSS2 */
++    pruss2_eth: pruss2-eth {
++      compatible = "ti,am57-prueth";
++      ti,prus = <&pru2_0>, <&pru2_1>;
++      sram = <&ocmcram1>;
++      ti,mii-rt = <&pruss2_mii_rt>;
++      ti,iep = <&pruss2_iep>;
++      ti,ecap = <&pruss2_ecap>;
++      interrupts = <20 2 2>, <21 3 3>;
++      interrupt-names = "rx_hp", "rx_lp";
++      interrupt-parent = <&pruss2_intc>;
++
++      ethernet-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++        pruss2_emac0: ethernet-port@0 {
++          reg = <0>;
++          phy-handle = <&pruss2_eth0_phy>;
++          phy-mode = "mii";
++          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
++          interrupt-names = "rx", "emac_ptp_tx", "hsr_ptp_tx";
++          /* Filled in by bootloader */
++          local-mac-address = [00 00 00 00 00 00];
++        };
++
++        pruss2_emac1: ethernet-port@1 {
++          reg = <1>;
++          phy-handle = <&pruss2_eth1_phy>;
++          phy-mode = "mii";
++          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
++          interrupt-names = "rx", "emac_ptp_tx", "hsr_ptp_tx";
++          /* Filled in by bootloader */
++          local-mac-address = [00 00 00 00 00 00];
++        };
++      };
++    };
++  - |
++    /* Dual-MAC Ethernet application node on PRU-ICSS1 */
++    pruss1_eth: pruss1-eth {
++      compatible = "ti,am4376-prueth";
++      ti,prus = <&pru1_0>, <&pru1_1>;
++      sram = <&ocmcram>;
++      ti,mii-rt = <&pruss1_mii_rt>;
++      ti,iep = <&pruss1_iep>;
++      ti,ecap = <&pruss1_ecap>;
++      interrupts = <20 2 2>, <21 3 3>;
++      interrupt-names = "rx_hp", "rx_lp";
++      interrupt-parent = <&pruss1_intc>;
++
++      pinctrl-0 = <&pruss1_eth_default>;
++      pinctrl-names = "default";
++
++      ethernet-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++        pruss1_emac0: ethernet-port@0 {
++          reg = <0>;
++          phy-handle = <&pruss1_eth0_phy>;
++          phy-mode = "mii";
++          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
++          interrupt-names = "rx", "emac_ptp_tx",
++                                          "hsr_ptp_tx";
++          /* Filled in by bootloader */
++          local-mac-address = [00 00 00 00 00 00];
++        };
++
++        pruss1_emac1: ethernet-port@1 {
++          reg = <1>;
++          phy-handle = <&pruss1_eth1_phy>;
++          phy-mode = "mii";
++          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
++          interrupt-names = "rx", "emac_ptp_tx",
++                                          "hsr_ptp_tx";
++          /* Filled in by bootloader */
++          local-mac-address = [00 00 00 00 00 00];
++        };
++      };
++    };
++  - |
++    /* Dual-MAC Ethernet application node on PRU-ICSS */
++    pruss_eth: pruss-eth {
++      compatible = "ti,am3359-prueth";
++      ti,prus = <&pru0>, <&pru1>;
++      sram = <&ocmcram>;
++      ti,mii-rt = <&pruss_mii_rt>;
++      ti,iep = <&pruss_iep>;
++      ti,ecap = <&pruss_ecap>;
++      interrupts = <20 2 2>, <21 3 3>;
++      interrupt-names = "rx_hp", "rx_lp";
++      interrupt-parent = <&pruss_intc>;
++
++      pinctrl-0 = <&pruss_eth_default>;
++      pinctrl-names = "default";
++
++      ethernet-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++        pruss_emac0: ethernet-port@0 {
++          reg = <0>;
++          phy-handle = <&pruss_eth0_phy>;
++          phy-mode = "mii";
++          interrupts = <20 2 2>, <26 6 6>, <23 6 6>;
++          interrupt-names = "rx", "emac_ptp_tx",
++                                          "hsr_ptp_tx";
++          /* Filled in by bootloader */
++          local-mac-address = [00 00 00 00 00 00];
++        };
++
++        pruss_emac1: ethernet-port@1 {
++          reg = <1>;
++          phy-handle = <&pruss_eth1_phy>;
++          phy-mode = "mii";
++          interrupts = <21 3 3>, <27 9 7>, <24 9 7>;
++          interrupt-names = "rx", "emac_ptp_tx",
++                                          "hsr_ptp_tx";
++          /* Filled in by bootloader */
++          local-mac-address = [00 00 00 00 00 00];
++        };
++      };
++    };
+diff --git a/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml b/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+new file mode 100644
+index 000000000000..42f217099b2e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+@@ -0,0 +1,32 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/ti,pruss-ecap.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments PRU-ICSS Enhanced Capture (eCAP) event module
++
++maintainers:
++  - Murali Karicheri <m-karicheri2@ti.com>
++  - Parvathi Pudi <parvathi@couthit.com>
++  - Basharath Hussain Khaja <basharath@couthit.com>
++
++properties:
++  compatible:
++    const: ti,pruss-ecap
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
++
++examples:
++  - |
++    pruss2_ecap: ecap@30000 {
++        compatible = "ti,pruss-ecap";
++        reg = <0x30000 0x60>;
++    };
+diff --git a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+index 927b3200e29e..b5336bcbfb01 100644
+--- a/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
++++ b/Documentation/devicetree/bindings/soc/ti/ti,pruss.yaml
+@@ -251,6 +251,15 @@ patternProperties:
+ 
+     type: object
+ 
++  ecap@[a-f0-9]+$:
++    description:
++      PRU-ICSS has a Enhanced Capture (eCAP) event module which can generate
++      and capture periodic timer based events which will be used for features
++      like RX Pacing to rise interrupt when the timer event has occurred.
++      Each PRU-ICSS instance has one eCAP module irrespective of SOCs.
++    $ref: /schemas/net/ti,pruss-ecap.yaml#
++    type: object
++
+   mii-rt@[a-f0-9]+$:
+     description: |
+       Real-Time Ethernet to support multiple industrial communication protocols.
 -- 
-Best regards,
-Coiby
+2.43.0
 
 
