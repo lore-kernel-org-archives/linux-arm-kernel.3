@@ -4,200 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0459ACA0EDA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 05:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD4ECA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 05:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:Subject:Cc:To:From:References:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTuSRS5HOMOW7NKu7x9WnxOls2MSOmtpIfqtYi5fQA0=; b=UIoibe9TZtKQ2yhFpC9XsWe02F
-	MtlYGu9BWEYCBx91TB1S3++5py5fEO/lPmBkc8c47Yve6YoMTgee7icX6ujnJIfDM/0K+TMbq6PsU
-	gAQK5VdjPSm0Ki+0uHw7PyaOG7ZdmJ7vhdU4tXTk4ESxW0kM3JWZZUFMizWmG6pykFpY3cOl+PRN4
-	ug+KYSis2ze5j7CryDjIX9kr/1dZg/lbo6WibLH/V1pJF202ZQYpGwZE2vDNa/pSIsIiW3CBiDVRZ
-	SsKbwgSssAR+JA9OYxiS2TM35rzJisPQBAQMA+jb2b18BJ/YCFfsdOrVWV5JRylJZPngjZdOkE+oX
-	rEX+FqaQ==;
+	bh=okqvnMtbtZeC28msNJvXiBI7IKWAitG5QAVSNVpbNVw=; b=ZRpRLas/KvpMLNirRggrVCXDCQ
+	TPvEDri/Y7+zAO9A+dI3tZgLGV6+Mmty38BZfGYvVIq0sljvR1Y745QweFfT57wOYAR+pmYQ3hyXh
+	1tPaJM24XzeU/soMx9oR+/oiKczE4PpnZJy07IKnjkpYUS9T+J+zE+bu4T0F8xSQ/IWf+pXW2ZAOT
+	uzGLk7CS7wO/ndsUQPCi7JWkeH4RNhkr+Z10M8ruvlxGYqF2lqnw8S9lRqU3uQt9p3qBjAWBq/RNE
+	vGoqPvg9rrXNdeuxeRIJwwJAom88ZG8zP1nq78QJmdF/1HQkYXlmntFsFAySrK9L/J+o89wqi3pub
+	nXMGXuWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhjr-00000009tqy-30ou;
-	Tue, 12 Aug 2025 05:39:59 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1ulhzF-00000009y4K-3iAm;
+	Tue, 12 Aug 2025 05:55:53 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulhPL-00000009rfL-1EUV
+	id 1ulhwW-00000009xfs-3lt8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 05:18:48 +0000
-Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57C0u9YD011195;
-	Tue, 12 Aug 2025 05:18:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=kTuSRS5HOMOW7NKu7x
-	9WnxOls2MSOmtpIfqtYi5fQA0=; b=WJGi0sp7ksT+AkBLOB6Vish02Q2g3ihbEL
-	F4luFEouN1f6c7LPJSIcpPlD8KJd09Qt/MXXkMz7ExsT3gX/Ht/DKZ4axr1i/vhB
-	LG5Alt6QdharKAs+wvMN2OKL4c2W3wemqzUTrIGgBS7GqgVCoiEp+DT7ugKSQ2s2
-	Br3CC4svKk4//fyey2QbLb1MIWxLlYIQQdZwvyFERn79F47UMKIGDHpqEzrkvgDe
-	t80ehMv6STIWN11vigAZqcd9Wne3PuOwpRdZtONECLeaijBtSo537j0Uwx0id4mH
-	Tu2nAKF+ClCAcEpGa9VwN4wJL4nIgS7ZMKzmV0uIQSke+PFUtHYQ==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 48dwxv3vtu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 12 Aug 2025 05:18:21 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 57C5098E038531;
-	Tue, 12 Aug 2025 05:18:20 GMT
-Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10on2042.outbound.protection.outlook.com [40.107.93.42])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 48dvsg1wh9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 12 Aug 2025 05:18:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YJCVDKZz1utz2kSX8vtwXcrc+Jpv50sDJBDBjpKUskDgSzvVirO0ET8Sqh+dyCtuAAm6Nul3VAEoomdE0EzwkMMq950S8cauOkcUhsBrOAqqP3Wl9uueZy9GmXfjzsB9nh5TYnRtScNVQQgEM4bTM9V23aBvaAtDqakgm7S/fTxlvXwZFJaQvxhgWg1r9PBI6xChN7dn+cAxOATzXg/YufeQooDLkJJG2Y1GWvO/bhhnzFqmDTVdAKLw+F7MR9d47kEjUqOafAklUjkiAkESEnyy53oreJuaznVMFqhL24CPp1AM18ogDbHxOBgDkSsd6Uj+iQygVWzOlHfCb9p0NQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kTuSRS5HOMOW7NKu7x9WnxOls2MSOmtpIfqtYi5fQA0=;
- b=bKq9K/5u7uc+qHp+uLOiTJrzo1FNloe8OGP9MN3WKwcjQPh78Z4yC/zlAPNhJSNxhL1TLnMVP0SLpbtaI2HOaNrEiTTQCaV9T1/sq3P6k8o2TsK6FhvqgQakr/7PKVQKPo9E661vVOQ5eBtjrxbG8qchfk5ii9nN8YeHNhaAJoQnZHtMyl9qNpfI7P3bk15S0b+/I/GiVJpybz2dp71TDkaaX5ogjweTeWTw+0oVFiKkTM6iPsgnwuLO8fywQqSYIHRB2oRJGATxRYX5btsDYzDuyLQTfSaY1AoWMc8s0ITBFxAGI1vgoa6THYJby1OstmeKavk7+m8wvbUPcoA4rg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kTuSRS5HOMOW7NKu7x9WnxOls2MSOmtpIfqtYi5fQA0=;
- b=HbD0IVtKcIuAl4tN+OvF5KDbwmnigkg3IJjJW7JtrdkDpoaztCx8SitdQQzYur/O4RpsiFK2CejMBqYwobQA9ZJpEuxKk7oBmtYcIe6mXWs1Nf86M4WGKg+IiCRiyUJtq4HISoZnekfe90CUggf8nVuIR59W5PQpOgnI+1V9+YA=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by CY5PR10MB6047.namprd10.prod.outlook.com (2603:10b6:930:3c::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9009.22; Tue, 12 Aug
- 2025 05:18:17 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9009.018; Tue, 12 Aug 2025
- 05:18:17 +0000
-References: <20250627044805.945491-1-ankur.a.arora@oracle.com>
- <20250627044805.945491-4-ankur.a.arora@oracle.com>
- <aJXFpKEm7-abCAFc@arm.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        bpf@vger.kernel.org, arnd@arndb.de, will@kernel.org,
-        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
-        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, memxor@gmail.com,
-        zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-        konrad.wilk@oracle.com
-Subject: Re: [PATCH v3 3/5] asm-generic: barrier: Add
- smp_cond_load_acquire_timewait()
-In-reply-to: <aJXFpKEm7-abCAFc@arm.com>
-Date: Mon, 11 Aug 2025 22:18:15 -0700
-Message-ID: <87wm796ru0.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0212.namprd04.prod.outlook.com
- (2603:10b6:303:87::7) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	Tue, 12 Aug 2025 05:53:09 +0000
+Date: Tue, 12 Aug 2025 11:22:20 +0530
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1754977960;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=okqvnMtbtZeC28msNJvXiBI7IKWAitG5QAVSNVpbNVw=;
+	b=N4aSOsUl/eiGWdcy3suZx/UAmaAWhJC2T9N0YUMwxHKLg6JXn2aacSNsLlmOF5kMVcUkMr
+	D3TP963bhQzdbAXLqXweIXTu2TRpiytUN84UN+bSOtu0OjQm6s0h+jrnH4gNVrDsuSN34D
+	Sjd1/c0D0UxVWd2UZZ8zUaUsUQIynJw=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Jai Luthra <jai.luthra@linux.dev>
+To: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, 
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Hans Verkuil <hans@jjverkuil.nl>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Hans Verkuil <hverkuil@kernel.org>, 
+	Jacob Chen <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+	Heiko Stuebner <heiko@sntech.de>, =?utf-8?Q?=C5=81ukasz?= Stelmach <l.stelmach@samsung.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Yong Deng <yong.deng@magewell.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Eduardo Valentin <edubezval@gmail.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@kernel.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Andrzej Pietrasiewicz <andrzejtp2010@gmail.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Jiasheng Jiang <jiashengjiangcool@gmail.com>, Ricardo Ribalda <ribalda@chromium.org>, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev, kernel@collabora.com
+Subject: Re: [PATCH v3 75/76] media: v4l2: Rename second ioctl handlers
+ argument to 'void *priv'
+Message-ID: <qr2hcz7zzrmf7ufedco6ety3dot6lc42lpklb4mjuag5dz2fdd@3wrt4rxf34ck>
+X-PGP-Key: http://jailuthra.in/files/public-key.asc
+References: <20250810013100.29776-1-laurent.pinchart+renesas@ideasonboard.com>
+ <20250810013100.29776-76-laurent.pinchart+renesas@ideasonboard.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|CY5PR10MB6047:EE_
-X-MS-Office365-Filtering-Correlation-Id: dba43f63-28ce-403b-edd5-08ddd95fa4e5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Id0K3ElqnSp9VkN4JtyR1ATPreh3Z0Bc0UeBuFpAiRjlP1JylgEydBelz7Qz?=
- =?us-ascii?Q?e9b8/cOakjHJwxBE3rR5BQQBqy7mDkgYjLvoRv1jaO2oj3lcPIz0YTXZmDPo?=
- =?us-ascii?Q?tcnxFCSJmym5aiPAXxMiqYLBCp4cJqwWVjGrIr3mechBYFtiCGzGFeujn/XO?=
- =?us-ascii?Q?T7l+OlKbVxmsnuNngfG/2Z7IKNh+DVz/S1Szc8tx0kvSTiZGH57TkYxfO/4W?=
- =?us-ascii?Q?tJR7XvApzqt0BFTqj/HDcz/IbqaIhcvamViCxm9I+sWfqVqK83ZmfVrTUuF+?=
- =?us-ascii?Q?3qsXN05L/3RuQ4vfH51Jyl+FOU0Tiog0cC9wcFJpIWtJP9ssLNFNWMmsQ9i8?=
- =?us-ascii?Q?QcS0DMJDaAUzR3+MrCC3WlHrhUuwSnm+SI0RHR5i1vdQbYrv76voguP5WYAs?=
- =?us-ascii?Q?XgFK1ylEHbaLftJ/yBP2pSHJqGqqqMDXu5Sw1HpNwBF4enFYoEtvEYz89v8D?=
- =?us-ascii?Q?u46WOC2cqwjIngc2hgCFDQmlFmoM3XLpuWTqxrGjk/dxAMum6QvBsB1CZXRS?=
- =?us-ascii?Q?8EIzhmlrHDL9uJEMNJIMH68WltzaNlg86Ms3ixBaY9FnCJkFkpgRd8uFvjNZ?=
- =?us-ascii?Q?8tr5YBlEfoZrekgKIli6baESVoaA0A59B+vEtD4Vs6U3TlqoEXjRngJjQWjf?=
- =?us-ascii?Q?2aPdeH4WclY61KUSLaNWH/DaquVYWdVuFhmseBis0LH5APjrnwA+8xfnh6/K?=
- =?us-ascii?Q?0Xdz3TEf+Itu5+OuMXRP0HRVYp0JlCQElDC5Vm7OTUQ+8ksoPr7l+sWuPtZv?=
- =?us-ascii?Q?KKwG06Hq8iblAiIEpqV/ejw9CeJLCDuMOiVJrjqoGq6+Wk9U1Px4dXrPFvB8?=
- =?us-ascii?Q?eauuJLKz9jVNw047UwLXiBfzDlvlhucXehxgDjovhGTk2uXRmsbZiqzoyCtx?=
- =?us-ascii?Q?tdUgZsA9etIqUYNAdazwQ7Qz4TFBKCDYF8SgpYAH1/OuX+d2RrtjDio7uPpW?=
- =?us-ascii?Q?XrrIt0x2C9lwITtt1uYcqpJlDMimo5lN4pEiMmqyhVmwI8Cs47xxiyv9Chkx?=
- =?us-ascii?Q?HojZQRBslzHJyqns7MeGXZSupUcXT3E9fe4Oewg3N31L9+JInofkkafDRHl6?=
- =?us-ascii?Q?7JklrVHLhZq1PSMoo0MwNPHVpsvOb5AXss3PW/qLVyRD/Yo8OeKSAwEvvIph?=
- =?us-ascii?Q?/0Le9Jm/SSk9tk53OlD7wihGI3EQm3xY/X7V0T9xafM4ZggjzDHaN09pZcUp?=
- =?us-ascii?Q?kQBFjs2jodKe/yqBdriY4sXHDR8TWh//OheORPkqJKujX6HFUA/6+q23Lx29?=
- =?us-ascii?Q?zQWpRHsa/FeI4wQZzK19O9Fb3U2pe8VaSoVVE7d8feOYXfY8xwT/WFnCcWHa?=
- =?us-ascii?Q?zG+2bqYAAmiLDIKI6zDfwQzEdP9U+n/oSzeUVpTcggxWtgkhK6se+OhCDYa2?=
- =?us-ascii?Q?R6GOHyAR48XS0BVE/EV6nrS+bi3DhCeYUATSInLCNdkb7I5qq4epcdAYSNk5?=
- =?us-ascii?Q?b4p6ULehsIQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3ACA3JR4YWCtDjzxv0mLSQPcGVXwSbaew+f++M6Re8I/ujq78smJ+J5F2Wgj?=
- =?us-ascii?Q?eizY0+Hht6Kq7mr7gvo8O/bqnon/dNyaJ98xWID+PDbdOoXCXEcYoteMKAbt?=
- =?us-ascii?Q?lBGR4Jp5aw8tr9x0lYBW2ectJr8WYw3XblDw5z9I7B1gYwuSDGHgh9KhtCFr?=
- =?us-ascii?Q?4oYQHw0hGs2dMbMkRjO4gC9zPXVDuDIe4cglH2xYxjzyqfoGemthN2jmam50?=
- =?us-ascii?Q?FT6uHcN1gUezFxZSuznFxTEnKV0NoEV71bGJO1afMvRY3QK3SDB9KChGUkwt?=
- =?us-ascii?Q?fXjKAvEteSnYBp4IdcAeNKtXSlHBdjDHRuN0D9voVe5cfV7syCo9xqSQgVhd?=
- =?us-ascii?Q?PggI9f87ZG+5MW8NH4NWpOpTjyHhPKakymjnxIq1vv+IWwMZ2LF6znsfFb2P?=
- =?us-ascii?Q?/f281Kl0pHZYN20poJdpH5kv5+h8VQtyEIPRHd70u//gKLLTaDn4dVFkRtwH?=
- =?us-ascii?Q?kWiZCCk6RwO/4KiMb3uGiuJlIi/9ee0c51rhS5X7FXzibpBJnmKeJDDxGw3a?=
- =?us-ascii?Q?abJjT0e8X0sPC1smnXK0wJ/NUpN0n1tZJu9KuXt2pcpw/No4EdchNlKw1Kxm?=
- =?us-ascii?Q?uBIRDpFVLqidjB4f8gCY7YZz6s++01xqRSmy9tc6GXM1rjnP09F2lsGbJebU?=
- =?us-ascii?Q?2J+DvTHc124vSd6p+4OVykyWpEyo3PljNIV+WJlKa6EPJ2C5taPbPgvM34/K?=
- =?us-ascii?Q?EEetXO1jWvMY58pm+es8jq584MuLuKS9MkuBsMKtqsEJzrXkrLGFAI66cNx8?=
- =?us-ascii?Q?XxI7eplNTLu7MA+OH78qNqtHKMNOsEZ/dxV7jECMFYZGTpbyKXM+IeVaAuPe?=
- =?us-ascii?Q?cUcZbJ3Bo1nzSMZTbF4GQc6NvNucVEXyjy7xqveNsN/+vorSdpDIPXLTqfoA?=
- =?us-ascii?Q?e0wBfJOJgnjzotwuE875KGlytFdohrC1hreADC8UpDgiMruXNFUZg2VmrJ+h?=
- =?us-ascii?Q?m6Hr4s9hX6DzmgFxMedDblClUhaghO4cBoNUwam9DkMBD6cdFVfSox4fYZS2?=
- =?us-ascii?Q?/1ZPFUiHhctFlrabPEKvY/IgYNC4m5x86/WMj7szXWklJpFx3JAZFzemO1bX?=
- =?us-ascii?Q?1ozqbKncVNI0ltGRtEdMHrZbabLbHxrfafBaF7bhDr9ZKEUYuwWgK8wI6eQ+?=
- =?us-ascii?Q?KzQmdo9F1WTS1fTiQKhAPU1JW7BMsXCi7g5B7BPRyXxaPKw75s7CNZxoEmP3?=
- =?us-ascii?Q?wfjXXPgrT4JCgbVpjv1Tc0KMvfiRz+TEbLARbBTLN/kmCrjZOhZIiOHpo7Dx?=
- =?us-ascii?Q?8I/pfgfmf/6RwtcHvdzfci+JvXTYRwTbNb9sg2RBOQ/rsjX3oz0/I36njHzA?=
- =?us-ascii?Q?48ePmVy6WIw9qExgpdQAQFecWr/Rg6ywgnJfi806vtXGX6y9eqcGQD9aBCUP?=
- =?us-ascii?Q?cGERpW7pMvoWag+x3KOjTa4xfW10wz0iDJdKQ75LgnxprIzdGLYeJGVxP9Y1?=
- =?us-ascii?Q?zs75Xn+HD1FuWcU9R6DI41X/T3CNARDW/vcNaMvgkv6OQ40ddRevJeXns6Ai?=
- =?us-ascii?Q?+sALVa3ymHB+qcWY4EoSOsSBB8ZZF5tGIQ32+0m8RcvXoVNQbzYlY4xiKDxY?=
- =?us-ascii?Q?lvO5OobWYSTM+PVQIzZQKoBlmSoSNi9Mrr2xhMen6oaTtl8wfdJWnsE3Q3hQ?=
- =?us-ascii?Q?aw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 5E7q8+/X9LtQKzYcmPrfIsdRrqMxZNK1r4pZ/ZGo3QDxx0tjJ3sx16QYpfsi4KMBzZ9gw5EAEkW2lMvyHkRZrYyjtsxrjWfGeXJDVXAEUm/P5OBpLx5pCP+LdoHD6O52zralmyy1gKrpQAUa754ipjYrkSqKjVYrLJ3vXokQWrKcOQlKI9OY7ZQYGuYDEAJ576jDbxsy0Q4iIJ1C8qitl/k1v0k/ZefMYtxoVWK+Eo+9Bk1d1TblvqVaitTnAzISGtjugfWIvaHII2xmYxro0VYloPcOjhgY5bRXjoskDxOkweabRX/TQVJpYf1QE1K2qjPQ1KhsiN15PEpJ2WA692HCkEMx8xfvKgJEj0iaq7Fs7BJ0Dwz9yu16JoiZwFg0nyl5Qwqi/AhTqov4KuxqMyxuLZI9hT2fcG00daGGp6zTn7wU3IKn5UumDgCaXW8nYgp8xn5826p87o9s7Lyc5J5sXMUL3voytkM1fDw+mvY23J4qQJ0z/N1F3PuOi/87fdtI0LnJ+E3klwmCeBeKxcefGW0Fg82MinsYE/UMpxlb0nYaYlSBMCJs7qWVVsBPiqbFYQPNhFm7sELnhyh9UKun8tTHxg5LK5wpGurZi0I=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dba43f63-28ce-403b-edd5-08ddd95fa4e5
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 05:18:17.7474
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XupRsh7kfx1tNIj39nEKOQuCnaNNQfqBYJdlK1oc7Tnly97G9cEeM8z49JnZNDhZmVXlYeLDJRzBZf1/QekRfZ/szw+6lfoXrNJDubeg3wY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR10MB6047
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-08-12_01,2025-08-11_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 mlxscore=0 phishscore=0
- spamscore=0 suspectscore=0 mlxlogscore=999 adultscore=0 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2507300000
- definitions=main-2508120047
-X-Proofpoint-GUID: WifJiY_biKLwws_Gz5NBd5qQI1jt1voA
-X-Proofpoint-ORIG-GUID: WifJiY_biKLwws_Gz5NBd5qQI1jt1voA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODEyMDA0NyBTYWx0ZWRfX0w3IaEaSFrBJ
- PpxSkEcfm3IVF3Ghr+PavcHVRNkTma53LZ7R91eGz/bxbMWDjeblCiGt8pMB+Yn78yYf8N59n5A
- jCS0nm0PpgePp6JBLz1u/cGRt7xvHGxd/CBTd+2ymR5jkumu6Rn/NcNI+fMm/C9RqkYi0yv5Xv4
- Z68kGS4d9NulmCVez0CBmlzndq/I0SVljMourKPLobDdkRC437LAM0l3dvTGVozw3AdhTbTPlXn
- jCNhACWKSuZrigBNGYqgQNN852dcF931dWkzkXe4cOOLQWQZBKlo+UNLQ65ubNeCBaZogDM5Gud
- wyb3b7VEa2KCF3NNDmmzLpJ4vvE3SfKD0JqJT+KHtOsd4Qu+rxQJZBLuqtUGkxO2zmDuWexGf8O
- pyqDIep1DGqO4koZMiWLa2e3+/VQ7Lm+MKT/BwvpH0Qe5usDus4c9MgaqlXgMGRpWrGWT3VL
-X-Authority-Analysis: v=2.4 cv=KJZaDEFo c=1 sm=1 tr=0 ts=689ace9d b=1 cx=c_pps
- a=qoll8+KPOyaMroiJ2sR5sw==:117 a=qoll8+KPOyaMroiJ2sR5sw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=2OwXVqhp2XgA:10
- a=GoEa3M9JfhUA:10 a=7CQSdrXTAAAA:8 a=lRLK-eTyG3jIob72pwwA:9
- a=a-qgeE7W1pNrGK8U0ZQC:22 cc=ntf awl=host:12070
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hjo7ajkcbq242gza"
+Content-Disposition: inline
+In-Reply-To: <20250810013100.29776-76-laurent.pinchart+renesas@ideasonboard.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250811_221847_459971_752DAC5E 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20250811_225305_441620_337AE2D4 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -213,94 +86,1295 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+--hjo7ajkcbq242gza
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 75/76] media: v4l2: Rename second ioctl handlers
+ argument to 'void *priv'
+MIME-Version: 1.0
 
-> On Thu, Jun 26, 2025 at 09:48:03PM -0700, Ankur Arora wrote:
->> diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
->> index 9ea0a74e5892..f1b6a428013e 100644
->> --- a/arch/arm64/include/asm/rqspinlock.h
->> +++ b/arch/arm64/include/asm/rqspinlock.h
->> @@ -86,7 +86,7 @@
->>
->>  #endif
->>
->> -#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
->> +#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0ULL, 1ULL, 0)
->>
->>  #include <asm-generic/rqspinlock.h>
->>
->> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
->> index 8299c57d1110..dd7c9ca2dff3 100644
->> --- a/include/asm-generic/barrier.h
->> +++ b/include/asm-generic/barrier.h
->> @@ -388,6 +388,28 @@ static inline u64 ___smp_cond_spinwait(u64 now, u64 prev, u64 end,
->>  	(typeof(*ptr))_val;						\
->>  })
->>
->> +/**
->> + * smp_cond_load_acquire_timewait() - (Spin) wait for cond with ACQUIRE ordering
->> + * until a timeout expires.
->> + *
->> + * Arguments: same as smp_cond_load_relaxed_timeout().
->> + *
->> + * Equivalent to using smp_cond_load_acquire() on the condition variable with
->> + * a timeout.
->> + */
->> +#ifndef smp_cond_load_acquire_timewait
->> +#define smp_cond_load_acquire_timewait(ptr, cond_expr,			\
->> +				       time_expr, time_end,		\
->> +				       slack) ({			\
->> +	__unqual_scalar_typeof(*ptr) _val;				\
->> +	_val = smp_cond_load_relaxed_timewait(ptr, cond_expr,		\
->> +					      time_expr, time_end,	\
->> +					      slack);			\
->> +	/* Depends on the control dependency of the wait above. */	\
->> +	smp_acquire__after_ctrl_dep();					\
->> +	(typeof(*ptr))_val;						\
->> +})
->> +#endif
->
-> Using #ifndef in the generic file is the correct thing to do, it allows
-> architectures to redefine it. Why we have a similar #ifndef in the arm64
-> rqspinlock.h, no idea, none of the arm64 maintainers acked that patch
-> (shouldn't have gone in really, we were still discussing the
-> implementation at the time; I also think it's slightly wrong).
->
-> Your change above to rqspinlock.h makes this even more confusing when
-> you look at the overall result with all the patches applied. We end up
-> with the same macro in asm/rqspinlock.h but with different number of
-> arguments.
+On Sun, Aug 10, 2025 at 04:30:57AM +0300, Laurent Pinchart wrote:
+> The second argument to the ioctl handlers is not a file handle any more.
+> The standard practice is to name it 'void *priv' in drivers. Many
+> drivers still name it 'void *fh', and a few use more exotic names.
+> Replace those more exotic names with 'void *priv' in all media drivers.
+>=20
+> Signed-off-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.co=
+m>
 
-I agree that my change doesn't improve on matters at all.
+Acked-by: Jai Luthra <jai.luthra@linux.dev>
 
-Just to lay out the problem, rqspinlock defines this in the common code:
+> ---
+>  .../extron-da-hd-4k-plus.c                    |  4 +-
+>  drivers/media/pci/bt8xx/bttv-driver.c         | 14 ++---
+>  drivers/media/pci/bt8xx/bttv-vbi.c            |  6 +-
+>  drivers/media/pci/cobalt/cobalt-v4l2.c        | 60 +++++++++----------
+>  drivers/media/pci/saa7134/saa7134-video.c     |  4 +-
+>  drivers/media/platform/rockchip/rga/rga.c     | 14 ++---
+>  drivers/media/platform/samsung/s5p-g2d/g2d.c  | 18 +++---
+>  .../platform/samsung/s5p-mfc/s5p_mfc_dec.c    |  2 +-
+>  .../platform/samsung/s5p-mfc/s5p_mfc_enc.c    |  2 +-
+>  drivers/media/platform/st/stm32/dma2d/dma2d.c | 10 ++--
+>  .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 16 ++---
+>  .../platform/synopsys/hdmirx/snps_hdmirx.c    |  8 +--
+>  .../platform/ti/j721e-csi2rx/j721e-csi2rx.c   |  2 +-
+>  drivers/media/platform/ti/omap/omap_vout.c    |  6 +-
+>  .../radio/si4713/radio-platform-si4713.c      | 10 ++--
+>  drivers/media/usb/cx231xx/cx231xx-417.c       |  2 +-
+>  drivers/media/usb/gspca/gspca.c               | 18 +++---
+>  drivers/media/usb/hdpvr/hdpvr-video.c         | 30 +++++-----
+>  18 files changed, 113 insertions(+), 113 deletions(-)
+>=20
+> diff --git a/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-p=
+lus.c b/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+> index 41d019b01ec0..c476e8d1279e 100644
+> --- a/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+> +++ b/drivers/media/cec/usb/extron-da-hd-4k-plus/extron-da-hd-4k-plus.c
+> @@ -1252,7 +1252,7 @@ static int extron_s_output(struct file *file, void =
+*priv, unsigned int o)
+>  	return o ? -EINVAL : 0;
+>  }
+> =20
+> -static int extron_g_edid(struct file *file, void *_fh,
+> +static int extron_g_edid(struct file *file, void *priv,
+>  			 struct v4l2_edid *edid)
+>  {
+>  	struct extron_port *port =3D video_drvdata(file);
+> @@ -1280,7 +1280,7 @@ static int extron_g_edid(struct file *file, void *_=
+fh,
+>  	return 0;
+>  }
+> =20
+> -static int extron_s_edid(struct file *file, void *_fh, struct v4l2_edid =
+*edid)
+> +static int extron_s_edid(struct file *file, void *priv, struct v4l2_edid=
+ *edid)
+>  {
+>  	struct extron_port *port =3D video_drvdata(file);
+> =20
+> diff --git a/drivers/media/pci/bt8xx/bttv-driver.c b/drivers/media/pci/bt=
+8xx/bttv-driver.c
+> index 9ce67f515843..17e4529e537a 100644
+> --- a/drivers/media/pci/bt8xx/bttv-driver.c
+> +++ b/drivers/media/pci/bt8xx/bttv-driver.c
+> @@ -1620,7 +1620,7 @@ static int bttv_g_std(struct file *file, void *priv=
+, v4l2_std_id *id)
+>  	return 0;
+>  }
+> =20
+> -static int bttv_querystd(struct file *file, void *f, v4l2_std_id *id)
+> +static int bttv_querystd(struct file *file, void *priv, v4l2_std_id *id)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+> =20
+> @@ -1750,7 +1750,7 @@ static int bttv_s_frequency(struct file *file, void=
+ *priv,
+>  	return 0;
+>  }
+> =20
+> -static int bttv_log_status(struct file *file, void *f)
+> +static int bttv_log_status(struct file *file, void *priv)
+>  {
+>  	struct video_device *vdev =3D video_devdata(file);
+>  	struct bttv *btv =3D video_drvdata(file);
+> @@ -1761,7 +1761,7 @@ static int bttv_log_status(struct file *file, void =
+*f)
+>  }
+> =20
+>  #ifdef CONFIG_VIDEO_ADV_DEBUG
+> -static int bttv_g_register(struct file *file, void *f,
+> +static int bttv_g_register(struct file *file, void *priv,
+>  					struct v4l2_dbg_register *reg)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+> @@ -1774,7 +1774,7 @@ static int bttv_g_register(struct file *file, void =
+*f,
+>  	return 0;
+>  }
+> =20
+> -static int bttv_s_register(struct file *file, void *f,
+> +static int bttv_s_register(struct file *file, void *priv,
+>  					const struct v4l2_dbg_register *reg)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+> @@ -2159,7 +2159,7 @@ static int bttv_enum_fmt_vid_cap(struct file *file,=
+ void  *priv,
+>  	return 0;
+>  }
+> =20
+> -static int bttv_g_parm(struct file *file, void *f,
+> +static int bttv_g_parm(struct file *file, void *priv,
+>  				struct v4l2_streamparm *parm)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+> @@ -2208,7 +2208,7 @@ static int bttv_g_pixelaspect(struct file *file, vo=
+id *priv,
+>  	return 0;
+>  }
+> =20
+> -static int bttv_g_selection(struct file *file, void *f, struct v4l2_sele=
+ction *sel)
+> +static int bttv_g_selection(struct file *file, void *priv, struct v4l2_s=
+election *sel)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+> =20
+> @@ -2232,7 +2232,7 @@ static int bttv_g_selection(struct file *file, void=
+ *f, struct v4l2_selection *s
+>  	return 0;
+>  }
+> =20
+> -static int bttv_s_selection(struct file *file, void *f, struct v4l2_sele=
+ction *sel)
+> +static int bttv_s_selection(struct file *file, void *priv, struct v4l2_s=
+election *sel)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+>  	const struct v4l2_rect *b;
+> diff --git a/drivers/media/pci/bt8xx/bttv-vbi.c b/drivers/media/pci/bt8xx=
+/bttv-vbi.c
+> index a71440611e46..0ca88a2400ee 100644
+> --- a/drivers/media/pci/bt8xx/bttv-vbi.c
+> +++ b/drivers/media/pci/bt8xx/bttv-vbi.c
+> @@ -241,7 +241,7 @@ static int try_fmt(struct v4l2_vbi_format *f, const s=
+truct bttv_tvnorm *tvnorm,
+>  	return 0;
+>  }
+> =20
+> -int bttv_try_fmt_vbi_cap(struct file *file, void *f, struct v4l2_format =
+*frt)
+> +int bttv_try_fmt_vbi_cap(struct file *file, void *priv, struct v4l2_form=
+at *frt)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+>  	const struct bttv_tvnorm *tvnorm;
+> @@ -258,7 +258,7 @@ int bttv_try_fmt_vbi_cap(struct file *file, void *f, =
+struct v4l2_format *frt)
+>  }
+> =20
+> =20
+> -int bttv_s_fmt_vbi_cap(struct file *file, void *f, struct v4l2_format *f=
+rt)
+> +int bttv_s_fmt_vbi_cap(struct file *file, void *priv, struct v4l2_format=
+ *frt)
+>  {
+>  	struct bttv *btv =3D video_drvdata(file);
+>  	const struct bttv_tvnorm *tvnorm;
+> @@ -301,7 +301,7 @@ int bttv_s_fmt_vbi_cap(struct file *file, void *f, st=
+ruct v4l2_format *frt)
+>  }
+> =20
+> =20
+> -int bttv_g_fmt_vbi_cap(struct file *file, void *f, struct v4l2_format *f=
+rt)
+> +int bttv_g_fmt_vbi_cap(struct file *file, void *priv, struct v4l2_format=
+ *frt)
+>  {
+>  	const struct bttv_tvnorm *tvnorm;
+>  	struct bttv *btv =3D video_drvdata(file);
+> diff --git a/drivers/media/pci/cobalt/cobalt-v4l2.c b/drivers/media/pci/c=
+obalt/cobalt-v4l2.c
+> index ae82427e3479..51fd9576c6c2 100644
+> --- a/drivers/media/pci/cobalt/cobalt-v4l2.c
+> +++ b/drivers/media/pci/cobalt/cobalt-v4l2.c
+> @@ -447,7 +447,7 @@ static int cobalt_cobaltc(struct cobalt *cobalt, unsi=
+gned int cmd, void *arg)
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_g_register(struct file *file, void *priv_fh,
+> +static int cobalt_g_register(struct file *file, void *priv,
+>  		struct v4l2_dbg_register *reg)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -456,7 +456,7 @@ static int cobalt_g_register(struct file *file, void =
+*priv_fh,
+>  	return cobalt_cobaltc(cobalt, VIDIOC_DBG_G_REGISTER, reg);
+>  }
+> =20
+> -static int cobalt_s_register(struct file *file, void *priv_fh,
+> +static int cobalt_s_register(struct file *file, void *priv,
+>  		const struct v4l2_dbg_register *reg)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -467,7 +467,7 @@ static int cobalt_s_register(struct file *file, void =
+*priv_fh,
+>  }
+>  #endif
+> =20
+> -static int cobalt_querycap(struct file *file, void *priv_fh,
+> +static int cobalt_querycap(struct file *file, void *priv,
+>  				struct v4l2_capability *vcap)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -562,7 +562,7 @@ static void cobalt_video_input_status_show(struct cob=
+alt_stream *s)
+>  	cobalt_info("rx%d: Packer: %x\n", rx, ioread32(&packer->control));
+>  }
+> =20
+> -static int cobalt_log_status(struct file *file, void *priv_fh)
+> +static int cobalt_log_status(struct file *file, void *priv)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+>  	struct cobalt *cobalt =3D s->cobalt;
+> @@ -596,7 +596,7 @@ static int cobalt_log_status(struct file *file, void =
+*priv_fh)
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_enum_dv_timings(struct file *file, void *priv_fh,
+> +static int cobalt_enum_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_enum_dv_timings *timings)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -613,7 +613,7 @@ static int cobalt_enum_dv_timings(struct file *file, =
+void *priv_fh,
+>  			pad, enum_dv_timings, timings);
+>  }
+> =20
+> -static int cobalt_s_dv_timings(struct file *file, void *priv_fh,
+> +static int cobalt_s_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings *timings)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -641,7 +641,7 @@ static int cobalt_s_dv_timings(struct file *file, voi=
+d *priv_fh,
+>  	return err;
+>  }
+> =20
+> -static int cobalt_g_dv_timings(struct file *file, void *priv_fh,
+> +static int cobalt_g_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings *timings)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -654,7 +654,7 @@ static int cobalt_g_dv_timings(struct file *file, voi=
+d *priv_fh,
+>  			pad, g_dv_timings, 0, timings);
+>  }
+> =20
+> -static int cobalt_query_dv_timings(struct file *file, void *priv_fh,
+> +static int cobalt_query_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings *timings)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -667,7 +667,7 @@ static int cobalt_query_dv_timings(struct file *file,=
+ void *priv_fh,
+>  			pad, query_dv_timings, 0, timings);
+>  }
+> =20
+> -static int cobalt_dv_timings_cap(struct file *file, void *priv_fh,
+> +static int cobalt_dv_timings_cap(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings_cap *cap)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -677,7 +677,7 @@ static int cobalt_dv_timings_cap(struct file *file, v=
+oid *priv_fh,
+>  			pad, dv_timings_cap, cap);
+>  }
+> =20
+> -static int cobalt_enum_fmt_vid_cap(struct file *file, void *priv_fh,
+> +static int cobalt_enum_fmt_vid_cap(struct file *file, void *priv,
+>  		struct v4l2_fmtdesc *f)
+>  {
+>  	switch (f->index) {
+> @@ -697,7 +697,7 @@ static int cobalt_enum_fmt_vid_cap(struct file *file,=
+ void *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_g_fmt_vid_cap(struct file *file, void *priv_fh,
+> +static int cobalt_g_fmt_vid_cap(struct file *file, void *priv,
+>  		struct v4l2_format *f)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -726,7 +726,7 @@ static int cobalt_g_fmt_vid_cap(struct file *file, vo=
+id *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_try_fmt_vid_cap(struct file *file, void *priv_fh,
+> +static int cobalt_try_fmt_vid_cap(struct file *file, void *priv,
+>  		struct v4l2_format *f)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -787,7 +787,7 @@ static int cobalt_try_fmt_vid_cap(struct file *file, =
+void *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_s_fmt_vid_cap(struct file *file, void *priv_fh,
+> +static int cobalt_s_fmt_vid_cap(struct file *file, void *priv,
+>  		struct v4l2_format *f)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -796,7 +796,7 @@ static int cobalt_s_fmt_vid_cap(struct file *file, vo=
+id *priv_fh,
+>  	if (vb2_is_busy(&s->q))
+>  		return -EBUSY;
+> =20
+> -	if (cobalt_try_fmt_vid_cap(file, priv_fh, f))
+> +	if (cobalt_try_fmt_vid_cap(file, priv, f))
+>  		return -EINVAL;
+> =20
+>  	s->width =3D pix->width;
+> @@ -821,7 +821,7 @@ static int cobalt_s_fmt_vid_cap(struct file *file, vo=
+id *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_try_fmt_vid_out(struct file *file, void *priv_fh,
+> +static int cobalt_try_fmt_vid_out(struct file *file, void *priv,
+>  		struct v4l2_format *f)
+>  {
+>  	struct v4l2_pix_format *pix =3D &f->fmt.pix;
+> @@ -862,7 +862,7 @@ static int cobalt_try_fmt_vid_out(struct file *file, =
+void *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_g_fmt_vid_out(struct file *file, void *priv_fh,
+> +static int cobalt_g_fmt_vid_out(struct file *file, void *priv,
+>  		struct v4l2_format *f)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -882,7 +882,7 @@ static int cobalt_g_fmt_vid_out(struct file *file, vo=
+id *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_enum_fmt_vid_out(struct file *file, void *priv_fh,
+> +static int cobalt_enum_fmt_vid_out(struct file *file, void *priv,
+>  		struct v4l2_fmtdesc *f)
+>  {
+>  	switch (f->index) {
+> @@ -899,7 +899,7 @@ static int cobalt_enum_fmt_vid_out(struct file *file,=
+ void *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_s_fmt_vid_out(struct file *file, void *priv_fh,
+> +static int cobalt_s_fmt_vid_out(struct file *file, void *priv,
+>  		struct v4l2_format *f)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -909,7 +909,7 @@ static int cobalt_s_fmt_vid_out(struct file *file, vo=
+id *priv_fh,
+>  	};
+>  	u32 code;
+> =20
+> -	if (cobalt_try_fmt_vid_out(file, priv_fh, f))
+> +	if (cobalt_try_fmt_vid_out(file, priv, f))
+>  		return -EINVAL;
+> =20
+>  	if (vb2_is_busy(&s->q) && (pix->pixelformat !=3D s->pixfmt ||
+> @@ -942,7 +942,7 @@ static int cobalt_s_fmt_vid_out(struct file *file, vo=
+id *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_enum_input(struct file *file, void *priv_fh,
+> +static int cobalt_enum_input(struct file *file, void *priv,
+>  				 struct v4l2_input *inp)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -963,7 +963,7 @@ static int cobalt_enum_input(struct file *file, void =
+*priv_fh,
+>  			video, g_input_status, &inp->status);
+>  }
+> =20
+> -static int cobalt_g_input(struct file *file, void *priv_fh, unsigned int=
+ *i)
+> +static int cobalt_g_input(struct file *file, void *priv, unsigned int *i)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> =20
+> @@ -971,7 +971,7 @@ static int cobalt_g_input(struct file *file, void *pr=
+iv_fh, unsigned int *i)
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_s_input(struct file *file, void *priv_fh, unsigned int=
+ i)
+> +static int cobalt_s_input(struct file *file, void *priv, unsigned int i)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> =20
+> @@ -990,7 +990,7 @@ static int cobalt_s_input(struct file *file, void *pr=
+iv_fh, unsigned int i)
+>  			ADV76XX_PAD_HDMI_PORT_A, 0, 0);
+>  }
+> =20
+> -static int cobalt_enum_output(struct file *file, void *priv_fh,
+> +static int cobalt_enum_output(struct file *file, void *priv,
+>  				 struct v4l2_output *out)
+>  {
+>  	if (out->index)
+> @@ -1001,18 +1001,18 @@ static int cobalt_enum_output(struct file *file, =
+void *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_g_output(struct file *file, void *priv_fh, unsigned in=
+t *i)
+> +static int cobalt_g_output(struct file *file, void *priv, unsigned int *=
+i)
+>  {
+>  	*i =3D 0;
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_s_output(struct file *file, void *priv_fh, unsigned in=
+t i)
+> +static int cobalt_s_output(struct file *file, void *priv, unsigned int i)
+>  {
+>  	return i ? -EINVAL : 0;
+>  }
+> =20
+> -static int cobalt_g_edid(struct file *file, void *fh, struct v4l2_edid *=
+edid)
+> +static int cobalt_g_edid(struct file *file, void *priv, struct v4l2_edid=
+ *edid)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+>  	u32 pad =3D edid->pad;
+> @@ -1026,7 +1026,7 @@ static int cobalt_g_edid(struct file *file, void *f=
+h, struct v4l2_edid *edid)
+>  	return ret;
+>  }
+> =20
+> -static int cobalt_s_edid(struct file *file, void *fh, struct v4l2_edid *=
+edid)
+> +static int cobalt_s_edid(struct file *file, void *priv, struct v4l2_edid=
+ *edid)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+>  	u32 pad =3D edid->pad;
+> @@ -1050,7 +1050,7 @@ static int cobalt_subscribe_event(struct v4l2_fh *f=
+h,
+>  	return v4l2_ctrl_subscribe_event(fh, sub);
+>  }
+> =20
+> -static int cobalt_g_parm(struct file *file, void *fh, struct v4l2_stream=
+parm *a)
+> +static int cobalt_g_parm(struct file *file, void *priv, struct v4l2_stre=
+amparm *a)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+>  	struct v4l2_fract fps;
+> @@ -1065,7 +1065,7 @@ static int cobalt_g_parm(struct file *file, void *f=
+h, struct v4l2_streamparm *a)
+>  	return 0;
+>  }
+> =20
+> -static int cobalt_g_pixelaspect(struct file *file, void *fh,
+> +static int cobalt_g_pixelaspect(struct file *file, void *priv,
+>  				int type, struct v4l2_fract *f)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> @@ -1084,7 +1084,7 @@ static int cobalt_g_pixelaspect(struct file *file, =
+void *fh,
+>  	return err;
+>  }
+> =20
+> -static int cobalt_g_selection(struct file *file, void *fh,
+> +static int cobalt_g_selection(struct file *file, void *priv,
+>  			      struct v4l2_selection *sel)
+>  {
+>  	struct cobalt_stream *s =3D video_drvdata(file);
+> diff --git a/drivers/media/pci/saa7134/saa7134-video.c b/drivers/media/pc=
+i/saa7134/saa7134-video.c
+> index c88939bce56b..4a51b873e47a 100644
+> --- a/drivers/media/pci/saa7134/saa7134-video.c
+> +++ b/drivers/media/pci/saa7134/saa7134-video.c
+> @@ -1302,7 +1302,7 @@ static int saa7134_g_pixelaspect(struct file *file,=
+ void *priv,
+>  	return 0;
+>  }
+> =20
+> -static int saa7134_g_selection(struct file *file, void *f, struct v4l2_s=
+election *sel)
+> +static int saa7134_g_selection(struct file *file, void *priv, struct v4l=
+2_selection *sel)
+>  {
+>  	struct saa7134_dev *dev =3D video_drvdata(file);
+> =20
+> @@ -1325,7 +1325,7 @@ static int saa7134_g_selection(struct file *file, v=
+oid *f, struct v4l2_selection
+>  	return 0;
+>  }
+> =20
+> -static int saa7134_s_selection(struct file *file, void *f, struct v4l2_s=
+election *sel)
+> +static int saa7134_s_selection(struct file *file, void *priv, struct v4l=
+2_selection *sel)
+>  {
+>  	struct saa7134_dev *dev =3D video_drvdata(file);
+>  	struct v4l2_rect *b =3D &dev->crop_bounds;
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
+atform/rockchip/rga/rga.c
+> index 7c657df623f2..776046de979a 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -446,7 +446,7 @@ vidioc_querycap(struct file *file, void *priv, struct=
+ v4l2_capability *cap)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_enum_fmt(struct file *file, void *prv, struct v4l2_fmt=
+desc *f)
+> +static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fm=
+tdesc *f)
+>  {
+>  	struct rga_fmt *fmt;
+> =20
+> @@ -459,7 +459,7 @@ static int vidioc_enum_fmt(struct file *file, void *p=
+rv, struct v4l2_fmtdesc *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+> +static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_forma=
+t *f)
+>  {
+>  	struct v4l2_pix_format_mplane *pix_fmt =3D &f->fmt.pix_mp;
+>  	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
+> @@ -481,7 +481,7 @@ static int vidioc_g_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_try_fmt(struct file *file, void *prv, struct v4l2_form=
+at *f)
+> +static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_for=
+mat *f)
+>  {
+>  	struct v4l2_pix_format_mplane *pix_fmt =3D &f->fmt.pix_mp;
+>  	struct rga_fmt *fmt;
+> @@ -501,7 +501,7 @@ static int vidioc_try_fmt(struct file *file, void *pr=
+v, struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+> +static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_forma=
+t *f)
+>  {
+>  	struct v4l2_pix_format_mplane *pix_fmt =3D &f->fmt.pix_mp;
+>  	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
+> @@ -514,7 +514,7 @@ static int vidioc_s_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	/* Adjust all values accordingly to the hardware capabilities
+>  	 * and chosen format.
+>  	 */
+> -	ret =3D vidioc_try_fmt(file, prv, f);
+> +	ret =3D vidioc_try_fmt(file, priv, f);
+>  	if (ret)
+>  		return ret;
+>  	vq =3D v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
+> @@ -558,7 +558,7 @@ static int vidioc_s_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_selection(struct file *file, void *prv,
+> +static int vidioc_g_selection(struct file *file, void *priv,
+>  			      struct v4l2_selection *s)
+>  {
+>  	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
+> @@ -606,7 +606,7 @@ static int vidioc_g_selection(struct file *file, void=
+ *prv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_selection(struct file *file, void *prv,
+> +static int vidioc_s_selection(struct file *file, void *priv,
+>  			      struct v4l2_selection *s)
+>  {
+>  	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
+> diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media=
+/platform/samsung/s5p-g2d/g2d.c
+> index 55f5130156b7..ffb9bee6cb9d 100644
+> --- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
+> +++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+> @@ -297,7 +297,7 @@ static int vidioc_querycap(struct file *file, void *p=
+riv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_enum_fmt(struct file *file, void *prv, struct v4l2_fmt=
+desc *f)
+> +static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fm=
+tdesc *f)
+>  {
+>  	if (f->index >=3D NUM_FORMATS)
+>  		return -EINVAL;
+> @@ -305,7 +305,7 @@ static int vidioc_enum_fmt(struct file *file, void *p=
+rv, struct v4l2_fmtdesc *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+> +static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_forma=
+t *f)
+>  {
+>  	struct g2d_ctx *ctx =3D file2ctx(file);
+>  	struct vb2_queue *vq;
+> @@ -327,7 +327,7 @@ static int vidioc_g_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_try_fmt(struct file *file, void *prv, struct v4l2_form=
+at *f)
+> +static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_for=
+mat *f)
+>  {
+>  	struct g2d_fmt *fmt;
+>  	enum v4l2_field *field;
+> @@ -357,7 +357,7 @@ static int vidioc_try_fmt(struct file *file, void *pr=
+v, struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+> +static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_forma=
+t *f)
+>  {
+>  	struct g2d_ctx *ctx =3D file2ctx(file);
+>  	struct g2d_dev *dev =3D ctx->dev;
+> @@ -368,7 +368,7 @@ static int vidioc_s_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+> =20
+>  	/* Adjust all values accordingly to the hardware capabilities
+>  	 * and chosen format. */
+> -	ret =3D vidioc_try_fmt(file, prv, f);
+> +	ret =3D vidioc_try_fmt(file, priv, f);
+>  	if (ret)
+>  		return ret;
+>  	vq =3D v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
+> @@ -397,7 +397,7 @@ static int vidioc_s_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_selection(struct file *file, void *prv,
+> +static int vidioc_g_selection(struct file *file, void *priv,
+>  			      struct v4l2_selection *s)
+>  {
+>  	struct g2d_ctx *ctx =3D file2ctx(file);
+> @@ -447,7 +447,7 @@ static int vidioc_g_selection(struct file *file, void=
+ *prv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_try_selection(struct file *file, void *prv,
+> +static int vidioc_try_selection(struct file *file, void *priv,
+>  				const struct v4l2_selection *s)
+>  {
+>  	struct g2d_ctx *ctx =3D file2ctx(file);
+> @@ -475,14 +475,14 @@ static int vidioc_try_selection(struct file *file, =
+void *prv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_selection(struct file *file, void *prv,
+> +static int vidioc_s_selection(struct file *file, void *priv,
+>  			      struct v4l2_selection *s)
+>  {
+>  	struct g2d_ctx *ctx =3D file2ctx(file);
+>  	struct g2d_frame *f;
+>  	int ret;
+> =20
+> -	ret =3D vidioc_try_selection(file, prv, s);
+> +	ret =3D vidioc_try_selection(file, priv, s);
+>  	if (ret)
+>  		return ret;
+>  	f =3D get_frame(ctx, s->type);
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c b/drive=
+rs/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c
+> index 606e1a7121b5..afd28beabfde 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c
+> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_dec.c
+> @@ -330,7 +330,7 @@ static int vidioc_enum_fmt(struct file *file, struct =
+v4l2_fmtdesc *f,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_enum_fmt_vid_cap(struct file *file, void *pirv,
+> +static int vidioc_enum_fmt_vid_cap(struct file *file, void *priv,
+>  				   struct v4l2_fmtdesc *f)
+>  {
+>  	return vidioc_enum_fmt(file, f, false);
+> diff --git a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c b/drive=
+rs/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c
+> index 694b68788a95..3f8701e5614f 100644
+> --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c
+> +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_enc.c
+> @@ -1375,7 +1375,7 @@ static int vidioc_enum_fmt(struct file *file, struc=
+t v4l2_fmtdesc *f,
+>  	return -EINVAL;
+>  }
+> =20
+> -static int vidioc_enum_fmt_vid_cap(struct file *file, void *pirv,
+> +static int vidioc_enum_fmt_vid_cap(struct file *file, void *priv,
+>  				   struct v4l2_fmtdesc *f)
+>  {
+>  	return vidioc_enum_fmt(file, f, false);
+> diff --git a/drivers/media/platform/st/stm32/dma2d/dma2d.c b/drivers/medi=
+a/platform/st/stm32/dma2d/dma2d.c
+> index a22f587a5f83..468c247ba328 100644
+> --- a/drivers/media/platform/st/stm32/dma2d/dma2d.c
+> +++ b/drivers/media/platform/st/stm32/dma2d/dma2d.c
+> @@ -343,7 +343,7 @@ static int vidioc_querycap(struct file *file, void *p=
+riv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_enum_fmt(struct file *file, void *prv, struct v4l2_fmt=
+desc *f)
+> +static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fm=
+tdesc *f)
+>  {
+>  	if (f->index >=3D NUM_FORMATS)
+>  		return -EINVAL;
+> @@ -352,7 +352,7 @@ static int vidioc_enum_fmt(struct file *file, void *p=
+rv, struct v4l2_fmtdesc *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+> +static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_forma=
+t *f)
+>  {
+>  	struct dma2d_ctx *ctx =3D file2ctx(file);
+>  	struct vb2_queue *vq;
+> @@ -377,7 +377,7 @@ static int vidioc_g_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_try_fmt(struct file *file, void *prv, struct v4l2_form=
+at *f)
+> +static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_for=
+mat *f)
+>  {
+>  	struct dma2d_ctx *ctx =3D file2ctx(file);
+>  	struct dma2d_fmt *fmt;
+> @@ -420,7 +420,7 @@ static int vidioc_try_fmt(struct file *file, void *pr=
+v, struct v4l2_format *f)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+> +static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_forma=
+t *f)
+>  {
+>  	struct dma2d_ctx *ctx =3D file2ctx(file);
+>  	struct vb2_queue *vq;
+> @@ -431,7 +431,7 @@ static int vidioc_s_fmt(struct file *file, void *prv,=
+ struct v4l2_format *f)
+>  	/* Adjust all values accordingly to the hardware capabilities
+>  	 * and chosen format.
+>  	 */
+> -	ret =3D vidioc_try_fmt(file, prv, f);
+> +	ret =3D vidioc_try_fmt(file, priv, f);
+>  	if (ret)
+>  		return ret;
+> =20
+> diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c b=
+/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> index 76356bc7f10e..65879f4802c0 100644
+> --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> @@ -711,7 +711,7 @@ static void sun6i_csi_capture_format_prepare(struct v=
+4l2_format *format)
+>  	pix_format->xfer_func =3D V4L2_XFER_FUNC_DEFAULT;
+>  }
+> =20
+> -static int sun6i_csi_capture_querycap(struct file *file, void *private,
+> +static int sun6i_csi_capture_querycap(struct file *file, void *priv,
+>  				      struct v4l2_capability *capability)
+>  {
+>  	struct sun6i_csi_device *csi_dev =3D video_drvdata(file);
+> @@ -725,7 +725,7 @@ static int sun6i_csi_capture_querycap(struct file *fi=
+le, void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_enum_fmt(struct file *file, void *private,
+> +static int sun6i_csi_capture_enum_fmt(struct file *file, void *priv,
+>  				      struct v4l2_fmtdesc *fmtdesc)
+>  {
+>  	u32 index =3D fmtdesc->index;
+> @@ -738,7 +738,7 @@ static int sun6i_csi_capture_enum_fmt(struct file *fi=
+le, void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_g_fmt(struct file *file, void *private,
+> +static int sun6i_csi_capture_g_fmt(struct file *file, void *priv,
+>  				   struct v4l2_format *format)
+>  {
+>  	struct sun6i_csi_device *csi_dev =3D video_drvdata(file);
+> @@ -748,7 +748,7 @@ static int sun6i_csi_capture_g_fmt(struct file *file,=
+ void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_s_fmt(struct file *file, void *private,
+> +static int sun6i_csi_capture_s_fmt(struct file *file, void *priv,
+>  				   struct v4l2_format *format)
+>  {
+>  	struct sun6i_csi_device *csi_dev =3D video_drvdata(file);
+> @@ -764,7 +764,7 @@ static int sun6i_csi_capture_s_fmt(struct file *file,=
+ void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_try_fmt(struct file *file, void *private,
+> +static int sun6i_csi_capture_try_fmt(struct file *file, void *priv,
+>  				     struct v4l2_format *format)
+>  {
+>  	sun6i_csi_capture_format_prepare(format);
+> @@ -772,7 +772,7 @@ static int sun6i_csi_capture_try_fmt(struct file *fil=
+e, void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_enum_input(struct file *file, void *private,
+> +static int sun6i_csi_capture_enum_input(struct file *file, void *priv,
+>  					struct v4l2_input *input)
+>  {
+>  	if (input->index !=3D 0)
+> @@ -784,7 +784,7 @@ static int sun6i_csi_capture_enum_input(struct file *=
+file, void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_g_input(struct file *file, void *private,
+> +static int sun6i_csi_capture_g_input(struct file *file, void *priv,
+>  				     unsigned int *index)
+>  {
+>  	*index =3D 0;
+> @@ -792,7 +792,7 @@ static int sun6i_csi_capture_g_input(struct file *fil=
+e, void *private,
+>  	return 0;
+>  }
+> =20
+> -static int sun6i_csi_capture_s_input(struct file *file, void *private,
+> +static int sun6i_csi_capture_s_input(struct file *file, void *priv,
+>  				     unsigned int index)
+>  {
+>  	if (index !=3D 0)
+> diff --git a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c b/drive=
+rs/media/platform/synopsys/hdmirx/snps_hdmirx.c
+> index 7af6765532e3..b7d278b3889f 100644
+> --- a/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+> +++ b/drivers/media/platform/synopsys/hdmirx/snps_hdmirx.c
+> @@ -459,7 +459,7 @@ static bool port_no_link(struct snps_hdmirx_dev *hdmi=
+rx_dev)
+>  	return !tx_5v_power_present(hdmirx_dev);
+>  }
+> =20
+> -static int hdmirx_query_dv_timings(struct file *file, void *_fh,
+> +static int hdmirx_query_dv_timings(struct file *file, void *priv,
+>  				   struct v4l2_dv_timings *timings)
+>  {
+>  	struct hdmirx_stream *stream =3D video_drvdata(file);
+> @@ -751,7 +751,7 @@ static int hdmirx_dv_timings_cap(struct file *file, v=
+oid *fh,
+>  	return 0;
+>  }
+> =20
+> -static int hdmirx_enum_dv_timings(struct file *file, void *_fh,
+> +static int hdmirx_enum_dv_timings(struct file *file, void *priv,
+>  				  struct v4l2_enum_dv_timings *timings)
+>  {
+>  	return v4l2_enum_dv_timings_cap(timings, &hdmirx_timings_cap, NULL, NUL=
+L);
+> @@ -1323,7 +1323,7 @@ static int hdmirx_g_fmt_vid_cap_mplane(struct file =
+*file, void *fh,
+>  	return 0;
+>  }
+> =20
+> -static int hdmirx_g_dv_timings(struct file *file, void *_fh,
+> +static int hdmirx_g_dv_timings(struct file *file, void *priv,
+>  			       struct v4l2_dv_timings *timings)
+>  {
+>  	struct hdmirx_stream *stream =3D video_drvdata(file);
+> @@ -1339,7 +1339,7 @@ static int hdmirx_g_dv_timings(struct file *file, v=
+oid *_fh,
+>  	return 0;
+>  }
+> =20
+> -static int hdmirx_s_dv_timings(struct file *file, void *_fh,
+> +static int hdmirx_s_dv_timings(struct file *file, void *priv,
+>  			       struct v4l2_dv_timings *timings)
+>  {
+>  	struct hdmirx_stream *stream =3D video_drvdata(file);
+> diff --git a/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.c b/driv=
+ers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.c
+> index b628d6e081db..7fb565ebbe62 100644
+> --- a/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.c
+> +++ b/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.c
+> @@ -299,7 +299,7 @@ static int ti_csi2rx_enum_fmt_vid_cap(struct file *fi=
+le, void *priv,
+>  	return 0;
+>  }
+> =20
+> -static int ti_csi2rx_g_fmt_vid_cap(struct file *file, void *prov,
+> +static int ti_csi2rx_g_fmt_vid_cap(struct file *file, void *priv,
+>  				   struct v4l2_format *f)
+>  {
+>  	struct ti_csi2rx_dev *csi =3D video_drvdata(file);
+> diff --git a/drivers/media/platform/ti/omap/omap_vout.c b/drivers/media/p=
+latform/ti/omap/omap_vout.c
+> index a87d5030ac35..22782e9f1f4e 100644
+> --- a/drivers/media/platform/ti/omap/omap_vout.c
+> +++ b/drivers/media/platform/ti/omap/omap_vout.c
+> @@ -1236,7 +1236,7 @@ static int vidioc_g_fbuf(struct file *file, void *f=
+h,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_enum_output(struct file *file, void *priv_fh,
+> +static int vidioc_enum_output(struct file *file, void *priv,
+>  			      struct v4l2_output *out)
+>  {
+>  	if (out->index)
+> @@ -1246,13 +1246,13 @@ static int vidioc_enum_output(struct file *file, =
+void *priv_fh,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_output(struct file *file, void *priv_fh, unsigned in=
+t *i)
+> +static int vidioc_g_output(struct file *file, void *priv, unsigned int *=
+i)
+>  {
+>  	*i =3D 0;
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_output(struct file *file, void *priv_fh, unsigned in=
+t i)
+> +static int vidioc_s_output(struct file *file, void *priv, unsigned int i)
+>  {
+>  	return i ? -EINVAL : 0;
+>  }
+> diff --git a/drivers/media/radio/si4713/radio-platform-si4713.c b/drivers=
+/media/radio/si4713/radio-platform-si4713.c
+> index 67b4afadc95a..4132968110e3 100644
+> --- a/drivers/media/radio/si4713/radio-platform-si4713.c
+> +++ b/drivers/media/radio/si4713/radio-platform-si4713.c
+> @@ -75,35 +75,35 @@ static inline struct v4l2_device *get_v4l2_dev(struct=
+ file *file)
+>  	return &((struct radio_si4713_device *)video_drvdata(file))->v4l2_dev;
+>  }
+> =20
+> -static int radio_si4713_g_modulator(struct file *file, void *p,
+> +static int radio_si4713_g_modulator(struct file *file, void *priv,
+>  				    struct v4l2_modulator *vm)
+>  {
+>  	return v4l2_device_call_until_err(get_v4l2_dev(file), 0, tuner,
+>  					  g_modulator, vm);
+>  }
+> =20
+> -static int radio_si4713_s_modulator(struct file *file, void *p,
+> +static int radio_si4713_s_modulator(struct file *file, void *priv,
+>  				    const struct v4l2_modulator *vm)
+>  {
+>  	return v4l2_device_call_until_err(get_v4l2_dev(file), 0, tuner,
+>  					  s_modulator, vm);
+>  }
+> =20
+> -static int radio_si4713_g_frequency(struct file *file, void *p,
+> +static int radio_si4713_g_frequency(struct file *file, void *priv,
+>  				    struct v4l2_frequency *vf)
+>  {
+>  	return v4l2_device_call_until_err(get_v4l2_dev(file), 0, tuner,
+>  					  g_frequency, vf);
+>  }
+> =20
+> -static int radio_si4713_s_frequency(struct file *file, void *p,
+> +static int radio_si4713_s_frequency(struct file *file, void *priv,
+>  				    const struct v4l2_frequency *vf)
+>  {
+>  	return v4l2_device_call_until_err(get_v4l2_dev(file), 0, tuner,
+>  					  s_frequency, vf);
+>  }
+> =20
+> -static long radio_si4713_default(struct file *file, void *p,
+> +static long radio_si4713_default(struct file *file, void *priv,
+>  				 bool valid_prio, unsigned int cmd, void *arg)
+>  {
+>  	return v4l2_device_call_until_err(get_v4l2_dev(file), 0, core,
+> diff --git a/drivers/media/usb/cx231xx/cx231xx-417.c b/drivers/media/usb/=
+cx231xx/cx231xx-417.c
+> index e585c8f6e4c5..c695a97e202b 100644
+> --- a/drivers/media/usb/cx231xx/cx231xx-417.c
+> +++ b/drivers/media/usb/cx231xx/cx231xx-417.c
+> @@ -1499,7 +1499,7 @@ static int vidioc_g_selection(struct file *file, vo=
+id *priv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_std(struct file *file, void *fh0, v4l2_std_id *norm)
+> +static int vidioc_g_std(struct file *file, void *priv, v4l2_std_id *norm)
+>  {
+>  	struct cx231xx *dev =3D video_drvdata(file);
+> =20
+> diff --git a/drivers/media/usb/gspca/gspca.c b/drivers/media/usb/gspca/gs=
+pca.c
+> index 25edd2189654..3fc15d16df8e 100644
+> --- a/drivers/media/usb/gspca/gspca.c
+> +++ b/drivers/media/usb/gspca/gspca.c
+> @@ -1029,15 +1029,15 @@ static int vidioc_enum_fmt_vid_cap(struct file *f=
+ile, void  *priv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_fmt_vid_cap(struct file *file, void *_priv,
+> +static int vidioc_g_fmt_vid_cap(struct file *file, void *priv,
+>  				struct v4l2_format *fmt)
+>  {
+>  	struct gspca_dev *gspca_dev =3D video_drvdata(file);
+> -	u32 priv =3D fmt->fmt.pix.priv;
+> +	u32 fmt_priv =3D fmt->fmt.pix.priv;
+> =20
+>  	fmt->fmt.pix =3D gspca_dev->pixfmt;
+>  	/* some drivers use priv internally, so keep the original value */
+> -	fmt->fmt.pix.priv =3D priv;
+> +	fmt->fmt.pix.priv =3D fmt_priv;
+>  	return 0;
+>  }
+> =20
+> @@ -1075,24 +1075,24 @@ static int try_fmt_vid_cap(struct gspca_dev *gspc=
+a_dev,
+>  	return mode;			/* used when s_fmt */
+>  }
+> =20
+> -static int vidioc_try_fmt_vid_cap(struct file *file, void *_priv,
+> +static int vidioc_try_fmt_vid_cap(struct file *file, void *priv,
+>  				  struct v4l2_format *fmt)
+>  {
+>  	struct gspca_dev *gspca_dev =3D video_drvdata(file);
+> -	u32 priv =3D fmt->fmt.pix.priv;
+> +	u32 fmt_priv =3D fmt->fmt.pix.priv;
+> =20
+>  	if (try_fmt_vid_cap(gspca_dev, fmt) < 0)
+>  		return -EINVAL;
+>  	/* some drivers use priv internally, so keep the original value */
+> -	fmt->fmt.pix.priv =3D priv;
+> +	fmt->fmt.pix.priv =3D fmt_priv;
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_fmt_vid_cap(struct file *file, void *_priv,
+> +static int vidioc_s_fmt_vid_cap(struct file *file, void *priv,
+>  				struct v4l2_format *fmt)
+>  {
+>  	struct gspca_dev *gspca_dev =3D video_drvdata(file);
+> -	u32 priv =3D fmt->fmt.pix.priv;
+> +	u32 fmt_priv =3D fmt->fmt.pix.priv;
+>  	int mode;
+> =20
+>  	if (vb2_is_busy(&gspca_dev->queue))
+> @@ -1109,7 +1109,7 @@ static int vidioc_s_fmt_vid_cap(struct file *file, =
+void *_priv,
+>  	else
+>  		gspca_dev->pixfmt =3D gspca_dev->cam.cam_mode[mode];
+>  	/* some drivers use priv internally, so keep the original value */
+> -	fmt->fmt.pix.priv =3D priv;
+> +	fmt->fmt.pix.priv =3D fmt_priv;
+>  	return 0;
+>  }
+> =20
+> diff --git a/drivers/media/usb/hdpvr/hdpvr-video.c b/drivers/media/usb/hd=
+pvr/hdpvr-video.c
+> index 8a5c2c5227eb..8c7ae362d992 100644
+> --- a/drivers/media/usb/hdpvr/hdpvr-video.c
+> +++ b/drivers/media/usb/hdpvr/hdpvr-video.c
+> @@ -590,7 +590,7 @@ static int vidioc_querycap(struct file *file, void  *=
+priv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_std(struct file *file, void *_fh,
+> +static int vidioc_s_std(struct file *file, void *priv,
+>  			v4l2_std_id std)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -610,7 +610,7 @@ static int vidioc_s_std(struct file *file, void *_fh,
+>  	return hdpvr_config_call(dev, CTRL_VIDEO_STD_TYPE, std_type);
+>  }
+> =20
+> -static int vidioc_g_std(struct file *file, void *_fh,
+> +static int vidioc_g_std(struct file *file, void *priv,
+>  			v4l2_std_id *std)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -623,7 +623,7 @@ static int vidioc_g_std(struct file *file, void *_fh,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_querystd(struct file *file, void *_fh, v4l2_std_id *a)
+> +static int vidioc_querystd(struct file *file, void *priv, v4l2_std_id *a)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+>  	struct hdpvr_fh *fh =3D file_to_hdpvr_fh(file);
+> @@ -642,7 +642,7 @@ static int vidioc_querystd(struct file *file, void *_=
+fh, v4l2_std_id *a)
+>  	return ret;
+>  }
+> =20
+> -static int vidioc_s_dv_timings(struct file *file, void *_fh,
+> +static int vidioc_s_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings *timings)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -665,7 +665,7 @@ static int vidioc_s_dv_timings(struct file *file, voi=
+d *_fh,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_dv_timings(struct file *file, void *_fh,
+> +static int vidioc_g_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings *timings)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -678,7 +678,7 @@ static int vidioc_g_dv_timings(struct file *file, voi=
+d *_fh,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_query_dv_timings(struct file *file, void *_fh,
+> +static int vidioc_query_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings *timings)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -720,7 +720,7 @@ static int vidioc_query_dv_timings(struct file *file,=
+ void *_fh,
+>  	return ret;
+>  }
+> =20
+> -static int vidioc_enum_dv_timings(struct file *file, void *_fh,
+> +static int vidioc_enum_dv_timings(struct file *file, void *priv,
+>  				    struct v4l2_enum_dv_timings *timings)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -736,7 +736,7 @@ static int vidioc_enum_dv_timings(struct file *file, =
+void *_fh,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_dv_timings_cap(struct file *file, void *_fh,
+> +static int vidioc_dv_timings_cap(struct file *file, void *priv,
+>  				    struct v4l2_dv_timings_cap *cap)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -763,7 +763,7 @@ static const char *iname[] =3D {
+>  	[HDPVR_COMPOSITE] =3D "Composite",
+>  };
+> =20
+> -static int vidioc_enum_input(struct file *file, void *_fh, struct v4l2_i=
+nput *i)
+> +static int vidioc_enum_input(struct file *file, void *priv, struct v4l2_=
+input *i)
+>  {
+>  	unsigned int n;
+> =20
+> @@ -783,7 +783,7 @@ static int vidioc_enum_input(struct file *file, void =
+*_fh, struct v4l2_input *i)
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_input(struct file *file, void *_fh,
+> +static int vidioc_s_input(struct file *file, void *priv,
+>  			  unsigned int index)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -817,7 +817,7 @@ static int vidioc_s_input(struct file *file, void *_f=
+h,
+>  	return retval;
+>  }
+> =20
+> -static int vidioc_g_input(struct file *file, void *private_data,
+> +static int vidioc_g_input(struct file *file, void *priv,
+>  			  unsigned int *index)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -849,7 +849,7 @@ static int vidioc_enumaudio(struct file *file, void *=
+priv,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_s_audio(struct file *file, void *private_data,
+> +static int vidioc_s_audio(struct file *file, void *priv,
+>  			  const struct v4l2_audio *audio)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -868,7 +868,7 @@ static int vidioc_s_audio(struct file *file, void *pr=
+ivate_data,
+>  	return retval;
+>  }
+> =20
+> -static int vidioc_g_audio(struct file *file, void *private_data,
+> +static int vidioc_g_audio(struct file *file, void *priv,
+>  			  struct v4l2_audio *audio)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> @@ -985,7 +985,7 @@ static int hdpvr_s_ctrl(struct v4l2_ctrl *ctrl)
+>  	return ret;
+>  }
+> =20
+> -static int vidioc_enum_fmt_vid_cap(struct file *file, void *private_data,
+> +static int vidioc_enum_fmt_vid_cap(struct file *file, void *priv,
+>  				    struct v4l2_fmtdesc *f)
+>  {
+>  	if (f->index !=3D 0)
+> @@ -996,7 +996,7 @@ static int vidioc_enum_fmt_vid_cap(struct file *file,=
+ void *private_data,
+>  	return 0;
+>  }
+> =20
+> -static int vidioc_g_fmt_vid_cap(struct file *file, void *_fh,
+> +static int vidioc_g_fmt_vid_cap(struct file *file, void *priv,
+>  				struct v4l2_format *f)
+>  {
+>  	struct hdpvr_device *dev =3D video_drvdata(file);
+> --=20
+> Regards,
+>=20
+> Laurent Pinchart
+>=20
 
-  #ifndef res_smp_cond_load_acquire
-  #define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire(v, c)
-  #endif
+--hjo7ajkcbq242gza
+Content-Type: application/pgp-signature; name="signature.asc"
 
-And, the definition of res_smp_cond_load_acquire() (only on arm64)
-essentially uses smp_cond_load_acquire_timewait() such that it will
-be equivalent to smp_cond_load_acquire() but one that's guaranteed
-to terminate.
+-----BEGIN PGP SIGNATURE-----
 
-> I'd start with ripping out the current arm64 implementation, add a
-> generic implementation to barrier.h and then override it in the arch
-> code.
+iQIzBAABCgAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmia1pAACgkQQ96R+SSa
+cUW33w//WraDudYw3cbeXUaEAWKmgwVi89oB90GLJHch9Pa61JFf3vYtwzmEXTe0
+CrNL5SQK6igAB0tLZ4mouyIiFXA7YCjhww+vPq7Wz/cFHlPnE7VBb1iOeLRESeJO
+TiUGfqbjEKZAGvt5CDgoCUoKwDpmOMHRVkEAZIc5euc4MKk2ksROnmLUzUbRa5yb
+DJMn4cibAN0+NTPCSD+xl9qpDGf0BiAGBcy/r36xG3M84rV/07o48hj5J3IQNHcv
+PNf32CaArgN1EdoaF4qXG/ZDP3oQdWbO3C0I3mbdkpG6SEJBU4bmKoiK29Ya+rW/
+9tallnYI1KQZh/jdC54DSkVU+LNtRH3X4Si5WtlXtcKr58vta8mpScyeh1KCqY5u
+O9/FnzKXp2HlQaRCm7nI8K43WVZK/9pbJW/xI9RrImiLVnGCH+WuntoHrfQEzuf2
+Sp3R1+C7NyplZbxBGlSnLy67ouwyKa80Ear4N8rQAgciyrK9H3y1ziLllyCBmuoS
+3l9TEDn5mQoLeehE1Q62/e8gDydh1xK4iksLIqQjNObvcXNrjncfax73TNtIVhRt
+PHFvLBaU4v3kBc5KGz0ShOU088/E7bXhhYb5whIZugQ7eFb5nMw2HffRNBjIwNQq
+czQ1gUoQiHZFRCMZppyAb4s4Hj/2y6itV2WE0h4bUZ9EsQOWq5w=
+=BUoN
+-----END PGP SIGNATURE-----
 
-The problem is that rqspinlock code is mostly written as if it is
-working with smp_cond_load_acquire().
-
-Fixing it needs some amount of refactoring. I had preliminary patches
-patches to do that, but my preference was to send those out after
-the barrier changes.
-
-If you feel that is best done as part of this series, I can add those
-patches to v4.
-
-
-Thanks for the comments!
-
---
-ankur
+--hjo7ajkcbq242gza--
 
