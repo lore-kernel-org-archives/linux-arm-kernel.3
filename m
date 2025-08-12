@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53315CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02B5ECA0EC4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=euQ0/FWCPfpAmuUGWlQCInJv3v6VLnjvAqWG5qJcsyM=; b=hLQjDw837UjcpXoqpuYPt13tN3
-	rvYIsmxkiJzEao32ahAIg/gfw06DirzNycJ/5vqnvNNUhipPWhaFOIP7t02hEkiIjrdal7xv70s+f
-	sbhvEq8boyErCJ2MjCFpBCBGKq6PzrdRSNT6ssZ9GwdxSUhnC4ogPJivlz9AP8XzpvadsvaUCMaM0
-	v4GsWtwKZJjPb6aE32pQ2MYHNOFEQ+ISmQDztxr0wFlDQgCn2cBc34bOKyJpcd34VFWIbizR9EAkn
-	ovKhyhpdzlJyQMLfYbBilZyxrEyjh2UIiS88MmTOS3tNrME3h4oDdQF1mIoC0xRV5wK1fUy1v86VE
-	9Orq9K+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gr9OVcrfJ11/cGD5iGokM0K3xQF8e7vgTNltYbwmmM0=; b=Iz5IHWKk4AZkTAxdZrSrAvlb6j
+	PxLUXwjBAerQaUnPTt5O0eMQ/uvfkzeqBAZslVzUy4tXHjxWbmbrszqAjCPPZNfh98c+mrOubqbKl
+	9srP35ZKoTloSQ5tvo54h/+Y/YSPwZPEC0nQueWNBigLg98jbAp0mst+GEHcSaLGZCV3nZhHq7kWe
+	nfbq8/RrK0+6PbkguLMgstUD8TtSE6CQat4fxp8G1q9BZhymyGG+G4ZpYabTPuqzx2fLYC65W/3Id
+	Bbi22SMZXJjb1hRcb7W8CCKYaVwaIlHCxZU8p+MXca1aG4P/NlaC2ELk6qKiF+t+YoRe1JhK8TKmZ
+	hM/tHxnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulvgy-0000000BxgK-2X6w;
-	Tue, 12 Aug 2025 20:33:56 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1ulvh1-0000000BxlJ-2sma;
+	Tue, 12 Aug 2025 20:33:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulu5Y-0000000BkFJ-1Rv6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 18:51:13 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id D8A68A09CA;
-	Tue, 12 Aug 2025 20:51:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=euQ0/FWCPfpAmuUGWlQCInJv3v6VLnjvAqWG5qJcsyM=; b=
-	TP6zI55hsKn1gRs0xPCbymhfbRw8nj5+Hm2aiCcnjJJ4CQzf6YAtFXVY5JimoXNt
-	lYBd+MuSXmmTAjbxYE5OU73B+iEd7C5K3NQCVgVq3GLqgpltbx9++tUGvLb9DT0n
-	S7uOzredbMYseiCISikd+3Yj6QtxaDZpf7ttNotG4bwWjFtR9RnAjbO8hq17EAyw
-	M6LPiz65J8D5nrQmk2S4FazkFO3ZSJy9hV3weBEijYeAuG+LhfbfY1qxeB77DT/5
-	EpXUuaSTmR+kMpsBwXd3PsTpi+EnMvY0cKy3ur42xY1kgUWUdjsWpcicM9dejW7D
-	hfbLb/W8/JEMIHjS/uykwJwSDCq3jm2nfA2gmRmsPqvqW73dqKUWNQywZYhzeM1D
-	l5A1W6BVqpF9YPHXBhe/I0bxuItPCDeuoRZCj1o6P3lBKOyRl0uD0RXmgc1nR+0D
-	+hfYayrDoS3AOlkFT4Udpu3pEpT6vDrV2H9Mf1C20jfRdmivkiwobhtTN+9586Ac
-	fVoopIFd1suEGW9eKcmDqt//uAq+oalI/hZwL7d9mBs6U0SwEoutmtgJCszEjL8g
-	L6TS6AzQnvXWaC7kn1KI6DxMJ6sc0UXUxtWTZA86sXzCb61j09PLk7koTgvcAr+Z
-	MDIpfPeg2F7dUqeR0nxy8qdg3U2SCOeMppP9kIyRZ3Y=
-From: =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-Date: Tue, 12 Aug 2025 20:50:45 +0200
-Subject: [PATCH v2] ARM: dts: imx6-bx50v3: Replace license text comment
- with SPDX identifier
+	id 1ulu7I-0000000BkLp-0t7B;
+	Tue, 12 Aug 2025 18:53:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1755024777;
+	bh=Ic2cMEzLYnTGEnpc9cdCn2OYt4fnwN/t6PR88zxT2T0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=aXZUkDKP8INt/Zpw/e6KcFneQehLtDBgtR4Q7eTiEVl5XoEA/5tytgl33kz4VPnoz
+	 Cf4Pi+EchYoVg2n9hYjFzMo3Ms5a4StIswbIcBeDPKUBhfz6/4EHzCubzsXl4t3xYT
+	 d/QTwzQ676/V4aCS3fx3QPYfYivo6rK8VE3jWelqDkBcgcGPx5SC+BF53v5bjhK7te
+	 BniZG4wiPyEp4AX9hflFEIx7/8MsJIXRDuqSyz+TKcgqGXvV4ydEeXAkVmqFufRXbn
+	 IARVDGtzAwQWmQDv2/dsS17HWajtwgGji8T4fJdlyq6yMs/wCIi8KvSJJN7WebWIFR
+	 98OL5swfPIC0g==
+Received: from [IPv6:2606:6d00:11:5a76::c41] (unknown [IPv6:2606:6d00:11:5a76::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5351C17E0147;
+	Tue, 12 Aug 2025 20:52:56 +0200 (CEST)
+Message-ID: <be4c31cf8f37d599012ad9d7aa68468a0d307a2c.camel@collabora.com>
+Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Alex Bee <knaerzche@gmail.com>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Tue, 12 Aug 2025 14:52:54 -0400
+In-Reply-To: <25ce30446e8e8d038273fcdfb398c90995c242db.camel@collabora.com>
+References: <20250810212454.3237486-1-jonas@kwiboo.se>
+		 <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
+		 <1dd29158-0660-4254-ac00-1316768d9b82@kwiboo.se>
+		 <91864a1c047d2bdfce202b070716a694ede47d5e.camel@collabora.com>
+		 <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+		 <efdf8c99-d166-4b78-afc5-d4a6eb5ac046@kwiboo.se>
+	 <25ce30446e8e8d038273fcdfb398c90995c242db.camel@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
+ oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
+ zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
+ TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
+ 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
+ 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
+ cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
+ tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
+ bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
+ qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
+ BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
+ tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
+ zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
+ 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
+ s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
+ An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
+ ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
+ AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
+ CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
+ 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
+ BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
+ +E7ItOqZEHAs+xabBgknYZIFPW0RE5pY29sYXMgRHVmcmVzbmUgKEIuIFNjLiBJbmZvcm1hdGlxdW
+ UpIDxuaWNvbGFzZEBibHVlc3RyZWFrdGVjaC5jb20+iGAEExECACAFAkZjGzoCGwMGCwkIBwMCBBU
+ CCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHBl7AJ0d2lrzshMmJaik/EaDEakzEwqgxQCg0JVZMZm9
+ gRfEou1FvinuZxwf/ms=
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha1"; protocol="application/pgp-signature";
+	boundary="=-YV/OT7n0OwYiMsbw93e1"
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-ID: <20250812-bx50v3-dts-lic-v2-1-1454a438fc29@prolan.hu>
-X-B4-Tracking: v=1; b=H4sIAASNm2gC/3WNywqDMBBFf0Vm3Sl5YISu+h/FRWLGJmBjydhgE
- f+90X2XB849dwOmHInh1myQqUSOc6qgLg0MwaYnYfSVQQnVik4odGsrika/ME5xQNM5JaTWglw
- LdfTONMb1DD76ys4yocs2DeHIvCwvlA8xRF7m/D2Pizz0vx9FokQ1ktGetBHG3995nmy6hg/0+
- 77/AMQGxevFAAAA
-X-Change-ID: 20250702-bx50v3-dts-lic-67b201330eb5
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Akshay Bhat <akshay.bhat@timesys.com>, Ian Ray <ian.ray@ge.com>, Jaret Cantu
-	<jaret.cantu@timesys.com>, Justin Waters <justin.waters@timesys.com>,
-	=?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-X-Mailer: b4 0.14.2
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1755024669;VERSION=7995;MC=1061283836;ID=1014979;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2998FD515E617465
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_115112_711692_7384F616 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20250812_115300_610935_63D097E0 
+X-CRM114-Status: GOOD (  27.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,289 +110,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace verbatim license text with a `SPDX-License-Identifier`.
 
-The comment header mis-attributes this license to be "X11", but the
-license text does not include the last line "Except as contained in this
-notice, the name of the X Consortium shall not be used in advertising or
-otherwise to promote the sale, use or other dealings in this Software
-without prior written authorization from the X Consortium.". Therefore,
-this license is actually equivalent to the SPDX "MIT" license (confirmed
-by text diffing).
+--=-YV/OT7n0OwYiMsbw93e1
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Cc: Akshay Bhat <akshay.bhat@timesys.com>
-Cc: Ian Ray <ian.ray@ge.com>
-Cc: Jaret Cantu <jaret.cantu@timesys.com>
-Cc: Justin Waters <justin.waters@timesys.com>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
-Changes in v2:
-- Also patch imx6q-ba16.dtsi
-- Fix msg
-- Link to v1: https://lore.kernel.org/r/20250702-bx50v3-dts-lic-v1-1-2fe63de3606d@prolan.hu
----
- arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts  | 38 +----------------------------
- arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts  | 38 +----------------------------
- arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts  | 38 +----------------------------
- arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi   | 38 +----------------------------
- arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi | 38 +----------------------------
- 5 files changed, 5 insertions(+), 185 deletions(-)
+Le mardi 12 ao=C3=BBt 2025 =C3=A0 14:26 -0400, Nicolas Dufresne a =C3=A9cri=
+t=C2=A0:
+> Hi Jonas,
+>=20
+> Le mardi 12 ao=C3=BBt 2025 =C3=A0 19:31 +0200, Jonas Karlman a =C3=A9crit=
+=C2=A0:
+> > On 8/12/2025 2:44 PM, Nicolas Dufresne wrote:
+> > > I forgot,=20
+> > >=20
+> > > Le mardi 12 ao=C3=BBt 2025 =C3=A0 08:38 -0400, Nicolas Dufresne a =C3=
+=A9crit=C2=A0:
+> > > > > JCT-VC-HEVC_V1 on GStreamer-H.265-V4L2SL-Gst1.0:
+> > > > >=20
+> > > > > - DBLK_D_VIXS_2 (fail)
+> > > > > - DSLICE_A_HHI_5 (fail)
+> > > > > - EXT_A_ericsson_4 (fail)
+> > > > > - PICSIZE_A_Bossen_1 (error)
+> > > > > - PICSIZE_B_Bossen_1 (error)
+> > > > > - PICSIZE_C_Bossen_1 (error)
+> > > > > - PICSIZE_D_Bossen_1 (error)
+> > > > > - SAODBLK_A_MainConcept_4 (fail)
+> > > > > - SAODBLK_B_MainConcept_4 (fail)
+> > > > > - TSUNEQBD_A_MAIN10_Technicolor_2 (error)
+> > >=20
+> > > I'me getting the same result if I force a single job in fluster. The =
+test
+> > > I
+> > > posted was with 2 jobs. Detlev found that the iommu reset is required=
+ in
+> > > more
+> > > cases on RK3588/3576, perhaps the HEVC decoder in older hardware need=
+s the
+> > > same,
+> > > I will try and report.
+> >=20
+> > Vendor kernel [1] check following bits from RKVDEC_REG_INTERRUPT reg to
+> > decide if a full HW reset should be done.
+> >=20
+> > =C2=A0 err_mask =3D RKVDEC_BUF_EMPTY_STA
+> > =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_BUS_STA
+> > =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_COLMV_REF_ERR_STA
+> > =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_ERR_STA
+> > =C2=A0=C2=A0	=C2=A0=C2=A0 | RKVDEC_TIMEOUT_STA;
+> >=20
+> > Adding proper reset support can be rather involved and main reason why
+> > this series does not handle it, better suited for a separate future
+> > series.
+> >=20
+> > Proper HW reset will require e.g. dt-bindings, DT updates, pmu idle
+> > request integration and for rk3328 vendor even moved VPU reset to TF-A.
+> >=20
+> > Doing the iommu detach/attach dance not only on RKVDEC_SOFTRESET_RDY
+> > could possible improve some cases, until full reset can be implemented.
+>=20
+> Rockchip is following VSI design of "self reset" on error. But since the =
+iommu
+> is part of the device, it also gets reset, which imply having to reprogra=
+m it.
+> This showed to be very reliable logic, despite RK doing a hard reset.
+>=20
+> Since self reset is documented for RKVDEC_BUS_STA, RKVDEC_ERR_STA,
+> RKVDEC_TIMEOUT_STA, it would seem that RKVDEC_BUF_EMPTY_STA is redundant,
+> unless
+> its asynchronous operation that need to be polled. Possibly something to
+> investigate. RKVDEC_BUF_EMPTY_STA and RKVDEC_COLMV_REF_ERR_STA are not
+> documented a such, so its not quite logical to reprogram the iommu.
+>=20
+> I don't immediately trust reference software for these type of things, we
+> should
+> find what works best and have a rationale for. The hard reset is every
+> expensive, and hard to upstream.
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts b/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts
-index d994b32ad825c9e667da08eb36655ed267468b53..3dee78302074751cf42d9e69796aad2a1c9719fe 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-b450v3.dts
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Timesys Corporation.
-  * Copyright 2015 General Electric Company
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts b/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts
-index b0d345f5d071261c68caccadc1dcbd1d4b607dc2..bae85646d2c0cc5b8211e1e12cdcb7bb96900bf0 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-b650v3.dts
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Timesys Corporation.
-  * Copyright 2015 General Electric Company
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts b/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts
-index cad112e054758f7ce364f2346eb4e1e291086a61..0ececa6446818f01bd23970c9d358db9ed7a4713 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-b850v3.dts
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Timesys Corporation.
-  * Copyright 2015 General Electric Company
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- /dts-v1/;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi
-index d77472519086bd749be6394282ad1a49a8b14064..af9415b45e37790d8636b0f577c56aa0912613c2 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi
-@@ -1,45 +1,9 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Support for imx6 based Advantech DMS-BA16 Qseven module
-  *
-  * Copyright 2015 Timesys Corporation.
-  * Copyright 2015 General Electric Company
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- #include "imx6q.dtsi"
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
-index aa1adcc740195172f1c387c1edfbf829af68464d..6920570477dda47f0683dc0ec8bf42e2257714ce 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6q-bx50v3.dtsi
-@@ -1,43 +1,7 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
- /*
-  * Copyright 2015 Timesys Corporation.
-  * Copyright 2015 General Electric Company
-- *
-- * This file is dual-licensed: you can use it either under the terms
-- * of the GPL or the X11 license, at your option. Note that this dual
-- * licensing only applies to this file, and not this project as a
-- * whole.
-- *
-- *  a) This file is free software; you can redistribute it and/or
-- *     modify it under the terms of the GNU General Public License
-- *     version 2 as published by the Free Software Foundation.
-- *
-- *     This file is distributed in the hope that it will be useful,
-- *     but WITHOUT ANY WARRANTY; without even the implied warranty of
-- *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-- *     GNU General Public License for more details.
-- *
-- * Or, alternatively,
-- *
-- *  b) Permission is hereby granted, free of charge, to any person
-- *     obtaining a copy of this software and associated documentation
-- *     files (the "Software"), to deal in the Software without
-- *     restriction, including without limitation the rights to use,
-- *     copy, modify, merge, publish, distribute, sublicense, and/or
-- *     sell copies of the Software, and to permit persons to whom the
-- *     Software is furnished to do so, subject to the following
-- *     conditions:
-- *
-- *     The above copyright notice and this permission notice shall be
-- *     included in all copies or substantial portions of the Software.
-- *
-- *     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-- *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-- *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-- *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-- *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-- *     OTHER DEALINGS IN THE SOFTWARE.
-  */
- 
- #include "imx6q-ba16.dtsi"
+I did the test, and its not that. There is no error in fact, just corrupted
+image. The more parallelism, the more failure. Another important key point,=
+ no
+mmu faults, so its not that. You also reported flakyness, and rerunning mak=
+ing
+it work.
 
----
-base-commit: 66701750d5565c574af42bef0b789ce0203e3071
-change-id: 20250702-bx50v3-dts-lic-67b201330eb5
+The problem is likely due to some register left to its previous value,
+forgotten. If you let it sit, it will PM suspend, and a proper reset happen=
+s.
+The stream then decodes fine. If you run it concurrently with another, it
+decodes from dirt and fails. I think that theory fits a lot better, and is =
+a
+very common issue. Adding a hard reset would not fix this one.
 
-Best regards,
--- 
-Bence Csókás <csokas.bence@prolan.hu>
+Porting to in-ram register is the easiest way to fix that. It really remind=
+s me
+of:
 
+  7fcb42b3835e9 media: verisilicon: HEVC: Initialize start_bit field
 
+Which tool quite some time to find.
+
+Nicolas
+
+>=20
+> Nicolas
+>=20
+> >=20
+> > [1]
+> > https://github.com/Kwiboo/linux-rockchip/blob/linux-6.1-stan-rkr6.1/dri=
+vers/video/rockchip/mpp/mpp_rkvdec.c#L924-L931
+> >=20
+> > Regards,
+> > Jonas
+> >=20
+> > >=20
+> > > Nicolas
+
+--=-YV/OT7n0OwYiMsbw93e1
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQSScpfJiL+hb5vvd45xUwItrAaoHAUCaJuNhgAKCRBxUwItrAao
+HPL9AJ9DPFwlqN8nGQHull+oUB6FkI2c4gCgvkKpHSiCr5Y/01T36HS7z8yJ9i0=
+=sG3Y
+-----END PGP SIGNATURE-----
+
+--=-YV/OT7n0OwYiMsbw93e1--
 
