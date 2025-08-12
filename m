@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3E0CA0EC4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 19:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D380ACA0EDC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 20:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLNl7MI8X4M5cxrMR25hGPEYfSQVqkkWhNzJlEstFA0=; b=RPZrc4SKU9wRwA2nlYxCxNp2bK
-	LGGEoOXJW+/pnEK465gGGOJKQHlmWjlmVchtyBu5oiHnkPAPwYAk9YMwXuXZePvlazMdR95I7tRIj
-	l9yd0c29RfnTtzOOHWEP6nxyUNTKlla8rLW2uNSfHuLMDEuGG3eU5bdXsB7rwPml4tJDt60Nv3i+z
-	VPMONvcBFzNATfRoFyV8+xXOszL/448f83gRolBrBrxwd3sLUWQSyOlSDrvuGFUggM97kdzPPz6tu
-	VHVz/rx3x6rOcXKbwekXvSQVCOzeelFMWjwN3R3n1BRUbSHbLbsmFzyD55mNlfRAOGMFwiQX/QIyf
-	V0glNVCQ==;
+	bh=sw4HIiGpcTlEANcKneYpvYEeePB5QhOBB0MDbHc9D3c=; b=JF3EzCTQcsHW8msIrqk86Bo0KF
+	4miQrldKpzhvBbnciwykXQEdB/J55F5bXLsW4fbqrct0W8IRpLZOIesbYH1QdAMCYjUGso4aSYfoR
+	Cktsnpc7w7BWnqN8bbROvb35GJ9h7lurKjM3K1uSuoT5VOqRfx90vqbiALTeq8W9cWjWkWY9vIffK
+	WNy658mWIXTWQ5qEAw6nFBsIH9/UDHEQLTYiyyqVi5m5xrQ3Ni6eWb6wWuLoxyLyL3YuKPYmmV+0J
+	q82dMdgUwzzySei5SEodIu8VvIZZ5/RcX4Kal6HSN23UWwDvSClfL7XfM3ZC9GNmsMMImrtfvarHk
+	4koWRRSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulukv-0000000Brkm-14tJ;
-	Tue, 12 Aug 2025 19:33:57 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1ulvgT-0000000BwrQ-2lO5;
+	Tue, 12 Aug 2025 20:33:25 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulsqm-0000000BaTc-1458
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 17:31:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1755019909;
- bh=lLNl7MI8X4M5cxrMR25hGPEYfSQVqkkWhNzJlEstFA0=;
- b=c/A+57ABEc86qFRkbT3YxSoUTbk1suErG6+UYUEVudmnMctx2i3e+4mauZi7y5BuVtasDxxmK
- dmkb6agWunYlH+g7vP1xsLY5VxFRnRYHMiW2F8UuAv2hrX+3rXOjXZsnKBLWBWxWBJtiiMCS8Ke
- MBZGTCMeD5YgtZqjk4GCGRMTsJWyZHBke4KsWjqAdZN3qwToof8kme/gPXzu5pT3LSmkcTUBO05
- C9RkclPkmcta6oV9mG95nZEkEPUKIIfo5UHWYcj6VwUBdR9n7fGWmp16/WFg1zg7/5ahC3C1+IA
- mavOTTFDqHfNwJdyjAyvfLvHpKENsPslfoL02B6Eq0kw==
-X-Forward-Email-ID: 689b7a6df092412ac2631c2f
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.2.4
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <efdf8c99-d166-4b78-afc5-d4a6eb5ac046@kwiboo.se>
-Date: Tue, 12 Aug 2025 19:31:20 +0200
+	id 1ulsTw-0000000BVwn-386I;
+	Tue, 12 Aug 2025 17:08:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1755018476; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=X2+6LwOk6qAv9zrq6LA5lWJtwOuVWCKOYnHqz+/wya1EJ7ZFLuBXrXwPuSE5Y09kXg9IW+ufBGm+8my9JZ0G0NaK1Hr2RaQ+Lq1IzsVM1UWAfnj97rhqerSSWRLjTS9w/iwPgsVhn/k1cBgfLVyE8tYPGyAA+XYPDvo7fd6AcJ4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1755018476; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sw4HIiGpcTlEANcKneYpvYEeePB5QhOBB0MDbHc9D3c=; 
+	b=DydPo1JcWKdDn1l5azr8mzuF8AMH/N0ACJ6fHZBdW0i14ZqlJgQZW4PNP9C4UusAHku6ZQlbSF/gokc+99CObc2Ly4q1H6BwSuh8AVIX0mylFmQtsu56RhlToq3RcFL5ihY8ZcI30T4AWIPJp6IS1ccfLHdxzdiX+KPFIFb1kdM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1755018476;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=sw4HIiGpcTlEANcKneYpvYEeePB5QhOBB0MDbHc9D3c=;
+	b=h1kA7+0Ixsm5zg0SIUI3cJXY0kA3JL2n/i4eyh20FfZKM4fe0xcNwT6EgM15ZOqz
+	clya8QxUyjydBdtY+7ZYDY2PeYd/sEVspUvj9ic1w/Q92BqmykR2RIn2LA/ReGuqQel
+	Te6aYj3DP5kBM8m4Nf55CcEnK8QafOaPGGNob5Os=
+Received: by mx.zohomail.com with SMTPS id 1755018474668548.5768361747636;
+	Tue, 12 Aug 2025 10:07:54 -0700 (PDT)
+Message-ID: <f3b7414c-8182-4018-951b-b6c64653c38d@collabora.com>
+Date: Tue, 12 Aug 2025 20:07:50 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] media: rkvdec: Add HEVC backend
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Alex Bee <knaerzche@gmail.com>,
- Sebastian Fricke <sebastian.fricke@collabora.com>,
- linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+Subject: Re: [PATCH v2 09/12] media: rkvdec: Add H264 support for the VDPU381
+ variant
+To: Detlev Casanova <detlev.casanova@collabora.com>,
  linux-kernel@vger.kernel.org
-References: <20250810212454.3237486-1-jonas@kwiboo.se>
- <50162371fd54fc976a84fcf57c9b69112a892c46.camel@collabora.com>
- <1dd29158-0660-4254-ac00-1316768d9b82@kwiboo.se>
- <91864a1c047d2bdfce202b070716a694ede47d5e.camel@collabora.com>
- <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+References: <20250808200340.156393-1-detlev.casanova@collabora.com>
+ <20250808200340.156393-10-detlev.casanova@collabora.com>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <a66feb89fa02f05b187e5603ffc3b1501ef3cbd5.camel@collabora.com>
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <20250808200340.156393-10-detlev.casanova@collabora.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_103152_477297_D2302FE7 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20250812_100816_822931_7D577564 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/12/2025 2:44 PM, Nicolas Dufresne wrote:
-> I forgot, 
-> 
-> Le mardi 12 août 2025 à 08:38 -0400, Nicolas Dufresne a écrit :
->>> JCT-VC-HEVC_V1 on GStreamer-H.265-V4L2SL-Gst1.0:
->>>
->>> - DBLK_D_VIXS_2 (fail)
->>> - DSLICE_A_HHI_5 (fail)
->>> - EXT_A_ericsson_4 (fail)
->>> - PICSIZE_A_Bossen_1 (error)
->>> - PICSIZE_B_Bossen_1 (error)
->>> - PICSIZE_C_Bossen_1 (error)
->>> - PICSIZE_D_Bossen_1 (error)
->>> - SAODBLK_A_MainConcept_4 (fail)
->>> - SAODBLK_B_MainConcept_4 (fail)
->>> - TSUNEQBD_A_MAIN10_Technicolor_2 (error)
-> 
-> I'me getting the same result if I force a single job in fluster. The test I
-> posted was with 2 jobs. Detlev found that the iommu reset is required in more
-> cases on RK3588/3576, perhaps the HEVC decoder in older hardware needs the same,
-> I will try and report.
+On 8/8/25 23:03, Detlev Casanova wrote:
+> +static struct rcb_size_info vdpu381_rcb_sizes[] = {
+> +	{6,	PIC_WIDTH},	// intrar
+> +	{1,	PIC_WIDTH},	// transdr (Is actually 0.4*pic_width)
+> +	{1,	PIC_HEIGHT},	// transdc (Is actually 0.1*pic_height)
+> +	{3,	PIC_WIDTH},	// streamdr
+> +	{6,	PIC_WIDTH},	// interr
+> +	{3,	PIC_HEIGHT},	// interc
+> +	{22,	PIC_WIDTH},	// dblkr
+> +	{6,	PIC_WIDTH},	// saor
+> +	{11,	PIC_WIDTH},	// fbcr
+> +	{67,	PIC_HEIGHT},	// filtc col
+> +};
+> +
+> +const struct rkvdec_config config_vdpu381 = {
 
-Vendor kernel [1] check following bits from RKVDEC_REG_INTERRUPT reg to
-decide if a full HW reset should be done.
+Nit: config_vdpu381 should be declared as "static", same for
+config_vdpu383 in the next patch
 
-  err_mask = RKVDEC_BUF_EMPTY_STA
-  	   | RKVDEC_BUS_STA
-  	   | RKVDEC_COLMV_REF_ERR_STA
-  	   | RKVDEC_ERR_STA
-  	   | RKVDEC_TIMEOUT_STA;
-
-Adding proper reset support can be rather involved and main reason why
-this series does not handle it, better suited for a separate future
-series.
-
-Proper HW reset will require e.g. dt-bindings, DT updates, pmu idle
-request integration and for rk3328 vendor even moved VPU reset to TF-A.
-
-Doing the iommu detach/attach dance not only on RKVDEC_SOFTRESET_RDY
-could possible improve some cases, until full reset can be implemented.
-
-[1] https://github.com/Kwiboo/linux-rockchip/blob/linux-6.1-stan-rkr6.1/drivers/video/rockchip/mpp/mpp_rkvdec.c#L924-L931
-
-Regards,
-Jonas
-
-> 
-> Nicolas
-
+-- 
+Best regards,
+Dmitry
 
