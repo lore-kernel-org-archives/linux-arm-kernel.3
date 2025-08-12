@@ -4,180 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CF5C87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA047C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 12:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTPQzHpzzXqeYJv52gnW0CdFxGV5MbpGt/Lg7EFYy18=; b=FLBu5d2rU/bjpVERxlsrU+emyr
-	t0iOEhCQqe1abm2FTgdtS+ELyctDu0nwb+Xpdlfz/ECmsAWnwBxHaD8xTziNddQvyGoyWFZMjEJAl
-	vX8INQ2KkWBlml9OR8ADx46kNVPbmE4qzkbHYDa+Mnr07jXdmRDEFZeR88zkixJs16L94gYKXURkG
-	vi5jjaZg7Tqu0dCj27Ap/iC+sJh5zfZZE2YmI2VU9GXgROr4SgOTEyYxw1DQ0Zuqrrou6wOpkyeQn
-	ddeyJsghUuC1IzHzy9hbksBYDNLwi7Nn7FrTLw/pij0A/3p2HecWP++uHBEk0LKOvUsa+PyK3tYvx
-	nnQP9P1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wrGu5dBmfdMmzrfdvoTs2DIE+CWt05hHpp1+g0Qaf2o=; b=1fOGNobxMIlr8iuqN+Nz24auZA
+	sdYuUS7wfXD8QCjxaBmzVQQI2ikzr66xgLCa7I2RJsdwvXnfJ7lqeCQWuFGgZ269ChGEEkboaNzC1
+	Ts2YYcH40gD4g0lxXSfr4ywrBQJSsb8O610IpXt5ooTsR4jbcFix/8fJEkzbCjpP0KCvkME8t2Q4z
+	5975I8HO/K2pW6wISzpDC6TWqLxTJdeMVBYwrUXZYbCeC/WVBYsvcqUEiROcSGds3Cy7prqWTWhd2
+	njgfzYGKzFVVuPJRmzehB4AwK6hzBMWmfa2z6UDnp98jHZcD32CqrotAnGfpOG8Wquq7kheTWpQIW
+	1SxwOq0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uloGt-0000000Akep-1a0N;
-	Tue, 12 Aug 2025 12:38:31 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1uloGw-0000000Akia-1W7w;
+	Tue, 12 Aug 2025 12:38:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulkVv-0000000AGPN-2VD5
+	id 1ulkVy-0000000AGQQ-2bKY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 12 Aug 2025 08:37:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ksWXqspmTU+SZkUfnUjjZoH0YowFGCC9OvQc1CbQVpezrEaWsnTpoq9v/o6Iz1bvbLy2VbNUPXh7+R/IiTGf5EGRi+8a4dwyx5pmzNBQe5Sbd6Kjsz/8u5tv4bjHxKViF/4dz2oti3jIxnGoKPiTQPxHYEJEpnXUsTuDf/pMjGQ1OTsaEzvxlRU+fGltgc0mrDF+veSZeSwVnpnqMdckyyHy73VhstsENpkBl90RwSjMW1Hlgkx9vC75b3hMBjGYmNpwp84GlV77e0pC7ONOfjX+peVavdt+RZoKvUP9g9tr1lsMfHBUtNcrOGx2XQ0d8/7cA2uVIMvGhm+ITZg8Ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kTPQzHpzzXqeYJv52gnW0CdFxGV5MbpGt/Lg7EFYy18=;
- b=u1+RZl+rvYK1q+GV1wvxdnY3mV1/OXyXWrWvNkoqLeSZwHyvcWMX9o/RhIgs8BuLlwTyk5kQT/mrpMkKv9NE+OkkqLDQqhPaKCvW9iwfsoMuWQu8HwvNYR4tfEs6dNygChpyrjc8zxB/yHcG7HNtp8Lod1N4E08GQFBIue0yRy8z+QJ4D5tc02q3Ceq4yhaOMXa/K0LmLbv7WAK8odO+WOPTa3fHQ//lwRoCkSyfyHBmRhil6LqlmVeXflvulNDfIxzn1/gsFGWRwEwIvgzAAB143OZzBq7YgSOx8Ksb4Bv3u9VsoBKg0O1Znp2ZUhV50zw8chgt37arBgJXsKDgQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kTPQzHpzzXqeYJv52gnW0CdFxGV5MbpGt/Lg7EFYy18=;
- b=ERvdL6z8zhCdUrP/ayt2GHzCMzGdeuFdk08ONmphMuQyV1bLIFaAdNq71jD3Qbx7xBATQIauOFdcyLaOlEd0GQspdpkKmDymVu/VD/ZrQHQkFpkZtEzymgf7acjFwhh1Atn4yKJTNYkotDBxdKDt+2I2g/cSvdsXBFNPqDWV5Wg4k3XBC2eYp85N96YC4SYqvkcYe39yo/4ew2ihrmi4lV1jH1N8W4z4MmwMoafJ3+NE77SyrFlvszNsn4gcw964E737d690T6OXwJ/S7l2dkGLrTaEXKc7VrmpZ+U0m/H19/y61EdAN0fA06ne8Q/KPTcD+8sVThrnMbfRanlXROw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by VI1PR04MB10001.eurprd04.prod.outlook.com (2603:10a6:800:1d9::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9031.12; Tue, 12 Aug
- 2025 08:21:35 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::93bd:316b:682f:5e59%6]) with mapi id 15.20.9031.012; Tue, 12 Aug 2025
- 08:21:35 +0000
-From: guoniu.zhou@oss.nxp.com
-To: linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: rmfrfs@gmail.com,
-	laurent.pinchart@ideasonboard.com,
-	martink@posteo.de,
-	kernel@puri.sm,
-	mchehab@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	frank.li@nxp.com
-Subject: [PATCH 3/5] media: imx8mq-mipi-csi2: Use devm_clk_bulk_get_all() to fetch clocks
-Date: Tue, 12 Aug 2025 16:19:24 +0800
-Message-Id: <20250812081923.1019345-4-guoniu.zhou@oss.nxp.com>
+	Tue, 12 Aug 2025 08:37:51 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 57C5Y07E028829
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 08:37:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=wrGu5dBmfdM
+	mzrfdvoTs2DIE+CWt05hHpp1+g0Qaf2o=; b=gufhqA2ZBtkvBSF2b8ZHeibVtt5
+	H43hsVSJWZzwVH70ZTx66iee0kXSpyLFjt+WIp2nL/iJ10+tej5R08Dv4/VDezcV
+	kajiTaj4wwFt4VPqzZi7Lh5wwMxkEAF9r516yTN3ncFqMcTyKkNhez8wbYmg3NSU
+	ONPJprHDkB0q2vdSXmZ5QhokpifwubucDWxGjfMoqOIVrMZhX5Soc+NomHwPOww1
+	uMKm2Bk05Ar3iiqkoi1r6LXWS5PJN+6dACdhWbUCFcZA38v0KrAbkVhy6y6mWj0l
+	SuVOxLx9wkq/eJ8dmitZ8AsOqgluTivUGHqAcPJkB3g9RjL3Z6b5oYh3ahQ==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 48dw9sqkem-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 08:37:50 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-23ff7d61fb7so51103985ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 12 Aug 2025 01:37:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1754987869; x=1755592669;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wrGu5dBmfdMmzrfdvoTs2DIE+CWt05hHpp1+g0Qaf2o=;
+        b=Ip5uwDU8riaUOP4ObqcWDe+2gcIW1qBT0dhN8gVI5W49gEDKhRTv7AzUviwNWiuk5N
+         /TuQ5pSe50dwFwy9xwoHAoT1x/t9jkEAgmUwHgTqZvR0DkYoNr9eXfewVG2tFkBrEz3A
+         6booo4tO+0Ftrl1TXMenHJ7/VdK6WBr9NJjhe8OcGtWH6HGDK7tCj2YvOMMrU7Ndj0RH
+         giGcOug7Ry0fsjslZs+EUmoobzZG0KeDdsG/v6YQMaG9NNsu3ogg2Ee/oKMtOY6wB/sI
+         xijOy6PyridnyfhZdarkILlNLV+Ck0d9tM0m1J4AIsosT0m/bpKG8FDy4RCEnBHC4YXo
+         LBUw==
+X-Forwarded-Encrypted: i=1; AJvYcCU7S7dKHMYhIKPy6q7W5SZ9a0yrE0PTeCdszNgBYC7mwa2OrrdXSb3zOtLpF7Htx+Sue5PwaoLbgwrT7ar9pzMN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQFVM4P7D1OJrG/4GJU4/EaW3XmQess2oA6M7osT2+QaxRTUE+
+	/IkPPFciWUUZ2R+2qJeUkqncKxCyKgabcoiQ0X7GTlVQzUzykqGmKtMaWLP8V6tBn7WhLAlyzui
+	EQCbLpVw3751rJZb29ljMQWc+PS5f51+Wb2TFqrVgoCFVViY1xl7HqTD9zDjSHYwaoAgcmX9dSo
+	7YyA==
+X-Gm-Gg: ASbGncsxMMRgr4siCN2F7JhGZsVdBNK99y2zSP5/sR3q5pfoMKQplSJtO4DuXw2yh1E
+	d9+rBbSU+Dn2TmoymCEl9qH19jkdTR6PBYfGMYlOpcdRsPa2KoA0GmlRdYNORsUG+nj5RGQSy/b
+	rvjOzruZPrOHGupBI9RyGHlE8gQ9Z2rvXiZfLoYodBowfpYlzM88kZibQy6Q9B1XukFg6P4gurY
+	t+cQdjED3IuXZcOpPv/4D5BcQc4Y/V+sqHCsJOvvGse3J4bPwqR/p+argP6dQ33DjdoSqxRuv/4
+	LE0roBUQ04UNJF8UWCyNtfkYIFiMs2cFy+PWW6/aXFLSVFt3oDnHRi6BVM7I1axWKscgp3H0ZS4
+	AuZD4Cm6QEFgI1+1t6aE=
+X-Received: by 2002:a17:903:32d0:b0:240:6fc0:3421 with SMTP id d9443c01a7336-242fc2df919mr32672025ad.3.1754987869227;
+        Tue, 12 Aug 2025 01:37:49 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE1epWZtnF2IBB4X6gRIcAxheEo7d+5Pdk6LBydS5mLgAm0zXrYNJ+qesoW7cmIPGP6RrbrFw==
+X-Received: by 2002:a17:903:32d0:b0:240:6fc0:3421 with SMTP id d9443c01a7336-242fc2df919mr32671605ad.3.1754987868720;
+        Tue, 12 Aug 2025 01:37:48 -0700 (PDT)
+Received: from jiegan.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-243086849b3sm1915345ad.175.2025.08.12.01.37.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 12 Aug 2025 01:37:48 -0700 (PDT)
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>,
+        Jie Gan <quic_jiegan@quicinc.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org
+Subject: [PATCH v5 2/9] coresight: core: add a new API to retrieve the helper device
+Date: Tue, 12 Aug 2025 16:37:24 +0800
+Message-Id: <20250812083731.549-3-jie.gan@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250812081923.1019345-1-guoniu.zhou@oss.nxp.com>
-References: <20250812081923.1019345-1-guoniu.zhou@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2P153CA0014.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::6)
- To AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+In-Reply-To: <20250812083731.549-1-jie.gan@oss.qualcomm.com>
+References: <20250812083731.549-1-jie.gan@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|VI1PR04MB10001:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe3aaf35-b747-4272-e246-08ddd979406b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dnhLNVpTRnpoM2NJT2t5ZzMyYm1xUnQ0ZDlpR3gyckRQL2tzRlRxRmE1RkhX?=
- =?utf-8?B?UFhCZ2d6amNQcTViMFpFamtpYlFZNlZtWG5rK082Y0t3UGpsWXhHZHFwWkZa?=
- =?utf-8?B?QXBhQkxlMVV4TmR3SGFYVnUvT3ZMSXJxNWVERG5LR1Z1d1RqejVnTU1MaXpn?=
- =?utf-8?B?ZjgvZmVSbFpQUGZxM3FBdDM3UExXQTJYYThpakc4R0gySE1zQm1IV05TUHVX?=
- =?utf-8?B?N2plUlRLMzY1U3JXQnEvWU0zVnRnM05NbFk4MnUxRzNsZ0JSeEFsTWYrRjBw?=
- =?utf-8?B?TkhhOFZORVlGMTNvME9zWHlxME5vMDh2YkxBcjVuMDQzcVEwNWlPaE5oVnF5?=
- =?utf-8?B?QU9temRJcEpmbFp6UWNMT1BjVHpDUDNkN3VwdHFrVEwzR1FIK3VUa2t2OXdB?=
- =?utf-8?B?OVpjN1piZ2Y2SFFLU3VacmFjV0ZOT1U4RS9PSFhMVDlBWThlYnZCRHZlMkh6?=
- =?utf-8?B?OU5RMEhjd21yMW11aFZPb1pXZ2Njc2dlUEcvcGRETGpOR1N5Qkx0enpSc0lL?=
- =?utf-8?B?Z1dtcGNUcHh6MlVWSVA1bFdJd0I1MWtaUW9sUmlFNjlDeVlUSXNLOURYZTZo?=
- =?utf-8?B?VlpFY0JTL2djS0x4clB1bFMweHdjeUlhRDBESFdUbWdMUWtBdkM4ZDViWDZL?=
- =?utf-8?B?ZVQ1bkhySzVQdlVTNjI0eDdiQWxQaldGQ1JQUnIzK24vSjQvV1RBMFY2NUNI?=
- =?utf-8?B?UER0a2dPelZHVi9uakZHT3ZabS9SQ3NaU1k4YUtmSUJUdll5SUgwZ0ZFWlVh?=
- =?utf-8?B?eitDRHh3YmNrOWZRTDBLU3o4SFBlMmdnSkgreEVIRUg1T0xIM2JhODlta1Q1?=
- =?utf-8?B?MlNnOE0yUE85VVBZUEJVbkd3dVVlYXdxUTgrbUNFV01na21HdUdlUlF5dlUx?=
- =?utf-8?B?NnRrQnpUc3I1bW5hYUxHQ0ZjUEMvZG9iNmI1eTk0aWdvazFKTFJLODdtOC9D?=
- =?utf-8?B?OXZxRXl4T1FYRHlWTVJrMTZSVytlODlEeVdLUlJ5aENtampHSGlZTEZRNWh6?=
- =?utf-8?B?a1pNQXJEUFNabE9ibm9DVzFZYkZ0OC9ZQTBHSFZNWDJQMStFV3RsYSt3Zk9x?=
- =?utf-8?B?a2tCd0ljaHREZ0tJLzl0bm5jZE0veEdkUkZlMmZldHRtZXF5bU4zWjA5Nlhi?=
- =?utf-8?B?N0R5bVRDWHd3WlFSZ2ZFbW9MazIvVUxqazBVRDZRNHFwOUM0UExMVUtLUlN1?=
- =?utf-8?B?NzE3VDluY1htWmZ5L1k5SklicjFpWlVxMzYvNVF2Z3pVS2V2ZUIvQVNVYVh6?=
- =?utf-8?B?bTFKNlhaMVUwUnc3L0lndzFNeWZYbGk1Y3BtMStFdUtPdkViRDRMNi9VMDN6?=
- =?utf-8?B?VjN2Z2lNRDg3YVdueW5nZFk4SS9yU0dzclZXcVpVbHo0ZEpnQTVyTDRKZGNq?=
- =?utf-8?B?VHltUzBxRHUyemJDS1ZMRXRrdWxvTXBCREppcllHUCtjVlRmcm1TWkcxaUp4?=
- =?utf-8?B?SklML3hRWkN1RGRCejN3eDJ3eDlWemduVWxiNXNpano4c29nV0hLQmVIczJY?=
- =?utf-8?B?eUVWelBrWU5tc2wwMDIyUGRDZlhUNkQzdXVQekFlNGVNUTJTcDN3NTBaUUEy?=
- =?utf-8?B?VnI4SXJoZ2k3Y0hyRG9uSjJLemNoRVlCaW1Kelloci9BNE5TRkY1OWdEcTY3?=
- =?utf-8?B?RHM0QXl0UjBsc2FKT2J4T1RYWlRsbmprUk9nMklhOGM0aExjUERKQjQ3Vkdi?=
- =?utf-8?B?eGROaVRRQ1FGaE1XT3l3UFdUTWF5Qnl3cm5yVWpZUHlYRWMzRm9raG9JK0FZ?=
- =?utf-8?B?TDJvbjc0NGlCdkh0QTlRSnhNKytlbk81WWZ5Z1V6cmd6c1lnVU80YWROeXpx?=
- =?utf-8?B?WXJ4VVpwTWpZSkdIZGNVV2ZJOFJQUGlFSjl5SjlyTXpVKzF4NjVoWTVKdEVj?=
- =?utf-8?B?QWtRbnJ2U2JKTUhsWDNndmNnaG9oczljc1Uvd0hSWTFQaW9qaDNpNVg1NFgv?=
- =?utf-8?B?Y2Q3aEd1VHp5eDM2VUJvbFVNeG9wY25DWWlqNkxFeFFocjFjUE5jT3daSDND?=
- =?utf-8?B?NGEzNlN6RkpRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?a1c2OGs0SkNBSFhFM1ZDQmpPS3lnNVlnSzZ1TTgrdGFvVktBWE4yMFQyN0ph?=
- =?utf-8?B?bXVhSUVDSi9mbHBHMkJaY0djQjE4dXl1bEVycEszeVVvUjYyNXRKcjQ5V3Z4?=
- =?utf-8?B?bnpzVUJaQW1OTnpQV0ZzNWh1amlVSlQzUGExTWVQV0sydGdvdzQ4S29Vd3c5?=
- =?utf-8?B?WUhTSTBnNkV4U08vWHZIMFpDZTBoM29SVm9SUHRadU8wMjVoNDg5WUdKL0RM?=
- =?utf-8?B?WkR6RjNTNWgzbjhKN0ZvSE44MzFMRlpiZEJ6SWVkaENFbVVkT0MxdkNINDZL?=
- =?utf-8?B?WnpyL2FROXUxcmVVU01yYjh0YlpIblo3Z00yZlNtTE13RVl2R0pKSVExbXU1?=
- =?utf-8?B?MDZUR1BVRmhldkhxZlFsWkYyRHArcUphaFJGMmtmNDAxaThzWklLMkttUG9m?=
- =?utf-8?B?NlJscjlBUER4NFp5VjRmcEk0OEE3eW5YaWh1dWtqNHU3MlQzMmpaZHpjS2U5?=
- =?utf-8?B?alNPYzE2KzJGSldtQW5vVjUzV3MwYUhSQ0VCVHh3R3JBOUlqQm5wVTRvd25F?=
- =?utf-8?B?K2NvbkppSWh1eWtaVVptSHJ2Nk5ObW0vYzNyYmxvWFdHNnpyU05vWDJMQW8w?=
- =?utf-8?B?a3hwMTBoU0NaRm9XQ0NvemlkK21SdUZJTHBjZnJNVnhWV2RaNHhJc0VDQmJm?=
- =?utf-8?B?ekpCekFEZHh5cUJqdHAva0NRT2dHekJBcU04VDlFL2F0cW9leldLVjlOK3hP?=
- =?utf-8?B?VXYxNUluNUxRZ1NBQk9ibjk2NjVCY3U0VjVkd1pkQ1dwQ1NnN1BMS2Z6UVJ2?=
- =?utf-8?B?R1VsSEtHcHpVQ1h2SzVCOWxMcWl1alQ2Si83ZzZ5TXlLMGFCK0p0ZGw1TWxP?=
- =?utf-8?B?OFdoRy9LVWNZTGJBU1V5a0ZpZmhDeHFkSWJuRmtmVFpFeGJuanArenViV3V3?=
- =?utf-8?B?aEpTeXhpT0JCYXA1bTRXekRKaFFtZndpa2ZyMWJqZmg5QnkrZTFVbUo5MDgv?=
- =?utf-8?B?anBNRzhHSUIzcmJxYnc2aTBucTh6ZGZ4bDl0cnRzbzBsVmhqTHpEdU41R0tM?=
- =?utf-8?B?MTNOMHFHT29RNnJLdzhCMWs0SGFWcmxneXd3RGJRNjRndjlaQzBETWw2MHNi?=
- =?utf-8?B?VS95eGJGenZtekNreE13MFVmaTlvNjJzOFc5TmVHYnhZKzFKTnBISmloM2Vx?=
- =?utf-8?B?K0F6R2s4c1R0WG1JYWlTQ2kvZWZEYnd4ZHlZMVdDRnJqYkp5QVl5d2pLajIv?=
- =?utf-8?B?WUlVRklsWHI1OXFvb1B6U1grU2RWVi8xaktZQjNOMWZiR1hyWWMvUmd6clhD?=
- =?utf-8?B?YzY5cHlKUVlKby9qbnd3OUxZODExb0o3d0FPMmsvbnlSS1NkR1VDQ21yMndG?=
- =?utf-8?B?aStwWUx1ZnRjWW9UZTI5cm1jRnQwVTRoa3UrUnlEdnQvUXV4V1Y0andmVEhw?=
- =?utf-8?B?L3NEdzBsWG0xTnQ3TW1GVEJ5dE9Hak9kWUtjcmxVbUxMVnROb2prY1VxWmlz?=
- =?utf-8?B?YUUwanlFazl4L1hlUVFwcG5Qcy9kWFpWZi9MUkdpQXdVdG85ckNTRWZJb0F3?=
- =?utf-8?B?VHVkSFhxaWhkS2Z1MjFzbTFGb3NLT0dYSEdSdDNuK1dCM2FIREpFOUVVTmNt?=
- =?utf-8?B?RmpCSzRpUXVkaEh3Z3VZckFQTUErS0pCSk1mYkV3YW0vTjkrZWhaN2xFMmV2?=
- =?utf-8?B?Wms4ejJyazU3NElYRTBBSVVaVUJwUE1MQ0x2S3VLNTdpZlZpckZqWGtDTmlh?=
- =?utf-8?B?bGVZbmM0TXZQcDc5YTZod1FaalAzUGFnVWV0WEVDWFBWVkpZci9SOHkzNW0z?=
- =?utf-8?B?cnNJQWd6RkhmbGYyQUZZcm1tbllkNjhGUzk1Wit1dmN3UzFCNzFmRmdEUkgx?=
- =?utf-8?B?S0p4bXBCRDNvOXZtT2k5MWt2Lzg2SFIrNVR6R2VlbEhmOXJ5bWNEaWJ5eFUx?=
- =?utf-8?B?TlJYUzQvR3lnVjY4VjVldERXd2JXUjgrYU1MZ0VETjRlLzRSUUZsVEtmUEhj?=
- =?utf-8?B?WUVNMG5Ba25ES1ZXMEkweC8yM2dBWnh2cW1qbUhJdWsvV3RydUcwbG1BN0Ja?=
- =?utf-8?B?UE54WkJSSkRZRlF0RFFqNkZWZFdiNm96K2FMb3RpeVF5bU8vQ1RVMk40em1Y?=
- =?utf-8?B?TlF3akZ6VEx3MHRXeVp4SzdKUTdGR1hsUkNxc2J5Rjl5UEluVEtoa1JXWllY?=
- =?utf-8?Q?a5Qr41pEB2+xxILD7fow9/iMv?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe3aaf35-b747-4272-e246-08ddd979406b
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2025 08:21:35.4822
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ATOWQIY00mj2TPrxHGlj/LlvtWW6OBwdIzGYiBwnB5mC32C7DvmJfE5/JFkwsBfO/7I/8p0254XfIaoTczlZdw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB10001
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=J+Wq7BnS c=1 sm=1 tr=0 ts=689afd5e cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=2OwXVqhp2XgA:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=ViBFXQGRTvhYuEXyb1sA:9
+ a=1OuFwYUASf3TG4hYMiVC:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: VYMr-fXwfRZhWNM3o838NtHncSfbE8xo
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwODA5MDAxNSBTYWx0ZWRfXwZWpmaIeWB4B
+ KzmlqkVyYTvXoHgc+kX0GnNCZKXqYtc0n60VVUMxoX6kw1Y6wZs476bo6sPtjVtS3Idy7lY3Ze6
+ GmRabqq56xlkJG7X2KcXwAnO6i+b5qtzvo0tb5Upjyd86JFdONiZalnkb3YyqXCITJ8Uxa9VLzt
+ Oevj2h8KwUve6pYmEwhjSfp6r5GEJyQypfv838Zl0YPYFju8XswEXrT4s8r9kw9DFkosfWLBP48
+ kpGeGl3ZIq8omSRnjjPfqCuxVyJEvKu8Ct2k+5tUdfdvU2UEPQLmpjJHSD166tbwhGrmkue618h
+ G5KsjLzxG/DTcUWLStFC9MYOQSu21Zv2kP5xBHZPLrUSJseLJq22EVBqhmAif4AxoGyXe4Z5OtF
+ 3wH0Ir3V
+X-Proofpoint-GUID: VYMr-fXwfRZhWNM3o838NtHncSfbE8xo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-08-12_04,2025-08-11_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 adultscore=0 malwarescore=0 impostorscore=0 bulkscore=0
+ phishscore=0 suspectscore=0 spamscore=0 clxscore=1015 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2507300000 definitions=main-2508090015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250812_013747_640681_AF78AC11 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20250812_013750_663383_9BF8A020 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,125 +139,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Guoniu Zhou <guoniu.zhou@nxp.com>
+Retrieving the helper device of the specific coresight device based on
+its helper_subtype because a single coresight device may has multiple types
+of the helper devices.
 
-Use devm_clk_bulk_get_all() helper to simplify clock handle code.
-
-No functional changes intended.
-
-Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 ---
- drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 52 ++++++-------------
- 1 file changed, 15 insertions(+), 37 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c | 35 ++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-priv.h |  2 ++
+ 2 files changed, 37 insertions(+)
 
-diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-index ed6578f7f0f9..be07ff27071f 100644
---- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-+++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-@@ -72,21 +72,6 @@ enum {
- 	ST_SUSPENDED	= 4,
- };
- 
--enum imx8mq_mipi_csi_clk {
--	CSI2_CLK_CORE,
--	CSI2_CLK_ESC,
--	CSI2_CLK_UI,
--	CSI2_NUM_CLKS,
--};
--
--static const char * const imx8mq_mipi_csi_clk_id[CSI2_NUM_CLKS] = {
--	[CSI2_CLK_CORE] = "core",
--	[CSI2_CLK_ESC] = "esc",
--	[CSI2_CLK_UI] = "ui",
--};
--
--#define CSI2_NUM_CLKS	ARRAY_SIZE(imx8mq_mipi_csi_clk_id)
--
- struct imx8mq_plat_data {
- 	int (*enable)(struct csi_state *state, u32 hs_settle);
- 	void (*disable)(struct csi_state *state);
-@@ -112,7 +97,8 @@ struct csi_state {
- 	struct device *dev;
- 	const struct imx8mq_plat_data *pdata;
- 	void __iomem *regs;
--	struct clk_bulk_data clks[CSI2_NUM_CLKS];
-+	struct clk_bulk_data *clks;
-+	int num_clks;
- 	struct reset_control *rst;
- 	struct regulator *mipi_phy_regulator;
- 
-@@ -417,24 +403,16 @@ static void imx8mq_mipi_csi_set_params(struct csi_state *state)
- 			      CSI2RX_SEND_LEVEL);
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 042c4fa39e55..018b1119c48a 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -580,6 +580,41 @@ struct coresight_device *coresight_get_sink(struct coresight_path *path)
  }
+ EXPORT_SYMBOL_GPL(coresight_get_sink);
  
--static int imx8mq_mipi_csi_clk_enable(struct csi_state *state)
--{
--	return clk_bulk_prepare_enable(CSI2_NUM_CLKS, state->clks);
--}
--
--static void imx8mq_mipi_csi_clk_disable(struct csi_state *state)
-+static struct clk *find_esc_clk(struct csi_state *state)
- {
--	clk_bulk_disable_unprepare(CSI2_NUM_CLKS, state->clks);
--}
--
--static int imx8mq_mipi_csi_clk_get(struct csi_state *state)
--{
--	unsigned int i;
++/**
++ * coresight_get_helper: find the helper device of the assigned csdev.
++ *
++ * @csdev: The csdev the helper device is conntected to.
++ * @type:  helper_subtype of the expected helper device.
++ *
++ * Retrieve the helper device for the specific csdev based on its
++ * helper_subtype.
++ *
++ * Return: the helper's csdev upon success or NULL for fail.
++ */
++struct coresight_device *coresight_get_helper(struct coresight_device *csdev,
++					      int type)
++{
 +	int i;
- 
--	for (i = 0; i < CSI2_NUM_CLKS; i++)
--		state->clks[i].id = imx8mq_mipi_csi_clk_id[i];
-+	for (i = 0; i < state->num_clks; i++) {
-+		if (!strcmp(state->clks[i].id, "esc"))
-+			return state->clks[i].clk;
++	struct coresight_device *helper;
++
++	/* protect the connections */
++	mutex_lock(&coresight_mutex);
++	for (i = 0; i < csdev->pdata->nr_outconns; ++i) {
++		helper = csdev->pdata->out_conns[i]->dest_dev;
++		if (!helper || !coresight_is_helper(helper))
++			continue;
++
++		if (helper->subtype.helper_subtype == type) {
++			mutex_unlock(&coresight_mutex);
++			return helper;
++		}
 +	}
- 
--	return devm_clk_bulk_get(state->dev, CSI2_NUM_CLKS, state->clks);
++	mutex_unlock(&coresight_mutex);
++
 +	return NULL;
- }
++}
++EXPORT_SYMBOL_GPL(coresight_get_helper);
++
+ /**
+  * coresight_get_in_port_dest: get the in-port number of the dest device
+  * that is connected to the src device.
+diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+index e51b22b8ebde..f80122827934 100644
+--- a/drivers/hwtracing/coresight/coresight-priv.h
++++ b/drivers/hwtracing/coresight/coresight-priv.h
+@@ -158,6 +158,8 @@ void coresight_path_assign_trace_id(struct coresight_path *path,
+ 				   enum cs_mode mode);
+ int coresight_get_in_port_dest(struct coresight_device *src,
+ 			       struct coresight_device *dest);
++struct coresight_device *coresight_get_helper(struct coresight_device *csdev,
++					      int type);
  
- static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
-@@ -489,7 +467,7 @@ static int imx8mq_mipi_csi_calc_hs_settle(struct csi_state *state,
- 	 * documentation recommends picking a value away from the boundaries.
- 	 * Let's pick the average.
- 	 */
--	esc_clk_rate = clk_get_rate(state->clks[CSI2_CLK_ESC].clk);
-+	esc_clk_rate = clk_get_rate(find_esc_clk(state));
- 	if (!esc_clk_rate) {
- 		dev_err(state->dev, "Could not get esc clock rate.\n");
- 		return -EINVAL;
-@@ -848,7 +826,7 @@ static void imx8mq_mipi_csi_pm_suspend(struct device *dev)
- 
- 	if (state->state & ST_POWERED) {
- 		imx8mq_mipi_csi_stop_stream(state);
--		imx8mq_mipi_csi_clk_disable(state);
-+		clk_bulk_disable_unprepare(state->num_clks, state->clks);
- 		state->state &= ~ST_POWERED;
- 	}
- 
-@@ -866,7 +844,7 @@ static int imx8mq_mipi_csi_pm_resume(struct device *dev)
- 
- 	if (!(state->state & ST_POWERED)) {
- 		state->state |= ST_POWERED;
--		ret = imx8mq_mipi_csi_clk_enable(state);
-+		ret = clk_bulk_prepare_enable(state->num_clks, state->clks);
- 	}
- 	if (state->state & ST_STREAMING) {
- 		sd_state = v4l2_subdev_lock_and_get_active_state(sd);
-@@ -1092,9 +1070,9 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
- 	if (IS_ERR(state->regs))
- 		return PTR_ERR(state->regs);
- 
--	ret = imx8mq_mipi_csi_clk_get(state);
--	if (ret < 0)
--		return ret;
-+	state->num_clks = devm_clk_bulk_get_all(dev, &state->clks);
-+	if (state->num_clks < 0)
-+		return dev_err_probe(dev, state->num_clks, "Failed to get clocks\n");
- 
- 	platform_set_drvdata(pdev, &state->sd);
- 
+ #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
+ int etm_readl_cp14(u32 off, unsigned int *val);
 -- 
 2.34.1
 
