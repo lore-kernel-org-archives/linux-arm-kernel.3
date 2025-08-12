@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB74AC87FCB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC959C87FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 12 Aug 2025 06:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3T6ejmJAP1NJqjab0oWZGQQcgrALvOmLj4yc6oJbRWQ=; b=BObbLN0D+pHWmMm/rRQWAbnYuG
-	CbdfIwZccWaqjI/MAUA2moGOGyB2xKOyle5oaxQiTmjmvAvHn0480ko35u2XMMjSV0wlNqXUoBPrq
-	EkpARh+1PhUj7jBiR1rKUFnvlaicyFMljYuK2g4tAjXkWyVEiYpXxGvClS3bZ16pfru+0ioFlctUv
-	IS/Gm0RIOwIfX+qoPveec4J129iZgqZdXGO71zBhSBrGRQbsYWQK7s3M7rQMY6qUo3OgjP7NiOxok
-	eRrxzOoD4+i9D+VMbBZeKc/joNrQEQyT7ynkVuCW/N7sNf4V1p7zP9vsFj9BN2MhR+trEvSm8JRds
-	YSQTrtgQ==;
+	bh=n3rI2bsP7XchvYTNXStgTcfig5JYAnA5Tib9gCqBkes=; b=nhsK0/9RBcJF1HK4UlNlwKKpVY
+	BI3UhGvXEganBMosY6Ak5MM2sfAPwfszzQxbN8FbZHOaIeMfa2qgu5PzqmkFvfsRFBs8xojOxi5PP
+	J/JZ1ukyPm3LkTUigvPbcpdPId9t/tf3xbC2TA98iIf6S4ZGbRtqx2xsBrgZYouwG4fBDqitFF5oz
+	7FJleunG8jcQzSMlXGYlsKEGhUkLO0KoyoGTcKiVaquWPv1e4Wlh7hiXIDNyLP9zvYVSDblUd5TCb
+	V6Jp/qpACDQJCV0FwmTqTx70Xd8C3PR2EJXYZrlU++jzepEplUbBBOp1d0zG3K6pWBSGr62HMPanT
+	vvjrys4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulimM-0000000A3em-3qfy;
-	Tue, 12 Aug 2025 06:46:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ulipk-0000000A4DM-2h6P;
+	Tue, 12 Aug 2025 06:50:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1ulijf-0000000A34Y-0vYH;
-	Tue, 12 Aug 2025 06:43:51 +0000
+	id 1ulin7-0000000A3yy-156r
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 12 Aug 2025 06:47:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=n3rI2bsP7XchvYTNXStgTcfig5JYAnA5Tib9gCqBkes=; b=iUm6yRgKnGpVBfvhbKTRLrAIII
+	xQNjJUieYs2RE+FkVt/dkJJOb+lYFo4uyhOQfeB99hbtZ+3aE/rI7lx5FnlKgGm9JvvsDCey4ifDH
+	o4zVACM/GsjR705t7cq4C25shdKwnT8dWS00OAY90yi0DtyndnJbQuf8TsPuscRwQQpeo6TrAFYsg
+	hnFa6JwraUl4e2THGhRFvJirSMCYFDtZjZM2D+o1eW/+cP249/Uo3wXhOnnw5hf3GY7+LdSVIQU+9
+	T7xYw9N8Aj9Vo+Fa3Nt3VgV7J+vISWhlpeuIhV13Lfj5dWkI/scQuXAE3Vd/LYST0M4WPQ1pFBg26
+	pEhU3V9g==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1ulin3-0000000FiTk-1B3g
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 12 Aug 2025 06:47:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6054160203;
-	Tue, 12 Aug 2025 06:43:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27E4AC4CEF0;
-	Tue, 12 Aug 2025 06:43:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3FC9D440F8;
+	Tue, 12 Aug 2025 06:47:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAA68C4CEF0;
+	Tue, 12 Aug 2025 06:47:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1754981030;
-	bh=zlYzkb/SmH9Pk9yM1sbdACMWIhS2Nn4oAnRI4PYr55o=;
+	s=k20201202; t=1754981237;
+	bh=/HZqQfR9eGDYw52QNI2P2rJt4fBRwuB/h0GTLpd4Xek=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gt9H/8j53mklQi6Pcs7jwIZCJb/5anOjXpGqUFxbiJY8BQvFK3Dg4zwNg9uWRtqGr
-	 e39P/sb0M+46fdSHQ8VA6J4qIzV2QJWiAA1aVMUSWIkOz20zC1HjvFozuVlvWDQNKT
-	 1yJ8n3gcjNqxC7wGMoF+aAKdAMNprk/si94lfuyH455Mb1X+j+pj9ujow3eN4NmLWF
-	 q5Ne3wVAC6OIk1gIleMudsJjP3GvrQ21ZxpkZ3d6qDUbn147mMxdOJdMaHtfRMzM+E
-	 mCk73ccZorNuGbd9/5mDvcjZznrX/wSgbDWavtM+za9gFMtOMPmM1ZtNfly5mX0Ymf
-	 VlPwB8h9WsZNg==
-Message-ID: <b22f9381-1835-463a-8daa-97835b159f78@kernel.org>
-Date: Tue, 12 Aug 2025 08:43:43 +0200
+	b=IXTxxK6UaeBi3I4CEDYFNOhvzeZDrcnMZRNlK4ga9/i8THpqqn3sj5jecXiGOKOsM
+	 u8YT828jgG+PTBp86bsbR36fuRfDDiuMvnDtZIC5xQTUvezx6bH3GoaoZtuUcSeEQm
+	 R0eA5lNuvMdKRKe7JCF3ZWqnAh7cGS3pTLLepqk3LC+dGmxPoSfCVQObpcSdxWPQFT
+	 +tTuzrIXVjgtp7YEnnUN2P7nRc0q8v4uuzbroJvbX0CxIaBnQ3QNdnMzOdRbCRqNm+
+	 2IC70RGDkRsFkeVLkfSQnOo7fz31ag4mJI10DKwoYWZXXvbr5ReQfinot5xj9SdKSU
+	 CsAnAYBpK1y9Q==
+Message-ID: <e695c61a-e183-4eea-a7f6-1b2861b2129f@kernel.org>
+Date: Tue, 12 Aug 2025 08:47:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/12] arm64: dts: fsd: Add PCIe support for Tesla FSD
- SoC
-To: Shradha Todi <shradha.t@samsung.com>, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org
-Cc: mani@kernel.org, lpieralisi@kernel.org, kwilczynski@kernel.org,
- robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
- krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
- vkoul@kernel.org, kishon@kernel.org, arnd@arndb.de,
- m.szyprowski@samsung.com, jh80.chung@samsung.com, pankaj.dubey@samsung.com
-References: <20250811154638.95732-1-shradha.t@samsung.com>
- <CGME20250811154746epcas5p261ba0c811f9dd8748f8f241b76be6525@epcas5p2.samsung.com>
- <20250811154638.95732-13-shradha.t@samsung.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: media: Add Sony IMX585 CMOS image
+ sensor
+To: Will Whang <will@willwhang.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250810220921.14307-1-will@willwhang.com>
+ <20250810220921.14307-2-will@willwhang.com>
+ <20250811-successful-military-dragon-d72486@kuoka>
+ <CAFoNnrxWwqT9WA-h2WOsUe6Q-qEoz2mTHLpDogAyMwiXXZ9MrA@mail.gmail.com>
+ <f12e6ff3-6ec3-487f-bf9c-0f8c06ee6444@kernel.org>
+ <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,9 +124,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250811154638.95732-13-shradha.t@samsung.com>
+In-Reply-To: <CAFoNnrxhUof8BBrefm1L1peTxg==Koz72TY+54G_8QUy-rrT8g@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250812_074721_653323_59D85ADA 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,63 +144,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2025 17:46, Shradha Todi wrote:
-> Add the support for PCIe controller driver and phy driver for Tesla FSD.
-> It includes support for both RC and EP.
+On 12/08/2025 08:31, Will Whang wrote:
+> Hi Krzysztof,
 > 
-> Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
-> Signed-off-by: Shradha Todi <shradha.t@samsung.com>
-> ---
->  arch/arm64/boot/dts/tesla/fsd-evb.dts      |  34 +++++
->  arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi |  65 +++++++++
->  arch/arm64/boot/dts/tesla/fsd.dtsi         | 147 +++++++++++++++++++++
->  3 files changed, 246 insertions(+)
+> Reply inline,
+> Thanks,
+> Will Whang
 > 
-> diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> index 9ff22e1c8723..1b63c5d72d19 100644
-> --- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> +++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-> @@ -130,3 +130,37 @@ &serial_0 {
->  &ufs {
->  	status = "okay";
->  };
-> +
-> +&pcierc2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie1_clkreq>, <&pcie1_wake>, <&pcie1_preset>,
-> +			<&pcie0_slot1>;
-> +};
-> +
-> +&pcieep2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie1_clkreq>, <&pcie1_wake>, <&pcie1_preset>,
-> +			<&pcie0_slot1>;
-> +};
-> +
-> +&pcierc0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
-> +			 <&pcie0_slot0>;
-> +};
-> +
-> +&pcieep0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake0>, <&pcie0_preset0>,
-> +			 <&pcie0_slot0>;
-> +};
-> +
-> +&pcierc1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
-> +};
-> +
-> +&pcieep1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pcie0_clkreq>, <&pcie0_wake1>, <&pcie0_preset0>;
-
-
-All these are pointless, because the node is disabled. The board level
-should be complete, so also supplies and enabling the device.
+> On Mon, Aug 11, 2025 at 11:23 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 12/08/2025 04:47, Will Whang wrote:
+>>> Hi Krzysztof,
+>>> Reply inline.
+>>> Thanks,
+>>> Will Whang
+>>>
+>>> On Mon, Aug 11, 2025 at 1:01 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>
+>>>> On Sun, Aug 10, 2025 at 11:09:18PM +0100, Will Whang wrote:
+>>>>> +description:
+>>>>> +  IMX585 sensor is a Sony CMOS sensor with 4K and FHD outputs.
+>>>>> +
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    enum:
+>>>>> +      - sony,imx585
+>>>>> +      - sony,imx585-mono
+>>>>
+>>>> I don't understand this second compatible. Is this different hardware?
+>>>> Can you point me to "mono" datasheet?
+>>>>
+>>>> Your description should explain this. Commit msg as well, instead of
+>>>> speaking about driver (in fact drop all driver related comments).
+>>>>
+>>> Mono version of this sensor is basically just removing the bayer
+>>> filter, so the sensor itself actually doesn't know if it is color or
+>>> mono and from my knowledge there are no registers programmed in the
+>>> factory that will show the variant and model number. (That is why when
+>>> the driver probing it only test blacklevel register because there are
+>>> no ID registers)
+>>> Originally in V1 patch I've made the switch between color and mono in
+>>> dtoverlay config but reviewer comments is to move it to compatible
+>>> string and not property.(https://lore.kernel.org/linux-media/20250703175121.GA17709@pendragon.ideasonboard.com/)
+>>
+>> You only partially answer and judging by mentioning driver below:
+>>
+>>
+>>>
+>>> In this case, what would you recommend?
+>>>
+>>> compatible:
+>>>   enum:
+>>>     - sony,imx585
+>>>     - sony,imx585-mono
+>>>   description: IMX585 has two variants, color and mono which the
+>>> driver supports both.
+>>
+>> ... I still have doubts that you really understand what I am asking. Is
+>> this one device or two different devices?
+> One device that has two variants: IMX585-AAMJ1 (Mono) and IMX585-AAQJ1
+> (Color). Silicon-wise the difference is just with or without bayer
+> filter.
+Then I would propose to use sony,imx585-aamj1 and -aaqj1 with short
+explanation either in comment or description about difference in RGB
+mosaic filter.
 
 Best regards,
 Krzysztof
